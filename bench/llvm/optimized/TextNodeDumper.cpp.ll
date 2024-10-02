@@ -201,8 +201,6 @@ $_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrENS_14TextNodeDumperEvJEE5Visi
 
 $_ZN5clang11TypeVisitorINS_14TextNodeDumperEvE5VisitEPKNS_4TypeE = comdat any
 
-$_ZN5clang14TypeLocVisitorINS_14TextNodeDumperEvE5VisitENS_7TypeLocE = comdat any
-
 $_ZN5clang11declvisitor4BaseIN4llvm14make_const_ptrENS_14TextNodeDumperEvE5VisitEPKNS_4DeclE = comdat any
 
 $_ZN5clanglsERN4llvm11raw_ostreamENS_24OpenACCDefaultClauseKindE = comdat any
@@ -7810,11 +7808,11 @@ define dso_local void @_ZN5clang14TextNodeDumper5VisitENS_7TypeLocE(ptr noundef 
   %14 = getelementptr inbounds i8, ptr %13, i64 24
   %15 = load ptr, ptr %14, align 8
   %16 = tail call noundef nonnull align 8 dereferenceable(48) ptr %15(ptr noundef nonnull align 8 dereferenceable(48) %7, i32 noundef 4, i1 noundef zeroext false, i1 noundef zeroext false) #18
-  %.pre21 = load ptr, ptr %6, align 8
+  %.pre22 = load ptr, ptr %6, align 8
   br label %_ZN5clang10ColorScopeC2ERN4llvm11raw_ostreamEbNS_13TerminalColorE.exit
 
 _ZN5clang10ColorScopeC2ERN4llvm11raw_ostreamEbNS_13TerminalColorE.exit: ; preds = %11, %12
-  %17 = phi ptr [ %7, %11 ], [ %.pre21, %12 ]
+  %17 = phi ptr [ %7, %11 ], [ %.pre22, %12 ]
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 24
   %19 = load ptr, ptr %18, align 8
   %20 = getelementptr inbounds nuw i8, ptr %17, i64 32
@@ -7968,330 +7966,30 @@ _ZN4llvm11raw_ostreamlsEc.exit:                   ; preds = %92, %94
   %97 = ptrtoint ptr %96 to i64
   call void @_ZN5clang14TextNodeDumper12dumpBareTypeENS_8QualTypeEb(ptr noundef nonnull align 8 dereferenceable(1168) %0, i64 %97, i1 noundef zeroext false)
   %.sroa.0.0.copyload = load ptr, ptr %4, align 8
-  %.sroa.2.0.copyload = load ptr, ptr %5, align 8
-  call void @_ZN5clang14TypeLocVisitorINS_14TextNodeDumperEvE5VisitENS_7TypeLocE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr %.sroa.0.0.copyload, ptr %.sroa.2.0.copyload)
+  %98 = ptrtoint ptr %.sroa.0.0.copyload to i64
+  %99 = and i64 %98, 15
+  %.not.i.i16 = icmp eq i64 %99, 0
+  br i1 %.not.i.i16, label %_ZNK5clang7TypeLoc15getTypeLocClassEv.exit.i, label %_ZNK5clang7TypeLoc15getTypeLocClassEv.exit.thread.i
+
+_ZNK5clang7TypeLoc15getTypeLocClassEv.exit.i:     ; preds = %_ZN4llvm11raw_ostreamlsEc.exit
+  %100 = load ptr, ptr %.sroa.0.0.copyload, align 8
+  %101 = getelementptr inbounds nuw i8, ptr %100, i64 16
+  %102 = load i8, ptr %101, align 16
+  %switch.i = icmp eq i8 %102, 58
+  br i1 %switch.i, label %_ZNK5clang7TypeLoc15getTypeLocClassEv.exit.thread.i, label %_ZN5clang14TypeLocVisitorINS_14TextNodeDumperEvE5VisitENS_7TypeLocE.exit
+
+_ZNK5clang7TypeLoc15getTypeLocClassEv.exit.thread.i: ; preds = %_ZNK5clang7TypeLoc15getTypeLocClassEv.exit.i, %_ZN4llvm11raw_ostreamlsEc.exit
+  %103 = and i64 %98, -16
+  %104 = inttoptr i64 %103 to ptr
+  %105 = load ptr, ptr %104, align 16
+  br label %_ZN5clang14TypeLocVisitorINS_14TextNodeDumperEvE5VisitENS_7TypeLocE.exit
+
+_ZN5clang14TypeLocVisitorINS_14TextNodeDumperEvE5VisitENS_7TypeLocE.exit: ; preds = %_ZNK5clang7TypeLoc15getTypeLocClassEv.exit.i, %_ZNK5clang7TypeLoc15getTypeLocClassEv.exit.thread.i
+  %.sink.i = phi ptr [ %105, %_ZNK5clang7TypeLoc15getTypeLocClassEv.exit.thread.i ], [ %100, %_ZNK5clang7TypeLoc15getTypeLocClassEv.exit.i ]
+  call void @_ZN5clang11TypeVisitorINS_14TextNodeDumperEvE5VisitEPKNS_4TypeE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %.sink.i)
   br label %_ZN5clang10ColorScopeD2Ev.exit
 
-_ZN5clang10ColorScopeD2Ev.exit:                   ; preds = %31, %_ZN4llvm11raw_ostreamlsEPKc.exit, %_ZN4llvm11raw_ostreamlsEc.exit
-  ret void
-}
-
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZN5clang14TypeLocVisitorINS_14TextNodeDumperEvE5VisitENS_7TypeLocE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr %1, ptr %2) local_unnamed_addr #0 comdat align 2 {
-  %4 = ptrtoint ptr %1 to i64
-  %5 = and i64 %4, 15
-  %.not.i = icmp eq i64 %5, 0
-  br i1 %.not.i, label %_ZNK5clang7TypeLoc15getTypeLocClassEv.exit, label %_ZNK5clang7TypeLoc15getTypeLocClassEv.exit.thread
-
-_ZNK5clang7TypeLoc15getTypeLocClassEv.exit:       ; preds = %3
-  %6 = load ptr, ptr %1, align 8
-  %7 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  %8 = load i8, ptr %7, align 16
-  switch i8 %8, label %70 [
-    i8 58, label %_ZNK5clang7TypeLoc15getTypeLocClassEv.exit.thread
-    i8 0, label %12
-    i8 1, label %13
-    i8 2, label %14
-    i8 3, label %15
-    i8 4, label %16
-    i8 5, label %17
-    i8 6, label %18
-    i8 7, label %19
-    i8 8, label %20
-    i8 9, label %21
-    i8 10, label %22
-    i8 11, label %23
-    i8 12, label %24
-    i8 13, label %25
-    i8 14, label %26
-    i8 15, label %27
-    i8 16, label %28
-    i8 17, label %29
-    i8 18, label %30
-    i8 19, label %31
-    i8 20, label %32
-    i8 21, label %33
-    i8 22, label %34
-    i8 23, label %35
-    i8 24, label %36
-    i8 25, label %37
-    i8 26, label %38
-    i8 27, label %39
-    i8 28, label %40
-    i8 29, label %41
-    i8 30, label %42
-    i8 31, label %43
-    i8 32, label %44
-    i8 33, label %45
-    i8 34, label %46
-    i8 35, label %47
-    i8 36, label %48
-    i8 37, label %49
-    i8 38, label %50
-    i8 39, label %51
-    i8 40, label %52
-    i8 41, label %53
-    i8 42, label %54
-    i8 43, label %55
-    i8 44, label %56
-    i8 45, label %57
-    i8 46, label %58
-    i8 47, label %59
-    i8 48, label %60
-    i8 49, label %61
-    i8 50, label %62
-    i8 51, label %63
-    i8 52, label %64
-    i8 53, label %65
-    i8 54, label %66
-    i8 55, label %67
-    i8 56, label %68
-    i8 57, label %69
-  ]
-
-_ZNK5clang7TypeLoc15getTypeLocClassEv.exit.thread: ; preds = %3, %_ZNK5clang7TypeLoc15getTypeLocClassEv.exit
-  %9 = and i64 %4, -16
-  %10 = inttoptr i64 %9 to ptr
-  %11 = load ptr, ptr %10, align 16
-  tail call void @_ZN5clang11TypeVisitorINS_14TextNodeDumperEvE5VisitEPKNS_4TypeE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %11)
-  br label %71
-
-12:                                               ; preds = %_ZNK5clang7TypeLoc15getTypeLocClassEv.exit
-  tail call void @_ZN5clang11TypeVisitorINS_14TextNodeDumperEvE5VisitEPKNS_4TypeE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %6)
-  br label %71
-
-13:                                               ; preds = %_ZNK5clang7TypeLoc15getTypeLocClassEv.exit
-  tail call void @_ZN5clang11TypeVisitorINS_14TextNodeDumperEvE5VisitEPKNS_4TypeE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %6)
-  br label %71
-
-14:                                               ; preds = %_ZNK5clang7TypeLoc15getTypeLocClassEv.exit
-  tail call void @_ZN5clang11TypeVisitorINS_14TextNodeDumperEvE5VisitEPKNS_4TypeE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %6)
-  br label %71
-
-15:                                               ; preds = %_ZNK5clang7TypeLoc15getTypeLocClassEv.exit
-  tail call void @_ZN5clang11TypeVisitorINS_14TextNodeDumperEvE5VisitEPKNS_4TypeE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %6)
-  br label %71
-
-16:                                               ; preds = %_ZNK5clang7TypeLoc15getTypeLocClassEv.exit
-  tail call void @_ZN5clang11TypeVisitorINS_14TextNodeDumperEvE5VisitEPKNS_4TypeE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %6)
-  br label %71
-
-17:                                               ; preds = %_ZNK5clang7TypeLoc15getTypeLocClassEv.exit
-  tail call void @_ZN5clang11TypeVisitorINS_14TextNodeDumperEvE5VisitEPKNS_4TypeE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %6)
-  br label %71
-
-18:                                               ; preds = %_ZNK5clang7TypeLoc15getTypeLocClassEv.exit
-  tail call void @_ZN5clang11TypeVisitorINS_14TextNodeDumperEvE5VisitEPKNS_4TypeE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %6)
-  br label %71
-
-19:                                               ; preds = %_ZNK5clang7TypeLoc15getTypeLocClassEv.exit
-  tail call void @_ZN5clang11TypeVisitorINS_14TextNodeDumperEvE5VisitEPKNS_4TypeE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %6)
-  br label %71
-
-20:                                               ; preds = %_ZNK5clang7TypeLoc15getTypeLocClassEv.exit
-  tail call void @_ZN5clang11TypeVisitorINS_14TextNodeDumperEvE5VisitEPKNS_4TypeE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %6)
-  br label %71
-
-21:                                               ; preds = %_ZNK5clang7TypeLoc15getTypeLocClassEv.exit
-  tail call void @_ZN5clang11TypeVisitorINS_14TextNodeDumperEvE5VisitEPKNS_4TypeE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %6)
-  br label %71
-
-22:                                               ; preds = %_ZNK5clang7TypeLoc15getTypeLocClassEv.exit
-  tail call void @_ZN5clang11TypeVisitorINS_14TextNodeDumperEvE5VisitEPKNS_4TypeE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %6)
-  br label %71
-
-23:                                               ; preds = %_ZNK5clang7TypeLoc15getTypeLocClassEv.exit
-  tail call void @_ZN5clang11TypeVisitorINS_14TextNodeDumperEvE5VisitEPKNS_4TypeE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %6)
-  br label %71
-
-24:                                               ; preds = %_ZNK5clang7TypeLoc15getTypeLocClassEv.exit
-  tail call void @_ZN5clang11TypeVisitorINS_14TextNodeDumperEvE5VisitEPKNS_4TypeE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %6)
-  br label %71
-
-25:                                               ; preds = %_ZNK5clang7TypeLoc15getTypeLocClassEv.exit
-  tail call void @_ZN5clang11TypeVisitorINS_14TextNodeDumperEvE5VisitEPKNS_4TypeE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %6)
-  br label %71
-
-26:                                               ; preds = %_ZNK5clang7TypeLoc15getTypeLocClassEv.exit
-  tail call void @_ZN5clang11TypeVisitorINS_14TextNodeDumperEvE5VisitEPKNS_4TypeE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %6)
-  br label %71
-
-27:                                               ; preds = %_ZNK5clang7TypeLoc15getTypeLocClassEv.exit
-  tail call void @_ZN5clang11TypeVisitorINS_14TextNodeDumperEvE5VisitEPKNS_4TypeE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %6)
-  br label %71
-
-28:                                               ; preds = %_ZNK5clang7TypeLoc15getTypeLocClassEv.exit
-  tail call void @_ZN5clang11TypeVisitorINS_14TextNodeDumperEvE5VisitEPKNS_4TypeE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %6)
-  br label %71
-
-29:                                               ; preds = %_ZNK5clang7TypeLoc15getTypeLocClassEv.exit
-  tail call void @_ZN5clang11TypeVisitorINS_14TextNodeDumperEvE5VisitEPKNS_4TypeE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %6)
-  br label %71
-
-30:                                               ; preds = %_ZNK5clang7TypeLoc15getTypeLocClassEv.exit
-  tail call void @_ZN5clang11TypeVisitorINS_14TextNodeDumperEvE5VisitEPKNS_4TypeE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %6)
-  br label %71
-
-31:                                               ; preds = %_ZNK5clang7TypeLoc15getTypeLocClassEv.exit
-  tail call void @_ZN5clang11TypeVisitorINS_14TextNodeDumperEvE5VisitEPKNS_4TypeE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %6)
-  br label %71
-
-32:                                               ; preds = %_ZNK5clang7TypeLoc15getTypeLocClassEv.exit
-  tail call void @_ZN5clang11TypeVisitorINS_14TextNodeDumperEvE5VisitEPKNS_4TypeE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %6)
-  br label %71
-
-33:                                               ; preds = %_ZNK5clang7TypeLoc15getTypeLocClassEv.exit
-  tail call void @_ZN5clang11TypeVisitorINS_14TextNodeDumperEvE5VisitEPKNS_4TypeE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %6)
-  br label %71
-
-34:                                               ; preds = %_ZNK5clang7TypeLoc15getTypeLocClassEv.exit
-  tail call void @_ZN5clang11TypeVisitorINS_14TextNodeDumperEvE5VisitEPKNS_4TypeE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %6)
-  br label %71
-
-35:                                               ; preds = %_ZNK5clang7TypeLoc15getTypeLocClassEv.exit
-  tail call void @_ZN5clang11TypeVisitorINS_14TextNodeDumperEvE5VisitEPKNS_4TypeE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %6)
-  br label %71
-
-36:                                               ; preds = %_ZNK5clang7TypeLoc15getTypeLocClassEv.exit
-  tail call void @_ZN5clang11TypeVisitorINS_14TextNodeDumperEvE5VisitEPKNS_4TypeE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %6)
-  br label %71
-
-37:                                               ; preds = %_ZNK5clang7TypeLoc15getTypeLocClassEv.exit
-  tail call void @_ZN5clang11TypeVisitorINS_14TextNodeDumperEvE5VisitEPKNS_4TypeE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %6)
-  br label %71
-
-38:                                               ; preds = %_ZNK5clang7TypeLoc15getTypeLocClassEv.exit
-  tail call void @_ZN5clang11TypeVisitorINS_14TextNodeDumperEvE5VisitEPKNS_4TypeE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %6)
-  br label %71
-
-39:                                               ; preds = %_ZNK5clang7TypeLoc15getTypeLocClassEv.exit
-  tail call void @_ZN5clang11TypeVisitorINS_14TextNodeDumperEvE5VisitEPKNS_4TypeE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %6)
-  br label %71
-
-40:                                               ; preds = %_ZNK5clang7TypeLoc15getTypeLocClassEv.exit
-  tail call void @_ZN5clang11TypeVisitorINS_14TextNodeDumperEvE5VisitEPKNS_4TypeE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %6)
-  br label %71
-
-41:                                               ; preds = %_ZNK5clang7TypeLoc15getTypeLocClassEv.exit
-  tail call void @_ZN5clang11TypeVisitorINS_14TextNodeDumperEvE5VisitEPKNS_4TypeE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %6)
-  br label %71
-
-42:                                               ; preds = %_ZNK5clang7TypeLoc15getTypeLocClassEv.exit
-  tail call void @_ZN5clang11TypeVisitorINS_14TextNodeDumperEvE5VisitEPKNS_4TypeE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %6)
-  br label %71
-
-43:                                               ; preds = %_ZNK5clang7TypeLoc15getTypeLocClassEv.exit
-  tail call void @_ZN5clang11TypeVisitorINS_14TextNodeDumperEvE5VisitEPKNS_4TypeE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %6)
-  br label %71
-
-44:                                               ; preds = %_ZNK5clang7TypeLoc15getTypeLocClassEv.exit
-  tail call void @_ZN5clang11TypeVisitorINS_14TextNodeDumperEvE5VisitEPKNS_4TypeE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %6)
-  br label %71
-
-45:                                               ; preds = %_ZNK5clang7TypeLoc15getTypeLocClassEv.exit
-  tail call void @_ZN5clang11TypeVisitorINS_14TextNodeDumperEvE5VisitEPKNS_4TypeE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %6)
-  br label %71
-
-46:                                               ; preds = %_ZNK5clang7TypeLoc15getTypeLocClassEv.exit
-  tail call void @_ZN5clang11TypeVisitorINS_14TextNodeDumperEvE5VisitEPKNS_4TypeE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %6)
-  br label %71
-
-47:                                               ; preds = %_ZNK5clang7TypeLoc15getTypeLocClassEv.exit
-  tail call void @_ZN5clang11TypeVisitorINS_14TextNodeDumperEvE5VisitEPKNS_4TypeE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %6)
-  br label %71
-
-48:                                               ; preds = %_ZNK5clang7TypeLoc15getTypeLocClassEv.exit
-  tail call void @_ZN5clang11TypeVisitorINS_14TextNodeDumperEvE5VisitEPKNS_4TypeE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %6)
-  br label %71
-
-49:                                               ; preds = %_ZNK5clang7TypeLoc15getTypeLocClassEv.exit
-  tail call void @_ZN5clang11TypeVisitorINS_14TextNodeDumperEvE5VisitEPKNS_4TypeE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %6)
-  br label %71
-
-50:                                               ; preds = %_ZNK5clang7TypeLoc15getTypeLocClassEv.exit
-  tail call void @_ZN5clang11TypeVisitorINS_14TextNodeDumperEvE5VisitEPKNS_4TypeE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %6)
-  br label %71
-
-51:                                               ; preds = %_ZNK5clang7TypeLoc15getTypeLocClassEv.exit
-  tail call void @_ZN5clang11TypeVisitorINS_14TextNodeDumperEvE5VisitEPKNS_4TypeE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %6)
-  br label %71
-
-52:                                               ; preds = %_ZNK5clang7TypeLoc15getTypeLocClassEv.exit
-  tail call void @_ZN5clang11TypeVisitorINS_14TextNodeDumperEvE5VisitEPKNS_4TypeE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %6)
-  br label %71
-
-53:                                               ; preds = %_ZNK5clang7TypeLoc15getTypeLocClassEv.exit
-  tail call void @_ZN5clang11TypeVisitorINS_14TextNodeDumperEvE5VisitEPKNS_4TypeE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %6)
-  br label %71
-
-54:                                               ; preds = %_ZNK5clang7TypeLoc15getTypeLocClassEv.exit
-  tail call void @_ZN5clang11TypeVisitorINS_14TextNodeDumperEvE5VisitEPKNS_4TypeE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %6)
-  br label %71
-
-55:                                               ; preds = %_ZNK5clang7TypeLoc15getTypeLocClassEv.exit
-  tail call void @_ZN5clang11TypeVisitorINS_14TextNodeDumperEvE5VisitEPKNS_4TypeE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %6)
-  br label %71
-
-56:                                               ; preds = %_ZNK5clang7TypeLoc15getTypeLocClassEv.exit
-  tail call void @_ZN5clang11TypeVisitorINS_14TextNodeDumperEvE5VisitEPKNS_4TypeE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %6)
-  br label %71
-
-57:                                               ; preds = %_ZNK5clang7TypeLoc15getTypeLocClassEv.exit
-  tail call void @_ZN5clang11TypeVisitorINS_14TextNodeDumperEvE5VisitEPKNS_4TypeE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %6)
-  br label %71
-
-58:                                               ; preds = %_ZNK5clang7TypeLoc15getTypeLocClassEv.exit
-  tail call void @_ZN5clang11TypeVisitorINS_14TextNodeDumperEvE5VisitEPKNS_4TypeE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %6)
-  br label %71
-
-59:                                               ; preds = %_ZNK5clang7TypeLoc15getTypeLocClassEv.exit
-  tail call void @_ZN5clang11TypeVisitorINS_14TextNodeDumperEvE5VisitEPKNS_4TypeE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %6)
-  br label %71
-
-60:                                               ; preds = %_ZNK5clang7TypeLoc15getTypeLocClassEv.exit
-  tail call void @_ZN5clang11TypeVisitorINS_14TextNodeDumperEvE5VisitEPKNS_4TypeE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %6)
-  br label %71
-
-61:                                               ; preds = %_ZNK5clang7TypeLoc15getTypeLocClassEv.exit
-  tail call void @_ZN5clang11TypeVisitorINS_14TextNodeDumperEvE5VisitEPKNS_4TypeE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %6)
-  br label %71
-
-62:                                               ; preds = %_ZNK5clang7TypeLoc15getTypeLocClassEv.exit
-  tail call void @_ZN5clang11TypeVisitorINS_14TextNodeDumperEvE5VisitEPKNS_4TypeE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %6)
-  br label %71
-
-63:                                               ; preds = %_ZNK5clang7TypeLoc15getTypeLocClassEv.exit
-  tail call void @_ZN5clang11TypeVisitorINS_14TextNodeDumperEvE5VisitEPKNS_4TypeE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %6)
-  br label %71
-
-64:                                               ; preds = %_ZNK5clang7TypeLoc15getTypeLocClassEv.exit
-  tail call void @_ZN5clang11TypeVisitorINS_14TextNodeDumperEvE5VisitEPKNS_4TypeE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %6)
-  br label %71
-
-65:                                               ; preds = %_ZNK5clang7TypeLoc15getTypeLocClassEv.exit
-  tail call void @_ZN5clang11TypeVisitorINS_14TextNodeDumperEvE5VisitEPKNS_4TypeE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %6)
-  br label %71
-
-66:                                               ; preds = %_ZNK5clang7TypeLoc15getTypeLocClassEv.exit
-  tail call void @_ZN5clang11TypeVisitorINS_14TextNodeDumperEvE5VisitEPKNS_4TypeE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %6)
-  br label %71
-
-67:                                               ; preds = %_ZNK5clang7TypeLoc15getTypeLocClassEv.exit
-  tail call void @_ZN5clang11TypeVisitorINS_14TextNodeDumperEvE5VisitEPKNS_4TypeE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %6)
-  br label %71
-
-68:                                               ; preds = %_ZNK5clang7TypeLoc15getTypeLocClassEv.exit
-  tail call void @_ZN5clang11TypeVisitorINS_14TextNodeDumperEvE5VisitEPKNS_4TypeE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %6)
-  br label %71
-
-69:                                               ; preds = %_ZNK5clang7TypeLoc15getTypeLocClassEv.exit
-  tail call void @_ZN5clang11TypeVisitorINS_14TextNodeDumperEvE5VisitEPKNS_4TypeE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %6)
-  br label %71
-
-70:                                               ; preds = %_ZNK5clang7TypeLoc15getTypeLocClassEv.exit
-  unreachable
-
-71:                                               ; preds = %69, %68, %67, %66, %65, %64, %63, %62, %61, %60, %59, %58, %57, %56, %55, %54, %53, %52, %51, %50, %49, %48, %47, %46, %45, %44, %43, %42, %41, %40, %39, %38, %37, %36, %35, %34, %33, %32, %31, %30, %29, %28, %27, %26, %25, %24, %23, %22, %21, %20, %19, %18, %17, %16, %15, %14, %13, %12, %_ZNK5clang7TypeLoc15getTypeLocClassEv.exit.thread
+_ZN5clang10ColorScopeD2Ev.exit:                   ; preds = %31, %_ZN4llvm11raw_ostreamlsEPKc.exit, %_ZN5clang14TypeLocVisitorINS_14TextNodeDumperEvE5VisitENS_7TypeLocE.exit
   ret void
 }
 

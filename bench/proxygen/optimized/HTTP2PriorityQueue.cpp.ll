@@ -4126,7 +4126,7 @@ invoke.cont3.i.i:                                 ; preds = %invoke.cont1.i.i
           to label %_ZN6google12Check_NEImplImmEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_PKc.exit unwind label %lpad.i.i
 
 common.resume:                                    ; preds = %lpad, %lpad86, %lpad.i.i
-  %common.resume.op = phi { ptr, i32 } [ %18, %lpad.i.i ], [ %43, %lpad86 ], [ %19, %lpad ]
+  %common.resume.op = phi { ptr, i32 } [ %18, %lpad.i.i ], [ %42, %lpad86 ], [ %19, %lpad ]
   resume { ptr, i32 } %common.resume.op
 
 lpad.i.i:                                         ; preds = %invoke.cont3.i.i, %invoke.cont1.i.i, %invoke.cont.i.i, %if.else.i
@@ -4185,19 +4185,12 @@ land.lhs.true:                                    ; preds = %while.end
 
 if.then:                                          ; preds = %land.lhs.true
   %tobool47.not = icmp eq ptr %depth, null
-  br i1 %tobool47.not, label %return, label %if.then48
-
-if.then48:                                        ; preds = %if.then
-  %vtable = load ptr, ptr %handle, align 8
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 24
-  %23 = load ptr, ptr %vfn, align 8
-  %call49 = call noundef i64 %23(ptr noundef nonnull align 8 dereferenceable(8) %handle, i1 noundef zeroext true)
-  br label %return.sink.split
+  br i1 %tobool47.not, label %return, label %return.sink.split
 
 if.end50:                                         ; preds = %land.lhs.true, %while.end
   %rootNodeId_.i = getelementptr inbounds i8, ptr %this, i64 8
-  %24 = load i64, ptr %rootNodeId_.i, align 8
-  %cmp.i35 = icmp eq i64 %pri.coerce0, %24
+  %23 = load i64, ptr %rootNodeId_.i, align 8
+  %cmp.i35 = icmp eq i64 %pri.coerce0, %23
   br i1 %cmp.i35, label %if.then58, label %if.end.i36
 
 if.end.i36:                                       ; preds = %if.end50
@@ -4216,9 +4209,9 @@ if.end.i36:                                       ; preds = %if.end50
   %mul.i26.i = shl nuw nsw i64 %or.i.i, 1
   %add.i.i = or disjoint i64 %mul.i26.i, 1
   %sizeAndChunkShiftAndPackedBegin_.i.i = getelementptr inbounds i8, ptr %this, i64 24
-  %25 = load i64, ptr %sizeAndChunkShiftAndPackedBegin_.i.i, align 8
-  %sh_prom.i.i.i = and i64 %25, 255
-  %26 = load ptr, ptr %nodes_.i, align 8
+  %24 = load i64, ptr %sizeAndChunkShiftAndPackedBegin_.i.i, align 8
+  %sh_prom.i.i.i = and i64 %24, 255
+  %25 = load ptr, ptr %nodes_.i, align 8
   %notmask.i.i = shl nsw i64 -1, %sh_prom.i.i.i
   %sub.i.i = xor i64 %notmask.i.i, -1
   %conv.i28.i = trunc nuw i64 %or.i.i to i8
@@ -4230,16 +4223,16 @@ for.body.i.i.i:                                   ; preds = %if.end20.i.i.i, %if
   %index.i.i.044.i = phi i64 [ %shr5.i.i, %if.end.i36 ], [ %add.i.i.i, %if.end20.i.i.i ]
   %tries.i.i.043.i = phi i64 [ 0, %if.end.i36 ], [ %inc.i.i.i, %if.end20.i.i.i ]
   %and.i27.i = and i64 %index.i.i.044.i, %sub.i.i
-  %add.ptr.i.i.i = getelementptr inbounds %"struct.folly::f14::detail::F14Chunk", ptr %26, i64 %and.i27.i
+  %add.ptr.i.i.i = getelementptr inbounds %"struct.folly::f14::detail::F14Chunk", ptr %25, i64 %and.i27.i
   %rawItems_.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i, i64 16
   %arrayidx.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i, i64 144
   call void @llvm.prefetch.p0(ptr nonnull %arrayidx.i.i.i.i, i32 0, i32 3, i32 1)
-  %27 = load <16 x i8>, ptr %add.ptr.i.i.i, align 16
-  %cmp.i.i29.i = icmp eq <16 x i8> %27, %vecinit15.i.i.i
-  %28 = bitcast <16 x i1> %cmp.i.i29.i to i16
-  %29 = and i16 %28, 16383
-  %and.i30.i = zext nneg i16 %29 to i32
-  %30 = extractelement <16 x i8> %27, i64 15
+  %26 = load <16 x i8>, ptr %add.ptr.i.i.i, align 16
+  %cmp.i.i29.i = icmp eq <16 x i8> %26, %vecinit15.i.i.i
+  %27 = bitcast <16 x i1> %cmp.i.i29.i to i16
+  %28 = and i16 %27, 16383
+  %and.i30.i = zext nneg i16 %28 to i32
+  %29 = extractelement <16 x i8> %26, i64 15
   br label %while.cond.i.i.i
 
 while.cond.i.i.i:                                 ; preds = %while.body.i.i.i, %for.body.i.i.i
@@ -4248,17 +4241,17 @@ while.cond.i.i.i:                                 ; preds = %while.body.i.i.i, %
   br i1 %cmp.i.not.i, label %while.end.i.i.i, label %while.body.i.i.i
 
 while.body.i.i.i:                                 ; preds = %while.cond.i.i.i
-  %31 = call noundef range(i32 0, 33) i32 @llvm.cttz.i32(i32 %hits.i.i.sroa.0.0.i, i1 true)
+  %30 = call noundef range(i32 0, 33) i32 @llvm.cttz.i32(i32 %hits.i.i.sroa.0.0.i, i1 true)
   %sub.i32.i = add nsw i32 %hits.i.i.sroa.0.0.i, -1
   %and.i33.i = and i32 %sub.i32.i, %hits.i.i.sroa.0.0.i
-  %conv9.i.i.i = zext nneg i32 %31 to i64
+  %conv9.i.i.i = zext nneg i32 %30 to i64
   %arrayidx.i.i.i.i.i = getelementptr inbounds [15 x %"union.std::aligned_storage<16, 8>::type"], ptr %rawItems_.i.i, i64 0, i64 %conv9.i.i.i
-  %32 = load i64, ptr %arrayidx.i.i.i.i.i, align 8
-  %cmp.i.i34.i = icmp eq i64 %pri.coerce0, %32
+  %31 = load i64, ptr %arrayidx.i.i.i.i.i, align 8
+  %cmp.i.i34.i = icmp eq i64 %pri.coerce0, %31
   br i1 %cmp.i.i34.i, label %_ZN8proxygen18HTTP2PriorityQueue4findEmPm.exit, label %while.cond.i.i.i, !llvm.loop !7
 
 while.end.i.i.i:                                  ; preds = %while.cond.i.i.i
-  %cmp17.i.i.i = icmp eq i8 %30, 0
+  %cmp17.i.i.i = icmp eq i8 %29, 0
   br i1 %cmp17.i.i.i, label %lor.lhs.false, label %if.end20.i.i.i
 
 if.end20.i.i.i:                                   ; preds = %while.end.i.i.i
@@ -4270,16 +4263,16 @@ if.end20.i.i.i:                                   ; preds = %while.end.i.i.i
 
 _ZN8proxygen18HTTP2PriorityQueue4findEmPm.exit:   ; preds = %while.body.i.i.i
   %second13.i = getelementptr inbounds i8, ptr %arrayidx.i.i.i.i.i, i64 8
-  %33 = load ptr, ptr %second13.i, align 8
-  %tobool53.not = icmp eq ptr %33, null
+  %32 = load ptr, ptr %second13.i, align 8
+  %tobool53.not = icmp eq ptr %32, null
   br i1 %tobool53.not, label %lor.lhs.false, label %if.end110
 
 lor.lhs.false:                                    ; preds = %while.end.i.i.i, %if.end20.i.i.i, %_ZN8proxygen18HTTP2PriorityQueue4findEmPm.exit
   %numVirtualNodes_ = getelementptr inbounds i8, ptr %this, i64 260
-  %34 = load i32, ptr %numVirtualNodes_, align 4
+  %33 = load i32, ptr %numVirtualNodes_, align 4
   %maxVirtualNodes_ = getelementptr inbounds i8, ptr %this, i64 256
-  %35 = load i32, ptr %maxVirtualNodes_, align 8
-  %cmp57.not = icmp ult i32 %34, %35
+  %34 = load i32, ptr %maxVirtualNodes_, align 8
+  %cmp57.not = icmp ult i32 %33, %34
   br i1 %cmp57.not, label %if.else, label %if.then58
 
 if.then58:                                        ; preds = %if.end50, %lor.lhs.false
@@ -4287,19 +4280,19 @@ if.then58:                                        ; preds = %if.end50, %lor.lhs.
   br label %if.end110
 
 if.else:                                          ; preds = %lor.lhs.false
-  %36 = load i8, ptr getelementptr inbounds (i8, ptr @_ZN8proxygen5http215DefaultPriorityE, i64 8), align 8
-  %frombool64 = and i8 %36, 1
-  %37 = load i8, ptr getelementptr inbounds (i8, ptr @_ZN8proxygen5http215DefaultPriorityE, i64 9), align 1
-  %agg.tmp.sroa.4.8.insert.ext = zext i8 %37 to i64
+  %35 = load i8, ptr getelementptr inbounds (i8, ptr @_ZN8proxygen5http215DefaultPriorityE, i64 8), align 8
+  %frombool64 = and i8 %35, 1
+  %36 = load i8, ptr getelementptr inbounds (i8, ptr @_ZN8proxygen5http215DefaultPriorityE, i64 9), align 1
+  %agg.tmp.sroa.4.8.insert.ext = zext i8 %36 to i64
   %agg.tmp.sroa.4.8.insert.shift = shl nuw nsw i64 %agg.tmp.sroa.4.8.insert.ext, 8
   %agg.tmp.sroa.2.8.insert.ext = zext nneg i8 %frombool64 to i64
   %agg.tmp.sroa.2.8.insert.insert = or disjoint i64 %agg.tmp.sroa.4.8.insert.shift, %agg.tmp.sroa.2.8.insert.ext
   %vtable66 = load ptr, ptr %this, align 8
   %vfn67 = getelementptr inbounds i8, ptr %vtable66, i64 24
-  %38 = load ptr, ptr %vfn67, align 8
-  %call68 = call noundef ptr %38(ptr noundef nonnull align 8 dereferenceable(312) %this, i64 noundef %pri.coerce0, i64 %24, i64 %agg.tmp.sroa.2.8.insert.insert, ptr noundef null, i1 noundef zeroext false, ptr noundef null)
-  %39 = load ptr, ptr @_ZZN8proxygen18HTTP2PriorityQueue14updatePriorityEPNS_22HTTP2PriorityQueueBase8BaseNodeENS_5http214PriorityUpdateEPmE8vlocal___0, align 8
-  %cmp72 = icmp eq ptr %39, null
+  %37 = load ptr, ptr %vfn67, align 8
+  %call68 = call noundef ptr %37(ptr noundef nonnull align 8 dereferenceable(312) %this, i64 noundef %pri.coerce0, i64 %23, i64 %agg.tmp.sroa.2.8.insert.insert, ptr noundef null, i1 noundef zeroext false, ptr noundef null)
+  %38 = load ptr, ptr @_ZZN8proxygen18HTTP2PriorityQueue14updatePriorityEPNS_22HTTP2PriorityQueueBase8BaseNodeENS_5http214PriorityUpdateEPmE8vlocal___0, align 8
+  %cmp72 = icmp eq ptr %38, null
   br i1 %cmp72, label %cond.true73, label %cond.end77
 
 cond.true73:                                      ; preds = %if.else
@@ -4307,8 +4300,8 @@ cond.true73:                                      ; preds = %if.else
   br i1 %call74, label %cond.false82, label %if.end110
 
 cond.end77:                                       ; preds = %if.else
-  %40 = load i32, ptr %39, align 4
-  %cmp76 = icmp sgt i32 %40, 3
+  %39 = load i32, ptr %38, align 4
+  %cmp76 = icmp sgt i32 %39, 3
   br i1 %cmp76, label %cond.false82, label %if.end110
 
 cond.false82:                                     ; preds = %cond.true73, %cond.end77
@@ -4322,8 +4315,8 @@ invoke.cont87:                                    ; preds = %cond.false82
 
 invoke.cont89:                                    ; preds = %invoke.cont87
   %id_.i38 = getelementptr inbounds i8, ptr %call68, i64 88
-  %41 = load i64, ptr %id_.i38, align 8
-  %call94 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEm(ptr noundef nonnull align 8 dereferenceable(8) %call90, i64 noundef %41)
+  %40 = load i64, ptr %id_.i38, align 8
+  %call94 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEm(ptr noundef nonnull align 8 dereferenceable(8) %call90, i64 noundef %40)
           to label %invoke.cont93 unwind label %lpad86
 
 invoke.cont93:                                    ; preds = %invoke.cont89
@@ -4331,8 +4324,8 @@ invoke.cont93:                                    ; preds = %invoke.cont89
           to label %invoke.cont95 unwind label %lpad86
 
 invoke.cont95:                                    ; preds = %invoke.cont93
-  %42 = load i64, ptr %id_.i31, align 8
-  %call100 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEm(ptr noundef nonnull align 8 dereferenceable(8) %call96, i64 noundef %42)
+  %41 = load i64, ptr %id_.i31, align 8
+  %call100 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEm(ptr noundef nonnull align 8 dereferenceable(8) %call96, i64 noundef %41)
           to label %cleanup.action104 unwind label %lpad86
 
 cleanup.action104:                                ; preds = %invoke.cont95
@@ -4340,13 +4333,13 @@ cleanup.action104:                                ; preds = %invoke.cont95
   br label %if.end110
 
 lpad86:                                           ; preds = %invoke.cont95, %invoke.cont93, %invoke.cont89, %invoke.cont87, %cond.false82
-  %43 = landingpad { ptr, i32 }
+  %42 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN6google10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %ref.tmp84) #30
   br label %common.resume
 
 if.end110:                                        ; preds = %cond.true73, %cond.end77, %if.then58, %cleanup.action104, %_ZN8proxygen18HTTP2PriorityQueue4findEmPm.exit
-  %newParent.0 = phi ptr [ %33, %_ZN8proxygen18HTTP2PriorityQueue4findEmPm.exit ], [ %root_, %if.then58 ], [ %call68, %cleanup.action104 ], [ %call68, %cond.end77 ], [ %call68, %cond.true73 ]
+  %newParent.0 = phi ptr [ %32, %_ZN8proxygen18HTTP2PriorityQueue4findEmPm.exit ], [ %root_, %if.then58 ], [ %call68, %cleanup.action104 ], [ %call68, %cond.end77 ], [ %call68, %cond.true73 ]
   br label %while.cond.i
 
 while.cond.i:                                     ; preds = %while.body.i, %if.end110
@@ -4358,32 +4351,28 @@ while.cond.i:                                     ; preds = %while.body.i, %if.e
 
 while.body.i:                                     ; preds = %while.cond.i
   %id_.i40 = getelementptr inbounds i8, ptr %cur.0.i, i64 88
-  %44 = load i64, ptr %id_.i40, align 8
-  %45 = load i64, ptr %id_.i31, align 8
-  %cmp.i41 = icmp eq i64 %44, %45
+  %43 = load i64, ptr %id_.i40, align 8
+  %44 = load i64, ptr %id_.i31, align 8
+  %cmp.i41 = icmp eq i64 %43, %44
   br i1 %cmp.i41, label %if.then112, label %while.cond.i, !llvm.loop !20
 
 if.then112:                                       ; preds = %while.body.i
-  %46 = load ptr, ptr %parent_.i, align 8
-  %call114 = call noundef ptr @_ZN8proxygen18HTTP2PriorityQueue4Node8reparentEPS1_b(ptr noundef nonnull align 8 dereferenceable(200) %newParent.0, ptr noundef %46, i1 noundef zeroext false)
+  %45 = load ptr, ptr %parent_.i, align 8
+  %call114 = call noundef ptr @_ZN8proxygen18HTTP2PriorityQueue4Node8reparentEPS1_b(ptr noundef nonnull align 8 dereferenceable(200) %newParent.0, ptr noundef %45, i1 noundef zeroext false)
   br label %if.end115
 
 if.end115:                                        ; preds = %while.cond.i, %if.then112
   %tobool117 = trunc i64 %pri.coerce1 to i1
   %call118 = call noundef ptr @_ZN8proxygen18HTTP2PriorityQueue4Node8reparentEPS1_b(ptr noundef nonnull align 8 dereferenceable(200) %handle, ptr noundef nonnull %newParent.0, i1 noundef zeroext %tobool117)
   %tobool119.not = icmp eq ptr %depth, null
-  br i1 %tobool119.not, label %return, label %if.then120
+  br i1 %tobool119.not, label %return, label %return.sink.split
 
-if.then120:                                       ; preds = %if.end115
+return.sink.split:                                ; preds = %if.end115, %if.then
   %vtable121 = load ptr, ptr %handle, align 8
   %vfn122 = getelementptr inbounds i8, ptr %vtable121, i64 24
-  %47 = load ptr, ptr %vfn122, align 8
-  %call123 = call noundef i64 %47(ptr noundef nonnull align 8 dereferenceable(200) %handle, i1 noundef zeroext true)
-  br label %return.sink.split
-
-return.sink.split:                                ; preds = %if.then48, %if.then120
-  %call123.sink = phi i64 [ %call123, %if.then120 ], [ %call49, %if.then48 ]
-  store i64 %call123.sink, ptr %depth, align 8
+  %46 = load ptr, ptr %vfn122, align 8
+  %call123 = call noundef i64 %46(ptr noundef nonnull align 8 dereferenceable(8) %handle, i1 noundef zeroext true)
+  store i64 %call123, ptr %depth, align 8
   br label %return
 
 return:                                           ; preds = %return.sink.split, %if.end115, %if.then

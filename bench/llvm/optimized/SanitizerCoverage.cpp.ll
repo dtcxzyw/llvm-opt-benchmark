@@ -2582,34 +2582,31 @@ _ZN4llvm9StringRefC2EPKc.exit17:                  ; preds = %31, %32
   %34 = phi i64 [ %33, %32 ], [ 0, %31 ]
   %35 = call noundef ptr @_ZN4llvm6Module17getOrInsertComdatENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(857) %1, ptr %2, i64 %34) #19
   call void @_ZN4llvm12GlobalObject9setComdatEPNS_6ComdatE(ptr noundef nonnull align 8 dereferenceable(56) %28, ptr noundef %35) #19
-  call void @_ZN4llvm19appendToGlobalCtorsERNS_6ModuleEPNS_8FunctionEiPNS_8ConstantE(ptr noundef nonnull align 8 dereferenceable(857) %1, ptr noundef nonnull %28, i32 noundef 2, ptr noundef nonnull %28) #19
-  br label %36
+  br label %_ZNK4llvm6Triple14supportsCOMDATEv.exit
 
-_ZNK4llvm6Triple14supportsCOMDATEv.exit:          ; preds = %_ZN4llvm9StringRefC2EPKc.exit14, %_ZN4llvm9StringRefC2EPKc.exit14, %_ZN4llvm9StringRefC2EPKc.exit14
-  call void @_ZN4llvm19appendToGlobalCtorsERNS_6ModuleEPNS_8FunctionEiPNS_8ConstantE(ptr noundef nonnull align 8 dereferenceable(857) %1, ptr noundef %28, i32 noundef 2, ptr noundef null) #19
-  br label %36
+_ZNK4llvm6Triple14supportsCOMDATEv.exit:          ; preds = %_ZN4llvm9StringRefC2EPKc.exit14, %_ZN4llvm9StringRefC2EPKc.exit14, %_ZN4llvm9StringRefC2EPKc.exit14, %_ZN4llvm9StringRefC2EPKc.exit17
+  %.sink = phi ptr [ %28, %_ZN4llvm9StringRefC2EPKc.exit17 ], [ null, %_ZN4llvm9StringRefC2EPKc.exit14 ], [ null, %_ZN4llvm9StringRefC2EPKc.exit14 ], [ null, %_ZN4llvm9StringRefC2EPKc.exit14 ]
+  call void @_ZN4llvm19appendToGlobalCtorsERNS_6ModuleEPNS_8FunctionEiPNS_8ConstantE(ptr noundef nonnull align 8 dereferenceable(857) %1, ptr noundef %28, i32 noundef 2, ptr noundef %.sink) #19
+  %36 = load i32, ptr %29, align 4
+  %37 = icmp eq i32 %36, 1
+  br i1 %37, label %38, label %_ZN4llvm11GlobalValue10setLinkageENS0_12LinkageTypesE.exit
 
-36:                                               ; preds = %_ZNK4llvm6Triple14supportsCOMDATEv.exit, %_ZN4llvm9StringRefC2EPKc.exit17
-  %37 = load i32, ptr %29, align 4
-  %38 = icmp eq i32 %37, 1
-  br i1 %38, label %39, label %_ZN4llvm11GlobalValue10setLinkageENS0_12LinkageTypesE.exit
-
-39:                                               ; preds = %36
-  %40 = getelementptr inbounds nuw i8, ptr %28, i64 32
-  %41 = load i32, ptr %40, align 8
-  %42 = and i32 %41, -16
-  %43 = or disjoint i32 %42, 5
-  store i32 %43, ptr %40, align 8
-  %44 = and i32 %41, 48
-  %.not = icmp eq i32 %44, 0
+38:                                               ; preds = %_ZNK4llvm6Triple14supportsCOMDATEv.exit
+  %39 = getelementptr inbounds nuw i8, ptr %28, i64 32
+  %40 = load i32, ptr %39, align 8
+  %41 = and i32 %40, -16
+  %42 = or disjoint i32 %41, 5
+  store i32 %42, ptr %39, align 8
+  %43 = and i32 %40, 48
+  %.not = icmp eq i32 %43, 0
   br i1 %.not, label %_ZN4llvm11GlobalValue10setLinkageENS0_12LinkageTypesE.exit, label %_ZNK4llvm11GlobalValue18isImplicitDSOLocalEv.exit.thread.i
 
-_ZNK4llvm11GlobalValue18isImplicitDSOLocalEv.exit.thread.i: ; preds = %39
-  %45 = or i32 %42, 16389
-  store i32 %45, ptr %40, align 8
+_ZNK4llvm11GlobalValue18isImplicitDSOLocalEv.exit.thread.i: ; preds = %38
+  %44 = or i32 %41, 16389
+  store i32 %44, ptr %39, align 8
   br label %_ZN4llvm11GlobalValue10setLinkageENS0_12LinkageTypesE.exit
 
-_ZN4llvm11GlobalValue10setLinkageENS0_12LinkageTypesE.exit: ; preds = %_ZNK4llvm11GlobalValue18isImplicitDSOLocalEv.exit.thread.i, %39, %36
+_ZN4llvm11GlobalValue10setLinkageENS0_12LinkageTypesE.exit: ; preds = %_ZNK4llvm11GlobalValue18isImplicitDSOLocalEv.exit.thread.i, %38, %_ZNK4llvm6Triple14supportsCOMDATEv.exit
   ret ptr %28
 }
 

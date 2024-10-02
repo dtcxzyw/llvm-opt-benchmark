@@ -293,8 +293,6 @@ $_ZN8facebook5velox13ISerializable9serializeINSt7__cxx1112basic_stringIcSt11char
 
 $_ZN8facebook5velox13ISerializable9serializeISt10shared_ptrIKNS0_4TypeEEEEN5folly7dynamicERKSt6vectorIT_SaISA_EE = comdat any
 
-$_ZN5folly14basic_fbstringIcSt11char_traitsIcESaIcENS_13fbstring_coreIcEEED2Ev = comdat any
-
 $_ZN8facebook5velox10ScalarTypeILNS0_8TypeKindE3EE6createEv = comdat any
 
 $_ZN8facebook5velox10ScalarTypeILNS0_8TypeKindE0EE6createEv = comdat any
@@ -10689,23 +10687,20 @@ invoke.cont7:                                     ; preds = %invoke.cont5
 if.end.i.i:                                       ; preds = %invoke.cont7
   %cmp.i.i.i4 = icmp eq i8 %7, -128
   %8 = load ptr, ptr %ref.tmp, align 8
-  br i1 %cmp.i.i.i4, label %if.then.i.i.i, label %if.else.i.i.i
-
-if.then.i.i.i:                                    ; preds = %if.end.i.i
-  call void @free(ptr noundef %8) #39
-  br label %_ZN5folly14basic_fbstringIcSt11char_traitsIcESaIcENS_13fbstring_coreIcEEED2Ev.exit
+  br i1 %cmp.i.i.i4, label %if.end.sink.split.i.i.i, label %if.else.i.i.i
 
 if.else.i.i.i:                                    ; preds = %if.end.i.i
   %add.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %8, i64 -8
   %9 = atomicrmw sub ptr %add.ptr.i.i.i.i.i, i64 1 acq_rel, align 8
   %cmp.i.i.i.i5 = icmp eq i64 %9, 1
-  br i1 %cmp.i.i.i.i5, label %if.then.i.i.i.i, label %_ZN5folly14basic_fbstringIcSt11char_traitsIcESaIcENS_13fbstring_coreIcEEED2Ev.exit
+  br i1 %cmp.i.i.i.i5, label %if.end.sink.split.i.i.i, label %_ZN5folly14basic_fbstringIcSt11char_traitsIcESaIcENS_13fbstring_coreIcEEED2Ev.exit
 
-if.then.i.i.i.i:                                  ; preds = %if.else.i.i.i
-  call void @free(ptr noundef nonnull %add.ptr.i.i.i.i.i) #39
+if.end.sink.split.i.i.i:                          ; preds = %if.else.i.i.i, %if.end.i.i
+  %add.ptr.i.i.sink.i.i.i = phi ptr [ %8, %if.end.i.i ], [ %add.ptr.i.i.i.i.i, %if.else.i.i.i ]
+  call void @free(ptr noundef %add.ptr.i.i.sink.i.i.i) #39
   br label %_ZN5folly14basic_fbstringIcSt11char_traitsIcESaIcENS_13fbstring_coreIcEEED2Ev.exit
 
-_ZN5folly14basic_fbstringIcSt11char_traitsIcESaIcENS_13fbstring_coreIcEEED2Ev.exit: ; preds = %invoke.cont7, %if.then.i.i.i, %if.else.i.i.i, %if.then.i.i.i.i
+_ZN5folly14basic_fbstringIcSt11char_traitsIcESaIcENS_13fbstring_coreIcEEED2Ev.exit: ; preds = %invoke.cont7, %if.else.i.i.i, %if.end.sink.split.i.i.i
   invoke void @_ZNKSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEE3strEv(ptr sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(128) %out)
           to label %invoke.cont9 unwind label %lpad
 
@@ -10721,48 +10716,34 @@ lpad:                                             ; preds = %_ZN5folly14basic_fb
 lpad4:                                            ; preds = %invoke.cont3, %invoke.cont5
   %11 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN5folly14basic_fbstringIcSt11char_traitsIcESaIcENS_13fbstring_coreIcEEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp) #39
+  %12 = load i8, ptr %arrayidx.i.i.i.i.i, align 1
+  %13 = and i8 %12, -64
+  %cmp.i.i7 = icmp eq i8 %13, 0
+  br i1 %cmp.i.i7, label %ehcleanup, label %if.end.i.i8
+
+if.end.i.i8:                                      ; preds = %lpad4
+  %cmp.i.i.i9 = icmp eq i8 %13, -128
+  %14 = load ptr, ptr %ref.tmp, align 8
+  br i1 %cmp.i.i.i9, label %if.end.sink.split.i.i.i13, label %if.else.i.i.i10
+
+if.else.i.i.i10:                                  ; preds = %if.end.i.i8
+  %add.ptr.i.i.i.i.i11 = getelementptr inbounds i8, ptr %14, i64 -8
+  %15 = atomicrmw sub ptr %add.ptr.i.i.i.i.i11, i64 1 acq_rel, align 8
+  %cmp.i.i.i.i12 = icmp eq i64 %15, 1
+  br i1 %cmp.i.i.i.i12, label %if.end.sink.split.i.i.i13, label %ehcleanup
+
+if.end.sink.split.i.i.i13:                        ; preds = %if.else.i.i.i10, %if.end.i.i8
+  %add.ptr.i.i.sink.i.i.i14 = phi ptr [ %14, %if.end.i.i8 ], [ %add.ptr.i.i.i.i.i11, %if.else.i.i.i10 ]
+  call void @free(ptr noundef %add.ptr.i.i.sink.i.i.i14) #39
   br label %ehcleanup
 
-ehcleanup:                                        ; preds = %lpad4, %lpad
-  %.pn = phi { ptr, i32 } [ %10, %lpad ], [ %11, %lpad4 ]
+ehcleanup:                                        ; preds = %if.end.sink.split.i.i.i13, %if.else.i.i.i10, %lpad4, %lpad
+  %.pn = phi { ptr, i32 } [ %10, %lpad ], [ %11, %lpad4 ], [ %11, %if.else.i.i.i10 ], [ %11, %if.end.sink.split.i.i.i13 ]
   call void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(128) %out) #39
   resume { ptr, i32 } %.pn
 }
 
 declare void @_ZN5folly8demangleEPKc(ptr sret(%"class.folly::basic_fbstring") align 8, ptr noundef) local_unnamed_addr #4
-
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZN5folly14basic_fbstringIcSt11char_traitsIcESaIcENS_13fbstring_coreIcEEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
-entry:
-  %arrayidx.i.i = getelementptr inbounds i8, ptr %this, i64 23
-  %0 = load i8, ptr %arrayidx.i.i, align 1
-  %1 = and i8 %0, -64
-  %cmp.i = icmp eq i8 %1, 0
-  br i1 %cmp.i, label %_ZN5folly13fbstring_coreIcED2Ev.exit, label %if.end.i
-
-if.end.i:                                         ; preds = %entry
-  %cmp.i.i = icmp eq i8 %1, -128
-  %2 = load ptr, ptr %this, align 8
-  br i1 %cmp.i.i, label %if.then.i.i, label %if.else.i.i
-
-if.then.i.i:                                      ; preds = %if.end.i
-  tail call void @free(ptr noundef %2) #39
-  br label %_ZN5folly13fbstring_coreIcED2Ev.exit
-
-if.else.i.i:                                      ; preds = %if.end.i
-  %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %2, i64 -8
-  %3 = atomicrmw sub ptr %add.ptr.i.i.i.i, i64 1 acq_rel, align 8
-  %cmp.i.i.i = icmp eq i64 %3, 1
-  br i1 %cmp.i.i.i, label %if.then.i.i.i, label %_ZN5folly13fbstring_coreIcED2Ev.exit
-
-if.then.i.i.i:                                    ; preds = %if.else.i.i
-  tail call void @free(ptr noundef nonnull %add.ptr.i.i.i.i) #39
-  br label %_ZN5folly13fbstring_coreIcED2Ev.exit
-
-_ZN5folly13fbstring_coreIcED2Ev.exit:             ; preds = %entry, %if.then.i.i, %if.else.i.i, %if.then.i.i.i
-  ret void
-}
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZNK8facebook5velox10OpaqueType9serializeEv(ptr noalias sret(%"struct.folly::dynamic") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {

@@ -1113,26 +1113,20 @@ define internal void @xmpp_presence_status(ptr noundef %0, ptr noundef %1, ptr n
   %.not = icmp eq ptr %15, null
   %16 = getelementptr inbounds i8, ptr %2, i64 408
   %17 = load ptr, ptr %16, align 8
-  br i1 %.not, label %23, label %18
+  br i1 %.not, label %20, label %18
 
 18:                                               ; preds = %4
   %19 = load ptr, ptr %15, align 8
-  %20 = load i32, ptr %7, align 8
-  %21 = load i32, ptr %9, align 4
-  %22 = tail call ptr @xmpp_ep_init_attr_t(ptr noundef %17, ptr noundef %19, i32 noundef %20, i32 noundef %21) #4
-  br label %27
+  br label %20
 
-23:                                               ; preds = %4
-  %24 = load i32, ptr %7, align 8
-  %25 = load i32, ptr %9, align 4
-  %26 = tail call ptr @xmpp_ep_init_attr_t(ptr noundef %17, ptr noundef nonnull @.str.125, i32 noundef %24, i32 noundef %25) #4
-  br label %27
-
-27:                                               ; preds = %23, %18
-  %.0 = phi ptr [ %22, %18 ], [ %26, %23 ]
-  %28 = getelementptr inbounds i8, ptr %3, i64 24
-  %29 = load ptr, ptr %28, align 8
-  %30 = tail call i32 @g_hash_table_insert(ptr noundef %29, ptr noundef nonnull @.str.124, ptr noundef %.0) #4
+20:                                               ; preds = %4, %18
+  %.str.125.sink = phi ptr [ %19, %18 ], [ @.str.125, %4 ]
+  %21 = load i32, ptr %7, align 8
+  %22 = load i32, ptr %9, align 4
+  %23 = tail call ptr @xmpp_ep_init_attr_t(ptr noundef %17, ptr noundef %.str.125.sink, i32 noundef %21, i32 noundef %22) #4
+  %24 = getelementptr inbounds i8, ptr %3, i64 24
+  %25 = load ptr, ptr %24, align 8
+  %26 = tail call i32 @g_hash_table_insert(ptr noundef %25, ptr noundef nonnull @.str.124, ptr noundef %23) #4
   call void @xmpp_display_attrs(ptr noundef %13, ptr noundef nonnull %3, ptr noundef nonnull %2, ptr noundef %1, ptr noundef nonnull %5, i32 noundef 2) #4
   call void @xmpp_unknown(ptr noundef %13, ptr noundef %1, ptr noundef nonnull %2, ptr noundef nonnull %3) #4
   ret void

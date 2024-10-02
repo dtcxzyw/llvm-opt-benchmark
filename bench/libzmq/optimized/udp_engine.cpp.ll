@@ -2142,8 +2142,6 @@ if.then49:                                        ; preds = %do.end44
 
 if.end57:                                         ; preds = %if.then28
   %_out_buffer = getelementptr inbounds i8, ptr %this, i64 1492
-  %call58 = call noundef ptr @_ZN3zmq5msg_t4dataEv(ptr noundef nonnull align 8 dereferenceable(64) %body_msg)
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %_out_buffer, ptr align 1 %call58, i64 %call27, i1 false)
   br label %if.end69
 
 if.else:                                          ; preds = %do.end25
@@ -2156,12 +2154,13 @@ if.else:                                          ; preds = %do.end25
   %call63 = call noundef ptr @_ZN3zmq5msg_t4dataEv(ptr noundef nonnull align 8 dereferenceable(64) %group_msg)
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr, ptr align 1 %call63, i64 %call26, i1 false)
   %add.ptr67 = getelementptr inbounds i8, ptr %add.ptr, i64 %call26
-  %call68 = call noundef ptr @_ZN3zmq5msg_t4dataEv(ptr noundef nonnull align 8 dereferenceable(64) %body_msg)
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr67, ptr align 1 %call68, i64 %call27, i1 false)
   br label %if.end69
 
 if.end69:                                         ; preds = %if.else, %if.end57
-  %size.0 = phi i64 [ %call27, %if.end57 ], [ %add59, %if.else ]
+  %add.ptr67.sink = phi ptr [ %add.ptr67, %if.else ], [ %_out_buffer, %if.end57 ]
+  %size.0 = phi i64 [ %add59, %if.else ], [ %call27, %if.end57 ]
+  %call68 = call noundef ptr @_ZN3zmq5msg_t4dataEv(ptr noundef nonnull align 8 dereferenceable(64) %body_msg)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr67.sink, ptr align 1 %call68, i64 %call27, i1 false)
   %call70 = call noundef i32 @_ZN3zmq5msg_t5closeEv(ptr noundef nonnull align 8 dereferenceable(64) %group_msg)
   %cmp72.not = icmp eq i32 %call70, 0
   br i1 %cmp72.not, label %do.end95.critedge, label %if.then75

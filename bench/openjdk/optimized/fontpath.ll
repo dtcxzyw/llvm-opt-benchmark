@@ -1135,7 +1135,7 @@ define void @Java_sun_font_FontConfigManager_getFontConfig(ptr noundef %0, ptr n
   %12 = icmp eq ptr %3, null
   %13 = icmp eq ptr %4, null
   %or.cond37 = or i1 %12, %13
-  br i1 %or.cond37, label %422, label %14
+  br i1 %or.cond37, label %419, label %14
 
 14:                                               ; preds = %6
   %15 = load ptr, ptr %0, align 8
@@ -1143,7 +1143,7 @@ define void @Java_sun_font_FontConfigManager_getFontConfig(ptr noundef %0, ptr n
   %17 = load ptr, ptr %16, align 8
   %18 = tail call ptr %17(ptr noundef nonnull %0, ptr noundef nonnull @.str.19) #13
   %19 = icmp eq ptr %18, null
-  br i1 %19, label %422, label %20
+  br i1 %19, label %419, label %20
 
 20:                                               ; preds = %14
   %21 = load ptr, ptr %0, align 8
@@ -1151,7 +1151,7 @@ define void @Java_sun_font_FontConfigManager_getFontConfig(ptr noundef %0, ptr n
   %23 = load ptr, ptr %22, align 8
   %24 = tail call ptr %23(ptr noundef nonnull %0, ptr noundef nonnull @.str.20) #13
   %25 = icmp eq ptr %24, null
-  br i1 %25, label %422, label %26
+  br i1 %25, label %419, label %26
 
 26:                                               ; preds = %20
   %27 = load ptr, ptr %0, align 8
@@ -1159,7 +1159,7 @@ define void @Java_sun_font_FontConfigManager_getFontConfig(ptr noundef %0, ptr n
   %29 = load ptr, ptr %28, align 8
   %30 = tail call ptr %29(ptr noundef nonnull %0, ptr noundef nonnull @.str.21) #13
   %31 = icmp eq ptr %30, null
-  br i1 %31, label %422, label %32
+  br i1 %31, label %419, label %32
 
 32:                                               ; preds = %26
   %33 = load ptr, ptr %0, align 8
@@ -1167,7 +1167,7 @@ define void @Java_sun_font_FontConfigManager_getFontConfig(ptr noundef %0, ptr n
   %35 = load ptr, ptr %34, align 8
   %36 = tail call ptr %35(ptr noundef nonnull %0, ptr noundef nonnull %18, ptr noundef nonnull @.str.22, ptr noundef nonnull @.str.23) #13
   %37 = icmp eq ptr %36, null
-  br i1 %37, label %422, label %38
+  br i1 %37, label %419, label %38
 
 38:                                               ; preds = %32
   %39 = load ptr, ptr %0, align 8
@@ -1175,7 +1175,7 @@ define void @Java_sun_font_FontConfigManager_getFontConfig(ptr noundef %0, ptr n
   %41 = load ptr, ptr %40, align 8
   %42 = tail call ptr %41(ptr noundef nonnull %0, ptr noundef nonnull %18, ptr noundef nonnull @.str.24, ptr noundef nonnull @.str.25) #13
   %43 = icmp eq ptr %42, null
-  br i1 %43, label %422, label %44
+  br i1 %43, label %419, label %44
 
 44:                                               ; preds = %38
   %45 = load ptr, ptr %0, align 8
@@ -1183,7 +1183,7 @@ define void @Java_sun_font_FontConfigManager_getFontConfig(ptr noundef %0, ptr n
   %47 = load ptr, ptr %46, align 8
   %48 = tail call ptr %47(ptr noundef nonnull %0, ptr noundef nonnull %24, ptr noundef nonnull @.str.26, ptr noundef nonnull @.str.27) #13
   %49 = icmp eq ptr %48, null
-  br i1 %49, label %422, label %50
+  br i1 %49, label %419, label %50
 
 50:                                               ; preds = %44
   %51 = load ptr, ptr %0, align 8
@@ -1191,7 +1191,7 @@ define void @Java_sun_font_FontConfigManager_getFontConfig(ptr noundef %0, ptr n
   %53 = load ptr, ptr %52, align 8
   %54 = tail call ptr %53(ptr noundef nonnull %0, ptr noundef nonnull %24, ptr noundef nonnull @.str.28, ptr noundef nonnull @.str.29) #13
   %55 = icmp eq ptr %54, null
-  br i1 %55, label %422, label %56
+  br i1 %55, label %419, label %56
 
 56:                                               ; preds = %50
   %57 = load ptr, ptr %0, align 8
@@ -1199,7 +1199,7 @@ define void @Java_sun_font_FontConfigManager_getFontConfig(ptr noundef %0, ptr n
   %59 = load ptr, ptr %58, align 8
   %60 = tail call ptr %59(ptr noundef nonnull %0, ptr noundef nonnull %24, ptr noundef nonnull @.str.30, ptr noundef nonnull @.str.31) #13
   %61 = icmp eq ptr %60, null
-  br i1 %61, label %422, label %62
+  br i1 %61, label %419, label %62
 
 62:                                               ; preds = %56
   %63 = load ptr, ptr %0, align 8
@@ -1207,7 +1207,7 @@ define void @Java_sun_font_FontConfigManager_getFontConfig(ptr noundef %0, ptr n
   %65 = load ptr, ptr %64, align 8
   %66 = tail call ptr %65(ptr noundef nonnull %0, ptr noundef nonnull %30, ptr noundef nonnull @.str.32, ptr noundef nonnull @.str.33) #13
   %67 = icmp eq ptr %66, null
-  br i1 %67, label %422, label %68
+  br i1 %67, label %419, label %68
 
 68:                                               ; preds = %62
   %69 = load ptr, ptr %0, align 8
@@ -1215,7 +1215,7 @@ define void @Java_sun_font_FontConfigManager_getFontConfig(ptr noundef %0, ptr n
   %71 = load ptr, ptr %70, align 8
   %72 = tail call ptr %71(ptr noundef nonnull %0, ptr noundef nonnull %30, ptr noundef nonnull @.str.34, ptr noundef nonnull @.str.27) #13
   %73 = icmp eq ptr %72, null
-  br i1 %73, label %422, label %74
+  br i1 %73, label %419, label %74
 
 74:                                               ; preds = %68
   %75 = load ptr, ptr %0, align 8
@@ -1223,7 +1223,7 @@ define void @Java_sun_font_FontConfigManager_getFontConfig(ptr noundef %0, ptr n
   %77 = load ptr, ptr %76, align 8
   %78 = tail call ptr %77(ptr noundef nonnull %0, ptr noundef nonnull %30, ptr noundef nonnull @.str.35, ptr noundef nonnull @.str.27) #13
   %79 = icmp eq ptr %78, null
-  br i1 %79, label %422, label %80
+  br i1 %79, label %419, label %80
 
 80:                                               ; preds = %74
   %81 = load ptr, ptr %0, align 8
@@ -1231,7 +1231,7 @@ define void @Java_sun_font_FontConfigManager_getFontConfig(ptr noundef %0, ptr n
   %83 = load ptr, ptr %82, align 8
   %84 = tail call ptr %83(ptr noundef nonnull %0, ptr noundef nonnull %30, ptr noundef nonnull @.str.36, ptr noundef nonnull @.str.27) #13
   %85 = icmp eq ptr %84, null
-  br i1 %85, label %422, label %86
+  br i1 %85, label %419, label %86
 
 86:                                               ; preds = %80
   %87 = load ptr, ptr %0, align 8
@@ -1239,12 +1239,12 @@ define void @Java_sun_font_FontConfigManager_getFontConfig(ptr noundef %0, ptr n
   %89 = load ptr, ptr %88, align 8
   %90 = tail call ptr %89(ptr noundef nonnull %0, ptr noundef nonnull %30, ptr noundef nonnull @.str.37, ptr noundef nonnull @.str.27) #13
   %91 = icmp eq ptr %90, null
-  br i1 %91, label %422, label %92
+  br i1 %91, label %419, label %92
 
 92:                                               ; preds = %86
   %93 = tail call fastcc ptr @openFontConfig()
   %94 = icmp eq ptr %93, null
-  br i1 %94, label %422, label %95
+  br i1 %94, label %419, label %95
 
 95:                                               ; preds = %92
   %96 = tail call ptr @dlsym(ptr noundef nonnull %93, ptr noundef nonnull @.str.6) #13
@@ -1290,7 +1290,7 @@ define void @Java_sun_font_FontConfigManager_getFontConfig(ptr noundef %0, ptr n
 
 123:                                              ; preds = %95
   %124 = tail call i32 @dlclose(ptr noundef nonnull %93) #13
-  br label %422
+  br label %419
 
 125:                                              ; preds = %95
   %126 = load ptr, ptr %0, align 8
@@ -1341,7 +1341,7 @@ define void @Java_sun_font_FontConfigManager_getFontConfig(ptr noundef %0, ptr n
 
 154:                                              ; preds = %148
   %155 = tail call ptr %132(ptr noundef nonnull %145) #13
-  br label %422
+  br label %419
 
 156:                                              ; preds = %148
   %157 = load ptr, ptr %0, align 8
@@ -1374,7 +1374,7 @@ define void @Java_sun_font_FontConfigManager_getFontConfig(ptr noundef %0, ptr n
   %174 = load ptr, ptr %173, align 8
   tail call void %174(ptr noundef nonnull %0) #13
   tail call void @JNU_ThrowOutOfMemoryError(ptr noundef nonnull %0, ptr noundef nonnull @.str.48) #13
-  br label %422
+  br label %419
 
 175:                                              ; preds = %165
   %176 = getelementptr inbounds i8, ptr %171, i64 1368
@@ -1388,8 +1388,8 @@ define void @Java_sun_font_FontConfigManager_getFontConfig(ptr noundef %0, ptr n
   %180 = icmp eq i8 %5, 0
   br label %181
 
-181:                                              ; preds = %.lr.ph575, %416
-  %.0573 = phi i32 [ 0, %.lr.ph575 ], [ %417, %416 ]
+181:                                              ; preds = %.lr.ph575, %413
+  %.0573 = phi i32 [ 0, %.lr.ph575 ], [ %414, %413 ]
   %182 = load ptr, ptr %0, align 8
   %183 = getelementptr inbounds i8, ptr %182, i64 1384
   %184 = load ptr, ptr %183, align 8
@@ -1414,7 +1414,7 @@ define void @Java_sun_font_FontConfigManager_getFontConfig(ptr noundef %0, ptr n
   %200 = getelementptr inbounds i8, ptr %199, i64 184
   %201 = load ptr, ptr %200, align 8
   call void %201(ptr noundef nonnull %0, ptr noundef %189) #13
-  br label %416
+  br label %413
 
 202:                                              ; preds = %181
   %203 = call ptr %96(ptr noundef nonnull %193) #13
@@ -1435,7 +1435,7 @@ define void @Java_sun_font_FontConfigManager_getFontConfig(ptr noundef %0, ptr n
   %214 = getelementptr inbounds i8, ptr %213, i64 1360
   %215 = load ptr, ptr %214, align 8
   call void %215(ptr noundef nonnull %0, ptr noundef %2, ptr noundef nonnull %169) #13
-  br label %422
+  br label %419
 
 216:                                              ; preds = %202
   %217 = call i32 %97(ptr noundef nonnull %203, ptr noundef nonnull @.str.14, ptr noundef nonnull %169) #13
@@ -1452,7 +1452,7 @@ define void @Java_sun_font_FontConfigManager_getFontConfig(ptr noundef %0, ptr n
   %224 = getelementptr inbounds i8, ptr %223, i64 1360
   %225 = load ptr, ptr %224, align 8
   call void %225(ptr noundef nonnull %0, ptr noundef %2, ptr noundef nonnull %169) #13
-  br label %422
+  br label %419
 
 226:                                              ; preds = %216
   %227 = load i32, ptr %219, align 8
@@ -1506,7 +1506,7 @@ define void @Java_sun_font_FontConfigManager_getFontConfig(ptr noundef %0, ptr n
   %248 = getelementptr inbounds i8, ptr %247, i64 1360
   %249 = load ptr, ptr %248, align 8
   call void %249(ptr noundef nonnull %0, ptr noundef %2, ptr noundef nonnull %169) #13
-  br label %422
+  br label %419
 
 250:                                              ; preds = %226
   br i1 %.not498, label %254, label %251
@@ -1586,7 +1586,7 @@ define void @Java_sun_font_FontConfigManager_getFontConfig(ptr noundef %0, ptr n
   %277 = getelementptr inbounds i8, ptr %276, i64 1360
   %278 = load ptr, ptr %277, align 8
   call void %278(ptr noundef nonnull %0, ptr noundef %2, ptr noundef nonnull %169) #13
-  br label %422
+  br label %419
 
 279:                                              ; preds = %269
   %280 = icmp eq i64 %indvars.iv, 10
@@ -1669,7 +1669,7 @@ define void @Java_sun_font_FontConfigManager_getFontConfig(ptr noundef %0, ptr n
   %314 = getelementptr inbounds i8, ptr %313, i64 1360
   %315 = load ptr, ptr %314, align 8
   call void %315(ptr noundef nonnull %0, ptr noundef %2, ptr noundef nonnull %169) #13
-  br label %422
+  br label %419
 
 316:                                              ; preds = %305
   %317 = load ptr, ptr %0, align 8
@@ -1686,13 +1686,13 @@ define void @Java_sun_font_FontConfigManager_getFontConfig(ptr noundef %0, ptr n
   %wide.trip.count616 = zext nneg i32 %227 to i64
   br label %.lr.ph566
 
-.lr.ph566:                                        ; preds = %.lr.ph566.preheader, %407
-  %indvars.iv613 = phi i64 [ 0, %.lr.ph566.preheader ], [ %indvars.iv.next614, %407 ]
-  %.0440564 = phi i32 [ 0, %.lr.ph566.preheader ], [ %.1441, %407 ]
+.lr.ph566:                                        ; preds = %.lr.ph566.preheader, %405
+  %indvars.iv613 = phi i64 [ 0, %.lr.ph566.preheader ], [ %indvars.iv.next614, %405 ]
+  %.0440564 = phi i32 [ 0, %.lr.ph566.preheader ], [ %.1441, %405 ]
   %321 = getelementptr inbounds ptr, ptr %229, i64 %indvars.iv613
   %322 = load ptr, ptr %321, align 8
   %.not507 = icmp eq ptr %322, null
-  br i1 %.not507, label %407, label %323
+  br i1 %.not507, label %405, label %323
 
 323:                                              ; preds = %.lr.ph566
   %324 = load ptr, ptr %0, align 8
@@ -1806,11 +1806,11 @@ define void @Java_sun_font_FontConfigManager_getFontConfig(ptr noundef %0, ptr n
   br label %396
 
 396:                                              ; preds = %392, %390
-  %397 = load ptr, ptr %0, align 8
-  br i1 %180, label %.thread, label %398
+  br i1 %180, label %.sink.split, label %397
 
-398:                                              ; preds = %396
-  %399 = getelementptr inbounds i8, ptr %397, i64 1392
+397:                                              ; preds = %396
+  %398 = load ptr, ptr %0, align 8
+  %399 = getelementptr inbounds i8, ptr %398, i64 1392
   %400 = load ptr, ptr %399, align 8
   %401 = add nsw i32 %.0440564, 1
   call void %400(ptr noundef nonnull %0, ptr noundef %.0438, i32 noundef %.0440564, ptr noundef nonnull %327) #13
@@ -1818,57 +1818,52 @@ define void @Java_sun_font_FontConfigManager_getFontConfig(ptr noundef %0, ptr n
   %403 = getelementptr inbounds i8, ptr %402, i64 184
   %404 = load ptr, ptr %403, align 8
   call void %404(ptr noundef nonnull %0, ptr noundef nonnull %327) #13
-  br label %407
+  br label %405
 
-.thread:                                          ; preds = %396
-  %405 = getelementptr inbounds i8, ptr %397, i64 184
-  %406 = load ptr, ptr %405, align 8
-  call void %406(ptr noundef nonnull %0, ptr noundef nonnull %327) #13
-  br label %412
-
-407:                                              ; preds = %.lr.ph566, %398
-  %.1441 = phi i32 [ %401, %398 ], [ %.0440564, %.lr.ph566 ]
+405:                                              ; preds = %.lr.ph566, %397
+  %.1441 = phi i32 [ %401, %397 ], [ %.0440564, %.lr.ph566 ]
   %indvars.iv.next614 = add nuw nsw i64 %indvars.iv613, 1
   %exitcond617.not = icmp eq i64 %indvars.iv.next614, %wide.trip.count616
   br i1 %exitcond617.not, label %._crit_edge567, label %.lr.ph566, !llvm.loop !24
 
-._crit_edge567:                                   ; preds = %407, %323, %329, %345, %361, %377, %320
-  br i1 %180, label %412, label %408
+._crit_edge567:                                   ; preds = %405, %323, %329, %345, %361, %377, %320
+  br i1 %180, label %409, label %.sink.split
 
-408:                                              ; preds = %._crit_edge567
-  %409 = load ptr, ptr %0, align 8
-  %410 = getelementptr inbounds i8, ptr %409, i64 184
-  %411 = load ptr, ptr %410, align 8
-  call void %411(ptr noundef nonnull %0, ptr noundef %.0438) #13
-  br label %412
+.sink.split:                                      ; preds = %396, %._crit_edge567
+  %.lcssa.sink = phi ptr [ %.0438, %._crit_edge567 ], [ %327, %396 ]
+  %406 = load ptr, ptr %0, align 8
+  %407 = getelementptr inbounds i8, ptr %406, i64 184
+  %408 = load ptr, ptr %407, align 8
+  call void %408(ptr noundef nonnull %0, ptr noundef %.lcssa.sink) #13
+  br label %409
 
-412:                                              ; preds = %.thread, %408, %._crit_edge567
-  %413 = load ptr, ptr %0, align 8
-  %414 = getelementptr inbounds i8, ptr %413, i64 184
-  %415 = load ptr, ptr %414, align 8
-  call void %415(ptr noundef nonnull %0, ptr noundef %185) #13
+409:                                              ; preds = %.sink.split, %._crit_edge567
+  %410 = load ptr, ptr %0, align 8
+  %411 = getelementptr inbounds i8, ptr %410, i64 184
+  %412 = load ptr, ptr %411, align 8
+  call void %412(ptr noundef nonnull %0, ptr noundef %185) #13
   call void %105(ptr noundef nonnull %219) #13
   call void %102(ptr noundef nonnull %203) #13
   call void @free(ptr noundef %229) #13
   call void @free(ptr noundef %230) #13
   call void @free(ptr noundef %231) #13
   call void @free(ptr noundef %232) #13
-  br label %416
+  br label %413
 
-416:                                              ; preds = %412, %195
-  %417 = add nuw nsw i32 %.0573, 1
-  %exitcond618.not = icmp eq i32 %417, %178
+413:                                              ; preds = %409, %195
+  %414 = add nuw nsw i32 %.0573, 1
+  %exitcond618.not = icmp eq i32 %414, %178
   br i1 %exitcond618.not, label %._crit_edge576, label %181, !llvm.loop !25
 
-._crit_edge576:                                   ; preds = %416, %175
-  %418 = load ptr, ptr %0, align 8
-  %419 = getelementptr inbounds i8, ptr %418, i64 1360
-  %420 = load ptr, ptr %419, align 8
-  call void %420(ptr noundef nonnull %0, ptr noundef %2, ptr noundef nonnull %169) #13
-  %421 = call i32 @dlclose(ptr noundef nonnull %93) #13
-  br label %422
+._crit_edge576:                                   ; preds = %413, %175
+  %415 = load ptr, ptr %0, align 8
+  %416 = getelementptr inbounds i8, ptr %415, i64 1360
+  %417 = load ptr, ptr %416, align 8
+  call void %417(ptr noundef nonnull %0, ptr noundef %2, ptr noundef nonnull %169) #13
+  %418 = call i32 @dlclose(ptr noundef nonnull %93) #13
+  br label %419
 
-422:                                              ; preds = %311, %274, %245, %221, %211, %92, %86, %80, %74, %68, %62, %56, %50, %44, %38, %32, %26, %20, %14, %6, %._crit_edge576, %172, %154, %123
+419:                                              ; preds = %311, %274, %245, %221, %211, %92, %86, %80, %74, %68, %62, %56, %50, %44, %38, %32, %26, %20, %14, %6, %._crit_edge576, %172, %154, %123
   ret void
 }
 

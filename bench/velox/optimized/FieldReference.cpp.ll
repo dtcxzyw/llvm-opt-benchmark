@@ -3864,50 +3864,42 @@ if.then.i.i.i.i75:                                ; preds = %if.then.i2.i
   %62 = load ptr, ptr %pool_.i.i.i.i, align 8
   %tobool.not.i.i.i.i78 = icmp eq ptr %62, null
   %vtable5.i.i.i.i = load ptr, ptr %59, align 8
-  br i1 %tobool.not.i.i.i.i78, label %delete.notnull.i.i.i.i, label %if.then2.i.i.i.i
-
-if.then2.i.i.i.i:                                 ; preds = %.noexc.i.i
-  %vfn4.i.i.i.i = getelementptr inbounds i8, ptr %vtable5.i.i.i.i, i64 48
+  %..i.i.i.i = select i1 %tobool.not.i.i.i.i78, i64 8, i64 48
+  %vfn4.i.i.i.i = getelementptr inbounds i8, ptr %vtable5.i.i.i.i, i64 %..i.i.i.i
   %63 = load ptr, ptr %vfn4.i.i.i.i, align 8
   invoke void %63(ptr noundef nonnull align 8 dereferenceable(64) %59)
           to label %invoke.cont35thread-pre-split unwind label %terminate.lpad.i.i
 
-delete.notnull.i.i.i.i:                           ; preds = %.noexc.i.i
-  %vfn6.i.i.i.i = getelementptr inbounds i8, ptr %vtable5.i.i.i.i, i64 8
-  %64 = load ptr, ptr %vfn6.i.i.i.i, align 8
-  call void %64(ptr noundef nonnull align 8 dereferenceable(64) %59) #17
-  br label %invoke.cont35thread-pre-split
-
-terminate.lpad.i.i:                               ; preds = %if.then2.i.i.i.i, %if.then.i.i.i.i75
-  %65 = landingpad { ptr, i32 }
+terminate.lpad.i.i:                               ; preds = %.noexc.i.i, %if.then.i.i.i.i75
+  %64 = landingpad { ptr, i32 }
           catch ptr null
-  %66 = extractvalue { ptr, i32 } %65, 0
-  call void @__clang_call_terminate(ptr %66) #21
+  %65 = extractvalue { ptr, i32 } %64, 0
+  call void @__clang_call_terminate(ptr %65) #21
   unreachable
 
-invoke.cont35thread-pre-split:                    ; preds = %if.then.i2.i, %if.then2.i.i.i.i, %delete.notnull.i.i.i.i
+invoke.cont35thread-pre-split:                    ; preds = %if.then.i2.i, %.noexc.i.i
   %.pr = load ptr, ptr %nulls_34, align 8
   br label %invoke.cont35
 
 invoke.cont35:                                    ; preds = %invoke.cont35thread-pre-split, %_ZN5boost13intrusive_ptrIN8facebook5velox6BufferEEC2ERKS4_.exit.i
-  %67 = phi ptr [ %.pr, %invoke.cont35thread-pre-split ], [ %57, %_ZN5boost13intrusive_ptrIN8facebook5velox6BufferEEC2ERKS4_.exit.i ]
-  %cmp.i79.not = icmp eq ptr %67, null
+  %66 = phi ptr [ %.pr, %invoke.cont35thread-pre-split ], [ %57, %_ZN5boost13intrusive_ptrIN8facebook5velox6BufferEEC2ERKS4_.exit.i ]
+  %cmp.i79.not = icmp eq ptr %66, null
   br i1 %cmp.i79.not, label %if.end44, label %if.then39
 
 if.then39:                                        ; preds = %invoke.cont35
-  %data_.i = getelementptr inbounds i8, ptr %67, i64 16
-  %68 = load ptr, ptr %data_.i, align 8
+  %data_.i = getelementptr inbounds i8, ptr %66, i64 16
+  %67 = load ptr, ptr %data_.i, align 8
   %rawNulls_ = getelementptr inbounds i8, ptr %this, i64 40
-  store ptr %68, ptr %rawNulls_, align 8
+  store ptr %67, ptr %rawNulls_, align 8
   br label %if.end44
 
 if.end44:                                         ; preds = %if.then39, %invoke.cont35
-  %69 = load ptr, ptr %allRows, align 8
-  %tobool.not.i.i.i.i80 = icmp eq ptr %69, null
+  %68 = load ptr, ptr %allRows, align 8
+  %tobool.not.i.i.i.i80 = icmp eq ptr %68, null
   br i1 %tobool.not.i.i.i.i80, label %if.end51, label %if.then.i.i.i.i81
 
 if.then.i.i.i.i81:                                ; preds = %if.end44
-  call void @_ZdlPv(ptr noundef nonnull %69) #19
+  call void @_ZdlPv(ptr noundef nonnull %68) #19
   br label %if.end51
 
 if.else45:                                        ; preds = %entry

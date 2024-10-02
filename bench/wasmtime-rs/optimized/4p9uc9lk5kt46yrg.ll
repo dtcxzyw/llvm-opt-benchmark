@@ -5113,6 +5113,7 @@ define void @"_ZN87_$LT$wasmtime_wasi..preview0..types..Iovec$u20$as$u20$wiggle.
 define void @"_ZN87_$LT$wasmtime_wasi..preview0..types..Iovec$u20$as$u20$wiggle..guest_type..GuestType$GT$5write17h8f9683e5ff4bba3aE"(ptr noalias nocapture noundef writeonly sret({ i32, [15 x i32] }) align 8 dereferenceable(64) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %1, ptr noalias nocapture noundef readonly align 8 dereferenceable(32) %2) unnamed_addr #0 {
   %4 = alloca { i32, [15 x i32] }, align 8
   %5 = alloca { i32, [15 x i32] }, align 8
+  %.sroa.346 = alloca [8 x i32], align 8
   %.sroa.15170 = alloca [8 x i32], align 8
   %.sroa.15 = alloca [8 x i32], align 8
   %6 = load ptr, ptr %1, align 8, !nonnull !5, !align !9, !noundef !5
@@ -5258,7 +5259,7 @@ define void @"_ZN87_$LT$wasmtime_wasi..preview0..types..Iovec$u20$as$u20$wiggle.
   store ptr %6, ptr %.sroa.3108.0..sroa_idx, align 8
   %.sroa.4109.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
   store ptr %8, ptr %.sroa.4109.0..sroa_idx, align 8
-  br label %44
+  br label %45
 
 42:                                               ; preds = %36
   store atomic i32 %30, ptr %.sroa.020.0.copyload.i145 monotonic, align 4, !noalias !89
@@ -5283,12 +5284,16 @@ define void @"_ZN87_$LT$wasmtime_wasi..preview0..types..Iovec$u20$as$u20$wiggle.
   store i32 %.sroa.13168.0.ph, ptr %.sroa.2118.sroa.4.0..sroa.2118.0..sroa_idx.sroa_idx, align 8
   %.sroa.2118.sroa.5.0..sroa.2118.0..sroa_idx.sroa_idx = getelementptr inbounds i8, ptr %0, i64 28
   store i32 %.sroa.14169.0.ph, ptr %.sroa.2118.sroa.5.0..sroa.2118.0..sroa_idx.sroa_idx, align 4
-  %.sroa.2118.sroa.6.0..sroa.2118.0..sroa_idx.sroa_idx = getelementptr inbounds i8, ptr %0, i64 32
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.2118.sroa.6.0..sroa.2118.0..sroa_idx.sroa_idx, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.15170, i64 32, i1 false)
-  br label %44
+  br label %45
 
-44:                                               ; preds = %41, %43, %26, %42
+44:                                               ; preds = %26, %45, %42
   ret void
+
+45:                                               ; preds = %43, %41
+  %.sroa.15170.sink = phi ptr [ %.sroa.15170, %43 ], [ %.sroa.346, %41 ]
+  %.sroa.2118.sroa.6.0..sroa.2118.0..sroa_idx.sroa_idx = getelementptr inbounds i8, ptr %0, i64 32
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.2118.sroa.6.0..sroa.2118.0..sroa_idx.sroa_idx, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.15170.sink, i64 32, i1 false)
+  br label %44
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
@@ -5465,6 +5470,7 @@ define void @"_ZN88_$LT$wasmtime_wasi..preview0..types..Ciovec$u20$as$u20$wiggle
 define void @"_ZN88_$LT$wasmtime_wasi..preview0..types..Ciovec$u20$as$u20$wiggle..guest_type..GuestType$GT$5write17hfe89995f82ae0621E"(ptr noalias nocapture noundef writeonly sret({ i32, [15 x i32] }) align 8 dereferenceable(64) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %1, ptr noalias nocapture noundef readonly align 8 dereferenceable(32) %2) unnamed_addr #0 {
   %4 = alloca { i32, [15 x i32] }, align 8
   %5 = alloca { i32, [15 x i32] }, align 8
+  %.sroa.346 = alloca [8 x i32], align 8
   %.sroa.15170 = alloca [8 x i32], align 8
   %.sroa.15 = alloca [8 x i32], align 8
   %6 = load ptr, ptr %1, align 8, !nonnull !5, !align !9, !noundef !5
@@ -5610,7 +5616,7 @@ define void @"_ZN88_$LT$wasmtime_wasi..preview0..types..Ciovec$u20$as$u20$wiggle
   store ptr %6, ptr %.sroa.3108.0..sroa_idx, align 8
   %.sroa.4109.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
   store ptr %8, ptr %.sroa.4109.0..sroa_idx, align 8
-  br label %44
+  br label %45
 
 42:                                               ; preds = %36
   store atomic i32 %30, ptr %.sroa.020.0.copyload.i145 monotonic, align 4, !noalias !105
@@ -5635,12 +5641,16 @@ define void @"_ZN88_$LT$wasmtime_wasi..preview0..types..Ciovec$u20$as$u20$wiggle
   store i32 %.sroa.13168.0.ph, ptr %.sroa.2118.sroa.4.0..sroa.2118.0..sroa_idx.sroa_idx, align 8
   %.sroa.2118.sroa.5.0..sroa.2118.0..sroa_idx.sroa_idx = getelementptr inbounds i8, ptr %0, i64 28
   store i32 %.sroa.14169.0.ph, ptr %.sroa.2118.sroa.5.0..sroa.2118.0..sroa_idx.sroa_idx, align 4
-  %.sroa.2118.sroa.6.0..sroa.2118.0..sroa_idx.sroa_idx = getelementptr inbounds i8, ptr %0, i64 32
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.2118.sroa.6.0..sroa.2118.0..sroa_idx.sroa_idx, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.15170, i64 32, i1 false)
-  br label %44
+  br label %45
 
-44:                                               ; preds = %41, %43, %26, %42
+44:                                               ; preds = %26, %45, %42
   ret void
+
+45:                                               ; preds = %43, %41
+  %.sroa.15170.sink = phi ptr [ %.sroa.15170, %43 ], [ %.sroa.346, %41 ]
+  %.sroa.2118.sroa.6.0..sroa.2118.0..sroa_idx.sroa_idx = getelementptr inbounds i8, ptr %0, i64 32
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.2118.sroa.6.0..sroa.2118.0..sroa_idx.sroa_idx, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.15170.sink, i64 32, i1 false)
+  br label %44
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -7210,7 +7220,9 @@ define void @"_ZN88_$LT$wasmtime_wasi..preview0..types..Dirent$u20$as$u20$wiggle
   %.sroa.2231 = alloca [15 x i32], align 4
   %7 = alloca { { ptr, ptr }, i32, [1 x i32] }, align 8
   %8 = alloca { i32, [15 x i32] }, align 8
+  %.sroa.368 = alloca [8 x i32], align 8
   %.sroa.15354 = alloca [8 x i32], align 8
+  %.sroa.339 = alloca [8 x i32], align 8
   %.sroa.15330 = alloca [8 x i32], align 8
   %.sroa.15 = alloca [8 x i32], align 8
   %9 = load ptr, ptr %1, align 8, !nonnull !5, !align !9, !noundef !5
@@ -7355,7 +7367,7 @@ define void @"_ZN88_$LT$wasmtime_wasi..preview0..types..Dirent$u20$as$u20$wiggle
   store ptr %9, ptr %.sroa.3159.0..sroa_idx, align 8
   %.sroa.4160.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
   store ptr %11, ptr %.sroa.4160.0..sroa_idx, align 8
-  br label %80
+  br label %83
 
 46:                                               ; preds = %40
   store atomic i64 %34, ptr %.sroa.020.0.copyload.i262 monotonic, align 8, !noalias !177
@@ -7381,9 +7393,7 @@ define void @"_ZN88_$LT$wasmtime_wasi..preview0..types..Dirent$u20$as$u20$wiggle
   store i32 %.sroa.13328.0.ph, ptr %.sroa.2169.sroa.4.0..sroa.2169.0..sroa_idx.sroa_idx, align 8
   %.sroa.2169.sroa.5.0..sroa.2169.0..sroa_idx.sroa_idx = getelementptr inbounds i8, ptr %0, i64 28
   store i32 %.sroa.14329.0.ph, ptr %.sroa.2169.sroa.5.0..sroa.2169.0..sroa_idx.sroa_idx, align 4
-  %.sroa.2169.sroa.6.0..sroa.2169.0..sroa_idx.sroa_idx = getelementptr inbounds i8, ptr %0, i64 32
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.2169.sroa.6.0..sroa.2169.0..sroa_idx.sroa_idx, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.15330, i64 32, i1 false)
-  br label %80
+  br label %83
 
 50:                                               ; preds = %46
   %51 = extractvalue { i32, i1 } %47, 0
@@ -7443,7 +7453,7 @@ define void @"_ZN88_$LT$wasmtime_wasi..preview0..types..Dirent$u20$as$u20$wiggle
   store ptr %9, ptr %.sroa.3190.0..sroa_idx, align 8
   %.sroa.4191.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
   store ptr %11, ptr %.sroa.4191.0..sroa_idx, align 8
-  br label %80
+  br label %82
 
 65:                                               ; preds = %59
   store atomic i32 %53, ptr %.sroa.020.0.copyload.i296 monotonic, align 4, !noalias !181
@@ -7471,9 +7481,7 @@ define void @"_ZN88_$LT$wasmtime_wasi..preview0..types..Dirent$u20$as$u20$wiggle
   store i32 %.sroa.13352.0.ph, ptr %.sroa.2200.sroa.4.0..sroa.2200.0..sroa_idx.sroa_idx, align 8
   %.sroa.2200.sroa.5.0..sroa.2200.0..sroa_idx.sroa_idx = getelementptr inbounds i8, ptr %0, i64 28
   store i32 %.sroa.14353.0.ph, ptr %.sroa.2200.sroa.5.0..sroa.2200.0..sroa_idx.sroa_idx, align 4
-  %.sroa.2200.sroa.6.0..sroa.2200.0..sroa_idx.sroa_idx = getelementptr inbounds i8, ptr %0, i64 32
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.2200.sroa.6.0..sroa.2200.0..sroa_idx.sroa_idx, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.15354, i64 32, i1 false)
-  br label %80
+  br label %82
 
 69:                                               ; preds = %65
   %70 = extractvalue { i32, i1 } %66, 0
@@ -7513,11 +7521,23 @@ define void @"_ZN88_$LT$wasmtime_wasi..preview0..types..Dirent$u20$as$u20$wiggle
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(60) %.sroa.2231.0..sroa_idx, ptr noundef nonnull align 4 dereferenceable(60) %.sroa.2231, i64 60, i1 false)
   br label %81
 
-80:                                               ; preds = %45, %49, %64, %68, %30, %81, %78
+80:                                               ; preds = %30, %83, %82, %81, %78
   ret void
 
 81:                                               ; preds = %79, %77
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7)
+  br label %80
+
+82:                                               ; preds = %68, %64
+  %.sroa.15354.sink = phi ptr [ %.sroa.15354, %68 ], [ %.sroa.368, %64 ]
+  %.sroa.2200.sroa.6.0..sroa.2200.0..sroa_idx.sroa_idx = getelementptr inbounds i8, ptr %0, i64 32
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.2200.sroa.6.0..sroa.2200.0..sroa_idx.sroa_idx, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.15354.sink, i64 32, i1 false)
+  br label %80
+
+83:                                               ; preds = %49, %45
+  %.sroa.15330.sink = phi ptr [ %.sroa.15330, %49 ], [ %.sroa.339, %45 ]
+  %.sroa.2169.sroa.6.0..sroa.2169.0..sroa_idx.sroa_idx = getelementptr inbounds i8, ptr %0, i64 32
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.2169.sroa.6.0..sroa.2169.0..sroa_idx.sroa_idx, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.15330.sink, i64 32, i1 false)
   br label %80
 }
 
@@ -8657,6 +8677,7 @@ define void @"_ZN88_$LT$wasmtime_wasi..preview0..types..Fdstat$u20$as$u20$wiggle
   %.sroa.2138 = alloca [15 x i32], align 4
   %6 = alloca { { ptr, ptr }, i32, [1 x i32] }, align 8
   %7 = alloca { i32, [15 x i32] }, align 8
+  %.sroa.368 = alloca [8 x i32], align 8
   %.sroa.15314 = alloca [8 x i32], align 8
   %.sroa.15 = alloca [8 x i32], align 8
   %8 = alloca { { ptr, ptr }, i32, [1 x i32] }, align 8
@@ -8844,7 +8865,7 @@ define void @"_ZN88_$LT$wasmtime_wasi..preview0..types..Fdstat$u20$as$u20$wiggle
   store ptr %10, ptr %.sroa.3190.0..sroa_idx, align 8
   %.sroa.4191.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
   store ptr %12, ptr %.sroa.4191.0..sroa_idx, align 8
-  br label %75
+  br label %77
 
 60:                                               ; preds = %54
   store atomic i64 %48, ptr %.sroa.020.0.copyload.i.i267 monotonic, align 8, !noalias !233
@@ -8872,9 +8893,7 @@ define void @"_ZN88_$LT$wasmtime_wasi..preview0..types..Fdstat$u20$as$u20$wiggle
   store i32 %.sroa.13312.0.ph, ptr %.sroa.2200.sroa.4.0..sroa.2200.0..sroa_idx.sroa_idx, align 8
   %.sroa.2200.sroa.5.0..sroa.2200.0..sroa_idx.sroa_idx = getelementptr inbounds i8, ptr %0, i64 28
   store i32 %.sroa.14313.0.ph, ptr %.sroa.2200.sroa.5.0..sroa.2200.0..sroa_idx.sroa_idx, align 4
-  %.sroa.2200.sroa.6.0..sroa.2200.0..sroa_idx.sroa_idx = getelementptr inbounds i8, ptr %0, i64 32
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.2200.sroa.6.0..sroa.2200.0..sroa_idx.sroa_idx, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.15314, i64 32, i1 false)
-  br label %75
+  br label %77
 
 64:                                               ; preds = %60
   %65 = extractvalue { i32, i1 } %61, 0
@@ -8914,11 +8933,17 @@ define void @"_ZN88_$LT$wasmtime_wasi..preview0..types..Fdstat$u20$as$u20$wiggle
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(60) %.sroa.2231.0..sroa_idx, ptr noundef nonnull align 4 dereferenceable(60) %.sroa.2231, i64 60, i1 false)
   br label %76
 
-75:                                               ; preds = %41, %45, %59, %63, %24, %76, %73
+75:                                               ; preds = %41, %45, %24, %77, %76, %73
   ret void
 
 76:                                               ; preds = %74, %72
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6)
+  br label %75
+
+77:                                               ; preds = %63, %59
+  %.sroa.15314.sink = phi ptr [ %.sroa.15314, %63 ], [ %.sroa.368, %59 ]
+  %.sroa.2200.sroa.6.0..sroa.2200.0..sroa_idx.sroa_idx = getelementptr inbounds i8, ptr %0, i64 32
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.2200.sroa.6.0..sroa.2200.0..sroa_idx.sroa_idx, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.15314.sink, i64 32, i1 false)
   br label %75
 }
 
@@ -10239,6 +10264,7 @@ define void @"_ZN90_$LT$wasmtime_wasi..preview0..types..Filestat$u20$as$u20$wigg
   %15 = alloca { i32, [15 x i32] }, align 8
   %16 = alloca { { ptr, ptr }, i32, [1 x i32] }, align 8
   %17 = alloca { i32, [15 x i32] }, align 8
+  %.sroa.339 = alloca [8 x i32], align 8
   %.sroa.15570 = alloca [8 x i32], align 8
   %.sroa.15 = alloca [8 x i32], align 8
   %18 = load ptr, ptr %1, align 8, !nonnull !5, !align !9, !noundef !5
@@ -10383,7 +10409,7 @@ define void @"_ZN90_$LT$wasmtime_wasi..preview0..types..Filestat$u20$as$u20$wigg
   store ptr %18, ptr %.sroa.3275.0..sroa_idx, align 8
   %.sroa.4276.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
   store ptr %20, ptr %.sroa.4276.0..sroa_idx, align 8
-  br label %135
+  br label %142
 
 55:                                               ; preds = %49
   store atomic i64 %43, ptr %.sroa.020.0.copyload.i510 monotonic, align 8, !noalias !291
@@ -10411,9 +10437,7 @@ define void @"_ZN90_$LT$wasmtime_wasi..preview0..types..Filestat$u20$as$u20$wigg
   store i32 %.sroa.13568.0.ph, ptr %.sroa.2285.sroa.4.0..sroa.2285.0..sroa_idx.sroa_idx, align 8
   %.sroa.2285.sroa.5.0..sroa.2285.0..sroa_idx.sroa_idx = getelementptr inbounds i8, ptr %0, i64 28
   store i32 %.sroa.14569.0.ph, ptr %.sroa.2285.sroa.5.0..sroa.2285.0..sroa_idx.sroa_idx, align 4
-  %.sroa.2285.sroa.6.0..sroa.2285.0..sroa_idx.sroa_idx = getelementptr inbounds i8, ptr %0, i64 32
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.2285.sroa.6.0..sroa.2285.0..sroa_idx.sroa_idx, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.15570, i64 32, i1 false)
-  br label %135
+  br label %142
 
 59:                                               ; preds = %55
   %60 = extractvalue { i32, i1 } %56, 0
@@ -10658,7 +10682,7 @@ define void @"_ZN90_$LT$wasmtime_wasi..preview0..types..Filestat$u20$as$u20$wigg
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(60) %.sroa.2471.0..sroa_idx, ptr noundef nonnull align 4 dereferenceable(60) %.sroa.2471, i64 60, i1 false)
   br label %136
 
-135:                                              ; preds = %54, %58, %39, %141, %140, %139, %138, %137, %136, %133
+135:                                              ; preds = %39, %142, %141, %140, %139, %138, %137, %136, %133
   ret void
 
 136:                                              ; preds = %134, %132
@@ -10683,6 +10707,12 @@ define void @"_ZN90_$LT$wasmtime_wasi..preview0..types..Filestat$u20$as$u20$wigg
 
 141:                                              ; preds = %71, %67
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %16)
+  br label %135
+
+142:                                              ; preds = %58, %54
+  %.sroa.15570.sink = phi ptr [ %.sroa.15570, %58 ], [ %.sroa.339, %54 ]
+  %.sroa.2285.sroa.6.0..sroa.2285.0..sroa_idx.sroa_idx = getelementptr inbounds i8, ptr %0, i64 32
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.2285.sroa.6.0..sroa.2285.0..sroa_idx.sroa_idx, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.15570.sink, i64 32, i1 false)
   br label %135
 }
 
@@ -11475,6 +11505,7 @@ define void @"_ZN98_$LT$wasmtime_wasi..preview0..types..EventFdReadwrite$u20$as$
 define void @"_ZN98_$LT$wasmtime_wasi..preview0..types..EventFdReadwrite$u20$as$u20$wiggle..guest_type..GuestType$GT$5write17h8e54236d9c098ad7E"(ptr noalias nocapture noundef writeonly sret({ i32, [15 x i32] }) align 8 dereferenceable(64) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %1, i64 noundef %2, i16 noundef %3) unnamed_addr #0 {
   %5 = alloca { i32, [15 x i32] }, align 8
   %6 = alloca { i32, [15 x i32] }, align 8
+  %.sroa.339 = alloca [8 x i32], align 8
   %.sroa.15139 = alloca [8 x i32], align 8
   %.sroa.15 = alloca [8 x i32], align 8
   %7 = load ptr, ptr %1, align 8, !nonnull !5, !align !9, !noundef !5
@@ -11616,7 +11647,7 @@ define void @"_ZN98_$LT$wasmtime_wasi..preview0..types..EventFdReadwrite$u20$as$
   store ptr %7, ptr %.sroa.3101.0..sroa_idx, align 8
   %.sroa.4102.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
   store ptr %9, ptr %.sroa.4102.0..sroa_idx, align 8
-  br label %43
+  br label %44
 
 41:                                               ; preds = %35
   store atomic i16 %3, ptr %.sroa.020.0.copyload.i.i monotonic, align 2, !noalias !332
@@ -11641,12 +11672,16 @@ define void @"_ZN98_$LT$wasmtime_wasi..preview0..types..EventFdReadwrite$u20$as$
   store i32 %.sroa.13137.0.ph, ptr %.sroa.2111.sroa.4.0..sroa.2111.0..sroa_idx.sroa_idx, align 8
   %.sroa.2111.sroa.5.0..sroa.2111.0..sroa_idx.sroa_idx = getelementptr inbounds i8, ptr %0, i64 28
   store i32 %.sroa.14138.0.ph, ptr %.sroa.2111.sroa.5.0..sroa.2111.0..sroa_idx.sroa_idx, align 4
-  %.sroa.2111.sroa.6.0..sroa.2111.0..sroa_idx.sroa_idx = getelementptr inbounds i8, ptr %0, i64 32
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.2111.sroa.6.0..sroa.2111.0..sroa_idx.sroa_idx, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.15139, i64 32, i1 false)
-  br label %43
+  br label %44
 
-43:                                               ; preds = %40, %42, %27, %41
+43:                                               ; preds = %27, %44, %41
   ret void
+
+44:                                               ; preds = %42, %40
+  %.sroa.15139.sink = phi ptr [ %.sroa.15139, %42 ], [ %.sroa.339, %40 ]
+  %.sroa.2111.sroa.6.0..sroa.2111.0..sroa_idx.sroa_idx = getelementptr inbounds i8, ptr %0, i64 32
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.2111.sroa.6.0..sroa.2111.0..sroa_idx.sroa_idx, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.15139.sink, i64 32, i1 false)
+  br label %43
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
@@ -11678,6 +11713,7 @@ define void @"_ZN87_$LT$wasmtime_wasi..preview0..types..Event$u20$as$u20$wiggle.
   %.sroa.3212 = alloca [59 x i8], align 1
   %5 = alloca { { ptr, ptr }, i32, [1 x i32] }, align 8
   %6 = alloca { i32, [15 x i32] }, align 8
+  %.sroa.383 = alloca [8 x i32], align 8
   %7 = alloca { { ptr, ptr }, i32, [1 x i32] }, align 8
   %8 = alloca { i32, [15 x i32] }, align 8
   %.sroa.19 = alloca [8 x i32], align 8
@@ -11787,7 +11823,7 @@ define void @"_ZN87_$LT$wasmtime_wasi..preview0..types..Event$u20$as$u20$wiggle.
   %.sroa.4200.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
   store ptr %11, ptr %.sroa.4200.0..sroa_idx, align 8
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %8)
-  br label %80
+  br label %81
 
 40:                                               ; preds = %31
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %8)
@@ -11805,7 +11841,7 @@ define void @"_ZN87_$LT$wasmtime_wasi..preview0..types..Event$u20$as$u20$wiggle.
   store i8 %38, ptr %.sroa.2211.0..sroa_idx, align 4
   %.sroa.3212.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 5
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(59) %.sroa.3212.0..sroa_idx, ptr noundef nonnull align 1 dereferenceable(59) %.sroa.3212, i64 59, i1 false)
-  br label %80
+  br label %81
 
 44:                                               ; preds = %40
   %45 = extractvalue { i32, i1 } %41, 0
@@ -11880,7 +11916,7 @@ define void @"_ZN87_$LT$wasmtime_wasi..preview0..types..Event$u20$as$u20$wiggle.
   store ptr %9, ptr %.sroa.3233.0..sroa_idx, align 8
   %.sroa.4234.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
   store ptr %11, ptr %.sroa.4234.0..sroa_idx, align 8
-  br label %78
+  br label %80
 
 60:                                               ; preds = %56
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %6)
@@ -11910,9 +11946,7 @@ define void @"_ZN87_$LT$wasmtime_wasi..preview0..types..Event$u20$as$u20$wiggle.
   store i32 %.sroa.21.0, ptr %.sroa.3246.sroa.4.0..sroa.3246.0..sroa_idx.sroa_idx, align 8
   %.sroa.3246.sroa.5.0..sroa.3246.0..sroa_idx.sroa_idx = getelementptr inbounds i8, ptr %0, i64 28
   store i32 %.sroa.22.0, ptr %.sroa.3246.sroa.5.0..sroa.3246.0..sroa_idx.sroa_idx, align 4
-  %.sroa.3246.sroa.6.0..sroa.3246.0..sroa_idx.sroa_idx = getelementptr inbounds i8, ptr %0, i64 32
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.3246.sroa.6.0..sroa.3246.0..sroa_idx.sroa_idx, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.17.i, i64 32, i1 false)
-  br label %78
+  br label %80
 
 64:                                               ; preds = %60
   %65 = extractvalue { i32, i1 } %61, 0
@@ -11976,14 +12010,20 @@ define void @"_ZN87_$LT$wasmtime_wasi..preview0..types..Event$u20$as$u20$wiggle.
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(46) %.sroa.5286.0..sroa_idx, ptr noundef nonnull align 2 dereferenceable(46) %.sroa.5286, i64 46, i1 false)
   br label %79
 
-78:                                               ; preds = %59, %63, %30, %80, %79, %71
+78:                                               ; preds = %30, %81, %80, %79, %71
   ret void
 
 79:                                               ; preds = %77, %70
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5)
   br label %78
 
-80:                                               ; preds = %43, %39
+80:                                               ; preds = %63, %59
+  %.sroa.17.i.sink = phi ptr [ %.sroa.17.i, %63 ], [ %.sroa.383, %59 ]
+  %.sroa.3246.sroa.6.0..sroa.3246.0..sroa_idx.sroa_idx = getelementptr inbounds i8, ptr %0, i64 32
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.3246.sroa.6.0..sroa.3246.0..sroa_idx.sroa_idx, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.17.i.sink, i64 32, i1 false)
+  br label %78
+
+81:                                               ; preds = %43, %39
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7)
   br label %78
 }
@@ -12510,6 +12550,7 @@ define void @"_ZN99_$LT$wasmtime_wasi..preview0..types..SubscriptionClock$u20$as
   %9 = alloca { i32, [15 x i32] }, align 8
   %.sroa.386 = alloca [8 x i32], align 8
   %.sroa.19452 = alloca [8 x i32], align 8
+  %.sroa.350 = alloca [8 x i32], align 8
   %.sroa.19 = alloca [8 x i32], align 8
   %10 = load ptr, ptr %1, align 8, !nonnull !5, !align !9, !noundef !5
   %11 = getelementptr inbounds i8, ptr %1, i64 8
@@ -12667,7 +12708,7 @@ define void @"_ZN99_$LT$wasmtime_wasi..preview0..types..SubscriptionClock$u20$as
   store ptr %10, ptr %.sroa.3232.0..sroa_idx, align 8
   %.sroa.4233.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
   store ptr %12, ptr %.sroa.4233.0..sroa_idx, align 8
-  br label %95
+  br label %99
 
 switch.lookup:                                    ; preds = %44
   %switch.idx.cast = trunc nuw i32 %45 to i8
@@ -12696,9 +12737,7 @@ switch.lookup:                                    ; preds = %44
   store i32 %.sroa.22.0, ptr %.sroa.3245.sroa.4.0..sroa.3245.0..sroa_idx.sroa_idx, align 8
   %.sroa.3245.sroa.5.0..sroa.3245.0..sroa_idx.sroa_idx = getelementptr inbounds i8, ptr %0, i64 28
   store i32 %.sroa.23.0, ptr %.sroa.3245.sroa.5.0..sroa.3245.0..sroa_idx.sroa_idx, align 4
-  %.sroa.3245.sroa.6.0..sroa.3245.0..sroa_idx.sroa_idx = getelementptr inbounds i8, ptr %0, i64 32
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.3245.sroa.6.0..sroa.3245.0..sroa_idx.sroa_idx, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.17.i, i64 32, i1 false)
-  br label %95
+  br label %99
 
 52:                                               ; preds = %switch.lookup
   %53 = extractvalue { i32, i1 } %49, 0
@@ -12885,7 +12924,7 @@ switch.lookup:                                    ; preds = %44
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(58) %.sroa.3353.0..sroa_idx, ptr noundef nonnull align 2 dereferenceable(58) %.sroa.3353, i64 58, i1 false)
   br label %96
 
-95:                                               ; preds = %48, %51, %31, %98, %97, %96, %92
+95:                                               ; preds = %31, %99, %98, %97, %96, %92
   ret void
 
 96:                                               ; preds = %94, %91
@@ -12901,6 +12940,12 @@ switch.lookup:                                    ; preds = %44
   %.sroa.4282.sroa.4.0..sroa.4282.0..sroa_idx.sroa_idx = getelementptr inbounds i8, ptr %0, i64 32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.4282.sroa.4.0..sroa.4282.0..sroa_idx.sroa_idx, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.19452.sink, i64 32, i1 false)
   br label %95
+
+99:                                               ; preds = %51, %48
+  %.sroa.17.i.sink = phi ptr [ %.sroa.17.i, %51 ], [ %.sroa.350, %48 ]
+  %.sroa.3245.sroa.6.0..sroa.3245.0..sroa_idx.sroa_idx = getelementptr inbounds i8, ptr %0, i64 32
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.3245.sroa.6.0..sroa.3245.0..sroa_idx.sroa_idx, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.17.i.sink, i64 32, i1 false)
+  br label %95
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -12914,6 +12959,7 @@ define void @"_ZN99_$LT$wasmtime_wasi..preview0..types..SubscriptionClock$u20$as
   %7 = alloca { i32, [15 x i32] }, align 8
   %8 = alloca { { ptr, ptr }, i32, [1 x i32] }, align 8
   %9 = alloca { i32, [15 x i32] }, align 8
+  %.sroa.368 = alloca [8 x i32], align 8
   %.sroa.15382 = alloca [8 x i32], align 8
   %10 = alloca { { ptr, ptr }, i32, [1 x i32] }, align 8
   %11 = alloca { i32, [15 x i32] }, align 8
@@ -13025,7 +13071,7 @@ define void @"_ZN99_$LT$wasmtime_wasi..preview0..types..SubscriptionClock$u20$as
   %.sroa.4189.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
   store ptr %14, ptr %.sroa.4189.0..sroa_idx, align 8
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %11)
-  br label %93
+  br label %94
 
 43:                                               ; preds = %34
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %11)
@@ -13041,7 +13087,7 @@ define void @"_ZN99_$LT$wasmtime_wasi..preview0..types..SubscriptionClock$u20$as
   store i32 %40, ptr %0, align 8
   %.sroa.2198.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(60) %.sroa.2198.0..sroa_idx, ptr noundef nonnull align 4 dereferenceable(60) %.sroa.2198, i64 60, i1 false)
-  br label %93
+  br label %94
 
 47:                                               ; preds = %43
   %48 = extractvalue { i32, i1 } %44, 0
@@ -13101,7 +13147,7 @@ define void @"_ZN99_$LT$wasmtime_wasi..preview0..types..SubscriptionClock$u20$as
   store ptr %12, ptr %.sroa.3219.0..sroa_idx, align 8
   %.sroa.4220.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
   store ptr %14, ptr %.sroa.4220.0..sroa_idx, align 8
-  br label %90
+  br label %93
 
 62:                                               ; preds = %56
   store atomic i64 %50, ptr %.sroa.020.0.copyload.i329 monotonic, align 8, !noalias !388
@@ -13129,9 +13175,7 @@ define void @"_ZN99_$LT$wasmtime_wasi..preview0..types..SubscriptionClock$u20$as
   store i32 %.sroa.13380.0.ph, ptr %.sroa.2229.sroa.4.0..sroa.2229.0..sroa_idx.sroa_idx, align 8
   %.sroa.2229.sroa.5.0..sroa.2229.0..sroa_idx.sroa_idx = getelementptr inbounds i8, ptr %0, i64 28
   store i32 %.sroa.14381.0.ph, ptr %.sroa.2229.sroa.5.0..sroa.2229.0..sroa_idx.sroa_idx, align 4
-  %.sroa.2229.sroa.6.0..sroa.2229.0..sroa_idx.sroa_idx = getelementptr inbounds i8, ptr %0, i64 32
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.2229.sroa.6.0..sroa.2229.0..sroa_idx.sroa_idx, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.15382, i64 32, i1 false)
-  br label %90
+  br label %93
 
 66:                                               ; preds = %62
   %67 = extractvalue { i32, i1 } %63, 0
@@ -13212,7 +13256,7 @@ define void @"_ZN99_$LT$wasmtime_wasi..preview0..types..SubscriptionClock$u20$as
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(60) %.sroa.2291.0..sroa_idx, ptr noundef nonnull align 4 dereferenceable(60) %.sroa.2291, i64 60, i1 false)
   br label %91
 
-90:                                               ; preds = %61, %65, %33, %93, %92, %91, %88
+90:                                               ; preds = %33, %94, %93, %92, %91, %88
   ret void
 
 91:                                               ; preds = %89, %87
@@ -13223,7 +13267,13 @@ define void @"_ZN99_$LT$wasmtime_wasi..preview0..types..SubscriptionClock$u20$as
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8)
   br label %90
 
-93:                                               ; preds = %46, %42
+93:                                               ; preds = %65, %61
+  %.sroa.15382.sink = phi ptr [ %.sroa.15382, %65 ], [ %.sroa.368, %61 ]
+  %.sroa.2229.sroa.6.0..sroa.2229.0..sroa_idx.sroa_idx = getelementptr inbounds i8, ptr %0, i64 32
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.2229.sroa.6.0..sroa.2229.0..sroa_idx.sroa_idx, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.15382.sink, i64 32, i1 false)
+  br label %90
+
+94:                                               ; preds = %46, %42
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %10)
   br label %90
 }

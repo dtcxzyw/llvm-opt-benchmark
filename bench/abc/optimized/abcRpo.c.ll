@@ -484,43 +484,40 @@ Abc_TtStoreLoad.exit:                             ; preds = %120, %8, %Abc_Truth
   %.not = icmp eq i32 %3, 0
   br i1 %.not, label %.split, label %.split9
 
-.split:                                           ; preds = %Abc_TtStoreLoad.exit
-  call void @Abc_TruthRpoPerform(ptr noundef %.0.i, i32 noundef %2, i32 noundef 0)
-  br label %124
-
 .split9:                                          ; preds = %Abc_TtStoreLoad.exit
   %123 = load i32, ptr %.0.i, align 8
   call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.6, i32 noundef %123)
-  call void @Abc_TruthRpoPerform(ptr noundef nonnull %.0.i, i32 noundef %2, i32 noundef %3)
-  br label %124
+  br label %.split
 
-124:                                              ; preds = %.split, %.split9
-  %125 = icmp sgt i32 %1, -1
-  %126 = getelementptr inbounds i8, ptr %.0.i, i64 16
-  %127 = load ptr, ptr %126, align 8
-  br i1 %125, label %128, label %132
+.split:                                           ; preds = %Abc_TtStoreLoad.exit, %.split9
+  %.sink = phi i32 [ %3, %.split9 ], [ 0, %Abc_TtStoreLoad.exit ]
+  call void @Abc_TruthRpoPerform(ptr noundef %.0.i, i32 noundef %2, i32 noundef %.sink)
+  %124 = icmp sgt i32 %1, -1
+  %125 = getelementptr inbounds i8, ptr %.0.i, i64 16
+  %126 = load ptr, ptr %125, align 8
+  br i1 %124, label %127, label %131
 
-128:                                              ; preds = %124
-  %129 = load ptr, ptr %127, align 8
-  %.not.i10 = icmp eq ptr %129, null
-  br i1 %.not.i10, label %.thread, label %130
+127:                                              ; preds = %.split
+  %128 = load ptr, ptr %126, align 8
+  %.not.i10 = icmp eq ptr %128, null
+  br i1 %.not.i10, label %.thread, label %129
 
-130:                                              ; preds = %128
-  call void @free(ptr noundef nonnull %129) #10
-  %131 = load ptr, ptr %126, align 8
-  store ptr null, ptr %131, align 8
+129:                                              ; preds = %127
+  call void @free(ptr noundef nonnull %128) #10
+  %130 = load ptr, ptr %125, align 8
+  store ptr null, ptr %130, align 8
   br label %.thread
 
-132:                                              ; preds = %124
-  %.not10.i = icmp eq ptr %127, null
+131:                                              ; preds = %.split
+  %.not10.i = icmp eq ptr %126, null
   br i1 %.not10.i, label %Abc_TtStoreFree.exit, label %.thread
 
-.thread:                                          ; preds = %128, %130, %132
-  %133 = phi ptr [ %127, %132 ], [ %127, %128 ], [ %131, %130 ]
-  call void @free(ptr noundef nonnull %133) #10
+.thread:                                          ; preds = %127, %129, %131
+  %132 = phi ptr [ %126, %131 ], [ %126, %127 ], [ %130, %129 ]
+  call void @free(ptr noundef nonnull %132) #10
   br label %Abc_TtStoreFree.exit
 
-Abc_TtStoreFree.exit:                             ; preds = %132, %.thread
+Abc_TtStoreFree.exit:                             ; preds = %131, %.thread
   call void @free(ptr noundef nonnull %.0.i) #10
   ret void
 }

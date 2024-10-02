@@ -262,33 +262,29 @@ declare void @list_append(ptr noundef, ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nofree nounwind uwtable
 define dso_local noundef i32 @_print_account(ptr noundef %0, i32 noundef %1, i1 noundef zeroext %2, ptr noundef %3) local_unnamed_addr #4 {
   %magicptr = ptrtoint ptr %0 to i64
-  switch i64 %magicptr, label %7 [
-    i64 0, label %5
-    i64 -1, label %6
+  switch i64 %magicptr, label %6 [
+    i64 0, label %8
+    i64 -1, label %5
   ]
 
 5:                                                ; preds = %4
-  tail call fastcc void @_print_str(ptr noundef nonnull @.str.2, i32 noundef %1, i1 noundef zeroext %2)
-  br label %9
+  br label %8
 
 6:                                                ; preds = %4
-  tail call fastcc void @_print_str(ptr noundef nonnull @.str.3, i32 noundef %1, i1 noundef zeroext %2)
-  br label %9
+  %7 = load ptr, ptr %0, align 8
+  br label %8
 
-7:                                                ; preds = %4
-  %8 = load ptr, ptr %0, align 8
-  tail call fastcc void @_print_str(ptr noundef %8, i32 noundef %1, i1 noundef zeroext %2)
-  br label %9
-
-9:                                                ; preds = %6, %7, %5
+8:                                                ; preds = %4, %5, %6
+  %.str.3.sink = phi ptr [ @.str.3, %5 ], [ %7, %6 ], [ @.str.2, %4 ]
+  tail call fastcc void @_print_str(ptr noundef %.str.3.sink, i32 noundef %1, i1 noundef zeroext %2)
   %.not = icmp eq ptr %3, null
-  br i1 %.not, label %12, label %10
+  br i1 %.not, label %11, label %9
 
-10:                                               ; preds = %9
-  %11 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.4, ptr noundef nonnull %3)
-  br label %12
+9:                                                ; preds = %8
+  %10 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.4, ptr noundef nonnull %3)
+  br label %11
 
-12:                                               ; preds = %10, %9
+11:                                               ; preds = %9, %8
   ret i32 0
 }
 
@@ -655,27 +651,24 @@ define dso_local noundef i32 @_print_assoc_priority_weighted(ptr noundef %0, i32
 ; Function Attrs: nofree nounwind uwtable
 define dso_local noundef i32 @_print_cluster_name(ptr noundef readonly %0, i32 noundef %1, i1 noundef zeroext %2, ptr noundef %3) local_unnamed_addr #4 {
   %5 = icmp eq ptr %0, null
-  br i1 %5, label %6, label %7
+  br i1 %5, label %9, label %6
 
 6:                                                ; preds = %4
-  tail call fastcc void @_print_str(ptr noundef nonnull @.str.10, i32 noundef %1, i1 noundef zeroext %2)
-  br label %10
+  %7 = getelementptr inbounds i8, ptr %0, i64 8
+  %8 = load ptr, ptr %7, align 8
+  br label %9
 
-7:                                                ; preds = %4
-  %8 = getelementptr inbounds i8, ptr %0, i64 8
-  %9 = load ptr, ptr %8, align 8
-  tail call fastcc void @_print_str(ptr noundef %9, i32 noundef %1, i1 noundef zeroext %2)
-  br label %10
-
-10:                                               ; preds = %7, %6
+9:                                                ; preds = %4, %6
+  %.sink = phi ptr [ %8, %6 ], [ @.str.10, %4 ]
+  tail call fastcc void @_print_str(ptr noundef %.sink, i32 noundef %1, i1 noundef zeroext %2)
   %.not = icmp eq ptr %3, null
-  br i1 %.not, label %13, label %11
+  br i1 %.not, label %12, label %10
 
-11:                                               ; preds = %10
-  %12 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.4, ptr noundef nonnull %3)
-  br label %13
+10:                                               ; preds = %9
+  %11 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.4, ptr noundef nonnull %3)
+  br label %12
 
-13:                                               ; preds = %11, %10
+12:                                               ; preds = %10, %9
   ret i32 0
 }
 
@@ -1283,68 +1276,60 @@ define dso_local noundef i32 @_print_part_priority_weighted(ptr noundef %0, i32 
 ; Function Attrs: nofree nounwind uwtable
 define dso_local noundef i32 @_print_partition(ptr noundef %0, i32 noundef %1, i1 noundef zeroext %2, ptr noundef %3) local_unnamed_addr #4 {
   %magicptr = ptrtoint ptr %0 to i64
-  switch i64 %magicptr, label %7 [
-    i64 0, label %5
-    i64 -1, label %6
+  switch i64 %magicptr, label %6 [
+    i64 0, label %9
+    i64 -1, label %5
   ]
 
 5:                                                ; preds = %4
-  tail call fastcc void @_print_str(ptr noundef nonnull @.str.16, i32 noundef %1, i1 noundef zeroext %2)
-  br label %10
+  br label %9
 
 6:                                                ; preds = %4
-  tail call fastcc void @_print_str(ptr noundef nonnull @.str.3, i32 noundef %1, i1 noundef zeroext %2)
-  br label %10
+  %7 = getelementptr inbounds i8, ptr %0, i64 32
+  %8 = load ptr, ptr %7, align 8
+  br label %9
 
-7:                                                ; preds = %4
-  %8 = getelementptr inbounds i8, ptr %0, i64 32
-  %9 = load ptr, ptr %8, align 8
-  tail call fastcc void @_print_str(ptr noundef %9, i32 noundef %1, i1 noundef zeroext %2)
-  br label %10
-
-10:                                               ; preds = %6, %7, %5
+9:                                                ; preds = %4, %5, %6
+  %.str.3.sink = phi ptr [ @.str.3, %5 ], [ %8, %6 ], [ @.str.16, %4 ]
+  tail call fastcc void @_print_str(ptr noundef %.str.3.sink, i32 noundef %1, i1 noundef zeroext %2)
   %.not = icmp eq ptr %3, null
-  br i1 %.not, label %13, label %11
+  br i1 %.not, label %12, label %10
 
-11:                                               ; preds = %10
-  %12 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.4, ptr noundef nonnull %3)
-  br label %13
+10:                                               ; preds = %9
+  %11 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.4, ptr noundef nonnull %3)
+  br label %12
 
-13:                                               ; preds = %11, %10
+12:                                               ; preds = %10, %9
   ret i32 0
 }
 
 ; Function Attrs: nofree nounwind uwtable
 define dso_local noundef i32 @_print_qos_name(ptr noundef %0, i32 noundef %1, i1 noundef zeroext %2, ptr noundef %3) local_unnamed_addr #4 {
   %magicptr = ptrtoint ptr %0 to i64
-  switch i64 %magicptr, label %7 [
-    i64 0, label %5
-    i64 -1, label %6
+  switch i64 %magicptr, label %6 [
+    i64 0, label %9
+    i64 -1, label %5
   ]
 
 5:                                                ; preds = %4
-  tail call fastcc void @_print_str(ptr noundef nonnull @.str.17, i32 noundef %1, i1 noundef zeroext %2)
-  br label %10
+  br label %9
 
 6:                                                ; preds = %4
-  tail call fastcc void @_print_str(ptr noundef nonnull @.str.3, i32 noundef %1, i1 noundef zeroext %2)
-  br label %10
+  %7 = getelementptr inbounds i8, ptr %0, i64 48
+  %8 = load ptr, ptr %7, align 8
+  br label %9
 
-7:                                                ; preds = %4
-  %8 = getelementptr inbounds i8, ptr %0, i64 48
-  %9 = load ptr, ptr %8, align 8
-  tail call fastcc void @_print_str(ptr noundef %9, i32 noundef %1, i1 noundef zeroext %2)
-  br label %10
-
-10:                                               ; preds = %6, %7, %5
+9:                                                ; preds = %4, %5, %6
+  %.str.3.sink = phi ptr [ @.str.3, %5 ], [ %8, %6 ], [ @.str.17, %4 ]
+  tail call fastcc void @_print_str(ptr noundef %.str.3.sink, i32 noundef %1, i1 noundef zeroext %2)
   %.not = icmp eq ptr %3, null
-  br i1 %.not, label %13, label %11
+  br i1 %.not, label %12, label %10
 
-11:                                               ; preds = %10
-  %12 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.4, ptr noundef nonnull %3)
-  br label %13
+10:                                               ; preds = %9
+  %11 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.4, ptr noundef nonnull %3)
+  br label %12
 
-13:                                               ; preds = %11, %10
+12:                                               ; preds = %10, %9
   ret i32 0
 }
 
@@ -1599,35 +1584,31 @@ define dso_local noundef i32 @_print_job_nice(ptr noundef %0, i32 noundef %1, i1
 ; Function Attrs: nounwind uwtable
 define dso_local noundef i32 @_print_job_user_name(ptr noundef %0, i32 noundef %1, i1 noundef zeroext %2, ptr noundef %3) local_unnamed_addr #0 {
   %magicptr = ptrtoint ptr %0 to i64
-  switch i64 %magicptr, label %7 [
-    i64 0, label %5
-    i64 -1, label %6
+  switch i64 %magicptr, label %6 [
+    i64 0, label %10
+    i64 -1, label %5
   ]
 
 5:                                                ; preds = %4
-  tail call fastcc void @_print_str(ptr noundef nonnull @.str.21, i32 noundef %1, i1 noundef zeroext %2)
-  br label %11
+  br label %10
 
 6:                                                ; preds = %4
-  tail call fastcc void @_print_str(ptr noundef nonnull @.str.3, i32 noundef %1, i1 noundef zeroext %2)
-  br label %11
+  %7 = getelementptr inbounds i8, ptr %0, i64 56
+  %8 = load i32, ptr %7, align 8
+  %9 = tail call ptr @uid_to_string_cached(i32 noundef %8) #8
+  br label %10
 
-7:                                                ; preds = %4
-  %8 = getelementptr inbounds i8, ptr %0, i64 56
-  %9 = load i32, ptr %8, align 8
-  %10 = tail call ptr @uid_to_string_cached(i32 noundef %9) #8
-  tail call fastcc void @_print_str(ptr noundef %10, i32 noundef %1, i1 noundef zeroext %2)
-  br label %11
-
-11:                                               ; preds = %6, %7, %5
+10:                                               ; preds = %4, %5, %6
+  %.str.3.sink = phi ptr [ @.str.3, %5 ], [ %9, %6 ], [ @.str.21, %4 ]
+  tail call fastcc void @_print_str(ptr noundef %.str.3.sink, i32 noundef %1, i1 noundef zeroext %2)
   %.not = icmp eq ptr %3, null
-  br i1 %.not, label %14, label %12
+  br i1 %.not, label %13, label %11
 
-12:                                               ; preds = %11
-  %13 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.4, ptr noundef nonnull %3)
-  br label %14
+11:                                               ; preds = %10
+  %12 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.4, ptr noundef nonnull %3)
+  br label %13
 
-14:                                               ; preds = %12, %11
+13:                                               ; preds = %11, %10
   ret i32 0
 }
 

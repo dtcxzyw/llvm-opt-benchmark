@@ -5081,30 +5081,27 @@ define internal void @_style_callback(ptr nocapture readnone %0, ptr nocapture n
   %6 = load ptr, ptr %5, align 8, !tbaa !145
   %7 = tail call i32 @dt_bauhaus_combobox_get(ptr noundef %6) #21
   %8 = icmp eq i32 %7, 0
-  br i1 %8, label %9, label %10
+  br i1 %8, label %12, label %9
 
 9:                                                ; preds = %2
-  tail call void @dt_conf_set_string(ptr noundef nonnull @.str.86, ptr noundef nonnull @.str.23) #21
-  br label %13
+  %10 = load ptr, ptr %5, align 8, !tbaa !145
+  %11 = tail call ptr @dt_bauhaus_combobox_get_text(ptr noundef %10) #21
+  br label %12
 
-10:                                               ; preds = %2
-  %11 = load ptr, ptr %5, align 8, !tbaa !145
-  %12 = tail call ptr @dt_bauhaus_combobox_get_text(ptr noundef %11) #21
-  tail call void @dt_conf_set_string(ptr noundef nonnull @.str.86, ptr noundef %12) #21
-  br label %13
-
-13:                                               ; preds = %10, %9
-  %14 = phi i32 [ 1, %10 ], [ 0, %9 ]
-  %15 = getelementptr inbounds i8, ptr %4, i64 24
-  %16 = load ptr, ptr %15, align 8, !tbaa !151
-  %17 = tail call i64 @gtk_widget_get_type() #22
-  %18 = tail call ptr @g_type_check_instance_cast(ptr noundef %16, i64 noundef %17) #21
-  tail call void @gtk_widget_set_sensitive(ptr noundef %18, i32 noundef %14) #21
-  %19 = getelementptr inbounds i8, ptr %4, i64 3368
-  %20 = load ptr, ptr %19, align 8, !tbaa !148
-  tail call void @g_free(ptr noundef %20) #21
-  %21 = tail call ptr @dt_conf_get_string(ptr noundef nonnull @.str.86) #21
-  store ptr %21, ptr %19, align 8, !tbaa !148
+12:                                               ; preds = %2, %9
+  %.sink = phi ptr [ %11, %9 ], [ @.str.23, %2 ]
+  %13 = phi i32 [ 1, %9 ], [ 0, %2 ]
+  tail call void @dt_conf_set_string(ptr noundef nonnull @.str.86, ptr noundef %.sink) #21
+  %14 = getelementptr inbounds i8, ptr %4, i64 24
+  %15 = load ptr, ptr %14, align 8, !tbaa !151
+  %16 = tail call i64 @gtk_widget_get_type() #22
+  %17 = tail call ptr @g_type_check_instance_cast(ptr noundef %15, i64 noundef %16) #21
+  tail call void @gtk_widget_set_sensitive(ptr noundef %17, i32 noundef %13) #21
+  %18 = getelementptr inbounds i8, ptr %4, i64 3368
+  %19 = load ptr, ptr %18, align 8, !tbaa !148
+  tail call void @g_free(ptr noundef %19) #21
+  %20 = tail call ptr @dt_conf_get_string(ptr noundef nonnull @.str.86) #21
+  store ptr %20, ptr %18, align 8, !tbaa !148
   ret void
 }
 

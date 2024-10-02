@@ -1413,21 +1413,7 @@ Vec_IntFree.exit:                                 ; preds = %6, %10
   %16 = getelementptr i8, ptr %.0, i64 8
   %.0.val25 = load i32, ptr %16, align 8
   %17 = sub nsw i32 %.0.val25, %.0.val
-  %18 = shl nsw i32 %17, 1
-  %19 = or disjoint i32 %18, 1
-  %20 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #13
-  %or.cond.i = icmp ult i32 %18, 15
-  %spec.store.select.i = select i1 %or.cond.i, i32 16, i32 %19
-  %21 = getelementptr inbounds i8, ptr %20, i64 4
-  store i32 0, ptr %21, align 4
-  store i32 %spec.store.select.i, ptr %20, align 8
-  %22 = sext i32 %spec.store.select.i to i64
-  %23 = shl nsw i64 %22, 2
-  %24 = tail call noalias ptr @malloc(i64 noundef %23) #13
-  %25 = getelementptr inbounds i8, ptr %20, i64 8
-  store ptr %24, ptr %25, align 8
-  tail call void @Kit_IsopResubInt(ptr noundef nonnull %.0, ptr noundef nonnull %20)
-  br label %35
+  br label %19
 
 .split21:                                         ; preds = %13
   %puts = tail call i32 @puts(ptr nonnull dereferenceable(1) @str.3)
@@ -1437,27 +1423,28 @@ Vec_IntFree.exit:                                 ; preds = %6, %10
   %putchar23 = tail call i32 @putchar(i32 10)
   %.val = load i32, ptr inttoptr (i64 4 to ptr), align 4
   %.val24 = load i32, ptr inttoptr (i64 8 to ptr), align 8
-  %26 = sub nsw i32 %.val24, %.val
-  %27 = shl nsw i32 %26, 1
-  %28 = or disjoint i32 %27, 1
-  %29 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #13
-  %or.cond.i27 = icmp ult i32 %27, 15
-  %spec.store.select.i28 = select i1 %or.cond.i27, i32 16, i32 %28
-  %30 = getelementptr inbounds i8, ptr %29, i64 4
-  store i32 0, ptr %30, align 4
-  store i32 %spec.store.select.i28, ptr %29, align 8
-  %31 = sext i32 %spec.store.select.i28 to i64
-  %32 = shl nsw i64 %31, 2
-  %33 = tail call noalias ptr @malloc(i64 noundef %32) #13
-  %34 = getelementptr inbounds i8, ptr %29, i64 8
-  store ptr %33, ptr %34, align 8
-  tail call void @Kit_IsopResubInt(ptr noundef null, ptr noundef nonnull %29)
-  br label %35
+  %18 = sub nsw i32 %.val24, %.val
+  br label %19
 
-35:                                               ; preds = %.split, %.split21
-  %36 = phi ptr [ %29, %.split21 ], [ %20, %.split ]
+19:                                               ; preds = %.split, %.split21
+  %.sink41 = phi i32 [ %17, %.split ], [ %18, %.split21 ]
+  %.0.sink = phi ptr [ %.0, %.split ], [ null, %.split21 ]
+  %20 = shl nsw i32 %.sink41, 1
+  %21 = or disjoint i32 %20, 1
+  %22 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #13
+  %or.cond.i = icmp ult i32 %20, 15
+  %spec.store.select.i = select i1 %or.cond.i, i32 16, i32 %21
+  %23 = getelementptr inbounds i8, ptr %22, i64 4
+  store i32 0, ptr %23, align 4
+  store i32 %spec.store.select.i, ptr %22, align 8
+  %24 = sext i32 %spec.store.select.i to i64
+  %25 = shl nsw i64 %24, 2
+  %26 = tail call noalias ptr @malloc(i64 noundef %25) #13
+  %27 = getelementptr inbounds i8, ptr %22, i64 8
+  store ptr %26, ptr %27, align 8
+  tail call void @Kit_IsopResubInt(ptr noundef %.0.sink, ptr noundef nonnull %22)
   tail call void @Kit_GraphFree(ptr noundef %.0) #14
-  ret ptr %36
+  ret ptr %22
 }
 
 ; Function Attrs: nounwind uwtable
@@ -1708,21 +1695,17 @@ Vec_IntFree.exit:                                 ; preds = %6, %10
   %14 = icmp eq ptr %.0, null
   br i1 %14, label %.split15, label %.split
 
-.split:                                           ; preds = %13
-  %15 = tail call ptr @Kit_GraphToHop(ptr noundef %0, ptr noundef nonnull %.0)
-  br label %17
-
 .split15:                                         ; preds = %13
   %puts = tail call i32 @puts(ptr nonnull dereferenceable(1) @str.4)
   tail call void @Kit_DsdPrintFromTruth(ptr noundef %1, i32 noundef %2) #14
   %putchar = tail call i32 @putchar(i32 10)
-  %16 = tail call ptr @Kit_GraphToHop(ptr noundef %0, ptr noundef null)
-  br label %17
+  br label %.split
 
-17:                                               ; preds = %.split, %.split15
-  %phi.call = phi ptr [ %15, %.split ], [ %16, %.split15 ]
+.split:                                           ; preds = %13, %.split15
+  %.0.sink = phi ptr [ null, %.split15 ], [ %.0, %13 ]
+  %15 = tail call ptr @Kit_GraphToHop(ptr noundef %0, ptr noundef %.0.sink)
   tail call void @Kit_GraphFree(ptr noundef %.0) #14
-  ret ptr %phi.call
+  ret ptr %15
 }
 
 ; Function Attrs: nounwind uwtable

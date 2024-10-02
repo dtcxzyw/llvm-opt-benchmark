@@ -479,19 +479,15 @@ entry:
   %call = tail call ptr @lua_touserdata(ptr noundef %L, i32 noundef -10003) #9
   %0 = load ptr, ptr %call, align 8, !tbaa !4
   %cmp = icmp eq ptr %0, null
-  br i1 %cmp, label %if.then, label %entry.split
-
-entry.split:                                      ; preds = %entry
-  %call21 = tail call fastcc i32 @read_line(ptr noundef %L, ptr noundef nonnull %0)
-  br label %if.end
+  br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
   %call1 = tail call i32 (ptr, ptr, ...) @luaL_error(ptr noundef %L, ptr noundef nonnull @.str.20) #9
-  %call22 = tail call fastcc i32 @read_line(ptr noundef %L, ptr noundef null)
   br label %if.end
 
-if.end:                                           ; preds = %entry.split, %if.then
-  %phi.call = phi i32 [ %call21, %entry.split ], [ %call22, %if.then ]
+if.end:                                           ; preds = %entry, %if.then
+  %.sink = phi ptr [ null, %if.then ], [ %0, %entry ]
+  %call21 = tail call fastcc i32 @read_line(ptr noundef %L, ptr noundef %.sink)
   %call3 = tail call i32 @ferror(ptr noundef %0) #9
   %tobool.not = icmp eq i32 %call3, 0
   br i1 %tobool.not, label %if.end8, label %if.then4
@@ -504,7 +500,7 @@ if.then4:                                         ; preds = %if.end
   br label %cleanup
 
 if.end8:                                          ; preds = %if.end
-  %tobool9.not = icmp eq i32 %phi.call, 0
+  %tobool9.not = icmp eq i32 %call21, 0
   br i1 %tobool9.not, label %if.else, label %cleanup
 
 if.else:                                          ; preds = %if.end8
@@ -1128,20 +1124,16 @@ entry:
   %call.i = tail call ptr @lua_touserdata(ptr noundef %L, i32 noundef -1) #9
   %0 = load ptr, ptr %call.i, align 8, !tbaa !4
   %cmp.i = icmp eq ptr %0, null
-  br i1 %cmp.i, label %if.then.i, label %entry.split
-
-entry.split:                                      ; preds = %entry
-  %call11 = tail call fastcc i32 @g_read(ptr noundef %L, ptr noundef nonnull %0, i32 noundef 1)
-  br label %getiofile.exit
+  br i1 %cmp.i, label %if.then.i, label %getiofile.exit
 
 if.then.i:                                        ; preds = %entry
   %call1.i = tail call i32 (ptr, ptr, ...) @luaL_error(ptr noundef %L, ptr noundef nonnull @.str.39, ptr noundef nonnull @.str.34) #9
-  %call12 = tail call fastcc i32 @g_read(ptr noundef %L, ptr noundef null, i32 noundef 1)
   br label %getiofile.exit
 
-getiofile.exit:                                   ; preds = %entry.split, %if.then.i
-  %phi.call = phi i32 [ %call11, %entry.split ], [ %call12, %if.then.i ]
-  ret i32 %phi.call
+getiofile.exit:                                   ; preds = %entry, %if.then.i
+  %.sink = phi ptr [ null, %if.then.i ], [ %0, %entry ]
+  %call11 = tail call fastcc i32 @g_read(ptr noundef %L, ptr noundef %.sink, i32 noundef 1)
+  ret i32 %call11
 }
 
 ; Function Attrs: nounwind uwtable
@@ -1218,20 +1210,16 @@ entry:
   %call.i = tail call ptr @lua_touserdata(ptr noundef %L, i32 noundef -1) #9
   %0 = load ptr, ptr %call.i, align 8, !tbaa !4
   %cmp.i = icmp eq ptr %0, null
-  br i1 %cmp.i, label %if.then.i, label %entry.split
-
-entry.split:                                      ; preds = %entry
-  %call11 = tail call fastcc i32 @g_write(ptr noundef %L, ptr noundef nonnull %0, i32 noundef 1), !range !10
-  br label %getiofile.exit
+  br i1 %cmp.i, label %if.then.i, label %getiofile.exit
 
 if.then.i:                                        ; preds = %entry
   %call1.i = tail call i32 (ptr, ptr, ...) @luaL_error(ptr noundef %L, ptr noundef nonnull @.str.39, ptr noundef nonnull @.str.36) #9
-  %call12 = tail call fastcc i32 @g_write(ptr noundef %L, ptr noundef null, i32 noundef 1), !range !10
   br label %getiofile.exit
 
-getiofile.exit:                                   ; preds = %entry.split, %if.then.i
-  %phi.call = phi i32 [ %call11, %entry.split ], [ %call12, %if.then.i ]
-  ret i32 %phi.call
+getiofile.exit:                                   ; preds = %entry, %if.then.i
+  %.sink = phi ptr [ null, %if.then.i ], [ %0, %entry ]
+  %call11 = tail call fastcc i32 @g_write(ptr noundef %L, ptr noundef %.sink, i32 noundef 1), !range !10
+  ret i32 %call11
 }
 
 ; Function Attrs: nounwind uwtable

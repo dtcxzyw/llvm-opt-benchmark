@@ -9261,7 +9261,7 @@ define linkonce_odr hidden noundef ptr @_ZN4llvm13IRBuilderBase22CreateBitOrPoin
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load ptr, ptr %5, align 8
   %7 = icmp eq ptr %6, %2
-  br i1 %7, label %50, label %8
+  br i1 %7, label %46, label %8
 
 8:                                                ; preds = %4
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 8
@@ -9283,7 +9283,7 @@ define linkonce_odr hidden noundef ptr @_ZN4llvm13IRBuilderBase22CreateBitOrPoin
 _ZNK4llvm4Type18isPtrOrPtrVectorTyEv.exit:        ; preds = %8, %13
   %.pre-phi.i = phi i32 [ %11, %8 ], [ %.pre1.i, %13 ]
   %17 = icmp eq i32 %.pre-phi.i, 14
-  br i1 %17, label %18, label %30
+  br i1 %17, label %18, label %28
 
 18:                                               ; preds = %_ZNK4llvm4Type18isPtrOrPtrVectorTyEv.exit
   %19 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -9305,61 +9305,57 @@ _ZNK4llvm4Type18isPtrOrPtrVectorTyEv.exit:        ; preds = %8, %13
 _ZNK4llvm4Type18isIntOrIntVectorTyEv.exit:        ; preds = %18, %23
   %.pre-phi.i20 = phi i32 [ %21, %18 ], [ %.pre1.i23, %23 ]
   %27 = icmp eq i32 %.pre-phi.i20, 12
-  br i1 %27, label %28, label %30
+  br i1 %27, label %.sink.split, label %28
 
-28:                                               ; preds = %_ZNK4llvm4Type18isIntOrIntVectorTyEv.exit
-  %29 = tail call noundef ptr @_ZN4llvm13IRBuilderBase10CreateCastENS_11Instruction7CastOpsEPNS_5ValueEPNS_4TypeERKNS_5TwineE(ptr noundef nonnull align 8 dereferenceable(128) %0, i32 noundef 47, ptr noundef nonnull %1, ptr noundef nonnull %2, ptr noundef nonnull align 8 dereferenceable(34) %3)
-  br label %50
+28:                                               ; preds = %_ZNK4llvm4Type18isIntOrIntVectorTyEv.exit, %_ZNK4llvm4Type18isPtrOrPtrVectorTyEv.exit
+  br i1 %spec.select.i.i.i, label %29, label %_ZNK4llvm4Type18isIntOrIntVectorTyEv.exit29
 
-30:                                               ; preds = %_ZNK4llvm4Type18isIntOrIntVectorTyEv.exit, %_ZNK4llvm4Type18isPtrOrPtrVectorTyEv.exit
-  br i1 %spec.select.i.i.i, label %31, label %_ZNK4llvm4Type18isIntOrIntVectorTyEv.exit29
-
-31:                                               ; preds = %30
-  %32 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  %33 = load ptr, ptr %32, align 8
-  %34 = load ptr, ptr %33, align 8
-  %.phi.trans.insert.i26 = getelementptr inbounds nuw i8, ptr %34, i64 8
+29:                                               ; preds = %28
+  %30 = getelementptr inbounds nuw i8, ptr %6, i64 16
+  %31 = load ptr, ptr %30, align 8
+  %32 = load ptr, ptr %31, align 8
+  %.phi.trans.insert.i26 = getelementptr inbounds nuw i8, ptr %32, i64 8
   %.pre.i27 = load i32, ptr %.phi.trans.insert.i26, align 8
   %.pre1.i28 = and i32 %.pre.i27, 255
   br label %_ZNK4llvm4Type18isIntOrIntVectorTyEv.exit29
 
-_ZNK4llvm4Type18isIntOrIntVectorTyEv.exit29:      ; preds = %30, %31
-  %.pre-phi.i25 = phi i32 [ %11, %30 ], [ %.pre1.i28, %31 ]
-  %35 = icmp eq i32 %.pre-phi.i25, 12
-  br i1 %35, label %36, label %48
+_ZNK4llvm4Type18isIntOrIntVectorTyEv.exit29:      ; preds = %28, %29
+  %.pre-phi.i25 = phi i32 [ %11, %28 ], [ %.pre1.i28, %29 ]
+  %33 = icmp eq i32 %.pre-phi.i25, 12
+  br i1 %33, label %34, label %44
 
-36:                                               ; preds = %_ZNK4llvm4Type18isIntOrIntVectorTyEv.exit29
-  %37 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %38 = load i32, ptr %37, align 8
-  %39 = and i32 %38, 255
-  %40 = add nsw i32 %39, -17
-  %spec.select.i.i.i30 = icmp ult i32 %40, 2
-  br i1 %spec.select.i.i.i30, label %41, label %_ZNK4llvm4Type18isPtrOrPtrVectorTyEv.exit35
+34:                                               ; preds = %_ZNK4llvm4Type18isIntOrIntVectorTyEv.exit29
+  %35 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %36 = load i32, ptr %35, align 8
+  %37 = and i32 %36, 255
+  %38 = add nsw i32 %37, -17
+  %spec.select.i.i.i30 = icmp ult i32 %38, 2
+  br i1 %spec.select.i.i.i30, label %39, label %_ZNK4llvm4Type18isPtrOrPtrVectorTyEv.exit35
 
-41:                                               ; preds = %36
-  %42 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %43 = load ptr, ptr %42, align 8
-  %44 = load ptr, ptr %43, align 8
-  %.phi.trans.insert.i32 = getelementptr inbounds nuw i8, ptr %44, i64 8
+39:                                               ; preds = %34
+  %40 = getelementptr inbounds nuw i8, ptr %2, i64 16
+  %41 = load ptr, ptr %40, align 8
+  %42 = load ptr, ptr %41, align 8
+  %.phi.trans.insert.i32 = getelementptr inbounds nuw i8, ptr %42, i64 8
   %.pre.i33 = load i32, ptr %.phi.trans.insert.i32, align 8
   %.pre1.i34 = and i32 %.pre.i33, 255
   br label %_ZNK4llvm4Type18isPtrOrPtrVectorTyEv.exit35
 
-_ZNK4llvm4Type18isPtrOrPtrVectorTyEv.exit35:      ; preds = %36, %41
-  %.pre-phi.i31 = phi i32 [ %39, %36 ], [ %.pre1.i34, %41 ]
-  %45 = icmp eq i32 %.pre-phi.i31, 14
-  br i1 %45, label %46, label %48
+_ZNK4llvm4Type18isPtrOrPtrVectorTyEv.exit35:      ; preds = %34, %39
+  %.pre-phi.i31 = phi i32 [ %37, %34 ], [ %.pre1.i34, %39 ]
+  %43 = icmp eq i32 %.pre-phi.i31, 14
+  br i1 %43, label %.sink.split, label %44
 
-46:                                               ; preds = %_ZNK4llvm4Type18isPtrOrPtrVectorTyEv.exit35
-  %47 = tail call noundef ptr @_ZN4llvm13IRBuilderBase10CreateCastENS_11Instruction7CastOpsEPNS_5ValueEPNS_4TypeERKNS_5TwineE(ptr noundef nonnull align 8 dereferenceable(128) %0, i32 noundef 48, ptr noundef nonnull %1, ptr noundef nonnull %2, ptr noundef nonnull align 8 dereferenceable(34) %3)
-  br label %50
+44:                                               ; preds = %_ZNK4llvm4Type18isPtrOrPtrVectorTyEv.exit35, %_ZNK4llvm4Type18isIntOrIntVectorTyEv.exit29
+  br label %.sink.split
 
-48:                                               ; preds = %_ZNK4llvm4Type18isPtrOrPtrVectorTyEv.exit35, %_ZNK4llvm4Type18isIntOrIntVectorTyEv.exit29
-  %49 = tail call noundef ptr @_ZN4llvm13IRBuilderBase10CreateCastENS_11Instruction7CastOpsEPNS_5ValueEPNS_4TypeERKNS_5TwineE(ptr noundef nonnull align 8 dereferenceable(128) %0, i32 noundef 49, ptr noundef nonnull %1, ptr noundef %2, ptr noundef nonnull align 8 dereferenceable(34) %3)
-  br label %50
+.sink.split:                                      ; preds = %_ZNK4llvm4Type18isPtrOrPtrVectorTyEv.exit35, %_ZNK4llvm4Type18isIntOrIntVectorTyEv.exit, %44
+  %.sink = phi i32 [ 49, %44 ], [ 47, %_ZNK4llvm4Type18isIntOrIntVectorTyEv.exit ], [ 48, %_ZNK4llvm4Type18isPtrOrPtrVectorTyEv.exit35 ]
+  %45 = tail call noundef ptr @_ZN4llvm13IRBuilderBase10CreateCastENS_11Instruction7CastOpsEPNS_5ValueEPNS_4TypeERKNS_5TwineE(ptr noundef nonnull align 8 dereferenceable(128) %0, i32 noundef %.sink, ptr noundef nonnull %1, ptr noundef %2, ptr noundef nonnull align 8 dereferenceable(34) %3)
+  br label %46
 
-50:                                               ; preds = %4, %48, %46, %28
-  %.0 = phi ptr [ %29, %28 ], [ %47, %46 ], [ %49, %48 ], [ %1, %4 ]
+46:                                               ; preds = %.sink.split, %4
+  %.0 = phi ptr [ %1, %4 ], [ %45, %.sink.split ]
   ret ptr %.0
 }
 

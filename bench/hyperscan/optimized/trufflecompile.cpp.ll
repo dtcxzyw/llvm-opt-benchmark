@@ -51,7 +51,7 @@ do.end.preheader:                                 ; preds = %_ZNK3ue29CharReach1
   br i1 %cmp.not.i.i43, label %if.end.i.i, label %for.end
 
 if.end.i.i:                                       ; preds = %do.end.preheader, %_ZNK3ue29CharReach9find_nextEm.exit
-  %v.01744 = phi i64 [ %retval.0.i.i8, %_ZNK3ue29CharReach9find_nextEm.exit ], [ %add.i.i, %do.end.preheader ]
+  %v.01744 = phi i64 [ %add9.i.i, %_ZNK3ue29CharReach9find_nextEm.exit ], [ %add.i.i, %do.end.preheader ]
   %div1.i.i.i = lshr i64 %v.01744, 6
   %rem.i.i = and i64 %v.01744, 63
   %cmp4.not.i.i9 = icmp eq i64 %rem.i.i, 63
@@ -70,8 +70,6 @@ if.then5.i.i:                                     ; preds = %if.end.i.i
 
 if.then7.i.i:                                     ; preds = %if.then5.i.i
   %mul.i.i11 = and i64 %v.01744, 192
-  %8 = tail call range(i64 1, 65) i64 @llvm.cttz.i64(i64 %and.i.i, i1 true)
-  %add9.i.i = or disjoint i64 %8, %mul.i.i11
   br label %_ZNK3ue29CharReach9find_nextEm.exit
 
 for.cond.i.i:                                     ; preds = %for.cond.i.i.preheader, %for.body.i.i12
@@ -82,32 +80,33 @@ for.cond.i.i:                                     ; preds = %for.cond.i.i.prehea
 for.body.i.i12:                                   ; preds = %for.cond.i.i
   %i.0.i.i = add nuw nsw i64 %i.0.in.i.i, 1
   %arrayidx.i.i13.i.i = getelementptr inbounds [4 x i64], ptr %cr, i64 0, i64 %i.0.i.i
-  %9 = load i64, ptr %arrayidx.i.i13.i.i, align 8
-  %tobool17.not.i.i = icmp eq i64 %9, 0
+  %8 = load i64, ptr %arrayidx.i.i13.i.i, align 8
+  %tobool17.not.i.i = icmp eq i64 %8, 0
   br i1 %tobool17.not.i.i, label %for.cond.i.i, label %if.then18.i.i, !llvm.loop !7
 
 if.then18.i.i:                                    ; preds = %for.body.i.i12
   %mul19.i.i = shl nuw nsw i64 %i.0.i.i, 6
-  %10 = tail call noundef range(i64 0, 65) i64 @llvm.cttz.i64(i64 %9, i1 true)
-  %add21.i.i = or disjoint i64 %10, %mul19.i.i
   br label %_ZNK3ue29CharReach9find_nextEm.exit
 
 _ZNK3ue29CharReach9find_nextEm.exit:              ; preds = %if.then7.i.i, %if.then18.i.i
-  %retval.0.i.i8 = phi i64 [ %add9.i.i, %if.then7.i.i ], [ %add21.i.i, %if.then18.i.i ]
-  %and = and i64 %retval.0.i.i8, 128
+  %and.i.i.sink = phi i64 [ %and.i.i, %if.then7.i.i ], [ %8, %if.then18.i.i ]
+  %mul.i.i11.sink = phi i64 [ %mul.i.i11, %if.then7.i.i ], [ %mul19.i.i, %if.then18.i.i ]
+  %9 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %and.i.i.sink, i1 true)
+  %add9.i.i = or disjoint i64 %9, %mul.i.i11.sink
+  %and = and i64 %mul.i.i11.sink, 128
   %tobool.not = icmp eq i64 %and, 0
   %cond = select i1 %tobool.not, ptr %shuf_mask_lo_highclear, ptr %shuf_mask_lo_highset
-  %conv = and i64 %retval.0.i.i8, 15
-  %11 = trunc i64 %retval.0.i.i8 to i32
-  %12 = lshr i32 %11, 4
-  %conv3 = and i32 %12, 7
+  %conv = and i64 %9, 15
+  %10 = trunc i64 %add9.i.i to i32
+  %11 = lshr i32 %10, 4
+  %conv3 = and i32 %11, 7
   %shl = shl nuw nsw i32 1, %conv3
   %arrayidx = getelementptr inbounds i8, ptr %cond, i64 %conv
-  %13 = load i8, ptr %arrayidx, align 1
-  %14 = trunc nuw i32 %shl to i8
-  %conv6 = or i8 %13, %14
+  %12 = load i8, ptr %arrayidx, align 1
+  %13 = trunc nuw i32 %shl to i8
+  %conv6 = or i8 %12, %13
   store i8 %conv6, ptr %arrayidx, align 1
-  %cmp.not.i.i = icmp ult i64 %retval.0.i.i8, 256
+  %cmp.not.i.i = icmp ult i64 %mul.i.i11.sink, 256
   br i1 %cmp.not.i.i, label %if.end.i.i, label %for.end, !llvm.loop !8
 
 for.end:                                          ; preds = %for.inc.i.i, %_ZNK3ue29CharReach9find_nextEm.exit, %for.cond.i.i, %do.end.preheader, %_ZNK3ue29CharReach10find_firstEv.exit

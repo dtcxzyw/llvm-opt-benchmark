@@ -276,8 +276,6 @@ $_ZSt16__merge_adaptiveIPjlS0_N9__gnu_cxx5__ops15_Iter_comp_iterIN17algebraic_nu
 
 $_ZSt17__merge_sort_loopIPjS0_lN9__gnu_cxx5__ops15_Iter_comp_iterIN17algebraic_numbers7manager3imp13var_degree_ltEEEEvT_S9_T0_T1_T2_ = comdat any
 
-$_ZSt30__move_merge_adaptive_backwardIPjS0_S0_N9__gnu_cxx5__ops15_Iter_comp_iterIN17algebraic_numbers7manager3imp13var_degree_ltEEEEvT_S9_T0_SA_T1_T2_ = comdat any
-
 $_ZN17algebraic_numbers19algebraic_exceptionC2EPKc = comdat any
 
 $_ZN17algebraic_numbers19algebraic_exceptionD2Ev = comdat any
@@ -14162,10 +14160,10 @@ while.end:                                        ; preds = %while.body, %_ZSt22
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZSt16__merge_adaptiveIPjlS0_N9__gnu_cxx5__ops15_Iter_comp_iterIN17algebraic_numbers7manager3imp13var_degree_ltEEEEvT_S9_S9_T0_SA_T1_SA_T2_(ptr noundef %__first, ptr noundef %__middle, ptr noundef %__last, i64 noundef %__len1, i64 noundef %__len2, ptr noundef %__buffer, i64 noundef %__buffer_size, ptr noundef byval(%"struct.__gnu_cxx::__ops::_Iter_comp_iter.25") align 8 %__comp) local_unnamed_addr #3 comdat {
 entry:
-  %cmp.not176 = icmp sgt i64 %__len1, %__len2
-  %cmp1.not177 = icmp sgt i64 %__len1, %__buffer_size
-  %or.cond178 = or i1 %cmp1.not177, %cmp.not176
-  br i1 %or.cond178, label %if.else.lr.ph, label %if.then
+  %cmp.not220 = icmp sgt i64 %__len1, %__len2
+  %cmp1.not221 = icmp sgt i64 %__len1, %__buffer_size
+  %or.cond222 = or i1 %cmp1.not221, %cmp.not220
+  br i1 %or.cond222, label %if.else.lr.ph, label %if.then
 
 if.else.lr.ph:                                    ; preds = %entry
   %agg.tmp18.sroa.2.0.__comp.sroa_idx = getelementptr inbounds i8, ptr %__comp, i64 8
@@ -14288,117 +14286,228 @@ _ZSt4moveIPjS0_ET0_T_S2_S1_.exit.i:               ; preds = %while.end.i
   br label %if.end29
 
 if.else:                                          ; preds = %if.else.lr.ph, %_ZSt17__rotate_adaptiveIPjS0_lET_S1_S1_S1_T1_S2_T0_S2_.exit
-  %cmp.not185 = phi i1 [ %cmp.not176, %if.else.lr.ph ], [ %cmp.not, %_ZSt17__rotate_adaptiveIPjS0_lET_S1_S1_S1_T1_S2_T0_S2_.exit ]
-  %__len2.tr184 = phi i64 [ %__len2, %if.else.lr.ph ], [ %sub26, %_ZSt17__rotate_adaptiveIPjS0_lET_S1_S1_S1_T1_S2_T0_S2_.exit ]
-  %__len1.tr183 = phi i64 [ %__len1, %if.else.lr.ph ], [ %sub, %_ZSt17__rotate_adaptiveIPjS0_lET_S1_S1_S1_T1_S2_T0_S2_.exit ]
-  %__middle.tr181 = phi ptr [ %__middle, %if.else.lr.ph ], [ %__second_cut.0, %_ZSt17__rotate_adaptiveIPjS0_lET_S1_S1_S1_T1_S2_T0_S2_.exit ]
-  %__first.tr179 = phi ptr [ %__first, %if.else.lr.ph ], [ %retval.0.i, %_ZSt17__rotate_adaptiveIPjS0_lET_S1_S1_S1_T1_S2_T0_S2_.exit ]
-  %cmp2.not = icmp sgt i64 %__len2.tr184, %__buffer_size
+  %cmp.not229 = phi i1 [ %cmp.not220, %if.else.lr.ph ], [ %cmp.not, %_ZSt17__rotate_adaptiveIPjS0_lET_S1_S1_S1_T1_S2_T0_S2_.exit ]
+  %__len2.tr228 = phi i64 [ %__len2, %if.else.lr.ph ], [ %sub26, %_ZSt17__rotate_adaptiveIPjS0_lET_S1_S1_S1_T1_S2_T0_S2_.exit ]
+  %__len1.tr227 = phi i64 [ %__len1, %if.else.lr.ph ], [ %sub, %_ZSt17__rotate_adaptiveIPjS0_lET_S1_S1_S1_T1_S2_T0_S2_.exit ]
+  %__middle.tr225 = phi ptr [ %__middle, %if.else.lr.ph ], [ %__second_cut.0, %_ZSt17__rotate_adaptiveIPjS0_lET_S1_S1_S1_T1_S2_T0_S2_.exit ]
+  %__first.tr223 = phi ptr [ %__first, %if.else.lr.ph ], [ %retval.0.i, %_ZSt17__rotate_adaptiveIPjS0_lET_S1_S1_S1_T1_S2_T0_S2_.exit ]
+  %cmp2.not = icmp sgt i64 %__len2.tr228, %__buffer_size
   br i1 %cmp2.not, label %if.else7, label %if.then3
 
 if.then3:                                         ; preds = %if.else
-  %sub.ptr.rhs.cast.i.i.i.i.i47 = ptrtoint ptr %__middle.tr181 to i64
+  %tobool.not.i.i.i.i.i49 = icmp eq ptr %__last, %__middle.tr225
+  br i1 %tobool.not.i.i.i.i.i49, label %if.end29, label %_ZSt4moveIPjS0_ET0_T_S2_S1_.exit52.thread
+
+_ZSt4moveIPjS0_ET0_T_S2_S1_.exit52.thread:        ; preds = %if.then3
+  %sub.ptr.rhs.cast.i.i.i.i.i47 = ptrtoint ptr %__middle.tr225 to i64
   %sub.ptr.sub.i.i.i.i.i48 = sub i64 %sub.ptr.lhs.cast.i.i.i, %sub.ptr.rhs.cast.i.i.i.i.i47
-  %tobool.not.i.i.i.i.i49 = icmp eq ptr %__last, %__middle.tr181
-  br i1 %tobool.not.i.i.i.i.i49, label %_ZSt4moveIPjS0_ET0_T_S2_S1_.exit52, label %if.then.i.i.i.i.i50
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %__buffer, ptr align 4 %__middle.tr225, i64 %sub.ptr.sub.i.i.i.i.i48, i1 false)
+  %add.ptr.i.i.i.i.i51236 = getelementptr inbounds i8, ptr %__buffer, i64 %sub.ptr.sub.i.i.i.i.i48
+  %agg.tmp6.sroa.0.sroa.2.0.copyload237 = load ptr, ptr %agg.tmp18.sroa.2.0.__comp.sroa_idx, align 8
+  %cmp.i54238 = icmp eq ptr %__first.tr223, %__middle.tr225
+  br i1 %cmp.i54238, label %return.sink.split.i, label %if.end3.i
 
-if.then.i.i.i.i.i50:                              ; preds = %if.then3
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %__buffer, ptr align 4 %__middle.tr181, i64 %sub.ptr.sub.i.i.i.i.i48, i1 false)
-  br label %_ZSt4moveIPjS0_ET0_T_S2_S1_.exit52
+if.end3.i:                                        ; preds = %_ZSt4moveIPjS0_ET0_T_S2_S1_.exit52.thread
+  %incdec.ptr4.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i51236, i64 -4
+  br label %while.body.i56.outer
 
-_ZSt4moveIPjS0_ET0_T_S2_S1_.exit52:               ; preds = %if.then3, %if.then.i.i.i.i.i50
-  %add.ptr.i.i.i.i.i51 = getelementptr inbounds i8, ptr %__buffer, i64 %sub.ptr.sub.i.i.i.i.i48
-  tail call void @_ZSt30__move_merge_adaptive_backwardIPjS0_S0_N9__gnu_cxx5__ops15_Iter_comp_iterIN17algebraic_numbers7manager3imp13var_degree_ltEEEEvT_S9_T0_SA_T1_T2_(ptr noundef %__first.tr179, ptr noundef %__middle.tr181, ptr noundef %__buffer, ptr noundef %add.ptr.i.i.i.i.i51, ptr noundef %__last, ptr noundef nonnull byval(%"struct.__gnu_cxx::__ops::_Iter_comp_iter.25") align 8 %__comp)
+while.body.i56.outer:                             ; preds = %if.then6.i, %if.end3.i
+  %__last1.addr.0.i.ph.pn = phi ptr [ %__middle.tr225, %if.end3.i ], [ %__last1.addr.0.i.ph, %if.then6.i ]
+  %__last2.addr.0.i.ph = phi ptr [ %incdec.ptr4.i, %if.end3.i ], [ %__last2.addr.0.i, %if.then6.i ]
+  %__result.addr.0.i.ph = phi ptr [ %__last, %if.end3.i ], [ %incdec.ptr7.i, %if.then6.i ]
+  %__last1.addr.0.i.ph = getelementptr inbounds i8, ptr %__last1.addr.0.i.ph.pn, i64 -4
+  br label %while.body.i56
+
+while.body.i56:                                   ; preds = %while.body.i56.outer, %if.end18.i
+  %__last2.addr.0.i = phi ptr [ %incdec.ptr19.i, %if.end18.i ], [ %__last2.addr.0.i.ph, %while.body.i56.outer ]
+  %__result.addr.0.i = phi ptr [ %incdec.ptr7.i, %if.end18.i ], [ %__result.addr.0.i.ph, %while.body.i56.outer ]
+  %16 = load i32, ptr %__last2.addr.0.i, align 4
+  %17 = load i32, ptr %__last1.addr.0.i.ph, align 4
+  %vtable.i.i.i.i57 = load ptr, ptr %agg.tmp6.sroa.0.sroa.2.0.copyload237, align 8
+  %vfn.i.i.i.i58 = getelementptr inbounds i8, ptr %vtable.i.i.i.i57, i64 24
+  %18 = load ptr, ptr %vfn.i.i.i.i58, align 8
+  %call.i.i.i.i59 = tail call noundef zeroext i1 %18(ptr noundef nonnull align 8 dereferenceable(8) %agg.tmp6.sroa.0.sroa.2.0.copyload237, i32 noundef %16)
+  br i1 %call.i.i.i.i59, label %if.end.i.i.i.i79, label %_ZNK17algebraic_numbers7manager3imp13var_degree_lt6degreeEj.exit.i.i.i60
+
+if.end.i.i.i.i79:                                 ; preds = %while.body.i56
+  %vtable3.i.i.i.i80 = load ptr, ptr %agg.tmp6.sroa.0.sroa.2.0.copyload237, align 8
+  %vfn4.i.i.i.i81 = getelementptr inbounds i8, ptr %vtable3.i.i.i.i80, i64 32
+  %19 = load ptr, ptr %vfn4.i.i.i.i81, align 8
+  %call5.i.i.i.i82 = tail call noundef nonnull align 8 dereferenceable(8) ptr %19(ptr noundef nonnull align 8 dereferenceable(8) %agg.tmp6.sroa.0.sroa.2.0.copyload237, i32 noundef %16)
+  %20 = load ptr, ptr %call5.i.i.i.i82, align 8
+  %cmp.i.i.i.i.i.i83 = icmp eq ptr %20, null
+  br i1 %cmp.i.i.i.i.i.i83, label %_ZNK17algebraic_numbers7manager3imp13var_degree_lt6degreeEj.exit.i.i.i60, label %if.end.i.i.i.i.i84
+
+if.end.i.i.i.i.i84:                               ; preds = %if.end.i.i.i.i79
+  %21 = ptrtoint ptr %20 to i64
+  %and.i.i.i.i.i.i85 = and i64 %21, 7
+  %cmp.i3.i.i.i.i.i86 = icmp eq i64 %and.i.i.i.i.i.i85, 0
+  br i1 %cmp.i3.i.i.i.i.i86, label %_ZNK17algebraic_numbers7manager3imp13var_degree_lt6degreeEj.exit.i.i.i60, label %if.end4.i.i.i.i.i87
+
+if.end4.i.i.i.i.i87:                              ; preds = %if.end.i.i.i.i.i84
+  %and.i4.i.i.i.i.i88 = and i64 %21, -8
+  %22 = inttoptr i64 %and.i4.i.i.i.i.i88 to ptr
+  %23 = load i32, ptr %22, align 8
+  %sub.i.i.i.i.i89 = add i32 %23, -1
+  br label %_ZNK17algebraic_numbers7manager3imp13var_degree_lt6degreeEj.exit.i.i.i60
+
+_ZNK17algebraic_numbers7manager3imp13var_degree_lt6degreeEj.exit.i.i.i60: ; preds = %if.end4.i.i.i.i.i87, %if.end.i.i.i.i.i84, %if.end.i.i.i.i79, %while.body.i56
+  %retval.0.i.i.i.i61 = phi i32 [ -1, %while.body.i56 ], [ %sub.i.i.i.i.i89, %if.end4.i.i.i.i.i87 ], [ 0, %if.end.i.i.i.i79 ], [ 1, %if.end.i.i.i.i.i84 ]
+  %vtable.i2.i.i.i62 = load ptr, ptr %agg.tmp6.sroa.0.sroa.2.0.copyload237, align 8
+  %vfn.i3.i.i.i63 = getelementptr inbounds i8, ptr %vtable.i2.i.i.i62, i64 24
+  %24 = load ptr, ptr %vfn.i3.i.i.i63, align 8
+  %call.i4.i.i.i64 = tail call noundef zeroext i1 %24(ptr noundef nonnull align 8 dereferenceable(8) %agg.tmp6.sroa.0.sroa.2.0.copyload237, i32 noundef %17)
+  br i1 %call.i4.i.i.i64, label %if.end.i6.i.i.i68, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN17algebraic_numbers7manager3imp13var_degree_ltEEclIPjS8_EEbT_T0_.exit.i65
+
+if.end.i6.i.i.i68:                                ; preds = %_ZNK17algebraic_numbers7manager3imp13var_degree_lt6degreeEj.exit.i.i.i60
+  %vtable3.i7.i.i.i69 = load ptr, ptr %agg.tmp6.sroa.0.sroa.2.0.copyload237, align 8
+  %vfn4.i8.i.i.i70 = getelementptr inbounds i8, ptr %vtable3.i7.i.i.i69, i64 32
+  %25 = load ptr, ptr %vfn4.i8.i.i.i70, align 8
+  %call5.i9.i.i.i71 = tail call noundef nonnull align 8 dereferenceable(8) ptr %25(ptr noundef nonnull align 8 dereferenceable(8) %agg.tmp6.sroa.0.sroa.2.0.copyload237, i32 noundef %17)
+  %26 = load ptr, ptr %call5.i9.i.i.i71, align 8
+  %cmp.i.i.i10.i.i.i72 = icmp eq ptr %26, null
+  br i1 %cmp.i.i.i10.i.i.i72, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN17algebraic_numbers7manager3imp13var_degree_ltEEclIPjS8_EEbT_T0_.exit.i65, label %if.end.i.i11.i.i.i73
+
+if.end.i.i11.i.i.i73:                             ; preds = %if.end.i6.i.i.i68
+  %27 = ptrtoint ptr %26 to i64
+  %and.i.i.i12.i.i.i74 = and i64 %27, 7
+  %cmp.i3.i.i13.i.i.i75 = icmp eq i64 %and.i.i.i12.i.i.i74, 0
+  br i1 %cmp.i3.i.i13.i.i.i75, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN17algebraic_numbers7manager3imp13var_degree_ltEEclIPjS8_EEbT_T0_.exit.i65, label %if.end4.i.i14.i.i.i76
+
+if.end4.i.i14.i.i.i76:                            ; preds = %if.end.i.i11.i.i.i73
+  %and.i4.i.i15.i.i.i77 = and i64 %27, -8
+  %28 = inttoptr i64 %and.i4.i.i15.i.i.i77 to ptr
+  %29 = load i32, ptr %28, align 8
+  %sub.i.i16.i.i.i78 = add i32 %29, -1
+  br label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN17algebraic_numbers7manager3imp13var_degree_ltEEclIPjS8_EEbT_T0_.exit.i65
+
+_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN17algebraic_numbers7manager3imp13var_degree_ltEEclIPjS8_EEbT_T0_.exit.i65: ; preds = %if.end4.i.i14.i.i.i76, %if.end.i.i11.i.i.i73, %if.end.i6.i.i.i68, %_ZNK17algebraic_numbers7manager3imp13var_degree_lt6degreeEj.exit.i.i.i60
+  %retval.0.i5.i.i.i66 = phi i32 [ -1, %_ZNK17algebraic_numbers7manager3imp13var_degree_lt6degreeEj.exit.i.i.i60 ], [ %sub.i.i16.i.i.i78, %if.end4.i.i14.i.i.i76 ], [ 0, %if.end.i6.i.i.i68 ], [ 1, %if.end.i.i11.i.i.i73 ]
+  %cmp.i.i.i67 = icmp ult i32 %retval.0.i.i.i.i61, %retval.0.i5.i.i.i66
+  %incdec.ptr7.i = getelementptr inbounds i8, ptr %__result.addr.0.i, i64 -4
+  br i1 %cmp.i.i.i67, label %if.then6.i, label %if.else14.i
+
+if.then6.i:                                       ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN17algebraic_numbers7manager3imp13var_degree_ltEEclIPjS8_EEbT_T0_.exit.i65
+  %30 = load i32, ptr %__last1.addr.0.i.ph, align 4
+  store i32 %30, ptr %incdec.ptr7.i, align 4
+  %cmp8.i = icmp eq ptr %__first.tr223, %__last1.addr.0.i.ph
+  br i1 %cmp8.i, label %if.then9.i, label %while.body.i56.outer, !llvm.loop !64
+
+if.then9.i:                                       ; preds = %if.then6.i
+  %incdec.ptr10.i = getelementptr inbounds i8, ptr %__last2.addr.0.i, i64 4
+  %tobool.not.i.i.i.i.i24.i = icmp eq ptr %incdec.ptr10.i, %__buffer
+  br i1 %tobool.not.i.i.i.i.i24.i, label %if.end29, label %return.sink.split.i
+
+if.else14.i:                                      ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN17algebraic_numbers7manager3imp13var_degree_ltEEclIPjS8_EEbT_T0_.exit.i65
+  %31 = load i32, ptr %__last2.addr.0.i, align 4
+  store i32 %31, ptr %incdec.ptr7.i, align 4
+  %cmp16.i = icmp eq ptr %__buffer, %__last2.addr.0.i
+  br i1 %cmp16.i, label %if.end29, label %if.end18.i
+
+if.end18.i:                                       ; preds = %if.else14.i
+  %incdec.ptr19.i = getelementptr inbounds i8, ptr %__last2.addr.0.i, i64 -4
+  br label %while.body.i56, !llvm.loop !64
+
+return.sink.split.i:                              ; preds = %_ZSt4moveIPjS0_ET0_T_S2_S1_.exit52.thread, %if.then9.i
+  %incdec.ptr10.sink.i = phi ptr [ %incdec.ptr10.i, %if.then9.i ], [ %add.ptr.i.i.i.i.i51236, %_ZSt4moveIPjS0_ET0_T_S2_S1_.exit52.thread ]
+  %incdec.ptr7.lcssa.sink.i = phi ptr [ %incdec.ptr7.i, %if.then9.i ], [ %__last, %_ZSt4moveIPjS0_ET0_T_S2_S1_.exit52.thread ]
+  %sub.ptr.lhs.cast.i.i.i.i.i20.i = ptrtoint ptr %incdec.ptr10.sink.i to i64
+  %sub.ptr.rhs.cast.i.i.i.i.i21.i = ptrtoint ptr %__buffer to i64
+  %sub.ptr.sub.i.i.i.i.i22.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i20.i, %sub.ptr.rhs.cast.i.i.i.i.i21.i
+  %sub.ptr.div.i.i.i.i.i23.i = ashr exact i64 %sub.ptr.sub.i.i.i.i.i22.i, 2
+  %.pre.i.i.i.i.i25.i = sub nsw i64 0, %sub.ptr.div.i.i.i.i.i23.i
+  %add.ptr.i.i.i.i.i27.i = getelementptr inbounds i32, ptr %incdec.ptr7.lcssa.sink.i, i64 %.pre.i.i.i.i.i25.i
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %add.ptr.i.i.i.i.i27.i, ptr align 4 %__buffer, i64 %sub.ptr.sub.i.i.i.i.i22.i, i1 false)
   br label %if.end29
 
 if.else7:                                         ; preds = %if.else
   %agg.tmp11.sroa.2.0.copyload = load ptr, ptr %agg.tmp18.sroa.2.0.__comp.sroa_idx, align 8
-  %sub.ptr.rhs.cast.i.i.i = ptrtoint ptr %__middle.tr181 to i64
-  br i1 %cmp.not185, label %if.then9, label %if.else15
+  %sub.ptr.rhs.cast.i.i.i = ptrtoint ptr %__middle.tr225 to i64
+  br i1 %cmp.not229, label %if.then9, label %if.else15
 
 if.then9:                                         ; preds = %if.else7
-  %div = sdiv i64 %__len1.tr183, 2
-  %add.ptr.i.i = getelementptr inbounds i32, ptr %__first.tr179, i64 %div
+  %div = sdiv i64 %__len1.tr227, 2
+  %add.ptr.i.i = getelementptr inbounds i32, ptr %__first.tr223, i64 %div
   %sub.ptr.sub.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i, %sub.ptr.rhs.cast.i.i.i
   %sub.ptr.div.i.i.i = ashr exact i64 %sub.ptr.sub.i.i.i, 2
   %cmp15.i = icmp sgt i64 %sub.ptr.div.i.i.i, 0
-  br i1 %cmp15.i, label %while.body.i54, label %_ZSt13__lower_boundIPjjN9__gnu_cxx5__ops14_Iter_comp_valIN17algebraic_numbers7manager3imp13var_degree_ltEEEET_S9_S9_RKT0_T1_.exit
+  br i1 %cmp15.i, label %while.body.i91, label %_ZSt13__lower_boundIPjjN9__gnu_cxx5__ops14_Iter_comp_valIN17algebraic_numbers7manager3imp13var_degree_ltEEEET_S9_S9_RKT0_T1_.exit
 
-while.body.i54:                                   ; preds = %if.then9, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN17algebraic_numbers7manager3imp13var_degree_ltEEclIPjKjEEbT_RT0_.exit.i
-  %__first.addr.017.i = phi ptr [ %__first.addr.1.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN17algebraic_numbers7manager3imp13var_degree_ltEEclIPjKjEEbT_RT0_.exit.i ], [ %__middle.tr181, %if.then9 ]
+while.body.i91:                                   ; preds = %if.then9, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN17algebraic_numbers7manager3imp13var_degree_ltEEclIPjKjEEbT_RT0_.exit.i
+  %__first.addr.017.i = phi ptr [ %__first.addr.1.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN17algebraic_numbers7manager3imp13var_degree_ltEEclIPjKjEEbT_RT0_.exit.i ], [ %__middle.tr225, %if.then9 ]
   %__len.016.i = phi i64 [ %__len.1.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN17algebraic_numbers7manager3imp13var_degree_ltEEclIPjKjEEbT_RT0_.exit.i ], [ %sub.ptr.div.i.i.i, %if.then9 ]
   %shr.i = lshr i64 %__len.016.i, 1
   %add.ptr.i.i.i = getelementptr inbounds i32, ptr %__first.addr.017.i, i64 %shr.i
-  %16 = load i32, ptr %add.ptr.i.i.i, align 4
-  %17 = load i32, ptr %add.ptr.i.i, align 4
-  %vtable.i.i.i.i56 = load ptr, ptr %agg.tmp11.sroa.2.0.copyload, align 8
-  %vfn.i.i.i.i57 = getelementptr inbounds i8, ptr %vtable.i.i.i.i56, i64 24
-  %18 = load ptr, ptr %vfn.i.i.i.i57, align 8
-  %call.i.i.i.i58 = tail call noundef zeroext i1 %18(ptr noundef nonnull align 8 dereferenceable(8) %agg.tmp11.sroa.2.0.copyload, i32 noundef %16)
-  br i1 %call.i.i.i.i58, label %if.end.i.i.i.i77, label %_ZNK17algebraic_numbers7manager3imp13var_degree_lt6degreeEj.exit.i.i.i59
+  %32 = load i32, ptr %add.ptr.i.i.i, align 4
+  %33 = load i32, ptr %add.ptr.i.i, align 4
+  %vtable.i.i.i.i93 = load ptr, ptr %agg.tmp11.sroa.2.0.copyload, align 8
+  %vfn.i.i.i.i94 = getelementptr inbounds i8, ptr %vtable.i.i.i.i93, i64 24
+  %34 = load ptr, ptr %vfn.i.i.i.i94, align 8
+  %call.i.i.i.i95 = tail call noundef zeroext i1 %34(ptr noundef nonnull align 8 dereferenceable(8) %agg.tmp11.sroa.2.0.copyload, i32 noundef %32)
+  br i1 %call.i.i.i.i95, label %if.end.i.i.i.i115, label %_ZNK17algebraic_numbers7manager3imp13var_degree_lt6degreeEj.exit.i.i.i96
 
-if.end.i.i.i.i77:                                 ; preds = %while.body.i54
-  %vtable3.i.i.i.i78 = load ptr, ptr %agg.tmp11.sroa.2.0.copyload, align 8
-  %vfn4.i.i.i.i79 = getelementptr inbounds i8, ptr %vtable3.i.i.i.i78, i64 32
-  %19 = load ptr, ptr %vfn4.i.i.i.i79, align 8
-  %call5.i.i.i.i80 = tail call noundef nonnull align 8 dereferenceable(8) ptr %19(ptr noundef nonnull align 8 dereferenceable(8) %agg.tmp11.sroa.2.0.copyload, i32 noundef %16)
-  %20 = load ptr, ptr %call5.i.i.i.i80, align 8
-  %cmp.i.i.i.i.i.i81 = icmp eq ptr %20, null
-  br i1 %cmp.i.i.i.i.i.i81, label %_ZNK17algebraic_numbers7manager3imp13var_degree_lt6degreeEj.exit.i.i.i59, label %if.end.i.i.i.i.i82
+if.end.i.i.i.i115:                                ; preds = %while.body.i91
+  %vtable3.i.i.i.i116 = load ptr, ptr %agg.tmp11.sroa.2.0.copyload, align 8
+  %vfn4.i.i.i.i117 = getelementptr inbounds i8, ptr %vtable3.i.i.i.i116, i64 32
+  %35 = load ptr, ptr %vfn4.i.i.i.i117, align 8
+  %call5.i.i.i.i118 = tail call noundef nonnull align 8 dereferenceable(8) ptr %35(ptr noundef nonnull align 8 dereferenceable(8) %agg.tmp11.sroa.2.0.copyload, i32 noundef %32)
+  %36 = load ptr, ptr %call5.i.i.i.i118, align 8
+  %cmp.i.i.i.i.i.i119 = icmp eq ptr %36, null
+  br i1 %cmp.i.i.i.i.i.i119, label %_ZNK17algebraic_numbers7manager3imp13var_degree_lt6degreeEj.exit.i.i.i96, label %if.end.i.i.i.i.i120
 
-if.end.i.i.i.i.i82:                               ; preds = %if.end.i.i.i.i77
-  %21 = ptrtoint ptr %20 to i64
-  %and.i.i.i.i.i.i83 = and i64 %21, 7
-  %cmp.i3.i.i.i.i.i84 = icmp eq i64 %and.i.i.i.i.i.i83, 0
-  br i1 %cmp.i3.i.i.i.i.i84, label %_ZNK17algebraic_numbers7manager3imp13var_degree_lt6degreeEj.exit.i.i.i59, label %if.end4.i.i.i.i.i85
+if.end.i.i.i.i.i120:                              ; preds = %if.end.i.i.i.i115
+  %37 = ptrtoint ptr %36 to i64
+  %and.i.i.i.i.i.i121 = and i64 %37, 7
+  %cmp.i3.i.i.i.i.i122 = icmp eq i64 %and.i.i.i.i.i.i121, 0
+  br i1 %cmp.i3.i.i.i.i.i122, label %_ZNK17algebraic_numbers7manager3imp13var_degree_lt6degreeEj.exit.i.i.i96, label %if.end4.i.i.i.i.i123
 
-if.end4.i.i.i.i.i85:                              ; preds = %if.end.i.i.i.i.i82
-  %and.i4.i.i.i.i.i86 = and i64 %21, -8
-  %22 = inttoptr i64 %and.i4.i.i.i.i.i86 to ptr
-  %23 = load i32, ptr %22, align 8
-  %sub.i.i.i.i.i87 = add i32 %23, -1
-  br label %_ZNK17algebraic_numbers7manager3imp13var_degree_lt6degreeEj.exit.i.i.i59
+if.end4.i.i.i.i.i123:                             ; preds = %if.end.i.i.i.i.i120
+  %and.i4.i.i.i.i.i124 = and i64 %37, -8
+  %38 = inttoptr i64 %and.i4.i.i.i.i.i124 to ptr
+  %39 = load i32, ptr %38, align 8
+  %sub.i.i.i.i.i125 = add i32 %39, -1
+  br label %_ZNK17algebraic_numbers7manager3imp13var_degree_lt6degreeEj.exit.i.i.i96
 
-_ZNK17algebraic_numbers7manager3imp13var_degree_lt6degreeEj.exit.i.i.i59: ; preds = %if.end4.i.i.i.i.i85, %if.end.i.i.i.i.i82, %if.end.i.i.i.i77, %while.body.i54
-  %retval.0.i.i.i.i60 = phi i32 [ -1, %while.body.i54 ], [ %sub.i.i.i.i.i87, %if.end4.i.i.i.i.i85 ], [ 0, %if.end.i.i.i.i77 ], [ 1, %if.end.i.i.i.i.i82 ]
-  %vtable.i2.i.i.i61 = load ptr, ptr %agg.tmp11.sroa.2.0.copyload, align 8
-  %vfn.i3.i.i.i62 = getelementptr inbounds i8, ptr %vtable.i2.i.i.i61, i64 24
-  %24 = load ptr, ptr %vfn.i3.i.i.i62, align 8
-  %call.i4.i.i.i63 = tail call noundef zeroext i1 %24(ptr noundef nonnull align 8 dereferenceable(8) %agg.tmp11.sroa.2.0.copyload, i32 noundef %17)
-  br i1 %call.i4.i.i.i63, label %if.end.i6.i.i.i66, label %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN17algebraic_numbers7manager3imp13var_degree_ltEEclIPjKjEEbT_RT0_.exit.i
+_ZNK17algebraic_numbers7manager3imp13var_degree_lt6degreeEj.exit.i.i.i96: ; preds = %if.end4.i.i.i.i.i123, %if.end.i.i.i.i.i120, %if.end.i.i.i.i115, %while.body.i91
+  %retval.0.i.i.i.i97 = phi i32 [ -1, %while.body.i91 ], [ %sub.i.i.i.i.i125, %if.end4.i.i.i.i.i123 ], [ 0, %if.end.i.i.i.i115 ], [ 1, %if.end.i.i.i.i.i120 ]
+  %vtable.i2.i.i.i98 = load ptr, ptr %agg.tmp11.sroa.2.0.copyload, align 8
+  %vfn.i3.i.i.i99 = getelementptr inbounds i8, ptr %vtable.i2.i.i.i98, i64 24
+  %40 = load ptr, ptr %vfn.i3.i.i.i99, align 8
+  %call.i4.i.i.i100 = tail call noundef zeroext i1 %40(ptr noundef nonnull align 8 dereferenceable(8) %agg.tmp11.sroa.2.0.copyload, i32 noundef %33)
+  br i1 %call.i4.i.i.i100, label %if.end.i6.i.i.i104, label %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN17algebraic_numbers7manager3imp13var_degree_ltEEclIPjKjEEbT_RT0_.exit.i
 
-if.end.i6.i.i.i66:                                ; preds = %_ZNK17algebraic_numbers7manager3imp13var_degree_lt6degreeEj.exit.i.i.i59
-  %vtable3.i7.i.i.i67 = load ptr, ptr %agg.tmp11.sroa.2.0.copyload, align 8
-  %vfn4.i8.i.i.i68 = getelementptr inbounds i8, ptr %vtable3.i7.i.i.i67, i64 32
-  %25 = load ptr, ptr %vfn4.i8.i.i.i68, align 8
-  %call5.i9.i.i.i69 = tail call noundef nonnull align 8 dereferenceable(8) ptr %25(ptr noundef nonnull align 8 dereferenceable(8) %agg.tmp11.sroa.2.0.copyload, i32 noundef %17)
-  %26 = load ptr, ptr %call5.i9.i.i.i69, align 8
-  %cmp.i.i.i10.i.i.i70 = icmp eq ptr %26, null
-  br i1 %cmp.i.i.i10.i.i.i70, label %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN17algebraic_numbers7manager3imp13var_degree_ltEEclIPjKjEEbT_RT0_.exit.i, label %if.end.i.i11.i.i.i71
+if.end.i6.i.i.i104:                               ; preds = %_ZNK17algebraic_numbers7manager3imp13var_degree_lt6degreeEj.exit.i.i.i96
+  %vtable3.i7.i.i.i105 = load ptr, ptr %agg.tmp11.sroa.2.0.copyload, align 8
+  %vfn4.i8.i.i.i106 = getelementptr inbounds i8, ptr %vtable3.i7.i.i.i105, i64 32
+  %41 = load ptr, ptr %vfn4.i8.i.i.i106, align 8
+  %call5.i9.i.i.i107 = tail call noundef nonnull align 8 dereferenceable(8) ptr %41(ptr noundef nonnull align 8 dereferenceable(8) %agg.tmp11.sroa.2.0.copyload, i32 noundef %33)
+  %42 = load ptr, ptr %call5.i9.i.i.i107, align 8
+  %cmp.i.i.i10.i.i.i108 = icmp eq ptr %42, null
+  br i1 %cmp.i.i.i10.i.i.i108, label %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN17algebraic_numbers7manager3imp13var_degree_ltEEclIPjKjEEbT_RT0_.exit.i, label %if.end.i.i11.i.i.i109
 
-if.end.i.i11.i.i.i71:                             ; preds = %if.end.i6.i.i.i66
-  %27 = ptrtoint ptr %26 to i64
-  %and.i.i.i12.i.i.i72 = and i64 %27, 7
-  %cmp.i3.i.i13.i.i.i73 = icmp eq i64 %and.i.i.i12.i.i.i72, 0
-  br i1 %cmp.i3.i.i13.i.i.i73, label %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN17algebraic_numbers7manager3imp13var_degree_ltEEclIPjKjEEbT_RT0_.exit.i, label %if.end4.i.i14.i.i.i74
+if.end.i.i11.i.i.i109:                            ; preds = %if.end.i6.i.i.i104
+  %43 = ptrtoint ptr %42 to i64
+  %and.i.i.i12.i.i.i110 = and i64 %43, 7
+  %cmp.i3.i.i13.i.i.i111 = icmp eq i64 %and.i.i.i12.i.i.i110, 0
+  br i1 %cmp.i3.i.i13.i.i.i111, label %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN17algebraic_numbers7manager3imp13var_degree_ltEEclIPjKjEEbT_RT0_.exit.i, label %if.end4.i.i14.i.i.i112
 
-if.end4.i.i14.i.i.i74:                            ; preds = %if.end.i.i11.i.i.i71
-  %and.i4.i.i15.i.i.i75 = and i64 %27, -8
-  %28 = inttoptr i64 %and.i4.i.i15.i.i.i75 to ptr
-  %29 = load i32, ptr %28, align 8
-  %sub.i.i16.i.i.i76 = add i32 %29, -1
+if.end4.i.i14.i.i.i112:                           ; preds = %if.end.i.i11.i.i.i109
+  %and.i4.i.i15.i.i.i113 = and i64 %43, -8
+  %44 = inttoptr i64 %and.i4.i.i15.i.i.i113 to ptr
+  %45 = load i32, ptr %44, align 8
+  %sub.i.i16.i.i.i114 = add i32 %45, -1
   br label %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN17algebraic_numbers7manager3imp13var_degree_ltEEclIPjKjEEbT_RT0_.exit.i
 
-_ZN9__gnu_cxx5__ops14_Iter_comp_valIN17algebraic_numbers7manager3imp13var_degree_ltEEclIPjKjEEbT_RT0_.exit.i: ; preds = %if.end4.i.i14.i.i.i74, %if.end.i.i11.i.i.i71, %if.end.i6.i.i.i66, %_ZNK17algebraic_numbers7manager3imp13var_degree_lt6degreeEj.exit.i.i.i59
-  %retval.0.i5.i.i.i64 = phi i32 [ -1, %_ZNK17algebraic_numbers7manager3imp13var_degree_lt6degreeEj.exit.i.i.i59 ], [ %sub.i.i16.i.i.i76, %if.end4.i.i14.i.i.i74 ], [ 0, %if.end.i6.i.i.i66 ], [ 1, %if.end.i.i11.i.i.i71 ]
-  %cmp.i.i8.i = icmp ult i32 %retval.0.i.i.i.i60, %retval.0.i5.i.i.i64
-  %incdec.ptr.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i, i64 4
-  %30 = xor i64 %shr.i, -1
-  %sub2.i = add nsw i64 %__len.016.i, %30
+_ZN9__gnu_cxx5__ops14_Iter_comp_valIN17algebraic_numbers7manager3imp13var_degree_ltEEclIPjKjEEbT_RT0_.exit.i: ; preds = %if.end4.i.i14.i.i.i112, %if.end.i.i11.i.i.i109, %if.end.i6.i.i.i104, %_ZNK17algebraic_numbers7manager3imp13var_degree_lt6degreeEj.exit.i.i.i96
+  %retval.0.i5.i.i.i101 = phi i32 [ -1, %_ZNK17algebraic_numbers7manager3imp13var_degree_lt6degreeEj.exit.i.i.i96 ], [ %sub.i.i16.i.i.i114, %if.end4.i.i14.i.i.i112 ], [ 0, %if.end.i6.i.i.i104 ], [ 1, %if.end.i.i11.i.i.i109 ]
+  %cmp.i.i8.i = icmp ult i32 %retval.0.i.i.i.i97, %retval.0.i5.i.i.i101
+  %incdec.ptr.i102 = getelementptr inbounds i8, ptr %add.ptr.i.i.i, i64 4
+  %46 = xor i64 %shr.i, -1
+  %sub2.i = add nsw i64 %__len.016.i, %46
   %__len.1.i = select i1 %cmp.i.i8.i, i64 %sub2.i, i64 %shr.i
-  %__first.addr.1.i = select i1 %cmp.i.i8.i, ptr %incdec.ptr.i, ptr %__first.addr.017.i
-  %cmp.i65 = icmp sgt i64 %__len.1.i, 0
-  br i1 %cmp.i65, label %while.body.i54, label %_ZSt13__lower_boundIPjjN9__gnu_cxx5__ops14_Iter_comp_valIN17algebraic_numbers7manager3imp13var_degree_ltEEEET_S9_S9_RKT0_T1_.exit.loopexit, !llvm.loop !55
+  %__first.addr.1.i = select i1 %cmp.i.i8.i, ptr %incdec.ptr.i102, ptr %__first.addr.017.i
+  %cmp.i103 = icmp sgt i64 %__len.1.i, 0
+  br i1 %cmp.i103, label %while.body.i91, label %_ZSt13__lower_boundIPjjN9__gnu_cxx5__ops14_Iter_comp_valIN17algebraic_numbers7manager3imp13var_degree_ltEEEET_S9_S9_RKT0_T1_.exit.loopexit, !llvm.loop !55
 
 _ZSt13__lower_boundIPjjN9__gnu_cxx5__ops14_Iter_comp_valIN17algebraic_numbers7manager3imp13var_degree_ltEEEET_S9_S9_RKT0_T1_.exit.loopexit: ; preds = %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN17algebraic_numbers7manager3imp13var_degree_ltEEclIPjKjEEbT_RT0_.exit.i
   %.pre = ptrtoint ptr %__first.addr.1.i to i64
@@ -14406,184 +14515,184 @@ _ZSt13__lower_boundIPjjN9__gnu_cxx5__ops14_Iter_comp_valIN17algebraic_numbers7ma
 
 _ZSt13__lower_boundIPjjN9__gnu_cxx5__ops14_Iter_comp_valIN17algebraic_numbers7manager3imp13var_degree_ltEEEET_S9_S9_RKT0_T1_.exit: ; preds = %_ZSt13__lower_boundIPjjN9__gnu_cxx5__ops14_Iter_comp_valIN17algebraic_numbers7manager3imp13var_degree_ltEEEET_S9_S9_RKT0_T1_.exit.loopexit, %if.then9
   %sub.ptr.lhs.cast.i.i.pre-phi = phi i64 [ %.pre, %_ZSt13__lower_boundIPjjN9__gnu_cxx5__ops14_Iter_comp_valIN17algebraic_numbers7manager3imp13var_degree_ltEEEET_S9_S9_RKT0_T1_.exit.loopexit ], [ %sub.ptr.rhs.cast.i.i.i, %if.then9 ]
-  %__first.addr.0.lcssa.i = phi ptr [ %__first.addr.1.i, %_ZSt13__lower_boundIPjjN9__gnu_cxx5__ops14_Iter_comp_valIN17algebraic_numbers7manager3imp13var_degree_ltEEEET_S9_S9_RKT0_T1_.exit.loopexit ], [ %__middle.tr181, %if.then9 ]
+  %__first.addr.0.lcssa.i = phi ptr [ %__first.addr.1.i, %_ZSt13__lower_boundIPjjN9__gnu_cxx5__ops14_Iter_comp_valIN17algebraic_numbers7manager3imp13var_degree_ltEEEET_S9_S9_RKT0_T1_.exit.loopexit ], [ %__middle.tr225, %if.then9 ]
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i.pre-phi, %sub.ptr.rhs.cast.i.i.i
   %sub.ptr.div.i.i = ashr exact i64 %sub.ptr.sub.i.i, 2
   br label %if.end
 
 if.else15:                                        ; preds = %if.else7
-  %div16 = sdiv i64 %__len2.tr184, 2
-  %add.ptr.i.i94 = getelementptr inbounds i32, ptr %__middle.tr181, i64 %div16
-  %sub.ptr.rhs.cast.i.i.i104 = ptrtoint ptr %__first.tr179 to i64
-  %sub.ptr.sub.i.i.i105 = sub i64 %sub.ptr.rhs.cast.i.i.i, %sub.ptr.rhs.cast.i.i.i104
-  %sub.ptr.div.i.i.i106 = ashr exact i64 %sub.ptr.sub.i.i.i105, 2
-  %cmp15.i107 = icmp sgt i64 %sub.ptr.div.i.i.i106, 0
-  br i1 %cmp15.i107, label %while.body.i110, label %_ZSt13__upper_boundIPjjN9__gnu_cxx5__ops14_Val_comp_iterIN17algebraic_numbers7manager3imp13var_degree_ltEEEET_S9_S9_RKT0_T1_.exit
+  %div16 = sdiv i64 %__len2.tr228, 2
+  %add.ptr.i.i132 = getelementptr inbounds i32, ptr %__middle.tr225, i64 %div16
+  %sub.ptr.rhs.cast.i.i.i142 = ptrtoint ptr %__first.tr223 to i64
+  %sub.ptr.sub.i.i.i143 = sub i64 %sub.ptr.rhs.cast.i.i.i, %sub.ptr.rhs.cast.i.i.i142
+  %sub.ptr.div.i.i.i144 = ashr exact i64 %sub.ptr.sub.i.i.i143, 2
+  %cmp15.i145 = icmp sgt i64 %sub.ptr.div.i.i.i144, 0
+  br i1 %cmp15.i145, label %while.body.i148, label %_ZSt13__upper_boundIPjjN9__gnu_cxx5__ops14_Val_comp_iterIN17algebraic_numbers7manager3imp13var_degree_ltEEEET_S9_S9_RKT0_T1_.exit
 
-while.body.i110:                                  ; preds = %if.else15, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN17algebraic_numbers7manager3imp13var_degree_ltEEclIKjPjEEbRT_T0_.exit.i
-  %__first.addr.017.i111 = phi ptr [ %__first.addr.1.i132, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN17algebraic_numbers7manager3imp13var_degree_ltEEclIKjPjEEbRT_T0_.exit.i ], [ %__first.tr179, %if.else15 ]
-  %__len.016.i112 = phi i64 [ %__len.1.i131, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN17algebraic_numbers7manager3imp13var_degree_ltEEclIKjPjEEbRT_T0_.exit.i ], [ %sub.ptr.div.i.i.i106, %if.else15 ]
-  %shr.i113 = lshr i64 %__len.016.i112, 1
-  %add.ptr.i.i.i116 = getelementptr inbounds i32, ptr %__first.addr.017.i111, i64 %shr.i113
-  %31 = load i32, ptr %add.ptr.i.i94, align 4
-  %32 = load i32, ptr %add.ptr.i.i.i116, align 4
-  %vtable.i.i.i.i119 = load ptr, ptr %agg.tmp11.sroa.2.0.copyload, align 8
-  %vfn.i.i.i.i120 = getelementptr inbounds i8, ptr %vtable.i.i.i.i119, i64 24
-  %33 = load ptr, ptr %vfn.i.i.i.i120, align 8
-  %call.i.i.i.i121 = tail call noundef zeroext i1 %33(ptr noundef nonnull align 8 dereferenceable(8) %agg.tmp11.sroa.2.0.copyload, i32 noundef %31)
-  br i1 %call.i.i.i.i121, label %if.end.i.i.i.i145, label %_ZNK17algebraic_numbers7manager3imp13var_degree_lt6degreeEj.exit.i.i.i122
+while.body.i148:                                  ; preds = %if.else15, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN17algebraic_numbers7manager3imp13var_degree_ltEEclIKjPjEEbRT_T0_.exit.i
+  %__first.addr.017.i149 = phi ptr [ %__first.addr.1.i170, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN17algebraic_numbers7manager3imp13var_degree_ltEEclIKjPjEEbRT_T0_.exit.i ], [ %__first.tr223, %if.else15 ]
+  %__len.016.i150 = phi i64 [ %__len.1.i169, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN17algebraic_numbers7manager3imp13var_degree_ltEEclIKjPjEEbRT_T0_.exit.i ], [ %sub.ptr.div.i.i.i144, %if.else15 ]
+  %shr.i151 = lshr i64 %__len.016.i150, 1
+  %add.ptr.i.i.i154 = getelementptr inbounds i32, ptr %__first.addr.017.i149, i64 %shr.i151
+  %47 = load i32, ptr %add.ptr.i.i132, align 4
+  %48 = load i32, ptr %add.ptr.i.i.i154, align 4
+  %vtable.i.i.i.i157 = load ptr, ptr %agg.tmp11.sroa.2.0.copyload, align 8
+  %vfn.i.i.i.i158 = getelementptr inbounds i8, ptr %vtable.i.i.i.i157, i64 24
+  %49 = load ptr, ptr %vfn.i.i.i.i158, align 8
+  %call.i.i.i.i159 = tail call noundef zeroext i1 %49(ptr noundef nonnull align 8 dereferenceable(8) %agg.tmp11.sroa.2.0.copyload, i32 noundef %47)
+  br i1 %call.i.i.i.i159, label %if.end.i.i.i.i183, label %_ZNK17algebraic_numbers7manager3imp13var_degree_lt6degreeEj.exit.i.i.i160
 
-if.end.i.i.i.i145:                                ; preds = %while.body.i110
-  %vtable3.i.i.i.i146 = load ptr, ptr %agg.tmp11.sroa.2.0.copyload, align 8
-  %vfn4.i.i.i.i147 = getelementptr inbounds i8, ptr %vtable3.i.i.i.i146, i64 32
-  %34 = load ptr, ptr %vfn4.i.i.i.i147, align 8
-  %call5.i.i.i.i148 = tail call noundef nonnull align 8 dereferenceable(8) ptr %34(ptr noundef nonnull align 8 dereferenceable(8) %agg.tmp11.sroa.2.0.copyload, i32 noundef %31)
-  %35 = load ptr, ptr %call5.i.i.i.i148, align 8
-  %cmp.i.i.i.i.i.i149 = icmp eq ptr %35, null
-  br i1 %cmp.i.i.i.i.i.i149, label %_ZNK17algebraic_numbers7manager3imp13var_degree_lt6degreeEj.exit.i.i.i122, label %if.end.i.i.i.i.i150
+if.end.i.i.i.i183:                                ; preds = %while.body.i148
+  %vtable3.i.i.i.i184 = load ptr, ptr %agg.tmp11.sroa.2.0.copyload, align 8
+  %vfn4.i.i.i.i185 = getelementptr inbounds i8, ptr %vtable3.i.i.i.i184, i64 32
+  %50 = load ptr, ptr %vfn4.i.i.i.i185, align 8
+  %call5.i.i.i.i186 = tail call noundef nonnull align 8 dereferenceable(8) ptr %50(ptr noundef nonnull align 8 dereferenceable(8) %agg.tmp11.sroa.2.0.copyload, i32 noundef %47)
+  %51 = load ptr, ptr %call5.i.i.i.i186, align 8
+  %cmp.i.i.i.i.i.i187 = icmp eq ptr %51, null
+  br i1 %cmp.i.i.i.i.i.i187, label %_ZNK17algebraic_numbers7manager3imp13var_degree_lt6degreeEj.exit.i.i.i160, label %if.end.i.i.i.i.i188
 
-if.end.i.i.i.i.i150:                              ; preds = %if.end.i.i.i.i145
-  %36 = ptrtoint ptr %35 to i64
-  %and.i.i.i.i.i.i151 = and i64 %36, 7
-  %cmp.i3.i.i.i.i.i152 = icmp eq i64 %and.i.i.i.i.i.i151, 0
-  br i1 %cmp.i3.i.i.i.i.i152, label %_ZNK17algebraic_numbers7manager3imp13var_degree_lt6degreeEj.exit.i.i.i122, label %if.end4.i.i.i.i.i153
+if.end.i.i.i.i.i188:                              ; preds = %if.end.i.i.i.i183
+  %52 = ptrtoint ptr %51 to i64
+  %and.i.i.i.i.i.i189 = and i64 %52, 7
+  %cmp.i3.i.i.i.i.i190 = icmp eq i64 %and.i.i.i.i.i.i189, 0
+  br i1 %cmp.i3.i.i.i.i.i190, label %_ZNK17algebraic_numbers7manager3imp13var_degree_lt6degreeEj.exit.i.i.i160, label %if.end4.i.i.i.i.i191
 
-if.end4.i.i.i.i.i153:                             ; preds = %if.end.i.i.i.i.i150
-  %and.i4.i.i.i.i.i154 = and i64 %36, -8
-  %37 = inttoptr i64 %and.i4.i.i.i.i.i154 to ptr
-  %38 = load i32, ptr %37, align 8
-  %sub.i.i.i.i.i155 = add i32 %38, -1
-  br label %_ZNK17algebraic_numbers7manager3imp13var_degree_lt6degreeEj.exit.i.i.i122
+if.end4.i.i.i.i.i191:                             ; preds = %if.end.i.i.i.i.i188
+  %and.i4.i.i.i.i.i192 = and i64 %52, -8
+  %53 = inttoptr i64 %and.i4.i.i.i.i.i192 to ptr
+  %54 = load i32, ptr %53, align 8
+  %sub.i.i.i.i.i193 = add i32 %54, -1
+  br label %_ZNK17algebraic_numbers7manager3imp13var_degree_lt6degreeEj.exit.i.i.i160
 
-_ZNK17algebraic_numbers7manager3imp13var_degree_lt6degreeEj.exit.i.i.i122: ; preds = %if.end4.i.i.i.i.i153, %if.end.i.i.i.i.i150, %if.end.i.i.i.i145, %while.body.i110
-  %retval.0.i.i.i.i123 = phi i32 [ -1, %while.body.i110 ], [ %sub.i.i.i.i.i155, %if.end4.i.i.i.i.i153 ], [ 0, %if.end.i.i.i.i145 ], [ 1, %if.end.i.i.i.i.i150 ]
-  %vtable.i2.i.i.i124 = load ptr, ptr %agg.tmp11.sroa.2.0.copyload, align 8
-  %vfn.i3.i.i.i125 = getelementptr inbounds i8, ptr %vtable.i2.i.i.i124, i64 24
-  %39 = load ptr, ptr %vfn.i3.i.i.i125, align 8
-  %call.i4.i.i.i126 = tail call noundef zeroext i1 %39(ptr noundef nonnull align 8 dereferenceable(8) %agg.tmp11.sroa.2.0.copyload, i32 noundef %32)
-  br i1 %call.i4.i.i.i126, label %if.end.i6.i.i.i134, label %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN17algebraic_numbers7manager3imp13var_degree_ltEEclIKjPjEEbRT_T0_.exit.i
+_ZNK17algebraic_numbers7manager3imp13var_degree_lt6degreeEj.exit.i.i.i160: ; preds = %if.end4.i.i.i.i.i191, %if.end.i.i.i.i.i188, %if.end.i.i.i.i183, %while.body.i148
+  %retval.0.i.i.i.i161 = phi i32 [ -1, %while.body.i148 ], [ %sub.i.i.i.i.i193, %if.end4.i.i.i.i.i191 ], [ 0, %if.end.i.i.i.i183 ], [ 1, %if.end.i.i.i.i.i188 ]
+  %vtable.i2.i.i.i162 = load ptr, ptr %agg.tmp11.sroa.2.0.copyload, align 8
+  %vfn.i3.i.i.i163 = getelementptr inbounds i8, ptr %vtable.i2.i.i.i162, i64 24
+  %55 = load ptr, ptr %vfn.i3.i.i.i163, align 8
+  %call.i4.i.i.i164 = tail call noundef zeroext i1 %55(ptr noundef nonnull align 8 dereferenceable(8) %agg.tmp11.sroa.2.0.copyload, i32 noundef %48)
+  br i1 %call.i4.i.i.i164, label %if.end.i6.i.i.i172, label %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN17algebraic_numbers7manager3imp13var_degree_ltEEclIKjPjEEbRT_T0_.exit.i
 
-if.end.i6.i.i.i134:                               ; preds = %_ZNK17algebraic_numbers7manager3imp13var_degree_lt6degreeEj.exit.i.i.i122
-  %vtable3.i7.i.i.i135 = load ptr, ptr %agg.tmp11.sroa.2.0.copyload, align 8
-  %vfn4.i8.i.i.i136 = getelementptr inbounds i8, ptr %vtable3.i7.i.i.i135, i64 32
-  %40 = load ptr, ptr %vfn4.i8.i.i.i136, align 8
-  %call5.i9.i.i.i137 = tail call noundef nonnull align 8 dereferenceable(8) ptr %40(ptr noundef nonnull align 8 dereferenceable(8) %agg.tmp11.sroa.2.0.copyload, i32 noundef %32)
-  %41 = load ptr, ptr %call5.i9.i.i.i137, align 8
-  %cmp.i.i.i10.i.i.i138 = icmp eq ptr %41, null
-  br i1 %cmp.i.i.i10.i.i.i138, label %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN17algebraic_numbers7manager3imp13var_degree_ltEEclIKjPjEEbRT_T0_.exit.i, label %if.end.i.i11.i.i.i139
+if.end.i6.i.i.i172:                               ; preds = %_ZNK17algebraic_numbers7manager3imp13var_degree_lt6degreeEj.exit.i.i.i160
+  %vtable3.i7.i.i.i173 = load ptr, ptr %agg.tmp11.sroa.2.0.copyload, align 8
+  %vfn4.i8.i.i.i174 = getelementptr inbounds i8, ptr %vtable3.i7.i.i.i173, i64 32
+  %56 = load ptr, ptr %vfn4.i8.i.i.i174, align 8
+  %call5.i9.i.i.i175 = tail call noundef nonnull align 8 dereferenceable(8) ptr %56(ptr noundef nonnull align 8 dereferenceable(8) %agg.tmp11.sroa.2.0.copyload, i32 noundef %48)
+  %57 = load ptr, ptr %call5.i9.i.i.i175, align 8
+  %cmp.i.i.i10.i.i.i176 = icmp eq ptr %57, null
+  br i1 %cmp.i.i.i10.i.i.i176, label %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN17algebraic_numbers7manager3imp13var_degree_ltEEclIKjPjEEbRT_T0_.exit.i, label %if.end.i.i11.i.i.i177
 
-if.end.i.i11.i.i.i139:                            ; preds = %if.end.i6.i.i.i134
-  %42 = ptrtoint ptr %41 to i64
-  %and.i.i.i12.i.i.i140 = and i64 %42, 7
-  %cmp.i3.i.i13.i.i.i141 = icmp eq i64 %and.i.i.i12.i.i.i140, 0
-  br i1 %cmp.i3.i.i13.i.i.i141, label %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN17algebraic_numbers7manager3imp13var_degree_ltEEclIKjPjEEbRT_T0_.exit.i, label %if.end4.i.i14.i.i.i142
+if.end.i.i11.i.i.i177:                            ; preds = %if.end.i6.i.i.i172
+  %58 = ptrtoint ptr %57 to i64
+  %and.i.i.i12.i.i.i178 = and i64 %58, 7
+  %cmp.i3.i.i13.i.i.i179 = icmp eq i64 %and.i.i.i12.i.i.i178, 0
+  br i1 %cmp.i3.i.i13.i.i.i179, label %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN17algebraic_numbers7manager3imp13var_degree_ltEEclIKjPjEEbRT_T0_.exit.i, label %if.end4.i.i14.i.i.i180
 
-if.end4.i.i14.i.i.i142:                           ; preds = %if.end.i.i11.i.i.i139
-  %and.i4.i.i15.i.i.i143 = and i64 %42, -8
-  %43 = inttoptr i64 %and.i4.i.i15.i.i.i143 to ptr
-  %44 = load i32, ptr %43, align 8
-  %sub.i.i16.i.i.i144 = add i32 %44, -1
+if.end4.i.i14.i.i.i180:                           ; preds = %if.end.i.i11.i.i.i177
+  %and.i4.i.i15.i.i.i181 = and i64 %58, -8
+  %59 = inttoptr i64 %and.i4.i.i15.i.i.i181 to ptr
+  %60 = load i32, ptr %59, align 8
+  %sub.i.i16.i.i.i182 = add i32 %60, -1
   br label %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN17algebraic_numbers7manager3imp13var_degree_ltEEclIKjPjEEbRT_T0_.exit.i
 
-_ZN9__gnu_cxx5__ops14_Val_comp_iterIN17algebraic_numbers7manager3imp13var_degree_ltEEclIKjPjEEbRT_T0_.exit.i: ; preds = %if.end4.i.i14.i.i.i142, %if.end.i.i11.i.i.i139, %if.end.i6.i.i.i134, %_ZNK17algebraic_numbers7manager3imp13var_degree_lt6degreeEj.exit.i.i.i122
-  %retval.0.i5.i.i.i127 = phi i32 [ -1, %_ZNK17algebraic_numbers7manager3imp13var_degree_lt6degreeEj.exit.i.i.i122 ], [ %sub.i.i16.i.i.i144, %if.end4.i.i14.i.i.i142 ], [ 0, %if.end.i6.i.i.i134 ], [ 1, %if.end.i.i11.i.i.i139 ]
-  %cmp.i.i8.i128 = icmp ult i32 %retval.0.i.i.i.i123, %retval.0.i5.i.i.i127
-  %incdec.ptr.i129 = getelementptr inbounds i8, ptr %add.ptr.i.i.i116, i64 4
-  %45 = xor i64 %shr.i113, -1
-  %sub2.i130 = add nsw i64 %__len.016.i112, %45
-  %__len.1.i131 = select i1 %cmp.i.i8.i128, i64 %shr.i113, i64 %sub2.i130
-  %__first.addr.1.i132 = select i1 %cmp.i.i8.i128, ptr %__first.addr.017.i111, ptr %incdec.ptr.i129
-  %cmp.i133 = icmp sgt i64 %__len.1.i131, 0
-  br i1 %cmp.i133, label %while.body.i110, label %_ZSt13__upper_boundIPjjN9__gnu_cxx5__ops14_Val_comp_iterIN17algebraic_numbers7manager3imp13var_degree_ltEEEET_S9_S9_RKT0_T1_.exit.loopexit, !llvm.loop !56
+_ZN9__gnu_cxx5__ops14_Val_comp_iterIN17algebraic_numbers7manager3imp13var_degree_ltEEclIKjPjEEbRT_T0_.exit.i: ; preds = %if.end4.i.i14.i.i.i180, %if.end.i.i11.i.i.i177, %if.end.i6.i.i.i172, %_ZNK17algebraic_numbers7manager3imp13var_degree_lt6degreeEj.exit.i.i.i160
+  %retval.0.i5.i.i.i165 = phi i32 [ -1, %_ZNK17algebraic_numbers7manager3imp13var_degree_lt6degreeEj.exit.i.i.i160 ], [ %sub.i.i16.i.i.i182, %if.end4.i.i14.i.i.i180 ], [ 0, %if.end.i6.i.i.i172 ], [ 1, %if.end.i.i11.i.i.i177 ]
+  %cmp.i.i8.i166 = icmp ult i32 %retval.0.i.i.i.i161, %retval.0.i5.i.i.i165
+  %incdec.ptr.i167 = getelementptr inbounds i8, ptr %add.ptr.i.i.i154, i64 4
+  %61 = xor i64 %shr.i151, -1
+  %sub2.i168 = add nsw i64 %__len.016.i150, %61
+  %__len.1.i169 = select i1 %cmp.i.i8.i166, i64 %shr.i151, i64 %sub2.i168
+  %__first.addr.1.i170 = select i1 %cmp.i.i8.i166, ptr %__first.addr.017.i149, ptr %incdec.ptr.i167
+  %cmp.i171 = icmp sgt i64 %__len.1.i169, 0
+  br i1 %cmp.i171, label %while.body.i148, label %_ZSt13__upper_boundIPjjN9__gnu_cxx5__ops14_Val_comp_iterIN17algebraic_numbers7manager3imp13var_degree_ltEEEET_S9_S9_RKT0_T1_.exit.loopexit, !llvm.loop !56
 
 _ZSt13__upper_boundIPjjN9__gnu_cxx5__ops14_Val_comp_iterIN17algebraic_numbers7manager3imp13var_degree_ltEEEET_S9_S9_RKT0_T1_.exit.loopexit: ; preds = %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN17algebraic_numbers7manager3imp13var_degree_ltEEclIKjPjEEbRT_T0_.exit.i
-  %.pre189 = ptrtoint ptr %__first.addr.1.i132 to i64
+  %.pre235 = ptrtoint ptr %__first.addr.1.i170 to i64
   br label %_ZSt13__upper_boundIPjjN9__gnu_cxx5__ops14_Val_comp_iterIN17algebraic_numbers7manager3imp13var_degree_ltEEEET_S9_S9_RKT0_T1_.exit
 
 _ZSt13__upper_boundIPjjN9__gnu_cxx5__ops14_Val_comp_iterIN17algebraic_numbers7manager3imp13var_degree_ltEEEET_S9_S9_RKT0_T1_.exit: ; preds = %_ZSt13__upper_boundIPjjN9__gnu_cxx5__ops14_Val_comp_iterIN17algebraic_numbers7manager3imp13var_degree_ltEEEET_S9_S9_RKT0_T1_.exit.loopexit, %if.else15
-  %sub.ptr.lhs.cast.i.i156.pre-phi = phi i64 [ %.pre189, %_ZSt13__upper_boundIPjjN9__gnu_cxx5__ops14_Val_comp_iterIN17algebraic_numbers7manager3imp13var_degree_ltEEEET_S9_S9_RKT0_T1_.exit.loopexit ], [ %sub.ptr.rhs.cast.i.i.i104, %if.else15 ]
-  %__first.addr.0.lcssa.i109 = phi ptr [ %__first.addr.1.i132, %_ZSt13__upper_boundIPjjN9__gnu_cxx5__ops14_Val_comp_iterIN17algebraic_numbers7manager3imp13var_degree_ltEEEET_S9_S9_RKT0_T1_.exit.loopexit ], [ %__first.tr179, %if.else15 ]
-  %sub.ptr.sub.i.i158 = sub i64 %sub.ptr.lhs.cast.i.i156.pre-phi, %sub.ptr.rhs.cast.i.i.i104
-  %sub.ptr.div.i.i159 = ashr exact i64 %sub.ptr.sub.i.i158, 2
+  %sub.ptr.lhs.cast.i.i194.pre-phi = phi i64 [ %.pre235, %_ZSt13__upper_boundIPjjN9__gnu_cxx5__ops14_Val_comp_iterIN17algebraic_numbers7manager3imp13var_degree_ltEEEET_S9_S9_RKT0_T1_.exit.loopexit ], [ %sub.ptr.rhs.cast.i.i.i142, %if.else15 ]
+  %__first.addr.0.lcssa.i147 = phi ptr [ %__first.addr.1.i170, %_ZSt13__upper_boundIPjjN9__gnu_cxx5__ops14_Val_comp_iterIN17algebraic_numbers7manager3imp13var_degree_ltEEEET_S9_S9_RKT0_T1_.exit.loopexit ], [ %__first.tr223, %if.else15 ]
+  %sub.ptr.sub.i.i196 = sub i64 %sub.ptr.lhs.cast.i.i194.pre-phi, %sub.ptr.rhs.cast.i.i.i142
+  %sub.ptr.div.i.i197 = ashr exact i64 %sub.ptr.sub.i.i196, 2
   br label %if.end
 
 if.end:                                           ; preds = %_ZSt13__upper_boundIPjjN9__gnu_cxx5__ops14_Val_comp_iterIN17algebraic_numbers7manager3imp13var_degree_ltEEEET_S9_S9_RKT0_T1_.exit, %_ZSt13__lower_boundIPjjN9__gnu_cxx5__ops14_Iter_comp_valIN17algebraic_numbers7manager3imp13var_degree_ltEEEET_S9_S9_RKT0_T1_.exit
-  %__first_cut.0 = phi ptr [ %add.ptr.i.i, %_ZSt13__lower_boundIPjjN9__gnu_cxx5__ops14_Iter_comp_valIN17algebraic_numbers7manager3imp13var_degree_ltEEEET_S9_S9_RKT0_T1_.exit ], [ %__first.addr.0.lcssa.i109, %_ZSt13__upper_boundIPjjN9__gnu_cxx5__ops14_Val_comp_iterIN17algebraic_numbers7manager3imp13var_degree_ltEEEET_S9_S9_RKT0_T1_.exit ]
-  %__second_cut.0 = phi ptr [ %__first.addr.0.lcssa.i, %_ZSt13__lower_boundIPjjN9__gnu_cxx5__ops14_Iter_comp_valIN17algebraic_numbers7manager3imp13var_degree_ltEEEET_S9_S9_RKT0_T1_.exit ], [ %add.ptr.i.i94, %_ZSt13__upper_boundIPjjN9__gnu_cxx5__ops14_Val_comp_iterIN17algebraic_numbers7manager3imp13var_degree_ltEEEET_S9_S9_RKT0_T1_.exit ]
+  %__first_cut.0 = phi ptr [ %add.ptr.i.i, %_ZSt13__lower_boundIPjjN9__gnu_cxx5__ops14_Iter_comp_valIN17algebraic_numbers7manager3imp13var_degree_ltEEEET_S9_S9_RKT0_T1_.exit ], [ %__first.addr.0.lcssa.i147, %_ZSt13__upper_boundIPjjN9__gnu_cxx5__ops14_Val_comp_iterIN17algebraic_numbers7manager3imp13var_degree_ltEEEET_S9_S9_RKT0_T1_.exit ]
+  %__second_cut.0 = phi ptr [ %__first.addr.0.lcssa.i, %_ZSt13__lower_boundIPjjN9__gnu_cxx5__ops14_Iter_comp_valIN17algebraic_numbers7manager3imp13var_degree_ltEEEET_S9_S9_RKT0_T1_.exit ], [ %add.ptr.i.i132, %_ZSt13__upper_boundIPjjN9__gnu_cxx5__ops14_Val_comp_iterIN17algebraic_numbers7manager3imp13var_degree_ltEEEET_S9_S9_RKT0_T1_.exit ]
   %__len22.0 = phi i64 [ %sub.ptr.div.i.i, %_ZSt13__lower_boundIPjjN9__gnu_cxx5__ops14_Iter_comp_valIN17algebraic_numbers7manager3imp13var_degree_ltEEEET_S9_S9_RKT0_T1_.exit ], [ %div16, %_ZSt13__upper_boundIPjjN9__gnu_cxx5__ops14_Val_comp_iterIN17algebraic_numbers7manager3imp13var_degree_ltEEEET_S9_S9_RKT0_T1_.exit ]
-  %__len11.0 = phi i64 [ %div, %_ZSt13__lower_boundIPjjN9__gnu_cxx5__ops14_Iter_comp_valIN17algebraic_numbers7manager3imp13var_degree_ltEEEET_S9_S9_RKT0_T1_.exit ], [ %sub.ptr.div.i.i159, %_ZSt13__upper_boundIPjjN9__gnu_cxx5__ops14_Val_comp_iterIN17algebraic_numbers7manager3imp13var_degree_ltEEEET_S9_S9_RKT0_T1_.exit ]
-  %sub = sub nsw i64 %__len1.tr183, %__len11.0
-  %cmp.i160 = icmp sle i64 %sub, %__len22.0
+  %__len11.0 = phi i64 [ %div, %_ZSt13__lower_boundIPjjN9__gnu_cxx5__ops14_Iter_comp_valIN17algebraic_numbers7manager3imp13var_degree_ltEEEET_S9_S9_RKT0_T1_.exit ], [ %sub.ptr.div.i.i197, %_ZSt13__upper_boundIPjjN9__gnu_cxx5__ops14_Val_comp_iterIN17algebraic_numbers7manager3imp13var_degree_ltEEEET_S9_S9_RKT0_T1_.exit ]
+  %sub = sub nsw i64 %__len1.tr227, %__len11.0
+  %cmp.i198 = icmp sle i64 %sub, %__len22.0
   %cmp1.not.i = icmp sgt i64 %__len22.0, %__buffer_size
-  %or.cond.i = or i1 %cmp1.not.i, %cmp.i160
-  br i1 %or.cond.i, label %if.else5.i, label %if.then.i
+  %or.cond.i = or i1 %cmp1.not.i, %cmp.i198
+  br i1 %or.cond.i, label %if.else5.i, label %if.then.i199
 
-if.then.i:                                        ; preds = %if.end
+if.then.i199:                                     ; preds = %if.end
   %tobool.not.i = icmp eq i64 %__len22.0, 0
   br i1 %tobool.not.i, label %_ZSt17__rotate_adaptiveIPjS0_lET_S1_S1_S1_T1_S2_T0_S2_.exit, label %if.then2.i
 
-if.then2.i:                                       ; preds = %if.then.i
-  %sub.ptr.lhs.cast.i.i.i.i.i.i161 = ptrtoint ptr %__second_cut.0 to i64
-  %sub.ptr.rhs.cast.i.i.i.i.i.i162 = ptrtoint ptr %__middle.tr181 to i64
-  %sub.ptr.sub.i.i.i.i.i.i163 = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i.i161, %sub.ptr.rhs.cast.i.i.i.i.i.i162
-  %tobool.not.i.i.i.i.i.i = icmp eq ptr %__second_cut.0, %__middle.tr181
-  br i1 %tobool.not.i.i.i.i.i.i, label %_ZSt4moveIPjS0_ET0_T_S2_S1_.exit.i164, label %if.then.i.i.i.i.i.i
+if.then2.i:                                       ; preds = %if.then.i199
+  %sub.ptr.lhs.cast.i.i.i.i.i.i200 = ptrtoint ptr %__second_cut.0 to i64
+  %sub.ptr.rhs.cast.i.i.i.i.i.i201 = ptrtoint ptr %__middle.tr225 to i64
+  %sub.ptr.sub.i.i.i.i.i.i202 = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i.i200, %sub.ptr.rhs.cast.i.i.i.i.i.i201
+  %tobool.not.i.i.i.i.i.i203 = icmp eq ptr %__second_cut.0, %__middle.tr225
+  br i1 %tobool.not.i.i.i.i.i.i203, label %_ZSt4moveIPjS0_ET0_T_S2_S1_.exit.i204, label %if.then.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i:                              ; preds = %if.then2.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %__buffer, ptr align 4 %__middle.tr181, i64 %sub.ptr.sub.i.i.i.i.i.i163, i1 false)
-  br label %_ZSt4moveIPjS0_ET0_T_S2_S1_.exit.i164
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %__buffer, ptr align 4 %__middle.tr225, i64 %sub.ptr.sub.i.i.i.i.i.i202, i1 false)
+  br label %_ZSt4moveIPjS0_ET0_T_S2_S1_.exit.i204
 
-_ZSt4moveIPjS0_ET0_T_S2_S1_.exit.i164:            ; preds = %if.then.i.i.i.i.i.i, %if.then2.i
-  %tobool.not.i.i.i.i.i27.i = icmp eq ptr %__middle.tr181, %__first_cut.0
+_ZSt4moveIPjS0_ET0_T_S2_S1_.exit.i204:            ; preds = %if.then.i.i.i.i.i.i, %if.then2.i
+  %tobool.not.i.i.i.i.i27.i = icmp eq ptr %__middle.tr225, %__first_cut.0
   br i1 %tobool.not.i.i.i.i.i27.i, label %_ZSt13move_backwardIPjS0_ET0_T_S2_S1_.exit.i, label %if.then.i.i.i.i.i28.i
 
-if.then.i.i.i.i.i28.i:                            ; preds = %_ZSt4moveIPjS0_ET0_T_S2_S1_.exit.i164
+if.then.i.i.i.i.i28.i:                            ; preds = %_ZSt4moveIPjS0_ET0_T_S2_S1_.exit.i204
   %sub.ptr.rhs.cast.i.i.i.i.i25.i = ptrtoint ptr %__first_cut.0 to i64
-  %sub.ptr.sub.i.i.i.i.i26.i = sub i64 %sub.ptr.rhs.cast.i.i.i.i.i.i162, %sub.ptr.rhs.cast.i.i.i.i.i25.i
+  %sub.ptr.sub.i.i.i.i.i26.i = sub i64 %sub.ptr.rhs.cast.i.i.i.i.i.i201, %sub.ptr.rhs.cast.i.i.i.i.i25.i
   %sub.ptr.div.i.i.i.i.i.i = ashr exact i64 %sub.ptr.sub.i.i.i.i.i26.i, 2
   %.pre.i.i.i.i.i.i = sub nsw i64 0, %sub.ptr.div.i.i.i.i.i.i
   %add.ptr.i.i.i.i.i29.i = getelementptr inbounds i32, ptr %__second_cut.0, i64 %.pre.i.i.i.i.i.i
   tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %add.ptr.i.i.i.i.i29.i, ptr align 4 %__first_cut.0, i64 %sub.ptr.sub.i.i.i.i.i26.i, i1 false)
   br label %_ZSt13move_backwardIPjS0_ET0_T_S2_S1_.exit.i
 
-_ZSt13move_backwardIPjS0_ET0_T_S2_S1_.exit.i:     ; preds = %if.then.i.i.i.i.i28.i, %_ZSt4moveIPjS0_ET0_T_S2_S1_.exit.i164
-  br i1 %tobool.not.i.i.i.i.i.i, label %_ZSt4moveIPjS0_ET0_T_S2_S1_.exit36.i, label %if.then.i.i.i.i.i34.i
+_ZSt13move_backwardIPjS0_ET0_T_S2_S1_.exit.i:     ; preds = %if.then.i.i.i.i.i28.i, %_ZSt4moveIPjS0_ET0_T_S2_S1_.exit.i204
+  br i1 %tobool.not.i.i.i.i.i.i203, label %_ZSt4moveIPjS0_ET0_T_S2_S1_.exit36.i, label %if.then.i.i.i.i.i34.i
 
 if.then.i.i.i.i.i34.i:                            ; preds = %_ZSt13move_backwardIPjS0_ET0_T_S2_S1_.exit.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %__first_cut.0, ptr align 4 %__buffer, i64 %sub.ptr.sub.i.i.i.i.i.i163, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %__first_cut.0, ptr align 4 %__buffer, i64 %sub.ptr.sub.i.i.i.i.i.i202, i1 false)
   br label %_ZSt4moveIPjS0_ET0_T_S2_S1_.exit36.i
 
 _ZSt4moveIPjS0_ET0_T_S2_S1_.exit36.i:             ; preds = %if.then.i.i.i.i.i34.i, %_ZSt13move_backwardIPjS0_ET0_T_S2_S1_.exit.i
-  %add.ptr.i.i.i.i.i35.i = getelementptr inbounds i8, ptr %__first_cut.0, i64 %sub.ptr.sub.i.i.i.i.i.i163
+  %add.ptr.i.i.i.i.i35.i = getelementptr inbounds i8, ptr %__first_cut.0, i64 %sub.ptr.sub.i.i.i.i.i.i202
   br label %_ZSt17__rotate_adaptiveIPjS0_lET_S1_S1_S1_T1_S2_T0_S2_.exit
 
 if.else5.i:                                       ; preds = %if.end
   %cmp6.not.i = icmp sgt i64 %sub, %__buffer_size
-  br i1 %cmp6.not.i, label %if.else14.i, label %if.then7.i
+  br i1 %cmp6.not.i, label %if.else14.i206, label %if.then7.i
 
 if.then7.i:                                       ; preds = %if.else5.i
-  %tobool8.not.i = icmp eq i64 %__len1.tr183, %__len11.0
-  br i1 %tobool8.not.i, label %_ZSt17__rotate_adaptiveIPjS0_lET_S1_S1_S1_T1_S2_T0_S2_.exit, label %if.then9.i
+  %tobool8.not.i = icmp eq i64 %__len1.tr227, %__len11.0
+  br i1 %tobool8.not.i, label %_ZSt17__rotate_adaptiveIPjS0_lET_S1_S1_S1_T1_S2_T0_S2_.exit, label %if.then9.i205
 
-if.then9.i:                                       ; preds = %if.then7.i
-  %sub.ptr.lhs.cast.i.i.i.i.i37.i = ptrtoint ptr %__middle.tr181 to i64
+if.then9.i205:                                    ; preds = %if.then7.i
+  %sub.ptr.lhs.cast.i.i.i.i.i37.i = ptrtoint ptr %__middle.tr225 to i64
   %sub.ptr.rhs.cast.i.i.i.i.i38.i = ptrtoint ptr %__first_cut.0 to i64
   %sub.ptr.sub.i.i.i.i.i39.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i37.i, %sub.ptr.rhs.cast.i.i.i.i.i38.i
-  %tobool.not.i.i.i.i.i40.i = icmp eq ptr %__middle.tr181, %__first_cut.0
+  %tobool.not.i.i.i.i.i40.i = icmp eq ptr %__middle.tr225, %__first_cut.0
   br i1 %tobool.not.i.i.i.i.i40.i, label %_ZSt4moveIPjS0_ET0_T_S2_S1_.exit43.i, label %if.then.i.i.i.i.i41.i
 
-if.then.i.i.i.i.i41.i:                            ; preds = %if.then9.i
+if.then.i.i.i.i.i41.i:                            ; preds = %if.then9.i205
   tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %__buffer, ptr align 4 %__first_cut.0, i64 %sub.ptr.sub.i.i.i.i.i39.i, i1 false)
   br label %_ZSt4moveIPjS0_ET0_T_S2_S1_.exit43.i
 
-_ZSt4moveIPjS0_ET0_T_S2_S1_.exit43.i:             ; preds = %if.then.i.i.i.i.i41.i, %if.then9.i
-  %tobool.not.i.i.i.i.i47.i = icmp eq ptr %__second_cut.0, %__middle.tr181
+_ZSt4moveIPjS0_ET0_T_S2_S1_.exit43.i:             ; preds = %if.then.i.i.i.i.i41.i, %if.then9.i205
+  %tobool.not.i.i.i.i.i47.i = icmp eq ptr %__second_cut.0, %__middle.tr225
   br i1 %tobool.not.i.i.i.i.i47.i, label %_ZSt4moveIPjS0_ET0_T_S2_S1_.exit50.i, label %if.then.i.i.i.i.i48.i
 
 if.then.i.i.i.i.i48.i:                            ; preds = %_ZSt4moveIPjS0_ET0_T_S2_S1_.exit43.i
   %sub.ptr.lhs.cast.i.i.i.i.i44.i = ptrtoint ptr %__second_cut.0 to i64
   %sub.ptr.sub.i.i.i.i.i46.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i44.i, %sub.ptr.lhs.cast.i.i.i.i.i37.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %__first_cut.0, ptr align 4 %__middle.tr181, i64 %sub.ptr.sub.i.i.i.i.i46.i, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %__first_cut.0, ptr align 4 %__middle.tr225, i64 %sub.ptr.sub.i.i.i.i.i46.i, i1 false)
   br label %_ZSt4moveIPjS0_ET0_T_S2_S1_.exit50.i
 
 _ZSt4moveIPjS0_ET0_T_S2_S1_.exit50.i:             ; preds = %if.then.i.i.i.i.i48.i, %_ZSt4moveIPjS0_ET0_T_S2_S1_.exit43.i
@@ -14600,20 +14709,20 @@ _ZSt13move_backwardIPjS0_ET0_T_S2_S1_.exit60.i:   ; preds = %if.then.i.i.i.i.i57
   %add.ptr2.i.i.i.i.i59.i = getelementptr inbounds i32, ptr %__second_cut.0, i64 %.pre.i.i.i.i.i56.i
   br label %_ZSt17__rotate_adaptiveIPjS0_lET_S1_S1_S1_T1_S2_T0_S2_.exit
 
-if.else14.i:                                      ; preds = %if.else5.i
-  %call.i.i = tail call noundef ptr @_ZNSt3_V28__rotateIPjEET_S2_S2_S2_St26random_access_iterator_tag(ptr noundef %__first_cut.0, ptr noundef %__middle.tr181, ptr noundef %__second_cut.0)
+if.else14.i206:                                   ; preds = %if.else5.i
+  %call.i.i = tail call noundef ptr @_ZNSt3_V28__rotateIPjEET_S2_S2_S2_St26random_access_iterator_tag(ptr noundef %__first_cut.0, ptr noundef %__middle.tr225, ptr noundef %__second_cut.0)
   br label %_ZSt17__rotate_adaptiveIPjS0_lET_S1_S1_S1_T1_S2_T0_S2_.exit
 
-_ZSt17__rotate_adaptiveIPjS0_lET_S1_S1_S1_T1_S2_T0_S2_.exit: ; preds = %if.then.i, %_ZSt4moveIPjS0_ET0_T_S2_S1_.exit36.i, %if.then7.i, %_ZSt13move_backwardIPjS0_ET0_T_S2_S1_.exit60.i, %if.else14.i
-  %retval.0.i = phi ptr [ %add.ptr.i.i.i.i.i35.i, %_ZSt4moveIPjS0_ET0_T_S2_S1_.exit36.i ], [ %add.ptr2.i.i.i.i.i59.i, %_ZSt13move_backwardIPjS0_ET0_T_S2_S1_.exit60.i ], [ %call.i.i, %if.else14.i ], [ %__first_cut.0, %if.then.i ], [ %__second_cut.0, %if.then7.i ]
-  tail call void @_ZSt16__merge_adaptiveIPjlS0_N9__gnu_cxx5__ops15_Iter_comp_iterIN17algebraic_numbers7manager3imp13var_degree_ltEEEEvT_S9_S9_T0_SA_T1_SA_T2_(ptr noundef %__first.tr179, ptr noundef %__first_cut.0, ptr noundef %retval.0.i, i64 noundef %__len11.0, i64 noundef %__len22.0, ptr noundef %__buffer, i64 noundef %__buffer_size, ptr noundef nonnull byval(%"struct.__gnu_cxx::__ops::_Iter_comp_iter.25") align 8 %__comp)
-  %sub26 = sub nsw i64 %__len2.tr184, %__len22.0
+_ZSt17__rotate_adaptiveIPjS0_lET_S1_S1_S1_T1_S2_T0_S2_.exit: ; preds = %if.then.i199, %_ZSt4moveIPjS0_ET0_T_S2_S1_.exit36.i, %if.then7.i, %_ZSt13move_backwardIPjS0_ET0_T_S2_S1_.exit60.i, %if.else14.i206
+  %retval.0.i = phi ptr [ %add.ptr.i.i.i.i.i35.i, %_ZSt4moveIPjS0_ET0_T_S2_S1_.exit36.i ], [ %add.ptr2.i.i.i.i.i59.i, %_ZSt13move_backwardIPjS0_ET0_T_S2_S1_.exit60.i ], [ %call.i.i, %if.else14.i206 ], [ %__first_cut.0, %if.then.i199 ], [ %__second_cut.0, %if.then7.i ]
+  tail call void @_ZSt16__merge_adaptiveIPjlS0_N9__gnu_cxx5__ops15_Iter_comp_iterIN17algebraic_numbers7manager3imp13var_degree_ltEEEEvT_S9_S9_T0_SA_T1_SA_T2_(ptr noundef %__first.tr223, ptr noundef %__first_cut.0, ptr noundef %retval.0.i, i64 noundef %__len11.0, i64 noundef %__len22.0, ptr noundef %__buffer, i64 noundef %__buffer_size, ptr noundef nonnull byval(%"struct.__gnu_cxx::__ops::_Iter_comp_iter.25") align 8 %__comp)
+  %sub26 = sub nsw i64 %__len2.tr228, %__len22.0
   %cmp.not = icmp sgt i64 %sub, %sub26
   %cmp1.not = icmp sgt i64 %sub, %__buffer_size
   %or.cond = or i1 %cmp1.not, %cmp.not
   br i1 %or.cond, label %if.else, label %if.then
 
-if.end29:                                         ; preds = %_ZSt4moveIPjS0_ET0_T_S2_S1_.exit.i, %while.end.i, %_ZSt4moveIPjS0_ET0_T_S2_S1_.exit52
+if.end29:                                         ; preds = %if.else14.i, %if.then3, %return.sink.split.i, %if.then9.i, %_ZSt4moveIPjS0_ET0_T_S2_S1_.exit.i, %while.end.i
   ret void
 }
 
@@ -14715,7 +14824,7 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN17algebraic_numbers7manager3imp13var_degre
   %cmp.i = icmp ne ptr %__first1.addr.1.i, %add.ptr
   %cmp1.i = icmp ne ptr %__first2.addr.1.i, %add.ptr2
   %14 = select i1 %cmp.i, i1 %cmp1.i, i1 false
-  br i1 %14, label %while.body.i, label %while.end.i.loopexit, !llvm.loop !64
+  br i1 %14, label %while.body.i, label %while.end.i.loopexit, !llvm.loop !65
 
 while.end.i.loopexit:                             ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN17algebraic_numbers7manager3imp13var_degree_ltEEclIPjS8_EEbT_T0_.exit.i
   %sub.ptr.lhs.cast.i.i.i.i.i.i = ptrtoint ptr %add.ptr to i64
@@ -14745,7 +14854,7 @@ _ZSt12__move_mergeIPjS0_N9__gnu_cxx5__ops15_Iter_comp_iterIN17algebraic_numbers7
   %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.lhs.cast.i.i.i.i.i14.i
   %sub.ptr.div = ashr exact i64 %sub.ptr.sub, 2
   %cmp.not = icmp slt i64 %sub.ptr.div, %mul
-  br i1 %cmp.not, label %while.end, label %while.body, !llvm.loop !65
+  br i1 %cmp.not, label %while.end, label %while.body, !llvm.loop !66
 
 while.end:                                        ; preds = %_ZSt12__move_mergeIPjS0_N9__gnu_cxx5__ops15_Iter_comp_iterIN17algebraic_numbers7manager3imp13var_degree_ltEEEET0_T_SA_SA_SA_S9_T1_.exit, %entry
   %__result.addr.0.lcssa = phi ptr [ %__result, %entry ], [ %add.ptr.i.i.i.i.i19.i, %_ZSt12__move_mergeIPjS0_N9__gnu_cxx5__ops15_Iter_comp_iterIN17algebraic_numbers7manager3imp13var_degree_ltEEEET0_T_SA_SA_SA_S9_T1_.exit ]
@@ -14836,7 +14945,7 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN17algebraic_numbers7manager3imp13var_degre
   %cmp.i63 = icmp ne ptr %__first1.addr.1.i60, %add.ptr9
   %cmp1.i64 = icmp ne ptr %__first2.addr.1.i58, %__last
   %30 = select i1 %cmp.i63, i1 %cmp1.i64, i1 false
-  br i1 %30, label %while.body.i41, label %while.end.i22, !llvm.loop !64
+  br i1 %30, label %while.body.i41, label %while.end.i22, !llvm.loop !65
 
 while.end.i22:                                    ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN17algebraic_numbers7manager3imp13var_degree_ltEEclIPjS8_EEbT_T0_.exit.i53, %while.end
   %__first2.addr.0.lcssa.i23 = phi ptr [ %add.ptr9, %while.end ], [ %__first2.addr.1.i58, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN17algebraic_numbers7manager3imp13var_degree_ltEEclIPjS8_EEbT_T0_.exit.i53 ]
@@ -14864,146 +14973,6 @@ if.then.i.i.i.i.i18.i37:                          ; preds = %_ZSt4moveIPjS0_ET0_
   br label %_ZSt12__move_mergeIPjS0_N9__gnu_cxx5__ops15_Iter_comp_iterIN17algebraic_numbers7manager3imp13var_degree_ltEEEET0_T_SA_SA_SA_S9_T1_.exit87
 
 _ZSt12__move_mergeIPjS0_N9__gnu_cxx5__ops15_Iter_comp_iterIN17algebraic_numbers7manager3imp13var_degree_ltEEEET0_T_SA_SA_SA_S9_T1_.exit87: ; preds = %_ZSt4moveIPjS0_ET0_T_S2_S1_.exit.i31, %if.then.i.i.i.i.i18.i37
-  ret void
-}
-
-; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden void @_ZSt30__move_merge_adaptive_backwardIPjS0_S0_N9__gnu_cxx5__ops15_Iter_comp_iterIN17algebraic_numbers7manager3imp13var_degree_ltEEEEvT_S9_T0_SA_T1_T2_(ptr noundef %__first1, ptr noundef %__last1, ptr noundef %__first2, ptr noundef %__last2, ptr noundef %__result, ptr noundef byval(%"struct.__gnu_cxx::__ops::_Iter_comp_iter.25") align 8 %__comp) local_unnamed_addr #3 comdat {
-entry:
-  %cmp = icmp eq ptr %__first1, %__last1
-  %tobool.not.i.i.i.i.i = icmp eq ptr %__last2, %__first2
-  br i1 %cmp, label %if.then, label %if.else
-
-if.then:                                          ; preds = %entry
-  br i1 %tobool.not.i.i.i.i.i, label %return, label %if.then.i.i.i.i.i
-
-if.then.i.i.i.i.i:                                ; preds = %if.then
-  %sub.ptr.lhs.cast.i.i.i.i.i = ptrtoint ptr %__last2 to i64
-  %sub.ptr.rhs.cast.i.i.i.i.i = ptrtoint ptr %__first2 to i64
-  %sub.ptr.sub.i.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i, %sub.ptr.rhs.cast.i.i.i.i.i
-  %sub.ptr.div.i.i.i.i.i = ashr exact i64 %sub.ptr.sub.i.i.i.i.i, 2
-  %.pre.i.i.i.i.i = sub nsw i64 0, %sub.ptr.div.i.i.i.i.i
-  %add.ptr.i.i.i.i.i = getelementptr inbounds i32, ptr %__result, i64 %.pre.i.i.i.i.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %add.ptr.i.i.i.i.i, ptr align 4 %__first2, i64 %sub.ptr.sub.i.i.i.i.i, i1 false)
-  br label %return
-
-if.else:                                          ; preds = %entry
-  br i1 %tobool.not.i.i.i.i.i, label %return, label %if.end3
-
-if.end3:                                          ; preds = %if.else
-  %incdec.ptr4 = getelementptr inbounds i8, ptr %__last2, i64 -4
-  %m_x2v.i.i.i = getelementptr inbounds i8, ptr %__comp, i64 8
-  br label %while.body.outer
-
-while.body.outer:                                 ; preds = %if.then6, %if.end3
-  %__last1.addr.0.ph.pn = phi ptr [ %__last1, %if.end3 ], [ %__last1.addr.0.ph, %if.then6 ]
-  %__last2.addr.0.ph = phi ptr [ %incdec.ptr4, %if.end3 ], [ %__last2.addr.0, %if.then6 ]
-  %__result.addr.0.ph = phi ptr [ %__result, %if.end3 ], [ %incdec.ptr7, %if.then6 ]
-  %__last1.addr.0.ph = getelementptr inbounds i8, ptr %__last1.addr.0.ph.pn, i64 -4
-  br label %while.body
-
-while.body:                                       ; preds = %while.body.outer, %if.end18
-  %__last2.addr.0 = phi ptr [ %incdec.ptr19, %if.end18 ], [ %__last2.addr.0.ph, %while.body.outer ]
-  %__result.addr.0 = phi ptr [ %incdec.ptr7, %if.end18 ], [ %__result.addr.0.ph, %while.body.outer ]
-  %0 = load i32, ptr %__last2.addr.0, align 4
-  %1 = load i32, ptr %__last1.addr.0.ph, align 4
-  %2 = load ptr, ptr %m_x2v.i.i.i, align 8
-  %vtable.i.i.i = load ptr, ptr %2, align 8
-  %vfn.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i, i64 24
-  %3 = load ptr, ptr %vfn.i.i.i, align 8
-  %call.i.i.i = tail call noundef zeroext i1 %3(ptr noundef nonnull align 8 dereferenceable(8) %2, i32 noundef %0)
-  br i1 %call.i.i.i, label %if.end.i.i.i, label %_ZNK17algebraic_numbers7manager3imp13var_degree_lt6degreeEj.exit.i.i
-
-if.end.i.i.i:                                     ; preds = %while.body
-  %vtable3.i.i.i = load ptr, ptr %2, align 8
-  %vfn4.i.i.i = getelementptr inbounds i8, ptr %vtable3.i.i.i, i64 32
-  %4 = load ptr, ptr %vfn4.i.i.i, align 8
-  %call5.i.i.i = tail call noundef nonnull align 8 dereferenceable(8) ptr %4(ptr noundef nonnull align 8 dereferenceable(8) %2, i32 noundef %0)
-  %5 = load ptr, ptr %call5.i.i.i, align 8
-  %cmp.i.i.i.i.i = icmp eq ptr %5, null
-  br i1 %cmp.i.i.i.i.i, label %_ZNK17algebraic_numbers7manager3imp13var_degree_lt6degreeEj.exit.i.i, label %if.end.i.i.i.i
-
-if.end.i.i.i.i:                                   ; preds = %if.end.i.i.i
-  %6 = ptrtoint ptr %5 to i64
-  %and.i.i.i.i.i = and i64 %6, 7
-  %cmp.i3.i.i.i.i = icmp eq i64 %and.i.i.i.i.i, 0
-  br i1 %cmp.i3.i.i.i.i, label %_ZNK17algebraic_numbers7manager3imp13var_degree_lt6degreeEj.exit.i.i, label %if.end4.i.i.i.i
-
-if.end4.i.i.i.i:                                  ; preds = %if.end.i.i.i.i
-  %and.i4.i.i.i.i = and i64 %6, -8
-  %7 = inttoptr i64 %and.i4.i.i.i.i to ptr
-  %8 = load i32, ptr %7, align 8
-  %sub.i.i.i.i = add i32 %8, -1
-  br label %_ZNK17algebraic_numbers7manager3imp13var_degree_lt6degreeEj.exit.i.i
-
-_ZNK17algebraic_numbers7manager3imp13var_degree_lt6degreeEj.exit.i.i: ; preds = %if.end4.i.i.i.i, %if.end.i.i.i.i, %if.end.i.i.i, %while.body
-  %retval.0.i.i.i = phi i32 [ -1, %while.body ], [ %sub.i.i.i.i, %if.end4.i.i.i.i ], [ 0, %if.end.i.i.i ], [ 1, %if.end.i.i.i.i ]
-  %vtable.i2.i.i = load ptr, ptr %2, align 8
-  %vfn.i3.i.i = getelementptr inbounds i8, ptr %vtable.i2.i.i, i64 24
-  %9 = load ptr, ptr %vfn.i3.i.i, align 8
-  %call.i4.i.i = tail call noundef zeroext i1 %9(ptr noundef nonnull align 8 dereferenceable(8) %2, i32 noundef %1)
-  br i1 %call.i4.i.i, label %if.end.i6.i.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN17algebraic_numbers7manager3imp13var_degree_ltEEclIPjS8_EEbT_T0_.exit
-
-if.end.i6.i.i:                                    ; preds = %_ZNK17algebraic_numbers7manager3imp13var_degree_lt6degreeEj.exit.i.i
-  %vtable3.i7.i.i = load ptr, ptr %2, align 8
-  %vfn4.i8.i.i = getelementptr inbounds i8, ptr %vtable3.i7.i.i, i64 32
-  %10 = load ptr, ptr %vfn4.i8.i.i, align 8
-  %call5.i9.i.i = tail call noundef nonnull align 8 dereferenceable(8) ptr %10(ptr noundef nonnull align 8 dereferenceable(8) %2, i32 noundef %1)
-  %11 = load ptr, ptr %call5.i9.i.i, align 8
-  %cmp.i.i.i10.i.i = icmp eq ptr %11, null
-  br i1 %cmp.i.i.i10.i.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN17algebraic_numbers7manager3imp13var_degree_ltEEclIPjS8_EEbT_T0_.exit, label %if.end.i.i11.i.i
-
-if.end.i.i11.i.i:                                 ; preds = %if.end.i6.i.i
-  %12 = ptrtoint ptr %11 to i64
-  %and.i.i.i12.i.i = and i64 %12, 7
-  %cmp.i3.i.i13.i.i = icmp eq i64 %and.i.i.i12.i.i, 0
-  br i1 %cmp.i3.i.i13.i.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN17algebraic_numbers7manager3imp13var_degree_ltEEclIPjS8_EEbT_T0_.exit, label %if.end4.i.i14.i.i
-
-if.end4.i.i14.i.i:                                ; preds = %if.end.i.i11.i.i
-  %and.i4.i.i15.i.i = and i64 %12, -8
-  %13 = inttoptr i64 %and.i4.i.i15.i.i to ptr
-  %14 = load i32, ptr %13, align 8
-  %sub.i.i16.i.i = add i32 %14, -1
-  br label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN17algebraic_numbers7manager3imp13var_degree_ltEEclIPjS8_EEbT_T0_.exit
-
-_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN17algebraic_numbers7manager3imp13var_degree_ltEEclIPjS8_EEbT_T0_.exit: ; preds = %_ZNK17algebraic_numbers7manager3imp13var_degree_lt6degreeEj.exit.i.i, %if.end.i6.i.i, %if.end.i.i11.i.i, %if.end4.i.i14.i.i
-  %retval.0.i5.i.i = phi i32 [ -1, %_ZNK17algebraic_numbers7manager3imp13var_degree_lt6degreeEj.exit.i.i ], [ %sub.i.i16.i.i, %if.end4.i.i14.i.i ], [ 0, %if.end.i6.i.i ], [ 1, %if.end.i.i11.i.i ]
-  %cmp.i.i = icmp ult i32 %retval.0.i.i.i, %retval.0.i5.i.i
-  %incdec.ptr7 = getelementptr inbounds i8, ptr %__result.addr.0, i64 -4
-  br i1 %cmp.i.i, label %if.then6, label %if.else14
-
-if.then6:                                         ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN17algebraic_numbers7manager3imp13var_degree_ltEEclIPjS8_EEbT_T0_.exit
-  %15 = load i32, ptr %__last1.addr.0.ph, align 4
-  store i32 %15, ptr %incdec.ptr7, align 4
-  %cmp8 = icmp eq ptr %__first1, %__last1.addr.0.ph
-  br i1 %cmp8, label %if.then9, label %while.body.outer, !llvm.loop !66
-
-if.then9:                                         ; preds = %if.then6
-  %incdec.ptr10 = getelementptr inbounds i8, ptr %__last2.addr.0, i64 4
-  %tobool.not.i.i.i.i.i24 = icmp eq ptr %incdec.ptr10, %__first2
-  br i1 %tobool.not.i.i.i.i.i24, label %return, label %if.then.i.i.i.i.i26
-
-if.then.i.i.i.i.i26:                              ; preds = %if.then9
-  %sub.ptr.lhs.cast.i.i.i.i.i20 = ptrtoint ptr %incdec.ptr10 to i64
-  %sub.ptr.rhs.cast.i.i.i.i.i21 = ptrtoint ptr %__first2 to i64
-  %sub.ptr.sub.i.i.i.i.i22 = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i20, %sub.ptr.rhs.cast.i.i.i.i.i21
-  %sub.ptr.div.i.i.i.i.i23 = ashr exact i64 %sub.ptr.sub.i.i.i.i.i22, 2
-  %.pre.i.i.i.i.i25 = sub nsw i64 0, %sub.ptr.div.i.i.i.i.i23
-  %add.ptr.i.i.i.i.i27 = getelementptr inbounds i32, ptr %incdec.ptr7, i64 %.pre.i.i.i.i.i25
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 4 %add.ptr.i.i.i.i.i27, ptr align 4 %__first2, i64 %sub.ptr.sub.i.i.i.i.i22, i1 false)
-  br label %return
-
-if.else14:                                        ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN17algebraic_numbers7manager3imp13var_degree_ltEEclIPjS8_EEbT_T0_.exit
-  %16 = load i32, ptr %__last2.addr.0, align 4
-  store i32 %16, ptr %incdec.ptr7, align 4
-  %cmp16 = icmp eq ptr %__first2, %__last2.addr.0
-  br i1 %cmp16, label %return, label %if.end18
-
-if.end18:                                         ; preds = %if.else14
-  %incdec.ptr19 = getelementptr inbounds i8, ptr %__last2.addr.0, i64 -4
-  br label %while.body, !llvm.loop !66
-
-return:                                           ; preds = %if.else14, %if.then.i.i.i.i.i26, %if.then9, %if.then.i.i.i.i.i, %if.then, %if.else
   ret void
 }
 

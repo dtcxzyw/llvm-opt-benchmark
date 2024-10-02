@@ -1471,63 +1471,49 @@ define noalias noundef nonnull ptr @_ZNK5faiss15IndexBinaryHNSW21get_distance_co
 9:                                                ; preds = %5
   %10 = getelementptr inbounds i8, ptr %0, i64 12
   %11 = load i32, ptr %10, align 4
-  switch i32 %11, label %24 [
-    i32 4, label %12
-    i32 8, label %14
-    i32 16, label %16
-    i32 20, label %18
-    i32 32, label %20
-    i32 64, label %22
+  switch i32 %11, label %17 [
+    i32 4, label %_ZN5faiss24dispatch_HammingComputerINS_12_GLOBAL__N_121BuildDistanceComputerEJPNS_15IndexBinaryFlatEEEENT_1TEiRS5_DpT0_.exit
+    i32 8, label %12
+    i32 16, label %13
+    i32 20, label %14
+    i32 32, label %15
+    i32 64, label %16
   ]
 
 12:                                               ; preds = %9
-  %13 = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #26
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss12_GLOBAL__N_114FlatHammingDisINS_16HammingComputer4EEE, i64 16), ptr %13, align 8
+  br label %_ZN5faiss24dispatch_HammingComputerINS_12_GLOBAL__N_121BuildDistanceComputerEJPNS_15IndexBinaryFlatEEEENT_1TEiRS5_DpT0_.exit
+
+13:                                               ; preds = %9
   br label %_ZN5faiss24dispatch_HammingComputerINS_12_GLOBAL__N_121BuildDistanceComputerEJPNS_15IndexBinaryFlatEEEENT_1TEiRS5_DpT0_.exit
 
 14:                                               ; preds = %9
-  %15 = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #26
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss12_GLOBAL__N_114FlatHammingDisINS_16HammingComputer8EEE, i64 16), ptr %15, align 8
+  br label %_ZN5faiss24dispatch_HammingComputerINS_12_GLOBAL__N_121BuildDistanceComputerEJPNS_15IndexBinaryFlatEEEENT_1TEiRS5_DpT0_.exit
+
+15:                                               ; preds = %9
   br label %_ZN5faiss24dispatch_HammingComputerINS_12_GLOBAL__N_121BuildDistanceComputerEJPNS_15IndexBinaryFlatEEEENT_1TEiRS5_DpT0_.exit
 
 16:                                               ; preds = %9
-  %17 = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #26
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss12_GLOBAL__N_114FlatHammingDisINS_17HammingComputer16EEE, i64 16), ptr %17, align 8
   br label %_ZN5faiss24dispatch_HammingComputerINS_12_GLOBAL__N_121BuildDistanceComputerEJPNS_15IndexBinaryFlatEEEENT_1TEiRS5_DpT0_.exit
 
-18:                                               ; preds = %9
-  %19 = tail call noalias noundef nonnull dereferenceable(56) ptr @_Znwm(i64 noundef 56) #26
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss12_GLOBAL__N_114FlatHammingDisINS_17HammingComputer20EEE, i64 16), ptr %19, align 8
+17:                                               ; preds = %9
   br label %_ZN5faiss24dispatch_HammingComputerINS_12_GLOBAL__N_121BuildDistanceComputerEJPNS_15IndexBinaryFlatEEEENT_1TEiRS5_DpT0_.exit
 
-20:                                               ; preds = %9
-  %21 = tail call noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #26
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss12_GLOBAL__N_114FlatHammingDisINS_17HammingComputer32EEE, i64 16), ptr %21, align 8
-  br label %_ZN5faiss24dispatch_HammingComputerINS_12_GLOBAL__N_121BuildDistanceComputerEJPNS_15IndexBinaryFlatEEEENT_1TEiRS5_DpT0_.exit
-
-22:                                               ; preds = %9
-  %23 = tail call noalias noundef nonnull dereferenceable(96) ptr @_Znwm(i64 noundef 96) #26
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss12_GLOBAL__N_114FlatHammingDisINS_17HammingComputer64EEE, i64 16), ptr %23, align 8
-  br label %_ZN5faiss24dispatch_HammingComputerINS_12_GLOBAL__N_121BuildDistanceComputerEJPNS_15IndexBinaryFlatEEEENT_1TEiRS5_DpT0_.exit
-
-24:                                               ; preds = %9
-  %25 = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #26
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss12_GLOBAL__N_114FlatHammingDisINS_22HammingComputerDefaultEEE, i64 16), ptr %25, align 8
-  br label %_ZN5faiss24dispatch_HammingComputerINS_12_GLOBAL__N_121BuildDistanceComputerEJPNS_15IndexBinaryFlatEEEENT_1TEiRS5_DpT0_.exit
-
-_ZN5faiss24dispatch_HammingComputerINS_12_GLOBAL__N_121BuildDistanceComputerEJPNS_15IndexBinaryFlatEEEENT_1TEiRS5_DpT0_.exit: ; preds = %12, %14, %16, %18, %20, %22, %24
-  %.sink5.i = phi ptr [ %25, %24 ], [ %23, %22 ], [ %21, %20 ], [ %19, %18 ], [ %17, %16 ], [ %15, %14 ], [ %13, %12 ]
-  %26 = getelementptr inbounds i8, ptr %6, i64 32
-  %27 = getelementptr inbounds i8, ptr %6, i64 12
-  %28 = getelementptr inbounds i8, ptr %.sink5.i, i64 8
-  %29 = load i32, ptr %27, align 4
-  store i32 %29, ptr %28, align 8
-  %30 = getelementptr inbounds i8, ptr %.sink5.i, i64 16
-  %31 = load ptr, ptr %26, align 8
-  store ptr %31, ptr %30, align 8
-  %32 = getelementptr inbounds i8, ptr %.sink5.i, i64 24
-  store i64 0, ptr %32, align 8
-  ret ptr %.sink5.i
+_ZN5faiss24dispatch_HammingComputerINS_12_GLOBAL__N_121BuildDistanceComputerEJPNS_15IndexBinaryFlatEEEENT_1TEiRS5_DpT0_.exit: ; preds = %9, %12, %13, %14, %15, %16, %17
+  %.sink8.i = phi i64 [ 48, %17 ], [ 96, %16 ], [ 64, %15 ], [ 56, %14 ], [ 48, %13 ], [ 40, %12 ], [ 40, %9 ]
+  %.sink6.i = phi ptr [ getelementptr inbounds (i8, ptr @_ZTVN5faiss12_GLOBAL__N_114FlatHammingDisINS_22HammingComputerDefaultEEE, i64 16), %17 ], [ getelementptr inbounds (i8, ptr @_ZTVN5faiss12_GLOBAL__N_114FlatHammingDisINS_17HammingComputer64EEE, i64 16), %16 ], [ getelementptr inbounds (i8, ptr @_ZTVN5faiss12_GLOBAL__N_114FlatHammingDisINS_17HammingComputer32EEE, i64 16), %15 ], [ getelementptr inbounds (i8, ptr @_ZTVN5faiss12_GLOBAL__N_114FlatHammingDisINS_17HammingComputer20EEE, i64 16), %14 ], [ getelementptr inbounds (i8, ptr @_ZTVN5faiss12_GLOBAL__N_114FlatHammingDisINS_17HammingComputer16EEE, i64 16), %13 ], [ getelementptr inbounds (i8, ptr @_ZTVN5faiss12_GLOBAL__N_114FlatHammingDisINS_16HammingComputer8EEE, i64 16), %12 ], [ getelementptr inbounds (i8, ptr @_ZTVN5faiss12_GLOBAL__N_114FlatHammingDisINS_16HammingComputer4EEE, i64 16), %9 ]
+  %18 = getelementptr inbounds i8, ptr %6, i64 32
+  %19 = getelementptr inbounds i8, ptr %6, i64 12
+  %20 = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef %.sink8.i) #26
+  store ptr %.sink6.i, ptr %20, align 8
+  %21 = getelementptr inbounds i8, ptr %20, i64 8
+  %22 = load i32, ptr %19, align 4
+  store i32 %22, ptr %21, align 8
+  %23 = getelementptr inbounds i8, ptr %20, i64 16
+  %24 = load ptr, ptr %18, align 8
+  store ptr %24, ptr %23, align 8
+  %25 = getelementptr inbounds i8, ptr %20, i64 24
+  store i64 0, ptr %25, align 8
+  ret ptr %20
 }
 
 ; Function Attrs: nounwind

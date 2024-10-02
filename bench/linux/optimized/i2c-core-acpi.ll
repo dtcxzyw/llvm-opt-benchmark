@@ -486,7 +486,7 @@ define internal noundef i32 @i2c_acpi_notify(ptr nocapture readnone %0, i64 noun
   store ptr null, ptr %5, align 8, !annotation !7
   switch i64 %1, label %.thread [
     i64 0, label %6
-    i64 1, label %31
+    i64 1, label %30
   ]
 
 6:                                                ; preds = %3
@@ -503,63 +503,59 @@ define internal noundef i32 @i2c_acpi_notify(ptr nocapture readnone %0, i64 noun
 13:                                               ; preds = %9
   %14 = call ptr @i2c_verify_adapter(ptr noundef nonnull %11) #9
   %15 = icmp eq ptr %14, null
-  br i1 %15, label %16, label %17
+  br i1 %15, label %.thread.sink.split, label %16
 
 16:                                               ; preds = %13
-  call void @put_device(ptr noundef nonnull %11) #9
+  %17 = getelementptr inbounds i8, ptr %2, i64 244
+  %18 = load i32, ptr %17, align 4
+  %19 = or i32 %18, 16
+  store i32 %19, ptr %17, align 4
+  %20 = getelementptr inbounds i8, ptr %2, i64 116
+  %21 = load i32, ptr %20, align 4
+  %22 = or i32 %21, 64
+  store i32 %22, ptr %20, align 4
+  %23 = call ptr @i2c_new_client_device(ptr noundef nonnull %14, ptr noundef nonnull %4) #9
+  %24 = icmp ugt ptr %23, inttoptr (i64 -4096 to ptr)
+  br i1 %24, label %25, label %28
+
+25:                                               ; preds = %16
+  %26 = load i32, ptr %17, align 4
+  %27 = and i32 %26, -17
+  store i32 %27, ptr %17, align 4
+  br label %28
+
+28:                                               ; preds = %25, %16
+  %29 = getelementptr inbounds i8, ptr %14, i64 112
+  br label %.thread.sink.split
+
+30:                                               ; preds = %3
+  %31 = icmp eq ptr %2, null
+  br i1 %31, label %.thread, label %32
+
+32:                                               ; preds = %30
+  %33 = getelementptr inbounds i8, ptr %2, i64 116
+  %34 = load i32, ptr %33, align 4
+  %35 = and i32 %34, 96
+  %36 = icmp eq i32 %35, 96
+  br i1 %36, label %37, label %.thread
+
+37:                                               ; preds = %32
+  %38 = getelementptr inbounds i8, ptr %2, i64 16
+  %39 = tail call ptr @i2c_find_device_by_fwnode(ptr noundef %38) #9
+  %40 = icmp eq ptr %39, null
+  br i1 %40, label %.thread, label %41
+
+41:                                               ; preds = %37
+  tail call void @i2c_unregister_device(ptr noundef nonnull %39) #9
+  %42 = getelementptr inbounds i8, ptr %39, i64 32
+  br label %.thread.sink.split
+
+.thread.sink.split:                               ; preds = %28, %41, %13
+  %.sink = phi ptr [ %11, %13 ], [ %42, %41 ], [ %29, %28 ]
+  call void @put_device(ptr noundef %.sink) #9
   br label %.thread
 
-17:                                               ; preds = %13
-  %18 = getelementptr inbounds i8, ptr %2, i64 244
-  %19 = load i32, ptr %18, align 4
-  %20 = or i32 %19, 16
-  store i32 %20, ptr %18, align 4
-  %21 = getelementptr inbounds i8, ptr %2, i64 116
-  %22 = load i32, ptr %21, align 4
-  %23 = or i32 %22, 64
-  store i32 %23, ptr %21, align 4
-  %24 = call ptr @i2c_new_client_device(ptr noundef nonnull %14, ptr noundef nonnull %4) #9
-  %25 = icmp ugt ptr %24, inttoptr (i64 -4096 to ptr)
-  br i1 %25, label %26, label %29
-
-26:                                               ; preds = %17
-  %27 = load i32, ptr %18, align 4
-  %28 = and i32 %27, -17
-  store i32 %28, ptr %18, align 4
-  br label %29
-
-29:                                               ; preds = %26, %17
-  %30 = getelementptr inbounds i8, ptr %14, i64 112
-  br label %44
-
-31:                                               ; preds = %3
-  %32 = icmp eq ptr %2, null
-  br i1 %32, label %.thread, label %33
-
-33:                                               ; preds = %31
-  %34 = getelementptr inbounds i8, ptr %2, i64 116
-  %35 = load i32, ptr %34, align 4
-  %36 = and i32 %35, 96
-  %37 = icmp eq i32 %36, 96
-  br i1 %37, label %38, label %.thread
-
-38:                                               ; preds = %33
-  %39 = getelementptr inbounds i8, ptr %2, i64 16
-  %40 = tail call ptr @i2c_find_device_by_fwnode(ptr noundef %39) #9
-  %41 = icmp eq ptr %40, null
-  br i1 %41, label %.thread, label %42
-
-42:                                               ; preds = %38
-  tail call void @i2c_unregister_device(ptr noundef nonnull %40) #9
-  %43 = getelementptr inbounds i8, ptr %40, i64 32
-  br label %44
-
-44:                                               ; preds = %42, %29
-  %45 = phi ptr [ %43, %42 ], [ %30, %29 ]
-  call void @put_device(ptr noundef %45) #9
-  br label %.thread
-
-.thread:                                          ; preds = %16, %9, %44, %38, %33, %31, %6, %3
+.thread:                                          ; preds = %.thread.sink.split, %9, %37, %32, %30, %6, %3
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #9
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %4) #9
   ret i32 1

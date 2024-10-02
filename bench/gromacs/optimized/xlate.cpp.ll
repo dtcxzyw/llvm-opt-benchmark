@@ -245,8 +245,8 @@ _ZNSt6vectorINSt10filesystem7__cxx114pathESaIS2_EED2Ev.exit.._crit_edge695_crit_
   %84 = icmp eq ptr %4, %5
   br label %85
 
-85:                                               ; preds = %.lr.ph694, %408
-  %indvars.iv816 = phi i64 [ 0, %.lr.ph694 ], [ %indvars.iv.next817, %408 ]
+85:                                               ; preds = %.lr.ph694, %406
+  %indvars.iv816 = phi i64 [ 0, %.lr.ph694 ], [ %indvars.iv.next817, %406 ]
   %86 = load ptr, ptr %80, align 8
   %87 = getelementptr inbounds %struct.t_atom, ptr %86, i64 %indvars.iv816, i32 7
   %88 = load i32, ptr %87, align 4
@@ -1319,7 +1319,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit373: ;
 388:                                              ; preds = %.thread461
   %389 = getelementptr inbounds i8, ptr %383, i64 24
   %390 = load ptr, ptr %389, align 8
-  br i1 %9, label %391, label %._crit_edge691.thread
+  br i1 %9, label %391, label %.sink.split
 
 391:                                              ; preds = %388
   %392 = load ptr, ptr %83, align 8
@@ -1333,75 +1333,68 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit373: ;
   %400 = load ptr, ptr %397, align 8
   %401 = load ptr, ptr %400, align 8
   %402 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.7, ptr noundef %395, i32 noundef %399, ptr noundef %401, ptr noundef %390)
-  br label %._crit_edge691.thread
-
-._crit_edge691.thread:                            ; preds = %391, %388
-  %403 = call noundef ptr @_Z10put_symtabP8t_symtabPKc(ptr noundef %3, ptr noundef %390)
   br label %.sink.split
 
 .critedge319:                                     ; preds = %.lr.ph684, %329, %.critedge284, %.thread461, %._crit_edge685
   %indvars.iv.next815 = add nuw nsw i64 %indvars.iv814, 1
-  %.not996 = icmp ult i64 %indvars.iv.next815, %138
-  br i1 %.not996, label %139, label %._crit_edge691, !llvm.loop !9
+  %.not997 = icmp ult i64 %indvars.iv.next815, %138
+  br i1 %.not997, label %139, label %._crit_edge691, !llvm.loop !9
 
 ._crit_edge691:                                   ; preds = %.critedge319, %132
-  br i1 %.0228.not, label %408, label %404
+  br i1 %.0228.not, label %406, label %.sink.split
 
-404:                                              ; preds = %._crit_edge691
-  %405 = call noundef ptr @_Z10put_symtabP8t_symtabPKc(ptr noundef %3, ptr noundef nonnull %23)
-  br label %.sink.split
+.sink.split:                                      ; preds = %._crit_edge691, %388, %391
+  %.sink996 = phi ptr [ %390, %391 ], [ %390, %388 ], [ %23, %._crit_edge691 ]
+  %403 = call noundef ptr @_Z10put_symtabP8t_symtabPKc(ptr noundef %3, ptr noundef %.sink996)
+  %404 = load ptr, ptr %83, align 8
+  %405 = getelementptr inbounds ptr, ptr %404, i64 %indvars.iv816
+  store ptr %403, ptr %405, align 8
+  br label %406
 
-.sink.split:                                      ; preds = %404, %._crit_edge691.thread
-  %.sink = phi ptr [ %403, %._crit_edge691.thread ], [ %405, %404 ]
-  %406 = load ptr, ptr %83, align 8
-  %407 = getelementptr inbounds ptr, ptr %406, i64 %indvars.iv816
-  store ptr %.sink, ptr %407, align 8
-  br label %408
-
-408:                                              ; preds = %.sink.split, %._crit_edge691
+406:                                              ; preds = %.sink.split, %._crit_edge691
   %indvars.iv.next817 = add nuw nsw i64 %indvars.iv816, 1
-  %409 = load i32, ptr %2, align 8
-  %410 = sext i32 %409 to i64
-  %411 = icmp slt i64 %indvars.iv.next817, %410
-  br i1 %411, label %85, label %._crit_edge695, !llvm.loop !10
+  %407 = load i32, ptr %2, align 8
+  %408 = sext i32 %407 to i64
+  %409 = icmp slt i64 %indvars.iv.next817, %408
+  br i1 %409, label %85, label %._crit_edge695, !llvm.loop !10
 
-._crit_edge695:                                   ; preds = %408, %_ZNSt6vectorINSt10filesystem7__cxx114pathESaIS2_EED2Ev.exit.._crit_edge695_crit_edge
-  %412 = phi i32 [ %.pre821, %_ZNSt6vectorINSt10filesystem7__cxx114pathESaIS2_EED2Ev.exit.._crit_edge695_crit_edge ], [ %133, %408 ]
-  %413 = load ptr, ptr %22, align 8
-  %414 = icmp sgt i32 %412, 0
-  br i1 %414, label %.lr.ph.preheader.i, label %_ZL11done_xlatomiP12t_xlate_atom.exit
+._crit_edge695:                                   ; preds = %406, %_ZNSt6vectorINSt10filesystem7__cxx114pathESaIS2_EED2Ev.exit.._crit_edge695_crit_edge
+  %410 = phi i32 [ %.pre821, %_ZNSt6vectorINSt10filesystem7__cxx114pathESaIS2_EED2Ev.exit.._crit_edge695_crit_edge ], [ %133, %406 ]
+  %411 = load ptr, ptr %22, align 8
+  %412 = icmp sgt i32 %410, 0
+  br i1 %412, label %.lr.ph.preheader.i, label %_ZL11done_xlatomiP12t_xlate_atom.exit
 
 .lr.ph.preheader.i:                               ; preds = %._crit_edge695
-  %wide.trip.count.i = zext nneg i32 %412 to i64
+  %wide.trip.count.i = zext nneg i32 %410 to i64
   br label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %420, %.lr.ph.preheader.i
-  %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %420 ]
-  %415 = getelementptr inbounds %struct.t_xlate_atom, ptr %413, i64 %indvars.iv.i
+.lr.ph.i:                                         ; preds = %418, %.lr.ph.preheader.i
+  %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %418 ]
+  %413 = getelementptr inbounds %struct.t_xlate_atom, ptr %411, i64 %indvars.iv.i
+  %414 = load ptr, ptr %413, align 8
+  call void @_Z9save_freePKcS0_iPv(ptr noundef nonnull @.str.15, ptr noundef nonnull @.str.10, i32 noundef 129, ptr noundef %414)
+  %415 = getelementptr inbounds i8, ptr %413, i64 8
   %416 = load ptr, ptr %415, align 8
-  call void @_Z9save_freePKcS0_iPv(ptr noundef nonnull @.str.15, ptr noundef nonnull @.str.10, i32 noundef 129, ptr noundef %416)
-  %417 = getelementptr inbounds i8, ptr %415, i64 8
-  %418 = load ptr, ptr %417, align 8
-  %.not.i374 = icmp eq ptr %418, null
-  br i1 %.not.i374, label %420, label %419
+  %.not.i374 = icmp eq ptr %416, null
+  br i1 %.not.i374, label %418, label %417
 
-419:                                              ; preds = %.lr.ph.i
-  call void @_Z9save_freePKcS0_iPv(ptr noundef nonnull @.str.16, ptr noundef nonnull @.str.10, i32 noundef 132, ptr noundef nonnull %418)
-  br label %420
+417:                                              ; preds = %.lr.ph.i
+  call void @_Z9save_freePKcS0_iPv(ptr noundef nonnull @.str.16, ptr noundef nonnull @.str.10, i32 noundef 132, ptr noundef nonnull %416)
+  br label %418
 
-420:                                              ; preds = %419, %.lr.ph.i
-  %421 = getelementptr inbounds i8, ptr %415, i64 16
+418:                                              ; preds = %417, %.lr.ph.i
+  %419 = getelementptr inbounds i8, ptr %413, i64 16
+  %420 = load ptr, ptr %419, align 8
+  call void @_Z9save_freePKcS0_iPv(ptr noundef nonnull @.str.17, ptr noundef nonnull @.str.10, i32 noundef 134, ptr noundef %420)
+  %421 = getelementptr inbounds i8, ptr %413, i64 24
   %422 = load ptr, ptr %421, align 8
-  call void @_Z9save_freePKcS0_iPv(ptr noundef nonnull @.str.17, ptr noundef nonnull @.str.10, i32 noundef 134, ptr noundef %422)
-  %423 = getelementptr inbounds i8, ptr %415, i64 24
-  %424 = load ptr, ptr %423, align 8
-  call void @_Z9save_freePKcS0_iPv(ptr noundef nonnull @.str.18, ptr noundef nonnull @.str.10, i32 noundef 135, ptr noundef %424)
+  call void @_Z9save_freePKcS0_iPv(ptr noundef nonnull @.str.18, ptr noundef nonnull @.str.10, i32 noundef 135, ptr noundef %422)
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %_ZL11done_xlatomiP12t_xlate_atom.exit, label %.lr.ph.i, !llvm.loop !11
 
-_ZL11done_xlatomiP12t_xlate_atom.exit:            ; preds = %420, %._crit_edge695
-  call void @_Z9save_freePKcS0_iPv(ptr noundef nonnull @.str.19, ptr noundef nonnull @.str.10, i32 noundef 137, ptr noundef %413)
+_ZL11done_xlatomiP12t_xlate_atom.exit:            ; preds = %418, %._crit_edge695
+  call void @_Z9save_freePKcS0_iPv(ptr noundef nonnull @.str.19, ptr noundef nonnull @.str.10, i32 noundef 137, ptr noundef %411)
   ret void
 
 .critedge317:                                     ; preds = %58, %55, %343, %377, %.critedge315, %380, %.body, %70

@@ -1254,21 +1254,17 @@ entry:
   call void @_ZN2v811HandleScopeC1EPNS_7IsolateE(ptr noundef nonnull align 8 dereferenceable(24) %handle_scope, ptr noundef %isolate) #12
   %call = call ptr @_ZN2v86String11NewFromUtf8EPNS_7IsolateEPKcNS_13NewStringTypeEi(ptr noundef %isolate, ptr noundef %name, i32 noundef 1, i32 noundef -1) #12
   %cmp.i.i = icmp eq ptr %call, null
-  br i1 %cmp.i.i, label %if.then.i, label %entry.split
-
-entry.split:                                      ; preds = %entry
-  %call183 = call { double, double } @_ZN4node13EmitAsyncInitEPN2v87IsolateENS0_5LocalINS0_6ObjectEEENS3_INS0_6StringEEEd(ptr noundef %isolate, ptr %resource.coerce, ptr nonnull %call, double noundef %trigger_async_id)
-  br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit
+  br i1 %cmp.i.i, label %if.then.i, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit
 
 if.then.i:                                        ; preds = %entry
   call void @_ZN2v812api_internal12ToLocalEmptyEv() #12
-  %call184 = call { double, double } @_ZN4node13EmitAsyncInitEPN2v87IsolateENS0_5LocalINS0_6ObjectEEENS3_INS0_6StringEEEd(ptr noundef %isolate, ptr %resource.coerce, ptr null, double noundef %trigger_async_id)
   br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit
 
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit: ; preds = %entry.split, %if.then.i
-  %phi.call = phi { double, double } [ %call183, %entry.split ], [ %call184, %if.then.i ]
+_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit: ; preds = %entry, %if.then.i
+  %call.sink = phi ptr [ null, %if.then.i ], [ %call, %entry ]
+  %call183 = call { double, double } @_ZN4node13EmitAsyncInitEPN2v87IsolateENS0_5LocalINS0_6ObjectEEENS3_INS0_6StringEEEd(ptr noundef %isolate, ptr %resource.coerce, ptr %call.sink, double noundef %trigger_async_id)
   call void @_ZN2v811HandleScopeD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %handle_scope) #12
-  ret { double, double } %phi.call
+  ret { double, double } %call183
 }
 
 declare ptr @_ZN2v86String11NewFromUtf8EPNS_7IsolateEPKcNS_13NewStringTypeEi(ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #0

@@ -5535,7 +5535,7 @@ mbedtls_mpi_lsb.exit:                             ; preds = %24, %18, %11
   %.012.i = phi i64 [ 0, %11 ], [ %.116.i, %18 ], [ 0, %24 ]
   %26 = load i64, ptr %7, align 8
   %.not19.i31 = icmp eq i64 %26, 0
-  br i1 %.not19.i31, label %mbedtls_mpi_get_bit.exit.thread, label %.preheader.lr.ph.i32
+  br i1 %.not19.i31, label %mbedtls_mpi_shift_r.exit.sink.split, label %.preheader.lr.ph.i32
 
 .preheader.lr.ph.i32:                             ; preds = %mbedtls_mpi_lsb.exit
   %27 = getelementptr inbounds i8, ptr %5, i64 16
@@ -5571,400 +5571,397 @@ mbedtls_mpi_lsb.exit:                             ; preds = %24, %18, %11
 
 mbedtls_mpi_lsb.exit42:                           ; preds = %32
   %40 = icmp eq i64 %.116.i36, 0
-  br i1 %40, label %mbedtls_mpi_lsb.exit42.thread, label %45
+  br i1 %40, label %mbedtls_mpi_lsb.exit42.thread, label %44
 
 mbedtls_mpi_lsb.exit42.thread:                    ; preds = %38, %mbedtls_mpi_lsb.exit42
   %.mask = and i64 %26, 288230376151711743
   %.not.i43.not = icmp eq i64 %.mask, 0
-  br i1 %.not.i43.not, label %mbedtls_mpi_get_bit.exit.thread, label %mbedtls_mpi_get_bit.exit
+  br i1 %.not.i43.not, label %mbedtls_mpi_shift_r.exit.sink.split, label %mbedtls_mpi_get_bit.exit
 
 mbedtls_mpi_get_bit.exit:                         ; preds = %mbedtls_mpi_lsb.exit42.thread
   %41 = load i64, ptr %28, align 8
   %42 = and i64 %41, 1
   %43 = icmp eq i64 %42, 0
-  br i1 %43, label %mbedtls_mpi_get_bit.exit.thread, label %45
+  br i1 %43, label %mbedtls_mpi_shift_r.exit.sink.split, label %44
 
-mbedtls_mpi_get_bit.exit.thread:                  ; preds = %mbedtls_mpi_lsb.exit, %mbedtls_mpi_lsb.exit42.thread, %mbedtls_mpi_get_bit.exit
-  %44 = call i32 @mbedtls_mpi_copy(ptr noundef %0, ptr noundef %1)
-  br label %mbedtls_mpi_shift_r.exit
-
-45:                                               ; preds = %mbedtls_mpi_get_bit.exit, %mbedtls_mpi_lsb.exit42
+44:                                               ; preds = %mbedtls_mpi_get_bit.exit, %mbedtls_mpi_lsb.exit42
   %.012.i3989 = phi i64 [ 0, %mbedtls_mpi_get_bit.exit ], [ %.116.i36, %mbedtls_mpi_lsb.exit42 ]
   %spec.select = call i64 @llvm.umin.i64(i64 %.012.i3989, i64 %.012.i)
   store i32 1, ptr %5, align 8
   store i32 1, ptr %4, align 8
   br i1 %.not19.i, label %mbedtls_mpi_cmp_int.exit.thread, label %.lr.ph.i.i.lr.ph
 
-.lr.ph.i.i.lr.ph:                                 ; preds = %45
-  %46 = getelementptr inbounds i8, ptr %4, i64 16
+.lr.ph.i.i.lr.ph:                                 ; preds = %44
+  %45 = getelementptr inbounds i8, ptr %4, i64 16
   br label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %.lr.ph.i.i.lr.ph, %mbedtls_mpi_shift_r.exit.thread
-  %47 = phi i64 [ %12, %.lr.ph.i.i.lr.ph ], [ %172, %mbedtls_mpi_shift_r.exit.thread ]
-  %48 = load ptr, ptr %46, align 8
-  %invariant.gep.i.i = getelementptr i8, ptr %48, i64 -8
-  br label %49
+  %46 = phi i64 [ %12, %.lr.ph.i.i.lr.ph ], [ %171, %mbedtls_mpi_shift_r.exit.thread ]
+  %47 = load ptr, ptr %45, align 8
+  %invariant.gep.i.i = getelementptr i8, ptr %47, i64 -8
+  br label %48
 
-49:                                               ; preds = %51, %.lr.ph.i.i
-  %.03545.i.i = phi i64 [ %47, %.lr.ph.i.i ], [ %52, %51 ]
+48:                                               ; preds = %50, %.lr.ph.i.i
+  %.03545.i.i = phi i64 [ %46, %.lr.ph.i.i ], [ %51, %50 ]
   %gep.i.i = getelementptr i64, ptr %invariant.gep.i.i, i64 %.03545.i.i
-  %50 = load i64, ptr %gep.i.i, align 8
-  %.not39.i.i = icmp eq i64 %50, 0
-  br i1 %.not39.i.i, label %51, label %mbedtls_mpi_cmp_int.exit
+  %49 = load i64, ptr %gep.i.i, align 8
+  %.not39.i.i = icmp eq i64 %49, 0
+  br i1 %.not39.i.i, label %50, label %mbedtls_mpi_cmp_int.exit
 
-51:                                               ; preds = %49
-  %52 = add i64 %.03545.i.i, -1
-  %.not.i.i = icmp eq i64 %52, 0
-  br i1 %.not.i.i, label %mbedtls_mpi_cmp_int.exit.thread, label %49, !llvm.loop !22
+50:                                               ; preds = %48
+  %51 = add i64 %.03545.i.i, -1
+  %.not.i.i = icmp eq i64 %51, 0
+  br i1 %.not.i.i, label %mbedtls_mpi_cmp_int.exit.thread, label %48, !llvm.loop !22
 
-mbedtls_mpi_cmp_int.exit:                         ; preds = %49
-  %53 = load i32, ptr %4, align 8
-  %.not23 = icmp eq i32 %53, 0
+mbedtls_mpi_cmp_int.exit:                         ; preds = %48
+  %52 = load i32, ptr %4, align 8
+  %.not23 = icmp eq i32 %52, 0
   br i1 %.not23, label %mbedtls_mpi_cmp_int.exit.thread, label %.preheader.i46
 
-.preheader.i46:                                   ; preds = %mbedtls_mpi_cmp_int.exit, %63
-  %.018.i47 = phi i64 [ %56, %63 ], [ 0, %mbedtls_mpi_cmp_int.exit ]
-  %.01117.i48 = phi i64 [ %64, %63 ], [ 0, %mbedtls_mpi_cmp_int.exit ]
-  %54 = getelementptr inbounds i64, ptr %48, i64 %.01117.i48
-  %55 = load i64, ptr %54, align 8
-  %56 = add i64 %.018.i47, 64
-  br label %57
+.preheader.i46:                                   ; preds = %mbedtls_mpi_cmp_int.exit, %62
+  %.018.i47 = phi i64 [ %55, %62 ], [ 0, %mbedtls_mpi_cmp_int.exit ]
+  %.01117.i48 = phi i64 [ %63, %62 ], [ 0, %mbedtls_mpi_cmp_int.exit ]
+  %53 = getelementptr inbounds i64, ptr %47, i64 %.01117.i48
+  %54 = load i64, ptr %53, align 8
+  %55 = add i64 %.018.i47, 64
+  br label %56
 
-57:                                               ; preds = %60, %.preheader.i46
-  %.116.i49 = phi i64 [ %.018.i47, %.preheader.i46 ], [ %62, %60 ]
-  %.01015.i50 = phi i64 [ 0, %.preheader.i46 ], [ %61, %60 ]
-  %58 = shl nuw i64 1, %.01015.i50
-  %59 = and i64 %58, %55
-  %.not.i51 = icmp eq i64 %59, 0
-  br i1 %.not.i51, label %60, label %mbedtls_mpi_lsb.exit55
+56:                                               ; preds = %59, %.preheader.i46
+  %.116.i49 = phi i64 [ %.018.i47, %.preheader.i46 ], [ %61, %59 ]
+  %.01015.i50 = phi i64 [ 0, %.preheader.i46 ], [ %60, %59 ]
+  %57 = shl nuw i64 1, %.01015.i50
+  %58 = and i64 %57, %54
+  %.not.i51 = icmp eq i64 %58, 0
+  br i1 %.not.i51, label %59, label %mbedtls_mpi_lsb.exit55
 
-60:                                               ; preds = %57
-  %61 = add nuw nsw i64 %.01015.i50, 1
-  %62 = add i64 %.116.i49, 1
-  %exitcond.not.i53 = icmp eq i64 %61, 64
-  br i1 %exitcond.not.i53, label %63, label %57, !llvm.loop !7
+59:                                               ; preds = %56
+  %60 = add nuw nsw i64 %.01015.i50, 1
+  %61 = add i64 %.116.i49, 1
+  %exitcond.not.i53 = icmp eq i64 %60, 64
+  br i1 %exitcond.not.i53, label %62, label %56, !llvm.loop !7
 
-63:                                               ; preds = %60
-  %64 = add nuw i64 %.01117.i48, 1
-  %exitcond22.not.i54 = icmp eq i64 %64, %47
+62:                                               ; preds = %59
+  %63 = add nuw i64 %.01117.i48, 1
+  %exitcond22.not.i54 = icmp eq i64 %63, %46
   br i1 %exitcond22.not.i54, label %mbedtls_mpi_lsb.exit55, label %.preheader.i46, !llvm.loop !8
 
-mbedtls_mpi_lsb.exit55:                           ; preds = %63, %57
-  %.012.i52 = phi i64 [ %.116.i49, %57 ], [ 0, %63 ]
-  %65 = call i32 @mbedtls_mpi_shift_r(ptr noundef nonnull %4, i64 noundef %.012.i52)
-  %.not25 = icmp eq i32 %65, 0
-  br i1 %.not25, label %66, label %mbedtls_mpi_shift_r.exit
+mbedtls_mpi_lsb.exit55:                           ; preds = %62, %56
+  %.012.i52 = phi i64 [ %.116.i49, %56 ], [ 0, %62 ]
+  %64 = call i32 @mbedtls_mpi_shift_r(ptr noundef nonnull %4, i64 noundef %.012.i52)
+  %.not25 = icmp eq i32 %64, 0
+  br i1 %.not25, label %65, label %mbedtls_mpi_shift_r.exit
 
-66:                                               ; preds = %mbedtls_mpi_lsb.exit55
-  %67 = load i64, ptr %7, align 8
-  %.not19.i56 = icmp eq i64 %67, 0
+65:                                               ; preds = %mbedtls_mpi_lsb.exit55
+  %66 = load i64, ptr %7, align 8
+  %.not19.i56 = icmp eq i64 %66, 0
   br i1 %.not19.i56, label %mbedtls_mpi_lsb.exit67, label %.preheader.lr.ph.i57
 
-.preheader.lr.ph.i57:                             ; preds = %66
-  %68 = load ptr, ptr %27, align 8
+.preheader.lr.ph.i57:                             ; preds = %65
+  %67 = load ptr, ptr %27, align 8
   br label %.preheader.i58
 
-.preheader.i58:                                   ; preds = %78, %.preheader.lr.ph.i57
-  %.018.i59 = phi i64 [ 0, %.preheader.lr.ph.i57 ], [ %71, %78 ]
-  %.01117.i60 = phi i64 [ 0, %.preheader.lr.ph.i57 ], [ %79, %78 ]
-  %69 = getelementptr inbounds i64, ptr %68, i64 %.01117.i60
-  %70 = load i64, ptr %69, align 8
-  %71 = add i64 %.018.i59, 64
-  br label %72
+.preheader.i58:                                   ; preds = %77, %.preheader.lr.ph.i57
+  %.018.i59 = phi i64 [ 0, %.preheader.lr.ph.i57 ], [ %70, %77 ]
+  %.01117.i60 = phi i64 [ 0, %.preheader.lr.ph.i57 ], [ %78, %77 ]
+  %68 = getelementptr inbounds i64, ptr %67, i64 %.01117.i60
+  %69 = load i64, ptr %68, align 8
+  %70 = add i64 %.018.i59, 64
+  br label %71
 
-72:                                               ; preds = %75, %.preheader.i58
-  %.116.i61 = phi i64 [ %.018.i59, %.preheader.i58 ], [ %77, %75 ]
-  %.01015.i62 = phi i64 [ 0, %.preheader.i58 ], [ %76, %75 ]
-  %73 = shl nuw i64 1, %.01015.i62
-  %74 = and i64 %73, %70
-  %.not.i63 = icmp eq i64 %74, 0
-  br i1 %.not.i63, label %75, label %mbedtls_mpi_lsb.exit67
+71:                                               ; preds = %74, %.preheader.i58
+  %.116.i61 = phi i64 [ %.018.i59, %.preheader.i58 ], [ %76, %74 ]
+  %.01015.i62 = phi i64 [ 0, %.preheader.i58 ], [ %75, %74 ]
+  %72 = shl nuw i64 1, %.01015.i62
+  %73 = and i64 %72, %69
+  %.not.i63 = icmp eq i64 %73, 0
+  br i1 %.not.i63, label %74, label %mbedtls_mpi_lsb.exit67
 
-75:                                               ; preds = %72
-  %76 = add nuw nsw i64 %.01015.i62, 1
-  %77 = add i64 %.116.i61, 1
-  %exitcond.not.i65 = icmp eq i64 %76, 64
-  br i1 %exitcond.not.i65, label %78, label %72, !llvm.loop !7
+74:                                               ; preds = %71
+  %75 = add nuw nsw i64 %.01015.i62, 1
+  %76 = add i64 %.116.i61, 1
+  %exitcond.not.i65 = icmp eq i64 %75, 64
+  br i1 %exitcond.not.i65, label %77, label %71, !llvm.loop !7
 
-78:                                               ; preds = %75
-  %79 = add nuw i64 %.01117.i60, 1
-  %exitcond22.not.i66 = icmp eq i64 %79, %67
+77:                                               ; preds = %74
+  %78 = add nuw i64 %.01117.i60, 1
+  %exitcond22.not.i66 = icmp eq i64 %78, %66
   br i1 %exitcond22.not.i66, label %mbedtls_mpi_lsb.exit67, label %.preheader.i58, !llvm.loop !8
 
-mbedtls_mpi_lsb.exit67:                           ; preds = %78, %72, %66
-  %.012.i64 = phi i64 [ 0, %66 ], [ %.116.i61, %72 ], [ 0, %78 ]
-  %80 = call i32 @mbedtls_mpi_shift_r(ptr noundef nonnull %5, i64 noundef %.012.i64)
-  %.not26 = icmp eq i32 %80, 0
-  br i1 %.not26, label %81, label %mbedtls_mpi_shift_r.exit
+mbedtls_mpi_lsb.exit67:                           ; preds = %77, %71, %65
+  %.012.i64 = phi i64 [ 0, %65 ], [ %.116.i61, %71 ], [ 0, %77 ]
+  %79 = call i32 @mbedtls_mpi_shift_r(ptr noundef nonnull %5, i64 noundef %.012.i64)
+  %.not26 = icmp eq i32 %79, 0
+  br i1 %.not26, label %80, label %mbedtls_mpi_shift_r.exit
 
-81:                                               ; preds = %mbedtls_mpi_lsb.exit67
-  %82 = load i64, ptr %6, align 8
-  %.not44.i = icmp eq i64 %82, 0
+80:                                               ; preds = %mbedtls_mpi_lsb.exit67
+  %81 = load i64, ptr %6, align 8
+  %.not44.i = icmp eq i64 %81, 0
   br i1 %.not44.i, label %._crit_edge.i, label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %81
-  %83 = load ptr, ptr %46, align 8
-  %invariant.gep.i = getelementptr i8, ptr %83, i64 -8
-  br label %84
+.lr.ph.i:                                         ; preds = %80
+  %82 = load ptr, ptr %45, align 8
+  %invariant.gep.i = getelementptr i8, ptr %82, i64 -8
+  br label %83
 
-84:                                               ; preds = %86, %.lr.ph.i
-  %.03545.i = phi i64 [ %82, %.lr.ph.i ], [ %87, %86 ]
+83:                                               ; preds = %85, %.lr.ph.i
+  %.03545.i = phi i64 [ %81, %.lr.ph.i ], [ %86, %85 ]
   %gep.i = getelementptr i64, ptr %invariant.gep.i, i64 %.03545.i
-  %85 = load i64, ptr %gep.i, align 8
-  %.not39.i = icmp eq i64 %85, 0
-  br i1 %.not39.i, label %86, label %._crit_edge.i
+  %84 = load i64, ptr %gep.i, align 8
+  %.not39.i = icmp eq i64 %84, 0
+  br i1 %.not39.i, label %85, label %._crit_edge.i
 
-86:                                               ; preds = %84
-  %87 = add i64 %.03545.i, -1
-  %.not.i69 = icmp eq i64 %87, 0
-  br i1 %.not.i69, label %._crit_edge.i, label %84, !llvm.loop !22
+85:                                               ; preds = %83
+  %86 = add i64 %.03545.i, -1
+  %.not.i69 = icmp eq i64 %86, 0
+  br i1 %.not.i69, label %._crit_edge.i, label %83, !llvm.loop !22
 
-._crit_edge.i:                                    ; preds = %86, %84, %81
-  %.035.lcssa.i = phi i64 [ 0, %81 ], [ 0, %86 ], [ %.03545.i, %84 ]
-  %88 = load i64, ptr %7, align 8
-  %.not4048.i = icmp eq i64 %88, 0
+._crit_edge.i:                                    ; preds = %85, %83, %80
+  %.035.lcssa.i = phi i64 [ 0, %80 ], [ 0, %85 ], [ %.03545.i, %83 ]
+  %87 = load i64, ptr %7, align 8
+  %.not4048.i = icmp eq i64 %87, 0
   br i1 %.not4048.i, label %._crit_edge52.i, label %.lr.ph51.i
 
 .lr.ph51.i:                                       ; preds = %._crit_edge.i
-  %89 = load ptr, ptr %27, align 8
-  %invariant.gep56.i = getelementptr i8, ptr %89, i64 -8
-  br label %90
+  %88 = load ptr, ptr %27, align 8
+  %invariant.gep56.i = getelementptr i8, ptr %88, i64 -8
+  br label %89
 
-90:                                               ; preds = %92, %.lr.ph51.i
-  %.049.i = phi i64 [ %88, %.lr.ph51.i ], [ %93, %92 ]
+89:                                               ; preds = %91, %.lr.ph51.i
+  %.049.i = phi i64 [ %87, %.lr.ph51.i ], [ %92, %91 ]
   %gep57.i = getelementptr i64, ptr %invariant.gep56.i, i64 %.049.i
-  %91 = load i64, ptr %gep57.i, align 8
-  %.not41.i = icmp eq i64 %91, 0
-  br i1 %.not41.i, label %92, label %._crit_edge52.i
+  %90 = load i64, ptr %gep57.i, align 8
+  %.not41.i = icmp eq i64 %90, 0
+  br i1 %.not41.i, label %91, label %._crit_edge52.i
 
-92:                                               ; preds = %90
-  %93 = add i64 %.049.i, -1
-  %.not40.i = icmp eq i64 %93, 0
-  br i1 %.not40.i, label %._crit_edge52.i, label %90, !llvm.loop !40
+91:                                               ; preds = %89
+  %92 = add i64 %.049.i, -1
+  %.not40.i = icmp eq i64 %92, 0
+  br i1 %.not40.i, label %._crit_edge52.i, label %89, !llvm.loop !40
 
-._crit_edge52.i:                                  ; preds = %92, %90, %._crit_edge.i
-  %.0.lcssa.i = phi i64 [ 0, %._crit_edge.i ], [ 0, %92 ], [ %.049.i, %90 ]
-  %94 = or i64 %.0.lcssa.i, %.035.lcssa.i
-  %or.cond.i = icmp eq i64 %94, 0
-  br i1 %or.cond.i, label %mbedtls_mpi_cmp_mpi.exit.thread, label %95
+._crit_edge52.i:                                  ; preds = %91, %89, %._crit_edge.i
+  %.0.lcssa.i = phi i64 [ 0, %._crit_edge.i ], [ 0, %91 ], [ %.049.i, %89 ]
+  %93 = or i64 %.0.lcssa.i, %.035.lcssa.i
+  %or.cond.i = icmp eq i64 %93, 0
+  br i1 %or.cond.i, label %mbedtls_mpi_cmp_mpi.exit.thread, label %94
 
-95:                                               ; preds = %._crit_edge52.i
-  %96 = icmp ugt i64 %.035.lcssa.i, %.0.lcssa.i
-  br i1 %96, label %97, label %99
+94:                                               ; preds = %._crit_edge52.i
+  %95 = icmp ugt i64 %.035.lcssa.i, %.0.lcssa.i
+  br i1 %95, label %96, label %98
 
-97:                                               ; preds = %95
-  %98 = load i32, ptr %4, align 8
+96:                                               ; preds = %94
+  %97 = load i32, ptr %4, align 8
   br label %mbedtls_mpi_cmp_mpi.exit
 
-99:                                               ; preds = %95
-  %100 = icmp ugt i64 %.0.lcssa.i, %.035.lcssa.i
-  br i1 %100, label %101, label %104
+98:                                               ; preds = %94
+  %99 = icmp ugt i64 %.0.lcssa.i, %.035.lcssa.i
+  br i1 %99, label %100, label %103
 
-101:                                              ; preds = %99
-  %102 = load i32, ptr %5, align 8
-  %103 = sub nsw i32 0, %102
+100:                                              ; preds = %98
+  %101 = load i32, ptr %5, align 8
+  %102 = sub nsw i32 0, %101
   br label %mbedtls_mpi_cmp_mpi.exit
 
-104:                                              ; preds = %99
-  %105 = load i32, ptr %4, align 8
-  %106 = icmp sgt i32 %105, 0
-  %107 = load i32, ptr %5, align 8
-  br i1 %106, label %108, label %110
+103:                                              ; preds = %98
+  %104 = load i32, ptr %4, align 8
+  %105 = icmp sgt i32 %104, 0
+  %106 = load i32, ptr %5, align 8
+  br i1 %105, label %107, label %109
 
-108:                                              ; preds = %104
-  %109 = icmp slt i32 %107, 0
-  br i1 %109, label %mbedtls_mpi_cmp_mpi.exit.thread, label %.preheader.i68
+107:                                              ; preds = %103
+  %108 = icmp slt i32 %106, 0
+  br i1 %108, label %mbedtls_mpi_cmp_mpi.exit.thread, label %.preheader.i68
 
-110:                                              ; preds = %104
-  %111 = icmp sgt i32 %107, 0
-  %112 = icmp ne i32 %105, 0
-  %or.cond43.i = and i1 %112, %111
+109:                                              ; preds = %103
+  %110 = icmp sgt i32 %106, 0
+  %111 = icmp ne i32 %104, 0
+  %or.cond43.i = and i1 %111, %110
   br i1 %or.cond43.i, label %mbedtls_mpi_cmp_mpi.exit.thread97, label %.preheader.i68
 
-.preheader.i68:                                   ; preds = %110, %108
-  %113 = load ptr, ptr %46, align 8
-  %114 = load ptr, ptr %27, align 8
-  br label %115
+.preheader.i68:                                   ; preds = %109, %107
+  %112 = load ptr, ptr %45, align 8
+  %113 = load ptr, ptr %27, align 8
+  br label %114
 
-115:                                              ; preds = %123, %.preheader.i68
-  %.1.i = phi i64 [ %117, %123 ], [ %.035.lcssa.i, %.preheader.i68 ]
+114:                                              ; preds = %122, %.preheader.i68
+  %.1.i = phi i64 [ %116, %122 ], [ %.035.lcssa.i, %.preheader.i68 ]
   %.not42.i = icmp eq i64 %.1.i, 0
-  br i1 %.not42.i, label %mbedtls_mpi_cmp_mpi.exit.thread, label %116
+  br i1 %.not42.i, label %mbedtls_mpi_cmp_mpi.exit.thread, label %115
 
-116:                                              ; preds = %115
-  %117 = add i64 %.1.i, -1
-  %118 = getelementptr inbounds i64, ptr %113, i64 %117
-  %119 = load i64, ptr %118, align 8
-  %120 = getelementptr inbounds i64, ptr %114, i64 %117
-  %121 = load i64, ptr %120, align 8
-  %122 = icmp ugt i64 %119, %121
-  br i1 %122, label %mbedtls_mpi_cmp_mpi.exit, label %123
+115:                                              ; preds = %114
+  %116 = add i64 %.1.i, -1
+  %117 = getelementptr inbounds i64, ptr %112, i64 %116
+  %118 = load i64, ptr %117, align 8
+  %119 = getelementptr inbounds i64, ptr %113, i64 %116
+  %120 = load i64, ptr %119, align 8
+  %121 = icmp ugt i64 %118, %120
+  br i1 %121, label %mbedtls_mpi_cmp_mpi.exit, label %122
 
-123:                                              ; preds = %116
-  %124 = icmp ult i64 %119, %121
-  br i1 %124, label %125, label %115, !llvm.loop !41
+122:                                              ; preds = %115
+  %123 = icmp ult i64 %118, %120
+  br i1 %123, label %124, label %114, !llvm.loop !41
 
-125:                                              ; preds = %123
-  %126 = sub nsw i32 0, %105
+124:                                              ; preds = %122
+  %125 = sub nsw i32 0, %104
   br label %mbedtls_mpi_cmp_mpi.exit
 
-mbedtls_mpi_cmp_mpi.exit:                         ; preds = %116, %97, %101, %125
-  %.036.i = phi i32 [ %98, %97 ], [ %103, %101 ], [ %126, %125 ], [ %105, %116 ]
-  %127 = icmp sgt i32 %.036.i, -1
-  br i1 %127, label %mbedtls_mpi_cmp_mpi.exit.thread, label %mbedtls_mpi_cmp_mpi.exit.thread97
+mbedtls_mpi_cmp_mpi.exit:                         ; preds = %115, %96, %100, %124
+  %.036.i = phi i32 [ %97, %96 ], [ %102, %100 ], [ %125, %124 ], [ %104, %115 ]
+  %126 = icmp sgt i32 %.036.i, -1
+  br i1 %126, label %mbedtls_mpi_cmp_mpi.exit.thread, label %mbedtls_mpi_cmp_mpi.exit.thread97
 
-mbedtls_mpi_cmp_mpi.exit.thread:                  ; preds = %115, %108, %._crit_edge52.i, %mbedtls_mpi_cmp_mpi.exit
-  %128 = call i32 @mbedtls_mpi_sub_abs(ptr noundef nonnull %4, ptr noundef nonnull %4, ptr noundef nonnull %5)
-  %.not29 = icmp eq i32 %128, 0
-  br i1 %.not29, label %129, label %mbedtls_mpi_shift_r.exit
+mbedtls_mpi_cmp_mpi.exit.thread:                  ; preds = %114, %107, %._crit_edge52.i, %mbedtls_mpi_cmp_mpi.exit
+  %127 = call i32 @mbedtls_mpi_sub_abs(ptr noundef nonnull %4, ptr noundef nonnull %4, ptr noundef nonnull %5)
+  %.not29 = icmp eq i32 %127, 0
+  br i1 %.not29, label %128, label %mbedtls_mpi_shift_r.exit
 
-129:                                              ; preds = %mbedtls_mpi_cmp_mpi.exit.thread
-  %130 = load i64, ptr %6, align 8
-  %131 = icmp eq i64 %130, 0
-  br i1 %131, label %132, label %.lr.ph51.i72
+128:                                              ; preds = %mbedtls_mpi_cmp_mpi.exit.thread
+  %129 = load i64, ptr %6, align 8
+  %130 = icmp eq i64 %129, 0
+  br i1 %130, label %131, label %.lr.ph51.i72
 
-132:                                              ; preds = %129
-  %133 = call noalias dereferenceable_or_null(8) ptr @calloc(i64 noundef 1, i64 noundef 8) #18
-  %134 = icmp eq ptr %133, null
-  br i1 %134, label %mbedtls_mpi_shift_r.exit, label %135
+131:                                              ; preds = %128
+  %132 = call noalias dereferenceable_or_null(8) ptr @calloc(i64 noundef 1, i64 noundef 8) #18
+  %133 = icmp eq ptr %132, null
+  br i1 %133, label %mbedtls_mpi_shift_r.exit, label %134
 
-135:                                              ; preds = %132
-  %136 = load ptr, ptr %46, align 8
-  %.not.i.i.i = icmp eq ptr %136, null
-  br i1 %.not.i.i.i, label %139, label %137
+134:                                              ; preds = %131
+  %135 = load ptr, ptr %45, align 8
+  %.not.i.i.i = icmp eq ptr %135, null
+  br i1 %.not.i.i.i, label %138, label %136
 
-137:                                              ; preds = %135
-  call void @mbedtls_platform_zeroize(ptr noundef nonnull %136, i64 noundef 0) #17
-  %138 = load ptr, ptr %46, align 8
-  call void @free(ptr noundef %138) #17
-  br label %139
+136:                                              ; preds = %134
+  call void @mbedtls_platform_zeroize(ptr noundef nonnull %135, i64 noundef 0) #17
+  %137 = load ptr, ptr %45, align 8
+  call void @free(ptr noundef %137) #17
+  br label %138
 
-139:                                              ; preds = %135, %137
+138:                                              ; preds = %134, %136
   store i64 1, ptr %6, align 8
-  store ptr %133, ptr %46, align 8
-  store i64 0, ptr %133, align 8
+  store ptr %132, ptr %45, align 8
+  store i64 0, ptr %132, align 8
   store i32 1, ptr %4, align 8
   br label %mbedtls_mpi_shift_r.exit.thread
 
-.lr.ph51.i72:                                     ; preds = %129, %.lr.ph51.i72
-  %.03850.i = phi i64 [ %144, %.lr.ph51.i72 ], [ 0, %129 ]
-  %.249.i = phi i64 [ %141, %.lr.ph51.i72 ], [ %130, %129 ]
-  %140 = load ptr, ptr %46, align 8
-  %141 = add i64 %.249.i, -1
-  %142 = getelementptr inbounds i64, ptr %140, i64 %141
-  %143 = load i64, ptr %142, align 8
-  %144 = shl i64 %143, 63
-  %145 = lshr i64 %143, 1
-  store i64 %145, ptr %142, align 8
-  %146 = load ptr, ptr %46, align 8
-  %147 = getelementptr inbounds i64, ptr %146, i64 %141
-  %148 = load i64, ptr %147, align 8
-  %149 = or i64 %148, %.03850.i
-  store i64 %149, ptr %147, align 8
-  %.not43.i = icmp eq i64 %141, 0
+.lr.ph51.i72:                                     ; preds = %128, %.lr.ph51.i72
+  %.03850.i = phi i64 [ %143, %.lr.ph51.i72 ], [ 0, %128 ]
+  %.249.i = phi i64 [ %140, %.lr.ph51.i72 ], [ %129, %128 ]
+  %139 = load ptr, ptr %45, align 8
+  %140 = add i64 %.249.i, -1
+  %141 = getelementptr inbounds i64, ptr %139, i64 %140
+  %142 = load i64, ptr %141, align 8
+  %143 = shl i64 %142, 63
+  %144 = lshr i64 %142, 1
+  store i64 %144, ptr %141, align 8
+  %145 = load ptr, ptr %45, align 8
+  %146 = getelementptr inbounds i64, ptr %145, i64 %140
+  %147 = load i64, ptr %146, align 8
+  %148 = or i64 %147, %.03850.i
+  store i64 %148, ptr %146, align 8
+  %.not43.i = icmp eq i64 %140, 0
   br i1 %.not43.i, label %mbedtls_mpi_shift_r.exit.threadthread-pre-split, label %.lr.ph51.i72, !llvm.loop !36
 
-mbedtls_mpi_cmp_mpi.exit.thread97:                ; preds = %110, %mbedtls_mpi_cmp_mpi.exit
-  %150 = call i32 @mbedtls_mpi_sub_abs(ptr noundef nonnull %5, ptr noundef nonnull %5, ptr noundef nonnull %4)
-  %.not27 = icmp eq i32 %150, 0
-  br i1 %.not27, label %151, label %mbedtls_mpi_shift_r.exit
+mbedtls_mpi_cmp_mpi.exit.thread97:                ; preds = %109, %mbedtls_mpi_cmp_mpi.exit
+  %149 = call i32 @mbedtls_mpi_sub_abs(ptr noundef nonnull %5, ptr noundef nonnull %5, ptr noundef nonnull %4)
+  %.not27 = icmp eq i32 %149, 0
+  br i1 %.not27, label %150, label %mbedtls_mpi_shift_r.exit
 
-151:                                              ; preds = %mbedtls_mpi_cmp_mpi.exit.thread97
-  %152 = load i64, ptr %7, align 8
-  %153 = icmp eq i64 %152, 0
-  br i1 %153, label %154, label %.lr.ph51.i76
+150:                                              ; preds = %mbedtls_mpi_cmp_mpi.exit.thread97
+  %151 = load i64, ptr %7, align 8
+  %152 = icmp eq i64 %151, 0
+  br i1 %152, label %153, label %.lr.ph51.i76
 
-154:                                              ; preds = %151
-  %155 = call noalias dereferenceable_or_null(8) ptr @calloc(i64 noundef 1, i64 noundef 8) #18
-  %156 = icmp eq ptr %155, null
-  br i1 %156, label %mbedtls_mpi_shift_r.exit, label %157
+153:                                              ; preds = %150
+  %154 = call noalias dereferenceable_or_null(8) ptr @calloc(i64 noundef 1, i64 noundef 8) #18
+  %155 = icmp eq ptr %154, null
+  br i1 %155, label %mbedtls_mpi_shift_r.exit, label %156
 
-157:                                              ; preds = %154
-  %158 = load ptr, ptr %27, align 8
-  %.not.i.i.i83 = icmp eq ptr %158, null
-  br i1 %.not.i.i.i83, label %161, label %159
+156:                                              ; preds = %153
+  %157 = load ptr, ptr %27, align 8
+  %.not.i.i.i83 = icmp eq ptr %157, null
+  br i1 %.not.i.i.i83, label %160, label %158
 
-159:                                              ; preds = %157
-  call void @mbedtls_platform_zeroize(ptr noundef nonnull %158, i64 noundef 0) #17
-  %160 = load ptr, ptr %27, align 8
-  call void @free(ptr noundef %160) #17
-  br label %161
+158:                                              ; preds = %156
+  call void @mbedtls_platform_zeroize(ptr noundef nonnull %157, i64 noundef 0) #17
+  %159 = load ptr, ptr %27, align 8
+  call void @free(ptr noundef %159) #17
+  br label %160
 
-161:                                              ; preds = %157, %159
+160:                                              ; preds = %156, %158
   store i64 1, ptr %7, align 8
-  store ptr %155, ptr %27, align 8
-  store i64 0, ptr %155, align 8
+  store ptr %154, ptr %27, align 8
+  store i64 0, ptr %154, align 8
   store i32 1, ptr %5, align 8
   br label %mbedtls_mpi_shift_r.exit.threadthread-pre-split
 
-.lr.ph51.i76:                                     ; preds = %151, %.lr.ph51.i76
-  %.03850.i77 = phi i64 [ %166, %.lr.ph51.i76 ], [ 0, %151 ]
-  %.249.i78 = phi i64 [ %163, %.lr.ph51.i76 ], [ %152, %151 ]
-  %162 = load ptr, ptr %27, align 8
-  %163 = add i64 %.249.i78, -1
-  %164 = getelementptr inbounds i64, ptr %162, i64 %163
-  %165 = load i64, ptr %164, align 8
-  %166 = shl i64 %165, 63
-  %167 = lshr i64 %165, 1
-  store i64 %167, ptr %164, align 8
-  %168 = load ptr, ptr %27, align 8
-  %169 = getelementptr inbounds i64, ptr %168, i64 %163
-  %170 = load i64, ptr %169, align 8
-  %171 = or i64 %170, %.03850.i77
-  store i64 %171, ptr %169, align 8
-  %.not43.i79 = icmp eq i64 %163, 0
+.lr.ph51.i76:                                     ; preds = %150, %.lr.ph51.i76
+  %.03850.i77 = phi i64 [ %165, %.lr.ph51.i76 ], [ 0, %150 ]
+  %.249.i78 = phi i64 [ %162, %.lr.ph51.i76 ], [ %151, %150 ]
+  %161 = load ptr, ptr %27, align 8
+  %162 = add i64 %.249.i78, -1
+  %163 = getelementptr inbounds i64, ptr %161, i64 %162
+  %164 = load i64, ptr %163, align 8
+  %165 = shl i64 %164, 63
+  %166 = lshr i64 %164, 1
+  store i64 %166, ptr %163, align 8
+  %167 = load ptr, ptr %27, align 8
+  %168 = getelementptr inbounds i64, ptr %167, i64 %162
+  %169 = load i64, ptr %168, align 8
+  %170 = or i64 %169, %.03850.i77
+  store i64 %170, ptr %168, align 8
+  %.not43.i79 = icmp eq i64 %162, 0
   br i1 %.not43.i79, label %mbedtls_mpi_shift_r.exit.threadthread-pre-split, label %.lr.ph51.i76, !llvm.loop !36
 
-mbedtls_mpi_shift_r.exit.threadthread-pre-split:  ; preds = %.lr.ph51.i76, %.lr.ph51.i72, %161
+mbedtls_mpi_shift_r.exit.threadthread-pre-split:  ; preds = %.lr.ph51.i76, %.lr.ph51.i72, %160
   %.pr = load i64, ptr %6, align 8
   br label %mbedtls_mpi_shift_r.exit.thread
 
-mbedtls_mpi_shift_r.exit.thread:                  ; preds = %mbedtls_mpi_shift_r.exit.threadthread-pre-split, %139
-  %172 = phi i64 [ %.pr, %mbedtls_mpi_shift_r.exit.threadthread-pre-split ], [ 1, %139 ]
-  %.not44.i.i = icmp eq i64 %172, 0
+mbedtls_mpi_shift_r.exit.thread:                  ; preds = %mbedtls_mpi_shift_r.exit.threadthread-pre-split, %138
+  %171 = phi i64 [ %.pr, %mbedtls_mpi_shift_r.exit.threadthread-pre-split ], [ 1, %138 ]
+  %.not44.i.i = icmp eq i64 %171, 0
   br i1 %.not44.i.i, label %mbedtls_mpi_cmp_int.exit.thread, label %.lr.ph.i.i, !llvm.loop !64
 
-mbedtls_mpi_cmp_int.exit.thread:                  ; preds = %mbedtls_mpi_cmp_int.exit, %mbedtls_mpi_shift_r.exit.thread, %51, %45
-  %173 = call i32 @mbedtls_mpi_shift_l(ptr noundef nonnull %5, i64 noundef %spec.select)
-  %.not24 = icmp eq i32 %173, 0
-  br i1 %.not24, label %174, label %mbedtls_mpi_shift_r.exit
+mbedtls_mpi_cmp_int.exit.thread:                  ; preds = %mbedtls_mpi_cmp_int.exit, %mbedtls_mpi_shift_r.exit.thread, %50, %44
+  %172 = call i32 @mbedtls_mpi_shift_l(ptr noundef nonnull %5, i64 noundef %spec.select)
+  %.not24 = icmp eq i32 %172, 0
+  br i1 %.not24, label %mbedtls_mpi_shift_r.exit.sink.split, label %mbedtls_mpi_shift_r.exit
 
-174:                                              ; preds = %mbedtls_mpi_cmp_int.exit.thread
-  %175 = call i32 @mbedtls_mpi_copy(ptr noundef %0, ptr noundef nonnull %5)
+mbedtls_mpi_shift_r.exit.sink.split:              ; preds = %mbedtls_mpi_cmp_int.exit.thread, %mbedtls_mpi_get_bit.exit, %mbedtls_mpi_lsb.exit42.thread, %mbedtls_mpi_lsb.exit
+  %.sink = phi ptr [ %1, %mbedtls_mpi_lsb.exit ], [ %1, %mbedtls_mpi_lsb.exit42.thread ], [ %1, %mbedtls_mpi_get_bit.exit ], [ %5, %mbedtls_mpi_cmp_int.exit.thread ]
+  %173 = call i32 @mbedtls_mpi_copy(ptr noundef %0, ptr noundef %.sink)
   br label %mbedtls_mpi_shift_r.exit
 
-mbedtls_mpi_shift_r.exit:                         ; preds = %154, %132, %mbedtls_mpi_cmp_mpi.exit.thread97, %mbedtls_mpi_cmp_mpi.exit.thread, %mbedtls_mpi_lsb.exit67, %mbedtls_mpi_lsb.exit55, %174, %mbedtls_mpi_cmp_int.exit.thread, %9, %3, %mbedtls_mpi_get_bit.exit.thread
-  %.0 = phi i32 [ %8, %3 ], [ %10, %9 ], [ %44, %mbedtls_mpi_get_bit.exit.thread ], [ %173, %mbedtls_mpi_cmp_int.exit.thread ], [ %175, %174 ], [ -16, %154 ], [ -16, %132 ], [ %150, %mbedtls_mpi_cmp_mpi.exit.thread97 ], [ %128, %mbedtls_mpi_cmp_mpi.exit.thread ], [ %80, %mbedtls_mpi_lsb.exit67 ], [ %65, %mbedtls_mpi_lsb.exit55 ]
-  %176 = getelementptr inbounds i8, ptr %4, i64 16
-  %177 = load ptr, ptr %176, align 8
-  %.not.i85 = icmp eq ptr %177, null
-  br i1 %.not.i85, label %mbedtls_mpi_free.exit, label %178
+mbedtls_mpi_shift_r.exit:                         ; preds = %153, %131, %mbedtls_mpi_cmp_mpi.exit.thread97, %mbedtls_mpi_cmp_mpi.exit.thread, %mbedtls_mpi_lsb.exit67, %mbedtls_mpi_lsb.exit55, %mbedtls_mpi_shift_r.exit.sink.split, %mbedtls_mpi_cmp_int.exit.thread, %9, %3
+  %.0 = phi i32 [ %8, %3 ], [ %10, %9 ], [ %172, %mbedtls_mpi_cmp_int.exit.thread ], [ %173, %mbedtls_mpi_shift_r.exit.sink.split ], [ -16, %153 ], [ -16, %131 ], [ %149, %mbedtls_mpi_cmp_mpi.exit.thread97 ], [ %127, %mbedtls_mpi_cmp_mpi.exit.thread ], [ %79, %mbedtls_mpi_lsb.exit67 ], [ %64, %mbedtls_mpi_lsb.exit55 ]
+  %174 = getelementptr inbounds i8, ptr %4, i64 16
+  %175 = load ptr, ptr %174, align 8
+  %.not.i85 = icmp eq ptr %175, null
+  br i1 %.not.i85, label %mbedtls_mpi_free.exit, label %176
 
-178:                                              ; preds = %mbedtls_mpi_shift_r.exit
-  %179 = load i64, ptr %6, align 8
-  %180 = shl i64 %179, 3
-  call void @mbedtls_platform_zeroize(ptr noundef nonnull %177, i64 noundef %180) #17
-  %181 = load ptr, ptr %176, align 8
-  call void @free(ptr noundef %181) #17
+176:                                              ; preds = %mbedtls_mpi_shift_r.exit
+  %177 = load i64, ptr %6, align 8
+  %178 = shl i64 %177, 3
+  call void @mbedtls_platform_zeroize(ptr noundef nonnull %175, i64 noundef %178) #17
+  %179 = load ptr, ptr %174, align 8
+  call void @free(ptr noundef %179) #17
   br label %mbedtls_mpi_free.exit
 
-mbedtls_mpi_free.exit:                            ; preds = %mbedtls_mpi_shift_r.exit, %178
+mbedtls_mpi_free.exit:                            ; preds = %mbedtls_mpi_shift_r.exit, %176
   store i32 1, ptr %4, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %6, i8 0, i64 16, i1 false)
-  %182 = getelementptr inbounds i8, ptr %5, i64 16
-  %183 = load ptr, ptr %182, align 8
-  %.not.i86 = icmp eq ptr %183, null
-  br i1 %.not.i86, label %mbedtls_mpi_free.exit87, label %184
+  %180 = getelementptr inbounds i8, ptr %5, i64 16
+  %181 = load ptr, ptr %180, align 8
+  %.not.i86 = icmp eq ptr %181, null
+  br i1 %.not.i86, label %mbedtls_mpi_free.exit87, label %182
 
-184:                                              ; preds = %mbedtls_mpi_free.exit
-  %185 = load i64, ptr %7, align 8
-  %186 = shl i64 %185, 3
-  call void @mbedtls_platform_zeroize(ptr noundef nonnull %183, i64 noundef %186) #17
-  %187 = load ptr, ptr %182, align 8
-  call void @free(ptr noundef %187) #17
+182:                                              ; preds = %mbedtls_mpi_free.exit
+  %183 = load i64, ptr %7, align 8
+  %184 = shl i64 %183, 3
+  call void @mbedtls_platform_zeroize(ptr noundef nonnull %181, i64 noundef %184) #17
+  %185 = load ptr, ptr %180, align 8
+  call void @free(ptr noundef %185) #17
   br label %mbedtls_mpi_free.exit87
 
-mbedtls_mpi_free.exit87:                          ; preds = %mbedtls_mpi_free.exit, %184
+mbedtls_mpi_free.exit87:                          ; preds = %mbedtls_mpi_free.exit, %182
   ret i32 %.0
 }
 

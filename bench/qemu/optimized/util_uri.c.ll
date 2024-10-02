@@ -2160,22 +2160,18 @@ if.end61:                                         ; preds = %if.else50, %if.then
   %query = getelementptr inbounds i8, ptr %ref.0132139, i64 72
   %15 = load ptr, ptr %query, align 8
   %cmp65.not = icmp eq ptr %15, null
-  br i1 %cmp65.not, label %if.else70, label %if.then66
-
-if.then66:                                        ; preds = %if.end61
-  %call68 = tail call noalias ptr @g_strdup(ptr noundef nonnull %15) #14
-  br label %if.end74
+  br i1 %cmp65.not, label %if.else70, label %if.end74
 
 if.else70:                                        ; preds = %if.end61
   %query71 = getelementptr inbounds i8, ptr %call.i127, i64 72
   %16 = load ptr, ptr %query71, align 8
-  %call72 = tail call noalias ptr @g_strdup(ptr noundef %16) #14
   br label %if.end74
 
-if.end74:                                         ; preds = %if.else70, %if.then66
-  %call68.sink = phi ptr [ %call72, %if.else70 ], [ %call68, %if.then66 ]
+if.end74:                                         ; preds = %if.end61, %if.else70
+  %.sink = phi ptr [ %16, %if.else70 ], [ %15, %if.end61 ]
+  %call72 = tail call noalias ptr @g_strdup(ptr noundef %.sink) #14
   %17 = getelementptr inbounds i8, ptr %call.i129, i64 72
-  store ptr %call68.sink, ptr %17, align 8
+  store ptr %call72, ptr %17, align 8
   %fragment75 = getelementptr inbounds i8, ptr %ref.0132139, i64 56
   %18 = load ptr, ptr %fragment75, align 8
   %call76 = tail call noalias ptr @g_strdup(ptr noundef %18) #14

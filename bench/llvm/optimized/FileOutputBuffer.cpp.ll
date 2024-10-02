@@ -144,8 +144,8 @@ _ZN4llvm8ExpectedISt10unique_ptrIN12_GLOBAL__N_114InMemoryBufferESt14default_del
   %51 = or disjoint i8 %50, %48
   store i8 %51, ptr %47, align 8
   %52 = load i64, ptr %28, align 8
-  %.sink60 = inttoptr i64 %52 to ptr
-  store ptr %.sink60, ptr %0, align 8
+  %.sink52 = inttoptr i64 %52 to ptr
+  store ptr %.sink52, ptr %0, align 8
   br label %187
 
 53:                                               ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit.thread50
@@ -199,8 +199,8 @@ _ZN4llvm8ExpectedISt10unique_ptrIN12_GLOBAL__N_114InMemoryBufferESt14default_del
   %75 = or disjoint i8 %74, %72
   store i8 %75, ptr %71, align 8
   %76 = load i64, ptr %32, align 8
-  %.sink61 = inttoptr i64 %76 to ptr
-  store ptr %.sink61, ptr %0, align 8
+  %.sink53 = inttoptr i64 %76 to ptr
+  store ptr %.sink53, ptr %0, align 8
   br label %187
 
 77:                                               ; preds = %67
@@ -308,8 +308,8 @@ _ZN4llvm5ErrorD2Ev.exit10.i:                      ; preds = %107, %_ZN4llvm12con
   %118 = load i32, ptr %91, align 8, !noalias !7
   call void @_ZN4llvm3sys2fs18mapped_file_regionC1EiNS2_7mapmodeEmmRSt10error_code(ptr noundef nonnull align 8 dereferenceable(20) %24, i32 noundef %118, i32 noundef 1, i64 noundef %3, i64 noundef 0, ptr noundef nonnull align 8 dereferenceable(16) %23) #15, !noalias !7
   %119 = load i32, ptr %23, align 8, !noalias !7
-  %.not26.i = icmp eq i32 %119, 0
-  br i1 %.not26.i, label %_ZNSt10unique_ptrIN12_GLOBAL__N_112OnDiskBufferESt14default_deleteIS1_EED2Ev.exit.i, label %120
+  %.not23.i = icmp eq i32 %119, 0
+  br i1 %.not23.i, label %_ZNSt10unique_ptrIN12_GLOBAL__N_112OnDiskBufferESt14default_deleteIS1_EED2Ev.exit.i, label %120
 
 120:                                              ; preds = %115
   call void @_ZN4llvm3sys2fs8TempFile7discardEv(ptr dead_on_unwind nonnull writable sret(%"class.llvm::Error") align 8 %25, ptr noundef nonnull align 8 dereferenceable(44) %20) #15, !noalias !7
@@ -427,8 +427,8 @@ _ZNSt10unique_ptrIN12_GLOBAL__N_112OnDiskBufferESt14default_deleteIS1_EED2Ev.exi
   br label %168
 
 168:                                              ; preds = %_ZNSt10unique_ptrIN12_GLOBAL__N_112OnDiskBufferESt14default_deleteIS1_EED2Ev.exit.i, %_ZN4llvm5ErrorD2Ev.exit13.i
-  %.sink27.i = phi ptr [ %143, %_ZNSt10unique_ptrIN12_GLOBAL__N_112OnDiskBufferESt14default_deleteIS1_EED2Ev.exit.i ], [ %.sink.i, %_ZN4llvm5ErrorD2Ev.exit13.i ]
-  store ptr %.sink27.i, ptr %0, align 8, !alias.scope !7
+  %.sink24.i = phi ptr [ %143, %_ZNSt10unique_ptrIN12_GLOBAL__N_112OnDiskBufferESt14default_deleteIS1_EED2Ev.exit.i ], [ %.sink.i, %_ZN4llvm5ErrorD2Ev.exit13.i ]
+  store ptr %.sink24.i, ptr %0, align 8, !alias.scope !7
   call void @_ZN4llvm3sys2fs18mapped_file_region9unmapImplEv(ptr noundef nonnull align 8 dereferenceable(20) %24) #15, !noalias !7
   br label %169
 
@@ -449,16 +449,16 @@ _ZNSt10unique_ptrIN12_GLOBAL__N_112OnDiskBufferESt14default_deleteIS1_EED2Ev.exi
 174:                                              ; preds = %170
   %175 = load ptr, ptr %18, align 8, !noalias !7
   %.not.i.i.i = icmp eq ptr %175, null
-  br i1 %.not.i.i.i, label %_ZL18createOnDiskBufferN4llvm9StringRefEmj.exit, label %_ZNKSt14default_deleteIN4llvm13ErrorInfoBaseEEclEPS1_.exit.i.i14.i
+  br i1 %.not.i.i.i, label %_ZL18createOnDiskBufferN4llvm9StringRefEmj.exit, label %_ZNKSt14default_deleteIN4llvm13ErrorInfoBaseEEclEPS1_.exit.i.i.i
 
-_ZNKSt14default_deleteIN4llvm13ErrorInfoBaseEEclEPS1_.exit.i.i14.i: ; preds = %174
+_ZNKSt14default_deleteIN4llvm13ErrorInfoBaseEEclEPS1_.exit.i.i.i: ; preds = %174
   %176 = load ptr, ptr %175, align 8, !noalias !7
   %177 = getelementptr inbounds i8, ptr %176, i64 8
   %178 = load ptr, ptr %177, align 8, !noalias !7
   call void %178(ptr noundef nonnull align 8 dereferenceable(8) %175) #15, !noalias !7
   br label %_ZL18createOnDiskBufferN4llvm9StringRefEmj.exit
 
-_ZL18createOnDiskBufferN4llvm9StringRefEmj.exit:  ; preds = %173, %174, %_ZNKSt14default_deleteIN4llvm13ErrorInfoBaseEEclEPS1_.exit.i.i14.i
+_ZL18createOnDiskBufferN4llvm9StringRefEmj.exit:  ; preds = %173, %174, %_ZNKSt14default_deleteIN4llvm13ErrorInfoBaseEEclEPS1_.exit.i.i.i
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %18)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %19)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %20)
@@ -481,8 +481,8 @@ _ZN4llvm8ExpectedISt10unique_ptrIN12_GLOBAL__N_114InMemoryBufferESt14default_del
   %185 = or disjoint i8 %184, %182
   store i8 %185, ptr %181, align 8
   %186 = load i64, ptr %33, align 8
-  %.sink62 = inttoptr i64 %186 to ptr
-  store ptr %.sink62, ptr %0, align 8
+  %.sink54 = inttoptr i64 %186 to ptr
+  store ptr %.sink54, ptr %0, align 8
   br label %187
 
 187:                                              ; preds = %_ZN4llvm8ExpectedISt10unique_ptrIN12_GLOBAL__N_114InMemoryBufferESt14default_deleteIS3_EEED2Ev.exit39, %_ZL18createOnDiskBufferN4llvm9StringRefEmj.exit, %_ZN4llvm8ExpectedISt10unique_ptrIN12_GLOBAL__N_114InMemoryBufferESt14default_deleteIS3_EEED2Ev.exit33, %_ZN4llvm5ErrorD2Ev.exit, %_ZN4llvm8ExpectedISt10unique_ptrIN12_GLOBAL__N_114InMemoryBufferESt14default_deleteIS3_EEED2Ev.exit28, %_ZN4llvmeqENS_9StringRefES0_.exit.thread

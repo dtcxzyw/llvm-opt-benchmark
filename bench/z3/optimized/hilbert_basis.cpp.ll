@@ -11012,13 +11012,13 @@ if.end:                                           ; preds = %entry
   %m_type.i.i = getelementptr inbounds i8, ptr %n, i64 8
   %0 = load i32, ptr %m_type.i.i, align 8
   %cmp.i = icmp eq i32 %0, 0
-  br i1 %cmp.i, label %for.cond.preheader, label %if.else
+  br i1 %cmp.i, label %for.cond.preheader, label %if.end12.sink.split
 
 for.cond.preheader:                               ; preds = %if.end
   %m_pos.i = getelementptr inbounds i8, ptr %n, i64 24
   %1 = load i32, ptr %m_pos.i, align 8
   %cmp11.not = icmp eq i32 %1, 0
-  br i1 %cmp11.not, label %for.end, label %for.body.lr.ph
+  br i1 %cmp11.not, label %if.end12.sink.split, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %for.cond.preheader
   %m_nodes.i = getelementptr inbounds i8, ptr %n, i64 16
@@ -11034,22 +11034,13 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %4 = load i32, ptr %m_pos.i, align 8
   %5 = zext i32 %4 to i64
   %cmp = icmp ult i64 %indvars.iv.next, %5
-  br i1 %cmp, label %for.body, label %for.end, !llvm.loop !75
+  br i1 %cmp, label %for.body, label %if.end12.sink.split, !llvm.loop !75
 
-for.end:                                          ; preds = %for.body, %for.cond.preheader
-  %vtable = load ptr, ptr %n, align 8
-  %6 = load ptr, ptr %vtable, align 8
-  tail call void %6(ptr noundef nonnull align 8 dereferenceable(64) %n) #24
-  br label %if.end12.sink.split
-
-if.else:                                          ; preds = %if.end
+if.end12.sink.split:                              ; preds = %for.body, %if.end, %for.cond.preheader
+  %.sink = phi i64 [ 64, %for.cond.preheader ], [ 24, %if.end ], [ 64, %for.body ]
   %vtable9 = load ptr, ptr %n, align 8
-  %7 = load ptr, ptr %vtable9, align 8
-  tail call void %7(ptr noundef nonnull align 8 dereferenceable(20) %n) #24
-  br label %if.end12.sink.split
-
-if.end12.sink.split:                              ; preds = %for.end, %if.else
-  %.sink = phi i64 [ 24, %if.else ], [ 64, %for.end ]
+  %6 = load ptr, ptr %vtable9, align 8
+  tail call void %6(ptr noundef nonnull align 8 dereferenceable(20) %n) #24
   tail call void @_ZN22small_object_allocator10deallocateEmPv(ptr noundef nonnull align 8 dereferenceable(520) %this, i64 noundef %.sink, ptr noundef nonnull %n)
   br label %if.end12
 

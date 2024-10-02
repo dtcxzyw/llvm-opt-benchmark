@@ -892,7 +892,7 @@ define hidden void @zim_Closure_fromCallable(ptr noundef %0, ptr noundef %1) #0 
 9:                                                ; preds = %2
   tail call void @zend_wrong_parameters_count_error(i32 noundef 1, i32 noundef 1) #13
   tail call void @zend_wrong_parameter_error(i32 noundef 1, i32 noundef 0, ptr noundef null, i32 noundef 0, ptr noundef null) #13
-  br label %128
+  br label %123
 
 10:                                               ; preds = %2
   %11 = getelementptr inbounds i8, ptr %0, i64 80
@@ -925,20 +925,20 @@ define hidden void @zim_Closure_fromCallable(ptr noundef %0, ptr noundef %1) #0 
   store i32 %24, ptr %25, align 8
   %26 = and i32 %24, 65280
   %.not62 = icmp eq i32 %26, 0
-  br i1 %.not62, label %128, label %27
+  br i1 %.not62, label %123, label %27
 
 27:                                               ; preds = %.critedge
   %28 = load i32, ptr %23, align 4
   %29 = add i32 %28, 1
   store i32 %29, ptr %23, align 4
-  br label %128
+  br label %123
 
 30:                                               ; preds = %21, %10
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %3)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 152, ptr nonnull %5)
   %31 = call zeroext i1 @zend_is_callable_ex(ptr noundef nonnull %11, ptr noundef null, i32 noundef 0, ptr noundef null, ptr noundef nonnull %3, ptr noundef nonnull %6) #13
-  br i1 %31, label %32, label %123
+  br i1 %31, label %32, label %118
 
 32:                                               ; preds = %30
   %33 = load ptr, ptr %3, align 8
@@ -1009,7 +1009,7 @@ define hidden void @zim_Closure_fromCallable(ptr noundef %0, ptr noundef %1) #0 
   %67 = getelementptr inbounds i8, ptr %33, i64 16
   %68 = load ptr, ptr %67, align 8
   %.not58.i = icmp eq ptr %68, null
-  br i1 %.not58.i, label %123, label %69
+  br i1 %.not58.i, label %118, label %69
 
 69:                                               ; preds = %.critedge2.i
   %70 = load i32, ptr %34, align 4
@@ -1021,13 +1021,13 @@ define hidden void @zim_Closure_fromCallable(ptr noundef %0, ptr noundef %1) #0 
   %73 = getelementptr inbounds i8, ptr %68, i64 320
   %74 = load ptr, ptr %73, align 8
   %.not61.i = icmp eq ptr %74, null
-  br i1 %.not61.i, label %123, label %78
+  br i1 %.not61.i, label %118, label %78
 
 75:                                               ; preds = %69
   %76 = getelementptr inbounds i8, ptr %68, i64 312
   %77 = load ptr, ptr %76, align 8
   %.not60.i = icmp eq ptr %77, null
-  br i1 %.not60.i, label %123, label %78
+  br i1 %.not60.i, label %118, label %78
 
 78:                                               ; preds = %75, %72
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(152) %5, i8 0, i64 152, i1 false)
@@ -1058,92 +1058,85 @@ define hidden void @zim_Closure_fromCallable(ptr noundef %0, ptr noundef %1) #0 
   %89 = getelementptr inbounds i8, ptr %3, i64 24
   %90 = load ptr, ptr %89, align 8
   %.not62.i = icmp eq ptr %90, null
-  br i1 %.not62.i, label %97, label %91
+  br i1 %.not62.i, label %93, label %91
 
 91:                                               ; preds = %88
   store ptr %90, ptr %4, align 8
   %92 = getelementptr inbounds i8, ptr %4, i64 8
   store i32 776, ptr %92, align 8
-  %93 = getelementptr inbounds i8, ptr %.050.i, i64 16
-  %94 = load ptr, ptr %93, align 8
-  %95 = getelementptr inbounds i8, ptr %3, i64 16
-  %96 = load ptr, ptr %95, align 8
-  call fastcc void @zend_create_closure_ex(ptr noundef %1, ptr noundef nonnull %.050.i, ptr noundef %94, ptr noundef %96, ptr noundef nonnull %4, i1 noundef zeroext true)
-  br label %102
+  br label %93
 
-97:                                               ; preds = %88
-  %98 = getelementptr inbounds i8, ptr %.050.i, i64 16
-  %99 = load ptr, ptr %98, align 8
-  %100 = getelementptr inbounds i8, ptr %3, i64 16
-  %101 = load ptr, ptr %100, align 8
-  call fastcc void @zend_create_closure_ex(ptr noundef %1, ptr noundef nonnull %.050.i, ptr noundef %99, ptr noundef %101, ptr noundef null, i1 noundef zeroext true)
-  br label %102
+93:                                               ; preds = %91, %88
+  %.sink69.i = phi ptr [ %4, %91 ], [ null, %88 ]
+  %94 = getelementptr inbounds i8, ptr %.050.i, i64 16
+  %95 = load ptr, ptr %94, align 8
+  %96 = getelementptr inbounds i8, ptr %3, i64 16
+  %97 = load ptr, ptr %96, align 8
+  call fastcc void @zend_create_closure_ex(ptr noundef %1, ptr noundef nonnull %.050.i, ptr noundef %95, ptr noundef %97, ptr noundef %.sink69.i, i1 noundef zeroext true)
+  %98 = load ptr, ptr %1, align 8
+  %99 = getelementptr inbounds i8, ptr %98, i64 60
+  %100 = load i32, ptr %99, align 4
+  %101 = or i32 %100, 8388608
+  store i32 %101, ptr %99, align 4
+  %102 = icmp eq ptr %.050.i, %5
+  br i1 %102, label %103, label %zend_create_closure_from_callable.exit.thread
 
-102:                                              ; preds = %97, %91
-  %103 = load ptr, ptr %1, align 8
-  %104 = getelementptr inbounds i8, ptr %103, i64 60
-  %105 = load i32, ptr %104, align 4
-  %106 = or i32 %105, 8388608
-  store i32 %106, ptr %104, align 4
-  %107 = icmp eq ptr %.050.i, %5
-  br i1 %107, label %108, label %zend_create_closure_from_callable.exit.thread
+103:                                              ; preds = %93
+  %104 = getelementptr inbounds i8, ptr %.050.i, i64 8
+  %105 = load ptr, ptr %104, align 8
+  %106 = getelementptr inbounds i8, ptr %105, i64 4
+  %107 = load i32, ptr %106, align 4
+  %108 = and i32 %107, 64
+  %.not63.i = icmp eq i32 %108, 0
+  br i1 %.not63.i, label %109, label %zend_create_closure_from_callable.exit.thread
 
-108:                                              ; preds = %102
-  %109 = getelementptr inbounds i8, ptr %.050.i, i64 8
-  %110 = load ptr, ptr %109, align 8
-  %111 = getelementptr inbounds i8, ptr %110, i64 4
-  %112 = load i32, ptr %111, align 4
-  %113 = and i32 %112, 64
-  %.not63.i = icmp eq i32 %113, 0
-  br i1 %.not63.i, label %114, label %zend_create_closure_from_callable.exit.thread
+109:                                              ; preds = %103
+  %110 = load i32, ptr %105, align 4
+  %111 = icmp ne i32 %110, 0
+  call void @llvm.assume(i1 %111)
+  %112 = add i32 %110, -1
+  store i32 %112, ptr %105, align 4
+  %113 = icmp eq i32 %112, 0
+  br i1 %113, label %114, label %zend_create_closure_from_callable.exit.thread
 
-114:                                              ; preds = %108
-  %115 = load i32, ptr %110, align 4
-  %116 = icmp ne i32 %115, 0
-  call void @llvm.assume(i1 %116)
-  %117 = add i32 %115, -1
-  store i32 %117, ptr %110, align 4
-  %118 = icmp eq i32 %117, 0
-  br i1 %118, label %119, label %zend_create_closure_from_callable.exit.thread
+114:                                              ; preds = %109
+  %115 = and i32 %107, 128
+  %.not64.i = icmp eq i32 %115, 0
+  br i1 %.not64.i, label %117, label %116
 
-119:                                              ; preds = %114
-  %120 = and i32 %112, 128
-  %.not64.i = icmp eq i32 %120, 0
-  br i1 %.not64.i, label %122, label %121
-
-121:                                              ; preds = %119
-  call void @free(ptr noundef nonnull %110) #13
+116:                                              ; preds = %114
+  call void @free(ptr noundef nonnull %105) #13
   br label %zend_create_closure_from_callable.exit.thread
 
-122:                                              ; preds = %119
-  call void @_efree(ptr noundef nonnull %110) #13
+117:                                              ; preds = %114
+  call void @_efree(ptr noundef nonnull %105) #13
   br label %zend_create_closure_from_callable.exit.thread
 
-zend_create_closure_from_callable.exit.thread:    ; preds = %65, %66, %108, %121, %122, %114, %102
+zend_create_closure_from_callable.exit.thread:    ; preds = %65, %66, %103, %116, %117, %109, %93
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %3)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 152, ptr nonnull %5)
-  br label %128
+  br label %123
 
-123:                                              ; preds = %75, %72, %.critedge2.i, %30
+118:                                              ; preds = %75, %72, %.critedge2.i, %30
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %3)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 152, ptr nonnull %5)
-  %124 = load ptr, ptr %6, align 8
-  %.not61 = icmp eq ptr %124, null
-  br i1 %.not61, label %127, label %125
+  %119 = load ptr, ptr %6, align 8
+  %.not61 = icmp eq ptr %119, null
+  br i1 %.not61, label %122, label %120
 
-125:                                              ; preds = %123
-  call void (ptr, ...) @zend_type_error(ptr noundef nonnull @.str, ptr noundef nonnull %124) #13
-  %126 = load ptr, ptr %6, align 8
-  call void @_efree(ptr noundef %126) #13
-  br label %128
+120:                                              ; preds = %118
+  call void (ptr, ...) @zend_type_error(ptr noundef nonnull @.str, ptr noundef nonnull %119) #13
+  %121 = load ptr, ptr %6, align 8
+  call void @_efree(ptr noundef %121) #13
+  br label %123
 
-127:                                              ; preds = %123
+122:                                              ; preds = %118
   call void (ptr, ...) @zend_type_error(ptr noundef nonnull @.str.1) #13
-  br label %128
+  br label %123
 
-128:                                              ; preds = %zend_create_closure_from_callable.exit.thread, %125, %127, %27, %.critedge, %9
+123:                                              ; preds = %zend_create_closure_from_callable.exit.thread, %120, %122, %27, %.critedge, %9
   ret void
 }
 

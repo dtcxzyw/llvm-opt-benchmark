@@ -203,70 +203,66 @@ define internal i32 @dissect_fw1(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   %64 = getelementptr i8, ptr %63, i64 13
   tail call void @col_add_str(ptr noundef %62, i32 noundef 14, ptr noundef %64) #5
   %.not84 = icmp eq ptr %2, null
-  br i1 %.not84, label %89, label %65
+  br i1 %.not84, label %87, label %65
 
 65:                                               ; preds = %._crit_edge95
   %66 = load i32, ptr @fw1_summary_in_tree, align 4
   %.not85 = icmp eq i32 %66, 0
   %67 = load i32, ptr @proto_fw1, align 4
-  br i1 %.not85, label %68, label %70
+  br i1 %.not85, label %70, label %68
 
 68:                                               ; preds = %65
-  %69 = tail call ptr (ptr, i32, ptr, i32, i32, ptr, ...) @proto_tree_add_protocol_format(ptr noundef nonnull %2, i32 noundef %67, ptr noundef %0, i32 noundef 0, i32 noundef 14, ptr noundef nonnull @.str.29, ptr noundef nonnull @dissect_fw1.fw1_header) #5
-  br label %73
+  %69 = tail call ptr @wmem_strbuf_get_str(ptr noundef %8) #5
+  br label %70
 
-70:                                               ; preds = %65
-  %71 = tail call ptr @wmem_strbuf_get_str(ptr noundef %8) #5
-  %72 = tail call ptr (ptr, i32, ptr, i32, i32, ptr, ...) @proto_tree_add_protocol_format(ptr noundef nonnull %2, i32 noundef %67, ptr noundef %0, i32 noundef 0, i32 noundef 14, ptr noundef nonnull @.str.29, ptr noundef %71) #5
-  br label %73
+70:                                               ; preds = %65, %68
+  %.sink = phi ptr [ %69, %68 ], [ @dissect_fw1.fw1_header, %65 ]
+  %71 = tail call ptr (ptr, i32, ptr, i32, i32, ptr, ...) @proto_tree_add_protocol_format(ptr noundef nonnull %2, i32 noundef %67, ptr noundef %0, i32 noundef 0, i32 noundef 14, ptr noundef nonnull @.str.29, ptr noundef %.sink) #5
+  %72 = load i32, ptr @ett_fw1, align 4
+  %73 = tail call ptr @proto_item_add_subtree(ptr noundef %71, i32 noundef %72) #5
+  %74 = load i32, ptr @hf_fw1_direction, align 4
+  %75 = tail call ptr @proto_tree_add_item(ptr noundef %73, i32 noundef %74, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef 0) #5
+  %76 = load i32, ptr @fw1_iflist_with_chain, align 4
+  %.not86 = icmp eq i32 %76, 0
+  br i1 %.not86, label %80, label %77
 
-73:                                               ; preds = %70, %68
-  %.076 = phi ptr [ %72, %70 ], [ %69, %68 ]
-  %74 = load i32, ptr @ett_fw1, align 4
-  %75 = tail call ptr @proto_item_add_subtree(ptr noundef %.076, i32 noundef %74) #5
-  %76 = load i32, ptr @hf_fw1_direction, align 4
-  %77 = tail call ptr @proto_tree_add_item(ptr noundef %75, i32 noundef %76, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef 0) #5
-  %78 = load i32, ptr @fw1_iflist_with_chain, align 4
-  %.not86 = icmp eq i32 %78, 0
-  br i1 %.not86, label %82, label %79
+77:                                               ; preds = %70
+  %78 = load i32, ptr @hf_fw1_chain, align 4
+  %79 = tail call ptr @proto_tree_add_item(ptr noundef %73, i32 noundef %78, ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef 0) #5
+  br label %80
 
-79:                                               ; preds = %73
-  %80 = load i32, ptr @hf_fw1_chain, align 4
-  %81 = tail call ptr @proto_tree_add_item(ptr noundef %75, i32 noundef %80, ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef 0) #5
-  br label %82
+80:                                               ; preds = %77, %70
+  %81 = load i32, ptr @hf_fw1_interface, align 4
+  %82 = tail call ptr @proto_tree_add_item(ptr noundef %73, i32 noundef %81, ptr noundef %0, i32 noundef 2, i32 noundef %spec.select, i32 noundef 0) #5
+  %83 = load i32, ptr @fw1_with_uuid, align 4
+  %.not87 = icmp eq i32 %83, 0
+  br i1 %.not87, label %87, label %84
 
-82:                                               ; preds = %79, %73
-  %83 = load i32, ptr @hf_fw1_interface, align 4
-  %84 = tail call ptr @proto_tree_add_item(ptr noundef %75, i32 noundef %83, ptr noundef %0, i32 noundef 2, i32 noundef %spec.select, i32 noundef 0) #5
-  %85 = load i32, ptr @fw1_with_uuid, align 4
-  %.not87 = icmp eq i32 %85, 0
-  br i1 %.not87, label %89, label %86
+84:                                               ; preds = %80
+  %85 = load i32, ptr @hf_fw1_uuid, align 4
+  %86 = tail call ptr @proto_tree_add_item(ptr noundef %73, i32 noundef %85, ptr noundef %0, i32 noundef 8, i32 noundef 4, i32 noundef 0) #5
+  br label %87
 
-86:                                               ; preds = %82
-  %87 = load i32, ptr @hf_fw1_uuid, align 4
-  %88 = tail call ptr @proto_tree_add_item(ptr noundef %75, i32 noundef %87, ptr noundef %0, i32 noundef 8, i32 noundef 4, i32 noundef 0) #5
-  br label %89
-
-89:                                               ; preds = %82, %86, %._crit_edge95
-  %.078 = phi ptr [ %75, %86 ], [ %75, %82 ], [ null, %._crit_edge95 ]
-  %90 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef 12) #5
-  store i16 %90, ptr %5, align 8
-  %91 = load i32, ptr @hf_fw1_type, align 4
-  %92 = zext i16 %90 to i32
-  %93 = tail call ptr @proto_tree_add_uint(ptr noundef %.078, i32 noundef %91, ptr noundef %0, i32 noundef 12, i32 noundef 2, i32 noundef %92) #5
-  %94 = getelementptr inbounds i8, ptr %5, i64 4
-  store i32 14, ptr %94, align 4
-  %95 = getelementptr inbounds i8, ptr %5, i64 8
-  store ptr %.078, ptr %95, align 8
-  %96 = load i32, ptr @hf_fw1_trailer, align 4
-  %97 = getelementptr inbounds i8, ptr %5, i64 16
-  store i32 %96, ptr %97, align 8
-  %98 = getelementptr inbounds i8, ptr %5, i64 20
-  store i32 0, ptr %98, align 4
-  %99 = load ptr, ptr @ethertype_handle, align 8
-  %100 = call i32 @call_dissector_with_data(ptr noundef %99, ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, ptr noundef nonnull %5) #5
-  %101 = call i32 @tvb_captured_length(ptr noundef %0) #5
-  ret i32 %101
+87:                                               ; preds = %80, %84, %._crit_edge95
+  %.078 = phi ptr [ %73, %84 ], [ %73, %80 ], [ null, %._crit_edge95 ]
+  %88 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef 12) #5
+  store i16 %88, ptr %5, align 8
+  %89 = load i32, ptr @hf_fw1_type, align 4
+  %90 = zext i16 %88 to i32
+  %91 = tail call ptr @proto_tree_add_uint(ptr noundef %.078, i32 noundef %89, ptr noundef %0, i32 noundef 12, i32 noundef 2, i32 noundef %90) #5
+  %92 = getelementptr inbounds i8, ptr %5, i64 4
+  store i32 14, ptr %92, align 4
+  %93 = getelementptr inbounds i8, ptr %5, i64 8
+  store ptr %.078, ptr %93, align 8
+  %94 = load i32, ptr @hf_fw1_trailer, align 4
+  %95 = getelementptr inbounds i8, ptr %5, i64 16
+  store i32 %94, ptr %95, align 8
+  %96 = getelementptr inbounds i8, ptr %5, i64 20
+  store i32 0, ptr %96, align 4
+  %97 = load ptr, ptr @ethertype_handle, align 8
+  %98 = call i32 @call_dissector_with_data(ptr noundef %97, ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, ptr noundef nonnull %5) #5
+  %99 = call i32 @tvb_captured_length(ptr noundef %0) #5
+  ret i32 %99
 }
 
 declare void @register_init_routine(ptr noundef) local_unnamed_addr #1

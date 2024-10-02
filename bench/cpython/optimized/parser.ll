@@ -524,11 +524,7 @@ if.then20.i.i:                                    ; preds = %while.body.i.i
   %mul21.i.i = shl i64 %_n.042.i.i, 4
   %call22.i.i = tail call ptr @PyMem_Realloc(ptr noundef %_children.040.i.i, i64 noundef %mul21.i.i) #4
   %tobool23.not.i.i = icmp eq ptr %call22.i.i, null
-  br i1 %tobool23.not.i.i, label %if.then24.i.i, label %if.end29.i.i
-
-if.then24.i.i:                                    ; preds = %if.then20.i.i
-  tail call void @PyMem_Free(ptr noundef %_children.040.i.i) #4
-  br label %_loop0_1_rule.exit.thread.sink.split.i
+  br i1 %tobool23.not.i.i, label %_loop0_1_rule.exit.thread.sink.split.sink.split.i, label %if.end29.i.i
 
 if.end29.i.i:                                     ; preds = %if.then20.i.i
   %mul.i.i = shl i64 %_n.042.i.i, 1
@@ -554,7 +550,7 @@ while.end.i.i:                                    ; preds = %if.end30.i.i, %whil
   %36 = load ptr, ptr %arena.i.i40, align 8
   %call34.i.i = tail call ptr @_Py_asdl_generic_seq_new(i64 noundef %_n.0.lcssa.i.i, ptr noundef %36) #4
   %tobool35.not.i.i = icmp eq ptr %call34.i.i, null
-  br i1 %tobool35.not.i.i, label %if.then36.i.i, label %for.cond.preheader.i.i
+  br i1 %tobool35.not.i.i, label %_loop0_1_rule.exit.thread.sink.split.sink.split.i, label %for.cond.preheader.i.i
 
 for.cond.preheader.i.i:                           ; preds = %while.end.i.i
   %cmp4246.i.i = icmp sgt i64 %_n.0.lcssa.i.i, 0
@@ -563,10 +559,6 @@ for.cond.preheader.i.i:                           ; preds = %while.end.i.i
 for.body.lr.ph.i.i:                               ; preds = %for.cond.preheader.i.i
   %elements.i.i = getelementptr inbounds i8, ptr %call34.i.i, i64 8
   br label %for.body.i.i
-
-if.then36.i.i:                                    ; preds = %while.end.i.i
-  tail call void @PyMem_Free(ptr noundef nonnull %_children.0.lcssa.i.i) #4
-  br label %_loop0_1_rule.exit.thread.sink.split.i
 
 for.body.i.i:                                     ; preds = %for.body.i.i, %for.body.lr.ph.i.i
   %conv48.i.i = phi i64 [ 0, %for.body.lr.ph.i.i ], [ %conv.i.i, %for.body.i.i ]
@@ -581,7 +573,12 @@ for.body.i.i:                                     ; preds = %for.body.i.i, %for.
   %cmp42.i.i = icmp sgt i64 %_n.0.lcssa.i.i, %conv.i.i
   br i1 %cmp42.i.i, label %for.body.i.i, label %land.lhs.true13.i, !llvm.loop !7
 
-_loop0_1_rule.exit.thread.sink.split.i:           ; preds = %if.then36.i.i, %if.then24.i.i, %if.end3.i.i37
+_loop0_1_rule.exit.thread.sink.split.sink.split.i: ; preds = %if.then20.i.i, %while.end.i.i
+  %_children.0.lcssa.i.sink.i = phi ptr [ %_children.0.lcssa.i.i, %while.end.i.i ], [ %_children.040.i.i, %if.then20.i.i ]
+  tail call void @PyMem_Free(ptr noundef %_children.0.lcssa.i.sink.i) #4
+  br label %_loop0_1_rule.exit.thread.sink.split.i
+
+_loop0_1_rule.exit.thread.sink.split.i:           ; preds = %_loop0_1_rule.exit.thread.sink.split.sink.split.i, %if.end3.i.i37
   store i32 1, ptr %error_indicator.i27, align 8
   %call26.i.i44 = tail call ptr @PyErr_NoMemory() #4
   br label %_loop0_1_rule.exit.thread.i
@@ -683,19 +680,19 @@ if.end.i.i.i:                                     ; preds = %if.end3.i.i63
   br i1 %50, label %if.end3.i.i.i, label %if.end.i.i._gather_141_rule.exit.thread.i_crit_edge.i
 
 if.end.i.i._gather_141_rule.exit.thread.i_crit_edge.i: ; preds = %if.end.i.i.i
-  %storemerge.in.i259.i.pre.i = load i32, ptr %level.i46, align 8
+  %storemerge.in.i257.i.pre.i = load i32, ptr %level.i46, align 8
   br label %_gather_141_rule.exit.thread.i.i
 
 if.end3.i.i.i:                                    ; preds = %if.end.i.i.i, %if.end3.i.i63
   %call.i.i.i = tail call fastcc ptr @expression_rule(ptr noundef nonnull %p)
   %tobool10.not.i.i.i = icmp eq ptr %call.i.i.i, null
-  %storemerge.in.i259.i.pre67.i = load i32, ptr %level.i46, align 8
+  %storemerge.in.i257.i.pre67.i = load i32, ptr %level.i46, align 8
   br i1 %tobool10.not.i.i.i, label %_gather_141_rule.exit.thread.i.i, label %land.lhs.true.i.i.i
 
 land.lhs.true.i.i.i:                              ; preds = %if.end3.i.i.i
-  %inc.i.i.i.i = add i32 %storemerge.in.i259.i.pre67.i, 1
+  %inc.i.i.i.i = add i32 %storemerge.in.i257.i.pre67.i, 1
   store i32 %inc.i.i.i.i, ptr %level.i46, align 8
-  %cmp.i.i.i.i = icmp eq i32 %storemerge.in.i259.i.pre67.i, 6000
+  %cmp.i.i.i.i = icmp eq i32 %storemerge.in.i257.i.pre67.i, 6000
   br i1 %cmp.i.i.i.i, label %if.then.i.i.i.i, label %if.end.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %land.lhs.true.i.i.i
@@ -745,11 +742,7 @@ if.then30.i.i.i.i:                                ; preds = %if.end28.i.i.i.i
   %mul31.i.i.i.i = shl i64 %_children_capacity.045.i20.i.i.i, 4
   %call32.i.i.i.i = tail call ptr @PyMem_Realloc(ptr noundef %_children.047.i18.i.i.i, i64 noundef %mul31.i.i.i.i) #4
   %tobool33.not.i.i.i.i = icmp eq ptr %call32.i.i.i.i, null
-  br i1 %tobool33.not.i.i.i.i, label %if.then34.i.i.i.i, label %if.end39.i.i.i.i
-
-if.then34.i.i.i.i:                                ; preds = %if.then30.i.i.i.i
-  tail call void @PyMem_Free(ptr noundef %_children.047.i18.i.i.i) #4
-  br label %_loop0_142_rule.exit.thread.sink.split.i.i.i
+  br i1 %tobool33.not.i.i.i.i, label %_loop0_142_rule.exit.thread.sink.split.sink.split.i.i.i, label %if.end39.i.i.i.i
 
 if.end39.i.i.i.i:                                 ; preds = %if.then30.i.i.i.i
   %mul.i.i.i.i = shl i64 %_children_capacity.045.i20.i.i.i, 1
@@ -775,7 +768,7 @@ while.end.i.i.i.i:                                ; preds = %if.end40.i.i.i.i, %
   %55 = load ptr, ptr %arena.i.i.i.i, align 8
   %call44.i.i.i.i = tail call ptr @_Py_asdl_generic_seq_new(i64 noundef %_n.0.lcssa.i.i.i.i, ptr noundef %55) #4
   %tobool45.not.i.i.i.i = icmp eq ptr %call44.i.i.i.i, null
-  br i1 %tobool45.not.i.i.i.i, label %if.then46.i.i.i.i, label %for.cond.preheader.i.i.i.i
+  br i1 %tobool45.not.i.i.i.i, label %_loop0_142_rule.exit.thread.sink.split.sink.split.i.i.i, label %for.cond.preheader.i.i.i.i
 
 for.cond.preheader.i.i.i.i:                       ; preds = %while.end.i.i.i.i
   %cmp5254.i.i.i.i = icmp sgt i64 %_n.0.lcssa.i.i.i.i, 0
@@ -784,10 +777,6 @@ for.cond.preheader.i.i.i.i:                       ; preds = %while.end.i.i.i.i
 for.body.lr.ph.i.i.i.i:                           ; preds = %for.cond.preheader.i.i.i.i
   %elements.i.i.i.i = getelementptr inbounds i8, ptr %call44.i.i.i.i, i64 8
   br label %for.body.i.i.i.i
-
-if.then46.i.i.i.i:                                ; preds = %while.end.i.i.i.i
-  tail call void @PyMem_Free(ptr noundef nonnull %_children.0.lcssa.i.i.i.i) #4
-  br label %_loop0_142_rule.exit.thread.sink.split.i.i.i
 
 for.body.i.i.i.i:                                 ; preds = %for.body.i.i.i.i, %for.body.lr.ph.i.i.i.i
   %conv56.i.i.i.i = phi i64 [ 0, %for.body.lr.ph.i.i.i.i ], [ %conv.i.i.i.i, %for.body.i.i.i.i ]
@@ -802,7 +791,12 @@ for.body.i.i.i.i:                                 ; preds = %for.body.i.i.i.i, %
   %cmp52.i.i.i.i = icmp sgt i64 %_n.0.lcssa.i.i.i.i, %conv.i.i.i.i
   br i1 %cmp52.i.i.i.i, label %for.body.i.i.i.i, label %_gather_141_rule.exit.i.i, !llvm.loop !9
 
-_loop0_142_rule.exit.thread.sink.split.i.i.i:     ; preds = %if.then46.i.i.i.i, %if.then34.i.i.i.i, %if.end3.i.i.i.i
+_loop0_142_rule.exit.thread.sink.split.sink.split.i.i.i: ; preds = %if.then30.i.i.i.i, %while.end.i.i.i.i
+  %_children.0.lcssa.i.sink.i.i.i = phi ptr [ %_children.0.lcssa.i.i.i.i, %while.end.i.i.i.i ], [ %_children.047.i18.i.i.i, %if.then30.i.i.i.i ]
+  tail call void @PyMem_Free(ptr noundef %_children.0.lcssa.i.sink.i.i.i) #4
+  br label %_loop0_142_rule.exit.thread.sink.split.i.i.i
+
+_loop0_142_rule.exit.thread.sink.split.i.i.i:     ; preds = %_loop0_142_rule.exit.thread.sink.split.sink.split.i.i.i, %if.end3.i.i.i.i
   store i32 1, ptr %error_indicator.i50, align 8
   %call36.i.i.i.i = tail call ptr @PyErr_NoMemory() #4
   br label %_loop0_142_rule.exit.thread.i.i.i
@@ -813,9 +807,9 @@ _loop0_142_rule.exit.thread.i.i.i:                ; preds = %_loop0_142_rule.exi
   br label %_gather_141_rule.exit.thread.i.i
 
 _gather_141_rule.exit.thread.i.i:                 ; preds = %_loop0_142_rule.exit.thread.i.i.i, %if.end3.i.i.i, %if.end.i.i._gather_141_rule.exit.thread.i_crit_edge.i
-  %storemerge.in.i259.i.i = phi i32 [ %storemerge.in.i259.i.pre.i, %if.end.i.i._gather_141_rule.exit.thread.i_crit_edge.i ], [ %dec59.i13.i.i.i, %_loop0_142_rule.exit.thread.i.i.i ], [ %storemerge.in.i259.i.pre67.i, %if.end3.i.i.i ]
-  %storemerge.i260.i.i = add i32 %storemerge.in.i259.i.i, -1
-  store i32 %storemerge.i260.i.i, ptr %level.i46, align 8
+  %storemerge.in.i257.i.i = phi i32 [ %storemerge.in.i257.i.pre.i, %if.end.i.i._gather_141_rule.exit.thread.i_crit_edge.i ], [ %dec59.i13.i.i.i, %_loop0_142_rule.exit.thread.i.i.i ], [ %storemerge.in.i257.i.pre67.i, %if.end3.i.i.i ]
+  %storemerge.i258.i.i = add i32 %storemerge.in.i257.i.i, -1
+  store i32 %storemerge.i258.i.i, ptr %level.i46, align 8
   br label %if.end41.i.i
 
 _gather_141_rule.exit.i.i:                        ; preds = %for.body.i.i.i.i, %for.cond.preheader.i.i.i.i
@@ -884,7 +878,7 @@ if.end41.ithread-pre-split.i:                     ; preds = %land.lhs.true25.i.i
   br label %if.end41.i.i
 
 if.end41.i.i:                                     ; preds = %if.end41.ithread-pre-split.i, %_gather_141_rule.exit.i.i, %_gather_141_rule.exit.thread.i.i
-  %60 = phi i32 [ %.pr.i, %if.end41.ithread-pre-split.i ], [ %storemerge.i.i.i, %_gather_141_rule.exit.i.i ], [ %storemerge.i260.i.i, %_gather_141_rule.exit.thread.i.i ]
+  %60 = phi i32 [ %.pr.i, %if.end41.ithread-pre-split.i ], [ %storemerge.i.i.i, %_gather_141_rule.exit.i.i ], [ %storemerge.i258.i.i, %_gather_141_rule.exit.thread.i.i ]
   store i32 %48, ptr %mark.i54, align 8
   %61 = load i32, ptr %error_indicator.i50, align 8
   %tobool44.not.i.i = icmp eq i32 %61, 0
@@ -898,31 +892,31 @@ if.end48.i.i:                                     ; preds = %if.end41.i.i
 
 if.end.i96.i.i:                                   ; preds = %if.end48.i.i
   tail call void @_Pypegen_stack_overflow(ptr noundef nonnull %p) #4
-  %.pre280.i.i = load i32, ptr %error_indicator.i50, align 8
-  %62 = icmp eq i32 %.pre280.i.i, 0
+  %.pre278.i.i = load i32, ptr %error_indicator.i50, align 8
+  %62 = icmp eq i32 %.pre278.i.i, 0
   br i1 %62, label %if.end3.i102.i.i, label %if.end.i96.i._gather_143_rule.exit.thread.i_crit_edge.i
 
 if.end.i96.i._gather_143_rule.exit.thread.i_crit_edge.i: ; preds = %if.end.i96.i.i
-  %storemerge.in.i100263.i.pre.i = load i32, ptr %level.i46, align 8
+  %storemerge.in.i100261.i.pre.i = load i32, ptr %level.i46, align 8
   br label %_gather_143_rule.exit.thread.i.i
 
 if.end3.i102.i.i:                                 ; preds = %if.end.i96.i.i, %if.end48.i.i
   %call.i104.i.i = tail call fastcc ptr @expression_rule(ptr noundef nonnull %p)
   %tobool10.not.i105.i.i = icmp eq ptr %call.i104.i.i, null
-  %storemerge.in.i100263.i.pre69.i = load i32, ptr %level.i46, align 8
+  %storemerge.in.i100261.i.pre69.i = load i32, ptr %level.i46, align 8
   br i1 %tobool10.not.i105.i.i, label %_gather_143_rule.exit.thread.i.i, label %land.lhs.true.i106.i.i
 
 land.lhs.true.i106.i.i:                           ; preds = %if.end3.i102.i.i
-  %inc.i.i107.i.i = add i32 %storemerge.in.i100263.i.pre69.i, 1
+  %inc.i.i107.i.i = add i32 %storemerge.in.i100261.i.pre69.i, 1
   store i32 %inc.i.i107.i.i, ptr %level.i46, align 8
-  %cmp.i.i108.i.i = icmp eq i32 %storemerge.in.i100263.i.pre69.i, 6000
-  br i1 %cmp.i.i108.i.i, label %if.then.i.i171.i.i, label %if.end.i.i109.i.i
+  %cmp.i.i108.i.i = icmp eq i32 %storemerge.in.i100261.i.pre69.i, 6000
+  br i1 %cmp.i.i108.i.i, label %if.then.i.i170.i.i, label %if.end.i.i109.i.i
 
-if.then.i.i171.i.i:                               ; preds = %land.lhs.true.i106.i.i
+if.then.i.i170.i.i:                               ; preds = %land.lhs.true.i106.i.i
   tail call void @_Pypegen_stack_overflow(ptr noundef nonnull %p) #4
   br label %if.end.i.i109.i.i
 
-if.end.i.i109.i.i:                                ; preds = %if.then.i.i171.i.i, %land.lhs.true.i106.i.i
+if.end.i.i109.i.i:                                ; preds = %if.then.i.i170.i.i, %land.lhs.true.i106.i.i
   %63 = load i32, ptr %error_indicator.i50, align 8
   %tobool.not.i.i110.i.i = icmp eq i32 %63, 0
   br i1 %tobool.not.i.i110.i.i, label %if.end3.i.i113.i.i, label %_loop0_144_rule.exit.thread.i.i.i
@@ -965,11 +959,7 @@ if.then30.i.i164.i.i:                             ; preds = %if.end28.i.i124.i.i
   %mul31.i.i165.i.i = shl i64 %_children_capacity.045.i20.i126.i.i, 4
   %call32.i.i166.i.i = tail call ptr @PyMem_Realloc(ptr noundef %_children.047.i18.i128.i.i, i64 noundef %mul31.i.i165.i.i) #4
   %tobool33.not.i.i167.i.i = icmp eq ptr %call32.i.i166.i.i, null
-  br i1 %tobool33.not.i.i167.i.i, label %if.then34.i.i170.i.i, label %if.end39.i.i168.i.i
-
-if.then34.i.i170.i.i:                             ; preds = %if.then30.i.i164.i.i
-  tail call void @PyMem_Free(ptr noundef %_children.047.i18.i128.i.i) #4
-  br label %_loop0_144_rule.exit.thread.sink.split.i.i.i
+  br i1 %tobool33.not.i.i167.i.i, label %_loop0_144_rule.exit.thread.sink.split.sink.split.i.i.i, label %if.end39.i.i168.i.i
 
 if.end39.i.i168.i.i:                              ; preds = %if.then30.i.i164.i.i
   %mul.i.i169.i.i = shl i64 %_children_capacity.045.i20.i126.i.i, 1
@@ -995,7 +985,7 @@ while.end.i.i140.i.i:                             ; preds = %if.end40.i.i130.i.i
   %67 = load ptr, ptr %arena.i.i144.i.i, align 8
   %call44.i.i145.i.i = tail call ptr @_Py_asdl_generic_seq_new(i64 noundef %_n.0.lcssa.i.i141.i.i, ptr noundef %67) #4
   %tobool45.not.i.i146.i.i = icmp eq ptr %call44.i.i145.i.i, null
-  br i1 %tobool45.not.i.i146.i.i, label %if.then46.i.i162.i.i, label %for.cond.preheader.i.i147.i.i
+  br i1 %tobool45.not.i.i146.i.i, label %_loop0_144_rule.exit.thread.sink.split.sink.split.i.i.i, label %for.cond.preheader.i.i147.i.i
 
 for.cond.preheader.i.i147.i.i:                    ; preds = %while.end.i.i140.i.i
   %cmp5254.i.i148.i.i = icmp sgt i64 %_n.0.lcssa.i.i141.i.i, 0
@@ -1004,10 +994,6 @@ for.cond.preheader.i.i147.i.i:                    ; preds = %while.end.i.i140.i.
 for.body.lr.ph.i.i152.i.i:                        ; preds = %for.cond.preheader.i.i147.i.i
   %elements.i.i153.i.i = getelementptr inbounds i8, ptr %call44.i.i145.i.i, i64 8
   br label %for.body.i.i154.i.i
-
-if.then46.i.i162.i.i:                             ; preds = %while.end.i.i140.i.i
-  tail call void @PyMem_Free(ptr noundef nonnull %_children.0.lcssa.i.i142.i.i) #4
-  br label %_loop0_144_rule.exit.thread.sink.split.i.i.i
 
 for.body.i.i154.i.i:                              ; preds = %for.body.i.i154.i.i, %for.body.lr.ph.i.i152.i.i
   %conv56.i.i155.i.i = phi i64 [ 0, %for.body.lr.ph.i.i152.i.i ], [ %conv.i.i160.i.i, %for.body.i.i154.i.i ]
@@ -1022,7 +1008,12 @@ for.body.i.i154.i.i:                              ; preds = %for.body.i.i154.i.i
   %cmp52.i.i161.i.i = icmp sgt i64 %_n.0.lcssa.i.i141.i.i, %conv.i.i160.i.i
   br i1 %cmp52.i.i161.i.i, label %for.body.i.i154.i.i, label %_gather_143_rule.exit.i.i, !llvm.loop !11
 
-_loop0_144_rule.exit.thread.sink.split.i.i.i:     ; preds = %if.then46.i.i162.i.i, %if.then34.i.i170.i.i, %if.end3.i.i113.i.i
+_loop0_144_rule.exit.thread.sink.split.sink.split.i.i.i: ; preds = %if.then30.i.i164.i.i, %while.end.i.i140.i.i
+  %_children.0.lcssa.i.sink.i162.i.i = phi ptr [ %_children.0.lcssa.i.i142.i.i, %while.end.i.i140.i.i ], [ %_children.047.i18.i128.i.i, %if.then30.i.i164.i.i ]
+  tail call void @PyMem_Free(ptr noundef %_children.0.lcssa.i.sink.i162.i.i) #4
+  br label %_loop0_144_rule.exit.thread.sink.split.i.i.i
+
+_loop0_144_rule.exit.thread.sink.split.i.i.i:     ; preds = %_loop0_144_rule.exit.thread.sink.split.sink.split.i.i.i, %if.end3.i.i113.i.i
   store i32 1, ptr %error_indicator.i50, align 8
   %call36.i.i163.i.i = tail call ptr @PyErr_NoMemory() #4
   br label %_loop0_144_rule.exit.thread.i.i.i
@@ -1033,9 +1024,9 @@ _loop0_144_rule.exit.thread.i.i.i:                ; preds = %_loop0_144_rule.exi
   br label %_gather_143_rule.exit.thread.i.i
 
 _gather_143_rule.exit.thread.i.i:                 ; preds = %_loop0_144_rule.exit.thread.i.i.i, %if.end3.i102.i.i, %if.end.i96.i._gather_143_rule.exit.thread.i_crit_edge.i
-  %storemerge.in.i100263.i.i = phi i32 [ %storemerge.in.i100263.i.pre.i, %if.end.i96.i._gather_143_rule.exit.thread.i_crit_edge.i ], [ %dec59.i13.i111.i.i, %_loop0_144_rule.exit.thread.i.i.i ], [ %storemerge.in.i100263.i.pre69.i, %if.end3.i102.i.i ]
-  %storemerge.i101264.i.i = add i32 %storemerge.in.i100263.i.i, -1
-  store i32 %storemerge.i101264.i.i, ptr %level.i46, align 8
+  %storemerge.in.i100261.i.i = phi i32 [ %storemerge.in.i100261.i.pre.i, %if.end.i96.i._gather_143_rule.exit.thread.i_crit_edge.i ], [ %dec59.i13.i111.i.i, %_loop0_144_rule.exit.thread.i.i.i ], [ %storemerge.in.i100261.i.pre69.i, %if.end3.i102.i.i ]
+  %storemerge.i101262.i.i = add i32 %storemerge.in.i100261.i.i, -1
+  store i32 %storemerge.i101262.i.i, ptr %level.i46, align 8
   br label %if.end75.i.i
 
 _gather_143_rule.exit.i.i:                        ; preds = %for.body.i.i154.i.i, %for.cond.preheader.i.i147.i.i
@@ -1080,170 +1071,167 @@ if.end75.ithread-pre-split.i:                     ; preds = %land.lhs.true61.i.i
   br label %if.end75.i.i
 
 if.end75.i.i:                                     ; preds = %if.end75.ithread-pre-split.i, %_gather_143_rule.exit.i.i, %_gather_143_rule.exit.thread.i.i
-  %72 = phi i32 [ %.pr38.i, %if.end75.ithread-pre-split.i ], [ %storemerge.i101.i.i, %_gather_143_rule.exit.i.i ], [ %storemerge.i101264.i.i, %_gather_143_rule.exit.thread.i.i ]
+  %72 = phi i32 [ %.pr38.i, %if.end75.ithread-pre-split.i ], [ %storemerge.i101.i.i, %_gather_143_rule.exit.i.i ], [ %storemerge.i101262.i.i, %_gather_143_rule.exit.thread.i.i ]
   store i32 %48, ptr %mark.i54, align 8
   %73 = load i32, ptr %error_indicator.i50, align 8
   %tobool78.not.i.i65 = icmp eq i32 %73, 0
   br i1 %tobool78.not.i.i65, label %if.end82.i.i, label %if.end40.sink.split.i
 
 if.end82.i.i:                                     ; preds = %if.end75.i.i
-  %inc.i174.i.i = add i32 %72, 1
-  store i32 %inc.i174.i.i, ptr %level.i46, align 8
-  %cmp.i175.i.i = icmp eq i32 %72, 6000
-  br i1 %cmp.i175.i.i, label %if.end.i176.i.i, label %if.end3.i182.i.i
+  %inc.i173.i.i = add i32 %72, 1
+  store i32 %inc.i173.i.i, ptr %level.i46, align 8
+  %cmp.i174.i.i = icmp eq i32 %72, 6000
+  br i1 %cmp.i174.i.i, label %if.end.i175.i.i, label %if.end3.i181.i.i
 
-if.end.i176.i.i:                                  ; preds = %if.end82.i.i
+if.end.i175.i.i:                                  ; preds = %if.end82.i.i
   tail call void @_Pypegen_stack_overflow(ptr noundef nonnull %p) #4
-  %.pre281.i.i = load i32, ptr %error_indicator.i50, align 8
-  %74 = icmp eq i32 %.pre281.i.i, 0
-  br i1 %74, label %if.end3.i182.i.i, label %if.end.i176.i._gather_145_rule.exit.thread.i_crit_edge.i
+  %.pre279.i.i = load i32, ptr %error_indicator.i50, align 8
+  %74 = icmp eq i32 %.pre279.i.i, 0
+  br i1 %74, label %if.end3.i181.i.i, label %if.end.i175.i._gather_145_rule.exit.thread.i_crit_edge.i
 
-if.end.i176.i._gather_145_rule.exit.thread.i_crit_edge.i: ; preds = %if.end.i176.i.i
-  %storemerge.in.i180267.i.pre.i = load i32, ptr %level.i46, align 8
+if.end.i175.i._gather_145_rule.exit.thread.i_crit_edge.i: ; preds = %if.end.i175.i.i
+  %storemerge.in.i179265.i.pre.i = load i32, ptr %level.i46, align 8
   br label %_gather_145_rule.exit.thread.i.i
 
-if.end3.i182.i.i:                                 ; preds = %if.end.i176.i.i, %if.end82.i.i
-  %call.i184.i.i = tail call fastcc ptr @expression_rule(ptr noundef nonnull %p)
-  %tobool10.not.i185.i.i = icmp eq ptr %call.i184.i.i, null
-  %storemerge.in.i180267.i.pre71.i = load i32, ptr %level.i46, align 8
-  br i1 %tobool10.not.i185.i.i, label %_gather_145_rule.exit.thread.i.i, label %land.lhs.true.i186.i.i
+if.end3.i181.i.i:                                 ; preds = %if.end.i175.i.i, %if.end82.i.i
+  %call.i183.i.i = tail call fastcc ptr @expression_rule(ptr noundef nonnull %p)
+  %tobool10.not.i184.i.i = icmp eq ptr %call.i183.i.i, null
+  %storemerge.in.i179265.i.pre71.i = load i32, ptr %level.i46, align 8
+  br i1 %tobool10.not.i184.i.i, label %_gather_145_rule.exit.thread.i.i, label %land.lhs.true.i185.i.i
 
-land.lhs.true.i186.i.i:                           ; preds = %if.end3.i182.i.i
-  %inc.i.i187.i.i = add i32 %storemerge.in.i180267.i.pre71.i, 1
-  store i32 %inc.i.i187.i.i, ptr %level.i46, align 8
-  %cmp.i.i188.i.i = icmp eq i32 %storemerge.in.i180267.i.pre71.i, 6000
-  br i1 %cmp.i.i188.i.i, label %if.then.i.i251.i.i, label %if.end.i.i189.i.i
+land.lhs.true.i185.i.i:                           ; preds = %if.end3.i181.i.i
+  %inc.i.i186.i.i = add i32 %storemerge.in.i179265.i.pre71.i, 1
+  store i32 %inc.i.i186.i.i, ptr %level.i46, align 8
+  %cmp.i.i187.i.i = icmp eq i32 %storemerge.in.i179265.i.pre71.i, 6000
+  br i1 %cmp.i.i187.i.i, label %if.then.i.i249.i.i, label %if.end.i.i188.i.i
 
-if.then.i.i251.i.i:                               ; preds = %land.lhs.true.i186.i.i
+if.then.i.i249.i.i:                               ; preds = %land.lhs.true.i185.i.i
   tail call void @_Pypegen_stack_overflow(ptr noundef nonnull %p) #4
-  br label %if.end.i.i189.i.i
+  br label %if.end.i.i188.i.i
 
-if.end.i.i189.i.i:                                ; preds = %if.then.i.i251.i.i, %land.lhs.true.i186.i.i
+if.end.i.i188.i.i:                                ; preds = %if.then.i.i249.i.i, %land.lhs.true.i185.i.i
   %75 = load i32, ptr %error_indicator.i50, align 8
-  %tobool.not.i.i190.i.i = icmp eq i32 %75, 0
-  br i1 %tobool.not.i.i190.i.i, label %if.end3.i.i193.i.i, label %_loop0_146_rule.exit.thread.i.i.i
+  %tobool.not.i.i189.i.i = icmp eq i32 %75, 0
+  br i1 %tobool.not.i.i189.i.i, label %if.end3.i.i192.i.i, label %_loop0_146_rule.exit.thread.i.i.i
 
-if.end3.i.i193.i.i:                               ; preds = %if.end.i.i189.i.i
+if.end3.i.i192.i.i:                               ; preds = %if.end.i.i188.i.i
   %76 = load i32, ptr %mark.i54, align 8
-  %call.i.i194.i.i = tail call ptr @PyMem_Malloc(i64 noundef 8) #4
-  %tobool4.not.i.i195.i.i = icmp eq ptr %call.i.i194.i.i, null
-  br i1 %tobool4.not.i.i195.i.i, label %_loop0_146_rule.exit.thread.sink.split.i.i.i, label %if.end10.i.i196.i.i
+  %call.i.i193.i.i = tail call ptr @PyMem_Malloc(i64 noundef 8) #4
+  %tobool4.not.i.i194.i.i = icmp eq ptr %call.i.i193.i.i, null
+  br i1 %tobool4.not.i.i194.i.i, label %_loop0_146_rule.exit.thread.sink.split.i.i.i, label %if.end10.i.i195.i.i
 
-if.end10.i.i196.i.i:                              ; preds = %if.end3.i.i193.i.i
+if.end10.i.i195.i.i:                              ; preds = %if.end3.i.i192.i.i
   %77 = load i32, ptr %error_indicator.i50, align 8
-  %tobool12.not.i.i197.i.i = icmp eq i32 %77, 0
-  br i1 %tobool12.not.i.i197.i.i, label %while.cond.preheader.i.i198.i.i, label %_loop0_146_rule.exit.thread.i.i.i
+  %tobool12.not.i.i196.i.i = icmp eq i32 %77, 0
+  br i1 %tobool12.not.i.i196.i.i, label %while.cond.preheader.i.i197.i.i, label %_loop0_146_rule.exit.thread.i.i.i
 
-while.cond.preheader.i.i198.i.i:                  ; preds = %if.end10.i.i196.i.i
-  %call1743.i.i199.i.i = tail call ptr @_PyPegen_expect_token(ptr noundef nonnull %p, i32 noundef 12) #4
-  %tobool18.not44.i.i200.i.i = icmp eq ptr %call1743.i.i199.i.i, null
-  br i1 %tobool18.not44.i.i200.i.i, label %while.end.i.i220.i.i, label %land.rhs.i.preheader.i201.i.i
+while.cond.preheader.i.i197.i.i:                  ; preds = %if.end10.i.i195.i.i
+  %call1743.i.i198.i.i = tail call ptr @_PyPegen_expect_token(ptr noundef nonnull %p, i32 noundef 12) #4
+  %tobool18.not44.i.i199.i.i = icmp eq ptr %call1743.i.i198.i.i, null
+  br i1 %tobool18.not44.i.i199.i.i, label %while.end.i.i219.i.i, label %land.rhs.i.preheader.i200.i.i
 
-land.rhs.i.preheader.i201.i.i:                    ; preds = %while.cond.preheader.i.i198.i.i
-  %call19.i16.i202.i.i = tail call fastcc ptr @expression_rule(ptr noundef nonnull %p)
-  %tobool20.not.i17.i203.i.i = icmp eq ptr %call19.i16.i202.i.i, null
-  br i1 %tobool20.not.i17.i203.i.i, label %while.end.i.i220.i.i, label %if.end28.i.i204.i.i
+land.rhs.i.preheader.i200.i.i:                    ; preds = %while.cond.preheader.i.i197.i.i
+  %call19.i16.i201.i.i = tail call fastcc ptr @expression_rule(ptr noundef nonnull %p)
+  %tobool20.not.i17.i202.i.i = icmp eq ptr %call19.i16.i201.i.i, null
+  br i1 %tobool20.not.i17.i202.i.i, label %while.end.i.i219.i.i, label %if.end28.i.i203.i.i
 
-land.rhs.i.i217.i.i:                              ; preds = %if.end40.i.i210.i.i
-  %call19.i.i218.i.i = tail call fastcc ptr @expression_rule(ptr noundef nonnull %p)
-  %tobool20.not.i.i219.i.i = icmp eq ptr %call19.i.i218.i.i, null
-  br i1 %tobool20.not.i.i219.i.i, label %while.end.i.i220.i.i, label %if.end28.i.i204.i.i, !llvm.loop !12
+land.rhs.i.i216.i.i:                              ; preds = %if.end40.i.i209.i.i
+  %call19.i.i217.i.i = tail call fastcc ptr @expression_rule(ptr noundef nonnull %p)
+  %tobool20.not.i.i218.i.i = icmp eq ptr %call19.i.i217.i.i, null
+  br i1 %tobool20.not.i.i218.i.i, label %while.end.i.i219.i.i, label %if.end28.i.i203.i.i, !llvm.loop !12
 
-if.end28.i.i204.i.i:                              ; preds = %land.rhs.i.preheader.i201.i.i, %land.rhs.i.i217.i.i
-  %call19.i21.i205.i.i = phi ptr [ %call19.i.i218.i.i, %land.rhs.i.i217.i.i ], [ %call19.i16.i202.i.i, %land.rhs.i.preheader.i201.i.i ]
-  %_children_capacity.045.i20.i206.i.i = phi i64 [ %_children_capacity.1.i.i211.i.i, %land.rhs.i.i217.i.i ], [ 1, %land.rhs.i.preheader.i201.i.i ]
-  %_n.046.i19.i207.i.i = phi i64 [ %inc41.i.i213.i.i, %land.rhs.i.i217.i.i ], [ 0, %land.rhs.i.preheader.i201.i.i ]
-  %_children.047.i18.i208.i.i = phi ptr [ %_children.1.i.i212.i.i, %land.rhs.i.i217.i.i ], [ %call.i.i194.i.i, %land.rhs.i.preheader.i201.i.i ]
-  %cmp29.i.i209.i.i = icmp eq i64 %_n.046.i19.i207.i.i, %_children_capacity.045.i20.i206.i.i
-  br i1 %cmp29.i.i209.i.i, label %if.then30.i.i244.i.i, label %if.end40.i.i210.i.i
+if.end28.i.i203.i.i:                              ; preds = %land.rhs.i.preheader.i200.i.i, %land.rhs.i.i216.i.i
+  %call19.i21.i204.i.i = phi ptr [ %call19.i.i217.i.i, %land.rhs.i.i216.i.i ], [ %call19.i16.i201.i.i, %land.rhs.i.preheader.i200.i.i ]
+  %_children_capacity.045.i20.i205.i.i = phi i64 [ %_children_capacity.1.i.i210.i.i, %land.rhs.i.i216.i.i ], [ 1, %land.rhs.i.preheader.i200.i.i ]
+  %_n.046.i19.i206.i.i = phi i64 [ %inc41.i.i212.i.i, %land.rhs.i.i216.i.i ], [ 0, %land.rhs.i.preheader.i200.i.i ]
+  %_children.047.i18.i207.i.i = phi ptr [ %_children.1.i.i211.i.i, %land.rhs.i.i216.i.i ], [ %call.i.i193.i.i, %land.rhs.i.preheader.i200.i.i ]
+  %cmp29.i.i208.i.i = icmp eq i64 %_n.046.i19.i206.i.i, %_children_capacity.045.i20.i205.i.i
+  br i1 %cmp29.i.i208.i.i, label %if.then30.i.i243.i.i, label %if.end40.i.i209.i.i
 
-if.then30.i.i244.i.i:                             ; preds = %if.end28.i.i204.i.i
-  %mul31.i.i245.i.i = shl i64 %_children_capacity.045.i20.i206.i.i, 4
-  %call32.i.i246.i.i = tail call ptr @PyMem_Realloc(ptr noundef %_children.047.i18.i208.i.i, i64 noundef %mul31.i.i245.i.i) #4
-  %tobool33.not.i.i247.i.i = icmp eq ptr %call32.i.i246.i.i, null
-  br i1 %tobool33.not.i.i247.i.i, label %if.then34.i.i250.i.i, label %if.end39.i.i248.i.i
+if.then30.i.i243.i.i:                             ; preds = %if.end28.i.i203.i.i
+  %mul31.i.i244.i.i = shl i64 %_children_capacity.045.i20.i205.i.i, 4
+  %call32.i.i245.i.i = tail call ptr @PyMem_Realloc(ptr noundef %_children.047.i18.i207.i.i, i64 noundef %mul31.i.i244.i.i) #4
+  %tobool33.not.i.i246.i.i = icmp eq ptr %call32.i.i245.i.i, null
+  br i1 %tobool33.not.i.i246.i.i, label %_loop0_146_rule.exit.thread.sink.split.sink.split.i.i.i, label %if.end39.i.i247.i.i
 
-if.then34.i.i250.i.i:                             ; preds = %if.then30.i.i244.i.i
-  tail call void @PyMem_Free(ptr noundef %_children.047.i18.i208.i.i) #4
-  br label %_loop0_146_rule.exit.thread.sink.split.i.i.i
+if.end39.i.i247.i.i:                              ; preds = %if.then30.i.i243.i.i
+  %mul.i.i248.i.i = shl i64 %_children_capacity.045.i20.i205.i.i, 1
+  br label %if.end40.i.i209.i.i
 
-if.end39.i.i248.i.i:                              ; preds = %if.then30.i.i244.i.i
-  %mul.i.i249.i.i = shl i64 %_children_capacity.045.i20.i206.i.i, 1
-  br label %if.end40.i.i210.i.i
-
-if.end40.i.i210.i.i:                              ; preds = %if.end39.i.i248.i.i, %if.end28.i.i204.i.i
-  %_children_capacity.1.i.i211.i.i = phi i64 [ %mul.i.i249.i.i, %if.end39.i.i248.i.i ], [ %_children_capacity.045.i20.i206.i.i, %if.end28.i.i204.i.i ]
-  %_children.1.i.i212.i.i = phi ptr [ %call32.i.i246.i.i, %if.end39.i.i248.i.i ], [ %_children.047.i18.i208.i.i, %if.end28.i.i204.i.i ]
-  %inc41.i.i213.i.i = add i64 %_n.046.i19.i207.i.i, 1
-  %arrayidx.i.i214.i.i = getelementptr ptr, ptr %_children.1.i.i212.i.i, i64 %_n.046.i19.i207.i.i
-  store ptr %call19.i21.i205.i.i, ptr %arrayidx.i.i214.i.i, align 8
+if.end40.i.i209.i.i:                              ; preds = %if.end39.i.i247.i.i, %if.end28.i.i203.i.i
+  %_children_capacity.1.i.i210.i.i = phi i64 [ %mul.i.i248.i.i, %if.end39.i.i247.i.i ], [ %_children_capacity.045.i20.i205.i.i, %if.end28.i.i203.i.i ]
+  %_children.1.i.i211.i.i = phi ptr [ %call32.i.i245.i.i, %if.end39.i.i247.i.i ], [ %_children.047.i18.i207.i.i, %if.end28.i.i203.i.i ]
+  %inc41.i.i212.i.i = add i64 %_n.046.i19.i206.i.i, 1
+  %arrayidx.i.i213.i.i = getelementptr ptr, ptr %_children.1.i.i211.i.i, i64 %_n.046.i19.i206.i.i
+  store ptr %call19.i21.i204.i.i, ptr %arrayidx.i.i213.i.i, align 8
   %78 = load i32, ptr %mark.i54, align 8
-  %call17.i.i215.i.i = tail call ptr @_PyPegen_expect_token(ptr noundef nonnull %p, i32 noundef 12) #4
-  %tobool18.not.i.i216.i.i = icmp eq ptr %call17.i.i215.i.i, null
-  br i1 %tobool18.not.i.i216.i.i, label %while.end.i.i220.i.i, label %land.rhs.i.i217.i.i, !llvm.loop !12
+  %call17.i.i214.i.i = tail call ptr @_PyPegen_expect_token(ptr noundef nonnull %p, i32 noundef 12) #4
+  %tobool18.not.i.i215.i.i = icmp eq ptr %call17.i.i214.i.i, null
+  br i1 %tobool18.not.i.i215.i.i, label %while.end.i.i219.i.i, label %land.rhs.i.i216.i.i, !llvm.loop !12
 
-while.end.i.i220.i.i:                             ; preds = %if.end40.i.i210.i.i, %land.rhs.i.i217.i.i, %land.rhs.i.preheader.i201.i.i, %while.cond.preheader.i.i198.i.i
-  %_n.0.lcssa.i.i221.i.i = phi i64 [ 0, %while.cond.preheader.i.i198.i.i ], [ 0, %land.rhs.i.preheader.i201.i.i ], [ %inc41.i.i213.i.i, %land.rhs.i.i217.i.i ], [ %inc41.i.i213.i.i, %if.end40.i.i210.i.i ]
-  %_children.0.lcssa.i.i222.i.i = phi ptr [ %call.i.i194.i.i, %while.cond.preheader.i.i198.i.i ], [ %call.i.i194.i.i, %land.rhs.i.preheader.i201.i.i ], [ %_children.1.i.i212.i.i, %land.rhs.i.i217.i.i ], [ %_children.1.i.i212.i.i, %if.end40.i.i210.i.i ]
-  %_mark.0.lcssa.i.i223.i.i = phi i32 [ %76, %while.cond.preheader.i.i198.i.i ], [ %76, %land.rhs.i.preheader.i201.i.i ], [ %78, %land.rhs.i.i217.i.i ], [ %78, %if.end40.i.i210.i.i ]
-  store i32 %_mark.0.lcssa.i.i223.i.i, ptr %mark.i54, align 8
-  %arena.i.i224.i.i = getelementptr inbounds i8, ptr %p, i64 32
-  %79 = load ptr, ptr %arena.i.i224.i.i, align 8
-  %call44.i.i225.i.i = tail call ptr @_Py_asdl_generic_seq_new(i64 noundef %_n.0.lcssa.i.i221.i.i, ptr noundef %79) #4
-  %tobool45.not.i.i226.i.i = icmp eq ptr %call44.i.i225.i.i, null
-  br i1 %tobool45.not.i.i226.i.i, label %if.then46.i.i242.i.i, label %for.cond.preheader.i.i227.i.i
+while.end.i.i219.i.i:                             ; preds = %if.end40.i.i209.i.i, %land.rhs.i.i216.i.i, %land.rhs.i.preheader.i200.i.i, %while.cond.preheader.i.i197.i.i
+  %_n.0.lcssa.i.i220.i.i = phi i64 [ 0, %while.cond.preheader.i.i197.i.i ], [ 0, %land.rhs.i.preheader.i200.i.i ], [ %inc41.i.i212.i.i, %land.rhs.i.i216.i.i ], [ %inc41.i.i212.i.i, %if.end40.i.i209.i.i ]
+  %_children.0.lcssa.i.i221.i.i = phi ptr [ %call.i.i193.i.i, %while.cond.preheader.i.i197.i.i ], [ %call.i.i193.i.i, %land.rhs.i.preheader.i200.i.i ], [ %_children.1.i.i211.i.i, %land.rhs.i.i216.i.i ], [ %_children.1.i.i211.i.i, %if.end40.i.i209.i.i ]
+  %_mark.0.lcssa.i.i222.i.i = phi i32 [ %76, %while.cond.preheader.i.i197.i.i ], [ %76, %land.rhs.i.preheader.i200.i.i ], [ %78, %land.rhs.i.i216.i.i ], [ %78, %if.end40.i.i209.i.i ]
+  store i32 %_mark.0.lcssa.i.i222.i.i, ptr %mark.i54, align 8
+  %arena.i.i223.i.i = getelementptr inbounds i8, ptr %p, i64 32
+  %79 = load ptr, ptr %arena.i.i223.i.i, align 8
+  %call44.i.i224.i.i = tail call ptr @_Py_asdl_generic_seq_new(i64 noundef %_n.0.lcssa.i.i220.i.i, ptr noundef %79) #4
+  %tobool45.not.i.i225.i.i = icmp eq ptr %call44.i.i224.i.i, null
+  br i1 %tobool45.not.i.i225.i.i, label %_loop0_146_rule.exit.thread.sink.split.sink.split.i.i.i, label %for.cond.preheader.i.i226.i.i
 
-for.cond.preheader.i.i227.i.i:                    ; preds = %while.end.i.i220.i.i
-  %cmp5254.i.i228.i.i = icmp sgt i64 %_n.0.lcssa.i.i221.i.i, 0
-  br i1 %cmp5254.i.i228.i.i, label %for.body.lr.ph.i.i232.i.i, label %_gather_145_rule.exit.i.i
+for.cond.preheader.i.i226.i.i:                    ; preds = %while.end.i.i219.i.i
+  %cmp5254.i.i227.i.i = icmp sgt i64 %_n.0.lcssa.i.i220.i.i, 0
+  br i1 %cmp5254.i.i227.i.i, label %for.body.lr.ph.i.i231.i.i, label %_gather_145_rule.exit.i.i
 
-for.body.lr.ph.i.i232.i.i:                        ; preds = %for.cond.preheader.i.i227.i.i
-  %elements.i.i233.i.i = getelementptr inbounds i8, ptr %call44.i.i225.i.i, i64 8
-  br label %for.body.i.i234.i.i
+for.body.lr.ph.i.i231.i.i:                        ; preds = %for.cond.preheader.i.i226.i.i
+  %elements.i.i232.i.i = getelementptr inbounds i8, ptr %call44.i.i224.i.i, i64 8
+  br label %for.body.i.i233.i.i
 
-if.then46.i.i242.i.i:                             ; preds = %while.end.i.i220.i.i
-  tail call void @PyMem_Free(ptr noundef nonnull %_children.0.lcssa.i.i222.i.i) #4
+for.body.i.i233.i.i:                              ; preds = %for.body.i.i233.i.i, %for.body.lr.ph.i.i231.i.i
+  %conv56.i.i234.i.i = phi i64 [ 0, %for.body.lr.ph.i.i231.i.i ], [ %conv.i.i239.i.i, %for.body.i.i233.i.i ]
+  %i.055.i.i235.i.i = phi i32 [ 0, %for.body.lr.ph.i.i231.i.i ], [ %inc57.i.i238.i.i, %for.body.i.i233.i.i ]
+  %arrayidx54.i.i236.i.i = getelementptr ptr, ptr %_children.0.lcssa.i.i221.i.i, i64 %conv56.i.i234.i.i
+  %80 = load ptr, ptr %arrayidx54.i.i236.i.i, align 8
+  %81 = load ptr, ptr %elements.i.i232.i.i, align 8
+  %arrayidx56.i.i237.i.i = getelementptr ptr, ptr %81, i64 %conv56.i.i234.i.i
+  store ptr %80, ptr %arrayidx56.i.i237.i.i, align 8
+  %inc57.i.i238.i.i = add i32 %i.055.i.i235.i.i, 1
+  %conv.i.i239.i.i = sext i32 %inc57.i.i238.i.i to i64
+  %cmp52.i.i240.i.i = icmp sgt i64 %_n.0.lcssa.i.i220.i.i, %conv.i.i239.i.i
+  br i1 %cmp52.i.i240.i.i, label %for.body.i.i233.i.i, label %_gather_145_rule.exit.i.i, !llvm.loop !13
+
+_loop0_146_rule.exit.thread.sink.split.sink.split.i.i.i: ; preds = %if.then30.i.i243.i.i, %while.end.i.i219.i.i
+  %_children.0.lcssa.i.sink.i241.i.i = phi ptr [ %_children.0.lcssa.i.i221.i.i, %while.end.i.i219.i.i ], [ %_children.047.i18.i207.i.i, %if.then30.i.i243.i.i ]
+  tail call void @PyMem_Free(ptr noundef %_children.0.lcssa.i.sink.i241.i.i) #4
   br label %_loop0_146_rule.exit.thread.sink.split.i.i.i
 
-for.body.i.i234.i.i:                              ; preds = %for.body.i.i234.i.i, %for.body.lr.ph.i.i232.i.i
-  %conv56.i.i235.i.i = phi i64 [ 0, %for.body.lr.ph.i.i232.i.i ], [ %conv.i.i240.i.i, %for.body.i.i234.i.i ]
-  %i.055.i.i236.i.i = phi i32 [ 0, %for.body.lr.ph.i.i232.i.i ], [ %inc57.i.i239.i.i, %for.body.i.i234.i.i ]
-  %arrayidx54.i.i237.i.i = getelementptr ptr, ptr %_children.0.lcssa.i.i222.i.i, i64 %conv56.i.i235.i.i
-  %80 = load ptr, ptr %arrayidx54.i.i237.i.i, align 8
-  %81 = load ptr, ptr %elements.i.i233.i.i, align 8
-  %arrayidx56.i.i238.i.i = getelementptr ptr, ptr %81, i64 %conv56.i.i235.i.i
-  store ptr %80, ptr %arrayidx56.i.i238.i.i, align 8
-  %inc57.i.i239.i.i = add i32 %i.055.i.i236.i.i, 1
-  %conv.i.i240.i.i = sext i32 %inc57.i.i239.i.i to i64
-  %cmp52.i.i241.i.i = icmp sgt i64 %_n.0.lcssa.i.i221.i.i, %conv.i.i240.i.i
-  br i1 %cmp52.i.i241.i.i, label %for.body.i.i234.i.i, label %_gather_145_rule.exit.i.i, !llvm.loop !13
-
-_loop0_146_rule.exit.thread.sink.split.i.i.i:     ; preds = %if.then46.i.i242.i.i, %if.then34.i.i250.i.i, %if.end3.i.i193.i.i
+_loop0_146_rule.exit.thread.sink.split.i.i.i:     ; preds = %_loop0_146_rule.exit.thread.sink.split.sink.split.i.i.i, %if.end3.i.i192.i.i
   store i32 1, ptr %error_indicator.i50, align 8
-  %call36.i.i243.i.i = tail call ptr @PyErr_NoMemory() #4
+  %call36.i.i242.i.i = tail call ptr @PyErr_NoMemory() #4
   br label %_loop0_146_rule.exit.thread.i.i.i
 
-_loop0_146_rule.exit.thread.i.i.i:                ; preds = %_loop0_146_rule.exit.thread.sink.split.i.i.i, %if.end10.i.i196.i.i, %if.end.i.i189.i.i
+_loop0_146_rule.exit.thread.i.i.i:                ; preds = %_loop0_146_rule.exit.thread.sink.split.i.i.i, %if.end10.i.i195.i.i, %if.end.i.i188.i.i
   %82 = load i32, ptr %level.i46, align 8
-  %dec59.i13.i191.i.i = add i32 %82, -1
+  %dec59.i13.i190.i.i = add i32 %82, -1
   br label %_gather_145_rule.exit.thread.i.i
 
-_gather_145_rule.exit.thread.i.i:                 ; preds = %_loop0_146_rule.exit.thread.i.i.i, %if.end3.i182.i.i, %if.end.i176.i._gather_145_rule.exit.thread.i_crit_edge.i
-  %storemerge.in.i180267.i.i = phi i32 [ %storemerge.in.i180267.i.pre.i, %if.end.i176.i._gather_145_rule.exit.thread.i_crit_edge.i ], [ %dec59.i13.i191.i.i, %_loop0_146_rule.exit.thread.i.i.i ], [ %storemerge.in.i180267.i.pre71.i, %if.end3.i182.i.i ]
-  %storemerge.i181268.i.i = add i32 %storemerge.in.i180267.i.i, -1
-  store i32 %storemerge.i181268.i.i, ptr %level.i46, align 8
+_gather_145_rule.exit.thread.i.i:                 ; preds = %_loop0_146_rule.exit.thread.i.i.i, %if.end3.i181.i.i, %if.end.i175.i._gather_145_rule.exit.thread.i_crit_edge.i
+  %storemerge.in.i179265.i.i = phi i32 [ %storemerge.in.i179265.i.pre.i, %if.end.i175.i._gather_145_rule.exit.thread.i_crit_edge.i ], [ %dec59.i13.i190.i.i, %_loop0_146_rule.exit.thread.i.i.i ], [ %storemerge.in.i179265.i.pre71.i, %if.end3.i181.i.i ]
+  %storemerge.i180266.i.i = add i32 %storemerge.in.i179265.i.i, -1
+  store i32 %storemerge.i180266.i.i, ptr %level.i46, align 8
   br label %if.end109.i.i
 
-_gather_145_rule.exit.i.i:                        ; preds = %for.body.i.i234.i.i, %for.cond.preheader.i.i227.i.i
-  tail call void @PyMem_Free(ptr noundef nonnull %_children.0.lcssa.i.i222.i.i) #4
+_gather_145_rule.exit.i.i:                        ; preds = %for.body.i.i233.i.i, %for.cond.preheader.i.i226.i.i
+  tail call void @PyMem_Free(ptr noundef nonnull %_children.0.lcssa.i.i221.i.i) #4
   %83 = load i32, ptr %level.i46, align 8
-  %dec59.i.i230.i.i = add i32 %83, -1
-  store i32 %dec59.i.i230.i.i, ptr %level.i46, align 8
-  %call14.i231.i.i = tail call ptr @_PyPegen_seq_insert_in_front(ptr noundef %p, ptr noundef nonnull %call.i184.i.i, ptr noundef nonnull %call44.i.i225.i.i) #4
-  %storemerge.in.i180.i.i = load i32, ptr %level.i46, align 8
-  %storemerge.i181.i.i = add i32 %storemerge.in.i180.i.i, -1
-  store i32 %storemerge.i181.i.i, ptr %level.i46, align 8
-  %tobool88.not.i.i = icmp eq ptr %call14.i231.i.i, null
+  %dec59.i.i229.i.i = add i32 %83, -1
+  store i32 %dec59.i.i229.i.i, ptr %level.i46, align 8
+  %call14.i230.i.i = tail call ptr @_PyPegen_seq_insert_in_front(ptr noundef %p, ptr noundef nonnull %call.i183.i.i, ptr noundef nonnull %call44.i.i224.i.i) #4
+  %storemerge.in.i179.i.i = load i32, ptr %level.i46, align 8
+  %storemerge.i180.i.i = add i32 %storemerge.in.i179.i.i, -1
+  store i32 %storemerge.i180.i.i, ptr %level.i46, align 8
+  %tobool88.not.i.i = icmp eq ptr %call14.i230.i.i, null
   br i1 %tobool88.not.i.i, label %if.end109.i.i, label %land.lhs.true89.i.i
 
 land.lhs.true89.i.i:                              ; preds = %_gather_145_rule.exit.i.i
@@ -1262,7 +1250,7 @@ land.lhs.true95.i.i:                              ; preds = %land.lhs.true92.i.i
   br i1 %tobool97.not.i.i, label %if.end109.i.i, label %if.then98.i.i
 
 if.then98.i.i:                                    ; preds = %land.lhs.true95.i.i
-  %call99.i.i = tail call ptr @_PyPegen_seq_append_to_end(ptr noundef nonnull %p, ptr noundef nonnull %call14.i231.i.i, ptr noundef nonnull %call96.i.i) #4
+  %call99.i.i = tail call ptr @_PyPegen_seq_append_to_end(ptr noundef nonnull %p, ptr noundef nonnull %call14.i230.i.i, ptr noundef nonnull %call96.i.i) #4
   %cmp100.i.i = icmp eq ptr %call99.i.i, null
   br i1 %cmp100.i.i, label %land.lhs.true101.i.i, label %type_expressions_rule.exit.i
 
@@ -1304,19 +1292,19 @@ land.lhs.true133.i.i:                             ; preds = %land.lhs.true130.i.
 
 if.then136.i.i:                                   ; preds = %land.lhs.true133.i.i
   %call137.i.i = tail call ptr @_PyPegen_singleton_seq(ptr noundef nonnull %p, ptr noundef nonnull %call125.i.i) #4
-  %cmp.i253.i.i = icmp eq ptr %call137.i.i, null
-  br i1 %cmp.i253.i.i, label %if.then.i255.i.i, label %CHECK_CALL.exit257.i.i
+  %cmp.i251.i.i = icmp eq ptr %call137.i.i, null
+  br i1 %cmp.i251.i.i, label %if.then.i253.i.i, label %CHECK_CALL.exit255.i.i
 
-if.then.i255.i.i:                                 ; preds = %if.then136.i.i
+if.then.i253.i.i:                                 ; preds = %if.then136.i.i
   store i32 1, ptr %error_indicator.i50, align 8
-  br label %CHECK_CALL.exit257.i.i
+  br label %CHECK_CALL.exit255.i.i
 
-CHECK_CALL.exit257.i.i:                           ; preds = %if.then.i255.i.i, %if.then136.i.i
+CHECK_CALL.exit255.i.i:                           ; preds = %if.then.i253.i.i, %if.then136.i.i
   %call139.i.i = tail call ptr @_PyPegen_seq_append_to_end(ptr noundef nonnull %p, ptr noundef %call137.i.i, ptr noundef nonnull %call134.i.i) #4
   %cmp140.i.i = icmp eq ptr %call139.i.i, null
   br i1 %cmp140.i.i, label %land.lhs.true141.i.i, label %type_expressions_rule.exit.i
 
-land.lhs.true141.i.i:                             ; preds = %CHECK_CALL.exit257.i.i
+land.lhs.true141.i.i:                             ; preds = %CHECK_CALL.exit255.i.i
   %call142.i.i = tail call ptr @PyErr_Occurred() #4
   %tobool143.not.i.i = icmp eq ptr %call142.i.i, null
   br i1 %tobool143.not.i.i, label %type_expressions_rule.exit.i, label %type_expressions_rule.exit.thread45.sink.split.i
@@ -1392,8 +1380,8 @@ type_expressions_rule.exit.thread45.sink.split.i: ; preds = %land.lhs.true193.i.
   store i32 1, ptr %error_indicator.i50, align 8
   br label %if.end40.sink.split.sink.split.i
 
-type_expressions_rule.exit.i:                     ; preds = %if.end222.i.i, %if.end208.i.i, %land.lhs.true193.i.i, %if.then190.i.i, %land.lhs.true167.i.i, %if.then164.i.i, %land.lhs.true141.i.i, %CHECK_CALL.exit257.i.i, %land.lhs.true101.i.i, %if.then98.i.i, %land.lhs.true67.i.i, %if.then64.i.i, %land.lhs.true33.i.i, %CHECK_CALL.exit.i.i127
-  %retval.0.ph.i.ph.i = phi ptr [ %call210.i.i, %if.end208.i.i ], [ null, %if.end222.i.i ], [ %call191.i.i, %if.then190.i.i ], [ null, %land.lhs.true193.i.i ], [ %call165.i.i, %if.then164.i.i ], [ null, %land.lhs.true167.i.i ], [ %call139.i.i, %CHECK_CALL.exit257.i.i ], [ null, %land.lhs.true141.i.i ], [ %call99.i.i, %if.then98.i.i ], [ null, %land.lhs.true101.i.i ], [ %call65.i.i, %if.then64.i.i ], [ null, %land.lhs.true67.i.i ], [ %call31.i.i, %CHECK_CALL.exit.i.i127 ], [ null, %land.lhs.true33.i.i ]
+type_expressions_rule.exit.i:                     ; preds = %if.end222.i.i, %if.end208.i.i, %land.lhs.true193.i.i, %if.then190.i.i, %land.lhs.true167.i.i, %if.then164.i.i, %land.lhs.true141.i.i, %CHECK_CALL.exit255.i.i, %land.lhs.true101.i.i, %if.then98.i.i, %land.lhs.true67.i.i, %if.then64.i.i, %land.lhs.true33.i.i, %CHECK_CALL.exit.i.i127
+  %retval.0.ph.i.ph.i = phi ptr [ %call210.i.i, %if.end208.i.i ], [ null, %if.end222.i.i ], [ %call191.i.i, %if.then190.i.i ], [ null, %land.lhs.true193.i.i ], [ %call165.i.i, %if.then164.i.i ], [ null, %land.lhs.true167.i.i ], [ %call139.i.i, %CHECK_CALL.exit255.i.i ], [ null, %land.lhs.true141.i.i ], [ %call99.i.i, %if.then98.i.i ], [ null, %land.lhs.true101.i.i ], [ %call65.i.i, %if.then64.i.i ], [ null, %land.lhs.true67.i.i ], [ %call31.i.i, %CHECK_CALL.exit.i.i127 ], [ null, %land.lhs.true33.i.i ]
   %.pr39.pr.i = load i32, ptr %error_indicator.i50, align 8
   %88 = load i32, ptr %level.i46, align 8
   %dec225.i.i = add i32 %88, -1
@@ -1454,25 +1442,21 @@ while.body.i.i77:                                 ; preds = %while.cond.preheade
   %_children_capacity.041.i.i80 = phi i64 [ %_children_capacity.1.i.i85, %if.end30.i.i83 ], [ 1, %while.cond.preheader.i.i74 ]
   %_children.040.i.i81 = phi ptr [ %_children.1.i.i84, %if.end30.i.i83 ], [ %call.i.i71, %while.cond.preheader.i.i74 ]
   %cmp19.i.i82 = icmp eq i64 %_n.042.i.i79, %_children_capacity.041.i.i80
-  br i1 %cmp19.i.i82, label %if.then20.i.i106, label %if.end30.i.i83
+  br i1 %cmp19.i.i82, label %if.then20.i.i107, label %if.end30.i.i83
 
-if.then20.i.i106:                                 ; preds = %while.body.i.i77
-  %mul21.i.i107 = shl i64 %_n.042.i.i79, 4
-  %call22.i.i108 = tail call ptr @PyMem_Realloc(ptr noundef %_children.040.i.i81, i64 noundef %mul21.i.i107) #4
-  %tobool23.not.i.i109 = icmp eq ptr %call22.i.i108, null
-  br i1 %tobool23.not.i.i109, label %if.then24.i.i112, label %if.end29.i.i110
+if.then20.i.i107:                                 ; preds = %while.body.i.i77
+  %mul21.i.i108 = shl i64 %_n.042.i.i79, 4
+  %call22.i.i109 = tail call ptr @PyMem_Realloc(ptr noundef %_children.040.i.i81, i64 noundef %mul21.i.i108) #4
+  %tobool23.not.i.i110 = icmp eq ptr %call22.i.i109, null
+  br i1 %tobool23.not.i.i110, label %_loop0_2_rule.exit.thread.sink.split.sink.split.i, label %if.end29.i.i111
 
-if.then24.i.i112:                                 ; preds = %if.then20.i.i106
-  tail call void @PyMem_Free(ptr noundef %_children.040.i.i81) #4
-  br label %_loop0_2_rule.exit.thread.sink.split.i
-
-if.end29.i.i110:                                  ; preds = %if.then20.i.i106
-  %mul.i.i111 = shl i64 %_n.042.i.i79, 1
+if.end29.i.i111:                                  ; preds = %if.then20.i.i107
+  %mul.i.i112 = shl i64 %_n.042.i.i79, 1
   br label %if.end30.i.i83
 
-if.end30.i.i83:                                   ; preds = %if.end29.i.i110, %while.body.i.i77
-  %_children.1.i.i84 = phi ptr [ %call22.i.i108, %if.end29.i.i110 ], [ %_children.040.i.i81, %while.body.i.i77 ]
-  %_children_capacity.1.i.i85 = phi i64 [ %mul.i.i111, %if.end29.i.i110 ], [ %_children_capacity.041.i.i80, %while.body.i.i77 ]
+if.end30.i.i83:                                   ; preds = %if.end29.i.i111, %while.body.i.i77
+  %_children.1.i.i84 = phi ptr [ %call22.i.i109, %if.end29.i.i111 ], [ %_children.040.i.i81, %while.body.i.i77 ]
+  %_children_capacity.1.i.i85 = phi i64 [ %mul.i.i112, %if.end29.i.i111 ], [ %_children_capacity.041.i.i80, %while.body.i.i77 ]
   %inc31.i.i86 = add i64 %_n.042.i.i79, 1
   %arrayidx.i.i87 = getelementptr ptr, ptr %_children.1.i.i84, i64 %_n.042.i.i79
   store ptr %call1743.i.i78, ptr %arrayidx.i.i87, align 8
@@ -1490,7 +1474,7 @@ while.end.i.i88:                                  ; preds = %if.end30.i.i83, %wh
   %94 = load ptr, ptr %arena.i.i92, align 8
   %call34.i33.i = tail call ptr @_Py_asdl_generic_seq_new(i64 noundef %_n.0.lcssa.i.i90, ptr noundef %94) #4
   %tobool35.not.i34.i = icmp eq ptr %call34.i33.i, null
-  br i1 %tobool35.not.i34.i, label %if.then36.i35.i, label %for.cond.preheader.i.i93
+  br i1 %tobool35.not.i34.i, label %_loop0_2_rule.exit.thread.sink.split.sink.split.i, label %for.cond.preheader.i.i93
 
 for.cond.preheader.i.i93:                         ; preds = %while.end.i.i88
   %cmp4246.i.i94 = icmp sgt i64 %_n.0.lcssa.i.i90, 0
@@ -1499,10 +1483,6 @@ for.cond.preheader.i.i93:                         ; preds = %while.end.i.i88
 for.body.lr.ph.i.i96:                             ; preds = %for.cond.preheader.i.i93
   %elements.i.i97 = getelementptr inbounds i8, ptr %call34.i33.i, i64 8
   br label %for.body.i.i98
-
-if.then36.i35.i:                                  ; preds = %while.end.i.i88
-  tail call void @PyMem_Free(ptr noundef nonnull %_children.0.lcssa.i.i89) #4
-  br label %_loop0_2_rule.exit.thread.sink.split.i
 
 for.body.i.i98:                                   ; preds = %for.body.i.i98, %for.body.lr.ph.i.i96
   %conv48.i.i99 = phi i64 [ 0, %for.body.lr.ph.i.i96 ], [ %conv.i.i104, %for.body.i.i98 ]
@@ -1517,7 +1497,12 @@ for.body.i.i98:                                   ; preds = %for.body.i.i98, %fo
   %cmp42.i.i105 = icmp sgt i64 %_n.0.lcssa.i.i90, %conv.i.i104
   br i1 %cmp42.i.i105, label %for.body.i.i98, label %land.lhs.true26.i, !llvm.loop !15
 
-_loop0_2_rule.exit.thread.sink.split.i:           ; preds = %if.then36.i35.i, %if.then24.i.i112, %if.end3.i28.i
+_loop0_2_rule.exit.thread.sink.split.sink.split.i: ; preds = %if.then20.i.i107, %while.end.i.i88
+  %_children.0.lcssa.i.sink.i106 = phi ptr [ %_children.0.lcssa.i.i89, %while.end.i.i88 ], [ %_children.040.i.i81, %if.then20.i.i107 ]
+  tail call void @PyMem_Free(ptr noundef %_children.0.lcssa.i.sink.i106) #4
+  br label %_loop0_2_rule.exit.thread.sink.split.i
+
+_loop0_2_rule.exit.thread.sink.split.i:           ; preds = %_loop0_2_rule.exit.thread.sink.split.sink.split.i, %if.end3.i28.i
   store i32 1, ptr %error_indicator.i50, align 8
   %call26.i36.i = tail call ptr @PyErr_NoMemory() #4
   br label %if.end40.sink.split.sink.split.i
@@ -2491,11 +2476,7 @@ if.then30.i.i:                                    ; preds = %if.end28.i.i
   %mul31.i.i = shl i64 %_children_capacity.045.i20.i, 4
   %call32.i.i = tail call ptr @PyMem_Realloc(ptr noundef %_children.047.i18.i, i64 noundef %mul31.i.i) #4
   %tobool33.not.i.i = icmp eq ptr %call32.i.i, null
-  br i1 %tobool33.not.i.i, label %if.then34.i.i, label %if.end39.i.i
-
-if.then34.i.i:                                    ; preds = %if.then30.i.i
-  tail call void @PyMem_Free(ptr noundef %_children.047.i18.i) #4
-  br label %_loop0_5_rule.exit.thread.sink.split.i
+  br i1 %tobool33.not.i.i, label %_loop0_5_rule.exit.thread.sink.split.sink.split.i, label %if.end39.i.i
 
 if.end39.i.i:                                     ; preds = %if.then30.i.i
   %mul.i.i = shl i64 %_children_capacity.045.i20.i, 1
@@ -2521,7 +2502,7 @@ while.end.i.i:                                    ; preds = %if.end40.i.i, %land
   %11 = load ptr, ptr %arena.i.i, align 8
   %call44.i.i = tail call ptr @_Py_asdl_generic_seq_new(i64 noundef %_n.0.lcssa.i.i, ptr noundef %11) #4
   %tobool45.not.i.i = icmp eq ptr %call44.i.i, null
-  br i1 %tobool45.not.i.i, label %if.then46.i.i, label %for.cond.preheader.i.i
+  br i1 %tobool45.not.i.i, label %_loop0_5_rule.exit.thread.sink.split.sink.split.i, label %for.cond.preheader.i.i
 
 for.cond.preheader.i.i:                           ; preds = %while.end.i.i
   %cmp5254.i.i = icmp sgt i64 %_n.0.lcssa.i.i, 0
@@ -2530,10 +2511,6 @@ for.cond.preheader.i.i:                           ; preds = %while.end.i.i
 for.body.lr.ph.i.i:                               ; preds = %for.cond.preheader.i.i
   %elements.i.i = getelementptr inbounds i8, ptr %call44.i.i, i64 8
   br label %for.body.i.i
-
-if.then46.i.i:                                    ; preds = %while.end.i.i
-  tail call void @PyMem_Free(ptr noundef nonnull %_children.0.lcssa.i.i) #4
-  br label %_loop0_5_rule.exit.thread.sink.split.i
 
 for.body.i.i:                                     ; preds = %for.body.i.i, %for.body.lr.ph.i.i
   %conv56.i.i = phi i64 [ 0, %for.body.lr.ph.i.i ], [ %conv.i.i, %for.body.i.i ]
@@ -2548,7 +2525,12 @@ for.body.i.i:                                     ; preds = %for.body.i.i, %for.
   %cmp52.i.i = icmp sgt i64 %_n.0.lcssa.i.i, %conv.i.i
   br i1 %cmp52.i.i, label %for.body.i.i, label %_gather_4_rule.exit, !llvm.loop !19
 
-_loop0_5_rule.exit.thread.sink.split.i:           ; preds = %if.then46.i.i, %if.then34.i.i, %if.end3.i.i
+_loop0_5_rule.exit.thread.sink.split.sink.split.i: ; preds = %if.then30.i.i, %while.end.i.i
+  %_children.0.lcssa.i.sink.i = phi ptr [ %_children.0.lcssa.i.i, %while.end.i.i ], [ %_children.047.i18.i, %if.then30.i.i ]
+  tail call void @PyMem_Free(ptr noundef %_children.0.lcssa.i.sink.i) #4
+  br label %_loop0_5_rule.exit.thread.sink.split.i
+
+_loop0_5_rule.exit.thread.sink.split.i:           ; preds = %_loop0_5_rule.exit.thread.sink.split.sink.split.i, %if.end3.i.i
   store i32 1, ptr %error_indicator, align 8
   %call36.i.i = tail call ptr @PyErr_NoMemory() #4
   br label %_loop0_5_rule.exit.thread.i
@@ -3004,11 +2986,7 @@ if.then30.i.i.i:                                  ; preds = %if.end28.i.i.i
   %mul31.i.i.i = shl i64 %_children_capacity.045.i20.i.i, 4
   %call32.i.i.i = tail call ptr @PyMem_Realloc(ptr noundef %_children.047.i18.i.i, i64 noundef %mul31.i.i.i) #4
   %tobool33.not.i.i.i = icmp eq ptr %call32.i.i.i, null
-  br i1 %tobool33.not.i.i.i, label %if.then34.i.i.i, label %if.end39.i.i.i
-
-if.then34.i.i.i:                                  ; preds = %if.then30.i.i.i
-  tail call void @PyMem_Free(ptr noundef %_children.047.i18.i.i) #4
-  br label %_loop0_210_rule.exit.thread.sink.split.i.i
+  br i1 %tobool33.not.i.i.i, label %_loop0_210_rule.exit.thread.sink.split.sink.split.i.i, label %if.end39.i.i.i
 
 if.end39.i.i.i:                                   ; preds = %if.then30.i.i.i
   %mul.i.i.i = shl i64 %_children_capacity.045.i20.i.i, 1
@@ -3034,7 +3012,7 @@ while.end.i.i.i:                                  ; preds = %if.end40.i.i.i, %la
   %19 = load ptr, ptr %arena.i.i.i, align 8
   %call44.i.i.i = tail call ptr @_Py_asdl_generic_seq_new(i64 noundef %_n.0.lcssa.i.i.i, ptr noundef %19) #4
   %tobool45.not.i.i.i = icmp eq ptr %call44.i.i.i, null
-  br i1 %tobool45.not.i.i.i, label %if.then46.i.i.i, label %for.cond.preheader.i.i.i
+  br i1 %tobool45.not.i.i.i, label %_loop0_210_rule.exit.thread.sink.split.sink.split.i.i, label %for.cond.preheader.i.i.i
 
 for.cond.preheader.i.i.i:                         ; preds = %while.end.i.i.i
   %cmp5254.i.i.i = icmp sgt i64 %_n.0.lcssa.i.i.i, 0
@@ -3043,10 +3021,6 @@ for.cond.preheader.i.i.i:                         ; preds = %while.end.i.i.i
 for.body.lr.ph.i.i.i:                             ; preds = %for.cond.preheader.i.i.i
   %elements.i.i.i = getelementptr inbounds i8, ptr %call44.i.i.i, i64 8
   br label %for.body.i.i.i
-
-if.then46.i.i.i:                                  ; preds = %while.end.i.i.i
-  tail call void @PyMem_Free(ptr noundef nonnull %_children.0.lcssa.i.i.i) #4
-  br label %_loop0_210_rule.exit.thread.sink.split.i.i
 
 for.body.i.i.i:                                   ; preds = %for.body.i.i.i, %for.body.lr.ph.i.i.i
   %conv56.i.i.i = phi i64 [ 0, %for.body.lr.ph.i.i.i ], [ %conv.i.i.i, %for.body.i.i.i ]
@@ -3061,7 +3035,12 @@ for.body.i.i.i:                                   ; preds = %for.body.i.i.i, %fo
   %cmp52.i.i.i = icmp sgt i64 %_n.0.lcssa.i.i.i, %conv.i.i.i
   br i1 %cmp52.i.i.i, label %for.body.i.i.i, label %_gather_209_rule.exit.i, !llvm.loop !21
 
-_loop0_210_rule.exit.thread.sink.split.i.i:       ; preds = %if.then46.i.i.i, %if.then34.i.i.i, %if.end3.i.i.i
+_loop0_210_rule.exit.thread.sink.split.sink.split.i.i: ; preds = %if.then30.i.i.i, %while.end.i.i.i
+  %_children.0.lcssa.i.sink.i.i = phi ptr [ %_children.0.lcssa.i.i.i, %while.end.i.i.i ], [ %_children.047.i18.i.i, %if.then30.i.i.i ]
+  tail call void @PyMem_Free(ptr noundef %_children.0.lcssa.i.sink.i.i) #4
+  br label %_loop0_210_rule.exit.thread.sink.split.i.i
+
+_loop0_210_rule.exit.thread.sink.split.i.i:       ; preds = %_loop0_210_rule.exit.thread.sink.split.sink.split.i.i, %if.end3.i.i.i
   store i32 1, ptr %error_indicator, align 8
   %call36.i.i.i = tail call ptr @PyErr_NoMemory() #4
   br label %_loop0_210_rule.exit.thread.i.i
@@ -3292,11 +3271,7 @@ if.then30.i.i:                                    ; preds = %if.end28.i.i
   %mul31.i.i = shl i64 %_children_capacity.045.i20.i, 4
   %call32.i.i = tail call ptr @PyMem_Realloc(ptr noundef %_children.047.i18.i, i64 noundef %mul31.i.i) #4
   %tobool33.not.i.i = icmp eq ptr %call32.i.i, null
-  br i1 %tobool33.not.i.i, label %if.then34.i.i, label %if.end39.i.i
-
-if.then34.i.i:                                    ; preds = %if.then30.i.i
-  tail call void @PyMem_Free(ptr noundef %_children.047.i18.i) #4
-  br label %_loop0_52_rule.exit.thread.sink.split.i
+  br i1 %tobool33.not.i.i, label %_loop0_52_rule.exit.thread.sink.split.sink.split.i, label %if.end39.i.i
 
 if.end39.i.i:                                     ; preds = %if.then30.i.i
   %mul.i.i = shl i64 %_children_capacity.045.i20.i, 1
@@ -3322,7 +3297,7 @@ while.end.i.i:                                    ; preds = %if.end40.i.i, %land
   %40 = load ptr, ptr %arena.i.i, align 8
   %call44.i.i = tail call ptr @_Py_asdl_generic_seq_new(i64 noundef %_n.0.lcssa.i.i, ptr noundef %40) #4
   %tobool45.not.i.i = icmp eq ptr %call44.i.i, null
-  br i1 %tobool45.not.i.i, label %if.then46.i.i, label %for.cond.preheader.i.i
+  br i1 %tobool45.not.i.i, label %_loop0_52_rule.exit.thread.sink.split.sink.split.i, label %for.cond.preheader.i.i
 
 for.cond.preheader.i.i:                           ; preds = %while.end.i.i
   %cmp5254.i.i = icmp sgt i64 %_n.0.lcssa.i.i, 0
@@ -3331,10 +3306,6 @@ for.cond.preheader.i.i:                           ; preds = %while.end.i.i
 for.body.lr.ph.i.i:                               ; preds = %for.cond.preheader.i.i
   %elements.i.i = getelementptr inbounds i8, ptr %call44.i.i, i64 8
   br label %for.body.i.i
-
-if.then46.i.i:                                    ; preds = %while.end.i.i
-  tail call void @PyMem_Free(ptr noundef nonnull %_children.0.lcssa.i.i) #4
-  br label %_loop0_52_rule.exit.thread.sink.split.i
 
 for.body.i.i:                                     ; preds = %for.body.i.i, %for.body.lr.ph.i.i
   %conv56.i.i = phi i64 [ 0, %for.body.lr.ph.i.i ], [ %conv.i.i, %for.body.i.i ]
@@ -3349,7 +3320,12 @@ for.body.i.i:                                     ; preds = %for.body.i.i, %for.
   %cmp52.i.i = icmp sgt i64 %_n.0.lcssa.i.i, %conv.i.i
   br i1 %cmp52.i.i, label %for.body.i.i, label %_gather_51_rule.exit, !llvm.loop !23
 
-_loop0_52_rule.exit.thread.sink.split.i:          ; preds = %if.then46.i.i, %if.then34.i.i, %if.end3.i.i133
+_loop0_52_rule.exit.thread.sink.split.sink.split.i: ; preds = %if.then30.i.i, %while.end.i.i
+  %_children.0.lcssa.i.sink.i = phi ptr [ %_children.0.lcssa.i.i, %while.end.i.i ], [ %_children.047.i18.i, %if.then30.i.i ]
+  tail call void @PyMem_Free(ptr noundef %_children.0.lcssa.i.sink.i) #4
+  br label %_loop0_52_rule.exit.thread.sink.split.i
+
+_loop0_52_rule.exit.thread.sink.split.i:          ; preds = %_loop0_52_rule.exit.thread.sink.split.sink.split.i, %if.end3.i.i133
   store i32 1, ptr %error_indicator, align 8
   %call36.i.i = tail call ptr @PyErr_NoMemory() #4
   br label %_loop0_52_rule.exit.thread.i
@@ -9614,11 +9590,7 @@ if.then30.i:                                      ; preds = %if.end28.i
   %mul31.i = shl i64 %_n.068.i, 4
   %call32.i = tail call ptr @PyMem_Realloc(ptr noundef %_children.069.i, i64 noundef %mul31.i) #4
   %tobool33.not.i = icmp eq ptr %call32.i, null
-  br i1 %tobool33.not.i, label %if.then34.i, label %if.end39.i
-
-if.then34.i:                                      ; preds = %if.then30.i
-  tail call void @PyMem_Free(ptr noundef %_children.069.i) #4
-  br label %_loop0_91_rule.exit.thread.sink.split
+  br i1 %tobool33.not.i, label %_loop0_91_rule.exit.thread.sink.split.sink.split, label %if.end39.i
 
 if.end39.i:                                       ; preds = %if.then30.i
   %mul.i = shl i64 %_n.068.i, 1
@@ -9650,7 +9622,7 @@ while.end.i:                                      ; preds = %if.end40.i, %while.
   %27 = load ptr, ptr %arena.i, align 8
   %call44.i = tail call ptr @_Py_asdl_generic_seq_new(i64 noundef %_n.062.i, ptr noundef %27) #4
   %tobool45.not.i = icmp eq ptr %call44.i, null
-  br i1 %tobool45.not.i, label %if.then46.i, label %for.cond.preheader.i
+  br i1 %tobool45.not.i, label %_loop0_91_rule.exit.thread.sink.split.sink.split, label %for.cond.preheader.i
 
 for.cond.preheader.i:                             ; preds = %while.end.i
   %cmp5273.i = icmp sgt i64 %_n.062.i, 0
@@ -9659,10 +9631,6 @@ for.cond.preheader.i:                             ; preds = %while.end.i
 for.body.lr.ph.i:                                 ; preds = %for.cond.preheader.i
   %elements.i = getelementptr inbounds i8, ptr %call44.i, i64 8
   br label %for.body.i
-
-if.then46.i:                                      ; preds = %while.end.i
-  tail call void @PyMem_Free(ptr noundef nonnull %_children.057.i) #4
-  br label %_loop0_91_rule.exit.thread.sink.split
 
 for.body.i:                                       ; preds = %for.body.i, %for.body.lr.ph.i
   %conv75.i = phi i64 [ 0, %for.body.lr.ph.i ], [ %conv.i, %for.body.i ]
@@ -9677,7 +9645,12 @@ for.body.i:                                       ; preds = %for.body.i, %for.bo
   %cmp52.i = icmp sgt i64 %_n.062.i, %conv.i
   br i1 %cmp52.i, label %for.body.i, label %_gather_90_rule.exit, !llvm.loop !27
 
-_loop0_91_rule.exit.thread.sink.split:            ; preds = %if.end3.i65, %if.then46.i, %if.then34.i
+_loop0_91_rule.exit.thread.sink.split.sink.split: ; preds = %if.then30.i, %while.end.i
+  %_children.057.i.sink = phi ptr [ %_children.057.i, %while.end.i ], [ %_children.069.i, %if.then30.i ]
+  tail call void @PyMem_Free(ptr noundef %_children.057.i.sink) #4
+  br label %_loop0_91_rule.exit.thread.sink.split
+
+_loop0_91_rule.exit.thread.sink.split:            ; preds = %_loop0_91_rule.exit.thread.sink.split.sink.split, %if.end3.i65
   store i32 1, ptr %error_indicator, align 8
   %call36.i = tail call ptr @PyErr_NoMemory() #4
   br label %_gather_90_rule.exit.thread.sink.split
@@ -16369,11 +16342,7 @@ if.then30.i:                                      ; preds = %if.end28.i
   %mul31.i = shl i64 %_children_capacity.045.i204, 4
   %call32.i = tail call ptr @PyMem_Realloc(ptr noundef %_children.047.i202, i64 noundef %mul31.i) #4
   %tobool33.not.i = icmp eq ptr %call32.i, null
-  br i1 %tobool33.not.i, label %if.then34.i, label %if.end39.i
-
-if.then34.i:                                      ; preds = %if.then30.i
-  tail call void @PyMem_Free(ptr noundef %_children.047.i202) #4
-  br label %_loop0_275_rule.exit.thread.sink.split
+  br i1 %tobool33.not.i, label %_loop0_275_rule.exit.thread.sink.split.sink.split, label %if.end39.i
 
 if.end39.i:                                       ; preds = %if.then30.i
   %mul.i = shl i64 %_children_capacity.045.i204, 1
@@ -16399,7 +16368,7 @@ while.end.i:                                      ; preds = %land.rhs.i, %if.end
   %14 = load ptr, ptr %arena.i, align 8
   %call44.i = tail call ptr @_Py_asdl_generic_seq_new(i64 noundef %_n.0.lcssa.i, ptr noundef %14) #4
   %tobool45.not.i = icmp eq ptr %call44.i, null
-  br i1 %tobool45.not.i, label %if.then46.i, label %for.cond.preheader.i
+  br i1 %tobool45.not.i, label %_loop0_275_rule.exit.thread.sink.split.sink.split, label %for.cond.preheader.i
 
 for.cond.preheader.i:                             ; preds = %while.end.i
   %cmp5254.i = icmp sgt i64 %_n.0.lcssa.i, 0
@@ -16408,10 +16377,6 @@ for.cond.preheader.i:                             ; preds = %while.end.i
 for.body.lr.ph.i:                                 ; preds = %for.cond.preheader.i
   %elements.i = getelementptr inbounds i8, ptr %call44.i, i64 8
   br label %for.body.i
-
-if.then46.i:                                      ; preds = %while.end.i
-  tail call void @PyMem_Free(ptr noundef nonnull %_children.0.lcssa.i) #4
-  br label %_loop0_275_rule.exit.thread.sink.split
 
 for.body.i:                                       ; preds = %for.body.i, %for.body.lr.ph.i
   %conv56.i = phi i64 [ 0, %for.body.lr.ph.i ], [ %conv.i, %for.body.i ]
@@ -16426,7 +16391,12 @@ for.body.i:                                       ; preds = %for.body.i, %for.bo
   %cmp52.i = icmp sgt i64 %_n.0.lcssa.i, %conv.i
   br i1 %cmp52.i, label %for.body.i, label %_gather_274_rule.exit.i, !llvm.loop !53
 
-_loop0_275_rule.exit.thread.sink.split:           ; preds = %if.end3.i193, %if.then46.i, %if.then34.i
+_loop0_275_rule.exit.thread.sink.split.sink.split: ; preds = %if.then30.i, %while.end.i
+  %_children.0.lcssa.i.sink = phi ptr [ %_children.0.lcssa.i, %while.end.i ], [ %_children.047.i202, %if.then30.i ]
+  tail call void @PyMem_Free(ptr noundef %_children.0.lcssa.i.sink) #4
+  br label %_loop0_275_rule.exit.thread.sink.split
+
+_loop0_275_rule.exit.thread.sink.split:           ; preds = %_loop0_275_rule.exit.thread.sink.split.sink.split, %if.end3.i193
   store i32 1, ptr %error_indicator, align 8
   %call36.i = tail call ptr @PyErr_NoMemory() #4
   br label %_loop0_275_rule.exit.thread
@@ -21628,11 +21598,7 @@ if.then20.i:                                      ; preds = %while.body.i
   %mul21.i = shl i64 %_n.0.i38, 4
   %call22.i = tail call ptr @PyMem_Realloc(ptr noundef %_children.0.i36, i64 noundef %mul21.i) #4
   %tobool23.not.i = icmp eq ptr %call22.i, null
-  br i1 %tobool23.not.i, label %if.then24.i, label %if.end29.i
-
-if.then24.i:                                      ; preds = %if.then20.i
-  tail call void @PyMem_Free(ptr noundef %_children.0.i36) #4
-  br label %if.end49.sink.split.sink.split
+  br i1 %tobool23.not.i, label %if.end49.sink.split.sink.split.sink.split, label %if.end29.i
 
 if.end29.i:                                       ; preds = %if.then20.i
   %mul.i = shl i64 %_n.0.i38, 1
@@ -21658,7 +21624,7 @@ while.end.i:                                      ; preds = %if.end30.i, %while.
   %14 = load ptr, ptr %arena.i, align 8
   %call34.i = tail call ptr @_Py_asdl_generic_seq_new(i64 noundef %_n.0.i.lcssa, ptr noundef %14) #4
   %tobool35.not.i = icmp eq ptr %call34.i, null
-  br i1 %tobool35.not.i, label %if.then36.i, label %for.cond.i.preheader
+  br i1 %tobool35.not.i, label %if.end49.sink.split.sink.split.sink.split, label %for.cond.i.preheader
 
 for.cond.i.preheader:                             ; preds = %while.end.i
   %cmp42.i42 = icmp sgt i64 %_n.0.i.lcssa, 0
@@ -21667,10 +21633,6 @@ for.cond.i.preheader:                             ; preds = %while.end.i
 for.body.i.lr.ph:                                 ; preds = %for.cond.i.preheader
   %elements.i = getelementptr inbounds i8, ptr %call34.i, i64 8
   br label %for.body.i
-
-if.then36.i:                                      ; preds = %while.end.i
-  tail call void @PyMem_Free(ptr noundef nonnull %_children.0.i.lcssa) #4
-  br label %if.end49.sink.split.sink.split
 
 for.body.i:                                       ; preds = %for.body.i.lr.ph, %for.body.i
   %conv.i44 = phi i64 [ 0, %for.body.i.lr.ph ], [ %conv.i, %for.body.i ]
@@ -21713,7 +21675,12 @@ if.then44:                                        ; preds = %land.lhs.true41
   store i32 1, ptr %error_indicator, align 8
   br label %return
 
-if.end49.sink.split.sink.split:                   ; preds = %if.end3.i, %if.then36.i, %if.then24.i
+if.end49.sink.split.sink.split.sink.split:        ; preds = %if.then20.i, %while.end.i
+  %_children.0.i.lcssa.sink = phi ptr [ %_children.0.i.lcssa, %while.end.i ], [ %_children.0.i36, %if.then20.i ]
+  tail call void @PyMem_Free(ptr noundef %_children.0.i.lcssa.sink) #4
+  br label %if.end49.sink.split.sink.split
+
+if.end49.sink.split.sink.split:                   ; preds = %if.end49.sink.split.sink.split.sink.split, %if.end3.i
   store i32 1, ptr %error_indicator, align 8
   %call26.i = tail call ptr @PyErr_NoMemory() #4
   br label %if.end49.sink.split
@@ -24630,11 +24597,7 @@ if.then20.i:                                      ; preds = %while.body.i
   %mul21.i = shl i64 %_n.0.i130, 4
   %call22.i = tail call ptr @PyMem_Realloc(ptr noundef %_children.0.i128, i64 noundef %mul21.i) #4
   %tobool23.not.i = icmp eq ptr %call22.i, null
-  br i1 %tobool23.not.i, label %if.then24.i, label %if.end29.i
-
-if.then24.i:                                      ; preds = %if.then20.i
-  tail call void @PyMem_Free(ptr noundef %_children.0.i128) #4
-  br label %if.end65.sink.split.sink.split
+  br i1 %tobool23.not.i, label %if.end65.sink.split.sink.split.sink.split, label %if.end29.i
 
 if.end29.i:                                       ; preds = %if.then20.i
   %mul.i = shl i64 %_n.0.i130, 1
@@ -24660,7 +24623,7 @@ while.end.i:                                      ; preds = %if.end30.i, %while.
   %18 = load ptr, ptr %arena.i, align 8
   %call34.i = tail call ptr @_Py_asdl_generic_seq_new(i64 noundef %_n.0.i.lcssa, ptr noundef %18) #4
   %tobool35.not.i = icmp eq ptr %call34.i, null
-  br i1 %tobool35.not.i, label %if.then36.i, label %for.cond.i.preheader
+  br i1 %tobool35.not.i, label %if.end65.sink.split.sink.split.sink.split, label %for.cond.i.preheader
 
 for.cond.i.preheader:                             ; preds = %while.end.i
   %cmp42.i134 = icmp sgt i64 %_n.0.i.lcssa, 0
@@ -24669,10 +24632,6 @@ for.cond.i.preheader:                             ; preds = %while.end.i
 for.body.i.lr.ph:                                 ; preds = %for.cond.i.preheader
   %elements.i = getelementptr inbounds i8, ptr %call34.i, i64 8
   br label %for.body.i
-
-if.then36.i:                                      ; preds = %while.end.i
-  tail call void @PyMem_Free(ptr noundef nonnull %_children.0.i.lcssa) #4
-  br label %if.end65.sink.split.sink.split
 
 for.body.i:                                       ; preds = %for.body.i.lr.ph, %for.body.i
   %conv.i136 = phi i64 [ 0, %for.body.i.lr.ph ], [ %conv.i, %for.body.i ]
@@ -24719,7 +24678,12 @@ if.then60:                                        ; preds = %if.then45
   store i32 1, ptr %error_indicator, align 8
   br label %return.sink.split
 
-if.end65.sink.split.sink.split:                   ; preds = %if.end3.i105, %if.then36.i, %if.then24.i
+if.end65.sink.split.sink.split.sink.split:        ; preds = %if.then20.i, %while.end.i
+  %_children.0.i.lcssa.sink = phi ptr [ %_children.0.i.lcssa, %while.end.i ], [ %_children.0.i128, %if.then20.i ]
+  tail call void @PyMem_Free(ptr noundef %_children.0.i.lcssa.sink) #4
+  br label %if.end65.sink.split.sink.split
+
+if.end65.sink.split.sink.split:                   ; preds = %if.end65.sink.split.sink.split.sink.split, %if.end3.i105
   store i32 1, ptr %error_indicator, align 8
   %call26.i = tail call ptr @PyErr_NoMemory() #4
   br label %if.end65.sink.split
@@ -25037,11 +25001,7 @@ if.then20.i:                                      ; preds = %while.body.i
   %mul21.i = shl i64 %_n.042.i, 4
   %call22.i = tail call ptr @PyMem_Realloc(ptr noundef %_children.040.i, i64 noundef %mul21.i) #4
   %tobool23.not.i = icmp eq ptr %call22.i, null
-  br i1 %tobool23.not.i, label %if.then24.i, label %if.end29.i
-
-if.then24.i:                                      ; preds = %if.then20.i
-  tail call void @PyMem_Free(ptr noundef %_children.040.i) #4
-  br label %if.end32.sink.split.sink.split
+  br i1 %tobool23.not.i, label %if.end32.sink.split.sink.split.sink.split, label %if.end29.i
 
 if.end29.i:                                       ; preds = %if.then20.i
   %mul.i = shl i64 %_n.042.i, 1
@@ -25067,7 +25027,7 @@ while.end.i:                                      ; preds = %if.end30.i, %while.
   %8 = load ptr, ptr %arena.i, align 8
   %call34.i = tail call ptr @_Py_asdl_generic_seq_new(i64 noundef %_n.0.lcssa.i, ptr noundef %8) #4
   %tobool35.not.i = icmp eq ptr %call34.i, null
-  br i1 %tobool35.not.i, label %if.then36.i, label %for.cond.preheader.i
+  br i1 %tobool35.not.i, label %if.end32.sink.split.sink.split.sink.split, label %for.cond.preheader.i
 
 for.cond.preheader.i:                             ; preds = %while.end.i
   %cmp4246.i = icmp sgt i64 %_n.0.lcssa.i, 0
@@ -25076,10 +25036,6 @@ for.cond.preheader.i:                             ; preds = %while.end.i
 for.body.lr.ph.i:                                 ; preds = %for.cond.preheader.i
   %elements.i = getelementptr inbounds i8, ptr %call34.i, i64 8
   br label %for.body.i
-
-if.then36.i:                                      ; preds = %while.end.i
-  tail call void @PyMem_Free(ptr noundef nonnull %_children.0.lcssa.i) #4
-  br label %if.end32.sink.split.sink.split
 
 for.body.i:                                       ; preds = %for.body.i, %for.body.lr.ph.i
   %conv48.i = phi i64 [ 0, %for.body.lr.ph.i ], [ %conv.i, %for.body.i ]
@@ -25137,11 +25093,7 @@ if.then20.i86:                                    ; preds = %while.body.i79
   %mul21.i87 = shl i64 %_n.0.i325, 4
   %call22.i88 = tail call ptr @PyMem_Realloc(ptr noundef %_children.0.i323, i64 noundef %mul21.i87) #4
   %tobool23.not.i89 = icmp eq ptr %call22.i88, null
-  br i1 %tobool23.not.i89, label %if.then24.i92, label %if.end29.i90
-
-if.then24.i92:                                    ; preds = %if.then20.i86
-  tail call void @PyMem_Free(ptr noundef %_children.0.i323) #4
-  br label %if.end32.sink.split.sink.split
+  br i1 %tobool23.not.i89, label %if.end32.sink.split.sink.split.sink.split, label %if.end29.i90
 
 if.end29.i90:                                     ; preds = %if.then20.i86
   %mul.i91 = shl i64 %_n.0.i325, 1
@@ -25166,7 +25118,7 @@ while.end.i94:                                    ; preds = %if.end30.i81, %whil
   %16 = load ptr, ptr %arena.i, align 8
   %call34.i96 = tail call ptr @_Py_asdl_generic_seq_new(i64 noundef %_n.0.i.lcssa, ptr noundef %16) #4
   %tobool35.not.i97 = icmp eq ptr %call34.i96, null
-  br i1 %tobool35.not.i97, label %if.then36.i107, label %for.cond.i.preheader
+  br i1 %tobool35.not.i97, label %if.end32.sink.split.sink.split.sink.split, label %for.cond.i.preheader
 
 for.cond.i.preheader:                             ; preds = %while.end.i94
   %cmp42.i99329 = icmp sgt i64 %_n.0.i.lcssa, 0
@@ -25175,10 +25127,6 @@ for.cond.i.preheader:                             ; preds = %while.end.i94
 for.body.i102.lr.ph:                              ; preds = %for.cond.i.preheader
   %elements.i104 = getelementptr inbounds i8, ptr %call34.i96, i64 8
   br label %for.body.i102
-
-if.then36.i107:                                   ; preds = %while.end.i94
-  tail call void @PyMem_Free(ptr noundef nonnull %_children.0.i.lcssa) #4
-  br label %if.end32.sink.split.sink.split
 
 for.body.i102:                                    ; preds = %for.body.i102.lr.ph, %for.body.i102
   %conv.i98331 = phi i64 [ 0, %for.body.i102.lr.ph ], [ %conv.i98, %for.body.i102 ]
@@ -25238,7 +25186,12 @@ if.then27:                                        ; preds = %land.lhs.true24
   store i32 1, ptr %error_indicator, align 8
   br label %return.sink.split
 
-if.end32.sink.split.sink.split:                   ; preds = %if.end3.i71, %if.then24.i, %if.then36.i, %if.end3.i, %if.then36.i107, %if.then24.i92
+if.end32.sink.split.sink.split.sink.split:        ; preds = %if.then20.i, %if.then20.i86, %while.end.i94, %while.end.i
+  %_children.0.lcssa.i.sink.sink = phi ptr [ %_children.0.lcssa.i, %while.end.i ], [ %_children.0.i.lcssa, %while.end.i94 ], [ %_children.0.i323, %if.then20.i86 ], [ %_children.040.i, %if.then20.i ]
+  tail call void @PyMem_Free(ptr noundef %_children.0.lcssa.i.sink.sink) #4
+  br label %if.end32.sink.split.sink.split
+
+if.end32.sink.split.sink.split:                   ; preds = %if.end32.sink.split.sink.split.sink.split, %if.end3.i71, %if.end3.i
   store i32 1, ptr %error_indicator, align 8
   %call26.i = tail call ptr @PyErr_NoMemory() #4
   br label %if.end32.sink.split
@@ -25304,11 +25257,7 @@ if.then20.i149:                                   ; preds = %while.body.i142
   %mul21.i150 = shl i64 %_n.0.i138336, 4
   %call22.i151 = tail call ptr @PyMem_Realloc(ptr noundef %_children.0.i136334, i64 noundef %mul21.i150) #4
   %tobool23.not.i152 = icmp eq ptr %call22.i151, null
-  br i1 %tobool23.not.i152, label %if.then24.i155, label %if.end29.i153
-
-if.then24.i155:                                   ; preds = %if.then20.i149
-  tail call void @PyMem_Free(ptr noundef %_children.0.i136334) #4
-  br label %if.end65.sink.split.sink.split
+  br i1 %tobool23.not.i152, label %if.end65.sink.split.sink.split.sink.split, label %if.end29.i153
 
 if.end29.i153:                                    ; preds = %if.then20.i149
   %mul.i154 = shl i64 %_n.0.i138336, 1
@@ -25334,7 +25283,7 @@ while.end.i158:                                   ; preds = %if.end30.i144, %whi
   %28 = load ptr, ptr %arena.i159, align 8
   %call34.i160 = tail call ptr @_Py_asdl_generic_seq_new(i64 noundef %_n.0.i138.lcssa, ptr noundef %28) #4
   %tobool35.not.i161 = icmp eq ptr %call34.i160, null
-  br i1 %tobool35.not.i161, label %if.then36.i173, label %for.cond.i162.preheader
+  br i1 %tobool35.not.i161, label %if.end65.sink.split.sink.split.sink.split, label %for.cond.i162.preheader
 
 for.cond.i162.preheader:                          ; preds = %while.end.i158
   %cmp42.i165341 = icmp sgt i64 %_n.0.i138.lcssa, 0
@@ -25343,10 +25292,6 @@ for.cond.i162.preheader:                          ; preds = %while.end.i158
 for.body.i168.lr.ph:                              ; preds = %for.cond.i162.preheader
   %elements.i170 = getelementptr inbounds i8, ptr %call34.i160, i64 8
   br label %for.body.i168
-
-if.then36.i173:                                   ; preds = %while.end.i158
-  tail call void @PyMem_Free(ptr noundef nonnull %_children.0.i136.lcssa) #4
-  br label %if.end65.sink.split.sink.split
 
 for.body.i168:                                    ; preds = %for.body.i168.lr.ph, %for.body.i168
   %conv.i164343 = phi i64 [ 0, %for.body.i168.lr.ph ], [ %conv.i164, %for.body.i168 ]
@@ -25390,7 +25335,12 @@ if.then60:                                        ; preds = %land.lhs.true57
   store i32 1, ptr %error_indicator, align 8
   br label %return.sink.split
 
-if.end65.sink.split.sink.split:                   ; preds = %if.end3.i127, %if.then36.i173, %if.then24.i155
+if.end65.sink.split.sink.split.sink.split:        ; preds = %if.then20.i149, %while.end.i158
+  %_children.0.i136.lcssa.sink = phi ptr [ %_children.0.i136.lcssa, %while.end.i158 ], [ %_children.0.i136334, %if.then20.i149 ]
+  tail call void @PyMem_Free(ptr noundef %_children.0.i136.lcssa.sink) #4
+  br label %if.end65.sink.split.sink.split
+
+if.end65.sink.split.sink.split:                   ; preds = %if.end65.sink.split.sink.split.sink.split, %if.end3.i127
   store i32 1, ptr %error_indicator, align 8
   %call26.i156 = tail call ptr @PyErr_NoMemory() #4
   br label %if.end65.sink.split
@@ -26667,11 +26617,7 @@ if.then30.i:                                      ; preds = %if.end28.i
   %mul31.i = shl i64 %_children_capacity.045.i20, 4
   %call32.i = tail call ptr @PyMem_Realloc(ptr noundef %_children.047.i18, i64 noundef %mul31.i) #4
   %tobool33.not.i = icmp eq ptr %call32.i, null
-  br i1 %tobool33.not.i, label %if.then34.i, label %if.end39.i
-
-if.then34.i:                                      ; preds = %if.then30.i
-  tail call void @PyMem_Free(ptr noundef %_children.047.i18) #4
-  br label %_loop0_190_rule.exit.thread.sink.split
+  br i1 %tobool33.not.i, label %_loop0_190_rule.exit.thread.sink.split.sink.split, label %if.end39.i
 
 if.end39.i:                                       ; preds = %if.then30.i
   %mul.i = shl i64 %_children_capacity.045.i20, 1
@@ -26697,7 +26643,7 @@ while.end.i:                                      ; preds = %land.rhs.i, %if.end
   %8 = load ptr, ptr %arena.i, align 8
   %call44.i = tail call ptr @_Py_asdl_generic_seq_new(i64 noundef %_n.0.lcssa.i, ptr noundef %8) #4
   %tobool45.not.i = icmp eq ptr %call44.i, null
-  br i1 %tobool45.not.i, label %if.then46.i, label %for.cond.preheader.i
+  br i1 %tobool45.not.i, label %_loop0_190_rule.exit.thread.sink.split.sink.split, label %for.cond.preheader.i
 
 for.cond.preheader.i:                             ; preds = %while.end.i
   %cmp5254.i = icmp sgt i64 %_n.0.lcssa.i, 0
@@ -26706,10 +26652,6 @@ for.cond.preheader.i:                             ; preds = %while.end.i
 for.body.lr.ph.i:                                 ; preds = %for.cond.preheader.i
   %elements.i = getelementptr inbounds i8, ptr %call44.i, i64 8
   br label %for.body.i
-
-if.then46.i:                                      ; preds = %while.end.i
-  tail call void @PyMem_Free(ptr noundef nonnull %_children.0.lcssa.i) #4
-  br label %_loop0_190_rule.exit.thread.sink.split
 
 for.body.i:                                       ; preds = %for.body.i, %for.body.lr.ph.i
   %conv56.i = phi i64 [ 0, %for.body.lr.ph.i ], [ %conv.i, %for.body.i ]
@@ -26724,7 +26666,12 @@ for.body.i:                                       ; preds = %for.body.i, %for.bo
   %cmp52.i = icmp sgt i64 %_n.0.lcssa.i, %conv.i
   br i1 %cmp52.i, label %for.body.i, label %if.then13, !llvm.loop !97
 
-_loop0_190_rule.exit.thread.sink.split:           ; preds = %if.end3.i, %if.then46.i, %if.then34.i
+_loop0_190_rule.exit.thread.sink.split.sink.split: ; preds = %if.then30.i, %while.end.i
+  %_children.0.lcssa.i.sink = phi ptr [ %_children.0.lcssa.i, %while.end.i ], [ %_children.047.i18, %if.then30.i ]
+  tail call void @PyMem_Free(ptr noundef %_children.0.lcssa.i.sink) #4
+  br label %_loop0_190_rule.exit.thread.sink.split
+
+_loop0_190_rule.exit.thread.sink.split:           ; preds = %_loop0_190_rule.exit.thread.sink.split.sink.split, %if.end3.i
   store i32 1, ptr %error_indicator, align 8
   %call36.i = tail call ptr @PyErr_NoMemory() #4
   br label %_loop0_190_rule.exit.thread
@@ -27313,11 +27260,7 @@ if.then20.i:                                      ; preds = %while.body.i
   %mul21.i = shl i64 %_n.042.i, 4
   %call22.i = tail call ptr @PyMem_Realloc(ptr noundef %_children.040.i, i64 noundef %mul21.i) #4
   %tobool23.not.i = icmp eq ptr %call22.i, null
-  br i1 %tobool23.not.i, label %if.then24.i, label %if.end29.i
-
-if.then24.i:                                      ; preds = %if.then20.i
-  tail call void @PyMem_Free(ptr noundef %_children.040.i) #4
-  br label %_loop0_106_rule.exit.thread.sink.split
+  br i1 %tobool23.not.i, label %_loop0_106_rule.exit.thread.sink.split.sink.split, label %if.end29.i
 
 if.end29.i:                                       ; preds = %if.then20.i
   %mul.i = shl i64 %_n.042.i, 1
@@ -27343,7 +27286,7 @@ while.end.i:                                      ; preds = %if.end30.i, %while.
   %8 = load ptr, ptr %arena.i, align 8
   %call34.i = tail call ptr @_Py_asdl_generic_seq_new(i64 noundef %_n.0.lcssa.i, ptr noundef %8) #4
   %tobool35.not.i = icmp eq ptr %call34.i, null
-  br i1 %tobool35.not.i, label %if.then36.i, label %for.cond.preheader.i
+  br i1 %tobool35.not.i, label %_loop0_106_rule.exit.thread.sink.split.sink.split, label %for.cond.preheader.i
 
 for.cond.preheader.i:                             ; preds = %while.end.i
   %cmp4246.i = icmp sgt i64 %_n.0.lcssa.i, 0
@@ -27352,10 +27295,6 @@ for.cond.preheader.i:                             ; preds = %while.end.i
 for.body.lr.ph.i:                                 ; preds = %for.cond.preheader.i
   %elements.i = getelementptr inbounds i8, ptr %call34.i, i64 8
   br label %for.body.i
-
-if.then36.i:                                      ; preds = %while.end.i
-  tail call void @PyMem_Free(ptr noundef nonnull %_children.0.lcssa.i) #4
-  br label %_loop0_106_rule.exit.thread.sink.split
 
 for.body.i:                                       ; preds = %for.body.i, %for.body.lr.ph.i
   %conv48.i = phi i64 [ 0, %for.body.lr.ph.i ], [ %conv.i, %for.body.i ]
@@ -27370,7 +27309,12 @@ for.body.i:                                       ; preds = %for.body.i, %for.bo
   %cmp42.i = icmp sgt i64 %_n.0.lcssa.i, %conv.i
   br i1 %cmp42.i, label %for.body.i, label %land.lhs.true, !llvm.loop !105
 
-_loop0_106_rule.exit.thread.sink.split:           ; preds = %if.end3.i, %if.then36.i, %if.then24.i
+_loop0_106_rule.exit.thread.sink.split.sink.split: ; preds = %if.then20.i, %while.end.i
+  %_children.0.lcssa.i.sink = phi ptr [ %_children.0.lcssa.i, %while.end.i ], [ %_children.040.i, %if.then20.i ]
+  tail call void @PyMem_Free(ptr noundef %_children.0.lcssa.i.sink) #4
+  br label %_loop0_106_rule.exit.thread.sink.split
+
+_loop0_106_rule.exit.thread.sink.split:           ; preds = %_loop0_106_rule.exit.thread.sink.split.sink.split, %if.end3.i
   store i32 1, ptr %error_indicator, align 8
   %call26.i = tail call ptr @PyErr_NoMemory() #4
   br label %if.end30.sink.split
@@ -27579,11 +27523,7 @@ if.then20.i120:                                   ; preds = %while.body.i85
   %mul21.i121 = shl i64 %_n.042.i87, 4
   %call22.i122 = tail call ptr @PyMem_Realloc(ptr noundef %_children.040.i89, i64 noundef %mul21.i121) #4
   %tobool23.not.i123 = icmp eq ptr %call22.i122, null
-  br i1 %tobool23.not.i123, label %if.then24.i126, label %if.end29.i124
-
-if.then24.i126:                                   ; preds = %if.then20.i120
-  tail call void @PyMem_Free(ptr noundef %_children.040.i89) #4
-  br label %_loop0_108_rule.exit.thread.sink.split
+  br i1 %tobool23.not.i123, label %_loop0_108_rule.exit.thread.sink.split.sink.split, label %if.end29.i124
 
 if.end29.i124:                                    ; preds = %if.then20.i120
   %mul.i125 = shl i64 %_n.042.i87, 1
@@ -27609,7 +27549,7 @@ while.end.i98:                                    ; preds = %if.end30.i91, %whil
   %28 = load ptr, ptr %arena.i102, align 8
   %call34.i103 = tail call ptr @_Py_asdl_generic_seq_new(i64 noundef %_n.0.lcssa.i100, ptr noundef %28) #4
   %tobool35.not.i104 = icmp eq ptr %call34.i103, null
-  br i1 %tobool35.not.i104, label %if.then36.i118, label %for.cond.preheader.i105
+  br i1 %tobool35.not.i104, label %_loop0_108_rule.exit.thread.sink.split.sink.split, label %for.cond.preheader.i105
 
 for.cond.preheader.i105:                          ; preds = %while.end.i98
   %cmp4246.i106 = icmp sgt i64 %_n.0.lcssa.i100, 0
@@ -27618,10 +27558,6 @@ for.cond.preheader.i105:                          ; preds = %while.end.i98
 for.body.lr.ph.i108:                              ; preds = %for.cond.preheader.i105
   %elements.i109 = getelementptr inbounds i8, ptr %call34.i103, i64 8
   br label %for.body.i110
-
-if.then36.i118:                                   ; preds = %while.end.i98
-  tail call void @PyMem_Free(ptr noundef nonnull %_children.0.lcssa.i99) #4
-  br label %_loop0_108_rule.exit.thread.sink.split
 
 for.body.i110:                                    ; preds = %for.body.i110, %for.body.lr.ph.i108
   %conv48.i111 = phi i64 [ 0, %for.body.lr.ph.i108 ], [ %conv.i116, %for.body.i110 ]
@@ -27636,7 +27572,12 @@ for.body.i110:                                    ; preds = %for.body.i110, %for
   %cmp42.i117 = icmp sgt i64 %_n.0.lcssa.i100, %conv.i116
   br i1 %cmp42.i117, label %for.body.i110, label %land.lhs.true43, !llvm.loop !109
 
-_loop0_108_rule.exit.thread.sink.split:           ; preds = %if.end3.i76, %if.then36.i118, %if.then24.i126
+_loop0_108_rule.exit.thread.sink.split.sink.split: ; preds = %if.then20.i120, %while.end.i98
+  %_children.0.lcssa.i99.sink = phi ptr [ %_children.0.lcssa.i99, %while.end.i98 ], [ %_children.040.i89, %if.then20.i120 ]
+  tail call void @PyMem_Free(ptr noundef %_children.0.lcssa.i99.sink) #4
+  br label %_loop0_108_rule.exit.thread.sink.split
+
+_loop0_108_rule.exit.thread.sink.split:           ; preds = %_loop0_108_rule.exit.thread.sink.split.sink.split, %if.end3.i76
   store i32 1, ptr %error_indicator, align 8
   %call26.i127 = tail call ptr @PyErr_NoMemory() #4
   br label %if.end63.sink.split
@@ -28323,11 +28264,11 @@ if.end.i:                                         ; preds = %if.end11
   br i1 %5, label %if.end.i.if.end3.i_crit_edge, label %if.end16.thread118
 
 if.end.i.if.end3.i_crit_edge:                     ; preds = %if.end.i
-  %.pre163 = load i32, ptr %mark, align 8
+  %.pre162 = load i32, ptr %mark, align 8
   br label %if.end3.i
 
 if.end3.i:                                        ; preds = %if.end.i.if.end3.i_crit_edge, %if.end11
-  %6 = phi i32 [ %.pre163, %if.end.i.if.end3.i_crit_edge ], [ %2, %if.end11 ]
+  %6 = phi i32 [ %.pre162, %if.end.i.if.end3.i_crit_edge ], [ %2, %if.end11 ]
   %call.i = tail call ptr @_PyPegen_expect_token(ptr noundef nonnull %p, i32 noundef 16) #4
   %tobool10.not.i = icmp eq ptr %call.i, null
   br i1 %tobool10.not.i, label %if.end24.i, label %land.lhs.true.i
@@ -28609,11 +28550,7 @@ if.then20.i:                                      ; preds = %while.body.i
   %mul21.i = shl i64 %_n.0.i105, 4
   %call22.i = tail call ptr @PyMem_Realloc(ptr noundef %_children.0.i103, i64 noundef %mul21.i) #4
   %tobool23.not.i = icmp eq ptr %call22.i, null
-  br i1 %tobool23.not.i, label %if.then24.i, label %if.end29.i
-
-if.then24.i:                                      ; preds = %if.then20.i
-  tail call void @PyMem_Free(ptr noundef %_children.0.i103) #4
-  br label %if.end45.sink.split.sink.split
+  br i1 %tobool23.not.i, label %if.end45.sink.split.sink.split.sink.split, label %if.end29.i
 
 if.end29.i:                                       ; preds = %if.then20.i
   %mul.i = shl i64 %_n.0.i105, 1
@@ -28639,7 +28576,7 @@ while.end.i:                                      ; preds = %if.end30.i, %while.
   %42 = load ptr, ptr %arena.i, align 8
   %call34.i = tail call ptr @_Py_asdl_generic_seq_new(i64 noundef %_n.0.i.lcssa, ptr noundef %42) #4
   %tobool35.not.i = icmp eq ptr %call34.i, null
-  br i1 %tobool35.not.i, label %if.then36.i, label %for.cond.i.preheader
+  br i1 %tobool35.not.i, label %if.end45.sink.split.sink.split.sink.split, label %for.cond.i.preheader
 
 for.cond.i.preheader:                             ; preds = %while.end.i
   %cmp42.i109 = icmp sgt i64 %_n.0.i.lcssa, 0
@@ -28648,10 +28585,6 @@ for.cond.i.preheader:                             ; preds = %while.end.i
 for.body.i.lr.ph:                                 ; preds = %for.cond.i.preheader
   %elements.i = getelementptr inbounds i8, ptr %call34.i, i64 8
   br label %for.body.i
-
-if.then36.i:                                      ; preds = %while.end.i
-  tail call void @PyMem_Free(ptr noundef nonnull %_children.0.i.lcssa) #4
-  br label %if.end45.sink.split.sink.split
 
 for.body.i:                                       ; preds = %for.body.i.lr.ph, %for.body.i
   %conv.i62111 = phi i64 [ 0, %for.body.i.lr.ph ], [ %conv.i62, %for.body.i ]
@@ -28694,7 +28627,12 @@ if.then40:                                        ; preds = %land.lhs.true37
   store i32 1, ptr %error_indicator, align 8
   br label %return
 
-if.end45.sink.split.sink.split:                   ; preds = %if.end3.i55, %if.then36.i, %if.then24.i
+if.end45.sink.split.sink.split.sink.split:        ; preds = %if.then20.i, %while.end.i
+  %_children.0.i.lcssa.sink = phi ptr [ %_children.0.i.lcssa, %while.end.i ], [ %_children.0.i103, %if.then20.i ]
+  tail call void @PyMem_Free(ptr noundef %_children.0.i.lcssa.sink) #4
+  br label %if.end45.sink.split.sink.split
+
+if.end45.sink.split.sink.split:                   ; preds = %if.end45.sink.split.sink.split.sink.split, %if.end3.i55
   store i32 1, ptr %error_indicator, align 8
   %call26.i = tail call ptr @PyErr_NoMemory() #4
   br label %if.end45.sink.split
@@ -28774,12 +28712,12 @@ if.then20.i144:                                   ; preds = %while.body.i129
   %mul21.i145 = shl i64 %_n.046.i, 4
   %call22.i146 = tail call ptr @PyMem_Realloc(ptr noundef %_children.044.i, i64 noundef %mul21.i145) #4
   %tobool23.not.i147 = icmp eq ptr %call22.i146, null
-  br i1 %tobool23.not.i147, label %if.then24.i150, label %if.end29.i148
+  br i1 %tobool23.not.i147, label %if.then24.i, label %if.end29.i148
 
-if.then24.i150:                                   ; preds = %if.then20.i144
+if.then24.i:                                      ; preds = %if.then20.i144
   tail call void @PyMem_Free(ptr noundef %_children.044.i) #4
   store i32 1, ptr %error_indicator, align 8
-  %call26.i151 = tail call ptr @PyErr_NoMemory() #4
+  %call26.i150 = tail call ptr @PyErr_NoMemory() #4
   br label %_loop1_111_rule.exit.thread
 
 if.end29.i148:                                    ; preds = %if.then20.i144
@@ -28846,10 +28784,10 @@ for.body.i141:                                    ; preds = %for.body.i141, %for
   %cmp49.i = icmp sgt i64 %inc31.i134, %conv.i142
   br i1 %cmp49.i, label %for.body.i141, label %land.lhs.true64, !llvm.loop !115
 
-_loop1_111_rule.exit.thread:                      ; preds = %if.then24.i150, %if.then37.i, %if.then43.i, %if.then5.i, %if.end.i123, %if.end10.i127
+_loop1_111_rule.exit.thread:                      ; preds = %if.then24.i, %if.then37.i, %if.then43.i, %if.then5.i, %if.end.i123, %if.end10.i127
   %57 = load i32, ptr %level, align 8
-  %dec56.i153 = add i32 %57, -1
-  store i32 %dec56.i153, ptr %level, align 8
+  %dec56.i152 = add i32 %57, -1
+  store i32 %dec56.i152, ptr %level, align 8
   br label %if.end80
 
 land.lhs.true64:                                  ; preds = %for.body.i141, %for.cond.preheader.i
@@ -30270,11 +30208,7 @@ if.then30.i.i.i:                                  ; preds = %if.end28.i.i.i
   %mul31.i.i.i = shl i64 %_children_capacity.045.i20.i.i, 4
   %call32.i.i.i = tail call ptr @PyMem_Realloc(ptr noundef %_children.047.i18.i.i, i64 noundef %mul31.i.i.i) #4
   %tobool33.not.i.i.i = icmp eq ptr %call32.i.i.i, null
-  br i1 %tobool33.not.i.i.i, label %if.then34.i.i.i, label %if.end39.i.i.i
-
-if.then34.i.i.i:                                  ; preds = %if.then30.i.i.i
-  tail call void @PyMem_Free(ptr noundef %_children.047.i18.i.i) #4
-  br label %_loop0_81_rule.exit.thread.sink.split.i.i
+  br i1 %tobool33.not.i.i.i, label %_loop0_81_rule.exit.thread.sink.split.sink.split.i.i, label %if.end39.i.i.i
 
 if.end39.i.i.i:                                   ; preds = %if.then30.i.i.i
   %mul.i.i.i = shl i64 %_children_capacity.045.i20.i.i, 1
@@ -30300,7 +30234,7 @@ while.end.i.i.i:                                  ; preds = %if.end40.i.i.i, %la
   %10 = load ptr, ptr %arena.i.i.i, align 8
   %call44.i.i.i = tail call ptr @_Py_asdl_generic_seq_new(i64 noundef %_n.0.lcssa.i.i.i, ptr noundef %10) #4
   %tobool45.not.i.i.i = icmp eq ptr %call44.i.i.i, null
-  br i1 %tobool45.not.i.i.i, label %if.then46.i.i.i, label %for.cond.preheader.i.i.i
+  br i1 %tobool45.not.i.i.i, label %_loop0_81_rule.exit.thread.sink.split.sink.split.i.i, label %for.cond.preheader.i.i.i
 
 for.cond.preheader.i.i.i:                         ; preds = %while.end.i.i.i
   %cmp5254.i.i.i = icmp sgt i64 %_n.0.lcssa.i.i.i, 0
@@ -30309,10 +30243,6 @@ for.cond.preheader.i.i.i:                         ; preds = %while.end.i.i.i
 for.body.lr.ph.i.i.i:                             ; preds = %for.cond.preheader.i.i.i
   %elements.i.i.i = getelementptr inbounds i8, ptr %call44.i.i.i, i64 8
   br label %for.body.i.i.i
-
-if.then46.i.i.i:                                  ; preds = %while.end.i.i.i
-  tail call void @PyMem_Free(ptr noundef nonnull %_children.0.lcssa.i.i.i) #4
-  br label %_loop0_81_rule.exit.thread.sink.split.i.i
 
 for.body.i.i.i:                                   ; preds = %for.body.i.i.i, %for.body.lr.ph.i.i.i
   %conv56.i.i.i = phi i64 [ 0, %for.body.lr.ph.i.i.i ], [ %conv.i.i.i, %for.body.i.i.i ]
@@ -30327,7 +30257,12 @@ for.body.i.i.i:                                   ; preds = %for.body.i.i.i, %fo
   %cmp52.i.i.i = icmp sgt i64 %_n.0.lcssa.i.i.i, %conv.i.i.i
   br i1 %cmp52.i.i.i, label %for.body.i.i.i, label %_gather_80_rule.exit.i, !llvm.loop !123
 
-_loop0_81_rule.exit.thread.sink.split.i.i:        ; preds = %if.then46.i.i.i, %if.then34.i.i.i, %if.end3.i.i.i
+_loop0_81_rule.exit.thread.sink.split.sink.split.i.i: ; preds = %if.then30.i.i.i, %while.end.i.i.i
+  %_children.0.lcssa.i.sink.i.i = phi ptr [ %_children.0.lcssa.i.i.i, %while.end.i.i.i ], [ %_children.047.i18.i.i, %if.then30.i.i.i ]
+  tail call void @PyMem_Free(ptr noundef %_children.0.lcssa.i.sink.i.i) #4
+  br label %_loop0_81_rule.exit.thread.sink.split.i.i
+
+_loop0_81_rule.exit.thread.sink.split.i.i:        ; preds = %_loop0_81_rule.exit.thread.sink.split.sink.split.i.i, %if.end3.i.i.i
   store i32 1, ptr %error_indicator, align 8
   %call36.i.i.i = tail call ptr @PyErr_NoMemory() #4
   br label %_loop0_81_rule.exit.thread.i.i
@@ -30571,11 +30506,7 @@ if.then20.i.i:                                    ; preds = %while.body.i.i
   %mul21.i.i = shl i64 %_n.042.i.i, 4
   %call22.i.i = tail call ptr @PyMem_Realloc(ptr noundef %_children.040.i.i, i64 noundef %mul21.i.i) #4
   %tobool23.not.i.i = icmp eq ptr %call22.i.i, null
-  br i1 %tobool23.not.i.i, label %if.then24.i.i, label %if.end29.i.i
-
-if.then24.i.i:                                    ; preds = %if.then20.i.i
-  tail call void @PyMem_Free(ptr noundef %_children.040.i.i) #4
-  br label %_loop0_169_rule.exit.thread.sink.split.i
+  br i1 %tobool23.not.i.i, label %_loop0_169_rule.exit.thread.sink.split.sink.split.i, label %if.end29.i.i
 
 if.end29.i.i:                                     ; preds = %if.then20.i.i
   %mul.i.i = shl i64 %_n.042.i.i, 1
@@ -30601,7 +30532,7 @@ while.end.i.i:                                    ; preds = %if.end30.i.i, %whil
   %22 = load ptr, ptr %arena.i.i, align 8
   %call34.i.i = tail call ptr @_Py_asdl_generic_seq_new(i64 noundef %_n.0.lcssa.i.i, ptr noundef %22) #4
   %tobool35.not.i.i = icmp eq ptr %call34.i.i, null
-  br i1 %tobool35.not.i.i, label %if.then36.i.i, label %for.cond.preheader.i.i
+  br i1 %tobool35.not.i.i, label %_loop0_169_rule.exit.thread.sink.split.sink.split.i, label %for.cond.preheader.i.i
 
 for.cond.preheader.i.i:                           ; preds = %while.end.i.i
   %cmp4246.i.i = icmp sgt i64 %_n.0.lcssa.i.i, 0
@@ -30610,10 +30541,6 @@ for.cond.preheader.i.i:                           ; preds = %while.end.i.i
 for.body.lr.ph.i.i:                               ; preds = %for.cond.preheader.i.i
   %elements.i.i = getelementptr inbounds i8, ptr %call34.i.i, i64 8
   br label %for.body.i.i
-
-if.then36.i.i:                                    ; preds = %while.end.i.i
-  tail call void @PyMem_Free(ptr noundef nonnull %_children.0.lcssa.i.i) #4
-  br label %_loop0_169_rule.exit.thread.sink.split.i
 
 for.body.i.i:                                     ; preds = %for.body.i.i, %for.body.lr.ph.i.i
   %conv48.i.i = phi i64 [ 0, %for.body.lr.ph.i.i ], [ %conv.i.i, %for.body.i.i ]
@@ -30628,7 +30555,12 @@ for.body.i.i:                                     ; preds = %for.body.i.i, %for.
   %cmp42.i.i = icmp sgt i64 %_n.0.lcssa.i.i, %conv.i.i
   br i1 %cmp42.i.i, label %for.body.i.i, label %land.lhs.true42.i, !llvm.loop !125
 
-_loop0_169_rule.exit.thread.sink.split.i:         ; preds = %if.then36.i.i, %if.then24.i.i, %if.end3.i103.i
+_loop0_169_rule.exit.thread.sink.split.sink.split.i: ; preds = %if.then20.i.i, %while.end.i.i
+  %_children.0.lcssa.i.sink.i = phi ptr [ %_children.0.lcssa.i.i, %while.end.i.i ], [ %_children.040.i.i, %if.then20.i.i ]
+  tail call void @PyMem_Free(ptr noundef %_children.0.lcssa.i.sink.i) #4
+  br label %_loop0_169_rule.exit.thread.sink.split.i
+
+_loop0_169_rule.exit.thread.sink.split.i:         ; preds = %_loop0_169_rule.exit.thread.sink.split.sink.split.i, %if.end3.i103.i
   store i32 1, ptr %error_indicator, align 8
   %call26.i.i = tail call ptr @PyErr_NoMemory() #4
   br label %if.end65.sink.split.i
@@ -30969,25 +30901,21 @@ while.body.i.i53:                                 ; preds = %while.cond.preheade
   %_children_capacity.041.i.i56 = phi i64 [ %_children_capacity.1.i.i61, %if.end30.i.i59 ], [ 1, %while.cond.preheader.i.i50 ]
   %_children.040.i.i57 = phi ptr [ %_children.1.i.i60, %if.end30.i.i59 ], [ %call.i.i46, %while.cond.preheader.i.i50 ]
   %cmp19.i.i58 = icmp eq i64 %_n.042.i.i55, %_children_capacity.041.i.i56
-  br i1 %cmp19.i.i58, label %if.then20.i.i88, label %if.end30.i.i59
+  br i1 %cmp19.i.i58, label %if.then20.i.i87, label %if.end30.i.i59
 
-if.then20.i.i88:                                  ; preds = %while.body.i.i53
-  %mul21.i.i89 = shl i64 %_n.042.i.i55, 4
-  %call22.i.i90 = tail call ptr @PyMem_Realloc(ptr noundef %_children.040.i.i57, i64 noundef %mul21.i.i89) #4
-  %tobool23.not.i.i91 = icmp eq ptr %call22.i.i90, null
-  br i1 %tobool23.not.i.i91, label %if.then24.i.i94, label %if.end29.i.i92
+if.then20.i.i87:                                  ; preds = %while.body.i.i53
+  %mul21.i.i88 = shl i64 %_n.042.i.i55, 4
+  %call22.i.i89 = tail call ptr @PyMem_Realloc(ptr noundef %_children.040.i.i57, i64 noundef %mul21.i.i88) #4
+  %tobool23.not.i.i90 = icmp eq ptr %call22.i.i89, null
+  br i1 %tobool23.not.i.i90, label %if.end32.sink.split.sink.split.sink.split.i, label %if.end29.i.i91
 
-if.then24.i.i94:                                  ; preds = %if.then20.i.i88
-  tail call void @PyMem_Free(ptr noundef %_children.040.i.i57) #4
-  br label %if.end32.sink.split.sink.split.i
-
-if.end29.i.i92:                                   ; preds = %if.then20.i.i88
-  %mul.i.i93 = shl i64 %_n.042.i.i55, 1
+if.end29.i.i91:                                   ; preds = %if.then20.i.i87
+  %mul.i.i92 = shl i64 %_n.042.i.i55, 1
   br label %if.end30.i.i59
 
-if.end30.i.i59:                                   ; preds = %if.end29.i.i92, %while.body.i.i53
-  %_children.1.i.i60 = phi ptr [ %call22.i.i90, %if.end29.i.i92 ], [ %_children.040.i.i57, %while.body.i.i53 ]
-  %_children_capacity.1.i.i61 = phi i64 [ %mul.i.i93, %if.end29.i.i92 ], [ %_children_capacity.041.i.i56, %while.body.i.i53 ]
+if.end30.i.i59:                                   ; preds = %if.end29.i.i91, %while.body.i.i53
+  %_children.1.i.i60 = phi ptr [ %call22.i.i89, %if.end29.i.i91 ], [ %_children.040.i.i57, %while.body.i.i53 ]
+  %_children_capacity.1.i.i61 = phi i64 [ %mul.i.i92, %if.end29.i.i91 ], [ %_children_capacity.041.i.i56, %while.body.i.i53 ]
   %inc31.i.i62 = add i64 %_n.042.i.i55, 1
   %arrayidx.i.i63 = getelementptr ptr, ptr %_children.1.i.i60, i64 %_n.042.i.i55
   store ptr %call1743.i.i54, ptr %arrayidx.i.i63, align 8
@@ -31005,7 +30933,7 @@ while.end.i.i66:                                  ; preds = %if.end30.i.i59, %wh
   %69 = load ptr, ptr %arena.i.i70, align 8
   %call34.i.i71 = tail call ptr @_Py_asdl_generic_seq_new(i64 noundef %_n.0.lcssa.i.i68, ptr noundef %69) #4
   %tobool35.not.i.i72 = icmp eq ptr %call34.i.i71, null
-  br i1 %tobool35.not.i.i72, label %if.then36.i.i87, label %for.cond.preheader.i.i73
+  br i1 %tobool35.not.i.i72, label %if.end32.sink.split.sink.split.sink.split.i, label %for.cond.preheader.i.i73
 
 for.cond.preheader.i.i73:                         ; preds = %while.end.i.i66
   %cmp4246.i.i74 = icmp sgt i64 %_n.0.lcssa.i.i68, 0
@@ -31014,10 +30942,6 @@ for.cond.preheader.i.i73:                         ; preds = %while.end.i.i66
 for.body.lr.ph.i.i77:                             ; preds = %for.cond.preheader.i.i73
   %elements.i.i78 = getelementptr inbounds i8, ptr %call34.i.i71, i64 8
   br label %for.body.i.i79
-
-if.then36.i.i87:                                  ; preds = %while.end.i.i66
-  tail call void @PyMem_Free(ptr noundef nonnull %_children.0.lcssa.i.i67) #4
-  br label %if.end32.sink.split.sink.split.i
 
 for.body.i.i79:                                   ; preds = %for.body.i.i79, %for.body.lr.ph.i.i77
   %conv48.i.i80 = phi i64 [ 0, %for.body.lr.ph.i.i77 ], [ %conv.i.i85, %for.body.i.i79 ]
@@ -31073,13 +30997,9 @@ while.body.i81.i:                                 ; preds = %while.cond.preheade
 
 if.then20.i116.i:                                 ; preds = %while.body.i81.i
   %mul21.i117.i = shl i64 %_n.042.i83.i, 4
-  %call22.i118.i = tail call ptr @PyMem_Realloc(ptr noundef %_children.040.i85.i, i64 noundef %mul21.i117.i) #4
+  %call22.i118.i = tail call ptr @PyMem_Realloc(ptr noundef nonnull %_children.040.i85.i, i64 noundef %mul21.i117.i) #4
   %tobool23.not.i119.i = icmp eq ptr %call22.i118.i, null
-  br i1 %tobool23.not.i119.i, label %if.then24.i122.i, label %if.end29.i120.i
-
-if.then24.i122.i:                                 ; preds = %if.then20.i116.i
-  tail call void @PyMem_Free(ptr noundef %_children.040.i85.i) #4
-  br label %if.end32.sink.split.sink.split.i
+  br i1 %tobool23.not.i119.i, label %if.end32.sink.split.sink.split.sink.split.i, label %if.end29.i120.i
 
 if.end29.i120.i:                                  ; preds = %if.then20.i116.i
   %mul.i121.i = shl i64 %_n.042.i83.i, 1
@@ -31104,7 +31024,7 @@ while.end.i94.i:                                  ; preds = %if.end30.i87.i, %wh
   %77 = load ptr, ptr %arena.i.i70, align 8
   %call34.i99.i = tail call ptr @_Py_asdl_generic_seq_new(i64 noundef %_n.0.lcssa.i96.i, ptr noundef %77) #4
   %tobool35.not.i100.i = icmp eq ptr %call34.i99.i, null
-  br i1 %tobool35.not.i100.i, label %if.then36.i114.i, label %for.cond.preheader.i101.i
+  br i1 %tobool35.not.i100.i, label %if.end32.sink.split.sink.split.sink.split.i, label %for.cond.preheader.i101.i
 
 for.cond.preheader.i101.i:                        ; preds = %while.end.i94.i
   %cmp4246.i102.i = icmp sgt i64 %_n.0.lcssa.i96.i, 0
@@ -31113,10 +31033,6 @@ for.cond.preheader.i101.i:                        ; preds = %while.end.i94.i
 for.body.lr.ph.i104.i:                            ; preds = %for.cond.preheader.i101.i
   %elements.i105.i = getelementptr inbounds i8, ptr %call34.i99.i, i64 8
   br label %for.body.i106.i
-
-if.then36.i114.i:                                 ; preds = %while.end.i94.i
-  tail call void @PyMem_Free(ptr noundef nonnull %_children.0.lcssa.i95.i) #4
-  br label %if.end32.sink.split.sink.split.i
 
 for.body.i106.i:                                  ; preds = %for.body.i106.i, %for.body.lr.ph.i104.i
   %conv48.i107.i = phi i64 [ 0, %for.body.lr.ph.i104.i ], [ %conv.i112.i, %for.body.i106.i ]
@@ -31170,14 +31086,19 @@ INVALID_VERSION_CHECK.exit.i:                     ; preds = %if.end.i128.i
 land.lhs.true24.i:                                ; preds = %INVALID_VERSION_CHECK.exit.i, %INVALID_VERSION_CHECK.exit.thread.i
   %call25.i = tail call ptr @PyErr_Occurred() #4
   %tobool26.not.i = icmp eq ptr %call25.i, null
-  br i1 %tobool26.not.i, label %parameters_rule.exit.thread103, label %if.then27.i
+  br i1 %tobool26.not.i, label %parameters_rule.exit.thread101, label %if.then27.i
 
 if.then27.i:                                      ; preds = %land.lhs.true24.i
   store i32 1, ptr %error_indicator, align 8
   %84 = load i32, ptr %level, align 8
   br label %if.end26
 
-if.end32.sink.split.sink.split.i:                 ; preds = %if.then36.i114.i, %if.then24.i122.i, %if.end3.i72.i, %if.then36.i.i87, %if.then24.i.i94, %if.end3.i.i45
+if.end32.sink.split.sink.split.sink.split.i:      ; preds = %if.then20.i.i87, %if.then20.i116.i, %while.end.i94.i, %while.end.i.i66
+  %_children.0.lcssa.i95.sink.sink.i = phi ptr [ %_children.0.lcssa.i.i67, %while.end.i.i66 ], [ %_children.0.lcssa.i95.i, %while.end.i94.i ], [ %_children.040.i85.i, %if.then20.i116.i ], [ %_children.040.i.i57, %if.then20.i.i87 ]
+  tail call void @PyMem_Free(ptr noundef %_children.0.lcssa.i95.sink.sink.i) #4
+  br label %if.end32.sink.split.sink.split.i
+
+if.end32.sink.split.sink.split.i:                 ; preds = %if.end32.sink.split.sink.split.sink.split.i, %if.end3.i72.i, %if.end3.i.i45
   store i32 1, ptr %error_indicator, align 8
   %call26.i123.i = tail call ptr @PyErr_NoMemory() #4
   br label %if.end32.sink.split.i
@@ -31247,11 +31168,7 @@ if.then20.i185.i:                                 ; preds = %while.body.i150.i
   %mul21.i186.i = shl i64 %_n.042.i152.i, 4
   %call22.i187.i = tail call ptr @PyMem_Realloc(ptr noundef %_children.040.i154.i, i64 noundef %mul21.i186.i) #4
   %tobool23.not.i188.i = icmp eq ptr %call22.i187.i, null
-  br i1 %tobool23.not.i188.i, label %if.then24.i191.i, label %if.end29.i189.i
-
-if.then24.i191.i:                                 ; preds = %if.then20.i185.i
-  tail call void @PyMem_Free(ptr noundef %_children.040.i154.i) #4
-  br label %_loop0_38_rule.exit.thread.sink.split.i
+  br i1 %tobool23.not.i188.i, label %_loop0_38_rule.exit.thread.sink.split.sink.split.i, label %if.end29.i189.i
 
 if.end29.i189.i:                                  ; preds = %if.then20.i185.i
   %mul.i190.i = shl i64 %_n.042.i152.i, 1
@@ -31277,7 +31194,7 @@ while.end.i163.i:                                 ; preds = %if.end30.i156.i, %w
   %91 = load ptr, ptr %arena.i167.i, align 8
   %call34.i168.i = tail call ptr @_Py_asdl_generic_seq_new(i64 noundef %_n.0.lcssa.i165.i, ptr noundef %91) #4
   %tobool35.not.i169.i = icmp eq ptr %call34.i168.i, null
-  br i1 %tobool35.not.i169.i, label %if.then36.i183.i, label %for.cond.preheader.i170.i
+  br i1 %tobool35.not.i169.i, label %_loop0_38_rule.exit.thread.sink.split.sink.split.i, label %for.cond.preheader.i170.i
 
 for.cond.preheader.i170.i:                        ; preds = %while.end.i163.i
   %cmp4246.i171.i = icmp sgt i64 %_n.0.lcssa.i165.i, 0
@@ -31286,10 +31203,6 @@ for.cond.preheader.i170.i:                        ; preds = %while.end.i163.i
 for.body.lr.ph.i173.i:                            ; preds = %for.cond.preheader.i170.i
   %elements.i174.i = getelementptr inbounds i8, ptr %call34.i168.i, i64 8
   br label %for.body.i175.i
-
-if.then36.i183.i:                                 ; preds = %while.end.i163.i
-  tail call void @PyMem_Free(ptr noundef nonnull %_children.0.lcssa.i164.i) #4
-  br label %_loop0_38_rule.exit.thread.sink.split.i
 
 for.body.i175.i:                                  ; preds = %for.body.i175.i, %for.body.lr.ph.i173.i
   %conv48.i176.i = phi i64 [ 0, %for.body.lr.ph.i173.i ], [ %conv.i181.i, %for.body.i175.i ]
@@ -31304,7 +31217,12 @@ for.body.i175.i:                                  ; preds = %for.body.i175.i, %f
   %cmp42.i182.i = icmp sgt i64 %_n.0.lcssa.i165.i, %conv.i181.i
   br i1 %cmp42.i182.i, label %for.body.i175.i, label %land.lhs.true48.i, !llvm.loop !131
 
-_loop0_38_rule.exit.thread.sink.split.i:          ; preds = %if.then36.i183.i, %if.then24.i191.i, %if.end3.i141.i
+_loop0_38_rule.exit.thread.sink.split.sink.split.i: ; preds = %if.then20.i185.i, %while.end.i163.i
+  %_children.0.lcssa.i164.sink.i = phi ptr [ %_children.0.lcssa.i164.i, %while.end.i163.i ], [ %_children.040.i154.i, %if.then20.i185.i ]
+  tail call void @PyMem_Free(ptr noundef %_children.0.lcssa.i164.sink.i) #4
+  br label %_loop0_38_rule.exit.thread.sink.split.i
+
+_loop0_38_rule.exit.thread.sink.split.i:          ; preds = %_loop0_38_rule.exit.thread.sink.split.sink.split.i, %if.end3.i141.i
   store i32 1, ptr %error_indicator, align 8
   %call26.i192.i = tail call ptr @PyErr_NoMemory() #4
   br label %_loop0_38_rule.exit.thread.i
@@ -31337,7 +31255,7 @@ if.then53.i:                                      ; preds = %land.lhs.true48.i
 land.lhs.true57.i:                                ; preds = %if.then53.i
   %call58.i42 = tail call ptr @PyErr_Occurred() #4
   %tobool59.not.i43 = icmp eq ptr %call58.i42, null
-  br i1 %tobool59.not.i43, label %parameters_rule.exit.thread103, label %if.then60.i44
+  br i1 %tobool59.not.i43, label %parameters_rule.exit.thread101, label %if.then60.i44
 
 if.then60.i44:                                    ; preds = %land.lhs.true57.i
   store i32 1, ptr %error_indicator, align 8
@@ -31606,7 +31524,7 @@ if.then86.i39:                                    ; preds = %land.lhs.true81.i
 land.lhs.true89.i:                                ; preds = %if.then86.i39
   %call90.i = tail call ptr @PyErr_Occurred() #4
   %tobool91.not.i = icmp eq ptr %call90.i, null
-  br i1 %tobool91.not.i, label %parameters_rule.exit.thread103, label %if.then92.i
+  br i1 %tobool91.not.i, label %parameters_rule.exit.thread101, label %if.then92.i
 
 if.then92.i:                                      ; preds = %land.lhs.true89.i
   store i32 1, ptr %error_indicator, align 8
@@ -31650,7 +31568,7 @@ if.then114.i:                                     ; preds = %land.lhs.true109.i
 land.lhs.true117.i:                               ; preds = %if.then114.i
   %call118.i37 = tail call ptr @PyErr_Occurred() #4
   %tobool119.not.i38 = icmp eq ptr %call118.i37, null
-  br i1 %tobool119.not.i38, label %parameters_rule.exit.thread103, label %if.then120.i
+  br i1 %tobool119.not.i38, label %parameters_rule.exit.thread101, label %if.then120.i
 
 if.then120.i:                                     ; preds = %land.lhs.true117.i
   store i32 1, ptr %error_indicator, align 8
@@ -31680,7 +31598,7 @@ if.then136.i:                                     ; preds = %if.end132.i
 land.lhs.true139.i:                               ; preds = %if.then136.i
   %call140.i = tail call ptr @PyErr_Occurred() #4
   %tobool141.not.i = icmp eq ptr %call140.i, null
-  br i1 %tobool141.not.i, label %parameters_rule.exit.thread103, label %if.then142.i
+  br i1 %tobool141.not.i, label %parameters_rule.exit.thread101, label %if.then142.i
 
 if.then142.i:                                     ; preds = %land.lhs.true139.i
   store i32 1, ptr %error_indicator, align 8
@@ -31689,9 +31607,9 @@ if.then142.i:                                     ; preds = %land.lhs.true139.i
 
 if.end147.i:                                      ; preds = %if.end132.i
   store i32 %63, ptr %mark, align 8
-  br label %parameters_rule.exit.thread103
+  br label %parameters_rule.exit.thread101
 
-parameters_rule.exit.thread103:                   ; preds = %land.lhs.true24.i, %land.lhs.true57.i, %land.lhs.true89.i, %land.lhs.true117.i, %land.lhs.true139.i, %if.end147.i
+parameters_rule.exit.thread101:                   ; preds = %land.lhs.true24.i, %land.lhs.true57.i, %land.lhs.true89.i, %land.lhs.true117.i, %land.lhs.true139.i, %if.end147.i
   %121 = load i32, ptr %level, align 8
   br label %if.end26
 
@@ -31701,16 +31619,16 @@ parameters_rule.exit:                             ; preds = %if.end.i128.i, %INV
   %dec150.i = add i32 %122, -1
   br label %return
 
-if.end26:                                         ; preds = %if.end97.thread353.i, %if.end97.i, %if.end97.thread.i, %if.end65.i34, %if.end65.thread.i, %if.then1.i, %if.then27.i, %if.then36.i, %if.then60.i44, %if.then92.i, %if.then120.i, %if.then129.i, %if.then142.i, %parameters_rule.exit.thread103
-  %dec150.i101.in = phi i32 [ %121, %parameters_rule.exit.thread103 ], [ %storemerge356.i, %if.end97.thread353.i ], [ %storemerge.i, %if.end97.i ], [ %.pre350.i, %if.end97.thread.i ], [ %.pre348.i, %if.end65.i34 ], [ %.pre.i40, %if.end65.thread.i ], [ %62, %if.then1.i ], [ %84, %if.then27.i ], [ %86, %if.then36.i ], [ %97, %if.then60.i44 ], [ %116, %if.then92.i ], [ %118, %if.then120.i ], [ %119, %if.then129.i ], [ %120, %if.then142.i ]
-  %dec150.i101 = add i32 %dec150.i101.in, -1
+if.end26:                                         ; preds = %if.end97.thread353.i, %if.end97.i, %if.end97.thread.i, %if.end65.i34, %if.end65.thread.i, %if.then1.i, %if.then27.i, %if.then36.i, %if.then60.i44, %if.then92.i, %if.then120.i, %if.then129.i, %if.then142.i, %parameters_rule.exit.thread101
+  %dec150.i99.in = phi i32 [ %121, %parameters_rule.exit.thread101 ], [ %storemerge356.i, %if.end97.thread353.i ], [ %storemerge.i, %if.end97.i ], [ %.pre350.i, %if.end97.thread.i ], [ %.pre348.i, %if.end65.i34 ], [ %.pre.i40, %if.end65.thread.i ], [ %62, %if.then1.i ], [ %84, %if.then27.i ], [ %86, %if.then36.i ], [ %97, %if.then60.i44 ], [ %116, %if.then92.i ], [ %118, %if.then120.i ], [ %119, %if.then129.i ], [ %120, %if.then142.i ]
+  %dec150.i99 = add i32 %dec150.i99.in, -1
   store i32 %3, ptr %mark, align 8
   br label %return
 
 return:                                           ; preds = %if.end26, %parameters_rule.exit, %if.then19, %if.then1
-  %dec150.i100.sink = phi i32 [ %59, %if.then19 ], [ %2, %if.then1 ], [ %dec150.i101, %if.end26 ], [ %dec150.i, %parameters_rule.exit ]
+  %dec150.i98.sink = phi i32 [ %59, %if.then19 ], [ %2, %if.then1 ], [ %dec150.i99, %if.end26 ], [ %dec150.i, %parameters_rule.exit ]
   %retval.0 = phi ptr [ null, %if.then19 ], [ null, %if.then1 ], [ null, %if.end26 ], [ %_res.0.i, %parameters_rule.exit ]
-  %dec29 = add i32 %dec150.i100.sink, -1
+  %dec29 = add i32 %dec150.i98.sink, -1
   store i32 %dec29, ptr %level, align 8
   ret ptr %retval.0
 }
@@ -34174,11 +34092,7 @@ if.then20.i:                                      ; preds = %while.body.i
   %mul21.i = shl i64 %_n.042.i, 4
   %call22.i = tail call ptr @PyMem_Realloc(ptr noundef %_children.040.i, i64 noundef %mul21.i) #4
   %tobool23.not.i = icmp eq ptr %call22.i, null
-  br i1 %tobool23.not.i, label %if.then24.i, label %if.end29.i
-
-if.then24.i:                                      ; preds = %if.then20.i
-  tail call void @PyMem_Free(ptr noundef %_children.040.i) #4
-  br label %_loop0_44_rule.exit.thread.sink.split
+  br i1 %tobool23.not.i, label %_loop0_44_rule.exit.thread.sink.split.sink.split, label %if.end29.i
 
 if.end29.i:                                       ; preds = %if.then20.i
   %mul.i = shl i64 %_n.042.i, 1
@@ -34204,7 +34118,7 @@ while.end.i:                                      ; preds = %if.end30.i, %while.
   %8 = load ptr, ptr %arena.i, align 8
   %call34.i = tail call ptr @_Py_asdl_generic_seq_new(i64 noundef %_n.0.lcssa.i, ptr noundef %8) #4
   %tobool35.not.i = icmp eq ptr %call34.i, null
-  br i1 %tobool35.not.i, label %if.then36.i, label %for.cond.preheader.i
+  br i1 %tobool35.not.i, label %_loop0_44_rule.exit.thread.sink.split.sink.split, label %for.cond.preheader.i
 
 for.cond.preheader.i:                             ; preds = %while.end.i
   %cmp4246.i = icmp sgt i64 %_n.0.lcssa.i, 0
@@ -34213,10 +34127,6 @@ for.cond.preheader.i:                             ; preds = %while.end.i
 for.body.lr.ph.i:                                 ; preds = %for.cond.preheader.i
   %elements.i = getelementptr inbounds i8, ptr %call34.i, i64 8
   br label %for.body.i
-
-if.then36.i:                                      ; preds = %while.end.i
-  tail call void @PyMem_Free(ptr noundef nonnull %_children.0.lcssa.i) #4
-  br label %_loop0_44_rule.exit.thread.sink.split
 
 for.body.i:                                       ; preds = %for.body.i, %for.body.lr.ph.i
   %conv48.i = phi i64 [ 0, %for.body.lr.ph.i ], [ %conv.i, %for.body.i ]
@@ -34231,7 +34141,12 @@ for.body.i:                                       ; preds = %for.body.i, %for.bo
   %cmp42.i = icmp sgt i64 %_n.0.lcssa.i, %conv.i
   br i1 %cmp42.i, label %for.body.i, label %land.lhs.true, !llvm.loop !155
 
-_loop0_44_rule.exit.thread.sink.split:            ; preds = %if.end3.i, %if.then36.i, %if.then24.i
+_loop0_44_rule.exit.thread.sink.split.sink.split: ; preds = %if.then20.i, %while.end.i
+  %_children.0.lcssa.i.sink = phi ptr [ %_children.0.lcssa.i, %while.end.i ], [ %_children.040.i, %if.then20.i ]
+  tail call void @PyMem_Free(ptr noundef %_children.0.lcssa.i.sink) #4
+  br label %_loop0_44_rule.exit.thread.sink.split
+
+_loop0_44_rule.exit.thread.sink.split:            ; preds = %_loop0_44_rule.exit.thread.sink.split.sink.split, %if.end3.i
   store i32 1, ptr %error_indicator, align 8
   %call26.i = tail call ptr @PyErr_NoMemory() #4
   br label %if.end30.sink.split
@@ -34440,11 +34355,7 @@ if.then20.i123:                                   ; preds = %while.body.i88
   %mul21.i124 = shl i64 %_n.042.i90, 4
   %call22.i125 = tail call ptr @PyMem_Realloc(ptr noundef %_children.040.i92, i64 noundef %mul21.i124) #4
   %tobool23.not.i126 = icmp eq ptr %call22.i125, null
-  br i1 %tobool23.not.i126, label %if.then24.i129, label %if.end29.i127
-
-if.then24.i129:                                   ; preds = %if.then20.i123
-  tail call void @PyMem_Free(ptr noundef %_children.040.i92) #4
-  br label %_loop0_46_rule.exit.thread.sink.split
+  br i1 %tobool23.not.i126, label %_loop0_46_rule.exit.thread.sink.split.sink.split, label %if.end29.i127
 
 if.end29.i127:                                    ; preds = %if.then20.i123
   %mul.i128 = shl i64 %_n.042.i90, 1
@@ -34470,7 +34381,7 @@ while.end.i101:                                   ; preds = %if.end30.i94, %whil
   %28 = load ptr, ptr %arena.i105, align 8
   %call34.i106 = tail call ptr @_Py_asdl_generic_seq_new(i64 noundef %_n.0.lcssa.i103, ptr noundef %28) #4
   %tobool35.not.i107 = icmp eq ptr %call34.i106, null
-  br i1 %tobool35.not.i107, label %if.then36.i121, label %for.cond.preheader.i108
+  br i1 %tobool35.not.i107, label %_loop0_46_rule.exit.thread.sink.split.sink.split, label %for.cond.preheader.i108
 
 for.cond.preheader.i108:                          ; preds = %while.end.i101
   %cmp4246.i109 = icmp sgt i64 %_n.0.lcssa.i103, 0
@@ -34479,10 +34390,6 @@ for.cond.preheader.i108:                          ; preds = %while.end.i101
 for.body.lr.ph.i111:                              ; preds = %for.cond.preheader.i108
   %elements.i112 = getelementptr inbounds i8, ptr %call34.i106, i64 8
   br label %for.body.i113
-
-if.then36.i121:                                   ; preds = %while.end.i101
-  tail call void @PyMem_Free(ptr noundef nonnull %_children.0.lcssa.i102) #4
-  br label %_loop0_46_rule.exit.thread.sink.split
 
 for.body.i113:                                    ; preds = %for.body.i113, %for.body.lr.ph.i111
   %conv48.i114 = phi i64 [ 0, %for.body.lr.ph.i111 ], [ %conv.i119, %for.body.i113 ]
@@ -34497,7 +34404,12 @@ for.body.i113:                                    ; preds = %for.body.i113, %for
   %cmp42.i120 = icmp sgt i64 %_n.0.lcssa.i103, %conv.i119
   br i1 %cmp42.i120, label %for.body.i113, label %land.lhs.true43, !llvm.loop !159
 
-_loop0_46_rule.exit.thread.sink.split:            ; preds = %if.end3.i79, %if.then36.i121, %if.then24.i129
+_loop0_46_rule.exit.thread.sink.split.sink.split: ; preds = %if.then20.i123, %while.end.i101
+  %_children.0.lcssa.i102.sink = phi ptr [ %_children.0.lcssa.i102, %while.end.i101 ], [ %_children.040.i92, %if.then20.i123 ]
+  tail call void @PyMem_Free(ptr noundef %_children.0.lcssa.i102.sink) #4
+  br label %_loop0_46_rule.exit.thread.sink.split
+
+_loop0_46_rule.exit.thread.sink.split:            ; preds = %_loop0_46_rule.exit.thread.sink.split.sink.split, %if.end3.i79
   store i32 1, ptr %error_indicator, align 8
   %call26.i130 = tail call ptr @PyErr_NoMemory() #4
   br label %if.end63.sink.split
@@ -35416,11 +35328,7 @@ if.then20.i:                                      ; preds = %while.body.i
   %mul21.i = shl i64 %_n.042.i, 4
   %call22.i = tail call ptr @PyMem_Realloc(ptr noundef %_children.040.i, i64 noundef %mul21.i) #4
   %tobool23.not.i = icmp eq ptr %call22.i, null
-  br i1 %tobool23.not.i, label %if.then24.i, label %if.end29.i
-
-if.then24.i:                                      ; preds = %if.then20.i
-  tail call void @PyMem_Free(ptr noundef %_children.040.i) #4
-  br label %_loop0_48_rule.exit.thread.sink.split
+  br i1 %tobool23.not.i, label %_loop0_48_rule.exit.thread.sink.split.sink.split, label %if.end29.i
 
 if.end29.i:                                       ; preds = %if.then20.i
   %mul.i = shl i64 %_n.042.i, 1
@@ -35446,7 +35354,7 @@ while.end.i:                                      ; preds = %if.end30.i, %while.
   %48 = load ptr, ptr %arena.i, align 8
   %call34.i = tail call ptr @_Py_asdl_generic_seq_new(i64 noundef %_n.0.lcssa.i, ptr noundef %48) #4
   %tobool35.not.i = icmp eq ptr %call34.i, null
-  br i1 %tobool35.not.i, label %if.then36.i, label %for.cond.preheader.i
+  br i1 %tobool35.not.i, label %_loop0_48_rule.exit.thread.sink.split.sink.split, label %for.cond.preheader.i
 
 for.cond.preheader.i:                             ; preds = %while.end.i
   %cmp4246.i = icmp sgt i64 %_n.0.lcssa.i, 0
@@ -35455,10 +35363,6 @@ for.cond.preheader.i:                             ; preds = %while.end.i
 for.body.lr.ph.i:                                 ; preds = %for.cond.preheader.i
   %elements.i = getelementptr inbounds i8, ptr %call34.i, i64 8
   br label %for.body.i
-
-if.then36.i:                                      ; preds = %while.end.i
-  tail call void @PyMem_Free(ptr noundef nonnull %_children.0.lcssa.i) #4
-  br label %_loop0_48_rule.exit.thread.sink.split
 
 for.body.i:                                       ; preds = %for.body.i, %for.body.lr.ph.i
   %conv48.i = phi i64 [ 0, %for.body.lr.ph.i ], [ %conv.i71, %for.body.i ]
@@ -35473,7 +35377,12 @@ for.body.i:                                       ; preds = %for.body.i, %for.bo
   %cmp42.i = icmp sgt i64 %_n.0.lcssa.i, %conv.i71
   br i1 %cmp42.i, label %for.body.i, label %land.lhs.true30, !llvm.loop !163
 
-_loop0_48_rule.exit.thread.sink.split:            ; preds = %if.end3.i66, %if.then36.i, %if.then24.i
+_loop0_48_rule.exit.thread.sink.split.sink.split: ; preds = %if.then20.i, %while.end.i
+  %_children.0.lcssa.i.sink = phi ptr [ %_children.0.lcssa.i, %while.end.i ], [ %_children.040.i, %if.then20.i ]
+  tail call void @PyMem_Free(ptr noundef %_children.0.lcssa.i.sink) #4
+  br label %_loop0_48_rule.exit.thread.sink.split
+
+_loop0_48_rule.exit.thread.sink.split:            ; preds = %_loop0_48_rule.exit.thread.sink.split.sink.split, %if.end3.i66
   store i32 1, ptr %error_indicator, align 8
   %call26.i = tail call ptr @PyErr_NoMemory() #4
   br label %_loop0_48_rule.exit.thread
@@ -37972,11 +37881,7 @@ if.then30.i:                                      ; preds = %if.end28.i
   %mul31.i = shl i64 %_children_capacity.045.i20, 4
   %call32.i = tail call ptr @PyMem_Realloc(ptr noundef %_children.047.i18, i64 noundef %mul31.i) #4
   %tobool33.not.i = icmp eq ptr %call32.i, null
-  br i1 %tobool33.not.i, label %if.then34.i, label %if.end39.i
-
-if.then34.i:                                      ; preds = %if.then30.i
-  tail call void @PyMem_Free(ptr noundef %_children.047.i18) #4
-  br label %_loop0_54_rule.exit.thread.sink.split
+  br i1 %tobool33.not.i, label %_loop0_54_rule.exit.thread.sink.split.sink.split, label %if.end39.i
 
 if.end39.i:                                       ; preds = %if.then30.i
   %mul.i = shl i64 %_children_capacity.045.i20, 1
@@ -38002,7 +37907,7 @@ while.end.i:                                      ; preds = %land.rhs.i, %if.end
   %8 = load ptr, ptr %arena.i, align 8
   %call44.i = tail call ptr @_Py_asdl_generic_seq_new(i64 noundef %_n.0.lcssa.i, ptr noundef %8) #4
   %tobool45.not.i = icmp eq ptr %call44.i, null
-  br i1 %tobool45.not.i, label %if.then46.i, label %for.cond.preheader.i
+  br i1 %tobool45.not.i, label %_loop0_54_rule.exit.thread.sink.split.sink.split, label %for.cond.preheader.i
 
 for.cond.preheader.i:                             ; preds = %while.end.i
   %cmp5254.i = icmp sgt i64 %_n.0.lcssa.i, 0
@@ -38011,10 +37916,6 @@ for.cond.preheader.i:                             ; preds = %while.end.i
 for.body.lr.ph.i:                                 ; preds = %for.cond.preheader.i
   %elements.i = getelementptr inbounds i8, ptr %call44.i, i64 8
   br label %for.body.i
-
-if.then46.i:                                      ; preds = %while.end.i
-  tail call void @PyMem_Free(ptr noundef nonnull %_children.0.lcssa.i) #4
-  br label %_loop0_54_rule.exit.thread.sink.split
 
 for.body.i:                                       ; preds = %for.body.i, %for.body.lr.ph.i
   %conv56.i = phi i64 [ 0, %for.body.lr.ph.i ], [ %conv.i, %for.body.i ]
@@ -38029,7 +37930,12 @@ for.body.i:                                       ; preds = %for.body.i, %for.bo
   %cmp52.i = icmp sgt i64 %_n.0.lcssa.i, %conv.i
   br i1 %cmp52.i, label %for.body.i, label %if.then13, !llvm.loop !173
 
-_loop0_54_rule.exit.thread.sink.split:            ; preds = %if.end3.i, %if.then46.i, %if.then34.i
+_loop0_54_rule.exit.thread.sink.split.sink.split: ; preds = %if.then30.i, %while.end.i
+  %_children.0.lcssa.i.sink = phi ptr [ %_children.0.lcssa.i, %while.end.i ], [ %_children.047.i18, %if.then30.i ]
+  tail call void @PyMem_Free(ptr noundef %_children.0.lcssa.i.sink) #4
+  br label %_loop0_54_rule.exit.thread.sink.split
+
+_loop0_54_rule.exit.thread.sink.split:            ; preds = %_loop0_54_rule.exit.thread.sink.split.sink.split, %if.end3.i
   store i32 1, ptr %error_indicator, align 8
   %call36.i = tail call ptr @PyErr_NoMemory() #4
   br label %_loop0_54_rule.exit.thread
@@ -38141,11 +38047,7 @@ if.then30.i:                                      ; preds = %if.end28.i
   %mul31.i = shl i64 %_children_capacity.045.i20, 4
   %call32.i = tail call ptr @PyMem_Realloc(ptr noundef %_children.047.i18, i64 noundef %mul31.i) #4
   %tobool33.not.i = icmp eq ptr %call32.i, null
-  br i1 %tobool33.not.i, label %if.then34.i, label %if.end39.i
-
-if.then34.i:                                      ; preds = %if.then30.i
-  tail call void @PyMem_Free(ptr noundef %_children.047.i18) #4
-  br label %_loop0_56_rule.exit.thread.sink.split
+  br i1 %tobool33.not.i, label %_loop0_56_rule.exit.thread.sink.split.sink.split, label %if.end39.i
 
 if.end39.i:                                       ; preds = %if.then30.i
   %mul.i = shl i64 %_children_capacity.045.i20, 1
@@ -38171,7 +38073,7 @@ while.end.i:                                      ; preds = %land.rhs.i, %if.end
   %8 = load ptr, ptr %arena.i, align 8
   %call44.i = tail call ptr @_Py_asdl_generic_seq_new(i64 noundef %_n.0.lcssa.i, ptr noundef %8) #4
   %tobool45.not.i = icmp eq ptr %call44.i, null
-  br i1 %tobool45.not.i, label %if.then46.i, label %for.cond.preheader.i
+  br i1 %tobool45.not.i, label %_loop0_56_rule.exit.thread.sink.split.sink.split, label %for.cond.preheader.i
 
 for.cond.preheader.i:                             ; preds = %while.end.i
   %cmp5254.i = icmp sgt i64 %_n.0.lcssa.i, 0
@@ -38180,10 +38082,6 @@ for.cond.preheader.i:                             ; preds = %while.end.i
 for.body.lr.ph.i:                                 ; preds = %for.cond.preheader.i
   %elements.i = getelementptr inbounds i8, ptr %call44.i, i64 8
   br label %for.body.i
-
-if.then46.i:                                      ; preds = %while.end.i
-  tail call void @PyMem_Free(ptr noundef nonnull %_children.0.lcssa.i) #4
-  br label %_loop0_56_rule.exit.thread.sink.split
 
 for.body.i:                                       ; preds = %for.body.i, %for.body.lr.ph.i
   %conv56.i = phi i64 [ 0, %for.body.lr.ph.i ], [ %conv.i, %for.body.i ]
@@ -38198,7 +38096,12 @@ for.body.i:                                       ; preds = %for.body.i, %for.bo
   %cmp52.i = icmp sgt i64 %_n.0.lcssa.i, %conv.i
   br i1 %cmp52.i, label %for.body.i, label %if.then13, !llvm.loop !175
 
-_loop0_56_rule.exit.thread.sink.split:            ; preds = %if.end3.i, %if.then46.i, %if.then34.i
+_loop0_56_rule.exit.thread.sink.split.sink.split: ; preds = %if.then30.i, %while.end.i
+  %_children.0.lcssa.i.sink = phi ptr [ %_children.0.lcssa.i, %while.end.i ], [ %_children.047.i18, %if.then30.i ]
+  tail call void @PyMem_Free(ptr noundef %_children.0.lcssa.i.sink) #4
+  br label %_loop0_56_rule.exit.thread.sink.split
+
+_loop0_56_rule.exit.thread.sink.split:            ; preds = %_loop0_56_rule.exit.thread.sink.split.sink.split, %if.end3.i
   store i32 1, ptr %error_indicator, align 8
   %call36.i = tail call ptr @PyErr_NoMemory() #4
   br label %_loop0_56_rule.exit.thread
@@ -38312,11 +38215,7 @@ if.then30.i:                                      ; preds = %if.end28.i
   %mul31.i = shl i64 %_children_capacity.045.i20, 4
   %call32.i = tail call ptr @PyMem_Realloc(ptr noundef %_children.047.i18, i64 noundef %mul31.i) #4
   %tobool33.not.i = icmp eq ptr %call32.i, null
-  br i1 %tobool33.not.i, label %if.then34.i, label %if.end39.i
-
-if.then34.i:                                      ; preds = %if.then30.i
-  tail call void @PyMem_Free(ptr noundef %_children.047.i18) #4
-  br label %_loop0_58_rule.exit.thread.sink.split
+  br i1 %tobool33.not.i, label %_loop0_58_rule.exit.thread.sink.split.sink.split, label %if.end39.i
 
 if.end39.i:                                       ; preds = %if.then30.i
   %mul.i = shl i64 %_children_capacity.045.i20, 1
@@ -38342,7 +38241,7 @@ while.end.i:                                      ; preds = %land.rhs.i, %if.end
   %8 = load ptr, ptr %arena.i, align 8
   %call44.i = tail call ptr @_Py_asdl_generic_seq_new(i64 noundef %_n.0.lcssa.i, ptr noundef %8) #4
   %tobool45.not.i = icmp eq ptr %call44.i, null
-  br i1 %tobool45.not.i, label %if.then46.i, label %for.cond.preheader.i
+  br i1 %tobool45.not.i, label %_loop0_58_rule.exit.thread.sink.split.sink.split, label %for.cond.preheader.i
 
 for.cond.preheader.i:                             ; preds = %while.end.i
   %cmp5254.i = icmp sgt i64 %_n.0.lcssa.i, 0
@@ -38351,10 +38250,6 @@ for.cond.preheader.i:                             ; preds = %while.end.i
 for.body.lr.ph.i:                                 ; preds = %for.cond.preheader.i
   %elements.i = getelementptr inbounds i8, ptr %call44.i, i64 8
   br label %for.body.i
-
-if.then46.i:                                      ; preds = %while.end.i
-  tail call void @PyMem_Free(ptr noundef nonnull %_children.0.lcssa.i) #4
-  br label %_loop0_58_rule.exit.thread.sink.split
 
 for.body.i:                                       ; preds = %for.body.i, %for.body.lr.ph.i
   %conv56.i = phi i64 [ 0, %for.body.lr.ph.i ], [ %conv.i, %for.body.i ]
@@ -38369,7 +38264,12 @@ for.body.i:                                       ; preds = %for.body.i, %for.bo
   %cmp52.i = icmp sgt i64 %_n.0.lcssa.i, %conv.i
   br i1 %cmp52.i, label %for.body.i, label %if.then13, !llvm.loop !177
 
-_loop0_58_rule.exit.thread.sink.split:            ; preds = %if.end3.i, %if.then46.i, %if.then34.i
+_loop0_58_rule.exit.thread.sink.split.sink.split: ; preds = %if.then30.i, %while.end.i
+  %_children.0.lcssa.i.sink = phi ptr [ %_children.0.lcssa.i, %while.end.i ], [ %_children.047.i18, %if.then30.i ]
+  tail call void @PyMem_Free(ptr noundef %_children.0.lcssa.i.sink) #4
+  br label %_loop0_58_rule.exit.thread.sink.split
+
+_loop0_58_rule.exit.thread.sink.split:            ; preds = %_loop0_58_rule.exit.thread.sink.split.sink.split, %if.end3.i
   store i32 1, ptr %error_indicator, align 8
   %call36.i = tail call ptr @PyErr_NoMemory() #4
   br label %_loop0_58_rule.exit.thread
@@ -38512,11 +38412,7 @@ if.then30.i.i:                                    ; preds = %if.end28.i.i
   %mul31.i.i = shl i64 %_children_capacity.045.i20.i, 4
   %call32.i.i = tail call ptr @PyMem_Realloc(ptr noundef %_children.047.i18.i, i64 noundef %mul31.i.i) #4
   %tobool33.not.i.i = icmp eq ptr %call32.i.i, null
-  br i1 %tobool33.not.i.i, label %if.then34.i.i, label %if.end39.i.i
-
-if.then34.i.i:                                    ; preds = %if.then30.i.i
-  tail call void @PyMem_Free(ptr noundef %_children.047.i18.i) #4
-  br label %_loop0_206_rule.exit.thread.sink.split.i
+  br i1 %tobool33.not.i.i, label %_loop0_206_rule.exit.thread.sink.split.sink.split.i, label %if.end39.i.i
 
 if.end39.i.i:                                     ; preds = %if.then30.i.i
   %mul.i.i = shl i64 %_children_capacity.045.i20.i, 1
@@ -38542,7 +38438,7 @@ while.end.i.i:                                    ; preds = %if.end40.i.i, %land
   %11 = load ptr, ptr %arena.i.i, align 8
   %call44.i.i = tail call ptr @_Py_asdl_generic_seq_new(i64 noundef %_n.0.lcssa.i.i, ptr noundef %11) #4
   %tobool45.not.i.i = icmp eq ptr %call44.i.i, null
-  br i1 %tobool45.not.i.i, label %if.then46.i.i, label %for.cond.preheader.i.i
+  br i1 %tobool45.not.i.i, label %_loop0_206_rule.exit.thread.sink.split.sink.split.i, label %for.cond.preheader.i.i
 
 for.cond.preheader.i.i:                           ; preds = %while.end.i.i
   %cmp5254.i.i = icmp sgt i64 %_n.0.lcssa.i.i, 0
@@ -38551,10 +38447,6 @@ for.cond.preheader.i.i:                           ; preds = %while.end.i.i
 for.body.lr.ph.i.i:                               ; preds = %for.cond.preheader.i.i
   %elements.i.i = getelementptr inbounds i8, ptr %call44.i.i, i64 8
   br label %for.body.i.i
-
-if.then46.i.i:                                    ; preds = %while.end.i.i
-  tail call void @PyMem_Free(ptr noundef nonnull %_children.0.lcssa.i.i) #4
-  br label %_loop0_206_rule.exit.thread.sink.split.i
 
 for.body.i.i:                                     ; preds = %for.body.i.i, %for.body.lr.ph.i.i
   %conv56.i.i = phi i64 [ 0, %for.body.lr.ph.i.i ], [ %conv.i.i, %for.body.i.i ]
@@ -38569,7 +38461,12 @@ for.body.i.i:                                     ; preds = %for.body.i.i, %for.
   %cmp52.i.i = icmp sgt i64 %_n.0.lcssa.i.i, %conv.i.i
   br i1 %cmp52.i.i, label %for.body.i.i, label %_gather_205_rule.exit, !llvm.loop !179
 
-_loop0_206_rule.exit.thread.sink.split.i:         ; preds = %if.then46.i.i, %if.then34.i.i, %if.end3.i.i
+_loop0_206_rule.exit.thread.sink.split.sink.split.i: ; preds = %if.then30.i.i, %while.end.i.i
+  %_children.0.lcssa.i.sink.i = phi ptr [ %_children.0.lcssa.i.i, %while.end.i.i ], [ %_children.047.i18.i, %if.then30.i.i ]
+  tail call void @PyMem_Free(ptr noundef %_children.0.lcssa.i.sink.i) #4
+  br label %_loop0_206_rule.exit.thread.sink.split.i
+
+_loop0_206_rule.exit.thread.sink.split.i:         ; preds = %_loop0_206_rule.exit.thread.sink.split.sink.split.i, %if.end3.i.i
   store i32 1, ptr %error_indicator, align 8
   %call36.i.i = tail call ptr @PyErr_NoMemory() #4
   br label %_loop0_206_rule.exit.thread.i
@@ -38769,11 +38666,7 @@ if.then30.i:                                      ; preds = %if.end28.i
   %mul31.i = shl i64 %_children_capacity.045.i20, 4
   %call32.i = tail call ptr @PyMem_Realloc(ptr noundef %_children.047.i18, i64 noundef %mul31.i) #4
   %tobool33.not.i = icmp eq ptr %call32.i, null
-  br i1 %tobool33.not.i, label %if.then34.i, label %if.end39.i
-
-if.then34.i:                                      ; preds = %if.then30.i
-  tail call void @PyMem_Free(ptr noundef %_children.047.i18) #4
-  br label %_loop0_212_rule.exit.thread.sink.split
+  br i1 %tobool33.not.i, label %_loop0_212_rule.exit.thread.sink.split.sink.split, label %if.end39.i
 
 if.end39.i:                                       ; preds = %if.then30.i
   %mul.i = shl i64 %_children_capacity.045.i20, 1
@@ -38799,7 +38692,7 @@ while.end.i:                                      ; preds = %land.rhs.i, %if.end
   %8 = load ptr, ptr %arena.i, align 8
   %call44.i = tail call ptr @_Py_asdl_generic_seq_new(i64 noundef %_n.0.lcssa.i, ptr noundef %8) #4
   %tobool45.not.i = icmp eq ptr %call44.i, null
-  br i1 %tobool45.not.i, label %if.then46.i, label %for.cond.preheader.i
+  br i1 %tobool45.not.i, label %_loop0_212_rule.exit.thread.sink.split.sink.split, label %for.cond.preheader.i
 
 for.cond.preheader.i:                             ; preds = %while.end.i
   %cmp5254.i = icmp sgt i64 %_n.0.lcssa.i, 0
@@ -38808,10 +38701,6 @@ for.cond.preheader.i:                             ; preds = %while.end.i
 for.body.lr.ph.i:                                 ; preds = %for.cond.preheader.i
   %elements.i = getelementptr inbounds i8, ptr %call44.i, i64 8
   br label %for.body.i
-
-if.then46.i:                                      ; preds = %while.end.i
-  tail call void @PyMem_Free(ptr noundef nonnull %_children.0.lcssa.i) #4
-  br label %_loop0_212_rule.exit.thread.sink.split
 
 for.body.i:                                       ; preds = %for.body.i, %for.body.lr.ph.i
   %conv56.i = phi i64 [ 0, %for.body.lr.ph.i ], [ %conv.i, %for.body.i ]
@@ -38826,7 +38715,12 @@ for.body.i:                                       ; preds = %for.body.i, %for.bo
   %cmp52.i = icmp sgt i64 %_n.0.lcssa.i, %conv.i
   br i1 %cmp52.i, label %for.body.i, label %if.then13, !llvm.loop !181
 
-_loop0_212_rule.exit.thread.sink.split:           ; preds = %if.end3.i, %if.then46.i, %if.then34.i
+_loop0_212_rule.exit.thread.sink.split.sink.split: ; preds = %if.then30.i, %while.end.i
+  %_children.0.lcssa.i.sink = phi ptr [ %_children.0.lcssa.i, %while.end.i ], [ %_children.047.i18, %if.then30.i ]
+  tail call void @PyMem_Free(ptr noundef %_children.0.lcssa.i.sink) #4
+  br label %_loop0_212_rule.exit.thread.sink.split
+
+_loop0_212_rule.exit.thread.sink.split:           ; preds = %_loop0_212_rule.exit.thread.sink.split.sink.split, %if.end3.i
   store i32 1, ptr %error_indicator, align 8
   %call36.i = tail call ptr @PyErr_NoMemory() #4
   br label %_loop0_212_rule.exit.thread
@@ -39778,11 +39672,7 @@ if.then30.i:                                      ; preds = %if.end28.i
   %mul31.i = shl i64 %_children_capacity.045.i20, 4
   %call32.i = tail call ptr @PyMem_Realloc(ptr noundef %_children.047.i18, i64 noundef %mul31.i) #4
   %tobool33.not.i = icmp eq ptr %call32.i, null
-  br i1 %tobool33.not.i, label %if.then34.i, label %if.end39.i
-
-if.then34.i:                                      ; preds = %if.then30.i
-  tail call void @PyMem_Free(ptr noundef %_children.047.i18) #4
-  br label %_loop0_208_rule.exit.thread.sink.split
+  br i1 %tobool33.not.i, label %_loop0_208_rule.exit.thread.sink.split.sink.split, label %if.end39.i
 
 if.end39.i:                                       ; preds = %if.then30.i
   %mul.i = shl i64 %_children_capacity.045.i20, 1
@@ -39808,7 +39698,7 @@ while.end.i:                                      ; preds = %land.rhs.i, %if.end
   %8 = load ptr, ptr %arena.i, align 8
   %call44.i = tail call ptr @_Py_asdl_generic_seq_new(i64 noundef %_n.0.lcssa.i, ptr noundef %8) #4
   %tobool45.not.i = icmp eq ptr %call44.i, null
-  br i1 %tobool45.not.i, label %if.then46.i, label %for.cond.preheader.i
+  br i1 %tobool45.not.i, label %_loop0_208_rule.exit.thread.sink.split.sink.split, label %for.cond.preheader.i
 
 for.cond.preheader.i:                             ; preds = %while.end.i
   %cmp5254.i = icmp sgt i64 %_n.0.lcssa.i, 0
@@ -39817,10 +39707,6 @@ for.cond.preheader.i:                             ; preds = %while.end.i
 for.body.lr.ph.i:                                 ; preds = %for.cond.preheader.i
   %elements.i = getelementptr inbounds i8, ptr %call44.i, i64 8
   br label %for.body.i
-
-if.then46.i:                                      ; preds = %while.end.i
-  tail call void @PyMem_Free(ptr noundef nonnull %_children.0.lcssa.i) #4
-  br label %_loop0_208_rule.exit.thread.sink.split
 
 for.body.i:                                       ; preds = %for.body.i, %for.body.lr.ph.i
   %conv56.i = phi i64 [ 0, %for.body.lr.ph.i ], [ %conv.i, %for.body.i ]
@@ -39835,7 +39721,12 @@ for.body.i:                                       ; preds = %for.body.i, %for.bo
   %cmp52.i = icmp sgt i64 %_n.0.lcssa.i, %conv.i
   br i1 %cmp52.i, label %for.body.i, label %if.then13, !llvm.loop !185
 
-_loop0_208_rule.exit.thread.sink.split:           ; preds = %if.end3.i, %if.then46.i, %if.then34.i
+_loop0_208_rule.exit.thread.sink.split.sink.split: ; preds = %if.then30.i, %while.end.i
+  %_children.0.lcssa.i.sink = phi ptr [ %_children.0.lcssa.i, %while.end.i ], [ %_children.047.i18, %if.then30.i ]
+  tail call void @PyMem_Free(ptr noundef %_children.0.lcssa.i.sink) #4
+  br label %_loop0_208_rule.exit.thread.sink.split
+
+_loop0_208_rule.exit.thread.sink.split:           ; preds = %_loop0_208_rule.exit.thread.sink.split.sink.split, %if.end3.i
   store i32 1, ptr %error_indicator, align 8
   %call36.i = tail call ptr @PyErr_NoMemory() #4
   br label %_loop0_208_rule.exit.thread
@@ -49677,11 +49568,7 @@ if.then30.i.i.i:                                  ; preds = %if.end28.i.i.i
   %mul31.i.i.i = shl i64 %_children_capacity.045.i20.i.i, 4
   %call32.i.i.i = tail call ptr @PyMem_Realloc(ptr noundef %_children.047.i18.i.i, i64 noundef %mul31.i.i.i) #4
   %tobool33.not.i.i.i = icmp eq ptr %call32.i.i.i, null
-  br i1 %tobool33.not.i.i.i, label %if.then34.i.i.i, label %if.end39.i.i.i
-
-if.then34.i.i.i:                                  ; preds = %if.then30.i.i.i
-  tail call void @PyMem_Free(ptr noundef %_children.047.i18.i.i) #4
-  br label %_loop0_204_rule.exit.thread.sink.split.i.i
+  br i1 %tobool33.not.i.i.i, label %_loop0_204_rule.exit.thread.sink.split.sink.split.i.i, label %if.end39.i.i.i
 
 if.end39.i.i.i:                                   ; preds = %if.then30.i.i.i
   %mul.i.i.i = shl i64 %_children_capacity.045.i20.i.i, 1
@@ -49707,7 +49594,7 @@ while.end.i.i.i:                                  ; preds = %if.end40.i.i.i, %la
   %13 = load ptr, ptr %arena.i.i.i, align 8
   %call44.i.i.i = tail call ptr @_Py_asdl_generic_seq_new(i64 noundef %_n.0.lcssa.i.i.i, ptr noundef %13) #4
   %tobool45.not.i.i.i = icmp eq ptr %call44.i.i.i, null
-  br i1 %tobool45.not.i.i.i, label %if.then46.i.i.i, label %for.cond.preheader.i.i.i
+  br i1 %tobool45.not.i.i.i, label %_loop0_204_rule.exit.thread.sink.split.sink.split.i.i, label %for.cond.preheader.i.i.i
 
 for.cond.preheader.i.i.i:                         ; preds = %while.end.i.i.i
   %cmp5254.i.i.i = icmp sgt i64 %_n.0.lcssa.i.i.i, 0
@@ -49716,10 +49603,6 @@ for.cond.preheader.i.i.i:                         ; preds = %while.end.i.i.i
 for.body.lr.ph.i.i.i:                             ; preds = %for.cond.preheader.i.i.i
   %elements.i.i.i = getelementptr inbounds i8, ptr %call44.i.i.i, i64 8
   br label %for.body.i.i.i
-
-if.then46.i.i.i:                                  ; preds = %while.end.i.i.i
-  tail call void @PyMem_Free(ptr noundef nonnull %_children.0.lcssa.i.i.i) #4
-  br label %_loop0_204_rule.exit.thread.sink.split.i.i
 
 for.body.i.i.i:                                   ; preds = %for.body.i.i.i, %for.body.lr.ph.i.i.i
   %conv56.i.i.i = phi i64 [ 0, %for.body.lr.ph.i.i.i ], [ %conv.i.i.i, %for.body.i.i.i ]
@@ -49734,7 +49617,12 @@ for.body.i.i.i:                                   ; preds = %for.body.i.i.i, %fo
   %cmp52.i.i.i = icmp sgt i64 %_n.0.lcssa.i.i.i, %conv.i.i.i
   br i1 %cmp52.i.i.i, label %for.body.i.i.i, label %_gather_203_rule.exit.i, !llvm.loop !209
 
-_loop0_204_rule.exit.thread.sink.split.i.i:       ; preds = %if.then46.i.i.i, %if.then34.i.i.i, %if.end3.i.i.i
+_loop0_204_rule.exit.thread.sink.split.sink.split.i.i: ; preds = %if.then30.i.i.i, %while.end.i.i.i
+  %_children.0.lcssa.i.sink.i.i = phi ptr [ %_children.0.lcssa.i.i.i, %while.end.i.i.i ], [ %_children.047.i18.i.i, %if.then30.i.i.i ]
+  tail call void @PyMem_Free(ptr noundef %_children.0.lcssa.i.sink.i.i) #4
+  br label %_loop0_204_rule.exit.thread.sink.split.i.i
+
+_loop0_204_rule.exit.thread.sink.split.i.i:       ; preds = %_loop0_204_rule.exit.thread.sink.split.sink.split.i.i, %if.end3.i.i.i
   store i32 1, ptr %error_indicator, align 8
   %call36.i.i.i = tail call ptr @PyErr_NoMemory() #4
   br label %_loop0_204_rule.exit.thread.i.i
@@ -49959,11 +49847,7 @@ if.then30.i.i.i.i:                                ; preds = %if.end28.i.i.i.i
   %mul31.i.i.i.i = shl i64 %_children_capacity.045.i20.i.i.i, 4
   %call32.i.i.i.i = tail call ptr @PyMem_Realloc(ptr noundef %_children.047.i18.i.i.i, i64 noundef %mul31.i.i.i.i) #4
   %tobool33.not.i.i.i.i = icmp eq ptr %call32.i.i.i.i, null
-  br i1 %tobool33.not.i.i.i.i, label %if.then34.i.i.i.i, label %if.end39.i.i.i.i
-
-if.then34.i.i.i.i:                                ; preds = %if.then30.i.i.i.i
-  tail call void @PyMem_Free(ptr noundef %_children.047.i18.i.i.i) #4
-  br label %_loop0_30_rule.exit.thread.sink.split.i.i.i
+  br i1 %tobool33.not.i.i.i.i, label %_loop0_30_rule.exit.thread.sink.split.sink.split.i.i.i, label %if.end39.i.i.i.i
 
 if.end39.i.i.i.i:                                 ; preds = %if.then30.i.i.i.i
   %mul.i.i.i.i = shl i64 %_children_capacity.045.i20.i.i.i, 1
@@ -49989,7 +49873,7 @@ while.end.i.i.i.i:                                ; preds = %if.end40.i.i.i.i, %
   %39 = load ptr, ptr %arena.i.i.i.i, align 8
   %call44.i.i.i.i = tail call ptr @_Py_asdl_generic_seq_new(i64 noundef %_n.0.lcssa.i.i.i.i, ptr noundef %39) #4
   %tobool45.not.i.i.i.i = icmp eq ptr %call44.i.i.i.i, null
-  br i1 %tobool45.not.i.i.i.i, label %if.then46.i.i.i.i, label %for.cond.preheader.i.i.i.i
+  br i1 %tobool45.not.i.i.i.i, label %_loop0_30_rule.exit.thread.sink.split.sink.split.i.i.i, label %for.cond.preheader.i.i.i.i
 
 for.cond.preheader.i.i.i.i:                       ; preds = %while.end.i.i.i.i
   %cmp5254.i.i.i.i = icmp sgt i64 %_n.0.lcssa.i.i.i.i, 0
@@ -49998,10 +49882,6 @@ for.cond.preheader.i.i.i.i:                       ; preds = %while.end.i.i.i.i
 for.body.lr.ph.i.i.i.i:                           ; preds = %for.cond.preheader.i.i.i.i
   %elements.i.i.i.i = getelementptr inbounds i8, ptr %call44.i.i.i.i, i64 8
   br label %for.body.i.i.i.i
-
-if.then46.i.i.i.i:                                ; preds = %while.end.i.i.i.i
-  tail call void @PyMem_Free(ptr noundef nonnull %_children.0.lcssa.i.i.i.i) #4
-  br label %_loop0_30_rule.exit.thread.sink.split.i.i.i
 
 for.body.i.i.i.i:                                 ; preds = %for.body.i.i.i.i, %for.body.lr.ph.i.i.i.i
   %conv56.i.i.i.i = phi i64 [ 0, %for.body.lr.ph.i.i.i.i ], [ %conv.i.i.i.i, %for.body.i.i.i.i ]
@@ -50016,7 +49896,12 @@ for.body.i.i.i.i:                                 ; preds = %for.body.i.i.i.i, %
   %cmp52.i.i.i.i = icmp sgt i64 %_n.0.lcssa.i.i.i.i, %conv.i.i.i.i
   br i1 %cmp52.i.i.i.i, label %for.body.i.i.i.i, label %_gather_29_rule.exit.i.i, !llvm.loop !211
 
-_loop0_30_rule.exit.thread.sink.split.i.i.i:      ; preds = %if.then46.i.i.i.i, %if.then34.i.i.i.i, %if.end3.i.i.i.i
+_loop0_30_rule.exit.thread.sink.split.sink.split.i.i.i: ; preds = %if.then30.i.i.i.i, %while.end.i.i.i.i
+  %_children.0.lcssa.i.sink.i.i.i = phi ptr [ %_children.0.lcssa.i.i.i.i, %while.end.i.i.i.i ], [ %_children.047.i18.i.i.i, %if.then30.i.i.i.i ]
+  tail call void @PyMem_Free(ptr noundef %_children.0.lcssa.i.sink.i.i.i) #4
+  br label %_loop0_30_rule.exit.thread.sink.split.i.i.i
+
+_loop0_30_rule.exit.thread.sink.split.i.i.i:      ; preds = %_loop0_30_rule.exit.thread.sink.split.sink.split.i.i.i, %if.end3.i.i.i.i
   store i32 1, ptr %error_indicator, align 8
   %call36.i.i.i.i = tail call ptr @PyErr_NoMemory() #4
   br label %_loop0_30_rule.exit.thread.i.i.i
@@ -50929,11 +50814,7 @@ if.then30.i.i:                                    ; preds = %if.end28.i.i
   %mul31.i.i = shl i64 %_children_capacity.045.i20.i, 4
   %call32.i.i = tail call ptr @PyMem_Realloc(ptr noundef %_children.047.i18.i, i64 noundef %mul31.i.i) #4
   %tobool33.not.i.i = icmp eq ptr %call32.i.i, null
-  br i1 %tobool33.not.i.i, label %if.then34.i.i, label %if.end39.i.i
-
-if.then34.i.i:                                    ; preds = %if.then30.i.i
-  tail call void @PyMem_Free(ptr noundef %_children.047.i18.i) #4
-  br label %_loop0_19_rule.exit.thread.sink.split.i
+  br i1 %tobool33.not.i.i, label %_loop0_19_rule.exit.thread.sink.split.sink.split.i, label %if.end39.i.i
 
 if.end39.i.i:                                     ; preds = %if.then30.i.i
   %mul.i.i = shl i64 %_children_capacity.045.i20.i, 1
@@ -50959,7 +50840,7 @@ while.end.i.i:                                    ; preds = %if.end40.i.i, %land
   %16 = load ptr, ptr %arena.i.i, align 8
   %call44.i.i = tail call ptr @_Py_asdl_generic_seq_new(i64 noundef %_n.0.lcssa.i.i, ptr noundef %16) #4
   %tobool45.not.i.i = icmp eq ptr %call44.i.i, null
-  br i1 %tobool45.not.i.i, label %if.then46.i.i, label %for.cond.preheader.i.i
+  br i1 %tobool45.not.i.i, label %_loop0_19_rule.exit.thread.sink.split.sink.split.i, label %for.cond.preheader.i.i
 
 for.cond.preheader.i.i:                           ; preds = %while.end.i.i
   %cmp5254.i.i = icmp sgt i64 %_n.0.lcssa.i.i, 0
@@ -50968,10 +50849,6 @@ for.cond.preheader.i.i:                           ; preds = %while.end.i.i
 for.body.lr.ph.i.i:                               ; preds = %for.cond.preheader.i.i
   %elements.i.i = getelementptr inbounds i8, ptr %call44.i.i, i64 8
   br label %for.body.i.i
-
-if.then46.i.i:                                    ; preds = %while.end.i.i
-  tail call void @PyMem_Free(ptr noundef nonnull %_children.0.lcssa.i.i) #4
-  br label %_loop0_19_rule.exit.thread.sink.split.i
 
 for.body.i.i:                                     ; preds = %for.body.i.i, %for.body.lr.ph.i.i
   %conv56.i.i = phi i64 [ 0, %for.body.lr.ph.i.i ], [ %conv.i.i, %for.body.i.i ]
@@ -50986,7 +50863,12 @@ for.body.i.i:                                     ; preds = %for.body.i.i, %for.
   %cmp52.i.i = icmp sgt i64 %_n.0.lcssa.i.i, %conv.i.i
   br i1 %cmp52.i.i, label %for.body.i.i, label %_gather_18_rule.exit, !llvm.loop !213
 
-_loop0_19_rule.exit.thread.sink.split.i:          ; preds = %if.then46.i.i, %if.then34.i.i, %if.end3.i.i
+_loop0_19_rule.exit.thread.sink.split.sink.split.i: ; preds = %if.then30.i.i, %while.end.i.i
+  %_children.0.lcssa.i.sink.i = phi ptr [ %_children.0.lcssa.i.i, %while.end.i.i ], [ %_children.047.i18.i, %if.then30.i.i ]
+  tail call void @PyMem_Free(ptr noundef %_children.0.lcssa.i.sink.i) #4
+  br label %_loop0_19_rule.exit.thread.sink.split.i
+
+_loop0_19_rule.exit.thread.sink.split.i:          ; preds = %_loop0_19_rule.exit.thread.sink.split.sink.split.i, %if.end3.i.i
   store i32 1, ptr %error_indicator, align 8
   %call36.i.i = tail call ptr @PyErr_NoMemory() #4
   br label %_loop0_19_rule.exit.thread.i
@@ -51199,11 +51081,7 @@ if.then30.i.i:                                    ; preds = %if.end28.i.i
   %mul31.i.i = shl i64 %_children_capacity.045.i20.i, 4
   %call32.i.i = tail call ptr @PyMem_Realloc(ptr noundef %_children.047.i18.i, i64 noundef %mul31.i.i) #4
   %tobool33.not.i.i = icmp eq ptr %call32.i.i, null
-  br i1 %tobool33.not.i.i, label %if.then34.i.i, label %if.end39.i.i
-
-if.then34.i.i:                                    ; preds = %if.then30.i.i
-  tail call void @PyMem_Free(ptr noundef %_children.047.i18.i) #4
-  br label %_loop0_21_rule.exit.thread.sink.split.i
+  br i1 %tobool33.not.i.i, label %_loop0_21_rule.exit.thread.sink.split.sink.split.i, label %if.end39.i.i
 
 if.end39.i.i:                                     ; preds = %if.then30.i.i
   %mul.i.i = shl i64 %_children_capacity.045.i20.i, 1
@@ -51229,7 +51107,7 @@ while.end.i.i:                                    ; preds = %if.end40.i.i, %land
   %16 = load ptr, ptr %arena.i.i, align 8
   %call44.i.i = tail call ptr @_Py_asdl_generic_seq_new(i64 noundef %_n.0.lcssa.i.i, ptr noundef %16) #4
   %tobool45.not.i.i = icmp eq ptr %call44.i.i, null
-  br i1 %tobool45.not.i.i, label %if.then46.i.i, label %for.cond.preheader.i.i
+  br i1 %tobool45.not.i.i, label %_loop0_21_rule.exit.thread.sink.split.sink.split.i, label %for.cond.preheader.i.i
 
 for.cond.preheader.i.i:                           ; preds = %while.end.i.i
   %cmp5254.i.i = icmp sgt i64 %_n.0.lcssa.i.i, 0
@@ -51238,10 +51116,6 @@ for.cond.preheader.i.i:                           ; preds = %while.end.i.i
 for.body.lr.ph.i.i:                               ; preds = %for.cond.preheader.i.i
   %elements.i.i = getelementptr inbounds i8, ptr %call44.i.i, i64 8
   br label %for.body.i.i
-
-if.then46.i.i:                                    ; preds = %while.end.i.i
-  tail call void @PyMem_Free(ptr noundef nonnull %_children.0.lcssa.i.i) #4
-  br label %_loop0_21_rule.exit.thread.sink.split.i
 
 for.body.i.i:                                     ; preds = %for.body.i.i, %for.body.lr.ph.i.i
   %conv56.i.i = phi i64 [ 0, %for.body.lr.ph.i.i ], [ %conv.i.i, %for.body.i.i ]
@@ -51256,7 +51130,12 @@ for.body.i.i:                                     ; preds = %for.body.i.i, %for.
   %cmp52.i.i = icmp sgt i64 %_n.0.lcssa.i.i, %conv.i.i
   br i1 %cmp52.i.i, label %for.body.i.i, label %_gather_20_rule.exit, !llvm.loop !215
 
-_loop0_21_rule.exit.thread.sink.split.i:          ; preds = %if.then46.i.i, %if.then34.i.i, %if.end3.i.i
+_loop0_21_rule.exit.thread.sink.split.sink.split.i: ; preds = %if.then30.i.i, %while.end.i.i
+  %_children.0.lcssa.i.sink.i = phi ptr [ %_children.0.lcssa.i.i, %while.end.i.i ], [ %_children.047.i18.i, %if.then30.i.i ]
+  tail call void @PyMem_Free(ptr noundef %_children.0.lcssa.i.sink.i) #4
+  br label %_loop0_21_rule.exit.thread.sink.split.i
+
+_loop0_21_rule.exit.thread.sink.split.i:          ; preds = %_loop0_21_rule.exit.thread.sink.split.sink.split.i, %if.end3.i.i
   store i32 1, ptr %error_indicator, align 8
   %call36.i.i = tail call ptr @PyErr_NoMemory() #4
   br label %_loop0_21_rule.exit.thread.i
@@ -52243,11 +52122,7 @@ if.then20.i:                                      ; preds = %while.body.i
   %mul21.i = shl i64 %_n.042.i, 4
   %call22.i = tail call ptr @PyMem_Realloc(ptr noundef %_children.040.i, i64 noundef %mul21.i) #4
   %tobool23.not.i = icmp eq ptr %call22.i, null
-  br i1 %tobool23.not.i, label %if.then24.i, label %if.end29.i
-
-if.then24.i:                                      ; preds = %if.then20.i
-  tail call void @PyMem_Free(ptr noundef %_children.040.i) #4
-  br label %_loop0_161_rule.exit.thread.sink.split
+  br i1 %tobool23.not.i, label %_loop0_161_rule.exit.thread.sink.split.sink.split, label %if.end29.i
 
 if.end29.i:                                       ; preds = %if.then20.i
   %mul.i = shl i64 %_n.042.i, 1
@@ -52273,7 +52148,7 @@ while.end.i:                                      ; preds = %if.end30.i, %while.
   %14 = load ptr, ptr %arena.i, align 8
   %call34.i = tail call ptr @_Py_asdl_generic_seq_new(i64 noundef %_n.0.lcssa.i, ptr noundef %14) #4
   %tobool35.not.i = icmp eq ptr %call34.i, null
-  br i1 %tobool35.not.i, label %if.then36.i, label %for.cond.preheader.i
+  br i1 %tobool35.not.i, label %_loop0_161_rule.exit.thread.sink.split.sink.split, label %for.cond.preheader.i
 
 for.cond.preheader.i:                             ; preds = %while.end.i
   %cmp4246.i = icmp sgt i64 %_n.0.lcssa.i, 0
@@ -52282,10 +52157,6 @@ for.cond.preheader.i:                             ; preds = %while.end.i
 for.body.lr.ph.i:                                 ; preds = %for.cond.preheader.i
   %elements.i = getelementptr inbounds i8, ptr %call34.i, i64 8
   br label %for.body.i
-
-if.then36.i:                                      ; preds = %while.end.i
-  tail call void @PyMem_Free(ptr noundef nonnull %_children.0.lcssa.i) #4
-  br label %_loop0_161_rule.exit.thread.sink.split
 
 for.body.i:                                       ; preds = %for.body.i, %for.body.lr.ph.i
   %conv48.i = phi i64 [ 0, %for.body.lr.ph.i ], [ %conv.i, %for.body.i ]
@@ -52300,7 +52171,12 @@ for.body.i:                                       ; preds = %for.body.i, %for.bo
   %cmp42.i = icmp sgt i64 %_n.0.lcssa.i, %conv.i
   br i1 %cmp42.i, label %for.body.i, label %land.lhs.true51, !llvm.loop !219
 
-_loop0_161_rule.exit.thread.sink.split:           ; preds = %if.end3.i, %if.then36.i, %if.then24.i
+_loop0_161_rule.exit.thread.sink.split.sink.split: ; preds = %if.then20.i, %while.end.i
+  %_children.0.lcssa.i.sink = phi ptr [ %_children.0.lcssa.i, %while.end.i ], [ %_children.040.i, %if.then20.i ]
+  tail call void @PyMem_Free(ptr noundef %_children.0.lcssa.i.sink) #4
+  br label %_loop0_161_rule.exit.thread.sink.split
+
+_loop0_161_rule.exit.thread.sink.split:           ; preds = %_loop0_161_rule.exit.thread.sink.split.sink.split, %if.end3.i
   store i32 1, ptr %error_indicator, align 8
   %call26.i = tail call ptr @PyErr_NoMemory() #4
   br label %_loop0_161_rule.exit.thread
@@ -54202,11 +54078,7 @@ if.then30.i.i:                                    ; preds = %if.end28.i.i
   %mul31.i.i = shl i64 %_children_capacity.045.i20.i, 4
   %call32.i.i = tail call ptr @PyMem_Realloc(ptr noundef %_children.047.i18.i, i64 noundef %mul31.i.i) #4
   %tobool33.not.i.i = icmp eq ptr %call32.i.i, null
-  br i1 %tobool33.not.i.i, label %if.then34.i.i, label %if.end39.i.i
-
-if.then34.i.i:                                    ; preds = %if.then30.i.i
-  tail call void @PyMem_Free(ptr noundef %_children.047.i18.i) #4
-  br label %_loop0_27_rule.exit.thread.sink.split.i
+  br i1 %tobool33.not.i.i, label %_loop0_27_rule.exit.thread.sink.split.sink.split.i, label %if.end39.i.i
 
 if.end39.i.i:                                     ; preds = %if.then30.i.i
   %mul.i.i = shl i64 %_children_capacity.045.i20.i, 1
@@ -54232,7 +54104,7 @@ while.end.i.i:                                    ; preds = %if.end40.i.i, %land
   %9 = load ptr, ptr %arena.i.i, align 8
   %call44.i.i = tail call ptr @_Py_asdl_generic_seq_new(i64 noundef %_n.0.lcssa.i.i, ptr noundef %9) #4
   %tobool45.not.i.i = icmp eq ptr %call44.i.i, null
-  br i1 %tobool45.not.i.i, label %if.then46.i.i, label %for.cond.preheader.i.i
+  br i1 %tobool45.not.i.i, label %_loop0_27_rule.exit.thread.sink.split.sink.split.i, label %for.cond.preheader.i.i
 
 for.cond.preheader.i.i:                           ; preds = %while.end.i.i
   %cmp5254.i.i = icmp sgt i64 %_n.0.lcssa.i.i, 0
@@ -54241,10 +54113,6 @@ for.cond.preheader.i.i:                           ; preds = %while.end.i.i
 for.body.lr.ph.i.i:                               ; preds = %for.cond.preheader.i.i
   %elements.i.i = getelementptr inbounds i8, ptr %call44.i.i, i64 8
   br label %for.body.i.i
-
-if.then46.i.i:                                    ; preds = %while.end.i.i
-  tail call void @PyMem_Free(ptr noundef nonnull %_children.0.lcssa.i.i) #4
-  br label %_loop0_27_rule.exit.thread.sink.split.i
 
 for.body.i.i:                                     ; preds = %for.body.i.i, %for.body.lr.ph.i.i
   %conv56.i.i = phi i64 [ 0, %for.body.lr.ph.i.i ], [ %conv.i.i, %for.body.i.i ]
@@ -54259,7 +54127,12 @@ for.body.i.i:                                     ; preds = %for.body.i.i, %for.
   %cmp52.i.i = icmp sgt i64 %_n.0.lcssa.i.i, %conv.i.i
   br i1 %cmp52.i.i, label %for.body.i.i, label %_gather_26_rule.exit, !llvm.loop !229
 
-_loop0_27_rule.exit.thread.sink.split.i:          ; preds = %if.then46.i.i, %if.then34.i.i, %if.end3.i.i
+_loop0_27_rule.exit.thread.sink.split.sink.split.i: ; preds = %if.then30.i.i, %while.end.i.i
+  %_children.0.lcssa.i.sink.i = phi ptr [ %_children.0.lcssa.i.i, %while.end.i.i ], [ %_children.047.i18.i, %if.then30.i.i ]
+  tail call void @PyMem_Free(ptr noundef %_children.0.lcssa.i.sink.i) #4
+  br label %_loop0_27_rule.exit.thread.sink.split.i
+
+_loop0_27_rule.exit.thread.sink.split.i:          ; preds = %_loop0_27_rule.exit.thread.sink.split.sink.split.i, %if.end3.i.i
   store i32 1, ptr %error_indicator, align 8
   %call36.i.i = tail call ptr @PyErr_NoMemory() #4
   br label %_loop0_27_rule.exit.thread.i
@@ -55342,11 +55215,7 @@ if.then30.i:                                      ; preds = %if.end28.i
   %mul31.i = shl i64 %_children_capacity.045.i20, 4
   %call32.i = tail call ptr @PyMem_Realloc(ptr noundef %_children.047.i18, i64 noundef %mul31.i) #4
   %tobool33.not.i = icmp eq ptr %call32.i, null
-  br i1 %tobool33.not.i, label %if.then34.i, label %if.end39.i
-
-if.then34.i:                                      ; preds = %if.then30.i
-  tail call void @PyMem_Free(ptr noundef %_children.047.i18) #4
-  br label %_loop0_148_rule.exit.thread.sink.split
+  br i1 %tobool33.not.i, label %_loop0_148_rule.exit.thread.sink.split.sink.split, label %if.end39.i
 
 if.end39.i:                                       ; preds = %if.then30.i
   %mul.i = shl i64 %_children_capacity.045.i20, 1
@@ -55372,7 +55241,7 @@ while.end.i:                                      ; preds = %land.rhs.i, %if.end
   %8 = load ptr, ptr %arena.i, align 8
   %call44.i = tail call ptr @_Py_asdl_generic_seq_new(i64 noundef %_n.0.lcssa.i, ptr noundef %8) #4
   %tobool45.not.i = icmp eq ptr %call44.i, null
-  br i1 %tobool45.not.i, label %if.then46.i, label %for.cond.preheader.i
+  br i1 %tobool45.not.i, label %_loop0_148_rule.exit.thread.sink.split.sink.split, label %for.cond.preheader.i
 
 for.cond.preheader.i:                             ; preds = %while.end.i
   %cmp5254.i = icmp sgt i64 %_n.0.lcssa.i, 0
@@ -55381,10 +55250,6 @@ for.cond.preheader.i:                             ; preds = %while.end.i
 for.body.lr.ph.i:                                 ; preds = %for.cond.preheader.i
   %elements.i = getelementptr inbounds i8, ptr %call44.i, i64 8
   br label %for.body.i
-
-if.then46.i:                                      ; preds = %while.end.i
-  tail call void @PyMem_Free(ptr noundef nonnull %_children.0.lcssa.i) #4
-  br label %_loop0_148_rule.exit.thread.sink.split
 
 for.body.i:                                       ; preds = %for.body.i, %for.body.lr.ph.i
   %conv56.i = phi i64 [ 0, %for.body.lr.ph.i ], [ %conv.i, %for.body.i ]
@@ -55399,7 +55264,12 @@ for.body.i:                                       ; preds = %for.body.i, %for.bo
   %cmp52.i = icmp sgt i64 %_n.0.lcssa.i, %conv.i
   br i1 %cmp52.i, label %for.body.i, label %if.then13, !llvm.loop !233
 
-_loop0_148_rule.exit.thread.sink.split:           ; preds = %if.end3.i, %if.then46.i, %if.then34.i
+_loop0_148_rule.exit.thread.sink.split.sink.split: ; preds = %if.then30.i, %while.end.i
+  %_children.0.lcssa.i.sink = phi ptr [ %_children.0.lcssa.i, %while.end.i ], [ %_children.047.i18, %if.then30.i ]
+  tail call void @PyMem_Free(ptr noundef %_children.0.lcssa.i.sink) #4
+  br label %_loop0_148_rule.exit.thread.sink.split
+
+_loop0_148_rule.exit.thread.sink.split:           ; preds = %_loop0_148_rule.exit.thread.sink.split.sink.split, %if.end3.i
   store i32 1, ptr %error_indicator, align 8
   %call36.i = tail call ptr @PyErr_NoMemory() #4
   br label %_loop0_148_rule.exit.thread

@@ -12268,7 +12268,7 @@ nghttp2_session_is_my_stream_id.exit:             ; preds = %6
   %11 = trunc i32 %1 to i1
   %12 = icmp eq i8 %10, 0
   %.not = xor i1 %12, %11
-  br i1 %.not, label %nghttp2_session_is_my_stream_id.exit.thread, label %30
+  br i1 %.not, label %nghttp2_session_is_my_stream_id.exit.thread, label %29
 
 nghttp2_session_is_my_stream_id.exit.thread:      ; preds = %6, %nghttp2_session_is_my_stream_id.exit
   %.not44 = icmp eq i64 %4, 0
@@ -12277,12 +12277,12 @@ nghttp2_session_is_my_stream_id.exit.thread:      ; preds = %6, %nghttp2_session
 13:                                               ; preds = %nghttp2_session_is_my_stream_id.exit.thread
   %14 = add i64 %4, -16377
   %15 = icmp ult i64 %14, -16385
-  br i1 %15, label %30, label %16
+  br i1 %15, label %29, label %16
 
 16:                                               ; preds = %13
   %17 = tail call ptr @nghttp2_mem_malloc(ptr noundef nonnull %7, i64 noundef %4) #20
   %18 = icmp eq ptr %17, null
-  br i1 %18, label %30, label %19
+  br i1 %18, label %29, label %19
 
 19:                                               ; preds = %16
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %17, ptr align 1 %3, i64 %4, i1 false)
@@ -12292,31 +12292,32 @@ nghttp2_session_is_my_stream_id.exit.thread:      ; preds = %6, %nghttp2_session
   %.037 = phi ptr [ %17, %19 ], [ null, %nghttp2_session_is_my_stream_id.exit.thread ]
   %21 = tail call ptr @nghttp2_mem_malloc(ptr noundef nonnull %7, i64 noundef 152) #20
   %22 = icmp eq ptr %21, null
-  br i1 %22, label %23, label %24
+  br i1 %22, label %.sink.split, label %23
 
 23:                                               ; preds = %20
-  tail call void @nghttp2_mem_free(ptr noundef nonnull %7, ptr noundef %.037) #20
-  br label %30
-
-24:                                               ; preds = %20
   tail call void @nghttp2_outbound_item_init(ptr noundef nonnull %21) #20
-  %25 = getelementptr inbounds i8, ptr %0, i64 2732
-  %26 = load i32, ptr %25, align 4
-  %. = tail call i32 @llvm.smin.i32(i32 %1, i32 %26)
+  %24 = getelementptr inbounds i8, ptr %0, i64 2732
+  %25 = load i32, ptr %24, align 4
+  %. = tail call i32 @llvm.smin.i32(i32 %1, i32 %25)
   tail call void @nghttp2_frame_goaway_init(ptr noundef nonnull %21, i32 noundef %., i32 noundef %2, ptr noundef %.037, i64 noundef %4) #20
-  %27 = getelementptr inbounds i8, ptr %21, i64 96
-  store i8 %5, ptr %27, align 1
-  %28 = tail call i32 @nghttp2_session_add_item(ptr noundef %0, ptr noundef nonnull %21)
-  %.not45 = icmp eq i32 %28, 0
-  br i1 %.not45, label %30, label %29
+  %26 = getelementptr inbounds i8, ptr %21, i64 96
+  store i8 %5, ptr %26, align 1
+  %27 = tail call i32 @nghttp2_session_add_item(ptr noundef %0, ptr noundef nonnull %21)
+  %.not45 = icmp eq i32 %27, 0
+  br i1 %.not45, label %29, label %28
 
-29:                                               ; preds = %24
+28:                                               ; preds = %23
   tail call void @nghttp2_frame_goaway_free(ptr noundef nonnull %21, ptr noundef nonnull %7) #20
-  tail call void @nghttp2_mem_free(ptr noundef nonnull %7, ptr noundef nonnull %21) #20
-  br label %30
+  br label %.sink.split
 
-30:                                               ; preds = %24, %16, %13, %nghttp2_session_is_my_stream_id.exit, %29, %23
-  %.0 = phi i32 [ -901, %23 ], [ %28, %29 ], [ -501, %nghttp2_session_is_my_stream_id.exit ], [ -501, %13 ], [ -901, %16 ], [ 0, %24 ]
+.sink.split:                                      ; preds = %20, %28
+  %.sink = phi ptr [ %21, %28 ], [ %.037, %20 ]
+  %.0.ph = phi i32 [ %27, %28 ], [ -901, %20 ]
+  tail call void @nghttp2_mem_free(ptr noundef nonnull %7, ptr noundef %.sink) #20
+  br label %29
+
+29:                                               ; preds = %.sink.split, %23, %16, %13, %nghttp2_session_is_my_stream_id.exit
+  %.0 = phi i32 [ -501, %nghttp2_session_is_my_stream_id.exit ], [ -501, %13 ], [ -901, %16 ], [ 0, %23 ], [ %.0.ph, %.sink.split ]
   ret i32 %.0
 }
 

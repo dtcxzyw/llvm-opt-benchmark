@@ -37,23 +37,13 @@ if.then5:                                         ; preds = %if.else
 if.end6:                                          ; preds = %if.else
   %call7 = tail call i32 @EVP_MD_CTX_copy_ex(ptr noundef nonnull %call4, ptr noundef %ctx) #2
   %tobool8.not = icmp eq i32 %call7, 0
-  br i1 %tobool8.not, label %if.else12, label %if.then9
-
-if.then9:                                         ; preds = %if.end6
-  %call11 = call i32 @EVP_DigestFinal_ex(ptr noundef nonnull %call4, ptr noundef nonnull %m, ptr noundef nonnull %m_len) #2
-  br label %if.end15
-
-if.else12:                                        ; preds = %if.end6
-  %call14 = call i32 @EVP_DigestFinal_ex(ptr noundef %ctx, ptr noundef nonnull %m, ptr noundef nonnull %m_len) #2
-  br label %if.end15
-
-if.end15:                                         ; preds = %if.else12, %if.then9
-  %rv.0 = phi i32 [ %call11, %if.then9 ], [ %call14, %if.else12 ]
+  %ctx.call4 = select i1 %tobool8.not, ptr %ctx, ptr %call4
+  %call14 = call i32 @EVP_DigestFinal_ex(ptr noundef %ctx.call4, ptr noundef nonnull %m, ptr noundef nonnull %m_len) #2
   call void @EVP_MD_CTX_free(ptr noundef nonnull %call4) #2
-  %tobool16.not = icmp eq i32 %rv.0, 0
+  %tobool16.not = icmp eq i32 %call14, 0
   br i1 %tobool16.not, label %return, label %if.end19
 
-if.end19:                                         ; preds = %if.end15, %if.then
+if.end19:                                         ; preds = %if.end6, %if.then
   %call20 = call i32 @EVP_PKEY_get_size(ptr noundef %pkey) #2
   %conv = sext i32 %call20 to i64
   store i64 %conv, ptr %sltmp, align 8
@@ -91,8 +81,8 @@ err:                                              ; preds = %if.end36, %if.end30
   call void @EVP_PKEY_CTX_free(ptr noundef %pkctx.0) #2
   br label %return
 
-return:                                           ; preds = %if.end15, %err, %if.then5
-  %retval.0 = phi i32 [ %i.0, %err ], [ 0, %if.then5 ], [ 0, %if.end15 ]
+return:                                           ; preds = %if.end6, %err, %if.then5
+  %retval.0 = phi i32 [ %i.0, %err ], [ 0, %if.then5 ], [ 0, %if.end6 ]
   ret i32 %retval.0
 }
 

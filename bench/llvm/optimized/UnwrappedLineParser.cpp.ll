@@ -1748,9 +1748,9 @@ define dso_local void @_ZN5clang6format19UnwrappedLineParser9readTokenEi(ptr nou
   %41 = getelementptr inbounds i8, ptr %8, i64 16
   br label %42
 
-42:                                               ; preds = %668, %2
-  %.018 = phi i1 [ false, %2 ], [ %.119.in.lcssa, %668 ]
-  %.0 = phi i1 [ false, %2 ], [ %.1.lcssa, %668 ]
+42:                                               ; preds = %667, %2
+  %.018 = phi i1 [ false, %2 ], [ %.119.in.lcssa, %667 ]
+  %.0 = phi i1 [ false, %2 ], [ %.1.lcssa, %667 ]
   %43 = load ptr, ptr %11, align 8
   %44 = load ptr, ptr %43, align 8
   %45 = getelementptr inbounds i8, ptr %44, i64 16
@@ -1997,26 +1997,26 @@ _ZN5clang6format19UnwrappedLineParser25conditionalCompilationEndEv.exit: ; preds
   %176 = getelementptr inbounds nuw i8, ptr %175, i64 16
   %177 = load i16, ptr %176, align 8
   %178 = icmp eq i16 %177, 67
-  br i1 %178, label %.lr.ph269, label %.critedge
+  br i1 %178, label %.lr.ph268, label %.critedge
 
 .lr.ph:                                           ; preds = %_ZN5clang6format15ScopedLineStateD2Ev.exit
   %179 = load ptr, ptr %12, align 8
   %180 = getelementptr inbounds nuw i8, ptr %179, i64 16
   %181 = load i16, ptr %180, align 8
   %182 = icmp eq i16 %181, 67
-  br i1 %182, label %.lr.ph269, label %.critedge, !llvm.loop !24
+  br i1 %182, label %.lr.ph268, label %.critedge, !llvm.loop !24
 
-.lr.ph269:                                        ; preds = %.lr.ph.preheader, %.lr.ph
+.lr.ph268:                                        ; preds = %.lr.ph.preheader, %.lr.ph
   %183 = phi ptr [ %179, %.lr.ph ], [ %175, %.lr.ph.preheader ]
-  %.119.in179268 = phi i1 [ %.0.i28, %.lr.ph ], [ %.0.i, %.lr.ph.preheader ]
-  %.1180267 = phi i1 [ %470, %.lr.ph ], [ %170, %.lr.ph.preheader ]
+  %.119.in179267 = phi i1 [ %.0.i28, %.lr.ph ], [ %.0.i, %.lr.ph.preheader ]
+  %.1180266 = phi i1 [ %470, %.lr.ph ], [ %170, %.lr.ph.preheader ]
   %184 = load ptr, ptr %22, align 8
   %185 = getelementptr inbounds nuw i8, ptr %184, i64 422
   %186 = load i8, ptr %185, align 2
   %187 = icmp eq i8 %186, 10
   br i1 %187, label %188, label %246
 
-188:                                              ; preds = %.lr.ph269
+188:                                              ; preds = %.lr.ph268
   %189 = load ptr, ptr %23, align 8
   %190 = load ptr, ptr %11, align 8
   %191 = load ptr, ptr %190, align 8
@@ -2156,15 +2156,15 @@ switch.hole_check:                                ; preds = %199
 
 _ZNK5clang6format18AdditionalKeywords20isVerilogPPDirectiveERKNS0_11FormatTokenE.exit: ; preds = %switch.hole_check, %_ZNK5clang6format11FormatToken2isEPKNS_14IdentifierInfoE.exit.i.i, %_ZNK5clang6format11FormatToken2isEPKNS_14IdentifierInfoE.exit.i.i.i, %_ZNK5clang6format11FormatToken2isEPKNS_14IdentifierInfoE.exit.thread.i.i.i
   %.0.i23.not = phi i1 [ true, %_ZNK5clang6format11FormatToken2isEPKNS_14IdentifierInfoE.exit.i.i ], [ true, %_ZNK5clang6format11FormatToken2isEPKNS_14IdentifierInfoE.exit.i.i.i ], [ %245, %_ZNK5clang6format11FormatToken2isEPKNS_14IdentifierInfoE.exit.thread.i.i.i ], [ true, %switch.hole_check ]
-  %brmerge.not = and i1 %.119.in179268, %.0.i23.not
+  %brmerge.not = and i1 %.119.in179267, %.0.i23.not
   br i1 %brmerge.not, label %_ZNK5clang6format18AdditionalKeywords20isVerilogPPDirectiveERKNS0_11FormatTokenE.exit._crit_edge, label %.critedge
 
 _ZNK5clang6format18AdditionalKeywords20isVerilogPPDirectiveERKNS0_11FormatTokenE.exit._crit_edge: ; preds = %_ZNK5clang6format18AdditionalKeywords20isVerilogPPDirectiveERKNS0_11FormatTokenE.exit
   %.pre244 = load ptr, ptr %12, align 8
   br label %247
 
-246:                                              ; preds = %.lr.ph269
-  br i1 %.119.in179268, label %247, label %.critedge
+246:                                              ; preds = %.lr.ph268
+  br i1 %.119.in179267, label %247, label %.critedge
 
 247:                                              ; preds = %_ZNK5clang6format18AdditionalKeywords20isVerilogPPDirectiveERKNS0_11FormatTokenE.exit._crit_edge, %246
   %248 = phi ptr [ %.pre244, %_ZNK5clang6format18AdditionalKeywords20isVerilogPPDirectiveERKNS0_11FormatTokenE.exit._crit_edge ], [ %183, %246 ]
@@ -2705,8 +2705,8 @@ _ZN5clang6format15ScopedLineStateD2Ev.exit:       ; preds = %_ZNSt10unique_ptrIN
   br i1 %485, label %.critedge, label %.lr.ph, !llvm.loop !24
 
 .critedge:                                        ; preds = %188, %188, %188, %188, %188, %188, %188, %188, %188, %188, %188, %188, %188, %188, %_ZNK5clang5Token17getIdentifierInfoEv.exit.i, %_ZNK5clang6format18AdditionalKeywords20isVerilogPPDirectiveERKNS0_11FormatTokenE.exit, %.lr.ph, %_ZN5clang6format15ScopedLineStateD2Ev.exit, %246, %.lr.ph.preheader, %"_ZZN5clang6format19UnwrappedLineParser9readTokenEiENK3$_0clEbRKNS0_11FormatTokenEb.exit"
-  %.119.in.lcssa = phi i1 [ %.0.i, %"_ZZN5clang6format19UnwrappedLineParser9readTokenEiENK3$_0clEbRKNS0_11FormatTokenEb.exit" ], [ %.0.i, %.lr.ph.preheader ], [ false, %246 ], [ %.0.i28, %_ZN5clang6format15ScopedLineStateD2Ev.exit ], [ %.0.i28, %.lr.ph ], [ %.119.in179268, %_ZNK5clang6format18AdditionalKeywords20isVerilogPPDirectiveERKNS0_11FormatTokenE.exit ], [ %.119.in179268, %_ZNK5clang5Token17getIdentifierInfoEv.exit.i ], [ %.119.in179268, %188 ], [ %.119.in179268, %188 ], [ %.119.in179268, %188 ], [ %.119.in179268, %188 ], [ %.119.in179268, %188 ], [ %.119.in179268, %188 ], [ %.119.in179268, %188 ], [ %.119.in179268, %188 ], [ %.119.in179268, %188 ], [ %.119.in179268, %188 ], [ %.119.in179268, %188 ], [ %.119.in179268, %188 ], [ %.119.in179268, %188 ], [ %.119.in179268, %188 ]
-  %.1.lcssa = phi i1 [ %170, %"_ZZN5clang6format19UnwrappedLineParser9readTokenEiENK3$_0clEbRKNS0_11FormatTokenEb.exit" ], [ %170, %.lr.ph.preheader ], [ %.1180267, %246 ], [ %470, %_ZN5clang6format15ScopedLineStateD2Ev.exit ], [ %470, %.lr.ph ], [ %.1180267, %_ZNK5clang6format18AdditionalKeywords20isVerilogPPDirectiveERKNS0_11FormatTokenE.exit ], [ %.1180267, %_ZNK5clang5Token17getIdentifierInfoEv.exit.i ], [ %.1180267, %188 ], [ %.1180267, %188 ], [ %.1180267, %188 ], [ %.1180267, %188 ], [ %.1180267, %188 ], [ %.1180267, %188 ], [ %.1180267, %188 ], [ %.1180267, %188 ], [ %.1180267, %188 ], [ %.1180267, %188 ], [ %.1180267, %188 ], [ %.1180267, %188 ], [ %.1180267, %188 ], [ %.1180267, %188 ]
+  %.119.in.lcssa = phi i1 [ %.0.i, %"_ZZN5clang6format19UnwrappedLineParser9readTokenEiENK3$_0clEbRKNS0_11FormatTokenEb.exit" ], [ %.0.i, %.lr.ph.preheader ], [ false, %246 ], [ %.0.i28, %_ZN5clang6format15ScopedLineStateD2Ev.exit ], [ %.0.i28, %.lr.ph ], [ %.119.in179267, %_ZNK5clang6format18AdditionalKeywords20isVerilogPPDirectiveERKNS0_11FormatTokenE.exit ], [ %.119.in179267, %_ZNK5clang5Token17getIdentifierInfoEv.exit.i ], [ %.119.in179267, %188 ], [ %.119.in179267, %188 ], [ %.119.in179267, %188 ], [ %.119.in179267, %188 ], [ %.119.in179267, %188 ], [ %.119.in179267, %188 ], [ %.119.in179267, %188 ], [ %.119.in179267, %188 ], [ %.119.in179267, %188 ], [ %.119.in179267, %188 ], [ %.119.in179267, %188 ], [ %.119.in179267, %188 ], [ %.119.in179267, %188 ], [ %.119.in179267, %188 ]
+  %.1.lcssa = phi i1 [ %170, %"_ZZN5clang6format19UnwrappedLineParser9readTokenEiENK3$_0clEbRKNS0_11FormatTokenEb.exit" ], [ %170, %.lr.ph.preheader ], [ %.1180266, %246 ], [ %470, %_ZN5clang6format15ScopedLineStateD2Ev.exit ], [ %470, %.lr.ph ], [ %.1180266, %_ZNK5clang6format18AdditionalKeywords20isVerilogPPDirectiveERKNS0_11FormatTokenE.exit ], [ %.1180266, %_ZNK5clang5Token17getIdentifierInfoEv.exit.i ], [ %.1180266, %188 ], [ %.1180266, %188 ], [ %.1180266, %188 ], [ %.1180266, %188 ], [ %.1180266, %188 ], [ %.1180266, %188 ], [ %.1180266, %188 ], [ %.1180266, %188 ], [ %.1180266, %188 ], [ %.1180266, %188 ], [ %.1180266, %188 ], [ %.1180266, %188 ], [ %.1180266, %188 ], [ %.1180266, %188 ]
   %486 = call noundef zeroext i1 @_ZNK4llvm15SmallVectorBaseIjE5emptyEv(ptr noundef nonnull align 8 dereferenceable(16) %20) #19
   br i1 %486, label %499, label %487
 
@@ -2724,7 +2724,7 @@ _ZN5clang6format15ScopedLineStateD2Ev.exit:       ; preds = %_ZNSt10unique_ptrIN
   %496 = getelementptr inbounds nuw i8, ptr %495, i64 32
   %497 = load i8, ptr %496, align 8
   %498 = trunc i8 %497 to i1
-  br i1 %498, label %499, label %668
+  br i1 %498, label %499, label %667
 
 499:                                              ; preds = %494, %487, %.critedge
   %500 = load ptr, ptr %12, align 8
@@ -3067,58 +3067,52 @@ _ZNSt10unique_ptrIN5clang6format13UnwrappedLineESt14default_deleteIS2_EED2Ev.exi
   %654 = getelementptr inbounds nuw i8, ptr %653, i64 16
   %655 = load i16, ptr %654, align 8
   %.not168 = icmp eq i16 %655, 4
-  br i1 %.not168, label %657, label %656
+  br i1 %.not168, label %656, label %672
 
 656:                                              ; preds = %_ZNSt10unique_ptrIN5clang6format13UnwrappedLineESt14default_deleteIS2_EED2Ev.exit45
-  call void @_ZN5clang6format19UnwrappedLineParser18distributeCommentsERKN4llvm15SmallVectorImplIPNS0_11FormatTokenEEEPKS4_(ptr noundef nonnull align 8 dereferenceable(3592) %0, ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull %653)
-  br label %674
+  %657 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %5) #19
+  %658 = add i64 %657, 1
+  %659 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE8capacityEv(ptr noundef nonnull align 8 dereferenceable(16) %5) #19
+  %.not.i.i.i46 = icmp ugt i64 %658, %659
+  br i1 %.not.i.i.i46, label %660, label %_ZN4llvm23SmallVectorTemplateBaseIPN5clang6format11FormatTokenELb1EE9push_backES4_.exit
 
-657:                                              ; preds = %_ZNSt10unique_ptrIN5clang6format13UnwrappedLineESt14default_deleteIS2_EED2Ev.exit45
-  %658 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %5) #19
-  %659 = add i64 %658, 1
-  %660 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE8capacityEv(ptr noundef nonnull align 8 dereferenceable(16) %5) #19
-  %.not.i.i.i46 = icmp ugt i64 %659, %660
-  br i1 %.not.i.i.i46, label %661, label %_ZN4llvm23SmallVectorTemplateBaseIPN5clang6format11FormatTokenELb1EE9push_backES4_.exit
-
-661:                                              ; preds = %657
-  call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull %10, i64 noundef %659, i64 noundef 8) #19
+660:                                              ; preds = %656
+  call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull %10, i64 noundef %658, i64 noundef 8) #19
   br label %_ZN4llvm23SmallVectorTemplateBaseIPN5clang6format11FormatTokenELb1EE9push_backES4_.exit
 
-_ZN4llvm23SmallVectorTemplateBaseIPN5clang6format11FormatTokenELb1EE9push_backES4_.exit: ; preds = %657, %661
-  %662 = load ptr, ptr %5, align 8
-  %663 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %5) #19
-  %664 = getelementptr inbounds ptr, ptr %662, i64 %663
-  %665 = ptrtoint ptr %653 to i64
-  store i64 %665, ptr %664, align 1
-  %666 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %5) #19
-  %667 = add i64 %666, 1
-  call void @_ZN4llvm15SmallVectorBaseIjE8set_sizeEm(ptr noundef nonnull align 8 dereferenceable(16) %5, i64 noundef %667) #19
-  br label %668
+_ZN4llvm23SmallVectorTemplateBaseIPN5clang6format11FormatTokenELb1EE9push_backES4_.exit: ; preds = %656, %660
+  %661 = load ptr, ptr %5, align 8
+  %662 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %5) #19
+  %663 = getelementptr inbounds ptr, ptr %661, i64 %662
+  %664 = ptrtoint ptr %653 to i64
+  store i64 %664, ptr %663, align 1
+  %665 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %5) #19
+  %666 = add i64 %665, 1
+  call void @_ZN4llvm15SmallVectorBaseIjE8set_sizeEm(ptr noundef nonnull align 8 dereferenceable(16) %5, i64 noundef %666) #19
+  br label %667
 
-668:                                              ; preds = %494, %_ZN4llvm23SmallVectorTemplateBaseIPN5clang6format11FormatTokenELb1EE9push_backES4_.exit
-  %669 = load ptr, ptr %12, align 8
-  %670 = getelementptr inbounds nuw i8, ptr %669, i64 16
-  %671 = load i16, ptr %670, align 8
-  %672 = icmp eq i16 %671, 1
-  br i1 %672, label %673, label %42, !llvm.loop !31
+667:                                              ; preds = %494, %_ZN4llvm23SmallVectorTemplateBaseIPN5clang6format11FormatTokenELb1EE9push_backES4_.exit
+  %668 = load ptr, ptr %12, align 8
+  %669 = getelementptr inbounds nuw i8, ptr %668, i64 16
+  %670 = load i16, ptr %669, align 8
+  %671 = icmp eq i16 %670, 1
+  br i1 %671, label %672, label %42, !llvm.loop !31
 
-673:                                              ; preds = %668
-  call void @_ZN5clang6format19UnwrappedLineParser18distributeCommentsERKN4llvm15SmallVectorImplIPNS0_11FormatTokenEEEPKS4_(ptr noundef nonnull align 8 dereferenceable(3592) %0, ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef null)
-  br label %674
-
-674:                                              ; preds = %673, %656
-  %675 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %5) #19
+672:                                              ; preds = %667, %_ZNSt10unique_ptrIN5clang6format13UnwrappedLineESt14default_deleteIS2_EED2Ev.exit45
+  %.sink = phi ptr [ %653, %_ZNSt10unique_ptrIN5clang6format13UnwrappedLineESt14default_deleteIS2_EED2Ev.exit45 ], [ null, %667 ]
+  call void @_ZN5clang6format19UnwrappedLineParser18distributeCommentsERKN4llvm15SmallVectorImplIPNS0_11FormatTokenEEEPKS4_(ptr noundef nonnull align 8 dereferenceable(3592) %0, ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef %.sink)
+  %673 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %5) #19
   store i32 0, ptr %24, align 8
-  %676 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %5) #19
-  %677 = load ptr, ptr %5, align 8
-  %678 = icmp eq ptr %677, %10
-  br i1 %678, label %_ZN4llvm11SmallVectorIPN5clang6format11FormatTokenELj1EED2Ev.exit, label %679
+  %674 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %5) #19
+  %675 = load ptr, ptr %5, align 8
+  %676 = icmp eq ptr %675, %10
+  br i1 %676, label %_ZN4llvm11SmallVectorIPN5clang6format11FormatTokenELj1EED2Ev.exit, label %677
 
-679:                                              ; preds = %674
-  call void @free(ptr noundef %677) #19
+677:                                              ; preds = %672
+  call void @free(ptr noundef %675) #19
   br label %_ZN4llvm11SmallVectorIPN5clang6format11FormatTokenELj1EED2Ev.exit
 
-_ZN4llvm11SmallVectorIPN5clang6format11FormatTokenELj1EED2Ev.exit: ; preds = %674, %679
+_ZN4llvm11SmallVectorIPN5clang6format11FormatTokenELj1EED2Ev.exit: ; preds = %672, %677
   ret void
 }
 

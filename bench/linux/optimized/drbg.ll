@@ -1500,32 +1500,28 @@ define internal i32 @drbg_hmac_generate(ptr noundef %0, ptr nocapture noundef wr
 
 ._crit_edge:                                      ; preds = %.thread, %27
   %.lcssa = phi i32 [ 0, %27 ], [ %106, %.thread ]
-  br i1 %8, label %113, label %108
+  br i1 %8, label %111, label %108
 
 108:                                              ; preds = %._crit_edge
   %109 = load volatile ptr, ptr %3, align 8
   %110 = icmp eq ptr %109, %3
-  br i1 %110, label %113, label %111
+  br i1 %110, label %111, label %112
 
-111:                                              ; preds = %108
-  %112 = call i32 @drbg_hmac_update(ptr noundef %0, ptr noundef nonnull %3, i32 noundef 1)
-  br label %115
+111:                                              ; preds = %108, %._crit_edge
+  br label %112
 
-113:                                              ; preds = %108, %._crit_edge
-  %114 = call i32 @drbg_hmac_update(ptr noundef %0, ptr noundef null, i32 noundef 1)
-  br label %115
-
-115:                                              ; preds = %113, %111
-  %116 = phi i32 [ %114, %113 ], [ %112, %111 ]
-  %117 = icmp eq i32 %116, 0
-  %118 = select i1 %117, i32 %.lcssa, i32 %116
+112:                                              ; preds = %108, %111
+  %.sink = phi ptr [ null, %111 ], [ %3, %108 ]
+  %113 = call i32 @drbg_hmac_update(ptr noundef %0, ptr noundef %.sink, i32 noundef 1)
+  %114 = icmp eq i32 %113, 0
+  %115 = select i1 %114, i32 %.lcssa, i32 %113
   br label %.thread14
 
-.thread14:                                        ; preds = %.loopexit, %.loopexit.us, %115, %12
-  %119 = phi i32 [ %13, %12 ], [ %118, %115 ], [ %60, %.loopexit.us ], [ %88, %.loopexit ]
+.thread14:                                        ; preds = %.loopexit, %.loopexit.us, %112, %12
+  %116 = phi i32 [ %13, %12 ], [ %115, %112 ], [ %60, %.loopexit.us ], [ %88, %.loopexit ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #12
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #12
-  ret i32 %119
+  ret i32 %116
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid

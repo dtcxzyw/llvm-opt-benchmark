@@ -3930,8 +3930,7 @@ _ZN4llvm7PHINode11addIncomingEPNS_5ValueEPNS_10BasicBlockE.exit197: ; preds = %_
   store i16 257, ptr %401, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %10, i8 0, i64 16, i1 false)
   %402 = call noundef ptr @_ZN4llvm7CmpInst6CreateENS_11Instruction8OtherOpsENS0_9PredicateEPNS_5ValueES5_RKNS_5TwineENS_14InsertPositionE(i32 noundef %395, i32 noundef %400, ptr noundef nonnull %.1, ptr noundef nonnull %.1119255, ptr noundef nonnull align 8 dereferenceable(34) %9, ptr noundef nonnull byval(%"class.llvm::InsertPosition") align 8 %10) #15
-  call void @_ZN4llvm16InstCombinerImpl20PHIArgMergedDebugLocEPNS_11InstructionERNS_7PHINodeE(ptr nonnull align 8 poison, ptr noundef %402, ptr noundef nonnull align 8 dereferenceable(76) %1)
-  br label %.loopexit266
+  br label %.loopexit266.sink.split
 
 403:                                              ; preds = %.loopexit
   %404 = getelementptr inbounds nuw i8, ptr %11, i64 32
@@ -3966,7 +3965,7 @@ _ZN4llvm7PHINode15incoming_valuesEv.exit206:      ; preds = %411, %413
   %.idx289 = shl nuw nsw i64 %.pre-phi2.i.i.i203, 5
   %419 = getelementptr inbounds i8, ptr %418, i64 %.idx289
   %.not127282 = icmp eq i64 %.pre-phi2.i.i.i203, 1
-  br i1 %.not127282, label %._crit_edge285, label %.lr.ph284.preheader
+  br i1 %.not127282, label %.loopexit266.sink.split, label %.lr.ph284.preheader
 
 .lr.ph284.preheader:                              ; preds = %_ZN4llvm7PHINode15incoming_valuesEv.exit206
   %.0117281 = getelementptr inbounds i8, ptr %418, i64 32
@@ -3978,14 +3977,15 @@ _ZN4llvm7PHINode15incoming_valuesEv.exit206:      ; preds = %411, %413
   call void @_ZN4llvm11Instruction10andIRFlagsEPKNS_5ValueE(ptr noundef nonnull align 8 dereferenceable(72) %406, ptr noundef %420) #15
   %.0117 = getelementptr inbounds i8, ptr %.0117283, i64 32
   %.not127 = icmp eq ptr %.0117, %419
-  br i1 %.not127, label %._crit_edge285, label %.lr.ph284
+  br i1 %.not127, label %.loopexit266.sink.split, label %.lr.ph284
 
-._crit_edge285:                                   ; preds = %.lr.ph284, %_ZN4llvm7PHINode15incoming_valuesEv.exit206
-  call void @_ZN4llvm16InstCombinerImpl20PHIArgMergedDebugLocEPNS_11InstructionERNS_7PHINodeE(ptr nonnull align 8 poison, ptr noundef nonnull %406, ptr noundef nonnull align 8 dereferenceable(76) %1)
+.loopexit266.sink.split:                          ; preds = %.lr.ph284, %_ZN4llvm7PHINode15incoming_valuesEv.exit206, %396
+  %.sink296 = phi ptr [ %402, %396 ], [ %406, %_ZN4llvm7PHINode15incoming_valuesEv.exit206 ], [ %406, %.lr.ph284 ]
+  call void @_ZN4llvm16InstCombinerImpl20PHIArgMergedDebugLocEPNS_11InstructionERNS_7PHINodeE(ptr nonnull align 8 poison, ptr noundef %.sink296, ptr noundef nonnull align 8 dereferenceable(76) %1)
   br label %.loopexit266
 
-.loopexit266:                                     ; preds = %_ZNK4llvm4User10getOperandEj.exit141.thread, %72, %42, %46, %_ZNK4llvm4User10getOperandEj.exit141, %_ZNK4llvm4User10getOperandEj.exit143, %._crit_edge, %._crit_edge285, %396
-  %.0 = phi ptr [ %402, %396 ], [ %406, %._crit_edge285 ], [ null, %._crit_edge ], [ null, %_ZNK4llvm4User10getOperandEj.exit143 ], [ null, %_ZNK4llvm4User10getOperandEj.exit141 ], [ null, %46 ], [ null, %42 ], [ null, %72 ], [ null, %_ZNK4llvm4User10getOperandEj.exit141.thread ]
+.loopexit266:                                     ; preds = %_ZNK4llvm4User10getOperandEj.exit141.thread, %72, %42, %46, %_ZNK4llvm4User10getOperandEj.exit141, %_ZNK4llvm4User10getOperandEj.exit143, %.loopexit266.sink.split, %._crit_edge
+  %.0 = phi ptr [ null, %._crit_edge ], [ %.sink296, %.loopexit266.sink.split ], [ null, %_ZNK4llvm4User10getOperandEj.exit143 ], [ null, %_ZNK4llvm4User10getOperandEj.exit141 ], [ null, %46 ], [ null, %42 ], [ null, %72 ], [ null, %_ZNK4llvm4User10getOperandEj.exit141.thread ]
   ret ptr %.0
 }
 

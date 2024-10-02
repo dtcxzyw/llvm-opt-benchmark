@@ -9103,7 +9103,7 @@ define internal fastcc i32 @cli_scanembpe(ptr noundef %0) unnamed_addr #0 {
   %5 = load ptr, ptr %4, align 8
   %6 = tail call ptr @cli_gentemp_with_prefix(ptr noundef %5, ptr noundef nonnull @.str.98) #16
   %.not = icmp eq ptr %6, null
-  br i1 %.not, label %66, label %7
+  br i1 %.not, label %62, label %7
 
 7:                                                ; preds = %1
   %8 = tail call i32 (ptr, i32, ...) @open(ptr noundef nonnull %6, i32 noundef 578, i32 noundef 384) #16
@@ -9112,8 +9112,7 @@ define internal fastcc i32 @cli_scanembpe(ptr noundef %0) unnamed_addr #0 {
 
 10:                                               ; preds = %7
   tail call void (ptr, ...) @cli_errmsg(ptr noundef nonnull @.str.99, ptr noundef nonnull %6) #16
-  tail call void @free(ptr noundef nonnull %6) #16
-  br label %66
+  br label %.sink.split
 
 11:                                               ; preds = %7
   %12 = getelementptr inbounds i8, ptr %3, i64 88
@@ -9122,19 +9121,19 @@ define internal fastcc i32 @cli_scanembpe(ptr noundef %0) unnamed_addr #0 {
   %15 = getelementptr inbounds i8, ptr %3, i64 104
   br label %16
 
-16:                                               ; preds = %34, %11
-  %.057 = phi i64 [ %13, %11 ], [ %35, %34 ]
-  %.056 = phi i64 [ 0, %11 ], [ %32, %34 ]
+16:                                               ; preds = %33, %11
+  %.057 = phi i64 [ %13, %11 ], [ %34, %33 ]
+  %.056 = phi i64 [ 0, %11 ], [ %31, %33 ]
   %17 = load i64, ptr %14, align 8
   %.057. = tail call i64 @llvm.umin.i64(i64 %.057, i64 %17)
   %.not64 = icmp eq i64 %.057., 0
-  br i1 %.not64, label %47, label %18
+  br i1 %.not64, label %45, label %18
 
 18:                                               ; preds = %16
   %19 = load ptr, ptr %15, align 8
   %20 = tail call ptr %19(ptr noundef nonnull %3, i64 noundef %.056, i64 noundef %.057., i32 noundef 0) #16
   %.not65 = icmp eq ptr %20, null
-  br i1 %.not65, label %21, label %31
+  br i1 %.not65, label %21, label %30
 
 21:                                               ; preds = %18
   %22 = tail call i32 @close(i32 noundef %8) #16
@@ -9143,105 +9142,90 @@ define internal fastcc i32 @cli_scanembpe(ptr noundef %0) unnamed_addr #0 {
   %25 = getelementptr inbounds i8, ptr %24, i64 40
   %26 = load i32, ptr %25, align 8
   %.not66 = icmp eq i32 %26, 0
-  br i1 %.not66, label %27, label %30
+  br i1 %.not66, label %27, label %29
 
 27:                                               ; preds = %21
   %28 = tail call i32 @cli_unlink(ptr noundef nonnull %6) #16
   %.not67 = icmp eq i32 %28, 0
-  br i1 %.not67, label %30, label %29
+  br i1 %.not67, label %29, label %.sink.split
 
-29:                                               ; preds = %27
-  tail call void @free(ptr noundef %6) #16
-  br label %66
+29:                                               ; preds = %27, %21
+  br label %.sink.split
 
-30:                                               ; preds = %27, %21
-  tail call void @free(ptr noundef %6) #16
-  br label %66
+30:                                               ; preds = %18
+  %31 = add i64 %.057., %.056
+  %32 = tail call i32 @cli_checklimits(ptr noundef nonnull @.str.100, ptr noundef %0, i64 noundef %31, i64 noundef 0, i64 noundef 0) #16
+  %.not68 = icmp eq i32 %32, 0
+  br i1 %.not68, label %33, label %45
 
-31:                                               ; preds = %18
-  %32 = add i64 %.057., %.056
-  %33 = tail call i32 @cli_checklimits(ptr noundef nonnull @.str.100, ptr noundef %0, i64 noundef %32, i64 noundef 0, i64 noundef 0) #16
-  %.not68 = icmp eq i32 %33, 0
-  br i1 %.not68, label %34, label %47
+33:                                               ; preds = %30
+  %34 = sub i64 %.057, %.057.
+  %35 = tail call i64 @cli_writen(i32 noundef %8, ptr noundef nonnull %20, i64 noundef %.057.) #16
+  %.not69 = icmp eq i64 %35, %.057.
+  br i1 %.not69, label %16, label %36
 
-34:                                               ; preds = %31
-  %35 = sub i64 %.057, %.057.
-  %36 = tail call i64 @cli_writen(i32 noundef %8, ptr noundef nonnull %20, i64 noundef %.057.) #16
-  %.not69 = icmp eq i64 %36, %.057.
-  br i1 %.not69, label %16, label %37
-
-37:                                               ; preds = %34
+36:                                               ; preds = %33
   tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.101) #16
-  %38 = tail call i32 @close(i32 noundef %8) #16
-  %39 = getelementptr inbounds i8, ptr %0, i64 48
-  %40 = load ptr, ptr %39, align 8
-  %41 = getelementptr inbounds i8, ptr %40, i64 40
-  %42 = load i32, ptr %41, align 8
-  %.not70 = icmp eq i32 %42, 0
-  br i1 %.not70, label %43, label %46
+  %37 = tail call i32 @close(i32 noundef %8) #16
+  %38 = getelementptr inbounds i8, ptr %0, i64 48
+  %39 = load ptr, ptr %38, align 8
+  %40 = getelementptr inbounds i8, ptr %39, i64 40
+  %41 = load i32, ptr %40, align 8
+  %.not70 = icmp eq i32 %41, 0
+  br i1 %.not70, label %42, label %44
 
-43:                                               ; preds = %37
-  %44 = tail call i32 @cli_unlink(ptr noundef nonnull %6) #16
-  %.not71 = icmp eq i32 %44, 0
-  br i1 %.not71, label %46, label %45
+42:                                               ; preds = %36
+  %43 = tail call i32 @cli_unlink(ptr noundef nonnull %6) #16
+  %.not71 = icmp eq i32 %43, 0
+  br i1 %.not71, label %44, label %.sink.split
 
-45:                                               ; preds = %43
+44:                                               ; preds = %42, %36
+  br label %.sink.split
+
+45:                                               ; preds = %30, %16
+  %46 = getelementptr inbounds i8, ptr %0, i64 76
+  %47 = load i32, ptr %46, align 4
+  store i32 1, ptr %46, align 4
+  %48 = tail call i32 @cli_magic_scan_desc_type(i32 noundef %8, ptr noundef nonnull %6, ptr noundef %0, i32 noundef 0, ptr noundef null, i32 noundef 0)
+  store i32 %47, ptr %46, align 4
+  %.not72 = icmp eq i32 %48, 0
+  %49 = tail call i32 @close(i32 noundef %8) #16
+  %50 = getelementptr inbounds i8, ptr %0, i64 48
+  %51 = load ptr, ptr %50, align 8
+  %52 = getelementptr inbounds i8, ptr %51, i64 40
+  %53 = load i32, ptr %52, align 8
+  %.not73 = icmp eq i32 %53, 0
+  br i1 %.not72, label %58, label %54
+
+54:                                               ; preds = %45
+  br i1 %.not73, label %55, label %57
+
+55:                                               ; preds = %54
+  %56 = tail call i32 @cli_unlink(ptr noundef nonnull %6) #16
+  %.not76 = icmp eq i32 %56, 0
+  br i1 %.not76, label %57, label %.sink.split
+
+57:                                               ; preds = %55, %54
+  br label %.sink.split
+
+58:                                               ; preds = %45
+  br i1 %.not73, label %59, label %61
+
+59:                                               ; preds = %58
+  %60 = tail call i32 @cli_unlink(ptr noundef nonnull %6) #16
+  %.not74 = icmp eq i32 %60, 0
+  br i1 %.not74, label %61, label %.sink.split
+
+61:                                               ; preds = %59, %58
+  br label %.sink.split
+
+.sink.split:                                      ; preds = %59, %55, %42, %27, %10, %29, %44, %57, %61
+  %.0.ph = phi i32 [ 12, %29 ], [ 14, %44 ], [ 0, %61 ], [ %48, %57 ], [ 9, %10 ], [ 10, %27 ], [ 10, %42 ], [ 10, %55 ], [ 10, %59 ]
   tail call void @free(ptr noundef %6) #16
-  br label %66
+  br label %62
 
-46:                                               ; preds = %43, %37
-  tail call void @free(ptr noundef %6) #16
-  br label %66
-
-47:                                               ; preds = %31, %16
-  %48 = getelementptr inbounds i8, ptr %0, i64 76
-  %49 = load i32, ptr %48, align 4
-  store i32 1, ptr %48, align 4
-  %50 = tail call i32 @cli_magic_scan_desc_type(i32 noundef %8, ptr noundef nonnull %6, ptr noundef %0, i32 noundef 0, ptr noundef null, i32 noundef 0)
-  store i32 %49, ptr %48, align 4
-  %.not72 = icmp eq i32 %50, 0
-  %51 = tail call i32 @close(i32 noundef %8) #16
-  %52 = getelementptr inbounds i8, ptr %0, i64 48
-  %53 = load ptr, ptr %52, align 8
-  %54 = getelementptr inbounds i8, ptr %53, i64 40
-  %55 = load i32, ptr %54, align 8
-  %.not73 = icmp eq i32 %55, 0
-  br i1 %.not72, label %61, label %56
-
-56:                                               ; preds = %47
-  br i1 %.not73, label %57, label %60
-
-57:                                               ; preds = %56
-  %58 = tail call i32 @cli_unlink(ptr noundef nonnull %6) #16
-  %.not76 = icmp eq i32 %58, 0
-  br i1 %.not76, label %60, label %59
-
-59:                                               ; preds = %57
-  tail call void @free(ptr noundef %6) #16
-  br label %66
-
-60:                                               ; preds = %57, %56
-  tail call void @free(ptr noundef %6) #16
-  br label %66
-
-61:                                               ; preds = %47
-  br i1 %.not73, label %62, label %65
-
-62:                                               ; preds = %61
-  %63 = tail call i32 @cli_unlink(ptr noundef nonnull %6) #16
-  %.not74 = icmp eq i32 %63, 0
-  br i1 %.not74, label %65, label %64
-
-64:                                               ; preds = %62
-  tail call void @free(ptr noundef %6) #16
-  br label %66
-
-65:                                               ; preds = %62, %61
-  tail call void @free(ptr noundef %6) #16
-  br label %66
-
-66:                                               ; preds = %1, %65, %64, %60, %59, %46, %45, %30, %29, %10
-  %.0 = phi i32 [ 9, %10 ], [ %50, %60 ], [ 10, %59 ], [ 0, %65 ], [ 10, %64 ], [ 14, %46 ], [ 10, %45 ], [ 12, %30 ], [ 10, %29 ], [ 20, %1 ]
+62:                                               ; preds = %.sink.split, %1
+  %.0 = phi i32 [ 20, %1 ], [ %.0.ph, %.sink.split ]
   ret i32 %.0
 }
 

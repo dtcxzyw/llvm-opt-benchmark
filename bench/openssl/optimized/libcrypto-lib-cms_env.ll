@@ -626,11 +626,7 @@ if.then:                                          ; preds = %entry
 if.end:                                           ; preds = %entry
   %call = tail call ptr @CMS_ContentInfo_new_ex(ptr noundef %libctx, ptr noundef %propq) #6
   %cmp1 = icmp eq ptr %call, null
-  br i1 %cmp1, label %if.end29.thread, label %lor.lhs.false
-
-if.end29.thread:                                  ; preds = %if.end
-  tail call void @CMS_ContentInfo_free(ptr noundef null) #6
-  br label %if.then30
+  br i1 %cmp1, label %if.then30.sink.split, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %if.end
   %call2 = tail call ptr @BIO_s_mem() #6
@@ -657,8 +653,7 @@ land.lhs.true:                                    ; preds = %if.end6
 if.end29.thread23:                                ; preds = %land.lhs.true, %lor.lhs.false
   %d2826 = getelementptr inbounds i8, ptr %call, i64 8
   store ptr null, ptr %d2826, align 8
-  tail call void @CMS_ContentInfo_free(ptr noundef nonnull %call) #6
-  br label %if.then30
+  br label %if.then30.sink.split
 
 if.end29:                                         ; preds = %if.end6, %land.lhs.true
   %cond23 = phi ptr [ %cert, %if.end6 ], [ null, %land.lhs.true ]
@@ -669,8 +664,14 @@ if.end29:                                         ; preds = %if.end6, %land.lhs.
   tail call void @CMS_ContentInfo_free(ptr noundef nonnull %call) #6
   br i1 %0, label %if.then30, label %return
 
-if.then30:                                        ; preds = %if.end29.thread23, %if.end29.thread, %if.end29
-  %bio.01722 = phi ptr [ null, %if.end29.thread ], [ %call3, %if.end29 ], [ %call3, %if.end29.thread23 ]
+if.then30.sink.split:                             ; preds = %if.end, %if.end29.thread23
+  %call.sink = phi ptr [ %call, %if.end29.thread23 ], [ null, %if.end ]
+  %bio.01722.ph = phi ptr [ %call3, %if.end29.thread23 ], [ null, %if.end ]
+  tail call void @CMS_ContentInfo_free(ptr noundef %call.sink) #6
+  br label %if.then30
+
+if.then30:                                        ; preds = %if.then30.sink.split, %if.end29
+  %bio.01722 = phi ptr [ %call3, %if.end29 ], [ %bio.01722.ph, %if.then30.sink.split ]
   %call31 = tail call i32 @BIO_free(ptr noundef %bio.01722) #6
   br label %return
 

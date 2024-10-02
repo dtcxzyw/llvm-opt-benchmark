@@ -1425,125 +1425,122 @@ define internal noundef zeroext i1 @session_keys_update_cb(ptr nocapture noundef
   %7 = load ptr, ptr %0, align 8
   %8 = tail call i32 @hex_str_to_bytes(ptr noundef %7, ptr noundef %6, i32 noundef 0) #9
   %.not = icmp eq i32 %8, 0
-  br i1 %.not, label %9, label %11
+  br i1 %.not, label %.sink.split.sink.split, label %9
 
 9:                                                ; preds = %5
-  %10 = tail call ptr @g_byte_array_free(ptr noundef %6, i32 noundef 1) #9
-  br label %.sink.split
+  %10 = getelementptr inbounds i8, ptr %6, i64 8
+  %11 = load i32, ptr %10, align 8
+  %.not34 = icmp eq i32 %11, 4
+  br i1 %.not34, label %.lr.ph.i, label %.sink.split.sink.split
 
-11:                                               ; preds = %5
-  %12 = getelementptr inbounds i8, ptr %6, i64 8
-  %13 = load i32, ptr %12, align 8
-  %.not34 = icmp eq i32 %13, 4
-  br i1 %.not34, label %.lr.ph.i, label %14
-
-14:                                               ; preds = %11
-  %15 = tail call ptr @g_byte_array_free(ptr noundef nonnull %6, i32 noundef 1) #9
-  br label %.sink.split
-
-.lr.ph.i:                                         ; preds = %11, %.lr.ph.i
-  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.lr.ph.i ], [ 0, %11 ]
-  %16 = phi i32 [ %31, %.lr.ph.i ], [ 4, %11 ]
-  %17 = load ptr, ptr %6, align 8
-  %18 = getelementptr i8, ptr %17, i64 %indvars.iv.i
-  %19 = load i8, ptr %18, align 1
-  %20 = trunc nuw nsw i64 %indvars.iv.i to i32
-  %21 = xor i32 %20, -1
-  %22 = add i32 %16, %21
-  %23 = zext i32 %22 to i64
-  %24 = getelementptr i8, ptr %17, i64 %23
-  %25 = load i8, ptr %24, align 1
-  store i8 %25, ptr %18, align 1
-  %26 = load ptr, ptr %6, align 8
-  %27 = load i32, ptr %12, align 8
-  %28 = add i32 %27, %21
-  %29 = zext i32 %28 to i64
-  %30 = getelementptr i8, ptr %26, i64 %29
-  store i8 %19, ptr %30, align 1
+.lr.ph.i:                                         ; preds = %9, %.lr.ph.i
+  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.lr.ph.i ], [ 0, %9 ]
+  %12 = phi i32 [ %27, %.lr.ph.i ], [ 4, %9 ]
+  %13 = load ptr, ptr %6, align 8
+  %14 = getelementptr i8, ptr %13, i64 %indvars.iv.i
+  %15 = load i8, ptr %14, align 1
+  %16 = trunc nuw nsw i64 %indvars.iv.i to i32
+  %17 = xor i32 %16, -1
+  %18 = add i32 %12, %17
+  %19 = zext i32 %18 to i64
+  %20 = getelementptr i8, ptr %13, i64 %19
+  %21 = load i8, ptr %20, align 1
+  store i8 %21, ptr %14, align 1
+  %22 = load ptr, ptr %6, align 8
+  %23 = load i32, ptr %10, align 8
+  %24 = add i32 %23, %17
+  %25 = zext i32 %24 to i64
+  %26 = getelementptr i8, ptr %22, i64 %25
+  store i8 %15, ptr %26, align 1
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %31 = load i32, ptr %12, align 8
-  %32 = lshr i32 %31, 1
-  %33 = zext nneg i32 %32 to i64
-  %34 = icmp ult i64 %indvars.iv.next.i, %33
-  br i1 %34, label %.lr.ph.i, label %byte_array_reverse.exit, !llvm.loop !7
+  %27 = load i32, ptr %10, align 8
+  %28 = lshr i32 %27, 1
+  %29 = zext nneg i32 %28 to i64
+  %30 = icmp ult i64 %indvars.iv.next.i, %29
+  br i1 %30, label %.lr.ph.i, label %byte_array_reverse.exit, !llvm.loop !7
 
 byte_array_reverse.exit:                          ; preds = %.lr.ph.i
-  %35 = getelementptr inbounds i8, ptr %0, i64 24
-  %36 = load ptr, ptr %6, align 8
-  %37 = load i32, ptr %36, align 1
-  store i32 %37, ptr %35, align 8
-  %38 = tail call ptr @g_byte_array_free(ptr noundef nonnull %6, i32 noundef 1) #9
-  %39 = getelementptr inbounds i8, ptr %0, i64 8
+  %31 = getelementptr inbounds i8, ptr %0, i64 24
+  %32 = load ptr, ptr %6, align 8
+  %33 = load i32, ptr %32, align 1
+  store i32 %33, ptr %31, align 8
+  %34 = tail call ptr @g_byte_array_free(ptr noundef nonnull %6, i32 noundef 1) #9
+  %35 = getelementptr inbounds i8, ptr %0, i64 8
+  %36 = load ptr, ptr %35, align 8
+  %37 = icmp eq ptr %36, null
+  br i1 %37, label %.sink.split, label %38
+
+38:                                               ; preds = %byte_array_reverse.exit
+  %39 = getelementptr inbounds i8, ptr %0, i64 32
   %40 = load ptr, ptr %39, align 8
-  %41 = icmp eq ptr %40, null
-  br i1 %41, label %.sink.split, label %42
+  %.not35 = icmp eq ptr %40, null
+  br i1 %.not35, label %41, label %43
 
-42:                                               ; preds = %byte_array_reverse.exit
-  %43 = getelementptr inbounds i8, ptr %0, i64 32
-  %44 = load ptr, ptr %43, align 8
-  %.not35 = icmp eq ptr %44, null
-  br i1 %.not35, label %45, label %47
+41:                                               ; preds = %38
+  %42 = tail call ptr @g_byte_array_new() #9
+  store ptr %42, ptr %39, align 8
+  %.pre = load ptr, ptr %35, align 8
+  br label %43
 
-45:                                               ; preds = %42
-  %46 = tail call ptr @g_byte_array_new() #9
-  store ptr %46, ptr %43, align 8
-  %.pre = load ptr, ptr %39, align 8
-  br label %47
+43:                                               ; preds = %41, %38
+  %44 = phi ptr [ %42, %41 ], [ %40, %38 ]
+  %45 = phi ptr [ %.pre, %41 ], [ %36, %38 ]
+  %46 = tail call i32 @hex_str_to_bytes(ptr noundef %45, ptr noundef %44, i32 noundef 0) #9
+  %.not36 = icmp eq i32 %46, 0
+  br i1 %.not36, label %.sink.split, label %47
 
-47:                                               ; preds = %45, %42
-  %48 = phi ptr [ %46, %45 ], [ %44, %42 ]
-  %49 = phi ptr [ %.pre, %45 ], [ %40, %42 ]
-  %50 = tail call i32 @hex_str_to_bytes(ptr noundef %49, ptr noundef %48, i32 noundef 0) #9
-  %.not36 = icmp eq i32 %50, 0
-  br i1 %.not36, label %.sink.split, label %51
+47:                                               ; preds = %43
+  %48 = load ptr, ptr %39, align 8
+  %49 = getelementptr inbounds i8, ptr %48, i64 8
+  %50 = load i32, ptr %49, align 8
+  %.not37 = icmp eq i32 %50, 16
+  br i1 %.not37, label %51, label %.sink.split
 
 51:                                               ; preds = %47
-  %52 = load ptr, ptr %43, align 8
-  %53 = getelementptr inbounds i8, ptr %52, i64 8
-  %54 = load i32, ptr %53, align 8
-  %.not37 = icmp eq i32 %54, 16
-  br i1 %.not37, label %55, label %.sink.split
+  %52 = getelementptr inbounds i8, ptr %0, i64 16
+  %53 = load ptr, ptr %52, align 8
+  %54 = icmp eq ptr %53, null
+  br i1 %54, label %.sink.split, label %55
 
 55:                                               ; preds = %51
-  %56 = getelementptr inbounds i8, ptr %0, i64 16
+  %56 = getelementptr inbounds i8, ptr %0, i64 40
   %57 = load ptr, ptr %56, align 8
-  %58 = icmp eq ptr %57, null
-  br i1 %58, label %.sink.split, label %59
+  %.not38 = icmp eq ptr %57, null
+  br i1 %.not38, label %58, label %60
 
-59:                                               ; preds = %55
-  %60 = getelementptr inbounds i8, ptr %0, i64 40
-  %61 = load ptr, ptr %60, align 8
-  %.not38 = icmp eq ptr %61, null
-  br i1 %.not38, label %62, label %64
+58:                                               ; preds = %55
+  %59 = tail call ptr @g_byte_array_new() #9
+  store ptr %59, ptr %56, align 8
+  %.pre41 = load ptr, ptr %52, align 8
+  br label %60
 
-62:                                               ; preds = %59
-  %63 = tail call ptr @g_byte_array_new() #9
-  store ptr %63, ptr %60, align 8
-  %.pre41 = load ptr, ptr %56, align 8
-  br label %64
+60:                                               ; preds = %58, %55
+  %61 = phi ptr [ %59, %58 ], [ %57, %55 ]
+  %62 = phi ptr [ %.pre41, %58 ], [ %53, %55 ]
+  %63 = tail call i32 @hex_str_to_bytes(ptr noundef %62, ptr noundef %61, i32 noundef 0) #9
+  %.not39 = icmp eq i32 %63, 0
+  br i1 %.not39, label %.sink.split, label %64
 
-64:                                               ; preds = %62, %59
-  %65 = phi ptr [ %63, %62 ], [ %61, %59 ]
-  %66 = phi ptr [ %.pre41, %62 ], [ %57, %59 ]
-  %67 = tail call i32 @hex_str_to_bytes(ptr noundef %66, ptr noundef %65, i32 noundef 0) #9
-  %.not39 = icmp eq i32 %67, 0
-  br i1 %.not39, label %.sink.split, label %68
+64:                                               ; preds = %60
+  %65 = load ptr, ptr %56, align 8
+  %66 = getelementptr inbounds i8, ptr %65, i64 8
+  %67 = load i32, ptr %66, align 8
+  %.not40 = icmp eq i32 %67, 16
+  br i1 %.not40, label %70, label %.sink.split
 
-68:                                               ; preds = %64
-  %69 = load ptr, ptr %60, align 8
-  %70 = getelementptr inbounds i8, ptr %69, i64 8
-  %71 = load i32, ptr %70, align 8
-  %.not40 = icmp eq i32 %71, 16
-  br i1 %.not40, label %73, label %.sink.split
+.sink.split.sink.split:                           ; preds = %9, %5
+  %.str.315.sink.ph = phi ptr [ @.str.308, %5 ], [ @.str.309, %9 ]
+  %68 = tail call ptr @g_byte_array_free(ptr noundef %6, i32 noundef 1) #9
+  br label %.sink.split
 
-.sink.split:                                      ; preds = %68, %64, %55, %51, %47, %byte_array_reverse.exit, %2, %9, %14
-  %.str.315.sink = phi ptr [ @.str.309, %14 ], [ @.str.308, %9 ], [ @.str.307, %2 ], [ @.str.310, %byte_array_reverse.exit ], [ @.str.311, %47 ], [ @.str.312, %51 ], [ @.str.313, %55 ], [ @.str.314, %64 ], [ @.str.315, %68 ]
-  %72 = tail call noalias ptr @g_strdup(ptr noundef nonnull %.str.315.sink) #9
-  br label %73
+.sink.split:                                      ; preds = %.sink.split.sink.split, %64, %60, %51, %47, %43, %byte_array_reverse.exit, %2
+  %.str.315.sink = phi ptr [ @.str.307, %2 ], [ @.str.310, %byte_array_reverse.exit ], [ @.str.311, %43 ], [ @.str.312, %47 ], [ @.str.313, %51 ], [ @.str.314, %60 ], [ @.str.315, %64 ], [ %.str.315.sink.ph, %.sink.split.sink.split ]
+  %69 = tail call noalias ptr @g_strdup(ptr noundef nonnull %.str.315.sink) #9
+  br label %70
 
-73:                                               ; preds = %.sink.split, %68
-  %.sink = phi ptr [ null, %68 ], [ %72, %.sink.split ]
-  %.0 = phi i1 [ true, %68 ], [ false, %.sink.split ]
+70:                                               ; preds = %.sink.split, %64
+  %.sink = phi ptr [ null, %64 ], [ %69, %.sink.split ]
+  %.0 = phi i1 [ true, %64 ], [ false, %.sink.split ]
   store ptr %.sink, ptr %1, align 8
   ret i1 %.0
 }

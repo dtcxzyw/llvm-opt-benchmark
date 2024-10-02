@@ -203,7 +203,7 @@ if.end38:                                         ; preds = %if.then35
   %10 = load ptr, ptr %libctx41, align 8
   %call42 = tail call ptr @OSSL_LIB_CTX_set0_default(ptr noundef %10) #7
   %cmp43 = icmp eq ptr %call42, null
-  br i1 %cmp43, label %if.then44, label %if.end45
+  br i1 %cmp43, label %if.then44, label %for.cond.backedge
 
 if.then44:                                        ; preds = %if.end38
   tail call void @ERR_new() #7
@@ -234,17 +234,14 @@ async_release_job.exit62:                         ; preds = %if.then.i61, %if.en
   store ptr null, ptr %job, align 8
   br label %return
 
-if.end45:                                         ; preds = %if.end38
+for.cond.backedge:                                ; preds = %if.end38, %if.end81
+  %call42.sink = phi ptr [ %call86, %if.end81 ], [ %call42, %if.end38 ]
   %14 = load ptr, ptr %currjob11, align 8
   tail call fastcc void @async_fibre_swapcontext(ptr noundef nonnull %ctx.0, ptr noundef %14)
-  %call54 = tail call ptr @OSSL_LIB_CTX_set0_default(ptr noundef nonnull %call42) #7
-  br label %for.cond.backedge
-
-for.cond.backedge:                                ; preds = %if.end45, %if.end81
-  %call54.sink = phi ptr [ %call54, %if.end45 ], [ %call94, %if.end81 ]
+  %call54 = tail call ptr @OSSL_LIB_CTX_set0_default(ptr noundef %call42.sink) #7
   %15 = load ptr, ptr %currjob11, align 8
   %libctx56 = getelementptr inbounds i8, ptr %15, i64 1208
-  store ptr %call54.sink, ptr %libctx56, align 8
+  store ptr %call54, ptr %libctx56, align 8
   br label %for.cond
 
 if.end57:                                         ; preds = %if.then13
@@ -397,9 +394,6 @@ if.end81:                                         ; preds = %if.else, %if.end76
   %waitctx85 = getelementptr inbounds i8, ptr %30, i64 1200
   store ptr %wctx, ptr %waitctx85, align 8
   %call86 = tail call ptr @ossl_lib_ctx_get_concrete(ptr noundef null) #7
-  %31 = load ptr, ptr %currjob11, align 8
-  tail call fastcc void @async_fibre_swapcontext(ptr noundef nonnull %ctx.0, ptr noundef %31)
-  %call94 = tail call ptr @OSSL_LIB_CTX_set0_default(ptr noundef %call86) #7
   br label %for.cond.backedge
 
 return:                                           ; preds = %if.then35, %if.then2, %err.i, %async_get_pool_job.exit.thread, %entry, %async_release_job.exit62, %async_release_job.exit85, %async_release_job.exit69, %if.then26, %async_release_job.exit

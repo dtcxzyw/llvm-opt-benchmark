@@ -3400,20 +3400,10 @@ define internal fastcc noalias ptr @decode_gtpv2_uli(ptr noundef %0, ptr noundef
 ; Function Attrs: nounwind uwtable
 define hidden i32 @dissect_diameter_3gpp_uli(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #1 {
   %.not = icmp eq ptr %3, null
-  br i1 %.not, label %8, label %5
-
-5:                                                ; preds = %4
-  %6 = getelementptr inbounds i8, ptr %3, i64 24
-  %7 = tail call fastcc i32 @dissect_3gpp_uli(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %6)
-  br label %10
-
-8:                                                ; preds = %4
-  %9 = tail call fastcc i32 @dissect_3gpp_uli(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef null)
-  br label %10
-
-10:                                               ; preds = %8, %5
-  %.0 = phi i32 [ %7, %5 ], [ %9, %8 ]
-  ret i32 %.0
+  %5 = getelementptr inbounds i8, ptr %3, i64 24
+  %.sink = select i1 %.not, ptr null, ptr %5
+  %6 = tail call fastcc i32 @dissect_3gpp_uli(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %.sink)
+  ret i32 %6
 }
 
 ; Function Attrs: nounwind uwtable

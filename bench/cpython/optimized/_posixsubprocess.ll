@@ -1188,18 +1188,15 @@ if.then10:                                        ; preds = %if.then2, %if.end8
 
 if.end11:                                         ; preds = %if.then, %if.end8
   %cmp12.not = icmp eq ptr %preexec_fn, @_Py_NoneStruct
-  br i1 %cmp12.not, label %if.end11.split, label %if.then13
-
-if.end11.split:                                   ; preds = %if.end11
-  call fastcc void @child_exec(ptr noundef %exec_array, ptr noundef %argv, ptr noundef %envp, ptr noundef %cwd, i32 noundef %p2cread, i32 noundef %p2cwrite, i32 noundef %c2pread, i32 noundef %c2pwrite, i32 noundef %errread, i32 noundef %errwrite, i32 noundef %errpipe_read, i32 noundef %errpipe_write, i32 noundef %close_fds, i32 noundef %restore_signals, i32 noundef %call_setsid, i32 noundef %pgid_to_set, i32 noundef %gid, i64 noundef %extra_group_size, ptr noundef %extra_groups, i32 noundef %uid, i32 noundef %child_umask, ptr noundef %child_sigmask, ptr noundef %fds_to_keep, i64 noundef %fds_to_keep_len, ptr noundef nonnull @_Py_NoneStruct, ptr noundef %preexec_fn_args_tuple)
-  br label %if.end14
+  br i1 %cmp12.not, label %if.end14, label %if.then13
 
 if.then13:                                        ; preds = %if.end11
   call void @PyOS_AfterFork_Child() #11
-  call fastcc void @child_exec(ptr noundef %exec_array, ptr noundef %argv, ptr noundef %envp, ptr noundef %cwd, i32 noundef %p2cread, i32 noundef %p2cwrite, i32 noundef %c2pread, i32 noundef %c2pwrite, i32 noundef %errread, i32 noundef %errwrite, i32 noundef %errpipe_read, i32 noundef %errpipe_write, i32 noundef %close_fds, i32 noundef %restore_signals, i32 noundef %call_setsid, i32 noundef %pgid_to_set, i32 noundef %gid, i64 noundef %extra_group_size, ptr noundef %extra_groups, i32 noundef %uid, i32 noundef %child_umask, ptr noundef %child_sigmask, ptr noundef %fds_to_keep, i64 noundef %fds_to_keep_len, ptr noundef %preexec_fn, ptr noundef %preexec_fn_args_tuple)
   br label %if.end14
 
-if.end14:                                         ; preds = %if.end11.split, %if.then13
+if.end14:                                         ; preds = %if.end11, %if.then13
+  %_Py_NoneStruct.sink = phi ptr [ %preexec_fn, %if.then13 ], [ @_Py_NoneStruct, %if.end11 ]
+  call fastcc void @child_exec(ptr noundef %exec_array, ptr noundef %argv, ptr noundef %envp, ptr noundef %cwd, i32 noundef %p2cread, i32 noundef %p2cwrite, i32 noundef %c2pread, i32 noundef %c2pwrite, i32 noundef %errread, i32 noundef %errwrite, i32 noundef %errpipe_read, i32 noundef %errpipe_write, i32 noundef %close_fds, i32 noundef %restore_signals, i32 noundef %call_setsid, i32 noundef %pgid_to_set, i32 noundef %gid, i64 noundef %extra_group_size, ptr noundef %extra_groups, i32 noundef %uid, i32 noundef %child_umask, ptr noundef %child_sigmask, ptr noundef %fds_to_keep, i64 noundef %fds_to_keep_len, ptr noundef %_Py_NoneStruct.sink, ptr noundef %preexec_fn_args_tuple)
   call void @_exit(i32 noundef 255) #14
   unreachable
 }

@@ -14059,8 +14059,7 @@ Abc_Clock.exit:                                   ; preds = %4, %10
   %22 = load i32, ptr %17, align 8
   %23 = call i32 @Ifn_NtkInputNum(ptr noundef nonnull %14) #38
   %24 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.104, i32 noundef %22, i32 noundef %23)
-  call void @free(ptr noundef nonnull %14) #38
-  br label %183
+  br label %.sink.split
 
 25:                                               ; preds = %16
   %26 = getelementptr inbounds i8, ptr %0, i64 664
@@ -14379,10 +14378,13 @@ Abc_Clock.exit107:                                ; preds = %.critedge2, %173
   %181 = sitofp i64 %180 to double
   %182 = fdiv double %181, 1.000000e+06
   call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.121, double noundef %182)
+  br label %.sink.split
+
+.sink.split:                                      ; preds = %21, %Abc_Clock.exit107
   call void @free(ptr noundef %14) #38
   br label %183
 
-183:                                              ; preds = %Abc_Clock.exit107, %21, %Abc_Clock.exit
+183:                                              ; preds = %.sink.split, %Abc_Clock.exit
   ret void
 }
 

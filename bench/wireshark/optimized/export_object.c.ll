@@ -152,24 +152,21 @@ define ptr @eo_massage_str(ptr noundef %0, i64 noundef %1, i32 noundef %2) local
   %.0.lcssa = phi ptr [ %4, %3 ], [ %10, %.lr.ph ]
   %15 = tail call ptr @g_string_append(ptr noundef %.0.lcssa, ptr noundef %.017.lcssa) #7
   %.not22 = icmp eq i32 %2, 0
-  br i1 %.not22, label %17, label %.split
+  br i1 %.not22, label %16, label %.sink.split
 
-.split:                                           ; preds = %._crit_edge
-  %16 = tail call fastcc ptr @eo_rename(ptr noundef %15, i64 noundef %1, i32 noundef %2)
-  br label %22
+16:                                               ; preds = %._crit_edge
+  %17 = getelementptr inbounds i8, ptr %15, i64 8
+  %18 = load i64, ptr %17, align 8
+  %19 = icmp ugt i64 %18, %1
+  br i1 %19, label %.sink.split, label %21
 
-17:                                               ; preds = %._crit_edge
-  %18 = getelementptr inbounds i8, ptr %15, i64 8
-  %19 = load i64, ptr %18, align 8
-  %20 = icmp ugt i64 %19, %1
-  br i1 %20, label %.split18, label %22
+.sink.split:                                      ; preds = %16, %._crit_edge
+  %.sink = phi i32 [ %2, %._crit_edge ], [ 0, %16 ]
+  %20 = tail call fastcc ptr @eo_rename(ptr noundef %15, i64 noundef %1, i32 noundef %.sink)
+  br label %21
 
-.split18:                                         ; preds = %17
-  %21 = tail call fastcc ptr @eo_rename(ptr noundef nonnull %15, i64 noundef %1, i32 noundef 0)
-  br label %22
-
-22:                                               ; preds = %.split, %.split18, %17
-  %.1 = phi ptr [ %15, %17 ], [ %16, %.split ], [ %21, %.split18 ]
+21:                                               ; preds = %.sink.split, %16
+  %.1 = phi ptr [ %15, %16 ], [ %20, %.sink.split ]
   ret ptr %.1
 }
 

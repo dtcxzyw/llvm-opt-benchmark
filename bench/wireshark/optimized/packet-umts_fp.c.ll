@@ -7740,20 +7740,20 @@ define internal fastcc range(i32 0, 2) i32 @heur_dissect_fp_hsdsch_type_1(ptr no
   %14 = load i32, ptr %13, align 4
   %15 = tail call ptr @find_conversation(i32 noundef %5, ptr noundef nonnull %6, ptr noundef nonnull %7, i32 noundef %10, i32 noundef %12, i32 noundef %14, i32 noundef 65536) #9
   %.not = icmp eq ptr %15, null
-  br i1 %.not, label %30, label %16
+  br i1 %.not, label %27, label %16
 
 16:                                               ; preds = %3
   %17 = load i32, ptr @proto_fp, align 4
   %18 = tail call ptr @conversation_get_proto_data(ptr noundef nonnull %15, i32 noundef %17) #9
   %.not97 = icmp eq ptr %18, null
-  br i1 %.not97, label %30, label %19
+  br i1 %.not97, label %27, label %19
 
 19:                                               ; preds = %16
   %20 = getelementptr inbounds i8, ptr %18, i64 8
   %21 = load i32, ptr %20, align 8
   switch i32 %21, label %.thread [
     i32 13, label %22
-    i32 0, label %30
+    i32 0, label %27
   ]
 
 22:                                               ; preds = %19
@@ -7761,154 +7761,152 @@ define internal fastcc range(i32 0, 2) i32 @heur_dissect_fp_hsdsch_type_1(ptr no
   %24 = load ptr, ptr %23, align 8
   %25 = load i32, ptr %24, align 4
   %26 = icmp eq i32 %25, 1
-  br i1 %26, label %27, label %.thread
+  br i1 %26, label %.thread.sink.split, label %.thread
 
-27:                                               ; preds = %22
-  %28 = load ptr, ptr @fp_handle, align 8
-  tail call void @conversation_set_dissector(ptr noundef nonnull %15, ptr noundef %28) #9
-  %29 = tail call fastcc i32 @dissect_fp_common(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, ptr noundef null)
-  br label %.thread
-
-30:                                               ; preds = %19, %16, %3
+27:                                               ; preds = %19, %16, %3
   %.088 = phi ptr [ null, %16 ], [ null, %3 ], [ %18, %19 ]
-  %31 = tail call ptr @wmem_file_scope() #9
-  %32 = load i32, ptr @proto_fp, align 4
-  %33 = tail call ptr @p_get_proto_data(ptr noundef %31, ptr noundef nonnull %1, i32 noundef %32, i32 noundef 0) #9
-  %.not99 = icmp eq ptr %33, null
-  br i1 %.not99, label %34, label %.thread
+  %28 = tail call ptr @wmem_file_scope() #9
+  %29 = load i32, ptr @proto_fp, align 4
+  %30 = tail call ptr @p_get_proto_data(ptr noundef %28, ptr noundef nonnull %1, i32 noundef %29, i32 noundef 0) #9
+  %.not99 = icmp eq ptr %30, null
+  br i1 %.not99, label %31, label %.thread
 
-34:                                               ; preds = %30
-  %35 = tail call i32 @tvb_reported_length(ptr noundef %0) #9
-  %36 = icmp ult i32 %35, 11
-  br i1 %36, label %.thread, label %37
+31:                                               ; preds = %27
+  %32 = tail call i32 @tvb_reported_length(ptr noundef %0) #9
+  %33 = icmp ult i32 %32, 11
+  br i1 %33, label %.thread, label %34
+
+34:                                               ; preds = %31
+  %35 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 0) #9
+  %36 = and i8 %35, 1
+  %.not100 = icmp eq i8 %36, 0
+  br i1 %.not100, label %37, label %.thread
 
 37:                                               ; preds = %34
-  %38 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 0) #9
-  %39 = and i8 %38, 1
-  %.not100 = icmp eq i8 %39, 0
-  br i1 %.not100, label %40, label %.thread
+  %38 = tail call i32 @tvb_reported_length(ptr noundef %0) #9
+  %39 = icmp ult i32 %38, 55
+  br i1 %39, label %.thread, label %40
 
 40:                                               ; preds = %37
-  %41 = tail call i32 @tvb_reported_length(ptr noundef %0) #9
-  %42 = icmp ult i32 %41, 55
-  br i1 %42, label %.thread, label %43
-
-43:                                               ; preds = %40
-  %44 = tail call zeroext i16 @tvb_get_guint16(ptr noundef %0, i32 noundef 2, i32 noundef 0) #9
-  %45 = lshr i16 %44, 3
-  %46 = zext nneg i16 %45 to i32
-  switch i16 %45, label %.thread [
-    i16 656, label %47
-    i16 336, label %47
+  %41 = tail call zeroext i16 @tvb_get_guint16(ptr noundef %0, i32 noundef 2, i32 noundef 0) #9
+  %42 = lshr i16 %41, 3
+  %43 = zext nneg i16 %42 to i32
+  switch i16 %42, label %.thread [
+    i16 656, label %44
+    i16 336, label %44
   ]
 
-47:                                               ; preds = %43, %43
-  %48 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 4) #9
-  %49 = zext i8 %48 to i32
-  %50 = icmp eq i8 %48, 0
-  br i1 %50, label %.thread, label %51
+44:                                               ; preds = %40, %40
+  %45 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 4) #9
+  %46 = zext i8 %45 to i32
+  %47 = icmp eq i8 %45, 0
+  br i1 %47, label %.thread, label %48
 
-51:                                               ; preds = %47
-  %52 = icmp eq i16 %45, 336
-  %53 = icmp ugt i8 %48, 32
-  %or.cond5 = and i1 %52, %53
-  br i1 %or.cond5, label %.thread, label %54
+48:                                               ; preds = %44
+  %49 = icmp eq i16 %42, 336
+  %50 = icmp ugt i8 %45, 32
+  %or.cond5 = and i1 %49, %50
+  br i1 %or.cond5, label %.thread, label %51
+
+51:                                               ; preds = %48
+  %52 = icmp eq i16 %42, 656
+  %53 = icmp ugt i8 %45, 17
+  %or.cond8 = and i1 %52, %53
+  br i1 %or.cond8, label %.thread, label %54
 
 54:                                               ; preds = %51
-  %55 = icmp eq i16 %45, 656
-  %56 = icmp ugt i8 %48, 17
-  %or.cond8 = and i1 %55, %56
-  br i1 %or.cond8, label %.thread, label %57
+  %55 = mul nuw nsw i32 %46, %43
+  %56 = lshr exact i32 %55, 3
+  %57 = add nuw nsw i32 %56, 9
+  %58 = icmp ugt i32 %57, %32
+  %59 = icmp ugt i32 %57, %38
+  %or.cond = or i1 %58, %59
+  br i1 %or.cond, label %.thread, label %60
 
-57:                                               ; preds = %54
-  %58 = mul nuw nsw i32 %49, %46
-  %59 = lshr exact i32 %58, 3
-  %60 = add nuw nsw i32 %59, 9
-  %61 = icmp ugt i32 %60, %35
-  %62 = icmp ugt i32 %60, %41
-  %or.cond = or i1 %61, %62
-  br i1 %or.cond, label %.thread, label %63
+60:                                               ; preds = %54
+  %61 = lshr i16 %41, 6
+  %62 = zext nneg i16 %61 to i32
+  br label %63
 
-63:                                               ; preds = %57
-  %64 = lshr i16 %44, 6
-  %65 = zext nneg i16 %64 to i32
-  br label %66
+63:                                               ; preds = %60, %65
+  %.03 = phi i32 [ 0, %60 ], [ %67, %65 ]
+  %.0892 = phi i32 [ 7, %60 ], [ %66, %65 ]
+  %64 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.0892) #9
+  %.not104 = icmp ult i8 %64, 16
+  br i1 %.not104, label %65, label %.thread
 
-66:                                               ; preds = %63, %68
-  %.03 = phi i32 [ 0, %63 ], [ %70, %68 ]
-  %.0892 = phi i32 [ 7, %63 ], [ %69, %68 ]
-  %67 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.0892) #9
-  %.not104 = icmp ult i8 %67, 16
-  br i1 %.not104, label %68, label %.thread
+65:                                               ; preds = %63
+  %66 = add nuw nsw i32 %.0892, %62
+  %67 = add nuw nsw i32 %.03, 1
+  %exitcond.not = icmp eq i32 %67, %46
+  br i1 %exitcond.not, label %68, label %63, !llvm.loop !50
 
-68:                                               ; preds = %66
-  %69 = add nuw nsw i32 %.0892, %65
-  %70 = add nuw nsw i32 %.03, 1
-  %exitcond.not = icmp eq i32 %70, %49
-  br i1 %exitcond.not, label %71, label %66, !llvm.loop !50
+68:                                               ; preds = %65
+  %69 = tail call fastcc i32 @check_header_crc_for_heur(ptr noundef %0, i16 noundef zeroext 7)
+  %.not101 = icmp eq i32 %69, 0
+  br i1 %.not101, label %.thread, label %70
 
-71:                                               ; preds = %68
-  %72 = tail call fastcc i32 @check_header_crc_for_heur(ptr noundef %0, i16 noundef zeroext 7)
-  %.not101 = icmp eq i32 %72, 0
-  br i1 %.not101, label %.thread, label %73
+70:                                               ; preds = %68
+  %71 = tail call fastcc i32 @check_payload_crc_for_heur(ptr noundef %0, i16 noundef zeroext 7)
+  %.not102 = icmp eq i32 %71, 0
+  br i1 %.not102, label %.thread, label %72
 
-73:                                               ; preds = %71
-  %74 = tail call fastcc i32 @check_payload_crc_for_heur(ptr noundef %0, i16 noundef zeroext 7)
-  %.not102 = icmp eq i32 %74, 0
-  br i1 %.not102, label %.thread, label %75
-
-75:                                               ; preds = %73
+72:                                               ; preds = %70
   %.not103 = icmp eq ptr %.088, null
-  br i1 %.not103, label %76, label %79
+  br i1 %.not103, label %73, label %76
 
-76:                                               ; preds = %75
-  %77 = tail call ptr @wmem_file_scope() #9
-  %78 = tail call noalias ptr @wmem_alloc0(ptr noundef %77, i64 noundef 132704) #9
-  tail call fastcc void @set_both_sides_umts_fp_conv_data(ptr noundef %1, ptr noundef %78)
-  br label %79
+73:                                               ; preds = %72
+  %74 = tail call ptr @wmem_file_scope() #9
+  %75 = tail call noalias ptr @wmem_alloc0(ptr noundef %74, i64 noundef 132704) #9
+  tail call fastcc void @set_both_sides_umts_fp_conv_data(ptr noundef %1, ptr noundef %75)
+  br label %76
 
-79:                                               ; preds = %76, %75
-  %.1 = phi ptr [ %.088, %75 ], [ %78, %76 ]
+76:                                               ; preds = %73, %72
+  %.1 = phi ptr [ %.088, %72 ], [ %75, %73 ]
   store i32 0, ptr %.1, align 8
-  %80 = getelementptr inbounds i8, ptr %.1, i64 4
-  store i32 1, ptr %80, align 4
-  %81 = load i32, ptr %4, align 4
-  %82 = getelementptr inbounds i8, ptr %.1, i64 16
-  store i32 %81, ptr %82, align 8
-  %83 = getelementptr inbounds i8, ptr %.1, i64 20
-  store i32 %81, ptr %83, align 4
-  %84 = getelementptr inbounds i8, ptr %.1, i64 132684
-  store i8 1, ptr %84, align 4
-  %85 = tail call fastcc i32 @generate_ue_id_for_heur(ptr noundef %1)
-  %86 = getelementptr inbounds i8, ptr %.1, i64 56
-  store i32 %85, ptr %86, align 8
-  %87 = getelementptr inbounds i8, ptr %.1, i64 12
-  store i32 3, ptr %87, align 4
-  %88 = tail call ptr @wmem_file_scope() #9
-  %89 = getelementptr inbounds i8, ptr %.1, i64 24
-  %90 = getelementptr inbounds i8, ptr %1, i64 208
-  tail call fastcc void @copy_address_wmem(ptr noundef %88, ptr noundef nonnull %89, ptr noundef nonnull %90)
-  %91 = load i32, ptr %13, align 4
-  %92 = trunc i32 %91 to i16
-  %93 = getelementptr inbounds i8, ptr %.1, i64 48
-  store i16 %92, ptr %93, align 8
-  %94 = getelementptr inbounds i8, ptr %.1, i64 8
-  store i32 13, ptr %94, align 8
-  %95 = tail call ptr @wmem_file_scope() #9
-  %96 = tail call noalias ptr @wmem_alloc0(ptr noundef %95, i64 noundef 12) #9
-  store i32 1, ptr %96, align 4
-  %97 = getelementptr inbounds i8, ptr %96, i64 5
-  store i8 0, ptr %97, align 1
-  %98 = getelementptr inbounds i8, ptr %.1, i64 64
-  store ptr %96, ptr %98, align 8
-  %99 = tail call nonnull ptr @find_or_create_conversation(ptr noundef %1) #9
-  %100 = load ptr, ptr @fp_handle, align 8
-  tail call void @conversation_set_dissector(ptr noundef nonnull %99, ptr noundef %100) #9
-  %101 = tail call fastcc i32 @dissect_fp_common(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef null)
+  %77 = getelementptr inbounds i8, ptr %.1, i64 4
+  store i32 1, ptr %77, align 4
+  %78 = load i32, ptr %4, align 4
+  %79 = getelementptr inbounds i8, ptr %.1, i64 16
+  store i32 %78, ptr %79, align 8
+  %80 = getelementptr inbounds i8, ptr %.1, i64 20
+  store i32 %78, ptr %80, align 4
+  %81 = getelementptr inbounds i8, ptr %.1, i64 132684
+  store i8 1, ptr %81, align 4
+  %82 = tail call fastcc i32 @generate_ue_id_for_heur(ptr noundef %1)
+  %83 = getelementptr inbounds i8, ptr %.1, i64 56
+  store i32 %82, ptr %83, align 8
+  %84 = getelementptr inbounds i8, ptr %.1, i64 12
+  store i32 3, ptr %84, align 4
+  %85 = tail call ptr @wmem_file_scope() #9
+  %86 = getelementptr inbounds i8, ptr %.1, i64 24
+  %87 = getelementptr inbounds i8, ptr %1, i64 208
+  tail call fastcc void @copy_address_wmem(ptr noundef %85, ptr noundef nonnull %86, ptr noundef nonnull %87)
+  %88 = load i32, ptr %13, align 4
+  %89 = trunc i32 %88 to i16
+  %90 = getelementptr inbounds i8, ptr %.1, i64 48
+  store i16 %89, ptr %90, align 8
+  %91 = getelementptr inbounds i8, ptr %.1, i64 8
+  store i32 13, ptr %91, align 8
+  %92 = tail call ptr @wmem_file_scope() #9
+  %93 = tail call noalias ptr @wmem_alloc0(ptr noundef %92, i64 noundef 12) #9
+  store i32 1, ptr %93, align 4
+  %94 = getelementptr inbounds i8, ptr %93, i64 5
+  store i8 0, ptr %94, align 1
+  %95 = getelementptr inbounds i8, ptr %.1, i64 64
+  store ptr %93, ptr %95, align 8
+  %96 = tail call nonnull ptr @find_or_create_conversation(ptr noundef %1) #9
+  br label %.thread.sink.split
+
+.thread.sink.split:                               ; preds = %22, %76
+  %.sink = phi ptr [ %96, %76 ], [ %15, %22 ]
+  %97 = load ptr, ptr @fp_handle, align 8
+  tail call void @conversation_set_dissector(ptr noundef nonnull %.sink, ptr noundef %97) #9
+  %98 = tail call fastcc i32 @dissect_fp_common(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef null)
   br label %.thread
 
-.thread:                                          ; preds = %66, %19, %22, %73, %71, %57, %51, %54, %47, %43, %40, %37, %34, %30, %79, %27
-  %.087 = phi i32 [ 1, %27 ], [ 1, %79 ], [ 0, %30 ], [ 0, %34 ], [ 0, %37 ], [ 0, %40 ], [ 0, %43 ], [ 0, %47 ], [ 0, %54 ], [ 0, %51 ], [ 0, %57 ], [ 0, %71 ], [ 0, %73 ], [ 0, %22 ], [ 0, %19 ], [ 0, %66 ]
+.thread:                                          ; preds = %63, %.thread.sink.split, %19, %22, %70, %68, %54, %48, %51, %44, %40, %37, %34, %31, %27
+  %.087 = phi i32 [ 0, %27 ], [ 0, %31 ], [ 0, %34 ], [ 0, %37 ], [ 0, %40 ], [ 0, %44 ], [ 0, %51 ], [ 0, %48 ], [ 0, %54 ], [ 0, %68 ], [ 0, %70 ], [ 0, %22 ], [ 0, %19 ], [ 1, %.thread.sink.split ], [ 0, %63 ]
   ret i32 %.087
 }
 
@@ -7927,20 +7925,20 @@ define internal fastcc range(i32 0, 2) i32 @heur_dissect_fp_hsdsch_type_2(ptr no
   %14 = load i32, ptr %13, align 4
   %15 = tail call ptr @find_conversation(i32 noundef %5, ptr noundef nonnull %6, ptr noundef nonnull %7, i32 noundef %10, i32 noundef %12, i32 noundef %14, i32 noundef 65536) #9
   %.not = icmp eq ptr %15, null
-  br i1 %.not, label %30, label %16
+  br i1 %.not, label %27, label %16
 
 16:                                               ; preds = %3
   %17 = load i32, ptr @proto_fp, align 4
   %18 = tail call ptr @conversation_get_proto_data(ptr noundef nonnull %15, i32 noundef %17) #9
   %.not109 = icmp eq ptr %18, null
-  br i1 %.not109, label %30, label %19
+  br i1 %.not109, label %27, label %19
 
 19:                                               ; preds = %16
   %20 = getelementptr inbounds i8, ptr %18, i64 8
   %21 = load i32, ptr %20, align 8
   switch i32 %21, label %.thread [
     i32 13, label %22
-    i32 0, label %30
+    i32 0, label %27
   ]
 
 22:                                               ; preds = %19
@@ -7948,186 +7946,184 @@ define internal fastcc range(i32 0, 2) i32 @heur_dissect_fp_hsdsch_type_2(ptr no
   %24 = load ptr, ptr %23, align 8
   %25 = load i32, ptr %24, align 4
   %26 = icmp eq i32 %25, 2
-  br i1 %26, label %27, label %.thread
+  br i1 %26, label %.thread.sink.split, label %.thread
 
-27:                                               ; preds = %22
-  %28 = load ptr, ptr @fp_handle, align 8
-  tail call void @conversation_set_dissector(ptr noundef nonnull %15, ptr noundef %28) #9
-  %29 = tail call fastcc i32 @dissect_fp_common(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, ptr noundef null)
-  br label %.thread
-
-30:                                               ; preds = %19, %16, %3
+27:                                               ; preds = %19, %16, %3
   %.097 = phi ptr [ null, %16 ], [ null, %3 ], [ %18, %19 ]
-  %31 = tail call ptr @wmem_file_scope() #9
-  %32 = load i32, ptr @proto_fp, align 4
-  %33 = tail call ptr @p_get_proto_data(ptr noundef %31, ptr noundef nonnull %1, i32 noundef %32, i32 noundef 0) #9
-  %.not111 = icmp eq ptr %33, null
-  br i1 %.not111, label %34, label %.thread
+  %28 = tail call ptr @wmem_file_scope() #9
+  %29 = load i32, ptr @proto_fp, align 4
+  %30 = tail call ptr @p_get_proto_data(ptr noundef %28, ptr noundef nonnull %1, i32 noundef %29, i32 noundef 0) #9
+  %.not111 = icmp eq ptr %30, null
+  br i1 %.not111, label %31, label %.thread
 
-34:                                               ; preds = %30
-  %35 = tail call i32 @tvb_captured_length(ptr noundef %0) #9
-  %36 = tail call i32 @tvb_reported_length(ptr noundef %0) #9
-  %37 = icmp ult i32 %35, 11
-  br i1 %37, label %.thread, label %38
+31:                                               ; preds = %27
+  %32 = tail call i32 @tvb_captured_length(ptr noundef %0) #9
+  %33 = tail call i32 @tvb_reported_length(ptr noundef %0) #9
+  %34 = icmp ult i32 %32, 11
+  br i1 %34, label %.thread, label %35
 
-38:                                               ; preds = %34
-  %39 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 0) #9
-  %40 = and i8 %39, 1
-  %.not112 = icmp eq i8 %40, 0
-  br i1 %.not112, label %41, label %.thread
+35:                                               ; preds = %31
+  %36 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 0) #9
+  %37 = and i8 %36, 1
+  %.not112 = icmp eq i8 %37, 0
+  br i1 %.not112, label %38, label %.thread
+
+38:                                               ; preds = %35
+  %39 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 7) #9
+  %40 = and i8 %39, 16
+  %.not113 = icmp eq i8 %40, 0
+  br i1 %.not113, label %41, label %.thread
 
 41:                                               ; preds = %38
-  %42 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 7) #9
-  %43 = and i8 %42, 16
-  %.not113 = icmp eq i8 %43, 0
-  br i1 %.not113, label %44, label %.thread
+  %42 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 2) #9
+  %43 = lshr i8 %42, 3
+  %44 = zext nneg i8 %43 to i32
+  %45 = icmp ult i8 %42, 8
+  br i1 %45, label %.thread, label %46
 
-44:                                               ; preds = %41
-  %45 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 2) #9
-  %46 = lshr i8 %45, 3
-  %47 = zext nneg i8 %46 to i32
-  %48 = icmp ult i8 %45, 8
-  br i1 %48, label %.thread, label %49
-
-49:                                               ; preds = %44
-  %50 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 3) #9
-  %51 = and i8 %50, 3
-  %.not114 = icmp eq i8 %51, 0
+46:                                               ; preds = %41
+  %47 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 3) #9
+  %48 = and i8 %47, 3
+  %.not114 = icmp eq i8 %48, 0
   br i1 %.not114, label %.lr.ph, label %.thread
 
-.lr.ph:                                           ; preds = %49, %81
-  %.06 = phi i32 [ %85, %81 ], [ 0, %49 ]
-  %.0945 = phi i32 [ %84, %81 ], [ 0, %49 ]
-  %.0954 = phi i32 [ %.1, %81 ], [ 6, %49 ]
-  %52 = mul nuw nsw i32 %.06, 3
-  %53 = add nuw nsw i32 %52, 8
-  %.not118 = icmp ult i32 %53, %35
-  br i1 %.not118, label %54, label %.thread
+.lr.ph:                                           ; preds = %46, %78
+  %.06 = phi i32 [ %82, %78 ], [ 0, %46 ]
+  %.0945 = phi i32 [ %81, %78 ], [ 0, %46 ]
+  %.0954 = phi i32 [ %.1, %78 ], [ 6, %46 ]
+  %49 = mul nuw nsw i32 %.06, 3
+  %50 = add nuw nsw i32 %49, 8
+  %.not118 = icmp ult i32 %50, %32
+  br i1 %.not118, label %51, label %.thread
 
-54:                                               ; preds = %.lr.ph
-  %55 = and i32 %.06, 1
-  %56 = icmp eq i32 %55, 0
-  %57 = mul nuw nsw i32 %.06, 25
-  br i1 %56, label %58, label %59
+51:                                               ; preds = %.lr.ph
+  %52 = and i32 %.06, 1
+  %53 = icmp eq i32 %52, 0
+  %54 = mul nuw nsw i32 %.06, 25
+  br i1 %53, label %55, label %56
 
-58:                                               ; preds = %54
-  %.udiv = udiv i32 %57, 10
-  br label %63
+55:                                               ; preds = %51
+  %.udiv = udiv i32 %54, 10
+  br label %60
 
-59:                                               ; preds = %54
-  %60 = add nsw i32 %57, -25
-  %61 = udiv i32 %60, 10
-  %62 = add nuw nsw i32 %61, 2
-  br label %63
+56:                                               ; preds = %51
+  %57 = add nsw i32 %54, -25
+  %58 = udiv i32 %57, 10
+  %59 = add nuw nsw i32 %58, 2
+  br label %60
 
-63:                                               ; preds = %59, %58
-  %.099 = phi i32 [ %.udiv, %58 ], [ %62, %59 ]
-  %64 = and i32 %.099, 65535
-  %65 = add nuw nsw i32 %64, 6
-  %66 = tail call zeroext i16 @tvb_get_guint16(ptr noundef %0, i32 noundef %65, i32 noundef 0) #9
-  %67 = lshr i16 %66, 5
-  %68 = add nuw nsw i32 %64, 7
-  %69 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %68) #9
-  %70 = add nuw nsw i32 %64, 8
-  %71 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %70) #9
-  %72 = zext nneg i16 %67 to i32
-  %73 = icmp ult i16 %66, 32
+60:                                               ; preds = %56, %55
+  %.099 = phi i32 [ %.udiv, %55 ], [ %59, %56 ]
+  %61 = and i32 %.099, 65535
+  %62 = add nuw nsw i32 %61, 6
+  %63 = tail call zeroext i16 @tvb_get_guint16(ptr noundef %0, i32 noundef %62, i32 noundef 0) #9
+  %64 = lshr i16 %63, 5
+  %65 = add nuw nsw i32 %61, 7
+  %66 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %65) #9
+  %67 = add nuw nsw i32 %61, 8
+  %68 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %67) #9
+  %69 = zext nneg i16 %64 to i32
+  %70 = icmp ult i16 %63, 32
+  br i1 %70, label %.thread, label %71
+
+71:                                               ; preds = %60
+  %72 = and i8 %66, 15
+  %73 = icmp eq i8 %72, 0
   br i1 %73, label %.thread, label %74
 
-74:                                               ; preds = %63
-  %75 = and i8 %69, 15
-  %76 = icmp eq i8 %75, 0
-  br i1 %76, label %.thread, label %77
+74:                                               ; preds = %71
+  %75 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %50) #9
+  %76 = and i8 %75, 15
+  %.not119 = icmp ne i8 %76, 0
+  %77 = icmp ugt i8 %68, -17
+  %or.cond120 = select i1 %.not119, i1 true, i1 %77
+  br i1 %or.cond120, label %.thread, label %78
 
-77:                                               ; preds = %74
-  %78 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %53) #9
-  %79 = and i8 %78, 15
-  %.not119 = icmp ne i8 %79, 0
-  %80 = icmp ugt i8 %71, -17
-  %or.cond120 = select i1 %.not119, i1 true, i1 %80
-  br i1 %or.cond120, label %.thread, label %81
-
-81:                                               ; preds = %77
-  %82 = zext nneg i8 %75 to i32
-  %83 = mul nuw nsw i32 %82, %72
-  %84 = add i32 %83, %.0945
-  %.1.v = xor i32 %55, 3
+78:                                               ; preds = %74
+  %79 = zext nneg i8 %72 to i32
+  %80 = mul nuw nsw i32 %79, %69
+  %81 = add i32 %80, %.0945
+  %.1.v = xor i32 %52, 3
   %.1 = add i32 %.1.v, %.0954
-  %85 = add nuw nsw i32 %.06, 1
-  %exitcond.not = icmp eq i32 %85, %47
+  %82 = add nuw nsw i32 %.06, 1
+  %exitcond.not = icmp eq i32 %82, %44
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !51
 
-._crit_edge:                                      ; preds = %81
-  %86 = add i32 %.1, 2
-  %87 = add i32 %86, %84
-  %88 = icmp ugt i32 %87, %35
-  %89 = icmp ugt i32 %87, %36
-  %or.cond = select i1 %88, i1 true, i1 %89
-  br i1 %or.cond, label %.thread, label %90
+._crit_edge:                                      ; preds = %78
+  %83 = add i32 %.1, 2
+  %84 = add i32 %83, %81
+  %85 = icmp ugt i32 %84, %32
+  %86 = icmp ugt i32 %84, %33
+  %or.cond = select i1 %85, i1 true, i1 %86
+  br i1 %or.cond, label %.thread, label %87
 
-90:                                               ; preds = %._crit_edge
-  %91 = trunc i32 %.1 to i16
-  %92 = tail call fastcc i32 @check_header_crc_for_heur(ptr noundef %0, i16 noundef zeroext %91)
-  %.not115 = icmp eq i32 %92, 0
-  br i1 %.not115, label %.thread, label %93
+87:                                               ; preds = %._crit_edge
+  %88 = trunc i32 %.1 to i16
+  %89 = tail call fastcc i32 @check_header_crc_for_heur(ptr noundef %0, i16 noundef zeroext %88)
+  %.not115 = icmp eq i32 %89, 0
+  br i1 %.not115, label %.thread, label %90
 
-93:                                               ; preds = %90
-  %94 = tail call fastcc i32 @check_payload_crc_for_heur(ptr noundef %0, i16 noundef zeroext %91)
-  %.not116 = icmp eq i32 %94, 0
-  br i1 %.not116, label %.thread, label %95
+90:                                               ; preds = %87
+  %91 = tail call fastcc i32 @check_payload_crc_for_heur(ptr noundef %0, i16 noundef zeroext %88)
+  %.not116 = icmp eq i32 %91, 0
+  br i1 %.not116, label %.thread, label %92
 
-95:                                               ; preds = %93
+92:                                               ; preds = %90
   %.not117 = icmp eq ptr %.097, null
-  br i1 %.not117, label %96, label %99
+  br i1 %.not117, label %93, label %96
 
-96:                                               ; preds = %95
-  %97 = tail call ptr @wmem_file_scope() #9
-  %98 = tail call noalias ptr @wmem_alloc0(ptr noundef %97, i64 noundef 132704) #9
-  tail call fastcc void @set_both_sides_umts_fp_conv_data(ptr noundef %1, ptr noundef %98)
-  br label %99
+93:                                               ; preds = %92
+  %94 = tail call ptr @wmem_file_scope() #9
+  %95 = tail call noalias ptr @wmem_alloc0(ptr noundef %94, i64 noundef 132704) #9
+  tail call fastcc void @set_both_sides_umts_fp_conv_data(ptr noundef %1, ptr noundef %95)
+  br label %96
 
-99:                                               ; preds = %96, %95
-  %.198 = phi ptr [ %.097, %95 ], [ %98, %96 ]
+96:                                               ; preds = %93, %92
+  %.198 = phi ptr [ %.097, %92 ], [ %95, %93 ]
   store i32 0, ptr %.198, align 8
-  %100 = getelementptr inbounds i8, ptr %.198, i64 4
-  store i32 1, ptr %100, align 4
-  %101 = load i32, ptr %4, align 4
-  %102 = getelementptr inbounds i8, ptr %.198, i64 16
-  store i32 %101, ptr %102, align 8
-  %103 = getelementptr inbounds i8, ptr %.198, i64 20
-  store i32 %101, ptr %103, align 4
-  %104 = getelementptr inbounds i8, ptr %.198, i64 132684
-  store i8 1, ptr %104, align 4
-  %105 = tail call fastcc i32 @generate_ue_id_for_heur(ptr noundef %1)
-  %106 = getelementptr inbounds i8, ptr %.198, i64 56
-  store i32 %105, ptr %106, align 8
-  %107 = getelementptr inbounds i8, ptr %.198, i64 12
-  store i32 3, ptr %107, align 4
-  %108 = tail call ptr @wmem_file_scope() #9
-  %109 = getelementptr inbounds i8, ptr %.198, i64 24
-  %110 = getelementptr inbounds i8, ptr %1, i64 208
-  tail call fastcc void @copy_address_wmem(ptr noundef %108, ptr noundef nonnull %109, ptr noundef nonnull %110)
-  %111 = load i32, ptr %13, align 4
-  %112 = trunc i32 %111 to i16
-  %113 = getelementptr inbounds i8, ptr %.198, i64 48
-  store i16 %112, ptr %113, align 8
-  %114 = getelementptr inbounds i8, ptr %.198, i64 8
-  store i32 13, ptr %114, align 8
-  %115 = tail call ptr @wmem_file_scope() #9
-  %116 = tail call noalias ptr @wmem_alloc0(ptr noundef %115, i64 noundef 12) #9
-  store i32 2, ptr %116, align 4
-  %117 = getelementptr inbounds i8, ptr %116, i64 5
-  store i8 1, ptr %117, align 1
-  %118 = getelementptr inbounds i8, ptr %.198, i64 64
-  store ptr %116, ptr %118, align 8
-  %119 = tail call nonnull ptr @find_or_create_conversation(ptr noundef %1) #9
-  %120 = load ptr, ptr @fp_handle, align 8
-  tail call void @conversation_set_dissector(ptr noundef nonnull %119, ptr noundef %120) #9
-  %121 = tail call fastcc i32 @dissect_fp_common(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef null)
+  %97 = getelementptr inbounds i8, ptr %.198, i64 4
+  store i32 1, ptr %97, align 4
+  %98 = load i32, ptr %4, align 4
+  %99 = getelementptr inbounds i8, ptr %.198, i64 16
+  store i32 %98, ptr %99, align 8
+  %100 = getelementptr inbounds i8, ptr %.198, i64 20
+  store i32 %98, ptr %100, align 4
+  %101 = getelementptr inbounds i8, ptr %.198, i64 132684
+  store i8 1, ptr %101, align 4
+  %102 = tail call fastcc i32 @generate_ue_id_for_heur(ptr noundef %1)
+  %103 = getelementptr inbounds i8, ptr %.198, i64 56
+  store i32 %102, ptr %103, align 8
+  %104 = getelementptr inbounds i8, ptr %.198, i64 12
+  store i32 3, ptr %104, align 4
+  %105 = tail call ptr @wmem_file_scope() #9
+  %106 = getelementptr inbounds i8, ptr %.198, i64 24
+  %107 = getelementptr inbounds i8, ptr %1, i64 208
+  tail call fastcc void @copy_address_wmem(ptr noundef %105, ptr noundef nonnull %106, ptr noundef nonnull %107)
+  %108 = load i32, ptr %13, align 4
+  %109 = trunc i32 %108 to i16
+  %110 = getelementptr inbounds i8, ptr %.198, i64 48
+  store i16 %109, ptr %110, align 8
+  %111 = getelementptr inbounds i8, ptr %.198, i64 8
+  store i32 13, ptr %111, align 8
+  %112 = tail call ptr @wmem_file_scope() #9
+  %113 = tail call noalias ptr @wmem_alloc0(ptr noundef %112, i64 noundef 12) #9
+  store i32 2, ptr %113, align 4
+  %114 = getelementptr inbounds i8, ptr %113, i64 5
+  store i8 1, ptr %114, align 1
+  %115 = getelementptr inbounds i8, ptr %.198, i64 64
+  store ptr %113, ptr %115, align 8
+  %116 = tail call nonnull ptr @find_or_create_conversation(ptr noundef %1) #9
+  br label %.thread.sink.split
+
+.thread.sink.split:                               ; preds = %22, %96
+  %.sink = phi ptr [ %116, %96 ], [ %15, %22 ]
+  %117 = load ptr, ptr @fp_handle, align 8
+  tail call void @conversation_set_dissector(ptr noundef nonnull %.sink, ptr noundef %117) #9
+  %118 = tail call fastcc i32 @dissect_fp_common(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef null)
   br label %.thread
 
-.thread:                                          ; preds = %77, %74, %63, %.lr.ph, %19, %22, %93, %90, %._crit_edge, %49, %44, %41, %38, %34, %30, %99, %27
-  %.096 = phi i32 [ 1, %27 ], [ 1, %99 ], [ 0, %30 ], [ 0, %34 ], [ 0, %38 ], [ 0, %41 ], [ 0, %44 ], [ 0, %49 ], [ 0, %._crit_edge ], [ 0, %90 ], [ 0, %93 ], [ 0, %22 ], [ 0, %19 ], [ 0, %.lr.ph ], [ 0, %63 ], [ 0, %74 ], [ 0, %77 ]
+.thread:                                          ; preds = %74, %71, %60, %.lr.ph, %.thread.sink.split, %19, %22, %90, %87, %._crit_edge, %46, %41, %38, %35, %31, %27
+  %.096 = phi i32 [ 0, %27 ], [ 0, %31 ], [ 0, %35 ], [ 0, %38 ], [ 0, %41 ], [ 0, %46 ], [ 0, %._crit_edge ], [ 0, %87 ], [ 0, %90 ], [ 0, %22 ], [ 0, %19 ], [ 1, %.thread.sink.split ], [ 0, %.lr.ph ], [ 0, %60 ], [ 0, %71 ], [ 0, %74 ]
   ret i32 %.096
 }
 
@@ -8146,20 +8142,20 @@ define internal fastcc range(i32 0, 2) i32 @heur_dissect_fp_edch_type_1(ptr noun
   %14 = load i32, ptr %13, align 4
   %15 = tail call ptr @find_conversation(i32 noundef %5, ptr noundef nonnull %6, ptr noundef nonnull %7, i32 noundef %10, i32 noundef %12, i32 noundef %14, i32 noundef 65536) #9
   %.not = icmp eq ptr %15, null
-  br i1 %.not, label %31, label %16
+  br i1 %.not, label %28, label %16
 
 16:                                               ; preds = %3
   %17 = load i32, ptr @proto_fp, align 4
   %18 = tail call ptr @conversation_get_proto_data(ptr noundef nonnull %15, i32 noundef %17) #9
   %.not122 = icmp eq ptr %18, null
-  br i1 %.not122, label %31, label %19
+  br i1 %.not122, label %28, label %19
 
 19:                                               ; preds = %16
   %20 = getelementptr inbounds i8, ptr %18, i64 8
   %21 = load i32, ptr %20, align 8
   switch i32 %21, label %.thread [
     i32 17, label %22
-    i32 0, label %31
+    i32 0, label %28
   ]
 
 22:                                               ; preds = %19
@@ -8168,199 +8164,197 @@ define internal fastcc range(i32 0, 2) i32 @heur_dissect_fp_edch_type_1(ptr noun
   %25 = getelementptr inbounds i8, ptr %24, i64 100
   %26 = load i8, ptr %25, align 4
   %27 = icmp eq i8 %26, 0
-  br i1 %27, label %28, label %.thread
+  br i1 %27, label %.thread.sink.split, label %.thread
 
-28:                                               ; preds = %22
-  %29 = load ptr, ptr @fp_handle, align 8
-  tail call void @conversation_set_dissector(ptr noundef nonnull %15, ptr noundef %29) #9
-  %30 = tail call fastcc i32 @dissect_fp_common(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, ptr noundef null)
-  br label %.thread
-
-31:                                               ; preds = %19, %16, %3
+28:                                               ; preds = %19, %16, %3
   %.0112 = phi ptr [ null, %16 ], [ null, %3 ], [ %18, %19 ]
-  %32 = tail call ptr @wmem_file_scope() #9
-  %33 = load i32, ptr @proto_fp, align 4
-  %34 = tail call ptr @p_get_proto_data(ptr noundef %32, ptr noundef nonnull %1, i32 noundef %33, i32 noundef 0) #9
-  %.not124 = icmp eq ptr %34, null
-  br i1 %.not124, label %35, label %.thread
+  %29 = tail call ptr @wmem_file_scope() #9
+  %30 = load i32, ptr @proto_fp, align 4
+  %31 = tail call ptr @p_get_proto_data(ptr noundef %29, ptr noundef nonnull %1, i32 noundef %30, i32 noundef 0) #9
+  %.not124 = icmp eq ptr %31, null
+  br i1 %.not124, label %32, label %.thread
 
-35:                                               ; preds = %31
-  %36 = tail call i32 @tvb_reported_length(ptr noundef %0) #9
-  %37 = icmp ult i32 %36, 9
-  br i1 %37, label %.thread, label %38
+32:                                               ; preds = %28
+  %33 = tail call i32 @tvb_reported_length(ptr noundef %0) #9
+  %34 = icmp ult i32 %33, 9
+  br i1 %34, label %.thread, label %35
+
+35:                                               ; preds = %32
+  %36 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 0) #9
+  %37 = and i8 %36, 1
+  %.not125 = icmp eq i8 %37, 0
+  br i1 %.not125, label %38, label %.thread
 
 38:                                               ; preds = %35
-  %39 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 0) #9
-  %40 = and i8 %39, 1
-  %.not125 = icmp eq i8 %40, 0
-  br i1 %.not125, label %41, label %.thread
+  %39 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 2) #9
+  %.not126 = icmp ult i8 %39, 16
+  br i1 %.not126, label %40, label %.thread
 
-41:                                               ; preds = %38
-  %42 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 2) #9
-  %.not126 = icmp ult i8 %42, 16
-  br i1 %.not126, label %43, label %.thread
+40:                                               ; preds = %38
+  %narrow = add nuw nsw i8 %39, 1
+  %41 = zext nneg i8 %narrow to i32
+  %42 = icmp ugt i8 %39, 9
+  br i1 %42, label %.thread, label %.preheader2
 
-43:                                               ; preds = %41
-  %narrow = add nuw nsw i8 %42, 1
-  %44 = zext nneg i8 %narrow to i32
-  %45 = icmp ugt i8 %42, 9
-  br i1 %45, label %.thread, label %.preheader2
+.preheader2:                                      ; preds = %40, %._crit_edge
+  %.010512 = phi i32 [ %74, %._crit_edge ], [ 0, %40 ]
+  %.010711 = phi i32 [ %73, %._crit_edge ], [ 4, %40 ]
+  %.011010 = phi i32 [ %67, %._crit_edge ], [ 0, %40 ]
+  %.01149 = phi i32 [ %70, %._crit_edge ], [ 4, %40 ]
+  %43 = add i32 %.010711, 3
+  %.not130 = icmp ult i32 %43, %33
+  br i1 %.not130, label %44, label %.thread
 
-.preheader2:                                      ; preds = %43, %._crit_edge
-  %.010512 = phi i32 [ %77, %._crit_edge ], [ 0, %43 ]
-  %.010711 = phi i32 [ %76, %._crit_edge ], [ 4, %43 ]
-  %.011010 = phi i32 [ %70, %._crit_edge ], [ 0, %43 ]
-  %.01149 = phi i32 [ %73, %._crit_edge ], [ 4, %43 ]
-  %46 = add i32 %.010711, 3
-  %.not130 = icmp ult i32 %46, %36
-  br i1 %.not130, label %47, label %.thread
+44:                                               ; preds = %.preheader2
+  %45 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.010711) #9
+  %46 = and i8 %45, 7
+  %47 = icmp ugt i8 %46, 4
+  br i1 %47, label %.thread, label %48
 
-47:                                               ; preds = %.preheader2
-  %48 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.010711) #9
-  %49 = and i8 %48, 7
-  %50 = icmp ugt i8 %49, 4
-  br i1 %50, label %.thread, label %51
+48:                                               ; preds = %44
+  %49 = add i32 %.010711, 1
+  %50 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %49) #9
+  %51 = lshr i8 %50, 4
+  %52 = zext nneg i8 %51 to i32
+  %53 = icmp ult i8 %50, 16
+  br i1 %53, label %.thread, label %54
 
-51:                                               ; preds = %47
-  %52 = add i32 %.010711, 1
-  %53 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %52) #9
-  %54 = lshr i8 %53, 4
-  %55 = zext nneg i8 %54 to i32
-  %56 = icmp ult i8 %53, 16
-  br i1 %56, label %.thread, label %57
-
-57:                                               ; preds = %51
-  %58 = uitofp nneg i8 %54 to double
-  %59 = tail call double @llvm.fmuladd.f64(double %58, double 1.500000e+00, double 1.500000e+00)
-  %60 = tail call double @llvm.fmuladd.f64(double %59, double 8.000000e+00, double 7.000000e+00)
-  %61 = fmul double %60, 1.250000e-01
-  %62 = fptosi double %61 to i32
-  %63 = add i32 %52, %62
-  %.not131 = icmp ult i32 %63, %36
+54:                                               ; preds = %48
+  %55 = uitofp nneg i8 %51 to double
+  %56 = tail call double @llvm.fmuladd.f64(double %55, double 1.500000e+00, double 1.500000e+00)
+  %57 = tail call double @llvm.fmuladd.f64(double %56, double 8.000000e+00, double 7.000000e+00)
+  %58 = fmul double %57, 1.250000e-01
+  %59 = fptosi double %58 to i32
+  %60 = add i32 %49, %59
+  %.not131 = icmp ult i32 %60, %33
   br i1 %.not131, label %.lr.ph, label %.thread
 
-.lr.ph:                                           ; preds = %57
-  %64 = shl i32 %52, 3
-  %65 = or disjoint i32 %64, 6
-  br label %66
+.lr.ph:                                           ; preds = %54
+  %61 = shl i32 %49, 3
+  %62 = or disjoint i32 %61, 6
+  br label %63
 
-66:                                               ; preds = %.lr.ph, %66
-  %.01067 = phi i32 [ 0, %.lr.ph ], [ %72, %66 ]
-  %.01086 = phi i32 [ 4, %.lr.ph ], [ %71, %66 ]
-  %.11115 = phi i32 [ %.011010, %.lr.ph ], [ %70, %66 ]
-  %67 = add i32 %65, %.01086
-  %68 = tail call zeroext i8 @tvb_get_bits8(ptr noundef %0, i32 noundef %67, i32 noundef 6) #9
-  %69 = zext i8 %68 to i32
-  %70 = add i32 %.11115, %69
-  %71 = add nuw nsw i32 %.01086, 12
-  %72 = add nuw nsw i32 %.01067, 1
-  %exitcond.not = icmp eq i32 %72, %55
-  br i1 %exitcond.not, label %._crit_edge, label %66, !llvm.loop !52
+63:                                               ; preds = %.lr.ph, %63
+  %.01067 = phi i32 [ 0, %.lr.ph ], [ %69, %63 ]
+  %.01086 = phi i32 [ 4, %.lr.ph ], [ %68, %63 ]
+  %.11115 = phi i32 [ %.011010, %.lr.ph ], [ %67, %63 ]
+  %64 = add i32 %62, %.01086
+  %65 = tail call zeroext i8 @tvb_get_bits8(ptr noundef %0, i32 noundef %64, i32 noundef 6) #9
+  %66 = zext i8 %65 to i32
+  %67 = add i32 %.11115, %66
+  %68 = add nuw nsw i32 %.01086, 12
+  %69 = add nuw nsw i32 %.01067, 1
+  %exitcond.not = icmp eq i32 %69, %52
+  br i1 %exitcond.not, label %._crit_edge, label %63, !llvm.loop !52
 
-._crit_edge:                                      ; preds = %66
-  %73 = add i32 %.01149, %62
-  %74 = add nuw i32 %.01086, 19
-  %75 = lshr i32 %74, 3
-  %76 = add i32 %75, %52
-  %77 = add nuw nsw i32 %.010512, 1
-  %exitcond17.not = icmp eq i32 %77, %44
-  br i1 %exitcond17.not, label %78, label %.preheader2, !llvm.loop !53
+._crit_edge:                                      ; preds = %63
+  %70 = add i32 %.01149, %59
+  %71 = add nuw i32 %.01086, 19
+  %72 = lshr i32 %71, 3
+  %73 = add i32 %72, %49
+  %74 = add nuw nsw i32 %.010512, 1
+  %exitcond17.not = icmp eq i32 %74, %41
+  br i1 %exitcond17.not, label %75, label %.preheader2, !llvm.loop !53
 
-78:                                               ; preds = %._crit_edge
-  %79 = sub i32 %36, %73
-  %80 = add i32 %79, -3
-  %81 = mul i32 %70, 42
-  %82 = icmp eq i32 %80, %81
-  br i1 %82, label %86, label %83
+75:                                               ; preds = %._crit_edge
+  %76 = sub i32 %33, %70
+  %77 = add i32 %76, -3
+  %78 = mul i32 %67, 42
+  %79 = icmp eq i32 %77, %78
+  br i1 %79, label %83, label %80
 
-83:                                               ; preds = %78
-  %84 = mul i32 %70, 18
-  %85 = icmp eq i32 %80, %84
-  br i1 %85, label %86, label %.thread
+80:                                               ; preds = %75
+  %81 = mul i32 %67, 18
+  %82 = icmp eq i32 %77, %81
+  br i1 %82, label %83, label %.thread
 
-86:                                               ; preds = %83, %78
-  %.0109 = phi i32 [ 336, %78 ], [ 144, %83 ]
-  %87 = trunc i32 %73 to i16
-  %88 = tail call fastcc i32 @check_edch_header_crc_for_heur(ptr noundef %0, i16 noundef zeroext %87)
-  %.not127 = icmp eq i32 %88, 0
-  br i1 %.not127, label %.thread, label %89
+83:                                               ; preds = %80, %75
+  %.0109 = phi i32 [ 336, %75 ], [ 144, %80 ]
+  %84 = trunc i32 %70 to i16
+  %85 = tail call fastcc i32 @check_edch_header_crc_for_heur(ptr noundef %0, i16 noundef zeroext %84)
+  %.not127 = icmp eq i32 %85, 0
+  br i1 %.not127, label %.thread, label %86
 
-89:                                               ; preds = %86
-  %90 = tail call fastcc i32 @check_payload_crc_for_heur(ptr noundef %0, i16 noundef zeroext %87)
-  %.not128 = icmp eq i32 %90, 0
-  br i1 %.not128, label %.thread, label %91
+86:                                               ; preds = %83
+  %87 = tail call fastcc i32 @check_payload_crc_for_heur(ptr noundef %0, i16 noundef zeroext %84)
+  %.not128 = icmp eq i32 %87, 0
+  br i1 %.not128, label %.thread, label %88
 
-91:                                               ; preds = %89
+88:                                               ; preds = %86
   %.not129 = icmp eq ptr %.0112, null
-  br i1 %.not129, label %92, label %95
+  br i1 %.not129, label %89, label %92
 
-92:                                               ; preds = %91
-  %93 = tail call ptr @wmem_file_scope() #9
-  %94 = tail call noalias ptr @wmem_alloc0(ptr noundef %93, i64 noundef 132704) #9
-  tail call fastcc void @set_both_sides_umts_fp_conv_data(ptr noundef %1, ptr noundef %94)
-  br label %95
+89:                                               ; preds = %88
+  %90 = tail call ptr @wmem_file_scope() #9
+  %91 = tail call noalias ptr @wmem_alloc0(ptr noundef %90, i64 noundef 132704) #9
+  tail call fastcc void @set_both_sides_umts_fp_conv_data(ptr noundef %1, ptr noundef %91)
+  br label %92
 
-95:                                               ; preds = %92, %91
-  %.1113 = phi ptr [ %.0112, %91 ], [ %94, %92 ]
+92:                                               ; preds = %89, %88
+  %.1113 = phi ptr [ %.0112, %88 ], [ %91, %89 ]
   store i32 0, ptr %.1113, align 8
-  %96 = getelementptr inbounds i8, ptr %.1113, i64 4
-  store i32 1, ptr %96, align 4
-  %97 = load i32, ptr %4, align 4
-  %98 = getelementptr inbounds i8, ptr %.1113, i64 16
-  store i32 %97, ptr %98, align 8
-  %99 = getelementptr inbounds i8, ptr %.1113, i64 20
-  store i32 %97, ptr %99, align 4
-  %100 = getelementptr inbounds i8, ptr %.1113, i64 132684
-  store i8 1, ptr %100, align 4
-  %101 = tail call fastcc i32 @generate_ue_id_for_heur(ptr noundef %1)
-  %102 = getelementptr inbounds i8, ptr %.1113, i64 56
-  store i32 %101, ptr %102, align 8
-  %103 = getelementptr inbounds i8, ptr %.1113, i64 12
-  store i32 3, ptr %103, align 4
-  %104 = tail call ptr @wmem_file_scope() #9
-  %105 = getelementptr inbounds i8, ptr %.1113, i64 24
-  %106 = getelementptr inbounds i8, ptr %1, i64 208
-  tail call fastcc void @copy_address_wmem(ptr noundef %104, ptr noundef nonnull %105, ptr noundef nonnull %106)
-  %107 = load i32, ptr %13, align 4
-  %108 = trunc i32 %107 to i16
-  %109 = getelementptr inbounds i8, ptr %.1113, i64 48
-  store i16 %108, ptr %109, align 8
-  %110 = getelementptr inbounds i8, ptr %.1113, i64 8
-  store i32 17, ptr %110, align 8
-  %111 = tail call ptr @wmem_file_scope() #9
-  %112 = tail call noalias ptr @wmem_alloc0(ptr noundef %111, i64 noundef 104) #9
-  store i32 15, ptr %112, align 4
-  %113 = getelementptr inbounds i8, ptr %112, i64 4
-  %114 = getelementptr inbounds i8, ptr %112, i64 20
-  %115 = getelementptr inbounds i8, ptr %112, i64 84
-  br label %116
+  %93 = getelementptr inbounds i8, ptr %.1113, i64 4
+  store i32 1, ptr %93, align 4
+  %94 = load i32, ptr %4, align 4
+  %95 = getelementptr inbounds i8, ptr %.1113, i64 16
+  store i32 %94, ptr %95, align 8
+  %96 = getelementptr inbounds i8, ptr %.1113, i64 20
+  store i32 %94, ptr %96, align 4
+  %97 = getelementptr inbounds i8, ptr %.1113, i64 132684
+  store i8 1, ptr %97, align 4
+  %98 = tail call fastcc i32 @generate_ue_id_for_heur(ptr noundef %1)
+  %99 = getelementptr inbounds i8, ptr %.1113, i64 56
+  store i32 %98, ptr %99, align 8
+  %100 = getelementptr inbounds i8, ptr %.1113, i64 12
+  store i32 3, ptr %100, align 4
+  %101 = tail call ptr @wmem_file_scope() #9
+  %102 = getelementptr inbounds i8, ptr %.1113, i64 24
+  %103 = getelementptr inbounds i8, ptr %1, i64 208
+  tail call fastcc void @copy_address_wmem(ptr noundef %101, ptr noundef nonnull %102, ptr noundef nonnull %103)
+  %104 = load i32, ptr %13, align 4
+  %105 = trunc i32 %104 to i16
+  %106 = getelementptr inbounds i8, ptr %.1113, i64 48
+  store i16 %105, ptr %106, align 8
+  %107 = getelementptr inbounds i8, ptr %.1113, i64 8
+  store i32 17, ptr %107, align 8
+  %108 = tail call ptr @wmem_file_scope() #9
+  %109 = tail call noalias ptr @wmem_alloc0(ptr noundef %108, i64 noundef 104) #9
+  store i32 15, ptr %109, align 4
+  %110 = getelementptr inbounds i8, ptr %109, i64 4
+  %111 = getelementptr inbounds i8, ptr %109, i64 20
+  %112 = getelementptr inbounds i8, ptr %109, i64 84
+  br label %113
 
-116:                                              ; preds = %95, %116
-  %indvars.iv = phi i64 [ 0, %95 ], [ %indvars.iv.next, %116 ]
-  %117 = trunc i64 %indvars.iv to i8
-  %118 = getelementptr [16 x i8], ptr %113, i64 0, i64 %indvars.iv
-  store i8 %117, ptr %118, align 1
-  %119 = getelementptr [16 x i32], ptr %114, i64 0, i64 %indvars.iv
-  store i32 %.0109, ptr %119, align 4
-  %120 = getelementptr [16 x i8], ptr %115, i64 0, i64 %indvars.iv
-  store i8 9, ptr %120, align 1
+113:                                              ; preds = %92, %113
+  %indvars.iv = phi i64 [ 0, %92 ], [ %indvars.iv.next, %113 ]
+  %114 = trunc i64 %indvars.iv to i8
+  %115 = getelementptr [16 x i8], ptr %110, i64 0, i64 %indvars.iv
+  store i8 %114, ptr %115, align 1
+  %116 = getelementptr [16 x i32], ptr %111, i64 0, i64 %indvars.iv
+  store i32 %.0109, ptr %116, align 4
+  %117 = getelementptr [16 x i8], ptr %112, i64 0, i64 %indvars.iv
+  store i8 9, ptr %117, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond19.not = icmp eq i64 %indvars.iv.next, 15
-  br i1 %exitcond19.not, label %121, label %116, !llvm.loop !54
+  br i1 %exitcond19.not, label %118, label %113, !llvm.loop !54
 
-121:                                              ; preds = %116
-  %122 = getelementptr inbounds i8, ptr %112, i64 100
-  store i8 0, ptr %122, align 4
-  %123 = getelementptr inbounds i8, ptr %.1113, i64 64
-  store ptr %112, ptr %123, align 8
-  %124 = tail call nonnull ptr @find_or_create_conversation(ptr noundef %1) #9
-  %125 = load ptr, ptr @fp_handle, align 8
-  tail call void @conversation_set_dissector(ptr noundef nonnull %124, ptr noundef %125) #9
-  %126 = tail call fastcc i32 @dissect_fp_common(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef null)
+118:                                              ; preds = %113
+  %119 = getelementptr inbounds i8, ptr %109, i64 100
+  store i8 0, ptr %119, align 4
+  %120 = getelementptr inbounds i8, ptr %.1113, i64 64
+  store ptr %109, ptr %120, align 8
+  %121 = tail call nonnull ptr @find_or_create_conversation(ptr noundef %1) #9
+  br label %.thread.sink.split
+
+.thread.sink.split:                               ; preds = %22, %118
+  %.sink = phi ptr [ %121, %118 ], [ %15, %22 ]
+  %122 = load ptr, ptr @fp_handle, align 8
+  tail call void @conversation_set_dissector(ptr noundef nonnull %.sink, ptr noundef %122) #9
+  %123 = tail call fastcc i32 @dissect_fp_common(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef null)
   br label %.thread
 
-.thread:                                          ; preds = %57, %51, %47, %.preheader2, %19, %22, %89, %86, %83, %43, %41, %38, %35, %31, %121, %28
-  %.0 = phi i32 [ 1, %28 ], [ 1, %121 ], [ 0, %31 ], [ 0, %35 ], [ 0, %38 ], [ 0, %41 ], [ 0, %43 ], [ 0, %83 ], [ 0, %86 ], [ 0, %89 ], [ 0, %22 ], [ 0, %19 ], [ 0, %.preheader2 ], [ 0, %47 ], [ 0, %51 ], [ 0, %57 ]
+.thread:                                          ; preds = %54, %48, %44, %.preheader2, %.thread.sink.split, %19, %22, %86, %83, %80, %40, %38, %35, %32, %28
+  %.0 = phi i32 [ 0, %28 ], [ 0, %32 ], [ 0, %35 ], [ 0, %38 ], [ 0, %40 ], [ 0, %80 ], [ 0, %83 ], [ 0, %86 ], [ 0, %22 ], [ 0, %19 ], [ 1, %.thread.sink.split ], [ 0, %.preheader2 ], [ 0, %44 ], [ 0, %48 ], [ 0, %54 ]
   ret i32 %.0
 }
 

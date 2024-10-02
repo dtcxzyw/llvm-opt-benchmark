@@ -4020,32 +4020,32 @@ define internal fastcc void @create_thread_temp_keys(ptr nocapture noundef nonnu
 
 36:                                               ; preds = %34, %33
   %.not32 = icmp eq ptr %4, null
-  br i1 %.not32, label %.critedge, label %37
-
-37:                                               ; preds = %36
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %4, ptr noundef nonnull align 16 dereferenceable(16) %7, i64 16, i1 false)
-  br label %.critedge
+  br i1 %.not32, label %.critedge, label %.critedge.sink.split
 
 .critedge37:                                      ; preds = %24, %27
   %.not34 = icmp eq ptr %3, null
-  br i1 %.not34, label %40, label %38
+  br i1 %.not34, label %39, label %37
 
-38:                                               ; preds = %.critedge37
-  %39 = load ptr, ptr %8, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %3, ptr noundef nonnull align 1 dereferenceable(16) %39, i64 16, i1 false)
-  br label %40
+37:                                               ; preds = %.critedge37
+  %38 = load ptr, ptr %8, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %3, ptr noundef nonnull align 1 dereferenceable(16) %38, i64 16, i1 false)
+  br label %39
 
-40:                                               ; preds = %38, %.critedge37
+39:                                               ; preds = %37, %.critedge37
   %.not35 = icmp eq ptr %4, null
-  br i1 %.not35, label %.critedge, label %41
+  br i1 %.not35, label %.critedge, label %40
 
-41:                                               ; preds = %40
-  %42 = load ptr, ptr %8, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %4, ptr noundef nonnull align 1 dereferenceable(16) %42, i64 16, i1 false)
+40:                                               ; preds = %39
+  %41 = load ptr, ptr %8, align 8
+  br label %.critedge.sink.split
+
+.critedge.sink.split:                             ; preds = %36, %40
+  %.sink = phi ptr [ %41, %40 ], [ %7, %36 ]
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %4, ptr noundef nonnull align 1 dereferenceable(16) %.sink, i64 16, i1 false)
   br label %.critedge
 
-.critedge:                                        ; preds = %5, %37, %36, %41, %40, %11
-  %43 = call ptr @g_byte_array_free(ptr noundef %8, i32 noundef 1) #7
+.critedge:                                        ; preds = %.critedge.sink.split, %5, %36, %39, %11
+  %42 = call ptr @g_byte_array_free(ptr noundef %8, i32 noundef 1) #7
   ret void
 }
 

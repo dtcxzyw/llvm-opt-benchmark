@@ -16,7 +16,7 @@ define void @Abc_NtkDress(ptr noundef %0, ptr noundef %1, i32 noundef %2) local_
   %4 = tail call i32 @Io_ReadFileType(ptr noundef %1) #4
   %5 = tail call ptr @Io_ReadNetlist(ptr noundef %1, i32 noundef %4, i32 noundef 1) #4
   %6 = icmp eq ptr %5, null
-  br i1 %6, label %97, label %7
+  br i1 %6, label %96, label %7
 
 7:                                                ; preds = %3
   tail call void @Abc_NtkCleanCopy(ptr noundef %0) #4
@@ -24,175 +24,175 @@ define void @Abc_NtkDress(ptr noundef %0, ptr noundef %1, i32 noundef %2) local_
   %8 = tail call ptr @Abc_NtkToLogic(ptr noundef nonnull %5) #4
   %9 = tail call i32 @Abc_NtkCompareSignals(ptr noundef %0, ptr noundef %8, i32 noundef 1, i32 noundef 1) #4
   %.not = icmp eq i32 %9, 0
-  br i1 %.not, label %10, label %11
+  br i1 %.not, label %.sink.split, label %10
 
 10:                                               ; preds = %7
-  tail call void @Abc_NtkDelete(ptr noundef nonnull %5) #4
-  tail call void @Abc_NtkDelete(ptr noundef %8) #4
-  br label %97
-
-11:                                               ; preds = %7
-  %12 = tail call ptr @Abc_NtkStrash(ptr noundef %0, i32 noundef 1, i32 noundef 0, i32 noundef 0) #4
-  %13 = tail call i32 @Abc_NtkAppend(ptr noundef %12, ptr noundef %8, i32 noundef 1) #4
+  %11 = tail call ptr @Abc_NtkStrash(ptr noundef %0, i32 noundef 1, i32 noundef 0, i32 noundef 0) #4
+  %12 = tail call i32 @Abc_NtkAppend(ptr noundef %11, ptr noundef %8, i32 noundef 1) #4
   tail call void @Abc_NtkTransferCopy(ptr noundef nonnull %5) #4
   tail call void @Abc_NtkDelete(ptr noundef %8) #4
   %.not38 = icmp eq i32 %2, 0
-  br i1 %.not38, label %21, label %14
+  br i1 %.not38, label %20, label %13
 
-14:                                               ; preds = %11
+13:                                               ; preds = %10
   %puts = tail call i32 @puts(ptr nonnull dereferenceable(1) @str)
-  %15 = getelementptr i8, ptr %0, i64 124
-  %.val = load i32, ptr %15, align 4
-  %16 = tail call i32 @Abc_NtkCountCopy(ptr noundef %0) #4
-  %17 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.1, i32 noundef %.val, i32 noundef %16)
-  %18 = getelementptr i8, ptr %5, i64 124
-  %.val40 = load i32, ptr %18, align 4
-  %19 = tail call i32 @Abc_NtkCountCopy(ptr noundef nonnull %5) #4
-  %20 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.2, i32 noundef %.val40, i32 noundef %19)
-  br label %21
+  %14 = getelementptr i8, ptr %0, i64 124
+  %.val = load i32, ptr %14, align 4
+  %15 = tail call i32 @Abc_NtkCountCopy(ptr noundef %0) #4
+  %16 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.1, i32 noundef %.val, i32 noundef %15)
+  %17 = getelementptr i8, ptr %5, i64 124
+  %.val40 = load i32, ptr %17, align 4
+  %18 = tail call i32 @Abc_NtkCountCopy(ptr noundef nonnull %5) #4
+  %19 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.2, i32 noundef %.val40, i32 noundef %18)
+  br label %20
 
-21:                                               ; preds = %14, %11
-  %22 = tail call ptr @Abc_NtkIvyFraig(ptr noundef %12, i32 noundef 100, i32 noundef 1, i32 noundef 0, i32 noundef 1, i32 noundef 0) #4
+20:                                               ; preds = %13, %10
+  %21 = tail call ptr @Abc_NtkIvyFraig(ptr noundef %11, i32 noundef 100, i32 noundef 1, i32 noundef 0, i32 noundef 1, i32 noundef 0) #4
   tail call void @Abc_NtkTransferCopy(ptr noundef %0) #4
   tail call void @Abc_NtkTransferCopy(ptr noundef nonnull %5) #4
-  tail call void @Abc_NtkDelete(ptr noundef %12) #4
+  tail call void @Abc_NtkDelete(ptr noundef %11) #4
   br i1 %.not38, label %.split, label %.split36
 
-.split:                                           ; preds = %21
-  %23 = tail call ptr @stmm_init_table(ptr noundef nonnull @stmm_ptrcmp, ptr noundef nonnull @stmm_ptrhash) #4
-  %24 = getelementptr inbounds i8, ptr %5, i64 32
-  %25 = load ptr, ptr %24, align 8
-  %26 = getelementptr i8, ptr %25, i64 4
-  %.val19.i = load i32, ptr %26, align 4
-  %27 = icmp sgt i32 %.val19.i, 0
-  br i1 %27, label %.lr.ph.i, label %Abc_NtkDressDeriveMapping.exit
+.split:                                           ; preds = %20
+  %22 = tail call ptr @stmm_init_table(ptr noundef nonnull @stmm_ptrcmp, ptr noundef nonnull @stmm_ptrhash) #4
+  %23 = getelementptr inbounds i8, ptr %5, i64 32
+  %24 = load ptr, ptr %23, align 8
+  %25 = getelementptr i8, ptr %24, i64 4
+  %.val19.i = load i32, ptr %25, align 4
+  %26 = icmp sgt i32 %.val19.i, 0
+  br i1 %26, label %.lr.ph.i, label %Abc_NtkDressDeriveMapping.exit
 
-.lr.ph.i:                                         ; preds = %.split, %51
-  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %51 ], [ 0, %.split ]
-  %28 = phi ptr [ %52, %51 ], [ %25, %.split ]
-  %29 = getelementptr i8, ptr %28, i64 8
-  %.val17.val.i = load ptr, ptr %29, align 8
-  %30 = getelementptr inbounds ptr, ptr %.val17.val.i, i64 %indvars.iv.i
-  %31 = load ptr, ptr %30, align 8
-  %32 = icmp eq ptr %31, null
-  br i1 %32, label %51, label %33
+.lr.ph.i:                                         ; preds = %.split, %50
+  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %50 ], [ 0, %.split ]
+  %27 = phi ptr [ %51, %50 ], [ %24, %.split ]
+  %28 = getelementptr i8, ptr %27, i64 8
+  %.val17.val.i = load ptr, ptr %28, align 8
+  %29 = getelementptr inbounds ptr, ptr %.val17.val.i, i64 %indvars.iv.i
+  %30 = load ptr, ptr %29, align 8
+  %31 = icmp eq ptr %30, null
+  br i1 %31, label %50, label %32
 
-33:                                               ; preds = %.lr.ph.i
-  %34 = getelementptr i8, ptr %31, i64 20
-  %.val18.i = load i32, ptr %34, align 4
-  %35 = and i32 %.val18.i, 15
-  %.not.i = icmp eq i32 %35, 7
-  br i1 %.not.i, label %36, label %51
+32:                                               ; preds = %.lr.ph.i
+  %33 = getelementptr i8, ptr %30, i64 20
+  %.val18.i = load i32, ptr %33, align 4
+  %34 = and i32 %.val18.i, 15
+  %.not.i = icmp eq i32 %34, 7
+  br i1 %.not.i, label %35, label %50
 
-36:                                               ; preds = %33
-  %37 = getelementptr inbounds i8, ptr %31, i64 64
-  %38 = load ptr, ptr %37, align 8
-  %39 = ptrtoint ptr %38 to i64
-  %40 = and i64 %39, -2
-  %41 = inttoptr i64 %40 to ptr
-  %42 = tail call i32 @stmm_lookup(ptr noundef %23, ptr noundef %41, ptr noundef null) #4
-  %.not16.i = icmp eq i32 %42, 0
-  br i1 %.not16.i, label %43, label %51
+35:                                               ; preds = %32
+  %36 = getelementptr inbounds i8, ptr %30, i64 64
+  %37 = load ptr, ptr %36, align 8
+  %38 = ptrtoint ptr %37 to i64
+  %39 = and i64 %38, -2
+  %40 = inttoptr i64 %39 to ptr
+  %41 = tail call i32 @stmm_lookup(ptr noundef %22, ptr noundef %40, ptr noundef null) #4
+  %.not16.i = icmp eq i32 %41, 0
+  br i1 %.not16.i, label %42, label %50
 
-43:                                               ; preds = %36
-  %44 = load ptr, ptr %37, align 8
-  %45 = ptrtoint ptr %44 to i64
-  %46 = and i64 %45, 1
-  %47 = ptrtoint ptr %31 to i64
-  %48 = xor i64 %46, %47
-  %49 = inttoptr i64 %48 to ptr
-  %50 = tail call i32 @stmm_insert(ptr noundef %23, ptr noundef %41, ptr noundef %49) #4
-  br label %51
+42:                                               ; preds = %35
+  %43 = load ptr, ptr %36, align 8
+  %44 = ptrtoint ptr %43 to i64
+  %45 = and i64 %44, 1
+  %46 = ptrtoint ptr %30 to i64
+  %47 = xor i64 %45, %46
+  %48 = inttoptr i64 %47 to ptr
+  %49 = tail call i32 @stmm_insert(ptr noundef %22, ptr noundef %40, ptr noundef %48) #4
+  br label %50
 
-51:                                               ; preds = %43, %36, %33, %.lr.ph.i
+50:                                               ; preds = %42, %35, %32, %.lr.ph.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %52 = load ptr, ptr %24, align 8
-  %53 = getelementptr i8, ptr %52, i64 4
-  %.val.i = load i32, ptr %53, align 4
-  %54 = sext i32 %.val.i to i64
-  %55 = icmp slt i64 %indvars.iv.next.i, %54
-  br i1 %55, label %.lr.ph.i, label %Abc_NtkDressDeriveMapping.exit, !llvm.loop !4
+  %51 = load ptr, ptr %23, align 8
+  %52 = getelementptr i8, ptr %51, i64 4
+  %.val.i = load i32, ptr %52, align 4
+  %53 = sext i32 %.val.i to i64
+  %54 = icmp slt i64 %indvars.iv.next.i, %53
+  br i1 %54, label %.lr.ph.i, label %Abc_NtkDressDeriveMapping.exit, !llvm.loop !4
 
-Abc_NtkDressDeriveMapping.exit:                   ; preds = %51, %.split
-  tail call fastcc void @Abc_NtkDressTransferNames(ptr noundef %0, ptr noundef %23, i32 noundef 0)
-  br label %95
+Abc_NtkDressDeriveMapping.exit:                   ; preds = %50, %.split
+  tail call fastcc void @Abc_NtkDressTransferNames(ptr noundef %0, ptr noundef %22, i32 noundef 0)
+  br label %94
 
-.split36:                                         ; preds = %21
+.split36:                                         ; preds = %20
   %puts39 = tail call i32 @puts(ptr nonnull dereferenceable(1) @str.1)
-  %56 = getelementptr i8, ptr %0, i64 124
-  %.val41 = load i32, ptr %56, align 4
-  %57 = tail call i32 @Abc_NtkCountCopy(ptr noundef %0) #4
-  %58 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.1, i32 noundef %.val41, i32 noundef %57)
-  %59 = getelementptr i8, ptr %5, i64 124
-  %.val42 = load i32, ptr %59, align 4
-  %60 = tail call i32 @Abc_NtkCountCopy(ptr noundef nonnull %5) #4
-  %61 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.2, i32 noundef %.val42, i32 noundef %60)
-  %62 = tail call ptr @stmm_init_table(ptr noundef nonnull @stmm_ptrcmp, ptr noundef nonnull @stmm_ptrhash) #4
-  %63 = getelementptr inbounds i8, ptr %5, i64 32
-  %64 = load ptr, ptr %63, align 8
-  %65 = getelementptr i8, ptr %64, i64 4
-  %.val19.i43 = load i32, ptr %65, align 4
-  %66 = icmp sgt i32 %.val19.i43, 0
-  br i1 %66, label %.lr.ph.i44, label %Abc_NtkDressDeriveMapping.exit52
+  %55 = getelementptr i8, ptr %0, i64 124
+  %.val41 = load i32, ptr %55, align 4
+  %56 = tail call i32 @Abc_NtkCountCopy(ptr noundef %0) #4
+  %57 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.1, i32 noundef %.val41, i32 noundef %56)
+  %58 = getelementptr i8, ptr %5, i64 124
+  %.val42 = load i32, ptr %58, align 4
+  %59 = tail call i32 @Abc_NtkCountCopy(ptr noundef nonnull %5) #4
+  %60 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.2, i32 noundef %.val42, i32 noundef %59)
+  %61 = tail call ptr @stmm_init_table(ptr noundef nonnull @stmm_ptrcmp, ptr noundef nonnull @stmm_ptrhash) #4
+  %62 = getelementptr inbounds i8, ptr %5, i64 32
+  %63 = load ptr, ptr %62, align 8
+  %64 = getelementptr i8, ptr %63, i64 4
+  %.val19.i43 = load i32, ptr %64, align 4
+  %65 = icmp sgt i32 %.val19.i43, 0
+  br i1 %65, label %.lr.ph.i44, label %Abc_NtkDressDeriveMapping.exit52
 
-.lr.ph.i44:                                       ; preds = %.split36, %90
-  %indvars.iv.i45 = phi i64 [ %indvars.iv.next.i49, %90 ], [ 0, %.split36 ]
-  %67 = phi ptr [ %91, %90 ], [ %64, %.split36 ]
-  %68 = getelementptr i8, ptr %67, i64 8
-  %.val17.val.i46 = load ptr, ptr %68, align 8
-  %69 = getelementptr inbounds ptr, ptr %.val17.val.i46, i64 %indvars.iv.i45
-  %70 = load ptr, ptr %69, align 8
-  %71 = icmp eq ptr %70, null
-  br i1 %71, label %90, label %72
+.lr.ph.i44:                                       ; preds = %.split36, %89
+  %indvars.iv.i45 = phi i64 [ %indvars.iv.next.i49, %89 ], [ 0, %.split36 ]
+  %66 = phi ptr [ %90, %89 ], [ %63, %.split36 ]
+  %67 = getelementptr i8, ptr %66, i64 8
+  %.val17.val.i46 = load ptr, ptr %67, align 8
+  %68 = getelementptr inbounds ptr, ptr %.val17.val.i46, i64 %indvars.iv.i45
+  %69 = load ptr, ptr %68, align 8
+  %70 = icmp eq ptr %69, null
+  br i1 %70, label %89, label %71
 
-72:                                               ; preds = %.lr.ph.i44
-  %73 = getelementptr i8, ptr %70, i64 20
-  %.val18.i47 = load i32, ptr %73, align 4
-  %74 = and i32 %.val18.i47, 15
-  %.not.i48 = icmp eq i32 %74, 7
-  br i1 %.not.i48, label %75, label %90
+71:                                               ; preds = %.lr.ph.i44
+  %72 = getelementptr i8, ptr %69, i64 20
+  %.val18.i47 = load i32, ptr %72, align 4
+  %73 = and i32 %.val18.i47, 15
+  %.not.i48 = icmp eq i32 %73, 7
+  br i1 %.not.i48, label %74, label %89
 
-75:                                               ; preds = %72
-  %76 = getelementptr inbounds i8, ptr %70, i64 64
-  %77 = load ptr, ptr %76, align 8
-  %78 = ptrtoint ptr %77 to i64
-  %79 = and i64 %78, -2
-  %80 = inttoptr i64 %79 to ptr
-  %81 = tail call i32 @stmm_lookup(ptr noundef %62, ptr noundef %80, ptr noundef null) #4
-  %.not16.i51 = icmp eq i32 %81, 0
-  br i1 %.not16.i51, label %82, label %90
+74:                                               ; preds = %71
+  %75 = getelementptr inbounds i8, ptr %69, i64 64
+  %76 = load ptr, ptr %75, align 8
+  %77 = ptrtoint ptr %76 to i64
+  %78 = and i64 %77, -2
+  %79 = inttoptr i64 %78 to ptr
+  %80 = tail call i32 @stmm_lookup(ptr noundef %61, ptr noundef %79, ptr noundef null) #4
+  %.not16.i51 = icmp eq i32 %80, 0
+  br i1 %.not16.i51, label %81, label %89
 
-82:                                               ; preds = %75
-  %83 = load ptr, ptr %76, align 8
-  %84 = ptrtoint ptr %83 to i64
-  %85 = and i64 %84, 1
-  %86 = ptrtoint ptr %70 to i64
-  %87 = xor i64 %85, %86
-  %88 = inttoptr i64 %87 to ptr
-  %89 = tail call i32 @stmm_insert(ptr noundef %62, ptr noundef %80, ptr noundef %88) #4
-  br label %90
+81:                                               ; preds = %74
+  %82 = load ptr, ptr %75, align 8
+  %83 = ptrtoint ptr %82 to i64
+  %84 = and i64 %83, 1
+  %85 = ptrtoint ptr %69 to i64
+  %86 = xor i64 %84, %85
+  %87 = inttoptr i64 %86 to ptr
+  %88 = tail call i32 @stmm_insert(ptr noundef %61, ptr noundef %79, ptr noundef %87) #4
+  br label %89
 
-90:                                               ; preds = %82, %75, %72, %.lr.ph.i44
+89:                                               ; preds = %81, %74, %71, %.lr.ph.i44
   %indvars.iv.next.i49 = add nuw nsw i64 %indvars.iv.i45, 1
-  %91 = load ptr, ptr %63, align 8
-  %92 = getelementptr i8, ptr %91, i64 4
-  %.val.i50 = load i32, ptr %92, align 4
-  %93 = sext i32 %.val.i50 to i64
-  %94 = icmp slt i64 %indvars.iv.next.i49, %93
-  br i1 %94, label %.lr.ph.i44, label %Abc_NtkDressDeriveMapping.exit52, !llvm.loop !4
+  %90 = load ptr, ptr %62, align 8
+  %91 = getelementptr i8, ptr %90, i64 4
+  %.val.i50 = load i32, ptr %91, align 4
+  %92 = sext i32 %.val.i50 to i64
+  %93 = icmp slt i64 %indvars.iv.next.i49, %92
+  br i1 %93, label %.lr.ph.i44, label %Abc_NtkDressDeriveMapping.exit52, !llvm.loop !4
 
-Abc_NtkDressDeriveMapping.exit52:                 ; preds = %90, %.split36
-  tail call fastcc void @Abc_NtkDressTransferNames(ptr noundef %0, ptr noundef %62, i32 noundef %2)
-  br label %95
+Abc_NtkDressDeriveMapping.exit52:                 ; preds = %89, %.split36
+  tail call fastcc void @Abc_NtkDressTransferNames(ptr noundef %0, ptr noundef %61, i32 noundef %2)
+  br label %94
 
-95:                                               ; preds = %Abc_NtkDressDeriveMapping.exit, %Abc_NtkDressDeriveMapping.exit52
-  %96 = phi ptr [ %23, %Abc_NtkDressDeriveMapping.exit ], [ %62, %Abc_NtkDressDeriveMapping.exit52 ]
-  tail call void @stmm_free_table(ptr noundef %96) #4
-  tail call void @Abc_NtkDelete(ptr noundef %22) #4
-  tail call void @Abc_NtkDelete(ptr noundef nonnull %5) #4
-  br label %97
+94:                                               ; preds = %Abc_NtkDressDeriveMapping.exit, %Abc_NtkDressDeriveMapping.exit52
+  %95 = phi ptr [ %22, %Abc_NtkDressDeriveMapping.exit ], [ %61, %Abc_NtkDressDeriveMapping.exit52 ]
+  tail call void @stmm_free_table(ptr noundef %95) #4
+  br label %.sink.split
 
-97:                                               ; preds = %3, %95, %10
+.sink.split:                                      ; preds = %7, %94
+  %.sink53 = phi ptr [ %21, %94 ], [ %5, %7 ]
+  %.sink = phi ptr [ %5, %94 ], [ %8, %7 ]
+  tail call void @Abc_NtkDelete(ptr noundef %.sink53) #4
+  tail call void @Abc_NtkDelete(ptr noundef %.sink) #4
+  br label %96
+
+96:                                               ; preds = %.sink.split, %3
   ret void
 }
 

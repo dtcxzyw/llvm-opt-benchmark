@@ -6045,19 +6045,19 @@ if.end63:                                         ; preds = %if.end42, %if.then5
 for.end71:                                        ; preds = %for.cond26, %for.cond26.preheader
   %call72 = tail call i32 @_PyCfgBuilder_CheckSize(ptr noundef nonnull %call) #11
   %cmp73 = icmp slt i32 %call72, 0
-  br i1 %cmp73, label %error, label %if.end76
-
-if.end76:                                         ; preds = %for.end71
-  tail call void @PyMem_Free(ptr noundef nonnull %call1) #11
-  br label %return
+  br i1 %cmp73, label %error, label %return.sink.split
 
 error:                                            ; preds = %if.end63, %if.then36, %for.end71, %if.then4
   tail call void @_PyCfgBuilder_Free(ptr noundef nonnull %call) #11
+  br label %return.sink.split
+
+return.sink.split:                                ; preds = %for.end71, %error
+  %retval.0.ph = phi ptr [ null, %error ], [ %call, %for.end71 ]
   tail call void @PyMem_Free(ptr noundef %call1) #11
   br label %return
 
-return:                                           ; preds = %entry, %error, %if.end76
-  %retval.0 = phi ptr [ null, %error ], [ %call, %if.end76 ], [ null, %entry ]
+return:                                           ; preds = %return.sink.split, %entry
+  %retval.0 = phi ptr [ null, %entry ], [ %retval.0.ph, %return.sink.split ]
   ret ptr %retval.0
 }
 

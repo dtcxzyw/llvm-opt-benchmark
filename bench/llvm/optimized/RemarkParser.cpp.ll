@@ -678,8 +678,8 @@ _ZNSt8optionalIN4llvm7remarks17ParsedStringTableEEC2EOS3_.exit7: ; preds = %48, 
   %69 = or disjoint i8 %68, %66
   store i8 %69, ptr %65, align 8
   %70 = load i64, ptr %11, align 8
-  %.sink16 = inttoptr i64 %70 to ptr
-  store ptr %.sink16, ptr %0, align 8
+  %.sink12 = inttoptr i64 %70 to ptr
+  store ptr %.sink12, ptr %0, align 8
   store ptr null, ptr %11, align 8
   %71 = load i8, ptr %50, align 8
   %72 = trunc i8 %71 to i1

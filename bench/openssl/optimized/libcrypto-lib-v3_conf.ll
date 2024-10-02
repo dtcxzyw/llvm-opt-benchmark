@@ -515,7 +515,7 @@ if.end20:                                         ; preds = %if.end15
   store i32 %ext_len.0, ptr %call16, align 8
   %call21 = call ptr @X509_EXTENSION_create_by_NID(ptr noundef null, i32 noundef %ext_nid, i32 noundef %crit, ptr noundef nonnull %call16) #6
   %tobool22.not = icmp eq ptr %call21, null
-  br i1 %tobool22.not, label %if.then23, label %if.end24
+  br i1 %tobool22.not, label %if.then23, label %return
 
 if.then23:                                        ; preds = %if.end20
   call void @ERR_new() #6
@@ -523,19 +523,16 @@ if.then23:                                        ; preds = %if.end20
   call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 34, i32 noundef 524322, ptr noundef null) #6
   br label %err
 
-if.end24:                                         ; preds = %if.end20
-  call void @ASN1_OCTET_STRING_free(ptr noundef nonnull %call16) #6
-  br label %return
-
 err:                                              ; preds = %if.end7, %if.then23, %if.then19, %if.then6, %if.then3
   %ext_oct.0 = phi ptr [ null, %if.then3 ], [ null, %if.then19 ], [ %call16, %if.then23 ], [ null, %if.then6 ], [ null, %if.end7 ]
   %4 = load ptr, ptr %ext_der, align 8
   call void @CRYPTO_free(ptr noundef %4, ptr noundef nonnull @.str, i32 noundef 186) #6
-  call void @ASN1_OCTET_STRING_free(ptr noundef %ext_oct.0) #6
   br label %return
 
-return:                                           ; preds = %err, %if.end24
-  %retval.0 = phi ptr [ null, %err ], [ %call21, %if.end24 ]
+return:                                           ; preds = %if.end20, %err
+  %ext_oct.0.sink = phi ptr [ %ext_oct.0, %err ], [ %call16, %if.end20 ]
+  %retval.0 = phi ptr [ null, %err ], [ %call21, %if.end20 ]
+  call void @ASN1_OCTET_STRING_free(ptr noundef %ext_oct.0.sink) #6
   ret ptr %retval.0
 }
 

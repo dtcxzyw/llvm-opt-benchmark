@@ -519,17 +519,16 @@ if.end11:                                         ; preds = %if.end6
   store ptr %call2, ptr %out_secret, align 8
   %conv12 = zext nneg i32 %call7 to i64
   store i64 %conv12, ptr %out_secret_len, align 8
-  tail call void @BN_free(ptr noundef nonnull %call) #7
   br label %return
 
 if.end17:                                         ; preds = %entry, %if.end, %if.end6
   %secret.0 = phi ptr [ null, %entry ], [ null, %if.end ], [ %call2, %if.end6 ]
   tail call void @free(ptr noundef %secret.0) #7
-  tail call void @BN_free(ptr noundef %call) #7
   br label %return
 
 return:                                           ; preds = %if.end17, %if.end11
   %retval.0 = phi i32 [ 0, %if.end17 ], [ 1, %if.end11 ]
+  tail call void @BN_free(ptr noundef %call) #7
   ret i32 %retval.0
 }
 

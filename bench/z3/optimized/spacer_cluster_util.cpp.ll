@@ -7832,17 +7832,7 @@ entry:
   br i1 %cmp, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
-  br i1 %tobool.not.i.i.i.i.i, label %return, label %if.then.i.i.i.i.i
-
-if.then.i.i.i.i.i:                                ; preds = %if.then
-  %sub.ptr.lhs.cast.i.i.i.i.i = ptrtoint ptr %__last2 to i64
-  %sub.ptr.rhs.cast.i.i.i.i.i = ptrtoint ptr %__first2 to i64
-  %sub.ptr.sub.i.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i, %sub.ptr.rhs.cast.i.i.i.i.i
-  %sub.ptr.div.i.i.i.i.i = ashr exact i64 %sub.ptr.sub.i.i.i.i.i, 3
-  %.pre.i.i.i.i.i = sub nsw i64 0, %sub.ptr.div.i.i.i.i.i
-  %add.ptr.i.i.i.i.i = getelementptr inbounds ptr, ptr %__result, i64 %.pre.i.i.i.i.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %add.ptr.i.i.i.i.i, ptr align 8 %__first2, i64 %sub.ptr.sub.i.i.i.i.i, i1 false)
-  br label %return
+  br i1 %tobool.not.i.i.i.i.i, label %return, label %return.sink.split
 
 if.else:                                          ; preds = %entry
   br i1 %tobool.not.i.i.i.i.i, label %return, label %if.end4
@@ -7978,17 +7968,7 @@ if.then7:                                         ; preds = %if.end15.i.i, %if.t
 if.then10:                                        ; preds = %if.then7
   %incdec.ptr11 = getelementptr inbounds i8, ptr %__last2.addr.0, i64 8
   %tobool.not.i.i.i.i.i24 = icmp eq ptr %incdec.ptr11, %__first2
-  br i1 %tobool.not.i.i.i.i.i24, label %return, label %if.then.i.i.i.i.i26
-
-if.then.i.i.i.i.i26:                              ; preds = %if.then10
-  %sub.ptr.lhs.cast.i.i.i.i.i20 = ptrtoint ptr %incdec.ptr11 to i64
-  %sub.ptr.rhs.cast.i.i.i.i.i21 = ptrtoint ptr %__first2 to i64
-  %sub.ptr.sub.i.i.i.i.i22 = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i20, %sub.ptr.rhs.cast.i.i.i.i.i21
-  %sub.ptr.div.i.i.i.i.i23 = ashr exact i64 %sub.ptr.sub.i.i.i.i.i22, 3
-  %.pre.i.i.i.i.i25 = sub nsw i64 0, %sub.ptr.div.i.i.i.i.i23
-  %add.ptr.i.i.i.i.i27 = getelementptr inbounds ptr, ptr %incdec.ptr8, i64 %.pre.i.i.i.i.i25
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %add.ptr.i.i.i.i.i27, ptr align 8 %__first2, i64 %sub.ptr.sub.i.i.i.i.i22, i1 false)
-  br label %return
+  br i1 %tobool.not.i.i.i.i.i24, label %return, label %return.sink.split
 
 if.else15:                                        ; preds = %while.body, %if.end15.i.i, %if.then9.i.i, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN6spacer19arith_add_less_procEEclIPP4exprS8_EEbT_T0_.exit
   %incdec.ptr16 = getelementptr inbounds i8, ptr %__result.addr.0, i64 -8
@@ -8000,7 +7980,19 @@ if.end19:                                         ; preds = %if.else15
   %incdec.ptr20 = getelementptr inbounds i8, ptr %__last2.addr.0, i64 -8
   br label %while.body, !llvm.loop !31
 
-return:                                           ; preds = %if.else15, %if.then.i.i.i.i.i26, %if.then10, %if.then.i.i.i.i.i, %if.then, %if.else
+return.sink.split:                                ; preds = %if.then10, %if.then
+  %incdec.ptr11.sink = phi ptr [ %__last2, %if.then ], [ %incdec.ptr11, %if.then10 ]
+  %incdec.ptr8.lcssa.sink = phi ptr [ %__result, %if.then ], [ %incdec.ptr8, %if.then10 ]
+  %sub.ptr.lhs.cast.i.i.i.i.i20 = ptrtoint ptr %incdec.ptr11.sink to i64
+  %sub.ptr.rhs.cast.i.i.i.i.i21 = ptrtoint ptr %__first2 to i64
+  %sub.ptr.sub.i.i.i.i.i22 = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i20, %sub.ptr.rhs.cast.i.i.i.i.i21
+  %sub.ptr.div.i.i.i.i.i23 = ashr exact i64 %sub.ptr.sub.i.i.i.i.i22, 3
+  %.pre.i.i.i.i.i25 = sub nsw i64 0, %sub.ptr.div.i.i.i.i.i23
+  %add.ptr.i.i.i.i.i27 = getelementptr inbounds ptr, ptr %incdec.ptr8.lcssa.sink, i64 %.pre.i.i.i.i.i25
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %add.ptr.i.i.i.i.i27, ptr align 8 %__first2, i64 %sub.ptr.sub.i.i.i.i.i22, i1 false)
+  br label %return
+
+return:                                           ; preds = %if.else15, %return.sink.split, %if.then10, %if.then, %if.else
   ret void
 }
 

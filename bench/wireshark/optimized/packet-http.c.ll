@@ -6686,7 +6686,7 @@ define internal fastcc range(i32 0, 2) i32 @check_auth_basic(ptr noundef %0, ptr
   %.not15.i = icmp eq ptr %27, null
   br i1 %.not15.i, label %basic_auth_credentials.exit.thread, label %28
 
-basic_auth_credentials.exit.thread:               ; preds = %12, %23, %25
+basic_auth_credentials.exit.thread:               ; preds = %25, %23, %12
   call void @g_strfreev(ptr noundef %22) #14
   br label %.loopexit
 

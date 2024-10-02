@@ -159,13 +159,13 @@ define internal fastcc range(i32 0, 8) i32 @merge_files_common(ptr noundef %0, p
   %35 = getelementptr inbounds i8, ptr %23, i64 8
   br label %36
 
-36:                                               ; preds = %.lr.ph, %307
-  %.0290 = phi i32 [ 0, %.lr.ph ], [ %308, %307 ]
-  %.0117289 = phi ptr [ null, %.lr.ph ], [ %.2208, %307 ]
-  %.0124288 = phi ptr [ null, %.lr.ph ], [ %.1125, %307 ]
-  %.0126287 = phi ptr [ null, %.lr.ph ], [ %.1127, %307 ]
-  %.0132286 = phi i32 [ %8, %.lr.ph ], [ %spec.store.select, %307 ]
-  %.0196285 = phi i32 [ %7, %.lr.ph ], [ %.1197, %307 ]
+36:                                               ; preds = %.lr.ph, %305
+  %.0290 = phi i32 [ 0, %.lr.ph ], [ %306, %305 ]
+  %.0117289 = phi ptr [ null, %.lr.ph ], [ %.2208, %305 ]
+  %.0124288 = phi ptr [ null, %.lr.ph ], [ %.1125, %305 ]
+  %.0126287 = phi ptr [ null, %.lr.ph ], [ %.1127, %305 ]
+  %.0132286 = phi i32 [ %8, %.lr.ph ], [ %spec.store.select, %305 ]
+  %.0196285 = phi i32 [ %7, %.lr.ph ], [ %.1197, %305 ]
   %37 = call i32 @dup(i32 noundef 1) #14
   %38 = icmp eq i32 %37, -1
   br i1 %38, label %.loopexit, label %39
@@ -856,65 +856,61 @@ merge_close_in_files.exit:                        ; preds = %.lr.ph.i178, %.thre
   %.0128207 = phi ptr [ %265, %.thread204 ], [ %.0128, %275 ]
   br i1 %.not84.i, label %.split, label %.split134
 
-.split:                                           ; preds = %295
-  %296 = call fastcc i32 @merge_process_packets(ptr noundef %.0128207, i32 noundef %3, ptr noundef nonnull %.075.i, i32 noundef %.078.i, i32 noundef %6, i32 noundef %.1197, i32 noundef %spec.store.select, ptr noundef null, ptr noundef %.1125, ptr noundef %.1122, ptr noundef %.1119, ptr noundef %11, ptr noundef %12, ptr noundef %13, ptr noundef %14)
-  br label %301
-
 .split134:                                        ; preds = %295
-  %297 = load ptr, ptr %10, align 8
-  %298 = load ptr, ptr %26, align 8
-  %299 = call i32 %297(i32 noundef 2, i32 noundef 0, ptr noundef nonnull %.075.i, i32 noundef %.078.i, ptr noundef %298) #14
-  %300 = call fastcc i32 @merge_process_packets(ptr noundef %.0128207, i32 noundef %3, ptr noundef nonnull %.075.i, i32 noundef %.078.i, i32 noundef %6, i32 noundef %.1197, i32 noundef %spec.store.select, ptr noundef nonnull %10, ptr noundef %.1125, ptr noundef %.1122, ptr noundef %.1119, ptr noundef %11, ptr noundef %12, ptr noundef %13, ptr noundef %14)
-  br label %301
+  %296 = load ptr, ptr %10, align 8
+  %297 = load ptr, ptr %26, align 8
+  %298 = call i32 %296(i32 noundef 2, i32 noundef 0, ptr noundef nonnull %.075.i, i32 noundef %.078.i, ptr noundef %297) #14
+  br label %.split
 
-301:                                              ; preds = %.split, %.split134
-  %phi.call = phi i32 [ %296, %.split ], [ %300, %.split134 ]
+.split:                                           ; preds = %295, %.split134
+  %.sink405 = phi ptr [ %10, %.split134 ], [ null, %295 ]
+  %299 = call fastcc i32 @merge_process_packets(ptr noundef %.0128207, i32 noundef %3, ptr noundef nonnull %.075.i, i32 noundef %.078.i, i32 noundef %6, i32 noundef %.1197, i32 noundef %spec.store.select, ptr noundef %.sink405, ptr noundef %.1125, ptr noundef %.1122, ptr noundef %.1119, ptr noundef %11, ptr noundef %12, ptr noundef %13, ptr noundef %14)
   call void @g_free(ptr noundef nonnull %.075.i) #14
   call void @wtap_block_array_free(ptr noundef %.1127) #14
   call void @wtap_free_idb_info(ptr noundef %.1125) #14
   %.not153 = icmp eq ptr %.1122, null
-  br i1 %.not153, label %304, label %302
+  br i1 %.not153, label %302, label %300
 
-302:                                              ; preds = %301
-  %303 = call ptr @g_array_free(ptr noundef nonnull %.1122, i32 noundef 1) #14
-  br label %304
+300:                                              ; preds = %.split
+  %301 = call ptr @g_array_free(ptr noundef nonnull %.1122, i32 noundef 1) #14
+  br label %302
 
-304:                                              ; preds = %302, %301
+302:                                              ; preds = %300, %.split
   %.not154 = icmp eq ptr %.1119, null
-  br i1 %.not154, label %307, label %305
+  br i1 %.not154, label %305, label %303
 
-305:                                              ; preds = %304
-  %306 = call ptr @g_array_free(ptr noundef nonnull %.1119, i32 noundef 1) #14
-  br label %307
+303:                                              ; preds = %302
+  %304 = call ptr @g_array_free(ptr noundef nonnull %.1119, i32 noundef 1) #14
+  br label %305
 
-307:                                              ; preds = %304, %305
-  %308 = add i32 %.078.i, %.0290
-  %309 = icmp ult i32 %308, %5
-  %310 = icmp eq i32 %phi.call, 0
-  %311 = select i1 %309, i1 %310, i1 false
-  br i1 %311, label %36, label %._crit_edge, !llvm.loop !20
+305:                                              ; preds = %302, %303
+  %306 = add i32 %.078.i, %.0290
+  %307 = icmp ult i32 %306, %5
+  %308 = icmp eq i32 %299, 0
+  %309 = select i1 %307, i1 %308, i1 false
+  br i1 %309, label %36, label %._crit_edge, !llvm.loop !20
 
-._crit_edge:                                      ; preds = %307
+._crit_edge:                                      ; preds = %305
   %.not = icmp eq ptr %.2208, null
-  br i1 %.not, label %.loopexit, label %312
+  br i1 %.not, label %.loopexit, label %310
 
-312:                                              ; preds = %._crit_edge
-  br i1 %310, label %313, label %318
+310:                                              ; preds = %._crit_edge
+  br i1 %308, label %311, label %316
 
-313:                                              ; preds = %312
-  %314 = load ptr, ptr %.2208, align 8
-  %315 = getelementptr inbounds i8, ptr %.2208, i64 8
-  %316 = load i32, ptr %315, align 8
-  %317 = call fastcc i32 @merge_files_common(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %314, i32 noundef %316, i32 noundef %6, i32 noundef %.1197, i32 noundef %spec.store.select, ptr noundef %9, ptr noundef %10, ptr noundef %11, ptr noundef %12, ptr noundef %13, ptr noundef %14)
-  br label %318
+311:                                              ; preds = %310
+  %312 = load ptr, ptr %.2208, align 8
+  %313 = getelementptr inbounds i8, ptr %.2208, i64 8
+  %314 = load i32, ptr %313, align 8
+  %315 = call fastcc i32 @merge_files_common(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %312, i32 noundef %314, i32 noundef %6, i32 noundef %.1197, i32 noundef %spec.store.select, ptr noundef %9, ptr noundef %10, ptr noundef %11, ptr noundef %12, ptr noundef %13, ptr noundef %14)
+  br label %316
 
-318:                                              ; preds = %313, %312
-  %.2131 = phi i32 [ %317, %313 ], [ %phi.call, %312 ]
-  %319 = call ptr @g_ptr_array_free(ptr noundef nonnull %.2208, i32 noundef 1) #14
+316:                                              ; preds = %311, %310
+  %.2131 = phi i32 [ %315, %311 ], [ %299, %310 ]
+  %317 = call ptr @g_ptr_array_free(ptr noundef nonnull %.2208, i32 noundef 1) #14
   br label %.loopexit
 
-.loopexit:                                        ; preds = %36, %15, %._crit_edge, %318, %294, %merge_open_in_files.exit.thread
-  %.0116 = phi i32 [ 2, %merge_open_in_files.exit.thread ], [ 3, %294 ], [ %.2131, %318 ], [ %phi.call, %._crit_edge ], [ 0, %15 ], [ 3, %36 ]
+.loopexit:                                        ; preds = %36, %15, %._crit_edge, %316, %294, %merge_open_in_files.exit.thread
+  %.0116 = phi i32 [ 2, %merge_open_in_files.exit.thread ], [ 3, %294 ], [ %.2131, %316 ], [ %299, %._crit_edge ], [ 0, %15 ], [ 3, %36 ]
   ret i32 %.0116
 }
 

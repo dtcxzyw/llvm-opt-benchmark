@@ -13699,11 +13699,11 @@ _ZNKSt8functionIFSt8optionalIPKN4Luau4TypeEES4_EEclES4_.exit33: ; preds = %150
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   %157 = extractvalue { ptr, i8 } %156, 1
   %158 = trunc i8 %157 to i1
-  br i1 %158, label %159, label %165
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
+  br i1 %158, label %159, label %_ZNSt3setIPKN4Luau4TypeESt4lessIS3_ESaIS3_EED2Ev.exit
 
 159:                                              ; preds = %_ZNKSt8functionIFSt8optionalIPKN4Luau4TypeEES4_EEclES4_.exit33
   %160 = extractvalue { ptr, i8 } %156, 0
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
   %161 = call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #30
   store ptr %161, ptr %0, align 8
   %162 = getelementptr inbounds i8, ptr %161, i64 8
@@ -13714,11 +13714,7 @@ _ZNKSt8functionIFSt8optionalIPKN4Luau4TypeEES4_EEclES4_.exit33: ; preds = %150
   store ptr %162, ptr %164, align 8
   br label %_ZNSt3setIPKN4Luau4TypeESt4lessIS3_ESaIS3_EED2Ev.exit
 
-165:                                              ; preds = %_ZNKSt8functionIFSt8optionalIPKN4Luau4TypeEES4_EEclES4_.exit33
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
-  br label %_ZNSt3setIPKN4Luau4TypeESt4lessIS3_ESaIS3_EED2Ev.exit
-
-_ZNSt3setIPKN4Luau4TypeESt4lessIS3_ESaIS3_EED2Ev.exit: ; preds = %.loopexit, %165, %159
+_ZNSt3setIPKN4Luau4TypeESt4lessIS3_ESaIS3_EED2Ev.exit: ; preds = %_ZNKSt8functionIFSt8optionalIPKN4Luau4TypeEES4_EEclES4_.exit33, %.loopexit, %159
   ret void
 }
 

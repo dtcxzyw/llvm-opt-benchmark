@@ -3781,7 +3781,7 @@ lor.lhs.false9:                                   ; preds = %if.end3.i
 if.end:                                           ; preds = %lor.lhs.false9
   %call11 = tail call i32 @ossl_ec_curve_nid_from_params(ptr noundef nonnull %call.i, ptr noundef nonnull %ctx) #9
   %cmp12.not = icmp eq i32 %call11, 0
-  br i1 %cmp12.not, label %if.end28, label %if.then14
+  br i1 %cmp12.not, label %return, label %if.then14
 
 if.then14:                                        ; preds = %if.end
   %call15 = tail call ptr @EC_GROUP_new_by_curve_name_ex(ptr noundef %libctx, ptr noundef %propq, i32 noundef %call11) #9
@@ -3791,28 +3791,24 @@ if.then14:                                        ; preds = %if.end
 if.end19:                                         ; preds = %if.then14
   %asn1_flag.i = getelementptr inbounds i8, ptr %call15, i64 36
   store i32 0, ptr %asn1_flag.i, align 4
-  br i1 %cmp, label %if.then21, label %if.end28
+  br i1 %cmp, label %if.then21, label %return
 
 if.then21:                                        ; preds = %if.end19
   %seed.i15 = getelementptr inbounds i8, ptr %call15, i64 48
   %7 = load ptr, ptr %seed.i15, align 8
   tail call void @CRYPTO_free(ptr noundef %7, ptr noundef nonnull @.str, i32 noundef 531) #9
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %seed.i15, i8 0, i64 16, i1 false)
-  br label %if.end28
-
-if.end28:                                         ; preds = %if.then21, %if.end, %if.end19
-  %ret_group.1 = phi ptr [ %call15, %if.then21 ], [ %call15, %if.end19 ], [ %group, %if.end ]
-  tail call void @EC_GROUP_free(ptr noundef nonnull %call.i)
   br label %return
 
 err:                                              ; preds = %entry, %if.then8.i, %if.then14, %lor.lhs.false9
   %retval.0.i20 = phi ptr [ %call.i, %if.then14 ], [ %call.i, %lor.lhs.false9 ], [ null, %if.then8.i ], [ null, %entry ]
   tail call void @EC_GROUP_free(ptr noundef %retval.0.i20)
-  tail call void @EC_GROUP_free(ptr noundef null)
   br label %return
 
-return:                                           ; preds = %err, %if.end28
-  %retval.0 = phi ptr [ null, %err ], [ %ret_group.1, %if.end28 ]
+return:                                           ; preds = %if.end19, %if.end, %if.then21, %err
+  %.sink = phi ptr [ null, %err ], [ %call.i, %if.then21 ], [ %call.i, %if.end ], [ %call.i, %if.end19 ]
+  %retval.0 = phi ptr [ null, %err ], [ %call15, %if.then21 ], [ %group, %if.end ], [ %call15, %if.end19 ]
+  tail call void @EC_GROUP_free(ptr noundef %.sink)
   ret ptr %retval.0
 }
 

@@ -740,8 +740,8 @@ define void @_ZN5mem_t4dumpERSo(ptr noundef nonnull align 8 dereferenceable(64) 
   %9 = getelementptr inbounds i8, ptr %0, i64 16
   br label %10
 
-10:                                               ; preds = %.lr.ph, %25
-  %.07 = phi i64 [ 0, %.lr.ph ], [ %26, %25 ]
+10:                                               ; preds = %.lr.ph, %_ZNSt3mapImPcSt4lessImESaISt4pairIKmS0_EEE4findERS4_.exit.thread
+  %.07 = phi i64 [ 0, %.lr.ph ], [ %24, %_ZNSt3mapImPcSt4lessImESaISt4pairIKmS0_EEE4findERS4_.exit.thread ]
   %11 = lshr exact i64 %.07, 12
   store i64 %11, ptr %4, align 8
   %12 = load ptr, ptr %8, align 8
@@ -769,25 +769,22 @@ _ZNSt3mapImPcSt4lessImESaISt4pairIKmS0_EEE4findERS4_.exit: ; preds = %_ZNSt8_Rb_
   %17 = getelementptr inbounds i8, ptr %.19.i.i.i, i64 32
   %18 = load i64, ptr %17, align 8
   %19 = icmp ult i64 %11, %18
-  br i1 %19, label %_ZNSt3mapImPcSt4lessImESaISt4pairIKmS0_EEE4findERS4_.exit.thread, label %21
+  br i1 %19, label %_ZNSt3mapImPcSt4lessImESaISt4pairIKmS0_EEE4findERS4_.exit.thread, label %20
 
-_ZNSt3mapImPcSt4lessImESaISt4pairIKmS0_EEE4findERS4_.exit.thread: ; preds = %10, %_ZNSt8_Rb_treeImSt4pairIKmPcESt10_Select1stIS3_ESt4lessImESaIS3_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS3_EPSt18_Rb_tree_node_baseRS1_.exit.i.i, %_ZNSt3mapImPcSt4lessImESaISt4pairIKmS0_EEE4findERS4_.exit
-  %20 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull %3, i64 noundef 4096)
-  br label %25
+20:                                               ; preds = %_ZNSt3mapImPcSt4lessImESaISt4pairIKmS0_EEE4findERS4_.exit
+  %21 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3mapImPcSt4lessImESaISt4pairIKmS0_EEEixERS4_(ptr noundef nonnull align 8 dereferenceable(48) %7, ptr noundef nonnull align 8 dereferenceable(8) %4)
+  %22 = load ptr, ptr %21, align 8
+  br label %_ZNSt3mapImPcSt4lessImESaISt4pairIKmS0_EEE4findERS4_.exit.thread
 
-21:                                               ; preds = %_ZNSt3mapImPcSt4lessImESaISt4pairIKmS0_EEE4findERS4_.exit
-  %22 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3mapImPcSt4lessImESaISt4pairIKmS0_EEEixERS4_(ptr noundef nonnull align 8 dereferenceable(48) %7, ptr noundef nonnull align 8 dereferenceable(8) %4)
-  %23 = load ptr, ptr %22, align 8
-  %24 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef %23, i64 noundef 4096)
-  br label %25
+_ZNSt3mapImPcSt4lessImESaISt4pairIKmS0_EEE4findERS4_.exit.thread: ; preds = %_ZNSt3mapImPcSt4lessImESaISt4pairIKmS0_EEE4findERS4_.exit, %_ZNSt8_Rb_treeImSt4pairIKmPcESt10_Select1stIS3_ESt4lessImESaIS3_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS3_EPSt18_Rb_tree_node_baseRS1_.exit.i.i, %10, %20
+  %.sink = phi ptr [ %22, %20 ], [ %3, %10 ], [ %3, %_ZNSt8_Rb_treeImSt4pairIKmPcESt10_Select1stIS3_ESt4lessImESaIS3_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS3_EPSt18_Rb_tree_node_baseRS1_.exit.i.i ], [ %3, %_ZNSt3mapImPcSt4lessImESaISt4pairIKmS0_EEE4findERS4_.exit ]
+  %23 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef %.sink, i64 noundef 4096)
+  %24 = add i64 %.07, 4096
+  %25 = load i64, ptr %5, align 8
+  %26 = icmp ult i64 %24, %25
+  br i1 %26, label %10, label %._crit_edge, !llvm.loop !10
 
-25:                                               ; preds = %_ZNSt3mapImPcSt4lessImESaISt4pairIKmS0_EEE4findERS4_.exit.thread, %21
-  %26 = add i64 %.07, 4096
-  %27 = load i64, ptr %5, align 8
-  %28 = icmp ult i64 %26, %27
-  br i1 %28, label %10, label %._crit_edge, !llvm.loop !10
-
-._crit_edge:                                      ; preds = %25, %2
+._crit_edge:                                      ; preds = %_ZNSt3mapImPcSt4lessImESaISt4pairIKmS0_EEE4findERS4_.exit.thread, %2
   ret void
 }
 

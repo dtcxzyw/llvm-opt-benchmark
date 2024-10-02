@@ -1568,7 +1568,6 @@ land.lhs.true60:                                  ; preds = %land.lhs.true56
 
 if.then62:                                        ; preds = %land.lhs.true60
   %call63 = call i32 @_PyUnicodeWriter_WriteASCIIString(ptr noundef %writer, ptr noundef nonnull %call38, i64 noundef %n_digits.0) #12
-  call void @PyMem_Free(ptr noundef nonnull %call38) #12
   br label %return
 
 if.end64:                                         ; preds = %if.end46, %if.end46, %land.lhs.true60, %land.lhs.true56, %land.lhs.true53
@@ -1887,11 +1886,12 @@ if.then1.i.i9.i:                                  ; preds = %if.end.i.i6.i
 free_locale_info.exit:                            ; preds = %Py_XDECREF.exit.i, %if.then.i4.i, %if.end.i.i6.i, %if.then1.i.i9.i
   %grouping_buffer.i = getelementptr inbounds i8, ptr %locale, i64 24
   %49 = load ptr, ptr %grouping_buffer.i, align 8
-  call void @PyMem_Free(ptr noundef %49) #12
   br label %return
 
 return:                                           ; preds = %free_locale_info.exit, %if.then62
+  %.sink = phi ptr [ %49, %free_locale_info.exit ], [ %call38, %if.then62 ]
   %retval.0 = phi i32 [ %result.078, %free_locale_info.exit ], [ %call63, %if.then62 ]
+  call void @PyMem_Free(ptr noundef %.sink) #12
   ret i32 %retval.0
 }
 

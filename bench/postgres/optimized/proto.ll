@@ -1125,7 +1125,6 @@ column_in_column_list.exit66.thread:              ; preds = %66, %column_in_colu
   store i32 %138, ptr %37, align 8, !alias.scope !136
   %139 = getelementptr inbounds i8, ptr %129, i64 4
   tail call void @pq_sendbytes(ptr noundef nonnull %0, ptr noundef nonnull %139, i32 noundef %132) #8
-  tail call void @pfree(ptr noundef nonnull %129) #8
   br label %153
 
 140:                                              ; preds = %117, %110
@@ -1146,10 +1145,11 @@ column_in_column_list.exit66.thread:              ; preds = %66, %column_in_colu
   %151 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %150) #10
   %152 = trunc i64 %151 to i32
   tail call void @pq_sendcountedtext(ptr noundef nonnull %0, ptr noundef %150, i32 noundef %152, i1 noundef zeroext false) #8
-  tail call void @pfree(ptr noundef %150) #8
   br label %153
 
 153:                                              ; preds = %140, %120
+  %.sink = phi ptr [ %150, %140 ], [ %129, %120 ]
+  tail call void @pfree(ptr noundef %.sink) #8
   tail call void @ReleaseSysCache(ptr noundef nonnull %104) #8
   br label %154
 

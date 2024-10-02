@@ -1890,12 +1890,12 @@ declare dso_local i32 @pm_runtime_barrier(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal fastcc i32 @really_probe(ptr noundef %0, ptr noundef %1) unnamed_addr #0 align 16 {
   %3 = load i1, ptr @defer_all_probes, align 1
-  br i1 %3, label %161, label %4
+  br i1 %3, label %159, label %4
 
 4:                                                ; preds = %2
   %5 = tail call i32 @device_links_check_suppliers(ptr noundef %0) #9
   %6 = icmp eq i32 %5, -517
-  br i1 %6, label %161, label %7
+  br i1 %6, label %159, label %7
 
 7:                                                ; preds = %4
   %8 = getelementptr inbounds i8, ptr %0, i64 656
@@ -1905,7 +1905,7 @@ define internal fastcc i32 @really_probe(ptr noundef %0, ptr noundef %1) unnamed
 
 11:                                               ; preds = %7
   tail call void (ptr, ptr, ...) @_dev_crit(ptr noundef %0, ptr noundef nonnull @.str.13) #10
-  br label %161
+  br label %159
 
 12:                                               ; preds = %7
   %13 = getelementptr inbounds i8, ptr %0, i64 104
@@ -1920,7 +1920,7 @@ define internal fastcc i32 @really_probe(ptr noundef %0, ptr noundef %1) unnamed
 19:                                               ; preds = %12
   %20 = tail call i32 %17(ptr noundef %0) #9
   %21 = icmp eq i32 %20, 0
-  br i1 %21, label %22, label %145
+  br i1 %21, label %22, label %143
 
 22:                                               ; preds = %19, %12
   tail call void @bus_notify(ptr noundef %0, i32 noundef 3) #9
@@ -1962,7 +1962,7 @@ define internal fastcc i32 @really_probe(ptr noundef %0, ptr noundef %1) unnamed
 46:                                               ; preds = %44, %40
   %47 = phi ptr [ %45, %44 ], [ %42, %40 ]
   %48 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.14, ptr noundef nonnull @__func__.really_probe, ptr noundef %47) #10
-  br label %136
+  br label %134
 
 49:                                               ; preds = %29
   %50 = getelementptr inbounds i8, ptr %0, i64 528
@@ -1979,7 +1979,7 @@ define internal fastcc i32 @really_probe(ptr noundef %0, ptr noundef %1) unnamed
 57:                                               ; preds = %53
   %58 = tail call i32 %55(ptr noundef %0) #9
   %59 = icmp eq i32 %58, 0
-  br i1 %59, label %60, label %123
+  br i1 %59, label %60, label %121
 
 60:                                               ; preds = %57, %53, %49
   %61 = load ptr, ptr %14, align 8
@@ -2025,154 +2025,148 @@ define internal fastcc i32 @really_probe(ptr noundef %0, ptr noundef %1) unnamed
   %84 = icmp eq i32 %5, -11
   %85 = select i1 %84, i32 -517, i32 %71
   %86 = sub i32 0, %85
-  br label %123
+  br label %121
 
 .thread25:                                        ; preds = %65, %79, %69
   %87 = getelementptr inbounds i8, ptr %1, i64 112
   %88 = load ptr, ptr %87, align 8
   %89 = tail call i32 @device_add_groups(ptr noundef %0, ptr noundef %88) #9
   %90 = icmp eq i32 %89, 0
-  br i1 %90, label %92, label %91
+  br i1 %90, label %91, label %119
 
 91:                                               ; preds = %.thread25
-  tail call void (ptr, ptr, ...) @_dev_err(ptr noundef %0, ptr noundef nonnull @.str.15) #10
-  br label %121
+  %92 = icmp eq ptr %0, null
+  br i1 %92, label %110, label %93
 
-92:                                               ; preds = %.thread25
-  %93 = icmp eq ptr %0, null
-  br i1 %93, label %112, label %94
+93:                                               ; preds = %91
+  %94 = load ptr, ptr %13, align 8
+  %95 = icmp eq ptr %94, null
+  br i1 %95, label %100, label %96
 
-94:                                               ; preds = %92
-  %95 = load ptr, ptr %13, align 8
-  %96 = icmp eq ptr %95, null
-  br i1 %96, label %101, label %97
+96:                                               ; preds = %93
+  %97 = getelementptr inbounds i8, ptr %94, i64 64
+  %98 = load ptr, ptr %97, align 8
+  %99 = icmp eq ptr %98, null
+  br i1 %99, label %100, label %107
 
-97:                                               ; preds = %94
-  %98 = getelementptr inbounds i8, ptr %95, i64 64
-  %99 = load ptr, ptr %98, align 8
-  %100 = icmp eq ptr %99, null
-  br i1 %100, label %101, label %108
+100:                                              ; preds = %96, %93
+  %101 = load ptr, ptr %14, align 8
+  %102 = icmp eq ptr %101, null
+  br i1 %102, label %110, label %103
 
-101:                                              ; preds = %97, %94
-  %102 = load ptr, ptr %14, align 8
-  %103 = icmp eq ptr %102, null
-  br i1 %103, label %112, label %104
+103:                                              ; preds = %100
+  %104 = getelementptr inbounds i8, ptr %101, i64 64
+  %105 = load ptr, ptr %104, align 8
+  %106 = icmp eq ptr %105, null
+  br i1 %106, label %110, label %107
 
-104:                                              ; preds = %101
-  %105 = getelementptr inbounds i8, ptr %102, i64 64
-  %106 = load ptr, ptr %105, align 8
-  %107 = icmp eq ptr %106, null
-  br i1 %107, label %112, label %108
+107:                                              ; preds = %103, %96
+  %108 = tail call i32 @device_create_file(ptr noundef nonnull %0, ptr noundef nonnull @dev_attr_state_synced) #9
+  %109 = icmp eq i32 %108, 0
+  br i1 %109, label %110, label %119
 
-108:                                              ; preds = %104, %97
-  %109 = tail call i32 @device_create_file(ptr noundef nonnull %0, ptr noundef nonnull @dev_attr_state_synced) #9
-  %110 = icmp eq i32 %109, 0
-  br i1 %110, label %112, label %111
+110:                                              ; preds = %107, %103, %100, %91
+  %111 = load ptr, ptr %50, align 8
+  %112 = icmp eq ptr %111, null
+  br i1 %112, label %118, label %113
 
-111:                                              ; preds = %108
-  tail call void (ptr, ptr, ...) @_dev_err(ptr noundef nonnull %0, ptr noundef nonnull @.str.16) #10
-  br label %121
+113:                                              ; preds = %110
+  %114 = getelementptr inbounds i8, ptr %111, i64 208
+  %115 = load ptr, ptr %114, align 8
+  %116 = icmp eq ptr %115, null
+  br i1 %116, label %118, label %117
 
-112:                                              ; preds = %108, %104, %101, %92
-  %113 = load ptr, ptr %50, align 8
-  %114 = icmp eq ptr %113, null
-  br i1 %114, label %120, label %115
+117:                                              ; preds = %113
+  tail call void %115(ptr noundef %0) #9
+  br label %118
 
-115:                                              ; preds = %112
-  %116 = getelementptr inbounds i8, ptr %113, i64 208
-  %117 = load ptr, ptr %116, align 8
-  %118 = icmp eq ptr %117, null
-  br i1 %118, label %120, label %119
-
-119:                                              ; preds = %115
-  tail call void %117(ptr noundef %0) #9
-  br label %120
-
-120:                                              ; preds = %119, %115, %112
+118:                                              ; preds = %117, %113, %110
   tail call fastcc void @driver_bound(ptr noundef %0)
-  br label %161
-
-121:                                              ; preds = %111, %91
-  %122 = phi i32 [ %89, %91 ], [ %109, %111 ]
-  tail call fastcc void @device_remove(ptr noundef %0)
-  br label %123
-
-123:                                              ; preds = %121, %83, %57
-  %124 = phi i32 [ %58, %57 ], [ %86, %83 ], [ %122, %121 ]
-  %125 = load ptr, ptr %13, align 8
-  %126 = icmp eq ptr %125, null
-  br i1 %126, label %136, label %127
-
-127:                                              ; preds = %123
-  %128 = getelementptr inbounds i8, ptr %125, i64 128
-  %129 = load ptr, ptr %128, align 8
-  %130 = icmp eq ptr %129, null
-  br i1 %130, label %132, label %131
-
-131:                                              ; preds = %127
-  tail call void @device_remove_file(ptr noundef %0, ptr noundef nonnull @dev_attr_coredump) #9
-  br label %132
-
-132:                                              ; preds = %131, %127
-  %133 = getelementptr inbounds i8, ptr %125, i64 136
-  %134 = load ptr, ptr %133, align 8
-  %135 = load ptr, ptr %0, align 8
-  tail call void @sysfs_remove_link(ptr noundef %134, ptr noundef %135) #9
-  tail call void @sysfs_remove_link(ptr noundef %0, ptr noundef nonnull @.str.7) #9
-  br label %136
-
-136:                                              ; preds = %132, %123, %46
-  %137 = phi i32 [ %.ph, %46 ], [ %124, %123 ], [ %124, %132 ]
-  tail call void @bus_notify(ptr noundef %0, i32 noundef 7) #9
-  %138 = load ptr, ptr %14, align 8
-  %139 = icmp eq ptr %138, null
-  br i1 %139, label %145, label %140
-
-140:                                              ; preds = %136
-  %141 = getelementptr inbounds i8, ptr %138, i64 136
-  %142 = load ptr, ptr %141, align 8
-  %143 = icmp eq ptr %142, null
-  br i1 %143, label %145, label %144
-
-144:                                              ; preds = %140
-  tail call void %142(ptr noundef %0) #9
-  br label %145
-
-145:                                              ; preds = %144, %140, %136, %19
-  %146 = phi i32 [ %20, %19 ], [ %137, %144 ], [ %137, %140 ], [ %137, %136 ]
-  tail call void @device_links_no_driver(ptr noundef %0) #9
-  %147 = tail call i32 @devres_release_all(ptr noundef %0) #9
-  %148 = getelementptr inbounds i8, ptr %0, i64 584
-  %149 = load ptr, ptr %148, align 8
-  tail call void @kfree(ptr noundef %149) #9
-  store ptr null, ptr %148, align 8
-  store ptr null, ptr %13, align 8
-  %150 = getelementptr inbounds i8, ptr %0, i64 120
-  store ptr null, ptr %150, align 8
-  %151 = getelementptr inbounds i8, ptr %0, i64 528
-  %152 = load ptr, ptr %151, align 8
-  %153 = icmp eq ptr %152, null
-  br i1 %153, label %159, label %154
-
-154:                                              ; preds = %145
-  %155 = getelementptr inbounds i8, ptr %152, i64 216
-  %156 = load ptr, ptr %155, align 8
-  %157 = icmp eq ptr %156, null
-  br i1 %157, label %159, label %158
-
-158:                                              ; preds = %154
-  tail call void %156(ptr noundef %0) #9
   br label %159
 
-159:                                              ; preds = %158, %154, %145
-  tail call void @pm_runtime_reinit(ptr noundef %0) #9
-  %160 = getelementptr inbounds i8, ptr %0, i64 224
-  store i32 0, ptr %160, align 8
-  br label %161
+119:                                              ; preds = %107, %.thread25
+  %.str.16.sink = phi ptr [ @.str.15, %.thread25 ], [ @.str.16, %107 ]
+  %120 = phi i32 [ %89, %.thread25 ], [ %108, %107 ]
+  tail call void (ptr, ptr, ...) @_dev_err(ptr noundef %0, ptr noundef nonnull %.str.16.sink) #10
+  tail call fastcc void @device_remove(ptr noundef %0)
+  br label %121
 
-161:                                              ; preds = %159, %120, %11, %4, %2
-  %162 = phi i32 [ -517, %2 ], [ -517, %4 ], [ %146, %159 ], [ 0, %120 ], [ -16, %11 ]
-  ret i32 %162
+121:                                              ; preds = %119, %83, %57
+  %122 = phi i32 [ %58, %57 ], [ %86, %83 ], [ %120, %119 ]
+  %123 = load ptr, ptr %13, align 8
+  %124 = icmp eq ptr %123, null
+  br i1 %124, label %134, label %125
+
+125:                                              ; preds = %121
+  %126 = getelementptr inbounds i8, ptr %123, i64 128
+  %127 = load ptr, ptr %126, align 8
+  %128 = icmp eq ptr %127, null
+  br i1 %128, label %130, label %129
+
+129:                                              ; preds = %125
+  tail call void @device_remove_file(ptr noundef %0, ptr noundef nonnull @dev_attr_coredump) #9
+  br label %130
+
+130:                                              ; preds = %129, %125
+  %131 = getelementptr inbounds i8, ptr %123, i64 136
+  %132 = load ptr, ptr %131, align 8
+  %133 = load ptr, ptr %0, align 8
+  tail call void @sysfs_remove_link(ptr noundef %132, ptr noundef %133) #9
+  tail call void @sysfs_remove_link(ptr noundef %0, ptr noundef nonnull @.str.7) #9
+  br label %134
+
+134:                                              ; preds = %130, %121, %46
+  %135 = phi i32 [ %.ph, %46 ], [ %122, %121 ], [ %122, %130 ]
+  tail call void @bus_notify(ptr noundef %0, i32 noundef 7) #9
+  %136 = load ptr, ptr %14, align 8
+  %137 = icmp eq ptr %136, null
+  br i1 %137, label %143, label %138
+
+138:                                              ; preds = %134
+  %139 = getelementptr inbounds i8, ptr %136, i64 136
+  %140 = load ptr, ptr %139, align 8
+  %141 = icmp eq ptr %140, null
+  br i1 %141, label %143, label %142
+
+142:                                              ; preds = %138
+  tail call void %140(ptr noundef %0) #9
+  br label %143
+
+143:                                              ; preds = %142, %138, %134, %19
+  %144 = phi i32 [ %20, %19 ], [ %135, %142 ], [ %135, %138 ], [ %135, %134 ]
+  tail call void @device_links_no_driver(ptr noundef %0) #9
+  %145 = tail call i32 @devres_release_all(ptr noundef %0) #9
+  %146 = getelementptr inbounds i8, ptr %0, i64 584
+  %147 = load ptr, ptr %146, align 8
+  tail call void @kfree(ptr noundef %147) #9
+  store ptr null, ptr %146, align 8
+  store ptr null, ptr %13, align 8
+  %148 = getelementptr inbounds i8, ptr %0, i64 120
+  store ptr null, ptr %148, align 8
+  %149 = getelementptr inbounds i8, ptr %0, i64 528
+  %150 = load ptr, ptr %149, align 8
+  %151 = icmp eq ptr %150, null
+  br i1 %151, label %157, label %152
+
+152:                                              ; preds = %143
+  %153 = getelementptr inbounds i8, ptr %150, i64 216
+  %154 = load ptr, ptr %153, align 8
+  %155 = icmp eq ptr %154, null
+  br i1 %155, label %157, label %156
+
+156:                                              ; preds = %152
+  tail call void %154(ptr noundef %0) #9
+  br label %157
+
+157:                                              ; preds = %156, %152, %143
+  tail call void @pm_runtime_reinit(ptr noundef %0) #9
+  %158 = getelementptr inbounds i8, ptr %0, i64 224
+  store i32 0, ptr %158, align 8
+  br label %159
+
+159:                                              ; preds = %157, %118, %11, %4, %2
+  %160 = phi i32 [ -517, %2 ], [ -517, %4 ], [ %144, %157 ], [ 0, %118 ], [ -16, %11 ]
+  ret i32 %160
 }
 
 ; Function Attrs: null_pointer_is_valid

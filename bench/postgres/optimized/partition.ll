@@ -151,14 +151,14 @@ get_partition_parent_worker.exit:                 ; preds = %3
 define dso_local i32 @index_get_partition(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = tail call ptr @RelationGetIndexList(ptr noundef %0) #5
   %.not = icmp eq ptr %3, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph
+  br i1 %.not, label %.split31, label %.lr.ph
 
 .lr.ph:                                           ; preds = %2
   %4 = getelementptr inbounds i8, ptr %3, i64 4
   %5 = getelementptr inbounds i8, ptr %3, i64 16
   %6 = load i32, ptr %4, align 4
   %7 = icmp sgt i32 %6, 0
-  br i1 %7, label %.lr.ph34, label %._crit_edge
+  br i1 %7, label %.lr.ph34, label %.split31
 
 .lr.ph34:                                         ; preds = %.lr.ph, %28
   %indvars.iv = phi i64 [ %indvars.iv.next, %28 ], [ 0, %.lr.ph ]
@@ -195,23 +195,16 @@ define dso_local i32 @index_get_partition(ptr noundef %0, i32 noundef %1) local_
   %27 = icmp eq i32 %26, %1
   br i1 %27, label %.split31, label %28
 
-.split31:                                         ; preds = %25
-  tail call void @list_free(ptr noundef nonnull %3) #5
-  br label %32
-
 28:                                               ; preds = %25, %15
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %29 = load i32, ptr %4, align 4
   %30 = sext i32 %29 to i64
   %31 = icmp slt i64 %indvars.iv.next, %30
-  br i1 %31, label %.lr.ph34, label %._crit_edge
+  br i1 %31, label %.lr.ph34, label %.split31
 
-._crit_edge:                                      ; preds = %28, %.lr.ph, %2
+.split31:                                         ; preds = %28, %25, %2, %.lr.ph
+  %.0 = phi i32 [ 0, %.lr.ph ], [ 0, %2 ], [ %10, %25 ], [ 0, %28 ]
   tail call void @list_free(ptr noundef %3) #5
-  br label %32
-
-32:                                               ; preds = %._crit_edge, %.split31
-  %.0 = phi i32 [ %10, %.split31 ], [ 0, %._crit_edge ]
   ret i32 %.0
 }
 

@@ -508,8 +508,6 @@ $_ZN5folly15throw_exceptionISt12length_errorEEvOT_ = comdat any
 
 $_ZNSt12length_errorC2EOS_ = comdat any
 
-$_ZN5folly13fbstring_coreIcE18destroyMediumLargeEv = comdat any
-
 $_ZNSt15__exception_ptr12__dest_thunkIN5folly36CertificateIdentityVerifierExceptionEEEvPv = comdat any
 
 $_ZN5folly36CertificateIdentityVerifierExceptionD0Ev = comdat any
@@ -22896,23 +22894,20 @@ if.end.i.i:                                       ; preds = %invoke.cont
   %7 = and i8 %6, -64
   %cmp.i = icmp eq i8 %7, -128
   %8 = load ptr, ptr %ref.tmp, align 8, !tbaa !175
-  br i1 %cmp.i, label %if.then.i3, label %if.else.i1
-
-if.then.i3:                                       ; preds = %if.end.i.i
-  call void @free(ptr noundef %8) #38
-  br label %_ZN5folly14basic_fbstringIcSt11char_traitsIcESaIcENS_13fbstring_coreIcEEED2Ev.exit
+  br i1 %cmp.i, label %if.end.sink.split.i, label %if.else.i1
 
 if.else.i1:                                       ; preds = %if.end.i.i
   %add.ptr.i.i.i = getelementptr inbounds i8, ptr %8, i64 -8
   %9 = atomicrmw sub ptr %add.ptr.i.i.i, i64 1 acq_rel, align 8
   %cmp.i.i2 = icmp eq i64 %9, 1
-  br i1 %cmp.i.i2, label %if.then.i.i, label %_ZN5folly14basic_fbstringIcSt11char_traitsIcESaIcENS_13fbstring_coreIcEEED2Ev.exit
+  br i1 %cmp.i.i2, label %if.end.sink.split.i, label %_ZN5folly14basic_fbstringIcSt11char_traitsIcESaIcENS_13fbstring_coreIcEEED2Ev.exit
 
-if.then.i.i:                                      ; preds = %if.else.i1
-  call void @free(ptr noundef nonnull %add.ptr.i.i.i) #38
+if.end.sink.split.i:                              ; preds = %if.else.i1, %if.end.i.i
+  %add.ptr.i.i.sink.i = phi ptr [ %8, %if.end.i.i ], [ %add.ptr.i.i.i, %if.else.i1 ]
+  call void @free(ptr noundef %add.ptr.i.i.sink.i) #38
   br label %_ZN5folly14basic_fbstringIcSt11char_traitsIcESaIcENS_13fbstring_coreIcEEED2Ev.exit
 
-_ZN5folly14basic_fbstringIcSt11char_traitsIcESaIcENS_13fbstring_coreIcEEED2Ev.exit: ; preds = %if.then.i.i, %if.else.i1, %if.then.i3, %invoke.cont
+_ZN5folly14basic_fbstringIcSt11char_traitsIcESaIcENS_13fbstring_coreIcEEED2Ev.exit: ; preds = %if.end.sink.split.i, %if.else.i1, %invoke.cont
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %ref.tmp) #38
   %call1.i.i.i = call noundef ptr @_ZN5folly6detail25exception_ptr_get_object_ERKNSt15__exception_ptr13exception_ptrEPKSt9type_info(ptr noundef nonnull align 8 dereferenceable(8) %ew, ptr noundef nonnull @_ZTISt9exception) #38
   %tobool.not = icmp eq ptr %call1.i.i.i, null
@@ -22951,10 +22946,23 @@ lpad:                                             ; preds = %_ZNK5folly17excepti
   br i1 %cmp.i.i17, label %_ZN5folly14basic_fbstringIcSt11char_traitsIcESaIcENS_13fbstring_coreIcEEED2Ev.exit19, label %if.end.i.i18
 
 if.end.i.i18:                                     ; preds = %lpad
-  call void @_ZN5folly13fbstring_coreIcE18destroyMediumLargeEv(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp) #38
+  %14 = and i8 %13, -64
+  %cmp.i4 = icmp eq i8 %14, -128
+  %15 = load ptr, ptr %ref.tmp, align 8, !tbaa !175
+  br i1 %cmp.i4, label %if.end.sink.split.i8, label %if.else.i5
+
+if.else.i5:                                       ; preds = %if.end.i.i18
+  %add.ptr.i.i.i6 = getelementptr inbounds i8, ptr %15, i64 -8
+  %16 = atomicrmw sub ptr %add.ptr.i.i.i6, i64 1 acq_rel, align 8
+  %cmp.i.i7 = icmp eq i64 %16, 1
+  br i1 %cmp.i.i7, label %if.end.sink.split.i8, label %_ZN5folly14basic_fbstringIcSt11char_traitsIcESaIcENS_13fbstring_coreIcEEED2Ev.exit19
+
+if.end.sink.split.i8:                             ; preds = %if.else.i5, %if.end.i.i18
+  %add.ptr.i.i.sink.i9 = phi ptr [ %15, %if.end.i.i18 ], [ %add.ptr.i.i.i6, %if.else.i5 ]
+  call void @free(ptr noundef %add.ptr.i.i.sink.i9) #38
   br label %_ZN5folly14basic_fbstringIcSt11char_traitsIcESaIcENS_13fbstring_coreIcEEED2Ev.exit19
 
-_ZN5folly14basic_fbstringIcSt11char_traitsIcESaIcENS_13fbstring_coreIcEEED2Ev.exit19: ; preds = %if.end.i.i18, %lpad
+_ZN5folly14basic_fbstringIcSt11char_traitsIcESaIcENS_13fbstring_coreIcEEED2Ev.exit19: ; preds = %if.end.sink.split.i8, %if.else.i5, %lpad
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %ref.tmp) #38
   resume { ptr, i32 } %12
 
@@ -23607,34 +23615,6 @@ entry:
 }
 
 declare void @_ZN5folly8demangleEPKc(ptr dead_on_unwind writable sret(%"class.folly::basic_fbstring") align 8, ptr noundef) local_unnamed_addr #0
-
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZN5folly13fbstring_coreIcE18destroyMediumLargeEv(ptr noundef nonnull align 8 dereferenceable(24) %this) local_unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
-entry:
-  %arrayidx.i = getelementptr inbounds i8, ptr %this, i64 23
-  %0 = load i8, ptr %arrayidx.i, align 1, !tbaa !175
-  %1 = and i8 %0, -64
-  %cmp = icmp eq i8 %1, -128
-  %2 = load ptr, ptr %this, align 8, !tbaa !175
-  br i1 %cmp, label %if.then, label %if.else
-
-if.then:                                          ; preds = %entry
-  tail call void @free(ptr noundef %2) #38
-  br label %if.end
-
-if.else:                                          ; preds = %entry
-  %add.ptr.i.i = getelementptr inbounds i8, ptr %2, i64 -8
-  %3 = atomicrmw sub ptr %add.ptr.i.i, i64 1 acq_rel, align 8
-  %cmp.i = icmp eq i64 %3, 1
-  br i1 %cmp.i, label %if.then.i, label %if.end
-
-if.then.i:                                        ; preds = %if.else
-  tail call void @free(ptr noundef nonnull %add.ptr.i.i) #38
-  br label %if.end
-
-if.end:                                           ; preds = %if.then.i, %if.else, %if.then
-  ret void
-}
 
 ; Function Attrs: nounwind
 declare noundef ptr @_ZN5folly6detail25exception_ptr_get_object_ERKNSt15__exception_ptr13exception_ptrEPKSt9type_info(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef) local_unnamed_addr #4

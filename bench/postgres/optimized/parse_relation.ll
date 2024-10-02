@@ -4326,7 +4326,7 @@ define dso_local void @expandRTE(ptr nocapture noundef readonly %0, i32 noundef 
 13:                                               ; preds = %12, %11
   %14 = getelementptr inbounds i8, ptr %0, i64 4
   %15 = load i32, ptr %14, align 4
-  switch i32 %15, label %391 [
+  switch i32 %15, label %388 [
     i32 0, label %16
     i32 1, label %25
     i32 3, label %92
@@ -4859,10 +4859,10 @@ list_head.exit316:                                ; preds = %302, %307
   %322 = getelementptr inbounds i8, ptr %316, i64 16
   br i1 %.not296, label %.critedge7, label %list_head.exit316.split
 
-list_head.exit316.split:                          ; preds = %list_head.exit316, %390
-  %indvars.iv = phi i64 [ %indvars.iv.next, %390 ], [ 0, %list_head.exit316 ]
-  %.0258 = phi ptr [ %.1259, %390 ], [ %310, %list_head.exit316 ]
-  %.sroa.12.0 = phi i32 [ %354, %390 ], [ 0, %list_head.exit316 ]
+list_head.exit316.split:                          ; preds = %list_head.exit316, %387
+  %indvars.iv = phi i64 [ %indvars.iv.next, %387 ], [ 0, %list_head.exit316 ]
+  %.0258 = phi ptr [ %.1259, %387 ], [ %310, %list_head.exit316 ]
+  %.sroa.12.0 = phi i32 [ %354, %387 ], [ 0, %list_head.exit316 ]
   br i1 %.not294, label %330, label %323
 
 323:                                              ; preds = %list_head.exit316.split
@@ -4914,90 +4914,84 @@ list_head.exit316.split:                          ; preds = %list_head.exit316, 
   %353 = load i32, ptr %346, align 8
   %354 = add nuw nsw i32 %.sroa.12.0, 1
   %indvars = trunc i32 %354 to i16
-  br i1 %.not, label %378, label %355
+  br i1 %.not, label %375, label %355
 
 355:                                              ; preds = %350
   %.not297 = icmp eq i32 %351, 0
-  br i1 %.not297, label %362, label %356
+  br i1 %.not297, label %360, label %356
 
 356:                                              ; preds = %355
   %357 = load ptr, ptr %.0258, align 8
   %358 = getelementptr inbounds i8, ptr %357, i64 8
   %359 = load ptr, ptr %358, align 8
-  %360 = load ptr, ptr %5, align 8
-  %361 = tail call ptr @pstrdup(ptr noundef %359) #10
   br label %.sink.split371
 
-362:                                              ; preds = %355
-  br i1 %4, label %363, label %368
+360:                                              ; preds = %355
+  br i1 %4, label %.sink.split371, label %365
 
-363:                                              ; preds = %362
-  %364 = load ptr, ptr %5, align 8
-  %365 = tail call ptr @pstrdup(ptr noundef nonnull @.str.39) #10
-  br label %.sink.split371
+.sink.split371:                                   ; preds = %360, %356
+  %.str.39.sink = phi ptr [ %359, %356 ], [ @.str.39, %360 ]
+  %361 = load ptr, ptr %5, align 8
+  %362 = tail call ptr @pstrdup(ptr noundef %.str.39.sink) #10
+  %363 = tail call ptr @makeString(ptr noundef %362) #10
+  %364 = tail call ptr @lappend(ptr noundef %361, ptr noundef %363) #10
+  store ptr %364, ptr %5, align 8
+  br label %365
 
-.sink.split371:                                   ; preds = %356, %363
-  %.sink375 = phi ptr [ %365, %363 ], [ %361, %356 ]
-  %.sink373 = phi ptr [ %364, %363 ], [ %360, %356 ]
-  %366 = tail call ptr @makeString(ptr noundef %.sink375) #10
-  %367 = tail call ptr @lappend(ptr noundef %.sink373, ptr noundef %366) #10
-  store ptr %367, ptr %5, align 8
-  br label %368
+365:                                              ; preds = %.sink.split371, %360
+  %366 = load ptr, ptr %303, align 8
+  %367 = getelementptr inbounds i8, ptr %366, i64 16
+  %368 = load ptr, ptr %367, align 8
+  %369 = getelementptr i8, ptr %368, i64 4
+  %.val311 = load i32, ptr %369, align 4
+  %370 = getelementptr i8, ptr %368, i64 16
+  %.val312 = load ptr, ptr %370, align 8
+  %371 = getelementptr i8, ptr %.0258, i64 8
+  %372 = sext i32 %.val311 to i64
+  %373 = getelementptr %union.ListCell, ptr %.val312, i64 %372
+  %374 = icmp ult ptr %371, %373
+  %..i317 = select i1 %374, ptr %371, ptr null
+  br label %375
 
-368:                                              ; preds = %.sink.split371, %362
-  %369 = load ptr, ptr %303, align 8
-  %370 = getelementptr inbounds i8, ptr %369, i64 16
-  %371 = load ptr, ptr %370, align 8
-  %372 = getelementptr i8, ptr %371, i64 4
-  %.val311 = load i32, ptr %372, align 4
-  %373 = getelementptr i8, ptr %371, i64 16
-  %.val312 = load ptr, ptr %373, align 8
-  %374 = getelementptr i8, ptr %.0258, i64 8
-  %375 = sext i32 %.val311 to i64
-  %376 = getelementptr %union.ListCell, ptr %.val312, i64 %375
-  %377 = icmp ult ptr %374, %376
-  %..i317 = select i1 %377, ptr %374, ptr null
-  br label %378
+375:                                              ; preds = %365, %350
+  %.1259 = phi ptr [ %..i317, %365 ], [ %.0258, %350 ]
+  br i1 %.not293, label %387, label %376
 
-378:                                              ; preds = %368, %350
-  %.1259 = phi ptr [ %..i317, %368 ], [ %.0258, %350 ]
-  br i1 %.not293, label %390, label %379
-
-379:                                              ; preds = %378
+376:                                              ; preds = %375
   %.not298 = icmp eq i32 %351, 0
-  br i1 %.not298, label %385, label %380
+  br i1 %.not298, label %382, label %377
 
-380:                                              ; preds = %379
-  %381 = tail call ptr @makeVar(i32 noundef %1, i16 noundef signext %indvars, i32 noundef %351, i32 noundef %352, i32 noundef %353, i32 noundef %2) #10
-  %382 = getelementptr inbounds i8, ptr %381, i64 44
-  store i32 %3, ptr %382, align 4
-  %383 = load ptr, ptr %6, align 8
-  %384 = tail call ptr @lappend(ptr noundef %383, ptr noundef %381) #10
+377:                                              ; preds = %376
+  %378 = tail call ptr @makeVar(i32 noundef %1, i16 noundef signext %indvars, i32 noundef %351, i32 noundef %352, i32 noundef %353, i32 noundef %2) #10
+  %379 = getelementptr inbounds i8, ptr %378, i64 44
+  store i32 %3, ptr %379, align 4
+  %380 = load ptr, ptr %6, align 8
+  %381 = tail call ptr @lappend(ptr noundef %380, ptr noundef %378) #10
   br label %.sink.split376
 
-385:                                              ; preds = %379
-  br i1 %4, label %386, label %390
+382:                                              ; preds = %376
+  br i1 %4, label %383, label %387
 
-386:                                              ; preds = %385
-  %387 = load ptr, ptr %6, align 8
-  %388 = tail call ptr @makeNullConst(i32 noundef 23, i32 noundef -1, i32 noundef 0) #10
-  %389 = tail call ptr @lappend(ptr noundef %387, ptr noundef %388) #10
+383:                                              ; preds = %382
+  %384 = load ptr, ptr %6, align 8
+  %385 = tail call ptr @makeNullConst(i32 noundef 23, i32 noundef -1, i32 noundef 0) #10
+  %386 = tail call ptr @lappend(ptr noundef %384, ptr noundef %385) #10
   br label %.sink.split376
 
-.sink.split376:                                   ; preds = %380, %386
-  %.sink377 = phi ptr [ %389, %386 ], [ %384, %380 ]
+.sink.split376:                                   ; preds = %377, %383
+  %.sink377 = phi ptr [ %386, %383 ], [ %381, %377 ]
   store ptr %.sink377, ptr %6, align 8
-  br label %390
+  br label %387
 
-390:                                              ; preds = %.sink.split376, %378, %385
+387:                                              ; preds = %.sink.split376, %375, %382
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   br label %list_head.exit316.split, !llvm.loop !28
 
-391:                                              ; preds = %13
-  %392 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #12
-  tail call void @llvm.assume(i1 %392)
-  %393 = load i32, ptr %14, align 4
-  %394 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.40, i32 noundef %393) #10
+388:                                              ; preds = %13
+  %389 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #12
+  tail call void @llvm.assume(i1 %389)
+  %390 = load i32, ptr %14, align 4
+  %391 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.40, i32 noundef %390) #10
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 3010, ptr noundef nonnull @__func__.expandRTE) #10
   unreachable
 

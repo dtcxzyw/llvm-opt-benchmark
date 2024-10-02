@@ -1418,11 +1418,11 @@ if.end.i33:                                       ; preds = %_ZN4llvh11ms_demang
   br label %_ZN4llvh11ms_demangle14ArenaAllocator10allocArrayIPNS0_4NodeEJEEEPT_m.exit
 
 _ZN4llvh11ms_demangle14ArenaAllocator10allocArrayIPNS0_4NodeEJEEEPT_m.exit: ; preds = %if.then.i39, %if.end.i33
-  %.sink = phi ptr [ %23, %if.then.i39 ], [ %call2.i.i35, %if.end.i33 ]
-  store i64 0, ptr %.sink, align 8
+  %call2.i.sink.i = phi ptr [ %call2.i.i35, %if.end.i33 ], [ %23, %if.then.i39 ]
+  store i64 0, ptr %call2.i.sink.i, align 8
   %24 = load ptr, ptr %Components.i5.i, align 8
   %Nodes = getelementptr inbounds i8, ptr %24, i64 16
-  store ptr %.sink, ptr %Nodes, align 8
+  store ptr %call2.i.sink.i, ptr %Nodes, align 8
   %25 = load ptr, ptr %Components.i5.i, align 8
   %Nodes6 = getelementptr inbounds i8, ptr %25, i64 16
   %26 = load ptr, ptr %Nodes6, align 8
@@ -7336,9 +7336,6 @@ _ZN4llvh11ms_demangle14ArenaAllocator5allocINS0_13NodeArrayNodeEJEEEPT_DpOT0_.ex
 
 if.then.i24:                                      ; preds = %_ZN4llvh11ms_demangle14ArenaAllocator5allocINS0_13NodeArrayNodeEJEEEPT_DpOT0_.exit
   %15 = inttoptr i64 %and.i13 to ptr
-  %16 = icmp ugt i64 %Count, 2305843009213693951
-  %17 = select i1 %16, i64 -1, i64 %mul.i
-  tail call void @llvm.memset.p0.i64(ptr align 8 %15, i8 0, i64 %17, i1 false)
   br label %_ZN4llvh11ms_demangle14ArenaAllocator10allocArrayIPNS0_4NodeEJEEEPT_m.exit
 
 if.end.i18:                                       ; preds = %_ZN4llvh11ms_demangle14ArenaAllocator5allocINS0_13NodeArrayNodeEJEEEPT_DpOT0_.exit
@@ -7352,26 +7349,26 @@ if.end.i18:                                       ; preds = %_ZN4llvh11ms_demang
   store ptr %call.i.i19, ptr %Arena, align 8
   %Used.i.i23 = getelementptr inbounds i8, ptr %call.i.i19, i64 8
   store i64 %mul.i, ptr %Used.i.i23, align 8
-  %18 = icmp ugt i64 %Count, 2305843009213693951
-  %19 = select i1 %18, i64 -1, i64 %mul.i
-  tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %call2.i.i20, i8 0, i64 %19, i1 false)
   br label %_ZN4llvh11ms_demangle14ArenaAllocator10allocArrayIPNS0_4NodeEJEEEPT_m.exit
 
 _ZN4llvh11ms_demangle14ArenaAllocator10allocArrayIPNS0_4NodeEJEEEPT_m.exit: ; preds = %if.then.i24, %if.end.i18
-  %retval.0.i = phi ptr [ %15, %if.then.i24 ], [ %call2.i.i20, %if.end.i18 ]
-  store ptr %retval.0.i, ptr %Nodes.i5.i, align 8
+  %call2.i.sink.i = phi ptr [ %call2.i.i20, %if.end.i18 ], [ %15, %if.then.i24 ]
+  %16 = icmp ugt i64 %Count, 2305843009213693951
+  %17 = select i1 %16, i64 -1, i64 %mul.i
+  tail call void @llvm.memset.p0.i64(ptr align 8 %call2.i.sink.i, i8 0, i64 %17, i1 false)
+  store ptr %call2.i.sink.i, ptr %Nodes.i5.i, align 8
   %cmp26.not = icmp eq i64 %Count, 0
   br i1 %cmp26.not, label %for.end, label %for.body
 
 for.body:                                         ; preds = %_ZN4llvh11ms_demangle14ArenaAllocator10allocArrayIPNS0_4NodeEJEEEPT_m.exit, %for.body
   %I.028 = phi i64 [ %inc, %for.body ], [ 0, %_ZN4llvh11ms_demangle14ArenaAllocator10allocArrayIPNS0_4NodeEJEEEPT_m.exit ]
-  %Head.addr.027 = phi ptr [ %22, %for.body ], [ %Head, %_ZN4llvh11ms_demangle14ArenaAllocator10allocArrayIPNS0_4NodeEJEEEPT_m.exit ]
-  %20 = load ptr, ptr %Head.addr.027, align 8
-  %21 = load ptr, ptr %Nodes.i5.i, align 8
-  %arrayidx = getelementptr inbounds ptr, ptr %21, i64 %I.028
-  store ptr %20, ptr %arrayidx, align 8
+  %Head.addr.027 = phi ptr [ %20, %for.body ], [ %Head, %_ZN4llvh11ms_demangle14ArenaAllocator10allocArrayIPNS0_4NodeEJEEEPT_m.exit ]
+  %18 = load ptr, ptr %Head.addr.027, align 8
+  %19 = load ptr, ptr %Nodes.i5.i, align 8
+  %arrayidx = getelementptr inbounds ptr, ptr %19, i64 %I.028
+  store ptr %18, ptr %arrayidx, align 8
   %Next = getelementptr inbounds i8, ptr %Head.addr.027, i64 8
-  %22 = load ptr, ptr %Next, align 8
+  %20 = load ptr, ptr %Next, align 8
   %inc = add nuw i64 %I.028, 1
   %exitcond.not = icmp eq i64 %inc, %Count
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !20

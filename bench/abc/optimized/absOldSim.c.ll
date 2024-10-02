@@ -1164,7 +1164,7 @@ Saig_ManExtendOneEval2.exit125:                   ; preds = %Saig_ManSimInfo2Not
 }
 
 ; Function Attrs: nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define void @Saig_ManSetAndDriveImplications_rec(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2, i32 noundef %3, ptr noundef %4) local_unnamed_addr #2 {
+define void @Saig_ManSetAndDriveImplications_rec(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i32 noundef %2, i32 noundef %3, ptr nocapture noundef readonly %4) local_unnamed_addr #2 {
   %6 = getelementptr i8, ptr %4, i64 8
   %7 = getelementptr i8, ptr %0, i64 112
   %8 = getelementptr inbounds i8, ptr %0, i64 16
@@ -1257,7 +1257,7 @@ Saig_ObjIsLi.exit:                                ; preds = %Saig_ObjIsPo.exit
 
 53:                                               ; preds = %.lr.ph, %.critedge121
   %.067135 = phi i32 [ -1, %.lr.ph ], [ %65, %.critedge121 ]
-  %.068134 = phi i32 [ 0, %.lr.ph ], [ %118, %.critedge121 ]
+  %.068134 = phi i32 [ 0, %.lr.ph ], [ %117, %.critedge121 ]
   %.not71 = icmp eq i32 %.068134, 0
   br i1 %.not71, label %60, label %54
 
@@ -1304,98 +1304,94 @@ Aig_ManObj.exit:                                  ; preds = %60, %54
   %.val79 = load i64, ptr %79, align 8
   %80 = and i64 %.val79, 7
   %.not116 = icmp eq i64 %80, 3
-  br i1 %.not116, label %81, label %82
+  br i1 %.not116, label %.critedge121.sink.split, label %81
 
 81:                                               ; preds = %78
-  tail call void @Saig_ManSetAndDriveImplications_rec(ptr noundef nonnull %0, ptr noundef nonnull %70, i32 noundef %.tr118, i32 noundef %3, ptr noundef nonnull %4)
-  br label %.critedge121
-
-82:                                               ; preds = %78
-  %83 = getelementptr i8, ptr %70, i64 8
-  %.val = load ptr, ptr %83, align 8
-  %84 = ptrtoint ptr %.val to i64
-  %85 = and i64 %84, -2
-  %86 = inttoptr i64 %85 to ptr
-  %87 = getelementptr i8, ptr %86, i64 36
-  %.val86 = load i32, ptr %87, align 4
-  %88 = sext i32 %.val86 to i64
-  %89 = getelementptr inbounds ptr, ptr %.val87, i64 %88
-  %90 = load ptr, ptr %89, align 8
-  %91 = getelementptr inbounds i32, ptr %90, i64 %12
-  %92 = load i32, ptr %91, align 4
-  %93 = lshr i32 %92, %16
-  %94 = and i32 %93, 3
-  %95 = getelementptr i8, ptr %70, i64 16
-  %.val81 = load ptr, ptr %95, align 8
-  %96 = ptrtoint ptr %.val81 to i64
-  %97 = and i64 %96, -2
-  %98 = inttoptr i64 %97 to ptr
-  %99 = getelementptr i8, ptr %98, i64 36
-  %.val84 = load i32, ptr %99, align 4
-  %100 = sext i32 %.val84 to i64
-  %101 = getelementptr inbounds ptr, ptr %.val87, i64 %100
-  %102 = load ptr, ptr %101, align 8
-  %103 = getelementptr inbounds i32, ptr %102, i64 %12
-  %104 = load i32, ptr %103, align 4
-  %105 = lshr i32 %104, %16
-  %106 = and i32 %105, 3
-  %107 = and i64 %84, 1
-  %.not74 = icmp eq i64 %107, 0
+  %82 = getelementptr i8, ptr %70, i64 8
+  %.val = load ptr, ptr %82, align 8
+  %83 = ptrtoint ptr %.val to i64
+  %84 = and i64 %83, -2
+  %85 = inttoptr i64 %84 to ptr
+  %86 = getelementptr i8, ptr %85, i64 36
+  %.val86 = load i32, ptr %86, align 4
+  %87 = sext i32 %.val86 to i64
+  %88 = getelementptr inbounds ptr, ptr %.val87, i64 %87
+  %89 = load ptr, ptr %88, align 8
+  %90 = getelementptr inbounds i32, ptr %89, i64 %12
+  %91 = load i32, ptr %90, align 4
+  %92 = lshr i32 %91, %16
+  %93 = and i32 %92, 3
+  %94 = getelementptr i8, ptr %70, i64 16
+  %.val81 = load ptr, ptr %94, align 8
+  %95 = ptrtoint ptr %.val81 to i64
+  %96 = and i64 %95, -2
+  %97 = inttoptr i64 %96 to ptr
+  %98 = getelementptr i8, ptr %97, i64 36
+  %.val84 = load i32, ptr %98, align 4
+  %99 = sext i32 %.val84 to i64
+  %100 = getelementptr inbounds ptr, ptr %.val87, i64 %99
+  %101 = load ptr, ptr %100, align 8
+  %102 = getelementptr inbounds i32, ptr %101, i64 %12
+  %103 = load i32, ptr %102, align 4
+  %104 = lshr i32 %103, %16
+  %105 = and i32 %104, 3
+  %106 = and i64 %83, 1
+  %.not74 = icmp eq i64 %106, 0
   br i1 %.not74, label %Saig_ManSimInfo2Not.exit, label %switch.lookup
 
-default.unreachable:                              ; preds = %110
+default.unreachable:                              ; preds = %109
   unreachable
 
-switch.lookup:                                    ; preds = %82
-  %108 = zext nneg i32 %94 to i64
-  %switch.gep = getelementptr inbounds [4 x i32], ptr @switch.table.Saig_ManSetAndDriveImplications_rec, i64 0, i64 %108
+switch.lookup:                                    ; preds = %81
+  %107 = zext nneg i32 %93 to i64
+  %switch.gep = getelementptr inbounds [4 x i32], ptr @switch.table.Saig_ManSetAndDriveImplications_rec, i64 0, i64 %107
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %Saig_ManSimInfo2Not.exit
 
-Saig_ManSimInfo2Not.exit:                         ; preds = %switch.lookup, %82
-  %.066 = phi i32 [ %94, %82 ], [ %switch.load, %switch.lookup ]
-  %109 = and i64 %96, 1
-  %.not75 = icmp eq i64 %109, 0
-  br i1 %.not75, label %Saig_ManSimInfo2Not.exit109, label %110
+Saig_ManSimInfo2Not.exit:                         ; preds = %switch.lookup, %81
+  %.066 = phi i32 [ %93, %81 ], [ %switch.load, %switch.lookup ]
+  %108 = and i64 %95, 1
+  %.not75 = icmp eq i64 %108, 0
+  br i1 %.not75, label %Saig_ManSimInfo2Not.exit109, label %109
 
-110:                                              ; preds = %Saig_ManSimInfo2Not.exit
-  switch i32 %106, label %default.unreachable [
+109:                                              ; preds = %Saig_ManSimInfo2Not.exit
+  switch i32 %105, label %default.unreachable [
     i32 0, label %Saig_ManSimInfo2Not.exit109
-    i32 1, label %111
-    i32 2, label %112
-    i32 3, label %Saig_ManSimInfo2Not.exit109.thread
+    i32 1, label %110
+    i32 2, label %111
+    i32 3, label %.critedge121.sink.split
   ]
 
-111:                                              ; preds = %110
+110:                                              ; preds = %109
   br label %Saig_ManSimInfo2Not.exit109
 
-112:                                              ; preds = %110
+111:                                              ; preds = %109
   br label %Saig_ManSimInfo2Not.exit109
 
-Saig_ManSimInfo2Not.exit109:                      ; preds = %112, %111, %110, %Saig_ManSimInfo2Not.exit
-  %.0 = phi i32 [ %106, %Saig_ManSimInfo2Not.exit ], [ 0, %111 ], [ 3, %112 ], [ 1, %110 ]
-  %113 = icmp eq i32 %.066, 2
-  %114 = icmp eq i32 %.0, 2
-  %or.cond = select i1 %113, i1 true, i1 %114
-  br i1 %or.cond, label %Saig_ManSimInfo2Not.exit109.thread, label %115
+Saig_ManSimInfo2Not.exit109:                      ; preds = %111, %110, %109, %Saig_ManSimInfo2Not.exit
+  %.0 = phi i32 [ %105, %Saig_ManSimInfo2Not.exit ], [ 0, %110 ], [ 3, %111 ], [ 1, %109 ]
+  %112 = icmp eq i32 %.066, 2
+  %113 = icmp eq i32 %.0, 2
+  %or.cond = select i1 %112, i1 true, i1 %113
+  br i1 %or.cond, label %.critedge121.sink.split, label %114
 
-115:                                              ; preds = %Saig_ManSimInfo2Not.exit109
-  %116 = icmp eq i32 %.066, 3
-  %117 = icmp eq i32 %.0, 3
-  %or.cond3 = select i1 %116, i1 %117, i1 false
-  br i1 %or.cond3, label %Saig_ManSimInfo2Not.exit109.thread, label %.critedge121
+114:                                              ; preds = %Saig_ManSimInfo2Not.exit109
+  %115 = icmp eq i32 %.066, 3
+  %116 = icmp eq i32 %.0, 3
+  %or.cond3 = select i1 %115, i1 %116, i1 false
+  br i1 %or.cond3, label %.critedge121.sink.split, label %.critedge121
 
-Saig_ManSimInfo2Not.exit109.thread:               ; preds = %110, %115, %Saig_ManSimInfo2Not.exit109
+.critedge121.sink.split:                          ; preds = %Saig_ManSimInfo2Not.exit109, %114, %109, %78
   tail call void @Saig_ManSetAndDriveImplications_rec(ptr noundef nonnull %0, ptr noundef nonnull %70, i32 noundef %.tr118, i32 noundef %3, ptr noundef %4)
   br label %.critedge121
 
-.critedge121:                                     ; preds = %115, %Saig_ManSimInfo2Not.exit109.thread, %Aig_ManObj.exit, %81
-  %118 = add nuw nsw i32 %.068134, 1
-  %119 = load i64, ptr %28, align 8
-  %120 = trunc i64 %119 to i32
-  %121 = lshr i32 %120, 6
-  %122 = icmp ult i32 %118, %121
-  br i1 %122, label %53, label %.critedge, !llvm.loop !19
+.critedge121:                                     ; preds = %.critedge121.sink.split, %114, %Aig_ManObj.exit
+  %117 = add nuw nsw i32 %.068134, 1
+  %118 = load i64, ptr %28, align 8
+  %119 = trunc i64 %118 to i32
+  %120 = lshr i32 %119, 6
+  %121 = icmp ult i32 %117, %120
+  br i1 %121, label %53, label %.critedge, !llvm.loop !19
 
 .critedge:                                        ; preds = %tailrecurse, %Saig_ObjIsLi.exit, %Saig_ObjIsPo.exit, %.critedge121, %.critedge121.preheader
   ret void

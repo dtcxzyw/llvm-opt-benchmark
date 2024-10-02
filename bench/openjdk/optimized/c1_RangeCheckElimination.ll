@@ -1071,17 +1071,17 @@ _ZN20RangeCheckEliminator12update_boundER13GrowableArrayIiEP11InstructionNS3_9Co
   %224 = getelementptr inbounds i8, ptr %1, i64 124
   br label %228
 
-.preheader:                                       ; preds = %250, %._crit_edge
+.preheader:                                       ; preds = %249, %._crit_edge
   %225 = load i32, ptr %4, align 8
   %226 = icmp sgt i32 %225, 0
   br i1 %226, label %.lr.ph165, label %_ZN13GrowableArrayIP11InstructionED2Ev.exit
 
 .lr.ph165:                                        ; preds = %.preheader
   %227 = getelementptr inbounds i8, ptr %0, i64 24
-  br label %254
+  br label %253
 
-228:                                              ; preds = %.lr.ph163, %250
-  %indvars.iv = phi i64 [ 0, %.lr.ph163 ], [ %indvars.iv.next, %250 ]
+228:                                              ; preds = %.lr.ph163, %249
+  %indvars.iv = phi i64 [ 0, %.lr.ph163 ], [ %indvars.iv.next, %249 ]
   %229 = load ptr, ptr %221, align 8
   %230 = getelementptr inbounds ptr, ptr %229, i64 %indvars.iv
   %231 = load ptr, ptr %230, align 8
@@ -1089,84 +1089,84 @@ _ZN20RangeCheckEliminator12update_boundER13GrowableArrayIiEP11InstructionNS3_9Co
   %233 = load i32, ptr %232, align 4
   %234 = and i32 %233, 2048
   %.not135 = icmp eq i32 %234, 0
-  br i1 %.not135, label %235, label %250
+  br i1 %.not135, label %235, label %249
 
 235:                                              ; preds = %228
   %236 = load i32, ptr %222, align 4
   %237 = and i32 %236, 512
   %.not136 = icmp eq i32 %237, 0
-  br i1 %.not136, label %249, label %238
+  br i1 %.not136, label %248, label %238
 
 238:                                              ; preds = %235
   %239 = load i32, ptr %223, align 8
   %240 = getelementptr inbounds i8, ptr %231, i64 128
   %241 = load i32, ptr %240, align 8
   %242 = icmp eq i32 %239, %241
-  br i1 %242, label %248, label %243
+  br i1 %242, label %.sink.split, label %243
 
 243:                                              ; preds = %238
   %244 = getelementptr inbounds i8, ptr %231, i64 124
   %245 = load i32, ptr %244, align 4
   %246 = load i32, ptr %224, align 4
   %247 = icmp sgt i32 %245, %246
-  br i1 %247, label %248, label %249
+  br i1 %247, label %.sink.split, label %248
 
-248:                                              ; preds = %243, %238
-  call void @_ZN20RangeCheckEliminator11calc_boundsEP10BlockBeginS1_(ptr noundef nonnull align 8 dereferenceable(88) %0, ptr noundef nonnull %231, ptr noundef nonnull %1)
-  br label %250
+248:                                              ; preds = %243, %235
+  br label %.sink.split
 
-249:                                              ; preds = %243, %235
-  call void @_ZN20RangeCheckEliminator11calc_boundsEP10BlockBeginS1_(ptr noundef nonnull align 8 dereferenceable(88) %0, ptr noundef nonnull %231, ptr noundef %2)
-  br label %250
+.sink.split:                                      ; preds = %238, %243, %248
+  %.sink = phi ptr [ %2, %248 ], [ %1, %243 ], [ %1, %238 ]
+  call void @_ZN20RangeCheckEliminator11calc_boundsEP10BlockBeginS1_(ptr noundef nonnull align 8 dereferenceable(88) %0, ptr noundef nonnull %231, ptr noundef %.sink)
+  br label %249
 
-250:                                              ; preds = %228, %249, %248
+249:                                              ; preds = %.sink.split, %228
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %251 = load i32, ptr %218, align 4
-  %252 = sext i32 %251 to i64
-  %253 = icmp slt i64 %indvars.iv.next, %252
-  br i1 %253, label %228, label %.preheader, !llvm.loop !13
+  %250 = load i32, ptr %218, align 4
+  %251 = sext i32 %250 to i64
+  %252 = icmp slt i64 %indvars.iv.next, %251
+  br i1 %252, label %228, label %.preheader, !llvm.loop !13
 
-254:                                              ; preds = %.lr.ph165, %254
-  %indvars.iv173 = phi i64 [ 0, %.lr.ph165 ], [ %indvars.iv.next174, %254 ]
-  %255 = load ptr, ptr %9, align 8
-  %256 = getelementptr inbounds i32, ptr %255, i64 %indvars.iv173
-  %257 = load i32, ptr %256, align 4
-  %258 = load ptr, ptr %227, align 8
-  %259 = sext i32 %257 to i64
-  %260 = getelementptr inbounds ptr, ptr %258, i64 %259
-  %261 = load ptr, ptr %260, align 8
-  %262 = load i32, ptr %261, align 8
-  %263 = add nsw i32 %262, -1
-  store i32 %263, ptr %261, align 8
+253:                                              ; preds = %.lr.ph165, %253
+  %indvars.iv173 = phi i64 [ 0, %.lr.ph165 ], [ %indvars.iv.next174, %253 ]
+  %254 = load ptr, ptr %9, align 8
+  %255 = getelementptr inbounds i32, ptr %254, i64 %indvars.iv173
+  %256 = load i32, ptr %255, align 4
+  %257 = load ptr, ptr %227, align 8
+  %258 = sext i32 %256 to i64
+  %259 = getelementptr inbounds ptr, ptr %257, i64 %258
+  %260 = load ptr, ptr %259, align 8
+  %261 = load i32, ptr %260, align 8
+  %262 = add nsw i32 %261, -1
+  store i32 %262, ptr %260, align 8
   %indvars.iv.next174 = add nuw nsw i64 %indvars.iv173, 1
-  %264 = load i32, ptr %4, align 8
-  %265 = sext i32 %264 to i64
-  %266 = icmp slt i64 %indvars.iv.next174, %265
-  br i1 %266, label %254, label %_ZN13GrowableArrayIP11InstructionED2Ev.exit, !llvm.loop !14
+  %263 = load i32, ptr %4, align 8
+  %264 = sext i32 %263 to i64
+  %265 = icmp slt i64 %indvars.iv.next174, %264
+  br i1 %265, label %253, label %_ZN13GrowableArrayIP11InstructionED2Ev.exit, !llvm.loop !14
 
-_ZN13GrowableArrayIP11InstructionED2Ev.exit:      ; preds = %254, %.preheader
-  %267 = load i64, ptr %10, align 8
-  %268 = and i64 %267, 1
-  %.not.i65 = icmp eq i64 %268, 0
-  br i1 %.not.i65, label %_ZN13GrowableArrayIiED2Ev.exit, label %269
+_ZN13GrowableArrayIP11InstructionED2Ev.exit:      ; preds = %253, %.preheader
+  %266 = load i64, ptr %10, align 8
+  %267 = and i64 %266, 1
+  %.not.i65 = icmp eq i64 %267, 0
+  br i1 %.not.i65, label %_ZN13GrowableArrayIiED2Ev.exit, label %268
 
-269:                                              ; preds = %_ZN13GrowableArrayIP11InstructionED2Ev.exit
+268:                                              ; preds = %_ZN13GrowableArrayIP11InstructionED2Ev.exit
   store i32 0, ptr %4, align 8
-  %270 = load i32, ptr %8, align 4
-  %271 = icmp eq i32 %270, 0
-  br i1 %271, label %_ZN13GrowableArrayIiED2Ev.exit, label %.loopexit.i107
+  %269 = load i32, ptr %8, align 4
+  %270 = icmp eq i32 %269, 0
+  br i1 %270, label %_ZN13GrowableArrayIiED2Ev.exit, label %.loopexit.i107
 
-.loopexit.i107:                                   ; preds = %269
-  %272 = load ptr, ptr %9, align 8
+.loopexit.i107:                                   ; preds = %268
+  %271 = load ptr, ptr %9, align 8
   store i32 0, ptr %8, align 4
-  %.not.i108 = icmp eq ptr %272, null
+  %.not.i108 = icmp eq ptr %271, null
   br i1 %.not.i108, label %_ZN13GrowableArrayIiED2Ev.exit, label %.loopexit.thread.i109
 
 .loopexit.thread.i109:                            ; preds = %.loopexit.i107
-  call void @_ZN27GrowableArrayCHeapAllocator10deallocateEPv(ptr noundef nonnull %272) #13
+  call void @_ZN27GrowableArrayCHeapAllocator10deallocateEPv(ptr noundef nonnull %271) #13
   br label %_ZN13GrowableArrayIiED2Ev.exit
 
-_ZN13GrowableArrayIiED2Ev.exit:                   ; preds = %.loopexit.i107, %.loopexit.thread.i109, %269, %_ZN13GrowableArrayIP11InstructionED2Ev.exit
+_ZN13GrowableArrayIiED2Ev.exit:                   ; preds = %.loopexit.i107, %.loopexit.thread.i109, %268, %_ZN13GrowableArrayIP11InstructionED2Ev.exit
   ret void
 }
 
@@ -6655,96 +6655,92 @@ define hidden void @_ZN20RangeCheckEliminator22process_access_indexedEP10BlockBe
   %25 = getelementptr inbounds i8, ptr %3, i64 112
   %26 = load ptr, ptr %25, align 8
   %.not = icmp eq ptr %26, null
-  br i1 %.not, label %29, label %27
+  br i1 %.not, label %27, label %30
 
 27:                                               ; preds = %24
-  %28 = tail call noundef ptr @_ZN20RangeCheckEliminator9get_boundEP11Instruction(ptr noundef nonnull align 8 dereferenceable(88) %0, ptr noundef nonnull %26)
-  br label %33
+  %28 = getelementptr inbounds i8, ptr %3, i64 96
+  %29 = load ptr, ptr %28, align 8
+  br label %30
 
-29:                                               ; preds = %24
-  %30 = getelementptr inbounds i8, ptr %3, i64 96
-  %31 = load ptr, ptr %30, align 8
-  %32 = tail call noundef ptr @_ZN20RangeCheckEliminator9get_boundEP11Instruction(ptr noundef nonnull align 8 dereferenceable(88) %0, ptr noundef %31)
-  br label %33
+30:                                               ; preds = %24, %27
+  %.sink = phi ptr [ %29, %27 ], [ %26, %24 ]
+  %31 = tail call noundef ptr @_ZN20RangeCheckEliminator9get_boundEP11Instruction(ptr noundef nonnull align 8 dereferenceable(88) %0, ptr noundef %.sink)
+  %32 = getelementptr inbounds i8, ptr %3, i64 96
+  %33 = load ptr, ptr %32, align 8
+  %34 = load i32, ptr %14, align 8
+  %35 = icmp sgt i32 %34, -1
+  br i1 %35, label %36, label %_ZN20RangeCheckEliminator14in_array_boundEPNS_5BoundEP11Instruction.exit
 
-33:                                               ; preds = %27, %29
-  %.0 = phi ptr [ %28, %27 ], [ %32, %29 ]
-  %34 = getelementptr inbounds i8, ptr %3, i64 96
-  %35 = load ptr, ptr %34, align 8
-  %36 = load i32, ptr %14, align 8
-  %37 = icmp sgt i32 %36, -1
-  br i1 %37, label %38, label %_ZN20RangeCheckEliminator14in_array_boundEPNS_5BoundEP11Instruction.exit
+36:                                               ; preds = %30
+  %37 = load ptr, ptr %12, align 8
+  %38 = icmp eq ptr %37, null
+  br i1 %38, label %39, label %_ZN20RangeCheckEliminator14in_array_boundEPNS_5BoundEP11Instruction.exit
 
-38:                                               ; preds = %33
-  %39 = load ptr, ptr %12, align 8
-  %40 = icmp eq ptr %39, null
-  br i1 %40, label %41, label %_ZN20RangeCheckEliminator14in_array_boundEPNS_5BoundEP11Instruction.exit
+39:                                               ; preds = %36
+  %40 = load i32, ptr %11, align 8
+  %41 = icmp slt i32 %40, 0
+  br i1 %41, label %42, label %_ZN20RangeCheckEliminator14in_array_boundEPNS_5BoundEP11Instruction.exit
 
-41:                                               ; preds = %38
-  %42 = load i32, ptr %11, align 8
-  %43 = icmp slt i32 %42, 0
-  br i1 %43, label %44, label %_ZN20RangeCheckEliminator14in_array_boundEPNS_5BoundEP11Instruction.exit
+42:                                               ; preds = %39
+  %43 = load ptr, ptr %19, align 8
+  %.not15.i = icmp eq ptr %43, null
+  br i1 %.not15.i, label %_ZN20RangeCheckEliminator14in_array_boundEPNS_5BoundEP11Instruction.exit, label %44
 
-44:                                               ; preds = %41
-  %45 = load ptr, ptr %19, align 8
-  %.not15.i = icmp eq ptr %45, null
-  br i1 %.not15.i, label %_ZN20RangeCheckEliminator14in_array_boundEPNS_5BoundEP11Instruction.exit, label %46
+44:                                               ; preds = %42
+  %45 = load ptr, ptr %43, align 8
+  %46 = getelementptr inbounds i8, ptr %45, i64 72
+  %47 = load ptr, ptr %46, align 8
+  %48 = tail call noundef ptr %47(ptr noundef nonnull align 8 dereferenceable(96) %43) #13
+  %49 = load ptr, ptr %19, align 8
+  %50 = icmp eq ptr %49, %33
+  br i1 %50, label %_ZN20RangeCheckEliminator14in_array_boundEPNS_5BoundEP11Instruction.exit.thread, label %51
 
-46:                                               ; preds = %44
-  %47 = load ptr, ptr %45, align 8
-  %48 = getelementptr inbounds i8, ptr %47, i64 72
-  %49 = load ptr, ptr %48, align 8
-  %50 = tail call noundef ptr %49(ptr noundef nonnull align 8 dereferenceable(96) %45) #13
-  %51 = load ptr, ptr %19, align 8
-  %52 = icmp eq ptr %51, %35
-  br i1 %52, label %_ZN20RangeCheckEliminator14in_array_boundEPNS_5BoundEP11Instruction.exit.thread, label %53
+51:                                               ; preds = %44
+  %.not16.i = icmp eq ptr %48, null
+  br i1 %.not16.i, label %_ZN20RangeCheckEliminator14in_array_boundEPNS_5BoundEP11Instruction.exit, label %52
 
-53:                                               ; preds = %46
-  %.not16.i = icmp eq ptr %50, null
-  br i1 %.not16.i, label %_ZN20RangeCheckEliminator14in_array_boundEPNS_5BoundEP11Instruction.exit, label %54
+52:                                               ; preds = %51
+  %53 = getelementptr inbounds i8, ptr %48, i64 96
+  %54 = load ptr, ptr %53, align 8
+  %55 = icmp eq ptr %54, %33
+  br i1 %55, label %_ZN20RangeCheckEliminator14in_array_boundEPNS_5BoundEP11Instruction.exit.thread, label %_ZN20RangeCheckEliminator14in_array_boundEPNS_5BoundEP11Instruction.exit
 
-54:                                               ; preds = %53
-  %55 = getelementptr inbounds i8, ptr %50, i64 96
-  %56 = load ptr, ptr %55, align 8
-  %57 = icmp eq ptr %56, %35
-  br i1 %57, label %_ZN20RangeCheckEliminator14in_array_boundEPNS_5BoundEP11Instruction.exit.thread, label %_ZN20RangeCheckEliminator14in_array_boundEPNS_5BoundEP11Instruction.exit
+_ZN20RangeCheckEliminator14in_array_boundEPNS_5BoundEP11Instruction.exit: ; preds = %52, %51, %42, %39, %36, %30
+  %.not18 = icmp eq ptr %31, null
+  br i1 %.not18, label %_ZN20RangeCheckEliminator5Bound10is_smallerEPS0_.exit.thread, label %56
 
-_ZN20RangeCheckEliminator14in_array_boundEPNS_5BoundEP11Instruction.exit: ; preds = %54, %53, %44, %41, %38, %33
-  %.not18 = icmp eq ptr %.0, null
-  br i1 %.not18, label %_ZN20RangeCheckEliminator5Bound10is_smallerEPS0_.exit.thread, label %58
-
-58:                                               ; preds = %_ZN20RangeCheckEliminator14in_array_boundEPNS_5BoundEP11Instruction.exit
-  %59 = getelementptr inbounds i8, ptr %.0, i64 24
-  %60 = load ptr, ptr %59, align 8
-  %61 = load ptr, ptr %19, align 8
-  %.not.i22 = icmp eq ptr %60, %61
+56:                                               ; preds = %_ZN20RangeCheckEliminator14in_array_boundEPNS_5BoundEP11Instruction.exit
+  %57 = getelementptr inbounds i8, ptr %31, i64 24
+  %58 = load ptr, ptr %57, align 8
+  %59 = load ptr, ptr %19, align 8
+  %.not.i22 = icmp eq ptr %58, %59
   br i1 %.not.i22, label %_ZN20RangeCheckEliminator5Bound10is_smallerEPS0_.exit, label %_ZN20RangeCheckEliminator5Bound10is_smallerEPS0_.exit.thread
 
-_ZN20RangeCheckEliminator5Bound10is_smallerEPS0_.exit: ; preds = %58
-  %62 = load i32, ptr %11, align 8
-  %63 = getelementptr inbounds i8, ptr %.0, i64 16
-  %64 = load i32, ptr %63, align 8
-  %65 = icmp slt i32 %62, %64
-  br i1 %65, label %66, label %_ZN20RangeCheckEliminator5Bound10is_smallerEPS0_.exit.thread
+_ZN20RangeCheckEliminator5Bound10is_smallerEPS0_.exit: ; preds = %56
+  %60 = load i32, ptr %11, align 8
+  %61 = getelementptr inbounds i8, ptr %31, i64 16
+  %62 = load i32, ptr %61, align 8
+  %63 = icmp slt i32 %60, %62
+  br i1 %63, label %64, label %_ZN20RangeCheckEliminator5Bound10is_smallerEPS0_.exit.thread
 
-66:                                               ; preds = %_ZN20RangeCheckEliminator5Bound10is_smallerEPS0_.exit
-  %67 = load ptr, ptr %12, align 8
-  %.not19 = icmp eq ptr %67, null
-  br i1 %.not19, label %68, label %_ZN20RangeCheckEliminator5Bound10is_smallerEPS0_.exit.thread
+64:                                               ; preds = %_ZN20RangeCheckEliminator5Bound10is_smallerEPS0_.exit
+  %65 = load ptr, ptr %12, align 8
+  %.not19 = icmp eq ptr %65, null
+  br i1 %.not19, label %66, label %_ZN20RangeCheckEliminator5Bound10is_smallerEPS0_.exit.thread
 
-68:                                               ; preds = %66
-  %69 = load i32, ptr %14, align 8
-  %70 = icmp sgt i32 %69, -1
-  br i1 %70, label %_ZN20RangeCheckEliminator14in_array_boundEPNS_5BoundEP11Instruction.exit.thread, label %_ZN20RangeCheckEliminator5Bound10is_smallerEPS0_.exit.thread
+66:                                               ; preds = %64
+  %67 = load i32, ptr %14, align 8
+  %68 = icmp sgt i32 %67, -1
+  br i1 %68, label %_ZN20RangeCheckEliminator14in_array_boundEPNS_5BoundEP11Instruction.exit.thread, label %_ZN20RangeCheckEliminator5Bound10is_smallerEPS0_.exit.thread
 
-_ZN20RangeCheckEliminator14in_array_boundEPNS_5BoundEP11Instruction.exit.thread: ; preds = %46, %54, %68
-  %71 = load i32, ptr %5, align 8
-  %72 = and i32 %71, -131073
-  store i32 %72, ptr %5, align 8
+_ZN20RangeCheckEliminator14in_array_boundEPNS_5BoundEP11Instruction.exit.thread: ; preds = %44, %52, %66
+  %69 = load i32, ptr %5, align 8
+  %70 = and i32 %69, -131073
+  store i32 %70, ptr %5, align 8
   store ptr null, ptr %25, align 8
   br label %_ZN20RangeCheckEliminator5Bound10is_smallerEPS0_.exit.thread
 
-_ZN20RangeCheckEliminator5Bound10is_smallerEPS0_.exit.thread: ; preds = %58, %_ZN20RangeCheckEliminator14in_array_boundEPNS_5BoundEP11Instruction.exit.thread, %68, %66, %_ZN20RangeCheckEliminator5Bound10is_smallerEPS0_.exit, %_ZN20RangeCheckEliminator14in_array_boundEPNS_5BoundEP11Instruction.exit, %8, %18, %4
+_ZN20RangeCheckEliminator5Bound10is_smallerEPS0_.exit.thread: ; preds = %56, %_ZN20RangeCheckEliminator14in_array_boundEPNS_5BoundEP11Instruction.exit.thread, %66, %64, %_ZN20RangeCheckEliminator5Bound10is_smallerEPS0_.exit, %_ZN20RangeCheckEliminator14in_array_boundEPNS_5BoundEP11Instruction.exit, %8, %18, %4
   ret void
 }
 

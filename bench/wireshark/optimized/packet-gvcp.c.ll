@@ -2225,7 +2225,7 @@ proto_item_set_generated.exit:                    ; preds = %.thread, %47, %44, 
   %52 = call ptr @try_val_to_str(i32 noundef %51, ptr noundef nonnull @bootstrapregisternames) #5
   %.not37 = icmp eq ptr %52, null
   %53 = load i32, ptr %7, align 4
-  br i1 %.not37, label %73, label %54
+  br i1 %.not37, label %71, label %54
 
 54:                                               ; preds = %proto_item_set_generated.exit
   switch i32 %53, label %dissect_register_data.exit [
@@ -2241,82 +2241,76 @@ proto_item_set_generated.exit:                    ; preds = %.thread, %47, %44, 
 
 55:                                               ; preds = %54
   %56 = icmp eq i32 %26, 32
-  br i1 %56, label %.sink.split.i, label %dissect_register_data.exit
+  br i1 %56, label %dissect_register_data.exit.sink.split, label %dissect_register_data.exit
 
 57:                                               ; preds = %54
   %58 = icmp eq i32 %26, 32
-  br i1 %58, label %.sink.split.i, label %dissect_register_data.exit
+  br i1 %58, label %dissect_register_data.exit.sink.split, label %dissect_register_data.exit
 
 59:                                               ; preds = %54
   %60 = icmp eq i32 %26, 32
-  br i1 %60, label %.sink.split.i, label %dissect_register_data.exit
+  br i1 %60, label %dissect_register_data.exit.sink.split, label %dissect_register_data.exit
 
 61:                                               ; preds = %54
   %62 = icmp eq i32 %26, 48
-  br i1 %62, label %.sink.split.i, label %dissect_register_data.exit
+  br i1 %62, label %dissect_register_data.exit.sink.split, label %dissect_register_data.exit
 
 63:                                               ; preds = %54
   %64 = icmp eq i32 %26, 16
-  br i1 %64, label %.sink.split.i, label %dissect_register_data.exit
+  br i1 %64, label %dissect_register_data.exit.sink.split, label %dissect_register_data.exit
 
 65:                                               ; preds = %54
   %66 = icmp eq i32 %26, 16
-  br i1 %66, label %.sink.split.i, label %dissect_register_data.exit
+  br i1 %66, label %dissect_register_data.exit.sink.split, label %dissect_register_data.exit
 
 67:                                               ; preds = %54
   %68 = icmp eq i32 %26, 512
-  br i1 %68, label %.sink.split.i, label %dissect_register_data.exit
+  br i1 %68, label %dissect_register_data.exit.sink.split, label %dissect_register_data.exit
 
 69:                                               ; preds = %54
   %70 = icmp eq i32 %26, 512
-  br i1 %70, label %.sink.split.i, label %dissect_register_data.exit
+  br i1 %70, label %dissect_register_data.exit.sink.split, label %dissect_register_data.exit
 
-.sink.split.i:                                    ; preds = %69, %67, %65, %63, %61, %59, %57, %55
-  %hf_gvcp_manufacturer_name.sink.i = phi ptr [ @hf_gvcp_manufacturer_name, %55 ], [ @hf_gvcp_model_name, %57 ], [ @hf_gvcp_device_version, %59 ], [ @hf_gvcp_manufacturer_specific_info, %61 ], [ @hf_gvcp_serial_number, %63 ], [ @hf_gvcp_user_defined_name, %65 ], [ @hf_gvcp_first_xml_device_description_file, %67 ], [ @hf_gvcp_second_xml_device_description_file, %69 ]
-  %71 = load i32, ptr %hf_gvcp_manufacturer_name.sink.i, align 4
-  %72 = call ptr @proto_tree_add_item(ptr noundef nonnull %0, i32 noundef %71, ptr noundef %1, i32 noundef 12, i32 noundef -1, i32 noundef 0) #5
-  br label %dissect_register_data.exit
+71:                                               ; preds = %proto_item_set_generated.exit
+  %72 = getelementptr inbounds i8, ptr %4, i64 8
+  br label %74
 
-73:                                               ; preds = %proto_item_set_generated.exit
-  %74 = getelementptr inbounds i8, ptr %4, i64 8
-  br label %76
-
-75:                                               ; preds = %76
+73:                                               ; preds = %74
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 512
-  br i1 %exitcond.not.i, label %87, label %76, !llvm.loop !7
+  br i1 %exitcond.not.i, label %dissect_register_data.exit.sink.split, label %74, !llvm.loop !7
 
-76:                                               ; preds = %75, %73
-  %indvars.iv.i = phi i64 [ 0, %73 ], [ %indvars.iv.next.i, %75 ]
-  %77 = getelementptr [512 x i32], ptr %74, i64 0, i64 %indvars.iv.i
-  %78 = load i32, ptr %77, align 4
-  %79 = add i32 %78, -1
-  %or.cond.i = icmp uge i32 %79, %53
-  %80 = add i32 %78, 12
-  %.not19.i = icmp ugt i32 %53, %80
+74:                                               ; preds = %73, %71
+  %indvars.iv.i = phi i64 [ 0, %71 ], [ %indvars.iv.next.i, %73 ]
+  %75 = getelementptr [512 x i32], ptr %72, i64 0, i64 %indvars.iv.i
+  %76 = load i32, ptr %75, align 4
+  %77 = add i32 %76, -1
+  %or.cond.i = icmp uge i32 %77, %53
+  %78 = add i32 %76, 12
+  %.not19.i = icmp ugt i32 %53, %78
   %or.cond20.i = or i1 %or.cond.i, %.not19.i
-  br i1 %or.cond20.i, label %75, label %is_extended_bootstrap_address.exit
+  br i1 %or.cond20.i, label %73, label %is_extended_bootstrap_address.exit
 
-is_extended_bootstrap_address.exit:               ; preds = %76
-  %81 = sub i32 %53, %78
-  %82 = call i32 @llvm.fshl.i32(i32 %81, i32 %81, i32 30)
-  %83 = icmp ult i32 %82, 4
-  br i1 %83, label %switch.lookup, label %dissect_register_data.exit
+is_extended_bootstrap_address.exit:               ; preds = %74
+  %79 = sub i32 %53, %76
+  %80 = call i32 @llvm.fshl.i32(i32 %79, i32 %79, i32 30)
+  %81 = icmp ult i32 %80, 4
+  br i1 %81, label %switch.lookup, label %dissect_register_data.exit
 
 switch.lookup:                                    ; preds = %is_extended_bootstrap_address.exit
-  %84 = zext nneg i32 %82 to i64
-  %switch.gep = getelementptr inbounds [4 x ptr], ptr @switch.table.dissect_readmem_ack, i64 0, i64 %84
+  %82 = zext nneg i32 %80 to i64
+  %switch.gep = getelementptr inbounds [4 x ptr], ptr @switch.table.dissect_readmem_ack, i64 0, i64 %82
   %switch.load = load ptr, ptr %switch.gep, align 8
-  %85 = load i32, ptr %switch.load, align 4
-  %86 = call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %85, ptr noundef %1, i32 noundef 12, i32 noundef 4, i32 noundef 0) #5
+  br label %dissect_register_data.exit.sink.split
+
+dissect_register_data.exit.sink.split:            ; preds = %73, %switch.lookup, %55, %57, %59, %61, %63, %65, %67, %69
+  %hf_gvcp_sc_gendc_descriptor_address_v2_2.sink.i.sink = phi ptr [ @hf_gvcp_manufacturer_name, %55 ], [ @hf_gvcp_model_name, %57 ], [ @hf_gvcp_device_version, %59 ], [ @hf_gvcp_manufacturer_specific_info, %61 ], [ @hf_gvcp_serial_number, %63 ], [ @hf_gvcp_user_defined_name, %65 ], [ @hf_gvcp_first_xml_device_description_file, %67 ], [ @hf_gvcp_second_xml_device_description_file, %69 ], [ %switch.load, %switch.lookup ], [ @hf_gvcp_writememcmd_data, %73 ]
+  %.sink56 = phi i32 [ -1, %55 ], [ -1, %57 ], [ -1, %59 ], [ -1, %61 ], [ -1, %63 ], [ -1, %65 ], [ -1, %67 ], [ -1, %69 ], [ 4, %switch.lookup ], [ %26, %73 ]
+  %83 = load i32, ptr %hf_gvcp_sc_gendc_descriptor_address_v2_2.sink.i.sink, align 4
+  %84 = call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %83, ptr noundef %1, i32 noundef 12, i32 noundef %.sink56, i32 noundef 0) #5
   br label %dissect_register_data.exit
 
-87:                                               ; preds = %75
-  %88 = load i32, ptr @hf_gvcp_writememcmd_data, align 4
-  %89 = call ptr @proto_tree_add_item(ptr noundef nonnull %0, i32 noundef %88, ptr noundef %1, i32 noundef 12, i32 noundef %26, i32 noundef 0) #5
-  br label %dissect_register_data.exit
-
-dissect_register_data.exit:                       ; preds = %is_extended_bootstrap_address.exit, %switch.lookup, %.sink.split.i, %69, %67, %65, %63, %61, %59, %57, %55, %54, %.thread, %87, %37
+dissect_register_data.exit:                       ; preds = %is_extended_bootstrap_address.exit, %dissect_register_data.exit.sink.split, %69, %67, %65, %63, %61, %59, %57, %55, %54, %.thread, %37
   ret void
 }
 

@@ -885,22 +885,12 @@ if.end28:                                         ; preds = %xsize_t.exit
   %11 = getelementptr i8, ptr %10, i64 16
   %.val.i = load i64, ptr %11, align 8
   %cmp.i.i = icmp eq i64 %.val.i, 32
-  br i1 %cmp.i.i, label %if.then.i.i, label %if.end.i.i
-
-if.then.i.i:                                      ; preds = %if.end28
-  %bcmp3.i.i = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(32) %call30, ptr noundef nonnull readonly dereferenceable(32) %8, i64 32)
-  br label %hasheq.exit
-
-if.end.i.i:                                       ; preds = %if.end28
-  %bcmp.i.i = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(20) %call30, ptr noundef nonnull readonly dereferenceable(20) %8, i64 20)
-  br label %hasheq.exit
-
-hasheq.exit:                                      ; preds = %if.then.i.i, %if.end.i.i
-  %retval.0.in.in.i.i = phi i32 [ %bcmp3.i.i, %if.then.i.i ], [ %bcmp.i.i, %if.end.i.i ]
-  %retval.0.in.i.i.not = icmp eq i32 %retval.0.in.in.i.i, 0
+  %..i.i = select i1 %cmp.i.i, i64 32, i64 20
+  %bcmp.i.i = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(20) %call30, ptr noundef nonnull readonly dereferenceable(20) %8, i64 %..i.i)
+  %retval.0.in.i.i.not = icmp eq i32 %bcmp.i.i, 0
   br i1 %retval.0.in.i.i.not, label %if.end37, label %if.then33
 
-if.then33:                                        ; preds = %hasheq.exit
+if.then33:                                        ; preds = %if.end28
   %12 = load i32, ptr @git_gettext_enabled, align 4
   %tobool1.not.i37 = icmp eq i32 %12, 0
   br i1 %tobool1.not.i37, label %_.exit41, label %if.end3.i38
@@ -914,7 +904,7 @@ _.exit41:                                         ; preds = %if.then33, %if.end3
   %call35 = call i32 (ptr, ...) @error(ptr noundef %retval.0.i40) #18
   br label %cleanup
 
-if.end37:                                         ; preds = %hasheq.exit
+if.end37:                                         ; preds = %if.end28
   %13 = load ptr, ptr %midx14, align 8
   %call39 = call i32 @load_midx_revindex(ptr noundef %13) #18
   %tobool40.not = icmp eq i32 %call39, 0
@@ -1098,31 +1088,21 @@ lor.rhs.i:                                        ; preds = %land.rhs.i
 
 if.then.i.i.i:                                    ; preds = %lor.rhs.i
   %7 = load ptr, ptr %hash_algo.i.i.i, align 8
-  br label %if.end.i.i.i
+  br label %oideq_by_value.exit.i
 
 if.else.i.i.i:                                    ; preds = %lor.rhs.i
   %idxprom.i.i.i = sext i32 %6 to i64
   %arrayidx.i.i.i = getelementptr inbounds [3 x %struct.git_hash_algo], ptr @hash_algos, i64 0, i64 %idxprom.i.i.i
-  br label %if.end.i.i.i
+  br label %oideq_by_value.exit.i
 
-if.end.i.i.i:                                     ; preds = %if.else.i.i.i, %if.then.i.i.i
+oideq_by_value.exit.i:                            ; preds = %if.else.i.i.i, %if.then.i.i.i
   %algop.0.i.i.i = phi ptr [ %arrayidx.i.i.i, %if.else.i.i.i ], [ %7, %if.then.i.i.i ]
   %8 = getelementptr i8, ptr %algop.0.i.i.i, i64 16
   %algop.0.val.i.i.i = load i64, ptr %8, align 8
   %cmp.i.i.i.i = icmp eq i64 %algop.0.val.i.i.i, 32
-  br i1 %cmp.i.i.i.i, label %if.then.i.i.i.i, label %if.end.i.i.i.i
-
-if.then.i.i.i.i:                                  ; preds = %if.end.i.i.i
-  %bcmp3.i.i.i.i = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(32) %byval-temp.i, ptr noundef nonnull readonly dereferenceable(32) %byval-temp8, i64 32)
-  br label %oideq_by_value.exit.i
-
-if.end.i.i.i.i:                                   ; preds = %if.end.i.i.i
-  %bcmp.i.i.i.i = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(20) %byval-temp.i, ptr noundef nonnull readonly dereferenceable(20) %byval-temp8, i64 20)
-  br label %oideq_by_value.exit.i
-
-oideq_by_value.exit.i:                            ; preds = %if.end.i.i.i.i, %if.then.i.i.i.i
-  %retval.0.in.in.i.i.i.i = phi i32 [ %bcmp3.i.i.i.i, %if.then.i.i.i.i ], [ %bcmp.i.i.i.i, %if.end.i.i.i.i ]
-  %retval.0.in.i.i.i.not.i = icmp eq i32 %retval.0.in.in.i.i.i.i, 0
+  %..i.i.i.i = select i1 %cmp.i.i.i.i, i64 32, i64 20
+  %bcmp.i.i.i.i = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(20) %byval-temp.i, ptr noundef nonnull readonly dereferenceable(20) %byval-temp8, i64 %..i.i.i.i)
+  %retval.0.in.i.i.i.not.i = icmp eq i32 %bcmp.i.i.i.i, 0
   br i1 %retval.0.in.i.i.i.not.i, label %while.end.i, label %while.body.i
 
 while.body.i:                                     ; preds = %oideq_by_value.exit.i, %land.rhs.i
@@ -1491,35 +1471,25 @@ lor.rhs.i.i:                                      ; preds = %land.rhs.i.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(36) %byval-temp.i.i, ptr noundef nonnull align 4 dereferenceable(36) %arrayidx16.i.i, i64 36, i1 false)
   %64 = load i32, ptr %algo.i.i.i.i, align 8
   %tobool.not.i.i.i.i = icmp eq i32 %64, 0
-  br i1 %tobool.not.i.i.i.i, label %if.then.i.i.i.i16, label %if.else.i.i.i.i
+  br i1 %tobool.not.i.i.i.i, label %if.then.i.i.i.i, label %if.else.i.i.i.i
 
-if.then.i.i.i.i16:                                ; preds = %lor.rhs.i.i
+if.then.i.i.i.i:                                  ; preds = %lor.rhs.i.i
   %65 = load ptr, ptr %hash_algo.i.i.i.i, align 8
-  br label %if.end.i.i.i.i15
+  br label %oideq_by_value.exit.i.i
 
 if.else.i.i.i.i:                                  ; preds = %lor.rhs.i.i
   %idxprom.i.i.i.i = sext i32 %64 to i64
   %arrayidx.i.i.i.i = getelementptr inbounds [3 x %struct.git_hash_algo], ptr @hash_algos, i64 0, i64 %idxprom.i.i.i.i
-  br label %if.end.i.i.i.i15
+  br label %oideq_by_value.exit.i.i
 
-if.end.i.i.i.i15:                                 ; preds = %if.else.i.i.i.i, %if.then.i.i.i.i16
-  %algop.0.i.i.i.i = phi ptr [ %arrayidx.i.i.i.i, %if.else.i.i.i.i ], [ %65, %if.then.i.i.i.i16 ]
+oideq_by_value.exit.i.i:                          ; preds = %if.else.i.i.i.i, %if.then.i.i.i.i
+  %algop.0.i.i.i.i = phi ptr [ %arrayidx.i.i.i.i, %if.else.i.i.i.i ], [ %65, %if.then.i.i.i.i ]
   %66 = getelementptr i8, ptr %algop.0.i.i.i.i, i64 16
   %algop.0.val.i.i.i.i = load i64, ptr %66, align 8
   %cmp.i.i.i.i.i = icmp eq i64 %algop.0.val.i.i.i.i, 32
-  br i1 %cmp.i.i.i.i.i, label %if.then.i.i.i.i.i, label %if.end.i.i.i.i.i
-
-if.then.i.i.i.i.i:                                ; preds = %if.end.i.i.i.i15
-  %bcmp3.i.i.i.i.i = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(32) %byval-temp.i.i, ptr noundef nonnull readonly dereferenceable(32) %arrayidx121.i, i64 32)
-  br label %oideq_by_value.exit.i.i
-
-if.end.i.i.i.i.i:                                 ; preds = %if.end.i.i.i.i15
-  %bcmp.i.i.i.i.i = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(20) %byval-temp.i.i, ptr noundef nonnull readonly dereferenceable(20) %arrayidx121.i, i64 20)
-  br label %oideq_by_value.exit.i.i
-
-oideq_by_value.exit.i.i:                          ; preds = %if.end.i.i.i.i.i, %if.then.i.i.i.i.i
-  %retval.0.in.in.i.i.i.i.i = phi i32 [ %bcmp3.i.i.i.i.i, %if.then.i.i.i.i.i ], [ %bcmp.i.i.i.i.i, %if.end.i.i.i.i.i ]
-  %retval.0.in.i.i.i.not.i.i = icmp eq i32 %retval.0.in.in.i.i.i.i.i, 0
+  %..i.i.i.i.i = select i1 %cmp.i.i.i.i.i, i64 32, i64 20
+  %bcmp.i.i.i.i.i = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(20) %byval-temp.i.i, ptr noundef nonnull readonly dereferenceable(20) %arrayidx121.i, i64 %..i.i.i.i.i)
+  %retval.0.in.i.i.i.not.i.i = icmp eq i32 %bcmp.i.i.i.i.i, 0
   br i1 %retval.0.in.i.i.i.not.i.i, label %while.end.i.i, label %while.body.i.i
 
 while.body.i.i:                                   ; preds = %oideq_by_value.exit.i.i, %land.rhs.i.i
@@ -3480,31 +3450,21 @@ lor.rhs.i.i:                                      ; preds = %land.rhs.i.i
 
 if.then.i.i.i.i:                                  ; preds = %lor.rhs.i.i
   %14 = load ptr, ptr %hash_algo.i.i.i.i, align 8
-  br label %if.end.i.i.i.i
+  br label %oideq_by_value.exit.i.i
 
 if.else.i.i.i.i:                                  ; preds = %lor.rhs.i.i
   %idxprom.i.i.i.i = sext i32 %13 to i64
   %arrayidx.i.i.i.i = getelementptr inbounds [3 x %struct.git_hash_algo], ptr @hash_algos, i64 0, i64 %idxprom.i.i.i.i
-  br label %if.end.i.i.i.i
+  br label %oideq_by_value.exit.i.i
 
-if.end.i.i.i.i:                                   ; preds = %if.else.i.i.i.i, %if.then.i.i.i.i
+oideq_by_value.exit.i.i:                          ; preds = %if.else.i.i.i.i, %if.then.i.i.i.i
   %algop.0.i.i.i.i = phi ptr [ %arrayidx.i.i.i.i, %if.else.i.i.i.i ], [ %14, %if.then.i.i.i.i ]
   %15 = getelementptr i8, ptr %algop.0.i.i.i.i, i64 16
   %algop.0.val.i.i.i.i = load i64, ptr %15, align 8
   %cmp.i.i.i.i.i = icmp eq i64 %algop.0.val.i.i.i.i, 32
-  br i1 %cmp.i.i.i.i.i, label %if.then.i.i.i.i.i, label %if.end.i.i.i.i.i
-
-if.then.i.i.i.i.i:                                ; preds = %if.end.i.i.i.i
-  %bcmp3.i.i.i.i.i = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(32) %byval-temp.i.i, ptr noundef nonnull readonly dereferenceable(32) %byval-temp5.i, i64 32)
-  br label %oideq_by_value.exit.i.i
-
-if.end.i.i.i.i.i:                                 ; preds = %if.end.i.i.i.i
-  %bcmp.i.i.i.i.i = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(20) %byval-temp.i.i, ptr noundef nonnull readonly dereferenceable(20) %byval-temp5.i, i64 20)
-  br label %oideq_by_value.exit.i.i
-
-oideq_by_value.exit.i.i:                          ; preds = %if.end.i.i.i.i.i, %if.then.i.i.i.i.i
-  %retval.0.in.in.i.i.i.i.i = phi i32 [ %bcmp3.i.i.i.i.i, %if.then.i.i.i.i.i ], [ %bcmp.i.i.i.i.i, %if.end.i.i.i.i.i ]
-  %retval.0.in.i.i.i.not.i.i = icmp eq i32 %retval.0.in.in.i.i.i.i.i, 0
+  %..i.i.i.i.i = select i1 %cmp.i.i.i.i.i, i64 32, i64 20
+  %bcmp.i.i.i.i.i = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(20) %byval-temp.i.i, ptr noundef nonnull readonly dereferenceable(20) %byval-temp5.i, i64 %..i.i.i.i.i)
+  %retval.0.in.i.i.i.not.i.i = icmp eq i32 %bcmp.i.i.i.i.i, 0
   br i1 %retval.0.in.i.i.i.not.i.i, label %while.end.i.i, label %while.body.i.i
 
 while.body.i.i:                                   ; preds = %oideq_by_value.exit.i.i, %land.rhs.i.i
@@ -5941,31 +5901,21 @@ lor.rhs.i:                                        ; preds = %land.rhs.i
 
 if.then.i.i.i:                                    ; preds = %lor.rhs.i
   %54 = load ptr, ptr %hash_algo.i.i.i, align 8
-  br label %if.end.i.i.i
+  br label %oideq_by_value.exit.i
 
 if.else.i.i.i:                                    ; preds = %lor.rhs.i
   %idxprom.i.i.i = sext i32 %53 to i64
   %arrayidx.i.i.i = getelementptr inbounds [3 x %struct.git_hash_algo], ptr @hash_algos, i64 0, i64 %idxprom.i.i.i
-  br label %if.end.i.i.i
+  br label %oideq_by_value.exit.i
 
-if.end.i.i.i:                                     ; preds = %if.else.i.i.i, %if.then.i.i.i
+oideq_by_value.exit.i:                            ; preds = %if.else.i.i.i, %if.then.i.i.i
   %algop.0.i.i.i = phi ptr [ %arrayidx.i.i.i, %if.else.i.i.i ], [ %54, %if.then.i.i.i ]
   %55 = getelementptr i8, ptr %algop.0.i.i.i, i64 16
   %algop.0.val.i.i.i = load i64, ptr %55, align 8
   %cmp.i.i.i.i = icmp eq i64 %algop.0.val.i.i.i, 32
-  br i1 %cmp.i.i.i.i, label %if.then.i.i.i.i, label %if.end.i.i.i.i
-
-if.then.i.i.i.i:                                  ; preds = %if.end.i.i.i
-  %bcmp3.i.i.i.i = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(32) %byval-temp.i, ptr noundef nonnull readonly dereferenceable(32) %call10, i64 32)
-  br label %oideq_by_value.exit.i
-
-if.end.i.i.i.i:                                   ; preds = %if.end.i.i.i
-  %bcmp.i.i.i.i = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(20) %byval-temp.i, ptr noundef nonnull readonly dereferenceable(20) %call10, i64 20)
-  br label %oideq_by_value.exit.i
-
-oideq_by_value.exit.i:                            ; preds = %if.end.i.i.i.i, %if.then.i.i.i.i
-  %retval.0.in.in.i.i.i.i = phi i32 [ %bcmp3.i.i.i.i, %if.then.i.i.i.i ], [ %bcmp.i.i.i.i, %if.end.i.i.i.i ]
-  %retval.0.in.i.i.i.not.i = icmp eq i32 %retval.0.in.in.i.i.i.i, 0
+  %..i.i.i.i = select i1 %cmp.i.i.i.i, i64 32, i64 20
+  %bcmp.i.i.i.i = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(20) %byval-temp.i, ptr noundef nonnull readonly dereferenceable(20) %call10, i64 %..i.i.i.i)
+  %retval.0.in.i.i.i.not.i = icmp eq i32 %bcmp.i.i.i.i, 0
   br i1 %retval.0.in.i.i.i.not.i, label %if.then55.loopexit.i, label %while.body.i
 
 while.body.i:                                     ; preds = %oideq_by_value.exit.i, %land.rhs.i
@@ -6655,31 +6605,21 @@ lor.rhs.i:                                        ; preds = %land.rhs.i
 
 if.then.i.i.i:                                    ; preds = %lor.rhs.i
   %53 = load ptr, ptr %hash_algo.i.i.i, align 8
-  br label %if.end.i.i.i
+  br label %oideq_by_value.exit.i
 
 if.else.i.i.i:                                    ; preds = %lor.rhs.i
   %idxprom.i.i.i = sext i32 %52 to i64
   %arrayidx.i.i.i = getelementptr inbounds [3 x %struct.git_hash_algo], ptr @hash_algos, i64 0, i64 %idxprom.i.i.i
-  br label %if.end.i.i.i
+  br label %oideq_by_value.exit.i
 
-if.end.i.i.i:                                     ; preds = %if.else.i.i.i, %if.then.i.i.i
+oideq_by_value.exit.i:                            ; preds = %if.else.i.i.i, %if.then.i.i.i
   %algop.0.i.i.i = phi ptr [ %arrayidx.i.i.i, %if.else.i.i.i ], [ %53, %if.then.i.i.i ]
   %54 = getelementptr i8, ptr %algop.0.i.i.i, i64 16
   %algop.0.val.i.i.i = load i64, ptr %54, align 8
   %cmp.i.i.i.i = icmp eq i64 %algop.0.val.i.i.i, 32
-  br i1 %cmp.i.i.i.i, label %if.then.i.i.i.i, label %if.end.i.i.i.i
-
-if.then.i.i.i.i:                                  ; preds = %if.end.i.i.i
-  %bcmp3.i.i.i.i = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(32) %byval-temp.i, ptr noundef nonnull readonly dereferenceable(32) %byval-temp24, i64 32)
-  br label %oideq_by_value.exit.i
-
-if.end.i.i.i.i:                                   ; preds = %if.end.i.i.i
-  %bcmp.i.i.i.i = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(20) %byval-temp.i, ptr noundef nonnull readonly dereferenceable(20) %byval-temp24, i64 20)
-  br label %oideq_by_value.exit.i
-
-oideq_by_value.exit.i:                            ; preds = %if.end.i.i.i.i, %if.then.i.i.i.i
-  %retval.0.in.in.i.i.i.i = phi i32 [ %bcmp3.i.i.i.i, %if.then.i.i.i.i ], [ %bcmp.i.i.i.i, %if.end.i.i.i.i ]
-  %retval.0.in.i.i.i.not.i = icmp eq i32 %retval.0.in.in.i.i.i.i, 0
+  %..i.i.i.i = select i1 %cmp.i.i.i.i, i64 32, i64 20
+  %bcmp.i.i.i.i = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(20) %byval-temp.i, ptr noundef nonnull readonly dereferenceable(20) %byval-temp24, i64 %..i.i.i.i)
+  %retval.0.in.i.i.i.not.i = icmp eq i32 %bcmp.i.i.i.i, 0
   br i1 %retval.0.in.i.i.i.not.i, label %if.then55.loopexit.i, label %while.body.i
 
 while.body.i:                                     ; preds = %oideq_by_value.exit.i, %land.rhs.i

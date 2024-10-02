@@ -11036,7 +11036,7 @@ define linkonce_odr void @_ZSt16__merge_adaptiveIN9__gnu_cxx17__normal_iteratorI
   br label %26
 
 tailrecurse._crit_edge:                           ; preds = %tailrecurse, %7
-  %.tr.lcssa = phi ptr [ %0, %7 ], [ %89, %tailrecurse ]
+  %.tr.lcssa = phi ptr [ %0, %7 ], [ %87, %tailrecurse ]
   %.tr106.lcssa = phi ptr [ %1, %7 ], [ %.sroa.0.0, %tailrecurse ]
   %.not.i.i.i.i.i = icmp eq ptr %.tr106.lcssa, %.tr.lcssa
   br i1 %.not.i.i.i.i.i, label %_ZSt21__move_merge_adaptiveIPN32pxrInternal_v0_24__pxrReserved__8Usd_Clip11TimeMappingEN9__gnu_cxx17__normal_iteratorIS3_St6vectorIS2_SaIS2_EEEES9_NS4_5__ops15_Iter_comp_iterINS1_22Usd_SortByExternalTimeEEEEvT_SE_T0_SF_T1_T2_.exit, label %.lr.ph.i.preheader
@@ -11088,174 +11088,171 @@ _ZSt4moveIPN32pxrInternal_v0_24__pxrReserved__8Usd_Clip11TimeMappingEN9__gnu_cxx
 
 26:                                               ; preds = %.lr.ph, %tailrecurse
   %.not126 = phi i1 [ %.not119, %.lr.ph ], [ %.not, %tailrecurse ]
-  %.tr109125 = phi i64 [ %4, %.lr.ph ], [ %90, %tailrecurse ]
-  %.tr108124 = phi i64 [ %3, %.lr.ph ], [ %88, %tailrecurse ]
+  %.tr109125 = phi i64 [ %4, %.lr.ph ], [ %88, %tailrecurse ]
+  %.tr108124 = phi i64 [ %3, %.lr.ph ], [ %86, %tailrecurse ]
   %.tr106123 = phi ptr [ %1, %.lr.ph ], [ %.sroa.0.0, %tailrecurse ]
-  %.tr122 = phi ptr [ %0, %.lr.ph ], [ %89, %tailrecurse ]
+  %.tr122 = phi ptr [ %0, %.lr.ph ], [ %87, %tailrecurse ]
   %.not81 = icmp sgt i64 %.tr109125, %6
-  %27 = ptrtoint ptr %.tr106123 to i64
-  br i1 %.not81, label %54, label %28
+  br i1 %.not81, label %51, label %27
 
-28:                                               ; preds = %26
-  %29 = sub i64 %8, %27
+27:                                               ; preds = %26
   %.not.i.i.i.i.i82 = icmp eq ptr %2, %.tr106123
   br i1 %.not.i.i.i.i.i82, label %_ZSt21__move_merge_adaptiveIPN32pxrInternal_v0_24__pxrReserved__8Usd_Clip11TimeMappingEN9__gnu_cxx17__normal_iteratorIS3_St6vectorIS2_SaIS2_EEEES9_NS4_5__ops15_Iter_comp_iterINS1_22Usd_SortByExternalTimeEEEEvT_SE_T0_SF_T1_T2_.exit, label %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__8Usd_Clip11TimeMappingESt6vectorIS4_SaIS4_EEEES5_ET0_T_SB_SA_.exit83.thread
 
-_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__8Usd_Clip11TimeMappingESt6vectorIS4_SaIS4_EEEES5_ET0_T_SB_SA_.exit83.thread: ; preds = %28
+_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__8Usd_Clip11TimeMappingESt6vectorIS4_SaIS4_EEEES5_ET0_T_SB_SA_.exit83.thread: ; preds = %27
+  %28 = ptrtoint ptr %.tr106123 to i64
+  %29 = sub i64 %8, %28
   tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %5, ptr align 8 %.tr106123, i64 %29, i1 false)
-  %30 = icmp eq ptr %.tr122, %.tr106123
-  br i1 %30, label %31, label %33
+  %30 = getelementptr inbounds i8, ptr %5, i64 %29
+  %31 = icmp eq ptr %.tr122, %.tr106123
+  br i1 %31, label %_ZSt13move_backwardIPN32pxrInternal_v0_24__pxrReserved__8Usd_Clip11TimeMappingEN9__gnu_cxx17__normal_iteratorIS3_St6vectorIS2_SaIS2_EEEEET0_T_SB_SA_.exit.sink.split.i, label %32
 
-31:                                               ; preds = %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__8Usd_Clip11TimeMappingESt6vectorIS4_SaIS4_EEEES5_ET0_T_SB_SA_.exit83.thread
-  %.neg.i.i.i.i.i.i = sdiv exact i64 %29, -24
-  %32 = getelementptr inbounds %"struct.pxrInternal_v0_24__pxrReserved__::Usd_Clip::TimeMapping", ptr %2, i64 %.neg.i.i.i.i.i.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %32, ptr align 8 %5, i64 %29, i1 false)
-  br label %_ZSt21__move_merge_adaptiveIPN32pxrInternal_v0_24__pxrReserved__8Usd_Clip11TimeMappingEN9__gnu_cxx17__normal_iteratorIS3_St6vectorIS2_SaIS2_EEEES9_NS4_5__ops15_Iter_comp_iterINS1_22Usd_SortByExternalTimeEEEEvT_SE_T0_SF_T1_T2_.exit
-
-33:                                               ; preds = %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__8Usd_Clip11TimeMappingESt6vectorIS4_SaIS4_EEEES5_ET0_T_SB_SA_.exit83.thread
-  %34 = getelementptr inbounds i8, ptr %5, i64 %29
-  %35 = getelementptr inbounds i8, ptr %34, i64 -24
+32:                                               ; preds = %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__8Usd_Clip11TimeMappingESt6vectorIS4_SaIS4_EEEES5_ET0_T_SB_SA_.exit83.thread
+  %33 = getelementptr inbounds i8, ptr %30, i64 -24
   br label %.outer
 
-.outer:                                           ; preds = %41, %33
-  %.sroa.024.0.i.ph.pn = phi ptr [ %.tr106123, %33 ], [ %.sroa.024.0.i.ph, %41 ]
-  %.sroa.0.0.i.ph = phi ptr [ %2, %33 ], [ %40, %41 ]
-  %.0.i.ph = phi ptr [ %35, %33 ], [ %.0.i, %41 ]
+.outer:                                           ; preds = %39, %32
+  %.sroa.024.0.i.ph.pn = phi ptr [ %.tr106123, %32 ], [ %.sroa.024.0.i.ph, %39 ]
+  %.sroa.0.0.i.ph = phi ptr [ %2, %32 ], [ %38, %39 ]
+  %.0.i.ph = phi ptr [ %33, %32 ], [ %.0.i, %39 ]
   %.sroa.024.0.i.ph = getelementptr inbounds i8, ptr %.sroa.024.0.i.ph.pn, i64 -24
-  br label %36
+  br label %34
 
-36:                                               ; preds = %.outer, %52
-  %.sroa.0.0.i = phi ptr [ %40, %52 ], [ %.sroa.0.0.i.ph, %.outer ]
-  %.0.i = phi ptr [ %53, %52 ], [ %.0.i.ph, %.outer ]
-  %37 = load double, ptr %.0.i, align 8
-  %38 = load double, ptr %.sroa.024.0.i.ph, align 8
-  %39 = fcmp olt double %37, %38
-  %40 = getelementptr inbounds i8, ptr %.sroa.0.0.i, i64 -24
-  br i1 %39, label %41, label %50
+34:                                               ; preds = %.outer, %45
+  %.sroa.0.0.i = phi ptr [ %38, %45 ], [ %.sroa.0.0.i.ph, %.outer ]
+  %.0.i = phi ptr [ %46, %45 ], [ %.0.i.ph, %.outer ]
+  %35 = load double, ptr %.0.i, align 8
+  %36 = load double, ptr %.sroa.024.0.i.ph, align 8
+  %37 = fcmp olt double %35, %36
+  %38 = getelementptr inbounds i8, ptr %.sroa.0.0.i, i64 -24
+  br i1 %37, label %39, label %43
 
-41:                                               ; preds = %36
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(17) %40, ptr noundef nonnull align 8 dereferenceable(17) %.sroa.024.0.i.ph, i64 17, i1 false)
-  %42 = icmp eq ptr %.tr122, %.sroa.024.0.i.ph
-  br i1 %42, label %43, label %.outer, !llvm.loop !125
+39:                                               ; preds = %34
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(17) %38, ptr noundef nonnull align 8 dereferenceable(17) %.sroa.024.0.i.ph, i64 17, i1 false)
+  %40 = icmp eq ptr %.tr122, %.sroa.024.0.i.ph
+  br i1 %40, label %41, label %.outer, !llvm.loop !125
 
-43:                                               ; preds = %41
-  %44 = getelementptr inbounds i8, ptr %.0.i, i64 24
-  %.not.i.i.i.i.i19.i = icmp eq ptr %44, %5
-  br i1 %.not.i.i.i.i.i19.i, label %_ZSt21__move_merge_adaptiveIPN32pxrInternal_v0_24__pxrReserved__8Usd_Clip11TimeMappingEN9__gnu_cxx17__normal_iteratorIS3_St6vectorIS2_SaIS2_EEEES9_NS4_5__ops15_Iter_comp_iterINS1_22Usd_SortByExternalTimeEEEEvT_SE_T0_SF_T1_T2_.exit, label %45
+41:                                               ; preds = %39
+  %42 = getelementptr inbounds i8, ptr %.0.i, i64 24
+  %.not.i.i.i.i.i19.i = icmp eq ptr %42, %5
+  br i1 %.not.i.i.i.i.i19.i, label %_ZSt21__move_merge_adaptiveIPN32pxrInternal_v0_24__pxrReserved__8Usd_Clip11TimeMappingEN9__gnu_cxx17__normal_iteratorIS3_St6vectorIS2_SaIS2_EEEES9_NS4_5__ops15_Iter_comp_iterINS1_22Usd_SortByExternalTimeEEEEvT_SE_T0_SF_T1_T2_.exit, label %_ZSt13move_backwardIPN32pxrInternal_v0_24__pxrReserved__8Usd_Clip11TimeMappingEN9__gnu_cxx17__normal_iteratorIS3_St6vectorIS2_SaIS2_EEEEET0_T_SB_SA_.exit.sink.split.i
+
+43:                                               ; preds = %34
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(17) %38, ptr noundef nonnull align 8 dereferenceable(17) %.0.i, i64 17, i1 false)
+  %44 = icmp eq ptr %5, %.0.i
+  br i1 %44, label %_ZSt21__move_merge_adaptiveIPN32pxrInternal_v0_24__pxrReserved__8Usd_Clip11TimeMappingEN9__gnu_cxx17__normal_iteratorIS3_St6vectorIS2_SaIS2_EEEES9_NS4_5__ops15_Iter_comp_iterINS1_22Usd_SortByExternalTimeEEEEvT_SE_T0_SF_T1_T2_.exit, label %45
 
 45:                                               ; preds = %43
-  %46 = ptrtoint ptr %44 to i64
-  %47 = ptrtoint ptr %5 to i64
-  %48 = sub i64 %46, %47
-  %.neg.i.i.i.i.i18.i = sdiv exact i64 %48, -24
-  %49 = getelementptr inbounds %"struct.pxrInternal_v0_24__pxrReserved__::Usd_Clip::TimeMapping", ptr %40, i64 %.neg.i.i.i.i.i18.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %49, ptr align 8 %5, i64 %48, i1 false)
+  %46 = getelementptr inbounds i8, ptr %.0.i, i64 -24
+  br label %34, !llvm.loop !125
+
+_ZSt13move_backwardIPN32pxrInternal_v0_24__pxrReserved__8Usd_Clip11TimeMappingEN9__gnu_cxx17__normal_iteratorIS3_St6vectorIS2_SaIS2_EEEEET0_T_SB_SA_.exit.sink.split.i: ; preds = %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__8Usd_Clip11TimeMappingESt6vectorIS4_SaIS4_EEEES5_ET0_T_SB_SA_.exit83.thread, %41
+  %.sink.i = phi ptr [ %42, %41 ], [ %30, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__8Usd_Clip11TimeMappingESt6vectorIS4_SaIS4_EEEES5_ET0_T_SB_SA_.exit83.thread ]
+  %.lcssa.sink.i = phi ptr [ %38, %41 ], [ %2, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__8Usd_Clip11TimeMappingESt6vectorIS4_SaIS4_EEEES5_ET0_T_SB_SA_.exit83.thread ]
+  %47 = ptrtoint ptr %.sink.i to i64
+  %48 = ptrtoint ptr %5 to i64
+  %49 = sub i64 %47, %48
+  %.neg.i.i.i.i.i18.i = sdiv exact i64 %49, -24
+  %50 = getelementptr inbounds %"struct.pxrInternal_v0_24__pxrReserved__::Usd_Clip::TimeMapping", ptr %.lcssa.sink.i, i64 %.neg.i.i.i.i.i18.i
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %50, ptr align 8 %5, i64 %49, i1 false)
   br label %_ZSt21__move_merge_adaptiveIPN32pxrInternal_v0_24__pxrReserved__8Usd_Clip11TimeMappingEN9__gnu_cxx17__normal_iteratorIS3_St6vectorIS2_SaIS2_EEEES9_NS4_5__ops15_Iter_comp_iterINS1_22Usd_SortByExternalTimeEEEEvT_SE_T0_SF_T1_T2_.exit
 
-50:                                               ; preds = %36
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(17) %40, ptr noundef nonnull align 8 dereferenceable(17) %.0.i, i64 17, i1 false)
-  %51 = icmp eq ptr %5, %.0.i
-  br i1 %51, label %_ZSt21__move_merge_adaptiveIPN32pxrInternal_v0_24__pxrReserved__8Usd_Clip11TimeMappingEN9__gnu_cxx17__normal_iteratorIS3_St6vectorIS2_SaIS2_EEEES9_NS4_5__ops15_Iter_comp_iterINS1_22Usd_SortByExternalTimeEEEEvT_SE_T0_SF_T1_T2_.exit, label %52
-
-52:                                               ; preds = %50
-  %53 = getelementptr inbounds i8, ptr %.0.i, i64 -24
-  br label %36, !llvm.loop !125
-
-54:                                               ; preds = %26
+51:                                               ; preds = %26
+  %52 = ptrtoint ptr %.tr106123 to i64
   br i1 %.not126, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__8Usd_Clip11TimeMappingESt6vectorIS4_SaIS4_EEEElEvRT_T0_.exit, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__8Usd_Clip11TimeMappingESt6vectorIS4_SaIS4_EEEElEvRT_T0_.exit89
 
-_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__8Usd_Clip11TimeMappingESt6vectorIS4_SaIS4_EEEElEvRT_T0_.exit: ; preds = %54
-  %55 = sdiv i64 %.tr108124, 2
-  %56 = getelementptr inbounds %"struct.pxrInternal_v0_24__pxrReserved__::Usd_Clip::TimeMapping", ptr %.tr122, i64 %55
-  %57 = sub i64 %8, %27
-  %58 = icmp sgt i64 %57, 0
-  br i1 %58, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__8Usd_Clip11TimeMappingESt6vectorIS4_SaIS4_EEEElEvRT_T0_.exit.lr.ph.i, label %_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__8Usd_Clip11TimeMappingESt6vectorIS4_SaIS4_EEEES4_NS0_5__ops14_Iter_comp_valINS3_22Usd_SortByExternalTimeEEEET_SE_SE_RKT0_T1_.exit
+_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__8Usd_Clip11TimeMappingESt6vectorIS4_SaIS4_EEEElEvRT_T0_.exit: ; preds = %51
+  %53 = sdiv i64 %.tr108124, 2
+  %54 = getelementptr inbounds %"struct.pxrInternal_v0_24__pxrReserved__::Usd_Clip::TimeMapping", ptr %.tr122, i64 %53
+  %55 = sub i64 %8, %52
+  %56 = icmp sgt i64 %55, 0
+  br i1 %56, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__8Usd_Clip11TimeMappingESt6vectorIS4_SaIS4_EEEElEvRT_T0_.exit.lr.ph.i, label %_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__8Usd_Clip11TimeMappingESt6vectorIS4_SaIS4_EEEES4_NS0_5__ops14_Iter_comp_valINS3_22Usd_SortByExternalTimeEEEET_SE_SE_RKT0_T1_.exit
 
 _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__8Usd_Clip11TimeMappingESt6vectorIS4_SaIS4_EEEElEvRT_T0_.exit.lr.ph.i: ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__8Usd_Clip11TimeMappingESt6vectorIS4_SaIS4_EEEElEvRT_T0_.exit
-  %59 = udiv exact i64 %57, 24
-  %60 = load double, ptr %56, align 8
+  %57 = udiv exact i64 %55, 24
+  %58 = load double, ptr %54, align 8
   br label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__8Usd_Clip11TimeMappingESt6vectorIS4_SaIS4_EEEElEvRT_T0_.exit.i
 
 _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__8Usd_Clip11TimeMappingESt6vectorIS4_SaIS4_EEEElEvRT_T0_.exit.i: ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__8Usd_Clip11TimeMappingESt6vectorIS4_SaIS4_EEEElEvRT_T0_.exit.i, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__8Usd_Clip11TimeMappingESt6vectorIS4_SaIS4_EEEElEvRT_T0_.exit.lr.ph.i
-  %.013.i = phi i64 [ %59, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__8Usd_Clip11TimeMappingESt6vectorIS4_SaIS4_EEEElEvRT_T0_.exit.lr.ph.i ], [ %.1.i85, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__8Usd_Clip11TimeMappingESt6vectorIS4_SaIS4_EEEElEvRT_T0_.exit.i ]
+  %.013.i = phi i64 [ %57, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__8Usd_Clip11TimeMappingESt6vectorIS4_SaIS4_EEEElEvRT_T0_.exit.lr.ph.i ], [ %.1.i85, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__8Usd_Clip11TimeMappingESt6vectorIS4_SaIS4_EEEElEvRT_T0_.exit.i ]
   %.sroa.011.012.i = phi ptr [ %.tr106123, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__8Usd_Clip11TimeMappingESt6vectorIS4_SaIS4_EEEElEvRT_T0_.exit.lr.ph.i ], [ %.sroa.011.1.i, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__8Usd_Clip11TimeMappingESt6vectorIS4_SaIS4_EEEElEvRT_T0_.exit.i ]
-  %61 = lshr i64 %.013.i, 1
-  %62 = getelementptr inbounds %"struct.pxrInternal_v0_24__pxrReserved__::Usd_Clip::TimeMapping", ptr %.sroa.011.012.i, i64 %61
-  %63 = load double, ptr %62, align 8
-  %64 = fcmp olt double %63, %60
-  %65 = getelementptr inbounds i8, ptr %62, i64 24
-  %66 = xor i64 %61, -1
-  %67 = add nsw i64 %.013.i, %66
-  %.sroa.011.1.i = select i1 %64, ptr %65, ptr %.sroa.011.012.i
-  %.1.i85 = select i1 %64, i64 %67, i64 %61
-  %68 = icmp sgt i64 %.1.i85, 0
-  br i1 %68, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__8Usd_Clip11TimeMappingESt6vectorIS4_SaIS4_EEEElEvRT_T0_.exit.i, label %_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__8Usd_Clip11TimeMappingESt6vectorIS4_SaIS4_EEEES4_NS0_5__ops14_Iter_comp_valINS3_22Usd_SortByExternalTimeEEEET_SE_SE_RKT0_T1_.exit.loopexit, !llvm.loop !113
+  %59 = lshr i64 %.013.i, 1
+  %60 = getelementptr inbounds %"struct.pxrInternal_v0_24__pxrReserved__::Usd_Clip::TimeMapping", ptr %.sroa.011.012.i, i64 %59
+  %61 = load double, ptr %60, align 8
+  %62 = fcmp olt double %61, %58
+  %63 = getelementptr inbounds i8, ptr %60, i64 24
+  %64 = xor i64 %59, -1
+  %65 = add nsw i64 %.013.i, %64
+  %.sroa.011.1.i = select i1 %62, ptr %63, ptr %.sroa.011.012.i
+  %.1.i85 = select i1 %62, i64 %65, i64 %59
+  %66 = icmp sgt i64 %.1.i85, 0
+  br i1 %66, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__8Usd_Clip11TimeMappingESt6vectorIS4_SaIS4_EEEElEvRT_T0_.exit.i, label %_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__8Usd_Clip11TimeMappingESt6vectorIS4_SaIS4_EEEES4_NS0_5__ops14_Iter_comp_valINS3_22Usd_SortByExternalTimeEEEET_SE_SE_RKT0_T1_.exit.loopexit, !llvm.loop !113
 
 _ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__8Usd_Clip11TimeMappingESt6vectorIS4_SaIS4_EEEES4_NS0_5__ops14_Iter_comp_valINS3_22Usd_SortByExternalTimeEEEET_SE_SE_RKT0_T1_.exit.loopexit: ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__8Usd_Clip11TimeMappingESt6vectorIS4_SaIS4_EEEElEvRT_T0_.exit.i
   %.pre = ptrtoint ptr %.sroa.011.1.i to i64
   br label %_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__8Usd_Clip11TimeMappingESt6vectorIS4_SaIS4_EEEES4_NS0_5__ops14_Iter_comp_valINS3_22Usd_SortByExternalTimeEEEET_SE_SE_RKT0_T1_.exit
 
 _ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__8Usd_Clip11TimeMappingESt6vectorIS4_SaIS4_EEEES4_NS0_5__ops14_Iter_comp_valINS3_22Usd_SortByExternalTimeEEEET_SE_SE_RKT0_T1_.exit: ; preds = %_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__8Usd_Clip11TimeMappingESt6vectorIS4_SaIS4_EEEES4_NS0_5__ops14_Iter_comp_valINS3_22Usd_SortByExternalTimeEEEET_SE_SE_RKT0_T1_.exit.loopexit, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__8Usd_Clip11TimeMappingESt6vectorIS4_SaIS4_EEEElEvRT_T0_.exit
-  %.pre-phi = phi i64 [ %.pre, %_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__8Usd_Clip11TimeMappingESt6vectorIS4_SaIS4_EEEES4_NS0_5__ops14_Iter_comp_valINS3_22Usd_SortByExternalTimeEEEET_SE_SE_RKT0_T1_.exit.loopexit ], [ %27, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__8Usd_Clip11TimeMappingESt6vectorIS4_SaIS4_EEEElEvRT_T0_.exit ]
+  %.pre-phi = phi i64 [ %.pre, %_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__8Usd_Clip11TimeMappingESt6vectorIS4_SaIS4_EEEES4_NS0_5__ops14_Iter_comp_valINS3_22Usd_SortByExternalTimeEEEET_SE_SE_RKT0_T1_.exit.loopexit ], [ %52, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__8Usd_Clip11TimeMappingESt6vectorIS4_SaIS4_EEEElEvRT_T0_.exit ]
   %.sroa.011.0.lcssa.i = phi ptr [ %.sroa.011.1.i, %_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__8Usd_Clip11TimeMappingESt6vectorIS4_SaIS4_EEEES4_NS0_5__ops14_Iter_comp_valINS3_22Usd_SortByExternalTimeEEEET_SE_SE_RKT0_T1_.exit.loopexit ], [ %.tr106123, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__8Usd_Clip11TimeMappingESt6vectorIS4_SaIS4_EEEElEvRT_T0_.exit ]
-  %69 = sub i64 %.pre-phi, %27
-  %70 = sdiv exact i64 %69, 24
+  %67 = sub i64 %.pre-phi, %52
+  %68 = sdiv exact i64 %67, 24
   br label %tailrecurse
 
-_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__8Usd_Clip11TimeMappingESt6vectorIS4_SaIS4_EEEElEvRT_T0_.exit89: ; preds = %54
-  %71 = sdiv i64 %.tr109125, 2
-  %72 = getelementptr inbounds %"struct.pxrInternal_v0_24__pxrReserved__::Usd_Clip::TimeMapping", ptr %.tr106123, i64 %71
-  %73 = ptrtoint ptr %.tr122 to i64
-  %74 = sub i64 %27, %73
-  %75 = icmp sgt i64 %74, 0
-  br i1 %75, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__8Usd_Clip11TimeMappingESt6vectorIS4_SaIS4_EEEElEvRT_T0_.exit.lr.ph.i91, label %_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__8Usd_Clip11TimeMappingESt6vectorIS4_SaIS4_EEEES4_NS0_5__ops14_Val_comp_iterINS3_22Usd_SortByExternalTimeEEEET_SE_SE_RKT0_T1_.exit
+_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__8Usd_Clip11TimeMappingESt6vectorIS4_SaIS4_EEEElEvRT_T0_.exit89: ; preds = %51
+  %69 = sdiv i64 %.tr109125, 2
+  %70 = getelementptr inbounds %"struct.pxrInternal_v0_24__pxrReserved__::Usd_Clip::TimeMapping", ptr %.tr106123, i64 %69
+  %71 = ptrtoint ptr %.tr122 to i64
+  %72 = sub i64 %52, %71
+  %73 = icmp sgt i64 %72, 0
+  br i1 %73, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__8Usd_Clip11TimeMappingESt6vectorIS4_SaIS4_EEEElEvRT_T0_.exit.lr.ph.i91, label %_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__8Usd_Clip11TimeMappingESt6vectorIS4_SaIS4_EEEES4_NS0_5__ops14_Val_comp_iterINS3_22Usd_SortByExternalTimeEEEET_SE_SE_RKT0_T1_.exit
 
 _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__8Usd_Clip11TimeMappingESt6vectorIS4_SaIS4_EEEElEvRT_T0_.exit.lr.ph.i91: ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__8Usd_Clip11TimeMappingESt6vectorIS4_SaIS4_EEEElEvRT_T0_.exit89
-  %76 = udiv exact i64 %74, 24
-  %77 = load double, ptr %72, align 8
+  %74 = udiv exact i64 %72, 24
+  %75 = load double, ptr %70, align 8
   br label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__8Usd_Clip11TimeMappingESt6vectorIS4_SaIS4_EEEElEvRT_T0_.exit.i92
 
 _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__8Usd_Clip11TimeMappingESt6vectorIS4_SaIS4_EEEElEvRT_T0_.exit.i92: ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__8Usd_Clip11TimeMappingESt6vectorIS4_SaIS4_EEEElEvRT_T0_.exit.i92, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__8Usd_Clip11TimeMappingESt6vectorIS4_SaIS4_EEEElEvRT_T0_.exit.lr.ph.i91
-  %.013.i93 = phi i64 [ %76, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__8Usd_Clip11TimeMappingESt6vectorIS4_SaIS4_EEEElEvRT_T0_.exit.lr.ph.i91 ], [ %.1.i98, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__8Usd_Clip11TimeMappingESt6vectorIS4_SaIS4_EEEElEvRT_T0_.exit.i92 ]
+  %.013.i93 = phi i64 [ %74, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__8Usd_Clip11TimeMappingESt6vectorIS4_SaIS4_EEEElEvRT_T0_.exit.lr.ph.i91 ], [ %.1.i98, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__8Usd_Clip11TimeMappingESt6vectorIS4_SaIS4_EEEElEvRT_T0_.exit.i92 ]
   %.sroa.011.012.i94 = phi ptr [ %.tr122, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__8Usd_Clip11TimeMappingESt6vectorIS4_SaIS4_EEEElEvRT_T0_.exit.lr.ph.i91 ], [ %.sroa.011.1.i97, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__8Usd_Clip11TimeMappingESt6vectorIS4_SaIS4_EEEElEvRT_T0_.exit.i92 ]
-  %78 = lshr i64 %.013.i93, 1
-  %79 = getelementptr inbounds %"struct.pxrInternal_v0_24__pxrReserved__::Usd_Clip::TimeMapping", ptr %.sroa.011.012.i94, i64 %78
-  %80 = load double, ptr %79, align 8
-  %81 = fcmp olt double %77, %80
-  %82 = getelementptr inbounds i8, ptr %79, i64 24
-  %83 = xor i64 %78, -1
-  %84 = add nsw i64 %.013.i93, %83
-  %.sroa.011.1.i97 = select i1 %81, ptr %.sroa.011.012.i94, ptr %82
-  %.1.i98 = select i1 %81, i64 %78, i64 %84
-  %85 = icmp sgt i64 %.1.i98, 0
-  br i1 %85, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__8Usd_Clip11TimeMappingESt6vectorIS4_SaIS4_EEEElEvRT_T0_.exit.i92, label %_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__8Usd_Clip11TimeMappingESt6vectorIS4_SaIS4_EEEES4_NS0_5__ops14_Val_comp_iterINS3_22Usd_SortByExternalTimeEEEET_SE_SE_RKT0_T1_.exit.loopexit, !llvm.loop !114
+  %76 = lshr i64 %.013.i93, 1
+  %77 = getelementptr inbounds %"struct.pxrInternal_v0_24__pxrReserved__::Usd_Clip::TimeMapping", ptr %.sroa.011.012.i94, i64 %76
+  %78 = load double, ptr %77, align 8
+  %79 = fcmp olt double %75, %78
+  %80 = getelementptr inbounds i8, ptr %77, i64 24
+  %81 = xor i64 %76, -1
+  %82 = add nsw i64 %.013.i93, %81
+  %.sroa.011.1.i97 = select i1 %79, ptr %.sroa.011.012.i94, ptr %80
+  %.1.i98 = select i1 %79, i64 %76, i64 %82
+  %83 = icmp sgt i64 %.1.i98, 0
+  br i1 %83, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__8Usd_Clip11TimeMappingESt6vectorIS4_SaIS4_EEEElEvRT_T0_.exit.i92, label %_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__8Usd_Clip11TimeMappingESt6vectorIS4_SaIS4_EEEES4_NS0_5__ops14_Val_comp_iterINS3_22Usd_SortByExternalTimeEEEET_SE_SE_RKT0_T1_.exit.loopexit, !llvm.loop !114
 
 _ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__8Usd_Clip11TimeMappingESt6vectorIS4_SaIS4_EEEES4_NS0_5__ops14_Val_comp_iterINS3_22Usd_SortByExternalTimeEEEET_SE_SE_RKT0_T1_.exit.loopexit: ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__8Usd_Clip11TimeMappingESt6vectorIS4_SaIS4_EEEElEvRT_T0_.exit.i92
   %.pre135 = ptrtoint ptr %.sroa.011.1.i97 to i64
   br label %_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__8Usd_Clip11TimeMappingESt6vectorIS4_SaIS4_EEEES4_NS0_5__ops14_Val_comp_iterINS3_22Usd_SortByExternalTimeEEEET_SE_SE_RKT0_T1_.exit
 
 _ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__8Usd_Clip11TimeMappingESt6vectorIS4_SaIS4_EEEES4_NS0_5__ops14_Val_comp_iterINS3_22Usd_SortByExternalTimeEEEET_SE_SE_RKT0_T1_.exit: ; preds = %_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__8Usd_Clip11TimeMappingESt6vectorIS4_SaIS4_EEEES4_NS0_5__ops14_Val_comp_iterINS3_22Usd_SortByExternalTimeEEEET_SE_SE_RKT0_T1_.exit.loopexit, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__8Usd_Clip11TimeMappingESt6vectorIS4_SaIS4_EEEElEvRT_T0_.exit89
-  %.pre-phi136 = phi i64 [ %.pre135, %_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__8Usd_Clip11TimeMappingESt6vectorIS4_SaIS4_EEEES4_NS0_5__ops14_Val_comp_iterINS3_22Usd_SortByExternalTimeEEEET_SE_SE_RKT0_T1_.exit.loopexit ], [ %73, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__8Usd_Clip11TimeMappingESt6vectorIS4_SaIS4_EEEElEvRT_T0_.exit89 ]
+  %.pre-phi136 = phi i64 [ %.pre135, %_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__8Usd_Clip11TimeMappingESt6vectorIS4_SaIS4_EEEES4_NS0_5__ops14_Val_comp_iterINS3_22Usd_SortByExternalTimeEEEET_SE_SE_RKT0_T1_.exit.loopexit ], [ %71, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__8Usd_Clip11TimeMappingESt6vectorIS4_SaIS4_EEEElEvRT_T0_.exit89 ]
   %.sroa.011.0.lcssa.i90 = phi ptr [ %.sroa.011.1.i97, %_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__8Usd_Clip11TimeMappingESt6vectorIS4_SaIS4_EEEES4_NS0_5__ops14_Val_comp_iterINS3_22Usd_SortByExternalTimeEEEET_SE_SE_RKT0_T1_.exit.loopexit ], [ %.tr122, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__8Usd_Clip11TimeMappingESt6vectorIS4_SaIS4_EEEElEvRT_T0_.exit89 ]
-  %86 = sub i64 %.pre-phi136, %73
-  %87 = sdiv exact i64 %86, 24
+  %84 = sub i64 %.pre-phi136, %71
+  %85 = sdiv exact i64 %84, 24
   br label %tailrecurse
 
 tailrecurse:                                      ; preds = %_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__8Usd_Clip11TimeMappingESt6vectorIS4_SaIS4_EEEES4_NS0_5__ops14_Val_comp_iterINS3_22Usd_SortByExternalTimeEEEET_SE_SE_RKT0_T1_.exit, %_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__8Usd_Clip11TimeMappingESt6vectorIS4_SaIS4_EEEES4_NS0_5__ops14_Iter_comp_valINS3_22Usd_SortByExternalTimeEEEET_SE_SE_RKT0_T1_.exit
-  %.sroa.0101.0 = phi ptr [ %56, %_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__8Usd_Clip11TimeMappingESt6vectorIS4_SaIS4_EEEES4_NS0_5__ops14_Iter_comp_valINS3_22Usd_SortByExternalTimeEEEET_SE_SE_RKT0_T1_.exit ], [ %.sroa.011.0.lcssa.i90, %_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__8Usd_Clip11TimeMappingESt6vectorIS4_SaIS4_EEEES4_NS0_5__ops14_Val_comp_iterINS3_22Usd_SortByExternalTimeEEEET_SE_SE_RKT0_T1_.exit ]
-  %.sroa.0.0 = phi ptr [ %.sroa.011.0.lcssa.i, %_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__8Usd_Clip11TimeMappingESt6vectorIS4_SaIS4_EEEES4_NS0_5__ops14_Iter_comp_valINS3_22Usd_SortByExternalTimeEEEET_SE_SE_RKT0_T1_.exit ], [ %72, %_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__8Usd_Clip11TimeMappingESt6vectorIS4_SaIS4_EEEES4_NS0_5__ops14_Val_comp_iterINS3_22Usd_SortByExternalTimeEEEET_SE_SE_RKT0_T1_.exit ]
-  %.076 = phi i64 [ %70, %_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__8Usd_Clip11TimeMappingESt6vectorIS4_SaIS4_EEEES4_NS0_5__ops14_Iter_comp_valINS3_22Usd_SortByExternalTimeEEEET_SE_SE_RKT0_T1_.exit ], [ %71, %_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__8Usd_Clip11TimeMappingESt6vectorIS4_SaIS4_EEEES4_NS0_5__ops14_Val_comp_iterINS3_22Usd_SortByExternalTimeEEEET_SE_SE_RKT0_T1_.exit ]
-  %.0 = phi i64 [ %55, %_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__8Usd_Clip11TimeMappingESt6vectorIS4_SaIS4_EEEES4_NS0_5__ops14_Iter_comp_valINS3_22Usd_SortByExternalTimeEEEET_SE_SE_RKT0_T1_.exit ], [ %87, %_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__8Usd_Clip11TimeMappingESt6vectorIS4_SaIS4_EEEES4_NS0_5__ops14_Val_comp_iterINS3_22Usd_SortByExternalTimeEEEET_SE_SE_RKT0_T1_.exit ]
-  %88 = sub nsw i64 %.tr108124, %.0
-  %89 = tail call ptr @_ZSt17__rotate_adaptiveIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__8Usd_Clip11TimeMappingESt6vectorIS4_SaIS4_EEEES5_lET_SA_SA_SA_T1_SB_T0_SB_(ptr %.sroa.0101.0, ptr %.tr106123, ptr %.sroa.0.0, i64 noundef %88, i64 noundef %.076, ptr noundef %5, i64 noundef %6)
-  tail call void @_ZSt16__merge_adaptiveIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__8Usd_Clip11TimeMappingESt6vectorIS4_SaIS4_EEEElS5_NS0_5__ops15_Iter_comp_iterINS3_22Usd_SortByExternalTimeEEEEvT_SE_SE_T0_SF_T1_SF_T2_(ptr %.tr122, ptr %.sroa.0101.0, ptr %89, i64 noundef %.0, i64 noundef %.076, ptr noundef %5, i64 noundef %6)
-  %90 = sub nsw i64 %.tr109125, %.076
-  %.not = icmp sgt i64 %88, %90
-  %.not80 = icmp sgt i64 %88, %6
+  %.sroa.0101.0 = phi ptr [ %54, %_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__8Usd_Clip11TimeMappingESt6vectorIS4_SaIS4_EEEES4_NS0_5__ops14_Iter_comp_valINS3_22Usd_SortByExternalTimeEEEET_SE_SE_RKT0_T1_.exit ], [ %.sroa.011.0.lcssa.i90, %_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__8Usd_Clip11TimeMappingESt6vectorIS4_SaIS4_EEEES4_NS0_5__ops14_Val_comp_iterINS3_22Usd_SortByExternalTimeEEEET_SE_SE_RKT0_T1_.exit ]
+  %.sroa.0.0 = phi ptr [ %.sroa.011.0.lcssa.i, %_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__8Usd_Clip11TimeMappingESt6vectorIS4_SaIS4_EEEES4_NS0_5__ops14_Iter_comp_valINS3_22Usd_SortByExternalTimeEEEET_SE_SE_RKT0_T1_.exit ], [ %70, %_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__8Usd_Clip11TimeMappingESt6vectorIS4_SaIS4_EEEES4_NS0_5__ops14_Val_comp_iterINS3_22Usd_SortByExternalTimeEEEET_SE_SE_RKT0_T1_.exit ]
+  %.076 = phi i64 [ %68, %_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__8Usd_Clip11TimeMappingESt6vectorIS4_SaIS4_EEEES4_NS0_5__ops14_Iter_comp_valINS3_22Usd_SortByExternalTimeEEEET_SE_SE_RKT0_T1_.exit ], [ %69, %_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__8Usd_Clip11TimeMappingESt6vectorIS4_SaIS4_EEEES4_NS0_5__ops14_Val_comp_iterINS3_22Usd_SortByExternalTimeEEEET_SE_SE_RKT0_T1_.exit ]
+  %.0 = phi i64 [ %53, %_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__8Usd_Clip11TimeMappingESt6vectorIS4_SaIS4_EEEES4_NS0_5__ops14_Iter_comp_valINS3_22Usd_SortByExternalTimeEEEET_SE_SE_RKT0_T1_.exit ], [ %85, %_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__8Usd_Clip11TimeMappingESt6vectorIS4_SaIS4_EEEES4_NS0_5__ops14_Val_comp_iterINS3_22Usd_SortByExternalTimeEEEET_SE_SE_RKT0_T1_.exit ]
+  %86 = sub nsw i64 %.tr108124, %.0
+  %87 = tail call ptr @_ZSt17__rotate_adaptiveIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__8Usd_Clip11TimeMappingESt6vectorIS4_SaIS4_EEEES5_lET_SA_SA_SA_T1_SB_T0_SB_(ptr %.sroa.0101.0, ptr %.tr106123, ptr %.sroa.0.0, i64 noundef %86, i64 noundef %.076, ptr noundef %5, i64 noundef %6)
+  tail call void @_ZSt16__merge_adaptiveIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__8Usd_Clip11TimeMappingESt6vectorIS4_SaIS4_EEEElS5_NS0_5__ops15_Iter_comp_iterINS3_22Usd_SortByExternalTimeEEEEvT_SE_SE_T0_SF_T1_SF_T2_(ptr %.tr122, ptr %.sroa.0101.0, ptr %87, i64 noundef %.0, i64 noundef %.076, ptr noundef %5, i64 noundef %6)
+  %88 = sub nsw i64 %.tr109125, %.076
+  %.not = icmp sgt i64 %86, %88
+  %.not80 = icmp sgt i64 %86, %6
   %or.cond = or i1 %.not80, %.not
   br i1 %or.cond, label %26, label %tailrecurse._crit_edge
 
-_ZSt21__move_merge_adaptiveIPN32pxrInternal_v0_24__pxrReserved__8Usd_Clip11TimeMappingEN9__gnu_cxx17__normal_iteratorIS3_St6vectorIS2_SaIS2_EEEES9_NS4_5__ops15_Iter_comp_iterINS1_22Usd_SortByExternalTimeEEEEvT_SE_T0_SF_T1_T2_.exit: ; preds = %50, %21, %28, %tailrecurse._crit_edge, %45, %43, %31, %_ZSt4moveIPN32pxrInternal_v0_24__pxrReserved__8Usd_Clip11TimeMappingEN9__gnu_cxx17__normal_iteratorIS3_St6vectorIS2_SaIS2_EEEEET0_T_SB_SA_.exit.i
+_ZSt21__move_merge_adaptiveIPN32pxrInternal_v0_24__pxrReserved__8Usd_Clip11TimeMappingEN9__gnu_cxx17__normal_iteratorIS3_St6vectorIS2_SaIS2_EEEES9_NS4_5__ops15_Iter_comp_iterINS1_22Usd_SortByExternalTimeEEEEvT_SE_T0_SF_T1_T2_.exit: ; preds = %43, %21, %27, %tailrecurse._crit_edge, %_ZSt13move_backwardIPN32pxrInternal_v0_24__pxrReserved__8Usd_Clip11TimeMappingEN9__gnu_cxx17__normal_iteratorIS3_St6vectorIS2_SaIS2_EEEEET0_T_SB_SA_.exit.sink.split.i, %41, %_ZSt4moveIPN32pxrInternal_v0_24__pxrReserved__8Usd_Clip11TimeMappingEN9__gnu_cxx17__normal_iteratorIS3_St6vectorIS2_SaIS2_EEEEET0_T_SB_SA_.exit.i
   ret void
 }
 

@@ -1705,19 +1705,10 @@ define internal noundef i32 @boot_override_clocksource(ptr noundef %0) #8 sectio
 define internal noundef i32 @boot_override_clock(ptr noundef %0) #8 section ".init.text" align 16 {
   %2 = tail call i32 @strcmp(ptr noundef %0, ptr noundef nonnull dereferenceable(6) @.str.35) #16
   %3 = icmp eq i32 %2, 0
-  br i1 %3, label %4, label %7
-
-4:                                                ; preds = %1
-  %5 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.36) #18
-  %6 = tail call i32 @boot_override_clocksource(ptr noundef nonnull @.str.37) #19
-  br label %10
-
-7:                                                ; preds = %1
-  %8 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.38) #18
-  %9 = tail call i32 @boot_override_clocksource(ptr noundef %0) #19
-  br label %10
-
-10:                                               ; preds = %7, %4
+  %.str.36..str.38 = select i1 %3, ptr @.str.36, ptr @.str.38
+  %.str.37. = select i1 %3, ptr @.str.37, ptr %0
+  %4 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull %.str.36..str.38) #18
+  %5 = tail call i32 @boot_override_clocksource(ptr noundef %.str.37.) #19
   ret i32 1
 }
 

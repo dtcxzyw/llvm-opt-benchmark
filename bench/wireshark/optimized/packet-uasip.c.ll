@@ -140,37 +140,30 @@ declare ptr @register_dissector(ptr noundef, ptr noundef, i32 noundef) local_unn
 ; Function Attrs: nounwind uwtable
 define internal i32 @dissect_uasip(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
   %.b = load i1, ptr @use_proxy_ipaddr, align 4
-  br i1 %.b, label %5, label %15
+  br i1 %.b, label %5, label %13
 
 5:                                                ; preds = %4
   %6 = getelementptr inbounds i8, ptr %1, i64 216
   %7 = load ptr, ptr %6, align 8
   %bcmp = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(4) %7, ptr noundef nonnull dereferenceable(4) @proxy_ipaddr, i64 4)
   %8 = icmp eq i32 %bcmp, 0
-  br i1 %8, label %9, label %10
+  br i1 %8, label %14, label %9
 
 9:                                                ; preds = %5
-  tail call fastcc void @_dissect_uasip(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, i32 noundef 0)
-  br label %16
+  %10 = getelementptr inbounds i8, ptr %1, i64 240
+  %11 = load ptr, ptr %10, align 8
+  %bcmp14 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(4) %11, ptr noundef nonnull dereferenceable(4) @proxy_ipaddr, i64 4)
+  %12 = icmp eq i32 %bcmp14, 0
+  br i1 %12, label %14, label %13
 
-10:                                               ; preds = %5
-  %11 = getelementptr inbounds i8, ptr %1, i64 240
-  %12 = load ptr, ptr %11, align 8
-  %bcmp14 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(4) %12, ptr noundef nonnull dereferenceable(4) @proxy_ipaddr, i64 4)
-  %13 = icmp eq i32 %bcmp14, 0
-  br i1 %13, label %14, label %15
+13:                                               ; preds = %9, %4
+  br label %14
 
-14:                                               ; preds = %10
-  tail call fastcc void @_dissect_uasip(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, i32 noundef 1)
-  br label %16
-
-15:                                               ; preds = %10, %4
-  tail call fastcc void @_dissect_uasip(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef 2)
-  br label %16
-
-16:                                               ; preds = %15, %14, %9
-  %17 = tail call i32 @tvb_captured_length(ptr noundef %0) #3
-  ret i32 %17
+14:                                               ; preds = %9, %5, %13
+  %.sink = phi i32 [ 2, %13 ], [ 0, %5 ], [ 1, %9 ]
+  tail call fastcc void @_dissect_uasip(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %.sink)
+  %15 = tail call i32 @tvb_captured_length(ptr noundef %0) #3
+  ret i32 %15
 }
 
 declare void @proto_register_field_array(i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1

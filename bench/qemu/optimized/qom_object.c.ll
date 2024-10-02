@@ -5892,19 +5892,9 @@ entry:
   %spec.select = select i1 %cmp.not, ptr null, ptr @property_get_uint8_ptr
   %and1 = and i32 %flags, 2
   %cmp2.not = icmp eq i32 %and1, 0
-  br i1 %cmp2.not, label %if.end.split, label %if.then3.split
-
-if.end.split:                                     ; preds = %entry
-  %call.i = tail call ptr @object_property_try_add(ptr noundef readonly %obj, ptr noundef %name, ptr noundef nonnull @.str.44, ptr noundef %spec.select, ptr noundef null, ptr noundef null, ptr noundef %v, ptr noundef nonnull @error_abort)
-  br label %if.end4
-
-if.then3.split:                                   ; preds = %entry
-  %call.i4 = tail call ptr @object_property_try_add(ptr noundef readonly %obj, ptr noundef %name, ptr noundef nonnull @.str.44, ptr noundef %spec.select, ptr noundef nonnull @property_set_uint8_ptr, ptr noundef null, ptr noundef %v, ptr noundef nonnull @error_abort)
-  br label %if.end4
-
-if.end4:                                          ; preds = %if.end.split, %if.then3.split
-  %phi.call = phi ptr [ %call.i4, %if.then3.split ], [ %call.i, %if.end.split ]
-  ret ptr %phi.call
+  %.property_set_uint8_ptr = select i1 %cmp2.not, ptr null, ptr @property_set_uint8_ptr
+  %call.i = tail call ptr @object_property_try_add(ptr noundef readonly %obj, ptr noundef %name, ptr noundef nonnull @.str.44, ptr noundef %spec.select, ptr noundef %.property_set_uint8_ptr, ptr noundef null, ptr noundef %v, ptr noundef nonnull @error_abort)
+  ret ptr %call.i
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -5989,19 +5979,9 @@ entry:
   %spec.select = select i1 %cmp.not, ptr null, ptr @property_get_uint16_ptr
   %and1 = and i32 %flags, 2
   %cmp2.not = icmp eq i32 %and1, 0
-  br i1 %cmp2.not, label %if.end.split, label %if.then3.split
-
-if.end.split:                                     ; preds = %entry
-  %call.i = tail call ptr @object_property_try_add(ptr noundef readonly %obj, ptr noundef %name, ptr noundef nonnull @.str.45, ptr noundef %spec.select, ptr noundef null, ptr noundef null, ptr noundef %v, ptr noundef nonnull @error_abort)
-  br label %if.end4
-
-if.then3.split:                                   ; preds = %entry
-  %call.i4 = tail call ptr @object_property_try_add(ptr noundef readonly %obj, ptr noundef %name, ptr noundef nonnull @.str.45, ptr noundef %spec.select, ptr noundef nonnull @property_set_uint16_ptr, ptr noundef null, ptr noundef %v, ptr noundef nonnull @error_abort)
-  br label %if.end4
-
-if.end4:                                          ; preds = %if.end.split, %if.then3.split
-  %phi.call = phi ptr [ %call.i4, %if.then3.split ], [ %call.i, %if.end.split ]
-  ret ptr %phi.call
+  %.property_set_uint16_ptr = select i1 %cmp2.not, ptr null, ptr @property_set_uint16_ptr
+  %call.i = tail call ptr @object_property_try_add(ptr noundef readonly %obj, ptr noundef %name, ptr noundef nonnull @.str.45, ptr noundef %spec.select, ptr noundef %.property_set_uint16_ptr, ptr noundef null, ptr noundef %v, ptr noundef nonnull @error_abort)
+  ret ptr %call.i
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -6086,19 +6066,9 @@ entry:
   %spec.select = select i1 %cmp.not, ptr null, ptr @property_get_uint32_ptr
   %and1 = and i32 %flags, 2
   %cmp2.not = icmp eq i32 %and1, 0
-  br i1 %cmp2.not, label %if.end.split, label %if.then3.split
-
-if.end.split:                                     ; preds = %entry
-  %call.i = tail call ptr @object_property_try_add(ptr noundef readonly %obj, ptr noundef %name, ptr noundef nonnull @.str.46, ptr noundef %spec.select, ptr noundef null, ptr noundef null, ptr noundef %v, ptr noundef nonnull @error_abort)
-  br label %if.end4
-
-if.then3.split:                                   ; preds = %entry
-  %call.i4 = tail call ptr @object_property_try_add(ptr noundef readonly %obj, ptr noundef %name, ptr noundef nonnull @.str.46, ptr noundef %spec.select, ptr noundef nonnull @property_set_uint32_ptr, ptr noundef null, ptr noundef %v, ptr noundef nonnull @error_abort)
-  br label %if.end4
-
-if.end4:                                          ; preds = %if.end.split, %if.then3.split
-  %phi.call = phi ptr [ %call.i4, %if.then3.split ], [ %call.i, %if.end.split ]
-  ret ptr %phi.call
+  %.property_set_uint32_ptr = select i1 %cmp2.not, ptr null, ptr @property_set_uint32_ptr
+  %call.i = tail call ptr @object_property_try_add(ptr noundef readonly %obj, ptr noundef %name, ptr noundef nonnull @.str.46, ptr noundef %spec.select, ptr noundef %.property_set_uint32_ptr, ptr noundef null, ptr noundef %v, ptr noundef nonnull @error_abort)
+  ret ptr %call.i
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -6183,19 +6153,9 @@ entry:
   %spec.select = select i1 %cmp.not, ptr null, ptr @property_get_uint64_ptr
   %and1 = and i32 %flags, 2
   %cmp2.not = icmp eq i32 %and1, 0
-  br i1 %cmp2.not, label %if.end.split, label %if.then3.split
-
-if.end.split:                                     ; preds = %entry
-  %call.i = tail call ptr @object_property_try_add(ptr noundef readonly %obj, ptr noundef %name, ptr noundef nonnull @.str.47, ptr noundef %spec.select, ptr noundef null, ptr noundef null, ptr noundef %v, ptr noundef nonnull @error_abort)
-  br label %if.end4
-
-if.then3.split:                                   ; preds = %entry
-  %call.i4 = tail call ptr @object_property_try_add(ptr noundef readonly %obj, ptr noundef %name, ptr noundef nonnull @.str.47, ptr noundef %spec.select, ptr noundef nonnull @property_set_uint64_ptr, ptr noundef null, ptr noundef %v, ptr noundef nonnull @error_abort)
-  br label %if.end4
-
-if.end4:                                          ; preds = %if.end.split, %if.then3.split
-  %phi.call = phi ptr [ %call.i4, %if.then3.split ], [ %call.i, %if.end.split ]
-  ret ptr %phi.call
+  %.property_set_uint64_ptr = select i1 %cmp2.not, ptr null, ptr @property_set_uint64_ptr
+  %call.i = tail call ptr @object_property_try_add(ptr noundef readonly %obj, ptr noundef %name, ptr noundef nonnull @.str.47, ptr noundef %spec.select, ptr noundef %.property_set_uint64_ptr, ptr noundef null, ptr noundef %v, ptr noundef nonnull @error_abort)
+  ret ptr %call.i
 }
 
 ; Function Attrs: nounwind sspstrong uwtable

@@ -3218,56 +3218,56 @@ define hidden void @prefs_deregister_protocol(i32 noundef %0) local_unnamed_addr
 
 12:                                               ; preds = %6
   %13 = icmp eq ptr %7, null
-  br i1 %13, label %14, label %17
+  br i1 %13, label %14, label %16
 
 14:                                               ; preds = %12
   %15 = load ptr, ptr @prefs_top_level_modules, align 8
-  %16 = tail call ptr @wmem_tree_remove_string(ptr noundef %15, ptr noundef %9, i32 noundef 1) #24
-  br label %22
+  br label %.sink.split.i
 
-17:                                               ; preds = %12
-  %18 = getelementptr inbounds i8, ptr %7, i64 48
-  %19 = load ptr, ptr %18, align 8
-  %.not11.i = icmp eq ptr %19, null
-  br i1 %.not11.i, label %22, label %20
+16:                                               ; preds = %12
+  %17 = getelementptr inbounds i8, ptr %7, i64 48
+  %18 = load ptr, ptr %17, align 8
+  %.not11.i = icmp eq ptr %18, null
+  br i1 %.not11.i, label %20, label %.sink.split.i
 
-20:                                               ; preds = %17
-  %21 = tail call ptr @wmem_tree_remove_string(ptr noundef nonnull %19, ptr noundef %9, i32 noundef 1) #24
-  br label %22
+.sink.split.i:                                    ; preds = %16, %14
+  %.sink.i = phi ptr [ %15, %14 ], [ %18, %16 ]
+  %19 = tail call ptr @wmem_tree_remove_string(ptr noundef %.sink.i, ptr noundef %9, i32 noundef 1) #24
+  br label %20
 
-22:                                               ; preds = %20, %17, %14
-  %23 = getelementptr inbounds i8, ptr %11, i64 32
-  %24 = load ptr, ptr %23, align 8
-  %.not.i.i = icmp eq ptr %24, null
-  br i1 %.not.i.i, label %27, label %25
+20:                                               ; preds = %.sink.split.i, %16
+  %21 = getelementptr inbounds i8, ptr %11, i64 32
+  %22 = load ptr, ptr %21, align 8
+  %.not.i.i = icmp eq ptr %22, null
+  br i1 %.not.i.i, label %25, label %23
 
-25:                                               ; preds = %22
-  tail call void @g_list_foreach(ptr noundef nonnull %24, ptr noundef nonnull @free_pref, ptr noundef null) #24
-  %26 = load ptr, ptr %23, align 8
-  tail call void @g_list_free(ptr noundef %26) #24
-  br label %27
+23:                                               ; preds = %20
+  tail call void @g_list_foreach(ptr noundef nonnull %22, ptr noundef nonnull @free_pref, ptr noundef null) #24
+  %24 = load ptr, ptr %21, align 8
+  tail call void @g_list_free(ptr noundef %24) #24
+  br label %25
 
-27:                                               ; preds = %25, %22
-  store ptr null, ptr %23, align 8
-  %28 = getelementptr inbounds i8, ptr %11, i64 56
-  store i32 0, ptr %28, align 8
-  %29 = getelementptr inbounds i8, ptr %11, i64 48
-  %30 = load ptr, ptr %29, align 8
-  %.not8.i.i = icmp eq ptr %30, null
-  br i1 %.not8.i.i, label %free_module_prefs.exit.i, label %31
+25:                                               ; preds = %23, %20
+  store ptr null, ptr %21, align 8
+  %26 = getelementptr inbounds i8, ptr %11, i64 56
+  store i32 0, ptr %26, align 8
+  %27 = getelementptr inbounds i8, ptr %11, i64 48
+  %28 = load ptr, ptr %27, align 8
+  %.not8.i.i = icmp eq ptr %28, null
+  br i1 %.not8.i.i, label %free_module_prefs.exit.i, label %29
 
-31:                                               ; preds = %27
+29:                                               ; preds = %25
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2)
   store ptr @free_module_prefs, ptr %2, align 8
-  %32 = getelementptr inbounds i8, ptr %2, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %32, i8 0, i64 16, i1 false)
-  %33 = call zeroext i1 @wmem_tree_foreach(ptr noundef nonnull %30, ptr noundef nonnull @call_foreach_cb, ptr noundef nonnull %2) #24
+  %30 = getelementptr inbounds i8, ptr %2, i64 8
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %30, i8 0, i64 16, i1 false)
+  %31 = call zeroext i1 @wmem_tree_foreach(ptr noundef nonnull %28, ptr noundef nonnull @call_foreach_cb, ptr noundef nonnull %2) #24
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2)
   br label %free_module_prefs.exit.i
 
-free_module_prefs.exit.i:                         ; preds = %31, %27
-  %34 = call ptr @wmem_epan_scope() #24
-  call void @wmem_free(ptr noundef %34, ptr noundef nonnull %11) #24
+free_module_prefs.exit.i:                         ; preds = %29, %25
+  %32 = call ptr @wmem_epan_scope() #24
+  call void @wmem_free(ptr noundef %32, ptr noundef nonnull %11) #24
   br label %prefs_deregister_module.exit
 
 prefs_deregister_module.exit:                     ; preds = %6, %free_module_prefs.exit.i
@@ -8680,7 +8680,7 @@ define hidden noundef nonnull ptr @read_prefs() local_unnamed_addr #1 {
 init_prefs.exit:                                  ; preds = %0, %1
   %2 = load ptr, ptr @gpf_path, align 8
   %3 = icmp eq ptr %2, null
-  br i1 %3, label %4, label %16
+  br i1 %3, label %4, label %15
 
 4:                                                ; preds = %init_prefs.exit
   %5 = tail call ptr @get_datafile_path(ptr noundef nonnull @.str.13) #24
@@ -8700,97 +8700,93 @@ init_prefs.exit:                                  ; preds = %0, %1
   tail call void @g_free(ptr noundef %13) #24
   %14 = tail call ptr @get_datafile_path(ptr noundef nonnull @.str.16) #24
   store ptr %14, ptr @gpf_path, align 8
-  %15 = tail call noalias ptr @fopen(ptr noundef %14, ptr noundef nonnull @.str.12)
-  br label %18
+  br label %15
 
-16:                                               ; preds = %init_prefs.exit
-  %17 = tail call noalias ptr @fopen(ptr noundef nonnull %2, ptr noundef nonnull @.str.12)
-  br label %18
-
-18:                                               ; preds = %12, %16
-  %.0 = phi ptr [ %15, %12 ], [ %17, %16 ]
-  %.not = icmp eq ptr %.0, null
+15:                                               ; preds = %init_prefs.exit, %12
+  %.sink = phi ptr [ %14, %12 ], [ %2, %init_prefs.exit ]
+  %16 = tail call noalias ptr @fopen(ptr noundef %.sink, ptr noundef nonnull @.str.12)
+  %.not = icmp eq ptr %16, null
   br i1 %.not, label %..thread_crit_edge, label %.thread29
 
-..thread_crit_edge:                               ; preds = %18
+..thread_crit_edge:                               ; preds = %15
   %.pre = tail call ptr @__errno_location() #28
   %.pr = load i32, ptr %.pre, align 4
   br label %.thread
 
-.thread29:                                        ; preds = %4, %18
-  %.032 = phi ptr [ %.0, %18 ], [ %6, %4 ]
+.thread29:                                        ; preds = %4, %15
+  %.032 = phi ptr [ %16, %15 ], [ %6, %4 ]
   store i32 0, ptr @mgcp_tcp_port_count, align 4
   store i32 0, ptr @mgcp_udp_port_count, align 4
-  %19 = load ptr, ptr @gpf_path, align 8
-  %20 = tail call i32 @read_prefs_file(ptr noundef %19, ptr noundef nonnull %.032, ptr noundef nonnull @set_pref, ptr noundef null)
-  %.not23 = icmp eq i32 %20, 0
-  br i1 %.not23, label %24, label %21
+  %17 = load ptr, ptr @gpf_path, align 8
+  %18 = tail call i32 @read_prefs_file(ptr noundef %17, ptr noundef nonnull %.032, ptr noundef nonnull @set_pref, ptr noundef null)
+  %.not23 = icmp eq i32 %18, 0
+  br i1 %.not23, label %22, label %19
 
-21:                                               ; preds = %.thread29
-  %22 = load ptr, ptr @gpf_path, align 8
-  %23 = tail call ptr @g_strerror(i32 noundef %20) #28
-  tail call void (ptr, ...) @report_warning(ptr noundef nonnull @.str.17, ptr noundef %22, ptr noundef %23) #24
-  br label %24
+19:                                               ; preds = %.thread29
+  %20 = load ptr, ptr @gpf_path, align 8
+  %21 = tail call ptr @g_strerror(i32 noundef %18) #28
+  tail call void (ptr, ...) @report_warning(ptr noundef nonnull @.str.17, ptr noundef %20, ptr noundef %21) #24
+  br label %22
 
-24:                                               ; preds = %21, %.thread29
-  %25 = tail call i32 @fclose(ptr noundef nonnull %.032)
-  br label %30
+22:                                               ; preds = %19, %.thread29
+  %23 = tail call i32 @fclose(ptr noundef nonnull %.032)
+  br label %28
 
 .thread:                                          ; preds = %..thread_crit_edge, %8
-  %26 = phi i32 [ %.pr, %..thread_crit_edge ], [ %10, %8 ]
-  switch i32 %26, label %27 [
-    i32 2, label %30
-    i32 0, label %30
+  %24 = phi i32 [ %.pr, %..thread_crit_edge ], [ %10, %8 ]
+  switch i32 %24, label %25 [
+    i32 2, label %28
+    i32 0, label %28
   ]
 
-27:                                               ; preds = %.thread
-  %28 = load ptr, ptr @gpf_path, align 8
-  %29 = tail call ptr @g_strerror(i32 noundef %26) #28
-  tail call void (ptr, ...) @report_warning(ptr noundef nonnull @.str.18, ptr noundef %28, ptr noundef %29) #24
-  br label %30
+25:                                               ; preds = %.thread
+  %26 = load ptr, ptr @gpf_path, align 8
+  %27 = tail call ptr @g_strerror(i32 noundef %24) #28
+  tail call void (ptr, ...) @report_warning(ptr noundef nonnull @.str.18, ptr noundef %26, ptr noundef %27) #24
+  br label %28
 
-30:                                               ; preds = %.thread, %.thread, %27, %24
-  %31 = tail call ptr @get_persconffile_path(ptr noundef nonnull @.str.13, i1 noundef zeroext true) #24
-  %32 = tail call noalias ptr @fopen(ptr noundef %31, ptr noundef nonnull @.str.12)
-  %.not24 = icmp eq ptr %32, null
-  br i1 %.not24, label %40, label %33
+28:                                               ; preds = %.thread, %.thread, %25, %22
+  %29 = tail call ptr @get_persconffile_path(ptr noundef nonnull @.str.13, i1 noundef zeroext true) #24
+  %30 = tail call noalias ptr @fopen(ptr noundef %29, ptr noundef nonnull @.str.12)
+  %.not24 = icmp eq ptr %30, null
+  br i1 %.not24, label %38, label %31
 
-33:                                               ; preds = %30
+31:                                               ; preds = %28
   store i32 0, ptr @mgcp_tcp_port_count, align 4
   store i32 0, ptr @mgcp_udp_port_count, align 4
-  %34 = tail call i32 @read_prefs_file(ptr noundef %31, ptr noundef nonnull %32, ptr noundef nonnull @set_pref, ptr noundef null)
-  %.not26 = icmp eq i32 %34, 0
-  br i1 %.not26, label %37, label %35
+  %32 = tail call i32 @read_prefs_file(ptr noundef %29, ptr noundef nonnull %30, ptr noundef nonnull @set_pref, ptr noundef null)
+  %.not26 = icmp eq i32 %32, 0
+  br i1 %.not26, label %35, label %33
 
-35:                                               ; preds = %33
-  %36 = tail call ptr @g_strerror(i32 noundef %34) #28
-  tail call void (ptr, ...) @report_warning(ptr noundef nonnull @.str.14, ptr noundef %31, ptr noundef %36) #24
-  br label %38
+33:                                               ; preds = %31
+  %34 = tail call ptr @g_strerror(i32 noundef %32) #28
+  tail call void (ptr, ...) @report_warning(ptr noundef nonnull @.str.14, ptr noundef %29, ptr noundef %34) #24
+  br label %36
 
-37:                                               ; preds = %33
-  tail call void @g_free(ptr noundef %31) #24
-  br label %38
+35:                                               ; preds = %31
+  tail call void @g_free(ptr noundef %29) #24
+  br label %36
 
-38:                                               ; preds = %37, %35
-  %39 = tail call i32 @fclose(ptr noundef nonnull %32)
-  br label %46
+36:                                               ; preds = %35, %33
+  %37 = tail call i32 @fclose(ptr noundef nonnull %30)
+  br label %44
 
-40:                                               ; preds = %30
-  %41 = tail call ptr @__errno_location() #28
-  %42 = load i32, ptr %41, align 4
-  %.not25 = icmp eq i32 %42, 2
-  br i1 %.not25, label %45, label %43
+38:                                               ; preds = %28
+  %39 = tail call ptr @__errno_location() #28
+  %40 = load i32, ptr %39, align 4
+  %.not25 = icmp eq i32 %40, 2
+  br i1 %.not25, label %43, label %41
 
-43:                                               ; preds = %40
-  %44 = tail call ptr @g_strerror(i32 noundef %42) #28
-  tail call void (ptr, ...) @report_warning(ptr noundef nonnull @.str.15, ptr noundef %31, ptr noundef %44) #24
-  br label %46
+41:                                               ; preds = %38
+  %42 = tail call ptr @g_strerror(i32 noundef %40) #28
+  tail call void (ptr, ...) @report_warning(ptr noundef nonnull @.str.15, ptr noundef %29, ptr noundef %42) #24
+  br label %44
 
-45:                                               ; preds = %40
-  tail call void @g_free(ptr noundef %31) #24
-  br label %46
+43:                                               ; preds = %38
+  tail call void @g_free(ptr noundef %29) #24
+  br label %44
 
-46:                                               ; preds = %43, %45, %38
+44:                                               ; preds = %41, %43, %36
   tail call void @oids_init() #24
   ret ptr @prefs
 }
@@ -10511,7 +10507,7 @@ define internal noundef i32 @column_hidden_set_cb(ptr nocapture noundef readonly
   %6 = load ptr, ptr %5, align 8
   %7 = load ptr, ptr %6, align 8
   %.not.i = icmp eq ptr %7, null
-  br i1 %.not.i, label %13, label %8
+  br i1 %.not.i, label %12, label %8
 
 8:                                                ; preds = %3
   %9 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %7, ptr noundef nonnull dereferenceable(1) %1) #27
@@ -10521,74 +10517,69 @@ define internal noundef i32 @column_hidden_set_cb(ptr nocapture noundef readonly
 prefs_get_effect_flags.exit44.i:                  ; preds = %8
   %10 = getelementptr inbounds i8, ptr %0, i64 32
   %11 = load i32, ptr %10, align 8
-  tail call void @g_free(ptr noundef nonnull %7) #24
-  %12 = tail call noalias ptr @g_strdup(ptr noundef %1) #24
   br label %prefs_set_string_value.exit.sink.split
 
-13:                                               ; preds = %3
+12:                                               ; preds = %3
   %.not33.i = icmp eq ptr %1, null
-  br i1 %.not33.i, label %prefs_set_string_value.exit, label %14
+  br i1 %.not33.i, label %prefs_set_string_value.exit, label %prefs_set_string_value.exit.sink.split
 
-14:                                               ; preds = %13
-  tail call void @g_free(ptr noundef null) #24
-  %15 = tail call noalias ptr @g_strdup(ptr noundef nonnull %1) #24
-  br label %prefs_set_string_value.exit.sink.split
-
-prefs_set_string_value.exit.sink.split:           ; preds = %14, %prefs_get_effect_flags.exit44.i
-  %.sink = phi ptr [ %12, %prefs_get_effect_flags.exit44.i ], [ %15, %14 ]
-  %.0.i.ph = phi i32 [ %11, %prefs_get_effect_flags.exit44.i ], [ 0, %14 ]
-  %16 = load ptr, ptr %5, align 8
-  store ptr %.sink, ptr %16, align 8
+prefs_set_string_value.exit.sink.split:           ; preds = %12, %prefs_get_effect_flags.exit44.i
+  %.sink = phi ptr [ %7, %prefs_get_effect_flags.exit44.i ], [ null, %12 ]
+  %.0.i.ph = phi i32 [ %11, %prefs_get_effect_flags.exit44.i ], [ 0, %12 ]
+  tail call void @g_free(ptr noundef %.sink) #24
+  %13 = tail call noalias ptr @g_strdup(ptr noundef %1) #24
+  %14 = load ptr, ptr %5, align 8
+  store ptr %13, ptr %14, align 8
   br label %prefs_set_string_value.exit
 
-prefs_set_string_value.exit:                      ; preds = %prefs_set_string_value.exit.sink.split, %8, %13
-  %.0.i = phi i32 [ 0, %8 ], [ 0, %13 ], [ %.0.i.ph, %prefs_set_string_value.exit.sink.split ]
-  %17 = load i32, ptr %2, align 4
-  %18 = or i32 %17, %.0.i
-  store i32 %18, ptr %2, align 4
-  %19 = load ptr, ptr @gui_column_module, align 8, !nonnull !40, !noundef !40
+prefs_set_string_value.exit:                      ; preds = %prefs_set_string_value.exit.sink.split, %8, %12
+  %.0.i = phi i32 [ 0, %8 ], [ 0, %12 ], [ %.0.i.ph, %prefs_set_string_value.exit.sink.split ]
+  %15 = load i32, ptr %2, align 4
+  %16 = or i32 %15, %.0.i
+  store i32 %16, ptr %2, align 4
+  %17 = load ptr, ptr @gui_column_module, align 8, !nonnull !40, !noundef !40
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4)
-  %20 = getelementptr inbounds i8, ptr %19, i64 32
-  %21 = load ptr, ptr %20, align 8
-  %22 = tail call ptr @g_list_find_custom(ptr noundef %21, ptr noundef nonnull @.str.129, ptr noundef nonnull @preference_match) #24
-  %23 = getelementptr inbounds i8, ptr %4, i64 16
-  store ptr null, ptr %23, align 8
-  %24 = icmp eq ptr %22, null
-  br i1 %24, label %25, label %.thread.i.i
+  %18 = getelementptr inbounds i8, ptr %17, i64 32
+  %19 = load ptr, ptr %18, align 8
+  %20 = tail call ptr @g_list_find_custom(ptr noundef %19, ptr noundef nonnull @.str.129, ptr noundef nonnull @preference_match) #24
+  %21 = getelementptr inbounds i8, ptr %4, i64 16
+  store ptr null, ptr %21, align 8
+  %22 = icmp eq ptr %20, null
+  br i1 %22, label %23, label %.thread.i.i
 
-25:                                               ; preds = %prefs_set_string_value.exit
+23:                                               ; preds = %prefs_set_string_value.exit
   store ptr null, ptr %4, align 8
-  %26 = getelementptr inbounds i8, ptr %19, i64 48
-  %27 = load ptr, ptr %26, align 8, !nonnull !40, !noundef !40
-  %28 = getelementptr inbounds i8, ptr %4, i64 8
-  store ptr @.str.129, ptr %28, align 8
-  %29 = call zeroext i1 @wmem_tree_foreach(ptr noundef nonnull %27, ptr noundef nonnull @module_find_pref_cb, ptr noundef nonnull %4) #24
+  %24 = getelementptr inbounds i8, ptr %17, i64 48
+  %25 = load ptr, ptr %24, align 8, !nonnull !40, !noundef !40
+  %26 = getelementptr inbounds i8, ptr %4, i64 8
+  store ptr @.str.129, ptr %26, align 8
+  %27 = call zeroext i1 @wmem_tree_foreach(ptr noundef nonnull %25, ptr noundef nonnull @module_find_pref_cb, ptr noundef nonnull %4) #24
   %.pr.i.i = load ptr, ptr %4, align 8, !nonnull !40, !noundef !40
   br label %.thread.i.i
 
-.thread.i.i:                                      ; preds = %25, %prefs_set_string_value.exit
-  %.020.i.i = phi ptr [ %.pr.i.i, %25 ], [ %22, %prefs_set_string_value.exit ]
-  %30 = load ptr, ptr %.020.i.i, align 8
+.thread.i.i:                                      ; preds = %23, %prefs_set_string_value.exit
+  %.020.i.i = phi ptr [ %.pr.i.i, %23 ], [ %20, %prefs_set_string_value.exit ]
+  %28 = load ptr, ptr %.020.i.i, align 8
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4)
-  %31 = getelementptr inbounds i8, ptr %30, i64 40
-  %32 = load ptr, ptr %31, align 8
-  %.01011 = load ptr, ptr %32, align 8
+  %29 = getelementptr inbounds i8, ptr %28, i64 40
+  %30 = load ptr, ptr %29, align 8
+  %.01011 = load ptr, ptr %30, align 8
   %.not12 = icmp eq ptr %.01011, null
   br i1 %.not12, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.thread.i.i, %.lr.ph
   %.01014 = phi ptr [ %.010, %.lr.ph ], [ %.01011, %.thread.i.i ]
-  %.013 = phi i32 [ %39, %.lr.ph ], [ 1, %.thread.i.i ]
-  %33 = load ptr, ptr %.01014, align 8
-  %34 = load ptr, ptr %5, align 8
-  %35 = load ptr, ptr %34, align 8
-  %36 = call fastcc i32 @prefs_is_column_visible(ptr noundef %35, i32 noundef %.013)
-  %37 = getelementptr inbounds i8, ptr %33, i64 28
-  %38 = trunc nuw nsw i32 %36 to i8
-  store i8 %38, ptr %37, align 4
-  %39 = add i32 %.013, 1
-  %40 = getelementptr inbounds i8, ptr %.01014, i64 8
-  %.010 = load ptr, ptr %40, align 8
+  %.013 = phi i32 [ %37, %.lr.ph ], [ 1, %.thread.i.i ]
+  %31 = load ptr, ptr %.01014, align 8
+  %32 = load ptr, ptr %5, align 8
+  %33 = load ptr, ptr %32, align 8
+  %34 = call fastcc i32 @prefs_is_column_visible(ptr noundef %33, i32 noundef %.013)
+  %35 = getelementptr inbounds i8, ptr %31, i64 28
+  %36 = trunc nuw nsw i32 %34 to i8
+  store i8 %36, ptr %35, align 4
+  %37 = add i32 %.013, 1
+  %38 = getelementptr inbounds i8, ptr %.01014, i64 8
+  %.010 = load ptr, ptr %38, align 8
   %.not = icmp eq ptr %.010, null
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !41
 
@@ -10729,7 +10720,7 @@ define internal noundef i32 @column_hidden_fmt_set_cb(ptr nocapture noundef read
   %6 = load ptr, ptr %5, align 8
   %7 = load ptr, ptr %6, align 8
   %.not.i = icmp eq ptr %7, null
-  br i1 %.not.i, label %13, label %8
+  br i1 %.not.i, label %12, label %8
 
 8:                                                ; preds = %3
   %9 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %7, ptr noundef nonnull dereferenceable(1) %1) #27
@@ -10739,72 +10730,67 @@ define internal noundef i32 @column_hidden_fmt_set_cb(ptr nocapture noundef read
 prefs_get_effect_flags.exit44.i:                  ; preds = %8
   %10 = getelementptr inbounds i8, ptr %0, i64 32
   %11 = load i32, ptr %10, align 8
-  tail call void @g_free(ptr noundef nonnull %7) #24
-  %12 = tail call noalias ptr @g_strdup(ptr noundef %1) #24
   br label %prefs_set_string_value.exit.sink.split
 
-13:                                               ; preds = %3
+12:                                               ; preds = %3
   %.not33.i = icmp eq ptr %1, null
-  br i1 %.not33.i, label %prefs_set_string_value.exit, label %14
+  br i1 %.not33.i, label %prefs_set_string_value.exit, label %prefs_set_string_value.exit.sink.split
 
-14:                                               ; preds = %13
-  tail call void @g_free(ptr noundef null) #24
-  %15 = tail call noalias ptr @g_strdup(ptr noundef nonnull %1) #24
-  br label %prefs_set_string_value.exit.sink.split
-
-prefs_set_string_value.exit.sink.split:           ; preds = %14, %prefs_get_effect_flags.exit44.i
-  %.sink = phi ptr [ %12, %prefs_get_effect_flags.exit44.i ], [ %15, %14 ]
-  %.0.i.ph = phi i32 [ %11, %prefs_get_effect_flags.exit44.i ], [ 0, %14 ]
-  %16 = load ptr, ptr %5, align 8
-  store ptr %.sink, ptr %16, align 8
+prefs_set_string_value.exit.sink.split:           ; preds = %12, %prefs_get_effect_flags.exit44.i
+  %.sink = phi ptr [ %7, %prefs_get_effect_flags.exit44.i ], [ null, %12 ]
+  %.0.i.ph = phi i32 [ %11, %prefs_get_effect_flags.exit44.i ], [ 0, %12 ]
+  tail call void @g_free(ptr noundef %.sink) #24
+  %13 = tail call noalias ptr @g_strdup(ptr noundef %1) #24
+  %14 = load ptr, ptr %5, align 8
+  store ptr %13, ptr %14, align 8
   br label %prefs_set_string_value.exit
 
-prefs_set_string_value.exit:                      ; preds = %prefs_set_string_value.exit.sink.split, %8, %13
-  %.0.i = phi i32 [ 0, %8 ], [ 0, %13 ], [ %.0.i.ph, %prefs_set_string_value.exit.sink.split ]
-  %17 = load i32, ptr %2, align 4
-  %18 = or i32 %17, %.0.i
-  store i32 %18, ptr %2, align 4
-  %19 = load ptr, ptr @gui_column_module, align 8, !nonnull !40, !noundef !40
+prefs_set_string_value.exit:                      ; preds = %prefs_set_string_value.exit.sink.split, %8, %12
+  %.0.i = phi i32 [ 0, %8 ], [ 0, %12 ], [ %.0.i.ph, %prefs_set_string_value.exit.sink.split ]
+  %15 = load i32, ptr %2, align 4
+  %16 = or i32 %15, %.0.i
+  store i32 %16, ptr %2, align 4
+  %17 = load ptr, ptr @gui_column_module, align 8, !nonnull !40, !noundef !40
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4)
-  %20 = getelementptr inbounds i8, ptr %19, i64 32
-  %21 = load ptr, ptr %20, align 8
-  %22 = tail call ptr @g_list_find_custom(ptr noundef %21, ptr noundef nonnull @.str.129, ptr noundef nonnull @preference_match) #24
-  %23 = getelementptr inbounds i8, ptr %4, i64 16
-  store ptr null, ptr %23, align 8
-  %24 = icmp eq ptr %22, null
-  br i1 %24, label %25, label %.thread.i.i
+  %18 = getelementptr inbounds i8, ptr %17, i64 32
+  %19 = load ptr, ptr %18, align 8
+  %20 = tail call ptr @g_list_find_custom(ptr noundef %19, ptr noundef nonnull @.str.129, ptr noundef nonnull @preference_match) #24
+  %21 = getelementptr inbounds i8, ptr %4, i64 16
+  store ptr null, ptr %21, align 8
+  %22 = icmp eq ptr %20, null
+  br i1 %22, label %23, label %.thread.i.i
 
-25:                                               ; preds = %prefs_set_string_value.exit
+23:                                               ; preds = %prefs_set_string_value.exit
   store ptr null, ptr %4, align 8
-  %26 = getelementptr inbounds i8, ptr %19, i64 48
-  %27 = load ptr, ptr %26, align 8, !nonnull !40, !noundef !40
-  %28 = getelementptr inbounds i8, ptr %4, i64 8
-  store ptr @.str.129, ptr %28, align 8
-  %29 = call zeroext i1 @wmem_tree_foreach(ptr noundef nonnull %27, ptr noundef nonnull @module_find_pref_cb, ptr noundef nonnull %4) #24
+  %24 = getelementptr inbounds i8, ptr %17, i64 48
+  %25 = load ptr, ptr %24, align 8, !nonnull !40, !noundef !40
+  %26 = getelementptr inbounds i8, ptr %4, i64 8
+  store ptr @.str.129, ptr %26, align 8
+  %27 = call zeroext i1 @wmem_tree_foreach(ptr noundef nonnull %25, ptr noundef nonnull @module_find_pref_cb, ptr noundef nonnull %4) #24
   %.pr.i.i = load ptr, ptr %4, align 8, !nonnull !40, !noundef !40
   br label %.thread.i.i
 
-.thread.i.i:                                      ; preds = %25, %prefs_set_string_value.exit
-  %.020.i.i = phi ptr [ %.pr.i.i, %25 ], [ %22, %prefs_set_string_value.exit ]
-  %30 = load ptr, ptr %.020.i.i, align 8
+.thread.i.i:                                      ; preds = %23, %prefs_set_string_value.exit
+  %.020.i.i = phi ptr [ %.pr.i.i, %23 ], [ %20, %prefs_set_string_value.exit ]
+  %28 = load ptr, ptr %.020.i.i, align 8
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4)
-  %31 = getelementptr inbounds i8, ptr %30, i64 40
-  %32 = load ptr, ptr %31, align 8
-  %.010 = load ptr, ptr %32, align 8
+  %29 = getelementptr inbounds i8, ptr %28, i64 40
+  %30 = load ptr, ptr %29, align 8
+  %.010 = load ptr, ptr %30, align 8
   %.not11 = icmp eq ptr %.010, null
   br i1 %.not11, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.thread.i.i, %.lr.ph
   %.012 = phi ptr [ %.0, %.lr.ph ], [ %.010, %.thread.i.i ]
-  %33 = load ptr, ptr %.012, align 8
-  %34 = load ptr, ptr %5, align 8
-  %35 = load ptr, ptr %34, align 8
-  %36 = call fastcc i32 @prefs_is_column_fmt_visible(ptr noundef %35, ptr noundef %33)
-  %37 = getelementptr inbounds i8, ptr %33, i64 28
-  %38 = trunc nuw nsw i32 %36 to i8
-  store i8 %38, ptr %37, align 4
-  %39 = getelementptr inbounds i8, ptr %.012, i64 8
-  %.0 = load ptr, ptr %39, align 8
+  %31 = load ptr, ptr %.012, align 8
+  %32 = load ptr, ptr %5, align 8
+  %33 = load ptr, ptr %32, align 8
+  %34 = call fastcc i32 @prefs_is_column_fmt_visible(ptr noundef %33, ptr noundef %31)
+  %35 = getelementptr inbounds i8, ptr %31, i64 28
+  %36 = trunc nuw nsw i32 %34 to i8
+  store i8 %36, ptr %35, align 4
+  %37 = getelementptr inbounds i8, ptr %.012, i64 8
+  %.0 = load ptr, ptr %37, align 8
   %.not = icmp eq ptr %.0, null
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !43
 
@@ -11669,7 +11655,7 @@ define internal noundef i32 @colorized_frame_set_cb(ptr nocapture noundef readon
   %5 = load ptr, ptr %4, align 8
   %6 = load ptr, ptr %5, align 8
   %.not.i = icmp eq ptr %6, null
-  br i1 %.not.i, label %12, label %7
+  br i1 %.not.i, label %11, label %7
 
 7:                                                ; preds = %3
   %8 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %6, ptr noundef nonnull dereferenceable(1) %1) #27
@@ -11679,31 +11665,26 @@ define internal noundef i32 @colorized_frame_set_cb(ptr nocapture noundef readon
 prefs_get_effect_flags.exit44.i:                  ; preds = %7
   %9 = getelementptr inbounds i8, ptr %0, i64 32
   %10 = load i32, ptr %9, align 8
-  tail call void @g_free(ptr noundef nonnull %6) #24
-  %11 = tail call noalias ptr @g_strdup(ptr noundef %1) #24
   br label %prefs_set_string_value.exit.sink.split
 
-12:                                               ; preds = %3
+11:                                               ; preds = %3
   %.not33.i = icmp eq ptr %1, null
-  br i1 %.not33.i, label %prefs_set_string_value.exit, label %13
+  br i1 %.not33.i, label %prefs_set_string_value.exit, label %prefs_set_string_value.exit.sink.split
 
-13:                                               ; preds = %12
-  tail call void @g_free(ptr noundef null) #24
-  %14 = tail call noalias ptr @g_strdup(ptr noundef nonnull %1) #24
-  br label %prefs_set_string_value.exit.sink.split
-
-prefs_set_string_value.exit.sink.split:           ; preds = %13, %prefs_get_effect_flags.exit44.i
-  %.sink = phi ptr [ %11, %prefs_get_effect_flags.exit44.i ], [ %14, %13 ]
-  %.0.i.ph = phi i32 [ %10, %prefs_get_effect_flags.exit44.i ], [ 0, %13 ]
-  %15 = load ptr, ptr %4, align 8
-  store ptr %.sink, ptr %15, align 8
+prefs_set_string_value.exit.sink.split:           ; preds = %11, %prefs_get_effect_flags.exit44.i
+  %.sink = phi ptr [ %6, %prefs_get_effect_flags.exit44.i ], [ null, %11 ]
+  %.0.i.ph = phi i32 [ %10, %prefs_get_effect_flags.exit44.i ], [ 0, %11 ]
+  tail call void @g_free(ptr noundef %.sink) #24
+  %12 = tail call noalias ptr @g_strdup(ptr noundef %1) #24
+  %13 = load ptr, ptr %4, align 8
+  store ptr %12, ptr %13, align 8
   br label %prefs_set_string_value.exit
 
-prefs_set_string_value.exit:                      ; preds = %prefs_set_string_value.exit.sink.split, %7, %12
-  %.0.i = phi i32 [ 0, %7 ], [ 0, %12 ], [ %.0.i.ph, %prefs_set_string_value.exit.sink.split ]
-  %16 = load i32, ptr %2, align 4
-  %17 = or i32 %16, %.0.i
-  store i32 %17, ptr %2, align 4
+prefs_set_string_value.exit:                      ; preds = %prefs_set_string_value.exit.sink.split, %7, %11
+  %.0.i = phi i32 [ 0, %7 ], [ 0, %11 ], [ %.0.i.ph, %prefs_set_string_value.exit.sink.split ]
+  %14 = load i32, ptr %2, align 4
+  %15 = or i32 %14, %.0.i
+  store i32 %15, ptr %2, align 4
   ret i32 0
 }
 
@@ -12102,7 +12083,7 @@ declare void @g_string_append_printf(ptr noundef, ptr noundef, ...) local_unname
 define internal fastcc range(i32 0, 2) i32 @prefs_is_column_fmt_visible(ptr noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #1 {
   %3 = alloca %struct._fmt_data, align 8
   %.not = icmp eq ptr %0, null
-  br i1 %.not, label %45, label %4
+  br i1 %.not, label %43, label %4
 
 4:                                                ; preds = %2
   %5 = tail call noalias ptr @g_strdup(ptr noundef nonnull %0) #24
@@ -12121,13 +12102,13 @@ define internal fastcc range(i32 0, 2) i32 @prefs_is_column_fmt_visible(ptr noun
   %14 = getelementptr inbounds i8, ptr %3, i64 29
   br label %15
 
-15:                                               ; preds = %.lr.ph, %43
-  %.01629 = phi ptr [ %6, %.lr.ph ], [ %44, %43 ]
+15:                                               ; preds = %.lr.ph, %41
+  %.01629 = phi ptr [ %6, %.lr.ph ], [ %42, %41 ]
   %16 = call ptr @g_strchug(ptr noundef nonnull %.01629) #24
   %17 = call ptr @g_strchomp(ptr noundef %16) #24
   %18 = call i32 @parse_column_format(ptr noundef nonnull %3, ptr noundef %17) #24
   %.not22 = icmp eq i32 %18, 0
-  br i1 %.not22, label %43, label %19
+  br i1 %.not22, label %41, label %19
 
 19:                                               ; preds = %15
   %20 = load i32, ptr %7, align 8
@@ -12137,7 +12118,6 @@ define internal fastcc range(i32 0, 2) i32 @prefs_is_column_fmt_visible(ptr noun
 
 22:                                               ; preds = %19
   %23 = load ptr, ptr %9, align 8
-  call void @g_free(ptr noundef %23) #24
   br label %.sink.split
 
 24:                                               ; preds = %19
@@ -12145,59 +12125,53 @@ define internal fastcc range(i32 0, 2) i32 @prefs_is_column_fmt_visible(ptr noun
   %26 = load ptr, ptr %9, align 8
   %27 = icmp ne ptr %26, null
   %or.cond = select i1 %25, i1 %27, i1 false
-  br i1 %or.cond, label %28, label %42
+  br i1 %or.cond, label %28, label %40
 
 28:                                               ; preds = %24
   %29 = load ptr, ptr %10, align 8
   %.not24 = icmp eq ptr %29, null
-  br i1 %.not24, label %42, label %30
+  br i1 %.not24, label %40, label %30
 
 30:                                               ; preds = %28
   %31 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %29, ptr noundef nonnull dereferenceable(1) %26) #27
   %.not25 = icmp eq i32 %31, 0
-  br i1 %.not25, label %33, label %32
+  br i1 %.not25, label %32, label %.sink.split
 
 32:                                               ; preds = %30
-  call void @g_free(ptr noundef nonnull %26) #24
-  br label %.sink.split
+  %33 = load i32, ptr %11, align 8
+  %34 = load i32, ptr %12, align 8
+  %.not26 = icmp eq i32 %33, %34
+  br i1 %.not26, label %35, label %.sink.split
 
-33:                                               ; preds = %30
-  %34 = load i32, ptr %11, align 8
-  %35 = load i32, ptr %12, align 8
-  %.not26 = icmp eq i32 %34, %35
-  br i1 %.not26, label %36, label %41
+35:                                               ; preds = %32
+  %36 = load i8, ptr %13, align 1
+  %37 = load i8, ptr %14, align 1
+  %38 = xor i8 %37, %36
+  %39 = and i8 %38, 1
+  %.not27 = icmp eq i8 %39, 0
+  br i1 %.not27, label %40, label %.sink.split
 
-36:                                               ; preds = %33
-  %37 = load i8, ptr %13, align 1
-  %38 = load i8, ptr %14, align 1
-  %39 = xor i8 %38, %37
-  %40 = and i8 %39, 1
-  %.not27 = icmp eq i8 %40, 0
-  br i1 %.not27, label %42, label %41
-
-41:                                               ; preds = %36, %33
-  call void @g_free(ptr noundef nonnull %26) #24
-  br label %.sink.split
-
-42:                                               ; preds = %28, %36, %24
+40:                                               ; preds = %28, %35, %24
   call void @g_free(ptr noundef %26) #24
   br label %.sink.split30
 
-.sink.split:                                      ; preds = %22, %32, %41
+.sink.split:                                      ; preds = %32, %35, %30, %22
+  %.sink = phi ptr [ %23, %22 ], [ %26, %30 ], [ %26, %35 ], [ %26, %32 ]
+  call void @g_free(ptr noundef %.sink) #24
   store ptr null, ptr %9, align 8
-  br label %43
+  br label %41
 
-43:                                               ; preds = %.sink.split, %15
-  %44 = call ptr @strtok(ptr noundef null, ptr noundef nonnull @.str.29) #24
-  %.not21 = icmp eq ptr %44, null
+41:                                               ; preds = %.sink.split, %15
+  %42 = call ptr @strtok(ptr noundef null, ptr noundef nonnull @.str.29) #24
+  %.not21 = icmp eq ptr %42, null
   br i1 %.not21, label %.sink.split30, label %15, !llvm.loop !59
 
-.sink.split30:                                    ; preds = %43, %4, %42
-  %.0.ph = phi i32 [ 0, %42 ], [ 1, %4 ], [ 1, %43 ]
+.sink.split30:                                    ; preds = %41, %4, %40
+  %.0.ph = phi i32 [ 0, %40 ], [ 1, %4 ], [ 1, %41 ]
   call void @g_free(ptr noundef %5) #24
-  br label %45
+  br label %43
 
-45:                                               ; preds = %.sink.split30, %2
+43:                                               ; preds = %.sink.split30, %2
   %.0 = phi i32 [ 1, %2 ], [ %.0.ph, %.sink.split30 ]
   ret i32 %.0
 }

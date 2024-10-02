@@ -273,53 +273,41 @@ define internal void @pic_textspan(ptr noundef %0, double %1, double %2, ptr noc
 19:                                               ; preds = %._crit_edge
   %20 = load ptr, ptr @pic_textspan.lastname, align 8
   %.not25 = icmp eq ptr %20, null
-  br i1 %.not25, label %strview.exit, label %21
+  br i1 %.not25, label %23, label %21
 
 21:                                               ; preds = %19
   %22 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %20, ptr noundef nonnull dereferenceable(1) %18) #8
   %.not26 = icmp eq i32 %22, 0
-  br i1 %.not26, label %45, label %strview.exit
+  br i1 %.not26, label %45, label %23
 
-strview.exit:                                     ; preds = %21, %19
-  %strlen.i = tail call i64 @strlen(ptr nonnull dereferenceable(1) %18)
-  %23 = ptrtoint ptr %18 to i64
+23:                                               ; preds = %21, %19
+  %24 = tail call i64 @strlen(ptr nonnull dereferenceable(1) %18)
+  %25 = ptrtoint ptr %18 to i64
   br label %tailrecurse.i
 
-tailrecurse.i:                                    ; preds = %40, %strview.exit
-  %.tr15.i = phi i64 [ %strlen.i, %strview.exit ], [ %42, %40 ]
-  br label %26
+tailrecurse.i:                                    ; preds = %40, %23
+  %.tr15.i = phi i64 [ %24, %23 ], [ %42, %40 ]
+  br label %28
 
-24:                                               ; preds = %strview_str_eq.exit.i
-  %25 = add nuw nsw i64 %.01317.i, 1
-  %exitcond.not.i = icmp eq i64 %25, 33
-  br i1 %exitcond.not.i, label %36, label %26
+26:                                               ; preds = %28
+  %27 = add nuw nsw i64 %.01317.i, 1
+  %exitcond.not.i = icmp eq i64 %27, 33
+  br i1 %exitcond.not.i, label %36, label %28
 
-26:                                               ; preds = %24, %tailrecurse.i
-  %.01317.i = phi i64 [ 0, %tailrecurse.i ], [ %25, %24 ]
-  %27 = getelementptr inbounds [33 x %struct.fontinfo], ptr @fonttab, i64 0, i64 %.01317.i
-  %28 = getelementptr inbounds i8, ptr %27, i64 8
-  %29 = load ptr, ptr %28, align 8
-  %.not.i.i.i = icmp eq ptr %29, null
-  br i1 %.not.i.i.i, label %31, label %30
-
-30:                                               ; preds = %26
-  %strlen.i.i.i = tail call i64 @strlen(ptr nonnull readonly dereferenceable(1) %29)
-  br label %strview_str_eq.exit.i
-
-31:                                               ; preds = %26
-  %32 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) null) #8
-  br label %strview_str_eq.exit.i
-
-strview_str_eq.exit.i:                            ; preds = %31, %30
-  %.sroa.3.0.i.i.i = phi i64 [ %strlen.i.i.i, %30 ], [ %32, %31 ]
-  %33 = tail call i64 @llvm.umin.i64(i64 %.tr15.i, i64 %.sroa.3.0.i.i.i)
-  %34 = tail call i32 @strncmp(ptr noundef nonnull readonly %18, ptr noundef readonly %29, i64 noundef %33) #8
+28:                                               ; preds = %26, %tailrecurse.i
+  %.01317.i = phi i64 [ 0, %tailrecurse.i ], [ %27, %26 ]
+  %29 = getelementptr inbounds [33 x %struct.fontinfo], ptr @fonttab, i64 0, i64 %.01317.i
+  %30 = getelementptr inbounds i8, ptr %29, i64 8
+  %31 = load ptr, ptr %30, align 8, !nonnull !4, !noundef !4
+  %32 = tail call i64 @strlen(ptr nonnull readonly dereferenceable(1) %31)
+  %33 = tail call i64 @llvm.umin.i64(i64 %.tr15.i, i64 %32)
+  %34 = tail call i32 @strncmp(ptr noundef nonnull readonly %18, ptr noundef nonnull readonly %31, i64 noundef %33) #8
   %.not.i.i.i.i = icmp eq i32 %34, 0
-  %35 = icmp eq i64 %.tr15.i, %.sroa.3.0.i.i.i
+  %35 = icmp eq i64 %.tr15.i, %32
   %spec.select.i.i.i = and i1 %35, %.not.i.i.i.i
-  br i1 %spec.select.i.i.i, label %picfontname.exit, label %24
+  br i1 %spec.select.i.i.i, label %picfontname.exit, label %26
 
-36:                                               ; preds = %24
+36:                                               ; preds = %26
   %37 = trunc i64 %.tr15.i to i32
   %38 = tail call i32 (i32, ptr, ...) @agerr(i32 noundef 1, ptr noundef nonnull @.str.47, ptr noundef nonnull @picgen_msghdr, i32 noundef %37, ptr noundef nonnull %18) #7
   %39 = tail call ptr @memrchr(ptr noundef nonnull %18, i32 noundef 45, i64 noundef %.tr15.i)
@@ -328,11 +316,11 @@ strview_str_eq.exit.i:                            ; preds = %31, %30
 
 40:                                               ; preds = %36
   %41 = ptrtoint ptr %39 to i64
-  %42 = sub i64 %41, %23
+  %42 = sub i64 %41, %25
   br label %tailrecurse.i
 
-picfontname.exit:                                 ; preds = %36, %strview_str_eq.exit.i
-  %.0.i = phi ptr [ %27, %strview_str_eq.exit.i ], [ @.str.48, %36 ]
+picfontname.exit:                                 ; preds = %36, %28
+  %.0.i = phi ptr [ %29, %28 ], [ @.str.48, %36 ]
   tail call void (ptr, ptr, ...) @gvprintf(ptr noundef %0, ptr noundef nonnull @.str.44, ptr noundef nonnull %.0.i) #7
   %43 = load ptr, ptr %14, align 8
   %44 = load ptr, ptr %43, align 8
@@ -604,3 +592,4 @@ attributes #8 = { nounwind willreturn memory(read) }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
+!4 = !{}

@@ -237,79 +237,75 @@ define i32 @temp_kvs_send() local_unnamed_addr #0 {
   %1 = alloca ptr, align 8
   store ptr null, ptr %1, align 8
   %2 = tail call zeroext i1 @in_stepd() #5
-  br i1 %2, label %6, label %3
+  br i1 %2, label %5, label %3
 
 3:                                                ; preds = %0
   %4 = load ptr, ptr getelementptr inbounds (i8, ptr @job_info, i64 48), align 8
-  %5 = tail call ptr @slurm_xstrdup(ptr noundef %4) #5
   br label %.sink.split
 
-6:                                                ; preds = %0
-  %7 = load ptr, ptr getelementptr inbounds (i8, ptr @tree_info, i64 8), align 8
-  %.not = icmp eq ptr %7, null
-  br i1 %.not, label %10, label %8
+5:                                                ; preds = %0
+  %6 = load ptr, ptr getelementptr inbounds (i8, ptr @tree_info, i64 8), align 8
+  %.not = icmp eq ptr %6, null
+  br i1 %.not, label %8, label %.sink.split
 
-8:                                                ; preds = %6
-  %9 = tail call ptr @slurm_xstrdup(ptr noundef nonnull %7) #5
-  br label %.sink.split
+.sink.split:                                      ; preds = %5, %3
+  %.sink12 = phi ptr [ %4, %3 ], [ %6, %5 ]
+  %7 = tail call ptr @slurm_xstrdup(ptr noundef %.sink12) #5
+  store ptr %7, ptr %1, align 8
+  br label %8
 
-.sink.split:                                      ; preds = %3, %8
-  %.sink = phi ptr [ %9, %8 ], [ %5, %3 ]
-  store ptr %.sink, ptr %1, align 8
-  br label %10
+8:                                                ; preds = %.sink.split, %5
+  %9 = load i32, ptr @kvs_seq, align 4
+  %10 = add nsw i32 %9, 1
+  store i32 %10, ptr @kvs_seq, align 4
+  br label %11
 
-10:                                               ; preds = %.sink.split, %6
-  %11 = load i32, ptr @kvs_seq, align 4
-  %12 = add nsw i32 %11, 1
-  store i32 %12, ptr @kvs_seq, align 4
-  br label %13
+11:                                               ; preds = %28, %8
+  %.08 = phi i32 [ -1, %8 ], [ %.1, %28 ]
+  %.07 = phi i32 [ 0, %8 ], [ %29, %28 ]
+  %.0 = phi i32 [ 1, %8 ], [ %31, %28 ]
+  %12 = icmp eq i32 %.07, 1
+  br i1 %12, label %13, label %17
 
-13:                                               ; preds = %30, %10
-  %.08 = phi i32 [ -1, %10 ], [ %.1, %30 ]
-  %.07 = phi i32 [ 0, %10 ], [ %31, %30 ]
-  %.0 = phi i32 [ 1, %10 ], [ %33, %30 ]
-  %14 = icmp eq i32 %.07, 1
-  br i1 %14, label %15, label %19
+13:                                               ; preds = %11
+  %14 = call i32 @slurm_get_log_level() #5
+  %15 = icmp sgt i32 %14, 3
+  br i1 %15, label %16, label %17
 
-15:                                               ; preds = %13
-  %16 = call i32 @slurm_get_log_level() #5
-  %17 = icmp sgt i32 %16, 3
-  br i1 %17, label %18, label %19
-
-18:                                               ; preds = %15
+16:                                               ; preds = %13
   call void (i32, ptr, ...) @slurm_log_var(i32 noundef 4, ptr noundef nonnull @.str.1, ptr noundef nonnull @plugin_type, ptr noundef nonnull @__func__.temp_kvs_send, i32 noundef %.08) #5
-  br label %19
+  br label %17
 
-19:                                               ; preds = %15, %18, %13
-  %20 = load ptr, ptr %1, align 8
-  %.not11 = icmp eq ptr %20, null
-  %21 = load i32, ptr @temp_kvs_cnt, align 4
-  %22 = load ptr, ptr @temp_kvs_buf, align 8
-  br i1 %.not11, label %25, label %23
+17:                                               ; preds = %13, %16, %11
+  %18 = load ptr, ptr %1, align 8
+  %.not11 = icmp eq ptr %18, null
+  %19 = load i32, ptr @temp_kvs_cnt, align 4
+  %20 = load ptr, ptr @temp_kvs_buf, align 8
+  br i1 %.not11, label %23, label %21
 
-23:                                               ; preds = %19
-  %24 = call i32 @slurm_forward_data(ptr noundef nonnull %1, ptr noundef nonnull @tree_sock_addr, i32 noundef %21, ptr noundef %22) #5
-  br label %27
+21:                                               ; preds = %17
+  %22 = call i32 @slurm_forward_data(ptr noundef nonnull %1, ptr noundef nonnull @tree_sock_addr, i32 noundef %19, ptr noundef %20) #5
+  br label %25
 
-25:                                               ; preds = %19
-  %26 = call i32 @tree_msg_to_srun(i32 noundef %21, ptr noundef %22) #5
-  br label %27
+23:                                               ; preds = %17
+  %24 = call i32 @tree_msg_to_srun(i32 noundef %19, ptr noundef %20) #5
+  br label %25
 
-27:                                               ; preds = %25, %23
-  %.1 = phi i32 [ %24, %23 ], [ %26, %25 ]
-  %28 = icmp eq i32 %.1, 0
-  %29 = icmp ugt i32 %.07, 3
-  %or.cond = or i1 %29, %28
-  br i1 %or.cond, label %34, label %30
+25:                                               ; preds = %23, %21
+  %.1 = phi i32 [ %22, %21 ], [ %24, %23 ]
+  %26 = icmp eq i32 %.1, 0
+  %27 = icmp ugt i32 %.07, 3
+  %or.cond = or i1 %27, %26
+  br i1 %or.cond, label %32, label %28
 
-30:                                               ; preds = %27
-  %31 = add nuw nsw i32 %.07, 1
-  %32 = call i32 @sleep(i32 noundef %.0) #5
-  %33 = shl i32 %.0, 1
-  br label %13
+28:                                               ; preds = %25
+  %29 = add nuw nsw i32 %.07, 1
+  %30 = call i32 @sleep(i32 noundef %.0) #5
+  %31 = shl i32 %.0, 1
+  br label %11
 
-34:                                               ; preds = %27
-  %35 = call i32 @temp_kvs_init()
+32:                                               ; preds = %25
+  %33 = call i32 @temp_kvs_init()
   call void @slurm_xfree(ptr noundef nonnull %1) #5
   ret i32 %.1
 }

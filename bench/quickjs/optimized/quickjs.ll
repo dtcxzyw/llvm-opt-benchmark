@@ -2981,474 +2981,482 @@ define dso_local void @JS_RunGC(ptr noundef %0) local_unnamed_addr #0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 136
   %5 = getelementptr inbounds i8, ptr %0, i64 144
   %6 = load ptr, ptr %5, align 8
-  %.not94.i = icmp eq ptr %6, %4
-  br i1 %.not94.i, label %gc_decref.exit, label %.lr.ph.i
+  %.not18.i = icmp eq ptr %6, %4
+  br i1 %.not18.i, label %gc_decref.exit, label %.lr.ph.i.preheader
 
-.lr.ph.i:                                         ; preds = %1
+.lr.ph.i.preheader:                               ; preds = %1
   %7 = getelementptr inbounds i8, ptr %0, i64 108
   %8 = getelementptr inbounds i8, ptr %0, i64 112
-  br label %9
+  br label %.lr.ph.i
 
-9:                                                ; preds = %905, %.lr.ph.i
-  %.095.i = phi ptr [ %6, %.lr.ph.i ], [ %.01597.i, %905 ]
-  %.015.in96.i = getelementptr inbounds i8, ptr %.095.i, i64 8
-  %.01597.i = load ptr, ptr %.015.in96.i, align 8
-  %10 = getelementptr i8, ptr %.095.i, i64 -8
-  %11 = getelementptr i8, ptr %.095.i, i64 -4
-  %12 = load i8, ptr %11, align 4
-  %13 = and i8 %12, 15
-  switch i8 %13, label %893 [
-    i8 0, label %18
-    i8 1, label %.preheader.i.i
-    i8 3, label %175
-    i8 4, label %222
-    i8 2, label %345
-    i8 5, label %364
+.lr.ph.i:                                         ; preds = %.lr.ph.i.preheader, %883
+  %.019.i = phi ptr [ %.01521.i, %883 ], [ %6, %.lr.ph.i.preheader ]
+  %.015.in20.i = getelementptr inbounds i8, ptr %.019.i, i64 8
+  %.01521.i = load ptr, ptr %.015.in20.i, align 8
+  %9 = getelementptr i8, ptr %.019.i, i64 -8
+  %10 = getelementptr i8, ptr %.019.i, i64 -4
+  %11 = load i8, ptr %10, align 4
+  %12 = and i8 %11, 15
+  switch i8 %12, label %871 [
+    i8 0, label %17
+    i8 1, label %.preheader.i
+    i8 3, label %153
+    i8 4, label %200
+    i8 2, label %323
+    i8 5, label %342
   ]
 
-.preheader.i.i:                                   ; preds = %9
-  %14 = getelementptr i8, ptr %.095.i, i64 80
-  %15 = load i32, ptr %14, align 8
-  %16 = icmp sgt i32 %15, 0
-  br i1 %16, label %.lr.ph133.i.i, label %._crit_edge.i.i
+.preheader.i:                                     ; preds = %.lr.ph.i
+  %13 = getelementptr i8, ptr %.019.i, i64 80
+  %14 = load i32, ptr %13, align 8
+  %15 = icmp sgt i32 %14, 0
+  br i1 %15, label %.lr.ph133.i, label %._crit_edge.i28
 
-.lr.ph133.i.i:                                    ; preds = %.preheader.i.i
-  %17 = getelementptr i8, ptr %.095.i, i64 72
-  br label %129
+.lr.ph133.i:                                      ; preds = %.preheader.i
+  %16 = getelementptr i8, ptr %.019.i, i64 72
+  br label %107
 
-18:                                               ; preds = %9
-  %19 = getelementptr i8, ptr %.095.i, i64 16
-  %20 = load ptr, ptr %19, align 8
-  %21 = load i32, ptr %20, align 8
-  %22 = add i32 %21, -1
-  store i32 %22, ptr %20, align 8
-  %23 = icmp eq i32 %22, 0
-  br i1 %23, label %24, label %gc_decref_child.exit91.i
+17:                                               ; preds = %.lr.ph.i
+  %18 = getelementptr i8, ptr %.019.i, i64 16
+  %19 = load ptr, ptr %18, align 8
+  %20 = load i32, ptr %19, align 8
+  %21 = add i32 %20, -1
+  store i32 %21, ptr %19, align 8
+  %22 = icmp eq i32 %21, 0
+  br i1 %22, label %23, label %gc_decref_child.exit99
 
-24:                                               ; preds = %18
-  %25 = getelementptr inbounds i8, ptr %20, i64 4
-  %26 = load i8, ptr %25, align 4
-  %.mask.i90.i = and i8 %26, -16
-  %27 = icmp eq i8 %.mask.i90.i, 16
-  br i1 %27, label %28, label %gc_decref_child.exit91.i
+23:                                               ; preds = %17
+  %24 = getelementptr inbounds i8, ptr %19, i64 4
+  %25 = load i8, ptr %24, align 4
+  %.mask.i98 = and i8 %25, -16
+  %26 = icmp eq i8 %.mask.i98, 16
+  br i1 %26, label %27, label %gc_decref_child.exit99
 
-28:                                               ; preds = %24
-  %29 = getelementptr inbounds i8, ptr %20, i64 8
-  %30 = load ptr, ptr %29, align 8
-  %31 = getelementptr inbounds i8, ptr %20, i64 16
-  %32 = load ptr, ptr %31, align 8
-  %33 = getelementptr inbounds i8, ptr %30, i64 8
-  store ptr %32, ptr %33, align 8
-  store ptr %30, ptr %32, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %29, i8 0, i64 16, i1 false)
-  %34 = load ptr, ptr %2, align 8
-  %35 = getelementptr inbounds i8, ptr %34, i64 8
-  store ptr %29, ptr %35, align 8
-  store ptr %34, ptr %29, align 8
-  store ptr %2, ptr %31, align 8
-  store ptr %29, ptr %2, align 8
-  br label %gc_decref_child.exit91.i
+27:                                               ; preds = %23
+  %28 = getelementptr inbounds i8, ptr %19, i64 8
+  %29 = load ptr, ptr %28, align 8
+  %30 = getelementptr inbounds i8, ptr %19, i64 16
+  %31 = load ptr, ptr %30, align 8
+  %32 = getelementptr inbounds i8, ptr %29, i64 8
+  store ptr %31, ptr %32, align 8
+  store ptr %29, ptr %31, align 8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %28, i8 0, i64 16, i1 false)
+  %33 = load ptr, ptr %2, align 8
+  %34 = getelementptr inbounds i8, ptr %33, i64 8
+  store ptr %28, ptr %34, align 8
+  store ptr %33, ptr %28, align 8
+  store ptr %2, ptr %30, align 8
+  store ptr %28, ptr %2, align 8
+  br label %gc_decref_child.exit99
 
-gc_decref_child.exit91.i:                         ; preds = %28, %24, %18
-  %36 = getelementptr inbounds i8, ptr %20, i64 40
-  %37 = load i32, ptr %36, align 8
-  %38 = icmp sgt i32 %37, 0
-  br i1 %38, label %.lr.ph137.i.i, label %._crit_edge138.i.i
+gc_decref_child.exit99:                           ; preds = %17, %23, %27
+  %35 = getelementptr inbounds i8, ptr %19, i64 40
+  %36 = load i32, ptr %35, align 8
+  %37 = icmp sgt i32 %36, 0
+  br i1 %37, label %.lr.ph137.i, label %._crit_edge138.i
 
-.lr.ph137.i.i:                                    ; preds = %gc_decref_child.exit91.i
-  %39 = getelementptr inbounds i8, ptr %20, i64 64
-  %40 = getelementptr i8, ptr %.095.i, i64 24
-  br label %41
+.lr.ph137.i:                                      ; preds = %gc_decref_child.exit99
+  %38 = getelementptr inbounds i8, ptr %19, i64 64
+  %39 = getelementptr i8, ptr %.019.i, i64 24
+  br label %40
 
-41:                                               ; preds = %JS_MarkValue.exit.i.i, %.lr.ph137.i.i
-  %indvars.iv140.i.i = phi i64 [ 0, %.lr.ph137.i.i ], [ %indvars.iv.next141.i.i, %JS_MarkValue.exit.i.i ]
-  %.0135.i.i = phi ptr [ %39, %.lr.ph137.i.i ], [ %117, %JS_MarkValue.exit.i.i ]
-  %42 = load ptr, ptr %40, align 8
-  %43 = getelementptr %struct.JSProperty, ptr %42, i64 %indvars.iv140.i.i
-  %44 = getelementptr inbounds i8, ptr %.0135.i.i, i64 4
-  %45 = load i32, ptr %44, align 4
-  %.not113.i.i = icmp eq i32 %45, 0
-  br i1 %.not113.i.i, label %JS_MarkValue.exit.i.i, label %46
+40:                                               ; preds = %JS_MarkValue.exit.i, %.lr.ph137.i
+  %indvars.iv140.i = phi i64 [ 0, %.lr.ph137.i ], [ %indvars.iv.next141.i, %JS_MarkValue.exit.i ]
+  %.0135.i = phi ptr [ %38, %.lr.ph137.i ], [ %95, %JS_MarkValue.exit.i ]
+  %41 = load ptr, ptr %39, align 8
+  %42 = getelementptr %struct.JSProperty, ptr %41, i64 %indvars.iv140.i
+  %43 = getelementptr inbounds i8, ptr %.0135.i, i64 4
+  %44 = load i32, ptr %43, align 4
+  %.not113.i = icmp eq i32 %44, 0
+  br i1 %.not113.i, label %JS_MarkValue.exit.i, label %45
 
-46:                                               ; preds = %41
-  %47 = load i32, ptr %.0135.i.i, align 4
-  %48 = lshr i32 %47, 30
-  switch i32 %48, label %.unreachabledefault [
-    i32 0, label %96
-    i32 1, label %49
-    i32 2, label %77
-    i32 3, label %86
+45:                                               ; preds = %40
+  %46 = load i32, ptr %.0135.i, align 4
+  %47 = lshr i32 %46, 30
+  switch i32 %47, label %.unreachabledefault [
+    i32 0, label %73
+    i32 1, label %48
+    i32 2, label %68
+    i32 3, label %70
   ]
 
-49:                                               ; preds = %46
-  %50 = load ptr, ptr %43, align 8
-  %.not115.i.i = icmp eq ptr %50, null
-  br i1 %.not115.i.i, label %gc_decref_child.exit89.i, label %51
+48:                                               ; preds = %45
+  %49 = load ptr, ptr %42, align 8
+  %.not115.i = icmp eq ptr %49, null
+  br i1 %.not115.i, label %gc_decref_child.exit97, label %50
 
-51:                                               ; preds = %49
-  %52 = load i32, ptr %50, align 8
-  %53 = add i32 %52, -1
-  store i32 %53, ptr %50, align 8
-  %54 = icmp eq i32 %53, 0
-  br i1 %54, label %55, label %gc_decref_child.exit89.i
+50:                                               ; preds = %48
+  %51 = load i32, ptr %49, align 8
+  %52 = add i32 %51, -1
+  store i32 %52, ptr %49, align 8
+  %53 = icmp eq i32 %52, 0
+  br i1 %53, label %54, label %gc_decref_child.exit97
 
-55:                                               ; preds = %51
-  %56 = getelementptr inbounds i8, ptr %50, i64 4
-  %57 = load i8, ptr %56, align 4
-  %.mask.i88.i = and i8 %57, -16
-  %58 = icmp eq i8 %.mask.i88.i, 16
-  br i1 %58, label %59, label %gc_decref_child.exit89.i
+54:                                               ; preds = %50
+  %55 = getelementptr inbounds i8, ptr %49, i64 4
+  %56 = load i8, ptr %55, align 4
+  %.mask.i96 = and i8 %56, -16
+  %57 = icmp eq i8 %.mask.i96, 16
+  br i1 %57, label %58, label %gc_decref_child.exit97
 
-59:                                               ; preds = %55
-  %60 = getelementptr inbounds i8, ptr %50, i64 8
-  %61 = load ptr, ptr %60, align 8
-  %62 = getelementptr inbounds i8, ptr %50, i64 16
-  %63 = load ptr, ptr %62, align 8
-  %64 = getelementptr inbounds i8, ptr %61, i64 8
-  store ptr %63, ptr %64, align 8
-  store ptr %61, ptr %63, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %60, i8 0, i64 16, i1 false)
-  %65 = load ptr, ptr %2, align 8
-  %66 = getelementptr inbounds i8, ptr %65, i64 8
-  store ptr %60, ptr %66, align 8
-  store ptr %65, ptr %60, align 8
-  store ptr %2, ptr %62, align 8
-  store ptr %60, ptr %2, align 8
-  br label %gc_decref_child.exit89.i
+58:                                               ; preds = %54
+  %59 = getelementptr inbounds i8, ptr %49, i64 8
+  %60 = load ptr, ptr %59, align 8
+  %61 = getelementptr inbounds i8, ptr %49, i64 16
+  %62 = load ptr, ptr %61, align 8
+  %63 = getelementptr inbounds i8, ptr %60, i64 8
+  store ptr %62, ptr %63, align 8
+  store ptr %60, ptr %62, align 8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %59, i8 0, i64 16, i1 false)
+  %64 = load ptr, ptr %2, align 8
+  %65 = getelementptr inbounds i8, ptr %64, i64 8
+  store ptr %59, ptr %65, align 8
+  store ptr %64, ptr %59, align 8
+  store ptr %2, ptr %61, align 8
+  store ptr %59, ptr %2, align 8
+  br label %gc_decref_child.exit97
 
-gc_decref_child.exit89.i:                         ; preds = %59, %55, %51, %49
-  %67 = getelementptr inbounds i8, ptr %43, i64 8
-  %68 = load ptr, ptr %67, align 8
-  %.not116.i.i = icmp eq ptr %68, null
-  br i1 %.not116.i.i, label %JS_MarkValue.exit.i.i, label %69
+gc_decref_child.exit97:                           ; preds = %58, %54, %50, %48
+  %66 = getelementptr inbounds i8, ptr %42, i64 8
+  %67 = load ptr, ptr %66, align 8
+  %.not116.i = icmp eq ptr %67, null
+  br i1 %.not116.i, label %JS_MarkValue.exit.i, label %JS_MarkValue.exit.sink.split.i
 
-69:                                               ; preds = %gc_decref_child.exit89.i
-  %70 = load i32, ptr %68, align 8
-  %71 = add i32 %70, -1
-  store i32 %71, ptr %68, align 8
-  %72 = icmp eq i32 %71, 0
-  br i1 %72, label %73, label %JS_MarkValue.exit.i.i
+68:                                               ; preds = %45
+  %69 = load ptr, ptr %42, align 8
+  br label %JS_MarkValue.exit.sink.split.i
 
-73:                                               ; preds = %69
-  %74 = getelementptr inbounds i8, ptr %68, i64 4
-  %75 = load i8, ptr %74, align 4
-  %.mask.i86.i = and i8 %75, -16
-  %76 = icmp eq i8 %.mask.i86.i, 16
-  br i1 %76, label %JS_MarkValue.exit.i.sink.split.i, label %JS_MarkValue.exit.i.i
+70:                                               ; preds = %45
+  %.val.i = load i64, ptr %42, align 8
+  %71 = and i64 %.val.i, -4
+  %72 = inttoptr i64 %71 to ptr
+  br label %JS_MarkValue.exit.sink.split.i
 
-77:                                               ; preds = %46
-  %78 = load ptr, ptr %43, align 8
-  %79 = load i32, ptr %78, align 8
-  %80 = add i32 %79, -1
-  store i32 %80, ptr %78, align 8
-  %81 = icmp eq i32 %80, 0
-  br i1 %81, label %82, label %JS_MarkValue.exit.i.i
+73:                                               ; preds = %45
+  %74 = getelementptr inbounds i8, ptr %42, i64 8
+  %75 = load i64, ptr %74, align 8
+  %76 = and i64 %75, 4294967294
+  %switch.i.i = icmp eq i64 %76, 4294967294
+  br i1 %switch.i.i, label %77, label %JS_MarkValue.exit.i
 
-82:                                               ; preds = %77
-  %83 = getelementptr inbounds i8, ptr %78, i64 4
-  %84 = load i8, ptr %83, align 4
-  %.mask.i84.i = and i8 %84, -16
-  %85 = icmp eq i8 %.mask.i84.i, 16
-  br i1 %85, label %JS_MarkValue.exit.i.sink.split.i, label %JS_MarkValue.exit.i.i
+77:                                               ; preds = %73
+  %78 = load i64, ptr %42, align 8
+  %79 = inttoptr i64 %78 to ptr
+  br label %JS_MarkValue.exit.sink.split.i
 
-86:                                               ; preds = %46
-  %.val.i.i = load i64, ptr %43, align 8
-  %87 = and i64 %.val.i.i, -4
-  %88 = inttoptr i64 %87 to ptr
-  %89 = load i32, ptr %88, align 8
-  %90 = add i32 %89, -1
-  store i32 %90, ptr %88, align 8
-  %91 = icmp eq i32 %90, 0
-  br i1 %91, label %92, label %JS_MarkValue.exit.i.i
-
-92:                                               ; preds = %86
-  %93 = getelementptr inbounds i8, ptr %88, i64 4
-  %94 = load i8, ptr %93, align 4
-  %.mask.i82.i = and i8 %94, -16
-  %95 = icmp eq i8 %.mask.i82.i, 16
-  br i1 %95, label %JS_MarkValue.exit.i.sink.split.i, label %JS_MarkValue.exit.i.i
-
-96:                                               ; preds = %46
-  %97 = getelementptr inbounds i8, ptr %43, i64 8
-  %98 = load i64, ptr %97, align 8
-  %99 = and i64 %98, 4294967294
-  %switch.i.i.i = icmp eq i64 %99, 4294967294
-  br i1 %switch.i.i.i, label %100, label %JS_MarkValue.exit.i.i
-
-100:                                              ; preds = %96
-  %101 = load i64, ptr %43, align 8
-  %102 = inttoptr i64 %101 to ptr
-  %103 = load i32, ptr %102, align 8
-  %104 = add i32 %103, -1
-  store i32 %104, ptr %102, align 8
-  %105 = icmp eq i32 %104, 0
-  br i1 %105, label %106, label %JS_MarkValue.exit.i.i
-
-106:                                              ; preds = %100
-  %107 = getelementptr inbounds i8, ptr %102, i64 4
-  %108 = load i8, ptr %107, align 4
-  %.mask.i80.i = and i8 %108, -16
-  %109 = icmp eq i8 %.mask.i80.i, 16
-  br i1 %109, label %JS_MarkValue.exit.i.sink.split.i, label %JS_MarkValue.exit.i.i
-
-.unreachabledefault:                              ; preds = %46
+.unreachabledefault:                              ; preds = %45
   unreachable
 
-default.unreachable:                              ; preds = %944, %1772
+default.unreachable:                              ; preds = %922, %1741
   unreachable
 
-JS_MarkValue.exit.i.sink.split.i:                 ; preds = %106, %92, %82, %73
-  %.sink113.i = phi ptr [ %68, %73 ], [ %78, %82 ], [ %88, %92 ], [ %102, %106 ]
-  %110 = getelementptr inbounds i8, ptr %.sink113.i, i64 8
-  %111 = load ptr, ptr %110, align 8
-  %112 = getelementptr inbounds i8, ptr %.sink113.i, i64 16
-  %113 = load ptr, ptr %112, align 8
-  %114 = getelementptr inbounds i8, ptr %111, i64 8
-  store ptr %113, ptr %114, align 8
-  store ptr %111, ptr %113, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %110, i8 0, i64 16, i1 false)
-  %115 = load ptr, ptr %2, align 8
-  %116 = getelementptr inbounds i8, ptr %115, i64 8
-  store ptr %110, ptr %116, align 8
-  store ptr %115, ptr %110, align 8
-  store ptr %2, ptr %112, align 8
-  store ptr %110, ptr %2, align 8
-  br label %JS_MarkValue.exit.i.i
+JS_MarkValue.exit.sink.split.i:                   ; preds = %77, %70, %68, %gc_decref_child.exit97
+  %.sink.i = phi ptr [ %79, %77 ], [ %69, %68 ], [ %72, %70 ], [ %67, %gc_decref_child.exit97 ]
+  %80 = load i32, ptr %.sink.i, align 8
+  %81 = add i32 %80, -1
+  store i32 %81, ptr %.sink.i, align 8
+  %82 = icmp eq i32 %81, 0
+  br i1 %82, label %83, label %JS_MarkValue.exit.i
 
-JS_MarkValue.exit.i.i:                            ; preds = %JS_MarkValue.exit.i.sink.split.i, %106, %100, %96, %92, %86, %82, %77, %73, %69, %gc_decref_child.exit89.i, %41
-  %117 = getelementptr i8, ptr %.0135.i.i, i64 8
-  %indvars.iv.next141.i.i = add nuw nsw i64 %indvars.iv140.i.i, 1
-  %118 = load i32, ptr %36, align 8
-  %119 = sext i32 %118 to i64
-  %120 = icmp slt i64 %indvars.iv.next141.i.i, %119
-  br i1 %120, label %41, label %._crit_edge138.i.i, !llvm.loop !22
+83:                                               ; preds = %JS_MarkValue.exit.sink.split.i
+  %84 = getelementptr inbounds i8, ptr %.sink.i, i64 4
+  %85 = load i8, ptr %84, align 4
+  %.mask.i94 = and i8 %85, -16
+  %86 = icmp eq i8 %.mask.i94, 16
+  br i1 %86, label %87, label %JS_MarkValue.exit.i
 
-._crit_edge138.i.i:                               ; preds = %JS_MarkValue.exit.i.i, %gc_decref_child.exit91.i
-  %121 = getelementptr i8, ptr %.095.i, i64 -2
-  %122 = load i16, ptr %121, align 2
-  %.not110.i.i = icmp eq i16 %122, 1
-  br i1 %.not110.i.i, label %mark_children.exit.i, label %123
+87:                                               ; preds = %83
+  %88 = getelementptr inbounds i8, ptr %.sink.i, i64 8
+  %89 = load ptr, ptr %88, align 8
+  %90 = getelementptr inbounds i8, ptr %.sink.i, i64 16
+  %91 = load ptr, ptr %90, align 8
+  %92 = getelementptr inbounds i8, ptr %89, i64 8
+  store ptr %91, ptr %92, align 8
+  store ptr %89, ptr %91, align 8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %88, i8 0, i64 16, i1 false)
+  %93 = load ptr, ptr %2, align 8
+  %94 = getelementptr inbounds i8, ptr %93, i64 8
+  store ptr %88, ptr %94, align 8
+  store ptr %93, ptr %88, align 8
+  store ptr %2, ptr %90, align 8
+  store ptr %88, ptr %2, align 8
+  br label %JS_MarkValue.exit.i
 
-123:                                              ; preds = %._crit_edge138.i.i
-  %124 = load ptr, ptr %8, align 8
-  %125 = zext i16 %122 to i64
-  %126 = getelementptr %struct.JSClass, ptr %124, i64 %125, i32 3
-  %127 = load ptr, ptr %126, align 8
-  %.not111.i.i = icmp eq ptr %127, null
-  br i1 %.not111.i.i, label %mark_children.exit.i, label %128
+JS_MarkValue.exit.i:                              ; preds = %87, %83, %JS_MarkValue.exit.sink.split.i, %73, %gc_decref_child.exit97, %40
+  %95 = getelementptr i8, ptr %.0135.i, i64 8
+  %indvars.iv.next141.i = add nuw nsw i64 %indvars.iv140.i, 1
+  %96 = load i32, ptr %35, align 8
+  %97 = sext i32 %96 to i64
+  %98 = icmp slt i64 %indvars.iv.next141.i, %97
+  br i1 %98, label %40, label %._crit_edge138.i, !llvm.loop !22
 
-128:                                              ; preds = %123
-  %.sroa.0.0..sroa.0.0.112.cast.i.i = ptrtoint ptr %10 to i64
-  tail call void %127(ptr noundef nonnull %0, i64 %.sroa.0.0..sroa.0.0.112.cast.i.i, i64 -1, ptr noundef nonnull @gc_decref_child) #42
-  br label %mark_children.exit.i
+._crit_edge138.i:                                 ; preds = %JS_MarkValue.exit.i, %gc_decref_child.exit99
+  %99 = getelementptr i8, ptr %.019.i, i64 -2
+  %100 = load i16, ptr %99, align 2
+  %.not110.i = icmp eq i16 %100, 1
+  br i1 %.not110.i, label %mark_children.exit, label %101
 
-129:                                              ; preds = %JS_MarkValue.exit118.i.i, %.lr.ph133.i.i
-  %130 = phi i32 [ %15, %.lr.ph133.i.i ], [ %154, %JS_MarkValue.exit118.i.i ]
-  %indvars.iv.i.i = phi i64 [ 0, %.lr.ph133.i.i ], [ %indvars.iv.next.i.i, %JS_MarkValue.exit118.i.i ]
-  %131 = load ptr, ptr %17, align 8
-  %132 = getelementptr %struct.JSValue, ptr %131, i64 %indvars.iv.i.i
-  %133 = getelementptr inbounds i8, ptr %132, i64 8
-  %134 = load i64, ptr %133, align 8
-  %135 = and i64 %134, 4294967294
-  %switch.i117.i.i = icmp eq i64 %135, 4294967294
-  br i1 %switch.i117.i.i, label %136, label %JS_MarkValue.exit118.i.i
+101:                                              ; preds = %._crit_edge138.i
+  %102 = load ptr, ptr %8, align 8
+  %103 = zext i16 %100 to i64
+  %104 = getelementptr %struct.JSClass, ptr %102, i64 %103, i32 3
+  %105 = load ptr, ptr %104, align 8
+  %.not111.i = icmp eq ptr %105, null
+  br i1 %.not111.i, label %mark_children.exit, label %106
 
-136:                                              ; preds = %129
-  %137 = load i64, ptr %132, align 8
-  %138 = inttoptr i64 %137 to ptr
-  %139 = load i32, ptr %138, align 8
-  %140 = add i32 %139, -1
-  store i32 %140, ptr %138, align 8
-  %141 = icmp eq i32 %140, 0
-  br i1 %141, label %142, label %gc_decref_child.exit79.i
+106:                                              ; preds = %101
+  %.sroa.0.0..sroa.0.0.112.cast.i = ptrtoint ptr %9 to i64
+  tail call void %105(ptr noundef nonnull %0, i64 %.sroa.0.0..sroa.0.0.112.cast.i, i64 -1, ptr noundef nonnull @gc_decref_child) #42
+  br label %mark_children.exit
 
-142:                                              ; preds = %136
-  %143 = getelementptr inbounds i8, ptr %138, i64 4
-  %144 = load i8, ptr %143, align 4
-  %.mask.i78.i = and i8 %144, -16
-  %145 = icmp eq i8 %.mask.i78.i, 16
-  br i1 %145, label %146, label %gc_decref_child.exit79.i
+107:                                              ; preds = %JS_MarkValue.exit118.i, %.lr.ph133.i
+  %108 = phi i32 [ %14, %.lr.ph133.i ], [ %132, %JS_MarkValue.exit118.i ]
+  %indvars.iv.i = phi i64 [ 0, %.lr.ph133.i ], [ %indvars.iv.next.i, %JS_MarkValue.exit118.i ]
+  %109 = load ptr, ptr %16, align 8
+  %110 = getelementptr %struct.JSValue, ptr %109, i64 %indvars.iv.i
+  %111 = getelementptr inbounds i8, ptr %110, i64 8
+  %112 = load i64, ptr %111, align 8
+  %113 = and i64 %112, 4294967294
+  %switch.i117.i = icmp eq i64 %113, 4294967294
+  br i1 %switch.i117.i, label %114, label %JS_MarkValue.exit118.i
 
-146:                                              ; preds = %142
-  %147 = getelementptr inbounds i8, ptr %138, i64 8
-  %148 = load ptr, ptr %147, align 8
-  %149 = getelementptr inbounds i8, ptr %138, i64 16
-  %150 = load ptr, ptr %149, align 8
-  %151 = getelementptr inbounds i8, ptr %148, i64 8
-  store ptr %150, ptr %151, align 8
-  store ptr %148, ptr %150, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %147, i8 0, i64 16, i1 false)
-  %152 = load ptr, ptr %2, align 8
-  %153 = getelementptr inbounds i8, ptr %152, i64 8
-  store ptr %147, ptr %153, align 8
-  store ptr %152, ptr %147, align 8
-  store ptr %2, ptr %149, align 8
-  store ptr %147, ptr %2, align 8
-  br label %gc_decref_child.exit79.i
+114:                                              ; preds = %107
+  %115 = load i64, ptr %110, align 8
+  %116 = inttoptr i64 %115 to ptr
+  %117 = load i32, ptr %116, align 8
+  %118 = add i32 %117, -1
+  store i32 %118, ptr %116, align 8
+  %119 = icmp eq i32 %118, 0
+  br i1 %119, label %120, label %gc_decref_child.exit93
 
-gc_decref_child.exit79.i:                         ; preds = %146, %142, %136
-  %.pre143.i.i = load i32, ptr %14, align 8
-  br label %JS_MarkValue.exit118.i.i
+120:                                              ; preds = %114
+  %121 = getelementptr inbounds i8, ptr %116, i64 4
+  %122 = load i8, ptr %121, align 4
+  %.mask.i92 = and i8 %122, -16
+  %123 = icmp eq i8 %.mask.i92, 16
+  br i1 %123, label %124, label %gc_decref_child.exit93
 
-JS_MarkValue.exit118.i.i:                         ; preds = %gc_decref_child.exit79.i, %129
-  %154 = phi i32 [ %130, %129 ], [ %.pre143.i.i, %gc_decref_child.exit79.i ]
-  %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
-  %155 = sext i32 %154 to i64
-  %156 = icmp slt i64 %indvars.iv.next.i.i, %155
-  br i1 %156, label %129, label %._crit_edge.i.i, !llvm.loop !23
+124:                                              ; preds = %120
+  %125 = getelementptr inbounds i8, ptr %116, i64 8
+  %126 = load ptr, ptr %125, align 8
+  %127 = getelementptr inbounds i8, ptr %116, i64 16
+  %128 = load ptr, ptr %127, align 8
+  %129 = getelementptr inbounds i8, ptr %126, i64 8
+  store ptr %128, ptr %129, align 8
+  store ptr %126, ptr %128, align 8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %125, i8 0, i64 16, i1 false)
+  %130 = load ptr, ptr %2, align 8
+  %131 = getelementptr inbounds i8, ptr %130, i64 8
+  store ptr %125, ptr %131, align 8
+  store ptr %130, ptr %125, align 8
+  store ptr %2, ptr %127, align 8
+  store ptr %125, ptr %2, align 8
+  br label %gc_decref_child.exit93
 
-._crit_edge.i.i:                                  ; preds = %JS_MarkValue.exit118.i.i, %.preheader.i.i
-  %157 = getelementptr i8, ptr %.095.i, i64 64
-  %158 = load ptr, ptr %157, align 8
-  %.not109.i.i = icmp eq ptr %158, null
-  br i1 %.not109.i.i, label %mark_children.exit.i, label %159
+gc_decref_child.exit93:                           ; preds = %114, %120, %124
+  %.pre143.i = load i32, ptr %13, align 8
+  br label %JS_MarkValue.exit118.i
 
-159:                                              ; preds = %._crit_edge.i.i
-  %160 = load i32, ptr %158, align 8
-  %161 = add i32 %160, -1
-  store i32 %161, ptr %158, align 8
-  %162 = icmp eq i32 %161, 0
-  br i1 %162, label %163, label %mark_children.exit.i
+JS_MarkValue.exit118.i:                           ; preds = %gc_decref_child.exit93, %107
+  %132 = phi i32 [ %108, %107 ], [ %.pre143.i, %gc_decref_child.exit93 ]
+  %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
+  %133 = sext i32 %132 to i64
+  %134 = icmp slt i64 %indvars.iv.next.i, %133
+  br i1 %134, label %107, label %._crit_edge.i28, !llvm.loop !23
 
-163:                                              ; preds = %159
-  %164 = getelementptr inbounds i8, ptr %158, i64 4
-  %165 = load i8, ptr %164, align 4
-  %.mask.i76.i = and i8 %165, -16
-  %166 = icmp eq i8 %.mask.i76.i, 16
-  br i1 %166, label %167, label %mark_children.exit.i
+._crit_edge.i28:                                  ; preds = %JS_MarkValue.exit118.i, %.preheader.i
+  %135 = getelementptr i8, ptr %.019.i, i64 64
+  %136 = load ptr, ptr %135, align 8
+  %.not109.i = icmp eq ptr %136, null
+  br i1 %.not109.i, label %mark_children.exit, label %137
 
-167:                                              ; preds = %163
-  %168 = getelementptr inbounds i8, ptr %158, i64 8
-  %169 = load ptr, ptr %168, align 8
-  %170 = getelementptr inbounds i8, ptr %158, i64 16
-  %171 = load ptr, ptr %170, align 8
-  %172 = getelementptr inbounds i8, ptr %169, i64 8
-  store ptr %171, ptr %172, align 8
-  store ptr %169, ptr %171, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %168, i8 0, i64 16, i1 false)
-  %173 = load ptr, ptr %2, align 8
-  %174 = getelementptr inbounds i8, ptr %173, i64 8
-  store ptr %168, ptr %174, align 8
-  store ptr %173, ptr %168, align 8
-  store ptr %2, ptr %170, align 8
-  store ptr %168, ptr %2, align 8
-  br label %mark_children.exit.i
+137:                                              ; preds = %._crit_edge.i28
+  %138 = load i32, ptr %136, align 8
+  %139 = add i32 %138, -1
+  store i32 %139, ptr %136, align 8
+  %140 = icmp eq i32 %139, 0
+  br i1 %140, label %141, label %mark_children.exit
 
-175:                                              ; preds = %9
-  %176 = getelementptr i8, ptr %.095.i, i64 -3
-  %177 = load i8, ptr %176, align 1
-  %178 = and i8 %177, 1
-  %.not107.i.i = icmp eq i8 %178, 0
-  br i1 %.not107.i.i, label %203, label %179
+141:                                              ; preds = %137
+  %142 = getelementptr inbounds i8, ptr %136, i64 4
+  %143 = load i8, ptr %142, align 4
+  %.mask.i90 = and i8 %143, -16
+  %144 = icmp eq i8 %.mask.i90, 16
+  br i1 %144, label %145, label %mark_children.exit
 
-179:                                              ; preds = %175
-  %180 = getelementptr i8, ptr %.095.i, i64 16
-  %181 = load ptr, ptr %180, align 8
-  %182 = getelementptr inbounds i8, ptr %181, i64 8
-  %183 = load i64, ptr %182, align 8
-  %184 = and i64 %183, 4294967294
-  %switch.i119.i.i = icmp eq i64 %184, 4294967294
-  br i1 %switch.i119.i.i, label %185, label %mark_children.exit.i
+145:                                              ; preds = %141
+  %146 = getelementptr inbounds i8, ptr %136, i64 8
+  %147 = load ptr, ptr %146, align 8
+  %148 = getelementptr inbounds i8, ptr %136, i64 16
+  %149 = load ptr, ptr %148, align 8
+  %150 = getelementptr inbounds i8, ptr %147, i64 8
+  store ptr %149, ptr %150, align 8
+  store ptr %147, ptr %149, align 8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %146, i8 0, i64 16, i1 false)
+  %151 = load ptr, ptr %2, align 8
+  %152 = getelementptr inbounds i8, ptr %151, i64 8
+  store ptr %146, ptr %152, align 8
+  store ptr %151, ptr %146, align 8
+  store ptr %2, ptr %148, align 8
+  store ptr %146, ptr %2, align 8
+  br label %mark_children.exit
 
-185:                                              ; preds = %179
-  %186 = load i64, ptr %181, align 8
-  %187 = inttoptr i64 %186 to ptr
-  %188 = load i32, ptr %187, align 8
-  %189 = add i32 %188, -1
-  store i32 %189, ptr %187, align 8
-  %190 = icmp eq i32 %189, 0
-  br i1 %190, label %191, label %mark_children.exit.i
+153:                                              ; preds = %.lr.ph.i
+  %154 = getelementptr i8, ptr %.019.i, i64 -3
+  %155 = load i8, ptr %154, align 1
+  %156 = and i8 %155, 1
+  %.not107.i = icmp eq i8 %156, 0
+  br i1 %.not107.i, label %181, label %157
 
-191:                                              ; preds = %185
-  %192 = getelementptr inbounds i8, ptr %187, i64 4
-  %193 = load i8, ptr %192, align 4
-  %.mask.i74.i = and i8 %193, -16
-  %194 = icmp eq i8 %.mask.i74.i, 16
-  br i1 %194, label %195, label %mark_children.exit.i
+157:                                              ; preds = %153
+  %158 = getelementptr i8, ptr %.019.i, i64 16
+  %159 = load ptr, ptr %158, align 8
+  %160 = getelementptr inbounds i8, ptr %159, i64 8
+  %161 = load i64, ptr %160, align 8
+  %162 = and i64 %161, 4294967294
+  %switch.i119.i = icmp eq i64 %162, 4294967294
+  br i1 %switch.i119.i, label %163, label %mark_children.exit
 
-195:                                              ; preds = %191
-  %196 = getelementptr inbounds i8, ptr %187, i64 8
-  %197 = load ptr, ptr %196, align 8
-  %198 = getelementptr inbounds i8, ptr %187, i64 16
-  %199 = load ptr, ptr %198, align 8
-  %200 = getelementptr inbounds i8, ptr %197, i64 8
-  store ptr %199, ptr %200, align 8
-  store ptr %197, ptr %199, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %196, i8 0, i64 16, i1 false)
-  %201 = load ptr, ptr %2, align 8
-  %202 = getelementptr inbounds i8, ptr %201, i64 8
-  store ptr %196, ptr %202, align 8
-  store ptr %201, ptr %196, align 8
-  store ptr %2, ptr %198, align 8
-  store ptr %196, ptr %2, align 8
-  br label %mark_children.exit.i
+163:                                              ; preds = %157
+  %164 = load i64, ptr %159, align 8
+  %165 = inttoptr i64 %164 to ptr
+  %166 = load i32, ptr %165, align 8
+  %167 = add i32 %166, -1
+  store i32 %167, ptr %165, align 8
+  %168 = icmp eq i32 %167, 0
+  br i1 %168, label %169, label %mark_children.exit
 
-203:                                              ; preds = %175
-  %204 = getelementptr i8, ptr %.095.i, i64 40
-  %205 = load ptr, ptr %204, align 8
-  %.not108.i.i = icmp eq ptr %205, null
-  br i1 %.not108.i.i, label %mark_children.exit.i, label %206
+169:                                              ; preds = %163
+  %170 = getelementptr inbounds i8, ptr %165, i64 4
+  %171 = load i8, ptr %170, align 4
+  %.mask.i88 = and i8 %171, -16
+  %172 = icmp eq i8 %.mask.i88, 16
+  br i1 %172, label %173, label %mark_children.exit
 
-206:                                              ; preds = %203
-  %207 = load i32, ptr %205, align 8
-  %208 = add i32 %207, -1
-  store i32 %208, ptr %205, align 8
-  %209 = icmp eq i32 %208, 0
-  br i1 %209, label %210, label %mark_children.exit.i
+173:                                              ; preds = %169
+  %174 = getelementptr inbounds i8, ptr %165, i64 8
+  %175 = load ptr, ptr %174, align 8
+  %176 = getelementptr inbounds i8, ptr %165, i64 16
+  %177 = load ptr, ptr %176, align 8
+  %178 = getelementptr inbounds i8, ptr %175, i64 8
+  store ptr %177, ptr %178, align 8
+  store ptr %175, ptr %177, align 8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %174, i8 0, i64 16, i1 false)
+  %179 = load ptr, ptr %2, align 8
+  %180 = getelementptr inbounds i8, ptr %179, i64 8
+  store ptr %174, ptr %180, align 8
+  store ptr %179, ptr %174, align 8
+  store ptr %2, ptr %176, align 8
+  store ptr %174, ptr %2, align 8
+  br label %mark_children.exit
 
-210:                                              ; preds = %206
-  %211 = getelementptr inbounds i8, ptr %205, i64 4
-  %212 = load i8, ptr %211, align 4
-  %.mask.i72.i = and i8 %212, -16
-  %213 = icmp eq i8 %.mask.i72.i, 16
-  br i1 %213, label %214, label %mark_children.exit.i
+181:                                              ; preds = %153
+  %182 = getelementptr i8, ptr %.019.i, i64 40
+  %183 = load ptr, ptr %182, align 8
+  %.not108.i = icmp eq ptr %183, null
+  br i1 %.not108.i, label %mark_children.exit, label %184
 
-214:                                              ; preds = %210
-  %215 = getelementptr inbounds i8, ptr %205, i64 8
-  %216 = load ptr, ptr %215, align 8
-  %217 = getelementptr inbounds i8, ptr %205, i64 16
-  %218 = load ptr, ptr %217, align 8
-  %219 = getelementptr inbounds i8, ptr %216, i64 8
-  store ptr %218, ptr %219, align 8
-  store ptr %216, ptr %218, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %215, i8 0, i64 16, i1 false)
-  %220 = load ptr, ptr %2, align 8
-  %221 = getelementptr inbounds i8, ptr %220, i64 8
-  store ptr %215, ptr %221, align 8
-  store ptr %220, ptr %215, align 8
-  store ptr %2, ptr %217, align 8
-  store ptr %215, ptr %2, align 8
-  br label %mark_children.exit.i
+184:                                              ; preds = %181
+  %185 = load i32, ptr %183, align 8
+  %186 = add i32 %185, -1
+  store i32 %186, ptr %183, align 8
+  %187 = icmp eq i32 %186, 0
+  br i1 %187, label %188, label %mark_children.exit
 
-222:                                              ; preds = %9
-  %223 = getelementptr i8, ptr %.095.i, i64 40
-  %224 = load i32, ptr %223, align 8
-  %.not105.i.i = icmp eq i32 %224, 0
-  br i1 %.not105.i.i, label %225, label %.loopexit.i.i
+188:                                              ; preds = %184
+  %189 = getelementptr inbounds i8, ptr %183, i64 4
+  %190 = load i8, ptr %189, align 4
+  %.mask.i86 = and i8 %190, -16
+  %191 = icmp eq i8 %.mask.i86, 16
+  br i1 %191, label %192, label %mark_children.exit
 
-225:                                              ; preds = %222
-  %226 = getelementptr i8, ptr %.095.i, i64 96
+192:                                              ; preds = %188
+  %193 = getelementptr inbounds i8, ptr %183, i64 8
+  %194 = load ptr, ptr %193, align 8
+  %195 = getelementptr inbounds i8, ptr %183, i64 16
+  %196 = load ptr, ptr %195, align 8
+  %197 = getelementptr inbounds i8, ptr %194, i64 8
+  store ptr %196, ptr %197, align 8
+  store ptr %194, ptr %196, align 8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %193, i8 0, i64 16, i1 false)
+  %198 = load ptr, ptr %2, align 8
+  %199 = getelementptr inbounds i8, ptr %198, i64 8
+  store ptr %193, ptr %199, align 8
+  store ptr %198, ptr %193, align 8
+  store ptr %2, ptr %195, align 8
+  store ptr %193, ptr %2, align 8
+  br label %mark_children.exit
+
+200:                                              ; preds = %.lr.ph.i
+  %201 = getelementptr i8, ptr %.019.i, i64 40
+  %202 = load i32, ptr %201, align 8
+  %.not105.i = icmp eq i32 %202, 0
+  br i1 %.not105.i, label %203, label %.loopexit.i
+
+203:                                              ; preds = %200
+  %204 = getelementptr i8, ptr %.019.i, i64 96
+  %205 = load i64, ptr %204, align 8
+  %206 = and i64 %205, 4294967294
+  %switch.i121.i = icmp eq i64 %206, 4294967294
+  br i1 %switch.i121.i, label %207, label %JS_MarkValue.exit122.i
+
+207:                                              ; preds = %203
+  %208 = getelementptr i8, ptr %.019.i, i64 88
+  %209 = load i64, ptr %208, align 8
+  %210 = inttoptr i64 %209 to ptr
+  %211 = load i32, ptr %210, align 8
+  %212 = add i32 %211, -1
+  store i32 %212, ptr %210, align 8
+  %213 = icmp eq i32 %212, 0
+  br i1 %213, label %214, label %JS_MarkValue.exit122.i
+
+214:                                              ; preds = %207
+  %215 = getelementptr inbounds i8, ptr %210, i64 4
+  %216 = load i8, ptr %215, align 4
+  %.mask.i84 = and i8 %216, -16
+  %217 = icmp eq i8 %.mask.i84, 16
+  br i1 %217, label %218, label %JS_MarkValue.exit122.i
+
+218:                                              ; preds = %214
+  %219 = getelementptr inbounds i8, ptr %210, i64 8
+  %220 = load ptr, ptr %219, align 8
+  %221 = getelementptr inbounds i8, ptr %210, i64 16
+  %222 = load ptr, ptr %221, align 8
+  %223 = getelementptr inbounds i8, ptr %220, i64 8
+  store ptr %222, ptr %223, align 8
+  store ptr %220, ptr %222, align 8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %219, i8 0, i64 16, i1 false)
+  %224 = load ptr, ptr %2, align 8
+  %225 = getelementptr inbounds i8, ptr %224, i64 8
+  store ptr %219, ptr %225, align 8
+  store ptr %224, ptr %219, align 8
+  store ptr %2, ptr %221, align 8
+  store ptr %219, ptr %2, align 8
+  br label %JS_MarkValue.exit122.i
+
+JS_MarkValue.exit122.i:                           ; preds = %218, %214, %207, %203
+  %226 = getelementptr i8, ptr %.019.i, i64 24
   %227 = load i64, ptr %226, align 8
   %228 = and i64 %227, 4294967294
-  %switch.i121.i.i = icmp eq i64 %228, 4294967294
-  br i1 %switch.i121.i.i, label %229, label %JS_MarkValue.exit122.i.i
+  %switch.i123.i = icmp eq i64 %228, 4294967294
+  br i1 %switch.i123.i, label %229, label %JS_MarkValue.exit124.i
 
-229:                                              ; preds = %225
-  %230 = getelementptr i8, ptr %.095.i, i64 88
+229:                                              ; preds = %JS_MarkValue.exit122.i
+  %230 = getelementptr i8, ptr %.019.i, i64 16
   %231 = load i64, ptr %230, align 8
   %232 = inttoptr i64 %231 to ptr
   %233 = load i32, ptr %232, align 8
   %234 = add i32 %233, -1
   store i32 %234, ptr %232, align 8
   %235 = icmp eq i32 %234, 0
-  br i1 %235, label %236, label %JS_MarkValue.exit122.i.i
+  br i1 %235, label %236, label %JS_MarkValue.exit124.i
 
 236:                                              ; preds = %229
   %237 = getelementptr inbounds i8, ptr %232, i64 4
   %238 = load i8, ptr %237, align 4
-  %.mask.i70.i = and i8 %238, -16
-  %239 = icmp eq i8 %.mask.i70.i, 16
-  br i1 %239, label %240, label %JS_MarkValue.exit122.i.i
+  %.mask.i82 = and i8 %238, -16
+  %239 = icmp eq i8 %.mask.i82, 16
+  br i1 %239, label %240, label %JS_MarkValue.exit124.i
 
 240:                                              ; preds = %236
   %241 = getelementptr inbounds i8, ptr %232, i64 8
@@ -3465,136 +3473,136 @@ JS_MarkValue.exit118.i.i:                         ; preds = %gc_decref_child.exi
   store ptr %246, ptr %241, align 8
   store ptr %2, ptr %243, align 8
   store ptr %241, ptr %2, align 8
-  br label %JS_MarkValue.exit122.i.i
+  br label %JS_MarkValue.exit124.i
 
-JS_MarkValue.exit122.i.i:                         ; preds = %240, %236, %229, %225
-  %248 = getelementptr i8, ptr %.095.i, i64 24
-  %249 = load i64, ptr %248, align 8
-  %250 = and i64 %249, 4294967294
-  %switch.i123.i.i = icmp eq i64 %250, 4294967294
-  br i1 %switch.i123.i.i, label %251, label %JS_MarkValue.exit124.i.i
+JS_MarkValue.exit124.i:                           ; preds = %240, %236, %229, %JS_MarkValue.exit122.i
+  %248 = getelementptr i8, ptr %.019.i, i64 152
+  %249 = load ptr, ptr %248, align 8
+  %.not106.i = icmp eq ptr %249, null
+  br i1 %.not106.i, label %.loopexit.i, label %250
 
-251:                                              ; preds = %JS_MarkValue.exit122.i.i
-  %252 = getelementptr i8, ptr %.095.i, i64 16
-  %253 = load i64, ptr %252, align 8
-  %254 = inttoptr i64 %253 to ptr
-  %255 = load i32, ptr %254, align 8
-  %256 = add i32 %255, -1
-  store i32 %256, ptr %254, align 8
-  %257 = icmp eq i32 %256, 0
-  br i1 %257, label %258, label %JS_MarkValue.exit124.i.i
+250:                                              ; preds = %JS_MarkValue.exit124.i
+  %251 = getelementptr i8, ptr %.019.i, i64 104
+  %252 = load ptr, ptr %251, align 8
+  %253 = icmp ult ptr %252, %249
+  br i1 %253, label %.lr.ph.i27, label %.loopexit.i
 
-258:                                              ; preds = %251
-  %259 = getelementptr inbounds i8, ptr %254, i64 4
-  %260 = load i8, ptr %259, align 4
-  %.mask.i68.i = and i8 %260, -16
-  %261 = icmp eq i8 %.mask.i68.i, 16
-  br i1 %261, label %262, label %JS_MarkValue.exit124.i.i
+.lr.ph.i27:                                       ; preds = %250, %JS_MarkValue.exit126.i
+  %254 = phi ptr [ %276, %JS_MarkValue.exit126.i ], [ %249, %250 ]
+  %.096131.i = phi ptr [ %277, %JS_MarkValue.exit126.i ], [ %252, %250 ]
+  %255 = getelementptr inbounds i8, ptr %.096131.i, i64 8
+  %256 = load i64, ptr %255, align 8
+  %257 = and i64 %256, 4294967294
+  %switch.i125.i = icmp eq i64 %257, 4294967294
+  br i1 %switch.i125.i, label %258, label %JS_MarkValue.exit126.i
 
-262:                                              ; preds = %258
-  %263 = getelementptr inbounds i8, ptr %254, i64 8
-  %264 = load ptr, ptr %263, align 8
-  %265 = getelementptr inbounds i8, ptr %254, i64 16
-  %266 = load ptr, ptr %265, align 8
-  %267 = getelementptr inbounds i8, ptr %264, i64 8
-  store ptr %266, ptr %267, align 8
-  store ptr %264, ptr %266, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %263, i8 0, i64 16, i1 false)
-  %268 = load ptr, ptr %2, align 8
-  %269 = getelementptr inbounds i8, ptr %268, i64 8
-  store ptr %263, ptr %269, align 8
-  store ptr %268, ptr %263, align 8
-  store ptr %2, ptr %265, align 8
-  store ptr %263, ptr %2, align 8
-  br label %JS_MarkValue.exit124.i.i
+258:                                              ; preds = %.lr.ph.i27
+  %259 = load i64, ptr %.096131.i, align 8
+  %260 = inttoptr i64 %259 to ptr
+  %261 = load i32, ptr %260, align 8
+  %262 = add i32 %261, -1
+  store i32 %262, ptr %260, align 8
+  %263 = icmp eq i32 %262, 0
+  br i1 %263, label %264, label %gc_decref_child.exit81
 
-JS_MarkValue.exit124.i.i:                         ; preds = %262, %258, %251, %JS_MarkValue.exit122.i.i
-  %270 = getelementptr i8, ptr %.095.i, i64 152
-  %271 = load ptr, ptr %270, align 8
-  %.not106.i.i = icmp eq ptr %271, null
-  br i1 %.not106.i.i, label %.loopexit.i.i, label %272
+264:                                              ; preds = %258
+  %265 = getelementptr inbounds i8, ptr %260, i64 4
+  %266 = load i8, ptr %265, align 4
+  %.mask.i80 = and i8 %266, -16
+  %267 = icmp eq i8 %.mask.i80, 16
+  br i1 %267, label %268, label %gc_decref_child.exit81
 
-272:                                              ; preds = %JS_MarkValue.exit124.i.i
-  %273 = getelementptr i8, ptr %.095.i, i64 104
-  %274 = load ptr, ptr %273, align 8
-  %275 = icmp ult ptr %274, %271
-  br i1 %275, label %.lr.ph.i.i, label %.loopexit.i.i
+268:                                              ; preds = %264
+  %269 = getelementptr inbounds i8, ptr %260, i64 8
+  %270 = load ptr, ptr %269, align 8
+  %271 = getelementptr inbounds i8, ptr %260, i64 16
+  %272 = load ptr, ptr %271, align 8
+  %273 = getelementptr inbounds i8, ptr %270, i64 8
+  store ptr %272, ptr %273, align 8
+  store ptr %270, ptr %272, align 8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %269, i8 0, i64 16, i1 false)
+  %274 = load ptr, ptr %2, align 8
+  %275 = getelementptr inbounds i8, ptr %274, i64 8
+  store ptr %269, ptr %275, align 8
+  store ptr %274, ptr %269, align 8
+  store ptr %2, ptr %271, align 8
+  store ptr %269, ptr %2, align 8
+  br label %gc_decref_child.exit81
 
-.lr.ph.i.i:                                       ; preds = %272, %JS_MarkValue.exit126.i.i
-  %276 = phi ptr [ %298, %JS_MarkValue.exit126.i.i ], [ %271, %272 ]
-  %.096131.i.i = phi ptr [ %299, %JS_MarkValue.exit126.i.i ], [ %274, %272 ]
-  %277 = getelementptr inbounds i8, ptr %.096131.i.i, i64 8
-  %278 = load i64, ptr %277, align 8
-  %279 = and i64 %278, 4294967294
-  %switch.i125.i.i = icmp eq i64 %279, 4294967294
-  br i1 %switch.i125.i.i, label %280, label %JS_MarkValue.exit126.i.i
+gc_decref_child.exit81:                           ; preds = %258, %264, %268
+  %.pre.i = load ptr, ptr %248, align 8
+  br label %JS_MarkValue.exit126.i
 
-280:                                              ; preds = %.lr.ph.i.i
-  %281 = load i64, ptr %.096131.i.i, align 8
-  %282 = inttoptr i64 %281 to ptr
-  %283 = load i32, ptr %282, align 8
-  %284 = add i32 %283, -1
-  store i32 %284, ptr %282, align 8
-  %285 = icmp eq i32 %284, 0
-  br i1 %285, label %286, label %gc_decref_child.exit67.i
+JS_MarkValue.exit126.i:                           ; preds = %gc_decref_child.exit81, %.lr.ph.i27
+  %276 = phi ptr [ %254, %.lr.ph.i27 ], [ %.pre.i, %gc_decref_child.exit81 ]
+  %277 = getelementptr i8, ptr %.096131.i, i64 16
+  %278 = icmp ult ptr %277, %276
+  br i1 %278, label %.lr.ph.i27, label %.loopexit.i, !llvm.loop !24
 
-286:                                              ; preds = %280
-  %287 = getelementptr inbounds i8, ptr %282, i64 4
-  %288 = load i8, ptr %287, align 4
-  %.mask.i66.i = and i8 %288, -16
-  %289 = icmp eq i8 %.mask.i66.i, 16
-  br i1 %289, label %290, label %gc_decref_child.exit67.i
+.loopexit.i:                                      ; preds = %JS_MarkValue.exit126.i, %250, %JS_MarkValue.exit124.i, %200
+  %279 = getelementptr i8, ptr %.019.i, i64 56
+  %280 = load i64, ptr %279, align 8
+  %281 = and i64 %280, 4294967294
+  %switch.i127.i = icmp eq i64 %281, 4294967294
+  br i1 %switch.i127.i, label %282, label %JS_MarkValue.exit128.i
 
-290:                                              ; preds = %286
-  %291 = getelementptr inbounds i8, ptr %282, i64 8
-  %292 = load ptr, ptr %291, align 8
-  %293 = getelementptr inbounds i8, ptr %282, i64 16
-  %294 = load ptr, ptr %293, align 8
-  %295 = getelementptr inbounds i8, ptr %292, i64 8
-  store ptr %294, ptr %295, align 8
-  store ptr %292, ptr %294, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %291, i8 0, i64 16, i1 false)
-  %296 = load ptr, ptr %2, align 8
-  %297 = getelementptr inbounds i8, ptr %296, i64 8
-  store ptr %291, ptr %297, align 8
-  store ptr %296, ptr %291, align 8
-  store ptr %2, ptr %293, align 8
-  store ptr %291, ptr %2, align 8
-  br label %gc_decref_child.exit67.i
+282:                                              ; preds = %.loopexit.i
+  %283 = getelementptr i8, ptr %.019.i, i64 48
+  %284 = load i64, ptr %283, align 8
+  %285 = inttoptr i64 %284 to ptr
+  %286 = load i32, ptr %285, align 8
+  %287 = add i32 %286, -1
+  store i32 %287, ptr %285, align 8
+  %288 = icmp eq i32 %287, 0
+  br i1 %288, label %289, label %JS_MarkValue.exit128.i
 
-gc_decref_child.exit67.i:                         ; preds = %290, %286, %280
-  %.pre.i.i = load ptr, ptr %270, align 8
-  br label %JS_MarkValue.exit126.i.i
+289:                                              ; preds = %282
+  %290 = getelementptr inbounds i8, ptr %285, i64 4
+  %291 = load i8, ptr %290, align 4
+  %.mask.i78 = and i8 %291, -16
+  %292 = icmp eq i8 %.mask.i78, 16
+  br i1 %292, label %293, label %JS_MarkValue.exit128.i
 
-JS_MarkValue.exit126.i.i:                         ; preds = %gc_decref_child.exit67.i, %.lr.ph.i.i
-  %298 = phi ptr [ %276, %.lr.ph.i.i ], [ %.pre.i.i, %gc_decref_child.exit67.i ]
-  %299 = getelementptr i8, ptr %.096131.i.i, i64 16
-  %300 = icmp ult ptr %299, %298
-  br i1 %300, label %.lr.ph.i.i, label %.loopexit.i.i, !llvm.loop !24
+293:                                              ; preds = %289
+  %294 = getelementptr inbounds i8, ptr %285, i64 8
+  %295 = load ptr, ptr %294, align 8
+  %296 = getelementptr inbounds i8, ptr %285, i64 16
+  %297 = load ptr, ptr %296, align 8
+  %298 = getelementptr inbounds i8, ptr %295, i64 8
+  store ptr %297, ptr %298, align 8
+  store ptr %295, ptr %297, align 8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %294, i8 0, i64 16, i1 false)
+  %299 = load ptr, ptr %2, align 8
+  %300 = getelementptr inbounds i8, ptr %299, i64 8
+  store ptr %294, ptr %300, align 8
+  store ptr %299, ptr %294, align 8
+  store ptr %2, ptr %296, align 8
+  store ptr %294, ptr %2, align 8
+  br label %JS_MarkValue.exit128.i
 
-.loopexit.i.i:                                    ; preds = %JS_MarkValue.exit126.i.i, %272, %JS_MarkValue.exit124.i.i, %222
-  %301 = getelementptr i8, ptr %.095.i, i64 56
+JS_MarkValue.exit128.i:                           ; preds = %293, %289, %282, %.loopexit.i
+  %301 = getelementptr i8, ptr %.019.i, i64 72
   %302 = load i64, ptr %301, align 8
   %303 = and i64 %302, 4294967294
-  %switch.i127.i.i = icmp eq i64 %303, 4294967294
-  br i1 %switch.i127.i.i, label %304, label %JS_MarkValue.exit128.i.i
+  %switch.i129.i = icmp eq i64 %303, 4294967294
+  br i1 %switch.i129.i, label %304, label %mark_children.exit
 
-304:                                              ; preds = %.loopexit.i.i
-  %305 = getelementptr i8, ptr %.095.i, i64 48
+304:                                              ; preds = %JS_MarkValue.exit128.i
+  %305 = getelementptr i8, ptr %.019.i, i64 64
   %306 = load i64, ptr %305, align 8
   %307 = inttoptr i64 %306 to ptr
   %308 = load i32, ptr %307, align 8
   %309 = add i32 %308, -1
   store i32 %309, ptr %307, align 8
   %310 = icmp eq i32 %309, 0
-  br i1 %310, label %311, label %JS_MarkValue.exit128.i.i
+  br i1 %310, label %311, label %mark_children.exit
 
 311:                                              ; preds = %304
   %312 = getelementptr inbounds i8, ptr %307, i64 4
   %313 = load i8, ptr %312, align 4
-  %.mask.i64.i = and i8 %313, -16
-  %314 = icmp eq i8 %.mask.i64.i, 16
-  br i1 %314, label %315, label %JS_MarkValue.exit128.i.i
+  %.mask.i76 = and i8 %313, -16
+  %314 = icmp eq i8 %.mask.i76, 16
+  br i1 %314, label %315, label %mark_children.exit
 
 315:                                              ; preds = %311
   %316 = getelementptr inbounds i8, ptr %307, i64 8
@@ -3611,185 +3619,185 @@ JS_MarkValue.exit126.i.i:                         ; preds = %gc_decref_child.exi
   store ptr %321, ptr %316, align 8
   store ptr %2, ptr %318, align 8
   store ptr %316, ptr %2, align 8
-  br label %JS_MarkValue.exit128.i.i
+  br label %mark_children.exit
 
-JS_MarkValue.exit128.i.i:                         ; preds = %315, %311, %304, %.loopexit.i.i
-  %323 = getelementptr i8, ptr %.095.i, i64 72
-  %324 = load i64, ptr %323, align 8
-  %325 = and i64 %324, 4294967294
-  %switch.i129.i.i = icmp eq i64 %325, 4294967294
-  br i1 %switch.i129.i.i, label %326, label %mark_children.exit.i
+323:                                              ; preds = %.lr.ph.i
+  %324 = getelementptr i8, ptr %.019.i, i64 48
+  %325 = load ptr, ptr %324, align 8
+  %.not.i26 = icmp eq ptr %325, null
+  br i1 %.not.i26, label %mark_children.exit, label %326
 
-326:                                              ; preds = %JS_MarkValue.exit128.i.i
-  %327 = getelementptr i8, ptr %.095.i, i64 64
-  %328 = load i64, ptr %327, align 8
-  %329 = inttoptr i64 %328 to ptr
-  %330 = load i32, ptr %329, align 8
-  %331 = add i32 %330, -1
-  store i32 %331, ptr %329, align 8
-  %332 = icmp eq i32 %331, 0
-  br i1 %332, label %333, label %mark_children.exit.i
+326:                                              ; preds = %323
+  %327 = load i32, ptr %325, align 8
+  %328 = add i32 %327, -1
+  store i32 %328, ptr %325, align 8
+  %329 = icmp eq i32 %328, 0
+  br i1 %329, label %330, label %mark_children.exit
 
-333:                                              ; preds = %326
-  %334 = getelementptr inbounds i8, ptr %329, i64 4
-  %335 = load i8, ptr %334, align 4
-  %.mask.i62.i = and i8 %335, -16
-  %336 = icmp eq i8 %.mask.i62.i, 16
-  br i1 %336, label %337, label %mark_children.exit.i
+330:                                              ; preds = %326
+  %331 = getelementptr inbounds i8, ptr %325, i64 4
+  %332 = load i8, ptr %331, align 4
+  %.mask.i74 = and i8 %332, -16
+  %333 = icmp eq i8 %.mask.i74, 16
+  br i1 %333, label %334, label %mark_children.exit
 
-337:                                              ; preds = %333
-  %338 = getelementptr inbounds i8, ptr %329, i64 8
-  %339 = load ptr, ptr %338, align 8
-  %340 = getelementptr inbounds i8, ptr %329, i64 16
-  %341 = load ptr, ptr %340, align 8
-  %342 = getelementptr inbounds i8, ptr %339, i64 8
-  store ptr %341, ptr %342, align 8
-  store ptr %339, ptr %341, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %338, i8 0, i64 16, i1 false)
-  %343 = load ptr, ptr %2, align 8
-  %344 = getelementptr inbounds i8, ptr %343, i64 8
-  store ptr %338, ptr %344, align 8
-  store ptr %343, ptr %338, align 8
-  store ptr %2, ptr %340, align 8
-  store ptr %338, ptr %2, align 8
-  br label %mark_children.exit.i
+334:                                              ; preds = %330
+  %335 = getelementptr inbounds i8, ptr %325, i64 8
+  %336 = load ptr, ptr %335, align 8
+  %337 = getelementptr inbounds i8, ptr %325, i64 16
+  %338 = load ptr, ptr %337, align 8
+  %339 = getelementptr inbounds i8, ptr %336, i64 8
+  store ptr %338, ptr %339, align 8
+  store ptr %336, ptr %338, align 8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %335, i8 0, i64 16, i1 false)
+  %340 = load ptr, ptr %2, align 8
+  %341 = getelementptr inbounds i8, ptr %340, i64 8
+  store ptr %335, ptr %341, align 8
+  store ptr %340, ptr %335, align 8
+  store ptr %2, ptr %337, align 8
+  store ptr %335, ptr %2, align 8
+  br label %mark_children.exit
 
-345:                                              ; preds = %9
-  %346 = getelementptr i8, ptr %.095.i, i64 48
-  %347 = load ptr, ptr %346, align 8
-  %.not.i.i = icmp eq ptr %347, null
-  br i1 %.not.i.i, label %mark_children.exit.i, label %348
+342:                                              ; preds = %.lr.ph.i
+  %343 = getelementptr i8, ptr %.019.i, i64 424
+  %344 = getelementptr i8, ptr %.019.i, i64 432
+  %.06089.i.i = load ptr, ptr %344, align 8
+  %.not90.i.i = icmp eq ptr %.06089.i.i, %343
+  br i1 %.not90.i.i, label %._crit_edge.i.i14, label %.lr.ph.i.i9
 
-348:                                              ; preds = %345
-  %349 = load i32, ptr %347, align 8
-  %350 = add i32 %349, -1
-  store i32 %350, ptr %347, align 8
-  %351 = icmp eq i32 %350, 0
-  br i1 %351, label %352, label %mark_children.exit.i
+.lr.ph.i.i9:                                      ; preds = %342, %js_mark_module_def.exit.i.i
+  %.06091.i.i = phi ptr [ %.060.i.i, %js_mark_module_def.exit.i.i ], [ %.06089.i.i, %342 ]
+  %345 = getelementptr i8, ptr %.06091.i.i, i64 40
+  %346 = load i32, ptr %345, align 8
+  %347 = icmp sgt i32 %346, 0
+  br i1 %347, label %.lr.ph.i.i.i21, label %._crit_edge.i.i.i10
 
-352:                                              ; preds = %348
-  %353 = getelementptr inbounds i8, ptr %347, i64 4
-  %354 = load i8, ptr %353, align 4
-  %.mask.i60.i = and i8 %354, -16
-  %355 = icmp eq i8 %.mask.i60.i, 16
-  br i1 %355, label %356, label %mark_children.exit.i
+.lr.ph.i.i.i21:                                   ; preds = %.lr.ph.i.i9
+  %348 = getelementptr i8, ptr %.06091.i.i, i64 32
+  br label %349
 
-356:                                              ; preds = %352
-  %357 = getelementptr inbounds i8, ptr %347, i64 8
+349:                                              ; preds = %375, %.lr.ph.i.i.i21
+  %350 = phi i32 [ %346, %.lr.ph.i.i.i21 ], [ %376, %375 ]
+  %indvars.iv.i.i.i22 = phi i64 [ 0, %.lr.ph.i.i.i21 ], [ %indvars.iv.next.i.i.i23, %375 ]
+  %351 = load ptr, ptr %348, align 8
+  %352 = getelementptr %struct.JSExportEntry, ptr %351, i64 %indvars.iv.i.i.i22
+  %353 = getelementptr inbounds i8, ptr %352, i64 16
+  %354 = load i32, ptr %353, align 8
+  %355 = icmp eq i32 %354, 0
+  br i1 %355, label %356, label %375
+
+356:                                              ; preds = %349
+  %357 = getelementptr inbounds i8, ptr %352, i64 8
   %358 = load ptr, ptr %357, align 8
-  %359 = getelementptr inbounds i8, ptr %347, i64 16
-  %360 = load ptr, ptr %359, align 8
-  %361 = getelementptr inbounds i8, ptr %358, i64 8
-  store ptr %360, ptr %361, align 8
-  store ptr %358, ptr %360, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %357, i8 0, i64 16, i1 false)
-  %362 = load ptr, ptr %2, align 8
-  %363 = getelementptr inbounds i8, ptr %362, i64 8
-  store ptr %357, ptr %363, align 8
-  store ptr %362, ptr %357, align 8
-  store ptr %2, ptr %359, align 8
-  store ptr %357, ptr %2, align 8
-  br label %mark_children.exit.i
+  %.not.i.i.i24 = icmp eq ptr %358, null
+  br i1 %.not.i.i.i24, label %375, label %359
 
-364:                                              ; preds = %9
-  %365 = getelementptr i8, ptr %.095.i, i64 424
-  %366 = getelementptr i8, ptr %.095.i, i64 432
-  %.06089.i.i.i = load ptr, ptr %366, align 8
-  %.not90.i.i.i = icmp eq ptr %.06089.i.i.i, %365
-  br i1 %.not90.i.i.i, label %._crit_edge.i.i.i, label %.lr.ph.i.i.i
+359:                                              ; preds = %356
+  %360 = load i32, ptr %358, align 8
+  %361 = add i32 %360, -1
+  store i32 %361, ptr %358, align 8
+  %362 = icmp eq i32 %361, 0
+  br i1 %362, label %363, label %gc_decref_child.exit73
 
-.lr.ph.i.i.i:                                     ; preds = %364, %js_mark_module_def.exit.i.i.i
-  %.06091.i.i.i = phi ptr [ %.060.i.i.i, %js_mark_module_def.exit.i.i.i ], [ %.06089.i.i.i, %364 ]
-  %367 = getelementptr i8, ptr %.06091.i.i.i, i64 40
-  %368 = load i32, ptr %367, align 8
-  %369 = icmp sgt i32 %368, 0
-  br i1 %369, label %.lr.ph.i.i.i.i, label %._crit_edge.i.i.i.i
+363:                                              ; preds = %359
+  %364 = getelementptr inbounds i8, ptr %358, i64 4
+  %365 = load i8, ptr %364, align 4
+  %.mask.i72 = and i8 %365, -16
+  %366 = icmp eq i8 %.mask.i72, 16
+  br i1 %366, label %367, label %gc_decref_child.exit73
 
-.lr.ph.i.i.i.i:                                   ; preds = %.lr.ph.i.i.i
-  %370 = getelementptr i8, ptr %.06091.i.i.i, i64 32
-  br label %371
+367:                                              ; preds = %363
+  %368 = getelementptr inbounds i8, ptr %358, i64 8
+  %369 = load ptr, ptr %368, align 8
+  %370 = getelementptr inbounds i8, ptr %358, i64 16
+  %371 = load ptr, ptr %370, align 8
+  %372 = getelementptr inbounds i8, ptr %369, i64 8
+  store ptr %371, ptr %372, align 8
+  store ptr %369, ptr %371, align 8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %368, i8 0, i64 16, i1 false)
+  %373 = load ptr, ptr %2, align 8
+  %374 = getelementptr inbounds i8, ptr %373, i64 8
+  store ptr %368, ptr %374, align 8
+  store ptr %373, ptr %368, align 8
+  store ptr %2, ptr %370, align 8
+  store ptr %368, ptr %2, align 8
+  br label %gc_decref_child.exit73
 
-371:                                              ; preds = %397, %.lr.ph.i.i.i.i
-  %372 = phi i32 [ %368, %.lr.ph.i.i.i.i ], [ %398, %397 ]
-  %indvars.iv.i.i.i.i = phi i64 [ 0, %.lr.ph.i.i.i.i ], [ %indvars.iv.next.i.i.i.i, %397 ]
-  %373 = load ptr, ptr %370, align 8
-  %374 = getelementptr %struct.JSExportEntry, ptr %373, i64 %indvars.iv.i.i.i.i
-  %375 = getelementptr inbounds i8, ptr %374, i64 16
-  %376 = load i32, ptr %375, align 8
-  %377 = icmp eq i32 %376, 0
-  br i1 %377, label %378, label %397
+gc_decref_child.exit73:                           ; preds = %359, %363, %367
+  %.pre.i.i.i25 = load i32, ptr %345, align 8
+  br label %375
 
-378:                                              ; preds = %371
-  %379 = getelementptr inbounds i8, ptr %374, i64 8
-  %380 = load ptr, ptr %379, align 8
-  %.not.i.i.i.i = icmp eq ptr %380, null
-  br i1 %.not.i.i.i.i, label %397, label %381
+375:                                              ; preds = %gc_decref_child.exit73, %356, %349
+  %376 = phi i32 [ %350, %349 ], [ %350, %356 ], [ %.pre.i.i.i25, %gc_decref_child.exit73 ]
+  %indvars.iv.next.i.i.i23 = add nuw nsw i64 %indvars.iv.i.i.i22, 1
+  %377 = sext i32 %376 to i64
+  %378 = icmp slt i64 %indvars.iv.next.i.i.i23, %377
+  br i1 %378, label %349, label %._crit_edge.i.i.i10, !llvm.loop !25
 
-381:                                              ; preds = %378
-  %382 = load i32, ptr %380, align 8
-  %383 = add i32 %382, -1
-  store i32 %383, ptr %380, align 8
-  %384 = icmp eq i32 %383, 0
-  br i1 %384, label %385, label %gc_decref_child.exit59.i
+._crit_edge.i.i.i10:                              ; preds = %375, %.lr.ph.i.i9
+  %379 = getelementptr i8, ptr %.06091.i.i, i64 88
+  %380 = load i64, ptr %379, align 8
+  %381 = and i64 %380, 4294967294
+  %switch.i.i.i.i11 = icmp eq i64 %381, 4294967294
+  br i1 %switch.i.i.i.i11, label %382, label %JS_MarkValue.exit.i.i.i12
 
-385:                                              ; preds = %381
-  %386 = getelementptr inbounds i8, ptr %380, i64 4
-  %387 = load i8, ptr %386, align 4
-  %.mask.i58.i = and i8 %387, -16
-  %388 = icmp eq i8 %.mask.i58.i, 16
-  br i1 %388, label %389, label %gc_decref_child.exit59.i
+382:                                              ; preds = %._crit_edge.i.i.i10
+  %383 = getelementptr i8, ptr %.06091.i.i, i64 80
+  %384 = load i64, ptr %383, align 8
+  %385 = inttoptr i64 %384 to ptr
+  %386 = load i32, ptr %385, align 8
+  %387 = add i32 %386, -1
+  store i32 %387, ptr %385, align 8
+  %388 = icmp eq i32 %387, 0
+  br i1 %388, label %389, label %JS_MarkValue.exit.i.i.i12
 
-389:                                              ; preds = %385
-  %390 = getelementptr inbounds i8, ptr %380, i64 8
-  %391 = load ptr, ptr %390, align 8
-  %392 = getelementptr inbounds i8, ptr %380, i64 16
-  %393 = load ptr, ptr %392, align 8
-  %394 = getelementptr inbounds i8, ptr %391, i64 8
-  store ptr %393, ptr %394, align 8
-  store ptr %391, ptr %393, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %390, i8 0, i64 16, i1 false)
-  %395 = load ptr, ptr %2, align 8
-  %396 = getelementptr inbounds i8, ptr %395, i64 8
-  store ptr %390, ptr %396, align 8
-  store ptr %395, ptr %390, align 8
-  store ptr %2, ptr %392, align 8
-  store ptr %390, ptr %2, align 8
-  br label %gc_decref_child.exit59.i
+389:                                              ; preds = %382
+  %390 = getelementptr inbounds i8, ptr %385, i64 4
+  %391 = load i8, ptr %390, align 4
+  %.mask.i70 = and i8 %391, -16
+  %392 = icmp eq i8 %.mask.i70, 16
+  br i1 %392, label %393, label %JS_MarkValue.exit.i.i.i12
 
-gc_decref_child.exit59.i:                         ; preds = %389, %385, %381
-  %.pre.i.i.i.i = load i32, ptr %367, align 8
-  br label %397
+393:                                              ; preds = %389
+  %394 = getelementptr inbounds i8, ptr %385, i64 8
+  %395 = load ptr, ptr %394, align 8
+  %396 = getelementptr inbounds i8, ptr %385, i64 16
+  %397 = load ptr, ptr %396, align 8
+  %398 = getelementptr inbounds i8, ptr %395, i64 8
+  store ptr %397, ptr %398, align 8
+  store ptr %395, ptr %397, align 8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %394, i8 0, i64 16, i1 false)
+  %399 = load ptr, ptr %2, align 8
+  %400 = getelementptr inbounds i8, ptr %399, i64 8
+  store ptr %394, ptr %400, align 8
+  store ptr %399, ptr %394, align 8
+  store ptr %2, ptr %396, align 8
+  store ptr %394, ptr %2, align 8
+  br label %JS_MarkValue.exit.i.i.i12
 
-397:                                              ; preds = %gc_decref_child.exit59.i, %378, %371
-  %398 = phi i32 [ %372, %371 ], [ %372, %378 ], [ %.pre.i.i.i.i, %gc_decref_child.exit59.i ]
-  %indvars.iv.next.i.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i.i, 1
-  %399 = sext i32 %398 to i64
-  %400 = icmp slt i64 %indvars.iv.next.i.i.i.i, %399
-  br i1 %400, label %371, label %._crit_edge.i.i.i.i, !llvm.loop !25
-
-._crit_edge.i.i.i.i:                              ; preds = %397, %.lr.ph.i.i.i
-  %401 = getelementptr i8, ptr %.06091.i.i.i, i64 88
+JS_MarkValue.exit.i.i.i12:                        ; preds = %393, %389, %382, %._crit_edge.i.i.i10
+  %401 = getelementptr i8, ptr %.06091.i.i, i64 104
   %402 = load i64, ptr %401, align 8
   %403 = and i64 %402, 4294967294
-  %switch.i.i.i.i.i = icmp eq i64 %403, 4294967294
-  br i1 %switch.i.i.i.i.i, label %404, label %JS_MarkValue.exit.i.i.i.i
+  %switch.i31.i.i.i = icmp eq i64 %403, 4294967294
+  br i1 %switch.i31.i.i.i, label %404, label %JS_MarkValue.exit32.i.i.i
 
-404:                                              ; preds = %._crit_edge.i.i.i.i
-  %405 = getelementptr i8, ptr %.06091.i.i.i, i64 80
+404:                                              ; preds = %JS_MarkValue.exit.i.i.i12
+  %405 = getelementptr i8, ptr %.06091.i.i, i64 96
   %406 = load i64, ptr %405, align 8
   %407 = inttoptr i64 %406 to ptr
   %408 = load i32, ptr %407, align 8
   %409 = add i32 %408, -1
   store i32 %409, ptr %407, align 8
   %410 = icmp eq i32 %409, 0
-  br i1 %410, label %411, label %JS_MarkValue.exit.i.i.i.i
+  br i1 %410, label %411, label %JS_MarkValue.exit32.i.i.i
 
 411:                                              ; preds = %404
   %412 = getelementptr inbounds i8, ptr %407, i64 4
   %413 = load i8, ptr %412, align 4
-  %.mask.i56.i = and i8 %413, -16
-  %414 = icmp eq i8 %.mask.i56.i, 16
-  br i1 %414, label %415, label %JS_MarkValue.exit.i.i.i.i
+  %.mask.i68 = and i8 %413, -16
+  %414 = icmp eq i8 %.mask.i68, 16
+  br i1 %414, label %415, label %JS_MarkValue.exit32.i.i.i
 
 415:                                              ; preds = %411
   %416 = getelementptr inbounds i8, ptr %407, i64 8
@@ -3806,31 +3814,31 @@ gc_decref_child.exit59.i:                         ; preds = %389, %385, %381
   store ptr %421, ptr %416, align 8
   store ptr %2, ptr %418, align 8
   store ptr %416, ptr %2, align 8
-  br label %JS_MarkValue.exit.i.i.i.i
+  br label %JS_MarkValue.exit32.i.i.i
 
-JS_MarkValue.exit.i.i.i.i:                        ; preds = %415, %411, %404, %._crit_edge.i.i.i.i
-  %423 = getelementptr i8, ptr %.06091.i.i.i, i64 104
+JS_MarkValue.exit32.i.i.i:                        ; preds = %415, %411, %404, %JS_MarkValue.exit.i.i.i12
+  %423 = getelementptr i8, ptr %.06091.i.i, i64 248
   %424 = load i64, ptr %423, align 8
   %425 = and i64 %424, 4294967294
-  %switch.i31.i.i.i.i = icmp eq i64 %425, 4294967294
-  br i1 %switch.i31.i.i.i.i, label %426, label %JS_MarkValue.exit32.i.i.i.i
+  %switch.i33.i.i.i = icmp eq i64 %425, 4294967294
+  br i1 %switch.i33.i.i.i, label %426, label %JS_MarkValue.exit34.i.i.i
 
-426:                                              ; preds = %JS_MarkValue.exit.i.i.i.i
-  %427 = getelementptr i8, ptr %.06091.i.i.i, i64 96
+426:                                              ; preds = %JS_MarkValue.exit32.i.i.i
+  %427 = getelementptr i8, ptr %.06091.i.i, i64 240
   %428 = load i64, ptr %427, align 8
   %429 = inttoptr i64 %428 to ptr
   %430 = load i32, ptr %429, align 8
   %431 = add i32 %430, -1
   store i32 %431, ptr %429, align 8
   %432 = icmp eq i32 %431, 0
-  br i1 %432, label %433, label %JS_MarkValue.exit32.i.i.i.i
+  br i1 %432, label %433, label %JS_MarkValue.exit34.i.i.i
 
 433:                                              ; preds = %426
   %434 = getelementptr inbounds i8, ptr %429, i64 4
   %435 = load i8, ptr %434, align 4
-  %.mask.i54.i = and i8 %435, -16
-  %436 = icmp eq i8 %.mask.i54.i, 16
-  br i1 %436, label %437, label %JS_MarkValue.exit32.i.i.i.i
+  %.mask.i66 = and i8 %435, -16
+  %436 = icmp eq i8 %.mask.i66, 16
+  br i1 %436, label %437, label %JS_MarkValue.exit34.i.i.i
 
 437:                                              ; preds = %433
   %438 = getelementptr inbounds i8, ptr %429, i64 8
@@ -3847,31 +3855,31 @@ JS_MarkValue.exit.i.i.i.i:                        ; preds = %415, %411, %404, %.
   store ptr %443, ptr %438, align 8
   store ptr %2, ptr %440, align 8
   store ptr %438, ptr %2, align 8
-  br label %JS_MarkValue.exit32.i.i.i.i
+  br label %JS_MarkValue.exit34.i.i.i
 
-JS_MarkValue.exit32.i.i.i.i:                      ; preds = %437, %433, %426, %JS_MarkValue.exit.i.i.i.i
-  %445 = getelementptr i8, ptr %.06091.i.i.i, i64 248
+JS_MarkValue.exit34.i.i.i:                        ; preds = %437, %433, %426, %JS_MarkValue.exit32.i.i.i
+  %445 = getelementptr i8, ptr %.06091.i.i, i64 264
   %446 = load i64, ptr %445, align 8
   %447 = and i64 %446, 4294967294
-  %switch.i33.i.i.i.i = icmp eq i64 %447, 4294967294
-  br i1 %switch.i33.i.i.i.i, label %448, label %JS_MarkValue.exit34.i.i.i.i
+  %switch.i35.i.i.i = icmp eq i64 %447, 4294967294
+  br i1 %switch.i35.i.i.i, label %448, label %JS_MarkValue.exit36.i.i.i
 
-448:                                              ; preds = %JS_MarkValue.exit32.i.i.i.i
-  %449 = getelementptr i8, ptr %.06091.i.i.i, i64 240
+448:                                              ; preds = %JS_MarkValue.exit34.i.i.i
+  %449 = getelementptr i8, ptr %.06091.i.i, i64 256
   %450 = load i64, ptr %449, align 8
   %451 = inttoptr i64 %450 to ptr
   %452 = load i32, ptr %451, align 8
   %453 = add i32 %452, -1
   store i32 %453, ptr %451, align 8
   %454 = icmp eq i32 %453, 0
-  br i1 %454, label %455, label %JS_MarkValue.exit34.i.i.i.i
+  br i1 %454, label %455, label %JS_MarkValue.exit36.i.i.i
 
 455:                                              ; preds = %448
   %456 = getelementptr inbounds i8, ptr %451, i64 4
   %457 = load i8, ptr %456, align 4
-  %.mask.i52.i = and i8 %457, -16
-  %458 = icmp eq i8 %.mask.i52.i, 16
-  br i1 %458, label %459, label %JS_MarkValue.exit34.i.i.i.i
+  %.mask.i64 = and i8 %457, -16
+  %458 = icmp eq i8 %.mask.i64, 16
+  br i1 %458, label %459, label %JS_MarkValue.exit36.i.i.i
 
 459:                                              ; preds = %455
   %460 = getelementptr inbounds i8, ptr %451, i64 8
@@ -3888,31 +3896,31 @@ JS_MarkValue.exit32.i.i.i.i:                      ; preds = %437, %433, %426, %J
   store ptr %465, ptr %460, align 8
   store ptr %2, ptr %462, align 8
   store ptr %460, ptr %2, align 8
-  br label %JS_MarkValue.exit34.i.i.i.i
+  br label %JS_MarkValue.exit36.i.i.i
 
-JS_MarkValue.exit34.i.i.i.i:                      ; preds = %459, %455, %448, %JS_MarkValue.exit32.i.i.i.i
-  %467 = getelementptr i8, ptr %.06091.i.i.i, i64 264
+JS_MarkValue.exit36.i.i.i:                        ; preds = %459, %455, %448, %JS_MarkValue.exit34.i.i.i
+  %467 = getelementptr i8, ptr %.06091.i.i, i64 192
   %468 = load i64, ptr %467, align 8
   %469 = and i64 %468, 4294967294
-  %switch.i35.i.i.i.i = icmp eq i64 %469, 4294967294
-  br i1 %switch.i35.i.i.i.i, label %470, label %JS_MarkValue.exit36.i.i.i.i
+  %switch.i37.i.i.i = icmp eq i64 %469, 4294967294
+  br i1 %switch.i37.i.i.i, label %470, label %JS_MarkValue.exit38.i.i.i
 
-470:                                              ; preds = %JS_MarkValue.exit34.i.i.i.i
-  %471 = getelementptr i8, ptr %.06091.i.i.i, i64 256
+470:                                              ; preds = %JS_MarkValue.exit36.i.i.i
+  %471 = getelementptr i8, ptr %.06091.i.i, i64 184
   %472 = load i64, ptr %471, align 8
   %473 = inttoptr i64 %472 to ptr
   %474 = load i32, ptr %473, align 8
   %475 = add i32 %474, -1
   store i32 %475, ptr %473, align 8
   %476 = icmp eq i32 %475, 0
-  br i1 %476, label %477, label %JS_MarkValue.exit36.i.i.i.i
+  br i1 %476, label %477, label %JS_MarkValue.exit38.i.i.i
 
 477:                                              ; preds = %470
   %478 = getelementptr inbounds i8, ptr %473, i64 4
   %479 = load i8, ptr %478, align 4
-  %.mask.i50.i = and i8 %479, -16
-  %480 = icmp eq i8 %.mask.i50.i, 16
-  br i1 %480, label %481, label %JS_MarkValue.exit36.i.i.i.i
+  %.mask.i62 = and i8 %479, -16
+  %480 = icmp eq i8 %.mask.i62, 16
+  br i1 %480, label %481, label %JS_MarkValue.exit38.i.i.i
 
 481:                                              ; preds = %477
   %482 = getelementptr inbounds i8, ptr %473, i64 8
@@ -3929,31 +3937,31 @@ JS_MarkValue.exit34.i.i.i.i:                      ; preds = %459, %455, %448, %J
   store ptr %487, ptr %482, align 8
   store ptr %2, ptr %484, align 8
   store ptr %482, ptr %2, align 8
-  br label %JS_MarkValue.exit36.i.i.i.i
+  br label %JS_MarkValue.exit38.i.i.i
 
-JS_MarkValue.exit36.i.i.i.i:                      ; preds = %481, %477, %470, %JS_MarkValue.exit34.i.i.i.i
-  %489 = getelementptr i8, ptr %.06091.i.i.i, i64 192
+JS_MarkValue.exit38.i.i.i:                        ; preds = %481, %477, %470, %JS_MarkValue.exit36.i.i.i
+  %489 = getelementptr i8, ptr %.06091.i.i, i64 208
   %490 = load i64, ptr %489, align 8
   %491 = and i64 %490, 4294967294
-  %switch.i37.i.i.i.i = icmp eq i64 %491, 4294967294
-  br i1 %switch.i37.i.i.i.i, label %492, label %JS_MarkValue.exit38.i.i.i.i
+  %switch.i39.i.i.i = icmp eq i64 %491, 4294967294
+  br i1 %switch.i39.i.i.i, label %492, label %JS_MarkValue.exit40.i.i.i
 
-492:                                              ; preds = %JS_MarkValue.exit36.i.i.i.i
-  %493 = getelementptr i8, ptr %.06091.i.i.i, i64 184
+492:                                              ; preds = %JS_MarkValue.exit38.i.i.i
+  %493 = getelementptr i8, ptr %.06091.i.i, i64 200
   %494 = load i64, ptr %493, align 8
   %495 = inttoptr i64 %494 to ptr
   %496 = load i32, ptr %495, align 8
   %497 = add i32 %496, -1
   store i32 %497, ptr %495, align 8
   %498 = icmp eq i32 %497, 0
-  br i1 %498, label %499, label %JS_MarkValue.exit38.i.i.i.i
+  br i1 %498, label %499, label %JS_MarkValue.exit40.i.i.i
 
 499:                                              ; preds = %492
   %500 = getelementptr inbounds i8, ptr %495, i64 4
   %501 = load i8, ptr %500, align 4
-  %.mask.i48.i = and i8 %501, -16
-  %502 = icmp eq i8 %.mask.i48.i, 16
-  br i1 %502, label %503, label %JS_MarkValue.exit38.i.i.i.i
+  %.mask.i60 = and i8 %501, -16
+  %502 = icmp eq i8 %.mask.i60, 16
+  br i1 %502, label %503, label %JS_MarkValue.exit40.i.i.i
 
 503:                                              ; preds = %499
   %504 = getelementptr inbounds i8, ptr %495, i64 8
@@ -3970,31 +3978,31 @@ JS_MarkValue.exit36.i.i.i.i:                      ; preds = %481, %477, %470, %J
   store ptr %509, ptr %504, align 8
   store ptr %2, ptr %506, align 8
   store ptr %504, ptr %2, align 8
-  br label %JS_MarkValue.exit38.i.i.i.i
+  br label %JS_MarkValue.exit40.i.i.i
 
-JS_MarkValue.exit38.i.i.i.i:                      ; preds = %503, %499, %492, %JS_MarkValue.exit36.i.i.i.i
-  %511 = getelementptr i8, ptr %.06091.i.i.i, i64 208
+JS_MarkValue.exit40.i.i.i:                        ; preds = %503, %499, %492, %JS_MarkValue.exit38.i.i.i
+  %511 = getelementptr i8, ptr %.06091.i.i, i64 224
   %512 = load i64, ptr %511, align 8
   %513 = and i64 %512, 4294967294
-  %switch.i39.i.i.i.i = icmp eq i64 %513, 4294967294
-  br i1 %switch.i39.i.i.i.i, label %514, label %JS_MarkValue.exit40.i.i.i.i
+  %switch.i41.i.i.i = icmp eq i64 %513, 4294967294
+  br i1 %switch.i41.i.i.i, label %514, label %js_mark_module_def.exit.i.i
 
-514:                                              ; preds = %JS_MarkValue.exit38.i.i.i.i
-  %515 = getelementptr i8, ptr %.06091.i.i.i, i64 200
+514:                                              ; preds = %JS_MarkValue.exit40.i.i.i
+  %515 = getelementptr i8, ptr %.06091.i.i, i64 216
   %516 = load i64, ptr %515, align 8
   %517 = inttoptr i64 %516 to ptr
   %518 = load i32, ptr %517, align 8
   %519 = add i32 %518, -1
   store i32 %519, ptr %517, align 8
   %520 = icmp eq i32 %519, 0
-  br i1 %520, label %521, label %JS_MarkValue.exit40.i.i.i.i
+  br i1 %520, label %521, label %js_mark_module_def.exit.i.i
 
 521:                                              ; preds = %514
   %522 = getelementptr inbounds i8, ptr %517, i64 4
   %523 = load i8, ptr %522, align 4
-  %.mask.i46.i = and i8 %523, -16
-  %524 = icmp eq i8 %.mask.i46.i, 16
-  br i1 %524, label %525, label %JS_MarkValue.exit40.i.i.i.i
+  %.mask.i58 = and i8 %523, -16
+  %524 = icmp eq i8 %.mask.i58, 16
+  br i1 %524, label %525, label %js_mark_module_def.exit.i.i
 
 525:                                              ; preds = %521
   %526 = getelementptr inbounds i8, ptr %517, i64 8
@@ -4011,78 +4019,78 @@ JS_MarkValue.exit38.i.i.i.i:                      ; preds = %503, %499, %492, %J
   store ptr %531, ptr %526, align 8
   store ptr %2, ptr %528, align 8
   store ptr %526, ptr %2, align 8
-  br label %JS_MarkValue.exit40.i.i.i.i
+  br label %js_mark_module_def.exit.i.i
 
-JS_MarkValue.exit40.i.i.i.i:                      ; preds = %525, %521, %514, %JS_MarkValue.exit38.i.i.i.i
-  %533 = getelementptr i8, ptr %.06091.i.i.i, i64 224
-  %534 = load i64, ptr %533, align 8
-  %535 = and i64 %534, 4294967294
-  %switch.i41.i.i.i.i = icmp eq i64 %535, 4294967294
-  br i1 %switch.i41.i.i.i.i, label %536, label %js_mark_module_def.exit.i.i.i
+js_mark_module_def.exit.i.i:                      ; preds = %525, %521, %514, %JS_MarkValue.exit40.i.i.i
+  %533 = getelementptr inbounds i8, ptr %.06091.i.i, i64 8
+  %.060.i.i = load ptr, ptr %533, align 8
+  %.not.i.i13 = icmp eq ptr %.060.i.i, %343
+  br i1 %.not.i.i13, label %._crit_edge.i.i14, label %.lr.ph.i.i9, !llvm.loop !26
 
-536:                                              ; preds = %JS_MarkValue.exit40.i.i.i.i
-  %537 = getelementptr i8, ptr %.06091.i.i.i, i64 216
-  %538 = load i64, ptr %537, align 8
-  %539 = inttoptr i64 %538 to ptr
-  %540 = load i32, ptr %539, align 8
-  %541 = add i32 %540, -1
-  store i32 %541, ptr %539, align 8
-  %542 = icmp eq i32 %541, 0
-  br i1 %542, label %543, label %js_mark_module_def.exit.i.i.i
+._crit_edge.i.i14:                                ; preds = %js_mark_module_def.exit.i.i, %342
+  %534 = getelementptr i8, ptr %.019.i, i64 360
+  %535 = load i64, ptr %534, align 8
+  %536 = and i64 %535, 4294967294
+  %switch.i.i.i15 = icmp eq i64 %536, 4294967294
+  br i1 %switch.i.i.i15, label %537, label %JS_MarkValue.exit.i.i16
 
-543:                                              ; preds = %536
-  %544 = getelementptr inbounds i8, ptr %539, i64 4
-  %545 = load i8, ptr %544, align 4
-  %.mask.i44.i = and i8 %545, -16
-  %546 = icmp eq i8 %.mask.i44.i, 16
-  br i1 %546, label %547, label %js_mark_module_def.exit.i.i.i
+537:                                              ; preds = %._crit_edge.i.i14
+  %538 = getelementptr i8, ptr %.019.i, i64 352
+  %539 = load i64, ptr %538, align 8
+  %540 = inttoptr i64 %539 to ptr
+  %541 = load i32, ptr %540, align 8
+  %542 = add i32 %541, -1
+  store i32 %542, ptr %540, align 8
+  %543 = icmp eq i32 %542, 0
+  br i1 %543, label %544, label %JS_MarkValue.exit.i.i16
 
-547:                                              ; preds = %543
-  %548 = getelementptr inbounds i8, ptr %539, i64 8
-  %549 = load ptr, ptr %548, align 8
-  %550 = getelementptr inbounds i8, ptr %539, i64 16
-  %551 = load ptr, ptr %550, align 8
-  %552 = getelementptr inbounds i8, ptr %549, i64 8
-  store ptr %551, ptr %552, align 8
-  store ptr %549, ptr %551, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %548, i8 0, i64 16, i1 false)
-  %553 = load ptr, ptr %2, align 8
-  %554 = getelementptr inbounds i8, ptr %553, i64 8
-  store ptr %548, ptr %554, align 8
-  store ptr %553, ptr %548, align 8
-  store ptr %2, ptr %550, align 8
-  store ptr %548, ptr %2, align 8
-  br label %js_mark_module_def.exit.i.i.i
+544:                                              ; preds = %537
+  %545 = getelementptr inbounds i8, ptr %540, i64 4
+  %546 = load i8, ptr %545, align 4
+  %.mask.i56 = and i8 %546, -16
+  %547 = icmp eq i8 %.mask.i56, 16
+  br i1 %547, label %548, label %JS_MarkValue.exit.i.i16
 
-js_mark_module_def.exit.i.i.i:                    ; preds = %547, %543, %536, %JS_MarkValue.exit40.i.i.i.i
-  %555 = getelementptr inbounds i8, ptr %.06091.i.i.i, i64 8
-  %.060.i.i.i = load ptr, ptr %555, align 8
-  %.not.i.i.i = icmp eq ptr %.060.i.i.i, %365
-  br i1 %.not.i.i.i, label %._crit_edge.i.i.i, label %.lr.ph.i.i.i, !llvm.loop !26
+548:                                              ; preds = %544
+  %549 = getelementptr inbounds i8, ptr %540, i64 8
+  %550 = load ptr, ptr %549, align 8
+  %551 = getelementptr inbounds i8, ptr %540, i64 16
+  %552 = load ptr, ptr %551, align 8
+  %553 = getelementptr inbounds i8, ptr %550, i64 8
+  store ptr %552, ptr %553, align 8
+  store ptr %550, ptr %552, align 8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %549, i8 0, i64 16, i1 false)
+  %554 = load ptr, ptr %2, align 8
+  %555 = getelementptr inbounds i8, ptr %554, i64 8
+  store ptr %549, ptr %555, align 8
+  store ptr %554, ptr %549, align 8
+  store ptr %2, ptr %551, align 8
+  store ptr %549, ptr %2, align 8
+  br label %JS_MarkValue.exit.i.i16
 
-._crit_edge.i.i.i:                                ; preds = %js_mark_module_def.exit.i.i.i, %364
-  %556 = getelementptr i8, ptr %.095.i, i64 360
+JS_MarkValue.exit.i.i16:                          ; preds = %548, %544, %537, %._crit_edge.i.i14
+  %556 = getelementptr i8, ptr %.019.i, i64 376
   %557 = load i64, ptr %556, align 8
   %558 = and i64 %557, 4294967294
-  %switch.i.i.i.i = icmp eq i64 %558, 4294967294
-  br i1 %switch.i.i.i.i, label %559, label %JS_MarkValue.exit.i.i.i
+  %switch.i63.i.i = icmp eq i64 %558, 4294967294
+  br i1 %switch.i63.i.i, label %559, label %JS_MarkValue.exit64.i.i
 
-559:                                              ; preds = %._crit_edge.i.i.i
-  %560 = getelementptr i8, ptr %.095.i, i64 352
+559:                                              ; preds = %JS_MarkValue.exit.i.i16
+  %560 = getelementptr i8, ptr %.019.i, i64 368
   %561 = load i64, ptr %560, align 8
   %562 = inttoptr i64 %561 to ptr
   %563 = load i32, ptr %562, align 8
   %564 = add i32 %563, -1
   store i32 %564, ptr %562, align 8
   %565 = icmp eq i32 %564, 0
-  br i1 %565, label %566, label %JS_MarkValue.exit.i.i.i
+  br i1 %565, label %566, label %JS_MarkValue.exit64.i.i
 
 566:                                              ; preds = %559
   %567 = getelementptr inbounds i8, ptr %562, i64 4
   %568 = load i8, ptr %567, align 4
-  %.mask.i42.i = and i8 %568, -16
-  %569 = icmp eq i8 %.mask.i42.i, 16
-  br i1 %569, label %570, label %JS_MarkValue.exit.i.i.i
+  %.mask.i54 = and i8 %568, -16
+  %569 = icmp eq i8 %.mask.i54, 16
+  br i1 %569, label %570, label %JS_MarkValue.exit64.i.i
 
 570:                                              ; preds = %566
   %571 = getelementptr inbounds i8, ptr %562, i64 8
@@ -4099,31 +4107,31 @@ js_mark_module_def.exit.i.i.i:                    ; preds = %547, %543, %536, %J
   store ptr %576, ptr %571, align 8
   store ptr %2, ptr %573, align 8
   store ptr %571, ptr %2, align 8
-  br label %JS_MarkValue.exit.i.i.i
+  br label %JS_MarkValue.exit64.i.i
 
-JS_MarkValue.exit.i.i.i:                          ; preds = %570, %566, %559, %._crit_edge.i.i.i
-  %578 = getelementptr i8, ptr %.095.i, i64 376
+JS_MarkValue.exit64.i.i:                          ; preds = %570, %566, %559, %JS_MarkValue.exit.i.i16
+  %578 = getelementptr i8, ptr %.019.i, i64 328
   %579 = load i64, ptr %578, align 8
   %580 = and i64 %579, 4294967294
-  %switch.i63.i.i.i = icmp eq i64 %580, 4294967294
-  br i1 %switch.i63.i.i.i, label %581, label %JS_MarkValue.exit64.i.i.i
+  %switch.i65.i.i = icmp eq i64 %580, 4294967294
+  br i1 %switch.i65.i.i, label %581, label %JS_MarkValue.exit66.i.i
 
-581:                                              ; preds = %JS_MarkValue.exit.i.i.i
-  %582 = getelementptr i8, ptr %.095.i, i64 368
+581:                                              ; preds = %JS_MarkValue.exit64.i.i
+  %582 = getelementptr i8, ptr %.019.i, i64 320
   %583 = load i64, ptr %582, align 8
   %584 = inttoptr i64 %583 to ptr
   %585 = load i32, ptr %584, align 8
   %586 = add i32 %585, -1
   store i32 %586, ptr %584, align 8
   %587 = icmp eq i32 %586, 0
-  br i1 %587, label %588, label %JS_MarkValue.exit64.i.i.i
+  br i1 %587, label %588, label %JS_MarkValue.exit66.i.i
 
 588:                                              ; preds = %581
   %589 = getelementptr inbounds i8, ptr %584, i64 4
   %590 = load i8, ptr %589, align 4
-  %.mask.i40.i = and i8 %590, -16
-  %591 = icmp eq i8 %.mask.i40.i, 16
-  br i1 %591, label %592, label %JS_MarkValue.exit64.i.i.i
+  %.mask.i52 = and i8 %590, -16
+  %591 = icmp eq i8 %.mask.i52, 16
+  br i1 %591, label %592, label %JS_MarkValue.exit66.i.i
 
 592:                                              ; preds = %588
   %593 = getelementptr inbounds i8, ptr %584, i64 8
@@ -4140,31 +4148,31 @@ JS_MarkValue.exit.i.i.i:                          ; preds = %570, %566, %559, %.
   store ptr %598, ptr %593, align 8
   store ptr %2, ptr %595, align 8
   store ptr %593, ptr %2, align 8
-  br label %JS_MarkValue.exit64.i.i.i
+  br label %JS_MarkValue.exit66.i.i
 
-JS_MarkValue.exit64.i.i.i:                        ; preds = %592, %588, %581, %JS_MarkValue.exit.i.i.i
-  %600 = getelementptr i8, ptr %.095.i, i64 328
+JS_MarkValue.exit66.i.i:                          ; preds = %592, %588, %581, %JS_MarkValue.exit64.i.i
+  %600 = getelementptr i8, ptr %.019.i, i64 344
   %601 = load i64, ptr %600, align 8
   %602 = and i64 %601, 4294967294
-  %switch.i65.i.i.i = icmp eq i64 %602, 4294967294
-  br i1 %switch.i65.i.i.i, label %603, label %JS_MarkValue.exit66.i.i.i
+  %switch.i67.i.i = icmp eq i64 %602, 4294967294
+  br i1 %switch.i67.i.i, label %603, label %JS_MarkValue.exit68.i.i
 
-603:                                              ; preds = %JS_MarkValue.exit64.i.i.i
-  %604 = getelementptr i8, ptr %.095.i, i64 320
+603:                                              ; preds = %JS_MarkValue.exit66.i.i
+  %604 = getelementptr i8, ptr %.019.i, i64 336
   %605 = load i64, ptr %604, align 8
   %606 = inttoptr i64 %605 to ptr
   %607 = load i32, ptr %606, align 8
   %608 = add i32 %607, -1
   store i32 %608, ptr %606, align 8
   %609 = icmp eq i32 %608, 0
-  br i1 %609, label %610, label %JS_MarkValue.exit66.i.i.i
+  br i1 %609, label %610, label %JS_MarkValue.exit68.i.i
 
 610:                                              ; preds = %603
   %611 = getelementptr inbounds i8, ptr %606, i64 4
   %612 = load i8, ptr %611, align 4
-  %.mask.i38.i = and i8 %612, -16
-  %613 = icmp eq i8 %.mask.i38.i, 16
-  br i1 %613, label %614, label %JS_MarkValue.exit66.i.i.i
+  %.mask.i50 = and i8 %612, -16
+  %613 = icmp eq i8 %.mask.i50, 16
+  br i1 %613, label %614, label %JS_MarkValue.exit68.i.i
 
 614:                                              ; preds = %610
   %615 = getelementptr inbounds i8, ptr %606, i64 8
@@ -4181,31 +4189,31 @@ JS_MarkValue.exit64.i.i.i:                        ; preds = %592, %588, %581, %J
   store ptr %620, ptr %615, align 8
   store ptr %2, ptr %617, align 8
   store ptr %615, ptr %2, align 8
-  br label %JS_MarkValue.exit66.i.i.i
+  br label %JS_MarkValue.exit68.i.i
 
-JS_MarkValue.exit66.i.i.i:                        ; preds = %614, %610, %603, %JS_MarkValue.exit64.i.i.i
-  %622 = getelementptr i8, ptr %.095.i, i64 344
+JS_MarkValue.exit68.i.i:                          ; preds = %614, %610, %603, %JS_MarkValue.exit66.i.i
+  %622 = getelementptr i8, ptr %.019.i, i64 312
   %623 = load i64, ptr %622, align 8
   %624 = and i64 %623, 4294967294
-  %switch.i67.i.i.i = icmp eq i64 %624, 4294967294
-  br i1 %switch.i67.i.i.i, label %625, label %JS_MarkValue.exit68.i.i.i
+  %switch.i69.i.i = icmp eq i64 %624, 4294967294
+  br i1 %switch.i69.i.i, label %625, label %JS_MarkValue.exit70.i.i
 
-625:                                              ; preds = %JS_MarkValue.exit66.i.i.i
-  %626 = getelementptr i8, ptr %.095.i, i64 336
+625:                                              ; preds = %JS_MarkValue.exit68.i.i
+  %626 = getelementptr i8, ptr %.019.i, i64 304
   %627 = load i64, ptr %626, align 8
   %628 = inttoptr i64 %627 to ptr
   %629 = load i32, ptr %628, align 8
   %630 = add i32 %629, -1
   store i32 %630, ptr %628, align 8
   %631 = icmp eq i32 %630, 0
-  br i1 %631, label %632, label %JS_MarkValue.exit68.i.i.i
+  br i1 %631, label %632, label %JS_MarkValue.exit70.i.i
 
 632:                                              ; preds = %625
   %633 = getelementptr inbounds i8, ptr %628, i64 4
   %634 = load i8, ptr %633, align 4
-  %.mask.i36.i = and i8 %634, -16
-  %635 = icmp eq i8 %.mask.i36.i, 16
-  br i1 %635, label %636, label %JS_MarkValue.exit68.i.i.i
+  %.mask.i48 = and i8 %634, -16
+  %635 = icmp eq i8 %.mask.i48, 16
+  br i1 %635, label %636, label %JS_MarkValue.exit70.i.i
 
 636:                                              ; preds = %632
   %637 = getelementptr inbounds i8, ptr %628, i64 8
@@ -4222,187 +4230,187 @@ JS_MarkValue.exit66.i.i.i:                        ; preds = %614, %610, %603, %J
   store ptr %642, ptr %637, align 8
   store ptr %2, ptr %639, align 8
   store ptr %637, ptr %2, align 8
-  br label %JS_MarkValue.exit68.i.i.i
+  br label %JS_MarkValue.exit70.i.i
 
-JS_MarkValue.exit68.i.i.i:                        ; preds = %636, %632, %625, %JS_MarkValue.exit66.i.i.i
-  %644 = getelementptr i8, ptr %.095.i, i64 312
-  %645 = load i64, ptr %644, align 8
-  %646 = and i64 %645, 4294967294
-  %switch.i69.i.i.i = icmp eq i64 %646, 4294967294
-  br i1 %switch.i69.i.i.i, label %647, label %JS_MarkValue.exit70.i.i.i
+JS_MarkValue.exit70.i.i:                          ; preds = %636, %632, %625, %JS_MarkValue.exit68.i.i
+  %644 = getelementptr i8, ptr %.019.i, i64 144
+  br label %648
 
-647:                                              ; preds = %JS_MarkValue.exit68.i.i.i
-  %648 = getelementptr i8, ptr %.095.i, i64 304
-  %649 = load i64, ptr %648, align 8
-  %650 = inttoptr i64 %649 to ptr
-  %651 = load i32, ptr %650, align 8
-  %652 = add i32 %651, -1
-  store i32 %652, ptr %650, align 8
-  %653 = icmp eq i32 %652, 0
-  br i1 %653, label %654, label %JS_MarkValue.exit70.i.i.i
+.preheader.i.i19:                                 ; preds = %JS_MarkValue.exit72.i.i
+  %645 = load i32, ptr %7, align 4
+  %646 = icmp sgt i32 %645, 0
+  br i1 %646, label %.lr.ph94.i.i, label %._crit_edge95.i.i
 
-654:                                              ; preds = %647
-  %655 = getelementptr inbounds i8, ptr %650, i64 4
-  %656 = load i8, ptr %655, align 4
-  %.mask.i34.i = and i8 %656, -16
-  %657 = icmp eq i8 %.mask.i34.i, 16
-  br i1 %657, label %658, label %JS_MarkValue.exit70.i.i.i
+.lr.ph94.i.i:                                     ; preds = %.preheader.i.i19
+  %647 = getelementptr i8, ptr %.019.i, i64 56
+  br label %671
 
-658:                                              ; preds = %654
-  %659 = getelementptr inbounds i8, ptr %650, i64 8
-  %660 = load ptr, ptr %659, align 8
-  %661 = getelementptr inbounds i8, ptr %650, i64 16
-  %662 = load ptr, ptr %661, align 8
-  %663 = getelementptr inbounds i8, ptr %660, i64 8
-  store ptr %662, ptr %663, align 8
-  store ptr %660, ptr %662, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %659, i8 0, i64 16, i1 false)
-  %664 = load ptr, ptr %2, align 8
-  %665 = getelementptr inbounds i8, ptr %664, i64 8
-  store ptr %659, ptr %665, align 8
-  store ptr %664, ptr %659, align 8
-  store ptr %2, ptr %661, align 8
-  store ptr %659, ptr %2, align 8
-  br label %JS_MarkValue.exit70.i.i.i
+648:                                              ; preds = %JS_MarkValue.exit72.i.i, %JS_MarkValue.exit70.i.i
+  %indvars.iv.i.i17 = phi i64 [ 0, %JS_MarkValue.exit70.i.i ], [ %indvars.iv.next.i.i18, %JS_MarkValue.exit72.i.i ]
+  %649 = getelementptr [8 x %struct.JSValue], ptr %644, i64 0, i64 %indvars.iv.i.i17
+  %650 = getelementptr inbounds i8, ptr %649, i64 8
+  %651 = load i64, ptr %650, align 8
+  %652 = and i64 %651, 4294967294
+  %switch.i71.i.i = icmp eq i64 %652, 4294967294
+  br i1 %switch.i71.i.i, label %653, label %JS_MarkValue.exit72.i.i
 
-JS_MarkValue.exit70.i.i.i:                        ; preds = %658, %654, %647, %JS_MarkValue.exit68.i.i.i
-  %666 = getelementptr i8, ptr %.095.i, i64 144
-  br label %670
+653:                                              ; preds = %648
+  %654 = load i64, ptr %649, align 8
+  %655 = inttoptr i64 %654 to ptr
+  %656 = load i32, ptr %655, align 8
+  %657 = add i32 %656, -1
+  store i32 %657, ptr %655, align 8
+  %658 = icmp eq i32 %657, 0
+  br i1 %658, label %659, label %JS_MarkValue.exit72.i.i
 
-.preheader.i.i.i:                                 ; preds = %JS_MarkValue.exit72.i.i.i
-  %667 = load i32, ptr %7, align 4
-  %668 = icmp sgt i32 %667, 0
-  br i1 %668, label %.lr.ph94.i.i.i, label %._crit_edge95.i.i.i
+659:                                              ; preds = %653
+  %660 = getelementptr inbounds i8, ptr %655, i64 4
+  %661 = load i8, ptr %660, align 4
+  %.mask.i46 = and i8 %661, -16
+  %662 = icmp eq i8 %.mask.i46, 16
+  br i1 %662, label %663, label %JS_MarkValue.exit72.i.i
 
-.lr.ph94.i.i.i:                                   ; preds = %.preheader.i.i.i
-  %669 = getelementptr i8, ptr %.095.i, i64 56
-  br label %693
+663:                                              ; preds = %659
+  %664 = getelementptr inbounds i8, ptr %655, i64 8
+  %665 = load ptr, ptr %664, align 8
+  %666 = getelementptr inbounds i8, ptr %655, i64 16
+  %667 = load ptr, ptr %666, align 8
+  %668 = getelementptr inbounds i8, ptr %665, i64 8
+  store ptr %667, ptr %668, align 8
+  store ptr %665, ptr %667, align 8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %664, i8 0, i64 16, i1 false)
+  %669 = load ptr, ptr %2, align 8
+  %670 = getelementptr inbounds i8, ptr %669, i64 8
+  store ptr %664, ptr %670, align 8
+  store ptr %669, ptr %664, align 8
+  store ptr %2, ptr %666, align 8
+  store ptr %664, ptr %2, align 8
+  br label %JS_MarkValue.exit72.i.i
 
-670:                                              ; preds = %JS_MarkValue.exit72.i.i.i, %JS_MarkValue.exit70.i.i.i
-  %indvars.iv.i.i.i = phi i64 [ 0, %JS_MarkValue.exit70.i.i.i ], [ %indvars.iv.next.i.i.i, %JS_MarkValue.exit72.i.i.i ]
-  %671 = getelementptr [8 x %struct.JSValue], ptr %666, i64 0, i64 %indvars.iv.i.i.i
-  %672 = getelementptr inbounds i8, ptr %671, i64 8
-  %673 = load i64, ptr %672, align 8
-  %674 = and i64 %673, 4294967294
-  %switch.i71.i.i.i = icmp eq i64 %674, 4294967294
-  br i1 %switch.i71.i.i.i, label %675, label %JS_MarkValue.exit72.i.i.i
+JS_MarkValue.exit72.i.i:                          ; preds = %663, %659, %653, %648
+  %indvars.iv.next.i.i18 = add nuw nsw i64 %indvars.iv.i.i17, 1
+  %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i18, 8
+  br i1 %exitcond.not.i.i, label %.preheader.i.i19, label %648, !llvm.loop !27
 
-675:                                              ; preds = %670
-  %676 = load i64, ptr %671, align 8
-  %677 = inttoptr i64 %676 to ptr
-  %678 = load i32, ptr %677, align 8
-  %679 = add i32 %678, -1
-  store i32 %679, ptr %677, align 8
-  %680 = icmp eq i32 %679, 0
-  br i1 %680, label %681, label %JS_MarkValue.exit72.i.i.i
+671:                                              ; preds = %JS_MarkValue.exit74.i.i, %.lr.ph94.i.i
+  %672 = phi i32 [ %645, %.lr.ph94.i.i ], [ %696, %JS_MarkValue.exit74.i.i ]
+  %indvars.iv97.i.i = phi i64 [ 0, %.lr.ph94.i.i ], [ %indvars.iv.next98.i.i, %JS_MarkValue.exit74.i.i ]
+  %673 = load ptr, ptr %647, align 8
+  %674 = getelementptr %struct.JSValue, ptr %673, i64 %indvars.iv97.i.i
+  %675 = getelementptr inbounds i8, ptr %674, i64 8
+  %676 = load i64, ptr %675, align 8
+  %677 = and i64 %676, 4294967294
+  %switch.i73.i.i = icmp eq i64 %677, 4294967294
+  br i1 %switch.i73.i.i, label %678, label %JS_MarkValue.exit74.i.i
 
-681:                                              ; preds = %675
-  %682 = getelementptr inbounds i8, ptr %677, i64 4
-  %683 = load i8, ptr %682, align 4
-  %.mask.i32.i = and i8 %683, -16
-  %684 = icmp eq i8 %.mask.i32.i, 16
-  br i1 %684, label %685, label %JS_MarkValue.exit72.i.i.i
+678:                                              ; preds = %671
+  %679 = load i64, ptr %674, align 8
+  %680 = inttoptr i64 %679 to ptr
+  %681 = load i32, ptr %680, align 8
+  %682 = add i32 %681, -1
+  store i32 %682, ptr %680, align 8
+  %683 = icmp eq i32 %682, 0
+  br i1 %683, label %684, label %gc_decref_child.exit45
 
-685:                                              ; preds = %681
-  %686 = getelementptr inbounds i8, ptr %677, i64 8
-  %687 = load ptr, ptr %686, align 8
-  %688 = getelementptr inbounds i8, ptr %677, i64 16
-  %689 = load ptr, ptr %688, align 8
-  %690 = getelementptr inbounds i8, ptr %687, i64 8
-  store ptr %689, ptr %690, align 8
-  store ptr %687, ptr %689, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %686, i8 0, i64 16, i1 false)
-  %691 = load ptr, ptr %2, align 8
-  %692 = getelementptr inbounds i8, ptr %691, i64 8
-  store ptr %686, ptr %692, align 8
-  store ptr %691, ptr %686, align 8
-  store ptr %2, ptr %688, align 8
-  store ptr %686, ptr %2, align 8
-  br label %JS_MarkValue.exit72.i.i.i
+684:                                              ; preds = %678
+  %685 = getelementptr inbounds i8, ptr %680, i64 4
+  %686 = load i8, ptr %685, align 4
+  %.mask.i44 = and i8 %686, -16
+  %687 = icmp eq i8 %.mask.i44, 16
+  br i1 %687, label %688, label %gc_decref_child.exit45
 
-JS_MarkValue.exit72.i.i.i:                        ; preds = %685, %681, %675, %670
-  %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
-  %exitcond.not.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i, 8
-  br i1 %exitcond.not.i.i.i, label %.preheader.i.i.i, label %670, !llvm.loop !27
+688:                                              ; preds = %684
+  %689 = getelementptr inbounds i8, ptr %680, i64 8
+  %690 = load ptr, ptr %689, align 8
+  %691 = getelementptr inbounds i8, ptr %680, i64 16
+  %692 = load ptr, ptr %691, align 8
+  %693 = getelementptr inbounds i8, ptr %690, i64 8
+  store ptr %692, ptr %693, align 8
+  store ptr %690, ptr %692, align 8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %689, i8 0, i64 16, i1 false)
+  %694 = load ptr, ptr %2, align 8
+  %695 = getelementptr inbounds i8, ptr %694, i64 8
+  store ptr %689, ptr %695, align 8
+  store ptr %694, ptr %689, align 8
+  store ptr %2, ptr %691, align 8
+  store ptr %689, ptr %2, align 8
+  br label %gc_decref_child.exit45
 
-693:                                              ; preds = %JS_MarkValue.exit74.i.i.i, %.lr.ph94.i.i.i
-  %694 = phi i32 [ %667, %.lr.ph94.i.i.i ], [ %718, %JS_MarkValue.exit74.i.i.i ]
-  %indvars.iv97.i.i.i = phi i64 [ 0, %.lr.ph94.i.i.i ], [ %indvars.iv.next98.i.i.i, %JS_MarkValue.exit74.i.i.i ]
-  %695 = load ptr, ptr %669, align 8
-  %696 = getelementptr %struct.JSValue, ptr %695, i64 %indvars.iv97.i.i.i
-  %697 = getelementptr inbounds i8, ptr %696, i64 8
-  %698 = load i64, ptr %697, align 8
-  %699 = and i64 %698, 4294967294
-  %switch.i73.i.i.i = icmp eq i64 %699, 4294967294
-  br i1 %switch.i73.i.i.i, label %700, label %JS_MarkValue.exit74.i.i.i
+gc_decref_child.exit45:                           ; preds = %678, %684, %688
+  %.pre.i.i20 = load i32, ptr %7, align 4
+  br label %JS_MarkValue.exit74.i.i
 
-700:                                              ; preds = %693
-  %701 = load i64, ptr %696, align 8
-  %702 = inttoptr i64 %701 to ptr
-  %703 = load i32, ptr %702, align 8
-  %704 = add i32 %703, -1
-  store i32 %704, ptr %702, align 8
-  %705 = icmp eq i32 %704, 0
-  br i1 %705, label %706, label %gc_decref_child.exit31.i
+JS_MarkValue.exit74.i.i:                          ; preds = %gc_decref_child.exit45, %671
+  %696 = phi i32 [ %672, %671 ], [ %.pre.i.i20, %gc_decref_child.exit45 ]
+  %indvars.iv.next98.i.i = add nuw nsw i64 %indvars.iv97.i.i, 1
+  %697 = sext i32 %696 to i64
+  %698 = icmp slt i64 %indvars.iv.next98.i.i, %697
+  br i1 %698, label %671, label %._crit_edge95.i.i, !llvm.loop !28
 
-706:                                              ; preds = %700
-  %707 = getelementptr inbounds i8, ptr %702, i64 4
-  %708 = load i8, ptr %707, align 4
-  %.mask.i30.i = and i8 %708, -16
-  %709 = icmp eq i8 %.mask.i30.i, 16
-  br i1 %709, label %710, label %gc_decref_child.exit31.i
+._crit_edge95.i.i:                                ; preds = %JS_MarkValue.exit74.i.i, %.preheader.i.i19
+  %699 = getelementptr i8, ptr %.019.i, i64 280
+  %700 = load i64, ptr %699, align 8
+  %701 = and i64 %700, 4294967294
+  %switch.i75.i.i = icmp eq i64 %701, 4294967294
+  br i1 %switch.i75.i.i, label %702, label %JS_MarkValue.exit76.i.i
 
-710:                                              ; preds = %706
-  %711 = getelementptr inbounds i8, ptr %702, i64 8
-  %712 = load ptr, ptr %711, align 8
-  %713 = getelementptr inbounds i8, ptr %702, i64 16
-  %714 = load ptr, ptr %713, align 8
-  %715 = getelementptr inbounds i8, ptr %712, i64 8
-  store ptr %714, ptr %715, align 8
-  store ptr %712, ptr %714, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %711, i8 0, i64 16, i1 false)
-  %716 = load ptr, ptr %2, align 8
-  %717 = getelementptr inbounds i8, ptr %716, i64 8
-  store ptr %711, ptr %717, align 8
-  store ptr %716, ptr %711, align 8
-  store ptr %2, ptr %713, align 8
-  store ptr %711, ptr %2, align 8
-  br label %gc_decref_child.exit31.i
+702:                                              ; preds = %._crit_edge95.i.i
+  %703 = getelementptr i8, ptr %.019.i, i64 272
+  %704 = load i64, ptr %703, align 8
+  %705 = inttoptr i64 %704 to ptr
+  %706 = load i32, ptr %705, align 8
+  %707 = add i32 %706, -1
+  store i32 %707, ptr %705, align 8
+  %708 = icmp eq i32 %707, 0
+  br i1 %708, label %709, label %JS_MarkValue.exit76.i.i
 
-gc_decref_child.exit31.i:                         ; preds = %710, %706, %700
-  %.pre.i.i.i = load i32, ptr %7, align 4
-  br label %JS_MarkValue.exit74.i.i.i
+709:                                              ; preds = %702
+  %710 = getelementptr inbounds i8, ptr %705, i64 4
+  %711 = load i8, ptr %710, align 4
+  %.mask.i42 = and i8 %711, -16
+  %712 = icmp eq i8 %.mask.i42, 16
+  br i1 %712, label %713, label %JS_MarkValue.exit76.i.i
 
-JS_MarkValue.exit74.i.i.i:                        ; preds = %gc_decref_child.exit31.i, %693
-  %718 = phi i32 [ %694, %693 ], [ %.pre.i.i.i, %gc_decref_child.exit31.i ]
-  %indvars.iv.next98.i.i.i = add nuw nsw i64 %indvars.iv97.i.i.i, 1
-  %719 = sext i32 %718 to i64
-  %720 = icmp slt i64 %indvars.iv.next98.i.i.i, %719
-  br i1 %720, label %693, label %._crit_edge95.i.i.i, !llvm.loop !28
+713:                                              ; preds = %709
+  %714 = getelementptr inbounds i8, ptr %705, i64 8
+  %715 = load ptr, ptr %714, align 8
+  %716 = getelementptr inbounds i8, ptr %705, i64 16
+  %717 = load ptr, ptr %716, align 8
+  %718 = getelementptr inbounds i8, ptr %715, i64 8
+  store ptr %717, ptr %718, align 8
+  store ptr %715, ptr %717, align 8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %714, i8 0, i64 16, i1 false)
+  %719 = load ptr, ptr %2, align 8
+  %720 = getelementptr inbounds i8, ptr %719, i64 8
+  store ptr %714, ptr %720, align 8
+  store ptr %719, ptr %714, align 8
+  store ptr %2, ptr %716, align 8
+  store ptr %714, ptr %2, align 8
+  br label %JS_MarkValue.exit76.i.i
 
-._crit_edge95.i.i.i:                              ; preds = %JS_MarkValue.exit74.i.i.i, %.preheader.i.i.i
-  %721 = getelementptr i8, ptr %.095.i, i64 280
+JS_MarkValue.exit76.i.i:                          ; preds = %713, %709, %702, %._crit_edge95.i.i
+  %721 = getelementptr i8, ptr %.019.i, i64 296
   %722 = load i64, ptr %721, align 8
   %723 = and i64 %722, 4294967294
-  %switch.i75.i.i.i = icmp eq i64 %723, 4294967294
-  br i1 %switch.i75.i.i.i, label %724, label %JS_MarkValue.exit76.i.i.i
+  %switch.i77.i.i = icmp eq i64 %723, 4294967294
+  br i1 %switch.i77.i.i, label %724, label %JS_MarkValue.exit78.i.i
 
-724:                                              ; preds = %._crit_edge95.i.i.i
-  %725 = getelementptr i8, ptr %.095.i, i64 272
+724:                                              ; preds = %JS_MarkValue.exit76.i.i
+  %725 = getelementptr i8, ptr %.019.i, i64 288
   %726 = load i64, ptr %725, align 8
   %727 = inttoptr i64 %726 to ptr
   %728 = load i32, ptr %727, align 8
   %729 = add i32 %728, -1
   store i32 %729, ptr %727, align 8
   %730 = icmp eq i32 %729, 0
-  br i1 %730, label %731, label %JS_MarkValue.exit76.i.i.i
+  br i1 %730, label %731, label %JS_MarkValue.exit78.i.i
 
 731:                                              ; preds = %724
   %732 = getelementptr inbounds i8, ptr %727, i64 4
   %733 = load i8, ptr %732, align 4
-  %.mask.i28.i = and i8 %733, -16
-  %734 = icmp eq i8 %.mask.i28.i, 16
-  br i1 %734, label %735, label %JS_MarkValue.exit76.i.i.i
+  %.mask.i40 = and i8 %733, -16
+  %734 = icmp eq i8 %.mask.i40, 16
+  br i1 %734, label %735, label %JS_MarkValue.exit78.i.i
 
 735:                                              ; preds = %731
   %736 = getelementptr inbounds i8, ptr %727, i64 8
@@ -4419,31 +4427,31 @@ JS_MarkValue.exit74.i.i.i:                        ; preds = %gc_decref_child.exi
   store ptr %741, ptr %736, align 8
   store ptr %2, ptr %738, align 8
   store ptr %736, ptr %2, align 8
-  br label %JS_MarkValue.exit76.i.i.i
+  br label %JS_MarkValue.exit78.i.i
 
-JS_MarkValue.exit76.i.i.i:                        ; preds = %735, %731, %724, %._crit_edge95.i.i.i
-  %743 = getelementptr i8, ptr %.095.i, i64 296
+JS_MarkValue.exit78.i.i:                          ; preds = %735, %731, %724, %JS_MarkValue.exit76.i.i
+  %743 = getelementptr i8, ptr %.019.i, i64 136
   %744 = load i64, ptr %743, align 8
   %745 = and i64 %744, 4294967294
-  %switch.i77.i.i.i = icmp eq i64 %745, 4294967294
-  br i1 %switch.i77.i.i.i, label %746, label %JS_MarkValue.exit78.i.i.i
+  %switch.i79.i.i = icmp eq i64 %745, 4294967294
+  br i1 %switch.i79.i.i, label %746, label %JS_MarkValue.exit80.i.i
 
-746:                                              ; preds = %JS_MarkValue.exit76.i.i.i
-  %747 = getelementptr i8, ptr %.095.i, i64 288
+746:                                              ; preds = %JS_MarkValue.exit78.i.i
+  %747 = getelementptr i8, ptr %.019.i, i64 128
   %748 = load i64, ptr %747, align 8
   %749 = inttoptr i64 %748 to ptr
   %750 = load i32, ptr %749, align 8
   %751 = add i32 %750, -1
   store i32 %751, ptr %749, align 8
   %752 = icmp eq i32 %751, 0
-  br i1 %752, label %753, label %JS_MarkValue.exit78.i.i.i
+  br i1 %752, label %753, label %JS_MarkValue.exit80.i.i
 
 753:                                              ; preds = %746
   %754 = getelementptr inbounds i8, ptr %749, i64 4
   %755 = load i8, ptr %754, align 4
-  %.mask.i26.i = and i8 %755, -16
-  %756 = icmp eq i8 %.mask.i26.i, 16
-  br i1 %756, label %757, label %JS_MarkValue.exit78.i.i.i
+  %.mask.i38 = and i8 %755, -16
+  %756 = icmp eq i8 %.mask.i38, 16
+  br i1 %756, label %757, label %JS_MarkValue.exit80.i.i
 
 757:                                              ; preds = %753
   %758 = getelementptr inbounds i8, ptr %749, i64 8
@@ -4460,31 +4468,31 @@ JS_MarkValue.exit76.i.i.i:                        ; preds = %735, %731, %724, %.
   store ptr %763, ptr %758, align 8
   store ptr %2, ptr %760, align 8
   store ptr %758, ptr %2, align 8
-  br label %JS_MarkValue.exit78.i.i.i
+  br label %JS_MarkValue.exit80.i.i
 
-JS_MarkValue.exit78.i.i.i:                        ; preds = %757, %753, %746, %JS_MarkValue.exit76.i.i.i
-  %765 = getelementptr i8, ptr %.095.i, i64 136
+JS_MarkValue.exit80.i.i:                          ; preds = %757, %753, %746, %JS_MarkValue.exit78.i.i
+  %765 = getelementptr i8, ptr %.019.i, i64 104
   %766 = load i64, ptr %765, align 8
   %767 = and i64 %766, 4294967294
-  %switch.i79.i.i.i = icmp eq i64 %767, 4294967294
-  br i1 %switch.i79.i.i.i, label %768, label %JS_MarkValue.exit80.i.i.i
+  %switch.i81.i.i = icmp eq i64 %767, 4294967294
+  br i1 %switch.i81.i.i, label %768, label %JS_MarkValue.exit82.i.i
 
-768:                                              ; preds = %JS_MarkValue.exit78.i.i.i
-  %769 = getelementptr i8, ptr %.095.i, i64 128
+768:                                              ; preds = %JS_MarkValue.exit80.i.i
+  %769 = getelementptr i8, ptr %.019.i, i64 96
   %770 = load i64, ptr %769, align 8
   %771 = inttoptr i64 %770 to ptr
   %772 = load i32, ptr %771, align 8
   %773 = add i32 %772, -1
   store i32 %773, ptr %771, align 8
   %774 = icmp eq i32 %773, 0
-  br i1 %774, label %775, label %JS_MarkValue.exit80.i.i.i
+  br i1 %774, label %775, label %JS_MarkValue.exit82.i.i
 
 775:                                              ; preds = %768
   %776 = getelementptr inbounds i8, ptr %771, i64 4
   %777 = load i8, ptr %776, align 4
-  %.mask.i24.i = and i8 %777, -16
-  %778 = icmp eq i8 %.mask.i24.i, 16
-  br i1 %778, label %779, label %JS_MarkValue.exit80.i.i.i
+  %.mask.i36 = and i8 %777, -16
+  %778 = icmp eq i8 %.mask.i36, 16
+  br i1 %778, label %779, label %JS_MarkValue.exit82.i.i
 
 779:                                              ; preds = %775
   %780 = getelementptr inbounds i8, ptr %771, i64 8
@@ -4501,31 +4509,31 @@ JS_MarkValue.exit78.i.i.i:                        ; preds = %757, %753, %746, %J
   store ptr %785, ptr %780, align 8
   store ptr %2, ptr %782, align 8
   store ptr %780, ptr %2, align 8
-  br label %JS_MarkValue.exit80.i.i.i
+  br label %JS_MarkValue.exit82.i.i
 
-JS_MarkValue.exit80.i.i.i:                        ; preds = %779, %775, %768, %JS_MarkValue.exit78.i.i.i
-  %787 = getelementptr i8, ptr %.095.i, i64 104
+JS_MarkValue.exit82.i.i:                          ; preds = %779, %775, %768, %JS_MarkValue.exit80.i.i
+  %787 = getelementptr i8, ptr %.019.i, i64 120
   %788 = load i64, ptr %787, align 8
   %789 = and i64 %788, 4294967294
-  %switch.i81.i.i.i = icmp eq i64 %789, 4294967294
-  br i1 %switch.i81.i.i.i, label %790, label %JS_MarkValue.exit82.i.i.i
+  %switch.i83.i.i = icmp eq i64 %789, 4294967294
+  br i1 %switch.i83.i.i, label %790, label %JS_MarkValue.exit84.i.i
 
-790:                                              ; preds = %JS_MarkValue.exit80.i.i.i
-  %791 = getelementptr i8, ptr %.095.i, i64 96
+790:                                              ; preds = %JS_MarkValue.exit82.i.i
+  %791 = getelementptr i8, ptr %.019.i, i64 112
   %792 = load i64, ptr %791, align 8
   %793 = inttoptr i64 %792 to ptr
   %794 = load i32, ptr %793, align 8
   %795 = add i32 %794, -1
   store i32 %795, ptr %793, align 8
   %796 = icmp eq i32 %795, 0
-  br i1 %796, label %797, label %JS_MarkValue.exit82.i.i.i
+  br i1 %796, label %797, label %JS_MarkValue.exit84.i.i
 
 797:                                              ; preds = %790
   %798 = getelementptr inbounds i8, ptr %793, i64 4
   %799 = load i8, ptr %798, align 4
-  %.mask.i22.i = and i8 %799, -16
-  %800 = icmp eq i8 %.mask.i22.i, 16
-  br i1 %800, label %801, label %JS_MarkValue.exit82.i.i.i
+  %.mask.i34 = and i8 %799, -16
+  %800 = icmp eq i8 %.mask.i34, 16
+  br i1 %800, label %801, label %JS_MarkValue.exit84.i.i
 
 801:                                              ; preds = %797
   %802 = getelementptr inbounds i8, ptr %793, i64 8
@@ -4542,31 +4550,31 @@ JS_MarkValue.exit80.i.i.i:                        ; preds = %779, %775, %768, %J
   store ptr %807, ptr %802, align 8
   store ptr %2, ptr %804, align 8
   store ptr %802, ptr %2, align 8
-  br label %JS_MarkValue.exit82.i.i.i
+  br label %JS_MarkValue.exit84.i.i
 
-JS_MarkValue.exit82.i.i.i:                        ; preds = %801, %797, %790, %JS_MarkValue.exit80.i.i.i
-  %809 = getelementptr i8, ptr %.095.i, i64 120
+JS_MarkValue.exit84.i.i:                          ; preds = %801, %797, %790, %JS_MarkValue.exit82.i.i
+  %809 = getelementptr i8, ptr %.019.i, i64 88
   %810 = load i64, ptr %809, align 8
   %811 = and i64 %810, 4294967294
-  %switch.i83.i.i.i = icmp eq i64 %811, 4294967294
-  br i1 %switch.i83.i.i.i, label %812, label %JS_MarkValue.exit84.i.i.i
+  %switch.i85.i.i = icmp eq i64 %811, 4294967294
+  br i1 %switch.i85.i.i, label %812, label %JS_MarkValue.exit86.i.i
 
-812:                                              ; preds = %JS_MarkValue.exit82.i.i.i
-  %813 = getelementptr i8, ptr %.095.i, i64 112
+812:                                              ; preds = %JS_MarkValue.exit84.i.i
+  %813 = getelementptr i8, ptr %.019.i, i64 80
   %814 = load i64, ptr %813, align 8
   %815 = inttoptr i64 %814 to ptr
   %816 = load i32, ptr %815, align 8
   %817 = add i32 %816, -1
   store i32 %817, ptr %815, align 8
   %818 = icmp eq i32 %817, 0
-  br i1 %818, label %819, label %JS_MarkValue.exit84.i.i.i
+  br i1 %818, label %819, label %JS_MarkValue.exit86.i.i
 
 819:                                              ; preds = %812
   %820 = getelementptr inbounds i8, ptr %815, i64 4
   %821 = load i8, ptr %820, align 4
-  %.mask.i20.i = and i8 %821, -16
-  %822 = icmp eq i8 %.mask.i20.i, 16
-  br i1 %822, label %823, label %JS_MarkValue.exit84.i.i.i
+  %.mask.i32 = and i8 %821, -16
+  %822 = icmp eq i8 %.mask.i32, 16
+  br i1 %822, label %823, label %JS_MarkValue.exit86.i.i
 
 823:                                              ; preds = %819
   %824 = getelementptr inbounds i8, ptr %815, i64 8
@@ -4583,31 +4591,31 @@ JS_MarkValue.exit82.i.i.i:                        ; preds = %801, %797, %790, %J
   store ptr %829, ptr %824, align 8
   store ptr %2, ptr %826, align 8
   store ptr %824, ptr %2, align 8
-  br label %JS_MarkValue.exit84.i.i.i
+  br label %JS_MarkValue.exit86.i.i
 
-JS_MarkValue.exit84.i.i.i:                        ; preds = %823, %819, %812, %JS_MarkValue.exit82.i.i.i
-  %831 = getelementptr i8, ptr %.095.i, i64 88
+JS_MarkValue.exit86.i.i:                          ; preds = %823, %819, %812, %JS_MarkValue.exit84.i.i
+  %831 = getelementptr i8, ptr %.019.i, i64 72
   %832 = load i64, ptr %831, align 8
   %833 = and i64 %832, 4294967294
-  %switch.i85.i.i.i = icmp eq i64 %833, 4294967294
-  br i1 %switch.i85.i.i.i, label %834, label %JS_MarkValue.exit86.i.i.i
+  %switch.i87.i.i = icmp eq i64 %833, 4294967294
+  br i1 %switch.i87.i.i, label %834, label %JS_MarkValue.exit88.i.i
 
-834:                                              ; preds = %JS_MarkValue.exit84.i.i.i
-  %835 = getelementptr i8, ptr %.095.i, i64 80
+834:                                              ; preds = %JS_MarkValue.exit86.i.i
+  %835 = getelementptr i8, ptr %.019.i, i64 64
   %836 = load i64, ptr %835, align 8
   %837 = inttoptr i64 %836 to ptr
   %838 = load i32, ptr %837, align 8
   %839 = add i32 %838, -1
   store i32 %839, ptr %837, align 8
   %840 = icmp eq i32 %839, 0
-  br i1 %840, label %841, label %JS_MarkValue.exit86.i.i.i
+  br i1 %840, label %841, label %JS_MarkValue.exit88.i.i
 
 841:                                              ; preds = %834
   %842 = getelementptr inbounds i8, ptr %837, i64 4
   %843 = load i8, ptr %842, align 4
-  %.mask.i18.i = and i8 %843, -16
-  %844 = icmp eq i8 %.mask.i18.i, 16
-  br i1 %844, label %845, label %JS_MarkValue.exit86.i.i.i
+  %.mask.i30 = and i8 %843, -16
+  %844 = icmp eq i8 %.mask.i30, 16
+  br i1 %844, label %845, label %JS_MarkValue.exit88.i.i
 
 845:                                              ; preds = %841
   %846 = getelementptr inbounds i8, ptr %837, i64 8
@@ -4624,2578 +4632,2525 @@ JS_MarkValue.exit84.i.i.i:                        ; preds = %823, %819, %812, %J
   store ptr %851, ptr %846, align 8
   store ptr %2, ptr %848, align 8
   store ptr %846, ptr %2, align 8
-  br label %JS_MarkValue.exit86.i.i.i
+  br label %JS_MarkValue.exit88.i.i
 
-JS_MarkValue.exit86.i.i.i:                        ; preds = %845, %841, %834, %JS_MarkValue.exit84.i.i.i
-  %853 = getelementptr i8, ptr %.095.i, i64 72
-  %854 = load i64, ptr %853, align 8
-  %855 = and i64 %854, 4294967294
-  %switch.i87.i.i.i = icmp eq i64 %855, 4294967294
-  br i1 %switch.i87.i.i.i, label %856, label %JS_MarkValue.exit88.i.i.i
+JS_MarkValue.exit88.i.i:                          ; preds = %845, %841, %834, %JS_MarkValue.exit86.i.i
+  %853 = getelementptr i8, ptr %.019.i, i64 48
+  %854 = load ptr, ptr %853, align 8
+  %.not62.i.i = icmp eq ptr %854, null
+  br i1 %.not62.i.i, label %mark_children.exit, label %855
 
-856:                                              ; preds = %JS_MarkValue.exit86.i.i.i
-  %857 = getelementptr i8, ptr %.095.i, i64 64
-  %858 = load i64, ptr %857, align 8
-  %859 = inttoptr i64 %858 to ptr
-  %860 = load i32, ptr %859, align 8
-  %861 = add i32 %860, -1
-  store i32 %861, ptr %859, align 8
-  %862 = icmp eq i32 %861, 0
-  br i1 %862, label %863, label %JS_MarkValue.exit88.i.i.i
+855:                                              ; preds = %JS_MarkValue.exit88.i.i
+  %856 = load i32, ptr %854, align 8
+  %857 = add i32 %856, -1
+  store i32 %857, ptr %854, align 8
+  %858 = icmp eq i32 %857, 0
+  br i1 %858, label %859, label %mark_children.exit
 
-863:                                              ; preds = %856
-  %864 = getelementptr inbounds i8, ptr %859, i64 4
-  %865 = load i8, ptr %864, align 4
-  %.mask.i16.i = and i8 %865, -16
-  %866 = icmp eq i8 %.mask.i16.i, 16
-  br i1 %866, label %867, label %JS_MarkValue.exit88.i.i.i
+859:                                              ; preds = %855
+  %860 = getelementptr inbounds i8, ptr %854, i64 4
+  %861 = load i8, ptr %860, align 4
+  %.mask.i = and i8 %861, -16
+  %862 = icmp eq i8 %.mask.i, 16
+  br i1 %862, label %863, label %mark_children.exit
 
-867:                                              ; preds = %863
-  %868 = getelementptr inbounds i8, ptr %859, i64 8
-  %869 = load ptr, ptr %868, align 8
-  %870 = getelementptr inbounds i8, ptr %859, i64 16
-  %871 = load ptr, ptr %870, align 8
-  %872 = getelementptr inbounds i8, ptr %869, i64 8
-  store ptr %871, ptr %872, align 8
-  store ptr %869, ptr %871, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %868, i8 0, i64 16, i1 false)
-  %873 = load ptr, ptr %2, align 8
-  %874 = getelementptr inbounds i8, ptr %873, i64 8
-  store ptr %868, ptr %874, align 8
-  store ptr %873, ptr %868, align 8
-  store ptr %2, ptr %870, align 8
-  store ptr %868, ptr %2, align 8
-  br label %JS_MarkValue.exit88.i.i.i
+863:                                              ; preds = %859
+  %864 = getelementptr inbounds i8, ptr %854, i64 8
+  %865 = load ptr, ptr %864, align 8
+  %866 = getelementptr inbounds i8, ptr %854, i64 16
+  %867 = load ptr, ptr %866, align 8
+  %868 = getelementptr inbounds i8, ptr %865, i64 8
+  store ptr %867, ptr %868, align 8
+  store ptr %865, ptr %867, align 8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %864, i8 0, i64 16, i1 false)
+  %869 = load ptr, ptr %2, align 8
+  %870 = getelementptr inbounds i8, ptr %869, i64 8
+  store ptr %864, ptr %870, align 8
+  store ptr %869, ptr %864, align 8
+  store ptr %2, ptr %866, align 8
+  store ptr %864, ptr %2, align 8
+  br label %mark_children.exit
 
-JS_MarkValue.exit88.i.i.i:                        ; preds = %867, %863, %856, %JS_MarkValue.exit86.i.i.i
-  %875 = getelementptr i8, ptr %.095.i, i64 48
-  %876 = load ptr, ptr %875, align 8
-  %.not62.i.i.i = icmp eq ptr %876, null
-  br i1 %.not62.i.i.i, label %mark_children.exit.i, label %877
-
-877:                                              ; preds = %JS_MarkValue.exit88.i.i.i
-  %878 = load i32, ptr %876, align 8
-  %879 = add i32 %878, -1
-  store i32 %879, ptr %876, align 8
-  %880 = icmp eq i32 %879, 0
-  br i1 %880, label %881, label %mark_children.exit.i
-
-881:                                              ; preds = %877
-  %882 = getelementptr inbounds i8, ptr %876, i64 4
-  %883 = load i8, ptr %882, align 4
-  %.mask.i.i = and i8 %883, -16
-  %884 = icmp eq i8 %.mask.i.i, 16
-  br i1 %884, label %885, label %mark_children.exit.i
-
-885:                                              ; preds = %881
-  %886 = getelementptr inbounds i8, ptr %876, i64 8
-  %887 = load ptr, ptr %886, align 8
-  %888 = getelementptr inbounds i8, ptr %876, i64 16
-  %889 = load ptr, ptr %888, align 8
-  %890 = getelementptr inbounds i8, ptr %887, i64 8
-  store ptr %889, ptr %890, align 8
-  store ptr %887, ptr %889, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %886, i8 0, i64 16, i1 false)
-  %891 = load ptr, ptr %2, align 8
-  %892 = getelementptr inbounds i8, ptr %891, i64 8
-  store ptr %886, ptr %892, align 8
-  store ptr %891, ptr %886, align 8
-  store ptr %2, ptr %888, align 8
-  store ptr %886, ptr %2, align 8
-  br label %mark_children.exit.i
-
-893:                                              ; preds = %9
+871:                                              ; preds = %.lr.ph.i
   tail call void @abort() #44
   unreachable
 
-mark_children.exit.i:                             ; preds = %885, %881, %877, %JS_MarkValue.exit88.i.i.i, %356, %352, %348, %345, %337, %333, %326, %JS_MarkValue.exit128.i.i, %214, %210, %206, %203, %195, %191, %185, %179, %167, %163, %159, %._crit_edge.i.i, %128, %123, %._crit_edge138.i.i
-  %894 = load i8, ptr %11, align 4
-  %895 = and i8 %894, 15
-  %896 = or disjoint i8 %895, 16
-  store i8 %896, ptr %11, align 4
-  %897 = load i32, ptr %10, align 8
-  %898 = icmp eq i32 %897, 0
-  br i1 %898, label %899, label %905
+mark_children.exit:                               ; preds = %863, %859, %855, %334, %330, %326, %315, %311, %304, %192, %188, %184, %173, %169, %163, %145, %141, %137, %._crit_edge138.i, %101, %106, %._crit_edge.i28, %157, %181, %JS_MarkValue.exit128.i, %323, %JS_MarkValue.exit88.i.i
+  %872 = load i8, ptr %10, align 4
+  %873 = and i8 %872, 15
+  %874 = or disjoint i8 %873, 16
+  store i8 %874, ptr %10, align 4
+  %875 = load i32, ptr %9, align 8
+  %876 = icmp eq i32 %875, 0
+  br i1 %876, label %877, label %883
 
-899:                                              ; preds = %mark_children.exit.i
-  %900 = load ptr, ptr %.095.i, align 8
-  %901 = load ptr, ptr %.015.in96.i, align 8
-  %902 = getelementptr inbounds i8, ptr %900, i64 8
-  store ptr %901, ptr %902, align 8
-  store ptr %900, ptr %901, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.095.i, i8 0, i64 16, i1 false)
-  %903 = load ptr, ptr %2, align 8
-  %904 = getelementptr inbounds i8, ptr %903, i64 8
-  store ptr %.095.i, ptr %904, align 8
-  store ptr %903, ptr %.095.i, align 8
-  store ptr %2, ptr %.015.in96.i, align 8
-  store ptr %.095.i, ptr %2, align 8
-  br label %905
+877:                                              ; preds = %mark_children.exit
+  %878 = load ptr, ptr %.019.i, align 8
+  %879 = load ptr, ptr %.015.in20.i, align 8
+  %880 = getelementptr inbounds i8, ptr %878, i64 8
+  store ptr %879, ptr %880, align 8
+  store ptr %878, ptr %879, align 8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.019.i, i8 0, i64 16, i1 false)
+  %881 = load ptr, ptr %2, align 8
+  %882 = getelementptr inbounds i8, ptr %881, i64 8
+  store ptr %.019.i, ptr %882, align 8
+  store ptr %881, ptr %.019.i, align 8
+  store ptr %2, ptr %.015.in20.i, align 8
+  store ptr %.019.i, ptr %2, align 8
+  br label %883
 
-905:                                              ; preds = %899, %mark_children.exit.i
-  %.not.i = icmp eq ptr %.01597.i, %4
-  br i1 %.not.i, label %gc_decref.exit.loopexit, label %9, !llvm.loop !29
+883:                                              ; preds = %877, %mark_children.exit
+  %.not.i = icmp eq ptr %.01521.i, %4
+  br i1 %.not.i, label %gc_decref.exit.loopexit, label %.lr.ph.i, !llvm.loop !29
 
-gc_decref.exit.loopexit:                          ; preds = %905
-  %.0163.i.pre = load ptr, ptr %5, align 8
+gc_decref.exit.loopexit:                          ; preds = %883
+  %.0162.i.pre = load ptr, ptr %5, align 8
   br label %gc_decref.exit
 
 gc_decref.exit:                                   ; preds = %gc_decref.exit.loopexit, %1
-  %.0163.i = phi ptr [ %.0163.i.pre, %gc_decref.exit.loopexit ], [ %6, %1 ]
-  %.not164.i = icmp eq ptr %.0163.i, %4
-  br i1 %.not164.i, label %._crit_edge.i, label %.lr.ph.i3
+  %.0162.i = phi ptr [ %.0162.i.pre, %gc_decref.exit.loopexit ], [ %6, %1 ]
+  %.not163.i = icmp eq ptr %.0162.i, %4
+  br i1 %.not163.i, label %._crit_edge.i, label %.lr.ph.i3
 
 .lr.ph.i3:                                        ; preds = %gc_decref.exit
-  %906 = getelementptr inbounds i8, ptr %0, i64 108
-  %907 = getelementptr inbounds i8, ptr %0, i64 112
-  br label %908
+  %884 = getelementptr inbounds i8, ptr %0, i64 108
+  %885 = getelementptr inbounds i8, ptr %0, i64 112
+  br label %886
 
-908:                                              ; preds = %mark_children.exit.i58, %.lr.ph.i3
-  %.0165.i = phi ptr [ %.0163.i, %.lr.ph.i3 ], [ %.0.i, %mark_children.exit.i58 ]
-  %909 = getelementptr i8, ptr %.0165.i, i64 -8
-  %910 = getelementptr i8, ptr %.0165.i, i64 -4
-  %911 = load i8, ptr %910, align 4
-  %912 = and i8 %911, 15
-  store i8 %912, ptr %910, align 4
-  switch i8 %912, label %1744 [
-    i8 0, label %917
-    i8 1, label %.preheader.i.i91
-    i8 3, label %1057
-    i8 4, label %1102
-    i8 2, label %1220
-    i8 5, label %1238
+886:                                              ; preds = %mark_children.exit.i, %.lr.ph.i3
+  %.0164.i = phi ptr [ %.0162.i, %.lr.ph.i3 ], [ %.0.i, %mark_children.exit.i ]
+  %887 = getelementptr i8, ptr %.0164.i, i64 -8
+  %888 = getelementptr i8, ptr %.0164.i, i64 -4
+  %889 = load i8, ptr %888, align 4
+  %890 = and i8 %889, 15
+  store i8 %890, ptr %888, align 4
+  switch i8 %890, label %1713 [
+    i8 0, label %895
+    i8 1, label %.preheader.i.i
+    i8 3, label %1026
+    i8 4, label %1071
+    i8 2, label %1189
+    i8 5, label %1207
   ]
 
-.preheader.i.i91:                                 ; preds = %908
-  %913 = getelementptr i8, ptr %.0165.i, i64 80
-  %914 = load i32, ptr %913, align 8
-  %915 = icmp sgt i32 %914, 0
-  br i1 %915, label %.lr.ph133.i.i94, label %._crit_edge.i.i92
+.preheader.i.i:                                   ; preds = %886
+  %891 = getelementptr i8, ptr %.0164.i, i64 80
+  %892 = load i32, ptr %891, align 8
+  %893 = icmp sgt i32 %892, 0
+  br i1 %893, label %.lr.ph133.i.i, label %._crit_edge.i.i
 
-.lr.ph133.i.i94:                                  ; preds = %.preheader.i.i91
-  %916 = getelementptr i8, ptr %.0165.i, i64 72
-  br label %1013
+.lr.ph133.i.i:                                    ; preds = %.preheader.i.i
+  %894 = getelementptr i8, ptr %.0164.i, i64 72
+  br label %982
 
-917:                                              ; preds = %908
-  %918 = getelementptr i8, ptr %.0165.i, i64 16
-  %919 = load ptr, ptr %918, align 8
-  %920 = load i32, ptr %919, align 8
-  %921 = add i32 %920, 1
-  store i32 %921, ptr %919, align 8
-  %922 = icmp eq i32 %920, 0
-  br i1 %922, label %923, label %gc_scan_incref_child.exit162.i
+895:                                              ; preds = %886
+  %896 = getelementptr i8, ptr %.0164.i, i64 16
+  %897 = load ptr, ptr %896, align 8
+  %898 = load i32, ptr %897, align 8
+  %899 = add i32 %898, 1
+  store i32 %899, ptr %897, align 8
+  %900 = icmp eq i32 %898, 0
+  br i1 %900, label %901, label %gc_scan_incref_child.exit161.i
 
-923:                                              ; preds = %917
-  %924 = getelementptr inbounds i8, ptr %919, i64 8
-  %925 = load ptr, ptr %924, align 8
-  %926 = getelementptr inbounds i8, ptr %919, i64 16
-  %927 = load ptr, ptr %926, align 8
-  %928 = getelementptr inbounds i8, ptr %925, i64 8
-  store ptr %927, ptr %928, align 8
-  store ptr %925, ptr %927, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %924, i8 0, i64 16, i1 false)
-  %929 = load ptr, ptr %4, align 8
-  %930 = getelementptr inbounds i8, ptr %929, i64 8
-  store ptr %924, ptr %930, align 8
-  store ptr %929, ptr %924, align 8
-  store ptr %4, ptr %926, align 8
-  store ptr %924, ptr %4, align 8
-  %931 = getelementptr inbounds i8, ptr %919, i64 4
-  %932 = load i8, ptr %931, align 4
-  %933 = and i8 %932, 15
-  store i8 %933, ptr %931, align 4
-  br label %gc_scan_incref_child.exit162.i
-
-gc_scan_incref_child.exit162.i:                   ; preds = %923, %917
-  %934 = getelementptr inbounds i8, ptr %919, i64 40
-  %935 = load i32, ptr %934, align 8
-  %936 = icmp sgt i32 %935, 0
-  br i1 %936, label %.lr.ph137.i.i104, label %._crit_edge138.i.i100
-
-.lr.ph137.i.i104:                                 ; preds = %gc_scan_incref_child.exit162.i
-  %937 = getelementptr inbounds i8, ptr %919, i64 64
-  %938 = getelementptr i8, ptr %.0165.i, i64 24
-  br label %939
-
-939:                                              ; preds = %JS_MarkValue.exit.i.i109, %.lr.ph137.i.i104
-  %indvars.iv140.i.i105 = phi i64 [ 0, %.lr.ph137.i.i104 ], [ %indvars.iv.next141.i.i110, %JS_MarkValue.exit.i.i109 ]
-  %.0135.i.i106 = phi ptr [ %937, %.lr.ph137.i.i104 ], [ %1001, %JS_MarkValue.exit.i.i109 ]
-  %940 = load ptr, ptr %938, align 8
-  %941 = getelementptr %struct.JSProperty, ptr %940, i64 %indvars.iv140.i.i105
-  %942 = getelementptr inbounds i8, ptr %.0135.i.i106, i64 4
-  %943 = load i32, ptr %942, align 4
-  %.not113.i.i107 = icmp eq i32 %943, 0
-  br i1 %.not113.i.i107, label %JS_MarkValue.exit.i.i109, label %944
-
-944:                                              ; preds = %939
-  %945 = load i32, ptr %.0135.i.i106, align 4
-  %946 = lshr i32 %945, 30
-  switch i32 %946, label %default.unreachable [
-    i32 0, label %981
-    i32 1, label %947
-    i32 2, label %970
-    i32 3, label %975
-  ]
-
-947:                                              ; preds = %944
-  %948 = load ptr, ptr %941, align 8
-  %.not115.i.i112 = icmp eq ptr %948, null
-  br i1 %.not115.i.i112, label %gc_scan_incref_child.exit161.i, label %949
-
-949:                                              ; preds = %947
-  %950 = load i32, ptr %948, align 8
-  %951 = add i32 %950, 1
-  store i32 %951, ptr %948, align 8
-  %952 = icmp eq i32 %950, 0
-  br i1 %952, label %953, label %gc_scan_incref_child.exit161.i
-
-953:                                              ; preds = %949
-  %954 = getelementptr inbounds i8, ptr %948, i64 8
-  %955 = load ptr, ptr %954, align 8
-  %956 = getelementptr inbounds i8, ptr %948, i64 16
-  %957 = load ptr, ptr %956, align 8
-  %958 = getelementptr inbounds i8, ptr %955, i64 8
-  store ptr %957, ptr %958, align 8
-  store ptr %955, ptr %957, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %954, i8 0, i64 16, i1 false)
-  %959 = load ptr, ptr %4, align 8
-  %960 = getelementptr inbounds i8, ptr %959, i64 8
-  store ptr %954, ptr %960, align 8
-  store ptr %959, ptr %954, align 8
-  store ptr %4, ptr %956, align 8
-  store ptr %954, ptr %4, align 8
-  %961 = getelementptr inbounds i8, ptr %948, i64 4
-  %962 = load i8, ptr %961, align 4
-  %963 = and i8 %962, 15
-  store i8 %963, ptr %961, align 4
+901:                                              ; preds = %895
+  %902 = getelementptr inbounds i8, ptr %897, i64 8
+  %903 = load ptr, ptr %902, align 8
+  %904 = getelementptr inbounds i8, ptr %897, i64 16
+  %905 = load ptr, ptr %904, align 8
+  %906 = getelementptr inbounds i8, ptr %903, i64 8
+  store ptr %905, ptr %906, align 8
+  store ptr %903, ptr %905, align 8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %902, i8 0, i64 16, i1 false)
+  %907 = load ptr, ptr %4, align 8
+  %908 = getelementptr inbounds i8, ptr %907, i64 8
+  store ptr %902, ptr %908, align 8
+  store ptr %907, ptr %902, align 8
+  store ptr %4, ptr %904, align 8
+  store ptr %902, ptr %4, align 8
+  %909 = getelementptr inbounds i8, ptr %897, i64 4
+  %910 = load i8, ptr %909, align 4
+  %911 = and i8 %910, 15
+  store i8 %911, ptr %909, align 4
   br label %gc_scan_incref_child.exit161.i
 
-gc_scan_incref_child.exit161.i:                   ; preds = %953, %949, %947
-  %964 = getelementptr inbounds i8, ptr %941, i64 8
-  %965 = load ptr, ptr %964, align 8
-  %.not116.i.i113 = icmp eq ptr %965, null
-  br i1 %.not116.i.i113, label %JS_MarkValue.exit.i.i109, label %966
+gc_scan_incref_child.exit161.i:                   ; preds = %901, %895
+  %912 = getelementptr inbounds i8, ptr %897, i64 40
+  %913 = load i32, ptr %912, align 8
+  %914 = icmp sgt i32 %913, 0
+  br i1 %914, label %.lr.ph137.i.i, label %._crit_edge138.i.i
 
-966:                                              ; preds = %gc_scan_incref_child.exit161.i
-  %967 = load i32, ptr %965, align 8
-  %968 = add i32 %967, 1
-  store i32 %968, ptr %965, align 8
-  %969 = icmp eq i32 %967, 0
-  br i1 %969, label %JS_MarkValue.exit.i.sink.split.i111, label %JS_MarkValue.exit.i.i109
+.lr.ph137.i.i:                                    ; preds = %gc_scan_incref_child.exit161.i
+  %915 = getelementptr inbounds i8, ptr %897, i64 64
+  %916 = getelementptr i8, ptr %.0164.i, i64 24
+  br label %917
 
-970:                                              ; preds = %944
-  %971 = load ptr, ptr %941, align 8
-  %972 = load i32, ptr %971, align 8
-  %973 = add i32 %972, 1
-  store i32 %973, ptr %971, align 8
-  %974 = icmp eq i32 %972, 0
-  br i1 %974, label %JS_MarkValue.exit.i.sink.split.i111, label %JS_MarkValue.exit.i.i109
+917:                                              ; preds = %JS_MarkValue.exit.i.i, %.lr.ph137.i.i
+  %indvars.iv140.i.i = phi i64 [ 0, %.lr.ph137.i.i ], [ %indvars.iv.next141.i.i, %JS_MarkValue.exit.i.i ]
+  %.0135.i.i = phi ptr [ %915, %.lr.ph137.i.i ], [ %970, %JS_MarkValue.exit.i.i ]
+  %918 = load ptr, ptr %916, align 8
+  %919 = getelementptr %struct.JSProperty, ptr %918, i64 %indvars.iv140.i.i
+  %920 = getelementptr inbounds i8, ptr %.0135.i.i, i64 4
+  %921 = load i32, ptr %920, align 4
+  %.not113.i.i = icmp eq i32 %921, 0
+  br i1 %.not113.i.i, label %JS_MarkValue.exit.i.i, label %922
 
-975:                                              ; preds = %944
-  %.val.i.i108 = load i64, ptr %941, align 8
-  %976 = and i64 %.val.i.i108, -4
-  %977 = inttoptr i64 %976 to ptr
-  %978 = load i32, ptr %977, align 8
-  %979 = add i32 %978, 1
-  store i32 %979, ptr %977, align 8
-  %980 = icmp eq i32 %978, 0
-  br i1 %980, label %JS_MarkValue.exit.i.sink.split.i111, label %JS_MarkValue.exit.i.i109
+922:                                              ; preds = %917
+  %923 = load i32, ptr %.0135.i.i, align 4
+  %924 = lshr i32 %923, 30
+  switch i32 %924, label %default.unreachable [
+    i32 0, label %949
+    i32 1, label %925
+    i32 2, label %944
+    i32 3, label %946
+  ]
 
-981:                                              ; preds = %944
-  %982 = getelementptr inbounds i8, ptr %941, i64 8
-  %983 = load i64, ptr %982, align 8
-  %984 = and i64 %983, 4294967294
-  %switch.i.i.i114 = icmp eq i64 %984, 4294967294
-  br i1 %switch.i.i.i114, label %985, label %JS_MarkValue.exit.i.i109
+925:                                              ; preds = %922
+  %926 = load ptr, ptr %919, align 8
+  %.not115.i.i = icmp eq ptr %926, null
+  br i1 %.not115.i.i, label %gc_scan_incref_child.exit160.i, label %927
 
-985:                                              ; preds = %981
-  %986 = load i64, ptr %941, align 8
-  %987 = inttoptr i64 %986 to ptr
-  %988 = load i32, ptr %987, align 8
-  %989 = add i32 %988, 1
-  store i32 %989, ptr %987, align 8
-  %990 = icmp eq i32 %988, 0
-  br i1 %990, label %JS_MarkValue.exit.i.sink.split.i111, label %JS_MarkValue.exit.i.i109
+927:                                              ; preds = %925
+  %928 = load i32, ptr %926, align 8
+  %929 = add i32 %928, 1
+  store i32 %929, ptr %926, align 8
+  %930 = icmp eq i32 %928, 0
+  br i1 %930, label %931, label %gc_scan_incref_child.exit160.i
 
-JS_MarkValue.exit.i.sink.split.i111:              ; preds = %985, %975, %970, %966
-  %.sink191.i = phi ptr [ %965, %966 ], [ %971, %970 ], [ %977, %975 ], [ %987, %985 ]
-  %991 = getelementptr inbounds i8, ptr %.sink191.i, i64 8
-  %992 = load ptr, ptr %991, align 8
-  %993 = getelementptr inbounds i8, ptr %.sink191.i, i64 16
-  %994 = load ptr, ptr %993, align 8
-  %995 = getelementptr inbounds i8, ptr %992, i64 8
-  store ptr %994, ptr %995, align 8
-  store ptr %992, ptr %994, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %991, i8 0, i64 16, i1 false)
-  %996 = load ptr, ptr %4, align 8
-  %997 = getelementptr inbounds i8, ptr %996, i64 8
-  store ptr %991, ptr %997, align 8
-  store ptr %996, ptr %991, align 8
-  store ptr %4, ptr %993, align 8
-  store ptr %991, ptr %4, align 8
-  %998 = getelementptr inbounds i8, ptr %.sink191.i, i64 4
-  %999 = load i8, ptr %998, align 4
-  %1000 = and i8 %999, 15
-  store i8 %1000, ptr %998, align 4
-  br label %JS_MarkValue.exit.i.i109
+931:                                              ; preds = %927
+  %932 = getelementptr inbounds i8, ptr %926, i64 8
+  %933 = load ptr, ptr %932, align 8
+  %934 = getelementptr inbounds i8, ptr %926, i64 16
+  %935 = load ptr, ptr %934, align 8
+  %936 = getelementptr inbounds i8, ptr %933, i64 8
+  store ptr %935, ptr %936, align 8
+  store ptr %933, ptr %935, align 8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %932, i8 0, i64 16, i1 false)
+  %937 = load ptr, ptr %4, align 8
+  %938 = getelementptr inbounds i8, ptr %937, i64 8
+  store ptr %932, ptr %938, align 8
+  store ptr %937, ptr %932, align 8
+  store ptr %4, ptr %934, align 8
+  store ptr %932, ptr %4, align 8
+  %939 = getelementptr inbounds i8, ptr %926, i64 4
+  %940 = load i8, ptr %939, align 4
+  %941 = and i8 %940, 15
+  store i8 %941, ptr %939, align 4
+  br label %gc_scan_incref_child.exit160.i
 
-JS_MarkValue.exit.i.i109:                         ; preds = %JS_MarkValue.exit.i.sink.split.i111, %985, %981, %975, %970, %966, %gc_scan_incref_child.exit161.i, %939
-  %1001 = getelementptr i8, ptr %.0135.i.i106, i64 8
-  %indvars.iv.next141.i.i110 = add nuw nsw i64 %indvars.iv140.i.i105, 1
-  %1002 = load i32, ptr %934, align 8
-  %1003 = sext i32 %1002 to i64
-  %1004 = icmp slt i64 %indvars.iv.next141.i.i110, %1003
-  br i1 %1004, label %939, label %._crit_edge138.i.i100, !llvm.loop !22
+gc_scan_incref_child.exit160.i:                   ; preds = %931, %927, %925
+  %942 = getelementptr inbounds i8, ptr %919, i64 8
+  %943 = load ptr, ptr %942, align 8
+  %.not116.i.i = icmp eq ptr %943, null
+  br i1 %.not116.i.i, label %JS_MarkValue.exit.i.i, label %JS_MarkValue.exit.sink.split.i.i
 
-._crit_edge138.i.i100:                            ; preds = %JS_MarkValue.exit.i.i109, %gc_scan_incref_child.exit162.i
-  %1005 = getelementptr i8, ptr %.0165.i, i64 -2
-  %1006 = load i16, ptr %1005, align 2
-  %.not110.i.i101 = icmp eq i16 %1006, 1
-  br i1 %.not110.i.i101, label %mark_children.exit.i58, label %1007
+944:                                              ; preds = %922
+  %945 = load ptr, ptr %919, align 8
+  br label %JS_MarkValue.exit.sink.split.i.i
 
-1007:                                             ; preds = %._crit_edge138.i.i100
-  %1008 = load ptr, ptr %907, align 8
-  %1009 = zext i16 %1006 to i64
-  %1010 = getelementptr %struct.JSClass, ptr %1008, i64 %1009, i32 3
-  %1011 = load ptr, ptr %1010, align 8
-  %.not111.i.i102 = icmp eq ptr %1011, null
-  br i1 %.not111.i.i102, label %mark_children.exit.i58, label %1012
+946:                                              ; preds = %922
+  %.val.i.i = load i64, ptr %919, align 8
+  %947 = and i64 %.val.i.i, -4
+  %948 = inttoptr i64 %947 to ptr
+  br label %JS_MarkValue.exit.sink.split.i.i
 
-1012:                                             ; preds = %1007
-  %.sroa.0.0..sroa.0.0.112.cast.i.i103 = ptrtoint ptr %909 to i64
-  tail call void %1011(ptr noundef nonnull %0, i64 %.sroa.0.0..sroa.0.0.112.cast.i.i103, i64 -1, ptr noundef nonnull @gc_scan_incref_child) #42
-  br label %mark_children.exit.i58
+949:                                              ; preds = %922
+  %950 = getelementptr inbounds i8, ptr %919, i64 8
+  %951 = load i64, ptr %950, align 8
+  %952 = and i64 %951, 4294967294
+  %switch.i.i.i = icmp eq i64 %952, 4294967294
+  br i1 %switch.i.i.i, label %953, label %JS_MarkValue.exit.i.i
 
-1013:                                             ; preds = %JS_MarkValue.exit118.i.i97, %.lr.ph133.i.i94
-  %1014 = phi i32 [ %914, %.lr.ph133.i.i94 ], [ %1037, %JS_MarkValue.exit118.i.i97 ]
-  %indvars.iv.i.i95 = phi i64 [ 0, %.lr.ph133.i.i94 ], [ %indvars.iv.next.i.i98, %JS_MarkValue.exit118.i.i97 ]
-  %1015 = load ptr, ptr %916, align 8
-  %1016 = getelementptr %struct.JSValue, ptr %1015, i64 %indvars.iv.i.i95
-  %1017 = getelementptr inbounds i8, ptr %1016, i64 8
-  %1018 = load i64, ptr %1017, align 8
-  %1019 = and i64 %1018, 4294967294
-  %switch.i117.i.i96 = icmp eq i64 %1019, 4294967294
-  br i1 %switch.i117.i.i96, label %1020, label %JS_MarkValue.exit118.i.i97
+953:                                              ; preds = %949
+  %954 = load i64, ptr %919, align 8
+  %955 = inttoptr i64 %954 to ptr
+  br label %JS_MarkValue.exit.sink.split.i.i
 
-1020:                                             ; preds = %1013
-  %1021 = load i64, ptr %1016, align 8
-  %1022 = inttoptr i64 %1021 to ptr
-  %1023 = load i32, ptr %1022, align 8
-  %1024 = add i32 %1023, 1
-  store i32 %1024, ptr %1022, align 8
-  %1025 = icmp eq i32 %1023, 0
-  br i1 %1025, label %1026, label %gc_scan_incref_child.exit156.i
+JS_MarkValue.exit.sink.split.i.i:                 ; preds = %953, %946, %944, %gc_scan_incref_child.exit160.i
+  %.sink.i.i = phi ptr [ %955, %953 ], [ %945, %944 ], [ %948, %946 ], [ %943, %gc_scan_incref_child.exit160.i ]
+  %956 = load i32, ptr %.sink.i.i, align 8
+  %957 = add i32 %956, 1
+  store i32 %957, ptr %.sink.i.i, align 8
+  %958 = icmp eq i32 %956, 0
+  br i1 %958, label %959, label %JS_MarkValue.exit.i.i
 
-1026:                                             ; preds = %1020
-  %1027 = getelementptr inbounds i8, ptr %1022, i64 8
-  %1028 = load ptr, ptr %1027, align 8
-  %1029 = getelementptr inbounds i8, ptr %1022, i64 16
-  %1030 = load ptr, ptr %1029, align 8
-  %1031 = getelementptr inbounds i8, ptr %1028, i64 8
-  store ptr %1030, ptr %1031, align 8
-  store ptr %1028, ptr %1030, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %1027, i8 0, i64 16, i1 false)
-  %1032 = load ptr, ptr %4, align 8
+959:                                              ; preds = %JS_MarkValue.exit.sink.split.i.i
+  %960 = getelementptr inbounds i8, ptr %.sink.i.i, i64 8
+  %961 = load ptr, ptr %960, align 8
+  %962 = getelementptr inbounds i8, ptr %.sink.i.i, i64 16
+  %963 = load ptr, ptr %962, align 8
+  %964 = getelementptr inbounds i8, ptr %961, i64 8
+  store ptr %963, ptr %964, align 8
+  store ptr %961, ptr %963, align 8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %960, i8 0, i64 16, i1 false)
+  %965 = load ptr, ptr %4, align 8
+  %966 = getelementptr inbounds i8, ptr %965, i64 8
+  store ptr %960, ptr %966, align 8
+  store ptr %965, ptr %960, align 8
+  store ptr %4, ptr %962, align 8
+  store ptr %960, ptr %4, align 8
+  %967 = getelementptr inbounds i8, ptr %.sink.i.i, i64 4
+  %968 = load i8, ptr %967, align 4
+  %969 = and i8 %968, 15
+  store i8 %969, ptr %967, align 4
+  br label %JS_MarkValue.exit.i.i
+
+JS_MarkValue.exit.i.i:                            ; preds = %959, %JS_MarkValue.exit.sink.split.i.i, %949, %gc_scan_incref_child.exit160.i, %917
+  %970 = getelementptr i8, ptr %.0135.i.i, i64 8
+  %indvars.iv.next141.i.i = add nuw nsw i64 %indvars.iv140.i.i, 1
+  %971 = load i32, ptr %912, align 8
+  %972 = sext i32 %971 to i64
+  %973 = icmp slt i64 %indvars.iv.next141.i.i, %972
+  br i1 %973, label %917, label %._crit_edge138.i.i, !llvm.loop !22
+
+._crit_edge138.i.i:                               ; preds = %JS_MarkValue.exit.i.i, %gc_scan_incref_child.exit161.i
+  %974 = getelementptr i8, ptr %.0164.i, i64 -2
+  %975 = load i16, ptr %974, align 2
+  %.not110.i.i = icmp eq i16 %975, 1
+  br i1 %.not110.i.i, label %mark_children.exit.i, label %976
+
+976:                                              ; preds = %._crit_edge138.i.i
+  %977 = load ptr, ptr %885, align 8
+  %978 = zext i16 %975 to i64
+  %979 = getelementptr %struct.JSClass, ptr %977, i64 %978, i32 3
+  %980 = load ptr, ptr %979, align 8
+  %.not111.i.i = icmp eq ptr %980, null
+  br i1 %.not111.i.i, label %mark_children.exit.i, label %981
+
+981:                                              ; preds = %976
+  %.sroa.0.0..sroa.0.0.112.cast.i.i = ptrtoint ptr %887 to i64
+  tail call void %980(ptr noundef nonnull %0, i64 %.sroa.0.0..sroa.0.0.112.cast.i.i, i64 -1, ptr noundef nonnull @gc_scan_incref_child) #42
+  br label %mark_children.exit.i
+
+982:                                              ; preds = %JS_MarkValue.exit118.i.i, %.lr.ph133.i.i
+  %983 = phi i32 [ %892, %.lr.ph133.i.i ], [ %1006, %JS_MarkValue.exit118.i.i ]
+  %indvars.iv.i.i = phi i64 [ 0, %.lr.ph133.i.i ], [ %indvars.iv.next.i.i, %JS_MarkValue.exit118.i.i ]
+  %984 = load ptr, ptr %894, align 8
+  %985 = getelementptr %struct.JSValue, ptr %984, i64 %indvars.iv.i.i
+  %986 = getelementptr inbounds i8, ptr %985, i64 8
+  %987 = load i64, ptr %986, align 8
+  %988 = and i64 %987, 4294967294
+  %switch.i117.i.i = icmp eq i64 %988, 4294967294
+  br i1 %switch.i117.i.i, label %989, label %JS_MarkValue.exit118.i.i
+
+989:                                              ; preds = %982
+  %990 = load i64, ptr %985, align 8
+  %991 = inttoptr i64 %990 to ptr
+  %992 = load i32, ptr %991, align 8
+  %993 = add i32 %992, 1
+  store i32 %993, ptr %991, align 8
+  %994 = icmp eq i32 %992, 0
+  br i1 %994, label %995, label %gc_scan_incref_child.exit158.i
+
+995:                                              ; preds = %989
+  %996 = getelementptr inbounds i8, ptr %991, i64 8
+  %997 = load ptr, ptr %996, align 8
+  %998 = getelementptr inbounds i8, ptr %991, i64 16
+  %999 = load ptr, ptr %998, align 8
+  %1000 = getelementptr inbounds i8, ptr %997, i64 8
+  store ptr %999, ptr %1000, align 8
+  store ptr %997, ptr %999, align 8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %996, i8 0, i64 16, i1 false)
+  %1001 = load ptr, ptr %4, align 8
+  %1002 = getelementptr inbounds i8, ptr %1001, i64 8
+  store ptr %996, ptr %1002, align 8
+  store ptr %1001, ptr %996, align 8
+  store ptr %4, ptr %998, align 8
+  store ptr %996, ptr %4, align 8
+  %1003 = getelementptr inbounds i8, ptr %991, i64 4
+  %1004 = load i8, ptr %1003, align 4
+  %1005 = and i8 %1004, 15
+  store i8 %1005, ptr %1003, align 4
+  br label %gc_scan_incref_child.exit158.i
+
+gc_scan_incref_child.exit158.i:                   ; preds = %995, %989
+  %.pre143.i.i = load i32, ptr %891, align 8
+  br label %JS_MarkValue.exit118.i.i
+
+JS_MarkValue.exit118.i.i:                         ; preds = %gc_scan_incref_child.exit158.i, %982
+  %1006 = phi i32 [ %983, %982 ], [ %.pre143.i.i, %gc_scan_incref_child.exit158.i ]
+  %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
+  %1007 = sext i32 %1006 to i64
+  %1008 = icmp slt i64 %indvars.iv.next.i.i, %1007
+  br i1 %1008, label %982, label %._crit_edge.i.i, !llvm.loop !23
+
+._crit_edge.i.i:                                  ; preds = %JS_MarkValue.exit118.i.i, %.preheader.i.i
+  %1009 = getelementptr i8, ptr %.0164.i, i64 64
+  %1010 = load ptr, ptr %1009, align 8
+  %.not109.i.i = icmp eq ptr %1010, null
+  br i1 %.not109.i.i, label %mark_children.exit.i, label %1011
+
+1011:                                             ; preds = %._crit_edge.i.i
+  %1012 = load i32, ptr %1010, align 8
+  %1013 = add i32 %1012, 1
+  store i32 %1013, ptr %1010, align 8
+  %1014 = icmp eq i32 %1012, 0
+  br i1 %1014, label %1015, label %mark_children.exit.i
+
+1015:                                             ; preds = %1011
+  %1016 = getelementptr inbounds i8, ptr %1010, i64 8
+  %1017 = load ptr, ptr %1016, align 8
+  %1018 = getelementptr inbounds i8, ptr %1010, i64 16
+  %1019 = load ptr, ptr %1018, align 8
+  %1020 = getelementptr inbounds i8, ptr %1017, i64 8
+  store ptr %1019, ptr %1020, align 8
+  store ptr %1017, ptr %1019, align 8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %1016, i8 0, i64 16, i1 false)
+  %1021 = load ptr, ptr %4, align 8
+  %1022 = getelementptr inbounds i8, ptr %1021, i64 8
+  store ptr %1016, ptr %1022, align 8
+  store ptr %1021, ptr %1016, align 8
+  store ptr %4, ptr %1018, align 8
+  store ptr %1016, ptr %4, align 8
+  %1023 = getelementptr inbounds i8, ptr %1010, i64 4
+  %1024 = load i8, ptr %1023, align 4
+  %1025 = and i8 %1024, 15
+  store i8 %1025, ptr %1023, align 4
+  br label %mark_children.exit.i
+
+1026:                                             ; preds = %886
+  %1027 = getelementptr i8, ptr %.0164.i, i64 -3
+  %1028 = load i8, ptr %1027, align 1
+  %1029 = and i8 %1028, 1
+  %.not107.i.i = icmp eq i8 %1029, 0
+  br i1 %.not107.i.i, label %1053, label %1030
+
+1030:                                             ; preds = %1026
+  %1031 = getelementptr i8, ptr %.0164.i, i64 16
+  %1032 = load ptr, ptr %1031, align 8
   %1033 = getelementptr inbounds i8, ptr %1032, i64 8
-  store ptr %1027, ptr %1033, align 8
-  store ptr %1032, ptr %1027, align 8
-  store ptr %4, ptr %1029, align 8
-  store ptr %1027, ptr %4, align 8
-  %1034 = getelementptr inbounds i8, ptr %1022, i64 4
-  %1035 = load i8, ptr %1034, align 4
-  %1036 = and i8 %1035, 15
-  store i8 %1036, ptr %1034, align 4
-  br label %gc_scan_incref_child.exit156.i
+  %1034 = load i64, ptr %1033, align 8
+  %1035 = and i64 %1034, 4294967294
+  %switch.i119.i.i = icmp eq i64 %1035, 4294967294
+  br i1 %switch.i119.i.i, label %1036, label %mark_children.exit.i
 
-gc_scan_incref_child.exit156.i:                   ; preds = %1026, %1020
-  %.pre143.i.i99 = load i32, ptr %913, align 8
-  br label %JS_MarkValue.exit118.i.i97
+1036:                                             ; preds = %1030
+  %1037 = load i64, ptr %1032, align 8
+  %1038 = inttoptr i64 %1037 to ptr
+  %1039 = load i32, ptr %1038, align 8
+  %1040 = add i32 %1039, 1
+  store i32 %1040, ptr %1038, align 8
+  %1041 = icmp eq i32 %1039, 0
+  br i1 %1041, label %1042, label %mark_children.exit.i
 
-JS_MarkValue.exit118.i.i97:                       ; preds = %gc_scan_incref_child.exit156.i, %1013
-  %1037 = phi i32 [ %1014, %1013 ], [ %.pre143.i.i99, %gc_scan_incref_child.exit156.i ]
-  %indvars.iv.next.i.i98 = add nuw nsw i64 %indvars.iv.i.i95, 1
-  %1038 = sext i32 %1037 to i64
-  %1039 = icmp slt i64 %indvars.iv.next.i.i98, %1038
-  br i1 %1039, label %1013, label %._crit_edge.i.i92, !llvm.loop !23
+1042:                                             ; preds = %1036
+  %1043 = getelementptr inbounds i8, ptr %1038, i64 8
+  %1044 = load ptr, ptr %1043, align 8
+  %1045 = getelementptr inbounds i8, ptr %1038, i64 16
+  %1046 = load ptr, ptr %1045, align 8
+  %1047 = getelementptr inbounds i8, ptr %1044, i64 8
+  store ptr %1046, ptr %1047, align 8
+  store ptr %1044, ptr %1046, align 8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %1043, i8 0, i64 16, i1 false)
+  %1048 = load ptr, ptr %4, align 8
+  %1049 = getelementptr inbounds i8, ptr %1048, i64 8
+  store ptr %1043, ptr %1049, align 8
+  store ptr %1048, ptr %1043, align 8
+  store ptr %4, ptr %1045, align 8
+  store ptr %1043, ptr %4, align 8
+  %1050 = getelementptr inbounds i8, ptr %1038, i64 4
+  %1051 = load i8, ptr %1050, align 4
+  %1052 = and i8 %1051, 15
+  store i8 %1052, ptr %1050, align 4
+  br label %mark_children.exit.i
 
-._crit_edge.i.i92:                                ; preds = %JS_MarkValue.exit118.i.i97, %.preheader.i.i91
-  %1040 = getelementptr i8, ptr %.0165.i, i64 64
-  %1041 = load ptr, ptr %1040, align 8
-  %.not109.i.i93 = icmp eq ptr %1041, null
-  br i1 %.not109.i.i93, label %mark_children.exit.i58, label %1042
+1053:                                             ; preds = %1026
+  %1054 = getelementptr i8, ptr %.0164.i, i64 40
+  %1055 = load ptr, ptr %1054, align 8
+  %.not108.i.i = icmp eq ptr %1055, null
+  br i1 %.not108.i.i, label %mark_children.exit.i, label %1056
 
-1042:                                             ; preds = %._crit_edge.i.i92
-  %1043 = load i32, ptr %1041, align 8
-  %1044 = add i32 %1043, 1
-  store i32 %1044, ptr %1041, align 8
-  %1045 = icmp eq i32 %1043, 0
-  br i1 %1045, label %1046, label %mark_children.exit.i58
+1056:                                             ; preds = %1053
+  %1057 = load i32, ptr %1055, align 8
+  %1058 = add i32 %1057, 1
+  store i32 %1058, ptr %1055, align 8
+  %1059 = icmp eq i32 %1057, 0
+  br i1 %1059, label %1060, label %mark_children.exit.i
 
-1046:                                             ; preds = %1042
-  %1047 = getelementptr inbounds i8, ptr %1041, i64 8
-  %1048 = load ptr, ptr %1047, align 8
-  %1049 = getelementptr inbounds i8, ptr %1041, i64 16
-  %1050 = load ptr, ptr %1049, align 8
-  %1051 = getelementptr inbounds i8, ptr %1048, i64 8
-  store ptr %1050, ptr %1051, align 8
-  store ptr %1048, ptr %1050, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %1047, i8 0, i64 16, i1 false)
-  %1052 = load ptr, ptr %4, align 8
-  %1053 = getelementptr inbounds i8, ptr %1052, i64 8
-  store ptr %1047, ptr %1053, align 8
-  store ptr %1052, ptr %1047, align 8
-  store ptr %4, ptr %1049, align 8
-  store ptr %1047, ptr %4, align 8
-  %1054 = getelementptr inbounds i8, ptr %1041, i64 4
-  %1055 = load i8, ptr %1054, align 4
-  %1056 = and i8 %1055, 15
-  store i8 %1056, ptr %1054, align 4
-  br label %mark_children.exit.i58
+1060:                                             ; preds = %1056
+  %1061 = getelementptr inbounds i8, ptr %1055, i64 8
+  %1062 = load ptr, ptr %1061, align 8
+  %1063 = getelementptr inbounds i8, ptr %1055, i64 16
+  %1064 = load ptr, ptr %1063, align 8
+  %1065 = getelementptr inbounds i8, ptr %1062, i64 8
+  store ptr %1064, ptr %1065, align 8
+  store ptr %1062, ptr %1064, align 8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %1061, i8 0, i64 16, i1 false)
+  %1066 = load ptr, ptr %4, align 8
+  %1067 = getelementptr inbounds i8, ptr %1066, i64 8
+  store ptr %1061, ptr %1067, align 8
+  store ptr %1066, ptr %1061, align 8
+  store ptr %4, ptr %1063, align 8
+  store ptr %1061, ptr %4, align 8
+  %1068 = getelementptr inbounds i8, ptr %1055, i64 4
+  %1069 = load i8, ptr %1068, align 4
+  %1070 = and i8 %1069, 15
+  store i8 %1070, ptr %1068, align 4
+  br label %mark_children.exit.i
 
-1057:                                             ; preds = %908
-  %1058 = getelementptr i8, ptr %.0165.i, i64 -3
-  %1059 = load i8, ptr %1058, align 1
-  %1060 = and i8 %1059, 1
-  %.not107.i.i88 = icmp eq i8 %1060, 0
-  br i1 %.not107.i.i88, label %1084, label %1061
+1071:                                             ; preds = %886
+  %1072 = getelementptr i8, ptr %.0164.i, i64 40
+  %1073 = load i32, ptr %1072, align 8
+  %.not105.i.i = icmp eq i32 %1073, 0
+  br i1 %.not105.i.i, label %1074, label %.loopexit.i.i
 
-1061:                                             ; preds = %1057
-  %1062 = getelementptr i8, ptr %.0165.i, i64 16
-  %1063 = load ptr, ptr %1062, align 8
-  %1064 = getelementptr inbounds i8, ptr %1063, i64 8
-  %1065 = load i64, ptr %1064, align 8
-  %1066 = and i64 %1065, 4294967294
-  %switch.i119.i.i89 = icmp eq i64 %1066, 4294967294
-  br i1 %switch.i119.i.i89, label %1067, label %mark_children.exit.i58
+1074:                                             ; preds = %1071
+  %1075 = getelementptr i8, ptr %.0164.i, i64 96
+  %1076 = load i64, ptr %1075, align 8
+  %1077 = and i64 %1076, 4294967294
+  %switch.i121.i.i = icmp eq i64 %1077, 4294967294
+  br i1 %switch.i121.i.i, label %1078, label %JS_MarkValue.exit122.i.i
 
-1067:                                             ; preds = %1061
-  %1068 = load i64, ptr %1063, align 8
-  %1069 = inttoptr i64 %1068 to ptr
-  %1070 = load i32, ptr %1069, align 8
-  %1071 = add i32 %1070, 1
-  store i32 %1071, ptr %1069, align 8
-  %1072 = icmp eq i32 %1070, 0
-  br i1 %1072, label %1073, label %mark_children.exit.i58
+1078:                                             ; preds = %1074
+  %1079 = getelementptr i8, ptr %.0164.i, i64 88
+  %1080 = load i64, ptr %1079, align 8
+  %1081 = inttoptr i64 %1080 to ptr
+  %1082 = load i32, ptr %1081, align 8
+  %1083 = add i32 %1082, 1
+  store i32 %1083, ptr %1081, align 8
+  %1084 = icmp eq i32 %1082, 0
+  br i1 %1084, label %1085, label %JS_MarkValue.exit122.i.i
 
-1073:                                             ; preds = %1067
-  %1074 = getelementptr inbounds i8, ptr %1069, i64 8
-  %1075 = load ptr, ptr %1074, align 8
-  %1076 = getelementptr inbounds i8, ptr %1069, i64 16
-  %1077 = load ptr, ptr %1076, align 8
-  %1078 = getelementptr inbounds i8, ptr %1075, i64 8
-  store ptr %1077, ptr %1078, align 8
-  store ptr %1075, ptr %1077, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %1074, i8 0, i64 16, i1 false)
-  %1079 = load ptr, ptr %4, align 8
-  %1080 = getelementptr inbounds i8, ptr %1079, i64 8
-  store ptr %1074, ptr %1080, align 8
-  store ptr %1079, ptr %1074, align 8
-  store ptr %4, ptr %1076, align 8
-  store ptr %1074, ptr %4, align 8
-  %1081 = getelementptr inbounds i8, ptr %1069, i64 4
-  %1082 = load i8, ptr %1081, align 4
-  %1083 = and i8 %1082, 15
-  store i8 %1083, ptr %1081, align 4
-  br label %mark_children.exit.i58
+1085:                                             ; preds = %1078
+  %1086 = getelementptr inbounds i8, ptr %1081, i64 8
+  %1087 = load ptr, ptr %1086, align 8
+  %1088 = getelementptr inbounds i8, ptr %1081, i64 16
+  %1089 = load ptr, ptr %1088, align 8
+  %1090 = getelementptr inbounds i8, ptr %1087, i64 8
+  store ptr %1089, ptr %1090, align 8
+  store ptr %1087, ptr %1089, align 8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %1086, i8 0, i64 16, i1 false)
+  %1091 = load ptr, ptr %4, align 8
+  %1092 = getelementptr inbounds i8, ptr %1091, i64 8
+  store ptr %1086, ptr %1092, align 8
+  store ptr %1091, ptr %1086, align 8
+  store ptr %4, ptr %1088, align 8
+  store ptr %1086, ptr %4, align 8
+  %1093 = getelementptr inbounds i8, ptr %1081, i64 4
+  %1094 = load i8, ptr %1093, align 4
+  %1095 = and i8 %1094, 15
+  store i8 %1095, ptr %1093, align 4
+  br label %JS_MarkValue.exit122.i.i
 
-1084:                                             ; preds = %1057
-  %1085 = getelementptr i8, ptr %.0165.i, i64 40
-  %1086 = load ptr, ptr %1085, align 8
-  %.not108.i.i90 = icmp eq ptr %1086, null
-  br i1 %.not108.i.i90, label %mark_children.exit.i58, label %1087
+JS_MarkValue.exit122.i.i:                         ; preds = %1085, %1078, %1074
+  %1096 = getelementptr i8, ptr %.0164.i, i64 24
+  %1097 = load i64, ptr %1096, align 8
+  %1098 = and i64 %1097, 4294967294
+  %switch.i123.i.i = icmp eq i64 %1098, 4294967294
+  br i1 %switch.i123.i.i, label %1099, label %JS_MarkValue.exit124.i.i
 
-1087:                                             ; preds = %1084
-  %1088 = load i32, ptr %1086, align 8
-  %1089 = add i32 %1088, 1
-  store i32 %1089, ptr %1086, align 8
-  %1090 = icmp eq i32 %1088, 0
-  br i1 %1090, label %1091, label %mark_children.exit.i58
+1099:                                             ; preds = %JS_MarkValue.exit122.i.i
+  %1100 = getelementptr i8, ptr %.0164.i, i64 16
+  %1101 = load i64, ptr %1100, align 8
+  %1102 = inttoptr i64 %1101 to ptr
+  %1103 = load i32, ptr %1102, align 8
+  %1104 = add i32 %1103, 1
+  store i32 %1104, ptr %1102, align 8
+  %1105 = icmp eq i32 %1103, 0
+  br i1 %1105, label %1106, label %JS_MarkValue.exit124.i.i
 
-1091:                                             ; preds = %1087
-  %1092 = getelementptr inbounds i8, ptr %1086, i64 8
-  %1093 = load ptr, ptr %1092, align 8
-  %1094 = getelementptr inbounds i8, ptr %1086, i64 16
-  %1095 = load ptr, ptr %1094, align 8
-  %1096 = getelementptr inbounds i8, ptr %1093, i64 8
-  store ptr %1095, ptr %1096, align 8
-  store ptr %1093, ptr %1095, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %1092, i8 0, i64 16, i1 false)
-  %1097 = load ptr, ptr %4, align 8
-  %1098 = getelementptr inbounds i8, ptr %1097, i64 8
-  store ptr %1092, ptr %1098, align 8
-  store ptr %1097, ptr %1092, align 8
-  store ptr %4, ptr %1094, align 8
-  store ptr %1092, ptr %4, align 8
-  %1099 = getelementptr inbounds i8, ptr %1086, i64 4
-  %1100 = load i8, ptr %1099, align 4
-  %1101 = and i8 %1100, 15
-  store i8 %1101, ptr %1099, align 4
-  br label %mark_children.exit.i58
+1106:                                             ; preds = %1099
+  %1107 = getelementptr inbounds i8, ptr %1102, i64 8
+  %1108 = load ptr, ptr %1107, align 8
+  %1109 = getelementptr inbounds i8, ptr %1102, i64 16
+  %1110 = load ptr, ptr %1109, align 8
+  %1111 = getelementptr inbounds i8, ptr %1108, i64 8
+  store ptr %1110, ptr %1111, align 8
+  store ptr %1108, ptr %1110, align 8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %1107, i8 0, i64 16, i1 false)
+  %1112 = load ptr, ptr %4, align 8
+  %1113 = getelementptr inbounds i8, ptr %1112, i64 8
+  store ptr %1107, ptr %1113, align 8
+  store ptr %1112, ptr %1107, align 8
+  store ptr %4, ptr %1109, align 8
+  store ptr %1107, ptr %4, align 8
+  %1114 = getelementptr inbounds i8, ptr %1102, i64 4
+  %1115 = load i8, ptr %1114, align 4
+  %1116 = and i8 %1115, 15
+  store i8 %1116, ptr %1114, align 4
+  br label %JS_MarkValue.exit124.i.i
 
-1102:                                             ; preds = %908
-  %1103 = getelementptr i8, ptr %.0165.i, i64 40
-  %1104 = load i32, ptr %1103, align 8
-  %.not105.i.i73 = icmp eq i32 %1104, 0
-  br i1 %.not105.i.i73, label %1105, label %.loopexit.i.i74
-
-1105:                                             ; preds = %1102
-  %1106 = getelementptr i8, ptr %.0165.i, i64 96
-  %1107 = load i64, ptr %1106, align 8
-  %1108 = and i64 %1107, 4294967294
-  %switch.i121.i.i78 = icmp eq i64 %1108, 4294967294
-  br i1 %switch.i121.i.i78, label %1109, label %JS_MarkValue.exit122.i.i79
-
-1109:                                             ; preds = %1105
-  %1110 = getelementptr i8, ptr %.0165.i, i64 88
-  %1111 = load i64, ptr %1110, align 8
-  %1112 = inttoptr i64 %1111 to ptr
-  %1113 = load i32, ptr %1112, align 8
-  %1114 = add i32 %1113, 1
-  store i32 %1114, ptr %1112, align 8
-  %1115 = icmp eq i32 %1113, 0
-  br i1 %1115, label %1116, label %JS_MarkValue.exit122.i.i79
-
-1116:                                             ; preds = %1109
-  %1117 = getelementptr inbounds i8, ptr %1112, i64 8
+JS_MarkValue.exit124.i.i:                         ; preds = %1106, %1099, %JS_MarkValue.exit122.i.i
+  %1117 = getelementptr i8, ptr %.0164.i, i64 152
   %1118 = load ptr, ptr %1117, align 8
-  %1119 = getelementptr inbounds i8, ptr %1112, i64 16
-  %1120 = load ptr, ptr %1119, align 8
-  %1121 = getelementptr inbounds i8, ptr %1118, i64 8
-  store ptr %1120, ptr %1121, align 8
-  store ptr %1118, ptr %1120, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %1117, i8 0, i64 16, i1 false)
-  %1122 = load ptr, ptr %4, align 8
-  %1123 = getelementptr inbounds i8, ptr %1122, i64 8
-  store ptr %1117, ptr %1123, align 8
-  store ptr %1122, ptr %1117, align 8
-  store ptr %4, ptr %1119, align 8
-  store ptr %1117, ptr %4, align 8
-  %1124 = getelementptr inbounds i8, ptr %1112, i64 4
-  %1125 = load i8, ptr %1124, align 4
-  %1126 = and i8 %1125, 15
-  store i8 %1126, ptr %1124, align 4
-  br label %JS_MarkValue.exit122.i.i79
+  %.not106.i.i = icmp eq ptr %1118, null
+  br i1 %.not106.i.i, label %.loopexit.i.i, label %1119
 
-JS_MarkValue.exit122.i.i79:                       ; preds = %1116, %1109, %1105
-  %1127 = getelementptr i8, ptr %.0165.i, i64 24
-  %1128 = load i64, ptr %1127, align 8
-  %1129 = and i64 %1128, 4294967294
-  %switch.i123.i.i80 = icmp eq i64 %1129, 4294967294
-  br i1 %switch.i123.i.i80, label %1130, label %JS_MarkValue.exit124.i.i81
+1119:                                             ; preds = %JS_MarkValue.exit124.i.i
+  %1120 = getelementptr i8, ptr %.0164.i, i64 104
+  %1121 = load ptr, ptr %1120, align 8
+  %1122 = icmp ult ptr %1121, %1118
+  br i1 %1122, label %.lr.ph.i.i, label %.loopexit.i.i
 
-1130:                                             ; preds = %JS_MarkValue.exit122.i.i79
-  %1131 = getelementptr i8, ptr %.0165.i, i64 16
-  %1132 = load i64, ptr %1131, align 8
-  %1133 = inttoptr i64 %1132 to ptr
-  %1134 = load i32, ptr %1133, align 8
-  %1135 = add i32 %1134, 1
-  store i32 %1135, ptr %1133, align 8
-  %1136 = icmp eq i32 %1134, 0
-  br i1 %1136, label %1137, label %JS_MarkValue.exit124.i.i81
+.lr.ph.i.i:                                       ; preds = %1119, %JS_MarkValue.exit126.i.i
+  %1123 = phi ptr [ %1144, %JS_MarkValue.exit126.i.i ], [ %1118, %1119 ]
+  %.096131.i.i = phi ptr [ %1145, %JS_MarkValue.exit126.i.i ], [ %1121, %1119 ]
+  %1124 = getelementptr inbounds i8, ptr %.096131.i.i, i64 8
+  %1125 = load i64, ptr %1124, align 8
+  %1126 = and i64 %1125, 4294967294
+  %switch.i125.i.i = icmp eq i64 %1126, 4294967294
+  br i1 %switch.i125.i.i, label %1127, label %JS_MarkValue.exit126.i.i
 
-1137:                                             ; preds = %1130
-  %1138 = getelementptr inbounds i8, ptr %1133, i64 8
-  %1139 = load ptr, ptr %1138, align 8
-  %1140 = getelementptr inbounds i8, ptr %1133, i64 16
-  %1141 = load ptr, ptr %1140, align 8
-  %1142 = getelementptr inbounds i8, ptr %1139, i64 8
-  store ptr %1141, ptr %1142, align 8
-  store ptr %1139, ptr %1141, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %1138, i8 0, i64 16, i1 false)
-  %1143 = load ptr, ptr %4, align 8
-  %1144 = getelementptr inbounds i8, ptr %1143, i64 8
-  store ptr %1138, ptr %1144, align 8
-  store ptr %1143, ptr %1138, align 8
-  store ptr %4, ptr %1140, align 8
-  store ptr %1138, ptr %4, align 8
-  %1145 = getelementptr inbounds i8, ptr %1133, i64 4
-  %1146 = load i8, ptr %1145, align 4
-  %1147 = and i8 %1146, 15
-  store i8 %1147, ptr %1145, align 4
-  br label %JS_MarkValue.exit124.i.i81
+1127:                                             ; preds = %.lr.ph.i.i
+  %1128 = load i64, ptr %.096131.i.i, align 8
+  %1129 = inttoptr i64 %1128 to ptr
+  %1130 = load i32, ptr %1129, align 8
+  %1131 = add i32 %1130, 1
+  store i32 %1131, ptr %1129, align 8
+  %1132 = icmp eq i32 %1130, 0
+  br i1 %1132, label %1133, label %gc_scan_incref_child.exit152.i
 
-JS_MarkValue.exit124.i.i81:                       ; preds = %1137, %1130, %JS_MarkValue.exit122.i.i79
-  %1148 = getelementptr i8, ptr %.0165.i, i64 152
-  %1149 = load ptr, ptr %1148, align 8
-  %.not106.i.i82 = icmp eq ptr %1149, null
-  br i1 %.not106.i.i82, label %.loopexit.i.i74, label %1150
+1133:                                             ; preds = %1127
+  %1134 = getelementptr inbounds i8, ptr %1129, i64 8
+  %1135 = load ptr, ptr %1134, align 8
+  %1136 = getelementptr inbounds i8, ptr %1129, i64 16
+  %1137 = load ptr, ptr %1136, align 8
+  %1138 = getelementptr inbounds i8, ptr %1135, i64 8
+  store ptr %1137, ptr %1138, align 8
+  store ptr %1135, ptr %1137, align 8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %1134, i8 0, i64 16, i1 false)
+  %1139 = load ptr, ptr %4, align 8
+  %1140 = getelementptr inbounds i8, ptr %1139, i64 8
+  store ptr %1134, ptr %1140, align 8
+  store ptr %1139, ptr %1134, align 8
+  store ptr %4, ptr %1136, align 8
+  store ptr %1134, ptr %4, align 8
+  %1141 = getelementptr inbounds i8, ptr %1129, i64 4
+  %1142 = load i8, ptr %1141, align 4
+  %1143 = and i8 %1142, 15
+  store i8 %1143, ptr %1141, align 4
+  br label %gc_scan_incref_child.exit152.i
 
-1150:                                             ; preds = %JS_MarkValue.exit124.i.i81
-  %1151 = getelementptr i8, ptr %.0165.i, i64 104
-  %1152 = load ptr, ptr %1151, align 8
-  %1153 = icmp ult ptr %1152, %1149
-  br i1 %1153, label %.lr.ph.i.i83, label %.loopexit.i.i74
+gc_scan_incref_child.exit152.i:                   ; preds = %1133, %1127
+  %.pre.i.i = load ptr, ptr %1117, align 8
+  br label %JS_MarkValue.exit126.i.i
 
-.lr.ph.i.i83:                                     ; preds = %1150, %JS_MarkValue.exit126.i.i86
-  %1154 = phi ptr [ %1175, %JS_MarkValue.exit126.i.i86 ], [ %1149, %1150 ]
-  %.096131.i.i84 = phi ptr [ %1176, %JS_MarkValue.exit126.i.i86 ], [ %1152, %1150 ]
-  %1155 = getelementptr inbounds i8, ptr %.096131.i.i84, i64 8
-  %1156 = load i64, ptr %1155, align 8
-  %1157 = and i64 %1156, 4294967294
-  %switch.i125.i.i85 = icmp eq i64 %1157, 4294967294
-  br i1 %switch.i125.i.i85, label %1158, label %JS_MarkValue.exit126.i.i86
+JS_MarkValue.exit126.i.i:                         ; preds = %gc_scan_incref_child.exit152.i, %.lr.ph.i.i
+  %1144 = phi ptr [ %1123, %.lr.ph.i.i ], [ %.pre.i.i, %gc_scan_incref_child.exit152.i ]
+  %1145 = getelementptr i8, ptr %.096131.i.i, i64 16
+  %1146 = icmp ult ptr %1145, %1144
+  br i1 %1146, label %.lr.ph.i.i, label %.loopexit.i.i, !llvm.loop !24
 
-1158:                                             ; preds = %.lr.ph.i.i83
-  %1159 = load i64, ptr %.096131.i.i84, align 8
-  %1160 = inttoptr i64 %1159 to ptr
-  %1161 = load i32, ptr %1160, align 8
-  %1162 = add i32 %1161, 1
-  store i32 %1162, ptr %1160, align 8
-  %1163 = icmp eq i32 %1161, 0
-  br i1 %1163, label %1164, label %gc_scan_incref_child.exit150.i
+.loopexit.i.i:                                    ; preds = %JS_MarkValue.exit126.i.i, %1119, %JS_MarkValue.exit124.i.i, %1071
+  %1147 = getelementptr i8, ptr %.0164.i, i64 56
+  %1148 = load i64, ptr %1147, align 8
+  %1149 = and i64 %1148, 4294967294
+  %switch.i127.i.i = icmp eq i64 %1149, 4294967294
+  br i1 %switch.i127.i.i, label %1150, label %JS_MarkValue.exit128.i.i
 
-1164:                                             ; preds = %1158
-  %1165 = getelementptr inbounds i8, ptr %1160, i64 8
-  %1166 = load ptr, ptr %1165, align 8
-  %1167 = getelementptr inbounds i8, ptr %1160, i64 16
-  %1168 = load ptr, ptr %1167, align 8
-  %1169 = getelementptr inbounds i8, ptr %1166, i64 8
-  store ptr %1168, ptr %1169, align 8
-  store ptr %1166, ptr %1168, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %1165, i8 0, i64 16, i1 false)
-  %1170 = load ptr, ptr %4, align 8
-  %1171 = getelementptr inbounds i8, ptr %1170, i64 8
-  store ptr %1165, ptr %1171, align 8
-  store ptr %1170, ptr %1165, align 8
-  store ptr %4, ptr %1167, align 8
-  store ptr %1165, ptr %4, align 8
-  %1172 = getelementptr inbounds i8, ptr %1160, i64 4
-  %1173 = load i8, ptr %1172, align 4
-  %1174 = and i8 %1173, 15
-  store i8 %1174, ptr %1172, align 4
-  br label %gc_scan_incref_child.exit150.i
+1150:                                             ; preds = %.loopexit.i.i
+  %1151 = getelementptr i8, ptr %.0164.i, i64 48
+  %1152 = load i64, ptr %1151, align 8
+  %1153 = inttoptr i64 %1152 to ptr
+  %1154 = load i32, ptr %1153, align 8
+  %1155 = add i32 %1154, 1
+  store i32 %1155, ptr %1153, align 8
+  %1156 = icmp eq i32 %1154, 0
+  br i1 %1156, label %1157, label %JS_MarkValue.exit128.i.i
 
-gc_scan_incref_child.exit150.i:                   ; preds = %1164, %1158
-  %.pre.i.i87 = load ptr, ptr %1148, align 8
-  br label %JS_MarkValue.exit126.i.i86
+1157:                                             ; preds = %1150
+  %1158 = getelementptr inbounds i8, ptr %1153, i64 8
+  %1159 = load ptr, ptr %1158, align 8
+  %1160 = getelementptr inbounds i8, ptr %1153, i64 16
+  %1161 = load ptr, ptr %1160, align 8
+  %1162 = getelementptr inbounds i8, ptr %1159, i64 8
+  store ptr %1161, ptr %1162, align 8
+  store ptr %1159, ptr %1161, align 8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %1158, i8 0, i64 16, i1 false)
+  %1163 = load ptr, ptr %4, align 8
+  %1164 = getelementptr inbounds i8, ptr %1163, i64 8
+  store ptr %1158, ptr %1164, align 8
+  store ptr %1163, ptr %1158, align 8
+  store ptr %4, ptr %1160, align 8
+  store ptr %1158, ptr %4, align 8
+  %1165 = getelementptr inbounds i8, ptr %1153, i64 4
+  %1166 = load i8, ptr %1165, align 4
+  %1167 = and i8 %1166, 15
+  store i8 %1167, ptr %1165, align 4
+  br label %JS_MarkValue.exit128.i.i
 
-JS_MarkValue.exit126.i.i86:                       ; preds = %gc_scan_incref_child.exit150.i, %.lr.ph.i.i83
-  %1175 = phi ptr [ %1154, %.lr.ph.i.i83 ], [ %.pre.i.i87, %gc_scan_incref_child.exit150.i ]
-  %1176 = getelementptr i8, ptr %.096131.i.i84, i64 16
-  %1177 = icmp ult ptr %1176, %1175
-  br i1 %1177, label %.lr.ph.i.i83, label %.loopexit.i.i74, !llvm.loop !24
+JS_MarkValue.exit128.i.i:                         ; preds = %1157, %1150, %.loopexit.i.i
+  %1168 = getelementptr i8, ptr %.0164.i, i64 72
+  %1169 = load i64, ptr %1168, align 8
+  %1170 = and i64 %1169, 4294967294
+  %switch.i129.i.i = icmp eq i64 %1170, 4294967294
+  br i1 %switch.i129.i.i, label %1171, label %mark_children.exit.i
 
-.loopexit.i.i74:                                  ; preds = %JS_MarkValue.exit126.i.i86, %1150, %JS_MarkValue.exit124.i.i81, %1102
-  %1178 = getelementptr i8, ptr %.0165.i, i64 56
-  %1179 = load i64, ptr %1178, align 8
-  %1180 = and i64 %1179, 4294967294
-  %switch.i127.i.i75 = icmp eq i64 %1180, 4294967294
-  br i1 %switch.i127.i.i75, label %1181, label %JS_MarkValue.exit128.i.i76
+1171:                                             ; preds = %JS_MarkValue.exit128.i.i
+  %1172 = getelementptr i8, ptr %.0164.i, i64 64
+  %1173 = load i64, ptr %1172, align 8
+  %1174 = inttoptr i64 %1173 to ptr
+  %1175 = load i32, ptr %1174, align 8
+  %1176 = add i32 %1175, 1
+  store i32 %1176, ptr %1174, align 8
+  %1177 = icmp eq i32 %1175, 0
+  br i1 %1177, label %1178, label %mark_children.exit.i
 
-1181:                                             ; preds = %.loopexit.i.i74
-  %1182 = getelementptr i8, ptr %.0165.i, i64 48
-  %1183 = load i64, ptr %1182, align 8
-  %1184 = inttoptr i64 %1183 to ptr
-  %1185 = load i32, ptr %1184, align 8
-  %1186 = add i32 %1185, 1
-  store i32 %1186, ptr %1184, align 8
-  %1187 = icmp eq i32 %1185, 0
-  br i1 %1187, label %1188, label %JS_MarkValue.exit128.i.i76
+1178:                                             ; preds = %1171
+  %1179 = getelementptr inbounds i8, ptr %1174, i64 8
+  %1180 = load ptr, ptr %1179, align 8
+  %1181 = getelementptr inbounds i8, ptr %1174, i64 16
+  %1182 = load ptr, ptr %1181, align 8
+  %1183 = getelementptr inbounds i8, ptr %1180, i64 8
+  store ptr %1182, ptr %1183, align 8
+  store ptr %1180, ptr %1182, align 8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %1179, i8 0, i64 16, i1 false)
+  %1184 = load ptr, ptr %4, align 8
+  %1185 = getelementptr inbounds i8, ptr %1184, i64 8
+  store ptr %1179, ptr %1185, align 8
+  store ptr %1184, ptr %1179, align 8
+  store ptr %4, ptr %1181, align 8
+  store ptr %1179, ptr %4, align 8
+  %1186 = getelementptr inbounds i8, ptr %1174, i64 4
+  %1187 = load i8, ptr %1186, align 4
+  %1188 = and i8 %1187, 15
+  store i8 %1188, ptr %1186, align 4
+  br label %mark_children.exit.i
 
-1188:                                             ; preds = %1181
-  %1189 = getelementptr inbounds i8, ptr %1184, i64 8
-  %1190 = load ptr, ptr %1189, align 8
-  %1191 = getelementptr inbounds i8, ptr %1184, i64 16
-  %1192 = load ptr, ptr %1191, align 8
-  %1193 = getelementptr inbounds i8, ptr %1190, i64 8
-  store ptr %1192, ptr %1193, align 8
-  store ptr %1190, ptr %1192, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %1189, i8 0, i64 16, i1 false)
-  %1194 = load ptr, ptr %4, align 8
-  %1195 = getelementptr inbounds i8, ptr %1194, i64 8
-  store ptr %1189, ptr %1195, align 8
-  store ptr %1194, ptr %1189, align 8
-  store ptr %4, ptr %1191, align 8
-  store ptr %1189, ptr %4, align 8
-  %1196 = getelementptr inbounds i8, ptr %1184, i64 4
-  %1197 = load i8, ptr %1196, align 4
-  %1198 = and i8 %1197, 15
-  store i8 %1198, ptr %1196, align 4
-  br label %JS_MarkValue.exit128.i.i76
+1189:                                             ; preds = %886
+  %1190 = getelementptr i8, ptr %.0164.i, i64 48
+  %1191 = load ptr, ptr %1190, align 8
+  %.not.i.i = icmp eq ptr %1191, null
+  br i1 %.not.i.i, label %mark_children.exit.i, label %1192
 
-JS_MarkValue.exit128.i.i76:                       ; preds = %1188, %1181, %.loopexit.i.i74
-  %1199 = getelementptr i8, ptr %.0165.i, i64 72
-  %1200 = load i64, ptr %1199, align 8
-  %1201 = and i64 %1200, 4294967294
-  %switch.i129.i.i77 = icmp eq i64 %1201, 4294967294
-  br i1 %switch.i129.i.i77, label %1202, label %mark_children.exit.i58
+1192:                                             ; preds = %1189
+  %1193 = load i32, ptr %1191, align 8
+  %1194 = add i32 %1193, 1
+  store i32 %1194, ptr %1191, align 8
+  %1195 = icmp eq i32 %1193, 0
+  br i1 %1195, label %1196, label %mark_children.exit.i
 
-1202:                                             ; preds = %JS_MarkValue.exit128.i.i76
-  %1203 = getelementptr i8, ptr %.0165.i, i64 64
-  %1204 = load i64, ptr %1203, align 8
-  %1205 = inttoptr i64 %1204 to ptr
-  %1206 = load i32, ptr %1205, align 8
-  %1207 = add i32 %1206, 1
-  store i32 %1207, ptr %1205, align 8
-  %1208 = icmp eq i32 %1206, 0
-  br i1 %1208, label %1209, label %mark_children.exit.i58
+1196:                                             ; preds = %1192
+  %1197 = getelementptr inbounds i8, ptr %1191, i64 8
+  %1198 = load ptr, ptr %1197, align 8
+  %1199 = getelementptr inbounds i8, ptr %1191, i64 16
+  %1200 = load ptr, ptr %1199, align 8
+  %1201 = getelementptr inbounds i8, ptr %1198, i64 8
+  store ptr %1200, ptr %1201, align 8
+  store ptr %1198, ptr %1200, align 8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %1197, i8 0, i64 16, i1 false)
+  %1202 = load ptr, ptr %4, align 8
+  %1203 = getelementptr inbounds i8, ptr %1202, i64 8
+  store ptr %1197, ptr %1203, align 8
+  store ptr %1202, ptr %1197, align 8
+  store ptr %4, ptr %1199, align 8
+  store ptr %1197, ptr %4, align 8
+  %1204 = getelementptr inbounds i8, ptr %1191, i64 4
+  %1205 = load i8, ptr %1204, align 4
+  %1206 = and i8 %1205, 15
+  store i8 %1206, ptr %1204, align 4
+  br label %mark_children.exit.i
 
-1209:                                             ; preds = %1202
-  %1210 = getelementptr inbounds i8, ptr %1205, i64 8
-  %1211 = load ptr, ptr %1210, align 8
-  %1212 = getelementptr inbounds i8, ptr %1205, i64 16
-  %1213 = load ptr, ptr %1212, align 8
-  %1214 = getelementptr inbounds i8, ptr %1211, i64 8
-  store ptr %1213, ptr %1214, align 8
-  store ptr %1211, ptr %1213, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %1210, i8 0, i64 16, i1 false)
-  %1215 = load ptr, ptr %4, align 8
-  %1216 = getelementptr inbounds i8, ptr %1215, i64 8
-  store ptr %1210, ptr %1216, align 8
-  store ptr %1215, ptr %1210, align 8
-  store ptr %4, ptr %1212, align 8
-  store ptr %1210, ptr %4, align 8
-  %1217 = getelementptr inbounds i8, ptr %1205, i64 4
-  %1218 = load i8, ptr %1217, align 4
-  %1219 = and i8 %1218, 15
-  store i8 %1219, ptr %1217, align 4
-  br label %mark_children.exit.i58
+1207:                                             ; preds = %886
+  %1208 = getelementptr i8, ptr %.0164.i, i64 424
+  %1209 = getelementptr i8, ptr %.0164.i, i64 432
+  %.06089.i.i.i = load ptr, ptr %1209, align 8
+  %.not90.i.i.i = icmp eq ptr %.06089.i.i.i, %1208
+  br i1 %.not90.i.i.i, label %._crit_edge.i.i.i, label %.lr.ph.i.i.i
 
-1220:                                             ; preds = %908
-  %1221 = getelementptr i8, ptr %.0165.i, i64 48
-  %1222 = load ptr, ptr %1221, align 8
-  %.not.i.i72 = icmp eq ptr %1222, null
-  br i1 %.not.i.i72, label %mark_children.exit.i58, label %1223
+.lr.ph.i.i.i:                                     ; preds = %1207, %js_mark_module_def.exit.i.i.i
+  %.06091.i.i.i = phi ptr [ %.060.i.i.i, %js_mark_module_def.exit.i.i.i ], [ %.06089.i.i.i, %1207 ]
+  %1210 = getelementptr i8, ptr %.06091.i.i.i, i64 40
+  %1211 = load i32, ptr %1210, align 8
+  %1212 = icmp sgt i32 %1211, 0
+  br i1 %1212, label %.lr.ph.i.i.i.i, label %._crit_edge.i.i.i.i
 
-1223:                                             ; preds = %1220
-  %1224 = load i32, ptr %1222, align 8
-  %1225 = add i32 %1224, 1
-  store i32 %1225, ptr %1222, align 8
-  %1226 = icmp eq i32 %1224, 0
-  br i1 %1226, label %1227, label %mark_children.exit.i58
+.lr.ph.i.i.i.i:                                   ; preds = %.lr.ph.i.i.i
+  %1213 = getelementptr i8, ptr %.06091.i.i.i, i64 32
+  br label %1214
 
-1227:                                             ; preds = %1223
-  %1228 = getelementptr inbounds i8, ptr %1222, i64 8
-  %1229 = load ptr, ptr %1228, align 8
-  %1230 = getelementptr inbounds i8, ptr %1222, i64 16
-  %1231 = load ptr, ptr %1230, align 8
-  %1232 = getelementptr inbounds i8, ptr %1229, i64 8
-  store ptr %1231, ptr %1232, align 8
-  store ptr %1229, ptr %1231, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %1228, i8 0, i64 16, i1 false)
-  %1233 = load ptr, ptr %4, align 8
-  %1234 = getelementptr inbounds i8, ptr %1233, i64 8
-  store ptr %1228, ptr %1234, align 8
-  store ptr %1233, ptr %1228, align 8
-  store ptr %4, ptr %1230, align 8
-  store ptr %1228, ptr %4, align 8
-  %1235 = getelementptr inbounds i8, ptr %1222, i64 4
-  %1236 = load i8, ptr %1235, align 4
-  %1237 = and i8 %1236, 15
-  store i8 %1237, ptr %1235, align 4
-  br label %mark_children.exit.i58
+1214:                                             ; preds = %1239, %.lr.ph.i.i.i.i
+  %1215 = phi i32 [ %1211, %.lr.ph.i.i.i.i ], [ %1240, %1239 ]
+  %indvars.iv.i.i.i.i = phi i64 [ 0, %.lr.ph.i.i.i.i ], [ %indvars.iv.next.i.i.i.i, %1239 ]
+  %1216 = load ptr, ptr %1213, align 8
+  %1217 = getelementptr %struct.JSExportEntry, ptr %1216, i64 %indvars.iv.i.i.i.i
+  %1218 = getelementptr inbounds i8, ptr %1217, i64 16
+  %1219 = load i32, ptr %1218, align 8
+  %1220 = icmp eq i32 %1219, 0
+  br i1 %1220, label %1221, label %1239
 
-1238:                                             ; preds = %908
-  %1239 = getelementptr i8, ptr %.0165.i, i64 424
-  %1240 = getelementptr i8, ptr %.0165.i, i64 432
-  %.06089.i.i.i4 = load ptr, ptr %1240, align 8
-  %.not90.i.i.i5 = icmp eq ptr %.06089.i.i.i4, %1239
-  br i1 %.not90.i.i.i5, label %._crit_edge.i.i.i25, label %.lr.ph.i.i.i6
+1221:                                             ; preds = %1214
+  %1222 = getelementptr inbounds i8, ptr %1217, i64 8
+  %1223 = load ptr, ptr %1222, align 8
+  %.not.i.i.i.i = icmp eq ptr %1223, null
+  br i1 %.not.i.i.i.i, label %1239, label %1224
 
-.lr.ph.i.i.i6:                                    ; preds = %1238, %js_mark_module_def.exit.i.i.i22
-  %.06091.i.i.i7 = phi ptr [ %.060.i.i.i23, %js_mark_module_def.exit.i.i.i22 ], [ %.06089.i.i.i4, %1238 ]
-  %1241 = getelementptr i8, ptr %.06091.i.i.i7, i64 40
-  %1242 = load i32, ptr %1241, align 8
-  %1243 = icmp sgt i32 %1242, 0
-  br i1 %1243, label %.lr.ph.i.i.i.i67, label %._crit_edge.i.i.i.i8
+1224:                                             ; preds = %1221
+  %1225 = load i32, ptr %1223, align 8
+  %1226 = add i32 %1225, 1
+  store i32 %1226, ptr %1223, align 8
+  %1227 = icmp eq i32 %1225, 0
+  br i1 %1227, label %1228, label %gc_scan_incref_child.exit148.i
 
-.lr.ph.i.i.i.i67:                                 ; preds = %.lr.ph.i.i.i6
-  %1244 = getelementptr i8, ptr %.06091.i.i.i7, i64 32
-  br label %1245
+1228:                                             ; preds = %1224
+  %1229 = getelementptr inbounds i8, ptr %1223, i64 8
+  %1230 = load ptr, ptr %1229, align 8
+  %1231 = getelementptr inbounds i8, ptr %1223, i64 16
+  %1232 = load ptr, ptr %1231, align 8
+  %1233 = getelementptr inbounds i8, ptr %1230, i64 8
+  store ptr %1232, ptr %1233, align 8
+  store ptr %1230, ptr %1232, align 8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %1229, i8 0, i64 16, i1 false)
+  %1234 = load ptr, ptr %4, align 8
+  %1235 = getelementptr inbounds i8, ptr %1234, i64 8
+  store ptr %1229, ptr %1235, align 8
+  store ptr %1234, ptr %1229, align 8
+  store ptr %4, ptr %1231, align 8
+  store ptr %1229, ptr %4, align 8
+  %1236 = getelementptr inbounds i8, ptr %1223, i64 4
+  %1237 = load i8, ptr %1236, align 4
+  %1238 = and i8 %1237, 15
+  store i8 %1238, ptr %1236, align 4
+  br label %gc_scan_incref_child.exit148.i
 
-1245:                                             ; preds = %1270, %.lr.ph.i.i.i.i67
-  %1246 = phi i32 [ %1242, %.lr.ph.i.i.i.i67 ], [ %1271, %1270 ]
-  %indvars.iv.i.i.i.i68 = phi i64 [ 0, %.lr.ph.i.i.i.i67 ], [ %indvars.iv.next.i.i.i.i69, %1270 ]
-  %1247 = load ptr, ptr %1244, align 8
-  %1248 = getelementptr %struct.JSExportEntry, ptr %1247, i64 %indvars.iv.i.i.i.i68
-  %1249 = getelementptr inbounds i8, ptr %1248, i64 16
+gc_scan_incref_child.exit148.i:                   ; preds = %1228, %1224
+  %.pre.i.i.i.i = load i32, ptr %1210, align 8
+  br label %1239
+
+1239:                                             ; preds = %gc_scan_incref_child.exit148.i, %1221, %1214
+  %1240 = phi i32 [ %1215, %1214 ], [ %1215, %1221 ], [ %.pre.i.i.i.i, %gc_scan_incref_child.exit148.i ]
+  %indvars.iv.next.i.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i.i, 1
+  %1241 = sext i32 %1240 to i64
+  %1242 = icmp slt i64 %indvars.iv.next.i.i.i.i, %1241
+  br i1 %1242, label %1214, label %._crit_edge.i.i.i.i, !llvm.loop !25
+
+._crit_edge.i.i.i.i:                              ; preds = %1239, %.lr.ph.i.i.i
+  %1243 = getelementptr i8, ptr %.06091.i.i.i, i64 88
+  %1244 = load i64, ptr %1243, align 8
+  %1245 = and i64 %1244, 4294967294
+  %switch.i.i.i.i.i = icmp eq i64 %1245, 4294967294
+  br i1 %switch.i.i.i.i.i, label %1246, label %JS_MarkValue.exit.i.i.i.i
+
+1246:                                             ; preds = %._crit_edge.i.i.i.i
+  %1247 = getelementptr i8, ptr %.06091.i.i.i, i64 80
+  %1248 = load i64, ptr %1247, align 8
+  %1249 = inttoptr i64 %1248 to ptr
   %1250 = load i32, ptr %1249, align 8
-  %1251 = icmp eq i32 %1250, 0
-  br i1 %1251, label %1252, label %1270
+  %1251 = add i32 %1250, 1
+  store i32 %1251, ptr %1249, align 8
+  %1252 = icmp eq i32 %1250, 0
+  br i1 %1252, label %1253, label %JS_MarkValue.exit.i.i.i.i
 
-1252:                                             ; preds = %1245
-  %1253 = getelementptr inbounds i8, ptr %1248, i64 8
-  %1254 = load ptr, ptr %1253, align 8
-  %.not.i.i.i.i70 = icmp eq ptr %1254, null
-  br i1 %.not.i.i.i.i70, label %1270, label %1255
+1253:                                             ; preds = %1246
+  %1254 = getelementptr inbounds i8, ptr %1249, i64 8
+  %1255 = load ptr, ptr %1254, align 8
+  %1256 = getelementptr inbounds i8, ptr %1249, i64 16
+  %1257 = load ptr, ptr %1256, align 8
+  %1258 = getelementptr inbounds i8, ptr %1255, i64 8
+  store ptr %1257, ptr %1258, align 8
+  store ptr %1255, ptr %1257, align 8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %1254, i8 0, i64 16, i1 false)
+  %1259 = load ptr, ptr %4, align 8
+  %1260 = getelementptr inbounds i8, ptr %1259, i64 8
+  store ptr %1254, ptr %1260, align 8
+  store ptr %1259, ptr %1254, align 8
+  store ptr %4, ptr %1256, align 8
+  store ptr %1254, ptr %4, align 8
+  %1261 = getelementptr inbounds i8, ptr %1249, i64 4
+  %1262 = load i8, ptr %1261, align 4
+  %1263 = and i8 %1262, 15
+  store i8 %1263, ptr %1261, align 4
+  br label %JS_MarkValue.exit.i.i.i.i
 
-1255:                                             ; preds = %1252
-  %1256 = load i32, ptr %1254, align 8
-  %1257 = add i32 %1256, 1
-  store i32 %1257, ptr %1254, align 8
-  %1258 = icmp eq i32 %1256, 0
-  br i1 %1258, label %1259, label %gc_scan_incref_child.exit146.i
+JS_MarkValue.exit.i.i.i.i:                        ; preds = %1253, %1246, %._crit_edge.i.i.i.i
+  %1264 = getelementptr i8, ptr %.06091.i.i.i, i64 104
+  %1265 = load i64, ptr %1264, align 8
+  %1266 = and i64 %1265, 4294967294
+  %switch.i31.i.i.i.i = icmp eq i64 %1266, 4294967294
+  br i1 %switch.i31.i.i.i.i, label %1267, label %JS_MarkValue.exit32.i.i.i.i
 
-1259:                                             ; preds = %1255
-  %1260 = getelementptr inbounds i8, ptr %1254, i64 8
-  %1261 = load ptr, ptr %1260, align 8
-  %1262 = getelementptr inbounds i8, ptr %1254, i64 16
-  %1263 = load ptr, ptr %1262, align 8
-  %1264 = getelementptr inbounds i8, ptr %1261, i64 8
-  store ptr %1263, ptr %1264, align 8
-  store ptr %1261, ptr %1263, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %1260, i8 0, i64 16, i1 false)
-  %1265 = load ptr, ptr %4, align 8
-  %1266 = getelementptr inbounds i8, ptr %1265, i64 8
-  store ptr %1260, ptr %1266, align 8
-  store ptr %1265, ptr %1260, align 8
-  store ptr %4, ptr %1262, align 8
-  store ptr %1260, ptr %4, align 8
-  %1267 = getelementptr inbounds i8, ptr %1254, i64 4
-  %1268 = load i8, ptr %1267, align 4
-  %1269 = and i8 %1268, 15
-  store i8 %1269, ptr %1267, align 4
-  br label %gc_scan_incref_child.exit146.i
+1267:                                             ; preds = %JS_MarkValue.exit.i.i.i.i
+  %1268 = getelementptr i8, ptr %.06091.i.i.i, i64 96
+  %1269 = load i64, ptr %1268, align 8
+  %1270 = inttoptr i64 %1269 to ptr
+  %1271 = load i32, ptr %1270, align 8
+  %1272 = add i32 %1271, 1
+  store i32 %1272, ptr %1270, align 8
+  %1273 = icmp eq i32 %1271, 0
+  br i1 %1273, label %1274, label %JS_MarkValue.exit32.i.i.i.i
 
-gc_scan_incref_child.exit146.i:                   ; preds = %1259, %1255
-  %.pre.i.i.i.i71 = load i32, ptr %1241, align 8
-  br label %1270
+1274:                                             ; preds = %1267
+  %1275 = getelementptr inbounds i8, ptr %1270, i64 8
+  %1276 = load ptr, ptr %1275, align 8
+  %1277 = getelementptr inbounds i8, ptr %1270, i64 16
+  %1278 = load ptr, ptr %1277, align 8
+  %1279 = getelementptr inbounds i8, ptr %1276, i64 8
+  store ptr %1278, ptr %1279, align 8
+  store ptr %1276, ptr %1278, align 8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %1275, i8 0, i64 16, i1 false)
+  %1280 = load ptr, ptr %4, align 8
+  %1281 = getelementptr inbounds i8, ptr %1280, i64 8
+  store ptr %1275, ptr %1281, align 8
+  store ptr %1280, ptr %1275, align 8
+  store ptr %4, ptr %1277, align 8
+  store ptr %1275, ptr %4, align 8
+  %1282 = getelementptr inbounds i8, ptr %1270, i64 4
+  %1283 = load i8, ptr %1282, align 4
+  %1284 = and i8 %1283, 15
+  store i8 %1284, ptr %1282, align 4
+  br label %JS_MarkValue.exit32.i.i.i.i
 
-1270:                                             ; preds = %gc_scan_incref_child.exit146.i, %1252, %1245
-  %1271 = phi i32 [ %1246, %1245 ], [ %1246, %1252 ], [ %.pre.i.i.i.i71, %gc_scan_incref_child.exit146.i ]
-  %indvars.iv.next.i.i.i.i69 = add nuw nsw i64 %indvars.iv.i.i.i.i68, 1
-  %1272 = sext i32 %1271 to i64
-  %1273 = icmp slt i64 %indvars.iv.next.i.i.i.i69, %1272
-  br i1 %1273, label %1245, label %._crit_edge.i.i.i.i8, !llvm.loop !25
+JS_MarkValue.exit32.i.i.i.i:                      ; preds = %1274, %1267, %JS_MarkValue.exit.i.i.i.i
+  %1285 = getelementptr i8, ptr %.06091.i.i.i, i64 248
+  %1286 = load i64, ptr %1285, align 8
+  %1287 = and i64 %1286, 4294967294
+  %switch.i33.i.i.i.i = icmp eq i64 %1287, 4294967294
+  br i1 %switch.i33.i.i.i.i, label %1288, label %JS_MarkValue.exit34.i.i.i.i
 
-._crit_edge.i.i.i.i8:                             ; preds = %1270, %.lr.ph.i.i.i6
-  %1274 = getelementptr i8, ptr %.06091.i.i.i7, i64 88
-  %1275 = load i64, ptr %1274, align 8
-  %1276 = and i64 %1275, 4294967294
-  %switch.i.i.i.i.i9 = icmp eq i64 %1276, 4294967294
-  br i1 %switch.i.i.i.i.i9, label %1277, label %JS_MarkValue.exit.i.i.i.i10
+1288:                                             ; preds = %JS_MarkValue.exit32.i.i.i.i
+  %1289 = getelementptr i8, ptr %.06091.i.i.i, i64 240
+  %1290 = load i64, ptr %1289, align 8
+  %1291 = inttoptr i64 %1290 to ptr
+  %1292 = load i32, ptr %1291, align 8
+  %1293 = add i32 %1292, 1
+  store i32 %1293, ptr %1291, align 8
+  %1294 = icmp eq i32 %1292, 0
+  br i1 %1294, label %1295, label %JS_MarkValue.exit34.i.i.i.i
 
-1277:                                             ; preds = %._crit_edge.i.i.i.i8
-  %1278 = getelementptr i8, ptr %.06091.i.i.i7, i64 80
-  %1279 = load i64, ptr %1278, align 8
-  %1280 = inttoptr i64 %1279 to ptr
-  %1281 = load i32, ptr %1280, align 8
-  %1282 = add i32 %1281, 1
-  store i32 %1282, ptr %1280, align 8
-  %1283 = icmp eq i32 %1281, 0
-  br i1 %1283, label %1284, label %JS_MarkValue.exit.i.i.i.i10
+1295:                                             ; preds = %1288
+  %1296 = getelementptr inbounds i8, ptr %1291, i64 8
+  %1297 = load ptr, ptr %1296, align 8
+  %1298 = getelementptr inbounds i8, ptr %1291, i64 16
+  %1299 = load ptr, ptr %1298, align 8
+  %1300 = getelementptr inbounds i8, ptr %1297, i64 8
+  store ptr %1299, ptr %1300, align 8
+  store ptr %1297, ptr %1299, align 8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %1296, i8 0, i64 16, i1 false)
+  %1301 = load ptr, ptr %4, align 8
+  %1302 = getelementptr inbounds i8, ptr %1301, i64 8
+  store ptr %1296, ptr %1302, align 8
+  store ptr %1301, ptr %1296, align 8
+  store ptr %4, ptr %1298, align 8
+  store ptr %1296, ptr %4, align 8
+  %1303 = getelementptr inbounds i8, ptr %1291, i64 4
+  %1304 = load i8, ptr %1303, align 4
+  %1305 = and i8 %1304, 15
+  store i8 %1305, ptr %1303, align 4
+  br label %JS_MarkValue.exit34.i.i.i.i
 
-1284:                                             ; preds = %1277
-  %1285 = getelementptr inbounds i8, ptr %1280, i64 8
-  %1286 = load ptr, ptr %1285, align 8
-  %1287 = getelementptr inbounds i8, ptr %1280, i64 16
-  %1288 = load ptr, ptr %1287, align 8
-  %1289 = getelementptr inbounds i8, ptr %1286, i64 8
-  store ptr %1288, ptr %1289, align 8
-  store ptr %1286, ptr %1288, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %1285, i8 0, i64 16, i1 false)
-  %1290 = load ptr, ptr %4, align 8
-  %1291 = getelementptr inbounds i8, ptr %1290, i64 8
-  store ptr %1285, ptr %1291, align 8
-  store ptr %1290, ptr %1285, align 8
-  store ptr %4, ptr %1287, align 8
-  store ptr %1285, ptr %4, align 8
-  %1292 = getelementptr inbounds i8, ptr %1280, i64 4
-  %1293 = load i8, ptr %1292, align 4
-  %1294 = and i8 %1293, 15
-  store i8 %1294, ptr %1292, align 4
-  br label %JS_MarkValue.exit.i.i.i.i10
+JS_MarkValue.exit34.i.i.i.i:                      ; preds = %1295, %1288, %JS_MarkValue.exit32.i.i.i.i
+  %1306 = getelementptr i8, ptr %.06091.i.i.i, i64 264
+  %1307 = load i64, ptr %1306, align 8
+  %1308 = and i64 %1307, 4294967294
+  %switch.i35.i.i.i.i = icmp eq i64 %1308, 4294967294
+  br i1 %switch.i35.i.i.i.i, label %1309, label %JS_MarkValue.exit36.i.i.i.i
 
-JS_MarkValue.exit.i.i.i.i10:                      ; preds = %1284, %1277, %._crit_edge.i.i.i.i8
-  %1295 = getelementptr i8, ptr %.06091.i.i.i7, i64 104
-  %1296 = load i64, ptr %1295, align 8
-  %1297 = and i64 %1296, 4294967294
-  %switch.i31.i.i.i.i11 = icmp eq i64 %1297, 4294967294
-  br i1 %switch.i31.i.i.i.i11, label %1298, label %JS_MarkValue.exit32.i.i.i.i12
+1309:                                             ; preds = %JS_MarkValue.exit34.i.i.i.i
+  %1310 = getelementptr i8, ptr %.06091.i.i.i, i64 256
+  %1311 = load i64, ptr %1310, align 8
+  %1312 = inttoptr i64 %1311 to ptr
+  %1313 = load i32, ptr %1312, align 8
+  %1314 = add i32 %1313, 1
+  store i32 %1314, ptr %1312, align 8
+  %1315 = icmp eq i32 %1313, 0
+  br i1 %1315, label %1316, label %JS_MarkValue.exit36.i.i.i.i
 
-1298:                                             ; preds = %JS_MarkValue.exit.i.i.i.i10
-  %1299 = getelementptr i8, ptr %.06091.i.i.i7, i64 96
-  %1300 = load i64, ptr %1299, align 8
-  %1301 = inttoptr i64 %1300 to ptr
-  %1302 = load i32, ptr %1301, align 8
-  %1303 = add i32 %1302, 1
-  store i32 %1303, ptr %1301, align 8
-  %1304 = icmp eq i32 %1302, 0
-  br i1 %1304, label %1305, label %JS_MarkValue.exit32.i.i.i.i12
+1316:                                             ; preds = %1309
+  %1317 = getelementptr inbounds i8, ptr %1312, i64 8
+  %1318 = load ptr, ptr %1317, align 8
+  %1319 = getelementptr inbounds i8, ptr %1312, i64 16
+  %1320 = load ptr, ptr %1319, align 8
+  %1321 = getelementptr inbounds i8, ptr %1318, i64 8
+  store ptr %1320, ptr %1321, align 8
+  store ptr %1318, ptr %1320, align 8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %1317, i8 0, i64 16, i1 false)
+  %1322 = load ptr, ptr %4, align 8
+  %1323 = getelementptr inbounds i8, ptr %1322, i64 8
+  store ptr %1317, ptr %1323, align 8
+  store ptr %1322, ptr %1317, align 8
+  store ptr %4, ptr %1319, align 8
+  store ptr %1317, ptr %4, align 8
+  %1324 = getelementptr inbounds i8, ptr %1312, i64 4
+  %1325 = load i8, ptr %1324, align 4
+  %1326 = and i8 %1325, 15
+  store i8 %1326, ptr %1324, align 4
+  br label %JS_MarkValue.exit36.i.i.i.i
 
-1305:                                             ; preds = %1298
-  %1306 = getelementptr inbounds i8, ptr %1301, i64 8
-  %1307 = load ptr, ptr %1306, align 8
-  %1308 = getelementptr inbounds i8, ptr %1301, i64 16
-  %1309 = load ptr, ptr %1308, align 8
-  %1310 = getelementptr inbounds i8, ptr %1307, i64 8
-  store ptr %1309, ptr %1310, align 8
-  store ptr %1307, ptr %1309, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %1306, i8 0, i64 16, i1 false)
-  %1311 = load ptr, ptr %4, align 8
-  %1312 = getelementptr inbounds i8, ptr %1311, i64 8
-  store ptr %1306, ptr %1312, align 8
-  store ptr %1311, ptr %1306, align 8
-  store ptr %4, ptr %1308, align 8
-  store ptr %1306, ptr %4, align 8
-  %1313 = getelementptr inbounds i8, ptr %1301, i64 4
-  %1314 = load i8, ptr %1313, align 4
-  %1315 = and i8 %1314, 15
-  store i8 %1315, ptr %1313, align 4
-  br label %JS_MarkValue.exit32.i.i.i.i12
+JS_MarkValue.exit36.i.i.i.i:                      ; preds = %1316, %1309, %JS_MarkValue.exit34.i.i.i.i
+  %1327 = getelementptr i8, ptr %.06091.i.i.i, i64 192
+  %1328 = load i64, ptr %1327, align 8
+  %1329 = and i64 %1328, 4294967294
+  %switch.i37.i.i.i.i = icmp eq i64 %1329, 4294967294
+  br i1 %switch.i37.i.i.i.i, label %1330, label %JS_MarkValue.exit38.i.i.i.i
 
-JS_MarkValue.exit32.i.i.i.i12:                    ; preds = %1305, %1298, %JS_MarkValue.exit.i.i.i.i10
-  %1316 = getelementptr i8, ptr %.06091.i.i.i7, i64 248
-  %1317 = load i64, ptr %1316, align 8
-  %1318 = and i64 %1317, 4294967294
-  %switch.i33.i.i.i.i13 = icmp eq i64 %1318, 4294967294
-  br i1 %switch.i33.i.i.i.i13, label %1319, label %JS_MarkValue.exit34.i.i.i.i14
+1330:                                             ; preds = %JS_MarkValue.exit36.i.i.i.i
+  %1331 = getelementptr i8, ptr %.06091.i.i.i, i64 184
+  %1332 = load i64, ptr %1331, align 8
+  %1333 = inttoptr i64 %1332 to ptr
+  %1334 = load i32, ptr %1333, align 8
+  %1335 = add i32 %1334, 1
+  store i32 %1335, ptr %1333, align 8
+  %1336 = icmp eq i32 %1334, 0
+  br i1 %1336, label %1337, label %JS_MarkValue.exit38.i.i.i.i
 
-1319:                                             ; preds = %JS_MarkValue.exit32.i.i.i.i12
-  %1320 = getelementptr i8, ptr %.06091.i.i.i7, i64 240
-  %1321 = load i64, ptr %1320, align 8
-  %1322 = inttoptr i64 %1321 to ptr
-  %1323 = load i32, ptr %1322, align 8
-  %1324 = add i32 %1323, 1
-  store i32 %1324, ptr %1322, align 8
-  %1325 = icmp eq i32 %1323, 0
-  br i1 %1325, label %1326, label %JS_MarkValue.exit34.i.i.i.i14
+1337:                                             ; preds = %1330
+  %1338 = getelementptr inbounds i8, ptr %1333, i64 8
+  %1339 = load ptr, ptr %1338, align 8
+  %1340 = getelementptr inbounds i8, ptr %1333, i64 16
+  %1341 = load ptr, ptr %1340, align 8
+  %1342 = getelementptr inbounds i8, ptr %1339, i64 8
+  store ptr %1341, ptr %1342, align 8
+  store ptr %1339, ptr %1341, align 8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %1338, i8 0, i64 16, i1 false)
+  %1343 = load ptr, ptr %4, align 8
+  %1344 = getelementptr inbounds i8, ptr %1343, i64 8
+  store ptr %1338, ptr %1344, align 8
+  store ptr %1343, ptr %1338, align 8
+  store ptr %4, ptr %1340, align 8
+  store ptr %1338, ptr %4, align 8
+  %1345 = getelementptr inbounds i8, ptr %1333, i64 4
+  %1346 = load i8, ptr %1345, align 4
+  %1347 = and i8 %1346, 15
+  store i8 %1347, ptr %1345, align 4
+  br label %JS_MarkValue.exit38.i.i.i.i
 
-1326:                                             ; preds = %1319
-  %1327 = getelementptr inbounds i8, ptr %1322, i64 8
-  %1328 = load ptr, ptr %1327, align 8
-  %1329 = getelementptr inbounds i8, ptr %1322, i64 16
-  %1330 = load ptr, ptr %1329, align 8
-  %1331 = getelementptr inbounds i8, ptr %1328, i64 8
-  store ptr %1330, ptr %1331, align 8
-  store ptr %1328, ptr %1330, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %1327, i8 0, i64 16, i1 false)
-  %1332 = load ptr, ptr %4, align 8
-  %1333 = getelementptr inbounds i8, ptr %1332, i64 8
-  store ptr %1327, ptr %1333, align 8
-  store ptr %1332, ptr %1327, align 8
-  store ptr %4, ptr %1329, align 8
-  store ptr %1327, ptr %4, align 8
-  %1334 = getelementptr inbounds i8, ptr %1322, i64 4
-  %1335 = load i8, ptr %1334, align 4
-  %1336 = and i8 %1335, 15
-  store i8 %1336, ptr %1334, align 4
-  br label %JS_MarkValue.exit34.i.i.i.i14
+JS_MarkValue.exit38.i.i.i.i:                      ; preds = %1337, %1330, %JS_MarkValue.exit36.i.i.i.i
+  %1348 = getelementptr i8, ptr %.06091.i.i.i, i64 208
+  %1349 = load i64, ptr %1348, align 8
+  %1350 = and i64 %1349, 4294967294
+  %switch.i39.i.i.i.i = icmp eq i64 %1350, 4294967294
+  br i1 %switch.i39.i.i.i.i, label %1351, label %JS_MarkValue.exit40.i.i.i.i
 
-JS_MarkValue.exit34.i.i.i.i14:                    ; preds = %1326, %1319, %JS_MarkValue.exit32.i.i.i.i12
-  %1337 = getelementptr i8, ptr %.06091.i.i.i7, i64 264
-  %1338 = load i64, ptr %1337, align 8
-  %1339 = and i64 %1338, 4294967294
-  %switch.i35.i.i.i.i15 = icmp eq i64 %1339, 4294967294
-  br i1 %switch.i35.i.i.i.i15, label %1340, label %JS_MarkValue.exit36.i.i.i.i16
+1351:                                             ; preds = %JS_MarkValue.exit38.i.i.i.i
+  %1352 = getelementptr i8, ptr %.06091.i.i.i, i64 200
+  %1353 = load i64, ptr %1352, align 8
+  %1354 = inttoptr i64 %1353 to ptr
+  %1355 = load i32, ptr %1354, align 8
+  %1356 = add i32 %1355, 1
+  store i32 %1356, ptr %1354, align 8
+  %1357 = icmp eq i32 %1355, 0
+  br i1 %1357, label %1358, label %JS_MarkValue.exit40.i.i.i.i
 
-1340:                                             ; preds = %JS_MarkValue.exit34.i.i.i.i14
-  %1341 = getelementptr i8, ptr %.06091.i.i.i7, i64 256
-  %1342 = load i64, ptr %1341, align 8
-  %1343 = inttoptr i64 %1342 to ptr
-  %1344 = load i32, ptr %1343, align 8
-  %1345 = add i32 %1344, 1
-  store i32 %1345, ptr %1343, align 8
-  %1346 = icmp eq i32 %1344, 0
-  br i1 %1346, label %1347, label %JS_MarkValue.exit36.i.i.i.i16
+1358:                                             ; preds = %1351
+  %1359 = getelementptr inbounds i8, ptr %1354, i64 8
+  %1360 = load ptr, ptr %1359, align 8
+  %1361 = getelementptr inbounds i8, ptr %1354, i64 16
+  %1362 = load ptr, ptr %1361, align 8
+  %1363 = getelementptr inbounds i8, ptr %1360, i64 8
+  store ptr %1362, ptr %1363, align 8
+  store ptr %1360, ptr %1362, align 8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %1359, i8 0, i64 16, i1 false)
+  %1364 = load ptr, ptr %4, align 8
+  %1365 = getelementptr inbounds i8, ptr %1364, i64 8
+  store ptr %1359, ptr %1365, align 8
+  store ptr %1364, ptr %1359, align 8
+  store ptr %4, ptr %1361, align 8
+  store ptr %1359, ptr %4, align 8
+  %1366 = getelementptr inbounds i8, ptr %1354, i64 4
+  %1367 = load i8, ptr %1366, align 4
+  %1368 = and i8 %1367, 15
+  store i8 %1368, ptr %1366, align 4
+  br label %JS_MarkValue.exit40.i.i.i.i
 
-1347:                                             ; preds = %1340
-  %1348 = getelementptr inbounds i8, ptr %1343, i64 8
-  %1349 = load ptr, ptr %1348, align 8
-  %1350 = getelementptr inbounds i8, ptr %1343, i64 16
-  %1351 = load ptr, ptr %1350, align 8
-  %1352 = getelementptr inbounds i8, ptr %1349, i64 8
-  store ptr %1351, ptr %1352, align 8
-  store ptr %1349, ptr %1351, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %1348, i8 0, i64 16, i1 false)
-  %1353 = load ptr, ptr %4, align 8
-  %1354 = getelementptr inbounds i8, ptr %1353, i64 8
-  store ptr %1348, ptr %1354, align 8
-  store ptr %1353, ptr %1348, align 8
-  store ptr %4, ptr %1350, align 8
-  store ptr %1348, ptr %4, align 8
-  %1355 = getelementptr inbounds i8, ptr %1343, i64 4
-  %1356 = load i8, ptr %1355, align 4
-  %1357 = and i8 %1356, 15
-  store i8 %1357, ptr %1355, align 4
-  br label %JS_MarkValue.exit36.i.i.i.i16
+JS_MarkValue.exit40.i.i.i.i:                      ; preds = %1358, %1351, %JS_MarkValue.exit38.i.i.i.i
+  %1369 = getelementptr i8, ptr %.06091.i.i.i, i64 224
+  %1370 = load i64, ptr %1369, align 8
+  %1371 = and i64 %1370, 4294967294
+  %switch.i41.i.i.i.i = icmp eq i64 %1371, 4294967294
+  br i1 %switch.i41.i.i.i.i, label %1372, label %js_mark_module_def.exit.i.i.i
 
-JS_MarkValue.exit36.i.i.i.i16:                    ; preds = %1347, %1340, %JS_MarkValue.exit34.i.i.i.i14
-  %1358 = getelementptr i8, ptr %.06091.i.i.i7, i64 192
-  %1359 = load i64, ptr %1358, align 8
-  %1360 = and i64 %1359, 4294967294
-  %switch.i37.i.i.i.i17 = icmp eq i64 %1360, 4294967294
-  br i1 %switch.i37.i.i.i.i17, label %1361, label %JS_MarkValue.exit38.i.i.i.i18
+1372:                                             ; preds = %JS_MarkValue.exit40.i.i.i.i
+  %1373 = getelementptr i8, ptr %.06091.i.i.i, i64 216
+  %1374 = load i64, ptr %1373, align 8
+  %1375 = inttoptr i64 %1374 to ptr
+  %1376 = load i32, ptr %1375, align 8
+  %1377 = add i32 %1376, 1
+  store i32 %1377, ptr %1375, align 8
+  %1378 = icmp eq i32 %1376, 0
+  br i1 %1378, label %1379, label %js_mark_module_def.exit.i.i.i
 
-1361:                                             ; preds = %JS_MarkValue.exit36.i.i.i.i16
-  %1362 = getelementptr i8, ptr %.06091.i.i.i7, i64 184
-  %1363 = load i64, ptr %1362, align 8
-  %1364 = inttoptr i64 %1363 to ptr
-  %1365 = load i32, ptr %1364, align 8
-  %1366 = add i32 %1365, 1
-  store i32 %1366, ptr %1364, align 8
-  %1367 = icmp eq i32 %1365, 0
-  br i1 %1367, label %1368, label %JS_MarkValue.exit38.i.i.i.i18
+1379:                                             ; preds = %1372
+  %1380 = getelementptr inbounds i8, ptr %1375, i64 8
+  %1381 = load ptr, ptr %1380, align 8
+  %1382 = getelementptr inbounds i8, ptr %1375, i64 16
+  %1383 = load ptr, ptr %1382, align 8
+  %1384 = getelementptr inbounds i8, ptr %1381, i64 8
+  store ptr %1383, ptr %1384, align 8
+  store ptr %1381, ptr %1383, align 8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %1380, i8 0, i64 16, i1 false)
+  %1385 = load ptr, ptr %4, align 8
+  %1386 = getelementptr inbounds i8, ptr %1385, i64 8
+  store ptr %1380, ptr %1386, align 8
+  store ptr %1385, ptr %1380, align 8
+  store ptr %4, ptr %1382, align 8
+  store ptr %1380, ptr %4, align 8
+  %1387 = getelementptr inbounds i8, ptr %1375, i64 4
+  %1388 = load i8, ptr %1387, align 4
+  %1389 = and i8 %1388, 15
+  store i8 %1389, ptr %1387, align 4
+  br label %js_mark_module_def.exit.i.i.i
 
-1368:                                             ; preds = %1361
-  %1369 = getelementptr inbounds i8, ptr %1364, i64 8
-  %1370 = load ptr, ptr %1369, align 8
-  %1371 = getelementptr inbounds i8, ptr %1364, i64 16
-  %1372 = load ptr, ptr %1371, align 8
-  %1373 = getelementptr inbounds i8, ptr %1370, i64 8
-  store ptr %1372, ptr %1373, align 8
-  store ptr %1370, ptr %1372, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %1369, i8 0, i64 16, i1 false)
-  %1374 = load ptr, ptr %4, align 8
-  %1375 = getelementptr inbounds i8, ptr %1374, i64 8
-  store ptr %1369, ptr %1375, align 8
-  store ptr %1374, ptr %1369, align 8
-  store ptr %4, ptr %1371, align 8
-  store ptr %1369, ptr %4, align 8
-  %1376 = getelementptr inbounds i8, ptr %1364, i64 4
-  %1377 = load i8, ptr %1376, align 4
-  %1378 = and i8 %1377, 15
-  store i8 %1378, ptr %1376, align 4
-  br label %JS_MarkValue.exit38.i.i.i.i18
+js_mark_module_def.exit.i.i.i:                    ; preds = %1379, %1372, %JS_MarkValue.exit40.i.i.i.i
+  %1390 = getelementptr inbounds i8, ptr %.06091.i.i.i, i64 8
+  %.060.i.i.i = load ptr, ptr %1390, align 8
+  %.not.i.i.i = icmp eq ptr %.060.i.i.i, %1208
+  br i1 %.not.i.i.i, label %._crit_edge.i.i.i, label %.lr.ph.i.i.i, !llvm.loop !26
 
-JS_MarkValue.exit38.i.i.i.i18:                    ; preds = %1368, %1361, %JS_MarkValue.exit36.i.i.i.i16
-  %1379 = getelementptr i8, ptr %.06091.i.i.i7, i64 208
-  %1380 = load i64, ptr %1379, align 8
-  %1381 = and i64 %1380, 4294967294
-  %switch.i39.i.i.i.i19 = icmp eq i64 %1381, 4294967294
-  br i1 %switch.i39.i.i.i.i19, label %1382, label %JS_MarkValue.exit40.i.i.i.i20
+._crit_edge.i.i.i:                                ; preds = %js_mark_module_def.exit.i.i.i, %1207
+  %1391 = getelementptr i8, ptr %.0164.i, i64 360
+  %1392 = load i64, ptr %1391, align 8
+  %1393 = and i64 %1392, 4294967294
+  %switch.i.i.i.i = icmp eq i64 %1393, 4294967294
+  br i1 %switch.i.i.i.i, label %1394, label %JS_MarkValue.exit.i.i.i
 
-1382:                                             ; preds = %JS_MarkValue.exit38.i.i.i.i18
-  %1383 = getelementptr i8, ptr %.06091.i.i.i7, i64 200
-  %1384 = load i64, ptr %1383, align 8
-  %1385 = inttoptr i64 %1384 to ptr
-  %1386 = load i32, ptr %1385, align 8
-  %1387 = add i32 %1386, 1
-  store i32 %1387, ptr %1385, align 8
-  %1388 = icmp eq i32 %1386, 0
-  br i1 %1388, label %1389, label %JS_MarkValue.exit40.i.i.i.i20
+1394:                                             ; preds = %._crit_edge.i.i.i
+  %1395 = getelementptr i8, ptr %.0164.i, i64 352
+  %1396 = load i64, ptr %1395, align 8
+  %1397 = inttoptr i64 %1396 to ptr
+  %1398 = load i32, ptr %1397, align 8
+  %1399 = add i32 %1398, 1
+  store i32 %1399, ptr %1397, align 8
+  %1400 = icmp eq i32 %1398, 0
+  br i1 %1400, label %1401, label %JS_MarkValue.exit.i.i.i
 
-1389:                                             ; preds = %1382
-  %1390 = getelementptr inbounds i8, ptr %1385, i64 8
-  %1391 = load ptr, ptr %1390, align 8
-  %1392 = getelementptr inbounds i8, ptr %1385, i64 16
-  %1393 = load ptr, ptr %1392, align 8
-  %1394 = getelementptr inbounds i8, ptr %1391, i64 8
-  store ptr %1393, ptr %1394, align 8
-  store ptr %1391, ptr %1393, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %1390, i8 0, i64 16, i1 false)
-  %1395 = load ptr, ptr %4, align 8
-  %1396 = getelementptr inbounds i8, ptr %1395, i64 8
-  store ptr %1390, ptr %1396, align 8
-  store ptr %1395, ptr %1390, align 8
-  store ptr %4, ptr %1392, align 8
-  store ptr %1390, ptr %4, align 8
-  %1397 = getelementptr inbounds i8, ptr %1385, i64 4
-  %1398 = load i8, ptr %1397, align 4
-  %1399 = and i8 %1398, 15
-  store i8 %1399, ptr %1397, align 4
-  br label %JS_MarkValue.exit40.i.i.i.i20
+1401:                                             ; preds = %1394
+  %1402 = getelementptr inbounds i8, ptr %1397, i64 8
+  %1403 = load ptr, ptr %1402, align 8
+  %1404 = getelementptr inbounds i8, ptr %1397, i64 16
+  %1405 = load ptr, ptr %1404, align 8
+  %1406 = getelementptr inbounds i8, ptr %1403, i64 8
+  store ptr %1405, ptr %1406, align 8
+  store ptr %1403, ptr %1405, align 8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %1402, i8 0, i64 16, i1 false)
+  %1407 = load ptr, ptr %4, align 8
+  %1408 = getelementptr inbounds i8, ptr %1407, i64 8
+  store ptr %1402, ptr %1408, align 8
+  store ptr %1407, ptr %1402, align 8
+  store ptr %4, ptr %1404, align 8
+  store ptr %1402, ptr %4, align 8
+  %1409 = getelementptr inbounds i8, ptr %1397, i64 4
+  %1410 = load i8, ptr %1409, align 4
+  %1411 = and i8 %1410, 15
+  store i8 %1411, ptr %1409, align 4
+  br label %JS_MarkValue.exit.i.i.i
 
-JS_MarkValue.exit40.i.i.i.i20:                    ; preds = %1389, %1382, %JS_MarkValue.exit38.i.i.i.i18
-  %1400 = getelementptr i8, ptr %.06091.i.i.i7, i64 224
-  %1401 = load i64, ptr %1400, align 8
-  %1402 = and i64 %1401, 4294967294
-  %switch.i41.i.i.i.i21 = icmp eq i64 %1402, 4294967294
-  br i1 %switch.i41.i.i.i.i21, label %1403, label %js_mark_module_def.exit.i.i.i22
+JS_MarkValue.exit.i.i.i:                          ; preds = %1401, %1394, %._crit_edge.i.i.i
+  %1412 = getelementptr i8, ptr %.0164.i, i64 376
+  %1413 = load i64, ptr %1412, align 8
+  %1414 = and i64 %1413, 4294967294
+  %switch.i63.i.i.i = icmp eq i64 %1414, 4294967294
+  br i1 %switch.i63.i.i.i, label %1415, label %JS_MarkValue.exit64.i.i.i
 
-1403:                                             ; preds = %JS_MarkValue.exit40.i.i.i.i20
-  %1404 = getelementptr i8, ptr %.06091.i.i.i7, i64 216
-  %1405 = load i64, ptr %1404, align 8
-  %1406 = inttoptr i64 %1405 to ptr
-  %1407 = load i32, ptr %1406, align 8
-  %1408 = add i32 %1407, 1
-  store i32 %1408, ptr %1406, align 8
-  %1409 = icmp eq i32 %1407, 0
-  br i1 %1409, label %1410, label %js_mark_module_def.exit.i.i.i22
+1415:                                             ; preds = %JS_MarkValue.exit.i.i.i
+  %1416 = getelementptr i8, ptr %.0164.i, i64 368
+  %1417 = load i64, ptr %1416, align 8
+  %1418 = inttoptr i64 %1417 to ptr
+  %1419 = load i32, ptr %1418, align 8
+  %1420 = add i32 %1419, 1
+  store i32 %1420, ptr %1418, align 8
+  %1421 = icmp eq i32 %1419, 0
+  br i1 %1421, label %1422, label %JS_MarkValue.exit64.i.i.i
 
-1410:                                             ; preds = %1403
-  %1411 = getelementptr inbounds i8, ptr %1406, i64 8
-  %1412 = load ptr, ptr %1411, align 8
-  %1413 = getelementptr inbounds i8, ptr %1406, i64 16
-  %1414 = load ptr, ptr %1413, align 8
-  %1415 = getelementptr inbounds i8, ptr %1412, i64 8
-  store ptr %1414, ptr %1415, align 8
-  store ptr %1412, ptr %1414, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %1411, i8 0, i64 16, i1 false)
-  %1416 = load ptr, ptr %4, align 8
-  %1417 = getelementptr inbounds i8, ptr %1416, i64 8
-  store ptr %1411, ptr %1417, align 8
-  store ptr %1416, ptr %1411, align 8
-  store ptr %4, ptr %1413, align 8
-  store ptr %1411, ptr %4, align 8
-  %1418 = getelementptr inbounds i8, ptr %1406, i64 4
-  %1419 = load i8, ptr %1418, align 4
-  %1420 = and i8 %1419, 15
-  store i8 %1420, ptr %1418, align 4
-  br label %js_mark_module_def.exit.i.i.i22
+1422:                                             ; preds = %1415
+  %1423 = getelementptr inbounds i8, ptr %1418, i64 8
+  %1424 = load ptr, ptr %1423, align 8
+  %1425 = getelementptr inbounds i8, ptr %1418, i64 16
+  %1426 = load ptr, ptr %1425, align 8
+  %1427 = getelementptr inbounds i8, ptr %1424, i64 8
+  store ptr %1426, ptr %1427, align 8
+  store ptr %1424, ptr %1426, align 8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %1423, i8 0, i64 16, i1 false)
+  %1428 = load ptr, ptr %4, align 8
+  %1429 = getelementptr inbounds i8, ptr %1428, i64 8
+  store ptr %1423, ptr %1429, align 8
+  store ptr %1428, ptr %1423, align 8
+  store ptr %4, ptr %1425, align 8
+  store ptr %1423, ptr %4, align 8
+  %1430 = getelementptr inbounds i8, ptr %1418, i64 4
+  %1431 = load i8, ptr %1430, align 4
+  %1432 = and i8 %1431, 15
+  store i8 %1432, ptr %1430, align 4
+  br label %JS_MarkValue.exit64.i.i.i
 
-js_mark_module_def.exit.i.i.i22:                  ; preds = %1410, %1403, %JS_MarkValue.exit40.i.i.i.i20
-  %1421 = getelementptr inbounds i8, ptr %.06091.i.i.i7, i64 8
-  %.060.i.i.i23 = load ptr, ptr %1421, align 8
-  %.not.i.i.i24 = icmp eq ptr %.060.i.i.i23, %1239
-  br i1 %.not.i.i.i24, label %._crit_edge.i.i.i25, label %.lr.ph.i.i.i6, !llvm.loop !26
+JS_MarkValue.exit64.i.i.i:                        ; preds = %1422, %1415, %JS_MarkValue.exit.i.i.i
+  %1433 = getelementptr i8, ptr %.0164.i, i64 328
+  %1434 = load i64, ptr %1433, align 8
+  %1435 = and i64 %1434, 4294967294
+  %switch.i65.i.i.i = icmp eq i64 %1435, 4294967294
+  br i1 %switch.i65.i.i.i, label %1436, label %JS_MarkValue.exit66.i.i.i
 
-._crit_edge.i.i.i25:                              ; preds = %js_mark_module_def.exit.i.i.i22, %1238
-  %1422 = getelementptr i8, ptr %.0165.i, i64 360
-  %1423 = load i64, ptr %1422, align 8
-  %1424 = and i64 %1423, 4294967294
-  %switch.i.i.i.i26 = icmp eq i64 %1424, 4294967294
-  br i1 %switch.i.i.i.i26, label %1425, label %JS_MarkValue.exit.i.i.i27
+1436:                                             ; preds = %JS_MarkValue.exit64.i.i.i
+  %1437 = getelementptr i8, ptr %.0164.i, i64 320
+  %1438 = load i64, ptr %1437, align 8
+  %1439 = inttoptr i64 %1438 to ptr
+  %1440 = load i32, ptr %1439, align 8
+  %1441 = add i32 %1440, 1
+  store i32 %1441, ptr %1439, align 8
+  %1442 = icmp eq i32 %1440, 0
+  br i1 %1442, label %1443, label %JS_MarkValue.exit66.i.i.i
 
-1425:                                             ; preds = %._crit_edge.i.i.i25
-  %1426 = getelementptr i8, ptr %.0165.i, i64 352
-  %1427 = load i64, ptr %1426, align 8
-  %1428 = inttoptr i64 %1427 to ptr
-  %1429 = load i32, ptr %1428, align 8
-  %1430 = add i32 %1429, 1
-  store i32 %1430, ptr %1428, align 8
-  %1431 = icmp eq i32 %1429, 0
-  br i1 %1431, label %1432, label %JS_MarkValue.exit.i.i.i27
+1443:                                             ; preds = %1436
+  %1444 = getelementptr inbounds i8, ptr %1439, i64 8
+  %1445 = load ptr, ptr %1444, align 8
+  %1446 = getelementptr inbounds i8, ptr %1439, i64 16
+  %1447 = load ptr, ptr %1446, align 8
+  %1448 = getelementptr inbounds i8, ptr %1445, i64 8
+  store ptr %1447, ptr %1448, align 8
+  store ptr %1445, ptr %1447, align 8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %1444, i8 0, i64 16, i1 false)
+  %1449 = load ptr, ptr %4, align 8
+  %1450 = getelementptr inbounds i8, ptr %1449, i64 8
+  store ptr %1444, ptr %1450, align 8
+  store ptr %1449, ptr %1444, align 8
+  store ptr %4, ptr %1446, align 8
+  store ptr %1444, ptr %4, align 8
+  %1451 = getelementptr inbounds i8, ptr %1439, i64 4
+  %1452 = load i8, ptr %1451, align 4
+  %1453 = and i8 %1452, 15
+  store i8 %1453, ptr %1451, align 4
+  br label %JS_MarkValue.exit66.i.i.i
 
-1432:                                             ; preds = %1425
-  %1433 = getelementptr inbounds i8, ptr %1428, i64 8
-  %1434 = load ptr, ptr %1433, align 8
-  %1435 = getelementptr inbounds i8, ptr %1428, i64 16
-  %1436 = load ptr, ptr %1435, align 8
-  %1437 = getelementptr inbounds i8, ptr %1434, i64 8
-  store ptr %1436, ptr %1437, align 8
-  store ptr %1434, ptr %1436, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %1433, i8 0, i64 16, i1 false)
-  %1438 = load ptr, ptr %4, align 8
-  %1439 = getelementptr inbounds i8, ptr %1438, i64 8
-  store ptr %1433, ptr %1439, align 8
-  store ptr %1438, ptr %1433, align 8
-  store ptr %4, ptr %1435, align 8
-  store ptr %1433, ptr %4, align 8
-  %1440 = getelementptr inbounds i8, ptr %1428, i64 4
-  %1441 = load i8, ptr %1440, align 4
-  %1442 = and i8 %1441, 15
-  store i8 %1442, ptr %1440, align 4
-  br label %JS_MarkValue.exit.i.i.i27
+JS_MarkValue.exit66.i.i.i:                        ; preds = %1443, %1436, %JS_MarkValue.exit64.i.i.i
+  %1454 = getelementptr i8, ptr %.0164.i, i64 344
+  %1455 = load i64, ptr %1454, align 8
+  %1456 = and i64 %1455, 4294967294
+  %switch.i67.i.i.i = icmp eq i64 %1456, 4294967294
+  br i1 %switch.i67.i.i.i, label %1457, label %JS_MarkValue.exit68.i.i.i
 
-JS_MarkValue.exit.i.i.i27:                        ; preds = %1432, %1425, %._crit_edge.i.i.i25
-  %1443 = getelementptr i8, ptr %.0165.i, i64 376
-  %1444 = load i64, ptr %1443, align 8
-  %1445 = and i64 %1444, 4294967294
-  %switch.i63.i.i.i28 = icmp eq i64 %1445, 4294967294
-  br i1 %switch.i63.i.i.i28, label %1446, label %JS_MarkValue.exit64.i.i.i29
+1457:                                             ; preds = %JS_MarkValue.exit66.i.i.i
+  %1458 = getelementptr i8, ptr %.0164.i, i64 336
+  %1459 = load i64, ptr %1458, align 8
+  %1460 = inttoptr i64 %1459 to ptr
+  %1461 = load i32, ptr %1460, align 8
+  %1462 = add i32 %1461, 1
+  store i32 %1462, ptr %1460, align 8
+  %1463 = icmp eq i32 %1461, 0
+  br i1 %1463, label %1464, label %JS_MarkValue.exit68.i.i.i
 
-1446:                                             ; preds = %JS_MarkValue.exit.i.i.i27
-  %1447 = getelementptr i8, ptr %.0165.i, i64 368
-  %1448 = load i64, ptr %1447, align 8
-  %1449 = inttoptr i64 %1448 to ptr
-  %1450 = load i32, ptr %1449, align 8
-  %1451 = add i32 %1450, 1
-  store i32 %1451, ptr %1449, align 8
-  %1452 = icmp eq i32 %1450, 0
-  br i1 %1452, label %1453, label %JS_MarkValue.exit64.i.i.i29
+1464:                                             ; preds = %1457
+  %1465 = getelementptr inbounds i8, ptr %1460, i64 8
+  %1466 = load ptr, ptr %1465, align 8
+  %1467 = getelementptr inbounds i8, ptr %1460, i64 16
+  %1468 = load ptr, ptr %1467, align 8
+  %1469 = getelementptr inbounds i8, ptr %1466, i64 8
+  store ptr %1468, ptr %1469, align 8
+  store ptr %1466, ptr %1468, align 8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %1465, i8 0, i64 16, i1 false)
+  %1470 = load ptr, ptr %4, align 8
+  %1471 = getelementptr inbounds i8, ptr %1470, i64 8
+  store ptr %1465, ptr %1471, align 8
+  store ptr %1470, ptr %1465, align 8
+  store ptr %4, ptr %1467, align 8
+  store ptr %1465, ptr %4, align 8
+  %1472 = getelementptr inbounds i8, ptr %1460, i64 4
+  %1473 = load i8, ptr %1472, align 4
+  %1474 = and i8 %1473, 15
+  store i8 %1474, ptr %1472, align 4
+  br label %JS_MarkValue.exit68.i.i.i
 
-1453:                                             ; preds = %1446
-  %1454 = getelementptr inbounds i8, ptr %1449, i64 8
-  %1455 = load ptr, ptr %1454, align 8
-  %1456 = getelementptr inbounds i8, ptr %1449, i64 16
-  %1457 = load ptr, ptr %1456, align 8
-  %1458 = getelementptr inbounds i8, ptr %1455, i64 8
-  store ptr %1457, ptr %1458, align 8
-  store ptr %1455, ptr %1457, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %1454, i8 0, i64 16, i1 false)
-  %1459 = load ptr, ptr %4, align 8
-  %1460 = getelementptr inbounds i8, ptr %1459, i64 8
-  store ptr %1454, ptr %1460, align 8
-  store ptr %1459, ptr %1454, align 8
-  store ptr %4, ptr %1456, align 8
-  store ptr %1454, ptr %4, align 8
-  %1461 = getelementptr inbounds i8, ptr %1449, i64 4
-  %1462 = load i8, ptr %1461, align 4
-  %1463 = and i8 %1462, 15
-  store i8 %1463, ptr %1461, align 4
-  br label %JS_MarkValue.exit64.i.i.i29
+JS_MarkValue.exit68.i.i.i:                        ; preds = %1464, %1457, %JS_MarkValue.exit66.i.i.i
+  %1475 = getelementptr i8, ptr %.0164.i, i64 312
+  %1476 = load i64, ptr %1475, align 8
+  %1477 = and i64 %1476, 4294967294
+  %switch.i69.i.i.i = icmp eq i64 %1477, 4294967294
+  br i1 %switch.i69.i.i.i, label %1478, label %JS_MarkValue.exit70.i.i.i
 
-JS_MarkValue.exit64.i.i.i29:                      ; preds = %1453, %1446, %JS_MarkValue.exit.i.i.i27
-  %1464 = getelementptr i8, ptr %.0165.i, i64 328
-  %1465 = load i64, ptr %1464, align 8
-  %1466 = and i64 %1465, 4294967294
-  %switch.i65.i.i.i30 = icmp eq i64 %1466, 4294967294
-  br i1 %switch.i65.i.i.i30, label %1467, label %JS_MarkValue.exit66.i.i.i31
+1478:                                             ; preds = %JS_MarkValue.exit68.i.i.i
+  %1479 = getelementptr i8, ptr %.0164.i, i64 304
+  %1480 = load i64, ptr %1479, align 8
+  %1481 = inttoptr i64 %1480 to ptr
+  %1482 = load i32, ptr %1481, align 8
+  %1483 = add i32 %1482, 1
+  store i32 %1483, ptr %1481, align 8
+  %1484 = icmp eq i32 %1482, 0
+  br i1 %1484, label %1485, label %JS_MarkValue.exit70.i.i.i
 
-1467:                                             ; preds = %JS_MarkValue.exit64.i.i.i29
-  %1468 = getelementptr i8, ptr %.0165.i, i64 320
-  %1469 = load i64, ptr %1468, align 8
-  %1470 = inttoptr i64 %1469 to ptr
-  %1471 = load i32, ptr %1470, align 8
-  %1472 = add i32 %1471, 1
-  store i32 %1472, ptr %1470, align 8
-  %1473 = icmp eq i32 %1471, 0
-  br i1 %1473, label %1474, label %JS_MarkValue.exit66.i.i.i31
+1485:                                             ; preds = %1478
+  %1486 = getelementptr inbounds i8, ptr %1481, i64 8
+  %1487 = load ptr, ptr %1486, align 8
+  %1488 = getelementptr inbounds i8, ptr %1481, i64 16
+  %1489 = load ptr, ptr %1488, align 8
+  %1490 = getelementptr inbounds i8, ptr %1487, i64 8
+  store ptr %1489, ptr %1490, align 8
+  store ptr %1487, ptr %1489, align 8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %1486, i8 0, i64 16, i1 false)
+  %1491 = load ptr, ptr %4, align 8
+  %1492 = getelementptr inbounds i8, ptr %1491, i64 8
+  store ptr %1486, ptr %1492, align 8
+  store ptr %1491, ptr %1486, align 8
+  store ptr %4, ptr %1488, align 8
+  store ptr %1486, ptr %4, align 8
+  %1493 = getelementptr inbounds i8, ptr %1481, i64 4
+  %1494 = load i8, ptr %1493, align 4
+  %1495 = and i8 %1494, 15
+  store i8 %1495, ptr %1493, align 4
+  br label %JS_MarkValue.exit70.i.i.i
 
-1474:                                             ; preds = %1467
-  %1475 = getelementptr inbounds i8, ptr %1470, i64 8
-  %1476 = load ptr, ptr %1475, align 8
-  %1477 = getelementptr inbounds i8, ptr %1470, i64 16
-  %1478 = load ptr, ptr %1477, align 8
-  %1479 = getelementptr inbounds i8, ptr %1476, i64 8
-  store ptr %1478, ptr %1479, align 8
-  store ptr %1476, ptr %1478, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %1475, i8 0, i64 16, i1 false)
-  %1480 = load ptr, ptr %4, align 8
-  %1481 = getelementptr inbounds i8, ptr %1480, i64 8
-  store ptr %1475, ptr %1481, align 8
-  store ptr %1480, ptr %1475, align 8
-  store ptr %4, ptr %1477, align 8
-  store ptr %1475, ptr %4, align 8
-  %1482 = getelementptr inbounds i8, ptr %1470, i64 4
-  %1483 = load i8, ptr %1482, align 4
-  %1484 = and i8 %1483, 15
-  store i8 %1484, ptr %1482, align 4
-  br label %JS_MarkValue.exit66.i.i.i31
+JS_MarkValue.exit70.i.i.i:                        ; preds = %1485, %1478, %JS_MarkValue.exit68.i.i.i
+  %1496 = getelementptr i8, ptr %.0164.i, i64 144
+  br label %1500
 
-JS_MarkValue.exit66.i.i.i31:                      ; preds = %1474, %1467, %JS_MarkValue.exit64.i.i.i29
-  %1485 = getelementptr i8, ptr %.0165.i, i64 344
-  %1486 = load i64, ptr %1485, align 8
-  %1487 = and i64 %1486, 4294967294
-  %switch.i67.i.i.i32 = icmp eq i64 %1487, 4294967294
-  br i1 %switch.i67.i.i.i32, label %1488, label %JS_MarkValue.exit68.i.i.i33
+.preheader.i.i.i:                                 ; preds = %JS_MarkValue.exit72.i.i.i
+  %1497 = load i32, ptr %884, align 4
+  %1498 = icmp sgt i32 %1497, 0
+  br i1 %1498, label %.lr.ph94.i.i.i, label %._crit_edge95.i.i.i
 
-1488:                                             ; preds = %JS_MarkValue.exit66.i.i.i31
-  %1489 = getelementptr i8, ptr %.0165.i, i64 336
-  %1490 = load i64, ptr %1489, align 8
-  %1491 = inttoptr i64 %1490 to ptr
-  %1492 = load i32, ptr %1491, align 8
-  %1493 = add i32 %1492, 1
-  store i32 %1493, ptr %1491, align 8
-  %1494 = icmp eq i32 %1492, 0
-  br i1 %1494, label %1495, label %JS_MarkValue.exit68.i.i.i33
+.lr.ph94.i.i.i:                                   ; preds = %.preheader.i.i.i
+  %1499 = getelementptr i8, ptr %.0164.i, i64 56
+  br label %1522
 
-1495:                                             ; preds = %1488
-  %1496 = getelementptr inbounds i8, ptr %1491, i64 8
-  %1497 = load ptr, ptr %1496, align 8
-  %1498 = getelementptr inbounds i8, ptr %1491, i64 16
-  %1499 = load ptr, ptr %1498, align 8
-  %1500 = getelementptr inbounds i8, ptr %1497, i64 8
-  store ptr %1499, ptr %1500, align 8
-  store ptr %1497, ptr %1499, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %1496, i8 0, i64 16, i1 false)
-  %1501 = load ptr, ptr %4, align 8
+1500:                                             ; preds = %JS_MarkValue.exit72.i.i.i, %JS_MarkValue.exit70.i.i.i
+  %indvars.iv.i.i.i = phi i64 [ 0, %JS_MarkValue.exit70.i.i.i ], [ %indvars.iv.next.i.i.i, %JS_MarkValue.exit72.i.i.i ]
+  %1501 = getelementptr [8 x %struct.JSValue], ptr %1496, i64 0, i64 %indvars.iv.i.i.i
   %1502 = getelementptr inbounds i8, ptr %1501, i64 8
-  store ptr %1496, ptr %1502, align 8
-  store ptr %1501, ptr %1496, align 8
-  store ptr %4, ptr %1498, align 8
-  store ptr %1496, ptr %4, align 8
-  %1503 = getelementptr inbounds i8, ptr %1491, i64 4
-  %1504 = load i8, ptr %1503, align 4
-  %1505 = and i8 %1504, 15
-  store i8 %1505, ptr %1503, align 4
-  br label %JS_MarkValue.exit68.i.i.i33
+  %1503 = load i64, ptr %1502, align 8
+  %1504 = and i64 %1503, 4294967294
+  %switch.i71.i.i.i = icmp eq i64 %1504, 4294967294
+  br i1 %switch.i71.i.i.i, label %1505, label %JS_MarkValue.exit72.i.i.i
 
-JS_MarkValue.exit68.i.i.i33:                      ; preds = %1495, %1488, %JS_MarkValue.exit66.i.i.i31
-  %1506 = getelementptr i8, ptr %.0165.i, i64 312
-  %1507 = load i64, ptr %1506, align 8
-  %1508 = and i64 %1507, 4294967294
-  %switch.i69.i.i.i34 = icmp eq i64 %1508, 4294967294
-  br i1 %switch.i69.i.i.i34, label %1509, label %JS_MarkValue.exit70.i.i.i35
+1505:                                             ; preds = %1500
+  %1506 = load i64, ptr %1501, align 8
+  %1507 = inttoptr i64 %1506 to ptr
+  %1508 = load i32, ptr %1507, align 8
+  %1509 = add i32 %1508, 1
+  store i32 %1509, ptr %1507, align 8
+  %1510 = icmp eq i32 %1508, 0
+  br i1 %1510, label %1511, label %JS_MarkValue.exit72.i.i.i
 
-1509:                                             ; preds = %JS_MarkValue.exit68.i.i.i33
-  %1510 = getelementptr i8, ptr %.0165.i, i64 304
-  %1511 = load i64, ptr %1510, align 8
-  %1512 = inttoptr i64 %1511 to ptr
-  %1513 = load i32, ptr %1512, align 8
-  %1514 = add i32 %1513, 1
-  store i32 %1514, ptr %1512, align 8
-  %1515 = icmp eq i32 %1513, 0
-  br i1 %1515, label %1516, label %JS_MarkValue.exit70.i.i.i35
+1511:                                             ; preds = %1505
+  %1512 = getelementptr inbounds i8, ptr %1507, i64 8
+  %1513 = load ptr, ptr %1512, align 8
+  %1514 = getelementptr inbounds i8, ptr %1507, i64 16
+  %1515 = load ptr, ptr %1514, align 8
+  %1516 = getelementptr inbounds i8, ptr %1513, i64 8
+  store ptr %1515, ptr %1516, align 8
+  store ptr %1513, ptr %1515, align 8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %1512, i8 0, i64 16, i1 false)
+  %1517 = load ptr, ptr %4, align 8
+  %1518 = getelementptr inbounds i8, ptr %1517, i64 8
+  store ptr %1512, ptr %1518, align 8
+  store ptr %1517, ptr %1512, align 8
+  store ptr %4, ptr %1514, align 8
+  store ptr %1512, ptr %4, align 8
+  %1519 = getelementptr inbounds i8, ptr %1507, i64 4
+  %1520 = load i8, ptr %1519, align 4
+  %1521 = and i8 %1520, 15
+  store i8 %1521, ptr %1519, align 4
+  br label %JS_MarkValue.exit72.i.i.i
 
-1516:                                             ; preds = %1509
-  %1517 = getelementptr inbounds i8, ptr %1512, i64 8
-  %1518 = load ptr, ptr %1517, align 8
-  %1519 = getelementptr inbounds i8, ptr %1512, i64 16
-  %1520 = load ptr, ptr %1519, align 8
-  %1521 = getelementptr inbounds i8, ptr %1518, i64 8
-  store ptr %1520, ptr %1521, align 8
-  store ptr %1518, ptr %1520, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %1517, i8 0, i64 16, i1 false)
-  %1522 = load ptr, ptr %4, align 8
-  %1523 = getelementptr inbounds i8, ptr %1522, i64 8
-  store ptr %1517, ptr %1523, align 8
-  store ptr %1522, ptr %1517, align 8
-  store ptr %4, ptr %1519, align 8
-  store ptr %1517, ptr %4, align 8
-  %1524 = getelementptr inbounds i8, ptr %1512, i64 4
-  %1525 = load i8, ptr %1524, align 4
-  %1526 = and i8 %1525, 15
-  store i8 %1526, ptr %1524, align 4
-  br label %JS_MarkValue.exit70.i.i.i35
+JS_MarkValue.exit72.i.i.i:                        ; preds = %1511, %1505, %1500
+  %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
+  %exitcond.not.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i, 8
+  br i1 %exitcond.not.i.i.i, label %.preheader.i.i.i, label %1500, !llvm.loop !27
 
-JS_MarkValue.exit70.i.i.i35:                      ; preds = %1516, %1509, %JS_MarkValue.exit68.i.i.i33
-  %1527 = getelementptr i8, ptr %.0165.i, i64 144
-  br label %1531
+1522:                                             ; preds = %JS_MarkValue.exit74.i.i.i, %.lr.ph94.i.i.i
+  %1523 = phi i32 [ %1497, %.lr.ph94.i.i.i ], [ %1546, %JS_MarkValue.exit74.i.i.i ]
+  %indvars.iv97.i.i.i = phi i64 [ 0, %.lr.ph94.i.i.i ], [ %indvars.iv.next98.i.i.i, %JS_MarkValue.exit74.i.i.i ]
+  %1524 = load ptr, ptr %1499, align 8
+  %1525 = getelementptr %struct.JSValue, ptr %1524, i64 %indvars.iv97.i.i.i
+  %1526 = getelementptr inbounds i8, ptr %1525, i64 8
+  %1527 = load i64, ptr %1526, align 8
+  %1528 = and i64 %1527, 4294967294
+  %switch.i73.i.i.i = icmp eq i64 %1528, 4294967294
+  br i1 %switch.i73.i.i.i, label %1529, label %JS_MarkValue.exit74.i.i.i
 
-.preheader.i.i.i41:                               ; preds = %JS_MarkValue.exit72.i.i.i38
-  %1528 = load i32, ptr %906, align 4
-  %1529 = icmp sgt i32 %1528, 0
-  br i1 %1529, label %.lr.ph94.i.i.i61, label %._crit_edge95.i.i.i42
+1529:                                             ; preds = %1522
+  %1530 = load i64, ptr %1525, align 8
+  %1531 = inttoptr i64 %1530 to ptr
+  %1532 = load i32, ptr %1531, align 8
+  %1533 = add i32 %1532, 1
+  store i32 %1533, ptr %1531, align 8
+  %1534 = icmp eq i32 %1532, 0
+  br i1 %1534, label %1535, label %gc_scan_incref_child.exit134.i
 
-.lr.ph94.i.i.i61:                                 ; preds = %.preheader.i.i.i41
-  %1530 = getelementptr i8, ptr %.0165.i, i64 56
-  br label %1553
+1535:                                             ; preds = %1529
+  %1536 = getelementptr inbounds i8, ptr %1531, i64 8
+  %1537 = load ptr, ptr %1536, align 8
+  %1538 = getelementptr inbounds i8, ptr %1531, i64 16
+  %1539 = load ptr, ptr %1538, align 8
+  %1540 = getelementptr inbounds i8, ptr %1537, i64 8
+  store ptr %1539, ptr %1540, align 8
+  store ptr %1537, ptr %1539, align 8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %1536, i8 0, i64 16, i1 false)
+  %1541 = load ptr, ptr %4, align 8
+  %1542 = getelementptr inbounds i8, ptr %1541, i64 8
+  store ptr %1536, ptr %1542, align 8
+  store ptr %1541, ptr %1536, align 8
+  store ptr %4, ptr %1538, align 8
+  store ptr %1536, ptr %4, align 8
+  %1543 = getelementptr inbounds i8, ptr %1531, i64 4
+  %1544 = load i8, ptr %1543, align 4
+  %1545 = and i8 %1544, 15
+  store i8 %1545, ptr %1543, align 4
+  br label %gc_scan_incref_child.exit134.i
 
-1531:                                             ; preds = %JS_MarkValue.exit72.i.i.i38, %JS_MarkValue.exit70.i.i.i35
-  %indvars.iv.i.i.i36 = phi i64 [ 0, %JS_MarkValue.exit70.i.i.i35 ], [ %indvars.iv.next.i.i.i39, %JS_MarkValue.exit72.i.i.i38 ]
-  %1532 = getelementptr [8 x %struct.JSValue], ptr %1527, i64 0, i64 %indvars.iv.i.i.i36
-  %1533 = getelementptr inbounds i8, ptr %1532, i64 8
-  %1534 = load i64, ptr %1533, align 8
-  %1535 = and i64 %1534, 4294967294
-  %switch.i71.i.i.i37 = icmp eq i64 %1535, 4294967294
-  br i1 %switch.i71.i.i.i37, label %1536, label %JS_MarkValue.exit72.i.i.i38
+gc_scan_incref_child.exit134.i:                   ; preds = %1535, %1529
+  %.pre.i.i.i = load i32, ptr %884, align 4
+  br label %JS_MarkValue.exit74.i.i.i
 
-1536:                                             ; preds = %1531
-  %1537 = load i64, ptr %1532, align 8
-  %1538 = inttoptr i64 %1537 to ptr
-  %1539 = load i32, ptr %1538, align 8
-  %1540 = add i32 %1539, 1
-  store i32 %1540, ptr %1538, align 8
-  %1541 = icmp eq i32 %1539, 0
-  br i1 %1541, label %1542, label %JS_MarkValue.exit72.i.i.i38
+JS_MarkValue.exit74.i.i.i:                        ; preds = %gc_scan_incref_child.exit134.i, %1522
+  %1546 = phi i32 [ %1523, %1522 ], [ %.pre.i.i.i, %gc_scan_incref_child.exit134.i ]
+  %indvars.iv.next98.i.i.i = add nuw nsw i64 %indvars.iv97.i.i.i, 1
+  %1547 = sext i32 %1546 to i64
+  %1548 = icmp slt i64 %indvars.iv.next98.i.i.i, %1547
+  br i1 %1548, label %1522, label %._crit_edge95.i.i.i, !llvm.loop !28
 
-1542:                                             ; preds = %1536
-  %1543 = getelementptr inbounds i8, ptr %1538, i64 8
-  %1544 = load ptr, ptr %1543, align 8
-  %1545 = getelementptr inbounds i8, ptr %1538, i64 16
-  %1546 = load ptr, ptr %1545, align 8
-  %1547 = getelementptr inbounds i8, ptr %1544, i64 8
-  store ptr %1546, ptr %1547, align 8
-  store ptr %1544, ptr %1546, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %1543, i8 0, i64 16, i1 false)
-  %1548 = load ptr, ptr %4, align 8
-  %1549 = getelementptr inbounds i8, ptr %1548, i64 8
-  store ptr %1543, ptr %1549, align 8
-  store ptr %1548, ptr %1543, align 8
-  store ptr %4, ptr %1545, align 8
-  store ptr %1543, ptr %4, align 8
-  %1550 = getelementptr inbounds i8, ptr %1538, i64 4
-  %1551 = load i8, ptr %1550, align 4
-  %1552 = and i8 %1551, 15
-  store i8 %1552, ptr %1550, align 4
-  br label %JS_MarkValue.exit72.i.i.i38
+._crit_edge95.i.i.i:                              ; preds = %JS_MarkValue.exit74.i.i.i, %.preheader.i.i.i
+  %1549 = getelementptr i8, ptr %.0164.i, i64 280
+  %1550 = load i64, ptr %1549, align 8
+  %1551 = and i64 %1550, 4294967294
+  %switch.i75.i.i.i = icmp eq i64 %1551, 4294967294
+  br i1 %switch.i75.i.i.i, label %1552, label %JS_MarkValue.exit76.i.i.i
 
-JS_MarkValue.exit72.i.i.i38:                      ; preds = %1542, %1536, %1531
-  %indvars.iv.next.i.i.i39 = add nuw nsw i64 %indvars.iv.i.i.i36, 1
-  %exitcond.not.i.i.i40 = icmp eq i64 %indvars.iv.next.i.i.i39, 8
-  br i1 %exitcond.not.i.i.i40, label %.preheader.i.i.i41, label %1531, !llvm.loop !27
+1552:                                             ; preds = %._crit_edge95.i.i.i
+  %1553 = getelementptr i8, ptr %.0164.i, i64 272
+  %1554 = load i64, ptr %1553, align 8
+  %1555 = inttoptr i64 %1554 to ptr
+  %1556 = load i32, ptr %1555, align 8
+  %1557 = add i32 %1556, 1
+  store i32 %1557, ptr %1555, align 8
+  %1558 = icmp eq i32 %1556, 0
+  br i1 %1558, label %1559, label %JS_MarkValue.exit76.i.i.i
 
-1553:                                             ; preds = %JS_MarkValue.exit74.i.i.i64, %.lr.ph94.i.i.i61
-  %1554 = phi i32 [ %1528, %.lr.ph94.i.i.i61 ], [ %1577, %JS_MarkValue.exit74.i.i.i64 ]
-  %indvars.iv97.i.i.i62 = phi i64 [ 0, %.lr.ph94.i.i.i61 ], [ %indvars.iv.next98.i.i.i65, %JS_MarkValue.exit74.i.i.i64 ]
-  %1555 = load ptr, ptr %1530, align 8
-  %1556 = getelementptr %struct.JSValue, ptr %1555, i64 %indvars.iv97.i.i.i62
-  %1557 = getelementptr inbounds i8, ptr %1556, i64 8
-  %1558 = load i64, ptr %1557, align 8
-  %1559 = and i64 %1558, 4294967294
-  %switch.i73.i.i.i63 = icmp eq i64 %1559, 4294967294
-  br i1 %switch.i73.i.i.i63, label %1560, label %JS_MarkValue.exit74.i.i.i64
+1559:                                             ; preds = %1552
+  %1560 = getelementptr inbounds i8, ptr %1555, i64 8
+  %1561 = load ptr, ptr %1560, align 8
+  %1562 = getelementptr inbounds i8, ptr %1555, i64 16
+  %1563 = load ptr, ptr %1562, align 8
+  %1564 = getelementptr inbounds i8, ptr %1561, i64 8
+  store ptr %1563, ptr %1564, align 8
+  store ptr %1561, ptr %1563, align 8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %1560, i8 0, i64 16, i1 false)
+  %1565 = load ptr, ptr %4, align 8
+  %1566 = getelementptr inbounds i8, ptr %1565, i64 8
+  store ptr %1560, ptr %1566, align 8
+  store ptr %1565, ptr %1560, align 8
+  store ptr %4, ptr %1562, align 8
+  store ptr %1560, ptr %4, align 8
+  %1567 = getelementptr inbounds i8, ptr %1555, i64 4
+  %1568 = load i8, ptr %1567, align 4
+  %1569 = and i8 %1568, 15
+  store i8 %1569, ptr %1567, align 4
+  br label %JS_MarkValue.exit76.i.i.i
 
-1560:                                             ; preds = %1553
-  %1561 = load i64, ptr %1556, align 8
-  %1562 = inttoptr i64 %1561 to ptr
-  %1563 = load i32, ptr %1562, align 8
-  %1564 = add i32 %1563, 1
-  store i32 %1564, ptr %1562, align 8
-  %1565 = icmp eq i32 %1563, 0
-  br i1 %1565, label %1566, label %gc_scan_incref_child.exit132.i
+JS_MarkValue.exit76.i.i.i:                        ; preds = %1559, %1552, %._crit_edge95.i.i.i
+  %1570 = getelementptr i8, ptr %.0164.i, i64 296
+  %1571 = load i64, ptr %1570, align 8
+  %1572 = and i64 %1571, 4294967294
+  %switch.i77.i.i.i = icmp eq i64 %1572, 4294967294
+  br i1 %switch.i77.i.i.i, label %1573, label %JS_MarkValue.exit78.i.i.i
 
-1566:                                             ; preds = %1560
-  %1567 = getelementptr inbounds i8, ptr %1562, i64 8
-  %1568 = load ptr, ptr %1567, align 8
-  %1569 = getelementptr inbounds i8, ptr %1562, i64 16
-  %1570 = load ptr, ptr %1569, align 8
-  %1571 = getelementptr inbounds i8, ptr %1568, i64 8
-  store ptr %1570, ptr %1571, align 8
-  store ptr %1568, ptr %1570, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %1567, i8 0, i64 16, i1 false)
-  %1572 = load ptr, ptr %4, align 8
-  %1573 = getelementptr inbounds i8, ptr %1572, i64 8
-  store ptr %1567, ptr %1573, align 8
-  store ptr %1572, ptr %1567, align 8
-  store ptr %4, ptr %1569, align 8
-  store ptr %1567, ptr %4, align 8
-  %1574 = getelementptr inbounds i8, ptr %1562, i64 4
-  %1575 = load i8, ptr %1574, align 4
-  %1576 = and i8 %1575, 15
-  store i8 %1576, ptr %1574, align 4
-  br label %gc_scan_incref_child.exit132.i
+1573:                                             ; preds = %JS_MarkValue.exit76.i.i.i
+  %1574 = getelementptr i8, ptr %.0164.i, i64 288
+  %1575 = load i64, ptr %1574, align 8
+  %1576 = inttoptr i64 %1575 to ptr
+  %1577 = load i32, ptr %1576, align 8
+  %1578 = add i32 %1577, 1
+  store i32 %1578, ptr %1576, align 8
+  %1579 = icmp eq i32 %1577, 0
+  br i1 %1579, label %1580, label %JS_MarkValue.exit78.i.i.i
 
-gc_scan_incref_child.exit132.i:                   ; preds = %1566, %1560
-  %.pre.i.i.i66 = load i32, ptr %906, align 4
-  br label %JS_MarkValue.exit74.i.i.i64
+1580:                                             ; preds = %1573
+  %1581 = getelementptr inbounds i8, ptr %1576, i64 8
+  %1582 = load ptr, ptr %1581, align 8
+  %1583 = getelementptr inbounds i8, ptr %1576, i64 16
+  %1584 = load ptr, ptr %1583, align 8
+  %1585 = getelementptr inbounds i8, ptr %1582, i64 8
+  store ptr %1584, ptr %1585, align 8
+  store ptr %1582, ptr %1584, align 8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %1581, i8 0, i64 16, i1 false)
+  %1586 = load ptr, ptr %4, align 8
+  %1587 = getelementptr inbounds i8, ptr %1586, i64 8
+  store ptr %1581, ptr %1587, align 8
+  store ptr %1586, ptr %1581, align 8
+  store ptr %4, ptr %1583, align 8
+  store ptr %1581, ptr %4, align 8
+  %1588 = getelementptr inbounds i8, ptr %1576, i64 4
+  %1589 = load i8, ptr %1588, align 4
+  %1590 = and i8 %1589, 15
+  store i8 %1590, ptr %1588, align 4
+  br label %JS_MarkValue.exit78.i.i.i
 
-JS_MarkValue.exit74.i.i.i64:                      ; preds = %gc_scan_incref_child.exit132.i, %1553
-  %1577 = phi i32 [ %1554, %1553 ], [ %.pre.i.i.i66, %gc_scan_incref_child.exit132.i ]
-  %indvars.iv.next98.i.i.i65 = add nuw nsw i64 %indvars.iv97.i.i.i62, 1
-  %1578 = sext i32 %1577 to i64
-  %1579 = icmp slt i64 %indvars.iv.next98.i.i.i65, %1578
-  br i1 %1579, label %1553, label %._crit_edge95.i.i.i42, !llvm.loop !28
+JS_MarkValue.exit78.i.i.i:                        ; preds = %1580, %1573, %JS_MarkValue.exit76.i.i.i
+  %1591 = getelementptr i8, ptr %.0164.i, i64 136
+  %1592 = load i64, ptr %1591, align 8
+  %1593 = and i64 %1592, 4294967294
+  %switch.i79.i.i.i = icmp eq i64 %1593, 4294967294
+  br i1 %switch.i79.i.i.i, label %1594, label %JS_MarkValue.exit80.i.i.i
 
-._crit_edge95.i.i.i42:                            ; preds = %JS_MarkValue.exit74.i.i.i64, %.preheader.i.i.i41
-  %1580 = getelementptr i8, ptr %.0165.i, i64 280
-  %1581 = load i64, ptr %1580, align 8
-  %1582 = and i64 %1581, 4294967294
-  %switch.i75.i.i.i43 = icmp eq i64 %1582, 4294967294
-  br i1 %switch.i75.i.i.i43, label %1583, label %JS_MarkValue.exit76.i.i.i44
+1594:                                             ; preds = %JS_MarkValue.exit78.i.i.i
+  %1595 = getelementptr i8, ptr %.0164.i, i64 128
+  %1596 = load i64, ptr %1595, align 8
+  %1597 = inttoptr i64 %1596 to ptr
+  %1598 = load i32, ptr %1597, align 8
+  %1599 = add i32 %1598, 1
+  store i32 %1599, ptr %1597, align 8
+  %1600 = icmp eq i32 %1598, 0
+  br i1 %1600, label %1601, label %JS_MarkValue.exit80.i.i.i
 
-1583:                                             ; preds = %._crit_edge95.i.i.i42
-  %1584 = getelementptr i8, ptr %.0165.i, i64 272
-  %1585 = load i64, ptr %1584, align 8
-  %1586 = inttoptr i64 %1585 to ptr
-  %1587 = load i32, ptr %1586, align 8
-  %1588 = add i32 %1587, 1
-  store i32 %1588, ptr %1586, align 8
-  %1589 = icmp eq i32 %1587, 0
-  br i1 %1589, label %1590, label %JS_MarkValue.exit76.i.i.i44
+1601:                                             ; preds = %1594
+  %1602 = getelementptr inbounds i8, ptr %1597, i64 8
+  %1603 = load ptr, ptr %1602, align 8
+  %1604 = getelementptr inbounds i8, ptr %1597, i64 16
+  %1605 = load ptr, ptr %1604, align 8
+  %1606 = getelementptr inbounds i8, ptr %1603, i64 8
+  store ptr %1605, ptr %1606, align 8
+  store ptr %1603, ptr %1605, align 8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %1602, i8 0, i64 16, i1 false)
+  %1607 = load ptr, ptr %4, align 8
+  %1608 = getelementptr inbounds i8, ptr %1607, i64 8
+  store ptr %1602, ptr %1608, align 8
+  store ptr %1607, ptr %1602, align 8
+  store ptr %4, ptr %1604, align 8
+  store ptr %1602, ptr %4, align 8
+  %1609 = getelementptr inbounds i8, ptr %1597, i64 4
+  %1610 = load i8, ptr %1609, align 4
+  %1611 = and i8 %1610, 15
+  store i8 %1611, ptr %1609, align 4
+  br label %JS_MarkValue.exit80.i.i.i
 
-1590:                                             ; preds = %1583
-  %1591 = getelementptr inbounds i8, ptr %1586, i64 8
-  %1592 = load ptr, ptr %1591, align 8
-  %1593 = getelementptr inbounds i8, ptr %1586, i64 16
-  %1594 = load ptr, ptr %1593, align 8
-  %1595 = getelementptr inbounds i8, ptr %1592, i64 8
-  store ptr %1594, ptr %1595, align 8
-  store ptr %1592, ptr %1594, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %1591, i8 0, i64 16, i1 false)
-  %1596 = load ptr, ptr %4, align 8
-  %1597 = getelementptr inbounds i8, ptr %1596, i64 8
-  store ptr %1591, ptr %1597, align 8
-  store ptr %1596, ptr %1591, align 8
-  store ptr %4, ptr %1593, align 8
-  store ptr %1591, ptr %4, align 8
-  %1598 = getelementptr inbounds i8, ptr %1586, i64 4
-  %1599 = load i8, ptr %1598, align 4
-  %1600 = and i8 %1599, 15
-  store i8 %1600, ptr %1598, align 4
-  br label %JS_MarkValue.exit76.i.i.i44
+JS_MarkValue.exit80.i.i.i:                        ; preds = %1601, %1594, %JS_MarkValue.exit78.i.i.i
+  %1612 = getelementptr i8, ptr %.0164.i, i64 104
+  %1613 = load i64, ptr %1612, align 8
+  %1614 = and i64 %1613, 4294967294
+  %switch.i81.i.i.i = icmp eq i64 %1614, 4294967294
+  br i1 %switch.i81.i.i.i, label %1615, label %JS_MarkValue.exit82.i.i.i
 
-JS_MarkValue.exit76.i.i.i44:                      ; preds = %1590, %1583, %._crit_edge95.i.i.i42
-  %1601 = getelementptr i8, ptr %.0165.i, i64 296
-  %1602 = load i64, ptr %1601, align 8
-  %1603 = and i64 %1602, 4294967294
-  %switch.i77.i.i.i45 = icmp eq i64 %1603, 4294967294
-  br i1 %switch.i77.i.i.i45, label %1604, label %JS_MarkValue.exit78.i.i.i46
+1615:                                             ; preds = %JS_MarkValue.exit80.i.i.i
+  %1616 = getelementptr i8, ptr %.0164.i, i64 96
+  %1617 = load i64, ptr %1616, align 8
+  %1618 = inttoptr i64 %1617 to ptr
+  %1619 = load i32, ptr %1618, align 8
+  %1620 = add i32 %1619, 1
+  store i32 %1620, ptr %1618, align 8
+  %1621 = icmp eq i32 %1619, 0
+  br i1 %1621, label %1622, label %JS_MarkValue.exit82.i.i.i
 
-1604:                                             ; preds = %JS_MarkValue.exit76.i.i.i44
-  %1605 = getelementptr i8, ptr %.0165.i, i64 288
-  %1606 = load i64, ptr %1605, align 8
-  %1607 = inttoptr i64 %1606 to ptr
-  %1608 = load i32, ptr %1607, align 8
-  %1609 = add i32 %1608, 1
-  store i32 %1609, ptr %1607, align 8
-  %1610 = icmp eq i32 %1608, 0
-  br i1 %1610, label %1611, label %JS_MarkValue.exit78.i.i.i46
+1622:                                             ; preds = %1615
+  %1623 = getelementptr inbounds i8, ptr %1618, i64 8
+  %1624 = load ptr, ptr %1623, align 8
+  %1625 = getelementptr inbounds i8, ptr %1618, i64 16
+  %1626 = load ptr, ptr %1625, align 8
+  %1627 = getelementptr inbounds i8, ptr %1624, i64 8
+  store ptr %1626, ptr %1627, align 8
+  store ptr %1624, ptr %1626, align 8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %1623, i8 0, i64 16, i1 false)
+  %1628 = load ptr, ptr %4, align 8
+  %1629 = getelementptr inbounds i8, ptr %1628, i64 8
+  store ptr %1623, ptr %1629, align 8
+  store ptr %1628, ptr %1623, align 8
+  store ptr %4, ptr %1625, align 8
+  store ptr %1623, ptr %4, align 8
+  %1630 = getelementptr inbounds i8, ptr %1618, i64 4
+  %1631 = load i8, ptr %1630, align 4
+  %1632 = and i8 %1631, 15
+  store i8 %1632, ptr %1630, align 4
+  br label %JS_MarkValue.exit82.i.i.i
 
-1611:                                             ; preds = %1604
-  %1612 = getelementptr inbounds i8, ptr %1607, i64 8
-  %1613 = load ptr, ptr %1612, align 8
-  %1614 = getelementptr inbounds i8, ptr %1607, i64 16
-  %1615 = load ptr, ptr %1614, align 8
-  %1616 = getelementptr inbounds i8, ptr %1613, i64 8
-  store ptr %1615, ptr %1616, align 8
-  store ptr %1613, ptr %1615, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %1612, i8 0, i64 16, i1 false)
-  %1617 = load ptr, ptr %4, align 8
-  %1618 = getelementptr inbounds i8, ptr %1617, i64 8
-  store ptr %1612, ptr %1618, align 8
-  store ptr %1617, ptr %1612, align 8
-  store ptr %4, ptr %1614, align 8
-  store ptr %1612, ptr %4, align 8
-  %1619 = getelementptr inbounds i8, ptr %1607, i64 4
-  %1620 = load i8, ptr %1619, align 4
-  %1621 = and i8 %1620, 15
-  store i8 %1621, ptr %1619, align 4
-  br label %JS_MarkValue.exit78.i.i.i46
+JS_MarkValue.exit82.i.i.i:                        ; preds = %1622, %1615, %JS_MarkValue.exit80.i.i.i
+  %1633 = getelementptr i8, ptr %.0164.i, i64 120
+  %1634 = load i64, ptr %1633, align 8
+  %1635 = and i64 %1634, 4294967294
+  %switch.i83.i.i.i = icmp eq i64 %1635, 4294967294
+  br i1 %switch.i83.i.i.i, label %1636, label %JS_MarkValue.exit84.i.i.i
 
-JS_MarkValue.exit78.i.i.i46:                      ; preds = %1611, %1604, %JS_MarkValue.exit76.i.i.i44
-  %1622 = getelementptr i8, ptr %.0165.i, i64 136
-  %1623 = load i64, ptr %1622, align 8
-  %1624 = and i64 %1623, 4294967294
-  %switch.i79.i.i.i47 = icmp eq i64 %1624, 4294967294
-  br i1 %switch.i79.i.i.i47, label %1625, label %JS_MarkValue.exit80.i.i.i48
+1636:                                             ; preds = %JS_MarkValue.exit82.i.i.i
+  %1637 = getelementptr i8, ptr %.0164.i, i64 112
+  %1638 = load i64, ptr %1637, align 8
+  %1639 = inttoptr i64 %1638 to ptr
+  %1640 = load i32, ptr %1639, align 8
+  %1641 = add i32 %1640, 1
+  store i32 %1641, ptr %1639, align 8
+  %1642 = icmp eq i32 %1640, 0
+  br i1 %1642, label %1643, label %JS_MarkValue.exit84.i.i.i
 
-1625:                                             ; preds = %JS_MarkValue.exit78.i.i.i46
-  %1626 = getelementptr i8, ptr %.0165.i, i64 128
-  %1627 = load i64, ptr %1626, align 8
-  %1628 = inttoptr i64 %1627 to ptr
-  %1629 = load i32, ptr %1628, align 8
-  %1630 = add i32 %1629, 1
-  store i32 %1630, ptr %1628, align 8
-  %1631 = icmp eq i32 %1629, 0
-  br i1 %1631, label %1632, label %JS_MarkValue.exit80.i.i.i48
+1643:                                             ; preds = %1636
+  %1644 = getelementptr inbounds i8, ptr %1639, i64 8
+  %1645 = load ptr, ptr %1644, align 8
+  %1646 = getelementptr inbounds i8, ptr %1639, i64 16
+  %1647 = load ptr, ptr %1646, align 8
+  %1648 = getelementptr inbounds i8, ptr %1645, i64 8
+  store ptr %1647, ptr %1648, align 8
+  store ptr %1645, ptr %1647, align 8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %1644, i8 0, i64 16, i1 false)
+  %1649 = load ptr, ptr %4, align 8
+  %1650 = getelementptr inbounds i8, ptr %1649, i64 8
+  store ptr %1644, ptr %1650, align 8
+  store ptr %1649, ptr %1644, align 8
+  store ptr %4, ptr %1646, align 8
+  store ptr %1644, ptr %4, align 8
+  %1651 = getelementptr inbounds i8, ptr %1639, i64 4
+  %1652 = load i8, ptr %1651, align 4
+  %1653 = and i8 %1652, 15
+  store i8 %1653, ptr %1651, align 4
+  br label %JS_MarkValue.exit84.i.i.i
 
-1632:                                             ; preds = %1625
-  %1633 = getelementptr inbounds i8, ptr %1628, i64 8
-  %1634 = load ptr, ptr %1633, align 8
-  %1635 = getelementptr inbounds i8, ptr %1628, i64 16
-  %1636 = load ptr, ptr %1635, align 8
-  %1637 = getelementptr inbounds i8, ptr %1634, i64 8
-  store ptr %1636, ptr %1637, align 8
-  store ptr %1634, ptr %1636, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %1633, i8 0, i64 16, i1 false)
-  %1638 = load ptr, ptr %4, align 8
-  %1639 = getelementptr inbounds i8, ptr %1638, i64 8
-  store ptr %1633, ptr %1639, align 8
-  store ptr %1638, ptr %1633, align 8
-  store ptr %4, ptr %1635, align 8
-  store ptr %1633, ptr %4, align 8
-  %1640 = getelementptr inbounds i8, ptr %1628, i64 4
-  %1641 = load i8, ptr %1640, align 4
-  %1642 = and i8 %1641, 15
-  store i8 %1642, ptr %1640, align 4
-  br label %JS_MarkValue.exit80.i.i.i48
+JS_MarkValue.exit84.i.i.i:                        ; preds = %1643, %1636, %JS_MarkValue.exit82.i.i.i
+  %1654 = getelementptr i8, ptr %.0164.i, i64 88
+  %1655 = load i64, ptr %1654, align 8
+  %1656 = and i64 %1655, 4294967294
+  %switch.i85.i.i.i = icmp eq i64 %1656, 4294967294
+  br i1 %switch.i85.i.i.i, label %1657, label %JS_MarkValue.exit86.i.i.i
 
-JS_MarkValue.exit80.i.i.i48:                      ; preds = %1632, %1625, %JS_MarkValue.exit78.i.i.i46
-  %1643 = getelementptr i8, ptr %.0165.i, i64 104
-  %1644 = load i64, ptr %1643, align 8
-  %1645 = and i64 %1644, 4294967294
-  %switch.i81.i.i.i49 = icmp eq i64 %1645, 4294967294
-  br i1 %switch.i81.i.i.i49, label %1646, label %JS_MarkValue.exit82.i.i.i50
+1657:                                             ; preds = %JS_MarkValue.exit84.i.i.i
+  %1658 = getelementptr i8, ptr %.0164.i, i64 80
+  %1659 = load i64, ptr %1658, align 8
+  %1660 = inttoptr i64 %1659 to ptr
+  %1661 = load i32, ptr %1660, align 8
+  %1662 = add i32 %1661, 1
+  store i32 %1662, ptr %1660, align 8
+  %1663 = icmp eq i32 %1661, 0
+  br i1 %1663, label %1664, label %JS_MarkValue.exit86.i.i.i
 
-1646:                                             ; preds = %JS_MarkValue.exit80.i.i.i48
-  %1647 = getelementptr i8, ptr %.0165.i, i64 96
-  %1648 = load i64, ptr %1647, align 8
-  %1649 = inttoptr i64 %1648 to ptr
-  %1650 = load i32, ptr %1649, align 8
-  %1651 = add i32 %1650, 1
-  store i32 %1651, ptr %1649, align 8
-  %1652 = icmp eq i32 %1650, 0
-  br i1 %1652, label %1653, label %JS_MarkValue.exit82.i.i.i50
+1664:                                             ; preds = %1657
+  %1665 = getelementptr inbounds i8, ptr %1660, i64 8
+  %1666 = load ptr, ptr %1665, align 8
+  %1667 = getelementptr inbounds i8, ptr %1660, i64 16
+  %1668 = load ptr, ptr %1667, align 8
+  %1669 = getelementptr inbounds i8, ptr %1666, i64 8
+  store ptr %1668, ptr %1669, align 8
+  store ptr %1666, ptr %1668, align 8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %1665, i8 0, i64 16, i1 false)
+  %1670 = load ptr, ptr %4, align 8
+  %1671 = getelementptr inbounds i8, ptr %1670, i64 8
+  store ptr %1665, ptr %1671, align 8
+  store ptr %1670, ptr %1665, align 8
+  store ptr %4, ptr %1667, align 8
+  store ptr %1665, ptr %4, align 8
+  %1672 = getelementptr inbounds i8, ptr %1660, i64 4
+  %1673 = load i8, ptr %1672, align 4
+  %1674 = and i8 %1673, 15
+  store i8 %1674, ptr %1672, align 4
+  br label %JS_MarkValue.exit86.i.i.i
 
-1653:                                             ; preds = %1646
-  %1654 = getelementptr inbounds i8, ptr %1649, i64 8
-  %1655 = load ptr, ptr %1654, align 8
-  %1656 = getelementptr inbounds i8, ptr %1649, i64 16
-  %1657 = load ptr, ptr %1656, align 8
-  %1658 = getelementptr inbounds i8, ptr %1655, i64 8
-  store ptr %1657, ptr %1658, align 8
-  store ptr %1655, ptr %1657, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %1654, i8 0, i64 16, i1 false)
-  %1659 = load ptr, ptr %4, align 8
-  %1660 = getelementptr inbounds i8, ptr %1659, i64 8
-  store ptr %1654, ptr %1660, align 8
-  store ptr %1659, ptr %1654, align 8
-  store ptr %4, ptr %1656, align 8
-  store ptr %1654, ptr %4, align 8
-  %1661 = getelementptr inbounds i8, ptr %1649, i64 4
-  %1662 = load i8, ptr %1661, align 4
-  %1663 = and i8 %1662, 15
-  store i8 %1663, ptr %1661, align 4
-  br label %JS_MarkValue.exit82.i.i.i50
+JS_MarkValue.exit86.i.i.i:                        ; preds = %1664, %1657, %JS_MarkValue.exit84.i.i.i
+  %1675 = getelementptr i8, ptr %.0164.i, i64 72
+  %1676 = load i64, ptr %1675, align 8
+  %1677 = and i64 %1676, 4294967294
+  %switch.i87.i.i.i = icmp eq i64 %1677, 4294967294
+  br i1 %switch.i87.i.i.i, label %1678, label %JS_MarkValue.exit88.i.i.i
 
-JS_MarkValue.exit82.i.i.i50:                      ; preds = %1653, %1646, %JS_MarkValue.exit80.i.i.i48
-  %1664 = getelementptr i8, ptr %.0165.i, i64 120
-  %1665 = load i64, ptr %1664, align 8
-  %1666 = and i64 %1665, 4294967294
-  %switch.i83.i.i.i51 = icmp eq i64 %1666, 4294967294
-  br i1 %switch.i83.i.i.i51, label %1667, label %JS_MarkValue.exit84.i.i.i52
+1678:                                             ; preds = %JS_MarkValue.exit86.i.i.i
+  %1679 = getelementptr i8, ptr %.0164.i, i64 64
+  %1680 = load i64, ptr %1679, align 8
+  %1681 = inttoptr i64 %1680 to ptr
+  %1682 = load i32, ptr %1681, align 8
+  %1683 = add i32 %1682, 1
+  store i32 %1683, ptr %1681, align 8
+  %1684 = icmp eq i32 %1682, 0
+  br i1 %1684, label %1685, label %JS_MarkValue.exit88.i.i.i
 
-1667:                                             ; preds = %JS_MarkValue.exit82.i.i.i50
-  %1668 = getelementptr i8, ptr %.0165.i, i64 112
-  %1669 = load i64, ptr %1668, align 8
-  %1670 = inttoptr i64 %1669 to ptr
-  %1671 = load i32, ptr %1670, align 8
-  %1672 = add i32 %1671, 1
-  store i32 %1672, ptr %1670, align 8
-  %1673 = icmp eq i32 %1671, 0
-  br i1 %1673, label %1674, label %JS_MarkValue.exit84.i.i.i52
+1685:                                             ; preds = %1678
+  %1686 = getelementptr inbounds i8, ptr %1681, i64 8
+  %1687 = load ptr, ptr %1686, align 8
+  %1688 = getelementptr inbounds i8, ptr %1681, i64 16
+  %1689 = load ptr, ptr %1688, align 8
+  %1690 = getelementptr inbounds i8, ptr %1687, i64 8
+  store ptr %1689, ptr %1690, align 8
+  store ptr %1687, ptr %1689, align 8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %1686, i8 0, i64 16, i1 false)
+  %1691 = load ptr, ptr %4, align 8
+  %1692 = getelementptr inbounds i8, ptr %1691, i64 8
+  store ptr %1686, ptr %1692, align 8
+  store ptr %1691, ptr %1686, align 8
+  store ptr %4, ptr %1688, align 8
+  store ptr %1686, ptr %4, align 8
+  %1693 = getelementptr inbounds i8, ptr %1681, i64 4
+  %1694 = load i8, ptr %1693, align 4
+  %1695 = and i8 %1694, 15
+  store i8 %1695, ptr %1693, align 4
+  br label %JS_MarkValue.exit88.i.i.i
 
-1674:                                             ; preds = %1667
-  %1675 = getelementptr inbounds i8, ptr %1670, i64 8
-  %1676 = load ptr, ptr %1675, align 8
-  %1677 = getelementptr inbounds i8, ptr %1670, i64 16
-  %1678 = load ptr, ptr %1677, align 8
-  %1679 = getelementptr inbounds i8, ptr %1676, i64 8
-  store ptr %1678, ptr %1679, align 8
-  store ptr %1676, ptr %1678, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %1675, i8 0, i64 16, i1 false)
-  %1680 = load ptr, ptr %4, align 8
-  %1681 = getelementptr inbounds i8, ptr %1680, i64 8
-  store ptr %1675, ptr %1681, align 8
-  store ptr %1680, ptr %1675, align 8
-  store ptr %4, ptr %1677, align 8
-  store ptr %1675, ptr %4, align 8
-  %1682 = getelementptr inbounds i8, ptr %1670, i64 4
-  %1683 = load i8, ptr %1682, align 4
-  %1684 = and i8 %1683, 15
-  store i8 %1684, ptr %1682, align 4
-  br label %JS_MarkValue.exit84.i.i.i52
-
-JS_MarkValue.exit84.i.i.i52:                      ; preds = %1674, %1667, %JS_MarkValue.exit82.i.i.i50
-  %1685 = getelementptr i8, ptr %.0165.i, i64 88
-  %1686 = load i64, ptr %1685, align 8
-  %1687 = and i64 %1686, 4294967294
-  %switch.i85.i.i.i53 = icmp eq i64 %1687, 4294967294
-  br i1 %switch.i85.i.i.i53, label %1688, label %JS_MarkValue.exit86.i.i.i54
-
-1688:                                             ; preds = %JS_MarkValue.exit84.i.i.i52
-  %1689 = getelementptr i8, ptr %.0165.i, i64 80
-  %1690 = load i64, ptr %1689, align 8
-  %1691 = inttoptr i64 %1690 to ptr
-  %1692 = load i32, ptr %1691, align 8
-  %1693 = add i32 %1692, 1
-  store i32 %1693, ptr %1691, align 8
-  %1694 = icmp eq i32 %1692, 0
-  br i1 %1694, label %1695, label %JS_MarkValue.exit86.i.i.i54
-
-1695:                                             ; preds = %1688
-  %1696 = getelementptr inbounds i8, ptr %1691, i64 8
+JS_MarkValue.exit88.i.i.i:                        ; preds = %1685, %1678, %JS_MarkValue.exit86.i.i.i
+  %1696 = getelementptr i8, ptr %.0164.i, i64 48
   %1697 = load ptr, ptr %1696, align 8
-  %1698 = getelementptr inbounds i8, ptr %1691, i64 16
-  %1699 = load ptr, ptr %1698, align 8
-  %1700 = getelementptr inbounds i8, ptr %1697, i64 8
-  store ptr %1699, ptr %1700, align 8
-  store ptr %1697, ptr %1699, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %1696, i8 0, i64 16, i1 false)
-  %1701 = load ptr, ptr %4, align 8
-  %1702 = getelementptr inbounds i8, ptr %1701, i64 8
-  store ptr %1696, ptr %1702, align 8
-  store ptr %1701, ptr %1696, align 8
-  store ptr %4, ptr %1698, align 8
-  store ptr %1696, ptr %4, align 8
-  %1703 = getelementptr inbounds i8, ptr %1691, i64 4
-  %1704 = load i8, ptr %1703, align 4
-  %1705 = and i8 %1704, 15
-  store i8 %1705, ptr %1703, align 4
-  br label %JS_MarkValue.exit86.i.i.i54
+  %.not62.i.i.i = icmp eq ptr %1697, null
+  br i1 %.not62.i.i.i, label %mark_children.exit.i, label %1698
 
-JS_MarkValue.exit86.i.i.i54:                      ; preds = %1695, %1688, %JS_MarkValue.exit84.i.i.i52
-  %1706 = getelementptr i8, ptr %.0165.i, i64 72
-  %1707 = load i64, ptr %1706, align 8
-  %1708 = and i64 %1707, 4294967294
-  %switch.i87.i.i.i55 = icmp eq i64 %1708, 4294967294
-  br i1 %switch.i87.i.i.i55, label %1709, label %JS_MarkValue.exit88.i.i.i56
+1698:                                             ; preds = %JS_MarkValue.exit88.i.i.i
+  %1699 = load i32, ptr %1697, align 8
+  %1700 = add i32 %1699, 1
+  store i32 %1700, ptr %1697, align 8
+  %1701 = icmp eq i32 %1699, 0
+  br i1 %1701, label %1702, label %mark_children.exit.i
 
-1709:                                             ; preds = %JS_MarkValue.exit86.i.i.i54
-  %1710 = getelementptr i8, ptr %.0165.i, i64 64
-  %1711 = load i64, ptr %1710, align 8
-  %1712 = inttoptr i64 %1711 to ptr
-  %1713 = load i32, ptr %1712, align 8
-  %1714 = add i32 %1713, 1
-  store i32 %1714, ptr %1712, align 8
-  %1715 = icmp eq i32 %1713, 0
-  br i1 %1715, label %1716, label %JS_MarkValue.exit88.i.i.i56
+1702:                                             ; preds = %1698
+  %1703 = getelementptr inbounds i8, ptr %1697, i64 8
+  %1704 = load ptr, ptr %1703, align 8
+  %1705 = getelementptr inbounds i8, ptr %1697, i64 16
+  %1706 = load ptr, ptr %1705, align 8
+  %1707 = getelementptr inbounds i8, ptr %1704, i64 8
+  store ptr %1706, ptr %1707, align 8
+  store ptr %1704, ptr %1706, align 8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %1703, i8 0, i64 16, i1 false)
+  %1708 = load ptr, ptr %4, align 8
+  %1709 = getelementptr inbounds i8, ptr %1708, i64 8
+  store ptr %1703, ptr %1709, align 8
+  store ptr %1708, ptr %1703, align 8
+  store ptr %4, ptr %1705, align 8
+  store ptr %1703, ptr %4, align 8
+  %1710 = getelementptr inbounds i8, ptr %1697, i64 4
+  %1711 = load i8, ptr %1710, align 4
+  %1712 = and i8 %1711, 15
+  store i8 %1712, ptr %1710, align 4
+  br label %mark_children.exit.i
 
-1716:                                             ; preds = %1709
-  %1717 = getelementptr inbounds i8, ptr %1712, i64 8
-  %1718 = load ptr, ptr %1717, align 8
-  %1719 = getelementptr inbounds i8, ptr %1712, i64 16
-  %1720 = load ptr, ptr %1719, align 8
-  %1721 = getelementptr inbounds i8, ptr %1718, i64 8
-  store ptr %1720, ptr %1721, align 8
-  store ptr %1718, ptr %1720, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %1717, i8 0, i64 16, i1 false)
-  %1722 = load ptr, ptr %4, align 8
-  %1723 = getelementptr inbounds i8, ptr %1722, i64 8
-  store ptr %1717, ptr %1723, align 8
-  store ptr %1722, ptr %1717, align 8
-  store ptr %4, ptr %1719, align 8
-  store ptr %1717, ptr %4, align 8
-  %1724 = getelementptr inbounds i8, ptr %1712, i64 4
-  %1725 = load i8, ptr %1724, align 4
-  %1726 = and i8 %1725, 15
-  store i8 %1726, ptr %1724, align 4
-  br label %JS_MarkValue.exit88.i.i.i56
-
-JS_MarkValue.exit88.i.i.i56:                      ; preds = %1716, %1709, %JS_MarkValue.exit86.i.i.i54
-  %1727 = getelementptr i8, ptr %.0165.i, i64 48
-  %1728 = load ptr, ptr %1727, align 8
-  %.not62.i.i.i57 = icmp eq ptr %1728, null
-  br i1 %.not62.i.i.i57, label %mark_children.exit.i58, label %1729
-
-1729:                                             ; preds = %JS_MarkValue.exit88.i.i.i56
-  %1730 = load i32, ptr %1728, align 8
-  %1731 = add i32 %1730, 1
-  store i32 %1731, ptr %1728, align 8
-  %1732 = icmp eq i32 %1730, 0
-  br i1 %1732, label %1733, label %mark_children.exit.i58
-
-1733:                                             ; preds = %1729
-  %1734 = getelementptr inbounds i8, ptr %1728, i64 8
-  %1735 = load ptr, ptr %1734, align 8
-  %1736 = getelementptr inbounds i8, ptr %1728, i64 16
-  %1737 = load ptr, ptr %1736, align 8
-  %1738 = getelementptr inbounds i8, ptr %1735, i64 8
-  store ptr %1737, ptr %1738, align 8
-  store ptr %1735, ptr %1737, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %1734, i8 0, i64 16, i1 false)
-  %1739 = load ptr, ptr %4, align 8
-  %1740 = getelementptr inbounds i8, ptr %1739, i64 8
-  store ptr %1734, ptr %1740, align 8
-  store ptr %1739, ptr %1734, align 8
-  store ptr %4, ptr %1736, align 8
-  store ptr %1734, ptr %4, align 8
-  %1741 = getelementptr inbounds i8, ptr %1728, i64 4
-  %1742 = load i8, ptr %1741, align 4
-  %1743 = and i8 %1742, 15
-  store i8 %1743, ptr %1741, align 4
-  br label %mark_children.exit.i58
-
-1744:                                             ; preds = %908
+1713:                                             ; preds = %886
   tail call void @abort() #44
   unreachable
 
-mark_children.exit.i58:                           ; preds = %1733, %1729, %JS_MarkValue.exit88.i.i.i56, %1227, %1223, %1220, %1209, %1202, %JS_MarkValue.exit128.i.i76, %1091, %1087, %1084, %1073, %1067, %1061, %1046, %1042, %._crit_edge.i.i92, %1012, %1007, %._crit_edge138.i.i100
-  %1745 = getelementptr inbounds i8, ptr %.0165.i, i64 8
-  %.0.i = load ptr, ptr %1745, align 8
-  %.not.i59 = icmp eq ptr %.0.i, %4
-  br i1 %.not.i59, label %._crit_edge.i, label %908, !llvm.loop !30
+mark_children.exit.i:                             ; preds = %1702, %1698, %JS_MarkValue.exit88.i.i.i, %1196, %1192, %1189, %1178, %1171, %JS_MarkValue.exit128.i.i, %1060, %1056, %1053, %1042, %1036, %1030, %1015, %1011, %._crit_edge.i.i, %981, %976, %._crit_edge138.i.i
+  %1714 = getelementptr inbounds i8, ptr %.0164.i, i64 8
+  %.0.i = load ptr, ptr %1714, align 8
+  %.not.i4 = icmp eq ptr %.0.i, %4
+  br i1 %.not.i4, label %._crit_edge.i, label %886, !llvm.loop !30
 
-._crit_edge.i:                                    ; preds = %mark_children.exit.i58, %gc_decref.exit
-  %.1166.i = load ptr, ptr %3, align 8
-  %.not15167.i = icmp eq ptr %.1166.i, %2
-  br i1 %.not15167.i, label %gc_scan.exit, label %.lr.ph170.i
+._crit_edge.i:                                    ; preds = %mark_children.exit.i, %gc_decref.exit
+  %.1165.i = load ptr, ptr %3, align 8
+  %.not15166.i = icmp eq ptr %.1165.i, %2
+  br i1 %.not15166.i, label %gc_scan.exit, label %.lr.ph169.i
 
-.lr.ph170.i:                                      ; preds = %._crit_edge.i
-  %1746 = getelementptr inbounds i8, ptr %0, i64 108
-  %1747 = getelementptr inbounds i8, ptr %0, i64 112
-  br label %1748
+.lr.ph169.i:                                      ; preds = %._crit_edge.i
+  %1715 = getelementptr inbounds i8, ptr %0, i64 108
+  %1716 = getelementptr inbounds i8, ptr %0, i64 112
+  br label %1717
 
-1748:                                             ; preds = %mark_children.exit124.i, %.lr.ph170.i
-  %.1168.i = phi ptr [ %.1166.i, %.lr.ph170.i ], [ %.1.i, %mark_children.exit124.i ]
-  %1749 = getelementptr i8, ptr %.1168.i, i64 -8
-  %1750 = getelementptr i8, ptr %.1168.i, i64 -4
-  %1751 = load i8, ptr %1750, align 4
-  %1752 = and i8 %1751, 15
-  switch i8 %1752, label %2144 [
-    i8 0, label %1757
+1717:                                             ; preds = %mark_children.exit126.i, %.lr.ph169.i
+  %.1167.i = phi ptr [ %.1165.i, %.lr.ph169.i ], [ %.1.i, %mark_children.exit126.i ]
+  %1718 = getelementptr i8, ptr %.1167.i, i64 -8
+  %1719 = getelementptr i8, ptr %.1167.i, i64 -4
+  %1720 = load i8, ptr %1719, align 4
+  %1721 = and i8 %1720, 15
+  switch i8 %1721, label %2113 [
+    i8 0, label %1726
     i8 1, label %.preheader.i100.i
-    i8 3, label %1829
-    i8 4, label %1850
-    i8 2, label %1908
-    i8 5, label %1914
+    i8 3, label %1798
+    i8 4, label %1819
+    i8 2, label %1877
+    i8 5, label %1883
   ]
 
-.preheader.i100.i:                                ; preds = %1748
-  %1753 = getelementptr i8, ptr %.1168.i, i64 80
-  %1754 = load i32, ptr %1753, align 8
-  %1755 = icmp sgt i32 %1754, 0
-  br i1 %1755, label %.lr.ph133.i103.i, label %._crit_edge.i101.i
+.preheader.i100.i:                                ; preds = %1717
+  %1722 = getelementptr i8, ptr %.1167.i, i64 80
+  %1723 = load i32, ptr %1722, align 8
+  %1724 = icmp sgt i32 %1723, 0
+  br i1 %1724, label %.lr.ph133.i103.i, label %._crit_edge.i101.i
 
 .lr.ph133.i103.i:                                 ; preds = %.preheader.i100.i
-  %1756 = getelementptr i8, ptr %.1168.i, i64 72
-  br label %1809
+  %1725 = getelementptr i8, ptr %.1167.i, i64 72
+  br label %1778
 
-1757:                                             ; preds = %1748
-  %1758 = getelementptr i8, ptr %.1168.i, i64 16
-  %1759 = load ptr, ptr %1758, align 8
-  %1760 = load i32, ptr %1759, align 8
-  %1761 = add i32 %1760, 1
-  store i32 %1761, ptr %1759, align 8
-  %1762 = getelementptr inbounds i8, ptr %1759, i64 40
-  %1763 = load i32, ptr %1762, align 8
-  %1764 = icmp sgt i32 %1763, 0
-  br i1 %1764, label %.lr.ph137.i113.i, label %._crit_edge138.i109.i
+1726:                                             ; preds = %1717
+  %1727 = getelementptr i8, ptr %.1167.i, i64 16
+  %1728 = load ptr, ptr %1727, align 8
+  %1729 = load i32, ptr %1728, align 8
+  %1730 = add i32 %1729, 1
+  store i32 %1730, ptr %1728, align 8
+  %1731 = getelementptr inbounds i8, ptr %1728, i64 40
+  %1732 = load i32, ptr %1731, align 8
+  %1733 = icmp sgt i32 %1732, 0
+  br i1 %1733, label %.lr.ph137.i113.i, label %._crit_edge138.i109.i
 
-.lr.ph137.i113.i:                                 ; preds = %1757
-  %1765 = getelementptr inbounds i8, ptr %1759, i64 64
-  %1766 = getelementptr i8, ptr %.1168.i, i64 24
-  br label %1767
+.lr.ph137.i113.i:                                 ; preds = %1726
+  %1734 = getelementptr inbounds i8, ptr %1728, i64 64
+  %1735 = getelementptr i8, ptr %.1167.i, i64 24
+  br label %1736
 
-1767:                                             ; preds = %JS_MarkValue.exit.i118.i, %.lr.ph137.i113.i
-  %indvars.iv140.i114.i = phi i64 [ 0, %.lr.ph137.i113.i ], [ %indvars.iv.next141.i119.i, %JS_MarkValue.exit.i118.i ]
-  %.0135.i115.i = phi ptr [ %1765, %.lr.ph137.i113.i ], [ %1797, %JS_MarkValue.exit.i118.i ]
-  %1768 = load ptr, ptr %1766, align 8
-  %1769 = getelementptr %struct.JSProperty, ptr %1768, i64 %indvars.iv140.i114.i
-  %1770 = getelementptr inbounds i8, ptr %.0135.i115.i, i64 4
-  %1771 = load i32, ptr %1770, align 4
-  %.not113.i116.i = icmp eq i32 %1771, 0
-  br i1 %.not113.i116.i, label %JS_MarkValue.exit.i118.i, label %1772
+1736:                                             ; preds = %JS_MarkValue.exit.i120.i, %.lr.ph137.i113.i
+  %indvars.iv140.i114.i = phi i64 [ 0, %.lr.ph137.i113.i ], [ %indvars.iv.next141.i121.i, %JS_MarkValue.exit.i120.i ]
+  %.0135.i115.i = phi ptr [ %1734, %.lr.ph137.i113.i ], [ %1766, %JS_MarkValue.exit.i120.i ]
+  %1737 = load ptr, ptr %1735, align 8
+  %1738 = getelementptr %struct.JSProperty, ptr %1737, i64 %indvars.iv140.i114.i
+  %1739 = getelementptr inbounds i8, ptr %.0135.i115.i, i64 4
+  %1740 = load i32, ptr %1739, align 4
+  %.not113.i116.i = icmp eq i32 %1740, 0
+  br i1 %.not113.i116.i, label %JS_MarkValue.exit.i120.i, label %1741
 
-1772:                                             ; preds = %1767
-  %1773 = load i32, ptr %.0135.i115.i, align 4
-  %1774 = lshr i32 %1773, 30
-  switch i32 %1774, label %default.unreachable [
-    i32 0, label %1788
-    i32 1, label %1775
-    i32 2, label %1783
-    i32 3, label %1785
+1741:                                             ; preds = %1736
+  %1742 = load i32, ptr %.0135.i115.i, align 4
+  %1743 = lshr i32 %1742, 30
+  switch i32 %1743, label %default.unreachable [
+    i32 0, label %1757
+    i32 1, label %1744
+    i32 2, label %1752
+    i32 3, label %1754
   ]
 
-1775:                                             ; preds = %1772
-  %1776 = load ptr, ptr %1769, align 8
-  %.not115.i120.i = icmp eq ptr %1776, null
-  br i1 %.not115.i120.i, label %1780, label %1777
+1744:                                             ; preds = %1741
+  %1745 = load ptr, ptr %1738, align 8
+  %.not115.i122.i = icmp eq ptr %1745, null
+  br i1 %.not115.i122.i, label %1749, label %1746
 
-1777:                                             ; preds = %1775
-  %1778 = load i32, ptr %1776, align 8
-  %1779 = add i32 %1778, 1
-  store i32 %1779, ptr %1776, align 8
-  br label %1780
+1746:                                             ; preds = %1744
+  %1747 = load i32, ptr %1745, align 8
+  %1748 = add i32 %1747, 1
+  store i32 %1748, ptr %1745, align 8
+  br label %1749
 
-1780:                                             ; preds = %1777, %1775
-  %1781 = getelementptr inbounds i8, ptr %1769, i64 8
-  %1782 = load ptr, ptr %1781, align 8
-  %.not116.i121.i = icmp eq ptr %1782, null
-  br i1 %.not116.i121.i, label %JS_MarkValue.exit.i118.i, label %JS_MarkValue.exit.i118.sink.split.i
+1749:                                             ; preds = %1746, %1744
+  %1750 = getelementptr inbounds i8, ptr %1738, i64 8
+  %1751 = load ptr, ptr %1750, align 8
+  %.not116.i123.i = icmp eq ptr %1751, null
+  br i1 %.not116.i123.i, label %JS_MarkValue.exit.i120.i, label %JS_MarkValue.exit.sink.split.i118.i
 
-1783:                                             ; preds = %1772
-  %1784 = load ptr, ptr %1769, align 8
-  br label %JS_MarkValue.exit.i118.sink.split.i
+1752:                                             ; preds = %1741
+  %1753 = load ptr, ptr %1738, align 8
+  br label %JS_MarkValue.exit.sink.split.i118.i
 
-1785:                                             ; preds = %1772
-  %.val.i117.i = load i64, ptr %1769, align 8
-  %1786 = and i64 %.val.i117.i, -4
-  %1787 = inttoptr i64 %1786 to ptr
-  br label %JS_MarkValue.exit.i118.sink.split.i
+1754:                                             ; preds = %1741
+  %.val.i117.i = load i64, ptr %1738, align 8
+  %1755 = and i64 %.val.i117.i, -4
+  %1756 = inttoptr i64 %1755 to ptr
+  br label %JS_MarkValue.exit.sink.split.i118.i
 
-1788:                                             ; preds = %1772
-  %1789 = getelementptr inbounds i8, ptr %1769, i64 8
-  %1790 = load i64, ptr %1789, align 8
-  %1791 = and i64 %1790, 4294967294
-  %switch.i.i122.i = icmp eq i64 %1791, 4294967294
-  br i1 %switch.i.i122.i, label %1792, label %JS_MarkValue.exit.i118.i
+1757:                                             ; preds = %1741
+  %1758 = getelementptr inbounds i8, ptr %1738, i64 8
+  %1759 = load i64, ptr %1758, align 8
+  %1760 = and i64 %1759, 4294967294
+  %switch.i.i124.i = icmp eq i64 %1760, 4294967294
+  br i1 %switch.i.i124.i, label %1761, label %JS_MarkValue.exit.i120.i
 
-1792:                                             ; preds = %1788
-  %1793 = load i64, ptr %1769, align 8
-  %1794 = inttoptr i64 %1793 to ptr
-  br label %JS_MarkValue.exit.i118.sink.split.i
+1761:                                             ; preds = %1757
+  %1762 = load i64, ptr %1738, align 8
+  %1763 = inttoptr i64 %1762 to ptr
+  br label %JS_MarkValue.exit.sink.split.i118.i
 
-JS_MarkValue.exit.i118.sink.split.i:              ; preds = %1792, %1785, %1783, %1780
-  %.sink.i = phi ptr [ %1794, %1792 ], [ %1787, %1785 ], [ %1784, %1783 ], [ %1782, %1780 ]
-  %1795 = load i32, ptr %.sink.i, align 8
-  %1796 = add i32 %1795, 1
-  store i32 %1796, ptr %.sink.i, align 8
-  br label %JS_MarkValue.exit.i118.i
+JS_MarkValue.exit.sink.split.i118.i:              ; preds = %1761, %1754, %1752, %1749
+  %.sink.i119.i = phi ptr [ %1763, %1761 ], [ %1753, %1752 ], [ %1756, %1754 ], [ %1751, %1749 ]
+  %1764 = load i32, ptr %.sink.i119.i, align 8
+  %1765 = add i32 %1764, 1
+  store i32 %1765, ptr %.sink.i119.i, align 8
+  br label %JS_MarkValue.exit.i120.i
 
-JS_MarkValue.exit.i118.i:                         ; preds = %JS_MarkValue.exit.i118.sink.split.i, %1788, %1780, %1767
-  %1797 = getelementptr i8, ptr %.0135.i115.i, i64 8
-  %indvars.iv.next141.i119.i = add nuw nsw i64 %indvars.iv140.i114.i, 1
-  %1798 = load i32, ptr %1762, align 8
-  %1799 = sext i32 %1798 to i64
-  %1800 = icmp slt i64 %indvars.iv.next141.i119.i, %1799
-  br i1 %1800, label %1767, label %._crit_edge138.i109.i, !llvm.loop !22
+JS_MarkValue.exit.i120.i:                         ; preds = %JS_MarkValue.exit.sink.split.i118.i, %1757, %1749, %1736
+  %1766 = getelementptr i8, ptr %.0135.i115.i, i64 8
+  %indvars.iv.next141.i121.i = add nuw nsw i64 %indvars.iv140.i114.i, 1
+  %1767 = load i32, ptr %1731, align 8
+  %1768 = sext i32 %1767 to i64
+  %1769 = icmp slt i64 %indvars.iv.next141.i121.i, %1768
+  br i1 %1769, label %1736, label %._crit_edge138.i109.i, !llvm.loop !22
 
-._crit_edge138.i109.i:                            ; preds = %JS_MarkValue.exit.i118.i, %1757
-  %1801 = getelementptr i8, ptr %.1168.i, i64 -2
-  %1802 = load i16, ptr %1801, align 2
-  %.not110.i110.i = icmp eq i16 %1802, 1
-  br i1 %.not110.i110.i, label %mark_children.exit124.i, label %1803
+._crit_edge138.i109.i:                            ; preds = %JS_MarkValue.exit.i120.i, %1726
+  %1770 = getelementptr i8, ptr %.1167.i, i64 -2
+  %1771 = load i16, ptr %1770, align 2
+  %.not110.i110.i = icmp eq i16 %1771, 1
+  br i1 %.not110.i110.i, label %mark_children.exit126.i, label %1772
 
-1803:                                             ; preds = %._crit_edge138.i109.i
-  %1804 = load ptr, ptr %1747, align 8
-  %1805 = zext i16 %1802 to i64
-  %1806 = getelementptr %struct.JSClass, ptr %1804, i64 %1805, i32 3
-  %1807 = load ptr, ptr %1806, align 8
-  %.not111.i111.i = icmp eq ptr %1807, null
-  br i1 %.not111.i111.i, label %mark_children.exit124.i, label %1808
+1772:                                             ; preds = %._crit_edge138.i109.i
+  %1773 = load ptr, ptr %1716, align 8
+  %1774 = zext i16 %1771 to i64
+  %1775 = getelementptr %struct.JSClass, ptr %1773, i64 %1774, i32 3
+  %1776 = load ptr, ptr %1775, align 8
+  %.not111.i111.i = icmp eq ptr %1776, null
+  br i1 %.not111.i111.i, label %mark_children.exit126.i, label %1777
 
-1808:                                             ; preds = %1803
-  %.sroa.0.0..sroa.0.0.112.cast.i112.i = ptrtoint ptr %1749 to i64
-  tail call void %1807(ptr noundef nonnull %0, i64 %.sroa.0.0..sroa.0.0.112.cast.i112.i, i64 -1, ptr noundef nonnull @gc_scan_incref_child2) #42
-  br label %mark_children.exit124.i
+1777:                                             ; preds = %1772
+  %.sroa.0.0..sroa.0.0.112.cast.i112.i = ptrtoint ptr %1718 to i64
+  tail call void %1776(ptr noundef nonnull %0, i64 %.sroa.0.0..sroa.0.0.112.cast.i112.i, i64 -1, ptr noundef nonnull @gc_scan_incref_child2) #42
+  br label %mark_children.exit126.i
 
-1809:                                             ; preds = %JS_MarkValue.exit118.i106.i, %.lr.ph133.i103.i
-  %1810 = phi i32 [ %1754, %.lr.ph133.i103.i ], [ %1821, %JS_MarkValue.exit118.i106.i ]
+1778:                                             ; preds = %JS_MarkValue.exit118.i106.i, %.lr.ph133.i103.i
+  %1779 = phi i32 [ %1723, %.lr.ph133.i103.i ], [ %1790, %JS_MarkValue.exit118.i106.i ]
   %indvars.iv.i104.i = phi i64 [ 0, %.lr.ph133.i103.i ], [ %indvars.iv.next.i107.i, %JS_MarkValue.exit118.i106.i ]
-  %1811 = load ptr, ptr %1756, align 8
-  %1812 = getelementptr %struct.JSValue, ptr %1811, i64 %indvars.iv.i104.i
-  %1813 = getelementptr inbounds i8, ptr %1812, i64 8
-  %1814 = load i64, ptr %1813, align 8
-  %1815 = and i64 %1814, 4294967294
-  %switch.i117.i105.i = icmp eq i64 %1815, 4294967294
-  br i1 %switch.i117.i105.i, label %1816, label %JS_MarkValue.exit118.i106.i
+  %1780 = load ptr, ptr %1725, align 8
+  %1781 = getelementptr %struct.JSValue, ptr %1780, i64 %indvars.iv.i104.i
+  %1782 = getelementptr inbounds i8, ptr %1781, i64 8
+  %1783 = load i64, ptr %1782, align 8
+  %1784 = and i64 %1783, 4294967294
+  %switch.i117.i105.i = icmp eq i64 %1784, 4294967294
+  br i1 %switch.i117.i105.i, label %1785, label %JS_MarkValue.exit118.i106.i
 
-1816:                                             ; preds = %1809
-  %1817 = load i64, ptr %1812, align 8
-  %1818 = inttoptr i64 %1817 to ptr
-  %1819 = load i32, ptr %1818, align 8
-  %1820 = add i32 %1819, 1
-  store i32 %1820, ptr %1818, align 8
-  %.pre143.i108.i = load i32, ptr %1753, align 8
+1785:                                             ; preds = %1778
+  %1786 = load i64, ptr %1781, align 8
+  %1787 = inttoptr i64 %1786 to ptr
+  %1788 = load i32, ptr %1787, align 8
+  %1789 = add i32 %1788, 1
+  store i32 %1789, ptr %1787, align 8
+  %.pre143.i108.i = load i32, ptr %1722, align 8
   br label %JS_MarkValue.exit118.i106.i
 
-JS_MarkValue.exit118.i106.i:                      ; preds = %1816, %1809
-  %1821 = phi i32 [ %1810, %1809 ], [ %.pre143.i108.i, %1816 ]
+JS_MarkValue.exit118.i106.i:                      ; preds = %1785, %1778
+  %1790 = phi i32 [ %1779, %1778 ], [ %.pre143.i108.i, %1785 ]
   %indvars.iv.next.i107.i = add nuw nsw i64 %indvars.iv.i104.i, 1
-  %1822 = sext i32 %1821 to i64
-  %1823 = icmp slt i64 %indvars.iv.next.i107.i, %1822
-  br i1 %1823, label %1809, label %._crit_edge.i101.i, !llvm.loop !23
+  %1791 = sext i32 %1790 to i64
+  %1792 = icmp slt i64 %indvars.iv.next.i107.i, %1791
+  br i1 %1792, label %1778, label %._crit_edge.i101.i, !llvm.loop !23
 
 ._crit_edge.i101.i:                               ; preds = %JS_MarkValue.exit118.i106.i, %.preheader.i100.i
-  %1824 = getelementptr i8, ptr %.1168.i, i64 64
-  %1825 = load ptr, ptr %1824, align 8
-  %.not109.i102.i = icmp eq ptr %1825, null
-  br i1 %.not109.i102.i, label %mark_children.exit124.i, label %1826
+  %1793 = getelementptr i8, ptr %.1167.i, i64 64
+  %1794 = load ptr, ptr %1793, align 8
+  %.not109.i102.i = icmp eq ptr %1794, null
+  br i1 %.not109.i102.i, label %mark_children.exit126.i, label %1795
 
-1826:                                             ; preds = %._crit_edge.i101.i
-  %1827 = load i32, ptr %1825, align 8
-  %1828 = add i32 %1827, 1
-  store i32 %1828, ptr %1825, align 8
-  br label %mark_children.exit124.i
+1795:                                             ; preds = %._crit_edge.i101.i
+  %1796 = load i32, ptr %1794, align 8
+  %1797 = add i32 %1796, 1
+  store i32 %1797, ptr %1794, align 8
+  br label %mark_children.exit126.i
 
-1829:                                             ; preds = %1748
-  %1830 = getelementptr i8, ptr %.1168.i, i64 -3
-  %1831 = load i8, ptr %1830, align 1
-  %1832 = and i8 %1831, 1
-  %.not107.i97.i = icmp eq i8 %1832, 0
-  br i1 %.not107.i97.i, label %1844, label %1833
+1798:                                             ; preds = %1717
+  %1799 = getelementptr i8, ptr %.1167.i, i64 -3
+  %1800 = load i8, ptr %1799, align 1
+  %1801 = and i8 %1800, 1
+  %.not107.i97.i = icmp eq i8 %1801, 0
+  br i1 %.not107.i97.i, label %1813, label %1802
 
-1833:                                             ; preds = %1829
-  %1834 = getelementptr i8, ptr %.1168.i, i64 16
-  %1835 = load ptr, ptr %1834, align 8
-  %1836 = getelementptr inbounds i8, ptr %1835, i64 8
-  %1837 = load i64, ptr %1836, align 8
-  %1838 = and i64 %1837, 4294967294
-  %switch.i119.i98.i = icmp eq i64 %1838, 4294967294
-  br i1 %switch.i119.i98.i, label %1839, label %mark_children.exit124.i
+1802:                                             ; preds = %1798
+  %1803 = getelementptr i8, ptr %.1167.i, i64 16
+  %1804 = load ptr, ptr %1803, align 8
+  %1805 = getelementptr inbounds i8, ptr %1804, i64 8
+  %1806 = load i64, ptr %1805, align 8
+  %1807 = and i64 %1806, 4294967294
+  %switch.i119.i98.i = icmp eq i64 %1807, 4294967294
+  br i1 %switch.i119.i98.i, label %1808, label %mark_children.exit126.i
 
-1839:                                             ; preds = %1833
-  %1840 = load i64, ptr %1835, align 8
-  %1841 = inttoptr i64 %1840 to ptr
-  %1842 = load i32, ptr %1841, align 8
-  %1843 = add i32 %1842, 1
-  store i32 %1843, ptr %1841, align 8
-  br label %mark_children.exit124.i
+1808:                                             ; preds = %1802
+  %1809 = load i64, ptr %1804, align 8
+  %1810 = inttoptr i64 %1809 to ptr
+  %1811 = load i32, ptr %1810, align 8
+  %1812 = add i32 %1811, 1
+  store i32 %1812, ptr %1810, align 8
+  br label %mark_children.exit126.i
 
-1844:                                             ; preds = %1829
-  %1845 = getelementptr i8, ptr %.1168.i, i64 40
-  %1846 = load ptr, ptr %1845, align 8
-  %.not108.i99.i = icmp eq ptr %1846, null
-  br i1 %.not108.i99.i, label %mark_children.exit124.i, label %1847
+1813:                                             ; preds = %1798
+  %1814 = getelementptr i8, ptr %.1167.i, i64 40
+  %1815 = load ptr, ptr %1814, align 8
+  %.not108.i99.i = icmp eq ptr %1815, null
+  br i1 %.not108.i99.i, label %mark_children.exit126.i, label %1816
 
-1847:                                             ; preds = %1844
-  %1848 = load i32, ptr %1846, align 8
-  %1849 = add i32 %1848, 1
-  store i32 %1849, ptr %1846, align 8
-  br label %mark_children.exit124.i
+1816:                                             ; preds = %1813
+  %1817 = load i32, ptr %1815, align 8
+  %1818 = add i32 %1817, 1
+  store i32 %1818, ptr %1815, align 8
+  br label %mark_children.exit126.i
 
-1850:                                             ; preds = %1748
-  %1851 = getelementptr i8, ptr %.1168.i, i64 40
-  %1852 = load i32, ptr %1851, align 8
-  %.not105.i82.i = icmp eq i32 %1852, 0
-  br i1 %.not105.i82.i, label %1853, label %.loopexit.i83.i
+1819:                                             ; preds = %1717
+  %1820 = getelementptr i8, ptr %.1167.i, i64 40
+  %1821 = load i32, ptr %1820, align 8
+  %.not105.i82.i = icmp eq i32 %1821, 0
+  br i1 %.not105.i82.i, label %1822, label %.loopexit.i83.i
 
-1853:                                             ; preds = %1850
-  %1854 = getelementptr i8, ptr %.1168.i, i64 96
-  %1855 = load i64, ptr %1854, align 8
-  %1856 = and i64 %1855, 4294967294
-  %switch.i121.i87.i = icmp eq i64 %1856, 4294967294
-  br i1 %switch.i121.i87.i, label %1857, label %JS_MarkValue.exit122.i88.i
+1822:                                             ; preds = %1819
+  %1823 = getelementptr i8, ptr %.1167.i, i64 96
+  %1824 = load i64, ptr %1823, align 8
+  %1825 = and i64 %1824, 4294967294
+  %switch.i121.i87.i = icmp eq i64 %1825, 4294967294
+  br i1 %switch.i121.i87.i, label %1826, label %JS_MarkValue.exit122.i88.i
 
-1857:                                             ; preds = %1853
-  %1858 = getelementptr i8, ptr %.1168.i, i64 88
-  %1859 = load i64, ptr %1858, align 8
-  %1860 = inttoptr i64 %1859 to ptr
-  %1861 = load i32, ptr %1860, align 8
-  %1862 = add i32 %1861, 1
-  store i32 %1862, ptr %1860, align 8
+1826:                                             ; preds = %1822
+  %1827 = getelementptr i8, ptr %.1167.i, i64 88
+  %1828 = load i64, ptr %1827, align 8
+  %1829 = inttoptr i64 %1828 to ptr
+  %1830 = load i32, ptr %1829, align 8
+  %1831 = add i32 %1830, 1
+  store i32 %1831, ptr %1829, align 8
   br label %JS_MarkValue.exit122.i88.i
 
-JS_MarkValue.exit122.i88.i:                       ; preds = %1857, %1853
-  %1863 = getelementptr i8, ptr %.1168.i, i64 24
-  %1864 = load i64, ptr %1863, align 8
-  %1865 = and i64 %1864, 4294967294
-  %switch.i123.i89.i = icmp eq i64 %1865, 4294967294
-  br i1 %switch.i123.i89.i, label %1866, label %JS_MarkValue.exit124.i90.i
+JS_MarkValue.exit122.i88.i:                       ; preds = %1826, %1822
+  %1832 = getelementptr i8, ptr %.1167.i, i64 24
+  %1833 = load i64, ptr %1832, align 8
+  %1834 = and i64 %1833, 4294967294
+  %switch.i123.i89.i = icmp eq i64 %1834, 4294967294
+  br i1 %switch.i123.i89.i, label %1835, label %JS_MarkValue.exit124.i90.i
 
-1866:                                             ; preds = %JS_MarkValue.exit122.i88.i
-  %1867 = getelementptr i8, ptr %.1168.i, i64 16
-  %1868 = load i64, ptr %1867, align 8
-  %1869 = inttoptr i64 %1868 to ptr
-  %1870 = load i32, ptr %1869, align 8
-  %1871 = add i32 %1870, 1
-  store i32 %1871, ptr %1869, align 8
+1835:                                             ; preds = %JS_MarkValue.exit122.i88.i
+  %1836 = getelementptr i8, ptr %.1167.i, i64 16
+  %1837 = load i64, ptr %1836, align 8
+  %1838 = inttoptr i64 %1837 to ptr
+  %1839 = load i32, ptr %1838, align 8
+  %1840 = add i32 %1839, 1
+  store i32 %1840, ptr %1838, align 8
   br label %JS_MarkValue.exit124.i90.i
 
-JS_MarkValue.exit124.i90.i:                       ; preds = %1866, %JS_MarkValue.exit122.i88.i
-  %1872 = getelementptr i8, ptr %.1168.i, i64 152
-  %1873 = load ptr, ptr %1872, align 8
-  %.not106.i91.i = icmp eq ptr %1873, null
-  br i1 %.not106.i91.i, label %.loopexit.i83.i, label %1874
+JS_MarkValue.exit124.i90.i:                       ; preds = %1835, %JS_MarkValue.exit122.i88.i
+  %1841 = getelementptr i8, ptr %.1167.i, i64 152
+  %1842 = load ptr, ptr %1841, align 8
+  %.not106.i91.i = icmp eq ptr %1842, null
+  br i1 %.not106.i91.i, label %.loopexit.i83.i, label %1843
 
-1874:                                             ; preds = %JS_MarkValue.exit124.i90.i
-  %1875 = getelementptr i8, ptr %.1168.i, i64 104
-  %1876 = load ptr, ptr %1875, align 8
-  %1877 = icmp ult ptr %1876, %1873
-  br i1 %1877, label %.lr.ph.i92.i, label %.loopexit.i83.i
+1843:                                             ; preds = %JS_MarkValue.exit124.i90.i
+  %1844 = getelementptr i8, ptr %.1167.i, i64 104
+  %1845 = load ptr, ptr %1844, align 8
+  %1846 = icmp ult ptr %1845, %1842
+  br i1 %1846, label %.lr.ph.i92.i, label %.loopexit.i83.i
 
-.lr.ph.i92.i:                                     ; preds = %1874, %JS_MarkValue.exit126.i95.i
-  %1878 = phi ptr [ %1887, %JS_MarkValue.exit126.i95.i ], [ %1873, %1874 ]
-  %.096131.i93.i = phi ptr [ %1888, %JS_MarkValue.exit126.i95.i ], [ %1876, %1874 ]
-  %1879 = getelementptr inbounds i8, ptr %.096131.i93.i, i64 8
-  %1880 = load i64, ptr %1879, align 8
-  %1881 = and i64 %1880, 4294967294
-  %switch.i125.i94.i = icmp eq i64 %1881, 4294967294
-  br i1 %switch.i125.i94.i, label %1882, label %JS_MarkValue.exit126.i95.i
+.lr.ph.i92.i:                                     ; preds = %1843, %JS_MarkValue.exit126.i95.i
+  %1847 = phi ptr [ %1856, %JS_MarkValue.exit126.i95.i ], [ %1842, %1843 ]
+  %.096131.i93.i = phi ptr [ %1857, %JS_MarkValue.exit126.i95.i ], [ %1845, %1843 ]
+  %1848 = getelementptr inbounds i8, ptr %.096131.i93.i, i64 8
+  %1849 = load i64, ptr %1848, align 8
+  %1850 = and i64 %1849, 4294967294
+  %switch.i125.i94.i = icmp eq i64 %1850, 4294967294
+  br i1 %switch.i125.i94.i, label %1851, label %JS_MarkValue.exit126.i95.i
 
-1882:                                             ; preds = %.lr.ph.i92.i
-  %1883 = load i64, ptr %.096131.i93.i, align 8
-  %1884 = inttoptr i64 %1883 to ptr
-  %1885 = load i32, ptr %1884, align 8
-  %1886 = add i32 %1885, 1
-  store i32 %1886, ptr %1884, align 8
-  %.pre.i96.i = load ptr, ptr %1872, align 8
+1851:                                             ; preds = %.lr.ph.i92.i
+  %1852 = load i64, ptr %.096131.i93.i, align 8
+  %1853 = inttoptr i64 %1852 to ptr
+  %1854 = load i32, ptr %1853, align 8
+  %1855 = add i32 %1854, 1
+  store i32 %1855, ptr %1853, align 8
+  %.pre.i96.i = load ptr, ptr %1841, align 8
   br label %JS_MarkValue.exit126.i95.i
 
-JS_MarkValue.exit126.i95.i:                       ; preds = %1882, %.lr.ph.i92.i
-  %1887 = phi ptr [ %1878, %.lr.ph.i92.i ], [ %.pre.i96.i, %1882 ]
-  %1888 = getelementptr i8, ptr %.096131.i93.i, i64 16
-  %1889 = icmp ult ptr %1888, %1887
-  br i1 %1889, label %.lr.ph.i92.i, label %.loopexit.i83.i, !llvm.loop !24
+JS_MarkValue.exit126.i95.i:                       ; preds = %1851, %.lr.ph.i92.i
+  %1856 = phi ptr [ %1847, %.lr.ph.i92.i ], [ %.pre.i96.i, %1851 ]
+  %1857 = getelementptr i8, ptr %.096131.i93.i, i64 16
+  %1858 = icmp ult ptr %1857, %1856
+  br i1 %1858, label %.lr.ph.i92.i, label %.loopexit.i83.i, !llvm.loop !24
 
-.loopexit.i83.i:                                  ; preds = %JS_MarkValue.exit126.i95.i, %1874, %JS_MarkValue.exit124.i90.i, %1850
-  %1890 = getelementptr i8, ptr %.1168.i, i64 56
-  %1891 = load i64, ptr %1890, align 8
-  %1892 = and i64 %1891, 4294967294
-  %switch.i127.i84.i = icmp eq i64 %1892, 4294967294
-  br i1 %switch.i127.i84.i, label %1893, label %JS_MarkValue.exit128.i85.i
+.loopexit.i83.i:                                  ; preds = %JS_MarkValue.exit126.i95.i, %1843, %JS_MarkValue.exit124.i90.i, %1819
+  %1859 = getelementptr i8, ptr %.1167.i, i64 56
+  %1860 = load i64, ptr %1859, align 8
+  %1861 = and i64 %1860, 4294967294
+  %switch.i127.i84.i = icmp eq i64 %1861, 4294967294
+  br i1 %switch.i127.i84.i, label %1862, label %JS_MarkValue.exit128.i85.i
 
-1893:                                             ; preds = %.loopexit.i83.i
-  %1894 = getelementptr i8, ptr %.1168.i, i64 48
-  %1895 = load i64, ptr %1894, align 8
-  %1896 = inttoptr i64 %1895 to ptr
-  %1897 = load i32, ptr %1896, align 8
-  %1898 = add i32 %1897, 1
-  store i32 %1898, ptr %1896, align 8
+1862:                                             ; preds = %.loopexit.i83.i
+  %1863 = getelementptr i8, ptr %.1167.i, i64 48
+  %1864 = load i64, ptr %1863, align 8
+  %1865 = inttoptr i64 %1864 to ptr
+  %1866 = load i32, ptr %1865, align 8
+  %1867 = add i32 %1866, 1
+  store i32 %1867, ptr %1865, align 8
   br label %JS_MarkValue.exit128.i85.i
 
-JS_MarkValue.exit128.i85.i:                       ; preds = %1893, %.loopexit.i83.i
-  %1899 = getelementptr i8, ptr %.1168.i, i64 72
-  %1900 = load i64, ptr %1899, align 8
-  %1901 = and i64 %1900, 4294967294
-  %switch.i129.i86.i = icmp eq i64 %1901, 4294967294
-  br i1 %switch.i129.i86.i, label %1902, label %mark_children.exit124.i
+JS_MarkValue.exit128.i85.i:                       ; preds = %1862, %.loopexit.i83.i
+  %1868 = getelementptr i8, ptr %.1167.i, i64 72
+  %1869 = load i64, ptr %1868, align 8
+  %1870 = and i64 %1869, 4294967294
+  %switch.i129.i86.i = icmp eq i64 %1870, 4294967294
+  br i1 %switch.i129.i86.i, label %1871, label %mark_children.exit126.i
 
-1902:                                             ; preds = %JS_MarkValue.exit128.i85.i
-  %1903 = getelementptr i8, ptr %.1168.i, i64 64
-  %1904 = load i64, ptr %1903, align 8
-  %1905 = inttoptr i64 %1904 to ptr
-  %1906 = load i32, ptr %1905, align 8
-  %1907 = add i32 %1906, 1
-  store i32 %1907, ptr %1905, align 8
-  br label %mark_children.exit124.i
+1871:                                             ; preds = %JS_MarkValue.exit128.i85.i
+  %1872 = getelementptr i8, ptr %.1167.i, i64 64
+  %1873 = load i64, ptr %1872, align 8
+  %1874 = inttoptr i64 %1873 to ptr
+  %1875 = load i32, ptr %1874, align 8
+  %1876 = add i32 %1875, 1
+  store i32 %1876, ptr %1874, align 8
+  br label %mark_children.exit126.i
 
-1908:                                             ; preds = %1748
-  %1909 = getelementptr i8, ptr %.1168.i, i64 48
-  %1910 = load ptr, ptr %1909, align 8
-  %.not.i81.i = icmp eq ptr %1910, null
-  br i1 %.not.i81.i, label %mark_children.exit124.i, label %1911
+1877:                                             ; preds = %1717
+  %1878 = getelementptr i8, ptr %.1167.i, i64 48
+  %1879 = load ptr, ptr %1878, align 8
+  %.not.i81.i = icmp eq ptr %1879, null
+  br i1 %.not.i81.i, label %mark_children.exit126.i, label %1880
 
-1911:                                             ; preds = %1908
-  %1912 = load i32, ptr %1910, align 8
-  %1913 = add i32 %1912, 1
-  store i32 %1913, ptr %1910, align 8
-  br label %mark_children.exit124.i
+1880:                                             ; preds = %1877
+  %1881 = load i32, ptr %1879, align 8
+  %1882 = add i32 %1881, 1
+  store i32 %1882, ptr %1879, align 8
+  br label %mark_children.exit126.i
 
-1914:                                             ; preds = %1748
-  %1915 = getelementptr i8, ptr %.1168.i, i64 424
-  %1916 = getelementptr i8, ptr %.1168.i, i64 432
-  %.06089.i.i16.i = load ptr, ptr %1916, align 8
-  %.not90.i.i17.i = icmp eq ptr %.06089.i.i16.i, %1915
+1883:                                             ; preds = %1717
+  %1884 = getelementptr i8, ptr %.1167.i, i64 424
+  %1885 = getelementptr i8, ptr %.1167.i, i64 432
+  %.06089.i.i16.i = load ptr, ptr %1885, align 8
+  %.not90.i.i17.i = icmp eq ptr %.06089.i.i16.i, %1884
   br i1 %.not90.i.i17.i, label %._crit_edge.i.i37.i, label %.lr.ph.i.i18.i
 
-.lr.ph.i.i18.i:                                   ; preds = %1914, %js_mark_module_def.exit.i.i34.i
-  %.06091.i.i19.i = phi ptr [ %.060.i.i35.i, %js_mark_module_def.exit.i.i34.i ], [ %.06089.i.i16.i, %1914 ]
-  %1917 = getelementptr i8, ptr %.06091.i.i19.i, i64 40
-  %1918 = load i32, ptr %1917, align 8
-  %1919 = icmp sgt i32 %1918, 0
-  br i1 %1919, label %.lr.ph.i.i.i76.i, label %._crit_edge.i.i.i20.i
+.lr.ph.i.i18.i:                                   ; preds = %1883, %js_mark_module_def.exit.i.i34.i
+  %.06091.i.i19.i = phi ptr [ %.060.i.i35.i, %js_mark_module_def.exit.i.i34.i ], [ %.06089.i.i16.i, %1883 ]
+  %1886 = getelementptr i8, ptr %.06091.i.i19.i, i64 40
+  %1887 = load i32, ptr %1886, align 8
+  %1888 = icmp sgt i32 %1887, 0
+  br i1 %1888, label %.lr.ph.i.i.i76.i, label %._crit_edge.i.i.i20.i
 
 .lr.ph.i.i.i76.i:                                 ; preds = %.lr.ph.i.i18.i
-  %1920 = getelementptr i8, ptr %.06091.i.i19.i, i64 32
-  br label %1921
+  %1889 = getelementptr i8, ptr %.06091.i.i19.i, i64 32
+  br label %1890
 
-1921:                                             ; preds = %1934, %.lr.ph.i.i.i76.i
-  %1922 = phi i32 [ %1918, %.lr.ph.i.i.i76.i ], [ %1935, %1934 ]
-  %indvars.iv.i.i.i77.i = phi i64 [ 0, %.lr.ph.i.i.i76.i ], [ %indvars.iv.next.i.i.i78.i, %1934 ]
-  %1923 = load ptr, ptr %1920, align 8
-  %1924 = getelementptr %struct.JSExportEntry, ptr %1923, i64 %indvars.iv.i.i.i77.i
-  %1925 = getelementptr inbounds i8, ptr %1924, i64 16
-  %1926 = load i32, ptr %1925, align 8
-  %1927 = icmp eq i32 %1926, 0
-  br i1 %1927, label %1928, label %1934
+1890:                                             ; preds = %1903, %.lr.ph.i.i.i76.i
+  %1891 = phi i32 [ %1887, %.lr.ph.i.i.i76.i ], [ %1904, %1903 ]
+  %indvars.iv.i.i.i77.i = phi i64 [ 0, %.lr.ph.i.i.i76.i ], [ %indvars.iv.next.i.i.i78.i, %1903 ]
+  %1892 = load ptr, ptr %1889, align 8
+  %1893 = getelementptr %struct.JSExportEntry, ptr %1892, i64 %indvars.iv.i.i.i77.i
+  %1894 = getelementptr inbounds i8, ptr %1893, i64 16
+  %1895 = load i32, ptr %1894, align 8
+  %1896 = icmp eq i32 %1895, 0
+  br i1 %1896, label %1897, label %1903
 
-1928:                                             ; preds = %1921
-  %1929 = getelementptr inbounds i8, ptr %1924, i64 8
-  %1930 = load ptr, ptr %1929, align 8
-  %.not.i.i.i79.i = icmp eq ptr %1930, null
-  br i1 %.not.i.i.i79.i, label %1934, label %1931
+1897:                                             ; preds = %1890
+  %1898 = getelementptr inbounds i8, ptr %1893, i64 8
+  %1899 = load ptr, ptr %1898, align 8
+  %.not.i.i.i79.i = icmp eq ptr %1899, null
+  br i1 %.not.i.i.i79.i, label %1903, label %1900
 
-1931:                                             ; preds = %1928
-  %1932 = load i32, ptr %1930, align 8
-  %1933 = add i32 %1932, 1
-  store i32 %1933, ptr %1930, align 8
-  %.pre.i.i.i80.i = load i32, ptr %1917, align 8
-  br label %1934
+1900:                                             ; preds = %1897
+  %1901 = load i32, ptr %1899, align 8
+  %1902 = add i32 %1901, 1
+  store i32 %1902, ptr %1899, align 8
+  %.pre.i.i.i80.i = load i32, ptr %1886, align 8
+  br label %1903
 
-1934:                                             ; preds = %1931, %1928, %1921
-  %1935 = phi i32 [ %1922, %1921 ], [ %1922, %1928 ], [ %.pre.i.i.i80.i, %1931 ]
+1903:                                             ; preds = %1900, %1897, %1890
+  %1904 = phi i32 [ %1891, %1890 ], [ %1891, %1897 ], [ %.pre.i.i.i80.i, %1900 ]
   %indvars.iv.next.i.i.i78.i = add nuw nsw i64 %indvars.iv.i.i.i77.i, 1
-  %1936 = sext i32 %1935 to i64
-  %1937 = icmp slt i64 %indvars.iv.next.i.i.i78.i, %1936
-  br i1 %1937, label %1921, label %._crit_edge.i.i.i20.i, !llvm.loop !25
+  %1905 = sext i32 %1904 to i64
+  %1906 = icmp slt i64 %indvars.iv.next.i.i.i78.i, %1905
+  br i1 %1906, label %1890, label %._crit_edge.i.i.i20.i, !llvm.loop !25
 
-._crit_edge.i.i.i20.i:                            ; preds = %1934, %.lr.ph.i.i18.i
-  %1938 = getelementptr i8, ptr %.06091.i.i19.i, i64 88
-  %1939 = load i64, ptr %1938, align 8
-  %1940 = and i64 %1939, 4294967294
-  %switch.i.i.i.i21.i = icmp eq i64 %1940, 4294967294
-  br i1 %switch.i.i.i.i21.i, label %1941, label %JS_MarkValue.exit.i.i.i22.i
+._crit_edge.i.i.i20.i:                            ; preds = %1903, %.lr.ph.i.i18.i
+  %1907 = getelementptr i8, ptr %.06091.i.i19.i, i64 88
+  %1908 = load i64, ptr %1907, align 8
+  %1909 = and i64 %1908, 4294967294
+  %switch.i.i.i.i21.i = icmp eq i64 %1909, 4294967294
+  br i1 %switch.i.i.i.i21.i, label %1910, label %JS_MarkValue.exit.i.i.i22.i
 
-1941:                                             ; preds = %._crit_edge.i.i.i20.i
-  %1942 = getelementptr i8, ptr %.06091.i.i19.i, i64 80
-  %1943 = load i64, ptr %1942, align 8
-  %1944 = inttoptr i64 %1943 to ptr
-  %1945 = load i32, ptr %1944, align 8
-  %1946 = add i32 %1945, 1
-  store i32 %1946, ptr %1944, align 8
+1910:                                             ; preds = %._crit_edge.i.i.i20.i
+  %1911 = getelementptr i8, ptr %.06091.i.i19.i, i64 80
+  %1912 = load i64, ptr %1911, align 8
+  %1913 = inttoptr i64 %1912 to ptr
+  %1914 = load i32, ptr %1913, align 8
+  %1915 = add i32 %1914, 1
+  store i32 %1915, ptr %1913, align 8
   br label %JS_MarkValue.exit.i.i.i22.i
 
-JS_MarkValue.exit.i.i.i22.i:                      ; preds = %1941, %._crit_edge.i.i.i20.i
-  %1947 = getelementptr i8, ptr %.06091.i.i19.i, i64 104
-  %1948 = load i64, ptr %1947, align 8
-  %1949 = and i64 %1948, 4294967294
-  %switch.i31.i.i.i23.i = icmp eq i64 %1949, 4294967294
-  br i1 %switch.i31.i.i.i23.i, label %1950, label %JS_MarkValue.exit32.i.i.i24.i
+JS_MarkValue.exit.i.i.i22.i:                      ; preds = %1910, %._crit_edge.i.i.i20.i
+  %1916 = getelementptr i8, ptr %.06091.i.i19.i, i64 104
+  %1917 = load i64, ptr %1916, align 8
+  %1918 = and i64 %1917, 4294967294
+  %switch.i31.i.i.i23.i = icmp eq i64 %1918, 4294967294
+  br i1 %switch.i31.i.i.i23.i, label %1919, label %JS_MarkValue.exit32.i.i.i24.i
 
-1950:                                             ; preds = %JS_MarkValue.exit.i.i.i22.i
-  %1951 = getelementptr i8, ptr %.06091.i.i19.i, i64 96
-  %1952 = load i64, ptr %1951, align 8
-  %1953 = inttoptr i64 %1952 to ptr
-  %1954 = load i32, ptr %1953, align 8
-  %1955 = add i32 %1954, 1
-  store i32 %1955, ptr %1953, align 8
+1919:                                             ; preds = %JS_MarkValue.exit.i.i.i22.i
+  %1920 = getelementptr i8, ptr %.06091.i.i19.i, i64 96
+  %1921 = load i64, ptr %1920, align 8
+  %1922 = inttoptr i64 %1921 to ptr
+  %1923 = load i32, ptr %1922, align 8
+  %1924 = add i32 %1923, 1
+  store i32 %1924, ptr %1922, align 8
   br label %JS_MarkValue.exit32.i.i.i24.i
 
-JS_MarkValue.exit32.i.i.i24.i:                    ; preds = %1950, %JS_MarkValue.exit.i.i.i22.i
-  %1956 = getelementptr i8, ptr %.06091.i.i19.i, i64 248
-  %1957 = load i64, ptr %1956, align 8
-  %1958 = and i64 %1957, 4294967294
-  %switch.i33.i.i.i25.i = icmp eq i64 %1958, 4294967294
-  br i1 %switch.i33.i.i.i25.i, label %1959, label %JS_MarkValue.exit34.i.i.i26.i
+JS_MarkValue.exit32.i.i.i24.i:                    ; preds = %1919, %JS_MarkValue.exit.i.i.i22.i
+  %1925 = getelementptr i8, ptr %.06091.i.i19.i, i64 248
+  %1926 = load i64, ptr %1925, align 8
+  %1927 = and i64 %1926, 4294967294
+  %switch.i33.i.i.i25.i = icmp eq i64 %1927, 4294967294
+  br i1 %switch.i33.i.i.i25.i, label %1928, label %JS_MarkValue.exit34.i.i.i26.i
 
-1959:                                             ; preds = %JS_MarkValue.exit32.i.i.i24.i
-  %1960 = getelementptr i8, ptr %.06091.i.i19.i, i64 240
-  %1961 = load i64, ptr %1960, align 8
-  %1962 = inttoptr i64 %1961 to ptr
-  %1963 = load i32, ptr %1962, align 8
-  %1964 = add i32 %1963, 1
-  store i32 %1964, ptr %1962, align 8
+1928:                                             ; preds = %JS_MarkValue.exit32.i.i.i24.i
+  %1929 = getelementptr i8, ptr %.06091.i.i19.i, i64 240
+  %1930 = load i64, ptr %1929, align 8
+  %1931 = inttoptr i64 %1930 to ptr
+  %1932 = load i32, ptr %1931, align 8
+  %1933 = add i32 %1932, 1
+  store i32 %1933, ptr %1931, align 8
   br label %JS_MarkValue.exit34.i.i.i26.i
 
-JS_MarkValue.exit34.i.i.i26.i:                    ; preds = %1959, %JS_MarkValue.exit32.i.i.i24.i
-  %1965 = getelementptr i8, ptr %.06091.i.i19.i, i64 264
-  %1966 = load i64, ptr %1965, align 8
-  %1967 = and i64 %1966, 4294967294
-  %switch.i35.i.i.i27.i = icmp eq i64 %1967, 4294967294
-  br i1 %switch.i35.i.i.i27.i, label %1968, label %JS_MarkValue.exit36.i.i.i28.i
+JS_MarkValue.exit34.i.i.i26.i:                    ; preds = %1928, %JS_MarkValue.exit32.i.i.i24.i
+  %1934 = getelementptr i8, ptr %.06091.i.i19.i, i64 264
+  %1935 = load i64, ptr %1934, align 8
+  %1936 = and i64 %1935, 4294967294
+  %switch.i35.i.i.i27.i = icmp eq i64 %1936, 4294967294
+  br i1 %switch.i35.i.i.i27.i, label %1937, label %JS_MarkValue.exit36.i.i.i28.i
 
-1968:                                             ; preds = %JS_MarkValue.exit34.i.i.i26.i
-  %1969 = getelementptr i8, ptr %.06091.i.i19.i, i64 256
-  %1970 = load i64, ptr %1969, align 8
-  %1971 = inttoptr i64 %1970 to ptr
-  %1972 = load i32, ptr %1971, align 8
-  %1973 = add i32 %1972, 1
-  store i32 %1973, ptr %1971, align 8
+1937:                                             ; preds = %JS_MarkValue.exit34.i.i.i26.i
+  %1938 = getelementptr i8, ptr %.06091.i.i19.i, i64 256
+  %1939 = load i64, ptr %1938, align 8
+  %1940 = inttoptr i64 %1939 to ptr
+  %1941 = load i32, ptr %1940, align 8
+  %1942 = add i32 %1941, 1
+  store i32 %1942, ptr %1940, align 8
   br label %JS_MarkValue.exit36.i.i.i28.i
 
-JS_MarkValue.exit36.i.i.i28.i:                    ; preds = %1968, %JS_MarkValue.exit34.i.i.i26.i
-  %1974 = getelementptr i8, ptr %.06091.i.i19.i, i64 192
-  %1975 = load i64, ptr %1974, align 8
-  %1976 = and i64 %1975, 4294967294
-  %switch.i37.i.i.i29.i = icmp eq i64 %1976, 4294967294
-  br i1 %switch.i37.i.i.i29.i, label %1977, label %JS_MarkValue.exit38.i.i.i30.i
+JS_MarkValue.exit36.i.i.i28.i:                    ; preds = %1937, %JS_MarkValue.exit34.i.i.i26.i
+  %1943 = getelementptr i8, ptr %.06091.i.i19.i, i64 192
+  %1944 = load i64, ptr %1943, align 8
+  %1945 = and i64 %1944, 4294967294
+  %switch.i37.i.i.i29.i = icmp eq i64 %1945, 4294967294
+  br i1 %switch.i37.i.i.i29.i, label %1946, label %JS_MarkValue.exit38.i.i.i30.i
 
-1977:                                             ; preds = %JS_MarkValue.exit36.i.i.i28.i
-  %1978 = getelementptr i8, ptr %.06091.i.i19.i, i64 184
-  %1979 = load i64, ptr %1978, align 8
-  %1980 = inttoptr i64 %1979 to ptr
-  %1981 = load i32, ptr %1980, align 8
-  %1982 = add i32 %1981, 1
-  store i32 %1982, ptr %1980, align 8
+1946:                                             ; preds = %JS_MarkValue.exit36.i.i.i28.i
+  %1947 = getelementptr i8, ptr %.06091.i.i19.i, i64 184
+  %1948 = load i64, ptr %1947, align 8
+  %1949 = inttoptr i64 %1948 to ptr
+  %1950 = load i32, ptr %1949, align 8
+  %1951 = add i32 %1950, 1
+  store i32 %1951, ptr %1949, align 8
   br label %JS_MarkValue.exit38.i.i.i30.i
 
-JS_MarkValue.exit38.i.i.i30.i:                    ; preds = %1977, %JS_MarkValue.exit36.i.i.i28.i
-  %1983 = getelementptr i8, ptr %.06091.i.i19.i, i64 208
-  %1984 = load i64, ptr %1983, align 8
-  %1985 = and i64 %1984, 4294967294
-  %switch.i39.i.i.i31.i = icmp eq i64 %1985, 4294967294
-  br i1 %switch.i39.i.i.i31.i, label %1986, label %JS_MarkValue.exit40.i.i.i32.i
+JS_MarkValue.exit38.i.i.i30.i:                    ; preds = %1946, %JS_MarkValue.exit36.i.i.i28.i
+  %1952 = getelementptr i8, ptr %.06091.i.i19.i, i64 208
+  %1953 = load i64, ptr %1952, align 8
+  %1954 = and i64 %1953, 4294967294
+  %switch.i39.i.i.i31.i = icmp eq i64 %1954, 4294967294
+  br i1 %switch.i39.i.i.i31.i, label %1955, label %JS_MarkValue.exit40.i.i.i32.i
 
-1986:                                             ; preds = %JS_MarkValue.exit38.i.i.i30.i
-  %1987 = getelementptr i8, ptr %.06091.i.i19.i, i64 200
-  %1988 = load i64, ptr %1987, align 8
-  %1989 = inttoptr i64 %1988 to ptr
-  %1990 = load i32, ptr %1989, align 8
-  %1991 = add i32 %1990, 1
-  store i32 %1991, ptr %1989, align 8
+1955:                                             ; preds = %JS_MarkValue.exit38.i.i.i30.i
+  %1956 = getelementptr i8, ptr %.06091.i.i19.i, i64 200
+  %1957 = load i64, ptr %1956, align 8
+  %1958 = inttoptr i64 %1957 to ptr
+  %1959 = load i32, ptr %1958, align 8
+  %1960 = add i32 %1959, 1
+  store i32 %1960, ptr %1958, align 8
   br label %JS_MarkValue.exit40.i.i.i32.i
 
-JS_MarkValue.exit40.i.i.i32.i:                    ; preds = %1986, %JS_MarkValue.exit38.i.i.i30.i
-  %1992 = getelementptr i8, ptr %.06091.i.i19.i, i64 224
-  %1993 = load i64, ptr %1992, align 8
-  %1994 = and i64 %1993, 4294967294
-  %switch.i41.i.i.i33.i = icmp eq i64 %1994, 4294967294
-  br i1 %switch.i41.i.i.i33.i, label %1995, label %js_mark_module_def.exit.i.i34.i
+JS_MarkValue.exit40.i.i.i32.i:                    ; preds = %1955, %JS_MarkValue.exit38.i.i.i30.i
+  %1961 = getelementptr i8, ptr %.06091.i.i19.i, i64 224
+  %1962 = load i64, ptr %1961, align 8
+  %1963 = and i64 %1962, 4294967294
+  %switch.i41.i.i.i33.i = icmp eq i64 %1963, 4294967294
+  br i1 %switch.i41.i.i.i33.i, label %1964, label %js_mark_module_def.exit.i.i34.i
 
-1995:                                             ; preds = %JS_MarkValue.exit40.i.i.i32.i
-  %1996 = getelementptr i8, ptr %.06091.i.i19.i, i64 216
-  %1997 = load i64, ptr %1996, align 8
-  %1998 = inttoptr i64 %1997 to ptr
-  %1999 = load i32, ptr %1998, align 8
-  %2000 = add i32 %1999, 1
-  store i32 %2000, ptr %1998, align 8
+1964:                                             ; preds = %JS_MarkValue.exit40.i.i.i32.i
+  %1965 = getelementptr i8, ptr %.06091.i.i19.i, i64 216
+  %1966 = load i64, ptr %1965, align 8
+  %1967 = inttoptr i64 %1966 to ptr
+  %1968 = load i32, ptr %1967, align 8
+  %1969 = add i32 %1968, 1
+  store i32 %1969, ptr %1967, align 8
   br label %js_mark_module_def.exit.i.i34.i
 
-js_mark_module_def.exit.i.i34.i:                  ; preds = %1995, %JS_MarkValue.exit40.i.i.i32.i
-  %2001 = getelementptr inbounds i8, ptr %.06091.i.i19.i, i64 8
-  %.060.i.i35.i = load ptr, ptr %2001, align 8
-  %.not.i.i36.i = icmp eq ptr %.060.i.i35.i, %1915
+js_mark_module_def.exit.i.i34.i:                  ; preds = %1964, %JS_MarkValue.exit40.i.i.i32.i
+  %1970 = getelementptr inbounds i8, ptr %.06091.i.i19.i, i64 8
+  %.060.i.i35.i = load ptr, ptr %1970, align 8
+  %.not.i.i36.i = icmp eq ptr %.060.i.i35.i, %1884
   br i1 %.not.i.i36.i, label %._crit_edge.i.i37.i, label %.lr.ph.i.i18.i, !llvm.loop !26
 
-._crit_edge.i.i37.i:                              ; preds = %js_mark_module_def.exit.i.i34.i, %1914
-  %2002 = getelementptr i8, ptr %.1168.i, i64 360
-  %2003 = load i64, ptr %2002, align 8
-  %2004 = and i64 %2003, 4294967294
-  %switch.i.i.i38.i = icmp eq i64 %2004, 4294967294
-  br i1 %switch.i.i.i38.i, label %2005, label %JS_MarkValue.exit.i.i39.i
+._crit_edge.i.i37.i:                              ; preds = %js_mark_module_def.exit.i.i34.i, %1883
+  %1971 = getelementptr i8, ptr %.1167.i, i64 360
+  %1972 = load i64, ptr %1971, align 8
+  %1973 = and i64 %1972, 4294967294
+  %switch.i.i.i38.i = icmp eq i64 %1973, 4294967294
+  br i1 %switch.i.i.i38.i, label %1974, label %JS_MarkValue.exit.i.i39.i
 
-2005:                                             ; preds = %._crit_edge.i.i37.i
-  %2006 = getelementptr i8, ptr %.1168.i, i64 352
-  %2007 = load i64, ptr %2006, align 8
-  %2008 = inttoptr i64 %2007 to ptr
-  %2009 = load i32, ptr %2008, align 8
-  %2010 = add i32 %2009, 1
-  store i32 %2010, ptr %2008, align 8
+1974:                                             ; preds = %._crit_edge.i.i37.i
+  %1975 = getelementptr i8, ptr %.1167.i, i64 352
+  %1976 = load i64, ptr %1975, align 8
+  %1977 = inttoptr i64 %1976 to ptr
+  %1978 = load i32, ptr %1977, align 8
+  %1979 = add i32 %1978, 1
+  store i32 %1979, ptr %1977, align 8
   br label %JS_MarkValue.exit.i.i39.i
 
-JS_MarkValue.exit.i.i39.i:                        ; preds = %2005, %._crit_edge.i.i37.i
-  %2011 = getelementptr i8, ptr %.1168.i, i64 376
-  %2012 = load i64, ptr %2011, align 8
-  %2013 = and i64 %2012, 4294967294
-  %switch.i63.i.i40.i = icmp eq i64 %2013, 4294967294
-  br i1 %switch.i63.i.i40.i, label %2014, label %JS_MarkValue.exit64.i.i41.i
+JS_MarkValue.exit.i.i39.i:                        ; preds = %1974, %._crit_edge.i.i37.i
+  %1980 = getelementptr i8, ptr %.1167.i, i64 376
+  %1981 = load i64, ptr %1980, align 8
+  %1982 = and i64 %1981, 4294967294
+  %switch.i63.i.i40.i = icmp eq i64 %1982, 4294967294
+  br i1 %switch.i63.i.i40.i, label %1983, label %JS_MarkValue.exit64.i.i41.i
 
-2014:                                             ; preds = %JS_MarkValue.exit.i.i39.i
-  %2015 = getelementptr i8, ptr %.1168.i, i64 368
-  %2016 = load i64, ptr %2015, align 8
-  %2017 = inttoptr i64 %2016 to ptr
-  %2018 = load i32, ptr %2017, align 8
-  %2019 = add i32 %2018, 1
-  store i32 %2019, ptr %2017, align 8
+1983:                                             ; preds = %JS_MarkValue.exit.i.i39.i
+  %1984 = getelementptr i8, ptr %.1167.i, i64 368
+  %1985 = load i64, ptr %1984, align 8
+  %1986 = inttoptr i64 %1985 to ptr
+  %1987 = load i32, ptr %1986, align 8
+  %1988 = add i32 %1987, 1
+  store i32 %1988, ptr %1986, align 8
   br label %JS_MarkValue.exit64.i.i41.i
 
-JS_MarkValue.exit64.i.i41.i:                      ; preds = %2014, %JS_MarkValue.exit.i.i39.i
-  %2020 = getelementptr i8, ptr %.1168.i, i64 328
-  %2021 = load i64, ptr %2020, align 8
-  %2022 = and i64 %2021, 4294967294
-  %switch.i65.i.i42.i = icmp eq i64 %2022, 4294967294
-  br i1 %switch.i65.i.i42.i, label %2023, label %JS_MarkValue.exit66.i.i43.i
+JS_MarkValue.exit64.i.i41.i:                      ; preds = %1983, %JS_MarkValue.exit.i.i39.i
+  %1989 = getelementptr i8, ptr %.1167.i, i64 328
+  %1990 = load i64, ptr %1989, align 8
+  %1991 = and i64 %1990, 4294967294
+  %switch.i65.i.i42.i = icmp eq i64 %1991, 4294967294
+  br i1 %switch.i65.i.i42.i, label %1992, label %JS_MarkValue.exit66.i.i43.i
 
-2023:                                             ; preds = %JS_MarkValue.exit64.i.i41.i
-  %2024 = getelementptr i8, ptr %.1168.i, i64 320
-  %2025 = load i64, ptr %2024, align 8
-  %2026 = inttoptr i64 %2025 to ptr
-  %2027 = load i32, ptr %2026, align 8
-  %2028 = add i32 %2027, 1
-  store i32 %2028, ptr %2026, align 8
+1992:                                             ; preds = %JS_MarkValue.exit64.i.i41.i
+  %1993 = getelementptr i8, ptr %.1167.i, i64 320
+  %1994 = load i64, ptr %1993, align 8
+  %1995 = inttoptr i64 %1994 to ptr
+  %1996 = load i32, ptr %1995, align 8
+  %1997 = add i32 %1996, 1
+  store i32 %1997, ptr %1995, align 8
   br label %JS_MarkValue.exit66.i.i43.i
 
-JS_MarkValue.exit66.i.i43.i:                      ; preds = %2023, %JS_MarkValue.exit64.i.i41.i
-  %2029 = getelementptr i8, ptr %.1168.i, i64 344
-  %2030 = load i64, ptr %2029, align 8
-  %2031 = and i64 %2030, 4294967294
-  %switch.i67.i.i44.i = icmp eq i64 %2031, 4294967294
-  br i1 %switch.i67.i.i44.i, label %2032, label %JS_MarkValue.exit68.i.i45.i
+JS_MarkValue.exit66.i.i43.i:                      ; preds = %1992, %JS_MarkValue.exit64.i.i41.i
+  %1998 = getelementptr i8, ptr %.1167.i, i64 344
+  %1999 = load i64, ptr %1998, align 8
+  %2000 = and i64 %1999, 4294967294
+  %switch.i67.i.i44.i = icmp eq i64 %2000, 4294967294
+  br i1 %switch.i67.i.i44.i, label %2001, label %JS_MarkValue.exit68.i.i45.i
 
-2032:                                             ; preds = %JS_MarkValue.exit66.i.i43.i
-  %2033 = getelementptr i8, ptr %.1168.i, i64 336
-  %2034 = load i64, ptr %2033, align 8
-  %2035 = inttoptr i64 %2034 to ptr
-  %2036 = load i32, ptr %2035, align 8
-  %2037 = add i32 %2036, 1
-  store i32 %2037, ptr %2035, align 8
+2001:                                             ; preds = %JS_MarkValue.exit66.i.i43.i
+  %2002 = getelementptr i8, ptr %.1167.i, i64 336
+  %2003 = load i64, ptr %2002, align 8
+  %2004 = inttoptr i64 %2003 to ptr
+  %2005 = load i32, ptr %2004, align 8
+  %2006 = add i32 %2005, 1
+  store i32 %2006, ptr %2004, align 8
   br label %JS_MarkValue.exit68.i.i45.i
 
-JS_MarkValue.exit68.i.i45.i:                      ; preds = %2032, %JS_MarkValue.exit66.i.i43.i
-  %2038 = getelementptr i8, ptr %.1168.i, i64 312
-  %2039 = load i64, ptr %2038, align 8
-  %2040 = and i64 %2039, 4294967294
-  %switch.i69.i.i46.i = icmp eq i64 %2040, 4294967294
-  br i1 %switch.i69.i.i46.i, label %2041, label %JS_MarkValue.exit70.i.i47.i
+JS_MarkValue.exit68.i.i45.i:                      ; preds = %2001, %JS_MarkValue.exit66.i.i43.i
+  %2007 = getelementptr i8, ptr %.1167.i, i64 312
+  %2008 = load i64, ptr %2007, align 8
+  %2009 = and i64 %2008, 4294967294
+  %switch.i69.i.i46.i = icmp eq i64 %2009, 4294967294
+  br i1 %switch.i69.i.i46.i, label %2010, label %JS_MarkValue.exit70.i.i47.i
 
-2041:                                             ; preds = %JS_MarkValue.exit68.i.i45.i
-  %2042 = getelementptr i8, ptr %.1168.i, i64 304
-  %2043 = load i64, ptr %2042, align 8
-  %2044 = inttoptr i64 %2043 to ptr
-  %2045 = load i32, ptr %2044, align 8
-  %2046 = add i32 %2045, 1
-  store i32 %2046, ptr %2044, align 8
+2010:                                             ; preds = %JS_MarkValue.exit68.i.i45.i
+  %2011 = getelementptr i8, ptr %.1167.i, i64 304
+  %2012 = load i64, ptr %2011, align 8
+  %2013 = inttoptr i64 %2012 to ptr
+  %2014 = load i32, ptr %2013, align 8
+  %2015 = add i32 %2014, 1
+  store i32 %2015, ptr %2013, align 8
   br label %JS_MarkValue.exit70.i.i47.i
 
-JS_MarkValue.exit70.i.i47.i:                      ; preds = %2041, %JS_MarkValue.exit68.i.i45.i
-  %2047 = getelementptr i8, ptr %.1168.i, i64 144
-  br label %2051
+JS_MarkValue.exit70.i.i47.i:                      ; preds = %2010, %JS_MarkValue.exit68.i.i45.i
+  %2016 = getelementptr i8, ptr %.1167.i, i64 144
+  br label %2020
 
 .preheader.i.i53.i:                               ; preds = %JS_MarkValue.exit72.i.i50.i
-  %2048 = load i32, ptr %1746, align 4
-  %2049 = icmp sgt i32 %2048, 0
-  br i1 %2049, label %.lr.ph94.i.i70.i, label %._crit_edge95.i.i54.i
+  %2017 = load i32, ptr %1715, align 4
+  %2018 = icmp sgt i32 %2017, 0
+  br i1 %2018, label %.lr.ph94.i.i70.i, label %._crit_edge95.i.i54.i
 
 .lr.ph94.i.i70.i:                                 ; preds = %.preheader.i.i53.i
-  %2050 = getelementptr i8, ptr %.1168.i, i64 56
-  br label %2061
+  %2019 = getelementptr i8, ptr %.1167.i, i64 56
+  br label %2030
 
-2051:                                             ; preds = %JS_MarkValue.exit72.i.i50.i, %JS_MarkValue.exit70.i.i47.i
+2020:                                             ; preds = %JS_MarkValue.exit72.i.i50.i, %JS_MarkValue.exit70.i.i47.i
   %indvars.iv.i.i48.i = phi i64 [ 0, %JS_MarkValue.exit70.i.i47.i ], [ %indvars.iv.next.i.i51.i, %JS_MarkValue.exit72.i.i50.i ]
-  %2052 = getelementptr [8 x %struct.JSValue], ptr %2047, i64 0, i64 %indvars.iv.i.i48.i
-  %2053 = getelementptr inbounds i8, ptr %2052, i64 8
-  %2054 = load i64, ptr %2053, align 8
-  %2055 = and i64 %2054, 4294967294
-  %switch.i71.i.i49.i = icmp eq i64 %2055, 4294967294
-  br i1 %switch.i71.i.i49.i, label %2056, label %JS_MarkValue.exit72.i.i50.i
+  %2021 = getelementptr [8 x %struct.JSValue], ptr %2016, i64 0, i64 %indvars.iv.i.i48.i
+  %2022 = getelementptr inbounds i8, ptr %2021, i64 8
+  %2023 = load i64, ptr %2022, align 8
+  %2024 = and i64 %2023, 4294967294
+  %switch.i71.i.i49.i = icmp eq i64 %2024, 4294967294
+  br i1 %switch.i71.i.i49.i, label %2025, label %JS_MarkValue.exit72.i.i50.i
 
-2056:                                             ; preds = %2051
-  %2057 = load i64, ptr %2052, align 8
-  %2058 = inttoptr i64 %2057 to ptr
-  %2059 = load i32, ptr %2058, align 8
-  %2060 = add i32 %2059, 1
-  store i32 %2060, ptr %2058, align 8
+2025:                                             ; preds = %2020
+  %2026 = load i64, ptr %2021, align 8
+  %2027 = inttoptr i64 %2026 to ptr
+  %2028 = load i32, ptr %2027, align 8
+  %2029 = add i32 %2028, 1
+  store i32 %2029, ptr %2027, align 8
   br label %JS_MarkValue.exit72.i.i50.i
 
-JS_MarkValue.exit72.i.i50.i:                      ; preds = %2056, %2051
+JS_MarkValue.exit72.i.i50.i:                      ; preds = %2025, %2020
   %indvars.iv.next.i.i51.i = add nuw nsw i64 %indvars.iv.i.i48.i, 1
   %exitcond.not.i.i52.i = icmp eq i64 %indvars.iv.next.i.i51.i, 8
-  br i1 %exitcond.not.i.i52.i, label %.preheader.i.i53.i, label %2051, !llvm.loop !27
+  br i1 %exitcond.not.i.i52.i, label %.preheader.i.i53.i, label %2020, !llvm.loop !27
 
-2061:                                             ; preds = %JS_MarkValue.exit74.i.i73.i, %.lr.ph94.i.i70.i
-  %2062 = phi i32 [ %2048, %.lr.ph94.i.i70.i ], [ %2073, %JS_MarkValue.exit74.i.i73.i ]
+2030:                                             ; preds = %JS_MarkValue.exit74.i.i73.i, %.lr.ph94.i.i70.i
+  %2031 = phi i32 [ %2017, %.lr.ph94.i.i70.i ], [ %2042, %JS_MarkValue.exit74.i.i73.i ]
   %indvars.iv97.i.i71.i = phi i64 [ 0, %.lr.ph94.i.i70.i ], [ %indvars.iv.next98.i.i74.i, %JS_MarkValue.exit74.i.i73.i ]
-  %2063 = load ptr, ptr %2050, align 8
-  %2064 = getelementptr %struct.JSValue, ptr %2063, i64 %indvars.iv97.i.i71.i
-  %2065 = getelementptr inbounds i8, ptr %2064, i64 8
-  %2066 = load i64, ptr %2065, align 8
-  %2067 = and i64 %2066, 4294967294
-  %switch.i73.i.i72.i = icmp eq i64 %2067, 4294967294
-  br i1 %switch.i73.i.i72.i, label %2068, label %JS_MarkValue.exit74.i.i73.i
+  %2032 = load ptr, ptr %2019, align 8
+  %2033 = getelementptr %struct.JSValue, ptr %2032, i64 %indvars.iv97.i.i71.i
+  %2034 = getelementptr inbounds i8, ptr %2033, i64 8
+  %2035 = load i64, ptr %2034, align 8
+  %2036 = and i64 %2035, 4294967294
+  %switch.i73.i.i72.i = icmp eq i64 %2036, 4294967294
+  br i1 %switch.i73.i.i72.i, label %2037, label %JS_MarkValue.exit74.i.i73.i
 
-2068:                                             ; preds = %2061
-  %2069 = load i64, ptr %2064, align 8
-  %2070 = inttoptr i64 %2069 to ptr
-  %2071 = load i32, ptr %2070, align 8
-  %2072 = add i32 %2071, 1
-  store i32 %2072, ptr %2070, align 8
-  %.pre.i.i75.i = load i32, ptr %1746, align 4
+2037:                                             ; preds = %2030
+  %2038 = load i64, ptr %2033, align 8
+  %2039 = inttoptr i64 %2038 to ptr
+  %2040 = load i32, ptr %2039, align 8
+  %2041 = add i32 %2040, 1
+  store i32 %2041, ptr %2039, align 8
+  %.pre.i.i75.i = load i32, ptr %1715, align 4
   br label %JS_MarkValue.exit74.i.i73.i
 
-JS_MarkValue.exit74.i.i73.i:                      ; preds = %2068, %2061
-  %2073 = phi i32 [ %2062, %2061 ], [ %.pre.i.i75.i, %2068 ]
+JS_MarkValue.exit74.i.i73.i:                      ; preds = %2037, %2030
+  %2042 = phi i32 [ %2031, %2030 ], [ %.pre.i.i75.i, %2037 ]
   %indvars.iv.next98.i.i74.i = add nuw nsw i64 %indvars.iv97.i.i71.i, 1
-  %2074 = sext i32 %2073 to i64
-  %2075 = icmp slt i64 %indvars.iv.next98.i.i74.i, %2074
-  br i1 %2075, label %2061, label %._crit_edge95.i.i54.i, !llvm.loop !28
+  %2043 = sext i32 %2042 to i64
+  %2044 = icmp slt i64 %indvars.iv.next98.i.i74.i, %2043
+  br i1 %2044, label %2030, label %._crit_edge95.i.i54.i, !llvm.loop !28
 
 ._crit_edge95.i.i54.i:                            ; preds = %JS_MarkValue.exit74.i.i73.i, %.preheader.i.i53.i
-  %2076 = getelementptr i8, ptr %.1168.i, i64 280
-  %2077 = load i64, ptr %2076, align 8
-  %2078 = and i64 %2077, 4294967294
-  %switch.i75.i.i55.i = icmp eq i64 %2078, 4294967294
-  br i1 %switch.i75.i.i55.i, label %2079, label %JS_MarkValue.exit76.i.i56.i
+  %2045 = getelementptr i8, ptr %.1167.i, i64 280
+  %2046 = load i64, ptr %2045, align 8
+  %2047 = and i64 %2046, 4294967294
+  %switch.i75.i.i55.i = icmp eq i64 %2047, 4294967294
+  br i1 %switch.i75.i.i55.i, label %2048, label %JS_MarkValue.exit76.i.i56.i
 
-2079:                                             ; preds = %._crit_edge95.i.i54.i
-  %2080 = getelementptr i8, ptr %.1168.i, i64 272
-  %2081 = load i64, ptr %2080, align 8
-  %2082 = inttoptr i64 %2081 to ptr
-  %2083 = load i32, ptr %2082, align 8
-  %2084 = add i32 %2083, 1
-  store i32 %2084, ptr %2082, align 8
+2048:                                             ; preds = %._crit_edge95.i.i54.i
+  %2049 = getelementptr i8, ptr %.1167.i, i64 272
+  %2050 = load i64, ptr %2049, align 8
+  %2051 = inttoptr i64 %2050 to ptr
+  %2052 = load i32, ptr %2051, align 8
+  %2053 = add i32 %2052, 1
+  store i32 %2053, ptr %2051, align 8
   br label %JS_MarkValue.exit76.i.i56.i
 
-JS_MarkValue.exit76.i.i56.i:                      ; preds = %2079, %._crit_edge95.i.i54.i
-  %2085 = getelementptr i8, ptr %.1168.i, i64 296
-  %2086 = load i64, ptr %2085, align 8
-  %2087 = and i64 %2086, 4294967294
-  %switch.i77.i.i57.i = icmp eq i64 %2087, 4294967294
-  br i1 %switch.i77.i.i57.i, label %2088, label %JS_MarkValue.exit78.i.i58.i
+JS_MarkValue.exit76.i.i56.i:                      ; preds = %2048, %._crit_edge95.i.i54.i
+  %2054 = getelementptr i8, ptr %.1167.i, i64 296
+  %2055 = load i64, ptr %2054, align 8
+  %2056 = and i64 %2055, 4294967294
+  %switch.i77.i.i57.i = icmp eq i64 %2056, 4294967294
+  br i1 %switch.i77.i.i57.i, label %2057, label %JS_MarkValue.exit78.i.i58.i
 
-2088:                                             ; preds = %JS_MarkValue.exit76.i.i56.i
-  %2089 = getelementptr i8, ptr %.1168.i, i64 288
-  %2090 = load i64, ptr %2089, align 8
-  %2091 = inttoptr i64 %2090 to ptr
-  %2092 = load i32, ptr %2091, align 8
-  %2093 = add i32 %2092, 1
-  store i32 %2093, ptr %2091, align 8
+2057:                                             ; preds = %JS_MarkValue.exit76.i.i56.i
+  %2058 = getelementptr i8, ptr %.1167.i, i64 288
+  %2059 = load i64, ptr %2058, align 8
+  %2060 = inttoptr i64 %2059 to ptr
+  %2061 = load i32, ptr %2060, align 8
+  %2062 = add i32 %2061, 1
+  store i32 %2062, ptr %2060, align 8
   br label %JS_MarkValue.exit78.i.i58.i
 
-JS_MarkValue.exit78.i.i58.i:                      ; preds = %2088, %JS_MarkValue.exit76.i.i56.i
-  %2094 = getelementptr i8, ptr %.1168.i, i64 136
-  %2095 = load i64, ptr %2094, align 8
-  %2096 = and i64 %2095, 4294967294
-  %switch.i79.i.i59.i = icmp eq i64 %2096, 4294967294
-  br i1 %switch.i79.i.i59.i, label %2097, label %JS_MarkValue.exit80.i.i60.i
+JS_MarkValue.exit78.i.i58.i:                      ; preds = %2057, %JS_MarkValue.exit76.i.i56.i
+  %2063 = getelementptr i8, ptr %.1167.i, i64 136
+  %2064 = load i64, ptr %2063, align 8
+  %2065 = and i64 %2064, 4294967294
+  %switch.i79.i.i59.i = icmp eq i64 %2065, 4294967294
+  br i1 %switch.i79.i.i59.i, label %2066, label %JS_MarkValue.exit80.i.i60.i
 
-2097:                                             ; preds = %JS_MarkValue.exit78.i.i58.i
-  %2098 = getelementptr i8, ptr %.1168.i, i64 128
-  %2099 = load i64, ptr %2098, align 8
-  %2100 = inttoptr i64 %2099 to ptr
-  %2101 = load i32, ptr %2100, align 8
-  %2102 = add i32 %2101, 1
-  store i32 %2102, ptr %2100, align 8
+2066:                                             ; preds = %JS_MarkValue.exit78.i.i58.i
+  %2067 = getelementptr i8, ptr %.1167.i, i64 128
+  %2068 = load i64, ptr %2067, align 8
+  %2069 = inttoptr i64 %2068 to ptr
+  %2070 = load i32, ptr %2069, align 8
+  %2071 = add i32 %2070, 1
+  store i32 %2071, ptr %2069, align 8
   br label %JS_MarkValue.exit80.i.i60.i
 
-JS_MarkValue.exit80.i.i60.i:                      ; preds = %2097, %JS_MarkValue.exit78.i.i58.i
-  %2103 = getelementptr i8, ptr %.1168.i, i64 104
-  %2104 = load i64, ptr %2103, align 8
-  %2105 = and i64 %2104, 4294967294
-  %switch.i81.i.i61.i = icmp eq i64 %2105, 4294967294
-  br i1 %switch.i81.i.i61.i, label %2106, label %JS_MarkValue.exit82.i.i62.i
+JS_MarkValue.exit80.i.i60.i:                      ; preds = %2066, %JS_MarkValue.exit78.i.i58.i
+  %2072 = getelementptr i8, ptr %.1167.i, i64 104
+  %2073 = load i64, ptr %2072, align 8
+  %2074 = and i64 %2073, 4294967294
+  %switch.i81.i.i61.i = icmp eq i64 %2074, 4294967294
+  br i1 %switch.i81.i.i61.i, label %2075, label %JS_MarkValue.exit82.i.i62.i
 
-2106:                                             ; preds = %JS_MarkValue.exit80.i.i60.i
-  %2107 = getelementptr i8, ptr %.1168.i, i64 96
-  %2108 = load i64, ptr %2107, align 8
-  %2109 = inttoptr i64 %2108 to ptr
-  %2110 = load i32, ptr %2109, align 8
-  %2111 = add i32 %2110, 1
-  store i32 %2111, ptr %2109, align 8
+2075:                                             ; preds = %JS_MarkValue.exit80.i.i60.i
+  %2076 = getelementptr i8, ptr %.1167.i, i64 96
+  %2077 = load i64, ptr %2076, align 8
+  %2078 = inttoptr i64 %2077 to ptr
+  %2079 = load i32, ptr %2078, align 8
+  %2080 = add i32 %2079, 1
+  store i32 %2080, ptr %2078, align 8
   br label %JS_MarkValue.exit82.i.i62.i
 
-JS_MarkValue.exit82.i.i62.i:                      ; preds = %2106, %JS_MarkValue.exit80.i.i60.i
-  %2112 = getelementptr i8, ptr %.1168.i, i64 120
-  %2113 = load i64, ptr %2112, align 8
-  %2114 = and i64 %2113, 4294967294
-  %switch.i83.i.i63.i = icmp eq i64 %2114, 4294967294
-  br i1 %switch.i83.i.i63.i, label %2115, label %JS_MarkValue.exit84.i.i64.i
+JS_MarkValue.exit82.i.i62.i:                      ; preds = %2075, %JS_MarkValue.exit80.i.i60.i
+  %2081 = getelementptr i8, ptr %.1167.i, i64 120
+  %2082 = load i64, ptr %2081, align 8
+  %2083 = and i64 %2082, 4294967294
+  %switch.i83.i.i63.i = icmp eq i64 %2083, 4294967294
+  br i1 %switch.i83.i.i63.i, label %2084, label %JS_MarkValue.exit84.i.i64.i
 
-2115:                                             ; preds = %JS_MarkValue.exit82.i.i62.i
-  %2116 = getelementptr i8, ptr %.1168.i, i64 112
-  %2117 = load i64, ptr %2116, align 8
-  %2118 = inttoptr i64 %2117 to ptr
-  %2119 = load i32, ptr %2118, align 8
-  %2120 = add i32 %2119, 1
-  store i32 %2120, ptr %2118, align 8
+2084:                                             ; preds = %JS_MarkValue.exit82.i.i62.i
+  %2085 = getelementptr i8, ptr %.1167.i, i64 112
+  %2086 = load i64, ptr %2085, align 8
+  %2087 = inttoptr i64 %2086 to ptr
+  %2088 = load i32, ptr %2087, align 8
+  %2089 = add i32 %2088, 1
+  store i32 %2089, ptr %2087, align 8
   br label %JS_MarkValue.exit84.i.i64.i
 
-JS_MarkValue.exit84.i.i64.i:                      ; preds = %2115, %JS_MarkValue.exit82.i.i62.i
-  %2121 = getelementptr i8, ptr %.1168.i, i64 88
-  %2122 = load i64, ptr %2121, align 8
-  %2123 = and i64 %2122, 4294967294
-  %switch.i85.i.i65.i = icmp eq i64 %2123, 4294967294
-  br i1 %switch.i85.i.i65.i, label %2124, label %JS_MarkValue.exit86.i.i66.i
+JS_MarkValue.exit84.i.i64.i:                      ; preds = %2084, %JS_MarkValue.exit82.i.i62.i
+  %2090 = getelementptr i8, ptr %.1167.i, i64 88
+  %2091 = load i64, ptr %2090, align 8
+  %2092 = and i64 %2091, 4294967294
+  %switch.i85.i.i65.i = icmp eq i64 %2092, 4294967294
+  br i1 %switch.i85.i.i65.i, label %2093, label %JS_MarkValue.exit86.i.i66.i
 
-2124:                                             ; preds = %JS_MarkValue.exit84.i.i64.i
-  %2125 = getelementptr i8, ptr %.1168.i, i64 80
-  %2126 = load i64, ptr %2125, align 8
-  %2127 = inttoptr i64 %2126 to ptr
-  %2128 = load i32, ptr %2127, align 8
-  %2129 = add i32 %2128, 1
-  store i32 %2129, ptr %2127, align 8
+2093:                                             ; preds = %JS_MarkValue.exit84.i.i64.i
+  %2094 = getelementptr i8, ptr %.1167.i, i64 80
+  %2095 = load i64, ptr %2094, align 8
+  %2096 = inttoptr i64 %2095 to ptr
+  %2097 = load i32, ptr %2096, align 8
+  %2098 = add i32 %2097, 1
+  store i32 %2098, ptr %2096, align 8
   br label %JS_MarkValue.exit86.i.i66.i
 
-JS_MarkValue.exit86.i.i66.i:                      ; preds = %2124, %JS_MarkValue.exit84.i.i64.i
-  %2130 = getelementptr i8, ptr %.1168.i, i64 72
-  %2131 = load i64, ptr %2130, align 8
-  %2132 = and i64 %2131, 4294967294
-  %switch.i87.i.i67.i = icmp eq i64 %2132, 4294967294
-  br i1 %switch.i87.i.i67.i, label %2133, label %JS_MarkValue.exit88.i.i68.i
+JS_MarkValue.exit86.i.i66.i:                      ; preds = %2093, %JS_MarkValue.exit84.i.i64.i
+  %2099 = getelementptr i8, ptr %.1167.i, i64 72
+  %2100 = load i64, ptr %2099, align 8
+  %2101 = and i64 %2100, 4294967294
+  %switch.i87.i.i67.i = icmp eq i64 %2101, 4294967294
+  br i1 %switch.i87.i.i67.i, label %2102, label %JS_MarkValue.exit88.i.i68.i
 
-2133:                                             ; preds = %JS_MarkValue.exit86.i.i66.i
-  %2134 = getelementptr i8, ptr %.1168.i, i64 64
-  %2135 = load i64, ptr %2134, align 8
-  %2136 = inttoptr i64 %2135 to ptr
-  %2137 = load i32, ptr %2136, align 8
-  %2138 = add i32 %2137, 1
-  store i32 %2138, ptr %2136, align 8
+2102:                                             ; preds = %JS_MarkValue.exit86.i.i66.i
+  %2103 = getelementptr i8, ptr %.1167.i, i64 64
+  %2104 = load i64, ptr %2103, align 8
+  %2105 = inttoptr i64 %2104 to ptr
+  %2106 = load i32, ptr %2105, align 8
+  %2107 = add i32 %2106, 1
+  store i32 %2107, ptr %2105, align 8
   br label %JS_MarkValue.exit88.i.i68.i
 
-JS_MarkValue.exit88.i.i68.i:                      ; preds = %2133, %JS_MarkValue.exit86.i.i66.i
-  %2139 = getelementptr i8, ptr %.1168.i, i64 48
-  %2140 = load ptr, ptr %2139, align 8
-  %.not62.i.i69.i = icmp eq ptr %2140, null
-  br i1 %.not62.i.i69.i, label %mark_children.exit124.i, label %2141
+JS_MarkValue.exit88.i.i68.i:                      ; preds = %2102, %JS_MarkValue.exit86.i.i66.i
+  %2108 = getelementptr i8, ptr %.1167.i, i64 48
+  %2109 = load ptr, ptr %2108, align 8
+  %.not62.i.i69.i = icmp eq ptr %2109, null
+  br i1 %.not62.i.i69.i, label %mark_children.exit126.i, label %2110
 
-2141:                                             ; preds = %JS_MarkValue.exit88.i.i68.i
-  %2142 = load i32, ptr %2140, align 8
-  %2143 = add i32 %2142, 1
-  store i32 %2143, ptr %2140, align 8
-  br label %mark_children.exit124.i
+2110:                                             ; preds = %JS_MarkValue.exit88.i.i68.i
+  %2111 = load i32, ptr %2109, align 8
+  %2112 = add i32 %2111, 1
+  store i32 %2112, ptr %2109, align 8
+  br label %mark_children.exit126.i
 
-2144:                                             ; preds = %1748
+2113:                                             ; preds = %1717
   tail call void @abort() #44
   unreachable
 
-mark_children.exit124.i:                          ; preds = %2141, %JS_MarkValue.exit88.i.i68.i, %1911, %1908, %1902, %JS_MarkValue.exit128.i85.i, %1847, %1844, %1839, %1833, %1826, %._crit_edge.i101.i, %1808, %1803, %._crit_edge138.i109.i
-  %2145 = getelementptr inbounds i8, ptr %.1168.i, i64 8
-  %.1.i = load ptr, ptr %2145, align 8
+mark_children.exit126.i:                          ; preds = %2110, %JS_MarkValue.exit88.i.i68.i, %1880, %1877, %1871, %JS_MarkValue.exit128.i85.i, %1816, %1813, %1808, %1802, %1795, %._crit_edge.i101.i, %1777, %1772, %._crit_edge138.i109.i
+  %2114 = getelementptr inbounds i8, ptr %.1167.i, i64 8
+  %.1.i = load ptr, ptr %2114, align 8
   %.not15.i = icmp eq ptr %.1.i, %2
-  br i1 %.not15.i, label %gc_scan.exit.loopexit, label %1748, !llvm.loop !31
+  br i1 %.not15.i, label %gc_scan.exit.loopexit, label %1717, !llvm.loop !31
 
-gc_scan.exit.loopexit:                            ; preds = %mark_children.exit124.i
+gc_scan.exit.loopexit:                            ; preds = %mark_children.exit126.i
   %.pre = load ptr, ptr %3, align 8
   br label %gc_scan.exit
 
 gc_scan.exit:                                     ; preds = %gc_scan.exit.loopexit, %._crit_edge.i
-  %2146 = phi ptr [ %.pre, %gc_scan.exit.loopexit ], [ %.1166.i, %._crit_edge.i ]
-  %2147 = getelementptr inbounds i8, ptr %0, i64 184
-  store i8 2, ptr %2147, align 8
-  %2148 = icmp eq ptr %2146, %2
-  br i1 %2148, label %._crit_edge.i116, label %.lr.ph.i115
+  %2115 = phi ptr [ %.pre, %gc_scan.exit.loopexit ], [ %.1165.i, %._crit_edge.i ]
+  %2116 = getelementptr inbounds i8, ptr %0, i64 184
+  store i8 2, ptr %2116, align 8
+  %2117 = icmp eq ptr %2115, %2
+  br i1 %2117, label %._crit_edge.i6, label %.lr.ph.i5
 
-.lr.ph.i115:                                      ; preds = %gc_scan.exit
-  %2149 = getelementptr inbounds i8, ptr %0, i64 152
-  br label %2150
+.lr.ph.i5:                                        ; preds = %gc_scan.exit
+  %2118 = getelementptr inbounds i8, ptr %0, i64 152
+  br label %2119
 
-2150:                                             ; preds = %2164, %.lr.ph.i115
-  %2151 = phi ptr [ %2146, %.lr.ph.i115 ], [ %2165, %2164 ]
-  %2152 = getelementptr i8, ptr %2151, i64 -4
-  %2153 = load i8, ptr %2152, align 4
-  %2154 = and i8 %2153, 15
-  switch i8 %2154, label %2157 [
-    i8 0, label %2155
-    i8 1, label %2155
-    i8 4, label %2155
+2119:                                             ; preds = %2133, %.lr.ph.i5
+  %2120 = phi ptr [ %2115, %.lr.ph.i5 ], [ %2134, %2133 ]
+  %2121 = getelementptr i8, ptr %2120, i64 -4
+  %2122 = load i8, ptr %2121, align 4
+  %2123 = and i8 %2122, 15
+  switch i8 %2123, label %2126 [
+    i8 0, label %2124
+    i8 1, label %2124
+    i8 4, label %2124
   ]
 
-2155:                                             ; preds = %2150, %2150, %2150
-  %2156 = getelementptr i8, ptr %2151, i64 -8
-  tail call fastcc void @free_gc_object(ptr noundef nonnull %0, ptr noundef %2156)
-  br label %2164
+2124:                                             ; preds = %2119, %2119, %2119
+  %2125 = getelementptr i8, ptr %2120, i64 -8
+  tail call fastcc void @free_gc_object(ptr noundef nonnull %0, ptr noundef %2125)
+  br label %2133
 
-2157:                                             ; preds = %2150
-  %2158 = load ptr, ptr %2151, align 8
-  %2159 = getelementptr inbounds i8, ptr %2151, i64 8
-  %2160 = load ptr, ptr %2159, align 8
-  %2161 = getelementptr inbounds i8, ptr %2158, i64 8
-  store ptr %2160, ptr %2161, align 8
-  store ptr %2158, ptr %2160, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2151, i8 0, i64 16, i1 false)
-  %2162 = load ptr, ptr %2149, align 8
-  %2163 = getelementptr inbounds i8, ptr %2162, i64 8
-  store ptr %2151, ptr %2163, align 8
-  store ptr %2162, ptr %2151, align 8
-  store ptr %2149, ptr %2159, align 8
-  store ptr %2151, ptr %2149, align 8
-  br label %2164
+2126:                                             ; preds = %2119
+  %2127 = load ptr, ptr %2120, align 8
+  %2128 = getelementptr inbounds i8, ptr %2120, i64 8
+  %2129 = load ptr, ptr %2128, align 8
+  %2130 = getelementptr inbounds i8, ptr %2127, i64 8
+  store ptr %2129, ptr %2130, align 8
+  store ptr %2127, ptr %2129, align 8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2120, i8 0, i64 16, i1 false)
+  %2131 = load ptr, ptr %2118, align 8
+  %2132 = getelementptr inbounds i8, ptr %2131, i64 8
+  store ptr %2120, ptr %2132, align 8
+  store ptr %2131, ptr %2120, align 8
+  store ptr %2118, ptr %2128, align 8
+  store ptr %2120, ptr %2118, align 8
+  br label %2133
 
-2164:                                             ; preds = %2157, %2155
-  %2165 = load ptr, ptr %3, align 8
-  %2166 = icmp eq ptr %2165, %2
-  br i1 %2166, label %._crit_edge.i116, label %2150
+2133:                                             ; preds = %2126, %2124
+  %2134 = load ptr, ptr %3, align 8
+  %2135 = icmp eq ptr %2134, %2
+  br i1 %2135, label %._crit_edge.i6, label %2119
 
-._crit_edge.i116:                                 ; preds = %2164, %gc_scan.exit
-  store i8 0, ptr %2147, align 8
-  %2167 = getelementptr inbounds i8, ptr %0, i64 152
-  %2168 = getelementptr inbounds i8, ptr %0, i64 160
-  %2169 = load ptr, ptr %2168, align 8
-  %.not25.i = icmp eq ptr %2169, %2167
+._crit_edge.i6:                                   ; preds = %2133, %gc_scan.exit
+  store i8 0, ptr %2116, align 8
+  %2136 = getelementptr inbounds i8, ptr %0, i64 152
+  %2137 = getelementptr inbounds i8, ptr %0, i64 160
+  %2138 = load ptr, ptr %2137, align 8
+  %.not25.i = icmp eq ptr %2138, %2136
   br i1 %.not25.i, label %gc_free_cycles.exit, label %.lr.ph28.i
 
-.lr.ph28.i:                                       ; preds = %._crit_edge.i116
-  %2170 = getelementptr inbounds i8, ptr %0, i64 8
-  %2171 = getelementptr inbounds i8, ptr %0, i64 32
-  br label %2172
+.lr.ph28.i:                                       ; preds = %._crit_edge.i6
+  %2139 = getelementptr inbounds i8, ptr %0, i64 8
+  %2140 = getelementptr inbounds i8, ptr %0, i64 32
+  br label %2141
 
-2172:                                             ; preds = %2172, %.lr.ph28.i
-  %.02226.i = phi ptr [ %2169, %.lr.ph28.i ], [ %.0.i117, %2172 ]
+2141:                                             ; preds = %2141, %.lr.ph28.i
+  %.02226.i = phi ptr [ %2138, %.lr.ph28.i ], [ %.0.i7, %2141 ]
   %.0.in.i = getelementptr inbounds i8, ptr %.02226.i, i64 8
-  %.0.i117 = load ptr, ptr %.0.in.i, align 8
-  %2173 = getelementptr i8, ptr %.02226.i, i64 -8
-  %2174 = load ptr, ptr %2170, align 8
-  tail call void %2174(ptr noundef nonnull %2171, ptr noundef %2173) #42
-  %.not.i118 = icmp eq ptr %.0.i117, %2167
-  br i1 %.not.i118, label %gc_free_cycles.exit, label %2172, !llvm.loop !32
+  %.0.i7 = load ptr, ptr %.0.in.i, align 8
+  %2142 = getelementptr i8, ptr %.02226.i, i64 -8
+  %2143 = load ptr, ptr %2139, align 8
+  tail call void %2143(ptr noundef nonnull %2140, ptr noundef %2142) #42
+  %.not.i8 = icmp eq ptr %.0.i7, %2136
+  br i1 %.not.i8, label %gc_free_cycles.exit, label %2141, !llvm.loop !32
 
-gc_free_cycles.exit:                              ; preds = %2172, %._crit_edge.i116
-  store ptr %2167, ptr %2167, align 8
-  store ptr %2167, ptr %2168, align 8
+gc_free_cycles.exit:                              ; preds = %2141, %._crit_edge.i6
+  store ptr %2136, ptr %2136, align 8
+  store ptr %2136, ptr %2137, align 8
   ret void
 }
 
@@ -11295,7 +11250,7 @@ define dso_local i32 @JS_NewAtomLen(ptr noundef %0, ptr noundef %1, i64 noundef 
   %14 = getelementptr i32, ptr %12, i64 %13
   %.02333.i = load i32, ptr %14, align 4
   %.not34.i = icmp eq i32 %.02333.i, 0
-  br i1 %.not34.i, label %.split15, label %.lr.ph.i
+  br i1 %.not34.i, label %.split14, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.split
   %15 = getelementptr inbounds i8, ptr %6, i64 96
@@ -11326,7 +11281,7 @@ define dso_local i32 @JS_NewAtomLen(ptr noundef %0, ptr noundef %1, i64 noundef 
   %29 = getelementptr inbounds i8, ptr %20, i64 12
   %.023.i = load i32, ptr %29, align 4
   %.not.i = icmp eq i32 %.023.i, 0
-  br i1 %.not.i, label %.split15, label %17, !llvm.loop !45
+  br i1 %.not.i, label %.split14, label %17, !llvm.loop !45
 
 30:                                               ; preds = %3
   %31 = load i8, ptr %1, align 1
@@ -11335,111 +11290,103 @@ define dso_local i32 @JS_NewAtomLen(ptr noundef %0, ptr noundef %1, i64 noundef 
   %34 = icmp ult i32 %33, -10
   br i1 %34, label %.split13, label %.split14
 
-.split14:                                         ; preds = %30
-  %35 = tail call { i64, i64 } @JS_NewStringLen(ptr noundef %0, ptr noundef nonnull %1, i64 noundef %2)
-  br label %81
-
 .split13:                                         ; preds = %30
-  %36 = getelementptr inbounds i8, ptr %0, i64 24
-  %37 = load ptr, ptr %36, align 8
+  %35 = getelementptr inbounds i8, ptr %0, i64 24
+  %36 = load ptr, ptr %35, align 8
   br label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %.split13, %.lr.ph.i.i
-  %.08.i.i = phi i64 [ %43, %.lr.ph.i.i ], [ 0, %.split13 ]
-  %.067.i.i = phi i32 [ %42, %.lr.ph.i.i ], [ 1, %.split13 ]
-  %38 = mul i32 %.067.i.i, 263
-  %39 = getelementptr i8, ptr %1, i64 %.08.i.i
-  %40 = load i8, ptr %39, align 1
-  %41 = zext i8 %40 to i32
-  %42 = add i32 %38, %41
-  %43 = add nuw i64 %.08.i.i, 1
-  %exitcond.not.i.i = icmp eq i64 %43, %2
+  %.08.i.i = phi i64 [ %42, %.lr.ph.i.i ], [ 0, %.split13 ]
+  %.067.i.i = phi i32 [ %41, %.lr.ph.i.i ], [ 1, %.split13 ]
+  %37 = mul i32 %.067.i.i, 263
+  %38 = getelementptr i8, ptr %1, i64 %.08.i.i
+  %39 = load i8, ptr %38, align 1
+  %40 = zext i8 %39 to i32
+  %41 = add i32 %37, %40
+  %42 = add nuw i64 %.08.i.i, 1
+  %exitcond.not.i.i = icmp eq i64 %42, %2
   br i1 %exitcond.not.i.i, label %hash_string8.exit.i, label %.lr.ph.i.i, !llvm.loop !46
 
 hash_string8.exit.i:                              ; preds = %.lr.ph.i.i
-  %44 = and i32 %42, 1073741823
-  %45 = getelementptr inbounds i8, ptr %37, i64 72
-  %46 = load i32, ptr %45, align 8
-  %47 = add i32 %46, 1073741823
-  %48 = and i32 %47, %44
-  %49 = getelementptr inbounds i8, ptr %37, i64 88
-  %50 = load ptr, ptr %49, align 8
-  %51 = zext nneg i32 %48 to i64
-  %52 = getelementptr i32, ptr %50, i64 %51
-  %.02333.i20 = load i32, ptr %52, align 4
+  %43 = and i32 %41, 1073741823
+  %44 = getelementptr inbounds i8, ptr %36, i64 72
+  %45 = load i32, ptr %44, align 8
+  %46 = add i32 %45, 1073741823
+  %47 = and i32 %46, %43
+  %48 = getelementptr inbounds i8, ptr %36, i64 88
+  %49 = load ptr, ptr %48, align 8
+  %50 = zext nneg i32 %47 to i64
+  %51 = getelementptr i32, ptr %49, i64 %50
+  %.02333.i20 = load i32, ptr %51, align 4
   %.not34.i21 = icmp eq i32 %.02333.i20, 0
-  br i1 %.not34.i21, label %.split15, label %.lr.ph.i22
+  br i1 %.not34.i21, label %.split14, label %.lr.ph.i22
 
 .lr.ph.i22:                                       ; preds = %hash_string8.exit.i
-  %53 = getelementptr inbounds i8, ptr %37, i64 96
-  %54 = load ptr, ptr %53, align 8
-  br label %55
+  %52 = getelementptr inbounds i8, ptr %36, i64 96
+  %53 = load ptr, ptr %52, align 8
+  br label %54
 
-55:                                               ; preds = %78, %.lr.ph.i22
-  %.02335.i23 = phi i32 [ %.02333.i20, %.lr.ph.i22 ], [ %.023.i28, %78 ]
-  %56 = zext i32 %.02335.i23 to i64
-  %57 = getelementptr ptr, ptr %54, i64 %56
-  %58 = load ptr, ptr %57, align 8
-  %59 = getelementptr inbounds i8, ptr %58, i64 4
-  %60 = load i64, ptr %59, align 4
-  %61 = lshr i64 %60, 32
-  %62 = trunc nuw i64 %61 to i32
-  %63 = and i32 %62, 1073741823
-  %64 = icmp eq i32 %63, %44
-  %.mask.i24 = and i64 %60, -4611686018427387904
-  %65 = icmp eq i64 %.mask.i24, 4611686018427387904
-  %or.cond.i25 = and i1 %65, %64
-  %66 = and i64 %60, 2147483647
-  %67 = icmp eq i64 %66, %2
-  %or.cond27.i26 = and i1 %67, %or.cond.i25
-  %68 = and i64 %60, 2147483648
-  %69 = icmp eq i64 %68, 0
-  %or.cond29.i27 = and i1 %69, %or.cond27.i26
-  br i1 %or.cond29.i27, label %70, label %78
+54:                                               ; preds = %77, %.lr.ph.i22
+  %.02335.i23 = phi i32 [ %.02333.i20, %.lr.ph.i22 ], [ %.023.i28, %77 ]
+  %55 = zext i32 %.02335.i23 to i64
+  %56 = getelementptr ptr, ptr %53, i64 %55
+  %57 = load ptr, ptr %56, align 8
+  %58 = getelementptr inbounds i8, ptr %57, i64 4
+  %59 = load i64, ptr %58, align 4
+  %60 = lshr i64 %59, 32
+  %61 = trunc nuw i64 %60 to i32
+  %62 = and i32 %61, 1073741823
+  %63 = icmp eq i32 %62, %43
+  %.mask.i24 = and i64 %59, -4611686018427387904
+  %64 = icmp eq i64 %.mask.i24, 4611686018427387904
+  %or.cond.i25 = and i1 %64, %63
+  %65 = and i64 %59, 2147483647
+  %66 = icmp eq i64 %65, %2
+  %or.cond27.i26 = and i1 %66, %or.cond.i25
+  %67 = and i64 %59, 2147483648
+  %68 = icmp eq i64 %67, 0
+  %or.cond29.i27 = and i1 %68, %or.cond27.i26
+  br i1 %or.cond29.i27, label %69, label %77
 
-70:                                               ; preds = %55
-  %71 = getelementptr inbounds i8, ptr %58, i64 16
-  %bcmp.i31 = tail call i32 @bcmp(ptr nonnull %71, ptr nonnull readonly %1, i64 %2)
-  %72 = icmp eq i32 %bcmp.i31, 0
-  br i1 %72, label %73, label %78
+69:                                               ; preds = %54
+  %70 = getelementptr inbounds i8, ptr %57, i64 16
+  %bcmp.i31 = tail call i32 @bcmp(ptr nonnull %70, ptr nonnull readonly %1, i64 %2)
+  %71 = icmp eq i32 %bcmp.i31, 0
+  br i1 %71, label %72, label %77
 
-73:                                               ; preds = %70
-  %74 = icmp sgt i32 %.02335.i23, 226
-  br i1 %74, label %75, label %__JS_FindAtom.exit.thread36
+72:                                               ; preds = %69
+  %73 = icmp sgt i32 %.02335.i23, 226
+  br i1 %73, label %74, label %__JS_FindAtom.exit.thread36
 
-75:                                               ; preds = %73
-  %76 = load i32, ptr %58, align 4
-  %77 = add i32 %76, 1
-  store i32 %77, ptr %58, align 4
+74:                                               ; preds = %72
+  %75 = load i32, ptr %57, align 4
+  %76 = add i32 %75, 1
+  store i32 %76, ptr %57, align 4
   br label %__JS_FindAtom.exit.thread36
 
-78:                                               ; preds = %70, %55
-  %79 = getelementptr inbounds i8, ptr %58, i64 12
-  %.023.i28 = load i32, ptr %79, align 4
+77:                                               ; preds = %69, %54
+  %78 = getelementptr inbounds i8, ptr %57, i64 12
+  %.023.i28 = load i32, ptr %78, align 4
   %.not.i29 = icmp eq i32 %.023.i28, 0
-  br i1 %.not.i29, label %.split15, label %55, !llvm.loop !45
+  br i1 %.not.i29, label %.split14, label %54, !llvm.loop !45
 
-.split15:                                         ; preds = %78, %28, %hash_string8.exit.i, %.split
-  %80 = tail call { i64, i64 } @JS_NewStringLen(ptr noundef %0, ptr noundef %1, i64 noundef %2)
-  br label %81
+.split14:                                         ; preds = %77, %28, %.split, %hash_string8.exit.i, %30
+  %79 = tail call { i64, i64 } @JS_NewStringLen(ptr noundef %0, ptr noundef %1, i64 noundef %2)
+  %80 = extractvalue { i64, i64 } %79, 1
+  %81 = and i64 %80, 4294967295
+  %.not = icmp eq i64 %81, 6
+  br i1 %.not, label %__JS_FindAtom.exit.thread36, label %82
 
-81:                                               ; preds = %.split15, %.split14
-  %phi.call16 = phi { i64, i64 } [ %35, %.split14 ], [ %80, %.split15 ]
-  %82 = extractvalue { i64, i64 } %phi.call16, 1
-  %83 = and i64 %82, 4294967295
-  %.not = icmp eq i64 %83, 6
-  br i1 %.not, label %__JS_FindAtom.exit.thread36, label %84
-
-84:                                               ; preds = %81
-  %85 = extractvalue { i64, i64 } %phi.call16, 0
-  %86 = inttoptr i64 %85 to ptr
-  %87 = getelementptr i8, ptr %0, i64 24
-  %.val = load ptr, ptr %87, align 8
-  %88 = tail call fastcc i32 @JS_NewAtomStr(ptr %.val, ptr noundef %86)
+82:                                               ; preds = %.split14
+  %83 = extractvalue { i64, i64 } %79, 0
+  %84 = inttoptr i64 %83 to ptr
+  %85 = getelementptr i8, ptr %0, i64 24
+  %.val = load ptr, ptr %85, align 8
+  %86 = tail call fastcc i32 @JS_NewAtomStr(ptr %.val, ptr noundef %84)
   br label %__JS_FindAtom.exit.thread36
 
-__JS_FindAtom.exit.thread36:                      ; preds = %23, %73, %75, %25, %81, %84
-  %.0 = phi i32 [ %88, %84 ], [ 0, %81 ], [ %.02335.i23, %75 ], [ %.02335.i, %25 ], [ %.02335.i, %23 ], [ %.02335.i23, %73 ]
+__JS_FindAtom.exit.thread36:                      ; preds = %23, %72, %74, %25, %.split14, %82
+  %.0 = phi i32 [ %86, %82 ], [ 0, %.split14 ], [ %.02335.i23, %74 ], [ %.02335.i, %25 ], [ %.02335.i, %23 ], [ %.02335.i23, %72 ]
   ret i32 %.0
 }
 
@@ -85641,7 +85588,7 @@ define internal fastcc range(i32 -1, 1) i32 @JS_CopyDataProperties(ptr noundef %
   %14 = and i64 %4, 4294967295
   %.not = icmp eq i64 %14, 4294967295
   %15 = inttoptr i64 %3 to ptr
-  br i1 %.not, label %16, label %193
+  br i1 %.not, label %16, label %126
 
 16:                                               ; preds = %7
   %17 = getelementptr inbounds i8, ptr %5, i64 8
@@ -85681,13 +85628,13 @@ define internal fastcc range(i32 -1, 1) i32 @JS_CopyDataProperties(ptr noundef %
   %.058 = phi i32 [ 19, %25 ], [ 19, %16 ], [ %spec.select76, %35 ]
   %39 = call fastcc i32 @JS_GetOwnPropertyNamesInternal(ptr noundef %0, ptr noundef nonnull %11, ptr noundef nonnull %12, ptr noundef nonnull %15, i32 noundef %.058)
   %.not66 = icmp eq i32 %39, 0
-  br i1 %.not66, label %.preheader, label %193
+  br i1 %.not66, label %.preheader, label %126
 
 .preheader:                                       ; preds = %38
   %40 = load i32, ptr %12, align 4
   %.not83 = icmp eq i32 %40, 0
   %.pre = load ptr, ptr %11, align 8
-  br i1 %.not83, label %._crit_edge, label %.lr.ph
+  br i1 %.not83, label %.sink.split, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader
   %.not67 = icmp eq ptr %spec.select, null
@@ -85718,10 +85665,7 @@ define internal fastcc range(i32 -1, 1) i32 @JS_CopyDataProperties(ptr noundef %
 
 56:                                               ; preds = %52
   %57 = icmp slt i32 %55, 0
-  br i1 %57, label %.lr.ph.i.preheader, label %125
-
-.lr.ph.i.preheader:                               ; preds = %123, %101, %59, %56
-  br label %.lr.ph.i
+  br i1 %57, label %.sink.split, label %125
 
 58:                                               ; preds = %52, %51
   br i1 %.not69, label %59, label %101
@@ -85731,7 +85675,7 @@ define internal fastcc range(i32 -1, 1) i32 @JS_CopyDataProperties(ptr noundef %
   %61 = load i32, ptr %60, align 4
   %62 = call fastcc i32 @JS_GetOwnPropertyInternal(ptr noundef %0, ptr noundef nonnull %13, ptr noundef %15, i32 noundef %61)
   %63 = icmp slt i32 %62, 0
-  br i1 %63, label %.lr.ph.i.preheader, label %64
+  br i1 %63, label %.sink.split, label %64
 
 64:                                               ; preds = %59
   %.not70 = icmp eq i32 %62, 0
@@ -85811,7 +85755,7 @@ js_free_desc.exit:                                ; preds = %JS_FreeValue.exit6.
   %106 = extractvalue { i64, i64 } %104, 1
   %107 = and i64 %106, 4294967295
   %.not79 = icmp eq i64 %107, 6
-  br i1 %.not79, label %.lr.ph.i.preheader, label %108
+  br i1 %.not79, label %.sink.split, label %108
 
 108:                                              ; preds = %101
   %109 = load i32, ptr %102, align 4
@@ -85858,130 +85802,20 @@ JS_DefinePropertyValue.exit:                      ; preds = %112, %116, %121
 123:                                              ; preds = %JS_DefinePropertyValue.exit, %110
   %.057 = phi i32 [ %111, %110 ], [ %113, %JS_DefinePropertyValue.exit ]
   %124 = icmp slt i32 %.057, 0
-  br i1 %124, label %.lr.ph.i.preheader, label %125
+  br i1 %124, label %.sink.split, label %125
 
 125:                                              ; preds = %123, %js_free_desc.exit, %64, %56
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %51, !llvm.loop !255
+  br i1 %exitcond.not, label %.sink.split, label %51, !llvm.loop !255
 
-._crit_edge:                                      ; preds = %125, %.preheader
+.sink.split:                                      ; preds = %56, %59, %101, %123, %125, %.preheader
+  %.0.ph = phi i32 [ 0, %.preheader ], [ 0, %125 ], [ -1, %123 ], [ -1, %101 ], [ -1, %59 ], [ -1, %56 ]
   call fastcc void @js_free_prop_enum(ptr noundef %0, ptr noundef %.pre, i32 noundef %40)
-  br label %193
+  br label %126
 
-.lr.ph.i:                                         ; preds = %.lr.ph.i.preheader, %JS_FreeAtom.exit.i
-  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %JS_FreeAtom.exit.i ], [ 0, %.lr.ph.i.preheader ]
-  %126 = getelementptr %struct.JSPropertyEnum, ptr %.pre, i64 %indvars.iv.i, i32 1
-  %127 = load i32, ptr %126, align 4
-  %128 = icmp sgt i32 %127, 226
-  br i1 %128, label %129, label %JS_FreeAtom.exit.i
-
-129:                                              ; preds = %.lr.ph.i
-  %130 = load ptr, ptr %43, align 8
-  %131 = getelementptr inbounds i8, ptr %130, i64 96
-  %132 = load ptr, ptr %131, align 8
-  %133 = zext nneg i32 %127 to i64
-  %134 = getelementptr ptr, ptr %132, i64 %133
-  %135 = load ptr, ptr %134, align 8
-  %136 = load i32, ptr %135, align 4
-  %137 = add i32 %136, -1
-  store i32 %137, ptr %135, align 4
-  %138 = icmp sgt i32 %137, 0
-  br i1 %138, label %JS_FreeAtom.exit.i, label %139
-
-139:                                              ; preds = %129
-  %140 = getelementptr inbounds i8, ptr %135, i64 4
-  %141 = load i64, ptr %140, align 4
-  %.not.i.i.i.i = icmp ugt i64 %141, -4611686018427387905
-  br i1 %.not.i.i.i.i, label %._crit_edge.i.i.i.i, label %144
-
-._crit_edge.i.i.i.i:                              ; preds = %139
-  %142 = getelementptr inbounds i8, ptr %135, i64 12
-  %143 = load i32, ptr %142, align 4
-  %.pre.i.i.i.i = zext i32 %143 to i64
-  br label %JS_FreeAtomStruct.exit.i.i.i
-
-144:                                              ; preds = %139
-  %145 = lshr i64 %141, 32
-  %146 = trunc nuw i64 %145 to i32
-  %147 = and i32 %146, 1073741823
-  %148 = getelementptr inbounds i8, ptr %130, i64 72
-  %149 = load i32, ptr %148, align 8
-  %150 = add i32 %149, -1
-  %151 = and i32 %147, %150
-  %152 = getelementptr inbounds i8, ptr %130, i64 88
-  %153 = load ptr, ptr %152, align 8
-  %154 = zext nneg i32 %151 to i64
-  %155 = getelementptr i32, ptr %153, i64 %154
-  %156 = load i32, ptr %155, align 4
-  %157 = load ptr, ptr %131, align 8
-  %158 = zext i32 %156 to i64
-  %159 = getelementptr ptr, ptr %157, i64 %158
-  %160 = load ptr, ptr %159, align 8
-  %161 = icmp eq ptr %160, %135
-  br i1 %161, label %162, label %.preheader.i.i.i.i
-
-162:                                              ; preds = %144
-  %163 = getelementptr inbounds i8, ptr %160, i64 12
-  %164 = load i32, ptr %163, align 4
-  store i32 %164, ptr %155, align 4
-  br label %JS_FreeAtomStruct.exit.i.i.i
-
-.preheader.i.i.i.i:                               ; preds = %144, %.preheader.i.i.i.i
-  %.028.i.i.i.i = phi ptr [ %169, %.preheader.i.i.i.i ], [ %160, %144 ]
-  %165 = getelementptr inbounds i8, ptr %.028.i.i.i.i, i64 12
-  %166 = load i32, ptr %165, align 4
-  %167 = zext i32 %166 to i64
-  %168 = getelementptr ptr, ptr %157, i64 %167
-  %169 = load ptr, ptr %168, align 8
-  %170 = icmp eq ptr %169, %135
-  br i1 %170, label %171, label %.preheader.i.i.i.i
-
-171:                                              ; preds = %.preheader.i.i.i.i
-  %172 = getelementptr inbounds i8, ptr %.028.i.i.i.i, i64 12
-  %173 = getelementptr inbounds i8, ptr %169, i64 12
-  %174 = load i32, ptr %173, align 4
-  store i32 %174, ptr %172, align 4
-  br label %JS_FreeAtomStruct.exit.i.i.i
-
-JS_FreeAtomStruct.exit.i.i.i:                     ; preds = %171, %162, %._crit_edge.i.i.i.i
-  %.pre-phi.i.i.i.i = phi i64 [ %.pre.i.i.i.i, %._crit_edge.i.i.i.i ], [ %158, %162 ], [ %167, %171 ]
-  %.0.i.i.i.i = phi i32 [ %143, %._crit_edge.i.i.i.i ], [ %156, %162 ], [ %166, %171 ]
-  %175 = getelementptr inbounds i8, ptr %130, i64 104
-  %176 = load i32, ptr %175, align 8
-  %177 = zext i32 %176 to i64
-  %178 = shl nuw nsw i64 %177, 1
-  %179 = or disjoint i64 %178, 1
-  %180 = inttoptr i64 %179 to ptr
-  %181 = load ptr, ptr %131, align 8
-  %182 = getelementptr ptr, ptr %181, i64 %.pre-phi.i.i.i.i
-  store ptr %180, ptr %182, align 8
-  store i32 %.0.i.i.i.i, ptr %175, align 8
-  %183 = getelementptr inbounds i8, ptr %130, i64 8
-  %184 = load ptr, ptr %183, align 8
-  %185 = getelementptr inbounds i8, ptr %130, i64 32
-  call void %184(ptr noundef nonnull %185, ptr noundef nonnull %135) #42
-  %186 = getelementptr inbounds i8, ptr %130, i64 76
-  %187 = load i32, ptr %186, align 4
-  %188 = add i32 %187, -1
-  store i32 %188, ptr %186, align 4
-  br label %JS_FreeAtom.exit.i
-
-JS_FreeAtom.exit.i:                               ; preds = %JS_FreeAtomStruct.exit.i.i.i, %129, %.lr.ph.i
-  %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count
-  br i1 %exitcond.not.i, label %js_free_prop_enum.exit, label %.lr.ph.i, !llvm.loop !228
-
-js_free_prop_enum.exit:                           ; preds = %JS_FreeAtom.exit.i
-  %189 = load ptr, ptr %43, align 8
-  %190 = getelementptr inbounds i8, ptr %189, i64 8
-  %191 = load ptr, ptr %190, align 8
-  %192 = getelementptr inbounds i8, ptr %189, i64 32
-  call void %191(ptr noundef nonnull %192, ptr noundef nonnull %.pre) #42
-  br label %193
-
-193:                                              ; preds = %38, %7, %js_free_prop_enum.exit, %._crit_edge
-  %.0 = phi i32 [ -1, %js_free_prop_enum.exit ], [ 0, %._crit_edge ], [ 0, %7 ], [ -1, %38 ]
+126:                                              ; preds = %.sink.split, %38, %7
+  %.0 = phi i32 [ 0, %7 ], [ -1, %38 ], [ %.0.ph, %.sink.split ]
   ret i32 %.0
 }
 
@@ -181205,12 +181039,12 @@ define internal { i64, i64 } @js_object_isSealed(ptr noundef %0, i64 %1, i64 %2,
   %10 = and i64 %.sroa.4.0.copyload, 4294967295
   %.not = icmp eq i64 %10, 4294967295
   %11 = inttoptr i64 %.sroa.0.0.copyload52 to ptr
-  br i1 %.not, label %12, label %82
+  br i1 %.not, label %12, label %80
 
 12:                                               ; preds = %6
   %13 = call fastcc i32 @JS_GetOwnPropertyNamesInternal(ptr noundef %0, ptr noundef nonnull %7, ptr noundef nonnull %8, ptr noundef %11, i32 noundef 3)
   %.not36 = icmp eq i32 %13, 0
-  br i1 %.not36, label %.preheader, label %82
+  br i1 %.not36, label %.preheader, label %80
 
 .preheader:                                       ; preds = %12
   %14 = load i32, ptr %8, align 4
@@ -181236,7 +181070,7 @@ define internal { i64, i64 } @js_object_isSealed(ptr noundef %0, i64 %1, i64 %2,
   %25 = load i32, ptr %24, align 4
   %26 = call fastcc i32 @JS_GetOwnPropertyInternal(ptr noundef %0, ptr noundef nonnull %9, ptr noundef %11, i32 noundef %25)
   %27 = icmp slt i32 %26, 0
-  br i1 %27, label %81, label %28
+  br i1 %27, label %.sink.split, label %28
 
 28:                                               ; preds = %23
   %.not38 = icmp eq i32 %26, 0
@@ -181306,13 +181140,13 @@ js_free_desc.exit:                                ; preds = %JS_FreeValue.exit6.
   %63 = load i32, ptr %9, align 8
   %64 = and i32 %63, 1
   %.not39 = icmp eq i32 %64, 0
-  br i1 %.not39, label %65, label %.loopexit
+  br i1 %.not39, label %65, label %.sink.split
 
 65:                                               ; preds = %js_free_desc.exit
   %66 = and i32 %63, 2
   %.not41 = icmp eq i32 %66, 0
   %or.cond = or i1 %.not40, %.not41
-  br i1 %or.cond, label %67, label %.loopexit
+  br i1 %or.cond, label %67, label %.sink.split
 
 67:                                               ; preds = %28, %65
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -181335,28 +181169,25 @@ js_free_desc.exit:                                ; preds = %JS_FreeValue.exit6.
 JS_IsExtensible.exit:                             ; preds = %._crit_edge
   %76 = call fastcc i32 @js_proxy_isExtensible(ptr noundef %0, i64 %.sroa.0.0.copyload52, i64 %.sroa.4.0.copyload) #45
   %77 = icmp slt i32 %76, 0
-  br i1 %77, label %82, label %JS_IsExtensible.exit.thread
+  br i1 %77, label %80, label %JS_IsExtensible.exit.thread
 
 JS_IsExtensible.exit.thread:                      ; preds = %71, %JS_IsExtensible.exit
   %.0.i43 = phi i32 [ %76, %JS_IsExtensible.exit ], [ %75, %71 ]
   %78 = icmp ne i32 %.0.i43, 1
   %79 = zext i1 %78 to i64
   %.pre = load ptr, ptr %7, align 8
-  br label %.loopexit
+  br label %.sink.split
 
-.loopexit:                                        ; preds = %js_free_desc.exit, %65, %JS_IsExtensible.exit.thread
-  %80 = phi ptr [ %.pre, %JS_IsExtensible.exit.thread ], [ %15, %65 ], [ %15, %js_free_desc.exit ]
-  %.0 = phi i64 [ %79, %JS_IsExtensible.exit.thread ], [ 0, %65 ], [ 0, %js_free_desc.exit ]
-  call fastcc void @js_free_prop_enum(ptr noundef %0, ptr noundef %80, i32 noundef %14)
-  br label %82
+.sink.split:                                      ; preds = %23, %65, %js_free_desc.exit, %JS_IsExtensible.exit.thread
+  %.sink = phi ptr [ %.pre, %JS_IsExtensible.exit.thread ], [ %15, %js_free_desc.exit ], [ %15, %65 ], [ %15, %23 ]
+  %.sroa.024.0.ph = phi i64 [ %79, %JS_IsExtensible.exit.thread ], [ 0, %js_free_desc.exit ], [ 0, %65 ], [ 0, %23 ]
+  %.sroa.6.sroa.2.0.ph = phi i64 [ 1, %JS_IsExtensible.exit.thread ], [ 6, %23 ], [ 1, %65 ], [ 1, %js_free_desc.exit ]
+  call fastcc void @js_free_prop_enum(ptr noundef %0, ptr noundef %.sink, i32 noundef %14)
+  br label %80
 
-81:                                               ; preds = %23
-  call fastcc void @js_free_prop_enum(ptr noundef %0, ptr noundef nonnull %15, i32 noundef %14)
-  br label %82
-
-82:                                               ; preds = %JS_IsExtensible.exit, %12, %6, %81, %.loopexit
-  %.sroa.024.0 = phi i64 [ 0, %81 ], [ %.0, %.loopexit ], [ 1, %6 ], [ 0, %12 ], [ 0, %JS_IsExtensible.exit ]
-  %.sroa.6.sroa.2.0 = phi i64 [ 6, %81 ], [ 1, %.loopexit ], [ 1, %6 ], [ 6, %12 ], [ 6, %JS_IsExtensible.exit ]
+80:                                               ; preds = %.sink.split, %JS_IsExtensible.exit, %12, %6
+  %.sroa.024.0 = phi i64 [ 1, %6 ], [ 0, %12 ], [ 0, %JS_IsExtensible.exit ], [ %.sroa.024.0.ph, %.sink.split ]
+  %.sroa.6.sroa.2.0 = phi i64 [ 1, %6 ], [ 6, %12 ], [ 6, %JS_IsExtensible.exit ], [ %.sroa.6.sroa.2.0.ph, %.sink.split ]
   %.fca.0.insert = insertvalue { i64, i64 } poison, i64 %.sroa.024.0, 0
   %.fca.1.insert = insertvalue { i64, i64 } %.fca.0.insert, i64 %.sroa.6.sroa.2.0, 1
   ret { i64, i64 } %.fca.1.insert

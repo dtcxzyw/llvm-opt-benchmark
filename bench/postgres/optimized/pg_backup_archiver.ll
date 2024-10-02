@@ -3562,7 +3562,7 @@ declare void @ConnectDatabase(ptr noundef, ptr noundef, i1 noundef zeroext) loca
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @SetOutput(ptr nocapture noundef %0, ptr noundef %1, ptr noundef byval(%struct.pg_compress_specification) align 8 %2) unnamed_addr #0 {
   %.not = icmp eq ptr %1, null
-  br i1 %.not, label %11, label %sub_0
+  br i1 %.not, label %10, label %sub_0
 
 sub_0:                                            ; preds = %3
   %4 = load i8, ptr %1, align 1
@@ -3577,59 +3577,59 @@ sub_0:                                            ; preds = %3
 
 8:                                                ; preds = %.tail
   %9 = load ptr, ptr @stdout, align 8
-  %10 = tail call i32 @fileno(ptr noundef %9) #22
+  br label %.tail.thread.sink.split
+
+10:                                               ; preds = %3
+  %11 = getelementptr inbounds i8, ptr %0, i64 488
+  %12 = load ptr, ptr %11, align 8
+  %.not20 = icmp eq ptr %12, null
+  br i1 %.not20, label %13, label %.tail.thread.sink.split
+
+13:                                               ; preds = %10
+  %14 = getelementptr inbounds i8, ptr %0, i64 480
+  %15 = load ptr, ptr %14, align 8
+  %.not21 = icmp eq ptr %15, null
+  br i1 %.not21, label %16, label %.tail.thread
+
+16:                                               ; preds = %13
+  %17 = load ptr, ptr @stdout, align 8
+  br label %.tail.thread.sink.split
+
+.tail.thread.sink.split:                          ; preds = %10, %8, %16
+  %.sink = phi ptr [ %17, %16 ], [ %9, %8 ], [ %12, %10 ]
+  %.016.ph = phi ptr [ null, %16 ], [ %1, %8 ], [ null, %10 ]
+  %18 = tail call i32 @fileno(ptr noundef %.sink) #22
   br label %.tail.thread
 
-11:                                               ; preds = %3
-  %12 = getelementptr inbounds i8, ptr %0, i64 488
-  %13 = load ptr, ptr %12, align 8
-  %.not20 = icmp eq ptr %13, null
-  br i1 %.not20, label %16, label %14
+.tail.thread:                                     ; preds = %.tail.thread.sink.split, %sub_0, %13, %.tail
+  %.016 = phi ptr [ %1, %.tail ], [ %15, %13 ], [ %1, %sub_0 ], [ %.016.ph, %.tail.thread.sink.split ]
+  %.0 = phi i32 [ -1, %.tail ], [ -1, %13 ], [ -1, %sub_0 ], [ %18, %.tail.thread.sink.split ]
+  %19 = getelementptr inbounds i8, ptr %0, i64 584
+  %20 = load i32, ptr %19, align 8
+  %21 = icmp eq i32 %20, 0
+  %.str.179..str.180 = select i1 %21, ptr @.str.179, ptr @.str.180
+  %22 = tail call ptr @InitCompressFileHandle(ptr noundef nonnull byval(%struct.pg_compress_specification) align 8 %2) #22
+  %23 = load ptr, ptr %22, align 8
+  %24 = tail call zeroext i1 %23(ptr noundef %.016, i32 noundef %.0, ptr noundef nonnull %.str.179..str.180, ptr noundef nonnull %22) #22
+  br i1 %24, label %28, label %25
 
-14:                                               ; preds = %11
-  %15 = tail call i32 @fileno(ptr noundef nonnull %13) #22
-  br label %.tail.thread
-
-16:                                               ; preds = %11
-  %17 = getelementptr inbounds i8, ptr %0, i64 480
-  %18 = load ptr, ptr %17, align 8
-  %.not21 = icmp eq ptr %18, null
-  br i1 %.not21, label %19, label %.tail.thread
-
-19:                                               ; preds = %16
-  %20 = load ptr, ptr @stdout, align 8
-  %21 = tail call i32 @fileno(ptr noundef %20) #22
-  br label %.tail.thread
-
-.tail.thread:                                     ; preds = %sub_0, %16, %14, %19, %.tail, %8
-  %.016 = phi ptr [ %1, %8 ], [ %1, %.tail ], [ null, %14 ], [ null, %19 ], [ %18, %16 ], [ %1, %sub_0 ]
-  %.0 = phi i32 [ %10, %8 ], [ -1, %.tail ], [ %15, %14 ], [ %21, %19 ], [ -1, %16 ], [ -1, %sub_0 ]
-  %22 = getelementptr inbounds i8, ptr %0, i64 584
-  %23 = load i32, ptr %22, align 8
-  %24 = icmp eq i32 %23, 0
-  %.str.179..str.180 = select i1 %24, ptr @.str.179, ptr @.str.180
-  %25 = tail call ptr @InitCompressFileHandle(ptr noundef nonnull byval(%struct.pg_compress_specification) align 8 %2) #22
-  %26 = load ptr, ptr %25, align 8
-  %27 = tail call zeroext i1 %26(ptr noundef %.016, i32 noundef %.0, ptr noundef nonnull %.str.179..str.180, ptr noundef nonnull %25) #22
-  br i1 %27, label %31, label %28
-
-28:                                               ; preds = %.tail.thread
+25:                                               ; preds = %.tail.thread
   %.not22 = icmp eq ptr %.016, null
-  br i1 %.not22, label %30, label %29
+  br i1 %.not22, label %27, label %26
 
-29:                                               ; preds = %28
+26:                                               ; preds = %25
   tail call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.181, ptr noundef nonnull %.016) #22
   tail call void @exit_nicely(i32 noundef 1) #23
   unreachable
 
-30:                                               ; preds = %28
+27:                                               ; preds = %25
   tail call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.182) #22
   tail call void @exit_nicely(i32 noundef 1) #23
   unreachable
 
-31:                                               ; preds = %.tail.thread
-  %32 = getelementptr inbounds i8, ptr %0, i64 496
-  store ptr %25, ptr %32, align 8
+28:                                               ; preds = %.tail.thread
+  %29 = getelementptr inbounds i8, ptr %0, i64 496
+  store ptr %22, ptr %29, align 8
   ret void
 }
 

@@ -755,7 +755,7 @@ if.end17:                                         ; preds = %lor.lhs.false14
 while.cond.preheader.i:                           ; preds = %if.end17
   %call334.i = call i32 @BIO_get_line(ptr noundef %bio, ptr noundef nonnull %linebuf.i, i32 noundef 1024) #6
   %cmp435.i = icmp sgt i32 %call334.i, 0
-  br i1 %cmp435.i, label %while.body.lr.ph.i, label %while.end.i
+  br i1 %cmp435.i, label %while.body.lr.ph.i, label %return.sink.split.i
 
 while.body.lr.ph.i:                               ; preds = %while.cond.preheader.i
   %cmp1.i.i = icmp eq i32 %conv.i, -1
@@ -821,11 +821,7 @@ if.then12.i:                                      ; preds = %sub_111.i.i, %if.th
 if.then16.i:                                      ; preds = %sub_111.i.i
   %call19.i = call i32 @OPENSSL_sk_push(ptr noundef nonnull %call1.i, ptr noundef %bpart.037.i) #6
   %tobool.not.i = icmp eq i32 %call19.i, 0
-  br i1 %tobool.not.i, label %if.then20.i, label %lor.lhs.false21
-
-if.then20.i:                                      ; preds = %if.then16.i
-  %call21.i = call i32 @BIO_free(ptr noundef %bpart.037.i) #6
-  br label %multi_split.exit.thread
+  br i1 %tobool.not.i, label %return.sink.split.i, label %lor.lhs.false21
 
 if.else23.i:                                      ; preds = %cond.true.i.i, %if.end6.i.i
   %cmp25.not.i = icmp eq i8 %part.038.i, 0
@@ -907,11 +903,7 @@ if.then31.i:                                      ; preds = %strip_eol.exit.i
 if.then33.i:                                      ; preds = %if.then31.i
   %call36.i = call i32 @OPENSSL_sk_push(ptr noundef nonnull %call1.i, ptr noundef nonnull %bpart.037.i) #6
   %tobool37.not.i = icmp eq i32 %call36.i, 0
-  br i1 %tobool37.not.i, label %if.then38.i, label %if.end41.i
-
-if.then38.i:                                      ; preds = %if.then33.i
-  %call39.i = call i32 @BIO_free(ptr noundef nonnull %bpart.037.i) #6
-  br label %multi_split.exit.thread
+  br i1 %tobool37.not.i, label %return.sink.split.i, label %if.end41.i
 
 if.end41.i:                                       ; preds = %if.then33.i, %if.then31.i
   %call42.i = call ptr @BIO_s_mem() #6
@@ -954,14 +946,14 @@ if.end72.i:                                       ; preds = %if.then66.i, %if.en
   %first.1.i = phi i8 [ 1, %if.then12.i ], [ 0, %if.then66.i ], [ 0, %if.end63.i ], [ %first.039.i, %if.else23.i ]
   %call3.i = call i32 @BIO_get_line(ptr noundef %bio, ptr noundef nonnull %linebuf.i, i32 noundef 1024) #6
   %cmp4.i = icmp sgt i32 %call3.i, 0
-  br i1 %cmp4.i, label %while.body.i, label %while.end.i, !llvm.loop !13
+  br i1 %cmp4.i, label %while.body.i, label %return.sink.split.i, !llvm.loop !13
 
-while.end.i:                                      ; preds = %if.end72.i, %while.cond.preheader.i
-  %bpart.0.lcssa.i = phi ptr [ null, %while.cond.preheader.i ], [ %bpart.1.i, %if.end72.i ]
-  %call73.i = call i32 @BIO_free(ptr noundef %bpart.0.lcssa.i) #6
+return.sink.split.i:                              ; preds = %if.end72.i, %if.then33.i, %if.then16.i, %while.cond.preheader.i
+  %bpart.0.lcssa.sink.i = phi ptr [ %bpart.037.i, %if.then16.i ], [ null, %while.cond.preheader.i ], [ %bpart.1.i, %if.end72.i ], [ %bpart.037.i, %if.then33.i ]
+  %call73.i = call i32 @BIO_free(ptr noundef %bpart.0.lcssa.sink.i) #6
   br label %multi_split.exit.thread
 
-multi_split.exit.thread:                          ; preds = %if.end41.i, %if.then20.i, %if.then38.i, %while.end.i, %if.end17
+multi_split.exit.thread:                          ; preds = %if.end41.i, %if.end17, %return.sink.split.i
   call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %linebuf.i)
   call void @OPENSSL_sk_pop_free(ptr noundef nonnull %call, ptr noundef nonnull @mime_hdr_free) #6
   br label %if.then25

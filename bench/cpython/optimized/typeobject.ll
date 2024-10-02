@@ -3397,11 +3397,7 @@ for.inc.i:                                        ; preds = %sw.bb4.i, %sw.bb.i,
 
 for.end.i:                                        ; preds = %for.cond.i
   %tobool6.not.i = icmp eq ptr %bases.0.i, null
-  br i1 %tobool6.not.i, label %if.then7.i, label %if.end.i173
-
-if.then7.i:                                       ; preds = %for.end.i
-  %call.i = tail call ptr (i64, ...) @PyTuple_Pack(i64 noundef 1, ptr noundef %base.0.i) #20
-  br label %get_bases_tuple.exit
+  br i1 %tobool6.not.i, label %get_bases_tuple.exit, label %if.end.i173
 
 if.end.i173:                                      ; preds = %for.end.i
   %29 = getelementptr i8, ptr %bases.0.i, i64 8
@@ -3434,7 +3430,7 @@ if.end14.i:                                       ; preds = %if.end99
   %call15.val.i = load i64, ptr %35, align 8
   %36 = and i64 %call15.val.i, 67108864
   %tobool17.not.i = icmp eq i64 %36, 0
-  br i1 %tobool17.not.i, label %if.end20.i, label %if.then18.i
+  br i1 %tobool17.not.i, label %get_bases_tuple.exit, label %if.then18.i
 
 if.then18.i:                                      ; preds = %if.end14.i
   %37 = load i32, ptr %bases_in, align 8
@@ -3446,17 +3442,14 @@ if.end.i.i15.i:                                   ; preds = %if.then18.i
   store i32 %add.i.i13.i, ptr %bases_in, align 8
   br label %if.end104
 
-if.end20.i:                                       ; preds = %if.end14.i
-  %call21.i = tail call ptr (i64, ...) @PyTuple_Pack(i64 noundef 1, ptr noundef nonnull %bases_in) #20
-  br label %get_bases_tuple.exit
-
-get_bases_tuple.exit:                             ; preds = %if.then7.i, %if.end20.i
-  %retval.0.i = phi ptr [ %call21.i, %if.end20.i ], [ %call.i, %if.then7.i ]
-  %tobool102.not = icmp eq ptr %retval.0.i, null
+get_bases_tuple.exit:                             ; preds = %if.end14.i, %for.end.i
+  %base.0.i.lcssa.sink = phi ptr [ %base.0.i, %for.end.i ], [ %bases_in, %if.end14.i ]
+  %call.i = tail call ptr (i64, ...) @PyTuple_Pack(i64 noundef 1, ptr noundef %base.0.i.lcssa.sink) #20
+  %tobool102.not = icmp eq ptr %call.i, null
   br i1 %tobool102.not, label %finally, label %if.end104
 
 if.end104:                                        ; preds = %if.end.i.i15.i, %if.then18.i, %if.end.i.i.i, %if.then11.i, %get_bases_tuple.exit
-  %retval.0.i235 = phi ptr [ %retval.0.i, %get_bases_tuple.exit ], [ %bases_in, %if.end.i.i15.i ], [ %bases_in, %if.then18.i ], [ %bases.0.i, %if.end.i.i.i ], [ %bases.0.i, %if.then11.i ]
+  %retval.0.i235 = phi ptr [ %call.i, %get_bases_tuple.exit ], [ %bases_in, %if.end.i.i15.i ], [ %bases_in, %if.then18.i ], [ %bases.0.i, %if.end.i.i.i ], [ %bases.0.i, %if.then11.i ]
   %flags105 = getelementptr inbounds i8, ptr %spec, i64 16
   %38 = load i32, ptr %flags105, align 8
   %39 = and i32 %38, 256

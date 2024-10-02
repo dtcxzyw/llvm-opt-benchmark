@@ -519,7 +519,7 @@ define internal noundef i32 @nlmsvc_proc_free_all(ptr noundef %0) #0 align 16 {
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr @nlmsvc_ops, align 8
   %5 = icmp eq ptr %4, null
-  br i1 %5, label %23, label %6
+  br i1 %5, label %22, label %6
 
 6:                                                ; preds = %1
   %7 = getelementptr inbounds i8, ptr %3, i64 40
@@ -529,29 +529,28 @@ define internal noundef i32 @nlmsvc_proc_free_all(ptr noundef %0) #0 align 16 {
   %11 = zext i32 %10 to i64
   %12 = tail call ptr @nlmsvc_lookup_host(ptr noundef %0, ptr noundef %8, i64 noundef %11) #7
   %13 = icmp eq ptr %12, null
-  br i1 %13, label %21, label %14
+  br i1 %13, label %.sink.split, label %14
 
 14:                                               ; preds = %6
   %15 = getelementptr inbounds i8, ptr %3, i64 452
   %16 = load i32, ptr %15, align 4
   %17 = icmp eq i32 %16, 0
-  br i1 %17, label %22, label %18
+  br i1 %17, label %21, label %18
 
 18:                                               ; preds = %14
   %19 = tail call i32 @nsm_monitor(ptr noundef nonnull %12) #7
   %20 = icmp slt i32 %19, 0
-  br i1 %20, label %21, label %22
+  br i1 %20, label %.sink.split, label %21
 
-21:                                               ; preds = %18, %6
-  tail call void @nlmsvc_release_host(ptr noundef %12) #7
-  br label %23
-
-22:                                               ; preds = %18, %14
+21:                                               ; preds = %18, %14
   tail call void @nlmsvc_free_host_resources(ptr noundef nonnull %12) #7
-  tail call void @nlmsvc_release_host(ptr noundef nonnull %12) #7
-  br label %23
+  br label %.sink.split
 
-23:                                               ; preds = %1, %21, %22
+.sink.split:                                      ; preds = %6, %18, %21
+  tail call void @nlmsvc_release_host(ptr noundef %12) #7
+  br label %22
+
+22:                                               ; preds = %.sink.split, %1
   ret i32 0
 }
 

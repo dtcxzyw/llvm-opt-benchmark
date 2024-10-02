@@ -588,24 +588,24 @@ declare void @Cut_NodeWriteCutsNew(ptr noundef, i32 noundef, ptr noundef) local_
 define void @Cut_NodeNewMergeWithOld(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = tail call ptr @Cut_NodeReadCutsNew(ptr noundef %0, i32 noundef %1) #5
   %4 = icmp eq ptr %3, null
-  br i1 %4, label %11, label %5
+  br i1 %4, label %10, label %5
 
 5:                                                ; preds = %2
   tail call void @Cut_NodeWriteCutsNew(ptr noundef %0, i32 noundef %1, ptr noundef null) #5
   %6 = tail call ptr @Cut_NodeReadCutsOld(ptr noundef %0, i32 noundef %1) #5
   %7 = icmp eq ptr %6, null
-  br i1 %7, label %8, label %9
+  br i1 %7, label %.sink.split, label %8
 
 8:                                                ; preds = %5
-  tail call void @Cut_NodeWriteCutsOld(ptr noundef %0, i32 noundef %1, ptr noundef nonnull %3) #5
-  br label %11
+  %9 = tail call ptr @Cut_CutMergeLists(ptr noundef nonnull %6, ptr noundef nonnull %3) #5
+  br label %.sink.split
 
-9:                                                ; preds = %5
-  %10 = tail call ptr @Cut_CutMergeLists(ptr noundef nonnull %6, ptr noundef nonnull %3) #5
-  tail call void @Cut_NodeWriteCutsOld(ptr noundef %0, i32 noundef %1, ptr noundef %10) #5
-  br label %11
+.sink.split:                                      ; preds = %5, %8
+  %.sink = phi ptr [ %9, %8 ], [ %3, %5 ]
+  tail call void @Cut_NodeWriteCutsOld(ptr noundef %0, i32 noundef %1, ptr noundef %.sink) #5
+  br label %10
 
-11:                                               ; preds = %2, %9, %8
+10:                                               ; preds = %.sink.split, %2
   ret void
 }
 

@@ -299,54 +299,54 @@ xlinitialize.exit:                                ; preds = %.thread.i.i, %xlspd
 .lr.ph:                                           ; preds = %.preheader
   %.sroa.26.0..sroa_idx.i = getelementptr inbounds i8, ptr %7, i64 8
   %.sroa.48.0..sroa_idx.i = getelementptr inbounds i8, ptr %7, i64 16
-  %.sroa.48.i.sroa.15.0..sroa.48.0..sroa_idx.i.sroa_idx = getelementptr inbounds i8, ptr %7, i64 24
   %.sroa.44142.0..sroa_idx.i = getelementptr inbounds i8, ptr %8, i64 8
   %.sroa.55.0..sroa_idx.i = getelementptr inbounds i8, ptr %8, i64 16
-  %.sroa.48.i.sroa.15.0..sroa.55.0..sroa_idx.i.sroa_idx = getelementptr inbounds i8, ptr %8, i64 24
   %.sroa.44142.0..sroa_idx147.i = getelementptr inbounds i8, ptr %9, i64 8
   %.sroa.55.0..sroa_idx219.i = getelementptr inbounds i8, ptr %9, i64 16
-  %.sroa.48.i.sroa.15.0..sroa.55.0..sroa_idx219.i.sroa_idx = getelementptr inbounds i8, ptr %9, i64 24
   %.sroa.44142.0..sroa_idx153.i = getelementptr inbounds i8, ptr %10, i64 8
   %.sroa.55.0..sroa_idx222.i = getelementptr inbounds i8, ptr %10, i64 16
-  %.sroa.48.i.sroa.15.0..sroa.55.0..sroa_idx222.i.sroa_idx = getelementptr inbounds i8, ptr %10, i64 24
   %.sroa.44142.0..sroa_idx159.i = getelementptr inbounds i8, ptr %11, i64 8
   %.sroa.55.0..sroa_idx225.i = getelementptr inbounds i8, ptr %11, i64 16
-  %.sroa.48.i.sroa.15.0..sroa.55.0..sroa_idx225.i.sroa_idx = getelementptr inbounds i8, ptr %11, i64 24
   %.sroa.44142.0..sroa_idx165.i = getelementptr inbounds i8, ptr %12, i64 8
   %.sroa.55.0..sroa_idx228.i = getelementptr inbounds i8, ptr %12, i64 16
-  %.sroa.48.i.sroa.15.0..sroa.55.0..sroa_idx228.i.sroa_idx = getelementptr inbounds i8, ptr %12, i64 24
   %.sroa.44142.0..sroa_idx171.i = getelementptr inbounds i8, ptr %13, i64 8
   %.sroa.55.0..sroa_idx231.i = getelementptr inbounds i8, ptr %13, i64 16
-  %.sroa.48.i.sroa.15.0..sroa.55.0..sroa_idx231.i.sroa_idx = getelementptr inbounds i8, ptr %13, i64 24
   %.sroa.44142.0..sroa_idx177.i = getelementptr inbounds i8, ptr %14, i64 8
   %.sroa.55.0..sroa_idx234.i = getelementptr inbounds i8, ptr %14, i64 16
-  %.sroa.48.i.sroa.15.0..sroa.55.0..sroa_idx234.i.sroa_idx = getelementptr inbounds i8, ptr %14, i64 24
   %150 = getelementptr inbounds i8, ptr %6, i64 48
   %151 = getelementptr inbounds i8, ptr %6, i64 56
   %152 = getelementptr inbounds i8, ptr %6, i64 64
   %153 = getelementptr inbounds i8, ptr %6, i64 24
   %.sroa.44142.0..sroa_idx183.i = getelementptr inbounds i8, ptr %15, i64 8
   %.sroa.55.0..sroa_idx237.i = getelementptr inbounds i8, ptr %15, i64 16
-  %.sroa.48.i.sroa.15.0..sroa.55.0..sroa_idx237.i.sroa_idx = getelementptr inbounds i8, ptr %15, i64 24
   %.sroa.44142.0..sroa_idx189.i = getelementptr inbounds i8, ptr %16, i64 8
   %.sroa.55.0..sroa_idx240.i = getelementptr inbounds i8, ptr %16, i64 16
-  %.sroa.48.i.sroa.15.0..sroa.55.0..sroa_idx240.i.sroa_idx = getelementptr inbounds i8, ptr %16, i64 24
   %154 = getelementptr inbounds i8, ptr %6, i64 16
   %155 = getelementptr inbounds i8, ptr %6, i64 8
   %156 = getelementptr inbounds i8, ptr %6, i64 40
   %.sroa.44142.0..sroa_idx195.i = getelementptr inbounds i8, ptr %17, i64 8
   %.sroa.55.0..sroa_idx243.i = getelementptr inbounds i8, ptr %17, i64 16
-  %.sroa.48.i.sroa.15.0..sroa.55.0..sroa_idx243.i.sroa_idx = getelementptr inbounds i8, ptr %17, i64 24
   %.sroa.44142.0..sroa_idx201.i = getelementptr inbounds i8, ptr %18, i64 8
   %.sroa.55.0..sroa_idx246.i = getelementptr inbounds i8, ptr %18, i64 16
-  %.sroa.48.i.sroa.15.0..sroa.55.0..sroa_idx246.i.sroa_idx = getelementptr inbounds i8, ptr %18, i64 24
   %157 = getelementptr inbounds i8, ptr %4, i64 32
+  %.sroa.48.i.sroa.16.0..sroa.48.0..sroa_idx.i.sroa_idx = getelementptr inbounds i8, ptr %7, i64 24
+  %.sroa.48.i.sroa.16.0..sroa.55.0..sroa_idx.i.sroa_idx = getelementptr inbounds i8, ptr %8, i64 24
+  %.sroa.48.i.sroa.16.0..sroa.55.0..sroa_idx219.i.sroa_idx = getelementptr inbounds i8, ptr %9, i64 24
+  %.sroa.48.i.sroa.16.0..sroa.55.0..sroa_idx222.i.sroa_idx = getelementptr inbounds i8, ptr %10, i64 24
+  %.sroa.48.i.sroa.16.0..sroa.55.0..sroa_idx225.i.sroa_idx = getelementptr inbounds i8, ptr %11, i64 24
+  %.sroa.48.i.sroa.16.0..sroa.55.0..sroa_idx228.i.sroa_idx = getelementptr inbounds i8, ptr %12, i64 24
+  %.sroa.48.i.sroa.16.0..sroa.55.0..sroa_idx231.i.sroa_idx = getelementptr inbounds i8, ptr %13, i64 24
+  %.sroa.48.i.sroa.16.0..sroa.55.0..sroa_idx234.i.sroa_idx = getelementptr inbounds i8, ptr %14, i64 24
+  %.sroa.48.i.sroa.16.0..sroa.55.0..sroa_idx237.i.sroa_idx = getelementptr inbounds i8, ptr %15, i64 24
+  %.sroa.48.i.sroa.16.0..sroa.55.0..sroa_idx240.i.sroa_idx = getelementptr inbounds i8, ptr %16, i64 24
+  %.sroa.48.i.sroa.16.0..sroa.55.0..sroa_idx243.i.sroa_idx = getelementptr inbounds i8, ptr %17, i64 24
+  %.sroa.48.i.sroa.16.0..sroa.55.0..sroa_idx246.i.sroa_idx = getelementptr inbounds i8, ptr %18, i64 24
   br label %158
 
 158:                                              ; preds = %.lr.ph, %381
-  %.096 = phi i64 [ 0, %.lr.ph ], [ %382, %381 ]
-  %.03694 = phi i32 [ 0, %.lr.ph ], [ %.1, %381 ]
-  %159 = getelementptr inbounds %struct.object_t, ptr %0, i64 %.096
+  %.052 = phi i64 [ 0, %.lr.ph ], [ %382, %381 ]
+  %.03650 = phi i32 [ 0, %.lr.ph ], [ %.1, %381 ]
+  %159 = getelementptr inbounds %struct.object_t, ptr %0, i64 %.052
   %160 = getelementptr inbounds i8, ptr %159, i64 32
   %161 = load ptr, ptr %160, align 8
   %162 = icmp eq ptr %161, null
@@ -391,8 +391,8 @@ xlinitialize.exit:                                ; preds = %.thread.i.i, %xlspd
   call fastcc void @xlintersections(ptr dead_on_unwind noalias writable align 8 %7, ptr noundef nonnull readonly %19, ptr noundef nonnull %159, ptr noundef %6), !noalias !4
   %.sroa.0249.0.copyload.i = load i32, ptr %7, align 8, !noalias !4
   %.sroa.26.0.copyload.i = load double, ptr %.sroa.26.0..sroa_idx.i, align 8, !noalias !4
-  %.sroa.48.i.sroa.0.0.copyload = load double, ptr %.sroa.48.0..sroa_idx.i, align 8
-  %.sroa.48.i.sroa.15.0.copyload = load double, ptr %.sroa.48.i.sroa.15.0..sroa.48.0..sroa_idx.i.sroa_idx, align 8
+  %.sroa.48.i.sroa.0.0.copyload = load double, ptr %.sroa.48.0..sroa_idx.i, align 8, !noalias !4
+  %.sroa.48.i.sroa.16.0.copyload = load double, ptr %.sroa.48.i.sroa.16.0..sroa.48.0..sroa_idx.i.sroa_idx, align 8, !noalias !4
   %183 = icmp eq i32 %.sroa.0249.0.copyload.i, 0
   br i1 %183, label %xladjust.exit.thread, label %184
 
@@ -410,13 +410,13 @@ xlinitialize.exit:                                ; preds = %.thread.i.i, %xlspd
   br i1 %188, label %189, label %190
 
 189:                                              ; preds = %187
-  %.sroa.48.i.sroa.0.0.copyload73 = load double, ptr %.sroa.55.0..sroa_idx.i, align 8, !noalias !4
-  %.sroa.48.i.sroa.15.0.copyload84 = load double, ptr %.sroa.48.i.sroa.15.0..sroa.55.0..sroa_idx.i.sroa_idx, align 8, !noalias !4
+  %.sroa.48.i.sroa.0.0.copyload67 = load double, ptr %.sroa.55.0..sroa_idx.i, align 8, !noalias !4
+  %.sroa.48.i.sroa.16.0.copyload78 = load double, ptr %.sroa.48.i.sroa.16.0..sroa.55.0..sroa_idx.i.sroa_idx, align 8, !noalias !4
   br label %190
 
 190:                                              ; preds = %189, %187
-  %.sroa.48.i.sroa.15.0 = phi double [ %.sroa.48.i.sroa.15.0.copyload84, %189 ], [ %.sroa.48.i.sroa.15.0.copyload, %187 ]
-  %.sroa.48.i.sroa.0.0 = phi double [ %.sroa.48.i.sroa.0.0.copyload73, %189 ], [ %.sroa.48.i.sroa.0.0.copyload, %187 ]
+  %.sroa.48.i.sroa.16.0 = phi double [ %.sroa.48.i.sroa.16.0.copyload78, %189 ], [ %.sroa.48.i.sroa.16.0.copyload, %187 ]
+  %.sroa.48.i.sroa.0.0 = phi double [ %.sroa.48.i.sroa.0.0.copyload67, %189 ], [ %.sroa.48.i.sroa.0.0.copyload, %187 ]
   %.sroa.26.0.i = phi double [ %.sroa.44142.0.copyload.i, %189 ], [ %.sroa.26.0.copyload.i, %187 ]
   %.sroa.0249.0.i = phi i32 [ %.sroa.0.0.copyload.i, %189 ], [ %.sroa.0249.0.copyload.i, %187 ]
   %191 = load double, ptr %178, align 8, !noalias !4
@@ -434,13 +434,13 @@ xlinitialize.exit:                                ; preds = %.thread.i.i, %xlspd
   br i1 %196, label %197, label %198
 
 197:                                              ; preds = %195
-  %.sroa.48.i.sroa.0.0.copyload72 = load double, ptr %.sroa.55.0..sroa_idx219.i, align 8, !noalias !4
-  %.sroa.48.i.sroa.15.0.copyload83 = load double, ptr %.sroa.48.i.sroa.15.0..sroa.55.0..sroa_idx219.i.sroa_idx, align 8, !noalias !4
+  %.sroa.48.i.sroa.0.0.copyload66 = load double, ptr %.sroa.55.0..sroa_idx219.i, align 8, !noalias !4
+  %.sroa.48.i.sroa.16.0.copyload77 = load double, ptr %.sroa.48.i.sroa.16.0..sroa.55.0..sroa_idx219.i.sroa_idx, align 8, !noalias !4
   br label %198
 
 198:                                              ; preds = %197, %195
-  %.sroa.48.i.sroa.15.1 = phi double [ %.sroa.48.i.sroa.15.0.copyload83, %197 ], [ %.sroa.48.i.sroa.15.0, %195 ]
-  %.sroa.48.i.sroa.0.1 = phi double [ %.sroa.48.i.sroa.0.0.copyload72, %197 ], [ %.sroa.48.i.sroa.0.0, %195 ]
+  %.sroa.48.i.sroa.16.1 = phi double [ %.sroa.48.i.sroa.16.0.copyload77, %197 ], [ %.sroa.48.i.sroa.16.0, %195 ]
+  %.sroa.48.i.sroa.0.1 = phi double [ %.sroa.48.i.sroa.0.0.copyload66, %197 ], [ %.sroa.48.i.sroa.0.0, %195 ]
   %.sroa.26.1.i = phi double [ %.sroa.44142.0.copyload148.i, %197 ], [ %.sroa.26.0.i, %195 ]
   %.sroa.0249.1.i = phi i32 [ %.sroa.0.0.copyload48.i, %197 ], [ %.sroa.0249.0.i, %195 ]
   %199 = load double, ptr %159, align 8, !noalias !4
@@ -460,13 +460,13 @@ xlinitialize.exit:                                ; preds = %.thread.i.i, %xlspd
   br i1 %205, label %206, label %207
 
 206:                                              ; preds = %204
-  %.sroa.48.i.sroa.0.0.copyload71 = load double, ptr %.sroa.55.0..sroa_idx222.i, align 8, !noalias !4
-  %.sroa.48.i.sroa.15.0.copyload82 = load double, ptr %.sroa.48.i.sroa.15.0..sroa.55.0..sroa_idx222.i.sroa_idx, align 8, !noalias !4
+  %.sroa.48.i.sroa.0.0.copyload65 = load double, ptr %.sroa.55.0..sroa_idx222.i, align 8, !noalias !4
+  %.sroa.48.i.sroa.16.0.copyload76 = load double, ptr %.sroa.48.i.sroa.16.0..sroa.55.0..sroa_idx222.i.sroa_idx, align 8, !noalias !4
   br label %207
 
 207:                                              ; preds = %206, %204
-  %.sroa.48.i.sroa.15.2 = phi double [ %.sroa.48.i.sroa.15.0.copyload82, %206 ], [ %.sroa.48.i.sroa.15.1, %204 ]
-  %.sroa.48.i.sroa.0.2 = phi double [ %.sroa.48.i.sroa.0.0.copyload71, %206 ], [ %.sroa.48.i.sroa.0.1, %204 ]
+  %.sroa.48.i.sroa.16.2 = phi double [ %.sroa.48.i.sroa.16.0.copyload76, %206 ], [ %.sroa.48.i.sroa.16.1, %204 ]
+  %.sroa.48.i.sroa.0.2 = phi double [ %.sroa.48.i.sroa.0.0.copyload65, %206 ], [ %.sroa.48.i.sroa.0.1, %204 ]
   %.sroa.26.2.i = phi double [ %.sroa.44142.0.copyload154.i, %206 ], [ %.sroa.26.1.i, %204 ]
   %.sroa.0249.2.i = phi i32 [ %.sroa.0.0.copyload51.i, %206 ], [ %.sroa.0249.1.i, %204 ]
   %208 = load double, ptr %178, align 8, !noalias !4
@@ -484,13 +484,13 @@ xlinitialize.exit:                                ; preds = %.thread.i.i, %xlspd
   br i1 %213, label %214, label %215
 
 214:                                              ; preds = %212
-  %.sroa.48.i.sroa.0.0.copyload70 = load double, ptr %.sroa.55.0..sroa_idx225.i, align 8, !noalias !4
-  %.sroa.48.i.sroa.15.0.copyload81 = load double, ptr %.sroa.48.i.sroa.15.0..sroa.55.0..sroa_idx225.i.sroa_idx, align 8, !noalias !4
+  %.sroa.48.i.sroa.0.0.copyload64 = load double, ptr %.sroa.55.0..sroa_idx225.i, align 8, !noalias !4
+  %.sroa.48.i.sroa.16.0.copyload75 = load double, ptr %.sroa.48.i.sroa.16.0..sroa.55.0..sroa_idx225.i.sroa_idx, align 8, !noalias !4
   br label %215
 
 215:                                              ; preds = %214, %212
-  %.sroa.48.i.sroa.15.3 = phi double [ %.sroa.48.i.sroa.15.0.copyload81, %214 ], [ %.sroa.48.i.sroa.15.2, %212 ]
-  %.sroa.48.i.sroa.0.3 = phi double [ %.sroa.48.i.sroa.0.0.copyload70, %214 ], [ %.sroa.48.i.sroa.0.2, %212 ]
+  %.sroa.48.i.sroa.16.3 = phi double [ %.sroa.48.i.sroa.16.0.copyload75, %214 ], [ %.sroa.48.i.sroa.16.2, %212 ]
+  %.sroa.48.i.sroa.0.3 = phi double [ %.sroa.48.i.sroa.0.0.copyload64, %214 ], [ %.sroa.48.i.sroa.0.2, %212 ]
   %.sroa.26.3.i = phi double [ %.sroa.44142.0.copyload160.i, %214 ], [ %.sroa.26.2.i, %212 ]
   %.sroa.0249.3.i = phi i32 [ %.sroa.0.0.copyload54.i, %214 ], [ %.sroa.0249.2.i, %212 ]
   %216 = load double, ptr %159, align 8, !noalias !4
@@ -512,13 +512,13 @@ xlinitialize.exit:                                ; preds = %.thread.i.i, %xlspd
   br i1 %224, label %225, label %226
 
 225:                                              ; preds = %223
-  %.sroa.48.i.sroa.0.0.copyload69 = load double, ptr %.sroa.55.0..sroa_idx228.i, align 8, !noalias !4
-  %.sroa.48.i.sroa.15.0.copyload80 = load double, ptr %.sroa.48.i.sroa.15.0..sroa.55.0..sroa_idx228.i.sroa_idx, align 8, !noalias !4
+  %.sroa.48.i.sroa.0.0.copyload63 = load double, ptr %.sroa.55.0..sroa_idx228.i, align 8, !noalias !4
+  %.sroa.48.i.sroa.16.0.copyload74 = load double, ptr %.sroa.48.i.sroa.16.0..sroa.55.0..sroa_idx228.i.sroa_idx, align 8, !noalias !4
   br label %226
 
 226:                                              ; preds = %225, %223
-  %.sroa.48.i.sroa.15.4 = phi double [ %.sroa.48.i.sroa.15.0.copyload80, %225 ], [ %.sroa.48.i.sroa.15.3, %223 ]
-  %.sroa.48.i.sroa.0.4 = phi double [ %.sroa.48.i.sroa.0.0.copyload69, %225 ], [ %.sroa.48.i.sroa.0.3, %223 ]
+  %.sroa.48.i.sroa.16.4 = phi double [ %.sroa.48.i.sroa.16.0.copyload74, %225 ], [ %.sroa.48.i.sroa.16.3, %223 ]
+  %.sroa.48.i.sroa.0.4 = phi double [ %.sroa.48.i.sroa.0.0.copyload63, %225 ], [ %.sroa.48.i.sroa.0.3, %223 ]
   %.sroa.26.4.i = phi double [ %.sroa.44142.0.copyload166.i, %225 ], [ %.sroa.26.3.i, %223 ]
   %.sroa.0249.4.i = phi i32 [ %.sroa.0.0.copyload57.i, %225 ], [ %.sroa.0249.3.i, %223 ]
   %227 = load double, ptr %178, align 8, !noalias !4
@@ -534,13 +534,13 @@ xlinitialize.exit:                                ; preds = %.thread.i.i, %xlspd
   br i1 %230, label %231, label %232
 
 231:                                              ; preds = %229
-  %.sroa.48.i.sroa.0.0.copyload68 = load double, ptr %.sroa.55.0..sroa_idx231.i, align 8, !noalias !4
-  %.sroa.48.i.sroa.15.0.copyload79 = load double, ptr %.sroa.48.i.sroa.15.0..sroa.55.0..sroa_idx231.i.sroa_idx, align 8, !noalias !4
+  %.sroa.48.i.sroa.0.0.copyload62 = load double, ptr %.sroa.55.0..sroa_idx231.i, align 8, !noalias !4
+  %.sroa.48.i.sroa.16.0.copyload73 = load double, ptr %.sroa.48.i.sroa.16.0..sroa.55.0..sroa_idx231.i.sroa_idx, align 8, !noalias !4
   br label %232
 
 232:                                              ; preds = %231, %229
-  %.sroa.48.i.sroa.15.5 = phi double [ %.sroa.48.i.sroa.15.0.copyload79, %231 ], [ %.sroa.48.i.sroa.15.4, %229 ]
-  %.sroa.48.i.sroa.0.5 = phi double [ %.sroa.48.i.sroa.0.0.copyload68, %231 ], [ %.sroa.48.i.sroa.0.4, %229 ]
+  %.sroa.48.i.sroa.16.5 = phi double [ %.sroa.48.i.sroa.16.0.copyload73, %231 ], [ %.sroa.48.i.sroa.16.4, %229 ]
+  %.sroa.48.i.sroa.0.5 = phi double [ %.sroa.48.i.sroa.0.0.copyload62, %231 ], [ %.sroa.48.i.sroa.0.4, %229 ]
   %.sroa.26.5.i = phi double [ %.sroa.44142.0.copyload172.i, %231 ], [ %.sroa.26.4.i, %229 ]
   %.sroa.0249.5.i = phi i32 [ %.sroa.0.0.copyload60.i, %231 ], [ %.sroa.0249.4.i, %229 ]
   %233 = load double, ptr %178, align 8, !noalias !4
@@ -558,13 +558,13 @@ xlinitialize.exit:                                ; preds = %.thread.i.i, %xlspd
   br i1 %238, label %239, label %240
 
 239:                                              ; preds = %237
-  %.sroa.48.i.sroa.0.0.copyload67 = load double, ptr %.sroa.55.0..sroa_idx234.i, align 8, !noalias !4
-  %.sroa.48.i.sroa.15.0.copyload78 = load double, ptr %.sroa.48.i.sroa.15.0..sroa.55.0..sroa_idx234.i.sroa_idx, align 8, !noalias !4
+  %.sroa.48.i.sroa.0.0.copyload61 = load double, ptr %.sroa.55.0..sroa_idx234.i, align 8, !noalias !4
+  %.sroa.48.i.sroa.16.0.copyload72 = load double, ptr %.sroa.48.i.sroa.16.0..sroa.55.0..sroa_idx234.i.sroa_idx, align 8, !noalias !4
   br label %240
 
 240:                                              ; preds = %239, %237
-  %.sroa.48.i.sroa.15.6 = phi double [ %.sroa.48.i.sroa.15.0.copyload78, %239 ], [ %.sroa.48.i.sroa.15.5, %237 ]
-  %.sroa.48.i.sroa.0.6 = phi double [ %.sroa.48.i.sroa.0.0.copyload67, %239 ], [ %.sroa.48.i.sroa.0.5, %237 ]
+  %.sroa.48.i.sroa.16.6 = phi double [ %.sroa.48.i.sroa.16.0.copyload72, %239 ], [ %.sroa.48.i.sroa.16.5, %237 ]
+  %.sroa.48.i.sroa.0.6 = phi double [ %.sroa.48.i.sroa.0.0.copyload61, %239 ], [ %.sroa.48.i.sroa.0.5, %237 ]
   %.sroa.26.6.i = phi double [ %.sroa.44142.0.copyload178.i, %239 ], [ %.sroa.26.5.i, %237 ]
   %.sroa.0249.6.i = phi i32 [ %.sroa.0.0.copyload63.i, %239 ], [ %.sroa.0249.5.i, %237 ]
   %241 = load ptr, ptr %150, align 16, !noalias !4
@@ -607,8 +607,8 @@ xlinitialize.exit:                                ; preds = %.thread.i.i, %xlspd
   br i1 %262, label %.loopexit383.i, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %252, %267
-  %.sroa.48.i.sroa.15.14 = phi double [ %.sroa.48.i.sroa.15.15, %267 ], [ %.sroa.48.i.sroa.15.6, %252 ]
-  %.sroa.48.i.sroa.0.14 = phi double [ %.sroa.48.i.sroa.0.15, %267 ], [ %.sroa.48.i.sroa.0.6, %252 ]
+  %.sroa.48.i.sroa.16.13 = phi double [ %.sroa.48.i.sroa.16.14, %267 ], [ %.sroa.48.i.sroa.16.6, %252 ]
+  %.sroa.48.i.sroa.0.13 = phi double [ %.sroa.48.i.sroa.0.14, %267 ], [ %.sroa.48.i.sroa.0.6, %252 ]
   %.sroa.0249.9398.i = phi i32 [ %.sroa.0249.10.i, %267 ], [ %.sroa.0249.6.i, %252 ]
   %.sroa.26.9396.i = phi double [ %.sroa.26.10.i, %267 ], [ %.sroa.26.6.i, %252 ]
   call fastcc void @xlintersections(ptr dead_on_unwind noalias writable align 8 %15, ptr noundef nonnull readonly %19, ptr noundef nonnull %159, ptr noundef %6), !noalias !4
@@ -622,13 +622,13 @@ xlinitialize.exit:                                ; preds = %.thread.i.i, %xlspd
   br i1 %265, label %266, label %267
 
 266:                                              ; preds = %264
-  %.sroa.48.i.sroa.0.0.copyload66 = load double, ptr %.sroa.55.0..sroa_idx237.i, align 8, !noalias !4
-  %.sroa.48.i.sroa.15.0.copyload77 = load double, ptr %.sroa.48.i.sroa.15.0..sroa.55.0..sroa_idx237.i.sroa_idx, align 8, !noalias !4
+  %.sroa.48.i.sroa.0.0.copyload60 = load double, ptr %.sroa.55.0..sroa_idx237.i, align 8, !noalias !4
+  %.sroa.48.i.sroa.16.0.copyload71 = load double, ptr %.sroa.48.i.sroa.16.0..sroa.55.0..sroa_idx237.i.sroa_idx, align 8, !noalias !4
   br label %267
 
 267:                                              ; preds = %266, %264
-  %.sroa.48.i.sroa.15.15 = phi double [ %.sroa.48.i.sroa.15.0.copyload77, %266 ], [ %.sroa.48.i.sroa.15.14, %264 ]
-  %.sroa.48.i.sroa.0.15 = phi double [ %.sroa.48.i.sroa.0.0.copyload66, %266 ], [ %.sroa.48.i.sroa.0.14, %264 ]
+  %.sroa.48.i.sroa.16.14 = phi double [ %.sroa.48.i.sroa.16.0.copyload71, %266 ], [ %.sroa.48.i.sroa.16.13, %264 ]
+  %.sroa.48.i.sroa.0.14 = phi double [ %.sroa.48.i.sroa.0.0.copyload60, %266 ], [ %.sroa.48.i.sroa.0.13, %264 ]
   %.sroa.26.10.i = phi double [ %.sroa.44142.0.copyload184.i, %266 ], [ %.sroa.26.9396.i, %264 ]
   %.sroa.0249.10.i = phi i32 [ %.sroa.0.0.copyload66.i, %266 ], [ %.sroa.0249.9398.i, %264 ]
   %268 = load double, ptr %177, align 8, !noalias !4
@@ -646,8 +646,8 @@ xlinitialize.exit:                                ; preds = %.thread.i.i, %xlspd
   br label %.loopexit383.i
 
 .loopexit383.i:                                   ; preds = %.loopexit383.loopexit.i, %252, %251
-  %.sroa.48.i.sroa.15.16 = phi double [ %.sroa.48.i.sroa.15.6, %251 ], [ %.sroa.48.i.sroa.15.6, %252 ], [ %.sroa.48.i.sroa.15.15, %.loopexit383.loopexit.i ]
-  %.sroa.48.i.sroa.0.16 = phi double [ %.sroa.48.i.sroa.0.6, %251 ], [ %.sroa.48.i.sroa.0.6, %252 ], [ %.sroa.48.i.sroa.0.15, %.loopexit383.loopexit.i ]
+  %.sroa.48.i.sroa.16.15 = phi double [ %.sroa.48.i.sroa.16.6, %251 ], [ %.sroa.48.i.sroa.16.6, %252 ], [ %.sroa.48.i.sroa.16.14, %.loopexit383.loopexit.i ]
+  %.sroa.48.i.sroa.0.15 = phi double [ %.sroa.48.i.sroa.0.6, %251 ], [ %.sroa.48.i.sroa.0.6, %252 ], [ %.sroa.48.i.sroa.0.14, %.loopexit383.loopexit.i ]
   %274 = phi ptr [ %249, %251 ], [ %249, %252 ], [ %.pre430.i, %.loopexit383.loopexit.i ]
   %275 = phi ptr [ %247, %251 ], [ %247, %252 ], [ %.pre.i, %.loopexit383.loopexit.i ]
   %.sroa.26.8.i = phi double [ %.sroa.26.6.i, %251 ], [ %.sroa.26.6.i, %252 ], [ %.sroa.26.10.i, %.loopexit383.loopexit.i ]
@@ -673,8 +673,8 @@ xlinitialize.exit:                                ; preds = %.thread.i.i, %xlspd
   br i1 %287, label %.loopexit382.i, label %.lr.ph404.i
 
 .lr.ph404.i:                                      ; preds = %278, %292
-  %.sroa.48.i.sroa.15.17 = phi double [ %.sroa.48.i.sroa.15.18, %292 ], [ %.sroa.48.i.sroa.15.16, %278 ]
-  %.sroa.48.i.sroa.0.17 = phi double [ %.sroa.48.i.sroa.0.18, %292 ], [ %.sroa.48.i.sroa.0.16, %278 ]
+  %.sroa.48.i.sroa.16.16 = phi double [ %.sroa.48.i.sroa.16.17, %292 ], [ %.sroa.48.i.sroa.16.15, %278 ]
+  %.sroa.48.i.sroa.0.16 = phi double [ %.sroa.48.i.sroa.0.17, %292 ], [ %.sroa.48.i.sroa.0.15, %278 ]
   %.sroa.0249.11403.i = phi i32 [ %.sroa.0249.12.i, %292 ], [ %.sroa.0249.8.i, %278 ]
   %.sroa.26.11401.i = phi double [ %.sroa.26.12.i, %292 ], [ %.sroa.26.8.i, %278 ]
   call fastcc void @xlintersections(ptr dead_on_unwind noalias writable align 8 %16, ptr noundef nonnull readonly %19, ptr noundef nonnull %159, ptr noundef %6), !noalias !4
@@ -688,13 +688,13 @@ xlinitialize.exit:                                ; preds = %.thread.i.i, %xlspd
   br i1 %290, label %291, label %292
 
 291:                                              ; preds = %289
-  %.sroa.48.i.sroa.0.0.copyload65 = load double, ptr %.sroa.55.0..sroa_idx240.i, align 8, !noalias !4
-  %.sroa.48.i.sroa.15.0.copyload76 = load double, ptr %.sroa.48.i.sroa.15.0..sroa.55.0..sroa_idx240.i.sroa_idx, align 8, !noalias !4
+  %.sroa.48.i.sroa.0.0.copyload59 = load double, ptr %.sroa.55.0..sroa_idx240.i, align 8, !noalias !4
+  %.sroa.48.i.sroa.16.0.copyload70 = load double, ptr %.sroa.48.i.sroa.16.0..sroa.55.0..sroa_idx240.i.sroa_idx, align 8, !noalias !4
   br label %292
 
 292:                                              ; preds = %291, %289
-  %.sroa.48.i.sroa.15.18 = phi double [ %.sroa.48.i.sroa.15.0.copyload76, %291 ], [ %.sroa.48.i.sroa.15.17, %289 ]
-  %.sroa.48.i.sroa.0.18 = phi double [ %.sroa.48.i.sroa.0.0.copyload65, %291 ], [ %.sroa.48.i.sroa.0.17, %289 ]
+  %.sroa.48.i.sroa.16.17 = phi double [ %.sroa.48.i.sroa.16.0.copyload70, %291 ], [ %.sroa.48.i.sroa.16.16, %289 ]
+  %.sroa.48.i.sroa.0.17 = phi double [ %.sroa.48.i.sroa.0.0.copyload59, %291 ], [ %.sroa.48.i.sroa.0.16, %289 ]
   %.sroa.26.12.i = phi double [ %.sroa.44142.0.copyload190.i, %291 ], [ %.sroa.26.11401.i, %289 ]
   %.sroa.0249.12.i = phi i32 [ %.sroa.0.0.copyload69.i, %291 ], [ %.sroa.0249.11403.i, %289 ]
   %293 = load double, ptr %182, align 8, !noalias !4
@@ -711,8 +711,8 @@ xlinitialize.exit:                                ; preds = %.thread.i.i, %xlspd
   br label %.loopexit382.i
 
 .loopexit382.i:                                   ; preds = %.loopexit382.loopexit.i, %278, %.loopexit383.i, %..loopexit382_crit_edge.i
-  %.sroa.48.i.sroa.15.7 = phi double [ %.sroa.48.i.sroa.15.16, %.loopexit383.i ], [ %.sroa.48.i.sroa.15.16, %278 ], [ %.sroa.48.i.sroa.15.18, %.loopexit382.loopexit.i ], [ %.sroa.48.i.sroa.15.6, %..loopexit382_crit_edge.i ]
-  %.sroa.48.i.sroa.0.7 = phi double [ %.sroa.48.i.sroa.0.16, %.loopexit383.i ], [ %.sroa.48.i.sroa.0.16, %278 ], [ %.sroa.48.i.sroa.0.18, %.loopexit382.loopexit.i ], [ %.sroa.48.i.sroa.0.6, %..loopexit382_crit_edge.i ]
+  %.sroa.48.i.sroa.16.7 = phi double [ %.sroa.48.i.sroa.16.15, %.loopexit383.i ], [ %.sroa.48.i.sroa.16.15, %278 ], [ %.sroa.48.i.sroa.16.17, %.loopexit382.loopexit.i ], [ %.sroa.48.i.sroa.16.6, %..loopexit382_crit_edge.i ]
+  %.sroa.48.i.sroa.0.7 = phi double [ %.sroa.48.i.sroa.0.15, %.loopexit383.i ], [ %.sroa.48.i.sroa.0.15, %278 ], [ %.sroa.48.i.sroa.0.17, %.loopexit382.loopexit.i ], [ %.sroa.48.i.sroa.0.6, %..loopexit382_crit_edge.i ]
   %299 = phi ptr [ %274, %.loopexit383.i ], [ null, %278 ], [ %.pre433.i, %.loopexit382.loopexit.i ], [ null, %..loopexit382_crit_edge.i ]
   %300 = phi double [ %.pre432.i, %.loopexit383.i ], [ %.pre432.i, %278 ], [ %296, %.loopexit382.loopexit.i ], [ %.pre431.i, %..loopexit382_crit_edge.i ]
   %.sroa.26.7.i = phi double [ %.sroa.26.8.i, %.loopexit383.i ], [ %.sroa.26.8.i, %278 ], [ %.sroa.26.12.i, %.loopexit382.loopexit.i ], [ %.sroa.26.6.i, %..loopexit382_crit_edge.i ]
@@ -758,8 +758,8 @@ xlinitialize.exit:                                ; preds = %.thread.i.i, %xlspd
   br i1 %325, label %.loopexit381.i, label %.lr.ph411.i
 
 .lr.ph411.i:                                      ; preds = %316, %330
-  %.sroa.48.i.sroa.15.9 = phi double [ %.sroa.48.i.sroa.15.10, %330 ], [ %.sroa.48.i.sroa.15.7, %316 ]
-  %.sroa.48.i.sroa.0.9 = phi double [ %.sroa.48.i.sroa.0.10, %330 ], [ %.sroa.48.i.sroa.0.7, %316 ]
+  %.sroa.48.i.sroa.16.8 = phi double [ %.sroa.48.i.sroa.16.9, %330 ], [ %.sroa.48.i.sroa.16.7, %316 ]
+  %.sroa.48.i.sroa.0.8 = phi double [ %.sroa.48.i.sroa.0.9, %330 ], [ %.sroa.48.i.sroa.0.7, %316 ]
   %.sroa.0249.15410.i = phi i32 [ %.sroa.0249.16.i, %330 ], [ %.sroa.0249.7.i, %316 ]
   %.sroa.26.15408.i = phi double [ %.sroa.26.16.i, %330 ], [ %.sroa.26.7.i, %316 ]
   call fastcc void @xlintersections(ptr dead_on_unwind noalias writable align 8 %17, ptr noundef nonnull readonly %19, ptr noundef nonnull %159, ptr noundef %6), !noalias !4
@@ -773,13 +773,13 @@ xlinitialize.exit:                                ; preds = %.thread.i.i, %xlspd
   br i1 %328, label %329, label %330
 
 329:                                              ; preds = %327
-  %.sroa.48.i.sroa.0.0.copyload64 = load double, ptr %.sroa.55.0..sroa_idx243.i, align 8, !noalias !4
-  %.sroa.48.i.sroa.15.0.copyload75 = load double, ptr %.sroa.48.i.sroa.15.0..sroa.55.0..sroa_idx243.i.sroa_idx, align 8, !noalias !4
+  %.sroa.48.i.sroa.0.0.copyload58 = load double, ptr %.sroa.55.0..sroa_idx243.i, align 8, !noalias !4
+  %.sroa.48.i.sroa.16.0.copyload69 = load double, ptr %.sroa.48.i.sroa.16.0..sroa.55.0..sroa_idx243.i.sroa_idx, align 8, !noalias !4
   br label %330
 
 330:                                              ; preds = %329, %327
-  %.sroa.48.i.sroa.15.10 = phi double [ %.sroa.48.i.sroa.15.0.copyload75, %329 ], [ %.sroa.48.i.sroa.15.9, %327 ]
-  %.sroa.48.i.sroa.0.10 = phi double [ %.sroa.48.i.sroa.0.0.copyload64, %329 ], [ %.sroa.48.i.sroa.0.9, %327 ]
+  %.sroa.48.i.sroa.16.9 = phi double [ %.sroa.48.i.sroa.16.0.copyload69, %329 ], [ %.sroa.48.i.sroa.16.8, %327 ]
+  %.sroa.48.i.sroa.0.9 = phi double [ %.sroa.48.i.sroa.0.0.copyload58, %329 ], [ %.sroa.48.i.sroa.0.8, %327 ]
   %.sroa.26.16.i = phi double [ %.sroa.44142.0.copyload196.i, %329 ], [ %.sroa.26.15408.i, %327 ]
   %.sroa.0249.16.i = phi i32 [ %.sroa.0.0.copyload72.i, %329 ], [ %.sroa.0249.15410.i, %327 ]
   %331 = load double, ptr %177, align 8, !noalias !4
@@ -797,8 +797,8 @@ xlinitialize.exit:                                ; preds = %.thread.i.i, %xlspd
   br label %.loopexit381.i
 
 .loopexit381.i:                                   ; preds = %.loopexit381.loopexit.i, %316, %315
-  %.sroa.48.i.sroa.15.11 = phi double [ %.sroa.48.i.sroa.15.7, %315 ], [ %.sroa.48.i.sroa.15.7, %316 ], [ %.sroa.48.i.sroa.15.10, %.loopexit381.loopexit.i ]
-  %.sroa.48.i.sroa.0.11 = phi double [ %.sroa.48.i.sroa.0.7, %315 ], [ %.sroa.48.i.sroa.0.7, %316 ], [ %.sroa.48.i.sroa.0.10, %.loopexit381.loopexit.i ]
+  %.sroa.48.i.sroa.16.10 = phi double [ %.sroa.48.i.sroa.16.7, %315 ], [ %.sroa.48.i.sroa.16.7, %316 ], [ %.sroa.48.i.sroa.16.9, %.loopexit381.loopexit.i ]
+  %.sroa.48.i.sroa.0.10 = phi double [ %.sroa.48.i.sroa.0.7, %315 ], [ %.sroa.48.i.sroa.0.7, %316 ], [ %.sroa.48.i.sroa.0.9, %.loopexit381.loopexit.i ]
   %337 = phi ptr [ %313, %315 ], [ %313, %316 ], [ %.pre435.i, %.loopexit381.loopexit.i ]
   %338 = phi ptr [ %311, %315 ], [ %311, %316 ], [ %.pre434.i, %.loopexit381.loopexit.i ]
   %.sroa.26.14.i = phi double [ %.sroa.26.7.i, %315 ], [ %.sroa.26.7.i, %316 ], [ %.sroa.26.16.i, %.loopexit381.loopexit.i ]
@@ -824,8 +824,8 @@ xlinitialize.exit:                                ; preds = %.thread.i.i, %xlspd
   br i1 %351, label %xladjust.exit, label %.lr.ph418.i
 
 .lr.ph418.i:                                      ; preds = %341, %356
-  %.sroa.48.i.sroa.15.12 = phi double [ %.sroa.48.i.sroa.15.13, %356 ], [ %.sroa.48.i.sroa.15.11, %341 ]
-  %.sroa.48.i.sroa.0.12 = phi double [ %.sroa.48.i.sroa.0.13, %356 ], [ %.sroa.48.i.sroa.0.11, %341 ]
+  %.sroa.48.i.sroa.16.11 = phi double [ %.sroa.48.i.sroa.16.12, %356 ], [ %.sroa.48.i.sroa.16.10, %341 ]
+  %.sroa.48.i.sroa.0.11 = phi double [ %.sroa.48.i.sroa.0.12, %356 ], [ %.sroa.48.i.sroa.0.10, %341 ]
   %.sroa.0249.17417.i = phi i32 [ %.sroa.0249.18.i, %356 ], [ %.sroa.0249.14.i, %341 ]
   %.sroa.26.17415.i = phi double [ %.sroa.26.18.i, %356 ], [ %.sroa.26.14.i, %341 ]
   call fastcc void @xlintersections(ptr dead_on_unwind noalias writable align 8 %18, ptr noundef nonnull readonly %19, ptr noundef nonnull %159, ptr noundef %6), !noalias !4
@@ -839,13 +839,13 @@ xlinitialize.exit:                                ; preds = %.thread.i.i, %xlspd
   br i1 %354, label %355, label %356
 
 355:                                              ; preds = %353
-  %.sroa.48.i.sroa.0.0.copyload63 = load double, ptr %.sroa.55.0..sroa_idx246.i, align 8, !noalias !4
-  %.sroa.48.i.sroa.15.0.copyload74 = load double, ptr %.sroa.48.i.sroa.15.0..sroa.55.0..sroa_idx246.i.sroa_idx, align 8, !noalias !4
+  %.sroa.48.i.sroa.0.0.copyload57 = load double, ptr %.sroa.55.0..sroa_idx246.i, align 8, !noalias !4
+  %.sroa.48.i.sroa.16.0.copyload68 = load double, ptr %.sroa.48.i.sroa.16.0..sroa.55.0..sroa_idx246.i.sroa_idx, align 8, !noalias !4
   br label %356
 
 356:                                              ; preds = %355, %353
-  %.sroa.48.i.sroa.15.13 = phi double [ %.sroa.48.i.sroa.15.0.copyload74, %355 ], [ %.sroa.48.i.sroa.15.12, %353 ]
-  %.sroa.48.i.sroa.0.13 = phi double [ %.sroa.48.i.sroa.0.0.copyload63, %355 ], [ %.sroa.48.i.sroa.0.12, %353 ]
+  %.sroa.48.i.sroa.16.12 = phi double [ %.sroa.48.i.sroa.16.0.copyload68, %355 ], [ %.sroa.48.i.sroa.16.11, %353 ]
+  %.sroa.48.i.sroa.0.12 = phi double [ %.sroa.48.i.sroa.0.0.copyload57, %355 ], [ %.sroa.48.i.sroa.0.11, %353 ]
   %.sroa.26.18.i = phi double [ %.sroa.44142.0.copyload202.i, %355 ], [ %.sroa.26.17415.i, %353 ]
   %.sroa.0249.18.i = phi i32 [ %.sroa.0.0.copyload75.i, %355 ], [ %.sroa.0249.17417.i, %353 ]
   %357 = load double, ptr %182, align 8, !noalias !4
@@ -874,10 +874,10 @@ xladjust.exit.thread:                             ; preds = %.lr.ph.i, %.lr.ph40
   br label %.sink.split
 
 xladjust.exit:                                    ; preds = %356, %.loopexit382.i, %.loopexit381.i, %341
-  %.sroa.55.0 = phi double [ %.sroa.48.i.sroa.15.11, %.loopexit381.i ], [ %.sroa.48.i.sroa.15.11, %341 ], [ %.sroa.48.i.sroa.15.7, %.loopexit382.i ], [ %.sroa.48.i.sroa.15.13, %356 ]
-  %.sroa.41.0 = phi double [ %.sroa.48.i.sroa.0.11, %.loopexit381.i ], [ %.sroa.48.i.sroa.0.11, %341 ], [ %.sroa.48.i.sroa.0.7, %.loopexit382.i ], [ %.sroa.48.i.sroa.0.13, %356 ]
-  %.sroa.27.0 = phi double [ %.sroa.26.14.i, %.loopexit381.i ], [ %.sroa.26.14.i, %341 ], [ %.sroa.26.7.i, %.loopexit382.i ], [ %.sroa.26.18.i, %356 ]
-  %.sroa.0.0 = phi i32 [ %.sroa.0249.14.i, %.loopexit381.i ], [ %.sroa.0249.14.i, %341 ], [ %.sroa.0249.7.i, %.loopexit382.i ], [ %.sroa.0249.18.i, %356 ]
+  %.sroa.48.i.sroa.16.18 = phi double [ %.sroa.48.i.sroa.16.10, %.loopexit381.i ], [ %.sroa.48.i.sroa.16.10, %341 ], [ %.sroa.48.i.sroa.16.7, %.loopexit382.i ], [ %.sroa.48.i.sroa.16.12, %356 ]
+  %.sroa.48.i.sroa.0.18 = phi double [ %.sroa.48.i.sroa.0.10, %.loopexit381.i ], [ %.sroa.48.i.sroa.0.10, %341 ], [ %.sroa.48.i.sroa.0.7, %.loopexit382.i ], [ %.sroa.48.i.sroa.0.12, %356 ]
+  %.sroa.0249.13.sink.i = phi i32 [ %.sroa.0249.14.i, %.loopexit381.i ], [ %.sroa.0249.14.i, %341 ], [ %.sroa.0249.7.i, %.loopexit382.i ], [ %.sroa.0249.18.i, %356 ]
+  %.sroa.26.13.sink.i = phi double [ %.sroa.26.14.i, %.loopexit381.i ], [ %.sroa.26.14.i, %341 ], [ %.sroa.26.7.i, %.loopexit382.i ], [ %.sroa.26.18.i, %356 ]
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %8)
@@ -891,20 +891,20 @@ xladjust.exit:                                    ; preds = %356, %.loopexit382.
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %16)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %17)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %18)
-  %363 = icmp eq i32 %.sroa.0.0, 0
+  %363 = icmp eq i32 %.sroa.0249.13.sink.i, 0
   br i1 %363, label %.sink.split, label %364
 
 364:                                              ; preds = %xladjust.exit
-  %365 = fcmp oeq double %.sroa.27.0, 0.000000e+00
+  %365 = fcmp oeq double %.sroa.26.13.sink.i, 0.000000e+00
   br i1 %365, label %366, label %371
 
 366:                                              ; preds = %364
   %367 = load ptr, ptr %160, align 8
   %368 = getelementptr inbounds i8, ptr %367, i64 16
-  store double %.sroa.41.0, ptr %368, align 8
+  store double %.sroa.48.i.sroa.0.18, ptr %368, align 8
   %369 = load ptr, ptr %160, align 8
   %370 = getelementptr inbounds i8, ptr %369, i64 24
-  store double %.sroa.55.0, ptr %370, align 8
+  store double %.sroa.48.i.sroa.16.18, ptr %370, align 8
   br label %.sink.split
 
 371:                                              ; preds = %364
@@ -915,10 +915,10 @@ xladjust.exit:                                    ; preds = %356, %.loopexit382.
 374:                                              ; preds = %371
   %375 = load ptr, ptr %160, align 8
   %376 = getelementptr inbounds i8, ptr %375, i64 16
-  store double %.sroa.41.0, ptr %376, align 8
+  store double %.sroa.48.i.sroa.0.18, ptr %376, align 8
   %377 = load ptr, ptr %160, align 8
   %378 = getelementptr inbounds i8, ptr %377, i64 24
-  store double %.sroa.55.0, ptr %378, align 8
+  store double %.sroa.48.i.sroa.16.18, ptr %378, align 8
   br label %.sink.split
 
 .sink.split:                                      ; preds = %xladjust.exit, %xladjust.exit.thread, %366, %374
@@ -928,8 +928,8 @@ xladjust.exit:                                    ; preds = %356, %.loopexit382.
   br label %381
 
 381:                                              ; preds = %.sink.split, %371, %158
-  %.1 = phi i32 [ %.03694, %158 ], [ 1, %371 ], [ %.03694, %.sink.split ]
-  %382 = add nuw i64 %.096, 1
+  %.1 = phi i32 [ %.03650, %158 ], [ 1, %371 ], [ %.03650, %.sink.split ]
+  %382 = add nuw i64 %.052, 1
   %exitcond.not = icmp eq i64 %382, %1
   br i1 %exitcond.not, label %._crit_edge, label %158
 

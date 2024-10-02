@@ -896,12 +896,12 @@ Kit_TruthIsConst0.exit:                           ; preds = %select.unfold.i
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @Rpo_Recursion(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef %5, i32 noundef %6, i32 noundef %7) local_unnamed_addr #5 {
+define ptr @Rpo_Recursion(ptr nocapture noundef readonly %0, ptr nocapture noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef %5, i32 noundef %6, i32 noundef %7) local_unnamed_addr #5 {
   %9 = load i32, ptr %5, align 4
   %10 = add nsw i32 %9, 1
   store i32 %10, ptr %5, align 4
   %11 = icmp eq i32 %10, %6
-  br i1 %11, label %417, label %12
+  br i1 %11, label %415, label %12
 
 12:                                               ; preds = %8
   %.not = icmp eq i32 %7, 0
@@ -1029,11 +1029,11 @@ Lit_Copy.exit:                                    ; preds = %Kit_TruthCopy.exit1
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %64, ptr align 1 %67, i64 %68, i1 false)
   %69 = getelementptr inbounds i8, ptr %37, i64 16
   store ptr %56, ptr %69, align 8
-  br i1 %.not, label %417, label %70
+  br i1 %.not, label %415, label %70
 
 70:                                               ; preds = %Lit_Copy.exit
   tail call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.6, ptr noundef nonnull %5)
-  br label %417
+  br label %415
 
 Kit_TruthIsEqual.exit.thread:                     ; preds = %31, %23
   %indvars.iv.next255 = add nuw nsw i64 %indvars.iv254, 1
@@ -1041,11 +1041,11 @@ Kit_TruthIsEqual.exit.thread:                     ; preds = %31, %23
   br i1 %exitcond258.not, label %._crit_edge237, label %23, !llvm.loop !17
 
 ._crit_edge237:                                   ; preds = %Kit_TruthIsEqual.exit.thread, %17
-  br i1 %.not, label %417, label %71
+  br i1 %.not, label %415, label %71
 
 71:                                               ; preds = %._crit_edge237
   tail call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.7, ptr noundef nonnull %5)
-  br label %417
+  br label %415
 
 72:                                               ; preds = %.thread, %13
   %73 = sext i32 %2 to i64
@@ -1738,115 +1738,111 @@ Lit_GroupLiterals.exit:                           ; preds = %.Vec_StrGrow.exit10
   store ptr null, ptr %237, align 8
   br i1 %.not, label %.split, label %.split157
 
-.split:                                           ; preds = %Lit_GroupLiterals.exit
-  %390 = tail call ptr @Rpo_Recursion(ptr noundef %0, ptr noundef nonnull %1, i32 noundef %2, i32 noundef %198, i32 noundef %4, ptr noundef nonnull %5, i32 noundef %6, i32 noundef 0)
-  br label %397
-
 .split157:                                        ; preds = %Lit_GroupLiterals.exit
   tail call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.14)
   %.val183 = load ptr, ptr %389, align 8
-  %391 = getelementptr i8, ptr %.val183, i64 8
-  %.val183.val = load ptr, ptr %391, align 8
+  %390 = getelementptr i8, ptr %.val183, i64 8
+  %.val183.val = load ptr, ptr %390, align 8
   tail call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.19, ptr noundef %.val183.val)
   tail call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.15)
-  %392 = load ptr, ptr %388, align 8
+  %391 = load ptr, ptr %388, align 8
   br i1 %196, label %.lr.ph.i203, label %Lit_PrintTT.exit
 
 .lr.ph.i203:                                      ; preds = %.split157, %.lr.ph.i203
   %indvars.iv.i204 = phi i64 [ %indvars.iv.next.i205, %.lr.ph.i203 ], [ %197, %.split157 ]
   %indvars.iv.next.i205 = add nsw i64 %indvars.iv.i204, -1
-  %393 = getelementptr inbounds i32, ptr %392, i64 %indvars.iv.next.i205
-  %394 = load i32, ptr %393, align 4
-  tail call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.18, i32 noundef %394)
-  %395 = icmp ugt i64 %indvars.iv.i204, 1
-  br i1 %395, label %.lr.ph.i203, label %Lit_PrintTT.exit, !llvm.loop !10
+  %392 = getelementptr inbounds i32, ptr %391, i64 %indvars.iv.next.i205
+  %393 = load i32, ptr %392, align 4
+  tail call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.18, i32 noundef %393)
+  %394 = icmp ugt i64 %indvars.iv.i204, 1
+  br i1 %394, label %.lr.ph.i203, label %Lit_PrintTT.exit, !llvm.loop !10
 
 Lit_PrintTT.exit:                                 ; preds = %.lr.ph.i203, %.split157
   tail call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.2)
-  %396 = tail call ptr @Rpo_Recursion(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %198, i32 noundef %4, ptr noundef nonnull %5, i32 noundef %6, i32 noundef %7)
-  br label %397
+  br label %.split
 
-397:                                              ; preds = %Lit_PrintTT.exit, %.split
-  %phi.call = phi ptr [ %390, %.split ], [ %396, %Lit_PrintTT.exit ]
-  %398 = load ptr, ptr %388, align 8
-  %.not.i206 = icmp eq ptr %398, null
-  br i1 %.not.i206, label %400, label %399
+.split:                                           ; preds = %Lit_GroupLiterals.exit, %Lit_PrintTT.exit
+  %.sink = phi i32 [ %7, %Lit_PrintTT.exit ], [ 0, %Lit_GroupLiterals.exit ]
+  %395 = tail call ptr @Rpo_Recursion(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %198, i32 noundef %4, ptr noundef nonnull %5, i32 noundef %6, i32 noundef %.sink)
+  %396 = load ptr, ptr %388, align 8
+  %.not.i206 = icmp eq ptr %396, null
+  br i1 %.not.i206, label %398, label %397
 
-399:                                              ; preds = %397
-  tail call void @free(ptr noundef nonnull %398) #15
+397:                                              ; preds = %.split
+  tail call void @free(ptr noundef nonnull %396) #15
   store ptr null, ptr %388, align 8
-  br label %400
+  br label %398
 
-400:                                              ; preds = %399, %397
-  %401 = load ptr, ptr %387, align 8
-  %.not12.i = icmp eq ptr %401, null
-  br i1 %.not12.i, label %403, label %402
+398:                                              ; preds = %397, %.split
+  %399 = load ptr, ptr %387, align 8
+  %.not12.i = icmp eq ptr %399, null
+  br i1 %.not12.i, label %401, label %400
 
-402:                                              ; preds = %400
-  tail call void @free(ptr noundef nonnull %401) #15
+400:                                              ; preds = %398
+  tail call void @free(ptr noundef nonnull %399) #15
   store ptr null, ptr %387, align 8
-  br label %403
+  br label %401
 
-403:                                              ; preds = %402, %400
-  %404 = load ptr, ptr %389, align 8
-  %405 = getelementptr inbounds i8, ptr %404, i64 8
-  %406 = load ptr, ptr %405, align 8
-  %.not.i.i207 = icmp eq ptr %406, null
-  br i1 %.not.i.i207, label %Lit_Free.exit, label %407
+401:                                              ; preds = %400, %398
+  %402 = load ptr, ptr %389, align 8
+  %403 = getelementptr inbounds i8, ptr %402, i64 8
+  %404 = load ptr, ptr %403, align 8
+  %.not.i.i207 = icmp eq ptr %404, null
+  br i1 %.not.i.i207, label %Lit_Free.exit, label %405
 
-407:                                              ; preds = %403
-  tail call void @free(ptr noundef nonnull %406) #15
+405:                                              ; preds = %401
+  tail call void @free(ptr noundef nonnull %404) #15
   br label %Lit_Free.exit
 
-Lit_Free.exit:                                    ; preds = %403, %407
-  tail call void @free(ptr noundef nonnull %404) #15
+Lit_Free.exit:                                    ; preds = %401, %405
+  tail call void @free(ptr noundef nonnull %402) #15
   tail call void @free(ptr noundef nonnull %387) #15
   store ptr %235, ptr %234, align 8
   store ptr %238, ptr %237, align 8
-  %408 = load i32, ptr %5, align 4
-  %409 = icmp ne i32 %408, %6
-  %410 = icmp eq ptr %phi.call, null
-  %or.cond = select i1 %409, i1 %410, i1 false
+  %406 = load i32, ptr %5, align 4
+  %407 = icmp ne i32 %406, %6
+  %408 = icmp eq ptr %395, null
+  %or.cond = select i1 %407, i1 %408, i1 false
   br i1 %or.cond, label %.lr.ph.i.backedge, label %.loopexit
 
 .loopexit:                                        ; preds = %Lit_Free.exit, %Rpo_computeMinEdgeCost.exit.thread.split, %220
-  %.1152 = phi ptr [ null, %220 ], [ null, %Rpo_computeMinEdgeCost.exit.thread.split ], [ %phi.call, %Lit_Free.exit ]
+  %.1152 = phi ptr [ null, %220 ], [ null, %Rpo_computeMinEdgeCost.exit.thread.split ], [ %395, %Lit_Free.exit ]
   %.not173 = icmp eq ptr %75, null
-  br i1 %.not173, label %412, label %411
+  br i1 %.not173, label %410, label %409
 
-411:                                              ; preds = %.loopexit
+409:                                              ; preds = %.loopexit
   tail call void @free(ptr noundef nonnull %75) #15
-  br label %412
+  br label %410
 
-412:                                              ; preds = %.loopexit, %411
+410:                                              ; preds = %.loopexit, %409
   br i1 %187, label %.lr.ph232, label %._crit_edge233
 
-.lr.ph232:                                        ; preds = %412, %416
-  %indvars.iv249 = phi i64 [ %indvars.iv.next250, %416 ], [ 0, %412 ]
-  %413 = getelementptr inbounds ptr, ptr %84, i64 %indvars.iv249
-  %414 = load ptr, ptr %413, align 8
-  %.not175 = icmp eq ptr %414, null
-  br i1 %.not175, label %416, label %415
+.lr.ph232:                                        ; preds = %410, %414
+  %indvars.iv249 = phi i64 [ %indvars.iv.next250, %414 ], [ 0, %410 ]
+  %411 = getelementptr inbounds ptr, ptr %84, i64 %indvars.iv249
+  %412 = load ptr, ptr %411, align 8
+  %.not175 = icmp eq ptr %412, null
+  br i1 %.not175, label %414, label %413
 
-415:                                              ; preds = %.lr.ph232
-  tail call void @free(ptr noundef nonnull %414) #15
-  store ptr null, ptr %413, align 8
-  br label %416
+413:                                              ; preds = %.lr.ph232
+  tail call void @free(ptr noundef nonnull %412) #15
+  store ptr null, ptr %411, align 8
+  br label %414
 
-416:                                              ; preds = %415, %.lr.ph232
+414:                                              ; preds = %413, %.lr.ph232
   %indvars.iv.next250 = add nuw nsw i64 %indvars.iv249, 1
   %exitcond253.not = icmp eq i64 %indvars.iv.next250, %wide.trip.count.i
   br i1 %exitcond253.not, label %._crit_edge233.thread, label %.lr.ph232, !llvm.loop !22
 
-._crit_edge233:                                   ; preds = %412
+._crit_edge233:                                   ; preds = %410
   %.not174 = icmp eq ptr %84, null
-  br i1 %.not174, label %417, label %._crit_edge233.thread
+  br i1 %.not174, label %415, label %._crit_edge233.thread
 
-._crit_edge233.thread:                            ; preds = %416, %._crit_edge233
+._crit_edge233.thread:                            ; preds = %414, %._crit_edge233
   tail call void @free(ptr noundef nonnull %84) #15
-  br label %417
+  br label %415
 
-417:                                              ; preds = %._crit_edge233.thread, %._crit_edge233, %._crit_edge237, %71, %Lit_Copy.exit, %70, %8
+415:                                              ; preds = %._crit_edge233.thread, %._crit_edge233, %._crit_edge237, %71, %Lit_Copy.exit, %70, %8
   %.0 = phi ptr [ null, %8 ], [ %37, %70 ], [ %37, %Lit_Copy.exit ], [ null, %71 ], [ null, %._crit_edge237 ], [ %.1152, %._crit_edge233 ], [ %.1152, %._crit_edge233.thread ]
   ret ptr %.0
 }

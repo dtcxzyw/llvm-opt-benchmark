@@ -3192,18 +3192,15 @@ sw.default:                                       ; preds = %if.else22
 if.end33:                                         ; preds = %sw.bb, %sw.bb26, %sw.default, %if.then20
   %tobool34.not = icmp eq ptr %version, null
   %version39 = getelementptr inbounds i8, ptr %s, i64 680
-  br i1 %tobool34.not, label %if.else38, label %if.then35
-
-if.then35:                                        ; preds = %if.end33
-  call void @pstrcpy(ptr noundef nonnull %version39, i32 noundef 9, ptr noundef nonnull %version) #17
-  br label %if.end42
+  br i1 %tobool34.not, label %if.else38, label %if.end42
 
 if.else38:                                        ; preds = %if.end33
   %call41 = call ptr @qemu_hw_version() #17
-  call void @pstrcpy(ptr noundef nonnull %version39, i32 noundef 9, ptr noundef %call41) #17
   br label %if.end42
 
-if.end42:                                         ; preds = %if.else38, %if.then35
+if.end42:                                         ; preds = %if.end33, %if.else38
+  %call41.sink = phi ptr [ %call41, %if.else38 ], [ %version, %if.end33 ]
+  call void @pstrcpy(ptr noundef nonnull %version39, i32 noundef 9, ptr noundef %call41.sink) #17
   call fastcc void @ide_reset(ptr noundef nonnull %s)
   call void @blk_iostatus_enable(ptr noundef %blk) #17
   br label %return

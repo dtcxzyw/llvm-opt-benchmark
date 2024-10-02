@@ -628,7 +628,7 @@ activeDefragSds.exit.thread:                      ; preds = %entry
   %0 = load i64, ptr getelementptr inbounds (i8, ptr @server, i64 2064), align 8
   %inc.i.i = add nsw i64 %0, 1
   store i64 %inc.i.i, ptr getelementptr inbounds (i8, ptr @server, i64 2064), align 8
-  br label %entry.split
+  br label %if.end
 
 activeDefragSds.exit:                             ; preds = %entry
   %call1.i.i = tail call i64 @je_malloc_usable_size(ptr noundef %call.i) #11
@@ -639,38 +639,30 @@ activeDefragSds.exit:                             ; preds = %entry
   %inc3.i.i = add nsw i64 %1, 1
   store i64 %inc3.i.i, ptr getelementptr inbounds (i8, ptr @server, i64 2056), align 8
   %tobool.not15 = icmp eq ptr %call2.i.i, null
-  br i1 %tobool.not15, label %entry.split, label %if.then
-
-entry.split:                                      ; preds = %activeDefragSds.exit.thread, %activeDefragSds.exit
-  %zsl9 = getelementptr inbounds i8, ptr %zs, i64 8
-  %2 = load ptr, ptr %zsl9, align 8
-  %call210 = tail call ptr @dictGetVal(ptr noundef %de) #11
-  %3 = load double, ptr %call210, align 8
-  %call311 = tail call ptr @zslDefrag(ptr noundef %2, double noundef %3, ptr noundef %call, ptr noundef null)
-  br label %if.end
+  br i1 %tobool.not15, label %if.end, label %if.then
 
 if.then:                                          ; preds = %activeDefragSds.exit
   %sub.ptr.lhs.cast.i = ptrtoint ptr %call to i64
   %sub.ptr.rhs.cast.i = ptrtoint ptr %call.i to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
   %add.ptr.i = getelementptr inbounds i8, ptr %call2.i.i, i64 %sub.ptr.sub.i
-  %4 = load ptr, ptr %zs, align 8
-  tail call void @dictSetKey(ptr noundef %4, ptr noundef %de, ptr noundef nonnull %add.ptr.i) #11
-  %zsl12 = getelementptr inbounds i8, ptr %zs, i64 8
-  %5 = load ptr, ptr %zsl12, align 8
-  %call213 = tail call ptr @dictGetVal(ptr noundef %de) #11
-  %6 = load double, ptr %call213, align 8
-  %call314 = tail call ptr @zslDefrag(ptr noundef %5, double noundef %6, ptr noundef %call, ptr noundef nonnull %add.ptr.i)
+  %2 = load ptr, ptr %zs, align 8
+  tail call void @dictSetKey(ptr noundef %2, ptr noundef %de, ptr noundef nonnull %add.ptr.i) #11
   br label %if.end
 
-if.end:                                           ; preds = %entry.split, %if.then
-  %phi.call = phi ptr [ %call311, %entry.split ], [ %call314, %if.then ]
-  %tobool4.not = icmp eq ptr %phi.call, null
+if.end:                                           ; preds = %activeDefragSds.exit, %activeDefragSds.exit.thread, %if.then
+  %.sink19 = phi ptr [ %add.ptr.i, %if.then ], [ null, %activeDefragSds.exit.thread ], [ null, %activeDefragSds.exit ]
+  %zsl9 = getelementptr inbounds i8, ptr %zs, i64 8
+  %3 = load ptr, ptr %zsl9, align 8
+  %call210 = tail call ptr @dictGetVal(ptr noundef %de) #11
+  %4 = load double, ptr %call210, align 8
+  %call311 = tail call ptr @zslDefrag(ptr noundef %3, double noundef %4, ptr noundef %call, ptr noundef %.sink19)
+  %tobool4.not = icmp eq ptr %call311, null
   br i1 %tobool4.not, label %if.end7, label %if.then5
 
 if.then5:                                         ; preds = %if.end
-  %7 = load ptr, ptr %zs, align 8
-  tail call void @dictSetVal(ptr noundef %7, ptr noundef %de, ptr noundef nonnull %phi.call) #11
+  %5 = load ptr, ptr %zs, align 8
+  tail call void @dictSetVal(ptr noundef %5, ptr noundef %de, ptr noundef nonnull %call311) #11
   br label %if.end7
 
 if.end7:                                          ; preds = %if.then5, %if.end

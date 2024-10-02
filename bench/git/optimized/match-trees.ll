@@ -161,31 +161,21 @@ if.then.i:                                        ; preds = %if.else28
   %11 = load ptr, ptr @the_repository, align 8
   %hash_algo.i = getelementptr inbounds i8, ptr %11, i64 256
   %12 = load ptr, ptr %hash_algo.i, align 8
-  br label %if.end.i
+  br label %oideq.exit
 
 if.else.i:                                        ; preds = %if.else28
   %idxprom.i = sext i32 %10 to i64
   %arrayidx.i = getelementptr inbounds [3 x %struct.git_hash_algo], ptr @hash_algos, i64 0, i64 %idxprom.i
-  br label %if.end.i
+  br label %oideq.exit
 
-if.end.i:                                         ; preds = %if.else.i, %if.then.i
+oideq.exit:                                       ; preds = %if.then.i, %if.else.i
   %algop.0.i = phi ptr [ %arrayidx.i, %if.else.i ], [ %12, %if.then.i ]
   %13 = getelementptr i8, ptr %algop.0.i, i64 16
   %algop.0.val.i = load i64, ptr %13, align 8
   %cmp.i.i = icmp eq i64 %algop.0.val.i, 32
-  br i1 %cmp.i.i, label %if.then.i.i, label %if.end.i.i
-
-if.then.i.i:                                      ; preds = %if.end.i
-  %bcmp3.i.i = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(32) %entry29, ptr noundef nonnull readonly dereferenceable(32) %entry30, i64 32)
-  br label %oideq.exit
-
-if.end.i.i:                                       ; preds = %if.end.i
-  %bcmp.i.i = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(20) %entry29, ptr noundef nonnull readonly dereferenceable(20) %entry30, i64 20)
-  br label %oideq.exit
-
-oideq.exit:                                       ; preds = %if.then.i.i, %if.end.i.i
-  %retval.0.in.in.i.i = phi i32 [ %bcmp3.i.i, %if.then.i.i ], [ %bcmp.i.i, %if.end.i.i ]
-  %retval.0.in.i.i.not = icmp eq i32 %retval.0.in.in.i.i, 0
+  %..i.i = select i1 %cmp.i.i, i64 32, i64 20
+  %bcmp.i.i = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(20) %entry29, ptr noundef nonnull readonly dereferenceable(20) %entry30, i64 %..i.i)
+  %retval.0.in.i.i.not = icmp eq i32 %bcmp.i.i, 0
   %14 = load i32, ptr %mode.i, align 4
   %15 = load i32, ptr %mode4.i, align 4
   %and.i12 = and i32 %14, 61440

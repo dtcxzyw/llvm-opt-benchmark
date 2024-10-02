@@ -2367,7 +2367,7 @@ Scl_LibertyItem.exit:                             ; preds = %2
   br label %12
 
 12:                                               ; preds = %.lr.ph, %Scl_LibertyItem.exit51
-  %.03697 = phi ptr [ %9, %.lr.ph ], [ %29, %Scl_LibertyItem.exit51 ]
+  %.03697 = phi ptr [ %9, %.lr.ph ], [ %25, %Scl_LibertyItem.exit51 ]
   %13 = getelementptr inbounds i8, ptr %.03697, i64 8
   %14 = load i64, ptr %13, align 4
   %.sroa.0.0.extract.trunc.i = trunc i64 %14 to i32
@@ -2382,168 +2382,163 @@ Scl_LibertyItem.exit:                             ; preds = %2
   %.not.i = icmp eq i32 %19, 0
   %.not86 = icmp eq i32 %17, 18
   %or.cond = and i1 %.not.i, %.not86
-  br i1 %or.cond, label %20, label %Scl_LibertyCompare.exit.thread
-
-20:                                               ; preds = %12
-  %21 = getelementptr inbounds i8, ptr %.03697, i64 16
-  %22 = load i64, ptr %21, align 4
-  %23 = tail call ptr @Scl_LibertyReadString(ptr noundef nonnull %0, i64 %22)
-  br label %.loopexit
+  br i1 %or.cond, label %.loopexit.sink.split, label %Scl_LibertyCompare.exit.thread
 
 Scl_LibertyCompare.exit.thread:                   ; preds = %12
-  %24 = getelementptr inbounds i8, ptr %.03697, i64 32
-  %25 = load i32, ptr %24, align 4
-  %26 = icmp slt i32 %25, 0
-  br i1 %26, label %Scl_LibertyItem.exit52, label %Scl_LibertyItem.exit51
+  %20 = getelementptr inbounds i8, ptr %.03697, i64 32
+  %21 = load i32, ptr %20, align 4
+  %22 = icmp slt i32 %21, 0
+  br i1 %22, label %Scl_LibertyItem.exit52, label %Scl_LibertyItem.exit51
 
 Scl_LibertyItem.exit51:                           ; preds = %Scl_LibertyCompare.exit.thread
-  %27 = load ptr, ptr %11, align 8
-  %28 = zext nneg i32 %25 to i64
-  %29 = getelementptr inbounds %struct.Scl_Item_t_, ptr %27, i64 %28
-  %.not = icmp eq ptr %27, null
+  %23 = load ptr, ptr %11, align 8
+  %24 = zext nneg i32 %21 to i64
+  %25 = getelementptr inbounds %struct.Scl_Item_t_, ptr %23, i64 %24
+  %.not = icmp eq ptr %23, null
   br i1 %.not, label %Scl_LibertyItem.exit52, label %12, !llvm.loop !26
 
 Scl_LibertyItem.exit52:                           ; preds = %Scl_LibertyItem.exit51, %Scl_LibertyCompare.exit.thread, %Scl_LibertyItem.exit
-  %30 = getelementptr inbounds i8, ptr %0, i64 40
-  %31 = load ptr, ptr %30, align 8
-  %.not39104 = icmp eq ptr %31, null
+  %26 = getelementptr inbounds i8, ptr %0, i64 40
+  %27 = load ptr, ptr %26, align 8
+  %.not39104 = icmp eq ptr %27, null
   br i1 %.not39104, label %.loopexit, label %.lr.ph106
 
 .lr.ph106:                                        ; preds = %Scl_LibertyItem.exit52
-  %32 = zext nneg i32 %4 to i64
-  %33 = getelementptr inbounds %struct.Scl_Item_t_, ptr %31, i64 %32
-  %34 = getelementptr i8, ptr %0, i64 8
-  %.val49 = load ptr, ptr %34, align 8
-  %35 = getelementptr inbounds i8, ptr %0, i64 40
-  br label %36
+  %28 = zext nneg i32 %4 to i64
+  %29 = getelementptr inbounds %struct.Scl_Item_t_, ptr %27, i64 %28
+  %30 = getelementptr i8, ptr %0, i64 8
+  %.val49 = load ptr, ptr %30, align 8
+  %31 = getelementptr inbounds i8, ptr %0, i64 40
+  br label %32
 
-36:                                               ; preds = %.lr.ph106, %Scl_LibertyItem.exit81
-  %.137105 = phi ptr [ %33, %.lr.ph106 ], [ %89, %Scl_LibertyItem.exit81 ]
-  %37 = getelementptr inbounds i8, ptr %.137105, i64 8
-  %38 = load i64, ptr %37, align 4
-  %.sroa.0.0.extract.trunc.i53 = trunc i64 %38 to i32
-  %.sroa.4.0.extract.shift.i54 = lshr i64 %38, 32
+32:                                               ; preds = %.lr.ph106, %Scl_LibertyItem.exit81
+  %.137105 = phi ptr [ %29, %.lr.ph106 ], [ %81, %Scl_LibertyItem.exit81 ]
+  %33 = getelementptr inbounds i8, ptr %.137105, i64 8
+  %34 = load i64, ptr %33, align 4
+  %.sroa.0.0.extract.trunc.i53 = trunc i64 %34 to i32
+  %.sroa.4.0.extract.shift.i54 = lshr i64 %34, 32
   %.sroa.4.0.extract.trunc.i55 = trunc nuw i64 %.sroa.4.0.extract.shift.i54 to i32
-  %sext.i56 = shl i64 %38, 32
-  %39 = ashr exact i64 %sext.i56, 32
-  %40 = getelementptr inbounds i8, ptr %.val49, i64 %39
-  %41 = sub nsw i32 %.sroa.4.0.extract.trunc.i55, %.sroa.0.0.extract.trunc.i53
-  %42 = sext i32 %41 to i64
-  %43 = tail call i32 @strncmp(ptr noundef readonly %40, ptr noundef nonnull readonly @.str.26, i64 noundef %42) #30
-  %.not.i57 = icmp eq i32 %43, 0
-  %.not87 = icmp eq i32 %41, 13
+  %sext.i56 = shl i64 %34, 32
+  %35 = ashr exact i64 %sext.i56, 32
+  %36 = getelementptr inbounds i8, ptr %.val49, i64 %35
+  %37 = sub nsw i32 %.sroa.4.0.extract.trunc.i55, %.sroa.0.0.extract.trunc.i53
+  %38 = sext i32 %37 to i64
+  %39 = tail call i32 @strncmp(ptr noundef readonly %36, ptr noundef nonnull readonly @.str.26, i64 noundef %38) #30
+  %.not.i57 = icmp eq i32 %39, 0
+  %.not87 = icmp eq i32 %37, 13
   %or.cond90 = and i1 %.not.i57, %.not87
-  br i1 %or.cond90, label %44, label %Scl_LibertyCompare.exit58.thread
+  br i1 %or.cond90, label %40, label %Scl_LibertyCompare.exit58.thread
 
-44:                                               ; preds = %36
-  %45 = getelementptr inbounds i8, ptr %.137105, i64 36
-  %46 = load i32, ptr %45, align 4
-  %47 = icmp slt i32 %46, 0
-  br i1 %47, label %Scl_LibertyCompare.exit58.thread, label %Scl_LibertyItem.exit59
+40:                                               ; preds = %32
+  %41 = getelementptr inbounds i8, ptr %.137105, i64 36
+  %42 = load i32, ptr %41, align 4
+  %43 = icmp slt i32 %42, 0
+  br i1 %43, label %Scl_LibertyCompare.exit58.thread, label %Scl_LibertyItem.exit59
 
-Scl_LibertyItem.exit59:                           ; preds = %44
-  %48 = load ptr, ptr %35, align 8
-  %.not4198 = icmp eq ptr %48, null
+Scl_LibertyItem.exit59:                           ; preds = %40
+  %44 = load ptr, ptr %31, align 8
+  %.not4198 = icmp eq ptr %44, null
   br i1 %.not4198, label %Scl_LibertyItem.exit73, label %.lr.ph100.preheader
 
 .lr.ph100.preheader:                              ; preds = %Scl_LibertyItem.exit59
-  %49 = zext nneg i32 %46 to i64
-  %50 = getelementptr inbounds %struct.Scl_Item_t_, ptr %48, i64 %49
+  %45 = zext nneg i32 %42 to i64
+  %46 = getelementptr inbounds %struct.Scl_Item_t_, ptr %44, i64 %45
   br label %.lr.ph100
 
 .lr.ph100:                                        ; preds = %.lr.ph100.preheader, %Scl_LibertyItem.exit66
-  %.099 = phi ptr [ %63, %Scl_LibertyItem.exit66 ], [ %50, %.lr.ph100.preheader ]
-  %51 = getelementptr inbounds i8, ptr %.099, i64 8
-  %52 = load i64, ptr %51, align 4
-  %.sroa.0.0.extract.trunc.i60 = trunc i64 %52 to i32
-  %.sroa.4.0.extract.shift.i61 = lshr i64 %52, 32
+  %.099 = phi ptr [ %59, %Scl_LibertyItem.exit66 ], [ %46, %.lr.ph100.preheader ]
+  %47 = getelementptr inbounds i8, ptr %.099, i64 8
+  %48 = load i64, ptr %47, align 4
+  %.sroa.0.0.extract.trunc.i60 = trunc i64 %48 to i32
+  %.sroa.4.0.extract.shift.i61 = lshr i64 %48, 32
   %.sroa.4.0.extract.trunc.i62 = trunc nuw i64 %.sroa.4.0.extract.shift.i61 to i32
-  %sext.i63 = shl i64 %52, 32
-  %53 = ashr exact i64 %sext.i63, 32
-  %54 = getelementptr inbounds i8, ptr %.val49, i64 %53
-  %55 = sub nsw i32 %.sroa.4.0.extract.trunc.i62, %.sroa.0.0.extract.trunc.i60
-  %56 = sext i32 %55 to i64
-  %57 = tail call i32 @strncmp(ptr noundef readonly %54, ptr noundef nonnull readonly @.str.27, i64 noundef %56) #30
-  %.not.i64 = icmp eq i32 %57, 0
-  %.not88 = icmp eq i32 %55, 4
+  %sext.i63 = shl i64 %48, 32
+  %49 = ashr exact i64 %sext.i63, 32
+  %50 = getelementptr inbounds i8, ptr %.val49, i64 %49
+  %51 = sub nsw i32 %.sroa.4.0.extract.trunc.i62, %.sroa.0.0.extract.trunc.i60
+  %52 = sext i32 %51 to i64
+  %53 = tail call i32 @strncmp(ptr noundef readonly %50, ptr noundef nonnull readonly @.str.27, i64 noundef %52) #30
+  %.not.i64 = icmp eq i32 %53, 0
+  %.not88 = icmp eq i32 %51, 4
   %or.cond91 = and i1 %.not.i64, %.not88
   br i1 %or.cond91, label %Scl_LibertyCompare.exit58.thread, label %Scl_LibertyCompare.exit65.thread
 
 Scl_LibertyCompare.exit65.thread:                 ; preds = %.lr.ph100
-  %58 = getelementptr inbounds i8, ptr %.099, i64 32
-  %59 = load i32, ptr %58, align 4
-  %60 = icmp slt i32 %59, 0
-  br i1 %60, label %Scl_LibertyItem.exit73, label %Scl_LibertyItem.exit66
+  %54 = getelementptr inbounds i8, ptr %.099, i64 32
+  %55 = load i32, ptr %54, align 4
+  %56 = icmp slt i32 %55, 0
+  br i1 %56, label %Scl_LibertyItem.exit73, label %Scl_LibertyItem.exit66
 
 Scl_LibertyItem.exit66:                           ; preds = %Scl_LibertyCompare.exit65.thread
-  %61 = load ptr, ptr %35, align 8
-  %62 = zext nneg i32 %59 to i64
-  %63 = getelementptr inbounds %struct.Scl_Item_t_, ptr %61, i64 %62
-  %.not41 = icmp eq ptr %61, null
+  %57 = load ptr, ptr %31, align 8
+  %58 = zext nneg i32 %55 to i64
+  %59 = getelementptr inbounds %struct.Scl_Item_t_, ptr %57, i64 %58
+  %.not41 = icmp eq ptr %57, null
   br i1 %.not41, label %Scl_LibertyItem.exit73, label %.lr.ph100, !llvm.loop !27
 
 Scl_LibertyItem.exit73:                           ; preds = %Scl_LibertyItem.exit66, %Scl_LibertyCompare.exit65.thread, %Scl_LibertyItem.exit59
-  %64 = load ptr, ptr %35, align 8
-  %.not44101 = icmp eq ptr %64, null
+  %60 = load ptr, ptr %31, align 8
+  %.not44101 = icmp eq ptr %60, null
   br i1 %.not44101, label %Scl_LibertyCompare.exit58.thread, label %.lr.ph103.preheader
 
 .lr.ph103.preheader:                              ; preds = %Scl_LibertyItem.exit73
-  %65 = zext nneg i32 %46 to i64
-  %66 = getelementptr inbounds %struct.Scl_Item_t_, ptr %64, i64 %65
+  %61 = zext nneg i32 %42 to i64
+  %62 = getelementptr inbounds %struct.Scl_Item_t_, ptr %60, i64 %61
   br label %.lr.ph103
 
 .lr.ph103:                                        ; preds = %.lr.ph103.preheader, %Scl_LibertyItem.exit80
-  %.1102 = phi ptr [ %83, %Scl_LibertyItem.exit80 ], [ %66, %.lr.ph103.preheader ]
-  %67 = getelementptr inbounds i8, ptr %.1102, i64 8
-  %68 = load i64, ptr %67, align 4
-  %.sroa.0.0.extract.trunc.i74 = trunc i64 %68 to i32
-  %.sroa.4.0.extract.shift.i75 = lshr i64 %68, 32
+  %.1102 = phi ptr [ %75, %Scl_LibertyItem.exit80 ], [ %62, %.lr.ph103.preheader ]
+  %63 = getelementptr inbounds i8, ptr %.1102, i64 8
+  %64 = load i64, ptr %63, align 4
+  %.sroa.0.0.extract.trunc.i74 = trunc i64 %64 to i32
+  %.sroa.4.0.extract.shift.i75 = lshr i64 %64, 32
   %.sroa.4.0.extract.trunc.i76 = trunc nuw i64 %.sroa.4.0.extract.shift.i75 to i32
-  %sext.i77 = shl i64 %68, 32
-  %69 = ashr exact i64 %sext.i77, 32
-  %70 = getelementptr inbounds i8, ptr %.val49, i64 %69
-  %71 = sub nsw i32 %.sroa.4.0.extract.trunc.i76, %.sroa.0.0.extract.trunc.i74
-  %72 = sext i32 %71 to i64
-  %73 = tail call i32 @strncmp(ptr noundef readonly %70, ptr noundef nonnull readonly @.str.28, i64 noundef %72) #30
-  %.not.i78 = icmp eq i32 %73, 0
-  %.not89 = icmp eq i32 %71, 5
+  %sext.i77 = shl i64 %64, 32
+  %65 = ashr exact i64 %sext.i77, 32
+  %66 = getelementptr inbounds i8, ptr %.val49, i64 %65
+  %67 = sub nsw i32 %.sroa.4.0.extract.trunc.i76, %.sroa.0.0.extract.trunc.i74
+  %68 = sext i32 %67 to i64
+  %69 = tail call i32 @strncmp(ptr noundef readonly %66, ptr noundef nonnull readonly @.str.28, i64 noundef %68) #30
+  %.not.i78 = icmp eq i32 %69, 0
+  %.not89 = icmp eq i32 %67, 5
   %or.cond92 = and i1 %.not.i78, %.not89
-  br i1 %or.cond92, label %74, label %Scl_LibertyCompare.exit79.thread
-
-74:                                               ; preds = %.lr.ph103
-  %75 = getelementptr inbounds i8, ptr %.1102, i64 16
-  %76 = load i64, ptr %75, align 4
-  %77 = tail call ptr @Scl_LibertyReadString(ptr noundef %0, i64 %76)
-  br label %.loopexit
+  br i1 %or.cond92, label %.loopexit.sink.split, label %Scl_LibertyCompare.exit79.thread
 
 Scl_LibertyCompare.exit79.thread:                 ; preds = %.lr.ph103
-  %78 = getelementptr inbounds i8, ptr %.1102, i64 32
-  %79 = load i32, ptr %78, align 4
-  %80 = icmp slt i32 %79, 0
-  br i1 %80, label %Scl_LibertyCompare.exit58.thread, label %Scl_LibertyItem.exit80
+  %70 = getelementptr inbounds i8, ptr %.1102, i64 32
+  %71 = load i32, ptr %70, align 4
+  %72 = icmp slt i32 %71, 0
+  br i1 %72, label %Scl_LibertyCompare.exit58.thread, label %Scl_LibertyItem.exit80
 
 Scl_LibertyItem.exit80:                           ; preds = %Scl_LibertyCompare.exit79.thread
-  %81 = load ptr, ptr %35, align 8
-  %82 = zext nneg i32 %79 to i64
-  %83 = getelementptr inbounds %struct.Scl_Item_t_, ptr %81, i64 %82
-  %.not44 = icmp eq ptr %81, null
+  %73 = load ptr, ptr %31, align 8
+  %74 = zext nneg i32 %71 to i64
+  %75 = getelementptr inbounds %struct.Scl_Item_t_, ptr %73, i64 %74
+  %.not44 = icmp eq ptr %73, null
   br i1 %.not44, label %Scl_LibertyCompare.exit58.thread, label %.lr.ph103, !llvm.loop !28
 
-Scl_LibertyCompare.exit58.thread:                 ; preds = %.lr.ph100, %Scl_LibertyCompare.exit79.thread, %Scl_LibertyItem.exit80, %44, %Scl_LibertyItem.exit73, %36
-  %84 = getelementptr inbounds i8, ptr %.137105, i64 32
-  %85 = load i32, ptr %84, align 4
-  %86 = icmp slt i32 %85, 0
-  br i1 %86, label %.loopexit, label %Scl_LibertyItem.exit81
+Scl_LibertyCompare.exit58.thread:                 ; preds = %.lr.ph100, %Scl_LibertyCompare.exit79.thread, %Scl_LibertyItem.exit80, %40, %Scl_LibertyItem.exit73, %32
+  %76 = getelementptr inbounds i8, ptr %.137105, i64 32
+  %77 = load i32, ptr %76, align 4
+  %78 = icmp slt i32 %77, 0
+  br i1 %78, label %.loopexit, label %Scl_LibertyItem.exit81
 
 Scl_LibertyItem.exit81:                           ; preds = %Scl_LibertyCompare.exit58.thread
-  %87 = load ptr, ptr %35, align 8
-  %88 = zext nneg i32 %85 to i64
-  %89 = getelementptr inbounds %struct.Scl_Item_t_, ptr %87, i64 %88
-  %.not39 = icmp eq ptr %87, null
-  br i1 %.not39, label %.loopexit, label %36, !llvm.loop !29
+  %79 = load ptr, ptr %31, align 8
+  %80 = zext nneg i32 %77 to i64
+  %81 = getelementptr inbounds %struct.Scl_Item_t_, ptr %79, i64 %80
+  %.not39 = icmp eq ptr %79, null
+  br i1 %.not39, label %.loopexit, label %32, !llvm.loop !29
 
-.loopexit:                                        ; preds = %Scl_LibertyCompare.exit58.thread, %Scl_LibertyItem.exit81, %2, %Scl_LibertyItem.exit52, %74, %20
-  %.038 = phi ptr [ %23, %20 ], [ %77, %74 ], [ null, %Scl_LibertyItem.exit52 ], [ null, %2 ], [ null, %Scl_LibertyItem.exit81 ], [ null, %Scl_LibertyCompare.exit58.thread ]
+.loopexit.sink.split:                             ; preds = %12, %.lr.ph103
+  %.1102.lcssa.sink = phi ptr [ %.1102, %.lr.ph103 ], [ %.03697, %12 ]
+  %82 = getelementptr inbounds i8, ptr %.1102.lcssa.sink, i64 16
+  %83 = load i64, ptr %82, align 4
+  %84 = tail call ptr @Scl_LibertyReadString(ptr noundef %0, i64 %83)
+  br label %.loopexit
+
+.loopexit:                                        ; preds = %Scl_LibertyCompare.exit58.thread, %Scl_LibertyItem.exit81, %.loopexit.sink.split, %2, %Scl_LibertyItem.exit52
+  %.038 = phi ptr [ null, %Scl_LibertyItem.exit52 ], [ null, %2 ], [ %84, %.loopexit.sink.split ], [ null, %Scl_LibertyItem.exit81 ], [ null, %Scl_LibertyCompare.exit58.thread ]
   ret ptr %.038
 }
 

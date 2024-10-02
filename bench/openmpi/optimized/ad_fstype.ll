@@ -49,12 +49,12 @@ define void @ADIO_ResolveFileType(ptr noundef %0, ptr noundef %1, ptr nocapture 
 13:                                               ; preds = %5
   %14 = tail call i32 @ADIOI_Err_create_code(ptr noundef nonnull @ADIO_ResolveFileType.myname, ptr noundef null, i32 noundef 2) #9
   store i32 %14, ptr %4, align 4
-  br label %111
+  br label %109
 
 15:                                               ; preds = %5
   %16 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %1, i32 noundef 58) #10
   %.not = icmp eq ptr %16, null
-  br i1 %.not, label %17, label %72
+  br i1 %.not, label %17, label %70
 
 17:                                               ; preds = %15
   store i32 0, ptr %4, align 4
@@ -79,7 +79,7 @@ define void @ADIO_ResolveFileType(ptr noundef %0, ptr noundef %1, ptr nocapture 
 
 .critedge.i:                                      ; preds = %20
   %26 = icmp eq i32 %22, 2
-  br i1 %26, label %.critedge22.i, label %56
+  br i1 %26, label %.critedge22.i, label %54
 
 .critedge22.i:                                    ; preds = %.critedge.i
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %6)
@@ -96,260 +96,256 @@ define void @ADIO_ResolveFileType(ptr noundef %0, ptr noundef %1, ptr nocapture 
 
 33:                                               ; preds = %28, %.critedge22.i
   %34 = call ptr @ADIOI_Strdup(ptr noundef nonnull %1) #9
-  br label %45
+  br label %43
 
 35:                                               ; preds = %28
   %36 = call ptr @ADIOI_Malloc_fn(i64 noundef 4097, i32 noundef 244, ptr noundef nonnull @.str.2) #9
   %37 = call i64 @readlink(ptr noundef nonnull %1, ptr noundef %36, i64 noundef 4097) #9
   %38 = icmp eq i64 %37, -1
-  br i1 %38, label %39, label %41
+  br i1 %38, label %41, label %39
 
 39:                                               ; preds = %35
-  %40 = call ptr @ADIOI_Strdup(ptr noundef nonnull %1) #9
-  br label %44
+  %40 = getelementptr inbounds i8, ptr %36, i64 %37
+  store i8 0, ptr %40, align 1
+  br label %41
 
-41:                                               ; preds = %35
-  %42 = getelementptr inbounds i8, ptr %36, i64 %37
-  store i8 0, ptr %42, align 1
-  %43 = call ptr @ADIOI_Strdup(ptr noundef %36) #9
-  br label %44
-
-44:                                               ; preds = %41, %39
-  %.1.i.i = phi ptr [ %40, %39 ], [ %43, %41 ]
+41:                                               ; preds = %39, %35
+  %.sink.i.i = phi ptr [ %36, %39 ], [ %1, %35 ]
+  %42 = call ptr @ADIOI_Strdup(ptr noundef %.sink.i.i) #9
   call void @ADIOI_Free_fn(ptr noundef %36, i32 noundef 257, ptr noundef nonnull @.str.2) #9
-  br label %45
+  br label %43
 
-45:                                               ; preds = %44, %33
-  %.0.i.i = phi ptr [ %34, %33 ], [ %.1.i.i, %44 ]
-  %46 = call ptr @strrchr(ptr noundef nonnull dereferenceable(1) %.0.i.i, i32 noundef 47) #10
-  %.not21.i.i = icmp eq ptr %46, null
-  br i1 %.not21.i.i, label %47, label %49
+43:                                               ; preds = %41, %33
+  %.0.i.i = phi ptr [ %34, %33 ], [ %42, %41 ]
+  %44 = call ptr @strrchr(ptr noundef nonnull dereferenceable(1) %.0.i.i, i32 noundef 47) #10
+  %.not21.i.i = icmp eq ptr %44, null
+  br i1 %.not21.i.i, label %45, label %47
 
-47:                                               ; preds = %45
-  %48 = call i32 @ADIOI_Strncpy(ptr noundef %.0.i.i, ptr noundef nonnull @.str.5, i64 noundef 2) #9
+45:                                               ; preds = %43
+  %46 = call i32 @ADIOI_Strncpy(ptr noundef %.0.i.i, ptr noundef nonnull @.str.5, i64 noundef 2) #9
   br label %ADIO_FileSysType_parentdir.exit.i
 
-49:                                               ; preds = %45
-  %50 = icmp eq ptr %46, %.0.i.i
-  br i1 %50, label %51, label %53
+47:                                               ; preds = %43
+  %48 = icmp eq ptr %44, %.0.i.i
+  br i1 %48, label %49, label %51
 
-51:                                               ; preds = %49
-  %52 = getelementptr inbounds i8, ptr %.0.i.i, i64 1
-  store i8 0, ptr %52, align 1
+49:                                               ; preds = %47
+  %50 = getelementptr inbounds i8, ptr %.0.i.i, i64 1
+  store i8 0, ptr %50, align 1
   br label %ADIO_FileSysType_parentdir.exit.i
 
-53:                                               ; preds = %49
-  store i8 0, ptr %46, align 1
+51:                                               ; preds = %47
+  store i8 0, ptr %44, align 1
   br label %ADIO_FileSysType_parentdir.exit.i
 
-ADIO_FileSysType_parentdir.exit.i:                ; preds = %53, %51, %47
+ADIO_FileSysType_parentdir.exit.i:                ; preds = %51, %49, %45
   call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %6)
-  %54 = call i32 @statfs(ptr noundef %.0.i.i, ptr noundef nonnull %7) #9
+  %52 = call i32 @statfs(ptr noundef %.0.i.i, ptr noundef nonnull %7) #9
   call void @ADIOI_Free_fn(ptr noundef %.0.i.i, i32 noundef 386, ptr noundef nonnull @.str.2) #9
-  %55 = icmp eq i32 %54, 0
-  br i1 %55, label %.critedge24.i, label %.critedge23.i
+  %53 = icmp eq i32 %52, 0
+  br i1 %53, label %.critedge24.i, label %.critedge23.i
 
-56:                                               ; preds = %.critedge.i
-  %57 = call i32 @ADIOI_Err_create_code(ptr noundef nonnull @ADIO_FileSysType_fncall.myname, ptr noundef nonnull %1, i32 noundef %22) #9
-  store i32 %57, ptr %8, align 4
-  %.not19.i = icmp eq i32 %57, 0
+54:                                               ; preds = %.critedge.i
+  %55 = call i32 @ADIOI_Err_create_code(ptr noundef nonnull @ADIO_FileSysType_fncall.myname, ptr noundef nonnull %1, i32 noundef %22) #9
+  store i32 %55, ptr %8, align 4
+  %.not19.i = icmp eq i32 %55, 0
   br i1 %.not19.i, label %.critedge23.i, label %ADIO_FileSysType_fncall.exit
 
-.critedge23.i:                                    ; preds = %56, %ADIO_FileSysType_parentdir.exit.i
-  %58 = call i32 (i32, i32, ptr, i32, i32, ptr, ptr, ...) @MPIO_Err_create_code(i32 noundef 0, i32 noundef 0, ptr noundef nonnull @ADIO_FileSysType_fncall.myname, i32 noundef 397, i32 noundef 42, ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.4, ptr noundef nonnull %1) #9
-  store i32 %58, ptr %8, align 4
+.critedge23.i:                                    ; preds = %54, %ADIO_FileSysType_parentdir.exit.i
+  %56 = call i32 (i32, i32, ptr, i32, i32, ptr, ptr, ...) @MPIO_Err_create_code(i32 noundef 0, i32 noundef 0, ptr noundef nonnull @ADIO_FileSysType_fncall.myname, i32 noundef 397, i32 noundef 42, ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.4, ptr noundef nonnull %1) #9
+  store i32 %56, ptr %8, align 4
   br label %ADIO_FileSysType_fncall.exit
 
 .critedge24.i:                                    ; preds = %18, %ADIO_FileSysType_parentdir.exit.i
-  %59 = load i64, ptr %7, align 8
-  switch i64 %59, label %63 [
-    i64 26985, label %60
-    i64 3657805072, label %61
-    i64 537068840, label %62
+  %57 = load i64, ptr %7, align 8
+  switch i64 %57, label %61 [
+    i64 26985, label %58
+    i64 3657805072, label %59
+    i64 537068840, label %60
   ]
 
-60:                                               ; preds = %.critedge24.i
+58:                                               ; preds = %.critedge24.i
   store i32 150, ptr %9, align 4
   br label %ADIO_FileSysType_fncall.exit
 
-61:                                               ; preds = %.critedge24.i
+59:                                               ; preds = %.critedge24.i
   store i32 170, ptr %9, align 4
   br label %ADIO_FileSysType_fncall.exit
 
-62:                                               ; preds = %.critedge24.i
+60:                                               ; preds = %.critedge24.i
   store i32 160, ptr %9, align 4
   br label %ADIO_FileSysType_fncall.exit
 
-63:                                               ; preds = %.critedge24.i
+61:                                               ; preds = %.critedge24.i
   store i32 152, ptr %9, align 4
   br label %ADIO_FileSysType_fncall.exit
 
-ADIO_FileSysType_fncall.exit:                     ; preds = %56, %.critedge23.i, %60, %61, %62, %63
+ADIO_FileSysType_fncall.exit:                     ; preds = %54, %.critedge23.i, %58, %59, %60, %61
   call void @llvm.lifetime.end.p0(i64 120, ptr nonnull %7)
-  %64 = call i32 @PMPI_Allreduce(ptr noundef nonnull %8, ptr noundef nonnull %11, i32 noundef 1, ptr noundef nonnull @ompi_mpi_int, ptr noundef nonnull @ompi_mpi_op_max, ptr noundef %0) #9
-  %65 = load i32, ptr %11, align 4
-  %.not38 = icmp eq i32 %65, 0
-  br i1 %.not38, label %67, label %66
+  %62 = call i32 @PMPI_Allreduce(ptr noundef nonnull %8, ptr noundef nonnull %11, i32 noundef 1, ptr noundef nonnull @ompi_mpi_int, ptr noundef nonnull @ompi_mpi_op_max, ptr noundef %0) #9
+  %63 = load i32, ptr %11, align 4
+  %.not38 = icmp eq i32 %63, 0
+  br i1 %.not38, label %65, label %64
 
-66:                                               ; preds = %ADIO_FileSysType_fncall.exit
-  store i32 %65, ptr %4, align 4
-  br label %111
+64:                                               ; preds = %ADIO_FileSysType_fncall.exit
+  store i32 %63, ptr %4, align 4
+  br label %109
 
-67:                                               ; preds = %ADIO_FileSysType_fncall.exit
-  %68 = call i32 @PMPI_Allreduce(ptr noundef nonnull %9, ptr noundef nonnull %10, i32 noundef 1, ptr noundef nonnull @ompi_mpi_int, ptr noundef nonnull @ompi_mpi_op_min, ptr noundef %0) #9
-  %69 = load i32, ptr %10, align 4
-  %70 = icmp eq i32 %69, 150
-  br i1 %70, label %71, label %ADIO_FileSysType_prefix.exit.thread
+65:                                               ; preds = %ADIO_FileSysType_fncall.exit
+  %66 = call i32 @PMPI_Allreduce(ptr noundef nonnull %9, ptr noundef nonnull %10, i32 noundef 1, ptr noundef nonnull @ompi_mpi_int, ptr noundef nonnull @ompi_mpi_op_min, ptr noundef %0) #9
+  %67 = load i32, ptr %10, align 4
+  %68 = icmp eq i32 %67, 150
+  br i1 %68, label %69, label %ADIO_FileSysType_prefix.exit.thread
 
-71:                                               ; preds = %67
+69:                                               ; preds = %65
   store i32 150, ptr %9, align 4
   br label %ADIO_FileSysType_prefix.exit.thread
 
-72:                                               ; preds = %15
+70:                                               ; preds = %15
   store i32 0, ptr %8, align 4
-  %73 = tail call i32 @strncasecmp(ptr noundef nonnull @.str.7, ptr noundef nonnull %1, i64 noundef 4) #10
-  %.not14.i65 = icmp eq i32 %73, 0
+  %71 = tail call i32 @strncasecmp(ptr noundef nonnull @.str.7, ptr noundef nonnull %1, i64 noundef 4) #10
+  %.not14.i65 = icmp eq i32 %71, 0
   br i1 %.not14.i65, label %.loopexit.i, label %.lr.ph
 
-.lr.ph:                                           ; preds = %72, %74
-  %indvars.iv.i66 = phi i64 [ %indvars.iv.next.i, %74 ], [ 0, %72 ]
+.lr.ph:                                           ; preds = %70, %72
+  %indvars.iv.i66 = phi i64 [ %indvars.iv.next.i, %72 ], [ 0, %70 ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i66, 1
   %exitcond.i = icmp eq i64 %indvars.iv.next.i, 3
-  br i1 %exitcond.i, label %ADIO_FileSysType_prefix.exit, label %74, !llvm.loop !6
+  br i1 %exitcond.i, label %ADIO_FileSysType_prefix.exit, label %72, !llvm.loop !6
 
-74:                                               ; preds = %.lr.ph
-  %75 = getelementptr inbounds [4 x %struct.ADIO_FSTypes], ptr @fstypes, i64 0, i64 %indvars.iv.next.i
-  %76 = getelementptr inbounds i8, ptr %75, i64 16
-  %77 = load ptr, ptr %76, align 8
-  %78 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %77) #10
-  %79 = tail call i32 @strncasecmp(ptr noundef %77, ptr noundef nonnull %1, i64 noundef %78) #10
-  %.not14.i = icmp eq i32 %79, 0
+72:                                               ; preds = %.lr.ph
+  %73 = getelementptr inbounds [4 x %struct.ADIO_FSTypes], ptr @fstypes, i64 0, i64 %indvars.iv.next.i
+  %74 = getelementptr inbounds i8, ptr %73, i64 16
+  %75 = load ptr, ptr %74, align 8
+  %76 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %75) #10
+  %77 = tail call i32 @strncasecmp(ptr noundef %75, ptr noundef nonnull %1, i64 noundef %76) #10
+  %.not14.i = icmp eq i32 %77, 0
   br i1 %.not14.i, label %.loopexit.i.loopexit, label %.lr.ph, !llvm.loop !6
 
-.loopexit.i.loopexit:                             ; preds = %74
-  %80 = load ptr, ptr %75, align 8
+.loopexit.i.loopexit:                             ; preds = %72
+  %78 = load ptr, ptr %73, align 8
   br label %.loopexit.i
 
-.loopexit.i:                                      ; preds = %.loopexit.i.loopexit, %72
-  %.lcssa63 = phi ptr [ @ADIO_UFS_operations, %72 ], [ %80, %.loopexit.i.loopexit ]
-  %.lcssa61 = phi ptr [ @fstypes, %72 ], [ %75, %.loopexit.i.loopexit ]
-  %81 = getelementptr inbounds i8, ptr %.lcssa61, i64 8
-  %82 = load i32, ptr %81, align 8
-  store i32 %82, ptr %9, align 4
+.loopexit.i:                                      ; preds = %.loopexit.i.loopexit, %70
+  %.lcssa63 = phi ptr [ @ADIO_UFS_operations, %70 ], [ %78, %.loopexit.i.loopexit ]
+  %.lcssa61 = phi ptr [ @fstypes, %70 ], [ %73, %.loopexit.i.loopexit ]
+  %79 = getelementptr inbounds i8, ptr %.lcssa61, i64 8
+  %80 = load i32, ptr %79, align 8
+  store i32 %80, ptr %9, align 4
   store ptr %.lcssa63, ptr %3, align 8
-  %83 = icmp eq i32 %82, -1
-  br i1 %83, label %ADIO_FileSysType_prefix.exit, label %ADIO_FileSysType_prefix.exit.thread
+  %81 = icmp eq i32 %80, -1
+  br i1 %81, label %ADIO_FileSysType_prefix.exit, label %ADIO_FileSysType_prefix.exit.thread
 
 ADIO_FileSysType_prefix.exit:                     ; preds = %.lr.ph, %.loopexit.i
   store i32 0, ptr %9, align 4
-  %84 = tail call i32 (i32, i32, ptr, i32, i32, ptr, ptr, ...) @MPIO_Err_create_code(i32 noundef 0, i32 noundef 0, ptr noundef nonnull @ADIO_FileSysType_prefix.myname, i32 noundef 618, i32 noundef 35, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.6, ptr noundef nonnull %1) #9
-  store i32 %84, ptr %8, align 4
-  %.not39 = icmp eq i32 %84, 0
-  br i1 %.not39, label %ADIO_FileSysType_prefix.exit.thread, label %85
+  %82 = tail call i32 (i32, i32, ptr, i32, i32, ptr, ptr, ...) @MPIO_Err_create_code(i32 noundef 0, i32 noundef 0, ptr noundef nonnull @ADIO_FileSysType_prefix.myname, i32 noundef 618, i32 noundef 35, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.6, ptr noundef nonnull %1) #9
+  store i32 %82, ptr %8, align 4
+  %.not39 = icmp eq i32 %82, 0
+  br i1 %.not39, label %ADIO_FileSysType_prefix.exit.thread, label %83
 
-85:                                               ; preds = %ADIO_FileSysType_prefix.exit
-  store i32 %84, ptr %4, align 4
-  br label %111
+83:                                               ; preds = %ADIO_FileSysType_prefix.exit
+  store i32 %82, ptr %4, align 4
+  br label %109
 
-ADIO_FileSysType_prefix.exit.thread:              ; preds = %.loopexit.i, %ADIO_FileSysType_prefix.exit, %71, %67
-  %86 = call ptr @getenv(ptr noundef nonnull @.str) #9
-  %.not40 = icmp eq ptr %86, null
-  br i1 %.not40, label %thread-pre-split, label %87
+ADIO_FileSysType_prefix.exit.thread:              ; preds = %.loopexit.i, %ADIO_FileSysType_prefix.exit, %69, %65
+  %84 = call ptr @getenv(ptr noundef nonnull @.str) #9
+  %.not40 = icmp eq ptr %84, null
+  br i1 %.not40, label %thread-pre-split, label %85
 
-87:                                               ; preds = %ADIO_FileSysType_prefix.exit.thread
+85:                                               ; preds = %ADIO_FileSysType_prefix.exit.thread
   store i32 0, ptr %8, align 4
   store i32 -1, ptr %9, align 4
-  %88 = call i32 @strncasecmp(ptr noundef nonnull @.str.7, ptr noundef nonnull %86, i64 noundef 4) #10
-  %.not14.i4668 = icmp eq i32 %88, 0
+  %86 = call i32 @strncasecmp(ptr noundef nonnull @.str.7, ptr noundef nonnull %84, i64 noundef 4) #10
+  %.not14.i4668 = icmp eq i32 %86, 0
   br i1 %.not14.i4668, label %.loopexit.i50, label %.lr.ph70
 
-.lr.ph70:                                         ; preds = %87, %89
-  %indvars.iv.i4569 = phi i64 [ %indvars.iv.next.i47, %89 ], [ 0, %87 ]
+.lr.ph70:                                         ; preds = %85, %87
+  %indvars.iv.i4569 = phi i64 [ %indvars.iv.next.i47, %87 ], [ 0, %85 ]
   %indvars.iv.next.i47 = add nuw nsw i64 %indvars.iv.i4569, 1
   %exitcond.i48 = icmp eq i64 %indvars.iv.next.i47, 3
-  br i1 %exitcond.i48, label %ADIO_FileSysType_prefix.exit52, label %89, !llvm.loop !6
+  br i1 %exitcond.i48, label %ADIO_FileSysType_prefix.exit52, label %87, !llvm.loop !6
 
-89:                                               ; preds = %.lr.ph70
-  %90 = getelementptr inbounds [4 x %struct.ADIO_FSTypes], ptr @fstypes, i64 0, i64 %indvars.iv.next.i47
-  %91 = getelementptr inbounds i8, ptr %90, i64 16
-  %92 = load ptr, ptr %91, align 8
-  %93 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %92) #10
-  %94 = call i32 @strncasecmp(ptr noundef %92, ptr noundef nonnull %86, i64 noundef %93) #10
-  %.not14.i46 = icmp eq i32 %94, 0
+87:                                               ; preds = %.lr.ph70
+  %88 = getelementptr inbounds [4 x %struct.ADIO_FSTypes], ptr @fstypes, i64 0, i64 %indvars.iv.next.i47
+  %89 = getelementptr inbounds i8, ptr %88, i64 16
+  %90 = load ptr, ptr %89, align 8
+  %91 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %90) #10
+  %92 = call i32 @strncasecmp(ptr noundef %90, ptr noundef nonnull %84, i64 noundef %91) #10
+  %.not14.i46 = icmp eq i32 %92, 0
   br i1 %.not14.i46, label %.loopexit.i50.loopexit, label %.lr.ph70, !llvm.loop !6
 
-.loopexit.i50.loopexit:                           ; preds = %89
-  %95 = load ptr, ptr %90, align 8
+.loopexit.i50.loopexit:                           ; preds = %87
+  %93 = load ptr, ptr %88, align 8
   br label %.loopexit.i50
 
-.loopexit.i50:                                    ; preds = %.loopexit.i50.loopexit, %87
-  %.lcssa58 = phi ptr [ @ADIO_UFS_operations, %87 ], [ %95, %.loopexit.i50.loopexit ]
-  %.lcssa = phi ptr [ @fstypes, %87 ], [ %90, %.loopexit.i50.loopexit ]
-  %96 = getelementptr inbounds i8, ptr %.lcssa, i64 8
-  %97 = load i32, ptr %96, align 8
-  store i32 %97, ptr %9, align 4
+.loopexit.i50:                                    ; preds = %.loopexit.i50.loopexit, %85
+  %.lcssa58 = phi ptr [ @ADIO_UFS_operations, %85 ], [ %93, %.loopexit.i50.loopexit ]
+  %.lcssa = phi ptr [ @fstypes, %85 ], [ %88, %.loopexit.i50.loopexit ]
+  %94 = getelementptr inbounds i8, ptr %.lcssa, i64 8
+  %95 = load i32, ptr %94, align 8
+  store i32 %95, ptr %9, align 4
   store ptr %.lcssa58, ptr %3, align 8
-  %98 = icmp eq i32 %97, -1
-  br i1 %98, label %ADIO_FileSysType_prefix.exit52, label %ADIO_FileSysType_prefix.exit52.thread
+  %96 = icmp eq i32 %95, -1
+  br i1 %96, label %ADIO_FileSysType_prefix.exit52, label %ADIO_FileSysType_prefix.exit52.thread
 
 ADIO_FileSysType_prefix.exit52:                   ; preds = %.lr.ph70, %.loopexit.i50
   store i32 0, ptr %9, align 4
-  %99 = call i32 (i32, i32, ptr, i32, i32, ptr, ptr, ...) @MPIO_Err_create_code(i32 noundef 0, i32 noundef 0, ptr noundef nonnull @ADIO_FileSysType_prefix.myname, i32 noundef 618, i32 noundef 35, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.6, ptr noundef nonnull %86) #9
-  store i32 %99, ptr %8, align 4
-  %.not41 = icmp eq i32 %99, 0
-  br i1 %.not41, label %thread-pre-split, label %100
+  %97 = call i32 (i32, i32, ptr, i32, i32, ptr, ptr, ...) @MPIO_Err_create_code(i32 noundef 0, i32 noundef 0, ptr noundef nonnull @ADIO_FileSysType_prefix.myname, i32 noundef 618, i32 noundef 35, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.6, ptr noundef nonnull %84) #9
+  store i32 %97, ptr %8, align 4
+  %.not41 = icmp eq i32 %97, 0
+  br i1 %.not41, label %thread-pre-split, label %98
 
-100:                                              ; preds = %ADIO_FileSysType_prefix.exit52
-  store i32 %99, ptr %4, align 4
-  br label %111
+98:                                               ; preds = %ADIO_FileSysType_prefix.exit52
+  store i32 %97, ptr %4, align 4
+  br label %109
 
 thread-pre-split:                                 ; preds = %ADIO_FileSysType_prefix.exit.thread, %ADIO_FileSysType_prefix.exit52
   %.pr = load ptr, ptr %3, align 8
   br label %ADIO_FileSysType_prefix.exit52.thread
 
 ADIO_FileSysType_prefix.exit52.thread:            ; preds = %.loopexit.i50, %thread-pre-split
-  %101 = phi ptr [ %.pr, %thread-pre-split ], [ %.lcssa58, %.loopexit.i50 ]
-  %.not42 = icmp eq ptr %101, null
+  %99 = phi ptr [ %.pr, %thread-pre-split ], [ %.lcssa58, %.loopexit.i50 ]
+  %.not42 = icmp eq ptr %99, null
   %.pre = load i32, ptr %9, align 4
   br i1 %.not42, label %.preheader.preheader, label %.thread
 
 .preheader.preheader:                             ; preds = %ADIO_FileSysType_prefix.exit52.thread
-  %102 = icmp eq i32 %.pre, 152
-  br i1 %102, label %108, label %.lr.ph95
+  %100 = icmp eq i32 %.pre, 152
+  br i1 %100, label %106, label %.lr.ph95
 
 .lr.ph95:                                         ; preds = %.preheader.preheader, %.preheader
   %indvars.iv94 = phi i64 [ %indvars.iv.next, %.preheader ], [ 0, %.preheader.preheader ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv94, 1
   %exitcond = icmp eq i64 %indvars.iv.next, 3
-  br i1 %exitcond, label %109, label %.preheader, !llvm.loop !7
+  br i1 %exitcond, label %107, label %.preheader, !llvm.loop !7
 
 .preheader:                                       ; preds = %.lr.ph95
-  %103 = getelementptr inbounds [4 x %struct.ADIO_FSTypes], ptr @fstypes, i64 0, i64 %indvars.iv.next
-  %104 = getelementptr inbounds i8, ptr %103, i64 8
-  %105 = load i32, ptr %104, align 8
-  %106 = icmp eq i32 %.pre, %105
-  br i1 %106, label %.preheader._crit_edge, label %.lr.ph95, !llvm.loop !7
+  %101 = getelementptr inbounds [4 x %struct.ADIO_FSTypes], ptr @fstypes, i64 0, i64 %indvars.iv.next
+  %102 = getelementptr inbounds i8, ptr %101, i64 8
+  %103 = load i32, ptr %102, align 8
+  %104 = icmp eq i32 %.pre, %103
+  br i1 %104, label %.preheader._crit_edge, label %.lr.ph95, !llvm.loop !7
 
 .preheader._crit_edge:                            ; preds = %.preheader
-  %107 = load ptr, ptr %103, align 8
-  br label %108
+  %105 = load ptr, ptr %101, align 8
+  br label %106
 
-108:                                              ; preds = %.preheader._crit_edge, %.preheader.preheader
-  %.lcssa89 = phi ptr [ %107, %.preheader._crit_edge ], [ @ADIO_UFS_operations, %.preheader.preheader ]
+106:                                              ; preds = %.preheader._crit_edge, %.preheader.preheader
+  %.lcssa89 = phi ptr [ %105, %.preheader._crit_edge ], [ @ADIO_UFS_operations, %.preheader.preheader ]
   store ptr %.lcssa89, ptr %3, align 8
   br label %.thread
 
-109:                                              ; preds = %.lr.ph95
-  %110 = call i32 (i32, i32, ptr, i32, i32, ptr, ptr, ...) @MPIO_Err_create_code(i32 noundef 0, i32 noundef 0, ptr noundef nonnull @ADIO_ResolveFileType.myname, i32 noundef 751, i32 noundef 35, ptr noundef nonnull @.str.1, ptr noundef null) #9
-  store i32 %110, ptr %4, align 4
-  br label %111
+107:                                              ; preds = %.lr.ph95
+  %108 = call i32 (i32, i32, ptr, i32, i32, ptr, ptr, ...) @MPIO_Err_create_code(i32 noundef 0, i32 noundef 0, ptr noundef nonnull @ADIO_ResolveFileType.myname, i32 noundef 751, i32 noundef 35, ptr noundef nonnull @.str.1, ptr noundef null) #9
+  store i32 %108, ptr %4, align 4
+  br label %109
 
-.thread:                                          ; preds = %ADIO_FileSysType_prefix.exit52.thread, %108
+.thread:                                          ; preds = %ADIO_FileSysType_prefix.exit52.thread, %106
   store i32 0, ptr %4, align 4
   store i32 %.pre, ptr %2, align 4
-  br label %111
+  br label %109
 
-111:                                              ; preds = %.thread, %109, %100, %85, %66, %13
+109:                                              ; preds = %.thread, %107, %98, %83, %64, %13
   ret void
 }
 

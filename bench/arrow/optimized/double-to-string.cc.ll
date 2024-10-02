@@ -62,7 +62,7 @@ if.then:                                          ; preds = %entry
 
 if.end:                                           ; preds = %if.then
   %cmp3 = fcmp olt double %value, 0.000000e+00
-  br i1 %cmp3, label %if.then4, label %if.end5
+  br i1 %cmp3, label %if.then4, label %return.sink.split
 
 if.then4:                                         ; preds = %if.end
   %position_.i = getelementptr inbounds i8, ptr %result_builder, i64 16
@@ -74,53 +74,35 @@ if.then4:                                         ; preds = %if.end
   %arrayidx.i.i = getelementptr inbounds i8, ptr %4, i64 %idxprom.i.i
   store i8 45, ptr %arrayidx.i.i, align 1
   %.pre = load ptr, ptr %infinity_symbol_, align 8
-  br label %if.end5
-
-if.end5:                                          ; preds = %if.then4, %if.end
-  %5 = phi ptr [ %.pre, %if.then4 ], [ %2, %if.end ]
-  %call.i.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %5) #13
-  %conv.i.i = trunc i64 %call.i.i to i32
-  %position_.i.i = getelementptr inbounds i8, ptr %result_builder, i64 16
-  %6 = load i32, ptr %position_.i.i, align 8
-  %7 = load ptr, ptr %result_builder, align 8
-  %idxprom.i.i.i = sext i32 %6 to i64
-  %arrayidx.i.i.i = getelementptr inbounds i8, ptr %7, i64 %idxprom.i.i.i
-  %sext.i = shl i64 %call.i.i, 32
-  %conv.i2.i = ashr exact i64 %sext.i, 32
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %arrayidx.i.i.i, ptr align 1 %5, i64 %conv.i2.i, i1 false)
-  %8 = load i32, ptr %position_.i.i, align 8
-  %add.i.i = add nsw i32 %8, %conv.i.i
-  store i32 %add.i.i, ptr %position_.i.i, align 8
-  br label %return
+  br label %return.sink.split
 
 if.end7:                                          ; preds = %entry
-  %9 = fcmp uno double %value, 0.000000e+00
-  br i1 %9, label %if.then9, label %return
-
-if.then9:                                         ; preds = %if.end7
+  %5 = fcmp ord double %value, 0.000000e+00
   %nan_symbol_ = getelementptr inbounds i8, ptr %this, i64 16
-  %10 = load ptr, ptr %nan_symbol_, align 8
-  %cmp10 = icmp eq ptr %10, null
-  br i1 %cmp10, label %return, label %if.end12
+  %6 = load ptr, ptr %nan_symbol_, align 8
+  %cmp10 = icmp eq ptr %6, null
+  %or.cond = select i1 %5, i1 true, i1 %cmp10
+  br i1 %or.cond, label %return, label %return.sink.split
 
-if.end12:                                         ; preds = %if.then9
-  %call.i.i4 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %10) #13
+return.sink.split:                                ; preds = %if.end7, %if.end, %if.then4
+  %.sink18 = phi ptr [ %.pre, %if.then4 ], [ %2, %if.end ], [ %6, %if.end7 ]
+  %call.i.i4 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.sink18) #13
   %conv.i.i5 = trunc i64 %call.i.i4 to i32
   %position_.i.i6 = getelementptr inbounds i8, ptr %result_builder, i64 16
-  %11 = load i32, ptr %position_.i.i6, align 8
-  %12 = load ptr, ptr %result_builder, align 8
-  %idxprom.i.i.i7 = sext i32 %11 to i64
-  %arrayidx.i.i.i8 = getelementptr inbounds i8, ptr %12, i64 %idxprom.i.i.i7
+  %7 = load i32, ptr %position_.i.i6, align 8
+  %8 = load ptr, ptr %result_builder, align 8
+  %idxprom.i.i.i7 = sext i32 %7 to i64
+  %arrayidx.i.i.i8 = getelementptr inbounds i8, ptr %8, i64 %idxprom.i.i.i7
   %sext.i9 = shl i64 %call.i.i4, 32
   %conv.i2.i10 = ashr exact i64 %sext.i9, 32
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %arrayidx.i.i.i8, ptr nonnull align 1 %10, i64 %conv.i2.i10, i1 false)
-  %13 = load i32, ptr %position_.i.i6, align 8
-  %add.i.i11 = add nsw i32 %13, %conv.i.i5
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %arrayidx.i.i.i8, ptr align 1 %.sink18, i64 %conv.i2.i10, i1 false)
+  %9 = load i32, ptr %position_.i.i6, align 8
+  %add.i.i11 = add nsw i32 %9, %conv.i.i5
   store i32 %add.i.i11, ptr %position_.i.i6, align 8
   br label %return
 
-return:                                           ; preds = %if.end7, %if.then9, %if.then, %if.end12, %if.end5
-  %retval.0 = phi i1 [ true, %if.end5 ], [ true, %if.end12 ], [ false, %if.then ], [ false, %if.then9 ], [ false, %if.end7 ]
+return:                                           ; preds = %return.sink.split, %if.end7, %if.then
+  %retval.0 = phi i1 [ false, %if.then ], [ false, %if.end7 ], [ true, %return.sink.split ]
   ret i1 %retval.0
 }
 
@@ -542,7 +524,7 @@ entry:
 
 if.then:                                          ; preds = %entry
   %1 = fcmp oeq double %0, 0x7FF0000000000000
-  br i1 %1, label %if.then.i, label %if.then9.i
+  br i1 %1, label %if.then.i, label %if.end7.i
 
 if.then.i:                                        ; preds = %if.then
   %infinity_symbol_.i = getelementptr inbounds i8, ptr %this, i64 8
@@ -552,7 +534,7 @@ if.then.i:                                        ; preds = %if.then
 
 if.end.i:                                         ; preds = %if.then.i
   %cmp3.i = fcmp olt double %value, 0.000000e+00
-  br i1 %cmp3.i, label %if.then4.i, label %if.end5.i
+  br i1 %cmp3.i, label %if.then4.i, label %return.sink.split.i
 
 if.then4.i:                                       ; preds = %if.end.i
   %position_.i.i = getelementptr inbounds i8, ptr %result_builder, i64 16
@@ -564,54 +546,38 @@ if.then4.i:                                       ; preds = %if.end.i
   %arrayidx.i.i.i = getelementptr inbounds i8, ptr %4, i64 %idxprom.i.i.i
   store i8 45, ptr %arrayidx.i.i.i, align 1
   %.pre.i = load ptr, ptr %infinity_symbol_.i, align 8
-  br label %if.end5.i
+  br label %return.sink.split.i
 
-if.end5.i:                                        ; preds = %if.then4.i, %if.end.i
-  %5 = phi ptr [ %.pre.i, %if.then4.i ], [ %2, %if.end.i ]
-  %call.i.i.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %5) #13
-  %conv.i.i.i = trunc i64 %call.i.i.i to i32
-  %position_.i.i.i = getelementptr inbounds i8, ptr %result_builder, i64 16
-  %6 = load i32, ptr %position_.i.i.i, align 8
-  %7 = load ptr, ptr %result_builder, align 8
-  %idxprom.i.i.i.i = sext i32 %6 to i64
-  %arrayidx.i.i.i.i = getelementptr inbounds i8, ptr %7, i64 %idxprom.i.i.i.i
-  %sext.i.i = shl i64 %call.i.i.i, 32
-  %conv.i2.i.i = ashr exact i64 %sext.i.i, 32
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %arrayidx.i.i.i.i, ptr align 1 %5, i64 %conv.i2.i.i, i1 false)
-  %8 = load i32, ptr %position_.i.i.i, align 8
-  %add.i.i.i = add nsw i32 %8, %conv.i.i.i
-  store i32 %add.i.i.i, ptr %position_.i.i.i, align 8
-  br label %return
-
-if.then9.i:                                       ; preds = %if.then
+if.end7.i:                                        ; preds = %if.then
   %nan_symbol_.i = getelementptr inbounds i8, ptr %this, i64 16
-  %9 = load ptr, ptr %nan_symbol_.i, align 8
-  %cmp10.i = icmp eq ptr %9, null
-  br i1 %cmp10.i, label %return, label %if.end12.i
+  %5 = load ptr, ptr %nan_symbol_.i, align 8
+  %cmp10.i = icmp eq ptr %5, null
+  br i1 %cmp10.i, label %return, label %return.sink.split.i
 
-if.end12.i:                                       ; preds = %if.then9.i
-  %call.i.i4.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %9) #13
+return.sink.split.i:                              ; preds = %if.end7.i, %if.then4.i, %if.end.i
+  %.sink18.i = phi ptr [ %.pre.i, %if.then4.i ], [ %2, %if.end.i ], [ %5, %if.end7.i ]
+  %call.i.i4.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.sink18.i) #13
   %conv.i.i5.i = trunc i64 %call.i.i4.i to i32
   %position_.i.i6.i = getelementptr inbounds i8, ptr %result_builder, i64 16
-  %10 = load i32, ptr %position_.i.i6.i, align 8
-  %11 = load ptr, ptr %result_builder, align 8
-  %idxprom.i.i.i7.i = sext i32 %10 to i64
-  %arrayidx.i.i.i8.i = getelementptr inbounds i8, ptr %11, i64 %idxprom.i.i.i7.i
+  %6 = load i32, ptr %position_.i.i6.i, align 8
+  %7 = load ptr, ptr %result_builder, align 8
+  %idxprom.i.i.i7.i = sext i32 %6 to i64
+  %arrayidx.i.i.i8.i = getelementptr inbounds i8, ptr %7, i64 %idxprom.i.i.i7.i
   %sext.i9.i = shl i64 %call.i.i4.i, 32
   %conv.i2.i10.i = ashr exact i64 %sext.i9.i, 32
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %arrayidx.i.i.i8.i, ptr nonnull align 1 %9, i64 %conv.i2.i10.i, i1 false)
-  %12 = load i32, ptr %position_.i.i6.i, align 8
-  %add.i.i11.i = add nsw i32 %12, %conv.i.i5.i
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %arrayidx.i.i.i8.i, ptr align 1 %.sink18.i, i64 %conv.i2.i10.i, i1 false)
+  %8 = load i32, ptr %position_.i.i6.i, align 8
+  %add.i.i11.i = add nsw i32 %8, %conv.i.i5.i
   store i32 %add.i.i11.i, ptr %position_.i.i6.i, align 8
   br label %return
 
 if.end:                                           ; preds = %entry
   call void @_ZN14arrow_vendored17double_conversion23DoubleToStringConverter13DoubleToAsciiEdNS1_8DtoaModeEiPciPbPiS5_(double noundef %value, i32 noundef %mode, i32 noundef 0, ptr noundef nonnull %decimal_rep, i32 noundef 18, ptr noundef nonnull %sign, ptr noundef nonnull %decimal_rep_length, ptr noundef nonnull %decimal_point)
-  %13 = load i32, ptr %this, align 8
-  %and = and i32 %13, 8
+  %9 = load i32, ptr %this, align 8
+  %and = and i32 %9, 8
   %cmp.not = icmp eq i32 %and, 0
-  %14 = load i8, ptr %sign, align 1
-  %tobool = trunc i8 %14 to i1
+  %10 = load i8, ptr %sign, align 1
+  %tobool = trunc i8 %10 to i1
   %cmp3 = fcmp une double %value, 0.000000e+00
   %brmerge = select i1 %cmp3, i1 true, i1 %cmp.not
   %or.cond9 = select i1 %tobool, i1 %brmerge, i1 false
@@ -619,41 +585,41 @@ if.end:                                           ; preds = %entry
 
 if.then5:                                         ; preds = %if.end
   %position_.i = getelementptr inbounds i8, ptr %result_builder, i64 16
-  %15 = load i32, ptr %position_.i, align 8
-  %inc.i = add nsw i32 %15, 1
+  %11 = load i32, ptr %position_.i, align 8
+  %inc.i = add nsw i32 %11, 1
   store i32 %inc.i, ptr %position_.i, align 8
-  %16 = load ptr, ptr %result_builder, align 8
-  %idxprom.i.i = sext i32 %15 to i64
-  %arrayidx.i.i = getelementptr inbounds i8, ptr %16, i64 %idxprom.i.i
+  %12 = load ptr, ptr %result_builder, align 8
+  %idxprom.i.i = sext i32 %11 to i64
+  %arrayidx.i.i = getelementptr inbounds i8, ptr %12, i64 %idxprom.i.i
   store i8 45, ptr %arrayidx.i.i, align 1
   br label %if.end6
 
 if.end6:                                          ; preds = %if.then5, %if.end
-  %17 = load i32, ptr %decimal_point, align 4
+  %13 = load i32, ptr %decimal_point, align 4
   %decimal_in_shortest_low_ = getelementptr inbounds i8, ptr %this, i64 28
-  %18 = load i32, ptr %decimal_in_shortest_low_, align 4
-  %cmp7.not.not = icmp sge i32 %18, %17
+  %14 = load i32, ptr %decimal_in_shortest_low_, align 4
+  %cmp7.not.not = icmp sge i32 %14, %13
   %decimal_in_shortest_high_ = getelementptr inbounds i8, ptr %this, i64 32
-  %19 = load i32, ptr %decimal_in_shortest_high_, align 8
-  %cmp9.not = icmp sgt i32 %17, %19
+  %15 = load i32, ptr %decimal_in_shortest_high_, align 8
+  %cmp9.not = icmp sgt i32 %13, %15
   %or.cond = select i1 %cmp7.not.not, i1 true, i1 %cmp9.not
   br i1 %or.cond, label %if.else, label %if.then10
 
 if.then10:                                        ; preds = %if.end6
-  %20 = load i32, ptr %decimal_rep_length, align 4
-  %sub14 = sub nsw i32 %20, %17
+  %16 = load i32, ptr %decimal_rep_length, align 4
+  %sub14 = sub nsw i32 %16, %13
   %.sroa.speculated = call i32 @llvm.smax.i32(i32 %sub14, i32 0)
-  call void @_ZNK14arrow_vendored17double_conversion23DoubleToStringConverter27CreateDecimalRepresentationEPKciiiPNS0_13StringBuilderE(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr noundef nonnull %decimal_rep, i32 noundef %20, i32 noundef %17, i32 noundef %.sroa.speculated, ptr noundef %result_builder)
+  call void @_ZNK14arrow_vendored17double_conversion23DoubleToStringConverter27CreateDecimalRepresentationEPKciiiPNS0_13StringBuilderE(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr noundef nonnull %decimal_rep, i32 noundef %16, i32 noundef %13, i32 noundef %.sroa.speculated, ptr noundef %result_builder)
   br label %return
 
 if.else:                                          ; preds = %if.end6
-  %sub = add nsw i32 %17, -1
-  %21 = load i32, ptr %decimal_rep_length, align 4
-  call void @_ZNK14arrow_vendored17double_conversion23DoubleToStringConverter31CreateExponentialRepresentationEPKciiPNS0_13StringBuilderE(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr noundef nonnull %decimal_rep, i32 noundef %21, i32 noundef %sub, ptr noundef %result_builder)
+  %sub = add nsw i32 %13, -1
+  %17 = load i32, ptr %decimal_rep_length, align 4
+  call void @_ZNK14arrow_vendored17double_conversion23DoubleToStringConverter31CreateExponentialRepresentationEPKciiPNS0_13StringBuilderE(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr noundef nonnull %decimal_rep, i32 noundef %17, i32 noundef %sub, ptr noundef %result_builder)
   br label %return
 
-return:                                           ; preds = %if.end12.i, %if.then9.i, %if.end5.i, %if.then.i, %if.then10, %if.else
-  %retval.0 = phi i1 [ true, %if.else ], [ true, %if.then10 ], [ true, %if.end5.i ], [ true, %if.end12.i ], [ false, %if.then.i ], [ false, %if.then9.i ]
+return:                                           ; preds = %return.sink.split.i, %if.end7.i, %if.then.i, %if.then10, %if.else
+  %retval.0 = phi i1 [ true, %if.else ], [ true, %if.then10 ], [ false, %if.then.i ], [ false, %if.end7.i ], [ true, %return.sink.split.i ]
   ret i1 %retval.0
 }
 
@@ -751,7 +717,7 @@ if.then.i:                                        ; preds = %if.then
 
 if.end.i:                                         ; preds = %if.then.i
   %cmp3.i = fcmp olt double %value, 0.000000e+00
-  br i1 %cmp3.i, label %if.then4.i, label %if.end5.i
+  br i1 %cmp3.i, label %if.then4.i, label %return.sink.split.i
 
 if.then4.i:                                       ; preds = %if.end.i
   %position_.i.i = getelementptr inbounds i8, ptr %result_builder, i64 16
@@ -763,55 +729,37 @@ if.then4.i:                                       ; preds = %if.end.i
   %arrayidx.i.i.i = getelementptr inbounds i8, ptr %5, i64 %idxprom.i.i.i
   store i8 45, ptr %arrayidx.i.i.i, align 1
   %.pre.i = load ptr, ptr %infinity_symbol_.i, align 8
-  br label %if.end5.i
-
-if.end5.i:                                        ; preds = %if.then4.i, %if.end.i
-  %6 = phi ptr [ %.pre.i, %if.then4.i ], [ %3, %if.end.i ]
-  %call.i.i.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %6) #13
-  %conv.i.i.i = trunc i64 %call.i.i.i to i32
-  %position_.i.i.i = getelementptr inbounds i8, ptr %result_builder, i64 16
-  %7 = load i32, ptr %position_.i.i.i, align 8
-  %8 = load ptr, ptr %result_builder, align 8
-  %idxprom.i.i.i.i = sext i32 %7 to i64
-  %arrayidx.i.i.i.i = getelementptr inbounds i8, ptr %8, i64 %idxprom.i.i.i.i
-  %sext.i.i = shl i64 %call.i.i.i, 32
-  %conv.i2.i.i = ashr exact i64 %sext.i.i, 32
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %arrayidx.i.i.i.i, ptr align 1 %6, i64 %conv.i2.i.i, i1 false)
-  %9 = load i32, ptr %position_.i.i.i, align 8
-  %add.i.i.i = add nsw i32 %9, %conv.i.i.i
-  store i32 %add.i.i.i, ptr %position_.i.i.i, align 8
-  br label %return
+  br label %return.sink.split.i
 
 if.end7.i:                                        ; preds = %if.then
-  %10 = fcmp uno double %value, 0.000000e+00
-  br i1 %10, label %if.then9.i, label %return
-
-if.then9.i:                                       ; preds = %if.end7.i
+  %6 = fcmp ord double %value, 0.000000e+00
   %nan_symbol_.i = getelementptr inbounds i8, ptr %this, i64 16
-  %11 = load ptr, ptr %nan_symbol_.i, align 8
-  %cmp10.i = icmp eq ptr %11, null
-  br i1 %cmp10.i, label %return, label %if.end12.i
+  %7 = load ptr, ptr %nan_symbol_.i, align 8
+  %cmp10.i = icmp eq ptr %7, null
+  %or.cond.i = select i1 %6, i1 true, i1 %cmp10.i
+  br i1 %or.cond.i, label %return, label %return.sink.split.i
 
-if.end12.i:                                       ; preds = %if.then9.i
-  %call.i.i4.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %11) #13
+return.sink.split.i:                              ; preds = %if.end7.i, %if.then4.i, %if.end.i
+  %.sink18.i = phi ptr [ %.pre.i, %if.then4.i ], [ %3, %if.end.i ], [ %7, %if.end7.i ]
+  %call.i.i4.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.sink18.i) #13
   %conv.i.i5.i = trunc i64 %call.i.i4.i to i32
   %position_.i.i6.i = getelementptr inbounds i8, ptr %result_builder, i64 16
-  %12 = load i32, ptr %position_.i.i6.i, align 8
-  %13 = load ptr, ptr %result_builder, align 8
-  %idxprom.i.i.i7.i = sext i32 %12 to i64
-  %arrayidx.i.i.i8.i = getelementptr inbounds i8, ptr %13, i64 %idxprom.i.i.i7.i
+  %8 = load i32, ptr %position_.i.i6.i, align 8
+  %9 = load ptr, ptr %result_builder, align 8
+  %idxprom.i.i.i7.i = sext i32 %8 to i64
+  %arrayidx.i.i.i8.i = getelementptr inbounds i8, ptr %9, i64 %idxprom.i.i.i7.i
   %sext.i9.i = shl i64 %call.i.i4.i, 32
   %conv.i2.i10.i = ashr exact i64 %sext.i9.i, 32
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %arrayidx.i.i.i8.i, ptr nonnull align 1 %11, i64 %conv.i2.i10.i, i1 false)
-  %14 = load i32, ptr %position_.i.i6.i, align 8
-  %add.i.i11.i = add nsw i32 %14, %conv.i.i5.i
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %arrayidx.i.i.i8.i, ptr align 1 %.sink18.i, i64 %conv.i2.i10.i, i1 false)
+  %10 = load i32, ptr %position_.i.i6.i, align 8
+  %add.i.i11.i = add nsw i32 %10, %conv.i.i5.i
   store i32 %add.i.i11.i, ptr %position_.i.i6.i, align 8
   br label %return
 
 if.end:                                           ; preds = %entry
   %cmp = icmp slt i32 %requested_digits, 101
-  %15 = tail call double @llvm.fabs.f64(double %value)
-  %or.cond = fcmp ult double %15, 0x4C63E9E4E4C2F344
+  %11 = tail call double @llvm.fabs.f64(double %value)
+  %or.cond = fcmp ult double %11, 0x4C63E9E4E4C2F344
   %or.cond10 = and i1 %cmp, %or.cond
   br i1 %or.cond10, label %if.end8, label %return
 
@@ -828,20 +776,20 @@ if.then7.i:                                       ; preds = %if.end8
   br label %_ZN14arrow_vendored17double_conversion23DoubleToStringConverter13DoubleToAsciiEdNS1_8DtoaModeEiPciPbPiS5_.exit
 
 if.end10.i:                                       ; preds = %if.end8
-  %call18.i = call noundef zeroext i1 @_ZN14arrow_vendored17double_conversion13FastFixedDtoaEdiNS0_6VectorIcEEPiS3_(double noundef %15, i32 noundef %requested_digits, ptr nonnull %decimal_rep, i32 161, ptr noundef nonnull %decimal_rep_length, ptr noundef nonnull %decimal_point)
+  %call18.i = call noundef zeroext i1 @_ZN14arrow_vendored17double_conversion13FastFixedDtoaEdiNS0_6VectorIcEEPiS3_(double noundef %11, i32 noundef %requested_digits, ptr nonnull %decimal_rep, i32 161, ptr noundef nonnull %decimal_rep_length, ptr noundef nonnull %decimal_point)
   br i1 %call18.i, label %_ZN14arrow_vendored17double_conversion23DoubleToStringConverter13DoubleToAsciiEdNS1_8DtoaModeEiPciPbPiS5_.exit, label %_ZN14arrow_vendored17double_conversionL20DtoaToBignumDtoaModeENS0_23DoubleToStringConverter8DtoaModeE.exit.i
 
 _ZN14arrow_vendored17double_conversionL20DtoaToBignumDtoaModeENS0_23DoubleToStringConverter8DtoaModeE.exit.i: ; preds = %if.end10.i
-  call void @_ZN14arrow_vendored17double_conversion10BignumDtoaEdNS0_14BignumDtoaModeEiNS0_6VectorIcEEPiS4_(double noundef %15, i32 noundef 2, i32 noundef %requested_digits, ptr nonnull %decimal_rep, i32 161, ptr noundef nonnull %decimal_rep_length, ptr noundef nonnull %decimal_point)
-  %16 = load i32, ptr %decimal_rep_length, align 4
-  %idxprom.i.i = sext i32 %16 to i64
+  call void @_ZN14arrow_vendored17double_conversion10BignumDtoaEdNS0_14BignumDtoaModeEiNS0_6VectorIcEEPiS4_(double noundef %11, i32 noundef 2, i32 noundef %requested_digits, ptr nonnull %decimal_rep, i32 161, ptr noundef nonnull %decimal_rep_length, ptr noundef nonnull %decimal_point)
+  %12 = load i32, ptr %decimal_rep_length, align 4
+  %idxprom.i.i = sext i32 %12 to i64
   %arrayidx.i26.i = getelementptr inbounds i8, ptr %decimal_rep, i64 %idxprom.i.i
   store i8 0, ptr %arrayidx.i26.i, align 1
   br label %_ZN14arrow_vendored17double_conversion23DoubleToStringConverter13DoubleToAsciiEdNS1_8DtoaModeEiPciPbPiS5_.exit
 
 _ZN14arrow_vendored17double_conversion23DoubleToStringConverter13DoubleToAsciiEdNS1_8DtoaModeEiPciPbPiS5_.exit: ; preds = %if.then7.i, %if.end10.i, %_ZN14arrow_vendored17double_conversionL20DtoaToBignumDtoaModeENS0_23DoubleToStringConverter8DtoaModeE.exit.i
-  %17 = load i32, ptr %this, align 8
-  %and = and i32 %17, 8
+  %13 = load i32, ptr %this, align 8
+  %and = and i32 %13, 8
   %cmp9.not = icmp eq i32 %and, 0
   %tobool = icmp slt i64 %0, 0
   %cmp10 = fcmp une double %value, 0.000000e+00
@@ -851,23 +799,23 @@ _ZN14arrow_vendored17double_conversion23DoubleToStringConverter13DoubleToAsciiEd
 
 if.then13:                                        ; preds = %_ZN14arrow_vendored17double_conversion23DoubleToStringConverter13DoubleToAsciiEdNS1_8DtoaModeEiPciPbPiS5_.exit
   %position_.i = getelementptr inbounds i8, ptr %result_builder, i64 16
-  %18 = load i32, ptr %position_.i, align 8
-  %inc.i = add nsw i32 %18, 1
+  %14 = load i32, ptr %position_.i, align 8
+  %inc.i = add nsw i32 %14, 1
   store i32 %inc.i, ptr %position_.i, align 8
-  %19 = load ptr, ptr %result_builder, align 8
-  %idxprom.i.i14 = sext i32 %18 to i64
-  %arrayidx.i.i15 = getelementptr inbounds i8, ptr %19, i64 %idxprom.i.i14
+  %15 = load ptr, ptr %result_builder, align 8
+  %idxprom.i.i14 = sext i32 %14 to i64
+  %arrayidx.i.i15 = getelementptr inbounds i8, ptr %15, i64 %idxprom.i.i14
   store i8 45, ptr %arrayidx.i.i15, align 1
   br label %if.end14
 
 if.end14:                                         ; preds = %if.then13, %_ZN14arrow_vendored17double_conversion23DoubleToStringConverter13DoubleToAsciiEdNS1_8DtoaModeEiPciPbPiS5_.exit
-  %20 = load i32, ptr %decimal_rep_length, align 4
-  %21 = load i32, ptr %decimal_point, align 4
-  call void @_ZNK14arrow_vendored17double_conversion23DoubleToStringConverter27CreateDecimalRepresentationEPKciiiPNS0_13StringBuilderE(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr noundef nonnull %decimal_rep, i32 noundef %20, i32 noundef %21, i32 noundef %requested_digits, ptr noundef %result_builder)
+  %16 = load i32, ptr %decimal_rep_length, align 4
+  %17 = load i32, ptr %decimal_point, align 4
+  call void @_ZNK14arrow_vendored17double_conversion23DoubleToStringConverter27CreateDecimalRepresentationEPKciiiPNS0_13StringBuilderE(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr noundef nonnull %decimal_rep, i32 noundef %16, i32 noundef %17, i32 noundef %requested_digits, ptr noundef %result_builder)
   br label %return
 
-return:                                           ; preds = %if.end12.i, %if.then9.i, %if.end7.i, %if.end5.i, %if.then.i, %if.end, %if.end14
-  %retval.0 = phi i1 [ true, %if.end14 ], [ false, %if.end ], [ true, %if.end5.i ], [ true, %if.end12.i ], [ false, %if.then.i ], [ false, %if.then9.i ], [ false, %if.end7.i ]
+return:                                           ; preds = %return.sink.split.i, %if.end7.i, %if.then.i, %if.end, %if.end14
+  %retval.0 = phi i1 [ true, %if.end14 ], [ false, %if.end ], [ false, %if.then.i ], [ false, %if.end7.i ], [ true, %return.sink.split.i ]
   ret i1 %retval.0
 }
 
@@ -895,7 +843,7 @@ if.then.i:                                        ; preds = %if.then
 
 if.end.i:                                         ; preds = %if.then.i
   %cmp3.i = fcmp olt double %value, 0.000000e+00
-  br i1 %cmp3.i, label %if.then4.i, label %if.end5.i
+  br i1 %cmp3.i, label %if.then4.i, label %return.sink.split.i
 
 if.then4.i:                                       ; preds = %if.end.i
   %position_.i.i = getelementptr inbounds i8, ptr %result_builder, i64 16
@@ -907,54 +855,36 @@ if.then4.i:                                       ; preds = %if.end.i
   %arrayidx.i.i.i = getelementptr inbounds i8, ptr %5, i64 %idxprom.i.i.i
   store i8 45, ptr %arrayidx.i.i.i, align 1
   %.pre.i = load ptr, ptr %infinity_symbol_.i, align 8
-  br label %if.end5.i
-
-if.end5.i:                                        ; preds = %if.then4.i, %if.end.i
-  %6 = phi ptr [ %.pre.i, %if.then4.i ], [ %3, %if.end.i ]
-  %call.i.i.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %6) #13
-  %conv.i.i.i = trunc i64 %call.i.i.i to i32
-  %position_.i.i.i = getelementptr inbounds i8, ptr %result_builder, i64 16
-  %7 = load i32, ptr %position_.i.i.i, align 8
-  %8 = load ptr, ptr %result_builder, align 8
-  %idxprom.i.i.i.i = sext i32 %7 to i64
-  %arrayidx.i.i.i.i = getelementptr inbounds i8, ptr %8, i64 %idxprom.i.i.i.i
-  %sext.i.i = shl i64 %call.i.i.i, 32
-  %conv.i2.i.i = ashr exact i64 %sext.i.i, 32
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %arrayidx.i.i.i.i, ptr align 1 %6, i64 %conv.i2.i.i, i1 false)
-  %9 = load i32, ptr %position_.i.i.i, align 8
-  %add.i.i.i = add nsw i32 %9, %conv.i.i.i
-  store i32 %add.i.i.i, ptr %position_.i.i.i, align 8
-  br label %return
+  br label %return.sink.split.i
 
 if.end7.i:                                        ; preds = %if.then
-  %10 = fcmp uno double %value, 0.000000e+00
-  br i1 %10, label %if.then9.i, label %return
-
-if.then9.i:                                       ; preds = %if.end7.i
+  %6 = fcmp ord double %value, 0.000000e+00
   %nan_symbol_.i = getelementptr inbounds i8, ptr %this, i64 16
-  %11 = load ptr, ptr %nan_symbol_.i, align 8
-  %cmp10.i = icmp eq ptr %11, null
-  br i1 %cmp10.i, label %return, label %if.end12.i
+  %7 = load ptr, ptr %nan_symbol_.i, align 8
+  %cmp10.i = icmp eq ptr %7, null
+  %or.cond.i = select i1 %6, i1 true, i1 %cmp10.i
+  br i1 %or.cond.i, label %return, label %return.sink.split.i
 
-if.end12.i:                                       ; preds = %if.then9.i
-  %call.i.i4.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %11) #13
+return.sink.split.i:                              ; preds = %if.end7.i, %if.then4.i, %if.end.i
+  %.sink18.i = phi ptr [ %.pre.i, %if.then4.i ], [ %3, %if.end.i ], [ %7, %if.end7.i ]
+  %call.i.i4.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.sink18.i) #13
   %conv.i.i5.i = trunc i64 %call.i.i4.i to i32
   %position_.i.i6.i = getelementptr inbounds i8, ptr %result_builder, i64 16
-  %12 = load i32, ptr %position_.i.i6.i, align 8
-  %13 = load ptr, ptr %result_builder, align 8
-  %idxprom.i.i.i7.i = sext i32 %12 to i64
-  %arrayidx.i.i.i8.i = getelementptr inbounds i8, ptr %13, i64 %idxprom.i.i.i7.i
+  %8 = load i32, ptr %position_.i.i6.i, align 8
+  %9 = load ptr, ptr %result_builder, align 8
+  %idxprom.i.i.i7.i = sext i32 %8 to i64
+  %arrayidx.i.i.i8.i = getelementptr inbounds i8, ptr %9, i64 %idxprom.i.i.i7.i
   %sext.i9.i = shl i64 %call.i.i4.i, 32
   %conv.i2.i10.i = ashr exact i64 %sext.i9.i, 32
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %arrayidx.i.i.i8.i, ptr nonnull align 1 %11, i64 %conv.i2.i10.i, i1 false)
-  %14 = load i32, ptr %position_.i.i6.i, align 8
-  %add.i.i11.i = add nsw i32 %14, %conv.i.i5.i
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %arrayidx.i.i.i8.i, ptr align 1 %.sink18.i, i64 %conv.i2.i10.i, i1 false)
+  %10 = load i32, ptr %position_.i.i6.i, align 8
+  %add.i.i11.i = add nsw i32 %10, %conv.i.i5.i
   store i32 %add.i.i11.i, ptr %position_.i.i6.i, align 8
   br label %return
 
 if.end:                                           ; preds = %entry
-  %15 = add i32 %requested_digits, -121
-  %or.cond = icmp ult i32 %15, -122
+  %11 = add i32 %requested_digits, -121
+  %or.cond = icmp ult i32 %11, -122
   br i1 %or.cond, label %return, label %if.end7
 
 if.end7:                                          ; preds = %if.end
@@ -980,62 +910,62 @@ if.end10.i:                                       ; preds = %if.then9
 
 _ZN14arrow_vendored17double_conversionL20DtoaToBignumDtoaModeENS0_23DoubleToStringConverter8DtoaModeE.exit.i: ; preds = %if.end10.i
   call void @_ZN14arrow_vendored17double_conversion10BignumDtoaEdNS0_14BignumDtoaModeEiNS0_6VectorIcEEPiS4_(double noundef %v.addr.0.i, i32 noundef 0, i32 noundef 0, ptr nonnull %decimal_rep, i32 122, ptr noundef nonnull %decimal_rep_length, ptr noundef nonnull %decimal_point)
-  %16 = load i32, ptr %decimal_rep_length, align 4
-  %idxprom.i.i = sext i32 %16 to i64
+  %12 = load i32, ptr %decimal_rep_length, align 4
+  %idxprom.i.i = sext i32 %12 to i64
   %arrayidx.i26.i = getelementptr inbounds i8, ptr %decimal_rep, i64 %idxprom.i.i
   store i8 0, ptr %arrayidx.i26.i, align 1
   br label %if.end14
 
 if.else:                                          ; preds = %if.end7
   %add = add nuw nsw i32 %requested_digits, 1
-  %v.addr.0.i19 = tail call double @llvm.fabs.f64(double %value)
-  %cmp6.i21 = fcmp oeq double %value, 0.000000e+00
-  br i1 %cmp6.i21, label %if.then7.i26, label %if.end10.i22
+  %v.addr.0.i18 = tail call double @llvm.fabs.f64(double %value)
+  %cmp6.i20 = fcmp oeq double %value, 0.000000e+00
+  br i1 %cmp6.i20, label %if.then7.i25, label %if.end10.i21
 
-if.then7.i26:                                     ; preds = %if.else
+if.then7.i25:                                     ; preds = %if.else
   store i8 48, ptr %decimal_rep, align 16
-  %arrayidx.i.i27 = getelementptr inbounds i8, ptr %decimal_rep, i64 1
-  store i8 0, ptr %arrayidx.i.i27, align 1
+  %arrayidx.i.i26 = getelementptr inbounds i8, ptr %decimal_rep, i64 1
+  store i8 0, ptr %arrayidx.i.i26, align 1
   store i32 1, ptr %decimal_point, align 4
-  br label %_ZN14arrow_vendored17double_conversion23DoubleToStringConverter13DoubleToAsciiEdNS1_8DtoaModeEiPciPbPiS5_.exit28
+  br label %_ZN14arrow_vendored17double_conversion23DoubleToStringConverter13DoubleToAsciiEdNS1_8DtoaModeEiPciPbPiS5_.exit27
 
-if.end10.i22:                                     ; preds = %if.else
-  %call22.i = call noundef zeroext i1 @_ZN14arrow_vendored17double_conversion8FastDtoaEdNS0_12FastDtoaModeEiNS0_6VectorIcEEPiS4_(double noundef %v.addr.0.i19, i32 noundef 2, i32 noundef %add, ptr nonnull %decimal_rep, i32 122, ptr noundef nonnull %decimal_rep_length, ptr noundef nonnull %decimal_point)
-  br i1 %call22.i, label %if.end10.i22._ZN14arrow_vendored17double_conversion23DoubleToStringConverter13DoubleToAsciiEdNS1_8DtoaModeEiPciPbPiS5_.exit28_crit_edge, label %_ZN14arrow_vendored17double_conversionL20DtoaToBignumDtoaModeENS0_23DoubleToStringConverter8DtoaModeE.exit.i23
+if.end10.i21:                                     ; preds = %if.else
+  %call22.i = call noundef zeroext i1 @_ZN14arrow_vendored17double_conversion8FastDtoaEdNS0_12FastDtoaModeEiNS0_6VectorIcEEPiS4_(double noundef %v.addr.0.i18, i32 noundef 2, i32 noundef %add, ptr nonnull %decimal_rep, i32 122, ptr noundef nonnull %decimal_rep_length, ptr noundef nonnull %decimal_point)
+  br i1 %call22.i, label %if.end10.i21._ZN14arrow_vendored17double_conversion23DoubleToStringConverter13DoubleToAsciiEdNS1_8DtoaModeEiPciPbPiS5_.exit27_crit_edge, label %_ZN14arrow_vendored17double_conversionL20DtoaToBignumDtoaModeENS0_23DoubleToStringConverter8DtoaModeE.exit.i22
 
-if.end10.i22._ZN14arrow_vendored17double_conversion23DoubleToStringConverter13DoubleToAsciiEdNS1_8DtoaModeEiPciPbPiS5_.exit28_crit_edge: ; preds = %if.end10.i22
+if.end10.i21._ZN14arrow_vendored17double_conversion23DoubleToStringConverter13DoubleToAsciiEdNS1_8DtoaModeEiPciPbPiS5_.exit27_crit_edge: ; preds = %if.end10.i21
   %.pre = load i32, ptr %decimal_rep_length, align 4
-  br label %_ZN14arrow_vendored17double_conversion23DoubleToStringConverter13DoubleToAsciiEdNS1_8DtoaModeEiPciPbPiS5_.exit28
+  br label %_ZN14arrow_vendored17double_conversion23DoubleToStringConverter13DoubleToAsciiEdNS1_8DtoaModeEiPciPbPiS5_.exit27
 
-_ZN14arrow_vendored17double_conversionL20DtoaToBignumDtoaModeENS0_23DoubleToStringConverter8DtoaModeE.exit.i23: ; preds = %if.end10.i22
-  call void @_ZN14arrow_vendored17double_conversion10BignumDtoaEdNS0_14BignumDtoaModeEiNS0_6VectorIcEEPiS4_(double noundef %v.addr.0.i19, i32 noundef 3, i32 noundef %add, ptr nonnull %decimal_rep, i32 122, ptr noundef nonnull %decimal_rep_length, ptr noundef nonnull %decimal_point)
-  %17 = load i32, ptr %decimal_rep_length, align 4
-  %idxprom.i.i24 = sext i32 %17 to i64
-  %arrayidx.i26.i25 = getelementptr inbounds i8, ptr %decimal_rep, i64 %idxprom.i.i24
-  store i8 0, ptr %arrayidx.i26.i25, align 1
-  br label %_ZN14arrow_vendored17double_conversion23DoubleToStringConverter13DoubleToAsciiEdNS1_8DtoaModeEiPciPbPiS5_.exit28
+_ZN14arrow_vendored17double_conversionL20DtoaToBignumDtoaModeENS0_23DoubleToStringConverter8DtoaModeE.exit.i22: ; preds = %if.end10.i21
+  call void @_ZN14arrow_vendored17double_conversion10BignumDtoaEdNS0_14BignumDtoaModeEiNS0_6VectorIcEEPiS4_(double noundef %v.addr.0.i18, i32 noundef 3, i32 noundef %add, ptr nonnull %decimal_rep, i32 122, ptr noundef nonnull %decimal_rep_length, ptr noundef nonnull %decimal_point)
+  %13 = load i32, ptr %decimal_rep_length, align 4
+  %idxprom.i.i23 = sext i32 %13 to i64
+  %arrayidx.i26.i24 = getelementptr inbounds i8, ptr %decimal_rep, i64 %idxprom.i.i23
+  store i8 0, ptr %arrayidx.i26.i24, align 1
+  br label %_ZN14arrow_vendored17double_conversion23DoubleToStringConverter13DoubleToAsciiEdNS1_8DtoaModeEiPciPbPiS5_.exit27
 
-_ZN14arrow_vendored17double_conversion23DoubleToStringConverter13DoubleToAsciiEdNS1_8DtoaModeEiPciPbPiS5_.exit28: ; preds = %if.end10.i22._ZN14arrow_vendored17double_conversion23DoubleToStringConverter13DoubleToAsciiEdNS1_8DtoaModeEiPciPbPiS5_.exit28_crit_edge, %if.then7.i26, %_ZN14arrow_vendored17double_conversionL20DtoaToBignumDtoaModeENS0_23DoubleToStringConverter8DtoaModeE.exit.i23
-  %18 = phi i32 [ %.pre, %if.end10.i22._ZN14arrow_vendored17double_conversion23DoubleToStringConverter13DoubleToAsciiEdNS1_8DtoaModeEiPciPbPiS5_.exit28_crit_edge ], [ 1, %if.then7.i26 ], [ %17, %_ZN14arrow_vendored17double_conversionL20DtoaToBignumDtoaModeENS0_23DoubleToStringConverter8DtoaModeE.exit.i23 ]
-  %cmp12.not31 = icmp sgt i32 %18, %requested_digits
-  br i1 %cmp12.not31, label %for.end, label %for.body.preheader
+_ZN14arrow_vendored17double_conversion23DoubleToStringConverter13DoubleToAsciiEdNS1_8DtoaModeEiPciPbPiS5_.exit27: ; preds = %if.end10.i21._ZN14arrow_vendored17double_conversion23DoubleToStringConverter13DoubleToAsciiEdNS1_8DtoaModeEiPciPbPiS5_.exit27_crit_edge, %if.then7.i25, %_ZN14arrow_vendored17double_conversionL20DtoaToBignumDtoaModeENS0_23DoubleToStringConverter8DtoaModeE.exit.i22
+  %14 = phi i32 [ %.pre, %if.end10.i21._ZN14arrow_vendored17double_conversion23DoubleToStringConverter13DoubleToAsciiEdNS1_8DtoaModeEiPciPbPiS5_.exit27_crit_edge ], [ 1, %if.then7.i25 ], [ %13, %_ZN14arrow_vendored17double_conversionL20DtoaToBignumDtoaModeENS0_23DoubleToStringConverter8DtoaModeE.exit.i22 ]
+  %cmp12.not30 = icmp sgt i32 %14, %requested_digits
+  br i1 %cmp12.not30, label %for.end, label %for.body.preheader
 
-for.body.preheader:                               ; preds = %_ZN14arrow_vendored17double_conversion23DoubleToStringConverter13DoubleToAsciiEdNS1_8DtoaModeEiPciPbPiS5_.exit28
-  %19 = sext i32 %18 to i64
-  %scevgep = getelementptr i8, ptr %decimal_rep, i64 %19
-  %20 = sub i32 %requested_digits, %18
-  %21 = zext i32 %20 to i64
-  %22 = add nuw nsw i64 %21, 1
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %scevgep, i8 48, i64 %22, i1 false)
+for.body.preheader:                               ; preds = %_ZN14arrow_vendored17double_conversion23DoubleToStringConverter13DoubleToAsciiEdNS1_8DtoaModeEiPciPbPiS5_.exit27
+  %15 = sext i32 %14 to i64
+  %scevgep = getelementptr i8, ptr %decimal_rep, i64 %15
+  %16 = sub i32 %requested_digits, %14
+  %17 = zext i32 %16 to i64
+  %18 = add nuw nsw i64 %17, 1
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %scevgep, i8 48, i64 %18, i1 false)
   br label %for.end
 
-for.end:                                          ; preds = %for.body.preheader, %_ZN14arrow_vendored17double_conversion23DoubleToStringConverter13DoubleToAsciiEdNS1_8DtoaModeEiPciPbPiS5_.exit28
+for.end:                                          ; preds = %for.body.preheader, %_ZN14arrow_vendored17double_conversion23DoubleToStringConverter13DoubleToAsciiEdNS1_8DtoaModeEiPciPbPiS5_.exit27
   store i32 %add, ptr %decimal_rep_length, align 4
   br label %if.end14
 
 if.end14:                                         ; preds = %_ZN14arrow_vendored17double_conversionL20DtoaToBignumDtoaModeENS0_23DoubleToStringConverter8DtoaModeE.exit.i, %if.end10.i, %if.then7.i, %for.end
-  %23 = load i32, ptr %this, align 8
-  %and = and i32 %23, 8
+  %19 = load i32, ptr %this, align 8
+  %and = and i32 %19, 8
   %cmp15.not = icmp eq i32 %and, 0
   %tobool = icmp slt i64 %0, 0
   %cmp16 = fcmp une double %value, 0.000000e+00
@@ -1045,24 +975,24 @@ if.end14:                                         ; preds = %_ZN14arrow_vendored
 
 if.then18:                                        ; preds = %if.end14
   %position_.i = getelementptr inbounds i8, ptr %result_builder, i64 16
-  %24 = load i32, ptr %position_.i, align 8
-  %inc.i = add nsw i32 %24, 1
+  %20 = load i32, ptr %position_.i, align 8
+  %inc.i = add nsw i32 %20, 1
   store i32 %inc.i, ptr %position_.i, align 8
-  %25 = load ptr, ptr %result_builder, align 8
-  %idxprom.i.i29 = sext i32 %24 to i64
-  %arrayidx.i.i30 = getelementptr inbounds i8, ptr %25, i64 %idxprom.i.i29
-  store i8 45, ptr %arrayidx.i.i30, align 1
+  %21 = load ptr, ptr %result_builder, align 8
+  %idxprom.i.i28 = sext i32 %20 to i64
+  %arrayidx.i.i29 = getelementptr inbounds i8, ptr %21, i64 %idxprom.i.i28
+  store i8 45, ptr %arrayidx.i.i29, align 1
   br label %if.end19
 
 if.end19:                                         ; preds = %if.then18, %if.end14
-  %26 = load i32, ptr %decimal_point, align 4
-  %sub = add nsw i32 %26, -1
-  %27 = load i32, ptr %decimal_rep_length, align 4
-  call void @_ZNK14arrow_vendored17double_conversion23DoubleToStringConverter31CreateExponentialRepresentationEPKciiPNS0_13StringBuilderE(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr noundef nonnull %decimal_rep, i32 noundef %27, i32 noundef %sub, ptr noundef %result_builder)
+  %22 = load i32, ptr %decimal_point, align 4
+  %sub = add nsw i32 %22, -1
+  %23 = load i32, ptr %decimal_rep_length, align 4
+  call void @_ZNK14arrow_vendored17double_conversion23DoubleToStringConverter31CreateExponentialRepresentationEPKciiPNS0_13StringBuilderE(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr noundef nonnull %decimal_rep, i32 noundef %23, i32 noundef %sub, ptr noundef %result_builder)
   br label %return
 
-return:                                           ; preds = %if.end12.i, %if.then9.i, %if.end7.i, %if.end5.i, %if.then.i, %if.end, %if.end19
-  %retval.0 = phi i1 [ true, %if.end19 ], [ false, %if.end ], [ true, %if.end5.i ], [ true, %if.end12.i ], [ false, %if.then.i ], [ false, %if.then9.i ], [ false, %if.end7.i ]
+return:                                           ; preds = %return.sink.split.i, %if.end7.i, %if.then.i, %if.end, %if.end19
+  %retval.0 = phi i1 [ true, %if.end19 ], [ false, %if.end ], [ false, %if.then.i ], [ false, %if.end7.i ], [ true, %return.sink.split.i ]
   ret i1 %retval.0
 }
 
@@ -1090,7 +1020,7 @@ if.then.i:                                        ; preds = %if.then
 
 if.end.i:                                         ; preds = %if.then.i
   %cmp3.i = fcmp olt double %value, 0.000000e+00
-  br i1 %cmp3.i, label %if.then4.i, label %if.end5.i
+  br i1 %cmp3.i, label %if.then4.i, label %return.sink.split.i
 
 if.then4.i:                                       ; preds = %if.end.i
   %position_.i.i = getelementptr inbounds i8, ptr %result_builder, i64 16
@@ -1102,62 +1032,44 @@ if.then4.i:                                       ; preds = %if.end.i
   %arrayidx.i.i.i = getelementptr inbounds i8, ptr %5, i64 %idxprom.i.i.i
   store i8 45, ptr %arrayidx.i.i.i, align 1
   %.pre.i = load ptr, ptr %infinity_symbol_.i, align 8
-  br label %if.end5.i
-
-if.end5.i:                                        ; preds = %if.then4.i, %if.end.i
-  %6 = phi ptr [ %.pre.i, %if.then4.i ], [ %3, %if.end.i ]
-  %call.i.i.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %6) #13
-  %conv.i.i.i = trunc i64 %call.i.i.i to i32
-  %position_.i.i.i = getelementptr inbounds i8, ptr %result_builder, i64 16
-  %7 = load i32, ptr %position_.i.i.i, align 8
-  %8 = load ptr, ptr %result_builder, align 8
-  %idxprom.i.i.i.i = sext i32 %7 to i64
-  %arrayidx.i.i.i.i = getelementptr inbounds i8, ptr %8, i64 %idxprom.i.i.i.i
-  %sext.i.i = shl i64 %call.i.i.i, 32
-  %conv.i2.i.i = ashr exact i64 %sext.i.i, 32
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %arrayidx.i.i.i.i, ptr align 1 %6, i64 %conv.i2.i.i, i1 false)
-  %9 = load i32, ptr %position_.i.i.i, align 8
-  %add.i.i.i = add nsw i32 %9, %conv.i.i.i
-  store i32 %add.i.i.i, ptr %position_.i.i.i, align 8
-  br label %return
+  br label %return.sink.split.i
 
 if.end7.i:                                        ; preds = %if.then
-  %10 = fcmp uno double %value, 0.000000e+00
-  br i1 %10, label %if.then9.i, label %return
-
-if.then9.i:                                       ; preds = %if.end7.i
+  %6 = fcmp ord double %value, 0.000000e+00
   %nan_symbol_.i = getelementptr inbounds i8, ptr %this, i64 16
-  %11 = load ptr, ptr %nan_symbol_.i, align 8
-  %cmp10.i = icmp eq ptr %11, null
-  br i1 %cmp10.i, label %return, label %if.end12.i
+  %7 = load ptr, ptr %nan_symbol_.i, align 8
+  %cmp10.i = icmp eq ptr %7, null
+  %or.cond.i = select i1 %6, i1 true, i1 %cmp10.i
+  br i1 %or.cond.i, label %return, label %return.sink.split.i
 
-if.end12.i:                                       ; preds = %if.then9.i
-  %call.i.i4.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %11) #13
+return.sink.split.i:                              ; preds = %if.end7.i, %if.then4.i, %if.end.i
+  %.sink18.i = phi ptr [ %.pre.i, %if.then4.i ], [ %3, %if.end.i ], [ %7, %if.end7.i ]
+  %call.i.i4.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.sink18.i) #13
   %conv.i.i5.i = trunc i64 %call.i.i4.i to i32
   %position_.i.i6.i = getelementptr inbounds i8, ptr %result_builder, i64 16
-  %12 = load i32, ptr %position_.i.i6.i, align 8
-  %13 = load ptr, ptr %result_builder, align 8
-  %idxprom.i.i.i7.i = sext i32 %12 to i64
-  %arrayidx.i.i.i8.i = getelementptr inbounds i8, ptr %13, i64 %idxprom.i.i.i7.i
+  %8 = load i32, ptr %position_.i.i6.i, align 8
+  %9 = load ptr, ptr %result_builder, align 8
+  %idxprom.i.i.i7.i = sext i32 %8 to i64
+  %arrayidx.i.i.i8.i = getelementptr inbounds i8, ptr %9, i64 %idxprom.i.i.i7.i
   %sext.i9.i = shl i64 %call.i.i4.i, 32
   %conv.i2.i10.i = ashr exact i64 %sext.i9.i, 32
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %arrayidx.i.i.i8.i, ptr nonnull align 1 %11, i64 %conv.i2.i10.i, i1 false)
-  %14 = load i32, ptr %position_.i.i6.i, align 8
-  %add.i.i11.i = add nsw i32 %14, %conv.i.i5.i
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %arrayidx.i.i.i8.i, ptr align 1 %.sink18.i, i64 %conv.i2.i10.i, i1 false)
+  %10 = load i32, ptr %position_.i.i6.i, align 8
+  %add.i.i11.i = add nsw i32 %10, %conv.i.i5.i
   store i32 %add.i.i11.i, ptr %position_.i.i6.i, align 8
   br label %return
 
 if.end:                                           ; preds = %entry
-  %15 = add i32 %precision, -121
-  %or.cond = icmp ult i32 %15, -120
-  br i1 %or.cond, label %return, label %if.end5.i14
+  %11 = add i32 %precision, -121
+  %or.cond = icmp ult i32 %11, -120
+  br i1 %or.cond, label %return, label %if.end5.i
 
-if.end5.i14:                                      ; preds = %if.end
+if.end5.i:                                        ; preds = %if.end
   %v.addr.0.i = tail call double @llvm.fabs.f64(double %value)
   %cmp6.i = fcmp oeq double %value, 0.000000e+00
   br i1 %cmp6.i, label %if.then7.i, label %if.end10.i
 
-if.then7.i:                                       ; preds = %if.end5.i14
+if.then7.i:                                       ; preds = %if.end5.i
   store i8 48, ptr %decimal_rep, align 16
   %arrayidx.i.i = getelementptr inbounds i8, ptr %decimal_rep, i64 1
   store i8 0, ptr %arrayidx.i.i, align 1
@@ -1165,21 +1077,21 @@ if.then7.i:                                       ; preds = %if.end5.i14
   store i32 1, ptr %decimal_point, align 4
   br label %_ZN14arrow_vendored17double_conversion23DoubleToStringConverter13DoubleToAsciiEdNS1_8DtoaModeEiPciPbPiS5_.exit
 
-if.end10.i:                                       ; preds = %if.end5.i14
+if.end10.i:                                       ; preds = %if.end5.i
   %call22.i = call noundef zeroext i1 @_ZN14arrow_vendored17double_conversion8FastDtoaEdNS0_12FastDtoaModeEiNS0_6VectorIcEEPiS4_(double noundef %v.addr.0.i, i32 noundef 2, i32 noundef %precision, ptr nonnull %decimal_rep, i32 121, ptr noundef nonnull %decimal_rep_length, ptr noundef nonnull %decimal_point)
   br i1 %call22.i, label %_ZN14arrow_vendored17double_conversion23DoubleToStringConverter13DoubleToAsciiEdNS1_8DtoaModeEiPciPbPiS5_.exit, label %_ZN14arrow_vendored17double_conversionL20DtoaToBignumDtoaModeENS0_23DoubleToStringConverter8DtoaModeE.exit.i
 
 _ZN14arrow_vendored17double_conversionL20DtoaToBignumDtoaModeENS0_23DoubleToStringConverter8DtoaModeE.exit.i: ; preds = %if.end10.i
   call void @_ZN14arrow_vendored17double_conversion10BignumDtoaEdNS0_14BignumDtoaModeEiNS0_6VectorIcEEPiS4_(double noundef %v.addr.0.i, i32 noundef 3, i32 noundef %precision, ptr nonnull %decimal_rep, i32 121, ptr noundef nonnull %decimal_rep_length, ptr noundef nonnull %decimal_point)
-  %16 = load i32, ptr %decimal_rep_length, align 4
-  %idxprom.i.i = sext i32 %16 to i64
+  %12 = load i32, ptr %decimal_rep_length, align 4
+  %idxprom.i.i = sext i32 %12 to i64
   %arrayidx.i26.i = getelementptr inbounds i8, ptr %decimal_rep, i64 %idxprom.i.i
   store i8 0, ptr %arrayidx.i26.i, align 1
   br label %_ZN14arrow_vendored17double_conversion23DoubleToStringConverter13DoubleToAsciiEdNS1_8DtoaModeEiPciPbPiS5_.exit
 
 _ZN14arrow_vendored17double_conversion23DoubleToStringConverter13DoubleToAsciiEdNS1_8DtoaModeEiPciPbPiS5_.exit: ; preds = %if.then7.i, %if.end10.i, %_ZN14arrow_vendored17double_conversionL20DtoaToBignumDtoaModeENS0_23DoubleToStringConverter8DtoaModeE.exit.i
-  %17 = load i32, ptr %this, align 8
-  %and = and i32 %17, 8
+  %13 = load i32, ptr %this, align 8
+  %and = and i32 %13, 8
   %cmp6.not = icmp eq i32 %and, 0
   %tobool = icmp slt i64 %0, 0
   %cmp7 = fcmp une double %value, 0.000000e+00
@@ -1189,39 +1101,39 @@ _ZN14arrow_vendored17double_conversion23DoubleToStringConverter13DoubleToAsciiEd
 
 if.then10:                                        ; preds = %_ZN14arrow_vendored17double_conversion23DoubleToStringConverter13DoubleToAsciiEdNS1_8DtoaModeEiPciPbPiS5_.exit
   %position_.i = getelementptr inbounds i8, ptr %result_builder, i64 16
-  %18 = load i32, ptr %position_.i, align 8
-  %inc.i = add nsw i32 %18, 1
+  %14 = load i32, ptr %position_.i, align 8
+  %inc.i = add nsw i32 %14, 1
   store i32 %inc.i, ptr %position_.i, align 8
-  %19 = load ptr, ptr %result_builder, align 8
-  %idxprom.i.i15 = sext i32 %18 to i64
-  %arrayidx.i.i16 = getelementptr inbounds i8, ptr %19, i64 %idxprom.i.i15
+  %15 = load ptr, ptr %result_builder, align 8
+  %idxprom.i.i15 = sext i32 %14 to i64
+  %arrayidx.i.i16 = getelementptr inbounds i8, ptr %15, i64 %idxprom.i.i15
   store i8 45, ptr %arrayidx.i.i16, align 1
   br label %if.end11
 
 if.end11:                                         ; preds = %if.then10, %_ZN14arrow_vendored17double_conversion23DoubleToStringConverter13DoubleToAsciiEdNS1_8DtoaModeEiPciPbPiS5_.exit
-  %20 = load i32, ptr %decimal_point, align 4
-  %sub = add nsw i32 %20, -1
-  %add = sub i32 1, %20
+  %16 = load i32, ptr %decimal_point, align 4
+  %sub = add nsw i32 %16, -1
+  %add = sub i32 1, %16
   %max_leading_padding_zeroes_in_precision_mode_ = getelementptr inbounds i8, ptr %this, i64 36
-  %21 = load i32, ptr %max_leading_padding_zeroes_in_precision_mode_, align 4
-  %cmp16 = icmp sgt i32 %add, %21
-  %22 = load i32, ptr %this, align 8
+  %17 = load i32, ptr %max_leading_padding_zeroes_in_precision_mode_, align 4
+  %cmp16 = icmp sgt i32 %add, %17
+  %18 = load i32, ptr %this, align 8
   br i1 %cmp16, label %lor.end.thread, label %lor.end
 
 lor.end:                                          ; preds = %if.end11
-  %and13 = lshr i32 %22, 2
+  %and13 = lshr i32 %18, 2
   %and13.lobit = and i32 %and13, 1
-  %sub17 = sub i32 %20, %precision
+  %sub17 = sub i32 %16, %precision
   %add18 = add nsw i32 %sub17, %and13.lobit
   %max_trailing_padding_zeroes_in_precision_mode_ = getelementptr inbounds i8, ptr %this, i64 40
-  %23 = load i32, ptr %max_trailing_padding_zeroes_in_precision_mode_, align 8
-  %cmp19 = icmp sgt i32 %add18, %23
-  %and22 = and i32 %22, 16
+  %19 = load i32, ptr %max_trailing_padding_zeroes_in_precision_mode_, align 8
+  %cmp19 = icmp sgt i32 %add18, %19
+  %and22 = and i32 %18, 16
   %cmp23.not = icmp eq i32 %and22, 0
   br i1 %cmp23.not, label %if.end33, label %if.then24
 
 lor.end.thread:                                   ; preds = %if.end11
-  %and2237 = and i32 %22, 16
+  %and2237 = and i32 %18, 16
   %cmp23.not38 = icmp eq i32 %and2237, 0
   br i1 %cmp23.not38, label %lor.end.thread.if.then35_crit_edge, label %cond.end
 
@@ -1233,71 +1145,71 @@ if.then24:                                        ; preds = %lor.end
   br i1 %cmp19, label %cond.end, label %cond.false
 
 cond.false:                                       ; preds = %if.then24
-  %.sroa.speculated24 = call i32 @llvm.smax.i32(i32 %20, i32 1)
+  %.sroa.speculated24 = call i32 @llvm.smax.i32(i32 %16, i32 1)
   br label %cond.end
 
 cond.end:                                         ; preds = %lor.end.thread, %if.then24, %cond.false
-  %24 = phi i1 [ false, %cond.false ], [ true, %if.then24 ], [ true, %lor.end.thread ]
+  %20 = phi i1 [ false, %cond.false ], [ true, %if.then24 ], [ true, %lor.end.thread ]
   %cond28 = phi i32 [ %.sroa.speculated24, %cond.false ], [ 1, %if.then24 ], [ 1, %lor.end.thread ]
   %decimal_rep_length.promoted = load i32, ptr %decimal_rep_length, align 4
   %cmp2943 = icmp sgt i32 %decimal_rep_length.promoted, %cond28
   br i1 %cmp2943, label %land.rhs.preheader, label %while.end
 
 land.rhs.preheader:                               ; preds = %cond.end
-  %25 = zext nneg i32 %decimal_rep_length.promoted to i64
-  %26 = zext nneg i32 %cond28 to i64
-  %indvars.iv.next61 = add nsw i64 %25, -1
+  %21 = zext nneg i32 %decimal_rep_length.promoted to i64
+  %22 = zext nneg i32 %cond28 to i64
+  %indvars.iv.next61 = add nsw i64 %21, -1
   %arrayidx62 = getelementptr inbounds [121 x i8], ptr %decimal_rep, i64 0, i64 %indvars.iv.next61
-  %27 = load i8, ptr %arrayidx62, align 1
-  %cmp3163 = icmp eq i8 %27, 48
+  %23 = load i8, ptr %arrayidx62, align 1
+  %cmp3163 = icmp eq i8 %23, 48
   br i1 %cmp3163, label %while.body, label %while.end
 
 land.rhs:                                         ; preds = %while.body
   %indvars.iv.next = add nsw i64 %indvars.iv.next64, -1
   %arrayidx = getelementptr inbounds [121 x i8], ptr %decimal_rep, i64 0, i64 %indvars.iv.next
-  %28 = load i8, ptr %arrayidx, align 1
-  %cmp31 = icmp eq i8 %28, 48
+  %24 = load i8, ptr %arrayidx, align 1
+  %cmp31 = icmp eq i8 %24, 48
   br i1 %cmp31, label %while.body, label %land.rhs.while.end.loopexit.split.loop.exit54_crit_edge, !llvm.loop !9
 
 while.body:                                       ; preds = %land.rhs.preheader, %land.rhs
   %indvars.iv.next64 = phi i64 [ %indvars.iv.next, %land.rhs ], [ %indvars.iv.next61, %land.rhs.preheader ]
-  %29 = trunc nsw i64 %indvars.iv.next64 to i32
-  %cmp29 = icmp sgt i64 %indvars.iv.next64, %26
+  %25 = trunc nsw i64 %indvars.iv.next64 to i32
+  %cmp29 = icmp sgt i64 %indvars.iv.next64, %22
   br i1 %cmp29, label %land.rhs, label %while.end.loopexit, !llvm.loop !9
 
 land.rhs.while.end.loopexit.split.loop.exit54_crit_edge: ; preds = %land.rhs
-  store i32 %29, ptr %decimal_rep_length, align 4
-  %30 = trunc nuw nsw i64 %indvars.iv.next64 to i32
+  store i32 %25, ptr %decimal_rep_length, align 4
+  %26 = trunc nuw nsw i64 %indvars.iv.next64 to i32
   br label %while.end
 
 while.end.loopexit:                               ; preds = %while.body
-  store i32 %29, ptr %decimal_rep_length, align 4
+  store i32 %25, ptr %decimal_rep_length, align 4
   br label %while.end
 
 while.end:                                        ; preds = %while.end.loopexit, %land.rhs.preheader, %land.rhs.while.end.loopexit.split.loop.exit54_crit_edge, %cond.end
-  %31 = phi i32 [ %decimal_rep_length.promoted, %cond.end ], [ %29, %land.rhs.while.end.loopexit.split.loop.exit54_crit_edge ], [ %decimal_rep_length.promoted, %land.rhs.preheader ], [ %29, %while.end.loopexit ]
-  %.lcssa = phi i32 [ %decimal_rep_length.promoted, %cond.end ], [ %30, %land.rhs.while.end.loopexit.split.loop.exit54_crit_edge ], [ %decimal_rep_length.promoted, %land.rhs.preheader ], [ %cond28, %while.end.loopexit ]
+  %27 = phi i32 [ %decimal_rep_length.promoted, %cond.end ], [ %25, %land.rhs.while.end.loopexit.split.loop.exit54_crit_edge ], [ %decimal_rep_length.promoted, %land.rhs.preheader ], [ %25, %while.end.loopexit ]
+  %.lcssa = phi i32 [ %decimal_rep_length.promoted, %cond.end ], [ %26, %land.rhs.while.end.loopexit.split.loop.exit54_crit_edge ], [ %decimal_rep_length.promoted, %land.rhs.preheader ], [ %cond28, %while.end.loopexit ]
   %.sroa.speculated31 = call i32 @llvm.smin.i32(i32 %.lcssa, i32 %precision)
-  br i1 %24, label %if.then35, label %if.else
+  br i1 %20, label %if.then35, label %if.else
 
 if.end33:                                         ; preds = %lor.end
   %.pre53 = load i32, ptr %decimal_rep_length, align 4
   br i1 %cmp19, label %if.then35, label %if.else
 
 if.then35:                                        ; preds = %lor.end.thread.if.then35_crit_edge, %while.end, %if.end33
-  %32 = phi i32 [ %.pre53, %if.end33 ], [ %31, %while.end ], [ %.pre52, %lor.end.thread.if.then35_crit_edge ]
+  %28 = phi i32 [ %.pre53, %if.end33 ], [ %27, %while.end ], [ %.pre52, %lor.end.thread.if.then35_crit_edge ]
   %precision.addr.040 = phi i32 [ %precision, %if.end33 ], [ %.sroa.speculated31, %while.end ], [ %precision, %lor.end.thread.if.then35_crit_edge ]
-  %cmp3646 = icmp slt i32 %32, %precision.addr.040
+  %cmp3646 = icmp slt i32 %28, %precision.addr.040
   br i1 %cmp3646, label %for.body.preheader, label %for.end
 
 for.body.preheader:                               ; preds = %if.then35
-  %33 = sext i32 %32 to i64
-  %scevgep = getelementptr i8, ptr %decimal_rep, i64 %33
-  %34 = xor i32 %32, -1
-  %35 = add i32 %precision.addr.040, %34
-  %36 = zext i32 %35 to i64
-  %37 = add nuw nsw i64 %36, 1
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %scevgep, i8 48, i64 %37, i1 false)
+  %29 = sext i32 %28 to i64
+  %scevgep = getelementptr i8, ptr %decimal_rep, i64 %29
+  %30 = xor i32 %28, -1
+  %31 = add i32 %precision.addr.040, %30
+  %32 = zext i32 %31 to i64
+  %33 = add nuw nsw i64 %32, 1
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %scevgep, i8 48, i64 %33, i1 false)
   br label %for.end
 
 for.end:                                          ; preds = %for.body.preheader, %if.then35
@@ -1305,15 +1217,15 @@ for.end:                                          ; preds = %for.body.preheader,
   br label %return
 
 if.else:                                          ; preds = %if.end33, %while.end
-  %38 = phi i32 [ %31, %while.end ], [ %.pre53, %if.end33 ]
+  %34 = phi i32 [ %27, %while.end ], [ %.pre53, %if.end33 ]
   %precision.addr.041 = phi i32 [ %.sroa.speculated31, %while.end ], [ %precision, %if.end33 ]
-  %sub43 = sub nsw i32 %precision.addr.041, %20
+  %sub43 = sub nsw i32 %precision.addr.041, %16
   %.sroa.speculated = call i32 @llvm.smax.i32(i32 %sub43, i32 0)
-  call void @_ZNK14arrow_vendored17double_conversion23DoubleToStringConverter27CreateDecimalRepresentationEPKciiiPNS0_13StringBuilderE(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr noundef nonnull %decimal_rep, i32 noundef %38, i32 noundef %20, i32 noundef %.sroa.speculated, ptr noundef %result_builder)
+  call void @_ZNK14arrow_vendored17double_conversion23DoubleToStringConverter27CreateDecimalRepresentationEPKciiiPNS0_13StringBuilderE(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr noundef nonnull %decimal_rep, i32 noundef %34, i32 noundef %16, i32 noundef %.sroa.speculated, ptr noundef %result_builder)
   br label %return
 
-return:                                           ; preds = %if.end12.i, %if.then9.i, %if.end7.i, %if.end5.i, %if.then.i, %for.end, %if.else, %if.end
-  %retval.0 = phi i1 [ false, %if.end ], [ true, %if.else ], [ true, %for.end ], [ true, %if.end5.i ], [ true, %if.end12.i ], [ false, %if.then.i ], [ false, %if.then9.i ], [ false, %if.end7.i ]
+return:                                           ; preds = %return.sink.split.i, %if.end7.i, %if.then.i, %for.end, %if.else, %if.end
+  %retval.0 = phi i1 [ false, %if.end ], [ true, %if.else ], [ true, %for.end ], [ false, %if.then.i ], [ false, %if.end7.i ], [ true, %return.sink.split.i ]
   ret i1 %retval.0
 }
 

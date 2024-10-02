@@ -595,11 +595,7 @@ define void @_ZNK7mitsuba12FileResolver7resolveERKNS_10filesystem4pathE(ptr dead
 17:                                               ; preds = %15
   %18 = load ptr, ptr %12, align 8
   %.not6.i.i.i.i.i = icmp eq ptr %16, %18
-  br i1 %.not6.i.i.i.i.i, label %_ZN7mitsuba10filesystem4pathD2Ev.exit.thread15, label %.lr.ph.i.i.i.i.i
-
-_ZN7mitsuba10filesystem4pathD2Ev.exit.thread15:   ; preds = %17
-  tail call void @_ZdlPv(ptr noundef nonnull %16) #17
-  br label %_ZN7mitsuba10filesystem4pathD2Ev.exit.thread
+  br i1 %.not6.i.i.i.i.i, label %_ZN7mitsuba10filesystem4pathD2Ev.exit.thread.sink.split, label %.lr.ph.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i:                                 ; preds = %17, %.lr.ph.i.i.i.i.i
   %.07.i.i.i.i.i = phi ptr [ %19, %.lr.ph.i.i.i.i.i ], [ %18, %17 ]
@@ -611,10 +607,14 @@ _ZN7mitsuba10filesystem4pathD2Ev.exit.thread15:   ; preds = %17
 _ZN7mitsuba10filesystem4pathD2Ev.exit:            ; preds = %.lr.ph.i.i.i.i.i
   %.pre.i.i = load ptr, ptr %0, align 8
   store ptr %16, ptr %12, align 8
-  tail call void @_ZdlPv(ptr noundef %.pre.i.i) #17
+  br label %_ZN7mitsuba10filesystem4pathD2Ev.exit.thread.sink.split
+
+_ZN7mitsuba10filesystem4pathD2Ev.exit.thread.sink.split: ; preds = %17, %_ZN7mitsuba10filesystem4pathD2Ev.exit
+  %.pre.i.i.sink = phi ptr [ %.pre.i.i, %_ZN7mitsuba10filesystem4pathD2Ev.exit ], [ %16, %17 ]
+  tail call void @_ZdlPv(ptr noundef %.pre.i.i.sink) #17
   br label %_ZN7mitsuba10filesystem4pathD2Ev.exit.thread
 
-_ZN7mitsuba10filesystem4pathD2Ev.exit.thread:     ; preds = %_ZN7mitsuba10filesystem4pathD2Ev.exit, %15, %_ZN7mitsuba10filesystem4pathD2Ev.exit.thread15
+_ZN7mitsuba10filesystem4pathD2Ev.exit.thread:     ; preds = %_ZN7mitsuba10filesystem4pathD2Ev.exit.thread.sink.split, %15
   %20 = getelementptr inbounds i8, ptr %.sroa.09.018, i64 32
   %.not = icmp eq ptr %20, %11
   br i1 %.not, label %.loopexit, label %13

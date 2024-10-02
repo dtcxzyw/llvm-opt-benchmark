@@ -4341,13 +4341,13 @@ define internal fastcc i32 @hwloc_utils_get_best_node_in_array_by_memattr(ptr no
   %7 = alloca i64, align 8
   %8 = call i32 @hwloc_memattr_get_flags(ptr noundef %0, i32 noundef %1, ptr noundef nonnull %7) #25
   %9 = icmp slt i32 %8, 0
-  br i1 %9, label %66, label %10
+  br i1 %9, label %65, label %10
 
 10:                                               ; preds = %5
   store i32 0, ptr %6, align 4
   %11 = call i32 @hwloc_memattr_get_targets(ptr noundef %0, i32 noundef %1, ptr noundef nonnull %4, i64 noundef 0, ptr noundef nonnull %6, ptr noundef null, ptr noundef null) #25
   %12 = icmp slt i32 %11, 0
-  br i1 %12, label %66, label %13
+  br i1 %12, label %65, label %13
 
 13:                                               ; preds = %10
   %14 = load i32, ptr %6, align 4
@@ -4358,18 +4358,16 @@ define internal fastcc i32 @hwloc_utils_get_best_node_in_array_by_memattr(ptr no
   %19 = icmp ne ptr %17, null
   %20 = icmp ne ptr %18, null
   %or.cond = and i1 %19, %20
-  br i1 %or.cond, label %21, label %65
+  br i1 %or.cond, label %21, label %.sink.split
 
 21:                                               ; preds = %13
   %22 = call i32 @hwloc_memattr_get_targets(ptr noundef %0, i32 noundef %1, ptr noundef nonnull %4, i64 noundef 0, ptr noundef nonnull %6, ptr noundef nonnull %17, ptr noundef nonnull %18) #25
   %23 = icmp slt i32 %22, 0
-  br i1 %23, label %65, label %.preheader59
-
-.preheader59:                                     ; preds = %21
   %.not102 = icmp eq i32 %2, 0
-  br i1 %.not102, label %._crit_edge68, label %.preheader.lr.ph
+  %or.cond130 = or i1 %23, %.not102
+  br i1 %or.cond130, label %.sink.split, label %.preheader.lr.ph
 
-.preheader.lr.ph:                                 ; preds = %.preheader59
+.preheader.lr.ph:                                 ; preds = %21
   %24 = load i32, ptr %6, align 4
   %.not103 = icmp eq i32 %24, 0
   %25 = load i64, ptr %7, align 8
@@ -4379,7 +4377,7 @@ define internal fastcc i32 @hwloc_utils_get_best_node_in_array_by_memattr(ptr no
   br i1 %.not, label %.preheader.lr.ph.split.us, label %.preheader.lr.ph.split
 
 .preheader.lr.ph.split.us:                        ; preds = %.preheader.lr.ph
-  br i1 %.not103, label %._crit_edge68, label %.preheader.us.us.preheader
+  br i1 %.not103, label %.sink.split, label %.preheader.us.us.preheader
 
 .preheader.us.us.preheader:                       ; preds = %.preheader.lr.ph.split.us
   %wide.trip.count122 = zext i32 %2 to i64
@@ -4434,10 +4432,10 @@ define internal fastcc i32 @hwloc_utils_get_best_node_in_array_by_memattr(ptr no
   %.1.us.us = phi i64 [ %.067.us.us, %._crit_edge.us.us ], [ %40, %44 ], [ %spec.select58.us.us, %41 ], [ %.067.us.us, %33 ]
   %indvars.iv.next120 = add nuw nsw i64 %indvars.iv119, 1
   %exitcond123.not = icmp eq i64 %indvars.iv.next120, %wide.trip.count122
-  br i1 %exitcond123.not, label %._crit_edge68, label %.preheader.us.us, !llvm.loop !33
+  br i1 %exitcond123.not, label %.sink.split, label %.preheader.us.us, !llvm.loop !33
 
 .preheader.lr.ph.split:                           ; preds = %.preheader.lr.ph
-  br i1 %.not103, label %._crit_edge68, label %.preheader.us70.preheader
+  br i1 %.not103, label %.sink.split, label %.preheader.us70.preheader
 
 .preheader.us70.preheader:                        ; preds = %.preheader.lr.ph.split
   %wide.trip.count112 = zext i32 %2 to i64
@@ -4492,23 +4490,15 @@ define internal fastcc i32 @hwloc_utils_get_best_node_in_array_by_memattr(ptr no
   %.1.us77 = phi i64 [ %.067.us71, %._crit_edge.us79 ], [ %59, %63 ], [ %spec.select56.us, %60 ], [ %.067.us71, %52 ]
   %indvars.iv.next110 = add nuw nsw i64 %indvars.iv109, 1
   %exitcond113.not = icmp eq i64 %indvars.iv.next110, %wide.trip.count112
-  br i1 %exitcond113.not, label %._crit_edge68, label %.preheader.us70, !llvm.loop !33
+  br i1 %exitcond113.not, label %.sink.split, label %.preheader.us70, !llvm.loop !33
 
-._crit_edge68:                                    ; preds = %._crit_edge.us79.thread, %._crit_edge.us.us.thread, %.preheader.lr.ph.split, %.preheader.lr.ph.split.us, %.preheader59
-  %.048.lcssa = phi i32 [ -1, %.preheader59 ], [ -1, %.preheader.lr.ph.split.us ], [ -1, %.preheader.lr.ph.split ], [ %.149.us.us, %._crit_edge.us.us.thread ], [ %.149.us76, %._crit_edge.us79.thread ]
-  call void @free(ptr noundef nonnull %17) #25
-  br label %.sink.split
-
-65:                                               ; preds = %21, %13
+.sink.split:                                      ; preds = %._crit_edge.us79.thread, %._crit_edge.us.us.thread, %13, %21, %.preheader.lr.ph.split.us, %.preheader.lr.ph.split
+  %.047.ph = phi i32 [ -1, %.preheader.lr.ph.split.us ], [ -1, %.preheader.lr.ph.split ], [ -1, %21 ], [ -1, %13 ], [ %.149.us.us, %._crit_edge.us.us.thread ], [ %.149.us76, %._crit_edge.us79.thread ]
   call void @free(ptr noundef %17) #25
-  br label %.sink.split
-
-.sink.split:                                      ; preds = %._crit_edge68, %65
-  %.047.ph = phi i32 [ -1, %65 ], [ %.048.lcssa, %._crit_edge68 ]
   call void @free(ptr noundef %18) #25
-  br label %66
+  br label %65
 
-66:                                               ; preds = %.sink.split, %5, %10
+65:                                               ; preds = %.sink.split, %5, %10
   %.047 = phi i32 [ -1, %10 ], [ -1, %5 ], [ %.047.ph, %.sink.split ]
   ret i32 %.047
 }

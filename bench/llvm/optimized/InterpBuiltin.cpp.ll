@@ -13658,7 +13658,8 @@ define internal fastcc void @_ZN5clang6interpL12peekToAPSIntERNS0_11InterpStackE
 
 12:                                               ; preds = %8, %4
   %.0 = phi i64 [ %11, %8 ], [ %3, %4 ]
-  switch i32 %2, label %51 [
+  %13 = tail call noundef nonnull align 1 dereferenceable(1) ptr @_ZNK5clang6interp11InterpStack8peekDataEm(ptr noundef nonnull align 8 dereferenceable(16) %1, i64 noundef %.0) #16
+  switch i32 %2, label %41 [
     i32 0, label %_ZN4llvm6APSIntD2Ev.exit
     i32 1, label %_ZN4llvm6APSIntD2Ev.exit27
     i32 2, label %_ZN4llvm6APSIntD2Ev.exit29
@@ -13673,94 +13674,83 @@ define internal fastcc void @_ZN5clang6interpL12peekToAPSIntERNS0_11InterpStackE
   ]
 
 _ZN4llvm6APSIntD2Ev.exit:                         ; preds = %12
-  %13 = tail call noundef nonnull align 1 dereferenceable(1) ptr @_ZNK5clang6interp11InterpStack8peekDataEm(ptr noundef nonnull align 8 dereferenceable(16) %1, i64 noundef %.0) #16
   %14 = load i8, ptr %13, align 1, !noalias !114
   %15 = zext i8 %14 to i64
-  br label %52
+  br label %42
 
 _ZN4llvm6APSIntD2Ev.exit27:                       ; preds = %12
-  %16 = tail call noundef nonnull align 1 dereferenceable(1) ptr @_ZNK5clang6interp11InterpStack8peekDataEm(ptr noundef nonnull align 8 dereferenceable(16) %1, i64 noundef %.0) #16
-  %17 = load i8, ptr %16, align 1, !noalias !117
-  %18 = zext i8 %17 to i64
-  br label %52
+  %16 = load i8, ptr %13, align 1, !noalias !117
+  %17 = zext i8 %16 to i64
+  br label %42
 
 _ZN4llvm6APSIntD2Ev.exit29:                       ; preds = %12
-  %19 = tail call noundef nonnull align 2 dereferenceable(2) ptr @_ZNK5clang6interp11InterpStack8peekDataEm(ptr noundef nonnull align 8 dereferenceable(16) %1, i64 noundef %.0) #16
-  %20 = load i16, ptr %19, align 2, !noalias !120
-  %21 = zext i16 %20 to i64
-  br label %52
+  %18 = load i16, ptr %13, align 2, !noalias !120
+  %19 = zext i16 %18 to i64
+  br label %42
 
 _ZN4llvm6APSIntD2Ev.exit31:                       ; preds = %12
-  %22 = tail call noundef nonnull align 2 dereferenceable(2) ptr @_ZNK5clang6interp11InterpStack8peekDataEm(ptr noundef nonnull align 8 dereferenceable(16) %1, i64 noundef %.0) #16
-  %23 = load i16, ptr %22, align 2, !noalias !123
-  %24 = zext i16 %23 to i64
-  br label %52
+  %20 = load i16, ptr %13, align 2, !noalias !123
+  %21 = zext i16 %20 to i64
+  br label %42
 
 _ZN4llvm6APSIntD2Ev.exit33:                       ; preds = %12
-  %25 = tail call noundef nonnull align 4 dereferenceable(4) ptr @_ZNK5clang6interp11InterpStack8peekDataEm(ptr noundef nonnull align 8 dereferenceable(16) %1, i64 noundef %.0) #16
-  %26 = load i32, ptr %25, align 4, !noalias !126
-  %27 = zext i32 %26 to i64
-  br label %52
+  %22 = load i32, ptr %13, align 4, !noalias !126
+  %23 = zext i32 %22 to i64
+  br label %42
 
 _ZN4llvm6APSIntD2Ev.exit35:                       ; preds = %12
-  %28 = tail call noundef nonnull align 4 dereferenceable(4) ptr @_ZNK5clang6interp11InterpStack8peekDataEm(ptr noundef nonnull align 8 dereferenceable(16) %1, i64 noundef %.0) #16
-  %29 = load i32, ptr %28, align 4, !noalias !129
-  %30 = zext i32 %29 to i64
-  br label %52
+  %24 = load i32, ptr %13, align 4, !noalias !129
+  %25 = zext i32 %24 to i64
+  br label %42
 
 _ZN4llvm6APSIntD2Ev.exit37:                       ; preds = %12
-  %31 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK5clang6interp11InterpStack8peekDataEm(ptr noundef nonnull align 8 dereferenceable(16) %1, i64 noundef %.0) #16
-  %32 = load i64, ptr %31, align 8, !noalias !132
-  br label %52
+  %26 = load i64, ptr %13, align 8, !noalias !132
+  br label %42
 
 _ZN4llvm6APSIntD2Ev.exit39:                       ; preds = %12
-  %33 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK5clang6interp11InterpStack8peekDataEm(ptr noundef nonnull align 8 dereferenceable(16) %1, i64 noundef %.0) #16
-  %34 = load i64, ptr %33, align 8, !noalias !135
-  br label %52
+  %27 = load i64, ptr %13, align 8, !noalias !135
+  br label %42
 
 _ZN4llvm6APSIntD2Ev.exit41:                       ; preds = %12
-  %35 = tail call noundef nonnull align 8 dereferenceable(16) ptr @_ZNK5clang6interp11InterpStack8peekDataEm(ptr noundef nonnull align 8 dereferenceable(16) %1, i64 noundef %.0) #16
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6)
-  %36 = getelementptr inbounds nuw i8, ptr %35, i64 8
-  %37 = load i32, ptr %36, align 8, !noalias !138
-  call void @_ZNK4llvm5APInt4zextEj(ptr dead_on_unwind nonnull writable sret(%"class.llvm::APInt") align 8 %6, ptr noundef nonnull align 8 dereferenceable(12) %35, i32 noundef %37) #16, !noalias !138
-  %38 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %39 = load i32, ptr %38, align 8, !noalias !138
-  %40 = load i64, ptr %6, align 8, !noalias !138
+  %28 = getelementptr inbounds nuw i8, ptr %13, i64 8
+  %29 = load i32, ptr %28, align 8, !noalias !138
+  call void @_ZNK4llvm5APInt4zextEj(ptr dead_on_unwind nonnull writable sret(%"class.llvm::APInt") align 8 %6, ptr noundef nonnull align 8 dereferenceable(12) %13, i32 noundef %29) #16, !noalias !138
+  %30 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  %31 = load i32, ptr %30, align 8, !noalias !138
+  %32 = load i64, ptr %6, align 8, !noalias !138
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6)
-  br label %52
+  br label %42
 
 _ZN4llvm6APSIntD2Ev.exit43:                       ; preds = %12
-  %41 = tail call noundef nonnull align 8 dereferenceable(16) ptr @_ZNK5clang6interp11InterpStack8peekDataEm(ptr noundef nonnull align 8 dereferenceable(16) %1, i64 noundef %.0) #16
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
-  %42 = getelementptr inbounds nuw i8, ptr %41, i64 8
-  %43 = load i32, ptr %42, align 8, !noalias !141
-  call void @_ZNK4llvm5APInt4sextEj(ptr dead_on_unwind nonnull writable sret(%"class.llvm::APInt") align 8 %5, ptr noundef nonnull align 8 dereferenceable(12) %41, i32 noundef %43) #16, !noalias !141
-  %44 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %45 = load i32, ptr %44, align 8, !noalias !141
-  %46 = load i64, ptr %5, align 8, !noalias !141
+  %33 = getelementptr inbounds nuw i8, ptr %13, i64 8
+  %34 = load i32, ptr %33, align 8, !noalias !141
+  call void @_ZNK4llvm5APInt4sextEj(ptr dead_on_unwind nonnull writable sret(%"class.llvm::APInt") align 8 %5, ptr noundef nonnull align 8 dereferenceable(12) %13, i32 noundef %34) #16, !noalias !141
+  %35 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %36 = load i32, ptr %35, align 8, !noalias !141
+  %37 = load i64, ptr %5, align 8, !noalias !141
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
-  br label %52
+  br label %42
 
 _ZN4llvm6APSIntD2Ev.exit45:                       ; preds = %12
-  %47 = tail call noundef nonnull align 1 dereferenceable(1) ptr @_ZNK5clang6interp11InterpStack8peekDataEm(ptr noundef nonnull align 8 dereferenceable(16) %1, i64 noundef %.0) #16
-  %48 = load i8, ptr %47, align 1, !noalias !144
-  %49 = and i8 %48, 1
-  %50 = zext nneg i8 %49 to i64
-  br label %52
+  %38 = load i8, ptr %13, align 1, !noalias !144
+  %39 = and i8 %38, 1
+  %40 = zext nneg i8 %39 to i64
+  br label %42
 
-51:                                               ; preds = %12
+41:                                               ; preds = %12
   unreachable
 
-52:                                               ; preds = %_ZN4llvm6APSIntD2Ev.exit, %_ZN4llvm6APSIntD2Ev.exit27, %_ZN4llvm6APSIntD2Ev.exit29, %_ZN4llvm6APSIntD2Ev.exit31, %_ZN4llvm6APSIntD2Ev.exit33, %_ZN4llvm6APSIntD2Ev.exit35, %_ZN4llvm6APSIntD2Ev.exit37, %_ZN4llvm6APSIntD2Ev.exit39, %_ZN4llvm6APSIntD2Ev.exit41, %_ZN4llvm6APSIntD2Ev.exit43, %_ZN4llvm6APSIntD2Ev.exit45
-  %.sink88 = phi i64 [ %15, %_ZN4llvm6APSIntD2Ev.exit ], [ %18, %_ZN4llvm6APSIntD2Ev.exit27 ], [ %21, %_ZN4llvm6APSIntD2Ev.exit29 ], [ %24, %_ZN4llvm6APSIntD2Ev.exit31 ], [ %27, %_ZN4llvm6APSIntD2Ev.exit33 ], [ %30, %_ZN4llvm6APSIntD2Ev.exit35 ], [ %32, %_ZN4llvm6APSIntD2Ev.exit37 ], [ %34, %_ZN4llvm6APSIntD2Ev.exit39 ], [ %40, %_ZN4llvm6APSIntD2Ev.exit41 ], [ %46, %_ZN4llvm6APSIntD2Ev.exit43 ], [ %50, %_ZN4llvm6APSIntD2Ev.exit45 ]
-  %.sink87 = phi i32 [ 8, %_ZN4llvm6APSIntD2Ev.exit ], [ 8, %_ZN4llvm6APSIntD2Ev.exit27 ], [ 16, %_ZN4llvm6APSIntD2Ev.exit29 ], [ 16, %_ZN4llvm6APSIntD2Ev.exit31 ], [ 32, %_ZN4llvm6APSIntD2Ev.exit33 ], [ 32, %_ZN4llvm6APSIntD2Ev.exit35 ], [ 64, %_ZN4llvm6APSIntD2Ev.exit37 ], [ 64, %_ZN4llvm6APSIntD2Ev.exit39 ], [ %39, %_ZN4llvm6APSIntD2Ev.exit41 ], [ %45, %_ZN4llvm6APSIntD2Ev.exit43 ], [ 1, %_ZN4llvm6APSIntD2Ev.exit45 ]
+42:                                               ; preds = %_ZN4llvm6APSIntD2Ev.exit, %_ZN4llvm6APSIntD2Ev.exit27, %_ZN4llvm6APSIntD2Ev.exit29, %_ZN4llvm6APSIntD2Ev.exit31, %_ZN4llvm6APSIntD2Ev.exit33, %_ZN4llvm6APSIntD2Ev.exit35, %_ZN4llvm6APSIntD2Ev.exit37, %_ZN4llvm6APSIntD2Ev.exit39, %_ZN4llvm6APSIntD2Ev.exit41, %_ZN4llvm6APSIntD2Ev.exit43, %_ZN4llvm6APSIntD2Ev.exit45
+  %.sink88 = phi i64 [ %15, %_ZN4llvm6APSIntD2Ev.exit ], [ %17, %_ZN4llvm6APSIntD2Ev.exit27 ], [ %19, %_ZN4llvm6APSIntD2Ev.exit29 ], [ %21, %_ZN4llvm6APSIntD2Ev.exit31 ], [ %23, %_ZN4llvm6APSIntD2Ev.exit33 ], [ %25, %_ZN4llvm6APSIntD2Ev.exit35 ], [ %26, %_ZN4llvm6APSIntD2Ev.exit37 ], [ %27, %_ZN4llvm6APSIntD2Ev.exit39 ], [ %32, %_ZN4llvm6APSIntD2Ev.exit41 ], [ %37, %_ZN4llvm6APSIntD2Ev.exit43 ], [ %40, %_ZN4llvm6APSIntD2Ev.exit45 ]
+  %.sink87 = phi i32 [ 8, %_ZN4llvm6APSIntD2Ev.exit ], [ 8, %_ZN4llvm6APSIntD2Ev.exit27 ], [ 16, %_ZN4llvm6APSIntD2Ev.exit29 ], [ 16, %_ZN4llvm6APSIntD2Ev.exit31 ], [ 32, %_ZN4llvm6APSIntD2Ev.exit33 ], [ 32, %_ZN4llvm6APSIntD2Ev.exit35 ], [ 64, %_ZN4llvm6APSIntD2Ev.exit37 ], [ 64, %_ZN4llvm6APSIntD2Ev.exit39 ], [ %31, %_ZN4llvm6APSIntD2Ev.exit41 ], [ %36, %_ZN4llvm6APSIntD2Ev.exit43 ], [ 1, %_ZN4llvm6APSIntD2Ev.exit45 ]
   %.sink = phi i8 [ 0, %_ZN4llvm6APSIntD2Ev.exit ], [ 1, %_ZN4llvm6APSIntD2Ev.exit27 ], [ 0, %_ZN4llvm6APSIntD2Ev.exit29 ], [ 1, %_ZN4llvm6APSIntD2Ev.exit31 ], [ 0, %_ZN4llvm6APSIntD2Ev.exit33 ], [ 1, %_ZN4llvm6APSIntD2Ev.exit35 ], [ 0, %_ZN4llvm6APSIntD2Ev.exit37 ], [ 1, %_ZN4llvm6APSIntD2Ev.exit39 ], [ 1, %_ZN4llvm6APSIntD2Ev.exit41 ], [ 0, %_ZN4llvm6APSIntD2Ev.exit43 ], [ 1, %_ZN4llvm6APSIntD2Ev.exit45 ]
-  %53 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %54 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %43 = getelementptr inbounds nuw i8, ptr %0, i64 12
+  %44 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %.sink88, ptr %0, align 8
-  store i32 %.sink87, ptr %54, align 8
-  store i8 %.sink, ptr %53, align 4
+  store i32 %.sink87, ptr %44, align 8
+  store i8 %.sink, ptr %43, align 4
   ret void
 }
 

@@ -423,7 +423,7 @@ define dso_local void @PortalStart(ptr noundef %0, ptr noundef %1, i32 noundef %
   %10 = load ptr, ptr @error_context_stack, align 8
   %11 = call i32 @__sigsetjmp(ptr noundef nonnull %5, i32 noundef 0) #12
   %12 = icmp eq i32 %11, 0
-  br i1 %12, label %13, label %87
+  br i1 %12, label %13, label %86
 
 13:                                               ; preds = %4
   store ptr %5, ptr @PG_exception_stack, align 8
@@ -452,121 +452,118 @@ define dso_local void @PortalStart(ptr noundef %0, ptr noundef %1, i32 noundef %
   store i32 %24, ptr %25, align 8
   switch i32 %24, label %default.unreachable57 [
     i32 0, label %26
-    i32 1, label %65
-    i32 2, label %65
-    i32 3, label %76
-    i32 4, label %85
+    i32 1, label %64
+    i32 2, label %64
+    i32 3, label %75
+    i32 4, label %84
   ]
 
 26:                                               ; preds = %17
   %.not55 = icmp eq ptr %3, null
-  br i1 %.not55, label %28, label %27
+  br i1 %.not55, label %27, label %29
 
 27:                                               ; preds = %26
-  call void @PushActiveSnapshot(ptr noundef nonnull %3) #10
-  br label %30
+  %28 = call ptr @GetTransactionSnapshot() #10
+  br label %29
 
-28:                                               ; preds = %26
-  %29 = call ptr @GetTransactionSnapshot() #10
-  call void @PushActiveSnapshot(ptr noundef %29) #10
-  br label %30
-
-30:                                               ; preds = %28, %27
-  %31 = load ptr, ptr %22, align 8
-  %32 = getelementptr i8, ptr %31, i64 16
-  %.val = load ptr, ptr %32, align 8
-  %33 = load ptr, ptr %.val, align 8
-  %34 = getelementptr inbounds i8, ptr %0, i64 56
-  %35 = load ptr, ptr %34, align 8
-  %36 = call ptr @GetActiveSnapshot() #10
-  %37 = load ptr, ptr @None_Receiver, align 8
-  %38 = getelementptr inbounds i8, ptr %0, i64 112
-  %39 = load ptr, ptr %38, align 8
-  %40 = call ptr @palloc(i64 noundef 112) #10
-  %41 = getelementptr inbounds i8, ptr %33, i64 4
-  %42 = load i32, ptr %41, align 4
-  store i32 %42, ptr %40, align 8
-  %43 = getelementptr inbounds i8, ptr %40, i64 8
-  store ptr %33, ptr %43, align 8
-  %44 = getelementptr inbounds i8, ptr %40, i64 16
-  store ptr %35, ptr %44, align 8
-  %45 = call ptr @RegisterSnapshot(ptr noundef %36) #10
-  %46 = getelementptr inbounds i8, ptr %40, i64 24
-  store ptr %45, ptr %46, align 8
-  %47 = call ptr @RegisterSnapshot(ptr noundef null) #10
-  %48 = getelementptr inbounds i8, ptr %40, i64 32
-  store ptr %47, ptr %48, align 8
-  %49 = getelementptr inbounds i8, ptr %40, i64 40
-  store ptr %37, ptr %49, align 8
-  %50 = getelementptr inbounds i8, ptr %40, i64 48
-  store ptr %1, ptr %50, align 8
-  %51 = getelementptr inbounds i8, ptr %40, i64 56
-  store ptr %39, ptr %51, align 8
-  %52 = getelementptr inbounds i8, ptr %40, i64 64
-  store i32 0, ptr %52, align 8
-  %53 = getelementptr inbounds i8, ptr %40, i64 72
-  %54 = getelementptr inbounds i8, ptr %40, i64 104
-  store ptr null, ptr %54, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(25) %53, i8 0, i64 25, i1 false)
-  %55 = getelementptr inbounds i8, ptr %0, i64 124
-  %56 = load i32, ptr %55, align 4
-  %57 = and i32 %56, 2
-  %.not56 = icmp eq i32 %57, 0
-  %58 = or i32 %2, 12
-  %.0 = select i1 %.not56, i32 %2, i32 %58
-  call void @ExecutorStart(ptr noundef nonnull %40, i32 noundef %.0) #10
-  %59 = getelementptr inbounds i8, ptr %0, i64 144
-  store ptr %40, ptr %59, align 8
-  %60 = load ptr, ptr %53, align 8
-  %61 = getelementptr inbounds i8, ptr %0, i64 152
-  store ptr %60, ptr %61, align 8
-  %62 = getelementptr inbounds i8, ptr %0, i64 200
-  store i8 1, ptr %62, align 8
-  %63 = getelementptr inbounds i8, ptr %0, i64 201
-  store i8 0, ptr %63, align 1
-  %64 = getelementptr inbounds i8, ptr %0, i64 208
-  store i64 0, ptr %64, align 8
+29:                                               ; preds = %26, %27
+  %.sink = phi ptr [ %28, %27 ], [ %3, %26 ]
+  call void @PushActiveSnapshot(ptr noundef %.sink) #10
+  %30 = load ptr, ptr %22, align 8
+  %31 = getelementptr i8, ptr %30, i64 16
+  %.val = load ptr, ptr %31, align 8
+  %32 = load ptr, ptr %.val, align 8
+  %33 = getelementptr inbounds i8, ptr %0, i64 56
+  %34 = load ptr, ptr %33, align 8
+  %35 = call ptr @GetActiveSnapshot() #10
+  %36 = load ptr, ptr @None_Receiver, align 8
+  %37 = getelementptr inbounds i8, ptr %0, i64 112
+  %38 = load ptr, ptr %37, align 8
+  %39 = call ptr @palloc(i64 noundef 112) #10
+  %40 = getelementptr inbounds i8, ptr %32, i64 4
+  %41 = load i32, ptr %40, align 4
+  store i32 %41, ptr %39, align 8
+  %42 = getelementptr inbounds i8, ptr %39, i64 8
+  store ptr %32, ptr %42, align 8
+  %43 = getelementptr inbounds i8, ptr %39, i64 16
+  store ptr %34, ptr %43, align 8
+  %44 = call ptr @RegisterSnapshot(ptr noundef %35) #10
+  %45 = getelementptr inbounds i8, ptr %39, i64 24
+  store ptr %44, ptr %45, align 8
+  %46 = call ptr @RegisterSnapshot(ptr noundef null) #10
+  %47 = getelementptr inbounds i8, ptr %39, i64 32
+  store ptr %46, ptr %47, align 8
+  %48 = getelementptr inbounds i8, ptr %39, i64 40
+  store ptr %36, ptr %48, align 8
+  %49 = getelementptr inbounds i8, ptr %39, i64 48
+  store ptr %1, ptr %49, align 8
+  %50 = getelementptr inbounds i8, ptr %39, i64 56
+  store ptr %38, ptr %50, align 8
+  %51 = getelementptr inbounds i8, ptr %39, i64 64
+  store i32 0, ptr %51, align 8
+  %52 = getelementptr inbounds i8, ptr %39, i64 72
+  %53 = getelementptr inbounds i8, ptr %39, i64 104
+  store ptr null, ptr %53, align 8
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(25) %52, i8 0, i64 25, i1 false)
+  %54 = getelementptr inbounds i8, ptr %0, i64 124
+  %55 = load i32, ptr %54, align 4
+  %56 = and i32 %55, 2
+  %.not56 = icmp eq i32 %56, 0
+  %57 = or i32 %2, 12
+  %.0 = select i1 %.not56, i32 %2, i32 %57
+  call void @ExecutorStart(ptr noundef nonnull %39, i32 noundef %.0) #10
+  %58 = getelementptr inbounds i8, ptr %0, i64 144
+  store ptr %39, ptr %58, align 8
+  %59 = load ptr, ptr %52, align 8
+  %60 = getelementptr inbounds i8, ptr %0, i64 152
+  store ptr %59, ptr %60, align 8
+  %61 = getelementptr inbounds i8, ptr %0, i64 200
+  store i8 1, ptr %61, align 8
+  %62 = getelementptr inbounds i8, ptr %0, i64 201
+  store i8 0, ptr %62, align 1
+  %63 = getelementptr inbounds i8, ptr %0, i64 208
+  store i64 0, ptr %63, align 8
   call void @PopActiveSnapshot() #10
-  br label %88
+  br label %87
 
-65:                                               ; preds = %17, %17
-  %66 = call ptr @PortalGetPrimaryStmt(ptr noundef nonnull %0) #10
-  %67 = getelementptr inbounds i8, ptr %66, i64 32
-  %68 = load ptr, ptr %67, align 8
-  %69 = getelementptr inbounds i8, ptr %68, i64 48
-  %70 = load ptr, ptr %69, align 8
-  %71 = call ptr @ExecCleanTypeFromTL(ptr noundef %70) #10
-  %72 = getelementptr inbounds i8, ptr %0, i64 152
-  store ptr %71, ptr %72, align 8
-  %73 = getelementptr inbounds i8, ptr %0, i64 200
-  store i8 1, ptr %73, align 8
-  %74 = getelementptr inbounds i8, ptr %0, i64 201
-  store i8 0, ptr %74, align 1
-  %75 = getelementptr inbounds i8, ptr %0, i64 208
-  store i64 0, ptr %75, align 8
-  br label %88
+64:                                               ; preds = %17, %17
+  %65 = call ptr @PortalGetPrimaryStmt(ptr noundef nonnull %0) #10
+  %66 = getelementptr inbounds i8, ptr %65, i64 32
+  %67 = load ptr, ptr %66, align 8
+  %68 = getelementptr inbounds i8, ptr %67, i64 48
+  %69 = load ptr, ptr %68, align 8
+  %70 = call ptr @ExecCleanTypeFromTL(ptr noundef %69) #10
+  %71 = getelementptr inbounds i8, ptr %0, i64 152
+  store ptr %70, ptr %71, align 8
+  %72 = getelementptr inbounds i8, ptr %0, i64 200
+  store i8 1, ptr %72, align 8
+  %73 = getelementptr inbounds i8, ptr %0, i64 201
+  store i8 0, ptr %73, align 1
+  %74 = getelementptr inbounds i8, ptr %0, i64 208
+  store i64 0, ptr %74, align 8
+  br label %87
 
-76:                                               ; preds = %17
-  %77 = call ptr @PortalGetPrimaryStmt(ptr noundef nonnull %0) #10
-  %78 = getelementptr inbounds i8, ptr %77, i64 120
-  %79 = load ptr, ptr %78, align 8
-  %80 = call ptr @UtilityTupleDescriptor(ptr noundef %79) #10
-  %81 = getelementptr inbounds i8, ptr %0, i64 152
-  store ptr %80, ptr %81, align 8
-  %82 = getelementptr inbounds i8, ptr %0, i64 200
-  store i8 1, ptr %82, align 8
-  %83 = getelementptr inbounds i8, ptr %0, i64 201
-  store i8 0, ptr %83, align 1
-  %84 = getelementptr inbounds i8, ptr %0, i64 208
-  store i64 0, ptr %84, align 8
-  br label %88
+75:                                               ; preds = %17
+  %76 = call ptr @PortalGetPrimaryStmt(ptr noundef nonnull %0) #10
+  %77 = getelementptr inbounds i8, ptr %76, i64 120
+  %78 = load ptr, ptr %77, align 8
+  %79 = call ptr @UtilityTupleDescriptor(ptr noundef %78) #10
+  %80 = getelementptr inbounds i8, ptr %0, i64 152
+  store ptr %79, ptr %80, align 8
+  %81 = getelementptr inbounds i8, ptr %0, i64 200
+  store i8 1, ptr %81, align 8
+  %82 = getelementptr inbounds i8, ptr %0, i64 201
+  store i8 0, ptr %82, align 1
+  %83 = getelementptr inbounds i8, ptr %0, i64 208
+  store i64 0, ptr %83, align 8
+  br label %87
 
-85:                                               ; preds = %17
-  %86 = getelementptr inbounds i8, ptr %0, i64 152
-  store ptr null, ptr %86, align 8
-  br label %88
+84:                                               ; preds = %17
+  %85 = getelementptr inbounds i8, ptr %0, i64 152
+  store ptr null, ptr %85, align 8
+  br label %87
 
-87:                                               ; preds = %4
+86:                                               ; preds = %4
   store ptr %9, ptr @PG_exception_stack, align 8
   store ptr %10, ptr @error_context_stack, align 8
   call void @MarkPortalFailed(ptr noundef %0) #10
@@ -579,15 +576,15 @@ define dso_local void @PortalStart(ptr noundef %0, ptr noundef %1, i32 noundef %
 default.unreachable57:                            ; preds = %17
   unreachable
 
-88:                                               ; preds = %85, %76, %65, %30
+87:                                               ; preds = %84, %75, %64, %29
   store ptr %9, ptr @PG_exception_stack, align 8
   store ptr %10, ptr @error_context_stack, align 8
   store ptr %20, ptr @CurrentMemoryContext, align 8
   store ptr %6, ptr @ActivePortal, align 8
   store ptr %7, ptr @CurrentResourceOwner, align 8
   store ptr %8, ptr @PortalContext, align 8
-  %89 = getelementptr inbounds i8, ptr %0, i64 132
-  store i32 2, ptr %89, align 4
+  %88 = getelementptr inbounds i8, ptr %0, i64 132
+  store i32 2, ptr %88, align 4
   ret void
 }
 

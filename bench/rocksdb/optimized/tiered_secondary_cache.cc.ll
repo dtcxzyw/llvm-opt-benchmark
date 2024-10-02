@@ -437,40 +437,34 @@ _ZNSt10unique_ptrIN7rocksdb26SecondaryCacheResultHandleESt14default_deleteIS1_EE
   %32 = phi ptr [ %.pr69, %_ZNSt10unique_ptrIN7rocksdb26SecondaryCacheResultHandleESt14default_deleteIS1_EED2Ev.exitthread-pre-split ], [ %28, %invoke.cont65 ]
   store ptr null, ptr %ref.tmp, align 8
   %tobool71.not = icmp eq ptr %32, null
-  br i1 %tobool71.not, label %_ZNSt10unique_ptrIN7rocksdb20TieredSecondaryCache12ResultHandleESt14default_deleteIS2_EE5resetEPS2_.exit, label %if.else
-
-_ZNSt10unique_ptrIN7rocksdb20TieredSecondaryCache12ResultHandleESt14default_deleteIS2_EE5resetEPS2_.exit: ; preds = %_ZNSt10unique_ptrIN7rocksdb26SecondaryCacheResultHandleESt14default_deleteIS1_EED2Ev.exit
-  %vtable.i.i.i = load ptr, ptr %call25, align 8
-  %vfn.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i, i64 8
-  %33 = load ptr, ptr %vfn.i.i.i, align 8
-  call void %33(ptr noundef nonnull align 8 dereferenceable(97) %call25) #16
-  br label %_ZNSt10unique_ptrIN7rocksdb20TieredSecondaryCache12ResultHandleESt14default_deleteIS2_EED2Ev.exit45
+  br i1 %tobool71.not, label %_ZNSt10unique_ptrIN7rocksdb20TieredSecondaryCache12ResultHandleESt14default_deleteIS2_EED2Ev.exit45.sink.split, label %if.else
 
 _ZNSt10unique_ptrIN7rocksdb20TieredSecondaryCache12ResultHandleESt14default_deleteIS2_EED2Ev.exit: ; preds = %invoke.cont24
-  %34 = landingpad { ptr, i32 }
+  %33 = landingpad { ptr, i32 }
           cleanup
   %vtable.i.i36 = load ptr, ptr %call25, align 8
   %vfn.i.i37 = getelementptr inbounds i8, ptr %vtable.i.i36, i64 8
-  %35 = load ptr, ptr %vfn.i.i37, align 8
-  call void %35(ptr noundef nonnull align 8 dereferenceable(97) %call25) #16
+  %34 = load ptr, ptr %vfn.i.i37, align 8
+  call void %34(ptr noundef nonnull align 8 dereferenceable(97) %call25) #16
   br label %ehcleanup75
 
 if.else:                                          ; preds = %_ZNSt10unique_ptrIN7rocksdb26SecondaryCacheResultHandleESt14default_deleteIS1_EED2Ev.exit
-  %36 = load ptr, ptr %result, align 8
+  %35 = load ptr, ptr %result, align 8
   store ptr %call25, ptr %result, align 8
-  %tobool.not.i.i38 = icmp eq ptr %36, null
-  br i1 %tobool.not.i.i38, label %_ZNSt10unique_ptrIN7rocksdb20TieredSecondaryCache12ResultHandleESt14default_deleteIS2_EED2Ev.exit45, label %_ZNKSt14default_deleteIN7rocksdb26SecondaryCacheResultHandleEEclEPS1_.exit.i.i
+  %tobool.not.i.i38 = icmp eq ptr %35, null
+  br i1 %tobool.not.i.i38, label %_ZNSt10unique_ptrIN7rocksdb20TieredSecondaryCache12ResultHandleESt14default_deleteIS2_EED2Ev.exit45, label %_ZNSt10unique_ptrIN7rocksdb20TieredSecondaryCache12ResultHandleESt14default_deleteIS2_EED2Ev.exit45.sink.split
 
-_ZNKSt14default_deleteIN7rocksdb26SecondaryCacheResultHandleEEclEPS1_.exit.i.i: ; preds = %if.else
-  %vtable.i.i.i39 = load ptr, ptr %36, align 8
-  %vfn.i.i.i40 = getelementptr inbounds i8, ptr %vtable.i.i.i39, i64 8
-  %37 = load ptr, ptr %vfn.i.i.i40, align 8
-  call void %37(ptr noundef nonnull align 8 dereferenceable(8) %36) #16
+_ZNSt10unique_ptrIN7rocksdb20TieredSecondaryCache12ResultHandleESt14default_deleteIS2_EED2Ev.exit45.sink.split: ; preds = %if.else, %_ZNSt10unique_ptrIN7rocksdb26SecondaryCacheResultHandleESt14default_deleteIS1_EED2Ev.exit
+  %call25.sink72 = phi ptr [ %call25, %_ZNSt10unique_ptrIN7rocksdb26SecondaryCacheResultHandleESt14default_deleteIS1_EED2Ev.exit ], [ %35, %if.else ]
+  %vtable.i.i.i = load ptr, ptr %call25.sink72, align 8
+  %vfn.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i, i64 8
+  %36 = load ptr, ptr %vfn.i.i.i, align 8
+  call void %36(ptr noundef nonnull align 8 dereferenceable(8) %call25.sink72) #16
   br label %_ZNSt10unique_ptrIN7rocksdb20TieredSecondaryCache12ResultHandleESt14default_deleteIS2_EED2Ev.exit45
 
-_ZNSt10unique_ptrIN7rocksdb20TieredSecondaryCache12ResultHandleESt14default_deleteIS2_EED2Ev.exit45: ; preds = %_ZNSt10unique_ptrIN7rocksdb20TieredSecondaryCache12ResultHandleESt14default_deleteIS2_EE5resetEPS2_.exit, %if.else, %_ZNKSt14default_deleteIN7rocksdb26SecondaryCacheResultHandleEEclEPS1_.exit.i.i
-  %38 = load i64, ptr %result, align 8
-  store i64 %38, ptr %agg.result, align 8
+_ZNSt10unique_ptrIN7rocksdb20TieredSecondaryCache12ResultHandleESt14default_deleteIS2_EED2Ev.exit45: ; preds = %_ZNSt10unique_ptrIN7rocksdb20TieredSecondaryCache12ResultHandleESt14default_deleteIS2_EED2Ev.exit45.sink.split, %if.else
+  %37 = load i64, ptr %result, align 8
+  store i64 %37, ptr %agg.result, align 8
   br label %_ZNSt10unique_ptrIN7rocksdb26SecondaryCacheResultHandleESt14default_deleteIS1_EED2Ev.exit50
 
 cleanup:                                          ; preds = %if.end8.sink.split.i.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i, %invoke.cont22
@@ -481,24 +475,24 @@ cleanup:                                          ; preds = %if.end8.sink.split.
 _ZNKSt14default_deleteIN7rocksdb26SecondaryCacheResultHandleEEclEPS1_.exit.i47: ; preds = %cleanup
   %vtable.i.i48 = load ptr, ptr %.pr70, align 8
   %vfn.i.i49 = getelementptr inbounds i8, ptr %vtable.i.i48, i64 8
-  %39 = load ptr, ptr %vfn.i.i49, align 8
-  call void %39(ptr noundef nonnull align 8 dereferenceable(8) %.pr70) #16
+  %38 = load ptr, ptr %vfn.i.i49, align 8
+  call void %38(ptr noundef nonnull align 8 dereferenceable(8) %.pr70) #16
   br label %_ZNSt10unique_ptrIN7rocksdb26SecondaryCacheResultHandleESt14default_deleteIS1_EED2Ev.exit50
 
 _ZNSt10unique_ptrIN7rocksdb26SecondaryCacheResultHandleESt14default_deleteIS1_EED2Ev.exit50: ; preds = %if.then, %_ZNSt10unique_ptrIN7rocksdb20TieredSecondaryCache12ResultHandleESt14default_deleteIS2_EED2Ev.exit45, %cleanup, %_ZNKSt14default_deleteIN7rocksdb26SecondaryCacheResultHandleEEclEPS1_.exit.i47
   ret void
 
 ehcleanup75:                                      ; preds = %_ZNSt10unique_ptrIN7rocksdb20TieredSecondaryCache12ResultHandleESt14default_deleteIS2_EED2Ev.exit, %lpad13, %lpad
-  %.pn = phi { ptr, i32 } [ %23, %lpad13 ], [ %34, %_ZNSt10unique_ptrIN7rocksdb20TieredSecondaryCache12ResultHandleESt14default_deleteIS2_EED2Ev.exit ], [ %22, %lpad ]
-  %40 = load ptr, ptr %result, align 8
-  %cmp.not.i51 = icmp eq ptr %40, null
+  %.pn = phi { ptr, i32 } [ %23, %lpad13 ], [ %33, %_ZNSt10unique_ptrIN7rocksdb20TieredSecondaryCache12ResultHandleESt14default_deleteIS2_EED2Ev.exit ], [ %22, %lpad ]
+  %39 = load ptr, ptr %result, align 8
+  %cmp.not.i51 = icmp eq ptr %39, null
   br i1 %cmp.not.i51, label %_ZNSt10unique_ptrIN7rocksdb26SecondaryCacheResultHandleESt14default_deleteIS1_EED2Ev.exit55, label %_ZNKSt14default_deleteIN7rocksdb26SecondaryCacheResultHandleEEclEPS1_.exit.i52
 
 _ZNKSt14default_deleteIN7rocksdb26SecondaryCacheResultHandleEEclEPS1_.exit.i52: ; preds = %ehcleanup75
-  %vtable.i.i53 = load ptr, ptr %40, align 8
+  %vtable.i.i53 = load ptr, ptr %39, align 8
   %vfn.i.i54 = getelementptr inbounds i8, ptr %vtable.i.i53, i64 8
-  %41 = load ptr, ptr %vfn.i.i54, align 8
-  call void %41(ptr noundef nonnull align 8 dereferenceable(8) %40) #16
+  %40 = load ptr, ptr %vfn.i.i54, align 8
+  call void %40(ptr noundef nonnull align 8 dereferenceable(8) %39) #16
   br label %_ZNSt10unique_ptrIN7rocksdb26SecondaryCacheResultHandleESt14default_deleteIS1_EED2Ev.exit55
 
 _ZNSt10unique_ptrIN7rocksdb26SecondaryCacheResultHandleESt14default_deleteIS1_EED2Ev.exit55: ; preds = %ehcleanup75, %_ZNKSt14default_deleteIN7rocksdb26SecondaryCacheResultHandleEEclEPS1_.exit.i52

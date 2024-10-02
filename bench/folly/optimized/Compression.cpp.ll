@@ -6139,7 +6139,6 @@ if.end11:                                         ; preds = %invoke.cont5, %if.e
 lpad.i46:                                         ; preds = %if.end11
   %12 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN6snappy6SourceD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %source14) #31
   br label %ehcleanup29
 
 invoke.cont16:                                    ; preds = %if.end11
@@ -6191,21 +6190,17 @@ ehcleanup:                                        ; preds = %lpad9, %lpad2, %lpa
 lpad19:                                           ; preds = %invoke.cont25, %invoke.cont16
   %19 = landingpad { ptr, i32 }
           cleanup
-  br label %ehcleanup28
+  br label %ehcleanup29
 
 lpad24:                                           ; preds = %if.then22
   %20 = landingpad { ptr, i32 }
           cleanup
   call void @__cxa_free_exception(ptr %exception23) #31
-  br label %ehcleanup28
-
-ehcleanup28:                                      ; preds = %lpad24, %lpad19
-  %.pn = phi { ptr, i32 } [ %19, %lpad19 ], [ %20, %lpad24 ]
-  call void @_ZN6snappy6SourceD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %source14) #31
   br label %ehcleanup29
 
-ehcleanup29:                                      ; preds = %ehcleanup28, %lpad.i46
-  %.pn.pn = phi { ptr, i32 } [ %.pn, %ehcleanup28 ], [ %12, %lpad.i46 ]
+ehcleanup29:                                      ; preds = %lpad19, %lpad24, %lpad.i46
+  %.pn.pn = phi { ptr, i32 } [ %12, %lpad.i46 ], [ %19, %lpad19 ], [ %20, %lpad24 ]
+  call void @_ZN6snappy6SourceD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %source14) #31
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %source14) #31
   call void @_ZNSt10unique_ptrIN5folly5IOBufESt14default_deleteIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %agg.result) #31
   br label %ehcleanup35

@@ -1024,20 +1024,20 @@ define dso_local void @CheckpointerShmemInit() local_unnamed_addr #2 {
   store ptr %6, ptr @CheckpointerShmem, align 8
   %7 = load i8, ptr %1, align 1
   %8 = trunc i8 %7 to i1
-  br i1 %8, label %34, label %9
+  br i1 %8, label %33, label %9
 
 9:                                                ; preds = %0
   %10 = ptrtoint ptr %6 to i64
   %11 = and i64 %10, 7
   %12 = icmp eq i64 %11, 0
-  br i1 %12, label %13, label %26
+  br i1 %12, label %13, label %.loopexit.sink.split
 
 13:                                               ; preds = %9
   %14 = and i64 %5, 7
   %15 = icmp eq i64 %14, 0
   %16 = icmp ult i64 %5, 1025
   %or.cond3 = and i1 %16, %15
-  br i1 %or.cond3, label %17, label %26
+  br i1 %or.cond3, label %17, label %.loopexit.sink.split
 
 17:                                               ; preds = %13
   %18 = getelementptr i8, ptr %6, i64 %5
@@ -1052,29 +1052,29 @@ define dso_local void @CheckpointerShmemInit() local_unnamed_addr #2 {
   %23 = add i64 %umax, %22
   %24 = and i64 %23, -8
   %25 = add i64 %24, 8
-  call void @llvm.memset.p0.i64(ptr align 8 %6, i8 0, i64 %25, i1 false)
+  br label %.loopexit.sink.split
+
+.loopexit.sink.split:                             ; preds = %9, %13, %.lr.ph.preheader
+  %.sink = phi i64 [ %25, %.lr.ph.preheader ], [ %5, %13 ], [ %5, %9 ]
+  call void @llvm.memset.p0.i64(ptr align 1 %6, i8 0, i64 %.sink, i1 false)
   br label %.loopexit
 
-26:                                               ; preds = %13, %9
-  call void @llvm.memset.p0.i64(ptr align 1 %6, i8 0, i64 %5, i1 false)
-  br label %.loopexit
-
-.loopexit:                                        ; preds = %.lr.ph.preheader, %17, %26
+.loopexit:                                        ; preds = %.loopexit.sink.split, %17
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !11
-  %27 = load ptr, ptr @CheckpointerShmem, align 8
-  %28 = getelementptr inbounds i8, ptr %27, i64 4
-  store i8 0, ptr %28, align 4
-  %29 = load i32, ptr @NBuffers, align 4
-  %30 = getelementptr inbounds i8, ptr %27, i64 52
-  store i32 %29, ptr %30, align 4
-  %31 = getelementptr inbounds i8, ptr %27, i64 24
-  call void @ConditionVariableInit(ptr noundef nonnull %31) #13
-  %32 = load ptr, ptr @CheckpointerShmem, align 8
-  %33 = getelementptr inbounds i8, ptr %32, i64 36
-  call void @ConditionVariableInit(ptr noundef nonnull %33) #13
-  br label %34
+  %26 = load ptr, ptr @CheckpointerShmem, align 8
+  %27 = getelementptr inbounds i8, ptr %26, i64 4
+  store i8 0, ptr %27, align 4
+  %28 = load i32, ptr @NBuffers, align 4
+  %29 = getelementptr inbounds i8, ptr %26, i64 52
+  store i32 %28, ptr %29, align 4
+  %30 = getelementptr inbounds i8, ptr %26, i64 24
+  call void @ConditionVariableInit(ptr noundef nonnull %30) #13
+  %31 = load ptr, ptr @CheckpointerShmem, align 8
+  %32 = getelementptr inbounds i8, ptr %31, i64 36
+  call void @ConditionVariableInit(ptr noundef nonnull %32) #13
+  br label %33
 
-34:                                               ; preds = %.loopexit, %0
+33:                                               ; preds = %.loopexit, %0
   ret void
 }
 

@@ -23802,28 +23802,25 @@ if.then:                                          ; preds = %entry
 if.end:                                           ; preds = %if.then, %entry
   %1 = load ptr, ptr @_ZN7testing18FLAGS_gtest_filterB5cxx11E, align 8
   %cmp.i = icmp eq ptr %1, null
-  br i1 %cmp.i, label %if.end.split, label %sub_0
-
-if.end.split:                                     ; preds = %if.end
-  tail call void (i32, ptr, ...) @_ZN7testing8internal13ColoredPrintfENS0_10GTestColorEPKcz(i32 noundef 3, ptr noundef nonnull @.str.136, ptr noundef nonnull @.str.84, ptr noundef null)
-  br label %if.end5
+  br i1 %cmp.i, label %if.end5.sink.split, label %sub_0
 
 sub_0:                                            ; preds = %if.end
   %2 = load i8, ptr %1, align 1
   %.not = icmp eq i8 %2, 42
-  br i1 %.not, label %_ZN7testing8internal6String13CStringEqualsEPKcS3_.exit.tail, label %_ZN7testing8internal6String13CStringEqualsEPKcS3_.exit.split
+  br i1 %.not, label %_ZN7testing8internal6String13CStringEqualsEPKcS3_.exit.tail, label %if.end5.sink.split
 
 _ZN7testing8internal6String13CStringEqualsEPKcS3_.exit.tail: ; preds = %sub_0
   %3 = getelementptr inbounds i8, ptr %1, i64 1
   %4 = load i8, ptr %3, align 1
   %5 = icmp eq i8 %4, 0
-  br i1 %5, label %if.end5, label %_ZN7testing8internal6String13CStringEqualsEPKcS3_.exit.split
+  br i1 %5, label %if.end5, label %if.end5.sink.split
 
-_ZN7testing8internal6String13CStringEqualsEPKcS3_.exit.split: ; preds = %sub_0, %_ZN7testing8internal6String13CStringEqualsEPKcS3_.exit.tail
-  tail call void (i32, ptr, ...) @_ZN7testing8internal13ColoredPrintfENS0_10GTestColorEPKcz(i32 noundef 3, ptr noundef nonnull @.str.136, ptr noundef nonnull @.str.84, ptr noundef nonnull %1)
+if.end5.sink.split:                               ; preds = %_ZN7testing8internal6String13CStringEqualsEPKcS3_.exit.tail, %sub_0, %if.end
+  %.sink = phi ptr [ null, %if.end ], [ %1, %sub_0 ], [ %1, %_ZN7testing8internal6String13CStringEqualsEPKcS3_.exit.tail ]
+  tail call void (i32, ptr, ...) @_ZN7testing8internal13ColoredPrintfENS0_10GTestColorEPKcz(i32 noundef 3, ptr noundef nonnull @.str.136, ptr noundef nonnull @.str.84, ptr noundef %.sink)
   br label %if.end5
 
-if.end5:                                          ; preds = %if.end.split, %_ZN7testing8internal6String13CStringEqualsEPKcS3_.exit.split, %_ZN7testing8internal6String13CStringEqualsEPKcS3_.exit.tail
+if.end5:                                          ; preds = %if.end5.sink.split, %_ZN7testing8internal6String13CStringEqualsEPKcS3_.exit.tail
   %call6 = tail call noundef zeroext i1 @_ZN7testing8internal11ShouldShardEPKcS2_b(ptr noundef nonnull @_ZN7testingL16kTestTotalShardsE, ptr noundef nonnull @_ZN7testingL15kTestShardIndexE, i1 noundef zeroext false)
   br i1 %call6, label %if.then7, label %if.end11
 

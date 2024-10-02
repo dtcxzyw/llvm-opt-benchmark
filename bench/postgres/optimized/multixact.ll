@@ -1751,14 +1751,14 @@ define dso_local void @MultiXactShmemInit() local_unnamed_addr #0 {
   %20 = ptrtoint ptr %10 to i64
   %21 = and i64 %20, 7
   %22 = icmp eq i64 %21, 0
-  br i1 %22, label %23, label %36
+  br i1 %22, label %23, label %.loopexit.sink.split
 
 23:                                               ; preds = %13
   %24 = and i64 %19, 7
   %25 = icmp eq i64 %24, 0
   %26 = icmp ult i64 %19, 1025
   %or.cond3 = and i1 %26, %25
-  br i1 %or.cond3, label %27, label %36
+  br i1 %or.cond3, label %27, label %.loopexit.sink.split
 
 27:                                               ; preds = %23
   %28 = getelementptr i8, ptr %10, i64 %19
@@ -1773,23 +1773,23 @@ define dso_local void @MultiXactShmemInit() local_unnamed_addr #0 {
   %33 = add i64 %umax, %32
   %34 = and i64 %33, -8
   %35 = add i64 %34, 8
-  call void @llvm.memset.p0.i64(ptr align 8 %10, i8 0, i64 %35, i1 false)
+  br label %.loopexit.sink.split
+
+.loopexit.sink.split:                             ; preds = %13, %23, %.lr.ph.preheader
+  %.sink = phi i64 [ %35, %.lr.ph.preheader ], [ %19, %23 ], [ %19, %13 ]
+  call void @llvm.memset.p0.i64(ptr align 1 %10, i8 0, i64 %.sink, i1 false)
   br label %.loopexit
 
-36:                                               ; preds = %23, %13
-  call void @llvm.memset.p0.i64(ptr align 1 %10, i8 0, i64 %19, i1 false)
-  br label %.loopexit
-
-.loopexit:                                        ; preds = %.lr.ph.preheader, %27, %0, %36
-  %37 = load ptr, ptr @MultiXactState, align 8
-  %38 = getelementptr inbounds i8, ptr %37, i64 48
-  store ptr %38, ptr @OldestMemberMXactId, align 8
-  %39 = load i32, ptr @MaxBackends, align 4
-  %40 = load i32, ptr @max_prepared_xacts, align 4
-  %41 = add i32 %40, %39
-  %42 = sext i32 %41 to i64
-  %43 = getelementptr i32, ptr %38, i64 %42
-  store ptr %43, ptr @OldestVisibleMXactId, align 8
+.loopexit:                                        ; preds = %.loopexit.sink.split, %27, %0
+  %36 = load ptr, ptr @MultiXactState, align 8
+  %37 = getelementptr inbounds i8, ptr %36, i64 48
+  store ptr %37, ptr @OldestMemberMXactId, align 8
+  %38 = load i32, ptr @MaxBackends, align 4
+  %39 = load i32, ptr @max_prepared_xacts, align 4
+  %40 = add i32 %39, %38
+  %41 = sext i32 %40 to i64
+  %42 = getelementptr i32, ptr %37, i64 %41
+  store ptr %42, ptr @OldestVisibleMXactId, align 8
   ret void
 }
 

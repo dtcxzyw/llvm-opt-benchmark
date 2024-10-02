@@ -4451,59 +4451,44 @@ _ZN4llvm21TargetLibraryInfoImplD2Ev.exit:         ; preds = %_ZNSt6vectorIN4llvm
   %205 = phi ptr [ %.pre.i.i, %_ZN4llvm12DenseMapBaseINS_8DenseMapIjNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjS7_EEEEjS7_S9_SC_E10destroyAllEv.exit.loopexit.i.i ], [ %.pre1.i.i, %_ZNSt6vectorIN4llvm7VecDescESaIS1_EED2Ev.exit2.i ]
   call void @_ZN4llvm17deallocate_bufferEPvmm(ptr noundef %205, i64 noundef %204, i64 noundef 8) #24
   call void @_ZN4llvm6legacy11PassManagerD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %41) #24
-  %206 = load i8, ptr %136, align 8
-  %207 = trunc i8 %206 to i1
-  %208 = load ptr, ptr %38, align 8
-  %.not.i1.i = icmp eq ptr %208, null
-  br i1 %207, label %213, label %209
+  %206 = load ptr, ptr %38, align 8
+  %.not.i1.i = icmp eq ptr %206, null
+  br i1 %.not.i1.i, label %_ZN4llvm8ExpectedISt10unique_ptrINS_16CachedFileStreamESt14default_deleteIS2_EEED2Ev.exit, label %_ZNSt10unique_ptrIN4llvm16CachedFileStreamESt14default_deleteIS1_EED2Ev.exit.sink.split.i
 
-209:                                              ; preds = %_ZN4llvm21TargetLibraryInfoImplD2Ev.exit
-  br i1 %.not.i1.i, label %_ZN4llvm8ExpectedISt10unique_ptrINS_16CachedFileStreamESt14default_deleteIS2_EEED2Ev.exit, label %_ZNKSt14default_deleteIN4llvm16CachedFileStreamEEclEPS1_.exit.i.i
-
-_ZNKSt14default_deleteIN4llvm16CachedFileStreamEEclEPS1_.exit.i.i: ; preds = %209
-  %210 = load ptr, ptr %208, align 8
-  %211 = getelementptr inbounds i8, ptr %210, i64 8
-  %212 = load ptr, ptr %211, align 8
-  call void %212(ptr noundef nonnull align 8 dereferenceable(48) %208) #24
+_ZNSt10unique_ptrIN4llvm16CachedFileStreamESt14default_deleteIS1_EED2Ev.exit.sink.split.i: ; preds = %_ZN4llvm21TargetLibraryInfoImplD2Ev.exit
+  %207 = load ptr, ptr %206, align 8
+  %208 = getelementptr inbounds i8, ptr %207, i64 8
+  %209 = load ptr, ptr %208, align 8
+  call void %209(ptr noundef nonnull align 8 dereferenceable(8) %206) #24
   br label %_ZN4llvm8ExpectedISt10unique_ptrINS_16CachedFileStreamESt14default_deleteIS2_EEED2Ev.exit
 
-213:                                              ; preds = %_ZN4llvm21TargetLibraryInfoImplD2Ev.exit
-  br i1 %.not.i1.i, label %_ZN4llvm8ExpectedISt10unique_ptrINS_16CachedFileStreamESt14default_deleteIS2_EEED2Ev.exit, label %_ZNKSt14default_deleteIN4llvm13ErrorInfoBaseEEclEPS1_.exit.i.i
-
-_ZNKSt14default_deleteIN4llvm13ErrorInfoBaseEEclEPS1_.exit.i.i: ; preds = %213
-  %214 = load ptr, ptr %208, align 8
-  %215 = getelementptr inbounds i8, ptr %214, i64 8
-  %216 = load ptr, ptr %215, align 8
-  call void %216(ptr noundef nonnull align 8 dereferenceable(8) %208) #24
-  br label %_ZN4llvm8ExpectedISt10unique_ptrINS_16CachedFileStreamESt14default_deleteIS2_EEED2Ev.exit
-
-_ZN4llvm8ExpectedISt10unique_ptrINS_16CachedFileStreamESt14default_deleteIS2_EEED2Ev.exit: ; preds = %209, %_ZNKSt14default_deleteIN4llvm16CachedFileStreamEEclEPS1_.exit.i.i, %213, %_ZNKSt14default_deleteIN4llvm13ErrorInfoBaseEEclEPS1_.exit.i.i
+_ZN4llvm8ExpectedISt10unique_ptrINS_16CachedFileStreamESt14default_deleteIS2_EEED2Ev.exit: ; preds = %_ZN4llvm21TargetLibraryInfoImplD2Ev.exit, %_ZNSt10unique_ptrIN4llvm16CachedFileStreamESt14default_deleteIS1_EED2Ev.exit.sink.split.i
   store ptr null, ptr %38, align 8
-  %217 = call noundef i64 @_ZNK4llvm15SmallVectorBaseImE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %12) #24
-  %218 = load ptr, ptr %12, align 8
-  %219 = icmp eq ptr %218, %66
-  br i1 %219, label %_ZN4llvm11SmallStringILj1024EED2Ev.exit, label %220
+  %210 = call noundef i64 @_ZNK4llvm15SmallVectorBaseImE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %12) #24
+  %211 = load ptr, ptr %12, align 8
+  %212 = icmp eq ptr %211, %66
+  br i1 %212, label %_ZN4llvm11SmallStringILj1024EED2Ev.exit, label %213
 
-220:                                              ; preds = %_ZN4llvm8ExpectedISt10unique_ptrINS_16CachedFileStreamESt14default_deleteIS2_EEED2Ev.exit
-  call void @free(ptr noundef %218) #24
+213:                                              ; preds = %_ZN4llvm8ExpectedISt10unique_ptrINS_16CachedFileStreamESt14default_deleteIS2_EEED2Ev.exit
+  call void @free(ptr noundef %211) #24
   br label %_ZN4llvm11SmallStringILj1024EED2Ev.exit
 
-_ZN4llvm11SmallStringILj1024EED2Ev.exit:          ; preds = %_ZN4llvm8ExpectedISt10unique_ptrINS_16CachedFileStreamESt14default_deleteIS2_EEED2Ev.exit, %220
-  br i1 %.not54, label %_ZNSt10unique_ptrIN4llvm14ToolOutputFileESt14default_deleteIS1_EED2Ev.exit33, label %221
+_ZN4llvm11SmallStringILj1024EED2Ev.exit:          ; preds = %_ZN4llvm8ExpectedISt10unique_ptrINS_16CachedFileStreamESt14default_deleteIS2_EEED2Ev.exit, %213
+  br i1 %.not54, label %_ZNSt10unique_ptrIN4llvm14ToolOutputFileESt14default_deleteIS1_EED2Ev.exit33, label %214
 
-221:                                              ; preds = %_ZN4llvm11SmallStringILj1024EED2Ev.exit
-  %222 = getelementptr inbounds nuw i8, ptr %.sroa.044.0, i64 136
-  %223 = load i8, ptr %222, align 8
-  %224 = trunc i8 %223 to i1
-  br i1 %224, label %225, label %_ZNKSt14default_deleteIN4llvm14ToolOutputFileEEclEPS1_.exit.i32
+214:                                              ; preds = %_ZN4llvm11SmallStringILj1024EED2Ev.exit
+  %215 = getelementptr inbounds nuw i8, ptr %.sroa.044.0, i64 136
+  %216 = load i8, ptr %215, align 8
+  %217 = trunc i8 %216 to i1
+  br i1 %217, label %218, label %_ZNKSt14default_deleteIN4llvm14ToolOutputFileEEclEPS1_.exit.i32
 
-225:                                              ; preds = %221
-  %226 = getelementptr inbounds nuw i8, ptr %.sroa.044.0, i64 40
-  store i8 0, ptr %222, align 8
-  call void @_ZN4llvm14raw_fd_ostreamD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %226) #24
+218:                                              ; preds = %214
+  %219 = getelementptr inbounds nuw i8, ptr %.sroa.044.0, i64 40
+  store i8 0, ptr %215, align 8
+  call void @_ZN4llvm14raw_fd_ostreamD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %219) #24
   br label %_ZNKSt14default_deleteIN4llvm14ToolOutputFileEEclEPS1_.exit.i32
 
-_ZNKSt14default_deleteIN4llvm14ToolOutputFileEEclEPS1_.exit.i32: ; preds = %225, %221
+_ZNKSt14default_deleteIN4llvm14ToolOutputFileEEclEPS1_.exit.i32: ; preds = %218, %214
   call void @_ZN4llvm16CleanupInstallerD1Ev(ptr noundef nonnull align 8 dereferenceable(33) %.sroa.044.0) #24
   call void @_ZdlPvm(ptr noundef nonnull %.sroa.044.0, i64 noundef 152) #28
   br label %_ZNSt10unique_ptrIN4llvm14ToolOutputFileESt14default_deleteIS1_EED2Ev.exit33

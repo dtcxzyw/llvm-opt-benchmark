@@ -703,7 +703,7 @@ define internal fastcc ptr @_next_job_id() unnamed_addr #0 {
 
 10:                                               ; preds = %8, %5
   %11 = load ptr, ptr @_next_job_id.next_job_id, align 8
-  br label %72
+  br label %68
 
 12:                                               ; preds = %3
   %13 = load ptr, ptr @_next_job_id.hl, align 8
@@ -718,152 +718,144 @@ define internal fastcc ptr @_next_job_id() unnamed_addr #0 {
   %17 = load ptr, ptr @_next_job_id.save_ptr, align 8
   %18 = icmp ne ptr %17, null
   %or.cond = select i1 %16, i1 true, i1 %18
-  br i1 %or.cond, label %21, label %19
+  %or.cond.not = xor i1 %or.cond, true
+  %brmerge = select i1 %or.cond.not, i1 true, i1 %18
+  br i1 %brmerge, label %19, label %.thread
 
 19:                                               ; preds = %14
-  %20 = tail call ptr @strtok_r(ptr noundef nonnull %15, ptr noundef nonnull @.str.146, ptr noundef nonnull @_next_job_id.save_ptr) #14
-  br label %24
+  %.mux = select i1 %or.cond, ptr null, ptr %15
+  %20 = tail call ptr @strtok_r(ptr noundef %.mux, ptr noundef nonnull @.str.146, ptr noundef nonnull @_next_job_id.save_ptr) #14
+  %.not36 = icmp eq ptr %20, null
+  br i1 %.not36, label %.thread, label %21
 
-21:                                               ; preds = %14
-  br i1 %18, label %22, label %.thread
+21:                                               ; preds = %19
+  %22 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %20, i32 noundef 95) #16
+  %.not37 = icmp eq ptr %22, null
+  br i1 %.not37, label %.loopexit, label %23
 
-22:                                               ; preds = %21
-  %23 = tail call ptr @strtok_r(ptr noundef null, ptr noundef nonnull @.str.146, ptr noundef nonnull @_next_job_id.save_ptr) #14
-  br label %24
+23:                                               ; preds = %21
+  %24 = getelementptr inbounds i8, ptr %22, i64 1
+  %25 = load i8, ptr %24, align 1
+  %26 = icmp eq i8 %25, 91
+  br i1 %26, label %27, label %36
 
-24:                                               ; preds = %22, %19
-  %.026 = phi ptr [ %23, %22 ], [ %20, %19 ]
-  %.not36 = icmp eq ptr %.026, null
-  br i1 %.not36, label %.thread, label %25
+27:                                               ; preds = %23
+  %28 = getelementptr inbounds i8, ptr %22, i64 2
+  %29 = tail call ptr @xstrdup(ptr noundef nonnull %28) #14
+  store ptr %29, ptr @_next_job_id.task_id_spec, align 8
+  br label %30
 
-25:                                               ; preds = %24
-  %26 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %.026, i32 noundef 95) #16
-  %.not37 = icmp eq ptr %26, null
-  br i1 %.not37, label %.loopexit, label %27
-
-27:                                               ; preds = %25
-  %28 = getelementptr inbounds i8, ptr %26, i64 1
-  %29 = load i8, ptr %28, align 1
-  %30 = icmp eq i8 %29, 91
-  br i1 %30, label %31, label %40
-
-31:                                               ; preds = %27
-  %32 = getelementptr inbounds i8, ptr %26, i64 2
-  %33 = tail call ptr @xstrdup(ptr noundef nonnull %32) #14
-  store ptr %33, ptr @_next_job_id.task_id_spec, align 8
-  br label %34
-
-34:                                               ; preds = %39, %31
-  %indvars.iv = phi i64 [ %indvars.iv.next, %39 ], [ 0, %31 ]
-  %35 = getelementptr inbounds i8, ptr %33, i64 %indvars.iv
-  %36 = load i8, ptr %35, align 1
-  switch i8 %36, label %39 [
+30:                                               ; preds = %35, %27
+  %indvars.iv = phi i64 [ %indvars.iv.next, %35 ], [ 0, %27 ]
+  %31 = getelementptr inbounds i8, ptr %29, i64 %indvars.iv
+  %32 = load i8, ptr %31, align 1
+  switch i8 %32, label %35 [
     i8 0, label %.loopexit
-    i8 93, label %37
+    i8 93, label %33
   ]
 
-37:                                               ; preds = %34
-  %38 = getelementptr inbounds i8, ptr %33, i64 %indvars.iv
-  store i8 0, ptr %38, align 1
+33:                                               ; preds = %30
+  %34 = getelementptr inbounds i8, ptr %29, i64 %indvars.iv
+  store i8 0, ptr %34, align 1
   br label %.loopexit
 
-39:                                               ; preds = %34
+35:                                               ; preds = %30
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  br label %34, !llvm.loop !13
+  br label %30, !llvm.loop !13
 
-40:                                               ; preds = %27
-  %41 = tail call ptr @xstrdup(ptr noundef nonnull %28) #14
-  store ptr %41, ptr @_next_job_id.task_id_spec, align 8
+36:                                               ; preds = %23
+  %37 = tail call ptr @xstrdup(ptr noundef nonnull %24) #14
+  store ptr %37, ptr @_next_job_id.task_id_spec, align 8
   br label %.loopexit
 
-.loopexit:                                        ; preds = %34, %40, %37, %25
-  %42 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %.026, i32 noundef 91) #16
-  %.not39 = icmp ne ptr %42, null
-  %43 = icmp ult ptr %42, %26
-  %or.cond45 = or i1 %.not37, %43
+.loopexit:                                        ; preds = %30, %36, %33, %21
+  %38 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %20, i32 noundef 91) #16
+  %.not39 = icmp ne ptr %38, null
+  %39 = icmp ult ptr %38, %22
+  %or.cond45 = or i1 %.not37, %39
   %or.cond46 = and i1 %.not39, %or.cond45
-  br i1 %or.cond46, label %44, label %61
+  br i1 %or.cond46, label %40, label %57
 
-44:                                               ; preds = %.loopexit
-  %45 = tail call ptr @xstrdup(ptr noundef nonnull %.026) #14
-  store ptr %45, ptr %1, align 8
-  %46 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %45, i32 noundef 95) #16
-  %.not40 = icmp eq ptr %46, null
-  br i1 %.not40, label %48, label %47
+40:                                               ; preds = %.loopexit
+  %41 = tail call ptr @xstrdup(ptr noundef nonnull %20) #14
+  store ptr %41, ptr %1, align 8
+  %42 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %41, i32 noundef 95) #16
+  %.not40 = icmp eq ptr %42, null
+  br i1 %.not40, label %44, label %43
 
-47:                                               ; preds = %44
-  store i8 0, ptr %46, align 1
-  br label %48
+43:                                               ; preds = %40
+  store i8 0, ptr %42, align 1
+  br label %44
 
-48:                                               ; preds = %47, %44
-  %49 = tail call ptr @hostlist_create(ptr noundef %45) #14
-  store ptr %49, ptr @_next_job_id.hl, align 8
-  %.not41 = icmp eq ptr %49, null
-  br i1 %.not41, label %50, label %52
+44:                                               ; preds = %43, %40
+  %45 = tail call ptr @hostlist_create(ptr noundef %41) #14
+  store ptr %45, ptr @_next_job_id.hl, align 8
+  %.not41 = icmp eq ptr %45, null
+  br i1 %.not41, label %46, label %48
 
-50:                                               ; preds = %48
-  %51 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.147, ptr noundef nonnull %.026) #14
+46:                                               ; preds = %44
+  %47 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.147, ptr noundef nonnull %20) #14
   call void @slurm_xfree(ptr noundef nonnull %1) #14
   br label %.thread
 
-52:                                               ; preds = %48
+48:                                               ; preds = %44
   call void @slurm_xfree(ptr noundef nonnull %1) #14
+  %49 = load ptr, ptr @_next_job_id.hl, align 8
+  %50 = call ptr @hostlist_shift(ptr noundef %49) #14
+  store ptr %50, ptr %1, align 8
+  %.not42 = icmp eq ptr %50, null
+  br i1 %.not42, label %51, label %54
+
+51:                                               ; preds = %48
+  %52 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.147, ptr noundef nonnull %20) #14
   %53 = load ptr, ptr @_next_job_id.hl, align 8
-  %54 = call ptr @hostlist_shift(ptr noundef %53) #14
-  store ptr %54, ptr %1, align 8
-  %.not42 = icmp eq ptr %54, null
-  br i1 %.not42, label %55, label %58
-
-55:                                               ; preds = %52
-  %56 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.147, ptr noundef nonnull %.026) #14
-  %57 = load ptr, ptr @_next_job_id.hl, align 8
-  call void @hostlist_destroy(ptr noundef %57) #14
+  call void @hostlist_destroy(ptr noundef %53) #14
   br label %.thread
 
-58:                                               ; preds = %52
-  %59 = call ptr @xstrdup(ptr noundef nonnull %54) #14
+54:                                               ; preds = %48
+  %55 = call ptr @xstrdup(ptr noundef nonnull %50) #14
+  store ptr %55, ptr @_next_job_id.next_job_id, align 8
+  %56 = load ptr, ptr %1, align 8
+  call void @free(ptr noundef %56) #14
+  br label %62
+
+57:                                               ; preds = %.loopexit
+  br i1 %.not37, label %60, label %58
+
+58:                                               ; preds = %57
+  store i8 0, ptr %22, align 1
+  %59 = tail call ptr @xstrdup(ptr noundef nonnull %20) #14
   store ptr %59, ptr @_next_job_id.next_job_id, align 8
-  %60 = load ptr, ptr %1, align 8
-  call void @free(ptr noundef %60) #14
-  br label %66
+  store i8 95, ptr %22, align 1
+  br label %62
 
-61:                                               ; preds = %.loopexit
-  br i1 %.not37, label %64, label %62
+60:                                               ; preds = %57
+  %61 = tail call ptr @xstrdup(ptr noundef nonnull %20) #14
+  store ptr %61, ptr @_next_job_id.next_job_id, align 8
+  br label %62
 
-62:                                               ; preds = %61
-  store i8 0, ptr %26, align 1
-  %63 = tail call ptr @xstrdup(ptr noundef nonnull %.026) #14
-  store ptr %63, ptr @_next_job_id.next_job_id, align 8
-  store i8 95, ptr %26, align 1
-  br label %66
+62:                                               ; preds = %58, %60, %54
+  %63 = load ptr, ptr @_next_job_id.task_id_spec, align 8
+  %.not43 = icmp eq ptr %63, null
+  br i1 %.not43, label %66, label %64
 
-64:                                               ; preds = %61
-  %65 = tail call ptr @xstrdup(ptr noundef nonnull %.026) #14
-  store ptr %65, ptr @_next_job_id.next_job_id, align 8
-  br label %66
-
-66:                                               ; preds = %62, %64, %58
-  %67 = load ptr, ptr @_next_job_id.task_id_spec, align 8
-  %.not43 = icmp eq ptr %67, null
-  br i1 %.not43, label %70, label %68
-
-68:                                               ; preds = %66
+64:                                               ; preds = %62
   call void @_xstrcat(ptr noundef nonnull @_next_job_id.next_job_id, ptr noundef nonnull @.str.145) #14
-  %69 = load ptr, ptr @_next_job_id.task_id_spec, align 8
-  call void @_xstrcat(ptr noundef nonnull @_next_job_id.next_job_id, ptr noundef %69) #14
-  br label %70
+  %65 = load ptr, ptr @_next_job_id.task_id_spec, align 8
+  call void @_xstrcat(ptr noundef nonnull @_next_job_id.next_job_id, ptr noundef %65) #14
+  br label %66
 
-70:                                               ; preds = %68, %66
-  %71 = load ptr, ptr @_next_job_id.next_job_id, align 8
-  br label %72
+66:                                               ; preds = %64, %62
+  %67 = load ptr, ptr @_next_job_id.next_job_id, align 8
+  br label %68
 
-.thread:                                          ; preds = %21, %24, %55, %50
+.thread:                                          ; preds = %14, %19, %51, %46
   call void @slurm_xfree(ptr noundef nonnull @local_job_str) #14
   store ptr null, ptr @_next_job_id.save_ptr, align 8
-  br label %72
+  br label %68
 
-72:                                               ; preds = %.thread, %70, %10
-  %.025 = phi ptr [ %11, %10 ], [ %71, %70 ], [ null, %.thread ]
+68:                                               ; preds = %.thread, %66, %10
+  %.025 = phi ptr [ %11, %10 ], [ %67, %66 ], [ null, %.thread ]
   ret ptr %.025
 }
 

@@ -1583,16 +1583,12 @@ free_html_tbl.exit:                               ; preds = %12, %._crit_edge
   tail call void @free(ptr noundef %48) #22
   %49 = getelementptr inbounds i8, ptr %5, i64 48
   %50 = load ptr, ptr %49, align 8
-  tail call void @free(ptr noundef %50) #22
-  tail call void @free(ptr noundef nonnull %5) #22
-  br label %free_html_text.exit
+  br label %free_html_text.exit.sink.split
 
 51:                                               ; preds = %2
   %52 = getelementptr inbounds i8, ptr %5, i64 32
   %53 = load ptr, ptr %52, align 8
-  tail call void @free(ptr noundef %53) #22
-  tail call void @free(ptr noundef %5) #22
-  br label %free_html_text.exit
+  br label %free_html_text.exit.sink.split
 
 54:                                               ; preds = %2
   %.not.i6 = icmp eq ptr %5, null
@@ -1603,7 +1599,7 @@ free_html_tbl.exit:                               ; preds = %12, %._crit_edge
   %57 = getelementptr inbounds i8, ptr %5, i64 8
   %58 = load i64, ptr %57, align 8
   %.not32.i = icmp eq i64 %58, 0
-  br i1 %.not32.i, label %._crit_edge31.i, label %.lr.ph30.i
+  br i1 %.not32.i, label %free_html_text.exit.sink.split, label %.lr.ph30.i
 
 .lr.ph30.i:                                       ; preds = %55, %._crit_edge.i
   %59 = phi i64 [ %75, %._crit_edge.i ], [ %58, %55 ]
@@ -1658,23 +1654,23 @@ free_html_tbl.exit:                               ; preds = %12, %._crit_edge
 
 ._crit_edge31.loopexit.i:                         ; preds = %._crit_edge.i
   %.pre34.i = load ptr, ptr %5, align 8
-  br label %._crit_edge31.i
+  br label %free_html_text.exit.sink.split
 
-._crit_edge31.i:                                  ; preds = %._crit_edge31.loopexit.i, %55
-  %79 = phi ptr [ %.pre34.i, %._crit_edge31.loopexit.i ], [ %56, %55 ]
-  tail call void @free(ptr noundef %79) #22
-  tail call void @free(ptr noundef nonnull %5) #22
+free_html_text.exit.sink.split:                   ; preds = %55, %._crit_edge31.loopexit.i, %free_html_tbl.exit, %51
+  %.sink = phi ptr [ %53, %51 ], [ %50, %free_html_tbl.exit ], [ %.pre34.i, %._crit_edge31.loopexit.i ], [ %56, %55 ]
+  tail call void @free(ptr noundef %.sink) #22
+  tail call void @free(ptr noundef %5) #22
   br label %free_html_text.exit
 
-free_html_text.exit:                              ; preds = %._crit_edge31.i, %54, %51, %free_html_tbl.exit
+free_html_text.exit:                              ; preds = %free_html_text.exit.sink.split, %54
   %.not = icmp eq i32 %1, 0
-  br i1 %.not, label %81, label %80
+  br i1 %.not, label %80, label %79
 
-80:                                               ; preds = %free_html_text.exit
+79:                                               ; preds = %free_html_text.exit
   tail call void @free(ptr noundef %0) #22
-  br label %81
+  br label %80
 
-81:                                               ; preds = %80, %free_html_text.exit
+80:                                               ; preds = %79, %free_html_text.exit
   ret void
 }
 
@@ -1828,7 +1824,7 @@ unreachable:                                      ; preds = %2
   %37 = load ptr, ptr %1, align 8
   %38 = call ptr @parseHTML(ptr noundef %37, ptr noundef nonnull %3, ptr noundef nonnull %4) #22
   %.not = icmp eq ptr %38, null
-  br i1 %.not, label %39, label %109
+  br i1 %.not, label %39, label %107
 
 39:                                               ; preds = %22
   %40 = load i32, ptr %3, align 4
@@ -1868,13 +1864,11 @@ gv_strdup.exit:                                   ; preds = %42
 
 55:                                               ; preds = %52
   %56 = call ptr @agnameof(ptr noundef %0) #22
-  call fastcc void @agxbput(ptr noundef %5, ptr noundef %56)
-  br label %nameOf.exit
+  br label %.sink.split.i
 
 57:                                               ; preds = %52
   %58 = call ptr @agnameof(ptr noundef %0) #22
-  call fastcc void @agxbput(ptr noundef %5, ptr noundef %58)
-  br label %nameOf.exit
+  br label %.sink.split.i
 
 59:                                               ; preds = %52
   %60 = load i32, ptr %0, align 8
@@ -1904,231 +1898,229 @@ gv_strdup.exit:                                   ; preds = %42
   %81 = call ptr @agraphof(ptr noundef %80) #22
   %82 = call i32 @agisdirected(ptr noundef %81) #22
   %.not.i = icmp eq i32 %82, 0
-  br i1 %.not.i, label %84, label %83
+  %.str.14..str.13.i = select i1 %.not.i, ptr @.str.14, ptr @.str.13
+  br label %.sink.split.i
 
-83:                                               ; preds = %59
-  call fastcc void @agxbput(ptr noundef %5, ptr noundef nonnull @.str.13)
+.sink.split.i:                                    ; preds = %59, %57, %55
+  %.str.13.sink.i = phi ptr [ %58, %57 ], [ %56, %55 ], [ %.str.14..str.13.i, %59 ]
+  call fastcc void @agxbput(ptr noundef %5, ptr noundef %.str.13.sink.i)
   br label %nameOf.exit
 
-84:                                               ; preds = %59
-  call fastcc void @agxbput(ptr noundef %5, ptr noundef nonnull @.str.14)
-  br label %nameOf.exit
+nameOf.exit:                                      ; preds = %52, %.sink.split.i
+  %83 = call fastcc ptr @agxbuse(ptr noundef %5)
+  %84 = call noalias ptr @strdup(ptr noundef readonly %83) #22
+  %85 = icmp eq ptr %84, null
+  br i1 %85, label %86, label %gv_strdup.exit63
 
-nameOf.exit:                                      ; preds = %52, %55, %57, %83, %84
-  %85 = call fastcc ptr @agxbuse(ptr noundef %5)
-  %86 = call noalias ptr @strdup(ptr noundef readonly %85) #22
-  %87 = icmp eq ptr %86, null
-  br i1 %87, label %88, label %gv_strdup.exit63
-
-88:                                               ; preds = %nameOf.exit
-  %89 = load ptr, ptr @stderr, align 8
-  %90 = call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %85) #25
-  %91 = add i64 %90, 1
-  %92 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %89, ptr noundef nonnull @.str.8, i64 noundef %91) #23
+86:                                               ; preds = %nameOf.exit
+  %87 = load ptr, ptr @stderr, align 8
+  %88 = call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %83) #25
+  %89 = add i64 %88, 1
+  %90 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %87, ptr noundef nonnull @.str.8, i64 noundef %89) #23
   call fastcc void @graphviz_exit() #26
   unreachable
 
 gv_strdup.exit63:                                 ; preds = %nameOf.exit
-  store ptr %86, ptr %1, align 8
-  %93 = getelementptr inbounds i8, ptr %1, i64 24
-  %94 = load i32, ptr %93, align 8
-  %cond = icmp eq i32 %94, 1
-  br i1 %cond, label %95, label %97
+  store ptr %84, ptr %1, align 8
+  %91 = getelementptr inbounds i8, ptr %1, i64 24
+  %92 = load i32, ptr %91, align 8
+  %cond = icmp eq i32 %92, 1
+  br i1 %cond, label %93, label %95
+
+93:                                               ; preds = %gv_strdup.exit63
+  %94 = call ptr @latin1ToUTF8(ptr noundef nonnull %84) #22
+  br label %98
 
 95:                                               ; preds = %gv_strdup.exit63
-  %96 = call ptr @latin1ToUTF8(ptr noundef nonnull %86) #22
-  br label %100
+  %96 = load ptr, ptr %24, align 8
+  %97 = call ptr @htmlEntityUTF8(ptr noundef nonnull %84, ptr noundef %96) #22
+  br label %98
 
-97:                                               ; preds = %gv_strdup.exit63
-  %98 = load ptr, ptr %24, align 8
-  %99 = call ptr @htmlEntityUTF8(ptr noundef nonnull %86, ptr noundef %98) #22
-  br label %100
-
-100:                                              ; preds = %97, %95
-  %.058 = phi ptr [ %96, %95 ], [ %99, %97 ]
-  %101 = load ptr, ptr %1, align 8
-  call void @free(ptr noundef %101) #22
+98:                                               ; preds = %95, %93
+  %.058 = phi ptr [ %94, %93 ], [ %97, %95 ]
+  %99 = load ptr, ptr %1, align 8
+  call void @free(ptr noundef %99) #22
   store ptr %.058, ptr %1, align 8
-  %102 = getelementptr inbounds i8, ptr %26, i64 16
+  %100 = getelementptr inbounds i8, ptr %26, i64 16
+  %101 = load ptr, ptr %100, align 8
+  %102 = getelementptr inbounds i8, ptr %101, i64 168
   %103 = load ptr, ptr %102, align 8
-  %104 = getelementptr inbounds i8, ptr %103, i64 168
-  %105 = load ptr, ptr %104, align 8
-  call void @make_simple_label(ptr noundef %105, ptr noundef nonnull %1) #22
-  %106 = getelementptr inbounds i8, ptr %5, i64 31
-  %.val62 = load i8, ptr %106, align 1
-  %107 = icmp eq i8 %.val62, -1
-  br i1 %107, label %108, label %agxbfree.exit
+  call void @make_simple_label(ptr noundef %103, ptr noundef nonnull %1) #22
+  %104 = getelementptr inbounds i8, ptr %5, i64 31
+  %.val62 = load i8, ptr %104, align 1
+  %105 = icmp eq i8 %.val62, -1
+  br i1 %105, label %106, label %agxbfree.exit
 
-108:                                              ; preds = %100
+106:                                              ; preds = %98
   %.val = load ptr, ptr %5, align 8
   call void @free(ptr noundef %.val) #22
   br label %agxbfree.exit
 
-109:                                              ; preds = %22
-  %110 = getelementptr inbounds i8, ptr %38, i64 8
-  %111 = load i8, ptr %110, align 8
-  %112 = icmp eq i8 %111, 1
-  br i1 %112, label %113, label %166
+107:                                              ; preds = %22
+  %108 = getelementptr inbounds i8, ptr %38, i64 8
+  %109 = load i8, ptr %108, align 8
+  %110 = icmp eq i8 %109, 1
+  br i1 %110, label %111, label %164
 
-113:                                              ; preds = %109
-  %114 = load ptr, ptr %38, align 8
-  %115 = getelementptr inbounds i8, ptr %114, i64 48
-  %116 = load ptr, ptr %115, align 8
-  %.not60 = icmp eq ptr %116, null
-  br i1 %.not60, label %117, label %getPenColor.exit
+111:                                              ; preds = %107
+  %112 = load ptr, ptr %38, align 8
+  %113 = getelementptr inbounds i8, ptr %112, i64 48
+  %114 = load ptr, ptr %113, align 8
+  %.not60 = icmp eq ptr %114, null
+  br i1 %.not60, label %115, label %getPenColor.exit
 
-117:                                              ; preds = %113
-  %118 = call ptr @agget(ptr noundef %0, ptr noundef nonnull @.str.15) #22
-  %.not.i64 = icmp eq ptr %118, null
-  br i1 %.not.i64, label %121, label %119
+115:                                              ; preds = %111
+  %116 = call ptr @agget(ptr noundef %0, ptr noundef nonnull @.str.15) #22
+  %.not.i64 = icmp eq ptr %116, null
+  br i1 %.not.i64, label %119, label %117
 
-119:                                              ; preds = %117
-  %120 = load i8, ptr %118, align 1
-  %.not9.i = icmp eq i8 %120, 0
-  br i1 %.not9.i, label %121, label %125
+117:                                              ; preds = %115
+  %118 = load i8, ptr %116, align 1
+  %.not9.i = icmp eq i8 %118, 0
+  br i1 %.not9.i, label %119, label %123
 
-121:                                              ; preds = %119, %117
-  %122 = call ptr @agget(ptr noundef %0, ptr noundef nonnull @.str.16) #22
-  %.not10.i = icmp eq ptr %122, null
-  br i1 %.not10.i, label %getPenColor.exit, label %123
+119:                                              ; preds = %117, %115
+  %120 = call ptr @agget(ptr noundef %0, ptr noundef nonnull @.str.16) #22
+  %.not10.i = icmp eq ptr %120, null
+  br i1 %.not10.i, label %getPenColor.exit, label %121
 
-123:                                              ; preds = %121
-  %124 = load i8, ptr %122, align 1
-  %.not11.i = icmp eq i8 %124, 0
-  br i1 %.not11.i, label %getPenColor.exit, label %125
+121:                                              ; preds = %119
+  %122 = load i8, ptr %120, align 1
+  %.not11.i = icmp eq i8 %122, 0
+  br i1 %.not11.i, label %getPenColor.exit, label %123
 
-125:                                              ; preds = %119, %123
-  %126 = call ptr @agget(ptr noundef %0, ptr noundef nonnull @.str.15) #22
-  %.not.i65 = icmp eq ptr %126, null
-  br i1 %.not.i65, label %129, label %127
+123:                                              ; preds = %117, %121
+  %124 = call ptr @agget(ptr noundef %0, ptr noundef nonnull @.str.15) #22
+  %.not.i65 = icmp eq ptr %124, null
+  br i1 %.not.i65, label %127, label %125
 
-127:                                              ; preds = %125
-  %128 = load i8, ptr %126, align 1
-  %.not9.i66 = icmp eq i8 %128, 0
-  br i1 %.not9.i66, label %129, label %getPenColor.exit70
+125:                                              ; preds = %123
+  %126 = load i8, ptr %124, align 1
+  %.not9.i66 = icmp eq i8 %126, 0
+  br i1 %.not9.i66, label %127, label %getPenColor.exit70
 
-129:                                              ; preds = %127, %125
-  %130 = call ptr @agget(ptr noundef %0, ptr noundef nonnull @.str.16) #22
-  %.not10.i68 = icmp eq ptr %130, null
-  br i1 %.not10.i68, label %133, label %131
+127:                                              ; preds = %125, %123
+  %128 = call ptr @agget(ptr noundef %0, ptr noundef nonnull @.str.16) #22
+  %.not10.i68 = icmp eq ptr %128, null
+  br i1 %.not10.i68, label %131, label %129
 
-131:                                              ; preds = %129
-  %132 = load i8, ptr %130, align 1
-  %.not11.i69 = icmp eq i8 %132, 0
-  br i1 %.not11.i69, label %133, label %getPenColor.exit70
+129:                                              ; preds = %127
+  %130 = load i8, ptr %128, align 1
+  %.not11.i69 = icmp eq i8 %130, 0
+  br i1 %.not11.i69, label %131, label %getPenColor.exit70
 
-133:                                              ; preds = %131, %129
+131:                                              ; preds = %129, %127
   br label %getPenColor.exit70
 
-getPenColor.exit70:                               ; preds = %127, %131, %133
-  %.0.i67 = phi ptr [ null, %133 ], [ %126, %127 ], [ %130, %131 ]
-  %134 = call noalias ptr @strdup(ptr noundef readonly %.0.i67) #22
-  %135 = icmp eq ptr %134, null
-  br i1 %135, label %136, label %gv_strdup.exit71
+getPenColor.exit70:                               ; preds = %125, %129, %131
+  %.0.i67 = phi ptr [ null, %131 ], [ %124, %125 ], [ %128, %129 ]
+  %132 = call noalias ptr @strdup(ptr noundef readonly %.0.i67) #22
+  %133 = icmp eq ptr %132, null
+  br i1 %133, label %134, label %gv_strdup.exit71
 
-136:                                              ; preds = %getPenColor.exit70
-  %137 = load ptr, ptr @stderr, align 8
-  %138 = call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %.0.i67) #25
-  %139 = add i64 %138, 1
-  %140 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %137, ptr noundef nonnull @.str.8, i64 noundef %139) #23
+134:                                              ; preds = %getPenColor.exit70
+  %135 = load ptr, ptr @stderr, align 8
+  %136 = call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %.0.i67) #25
+  %137 = add i64 %136, 1
+  %138 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %135, ptr noundef nonnull @.str.8, i64 noundef %137) #23
   call fastcc void @graphviz_exit() #26
   unreachable
 
 gv_strdup.exit71:                                 ; preds = %getPenColor.exit70
-  %141 = load ptr, ptr %38, align 8
-  %142 = getelementptr inbounds i8, ptr %141, i64 48
-  store ptr %134, ptr %142, align 8
+  %139 = load ptr, ptr %38, align 8
+  %140 = getelementptr inbounds i8, ptr %139, i64 48
+  store ptr %132, ptr %140, align 8
   br label %getPenColor.exit
 
-getPenColor.exit:                                 ; preds = %123, %121, %gv_strdup.exit71, %113
-  %143 = load ptr, ptr %38, align 8
-  %144 = call fastcc i32 @size_html_tbl(ptr noundef %26, ptr noundef %143, ptr noundef null, ptr noundef %4)
-  %145 = load i32, ptr %3, align 4
-  %146 = or i32 %145, %144
-  store i32 %146, ptr %3, align 4
-  %147 = load ptr, ptr %38, align 8
-  %148 = getelementptr inbounds i8, ptr %147, i64 88
-  %149 = load double, ptr %148, align 8
-  %150 = fmul double %149, 5.000000e-01
-  %151 = getelementptr inbounds i8, ptr %147, i64 96
-  %152 = load double, ptr %151, align 8
-  %153 = fmul double %152, 5.000000e-01
-  %154 = fneg double %150
-  store double %154, ptr %6, align 8
-  %155 = getelementptr inbounds i8, ptr %6, i64 8
-  %156 = fneg double %153
-  store double %156, ptr %155, align 8
-  %157 = getelementptr inbounds i8, ptr %6, i64 16
-  store double %150, ptr %157, align 8
-  %158 = getelementptr inbounds i8, ptr %6, i64 24
-  store double %153, ptr %158, align 8
-  call fastcc void @pos_html_tbl(ptr noundef %147, ptr noundef nonnull byval(%struct.boxf) align 8 %6, i32 noundef 15)
-  %159 = load double, ptr %157, align 8
-  %160 = load double, ptr %6, align 8
-  %161 = fsub double %159, %160
-  %162 = getelementptr inbounds i8, ptr %1, i64 40
-  store double %161, ptr %162, align 8
-  %163 = load double, ptr %158, align 8
-  %164 = load double, ptr %155, align 8
-  %165 = fsub double %163, %164
-  br label %185
+getPenColor.exit:                                 ; preds = %121, %119, %gv_strdup.exit71, %111
+  %141 = load ptr, ptr %38, align 8
+  %142 = call fastcc i32 @size_html_tbl(ptr noundef %26, ptr noundef %141, ptr noundef null, ptr noundef %4)
+  %143 = load i32, ptr %3, align 4
+  %144 = or i32 %143, %142
+  store i32 %144, ptr %3, align 4
+  %145 = load ptr, ptr %38, align 8
+  %146 = getelementptr inbounds i8, ptr %145, i64 88
+  %147 = load double, ptr %146, align 8
+  %148 = fmul double %147, 5.000000e-01
+  %149 = getelementptr inbounds i8, ptr %145, i64 96
+  %150 = load double, ptr %149, align 8
+  %151 = fmul double %150, 5.000000e-01
+  %152 = fneg double %148
+  store double %152, ptr %6, align 8
+  %153 = getelementptr inbounds i8, ptr %6, i64 8
+  %154 = fneg double %151
+  store double %154, ptr %153, align 8
+  %155 = getelementptr inbounds i8, ptr %6, i64 16
+  store double %148, ptr %155, align 8
+  %156 = getelementptr inbounds i8, ptr %6, i64 24
+  store double %151, ptr %156, align 8
+  call fastcc void @pos_html_tbl(ptr noundef %145, ptr noundef nonnull byval(%struct.boxf) align 8 %6, i32 noundef 15)
+  %157 = load double, ptr %155, align 8
+  %158 = load double, ptr %6, align 8
+  %159 = fsub double %157, %158
+  %160 = getelementptr inbounds i8, ptr %1, i64 40
+  store double %159, ptr %160, align 8
+  %161 = load double, ptr %156, align 8
+  %162 = load double, ptr %153, align 8
+  %163 = fsub double %161, %162
+  br label %183
 
-166:                                              ; preds = %109
-  %167 = getelementptr inbounds i8, ptr %26, i64 16
+164:                                              ; preds = %107
+  %165 = getelementptr inbounds i8, ptr %26, i64 16
+  %166 = load ptr, ptr %165, align 8
+  %167 = getelementptr inbounds i8, ptr %166, i64 168
   %168 = load ptr, ptr %167, align 8
-  %169 = getelementptr inbounds i8, ptr %168, i64 168
-  %170 = load ptr, ptr %169, align 8
-  %171 = load ptr, ptr %38, align 8
-  call fastcc void @size_html_txt(ptr noundef %170, ptr noundef %171, ptr noundef %4)
-  %172 = load ptr, ptr %38, align 8
-  %173 = getelementptr inbounds i8, ptr %172, i64 24
-  %174 = getelementptr inbounds i8, ptr %172, i64 40
-  %175 = load double, ptr %174, align 8
-  %176 = fmul double %175, 5.000000e-01
-  %177 = getelementptr inbounds i8, ptr %172, i64 48
-  %178 = load double, ptr %177, align 8
-  %179 = fmul double %178, 5.000000e-01
-  %180 = fneg double %176
-  %181 = fneg double %179
-  store double %180, ptr %173, align 8
-  %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %172, i64 32
-  store double %181, ptr %.sroa.3.0..sroa_idx, align 8
-  store double %176, ptr %174, align 8
-  store double %179, ptr %177, align 8
-  %182 = fadd double %176, %176
-  %183 = getelementptr inbounds i8, ptr %1, i64 40
-  store double %182, ptr %183, align 8
-  %184 = fadd double %179, %179
-  br label %185
+  %169 = load ptr, ptr %38, align 8
+  call fastcc void @size_html_txt(ptr noundef %168, ptr noundef %169, ptr noundef %4)
+  %170 = load ptr, ptr %38, align 8
+  %171 = getelementptr inbounds i8, ptr %170, i64 24
+  %172 = getelementptr inbounds i8, ptr %170, i64 40
+  %173 = load double, ptr %172, align 8
+  %174 = fmul double %173, 5.000000e-01
+  %175 = getelementptr inbounds i8, ptr %170, i64 48
+  %176 = load double, ptr %175, align 8
+  %177 = fmul double %176, 5.000000e-01
+  %178 = fneg double %174
+  %179 = fneg double %177
+  store double %178, ptr %171, align 8
+  %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %170, i64 32
+  store double %179, ptr %.sroa.3.0..sroa_idx, align 8
+  store double %174, ptr %172, align 8
+  store double %177, ptr %175, align 8
+  %180 = fadd double %174, %174
+  %181 = getelementptr inbounds i8, ptr %1, i64 40
+  store double %180, ptr %181, align 8
+  %182 = fadd double %177, %177
+  br label %183
 
-185:                                              ; preds = %166, %getPenColor.exit
-  %.sink76 = phi double [ %184, %166 ], [ %165, %getPenColor.exit ]
-  %186 = getelementptr inbounds i8, ptr %1, i64 48
-  store double %.sink76, ptr %186, align 8
-  %187 = getelementptr inbounds i8, ptr %1, i64 88
-  store ptr %38, ptr %187, align 8
-  %188 = load i8, ptr %110, align 8
-  %189 = icmp eq i8 %188, 1
-  br i1 %189, label %190, label %agxbfree.exit
+183:                                              ; preds = %164, %getPenColor.exit
+  %.sink76 = phi double [ %182, %164 ], [ %163, %getPenColor.exit ]
+  %184 = getelementptr inbounds i8, ptr %1, i64 48
+  store double %.sink76, ptr %184, align 8
+  %185 = getelementptr inbounds i8, ptr %1, i64 88
+  store ptr %38, ptr %185, align 8
+  %186 = load i8, ptr %108, align 8
+  %187 = icmp eq i8 %186, 1
+  br i1 %187, label %188, label %agxbfree.exit
 
-190:                                              ; preds = %185
-  %191 = load ptr, ptr %1, align 8
-  call void @free(ptr noundef %191) #22
-  %192 = call noalias dereferenceable_or_null(8) ptr @strdup(ptr noundef nonnull readonly @.str.3) #22
-  %193 = icmp eq ptr %192, null
-  br i1 %193, label %194, label %gv_strdup.exit72
+188:                                              ; preds = %183
+  %189 = load ptr, ptr %1, align 8
+  call void @free(ptr noundef %189) #22
+  %190 = call noalias dereferenceable_or_null(8) ptr @strdup(ptr noundef nonnull readonly @.str.3) #22
+  %191 = icmp eq ptr %190, null
+  br i1 %191, label %192, label %gv_strdup.exit72
 
-194:                                              ; preds = %190
-  %195 = load ptr, ptr @stderr, align 8
-  %196 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %195, ptr noundef nonnull @.str.8, i64 noundef 8) #23
+192:                                              ; preds = %188
+  %193 = load ptr, ptr @stderr, align 8
+  %194 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %193, ptr noundef nonnull @.str.8, i64 noundef 8) #23
   call fastcc void @graphviz_exit() #26
   unreachable
 
-gv_strdup.exit72:                                 ; preds = %190
-  store ptr %192, ptr %1, align 8
+gv_strdup.exit72:                                 ; preds = %188
+  store ptr %190, ptr %1, align 8
   br label %agxbfree.exit
 
-agxbfree.exit:                                    ; preds = %108, %100, %185, %gv_strdup.exit72, %gv_strdup.exit
+agxbfree.exit:                                    ; preds = %106, %98, %183, %gv_strdup.exit72, %gv_strdup.exit
   %.0 = load i32, ptr %3, align 4
   ret i32 %.0
 }

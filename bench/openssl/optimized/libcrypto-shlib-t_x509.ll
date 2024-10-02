@@ -854,18 +854,22 @@ for.body54:                                       ; preds = %if.end42, %for.cond
 
 for.end65:                                        ; preds = %for.cond51
   %call66 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %bp, ptr noundef nonnull @.str.14) #3
-  call void @EVP_MD_free(ptr noundef nonnull %call16) #3
-  br label %return
+  br label %return.sink.split
 
 err:                                              ; preds = %for.body, %for.body54, %if.end42, %if.end37, %for.end, %if.end20, %if.end14, %if.end9, %if.end4, %if.end
   %der.0 = phi ptr [ null, %if.end ], [ null, %if.end4 ], [ null, %if.end9 ], [ %call10, %if.end14 ], [ null, %for.end ], [ null, %if.end37 ], [ null, %if.end42 ], [ %call10, %if.end20 ], [ null, %for.body54 ], [ %call10, %for.body ]
   %md.0 = phi ptr [ null, %if.end ], [ null, %if.end4 ], [ null, %if.end9 ], [ null, %if.end14 ], [ %call16, %for.end ], [ %call16, %if.end37 ], [ %call16, %if.end42 ], [ %call16, %if.end20 ], [ %call16, %for.body54 ], [ %call16, %for.body ]
   call void @CRYPTO_free(ptr noundef %der.0, ptr noundef nonnull @.str, i32 noundef 287) #3
-  call void @EVP_MD_free(ptr noundef %md.0) #3
+  br label %return.sink.split
+
+return.sink.split:                                ; preds = %for.end65, %err
+  %md.0.sink = phi ptr [ %md.0, %err ], [ %call16, %for.end65 ]
+  %retval.0.ph = phi i32 [ 0, %err ], [ 1, %for.end65 ]
+  call void @EVP_MD_free(ptr noundef %md.0.sink) #3
   br label %return
 
-return:                                           ; preds = %entry, %err, %for.end65
-  %retval.0 = phi i32 [ 0, %err ], [ 1, %for.end65 ], [ 0, %entry ]
+return:                                           ; preds = %return.sink.split, %entry
+  %retval.0 = phi i32 [ 0, %entry ], [ %retval.0.ph, %return.sink.split ]
   ret i32 %retval.0
 }
 

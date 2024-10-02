@@ -4337,8 +4337,7 @@ define ptr @Abc_NtkInsertNewLogic(ptr nocapture noundef %0, ptr noundef %1) loca
 43:                                               ; preds = %34, %.lr.ph
   %44 = tail call ptr @Abc_ObjName(ptr noundef %30) #12
   %45 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.18, ptr noundef %44)
-  tail call void @Abc_NtkDelete(ptr noundef %6) #12
-  br label %309
+  br label %.sink.split
 
 46:                                               ; preds = %34
   %47 = getelementptr inbounds i8, ptr %32, i64 64
@@ -4349,8 +4348,7 @@ define ptr @Abc_NtkInsertNewLogic(ptr nocapture noundef %0, ptr noundef %1) loca
 
 50:                                               ; preds = %46
   %51 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.19, ptr noundef %49)
-  tail call void @Abc_NtkDelete(ptr noundef %6) #12
-  br label %309
+  br label %.sink.split
 
 52:                                               ; preds = %46
   %53 = tail call ptr @Abc_NtkFindOrCreateNet(ptr noundef %6, ptr noundef %49) #12
@@ -4464,8 +4462,7 @@ define ptr @Abc_NtkInsertNewLogic(ptr nocapture noundef %0, ptr noundef %1) loca
   %110 = tail call ptr @Abc_ObjName(ptr noundef %96) #12
   %111 = tail call ptr @Abc_ObjName(ptr noundef nonnull %70) #12
   %112 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.20, ptr noundef %110, ptr noundef %111)
-  tail call void @Abc_NtkDelete(ptr noundef %6) #12
-  br label %309
+  br label %.sink.split
 
 113:                                              ; preds = %100
   %114 = getelementptr inbounds i8, ptr %98, i64 64
@@ -4476,8 +4473,7 @@ define ptr @Abc_NtkInsertNewLogic(ptr nocapture noundef %0, ptr noundef %1) loca
 
 117:                                              ; preds = %113
   %118 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.21, ptr noundef %116)
-  tail call void @Abc_NtkDelete(ptr noundef %6) #12
-  br label %309
+  br label %.sink.split
 
 119:                                              ; preds = %113
   %120 = tail call ptr @Abc_NtkFindOrCreateNet(ptr noundef %6, ptr noundef %116) #12
@@ -4566,8 +4562,7 @@ define ptr @Abc_NtkInsertNewLogic(ptr nocapture noundef %0, ptr noundef %1) loca
 159:                                              ; preds = %150, %.lr.ph271
   %160 = tail call ptr @Abc_ObjName(ptr noundef %146) #12
   %161 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.22, ptr noundef %160)
-  tail call void @Abc_NtkDelete(ptr noundef %6) #12
-  br label %309
+  br label %.sink.split
 
 162:                                              ; preds = %150
   %163 = getelementptr inbounds i8, ptr %148, i64 64
@@ -4684,8 +4679,7 @@ define ptr @Abc_NtkInsertNewLogic(ptr nocapture noundef %0, ptr noundef %1) loca
   %218 = tail call ptr @Abc_ObjName(ptr noundef %203) #12
   %219 = tail call ptr @Abc_ObjName(ptr noundef nonnull %184) #12
   %220 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.23, ptr noundef %218, ptr noundef %219)
-  tail call void @Abc_NtkDelete(ptr noundef %6) #12
-  br label %309
+  br label %.sink.split
 
 221:                                              ; preds = %208
   %222 = getelementptr inbounds i8, ptr %206, i64 64
@@ -4881,11 +4875,14 @@ define ptr @Abc_NtkInsertNewLogic(ptr nocapture noundef %0, ptr noundef %1) loca
 306:                                              ; preds = %.critedge14
   %307 = load ptr, ptr @stdout, align 8
   %308 = tail call i64 @fwrite(ptr nonnull @.str.24, i64 51, i64 1, ptr %307)
-  tail call void @Abc_NtkDelete(ptr noundef nonnull %6) #12
+  br label %.sink.split
+
+.sink.split:                                      ; preds = %43, %50, %109, %117, %159, %217, %306
+  tail call void @Abc_NtkDelete(ptr noundef %6) #12
   br label %309
 
-309:                                              ; preds = %.critedge14, %306, %217, %159, %117, %109, %50, %43
-  %.0 = phi ptr [ null, %43 ], [ null, %50 ], [ null, %109 ], [ null, %117 ], [ null, %159 ], [ null, %217 ], [ null, %306 ], [ %6, %.critedge14 ]
+309:                                              ; preds = %.sink.split, %.critedge14
+  %.0 = phi ptr [ %6, %.critedge14 ], [ null, %.sink.split ]
   ret ptr %.0
 }
 

@@ -1691,13 +1691,7 @@ entry:
   %0 = load i32, ptr %type, align 4
   %.off = add i32 %0, -21
   %switch = icmp ult i32 %.off, 3
-  br i1 %switch, label %if.end, label %if.then
-
-if.then:                                          ; preds = %entry
-  tail call void @ERR_new() #12
-  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 1069, ptr noundef nonnull @__func__.tls13_common_post_process_record) #12
-  tail call void (ptr, i32, i32, ptr, ...) @ossl_rlayer_fatal(ptr noundef %rl, i32 noundef 10, i32 noundef 443, ptr noundef null)
-  br label %return
+  br i1 %switch, label %if.end, label %return.sink.split
 
 if.end:                                           ; preds = %entry
   %msg_callback = getelementptr inbounds i8, ptr %rl, i64 4392
@@ -1724,16 +1718,18 @@ land.lhs.true15:                                  ; preds = %if.end10
   %length = getelementptr inbounds i8, ptr %rec, i64 8
   %4 = load i64, ptr %length, align 8
   %cmp16 = icmp eq i64 %4, 0
-  br i1 %cmp16, label %if.then17, label %return
+  br i1 %cmp16, label %return.sink.split, label %return
 
-if.then17:                                        ; preds = %land.lhs.true15
+return.sink.split:                                ; preds = %land.lhs.true15, %entry
+  %.sink17 = phi i32 [ 1069, %entry ], [ 1083, %land.lhs.true15 ]
+  %.sink = phi i32 [ 443, %entry ], [ 271, %land.lhs.true15 ]
   tail call void @ERR_new() #12
-  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 1083, ptr noundef nonnull @__func__.tls13_common_post_process_record) #12
-  tail call void (ptr, i32, i32, ptr, ...) @ossl_rlayer_fatal(ptr noundef nonnull %rl, i32 noundef 10, i32 noundef 271, ptr noundef null)
+  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef %.sink17, ptr noundef nonnull @__func__.tls13_common_post_process_record) #12
+  tail call void (ptr, i32, i32, ptr, ...) @ossl_rlayer_fatal(ptr noundef %rl, i32 noundef 10, i32 noundef %.sink, ptr noundef null)
   br label %return
 
-return:                                           ; preds = %if.end10, %land.lhs.true15, %if.then17, %if.then
-  %retval.0 = phi i32 [ 0, %if.then ], [ 0, %if.then17 ], [ 1, %if.end10 ], [ 1, %land.lhs.true15 ]
+return:                                           ; preds = %return.sink.split, %if.end10, %land.lhs.true15
+  %retval.0 = phi i32 [ 1, %if.end10 ], [ 1, %land.lhs.true15 ], [ 0, %return.sink.split ]
   ret i32 %retval.0
 }
 

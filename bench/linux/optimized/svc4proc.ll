@@ -611,29 +611,28 @@ define internal noundef i32 @nlm4svc_proc_free_all(ptr noundef %0) #2 align 16 {
   %23 = zext i32 %22 to i64
   %24 = tail call ptr @nlmsvc_lookup_host(ptr noundef %0, ptr noundef %20, i64 noundef %23) #7
   %25 = icmp eq ptr %24, null
-  br i1 %25, label %33, label %26
+  br i1 %25, label %.thread.sink.split, label %26
 
 26:                                               ; preds = %19
   %27 = getelementptr inbounds i8, ptr %3, i64 452
   %28 = load i32, ptr %27, align 4
   %29 = icmp eq i32 %28, 0
-  br i1 %29, label %34, label %30
+  br i1 %29, label %33, label %30
 
 30:                                               ; preds = %26
   %31 = tail call i32 @nsm_monitor(ptr noundef nonnull %24) #7
   %32 = icmp slt i32 %31, 0
-  br i1 %32, label %33, label %34
+  br i1 %32, label %.thread.sink.split, label %33
 
-33:                                               ; preds = %30, %19
+33:                                               ; preds = %26, %30
+  tail call void @nlmsvc_free_host_resources(ptr noundef nonnull %24) #7
+  br label %.thread.sink.split
+
+.thread.sink.split:                               ; preds = %19, %30, %33
   tail call void @nlmsvc_release_host(ptr noundef %24) #7
   br label %.thread
 
-34:                                               ; preds = %26, %30
-  tail call void @nlmsvc_free_host_resources(ptr noundef nonnull %24) #7
-  tail call void @nlmsvc_release_host(ptr noundef nonnull %24) #7
-  br label %.thread
-
-.thread:                                          ; preds = %15, %33, %7, %1, %34
+.thread:                                          ; preds = %.thread.sink.split, %15, %7, %1
   ret i32 0
 }
 

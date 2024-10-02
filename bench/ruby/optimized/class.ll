@@ -3527,33 +3527,30 @@ module_in_super_chain.exit.thread:                ; preds = %20, %10, %5
   %75 = and i64 %64, 7
   %.not185 = icmp eq i64 %75, 0
   %76 = inttoptr i64 %64 to ptr
-  br i1 %.not185, label %77, label %.critedge
+  br i1 %.not185, label %77, label %.sink.split
 
 77:                                               ; preds = %74
   %78 = load i64, ptr %76, align 8
   %79 = and i64 %78, 31
   %80 = icmp eq i64 %79, 3
-  br i1 %80, label %86, label %.critedge
-
-.critedge:                                        ; preds = %74, %77
-  call void @rb_id_table_foreach(ptr noundef nonnull %69, ptr noundef nonnull @clear_module_cache_i, ptr noundef nonnull %76) #18
-  br label %86
+  br i1 %80, label %86, label %.sink.split
 
 81:                                               ; preds = %72
-  br i1 %27, label %.critedge157, label %82
+  br i1 %27, label %.sink.split, label %82
 
 82:                                               ; preds = %81
   %83 = load i64, ptr %7, align 8
   %84 = and i64 %83, 31
   %85 = icmp eq i64 %84, 3
-  br i1 %85, label %86, label %.critedge157
+  br i1 %85, label %86, label %.sink.split
 
-.critedge157:                                     ; preds = %81, %82
-  call void @rb_id_table_foreach(ptr noundef nonnull %69, ptr noundef nonnull @clear_module_cache_i, ptr noundef %7) #18
+.sink.split:                                      ; preds = %82, %81, %77, %74
+  %.pre-phi224.sink = phi ptr [ %76, %77 ], [ %76, %74 ], [ %7, %81 ], [ %7, %82 ]
+  call void @rb_id_table_foreach(ptr noundef nonnull %69, ptr noundef nonnull @clear_module_cache_i, ptr noundef %.pre-phi224.sink) #18
   br label %86
 
-86:                                               ; preds = %.critedge, %77, %73, %.critedge157, %82, %70, %.loopexit
-  %.2132 = phi i32 [ %.0130201, %70 ], [ %.0130201, %.loopexit ], [ 1, %82 ], [ 1, %.critedge157 ], [ 1, %73 ], [ 1, %77 ], [ 1, %.critedge ]
+86:                                               ; preds = %.sink.split, %77, %73, %82, %70, %.loopexit
+  %.2132 = phi i32 [ %.0130201, %70 ], [ %.0130201, %.loopexit ], [ 1, %82 ], [ 1, %73 ], [ 1, %77 ], [ 1, %.sink.split ]
   %87 = call i64 @rb_include_class_new(i64 noundef %.0128204, i64 noundef %64)
   %88 = call fastcc i64 @RCLASS_SET_SUPER(i64 noundef %.0126207, i64 noundef %87)
   %89 = inttoptr i64 %87 to ptr

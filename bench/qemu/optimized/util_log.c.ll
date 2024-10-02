@@ -871,14 +871,14 @@ define dso_local i32 @qemu_str_to_log_mask(ptr noundef %str) local_unnamed_addr 
 entry:
   %call = tail call ptr @g_strsplit(ptr noundef %str, ptr noundef nonnull @.str.1, i32 noundef 0) #15
   %tobool.not25 = icmp eq ptr %call, null
-  br i1 %tobool.not25, label %for.end32, label %land.rhs
+  br i1 %tobool.not25, label %return, label %land.rhs
 
 land.rhs:                                         ; preds = %entry, %for.inc30
   %tmp.027 = phi ptr [ %incdec.ptr31, %for.inc30 ], [ %call, %entry ]
   %mask.026 = phi i32 [ %mask.2, %for.inc30 ], [ 0, %entry ]
   %0 = load ptr, ptr %tmp.027, align 8
   %tobool1.not = icmp eq ptr %0, null
-  br i1 %tobool1.not, label %for.end32, label %for.body
+  br i1 %tobool1.not, label %return, label %for.body
 
 for.body:                                         ; preds = %land.rhs
   %call2 = tail call i32 @g_str_equal(ptr noundef nonnull %0, ptr noundef nonnull @.str.49) #15
@@ -915,20 +915,20 @@ if.then12:                                        ; preds = %land.lhs.true
 
 if.else14:                                        ; preds = %land.lhs.true, %if.else
   %6 = load ptr, ptr %tmp.027, align 8
-  %call2032 = tail call i32 @g_str_equal(ptr noundef %6, ptr noundef nonnull @.str.9) #15
-  %tobool21.not33 = icmp eq i32 %call2032, 0
-  br i1 %tobool21.not33, label %for.cond15, label %found
+  %call2033 = tail call i32 @g_str_equal(ptr noundef %6, ptr noundef nonnull @.str.9) #15
+  %tobool21.not34 = icmp eq i32 %call2033, 0
+  br i1 %tobool21.not34, label %for.cond15, label %found
 
 for.cond15:                                       ; preds = %if.else14, %for.body19
-  %item.12434 = phi ptr [ %incdec.ptr24, %for.body19 ], [ @qemu_log_items, %if.else14 ]
-  %incdec.ptr24 = getelementptr i8, ptr %item.12434, i64 24
+  %item.12435 = phi ptr [ %incdec.ptr24, %for.body19 ], [ @qemu_log_items, %if.else14 ]
+  %incdec.ptr24 = getelementptr i8, ptr %item.12435, i64 24
   %7 = load i32, ptr %incdec.ptr24, align 8
   %cmp17.not = icmp eq i32 %7, 0
-  br i1 %cmp17.not, label %error, label %for.body19, !llvm.loop !12
+  br i1 %cmp17.not, label %return, label %for.body19, !llvm.loop !12
 
 for.body19:                                       ; preds = %for.cond15
   %8 = load ptr, ptr %tmp.027, align 8
-  %name = getelementptr i8, ptr %item.12434, i64 32
+  %name = getelementptr i8, ptr %item.12435, i64 32
   %9 = load ptr, ptr %name, align 8
   %call20 = tail call i32 @g_str_equal(ptr noundef %8, ptr noundef %9) #15
   %tobool21.not = icmp eq i32 %call20, 0
@@ -943,19 +943,11 @@ for.inc30:                                        ; preds = %for.body6, %found, 
   %mask.2 = phi i32 [ %or13, %if.then12 ], [ %or27, %found ], [ %or, %for.body6 ]
   %incdec.ptr31 = getelementptr i8, ptr %tmp.027, i64 8
   %tobool.not = icmp eq ptr %incdec.ptr31, null
-  br i1 %tobool.not, label %for.end32, label %land.rhs, !llvm.loop !13
+  br i1 %tobool.not, label %return, label %land.rhs, !llvm.loop !13
 
-for.end32:                                        ; preds = %land.rhs, %for.inc30, %entry
-  %mask.0.lcssa = phi i32 [ 0, %entry ], [ %mask.2, %for.inc30 ], [ %mask.026, %land.rhs ]
+return:                                           ; preds = %for.inc30, %land.rhs, %for.cond15, %entry
+  %retval.0 = phi i32 [ 0, %entry ], [ 0, %for.cond15 ], [ %mask.2, %for.inc30 ], [ %mask.026, %land.rhs ]
   tail call void @g_strfreev(ptr noundef %call) #15
-  br label %return
-
-error:                                            ; preds = %for.cond15
-  tail call void @g_strfreev(ptr noundef nonnull %call) #15
-  br label %return
-
-return:                                           ; preds = %error, %for.end32
-  %retval.0 = phi i32 [ 0, %error ], [ %mask.0.lcssa, %for.end32 ]
   ret i32 %retval.0
 }
 

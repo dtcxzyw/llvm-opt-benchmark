@@ -323,21 +323,18 @@ define internal noundef zeroext i1 @qobject_output_type_any(ptr nocapture nounde
 entry:
   %0 = load ptr, ptr %obj, align 8
   %tobool.not = icmp eq ptr %0, null
-  br i1 %tobool.not, label %entry.split, label %qobject_ref_impl.exit
-
-entry.split:                                      ; preds = %entry
-  tail call fastcc void @qobject_output_add_obj(ptr noundef %v, ptr noundef %name, ptr noundef null)
-  br label %cond.end
+  br i1 %tobool.not, label %cond.end, label %qobject_ref_impl.exit
 
 qobject_ref_impl.exit:                            ; preds = %entry
   %refcnt.i = getelementptr inbounds i8, ptr %0, i64 8
   %1 = load i64, ptr %refcnt.i, align 8
   %inc.i = add i64 %1, 1
   store i64 %inc.i, ptr %refcnt.i, align 8
-  tail call fastcc void @qobject_output_add_obj(ptr noundef %v, ptr noundef %name, ptr noundef nonnull %0)
   br label %cond.end
 
-cond.end:                                         ; preds = %entry.split, %qobject_ref_impl.exit
+cond.end:                                         ; preds = %entry, %qobject_ref_impl.exit
+  %.sink = phi ptr [ %0, %qobject_ref_impl.exit ], [ null, %entry ]
+  tail call fastcc void @qobject_output_add_obj(ptr noundef %v, ptr noundef %name, ptr noundef %.sink)
   ret i1 true
 }
 

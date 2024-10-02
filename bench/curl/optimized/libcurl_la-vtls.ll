@@ -956,7 +956,7 @@ if.end5.i:                                        ; preds = %entry
   %2 = load ptr, ptr @available_backends, align 16
   %tobool8.not8.i = icmp eq ptr %2, null
   %or.cond.i = select i1 %tobool6.not.i, i1 true, i1 %tobool8.not8.i
-  br i1 %or.cond.i, label %if.end17.i, label %for.body.i
+  br i1 %or.cond.i, label %multissl_setup.exit.sink.split, label %for.body.i
 
 for.cond.i:                                       ; preds = %for.body.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -977,26 +977,23 @@ for.body.i:                                       ; preds = %if.end5.i, %for.con
 if.then13.i:                                      ; preds = %for.body.i
   %arrayidx.le.i = getelementptr inbounds [2 x ptr], ptr @available_backends, i64 0, i64 %indvars.iv.i
   %6 = load ptr, ptr %arrayidx.le.i, align 8
-  store ptr %6, ptr @Curl_ssl, align 8
-  %7 = load ptr, ptr @Curl_cfree, align 8
-  tail call void %7(ptr noundef nonnull %call.i) #18
-  br label %multissl_setup.exit
+  br label %multissl_setup.exit.sink.split
 
 if.end17.loopexit.i:                              ; preds = %for.cond.i
   %.pre.i = load ptr, ptr @available_backends, align 16
-  br label %if.end17.i
+  br label %multissl_setup.exit.sink.split
 
-if.end17.i:                                       ; preds = %if.end17.loopexit.i, %if.end5.i
-  %8 = phi ptr [ %.pre.i, %if.end17.loopexit.i ], [ %2, %if.end5.i ]
-  store ptr %8, ptr @Curl_ssl, align 8
-  %9 = load ptr, ptr @Curl_cfree, align 8
-  tail call void %9(ptr noundef %call.i) #18
+multissl_setup.exit.sink.split:                   ; preds = %if.end5.i, %if.end17.loopexit.i, %if.then13.i
+  %.sink = phi ptr [ %6, %if.then13.i ], [ %.pre.i, %if.end17.loopexit.i ], [ %2, %if.end5.i ]
+  store ptr %.sink, ptr @Curl_ssl, align 8
+  %7 = load ptr, ptr @Curl_cfree, align 8
+  tail call void %7(ptr noundef %call.i) #18
   br label %multissl_setup.exit
 
-multissl_setup.exit:                              ; preds = %entry, %if.then13.i, %if.end17.i
-  %10 = load ptr, ptr @Curl_ssl, align 8
-  %11 = load i32, ptr %10, align 8
-  ret i32 %11
+multissl_setup.exit:                              ; preds = %multissl_setup.exit.sink.split, %entry
+  %8 = load ptr, ptr @Curl_ssl, align 8
+  %9 = load i32, ptr %8, align 8
+  ret i32 %9
 }
 
 ; Function Attrs: nounwind uwtable
@@ -4013,7 +4010,7 @@ if.end5.i:                                        ; preds = %entry
   %2 = load ptr, ptr @available_backends, align 16
   %tobool8.not8.i = icmp eq ptr %2, null
   %or.cond.i = select i1 %tobool6.not.i, i1 true, i1 %tobool8.not8.i
-  br i1 %or.cond.i, label %if.end17.i, label %for.body.i
+  br i1 %or.cond.i, label %if.end, label %for.body.i
 
 for.cond.i:                                       ; preds = %for.body.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -4034,27 +4031,21 @@ for.body.i:                                       ; preds = %if.end5.i, %for.con
 if.then13.i:                                      ; preds = %for.body.i
   %arrayidx.le.i = getelementptr inbounds [2 x ptr], ptr @available_backends, i64 0, i64 %indvars.iv.i
   %6 = load ptr, ptr %arrayidx.le.i, align 8
-  store ptr %6, ptr @Curl_ssl, align 8
-  %7 = load ptr, ptr @Curl_cfree, align 8
-  tail call void %7(ptr noundef nonnull %call.i) #18
   br label %if.end
 
 if.end17.loopexit.i:                              ; preds = %for.cond.i
   %.pre.i = load ptr, ptr @available_backends, align 16
-  br label %if.end17.i
-
-if.end17.i:                                       ; preds = %if.end17.loopexit.i, %if.end5.i
-  %8 = phi ptr [ %.pre.i, %if.end17.loopexit.i ], [ %2, %if.end5.i ]
-  store ptr %8, ptr @Curl_ssl, align 8
-  %9 = load ptr, ptr @Curl_cfree, align 8
-  tail call void %9(ptr noundef %call.i) #18
   br label %if.end
 
-if.end:                                           ; preds = %if.then13.i, %if.end17.i
-  %10 = load ptr, ptr @Curl_ssl, align 8
-  %init = getelementptr inbounds i8, ptr %10, i64 32
-  %11 = load ptr, ptr %init, align 8
-  %call1 = tail call i32 %11() #18
+if.end:                                           ; preds = %if.end5.i, %if.end17.loopexit.i, %if.then13.i
+  %.sink = phi ptr [ %6, %if.then13.i ], [ %.pre.i, %if.end17.loopexit.i ], [ %2, %if.end5.i ]
+  store ptr %.sink, ptr @Curl_ssl, align 8
+  %7 = load ptr, ptr @Curl_cfree, align 8
+  tail call void %7(ptr noundef %call.i) #18
+  %8 = load ptr, ptr @Curl_ssl, align 8
+  %init = getelementptr inbounds i8, ptr %8, i64 32
+  %9 = load ptr, ptr %init, align 8
+  %call1 = tail call i32 %9() #18
   br label %return
 
 return:                                           ; preds = %entry, %if.end
@@ -4156,7 +4147,7 @@ if.end5.i:                                        ; preds = %entry
   %2 = load ptr, ptr @available_backends, align 16
   %tobool8.not8.i = icmp eq ptr %2, null
   %or.cond.i = select i1 %tobool6.not.i, i1 true, i1 %tobool8.not8.i
-  br i1 %or.cond.i, label %if.end17.i, label %for.body.i
+  br i1 %or.cond.i, label %if.end, label %for.body.i
 
 for.cond.i:                                       ; preds = %for.body.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -4177,27 +4168,21 @@ for.body.i:                                       ; preds = %if.end5.i, %for.con
 if.then13.i:                                      ; preds = %for.body.i
   %arrayidx.le.i = getelementptr inbounds [2 x ptr], ptr @available_backends, i64 0, i64 %indvars.iv.i
   %6 = load ptr, ptr %arrayidx.le.i, align 8
-  store ptr %6, ptr @Curl_ssl, align 8
-  %7 = load ptr, ptr @Curl_cfree, align 8
-  tail call void %7(ptr noundef nonnull %call.i) #18
   br label %if.end
 
 if.end17.loopexit.i:                              ; preds = %for.cond.i
   %.pre.i = load ptr, ptr @available_backends, align 16
-  br label %if.end17.i
-
-if.end17.i:                                       ; preds = %if.end17.loopexit.i, %if.end5.i
-  %8 = phi ptr [ %.pre.i, %if.end17.loopexit.i ], [ %2, %if.end5.i ]
-  store ptr %8, ptr @Curl_ssl, align 8
-  %9 = load ptr, ptr @Curl_cfree, align 8
-  tail call void %9(ptr noundef %call.i) #18
   br label %if.end
 
-if.end:                                           ; preds = %if.then13.i, %if.end17.i
-  %10 = load ptr, ptr @Curl_ssl, align 8
-  %connect_blocking = getelementptr inbounds i8, ptr %10, i64 96
-  %11 = load ptr, ptr %connect_blocking, align 8
-  %call1 = tail call i32 %11(ptr noundef %cf, ptr noundef %data) #18
+if.end:                                           ; preds = %if.end5.i, %if.end17.loopexit.i, %if.then13.i
+  %.sink = phi ptr [ %6, %if.then13.i ], [ %.pre.i, %if.end17.loopexit.i ], [ %2, %if.end5.i ]
+  store ptr %.sink, ptr @Curl_ssl, align 8
+  %7 = load ptr, ptr @Curl_cfree, align 8
+  tail call void %7(ptr noundef %call.i) #18
+  %8 = load ptr, ptr @Curl_ssl, align 8
+  %connect_blocking = getelementptr inbounds i8, ptr %8, i64 96
+  %9 = load ptr, ptr %connect_blocking, align 8
+  %call1 = tail call i32 %9(ptr noundef %cf, ptr noundef %data) #18
   br label %return
 
 return:                                           ; preds = %entry, %if.end
@@ -4221,7 +4206,7 @@ if.end5.i:                                        ; preds = %entry
   %2 = load ptr, ptr @available_backends, align 16
   %tobool8.not8.i = icmp eq ptr %2, null
   %or.cond.i = select i1 %tobool6.not.i, i1 true, i1 %tobool8.not8.i
-  br i1 %or.cond.i, label %if.end17.i, label %for.body.i
+  br i1 %or.cond.i, label %if.end, label %for.body.i
 
 for.cond.i:                                       ; preds = %for.body.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -4242,27 +4227,21 @@ for.body.i:                                       ; preds = %if.end5.i, %for.con
 if.then13.i:                                      ; preds = %for.body.i
   %arrayidx.le.i = getelementptr inbounds [2 x ptr], ptr @available_backends, i64 0, i64 %indvars.iv.i
   %6 = load ptr, ptr %arrayidx.le.i, align 8
-  store ptr %6, ptr @Curl_ssl, align 8
-  %7 = load ptr, ptr @Curl_cfree, align 8
-  tail call void %7(ptr noundef nonnull %call.i) #18
   br label %if.end
 
 if.end17.loopexit.i:                              ; preds = %for.cond.i
   %.pre.i = load ptr, ptr @available_backends, align 16
-  br label %if.end17.i
-
-if.end17.i:                                       ; preds = %if.end17.loopexit.i, %if.end5.i
-  %8 = phi ptr [ %.pre.i, %if.end17.loopexit.i ], [ %2, %if.end5.i ]
-  store ptr %8, ptr @Curl_ssl, align 8
-  %9 = load ptr, ptr @Curl_cfree, align 8
-  tail call void %9(ptr noundef %call.i) #18
   br label %if.end
 
-if.end:                                           ; preds = %if.then13.i, %if.end17.i
-  %10 = load ptr, ptr @Curl_ssl, align 8
-  %connect_nonblocking = getelementptr inbounds i8, ptr %10, i64 104
-  %11 = load ptr, ptr %connect_nonblocking, align 8
-  %call1 = tail call i32 %11(ptr noundef %cf, ptr noundef %data, ptr noundef %done) #18
+if.end:                                           ; preds = %if.end5.i, %if.end17.loopexit.i, %if.then13.i
+  %.sink = phi ptr [ %6, %if.then13.i ], [ %.pre.i, %if.end17.loopexit.i ], [ %2, %if.end5.i ]
+  store ptr %.sink, ptr @Curl_ssl, align 8
+  %7 = load ptr, ptr @Curl_cfree, align 8
+  tail call void %7(ptr noundef %call.i) #18
+  %8 = load ptr, ptr @Curl_ssl, align 8
+  %connect_nonblocking = getelementptr inbounds i8, ptr %8, i64 104
+  %9 = load ptr, ptr %connect_nonblocking, align 8
+  %call1 = tail call i32 %9(ptr noundef %cf, ptr noundef %data, ptr noundef %done) #18
   br label %return
 
 return:                                           ; preds = %entry, %if.end
@@ -4286,7 +4265,7 @@ if.end5.i:                                        ; preds = %entry
   %2 = load ptr, ptr @available_backends, align 16
   %tobool8.not8.i = icmp eq ptr %2, null
   %or.cond.i = select i1 %tobool6.not.i, i1 true, i1 %tobool8.not8.i
-  br i1 %or.cond.i, label %if.end17.i, label %for.body.i
+  br i1 %or.cond.i, label %if.end, label %for.body.i
 
 for.cond.i:                                       ; preds = %for.body.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -4307,27 +4286,21 @@ for.body.i:                                       ; preds = %if.end5.i, %for.con
 if.then13.i:                                      ; preds = %for.body.i
   %arrayidx.le.i = getelementptr inbounds [2 x ptr], ptr @available_backends, i64 0, i64 %indvars.iv.i
   %6 = load ptr, ptr %arrayidx.le.i, align 8
-  store ptr %6, ptr @Curl_ssl, align 8
-  %7 = load ptr, ptr @Curl_cfree, align 8
-  tail call void %7(ptr noundef nonnull %call.i) #18
   br label %if.end
 
 if.end17.loopexit.i:                              ; preds = %for.cond.i
   %.pre.i = load ptr, ptr @available_backends, align 16
-  br label %if.end17.i
-
-if.end17.i:                                       ; preds = %if.end17.loopexit.i, %if.end5.i
-  %8 = phi ptr [ %.pre.i, %if.end17.loopexit.i ], [ %2, %if.end5.i ]
-  store ptr %8, ptr @Curl_ssl, align 8
-  %9 = load ptr, ptr @Curl_cfree, align 8
-  tail call void %9(ptr noundef %call.i) #18
   br label %if.end
 
-if.end:                                           ; preds = %if.then13.i, %if.end17.i
-  %10 = load ptr, ptr @Curl_ssl, align 8
-  %adjust_pollset = getelementptr inbounds i8, ptr %10, i64 112
-  %11 = load ptr, ptr %adjust_pollset, align 8
-  tail call void %11(ptr noundef %cf, ptr noundef %data, ptr noundef %ps) #18
+if.end:                                           ; preds = %if.end5.i, %if.end17.loopexit.i, %if.then13.i
+  %.sink = phi ptr [ %6, %if.then13.i ], [ %.pre.i, %if.end17.loopexit.i ], [ %2, %if.end5.i ]
+  store ptr %.sink, ptr @Curl_ssl, align 8
+  %7 = load ptr, ptr @Curl_cfree, align 8
+  tail call void %7(ptr noundef %call.i) #18
+  %8 = load ptr, ptr @Curl_ssl, align 8
+  %adjust_pollset = getelementptr inbounds i8, ptr %8, i64 112
+  %9 = load ptr, ptr %adjust_pollset, align 8
+  tail call void %9(ptr noundef %cf, ptr noundef %data, ptr noundef %ps) #18
   br label %return
 
 return:                                           ; preds = %entry, %if.end
@@ -4350,7 +4323,7 @@ if.end5.i:                                        ; preds = %entry
   %2 = load ptr, ptr @available_backends, align 16
   %tobool8.not8.i = icmp eq ptr %2, null
   %or.cond.i = select i1 %tobool6.not.i, i1 true, i1 %tobool8.not8.i
-  br i1 %or.cond.i, label %if.end17.i, label %for.body.i
+  br i1 %or.cond.i, label %if.end, label %for.body.i
 
 for.cond.i:                                       ; preds = %for.body.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -4371,27 +4344,21 @@ for.body.i:                                       ; preds = %if.end5.i, %for.con
 if.then13.i:                                      ; preds = %for.body.i
   %arrayidx.le.i = getelementptr inbounds [2 x ptr], ptr @available_backends, i64 0, i64 %indvars.iv.i
   %6 = load ptr, ptr %arrayidx.le.i, align 8
-  store ptr %6, ptr @Curl_ssl, align 8
-  %7 = load ptr, ptr @Curl_cfree, align 8
-  tail call void %7(ptr noundef nonnull %call.i) #18
   br label %if.end
 
 if.end17.loopexit.i:                              ; preds = %for.cond.i
   %.pre.i = load ptr, ptr @available_backends, align 16
-  br label %if.end17.i
-
-if.end17.i:                                       ; preds = %if.end17.loopexit.i, %if.end5.i
-  %8 = phi ptr [ %.pre.i, %if.end17.loopexit.i ], [ %2, %if.end5.i ]
-  store ptr %8, ptr @Curl_ssl, align 8
-  %9 = load ptr, ptr @Curl_cfree, align 8
-  tail call void %9(ptr noundef %call.i) #18
   br label %if.end
 
-if.end:                                           ; preds = %if.then13.i, %if.end17.i
-  %10 = load ptr, ptr @Curl_ssl, align 8
-  %get_internals = getelementptr inbounds i8, ptr %10, i64 120
-  %11 = load ptr, ptr %get_internals, align 8
-  %call1 = tail call ptr %11(ptr noundef %connssl, i32 noundef %info) #18
+if.end:                                           ; preds = %if.end5.i, %if.end17.loopexit.i, %if.then13.i
+  %.sink = phi ptr [ %6, %if.then13.i ], [ %.pre.i, %if.end17.loopexit.i ], [ %2, %if.end5.i ]
+  store ptr %.sink, ptr @Curl_ssl, align 8
+  %7 = load ptr, ptr @Curl_cfree, align 8
+  tail call void %7(ptr noundef %call.i) #18
+  %8 = load ptr, ptr @Curl_ssl, align 8
+  %get_internals = getelementptr inbounds i8, ptr %8, i64 120
+  %9 = load ptr, ptr %get_internals, align 8
+  %call1 = tail call ptr %9(ptr noundef %connssl, i32 noundef %info) #18
   br label %return
 
 return:                                           ; preds = %entry, %if.end
@@ -4415,7 +4382,7 @@ if.end5.i:                                        ; preds = %entry
   %2 = load ptr, ptr @available_backends, align 16
   %tobool8.not8.i = icmp eq ptr %2, null
   %or.cond.i = select i1 %tobool6.not.i, i1 true, i1 %tobool8.not8.i
-  br i1 %or.cond.i, label %if.end17.i, label %for.body.i
+  br i1 %or.cond.i, label %if.end, label %for.body.i
 
 for.cond.i:                                       ; preds = %for.body.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -4436,27 +4403,21 @@ for.body.i:                                       ; preds = %if.end5.i, %for.con
 if.then13.i:                                      ; preds = %for.body.i
   %arrayidx.le.i = getelementptr inbounds [2 x ptr], ptr @available_backends, i64 0, i64 %indvars.iv.i
   %6 = load ptr, ptr %arrayidx.le.i, align 8
-  store ptr %6, ptr @Curl_ssl, align 8
-  %7 = load ptr, ptr @Curl_cfree, align 8
-  tail call void %7(ptr noundef nonnull %call.i) #18
   br label %if.end
 
 if.end17.loopexit.i:                              ; preds = %for.cond.i
   %.pre.i = load ptr, ptr @available_backends, align 16
-  br label %if.end17.i
-
-if.end17.i:                                       ; preds = %if.end17.loopexit.i, %if.end5.i
-  %8 = phi ptr [ %.pre.i, %if.end17.loopexit.i ], [ %2, %if.end5.i ]
-  store ptr %8, ptr @Curl_ssl, align 8
-  %9 = load ptr, ptr @Curl_cfree, align 8
-  tail call void %9(ptr noundef %call.i) #18
   br label %if.end
 
-if.end:                                           ; preds = %if.then13.i, %if.end17.i
-  %10 = load ptr, ptr @Curl_ssl, align 8
-  %close = getelementptr inbounds i8, ptr %10, i64 128
-  %11 = load ptr, ptr %close, align 8
-  tail call void %11(ptr noundef %cf, ptr noundef %data) #18
+if.end:                                           ; preds = %if.end5.i, %if.end17.loopexit.i, %if.then13.i
+  %.sink = phi ptr [ %6, %if.then13.i ], [ %.pre.i, %if.end17.loopexit.i ], [ %2, %if.end5.i ]
+  store ptr %.sink, ptr @Curl_ssl, align 8
+  %7 = load ptr, ptr @Curl_cfree, align 8
+  tail call void %7(ptr noundef %call.i) #18
+  %8 = load ptr, ptr @Curl_ssl, align 8
+  %close = getelementptr inbounds i8, ptr %8, i64 128
+  %9 = load ptr, ptr %close, align 8
+  tail call void %9(ptr noundef %cf, ptr noundef %data) #18
   br label %return
 
 return:                                           ; preds = %entry, %if.end
@@ -4479,7 +4440,7 @@ if.end5.i:                                        ; preds = %entry
   %2 = load ptr, ptr @available_backends, align 16
   %tobool8.not8.i = icmp eq ptr %2, null
   %or.cond.i = select i1 %tobool6.not.i, i1 true, i1 %tobool8.not8.i
-  br i1 %or.cond.i, label %if.end17.i, label %for.body.i
+  br i1 %or.cond.i, label %if.end, label %for.body.i
 
 for.cond.i:                                       ; preds = %for.body.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -4500,27 +4461,21 @@ for.body.i:                                       ; preds = %if.end5.i, %for.con
 if.then13.i:                                      ; preds = %for.body.i
   %arrayidx.le.i = getelementptr inbounds [2 x ptr], ptr @available_backends, i64 0, i64 %indvars.iv.i
   %6 = load ptr, ptr %arrayidx.le.i, align 8
-  store ptr %6, ptr @Curl_ssl, align 8
-  %7 = load ptr, ptr @Curl_cfree, align 8
-  tail call void %7(ptr noundef nonnull %call.i) #18
   br label %if.end
 
 if.end17.loopexit.i:                              ; preds = %for.cond.i
   %.pre.i = load ptr, ptr @available_backends, align 16
-  br label %if.end17.i
-
-if.end17.i:                                       ; preds = %if.end17.loopexit.i, %if.end5.i
-  %8 = phi ptr [ %.pre.i, %if.end17.loopexit.i ], [ %2, %if.end5.i ]
-  store ptr %8, ptr @Curl_ssl, align 8
-  %9 = load ptr, ptr @Curl_cfree, align 8
-  tail call void %9(ptr noundef %call.i) #18
   br label %if.end
 
-if.end:                                           ; preds = %if.then13.i, %if.end17.i
-  %10 = load ptr, ptr @Curl_ssl, align 8
-  %recv_plain = getelementptr inbounds i8, ptr %10, i64 216
-  %11 = load ptr, ptr %recv_plain, align 8
-  %call1 = tail call i64 %11(ptr noundef %cf, ptr noundef %data, ptr noundef %buf, i64 noundef %len, ptr noundef %code) #18
+if.end:                                           ; preds = %if.end5.i, %if.end17.loopexit.i, %if.then13.i
+  %.sink = phi ptr [ %6, %if.then13.i ], [ %.pre.i, %if.end17.loopexit.i ], [ %2, %if.end5.i ]
+  store ptr %.sink, ptr @Curl_ssl, align 8
+  %7 = load ptr, ptr @Curl_cfree, align 8
+  tail call void %7(ptr noundef %call.i) #18
+  %8 = load ptr, ptr @Curl_ssl, align 8
+  %recv_plain = getelementptr inbounds i8, ptr %8, i64 216
+  %9 = load ptr, ptr %recv_plain, align 8
+  %call1 = tail call i64 %9(ptr noundef %cf, ptr noundef %data, ptr noundef %buf, i64 noundef %len, ptr noundef %code) #18
   br label %return
 
 return:                                           ; preds = %entry, %if.end
@@ -4544,7 +4499,7 @@ if.end5.i:                                        ; preds = %entry
   %2 = load ptr, ptr @available_backends, align 16
   %tobool8.not8.i = icmp eq ptr %2, null
   %or.cond.i = select i1 %tobool6.not.i, i1 true, i1 %tobool8.not8.i
-  br i1 %or.cond.i, label %if.end17.i, label %for.body.i
+  br i1 %or.cond.i, label %if.end, label %for.body.i
 
 for.cond.i:                                       ; preds = %for.body.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -4565,27 +4520,21 @@ for.body.i:                                       ; preds = %if.end5.i, %for.con
 if.then13.i:                                      ; preds = %for.body.i
   %arrayidx.le.i = getelementptr inbounds [2 x ptr], ptr @available_backends, i64 0, i64 %indvars.iv.i
   %6 = load ptr, ptr %arrayidx.le.i, align 8
-  store ptr %6, ptr @Curl_ssl, align 8
-  %7 = load ptr, ptr @Curl_cfree, align 8
-  tail call void %7(ptr noundef nonnull %call.i) #18
   br label %if.end
 
 if.end17.loopexit.i:                              ; preds = %for.cond.i
   %.pre.i = load ptr, ptr @available_backends, align 16
-  br label %if.end17.i
-
-if.end17.i:                                       ; preds = %if.end17.loopexit.i, %if.end5.i
-  %8 = phi ptr [ %.pre.i, %if.end17.loopexit.i ], [ %2, %if.end5.i ]
-  store ptr %8, ptr @Curl_ssl, align 8
-  %9 = load ptr, ptr @Curl_cfree, align 8
-  tail call void %9(ptr noundef %call.i) #18
   br label %if.end
 
-if.end:                                           ; preds = %if.then13.i, %if.end17.i
-  %10 = load ptr, ptr @Curl_ssl, align 8
-  %send_plain = getelementptr inbounds i8, ptr %10, i64 224
-  %11 = load ptr, ptr %send_plain, align 8
-  %call1 = tail call i64 %11(ptr noundef %cf, ptr noundef %data, ptr noundef %mem, i64 noundef %len, ptr noundef %code) #18
+if.end:                                           ; preds = %if.end5.i, %if.end17.loopexit.i, %if.then13.i
+  %.sink = phi ptr [ %6, %if.then13.i ], [ %.pre.i, %if.end17.loopexit.i ], [ %2, %if.end5.i ]
+  store ptr %.sink, ptr @Curl_ssl, align 8
+  %7 = load ptr, ptr @Curl_cfree, align 8
+  tail call void %7(ptr noundef %call.i) #18
+  %8 = load ptr, ptr @Curl_ssl, align 8
+  %send_plain = getelementptr inbounds i8, ptr %8, i64 224
+  %9 = load ptr, ptr %send_plain, align 8
+  %call1 = tail call i64 %9(ptr noundef %cf, ptr noundef %data, ptr noundef %mem, i64 noundef %len, ptr noundef %code) #18
   br label %return
 
 return:                                           ; preds = %entry, %if.end

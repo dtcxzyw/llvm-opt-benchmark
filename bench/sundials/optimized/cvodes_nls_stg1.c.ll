@@ -368,68 +368,48 @@ define range(i32 -13, 1) i32 @cvNlsInitSensStg1(ptr noundef %0) local_unnamed_ad
   %.not = icmp eq ptr %3, null
   %4 = getelementptr inbounds i8, ptr %0, i64 1880
   %5 = load ptr, ptr %4, align 8
-  br i1 %.not, label %8, label %6
+  %.cvNlsLSetupSensStg1 = select i1 %.not, ptr null, ptr @cvNlsLSetupSensStg1
+  %6 = tail call i32 @SUNNonlinSolSetLSetupFn(ptr noundef %5, ptr noundef %.cvNlsLSetupSensStg1) #2
+  %.not15 = icmp eq i32 %6, 0
+  br i1 %.not15, label %8, label %7
 
-6:                                                ; preds = %1
-  %7 = tail call i32 @SUNNonlinSolSetLSetupFn(ptr noundef %5, ptr noundef nonnull @cvNlsLSetupSensStg1) #2
-  br label %10
+7:                                                ; preds = %1
+  tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef nonnull %0, i32 noundef -22, i32 noundef 162, ptr noundef nonnull @__func__.cvNlsInitSensStg1, ptr noundef nonnull @.str, ptr noundef nonnull @.str.10) #2
+  br label %22
 
 8:                                                ; preds = %1
-  %9 = tail call i32 @SUNNonlinSolSetLSetupFn(ptr noundef %5, ptr noundef null) #2
-  br label %10
+  %9 = getelementptr inbounds i8, ptr %0, i64 2000
+  %10 = load ptr, ptr %9, align 8
+  %.not16 = icmp eq ptr %10, null
+  %11 = getelementptr inbounds i8, ptr %0, i64 1880
+  %12 = load ptr, ptr %11, align 8
+  %.cvNlsLSolveSensStg1 = select i1 %.not16, ptr null, ptr @cvNlsLSolveSensStg1
+  %13 = tail call i32 @SUNNonlinSolSetLSolveFn(ptr noundef %12, ptr noundef %.cvNlsLSolveSensStg1) #2
+  %.not17 = icmp eq i32 %13, 0
+  br i1 %.not17, label %15, label %14
 
-10:                                               ; preds = %8, %6
-  %.0 = phi i32 [ %7, %6 ], [ %9, %8 ]
-  %.not15 = icmp eq i32 %.0, 0
-  br i1 %.not15, label %12, label %11
-
-11:                                               ; preds = %10
-  tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef nonnull %0, i32 noundef -22, i32 noundef 162, ptr noundef nonnull @__func__.cvNlsInitSensStg1, ptr noundef nonnull @.str, ptr noundef nonnull @.str.10) #2
-  br label %30
-
-12:                                               ; preds = %10
-  %13 = getelementptr inbounds i8, ptr %0, i64 2000
-  %14 = load ptr, ptr %13, align 8
-  %.not16 = icmp eq ptr %14, null
-  %15 = getelementptr inbounds i8, ptr %0, i64 1880
-  %16 = load ptr, ptr %15, align 8
-  br i1 %.not16, label %19, label %17
-
-17:                                               ; preds = %12
-  %18 = tail call i32 @SUNNonlinSolSetLSolveFn(ptr noundef %16, ptr noundef nonnull @cvNlsLSolveSensStg1) #2
-  br label %21
-
-19:                                               ; preds = %12
-  %20 = tail call i32 @SUNNonlinSolSetLSolveFn(ptr noundef %16, ptr noundef null) #2
-  br label %21
-
-21:                                               ; preds = %19, %17
-  %.1 = phi i32 [ %18, %17 ], [ %20, %19 ]
-  %.not17 = icmp eq i32 %.1, 0
-  br i1 %.not17, label %23, label %22
-
-22:                                               ; preds = %21
+14:                                               ; preds = %8
   tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef nonnull %0, i32 noundef -22, i32 noundef 176, ptr noundef nonnull @__func__.cvNlsInitSensStg1, ptr noundef nonnull @.str, ptr noundef nonnull @.str.11) #2
-  br label %30
+  br label %22
 
-23:                                               ; preds = %21
-  %24 = getelementptr inbounds i8, ptr %0, i64 1880
-  %25 = load ptr, ptr %24, align 8
-  %26 = tail call i32 @SUNNonlinSolInitialize(ptr noundef %25) #2
-  %.not18 = icmp eq i32 %26, 0
-  br i1 %.not18, label %28, label %27
+15:                                               ; preds = %8
+  %16 = getelementptr inbounds i8, ptr %0, i64 1880
+  %17 = load ptr, ptr %16, align 8
+  %18 = tail call i32 @SUNNonlinSolInitialize(ptr noundef %17) #2
+  %.not18 = icmp eq i32 %18, 0
+  br i1 %.not18, label %20, label %19
 
-27:                                               ; preds = %23
+19:                                               ; preds = %15
   tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef nonnull %0, i32 noundef -22, i32 noundef 186, ptr noundef nonnull @__func__.cvNlsInitSensStg1, ptr noundef nonnull @.str, ptr noundef nonnull @.str.12) #2
-  br label %30
+  br label %22
 
-28:                                               ; preds = %23
-  %29 = getelementptr inbounds i8, ptr %0, i64 1896
-  store i64 0, ptr %29, align 8
-  br label %30
+20:                                               ; preds = %15
+  %21 = getelementptr inbounds i8, ptr %0, i64 1896
+  store i64 0, ptr %21, align 8
+  br label %22
 
-30:                                               ; preds = %28, %27, %22, %11
-  %.014 = phi i32 [ -13, %11 ], [ -13, %22 ], [ -13, %27 ], [ 0, %28 ]
+22:                                               ; preds = %20, %19, %14, %7
+  %.014 = phi i32 [ -13, %7 ], [ -13, %14 ], [ -13, %19 ], [ 0, %20 ]
   ret i32 %.014
 }
 

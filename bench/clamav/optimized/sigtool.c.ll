@@ -7104,7 +7104,7 @@ define internal fastcc void @decodehex(ptr noundef %0) unnamed_addr #0 {
 
 10:                                               ; preds = %6
   tail call void (i32, ptr, ...) @mprintf(i32 noundef 5, ptr noundef nonnull @.str.382) #25
-  br label %174
+  br label %173
 
 11:                                               ; preds = %6
   %12 = getelementptr inbounds i8, ptr %5, i64 1
@@ -7114,7 +7114,7 @@ define internal fastcc void @decodehex(ptr noundef %0) unnamed_addr #0 {
 
 15:                                               ; preds = %11
   tail call void (i32, ptr, ...) @mprintf(i32 noundef 5, ptr noundef nonnull @.str.383) #25
-  br label %174
+  br label %173
 
 16:                                               ; preds = %11
   %17 = add i64 %9, 1
@@ -7161,7 +7161,7 @@ define internal fastcc void @decodehex(ptr noundef %0) unnamed_addr #0 {
 
 .loopexit252.thread:                              ; preds = %33, %.loopexit252
   tail call void (i32, ptr, ...) @mprintf(i32 noundef 5, ptr noundef nonnull @.str.383) #25
-  br label %174
+  br label %173
 
 35:                                               ; preds = %.loopexit252
   %36 = and i64 %3, 4294967295
@@ -7174,7 +7174,7 @@ define internal fastcc void @decodehex(ptr noundef %0) unnamed_addr #0 {
 
 41:                                               ; preds = %35
   tail call void (i32, ptr, ...) @mprintf(i32 noundef 5, ptr noundef nonnull @.str.384) #25
-  br label %174
+  br label %173
 
 42:                                               ; preds = %35
   %43 = tail call ptr @strncpy(ptr noundef nonnull %40, ptr noundef %0, i64 noundef %9) #25
@@ -7188,7 +7188,7 @@ define internal fastcc void @decodehex(ptr noundef %0) unnamed_addr #0 {
 47:                                               ; preds = %42
   tail call void (i32, ptr, ...) @mprintf(i32 noundef 5, ptr noundef nonnull @.str.385) #25
   tail call void @free(ptr noundef nonnull %40) #25
-  br label %174
+  br label %173
 
 48:                                               ; preds = %42
   %49 = getelementptr inbounds i8, ptr %0, i64 %9
@@ -7209,7 +7209,7 @@ define internal fastcc void @decodehex(ptr noundef %0) unnamed_addr #0 {
   tail call void (i32, ptr, ...) @mprintf(i32 noundef 5, ptr noundef nonnull @.str.386) #25
   tail call void @free(ptr noundef nonnull %40) #25
   tail call void @free(ptr noundef nonnull %46) #25
-  br label %174
+  br label %173
 
 57:                                               ; preds = %53
   %58 = getelementptr inbounds i8, ptr %49, i64 %.0162
@@ -7228,11 +7228,11 @@ define internal fastcc void @decodehex(ptr noundef %0) unnamed_addr #0 {
   tail call void (i32, ptr, ...) @mprintf(i32 noundef 0, ptr noundef nonnull @.str.389, ptr noundef nonnull %63) #25
   tail call void @free(ptr noundef nonnull %40) #25
   tail call void @free(ptr noundef nonnull %46) #25
-  br i1 %.not242, label %174, label %64
+  br i1 %.not242, label %173, label %64
 
 64:                                               ; preds = %62
   tail call void @free(ptr noundef nonnull %.0164) #25
-  br label %174
+  br label %173
 
 65:                                               ; preds = %1
   %66 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %0, i32 noundef 123) #31
@@ -7247,11 +7247,11 @@ define internal fastcc void @decodehex(ptr noundef %0) unnamed_addr #0 {
 69:                                               ; preds = %67, %65
   %70 = tail call noalias ptr @strdup(ptr noundef %0) #25
   %.not219 = icmp eq ptr %70, null
-  br i1 %.not219, label %174, label %.preheader251
+  br i1 %.not219, label %173, label %.preheader251
 
 .preheader251:                                    ; preds = %69
   %.not301 = icmp eq i32 %4, 0
-  br i1 %.not301, label %.critedge244, label %.lr.ph268.preheader
+  br i1 %.not301, label %.loopexit.sink.split, label %.lr.ph268.preheader
 
 .lr.ph268.preheader:                              ; preds = %.preheader251
   %wide.trip.count = and i64 %3, 4294967295
@@ -7281,7 +7281,7 @@ define internal fastcc void @decodehex(ptr noundef %0) unnamed_addr #0 {
 ._crit_edge:                                      ; preds = %75
   %76 = add i32 %.1176, 1
   %.not221279 = icmp ult i32 %76, 2
-  br i1 %.not221279, label %.critedge244, label %.lr.ph290
+  br i1 %.not221279, label %.loopexit.sink.split, label %.lr.ph290
 
 .lr.ph290:                                        ; preds = %._crit_edge, %139
   %.0163288 = phi ptr [ %.1, %139 ], [ %70, %._crit_edge ]
@@ -7372,7 +7372,7 @@ define internal fastcc void @decodehex(ptr noundef %0) unnamed_addr #0 {
 101:                                              ; preds = %99
   tail call void (i32, ptr, ...) @mprintf(i32 noundef 5, ptr noundef nonnull @.str.395) #25
   tail call void @free(ptr noundef %70) #25
-  br label %174
+  br label %173
 
 102:                                              ; preds = %99
   %103 = load i32, ptr %2, align 4
@@ -7387,7 +7387,7 @@ define internal fastcc void @decodehex(ptr noundef %0) unnamed_addr #0 {
 
 107:                                              ; preds = %106, %102
   tail call void @free(ptr noundef nonnull %100) #25
-  br i1 %.not222, label %.critedge244, label %108
+  br i1 %.not222, label %.loopexit.sink.split, label %108
 
 108:                                              ; preds = %107
   %.not225 = icmp eq i32 %.1179, 0
@@ -7476,7 +7476,7 @@ define internal fastcc void @decodehex(ptr noundef %0) unnamed_addr #0 {
   %.1166 = phi ptr [ %114, %137 ], [ %114, %118 ], [ %.1, %109 ]
   %140 = add i32 %.2184280, 1
   %.not221 = icmp ugt i32 %140, %76
-  br i1 %.not221, label %.critedge244, label %.lr.ph290
+  br i1 %.not221, label %.loopexit.sink.split, label %.lr.ph290
 
 .loopexit250.sink.split:                          ; preds = %137, %131, %133, %123, %125
   %.lcssa348.sink = phi ptr [ %122, %125 ], [ %122, %123 ], [ %130, %133 ], [ %130, %131 ], [ %138, %137 ]
@@ -7485,7 +7485,7 @@ define internal fastcc void @decodehex(ptr noundef %0) unnamed_addr #0 {
 
 .loopexit250:                                     ; preds = %116, %118, %111, %.loopexit250.sink.split
   tail call void @free(ptr noundef %70) #25
-  br label %174
+  br label %173
 
 141:                                              ; preds = %67
   %142 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %0, i32 noundef 42) #31
@@ -7526,7 +7526,7 @@ define internal fastcc void @decodehex(ptr noundef %0) unnamed_addr #0 {
 
 151:                                              ; preds = %.lr.ph300
   tail call void (i32, ptr, ...) @mprintf(i32 noundef 5, ptr noundef nonnull @.str.399, i32 noundef %.4186298) #25
-  br label %174
+  br label %173
 
 152:                                              ; preds = %.lr.ph300
   %153 = call fastcc ptr @decodehexspecial(ptr noundef nonnull %149, ptr noundef %2)
@@ -7536,7 +7536,7 @@ define internal fastcc void @decodehex(ptr noundef %0) unnamed_addr #0 {
 154:                                              ; preds = %152
   tail call void (i32, ptr, ...) @mprintf(i32 noundef 5, ptr noundef nonnull @.str.395) #25
   tail call void @free(ptr noundef nonnull %149) #25
-  br label %174
+  br label %173
 
 155:                                              ; preds = %152
   %156 = load i32, ptr %2, align 4
@@ -7571,32 +7571,29 @@ define internal fastcc void @decodehex(ptr noundef %0) unnamed_addr #0 {
 
 167:                                              ; preds = %165
   tail call void (i32, ptr, ...) @mprintf(i32 noundef 5, ptr noundef nonnull @.str.395) #25
-  br label %174
+  br label %173
 
 168:                                              ; preds = %165
   %169 = load i32, ptr %2, align 4
   %170 = zext i32 %169 to i64
   %171 = tail call i64 @write(i32 noundef 1, ptr noundef nonnull %166, i64 noundef %170) #25
   %.not214 = icmp eq i64 %171, %170
-  br i1 %.not214, label %173, label %172
+  br i1 %.not214, label %.loopexit.sink.split, label %172
 
 172:                                              ; preds = %168
   tail call void (i32, ptr, ...) @mprintf(i32 noundef 4, ptr noundef nonnull @.str.396) #25
+  br label %.loopexit.sink.split
+
+.loopexit.sink.split:                             ; preds = %139, %107, %._crit_edge, %.preheader251, %168, %172
+  %.sink = phi ptr [ %166, %172 ], [ %166, %168 ], [ %70, %.preheader251 ], [ %70, %._crit_edge ], [ %70, %107 ], [ %70, %139 ]
+  tail call void @free(ptr noundef %.sink) #25
+  br label %.loopexit
+
+.loopexit:                                        ; preds = %163, %.loopexit.sink.split, %.preheader, %._crit_edge295
+  tail call void (i32, ptr, ...) @mprintf(i32 noundef 0, ptr noundef nonnull @.str.40) #25
   br label %173
 
-173:                                              ; preds = %172, %168
-  tail call void @free(ptr noundef nonnull %166) #25
-  br label %.loopexit
-
-.critedge244:                                     ; preds = %107, %139, %.preheader251, %._crit_edge
-  tail call void @free(ptr noundef %70) #25
-  br label %.loopexit
-
-.loopexit:                                        ; preds = %163, %.preheader, %._crit_edge295, %.critedge244, %173
-  tail call void (i32, ptr, ...) @mprintf(i32 noundef 0, ptr noundef nonnull @.str.40) #25
-  br label %174
-
-174:                                              ; preds = %69, %62, %64, %.loopexit, %167, %154, %151, %.loopexit250, %101, %56, %47, %41, %.loopexit252.thread, %15, %10
+173:                                              ; preds = %69, %62, %64, %.loopexit, %167, %154, %151, %.loopexit250, %101, %56, %47, %41, %.loopexit252.thread, %15, %10
   ret void
 }
 

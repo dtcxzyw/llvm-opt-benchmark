@@ -9372,12 +9372,12 @@ define hidden void @_ZNK15ClassFileParser32verify_legal_name_with_signatureEPK6S
   %5 = getelementptr inbounds i8, ptr %0, i64 424
   %6 = load i8, ptr %5, align 8
   %7 = trunc i8 %6 to i1
-  br i1 %7, label %8, label %35
+  br i1 %7, label %8, label %33
 
 8:                                                ; preds = %4
   %9 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 3064), align 8
   %10 = icmp eq ptr %1, %9
-  br i1 %10, label %11, label %17
+  br i1 %10, label %11, label %16
 
 11:                                               ; preds = %8
   %12 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 6752), align 8
@@ -9386,43 +9386,39 @@ define hidden void @_ZNK15ClassFileParser32verify_legal_name_with_signatureEPK6S
   %14 = load i16, ptr %13, align 4
   %15 = icmp ugt i16 %14, 50
   %or.cond20 = select i1 %.not, i1 %15, i1 false
-  br i1 %or.cond20, label %16, label %17
+  br i1 %or.cond20, label %.sink.split, label %16
 
-16:                                               ; preds = %11
+16:                                               ; preds = %11, %8
+  %17 = getelementptr inbounds i8, ptr %2, i64 4
+  %18 = load i16, ptr %17, align 4
+  %19 = zext i16 %18 to i64
+  %20 = getelementptr inbounds i8, ptr %1, i64 4
+  %21 = load i16, ptr %20, align 4
+  %.not21 = icmp eq i16 %21, 0
+  br i1 %.not21, label %33, label %22
+
+22:                                               ; preds = %16
+  %23 = getelementptr inbounds i8, ptr %1, i64 6
+  %24 = load i8, ptr %23, align 1
+  %25 = icmp eq i8 %24, 60
+  %26 = icmp ne i16 %18, 0
+  %or.cond = and i1 %26, %25
+  br i1 %or.cond, label %27, label %33
+
+27:                                               ; preds = %22
+  %28 = add nuw nsw i64 %19, 4294967295
+  %29 = getelementptr inbounds i8, ptr %2, i64 6
+  %30 = and i64 %28, 4294967295
+  %31 = getelementptr inbounds i8, ptr %29, i64 %30
+  %32 = load i8, ptr %31, align 1
+  %.not17 = icmp eq i8 %32, 86
+  br i1 %.not17, label %33, label %.sink.split
+
+.sink.split:                                      ; preds = %27, %11
   tail call void @_ZNK15ClassFileParser21throwIllegalSignatureEPKcPK6SymbolS4_P10JavaThread(ptr noundef nonnull align 8 dereferenceable(440) %0, ptr noundef nonnull @.str.17, ptr noundef %1, ptr noundef %2, ptr noundef %3)
-  br label %35
+  br label %33
 
-17:                                               ; preds = %11, %8
-  %18 = getelementptr inbounds i8, ptr %2, i64 4
-  %19 = load i16, ptr %18, align 4
-  %20 = zext i16 %19 to i64
-  %21 = getelementptr inbounds i8, ptr %1, i64 4
-  %22 = load i16, ptr %21, align 4
-  %.not21 = icmp eq i16 %22, 0
-  br i1 %.not21, label %35, label %23
-
-23:                                               ; preds = %17
-  %24 = getelementptr inbounds i8, ptr %1, i64 6
-  %25 = load i8, ptr %24, align 1
-  %26 = icmp eq i8 %25, 60
-  %27 = icmp ne i16 %19, 0
-  %or.cond = and i1 %27, %26
-  br i1 %or.cond, label %28, label %35
-
-28:                                               ; preds = %23
-  %29 = add nuw nsw i64 %20, 4294967295
-  %30 = getelementptr inbounds i8, ptr %2, i64 6
-  %31 = and i64 %29, 4294967295
-  %32 = getelementptr inbounds i8, ptr %30, i64 %31
-  %33 = load i8, ptr %32, align 1
-  %.not17 = icmp eq i8 %33, 86
-  br i1 %.not17, label %35, label %34
-
-34:                                               ; preds = %28
-  tail call void @_ZNK15ClassFileParser21throwIllegalSignatureEPKcPK6SymbolS4_P10JavaThread(ptr noundef nonnull align 8 dereferenceable(440) %0, ptr noundef nonnull @.str.17, ptr noundef nonnull %1, ptr noundef nonnull %2, ptr noundef %3)
-  br label %35
-
-35:                                               ; preds = %4, %34, %28, %23, %17, %16
+33:                                               ; preds = %.sink.split, %4, %27, %22, %16
   ret void
 }
 

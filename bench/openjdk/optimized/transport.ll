@@ -685,7 +685,7 @@ define internal fastcc void @printLastError(ptr noundef %0, i32 noundef range(i3
 18:                                               ; preds = %9, %15, %2
   %.0 = phi ptr [ %14, %15 ], [ null, %9 ], [ null, %2 ]
   %19 = icmp eq i32 %7, 0
-  br i1 %19, label %20, label %27
+  br i1 %19, label %20, label %25
 
 20:                                               ; preds = %18
   %21 = load ptr, ptr @gdata, align 8
@@ -693,54 +693,32 @@ define internal fastcc void @printLastError(ptr noundef %0, i32 noundef range(i3
   %23 = load i32, ptr %22, align 8
   %24 = and i32 %23, 128
   %.not25 = icmp eq i32 %24, 0
-  br i1 %.not25, label %26, label %25
+  br i1 %.not25, label %31, label %.sink.split
 
-25:                                               ; preds = %20
-  call void @log_message_begin(ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3, i32 noundef 87) #6
-  call void (ptr, ...) @log_message_end(ptr noundef nonnull @.str.23, i32 noundef %1, ptr noundef %.0) #6
-  br label %26
+25:                                               ; preds = %18
+  %26 = load ptr, ptr %3, align 8
+  %.not22 = icmp eq ptr %26, null
+  %27 = load ptr, ptr @gdata, align 8
+  %28 = getelementptr inbounds i8, ptr %27, i64 528
+  %29 = load i32, ptr %28, align 8
+  %30 = and i32 %29, 128
+  %.not23 = icmp eq i32 %30, 0
+  %.str.24..0 = select i1 %.not22, ptr @.str.24, ptr %.0
+  %. = select i1 %.not22, i32 91, i32 89
+  br i1 %.not23, label %31, label %.sink.split
 
-26:                                               ; preds = %20, %25
-  call void (ptr, ...) @error_message(ptr noundef nonnull @.str.23, i32 noundef %1, ptr noundef %.0) #6
-  br label %39
+.sink.split:                                      ; preds = %25, %20
+  %.sink = phi i32 [ 87, %20 ], [ %., %25 ]
+  %.str.24.sink = phi ptr [ %.0, %20 ], [ %.str.24..0, %25 ]
+  call void @log_message_begin(ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3, i32 noundef %.sink) #6
+  call void (ptr, ...) @log_message_end(ptr noundef nonnull @.str.23, i32 noundef %1, ptr noundef %.str.24.sink) #6
+  br label %31
 
-27:                                               ; preds = %18
-  %28 = load ptr, ptr %3, align 8
-  %.not22 = icmp eq ptr %28, null
-  %29 = load ptr, ptr @gdata, align 8
-  %30 = getelementptr inbounds i8, ptr %29, i64 528
-  %31 = load i32, ptr %30, align 8
-  %32 = and i32 %31, 128
-  %.not23 = icmp eq i32 %32, 0
-  br i1 %.not22, label %36, label %33
-
-33:                                               ; preds = %27
-  br i1 %.not23, label %35, label %34
-
-34:                                               ; preds = %33
-  call void @log_message_begin(ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3, i32 noundef 89) #6
-  call void (ptr, ...) @log_message_end(ptr noundef nonnull @.str.23, i32 noundef %1, ptr noundef %.0) #6
-  br label %35
-
-35:                                               ; preds = %33, %34
-  call void (ptr, ...) @error_message(ptr noundef nonnull @.str.23, i32 noundef %1, ptr noundef %.0) #6
-  br label %39
-
-36:                                               ; preds = %27
-  br i1 %.not23, label %38, label %37
-
-37:                                               ; preds = %36
-  call void @log_message_begin(ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3, i32 noundef 91) #6
-  call void (ptr, ...) @log_message_end(ptr noundef nonnull @.str.23, i32 noundef %1, ptr noundef nonnull @.str.24) #6
-  br label %38
-
-38:                                               ; preds = %36, %37
-  call void (ptr, ...) @error_message(ptr noundef nonnull @.str.23, i32 noundef %1, ptr noundef nonnull @.str.24) #6
-  br label %39
-
-39:                                               ; preds = %35, %38, %26
-  %40 = load ptr, ptr %3, align 8
-  call void @jvmtiDeallocate(ptr noundef %40) #6
+31:                                               ; preds = %25, %.sink.split, %20
+  %.0.sink = phi ptr [ %.0, %20 ], [ %.str.24.sink, %.sink.split ], [ %.str.24..0, %25 ]
+  call void (ptr, ...) @error_message(ptr noundef nonnull @.str.23, i32 noundef %1, ptr noundef %.0.sink) #6
+  %32 = load ptr, ptr %3, align 8
+  call void @jvmtiDeallocate(ptr noundef %32) #6
   call void @jvmtiDeallocate(ptr noundef %.0) #6
   ret void
 }

@@ -1639,9 +1639,9 @@ _ZNK3ue29CharReach10find_firstEv.exit:            ; preds = %for.body.i.i
   %cmp.not215 = icmp eq i64 %conv266214, 256
   br i1 %cmp.not215, label %return, label %for.body
 
-for.body:                                         ; preds = %_ZNK3ue29CharReach10find_firstEv.exit, %for.body.backedge
-  %conv266217 = phi i64 [ %i.0.in216.be, %for.body.backedge ], [ %conv266214, %_ZNK3ue29CharReach10find_firstEv.exit ]
-  %i.0.in216 = phi i64 [ %i.0.in216.be, %for.body.backedge ], [ %add.i.i, %_ZNK3ue29CharReach10find_firstEv.exit ]
+for.body:                                         ; preds = %_ZNK3ue29CharReach10find_firstEv.exit, %_ZNK3ue29CharReach9find_nextEm.exit
+  %conv266217 = phi i64 [ %add9.i.i, %_ZNK3ue29CharReach9find_nextEm.exit ], [ %conv266214, %_ZNK3ue29CharReach10find_firstEv.exit ]
+  %i.0.in216 = phi i64 [ %add9.i.i, %_ZNK3ue29CharReach9find_nextEm.exit ], [ %add.i.i, %_ZNK3ue29CharReach10find_firstEv.exit ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i.i.i.i203)
   %retval.sroa.2.0.insert.ext.i.i.i.i.i.i = and i64 %i.0.in216, 4294967295
   %retval.sroa.0.0.insert.insert.i.i.i.i.i.i = mul nuw i64 %retval.sroa.2.0.insert.ext.i.i.i.i.i.i, 4294967297
@@ -1673,13 +1673,7 @@ if.then5.i.i:                                     ; preds = %if.end.i.i
 
 if.then7.i.i:                                     ; preds = %if.then5.i.i
   %mul.i.i209 = and i64 %i.0.in216, 192
-  %22 = call range(i64 1, 65) i64 @llvm.cttz.i64(i64 %and.i.i, i1 true)
-  %add9.i.i = or disjoint i64 %22, %mul.i.i209
-  br label %for.body.backedge
-
-for.body.backedge:                                ; preds = %if.then7.i.i, %if.then18.i.i
-  %i.0.in216.be = phi i64 [ %add9.i.i, %if.then7.i.i ], [ %add21.i.i, %if.then18.i.i ]
-  br label %for.body
+  br label %_ZNK3ue29CharReach9find_nextEm.exit
 
 for.cond.i.i:                                     ; preds = %for.cond.i.i.preheader, %for.body.i.i210
   %i.0.in.i.i = phi i64 [ %i.0.i.i, %for.body.i.i210 ], [ %div1.i.i.i, %for.cond.i.i.preheader ]
@@ -1689,18 +1683,23 @@ for.cond.i.i:                                     ; preds = %for.cond.i.i.prehea
 for.body.i.i210:                                  ; preds = %for.cond.i.i
   %i.0.i.i = add nuw nsw i64 %i.0.in.i.i, 1
   %arrayidx.i.i13.i.i = getelementptr inbounds [4 x i64], ptr %cr, i64 0, i64 %i.0.i.i
-  %23 = load i64, ptr %arrayidx.i.i13.i.i, align 8
-  %tobool17.not.i.i = icmp eq i64 %23, 0
+  %22 = load i64, ptr %arrayidx.i.i13.i.i, align 8
+  %tobool17.not.i.i = icmp eq i64 %22, 0
   br i1 %tobool17.not.i.i, label %for.cond.i.i, label %if.then18.i.i, !llvm.loop !7
 
 if.then18.i.i:                                    ; preds = %for.body.i.i210
   %mul19.i.i = shl nuw nsw i64 %i.0.i.i, 6
-  %24 = call noundef range(i64 0, 65) i64 @llvm.cttz.i64(i64 %23, i1 true)
-  %add21.i.i = or disjoint i64 %24, %mul19.i.i
-  br label %for.body.backedge
+  br label %_ZNK3ue29CharReach9find_nextEm.exit
+
+_ZNK3ue29CharReach9find_nextEm.exit:              ; preds = %if.then7.i.i, %if.then18.i.i
+  %and.i.i.sink = phi i64 [ %and.i.i, %if.then7.i.i ], [ %22, %if.then18.i.i ]
+  %mul.i.i209.sink = phi i64 [ %mul.i.i209, %if.then7.i.i ], [ %mul19.i.i, %if.then18.i.i ]
+  %23 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %and.i.i.sink, i1 true)
+  %add9.i.i = or disjoint i64 %23, %mul.i.i209.sink
+  br label %for.body
 
 lpad263:                                          ; preds = %for.body
-  %25 = landingpad { ptr, i32 }
+  %24 = landingpad { ptr, i32 }
           cleanup
   br label %eh.resume
 
@@ -1708,7 +1707,7 @@ return:                                           ; preds = %for.inc.i.i, %for.i
   ret void
 
 eh.resume:                                        ; preds = %lpad40, %lpad42, %lpad28, %lpad30, %lpad7, %lpad9, %lpad13, %lpad17, %lpad263, %lpad92, %lpad78, %lpad52, %lpad
-  %.pn11 = phi { ptr, i32 } [ %25, %lpad263 ], [ %17, %lpad92 ], [ %15, %lpad78 ], [ %13, %lpad52 ], [ %2, %lpad ], [ %7, %lpad17 ], [ %4, %lpad7 ], [ %6, %lpad13 ], [ %5, %lpad9 ], [ %8, %lpad28 ], [ %9, %lpad30 ], [ %11, %lpad42 ], [ %10, %lpad40 ]
+  %.pn11 = phi { ptr, i32 } [ %24, %lpad263 ], [ %17, %lpad92 ], [ %15, %lpad78 ], [ %13, %lpad52 ], [ %2, %lpad ], [ %7, %lpad17 ], [ %4, %lpad7 ], [ %6, %lpad13 ], [ %5, %lpad9 ], [ %8, %lpad28 ], [ %9, %lpad30 ], [ %11, %lpad42 ], [ %10, %lpad40 ]
   call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %agg.result) #21
   resume { ptr, i32 } %.pn11
 }

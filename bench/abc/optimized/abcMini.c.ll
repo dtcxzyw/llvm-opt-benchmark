@@ -637,18 +637,14 @@ define noalias noundef ptr @Abc_NtkOutputMiniAig(ptr noundef %0) local_unnamed_a
   %6 = icmp eq ptr %5, null
   br i1 %6, label %.split5, label %.split
 
-.split:                                           ; preds = %4
-  %7 = tail call ptr @Abc_NtkToMiniAig(ptr noundef nonnull %5)
-  br label %9
-
 .split5:                                          ; preds = %4
   %puts6 = tail call i32 @puts(ptr nonnull dereferenceable(1) @str.4)
-  %8 = tail call ptr @Abc_NtkToMiniAig(ptr noundef null)
-  br label %9
+  br label %.split
 
-9:                                                ; preds = %.split, %.split5
-  %phi.call = phi ptr [ %7, %.split ], [ %8, %.split5 ]
-  ret ptr %phi.call
+.split:                                           ; preds = %4, %.split5
+  %.sink = phi ptr [ null, %.split5 ], [ %5, %4 ]
+  %7 = tail call ptr @Abc_NtkToMiniAig(ptr noundef %.sink)
+  ret ptr %7
 }
 
 declare ptr @Abc_FrameReadNtk(ptr noundef) local_unnamed_addr #2

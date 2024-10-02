@@ -35490,7 +35490,6 @@ define hidden void @_ZN15rustfmt_nightly7visitor10FmtVisitor10visit_item17h6d9c2
   %3 = alloca {}, align 1
   %4 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %5 = alloca { [1 x i64], i64, [1 x i64] }, align 8
-  %.sroa.0.i = alloca { { i64, ptr }, i64 }, align 8
   %6 = alloca { { { i64, ptr }, i64 } }, align 8
   %7 = alloca { i64, [2 x i64] }, align 8
   %8 = alloca { { { { i64, ptr }, i64 }, ptr }, ptr, ptr, ptr, ptr, ptr, { { ptr, [5 x i64] }, { ptr, [5 x i64] } }, i8, i8, i8, i8, i8, [3 x i8] }, align 8
@@ -41210,7 +41209,6 @@ _RNvMNtCsdF516cSs19B_10rustc_span13span_encodingNtB2_4Span14data_untracked.llvm.
 
 2110:                                             ; preds = %2106
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull align 8 dereferenceable(24) %9, i64 24, i1 false), !noalias !7378
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %.sroa.0.i)
   br i1 %2099, label %2112, label %2128
 
 2111:                                             ; preds = %2128, %2109
@@ -41256,11 +41254,9 @@ _RNvMNtCsdF516cSs19B_10rustc_span13span_encodingNtB2_4Span14data_untracked.llvm.
   store i64 %2127, ptr %2113, align 8, !alias.scope !7379, !noalias !7386
   br label %2128
 
-2128:                                             ; preds = %2110, %"_ZN78_$LT$alloc..string..String$u20$as$u20$core..ops..arith..Add$LT$$RF$str$GT$$GT$3add17hb5770aa0ed1a3aa4E.exit.i"
-  %.sink563 = phi ptr [ %6, %"_ZN78_$LT$alloc..string..String$u20$as$u20$core..ops..arith..Add$LT$$RF$str$GT$$GT$3add17hb5770aa0ed1a3aa4E.exit.i" ], [ %9, %2110 ]
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.0.i, ptr noundef nonnull align 8 dereferenceable(24) %.sink563, i64 24, i1 false), !noalias !7378
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %10, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.0.i, i64 24, i1 false), !noalias !7378
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %.sroa.0.i)
+2128:                                             ; preds = %"_ZN78_$LT$alloc..string..String$u20$as$u20$core..ops..arith..Add$LT$$RF$str$GT$$GT$3add17hb5770aa0ed1a3aa4E.exit.i", %2110
+  %.sink.i = phi ptr [ %6, %"_ZN78_$LT$alloc..string..String$u20$as$u20$core..ops..arith..Add$LT$$RF$str$GT$$GT$3add17hb5770aa0ed1a3aa4E.exit.i" ], [ %9, %2110 ]
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %10, ptr noundef nonnull align 8 dereferenceable(24) %.sink.i, i64 24, i1 false), !noalias !7378
   br label %2111
 
 2129:                                             ; preds = %2111

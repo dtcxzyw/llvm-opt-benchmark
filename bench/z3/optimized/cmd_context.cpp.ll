@@ -35928,7 +35928,7 @@ entry:
   %bf.load.i = load i16, ptr %m_skolem.i, align 1
   %bf.set.i = or i16 %bf.load.i, 256
   store i16 %bf.set.i, ptr %m_skolem.i, align 1
-  %call3.i2 = invoke noundef ptr @_ZN11ast_manager12mk_func_declERK6symboljPKP4sortS4_P14func_decl_info(ptr noundef nonnull align 8 dereferenceable(976) %this, ptr noundef nonnull align 8 dereferenceable(8) %name, i32 noundef 0, ptr noundef null, ptr noundef %s, ptr noundef nonnull %info)
+  %call3.i1 = invoke noundef ptr @_ZN11ast_manager12mk_func_declERK6symboljPKP4sortS4_P14func_decl_info(ptr noundef nonnull align 8 dereferenceable(976) %this, ptr noundef nonnull align 8 dereferenceable(8) %name, i32 noundef 0, ptr noundef null, ptr noundef %s, ptr noundef nonnull %info)
           to label %invoke.cont2 unwind label %lpad
 
 invoke.cont2:                                     ; preds = %entry
@@ -35970,7 +35970,7 @@ terminate.lpad.i.i.i:                             ; preds = %_ZN6vectorI9paramet
   unreachable
 
 _ZN14func_decl_infoD2Ev.exit:                     ; preds = %invoke.cont2, %_ZN6vectorI9parameterLb1EjE16destroy_elementsEv.exit.i.i.i.i
-  ret ptr %call3.i2
+  ret ptr %call3.i1
 
 lpad:                                             ; preds = %entry
   %5 = landingpad { ptr, i32 }

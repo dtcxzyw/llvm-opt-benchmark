@@ -18106,33 +18106,25 @@ if.then.i.i.i.i7:                                 ; preds = %if.then.i2.i
   %23 = load ptr, ptr %pool_.i.i.i.i10, align 8
   %tobool.not.i.i.i.i = icmp eq ptr %23, null
   %vtable5.i.i.i.i = load ptr, ptr %.pr, align 8
-  br i1 %tobool.not.i.i.i.i, label %delete.notnull.i.i.i.i, label %if.then2.i.i.i.i
-
-if.then2.i.i.i.i:                                 ; preds = %.noexc.i.i
-  %vfn4.i.i.i.i = getelementptr inbounds i8, ptr %vtable5.i.i.i.i, i64 48
+  %..i.i.i.i = select i1 %tobool.not.i.i.i.i, i64 8, i64 48
+  %vfn4.i.i.i.i = getelementptr inbounds i8, ptr %vtable5.i.i.i.i, i64 %..i.i.i.i
   %24 = load ptr, ptr %vfn4.i.i.i.i, align 8
   invoke void %24(ptr noundef nonnull align 8 dereferenceable(64) %.pr)
           to label %invoke.cont17 unwind label %terminate.lpad.i.i
 
-delete.notnull.i.i.i.i:                           ; preds = %.noexc.i.i
-  %vfn6.i.i.i.i = getelementptr inbounds i8, ptr %vtable5.i.i.i.i, i64 8
-  %25 = load ptr, ptr %vfn6.i.i.i.i, align 8
-  tail call void %25(ptr noundef nonnull align 8 dereferenceable(64) %.pr) #23
-  br label %invoke.cont17
-
-terminate.lpad.i.i:                               ; preds = %if.then2.i.i.i.i, %if.then.i.i.i.i7
-  %26 = landingpad { ptr, i32 }
+terminate.lpad.i.i:                               ; preds = %.noexc.i.i, %if.then.i.i.i.i7
+  %25 = landingpad { ptr, i32 }
           catch ptr null
-  %27 = extractvalue { ptr, i32 } %26, 0
-  tail call void @__clang_call_terminate(ptr %27) #24
+  %26 = extractvalue { ptr, i32 } %25, 0
+  tail call void @__clang_call_terminate(ptr %26) #24
   unreachable
 
-invoke.cont17:                                    ; preds = %_ZN5boost13intrusive_ptrIN8facebook5velox6BufferEEC2ERKS4_.exit.i.thread, %delete.notnull.i.i.i.i, %if.then2.i.i.i.i, %if.then.i2.i, %_ZN5boost13intrusive_ptrIN8facebook5velox6BufferEEC2ERKS4_.exit.i
-  %28 = load ptr, ptr %values_, align 8
-  %vtable.i11 = load ptr, ptr %28, align 8
+invoke.cont17:                                    ; preds = %_ZN5boost13intrusive_ptrIN8facebook5velox6BufferEEC2ERKS4_.exit.i.thread, %.noexc.i.i, %if.then.i2.i, %_ZN5boost13intrusive_ptrIN8facebook5velox6BufferEEC2ERKS4_.exit.i
+  %27 = load ptr, ptr %values_, align 8
+  %vtable.i11 = load ptr, ptr %27, align 8
   %vfn.i12 = getelementptr inbounds i8, ptr %vtable.i11, i64 24
-  %29 = load ptr, ptr %vfn.i12, align 8
-  %call.i1316 = invoke noundef zeroext i1 %29(ptr noundef nonnull align 8 dereferenceable(64) %28)
+  %28 = load ptr, ptr %vfn.i12, align 8
+  %call.i1316 = invoke noundef zeroext i1 %28(ptr noundef nonnull align 8 dereferenceable(64) %27)
           to label %call.i13.noexc unwind label %lpad
 
 call.i13.noexc:                                   ; preds = %invoke.cont17
@@ -18143,57 +18135,49 @@ if.then.i15:                                      ; preds = %call.i13.noexc
   unreachable
 
 invoke.cont21:                                    ; preds = %call.i13.noexc
-  %data_.i14 = getelementptr inbounds i8, ptr %28, i64 16
-  %30 = load ptr, ptr %data_.i14, align 8
+  %data_.i14 = getelementptr inbounds i8, ptr %27, i64 16
+  %29 = load ptr, ptr %data_.i14, align 8
   %rawValues_23 = getelementptr inbounds i8, ptr %this, i64 120
-  store ptr %30, ptr %rawValues_23, align 8
-  %31 = load ptr, ptr %newValues, align 8
-  %cmp.not.i = icmp eq ptr %31, null
+  store ptr %29, ptr %rawValues_23, align 8
+  %30 = load ptr, ptr %newValues, align 8
+  %cmp.not.i = icmp eq ptr %30, null
   br i1 %cmp.not.i, label %if.end24, label %if.then.i17
 
 if.then.i17:                                      ; preds = %invoke.cont21
-  %referenceCount_.i.i.i = getelementptr inbounds i8, ptr %31, i64 40
-  %32 = atomicrmw sub ptr %referenceCount_.i.i.i, i32 1 seq_cst, align 4
-  %cmp.i.i.i = icmp eq i32 %32, 1
+  %referenceCount_.i.i.i = getelementptr inbounds i8, ptr %30, i64 40
+  %31 = atomicrmw sub ptr %referenceCount_.i.i.i, i32 1 seq_cst, align 4
+  %cmp.i.i.i = icmp eq i32 %31, 1
   br i1 %cmp.i.i.i, label %if.then.i.i.i, label %if.end24
 
 if.then.i.i.i:                                    ; preds = %if.then.i17
-  %vtable.i.i.i = load ptr, ptr %31, align 8
+  %vtable.i.i.i = load ptr, ptr %30, align 8
   %vfn.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i, i64 64
-  %33 = load ptr, ptr %vfn.i.i.i, align 8
-  invoke void %33(ptr noundef nonnull align 8 dereferenceable(64) %31)
+  %32 = load ptr, ptr %vfn.i.i.i, align 8
+  invoke void %32(ptr noundef nonnull align 8 dereferenceable(64) %30)
           to label %.noexc.i unwind label %terminate.lpad.i
 
 .noexc.i:                                         ; preds = %if.then.i.i.i
-  %pool_.i.i.i = getelementptr inbounds i8, ptr %31, i64 8
-  %34 = load ptr, ptr %pool_.i.i.i, align 8
-  %tobool.not.i.i.i = icmp eq ptr %34, null
-  %vtable5.i.i.i = load ptr, ptr %31, align 8
-  br i1 %tobool.not.i.i.i, label %delete.notnull.i.i.i, label %if.then2.i.i.i
-
-if.then2.i.i.i:                                   ; preds = %.noexc.i
-  %vfn4.i.i.i = getelementptr inbounds i8, ptr %vtable5.i.i.i, i64 48
-  %35 = load ptr, ptr %vfn4.i.i.i, align 8
-  invoke void %35(ptr noundef nonnull align 8 dereferenceable(64) %31)
+  %pool_.i.i.i = getelementptr inbounds i8, ptr %30, i64 8
+  %33 = load ptr, ptr %pool_.i.i.i, align 8
+  %tobool.not.i.i.i = icmp eq ptr %33, null
+  %vtable5.i.i.i = load ptr, ptr %30, align 8
+  %..i.i.i = select i1 %tobool.not.i.i.i, i64 8, i64 48
+  %vfn4.i.i.i = getelementptr inbounds i8, ptr %vtable5.i.i.i, i64 %..i.i.i
+  %34 = load ptr, ptr %vfn4.i.i.i, align 8
+  invoke void %34(ptr noundef nonnull align 8 dereferenceable(64) %30)
           to label %if.end24 unwind label %terminate.lpad.i
 
-delete.notnull.i.i.i:                             ; preds = %.noexc.i
-  %vfn6.i.i.i = getelementptr inbounds i8, ptr %vtable5.i.i.i, i64 8
-  %36 = load ptr, ptr %vfn6.i.i.i, align 8
-  tail call void %36(ptr noundef nonnull align 8 dereferenceable(64) %31) #23
-  br label %if.end24
-
-terminate.lpad.i:                                 ; preds = %if.then2.i.i.i, %if.then.i.i.i
-  %37 = landingpad { ptr, i32 }
+terminate.lpad.i:                                 ; preds = %.noexc.i, %if.then.i.i.i
+  %35 = landingpad { ptr, i32 }
           catch ptr null
-  %38 = extractvalue { ptr, i32 } %37, 0
-  tail call void @__clang_call_terminate(ptr %38) #24
+  %36 = extractvalue { ptr, i32 } %35, 0
+  tail call void @__clang_call_terminate(ptr %36) #24
   unreachable
 
-if.end24:                                         ; preds = %delete.notnull.i.i.i, %if.then2.i.i.i, %if.then.i17, %invoke.cont21, %_ZNK8facebook5velox6Buffer9isMutableEv.exit
+if.end24:                                         ; preds = %.noexc.i, %if.then.i17, %invoke.cont21, %_ZNK8facebook5velox6Buffer9isMutableEv.exit
   %rawValues_25 = getelementptr inbounds i8, ptr %this, i64 120
-  %39 = load ptr, ptr %rawValues_25, align 8
-  ret ptr %39
+  %37 = load ptr, ptr %rawValues_25, align 8
+  ret ptr %37
 }
 
 declare noundef i64 @_ZN8facebook5velox10BaseVector8byteSizeIbEEmi(i32 noundef) local_unnamed_addr #1
@@ -18223,28 +18207,20 @@ if.then.i.i:                                      ; preds = %if.then
   %3 = load ptr, ptr %pool_.i.i, align 8
   %tobool.not.i.i = icmp eq ptr %3, null
   %vtable5.i.i = load ptr, ptr %0, align 8
-  br i1 %tobool.not.i.i, label %delete.notnull.i.i, label %if.then2.i.i
-
-if.then2.i.i:                                     ; preds = %.noexc
-  %vfn4.i.i = getelementptr inbounds i8, ptr %vtable5.i.i, i64 48
+  %..i.i = select i1 %tobool.not.i.i, i64 8, i64 48
+  %vfn4.i.i = getelementptr inbounds i8, ptr %vtable5.i.i, i64 %..i.i
   %4 = load ptr, ptr %vfn4.i.i, align 8
   invoke void %4(ptr noundef nonnull align 8 dereferenceable(64) %0)
           to label %if.end unwind label %terminate.lpad
 
-delete.notnull.i.i:                               ; preds = %.noexc
-  %vfn6.i.i = getelementptr inbounds i8, ptr %vtable5.i.i, i64 8
-  %5 = load ptr, ptr %vfn6.i.i, align 8
-  tail call void %5(ptr noundef nonnull align 8 dereferenceable(64) %0) #23
-  br label %if.end
-
-if.end:                                           ; preds = %delete.notnull.i.i, %if.then, %if.then2.i.i, %entry
+if.end:                                           ; preds = %if.then, %.noexc, %entry
   ret void
 
-terminate.lpad:                                   ; preds = %if.then2.i.i, %if.then.i.i
-  %6 = landingpad { ptr, i32 }
+terminate.lpad:                                   ; preds = %.noexc, %if.then.i.i
+  %5 = landingpad { ptr, i32 }
           catch ptr null
-  %7 = extractvalue { ptr, i32 } %6, 0
-  tail call void @__clang_call_terminate(ptr %7) #24
+  %6 = extractvalue { ptr, i32 } %5, 0
+  tail call void @__clang_call_terminate(ptr %6) #24
   unreachable
 }
 

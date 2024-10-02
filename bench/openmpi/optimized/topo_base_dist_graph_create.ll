@@ -141,11 +141,7 @@ define i32 @mca_topo_base_dist_graph_distribute(ptr nocapture readnone %0, ptr n
   %66 = sext i32 %65 to i64
   %67 = tail call noalias ptr @calloc(i64 noundef %66, i64 noundef 4) #8
   %68 = icmp eq ptr %67, null
-  br i1 %68, label %.thread311.thread.thread330.thread, label %69
-
-.thread311.thread.thread330.thread:               ; preds = %._crit_edge353
-  tail call void @free(ptr noundef nonnull %15) #9
-  br label %.thread335
+  br i1 %68, label %.thread335.sink.split, label %69
 
 69:                                               ; preds = %._crit_edge353
   %70 = shl nsw i32 %58, 1
@@ -690,7 +686,7 @@ opal_thread_add_fetch_32.exit:                    ; preds = %337, %340
   %348 = load ptr, ptr %347, align 8
   %349 = load ptr, ptr %348, align 8
   %.not6.i = icmp eq ptr %349, null
-  br i1 %.not6.i, label %opal_obj_run_destructors.exit, label %.lr.ph.i
+  br i1 %.not6.i, label %.thread335.sink.split, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %345, %.lr.ph.i
   %350 = phi ptr [ %352, %.lr.ph.i ], [ %349, %345 ]
@@ -699,14 +695,16 @@ opal_thread_add_fetch_32.exit:                    ; preds = %337, %340
   %351 = getelementptr inbounds i8, ptr %.07.i, i64 8
   %352 = load ptr, ptr %351, align 8
   %.not.i308 = icmp eq ptr %352, null
-  br i1 %.not.i308, label %opal_obj_run_destructors.exit, label %.lr.ph.i, !llvm.loop !16
+  br i1 %.not.i308, label %.thread335.sink.split, label %.lr.ph.i, !llvm.loop !16
 
-opal_obj_run_destructors.exit:                    ; preds = %.lr.ph.i, %345
-  call void @free(ptr noundef %.0251319) #9
+.thread335.sink.split:                            ; preds = %.lr.ph.i, %345, %._crit_edge353
+  %.sink = phi ptr [ %15, %._crit_edge353 ], [ %.0251319, %345 ], [ %.0251319, %.lr.ph.i ]
+  %.0259318325328339.ph = phi i32 [ -2, %._crit_edge353 ], [ %.0259318, %345 ], [ %.0259318, %.lr.ph.i ]
+  call void @free(ptr noundef %.sink) #9
   br label %.thread335
 
-.thread335:                                       ; preds = %.thread311.thread.thread330.thread, %8, %opal_obj_run_destructors.exit, %opal_thread_add_fetch_32.exit, %.thread311.thread.thread330
-  %.0259318325328339 = phi i32 [ %.0259318, %opal_obj_run_destructors.exit ], [ %.0259318, %opal_thread_add_fetch_32.exit ], [ %.0259318, %.thread311.thread.thread330 ], [ -2, %8 ], [ -2, %.thread311.thread.thread330.thread ]
+.thread335:                                       ; preds = %.thread335.sink.split, %8, %opal_thread_add_fetch_32.exit, %.thread311.thread.thread330
+  %.0259318325328339 = phi i32 [ %.0259318, %opal_thread_add_fetch_32.exit ], [ %.0259318, %.thread311.thread.thread330 ], [ -2, %8 ], [ %.0259318325328339.ph, %.thread335.sink.split ]
   ret i32 %.0259318325328339
 }
 

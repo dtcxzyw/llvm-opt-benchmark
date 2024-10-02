@@ -6500,25 +6500,25 @@ define dso_local void @check_default_partition_contents(ptr noundef %0, ptr noun
   %41 = icmp sgt i32 %40, 0
   br i1 %41, label %.lr.ph97, label %.thread
 
-.lr.ph97:                                         ; preds = %.lr.ph, %155
-  %indvars.iv96 = phi i64 [ %indvars.iv.next, %155 ], [ 0, %.lr.ph ]
+.lr.ph97:                                         ; preds = %.lr.ph, %152
+  %indvars.iv96 = phi i64 [ %indvars.iv.next, %152 ], [ 0, %.lr.ph ]
   %42 = load ptr, ptr %38, align 8
   %43 = getelementptr %union.ListCell, ptr %42, i64 %indvars.iv96
   %44 = load i32, ptr %43, align 8
   %45 = load i32, ptr %39, align 8
   %.not78 = icmp eq i32 %44, %45
-  br i1 %.not78, label %59, label %46
+  br i1 %.not78, label %58, label %46
 
 46:                                               ; preds = %.lr.ph97
   %47 = tail call ptr @table_open(i32 noundef %44, i32 noundef 0) #11
   %48 = tail call ptr @make_ands_explicit(ptr noundef %14) #11
   %49 = tail call ptr @map_partition_varattnos(ptr noundef %48, i32 noundef 1, ptr noundef %47, ptr noundef nonnull %1) #11
   %50 = tail call zeroext i1 @PartConstraintImpliedByRelConstraint(ptr noundef %47, ptr noundef %14) #11
-  br i1 %50, label %51, label %61
+  br i1 %50, label %51, label %60
 
 51:                                               ; preds = %46
   %52 = tail call zeroext i1 @errstart(i32 noundef 14, ptr noundef null) #11
-  br i1 %52, label %53, label %58
+  br i1 %52, label %53, label %.sink.split
 
 53:                                               ; preds = %51
   %54 = getelementptr inbounds i8, ptr %47, i64 56
@@ -6526,191 +6526,184 @@ define dso_local void @check_default_partition_contents(ptr noundef %0, ptr noun
   %56 = getelementptr inbounds i8, ptr %55, i64 4
   %57 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.8, ptr noundef nonnull %56) #11
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 3334, ptr noundef nonnull @__func__.check_default_partition_contents) #11
-  br label %58
+  br label %.sink.split
 
-58:                                               ; preds = %51, %53
-  tail call void @table_close(ptr noundef %47, i32 noundef 0) #11
-  br label %155
+58:                                               ; preds = %.lr.ph97
+  %59 = tail call ptr @make_ands_explicit(ptr noundef %14) #11
+  br label %60
 
-59:                                               ; preds = %.lr.ph97
-  %60 = tail call ptr @make_ands_explicit(ptr noundef %14) #11
-  br label %61
-
-61:                                               ; preds = %46, %59
-  %.072 = phi ptr [ %49, %46 ], [ %60, %59 ]
-  %.071 = phi ptr [ %47, %46 ], [ %1, %59 ]
-  %62 = getelementptr inbounds i8, ptr %.071, i64 56
-  %63 = load ptr, ptr %62, align 8
-  %64 = getelementptr inbounds i8, ptr %63, i64 115
-  %65 = load i8, ptr %64, align 1
-  switch i8 %65, label %75 [
-    i8 114, label %80
-    i8 102, label %66
+60:                                               ; preds = %46, %58
+  %.072 = phi ptr [ %49, %46 ], [ %59, %58 ]
+  %.071 = phi ptr [ %47, %46 ], [ %1, %58 ]
+  %61 = getelementptr inbounds i8, ptr %.071, i64 56
+  %62 = load ptr, ptr %61, align 8
+  %63 = getelementptr inbounds i8, ptr %62, i64 115
+  %64 = load i8, ptr %63, align 1
+  switch i8 %64, label %74 [
+    i8 114, label %78
+    i8 102, label %65
   ]
 
-66:                                               ; preds = %61
-  %67 = tail call zeroext i1 @errstart(i32 noundef 19, ptr noundef null) #11
-  br i1 %67, label %68, label %75
+65:                                               ; preds = %60
+  %66 = tail call zeroext i1 @errstart(i32 noundef 19, ptr noundef null) #11
+  br i1 %66, label %67, label %74
 
-68:                                               ; preds = %66
-  %69 = tail call i32 @errcode(i32 noundef 67391682) #11
-  %70 = load ptr, ptr %62, align 8
-  %71 = getelementptr inbounds i8, ptr %70, i64 4
-  %72 = load ptr, ptr %24, align 8
-  %73 = getelementptr inbounds i8, ptr %72, i64 4
-  %74 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.9, ptr noundef nonnull %71, ptr noundef nonnull %73) #11
+67:                                               ; preds = %65
+  %68 = tail call i32 @errcode(i32 noundef 67391682) #11
+  %69 = load ptr, ptr %61, align 8
+  %70 = getelementptr inbounds i8, ptr %69, i64 4
+  %71 = load ptr, ptr %24, align 8
+  %72 = getelementptr inbounds i8, ptr %71, i64 4
+  %73 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.9, ptr noundef nonnull %70, ptr noundef nonnull %72) #11
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 3357, ptr noundef nonnull @__func__.check_default_partition_contents) #11
-  br label %75
+  br label %74
 
-75:                                               ; preds = %61, %68, %66
-  %76 = load i32, ptr %39, align 8
-  %77 = getelementptr inbounds i8, ptr %.071, i64 72
-  %78 = load i32, ptr %77, align 8
-  %.not84 = icmp eq i32 %76, %78
-  br i1 %.not84, label %155, label %79
+74:                                               ; preds = %60, %67, %65
+  %75 = load i32, ptr %39, align 8
+  %76 = getelementptr inbounds i8, ptr %.071, i64 72
+  %77 = load i32, ptr %76, align 8
+  %.not84 = icmp eq i32 %75, %77
+  br i1 %.not84, label %152, label %.sink.split
 
-79:                                               ; preds = %75
-  tail call void @table_close(ptr noundef nonnull %.071, i32 noundef 0) #11
-  br label %155
+78:                                               ; preds = %60
+  %79 = tail call ptr @CreateExecutorState() #11
+  %80 = tail call ptr @ExecPrepareExpr(ptr noundef %.072, ptr noundef %79) #11
+  %81 = getelementptr inbounds i8, ptr %79, i64 232
+  %82 = load ptr, ptr %81, align 8
+  %.not80 = icmp eq ptr %82, null
+  br i1 %.not80, label %83, label %85
 
-80:                                               ; preds = %61
-  %81 = tail call ptr @CreateExecutorState() #11
-  %82 = tail call ptr @ExecPrepareExpr(ptr noundef %.072, ptr noundef %81) #11
-  %83 = getelementptr inbounds i8, ptr %81, i64 232
-  %84 = load ptr, ptr %83, align 8
-  %.not80 = icmp eq ptr %84, null
-  br i1 %.not80, label %85, label %87
+83:                                               ; preds = %78
+  %84 = tail call ptr @MakePerTupleExprContext(ptr noundef nonnull %79) #11
+  br label %85
 
-85:                                               ; preds = %80
-  %86 = tail call ptr @MakePerTupleExprContext(ptr noundef nonnull %81) #11
-  br label %87
-
-87:                                               ; preds = %80, %85
-  %88 = phi ptr [ %86, %85 ], [ %84, %80 ]
-  %89 = tail call ptr @GetLatestSnapshot() #11
-  %90 = tail call ptr @RegisterSnapshot(ptr noundef %89) #11
-  %91 = getelementptr inbounds i8, ptr %81, i64 168
-  %92 = tail call ptr @table_slot_create(ptr noundef nonnull %.071, ptr noundef nonnull %91) #11
-  %93 = getelementptr inbounds i8, ptr %.071, i64 312
+85:                                               ; preds = %78, %83
+  %86 = phi ptr [ %84, %83 ], [ %82, %78 ]
+  %87 = tail call ptr @GetLatestSnapshot() #11
+  %88 = tail call ptr @RegisterSnapshot(ptr noundef %87) #11
+  %89 = getelementptr inbounds i8, ptr %79, i64 168
+  %90 = tail call ptr @table_slot_create(ptr noundef nonnull %.071, ptr noundef nonnull %89) #11
+  %91 = getelementptr inbounds i8, ptr %.071, i64 312
+  %92 = load ptr, ptr %91, align 8
+  %93 = getelementptr inbounds i8, ptr %92, i64 16
   %94 = load ptr, ptr %93, align 8
-  %95 = getelementptr inbounds i8, ptr %94, i64 16
-  %96 = load ptr, ptr %95, align 8
-  %97 = tail call ptr %96(ptr noundef nonnull %.071, ptr noundef %90, i32 noundef 0, ptr noundef null, ptr noundef null, i32 noundef 449) #11
-  %98 = load ptr, ptr %83, align 8
-  %.not81 = icmp eq ptr %98, null
-  br i1 %.not81, label %99, label %101
+  %95 = tail call ptr %94(ptr noundef nonnull %.071, ptr noundef %88, i32 noundef 0, ptr noundef null, ptr noundef null, i32 noundef 449) #11
+  %96 = load ptr, ptr %81, align 8
+  %.not81 = icmp eq ptr %96, null
+  br i1 %.not81, label %97, label %99
 
-99:                                               ; preds = %87
-  %100 = tail call ptr @MakePerTupleExprContext(ptr noundef nonnull %81) #11
-  br label %101
+97:                                               ; preds = %85
+  %98 = tail call ptr @MakePerTupleExprContext(ptr noundef nonnull %79) #11
+  br label %99
 
-101:                                              ; preds = %87, %99
-  %102 = phi ptr [ %100, %99 ], [ %98, %87 ]
-  %103 = getelementptr inbounds i8, ptr %102, i64 40
-  %104 = load ptr, ptr %103, align 8
-  %105 = load ptr, ptr @CurrentMemoryContext, align 8
-  store ptr %104, ptr @CurrentMemoryContext, align 8
-  %106 = getelementptr inbounds i8, ptr %92, i64 56
-  %107 = load ptr, ptr %97, align 8
-  %108 = getelementptr inbounds i8, ptr %107, i64 72
-  %109 = load i32, ptr %108, align 8
-  store i32 %109, ptr %106, align 8
-  %110 = load i32, ptr @CheckXidAlive, align 4
-  %111 = icmp eq i32 %110, 0
-  %112 = load i8, ptr @bsysscan, align 1
-  %113 = trunc i8 %112 to i1
-  %.not5.i87 = select i1 %111, i1 true, i1 %113
+99:                                               ; preds = %85, %97
+  %100 = phi ptr [ %98, %97 ], [ %96, %85 ]
+  %101 = getelementptr inbounds i8, ptr %100, i64 40
+  %102 = load ptr, ptr %101, align 8
+  %103 = load ptr, ptr @CurrentMemoryContext, align 8
+  store ptr %102, ptr @CurrentMemoryContext, align 8
+  %104 = getelementptr inbounds i8, ptr %90, i64 56
+  %105 = load ptr, ptr %95, align 8
+  %106 = getelementptr inbounds i8, ptr %105, i64 72
+  %107 = load i32, ptr %106, align 8
+  store i32 %107, ptr %104, align 8
+  %108 = load i32, ptr @CheckXidAlive, align 4
+  %109 = icmp eq i32 %108, 0
+  %110 = load i8, ptr @bsysscan, align 1
+  %111 = trunc i8 %110 to i1
+  %.not5.i87 = select i1 %109, i1 true, i1 %111
   br i1 %.not5.i87, label %table_scan_getnextslot.exit.lr.ph, label %._crit_edge
 
-table_scan_getnextslot.exit.lr.ph:                ; preds = %101
-  %114 = getelementptr inbounds i8, ptr %88, i64 8
-  %115 = getelementptr inbounds i8, ptr %88, i64 40
+table_scan_getnextslot.exit.lr.ph:                ; preds = %99
+  %112 = getelementptr inbounds i8, ptr %86, i64 8
+  %113 = getelementptr inbounds i8, ptr %86, i64 40
   br label %table_scan_getnextslot.exit
 
-._crit_edge:                                      ; preds = %101, %137
-  %116 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #12
-  tail call void @llvm.assume(i1 %116)
-  %117 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.21) #11
+._crit_edge:                                      ; preds = %99, %135
+  %114 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #12
+  tail call void @llvm.assume(i1 %114)
+  %115 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.21) #11
   tail call void @errfinish(ptr noundef nonnull @.str.22, i32 noundef 1064, ptr noundef nonnull @__func__.table_scan_getnextslot) #11
   unreachable
 
-table_scan_getnextslot.exit:                      ; preds = %table_scan_getnextslot.exit.lr.ph, %137
-  %118 = load ptr, ptr %97, align 8
-  %119 = getelementptr inbounds i8, ptr %118, i64 312
+table_scan_getnextslot.exit:                      ; preds = %table_scan_getnextslot.exit.lr.ph, %135
+  %116 = load ptr, ptr %95, align 8
+  %117 = getelementptr inbounds i8, ptr %116, i64 312
+  %118 = load ptr, ptr %117, align 8
+  %119 = getelementptr inbounds i8, ptr %118, i64 40
   %120 = load ptr, ptr %119, align 8
-  %121 = getelementptr inbounds i8, ptr %120, i64 40
-  %122 = load ptr, ptr %121, align 8
-  %123 = tail call zeroext i1 %122(ptr noundef nonnull %97, i32 noundef 1, ptr noundef nonnull %92) #11
-  br i1 %123, label %124, label %145
+  %121 = tail call zeroext i1 %120(ptr noundef nonnull %95, i32 noundef 1, ptr noundef nonnull %90) #11
+  br i1 %121, label %122, label %143
 
-124:                                              ; preds = %table_scan_getnextslot.exit
-  store ptr %92, ptr %114, align 8
-  %125 = tail call zeroext i1 @ExecCheck(ptr noundef %82, ptr noundef %88) #11
-  br i1 %125, label %133, label %126
+122:                                              ; preds = %table_scan_getnextslot.exit
+  store ptr %90, ptr %112, align 8
+  %123 = tail call zeroext i1 @ExecCheck(ptr noundef %80, ptr noundef %86) #11
+  br i1 %123, label %131, label %124
 
-126:                                              ; preds = %124
-  %127 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #12
-  tail call void @llvm.assume(i1 %127)
-  %128 = tail call i32 @errcode(i32 noundef 67391682) #11
-  %129 = load ptr, ptr %24, align 8
-  %130 = getelementptr inbounds i8, ptr %129, i64 4
-  %131 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.10, ptr noundef nonnull %130) #11
-  %132 = tail call i32 @errtable(ptr noundef %1) #11
+124:                                              ; preds = %122
+  %125 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #12
+  tail call void @llvm.assume(i1 %125)
+  %126 = tail call i32 @errcode(i32 noundef 67391682) #11
+  %127 = load ptr, ptr %24, align 8
+  %128 = getelementptr inbounds i8, ptr %127, i64 4
+  %129 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.10, ptr noundef nonnull %128) #11
+  %130 = tail call i32 @errtable(ptr noundef %1) #11
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 3390, ptr noundef nonnull @__func__.check_default_partition_contents) #11
   unreachable
 
-133:                                              ; preds = %124
-  %134 = load ptr, ptr %115, align 8
-  tail call void @MemoryContextReset(ptr noundef %134) #11
-  %135 = load volatile i32, ptr @InterruptPending, align 4
-  %.not83 = icmp eq i32 %135, 0
-  br i1 %.not83, label %137, label %136
+131:                                              ; preds = %122
+  %132 = load ptr, ptr %113, align 8
+  tail call void @MemoryContextReset(ptr noundef %132) #11
+  %133 = load volatile i32, ptr @InterruptPending, align 4
+  %.not83 = icmp eq i32 %133, 0
+  br i1 %.not83, label %135, label %134
 
-136:                                              ; preds = %133
+134:                                              ; preds = %131
   tail call void @ProcessInterrupts() #11
-  br label %137
+  br label %135
 
-137:                                              ; preds = %133, %136
-  %138 = load ptr, ptr %97, align 8
-  %139 = getelementptr inbounds i8, ptr %138, i64 72
-  %140 = load i32, ptr %139, align 8
-  store i32 %140, ptr %106, align 8
-  %141 = load i32, ptr @CheckXidAlive, align 4
-  %142 = icmp eq i32 %141, 0
-  %143 = load i8, ptr @bsysscan, align 1
-  %144 = trunc i8 %143 to i1
-  %.not5.i = select i1 %142, i1 true, i1 %144
+135:                                              ; preds = %131, %134
+  %136 = load ptr, ptr %95, align 8
+  %137 = getelementptr inbounds i8, ptr %136, i64 72
+  %138 = load i32, ptr %137, align 8
+  store i32 %138, ptr %104, align 8
+  %139 = load i32, ptr @CheckXidAlive, align 4
+  %140 = icmp eq i32 %139, 0
+  %141 = load i8, ptr @bsysscan, align 1
+  %142 = trunc i8 %141 to i1
+  %.not5.i = select i1 %140, i1 true, i1 %142
   br i1 %.not5.i, label %table_scan_getnextslot.exit, label %._crit_edge, !llvm.loop !47
 
-145:                                              ; preds = %table_scan_getnextslot.exit
-  store ptr %105, ptr @CurrentMemoryContext, align 8
-  %146 = load ptr, ptr %97, align 8
-  %147 = getelementptr inbounds i8, ptr %146, i64 312
+143:                                              ; preds = %table_scan_getnextslot.exit
+  store ptr %103, ptr @CurrentMemoryContext, align 8
+  %144 = load ptr, ptr %95, align 8
+  %145 = getelementptr inbounds i8, ptr %144, i64 312
+  %146 = load ptr, ptr %145, align 8
+  %147 = getelementptr inbounds i8, ptr %146, i64 24
   %148 = load ptr, ptr %147, align 8
-  %149 = getelementptr inbounds i8, ptr %148, i64 24
-  %150 = load ptr, ptr %149, align 8
-  tail call void %150(ptr noundef nonnull %97) #11
-  tail call void @UnregisterSnapshot(ptr noundef %90) #11
-  tail call void @ExecDropSingleTupleTableSlot(ptr noundef nonnull %92) #11
-  tail call void @FreeExecutorState(ptr noundef %81) #11
-  %151 = load i32, ptr %39, align 8
-  %152 = getelementptr inbounds i8, ptr %.071, i64 72
-  %153 = load i32, ptr %152, align 8
-  %.not82 = icmp eq i32 %151, %153
-  br i1 %.not82, label %155, label %154
+  tail call void %148(ptr noundef nonnull %95) #11
+  tail call void @UnregisterSnapshot(ptr noundef %88) #11
+  tail call void @ExecDropSingleTupleTableSlot(ptr noundef nonnull %90) #11
+  tail call void @FreeExecutorState(ptr noundef %79) #11
+  %149 = load i32, ptr %39, align 8
+  %150 = getelementptr inbounds i8, ptr %.071, i64 72
+  %151 = load i32, ptr %150, align 8
+  %.not82 = icmp eq i32 %149, %151
+  br i1 %.not82, label %152, label %.sink.split
 
-154:                                              ; preds = %145
-  tail call void @table_close(ptr noundef nonnull %.071, i32 noundef 0) #11
-  br label %155
+.sink.split:                                      ; preds = %143, %74, %53, %51
+  %.071.sink = phi ptr [ %47, %51 ], [ %47, %53 ], [ %.071, %74 ], [ %.071, %143 ]
+  tail call void @table_close(ptr noundef %.071.sink, i32 noundef 0) #11
+  br label %152
 
-155:                                              ; preds = %145, %154, %75, %79, %58
+152:                                              ; preds = %.sink.split, %143, %74
   %indvars.iv.next = add nuw nsw i64 %indvars.iv96, 1
-  %156 = load i32, ptr %37, align 4
-  %157 = sext i32 %156 to i64
-  %158 = icmp slt i64 %indvars.iv.next, %157
-  br i1 %158, label %.lr.ph97, label %.thread
+  %153 = load i32, ptr %37, align 4
+  %154 = sext i32 %153 to i64
+  %155 = icmp slt i64 %indvars.iv.next, %154
+  br i1 %155, label %.lr.ph97, label %.thread
 
-.thread:                                          ; preds = %155, %.lr.ph, %36, %18, %16
+.thread:                                          ; preds = %152, %.lr.ph, %36, %18, %16
   ret void
 }
 

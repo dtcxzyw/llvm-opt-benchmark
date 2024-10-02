@@ -1334,60 +1334,46 @@ entry:
 define hidden range(i32 0, 2) i32 @EVP_CipherInit(ptr noundef %ctx, ptr noundef %cipher, ptr noundef %key, ptr noundef %iv, i32 noundef %enc) local_unnamed_addr #0 {
 entry:
   %tobool.not = icmp eq ptr %cipher, null
-  br i1 %tobool.not, label %entry.split, label %if.then
-
-entry.split:                                      ; preds = %entry
-  %call3 = tail call i32 @EVP_CipherInit_ex(ptr noundef %ctx, ptr noundef null, ptr poison, ptr noundef %key, ptr noundef %iv, i32 noundef %enc)
-  br label %if.end
+  br i1 %tobool.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(152) %ctx, i8 0, i64 152, i1 false)
-  %call4 = tail call i32 @EVP_CipherInit_ex(ptr noundef %ctx, ptr noundef nonnull %cipher, ptr poison, ptr noundef %key, ptr noundef %iv, i32 noundef %enc)
   br label %if.end
 
-if.end:                                           ; preds = %entry.split, %if.then
-  %phi.call = phi i32 [ %call3, %entry.split ], [ %call4, %if.then ]
-  ret i32 %phi.call
+if.end:                                           ; preds = %entry, %if.then
+  %.sink = phi ptr [ %cipher, %if.then ], [ null, %entry ]
+  %call3 = tail call i32 @EVP_CipherInit_ex(ptr noundef %ctx, ptr noundef %.sink, ptr poison, ptr noundef %key, ptr noundef %iv, i32 noundef %enc)
+  ret i32 %call3
 }
 
 ; Function Attrs: nounwind uwtable
 define hidden range(i32 0, 2) i32 @EVP_EncryptInit(ptr noundef %ctx, ptr noundef %cipher, ptr noundef %key, ptr noundef %iv) local_unnamed_addr #0 {
 entry:
   %tobool.not.i = icmp eq ptr %cipher, null
-  br i1 %tobool.not.i, label %entry.split.i, label %if.then.i
-
-entry.split.i:                                    ; preds = %entry
-  %call3.i = tail call i32 @EVP_CipherInit_ex(ptr noundef %ctx, ptr noundef null, ptr poison, ptr noundef %key, ptr noundef %iv, i32 noundef 1)
-  br label %EVP_CipherInit.exit
+  br i1 %tobool.not.i, label %EVP_CipherInit.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %entry
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(152) %ctx, i8 0, i64 152, i1 false)
-  %call4.i = tail call i32 @EVP_CipherInit_ex(ptr noundef %ctx, ptr noundef nonnull %cipher, ptr poison, ptr noundef %key, ptr noundef %iv, i32 noundef 1)
   br label %EVP_CipherInit.exit
 
-EVP_CipherInit.exit:                              ; preds = %entry.split.i, %if.then.i
-  %phi.call.i = phi i32 [ %call3.i, %entry.split.i ], [ %call4.i, %if.then.i ]
-  ret i32 %phi.call.i
+EVP_CipherInit.exit:                              ; preds = %entry, %if.then.i
+  %call3.i = tail call range(i32 0, 2) i32 @EVP_CipherInit_ex(ptr noundef %ctx, ptr noundef %cipher, ptr poison, ptr noundef %key, ptr noundef %iv, i32 noundef 1)
+  ret i32 %call3.i
 }
 
 ; Function Attrs: nounwind uwtable
 define hidden range(i32 0, 2) i32 @EVP_DecryptInit(ptr noundef %ctx, ptr noundef %cipher, ptr noundef %key, ptr noundef %iv) local_unnamed_addr #0 {
 entry:
   %tobool.not.i = icmp eq ptr %cipher, null
-  br i1 %tobool.not.i, label %entry.split.i, label %if.then.i
-
-entry.split.i:                                    ; preds = %entry
-  %call3.i = tail call i32 @EVP_CipherInit_ex(ptr noundef %ctx, ptr noundef null, ptr poison, ptr noundef %key, ptr noundef %iv, i32 noundef 0)
-  br label %EVP_CipherInit.exit
+  br i1 %tobool.not.i, label %EVP_CipherInit.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %entry
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(152) %ctx, i8 0, i64 152, i1 false)
-  %call4.i = tail call i32 @EVP_CipherInit_ex(ptr noundef %ctx, ptr noundef nonnull %cipher, ptr poison, ptr noundef %key, ptr noundef %iv, i32 noundef 0)
   br label %EVP_CipherInit.exit
 
-EVP_CipherInit.exit:                              ; preds = %entry.split.i, %if.then.i
-  %phi.call.i = phi i32 [ %call3.i, %entry.split.i ], [ %call4.i, %if.then.i ]
-  ret i32 %phi.call.i
+EVP_CipherInit.exit:                              ; preds = %entry, %if.then.i
+  %call3.i = tail call range(i32 0, 2) i32 @EVP_CipherInit_ex(ptr noundef %ctx, ptr noundef %cipher, ptr poison, ptr noundef %key, ptr noundef %iv, i32 noundef 0)
+  ret i32 %call3.i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable

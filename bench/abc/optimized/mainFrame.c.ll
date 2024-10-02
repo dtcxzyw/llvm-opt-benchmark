@@ -1831,7 +1831,7 @@ define void @Abc_FrameSwapCurrentAndBackup(ptr nocapture noundef %0) local_unnam
 ; Function Attrs: nounwind uwtable
 define void @Abc_FrameReplaceCurrentNetwork(ptr nocapture noundef %0, ptr noundef %1) local_unnamed_addr #1 {
   %3 = icmp eq ptr %1, null
-  br i1 %3, label %35, label %4
+  br i1 %3, label %34, label %4
 
 4:                                                ; preds = %2
   %5 = getelementptr i8, ptr %1, i64 48
@@ -1882,8 +1882,7 @@ Abc_FrameIsFlagEnabled.exit:                      ; preds = %.tail.i, %16
   %25 = getelementptr inbounds i8, ptr %1, i64 168
   store i32 %.val18, ptr %25, align 8
   %26 = load ptr, ptr %10, align 8
-  tail call void @Abc_NtkDelete(ptr noundef %26) #18
-  br label %34
+  br label %.sink.split
 
 Abc_FrameIsFlagEnabled.exit.thread:               ; preds = %16, %.tail.i, %12, %9
   %27 = getelementptr inbounds i8, ptr %1, i64 160
@@ -1896,17 +1895,18 @@ Abc_FrameIsFlagEnabled.exit.thread:               ; preds = %16, %.tail.i, %12, 
   store i32 %30, ptr %31, align 8
   %32 = load ptr, ptr %10, align 8
   %.not17 = icmp eq ptr %32, null
-  br i1 %.not17, label %34, label %33
+  br i1 %.not17, label %33, label %.sink.split
 
-33:                                               ; preds = %Abc_FrameIsFlagEnabled.exit.thread
-  tail call void @Abc_NtkDelete(ptr noundef nonnull %32) #18
+.sink.split:                                      ; preds = %Abc_FrameIsFlagEnabled.exit.thread, %Abc_FrameIsFlagEnabled.exit
+  %.sink = phi ptr [ %26, %Abc_FrameIsFlagEnabled.exit ], [ %32, %Abc_FrameIsFlagEnabled.exit.thread ]
+  tail call void @Abc_NtkDelete(ptr noundef %.sink) #18
+  br label %33
+
+33:                                               ; preds = %.sink.split, %Abc_FrameIsFlagEnabled.exit.thread
+  store ptr %1, ptr %10, align 8
   br label %34
 
-34:                                               ; preds = %Abc_FrameIsFlagEnabled.exit.thread, %33, %Abc_FrameIsFlagEnabled.exit
-  store ptr %1, ptr %10, align 8
-  br label %35
-
-35:                                               ; preds = %2, %34
+34:                                               ; preds = %2, %33
   ret void
 }
 

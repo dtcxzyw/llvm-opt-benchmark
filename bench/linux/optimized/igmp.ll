@@ -3730,7 +3730,7 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #5
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal fastcc noundef range(i32 -105, 1) i32 @ip_mc_add_src(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2, i32 noundef %3, ptr nocapture noundef readonly %4, i32 noundef range(i32 0, 2) %5) unnamed_addr #0 align 16 {
   %7 = icmp eq ptr %0, null
-  br i1 %7, label %158, label %8
+  br i1 %7, label %157, label %8
 
 8:                                                ; preds = %6
   tail call void @__rcu_read_lock() #14
@@ -3758,7 +3758,7 @@ define internal fastcc noundef range(i32 -105, 1) i32 @ip_mc_add_src(ptr noundef
 
 .loopexit20:                                      ; preds = %19, %8
   tail call void @__rcu_read_unlock() #14
-  br label %158
+  br label %157
 
 23:                                               ; preds = %14
   %24 = getelementptr inbounds i8, ptr %15, i64 112
@@ -3968,7 +3968,7 @@ thread-pre-split:                                 ; preds = %49
   store volatile i32 %145, ptr %146, align 4
   %147 = load ptr, ptr %26, align 8
   %148 = icmp eq ptr %147, null
-  br i1 %148, label %.loopexit15, label %.preheader
+  br i1 %148, label %.loopexit.sink.split, label %.preheader
 
 .preheader:                                       ; preds = %142, %.preheader
   %149 = phi ptr [ %151, %.preheader ], [ %147, %142 ]
@@ -3976,29 +3976,26 @@ thread-pre-split:                                 ; preds = %49
   store i8 0, ptr %150, align 2
   %151 = load ptr, ptr %149, align 8
   %152 = icmp eq ptr %151, null
-  br i1 %152, label %.loopexit15, label %.preheader, !llvm.loop !118
-
-.loopexit15:                                      ; preds = %.preheader, %142
-  tail call fastcc void @igmp_ifc_event(ptr noundef %124)
-  br label %.loopexit
+  br i1 %152, label %.loopexit.sink.split, label %.preheader, !llvm.loop !118
 
 153:                                              ; preds = %.loopexit18
   %154 = tail call fastcc i32 @sf_setstate(ptr noundef nonnull %15)
   %155 = icmp eq i32 %154, 0
-  br i1 %155, label %.loopexit, label %156
+  br i1 %155, label %.loopexit, label %.loopexit.sink.split
 
-156:                                              ; preds = %153
-  tail call fastcc void @igmp_ifc_event(ptr noundef nonnull %0)
+.loopexit.sink.split:                             ; preds = %.preheader, %153, %142
+  %.sink = phi ptr [ %124, %142 ], [ %0, %153 ], [ %124, %.preheader ]
+  tail call fastcc void @igmp_ifc_event(ptr noundef %.sink)
   br label %.loopexit
 
-.loopexit:                                        ; preds = %114, %156, %153, %.loopexit15, %110
-  %157 = phi i32 [ 0, %156 ], [ 0, %153 ], [ 0, %.loopexit15 ], [ -105, %110 ], [ -105, %114 ]
+.loopexit:                                        ; preds = %114, %.loopexit.sink.split, %153, %110
+  %156 = phi i32 [ 0, %153 ], [ -105, %110 ], [ 0, %.loopexit.sink.split ], [ -105, %114 ]
   tail call void @_raw_spin_unlock_bh(ptr noundef %24) #14
-  br label %158
+  br label %157
 
-158:                                              ; preds = %.loopexit, %.loopexit20, %6
-  %159 = phi i32 [ %157, %.loopexit ], [ -3, %.loopexit20 ], [ -19, %6 ]
-  ret i32 %159
+157:                                              ; preds = %.loopexit, %.loopexit20, %6
+  %158 = phi i32 [ %156, %.loopexit ], [ -3, %.loopexit20 ], [ -19, %6 ]
+  ret i32 %158
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid

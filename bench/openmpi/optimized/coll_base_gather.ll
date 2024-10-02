@@ -119,7 +119,7 @@ opal_datatype_span.exit:                          ; preds = %32, %41
 62:                                               ; preds = %59
   %63 = tail call i32 @ompi_datatype_sndrcv(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef nonnull %61, i32 noundef %4, ptr noundef nonnull %5) #5
   %.not175 = icmp eq i32 %63, 0
-  br i1 %.not175, label %ompi_datatype_copy_content_same_ddt.exit.thread, label %ompi_datatype_copy_content_same_ddt.exit.thread244
+  br i1 %.not175, label %ompi_datatype_copy_content_same_ddt.exit.thread, label %ompi_datatype_copy_content_same_ddt.exit.thread238.sink.split
 
 64:                                               ; preds = %59
   br i1 %40, label %ompi_datatype_copy_content_same_ddt.exit.thread, label %.lr.ph.i.preheader
@@ -193,7 +193,7 @@ opal_datatype_span.exit194:                       ; preds = %77, %85
   %101 = getelementptr inbounds i8, ptr %97, i64 %100
   %102 = tail call i32 @ompi_datatype_sndrcv(ptr noundef %0, i32 noundef %1, ptr noundef nonnull %2, ptr noundef nonnull %101, i32 noundef %1, ptr noundef nonnull %2) #5
   %.not172 = icmp eq i32 %102, 0
-  br i1 %.not172, label %ompi_datatype_copy_content_same_ddt.exit.thread, label %ompi_datatype_copy_content_same_ddt.exit.thread244
+  br i1 %.not172, label %ompi_datatype_copy_content_same_ddt.exit.thread, label %ompi_datatype_copy_content_same_ddt.exit.thread238.sink.split
 
 ompi_datatype_copy_content_same_ddt.exit.thread:  ; preds = %70, %64, %99, %75, %54, %53, %62
   %.0228 = phi i64 [ %35, %53 ], [ %35, %54 ], [ %35, %62 ], [ undef, %75 ], [ %80, %99 ], [ %35, %64 ], [ %35, %70 ]
@@ -310,7 +310,7 @@ ompi_datatype_copy_content_same_ddt.exit.thread:  ; preds = %70, %64, %99, %75, 
 .loopexit253:                                     ; preds = %.loopexit253.loopexit, %137
   %.pre-phi = phi i64 [ %.pre, %.loopexit253.loopexit ], [ %144, %137 ]
   %.not25.i210 = icmp eq i32 %.0141, 0
-  br i1 %.not25.i210, label %.loopexit, label %.lr.ph.i211.preheader
+  br i1 %.not25.i210, label %ompi_datatype_copy_content_same_ddt.exit.thread238.sink.split, label %.lr.ph.i211.preheader
 
 .lr.ph.i211.preheader:                            ; preds = %.loopexit253
   %154 = mul i64 %.0228, %139
@@ -335,33 +335,25 @@ ompi_datatype_copy_content_same_ddt.exit.thread:  ; preds = %70, %64, %99, %75, 
   %162 = getelementptr inbounds i8, ptr %.01828.i212, i64 %160
   %163 = sub i64 %.02026.i214, %spec.select24.i215
   %.not.i219 = icmp eq i64 %163, 0
-  br i1 %.not.i219, label %.loopexit, label %.lr.ph.i211, !llvm.loop !4
-
-.loopexit:                                        ; preds = %159, %.loopexit253
-  call void @free(ptr noundef %.2148) #5
-  br label %ompi_datatype_copy_content_same_ddt.exit.thread238
+  br i1 %.not.i219, label %ompi_datatype_copy_content_same_ddt.exit.thread238.sink.split, label %.lr.ph.i211, !llvm.loop !4
 
 164:                                              ; preds = %130
-  br i1 %.not178, label %165, label %ompi_datatype_copy_content_same_ddt.exit.thread238
-
-165:                                              ; preds = %164
-  call void @free(ptr noundef %.2148) #5
-  br label %ompi_datatype_copy_content_same_ddt.exit.thread238
+  br i1 %.not178, label %ompi_datatype_copy_content_same_ddt.exit.thread238.sink.split, label %ompi_datatype_copy_content_same_ddt.exit.thread238
 
 ompi_datatype_copy_content_same_ddt.exit:         ; preds = %.lr.ph.i, %111, %.lr.ph.i198, %.lr.ph.i211, %130
   %.0146 = phi ptr [ %.2148, %130 ], [ %.2148, %.lr.ph.i211 ], [ %.2148, %.lr.ph.i198 ], [ %.2148, %111 ], [ %57, %.lr.ph.i ]
   %.0145 = phi i32 [ %135, %130 ], [ %158, %.lr.ph.i211 ], [ %148, %.lr.ph.i198 ], [ %119, %111 ], [ %69, %.lr.ph.i ]
   %.not185 = icmp eq ptr %.0146, null
-  br i1 %.not185, label %ompi_datatype_copy_content_same_ddt.exit.thread238, label %ompi_datatype_copy_content_same_ddt.exit.thread244
+  br i1 %.not185, label %ompi_datatype_copy_content_same_ddt.exit.thread238, label %ompi_datatype_copy_content_same_ddt.exit.thread238.sink.split
 
-ompi_datatype_copy_content_same_ddt.exit.thread244: ; preds = %99, %62, %ompi_datatype_copy_content_same_ddt.exit
-  %.0145249 = phi i32 [ %.0145, %ompi_datatype_copy_content_same_ddt.exit ], [ %102, %99 ], [ %63, %62 ]
-  %.0146248 = phi ptr [ %.0146, %ompi_datatype_copy_content_same_ddt.exit ], [ %97, %99 ], [ %57, %62 ]
-  call void @free(ptr noundef nonnull %.0146248) #5
+ompi_datatype_copy_content_same_ddt.exit.thread238.sink.split: ; preds = %159, %ompi_datatype_copy_content_same_ddt.exit, %62, %99, %164, %.loopexit253
+  %.0146248.sink = phi ptr [ %.2148, %.loopexit253 ], [ %.2148, %164 ], [ %.0146, %ompi_datatype_copy_content_same_ddt.exit ], [ %97, %99 ], [ %57, %62 ], [ %.2148, %159 ]
+  %.0.ph = phi i32 [ 0, %.loopexit253 ], [ 0, %164 ], [ %.0145, %ompi_datatype_copy_content_same_ddt.exit ], [ %102, %99 ], [ %63, %62 ], [ 0, %159 ]
+  call void @free(ptr noundef %.0146248.sink) #5
   br label %ompi_datatype_copy_content_same_ddt.exit.thread238
 
-ompi_datatype_copy_content_same_ddt.exit.thread238: ; preds = %opal_datatype_span.exit194, %56, %54, %ompi_datatype_copy_content_same_ddt.exit, %ompi_datatype_copy_content_same_ddt.exit.thread244, %.loopexit, %136, %165, %164
-  %.0 = phi i32 [ 0, %164 ], [ 0, %165 ], [ 0, %136 ], [ 0, %.loopexit ], [ %.0145249, %ompi_datatype_copy_content_same_ddt.exit.thread244 ], [ %.0145, %ompi_datatype_copy_content_same_ddt.exit ], [ -2, %opal_datatype_span.exit194 ], [ -2, %56 ], [ %55, %54 ]
+ompi_datatype_copy_content_same_ddt.exit.thread238: ; preds = %ompi_datatype_copy_content_same_ddt.exit.thread238.sink.split, %opal_datatype_span.exit194, %56, %54, %ompi_datatype_copy_content_same_ddt.exit, %136, %164
+  %.0 = phi i32 [ 0, %164 ], [ 0, %136 ], [ %.0145, %ompi_datatype_copy_content_same_ddt.exit ], [ -2, %opal_datatype_span.exit194 ], [ -2, %56 ], [ %55, %54 ], [ %.0.ph, %ompi_datatype_copy_content_same_ddt.exit.thread238.sink.split ]
   ret i32 %.0
 }
 

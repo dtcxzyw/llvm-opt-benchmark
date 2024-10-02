@@ -6288,11 +6288,11 @@ while.end.i.i.i:                                  ; preds = %while.body.i.i.i
   br i1 %cmp.i4.i.i, label %if.end58.i, label %checkprotoprefix.exit.i
 
 checkprotoprefix.exit.i:                          ; preds = %while.cond.i.i.i, %while.end.i.i.i, %if.end.i.i
-  %cmp42458.i = phi i1 [ false, %while.end.i.i.i ], [ true, %if.end.i.i ], [ true, %while.cond.i.i.i ]
+  %cmp42457.i = phi i1 [ false, %while.end.i.i.i ], [ true, %if.end.i.i ], [ true, %while.cond.i.i.i ]
   %call.len.i9.i.i.i = tail call i64 @llvm.umin.i64(i64 %call40.i, i64 5)
   %call2.i10.i.i.i = tail call i32 @curl_strnequal(ptr noundef nonnull @.str.158, ptr noundef %call37.i, i64 noundef %call.len.i9.i.i.i) #12
   %tobool.i11.not.i.i.i = icmp eq i32 %call2.i10.i.i.i, 0
-  %cmp42.i = and i1 %cmp42458.i, %tobool.i11.not.i.i.i
+  %cmp42.i = and i1 %cmp42457.i, %tobool.i11.not.i.i.i
   br i1 %cmp42.i, label %if.then43.i, label %if.end58.i
 
 if.then43.i:                                      ; preds = %checkprotoprefix.exit.i, %if.then.i.i
@@ -6487,11 +6487,11 @@ if.end189.i:                                      ; preds = %if.end.i351.i, %if.
   %bf.load191.i = load i32, ptr %bits.i, align 8
   %32 = and i32 %bf.load191.i, 64
   %tobool194.not.i = icmp eq i32 %32, 0
-  %.pre554.i = load i32, ptr %httpcode.i, align 8
+  %.pre548.i = load i32, ptr %httpcode.i, align 8
   br i1 %tobool194.not.i, label %if.end229.i, label %land.lhs.true195.i
 
 land.lhs.true195.i:                               ; preds = %if.end189.i
-  switch i32 %.pre554.i, label %if.end229.i [
+  switch i32 %.pre548.i, label %if.end229.i [
     i32 401, label %land.lhs.true200.i
     i32 407, label %land.lhs.true208.i
   ]
@@ -6518,14 +6518,14 @@ if.then222.i:                                     ; preds = %land.lhs.true214.i
   br label %do.end224.i
 
 do.end224.i:                                      ; preds = %if.then222.i, %land.lhs.true214.i
-  %.pre.i = phi i32 [ %.pre554.i, %land.lhs.true214.i ], [ %.pre.pre.i, %if.then222.i ]
+  %.pre.i = phi i32 [ %.pre548.i, %land.lhs.true214.i ], [ %.pre.pre.i, %if.then222.i ]
   %bf.load226.i = load i32, ptr %authproblem.i, align 4
   %bf.set228.i = or i32 %bf.load226.i, 32
   store i32 %bf.set228.i, ptr %authproblem.i, align 4
   br label %if.end229.i
 
 if.end229.i:                                      ; preds = %do.end224.i, %land.lhs.true208.i, %land.lhs.true200.i, %land.lhs.true195.i, %if.end189.i
-  %36 = phi i32 [ %.pre554.i, %land.lhs.true195.i ], [ 401, %land.lhs.true200.i ], [ %.pre.i, %do.end224.i ], [ 407, %land.lhs.true208.i ], [ %.pre554.i, %if.end189.i ]
+  %36 = phi i32 [ %.pre548.i, %land.lhs.true195.i ], [ 401, %land.lhs.true200.i ], [ %.pre.i, %do.end224.i ], [ 407, %land.lhs.true208.i ], [ %.pre548.i, %if.end189.i ]
   %.off322.i = add i32 %36, -100
   %cmp231.i = icmp ult i32 %.off322.i, 100
   %or233.i = select i1 %cmp231.i, i32 36, i32 4
@@ -6939,8 +6939,8 @@ if.then574.i:                                     ; preds = %land.lhs.true564.i
   %sub577.i = zext nneg i8 %85 to i32
   %mul.i = mul nuw nsw i32 %sub577.i, 100
   %90 = mul i8 %86, 10
-  %narrow460.i = add nsw i8 %90, 32
-  %mul581.i = zext nneg i8 %narrow460.i to i32
+  %narrow459.i = add nsw i8 %90, 32
+  %mul581.i = zext nneg i8 %narrow459.i to i32
   %add582.i = add nuw nsw i32 %mul.i, %mul581.i
   %sub585.i = zext nneg i8 %89 to i32
   %add586.i = add nuw nsw i32 %add582.i, %sub585.i
@@ -6997,8 +6997,8 @@ if.then657.i:                                     ; preds = %land.lhs.true647.i
   %sub660.i = zext nneg i8 %96 to i32
   %mul661.i = mul nuw nsw i32 %sub660.i, 100
   %101 = mul i8 %97, 10
-  %narrow459.i = add nsw i8 %101, 32
-  %mul665.i = zext nneg i8 %narrow459.i to i32
+  %narrow458.i = add nsw i8 %101, 32
+  %mul665.i = zext nneg i8 %narrow458.i to i32
   %add666.i = add nuw nsw i32 %mul661.i, %mul665.i
   %sub669.i = zext nneg i8 %100 to i32
   %add670.i = add nuw nsw i32 %add666.i, %sub669.i
@@ -7042,11 +7042,11 @@ sw.bb701.i:                                       ; preds = %if.end700.i
   br i1 %cmp708.i, label %land.lhs.true718.i, label %if.then735.i
 
 sw.default704.i:                                  ; preds = %if.end700.i
-  %div705454455.i = udiv i8 %conv702.i, 10
-  %div705454.zext.i = zext nneg i8 %div705454455.i to i32
-  %rem456457.i = urem i8 %conv702.i, 10
-  %rem456.zext.i = zext nneg i8 %rem456457.i to i32
-  tail call void (ptr, ptr, ...) @Curl_failf(ptr noundef nonnull %data, ptr noundef nonnull @.str.162, i32 noundef %div705454.zext.i, i32 noundef %rem456.zext.i) #12
+  %div705453454.i = udiv i8 %conv702.i, 10
+  %div705453.zext.i = zext nneg i8 %div705453454.i to i32
+  %rem455456.i = urem i8 %conv702.i, 10
+  %rem455.zext.i = zext nneg i8 %rem455456.i to i32
+  tail call void (ptr, ptr, ...) @Curl_failf(ptr noundef nonnull %data, ptr noundef nonnull @.str.162, i32 noundef %div705453.zext.i, i32 noundef %rem455.zext.i) #12
   br label %return
 
 land.lhs.true718.i:                               ; preds = %sw.bb701.i
@@ -7179,8 +7179,8 @@ if.then843.i:                                     ; preds = %land.lhs.true833.i
   %sub846.i = zext nneg i8 %118 to i32
   %mul847.i = mul nuw nsw i32 %sub846.i, 100
   %123 = mul i8 %119, 10
-  %narrow461.i = add nsw i8 %123, 32
-  %mul851.i = zext nneg i8 %narrow461.i to i32
+  %narrow460.i = add nsw i8 %123, 32
+  %mul851.i = zext nneg i8 %narrow460.i to i32
   %add852.i = add nuw nsw i32 %mul847.i, %mul851.i
   %sub855.i = zext nneg i8 %122 to i32
   %add856.i = add nuw nsw i32 %add852.i, %sub855.i
@@ -7217,38 +7217,35 @@ if.end900.i:                                      ; preds = %if.then888.i, %if.e
   %call3.i.i = tail call i64 @Curl_dyn_len(ptr noundef nonnull %headerb25.i) #12
   %call4.i.i = tail call ptr @memchr(ptr noundef %call.i.i, i32 noundef 0, i64 noundef %call3.i.i) #13
   %tobool.not.i365.i = icmp eq ptr %call4.i.i, null
-  br i1 %tobool.not.i365.i, label %if.end.i368.i, label %if.then.i366.i
+  br i1 %tobool.not.i365.i, label %if.end.i367.i, label %verify_header.exit.i
 
-if.then.i366.i:                                   ; preds = %if.end900.i
-  tail call void (ptr, ptr, ...) @Curl_failf(ptr noundef nonnull %data, ptr noundef nonnull @.str.165) #12
-  br label %return
-
-if.end.i368.i:                                    ; preds = %if.end900.i
+if.end.i367.i:                                    ; preds = %if.end900.i
   %126 = load i32, ptr %headerline31.i, align 4
-  %cmp.i369.i = icmp slt i32 %126, 2
-  br i1 %cmp.i369.i, label %if.end904.i, label %if.end6.i.i
+  %cmp.i368.i = icmp slt i32 %126, 2
+  br i1 %cmp.i368.i, label %if.end904.i, label %if.end6.i.i
 
-if.end6.i.i:                                      ; preds = %if.end.i368.i
+if.end6.i.i:                                      ; preds = %if.end.i367.i
   %127 = load i8, ptr %call.i.i, align 1
-  switch i8 %127, label %if.else.i371.i [
-    i8 32, label %land.lhs.true.i370.i
-    i8 9, label %land.lhs.true.i370.i
+  switch i8 %127, label %if.else.i370.i [
+    i8 32, label %land.lhs.true.i369.i
+    i8 9, label %land.lhs.true.i369.i
   ]
 
-land.lhs.true.i370.i:                             ; preds = %if.end6.i.i, %if.end6.i.i
+land.lhs.true.i369.i:                             ; preds = %if.end6.i.i, %if.end6.i.i
   %cmp14.not.i.i = icmp eq i32 %126, 2
-  br i1 %cmp14.not.i.i, label %if.else.i371.i, label %if.end904.i
+  br i1 %cmp14.not.i.i, label %if.else.i370.i, label %if.end904.i
 
-if.else.i371.i:                                   ; preds = %land.lhs.true.i370.i, %if.end6.i.i
+if.else.i370.i:                                   ; preds = %land.lhs.true.i369.i, %if.end6.i.i
   %call17.i.i = tail call ptr @memchr(ptr noundef nonnull %call.i.i, i32 noundef 58, i64 noundef %call3.i.i) #13
   %tobool18.not.i.i = icmp eq ptr %call17.i.i, null
-  br i1 %tobool18.not.i.i, label %if.then19.i.i, label %if.end904.i
+  br i1 %tobool18.not.i.i, label %verify_header.exit.i, label %if.end904.i
 
-if.then19.i.i:                                    ; preds = %if.else.i371.i
-  tail call void (ptr, ptr, ...) @Curl_failf(ptr noundef nonnull %data, ptr noundef nonnull @.str.166) #12
+verify_header.exit.i:                             ; preds = %if.else.i370.i, %if.end900.i
+  %.str.166.sink.i.i = phi ptr [ @.str.165, %if.end900.i ], [ @.str.166, %if.else.i370.i ]
+  tail call void (ptr, ptr, ...) @Curl_failf(ptr noundef nonnull %data, ptr noundef nonnull %.str.166.sink.i.i) #12
   br label %return
 
-if.end904.i:                                      ; preds = %if.else.i371.i, %land.lhs.true.i370.i, %if.end.i368.i
+if.end904.i:                                      ; preds = %if.else.i370.i, %land.lhs.true.i369.i, %if.end.i367.i
   %call905.i = tail call i32 @Curl_http_header(ptr noundef nonnull %data, ptr noundef %0, ptr noundef nonnull %call61.i)
   %tobool906.not.i = icmp eq i32 %call905.i, 0
   br i1 %tobool906.not.i, label %if.end908.i, label %return
@@ -7268,51 +7265,51 @@ if.end908.i:                                      ; preds = %if.end904.i
 
 if.end925.i:                                      ; preds = %if.end908.i
   %call928.i = tail call i64 @Curl_dyn_len(ptr noundef nonnull %headerb25.i) #12
-  %cmp.i372.i = icmp ult i64 %call928.i, 307200
-  br i1 %cmp.i372.i, label %if.then.i385.i, label %if.else26.i373.i
+  %cmp.i371.i = icmp ult i64 %call928.i, 307200
+  br i1 %cmp.i371.i, label %if.then.i384.i, label %if.else26.i372.i
 
-if.then.i385.i:                                   ; preds = %if.end925.i
-  %conv.i386.i = trunc nuw nsw i64 %call928.i to i32
+if.then.i384.i:                                   ; preds = %if.end925.i
+  %conv.i385.i = trunc nuw nsw i64 %call928.i to i32
   %129 = load i32, ptr %header_size.i.i, align 8
-  %add.i388.i = add i32 %129, %conv.i386.i
-  store i32 %add.i388.i, ptr %header_size.i.i, align 8
+  %add.i387.i = add i32 %129, %conv.i385.i
+  store i32 %add.i387.i, ptr %header_size.i.i, align 8
   %130 = load i32, ptr %allheadercount28.i.i, align 4
-  %add2.i390.i = add i32 %130, %conv.i386.i
-  store i32 %add2.i390.i, ptr %allheadercount28.i.i, align 4
+  %add2.i389.i = add i32 %130, %conv.i385.i
+  store i32 %add2.i389.i, ptr %allheadercount28.i.i, align 4
   %131 = load i32, ptr %headerbytecount.i.i, align 8
-  %add6.i392.i = add i32 %131, %conv.i386.i
-  store i32 %add6.i392.i, ptr %headerbytecount.i.i, align 8
-  %cmp9.i394.i = icmp ugt i32 %add2.i390.i, 307200
-  br i1 %cmp9.i394.i, label %if.end31.thread22.i398.i, label %if.else.i395.i
+  %add6.i391.i = add i32 %131, %conv.i385.i
+  store i32 %add6.i391.i, ptr %headerbytecount.i.i, align 8
+  %cmp9.i393.i = icmp ugt i32 %add2.i389.i, 307200
+  br i1 %cmp9.i393.i, label %if.end31.thread22.i397.i, label %if.else.i394.i
 
-if.end31.thread22.i398.i:                         ; preds = %if.then.i385.i
-  %conv14.i399.i = zext i32 %add2.i390.i to i64
-  br label %Curl_bump_headersize.exit400.i
+if.end31.thread22.i397.i:                         ; preds = %if.then.i384.i
+  %conv14.i398.i = zext i32 %add2.i389.i to i64
+  br label %Curl_bump_headersize.exit399.i
 
-if.else.i395.i:                                   ; preds = %if.then.i385.i
-  %cmp17.i396.i = icmp ugt i32 %add.i388.i, 6144000
-  %conv22.i397.i = zext i32 %add.i388.i to i64
-  br i1 %cmp17.i396.i, label %if.end31.i377.i, label %if.end932.i
+if.else.i394.i:                                   ; preds = %if.then.i384.i
+  %cmp17.i395.i = icmp ugt i32 %add.i387.i, 6144000
+  %conv22.i396.i = zext i32 %add.i387.i to i64
+  br i1 %cmp17.i395.i, label %if.end31.i376.i, label %if.end932.i
 
-if.else26.i373.i:                                 ; preds = %if.end925.i
+if.else26.i372.i:                                 ; preds = %if.end925.i
   %132 = load i32, ptr %allheadercount28.i.i, align 4
-  %conv29.i375.i = zext i32 %132 to i64
-  %add30.i376.i = add i64 %call928.i, %conv29.i375.i
-  br label %if.end31.i377.i
+  %conv29.i374.i = zext i32 %132 to i64
+  %add30.i375.i = add i64 %call928.i, %conv29.i374.i
+  br label %if.end31.i376.i
 
-if.end31.i377.i:                                  ; preds = %if.else26.i373.i, %if.else.i395.i
-  %bad.0.i378.i = phi i64 [ %add30.i376.i, %if.else26.i373.i ], [ %conv22.i397.i, %if.else.i395.i ]
-  %max.0.i379.i = phi i32 [ 307200, %if.else26.i373.i ], [ 6144000, %if.else.i395.i ]
-  %tobool32.not.i380.i = icmp eq i64 %bad.0.i378.i, 0
-  br i1 %tobool32.not.i380.i, label %if.end932.i, label %Curl_bump_headersize.exit400.i
+if.end31.i376.i:                                  ; preds = %if.else26.i372.i, %if.else.i394.i
+  %bad.0.i377.i = phi i64 [ %add30.i375.i, %if.else26.i372.i ], [ %conv22.i396.i, %if.else.i394.i ]
+  %max.0.i378.i = phi i32 [ 307200, %if.else26.i372.i ], [ 6144000, %if.else.i394.i ]
+  %tobool32.not.i379.i = icmp eq i64 %bad.0.i377.i, 0
+  br i1 %tobool32.not.i379.i, label %if.end932.i, label %Curl_bump_headersize.exit399.i
 
-Curl_bump_headersize.exit400.i:                   ; preds = %if.end31.i377.i, %if.end31.thread22.i398.i
-  %max.027.i382.i = phi i32 [ 307200, %if.end31.thread22.i398.i ], [ %max.0.i379.i, %if.end31.i377.i ]
-  %bad.026.i383.i = phi i64 [ %conv14.i399.i, %if.end31.thread22.i398.i ], [ %bad.0.i378.i, %if.end31.i377.i ]
-  tail call void (ptr, ptr, ...) @Curl_failf(ptr noundef nonnull %data, ptr noundef nonnull @.str.122, i64 noundef %bad.026.i383.i, i32 noundef %max.027.i382.i) #12
+Curl_bump_headersize.exit399.i:                   ; preds = %if.end31.i376.i, %if.end31.thread22.i397.i
+  %max.027.i381.i = phi i32 [ 307200, %if.end31.thread22.i397.i ], [ %max.0.i378.i, %if.end31.i376.i ]
+  %bad.026.i382.i = phi i64 [ %conv14.i398.i, %if.end31.thread22.i397.i ], [ %bad.0.i377.i, %if.end31.i376.i ]
+  tail call void (ptr, ptr, ...) @Curl_failf(ptr noundef nonnull %data, ptr noundef nonnull @.str.122, i64 noundef %bad.026.i382.i, i32 noundef %max.027.i381.i) #12
   br label %return
 
-if.end932.i:                                      ; preds = %if.end31.i377.i, %if.else.i395.i
+if.end932.i:                                      ; preds = %if.end31.i376.i, %if.else.i394.i
   tail call void @Curl_dyn_reset(ptr noundef nonnull %headerb25.i) #12
   br label %do.cond.i
 
@@ -7360,8 +7357,8 @@ if.end:                                           ; preds = %if.then18, %land.lh
   tail call void @Curl_dyn_free(ptr noundef nonnull %headerb25.i) #12
   br label %return
 
-return:                                           ; preds = %if.end22.i, %if.end229.i, %cond.end.i, %do.end398.i, %if.end480.i, %if.end904.i, %if.end908.i, %lor.lhs.false866.i, %land.lhs.true833.i, %land.lhs.true823.i, %if.then812.i, %land.lhs.true792.i, %if.then786.i, %if.then777.i, %if.then802.i, %if.then19.i.i, %if.then.i366.i, %Curl_bump_headersize.exit400.i, %Curl_bump_headersize.exit.i, %Curl_http_size.exit.i, %if.then.i, %if.then18.i, %if.then51.i, %if.then610.i, %sw.default691.i, %sw.default704.i, %if.then699.i, %if.then249.i, %land.lhs.true, %if.end, %if.then
-  %retval.0 = phi i32 [ 0, %if.then ], [ 0, %land.lhs.true ], [ %result.1, %if.end ], [ 8, %if.then19.i.i ], [ 8, %if.then.i366.i ], [ 56, %Curl_bump_headersize.exit400.i ], [ 56, %Curl_bump_headersize.exit.i ], [ 63, %Curl_http_size.exit.i ], [ %call2.i, %if.then.i ], [ 1, %if.then18.i ], [ 1, %if.then51.i ], [ 1, %if.then610.i ], [ 1, %sw.default691.i ], [ 1, %sw.default704.i ], [ 1, %if.then699.i ], [ 22, %if.then249.i ], [ 8, %if.then802.i ], [ 8, %if.then777.i ], [ 8, %if.then786.i ], [ 8, %land.lhs.true792.i ], [ 8, %if.then812.i ], [ 8, %land.lhs.true823.i ], [ 8, %land.lhs.true833.i ], [ 8, %lor.lhs.false866.i ], [ %call922.i, %if.end908.i ], [ %call905.i, %if.end904.i ], [ 1, %if.end480.i ], [ %call399.i, %do.end398.i ], [ %call262.i, %cond.end.i ], [ %call240.i, %if.end229.i ], [ %call26.i, %if.end22.i ]
+return:                                           ; preds = %if.end22.i, %if.end229.i, %cond.end.i, %do.end398.i, %if.end480.i, %if.end904.i, %if.end908.i, %lor.lhs.false866.i, %land.lhs.true833.i, %land.lhs.true823.i, %if.then812.i, %land.lhs.true792.i, %if.then786.i, %if.then777.i, %if.then802.i, %Curl_bump_headersize.exit399.i, %verify_header.exit.i, %Curl_bump_headersize.exit.i, %Curl_http_size.exit.i, %if.then.i, %if.then18.i, %if.then51.i, %if.then610.i, %sw.default691.i, %sw.default704.i, %if.then699.i, %if.then249.i, %land.lhs.true, %if.end, %if.then
+  %retval.0 = phi i32 [ 0, %if.then ], [ 0, %land.lhs.true ], [ %result.1, %if.end ], [ 56, %Curl_bump_headersize.exit399.i ], [ 8, %verify_header.exit.i ], [ 56, %Curl_bump_headersize.exit.i ], [ 63, %Curl_http_size.exit.i ], [ %call2.i, %if.then.i ], [ 1, %if.then18.i ], [ 1, %if.then51.i ], [ 1, %if.then610.i ], [ 1, %sw.default691.i ], [ 1, %sw.default704.i ], [ 1, %if.then699.i ], [ 22, %if.then249.i ], [ 8, %if.then802.i ], [ 8, %if.then777.i ], [ 8, %if.then786.i ], [ 8, %land.lhs.true792.i ], [ 8, %if.then812.i ], [ 8, %land.lhs.true823.i ], [ 8, %land.lhs.true833.i ], [ 8, %lor.lhs.false866.i ], [ %call922.i, %if.end908.i ], [ %call905.i, %if.end904.i ], [ 1, %if.end480.i ], [ %call399.i, %do.end398.i ], [ %call262.i, %cond.end.i ], [ %call240.i, %if.end229.i ], [ %call26.i, %if.end22.i ]
   ret i32 %retval.0
 }
 

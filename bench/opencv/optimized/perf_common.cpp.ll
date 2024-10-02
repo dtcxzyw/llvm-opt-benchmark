@@ -1653,8 +1653,7 @@ _ZN7testing7MessageD2Ev.exit:                     ; preds = %52, %41
 
 69:                                               ; preds = %66
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %67) #23
-  call void @_ZdlPv(ptr noundef nonnull %67) #25
-  br label %_ZNSt6vectorIbSaIbEED2Ev.exit
+  br label %_ZNSt6vectorIbSaIbEED2Ev.exit.sink.split
 
 70:                                               ; preds = %64
   %71 = landingpad { ptr, i32 }
@@ -2427,10 +2426,14 @@ _ZNSt6vectorIdSaIdEED2Ev.exit:                    ; preds = %._crit_edge235, %38
   %388 = ashr exact i64 %387, 3
   %389 = sub nsw i64 0, %388
   %390 = getelementptr inbounds i64, ptr %.sroa.26.0202205, i64 %389
-  call void @_ZdlPv(ptr noundef %390) #25
+  br label %_ZNSt6vectorIbSaIbEED2Ev.exit.sink.split
+
+_ZNSt6vectorIbSaIbEED2Ev.exit.sink.split:         ; preds = %384, %69
+  %.sink = phi ptr [ %67, %69 ], [ %390, %384 ]
+  call void @_ZdlPv(ptr noundef %.sink) #25
   br label %_ZNSt6vectorIbSaIbEED2Ev.exit
 
-_ZNSt6vectorIbSaIbEED2Ev.exit:                    ; preds = %.noexc.i.i93, %66, %69, %_ZN7testing7MessageD2Ev.exit, %384, %_ZNSt6vectorIdSaIdEED2Ev.exit
+_ZNSt6vectorIbSaIbEED2Ev.exit:                    ; preds = %_ZNSt6vectorIbSaIbEED2Ev.exit.sink.split, %.noexc.i.i93, %66, %_ZN7testing7MessageD2Ev.exit, %_ZNSt6vectorIdSaIdEED2Ev.exit
   ret void
 
 391:                                              ; preds = %.loopexit, %.loopexit.split-lp, %331, %273, %222

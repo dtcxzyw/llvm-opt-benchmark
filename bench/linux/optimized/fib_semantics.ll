@@ -6565,84 +6565,78 @@ define internal fastcc noundef range(i32 0, 2) i32 @fib_detect_death(ptr noundef
   %33 = getelementptr inbounds i8, ptr %32, i64 14
   %34 = load i8, ptr %33, align 2
   switch i8 %34, label %.thread5 [
-    i8 2, label %35
-    i8 10, label %39
+    i8 2, label %39
+    i8 10, label %35
   ], !prof !71
 
 35:                                               ; preds = %.thread4
-  %36 = getelementptr inbounds i8, ptr %32, i64 24
-  %37 = load ptr, ptr %32, align 8
-  %38 = tail call ptr @neigh_lookup(ptr noundef nonnull @arp_tbl, ptr noundef %36, ptr noundef %37) #16
-  br label %46
+  %36 = load ptr, ptr @ipv6_stub, align 8
+  %37 = getelementptr inbounds i8, ptr %36, i64 168
+  %38 = load ptr, ptr %37, align 8
+  br label %39
 
-39:                                               ; preds = %.thread4
-  %40 = load ptr, ptr @ipv6_stub, align 8
-  %41 = getelementptr inbounds i8, ptr %40, i64 168
-  %42 = load ptr, ptr %41, align 8
-  %43 = getelementptr inbounds i8, ptr %32, i64 24
-  %44 = load ptr, ptr %32, align 8
-  %45 = tail call ptr @neigh_lookup(ptr noundef %42, ptr noundef %43, ptr noundef %44) #16
-  br label %46
+39:                                               ; preds = %.thread4, %35
+  %.sink = phi ptr [ %38, %35 ], [ @arp_tbl, %.thread4 ]
+  %40 = getelementptr inbounds i8, ptr %32, i64 24
+  %41 = load ptr, ptr %32, align 8
+  %42 = tail call ptr @neigh_lookup(ptr noundef %.sink, ptr noundef %40, ptr noundef %41) #16
+  %43 = icmp eq ptr %42, null
+  br i1 %43, label %.thread5, label %44
 
-46:                                               ; preds = %39, %35
-  %47 = phi ptr [ %38, %35 ], [ %45, %39 ]
-  %48 = icmp eq ptr %47, null
-  br i1 %48, label %.thread5, label %49
+44:                                               ; preds = %39
+  %45 = getelementptr inbounds i8, ptr %42, i64 132
+  %46 = load volatile i8, ptr %45, align 4
+  %47 = getelementptr inbounds i8, ptr %42, i64 48
+  %48 = tail call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %47, i32 -1, ptr elementtype(i32) %47) #16, !srcloc !13
+  %49 = icmp eq i32 %48, 1
+  br i1 %49, label %53, label %50
 
-49:                                               ; preds = %46
-  %50 = getelementptr inbounds i8, ptr %47, i64 132
-  %51 = load volatile i8, ptr %50, align 4
-  %52 = getelementptr inbounds i8, ptr %47, i64 48
-  %53 = tail call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %52, i32 -1, ptr elementtype(i32) %52) #16, !srcloc !13
-  %54 = icmp eq i32 %53, 1
-  br i1 %54, label %58, label %55
+50:                                               ; preds = %44
+  %51 = icmp sgt i32 %48, 0
+  br i1 %51, label %.thread6, label %52, !prof !14
 
-55:                                               ; preds = %49
-  %56 = icmp sgt i32 %53, 0
-  br i1 %56, label %.thread6, label %57, !prof !14
-
-57:                                               ; preds = %55
-  tail call void @refcount_warn_saturate(ptr noundef %52, i32 noundef 3) #16
+52:                                               ; preds = %50
+  tail call void @refcount_warn_saturate(ptr noundef %47, i32 noundef 3) #16
   br label %.thread6
 
-58:                                               ; preds = %49
+53:                                               ; preds = %44
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !15
-  tail call void @neigh_destroy(ptr noundef nonnull %47) #16
+  tail call void @neigh_destroy(ptr noundef nonnull %42) #16
   br label %.thread6
 
-.thread6:                                         ; preds = %55, %57, %58
-  %59 = icmp eq i8 %51, 2
-  br i1 %59, label %.thread5, label %60
+.thread6:                                         ; preds = %50, %52, %53
+  %54 = icmp eq i8 %46, 2
+  br i1 %54, label %.thread5, label %55
 
-60:                                               ; preds = %.thread6
-  %61 = and i8 %51, -34
-  %62 = icmp eq i8 %61, 0
-  %63 = icmp eq i32 %1, %4
-  %64 = or i1 %63, %62
-  br i1 %64, label %65, label %.thread5
+55:                                               ; preds = %.thread6
+  %56 = and i8 %46, -34
+  %57 = icmp eq i8 %56, 0
+  %58 = icmp eq i32 %1, %4
+  %59 = or i1 %58, %57
+  br i1 %59, label %60, label %.thread5
 
-65:                                               ; preds = %60
-  br i1 %62, label %66, label %73
+60:                                               ; preds = %55
+  br i1 %57, label %61, label %68
 
-66:                                               ; preds = %65
-  %67 = load i32, ptr %3, align 4
-  %68 = icmp slt i32 %67, 0
-  br i1 %68, label %69, label %.thread5
+61:                                               ; preds = %60
+  %62 = load i32, ptr %3, align 4
+  %63 = icmp slt i32 %62, 0
+  br i1 %63, label %64, label %.thread5
 
-69:                                               ; preds = %66
-  %70 = icmp sgt i32 %1, %4
-  %71 = icmp ne i8 %51, 1
-  %72 = select i1 %70, i1 %71, i1 false
-  br i1 %72, label %73, label %.thread5
+64:                                               ; preds = %61
+  %65 = icmp sgt i32 %1, %4
+  %66 = icmp ne i8 %46, 1
+  %67 = select i1 %65, i1 %66, i1 false
+  br i1 %67, label %68, label %.thread5
 
-73:                                               ; preds = %69, %65
+68:                                               ; preds = %64, %60
   store ptr %0, ptr %2, align 8
   store i32 %1, ptr %3, align 4
   br label %.thread5
 
-.thread5:                                         ; preds = %.thread4, %73, %69, %66, %60, %.thread6, %46
-  %74 = phi i32 [ 0, %46 ], [ 0, %.thread6 ], [ 0, %60 ], [ 1, %73 ], [ 1, %69 ], [ 1, %66 ], [ 0, %.thread4 ]
-  ret i32 %74
+.thread5:                                         ; preds = %.thread4, %68, %64, %61, %55, %.thread6, %39
+  %69 = phi i32 [ 0, %39 ], [ 0, %.thread6 ], [ 0, %55 ], [ 1, %68 ], [ 1, %64 ], [ 1, %61 ], [ 0, %.thread4 ]
+  ret i32 %69
 }
 
 ; Function Attrs: fn_ret_thunk_extern inlinehint mustprogress nofree norecurse nounwind null_pointer_is_valid willreturn

@@ -661,19 +661,15 @@ land.lhs.true14:                                  ; preds = %land.lhs.true11
   %5 = load i64, ptr %st_ino21, align 8
   %cmp23 = icmp eq i64 %5, %3
   %or.cond19 = select i1 %or.cond18, i1 %cmp23, i1 false
-  br i1 %or.cond19, label %if.then24, label %if.else
-
-if.then24:                                        ; preds = %land.lhs.true14
-  %call.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %call4) #14
-  tail call void @strbuf_add(ptr noundef nonnull %sb, ptr noundef nonnull %call4, i64 noundef %call.i) #12
-  br label %if.end25
+  br i1 %or.cond19, label %if.end25, label %if.else
 
 if.else:                                          ; preds = %land.lhs.true11, %land.lhs.true14, %land.lhs.true8, %land.lhs.true, %if.then2
-  %call.i16 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %call3) #14
-  tail call void @strbuf_add(ptr noundef nonnull %sb, ptr noundef %call3, i64 noundef %call.i16) #12
   br label %if.end25
 
-if.end25:                                         ; preds = %if.else, %if.then24
+if.end25:                                         ; preds = %land.lhs.true14, %if.else
+  %call3.sink21 = phi ptr [ %call3, %if.else ], [ %call4, %land.lhs.true14 ]
+  %call.i16 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %call3.sink21) #14
+  tail call void @strbuf_add(ptr noundef nonnull %sb, ptr noundef %call3.sink21, i64 noundef %call.i16) #12
   %6 = load i64, ptr %len, align 8
   %cmp27 = icmp ugt i64 %6, %1
   br i1 %cmp27, label %land.lhs.true28, label %if.end33

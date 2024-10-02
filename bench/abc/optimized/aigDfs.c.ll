@@ -1514,8 +1514,8 @@ Vec_PtrAlloc.exit:                                ; preds = %3, %13
   %wide.trip.count = zext nneg i32 %2 to i64
   br label %.lr.ph
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %30
-  %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %30 ]
+.lr.ph:                                           ; preds = %.lr.ph.preheader, %29
+  %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %29 ]
   %20 = getelementptr inbounds ptr, ptr %1, i64 %indvars.iv
   %21 = load ptr, ptr %20, align 8
   %22 = getelementptr i8, ptr %21, i64 24
@@ -1530,19 +1530,16 @@ Vec_PtrAlloc.exit:                                ; preds = %3, %13
   %26 = ptrtoint ptr %.val to i64
   %27 = and i64 %26, -2
   %28 = inttoptr i64 %27 to ptr
-  tail call void @Aig_ManDfs_rec(ptr noundef %0, ptr noundef %28, ptr noundef nonnull %10)
-  br label %30
+  br label %29
 
-29:                                               ; preds = %.lr.ph
-  tail call void @Aig_ManDfs_rec(ptr noundef %0, ptr noundef nonnull %21, ptr noundef nonnull %10)
-  br label %30
-
-30:                                               ; preds = %24, %29
+29:                                               ; preds = %.lr.ph, %24
+  %.sink = phi ptr [ %28, %24 ], [ %21, %.lr.ph ]
+  tail call void @Aig_ManDfs_rec(ptr noundef %0, ptr noundef %.sink, ptr noundef nonnull %10)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !18
 
-._crit_edge:                                      ; preds = %30, %Vec_PtrAlloc.exit
+._crit_edge:                                      ; preds = %29, %Vec_PtrAlloc.exit
   ret ptr %10
 }
 
@@ -2739,8 +2736,8 @@ define void @Aig_SupportNodes(ptr noundef %0, ptr nocapture noundef readonly %1,
   %wide.trip.count = zext nneg i32 %2 to i64
   br label %.lr.ph
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %20
-  %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %20 ]
+.lr.ph:                                           ; preds = %.lr.ph.preheader, %19
+  %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %19 ]
   %10 = getelementptr inbounds ptr, ptr %1, i64 %indvars.iv
   %11 = load ptr, ptr %10, align 8
   %12 = getelementptr i8, ptr %11, i64 24
@@ -2755,19 +2752,16 @@ define void @Aig_SupportNodes(ptr noundef %0, ptr nocapture noundef readonly %1,
   %16 = ptrtoint ptr %.val to i64
   %17 = and i64 %16, -2
   %18 = inttoptr i64 %17 to ptr
-  tail call void @Aig_Support_rec(ptr noundef %0, ptr noundef %18, ptr noundef %3)
-  br label %20
+  br label %19
 
-19:                                               ; preds = %.lr.ph
-  tail call void @Aig_Support_rec(ptr noundef %0, ptr noundef nonnull %11, ptr noundef %3)
-  br label %20
-
-20:                                               ; preds = %14, %19
+19:                                               ; preds = %.lr.ph, %14
+  %.sink = phi ptr [ %18, %14 ], [ %11, %.lr.ph ]
+  tail call void @Aig_Support_rec(ptr noundef %0, ptr noundef %.sink, ptr noundef %3)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !29
 
-._crit_edge:                                      ; preds = %20, %4
+._crit_edge:                                      ; preds = %19, %4
   ret void
 }
 

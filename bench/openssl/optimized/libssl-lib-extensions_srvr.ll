@@ -2160,28 +2160,24 @@ entry:
   %0 = getelementptr i8, ptr %pkt, i64 8
   %pkt.val = load i64, ptr %0, align 8
   %cmp.not = icmp eq i64 %pkt.val, 0
-  br i1 %cmp.not, label %if.end, label %if.then
-
-if.then:                                          ; preds = %entry
-  tail call void @ERR_new() #10
-  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 979, ptr noundef nonnull @__func__.tls_parse_ctos_early_data) #10
-  tail call void (ptr, i32, i32, ptr, ...) @ossl_statem_fatal(ptr noundef %s, i32 noundef 50, i32 noundef 110, ptr noundef null) #10
-  br label %return
+  br i1 %cmp.not, label %if.end, label %return.sink.split
 
 if.end:                                           ; preds = %entry
   %hello_retry_request = getelementptr inbounds i8, ptr %s, i64 2128
   %1 = load i32, ptr %hello_retry_request, align 8
   %cmp1.not = icmp eq i32 %1, 0
-  br i1 %cmp1.not, label %return, label %if.then2
+  br i1 %cmp1.not, label %return, label %return.sink.split
 
-if.then2:                                         ; preds = %if.end
+return.sink.split:                                ; preds = %if.end, %entry
+  %.sink3 = phi i32 [ 979, %entry ], [ 984, %if.end ]
+  %.sink = phi i32 [ 50, %entry ], [ 47, %if.end ]
   tail call void @ERR_new() #10
-  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 984, ptr noundef nonnull @__func__.tls_parse_ctos_early_data) #10
-  tail call void (ptr, i32, i32, ptr, ...) @ossl_statem_fatal(ptr noundef nonnull %s, i32 noundef 47, i32 noundef 110, ptr noundef null) #10
+  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef %.sink3, ptr noundef nonnull @__func__.tls_parse_ctos_early_data) #10
+  tail call void (ptr, i32, i32, ptr, ...) @ossl_statem_fatal(ptr noundef %s, i32 noundef %.sink, i32 noundef 110, ptr noundef null) #10
   br label %return
 
-return:                                           ; preds = %if.end, %if.then2, %if.then
-  %retval.0 = phi i32 [ 0, %if.then ], [ 0, %if.then2 ], [ 1, %if.end ]
+return:                                           ; preds = %return.sink.split, %if.end
+  %retval.0 = phi i32 [ 1, %if.end ], [ 0, %return.sink.split ]
   ret i32 %retval.0
 }
 
@@ -3013,13 +3009,7 @@ if.end:                                           ; preds = %entry
   call void @tls1_get_supported_groups(ptr noundef nonnull %s, ptr noundef nonnull %groups, ptr noundef nonnull %numgroups) #10
   %1 = load i64, ptr %numgroups, align 8
   %cmp2 = icmp eq i64 %1, 0
-  br i1 %cmp2, label %if.then4, label %if.end5
-
-if.then4:                                         ; preds = %if.end
-  call void @ERR_new() #10
-  call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 1388, ptr noundef nonnull @__func__.tls_construct_stoc_supported_groups) #10
-  call void (ptr, i32, i32, ptr, ...) @ossl_statem_fatal(ptr noundef nonnull %s, i32 noundef 80, i32 noundef 786691, ptr noundef null) #10
-  br label %return
+  br i1 %cmp2, label %return.sink.split, label %if.end5
 
 if.end5:                                          ; preds = %if.end
   %call = call i32 @SSL_version(ptr noundef nonnull %s) #10
@@ -3054,35 +3044,23 @@ if.then13:                                        ; preds = %if.then11
 if.end21:                                         ; preds = %if.then13
   %call22 = call i32 @WPACKET_put_bytes__(ptr noundef %pkt, i64 noundef 10, i64 noundef 2) #10
   %tobool23.not = icmp eq i32 %call22, 0
-  br i1 %tobool23.not, label %if.then29, label %lor.lhs.false
+  br i1 %tobool23.not, label %return.sink.split, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %if.end21
   %call24 = call i32 @WPACKET_start_sub_packet_len__(ptr noundef %pkt, i64 noundef 2) #10
   %tobool25.not = icmp eq i32 %call24, 0
-  br i1 %tobool25.not, label %if.then29, label %lor.lhs.false26
+  br i1 %tobool25.not, label %return.sink.split, label %lor.lhs.false26
 
 lor.lhs.false26:                                  ; preds = %lor.lhs.false
   %call27 = call i32 @WPACKET_start_sub_packet_len__(ptr noundef %pkt, i64 noundef 2) #10
   %tobool28.not = icmp eq i32 %call27, 0
-  br i1 %tobool28.not, label %if.then29, label %if.end31
-
-if.then29:                                        ; preds = %lor.lhs.false26, %lor.lhs.false, %if.end21
-  call void @ERR_new() #10
-  call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 1412, ptr noundef nonnull @__func__.tls_construct_stoc_supported_groups) #10
-  call void (ptr, i32, i32, ptr, ...) @ossl_statem_fatal(ptr noundef nonnull %s, i32 noundef 80, i32 noundef 786691, ptr noundef null) #10
-  br label %return
+  br i1 %tobool28.not, label %return.sink.split, label %if.end31
 
 if.end31:                                         ; preds = %lor.lhs.false26, %if.then11
   %conv32 = zext i16 %4 to i64
   %call33 = call i32 @WPACKET_put_bytes__(ptr noundef %pkt, i64 noundef %conv32, i64 noundef 2) #10
   %tobool34.not = icmp eq i32 %call33, 0
-  br i1 %tobool34.not, label %if.then35, label %for.inc
-
-if.then35:                                        ; preds = %if.end31
-  call void @ERR_new() #10
-  call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 1419, ptr noundef nonnull @__func__.tls_construct_stoc_supported_groups) #10
-  call void (ptr, i32, i32, ptr, ...) @ossl_statem_fatal(ptr noundef %s, i32 noundef 80, i32 noundef 786691, ptr noundef null) #10
-  br label %return
+  br i1 %tobool34.not, label %return.sink.split, label %for.inc
 
 for.inc:                                          ; preds = %for.body, %land.lhs.true, %if.end31
   %first.2 = phi i64 [ 0, %if.end31 ], [ %first.022, %land.lhs.true ], [ %first.022, %for.body ]
@@ -3094,21 +3072,22 @@ for.inc:                                          ; preds = %for.body, %land.lhs
 for.end:                                          ; preds = %for.inc, %if.end5
   %call38 = call i32 @WPACKET_close(ptr noundef %pkt) #10
   %tobool39.not = icmp eq i32 %call38, 0
-  br i1 %tobool39.not, label %if.then43, label %lor.lhs.false40
+  br i1 %tobool39.not, label %return.sink.split, label %lor.lhs.false40
 
 lor.lhs.false40:                                  ; preds = %for.end
   %call41 = call i32 @WPACKET_close(ptr noundef %pkt) #10
   %tobool42.not = icmp eq i32 %call41, 0
-  br i1 %tobool42.not, label %if.then43, label %return
+  br i1 %tobool42.not, label %return.sink.split, label %return
 
-if.then43:                                        ; preds = %lor.lhs.false40, %for.end
+return.sink.split:                                ; preds = %if.end31, %if.end21, %lor.lhs.false, %lor.lhs.false26, %for.end, %lor.lhs.false40, %if.end
+  %.sink = phi i32 [ 1388, %if.end ], [ 1426, %lor.lhs.false40 ], [ 1426, %for.end ], [ 1412, %lor.lhs.false26 ], [ 1412, %lor.lhs.false ], [ 1412, %if.end21 ], [ 1419, %if.end31 ]
   call void @ERR_new() #10
-  call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 1426, ptr noundef nonnull @__func__.tls_construct_stoc_supported_groups) #10
+  call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef %.sink, ptr noundef nonnull @__func__.tls_construct_stoc_supported_groups) #10
   call void (ptr, i32, i32, ptr, ...) @ossl_statem_fatal(ptr noundef %s, i32 noundef 80, i32 noundef 786691, ptr noundef null) #10
   br label %return
 
-return:                                           ; preds = %if.then13, %lor.lhs.false40, %entry, %if.then43, %if.then35, %if.then29, %if.then4
-  %retval.0 = phi i32 [ 0, %if.then4 ], [ 0, %if.then35 ], [ 0, %if.then29 ], [ 0, %if.then43 ], [ 2, %entry ], [ 1, %lor.lhs.false40 ], [ 2, %if.then13 ]
+return:                                           ; preds = %if.then13, %return.sink.split, %lor.lhs.false40, %entry
+  %retval.0 = phi i32 [ 2, %entry ], [ 1, %lor.lhs.false40 ], [ 0, %return.sink.split ], [ 2, %if.then13 ]
   ret i32 %retval.0
 }
 

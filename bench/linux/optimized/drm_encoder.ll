@@ -302,58 +302,51 @@ define dso_local ptr @__drmm_encoder_alloc(ptr noundef %0, i64 noundef %1, i64 n
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal fastcc i32 @__drmm_encoder_init(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %4, ptr noundef %5) unnamed_addr #0 align 16 {
   %7 = icmp eq ptr %2, null
-  br i1 %7, label %.split, label %9
+  br i1 %7, label %.split, label %8
 
-.split:                                           ; preds = %6
-  %8 = tail call fastcc i32 @__drm_encoder_init(ptr noundef %0, ptr noundef %1, ptr noundef null, i32 noundef %3, ptr noundef %4, ptr noundef %5)
-  br label %26
+8:                                                ; preds = %6
+  %9 = getelementptr inbounds i8, ptr %2, i64 8
+  %10 = load ptr, ptr %9, align 8
+  %11 = icmp eq ptr %10, null
+  br i1 %11, label %.split, label %12, !prof !18
 
-9:                                                ; preds = %6
-  %10 = getelementptr inbounds i8, ptr %2, i64 8
-  %11 = load ptr, ptr %10, align 8
-  %12 = icmp eq ptr %11, null
-  br i1 %12, label %.split1, label %14, !prof !18
-
-.split1:                                          ; preds = %9
-  %13 = tail call fastcc i32 @__drm_encoder_init(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %2, i32 noundef %3, ptr noundef %4, ptr noundef %5)
-  br label %26
-
-14:                                               ; preds = %9
+12:                                               ; preds = %8
   tail call void asm sideeffect "376: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 376b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 376) #5, !srcloc !19
-  %15 = getelementptr inbounds i8, ptr %0, i64 8
-  %16 = load ptr, ptr %15, align 8
-  %17 = tail call ptr @dev_driver_string(ptr noundef %16) #5
-  %18 = load ptr, ptr %15, align 8
-  %19 = getelementptr inbounds i8, ptr %18, i64 80
-  %20 = load ptr, ptr %19, align 8
-  %21 = icmp eq ptr %20, null
-  br i1 %21, label %22, label %24
+  %13 = getelementptr inbounds i8, ptr %0, i64 8
+  %14 = load ptr, ptr %13, align 8
+  %15 = tail call ptr @dev_driver_string(ptr noundef %14) #5
+  %16 = load ptr, ptr %13, align 8
+  %17 = getelementptr inbounds i8, ptr %16, i64 80
+  %18 = load ptr, ptr %17, align 8
+  %19 = icmp eq ptr %18, null
+  br i1 %19, label %20, label %22
 
-22:                                               ; preds = %14
-  %23 = load ptr, ptr %18, align 8
-  br label %24
+20:                                               ; preds = %12
+  %21 = load ptr, ptr %16, align 8
+  br label %22
 
-24:                                               ; preds = %22, %14
-  %25 = phi ptr [ %23, %22 ], [ %20, %14 ]
-  tail call void (ptr, ...) @__warn_printk(ptr noundef nonnull @.str.11, ptr noundef %17, ptr noundef %25, ptr noundef nonnull @.str.12) #5
+22:                                               ; preds = %20, %12
+  %23 = phi ptr [ %21, %20 ], [ %18, %12 ]
+  tail call void (ptr, ...) @__warn_printk(ptr noundef nonnull @.str.11, ptr noundef %15, ptr noundef %23, ptr noundef nonnull @.str.12) #5
   tail call void asm sideeffect "377: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 377b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 377) #5, !srcloc !20
   tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str, i32 230, i32 2313, i64 12) #5, !srcloc !21
   tail call void asm sideeffect "378: nop\0A\09.pushsection .discard.instr_end\0A\09.long 378b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 378) #5, !srcloc !22
   tail call void asm sideeffect "379: nop\0A\09.pushsection .discard.instr_end\0A\09.long 379b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 379) #5, !srcloc !23
-  br label %30
+  br label %28
 
-26:                                               ; preds = %.split1, %.split
-  %phi.call = phi i32 [ %8, %.split ], [ %13, %.split1 ]
-  %27 = icmp eq i32 %phi.call, 0
-  br i1 %27, label %28, label %30
+.split:                                           ; preds = %8, %6
+  %.sink = phi ptr [ null, %6 ], [ %2, %8 ]
+  %24 = tail call fastcc i32 @__drm_encoder_init(ptr noundef %0, ptr noundef %1, ptr noundef %.sink, i32 noundef %3, ptr noundef %4, ptr noundef %5)
+  %25 = icmp eq i32 %24, 0
+  br i1 %25, label %26, label %28
 
-28:                                               ; preds = %26
-  %29 = tail call i32 @__drmm_add_action_or_reset(ptr noundef %0, ptr noundef nonnull @drmm_encoder_alloc_release, ptr noundef %1, ptr noundef nonnull @.str.13) #5
-  br label %30
+26:                                               ; preds = %.split
+  %27 = tail call i32 @__drmm_add_action_or_reset(ptr noundef %0, ptr noundef nonnull @drmm_encoder_alloc_release, ptr noundef %1, ptr noundef nonnull @.str.13) #5
+  br label %28
 
-30:                                               ; preds = %28, %26, %24
-  %31 = phi i32 [ -22, %24 ], [ %phi.call, %26 ], [ %29, %28 ]
-  ret i32 %31
+28:                                               ; preds = %26, %.split, %22
+  %29 = phi i32 [ -22, %22 ], [ %24, %.split ], [ %27, %26 ]
+  ret i32 %29
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid

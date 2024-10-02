@@ -189345,7 +189345,7 @@ define internal fastcc void @"_ZSt16__merge_adaptiveIPN4llvm7SDValueElS2_N9__gnu
   br label %32
 
 tailrecurse._crit_edge:                           ; preds = %tailrecurse, %7
-  %.tr.lcssa = phi ptr [ %0, %7 ], [ %97, %tailrecurse ]
+  %.tr.lcssa = phi ptr [ %0, %7 ], [ %94, %tailrecurse ]
   %.tr106.lcssa = phi ptr [ %1, %7 ], [ %.0102, %tailrecurse ]
   %9 = ptrtoint ptr %.tr106.lcssa to i64
   %10 = ptrtoint ptr %.tr.lcssa to i64
@@ -189410,182 +189410,178 @@ _ZSt4moveIPN4llvm7SDValueES2_ET0_T_S4_S3_.exit.i: ; preds = %._crit_edge.i
 
 32:                                               ; preds = %.lr.ph, %tailrecurse
   %.not125 = phi i1 [ %.not117, %.lr.ph ], [ %.not, %tailrecurse ]
-  %.tr109124 = phi i64 [ %4, %.lr.ph ], [ %98, %tailrecurse ]
-  %.tr108123 = phi i64 [ %3, %.lr.ph ], [ %96, %tailrecurse ]
+  %.tr109124 = phi i64 [ %4, %.lr.ph ], [ %95, %tailrecurse ]
+  %.tr108123 = phi i64 [ %3, %.lr.ph ], [ %93, %tailrecurse ]
   %.tr106121 = phi ptr [ %1, %.lr.ph ], [ %.0102, %tailrecurse ]
-  %.tr120 = phi ptr [ %0, %.lr.ph ], [ %97, %tailrecurse ]
+  %.tr120 = phi ptr [ %0, %.lr.ph ], [ %94, %tailrecurse ]
   %.not71 = icmp sgt i64 %.tr109124, %6
-  %33 = ptrtoint ptr %.tr106121 to i64
-  br i1 %.not71, label %62, label %34
+  br i1 %.not71, label %58, label %33
 
-34:                                               ; preds = %32
-  %35 = sub i64 %8, %33
+33:                                               ; preds = %32
   %.not.i.i.i.i.i72 = icmp eq ptr %2, %.tr106121
   br i1 %.not.i.i.i.i.i72, label %"_ZSt21__move_merge_adaptiveIPN4llvm7SDValueES2_S2_N9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_111DAGCombiner23reduceBuildVecToShuffleEPNS0_6SDNodeEE3$_0EEEvT_SC_T0_SD_T1_T2_.exit", label %_ZSt4moveIPN4llvm7SDValueES2_ET0_T_S4_S3_.exit73.thread
 
-_ZSt4moveIPN4llvm7SDValueES2_ET0_T_S4_S3_.exit73.thread: ; preds = %34
+_ZSt4moveIPN4llvm7SDValueES2_ET0_T_S4_S3_.exit73.thread: ; preds = %33
+  %34 = ptrtoint ptr %.tr106121 to i64
+  %35 = sub i64 %8, %34
   tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %5, ptr align 8 %.tr106121, i64 %35, i1 false)
-  %36 = icmp eq ptr %.tr120, %.tr106121
-  br i1 %36, label %37, label %40
+  %36 = getelementptr inbounds i8, ptr %5, i64 %35
+  %37 = icmp eq ptr %.tr120, %.tr106121
+  br i1 %37, label %_ZSt13move_backwardIPN4llvm7SDValueES2_ET0_T_S4_S3_.exit.sink.split.i, label %38
 
-37:                                               ; preds = %_ZSt4moveIPN4llvm7SDValueES2_ET0_T_S4_S3_.exit73.thread
-  %38 = ashr exact i64 %35, 4
-  %.pre.i.i.i.i.i.i = sub nsw i64 0, %38
-  %39 = getelementptr inbounds %"class.llvm::SDValue", ptr %2, i64 %.pre.i.i.i.i.i.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %39, ptr align 8 %5, i64 %35, i1 false)
-  br label %"_ZSt21__move_merge_adaptiveIPN4llvm7SDValueES2_S2_N9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_111DAGCombiner23reduceBuildVecToShuffleEPNS0_6SDNodeEE3$_0EEEvT_SC_T0_SD_T1_T2_.exit"
-
-40:                                               ; preds = %_ZSt4moveIPN4llvm7SDValueES2_ET0_T_S4_S3_.exit73.thread
-  %41 = getelementptr inbounds i8, ptr %5, i64 %35
-  %42 = getelementptr inbounds i8, ptr %41, i64 -16
+38:                                               ; preds = %_ZSt4moveIPN4llvm7SDValueES2_ET0_T_S4_S3_.exit73.thread
+  %39 = getelementptr inbounds i8, ptr %36, i64 -16
   br label %.outer
 
-.outer:                                           ; preds = %48, %40
-  %.026.i.ph.pn = phi ptr [ %.tr106121, %40 ], [ %.026.i.ph, %48 ]
-  %.024.i.ph = phi ptr [ %42, %40 ], [ %.024.i, %48 ]
-  %.0.i.ph = phi ptr [ %2, %40 ], [ %47, %48 ]
+.outer:                                           ; preds = %45, %38
+  %.026.i.ph.pn = phi ptr [ %.tr106121, %38 ], [ %.026.i.ph, %45 ]
+  %.024.i.ph = phi ptr [ %39, %38 ], [ %.024.i, %45 ]
+  %.0.i.ph = phi ptr [ %2, %38 ], [ %44, %45 ]
   %.026.i.ph = getelementptr inbounds i8, ptr %.026.i.ph.pn, i64 -16
-  br label %43
+  br label %40
 
-43:                                               ; preds = %.outer, %60
-  %.024.i = phi ptr [ %61, %60 ], [ %.024.i.ph, %.outer ]
-  %.0.i = phi ptr [ %47, %60 ], [ %.0.i.ph, %.outer ]
+40:                                               ; preds = %.outer, %51
+  %.024.i = phi ptr [ %52, %51 ], [ %.024.i.ph, %.outer ]
+  %.0.i = phi ptr [ %44, %51 ], [ %.0.i.ph, %.outer ]
   %.024.val.i = load ptr, ptr %.024.i, align 8
-  %44 = getelementptr i8, ptr %.024.i, i64 8
-  %.024.val32.i = load i32, ptr %44, align 8
-  %45 = getelementptr i8, ptr %.024.val.i, i64 48
-  %.024.val.val.i = load ptr, ptr %45, align 8
-  %46 = tail call fastcc noundef zeroext i1 @"_ZZN12_GLOBAL__N_111DAGCombiner23reduceBuildVecToShuffleEPN4llvm6SDNodeEENK3$_0clERKNS1_7SDValueES7_"(ptr readonly %.024.val.val.i, i32 %.024.val32.i, ptr noundef nonnull readonly align 8 dereferenceable(12) %.026.i.ph)
-  %47 = getelementptr inbounds i8, ptr %.0.i, i64 -16
-  br i1 %46, label %48, label %58
+  %41 = getelementptr i8, ptr %.024.i, i64 8
+  %.024.val32.i = load i32, ptr %41, align 8
+  %42 = getelementptr i8, ptr %.024.val.i, i64 48
+  %.024.val.val.i = load ptr, ptr %42, align 8
+  %43 = tail call fastcc noundef zeroext i1 @"_ZZN12_GLOBAL__N_111DAGCombiner23reduceBuildVecToShuffleEPN4llvm6SDNodeEENK3$_0clERKNS1_7SDValueES7_"(ptr readonly %.024.val.val.i, i32 %.024.val32.i, ptr noundef nonnull readonly align 8 dereferenceable(12) %.026.i.ph)
+  %44 = getelementptr inbounds i8, ptr %.0.i, i64 -16
+  br i1 %43, label %45, label %49
 
-48:                                               ; preds = %43
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %47, ptr noundef nonnull align 8 dereferenceable(12) %.026.i.ph, i64 12, i1 false)
-  %49 = icmp eq ptr %.tr120, %.026.i.ph
-  br i1 %49, label %50, label %.outer, !llvm.loop !887
+45:                                               ; preds = %40
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %44, ptr noundef nonnull align 8 dereferenceable(12) %.026.i.ph, i64 12, i1 false)
+  %46 = icmp eq ptr %.tr120, %.026.i.ph
+  br i1 %46, label %47, label %.outer, !llvm.loop !887
 
-50:                                               ; preds = %48
-  %51 = getelementptr inbounds i8, ptr %.024.i, i64 16
-  %.not.i.i.i.i.i33.i = icmp eq ptr %51, %5
-  br i1 %.not.i.i.i.i.i33.i, label %"_ZSt21__move_merge_adaptiveIPN4llvm7SDValueES2_S2_N9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_111DAGCombiner23reduceBuildVecToShuffleEPNS0_6SDNodeEE3$_0EEEvT_SC_T0_SD_T1_T2_.exit", label %52
+47:                                               ; preds = %45
+  %48 = getelementptr inbounds i8, ptr %.024.i, i64 16
+  %.not.i.i.i.i.i33.i = icmp eq ptr %48, %5
+  br i1 %.not.i.i.i.i.i33.i, label %"_ZSt21__move_merge_adaptiveIPN4llvm7SDValueES2_S2_N9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_111DAGCombiner23reduceBuildVecToShuffleEPNS0_6SDNodeEE3$_0EEEvT_SC_T0_SD_T1_T2_.exit", label %_ZSt13move_backwardIPN4llvm7SDValueES2_ET0_T_S4_S3_.exit.sink.split.i
 
-52:                                               ; preds = %50
-  %53 = ptrtoint ptr %51 to i64
+49:                                               ; preds = %40
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %44, ptr noundef nonnull align 8 dereferenceable(12) %.024.i, i64 12, i1 false)
+  %50 = icmp eq ptr %5, %.024.i
+  br i1 %50, label %"_ZSt21__move_merge_adaptiveIPN4llvm7SDValueES2_S2_N9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_111DAGCombiner23reduceBuildVecToShuffleEPNS0_6SDNodeEE3$_0EEEvT_SC_T0_SD_T1_T2_.exit", label %51
+
+51:                                               ; preds = %49
+  %52 = getelementptr inbounds i8, ptr %.024.i, i64 -16
+  br label %40, !llvm.loop !887
+
+_ZSt13move_backwardIPN4llvm7SDValueES2_ET0_T_S4_S3_.exit.sink.split.i: ; preds = %_ZSt4moveIPN4llvm7SDValueES2_ET0_T_S4_S3_.exit73.thread, %47
+  %.sink42.i = phi ptr [ %48, %47 ], [ %36, %_ZSt4moveIPN4llvm7SDValueES2_ET0_T_S4_S3_.exit73.thread ]
+  %.lcssa.sink.i = phi ptr [ %44, %47 ], [ %2, %_ZSt4moveIPN4llvm7SDValueES2_ET0_T_S4_S3_.exit73.thread ]
+  %53 = ptrtoint ptr %.sink42.i to i64
   %54 = ptrtoint ptr %5 to i64
   %55 = sub i64 %53, %54
   %56 = ashr exact i64 %55, 4
   %.pre.i.i.i.i.i34.i = sub nsw i64 0, %56
-  %57 = getelementptr inbounds %"class.llvm::SDValue", ptr %47, i64 %.pre.i.i.i.i.i34.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %57, ptr align 8 %5, i64 %55, i1 false)
+  %57 = getelementptr inbounds %"class.llvm::SDValue", ptr %.lcssa.sink.i, i64 %.pre.i.i.i.i.i34.i
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %57, ptr align 8 %5, i64 %55, i1 false)
   br label %"_ZSt21__move_merge_adaptiveIPN4llvm7SDValueES2_S2_N9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_111DAGCombiner23reduceBuildVecToShuffleEPNS0_6SDNodeEE3$_0EEEvT_SC_T0_SD_T1_T2_.exit"
 
-58:                                               ; preds = %43
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %47, ptr noundef nonnull align 8 dereferenceable(12) %.024.i, i64 12, i1 false)
-  %59 = icmp eq ptr %5, %.024.i
-  br i1 %59, label %"_ZSt21__move_merge_adaptiveIPN4llvm7SDValueES2_S2_N9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_111DAGCombiner23reduceBuildVecToShuffleEPNS0_6SDNodeEE3$_0EEEvT_SC_T0_SD_T1_T2_.exit", label %60
-
-60:                                               ; preds = %58
-  %61 = getelementptr inbounds i8, ptr %.024.i, i64 -16
-  br label %43, !llvm.loop !887
-
-62:                                               ; preds = %32
+58:                                               ; preds = %32
+  %59 = ptrtoint ptr %.tr106121 to i64
   br i1 %.not125, label %_ZSt7advanceIPN4llvm7SDValueElEvRT_T0_.exit, label %_ZSt7advanceIPN4llvm7SDValueElEvRT_T0_.exit80
 
-_ZSt7advanceIPN4llvm7SDValueElEvRT_T0_.exit:      ; preds = %62
-  %63 = sdiv i64 %.tr108123, 2
-  %64 = getelementptr inbounds %"class.llvm::SDValue", ptr %.tr120, i64 %63
-  %65 = sub i64 %8, %33
-  %66 = ashr exact i64 %65, 4
-  %67 = icmp sgt i64 %66, 0
-  br i1 %67, label %_ZSt7advanceIPN4llvm7SDValueElEvRT_T0_.exit.i, label %"_ZSt13__lower_boundIPN4llvm7SDValueES1_N9__gnu_cxx5__ops14_Iter_comp_valIZN12_GLOBAL__N_111DAGCombiner23reduceBuildVecToShuffleEPNS0_6SDNodeEE3$_0EEET_SC_SC_RKT0_T1_.exit"
+_ZSt7advanceIPN4llvm7SDValueElEvRT_T0_.exit:      ; preds = %58
+  %60 = sdiv i64 %.tr108123, 2
+  %61 = getelementptr inbounds %"class.llvm::SDValue", ptr %.tr120, i64 %60
+  %62 = sub i64 %8, %59
+  %63 = ashr exact i64 %62, 4
+  %64 = icmp sgt i64 %63, 0
+  br i1 %64, label %_ZSt7advanceIPN4llvm7SDValueElEvRT_T0_.exit.i, label %"_ZSt13__lower_boundIPN4llvm7SDValueES1_N9__gnu_cxx5__ops14_Iter_comp_valIZN12_GLOBAL__N_111DAGCombiner23reduceBuildVecToShuffleEPNS0_6SDNodeEE3$_0EEET_SC_SC_RKT0_T1_.exit"
 
 _ZSt7advanceIPN4llvm7SDValueElEvRT_T0_.exit.i:    ; preds = %_ZSt7advanceIPN4llvm7SDValueElEvRT_T0_.exit, %_ZSt7advanceIPN4llvm7SDValueElEvRT_T0_.exit.i
   %.018.i = phi ptr [ %.1.i76, %_ZSt7advanceIPN4llvm7SDValueElEvRT_T0_.exit.i ], [ %.tr106121, %_ZSt7advanceIPN4llvm7SDValueElEvRT_T0_.exit ]
-  %.01117.i = phi i64 [ %.112.i, %_ZSt7advanceIPN4llvm7SDValueElEvRT_T0_.exit.i ], [ %66, %_ZSt7advanceIPN4llvm7SDValueElEvRT_T0_.exit ]
-  %68 = lshr i64 %.01117.i, 1
-  %69 = getelementptr inbounds %"class.llvm::SDValue", ptr %.018.i, i64 %68
-  %.val.i = load ptr, ptr %69, align 8
-  %70 = getelementptr i8, ptr %69, i64 8
-  %.val13.i = load i32, ptr %70, align 8
-  %71 = getelementptr i8, ptr %.val.i, i64 48
-  %.val.val.i = load ptr, ptr %71, align 8
-  %72 = tail call fastcc noundef zeroext i1 @"_ZZN12_GLOBAL__N_111DAGCombiner23reduceBuildVecToShuffleEPN4llvm6SDNodeEENK3$_0clERKNS1_7SDValueES7_"(ptr readonly %.val.val.i, i32 %.val13.i, ptr noundef nonnull readonly align 8 dereferenceable(12) %64)
-  %73 = getelementptr inbounds i8, ptr %69, i64 16
-  %74 = xor i64 %68, -1
-  %75 = add nsw i64 %.01117.i, %74
-  %.112.i = select i1 %72, i64 %75, i64 %68
-  %.1.i76 = select i1 %72, ptr %73, ptr %.018.i
-  %76 = icmp sgt i64 %.112.i, 0
-  br i1 %76, label %_ZSt7advanceIPN4llvm7SDValueElEvRT_T0_.exit.i, label %"_ZSt13__lower_boundIPN4llvm7SDValueES1_N9__gnu_cxx5__ops14_Iter_comp_valIZN12_GLOBAL__N_111DAGCombiner23reduceBuildVecToShuffleEPNS0_6SDNodeEE3$_0EEET_SC_SC_RKT0_T1_.exit.loopexit", !llvm.loop !880
+  %.01117.i = phi i64 [ %.112.i, %_ZSt7advanceIPN4llvm7SDValueElEvRT_T0_.exit.i ], [ %63, %_ZSt7advanceIPN4llvm7SDValueElEvRT_T0_.exit ]
+  %65 = lshr i64 %.01117.i, 1
+  %66 = getelementptr inbounds %"class.llvm::SDValue", ptr %.018.i, i64 %65
+  %.val.i = load ptr, ptr %66, align 8
+  %67 = getelementptr i8, ptr %66, i64 8
+  %.val13.i = load i32, ptr %67, align 8
+  %68 = getelementptr i8, ptr %.val.i, i64 48
+  %.val.val.i = load ptr, ptr %68, align 8
+  %69 = tail call fastcc noundef zeroext i1 @"_ZZN12_GLOBAL__N_111DAGCombiner23reduceBuildVecToShuffleEPN4llvm6SDNodeEENK3$_0clERKNS1_7SDValueES7_"(ptr readonly %.val.val.i, i32 %.val13.i, ptr noundef nonnull readonly align 8 dereferenceable(12) %61)
+  %70 = getelementptr inbounds i8, ptr %66, i64 16
+  %71 = xor i64 %65, -1
+  %72 = add nsw i64 %.01117.i, %71
+  %.112.i = select i1 %69, i64 %72, i64 %65
+  %.1.i76 = select i1 %69, ptr %70, ptr %.018.i
+  %73 = icmp sgt i64 %.112.i, 0
+  br i1 %73, label %_ZSt7advanceIPN4llvm7SDValueElEvRT_T0_.exit.i, label %"_ZSt13__lower_boundIPN4llvm7SDValueES1_N9__gnu_cxx5__ops14_Iter_comp_valIZN12_GLOBAL__N_111DAGCombiner23reduceBuildVecToShuffleEPNS0_6SDNodeEE3$_0EEET_SC_SC_RKT0_T1_.exit.loopexit", !llvm.loop !880
 
 "_ZSt13__lower_boundIPN4llvm7SDValueES1_N9__gnu_cxx5__ops14_Iter_comp_valIZN12_GLOBAL__N_111DAGCombiner23reduceBuildVecToShuffleEPNS0_6SDNodeEE3$_0EEET_SC_SC_RKT0_T1_.exit.loopexit": ; preds = %_ZSt7advanceIPN4llvm7SDValueElEvRT_T0_.exit.i
   %.pre = ptrtoint ptr %.1.i76 to i64
   br label %"_ZSt13__lower_boundIPN4llvm7SDValueES1_N9__gnu_cxx5__ops14_Iter_comp_valIZN12_GLOBAL__N_111DAGCombiner23reduceBuildVecToShuffleEPNS0_6SDNodeEE3$_0EEET_SC_SC_RKT0_T1_.exit"
 
 "_ZSt13__lower_boundIPN4llvm7SDValueES1_N9__gnu_cxx5__ops14_Iter_comp_valIZN12_GLOBAL__N_111DAGCombiner23reduceBuildVecToShuffleEPNS0_6SDNodeEE3$_0EEET_SC_SC_RKT0_T1_.exit": ; preds = %"_ZSt13__lower_boundIPN4llvm7SDValueES1_N9__gnu_cxx5__ops14_Iter_comp_valIZN12_GLOBAL__N_111DAGCombiner23reduceBuildVecToShuffleEPNS0_6SDNodeEE3$_0EEET_SC_SC_RKT0_T1_.exit.loopexit", %_ZSt7advanceIPN4llvm7SDValueElEvRT_T0_.exit
-  %.pre-phi = phi i64 [ %.pre, %"_ZSt13__lower_boundIPN4llvm7SDValueES1_N9__gnu_cxx5__ops14_Iter_comp_valIZN12_GLOBAL__N_111DAGCombiner23reduceBuildVecToShuffleEPNS0_6SDNodeEE3$_0EEET_SC_SC_RKT0_T1_.exit.loopexit" ], [ %33, %_ZSt7advanceIPN4llvm7SDValueElEvRT_T0_.exit ]
+  %.pre-phi = phi i64 [ %.pre, %"_ZSt13__lower_boundIPN4llvm7SDValueES1_N9__gnu_cxx5__ops14_Iter_comp_valIZN12_GLOBAL__N_111DAGCombiner23reduceBuildVecToShuffleEPNS0_6SDNodeEE3$_0EEET_SC_SC_RKT0_T1_.exit.loopexit" ], [ %59, %_ZSt7advanceIPN4llvm7SDValueElEvRT_T0_.exit ]
   %.0.lcssa.i75 = phi ptr [ %.1.i76, %"_ZSt13__lower_boundIPN4llvm7SDValueES1_N9__gnu_cxx5__ops14_Iter_comp_valIZN12_GLOBAL__N_111DAGCombiner23reduceBuildVecToShuffleEPNS0_6SDNodeEE3$_0EEET_SC_SC_RKT0_T1_.exit.loopexit" ], [ %.tr106121, %_ZSt7advanceIPN4llvm7SDValueElEvRT_T0_.exit ]
-  %77 = sub i64 %.pre-phi, %33
-  %78 = ashr exact i64 %77, 4
+  %74 = sub i64 %.pre-phi, %59
+  %75 = ashr exact i64 %74, 4
   br label %tailrecurse
 
-_ZSt7advanceIPN4llvm7SDValueElEvRT_T0_.exit80:    ; preds = %62
-  %79 = sdiv i64 %.tr109124, 2
-  %80 = getelementptr inbounds %"class.llvm::SDValue", ptr %.tr106121, i64 %79
-  %81 = ptrtoint ptr %.tr120 to i64
-  %82 = sub i64 %33, %81
-  %83 = ashr exact i64 %82, 4
-  %84 = icmp sgt i64 %83, 0
-  br i1 %84, label %_ZSt7advanceIPN4llvm7SDValueElEvRT_T0_.exit.lr.ph.i, label %"_ZSt13__upper_boundIPN4llvm7SDValueES1_N9__gnu_cxx5__ops14_Val_comp_iterIZN12_GLOBAL__N_111DAGCombiner23reduceBuildVecToShuffleEPNS0_6SDNodeEE3$_0EEET_SC_SC_RKT0_T1_.exit"
+_ZSt7advanceIPN4llvm7SDValueElEvRT_T0_.exit80:    ; preds = %58
+  %76 = sdiv i64 %.tr109124, 2
+  %77 = getelementptr inbounds %"class.llvm::SDValue", ptr %.tr106121, i64 %76
+  %78 = ptrtoint ptr %.tr120 to i64
+  %79 = sub i64 %59, %78
+  %80 = ashr exact i64 %79, 4
+  %81 = icmp sgt i64 %80, 0
+  br i1 %81, label %_ZSt7advanceIPN4llvm7SDValueElEvRT_T0_.exit.lr.ph.i, label %"_ZSt13__upper_boundIPN4llvm7SDValueES1_N9__gnu_cxx5__ops14_Val_comp_iterIZN12_GLOBAL__N_111DAGCombiner23reduceBuildVecToShuffleEPNS0_6SDNodeEE3$_0EEET_SC_SC_RKT0_T1_.exit"
 
 _ZSt7advanceIPN4llvm7SDValueElEvRT_T0_.exit.lr.ph.i: ; preds = %_ZSt7advanceIPN4llvm7SDValueElEvRT_T0_.exit80
-  %85 = getelementptr inbounds i8, ptr %80, i64 8
+  %82 = getelementptr inbounds i8, ptr %77, i64 8
   br label %_ZSt7advanceIPN4llvm7SDValueElEvRT_T0_.exit.i83
 
 _ZSt7advanceIPN4llvm7SDValueElEvRT_T0_.exit.i83:  ; preds = %_ZSt7advanceIPN4llvm7SDValueElEvRT_T0_.exit.i83, %_ZSt7advanceIPN4llvm7SDValueElEvRT_T0_.exit.lr.ph.i
   %.018.i84 = phi ptr [ %.tr120, %_ZSt7advanceIPN4llvm7SDValueElEvRT_T0_.exit.lr.ph.i ], [ %.1.i92, %_ZSt7advanceIPN4llvm7SDValueElEvRT_T0_.exit.i83 ]
-  %.01117.i85 = phi i64 [ %83, %_ZSt7advanceIPN4llvm7SDValueElEvRT_T0_.exit.lr.ph.i ], [ %.112.i91, %_ZSt7advanceIPN4llvm7SDValueElEvRT_T0_.exit.i83 ]
-  %86 = lshr i64 %.01117.i85, 1
-  %87 = getelementptr inbounds %"class.llvm::SDValue", ptr %.018.i84, i64 %86
-  %.val.i88 = load ptr, ptr %80, align 8
-  %.val13.i89 = load i32, ptr %85, align 8
-  %88 = getelementptr i8, ptr %.val.i88, i64 48
-  %.val.val.i90 = load ptr, ptr %88, align 8
-  %89 = tail call fastcc noundef zeroext i1 @"_ZZN12_GLOBAL__N_111DAGCombiner23reduceBuildVecToShuffleEPN4llvm6SDNodeEENK3$_0clERKNS1_7SDValueES7_"(ptr readonly %.val.val.i90, i32 %.val13.i89, ptr noundef nonnull readonly align 8 dereferenceable(12) %87)
-  %90 = getelementptr inbounds i8, ptr %87, i64 16
-  %91 = xor i64 %86, -1
-  %92 = add nsw i64 %.01117.i85, %91
-  %.112.i91 = select i1 %89, i64 %86, i64 %92
-  %.1.i92 = select i1 %89, ptr %.018.i84, ptr %90
-  %93 = icmp sgt i64 %.112.i91, 0
-  br i1 %93, label %_ZSt7advanceIPN4llvm7SDValueElEvRT_T0_.exit.i83, label %"_ZSt13__upper_boundIPN4llvm7SDValueES1_N9__gnu_cxx5__ops14_Val_comp_iterIZN12_GLOBAL__N_111DAGCombiner23reduceBuildVecToShuffleEPNS0_6SDNodeEE3$_0EEET_SC_SC_RKT0_T1_.exit.loopexit", !llvm.loop !881
+  %.01117.i85 = phi i64 [ %80, %_ZSt7advanceIPN4llvm7SDValueElEvRT_T0_.exit.lr.ph.i ], [ %.112.i91, %_ZSt7advanceIPN4llvm7SDValueElEvRT_T0_.exit.i83 ]
+  %83 = lshr i64 %.01117.i85, 1
+  %84 = getelementptr inbounds %"class.llvm::SDValue", ptr %.018.i84, i64 %83
+  %.val.i88 = load ptr, ptr %77, align 8
+  %.val13.i89 = load i32, ptr %82, align 8
+  %85 = getelementptr i8, ptr %.val.i88, i64 48
+  %.val.val.i90 = load ptr, ptr %85, align 8
+  %86 = tail call fastcc noundef zeroext i1 @"_ZZN12_GLOBAL__N_111DAGCombiner23reduceBuildVecToShuffleEPN4llvm6SDNodeEENK3$_0clERKNS1_7SDValueES7_"(ptr readonly %.val.val.i90, i32 %.val13.i89, ptr noundef nonnull readonly align 8 dereferenceable(12) %84)
+  %87 = getelementptr inbounds i8, ptr %84, i64 16
+  %88 = xor i64 %83, -1
+  %89 = add nsw i64 %.01117.i85, %88
+  %.112.i91 = select i1 %86, i64 %83, i64 %89
+  %.1.i92 = select i1 %86, ptr %.018.i84, ptr %87
+  %90 = icmp sgt i64 %.112.i91, 0
+  br i1 %90, label %_ZSt7advanceIPN4llvm7SDValueElEvRT_T0_.exit.i83, label %"_ZSt13__upper_boundIPN4llvm7SDValueES1_N9__gnu_cxx5__ops14_Val_comp_iterIZN12_GLOBAL__N_111DAGCombiner23reduceBuildVecToShuffleEPNS0_6SDNodeEE3$_0EEET_SC_SC_RKT0_T1_.exit.loopexit", !llvm.loop !881
 
 "_ZSt13__upper_boundIPN4llvm7SDValueES1_N9__gnu_cxx5__ops14_Val_comp_iterIZN12_GLOBAL__N_111DAGCombiner23reduceBuildVecToShuffleEPNS0_6SDNodeEE3$_0EEET_SC_SC_RKT0_T1_.exit.loopexit": ; preds = %_ZSt7advanceIPN4llvm7SDValueElEvRT_T0_.exit.i83
   %.pre134 = ptrtoint ptr %.1.i92 to i64
   br label %"_ZSt13__upper_boundIPN4llvm7SDValueES1_N9__gnu_cxx5__ops14_Val_comp_iterIZN12_GLOBAL__N_111DAGCombiner23reduceBuildVecToShuffleEPNS0_6SDNodeEE3$_0EEET_SC_SC_RKT0_T1_.exit"
 
 "_ZSt13__upper_boundIPN4llvm7SDValueES1_N9__gnu_cxx5__ops14_Val_comp_iterIZN12_GLOBAL__N_111DAGCombiner23reduceBuildVecToShuffleEPNS0_6SDNodeEE3$_0EEET_SC_SC_RKT0_T1_.exit": ; preds = %"_ZSt13__upper_boundIPN4llvm7SDValueES1_N9__gnu_cxx5__ops14_Val_comp_iterIZN12_GLOBAL__N_111DAGCombiner23reduceBuildVecToShuffleEPNS0_6SDNodeEE3$_0EEET_SC_SC_RKT0_T1_.exit.loopexit", %_ZSt7advanceIPN4llvm7SDValueElEvRT_T0_.exit80
-  %.pre-phi135 = phi i64 [ %.pre134, %"_ZSt13__upper_boundIPN4llvm7SDValueES1_N9__gnu_cxx5__ops14_Val_comp_iterIZN12_GLOBAL__N_111DAGCombiner23reduceBuildVecToShuffleEPNS0_6SDNodeEE3$_0EEET_SC_SC_RKT0_T1_.exit.loopexit" ], [ %81, %_ZSt7advanceIPN4llvm7SDValueElEvRT_T0_.exit80 ]
+  %.pre-phi135 = phi i64 [ %.pre134, %"_ZSt13__upper_boundIPN4llvm7SDValueES1_N9__gnu_cxx5__ops14_Val_comp_iterIZN12_GLOBAL__N_111DAGCombiner23reduceBuildVecToShuffleEPNS0_6SDNodeEE3$_0EEET_SC_SC_RKT0_T1_.exit.loopexit" ], [ %78, %_ZSt7advanceIPN4llvm7SDValueElEvRT_T0_.exit80 ]
   %.0.lcssa.i82 = phi ptr [ %.1.i92, %"_ZSt13__upper_boundIPN4llvm7SDValueES1_N9__gnu_cxx5__ops14_Val_comp_iterIZN12_GLOBAL__N_111DAGCombiner23reduceBuildVecToShuffleEPNS0_6SDNodeEE3$_0EEET_SC_SC_RKT0_T1_.exit.loopexit" ], [ %.tr120, %_ZSt7advanceIPN4llvm7SDValueElEvRT_T0_.exit80 ]
-  %94 = sub i64 %.pre-phi135, %81
-  %95 = ashr exact i64 %94, 4
+  %91 = sub i64 %.pre-phi135, %78
+  %92 = ashr exact i64 %91, 4
   br label %tailrecurse
 
 tailrecurse:                                      ; preds = %"_ZSt13__upper_boundIPN4llvm7SDValueES1_N9__gnu_cxx5__ops14_Val_comp_iterIZN12_GLOBAL__N_111DAGCombiner23reduceBuildVecToShuffleEPNS0_6SDNodeEE3$_0EEET_SC_SC_RKT0_T1_.exit", %"_ZSt13__lower_boundIPN4llvm7SDValueES1_N9__gnu_cxx5__ops14_Iter_comp_valIZN12_GLOBAL__N_111DAGCombiner23reduceBuildVecToShuffleEPNS0_6SDNodeEE3$_0EEET_SC_SC_RKT0_T1_.exit"
-  %.0103 = phi ptr [ %64, %"_ZSt13__lower_boundIPN4llvm7SDValueES1_N9__gnu_cxx5__ops14_Iter_comp_valIZN12_GLOBAL__N_111DAGCombiner23reduceBuildVecToShuffleEPNS0_6SDNodeEE3$_0EEET_SC_SC_RKT0_T1_.exit" ], [ %.0.lcssa.i82, %"_ZSt13__upper_boundIPN4llvm7SDValueES1_N9__gnu_cxx5__ops14_Val_comp_iterIZN12_GLOBAL__N_111DAGCombiner23reduceBuildVecToShuffleEPNS0_6SDNodeEE3$_0EEET_SC_SC_RKT0_T1_.exit" ]
-  %.0102 = phi ptr [ %.0.lcssa.i75, %"_ZSt13__lower_boundIPN4llvm7SDValueES1_N9__gnu_cxx5__ops14_Iter_comp_valIZN12_GLOBAL__N_111DAGCombiner23reduceBuildVecToShuffleEPNS0_6SDNodeEE3$_0EEET_SC_SC_RKT0_T1_.exit" ], [ %80, %"_ZSt13__upper_boundIPN4llvm7SDValueES1_N9__gnu_cxx5__ops14_Val_comp_iterIZN12_GLOBAL__N_111DAGCombiner23reduceBuildVecToShuffleEPNS0_6SDNodeEE3$_0EEET_SC_SC_RKT0_T1_.exit" ]
-  %.066 = phi i64 [ %78, %"_ZSt13__lower_boundIPN4llvm7SDValueES1_N9__gnu_cxx5__ops14_Iter_comp_valIZN12_GLOBAL__N_111DAGCombiner23reduceBuildVecToShuffleEPNS0_6SDNodeEE3$_0EEET_SC_SC_RKT0_T1_.exit" ], [ %79, %"_ZSt13__upper_boundIPN4llvm7SDValueES1_N9__gnu_cxx5__ops14_Val_comp_iterIZN12_GLOBAL__N_111DAGCombiner23reduceBuildVecToShuffleEPNS0_6SDNodeEE3$_0EEET_SC_SC_RKT0_T1_.exit" ]
-  %.0 = phi i64 [ %63, %"_ZSt13__lower_boundIPN4llvm7SDValueES1_N9__gnu_cxx5__ops14_Iter_comp_valIZN12_GLOBAL__N_111DAGCombiner23reduceBuildVecToShuffleEPNS0_6SDNodeEE3$_0EEET_SC_SC_RKT0_T1_.exit" ], [ %95, %"_ZSt13__upper_boundIPN4llvm7SDValueES1_N9__gnu_cxx5__ops14_Val_comp_iterIZN12_GLOBAL__N_111DAGCombiner23reduceBuildVecToShuffleEPNS0_6SDNodeEE3$_0EEET_SC_SC_RKT0_T1_.exit" ]
-  %96 = sub nsw i64 %.tr108123, %.0
-  %97 = tail call noundef ptr @_ZSt17__rotate_adaptiveIPN4llvm7SDValueES2_lET_S3_S3_S3_T1_S4_T0_S4_(ptr noundef %.0103, ptr noundef %.tr106121, ptr noundef %.0102, i64 noundef %96, i64 noundef %.066, ptr noundef %5, i64 noundef %6)
-  tail call fastcc void @"_ZSt16__merge_adaptiveIPN4llvm7SDValueElS2_N9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_111DAGCombiner23reduceBuildVecToShuffleEPNS0_6SDNodeEE3$_0EEEvT_SC_SC_T0_SD_T1_SD_T2_"(ptr noundef %.tr120, ptr noundef %.0103, ptr noundef %97, i64 noundef %.0, i64 noundef %.066, ptr noundef %5, i64 noundef %6)
-  %98 = sub nsw i64 %.tr109124, %.066
-  %.not = icmp sgt i64 %96, %98
-  %.not70 = icmp sgt i64 %96, %6
+  %.0103 = phi ptr [ %61, %"_ZSt13__lower_boundIPN4llvm7SDValueES1_N9__gnu_cxx5__ops14_Iter_comp_valIZN12_GLOBAL__N_111DAGCombiner23reduceBuildVecToShuffleEPNS0_6SDNodeEE3$_0EEET_SC_SC_RKT0_T1_.exit" ], [ %.0.lcssa.i82, %"_ZSt13__upper_boundIPN4llvm7SDValueES1_N9__gnu_cxx5__ops14_Val_comp_iterIZN12_GLOBAL__N_111DAGCombiner23reduceBuildVecToShuffleEPNS0_6SDNodeEE3$_0EEET_SC_SC_RKT0_T1_.exit" ]
+  %.0102 = phi ptr [ %.0.lcssa.i75, %"_ZSt13__lower_boundIPN4llvm7SDValueES1_N9__gnu_cxx5__ops14_Iter_comp_valIZN12_GLOBAL__N_111DAGCombiner23reduceBuildVecToShuffleEPNS0_6SDNodeEE3$_0EEET_SC_SC_RKT0_T1_.exit" ], [ %77, %"_ZSt13__upper_boundIPN4llvm7SDValueES1_N9__gnu_cxx5__ops14_Val_comp_iterIZN12_GLOBAL__N_111DAGCombiner23reduceBuildVecToShuffleEPNS0_6SDNodeEE3$_0EEET_SC_SC_RKT0_T1_.exit" ]
+  %.066 = phi i64 [ %75, %"_ZSt13__lower_boundIPN4llvm7SDValueES1_N9__gnu_cxx5__ops14_Iter_comp_valIZN12_GLOBAL__N_111DAGCombiner23reduceBuildVecToShuffleEPNS0_6SDNodeEE3$_0EEET_SC_SC_RKT0_T1_.exit" ], [ %76, %"_ZSt13__upper_boundIPN4llvm7SDValueES1_N9__gnu_cxx5__ops14_Val_comp_iterIZN12_GLOBAL__N_111DAGCombiner23reduceBuildVecToShuffleEPNS0_6SDNodeEE3$_0EEET_SC_SC_RKT0_T1_.exit" ]
+  %.0 = phi i64 [ %60, %"_ZSt13__lower_boundIPN4llvm7SDValueES1_N9__gnu_cxx5__ops14_Iter_comp_valIZN12_GLOBAL__N_111DAGCombiner23reduceBuildVecToShuffleEPNS0_6SDNodeEE3$_0EEET_SC_SC_RKT0_T1_.exit" ], [ %92, %"_ZSt13__upper_boundIPN4llvm7SDValueES1_N9__gnu_cxx5__ops14_Val_comp_iterIZN12_GLOBAL__N_111DAGCombiner23reduceBuildVecToShuffleEPNS0_6SDNodeEE3$_0EEET_SC_SC_RKT0_T1_.exit" ]
+  %93 = sub nsw i64 %.tr108123, %.0
+  %94 = tail call noundef ptr @_ZSt17__rotate_adaptiveIPN4llvm7SDValueES2_lET_S3_S3_S3_T1_S4_T0_S4_(ptr noundef %.0103, ptr noundef %.tr106121, ptr noundef %.0102, i64 noundef %93, i64 noundef %.066, ptr noundef %5, i64 noundef %6)
+  tail call fastcc void @"_ZSt16__merge_adaptiveIPN4llvm7SDValueElS2_N9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_111DAGCombiner23reduceBuildVecToShuffleEPNS0_6SDNodeEE3$_0EEEvT_SC_SC_T0_SD_T1_SD_T2_"(ptr noundef %.tr120, ptr noundef %.0103, ptr noundef %94, i64 noundef %.0, i64 noundef %.066, ptr noundef %5, i64 noundef %6)
+  %95 = sub nsw i64 %.tr109124, %.066
+  %.not = icmp sgt i64 %93, %95
+  %.not70 = icmp sgt i64 %93, %6
   %or.cond = or i1 %.not70, %.not
   br i1 %or.cond, label %32, label %tailrecurse._crit_edge
 
-"_ZSt21__move_merge_adaptiveIPN4llvm7SDValueES2_S2_N9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_111DAGCombiner23reduceBuildVecToShuffleEPNS0_6SDNodeEE3$_0EEEvT_SC_T0_SD_T1_T2_.exit": ; preds = %58, %34, %52, %50, %37, %_ZSt4moveIPN4llvm7SDValueES2_ET0_T_S4_S3_.exit.i, %._crit_edge.i
+"_ZSt21__move_merge_adaptiveIPN4llvm7SDValueES2_S2_N9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_111DAGCombiner23reduceBuildVecToShuffleEPNS0_6SDNodeEE3$_0EEEvT_SC_T0_SD_T1_T2_.exit": ; preds = %49, %33, %_ZSt13move_backwardIPN4llvm7SDValueES2_ET0_T_S4_S3_.exit.sink.split.i, %47, %_ZSt4moveIPN4llvm7SDValueES2_ET0_T_S4_S3_.exit.i, %._crit_edge.i
   ret void
 }
 

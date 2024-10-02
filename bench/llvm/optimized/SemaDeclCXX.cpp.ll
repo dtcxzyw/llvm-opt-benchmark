@@ -83422,194 +83422,194 @@ _ZN4llvm23SmallVectorTemplateBaseINS_14PointerIntPairIPN5clang4StmtELj1EbNS_21Po
     i8 51, label %148
     i8 52, label %150
     i8 53, label %152
-    i8 54, label %154
-    i8 55, label %156
-    i8 56, label %158
-    i8 57, label %160
-    i8 58, label %162
-    i8 59, label %164
-    i8 60, label %166
-    i8 61, label %168
-    i8 62, label %170
-    i8 63, label %172
-    i8 64, label %174
-    i8 65, label %176
-    i8 66, label %178
-    i8 67, label %180
-    i8 68, label %182
-    i8 69, label %184
-    i8 70, label %186
-    i8 71, label %190
-    i8 72, label %192
-    i8 73, label %196
-    i8 74, label %200
-    i8 75, label %202
-    i8 76, label %204
-    i8 77, label %206
-    i8 78, label %208
-    i8 79, label %210
-    i8 80, label %212
-    i8 81, label %214
-    i8 82, label %216
-    i8 83, label %218
-    i8 84, label %220
-    i8 85, label %222
-    i8 86, label %224
-    i8 87, label %226
-    i8 88, label %228
-    i8 89, label %230
-    i8 90, label %232
-    i8 91, label %234
-    i8 92, label %236
-    i8 93, label %238
-    i8 94, label %240
-    i8 95, label %242
-    i8 96, label %244
-    i8 97, label %246
+    i8 54, label %158
+    i8 55, label %160
+    i8 56, label %162
+    i8 57, label %164
+    i8 58, label %166
+    i8 59, label %168
+    i8 60, label %170
+    i8 61, label %172
+    i8 62, label %174
+    i8 63, label %176
+    i8 64, label %178
+    i8 65, label %180
+    i8 66, label %182
+    i8 67, label %184
+    i8 68, label %186
+    i8 69, label %188
+    i8 70, label %190
+    i8 71, label %194
+    i8 72, label %196
+    i8 73, label %200
+    i8 74, label %204
+    i8 75, label %206
+    i8 76, label %208
+    i8 77, label %210
+    i8 78, label %212
+    i8 79, label %214
+    i8 80, label %216
+    i8 81, label %218
+    i8 82, label %220
+    i8 83, label %222
+    i8 84, label %224
+    i8 85, label %226
+    i8 86, label %228
+    i8 87, label %230
+    i8 88, label %232
+    i8 89, label %234
+    i8 90, label %236
+    i8 91, label %238
+    i8 92, label %240
+    i8 93, label %242
+    i8 94, label %244
+    i8 95, label %246
+    i8 96, label %248
+    i8 97, label %250
     i8 98, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_115FindCXXThisExprEE16dataTraverseNodeEPNS_4StmtEPN4llvm15SmallVectorImplINS6_14PointerIntPairIS5_Lj1EbNS6_21PointerLikeTypeTraitsIS5_EENS6_18PointerIntPairInfoIS5_Lj1ESA_EEEEEE.exit.thread24
-    i8 99, label %248
-    i8 100, label %250
-    i8 101, label %252
-    i8 102, label %254
-    i8 103, label %256
-    i8 104, label %258
-    i8 105, label %260
-    i8 106, label %262
-    i8 107, label %264
-    i8 108, label %266
-    i8 109, label %268
-    i8 110, label %270
-    i8 111, label %272
-    i8 112, label %274
-    i8 113, label %276
-    i8 114, label %278
-    i8 115, label %280
-    i8 116, label %282
-    i8 117, label %284
-    i8 118, label %288
-    i8 119, label %290
-    i8 120, label %292
-    i8 121, label %294
-    i8 122, label %296
-    i8 123, label %298
-    i8 124, label %300
-    i8 125, label %302
-    i8 126, label %304
-    i8 127, label %306
-    i8 -128, label %308
-    i8 -127, label %310
-    i8 -126, label %312
-    i8 -125, label %314
-    i8 -124, label %316
-    i8 -123, label %318
-    i8 -122, label %320
-    i8 -121, label %322
-    i8 -120, label %324
-    i8 -119, label %326
-    i8 -118, label %328
-    i8 -117, label %330
-    i8 -116, label %332
-    i8 -115, label %334
-    i8 -114, label %336
-    i8 -113, label %338
-    i8 -112, label %340
-    i8 -111, label %342
-    i8 -110, label %344
-    i8 -109, label %346
-    i8 -108, label %348
-    i8 -107, label %350
-    i8 -106, label %352
-    i8 -105, label %354
-    i8 -104, label %356
-    i8 -103, label %358
-    i8 -102, label %360
-    i8 -101, label %362
-    i8 -100, label %364
-    i8 -99, label %366
-    i8 -98, label %368
-    i8 -97, label %370
-    i8 -96, label %372
-    i8 -95, label %374
-    i8 -94, label %376
-    i8 -93, label %378
-    i8 -92, label %380
-    i8 -91, label %382
-    i8 -90, label %384
-    i8 -89, label %386
-    i8 -88, label %388
-    i8 -87, label %390
-    i8 -86, label %392
-    i8 -85, label %394
-    i8 -84, label %396
-    i8 -83, label %398
-    i8 -82, label %400
-    i8 -81, label %402
-    i8 -80, label %404
-    i8 -79, label %406
-    i8 -78, label %408
-    i8 -77, label %410
-    i8 -76, label %412
-    i8 -75, label %414
-    i8 -74, label %416
-    i8 -73, label %418
-    i8 -72, label %420
-    i8 -71, label %422
-    i8 -70, label %424
-    i8 -69, label %426
-    i8 -68, label %428
-    i8 -67, label %430
-    i8 -66, label %432
-    i8 -65, label %434
-    i8 -64, label %436
-    i8 -63, label %438
-    i8 -62, label %440
-    i8 -61, label %442
-    i8 -60, label %444
-    i8 -59, label %446
-    i8 -58, label %448
-    i8 -57, label %450
-    i8 -56, label %452
-    i8 -55, label %454
-    i8 -54, label %456
-    i8 -53, label %458
-    i8 -52, label %460
-    i8 -51, label %462
-    i8 -50, label %464
-    i8 -49, label %466
-    i8 -48, label %468
-    i8 -47, label %470
-    i8 -46, label %472
-    i8 -45, label %474
-    i8 -44, label %476
-    i8 -43, label %478
-    i8 -42, label %480
-    i8 -41, label %482
-    i8 -40, label %484
-    i8 -39, label %486
-    i8 -38, label %488
-    i8 -37, label %490
-    i8 -36, label %492
-    i8 -35, label %494
-    i8 -34, label %496
-    i8 -33, label %498
-    i8 -32, label %502
-    i8 -31, label %504
-    i8 -30, label %506
-    i8 -29, label %508
-    i8 -28, label %510
-    i8 -27, label %512
-    i8 -26, label %514
-    i8 -25, label %516
-    i8 -24, label %518
-    i8 -23, label %522
-    i8 -22, label %526
-    i8 -21, label %528
-    i8 -20, label %530
-    i8 -19, label %532
-    i8 -18, label %534
-    i8 -17, label %536
-    i8 -16, label %538
-    i8 -15, label %540
+    i8 99, label %252
+    i8 100, label %254
+    i8 101, label %256
+    i8 102, label %258
+    i8 103, label %260
+    i8 104, label %262
+    i8 105, label %264
+    i8 106, label %266
+    i8 107, label %268
+    i8 108, label %270
+    i8 109, label %272
+    i8 110, label %274
+    i8 111, label %276
+    i8 112, label %278
+    i8 113, label %280
+    i8 114, label %282
+    i8 115, label %284
+    i8 116, label %286
+    i8 117, label %288
+    i8 118, label %292
+    i8 119, label %294
+    i8 120, label %296
+    i8 121, label %298
+    i8 122, label %300
+    i8 123, label %302
+    i8 124, label %304
+    i8 125, label %306
+    i8 126, label %308
+    i8 127, label %310
+    i8 -128, label %312
+    i8 -127, label %314
+    i8 -126, label %316
+    i8 -125, label %318
+    i8 -124, label %320
+    i8 -123, label %322
+    i8 -122, label %324
+    i8 -121, label %326
+    i8 -120, label %328
+    i8 -119, label %330
+    i8 -118, label %332
+    i8 -117, label %334
+    i8 -116, label %336
+    i8 -115, label %338
+    i8 -114, label %340
+    i8 -113, label %342
+    i8 -112, label %344
+    i8 -111, label %346
+    i8 -110, label %348
+    i8 -109, label %350
+    i8 -108, label %352
+    i8 -107, label %354
+    i8 -106, label %356
+    i8 -105, label %358
+    i8 -104, label %360
+    i8 -103, label %362
+    i8 -102, label %364
+    i8 -101, label %366
+    i8 -100, label %368
+    i8 -99, label %370
+    i8 -98, label %372
+    i8 -97, label %374
+    i8 -96, label %376
+    i8 -95, label %378
+    i8 -94, label %380
+    i8 -93, label %382
+    i8 -92, label %384
+    i8 -91, label %386
+    i8 -90, label %388
+    i8 -89, label %390
+    i8 -88, label %392
+    i8 -87, label %394
+    i8 -86, label %396
+    i8 -85, label %398
+    i8 -84, label %400
+    i8 -83, label %402
+    i8 -82, label %404
+    i8 -81, label %406
+    i8 -80, label %408
+    i8 -79, label %410
+    i8 -78, label %412
+    i8 -77, label %414
+    i8 -76, label %416
+    i8 -75, label %418
+    i8 -74, label %420
+    i8 -73, label %422
+    i8 -72, label %424
+    i8 -71, label %426
+    i8 -70, label %428
+    i8 -69, label %430
+    i8 -68, label %432
+    i8 -67, label %434
+    i8 -66, label %436
+    i8 -65, label %438
+    i8 -64, label %440
+    i8 -63, label %442
+    i8 -62, label %444
+    i8 -61, label %446
+    i8 -60, label %448
+    i8 -59, label %450
+    i8 -58, label %452
+    i8 -57, label %454
+    i8 -56, label %456
+    i8 -55, label %458
+    i8 -54, label %460
+    i8 -53, label %462
+    i8 -52, label %464
+    i8 -51, label %466
+    i8 -50, label %468
+    i8 -49, label %470
+    i8 -48, label %472
+    i8 -47, label %474
+    i8 -46, label %476
+    i8 -45, label %478
+    i8 -44, label %480
+    i8 -43, label %482
+    i8 -42, label %484
+    i8 -41, label %486
+    i8 -40, label %488
+    i8 -39, label %490
+    i8 -38, label %492
+    i8 -37, label %494
+    i8 -36, label %496
+    i8 -35, label %498
+    i8 -34, label %500
+    i8 -33, label %502
+    i8 -32, label %506
+    i8 -31, label %508
+    i8 -30, label %510
+    i8 -29, label %512
+    i8 -28, label %514
+    i8 -27, label %516
+    i8 -26, label %518
+    i8 -25, label %520
+    i8 -24, label %522
+    i8 -23, label %526
+    i8 -22, label %530
+    i8 -21, label %532
+    i8 -20, label %534
+    i8 -19, label %536
+    i8 -18, label %538
+    i8 -17, label %540
+    i8 -16, label %542
+    i8 -15, label %544
   ]
 
 48:                                               ; preds = %44
@@ -83821,87 +83821,90 @@ _ZN4llvm23SmallVectorTemplateBaseINS_14PointerIntPairIPN5clang4StmtELj1EbNS_21Po
   br i1 %151, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_115FindCXXThisExprEE16dataTraverseNodeEPNS_4StmtEPN4llvm15SmallVectorImplINS6_14PointerIntPairIS5_Lj1EbNS6_21PointerLikeTypeTraitsIS5_EENS6_18PointerIntPairInfoIS5_Lj1ESA_EEEEEE.exit.thread, label %.loopexit
 
 152:                                              ; preds = %44
-  %153 = call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_115FindCXXThisExprEE20TraverseInitListExprEPNS_12InitListExprEPN4llvm15SmallVectorImplINS6_14PointerIntPairIPNS_4StmtELj1EbNS6_21PointerLikeTypeTraitsISA_EENS6_18PointerIntPairInfoISA_Lj1ESC_EEEEEE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %38, ptr noundef nonnull %4)
-  br i1 %153, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_115FindCXXThisExprEE16dataTraverseNodeEPNS_4StmtEPN4llvm15SmallVectorImplINS6_14PointerIntPairIS5_Lj1EbNS6_21PointerLikeTypeTraitsIS5_EENS6_18PointerIntPairInfoIS5_Lj1ESA_EEEEEE.exit.thread, label %.loopexit
-
-154:                                              ; preds = %44
-  %155 = call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_115FindCXXThisExprEE29TraverseImplicitValueInitExprEPNS_21ImplicitValueInitExprEPN4llvm15SmallVectorImplINS6_14PointerIntPairIPNS_4StmtELj1EbNS6_21PointerLikeTypeTraitsISA_EENS6_18PointerIntPairInfoISA_Lj1ESC_EEEEEE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %38, ptr noundef nonnull %4)
-  br i1 %155, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_115FindCXXThisExprEE16dataTraverseNodeEPNS_4StmtEPN4llvm15SmallVectorImplINS6_14PointerIntPairIS5_Lj1EbNS6_21PointerLikeTypeTraitsIS5_EENS6_18PointerIntPairInfoIS5_Lj1ESA_EEEEEE.exit.thread, label %.loopexit
-
-156:                                              ; preds = %44
-  %157 = call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_115FindCXXThisExprEE24TraverseImaginaryLiteralEPNS_16ImaginaryLiteralEPN4llvm15SmallVectorImplINS6_14PointerIntPairIPNS_4StmtELj1EbNS6_21PointerLikeTypeTraitsISA_EENS6_18PointerIntPairInfoISA_Lj1ESC_EEEEEE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %38, ptr noundef nonnull %4)
+  %153 = getelementptr inbounds nuw i8, ptr %38, i64 48
+  %.0.copyload.i.i.i.i.i = load i64, ptr %153, align 8
+  %154 = and i64 %.0.copyload.i.i.i.i.i, 4
+  %.not.i = icmp eq i64 %154, 0
+  %.not.i.i = icmp ult i64 %.0.copyload.i.i.i.i.i, 8
+  %or.cond.i = or i1 %.not.i.i, %.not.i
+  %155 = and i64 %.0.copyload.i.i.i.i.i, -8
+  %156 = inttoptr i64 %155 to ptr
+  %.sink.i = select i1 %or.cond.i, ptr %38, ptr %156
+  %157 = call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_115FindCXXThisExprEE28TraverseSynOrSemInitListExprEPNS_12InitListExprEPN4llvm15SmallVectorImplINS6_14PointerIntPairIPNS_4StmtELj1EbNS6_21PointerLikeTypeTraitsISA_EENS6_18PointerIntPairInfoISA_Lj1ESC_EEEEEE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %.sink.i, ptr noundef nonnull %4)
   br i1 %157, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_115FindCXXThisExprEE16dataTraverseNodeEPNS_4StmtEPN4llvm15SmallVectorImplINS6_14PointerIntPairIS5_Lj1EbNS6_21PointerLikeTypeTraitsIS5_EENS6_18PointerIntPairInfoIS5_Lj1ESA_EEEEEE.exit.thread, label %.loopexit
 
 158:                                              ; preds = %44
-  %159 = call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_115FindCXXThisExprEE22TraverseHLSLOutArgExprEPNS_14HLSLOutArgExprEPN4llvm15SmallVectorImplINS6_14PointerIntPairIPNS_4StmtELj1EbNS6_21PointerLikeTypeTraitsISA_EENS6_18PointerIntPairInfoISA_Lj1ESC_EEEEEE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %38, ptr noundef nonnull %4)
+  %159 = call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_115FindCXXThisExprEE29TraverseImplicitValueInitExprEPNS_21ImplicitValueInitExprEPN4llvm15SmallVectorImplINS6_14PointerIntPairIPNS_4StmtELj1EbNS6_21PointerLikeTypeTraitsISA_EENS6_18PointerIntPairInfoISA_Lj1ESC_EEEEEE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %38, ptr noundef nonnull %4)
   br i1 %159, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_115FindCXXThisExprEE16dataTraverseNodeEPNS_4StmtEPN4llvm15SmallVectorImplINS6_14PointerIntPairIS5_Lj1EbNS6_21PointerLikeTypeTraitsIS5_EENS6_18PointerIntPairInfoIS5_Lj1ESA_EEEEEE.exit.thread, label %.loopexit
 
 160:                                              ; preds = %44
-  %161 = call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_115FindCXXThisExprEE28TraverseGenericSelectionExprEPNS_20GenericSelectionExprEPN4llvm15SmallVectorImplINS6_14PointerIntPairIPNS_4StmtELj1EbNS6_21PointerLikeTypeTraitsISA_EENS6_18PointerIntPairInfoISA_Lj1ESC_EEEEEE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %38, ptr noundef nonnull %4)
+  %161 = call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_115FindCXXThisExprEE24TraverseImaginaryLiteralEPNS_16ImaginaryLiteralEPN4llvm15SmallVectorImplINS6_14PointerIntPairIPNS_4StmtELj1EbNS6_21PointerLikeTypeTraitsISA_EENS6_18PointerIntPairInfoISA_Lj1ESC_EEEEEE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %38, ptr noundef nonnull %4)
   br i1 %161, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_115FindCXXThisExprEE16dataTraverseNodeEPNS_4StmtEPN4llvm15SmallVectorImplINS6_14PointerIntPairIS5_Lj1EbNS6_21PointerLikeTypeTraitsIS5_EENS6_18PointerIntPairInfoIS5_Lj1ESA_EEEEEE.exit.thread, label %.loopexit
 
 162:                                              ; preds = %44
-  %163 = call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_115FindCXXThisExprEE19TraverseGNUNullExprEPNS_11GNUNullExprEPN4llvm15SmallVectorImplINS6_14PointerIntPairIPNS_4StmtELj1EbNS6_21PointerLikeTypeTraitsISA_EENS6_18PointerIntPairInfoISA_Lj1ESC_EEEEEE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %38, ptr noundef nonnull %4)
+  %163 = call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_115FindCXXThisExprEE22TraverseHLSLOutArgExprEPNS_14HLSLOutArgExprEPN4llvm15SmallVectorImplINS6_14PointerIntPairIPNS_4StmtELj1EbNS6_21PointerLikeTypeTraitsISA_EENS6_18PointerIntPairInfoISA_Lj1ESC_EEEEEE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %38, ptr noundef nonnull %4)
   br i1 %163, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_115FindCXXThisExprEE16dataTraverseNodeEPNS_4StmtEPN4llvm15SmallVectorImplINS6_14PointerIntPairIS5_Lj1EbNS6_21PointerLikeTypeTraitsIS5_EENS6_18PointerIntPairInfoIS5_Lj1ESA_EEEEEE.exit.thread, label %.loopexit
 
 164:                                              ; preds = %44
-  %165 = call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_115FindCXXThisExprEE28TraverseFunctionParmPackExprEPNS_20FunctionParmPackExprEPN4llvm15SmallVectorImplINS6_14PointerIntPairIPNS_4StmtELj1EbNS6_21PointerLikeTypeTraitsISA_EENS6_18PointerIntPairInfoISA_Lj1ESC_EEEEEE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %38, ptr noundef nonnull %4)
+  %165 = call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_115FindCXXThisExprEE28TraverseGenericSelectionExprEPNS_20GenericSelectionExprEPN4llvm15SmallVectorImplINS6_14PointerIntPairIPNS_4StmtELj1EbNS6_21PointerLikeTypeTraitsISA_EENS6_18PointerIntPairInfoISA_Lj1ESC_EEEEEE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %38, ptr noundef nonnull %4)
   br i1 %165, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_115FindCXXThisExprEE16dataTraverseNodeEPNS_4StmtEPN4llvm15SmallVectorImplINS6_14PointerIntPairIS5_Lj1EbNS6_21PointerLikeTypeTraitsIS5_EENS6_18PointerIntPairInfoIS5_Lj1ESA_EEEEEE.exit.thread, label %.loopexit
 
 166:                                              ; preds = %44
-  %167 = call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_115FindCXXThisExprEE24TraverseExprWithCleanupsEPNS_16ExprWithCleanupsEPN4llvm15SmallVectorImplINS6_14PointerIntPairIPNS_4StmtELj1EbNS6_21PointerLikeTypeTraitsISA_EENS6_18PointerIntPairInfoISA_Lj1ESC_EEEEEE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %38, ptr noundef nonnull %4)
+  %167 = call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_115FindCXXThisExprEE19TraverseGNUNullExprEPNS_11GNUNullExprEPN4llvm15SmallVectorImplINS6_14PointerIntPairIPNS_4StmtELj1EbNS6_21PointerLikeTypeTraitsISA_EENS6_18PointerIntPairInfoISA_Lj1ESC_EEEEEE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %38, ptr noundef nonnull %4)
   br i1 %167, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_115FindCXXThisExprEE16dataTraverseNodeEPNS_4StmtEPN4llvm15SmallVectorImplINS6_14PointerIntPairIS5_Lj1EbNS6_21PointerLikeTypeTraitsIS5_EENS6_18PointerIntPairInfoIS5_Lj1ESA_EEEEEE.exit.thread, label %.loopexit
 
 168:                                              ; preds = %44
-  %169 = call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_115FindCXXThisExprEE20TraverseConstantExprEPNS_12ConstantExprEPN4llvm15SmallVectorImplINS6_14PointerIntPairIPNS_4StmtELj1EbNS6_21PointerLikeTypeTraitsISA_EENS6_18PointerIntPairInfoISA_Lj1ESC_EEEEEE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %38, ptr noundef nonnull %4)
+  %169 = call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_115FindCXXThisExprEE28TraverseFunctionParmPackExprEPNS_20FunctionParmPackExprEPN4llvm15SmallVectorImplINS6_14PointerIntPairIPNS_4StmtELj1EbNS6_21PointerLikeTypeTraitsISA_EENS6_18PointerIntPairInfoISA_Lj1ESC_EEEEEE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %38, ptr noundef nonnull %4)
   br i1 %169, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_115FindCXXThisExprEE16dataTraverseNodeEPNS_4StmtEPN4llvm15SmallVectorImplINS6_14PointerIntPairIS5_Lj1EbNS6_21PointerLikeTypeTraitsIS5_EENS6_18PointerIntPairInfoIS5_Lj1ESA_EEEEEE.exit.thread, label %.loopexit
 
 170:                                              ; preds = %44
-  %171 = call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_115FindCXXThisExprEE23TraverseFloatingLiteralEPNS_15FloatingLiteralEPN4llvm15SmallVectorImplINS6_14PointerIntPairIPNS_4StmtELj1EbNS6_21PointerLikeTypeTraitsISA_EENS6_18PointerIntPairInfoISA_Lj1ESC_EEEEEE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %38, ptr noundef nonnull %4)
+  %171 = call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_115FindCXXThisExprEE24TraverseExprWithCleanupsEPNS_16ExprWithCleanupsEPN4llvm15SmallVectorImplINS6_14PointerIntPairIPNS_4StmtELj1EbNS6_21PointerLikeTypeTraitsISA_EENS6_18PointerIntPairInfoISA_Lj1ESC_EEEEEE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %38, ptr noundef nonnull %4)
   br i1 %171, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_115FindCXXThisExprEE16dataTraverseNodeEPNS_4StmtEPN4llvm15SmallVectorImplINS6_14PointerIntPairIS5_Lj1EbNS6_21PointerLikeTypeTraitsIS5_EENS6_18PointerIntPairInfoIS5_Lj1ESA_EEEEEE.exit.thread, label %.loopexit
 
 172:                                              ; preds = %44
-  %173 = call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_115FindCXXThisExprEE25TraverseFixedPointLiteralEPNS_17FixedPointLiteralEPN4llvm15SmallVectorImplINS6_14PointerIntPairIPNS_4StmtELj1EbNS6_21PointerLikeTypeTraitsISA_EENS6_18PointerIntPairInfoISA_Lj1ESC_EEEEEE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %38, ptr noundef nonnull %4)
+  %173 = call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_115FindCXXThisExprEE20TraverseConstantExprEPNS_12ConstantExprEPN4llvm15SmallVectorImplINS6_14PointerIntPairIPNS_4StmtELj1EbNS6_21PointerLikeTypeTraitsISA_EENS6_18PointerIntPairInfoISA_Lj1ESC_EEEEEE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %38, ptr noundef nonnull %4)
   br i1 %173, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_115FindCXXThisExprEE16dataTraverseNodeEPNS_4StmtEPN4llvm15SmallVectorImplINS6_14PointerIntPairIS5_Lj1EbNS6_21PointerLikeTypeTraitsIS5_EENS6_18PointerIntPairInfoIS5_Lj1ESA_EEEEEE.exit.thread, label %.loopexit
 
 174:                                              ; preds = %44
-  %175 = call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_115FindCXXThisExprEE28TraverseExtVectorElementExprEPNS_20ExtVectorElementExprEPN4llvm15SmallVectorImplINS6_14PointerIntPairIPNS_4StmtELj1EbNS6_21PointerLikeTypeTraitsISA_EENS6_18PointerIntPairInfoISA_Lj1ESC_EEEEEE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %38, ptr noundef nonnull %4)
+  %175 = call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_115FindCXXThisExprEE23TraverseFloatingLiteralEPNS_15FloatingLiteralEPN4llvm15SmallVectorImplINS6_14PointerIntPairIPNS_4StmtELj1EbNS6_21PointerLikeTypeTraitsISA_EENS6_18PointerIntPairInfoISA_Lj1ESC_EEEEEE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %38, ptr noundef nonnull %4)
   br i1 %175, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_115FindCXXThisExprEE16dataTraverseNodeEPNS_4StmtEPN4llvm15SmallVectorImplINS6_14PointerIntPairIS5_Lj1EbNS6_21PointerLikeTypeTraitsIS5_EENS6_18PointerIntPairInfoIS5_Lj1ESA_EEEEEE.exit.thread, label %.loopexit
 
 176:                                              ; preds = %44
-  %177 = call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_115FindCXXThisExprEE27TraverseExpressionTraitExprEPNS_19ExpressionTraitExprEPN4llvm15SmallVectorImplINS6_14PointerIntPairIPNS_4StmtELj1EbNS6_21PointerLikeTypeTraitsISA_EENS6_18PointerIntPairInfoISA_Lj1ESC_EEEEEE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %38, ptr noundef nonnull %4)
+  %177 = call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_115FindCXXThisExprEE25TraverseFixedPointLiteralEPNS_17FixedPointLiteralEPN4llvm15SmallVectorImplINS6_14PointerIntPairIPNS_4StmtELj1EbNS6_21PointerLikeTypeTraitsISA_EENS6_18PointerIntPairInfoISA_Lj1ESC_EEEEEE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %38, ptr noundef nonnull %4)
   br i1 %177, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_115FindCXXThisExprEE16dataTraverseNodeEPNS_4StmtEPN4llvm15SmallVectorImplINS6_14PointerIntPairIS5_Lj1EbNS6_21PointerLikeTypeTraitsIS5_EENS6_18PointerIntPairInfoIS5_Lj1ESA_EEEEEE.exit.thread, label %.loopexit
 
 178:                                              ; preds = %44
-  %179 = call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_115FindCXXThisExprEE17TraverseEmbedExprEPNS_9EmbedExprEPN4llvm15SmallVectorImplINS6_14PointerIntPairIPNS_4StmtELj1EbNS6_21PointerLikeTypeTraitsISA_EENS6_18PointerIntPairInfoISA_Lj1ESC_EEEEEE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %38, ptr noundef nonnull %4)
+  %179 = call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_115FindCXXThisExprEE28TraverseExtVectorElementExprEPNS_20ExtVectorElementExprEPN4llvm15SmallVectorImplINS6_14PointerIntPairIPNS_4StmtELj1EbNS6_21PointerLikeTypeTraitsISA_EENS6_18PointerIntPairInfoISA_Lj1ESC_EEEEEE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %38, ptr noundef nonnull %4)
   br i1 %179, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_115FindCXXThisExprEE16dataTraverseNodeEPNS_4StmtEPN4llvm15SmallVectorImplINS6_14PointerIntPairIS5_Lj1EbNS6_21PointerLikeTypeTraitsIS5_EENS6_18PointerIntPairInfoIS5_Lj1ESA_EEEEEE.exit.thread, label %.loopexit
 
 180:                                              ; preds = %44
-  %181 = call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_115FindCXXThisExprEE32TraverseDesignatedInitUpdateExprEPNS_24DesignatedInitUpdateExprEPN4llvm15SmallVectorImplINS6_14PointerIntPairIPNS_4StmtELj1EbNS6_21PointerLikeTypeTraitsISA_EENS6_18PointerIntPairInfoISA_Lj1ESC_EEEEEE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %38, ptr noundef nonnull %4)
+  %181 = call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_115FindCXXThisExprEE27TraverseExpressionTraitExprEPNS_19ExpressionTraitExprEPN4llvm15SmallVectorImplINS6_14PointerIntPairIPNS_4StmtELj1EbNS6_21PointerLikeTypeTraitsISA_EENS6_18PointerIntPairInfoISA_Lj1ESC_EEEEEE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %38, ptr noundef nonnull %4)
   br i1 %181, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_115FindCXXThisExprEE16dataTraverseNodeEPNS_4StmtEPN4llvm15SmallVectorImplINS6_14PointerIntPairIS5_Lj1EbNS6_21PointerLikeTypeTraitsIS5_EENS6_18PointerIntPairInfoIS5_Lj1ESA_EEEEEE.exit.thread, label %.loopexit
 
 182:                                              ; preds = %44
-  %183 = call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_115FindCXXThisExprEE26TraverseDesignatedInitExprEPNS_18DesignatedInitExprEPN4llvm15SmallVectorImplINS6_14PointerIntPairIPNS_4StmtELj1EbNS6_21PointerLikeTypeTraitsISA_EENS6_18PointerIntPairInfoISA_Lj1ESC_EEEEEE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %38, ptr noundef nonnull %4)
+  %183 = call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_115FindCXXThisExprEE17TraverseEmbedExprEPNS_9EmbedExprEPN4llvm15SmallVectorImplINS6_14PointerIntPairIPNS_4StmtELj1EbNS6_21PointerLikeTypeTraitsISA_EENS6_18PointerIntPairInfoISA_Lj1ESC_EEEEEE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %38, ptr noundef nonnull %4)
   br i1 %183, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_115FindCXXThisExprEE16dataTraverseNodeEPNS_4StmtEPN4llvm15SmallVectorImplINS6_14PointerIntPairIS5_Lj1EbNS6_21PointerLikeTypeTraitsIS5_EENS6_18PointerIntPairInfoIS5_Lj1ESA_EEEEEE.exit.thread, label %.loopexit
 
 184:                                              ; preds = %44
-  %185 = call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_115FindCXXThisExprEE33TraverseDependentScopeDeclRefExprEPNS_25DependentScopeDeclRefExprEPN4llvm15SmallVectorImplINS6_14PointerIntPairIPNS_4StmtELj1EbNS6_21PointerLikeTypeTraitsISA_EENS6_18PointerIntPairInfoISA_Lj1ESC_EEEEEE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %38, ptr noundef nonnull %4)
+  %185 = call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_115FindCXXThisExprEE32TraverseDesignatedInitUpdateExprEPNS_24DesignatedInitUpdateExprEPN4llvm15SmallVectorImplINS6_14PointerIntPairIPNS_4StmtELj1EbNS6_21PointerLikeTypeTraitsISA_EENS6_18PointerIntPairInfoISA_Lj1ESC_EEEEEE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %38, ptr noundef nonnull %4)
   br i1 %185, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_115FindCXXThisExprEE16dataTraverseNodeEPNS_4StmtEPN4llvm15SmallVectorImplINS6_14PointerIntPairIS5_Lj1EbNS6_21PointerLikeTypeTraitsIS5_EENS6_18PointerIntPairInfoIS5_Lj1ESA_EEEEEE.exit.thread, label %.loopexit
 
 186:                                              ; preds = %44
-  %187 = getelementptr inbounds nuw i8, ptr %38, i64 24
-  %188 = load ptr, ptr %187, align 8
-  %189 = call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_115FindCXXThisExprEE12TraverseStmtEPNS_4StmtEPN4llvm15SmallVectorImplINS6_14PointerIntPairIS5_Lj1EbNS6_21PointerLikeTypeTraitsIS5_EENS6_18PointerIntPairInfoIS5_Lj1ESA_EEEEEE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %188, ptr noundef nonnull %4)
+  %187 = call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_115FindCXXThisExprEE26TraverseDesignatedInitExprEPNS_18DesignatedInitExprEPN4llvm15SmallVectorImplINS6_14PointerIntPairIPNS_4StmtELj1EbNS6_21PointerLikeTypeTraitsISA_EENS6_18PointerIntPairInfoISA_Lj1ESC_EEEEEE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %38, ptr noundef nonnull %4)
+  br i1 %187, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_115FindCXXThisExprEE16dataTraverseNodeEPNS_4StmtEPN4llvm15SmallVectorImplINS6_14PointerIntPairIS5_Lj1EbNS6_21PointerLikeTypeTraitsIS5_EENS6_18PointerIntPairInfoIS5_Lj1ESA_EEEEEE.exit.thread, label %.loopexit
+
+188:                                              ; preds = %44
+  %189 = call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_115FindCXXThisExprEE33TraverseDependentScopeDeclRefExprEPNS_25DependentScopeDeclRefExprEPN4llvm15SmallVectorImplINS6_14PointerIntPairIPNS_4StmtELj1EbNS6_21PointerLikeTypeTraitsISA_EENS6_18PointerIntPairInfoISA_Lj1ESC_EEEEEE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %38, ptr noundef nonnull %4)
   br i1 %189, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_115FindCXXThisExprEE16dataTraverseNodeEPNS_4StmtEPN4llvm15SmallVectorImplINS6_14PointerIntPairIS5_Lj1EbNS6_21PointerLikeTypeTraitsIS5_EENS6_18PointerIntPairInfoIS5_Lj1ESA_EEEEEE.exit.thread, label %.loopexit
 
 190:                                              ; preds = %44
-  %191 = call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_115FindCXXThisExprEE19TraverseDeclRefExprEPNS_11DeclRefExprEPN4llvm15SmallVectorImplINS6_14PointerIntPairIPNS_4StmtELj1EbNS6_21PointerLikeTypeTraitsISA_EENS6_18PointerIntPairInfoISA_Lj1ESC_EEEEEE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %38, ptr noundef nonnull %4)
-  br i1 %191, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_115FindCXXThisExprEE16dataTraverseNodeEPNS_4StmtEPN4llvm15SmallVectorImplINS6_14PointerIntPairIS5_Lj1EbNS6_21PointerLikeTypeTraitsIS5_EENS6_18PointerIntPairInfoIS5_Lj1ESA_EEEEEE.exit.thread, label %.loopexit
+  %191 = getelementptr inbounds nuw i8, ptr %38, i64 24
+  %192 = load ptr, ptr %191, align 8
+  %193 = call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_115FindCXXThisExprEE12TraverseStmtEPNS_4StmtEPN4llvm15SmallVectorImplINS6_14PointerIntPairIS5_Lj1EbNS6_21PointerLikeTypeTraitsIS5_EENS6_18PointerIntPairInfoIS5_Lj1ESA_EEEEEE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %192, ptr noundef nonnull %4)
+  br i1 %193, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_115FindCXXThisExprEE16dataTraverseNodeEPNS_4StmtEPN4llvm15SmallVectorImplINS6_14PointerIntPairIS5_Lj1EbNS6_21PointerLikeTypeTraitsIS5_EENS6_18PointerIntPairInfoIS5_Lj1ESA_EEEEEE.exit.thread, label %.loopexit
 
-192:                                              ; preds = %44
-  %193 = getelementptr inbounds nuw i8, ptr %38, i64 24
-  %194 = load ptr, ptr %193, align 8
-  %195 = call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_115FindCXXThisExprEE12TraverseStmtEPNS_4StmtEPN4llvm15SmallVectorImplINS6_14PointerIntPairIS5_Lj1EbNS6_21PointerLikeTypeTraitsIS5_EENS6_18PointerIntPairInfoIS5_Lj1ESA_EEEEEE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %194, ptr noundef nonnull %4)
+194:                                              ; preds = %44
+  %195 = call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_115FindCXXThisExprEE19TraverseDeclRefExprEPNS_11DeclRefExprEPN4llvm15SmallVectorImplINS6_14PointerIntPairIPNS_4StmtELj1EbNS6_21PointerLikeTypeTraitsISA_EENS6_18PointerIntPairInfoISA_Lj1ESC_EEEEEE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %38, ptr noundef nonnull %4)
   br i1 %195, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_115FindCXXThisExprEE16dataTraverseNodeEPNS_4StmtEPN4llvm15SmallVectorImplINS6_14PointerIntPairIS5_Lj1EbNS6_21PointerLikeTypeTraitsIS5_EENS6_18PointerIntPairInfoIS5_Lj1ESA_EEEEEE.exit.thread, label %.loopexit
 
 196:                                              ; preds = %44
@@ -83911,726 +83914,732 @@ _ZN4llvm23SmallVectorTemplateBaseINS_14PointerIntPairIPN5clang4StmtELj1EbNS_21Po
   br i1 %199, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_115FindCXXThisExprEE16dataTraverseNodeEPNS_4StmtEPN4llvm15SmallVectorImplINS6_14PointerIntPairIS5_Lj1EbNS6_21PointerLikeTypeTraitsIS5_EENS6_18PointerIntPairInfoIS5_Lj1ESA_EEEEEE.exit.thread, label %.loopexit
 
 200:                                              ; preds = %44
-  %201 = call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_115FindCXXThisExprEE25TraverseConvertVectorExprEPNS_17ConvertVectorExprEPN4llvm15SmallVectorImplINS6_14PointerIntPairIPNS_4StmtELj1EbNS6_21PointerLikeTypeTraitsISA_EENS6_18PointerIntPairInfoISA_Lj1ESC_EEEEEE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %38, ptr noundef nonnull %4)
-  br i1 %201, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_115FindCXXThisExprEE16dataTraverseNodeEPNS_4StmtEPN4llvm15SmallVectorImplINS6_14PointerIntPairIS5_Lj1EbNS6_21PointerLikeTypeTraitsIS5_EENS6_18PointerIntPairInfoIS5_Lj1ESA_EEEEEE.exit.thread, label %.loopexit
-
-202:                                              ; preds = %44
-  %203 = call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_115FindCXXThisExprEE33TraverseConceptSpecializationExprEPNS_25ConceptSpecializationExprEPN4llvm15SmallVectorImplINS6_14PointerIntPairIPNS_4StmtELj1EbNS6_21PointerLikeTypeTraitsISA_EENS6_18PointerIntPairInfoISA_Lj1ESC_EEEEEE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %38, ptr noundef nonnull %4)
+  %201 = getelementptr inbounds nuw i8, ptr %38, i64 24
+  %202 = load ptr, ptr %201, align 8
+  %203 = call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_115FindCXXThisExprEE12TraverseStmtEPNS_4StmtEPN4llvm15SmallVectorImplINS6_14PointerIntPairIS5_Lj1EbNS6_21PointerLikeTypeTraitsIS5_EENS6_18PointerIntPairInfoIS5_Lj1ESA_EEEEEE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %202, ptr noundef nonnull %4)
   br i1 %203, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_115FindCXXThisExprEE16dataTraverseNodeEPNS_4StmtEPN4llvm15SmallVectorImplINS6_14PointerIntPairIS5_Lj1EbNS6_21PointerLikeTypeTraitsIS5_EENS6_18PointerIntPairInfoIS5_Lj1ESA_EEEEEE.exit.thread, label %.loopexit
 
 204:                                              ; preds = %44
-  %205 = call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_115FindCXXThisExprEE27TraverseCompoundLiteralExprEPNS_19CompoundLiteralExprEPN4llvm15SmallVectorImplINS6_14PointerIntPairIPNS_4StmtELj1EbNS6_21PointerLikeTypeTraitsISA_EENS6_18PointerIntPairInfoISA_Lj1ESC_EEEEEE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %38, ptr noundef nonnull %4)
+  %205 = call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_115FindCXXThisExprEE25TraverseConvertVectorExprEPNS_17ConvertVectorExprEPN4llvm15SmallVectorImplINS6_14PointerIntPairIPNS_4StmtELj1EbNS6_21PointerLikeTypeTraitsISA_EENS6_18PointerIntPairInfoISA_Lj1ESC_EEEEEE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %38, ptr noundef nonnull %4)
   br i1 %205, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_115FindCXXThisExprEE16dataTraverseNodeEPNS_4StmtEPN4llvm15SmallVectorImplINS6_14PointerIntPairIS5_Lj1EbNS6_21PointerLikeTypeTraitsIS5_EENS6_18PointerIntPairInfoIS5_Lj1ESA_EEEEEE.exit.thread, label %.loopexit
 
 206:                                              ; preds = %44
-  %207 = call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_115FindCXXThisExprEE18TraverseChooseExprEPNS_10ChooseExprEPN4llvm15SmallVectorImplINS6_14PointerIntPairIPNS_4StmtELj1EbNS6_21PointerLikeTypeTraitsISA_EENS6_18PointerIntPairInfoISA_Lj1ESC_EEEEEE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %38, ptr noundef nonnull %4)
+  %207 = call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_115FindCXXThisExprEE33TraverseConceptSpecializationExprEPNS_25ConceptSpecializationExprEPN4llvm15SmallVectorImplINS6_14PointerIntPairIPNS_4StmtELj1EbNS6_21PointerLikeTypeTraitsISA_EENS6_18PointerIntPairInfoISA_Lj1ESC_EEEEEE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %38, ptr noundef nonnull %4)
   br i1 %207, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_115FindCXXThisExprEE16dataTraverseNodeEPNS_4StmtEPN4llvm15SmallVectorImplINS6_14PointerIntPairIS5_Lj1EbNS6_21PointerLikeTypeTraitsIS5_EENS6_18PointerIntPairInfoIS5_Lj1ESA_EEEEEE.exit.thread, label %.loopexit
 
 208:                                              ; preds = %44
-  %209 = call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_115FindCXXThisExprEE24TraverseCharacterLiteralEPNS_16CharacterLiteralEPN4llvm15SmallVectorImplINS6_14PointerIntPairIPNS_4StmtELj1EbNS6_21PointerLikeTypeTraitsISA_EENS6_18PointerIntPairInfoISA_Lj1ESC_EEEEEE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %38, ptr noundef nonnull %4)
+  %209 = call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_115FindCXXThisExprEE27TraverseCompoundLiteralExprEPNS_19CompoundLiteralExprEPN4llvm15SmallVectorImplINS6_14PointerIntPairIPNS_4StmtELj1EbNS6_21PointerLikeTypeTraitsISA_EENS6_18PointerIntPairInfoISA_Lj1ESC_EEEEEE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %38, ptr noundef nonnull %4)
   br i1 %209, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_115FindCXXThisExprEE16dataTraverseNodeEPNS_4StmtEPN4llvm15SmallVectorImplINS6_14PointerIntPairIS5_Lj1EbNS6_21PointerLikeTypeTraitsIS5_EENS6_18PointerIntPairInfoIS5_Lj1ESA_EEEEEE.exit.thread, label %.loopexit
 
 210:                                              ; preds = %44
-  %211 = call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_115FindCXXThisExprEE24TraverseImplicitCastExprEPNS_16ImplicitCastExprEPN4llvm15SmallVectorImplINS6_14PointerIntPairIPNS_4StmtELj1EbNS6_21PointerLikeTypeTraitsISA_EENS6_18PointerIntPairInfoISA_Lj1ESC_EEEEEE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %38, ptr noundef nonnull %4)
+  %211 = call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_115FindCXXThisExprEE18TraverseChooseExprEPNS_10ChooseExprEPN4llvm15SmallVectorImplINS6_14PointerIntPairIPNS_4StmtELj1EbNS6_21PointerLikeTypeTraitsISA_EENS6_18PointerIntPairInfoISA_Lj1ESC_EEEEEE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %38, ptr noundef nonnull %4)
   br i1 %211, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_115FindCXXThisExprEE16dataTraverseNodeEPNS_4StmtEPN4llvm15SmallVectorImplINS6_14PointerIntPairIS5_Lj1EbNS6_21PointerLikeTypeTraitsIS5_EENS6_18PointerIntPairInfoIS5_Lj1ESA_EEEEEE.exit.thread, label %.loopexit
 
 212:                                              ; preds = %44
-  %213 = call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_115FindCXXThisExprEE27TraverseObjCBridgedCastExprEPNS_19ObjCBridgedCastExprEPN4llvm15SmallVectorImplINS6_14PointerIntPairIPNS_4StmtELj1EbNS6_21PointerLikeTypeTraitsISA_EENS6_18PointerIntPairInfoISA_Lj1ESC_EEEEEE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %38, ptr noundef nonnull %4)
+  %213 = call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_115FindCXXThisExprEE24TraverseCharacterLiteralEPNS_16CharacterLiteralEPN4llvm15SmallVectorImplINS6_14PointerIntPairIPNS_4StmtELj1EbNS6_21PointerLikeTypeTraitsISA_EENS6_18PointerIntPairInfoISA_Lj1ESC_EEEEEE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %38, ptr noundef nonnull %4)
   br i1 %213, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_115FindCXXThisExprEE16dataTraverseNodeEPNS_4StmtEPN4llvm15SmallVectorImplINS6_14PointerIntPairIS5_Lj1EbNS6_21PointerLikeTypeTraitsIS5_EENS6_18PointerIntPairInfoIS5_Lj1ESA_EEEEEE.exit.thread, label %.loopexit
 
 214:                                              ; preds = %44
-  %215 = call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_115FindCXXThisExprEE25TraverseCXXStaticCastExprEPNS_17CXXStaticCastExprEPN4llvm15SmallVectorImplINS6_14PointerIntPairIPNS_4StmtELj1EbNS6_21PointerLikeTypeTraitsISA_EENS6_18PointerIntPairInfoISA_Lj1ESC_EEEEEE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %38, ptr noundef nonnull %4)
+  %215 = call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_115FindCXXThisExprEE24TraverseImplicitCastExprEPNS_16ImplicitCastExprEPN4llvm15SmallVectorImplINS6_14PointerIntPairIPNS_4StmtELj1EbNS6_21PointerLikeTypeTraitsISA_EENS6_18PointerIntPairInfoISA_Lj1ESC_EEEEEE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %38, ptr noundef nonnull %4)
   br i1 %215, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_115FindCXXThisExprEE16dataTraverseNodeEPNS_4StmtEPN4llvm15SmallVectorImplINS6_14PointerIntPairIS5_Lj1EbNS6_21PointerLikeTypeTraitsIS5_EENS6_18PointerIntPairInfoIS5_Lj1ESA_EEEEEE.exit.thread, label %.loopexit
 
 216:                                              ; preds = %44
-  %217 = call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_115FindCXXThisExprEE30TraverseCXXReinterpretCastExprEPNS_22CXXReinterpretCastExprEPN4llvm15SmallVectorImplINS6_14PointerIntPairIPNS_4StmtELj1EbNS6_21PointerLikeTypeTraitsISA_EENS6_18PointerIntPairInfoISA_Lj1ESC_EEEEEE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %38, ptr noundef nonnull %4)
+  %217 = call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_115FindCXXThisExprEE27TraverseObjCBridgedCastExprEPNS_19ObjCBridgedCastExprEPN4llvm15SmallVectorImplINS6_14PointerIntPairIPNS_4StmtELj1EbNS6_21PointerLikeTypeTraitsISA_EENS6_18PointerIntPairInfoISA_Lj1ESC_EEEEEE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %38, ptr noundef nonnull %4)
   br i1 %217, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_115FindCXXThisExprEE16dataTraverseNodeEPNS_4StmtEPN4llvm15SmallVectorImplINS6_14PointerIntPairIS5_Lj1EbNS6_21PointerLikeTypeTraitsIS5_EENS6_18PointerIntPairInfoIS5_Lj1ESA_EEEEEE.exit.thread, label %.loopexit
 
 218:                                              ; preds = %44
-  %219 = call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_115FindCXXThisExprEE26TraverseCXXDynamicCastExprEPNS_18CXXDynamicCastExprEPN4llvm15SmallVectorImplINS6_14PointerIntPairIPNS_4StmtELj1EbNS6_21PointerLikeTypeTraitsISA_EENS6_18PointerIntPairInfoISA_Lj1ESC_EEEEEE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %38, ptr noundef nonnull %4)
+  %219 = call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_115FindCXXThisExprEE25TraverseCXXStaticCastExprEPNS_17CXXStaticCastExprEPN4llvm15SmallVectorImplINS6_14PointerIntPairIPNS_4StmtELj1EbNS6_21PointerLikeTypeTraitsISA_EENS6_18PointerIntPairInfoISA_Lj1ESC_EEEEEE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %38, ptr noundef nonnull %4)
   br i1 %219, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_115FindCXXThisExprEE16dataTraverseNodeEPNS_4StmtEPN4llvm15SmallVectorImplINS6_14PointerIntPairIS5_Lj1EbNS6_21PointerLikeTypeTraitsIS5_EENS6_18PointerIntPairInfoIS5_Lj1ESA_EEEEEE.exit.thread, label %.loopexit
 
 220:                                              ; preds = %44
-  %221 = call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_115FindCXXThisExprEE24TraverseCXXConstCastExprEPNS_16CXXConstCastExprEPN4llvm15SmallVectorImplINS6_14PointerIntPairIPNS_4StmtELj1EbNS6_21PointerLikeTypeTraitsISA_EENS6_18PointerIntPairInfoISA_Lj1ESC_EEEEEE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %38, ptr noundef nonnull %4)
+  %221 = call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_115FindCXXThisExprEE30TraverseCXXReinterpretCastExprEPNS_22CXXReinterpretCastExprEPN4llvm15SmallVectorImplINS6_14PointerIntPairIPNS_4StmtELj1EbNS6_21PointerLikeTypeTraitsISA_EENS6_18PointerIntPairInfoISA_Lj1ESC_EEEEEE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %38, ptr noundef nonnull %4)
   br i1 %221, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_115FindCXXThisExprEE16dataTraverseNodeEPNS_4StmtEPN4llvm15SmallVectorImplINS6_14PointerIntPairIS5_Lj1EbNS6_21PointerLikeTypeTraitsIS5_EENS6_18PointerIntPairInfoIS5_Lj1ESA_EEEEEE.exit.thread, label %.loopexit
 
 222:                                              ; preds = %44
-  %223 = call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_115FindCXXThisExprEE28TraverseCXXAddrspaceCastExprEPNS_20CXXAddrspaceCastExprEPN4llvm15SmallVectorImplINS6_14PointerIntPairIPNS_4StmtELj1EbNS6_21PointerLikeTypeTraitsISA_EENS6_18PointerIntPairInfoISA_Lj1ESC_EEEEEE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %38, ptr noundef nonnull %4)
+  %223 = call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_115FindCXXThisExprEE26TraverseCXXDynamicCastExprEPNS_18CXXDynamicCastExprEPN4llvm15SmallVectorImplINS6_14PointerIntPairIPNS_4StmtELj1EbNS6_21PointerLikeTypeTraitsISA_EENS6_18PointerIntPairInfoISA_Lj1ESC_EEEEEE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %38, ptr noundef nonnull %4)
   br i1 %223, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_115FindCXXThisExprEE16dataTraverseNodeEPNS_4StmtEPN4llvm15SmallVectorImplINS6_14PointerIntPairIS5_Lj1EbNS6_21PointerLikeTypeTraitsIS5_EENS6_18PointerIntPairInfoIS5_Lj1ESA_EEEEEE.exit.thread, label %.loopexit
 
 224:                                              ; preds = %44
-  %225 = call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_115FindCXXThisExprEE29TraverseCXXFunctionalCastExprEPNS_21CXXFunctionalCastExprEPN4llvm15SmallVectorImplINS6_14PointerIntPairIPNS_4StmtELj1EbNS6_21PointerLikeTypeTraitsISA_EENS6_18PointerIntPairInfoISA_Lj1ESC_EEEEEE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %38, ptr noundef nonnull %4)
+  %225 = call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_115FindCXXThisExprEE24TraverseCXXConstCastExprEPNS_16CXXConstCastExprEPN4llvm15SmallVectorImplINS6_14PointerIntPairIPNS_4StmtELj1EbNS6_21PointerLikeTypeTraitsISA_EENS6_18PointerIntPairInfoISA_Lj1ESC_EEEEEE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %38, ptr noundef nonnull %4)
   br i1 %225, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_115FindCXXThisExprEE16dataTraverseNodeEPNS_4StmtEPN4llvm15SmallVectorImplINS6_14PointerIntPairIS5_Lj1EbNS6_21PointerLikeTypeTraitsIS5_EENS6_18PointerIntPairInfoIS5_Lj1ESA_EEEEEE.exit.thread, label %.loopexit
 
 226:                                              ; preds = %44
-  %227 = call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_115FindCXXThisExprEE22TraverseCStyleCastExprEPNS_14CStyleCastExprEPN4llvm15SmallVectorImplINS6_14PointerIntPairIPNS_4StmtELj1EbNS6_21PointerLikeTypeTraitsISA_EENS6_18PointerIntPairInfoISA_Lj1ESC_EEEEEE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %38, ptr noundef nonnull %4)
+  %227 = call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_115FindCXXThisExprEE28TraverseCXXAddrspaceCastExprEPNS_20CXXAddrspaceCastExprEPN4llvm15SmallVectorImplINS6_14PointerIntPairIPNS_4StmtELj1EbNS6_21PointerLikeTypeTraitsISA_EENS6_18PointerIntPairInfoISA_Lj1ESC_EEEEEE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %38, ptr noundef nonnull %4)
   br i1 %227, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_115FindCXXThisExprEE16dataTraverseNodeEPNS_4StmtEPN4llvm15SmallVectorImplINS6_14PointerIntPairIS5_Lj1EbNS6_21PointerLikeTypeTraitsIS5_EENS6_18PointerIntPairInfoIS5_Lj1ESA_EEEEEE.exit.thread, label %.loopexit
 
 228:                                              ; preds = %44
-  %229 = call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_115FindCXXThisExprEE26TraverseBuiltinBitCastExprEPNS_18BuiltinBitCastExprEPN4llvm15SmallVectorImplINS6_14PointerIntPairIPNS_4StmtELj1EbNS6_21PointerLikeTypeTraitsISA_EENS6_18PointerIntPairInfoISA_Lj1ESC_EEEEEE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %38, ptr noundef nonnull %4)
+  %229 = call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_115FindCXXThisExprEE29TraverseCXXFunctionalCastExprEPNS_21CXXFunctionalCastExprEPN4llvm15SmallVectorImplINS6_14PointerIntPairIPNS_4StmtELj1EbNS6_21PointerLikeTypeTraitsISA_EENS6_18PointerIntPairInfoISA_Lj1ESC_EEEEEE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %38, ptr noundef nonnull %4)
   br i1 %229, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_115FindCXXThisExprEE16dataTraverseNodeEPNS_4StmtEPN4llvm15SmallVectorImplINS6_14PointerIntPairIS5_Lj1EbNS6_21PointerLikeTypeTraitsIS5_EENS6_18PointerIntPairInfoIS5_Lj1ESA_EEEEEE.exit.thread, label %.loopexit
 
 230:                                              ; preds = %44
-  %231 = call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_115FindCXXThisExprEE16TraverseCallExprEPNS_8CallExprEPN4llvm15SmallVectorImplINS6_14PointerIntPairIPNS_4StmtELj1EbNS6_21PointerLikeTypeTraitsISA_EENS6_18PointerIntPairInfoISA_Lj1ESC_EEEEEE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %38, ptr noundef nonnull %4)
+  %231 = call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_115FindCXXThisExprEE22TraverseCStyleCastExprEPNS_14CStyleCastExprEPN4llvm15SmallVectorImplINS6_14PointerIntPairIPNS_4StmtELj1EbNS6_21PointerLikeTypeTraitsISA_EENS6_18PointerIntPairInfoISA_Lj1ESC_EEEEEE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %38, ptr noundef nonnull %4)
   br i1 %231, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_115FindCXXThisExprEE16dataTraverseNodeEPNS_4StmtEPN4llvm15SmallVectorImplINS6_14PointerIntPairIS5_Lj1EbNS6_21PointerLikeTypeTraitsIS5_EENS6_18PointerIntPairInfoIS5_Lj1ESA_EEEEEE.exit.thread, label %.loopexit
 
 232:                                              ; preds = %44
-  %233 = call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_115FindCXXThisExprEE26TraverseUserDefinedLiteralEPNS_18UserDefinedLiteralEPN4llvm15SmallVectorImplINS6_14PointerIntPairIPNS_4StmtELj1EbNS6_21PointerLikeTypeTraitsISA_EENS6_18PointerIntPairInfoISA_Lj1ESC_EEEEEE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %38, ptr noundef nonnull %4)
+  %233 = call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_115FindCXXThisExprEE26TraverseBuiltinBitCastExprEPNS_18BuiltinBitCastExprEPN4llvm15SmallVectorImplINS6_14PointerIntPairIPNS_4StmtELj1EbNS6_21PointerLikeTypeTraitsISA_EENS6_18PointerIntPairInfoISA_Lj1ESC_EEEEEE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %38, ptr noundef nonnull %4)
   br i1 %233, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_115FindCXXThisExprEE16dataTraverseNodeEPNS_4StmtEPN4llvm15SmallVectorImplINS6_14PointerIntPairIS5_Lj1EbNS6_21PointerLikeTypeTraitsIS5_EENS6_18PointerIntPairInfoIS5_Lj1ESA_EEEEEE.exit.thread, label %.loopexit
 
 234:                                              ; preds = %44
-  %235 = call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_115FindCXXThisExprEE27TraverseCXXOperatorCallExprEPNS_19CXXOperatorCallExprEPN4llvm15SmallVectorImplINS6_14PointerIntPairIPNS_4StmtELj1EbNS6_21PointerLikeTypeTraitsISA_EENS6_18PointerIntPairInfoISA_Lj1ESC_EEEEEE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %38, ptr noundef nonnull %4)
+  %235 = call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_115FindCXXThisExprEE16TraverseCallExprEPNS_8CallExprEPN4llvm15SmallVectorImplINS6_14PointerIntPairIPNS_4StmtELj1EbNS6_21PointerLikeTypeTraitsISA_EENS6_18PointerIntPairInfoISA_Lj1ESC_EEEEEE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %38, ptr noundef nonnull %4)
   br i1 %235, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_115FindCXXThisExprEE16dataTraverseNodeEPNS_4StmtEPN4llvm15SmallVectorImplINS6_14PointerIntPairIS5_Lj1EbNS6_21PointerLikeTypeTraitsIS5_EENS6_18PointerIntPairInfoIS5_Lj1ESA_EEEEEE.exit.thread, label %.loopexit
 
 236:                                              ; preds = %44
-  %237 = call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_115FindCXXThisExprEE25TraverseCXXMemberCallExprEPNS_17CXXMemberCallExprEPN4llvm15SmallVectorImplINS6_14PointerIntPairIPNS_4StmtELj1EbNS6_21PointerLikeTypeTraitsISA_EENS6_18PointerIntPairInfoISA_Lj1ESC_EEEEEE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %38, ptr noundef nonnull %4)
+  %237 = call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_115FindCXXThisExprEE26TraverseUserDefinedLiteralEPNS_18UserDefinedLiteralEPN4llvm15SmallVectorImplINS6_14PointerIntPairIPNS_4StmtELj1EbNS6_21PointerLikeTypeTraitsISA_EENS6_18PointerIntPairInfoISA_Lj1ESC_EEEEEE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %38, ptr noundef nonnull %4)
   br i1 %237, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_115FindCXXThisExprEE16dataTraverseNodeEPNS_4StmtEPN4llvm15SmallVectorImplINS6_14PointerIntPairIS5_Lj1EbNS6_21PointerLikeTypeTraitsIS5_EENS6_18PointerIntPairInfoIS5_Lj1ESA_EEEEEE.exit.thread, label %.loopexit
 
 238:                                              ; preds = %44
-  %239 = call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_115FindCXXThisExprEE26TraverseCUDAKernelCallExprEPNS_18CUDAKernelCallExprEPN4llvm15SmallVectorImplINS6_14PointerIntPairIPNS_4StmtELj1EbNS6_21PointerLikeTypeTraitsISA_EENS6_18PointerIntPairInfoISA_Lj1ESC_EEEEEE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %38, ptr noundef nonnull %4)
+  %239 = call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_115FindCXXThisExprEE27TraverseCXXOperatorCallExprEPNS_19CXXOperatorCallExprEPN4llvm15SmallVectorImplINS6_14PointerIntPairIPNS_4StmtELj1EbNS6_21PointerLikeTypeTraitsISA_EENS6_18PointerIntPairInfoISA_Lj1ESC_EEEEEE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %38, ptr noundef nonnull %4)
   br i1 %239, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_115FindCXXThisExprEE16dataTraverseNodeEPNS_4StmtEPN4llvm15SmallVectorImplINS6_14PointerIntPairIS5_Lj1EbNS6_21PointerLikeTypeTraitsIS5_EENS6_18PointerIntPairInfoIS5_Lj1ESA_EEEEEE.exit.thread, label %.loopexit
 
 240:                                              ; preds = %44
-  %241 = call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_115FindCXXThisExprEE21TraverseCXXUuidofExprEPNS_13CXXUuidofExprEPN4llvm15SmallVectorImplINS6_14PointerIntPairIPNS_4StmtELj1EbNS6_21PointerLikeTypeTraitsISA_EENS6_18PointerIntPairInfoISA_Lj1ESC_EEEEEE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %38, ptr noundef nonnull %4)
+  %241 = call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_115FindCXXThisExprEE25TraverseCXXMemberCallExprEPNS_17CXXMemberCallExprEPN4llvm15SmallVectorImplINS6_14PointerIntPairIPNS_4StmtELj1EbNS6_21PointerLikeTypeTraitsISA_EENS6_18PointerIntPairInfoISA_Lj1ESC_EEEEEE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %38, ptr noundef nonnull %4)
   br i1 %241, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_115FindCXXThisExprEE16dataTraverseNodeEPNS_4StmtEPN4llvm15SmallVectorImplINS6_14PointerIntPairIS5_Lj1EbNS6_21PointerLikeTypeTraitsIS5_EENS6_18PointerIntPairInfoIS5_Lj1ESA_EEEEEE.exit.thread, label %.loopexit
 
 242:                                              ; preds = %44
-  %243 = call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_115FindCXXThisExprEE34TraverseCXXUnresolvedConstructExprEPNS_26CXXUnresolvedConstructExprEPN4llvm15SmallVectorImplINS6_14PointerIntPairIPNS_4StmtELj1EbNS6_21PointerLikeTypeTraitsISA_EENS6_18PointerIntPairInfoISA_Lj1ESC_EEEEEE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %38, ptr noundef nonnull %4)
+  %243 = call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_115FindCXXThisExprEE26TraverseCUDAKernelCallExprEPNS_18CUDAKernelCallExprEPN4llvm15SmallVectorImplINS6_14PointerIntPairIPNS_4StmtELj1EbNS6_21PointerLikeTypeTraitsISA_EENS6_18PointerIntPairInfoISA_Lj1ESC_EEEEEE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %38, ptr noundef nonnull %4)
   br i1 %243, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_115FindCXXThisExprEE16dataTraverseNodeEPNS_4StmtEPN4llvm15SmallVectorImplINS6_14PointerIntPairIS5_Lj1EbNS6_21PointerLikeTypeTraitsIS5_EENS6_18PointerIntPairInfoIS5_Lj1ESA_EEEEEE.exit.thread, label %.loopexit
 
 244:                                              ; preds = %44
-  %245 = call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_115FindCXXThisExprEE21TraverseCXXTypeidExprEPNS_13CXXTypeidExprEPN4llvm15SmallVectorImplINS6_14PointerIntPairIPNS_4StmtELj1EbNS6_21PointerLikeTypeTraitsISA_EENS6_18PointerIntPairInfoISA_Lj1ESC_EEEEEE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %38, ptr noundef nonnull %4)
+  %245 = call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_115FindCXXThisExprEE21TraverseCXXUuidofExprEPNS_13CXXUuidofExprEPN4llvm15SmallVectorImplINS6_14PointerIntPairIPNS_4StmtELj1EbNS6_21PointerLikeTypeTraitsISA_EENS6_18PointerIntPairInfoISA_Lj1ESC_EEEEEE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %38, ptr noundef nonnull %4)
   br i1 %245, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_115FindCXXThisExprEE16dataTraverseNodeEPNS_4StmtEPN4llvm15SmallVectorImplINS6_14PointerIntPairIS5_Lj1EbNS6_21PointerLikeTypeTraitsIS5_EENS6_18PointerIntPairInfoIS5_Lj1ESA_EEEEEE.exit.thread, label %.loopexit
 
 246:                                              ; preds = %44
-  %247 = call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_115FindCXXThisExprEE20TraverseCXXThrowExprEPNS_12CXXThrowExprEPN4llvm15SmallVectorImplINS6_14PointerIntPairIPNS_4StmtELj1EbNS6_21PointerLikeTypeTraitsISA_EENS6_18PointerIntPairInfoISA_Lj1ESC_EEEEEE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %38, ptr noundef nonnull %4)
+  %247 = call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_115FindCXXThisExprEE34TraverseCXXUnresolvedConstructExprEPNS_26CXXUnresolvedConstructExprEPN4llvm15SmallVectorImplINS6_14PointerIntPairIPNS_4StmtELj1EbNS6_21PointerLikeTypeTraitsISA_EENS6_18PointerIntPairInfoISA_Lj1ESC_EEEEEE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %38, ptr noundef nonnull %4)
   br i1 %247, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_115FindCXXThisExprEE16dataTraverseNodeEPNS_4StmtEPN4llvm15SmallVectorImplINS6_14PointerIntPairIS5_Lj1EbNS6_21PointerLikeTypeTraitsIS5_EENS6_18PointerIntPairInfoIS5_Lj1ESA_EEEEEE.exit.thread, label %.loopexit
+
+248:                                              ; preds = %44
+  %249 = call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_115FindCXXThisExprEE21TraverseCXXTypeidExprEPNS_13CXXTypeidExprEPN4llvm15SmallVectorImplINS6_14PointerIntPairIPNS_4StmtELj1EbNS6_21PointerLikeTypeTraitsISA_EENS6_18PointerIntPairInfoISA_Lj1ESC_EEEEEE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %38, ptr noundef nonnull %4)
+  br i1 %249, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_115FindCXXThisExprEE16dataTraverseNodeEPNS_4StmtEPN4llvm15SmallVectorImplINS6_14PointerIntPairIS5_Lj1EbNS6_21PointerLikeTypeTraitsIS5_EENS6_18PointerIntPairInfoIS5_Lj1ESA_EEEEEE.exit.thread, label %.loopexit
+
+250:                                              ; preds = %44
+  %251 = call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_115FindCXXThisExprEE20TraverseCXXThrowExprEPNS_12CXXThrowExprEPN4llvm15SmallVectorImplINS6_14PointerIntPairIPNS_4StmtELj1EbNS6_21PointerLikeTypeTraitsISA_EENS6_18PointerIntPairInfoISA_Lj1ESC_EEEEEE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %38, ptr noundef nonnull %4)
+  br i1 %251, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_115FindCXXThisExprEE16dataTraverseNodeEPNS_4StmtEPN4llvm15SmallVectorImplINS6_14PointerIntPairIS5_Lj1EbNS6_21PointerLikeTypeTraitsIS5_EENS6_18PointerIntPairInfoIS5_Lj1ESA_EEEEEE.exit.thread, label %.loopexit
 
 _ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_115FindCXXThisExprEE16dataTraverseNodeEPNS_4StmtEPN4llvm15SmallVectorImplINS6_14PointerIntPairIS5_Lj1EbNS6_21PointerLikeTypeTraitsIS5_EENS6_18PointerIntPairInfoIS5_Lj1ESA_EEEEEE.exit.thread24: ; preds = %44
   %.val.i = load ptr, ptr %0, align 8
   call fastcc void @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_115FindCXXThisExprEE19TraverseCXXThisExprEPNS_11CXXThisExprEPN4llvm15SmallVectorImplINS6_14PointerIntPairIPNS_4StmtELj1EbNS6_21PointerLikeTypeTraitsISA_EENS6_18PointerIntPairInfoISA_Lj1ESC_EEEEEE(ptr %.val.i, ptr noundef nonnull %38)
   br label %.loopexit
 
-248:                                              ; preds = %44
-  %249 = call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_115FindCXXThisExprEE33TraverseCXXStdInitializerListExprEPNS_25CXXStdInitializerListExprEPN4llvm15SmallVectorImplINS6_14PointerIntPairIPNS_4StmtELj1EbNS6_21PointerLikeTypeTraitsISA_EENS6_18PointerIntPairInfoISA_Lj1ESC_EEEEEE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %38, ptr noundef nonnull %4)
-  br i1 %249, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_115FindCXXThisExprEE16dataTraverseNodeEPNS_4StmtEPN4llvm15SmallVectorImplINS6_14PointerIntPairIS5_Lj1EbNS6_21PointerLikeTypeTraitsIS5_EENS6_18PointerIntPairInfoIS5_Lj1ESA_EEEEEE.exit.thread, label %.loopexit
-
-250:                                              ; preds = %44
-  %251 = call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_115FindCXXThisExprEE30TraverseCXXScalarValueInitExprEPNS_22CXXScalarValueInitExprEPN4llvm15SmallVectorImplINS6_14PointerIntPairIPNS_4StmtELj1EbNS6_21PointerLikeTypeTraitsISA_EENS6_18PointerIntPairInfoISA_Lj1ESC_EEEEEE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %38, ptr noundef nonnull %4)
-  br i1 %251, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_115FindCXXThisExprEE16dataTraverseNodeEPNS_4StmtEPN4llvm15SmallVectorImplINS6_14PointerIntPairIS5_Lj1EbNS6_21PointerLikeTypeTraitsIS5_EENS6_18PointerIntPairInfoIS5_Lj1ESA_EEEEEE.exit.thread, label %.loopexit
-
 252:                                              ; preds = %44
-  %253 = call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_115FindCXXThisExprEE34TraverseCXXRewrittenBinaryOperatorEPNS_26CXXRewrittenBinaryOperatorEPN4llvm15SmallVectorImplINS6_14PointerIntPairIPNS_4StmtELj1EbNS6_21PointerLikeTypeTraitsISA_EENS6_18PointerIntPairInfoISA_Lj1ESC_EEEEEE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %38)
+  %253 = call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_115FindCXXThisExprEE33TraverseCXXStdInitializerListExprEPNS_25CXXStdInitializerListExprEPN4llvm15SmallVectorImplINS6_14PointerIntPairIPNS_4StmtELj1EbNS6_21PointerLikeTypeTraitsISA_EENS6_18PointerIntPairInfoISA_Lj1ESC_EEEEEE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %38, ptr noundef nonnull %4)
   br i1 %253, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_115FindCXXThisExprEE16dataTraverseNodeEPNS_4StmtEPN4llvm15SmallVectorImplINS6_14PointerIntPairIS5_Lj1EbNS6_21PointerLikeTypeTraitsIS5_EENS6_18PointerIntPairInfoIS5_Lj1ESA_EEEEEE.exit.thread, label %.loopexit
 
 254:                                              ; preds = %44
-  %255 = call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_115FindCXXThisExprEE31TraverseCXXPseudoDestructorExprEPNS_23CXXPseudoDestructorExprEPN4llvm15SmallVectorImplINS6_14PointerIntPairIPNS_4StmtELj1EbNS6_21PointerLikeTypeTraitsISA_EENS6_18PointerIntPairInfoISA_Lj1ESC_EEEEEE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %38, ptr noundef nonnull %4)
+  %255 = call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_115FindCXXThisExprEE30TraverseCXXScalarValueInitExprEPNS_22CXXScalarValueInitExprEPN4llvm15SmallVectorImplINS6_14PointerIntPairIPNS_4StmtELj1EbNS6_21PointerLikeTypeTraitsISA_EENS6_18PointerIntPairInfoISA_Lj1ESC_EEEEEE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %38, ptr noundef nonnull %4)
   br i1 %255, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_115FindCXXThisExprEE16dataTraverseNodeEPNS_4StmtEPN4llvm15SmallVectorImplINS6_14PointerIntPairIS5_Lj1EbNS6_21PointerLikeTypeTraitsIS5_EENS6_18PointerIntPairInfoIS5_Lj1ESA_EEEEEE.exit.thread, label %.loopexit
 
 256:                                              ; preds = %44
-  %257 = call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_115FindCXXThisExprEE28TraverseCXXParenListInitExprEPNS_20CXXParenListInitExprEPN4llvm15SmallVectorImplINS6_14PointerIntPairIPNS_4StmtELj1EbNS6_21PointerLikeTypeTraitsISA_EENS6_18PointerIntPairInfoISA_Lj1ESC_EEEEEE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %38, ptr noundef nonnull %4)
+  %257 = call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_115FindCXXThisExprEE34TraverseCXXRewrittenBinaryOperatorEPNS_26CXXRewrittenBinaryOperatorEPN4llvm15SmallVectorImplINS6_14PointerIntPairIPNS_4StmtELj1EbNS6_21PointerLikeTypeTraitsISA_EENS6_18PointerIntPairInfoISA_Lj1ESC_EEEEEE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %38)
   br i1 %257, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_115FindCXXThisExprEE16dataTraverseNodeEPNS_4StmtEPN4llvm15SmallVectorImplINS6_14PointerIntPairIS5_Lj1EbNS6_21PointerLikeTypeTraitsIS5_EENS6_18PointerIntPairInfoIS5_Lj1ESA_EEEEEE.exit.thread, label %.loopexit
 
 258:                                              ; preds = %44
-  %259 = call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_115FindCXXThisExprEE29TraverseCXXNullPtrLiteralExprEPNS_21CXXNullPtrLiteralExprEPN4llvm15SmallVectorImplINS6_14PointerIntPairIPNS_4StmtELj1EbNS6_21PointerLikeTypeTraitsISA_EENS6_18PointerIntPairInfoISA_Lj1ESC_EEEEEE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %38, ptr noundef nonnull %4)
+  %259 = call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_115FindCXXThisExprEE31TraverseCXXPseudoDestructorExprEPNS_23CXXPseudoDestructorExprEPN4llvm15SmallVectorImplINS6_14PointerIntPairIPNS_4StmtELj1EbNS6_21PointerLikeTypeTraitsISA_EENS6_18PointerIntPairInfoISA_Lj1ESC_EEEEEE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %38, ptr noundef nonnull %4)
   br i1 %259, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_115FindCXXThisExprEE16dataTraverseNodeEPNS_4StmtEPN4llvm15SmallVectorImplINS6_14PointerIntPairIS5_Lj1EbNS6_21PointerLikeTypeTraitsIS5_EENS6_18PointerIntPairInfoIS5_Lj1ESA_EEEEEE.exit.thread, label %.loopexit
 
 260:                                              ; preds = %44
-  %261 = call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_115FindCXXThisExprEE23TraverseCXXNoexceptExprEPNS_15CXXNoexceptExprEPN4llvm15SmallVectorImplINS6_14PointerIntPairIPNS_4StmtELj1EbNS6_21PointerLikeTypeTraitsISA_EENS6_18PointerIntPairInfoISA_Lj1ESC_EEEEEE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %38, ptr noundef nonnull %4)
+  %261 = call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_115FindCXXThisExprEE28TraverseCXXParenListInitExprEPNS_20CXXParenListInitExprEPN4llvm15SmallVectorImplINS6_14PointerIntPairIPNS_4StmtELj1EbNS6_21PointerLikeTypeTraitsISA_EENS6_18PointerIntPairInfoISA_Lj1ESC_EEEEEE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %38, ptr noundef nonnull %4)
   br i1 %261, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_115FindCXXThisExprEE16dataTraverseNodeEPNS_4StmtEPN4llvm15SmallVectorImplINS6_14PointerIntPairIS5_Lj1EbNS6_21PointerLikeTypeTraitsIS5_EENS6_18PointerIntPairInfoIS5_Lj1ESA_EEEEEE.exit.thread, label %.loopexit
 
 262:                                              ; preds = %44
-  %263 = call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_115FindCXXThisExprEE18TraverseCXXNewExprEPNS_10CXXNewExprEPN4llvm15SmallVectorImplINS6_14PointerIntPairIPNS_4StmtELj1EbNS6_21PointerLikeTypeTraitsISA_EENS6_18PointerIntPairInfoISA_Lj1ESC_EEEEEE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %38, ptr noundef nonnull %4)
+  %263 = call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_115FindCXXThisExprEE29TraverseCXXNullPtrLiteralExprEPNS_21CXXNullPtrLiteralExprEPN4llvm15SmallVectorImplINS6_14PointerIntPairIPNS_4StmtELj1EbNS6_21PointerLikeTypeTraitsISA_EENS6_18PointerIntPairInfoISA_Lj1ESC_EEEEEE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %38, ptr noundef nonnull %4)
   br i1 %263, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_115FindCXXThisExprEE16dataTraverseNodeEPNS_4StmtEPN4llvm15SmallVectorImplINS6_14PointerIntPairIS5_Lj1EbNS6_21PointerLikeTypeTraitsIS5_EENS6_18PointerIntPairInfoIS5_Lj1ESA_EEEEEE.exit.thread, label %.loopexit
 
 264:                                              ; preds = %44
-  %265 = call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_115FindCXXThisExprEE32TraverseCXXInheritedCtorInitExprEPNS_24CXXInheritedCtorInitExprEPN4llvm15SmallVectorImplINS6_14PointerIntPairIPNS_4StmtELj1EbNS6_21PointerLikeTypeTraitsISA_EENS6_18PointerIntPairInfoISA_Lj1ESC_EEEEEE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %38, ptr noundef nonnull %4)
+  %265 = call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_115FindCXXThisExprEE23TraverseCXXNoexceptExprEPNS_15CXXNoexceptExprEPN4llvm15SmallVectorImplINS6_14PointerIntPairIPNS_4StmtELj1EbNS6_21PointerLikeTypeTraitsISA_EENS6_18PointerIntPairInfoISA_Lj1ESC_EEEEEE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %38, ptr noundef nonnull %4)
   br i1 %265, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_115FindCXXThisExprEE16dataTraverseNodeEPNS_4StmtEPN4llvm15SmallVectorImplINS6_14PointerIntPairIS5_Lj1EbNS6_21PointerLikeTypeTraitsIS5_EENS6_18PointerIntPairInfoIS5_Lj1ESA_EEEEEE.exit.thread, label %.loopexit
 
 266:                                              ; preds = %44
-  %267 = call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_115FindCXXThisExprEE19TraverseCXXFoldExprEPNS_11CXXFoldExprEPN4llvm15SmallVectorImplINS6_14PointerIntPairIPNS_4StmtELj1EbNS6_21PointerLikeTypeTraitsISA_EENS6_18PointerIntPairInfoISA_Lj1ESC_EEEEEE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %38, ptr noundef nonnull %4)
+  %267 = call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_115FindCXXThisExprEE18TraverseCXXNewExprEPNS_10CXXNewExprEPN4llvm15SmallVectorImplINS6_14PointerIntPairIPNS_4StmtELj1EbNS6_21PointerLikeTypeTraitsISA_EENS6_18PointerIntPairInfoISA_Lj1ESC_EEEEEE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %38, ptr noundef nonnull %4)
   br i1 %267, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_115FindCXXThisExprEE16dataTraverseNodeEPNS_4StmtEPN4llvm15SmallVectorImplINS6_14PointerIntPairIS5_Lj1EbNS6_21PointerLikeTypeTraitsIS5_EENS6_18PointerIntPairInfoIS5_Lj1ESA_EEEEEE.exit.thread, label %.loopexit
 
 268:                                              ; preds = %44
-  %269 = call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_115FindCXXThisExprEE35TraverseCXXDependentScopeMemberExprEPNS_27CXXDependentScopeMemberExprEPN4llvm15SmallVectorImplINS6_14PointerIntPairIPNS_4StmtELj1EbNS6_21PointerLikeTypeTraitsISA_EENS6_18PointerIntPairInfoISA_Lj1ESC_EEEEEE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %38, ptr noundef nonnull %4)
+  %269 = call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_115FindCXXThisExprEE32TraverseCXXInheritedCtorInitExprEPNS_24CXXInheritedCtorInitExprEPN4llvm15SmallVectorImplINS6_14PointerIntPairIPNS_4StmtELj1EbNS6_21PointerLikeTypeTraitsISA_EENS6_18PointerIntPairInfoISA_Lj1ESC_EEEEEE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %38, ptr noundef nonnull %4)
   br i1 %269, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_115FindCXXThisExprEE16dataTraverseNodeEPNS_4StmtEPN4llvm15SmallVectorImplINS6_14PointerIntPairIS5_Lj1EbNS6_21PointerLikeTypeTraitsIS5_EENS6_18PointerIntPairInfoIS5_Lj1ESA_EEEEEE.exit.thread, label %.loopexit
 
 270:                                              ; preds = %44
-  %271 = call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_115FindCXXThisExprEE21TraverseCXXDeleteExprEPNS_13CXXDeleteExprEPN4llvm15SmallVectorImplINS6_14PointerIntPairIPNS_4StmtELj1EbNS6_21PointerLikeTypeTraitsISA_EENS6_18PointerIntPairInfoISA_Lj1ESC_EEEEEE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %38, ptr noundef nonnull %4)
+  %271 = call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_115FindCXXThisExprEE19TraverseCXXFoldExprEPNS_11CXXFoldExprEPN4llvm15SmallVectorImplINS6_14PointerIntPairIPNS_4StmtELj1EbNS6_21PointerLikeTypeTraitsISA_EENS6_18PointerIntPairInfoISA_Lj1ESC_EEEEEE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %38, ptr noundef nonnull %4)
   br i1 %271, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_115FindCXXThisExprEE16dataTraverseNodeEPNS_4StmtEPN4llvm15SmallVectorImplINS6_14PointerIntPairIS5_Lj1EbNS6_21PointerLikeTypeTraitsIS5_EENS6_18PointerIntPairInfoIS5_Lj1ESA_EEEEEE.exit.thread, label %.loopexit
 
 272:                                              ; preds = %44
-  %273 = call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_115FindCXXThisExprEE26TraverseCXXDefaultInitExprEPNS_18CXXDefaultInitExprEPN4llvm15SmallVectorImplINS6_14PointerIntPairIPNS_4StmtELj1EbNS6_21PointerLikeTypeTraitsISA_EENS6_18PointerIntPairInfoISA_Lj1ESC_EEEEEE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %38, ptr noundef nonnull %4)
+  %273 = call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_115FindCXXThisExprEE35TraverseCXXDependentScopeMemberExprEPNS_27CXXDependentScopeMemberExprEPN4llvm15SmallVectorImplINS6_14PointerIntPairIPNS_4StmtELj1EbNS6_21PointerLikeTypeTraitsISA_EENS6_18PointerIntPairInfoISA_Lj1ESC_EEEEEE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %38, ptr noundef nonnull %4)
   br i1 %273, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_115FindCXXThisExprEE16dataTraverseNodeEPNS_4StmtEPN4llvm15SmallVectorImplINS6_14PointerIntPairIS5_Lj1EbNS6_21PointerLikeTypeTraitsIS5_EENS6_18PointerIntPairInfoIS5_Lj1ESA_EEEEEE.exit.thread, label %.loopexit
 
 274:                                              ; preds = %44
-  %275 = call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_115FindCXXThisExprEE25TraverseCXXDefaultArgExprEPNS_17CXXDefaultArgExprEPN4llvm15SmallVectorImplINS6_14PointerIntPairIPNS_4StmtELj1EbNS6_21PointerLikeTypeTraitsISA_EENS6_18PointerIntPairInfoISA_Lj1ESC_EEEEEE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %38, ptr noundef nonnull %4)
+  %275 = call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_115FindCXXThisExprEE21TraverseCXXDeleteExprEPNS_13CXXDeleteExprEPN4llvm15SmallVectorImplINS6_14PointerIntPairIPNS_4StmtELj1EbNS6_21PointerLikeTypeTraitsISA_EENS6_18PointerIntPairInfoISA_Lj1ESC_EEEEEE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %38, ptr noundef nonnull %4)
   br i1 %275, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_115FindCXXThisExprEE16dataTraverseNodeEPNS_4StmtEPN4llvm15SmallVectorImplINS6_14PointerIntPairIS5_Lj1EbNS6_21PointerLikeTypeTraitsIS5_EENS6_18PointerIntPairInfoIS5_Lj1ESA_EEEEEE.exit.thread, label %.loopexit
 
 276:                                              ; preds = %44
-  %277 = call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_115FindCXXThisExprEE24TraverseCXXConstructExprEPNS_16CXXConstructExprEPN4llvm15SmallVectorImplINS6_14PointerIntPairIPNS_4StmtELj1EbNS6_21PointerLikeTypeTraitsISA_EENS6_18PointerIntPairInfoISA_Lj1ESC_EEEEEE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %38, ptr noundef nonnull %4)
+  %277 = call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_115FindCXXThisExprEE26TraverseCXXDefaultInitExprEPNS_18CXXDefaultInitExprEPN4llvm15SmallVectorImplINS6_14PointerIntPairIPNS_4StmtELj1EbNS6_21PointerLikeTypeTraitsISA_EENS6_18PointerIntPairInfoISA_Lj1ESC_EEEEEE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %38, ptr noundef nonnull %4)
   br i1 %277, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_115FindCXXThisExprEE16dataTraverseNodeEPNS_4StmtEPN4llvm15SmallVectorImplINS6_14PointerIntPairIS5_Lj1EbNS6_21PointerLikeTypeTraitsIS5_EENS6_18PointerIntPairInfoIS5_Lj1ESA_EEEEEE.exit.thread, label %.loopexit
 
 278:                                              ; preds = %44
-  %279 = call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_115FindCXXThisExprEE30TraverseCXXTemporaryObjectExprEPNS_22CXXTemporaryObjectExprEPN4llvm15SmallVectorImplINS6_14PointerIntPairIPNS_4StmtELj1EbNS6_21PointerLikeTypeTraitsISA_EENS6_18PointerIntPairInfoISA_Lj1ESC_EEEEEE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %38, ptr noundef nonnull %4)
+  %279 = call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_115FindCXXThisExprEE25TraverseCXXDefaultArgExprEPNS_17CXXDefaultArgExprEPN4llvm15SmallVectorImplINS6_14PointerIntPairIPNS_4StmtELj1EbNS6_21PointerLikeTypeTraitsISA_EENS6_18PointerIntPairInfoISA_Lj1ESC_EEEEEE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %38, ptr noundef nonnull %4)
   br i1 %279, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_115FindCXXThisExprEE16dataTraverseNodeEPNS_4StmtEPN4llvm15SmallVectorImplINS6_14PointerIntPairIS5_Lj1EbNS6_21PointerLikeTypeTraitsIS5_EENS6_18PointerIntPairInfoIS5_Lj1ESA_EEEEEE.exit.thread, label %.loopexit
 
 280:                                              ; preds = %44
-  %281 = call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_115FindCXXThisExprEE26TraverseCXXBoolLiteralExprEPNS_18CXXBoolLiteralExprEPN4llvm15SmallVectorImplINS6_14PointerIntPairIPNS_4StmtELj1EbNS6_21PointerLikeTypeTraitsISA_EENS6_18PointerIntPairInfoISA_Lj1ESC_EEEEEE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %38, ptr noundef nonnull %4)
+  %281 = call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_115FindCXXThisExprEE24TraverseCXXConstructExprEPNS_16CXXConstructExprEPN4llvm15SmallVectorImplINS6_14PointerIntPairIPNS_4StmtELj1EbNS6_21PointerLikeTypeTraitsISA_EENS6_18PointerIntPairInfoISA_Lj1ESC_EEEEEE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %38, ptr noundef nonnull %4)
   br i1 %281, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_115FindCXXThisExprEE16dataTraverseNodeEPNS_4StmtEPN4llvm15SmallVectorImplINS6_14PointerIntPairIS5_Lj1EbNS6_21PointerLikeTypeTraitsIS5_EENS6_18PointerIntPairInfoIS5_Lj1ESA_EEEEEE.exit.thread, label %.loopexit
 
 282:                                              ; preds = %44
-  %283 = call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_115FindCXXThisExprEE28TraverseCXXBindTemporaryExprEPNS_20CXXBindTemporaryExprEPN4llvm15SmallVectorImplINS6_14PointerIntPairIPNS_4StmtELj1EbNS6_21PointerLikeTypeTraitsISA_EENS6_18PointerIntPairInfoISA_Lj1ESC_EEEEEE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %38, ptr noundef nonnull %4)
+  %283 = call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_115FindCXXThisExprEE30TraverseCXXTemporaryObjectExprEPNS_22CXXTemporaryObjectExprEPN4llvm15SmallVectorImplINS6_14PointerIntPairIPNS_4StmtELj1EbNS6_21PointerLikeTypeTraitsISA_EENS6_18PointerIntPairInfoISA_Lj1ESC_EEEEEE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %38, ptr noundef nonnull %4)
   br i1 %283, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_115FindCXXThisExprEE16dataTraverseNodeEPNS_4StmtEPN4llvm15SmallVectorImplINS6_14PointerIntPairIS5_Lj1EbNS6_21PointerLikeTypeTraitsIS5_EENS6_18PointerIntPairInfoIS5_Lj1ESA_EEEEEE.exit.thread, label %.loopexit
 
 284:                                              ; preds = %44
-  %285 = getelementptr inbounds nuw i8, ptr %38, i64 16
-  %286 = load ptr, ptr %285, align 8
-  %287 = call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_115FindCXXThisExprEE12TraverseDeclEPNS_4DeclE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %286)
+  %285 = call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_115FindCXXThisExprEE26TraverseCXXBoolLiteralExprEPNS_18CXXBoolLiteralExprEPN4llvm15SmallVectorImplINS6_14PointerIntPairIPNS_4StmtELj1EbNS6_21PointerLikeTypeTraitsISA_EENS6_18PointerIntPairInfoISA_Lj1ESC_EEEEEE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %38, ptr noundef nonnull %4)
+  br i1 %285, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_115FindCXXThisExprEE16dataTraverseNodeEPNS_4StmtEPN4llvm15SmallVectorImplINS6_14PointerIntPairIS5_Lj1EbNS6_21PointerLikeTypeTraitsIS5_EENS6_18PointerIntPairInfoIS5_Lj1ESA_EEEEEE.exit.thread, label %.loopexit
+
+286:                                              ; preds = %44
+  %287 = call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_115FindCXXThisExprEE28TraverseCXXBindTemporaryExprEPNS_20CXXBindTemporaryExprEPN4llvm15SmallVectorImplINS6_14PointerIntPairIPNS_4StmtELj1EbNS6_21PointerLikeTypeTraitsISA_EENS6_18PointerIntPairInfoISA_Lj1ESC_EEEEEE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %38, ptr noundef nonnull %4)
   br i1 %287, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_115FindCXXThisExprEE16dataTraverseNodeEPNS_4StmtEPN4llvm15SmallVectorImplINS6_14PointerIntPairIS5_Lj1EbNS6_21PointerLikeTypeTraitsIS5_EENS6_18PointerIntPairInfoIS5_Lj1ESA_EEEEEE.exit.thread, label %.loopexit
 
 288:                                              ; preds = %44
-  %289 = call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_115FindCXXThisExprEE22TraverseBinaryOperatorEPNS_14BinaryOperatorEPN4llvm15SmallVectorImplINS6_14PointerIntPairIPNS_4StmtELj1EbNS6_21PointerLikeTypeTraitsISA_EENS6_18PointerIntPairInfoISA_Lj1ESC_EEEEEE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %38, ptr noundef nonnull %4)
-  br i1 %289, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_115FindCXXThisExprEE16dataTraverseNodeEPNS_4StmtEPN4llvm15SmallVectorImplINS6_14PointerIntPairIS5_Lj1EbNS6_21PointerLikeTypeTraitsIS5_EENS6_18PointerIntPairInfoIS5_Lj1ESA_EEEEEE.exit.thread, label %.loopexit
-
-290:                                              ; preds = %44
-  %291 = call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_115FindCXXThisExprEE30TraverseCompoundAssignOperatorEPNS_22CompoundAssignOperatorEPN4llvm15SmallVectorImplINS6_14PointerIntPairIPNS_4StmtELj1EbNS6_21PointerLikeTypeTraitsISA_EENS6_18PointerIntPairInfoISA_Lj1ESC_EEEEEE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %38, ptr noundef nonnull %4)
+  %289 = getelementptr inbounds nuw i8, ptr %38, i64 16
+  %290 = load ptr, ptr %289, align 8
+  %291 = call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_115FindCXXThisExprEE12TraverseDeclEPNS_4DeclE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %290)
   br i1 %291, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_115FindCXXThisExprEE16dataTraverseNodeEPNS_4StmtEPN4llvm15SmallVectorImplINS6_14PointerIntPairIS5_Lj1EbNS6_21PointerLikeTypeTraitsIS5_EENS6_18PointerIntPairInfoIS5_Lj1ESA_EEEEEE.exit.thread, label %.loopexit
 
 292:                                              ; preds = %44
-  %293 = call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_115FindCXXThisExprEE18TraverseAtomicExprEPNS_10AtomicExprEPN4llvm15SmallVectorImplINS6_14PointerIntPairIPNS_4StmtELj1EbNS6_21PointerLikeTypeTraitsISA_EENS6_18PointerIntPairInfoISA_Lj1ESC_EEEEEE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %38, ptr noundef nonnull %4)
+  %293 = call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_115FindCXXThisExprEE22TraverseBinaryOperatorEPNS_14BinaryOperatorEPN4llvm15SmallVectorImplINS6_14PointerIntPairIPNS_4StmtELj1EbNS6_21PointerLikeTypeTraitsISA_EENS6_18PointerIntPairInfoISA_Lj1ESC_EEEEEE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %38, ptr noundef nonnull %4)
   br i1 %293, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_115FindCXXThisExprEE16dataTraverseNodeEPNS_4StmtEPN4llvm15SmallVectorImplINS6_14PointerIntPairIS5_Lj1EbNS6_21PointerLikeTypeTraitsIS5_EENS6_18PointerIntPairInfoIS5_Lj1ESA_EEEEEE.exit.thread, label %.loopexit
 
 294:                                              ; preds = %44
-  %295 = call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_115FindCXXThisExprEE18TraverseAsTypeExprEPNS_10AsTypeExprEPN4llvm15SmallVectorImplINS6_14PointerIntPairIPNS_4StmtELj1EbNS6_21PointerLikeTypeTraitsISA_EENS6_18PointerIntPairInfoISA_Lj1ESC_EEEEEE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %38, ptr noundef nonnull %4)
+  %295 = call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_115FindCXXThisExprEE30TraverseCompoundAssignOperatorEPNS_22CompoundAssignOperatorEPN4llvm15SmallVectorImplINS6_14PointerIntPairIPNS_4StmtELj1EbNS6_21PointerLikeTypeTraitsISA_EENS6_18PointerIntPairInfoISA_Lj1ESC_EEEEEE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %38, ptr noundef nonnull %4)
   br i1 %295, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_115FindCXXThisExprEE16dataTraverseNodeEPNS_4StmtEPN4llvm15SmallVectorImplINS6_14PointerIntPairIS5_Lj1EbNS6_21PointerLikeTypeTraitsIS5_EENS6_18PointerIntPairInfoIS5_Lj1ESA_EEEEEE.exit.thread, label %.loopexit
 
 296:                                              ; preds = %44
-  %297 = call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_115FindCXXThisExprEE26TraverseArrayTypeTraitExprEPNS_18ArrayTypeTraitExprEPN4llvm15SmallVectorImplINS6_14PointerIntPairIPNS_4StmtELj1EbNS6_21PointerLikeTypeTraitsISA_EENS6_18PointerIntPairInfoISA_Lj1ESC_EEEEEE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %38, ptr noundef nonnull %4)
+  %297 = call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_115FindCXXThisExprEE18TraverseAtomicExprEPNS_10AtomicExprEPN4llvm15SmallVectorImplINS6_14PointerIntPairIPNS_4StmtELj1EbNS6_21PointerLikeTypeTraitsISA_EENS6_18PointerIntPairInfoISA_Lj1ESC_EEEEEE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %38, ptr noundef nonnull %4)
   br i1 %297, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_115FindCXXThisExprEE16dataTraverseNodeEPNS_4StmtEPN4llvm15SmallVectorImplINS6_14PointerIntPairIS5_Lj1EbNS6_21PointerLikeTypeTraitsIS5_EENS6_18PointerIntPairInfoIS5_Lj1ESA_EEEEEE.exit.thread, label %.loopexit
 
 298:                                              ; preds = %44
-  %299 = call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_115FindCXXThisExprEE26TraverseArraySubscriptExprEPNS_18ArraySubscriptExprEPN4llvm15SmallVectorImplINS6_14PointerIntPairIPNS_4StmtELj1EbNS6_21PointerLikeTypeTraitsISA_EENS6_18PointerIntPairInfoISA_Lj1ESC_EEEEEE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %38, ptr noundef nonnull %4)
+  %299 = call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_115FindCXXThisExprEE18TraverseAsTypeExprEPNS_10AsTypeExprEPN4llvm15SmallVectorImplINS6_14PointerIntPairIPNS_4StmtELj1EbNS6_21PointerLikeTypeTraitsISA_EENS6_18PointerIntPairInfoISA_Lj1ESC_EEEEEE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %38, ptr noundef nonnull %4)
   br i1 %299, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_115FindCXXThisExprEE16dataTraverseNodeEPNS_4StmtEPN4llvm15SmallVectorImplINS6_14PointerIntPairIS5_Lj1EbNS6_21PointerLikeTypeTraitsIS5_EENS6_18PointerIntPairInfoIS5_Lj1ESA_EEEEEE.exit.thread, label %.loopexit
 
 300:                                              ; preds = %44
-  %301 = call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_115FindCXXThisExprEE24TraverseArraySectionExprEPNS_16ArraySectionExprEPN4llvm15SmallVectorImplINS6_14PointerIntPairIPNS_4StmtELj1EbNS6_21PointerLikeTypeTraitsISA_EENS6_18PointerIntPairInfoISA_Lj1ESC_EEEEEE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %38, ptr noundef nonnull %4)
+  %301 = call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_115FindCXXThisExprEE26TraverseArrayTypeTraitExprEPNS_18ArrayTypeTraitExprEPN4llvm15SmallVectorImplINS6_14PointerIntPairIPNS_4StmtELj1EbNS6_21PointerLikeTypeTraitsISA_EENS6_18PointerIntPairInfoISA_Lj1ESC_EEEEEE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %38, ptr noundef nonnull %4)
   br i1 %301, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_115FindCXXThisExprEE16dataTraverseNodeEPNS_4StmtEPN4llvm15SmallVectorImplINS6_14PointerIntPairIS5_Lj1EbNS6_21PointerLikeTypeTraitsIS5_EENS6_18PointerIntPairInfoIS5_Lj1ESA_EEEEEE.exit.thread, label %.loopexit
 
 302:                                              ; preds = %44
-  %303 = call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_115FindCXXThisExprEE25TraverseArrayInitLoopExprEPNS_17ArrayInitLoopExprEPN4llvm15SmallVectorImplINS6_14PointerIntPairIPNS_4StmtELj1EbNS6_21PointerLikeTypeTraitsISA_EENS6_18PointerIntPairInfoISA_Lj1ESC_EEEEEE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %38, ptr noundef nonnull %4)
+  %303 = call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_115FindCXXThisExprEE26TraverseArraySubscriptExprEPNS_18ArraySubscriptExprEPN4llvm15SmallVectorImplINS6_14PointerIntPairIPNS_4StmtELj1EbNS6_21PointerLikeTypeTraitsISA_EENS6_18PointerIntPairInfoISA_Lj1ESC_EEEEEE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %38, ptr noundef nonnull %4)
   br i1 %303, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_115FindCXXThisExprEE16dataTraverseNodeEPNS_4StmtEPN4llvm15SmallVectorImplINS6_14PointerIntPairIS5_Lj1EbNS6_21PointerLikeTypeTraitsIS5_EENS6_18PointerIntPairInfoIS5_Lj1ESA_EEEEEE.exit.thread, label %.loopexit
 
 304:                                              ; preds = %44
-  %305 = call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_115FindCXXThisExprEE26TraverseArrayInitIndexExprEPNS_18ArrayInitIndexExprEPN4llvm15SmallVectorImplINS6_14PointerIntPairIPNS_4StmtELj1EbNS6_21PointerLikeTypeTraitsISA_EENS6_18PointerIntPairInfoISA_Lj1ESC_EEEEEE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %38, ptr noundef nonnull %4)
+  %305 = call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_115FindCXXThisExprEE24TraverseArraySectionExprEPNS_16ArraySectionExprEPN4llvm15SmallVectorImplINS6_14PointerIntPairIPNS_4StmtELj1EbNS6_21PointerLikeTypeTraitsISA_EENS6_18PointerIntPairInfoISA_Lj1ESC_EEEEEE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %38, ptr noundef nonnull %4)
   br i1 %305, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_115FindCXXThisExprEE16dataTraverseNodeEPNS_4StmtEPN4llvm15SmallVectorImplINS6_14PointerIntPairIS5_Lj1EbNS6_21PointerLikeTypeTraitsIS5_EENS6_18PointerIntPairInfoIS5_Lj1ESA_EEEEEE.exit.thread, label %.loopexit
 
 306:                                              ; preds = %44
-  %307 = call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_115FindCXXThisExprEE21TraverseAddrLabelExprEPNS_13AddrLabelExprEPN4llvm15SmallVectorImplINS6_14PointerIntPairIPNS_4StmtELj1EbNS6_21PointerLikeTypeTraitsISA_EENS6_18PointerIntPairInfoISA_Lj1ESC_EEEEEE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %38, ptr noundef nonnull %4)
+  %307 = call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_115FindCXXThisExprEE25TraverseArrayInitLoopExprEPNS_17ArrayInitLoopExprEPN4llvm15SmallVectorImplINS6_14PointerIntPairIPNS_4StmtELj1EbNS6_21PointerLikeTypeTraitsISA_EENS6_18PointerIntPairInfoISA_Lj1ESC_EEEEEE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %38, ptr noundef nonnull %4)
   br i1 %307, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_115FindCXXThisExprEE16dataTraverseNodeEPNS_4StmtEPN4llvm15SmallVectorImplINS6_14PointerIntPairIS5_Lj1EbNS6_21PointerLikeTypeTraitsIS5_EENS6_18PointerIntPairInfoIS5_Lj1ESA_EEEEEE.exit.thread, label %.loopexit
 
 308:                                              ; preds = %44
-  %309 = call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_115FindCXXThisExprEE27TraverseConditionalOperatorEPNS_19ConditionalOperatorEPN4llvm15SmallVectorImplINS6_14PointerIntPairIPNS_4StmtELj1EbNS6_21PointerLikeTypeTraitsISA_EENS6_18PointerIntPairInfoISA_Lj1ESC_EEEEEE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %38, ptr noundef nonnull %4)
+  %309 = call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_115FindCXXThisExprEE26TraverseArrayInitIndexExprEPNS_18ArrayInitIndexExprEPN4llvm15SmallVectorImplINS6_14PointerIntPairIPNS_4StmtELj1EbNS6_21PointerLikeTypeTraitsISA_EENS6_18PointerIntPairInfoISA_Lj1ESC_EEEEEE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %38, ptr noundef nonnull %4)
   br i1 %309, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_115FindCXXThisExprEE16dataTraverseNodeEPNS_4StmtEPN4llvm15SmallVectorImplINS6_14PointerIntPairIS5_Lj1EbNS6_21PointerLikeTypeTraitsIS5_EENS6_18PointerIntPairInfoIS5_Lj1ESA_EEEEEE.exit.thread, label %.loopexit
 
 310:                                              ; preds = %44
-  %311 = call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_115FindCXXThisExprEE33TraverseBinaryConditionalOperatorEPNS_25BinaryConditionalOperatorEPN4llvm15SmallVectorImplINS6_14PointerIntPairIPNS_4StmtELj1EbNS6_21PointerLikeTypeTraitsISA_EENS6_18PointerIntPairInfoISA_Lj1ESC_EEEEEE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %38, ptr noundef nonnull %4)
+  %311 = call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_115FindCXXThisExprEE21TraverseAddrLabelExprEPNS_13AddrLabelExprEPN4llvm15SmallVectorImplINS6_14PointerIntPairIPNS_4StmtELj1EbNS6_21PointerLikeTypeTraitsISA_EENS6_18PointerIntPairInfoISA_Lj1ESC_EEEEEE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %38, ptr noundef nonnull %4)
   br i1 %311, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_115FindCXXThisExprEE16dataTraverseNodeEPNS_4StmtEPN4llvm15SmallVectorImplINS6_14PointerIntPairIS5_Lj1EbNS6_21PointerLikeTypeTraitsIS5_EENS6_18PointerIntPairInfoIS5_Lj1ESA_EEEEEE.exit.thread, label %.loopexit
 
 312:                                              ; preds = %44
-  %313 = call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_115FindCXXThisExprEE22TraverseAttributedStmtEPNS_14AttributedStmtEPN4llvm15SmallVectorImplINS6_14PointerIntPairIPNS_4StmtELj1EbNS6_21PointerLikeTypeTraitsISA_EENS6_18PointerIntPairInfoISA_Lj1ESC_EEEEEE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %38, ptr noundef nonnull %4)
+  %313 = call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_115FindCXXThisExprEE27TraverseConditionalOperatorEPNS_19ConditionalOperatorEPN4llvm15SmallVectorImplINS6_14PointerIntPairIPNS_4StmtELj1EbNS6_21PointerLikeTypeTraitsISA_EENS6_18PointerIntPairInfoISA_Lj1ESC_EEEEEE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %38, ptr noundef nonnull %4)
   br i1 %313, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_115FindCXXThisExprEE16dataTraverseNodeEPNS_4StmtEPN4llvm15SmallVectorImplINS6_14PointerIntPairIS5_Lj1EbNS6_21PointerLikeTypeTraitsIS5_EENS6_18PointerIntPairInfoIS5_Lj1ESA_EEEEEE.exit.thread, label %.loopexit
 
 314:                                              ; preds = %44
-  %315 = call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_115FindCXXThisExprEE18TraverseSwitchStmtEPNS_10SwitchStmtEPN4llvm15SmallVectorImplINS6_14PointerIntPairIPNS_4StmtELj1EbNS6_21PointerLikeTypeTraitsISA_EENS6_18PointerIntPairInfoISA_Lj1ESC_EEEEEE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %38, ptr noundef nonnull %4)
+  %315 = call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_115FindCXXThisExprEE33TraverseBinaryConditionalOperatorEPNS_25BinaryConditionalOperatorEPN4llvm15SmallVectorImplINS6_14PointerIntPairIPNS_4StmtELj1EbNS6_21PointerLikeTypeTraitsISA_EENS6_18PointerIntPairInfoISA_Lj1ESC_EEEEEE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %38, ptr noundef nonnull %4)
   br i1 %315, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_115FindCXXThisExprEE16dataTraverseNodeEPNS_4StmtEPN4llvm15SmallVectorImplINS6_14PointerIntPairIS5_Lj1EbNS6_21PointerLikeTypeTraitsIS5_EENS6_18PointerIntPairInfoIS5_Lj1ESA_EEEEEE.exit.thread, label %.loopexit
 
 316:                                              ; preds = %44
-  %317 = call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_115FindCXXThisExprEE19TraverseDefaultStmtEPNS_11DefaultStmtEPN4llvm15SmallVectorImplINS6_14PointerIntPairIPNS_4StmtELj1EbNS6_21PointerLikeTypeTraitsISA_EENS6_18PointerIntPairInfoISA_Lj1ESC_EEEEEE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %38, ptr noundef nonnull %4)
+  %317 = call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_115FindCXXThisExprEE22TraverseAttributedStmtEPNS_14AttributedStmtEPN4llvm15SmallVectorImplINS6_14PointerIntPairIPNS_4StmtELj1EbNS6_21PointerLikeTypeTraitsISA_EENS6_18PointerIntPairInfoISA_Lj1ESC_EEEEEE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %38, ptr noundef nonnull %4)
   br i1 %317, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_115FindCXXThisExprEE16dataTraverseNodeEPNS_4StmtEPN4llvm15SmallVectorImplINS6_14PointerIntPairIS5_Lj1EbNS6_21PointerLikeTypeTraitsIS5_EENS6_18PointerIntPairInfoIS5_Lj1ESA_EEEEEE.exit.thread, label %.loopexit
 
 318:                                              ; preds = %44
-  %319 = call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_115FindCXXThisExprEE16TraverseCaseStmtEPNS_8CaseStmtEPN4llvm15SmallVectorImplINS6_14PointerIntPairIPNS_4StmtELj1EbNS6_21PointerLikeTypeTraitsISA_EENS6_18PointerIntPairInfoISA_Lj1ESC_EEEEEE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %38, ptr noundef nonnull %4)
+  %319 = call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_115FindCXXThisExprEE18TraverseSwitchStmtEPNS_10SwitchStmtEPN4llvm15SmallVectorImplINS6_14PointerIntPairIPNS_4StmtELj1EbNS6_21PointerLikeTypeTraitsISA_EENS6_18PointerIntPairInfoISA_Lj1ESC_EEEEEE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %38, ptr noundef nonnull %4)
   br i1 %319, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_115FindCXXThisExprEE16dataTraverseNodeEPNS_4StmtEPN4llvm15SmallVectorImplINS6_14PointerIntPairIS5_Lj1EbNS6_21PointerLikeTypeTraitsIS5_EENS6_18PointerIntPairInfoIS5_Lj1ESA_EEEEEE.exit.thread, label %.loopexit
 
 320:                                              ; preds = %44
-  %321 = call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_115FindCXXThisExprEE18TraverseSEHTryStmtEPNS_10SEHTryStmtEPN4llvm15SmallVectorImplINS6_14PointerIntPairIPNS_4StmtELj1EbNS6_21PointerLikeTypeTraitsISA_EENS6_18PointerIntPairInfoISA_Lj1ESC_EEEEEE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %38, ptr noundef nonnull %4)
+  %321 = call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_115FindCXXThisExprEE19TraverseDefaultStmtEPNS_11DefaultStmtEPN4llvm15SmallVectorImplINS6_14PointerIntPairIPNS_4StmtELj1EbNS6_21PointerLikeTypeTraitsISA_EENS6_18PointerIntPairInfoISA_Lj1ESC_EEEEEE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %38, ptr noundef nonnull %4)
   br i1 %321, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_115FindCXXThisExprEE16dataTraverseNodeEPNS_4StmtEPN4llvm15SmallVectorImplINS6_14PointerIntPairIS5_Lj1EbNS6_21PointerLikeTypeTraitsIS5_EENS6_18PointerIntPairInfoIS5_Lj1ESA_EEEEEE.exit.thread, label %.loopexit
 
 322:                                              ; preds = %44
-  %323 = call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_115FindCXXThisExprEE20TraverseSEHLeaveStmtEPNS_12SEHLeaveStmtEPN4llvm15SmallVectorImplINS6_14PointerIntPairIPNS_4StmtELj1EbNS6_21PointerLikeTypeTraitsISA_EENS6_18PointerIntPairInfoISA_Lj1ESC_EEEEEE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %38, ptr noundef nonnull %4)
+  %323 = call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_115FindCXXThisExprEE16TraverseCaseStmtEPNS_8CaseStmtEPN4llvm15SmallVectorImplINS6_14PointerIntPairIPNS_4StmtELj1EbNS6_21PointerLikeTypeTraitsISA_EENS6_18PointerIntPairInfoISA_Lj1ESC_EEEEEE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %38, ptr noundef nonnull %4)
   br i1 %323, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_115FindCXXThisExprEE16dataTraverseNodeEPNS_4StmtEPN4llvm15SmallVectorImplINS6_14PointerIntPairIS5_Lj1EbNS6_21PointerLikeTypeTraitsIS5_EENS6_18PointerIntPairInfoIS5_Lj1ESA_EEEEEE.exit.thread, label %.loopexit
 
 324:                                              ; preds = %44
-  %325 = call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_115FindCXXThisExprEE22TraverseSEHFinallyStmtEPNS_14SEHFinallyStmtEPN4llvm15SmallVectorImplINS6_14PointerIntPairIPNS_4StmtELj1EbNS6_21PointerLikeTypeTraitsISA_EENS6_18PointerIntPairInfoISA_Lj1ESC_EEEEEE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %38, ptr noundef nonnull %4)
+  %325 = call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_115FindCXXThisExprEE18TraverseSEHTryStmtEPNS_10SEHTryStmtEPN4llvm15SmallVectorImplINS6_14PointerIntPairIPNS_4StmtELj1EbNS6_21PointerLikeTypeTraitsISA_EENS6_18PointerIntPairInfoISA_Lj1ESC_EEEEEE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %38, ptr noundef nonnull %4)
   br i1 %325, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_115FindCXXThisExprEE16dataTraverseNodeEPNS_4StmtEPN4llvm15SmallVectorImplINS6_14PointerIntPairIS5_Lj1EbNS6_21PointerLikeTypeTraitsIS5_EENS6_18PointerIntPairInfoIS5_Lj1ESA_EEEEEE.exit.thread, label %.loopexit
 
 326:                                              ; preds = %44
-  %327 = call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_115FindCXXThisExprEE21TraverseSEHExceptStmtEPNS_13SEHExceptStmtEPN4llvm15SmallVectorImplINS6_14PointerIntPairIPNS_4StmtELj1EbNS6_21PointerLikeTypeTraitsISA_EENS6_18PointerIntPairInfoISA_Lj1ESC_EEEEEE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %38, ptr noundef nonnull %4)
+  %327 = call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_115FindCXXThisExprEE20TraverseSEHLeaveStmtEPNS_12SEHLeaveStmtEPN4llvm15SmallVectorImplINS6_14PointerIntPairIPNS_4StmtELj1EbNS6_21PointerLikeTypeTraitsISA_EENS6_18PointerIntPairInfoISA_Lj1ESC_EEEEEE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %38, ptr noundef nonnull %4)
   br i1 %327, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_115FindCXXThisExprEE16dataTraverseNodeEPNS_4StmtEPN4llvm15SmallVectorImplINS6_14PointerIntPairIS5_Lj1EbNS6_21PointerLikeTypeTraitsIS5_EENS6_18PointerIntPairInfoIS5_Lj1ESA_EEEEEE.exit.thread, label %.loopexit
 
 328:                                              ; preds = %44
-  %329 = call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_115FindCXXThisExprEE18TraverseReturnStmtEPNS_10ReturnStmtEPN4llvm15SmallVectorImplINS6_14PointerIntPairIPNS_4StmtELj1EbNS6_21PointerLikeTypeTraitsISA_EENS6_18PointerIntPairInfoISA_Lj1ESC_EEEEEE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %38, ptr noundef nonnull %4)
+  %329 = call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_115FindCXXThisExprEE22TraverseSEHFinallyStmtEPNS_14SEHFinallyStmtEPN4llvm15SmallVectorImplINS6_14PointerIntPairIPNS_4StmtELj1EbNS6_21PointerLikeTypeTraitsISA_EENS6_18PointerIntPairInfoISA_Lj1ESC_EEEEEE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %38, ptr noundef nonnull %4)
   br i1 %329, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_115FindCXXThisExprEE16dataTraverseNodeEPNS_4StmtEPN4llvm15SmallVectorImplINS6_14PointerIntPairIS5_Lj1EbNS6_21PointerLikeTypeTraitsIS5_EENS6_18PointerIntPairInfoIS5_Lj1ESA_EEEEEE.exit.thread, label %.loopexit
 
 330:                                              ; preds = %44
-  %331 = call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_115FindCXXThisExprEE28TraverseOpenACCLoopConstructEPNS_20OpenACCLoopConstructEPN4llvm15SmallVectorImplINS6_14PointerIntPairIPNS_4StmtELj1EbNS6_21PointerLikeTypeTraitsISA_EENS6_18PointerIntPairInfoISA_Lj1ESC_EEEEEE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %38, ptr noundef nonnull %4)
+  %331 = call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_115FindCXXThisExprEE21TraverseSEHExceptStmtEPNS_13SEHExceptStmtEPN4llvm15SmallVectorImplINS6_14PointerIntPairIPNS_4StmtELj1EbNS6_21PointerLikeTypeTraitsISA_EENS6_18PointerIntPairInfoISA_Lj1ESC_EEEEEE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %38, ptr noundef nonnull %4)
   br i1 %331, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_115FindCXXThisExprEE16dataTraverseNodeEPNS_4StmtEPN4llvm15SmallVectorImplINS6_14PointerIntPairIS5_Lj1EbNS6_21PointerLikeTypeTraitsIS5_EENS6_18PointerIntPairInfoIS5_Lj1ESA_EEEEEE.exit.thread, label %.loopexit
 
 332:                                              ; preds = %44
-  %333 = call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_115FindCXXThisExprEE31TraverseOpenACCComputeConstructEPNS_23OpenACCComputeConstructEPN4llvm15SmallVectorImplINS6_14PointerIntPairIPNS_4StmtELj1EbNS6_21PointerLikeTypeTraitsISA_EENS6_18PointerIntPairInfoISA_Lj1ESC_EEEEEE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %38, ptr noundef nonnull %4)
+  %333 = call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_115FindCXXThisExprEE18TraverseReturnStmtEPNS_10ReturnStmtEPN4llvm15SmallVectorImplINS6_14PointerIntPairIPNS_4StmtELj1EbNS6_21PointerLikeTypeTraitsISA_EENS6_18PointerIntPairInfoISA_Lj1ESC_EEEEEE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %38, ptr noundef nonnull %4)
   br i1 %333, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_115FindCXXThisExprEE16dataTraverseNodeEPNS_4StmtEPN4llvm15SmallVectorImplINS6_14PointerIntPairIS5_Lj1EbNS6_21PointerLikeTypeTraitsIS5_EENS6_18PointerIntPairInfoIS5_Lj1ESA_EEEEEE.exit.thread, label %.loopexit
 
 334:                                              ; preds = %44
-  %335 = call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_115FindCXXThisExprEE29TraverseObjCForCollectionStmtEPNS_21ObjCForCollectionStmtEPN4llvm15SmallVectorImplINS6_14PointerIntPairIPNS_4StmtELj1EbNS6_21PointerLikeTypeTraitsISA_EENS6_18PointerIntPairInfoISA_Lj1ESC_EEEEEE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %38, ptr noundef nonnull %4)
+  %335 = call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_115FindCXXThisExprEE28TraverseOpenACCLoopConstructEPNS_20OpenACCLoopConstructEPN4llvm15SmallVectorImplINS6_14PointerIntPairIPNS_4StmtELj1EbNS6_21PointerLikeTypeTraitsISA_EENS6_18PointerIntPairInfoISA_Lj1ESC_EEEEEE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %38, ptr noundef nonnull %4)
   br i1 %335, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_115FindCXXThisExprEE16dataTraverseNodeEPNS_4StmtEPN4llvm15SmallVectorImplINS6_14PointerIntPairIS5_Lj1EbNS6_21PointerLikeTypeTraitsIS5_EENS6_18PointerIntPairInfoIS5_Lj1ESA_EEEEEE.exit.thread, label %.loopexit
 
 336:                                              ; preds = %44
-  %337 = call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_115FindCXXThisExprEE31TraverseObjCAutoreleasePoolStmtEPNS_23ObjCAutoreleasePoolStmtEPN4llvm15SmallVectorImplINS6_14PointerIntPairIPNS_4StmtELj1EbNS6_21PointerLikeTypeTraitsISA_EENS6_18PointerIntPairInfoISA_Lj1ESC_EEEEEE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %38, ptr noundef nonnull %4)
+  %337 = call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_115FindCXXThisExprEE31TraverseOpenACCComputeConstructEPNS_23OpenACCComputeConstructEPN4llvm15SmallVectorImplINS6_14PointerIntPairIPNS_4StmtELj1EbNS6_21PointerLikeTypeTraitsISA_EENS6_18PointerIntPairInfoISA_Lj1ESC_EEEEEE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %38, ptr noundef nonnull %4)
   br i1 %337, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_115FindCXXThisExprEE16dataTraverseNodeEPNS_4StmtEPN4llvm15SmallVectorImplINS6_14PointerIntPairIS5_Lj1EbNS6_21PointerLikeTypeTraitsIS5_EENS6_18PointerIntPairInfoIS5_Lj1ESA_EEEEEE.exit.thread, label %.loopexit
 
 338:                                              ; preds = %44
-  %339 = call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_115FindCXXThisExprEE21TraverseObjCAtTryStmtEPNS_13ObjCAtTryStmtEPN4llvm15SmallVectorImplINS6_14PointerIntPairIPNS_4StmtELj1EbNS6_21PointerLikeTypeTraitsISA_EENS6_18PointerIntPairInfoISA_Lj1ESC_EEEEEE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %38, ptr noundef nonnull %4)
+  %339 = call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_115FindCXXThisExprEE29TraverseObjCForCollectionStmtEPNS_21ObjCForCollectionStmtEPN4llvm15SmallVectorImplINS6_14PointerIntPairIPNS_4StmtELj1EbNS6_21PointerLikeTypeTraitsISA_EENS6_18PointerIntPairInfoISA_Lj1ESC_EEEEEE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %38, ptr noundef nonnull %4)
   br i1 %339, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_115FindCXXThisExprEE16dataTraverseNodeEPNS_4StmtEPN4llvm15SmallVectorImplINS6_14PointerIntPairIS5_Lj1EbNS6_21PointerLikeTypeTraitsIS5_EENS6_18PointerIntPairInfoIS5_Lj1ESA_EEEEEE.exit.thread, label %.loopexit
 
 340:                                              ; preds = %44
-  %341 = call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_115FindCXXThisExprEE23TraverseObjCAtThrowStmtEPNS_15ObjCAtThrowStmtEPN4llvm15SmallVectorImplINS6_14PointerIntPairIPNS_4StmtELj1EbNS6_21PointerLikeTypeTraitsISA_EENS6_18PointerIntPairInfoISA_Lj1ESC_EEEEEE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %38, ptr noundef nonnull %4)
+  %341 = call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_115FindCXXThisExprEE31TraverseObjCAutoreleasePoolStmtEPNS_23ObjCAutoreleasePoolStmtEPN4llvm15SmallVectorImplINS6_14PointerIntPairIPNS_4StmtELj1EbNS6_21PointerLikeTypeTraitsISA_EENS6_18PointerIntPairInfoISA_Lj1ESC_EEEEEE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %38, ptr noundef nonnull %4)
   br i1 %341, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_115FindCXXThisExprEE16dataTraverseNodeEPNS_4StmtEPN4llvm15SmallVectorImplINS6_14PointerIntPairIS5_Lj1EbNS6_21PointerLikeTypeTraitsIS5_EENS6_18PointerIntPairInfoIS5_Lj1ESA_EEEEEE.exit.thread, label %.loopexit
 
 342:                                              ; preds = %44
-  %343 = call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_115FindCXXThisExprEE30TraverseObjCAtSynchronizedStmtEPNS_22ObjCAtSynchronizedStmtEPN4llvm15SmallVectorImplINS6_14PointerIntPairIPNS_4StmtELj1EbNS6_21PointerLikeTypeTraitsISA_EENS6_18PointerIntPairInfoISA_Lj1ESC_EEEEEE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %38, ptr noundef nonnull %4)
+  %343 = call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_115FindCXXThisExprEE21TraverseObjCAtTryStmtEPNS_13ObjCAtTryStmtEPN4llvm15SmallVectorImplINS6_14PointerIntPairIPNS_4StmtELj1EbNS6_21PointerLikeTypeTraitsISA_EENS6_18PointerIntPairInfoISA_Lj1ESC_EEEEEE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %38, ptr noundef nonnull %4)
   br i1 %343, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_115FindCXXThisExprEE16dataTraverseNodeEPNS_4StmtEPN4llvm15SmallVectorImplINS6_14PointerIntPairIS5_Lj1EbNS6_21PointerLikeTypeTraitsIS5_EENS6_18PointerIntPairInfoIS5_Lj1ESA_EEEEEE.exit.thread, label %.loopexit
 
 344:                                              ; preds = %44
-  %345 = call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_115FindCXXThisExprEE25TraverseObjCAtFinallyStmtEPNS_17ObjCAtFinallyStmtEPN4llvm15SmallVectorImplINS6_14PointerIntPairIPNS_4StmtELj1EbNS6_21PointerLikeTypeTraitsISA_EENS6_18PointerIntPairInfoISA_Lj1ESC_EEEEEE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %38, ptr noundef nonnull %4)
+  %345 = call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_115FindCXXThisExprEE23TraverseObjCAtThrowStmtEPNS_15ObjCAtThrowStmtEPN4llvm15SmallVectorImplINS6_14PointerIntPairIPNS_4StmtELj1EbNS6_21PointerLikeTypeTraitsISA_EENS6_18PointerIntPairInfoISA_Lj1ESC_EEEEEE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %38, ptr noundef nonnull %4)
   br i1 %345, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_115FindCXXThisExprEE16dataTraverseNodeEPNS_4StmtEPN4llvm15SmallVectorImplINS6_14PointerIntPairIS5_Lj1EbNS6_21PointerLikeTypeTraitsIS5_EENS6_18PointerIntPairInfoIS5_Lj1ESA_EEEEEE.exit.thread, label %.loopexit
 
 346:                                              ; preds = %44
-  %347 = call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_115FindCXXThisExprEE23TraverseObjCAtCatchStmtEPNS_15ObjCAtCatchStmtEPN4llvm15SmallVectorImplINS6_14PointerIntPairIPNS_4StmtELj1EbNS6_21PointerLikeTypeTraitsISA_EENS6_18PointerIntPairInfoISA_Lj1ESC_EEEEEE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %38, ptr noundef nonnull %4)
+  %347 = call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_115FindCXXThisExprEE30TraverseObjCAtSynchronizedStmtEPNS_22ObjCAtSynchronizedStmtEPN4llvm15SmallVectorImplINS6_14PointerIntPairIPNS_4StmtELj1EbNS6_21PointerLikeTypeTraitsISA_EENS6_18PointerIntPairInfoISA_Lj1ESC_EEEEEE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %38, ptr noundef nonnull %4)
   br i1 %347, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_115FindCXXThisExprEE16dataTraverseNodeEPNS_4StmtEPN4llvm15SmallVectorImplINS6_14PointerIntPairIS5_Lj1EbNS6_21PointerLikeTypeTraitsIS5_EENS6_18PointerIntPairInfoIS5_Lj1ESA_EEEEEE.exit.thread, label %.loopexit
 
 348:                                              ; preds = %44
-  %349 = call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_115FindCXXThisExprEE25TraverseOMPTeamsDirectiveEPNS_17OMPTeamsDirectiveEPN4llvm15SmallVectorImplINS6_14PointerIntPairIPNS_4StmtELj1EbNS6_21PointerLikeTypeTraitsISA_EENS6_18PointerIntPairInfoISA_Lj1ESC_EEEEEE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %38, ptr noundef nonnull %4)
+  %349 = call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_115FindCXXThisExprEE25TraverseObjCAtFinallyStmtEPNS_17ObjCAtFinallyStmtEPN4llvm15SmallVectorImplINS6_14PointerIntPairIPNS_4StmtELj1EbNS6_21PointerLikeTypeTraitsISA_EENS6_18PointerIntPairInfoISA_Lj1ESC_EEEEEE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %38, ptr noundef nonnull %4)
   br i1 %349, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_115FindCXXThisExprEE16dataTraverseNodeEPNS_4StmtEPN4llvm15SmallVectorImplINS6_14PointerIntPairIS5_Lj1EbNS6_21PointerLikeTypeTraitsIS5_EENS6_18PointerIntPairInfoIS5_Lj1ESA_EEEEEE.exit.thread, label %.loopexit
 
 350:                                              ; preds = %44
-  %351 = call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_115FindCXXThisExprEE29TraverseOMPTaskyieldDirectiveEPNS_21OMPTaskyieldDirectiveEPN4llvm15SmallVectorImplINS6_14PointerIntPairIPNS_4StmtELj1EbNS6_21PointerLikeTypeTraitsISA_EENS6_18PointerIntPairInfoISA_Lj1ESC_EEEEEE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %38, ptr noundef nonnull %4)
+  %351 = call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_115FindCXXThisExprEE23TraverseObjCAtCatchStmtEPNS_15ObjCAtCatchStmtEPN4llvm15SmallVectorImplINS6_14PointerIntPairIPNS_4StmtELj1EbNS6_21PointerLikeTypeTraitsISA_EENS6_18PointerIntPairInfoISA_Lj1ESC_EEEEEE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %38, ptr noundef nonnull %4)
   br i1 %351, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_115FindCXXThisExprEE16dataTraverseNodeEPNS_4StmtEPN4llvm15SmallVectorImplINS6_14PointerIntPairIS5_Lj1EbNS6_21PointerLikeTypeTraitsIS5_EENS6_18PointerIntPairInfoIS5_Lj1ESA_EEEEEE.exit.thread, label %.loopexit
 
 352:                                              ; preds = %44
-  %353 = call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_115FindCXXThisExprEE28TraverseOMPTaskwaitDirectiveEPNS_20OMPTaskwaitDirectiveEPN4llvm15SmallVectorImplINS6_14PointerIntPairIPNS_4StmtELj1EbNS6_21PointerLikeTypeTraitsISA_EENS6_18PointerIntPairInfoISA_Lj1ESC_EEEEEE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %38, ptr noundef nonnull %4)
+  %353 = call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_115FindCXXThisExprEE25TraverseOMPTeamsDirectiveEPNS_17OMPTeamsDirectiveEPN4llvm15SmallVectorImplINS6_14PointerIntPairIPNS_4StmtELj1EbNS6_21PointerLikeTypeTraitsISA_EENS6_18PointerIntPairInfoISA_Lj1ESC_EEEEEE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %38, ptr noundef nonnull %4)
   br i1 %353, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_115FindCXXThisExprEE16dataTraverseNodeEPNS_4StmtEPN4llvm15SmallVectorImplINS6_14PointerIntPairIS5_Lj1EbNS6_21PointerLikeTypeTraitsIS5_EENS6_18PointerIntPairInfoIS5_Lj1ESA_EEEEEE.exit.thread, label %.loopexit
 
 354:                                              ; preds = %44
-  %355 = call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_115FindCXXThisExprEE29TraverseOMPTaskgroupDirectiveEPNS_21OMPTaskgroupDirectiveEPN4llvm15SmallVectorImplINS6_14PointerIntPairIPNS_4StmtELj1EbNS6_21PointerLikeTypeTraitsISA_EENS6_18PointerIntPairInfoISA_Lj1ESC_EEEEEE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %38, ptr noundef nonnull %4)
+  %355 = call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_115FindCXXThisExprEE29TraverseOMPTaskyieldDirectiveEPNS_21OMPTaskyieldDirectiveEPN4llvm15SmallVectorImplINS6_14PointerIntPairIPNS_4StmtELj1EbNS6_21PointerLikeTypeTraitsISA_EENS6_18PointerIntPairInfoISA_Lj1ESC_EEEEEE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %38, ptr noundef nonnull %4)
   br i1 %355, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_115FindCXXThisExprEE16dataTraverseNodeEPNS_4StmtEPN4llvm15SmallVectorImplINS6_14PointerIntPairIS5_Lj1EbNS6_21PointerLikeTypeTraitsIS5_EENS6_18PointerIntPairInfoIS5_Lj1ESA_EEEEEE.exit.thread, label %.loopexit
 
 356:                                              ; preds = %44
-  %357 = call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_115FindCXXThisExprEE24TraverseOMPTaskDirectiveEPNS_16OMPTaskDirectiveEPN4llvm15SmallVectorImplINS6_14PointerIntPairIPNS_4StmtELj1EbNS6_21PointerLikeTypeTraitsISA_EENS6_18PointerIntPairInfoISA_Lj1ESC_EEEEEE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %38, ptr noundef nonnull %4)
+  %357 = call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_115FindCXXThisExprEE28TraverseOMPTaskwaitDirectiveEPNS_20OMPTaskwaitDirectiveEPN4llvm15SmallVectorImplINS6_14PointerIntPairIPNS_4StmtELj1EbNS6_21PointerLikeTypeTraitsISA_EENS6_18PointerIntPairInfoISA_Lj1ESC_EEEEEE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %38, ptr noundef nonnull %4)
   br i1 %357, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_115FindCXXThisExprEE16dataTraverseNodeEPNS_4StmtEPN4llvm15SmallVectorImplINS6_14PointerIntPairIS5_Lj1EbNS6_21PointerLikeTypeTraitsIS5_EENS6_18PointerIntPairInfoIS5_Lj1ESA_EEEEEE.exit.thread, label %.loopexit
 
 358:                                              ; preds = %44
-  %359 = call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_115FindCXXThisExprEE32TraverseOMPTargetUpdateDirectiveEPNS_24OMPTargetUpdateDirectiveEPN4llvm15SmallVectorImplINS6_14PointerIntPairIPNS_4StmtELj1EbNS6_21PointerLikeTypeTraitsISA_EENS6_18PointerIntPairInfoISA_Lj1ESC_EEEEEE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %38, ptr noundef nonnull %4)
+  %359 = call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_115FindCXXThisExprEE29TraverseOMPTaskgroupDirectiveEPNS_21OMPTaskgroupDirectiveEPN4llvm15SmallVectorImplINS6_14PointerIntPairIPNS_4StmtELj1EbNS6_21PointerLikeTypeTraitsISA_EENS6_18PointerIntPairInfoISA_Lj1ESC_EEEEEE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %38, ptr noundef nonnull %4)
   br i1 %359, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_115FindCXXThisExprEE16dataTraverseNodeEPNS_4StmtEPN4llvm15SmallVectorImplINS6_14PointerIntPairIS5_Lj1EbNS6_21PointerLikeTypeTraitsIS5_EENS6_18PointerIntPairInfoIS5_Lj1ESA_EEEEEE.exit.thread, label %.loopexit
 
 360:                                              ; preds = %44
-  %361 = call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_115FindCXXThisExprEE31TraverseOMPTargetTeamsDirectiveEPNS_23OMPTargetTeamsDirectiveEPN4llvm15SmallVectorImplINS6_14PointerIntPairIPNS_4StmtELj1EbNS6_21PointerLikeTypeTraitsISA_EENS6_18PointerIntPairInfoISA_Lj1ESC_EEEEEE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %38, ptr noundef nonnull %4)
+  %361 = call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_115FindCXXThisExprEE24TraverseOMPTaskDirectiveEPNS_16OMPTaskDirectiveEPN4llvm15SmallVectorImplINS6_14PointerIntPairIPNS_4StmtELj1EbNS6_21PointerLikeTypeTraitsISA_EENS6_18PointerIntPairInfoISA_Lj1ESC_EEEEEE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %38, ptr noundef nonnull %4)
   br i1 %361, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_115FindCXXThisExprEE16dataTraverseNodeEPNS_4StmtEPN4llvm15SmallVectorImplINS6_14PointerIntPairIS5_Lj1EbNS6_21PointerLikeTypeTraitsIS5_EENS6_18PointerIntPairInfoIS5_Lj1ESA_EEEEEE.exit.thread, label %.loopexit
 
 362:                                              ; preds = %44
-  %363 = call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_115FindCXXThisExprEE37TraverseOMPTargetParallelForDirectiveEPNS_29OMPTargetParallelForDirectiveEPN4llvm15SmallVectorImplINS6_14PointerIntPairIPNS_4StmtELj1EbNS6_21PointerLikeTypeTraitsISA_EENS6_18PointerIntPairInfoISA_Lj1ESC_EEEEEE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %38, ptr noundef nonnull %4)
+  %363 = call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_115FindCXXThisExprEE32TraverseOMPTargetUpdateDirectiveEPNS_24OMPTargetUpdateDirectiveEPN4llvm15SmallVectorImplINS6_14PointerIntPairIPNS_4StmtELj1EbNS6_21PointerLikeTypeTraitsISA_EENS6_18PointerIntPairInfoISA_Lj1ESC_EEEEEE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %38, ptr noundef nonnull %4)
   br i1 %363, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_115FindCXXThisExprEE16dataTraverseNodeEPNS_4StmtEPN4llvm15SmallVectorImplINS6_14PointerIntPairIS5_Lj1EbNS6_21PointerLikeTypeTraitsIS5_EENS6_18PointerIntPairInfoIS5_Lj1ESA_EEEEEE.exit.thread, label %.loopexit
 
 364:                                              ; preds = %44
-  %365 = call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_115FindCXXThisExprEE34TraverseOMPTargetParallelDirectiveEPNS_26OMPTargetParallelDirectiveEPN4llvm15SmallVectorImplINS6_14PointerIntPairIPNS_4StmtELj1EbNS6_21PointerLikeTypeTraitsISA_EENS6_18PointerIntPairInfoISA_Lj1ESC_EEEEEE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %38, ptr noundef nonnull %4)
+  %365 = call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_115FindCXXThisExprEE31TraverseOMPTargetTeamsDirectiveEPNS_23OMPTargetTeamsDirectiveEPN4llvm15SmallVectorImplINS6_14PointerIntPairIPNS_4StmtELj1EbNS6_21PointerLikeTypeTraitsISA_EENS6_18PointerIntPairInfoISA_Lj1ESC_EEEEEE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %38, ptr noundef nonnull %4)
   br i1 %365, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_115FindCXXThisExprEE16dataTraverseNodeEPNS_4StmtEPN4llvm15SmallVectorImplINS6_14PointerIntPairIS5_Lj1EbNS6_21PointerLikeTypeTraitsIS5_EENS6_18PointerIntPairInfoIS5_Lj1ESA_EEEEEE.exit.thread, label %.loopexit
 
 366:                                              ; preds = %44
-  %367 = call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_115FindCXXThisExprEE34TraverseOMPTargetExitDataDirectiveEPNS_26OMPTargetExitDataDirectiveEPN4llvm15SmallVectorImplINS6_14PointerIntPairIPNS_4StmtELj1EbNS6_21PointerLikeTypeTraitsISA_EENS6_18PointerIntPairInfoISA_Lj1ESC_EEEEEE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %38, ptr noundef nonnull %4)
+  %367 = call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_115FindCXXThisExprEE37TraverseOMPTargetParallelForDirectiveEPNS_29OMPTargetParallelForDirectiveEPN4llvm15SmallVectorImplINS6_14PointerIntPairIPNS_4StmtELj1EbNS6_21PointerLikeTypeTraitsISA_EENS6_18PointerIntPairInfoISA_Lj1ESC_EEEEEE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %38, ptr noundef nonnull %4)
   br i1 %367, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_115FindCXXThisExprEE16dataTraverseNodeEPNS_4StmtEPN4llvm15SmallVectorImplINS6_14PointerIntPairIS5_Lj1EbNS6_21PointerLikeTypeTraitsIS5_EENS6_18PointerIntPairInfoIS5_Lj1ESA_EEEEEE.exit.thread, label %.loopexit
 
 368:                                              ; preds = %44
-  %369 = call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_115FindCXXThisExprEE35TraverseOMPTargetEnterDataDirectiveEPNS_27OMPTargetEnterDataDirectiveEPN4llvm15SmallVectorImplINS6_14PointerIntPairIPNS_4StmtELj1EbNS6_21PointerLikeTypeTraitsISA_EENS6_18PointerIntPairInfoISA_Lj1ESC_EEEEEE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %38, ptr noundef nonnull %4)
+  %369 = call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_115FindCXXThisExprEE34TraverseOMPTargetParallelDirectiveEPNS_26OMPTargetParallelDirectiveEPN4llvm15SmallVectorImplINS6_14PointerIntPairIPNS_4StmtELj1EbNS6_21PointerLikeTypeTraitsISA_EENS6_18PointerIntPairInfoISA_Lj1ESC_EEEEEE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %38, ptr noundef nonnull %4)
   br i1 %369, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_115FindCXXThisExprEE16dataTraverseNodeEPNS_4StmtEPN4llvm15SmallVectorImplINS6_14PointerIntPairIS5_Lj1EbNS6_21PointerLikeTypeTraitsIS5_EENS6_18PointerIntPairInfoIS5_Lj1ESA_EEEEEE.exit.thread, label %.loopexit
 
 370:                                              ; preds = %44
-  %371 = call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_115FindCXXThisExprEE26TraverseOMPTargetDirectiveEPNS_18OMPTargetDirectiveEPN4llvm15SmallVectorImplINS6_14PointerIntPairIPNS_4StmtELj1EbNS6_21PointerLikeTypeTraitsISA_EENS6_18PointerIntPairInfoISA_Lj1ESC_EEEEEE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %38, ptr noundef nonnull %4)
+  %371 = call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_115FindCXXThisExprEE34TraverseOMPTargetExitDataDirectiveEPNS_26OMPTargetExitDataDirectiveEPN4llvm15SmallVectorImplINS6_14PointerIntPairIPNS_4StmtELj1EbNS6_21PointerLikeTypeTraitsISA_EENS6_18PointerIntPairInfoISA_Lj1ESC_EEEEEE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %38, ptr noundef nonnull %4)
   br i1 %371, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_115FindCXXThisExprEE16dataTraverseNodeEPNS_4StmtEPN4llvm15SmallVectorImplINS6_14PointerIntPairIS5_Lj1EbNS6_21PointerLikeTypeTraitsIS5_EENS6_18PointerIntPairInfoIS5_Lj1ESA_EEEEEE.exit.thread, label %.loopexit
 
 372:                                              ; preds = %44
-  %373 = call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_115FindCXXThisExprEE30TraverseOMPTargetDataDirectiveEPNS_22OMPTargetDataDirectiveEPN4llvm15SmallVectorImplINS6_14PointerIntPairIPNS_4StmtELj1EbNS6_21PointerLikeTypeTraitsISA_EENS6_18PointerIntPairInfoISA_Lj1ESC_EEEEEE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %38, ptr noundef nonnull %4)
+  %373 = call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_115FindCXXThisExprEE35TraverseOMPTargetEnterDataDirectiveEPNS_27OMPTargetEnterDataDirectiveEPN4llvm15SmallVectorImplINS6_14PointerIntPairIPNS_4StmtELj1EbNS6_21PointerLikeTypeTraitsISA_EENS6_18PointerIntPairInfoISA_Lj1ESC_EEEEEE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %38, ptr noundef nonnull %4)
   br i1 %373, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_115FindCXXThisExprEE16dataTraverseNodeEPNS_4StmtEPN4llvm15SmallVectorImplINS6_14PointerIntPairIS5_Lj1EbNS6_21PointerLikeTypeTraitsIS5_EENS6_18PointerIntPairInfoIS5_Lj1ESA_EEEEEE.exit.thread, label %.loopexit
 
 374:                                              ; preds = %44
-  %375 = call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_115FindCXXThisExprEE26TraverseOMPSingleDirectiveEPNS_18OMPSingleDirectiveEPN4llvm15SmallVectorImplINS6_14PointerIntPairIPNS_4StmtELj1EbNS6_21PointerLikeTypeTraitsISA_EENS6_18PointerIntPairInfoISA_Lj1ESC_EEEEEE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %38, ptr noundef nonnull %4)
+  %375 = call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_115FindCXXThisExprEE26TraverseOMPTargetDirectiveEPNS_18OMPTargetDirectiveEPN4llvm15SmallVectorImplINS6_14PointerIntPairIPNS_4StmtELj1EbNS6_21PointerLikeTypeTraitsISA_EENS6_18PointerIntPairInfoISA_Lj1ESC_EEEEEE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %38, ptr noundef nonnull %4)
   br i1 %375, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_115FindCXXThisExprEE16dataTraverseNodeEPNS_4StmtEPN4llvm15SmallVectorImplINS6_14PointerIntPairIS5_Lj1EbNS6_21PointerLikeTypeTraitsIS5_EENS6_18PointerIntPairInfoIS5_Lj1ESA_EEEEEE.exit.thread, label %.loopexit
 
 376:                                              ; preds = %44
-  %377 = call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_115FindCXXThisExprEE28TraverseOMPSectionsDirectiveEPNS_20OMPSectionsDirectiveEPN4llvm15SmallVectorImplINS6_14PointerIntPairIPNS_4StmtELj1EbNS6_21PointerLikeTypeTraitsISA_EENS6_18PointerIntPairInfoISA_Lj1ESC_EEEEEE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %38, ptr noundef nonnull %4)
+  %377 = call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_115FindCXXThisExprEE30TraverseOMPTargetDataDirectiveEPNS_22OMPTargetDataDirectiveEPN4llvm15SmallVectorImplINS6_14PointerIntPairIPNS_4StmtELj1EbNS6_21PointerLikeTypeTraitsISA_EENS6_18PointerIntPairInfoISA_Lj1ESC_EEEEEE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %38, ptr noundef nonnull %4)
   br i1 %377, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_115FindCXXThisExprEE16dataTraverseNodeEPNS_4StmtEPN4llvm15SmallVectorImplINS6_14PointerIntPairIS5_Lj1EbNS6_21PointerLikeTypeTraitsIS5_EENS6_18PointerIntPairInfoIS5_Lj1ESA_EEEEEE.exit.thread, label %.loopexit
 
 378:                                              ; preds = %44
-  %379 = call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_115FindCXXThisExprEE27TraverseOMPSectionDirectiveEPNS_19OMPSectionDirectiveEPN4llvm15SmallVectorImplINS6_14PointerIntPairIPNS_4StmtELj1EbNS6_21PointerLikeTypeTraitsISA_EENS6_18PointerIntPairInfoISA_Lj1ESC_EEEEEE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %38, ptr noundef nonnull %4)
+  %379 = call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_115FindCXXThisExprEE26TraverseOMPSingleDirectiveEPNS_18OMPSingleDirectiveEPN4llvm15SmallVectorImplINS6_14PointerIntPairIPNS_4StmtELj1EbNS6_21PointerLikeTypeTraitsISA_EENS6_18PointerIntPairInfoISA_Lj1ESC_EEEEEE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %38, ptr noundef nonnull %4)
   br i1 %379, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_115FindCXXThisExprEE16dataTraverseNodeEPNS_4StmtEPN4llvm15SmallVectorImplINS6_14PointerIntPairIS5_Lj1EbNS6_21PointerLikeTypeTraitsIS5_EENS6_18PointerIntPairInfoIS5_Lj1ESA_EEEEEE.exit.thread, label %.loopexit
 
 380:                                              ; preds = %44
-  %381 = call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_115FindCXXThisExprEE25TraverseOMPScopeDirectiveEPNS_17OMPScopeDirectiveEPN4llvm15SmallVectorImplINS6_14PointerIntPairIPNS_4StmtELj1EbNS6_21PointerLikeTypeTraitsISA_EENS6_18PointerIntPairInfoISA_Lj1ESC_EEEEEE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %38, ptr noundef nonnull %4)
+  %381 = call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_115FindCXXThisExprEE28TraverseOMPSectionsDirectiveEPNS_20OMPSectionsDirectiveEPN4llvm15SmallVectorImplINS6_14PointerIntPairIPNS_4StmtELj1EbNS6_21PointerLikeTypeTraitsISA_EENS6_18PointerIntPairInfoISA_Lj1ESC_EEEEEE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %38, ptr noundef nonnull %4)
   br i1 %381, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_115FindCXXThisExprEE16dataTraverseNodeEPNS_4StmtEPN4llvm15SmallVectorImplINS6_14PointerIntPairIS5_Lj1EbNS6_21PointerLikeTypeTraitsIS5_EENS6_18PointerIntPairInfoIS5_Lj1ESA_EEEEEE.exit.thread, label %.loopexit
 
 382:                                              ; preds = %44
-  %383 = call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_115FindCXXThisExprEE24TraverseOMPScanDirectiveEPNS_16OMPScanDirectiveEPN4llvm15SmallVectorImplINS6_14PointerIntPairIPNS_4StmtELj1EbNS6_21PointerLikeTypeTraitsISA_EENS6_18PointerIntPairInfoISA_Lj1ESC_EEEEEE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %38, ptr noundef nonnull %4)
+  %383 = call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_115FindCXXThisExprEE27TraverseOMPSectionDirectiveEPNS_19OMPSectionDirectiveEPN4llvm15SmallVectorImplINS6_14PointerIntPairIPNS_4StmtELj1EbNS6_21PointerLikeTypeTraitsISA_EENS6_18PointerIntPairInfoISA_Lj1ESC_EEEEEE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %38, ptr noundef nonnull %4)
   br i1 %383, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_115FindCXXThisExprEE16dataTraverseNodeEPNS_4StmtEPN4llvm15SmallVectorImplINS6_14PointerIntPairIS5_Lj1EbNS6_21PointerLikeTypeTraitsIS5_EENS6_18PointerIntPairInfoIS5_Lj1ESA_EEEEEE.exit.thread, label %.loopexit
 
 384:                                              ; preds = %44
-  %385 = call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_115FindCXXThisExprEE36TraverseOMPParallelSectionsDirectiveEPNS_28OMPParallelSectionsDirectiveEPN4llvm15SmallVectorImplINS6_14PointerIntPairIPNS_4StmtELj1EbNS6_21PointerLikeTypeTraitsISA_EENS6_18PointerIntPairInfoISA_Lj1ESC_EEEEEE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %38, ptr noundef nonnull %4)
+  %385 = call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_115FindCXXThisExprEE25TraverseOMPScopeDirectiveEPNS_17OMPScopeDirectiveEPN4llvm15SmallVectorImplINS6_14PointerIntPairIPNS_4StmtELj1EbNS6_21PointerLikeTypeTraitsISA_EENS6_18PointerIntPairInfoISA_Lj1ESC_EEEEEE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %38, ptr noundef nonnull %4)
   br i1 %385, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_115FindCXXThisExprEE16dataTraverseNodeEPNS_4StmtEPN4llvm15SmallVectorImplINS6_14PointerIntPairIS5_Lj1EbNS6_21PointerLikeTypeTraitsIS5_EENS6_18PointerIntPairInfoIS5_Lj1ESA_EEEEEE.exit.thread, label %.loopexit
 
 386:                                              ; preds = %44
-  %387 = call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_115FindCXXThisExprEE34TraverseOMPParallelMasterDirectiveEPNS_26OMPParallelMasterDirectiveEPN4llvm15SmallVectorImplINS6_14PointerIntPairIPNS_4StmtELj1EbNS6_21PointerLikeTypeTraitsISA_EENS6_18PointerIntPairInfoISA_Lj1ESC_EEEEEE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %38, ptr noundef nonnull %4)
+  %387 = call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_115FindCXXThisExprEE24TraverseOMPScanDirectiveEPNS_16OMPScanDirectiveEPN4llvm15SmallVectorImplINS6_14PointerIntPairIPNS_4StmtELj1EbNS6_21PointerLikeTypeTraitsISA_EENS6_18PointerIntPairInfoISA_Lj1ESC_EEEEEE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %38, ptr noundef nonnull %4)
   br i1 %387, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_115FindCXXThisExprEE16dataTraverseNodeEPNS_4StmtEPN4llvm15SmallVectorImplINS6_14PointerIntPairIS5_Lj1EbNS6_21PointerLikeTypeTraitsIS5_EENS6_18PointerIntPairInfoIS5_Lj1ESA_EEEEEE.exit.thread, label %.loopexit
 
 388:                                              ; preds = %44
-  %389 = call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_115FindCXXThisExprEE34TraverseOMPParallelMaskedDirectiveEPNS_26OMPParallelMaskedDirectiveEPN4llvm15SmallVectorImplINS6_14PointerIntPairIPNS_4StmtELj1EbNS6_21PointerLikeTypeTraitsISA_EENS6_18PointerIntPairInfoISA_Lj1ESC_EEEEEE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %38, ptr noundef nonnull %4)
+  %389 = call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_115FindCXXThisExprEE36TraverseOMPParallelSectionsDirectiveEPNS_28OMPParallelSectionsDirectiveEPN4llvm15SmallVectorImplINS6_14PointerIntPairIPNS_4StmtELj1EbNS6_21PointerLikeTypeTraitsISA_EENS6_18PointerIntPairInfoISA_Lj1ESC_EEEEEE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %38, ptr noundef nonnull %4)
   br i1 %389, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_115FindCXXThisExprEE16dataTraverseNodeEPNS_4StmtEPN4llvm15SmallVectorImplINS6_14PointerIntPairIS5_Lj1EbNS6_21PointerLikeTypeTraitsIS5_EENS6_18PointerIntPairInfoIS5_Lj1ESA_EEEEEE.exit.thread, label %.loopexit
 
 390:                                              ; preds = %44
-  %391 = call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_115FindCXXThisExprEE28TraverseOMPParallelDirectiveEPNS_20OMPParallelDirectiveEPN4llvm15SmallVectorImplINS6_14PointerIntPairIPNS_4StmtELj1EbNS6_21PointerLikeTypeTraitsISA_EENS6_18PointerIntPairInfoISA_Lj1ESC_EEEEEE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %38, ptr noundef nonnull %4)
+  %391 = call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_115FindCXXThisExprEE34TraverseOMPParallelMasterDirectiveEPNS_26OMPParallelMasterDirectiveEPN4llvm15SmallVectorImplINS6_14PointerIntPairIPNS_4StmtELj1EbNS6_21PointerLikeTypeTraitsISA_EENS6_18PointerIntPairInfoISA_Lj1ESC_EEEEEE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %38, ptr noundef nonnull %4)
   br i1 %391, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_115FindCXXThisExprEE16dataTraverseNodeEPNS_4StmtEPN4llvm15SmallVectorImplINS6_14PointerIntPairIS5_Lj1EbNS6_21PointerLikeTypeTraitsIS5_EENS6_18PointerIntPairInfoIS5_Lj1ESA_EEEEEE.exit.thread, label %.loopexit
 
 392:                                              ; preds = %44
-  %393 = call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_115FindCXXThisExprEE27TraverseOMPOrderedDirectiveEPNS_19OMPOrderedDirectiveEPN4llvm15SmallVectorImplINS6_14PointerIntPairIPNS_4StmtELj1EbNS6_21PointerLikeTypeTraitsISA_EENS6_18PointerIntPairInfoISA_Lj1ESC_EEEEEE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %38, ptr noundef nonnull %4)
+  %393 = call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_115FindCXXThisExprEE34TraverseOMPParallelMaskedDirectiveEPNS_26OMPParallelMaskedDirectiveEPN4llvm15SmallVectorImplINS6_14PointerIntPairIPNS_4StmtELj1EbNS6_21PointerLikeTypeTraitsISA_EENS6_18PointerIntPairInfoISA_Lj1ESC_EEEEEE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %38, ptr noundef nonnull %4)
   br i1 %393, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_115FindCXXThisExprEE16dataTraverseNodeEPNS_4StmtEPN4llvm15SmallVectorImplINS6_14PointerIntPairIS5_Lj1EbNS6_21PointerLikeTypeTraitsIS5_EENS6_18PointerIntPairInfoIS5_Lj1ESA_EEEEEE.exit.thread, label %.loopexit
 
 394:                                              ; preds = %44
-  %395 = call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_115FindCXXThisExprEE24TraverseOMPMetaDirectiveEPNS_16OMPMetaDirectiveEPN4llvm15SmallVectorImplINS6_14PointerIntPairIPNS_4StmtELj1EbNS6_21PointerLikeTypeTraitsISA_EENS6_18PointerIntPairInfoISA_Lj1ESC_EEEEEE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %38, ptr noundef nonnull %4)
+  %395 = call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_115FindCXXThisExprEE28TraverseOMPParallelDirectiveEPNS_20OMPParallelDirectiveEPN4llvm15SmallVectorImplINS6_14PointerIntPairIPNS_4StmtELj1EbNS6_21PointerLikeTypeTraitsISA_EENS6_18PointerIntPairInfoISA_Lj1ESC_EEEEEE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %38, ptr noundef nonnull %4)
   br i1 %395, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_115FindCXXThisExprEE16dataTraverseNodeEPNS_4StmtEPN4llvm15SmallVectorImplINS6_14PointerIntPairIS5_Lj1EbNS6_21PointerLikeTypeTraitsIS5_EENS6_18PointerIntPairInfoIS5_Lj1ESA_EEEEEE.exit.thread, label %.loopexit
 
 396:                                              ; preds = %44
-  %397 = call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_115FindCXXThisExprEE26TraverseOMPMasterDirectiveEPNS_18OMPMasterDirectiveEPN4llvm15SmallVectorImplINS6_14PointerIntPairIPNS_4StmtELj1EbNS6_21PointerLikeTypeTraitsISA_EENS6_18PointerIntPairInfoISA_Lj1ESC_EEEEEE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %38, ptr noundef nonnull %4)
+  %397 = call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_115FindCXXThisExprEE27TraverseOMPOrderedDirectiveEPNS_19OMPOrderedDirectiveEPN4llvm15SmallVectorImplINS6_14PointerIntPairIPNS_4StmtELj1EbNS6_21PointerLikeTypeTraitsISA_EENS6_18PointerIntPairInfoISA_Lj1ESC_EEEEEE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %38, ptr noundef nonnull %4)
   br i1 %397, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_115FindCXXThisExprEE16dataTraverseNodeEPNS_4StmtEPN4llvm15SmallVectorImplINS6_14PointerIntPairIS5_Lj1EbNS6_21PointerLikeTypeTraitsIS5_EENS6_18PointerIntPairInfoIS5_Lj1ESA_EEEEEE.exit.thread, label %.loopexit
 
 398:                                              ; preds = %44
-  %399 = call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_115FindCXXThisExprEE26TraverseOMPMaskedDirectiveEPNS_18OMPMaskedDirectiveEPN4llvm15SmallVectorImplINS6_14PointerIntPairIPNS_4StmtELj1EbNS6_21PointerLikeTypeTraitsISA_EENS6_18PointerIntPairInfoISA_Lj1ESC_EEEEEE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %38, ptr noundef nonnull %4)
+  %399 = call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_115FindCXXThisExprEE24TraverseOMPMetaDirectiveEPNS_16OMPMetaDirectiveEPN4llvm15SmallVectorImplINS6_14PointerIntPairIPNS_4StmtELj1EbNS6_21PointerLikeTypeTraitsISA_EENS6_18PointerIntPairInfoISA_Lj1ESC_EEEEEE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %38, ptr noundef nonnull %4)
   br i1 %399, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_115FindCXXThisExprEE16dataTraverseNodeEPNS_4StmtEPN4llvm15SmallVectorImplINS6_14PointerIntPairIS5_Lj1EbNS6_21PointerLikeTypeTraitsIS5_EENS6_18PointerIntPairInfoIS5_Lj1ESA_EEEEEE.exit.thread, label %.loopexit
 
 400:                                              ; preds = %44
-  %401 = call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_115FindCXXThisExprEE26TraverseOMPUnrollDirectiveEPNS_18OMPUnrollDirectiveEPN4llvm15SmallVectorImplINS6_14PointerIntPairIPNS_4StmtELj1EbNS6_21PointerLikeTypeTraitsISA_EENS6_18PointerIntPairInfoISA_Lj1ESC_EEEEEE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %38, ptr noundef nonnull %4)
+  %401 = call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_115FindCXXThisExprEE26TraverseOMPMasterDirectiveEPNS_18OMPMasterDirectiveEPN4llvm15SmallVectorImplINS6_14PointerIntPairIPNS_4StmtELj1EbNS6_21PointerLikeTypeTraitsISA_EENS6_18PointerIntPairInfoISA_Lj1ESC_EEEEEE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %38, ptr noundef nonnull %4)
   br i1 %401, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_115FindCXXThisExprEE16dataTraverseNodeEPNS_4StmtEPN4llvm15SmallVectorImplINS6_14PointerIntPairIS5_Lj1EbNS6_21PointerLikeTypeTraitsIS5_EENS6_18PointerIntPairInfoIS5_Lj1ESA_EEEEEE.exit.thread, label %.loopexit
 
 402:                                              ; preds = %44
-  %403 = call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_115FindCXXThisExprEE24TraverseOMPTileDirectiveEPNS_16OMPTileDirectiveEPN4llvm15SmallVectorImplINS6_14PointerIntPairIPNS_4StmtELj1EbNS6_21PointerLikeTypeTraitsISA_EENS6_18PointerIntPairInfoISA_Lj1ESC_EEEEEE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %38, ptr noundef nonnull %4)
+  %403 = call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_115FindCXXThisExprEE26TraverseOMPMaskedDirectiveEPNS_18OMPMaskedDirectiveEPN4llvm15SmallVectorImplINS6_14PointerIntPairIPNS_4StmtELj1EbNS6_21PointerLikeTypeTraitsISA_EENS6_18PointerIntPairInfoISA_Lj1ESC_EEEEEE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %38, ptr noundef nonnull %4)
   br i1 %403, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_115FindCXXThisExprEE16dataTraverseNodeEPNS_4StmtEPN4llvm15SmallVectorImplINS6_14PointerIntPairIS5_Lj1EbNS6_21PointerLikeTypeTraitsIS5_EENS6_18PointerIntPairInfoIS5_Lj1ESA_EEEEEE.exit.thread, label %.loopexit
 
 404:                                              ; preds = %44
-  %405 = call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_115FindCXXThisExprEE27TraverseOMPReverseDirectiveEPNS_19OMPReverseDirectiveEPN4llvm15SmallVectorImplINS6_14PointerIntPairIPNS_4StmtELj1EbNS6_21PointerLikeTypeTraitsISA_EENS6_18PointerIntPairInfoISA_Lj1ESC_EEEEEE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %38, ptr noundef nonnull %4)
+  %405 = call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_115FindCXXThisExprEE26TraverseOMPUnrollDirectiveEPNS_18OMPUnrollDirectiveEPN4llvm15SmallVectorImplINS6_14PointerIntPairIPNS_4StmtELj1EbNS6_21PointerLikeTypeTraitsISA_EENS6_18PointerIntPairInfoISA_Lj1ESC_EEEEEE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %38, ptr noundef nonnull %4)
   br i1 %405, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_115FindCXXThisExprEE16dataTraverseNodeEPNS_4StmtEPN4llvm15SmallVectorImplINS6_14PointerIntPairIS5_Lj1EbNS6_21PointerLikeTypeTraitsIS5_EENS6_18PointerIntPairInfoIS5_Lj1ESA_EEEEEE.exit.thread, label %.loopexit
 
 406:                                              ; preds = %44
-  %407 = call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_115FindCXXThisExprEE31TraverseOMPInterchangeDirectiveEPNS_23OMPInterchangeDirectiveEPN4llvm15SmallVectorImplINS6_14PointerIntPairIPNS_4StmtELj1EbNS6_21PointerLikeTypeTraitsISA_EENS6_18PointerIntPairInfoISA_Lj1ESC_EEEEEE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %38, ptr noundef nonnull %4)
+  %407 = call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_115FindCXXThisExprEE24TraverseOMPTileDirectiveEPNS_16OMPTileDirectiveEPN4llvm15SmallVectorImplINS6_14PointerIntPairIPNS_4StmtELj1EbNS6_21PointerLikeTypeTraitsISA_EENS6_18PointerIntPairInfoISA_Lj1ESC_EEEEEE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %38, ptr noundef nonnull %4)
   br i1 %407, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_115FindCXXThisExprEE16dataTraverseNodeEPNS_4StmtEPN4llvm15SmallVectorImplINS6_14PointerIntPairIS5_Lj1EbNS6_21PointerLikeTypeTraitsIS5_EENS6_18PointerIntPairInfoIS5_Lj1ESA_EEEEEE.exit.thread, label %.loopexit
 
 408:                                              ; preds = %44
-  %409 = call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_115FindCXXThisExprEE36TraverseOMPTeamsGenericLoopDirectiveEPNS_28OMPTeamsGenericLoopDirectiveEPN4llvm15SmallVectorImplINS6_14PointerIntPairIPNS_4StmtELj1EbNS6_21PointerLikeTypeTraitsISA_EENS6_18PointerIntPairInfoISA_Lj1ESC_EEEEEE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %38, ptr noundef nonnull %4)
+  %409 = call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_115FindCXXThisExprEE27TraverseOMPReverseDirectiveEPNS_19OMPReverseDirectiveEPN4llvm15SmallVectorImplINS6_14PointerIntPairIPNS_4StmtELj1EbNS6_21PointerLikeTypeTraitsISA_EENS6_18PointerIntPairInfoISA_Lj1ESC_EEEEEE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %38, ptr noundef nonnull %4)
   br i1 %409, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_115FindCXXThisExprEE16dataTraverseNodeEPNS_4StmtEPN4llvm15SmallVectorImplINS6_14PointerIntPairIS5_Lj1EbNS6_21PointerLikeTypeTraitsIS5_EENS6_18PointerIntPairInfoIS5_Lj1ESA_EEEEEE.exit.thread, label %.loopexit
 
 410:                                              ; preds = %44
-  %411 = call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_115FindCXXThisExprEE39TraverseOMPTeamsDistributeSimdDirectiveEPNS_31OMPTeamsDistributeSimdDirectiveEPN4llvm15SmallVectorImplINS6_14PointerIntPairIPNS_4StmtELj1EbNS6_21PointerLikeTypeTraitsISA_EENS6_18PointerIntPairInfoISA_Lj1ESC_EEEEEE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %38, ptr noundef nonnull %4)
+  %411 = call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_115FindCXXThisExprEE31TraverseOMPInterchangeDirectiveEPNS_23OMPInterchangeDirectiveEPN4llvm15SmallVectorImplINS6_14PointerIntPairIPNS_4StmtELj1EbNS6_21PointerLikeTypeTraitsISA_EENS6_18PointerIntPairInfoISA_Lj1ESC_EEEEEE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %38, ptr noundef nonnull %4)
   br i1 %411, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_115FindCXXThisExprEE16dataTraverseNodeEPNS_4StmtEPN4llvm15SmallVectorImplINS6_14PointerIntPairIS5_Lj1EbNS6_21PointerLikeTypeTraitsIS5_EENS6_18PointerIntPairInfoIS5_Lj1ESA_EEEEEE.exit.thread, label %.loopexit
 
 412:                                              ; preds = %44
-  %413 = call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_115FindCXXThisExprEE50TraverseOMPTeamsDistributeParallelForSimdDirectiveEPNS_42OMPTeamsDistributeParallelForSimdDirectiveEPN4llvm15SmallVectorImplINS6_14PointerIntPairIPNS_4StmtELj1EbNS6_21PointerLikeTypeTraitsISA_EENS6_18PointerIntPairInfoISA_Lj1ESC_EEEEEE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %38, ptr noundef nonnull %4)
+  %413 = call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_115FindCXXThisExprEE36TraverseOMPTeamsGenericLoopDirectiveEPNS_28OMPTeamsGenericLoopDirectiveEPN4llvm15SmallVectorImplINS6_14PointerIntPairIPNS_4StmtELj1EbNS6_21PointerLikeTypeTraitsISA_EENS6_18PointerIntPairInfoISA_Lj1ESC_EEEEEE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %38, ptr noundef nonnull %4)
   br i1 %413, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_115FindCXXThisExprEE16dataTraverseNodeEPNS_4StmtEPN4llvm15SmallVectorImplINS6_14PointerIntPairIS5_Lj1EbNS6_21PointerLikeTypeTraitsIS5_EENS6_18PointerIntPairInfoIS5_Lj1ESA_EEEEEE.exit.thread, label %.loopexit
 
 414:                                              ; preds = %44
-  %415 = call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_115FindCXXThisExprEE46TraverseOMPTeamsDistributeParallelForDirectiveEPNS_38OMPTeamsDistributeParallelForDirectiveEPN4llvm15SmallVectorImplINS6_14PointerIntPairIPNS_4StmtELj1EbNS6_21PointerLikeTypeTraitsISA_EENS6_18PointerIntPairInfoISA_Lj1ESC_EEEEEE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %38, ptr noundef nonnull %4)
+  %415 = call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_115FindCXXThisExprEE39TraverseOMPTeamsDistributeSimdDirectiveEPNS_31OMPTeamsDistributeSimdDirectiveEPN4llvm15SmallVectorImplINS6_14PointerIntPairIPNS_4StmtELj1EbNS6_21PointerLikeTypeTraitsISA_EENS6_18PointerIntPairInfoISA_Lj1ESC_EEEEEE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %38, ptr noundef nonnull %4)
   br i1 %415, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_115FindCXXThisExprEE16dataTraverseNodeEPNS_4StmtEPN4llvm15SmallVectorImplINS6_14PointerIntPairIS5_Lj1EbNS6_21PointerLikeTypeTraitsIS5_EENS6_18PointerIntPairInfoIS5_Lj1ESA_EEEEEE.exit.thread, label %.loopexit
 
 416:                                              ; preds = %44
-  %417 = call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_115FindCXXThisExprEE35TraverseOMPTeamsDistributeDirectiveEPNS_27OMPTeamsDistributeDirectiveEPN4llvm15SmallVectorImplINS6_14PointerIntPairIPNS_4StmtELj1EbNS6_21PointerLikeTypeTraitsISA_EENS6_18PointerIntPairInfoISA_Lj1ESC_EEEEEE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %38, ptr noundef nonnull %4)
+  %417 = call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_115FindCXXThisExprEE50TraverseOMPTeamsDistributeParallelForSimdDirectiveEPNS_42OMPTeamsDistributeParallelForSimdDirectiveEPN4llvm15SmallVectorImplINS6_14PointerIntPairIPNS_4StmtELj1EbNS6_21PointerLikeTypeTraitsISA_EENS6_18PointerIntPairInfoISA_Lj1ESC_EEEEEE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %38, ptr noundef nonnull %4)
   br i1 %417, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_115FindCXXThisExprEE16dataTraverseNodeEPNS_4StmtEPN4llvm15SmallVectorImplINS6_14PointerIntPairIS5_Lj1EbNS6_21PointerLikeTypeTraitsIS5_EENS6_18PointerIntPairInfoIS5_Lj1ESA_EEEEEE.exit.thread, label %.loopexit
 
 418:                                              ; preds = %44
-  %419 = call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_115FindCXXThisExprEE32TraverseOMPTaskLoopSimdDirectiveEPNS_24OMPTaskLoopSimdDirectiveEPN4llvm15SmallVectorImplINS6_14PointerIntPairIPNS_4StmtELj1EbNS6_21PointerLikeTypeTraitsISA_EENS6_18PointerIntPairInfoISA_Lj1ESC_EEEEEE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %38, ptr noundef nonnull %4)
+  %419 = call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_115FindCXXThisExprEE46TraverseOMPTeamsDistributeParallelForDirectiveEPNS_38OMPTeamsDistributeParallelForDirectiveEPN4llvm15SmallVectorImplINS6_14PointerIntPairIPNS_4StmtELj1EbNS6_21PointerLikeTypeTraitsISA_EENS6_18PointerIntPairInfoISA_Lj1ESC_EEEEEE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %38, ptr noundef nonnull %4)
   br i1 %419, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_115FindCXXThisExprEE16dataTraverseNodeEPNS_4StmtEPN4llvm15SmallVectorImplINS6_14PointerIntPairIS5_Lj1EbNS6_21PointerLikeTypeTraitsIS5_EENS6_18PointerIntPairInfoIS5_Lj1ESA_EEEEEE.exit.thread, label %.loopexit
 
 420:                                              ; preds = %44
-  %421 = call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_115FindCXXThisExprEE28TraverseOMPTaskLoopDirectiveEPNS_20OMPTaskLoopDirectiveEPN4llvm15SmallVectorImplINS6_14PointerIntPairIPNS_4StmtELj1EbNS6_21PointerLikeTypeTraitsISA_EENS6_18PointerIntPairInfoISA_Lj1ESC_EEEEEE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %38, ptr noundef nonnull %4)
+  %421 = call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_115FindCXXThisExprEE35TraverseOMPTeamsDistributeDirectiveEPNS_27OMPTeamsDistributeDirectiveEPN4llvm15SmallVectorImplINS6_14PointerIntPairIPNS_4StmtELj1EbNS6_21PointerLikeTypeTraitsISA_EENS6_18PointerIntPairInfoISA_Lj1ESC_EEEEEE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %38, ptr noundef nonnull %4)
   br i1 %421, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_115FindCXXThisExprEE16dataTraverseNodeEPNS_4StmtEPN4llvm15SmallVectorImplINS6_14PointerIntPairIS5_Lj1EbNS6_21PointerLikeTypeTraitsIS5_EENS6_18PointerIntPairInfoIS5_Lj1ESA_EEEEEE.exit.thread, label %.loopexit
 
 422:                                              ; preds = %44
-  %423 = call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_115FindCXXThisExprEE42TraverseOMPTargetTeamsGenericLoopDirectiveEPNS_34OMPTargetTeamsGenericLoopDirectiveEPN4llvm15SmallVectorImplINS6_14PointerIntPairIPNS_4StmtELj1EbNS6_21PointerLikeTypeTraitsISA_EENS6_18PointerIntPairInfoISA_Lj1ESC_EEEEEE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %38, ptr noundef nonnull %4)
+  %423 = call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_115FindCXXThisExprEE32TraverseOMPTaskLoopSimdDirectiveEPNS_24OMPTaskLoopSimdDirectiveEPN4llvm15SmallVectorImplINS6_14PointerIntPairIPNS_4StmtELj1EbNS6_21PointerLikeTypeTraitsISA_EENS6_18PointerIntPairInfoISA_Lj1ESC_EEEEEE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %38, ptr noundef nonnull %4)
   br i1 %423, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_115FindCXXThisExprEE16dataTraverseNodeEPNS_4StmtEPN4llvm15SmallVectorImplINS6_14PointerIntPairIS5_Lj1EbNS6_21PointerLikeTypeTraitsIS5_EENS6_18PointerIntPairInfoIS5_Lj1ESA_EEEEEE.exit.thread, label %.loopexit
 
 424:                                              ; preds = %44
-  %425 = call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_115FindCXXThisExprEE45TraverseOMPTargetTeamsDistributeSimdDirectiveEPNS_37OMPTargetTeamsDistributeSimdDirectiveEPN4llvm15SmallVectorImplINS6_14PointerIntPairIPNS_4StmtELj1EbNS6_21PointerLikeTypeTraitsISA_EENS6_18PointerIntPairInfoISA_Lj1ESC_EEEEEE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %38, ptr noundef nonnull %4)
+  %425 = call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_115FindCXXThisExprEE28TraverseOMPTaskLoopDirectiveEPNS_20OMPTaskLoopDirectiveEPN4llvm15SmallVectorImplINS6_14PointerIntPairIPNS_4StmtELj1EbNS6_21PointerLikeTypeTraitsISA_EENS6_18PointerIntPairInfoISA_Lj1ESC_EEEEEE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %38, ptr noundef nonnull %4)
   br i1 %425, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_115FindCXXThisExprEE16dataTraverseNodeEPNS_4StmtEPN4llvm15SmallVectorImplINS6_14PointerIntPairIS5_Lj1EbNS6_21PointerLikeTypeTraitsIS5_EENS6_18PointerIntPairInfoIS5_Lj1ESA_EEEEEE.exit.thread, label %.loopexit
 
 426:                                              ; preds = %44
-  %427 = call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_115FindCXXThisExprEE56TraverseOMPTargetTeamsDistributeParallelForSimdDirectiveEPNS_48OMPTargetTeamsDistributeParallelForSimdDirectiveEPN4llvm15SmallVectorImplINS6_14PointerIntPairIPNS_4StmtELj1EbNS6_21PointerLikeTypeTraitsISA_EENS6_18PointerIntPairInfoISA_Lj1ESC_EEEEEE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %38, ptr noundef nonnull %4)
+  %427 = call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_115FindCXXThisExprEE42TraverseOMPTargetTeamsGenericLoopDirectiveEPNS_34OMPTargetTeamsGenericLoopDirectiveEPN4llvm15SmallVectorImplINS6_14PointerIntPairIPNS_4StmtELj1EbNS6_21PointerLikeTypeTraitsISA_EENS6_18PointerIntPairInfoISA_Lj1ESC_EEEEEE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %38, ptr noundef nonnull %4)
   br i1 %427, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_115FindCXXThisExprEE16dataTraverseNodeEPNS_4StmtEPN4llvm15SmallVectorImplINS6_14PointerIntPairIS5_Lj1EbNS6_21PointerLikeTypeTraitsIS5_EENS6_18PointerIntPairInfoIS5_Lj1ESA_EEEEEE.exit.thread, label %.loopexit
 
 428:                                              ; preds = %44
-  %429 = call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_115FindCXXThisExprEE52TraverseOMPTargetTeamsDistributeParallelForDirectiveEPNS_44OMPTargetTeamsDistributeParallelForDirectiveEPN4llvm15SmallVectorImplINS6_14PointerIntPairIPNS_4StmtELj1EbNS6_21PointerLikeTypeTraitsISA_EENS6_18PointerIntPairInfoISA_Lj1ESC_EEEEEE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %38, ptr noundef nonnull %4)
+  %429 = call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_115FindCXXThisExprEE45TraverseOMPTargetTeamsDistributeSimdDirectiveEPNS_37OMPTargetTeamsDistributeSimdDirectiveEPN4llvm15SmallVectorImplINS6_14PointerIntPairIPNS_4StmtELj1EbNS6_21PointerLikeTypeTraitsISA_EENS6_18PointerIntPairInfoISA_Lj1ESC_EEEEEE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %38, ptr noundef nonnull %4)
   br i1 %429, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_115FindCXXThisExprEE16dataTraverseNodeEPNS_4StmtEPN4llvm15SmallVectorImplINS6_14PointerIntPairIS5_Lj1EbNS6_21PointerLikeTypeTraitsIS5_EENS6_18PointerIntPairInfoIS5_Lj1ESA_EEEEEE.exit.thread, label %.loopexit
 
 430:                                              ; preds = %44
-  %431 = call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_115FindCXXThisExprEE41TraverseOMPTargetTeamsDistributeDirectiveEPNS_33OMPTargetTeamsDistributeDirectiveEPN4llvm15SmallVectorImplINS6_14PointerIntPairIPNS_4StmtELj1EbNS6_21PointerLikeTypeTraitsISA_EENS6_18PointerIntPairInfoISA_Lj1ESC_EEEEEE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %38, ptr noundef nonnull %4)
+  %431 = call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_115FindCXXThisExprEE56TraverseOMPTargetTeamsDistributeParallelForSimdDirectiveEPNS_48OMPTargetTeamsDistributeParallelForSimdDirectiveEPN4llvm15SmallVectorImplINS6_14PointerIntPairIPNS_4StmtELj1EbNS6_21PointerLikeTypeTraitsISA_EENS6_18PointerIntPairInfoISA_Lj1ESC_EEEEEE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %38, ptr noundef nonnull %4)
   br i1 %431, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_115FindCXXThisExprEE16dataTraverseNodeEPNS_4StmtEPN4llvm15SmallVectorImplINS6_14PointerIntPairIS5_Lj1EbNS6_21PointerLikeTypeTraitsIS5_EENS6_18PointerIntPairInfoIS5_Lj1ESA_EEEEEE.exit.thread, label %.loopexit
 
 432:                                              ; preds = %44
-  %433 = call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_115FindCXXThisExprEE30TraverseOMPTargetSimdDirectiveEPNS_22OMPTargetSimdDirectiveEPN4llvm15SmallVectorImplINS6_14PointerIntPairIPNS_4StmtELj1EbNS6_21PointerLikeTypeTraitsISA_EENS6_18PointerIntPairInfoISA_Lj1ESC_EEEEEE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %38, ptr noundef nonnull %4)
+  %433 = call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_115FindCXXThisExprEE52TraverseOMPTargetTeamsDistributeParallelForDirectiveEPNS_44OMPTargetTeamsDistributeParallelForDirectiveEPN4llvm15SmallVectorImplINS6_14PointerIntPairIPNS_4StmtELj1EbNS6_21PointerLikeTypeTraitsISA_EENS6_18PointerIntPairInfoISA_Lj1ESC_EEEEEE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %38, ptr noundef nonnull %4)
   br i1 %433, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_115FindCXXThisExprEE16dataTraverseNodeEPNS_4StmtEPN4llvm15SmallVectorImplINS6_14PointerIntPairIS5_Lj1EbNS6_21PointerLikeTypeTraitsIS5_EENS6_18PointerIntPairInfoIS5_Lj1ESA_EEEEEE.exit.thread, label %.loopexit
 
 434:                                              ; preds = %44
-  %435 = call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_115FindCXXThisExprEE45TraverseOMPTargetParallelGenericLoopDirectiveEPNS_37OMPTargetParallelGenericLoopDirectiveEPN4llvm15SmallVectorImplINS6_14PointerIntPairIPNS_4StmtELj1EbNS6_21PointerLikeTypeTraitsISA_EENS6_18PointerIntPairInfoISA_Lj1ESC_EEEEEE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %38, ptr noundef nonnull %4)
+  %435 = call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_115FindCXXThisExprEE41TraverseOMPTargetTeamsDistributeDirectiveEPNS_33OMPTargetTeamsDistributeDirectiveEPN4llvm15SmallVectorImplINS6_14PointerIntPairIPNS_4StmtELj1EbNS6_21PointerLikeTypeTraitsISA_EENS6_18PointerIntPairInfoISA_Lj1ESC_EEEEEE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %38, ptr noundef nonnull %4)
   br i1 %435, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_115FindCXXThisExprEE16dataTraverseNodeEPNS_4StmtEPN4llvm15SmallVectorImplINS6_14PointerIntPairIS5_Lj1EbNS6_21PointerLikeTypeTraitsIS5_EENS6_18PointerIntPairInfoIS5_Lj1ESA_EEEEEE.exit.thread, label %.loopexit
 
 436:                                              ; preds = %44
-  %437 = call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_115FindCXXThisExprEE41TraverseOMPTargetParallelForSimdDirectiveEPNS_33OMPTargetParallelForSimdDirectiveEPN4llvm15SmallVectorImplINS6_14PointerIntPairIPNS_4StmtELj1EbNS6_21PointerLikeTypeTraitsISA_EENS6_18PointerIntPairInfoISA_Lj1ESC_EEEEEE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %38, ptr noundef nonnull %4)
+  %437 = call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_115FindCXXThisExprEE30TraverseOMPTargetSimdDirectiveEPNS_22OMPTargetSimdDirectiveEPN4llvm15SmallVectorImplINS6_14PointerIntPairIPNS_4StmtELj1EbNS6_21PointerLikeTypeTraitsISA_EENS6_18PointerIntPairInfoISA_Lj1ESC_EEEEEE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %38, ptr noundef nonnull %4)
   br i1 %437, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_115FindCXXThisExprEE16dataTraverseNodeEPNS_4StmtEPN4llvm15SmallVectorImplINS6_14PointerIntPairIS5_Lj1EbNS6_21PointerLikeTypeTraitsIS5_EENS6_18PointerIntPairInfoIS5_Lj1ESA_EEEEEE.exit.thread, label %.loopexit
 
 438:                                              ; preds = %44
-  %439 = call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_115FindCXXThisExprEE24TraverseOMPSimdDirectiveEPNS_16OMPSimdDirectiveEPN4llvm15SmallVectorImplINS6_14PointerIntPairIPNS_4StmtELj1EbNS6_21PointerLikeTypeTraitsISA_EENS6_18PointerIntPairInfoISA_Lj1ESC_EEEEEE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %38, ptr noundef nonnull %4)
+  %439 = call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_115FindCXXThisExprEE45TraverseOMPTargetParallelGenericLoopDirectiveEPNS_37OMPTargetParallelGenericLoopDirectiveEPN4llvm15SmallVectorImplINS6_14PointerIntPairIPNS_4StmtELj1EbNS6_21PointerLikeTypeTraitsISA_EENS6_18PointerIntPairInfoISA_Lj1ESC_EEEEEE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %38, ptr noundef nonnull %4)
   br i1 %439, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_115FindCXXThisExprEE16dataTraverseNodeEPNS_4StmtEPN4llvm15SmallVectorImplINS6_14PointerIntPairIS5_Lj1EbNS6_21PointerLikeTypeTraitsIS5_EENS6_18PointerIntPairInfoIS5_Lj1ESA_EEEEEE.exit.thread, label %.loopexit
 
 440:                                              ; preds = %44
-  %441 = call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_115FindCXXThisExprEE46TraverseOMPParallelMasterTaskLoopSimdDirectiveEPNS_38OMPParallelMasterTaskLoopSimdDirectiveEPN4llvm15SmallVectorImplINS6_14PointerIntPairIPNS_4StmtELj1EbNS6_21PointerLikeTypeTraitsISA_EENS6_18PointerIntPairInfoISA_Lj1ESC_EEEEEE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %38, ptr noundef nonnull %4)
+  %441 = call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_115FindCXXThisExprEE41TraverseOMPTargetParallelForSimdDirectiveEPNS_33OMPTargetParallelForSimdDirectiveEPN4llvm15SmallVectorImplINS6_14PointerIntPairIPNS_4StmtELj1EbNS6_21PointerLikeTypeTraitsISA_EENS6_18PointerIntPairInfoISA_Lj1ESC_EEEEEE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %38, ptr noundef nonnull %4)
   br i1 %441, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_115FindCXXThisExprEE16dataTraverseNodeEPNS_4StmtEPN4llvm15SmallVectorImplINS6_14PointerIntPairIS5_Lj1EbNS6_21PointerLikeTypeTraitsIS5_EENS6_18PointerIntPairInfoIS5_Lj1ESA_EEEEEE.exit.thread, label %.loopexit
 
 442:                                              ; preds = %44
-  %443 = call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_115FindCXXThisExprEE42TraverseOMPParallelMasterTaskLoopDirectiveEPNS_34OMPParallelMasterTaskLoopDirectiveEPN4llvm15SmallVectorImplINS6_14PointerIntPairIPNS_4StmtELj1EbNS6_21PointerLikeTypeTraitsISA_EENS6_18PointerIntPairInfoISA_Lj1ESC_EEEEEE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %38, ptr noundef nonnull %4)
+  %443 = call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_115FindCXXThisExprEE24TraverseOMPSimdDirectiveEPNS_16OMPSimdDirectiveEPN4llvm15SmallVectorImplINS6_14PointerIntPairIPNS_4StmtELj1EbNS6_21PointerLikeTypeTraitsISA_EENS6_18PointerIntPairInfoISA_Lj1ESC_EEEEEE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %38, ptr noundef nonnull %4)
   br i1 %443, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_115FindCXXThisExprEE16dataTraverseNodeEPNS_4StmtEPN4llvm15SmallVectorImplINS6_14PointerIntPairIS5_Lj1EbNS6_21PointerLikeTypeTraitsIS5_EENS6_18PointerIntPairInfoIS5_Lj1ESA_EEEEEE.exit.thread, label %.loopexit
 
 444:                                              ; preds = %44
-  %445 = call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_115FindCXXThisExprEE46TraverseOMPParallelMaskedTaskLoopSimdDirectiveEPNS_38OMPParallelMaskedTaskLoopSimdDirectiveEPN4llvm15SmallVectorImplINS6_14PointerIntPairIPNS_4StmtELj1EbNS6_21PointerLikeTypeTraitsISA_EENS6_18PointerIntPairInfoISA_Lj1ESC_EEEEEE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %38, ptr noundef nonnull %4)
+  %445 = call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_115FindCXXThisExprEE46TraverseOMPParallelMasterTaskLoopSimdDirectiveEPNS_38OMPParallelMasterTaskLoopSimdDirectiveEPN4llvm15SmallVectorImplINS6_14PointerIntPairIPNS_4StmtELj1EbNS6_21PointerLikeTypeTraitsISA_EENS6_18PointerIntPairInfoISA_Lj1ESC_EEEEEE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %38, ptr noundef nonnull %4)
   br i1 %445, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_115FindCXXThisExprEE16dataTraverseNodeEPNS_4StmtEPN4llvm15SmallVectorImplINS6_14PointerIntPairIS5_Lj1EbNS6_21PointerLikeTypeTraitsIS5_EENS6_18PointerIntPairInfoIS5_Lj1ESA_EEEEEE.exit.thread, label %.loopexit
 
 446:                                              ; preds = %44
-  %447 = call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_115FindCXXThisExprEE42TraverseOMPParallelMaskedTaskLoopDirectiveEPNS_34OMPParallelMaskedTaskLoopDirectiveEPN4llvm15SmallVectorImplINS6_14PointerIntPairIPNS_4StmtELj1EbNS6_21PointerLikeTypeTraitsISA_EENS6_18PointerIntPairInfoISA_Lj1ESC_EEEEEE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %38, ptr noundef nonnull %4)
+  %447 = call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_115FindCXXThisExprEE42TraverseOMPParallelMasterTaskLoopDirectiveEPNS_34OMPParallelMasterTaskLoopDirectiveEPN4llvm15SmallVectorImplINS6_14PointerIntPairIPNS_4StmtELj1EbNS6_21PointerLikeTypeTraitsISA_EENS6_18PointerIntPairInfoISA_Lj1ESC_EEEEEE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %38, ptr noundef nonnull %4)
   br i1 %447, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_115FindCXXThisExprEE16dataTraverseNodeEPNS_4StmtEPN4llvm15SmallVectorImplINS6_14PointerIntPairIS5_Lj1EbNS6_21PointerLikeTypeTraitsIS5_EENS6_18PointerIntPairInfoIS5_Lj1ESA_EEEEEE.exit.thread, label %.loopexit
 
 448:                                              ; preds = %44
-  %449 = call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_115FindCXXThisExprEE39TraverseOMPParallelGenericLoopDirectiveEPNS_31OMPParallelGenericLoopDirectiveEPN4llvm15SmallVectorImplINS6_14PointerIntPairIPNS_4StmtELj1EbNS6_21PointerLikeTypeTraitsISA_EENS6_18PointerIntPairInfoISA_Lj1ESC_EEEEEE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %38, ptr noundef nonnull %4)
+  %449 = call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_115FindCXXThisExprEE46TraverseOMPParallelMaskedTaskLoopSimdDirectiveEPNS_38OMPParallelMaskedTaskLoopSimdDirectiveEPN4llvm15SmallVectorImplINS6_14PointerIntPairIPNS_4StmtELj1EbNS6_21PointerLikeTypeTraitsISA_EENS6_18PointerIntPairInfoISA_Lj1ESC_EEEEEE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %38, ptr noundef nonnull %4)
   br i1 %449, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_115FindCXXThisExprEE16dataTraverseNodeEPNS_4StmtEPN4llvm15SmallVectorImplINS6_14PointerIntPairIS5_Lj1EbNS6_21PointerLikeTypeTraitsIS5_EENS6_18PointerIntPairInfoIS5_Lj1ESA_EEEEEE.exit.thread, label %.loopexit
 
 450:                                              ; preds = %44
-  %451 = call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_115FindCXXThisExprEE35TraverseOMPParallelForSimdDirectiveEPNS_27OMPParallelForSimdDirectiveEPN4llvm15SmallVectorImplINS6_14PointerIntPairIPNS_4StmtELj1EbNS6_21PointerLikeTypeTraitsISA_EENS6_18PointerIntPairInfoISA_Lj1ESC_EEEEEE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %38, ptr noundef nonnull %4)
+  %451 = call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_115FindCXXThisExprEE42TraverseOMPParallelMaskedTaskLoopDirectiveEPNS_34OMPParallelMaskedTaskLoopDirectiveEPN4llvm15SmallVectorImplINS6_14PointerIntPairIPNS_4StmtELj1EbNS6_21PointerLikeTypeTraitsISA_EENS6_18PointerIntPairInfoISA_Lj1ESC_EEEEEE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %38, ptr noundef nonnull %4)
   br i1 %451, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_115FindCXXThisExprEE16dataTraverseNodeEPNS_4StmtEPN4llvm15SmallVectorImplINS6_14PointerIntPairIS5_Lj1EbNS6_21PointerLikeTypeTraitsIS5_EENS6_18PointerIntPairInfoIS5_Lj1ESA_EEEEEE.exit.thread, label %.loopexit
 
 452:                                              ; preds = %44
-  %453 = call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_115FindCXXThisExprEE31TraverseOMPParallelForDirectiveEPNS_23OMPParallelForDirectiveEPN4llvm15SmallVectorImplINS6_14PointerIntPairIPNS_4StmtELj1EbNS6_21PointerLikeTypeTraitsISA_EENS6_18PointerIntPairInfoISA_Lj1ESC_EEEEEE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %38, ptr noundef nonnull %4)
+  %453 = call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_115FindCXXThisExprEE39TraverseOMPParallelGenericLoopDirectiveEPNS_31OMPParallelGenericLoopDirectiveEPN4llvm15SmallVectorImplINS6_14PointerIntPairIPNS_4StmtELj1EbNS6_21PointerLikeTypeTraitsISA_EENS6_18PointerIntPairInfoISA_Lj1ESC_EEEEEE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %38, ptr noundef nonnull %4)
   br i1 %453, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_115FindCXXThisExprEE16dataTraverseNodeEPNS_4StmtEPN4llvm15SmallVectorImplINS6_14PointerIntPairIS5_Lj1EbNS6_21PointerLikeTypeTraitsIS5_EENS6_18PointerIntPairInfoIS5_Lj1ESA_EEEEEE.exit.thread, label %.loopexit
 
 454:                                              ; preds = %44
-  %455 = call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_115FindCXXThisExprEE38TraverseOMPMasterTaskLoopSimdDirectiveEPNS_30OMPMasterTaskLoopSimdDirectiveEPN4llvm15SmallVectorImplINS6_14PointerIntPairIPNS_4StmtELj1EbNS6_21PointerLikeTypeTraitsISA_EENS6_18PointerIntPairInfoISA_Lj1ESC_EEEEEE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %38, ptr noundef nonnull %4)
+  %455 = call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_115FindCXXThisExprEE35TraverseOMPParallelForSimdDirectiveEPNS_27OMPParallelForSimdDirectiveEPN4llvm15SmallVectorImplINS6_14PointerIntPairIPNS_4StmtELj1EbNS6_21PointerLikeTypeTraitsISA_EENS6_18PointerIntPairInfoISA_Lj1ESC_EEEEEE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %38, ptr noundef nonnull %4)
   br i1 %455, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_115FindCXXThisExprEE16dataTraverseNodeEPNS_4StmtEPN4llvm15SmallVectorImplINS6_14PointerIntPairIS5_Lj1EbNS6_21PointerLikeTypeTraitsIS5_EENS6_18PointerIntPairInfoIS5_Lj1ESA_EEEEEE.exit.thread, label %.loopexit
 
 456:                                              ; preds = %44
-  %457 = call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_115FindCXXThisExprEE34TraverseOMPMasterTaskLoopDirectiveEPNS_26OMPMasterTaskLoopDirectiveEPN4llvm15SmallVectorImplINS6_14PointerIntPairIPNS_4StmtELj1EbNS6_21PointerLikeTypeTraitsISA_EENS6_18PointerIntPairInfoISA_Lj1ESC_EEEEEE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %38, ptr noundef nonnull %4)
+  %457 = call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_115FindCXXThisExprEE31TraverseOMPParallelForDirectiveEPNS_23OMPParallelForDirectiveEPN4llvm15SmallVectorImplINS6_14PointerIntPairIPNS_4StmtELj1EbNS6_21PointerLikeTypeTraitsISA_EENS6_18PointerIntPairInfoISA_Lj1ESC_EEEEEE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %38, ptr noundef nonnull %4)
   br i1 %457, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_115FindCXXThisExprEE16dataTraverseNodeEPNS_4StmtEPN4llvm15SmallVectorImplINS6_14PointerIntPairIS5_Lj1EbNS6_21PointerLikeTypeTraitsIS5_EENS6_18PointerIntPairInfoIS5_Lj1ESA_EEEEEE.exit.thread, label %.loopexit
 
 458:                                              ; preds = %44
-  %459 = call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_115FindCXXThisExprEE38TraverseOMPMaskedTaskLoopSimdDirectiveEPNS_30OMPMaskedTaskLoopSimdDirectiveEPN4llvm15SmallVectorImplINS6_14PointerIntPairIPNS_4StmtELj1EbNS6_21PointerLikeTypeTraitsISA_EENS6_18PointerIntPairInfoISA_Lj1ESC_EEEEEE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %38, ptr noundef nonnull %4)
+  %459 = call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_115FindCXXThisExprEE38TraverseOMPMasterTaskLoopSimdDirectiveEPNS_30OMPMasterTaskLoopSimdDirectiveEPN4llvm15SmallVectorImplINS6_14PointerIntPairIPNS_4StmtELj1EbNS6_21PointerLikeTypeTraitsISA_EENS6_18PointerIntPairInfoISA_Lj1ESC_EEEEEE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %38, ptr noundef nonnull %4)
   br i1 %459, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_115FindCXXThisExprEE16dataTraverseNodeEPNS_4StmtEPN4llvm15SmallVectorImplINS6_14PointerIntPairIS5_Lj1EbNS6_21PointerLikeTypeTraitsIS5_EENS6_18PointerIntPairInfoIS5_Lj1ESA_EEEEEE.exit.thread, label %.loopexit
 
 460:                                              ; preds = %44
-  %461 = call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_115FindCXXThisExprEE34TraverseOMPMaskedTaskLoopDirectiveEPNS_26OMPMaskedTaskLoopDirectiveEPN4llvm15SmallVectorImplINS6_14PointerIntPairIPNS_4StmtELj1EbNS6_21PointerLikeTypeTraitsISA_EENS6_18PointerIntPairInfoISA_Lj1ESC_EEEEEE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %38, ptr noundef nonnull %4)
+  %461 = call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_115FindCXXThisExprEE34TraverseOMPMasterTaskLoopDirectiveEPNS_26OMPMasterTaskLoopDirectiveEPN4llvm15SmallVectorImplINS6_14PointerIntPairIPNS_4StmtELj1EbNS6_21PointerLikeTypeTraitsISA_EENS6_18PointerIntPairInfoISA_Lj1ESC_EEEEEE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %38, ptr noundef nonnull %4)
   br i1 %461, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_115FindCXXThisExprEE16dataTraverseNodeEPNS_4StmtEPN4llvm15SmallVectorImplINS6_14PointerIntPairIS5_Lj1EbNS6_21PointerLikeTypeTraitsIS5_EENS6_18PointerIntPairInfoIS5_Lj1ESA_EEEEEE.exit.thread, label %.loopexit
 
 462:                                              ; preds = %44
-  %463 = call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_115FindCXXThisExprEE31TraverseOMPGenericLoopDirectiveEPNS_23OMPGenericLoopDirectiveEPN4llvm15SmallVectorImplINS6_14PointerIntPairIPNS_4StmtELj1EbNS6_21PointerLikeTypeTraitsISA_EENS6_18PointerIntPairInfoISA_Lj1ESC_EEEEEE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %38, ptr noundef nonnull %4)
+  %463 = call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_115FindCXXThisExprEE38TraverseOMPMaskedTaskLoopSimdDirectiveEPNS_30OMPMaskedTaskLoopSimdDirectiveEPN4llvm15SmallVectorImplINS6_14PointerIntPairIPNS_4StmtELj1EbNS6_21PointerLikeTypeTraitsISA_EENS6_18PointerIntPairInfoISA_Lj1ESC_EEEEEE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %38, ptr noundef nonnull %4)
   br i1 %463, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_115FindCXXThisExprEE16dataTraverseNodeEPNS_4StmtEPN4llvm15SmallVectorImplINS6_14PointerIntPairIS5_Lj1EbNS6_21PointerLikeTypeTraitsIS5_EENS6_18PointerIntPairInfoIS5_Lj1ESA_EEEEEE.exit.thread, label %.loopexit
 
 464:                                              ; preds = %44
-  %465 = call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_115FindCXXThisExprEE27TraverseOMPForSimdDirectiveEPNS_19OMPForSimdDirectiveEPN4llvm15SmallVectorImplINS6_14PointerIntPairIPNS_4StmtELj1EbNS6_21PointerLikeTypeTraitsISA_EENS6_18PointerIntPairInfoISA_Lj1ESC_EEEEEE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %38, ptr noundef nonnull %4)
+  %465 = call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_115FindCXXThisExprEE34TraverseOMPMaskedTaskLoopDirectiveEPNS_26OMPMaskedTaskLoopDirectiveEPN4llvm15SmallVectorImplINS6_14PointerIntPairIPNS_4StmtELj1EbNS6_21PointerLikeTypeTraitsISA_EENS6_18PointerIntPairInfoISA_Lj1ESC_EEEEEE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %38, ptr noundef nonnull %4)
   br i1 %465, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_115FindCXXThisExprEE16dataTraverseNodeEPNS_4StmtEPN4llvm15SmallVectorImplINS6_14PointerIntPairIS5_Lj1EbNS6_21PointerLikeTypeTraitsIS5_EENS6_18PointerIntPairInfoIS5_Lj1ESA_EEEEEE.exit.thread, label %.loopexit
 
 466:                                              ; preds = %44
-  %467 = call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_115FindCXXThisExprEE23TraverseOMPForDirectiveEPNS_15OMPForDirectiveEPN4llvm15SmallVectorImplINS6_14PointerIntPairIPNS_4StmtELj1EbNS6_21PointerLikeTypeTraitsISA_EENS6_18PointerIntPairInfoISA_Lj1ESC_EEEEEE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %38, ptr noundef nonnull %4)
+  %467 = call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_115FindCXXThisExprEE31TraverseOMPGenericLoopDirectiveEPNS_23OMPGenericLoopDirectiveEPN4llvm15SmallVectorImplINS6_14PointerIntPairIPNS_4StmtELj1EbNS6_21PointerLikeTypeTraitsISA_EENS6_18PointerIntPairInfoISA_Lj1ESC_EEEEEE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %38, ptr noundef nonnull %4)
   br i1 %467, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_115FindCXXThisExprEE16dataTraverseNodeEPNS_4StmtEPN4llvm15SmallVectorImplINS6_14PointerIntPairIS5_Lj1EbNS6_21PointerLikeTypeTraitsIS5_EENS6_18PointerIntPairInfoIS5_Lj1ESA_EEEEEE.exit.thread, label %.loopexit
 
 468:                                              ; preds = %44
-  %469 = call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_115FindCXXThisExprEE34TraverseOMPDistributeSimdDirectiveEPNS_26OMPDistributeSimdDirectiveEPN4llvm15SmallVectorImplINS6_14PointerIntPairIPNS_4StmtELj1EbNS6_21PointerLikeTypeTraitsISA_EENS6_18PointerIntPairInfoISA_Lj1ESC_EEEEEE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %38, ptr noundef nonnull %4)
+  %469 = call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_115FindCXXThisExprEE27TraverseOMPForSimdDirectiveEPNS_19OMPForSimdDirectiveEPN4llvm15SmallVectorImplINS6_14PointerIntPairIPNS_4StmtELj1EbNS6_21PointerLikeTypeTraitsISA_EENS6_18PointerIntPairInfoISA_Lj1ESC_EEEEEE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %38, ptr noundef nonnull %4)
   br i1 %469, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_115FindCXXThisExprEE16dataTraverseNodeEPNS_4StmtEPN4llvm15SmallVectorImplINS6_14PointerIntPairIS5_Lj1EbNS6_21PointerLikeTypeTraitsIS5_EENS6_18PointerIntPairInfoIS5_Lj1ESA_EEEEEE.exit.thread, label %.loopexit
 
 470:                                              ; preds = %44
-  %471 = call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_115FindCXXThisExprEE45TraverseOMPDistributeParallelForSimdDirectiveEPNS_37OMPDistributeParallelForSimdDirectiveEPN4llvm15SmallVectorImplINS6_14PointerIntPairIPNS_4StmtELj1EbNS6_21PointerLikeTypeTraitsISA_EENS6_18PointerIntPairInfoISA_Lj1ESC_EEEEEE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %38, ptr noundef nonnull %4)
+  %471 = call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_115FindCXXThisExprEE23TraverseOMPForDirectiveEPNS_15OMPForDirectiveEPN4llvm15SmallVectorImplINS6_14PointerIntPairIPNS_4StmtELj1EbNS6_21PointerLikeTypeTraitsISA_EENS6_18PointerIntPairInfoISA_Lj1ESC_EEEEEE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %38, ptr noundef nonnull %4)
   br i1 %471, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_115FindCXXThisExprEE16dataTraverseNodeEPNS_4StmtEPN4llvm15SmallVectorImplINS6_14PointerIntPairIS5_Lj1EbNS6_21PointerLikeTypeTraitsIS5_EENS6_18PointerIntPairInfoIS5_Lj1ESA_EEEEEE.exit.thread, label %.loopexit
 
 472:                                              ; preds = %44
-  %473 = call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_115FindCXXThisExprEE41TraverseOMPDistributeParallelForDirectiveEPNS_33OMPDistributeParallelForDirectiveEPN4llvm15SmallVectorImplINS6_14PointerIntPairIPNS_4StmtELj1EbNS6_21PointerLikeTypeTraitsISA_EENS6_18PointerIntPairInfoISA_Lj1ESC_EEEEEE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %38, ptr noundef nonnull %4)
+  %473 = call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_115FindCXXThisExprEE34TraverseOMPDistributeSimdDirectiveEPNS_26OMPDistributeSimdDirectiveEPN4llvm15SmallVectorImplINS6_14PointerIntPairIPNS_4StmtELj1EbNS6_21PointerLikeTypeTraitsISA_EENS6_18PointerIntPairInfoISA_Lj1ESC_EEEEEE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %38, ptr noundef nonnull %4)
   br i1 %473, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_115FindCXXThisExprEE16dataTraverseNodeEPNS_4StmtEPN4llvm15SmallVectorImplINS6_14PointerIntPairIS5_Lj1EbNS6_21PointerLikeTypeTraitsIS5_EENS6_18PointerIntPairInfoIS5_Lj1ESA_EEEEEE.exit.thread, label %.loopexit
 
 474:                                              ; preds = %44
-  %475 = call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_115FindCXXThisExprEE30TraverseOMPDistributeDirectiveEPNS_22OMPDistributeDirectiveEPN4llvm15SmallVectorImplINS6_14PointerIntPairIPNS_4StmtELj1EbNS6_21PointerLikeTypeTraitsISA_EENS6_18PointerIntPairInfoISA_Lj1ESC_EEEEEE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %38, ptr noundef nonnull %4)
+  %475 = call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_115FindCXXThisExprEE45TraverseOMPDistributeParallelForSimdDirectiveEPNS_37OMPDistributeParallelForSimdDirectiveEPN4llvm15SmallVectorImplINS6_14PointerIntPairIPNS_4StmtELj1EbNS6_21PointerLikeTypeTraitsISA_EENS6_18PointerIntPairInfoISA_Lj1ESC_EEEEEE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %38, ptr noundef nonnull %4)
   br i1 %475, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_115FindCXXThisExprEE16dataTraverseNodeEPNS_4StmtEPN4llvm15SmallVectorImplINS6_14PointerIntPairIS5_Lj1EbNS6_21PointerLikeTypeTraitsIS5_EENS6_18PointerIntPairInfoIS5_Lj1ESA_EEEEEE.exit.thread, label %.loopexit
 
 476:                                              ; preds = %44
-  %477 = call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_115FindCXXThisExprEE27TraverseOMPInteropDirectiveEPNS_19OMPInteropDirectiveEPN4llvm15SmallVectorImplINS6_14PointerIntPairIPNS_4StmtELj1EbNS6_21PointerLikeTypeTraitsISA_EENS6_18PointerIntPairInfoISA_Lj1ESC_EEEEEE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %38, ptr noundef nonnull %4)
+  %477 = call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_115FindCXXThisExprEE41TraverseOMPDistributeParallelForDirectiveEPNS_33OMPDistributeParallelForDirectiveEPN4llvm15SmallVectorImplINS6_14PointerIntPairIPNS_4StmtELj1EbNS6_21PointerLikeTypeTraitsISA_EENS6_18PointerIntPairInfoISA_Lj1ESC_EEEEEE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %38, ptr noundef nonnull %4)
   br i1 %477, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_115FindCXXThisExprEE16dataTraverseNodeEPNS_4StmtEPN4llvm15SmallVectorImplINS6_14PointerIntPairIS5_Lj1EbNS6_21PointerLikeTypeTraitsIS5_EENS6_18PointerIntPairInfoIS5_Lj1ESA_EEEEEE.exit.thread, label %.loopexit
 
 478:                                              ; preds = %44
-  %479 = call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_115FindCXXThisExprEE25TraverseOMPFlushDirectiveEPNS_17OMPFlushDirectiveEPN4llvm15SmallVectorImplINS6_14PointerIntPairIPNS_4StmtELj1EbNS6_21PointerLikeTypeTraitsISA_EENS6_18PointerIntPairInfoISA_Lj1ESC_EEEEEE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %38, ptr noundef nonnull %4)
+  %479 = call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_115FindCXXThisExprEE30TraverseOMPDistributeDirectiveEPNS_22OMPDistributeDirectiveEPN4llvm15SmallVectorImplINS6_14PointerIntPairIPNS_4StmtELj1EbNS6_21PointerLikeTypeTraitsISA_EENS6_18PointerIntPairInfoISA_Lj1ESC_EEEEEE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %38, ptr noundef nonnull %4)
   br i1 %479, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_115FindCXXThisExprEE16dataTraverseNodeEPNS_4StmtEPN4llvm15SmallVectorImplINS6_14PointerIntPairIS5_Lj1EbNS6_21PointerLikeTypeTraitsIS5_EENS6_18PointerIntPairInfoIS5_Lj1ESA_EEEEEE.exit.thread, label %.loopexit
 
 480:                                              ; preds = %44
-  %481 = call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_115FindCXXThisExprEE25TraverseOMPErrorDirectiveEPNS_17OMPErrorDirectiveEPN4llvm15SmallVectorImplINS6_14PointerIntPairIPNS_4StmtELj1EbNS6_21PointerLikeTypeTraitsISA_EENS6_18PointerIntPairInfoISA_Lj1ESC_EEEEEE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %38, ptr noundef nonnull %4)
+  %481 = call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_115FindCXXThisExprEE27TraverseOMPInteropDirectiveEPNS_19OMPInteropDirectiveEPN4llvm15SmallVectorImplINS6_14PointerIntPairIPNS_4StmtELj1EbNS6_21PointerLikeTypeTraitsISA_EENS6_18PointerIntPairInfoISA_Lj1ESC_EEEEEE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %38, ptr noundef nonnull %4)
   br i1 %481, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_115FindCXXThisExprEE16dataTraverseNodeEPNS_4StmtEPN4llvm15SmallVectorImplINS6_14PointerIntPairIS5_Lj1EbNS6_21PointerLikeTypeTraitsIS5_EENS6_18PointerIntPairInfoIS5_Lj1ESA_EEEEEE.exit.thread, label %.loopexit
 
 482:                                              ; preds = %44
-  %483 = call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_115FindCXXThisExprEE28TraverseOMPDispatchDirectiveEPNS_20OMPDispatchDirectiveEPN4llvm15SmallVectorImplINS6_14PointerIntPairIPNS_4StmtELj1EbNS6_21PointerLikeTypeTraitsISA_EENS6_18PointerIntPairInfoISA_Lj1ESC_EEEEEE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %38, ptr noundef nonnull %4)
+  %483 = call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_115FindCXXThisExprEE25TraverseOMPFlushDirectiveEPNS_17OMPFlushDirectiveEPN4llvm15SmallVectorImplINS6_14PointerIntPairIPNS_4StmtELj1EbNS6_21PointerLikeTypeTraitsISA_EENS6_18PointerIntPairInfoISA_Lj1ESC_EEEEEE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %38, ptr noundef nonnull %4)
   br i1 %483, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_115FindCXXThisExprEE16dataTraverseNodeEPNS_4StmtEPN4llvm15SmallVectorImplINS6_14PointerIntPairIS5_Lj1EbNS6_21PointerLikeTypeTraitsIS5_EENS6_18PointerIntPairInfoIS5_Lj1ESA_EEEEEE.exit.thread, label %.loopexit
 
 484:                                              ; preds = %44
-  %485 = call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_115FindCXXThisExprEE26TraverseOMPDepobjDirectiveEPNS_18OMPDepobjDirectiveEPN4llvm15SmallVectorImplINS6_14PointerIntPairIPNS_4StmtELj1EbNS6_21PointerLikeTypeTraitsISA_EENS6_18PointerIntPairInfoISA_Lj1ESC_EEEEEE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %38, ptr noundef nonnull %4)
+  %485 = call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_115FindCXXThisExprEE25TraverseOMPErrorDirectiveEPNS_17OMPErrorDirectiveEPN4llvm15SmallVectorImplINS6_14PointerIntPairIPNS_4StmtELj1EbNS6_21PointerLikeTypeTraitsISA_EENS6_18PointerIntPairInfoISA_Lj1ESC_EEEEEE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %38, ptr noundef nonnull %4)
   br i1 %485, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_115FindCXXThisExprEE16dataTraverseNodeEPNS_4StmtEPN4llvm15SmallVectorImplINS6_14PointerIntPairIS5_Lj1EbNS6_21PointerLikeTypeTraitsIS5_EENS6_18PointerIntPairInfoIS5_Lj1ESA_EEEEEE.exit.thread, label %.loopexit
 
 486:                                              ; preds = %44
-  %487 = call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_115FindCXXThisExprEE28TraverseOMPCriticalDirectiveEPNS_20OMPCriticalDirectiveEPN4llvm15SmallVectorImplINS6_14PointerIntPairIPNS_4StmtELj1EbNS6_21PointerLikeTypeTraitsISA_EENS6_18PointerIntPairInfoISA_Lj1ESC_EEEEEE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %38, ptr noundef nonnull %4)
+  %487 = call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_115FindCXXThisExprEE28TraverseOMPDispatchDirectiveEPNS_20OMPDispatchDirectiveEPN4llvm15SmallVectorImplINS6_14PointerIntPairIPNS_4StmtELj1EbNS6_21PointerLikeTypeTraitsISA_EENS6_18PointerIntPairInfoISA_Lj1ESC_EEEEEE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %38, ptr noundef nonnull %4)
   br i1 %487, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_115FindCXXThisExprEE16dataTraverseNodeEPNS_4StmtEPN4llvm15SmallVectorImplINS6_14PointerIntPairIS5_Lj1EbNS6_21PointerLikeTypeTraitsIS5_EENS6_18PointerIntPairInfoIS5_Lj1ESA_EEEEEE.exit.thread, label %.loopexit
 
 488:                                              ; preds = %44
-  %489 = call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_115FindCXXThisExprEE37TraverseOMPCancellationPointDirectiveEPNS_29OMPCancellationPointDirectiveEPN4llvm15SmallVectorImplINS6_14PointerIntPairIPNS_4StmtELj1EbNS6_21PointerLikeTypeTraitsISA_EENS6_18PointerIntPairInfoISA_Lj1ESC_EEEEEE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %38, ptr noundef nonnull %4)
+  %489 = call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_115FindCXXThisExprEE26TraverseOMPDepobjDirectiveEPNS_18OMPDepobjDirectiveEPN4llvm15SmallVectorImplINS6_14PointerIntPairIPNS_4StmtELj1EbNS6_21PointerLikeTypeTraitsISA_EENS6_18PointerIntPairInfoISA_Lj1ESC_EEEEEE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %38, ptr noundef nonnull %4)
   br i1 %489, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_115FindCXXThisExprEE16dataTraverseNodeEPNS_4StmtEPN4llvm15SmallVectorImplINS6_14PointerIntPairIS5_Lj1EbNS6_21PointerLikeTypeTraitsIS5_EENS6_18PointerIntPairInfoIS5_Lj1ESA_EEEEEE.exit.thread, label %.loopexit
 
 490:                                              ; preds = %44
-  %491 = call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_115FindCXXThisExprEE26TraverseOMPCancelDirectiveEPNS_18OMPCancelDirectiveEPN4llvm15SmallVectorImplINS6_14PointerIntPairIPNS_4StmtELj1EbNS6_21PointerLikeTypeTraitsISA_EENS6_18PointerIntPairInfoISA_Lj1ESC_EEEEEE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %38, ptr noundef nonnull %4)
+  %491 = call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_115FindCXXThisExprEE28TraverseOMPCriticalDirectiveEPNS_20OMPCriticalDirectiveEPN4llvm15SmallVectorImplINS6_14PointerIntPairIPNS_4StmtELj1EbNS6_21PointerLikeTypeTraitsISA_EENS6_18PointerIntPairInfoISA_Lj1ESC_EEEEEE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %38, ptr noundef nonnull %4)
   br i1 %491, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_115FindCXXThisExprEE16dataTraverseNodeEPNS_4StmtEPN4llvm15SmallVectorImplINS6_14PointerIntPairIS5_Lj1EbNS6_21PointerLikeTypeTraitsIS5_EENS6_18PointerIntPairInfoIS5_Lj1ESA_EEEEEE.exit.thread, label %.loopexit
 
 492:                                              ; preds = %44
-  %493 = call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_115FindCXXThisExprEE27TraverseOMPBarrierDirectiveEPNS_19OMPBarrierDirectiveEPN4llvm15SmallVectorImplINS6_14PointerIntPairIPNS_4StmtELj1EbNS6_21PointerLikeTypeTraitsISA_EENS6_18PointerIntPairInfoISA_Lj1ESC_EEEEEE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %38, ptr noundef nonnull %4)
+  %493 = call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_115FindCXXThisExprEE37TraverseOMPCancellationPointDirectiveEPNS_29OMPCancellationPointDirectiveEPN4llvm15SmallVectorImplINS6_14PointerIntPairIPNS_4StmtELj1EbNS6_21PointerLikeTypeTraitsISA_EENS6_18PointerIntPairInfoISA_Lj1ESC_EEEEEE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %38, ptr noundef nonnull %4)
   br i1 %493, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_115FindCXXThisExprEE16dataTraverseNodeEPNS_4StmtEPN4llvm15SmallVectorImplINS6_14PointerIntPairIS5_Lj1EbNS6_21PointerLikeTypeTraitsIS5_EENS6_18PointerIntPairInfoIS5_Lj1ESA_EEEEEE.exit.thread, label %.loopexit
 
 494:                                              ; preds = %44
-  %495 = call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_115FindCXXThisExprEE26TraverseOMPAtomicDirectiveEPNS_18OMPAtomicDirectiveEPN4llvm15SmallVectorImplINS6_14PointerIntPairIPNS_4StmtELj1EbNS6_21PointerLikeTypeTraitsISA_EENS6_18PointerIntPairInfoISA_Lj1ESC_EEEEEE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %38, ptr noundef nonnull %4)
+  %495 = call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_115FindCXXThisExprEE26TraverseOMPCancelDirectiveEPNS_18OMPCancelDirectiveEPN4llvm15SmallVectorImplINS6_14PointerIntPairIPNS_4StmtELj1EbNS6_21PointerLikeTypeTraitsISA_EENS6_18PointerIntPairInfoISA_Lj1ESC_EEEEEE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %38, ptr noundef nonnull %4)
   br i1 %495, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_115FindCXXThisExprEE16dataTraverseNodeEPNS_4StmtEPN4llvm15SmallVectorImplINS6_14PointerIntPairIS5_Lj1EbNS6_21PointerLikeTypeTraitsIS5_EENS6_18PointerIntPairInfoIS5_Lj1ESA_EEEEEE.exit.thread, label %.loopexit
 
 496:                                              ; preds = %44
-  %497 = call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_115FindCXXThisExprEE26TraverseOMPAssumeDirectiveEPNS_18OMPAssumeDirectiveEPN4llvm15SmallVectorImplINS6_14PointerIntPairIPNS_4StmtELj1EbNS6_21PointerLikeTypeTraitsISA_EENS6_18PointerIntPairInfoISA_Lj1ESC_EEEEEE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %38, ptr noundef nonnull %4)
+  %497 = call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_115FindCXXThisExprEE27TraverseOMPBarrierDirectiveEPNS_19OMPBarrierDirectiveEPN4llvm15SmallVectorImplINS6_14PointerIntPairIPNS_4StmtELj1EbNS6_21PointerLikeTypeTraitsISA_EENS6_18PointerIntPairInfoISA_Lj1ESC_EEEEEE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %38, ptr noundef nonnull %4)
   br i1 %497, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_115FindCXXThisExprEE16dataTraverseNodeEPNS_4StmtEPN4llvm15SmallVectorImplINS6_14PointerIntPairIS5_Lj1EbNS6_21PointerLikeTypeTraitsIS5_EENS6_18PointerIntPairInfoIS5_Lj1ESA_EEEEEE.exit.thread, label %.loopexit
 
 498:                                              ; preds = %44
-  %499 = getelementptr inbounds nuw i8, ptr %38, i64 8
-  %500 = load ptr, ptr %499, align 8
-  %501 = call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_115FindCXXThisExprEE12TraverseStmtEPNS_4StmtEPN4llvm15SmallVectorImplINS6_14PointerIntPairIS5_Lj1EbNS6_21PointerLikeTypeTraitsIS5_EENS6_18PointerIntPairInfoIS5_Lj1ESA_EEEEEE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %500, ptr noundef null)
+  %499 = call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_115FindCXXThisExprEE26TraverseOMPAtomicDirectiveEPNS_18OMPAtomicDirectiveEPN4llvm15SmallVectorImplINS6_14PointerIntPairIPNS_4StmtELj1EbNS6_21PointerLikeTypeTraitsISA_EENS6_18PointerIntPairInfoISA_Lj1ESC_EEEEEE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %38, ptr noundef nonnull %4)
+  br i1 %499, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_115FindCXXThisExprEE16dataTraverseNodeEPNS_4StmtEPN4llvm15SmallVectorImplINS6_14PointerIntPairIS5_Lj1EbNS6_21PointerLikeTypeTraitsIS5_EENS6_18PointerIntPairInfoIS5_Lj1ESA_EEEEEE.exit.thread, label %.loopexit
+
+500:                                              ; preds = %44
+  %501 = call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_115FindCXXThisExprEE26TraverseOMPAssumeDirectiveEPNS_18OMPAssumeDirectiveEPN4llvm15SmallVectorImplINS6_14PointerIntPairIPNS_4StmtELj1EbNS6_21PointerLikeTypeTraitsISA_EENS6_18PointerIntPairInfoISA_Lj1ESC_EEEEEE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %38, ptr noundef nonnull %4)
   br i1 %501, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_115FindCXXThisExprEE16dataTraverseNodeEPNS_4StmtEPN4llvm15SmallVectorImplINS6_14PointerIntPairIS5_Lj1EbNS6_21PointerLikeTypeTraitsIS5_EENS6_18PointerIntPairInfoIS5_Lj1ESA_EEEEEE.exit.thread, label %.loopexit
 
 502:                                              ; preds = %44
-  %503 = call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_115FindCXXThisExprEE16TraverseNullStmtEPNS_8NullStmtEPN4llvm15SmallVectorImplINS6_14PointerIntPairIPNS_4StmtELj1EbNS6_21PointerLikeTypeTraitsISA_EENS6_18PointerIntPairInfoISA_Lj1ESC_EEEEEE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %38, ptr noundef nonnull %4)
-  br i1 %503, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_115FindCXXThisExprEE16dataTraverseNodeEPNS_4StmtEPN4llvm15SmallVectorImplINS6_14PointerIntPairIS5_Lj1EbNS6_21PointerLikeTypeTraitsIS5_EENS6_18PointerIntPairInfoIS5_Lj1ESA_EEEEEE.exit.thread, label %.loopexit
-
-504:                                              ; preds = %44
-  %505 = call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_115FindCXXThisExprEE29TraverseMSDependentExistsStmtEPNS_21MSDependentExistsStmtEPN4llvm15SmallVectorImplINS6_14PointerIntPairIPNS_4StmtELj1EbNS6_21PointerLikeTypeTraitsISA_EENS6_18PointerIntPairInfoISA_Lj1ESC_EEEEEE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %38, ptr noundef nonnull %4)
+  %503 = getelementptr inbounds nuw i8, ptr %38, i64 8
+  %504 = load ptr, ptr %503, align 8
+  %505 = call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_115FindCXXThisExprEE12TraverseStmtEPNS_4StmtEPN4llvm15SmallVectorImplINS6_14PointerIntPairIS5_Lj1EbNS6_21PointerLikeTypeTraitsIS5_EENS6_18PointerIntPairInfoIS5_Lj1ESA_EEEEEE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %504, ptr noundef null)
   br i1 %505, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_115FindCXXThisExprEE16dataTraverseNodeEPNS_4StmtEPN4llvm15SmallVectorImplINS6_14PointerIntPairIS5_Lj1EbNS6_21PointerLikeTypeTraitsIS5_EENS6_18PointerIntPairInfoIS5_Lj1ESA_EEEEEE.exit.thread, label %.loopexit
 
 506:                                              ; preds = %44
-  %507 = call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_115FindCXXThisExprEE24TraverseIndirectGotoStmtEPNS_16IndirectGotoStmtEPN4llvm15SmallVectorImplINS6_14PointerIntPairIPNS_4StmtELj1EbNS6_21PointerLikeTypeTraitsISA_EENS6_18PointerIntPairInfoISA_Lj1ESC_EEEEEE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %38, ptr noundef nonnull %4)
+  %507 = call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_115FindCXXThisExprEE16TraverseNullStmtEPNS_8NullStmtEPN4llvm15SmallVectorImplINS6_14PointerIntPairIPNS_4StmtELj1EbNS6_21PointerLikeTypeTraitsISA_EENS6_18PointerIntPairInfoISA_Lj1ESC_EEEEEE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %38, ptr noundef nonnull %4)
   br i1 %507, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_115FindCXXThisExprEE16dataTraverseNodeEPNS_4StmtEPN4llvm15SmallVectorImplINS6_14PointerIntPairIS5_Lj1EbNS6_21PointerLikeTypeTraitsIS5_EENS6_18PointerIntPairInfoIS5_Lj1ESA_EEEEEE.exit.thread, label %.loopexit
 
 508:                                              ; preds = %44
-  %509 = call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_115FindCXXThisExprEE14TraverseIfStmtEPNS_6IfStmtEPN4llvm15SmallVectorImplINS6_14PointerIntPairIPNS_4StmtELj1EbNS6_21PointerLikeTypeTraitsISA_EENS6_18PointerIntPairInfoISA_Lj1ESC_EEEEEE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %38, ptr noundef nonnull %4)
+  %509 = call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_115FindCXXThisExprEE29TraverseMSDependentExistsStmtEPNS_21MSDependentExistsStmtEPN4llvm15SmallVectorImplINS6_14PointerIntPairIPNS_4StmtELj1EbNS6_21PointerLikeTypeTraitsISA_EENS6_18PointerIntPairInfoISA_Lj1ESC_EEEEEE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %38, ptr noundef nonnull %4)
   br i1 %509, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_115FindCXXThisExprEE16dataTraverseNodeEPNS_4StmtEPN4llvm15SmallVectorImplINS6_14PointerIntPairIS5_Lj1EbNS6_21PointerLikeTypeTraitsIS5_EENS6_18PointerIntPairInfoIS5_Lj1ESA_EEEEEE.exit.thread, label %.loopexit
 
 510:                                              ; preds = %44
-  %511 = call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_115FindCXXThisExprEE16TraverseGotoStmtEPNS_8GotoStmtEPN4llvm15SmallVectorImplINS6_14PointerIntPairIPNS_4StmtELj1EbNS6_21PointerLikeTypeTraitsISA_EENS6_18PointerIntPairInfoISA_Lj1ESC_EEEEEE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %38, ptr noundef nonnull %4)
+  %511 = call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_115FindCXXThisExprEE24TraverseIndirectGotoStmtEPNS_16IndirectGotoStmtEPN4llvm15SmallVectorImplINS6_14PointerIntPairIPNS_4StmtELj1EbNS6_21PointerLikeTypeTraitsISA_EENS6_18PointerIntPairInfoISA_Lj1ESC_EEEEEE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %38, ptr noundef nonnull %4)
   br i1 %511, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_115FindCXXThisExprEE16dataTraverseNodeEPNS_4StmtEPN4llvm15SmallVectorImplINS6_14PointerIntPairIS5_Lj1EbNS6_21PointerLikeTypeTraitsIS5_EENS6_18PointerIntPairInfoIS5_Lj1ESA_EEEEEE.exit.thread, label %.loopexit
 
 512:                                              ; preds = %44
-  %513 = call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_115FindCXXThisExprEE15TraverseForStmtEPNS_7ForStmtEPN4llvm15SmallVectorImplINS6_14PointerIntPairIPNS_4StmtELj1EbNS6_21PointerLikeTypeTraitsISA_EENS6_18PointerIntPairInfoISA_Lj1ESC_EEEEEE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %38, ptr noundef nonnull %4)
+  %513 = call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_115FindCXXThisExprEE14TraverseIfStmtEPNS_6IfStmtEPN4llvm15SmallVectorImplINS6_14PointerIntPairIPNS_4StmtELj1EbNS6_21PointerLikeTypeTraitsISA_EENS6_18PointerIntPairInfoISA_Lj1ESC_EEEEEE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %38, ptr noundef nonnull %4)
   br i1 %513, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_115FindCXXThisExprEE16dataTraverseNodeEPNS_4StmtEPN4llvm15SmallVectorImplINS6_14PointerIntPairIS5_Lj1EbNS6_21PointerLikeTypeTraitsIS5_EENS6_18PointerIntPairInfoIS5_Lj1ESA_EEEEEE.exit.thread, label %.loopexit
 
 514:                                              ; preds = %44
-  %515 = call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_115FindCXXThisExprEE14TraverseDoStmtEPNS_6DoStmtEPN4llvm15SmallVectorImplINS6_14PointerIntPairIPNS_4StmtELj1EbNS6_21PointerLikeTypeTraitsISA_EENS6_18PointerIntPairInfoISA_Lj1ESC_EEEEEE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %38, ptr noundef nonnull %4)
+  %515 = call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_115FindCXXThisExprEE16TraverseGotoStmtEPNS_8GotoStmtEPN4llvm15SmallVectorImplINS6_14PointerIntPairIPNS_4StmtELj1EbNS6_21PointerLikeTypeTraitsISA_EENS6_18PointerIntPairInfoISA_Lj1ESC_EEEEEE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %38, ptr noundef nonnull %4)
   br i1 %515, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_115FindCXXThisExprEE16dataTraverseNodeEPNS_4StmtEPN4llvm15SmallVectorImplINS6_14PointerIntPairIS5_Lj1EbNS6_21PointerLikeTypeTraitsIS5_EENS6_18PointerIntPairInfoIS5_Lj1ESA_EEEEEE.exit.thread, label %.loopexit
 
 516:                                              ; preds = %44
-  %517 = call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_115FindCXXThisExprEE16TraverseDeclStmtEPNS_8DeclStmtEPN4llvm15SmallVectorImplINS6_14PointerIntPairIPNS_4StmtELj1EbNS6_21PointerLikeTypeTraitsISA_EENS6_18PointerIntPairInfoISA_Lj1ESC_EEEEEE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %38)
+  %517 = call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_115FindCXXThisExprEE15TraverseForStmtEPNS_7ForStmtEPN4llvm15SmallVectorImplINS6_14PointerIntPairIPNS_4StmtELj1EbNS6_21PointerLikeTypeTraitsISA_EENS6_18PointerIntPairInfoISA_Lj1ESC_EEEEEE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %38, ptr noundef nonnull %4)
   br i1 %517, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_115FindCXXThisExprEE16dataTraverseNodeEPNS_4StmtEPN4llvm15SmallVectorImplINS6_14PointerIntPairIS5_Lj1EbNS6_21PointerLikeTypeTraitsIS5_EENS6_18PointerIntPairInfoIS5_Lj1ESA_EEEEEE.exit.thread, label %.loopexit
 
 518:                                              ; preds = %44
-  %519 = getelementptr inbounds i8, ptr %38, i64 16
-  %520 = load ptr, ptr %519, align 8
-  %521 = call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_115FindCXXThisExprEE12TraverseStmtEPNS_4StmtEPN4llvm15SmallVectorImplINS6_14PointerIntPairIS5_Lj1EbNS6_21PointerLikeTypeTraitsIS5_EENS6_18PointerIntPairInfoIS5_Lj1ESA_EEEEEE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %520, ptr noundef nonnull %4)
+  %519 = call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_115FindCXXThisExprEE14TraverseDoStmtEPNS_6DoStmtEPN4llvm15SmallVectorImplINS6_14PointerIntPairIPNS_4StmtELj1EbNS6_21PointerLikeTypeTraitsISA_EENS6_18PointerIntPairInfoISA_Lj1ESC_EEEEEE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %38, ptr noundef nonnull %4)
+  br i1 %519, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_115FindCXXThisExprEE16dataTraverseNodeEPNS_4StmtEPN4llvm15SmallVectorImplINS6_14PointerIntPairIS5_Lj1EbNS6_21PointerLikeTypeTraitsIS5_EENS6_18PointerIntPairInfoIS5_Lj1ESA_EEEEEE.exit.thread, label %.loopexit
+
+520:                                              ; preds = %44
+  %521 = call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_115FindCXXThisExprEE16TraverseDeclStmtEPNS_8DeclStmtEPN4llvm15SmallVectorImplINS6_14PointerIntPairIPNS_4StmtELj1EbNS6_21PointerLikeTypeTraitsISA_EENS6_18PointerIntPairInfoISA_Lj1ESC_EEEEEE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %38)
   br i1 %521, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_115FindCXXThisExprEE16dataTraverseNodeEPNS_4StmtEPN4llvm15SmallVectorImplINS6_14PointerIntPairIS5_Lj1EbNS6_21PointerLikeTypeTraitsIS5_EENS6_18PointerIntPairInfoIS5_Lj1ESA_EEEEEE.exit.thread, label %.loopexit
 
 522:                                              ; preds = %44
-  %523 = getelementptr inbounds nuw i8, ptr %38, i64 16
+  %523 = getelementptr inbounds i8, ptr %38, i64 16
   %524 = load ptr, ptr %523, align 8
   %525 = call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_115FindCXXThisExprEE12TraverseStmtEPNS_4StmtEPN4llvm15SmallVectorImplINS6_14PointerIntPairIS5_Lj1EbNS6_21PointerLikeTypeTraitsIS5_EENS6_18PointerIntPairInfoIS5_Lj1ESA_EEEEEE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %524, ptr noundef nonnull %4)
   br i1 %525, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_115FindCXXThisExprEE16dataTraverseNodeEPNS_4StmtEPN4llvm15SmallVectorImplINS6_14PointerIntPairIS5_Lj1EbNS6_21PointerLikeTypeTraitsIS5_EENS6_18PointerIntPairInfoIS5_Lj1ESA_EEEEEE.exit.thread, label %.loopexit
 
 526:                                              ; preds = %44
-  %527 = call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_115FindCXXThisExprEE20TraverseContinueStmtEPNS_12ContinueStmtEPN4llvm15SmallVectorImplINS6_14PointerIntPairIPNS_4StmtELj1EbNS6_21PointerLikeTypeTraitsISA_EENS6_18PointerIntPairInfoISA_Lj1ESC_EEEEEE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %38, ptr noundef nonnull %4)
-  br i1 %527, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_115FindCXXThisExprEE16dataTraverseNodeEPNS_4StmtEPN4llvm15SmallVectorImplINS6_14PointerIntPairIS5_Lj1EbNS6_21PointerLikeTypeTraitsIS5_EENS6_18PointerIntPairInfoIS5_Lj1ESA_EEEEEE.exit.thread, label %.loopexit
-
-528:                                              ; preds = %44
-  %529 = call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_115FindCXXThisExprEE20TraverseCompoundStmtEPNS_12CompoundStmtEPN4llvm15SmallVectorImplINS6_14PointerIntPairIPNS_4StmtELj1EbNS6_21PointerLikeTypeTraitsISA_EENS6_18PointerIntPairInfoISA_Lj1ESC_EEEEEE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %38, ptr noundef nonnull %4)
+  %527 = getelementptr inbounds nuw i8, ptr %38, i64 16
+  %528 = load ptr, ptr %527, align 8
+  %529 = call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_115FindCXXThisExprEE12TraverseStmtEPNS_4StmtEPN4llvm15SmallVectorImplINS6_14PointerIntPairIS5_Lj1EbNS6_21PointerLikeTypeTraitsIS5_EENS6_18PointerIntPairInfoIS5_Lj1ESA_EEEEEE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %528, ptr noundef nonnull %4)
   br i1 %529, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_115FindCXXThisExprEE16dataTraverseNodeEPNS_4StmtEPN4llvm15SmallVectorImplINS6_14PointerIntPairIS5_Lj1EbNS6_21PointerLikeTypeTraitsIS5_EENS6_18PointerIntPairInfoIS5_Lj1ESA_EEEEEE.exit.thread, label %.loopexit
 
 530:                                              ; preds = %44
-  %531 = call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_115FindCXXThisExprEE20TraverseCapturedStmtEPNS_12CapturedStmtEPN4llvm15SmallVectorImplINS6_14PointerIntPairIPNS_4StmtELj1EbNS6_21PointerLikeTypeTraitsISA_EENS6_18PointerIntPairInfoISA_Lj1ESC_EEEEEE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %38, ptr noundef nonnull %4)
+  %531 = call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_115FindCXXThisExprEE20TraverseContinueStmtEPNS_12ContinueStmtEPN4llvm15SmallVectorImplINS6_14PointerIntPairIPNS_4StmtELj1EbNS6_21PointerLikeTypeTraitsISA_EENS6_18PointerIntPairInfoISA_Lj1ESC_EEEEEE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %38, ptr noundef nonnull %4)
   br i1 %531, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_115FindCXXThisExprEE16dataTraverseNodeEPNS_4StmtEPN4llvm15SmallVectorImplINS6_14PointerIntPairIS5_Lj1EbNS6_21PointerLikeTypeTraitsIS5_EENS6_18PointerIntPairInfoIS5_Lj1ESA_EEEEEE.exit.thread, label %.loopexit
 
 532:                                              ; preds = %44
-  %533 = call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_115FindCXXThisExprEE18TraverseCXXTryStmtEPNS_10CXXTryStmtEPN4llvm15SmallVectorImplINS6_14PointerIntPairIPNS_4StmtELj1EbNS6_21PointerLikeTypeTraitsISA_EENS6_18PointerIntPairInfoISA_Lj1ESC_EEEEEE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %38, ptr noundef nonnull %4)
+  %533 = call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_115FindCXXThisExprEE20TraverseCompoundStmtEPNS_12CompoundStmtEPN4llvm15SmallVectorImplINS6_14PointerIntPairIPNS_4StmtELj1EbNS6_21PointerLikeTypeTraitsISA_EENS6_18PointerIntPairInfoISA_Lj1ESC_EEEEEE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %38, ptr noundef nonnull %4)
   br i1 %533, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_115FindCXXThisExprEE16dataTraverseNodeEPNS_4StmtEPN4llvm15SmallVectorImplINS6_14PointerIntPairIS5_Lj1EbNS6_21PointerLikeTypeTraitsIS5_EENS6_18PointerIntPairInfoIS5_Lj1ESA_EEEEEE.exit.thread, label %.loopexit
 
 534:                                              ; preds = %44
-  %535 = call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_115FindCXXThisExprEE23TraverseCXXForRangeStmtEPNS_15CXXForRangeStmtEPN4llvm15SmallVectorImplINS6_14PointerIntPairIPNS_4StmtELj1EbNS6_21PointerLikeTypeTraitsISA_EENS6_18PointerIntPairInfoISA_Lj1ESC_EEEEEE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %38, ptr noundef nonnull %4)
+  %535 = call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_115FindCXXThisExprEE20TraverseCapturedStmtEPNS_12CapturedStmtEPN4llvm15SmallVectorImplINS6_14PointerIntPairIPNS_4StmtELj1EbNS6_21PointerLikeTypeTraitsISA_EENS6_18PointerIntPairInfoISA_Lj1ESC_EEEEEE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %38, ptr noundef nonnull %4)
   br i1 %535, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_115FindCXXThisExprEE16dataTraverseNodeEPNS_4StmtEPN4llvm15SmallVectorImplINS6_14PointerIntPairIS5_Lj1EbNS6_21PointerLikeTypeTraitsIS5_EENS6_18PointerIntPairInfoIS5_Lj1ESA_EEEEEE.exit.thread, label %.loopexit
 
 536:                                              ; preds = %44
-  %537 = call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_115FindCXXThisExprEE20TraverseCXXCatchStmtEPNS_12CXXCatchStmtEPN4llvm15SmallVectorImplINS6_14PointerIntPairIPNS_4StmtELj1EbNS6_21PointerLikeTypeTraitsISA_EENS6_18PointerIntPairInfoISA_Lj1ESC_EEEEEE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %38, ptr noundef nonnull %4)
+  %537 = call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_115FindCXXThisExprEE18TraverseCXXTryStmtEPNS_10CXXTryStmtEPN4llvm15SmallVectorImplINS6_14PointerIntPairIPNS_4StmtELj1EbNS6_21PointerLikeTypeTraitsISA_EENS6_18PointerIntPairInfoISA_Lj1ESC_EEEEEE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %38, ptr noundef nonnull %4)
   br i1 %537, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_115FindCXXThisExprEE16dataTraverseNodeEPNS_4StmtEPN4llvm15SmallVectorImplINS6_14PointerIntPairIS5_Lj1EbNS6_21PointerLikeTypeTraitsIS5_EENS6_18PointerIntPairInfoIS5_Lj1ESA_EEEEEE.exit.thread, label %.loopexit
 
 538:                                              ; preds = %44
-  %539 = call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_115FindCXXThisExprEE17TraverseBreakStmtEPNS_9BreakStmtEPN4llvm15SmallVectorImplINS6_14PointerIntPairIPNS_4StmtELj1EbNS6_21PointerLikeTypeTraitsISA_EENS6_18PointerIntPairInfoISA_Lj1ESC_EEEEEE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %38, ptr noundef nonnull %4)
+  %539 = call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_115FindCXXThisExprEE23TraverseCXXForRangeStmtEPNS_15CXXForRangeStmtEPN4llvm15SmallVectorImplINS6_14PointerIntPairIPNS_4StmtELj1EbNS6_21PointerLikeTypeTraitsISA_EENS6_18PointerIntPairInfoISA_Lj1ESC_EEEEEE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %38, ptr noundef nonnull %4)
   br i1 %539, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_115FindCXXThisExprEE16dataTraverseNodeEPNS_4StmtEPN4llvm15SmallVectorImplINS6_14PointerIntPairIS5_Lj1EbNS6_21PointerLikeTypeTraitsIS5_EENS6_18PointerIntPairInfoIS5_Lj1ESA_EEEEEE.exit.thread, label %.loopexit
 
 540:                                              ; preds = %44
-  %541 = call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_115FindCXXThisExprEE17TraverseMSAsmStmtEPNS_9MSAsmStmtEPN4llvm15SmallVectorImplINS6_14PointerIntPairIPNS_4StmtELj1EbNS6_21PointerLikeTypeTraitsISA_EENS6_18PointerIntPairInfoISA_Lj1ESC_EEEEEE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %38, ptr noundef nonnull %4)
+  %541 = call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_115FindCXXThisExprEE20TraverseCXXCatchStmtEPNS_12CXXCatchStmtEPN4llvm15SmallVectorImplINS6_14PointerIntPairIPNS_4StmtELj1EbNS6_21PointerLikeTypeTraitsISA_EENS6_18PointerIntPairInfoISA_Lj1ESC_EEEEEE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %38, ptr noundef nonnull %4)
   br i1 %541, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_115FindCXXThisExprEE16dataTraverseNodeEPNS_4StmtEPN4llvm15SmallVectorImplINS6_14PointerIntPairIS5_Lj1EbNS6_21PointerLikeTypeTraitsIS5_EENS6_18PointerIntPairInfoIS5_Lj1ESA_EEEEEE.exit.thread, label %.loopexit
 
-_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_115FindCXXThisExprEE16dataTraverseNodeEPNS_4StmtEPN4llvm15SmallVectorImplINS6_14PointerIntPairIS5_Lj1EbNS6_21PointerLikeTypeTraitsIS5_EENS6_18PointerIntPairInfoIS5_Lj1ESA_EEEEEE.exit: ; preds = %44
-  %542 = call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_115FindCXXThisExprEE18TraverseGCCAsmStmtEPNS_10GCCAsmStmtEPN4llvm15SmallVectorImplINS6_14PointerIntPairIPNS_4StmtELj1EbNS6_21PointerLikeTypeTraitsISA_EENS6_18PointerIntPairInfoISA_Lj1ESC_EEEEEE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %38, ptr noundef nonnull %4)
-  br i1 %542, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_115FindCXXThisExprEE16dataTraverseNodeEPNS_4StmtEPN4llvm15SmallVectorImplINS6_14PointerIntPairIS5_Lj1EbNS6_21PointerLikeTypeTraitsIS5_EENS6_18PointerIntPairInfoIS5_Lj1ESA_EEEEEE.exit.thread, label %.loopexit
+542:                                              ; preds = %44
+  %543 = call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_115FindCXXThisExprEE17TraverseBreakStmtEPNS_9BreakStmtEPN4llvm15SmallVectorImplINS6_14PointerIntPairIPNS_4StmtELj1EbNS6_21PointerLikeTypeTraitsISA_EENS6_18PointerIntPairInfoISA_Lj1ESC_EEEEEE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %38, ptr noundef nonnull %4)
+  br i1 %543, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_115FindCXXThisExprEE16dataTraverseNodeEPNS_4StmtEPN4llvm15SmallVectorImplINS6_14PointerIntPairIS5_Lj1EbNS6_21PointerLikeTypeTraitsIS5_EENS6_18PointerIntPairInfoIS5_Lj1ESA_EEEEEE.exit.thread, label %.loopexit
 
-_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_115FindCXXThisExprEE16dataTraverseNodeEPNS_4StmtEPN4llvm15SmallVectorImplINS6_14PointerIntPairIS5_Lj1EbNS6_21PointerLikeTypeTraitsIS5_EENS6_18PointerIntPairInfoIS5_Lj1ESA_EEEEEE.exit.thread: ; preds = %44, %48, %50, %52, %54, %56, %58, %60, %62, %64, %66, %68, %70, %72, %74, %76, %78, %80, %82, %84, %86, %88, %90, %92, %94, %96, %98, %100, %102, %104, %106, %108, %110, %112, %114, %116, %118, %120, %122, %124, %126, %128, %130, %132, %134, %136, %138, %140, %142, %144, %146, %148, %150, %152, %154, %156, %158, %160, %162, %164, %166, %168, %170, %172, %174, %176, %178, %180, %182, %184, %186, %190, %192, %196, %200, %202, %204, %206, %208, %210, %212, %214, %216, %218, %220, %222, %224, %226, %228, %230, %232, %234, %236, %238, %240, %242, %244, %246, %248, %250, %252, %254, %256, %258, %260, %262, %264, %266, %268, %270, %272, %274, %276, %278, %280, %282, %284, %288, %290, %292, %294, %296, %298, %300, %302, %304, %306, %308, %310, %312, %314, %316, %318, %320, %322, %324, %326, %328, %330, %332, %334, %336, %338, %340, %342, %344, %346, %348, %350, %352, %354, %356, %358, %360, %362, %364, %366, %368, %370, %372, %374, %376, %378, %380, %382, %384, %386, %388, %390, %392, %394, %396, %398, %400, %402, %404, %406, %408, %410, %412, %414, %416, %418, %420, %422, %424, %426, %428, %430, %432, %434, %436, %438, %440, %442, %444, %446, %448, %450, %452, %454, %456, %458, %460, %462, %464, %466, %468, %470, %472, %474, %476, %478, %480, %482, %484, %486, %488, %490, %492, %494, %496, %498, %502, %504, %506, %508, %510, %512, %514, %516, %518, %522, %526, %528, %530, %532, %534, %536, %538, %540, %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_115FindCXXThisExprEE16dataTraverseNodeEPNS_4StmtEPN4llvm15SmallVectorImplINS6_14PointerIntPairIS5_Lj1EbNS6_21PointerLikeTypeTraitsIS5_EENS6_18PointerIntPairInfoIS5_Lj1ESA_EEEEEE.exit
-  %543 = load ptr, ptr %4, align 8
-  %544 = getelementptr inbounds %"class.llvm::PointerIntPair.3138", ptr %543, i64 %46
-  %545 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %4) #24
-  %546 = getelementptr inbounds %"class.llvm::PointerIntPair.3138", ptr %543, i64 %545
-  %547 = icmp ne i64 %46, %545
-  %.012.i.i = getelementptr inbounds i8, ptr %546, i64 -8
-  %548 = icmp ult ptr %544, %.012.i.i
-  %or.cond.i.i = select i1 %547, i1 %548, i1 false
+544:                                              ; preds = %44
+  %545 = call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_115FindCXXThisExprEE17TraverseMSAsmStmtEPNS_9MSAsmStmtEPN4llvm15SmallVectorImplINS6_14PointerIntPairIPNS_4StmtELj1EbNS6_21PointerLikeTypeTraitsISA_EENS6_18PointerIntPairInfoISA_Lj1ESC_EEEEEE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %38, ptr noundef nonnull %4)
+  br i1 %545, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_115FindCXXThisExprEE16dataTraverseNodeEPNS_4StmtEPN4llvm15SmallVectorImplINS6_14PointerIntPairIS5_Lj1EbNS6_21PointerLikeTypeTraitsIS5_EENS6_18PointerIntPairInfoIS5_Lj1ESA_EEEEEE.exit.thread, label %.loopexit
+
+_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_115FindCXXThisExprEE16dataTraverseNodeEPNS_4StmtEPN4llvm15SmallVectorImplINS6_14PointerIntPairIS5_Lj1EbNS6_21PointerLikeTypeTraitsIS5_EENS6_18PointerIntPairInfoIS5_Lj1ESA_EEEEEE.exit: ; preds = %44
+  %546 = call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_115FindCXXThisExprEE18TraverseGCCAsmStmtEPNS_10GCCAsmStmtEPN4llvm15SmallVectorImplINS6_14PointerIntPairIPNS_4StmtELj1EbNS6_21PointerLikeTypeTraitsISA_EENS6_18PointerIntPairInfoISA_Lj1ESC_EEEEEE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %38, ptr noundef nonnull %4)
+  br i1 %546, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_115FindCXXThisExprEE16dataTraverseNodeEPNS_4StmtEPN4llvm15SmallVectorImplINS6_14PointerIntPairIS5_Lj1EbNS6_21PointerLikeTypeTraitsIS5_EENS6_18PointerIntPairInfoIS5_Lj1ESA_EEEEEE.exit.thread, label %.loopexit
+
+_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_115FindCXXThisExprEE16dataTraverseNodeEPNS_4StmtEPN4llvm15SmallVectorImplINS6_14PointerIntPairIS5_Lj1EbNS6_21PointerLikeTypeTraitsIS5_EENS6_18PointerIntPairInfoIS5_Lj1ESA_EEEEEE.exit.thread: ; preds = %44, %48, %50, %52, %54, %56, %58, %60, %62, %64, %66, %68, %70, %72, %74, %76, %78, %80, %82, %84, %86, %88, %90, %92, %94, %96, %98, %100, %102, %104, %106, %108, %110, %112, %114, %116, %118, %120, %122, %124, %126, %128, %130, %132, %134, %136, %138, %140, %142, %144, %146, %148, %150, %152, %158, %160, %162, %164, %166, %168, %170, %172, %174, %176, %178, %180, %182, %184, %186, %188, %190, %194, %196, %200, %204, %206, %208, %210, %212, %214, %216, %218, %220, %222, %224, %226, %228, %230, %232, %234, %236, %238, %240, %242, %244, %246, %248, %250, %252, %254, %256, %258, %260, %262, %264, %266, %268, %270, %272, %274, %276, %278, %280, %282, %284, %286, %288, %292, %294, %296, %298, %300, %302, %304, %306, %308, %310, %312, %314, %316, %318, %320, %322, %324, %326, %328, %330, %332, %334, %336, %338, %340, %342, %344, %346, %348, %350, %352, %354, %356, %358, %360, %362, %364, %366, %368, %370, %372, %374, %376, %378, %380, %382, %384, %386, %388, %390, %392, %394, %396, %398, %400, %402, %404, %406, %408, %410, %412, %414, %416, %418, %420, %422, %424, %426, %428, %430, %432, %434, %436, %438, %440, %442, %444, %446, %448, %450, %452, %454, %456, %458, %460, %462, %464, %466, %468, %470, %472, %474, %476, %478, %480, %482, %484, %486, %488, %490, %492, %494, %496, %498, %500, %502, %506, %508, %510, %512, %514, %516, %518, %520, %522, %526, %530, %532, %534, %536, %538, %540, %542, %544, %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_115FindCXXThisExprEE16dataTraverseNodeEPNS_4StmtEPN4llvm15SmallVectorImplINS6_14PointerIntPairIS5_Lj1EbNS6_21PointerLikeTypeTraitsIS5_EENS6_18PointerIntPairInfoIS5_Lj1ESA_EEEEEE.exit
+  %547 = load ptr, ptr %4, align 8
+  %548 = getelementptr inbounds %"class.llvm::PointerIntPair.3138", ptr %547, i64 %46
+  %549 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %4) #24
+  %550 = getelementptr inbounds %"class.llvm::PointerIntPair.3138", ptr %547, i64 %549
+  %551 = icmp ne i64 %46, %549
+  %.012.i.i = getelementptr inbounds i8, ptr %550, i64 -8
+  %552 = icmp ult ptr %548, %.012.i.i
+  %or.cond.i.i = select i1 %551, i1 %552, i1 false
   br i1 %or.cond.i.i, label %.lr.ph.i.i, label %.backedge
 
 .lr.ph.i.i:                                       ; preds = %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_115FindCXXThisExprEE16dataTraverseNodeEPNS_4StmtEPN4llvm15SmallVectorImplINS6_14PointerIntPairIS5_Lj1EbNS6_21PointerLikeTypeTraitsIS5_EENS6_18PointerIntPairInfoIS5_Lj1ESA_EEEEEE.exit.thread, %.lr.ph.i.i
   %.014.i.i = phi ptr [ %.0.i.i, %.lr.ph.i.i ], [ %.012.i.i, %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_115FindCXXThisExprEE16dataTraverseNodeEPNS_4StmtEPN4llvm15SmallVectorImplINS6_14PointerIntPairIS5_Lj1EbNS6_21PointerLikeTypeTraitsIS5_EENS6_18PointerIntPairInfoIS5_Lj1ESA_EEEEEE.exit.thread ]
-  %.0913.i.i = phi ptr [ %550, %.lr.ph.i.i ], [ %544, %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_115FindCXXThisExprEE16dataTraverseNodeEPNS_4StmtEPN4llvm15SmallVectorImplINS6_14PointerIntPairIS5_Lj1EbNS6_21PointerLikeTypeTraitsIS5_EENS6_18PointerIntPairInfoIS5_Lj1ESA_EEEEEE.exit.thread ]
+  %.0913.i.i = phi ptr [ %554, %.lr.ph.i.i ], [ %548, %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_115FindCXXThisExprEE16dataTraverseNodeEPNS_4StmtEPN4llvm15SmallVectorImplINS6_14PointerIntPairIS5_Lj1EbNS6_21PointerLikeTypeTraitsIS5_EENS6_18PointerIntPairInfoIS5_Lj1ESA_EEEEEE.exit.thread ]
   %.sroa.0.0.copyload.i.i.i.i = load i64, ptr %.0913.i.i, align 8
-  %549 = load i64, ptr %.014.i.i, align 8
-  store i64 %549, ptr %.0913.i.i, align 8
+  %553 = load i64, ptr %.014.i.i, align 8
+  store i64 %553, ptr %.0913.i.i, align 8
   store i64 %.sroa.0.0.copyload.i.i.i.i, ptr %.014.i.i, align 8
-  %550 = getelementptr inbounds i8, ptr %.0913.i.i, i64 8
+  %554 = getelementptr inbounds i8, ptr %.0913.i.i, i64 8
   %.0.i.i = getelementptr inbounds i8, ptr %.014.i.i, i64 -8
-  %551 = icmp ult ptr %550, %.0.i.i
-  br i1 %551, label %.lr.ph.i.i, label %.backedge, !llvm.loop !479
+  %555 = icmp ult ptr %554, %.0.i.i
+  br i1 %555, label %.lr.ph.i.i, label %.backedge, !llvm.loop !479
 
-.loopexit:                                        ; preds = %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_115FindCXXThisExprEE16dataTraverseNodeEPNS_4StmtEPN4llvm15SmallVectorImplINS6_14PointerIntPairIS5_Lj1EbNS6_21PointerLikeTypeTraitsIS5_EENS6_18PointerIntPairInfoIS5_Lj1ESA_EEEEEE.exit, %.backedge, %540, %538, %536, %534, %532, %530, %528, %526, %522, %518, %516, %514, %512, %510, %508, %506, %504, %502, %498, %496, %494, %492, %490, %488, %486, %484, %482, %480, %478, %476, %474, %472, %470, %468, %466, %464, %462, %460, %458, %456, %454, %452, %450, %448, %446, %444, %442, %440, %438, %436, %434, %432, %430, %428, %426, %424, %422, %420, %418, %416, %414, %412, %410, %408, %406, %404, %402, %400, %398, %396, %394, %392, %390, %388, %386, %384, %382, %380, %378, %376, %374, %372, %370, %368, %366, %364, %362, %360, %358, %356, %354, %352, %350, %348, %346, %344, %342, %340, %338, %336, %334, %332, %330, %328, %326, %324, %322, %320, %318, %316, %314, %312, %310, %308, %306, %304, %302, %300, %298, %296, %294, %292, %290, %288, %284, %282, %280, %278, %276, %274, %272, %270, %268, %266, %264, %262, %260, %258, %256, %254, %252, %250, %248, %246, %244, %242, %240, %238, %236, %234, %232, %230, %228, %226, %224, %222, %220, %218, %216, %214, %212, %210, %208, %206, %204, %202, %200, %196, %192, %190, %186, %184, %182, %180, %178, %176, %174, %172, %170, %168, %166, %164, %162, %160, %158, %156, %154, %152, %150, %148, %146, %144, %142, %140, %138, %136, %134, %132, %130, %128, %126, %124, %122, %120, %118, %116, %114, %112, %110, %108, %106, %104, %102, %100, %98, %96, %94, %92, %90, %88, %86, %84, %82, %80, %78, %76, %74, %72, %70, %68, %66, %64, %62, %60, %58, %56, %54, %52, %50, %48, %_ZN4llvm23SmallVectorTemplateBaseINS_14PointerIntPairIPN5clang4StmtELj1EbNS_21PointerLikeTypeTraitsIS4_EENS_18PointerIntPairInfoIS4_Lj1ES6_EEEELb1EE9push_backES9_.exit19, %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_115FindCXXThisExprEE16dataTraverseNodeEPNS_4StmtEPN4llvm15SmallVectorImplINS6_14PointerIntPairIS5_Lj1EbNS6_21PointerLikeTypeTraitsIS5_EENS6_18PointerIntPairInfoIS5_Lj1ESA_EEEEEE.exit.thread24
-  %552 = phi i1 [ false, %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_115FindCXXThisExprEE16dataTraverseNodeEPNS_4StmtEPN4llvm15SmallVectorImplINS6_14PointerIntPairIS5_Lj1EbNS6_21PointerLikeTypeTraitsIS5_EENS6_18PointerIntPairInfoIS5_Lj1ESA_EEEEEE.exit.thread24 ], [ true, %_ZN4llvm23SmallVectorTemplateBaseINS_14PointerIntPairIPN5clang4StmtELj1EbNS_21PointerLikeTypeTraitsIS4_EENS_18PointerIntPairInfoIS4_Lj1ES6_EEEELb1EE9push_backES9_.exit19 ], [ false, %48 ], [ false, %50 ], [ false, %52 ], [ false, %54 ], [ false, %56 ], [ false, %58 ], [ false, %60 ], [ false, %62 ], [ false, %64 ], [ false, %66 ], [ false, %68 ], [ false, %70 ], [ false, %72 ], [ false, %74 ], [ false, %76 ], [ false, %78 ], [ false, %80 ], [ false, %82 ], [ false, %84 ], [ false, %86 ], [ false, %88 ], [ false, %90 ], [ false, %92 ], [ false, %94 ], [ false, %96 ], [ false, %98 ], [ false, %100 ], [ false, %102 ], [ false, %104 ], [ false, %106 ], [ false, %108 ], [ false, %110 ], [ false, %112 ], [ false, %114 ], [ false, %116 ], [ false, %118 ], [ false, %120 ], [ false, %122 ], [ false, %124 ], [ false, %126 ], [ false, %128 ], [ false, %130 ], [ false, %132 ], [ false, %134 ], [ false, %136 ], [ false, %138 ], [ false, %140 ], [ false, %142 ], [ false, %144 ], [ false, %146 ], [ false, %148 ], [ false, %150 ], [ false, %152 ], [ false, %154 ], [ false, %156 ], [ false, %158 ], [ false, %160 ], [ false, %162 ], [ false, %164 ], [ false, %166 ], [ false, %168 ], [ false, %170 ], [ false, %172 ], [ false, %174 ], [ false, %176 ], [ false, %178 ], [ false, %180 ], [ false, %182 ], [ false, %184 ], [ false, %186 ], [ false, %190 ], [ false, %192 ], [ false, %196 ], [ false, %200 ], [ false, %202 ], [ false, %204 ], [ false, %206 ], [ false, %208 ], [ false, %210 ], [ false, %212 ], [ false, %214 ], [ false, %216 ], [ false, %218 ], [ false, %220 ], [ false, %222 ], [ false, %224 ], [ false, %226 ], [ false, %228 ], [ false, %230 ], [ false, %232 ], [ false, %234 ], [ false, %236 ], [ false, %238 ], [ false, %240 ], [ false, %242 ], [ false, %244 ], [ false, %246 ], [ false, %248 ], [ false, %250 ], [ false, %252 ], [ false, %254 ], [ false, %256 ], [ false, %258 ], [ false, %260 ], [ false, %262 ], [ false, %264 ], [ false, %266 ], [ false, %268 ], [ false, %270 ], [ false, %272 ], [ false, %274 ], [ false, %276 ], [ false, %278 ], [ false, %280 ], [ false, %282 ], [ false, %284 ], [ false, %288 ], [ false, %290 ], [ false, %292 ], [ false, %294 ], [ false, %296 ], [ false, %298 ], [ false, %300 ], [ false, %302 ], [ false, %304 ], [ false, %306 ], [ false, %308 ], [ false, %310 ], [ false, %312 ], [ false, %314 ], [ false, %316 ], [ false, %318 ], [ false, %320 ], [ false, %322 ], [ false, %324 ], [ false, %326 ], [ false, %328 ], [ false, %330 ], [ false, %332 ], [ false, %334 ], [ false, %336 ], [ false, %338 ], [ false, %340 ], [ false, %342 ], [ false, %344 ], [ false, %346 ], [ false, %348 ], [ false, %350 ], [ false, %352 ], [ false, %354 ], [ false, %356 ], [ false, %358 ], [ false, %360 ], [ false, %362 ], [ false, %364 ], [ false, %366 ], [ false, %368 ], [ false, %370 ], [ false, %372 ], [ false, %374 ], [ false, %376 ], [ false, %378 ], [ false, %380 ], [ false, %382 ], [ false, %384 ], [ false, %386 ], [ false, %388 ], [ false, %390 ], [ false, %392 ], [ false, %394 ], [ false, %396 ], [ false, %398 ], [ false, %400 ], [ false, %402 ], [ false, %404 ], [ false, %406 ], [ false, %408 ], [ false, %410 ], [ false, %412 ], [ false, %414 ], [ false, %416 ], [ false, %418 ], [ false, %420 ], [ false, %422 ], [ false, %424 ], [ false, %426 ], [ false, %428 ], [ false, %430 ], [ false, %432 ], [ false, %434 ], [ false, %436 ], [ false, %438 ], [ false, %440 ], [ false, %442 ], [ false, %444 ], [ false, %446 ], [ false, %448 ], [ false, %450 ], [ false, %452 ], [ false, %454 ], [ false, %456 ], [ false, %458 ], [ false, %460 ], [ false, %462 ], [ false, %464 ], [ false, %466 ], [ false, %468 ], [ false, %470 ], [ false, %472 ], [ false, %474 ], [ false, %476 ], [ false, %478 ], [ false, %480 ], [ false, %482 ], [ false, %484 ], [ false, %486 ], [ false, %488 ], [ false, %490 ], [ false, %492 ], [ false, %494 ], [ false, %496 ], [ false, %498 ], [ false, %502 ], [ false, %504 ], [ false, %506 ], [ false, %508 ], [ false, %510 ], [ false, %512 ], [ false, %514 ], [ false, %516 ], [ false, %518 ], [ false, %522 ], [ false, %526 ], [ false, %528 ], [ false, %530 ], [ false, %532 ], [ false, %534 ], [ false, %536 ], [ false, %538 ], [ false, %540 ], [ true, %.backedge ], [ false, %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_115FindCXXThisExprEE16dataTraverseNodeEPNS_4StmtEPN4llvm15SmallVectorImplINS6_14PointerIntPairIS5_Lj1EbNS6_21PointerLikeTypeTraitsIS5_EENS6_18PointerIntPairInfoIS5_Lj1ESA_EEEEEE.exit ]
-  %553 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %4) #24
-  %554 = load ptr, ptr %4, align 8
-  %555 = icmp eq ptr %554, %20
-  br i1 %555, label %_ZN4llvm11SmallVectorINS_14PointerIntPairIPN5clang4StmtELj1EbNS_21PointerLikeTypeTraitsIS4_EENS_18PointerIntPairInfoIS4_Lj1ES6_EEEELj8EED2Ev.exit, label %556
+.loopexit:                                        ; preds = %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_115FindCXXThisExprEE16dataTraverseNodeEPNS_4StmtEPN4llvm15SmallVectorImplINS6_14PointerIntPairIS5_Lj1EbNS6_21PointerLikeTypeTraitsIS5_EENS6_18PointerIntPairInfoIS5_Lj1ESA_EEEEEE.exit, %.backedge, %544, %542, %540, %538, %536, %534, %532, %530, %526, %522, %520, %518, %516, %514, %512, %510, %508, %506, %502, %500, %498, %496, %494, %492, %490, %488, %486, %484, %482, %480, %478, %476, %474, %472, %470, %468, %466, %464, %462, %460, %458, %456, %454, %452, %450, %448, %446, %444, %442, %440, %438, %436, %434, %432, %430, %428, %426, %424, %422, %420, %418, %416, %414, %412, %410, %408, %406, %404, %402, %400, %398, %396, %394, %392, %390, %388, %386, %384, %382, %380, %378, %376, %374, %372, %370, %368, %366, %364, %362, %360, %358, %356, %354, %352, %350, %348, %346, %344, %342, %340, %338, %336, %334, %332, %330, %328, %326, %324, %322, %320, %318, %316, %314, %312, %310, %308, %306, %304, %302, %300, %298, %296, %294, %292, %288, %286, %284, %282, %280, %278, %276, %274, %272, %270, %268, %266, %264, %262, %260, %258, %256, %254, %252, %250, %248, %246, %244, %242, %240, %238, %236, %234, %232, %230, %228, %226, %224, %222, %220, %218, %216, %214, %212, %210, %208, %206, %204, %200, %196, %194, %190, %188, %186, %184, %182, %180, %178, %176, %174, %172, %170, %168, %166, %164, %162, %160, %158, %152, %150, %148, %146, %144, %142, %140, %138, %136, %134, %132, %130, %128, %126, %124, %122, %120, %118, %116, %114, %112, %110, %108, %106, %104, %102, %100, %98, %96, %94, %92, %90, %88, %86, %84, %82, %80, %78, %76, %74, %72, %70, %68, %66, %64, %62, %60, %58, %56, %54, %52, %50, %48, %_ZN4llvm23SmallVectorTemplateBaseINS_14PointerIntPairIPN5clang4StmtELj1EbNS_21PointerLikeTypeTraitsIS4_EENS_18PointerIntPairInfoIS4_Lj1ES6_EEEELb1EE9push_backES9_.exit19, %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_115FindCXXThisExprEE16dataTraverseNodeEPNS_4StmtEPN4llvm15SmallVectorImplINS6_14PointerIntPairIS5_Lj1EbNS6_21PointerLikeTypeTraitsIS5_EENS6_18PointerIntPairInfoIS5_Lj1ESA_EEEEEE.exit.thread24
+  %556 = phi i1 [ false, %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_115FindCXXThisExprEE16dataTraverseNodeEPNS_4StmtEPN4llvm15SmallVectorImplINS6_14PointerIntPairIS5_Lj1EbNS6_21PointerLikeTypeTraitsIS5_EENS6_18PointerIntPairInfoIS5_Lj1ESA_EEEEEE.exit.thread24 ], [ true, %_ZN4llvm23SmallVectorTemplateBaseINS_14PointerIntPairIPN5clang4StmtELj1EbNS_21PointerLikeTypeTraitsIS4_EENS_18PointerIntPairInfoIS4_Lj1ES6_EEEELb1EE9push_backES9_.exit19 ], [ false, %48 ], [ false, %50 ], [ false, %52 ], [ false, %54 ], [ false, %56 ], [ false, %58 ], [ false, %60 ], [ false, %62 ], [ false, %64 ], [ false, %66 ], [ false, %68 ], [ false, %70 ], [ false, %72 ], [ false, %74 ], [ false, %76 ], [ false, %78 ], [ false, %80 ], [ false, %82 ], [ false, %84 ], [ false, %86 ], [ false, %88 ], [ false, %90 ], [ false, %92 ], [ false, %94 ], [ false, %96 ], [ false, %98 ], [ false, %100 ], [ false, %102 ], [ false, %104 ], [ false, %106 ], [ false, %108 ], [ false, %110 ], [ false, %112 ], [ false, %114 ], [ false, %116 ], [ false, %118 ], [ false, %120 ], [ false, %122 ], [ false, %124 ], [ false, %126 ], [ false, %128 ], [ false, %130 ], [ false, %132 ], [ false, %134 ], [ false, %136 ], [ false, %138 ], [ false, %140 ], [ false, %142 ], [ false, %144 ], [ false, %146 ], [ false, %148 ], [ false, %150 ], [ false, %152 ], [ false, %158 ], [ false, %160 ], [ false, %162 ], [ false, %164 ], [ false, %166 ], [ false, %168 ], [ false, %170 ], [ false, %172 ], [ false, %174 ], [ false, %176 ], [ false, %178 ], [ false, %180 ], [ false, %182 ], [ false, %184 ], [ false, %186 ], [ false, %188 ], [ false, %190 ], [ false, %194 ], [ false, %196 ], [ false, %200 ], [ false, %204 ], [ false, %206 ], [ false, %208 ], [ false, %210 ], [ false, %212 ], [ false, %214 ], [ false, %216 ], [ false, %218 ], [ false, %220 ], [ false, %222 ], [ false, %224 ], [ false, %226 ], [ false, %228 ], [ false, %230 ], [ false, %232 ], [ false, %234 ], [ false, %236 ], [ false, %238 ], [ false, %240 ], [ false, %242 ], [ false, %244 ], [ false, %246 ], [ false, %248 ], [ false, %250 ], [ false, %252 ], [ false, %254 ], [ false, %256 ], [ false, %258 ], [ false, %260 ], [ false, %262 ], [ false, %264 ], [ false, %266 ], [ false, %268 ], [ false, %270 ], [ false, %272 ], [ false, %274 ], [ false, %276 ], [ false, %278 ], [ false, %280 ], [ false, %282 ], [ false, %284 ], [ false, %286 ], [ false, %288 ], [ false, %292 ], [ false, %294 ], [ false, %296 ], [ false, %298 ], [ false, %300 ], [ false, %302 ], [ false, %304 ], [ false, %306 ], [ false, %308 ], [ false, %310 ], [ false, %312 ], [ false, %314 ], [ false, %316 ], [ false, %318 ], [ false, %320 ], [ false, %322 ], [ false, %324 ], [ false, %326 ], [ false, %328 ], [ false, %330 ], [ false, %332 ], [ false, %334 ], [ false, %336 ], [ false, %338 ], [ false, %340 ], [ false, %342 ], [ false, %344 ], [ false, %346 ], [ false, %348 ], [ false, %350 ], [ false, %352 ], [ false, %354 ], [ false, %356 ], [ false, %358 ], [ false, %360 ], [ false, %362 ], [ false, %364 ], [ false, %366 ], [ false, %368 ], [ false, %370 ], [ false, %372 ], [ false, %374 ], [ false, %376 ], [ false, %378 ], [ false, %380 ], [ false, %382 ], [ false, %384 ], [ false, %386 ], [ false, %388 ], [ false, %390 ], [ false, %392 ], [ false, %394 ], [ false, %396 ], [ false, %398 ], [ false, %400 ], [ false, %402 ], [ false, %404 ], [ false, %406 ], [ false, %408 ], [ false, %410 ], [ false, %412 ], [ false, %414 ], [ false, %416 ], [ false, %418 ], [ false, %420 ], [ false, %422 ], [ false, %424 ], [ false, %426 ], [ false, %428 ], [ false, %430 ], [ false, %432 ], [ false, %434 ], [ false, %436 ], [ false, %438 ], [ false, %440 ], [ false, %442 ], [ false, %444 ], [ false, %446 ], [ false, %448 ], [ false, %450 ], [ false, %452 ], [ false, %454 ], [ false, %456 ], [ false, %458 ], [ false, %460 ], [ false, %462 ], [ false, %464 ], [ false, %466 ], [ false, %468 ], [ false, %470 ], [ false, %472 ], [ false, %474 ], [ false, %476 ], [ false, %478 ], [ false, %480 ], [ false, %482 ], [ false, %484 ], [ false, %486 ], [ false, %488 ], [ false, %490 ], [ false, %492 ], [ false, %494 ], [ false, %496 ], [ false, %498 ], [ false, %500 ], [ false, %502 ], [ false, %506 ], [ false, %508 ], [ false, %510 ], [ false, %512 ], [ false, %514 ], [ false, %516 ], [ false, %518 ], [ false, %520 ], [ false, %522 ], [ false, %526 ], [ false, %530 ], [ false, %532 ], [ false, %534 ], [ false, %536 ], [ false, %538 ], [ false, %540 ], [ false, %542 ], [ false, %544 ], [ true, %.backedge ], [ false, %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_115FindCXXThisExprEE16dataTraverseNodeEPNS_4StmtEPN4llvm15SmallVectorImplINS6_14PointerIntPairIS5_Lj1EbNS6_21PointerLikeTypeTraitsIS5_EENS6_18PointerIntPairInfoIS5_Lj1ESA_EEEEEE.exit ]
+  %557 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %4) #24
+  %558 = load ptr, ptr %4, align 8
+  %559 = icmp eq ptr %558, %20
+  br i1 %559, label %_ZN4llvm11SmallVectorINS_14PointerIntPairIPN5clang4StmtELj1EbNS_21PointerLikeTypeTraitsIS4_EENS_18PointerIntPairInfoIS4_Lj1ES6_EEEELj8EED2Ev.exit, label %560
 
-556:                                              ; preds = %.loopexit
-  call void @free(ptr noundef %554) #24
+560:                                              ; preds = %.loopexit
+  call void @free(ptr noundef %558) #24
   br label %_ZN4llvm11SmallVectorINS_14PointerIntPairIPN5clang4StmtELj1EbNS_21PointerLikeTypeTraitsIS4_EENS_18PointerIntPairInfoIS4_Lj1ES6_EEEELj8EED2Ev.exit
 
-_ZN4llvm11SmallVectorINS_14PointerIntPairIPN5clang4StmtELj1EbNS_21PointerLikeTypeTraitsIS4_EENS_18PointerIntPairInfoIS4_Lj1ES6_EEEELj8EED2Ev.exit: ; preds = %556, %.loopexit, %3, %_ZN4llvm23SmallVectorTemplateBaseINS_14PointerIntPairIPN5clang4StmtELj1EbNS_21PointerLikeTypeTraitsIS4_EENS_18PointerIntPairInfoIS4_Lj1ES6_EEEELb1EE9push_backES9_.exit
-  %.0 = phi i1 [ true, %_ZN4llvm23SmallVectorTemplateBaseINS_14PointerIntPairIPN5clang4StmtELj1EbNS_21PointerLikeTypeTraitsIS4_EENS_18PointerIntPairInfoIS4_Lj1ES6_EEEELb1EE9push_backES9_.exit ], [ true, %3 ], [ %552, %.loopexit ], [ %552, %556 ]
+_ZN4llvm11SmallVectorINS_14PointerIntPairIPN5clang4StmtELj1EbNS_21PointerLikeTypeTraitsIS4_EENS_18PointerIntPairInfoIS4_Lj1ES6_EEEELj8EED2Ev.exit: ; preds = %560, %.loopexit, %3, %_ZN4llvm23SmallVectorTemplateBaseINS_14PointerIntPairIPN5clang4StmtELj1EbNS_21PointerLikeTypeTraitsIS4_EENS_18PointerIntPairInfoIS4_Lj1ES6_EEEELb1EE9push_backES9_.exit
+  %.0 = phi i1 [ true, %_ZN4llvm23SmallVectorTemplateBaseINS_14PointerIntPairIPN5clang4StmtELj1EbNS_21PointerLikeTypeTraitsIS4_EENS_18PointerIntPairInfoIS4_Lj1ES6_EEEELb1EE9push_backES9_.exit ], [ true, %3 ], [ %556, %.loopexit ], [ %556, %560 ]
   ret i1 %.0
 }
 
@@ -121772,7 +121781,7 @@ define internal fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIZNS_4S
 
 _ZNK5clang15DeclarationName11getNameKindEv.exit:  ; preds = %2, %7
   %.0.i = phi i32 [ %11, %7 ], [ %6, %2 ]
-  switch i32 %.0.i, label %42 [
+  switch i32 %.0.i, label %40 [
     i32 3, label %12
     i32 4, label %12
     i32 5, label %12
@@ -121786,14 +121795,14 @@ _ZNK5clang15DeclarationName11getNameKindEv.exit:  ; preds = %2, %7
   %15 = load ptr, ptr %14, align 8
   %.not11 = icmp eq ptr %15, null
   %.not = select i1 %switch.i, i1 true, i1 %.not11
-  br i1 %.not, label %42, label %16
+  br i1 %.not, label %40, label %16
 
 16:                                               ; preds = %12
   %.sroa.0.0.copyload.i6 = load i64, ptr %15, align 8
   %17 = getelementptr inbounds i8, ptr %15, i64 8
   %18 = inttoptr i64 %.sroa.0.0.copyload.i6 to ptr
   %19 = tail call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIZNS_4Sema33DiagnoseImmediateEscalatingReasonEPNS_12FunctionDeclEE37ImmediateEscalatingExpressionsVisitorE15TraverseTypeLocENS_7TypeLocE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr %18, ptr nonnull %17)
-  br i1 %19, label %42, label %43
+  br i1 %19, label %40, label %41
 
 20:                                               ; preds = %_ZNK5clang15DeclarationName11getNameKindEv.exit
   %21 = and i64 %.sroa.0.0.copyload.i, 7
@@ -121820,42 +121829,41 @@ _ZNK5clang15DeclarationName28getCXXDeductionGuideTemplateEv.exit: ; preds = %20,
   store i64 %29, ptr %3, align 8
   %30 = call noundef ptr @_ZNK5clang12TemplateName26getAsDependentTemplateNameEv(ptr noundef nonnull align 8 dereferenceable(8) %3) #24
   %.not.i9 = icmp eq ptr %30, null
-  br i1 %.not.i9, label %35, label %31
+  br i1 %.not.i9, label %34, label %31
 
 31:                                               ; preds = %_ZNK5clang15DeclarationName28getCXXDeductionGuideTemplateEv.exit
   %32 = getelementptr inbounds nuw i8, ptr %30, i64 8
   %.0.copyload.i.i.i.i.i = load i64, ptr %32, align 8
   %33 = and i64 %.0.copyload.i.i.i.i.i, -8
-  %34 = inttoptr i64 %33 to ptr
-  call fastcc void @_ZN5clang19RecursiveASTVisitorIZNS_4Sema33DiagnoseImmediateEscalatingReasonEPNS_12FunctionDeclEE37ImmediateEscalatingExpressionsVisitorE27TraverseNestedNameSpecifierEPNS_19NestedNameSpecifierE(ptr noundef %34)
+  br label %.sink.split.i
+
+34:                                               ; preds = %_ZNK5clang15DeclarationName28getCXXDeductionGuideTemplateEv.exit
+  %35 = call noundef ptr @_ZNK5clang12TemplateName26getAsQualifiedTemplateNameEv(ptr noundef nonnull align 8 dereferenceable(8) %3) #24
+  %.not9.i = icmp eq ptr %35, null
+  br i1 %.not9.i, label %_ZN5clang19RecursiveASTVisitorIZNS_4Sema33DiagnoseImmediateEscalatingReasonEPNS_12FunctionDeclEE37ImmediateEscalatingExpressionsVisitorE20TraverseTemplateNameENS_12TemplateNameE.exit, label %36
+
+36:                                               ; preds = %34
+  %37 = getelementptr inbounds nuw i8, ptr %35, i64 8
+  %.0.copyload.i.i.i.i11.i = load i64, ptr %37, align 8
+  %38 = and i64 %.0.copyload.i.i.i.i11.i, -8
+  %.not10.i = icmp eq i64 %38, 0
+  br i1 %.not10.i, label %_ZN5clang19RecursiveASTVisitorIZNS_4Sema33DiagnoseImmediateEscalatingReasonEPNS_12FunctionDeclEE37ImmediateEscalatingExpressionsVisitorE20TraverseTemplateNameENS_12TemplateNameE.exit, label %.sink.split.i
+
+.sink.split.i:                                    ; preds = %36, %31
+  %.sink1.i = phi i64 [ %33, %31 ], [ %38, %36 ]
+  %39 = inttoptr i64 %.sink1.i to ptr
+  call fastcc void @_ZN5clang19RecursiveASTVisitorIZNS_4Sema33DiagnoseImmediateEscalatingReasonEPNS_12FunctionDeclEE37ImmediateEscalatingExpressionsVisitorE27TraverseNestedNameSpecifierEPNS_19NestedNameSpecifierE(ptr noundef %39)
   br label %_ZN5clang19RecursiveASTVisitorIZNS_4Sema33DiagnoseImmediateEscalatingReasonEPNS_12FunctionDeclEE37ImmediateEscalatingExpressionsVisitorE20TraverseTemplateNameENS_12TemplateNameE.exit
 
-35:                                               ; preds = %_ZNK5clang15DeclarationName28getCXXDeductionGuideTemplateEv.exit
-  %36 = call noundef ptr @_ZNK5clang12TemplateName26getAsQualifiedTemplateNameEv(ptr noundef nonnull align 8 dereferenceable(8) %3) #24
-  %.not9.i = icmp eq ptr %36, null
-  br i1 %.not9.i, label %_ZN5clang19RecursiveASTVisitorIZNS_4Sema33DiagnoseImmediateEscalatingReasonEPNS_12FunctionDeclEE37ImmediateEscalatingExpressionsVisitorE20TraverseTemplateNameENS_12TemplateNameE.exit, label %37
-
-37:                                               ; preds = %35
-  %38 = getelementptr inbounds nuw i8, ptr %36, i64 8
-  %.0.copyload.i.i.i.i11.i = load i64, ptr %38, align 8
-  %39 = and i64 %.0.copyload.i.i.i.i11.i, -8
-  %.not10.i = icmp eq i64 %39, 0
-  br i1 %.not10.i, label %_ZN5clang19RecursiveASTVisitorIZNS_4Sema33DiagnoseImmediateEscalatingReasonEPNS_12FunctionDeclEE37ImmediateEscalatingExpressionsVisitorE20TraverseTemplateNameENS_12TemplateNameE.exit, label %40
-
-40:                                               ; preds = %37
-  %41 = inttoptr i64 %39 to ptr
-  call fastcc void @_ZN5clang19RecursiveASTVisitorIZNS_4Sema33DiagnoseImmediateEscalatingReasonEPNS_12FunctionDeclEE37ImmediateEscalatingExpressionsVisitorE27TraverseNestedNameSpecifierEPNS_19NestedNameSpecifierE(ptr noundef nonnull %41)
-  br label %_ZN5clang19RecursiveASTVisitorIZNS_4Sema33DiagnoseImmediateEscalatingReasonEPNS_12FunctionDeclEE37ImmediateEscalatingExpressionsVisitorE20TraverseTemplateNameENS_12TemplateNameE.exit
-
-_ZN5clang19RecursiveASTVisitorIZNS_4Sema33DiagnoseImmediateEscalatingReasonEPNS_12FunctionDeclEE37ImmediateEscalatingExpressionsVisitorE20TraverseTemplateNameENS_12TemplateNameE.exit: ; preds = %31, %35, %37, %40
+_ZN5clang19RecursiveASTVisitorIZNS_4Sema33DiagnoseImmediateEscalatingReasonEPNS_12FunctionDeclEE37ImmediateEscalatingExpressionsVisitorE20TraverseTemplateNameENS_12TemplateNameE.exit: ; preds = %34, %36, %.sink.split.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
-  br label %42
+  br label %40
 
-42:                                               ; preds = %_ZN5clang19RecursiveASTVisitorIZNS_4Sema33DiagnoseImmediateEscalatingReasonEPNS_12FunctionDeclEE37ImmediateEscalatingExpressionsVisitorE20TraverseTemplateNameENS_12TemplateNameE.exit, %12, %16, %_ZNK5clang15DeclarationName11getNameKindEv.exit
-  br label %43
+40:                                               ; preds = %_ZN5clang19RecursiveASTVisitorIZNS_4Sema33DiagnoseImmediateEscalatingReasonEPNS_12FunctionDeclEE37ImmediateEscalatingExpressionsVisitorE20TraverseTemplateNameENS_12TemplateNameE.exit, %12, %16, %_ZNK5clang15DeclarationName11getNameKindEv.exit
+  br label %41
 
-43:                                               ; preds = %16, %42
-  %.0 = phi i1 [ true, %42 ], [ false, %16 ]
+41:                                               ; preds = %16, %40
+  %.0 = phi i1 [ true, %40 ], [ false, %16 ]
   ret i1 %.0
 }
 
@@ -122536,34 +122544,33 @@ define internal fastcc void @_ZN5clang19RecursiveASTVisitorIZNS_4Sema33DiagnoseI
   store i64 %.sroa.0.0.copyload.i, ptr %2, align 8
   %4 = call noundef ptr @_ZNK5clang12TemplateName26getAsDependentTemplateNameEv(ptr noundef nonnull align 8 dereferenceable(8) %2) #24
   %.not.i = icmp eq ptr %4, null
-  br i1 %.not.i, label %9, label %5
+  br i1 %.not.i, label %8, label %5
 
 5:                                                ; preds = %1
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %.0.copyload.i.i.i.i.i = load i64, ptr %6, align 8
   %7 = and i64 %.0.copyload.i.i.i.i.i, -8
-  %8 = inttoptr i64 %7 to ptr
-  call fastcc void @_ZN5clang19RecursiveASTVisitorIZNS_4Sema33DiagnoseImmediateEscalatingReasonEPNS_12FunctionDeclEE37ImmediateEscalatingExpressionsVisitorE27TraverseNestedNameSpecifierEPNS_19NestedNameSpecifierE(ptr noundef %8)
+  br label %.sink.split.i
+
+8:                                                ; preds = %1
+  %9 = call noundef ptr @_ZNK5clang12TemplateName26getAsQualifiedTemplateNameEv(ptr noundef nonnull align 8 dereferenceable(8) %2) #24
+  %.not9.i = icmp eq ptr %9, null
+  br i1 %.not9.i, label %_ZN5clang19RecursiveASTVisitorIZNS_4Sema33DiagnoseImmediateEscalatingReasonEPNS_12FunctionDeclEE37ImmediateEscalatingExpressionsVisitorE20TraverseTemplateNameENS_12TemplateNameE.exit, label %10
+
+10:                                               ; preds = %8
+  %11 = getelementptr inbounds nuw i8, ptr %9, i64 8
+  %.0.copyload.i.i.i.i11.i = load i64, ptr %11, align 8
+  %12 = and i64 %.0.copyload.i.i.i.i11.i, -8
+  %.not10.i = icmp eq i64 %12, 0
+  br i1 %.not10.i, label %_ZN5clang19RecursiveASTVisitorIZNS_4Sema33DiagnoseImmediateEscalatingReasonEPNS_12FunctionDeclEE37ImmediateEscalatingExpressionsVisitorE20TraverseTemplateNameENS_12TemplateNameE.exit, label %.sink.split.i
+
+.sink.split.i:                                    ; preds = %10, %5
+  %.sink1.i = phi i64 [ %7, %5 ], [ %12, %10 ]
+  %13 = inttoptr i64 %.sink1.i to ptr
+  call fastcc void @_ZN5clang19RecursiveASTVisitorIZNS_4Sema33DiagnoseImmediateEscalatingReasonEPNS_12FunctionDeclEE37ImmediateEscalatingExpressionsVisitorE27TraverseNestedNameSpecifierEPNS_19NestedNameSpecifierE(ptr noundef %13)
   br label %_ZN5clang19RecursiveASTVisitorIZNS_4Sema33DiagnoseImmediateEscalatingReasonEPNS_12FunctionDeclEE37ImmediateEscalatingExpressionsVisitorE20TraverseTemplateNameENS_12TemplateNameE.exit
 
-9:                                                ; preds = %1
-  %10 = call noundef ptr @_ZNK5clang12TemplateName26getAsQualifiedTemplateNameEv(ptr noundef nonnull align 8 dereferenceable(8) %2) #24
-  %.not9.i = icmp eq ptr %10, null
-  br i1 %.not9.i, label %_ZN5clang19RecursiveASTVisitorIZNS_4Sema33DiagnoseImmediateEscalatingReasonEPNS_12FunctionDeclEE37ImmediateEscalatingExpressionsVisitorE20TraverseTemplateNameENS_12TemplateNameE.exit, label %11
-
-11:                                               ; preds = %9
-  %12 = getelementptr inbounds nuw i8, ptr %10, i64 8
-  %.0.copyload.i.i.i.i11.i = load i64, ptr %12, align 8
-  %13 = and i64 %.0.copyload.i.i.i.i11.i, -8
-  %.not10.i = icmp eq i64 %13, 0
-  br i1 %.not10.i, label %_ZN5clang19RecursiveASTVisitorIZNS_4Sema33DiagnoseImmediateEscalatingReasonEPNS_12FunctionDeclEE37ImmediateEscalatingExpressionsVisitorE20TraverseTemplateNameENS_12TemplateNameE.exit, label %14
-
-14:                                               ; preds = %11
-  %15 = inttoptr i64 %13 to ptr
-  call fastcc void @_ZN5clang19RecursiveASTVisitorIZNS_4Sema33DiagnoseImmediateEscalatingReasonEPNS_12FunctionDeclEE37ImmediateEscalatingExpressionsVisitorE27TraverseNestedNameSpecifierEPNS_19NestedNameSpecifierE(ptr noundef nonnull %15)
-  br label %_ZN5clang19RecursiveASTVisitorIZNS_4Sema33DiagnoseImmediateEscalatingReasonEPNS_12FunctionDeclEE37ImmediateEscalatingExpressionsVisitorE20TraverseTemplateNameENS_12TemplateNameE.exit
-
-_ZN5clang19RecursiveASTVisitorIZNS_4Sema33DiagnoseImmediateEscalatingReasonEPNS_12FunctionDeclEE37ImmediateEscalatingExpressionsVisitorE20TraverseTemplateNameENS_12TemplateNameE.exit: ; preds = %5, %9, %11, %14
+_ZN5clang19RecursiveASTVisitorIZNS_4Sema33DiagnoseImmediateEscalatingReasonEPNS_12FunctionDeclEE37ImmediateEscalatingExpressionsVisitorE20TraverseTemplateNameENS_12TemplateNameE.exit: ; preds = %8, %10, %.sink.split.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2)
   ret void
 }
@@ -123184,63 +123191,62 @@ define internal fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIZNS_4S
   store i64 %.sroa.0.0.copyload.i, ptr %4, align 8
   %7 = call noundef ptr @_ZNK5clang12TemplateName26getAsDependentTemplateNameEv(ptr noundef nonnull align 8 dereferenceable(8) %4) #24
   %.not.i = icmp eq ptr %7, null
-  br i1 %.not.i, label %12, label %8
+  br i1 %.not.i, label %11, label %8
 
 8:                                                ; preds = %3
   %9 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %.0.copyload.i.i.i.i.i = load i64, ptr %9, align 8
   %10 = and i64 %.0.copyload.i.i.i.i.i, -8
-  %11 = inttoptr i64 %10 to ptr
-  call fastcc void @_ZN5clang19RecursiveASTVisitorIZNS_4Sema33DiagnoseImmediateEscalatingReasonEPNS_12FunctionDeclEE37ImmediateEscalatingExpressionsVisitorE27TraverseNestedNameSpecifierEPNS_19NestedNameSpecifierE(ptr noundef %11)
+  br label %.sink.split.i
+
+11:                                               ; preds = %3
+  %12 = call noundef ptr @_ZNK5clang12TemplateName26getAsQualifiedTemplateNameEv(ptr noundef nonnull align 8 dereferenceable(8) %4) #24
+  %.not9.i = icmp eq ptr %12, null
+  br i1 %.not9.i, label %_ZN5clang19RecursiveASTVisitorIZNS_4Sema33DiagnoseImmediateEscalatingReasonEPNS_12FunctionDeclEE37ImmediateEscalatingExpressionsVisitorE20TraverseTemplateNameENS_12TemplateNameE.exit, label %13
+
+13:                                               ; preds = %11
+  %14 = getelementptr inbounds nuw i8, ptr %12, i64 8
+  %.0.copyload.i.i.i.i11.i = load i64, ptr %14, align 8
+  %15 = and i64 %.0.copyload.i.i.i.i11.i, -8
+  %.not10.i = icmp eq i64 %15, 0
+  br i1 %.not10.i, label %_ZN5clang19RecursiveASTVisitorIZNS_4Sema33DiagnoseImmediateEscalatingReasonEPNS_12FunctionDeclEE37ImmediateEscalatingExpressionsVisitorE20TraverseTemplateNameENS_12TemplateNameE.exit, label %.sink.split.i
+
+.sink.split.i:                                    ; preds = %13, %8
+  %.sink1.i = phi i64 [ %10, %8 ], [ %15, %13 ]
+  %16 = inttoptr i64 %.sink1.i to ptr
+  call fastcc void @_ZN5clang19RecursiveASTVisitorIZNS_4Sema33DiagnoseImmediateEscalatingReasonEPNS_12FunctionDeclEE37ImmediateEscalatingExpressionsVisitorE27TraverseNestedNameSpecifierEPNS_19NestedNameSpecifierE(ptr noundef %16)
   br label %_ZN5clang19RecursiveASTVisitorIZNS_4Sema33DiagnoseImmediateEscalatingReasonEPNS_12FunctionDeclEE37ImmediateEscalatingExpressionsVisitorE20TraverseTemplateNameENS_12TemplateNameE.exit
 
-12:                                               ; preds = %3
-  %13 = call noundef ptr @_ZNK5clang12TemplateName26getAsQualifiedTemplateNameEv(ptr noundef nonnull align 8 dereferenceable(8) %4) #24
-  %.not9.i = icmp eq ptr %13, null
-  br i1 %.not9.i, label %_ZN5clang19RecursiveASTVisitorIZNS_4Sema33DiagnoseImmediateEscalatingReasonEPNS_12FunctionDeclEE37ImmediateEscalatingExpressionsVisitorE20TraverseTemplateNameENS_12TemplateNameE.exit, label %14
-
-14:                                               ; preds = %12
-  %15 = getelementptr inbounds nuw i8, ptr %13, i64 8
-  %.0.copyload.i.i.i.i11.i = load i64, ptr %15, align 8
-  %16 = and i64 %.0.copyload.i.i.i.i11.i, -8
-  %.not10.i = icmp eq i64 %16, 0
-  br i1 %.not10.i, label %_ZN5clang19RecursiveASTVisitorIZNS_4Sema33DiagnoseImmediateEscalatingReasonEPNS_12FunctionDeclEE37ImmediateEscalatingExpressionsVisitorE20TraverseTemplateNameENS_12TemplateNameE.exit, label %17
-
-17:                                               ; preds = %14
-  %18 = inttoptr i64 %16 to ptr
-  call fastcc void @_ZN5clang19RecursiveASTVisitorIZNS_4Sema33DiagnoseImmediateEscalatingReasonEPNS_12FunctionDeclEE37ImmediateEscalatingExpressionsVisitorE27TraverseNestedNameSpecifierEPNS_19NestedNameSpecifierE(ptr noundef nonnull %18)
-  br label %_ZN5clang19RecursiveASTVisitorIZNS_4Sema33DiagnoseImmediateEscalatingReasonEPNS_12FunctionDeclEE37ImmediateEscalatingExpressionsVisitorE20TraverseTemplateNameENS_12TemplateNameE.exit
-
-_ZN5clang19RecursiveASTVisitorIZNS_4Sema33DiagnoseImmediateEscalatingReasonEPNS_12FunctionDeclEE37ImmediateEscalatingExpressionsVisitorE20TraverseTemplateNameENS_12TemplateNameE.exit: ; preds = %8, %12, %14, %17
+_ZN5clang19RecursiveASTVisitorIZNS_4Sema33DiagnoseImmediateEscalatingReasonEPNS_12FunctionDeclEE37ImmediateEscalatingExpressionsVisitorE20TraverseTemplateNameENS_12TemplateNameE.exit: ; preds = %11, %13, %.sink.split.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
-  %19 = getelementptr inbounds nuw i8, ptr %1, i64 20
-  %20 = load i32, ptr %19, align 4
-  %.not12 = icmp eq i32 %20, 0
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 20
+  %18 = load i32, ptr %17, align 4
+  %.not12 = icmp eq i32 %18, 0
   br i1 %.not12, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %_ZN5clang19RecursiveASTVisitorIZNS_4Sema33DiagnoseImmediateEscalatingReasonEPNS_12FunctionDeclEE37ImmediateEscalatingExpressionsVisitorE20TraverseTemplateNameENS_12TemplateNameE.exit
-  %21 = getelementptr inbounds i8, ptr %1, i64 48
-  %22 = getelementptr inbounds i8, ptr %2, i64 16
-  %23 = getelementptr inbounds nuw i8, ptr %5, i64 24
-  %24 = zext i32 %20 to i64
-  br label %25
+  %19 = getelementptr inbounds i8, ptr %1, i64 48
+  %20 = getelementptr inbounds i8, ptr %2, i64 16
+  %21 = getelementptr inbounds nuw i8, ptr %5, i64 24
+  %22 = zext i32 %18 to i64
+  br label %23
 
-25:                                               ; preds = %25, %.lr.ph
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %25 ]
+23:                                               ; preds = %23, %.lr.ph
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %23 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !661)
-  %26 = getelementptr inbounds %"class.clang::TemplateArgument", ptr %21, i64 %indvars.iv
-  %27 = getelementptr inbounds %"struct.clang::TemplateArgumentLocInfo", ptr %22, i64 %indvars.iv
-  %.sroa.0.0.copyload.i.i = load i64, ptr %27, align 8, !noalias !661
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(24) %26, i64 24, i1 false)
-  store i64 %.sroa.0.0.copyload.i.i, ptr %23, align 8, !alias.scope !661
-  %28 = call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIZNS_4Sema33DiagnoseImmediateEscalatingReasonEPNS_12FunctionDeclEE37ImmediateEscalatingExpressionsVisitorE27TraverseTemplateArgumentLocERKNS_19TemplateArgumentLocE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 8 dereferenceable(32) %5)
+  %24 = getelementptr inbounds %"class.clang::TemplateArgument", ptr %19, i64 %indvars.iv
+  %25 = getelementptr inbounds %"struct.clang::TemplateArgumentLocInfo", ptr %20, i64 %indvars.iv
+  %.sroa.0.0.copyload.i.i = load i64, ptr %25, align 8, !noalias !661
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(24) %24, i64 24, i1 false)
+  store i64 %.sroa.0.0.copyload.i.i, ptr %21, align 8, !alias.scope !661
+  %26 = call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIZNS_4Sema33DiagnoseImmediateEscalatingReasonEPNS_12FunctionDeclEE37ImmediateEscalatingExpressionsVisitorE27TraverseTemplateArgumentLocERKNS_19TemplateArgumentLocE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 8 dereferenceable(32) %5)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %.not = icmp ne i64 %indvars.iv.next, %24
-  %or.cond.not = select i1 %28, i1 %.not, i1 false
-  br i1 %or.cond.not, label %25, label %._crit_edge, !llvm.loop !664
+  %.not = icmp ne i64 %indvars.iv.next, %22
+  %or.cond.not = select i1 %26, i1 %.not, i1 false
+  br i1 %or.cond.not, label %23, label %._crit_edge, !llvm.loop !664
 
-._crit_edge:                                      ; preds = %25, %_ZN5clang19RecursiveASTVisitorIZNS_4Sema33DiagnoseImmediateEscalatingReasonEPNS_12FunctionDeclEE37ImmediateEscalatingExpressionsVisitorE20TraverseTemplateNameENS_12TemplateNameE.exit
-  %.not.lcssa = phi i1 [ true, %_ZN5clang19RecursiveASTVisitorIZNS_4Sema33DiagnoseImmediateEscalatingReasonEPNS_12FunctionDeclEE37ImmediateEscalatingExpressionsVisitorE20TraverseTemplateNameENS_12TemplateNameE.exit ], [ %28, %25 ]
+._crit_edge:                                      ; preds = %23, %_ZN5clang19RecursiveASTVisitorIZNS_4Sema33DiagnoseImmediateEscalatingReasonEPNS_12FunctionDeclEE37ImmediateEscalatingExpressionsVisitorE20TraverseTemplateNameENS_12TemplateNameE.exit
+  %.not.lcssa = phi i1 [ true, %_ZN5clang19RecursiveASTVisitorIZNS_4Sema33DiagnoseImmediateEscalatingReasonEPNS_12FunctionDeclEE37ImmediateEscalatingExpressionsVisitorE20TraverseTemplateNameENS_12TemplateNameE.exit ], [ %26, %23 ]
   ret i1 %.not.lcssa
 }
 
@@ -123279,8 +123285,8 @@ define internal fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIZNS_4S
   %4 = load i32, ptr %1, align 8
   %5 = and i32 %4, 2147483647
   switch i32 %5, label %_ZN5clang19RecursiveASTVisitorIZNS_4Sema33DiagnoseImmediateEscalatingReasonEPNS_12FunctionDeclEE37ImmediateEscalatingExpressionsVisitorE25TraverseTemplateArgumentsEN4llvm8ArrayRefINS_16TemplateArgumentEEE.exit [
-    i32 9, label %42
-    i32 8, label %37
+    i32 9, label %40
+    i32 8, label %35
     i32 7, label %14
     i32 6, label %14
     i32 1, label %6
@@ -123328,65 +123334,64 @@ _ZNK5clang19TemplateArgumentLoc23getTemplateQualifierLocEv.exit.thread: ; preds 
   call void @_ZN5clang12TemplateNameC1EPv(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef %24) #24
   %25 = call noundef ptr @_ZNK5clang12TemplateName26getAsDependentTemplateNameEv(ptr noundef nonnull align 8 dereferenceable(8) %3) #24
   %.not.i29 = icmp eq ptr %25, null
-  br i1 %.not.i29, label %30, label %26
+  br i1 %.not.i29, label %29, label %26
 
 26:                                               ; preds = %_ZNK5clang19TemplateArgumentLoc23getTemplateQualifierLocEv.exit.thread
   %27 = getelementptr inbounds nuw i8, ptr %25, i64 8
   %.0.copyload.i.i.i.i.i = load i64, ptr %27, align 8
   %28 = and i64 %.0.copyload.i.i.i.i.i, -8
-  %29 = inttoptr i64 %28 to ptr
-  call fastcc void @_ZN5clang19RecursiveASTVisitorIZNS_4Sema33DiagnoseImmediateEscalatingReasonEPNS_12FunctionDeclEE37ImmediateEscalatingExpressionsVisitorE27TraverseNestedNameSpecifierEPNS_19NestedNameSpecifierE(ptr noundef %29)
+  br label %.sink.split.i
+
+29:                                               ; preds = %_ZNK5clang19TemplateArgumentLoc23getTemplateQualifierLocEv.exit.thread
+  %30 = call noundef ptr @_ZNK5clang12TemplateName26getAsQualifiedTemplateNameEv(ptr noundef nonnull align 8 dereferenceable(8) %3) #24
+  %.not9.i = icmp eq ptr %30, null
+  br i1 %.not9.i, label %_ZN5clang19RecursiveASTVisitorIZNS_4Sema33DiagnoseImmediateEscalatingReasonEPNS_12FunctionDeclEE37ImmediateEscalatingExpressionsVisitorE20TraverseTemplateNameENS_12TemplateNameE.exit, label %31
+
+31:                                               ; preds = %29
+  %32 = getelementptr inbounds nuw i8, ptr %30, i64 8
+  %.0.copyload.i.i.i.i11.i = load i64, ptr %32, align 8
+  %33 = and i64 %.0.copyload.i.i.i.i11.i, -8
+  %.not10.i = icmp eq i64 %33, 0
+  br i1 %.not10.i, label %_ZN5clang19RecursiveASTVisitorIZNS_4Sema33DiagnoseImmediateEscalatingReasonEPNS_12FunctionDeclEE37ImmediateEscalatingExpressionsVisitorE20TraverseTemplateNameENS_12TemplateNameE.exit, label %.sink.split.i
+
+.sink.split.i:                                    ; preds = %31, %26
+  %.sink1.i = phi i64 [ %28, %26 ], [ %33, %31 ]
+  %34 = inttoptr i64 %.sink1.i to ptr
+  call fastcc void @_ZN5clang19RecursiveASTVisitorIZNS_4Sema33DiagnoseImmediateEscalatingReasonEPNS_12FunctionDeclEE37ImmediateEscalatingExpressionsVisitorE27TraverseNestedNameSpecifierEPNS_19NestedNameSpecifierE(ptr noundef %34)
   br label %_ZN5clang19RecursiveASTVisitorIZNS_4Sema33DiagnoseImmediateEscalatingReasonEPNS_12FunctionDeclEE37ImmediateEscalatingExpressionsVisitorE20TraverseTemplateNameENS_12TemplateNameE.exit
 
-30:                                               ; preds = %_ZNK5clang19TemplateArgumentLoc23getTemplateQualifierLocEv.exit.thread
-  %31 = call noundef ptr @_ZNK5clang12TemplateName26getAsQualifiedTemplateNameEv(ptr noundef nonnull align 8 dereferenceable(8) %3) #24
-  %.not9.i = icmp eq ptr %31, null
-  br i1 %.not9.i, label %_ZN5clang19RecursiveASTVisitorIZNS_4Sema33DiagnoseImmediateEscalatingReasonEPNS_12FunctionDeclEE37ImmediateEscalatingExpressionsVisitorE20TraverseTemplateNameENS_12TemplateNameE.exit, label %32
-
-32:                                               ; preds = %30
-  %33 = getelementptr inbounds nuw i8, ptr %31, i64 8
-  %.0.copyload.i.i.i.i11.i = load i64, ptr %33, align 8
-  %34 = and i64 %.0.copyload.i.i.i.i11.i, -8
-  %.not10.i = icmp eq i64 %34, 0
-  br i1 %.not10.i, label %_ZN5clang19RecursiveASTVisitorIZNS_4Sema33DiagnoseImmediateEscalatingReasonEPNS_12FunctionDeclEE37ImmediateEscalatingExpressionsVisitorE20TraverseTemplateNameENS_12TemplateNameE.exit, label %35
-
-35:                                               ; preds = %32
-  %36 = inttoptr i64 %34 to ptr
-  call fastcc void @_ZN5clang19RecursiveASTVisitorIZNS_4Sema33DiagnoseImmediateEscalatingReasonEPNS_12FunctionDeclEE37ImmediateEscalatingExpressionsVisitorE27TraverseNestedNameSpecifierEPNS_19NestedNameSpecifierE(ptr noundef nonnull %36)
-  br label %_ZN5clang19RecursiveASTVisitorIZNS_4Sema33DiagnoseImmediateEscalatingReasonEPNS_12FunctionDeclEE37ImmediateEscalatingExpressionsVisitorE20TraverseTemplateNameENS_12TemplateNameE.exit
-
-_ZN5clang19RecursiveASTVisitorIZNS_4Sema33DiagnoseImmediateEscalatingReasonEPNS_12FunctionDeclEE37ImmediateEscalatingExpressionsVisitorE20TraverseTemplateNameENS_12TemplateNameE.exit: ; preds = %26, %30, %32, %35
+_ZN5clang19RecursiveASTVisitorIZNS_4Sema33DiagnoseImmediateEscalatingReasonEPNS_12FunctionDeclEE37ImmediateEscalatingExpressionsVisitorE20TraverseTemplateNameENS_12TemplateNameE.exit: ; preds = %29, %31, %.sink.split.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
   br label %_ZN5clang19RecursiveASTVisitorIZNS_4Sema33DiagnoseImmediateEscalatingReasonEPNS_12FunctionDeclEE37ImmediateEscalatingExpressionsVisitorE25TraverseTemplateArgumentsEN4llvm8ArrayRefINS_16TemplateArgumentEEE.exit
 
-37:                                               ; preds = %2
-  %38 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %.0.copyload.i.i.i.i.i.i.i.i.i.i30 = load i64, ptr %38, align 8
-  %39 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i.i30, -4
-  %40 = inttoptr i64 %39 to ptr
-  %41 = tail call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIZNS_4Sema33DiagnoseImmediateEscalatingReasonEPNS_12FunctionDeclEE37ImmediateEscalatingExpressionsVisitorE12TraverseStmtEPNS_4StmtEPN4llvm15SmallVectorImplINS8_14PointerIntPairIS7_Lj1EbNS8_21PointerLikeTypeTraitsIS7_EENS8_18PointerIntPairInfoIS7_Lj1ESC_EEEEEE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %40, ptr noundef null)
+35:                                               ; preds = %2
+  %36 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %.0.copyload.i.i.i.i.i.i.i.i.i.i30 = load i64, ptr %36, align 8
+  %37 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i.i30, -4
+  %38 = inttoptr i64 %37 to ptr
+  %39 = tail call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIZNS_4Sema33DiagnoseImmediateEscalatingReasonEPNS_12FunctionDeclEE37ImmediateEscalatingExpressionsVisitorE12TraverseStmtEPNS_4StmtEPN4llvm15SmallVectorImplINS8_14PointerIntPairIS7_Lj1EbNS8_21PointerLikeTypeTraitsIS7_EENS8_18PointerIntPairInfoIS7_Lj1ESC_EEEEEE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %38, ptr noundef null)
   br label %_ZN5clang19RecursiveASTVisitorIZNS_4Sema33DiagnoseImmediateEscalatingReasonEPNS_12FunctionDeclEE37ImmediateEscalatingExpressionsVisitorE25TraverseTemplateArgumentsEN4llvm8ArrayRefINS_16TemplateArgumentEEE.exit
 
-42:                                               ; preds = %2
-  %43 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %44 = load ptr, ptr %43, align 8
-  %45 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %46 = load i32, ptr %45, align 4
-  %47 = zext i32 %46 to i64
-  %48 = getelementptr inbounds %"class.clang::TemplateArgument", ptr %44, i64 %47
-  %.not.i3341 = icmp eq i32 %46, 0
+40:                                               ; preds = %2
+  %41 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %42 = load ptr, ptr %41, align 8
+  %43 = getelementptr inbounds nuw i8, ptr %1, i64 4
+  %44 = load i32, ptr %43, align 4
+  %45 = zext i32 %44 to i64
+  %46 = getelementptr inbounds %"class.clang::TemplateArgument", ptr %42, i64 %45
+  %.not.i3341 = icmp eq i32 %44, 0
   br i1 %.not.i3341, label %_ZN5clang19RecursiveASTVisitorIZNS_4Sema33DiagnoseImmediateEscalatingReasonEPNS_12FunctionDeclEE37ImmediateEscalatingExpressionsVisitorE25TraverseTemplateArgumentsEN4llvm8ArrayRefINS_16TemplateArgumentEEE.exit, label %.lr.ph
 
-.lr.ph:                                           ; preds = %42, %.lr.ph
-  %.09.i42 = phi ptr [ %50, %.lr.ph ], [ %44, %42 ]
-  %49 = tail call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIZNS_4Sema33DiagnoseImmediateEscalatingReasonEPNS_12FunctionDeclEE37ImmediateEscalatingExpressionsVisitorE24TraverseTemplateArgumentERKNS_16TemplateArgumentE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 8 dereferenceable(24) %.09.i42)
-  %50 = getelementptr inbounds i8, ptr %.09.i42, i64 24
-  %.not.i33 = icmp ne ptr %50, %48
-  %or.cond.not = select i1 %49, i1 %.not.i33, i1 false
+.lr.ph:                                           ; preds = %40, %.lr.ph
+  %.09.i42 = phi ptr [ %48, %.lr.ph ], [ %42, %40 ]
+  %47 = tail call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIZNS_4Sema33DiagnoseImmediateEscalatingReasonEPNS_12FunctionDeclEE37ImmediateEscalatingExpressionsVisitorE24TraverseTemplateArgumentERKNS_16TemplateArgumentE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 8 dereferenceable(24) %.09.i42)
+  %48 = getelementptr inbounds i8, ptr %.09.i42, i64 24
+  %.not.i33 = icmp ne ptr %48, %46
+  %or.cond.not = select i1 %47, i1 %.not.i33, i1 false
   br i1 %or.cond.not, label %.lr.ph, label %_ZN5clang19RecursiveASTVisitorIZNS_4Sema33DiagnoseImmediateEscalatingReasonEPNS_12FunctionDeclEE37ImmediateEscalatingExpressionsVisitorE25TraverseTemplateArgumentsEN4llvm8ArrayRefINS_16TemplateArgumentEEE.exit
 
-_ZN5clang19RecursiveASTVisitorIZNS_4Sema33DiagnoseImmediateEscalatingReasonEPNS_12FunctionDeclEE37ImmediateEscalatingExpressionsVisitorE25TraverseTemplateArgumentsEN4llvm8ArrayRefINS_16TemplateArgumentEEE.exit: ; preds = %.lr.ph, %42, %6, %2, %_ZNK5clang19TemplateArgumentLoc23getTemplateQualifierLocEv.exit28, %37, %_ZN5clang19RecursiveASTVisitorIZNS_4Sema33DiagnoseImmediateEscalatingReasonEPNS_12FunctionDeclEE37ImmediateEscalatingExpressionsVisitorE20TraverseTemplateNameENS_12TemplateNameE.exit, %9
-  %.0 = phi i1 [ %41, %37 ], [ true, %_ZN5clang19RecursiveASTVisitorIZNS_4Sema33DiagnoseImmediateEscalatingReasonEPNS_12FunctionDeclEE37ImmediateEscalatingExpressionsVisitorE20TraverseTemplateNameENS_12TemplateNameE.exit ], [ %13, %9 ], [ false, %_ZNK5clang19TemplateArgumentLoc23getTemplateQualifierLocEv.exit28 ], [ true, %2 ], [ true, %6 ], [ true, %42 ], [ %49, %.lr.ph ]
+_ZN5clang19RecursiveASTVisitorIZNS_4Sema33DiagnoseImmediateEscalatingReasonEPNS_12FunctionDeclEE37ImmediateEscalatingExpressionsVisitorE25TraverseTemplateArgumentsEN4llvm8ArrayRefINS_16TemplateArgumentEEE.exit: ; preds = %.lr.ph, %40, %6, %2, %_ZNK5clang19TemplateArgumentLoc23getTemplateQualifierLocEv.exit28, %35, %_ZN5clang19RecursiveASTVisitorIZNS_4Sema33DiagnoseImmediateEscalatingReasonEPNS_12FunctionDeclEE37ImmediateEscalatingExpressionsVisitorE20TraverseTemplateNameENS_12TemplateNameE.exit, %9
+  %.0 = phi i1 [ %39, %35 ], [ true, %_ZN5clang19RecursiveASTVisitorIZNS_4Sema33DiagnoseImmediateEscalatingReasonEPNS_12FunctionDeclEE37ImmediateEscalatingExpressionsVisitorE20TraverseTemplateNameENS_12TemplateNameE.exit ], [ %13, %9 ], [ false, %_ZNK5clang19TemplateArgumentLoc23getTemplateQualifierLocEv.exit28 ], [ true, %2 ], [ true, %6 ], [ true, %40 ], [ %47, %.lr.ph ]
   ret i1 %.0
 }
 
@@ -123398,8 +123403,8 @@ define internal fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIZNS_4S
   %4 = load i32, ptr %1, align 8
   %5 = and i32 %4, 2147483647
   switch i32 %5, label %_ZN5clang19RecursiveASTVisitorIZNS_4Sema33DiagnoseImmediateEscalatingReasonEPNS_12FunctionDeclEE37ImmediateEscalatingExpressionsVisitorE25TraverseTemplateArgumentsEN4llvm8ArrayRefINS_16TemplateArgumentEEE.exit [
-    i32 9, label %26
-    i32 8, label %21
+    i32 9, label %24
+    i32 8, label %19
     i32 7, label %6
     i32 6, label %6
   ]
@@ -123411,64 +123416,63 @@ define internal fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIZNS_4S
   call void @_ZN5clang12TemplateNameC1EPv(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef %8) #24
   %9 = call noundef ptr @_ZNK5clang12TemplateName26getAsDependentTemplateNameEv(ptr noundef nonnull align 8 dereferenceable(8) %3) #24
   %.not.i = icmp eq ptr %9, null
-  br i1 %.not.i, label %14, label %10
+  br i1 %.not.i, label %13, label %10
 
 10:                                               ; preds = %6
   %11 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %.0.copyload.i.i.i.i.i = load i64, ptr %11, align 8
   %12 = and i64 %.0.copyload.i.i.i.i.i, -8
-  %13 = inttoptr i64 %12 to ptr
-  call fastcc void @_ZN5clang19RecursiveASTVisitorIZNS_4Sema33DiagnoseImmediateEscalatingReasonEPNS_12FunctionDeclEE37ImmediateEscalatingExpressionsVisitorE27TraverseNestedNameSpecifierEPNS_19NestedNameSpecifierE(ptr noundef %13)
+  br label %.sink.split.i
+
+13:                                               ; preds = %6
+  %14 = call noundef ptr @_ZNK5clang12TemplateName26getAsQualifiedTemplateNameEv(ptr noundef nonnull align 8 dereferenceable(8) %3) #24
+  %.not9.i = icmp eq ptr %14, null
+  br i1 %.not9.i, label %_ZN5clang19RecursiveASTVisitorIZNS_4Sema33DiagnoseImmediateEscalatingReasonEPNS_12FunctionDeclEE37ImmediateEscalatingExpressionsVisitorE20TraverseTemplateNameENS_12TemplateNameE.exit, label %15
+
+15:                                               ; preds = %13
+  %16 = getelementptr inbounds nuw i8, ptr %14, i64 8
+  %.0.copyload.i.i.i.i11.i = load i64, ptr %16, align 8
+  %17 = and i64 %.0.copyload.i.i.i.i11.i, -8
+  %.not10.i = icmp eq i64 %17, 0
+  br i1 %.not10.i, label %_ZN5clang19RecursiveASTVisitorIZNS_4Sema33DiagnoseImmediateEscalatingReasonEPNS_12FunctionDeclEE37ImmediateEscalatingExpressionsVisitorE20TraverseTemplateNameENS_12TemplateNameE.exit, label %.sink.split.i
+
+.sink.split.i:                                    ; preds = %15, %10
+  %.sink1.i = phi i64 [ %12, %10 ], [ %17, %15 ]
+  %18 = inttoptr i64 %.sink1.i to ptr
+  call fastcc void @_ZN5clang19RecursiveASTVisitorIZNS_4Sema33DiagnoseImmediateEscalatingReasonEPNS_12FunctionDeclEE37ImmediateEscalatingExpressionsVisitorE27TraverseNestedNameSpecifierEPNS_19NestedNameSpecifierE(ptr noundef %18)
   br label %_ZN5clang19RecursiveASTVisitorIZNS_4Sema33DiagnoseImmediateEscalatingReasonEPNS_12FunctionDeclEE37ImmediateEscalatingExpressionsVisitorE20TraverseTemplateNameENS_12TemplateNameE.exit
 
-14:                                               ; preds = %6
-  %15 = call noundef ptr @_ZNK5clang12TemplateName26getAsQualifiedTemplateNameEv(ptr noundef nonnull align 8 dereferenceable(8) %3) #24
-  %.not9.i = icmp eq ptr %15, null
-  br i1 %.not9.i, label %_ZN5clang19RecursiveASTVisitorIZNS_4Sema33DiagnoseImmediateEscalatingReasonEPNS_12FunctionDeclEE37ImmediateEscalatingExpressionsVisitorE20TraverseTemplateNameENS_12TemplateNameE.exit, label %16
-
-16:                                               ; preds = %14
-  %17 = getelementptr inbounds nuw i8, ptr %15, i64 8
-  %.0.copyload.i.i.i.i11.i = load i64, ptr %17, align 8
-  %18 = and i64 %.0.copyload.i.i.i.i11.i, -8
-  %.not10.i = icmp eq i64 %18, 0
-  br i1 %.not10.i, label %_ZN5clang19RecursiveASTVisitorIZNS_4Sema33DiagnoseImmediateEscalatingReasonEPNS_12FunctionDeclEE37ImmediateEscalatingExpressionsVisitorE20TraverseTemplateNameENS_12TemplateNameE.exit, label %19
-
-19:                                               ; preds = %16
-  %20 = inttoptr i64 %18 to ptr
-  call fastcc void @_ZN5clang19RecursiveASTVisitorIZNS_4Sema33DiagnoseImmediateEscalatingReasonEPNS_12FunctionDeclEE37ImmediateEscalatingExpressionsVisitorE27TraverseNestedNameSpecifierEPNS_19NestedNameSpecifierE(ptr noundef nonnull %20)
-  br label %_ZN5clang19RecursiveASTVisitorIZNS_4Sema33DiagnoseImmediateEscalatingReasonEPNS_12FunctionDeclEE37ImmediateEscalatingExpressionsVisitorE20TraverseTemplateNameENS_12TemplateNameE.exit
-
-_ZN5clang19RecursiveASTVisitorIZNS_4Sema33DiagnoseImmediateEscalatingReasonEPNS_12FunctionDeclEE37ImmediateEscalatingExpressionsVisitorE20TraverseTemplateNameENS_12TemplateNameE.exit: ; preds = %10, %14, %16, %19
+_ZN5clang19RecursiveASTVisitorIZNS_4Sema33DiagnoseImmediateEscalatingReasonEPNS_12FunctionDeclEE37ImmediateEscalatingExpressionsVisitorE20TraverseTemplateNameENS_12TemplateNameE.exit: ; preds = %13, %15, %.sink.split.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
   br label %_ZN5clang19RecursiveASTVisitorIZNS_4Sema33DiagnoseImmediateEscalatingReasonEPNS_12FunctionDeclEE37ImmediateEscalatingExpressionsVisitorE25TraverseTemplateArgumentsEN4llvm8ArrayRefINS_16TemplateArgumentEEE.exit
 
-21:                                               ; preds = %2
-  %22 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %23 = load i64, ptr %22, align 8
-  %24 = inttoptr i64 %23 to ptr
-  %25 = tail call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIZNS_4Sema33DiagnoseImmediateEscalatingReasonEPNS_12FunctionDeclEE37ImmediateEscalatingExpressionsVisitorE12TraverseStmtEPNS_4StmtEPN4llvm15SmallVectorImplINS8_14PointerIntPairIS7_Lj1EbNS8_21PointerLikeTypeTraitsIS7_EENS8_18PointerIntPairInfoIS7_Lj1ESC_EEEEEE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %24, ptr noundef null)
+19:                                               ; preds = %2
+  %20 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %21 = load i64, ptr %20, align 8
+  %22 = inttoptr i64 %21 to ptr
+  %23 = tail call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIZNS_4Sema33DiagnoseImmediateEscalatingReasonEPNS_12FunctionDeclEE37ImmediateEscalatingExpressionsVisitorE12TraverseStmtEPNS_4StmtEPN4llvm15SmallVectorImplINS8_14PointerIntPairIS7_Lj1EbNS8_21PointerLikeTypeTraitsIS7_EENS8_18PointerIntPairInfoIS7_Lj1ESC_EEEEEE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %22, ptr noundef null)
   br label %_ZN5clang19RecursiveASTVisitorIZNS_4Sema33DiagnoseImmediateEscalatingReasonEPNS_12FunctionDeclEE37ImmediateEscalatingExpressionsVisitorE25TraverseTemplateArgumentsEN4llvm8ArrayRefINS_16TemplateArgumentEEE.exit
 
-26:                                               ; preds = %2
-  %27 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %28 = load ptr, ptr %27, align 8
-  %29 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %30 = load i32, ptr %29, align 4
-  %31 = zext i32 %30 to i64
-  %32 = getelementptr inbounds %"class.clang::TemplateArgument", ptr %28, i64 %31
-  %.not.i911 = icmp eq i32 %30, 0
+24:                                               ; preds = %2
+  %25 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %26 = load ptr, ptr %25, align 8
+  %27 = getelementptr inbounds nuw i8, ptr %1, i64 4
+  %28 = load i32, ptr %27, align 4
+  %29 = zext i32 %28 to i64
+  %30 = getelementptr inbounds %"class.clang::TemplateArgument", ptr %26, i64 %29
+  %.not.i911 = icmp eq i32 %28, 0
   br i1 %.not.i911, label %_ZN5clang19RecursiveASTVisitorIZNS_4Sema33DiagnoseImmediateEscalatingReasonEPNS_12FunctionDeclEE37ImmediateEscalatingExpressionsVisitorE25TraverseTemplateArgumentsEN4llvm8ArrayRefINS_16TemplateArgumentEEE.exit, label %.lr.ph
 
-.lr.ph:                                           ; preds = %26, %.lr.ph
-  %.09.i12 = phi ptr [ %34, %.lr.ph ], [ %28, %26 ]
-  %33 = tail call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIZNS_4Sema33DiagnoseImmediateEscalatingReasonEPNS_12FunctionDeclEE37ImmediateEscalatingExpressionsVisitorE24TraverseTemplateArgumentERKNS_16TemplateArgumentE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 8 dereferenceable(24) %.09.i12)
-  %34 = getelementptr inbounds i8, ptr %.09.i12, i64 24
-  %.not.i9 = icmp ne ptr %34, %32
-  %or.cond.not = select i1 %33, i1 %.not.i9, i1 false
+.lr.ph:                                           ; preds = %24, %.lr.ph
+  %.09.i12 = phi ptr [ %32, %.lr.ph ], [ %26, %24 ]
+  %31 = tail call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIZNS_4Sema33DiagnoseImmediateEscalatingReasonEPNS_12FunctionDeclEE37ImmediateEscalatingExpressionsVisitorE24TraverseTemplateArgumentERKNS_16TemplateArgumentE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 8 dereferenceable(24) %.09.i12)
+  %32 = getelementptr inbounds i8, ptr %.09.i12, i64 24
+  %.not.i9 = icmp ne ptr %32, %30
+  %or.cond.not = select i1 %31, i1 %.not.i9, i1 false
   br i1 %or.cond.not, label %.lr.ph, label %_ZN5clang19RecursiveASTVisitorIZNS_4Sema33DiagnoseImmediateEscalatingReasonEPNS_12FunctionDeclEE37ImmediateEscalatingExpressionsVisitorE25TraverseTemplateArgumentsEN4llvm8ArrayRefINS_16TemplateArgumentEEE.exit
 
-_ZN5clang19RecursiveASTVisitorIZNS_4Sema33DiagnoseImmediateEscalatingReasonEPNS_12FunctionDeclEE37ImmediateEscalatingExpressionsVisitorE25TraverseTemplateArgumentsEN4llvm8ArrayRefINS_16TemplateArgumentEEE.exit: ; preds = %.lr.ph, %26, %2, %21, %_ZN5clang19RecursiveASTVisitorIZNS_4Sema33DiagnoseImmediateEscalatingReasonEPNS_12FunctionDeclEE37ImmediateEscalatingExpressionsVisitorE20TraverseTemplateNameENS_12TemplateNameE.exit
-  %.0 = phi i1 [ %25, %21 ], [ true, %_ZN5clang19RecursiveASTVisitorIZNS_4Sema33DiagnoseImmediateEscalatingReasonEPNS_12FunctionDeclEE37ImmediateEscalatingExpressionsVisitorE20TraverseTemplateNameENS_12TemplateNameE.exit ], [ true, %2 ], [ true, %26 ], [ %33, %.lr.ph ]
+_ZN5clang19RecursiveASTVisitorIZNS_4Sema33DiagnoseImmediateEscalatingReasonEPNS_12FunctionDeclEE37ImmediateEscalatingExpressionsVisitorE25TraverseTemplateArgumentsEN4llvm8ArrayRefINS_16TemplateArgumentEEE.exit: ; preds = %.lr.ph, %24, %2, %19, %_ZN5clang19RecursiveASTVisitorIZNS_4Sema33DiagnoseImmediateEscalatingReasonEPNS_12FunctionDeclEE37ImmediateEscalatingExpressionsVisitorE20TraverseTemplateNameENS_12TemplateNameE.exit
+  %.0 = phi i1 [ %23, %19 ], [ true, %_ZN5clang19RecursiveASTVisitorIZNS_4Sema33DiagnoseImmediateEscalatingReasonEPNS_12FunctionDeclEE37ImmediateEscalatingExpressionsVisitorE20TraverseTemplateNameENS_12TemplateNameE.exit ], [ true, %2 ], [ true, %24 ], [ %31, %.lr.ph ]
   ret i1 %.0
 }
 
@@ -127667,38 +127671,38 @@ define internal fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIZNS_4S
   %.0.copyload.i.i.i.i = load i64, ptr %4, align 8
   %5 = and i64 %.0.copyload.i.i.i.i, 4
   %.not = icmp eq i64 %5, 0
-  br i1 %.not, label %12, label %6
+  br i1 %.not, label %10, label %6
 
 6:                                                ; preds = %3
   %.not.i = icmp ult i64 %.0.copyload.i.i.i.i, 8
-  br i1 %.not.i, label %7, label %9
+  br i1 %.not.i, label %.sink.split, label %7
 
 7:                                                ; preds = %6
-  %8 = tail call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIZNS_4Sema33DiagnoseImmediateEscalatingReasonEPNS_12FunctionDeclEE37ImmediateEscalatingExpressionsVisitorE28TraverseSynOrSemInitListExprEPNS_12InitListExprEPN4llvm15SmallVectorImplINS8_14PointerIntPairIPNS_4StmtELj1EbNS8_21PointerLikeTypeTraitsISC_EENS8_18PointerIntPairInfoISC_Lj1ESE_EEEEEE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %1, ptr noundef %2)
-  br label %21
+  %8 = and i64 %.0.copyload.i.i.i.i, -8
+  %9 = inttoptr i64 %8 to ptr
+  br label %10
 
-9:                                                ; preds = %6
-  %10 = and i64 %.0.copyload.i.i.i.i, -8
-  %11 = inttoptr i64 %10 to ptr
-  br label %12
+10:                                               ; preds = %3, %7
+  %11 = phi ptr [ %9, %7 ], [ %1, %3 ]
+  %12 = tail call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIZNS_4Sema33DiagnoseImmediateEscalatingReasonEPNS_12FunctionDeclEE37ImmediateEscalatingExpressionsVisitorE28TraverseSynOrSemInitListExprEPNS_12InitListExprEPN4llvm15SmallVectorImplINS8_14PointerIntPairIPNS_4StmtELj1EbNS8_21PointerLikeTypeTraitsISC_EENS8_18PointerIntPairInfoISC_Lj1ESE_EEEEEE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %11, ptr noundef %2)
+  br i1 %12, label %13, label %19
 
-12:                                               ; preds = %3, %9
-  %13 = phi ptr [ %11, %9 ], [ %1, %3 ]
-  %14 = tail call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIZNS_4Sema33DiagnoseImmediateEscalatingReasonEPNS_12FunctionDeclEE37ImmediateEscalatingExpressionsVisitorE28TraverseSynOrSemInitListExprEPNS_12InitListExprEPN4llvm15SmallVectorImplINS8_14PointerIntPairIPNS_4StmtELj1EbNS8_21PointerLikeTypeTraitsISC_EENS8_18PointerIntPairInfoISC_Lj1ESE_EEEEEE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %13, ptr noundef %2)
-  br i1 %14, label %15, label %21
-
-15:                                               ; preds = %12
+13:                                               ; preds = %10
   %.0.copyload.i.i.i.i18 = load i64, ptr %4, align 8
-  %16 = and i64 %.0.copyload.i.i.i.i18, 4
-  %.not21 = icmp eq i64 %16, 0
-  %17 = and i64 %.0.copyload.i.i.i.i18, -8
-  %18 = inttoptr i64 %17 to ptr
-  %19 = select i1 %.not21, ptr %18, ptr %1
-  %20 = tail call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIZNS_4Sema33DiagnoseImmediateEscalatingReasonEPNS_12FunctionDeclEE37ImmediateEscalatingExpressionsVisitorE28TraverseSynOrSemInitListExprEPNS_12InitListExprEPN4llvm15SmallVectorImplINS8_14PointerIntPairIPNS_4StmtELj1EbNS8_21PointerLikeTypeTraitsISC_EENS8_18PointerIntPairInfoISC_Lj1ESE_EEEEEE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %19, ptr noundef %2)
-  br label %21
+  %14 = and i64 %.0.copyload.i.i.i.i18, 4
+  %.not21 = icmp eq i64 %14, 0
+  %15 = and i64 %.0.copyload.i.i.i.i18, -8
+  %16 = inttoptr i64 %15 to ptr
+  %17 = select i1 %.not21, ptr %16, ptr %1
+  br label %.sink.split
 
-21:                                               ; preds = %15, %12, %7
-  %.0 = phi i1 [ %8, %7 ], [ false, %12 ], [ %20, %15 ]
+.sink.split:                                      ; preds = %6, %13
+  %.sink = phi ptr [ %17, %13 ], [ %1, %6 ]
+  %18 = tail call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIZNS_4Sema33DiagnoseImmediateEscalatingReasonEPNS_12FunctionDeclEE37ImmediateEscalatingExpressionsVisitorE28TraverseSynOrSemInitListExprEPNS_12InitListExprEPN4llvm15SmallVectorImplINS8_14PointerIntPairIPNS_4StmtELj1EbNS8_21PointerLikeTypeTraitsISC_EENS8_18PointerIntPairInfoISC_Lj1ESE_EEEEEE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %.sink, ptr noundef %2)
+  br label %19
+
+19:                                               ; preds = %.sink.split, %10
+  %.0 = phi i1 [ false, %10 ], [ %18, %.sink.split ]
   ret i1 %.0
 }
 
@@ -176161,37 +176165,6 @@ _ZN5clang16StmtIteratorImplINS_12StmtIteratorERPNS_4StmtEEppEv.exit: ; preds = %
 ._crit_edge:                                      ; preds = %_ZNK5clang16StmtIteratorImplINS_12StmtIteratorERPNS_4StmtEEdeEv.exit, %_ZN5clang16StmtIteratorImplINS_12StmtIteratorERPNS_4StmtEEppEv.exit, %3
   %.not3.i.not.lcssa = phi i1 [ true, %3 ], [ %20, %_ZN5clang16StmtIteratorImplINS_12StmtIteratorERPNS_4StmtEEppEv.exit ], [ %20, %_ZNK5clang16StmtIteratorImplINS_12StmtIteratorERPNS_4StmtEEdeEv.exit ]
   ret i1 %.not3.i.not.lcssa
-}
-
-; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_115FindCXXThisExprEE20TraverseInitListExprEPNS_12InitListExprEPN4llvm15SmallVectorImplINS6_14PointerIntPairIPNS_4StmtELj1EbNS6_21PointerLikeTypeTraitsISA_EENS6_18PointerIntPairInfoISA_Lj1ESC_EEEEEE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 align 2 {
-  %4 = getelementptr inbounds nuw i8, ptr %1, i64 48
-  %.0.copyload.i.i.i.i = load i64, ptr %4, align 8
-  %5 = and i64 %.0.copyload.i.i.i.i, 4
-  %.not = icmp eq i64 %5, 0
-  br i1 %.not, label %12, label %6
-
-6:                                                ; preds = %3
-  %.not.i = icmp ult i64 %.0.copyload.i.i.i.i, 8
-  br i1 %.not.i, label %7, label %9
-
-7:                                                ; preds = %6
-  %8 = tail call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_115FindCXXThisExprEE28TraverseSynOrSemInitListExprEPNS_12InitListExprEPN4llvm15SmallVectorImplINS6_14PointerIntPairIPNS_4StmtELj1EbNS6_21PointerLikeTypeTraitsISA_EENS6_18PointerIntPairInfoISA_Lj1ESC_EEEEEE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %1, ptr noundef %2)
-  br label %15
-
-9:                                                ; preds = %6
-  %10 = and i64 %.0.copyload.i.i.i.i, -8
-  %11 = inttoptr i64 %10 to ptr
-  br label %12
-
-12:                                               ; preds = %3, %9
-  %13 = phi ptr [ %11, %9 ], [ %1, %3 ]
-  %14 = tail call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_115FindCXXThisExprEE28TraverseSynOrSemInitListExprEPNS_12InitListExprEPN4llvm15SmallVectorImplINS6_14PointerIntPairIPNS_4StmtELj1EbNS6_21PointerLikeTypeTraitsISA_EENS6_18PointerIntPairInfoISA_Lj1ESC_EEEEEE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %13, ptr noundef %2)
-  br label %15
-
-15:                                               ; preds = %12, %7
-  %.0 = phi i1 [ %8, %7 ], [ %14, %12 ]
-  ret i1 %.0
 }
 
 ; Function Attrs: mustprogress nounwind uwtable

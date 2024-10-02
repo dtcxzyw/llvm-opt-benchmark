@@ -1274,7 +1274,7 @@ define dso_local void @type_mangle_introspect_name_to_buffer(ptr nocapture nound
 tailrecurse:                                      ; preds = %tailrecurse.backedge, %1
   %.tr = phi ptr [ %0, %1 ], [ %.tr.be, %tailrecurse.backedge ]
   %2 = load i32, ptr %.tr, align 8
-  switch i32 %2, label %66 [
+  switch i32 %2, label %65 [
     i32 42, label %3
     i32 36, label %3
     i32 38, label %3
@@ -1283,252 +1283,250 @@ tailrecurse:                                      ; preds = %tailrecurse.backedg
     i32 43, label %3
     i32 41, label %3
     i32 18, label %3
-    i32 19, label %4
-    i32 1, label %5
-    i32 2, label %5
-    i32 3, label %5
-    i32 4, label %5
-    i32 5, label %5
-    i32 6, label %5
-    i32 7, label %5
-    i32 8, label %5
-    i32 9, label %5
-    i32 10, label %5
-    i32 11, label %5
-    i32 12, label %5
-    i32 14, label %5
-    i32 13, label %5
-    i32 15, label %5
-    i32 16, label %5
-    i32 17, label %5
-    i32 21, label %5
-    i32 22, label %5
-    i32 20, label %8
-    i32 23, label %8
-    i32 34, label %10
-    i32 35, label %12
-    i32 40, label %14
-    i32 37, label %16
-    i32 33, label %21
-    i32 25, label %26
-    i32 24, label %59
-    i32 26, label %59
-    i32 27, label %59
-    i32 29, label %59
-    i32 30, label %59
-    i32 32, label %59
-    i32 28, label %59
-    i32 31, label %64
+    i32 19, label %.loopexit.sink.split
+    i32 1, label %4
+    i32 2, label %4
+    i32 3, label %4
+    i32 4, label %4
+    i32 5, label %4
+    i32 6, label %4
+    i32 7, label %4
+    i32 8, label %4
+    i32 9, label %4
+    i32 10, label %4
+    i32 11, label %4
+    i32 12, label %4
+    i32 14, label %4
+    i32 13, label %4
+    i32 15, label %4
+    i32 16, label %4
+    i32 17, label %4
+    i32 21, label %4
+    i32 22, label %4
+    i32 20, label %7
+    i32 23, label %7
+    i32 34, label %9
+    i32 35, label %11
+    i32 40, label %13
+    i32 37, label %15
+    i32 33, label %20
+    i32 25, label %25
+    i32 24, label %58
+    i32 26, label %58
+    i32 27, label %58
+    i32 29, label %58
+    i32 30, label %58
+    i32 32, label %58
+    i32 28, label %58
+    i32 31, label %63
   ]
 
 3:                                                ; preds = %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse
   tail call void (ptr, ...) @error_exit(ptr noundef nonnull @.str, ptr noundef nonnull @.str.17, ptr noundef nonnull @__func__.type_mangle_introspect_name_to_buffer, ptr noundef nonnull @.str.2, i32 noundef 543) #13
   unreachable
 
-4:                                                ; preds = %tailrecurse
-  tail call void @scratch_buffer_append(ptr noundef nonnull @.str.18) #14
-  br label %.loopexit
+4:                                                ; preds = %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse
+  %5 = getelementptr inbounds i8, ptr %.tr, i64 16
+  %6 = load ptr, ptr %5, align 8
+  br label %.loopexit.sink.split
 
-5:                                                ; preds = %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse
-  %6 = getelementptr inbounds i8, ptr %.tr, i64 16
-  %7 = load ptr, ptr %6, align 8
-  tail call void @scratch_buffer_append(ptr noundef %7) #14
-  br label %.loopexit
-
-8:                                                ; preds = %tailrecurse, %tailrecurse
+7:                                                ; preds = %tailrecurse, %tailrecurse
   tail call void @scratch_buffer_append(ptr noundef nonnull @.str.19) #14
-  %9 = getelementptr inbounds i8, ptr %.tr, i64 56
+  %8 = getelementptr inbounds i8, ptr %.tr, i64 56
   br label %tailrecurse.backedge
 
-tailrecurse.backedge:                             ; preds = %8, %10, %12, %14, %16, %21, %64
-  %.tr.be.in = phi ptr [ %9, %8 ], [ %11, %10 ], [ %13, %12 ], [ %15, %14 ], [ %17, %16 ], [ %22, %21 ], [ %65, %64 ]
+tailrecurse.backedge:                             ; preds = %7, %9, %11, %13, %15, %20, %63
+  %.tr.be.in = phi ptr [ %8, %7 ], [ %10, %9 ], [ %12, %11 ], [ %14, %13 ], [ %16, %15 ], [ %21, %20 ], [ %64, %63 ]
   %.tr.be = load ptr, ptr %.tr.be.in, align 8
   br label %tailrecurse
 
-10:                                               ; preds = %tailrecurse
+9:                                                ; preds = %tailrecurse
   tail call void @scratch_buffer_append(ptr noundef nonnull @.str.20) #14
-  %11 = getelementptr inbounds i8, ptr %.tr, i64 56
+  %10 = getelementptr inbounds i8, ptr %.tr, i64 56
   br label %tailrecurse.backedge
 
-12:                                               ; preds = %tailrecurse
+11:                                               ; preds = %tailrecurse
   tail call void @scratch_buffer_append(ptr noundef nonnull @.str.21) #14
-  %13 = getelementptr inbounds i8, ptr %.tr, i64 56
+  %12 = getelementptr inbounds i8, ptr %.tr, i64 56
   br label %tailrecurse.backedge
 
-14:                                               ; preds = %tailrecurse
+13:                                               ; preds = %tailrecurse
   tail call void @scratch_buffer_append(ptr noundef nonnull @.str.22) #14
-  %15 = getelementptr inbounds i8, ptr %.tr, i64 56
+  %14 = getelementptr inbounds i8, ptr %.tr, i64 56
   br label %tailrecurse.backedge
 
-16:                                               ; preds = %tailrecurse
+15:                                               ; preds = %tailrecurse
   tail call void @scratch_buffer_append_char(i8 noundef signext 118) #14
-  %17 = getelementptr inbounds i8, ptr %.tr, i64 56
-  %18 = getelementptr inbounds i8, ptr %.tr, i64 64
-  %19 = load i32, ptr %18, align 8
-  %20 = zext i32 %19 to i64
-  tail call void @scratch_buffer_append_unsigned_int(i64 noundef %20) #14
+  %16 = getelementptr inbounds i8, ptr %.tr, i64 56
+  %17 = getelementptr inbounds i8, ptr %.tr, i64 64
+  %18 = load i32, ptr %17, align 8
+  %19 = zext i32 %18 to i64
+  tail call void @scratch_buffer_append_unsigned_int(i64 noundef %19) #14
   tail call void @scratch_buffer_append_char(i8 noundef signext 36) #14
   br label %tailrecurse.backedge
 
-21:                                               ; preds = %tailrecurse
+20:                                               ; preds = %tailrecurse
   tail call void @scratch_buffer_append_char(i8 noundef signext 97) #14
-  %22 = getelementptr inbounds i8, ptr %.tr, i64 56
-  %23 = getelementptr inbounds i8, ptr %.tr, i64 64
-  %24 = load i32, ptr %23, align 8
-  %25 = zext i32 %24 to i64
-  tail call void @scratch_buffer_append_unsigned_int(i64 noundef %25) #14
+  %21 = getelementptr inbounds i8, ptr %.tr, i64 56
+  %22 = getelementptr inbounds i8, ptr %.tr, i64 64
+  %23 = load i32, ptr %22, align 8
+  %24 = zext i32 %23 to i64
+  tail call void @scratch_buffer_append_unsigned_int(i64 noundef %24) #14
   tail call void @scratch_buffer_append_char(i8 noundef signext 36) #14
   br label %tailrecurse.backedge
 
-26:                                               ; preds = %tailrecurse
-  %27 = getelementptr inbounds i8, ptr %.tr, i64 72
-  %28 = load ptr, ptr %27, align 8
-  %29 = getelementptr inbounds i8, ptr %28, i64 88
-  %30 = load ptr, ptr %29, align 8
-  %31 = getelementptr inbounds i8, ptr %30, i64 56
-  %32 = load ptr, ptr %31, align 8
-  %.not = icmp eq ptr %32, null
-  br i1 %.not, label %47, label %33
+25:                                               ; preds = %tailrecurse
+  %26 = getelementptr inbounds i8, ptr %.tr, i64 72
+  %27 = load ptr, ptr %26, align 8
+  %28 = getelementptr inbounds i8, ptr %27, i64 88
+  %29 = load ptr, ptr %28, align 8
+  %30 = getelementptr inbounds i8, ptr %29, i64 56
+  %31 = load ptr, ptr %30, align 8
+  %.not = icmp eq ptr %31, null
+  br i1 %.not, label %46, label %32
 
-33:                                               ; preds = %26
-  %34 = getelementptr inbounds i8, ptr %32, i64 56
-  %35 = load ptr, ptr %34, align 8
-  %.not32 = icmp eq ptr %35, null
-  %. = select i1 %.not32, ptr getelementptr inbounds (i8, ptr @global_context, i64 16), ptr %35
-  %36 = load ptr, ptr %., align 8
-  %37 = getelementptr inbounds i8, ptr %36, i64 8
-  %38 = load ptr, ptr %37, align 8
-  %.not33 = icmp eq ptr %38, null
-  br i1 %.not33, label %39, label %43
+32:                                               ; preds = %25
+  %33 = getelementptr inbounds i8, ptr %31, i64 56
+  %34 = load ptr, ptr %33, align 8
+  %.not32 = icmp eq ptr %34, null
+  %. = select i1 %.not32, ptr getelementptr inbounds (i8, ptr @global_context, i64 16), ptr %34
+  %35 = load ptr, ptr %., align 8
+  %36 = getelementptr inbounds i8, ptr %35, i64 8
+  %37 = load ptr, ptr %36, align 8
+  %.not33 = icmp eq ptr %37, null
+  br i1 %.not33, label %38, label %42
 
-39:                                               ; preds = %33
-  %40 = load ptr, ptr %36, align 8
-  %41 = getelementptr inbounds i8, ptr %40, i64 8
-  %42 = load ptr, ptr %41, align 8
-  br label %43
+38:                                               ; preds = %32
+  %39 = load ptr, ptr %35, align 8
+  %40 = getelementptr inbounds i8, ptr %39, i64 8
+  %41 = load ptr, ptr %40, align 8
+  br label %42
 
-43:                                               ; preds = %33, %39
-  %44 = phi ptr [ %42, %39 ], [ %38, %33 ]
-  tail call void @scratch_buffer_append(ptr noundef %44) #14
+42:                                               ; preds = %32, %38
+  %43 = phi ptr [ %41, %38 ], [ %37, %32 ]
+  tail call void @scratch_buffer_append(ptr noundef %43) #14
   tail call void @scratch_buffer_append_char(i8 noundef signext 36) #14
-  %45 = getelementptr inbounds i8, ptr %30, i64 16
-  %46 = load ptr, ptr %45, align 8
-  tail call void @scratch_buffer_append(ptr noundef %46) #14
-  br label %.loopexit
+  %44 = getelementptr inbounds i8, ptr %29, i64 16
+  %45 = load ptr, ptr %44, align 8
+  br label %.loopexit.sink.split
 
-47:                                               ; preds = %26
-  %48 = getelementptr inbounds i8, ptr %30, i64 16
-  %49 = load ptr, ptr %48, align 8
-  %50 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %49) #15
-  %.not41 = icmp eq i64 %50, 0
+46:                                               ; preds = %25
+  %47 = getelementptr inbounds i8, ptr %29, i64 16
+  %48 = load ptr, ptr %47, align 8
+  %49 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %48) #15
+  %.not41 = icmp eq i64 %49, 0
   br i1 %.not41, label %.loopexit, label %.lr.ph
 
-.lr.ph:                                           ; preds = %47, %57
-  %.040 = phi i64 [ %58, %57 ], [ 0, %47 ]
-  %51 = load ptr, ptr %48, align 8
-  %52 = getelementptr inbounds i8, ptr %51, i64 %.040
-  %53 = load i8, ptr %52, align 1
-  switch i8 %53, label %56 [
-    i8 97, label %54
-    i8 98, label %54
-    i8 99, label %54
-    i8 100, label %54
-    i8 101, label %54
-    i8 102, label %54
-    i8 103, label %54
-    i8 104, label %54
-    i8 105, label %54
-    i8 106, label %54
-    i8 107, label %54
-    i8 108, label %54
-    i8 109, label %54
-    i8 110, label %54
-    i8 111, label %54
-    i8 112, label %54
-    i8 113, label %54
-    i8 114, label %54
-    i8 115, label %54
-    i8 116, label %54
-    i8 117, label %54
-    i8 118, label %54
-    i8 119, label %54
-    i8 120, label %54
-    i8 121, label %54
-    i8 122, label %54
-    i8 65, label %54
-    i8 66, label %54
-    i8 67, label %54
-    i8 68, label %54
-    i8 69, label %54
-    i8 70, label %54
-    i8 71, label %54
-    i8 72, label %54
-    i8 73, label %54
-    i8 74, label %54
-    i8 75, label %54
-    i8 76, label %54
-    i8 77, label %54
-    i8 78, label %54
-    i8 79, label %54
-    i8 80, label %54
-    i8 81, label %54
-    i8 82, label %54
-    i8 83, label %54
-    i8 84, label %54
-    i8 85, label %54
-    i8 86, label %54
-    i8 87, label %54
-    i8 88, label %54
-    i8 89, label %54
-    i8 90, label %54
-    i8 48, label %54
-    i8 49, label %54
-    i8 50, label %54
-    i8 51, label %54
-    i8 52, label %54
-    i8 53, label %54
-    i8 54, label %54
-    i8 55, label %54
-    i8 56, label %54
-    i8 57, label %54
-    i8 95, label %54
-    i8 36, label %55
+.lr.ph:                                           ; preds = %46, %56
+  %.040 = phi i64 [ %57, %56 ], [ 0, %46 ]
+  %50 = load ptr, ptr %47, align 8
+  %51 = getelementptr inbounds i8, ptr %50, i64 %.040
+  %52 = load i8, ptr %51, align 1
+  switch i8 %52, label %55 [
+    i8 97, label %53
+    i8 98, label %53
+    i8 99, label %53
+    i8 100, label %53
+    i8 101, label %53
+    i8 102, label %53
+    i8 103, label %53
+    i8 104, label %53
+    i8 105, label %53
+    i8 106, label %53
+    i8 107, label %53
+    i8 108, label %53
+    i8 109, label %53
+    i8 110, label %53
+    i8 111, label %53
+    i8 112, label %53
+    i8 113, label %53
+    i8 114, label %53
+    i8 115, label %53
+    i8 116, label %53
+    i8 117, label %53
+    i8 118, label %53
+    i8 119, label %53
+    i8 120, label %53
+    i8 121, label %53
+    i8 122, label %53
+    i8 65, label %53
+    i8 66, label %53
+    i8 67, label %53
+    i8 68, label %53
+    i8 69, label %53
+    i8 70, label %53
+    i8 71, label %53
+    i8 72, label %53
+    i8 73, label %53
+    i8 74, label %53
+    i8 75, label %53
+    i8 76, label %53
+    i8 77, label %53
+    i8 78, label %53
+    i8 79, label %53
+    i8 80, label %53
+    i8 81, label %53
+    i8 82, label %53
+    i8 83, label %53
+    i8 84, label %53
+    i8 85, label %53
+    i8 86, label %53
+    i8 87, label %53
+    i8 88, label %53
+    i8 89, label %53
+    i8 90, label %53
+    i8 48, label %53
+    i8 49, label %53
+    i8 50, label %53
+    i8 51, label %53
+    i8 52, label %53
+    i8 53, label %53
+    i8 54, label %53
+    i8 55, label %53
+    i8 56, label %53
+    i8 57, label %53
+    i8 95, label %53
+    i8 36, label %54
   ]
 
-54:                                               ; preds = %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph
-  tail call void @scratch_buffer_append_char(i8 noundef signext %53) #14
-  br label %57
+53:                                               ; preds = %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph
+  tail call void @scratch_buffer_append_char(i8 noundef signext %52) #14
+  br label %56
+
+54:                                               ; preds = %.lr.ph
+  tail call void @scratch_buffer_append(ptr noundef nonnull @.str.23) #14
+  br label %56
 
 55:                                               ; preds = %.lr.ph
-  tail call void @scratch_buffer_append(ptr noundef nonnull @.str.23) #14
-  br label %57
-
-56:                                               ; preds = %.lr.ph
   tail call void @scratch_buffer_append_char(i8 noundef signext 36) #14
-  br label %57
+  br label %56
 
-57:                                               ; preds = %56, %55, %54
-  %58 = add nuw i64 %.040, 1
-  %exitcond.not = icmp eq i64 %58, %50
+56:                                               ; preds = %55, %54, %53
+  %57 = add nuw i64 %.040, 1
+  %exitcond.not = icmp eq i64 %57, %49
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !10
 
-59:                                               ; preds = %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse
-  %60 = getelementptr inbounds i8, ptr %.tr, i64 56
-  %61 = load ptr, ptr %60, align 8
-  %62 = getelementptr inbounds i8, ptr %61, i64 8
-  %63 = load ptr, ptr %62, align 8
-  tail call void @scratch_buffer_append(ptr noundef %63) #14
-  br label %.loopexit
+58:                                               ; preds = %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse
+  %59 = getelementptr inbounds i8, ptr %.tr, i64 56
+  %60 = load ptr, ptr %59, align 8
+  %61 = getelementptr inbounds i8, ptr %60, i64 8
+  %62 = load ptr, ptr %61, align 8
+  br label %.loopexit.sink.split
 
-64:                                               ; preds = %tailrecurse
-  %65 = getelementptr inbounds i8, ptr %.tr, i64 8
+63:                                               ; preds = %tailrecurse
+  %64 = getelementptr inbounds i8, ptr %.tr, i64 8
   br label %tailrecurse.backedge
 
-66:                                               ; preds = %tailrecurse
+65:                                               ; preds = %tailrecurse
   tail call void (ptr, ...) @error_exit(ptr noundef nonnull @.str, ptr noundef nonnull @.str.17, ptr noundef nonnull @__func__.type_mangle_introspect_name_to_buffer, ptr noundef nonnull @.str.2, i32 noundef 629) #13
   unreachable
 
-.loopexit:                                        ; preds = %57, %47, %43, %59, %5, %4
+.loopexit.sink.split:                             ; preds = %tailrecurse, %4, %58, %42
+  %.sink = phi ptr [ %45, %42 ], [ %62, %58 ], [ %6, %4 ], [ @.str.18, %tailrecurse ]
+  tail call void @scratch_buffer_append(ptr noundef %.sink) #14
+  br label %.loopexit
+
+.loopexit:                                        ; preds = %56, %.loopexit.sink.split, %46
   ret void
 }
 

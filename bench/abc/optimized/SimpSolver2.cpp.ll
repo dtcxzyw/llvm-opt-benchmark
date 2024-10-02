@@ -1587,13 +1587,13 @@ _ZN6Gluco23vecIiED2Ev.exit22:                     ; preds = %.loopexit, %.prehea
 ; Function Attrs: mustprogress uwtable
 define noundef zeroext i1 @_ZN6Gluco210SimpSolver9eliminateEb(ptr noundef nonnull align 8 dereferenceable(1684) %0, i1 noundef zeroext %1) local_unnamed_addr #2 align 2 {
   %3 = tail call noundef zeroext i1 @_ZN6Gluco26Solver8simplifyEv(ptr noundef nonnull align 8 dereferenceable(1416) %0)
-  br i1 %3, label %4, label %226
+  br i1 %3, label %4, label %222
 
 4:                                                ; preds = %2
   %5 = getelementptr inbounds i8, ptr %0, i64 1464
   %6 = load i8, ptr %5, align 8
   %7 = trunc i8 %6 to i1
-  br i1 %7, label %8, label %226
+  br i1 %7, label %8, label %222
 
 8:                                                ; preds = %4
   %9 = getelementptr inbounds i8, ptr %0, i64 608
@@ -1858,7 +1858,7 @@ _ZNK6Gluco210SimpSolver12isEliminatedEi.exit.thread: ; preds = %95, %_ZNK6Gluco2
   br i1 %155, label %_ZN6Gluco24HeapINS_10SimpSolver6ElimLtEE9removeMinEv.exit._crit_edge.backedge, label %.lr.ph, !llvm.loop !14
 
 .critedge:                                        ; preds = %36, %12, %.preheader.i.i, %._crit_edge.i, %140, %120, %55
-  br i1 %1, label %156, label %194
+  br i1 %1, label %156, label %191
 
 156:                                              ; preds = %.critedge
   %157 = getelementptr inbounds i8, ptr %0, i64 1488
@@ -1958,61 +1958,57 @@ _ZN6Gluco25QueueIjE5clearEb.exit:                 ; preds = %_ZN6Gluco24HeapINS_
   %190 = getelementptr inbounds i8, ptr %0, i64 884
   store i8 0, ptr %190, align 4
   tail call void @_ZN6Gluco26Solver16rebuildOrderHeapEv(ptr noundef nonnull align 8 dereferenceable(1416) %0)
-  %191 = load ptr, ptr %0, align 8
-  %192 = getelementptr inbounds i8, ptr %191, i64 24
-  %193 = load ptr, ptr %192, align 8
-  tail call void %193(ptr noundef nonnull align 8 dereferenceable(1684) %0)
-  br label %_ZN6Gluco26Solver12checkGarbageEv.exit
+  br label %_ZN6Gluco26Solver12checkGarbageEv.exit.sink.split
 
-194:                                              ; preds = %.critedge
+191:                                              ; preds = %.critedge
   tail call void @_ZN6Gluco210SimpSolver14cleanUpClausesEv(ptr noundef nonnull align 8 dereferenceable(1684) %0)
-  %195 = getelementptr inbounds i8, ptr %0, i64 248
-  %196 = load double, ptr %195, align 8
-  %197 = getelementptr inbounds i8, ptr %0, i64 880
+  %192 = getelementptr inbounds i8, ptr %0, i64 248
+  %193 = load double, ptr %192, align 8
+  %194 = getelementptr inbounds i8, ptr %0, i64 880
+  %195 = load i32, ptr %194, align 8
+  %196 = uitofp i32 %195 to double
+  %197 = getelementptr inbounds i8, ptr %0, i64 872
   %198 = load i32, ptr %197, align 8
   %199 = uitofp i32 %198 to double
-  %200 = getelementptr inbounds i8, ptr %0, i64 872
-  %201 = load i32, ptr %200, align 8
-  %202 = uitofp i32 %201 to double
-  %203 = fmul double %196, %202
-  %204 = fcmp olt double %203, %199
-  br i1 %204, label %205, label %_ZN6Gluco26Solver12checkGarbageEv.exit
+  %200 = fmul double %193, %199
+  %201 = fcmp olt double %200, %196
+  br i1 %201, label %_ZN6Gluco26Solver12checkGarbageEv.exit.sink.split, label %_ZN6Gluco26Solver12checkGarbageEv.exit
 
-205:                                              ; preds = %194
-  %206 = load ptr, ptr %0, align 8
-  %207 = getelementptr inbounds i8, ptr %206, i64 24
-  %208 = load ptr, ptr %207, align 8
-  tail call void %208(ptr noundef nonnull align 8 dereferenceable(1416) %0)
+_ZN6Gluco26Solver12checkGarbageEv.exit.sink.split: ; preds = %191, %_ZN6Gluco25QueueIjE5clearEb.exit
+  %202 = load ptr, ptr %0, align 8
+  %203 = getelementptr inbounds i8, ptr %202, i64 24
+  %204 = load ptr, ptr %203, align 8
+  tail call void %204(ptr noundef nonnull align 8 dereferenceable(1416) %0)
   br label %_ZN6Gluco26Solver12checkGarbageEv.exit
 
-_ZN6Gluco26Solver12checkGarbageEv.exit:           ; preds = %205, %194, %_ZN6Gluco25QueueIjE5clearEb.exit
-  %209 = getelementptr inbounds i8, ptr %0, i64 128
+_ZN6Gluco26Solver12checkGarbageEv.exit:           ; preds = %_ZN6Gluco26Solver12checkGarbageEv.exit.sink.split, %191
+  %205 = getelementptr inbounds i8, ptr %0, i64 128
+  %206 = load i32, ptr %205, align 8
+  %207 = icmp sgt i32 %206, 0
+  br i1 %207, label %208, label %218
+
+208:                                              ; preds = %_ZN6Gluco26Solver12checkGarbageEv.exit
+  %209 = getelementptr inbounds i8, ptr %0, i64 1480
   %210 = load i32, ptr %209, align 8
   %211 = icmp sgt i32 %210, 0
-  br i1 %211, label %212, label %222
+  br i1 %211, label %212, label %218
 
-212:                                              ; preds = %_ZN6Gluco26Solver12checkGarbageEv.exit
-  %213 = getelementptr inbounds i8, ptr %0, i64 1480
-  %214 = load i32, ptr %213, align 8
-  %215 = icmp sgt i32 %214, 0
-  br i1 %215, label %216, label %222
+212:                                              ; preds = %208
+  %213 = zext nneg i32 %210 to i64
+  %214 = shl nuw nsw i64 %213, 2
+  %215 = uitofp nneg i64 %214 to double
+  %216 = fmul double %215, 0x3EB0000000000000
+  %217 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.27, double noundef %216)
+  br label %218
 
-216:                                              ; preds = %212
-  %217 = zext nneg i32 %214 to i64
-  %218 = shl nuw nsw i64 %217, 2
-  %219 = uitofp nneg i64 %218 to double
-  %220 = fmul double %219, 0x3EB0000000000000
-  %221 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.27, double noundef %220)
+218:                                              ; preds = %212, %208, %_ZN6Gluco26Solver12checkGarbageEv.exit
+  %219 = getelementptr inbounds i8, ptr %0, i64 452
+  %220 = load i8, ptr %219, align 4
+  %221 = trunc i8 %220 to i1
   br label %222
 
-222:                                              ; preds = %216, %212, %_ZN6Gluco26Solver12checkGarbageEv.exit
-  %223 = getelementptr inbounds i8, ptr %0, i64 452
-  %224 = load i8, ptr %223, align 4
-  %225 = trunc i8 %224 to i1
-  br label %226
-
-226:                                              ; preds = %4, %2, %222
-  %.0 = phi i1 [ %225, %222 ], [ false, %2 ], [ true, %4 ]
+222:                                              ; preds = %4, %2, %218
+  %.0 = phi i1 [ %221, %218 ], [ false, %2 ], [ true, %4 ]
   ret i1 %.0
 }
 

@@ -312,7 +312,7 @@ define internal i32 @dissect_ismp(ptr noundef %0, ptr noundef %1, ptr noundef %2
   %31 = zext i8 %26 to i32
   %32 = call ptr @proto_tree_add_item(ptr noundef %15, i32 noundef %30, ptr noundef %0, i32 noundef %29, i32 noundef %31, i32 noundef 0) #4
   %33 = icmp eq i16 %19, 2
-  br i1 %33, label %34, label %220
+  br i1 %33, label %34, label %218
 
 34:                                               ; preds = %4
   %35 = add nuw nsw i32 %29, %31
@@ -499,9 +499,9 @@ define internal i32 @dissect_ismp(ptr noundef %0, ptr noundef %1, ptr noundef %2
   %154 = call ptr @proto_item_add_subtree(ptr noundef %152, i32 noundef %153) #4
   br label %155
 
-155:                                              ; preds = %215, %150
-  %.2219.i = phi i32 [ %140, %150 ], [ %217, %215 ]
-  %.0198218.i = phi i32 [ 0, %150 ], [ %160, %215 ]
+155:                                              ; preds = %213, %150
+  %.2219.i = phi i32 [ %140, %150 ], [ %215, %213 ]
+  %.0198218.i = phi i32 [ 0, %150 ], [ %160, %213 ]
   %156 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.2219.i) #4
   %157 = icmp sgt i32 %156, 3
   br i1 %157, label %158, label %.critedge2.i
@@ -533,10 +533,10 @@ define internal i32 @dissect_ismp(ptr noundef %0, ptr noundef %1, ptr noundef %2
   %176 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %173) #4
   %177 = load i32, ptr %5, align 4
   %.not207.i = icmp ult i32 %176, %177
-  br i1 %.not207.i, label %215, label %178
+  br i1 %.not207.i, label %213, label %178
 
 178:                                              ; preds = %172
-  switch i16 %162, label %212 [
+  switch i16 %162, label %210 [
     i16 1, label %179
     i16 2, label %182
     i16 3, label %189
@@ -546,7 +546,7 @@ define internal i32 @dissect_ismp(ptr noundef %0, ptr noundef %1, ptr noundef %2
 179:                                              ; preds = %178
   %180 = load i32, ptr @hf_ismp_hold_time, align 4
   %181 = call ptr @proto_tree_add_item(ptr noundef %161, i32 noundef %180, ptr noundef %0, i32 noundef %173, i32 noundef %177, i32 noundef 0) #4
-  br label %215
+  br label %213
 
 182:                                              ; preds = %178
   %183 = load i32, ptr @hf_ismp_interface_name, align 4
@@ -556,12 +556,12 @@ define internal i32 @dissect_ismp(ptr noundef %0, ptr noundef %1, ptr noundef %2
   %187 = load i32, ptr %5, align 4
   %188 = call ptr @tvb_format_text(ptr noundef %186, ptr noundef %0, i32 noundef %173, i32 noundef %187) #4
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %185, i32 noundef 25, ptr noundef nonnull @.str.152, ptr noundef %188) #4
-  br label %215
+  br label %213
 
 189:                                              ; preds = %178
   %190 = load i32, ptr @hf_ismp_system_description, align 4
   %191 = call ptr @proto_tree_add_item(ptr noundef %161, i32 noundef %190, ptr noundef %0, i32 noundef %173, i32 noundef %177, i32 noundef 0) #4
-  br label %215
+  br label %213
 
 192:                                              ; preds = %178
   %.not208.i = icmp eq i32 %177, 10
@@ -581,50 +581,46 @@ define internal i32 @dissect_ismp(ptr noundef %0, ptr noundef %1, ptr noundef %2
   %202 = call ptr @get_ether_name_if_known(ptr noundef %201) #4
   %.not.i.i = icmp eq ptr %202, null
   %203 = call ptr @get_ipxnet_name(ptr noundef %196, i32 noundef %197) #4
-  br i1 %.not.i.i, label %206, label %204
+  br i1 %.not.i.i, label %204, label %ipx_addr_to_str.exit.i
 
 204:                                              ; preds = %195
-  %205 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %196, ptr noundef nonnull @.str.153, ptr noundef %203, ptr noundef nonnull %202) #4
+  %205 = call ptr @bytes_to_str_punct_maxlen(ptr noundef %196, ptr noundef %201, i64 noundef 6, i8 noundef signext 0, i64 noundef 24) #4
   br label %ipx_addr_to_str.exit.i
 
-206:                                              ; preds = %195
-  %207 = call ptr @bytes_to_str_punct_maxlen(ptr noundef %196, ptr noundef %201, i64 noundef 6, i8 noundef signext 0, i64 noundef 24) #4
-  %208 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %196, ptr noundef nonnull @.str.153, ptr noundef %203, ptr noundef %207) #4
-  br label %ipx_addr_to_str.exit.i
+ipx_addr_to_str.exit.i:                           ; preds = %204, %195
+  %.sink.i.i = phi ptr [ %205, %204 ], [ %202, %195 ]
+  %206 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %196, ptr noundef nonnull @.str.153, ptr noundef %203, ptr noundef %.sink.i.i) #4
+  %207 = load i32, ptr @hf_ismp_interface_ipx_address, align 4
+  %208 = load i32, ptr %5, align 4
+  %209 = call ptr @proto_tree_add_string(ptr noundef %161, i32 noundef %207, ptr noundef %0, i32 noundef %173, i32 noundef %208, ptr noundef %206) #4
+  br label %213
 
-ipx_addr_to_str.exit.i:                           ; preds = %206, %204
-  %.0.i.i = phi ptr [ %205, %204 ], [ %208, %206 ]
-  %209 = load i32, ptr @hf_ismp_interface_ipx_address, align 4
-  %210 = load i32, ptr %5, align 4
-  %211 = call ptr @proto_tree_add_string(ptr noundef %161, i32 noundef %209, ptr noundef %0, i32 noundef %173, i32 noundef %210, ptr noundef %.0.i.i) #4
-  br label %215
+210:                                              ; preds = %178
+  %211 = load i32, ptr @hf_ismp_unknown_tuple_data, align 4
+  %212 = call ptr @proto_tree_add_item(ptr noundef %161, i32 noundef %211, ptr noundef %0, i32 noundef %173, i32 noundef %177, i32 noundef 0) #4
+  br label %213
 
-212:                                              ; preds = %178
-  %213 = load i32, ptr @hf_ismp_unknown_tuple_data, align 4
-  %214 = call ptr @proto_tree_add_item(ptr noundef %161, i32 noundef %213, ptr noundef %0, i32 noundef %173, i32 noundef %177, i32 noundef 0) #4
-  br label %215
-
-215:                                              ; preds = %212, %ipx_addr_to_str.exit.i, %189, %182, %179, %172
-  %216 = load i32, ptr %5, align 4
-  %217 = add i32 %216, %173
+213:                                              ; preds = %210, %ipx_addr_to_str.exit.i, %189, %182, %179, %172
+  %214 = load i32, ptr %5, align 4
+  %215 = add i32 %214, %173
   %exitcond223.not.i = icmp eq i32 %160, %141
   br i1 %exitcond223.not.i, label %dissect_ismp_edp.exit, label %155, !llvm.loop !6
 
 .critedge2.i:                                     ; preds = %155
   %.not206.i = icmp eq i32 %.0198218.i, %141
-  br i1 %.not206.i, label %dissect_ismp_edp.exit, label %218
+  br i1 %.not206.i, label %dissect_ismp_edp.exit, label %216
 
-218:                                              ; preds = %.critedge2.i
-  %219 = call ptr @proto_tree_add_expert(ptr noundef %41, ptr noundef %1, ptr noundef nonnull @ei_ismp_malformed, ptr noundef %0, i32 noundef %.2219.i, i32 noundef -1) #4
+216:                                              ; preds = %.critedge2.i
+  %217 = call ptr @proto_tree_add_expert(ptr noundef %41, ptr noundef %1, ptr noundef nonnull @ei_ismp_malformed, ptr noundef %0, i32 noundef %.2219.i, i32 noundef -1) #4
   br label %dissect_ismp_edp.exit
 
-dissect_ismp_edp.exit:                            ; preds = %215, %130, %136, %142, %145, %147, %170, %193, %.critedge2.i, %218
+dissect_ismp_edp.exit:                            ; preds = %213, %130, %136, %142, %145, %147, %170, %193, %.critedge2.i, %216
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5)
-  br label %220
+  br label %218
 
-220:                                              ; preds = %dissect_ismp_edp.exit, %4
-  %221 = call i32 @tvb_captured_length(ptr noundef %0) #4
-  ret i32 %221
+218:                                              ; preds = %dissect_ismp_edp.exit, %4
+  %219 = call i32 @tvb_captured_length(ptr noundef %0) #4
+  ret i32 %219
 }
 
 ; Function Attrs: nounwind uwtable

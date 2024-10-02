@@ -714,7 +714,7 @@ define noalias noundef ptr @onig_st_copy(ptr nocapture noundef readonly %0) loca
   %9 = getelementptr inbounds i8, ptr %4, i64 16
   store ptr %8, ptr %9, align 8
   %10 = icmp eq ptr %8, null
-  br i1 %10, label %14, label %.preheader
+  br i1 %10, label %.loopexit.sink.split, label %.preheader
 
 .preheader:                                       ; preds = %6
   %11 = icmp sgt i32 %3, 0
@@ -723,50 +723,49 @@ define noalias noundef ptr @onig_st_copy(ptr nocapture noundef readonly %0) loca
 .lr.ph37:                                         ; preds = %.preheader
   %12 = getelementptr inbounds i8, ptr %0, i64 16
   %13 = load ptr, ptr %12, align 8
-  br label %15
+  br label %14
 
-14:                                               ; preds = %6
-  tail call void @free(ptr noundef nonnull %4) #13
-  br label %.loopexit
-
-15:                                               ; preds = %.lr.ph37, %._crit_edge
+14:                                               ; preds = %.lr.ph37, %._crit_edge
   %indvars.iv = phi i64 [ 0, %.lr.ph37 ], [ %indvars.iv.next, %._crit_edge ]
-  %16 = getelementptr inbounds ptr, ptr %8, i64 %indvars.iv
-  store ptr null, ptr %16, align 8
-  %17 = getelementptr inbounds ptr, ptr %13, i64 %indvars.iv
-  %.03033 = load ptr, ptr %17, align 8
+  %15 = getelementptr inbounds ptr, ptr %8, i64 %indvars.iv
+  store ptr null, ptr %15, align 8
+  %16 = getelementptr inbounds ptr, ptr %13, i64 %indvars.iv
+  %.03033 = load ptr, ptr %16, align 8
   %.not34 = icmp eq ptr %.03033, null
   br i1 %.not34, label %._crit_edge, label %.lr.ph
 
-.lr.ph:                                           ; preds = %15, %22
-  %18 = phi ptr [ %19, %22 ], [ null, %15 ]
-  %.03035 = phi ptr [ %.030, %22 ], [ %.03033, %15 ]
-  %19 = tail call noalias dereferenceable_or_null(32) ptr @malloc(i64 noundef 32) #11
-  %20 = icmp eq ptr %19, null
-  br i1 %20, label %21, label %22
+.lr.ph:                                           ; preds = %14, %21
+  %17 = phi ptr [ %18, %21 ], [ null, %14 ]
+  %.03035 = phi ptr [ %.030, %21 ], [ %.03033, %14 ]
+  %18 = tail call noalias dereferenceable_or_null(32) ptr @malloc(i64 noundef 32) #11
+  %19 = icmp eq ptr %18, null
+  br i1 %19, label %20, label %21
+
+20:                                               ; preds = %.lr.ph
+  tail call void @free(ptr noundef nonnull %8) #13
+  br label %.loopexit.sink.split
 
 21:                                               ; preds = %.lr.ph
-  tail call void @free(ptr noundef nonnull %8) #13
-  tail call void @free(ptr noundef %4) #13
-  br label %.loopexit
-
-22:                                               ; preds = %.lr.ph
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %19, ptr noundef nonnull align 8 dereferenceable(32) %.03035, i64 24, i1 false)
-  %23 = getelementptr inbounds i8, ptr %19, i64 24
-  store ptr %18, ptr %23, align 8
-  store ptr %19, ptr %16, align 8
-  %24 = getelementptr inbounds i8, ptr %.03035, i64 24
-  %.030 = load ptr, ptr %24, align 8
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %18, ptr noundef nonnull align 8 dereferenceable(32) %.03035, i64 24, i1 false)
+  %22 = getelementptr inbounds i8, ptr %18, i64 24
+  store ptr %17, ptr %22, align 8
+  store ptr %18, ptr %15, align 8
+  %23 = getelementptr inbounds i8, ptr %.03035, i64 24
+  %.030 = load ptr, ptr %23, align 8
   %.not = icmp eq ptr %.030, null
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !12
 
-._crit_edge:                                      ; preds = %22, %15
+._crit_edge:                                      ; preds = %21, %14
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %7
-  br i1 %exitcond.not, label %.loopexit, label %15, !llvm.loop !13
+  br i1 %exitcond.not, label %.loopexit, label %14, !llvm.loop !13
 
-.loopexit:                                        ; preds = %._crit_edge, %.preheader, %1, %21, %14
-  %.0 = phi ptr [ null, %14 ], [ null, %21 ], [ null, %1 ], [ %4, %.preheader ], [ %4, %._crit_edge ]
+.loopexit.sink.split:                             ; preds = %6, %20
+  tail call void @free(ptr noundef %4) #13
+  br label %.loopexit
+
+.loopexit:                                        ; preds = %._crit_edge, %.loopexit.sink.split, %.preheader, %1
+  %.0 = phi ptr [ null, %1 ], [ %4, %.preheader ], [ null, %.loopexit.sink.split ], [ %4, %._crit_edge ]
   ret ptr %.0
 }
 

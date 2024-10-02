@@ -17868,40 +17868,30 @@ Vec_WrdStart.exit:                                ; preds = %1, %11
 .critedge:                                        ; preds = %39, %Vec_WrdStart.exit
   %40 = load i32, ptr %0, align 8
   %41 = icmp eq i32 %21, %40
-  br i1 %41, label %42, label %Vec_IntPush.exit
+  br i1 %41, label %Vec_IntPush.exit.sink.split, label %Vec_IntPush.exit
 
-42:                                               ; preds = %.critedge
-  %43 = icmp slt i32 %.val23, 17
-  br i1 %43, label %Vec_IntGrow.exit.i, label %45
-
-Vec_IntGrow.exit.i:                               ; preds = %42
-  %44 = tail call dereferenceable_or_null(64) ptr @realloc(ptr noundef nonnull %.val24, i64 noundef 64) #32
-  br label %Vec_IntPush.exit.sink.split
-
-45:                                               ; preds = %42
-  %46 = shl nuw nsw i32 %21, 1
-  %47 = zext nneg i32 %46 to i64
-  %48 = shl nuw nsw i64 %47, 2
-  %49 = tail call ptr @realloc(ptr noundef nonnull %.val24, i64 noundef %48) #32
-  br label %Vec_IntPush.exit.sink.split
-
-Vec_IntPush.exit.sink.split:                      ; preds = %45, %Vec_IntGrow.exit.i
-  %.sink27 = phi ptr [ %44, %Vec_IntGrow.exit.i ], [ %49, %45 ]
-  %.sink = phi i32 [ 16, %Vec_IntGrow.exit.i ], [ %46, %45 ]
-  store ptr %.sink27, ptr %3, align 8
+Vec_IntPush.exit.sink.split:                      ; preds = %.critedge
+  %42 = icmp slt i32 %.val23, 17
+  %43 = shl nuw nsw i32 %21, 1
+  %44 = zext nneg i32 %43 to i64
+  %45 = shl nuw nsw i64 %44, 2
+  %.sink28 = select i1 %42, i64 64, i64 %45
+  %.sink = select i1 %42, i32 16, i32 %43
+  %46 = tail call ptr @realloc(ptr noundef nonnull %.val24, i64 noundef %.sink28) #32
+  store ptr %46, ptr %3, align 8
   store i32 %.sink, ptr %0, align 8
   br label %Vec_IntPush.exit
 
 Vec_IntPush.exit:                                 ; preds = %Vec_IntPush.exit.sink.split, %.critedge
-  %50 = phi ptr [ %.val24, %.critedge ], [ %.sink27, %Vec_IntPush.exit.sink.split ]
-  %51 = getelementptr inbounds i8, ptr %9, i64 4
-  %52 = load i32, ptr %2, align 4
-  %53 = add nsw i32 %52, 1
-  store i32 %53, ptr %2, align 4
-  %54 = sext i32 %52 to i64
-  %55 = getelementptr inbounds i32, ptr %50, i64 %54
-  store i32 %7, ptr %55, align 4
-  store i32 %7, ptr %51, align 4
+  %47 = phi ptr [ %.val24, %.critedge ], [ %46, %Vec_IntPush.exit.sink.split ]
+  %48 = getelementptr inbounds i8, ptr %9, i64 4
+  %49 = load i32, ptr %2, align 4
+  %50 = add nsw i32 %49, 1
+  store i32 %50, ptr %2, align 4
+  %51 = sext i32 %49 to i64
+  %52 = getelementptr inbounds i32, ptr %47, i64 %51
+  store i32 %7, ptr %52, align 4
+  store i32 %7, ptr %48, align 4
   ret ptr %9
 }
 

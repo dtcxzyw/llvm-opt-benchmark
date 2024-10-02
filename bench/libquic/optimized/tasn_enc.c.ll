@@ -433,11 +433,7 @@ if.end.i:                                         ; preds = %if.else.i
   %conv.i = sext i32 %skcontlen.0.lcssa to i64
   %call6.i = call noalias ptr @malloc(i64 noundef %conv.i) #10
   %tobool7.not.i = icmp eq ptr %call6.i, null
-  br i1 %tobool7.not.i, label %if.then8.i, label %if.end19.i
-
-if.then8.i:                                       ; preds = %if.end.i
-  call void @free(ptr noundef nonnull %call3.i) #11
-  br label %asn1_set_seq_out.exit
+  br i1 %tobool7.not.i, label %asn1_set_seq_out.exit.sink.split, label %if.end19.i
 
 for.cond.i.preheader:                             ; preds = %if.end66, %if.then.i
   %call14.i97 = call i64 @sk_num(ptr noundef nonnull %4) #11
@@ -532,10 +528,14 @@ for.body51.i:                                     ; preds = %for.cond47.i.prehea
 
 if.end58.i:                                       ; preds = %for.body51.i, %for.cond47.i.preheader, %for.end43.i
   call void @free(ptr noundef %call3.i) #11
-  call void @free(ptr noundef %call6.i) #11
+  br label %asn1_set_seq_out.exit.sink.split
+
+asn1_set_seq_out.exit.sink.split:                 ; preds = %if.end.i, %if.end58.i
+  %call3.i.sink = phi ptr [ %call6.i, %if.end58.i ], [ %call3.i, %if.end.i ]
+  call void @free(ptr noundef %call3.i.sink) #11
   br label %asn1_set_seq_out.exit
 
-asn1_set_seq_out.exit:                            ; preds = %for.body.i, %for.cond.i.preheader, %if.else.i, %if.then8.i, %if.end58.i
+asn1_set_seq_out.exit:                            ; preds = %for.body.i, %asn1_set_seq_out.exit.sink.split, %for.cond.i.preheader, %if.else.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %skitem.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %p.i)
   br i1 %or.cond.not.not, label %return, label %if.then71

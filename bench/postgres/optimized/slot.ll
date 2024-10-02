@@ -184,14 +184,14 @@ ReplicationSlotsShmemSize.exit24:                 ; preds = %10, %13
   %17 = ptrtoint ptr %7 to i64
   %18 = and i64 %17, 7
   %19 = icmp eq i64 %18, 0
-  br i1 %19, label %20, label %33
+  br i1 %19, label %20, label %.loopexit25.sink.split
 
 20:                                               ; preds = %ReplicationSlotsShmemSize.exit24
   %21 = and i64 %.0.i23, 7
   %22 = icmp eq i64 %21, 0
   %23 = icmp ult i64 %.0.i23, 1025
   %or.cond3 = and i1 %23, %22
-  br i1 %or.cond3, label %24, label %33
+  br i1 %or.cond3, label %24, label %.loopexit25.sink.split
 
 24:                                               ; preds = %20
   %25 = getelementptr i8, ptr %7, i64 %.0.i23
@@ -206,33 +206,33 @@ ReplicationSlotsShmemSize.exit24:                 ; preds = %10, %13
   %30 = add i64 %umax, %29
   %31 = and i64 %30, -8
   %32 = add i64 %31, 8
-  call void @llvm.memset.p0.i64(ptr align 8 %7, i8 0, i64 %32, i1 false)
+  br label %.loopexit25.sink.split
+
+.loopexit25.sink.split:                           ; preds = %ReplicationSlotsShmemSize.exit24, %20, %.lr.ph.preheader
+  %.sink = phi i64 [ %32, %.lr.ph.preheader ], [ %.0.i23, %20 ], [ %.0.i23, %ReplicationSlotsShmemSize.exit24 ]
+  call void @llvm.memset.p0.i64(ptr align 1 %7, i8 0, i64 %.sink, i1 false)
   br label %.loopexit25
 
-33:                                               ; preds = %20, %ReplicationSlotsShmemSize.exit24
-  call void @llvm.memset.p0.i64(ptr align 1 %7, i8 0, i64 %.0.i23, i1 false)
-  br label %.loopexit25
-
-.loopexit25:                                      ; preds = %.lr.ph.preheader, %24, %33
-  %34 = load i32, ptr @max_replication_slots, align 4
-  %35 = icmp sgt i32 %34, 0
-  br i1 %35, label %.lr.ph28, label %.loopexit
+.loopexit25:                                      ; preds = %.loopexit25.sink.split, %24
+  %33 = load i32, ptr @max_replication_slots, align 4
+  %34 = icmp sgt i32 %33, 0
+  br i1 %34, label %.lr.ph28, label %.loopexit
 
 .lr.ph28:                                         ; preds = %.loopexit25, %.lr.ph28
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph28 ], [ 0, %.loopexit25 ]
-  %36 = load ptr, ptr @ReplicationSlotCtl, align 8
-  %37 = getelementptr [1 x %struct.ReplicationSlot], ptr %36, i64 0, i64 %indvars.iv
+  %35 = load ptr, ptr @ReplicationSlotCtl, align 8
+  %36 = getelementptr [1 x %struct.ReplicationSlot], ptr %35, i64 0, i64 %indvars.iv
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !5
-  store i8 0, ptr %37, align 8
-  %38 = getelementptr inbounds i8, ptr %37, i64 208
-  call void @LWLockInitialize(ptr noundef nonnull %38, i32 noundef 63) #15
-  %39 = getelementptr inbounds i8, ptr %37, i64 224
-  call void @ConditionVariableInit(ptr noundef nonnull %39) #15
+  store i8 0, ptr %36, align 8
+  %37 = getelementptr inbounds i8, ptr %36, i64 208
+  call void @LWLockInitialize(ptr noundef nonnull %37, i32 noundef 63) #15
+  %38 = getelementptr inbounds i8, ptr %36, i64 224
+  call void @ConditionVariableInit(ptr noundef nonnull %38) #15
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %40 = load i32, ptr @max_replication_slots, align 4
-  %41 = sext i32 %40 to i64
-  %42 = icmp slt i64 %indvars.iv.next, %41
-  br i1 %42, label %.lr.ph28, label %.loopexit, !llvm.loop !6
+  %39 = load i32, ptr @max_replication_slots, align 4
+  %40 = sext i32 %39 to i64
+  %41 = icmp slt i64 %indvars.iv.next, %40
+  br i1 %41, label %.lr.ph28, label %.loopexit, !llvm.loop !6
 
 .loopexit:                                        ; preds = %.lr.ph28, %.loopexit25, %0, %ReplicationSlotsShmemSize.exit
   ret void

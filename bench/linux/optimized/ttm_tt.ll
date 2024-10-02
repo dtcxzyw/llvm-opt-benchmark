@@ -197,22 +197,19 @@ define dso_local void @ttm_tt_fini(ptr nocapture noundef %0) #0 align 16 {
   store ptr null, ptr %8, align 8
   %13 = load ptr, ptr %0, align 8
   %14 = icmp eq ptr %13, null
-  br i1 %14, label %16, label %15
+  br i1 %14, label %15, label %18
 
 15:                                               ; preds = %12
-  tail call void @kvfree(ptr noundef nonnull %13) #11
-  br label %19
+  %16 = getelementptr inbounds i8, ptr %0, i64 24
+  %17 = load ptr, ptr %16, align 8
+  br label %18
 
-16:                                               ; preds = %12
-  %17 = getelementptr inbounds i8, ptr %0, i64 24
-  %18 = load ptr, ptr %17, align 8
-  tail call void @kvfree(ptr noundef %18) #11
-  br label %19
-
-19:                                               ; preds = %16, %15
+18:                                               ; preds = %12, %15
+  %.sink = phi ptr [ %17, %15 ], [ %13, %12 ]
+  tail call void @kvfree(ptr noundef %.sink) #11
   store ptr null, ptr %0, align 8
-  %20 = getelementptr inbounds i8, ptr %0, i64 24
-  store ptr null, ptr %20, align 8
+  %19 = getelementptr inbounds i8, ptr %0, i64 24
+  store ptr null, ptr %19, align 8
   ret void
 }
 

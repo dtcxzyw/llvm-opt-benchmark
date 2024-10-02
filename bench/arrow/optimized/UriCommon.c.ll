@@ -361,7 +361,7 @@ if.else170:                                       ; preds = %if.then161
   br i1 %cmp172, label %if.then174, label %if.end203
 
 if.then174:                                       ; preds = %if.else170
-  br i1 %tobool211.not, label %if.end187, label %land.lhs.true176
+  br i1 %tobool211.not, label %if.end201.sink.split, label %land.lhs.true176
 
 land.lhs.true176:                                 ; preds = %if.then174
   %32 = load ptr, ptr %walker.0, align 8
@@ -374,28 +374,24 @@ if.then183:                                       ; preds = %land.lhs.true176
   tail call void %34(ptr noundef nonnull %memory, ptr noundef %32) #11
   br label %land.lhs.true190
 
-if.end187:                                        ; preds = %if.then174
+land.lhs.true190:                                 ; preds = %if.then183, %land.lhs.true176
   %35 = load ptr, ptr %free220, align 8
   tail call void %35(ptr noundef nonnull %memory, ptr noundef nonnull %walker.0) #11
-  br label %if.end201
-
-land.lhs.true190:                                 ; preds = %if.then183, %land.lhs.true176
-  %36 = load ptr, ptr %free220, align 8
-  tail call void %36(ptr noundef nonnull %memory, ptr noundef nonnull %walker.0) #11
-  %37 = load ptr, ptr %23, align 8
+  %36 = load ptr, ptr %23, align 8
   %afterLast194 = getelementptr inbounds i8, ptr %23, i64 8
-  %38 = load ptr, ptr %afterLast194, align 8
-  %cmp195.not = icmp eq ptr %37, %38
-  br i1 %cmp195.not, label %if.end201, label %if.then197
+  %37 = load ptr, ptr %afterLast194, align 8
+  %cmp195.not = icmp eq ptr %36, %37
+  br i1 %cmp195.not, label %if.end201, label %if.end201.sink.split
 
-if.then197:                                       ; preds = %land.lhs.true190
-  %39 = load ptr, ptr %free220, align 8
-  tail call void %39(ptr noundef nonnull %memory, ptr noundef %37) #11
+if.end201.sink.split:                             ; preds = %land.lhs.true190, %if.then174
+  %walker.0.lcssa.sink = phi ptr [ %walker.0, %if.then174 ], [ %36, %land.lhs.true190 ]
+  %38 = load ptr, ptr %free220, align 8
+  tail call void %38(ptr noundef nonnull %memory, ptr noundef %walker.0.lcssa.sink) #11
   br label %if.end201
 
-if.end201:                                        ; preds = %if.end187, %if.then197, %land.lhs.true190
-  %40 = load ptr, ptr %free220, align 8
-  tail call void %40(ptr noundef nonnull %memory, ptr noundef nonnull %23) #11
+if.end201:                                        ; preds = %if.end201.sink.split, %land.lhs.true190
+  %39 = load ptr, ptr %free220, align 8
+  tail call void %39(ptr noundef nonnull %memory, ptr noundef nonnull %23) #11
   br label %return
 
 if.end203:                                        ; preds = %if.else170
@@ -407,41 +403,37 @@ if.end203:                                        ; preds = %if.else170
   br label %if.end210
 
 if.end210:                                        ; preds = %if.end203, %if.then167
-  br i1 %tobool211.not, label %if.end223, label %land.lhs.true212
+  br i1 %tobool211.not, label %if.end237.sink.split, label %land.lhs.true212
 
 land.lhs.true212:                                 ; preds = %if.end210
-  %41 = load ptr, ptr %walker.0, align 8
-  %42 = load ptr, ptr %afterLast, align 8
-  %cmp217.not = icmp eq ptr %41, %42
+  %40 = load ptr, ptr %walker.0, align 8
+  %41 = load ptr, ptr %afterLast, align 8
+  %cmp217.not = icmp eq ptr %40, %41
   br i1 %cmp217.not, label %land.lhs.true226, label %if.then219
 
 if.then219:                                       ; preds = %land.lhs.true212
-  %43 = load ptr, ptr %free220, align 8
-  tail call void %43(ptr noundef %memory, ptr noundef %41) #11
+  %42 = load ptr, ptr %free220, align 8
+  tail call void %42(ptr noundef %memory, ptr noundef %40) #11
   br label %land.lhs.true226
 
-if.end223:                                        ; preds = %if.end210
-  %44 = load ptr, ptr %free220, align 8
-  tail call void %44(ptr noundef %memory, ptr noundef nonnull %walker.0) #11
-  br label %if.end237
-
 land.lhs.true226:                                 ; preds = %if.then219, %land.lhs.true212
-  %45 = load ptr, ptr %free220, align 8
-  tail call void %45(ptr noundef %memory, ptr noundef nonnull %walker.0) #11
-  %46 = load ptr, ptr %23, align 8
+  %43 = load ptr, ptr %free220, align 8
+  tail call void %43(ptr noundef %memory, ptr noundef nonnull %walker.0) #11
+  %44 = load ptr, ptr %23, align 8
   %afterLast230 = getelementptr inbounds i8, ptr %23, i64 8
-  %47 = load ptr, ptr %afterLast230, align 8
-  %cmp231.not = icmp eq ptr %46, %47
-  br i1 %cmp231.not, label %if.end237, label %if.then233
+  %45 = load ptr, ptr %afterLast230, align 8
+  %cmp231.not = icmp eq ptr %44, %45
+  br i1 %cmp231.not, label %if.end237, label %if.end237.sink.split
 
-if.then233:                                       ; preds = %land.lhs.true226
-  %48 = load ptr, ptr %free220, align 8
-  tail call void %48(ptr noundef nonnull %memory, ptr noundef %46) #11
+if.end237.sink.split:                             ; preds = %land.lhs.true226, %if.end210
+  %walker.0.sink = phi ptr [ %walker.0, %if.end210 ], [ %44, %land.lhs.true226 ]
+  %46 = load ptr, ptr %free220, align 8
+  tail call void %46(ptr noundef %memory, ptr noundef %walker.0.sink) #11
   br label %if.end237
 
-if.end237:                                        ; preds = %if.end223, %if.then233, %land.lhs.true226
-  %49 = load ptr, ptr %free220, align 8
-  tail call void %49(ptr noundef nonnull %memory, ptr noundef nonnull %23) #11
+if.end237:                                        ; preds = %if.end237.sink.split, %land.lhs.true226
+  %47 = load ptr, ptr %free220, align 8
+  tail call void %47(ptr noundef nonnull %memory, ptr noundef nonnull %23) #11
   br label %do.cond
 
 if.else239:                                       ; preds = %if.then157
@@ -450,25 +442,25 @@ if.else239:                                       ; preds = %if.then157
 
 if.then243:                                       ; preds = %if.else239
   store ptr %24, ptr %pathHead, align 8
-  %50 = load ptr, ptr %next116, align 8
-  %reserved247 = getelementptr inbounds i8, ptr %50, i64 24
+  %48 = load ptr, ptr %next116, align 8
+  %reserved247 = getelementptr inbounds i8, ptr %48, i64 24
   store ptr null, ptr %reserved247, align 8
   br i1 %tobool211.not, label %if.end260, label %land.lhs.true249
 
 land.lhs.true249:                                 ; preds = %if.then243
-  %51 = load ptr, ptr %walker.0, align 8
-  %52 = load ptr, ptr %afterLast, align 8
-  %cmp254.not = icmp eq ptr %51, %52
+  %49 = load ptr, ptr %walker.0, align 8
+  %50 = load ptr, ptr %afterLast, align 8
+  %cmp254.not = icmp eq ptr %49, %50
   br i1 %cmp254.not, label %if.end260, label %if.then256
 
 if.then256:                                       ; preds = %land.lhs.true249
-  %53 = load ptr, ptr %free220, align 8
-  tail call void %53(ptr noundef %memory, ptr noundef %51) #11
+  %51 = load ptr, ptr %free220, align 8
+  tail call void %51(ptr noundef %memory, ptr noundef %49) #11
   br label %if.end260
 
 if.end260:                                        ; preds = %if.then256, %land.lhs.true249, %if.then243
-  %54 = load ptr, ptr %free220, align 8
-  tail call void %54(ptr noundef %memory, ptr noundef nonnull %walker.0) #11
+  %52 = load ptr, ptr %free220, align 8
+  tail call void %52(ptr noundef %memory, ptr noundef nonnull %walker.0) #11
   br label %if.end283
 
 if.else262:                                       ; preds = %if.else239
@@ -477,8 +469,8 @@ if.else262:                                       ; preds = %if.else239
   br i1 %or.cond201, label %if.end276, label %if.then272
 
 if.then272:                                       ; preds = %if.else262
-  %55 = load ptr, ptr %free220, align 8
-  tail call void %55(ptr noundef %memory, ptr noundef nonnull %2) #11
+  %53 = load ptr, ptr %free220, align 8
+  tail call void %53(ptr noundef %memory, ptr noundef nonnull %2) #11
   br label %if.end276
 
 if.end276:                                        ; preds = %if.then272, %if.else262
@@ -492,30 +484,30 @@ if.end283:                                        ; preds = %if.end276, %if.end2
   br i1 %tobool211.not, label %if.end296, label %land.lhs.true285
 
 land.lhs.true285:                                 ; preds = %if.end283
-  %56 = load ptr, ptr %23, align 8
+  %54 = load ptr, ptr %23, align 8
   %afterLast289 = getelementptr inbounds i8, ptr %23, i64 8
-  %57 = load ptr, ptr %afterLast289, align 8
-  %cmp290.not = icmp eq ptr %56, %57
+  %55 = load ptr, ptr %afterLast289, align 8
+  %cmp290.not = icmp eq ptr %54, %55
   br i1 %cmp290.not, label %if.end296, label %if.then292
 
 if.then292:                                       ; preds = %land.lhs.true285
-  %58 = load ptr, ptr %free220, align 8
-  tail call void %58(ptr noundef %memory, ptr noundef %56) #11
+  %56 = load ptr, ptr %free220, align 8
+  tail call void %56(ptr noundef %memory, ptr noundef %54) #11
   br label %if.end296
 
 if.end296:                                        ; preds = %if.then292, %land.lhs.true285, %if.end283
-  %59 = load ptr, ptr %free220, align 8
-  tail call void %59(ptr noundef %memory, ptr noundef nonnull %23) #11
+  %57 = load ptr, ptr %free220, align 8
+  tail call void %57(ptr noundef %memory, ptr noundef nonnull %23) #11
   br label %do.cond
 
 if.else299:                                       ; preds = %if.then154
   store ptr %24, ptr %pathHead, align 8
-  %60 = load ptr, ptr %next116, align 8
-  %cmp304.not = icmp eq ptr %60, null
+  %58 = load ptr, ptr %next116, align 8
+  %cmp304.not = icmp eq ptr %58, null
   br i1 %cmp304.not, label %if.else309, label %if.then306
 
 if.then306:                                       ; preds = %if.else299
-  %reserved308 = getelementptr inbounds i8, ptr %60, i64 24
+  %reserved308 = getelementptr inbounds i8, ptr %58, i64 24
   store ptr null, ptr %reserved308, align 8
   br label %if.end311
 
@@ -527,29 +519,29 @@ if.end311:                                        ; preds = %if.else309, %if.the
   br i1 %tobool211.not, label %if.end324, label %land.lhs.true313
 
 land.lhs.true313:                                 ; preds = %if.end311
-  %61 = load ptr, ptr %walker.0, align 8
-  %62 = load ptr, ptr %afterLast, align 8
-  %cmp318.not = icmp eq ptr %61, %62
+  %59 = load ptr, ptr %walker.0, align 8
+  %60 = load ptr, ptr %afterLast, align 8
+  %cmp318.not = icmp eq ptr %59, %60
   br i1 %cmp318.not, label %if.end324, label %if.then320
 
 if.then320:                                       ; preds = %land.lhs.true313
-  %63 = load ptr, ptr %free220, align 8
-  tail call void %63(ptr noundef %memory, ptr noundef %61) #11
+  %61 = load ptr, ptr %free220, align 8
+  tail call void %61(ptr noundef %memory, ptr noundef %59) #11
   br label %if.end324
 
 if.end324:                                        ; preds = %if.then320, %land.lhs.true313, %if.end311
-  %64 = load ptr, ptr %free220, align 8
-  tail call void %64(ptr noundef %memory, ptr noundef nonnull %walker.0) #11
+  %62 = load ptr, ptr %free220, align 8
+  tail call void %62(ptr noundef %memory, ptr noundef nonnull %walker.0) #11
   br label %do.cond
 
 if.then330:                                       ; preds = %for.body, %do.body, %land.lhs.true142, %land.lhs.true105, %sw.bb98, %sw.bb, %if.then118
   %next331 = getelementptr inbounds i8, ptr %walker.0, i64 16
-  %65 = load ptr, ptr %next331, align 8
-  %cmp332.not = icmp eq ptr %65, null
+  %63 = load ptr, ptr %next331, align 8
+  %cmp332.not = icmp eq ptr %63, null
   br i1 %cmp332.not, label %if.else337, label %if.then334
 
 if.then334:                                       ; preds = %if.then330
-  %reserved336 = getelementptr inbounds i8, ptr %65, i64 24
+  %reserved336 = getelementptr inbounds i8, ptr %63, i64 24
   store ptr %walker.0, ptr %reserved336, align 8
   br label %if.end339
 
@@ -558,11 +550,11 @@ if.else337:                                       ; preds = %if.then330
   br label %if.end339
 
 if.end339:                                        ; preds = %if.else337, %if.then334
-  %66 = load ptr, ptr %next331, align 8
+  %64 = load ptr, ptr %next331, align 8
   br label %do.cond
 
 do.cond:                                          ; preds = %if.end237, %if.end296, %if.end324, %if.end60, %if.end339
-  %walker.2 = phi ptr [ %66, %if.end339 ], [ %24, %if.end237 ], [ %24, %if.end296 ], [ %24, %if.end324 ], [ %5, %if.end60 ]
+  %walker.2 = phi ptr [ %64, %if.end339 ], [ %24, %if.end237 ], [ %24, %if.end296 ], [ %24, %if.end324 ], [ %5, %if.end60 ]
   %cmp342.not = icmp eq ptr %walker.2, null
   br i1 %cmp342.not, label %return, label %do.body, !llvm.loop !6
 
@@ -1355,7 +1347,7 @@ if.else165:                                       ; preds = %if.then156
   br i1 %cmp167, label %if.then169, label %if.end198
 
 if.then169:                                       ; preds = %if.else165
-  br i1 %tobool206.not, label %if.end182, label %land.lhs.true171
+  br i1 %tobool206.not, label %if.end196.sink.split, label %land.lhs.true171
 
 land.lhs.true171:                                 ; preds = %if.then169
   %32 = load ptr, ptr %walker.0, align 8
@@ -1368,28 +1360,24 @@ if.then178:                                       ; preds = %land.lhs.true171
   tail call void %34(ptr noundef nonnull %memory, ptr noundef %32) #11
   br label %land.lhs.true185
 
-if.end182:                                        ; preds = %if.then169
+land.lhs.true185:                                 ; preds = %if.then178, %land.lhs.true171
   %35 = load ptr, ptr %free215, align 8
   tail call void %35(ptr noundef nonnull %memory, ptr noundef nonnull %walker.0) #11
-  br label %if.end196
-
-land.lhs.true185:                                 ; preds = %if.then178, %land.lhs.true171
-  %36 = load ptr, ptr %free215, align 8
-  tail call void %36(ptr noundef nonnull %memory, ptr noundef nonnull %walker.0) #11
-  %37 = load ptr, ptr %23, align 8
+  %36 = load ptr, ptr %23, align 8
   %afterLast189 = getelementptr inbounds i8, ptr %23, i64 8
-  %38 = load ptr, ptr %afterLast189, align 8
-  %cmp190.not = icmp eq ptr %37, %38
-  br i1 %cmp190.not, label %if.end196, label %if.then192
+  %37 = load ptr, ptr %afterLast189, align 8
+  %cmp190.not = icmp eq ptr %36, %37
+  br i1 %cmp190.not, label %if.end196, label %if.end196.sink.split
 
-if.then192:                                       ; preds = %land.lhs.true185
-  %39 = load ptr, ptr %free215, align 8
-  tail call void %39(ptr noundef nonnull %memory, ptr noundef %37) #11
+if.end196.sink.split:                             ; preds = %land.lhs.true185, %if.then169
+  %walker.0.lcssa.sink = phi ptr [ %walker.0, %if.then169 ], [ %36, %land.lhs.true185 ]
+  %38 = load ptr, ptr %free215, align 8
+  tail call void %38(ptr noundef nonnull %memory, ptr noundef %walker.0.lcssa.sink) #11
   br label %if.end196
 
-if.end196:                                        ; preds = %if.end182, %if.then192, %land.lhs.true185
-  %40 = load ptr, ptr %free215, align 8
-  tail call void %40(ptr noundef nonnull %memory, ptr noundef nonnull %23) #11
+if.end196:                                        ; preds = %if.end196.sink.split, %land.lhs.true185
+  %39 = load ptr, ptr %free215, align 8
+  tail call void %39(ptr noundef nonnull %memory, ptr noundef nonnull %23) #11
   br label %return
 
 if.end198:                                        ; preds = %if.else165
@@ -1401,41 +1389,37 @@ if.end198:                                        ; preds = %if.else165
   br label %if.end205
 
 if.end205:                                        ; preds = %if.end198, %if.then162
-  br i1 %tobool206.not, label %if.end218, label %land.lhs.true207
+  br i1 %tobool206.not, label %if.end232.sink.split, label %land.lhs.true207
 
 land.lhs.true207:                                 ; preds = %if.end205
-  %41 = load ptr, ptr %walker.0, align 8
-  %42 = load ptr, ptr %afterLast, align 8
-  %cmp212.not = icmp eq ptr %41, %42
+  %40 = load ptr, ptr %walker.0, align 8
+  %41 = load ptr, ptr %afterLast, align 8
+  %cmp212.not = icmp eq ptr %40, %41
   br i1 %cmp212.not, label %land.lhs.true221, label %if.then214
 
 if.then214:                                       ; preds = %land.lhs.true207
-  %43 = load ptr, ptr %free215, align 8
-  tail call void %43(ptr noundef %memory, ptr noundef %41) #11
+  %42 = load ptr, ptr %free215, align 8
+  tail call void %42(ptr noundef %memory, ptr noundef %40) #11
   br label %land.lhs.true221
 
-if.end218:                                        ; preds = %if.end205
-  %44 = load ptr, ptr %free215, align 8
-  tail call void %44(ptr noundef %memory, ptr noundef nonnull %walker.0) #11
-  br label %if.end232
-
 land.lhs.true221:                                 ; preds = %if.then214, %land.lhs.true207
-  %45 = load ptr, ptr %free215, align 8
-  tail call void %45(ptr noundef %memory, ptr noundef nonnull %walker.0) #11
-  %46 = load ptr, ptr %23, align 8
+  %43 = load ptr, ptr %free215, align 8
+  tail call void %43(ptr noundef %memory, ptr noundef nonnull %walker.0) #11
+  %44 = load ptr, ptr %23, align 8
   %afterLast225 = getelementptr inbounds i8, ptr %23, i64 8
-  %47 = load ptr, ptr %afterLast225, align 8
-  %cmp226.not = icmp eq ptr %46, %47
-  br i1 %cmp226.not, label %if.end232, label %if.then228
+  %45 = load ptr, ptr %afterLast225, align 8
+  %cmp226.not = icmp eq ptr %44, %45
+  br i1 %cmp226.not, label %if.end232, label %if.end232.sink.split
 
-if.then228:                                       ; preds = %land.lhs.true221
-  %48 = load ptr, ptr %free215, align 8
-  tail call void %48(ptr noundef nonnull %memory, ptr noundef %46) #11
+if.end232.sink.split:                             ; preds = %land.lhs.true221, %if.end205
+  %walker.0.sink = phi ptr [ %walker.0, %if.end205 ], [ %44, %land.lhs.true221 ]
+  %46 = load ptr, ptr %free215, align 8
+  tail call void %46(ptr noundef %memory, ptr noundef %walker.0.sink) #11
   br label %if.end232
 
-if.end232:                                        ; preds = %if.end218, %if.then228, %land.lhs.true221
-  %49 = load ptr, ptr %free215, align 8
-  tail call void %49(ptr noundef nonnull %memory, ptr noundef nonnull %23) #11
+if.end232:                                        ; preds = %if.end232.sink.split, %land.lhs.true221
+  %47 = load ptr, ptr %free215, align 8
+  tail call void %47(ptr noundef nonnull %memory, ptr noundef nonnull %23) #11
   br label %do.cond
 
 if.else234:                                       ; preds = %if.then152
@@ -1444,25 +1428,25 @@ if.else234:                                       ; preds = %if.then152
 
 if.then238:                                       ; preds = %if.else234
   store ptr %24, ptr %pathHead, align 8
-  %50 = load ptr, ptr %next112, align 8
-  %reserved242 = getelementptr inbounds i8, ptr %50, i64 24
+  %48 = load ptr, ptr %next112, align 8
+  %reserved242 = getelementptr inbounds i8, ptr %48, i64 24
   store ptr null, ptr %reserved242, align 8
   br i1 %tobool206.not, label %if.end255, label %land.lhs.true244
 
 land.lhs.true244:                                 ; preds = %if.then238
-  %51 = load ptr, ptr %walker.0, align 8
-  %52 = load ptr, ptr %afterLast, align 8
-  %cmp249.not = icmp eq ptr %51, %52
+  %49 = load ptr, ptr %walker.0, align 8
+  %50 = load ptr, ptr %afterLast, align 8
+  %cmp249.not = icmp eq ptr %49, %50
   br i1 %cmp249.not, label %if.end255, label %if.then251
 
 if.then251:                                       ; preds = %land.lhs.true244
-  %53 = load ptr, ptr %free215, align 8
-  tail call void %53(ptr noundef %memory, ptr noundef %51) #11
+  %51 = load ptr, ptr %free215, align 8
+  tail call void %51(ptr noundef %memory, ptr noundef %49) #11
   br label %if.end255
 
 if.end255:                                        ; preds = %if.then251, %land.lhs.true244, %if.then238
-  %54 = load ptr, ptr %free215, align 8
-  tail call void %54(ptr noundef %memory, ptr noundef nonnull %walker.0) #11
+  %52 = load ptr, ptr %free215, align 8
+  tail call void %52(ptr noundef %memory, ptr noundef nonnull %walker.0) #11
   br label %if.end278
 
 if.else257:                                       ; preds = %if.else234
@@ -1471,8 +1455,8 @@ if.else257:                                       ; preds = %if.else234
   br i1 %or.cond201, label %if.end271, label %if.then267
 
 if.then267:                                       ; preds = %if.else257
-  %55 = load ptr, ptr %free215, align 8
-  tail call void %55(ptr noundef %memory, ptr noundef nonnull %2) #11
+  %53 = load ptr, ptr %free215, align 8
+  tail call void %53(ptr noundef %memory, ptr noundef nonnull %2) #11
   br label %if.end271
 
 if.end271:                                        ; preds = %if.then267, %if.else257
@@ -1486,30 +1470,30 @@ if.end278:                                        ; preds = %if.end271, %if.end2
   br i1 %tobool206.not, label %if.end291, label %land.lhs.true280
 
 land.lhs.true280:                                 ; preds = %if.end278
-  %56 = load ptr, ptr %23, align 8
+  %54 = load ptr, ptr %23, align 8
   %afterLast284 = getelementptr inbounds i8, ptr %23, i64 8
-  %57 = load ptr, ptr %afterLast284, align 8
-  %cmp285.not = icmp eq ptr %56, %57
+  %55 = load ptr, ptr %afterLast284, align 8
+  %cmp285.not = icmp eq ptr %54, %55
   br i1 %cmp285.not, label %if.end291, label %if.then287
 
 if.then287:                                       ; preds = %land.lhs.true280
-  %58 = load ptr, ptr %free215, align 8
-  tail call void %58(ptr noundef %memory, ptr noundef %56) #11
+  %56 = load ptr, ptr %free215, align 8
+  tail call void %56(ptr noundef %memory, ptr noundef %54) #11
   br label %if.end291
 
 if.end291:                                        ; preds = %if.then287, %land.lhs.true280, %if.end278
-  %59 = load ptr, ptr %free215, align 8
-  tail call void %59(ptr noundef %memory, ptr noundef nonnull %23) #11
+  %57 = load ptr, ptr %free215, align 8
+  tail call void %57(ptr noundef %memory, ptr noundef nonnull %23) #11
   br label %do.cond
 
 if.else294:                                       ; preds = %if.then149
   store ptr %24, ptr %pathHead, align 8
-  %60 = load ptr, ptr %next112, align 8
-  %cmp299.not = icmp eq ptr %60, null
+  %58 = load ptr, ptr %next112, align 8
+  %cmp299.not = icmp eq ptr %58, null
   br i1 %cmp299.not, label %if.else304, label %if.then301
 
 if.then301:                                       ; preds = %if.else294
-  %reserved303 = getelementptr inbounds i8, ptr %60, i64 24
+  %reserved303 = getelementptr inbounds i8, ptr %58, i64 24
   store ptr null, ptr %reserved303, align 8
   br label %if.end306
 
@@ -1521,29 +1505,29 @@ if.end306:                                        ; preds = %if.else304, %if.the
   br i1 %tobool206.not, label %if.end319, label %land.lhs.true308
 
 land.lhs.true308:                                 ; preds = %if.end306
-  %61 = load ptr, ptr %walker.0, align 8
-  %62 = load ptr, ptr %afterLast, align 8
-  %cmp313.not = icmp eq ptr %61, %62
+  %59 = load ptr, ptr %walker.0, align 8
+  %60 = load ptr, ptr %afterLast, align 8
+  %cmp313.not = icmp eq ptr %59, %60
   br i1 %cmp313.not, label %if.end319, label %if.then315
 
 if.then315:                                       ; preds = %land.lhs.true308
-  %63 = load ptr, ptr %free215, align 8
-  tail call void %63(ptr noundef %memory, ptr noundef %61) #11
+  %61 = load ptr, ptr %free215, align 8
+  tail call void %61(ptr noundef %memory, ptr noundef %59) #11
   br label %if.end319
 
 if.end319:                                        ; preds = %if.then315, %land.lhs.true308, %if.end306
-  %64 = load ptr, ptr %free215, align 8
-  tail call void %64(ptr noundef %memory, ptr noundef nonnull %walker.0) #11
+  %62 = load ptr, ptr %free215, align 8
+  tail call void %62(ptr noundef %memory, ptr noundef nonnull %walker.0) #11
   br label %do.cond
 
 if.then325:                                       ; preds = %for.body, %do.body, %land.lhs.true138, %land.lhs.true102, %sw.bb96, %sw.bb, %if.then114
   %next326 = getelementptr inbounds i8, ptr %walker.0, i64 16
-  %65 = load ptr, ptr %next326, align 8
-  %cmp327.not = icmp eq ptr %65, null
+  %63 = load ptr, ptr %next326, align 8
+  %cmp327.not = icmp eq ptr %63, null
   br i1 %cmp327.not, label %if.else332, label %if.then329
 
 if.then329:                                       ; preds = %if.then325
-  %reserved331 = getelementptr inbounds i8, ptr %65, i64 24
+  %reserved331 = getelementptr inbounds i8, ptr %63, i64 24
   store ptr %walker.0, ptr %reserved331, align 8
   br label %if.end334
 
@@ -1552,11 +1536,11 @@ if.else332:                                       ; preds = %if.then325
   br label %if.end334
 
 if.end334:                                        ; preds = %if.else332, %if.then329
-  %66 = load ptr, ptr %next326, align 8
+  %64 = load ptr, ptr %next326, align 8
   br label %do.cond
 
 do.cond:                                          ; preds = %if.end232, %if.end291, %if.end319, %if.end58, %if.end334
-  %walker.2 = phi ptr [ %66, %if.end334 ], [ %24, %if.end232 ], [ %24, %if.end291 ], [ %24, %if.end319 ], [ %5, %if.end58 ]
+  %walker.2 = phi ptr [ %64, %if.end334 ], [ %24, %if.end232 ], [ %24, %if.end291 ], [ %24, %if.end319 ], [ %5, %if.end58 ]
   %cmp337.not = icmp eq ptr %walker.2, null
   br i1 %cmp337.not, label %return, label %do.body, !llvm.loop !9
 

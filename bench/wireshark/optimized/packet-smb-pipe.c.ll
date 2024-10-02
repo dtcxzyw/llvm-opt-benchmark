@@ -946,165 +946,139 @@ define hidden noundef i32 @dissect_pipe_dcerpc(ptr noundef %0, ptr noundef %1, p
   store i16 2, ptr %10, align 8
   %17 = getelementptr inbounds i8, ptr %1, i64 272
   %18 = load i32, ptr %17, align 8
-  br label %25
+  br label %22
 
 19:                                               ; preds = %15, %6
   %.pr = load i16, ptr %10, align 8
   %20 = getelementptr inbounds i8, ptr %1, i64 272
   %21 = load i32, ptr %20, align 8
   %.not106 = icmp eq i16 %.pr, 0
-  br i1 %.not106, label %22, label %25
+  br i1 %.not106, label %70, label %22
 
-22:                                               ; preds = %19
-  %23 = load ptr, ptr @smb_transact_heur_subdissector_list, align 8
-  %24 = call i32 @dissector_try_heuristic(ptr noundef %23, ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, ptr noundef nonnull %8, ptr noundef %5) #8
-  br label %89
+22:                                               ; preds = %.thread, %19
+  %23 = phi i32 [ %18, %.thread ], [ %21, %19 ]
+  %24 = phi ptr [ %17, %.thread ], [ %20, %19 ]
+  %25 = getelementptr inbounds i8, ptr %1, i64 80
+  %26 = load ptr, ptr %25, align 8
+  %27 = getelementptr inbounds i8, ptr %26, i64 50
+  %28 = load i16, ptr %27, align 2
+  %29 = and i16 %28, 8
+  %.not107 = icmp eq i16 %29, 0
+  br i1 %.not107, label %30, label %52
 
-25:                                               ; preds = %.thread, %19
-  %26 = phi i32 [ %18, %.thread ], [ %21, %19 ]
-  %27 = phi ptr [ %17, %.thread ], [ %20, %19 ]
-  %28 = getelementptr inbounds i8, ptr %1, i64 80
-  %29 = load ptr, ptr %28, align 8
-  %30 = getelementptr inbounds i8, ptr %29, i64 50
-  %31 = load i16, ptr %30, align 2
-  %32 = and i16 %31, 8
-  %.not107 = icmp eq i16 %32, 0
-  br i1 %.not107, label %33, label %62
+30:                                               ; preds = %22
+  %31 = tail call ptr @fragment_get(ptr noundef nonnull @dcerpc_reassembly_table, ptr noundef nonnull %1, i32 noundef %4, ptr noundef null) #8
+  %.not108 = icmp eq ptr %31, null
+  br i1 %.not108, label %32, label %41
 
-33:                                               ; preds = %25
-  %34 = tail call ptr @fragment_get(ptr noundef nonnull @dcerpc_reassembly_table, ptr noundef nonnull %1, i32 noundef %4, ptr noundef null) #8
-  %.not108 = icmp eq ptr %34, null
-  br i1 %.not108, label %35, label %44
+32:                                               ; preds = %30
+  %33 = load ptr, ptr @smb_transact_heur_subdissector_list, align 8
+  %34 = call i32 @dissector_try_heuristic(ptr noundef %33, ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, ptr noundef nonnull %8, ptr noundef %5) #8
+  %.not109 = icmp eq i32 %34, 0
+  br i1 %.not109, label %.thread118, label %35
 
-35:                                               ; preds = %33
-  %36 = load ptr, ptr @smb_transact_heur_subdissector_list, align 8
-  %37 = call i32 @dissector_try_heuristic(ptr noundef %36, ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, ptr noundef nonnull %8, ptr noundef %5) #8
-  %.not109 = icmp eq i32 %37, 0
-  br i1 %.not109, label %.thread118, label %38
+35:                                               ; preds = %32
+  %36 = load i32, ptr %12, align 8
+  %.not110 = icmp eq i32 %36, 0
+  br i1 %.not110, label %.thread124, label %37
 
-38:                                               ; preds = %35
+37:                                               ; preds = %35
+  %38 = call ptr @fragment_add_check(ptr noundef nonnull @dcerpc_reassembly_table, ptr noundef %0, i32 noundef 0, ptr noundef nonnull %1, i32 noundef %4, ptr noundef null, i32 noundef 0, i32 noundef %13, i32 noundef 1) #8
   %39 = load i32, ptr %12, align 8
-  %.not110 = icmp eq i32 %39, 0
-  br i1 %.not110, label %.thread124, label %40
-
-40:                                               ; preds = %38
-  %41 = call ptr @fragment_add_check(ptr noundef nonnull @dcerpc_reassembly_table, ptr noundef %0, i32 noundef 0, ptr noundef nonnull %1, i32 noundef %4, ptr noundef null, i32 noundef 0, i32 noundef %13, i32 noundef 1) #8
-  %42 = load i32, ptr %12, align 8
-  %43 = add i32 %42, %13
-  call void @fragment_set_tot_len(ptr noundef nonnull @dcerpc_reassembly_table, ptr noundef nonnull %1, i32 noundef %4, ptr noundef null, i32 noundef %43) #8
+  %40 = add i32 %39, %13
+  call void @fragment_set_tot_len(ptr noundef nonnull @dcerpc_reassembly_table, ptr noundef nonnull %1, i32 noundef %4, ptr noundef null, i32 noundef %40) #8
   br label %.thread124
 
-44:                                               ; preds = %33
-  %45 = load ptr, ptr %34, align 8
-  br label %46
+41:                                               ; preds = %30
+  %42 = load ptr, ptr %31, align 8
+  br label %43
 
-46:                                               ; preds = %46, %44
-  %.0 = phi ptr [ %45, %44 ], [ %47, %46 ]
-  %47 = load ptr, ptr %.0, align 8
-  %.not111 = icmp eq ptr %47, null
-  br i1 %.not111, label %48, label %46, !llvm.loop !4
+43:                                               ; preds = %43, %41
+  %.0 = phi ptr [ %42, %41 ], [ %44, %43 ]
+  %44 = load ptr, ptr %.0, align 8
+  %.not111 = icmp eq ptr %44, null
+  br i1 %.not111, label %45, label %43, !llvm.loop !4
 
-48:                                               ; preds = %46
-  %49 = getelementptr inbounds i8, ptr %.0, i64 12
-  %50 = load i32, ptr %49, align 4
-  %51 = getelementptr inbounds i8, ptr %.0, i64 16
-  %52 = load i32, ptr %51, align 8
-  %53 = add i32 %52, %50
-  %54 = tail call ptr @fragment_add_check(ptr noundef nonnull @dcerpc_reassembly_table, ptr noundef %0, i32 noundef 0, ptr noundef %1, i32 noundef %4, ptr noundef null, i32 noundef %53, i32 noundef %13, i32 noundef 1) #8
-  %.not112 = icmp eq ptr %54, null
-  br i1 %.not112, label %.thread118, label %55
+45:                                               ; preds = %43
+  %46 = getelementptr inbounds i8, ptr %.0, i64 12
+  %47 = load i32, ptr %46, align 4
+  %48 = getelementptr inbounds i8, ptr %.0, i64 16
+  %49 = load i32, ptr %48, align 8
+  %50 = add i32 %49, %47
+  %51 = tail call ptr @fragment_add_check(ptr noundef nonnull @dcerpc_reassembly_table, ptr noundef %0, i32 noundef 0, ptr noundef %1, i32 noundef %4, ptr noundef null, i32 noundef %50, i32 noundef %13, i32 noundef 1) #8
+  %.not112 = icmp eq ptr %51, null
+  br i1 %.not112, label %.thread118, label %.sink.split
 
-55:                                               ; preds = %48
-  %56 = getelementptr inbounds i8, ptr %54, i64 56
-  %57 = load ptr, ptr %56, align 8
-  %58 = tail call ptr @tvb_new_chain(ptr noundef %0, ptr noundef %57) #8
-  tail call void @add_new_data_source(ptr noundef %1, ptr noundef %58, ptr noundef nonnull @.str.254) #8
-  store i32 0, ptr %27, align 8
-  %59 = call i32 @show_fragment_tree(ptr noundef nonnull %54, ptr noundef nonnull @smb_pipe_frag_items, ptr noundef %3, ptr noundef %1, ptr noundef %58, ptr noundef nonnull %7) #8
-  %60 = load ptr, ptr @smb_transact_heur_subdissector_list, align 8
-  %61 = call i32 @dissector_try_heuristic(ptr noundef %60, ptr noundef %58, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %8, ptr noundef %5) #8
-  br label %89
+52:                                               ; preds = %22
+  %53 = tail call ptr @fragment_add_check(ptr noundef nonnull @dcerpc_reassembly_table, ptr noundef %0, i32 noundef 0, ptr noundef nonnull %1, i32 noundef %4, ptr noundef null, i32 noundef 0, i32 noundef 0, i32 noundef 1) #8
+  %.not113 = icmp eq ptr %53, null
+  br i1 %.not113, label %70, label %54
 
-62:                                               ; preds = %25
-  %63 = tail call ptr @fragment_add_check(ptr noundef nonnull @dcerpc_reassembly_table, ptr noundef %0, i32 noundef 0, ptr noundef nonnull %1, i32 noundef %4, ptr noundef null, i32 noundef 0, i32 noundef 0, i32 noundef 1) #8
-  %.not113 = icmp eq ptr %63, null
-  br i1 %.not113, label %64, label %67
+54:                                               ; preds = %52
+  %55 = getelementptr inbounds i8, ptr %53, i64 48
+  %56 = load i32, ptr %55, align 8
+  %57 = and i32 %56, 1
+  %.not114 = icmp eq i32 %57, 0
+  br i1 %.not114, label %70, label %58
 
-64:                                               ; preds = %62
-  %65 = load ptr, ptr @smb_transact_heur_subdissector_list, align 8
-  %66 = call i32 @dissector_try_heuristic(ptr noundef %65, ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, ptr noundef nonnull %8, ptr noundef %5) #8
-  br label %89
+58:                                               ; preds = %54
+  %59 = getelementptr inbounds i8, ptr %1, i64 20
+  %60 = load i32, ptr %59, align 4
+  %61 = getelementptr inbounds i8, ptr %53, i64 40
+  %62 = load i32, ptr %61, align 8
+  %.not115 = icmp eq i32 %60, %62
+  br i1 %.not115, label %.sink.split, label %63
 
-67:                                               ; preds = %62
-  %68 = getelementptr inbounds i8, ptr %63, i64 48
-  %69 = load i32, ptr %68, align 8
-  %70 = and i32 %69, 1
-  %.not114 = icmp eq i32 %70, 0
-  br i1 %.not114, label %71, label %74
-
-71:                                               ; preds = %67
-  %72 = load ptr, ptr @smb_transact_heur_subdissector_list, align 8
-  %73 = call i32 @dissector_try_heuristic(ptr noundef %72, ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, ptr noundef nonnull %8, ptr noundef %5) #8
-  br label %89
-
-74:                                               ; preds = %67
-  %75 = getelementptr inbounds i8, ptr %1, i64 20
-  %76 = load i32, ptr %75, align 4
-  %77 = getelementptr inbounds i8, ptr %63, i64 40
-  %78 = load i32, ptr %77, align 8
-  %.not115 = icmp eq i32 %76, %78
-  br i1 %.not115, label %82, label %79
-
-79:                                               ; preds = %74
-  %80 = load i32, ptr @hf_smb_pipe_reassembled_in, align 4
-  %81 = tail call ptr @proto_tree_add_uint(ptr noundef %2, i32 noundef %80, ptr noundef %0, i32 noundef 0, i32 noundef 0, i32 noundef %78) #8
+63:                                               ; preds = %58
+  %64 = load i32, ptr @hf_smb_pipe_reassembled_in, align 4
+  %65 = tail call ptr @proto_tree_add_uint(ptr noundef %2, i32 noundef %64, ptr noundef %0, i32 noundef 0, i32 noundef 0, i32 noundef %62) #8
   br label %.thread118
 
-82:                                               ; preds = %74
-  %83 = getelementptr inbounds i8, ptr %63, i64 56
-  %84 = load ptr, ptr %83, align 8
-  %85 = tail call ptr @tvb_new_chain(ptr noundef %0, ptr noundef %84) #8
-  tail call void @add_new_data_source(ptr noundef nonnull %1, ptr noundef %85, ptr noundef nonnull @.str.254) #8
-  store i32 0, ptr %27, align 8
-  %86 = call i32 @show_fragment_tree(ptr noundef nonnull %63, ptr noundef nonnull @smb_pipe_frag_items, ptr noundef %3, ptr noundef nonnull %1, ptr noundef %85, ptr noundef nonnull %7) #8
-  %87 = load ptr, ptr @smb_transact_heur_subdissector_list, align 8
-  %88 = call i32 @dissector_try_heuristic(ptr noundef %87, ptr noundef %85, ptr noundef nonnull %1, ptr noundef %2, ptr noundef nonnull %8, ptr noundef %5) #8
-  br label %89
-
-.thread118:                                       ; preds = %79, %48, %35
+.thread118:                                       ; preds = %63, %45, %32
   store i16 0, ptr %10, align 8
   store i32 0, ptr %11, align 4
   store i32 0, ptr %12, align 8
-  br label %92
+  br label %75
 
-.thread124:                                       ; preds = %40, %38
+.thread124:                                       ; preds = %37, %35
   store i16 0, ptr %10, align 8
   store i32 0, ptr %11, align 4
   store i32 0, ptr %12, align 8
-  br label %96
+  br label %79
 
-89:                                               ; preds = %55, %82, %71, %64, %22
-  %90 = phi i32 [ %26, %82 ], [ %26, %71 ], [ %26, %64 ], [ %26, %55 ], [ %21, %22 ]
-  %91 = phi ptr [ %27, %82 ], [ %27, %71 ], [ %27, %64 ], [ %27, %55 ], [ %20, %22 ]
-  %.098 = phi i32 [ %88, %82 ], [ %73, %71 ], [ %66, %64 ], [ %61, %55 ], [ %24, %22 ]
-  %.097 = phi ptr [ %85, %82 ], [ %0, %71 ], [ %0, %64 ], [ %58, %55 ], [ %0, %22 ]
+.sink.split:                                      ; preds = %58, %45
+  %.sink133 = phi ptr [ %51, %45 ], [ %53, %58 ]
+  %66 = getelementptr inbounds i8, ptr %.sink133, i64 56
+  %67 = load ptr, ptr %66, align 8
+  %68 = tail call ptr @tvb_new_chain(ptr noundef %0, ptr noundef %67) #8
+  tail call void @add_new_data_source(ptr noundef %1, ptr noundef %68, ptr noundef nonnull @.str.254) #8
+  store i32 0, ptr %24, align 8
+  %69 = call i32 @show_fragment_tree(ptr noundef nonnull %.sink133, ptr noundef nonnull @smb_pipe_frag_items, ptr noundef %3, ptr noundef %1, ptr noundef %68, ptr noundef nonnull %7) #8
+  br label %70
+
+70:                                               ; preds = %.sink.split, %54, %52, %19
+  %.sink128 = phi ptr [ %0, %19 ], [ %0, %52 ], [ %0, %54 ], [ %68, %.sink.split ]
+  %71 = phi i32 [ %21, %19 ], [ %23, %52 ], [ %23, %54 ], [ %23, %.sink.split ]
+  %72 = phi ptr [ %20, %19 ], [ %24, %52 ], [ %24, %54 ], [ %24, %.sink.split ]
+  %73 = load ptr, ptr @smb_transact_heur_subdissector_list, align 8
+  %74 = call i32 @dissector_try_heuristic(ptr noundef %73, ptr noundef %.sink128, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %8, ptr noundef %5) #8
   store i16 0, ptr %10, align 8
   store i32 0, ptr %11, align 4
   store i32 0, ptr %12, align 8
-  %.not116 = icmp eq i32 %.098, 0
-  br i1 %.not116, label %92, label %96
+  %.not116 = icmp eq i32 %74, 0
+  br i1 %.not116, label %75, label %79
 
-92:                                               ; preds = %.thread118, %89
-  %.097122 = phi ptr [ %0, %.thread118 ], [ %.097, %89 ]
-  %93 = phi ptr [ %27, %.thread118 ], [ %91, %89 ]
-  %94 = phi i32 [ %26, %.thread118 ], [ %90, %89 ]
-  %95 = call i32 @call_data_dissector(ptr noundef %.097122, ptr noundef nonnull %1, ptr noundef %2) #8
-  br label %96
+75:                                               ; preds = %.thread118, %70
+  %.097122 = phi ptr [ %0, %.thread118 ], [ %.sink128, %70 ]
+  %76 = phi ptr [ %24, %.thread118 ], [ %72, %70 ]
+  %77 = phi i32 [ %23, %.thread118 ], [ %71, %70 ]
+  %78 = call i32 @call_data_dissector(ptr noundef %.097122, ptr noundef nonnull %1, ptr noundef %2) #8
+  br label %79
 
-96:                                               ; preds = %.thread124, %92, %89
-  %97 = phi ptr [ %93, %92 ], [ %91, %89 ], [ %27, %.thread124 ]
-  %98 = phi i32 [ %94, %92 ], [ %90, %89 ], [ %26, %.thread124 ]
-  store i32 %98, ptr %97, align 8
+79:                                               ; preds = %.thread124, %75, %70
+  %80 = phi ptr [ %76, %75 ], [ %72, %70 ], [ %24, %.thread124 ]
+  %81 = phi i32 [ %77, %75 ], [ %71, %70 ], [ %23, %.thread124 ]
+  store i32 %81, ptr %80, align 8
   ret i32 1
 }
 

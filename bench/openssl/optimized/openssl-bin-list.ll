@@ -2738,18 +2738,15 @@ if.then12:                                        ; preds = %land.lhs.true9
   %call14 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %1, ptr noundef nonnull @.str.100) #6
   %cmp15.not = icmp eq ptr %call13, null
   %2 = load ptr, ptr @bio_out, align 8
-  br i1 %cmp15.not, label %if.else, label %if.then16
-
-if.then16:                                        ; preds = %if.then12
-  %call17 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %2, ptr noundef nonnull @.str.101, ptr noundef nonnull %call13) #6
-  br label %if.end21
+  br i1 %cmp15.not, label %if.else, label %if.end21
 
 if.else:                                          ; preds = %if.then12
   %call19 = tail call ptr @OPENSSL_sk_value(ptr noundef nonnull %call7, i32 noundef 0) #6
-  %call20 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %2, ptr noundef nonnull @.str.101, ptr noundef %call19) #6
   br label %if.end21
 
-if.end21:                                         ; preds = %if.else, %if.then16
+if.end21:                                         ; preds = %if.then12, %if.else
+  %call19.sink = phi ptr [ %call19, %if.else ], [ %call13, %if.then12 ]
+  %call20 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %2, ptr noundef nonnull @.str.101, ptr noundef %call19.sink) #6
   %3 = load ptr, ptr @bio_out, align 8
   %call22 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %3, ptr noundef nonnull @.str.69) #6
   %4 = load ptr, ptr @bio_out, align 8

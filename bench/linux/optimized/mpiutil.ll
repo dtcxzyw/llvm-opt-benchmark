@@ -268,7 +268,7 @@ define dso_local void @mpi_clear(ptr noundef writeonly %0) #5 align 16 {
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @mpi_free(ptr noundef %0) #1 align 16 {
   %2 = icmp eq ptr %0, null
-  br i1 %2, label %20, label %3
+  br i1 %2, label %17, label %3
 
 3:                                                ; preds = %1
   %4 = getelementptr inbounds i8, ptr %0, i64 16
@@ -277,34 +277,28 @@ define dso_local void @mpi_free(ptr noundef %0) #1 align 16 {
   %7 = icmp eq i32 %6, 0
   %8 = getelementptr inbounds i8, ptr %0, i64 24
   %9 = load ptr, ptr %8, align 8
-  br i1 %7, label %11, label %10
+  %10 = icmp eq ptr %9, null
+  %or.cond = select i1 %7, i1 %10, i1 false
+  br i1 %or.cond, label %11, label %.sink.split
 
-10:                                               ; preds = %3
+.sink.split:                                      ; preds = %3
   tail call void @kfree_sensitive(ptr noundef %9) #14
-  br label %14
+  br label %11
 
-11:                                               ; preds = %3
-  %12 = icmp eq ptr %9, null
-  br i1 %12, label %14, label %13
+11:                                               ; preds = %3, %.sink.split
+  %12 = load i32, ptr %4, align 8
+  %13 = icmp ult i32 %12, 8
+  br i1 %13, label %16, label %14
 
-13:                                               ; preds = %11
-  tail call void @kfree_sensitive(ptr noundef nonnull %9) #14
-  br label %14
+14:                                               ; preds = %11
+  %15 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.2) #11
+  br label %16
 
-14:                                               ; preds = %13, %11, %10
-  %15 = load i32, ptr %4, align 8
-  %16 = icmp ult i32 %15, 8
-  br i1 %16, label %19, label %17
-
-17:                                               ; preds = %14
-  %18 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.2) #11
-  br label %19
-
-19:                                               ; preds = %17, %14
+16:                                               ; preds = %14, %11
   tail call void @kfree(ptr noundef nonnull %0) #14
-  br label %20
+  br label %17
 
-20:                                               ; preds = %19, %1
+17:                                               ; preds = %16, %1
   ret void
 }
 
@@ -488,7 +482,7 @@ define dso_local void @mpi_snatch(ptr noundef %0, ptr noundef %1) local_unnamed_
 
 22:                                               ; preds = %12, %2
   %23 = icmp eq ptr %1, null
-  br i1 %23, label %41, label %24
+  br i1 %23, label %38, label %24
 
 24:                                               ; preds = %22
   %25 = getelementptr inbounds i8, ptr %1, i64 16
@@ -497,34 +491,28 @@ define dso_local void @mpi_snatch(ptr noundef %0, ptr noundef %1) local_unnamed_
   %28 = icmp eq i32 %27, 0
   %29 = getelementptr inbounds i8, ptr %1, i64 24
   %30 = load ptr, ptr %29, align 8
-  br i1 %28, label %32, label %31
+  %31 = icmp eq ptr %30, null
+  %or.cond = select i1 %28, i1 %31, i1 false
+  br i1 %or.cond, label %32, label %.sink.split
 
-31:                                               ; preds = %24
+.sink.split:                                      ; preds = %24
   tail call void @kfree_sensitive(ptr noundef %30) #14
-  br label %35
+  br label %32
 
-32:                                               ; preds = %24
-  %33 = icmp eq ptr %30, null
-  br i1 %33, label %35, label %34
+32:                                               ; preds = %24, %.sink.split
+  %33 = load i32, ptr %25, align 8
+  %34 = icmp ult i32 %33, 8
+  br i1 %34, label %37, label %35
 
-34:                                               ; preds = %32
-  tail call void @kfree_sensitive(ptr noundef nonnull %30) #14
-  br label %35
+35:                                               ; preds = %32
+  %36 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.2) #11
+  br label %37
 
-35:                                               ; preds = %34, %32, %31
-  %36 = load i32, ptr %25, align 8
-  %37 = icmp ult i32 %36, 8
-  br i1 %37, label %40, label %38
-
-38:                                               ; preds = %35
-  %39 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.2) #11
-  br label %40
-
-40:                                               ; preds = %38, %35
+37:                                               ; preds = %35, %32
   tail call void @kfree(ptr noundef nonnull %1) #14
-  br label %41
+  br label %38
 
-41:                                               ; preds = %40, %22
+38:                                               ; preds = %37, %22
   ret void
 }
 

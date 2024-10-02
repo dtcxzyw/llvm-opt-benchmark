@@ -45974,8 +45974,7 @@ _ZN5clang9NamedDecl17getUnderlyingDeclEv.exit:    ; preds = %.lr.ph, %24
 28:                                               ; preds = %_ZN5clang9NamedDecl17getUnderlyingDeclEv.exit
   %29 = getelementptr inbounds nuw i8, ptr %.0.i, i64 48
   %30 = load ptr, ptr %29, align 8
-  tail call void @_ZN5clang4Sema21NoteOverloadCandidateEPKNS_9NamedDeclEPKNS_12FunctionDeclENS_28OverloadCandidateRewriteKindENS_8QualTypeEb(ptr noundef nonnull align 8 dereferenceable(17560) %0, ptr noundef nonnull %20, ptr noundef %30, i32 noundef 0, i64 %2, i1 noundef zeroext %3)
-  br label %37
+  br label %.sink.split
 
 31:                                               ; preds = %_ZN5clang9NamedDecl17getUnderlyingDeclEv.exit
   switch i32 %23, label %_ZN5clang9NamedDecl17getUnderlyingDeclEv.exit23 [
@@ -46001,10 +46000,14 @@ _ZN5clang9NamedDecl17getUnderlyingDeclEv.exit23:  ; preds = %31, %32
 
 36:                                               ; preds = %_ZN5clang9NamedDecl17getUnderlyingDeclEv.exit23
   call void @llvm.assume(i1 true) [ "align"(ptr %.sroa.026.036, i64 8) ]
-  tail call void @_ZN5clang4Sema21NoteOverloadCandidateEPKNS_9NamedDeclEPKNS_12FunctionDeclENS_28OverloadCandidateRewriteKindENS_8QualTypeEb(ptr noundef nonnull align 8 dereferenceable(17560) %0, ptr noundef nonnull %20, ptr noundef nonnull %.0.i22, i32 noundef 0, i64 %2, i1 noundef zeroext %3)
+  br label %.sink.split
+
+.sink.split:                                      ; preds = %36, %28
+  %.sink = phi ptr [ %30, %28 ], [ %.0.i22, %36 ]
+  tail call void @_ZN5clang4Sema21NoteOverloadCandidateEPKNS_9NamedDeclEPKNS_12FunctionDeclENS_28OverloadCandidateRewriteKindENS_8QualTypeEb(ptr noundef nonnull align 8 dereferenceable(17560) %0, ptr noundef nonnull %20, ptr noundef %.sink, i32 noundef 0, i64 %2, i1 noundef zeroext %3)
   br label %37
 
-37:                                               ; preds = %28, %36, %_ZN5clang9NamedDecl17getUnderlyingDeclEv.exit23
+37:                                               ; preds = %.sink.split, %_ZN5clang9NamedDecl17getUnderlyingDeclEv.exit23
   %38 = getelementptr inbounds i8, ptr %.sroa.026.036, i64 8
   %.not32 = icmp eq ptr %38, %18
   br i1 %.not32, label %._crit_edge, label %.lr.ph, !llvm.loop !271
@@ -86127,22 +86130,22 @@ _ZSt22__chunk_insertion_sortIPPN5clang17OverloadCandidateElN9__gnu_cxx5__ops15_I
 ; Function Attrs: mustprogress nounwind uwtable
 define internal fastcc void @_ZSt16__merge_adaptiveIPPN5clang17OverloadCandidateElS3_N9__gnu_cxx5__ops15_Iter_comp_iterIN12_GLOBAL__N_135CompareOverloadCandidatesForDisplayEEEEvT_SA_SA_T0_SB_T1_SB_T2_(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, i64 noundef %4, ptr noundef %5, i64 noundef %6, ptr nocapture noundef readonly byval(%"struct.__gnu_cxx::__ops::_Iter_comp_iter.2161") align 8 %7) unnamed_addr #4 {
   %9 = alloca %"struct.__gnu_cxx::__ops::_Iter_comp_iter.2161", align 8
-  %.not118 = icmp sgt i64 %3, %4
-  %.not59119 = icmp sgt i64 %3, %6
-  %or.cond120 = or i1 %.not59119, %.not118
-  br i1 %or.cond120, label %.lr.ph, label %tailrecurse._crit_edge
+  %.not117 = icmp sgt i64 %3, %4
+  %.not59118 = icmp sgt i64 %3, %6
+  %or.cond119 = or i1 %.not59118, %.not117
+  br i1 %or.cond119, label %.lr.ph, label %tailrecurse._crit_edge
 
 .lr.ph:                                           ; preds = %8
   %10 = ptrtoint ptr %2 to i64
   br label %27
 
 tailrecurse._crit_edge:                           ; preds = %_ZSt17__rotate_adaptiveIPPN5clang17OverloadCandidateES3_lET_S4_S4_S4_T1_S5_T0_S5_.exit, %8
-  %.tr.lcssa = phi ptr [ %0, %8 ], [ %.0.i85, %_ZSt17__rotate_adaptiveIPPN5clang17OverloadCandidateES3_lET_S4_S4_S4_T1_S5_T0_S5_.exit ]
-  %.tr106.lcssa = phi ptr [ %1, %8 ], [ %.0102, %_ZSt17__rotate_adaptiveIPPN5clang17OverloadCandidateES3_lET_S4_S4_S4_T1_S5_T0_S5_.exit ]
-  %11 = ptrtoint ptr %.tr106.lcssa to i64
+  %.tr.lcssa = phi ptr [ %0, %8 ], [ %.0.i84, %_ZSt17__rotate_adaptiveIPPN5clang17OverloadCandidateES3_lET_S4_S4_S4_T1_S5_T0_S5_.exit ]
+  %.tr105.lcssa = phi ptr [ %1, %8 ], [ %.0101, %_ZSt17__rotate_adaptiveIPPN5clang17OverloadCandidateES3_lET_S4_S4_S4_T1_S5_T0_S5_.exit ]
+  %11 = ptrtoint ptr %.tr105.lcssa to i64
   %12 = ptrtoint ptr %.tr.lcssa to i64
   %13 = sub i64 %11, %12
-  %.not.i.i.i.i.i = icmp eq ptr %.tr106.lcssa, %.tr.lcssa
+  %.not.i.i.i.i.i = icmp eq ptr %.tr105.lcssa, %.tr.lcssa
   br i1 %.not.i.i.i.i.i, label %_ZSt4moveIPPN5clang17OverloadCandidateES3_ET0_T_S5_S4_.exit, label %14
 
 14:                                               ; preds = %tailrecurse._crit_edge
@@ -86153,15 +86156,15 @@ _ZSt4moveIPPN5clang17OverloadCandidateES3_ET0_T_S5_S4_.exit: ; preds = %tailrecu
   %15 = getelementptr inbounds i8, ptr %5, i64 %13
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %9)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull align 8 dereferenceable(32) %7, i64 32, i1 false)
-  %16 = icmp ne ptr %.tr106.lcssa, %.tr.lcssa
-  %17 = icmp ne ptr %.tr106.lcssa, %2
+  %16 = icmp ne ptr %.tr105.lcssa, %.tr.lcssa
+  %17 = icmp ne ptr %.tr105.lcssa, %2
   %18 = and i1 %16, %17
   br i1 %18, label %.lr.ph.i, label %._crit_edge.i
 
 .lr.ph.i:                                         ; preds = %_ZSt4moveIPPN5clang17OverloadCandidateES3_ET0_T_S5_S4_.exit, %.lr.ph.i
   %.024.i = phi ptr [ %20, %.lr.ph.i ], [ %.tr.lcssa, %_ZSt4moveIPPN5clang17OverloadCandidateES3_ET0_T_S5_S4_.exit ]
   %.01823.i = phi ptr [ %.1.i, %.lr.ph.i ], [ %5, %_ZSt4moveIPPN5clang17OverloadCandidateES3_ET0_T_S5_S4_.exit ]
-  %.01922.i = phi ptr [ %.120.i, %.lr.ph.i ], [ %.tr106.lcssa, %_ZSt4moveIPPN5clang17OverloadCandidateES3_ET0_T_S5_S4_.exit ]
+  %.01922.i = phi ptr [ %.120.i, %.lr.ph.i ], [ %.tr105.lcssa, %_ZSt4moveIPPN5clang17OverloadCandidateES3_ET0_T_S5_S4_.exit ]
   %.019.val.i = load ptr, ptr %.01922.i, align 8
   %.018.val.i = load ptr, ptr %.01823.i, align 8
   %19 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_135CompareOverloadCandidatesForDisplayclEPKN5clang17OverloadCandidateES4_(ptr noundef nonnull readonly align 8 dereferenceable(28) %9, ptr noundef %.019.val.i, ptr noundef %.018.val.i)
@@ -86196,265 +86199,261 @@ _ZSt21__move_merge_adaptiveIPPN5clang17OverloadCandidateES3_S3_N9__gnu_cxx5__ops
   br label %_ZSt30__move_merge_adaptive_backwardIPPN5clang17OverloadCandidateES3_S3_N9__gnu_cxx5__ops15_Iter_comp_iterIN12_GLOBAL__N_135CompareOverloadCandidatesForDisplayEEEEvT_SA_T0_SB_T1_T2_.exit
 
 27:                                               ; preds = %.lr.ph, %_ZSt17__rotate_adaptiveIPPN5clang17OverloadCandidateES3_lET_S4_S4_S4_T1_S5_T0_S5_.exit
-  %.not127 = phi i1 [ %.not118, %.lr.ph ], [ %.not, %_ZSt17__rotate_adaptiveIPPN5clang17OverloadCandidateES3_lET_S4_S4_S4_T1_S5_T0_S5_.exit ]
-  %.tr109126 = phi i64 [ %4, %.lr.ph ], [ %119, %_ZSt17__rotate_adaptiveIPPN5clang17OverloadCandidateES3_lET_S4_S4_S4_T1_S5_T0_S5_.exit ]
-  %.tr108125 = phi i64 [ %3, %.lr.ph ], [ %88, %_ZSt17__rotate_adaptiveIPPN5clang17OverloadCandidateES3_lET_S4_S4_S4_T1_S5_T0_S5_.exit ]
-  %.tr106123 = phi ptr [ %1, %.lr.ph ], [ %.0102, %_ZSt17__rotate_adaptiveIPPN5clang17OverloadCandidateES3_lET_S4_S4_S4_T1_S5_T0_S5_.exit ]
-  %.tr121 = phi ptr [ %0, %.lr.ph ], [ %.0.i85, %_ZSt17__rotate_adaptiveIPPN5clang17OverloadCandidateES3_lET_S4_S4_S4_T1_S5_T0_S5_.exit ]
-  %.not60 = icmp sgt i64 %.tr109126, %6
-  %28 = ptrtoint ptr %.tr106123 to i64
-  br i1 %.not60, label %57, label %29
+  %.not126 = phi i1 [ %.not117, %.lr.ph ], [ %.not, %_ZSt17__rotate_adaptiveIPPN5clang17OverloadCandidateES3_lET_S4_S4_S4_T1_S5_T0_S5_.exit ]
+  %.tr108125 = phi i64 [ %4, %.lr.ph ], [ %116, %_ZSt17__rotate_adaptiveIPPN5clang17OverloadCandidateES3_lET_S4_S4_S4_T1_S5_T0_S5_.exit ]
+  %.tr107124 = phi i64 [ %3, %.lr.ph ], [ %85, %_ZSt17__rotate_adaptiveIPPN5clang17OverloadCandidateES3_lET_S4_S4_S4_T1_S5_T0_S5_.exit ]
+  %.tr105122 = phi ptr [ %1, %.lr.ph ], [ %.0101, %_ZSt17__rotate_adaptiveIPPN5clang17OverloadCandidateES3_lET_S4_S4_S4_T1_S5_T0_S5_.exit ]
+  %.tr120 = phi ptr [ %0, %.lr.ph ], [ %.0.i84, %_ZSt17__rotate_adaptiveIPPN5clang17OverloadCandidateES3_lET_S4_S4_S4_T1_S5_T0_S5_.exit ]
+  %.not60 = icmp sgt i64 %.tr108125, %6
+  br i1 %.not60, label %53, label %28
 
-29:                                               ; preds = %27
-  %30 = sub i64 %10, %28
-  %.not.i.i.i.i.i61 = icmp eq ptr %2, %.tr106123
+28:                                               ; preds = %27
+  %.not.i.i.i.i.i61 = icmp eq ptr %2, %.tr105122
   br i1 %.not.i.i.i.i.i61, label %_ZSt30__move_merge_adaptive_backwardIPPN5clang17OverloadCandidateES3_S3_N9__gnu_cxx5__ops15_Iter_comp_iterIN12_GLOBAL__N_135CompareOverloadCandidatesForDisplayEEEEvT_SA_T0_SB_T1_T2_.exit, label %_ZSt4moveIPPN5clang17OverloadCandidateES3_ET0_T_S5_S4_.exit62.thread
 
-_ZSt4moveIPPN5clang17OverloadCandidateES3_ET0_T_S5_S4_.exit62.thread: ; preds = %29
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %5, ptr align 8 %.tr106123, i64 %30, i1 false)
-  %31 = icmp eq ptr %.tr121, %.tr106123
-  br i1 %31, label %32, label %35
+_ZSt4moveIPPN5clang17OverloadCandidateES3_ET0_T_S5_S4_.exit62.thread: ; preds = %28
+  %29 = ptrtoint ptr %.tr105122 to i64
+  %30 = sub i64 %10, %29
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %5, ptr align 8 %.tr105122, i64 %30, i1 false)
+  %31 = getelementptr inbounds i8, ptr %5, i64 %30
+  %32 = icmp eq ptr %.tr120, %.tr105122
+  br i1 %32, label %_ZSt13move_backwardIPPN5clang17OverloadCandidateES3_ET0_T_S5_S4_.exit.sink.split.i, label %33
 
-32:                                               ; preds = %_ZSt4moveIPPN5clang17OverloadCandidateES3_ET0_T_S5_S4_.exit62.thread
-  %33 = ashr exact i64 %30, 3
-  %.pre.i.i.i.i.i.i = sub nsw i64 0, %33
-  %34 = getelementptr inbounds ptr, ptr %2, i64 %.pre.i.i.i.i.i.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %34, ptr align 8 %5, i64 %30, i1 false)
-  br label %_ZSt30__move_merge_adaptive_backwardIPPN5clang17OverloadCandidateES3_S3_N9__gnu_cxx5__ops15_Iter_comp_iterIN12_GLOBAL__N_135CompareOverloadCandidatesForDisplayEEEEvT_SA_T0_SB_T1_T2_.exit
-
-35:                                               ; preds = %_ZSt4moveIPPN5clang17OverloadCandidateES3_ET0_T_S5_S4_.exit62.thread
-  %36 = getelementptr inbounds i8, ptr %5, i64 %30
-  %37 = getelementptr inbounds i8, ptr %36, i64 -8
+33:                                               ; preds = %_ZSt4moveIPPN5clang17OverloadCandidateES3_ET0_T_S5_S4_.exit62.thread
+  %34 = getelementptr inbounds i8, ptr %31, i64 -8
   br label %.outer
 
-.outer:                                           ; preds = %41, %35
-  %.026.i.ph.pn = phi ptr [ %.tr106123, %35 ], [ %.026.i.ph, %41 ]
-  %.024.i63.ph = phi ptr [ %37, %35 ], [ %.024.i63, %41 ]
-  %.0.i.ph = phi ptr [ %2, %35 ], [ %40, %41 ]
+.outer:                                           ; preds = %38, %33
+  %.026.i.ph.pn = phi ptr [ %.tr105122, %33 ], [ %.026.i.ph, %38 ]
+  %.024.i63.ph = phi ptr [ %34, %33 ], [ %.024.i63, %38 ]
+  %.0.i.ph = phi ptr [ %2, %33 ], [ %37, %38 ]
   %.026.i.ph = getelementptr inbounds i8, ptr %.026.i.ph.pn, i64 -8
-  br label %38
+  br label %35
 
-38:                                               ; preds = %.outer, %55
-  %.024.i63 = phi ptr [ %56, %55 ], [ %.024.i63.ph, %.outer ]
-  %.0.i = phi ptr [ %40, %55 ], [ %.0.i.ph, %.outer ]
+35:                                               ; preds = %.outer, %46
+  %.024.i63 = phi ptr [ %47, %46 ], [ %.024.i63.ph, %.outer ]
+  %.0.i = phi ptr [ %37, %46 ], [ %.0.i.ph, %.outer ]
   %.024.val.i = load ptr, ptr %.024.i63, align 8
   %.026.val.i = load ptr, ptr %.026.i.ph, align 8
-  %39 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_135CompareOverloadCandidatesForDisplayclEPKN5clang17OverloadCandidateES4_(ptr noundef nonnull readonly align 8 dereferenceable(28) %7, ptr noundef %.024.val.i, ptr noundef %.026.val.i)
-  %40 = getelementptr inbounds i8, ptr %.0.i, i64 -8
-  br i1 %39, label %41, label %52
+  %36 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_135CompareOverloadCandidatesForDisplayclEPKN5clang17OverloadCandidateES4_(ptr noundef nonnull readonly align 8 dereferenceable(28) %7, ptr noundef %.024.val.i, ptr noundef %.026.val.i)
+  %37 = getelementptr inbounds i8, ptr %.0.i, i64 -8
+  br i1 %36, label %38, label %43
+
+38:                                               ; preds = %35
+  %39 = load ptr, ptr %.026.i.ph, align 8
+  store ptr %39, ptr %37, align 8
+  %40 = icmp eq ptr %.tr120, %.026.i.ph
+  br i1 %40, label %41, label %.outer, !llvm.loop !472
 
 41:                                               ; preds = %38
-  %42 = load ptr, ptr %.026.i.ph, align 8
-  store ptr %42, ptr %40, align 8
-  %43 = icmp eq ptr %.tr121, %.026.i.ph
-  br i1 %43, label %44, label %.outer, !llvm.loop !472
+  %42 = getelementptr inbounds i8, ptr %.024.i63, i64 8
+  %.not.i.i.i.i.i32.i = icmp eq ptr %42, %5
+  br i1 %.not.i.i.i.i.i32.i, label %_ZSt30__move_merge_adaptive_backwardIPPN5clang17OverloadCandidateES3_S3_N9__gnu_cxx5__ops15_Iter_comp_iterIN12_GLOBAL__N_135CompareOverloadCandidatesForDisplayEEEEvT_SA_T0_SB_T1_T2_.exit, label %_ZSt13move_backwardIPPN5clang17OverloadCandidateES3_ET0_T_S5_S4_.exit.sink.split.i
 
-44:                                               ; preds = %41
-  %45 = getelementptr inbounds i8, ptr %.024.i63, i64 8
-  %.not.i.i.i.i.i32.i = icmp eq ptr %45, %5
-  br i1 %.not.i.i.i.i.i32.i, label %_ZSt30__move_merge_adaptive_backwardIPPN5clang17OverloadCandidateES3_S3_N9__gnu_cxx5__ops15_Iter_comp_iterIN12_GLOBAL__N_135CompareOverloadCandidatesForDisplayEEEEvT_SA_T0_SB_T1_T2_.exit, label %46
+43:                                               ; preds = %35
+  %44 = load ptr, ptr %.024.i63, align 8
+  store ptr %44, ptr %37, align 8
+  %45 = icmp eq ptr %5, %.024.i63
+  br i1 %45, label %_ZSt30__move_merge_adaptive_backwardIPPN5clang17OverloadCandidateES3_S3_N9__gnu_cxx5__ops15_Iter_comp_iterIN12_GLOBAL__N_135CompareOverloadCandidatesForDisplayEEEEvT_SA_T0_SB_T1_T2_.exit, label %46
 
-46:                                               ; preds = %44
-  %47 = ptrtoint ptr %45 to i64
-  %48 = ptrtoint ptr %5 to i64
-  %49 = sub i64 %47, %48
-  %50 = ashr exact i64 %49, 3
-  %.pre.i.i.i.i.i33.i = sub nsw i64 0, %50
-  %51 = getelementptr inbounds ptr, ptr %40, i64 %.pre.i.i.i.i.i33.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %51, ptr align 8 %5, i64 %49, i1 false)
+46:                                               ; preds = %43
+  %47 = getelementptr inbounds i8, ptr %.024.i63, i64 -8
+  br label %35, !llvm.loop !472
+
+_ZSt13move_backwardIPPN5clang17OverloadCandidateES3_ET0_T_S5_S4_.exit.sink.split.i: ; preds = %_ZSt4moveIPPN5clang17OverloadCandidateES3_ET0_T_S5_S4_.exit62.thread, %41
+  %.sink41.i = phi ptr [ %42, %41 ], [ %31, %_ZSt4moveIPPN5clang17OverloadCandidateES3_ET0_T_S5_S4_.exit62.thread ]
+  %.lcssa.sink.i = phi ptr [ %37, %41 ], [ %2, %_ZSt4moveIPPN5clang17OverloadCandidateES3_ET0_T_S5_S4_.exit62.thread ]
+  %48 = ptrtoint ptr %.sink41.i to i64
+  %49 = ptrtoint ptr %5 to i64
+  %50 = sub i64 %48, %49
+  %51 = ashr exact i64 %50, 3
+  %.pre.i.i.i.i.i33.i = sub nsw i64 0, %51
+  %52 = getelementptr inbounds ptr, ptr %.lcssa.sink.i, i64 %.pre.i.i.i.i.i33.i
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %52, ptr align 8 %5, i64 %50, i1 false)
   br label %_ZSt30__move_merge_adaptive_backwardIPPN5clang17OverloadCandidateES3_S3_N9__gnu_cxx5__ops15_Iter_comp_iterIN12_GLOBAL__N_135CompareOverloadCandidatesForDisplayEEEEvT_SA_T0_SB_T1_T2_.exit
 
-52:                                               ; preds = %38
-  %53 = load ptr, ptr %.024.i63, align 8
-  store ptr %53, ptr %40, align 8
-  %54 = icmp eq ptr %5, %.024.i63
-  br i1 %54, label %_ZSt30__move_merge_adaptive_backwardIPPN5clang17OverloadCandidateES3_S3_N9__gnu_cxx5__ops15_Iter_comp_iterIN12_GLOBAL__N_135CompareOverloadCandidatesForDisplayEEEEvT_SA_T0_SB_T1_T2_.exit, label %55
+53:                                               ; preds = %27
+  %54 = ptrtoint ptr %.tr105122 to i64
+  br i1 %.not126, label %_ZSt7advanceIPPN5clang17OverloadCandidateElEvRT_T0_.exit, label %_ZSt7advanceIPPN5clang17OverloadCandidateElEvRT_T0_.exit70
 
-55:                                               ; preds = %52
-  %56 = getelementptr inbounds i8, ptr %.024.i63, i64 -8
-  br label %38, !llvm.loop !472
-
-57:                                               ; preds = %27
-  br i1 %.not127, label %_ZSt7advanceIPPN5clang17OverloadCandidateElEvRT_T0_.exit, label %_ZSt7advanceIPPN5clang17OverloadCandidateElEvRT_T0_.exit70
-
-_ZSt7advanceIPPN5clang17OverloadCandidateElEvRT_T0_.exit: ; preds = %57
-  %58 = sdiv i64 %.tr108125, 2
-  %59 = getelementptr inbounds ptr, ptr %.tr121, i64 %58
-  %60 = sub i64 %10, %28
-  %61 = ashr exact i64 %60, 3
-  %62 = icmp sgt i64 %61, 0
-  br i1 %62, label %_ZSt7advanceIPPN5clang17OverloadCandidateElEvRT_T0_.exit.i, label %_ZSt13__lower_boundIPPN5clang17OverloadCandidateES2_N9__gnu_cxx5__ops14_Iter_comp_valIN12_GLOBAL__N_135CompareOverloadCandidatesForDisplayEEEET_SA_SA_RKT0_T1_.exit
+_ZSt7advanceIPPN5clang17OverloadCandidateElEvRT_T0_.exit: ; preds = %53
+  %55 = sdiv i64 %.tr107124, 2
+  %56 = getelementptr inbounds ptr, ptr %.tr120, i64 %55
+  %57 = sub i64 %10, %54
+  %58 = ashr exact i64 %57, 3
+  %59 = icmp sgt i64 %58, 0
+  br i1 %59, label %_ZSt7advanceIPPN5clang17OverloadCandidateElEvRT_T0_.exit.i, label %_ZSt13__lower_boundIPPN5clang17OverloadCandidateES2_N9__gnu_cxx5__ops14_Iter_comp_valIN12_GLOBAL__N_135CompareOverloadCandidatesForDisplayEEEET_SA_SA_RKT0_T1_.exit
 
 _ZSt7advanceIPPN5clang17OverloadCandidateElEvRT_T0_.exit.i: ; preds = %_ZSt7advanceIPPN5clang17OverloadCandidateElEvRT_T0_.exit, %_ZSt7advanceIPPN5clang17OverloadCandidateElEvRT_T0_.exit.i
-  %.018.i = phi ptr [ %.1.i66, %_ZSt7advanceIPPN5clang17OverloadCandidateElEvRT_T0_.exit.i ], [ %.tr106123, %_ZSt7advanceIPPN5clang17OverloadCandidateElEvRT_T0_.exit ]
-  %.01117.i = phi i64 [ %.112.i, %_ZSt7advanceIPPN5clang17OverloadCandidateElEvRT_T0_.exit.i ], [ %61, %_ZSt7advanceIPPN5clang17OverloadCandidateElEvRT_T0_.exit ]
-  %63 = lshr i64 %.01117.i, 1
-  %64 = getelementptr inbounds ptr, ptr %.018.i, i64 %63
-  %.val.i = load ptr, ptr %64, align 8
-  %.val13.i = load ptr, ptr %59, align 8
-  %65 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_135CompareOverloadCandidatesForDisplayclEPKN5clang17OverloadCandidateES4_(ptr noundef nonnull readonly align 8 dereferenceable(28) %7, ptr noundef %.val.i, ptr noundef %.val13.i)
-  %66 = getelementptr inbounds i8, ptr %64, i64 8
-  %67 = xor i64 %63, -1
-  %68 = add nsw i64 %.01117.i, %67
-  %.112.i = select i1 %65, i64 %68, i64 %63
-  %.1.i66 = select i1 %65, ptr %66, ptr %.018.i
-  %69 = icmp sgt i64 %.112.i, 0
-  br i1 %69, label %_ZSt7advanceIPPN5clang17OverloadCandidateElEvRT_T0_.exit.i, label %_ZSt13__lower_boundIPPN5clang17OverloadCandidateES2_N9__gnu_cxx5__ops14_Iter_comp_valIN12_GLOBAL__N_135CompareOverloadCandidatesForDisplayEEEET_SA_SA_RKT0_T1_.exit.loopexit, !llvm.loop !461
+  %.018.i = phi ptr [ %.1.i66, %_ZSt7advanceIPPN5clang17OverloadCandidateElEvRT_T0_.exit.i ], [ %.tr105122, %_ZSt7advanceIPPN5clang17OverloadCandidateElEvRT_T0_.exit ]
+  %.01117.i = phi i64 [ %.112.i, %_ZSt7advanceIPPN5clang17OverloadCandidateElEvRT_T0_.exit.i ], [ %58, %_ZSt7advanceIPPN5clang17OverloadCandidateElEvRT_T0_.exit ]
+  %60 = lshr i64 %.01117.i, 1
+  %61 = getelementptr inbounds ptr, ptr %.018.i, i64 %60
+  %.val.i = load ptr, ptr %61, align 8
+  %.val13.i = load ptr, ptr %56, align 8
+  %62 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_135CompareOverloadCandidatesForDisplayclEPKN5clang17OverloadCandidateES4_(ptr noundef nonnull readonly align 8 dereferenceable(28) %7, ptr noundef %.val.i, ptr noundef %.val13.i)
+  %63 = getelementptr inbounds i8, ptr %61, i64 8
+  %64 = xor i64 %60, -1
+  %65 = add nsw i64 %.01117.i, %64
+  %.112.i = select i1 %62, i64 %65, i64 %60
+  %.1.i66 = select i1 %62, ptr %63, ptr %.018.i
+  %66 = icmp sgt i64 %.112.i, 0
+  br i1 %66, label %_ZSt7advanceIPPN5clang17OverloadCandidateElEvRT_T0_.exit.i, label %_ZSt13__lower_boundIPPN5clang17OverloadCandidateES2_N9__gnu_cxx5__ops14_Iter_comp_valIN12_GLOBAL__N_135CompareOverloadCandidatesForDisplayEEEET_SA_SA_RKT0_T1_.exit.loopexit, !llvm.loop !461
 
 _ZSt13__lower_boundIPPN5clang17OverloadCandidateES2_N9__gnu_cxx5__ops14_Iter_comp_valIN12_GLOBAL__N_135CompareOverloadCandidatesForDisplayEEEET_SA_SA_RKT0_T1_.exit.loopexit: ; preds = %_ZSt7advanceIPPN5clang17OverloadCandidateElEvRT_T0_.exit.i
   %.pre = ptrtoint ptr %.1.i66 to i64
   br label %_ZSt13__lower_boundIPPN5clang17OverloadCandidateES2_N9__gnu_cxx5__ops14_Iter_comp_valIN12_GLOBAL__N_135CompareOverloadCandidatesForDisplayEEEET_SA_SA_RKT0_T1_.exit
 
 _ZSt13__lower_boundIPPN5clang17OverloadCandidateES2_N9__gnu_cxx5__ops14_Iter_comp_valIN12_GLOBAL__N_135CompareOverloadCandidatesForDisplayEEEET_SA_SA_RKT0_T1_.exit: ; preds = %_ZSt13__lower_boundIPPN5clang17OverloadCandidateES2_N9__gnu_cxx5__ops14_Iter_comp_valIN12_GLOBAL__N_135CompareOverloadCandidatesForDisplayEEEET_SA_SA_RKT0_T1_.exit.loopexit, %_ZSt7advanceIPPN5clang17OverloadCandidateElEvRT_T0_.exit
-  %.pre-phi = phi i64 [ %.pre, %_ZSt13__lower_boundIPPN5clang17OverloadCandidateES2_N9__gnu_cxx5__ops14_Iter_comp_valIN12_GLOBAL__N_135CompareOverloadCandidatesForDisplayEEEET_SA_SA_RKT0_T1_.exit.loopexit ], [ %28, %_ZSt7advanceIPPN5clang17OverloadCandidateElEvRT_T0_.exit ]
-  %.0.lcssa.i65 = phi ptr [ %.1.i66, %_ZSt13__lower_boundIPPN5clang17OverloadCandidateES2_N9__gnu_cxx5__ops14_Iter_comp_valIN12_GLOBAL__N_135CompareOverloadCandidatesForDisplayEEEET_SA_SA_RKT0_T1_.exit.loopexit ], [ %.tr106123, %_ZSt7advanceIPPN5clang17OverloadCandidateElEvRT_T0_.exit ]
-  %70 = sub i64 %.pre-phi, %28
-  %71 = ashr exact i64 %70, 3
-  br label %87
+  %.pre-phi = phi i64 [ %.pre, %_ZSt13__lower_boundIPPN5clang17OverloadCandidateES2_N9__gnu_cxx5__ops14_Iter_comp_valIN12_GLOBAL__N_135CompareOverloadCandidatesForDisplayEEEET_SA_SA_RKT0_T1_.exit.loopexit ], [ %54, %_ZSt7advanceIPPN5clang17OverloadCandidateElEvRT_T0_.exit ]
+  %.0.lcssa.i65 = phi ptr [ %.1.i66, %_ZSt13__lower_boundIPPN5clang17OverloadCandidateES2_N9__gnu_cxx5__ops14_Iter_comp_valIN12_GLOBAL__N_135CompareOverloadCandidatesForDisplayEEEET_SA_SA_RKT0_T1_.exit.loopexit ], [ %.tr105122, %_ZSt7advanceIPPN5clang17OverloadCandidateElEvRT_T0_.exit ]
+  %67 = sub i64 %.pre-phi, %54
+  %68 = ashr exact i64 %67, 3
+  br label %84
 
-_ZSt7advanceIPPN5clang17OverloadCandidateElEvRT_T0_.exit70: ; preds = %57
-  %72 = sdiv i64 %.tr109126, 2
-  %73 = getelementptr inbounds ptr, ptr %.tr106123, i64 %72
-  %74 = ptrtoint ptr %.tr121 to i64
-  %75 = sub i64 %28, %74
-  %76 = ashr exact i64 %75, 3
-  %77 = icmp sgt i64 %76, 0
-  br i1 %77, label %_ZSt7advanceIPPN5clang17OverloadCandidateElEvRT_T0_.exit.i73, label %_ZSt13__upper_boundIPPN5clang17OverloadCandidateES2_N9__gnu_cxx5__ops14_Val_comp_iterIN12_GLOBAL__N_135CompareOverloadCandidatesForDisplayEEEET_SA_SA_RKT0_T1_.exit
+_ZSt7advanceIPPN5clang17OverloadCandidateElEvRT_T0_.exit70: ; preds = %53
+  %69 = sdiv i64 %.tr108125, 2
+  %70 = getelementptr inbounds ptr, ptr %.tr105122, i64 %69
+  %71 = ptrtoint ptr %.tr120 to i64
+  %72 = sub i64 %54, %71
+  %73 = ashr exact i64 %72, 3
+  %74 = icmp sgt i64 %73, 0
+  br i1 %74, label %_ZSt7advanceIPPN5clang17OverloadCandidateElEvRT_T0_.exit.i73, label %_ZSt13__upper_boundIPPN5clang17OverloadCandidateES2_N9__gnu_cxx5__ops14_Val_comp_iterIN12_GLOBAL__N_135CompareOverloadCandidatesForDisplayEEEET_SA_SA_RKT0_T1_.exit
 
 _ZSt7advanceIPPN5clang17OverloadCandidateElEvRT_T0_.exit.i73: ; preds = %_ZSt7advanceIPPN5clang17OverloadCandidateElEvRT_T0_.exit70, %_ZSt7advanceIPPN5clang17OverloadCandidateElEvRT_T0_.exit.i73
-  %.018.i74 = phi ptr [ %.1.i81, %_ZSt7advanceIPPN5clang17OverloadCandidateElEvRT_T0_.exit.i73 ], [ %.tr121, %_ZSt7advanceIPPN5clang17OverloadCandidateElEvRT_T0_.exit70 ]
-  %.01117.i75 = phi i64 [ %.112.i80, %_ZSt7advanceIPPN5clang17OverloadCandidateElEvRT_T0_.exit.i73 ], [ %76, %_ZSt7advanceIPPN5clang17OverloadCandidateElEvRT_T0_.exit70 ]
-  %78 = lshr i64 %.01117.i75, 1
-  %79 = getelementptr inbounds ptr, ptr %.018.i74, i64 %78
-  %.val.i78 = load ptr, ptr %73, align 8
-  %.val13.i79 = load ptr, ptr %79, align 8
-  %80 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_135CompareOverloadCandidatesForDisplayclEPKN5clang17OverloadCandidateES4_(ptr noundef nonnull readonly align 8 dereferenceable(28) %7, ptr noundef %.val.i78, ptr noundef %.val13.i79)
-  %81 = getelementptr inbounds i8, ptr %79, i64 8
-  %82 = xor i64 %78, -1
-  %83 = add nsw i64 %.01117.i75, %82
-  %.112.i80 = select i1 %80, i64 %78, i64 %83
-  %.1.i81 = select i1 %80, ptr %.018.i74, ptr %81
-  %84 = icmp sgt i64 %.112.i80, 0
-  br i1 %84, label %_ZSt7advanceIPPN5clang17OverloadCandidateElEvRT_T0_.exit.i73, label %_ZSt13__upper_boundIPPN5clang17OverloadCandidateES2_N9__gnu_cxx5__ops14_Val_comp_iterIN12_GLOBAL__N_135CompareOverloadCandidatesForDisplayEEEET_SA_SA_RKT0_T1_.exit.loopexit, !llvm.loop !462
+  %.018.i74 = phi ptr [ %.1.i81, %_ZSt7advanceIPPN5clang17OverloadCandidateElEvRT_T0_.exit.i73 ], [ %.tr120, %_ZSt7advanceIPPN5clang17OverloadCandidateElEvRT_T0_.exit70 ]
+  %.01117.i75 = phi i64 [ %.112.i80, %_ZSt7advanceIPPN5clang17OverloadCandidateElEvRT_T0_.exit.i73 ], [ %73, %_ZSt7advanceIPPN5clang17OverloadCandidateElEvRT_T0_.exit70 ]
+  %75 = lshr i64 %.01117.i75, 1
+  %76 = getelementptr inbounds ptr, ptr %.018.i74, i64 %75
+  %.val.i78 = load ptr, ptr %70, align 8
+  %.val13.i79 = load ptr, ptr %76, align 8
+  %77 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_135CompareOverloadCandidatesForDisplayclEPKN5clang17OverloadCandidateES4_(ptr noundef nonnull readonly align 8 dereferenceable(28) %7, ptr noundef %.val.i78, ptr noundef %.val13.i79)
+  %78 = getelementptr inbounds i8, ptr %76, i64 8
+  %79 = xor i64 %75, -1
+  %80 = add nsw i64 %.01117.i75, %79
+  %.112.i80 = select i1 %77, i64 %75, i64 %80
+  %.1.i81 = select i1 %77, ptr %.018.i74, ptr %78
+  %81 = icmp sgt i64 %.112.i80, 0
+  br i1 %81, label %_ZSt7advanceIPPN5clang17OverloadCandidateElEvRT_T0_.exit.i73, label %_ZSt13__upper_boundIPPN5clang17OverloadCandidateES2_N9__gnu_cxx5__ops14_Val_comp_iterIN12_GLOBAL__N_135CompareOverloadCandidatesForDisplayEEEET_SA_SA_RKT0_T1_.exit.loopexit, !llvm.loop !462
 
 _ZSt13__upper_boundIPPN5clang17OverloadCandidateES2_N9__gnu_cxx5__ops14_Val_comp_iterIN12_GLOBAL__N_135CompareOverloadCandidatesForDisplayEEEET_SA_SA_RKT0_T1_.exit.loopexit: ; preds = %_ZSt7advanceIPPN5clang17OverloadCandidateElEvRT_T0_.exit.i73
-  %.pre137 = ptrtoint ptr %.1.i81 to i64
+  %.pre136 = ptrtoint ptr %.1.i81 to i64
   br label %_ZSt13__upper_boundIPPN5clang17OverloadCandidateES2_N9__gnu_cxx5__ops14_Val_comp_iterIN12_GLOBAL__N_135CompareOverloadCandidatesForDisplayEEEET_SA_SA_RKT0_T1_.exit
 
 _ZSt13__upper_boundIPPN5clang17OverloadCandidateES2_N9__gnu_cxx5__ops14_Val_comp_iterIN12_GLOBAL__N_135CompareOverloadCandidatesForDisplayEEEET_SA_SA_RKT0_T1_.exit: ; preds = %_ZSt13__upper_boundIPPN5clang17OverloadCandidateES2_N9__gnu_cxx5__ops14_Val_comp_iterIN12_GLOBAL__N_135CompareOverloadCandidatesForDisplayEEEET_SA_SA_RKT0_T1_.exit.loopexit, %_ZSt7advanceIPPN5clang17OverloadCandidateElEvRT_T0_.exit70
-  %.pre-phi138 = phi i64 [ %.pre137, %_ZSt13__upper_boundIPPN5clang17OverloadCandidateES2_N9__gnu_cxx5__ops14_Val_comp_iterIN12_GLOBAL__N_135CompareOverloadCandidatesForDisplayEEEET_SA_SA_RKT0_T1_.exit.loopexit ], [ %74, %_ZSt7advanceIPPN5clang17OverloadCandidateElEvRT_T0_.exit70 ]
-  %.0.lcssa.i72 = phi ptr [ %.1.i81, %_ZSt13__upper_boundIPPN5clang17OverloadCandidateES2_N9__gnu_cxx5__ops14_Val_comp_iterIN12_GLOBAL__N_135CompareOverloadCandidatesForDisplayEEEET_SA_SA_RKT0_T1_.exit.loopexit ], [ %.tr121, %_ZSt7advanceIPPN5clang17OverloadCandidateElEvRT_T0_.exit70 ]
-  %85 = sub i64 %.pre-phi138, %74
-  %86 = ashr exact i64 %85, 3
-  br label %87
+  %.pre-phi137 = phi i64 [ %.pre136, %_ZSt13__upper_boundIPPN5clang17OverloadCandidateES2_N9__gnu_cxx5__ops14_Val_comp_iterIN12_GLOBAL__N_135CompareOverloadCandidatesForDisplayEEEET_SA_SA_RKT0_T1_.exit.loopexit ], [ %71, %_ZSt7advanceIPPN5clang17OverloadCandidateElEvRT_T0_.exit70 ]
+  %.0.lcssa.i72 = phi ptr [ %.1.i81, %_ZSt13__upper_boundIPPN5clang17OverloadCandidateES2_N9__gnu_cxx5__ops14_Val_comp_iterIN12_GLOBAL__N_135CompareOverloadCandidatesForDisplayEEEET_SA_SA_RKT0_T1_.exit.loopexit ], [ %.tr120, %_ZSt7advanceIPPN5clang17OverloadCandidateElEvRT_T0_.exit70 ]
+  %82 = sub i64 %.pre-phi137, %71
+  %83 = ashr exact i64 %82, 3
+  br label %84
 
-87:                                               ; preds = %_ZSt13__upper_boundIPPN5clang17OverloadCandidateES2_N9__gnu_cxx5__ops14_Val_comp_iterIN12_GLOBAL__N_135CompareOverloadCandidatesForDisplayEEEET_SA_SA_RKT0_T1_.exit, %_ZSt13__lower_boundIPPN5clang17OverloadCandidateES2_N9__gnu_cxx5__ops14_Iter_comp_valIN12_GLOBAL__N_135CompareOverloadCandidatesForDisplayEEEET_SA_SA_RKT0_T1_.exit
-  %.0103 = phi ptr [ %59, %_ZSt13__lower_boundIPPN5clang17OverloadCandidateES2_N9__gnu_cxx5__ops14_Iter_comp_valIN12_GLOBAL__N_135CompareOverloadCandidatesForDisplayEEEET_SA_SA_RKT0_T1_.exit ], [ %.0.lcssa.i72, %_ZSt13__upper_boundIPPN5clang17OverloadCandidateES2_N9__gnu_cxx5__ops14_Val_comp_iterIN12_GLOBAL__N_135CompareOverloadCandidatesForDisplayEEEET_SA_SA_RKT0_T1_.exit ]
-  %.0102 = phi ptr [ %.0.lcssa.i65, %_ZSt13__lower_boundIPPN5clang17OverloadCandidateES2_N9__gnu_cxx5__ops14_Iter_comp_valIN12_GLOBAL__N_135CompareOverloadCandidatesForDisplayEEEET_SA_SA_RKT0_T1_.exit ], [ %73, %_ZSt13__upper_boundIPPN5clang17OverloadCandidateES2_N9__gnu_cxx5__ops14_Val_comp_iterIN12_GLOBAL__N_135CompareOverloadCandidatesForDisplayEEEET_SA_SA_RKT0_T1_.exit ]
-  %.055 = phi i64 [ %71, %_ZSt13__lower_boundIPPN5clang17OverloadCandidateES2_N9__gnu_cxx5__ops14_Iter_comp_valIN12_GLOBAL__N_135CompareOverloadCandidatesForDisplayEEEET_SA_SA_RKT0_T1_.exit ], [ %72, %_ZSt13__upper_boundIPPN5clang17OverloadCandidateES2_N9__gnu_cxx5__ops14_Val_comp_iterIN12_GLOBAL__N_135CompareOverloadCandidatesForDisplayEEEET_SA_SA_RKT0_T1_.exit ]
-  %.0 = phi i64 [ %58, %_ZSt13__lower_boundIPPN5clang17OverloadCandidateES2_N9__gnu_cxx5__ops14_Iter_comp_valIN12_GLOBAL__N_135CompareOverloadCandidatesForDisplayEEEET_SA_SA_RKT0_T1_.exit ], [ %86, %_ZSt13__upper_boundIPPN5clang17OverloadCandidateES2_N9__gnu_cxx5__ops14_Val_comp_iterIN12_GLOBAL__N_135CompareOverloadCandidatesForDisplayEEEET_SA_SA_RKT0_T1_.exit ]
-  %88 = sub nsw i64 %.tr108125, %.0
-  %89 = icmp sle i64 %88, %.055
+84:                                               ; preds = %_ZSt13__upper_boundIPPN5clang17OverloadCandidateES2_N9__gnu_cxx5__ops14_Val_comp_iterIN12_GLOBAL__N_135CompareOverloadCandidatesForDisplayEEEET_SA_SA_RKT0_T1_.exit, %_ZSt13__lower_boundIPPN5clang17OverloadCandidateES2_N9__gnu_cxx5__ops14_Iter_comp_valIN12_GLOBAL__N_135CompareOverloadCandidatesForDisplayEEEET_SA_SA_RKT0_T1_.exit
+  %.0102 = phi ptr [ %56, %_ZSt13__lower_boundIPPN5clang17OverloadCandidateES2_N9__gnu_cxx5__ops14_Iter_comp_valIN12_GLOBAL__N_135CompareOverloadCandidatesForDisplayEEEET_SA_SA_RKT0_T1_.exit ], [ %.0.lcssa.i72, %_ZSt13__upper_boundIPPN5clang17OverloadCandidateES2_N9__gnu_cxx5__ops14_Val_comp_iterIN12_GLOBAL__N_135CompareOverloadCandidatesForDisplayEEEET_SA_SA_RKT0_T1_.exit ]
+  %.0101 = phi ptr [ %.0.lcssa.i65, %_ZSt13__lower_boundIPPN5clang17OverloadCandidateES2_N9__gnu_cxx5__ops14_Iter_comp_valIN12_GLOBAL__N_135CompareOverloadCandidatesForDisplayEEEET_SA_SA_RKT0_T1_.exit ], [ %70, %_ZSt13__upper_boundIPPN5clang17OverloadCandidateES2_N9__gnu_cxx5__ops14_Val_comp_iterIN12_GLOBAL__N_135CompareOverloadCandidatesForDisplayEEEET_SA_SA_RKT0_T1_.exit ]
+  %.055 = phi i64 [ %68, %_ZSt13__lower_boundIPPN5clang17OverloadCandidateES2_N9__gnu_cxx5__ops14_Iter_comp_valIN12_GLOBAL__N_135CompareOverloadCandidatesForDisplayEEEET_SA_SA_RKT0_T1_.exit ], [ %69, %_ZSt13__upper_boundIPPN5clang17OverloadCandidateES2_N9__gnu_cxx5__ops14_Val_comp_iterIN12_GLOBAL__N_135CompareOverloadCandidatesForDisplayEEEET_SA_SA_RKT0_T1_.exit ]
+  %.0 = phi i64 [ %55, %_ZSt13__lower_boundIPPN5clang17OverloadCandidateES2_N9__gnu_cxx5__ops14_Iter_comp_valIN12_GLOBAL__N_135CompareOverloadCandidatesForDisplayEEEET_SA_SA_RKT0_T1_.exit ], [ %83, %_ZSt13__upper_boundIPPN5clang17OverloadCandidateES2_N9__gnu_cxx5__ops14_Val_comp_iterIN12_GLOBAL__N_135CompareOverloadCandidatesForDisplayEEEET_SA_SA_RKT0_T1_.exit ]
+  %85 = sub nsw i64 %.tr107124, %.0
+  %86 = icmp sle i64 %85, %.055
   %.not.i = icmp sgt i64 %.055, %6
-  %or.cond.i = or i1 %.not.i, %89
-  br i1 %or.cond.i, label %103, label %90
+  %or.cond.i = or i1 %.not.i, %86
+  br i1 %or.cond.i, label %100, label %87
 
-90:                                               ; preds = %87
+87:                                               ; preds = %84
   %.not35.i = icmp eq i64 %.055, 0
-  br i1 %.not35.i, label %_ZSt17__rotate_adaptiveIPPN5clang17OverloadCandidateES3_lET_S4_S4_S4_T1_S5_T0_S5_.exit, label %91
+  br i1 %.not35.i, label %_ZSt17__rotate_adaptiveIPPN5clang17OverloadCandidateES3_lET_S4_S4_S4_T1_S5_T0_S5_.exit, label %88
 
-91:                                               ; preds = %90
-  %92 = ptrtoint ptr %.0102 to i64
-  %93 = ptrtoint ptr %.tr106123 to i64
-  %94 = sub i64 %92, %93
-  %.not.i.i.i.i.i.i82 = icmp eq ptr %.0102, %.tr106123
-  br i1 %.not.i.i.i.i.i.i82, label %_ZSt4moveIPPN5clang17OverloadCandidateES3_ET0_T_S5_S4_.exit.i83, label %95
+88:                                               ; preds = %87
+  %89 = ptrtoint ptr %.0101 to i64
+  %90 = ptrtoint ptr %.tr105122 to i64
+  %91 = sub i64 %89, %90
+  %.not.i.i.i.i.i.i82 = icmp eq ptr %.0101, %.tr105122
+  br i1 %.not.i.i.i.i.i.i82, label %_ZSt4moveIPPN5clang17OverloadCandidateES3_ET0_T_S5_S4_.exit.i83, label %92
 
-95:                                               ; preds = %91
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %5, ptr align 8 %.tr106123, i64 %94, i1 false)
+92:                                               ; preds = %88
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %5, ptr align 8 %.tr105122, i64 %91, i1 false)
   br label %_ZSt4moveIPPN5clang17OverloadCandidateES3_ET0_T_S5_S4_.exit.i83
 
-_ZSt4moveIPPN5clang17OverloadCandidateES3_ET0_T_S5_S4_.exit.i83: ; preds = %95, %91
-  %.not.i.i.i.i.i36.i = icmp eq ptr %.tr106123, %.0103
-  br i1 %.not.i.i.i.i.i36.i, label %_ZSt13move_backwardIPPN5clang17OverloadCandidateES3_ET0_T_S5_S4_.exit.i, label %96
+_ZSt4moveIPPN5clang17OverloadCandidateES3_ET0_T_S5_S4_.exit.i83: ; preds = %92, %88
+  %.not.i.i.i.i.i36.i = icmp eq ptr %.tr105122, %.0102
+  br i1 %.not.i.i.i.i.i36.i, label %_ZSt13move_backwardIPPN5clang17OverloadCandidateES3_ET0_T_S5_S4_.exit.i, label %93
 
-96:                                               ; preds = %_ZSt4moveIPPN5clang17OverloadCandidateES3_ET0_T_S5_S4_.exit.i83
-  %97 = ptrtoint ptr %.0103 to i64
-  %98 = sub i64 %93, %97
-  %99 = ashr exact i64 %98, 3
-  %.pre.i.i.i.i.i.i84 = sub nsw i64 0, %99
-  %100 = getelementptr inbounds ptr, ptr %.0102, i64 %.pre.i.i.i.i.i.i84
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %100, ptr align 8 %.0103, i64 %98, i1 false)
+93:                                               ; preds = %_ZSt4moveIPPN5clang17OverloadCandidateES3_ET0_T_S5_S4_.exit.i83
+  %94 = ptrtoint ptr %.0102 to i64
+  %95 = sub i64 %90, %94
+  %96 = ashr exact i64 %95, 3
+  %.pre.i.i.i.i.i.i = sub nsw i64 0, %96
+  %97 = getelementptr inbounds ptr, ptr %.0101, i64 %.pre.i.i.i.i.i.i
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %97, ptr align 8 %.0102, i64 %95, i1 false)
   br label %_ZSt13move_backwardIPPN5clang17OverloadCandidateES3_ET0_T_S5_S4_.exit.i
 
-_ZSt13move_backwardIPPN5clang17OverloadCandidateES3_ET0_T_S5_S4_.exit.i: ; preds = %96, %_ZSt4moveIPPN5clang17OverloadCandidateES3_ET0_T_S5_S4_.exit.i83
-  br i1 %.not.i.i.i.i.i.i82, label %_ZSt4moveIPPN5clang17OverloadCandidateES3_ET0_T_S5_S4_.exit38.i, label %101
+_ZSt13move_backwardIPPN5clang17OverloadCandidateES3_ET0_T_S5_S4_.exit.i: ; preds = %93, %_ZSt4moveIPPN5clang17OverloadCandidateES3_ET0_T_S5_S4_.exit.i83
+  br i1 %.not.i.i.i.i.i.i82, label %_ZSt4moveIPPN5clang17OverloadCandidateES3_ET0_T_S5_S4_.exit38.i, label %98
 
-101:                                              ; preds = %_ZSt13move_backwardIPPN5clang17OverloadCandidateES3_ET0_T_S5_S4_.exit.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %.0103, ptr align 8 %5, i64 %94, i1 false)
+98:                                               ; preds = %_ZSt13move_backwardIPPN5clang17OverloadCandidateES3_ET0_T_S5_S4_.exit.i
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %.0102, ptr align 8 %5, i64 %91, i1 false)
   br label %_ZSt4moveIPPN5clang17OverloadCandidateES3_ET0_T_S5_S4_.exit38.i
 
-_ZSt4moveIPPN5clang17OverloadCandidateES3_ET0_T_S5_S4_.exit38.i: ; preds = %101, %_ZSt13move_backwardIPPN5clang17OverloadCandidateES3_ET0_T_S5_S4_.exit.i
-  %102 = getelementptr inbounds i8, ptr %.0103, i64 %94
+_ZSt4moveIPPN5clang17OverloadCandidateES3_ET0_T_S5_S4_.exit38.i: ; preds = %98, %_ZSt13move_backwardIPPN5clang17OverloadCandidateES3_ET0_T_S5_S4_.exit.i
+  %99 = getelementptr inbounds i8, ptr %.0102, i64 %91
   br label %_ZSt17__rotate_adaptiveIPPN5clang17OverloadCandidateES3_lET_S4_S4_S4_T1_S5_T0_S5_.exit
 
-103:                                              ; preds = %87
-  %.not33.i = icmp sgt i64 %88, %6
-  br i1 %.not33.i, label %117, label %104
+100:                                              ; preds = %84
+  %.not33.i = icmp sgt i64 %85, %6
+  br i1 %.not33.i, label %114, label %101
 
-104:                                              ; preds = %103
-  %.not34.i = icmp eq i64 %.tr108125, %.0
-  br i1 %.not34.i, label %_ZSt17__rotate_adaptiveIPPN5clang17OverloadCandidateES3_lET_S4_S4_S4_T1_S5_T0_S5_.exit, label %105
+101:                                              ; preds = %100
+  %.not34.i = icmp eq i64 %.tr107124, %.0
+  br i1 %.not34.i, label %_ZSt17__rotate_adaptiveIPPN5clang17OverloadCandidateES3_lET_S4_S4_S4_T1_S5_T0_S5_.exit, label %102
 
-105:                                              ; preds = %104
-  %106 = ptrtoint ptr %.tr106123 to i64
-  %107 = ptrtoint ptr %.0103 to i64
-  %108 = sub i64 %106, %107
-  %.not.i.i.i.i.i39.i = icmp eq ptr %.tr106123, %.0103
-  br i1 %.not.i.i.i.i.i39.i, label %_ZSt4moveIPPN5clang17OverloadCandidateES3_ET0_T_S5_S4_.exit40.i, label %109
+102:                                              ; preds = %101
+  %103 = ptrtoint ptr %.tr105122 to i64
+  %104 = ptrtoint ptr %.0102 to i64
+  %105 = sub i64 %103, %104
+  %.not.i.i.i.i.i39.i = icmp eq ptr %.tr105122, %.0102
+  br i1 %.not.i.i.i.i.i39.i, label %_ZSt4moveIPPN5clang17OverloadCandidateES3_ET0_T_S5_S4_.exit40.i, label %106
 
-109:                                              ; preds = %105
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %5, ptr align 8 %.0103, i64 %108, i1 false)
+106:                                              ; preds = %102
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %5, ptr align 8 %.0102, i64 %105, i1 false)
   br label %_ZSt4moveIPPN5clang17OverloadCandidateES3_ET0_T_S5_S4_.exit40.i
 
-_ZSt4moveIPPN5clang17OverloadCandidateES3_ET0_T_S5_S4_.exit40.i: ; preds = %109, %105
-  %.not.i.i.i.i.i41.i = icmp eq ptr %.0102, %.tr106123
-  br i1 %.not.i.i.i.i.i41.i, label %_ZSt4moveIPPN5clang17OverloadCandidateES3_ET0_T_S5_S4_.exit42.i, label %110
+_ZSt4moveIPPN5clang17OverloadCandidateES3_ET0_T_S5_S4_.exit40.i: ; preds = %106, %102
+  %.not.i.i.i.i.i41.i = icmp eq ptr %.0101, %.tr105122
+  br i1 %.not.i.i.i.i.i41.i, label %_ZSt4moveIPPN5clang17OverloadCandidateES3_ET0_T_S5_S4_.exit42.i, label %107
 
-110:                                              ; preds = %_ZSt4moveIPPN5clang17OverloadCandidateES3_ET0_T_S5_S4_.exit40.i
-  %111 = ptrtoint ptr %.0102 to i64
-  %112 = sub i64 %111, %106
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %.0103, ptr align 8 %.tr106123, i64 %112, i1 false)
+107:                                              ; preds = %_ZSt4moveIPPN5clang17OverloadCandidateES3_ET0_T_S5_S4_.exit40.i
+  %108 = ptrtoint ptr %.0101 to i64
+  %109 = sub i64 %108, %103
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %.0102, ptr align 8 %.tr105122, i64 %109, i1 false)
   br label %_ZSt4moveIPPN5clang17OverloadCandidateES3_ET0_T_S5_S4_.exit42.i
 
-_ZSt4moveIPPN5clang17OverloadCandidateES3_ET0_T_S5_S4_.exit42.i: ; preds = %110, %_ZSt4moveIPPN5clang17OverloadCandidateES3_ET0_T_S5_S4_.exit40.i
-  %113 = ashr exact i64 %108, 3
-  %.pre.i.i.i.i.i44.i = sub nsw i64 0, %113
-  br i1 %.not.i.i.i.i.i39.i, label %_ZSt13move_backwardIPPN5clang17OverloadCandidateES3_ET0_T_S5_S4_.exit45.i, label %114
+_ZSt4moveIPPN5clang17OverloadCandidateES3_ET0_T_S5_S4_.exit42.i: ; preds = %107, %_ZSt4moveIPPN5clang17OverloadCandidateES3_ET0_T_S5_S4_.exit40.i
+  %110 = ashr exact i64 %105, 3
+  %.pre.i.i.i.i.i44.i = sub nsw i64 0, %110
+  br i1 %.not.i.i.i.i.i39.i, label %_ZSt13move_backwardIPPN5clang17OverloadCandidateES3_ET0_T_S5_S4_.exit45.i, label %111
 
-114:                                              ; preds = %_ZSt4moveIPPN5clang17OverloadCandidateES3_ET0_T_S5_S4_.exit42.i
-  %115 = getelementptr inbounds ptr, ptr %.0102, i64 %.pre.i.i.i.i.i44.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %115, ptr align 8 %5, i64 %108, i1 false)
+111:                                              ; preds = %_ZSt4moveIPPN5clang17OverloadCandidateES3_ET0_T_S5_S4_.exit42.i
+  %112 = getelementptr inbounds ptr, ptr %.0101, i64 %.pre.i.i.i.i.i44.i
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %112, ptr align 8 %5, i64 %105, i1 false)
   br label %_ZSt13move_backwardIPPN5clang17OverloadCandidateES3_ET0_T_S5_S4_.exit45.i
 
-_ZSt13move_backwardIPPN5clang17OverloadCandidateES3_ET0_T_S5_S4_.exit45.i: ; preds = %114, %_ZSt4moveIPPN5clang17OverloadCandidateES3_ET0_T_S5_S4_.exit42.i
-  %116 = getelementptr inbounds ptr, ptr %.0102, i64 %.pre.i.i.i.i.i44.i
+_ZSt13move_backwardIPPN5clang17OverloadCandidateES3_ET0_T_S5_S4_.exit45.i: ; preds = %111, %_ZSt4moveIPPN5clang17OverloadCandidateES3_ET0_T_S5_S4_.exit42.i
+  %113 = getelementptr inbounds ptr, ptr %.0101, i64 %.pre.i.i.i.i.i44.i
   br label %_ZSt17__rotate_adaptiveIPPN5clang17OverloadCandidateES3_lET_S4_S4_S4_T1_S5_T0_S5_.exit
 
-117:                                              ; preds = %103
-  %118 = tail call noundef ptr @_ZNSt3_V28__rotateIPPN5clang17OverloadCandidateEEET_S5_S5_S5_St26random_access_iterator_tag(ptr noundef %.0103, ptr noundef %.tr106123, ptr noundef %.0102)
+114:                                              ; preds = %100
+  %115 = tail call noundef ptr @_ZNSt3_V28__rotateIPPN5clang17OverloadCandidateEEET_S5_S5_S5_St26random_access_iterator_tag(ptr noundef %.0102, ptr noundef %.tr105122, ptr noundef %.0101)
   br label %_ZSt17__rotate_adaptiveIPPN5clang17OverloadCandidateES3_lET_S4_S4_S4_T1_S5_T0_S5_.exit
 
-_ZSt17__rotate_adaptiveIPPN5clang17OverloadCandidateES3_lET_S4_S4_S4_T1_S5_T0_S5_.exit: ; preds = %90, %_ZSt4moveIPPN5clang17OverloadCandidateES3_ET0_T_S5_S4_.exit38.i, %104, %_ZSt13move_backwardIPPN5clang17OverloadCandidateES3_ET0_T_S5_S4_.exit45.i, %117
-  %.0.i85 = phi ptr [ %102, %_ZSt4moveIPPN5clang17OverloadCandidateES3_ET0_T_S5_S4_.exit38.i ], [ %116, %_ZSt13move_backwardIPPN5clang17OverloadCandidateES3_ET0_T_S5_S4_.exit45.i ], [ %118, %117 ], [ %.0103, %90 ], [ %.0102, %104 ]
-  tail call fastcc void @_ZSt16__merge_adaptiveIPPN5clang17OverloadCandidateElS3_N9__gnu_cxx5__ops15_Iter_comp_iterIN12_GLOBAL__N_135CompareOverloadCandidatesForDisplayEEEEvT_SA_SA_T0_SB_T1_SB_T2_(ptr noundef %.tr121, ptr noundef %.0103, ptr noundef %.0.i85, i64 noundef %.0, i64 noundef %.055, ptr noundef %5, i64 noundef %6, ptr noundef nonnull byval(%"struct.__gnu_cxx::__ops::_Iter_comp_iter.2161") align 8 %7)
-  %119 = sub nsw i64 %.tr109126, %.055
-  %.not = icmp sgt i64 %88, %119
-  %.not59 = icmp sgt i64 %88, %6
+_ZSt17__rotate_adaptiveIPPN5clang17OverloadCandidateES3_lET_S4_S4_S4_T1_S5_T0_S5_.exit: ; preds = %87, %_ZSt4moveIPPN5clang17OverloadCandidateES3_ET0_T_S5_S4_.exit38.i, %101, %_ZSt13move_backwardIPPN5clang17OverloadCandidateES3_ET0_T_S5_S4_.exit45.i, %114
+  %.0.i84 = phi ptr [ %99, %_ZSt4moveIPPN5clang17OverloadCandidateES3_ET0_T_S5_S4_.exit38.i ], [ %113, %_ZSt13move_backwardIPPN5clang17OverloadCandidateES3_ET0_T_S5_S4_.exit45.i ], [ %115, %114 ], [ %.0102, %87 ], [ %.0101, %101 ]
+  tail call fastcc void @_ZSt16__merge_adaptiveIPPN5clang17OverloadCandidateElS3_N9__gnu_cxx5__ops15_Iter_comp_iterIN12_GLOBAL__N_135CompareOverloadCandidatesForDisplayEEEEvT_SA_SA_T0_SB_T1_SB_T2_(ptr noundef %.tr120, ptr noundef %.0102, ptr noundef %.0.i84, i64 noundef %.0, i64 noundef %.055, ptr noundef %5, i64 noundef %6, ptr noundef nonnull byval(%"struct.__gnu_cxx::__ops::_Iter_comp_iter.2161") align 8 %7)
+  %116 = sub nsw i64 %.tr108125, %.055
+  %.not = icmp sgt i64 %85, %116
+  %.not59 = icmp sgt i64 %85, %6
   %or.cond = or i1 %.not59, %.not
   br i1 %or.cond, label %27, label %tailrecurse._crit_edge
 
-_ZSt30__move_merge_adaptive_backwardIPPN5clang17OverloadCandidateES3_S3_N9__gnu_cxx5__ops15_Iter_comp_iterIN12_GLOBAL__N_135CompareOverloadCandidatesForDisplayEEEEvT_SA_T0_SB_T1_T2_.exit: ; preds = %52, %46, %44, %32, %29, %_ZSt21__move_merge_adaptiveIPPN5clang17OverloadCandidateES3_S3_N9__gnu_cxx5__ops15_Iter_comp_iterIN12_GLOBAL__N_135CompareOverloadCandidatesForDisplayEEEEvT_SA_T0_SB_T1_T2_.exit
+_ZSt30__move_merge_adaptive_backwardIPPN5clang17OverloadCandidateES3_S3_N9__gnu_cxx5__ops15_Iter_comp_iterIN12_GLOBAL__N_135CompareOverloadCandidatesForDisplayEEEEvT_SA_T0_SB_T1_T2_.exit: ; preds = %43, %_ZSt13move_backwardIPPN5clang17OverloadCandidateES3_ET0_T_S5_S4_.exit.sink.split.i, %41, %28, %_ZSt21__move_merge_adaptiveIPPN5clang17OverloadCandidateES3_S3_N9__gnu_cxx5__ops15_Iter_comp_iterIN12_GLOBAL__N_135CompareOverloadCandidatesForDisplayEEEEvT_SA_T0_SB_T1_T2_.exit
   ret void
 }
 

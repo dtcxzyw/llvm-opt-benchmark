@@ -670,6 +670,7 @@ entry:
 if.then.i:                                        ; preds = %entry
   %and.i1 = and i64 %0, -2
   %1 = inttoptr i64 %and.i1 to ptr
+  %unknown_fields.i = getelementptr inbounds i8, ptr %1, i64 8
   br label %_ZN6google8protobuf8internal16InternalMetadata22mutable_unknown_fieldsINS0_15UnknownFieldSetEEEPT_v.exit
 
 _ZNK6google8protobuf8internal16InternalMetadata5arenaEv.exit.i: ; preds = %entry
@@ -679,29 +680,28 @@ _ZNK6google8protobuf8internal16InternalMetadata5arenaEv.exit.i: ; preds = %entry
 
 if.then.i.i.i:                                    ; preds = %_ZNK6google8protobuf8internal16InternalMetadata5arenaEv.exit.i
   %call.i.i.i = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #27
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %call.i.i.i, i8 0, i64 32, i1 false)
   br label %_ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINS0_15UnknownFieldSetEEEPT_v.exit
 
 if.end.i.i.i:                                     ; preds = %_ZNK6google8protobuf8internal16InternalMetadata5arenaEv.exit.i
   %call.i.i.i.i = tail call noundef ptr @_ZN6google8protobuf5Arena26AllocateAlignedWithCleanupEmmPFvPvE(ptr noundef nonnull align 8 dereferenceable(144) %2, i64 noundef 32, i64 noundef 8, ptr noundef nonnull @_ZN6google8protobuf8internal7cleanup21arena_destruct_objectINS1_16InternalMetadata9ContainerINS0_15UnknownFieldSetEEEEEvPv)
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %call.i.i.i.i, i8 0, i64 32, i1 false)
   br label %_ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINS0_15UnknownFieldSetEEEPT_v.exit
 
 _ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINS0_15UnknownFieldSetEEEPT_v.exit: ; preds = %if.then.i.i.i, %if.end.i.i.i
-  %retval.0.i.i.i = phi ptr [ %call.i.i.i.i, %if.end.i.i.i ], [ %call.i.i.i, %if.then.i.i.i ]
-  %3 = ptrtoint ptr %retval.0.i.i.i to i64
-  %or.i = or i64 %3, 1
+  %call.sink2.i.i.i = phi ptr [ %call.i.i.i, %if.then.i.i.i ], [ %call.i.i.i.i, %if.end.i.i.i ]
+  %3 = getelementptr inbounds i8, ptr %call.sink2.i.i.i, i64 8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, i8 0, i64 24, i1 false)
+  %4 = ptrtoint ptr %call.sink2.i.i.i to i64
+  %or.i = or i64 %4, 1
   store i64 %or.i, ptr %this, align 8
-  store ptr %2, ptr %retval.0.i.i.i, align 8
+  store ptr %2, ptr %call.sink2.i.i.i, align 8
   br label %_ZN6google8protobuf8internal16InternalMetadata22mutable_unknown_fieldsINS0_15UnknownFieldSetEEEPT_v.exit
 
 _ZN6google8protobuf8internal16InternalMetadata22mutable_unknown_fieldsINS0_15UnknownFieldSetEEEPT_v.exit: ; preds = %_ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINS0_15UnknownFieldSetEEEPT_v.exit, %if.then.i
-  %.pn = phi ptr [ %1, %if.then.i ], [ %retval.0.i.i.i, %_ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINS0_15UnknownFieldSetEEEPT_v.exit ]
-  %retval.i.0 = getelementptr inbounds i8, ptr %.pn, i64 8
-  %4 = load ptr, ptr %retval.i.0, align 8
-  %_M_finish.i.i.i = getelementptr inbounds i8, ptr %.pn, i64 16
-  %5 = load ptr, ptr %_M_finish.i.i.i, align 8
-  %cmp.i.i.i3 = icmp eq ptr %4, %5
+  %retval.i.0 = phi ptr [ %unknown_fields.i, %if.then.i ], [ %3, %_ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINS0_15UnknownFieldSetEEEPT_v.exit ]
+  %5 = load ptr, ptr %retval.i.0, align 8
+  %_M_finish.i.i.i = getelementptr inbounds i8, ptr %retval.i.0, i64 8
+  %6 = load ptr, ptr %_M_finish.i.i.i, align 8
+  %cmp.i.i.i3 = icmp eq ptr %5, %6
   br i1 %cmp.i.i.i3, label %_ZN6google8protobuf15UnknownFieldSet5ClearEv.exit, label %if.then.i4
 
 if.then.i4:                                       ; preds = %_ZN6google8protobuf8internal16InternalMetadata22mutable_unknown_fieldsINS0_15UnknownFieldSetEEEPT_v.exit
@@ -723,6 +723,7 @@ entry:
 if.then.i:                                        ; preds = %entry
   %and.i1 = and i64 %0, -2
   %1 = inttoptr i64 %and.i1 to ptr
+  %unknown_fields.i = getelementptr inbounds i8, ptr %1, i64 8
   br label %_ZN6google8protobuf8internal16InternalMetadata22mutable_unknown_fieldsINS0_15UnknownFieldSetEEEPT_v.exit
 
 _ZNK6google8protobuf8internal16InternalMetadata5arenaEv.exit.i: ; preds = %entry
@@ -732,25 +733,24 @@ _ZNK6google8protobuf8internal16InternalMetadata5arenaEv.exit.i: ; preds = %entry
 
 if.then.i.i.i:                                    ; preds = %_ZNK6google8protobuf8internal16InternalMetadata5arenaEv.exit.i
   %call.i.i.i = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #27
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %call.i.i.i, i8 0, i64 32, i1 false)
   br label %_ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINS0_15UnknownFieldSetEEEPT_v.exit
 
 if.end.i.i.i:                                     ; preds = %_ZNK6google8protobuf8internal16InternalMetadata5arenaEv.exit.i
   %call.i.i.i.i = tail call noundef ptr @_ZN6google8protobuf5Arena26AllocateAlignedWithCleanupEmmPFvPvE(ptr noundef nonnull align 8 dereferenceable(144) %2, i64 noundef 32, i64 noundef 8, ptr noundef nonnull @_ZN6google8protobuf8internal7cleanup21arena_destruct_objectINS1_16InternalMetadata9ContainerINS0_15UnknownFieldSetEEEEEvPv)
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %call.i.i.i.i, i8 0, i64 32, i1 false)
   br label %_ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINS0_15UnknownFieldSetEEEPT_v.exit
 
 _ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINS0_15UnknownFieldSetEEEPT_v.exit: ; preds = %if.then.i.i.i, %if.end.i.i.i
-  %retval.0.i.i.i = phi ptr [ %call.i.i.i.i, %if.end.i.i.i ], [ %call.i.i.i, %if.then.i.i.i ]
-  %3 = ptrtoint ptr %retval.0.i.i.i to i64
-  %or.i = or i64 %3, 1
+  %call.sink2.i.i.i = phi ptr [ %call.i.i.i, %if.then.i.i.i ], [ %call.i.i.i.i, %if.end.i.i.i ]
+  %3 = getelementptr inbounds i8, ptr %call.sink2.i.i.i, i64 8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, i8 0, i64 24, i1 false)
+  %4 = ptrtoint ptr %call.sink2.i.i.i to i64
+  %or.i = or i64 %4, 1
   store i64 %or.i, ptr %this, align 8
-  store ptr %2, ptr %retval.0.i.i.i, align 8
+  store ptr %2, ptr %call.sink2.i.i.i, align 8
   br label %_ZN6google8protobuf8internal16InternalMetadata22mutable_unknown_fieldsINS0_15UnknownFieldSetEEEPT_v.exit
 
 _ZN6google8protobuf8internal16InternalMetadata22mutable_unknown_fieldsINS0_15UnknownFieldSetEEEPT_v.exit: ; preds = %_ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINS0_15UnknownFieldSetEEEPT_v.exit, %if.then.i
-  %.pn = phi ptr [ %1, %if.then.i ], [ %retval.0.i.i.i, %_ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINS0_15UnknownFieldSetEEEPT_v.exit ]
-  %retval.i.0 = getelementptr inbounds i8, ptr %.pn, i64 8
+  %retval.i.0 = phi ptr [ %unknown_fields.i, %if.then.i ], [ %3, %_ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINS0_15UnknownFieldSetEEEPT_v.exit ]
   tail call void @_ZN6google8protobuf15UnknownFieldSet9MergeFromERKS1_(ptr noundef nonnull align 8 dereferenceable(24) %retval.i.0, ptr noundef nonnull align 8 dereferenceable(24) %other)
   ret void
 }
@@ -768,6 +768,7 @@ entry:
 if.then.i:                                        ; preds = %entry
   %and.i1 = and i64 %0, -2
   %1 = inttoptr i64 %and.i1 to ptr
+  %unknown_fields.i = getelementptr inbounds i8, ptr %1, i64 8
   br label %_ZN6google8protobuf8internal16InternalMetadata22mutable_unknown_fieldsINS0_15UnknownFieldSetEEEPT_v.exit
 
 _ZNK6google8protobuf8internal16InternalMetadata5arenaEv.exit.i: ; preds = %entry
@@ -777,41 +778,40 @@ _ZNK6google8protobuf8internal16InternalMetadata5arenaEv.exit.i: ; preds = %entry
 
 if.then.i.i.i:                                    ; preds = %_ZNK6google8protobuf8internal16InternalMetadata5arenaEv.exit.i
   %call.i.i.i = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #27
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %call.i.i.i, i8 0, i64 32, i1 false)
   br label %_ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINS0_15UnknownFieldSetEEEPT_v.exit
 
 if.end.i.i.i:                                     ; preds = %_ZNK6google8protobuf8internal16InternalMetadata5arenaEv.exit.i
   %call.i.i.i.i = tail call noundef ptr @_ZN6google8protobuf5Arena26AllocateAlignedWithCleanupEmmPFvPvE(ptr noundef nonnull align 8 dereferenceable(144) %2, i64 noundef 32, i64 noundef 8, ptr noundef nonnull @_ZN6google8protobuf8internal7cleanup21arena_destruct_objectINS1_16InternalMetadata9ContainerINS0_15UnknownFieldSetEEEEEvPv)
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %call.i.i.i.i, i8 0, i64 32, i1 false)
   br label %_ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINS0_15UnknownFieldSetEEEPT_v.exit
 
 _ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINS0_15UnknownFieldSetEEEPT_v.exit: ; preds = %if.then.i.i.i, %if.end.i.i.i
-  %retval.0.i.i.i = phi ptr [ %call.i.i.i.i, %if.end.i.i.i ], [ %call.i.i.i, %if.then.i.i.i ]
-  %3 = ptrtoint ptr %retval.0.i.i.i to i64
-  %or.i = or i64 %3, 1
+  %call.sink2.i.i.i = phi ptr [ %call.i.i.i, %if.then.i.i.i ], [ %call.i.i.i.i, %if.end.i.i.i ]
+  %3 = getelementptr inbounds i8, ptr %call.sink2.i.i.i, i64 8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, i8 0, i64 24, i1 false)
+  %4 = ptrtoint ptr %call.sink2.i.i.i to i64
+  %or.i = or i64 %4, 1
   store i64 %or.i, ptr %this, align 8
-  store ptr %2, ptr %retval.0.i.i.i, align 8
+  store ptr %2, ptr %call.sink2.i.i.i, align 8
   br label %_ZN6google8protobuf8internal16InternalMetadata22mutable_unknown_fieldsINS0_15UnknownFieldSetEEEPT_v.exit
 
 _ZN6google8protobuf8internal16InternalMetadata22mutable_unknown_fieldsINS0_15UnknownFieldSetEEEPT_v.exit: ; preds = %_ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINS0_15UnknownFieldSetEEEPT_v.exit, %if.then.i
-  %.pn = phi ptr [ %1, %if.then.i ], [ %retval.0.i.i.i, %_ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINS0_15UnknownFieldSetEEEPT_v.exit ]
-  %retval.i.0 = getelementptr inbounds i8, ptr %.pn, i64 8
-  %4 = load ptr, ptr %retval.i.0, align 8
-  %_M_finish.i.i.i.i = getelementptr inbounds i8, ptr %.pn, i64 16
-  %5 = load ptr, ptr %_M_finish.i.i.i.i, align 8
-  %_M_end_of_storage.i.i.i.i = getelementptr inbounds i8, ptr %.pn, i64 24
-  %6 = load ptr, ptr %_M_end_of_storage.i.i.i.i, align 8
-  %7 = load ptr, ptr %other, align 8
-  store ptr %7, ptr %retval.i.0, align 8
+  %retval.i.0 = phi ptr [ %unknown_fields.i, %if.then.i ], [ %3, %_ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINS0_15UnknownFieldSetEEEPT_v.exit ]
+  %5 = load ptr, ptr %retval.i.0, align 8
+  %_M_finish.i.i.i.i = getelementptr inbounds i8, ptr %retval.i.0, i64 8
+  %6 = load ptr, ptr %_M_finish.i.i.i.i, align 8
+  %_M_end_of_storage.i.i.i.i = getelementptr inbounds i8, ptr %retval.i.0, i64 16
+  %7 = load ptr, ptr %_M_end_of_storage.i.i.i.i, align 8
+  %8 = load ptr, ptr %other, align 8
+  store ptr %8, ptr %retval.i.0, align 8
   %_M_finish.i2.i.i.i = getelementptr inbounds i8, ptr %other, i64 8
-  %8 = load ptr, ptr %_M_finish.i2.i.i.i, align 8
-  store ptr %8, ptr %_M_finish.i.i.i.i, align 8
+  %9 = load ptr, ptr %_M_finish.i2.i.i.i, align 8
+  store ptr %9, ptr %_M_finish.i.i.i.i, align 8
   %_M_end_of_storage.i4.i.i.i = getelementptr inbounds i8, ptr %other, i64 16
-  %9 = load ptr, ptr %_M_end_of_storage.i4.i.i.i, align 8
-  store ptr %9, ptr %_M_end_of_storage.i.i.i.i, align 8
-  store ptr %4, ptr %other, align 8
-  store ptr %5, ptr %_M_finish.i2.i.i.i, align 8
-  store ptr %6, ptr %_M_end_of_storage.i4.i.i.i, align 8
+  %10 = load ptr, ptr %_M_end_of_storage.i4.i.i.i, align 8
+  store ptr %10, ptr %_M_end_of_storage.i.i.i.i, align 8
+  store ptr %5, ptr %other, align 8
+  store ptr %6, ptr %_M_finish.i2.i.i.i, align 8
+  store ptr %7, ptr %_M_end_of_storage.i4.i.i.i, align 8
   ret void
 }
 
@@ -893,21 +893,21 @@ _ZNK6google8protobuf8internal16InternalMetadata5arenaEv.exit: ; preds = %if.else
 
 if.then.i.i:                                      ; preds = %_ZNK6google8protobuf8internal16InternalMetadata5arenaEv.exit
   %call.i.i = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #27
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %call.i.i, i8 0, i64 32, i1 false)
   br label %_ZN4absl12lts_2023080216utility_internal15IfConstexprElseILb0EZN6google8protobuf5Arena6CreateINS4_8internal16InternalMetadata9ContainerINS4_15UnknownFieldSetEEEJEEEPT_PS5_DpOT0_EUlDpOT_E_ZNS6_ISB_JEEESD_SE_SH_EUlSK_E0_JEEEDaOT0_OT1_DpOT2_.exit
 
 if.end.i.i:                                       ; preds = %_ZNK6google8protobuf8internal16InternalMetadata5arenaEv.exit
   %call.i.i.i = tail call noundef ptr @_ZN6google8protobuf5Arena26AllocateAlignedWithCleanupEmmPFvPvE(ptr noundef nonnull align 8 dereferenceable(144) %retval.i.0, i64 noundef 32, i64 noundef 8, ptr noundef nonnull @_ZN6google8protobuf8internal7cleanup21arena_destruct_objectINS1_16InternalMetadata9ContainerINS0_15UnknownFieldSetEEEEEvPv)
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %call.i.i.i, i8 0, i64 32, i1 false)
   br label %_ZN4absl12lts_2023080216utility_internal15IfConstexprElseILb0EZN6google8protobuf5Arena6CreateINS4_8internal16InternalMetadata9ContainerINS4_15UnknownFieldSetEEEJEEEPT_PS5_DpOT0_EUlDpOT_E_ZNS6_ISB_JEEESD_SE_SH_EUlSK_E0_JEEEDaOT0_OT1_DpOT2_.exit
 
 _ZN4absl12lts_2023080216utility_internal15IfConstexprElseILb0EZN6google8protobuf5Arena6CreateINS4_8internal16InternalMetadata9ContainerINS4_15UnknownFieldSetEEEJEEEPT_PS5_DpOT0_EUlDpOT_E_ZNS6_ISB_JEEESD_SE_SH_EUlSK_E0_JEEEDaOT0_OT1_DpOT2_.exit: ; preds = %if.then.i.i, %if.end.i.i
-  %retval.0.i.i = phi ptr [ %call.i.i.i, %if.end.i.i ], [ %call.i.i, %if.then.i.i ]
-  %4 = ptrtoint ptr %retval.0.i.i to i64
-  %or = or i64 %4, 1
+  %call.sink2.i.i = phi ptr [ %call.i.i, %if.then.i.i ], [ %call.i.i.i, %if.end.i.i ]
+  %4 = getelementptr inbounds i8, ptr %call.sink2.i.i, i64 8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %4, i8 0, i64 24, i1 false)
+  %5 = ptrtoint ptr %call.sink2.i.i to i64
+  %or = or i64 %5, 1
   store i64 %or, ptr %this, align 8
-  store ptr %retval.i.0, ptr %retval.0.i.i, align 8
-  %unknown_fields = getelementptr inbounds i8, ptr %retval.0.i.i, i64 8
+  store ptr %retval.i.0, ptr %call.sink2.i.i, align 8
+  %unknown_fields = getelementptr inbounds i8, ptr %call.sink2.i.i, i64 8
   ret ptr %unknown_fields
 }
 

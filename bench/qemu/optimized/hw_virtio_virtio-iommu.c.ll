@@ -2386,7 +2386,6 @@ if.then8:                                         ; preds = %trace_virtio_iommu_
   tail call void @memory_region_set_enabled(ptr noundef nonnull %bypass_mr, i1 noundef zeroext false) #13
   %iommu_mr = getelementptr inbounds i8, ptr %sdev, i64 32
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef nonnull %iommu_mr, ptr noundef nonnull @.str.26, ptr noundef nonnull @.str.27, i32 noundef 39, ptr noundef nonnull @__func__.MEMORY_REGION) #13
-  tail call void @memory_region_set_enabled(ptr noundef %call.i, i1 noundef zeroext true) #13
   br label %if.end14
 
 if.else10:                                        ; preds = %trace_virtio_iommu_switch_address_space.exit
@@ -2394,10 +2393,11 @@ if.else10:                                        ; preds = %trace_virtio_iommu_
   %call.i11 = tail call ptr @object_dynamic_cast_assert(ptr noundef nonnull %iommu_mr11, ptr noundef nonnull @.str.26, ptr noundef nonnull @.str.27, i32 noundef 39, ptr noundef nonnull @__func__.MEMORY_REGION) #13
   tail call void @memory_region_set_enabled(ptr noundef %call.i11, i1 noundef zeroext false) #13
   %bypass_mr13 = getelementptr inbounds i8, ptr %sdev, i64 688
-  tail call void @memory_region_set_enabled(ptr noundef nonnull %bypass_mr13, i1 noundef zeroext true) #13
   br label %if.end14
 
 if.end14:                                         ; preds = %if.else10, %if.then8
+  %bypass_mr13.sink = phi ptr [ %bypass_mr13, %if.else10 ], [ %call.i, %if.then8 ]
+  tail call void @memory_region_set_enabled(ptr noundef %bypass_mr13.sink, i1 noundef zeroext true) #13
   ret void
 }
 

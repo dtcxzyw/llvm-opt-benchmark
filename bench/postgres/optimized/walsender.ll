@@ -2434,7 +2434,7 @@ define dso_local void @WalSndShmemInit() local_unnamed_addr #0 {
   store ptr %6, ptr @WalSndCtl, align 8
   %7 = load i8, ptr %1, align 1
   %8 = trunc i8 %7 to i1
-  br i1 %8, label %46, label %9
+  br i1 %8, label %45, label %9
 
 9:                                                ; preds = %0
   %10 = load i32, ptr @max_wal_senders, align 4
@@ -2444,19 +2444,22 @@ define dso_local void @WalSndShmemInit() local_unnamed_addr #0 {
   %14 = ptrtoint ptr %6 to i64
   %15 = and i64 %14, 7
   %16 = icmp eq i64 %15, 0
-  br i1 %16, label %17, label %30
+  br i1 %16, label %17, label %.loopexit.sink.split
 
 17:                                               ; preds = %9
   %18 = and i64 %13, 7
   %19 = icmp eq i64 %18, 0
   %20 = icmp ult i64 %13, 1025
   %or.cond3 = and i1 %20, %19
-  br i1 %or.cond3, label %21, label %30
+  br i1 %or.cond3, label %21, label %.loopexit.sink.split
 
 21:                                               ; preds = %17
   %22 = getelementptr i8, ptr %6, i64 %13
   %23 = icmp ult ptr %6, %22
   br i1 %23, label %.lr.ph.preheader, label %.loopexit.preheader
+
+.loopexit.preheader:                              ; preds = %.loopexit.sink.split, %21
+  br label %.loopexit
 
 .lr.ph.preheader:                                 ; preds = %21
   %24 = add i64 %13, %14
@@ -2466,55 +2469,52 @@ define dso_local void @WalSndShmemInit() local_unnamed_addr #0 {
   %27 = add i64 %umax, %26
   %28 = and i64 %27, -8
   %29 = add i64 %28, 8
-  call void @llvm.memset.p0.i64(ptr align 8 %6, i8 0, i64 %29, i1 false)
-  br label %.loopexit.preheader
+  br label %.loopexit.sink.split
 
-30:                                               ; preds = %17, %9
-  call void @llvm.memset.p0.i64(ptr align 1 %6, i8 0, i64 %13, i1 false)
+.loopexit.sink.split:                             ; preds = %9, %17, %.lr.ph.preheader
+  %.sink = phi i64 [ %29, %.lr.ph.preheader ], [ %13, %17 ], [ %13, %9 ]
+  call void @llvm.memset.p0.i64(ptr align 1 %6, i8 0, i64 %.sink, i1 false)
   br label %.loopexit.preheader
-
-.loopexit.preheader:                              ; preds = %.lr.ph.preheader, %21, %30
-  br label %.loopexit
 
 .preheader:                                       ; preds = %.loopexit
-  %31 = load i32, ptr @max_wal_senders, align 4
-  %32 = icmp sgt i32 %31, 0
-  br i1 %32, label %.lr.ph27, label %._crit_edge
+  %30 = load i32, ptr @max_wal_senders, align 4
+  %31 = icmp sgt i32 %30, 0
+  br i1 %31, label %.lr.ph27, label %._crit_edge
 
 .loopexit:                                        ; preds = %.loopexit.preheader, %.loopexit
   %indvars.iv = phi i64 [ %indvars.iv.next, %.loopexit ], [ 0, %.loopexit.preheader ]
-  %33 = load ptr, ptr @WalSndCtl, align 8
-  %34 = getelementptr [3 x %struct.dlist_head], ptr %33, i64 0, i64 %indvars.iv
-  store ptr %34, ptr %34, align 8
-  %35 = getelementptr inbounds i8, ptr %34, i64 8
-  store ptr %34, ptr %35, align 8
+  %32 = load ptr, ptr @WalSndCtl, align 8
+  %33 = getelementptr [3 x %struct.dlist_head], ptr %32, i64 0, i64 %indvars.iv
+  store ptr %33, ptr %33, align 8
+  %34 = getelementptr inbounds i8, ptr %33, i64 8
+  store ptr %33, ptr %34, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
   br i1 %exitcond.not, label %.preheader, label %.loopexit, !llvm.loop !46
 
 .lr.ph27:                                         ; preds = %.preheader, %.lr.ph27
   %indvars.iv29 = phi i64 [ %indvars.iv.next30, %.lr.ph27 ], [ 0, %.preheader ]
-  %36 = load ptr, ptr @WalSndCtl, align 8
-  %37 = getelementptr inbounds i8, ptr %36, i64 104
+  %35 = load ptr, ptr @WalSndCtl, align 8
+  %36 = getelementptr inbounds i8, ptr %35, i64 104
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !47
-  %38 = getelementptr [0 x %struct.WalSnd], ptr %37, i64 0, i64 %indvars.iv29, i32 11
-  store i8 0, ptr %38, align 4
+  %37 = getelementptr [0 x %struct.WalSnd], ptr %36, i64 0, i64 %indvars.iv29, i32 11
+  store i8 0, ptr %37, align 4
   %indvars.iv.next30 = add nuw nsw i64 %indvars.iv29, 1
-  %39 = load i32, ptr @max_wal_senders, align 4
-  %40 = sext i32 %39 to i64
-  %41 = icmp slt i64 %indvars.iv.next30, %40
-  br i1 %41, label %.lr.ph27, label %._crit_edge, !llvm.loop !48
+  %38 = load i32, ptr @max_wal_senders, align 4
+  %39 = sext i32 %38 to i64
+  %40 = icmp slt i64 %indvars.iv.next30, %39
+  br i1 %40, label %.lr.ph27, label %._crit_edge, !llvm.loop !48
 
 ._crit_edge:                                      ; preds = %.lr.ph27, %.preheader
-  %42 = load ptr, ptr @WalSndCtl, align 8
-  %43 = getelementptr inbounds i8, ptr %42, i64 76
-  call void @ConditionVariableInit(ptr noundef nonnull %43) #16
-  %44 = load ptr, ptr @WalSndCtl, align 8
-  %45 = getelementptr inbounds i8, ptr %44, i64 88
-  call void @ConditionVariableInit(ptr noundef nonnull %45) #16
-  br label %46
+  %41 = load ptr, ptr @WalSndCtl, align 8
+  %42 = getelementptr inbounds i8, ptr %41, i64 76
+  call void @ConditionVariableInit(ptr noundef nonnull %42) #16
+  %43 = load ptr, ptr @WalSndCtl, align 8
+  %44 = getelementptr inbounds i8, ptr %43, i64 88
+  call void @ConditionVariableInit(ptr noundef nonnull %44) #16
+  br label %45
 
-46:                                               ; preds = %._crit_edge, %0
+45:                                               ; preds = %._crit_edge, %0
   ret void
 }
 

@@ -9271,7 +9271,6 @@ _ZN3syn5parse11ParseBuffer4span17h1ca0c8b0ffc956f0E.exit.i.i: ; preds = %1075, %
 1217:                                             ; preds = %1214
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %.sroa.0206.sroa.8, ptr noundef nonnull align 8 dereferenceable(40) %.sroa.8.8..sroa.61240.0..sroa_idx1241.sroa_idx, i64 40, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %.sroa.0206.sroa.0.sroa.7, ptr noundef nonnull align 8 dereferenceable(40) %.sroa.61240.0..sroa_idx1241, i64 40, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.sroa.8212, ptr noundef nonnull align 8 dereferenceable(12) %.sroa.0699, i64 12, i1 false)
   br label %1218
 
 .thread1490:                                      ; preds = %1214
@@ -9280,11 +9279,12 @@ _ZN3syn5parse11ParseBuffer4span17h1ca0c8b0ffc956f0E.exit.i.i: ; preds = %1075, %
   %.sroa.10.8.copyload = load i32, ptr %.sroa.10.8..sroa.61240.0..sroa_idx1241.sroa_idx, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %.sroa.0206.sroa.0.sroa.7, ptr noundef nonnull align 8 dereferenceable(40) %.sroa.61240.0..sroa_idx1241, i64 40, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %.sroa.0206.sroa.8, ptr noundef nonnull align 8 dereferenceable(40) %.sroa.8.8..sroa.61240.0..sroa_idx1241.sroa_idx, i64 40, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.sroa.8212, ptr noundef nonnull align 4 dereferenceable(12) %.sroa.11.8..sroa.61240.0..sroa_idx1241.sroa_idx, i64 12, i1 false)
   br label %1218
 
 1218:                                             ; preds = %1217, %.thread1490
-  %.sroa.7207.11497 = phi i32 [ %.sroa.10.8.copyload, %.thread1490 ], [ 1, %1217 ]
+  %.sroa.0699.sink = phi ptr [ %.sroa.0699, %1217 ], [ %.sroa.11.8..sroa.61240.0..sroa_idx1241.sroa_idx, %.thread1490 ]
+  %.sroa.7207.11497 = phi i32 [ 1, %1217 ], [ %.sroa.10.8.copyload, %.thread1490 ]
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.sroa.8212, ptr noundef nonnull align 4 dereferenceable(12) %.sroa.0699.sink, i64 12, i1 false)
   invoke void @"_ZN4core3ptr83drop_in_place$LT$syn..punctuated..IntoIter$LT$syn..generics..TypeParamBound$GT$$GT$17h08303ef0ad4ac279E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %61)
           to label %1219 unwind label %1196
 

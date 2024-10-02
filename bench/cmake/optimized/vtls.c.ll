@@ -857,7 +857,7 @@ define dso_local i32 @Curl_ssl_backend() local_unnamed_addr #2 {
   %5 = load ptr, ptr @available_backends, align 16
   %.not1720.i = icmp eq ptr %5, null
   %or.cond.i = select i1 %.not16.i, i1 true, i1 %.not1720.i
-  br i1 %or.cond.i, label %.loopexit.i, label %.lr.ph.i
+  br i1 %or.cond.i, label %multissl_setup.exit.sink.split, label %.lr.ph.i
 
 6:                                                ; preds = %.lr.ph.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -878,26 +878,23 @@ define dso_local i32 @Curl_ssl_backend() local_unnamed_addr #2 {
 13:                                               ; preds = %.lr.ph.i
   %14 = getelementptr inbounds [2 x ptr], ptr @available_backends, i64 0, i64 %indvars.iv.i
   %15 = load ptr, ptr %14, align 8
-  store ptr %15, ptr @Curl_ssl, align 8
-  %16 = load ptr, ptr @Curl_cfree, align 8
-  tail call void %16(ptr noundef nonnull %4) #18
-  br label %multissl_setup.exit
+  br label %multissl_setup.exit.sink.split
 
 .loopexit.loopexit.i:                             ; preds = %6
   %.pre.i = load ptr, ptr @available_backends, align 16
-  br label %.loopexit.i
+  br label %multissl_setup.exit.sink.split
 
-.loopexit.i:                                      ; preds = %.loopexit.loopexit.i, %3
-  %17 = phi ptr [ %.pre.i, %.loopexit.loopexit.i ], [ %5, %3 ]
-  store ptr %17, ptr @Curl_ssl, align 8
-  %18 = load ptr, ptr @Curl_cfree, align 8
-  tail call void %18(ptr noundef %4) #18
+multissl_setup.exit.sink.split:                   ; preds = %3, %.loopexit.loopexit.i, %13
+  %.sink = phi ptr [ %15, %13 ], [ %.pre.i, %.loopexit.loopexit.i ], [ %5, %3 ]
+  store ptr %.sink, ptr @Curl_ssl, align 8
+  %16 = load ptr, ptr @Curl_cfree, align 8
+  tail call void %16(ptr noundef %4) #18
   br label %multissl_setup.exit
 
-multissl_setup.exit:                              ; preds = %0, %13, %.loopexit.i
-  %19 = load ptr, ptr @Curl_ssl, align 8
-  %20 = load i32, ptr %19, align 8
-  ret i32 %20
+multissl_setup.exit:                              ; preds = %multissl_setup.exit.sink.split, %0
+  %17 = load ptr, ptr @Curl_ssl, align 8
+  %18 = load i32, ptr %17, align 8
+  ret i32 %18
 }
 
 ; Function Attrs: nounwind uwtable
@@ -3902,31 +3899,25 @@ define internal i32 @multissl_init() #2 {
 13:                                               ; preds = %.lr.ph.i
   %14 = getelementptr inbounds [2 x ptr], ptr @available_backends, i64 0, i64 %indvars.iv.i
   %15 = load ptr, ptr %14, align 8
-  store ptr %15, ptr @Curl_ssl, align 8
-  %16 = load ptr, ptr @Curl_cfree, align 8
-  tail call void %16(ptr noundef nonnull %4) #18
-  br label %19
+  br label %.loopexit.i
 
 .loopexit.loopexit.i:                             ; preds = %6
   %.pre.i = load ptr, ptr @available_backends, align 16
   br label %.loopexit.i
 
-.loopexit.i:                                      ; preds = %.loopexit.loopexit.i, %3
-  %17 = phi ptr [ %.pre.i, %.loopexit.loopexit.i ], [ %5, %3 ]
-  store ptr %17, ptr @Curl_ssl, align 8
-  %18 = load ptr, ptr @Curl_cfree, align 8
-  tail call void %18(ptr noundef %4) #18
-  br label %19
-
-19:                                               ; preds = %13, %.loopexit.i
-  %20 = load ptr, ptr @Curl_ssl, align 8
-  %21 = getelementptr inbounds i8, ptr %20, i64 32
-  %22 = load ptr, ptr %21, align 8
-  %23 = tail call i32 %22() #18
+.loopexit.i:                                      ; preds = %3, %.loopexit.loopexit.i, %13
+  %.sink = phi ptr [ %15, %13 ], [ %.pre.i, %.loopexit.loopexit.i ], [ %5, %3 ]
+  store ptr %.sink, ptr @Curl_ssl, align 8
+  %16 = load ptr, ptr @Curl_cfree, align 8
+  tail call void %16(ptr noundef %4) #18
+  %17 = load ptr, ptr @Curl_ssl, align 8
+  %18 = getelementptr inbounds i8, ptr %17, i64 32
+  %19 = load ptr, ptr %18, align 8
+  %20 = tail call i32 %19() #18
   br label %multissl_setup.exit
 
-multissl_setup.exit:                              ; preds = %0, %19
-  %.0 = phi i32 [ %23, %19 ], [ 1, %0 ]
+multissl_setup.exit:                              ; preds = %0, %.loopexit.i
+  %.0 = phi i32 [ %20, %.loopexit.i ], [ 1, %0 ]
   ret i32 %.0
 }
 
@@ -4043,31 +4034,25 @@ define internal i32 @multissl_connect(ptr noundef %0, ptr noundef %1) #2 {
 15:                                               ; preds = %.lr.ph.i
   %16 = getelementptr inbounds [2 x ptr], ptr @available_backends, i64 0, i64 %indvars.iv.i
   %17 = load ptr, ptr %16, align 8
-  store ptr %17, ptr @Curl_ssl, align 8
-  %18 = load ptr, ptr @Curl_cfree, align 8
-  tail call void %18(ptr noundef nonnull %6) #18
-  br label %21
+  br label %.loopexit.i
 
 .loopexit.loopexit.i:                             ; preds = %8
   %.pre.i = load ptr, ptr @available_backends, align 16
   br label %.loopexit.i
 
-.loopexit.i:                                      ; preds = %.loopexit.loopexit.i, %5
-  %19 = phi ptr [ %.pre.i, %.loopexit.loopexit.i ], [ %7, %5 ]
-  store ptr %19, ptr @Curl_ssl, align 8
-  %20 = load ptr, ptr @Curl_cfree, align 8
-  tail call void %20(ptr noundef %6) #18
-  br label %21
-
-21:                                               ; preds = %15, %.loopexit.i
-  %22 = load ptr, ptr @Curl_ssl, align 8
-  %23 = getelementptr inbounds i8, ptr %22, i64 96
-  %24 = load ptr, ptr %23, align 8
-  %25 = tail call i32 %24(ptr noundef %0, ptr noundef %1) #18
+.loopexit.i:                                      ; preds = %5, %.loopexit.loopexit.i, %15
+  %.sink = phi ptr [ %17, %15 ], [ %.pre.i, %.loopexit.loopexit.i ], [ %7, %5 ]
+  store ptr %.sink, ptr @Curl_ssl, align 8
+  %18 = load ptr, ptr @Curl_cfree, align 8
+  tail call void %18(ptr noundef %6) #18
+  %19 = load ptr, ptr @Curl_ssl, align 8
+  %20 = getelementptr inbounds i8, ptr %19, i64 96
+  %21 = load ptr, ptr %20, align 8
+  %22 = tail call i32 %21(ptr noundef %0, ptr noundef %1) #18
   br label %multissl_setup.exit
 
-multissl_setup.exit:                              ; preds = %2, %21
-  %.0 = phi i32 [ %25, %21 ], [ 2, %2 ]
+multissl_setup.exit:                              ; preds = %2, %.loopexit.i
+  %.0 = phi i32 [ %22, %.loopexit.i ], [ 2, %2 ]
   ret i32 %.0
 }
 
@@ -4107,31 +4092,25 @@ define internal i32 @multissl_connect_nonblocking(ptr noundef %0, ptr noundef %1
 16:                                               ; preds = %.lr.ph.i
   %17 = getelementptr inbounds [2 x ptr], ptr @available_backends, i64 0, i64 %indvars.iv.i
   %18 = load ptr, ptr %17, align 8
-  store ptr %18, ptr @Curl_ssl, align 8
-  %19 = load ptr, ptr @Curl_cfree, align 8
-  tail call void %19(ptr noundef nonnull %7) #18
-  br label %22
+  br label %.loopexit.i
 
 .loopexit.loopexit.i:                             ; preds = %9
   %.pre.i = load ptr, ptr @available_backends, align 16
   br label %.loopexit.i
 
-.loopexit.i:                                      ; preds = %.loopexit.loopexit.i, %6
-  %20 = phi ptr [ %.pre.i, %.loopexit.loopexit.i ], [ %8, %6 ]
-  store ptr %20, ptr @Curl_ssl, align 8
-  %21 = load ptr, ptr @Curl_cfree, align 8
-  tail call void %21(ptr noundef %7) #18
-  br label %22
-
-22:                                               ; preds = %16, %.loopexit.i
-  %23 = load ptr, ptr @Curl_ssl, align 8
-  %24 = getelementptr inbounds i8, ptr %23, i64 104
-  %25 = load ptr, ptr %24, align 8
-  %26 = tail call i32 %25(ptr noundef %0, ptr noundef %1, ptr noundef %2) #18
+.loopexit.i:                                      ; preds = %6, %.loopexit.loopexit.i, %16
+  %.sink = phi ptr [ %18, %16 ], [ %.pre.i, %.loopexit.loopexit.i ], [ %8, %6 ]
+  store ptr %.sink, ptr @Curl_ssl, align 8
+  %19 = load ptr, ptr @Curl_cfree, align 8
+  tail call void %19(ptr noundef %7) #18
+  %20 = load ptr, ptr @Curl_ssl, align 8
+  %21 = getelementptr inbounds i8, ptr %20, i64 104
+  %22 = load ptr, ptr %21, align 8
+  %23 = tail call i32 %22(ptr noundef %0, ptr noundef %1, ptr noundef %2) #18
   br label %multissl_setup.exit
 
-multissl_setup.exit:                              ; preds = %3, %22
-  %.0 = phi i32 [ %26, %22 ], [ 2, %3 ]
+multissl_setup.exit:                              ; preds = %3, %.loopexit.i
+  %.0 = phi i32 [ %23, %.loopexit.i ], [ 2, %3 ]
   ret i32 %.0
 }
 
@@ -4171,30 +4150,24 @@ define internal void @multissl_adjust_pollset(ptr noundef %0, ptr noundef %1, pt
 16:                                               ; preds = %.lr.ph.i
   %17 = getelementptr inbounds [2 x ptr], ptr @available_backends, i64 0, i64 %indvars.iv.i
   %18 = load ptr, ptr %17, align 8
-  store ptr %18, ptr @Curl_ssl, align 8
-  %19 = load ptr, ptr @Curl_cfree, align 8
-  tail call void %19(ptr noundef nonnull %7) #18
-  br label %22
+  br label %.loopexit.i
 
 .loopexit.loopexit.i:                             ; preds = %9
   %.pre.i = load ptr, ptr @available_backends, align 16
   br label %.loopexit.i
 
-.loopexit.i:                                      ; preds = %.loopexit.loopexit.i, %6
-  %20 = phi ptr [ %.pre.i, %.loopexit.loopexit.i ], [ %8, %6 ]
-  store ptr %20, ptr @Curl_ssl, align 8
-  %21 = load ptr, ptr @Curl_cfree, align 8
-  tail call void %21(ptr noundef %7) #18
-  br label %22
-
-22:                                               ; preds = %16, %.loopexit.i
-  %23 = load ptr, ptr @Curl_ssl, align 8
-  %24 = getelementptr inbounds i8, ptr %23, i64 112
-  %25 = load ptr, ptr %24, align 8
-  tail call void %25(ptr noundef %0, ptr noundef %1, ptr noundef %2) #18
+.loopexit.i:                                      ; preds = %6, %.loopexit.loopexit.i, %16
+  %.sink = phi ptr [ %18, %16 ], [ %.pre.i, %.loopexit.loopexit.i ], [ %8, %6 ]
+  store ptr %.sink, ptr @Curl_ssl, align 8
+  %19 = load ptr, ptr @Curl_cfree, align 8
+  tail call void %19(ptr noundef %7) #18
+  %20 = load ptr, ptr @Curl_ssl, align 8
+  %21 = getelementptr inbounds i8, ptr %20, i64 112
+  %22 = load ptr, ptr %21, align 8
+  tail call void %22(ptr noundef %0, ptr noundef %1, ptr noundef %2) #18
   br label %multissl_setup.exit
 
-multissl_setup.exit:                              ; preds = %3, %22
+multissl_setup.exit:                              ; preds = %3, %.loopexit.i
   ret void
 }
 
@@ -4234,31 +4207,25 @@ define internal ptr @multissl_get_internals(ptr noundef %0, i32 noundef %1) #2 {
 15:                                               ; preds = %.lr.ph.i
   %16 = getelementptr inbounds [2 x ptr], ptr @available_backends, i64 0, i64 %indvars.iv.i
   %17 = load ptr, ptr %16, align 8
-  store ptr %17, ptr @Curl_ssl, align 8
-  %18 = load ptr, ptr @Curl_cfree, align 8
-  tail call void %18(ptr noundef nonnull %6) #18
-  br label %21
+  br label %.loopexit.i
 
 .loopexit.loopexit.i:                             ; preds = %8
   %.pre.i = load ptr, ptr @available_backends, align 16
   br label %.loopexit.i
 
-.loopexit.i:                                      ; preds = %.loopexit.loopexit.i, %5
-  %19 = phi ptr [ %.pre.i, %.loopexit.loopexit.i ], [ %7, %5 ]
-  store ptr %19, ptr @Curl_ssl, align 8
-  %20 = load ptr, ptr @Curl_cfree, align 8
-  tail call void %20(ptr noundef %6) #18
-  br label %21
-
-21:                                               ; preds = %15, %.loopexit.i
-  %22 = load ptr, ptr @Curl_ssl, align 8
-  %23 = getelementptr inbounds i8, ptr %22, i64 120
-  %24 = load ptr, ptr %23, align 8
-  %25 = tail call ptr %24(ptr noundef %0, i32 noundef %1) #18
+.loopexit.i:                                      ; preds = %5, %.loopexit.loopexit.i, %15
+  %.sink = phi ptr [ %17, %15 ], [ %.pre.i, %.loopexit.loopexit.i ], [ %7, %5 ]
+  store ptr %.sink, ptr @Curl_ssl, align 8
+  %18 = load ptr, ptr @Curl_cfree, align 8
+  tail call void %18(ptr noundef %6) #18
+  %19 = load ptr, ptr @Curl_ssl, align 8
+  %20 = getelementptr inbounds i8, ptr %19, i64 120
+  %21 = load ptr, ptr %20, align 8
+  %22 = tail call ptr %21(ptr noundef %0, i32 noundef %1) #18
   br label %multissl_setup.exit
 
-multissl_setup.exit:                              ; preds = %2, %21
-  %.0 = phi ptr [ %25, %21 ], [ null, %2 ]
+multissl_setup.exit:                              ; preds = %2, %.loopexit.i
+  %.0 = phi ptr [ %22, %.loopexit.i ], [ null, %2 ]
   ret ptr %.0
 }
 
@@ -4298,30 +4265,24 @@ define internal void @multissl_close(ptr noundef %0, ptr noundef %1) #2 {
 15:                                               ; preds = %.lr.ph.i
   %16 = getelementptr inbounds [2 x ptr], ptr @available_backends, i64 0, i64 %indvars.iv.i
   %17 = load ptr, ptr %16, align 8
-  store ptr %17, ptr @Curl_ssl, align 8
-  %18 = load ptr, ptr @Curl_cfree, align 8
-  tail call void %18(ptr noundef nonnull %6) #18
-  br label %21
+  br label %.loopexit.i
 
 .loopexit.loopexit.i:                             ; preds = %8
   %.pre.i = load ptr, ptr @available_backends, align 16
   br label %.loopexit.i
 
-.loopexit.i:                                      ; preds = %.loopexit.loopexit.i, %5
-  %19 = phi ptr [ %.pre.i, %.loopexit.loopexit.i ], [ %7, %5 ]
-  store ptr %19, ptr @Curl_ssl, align 8
-  %20 = load ptr, ptr @Curl_cfree, align 8
-  tail call void %20(ptr noundef %6) #18
-  br label %21
-
-21:                                               ; preds = %15, %.loopexit.i
-  %22 = load ptr, ptr @Curl_ssl, align 8
-  %23 = getelementptr inbounds i8, ptr %22, i64 128
-  %24 = load ptr, ptr %23, align 8
-  tail call void %24(ptr noundef %0, ptr noundef %1) #18
+.loopexit.i:                                      ; preds = %5, %.loopexit.loopexit.i, %15
+  %.sink = phi ptr [ %17, %15 ], [ %.pre.i, %.loopexit.loopexit.i ], [ %7, %5 ]
+  store ptr %.sink, ptr @Curl_ssl, align 8
+  %18 = load ptr, ptr @Curl_cfree, align 8
+  tail call void %18(ptr noundef %6) #18
+  %19 = load ptr, ptr @Curl_ssl, align 8
+  %20 = getelementptr inbounds i8, ptr %19, i64 128
+  %21 = load ptr, ptr %20, align 8
+  tail call void %21(ptr noundef %0, ptr noundef %1) #18
   br label %multissl_setup.exit
 
-multissl_setup.exit:                              ; preds = %2, %21
+multissl_setup.exit:                              ; preds = %2, %.loopexit.i
   ret void
 }
 
@@ -4361,31 +4322,25 @@ define internal i64 @multissl_recv_plain(ptr noundef %0, ptr noundef %1, ptr nou
 18:                                               ; preds = %.lr.ph.i
   %19 = getelementptr inbounds [2 x ptr], ptr @available_backends, i64 0, i64 %indvars.iv.i
   %20 = load ptr, ptr %19, align 8
-  store ptr %20, ptr @Curl_ssl, align 8
-  %21 = load ptr, ptr @Curl_cfree, align 8
-  tail call void %21(ptr noundef nonnull %9) #18
-  br label %24
+  br label %.loopexit.i
 
 .loopexit.loopexit.i:                             ; preds = %11
   %.pre.i = load ptr, ptr @available_backends, align 16
   br label %.loopexit.i
 
-.loopexit.i:                                      ; preds = %.loopexit.loopexit.i, %8
-  %22 = phi ptr [ %.pre.i, %.loopexit.loopexit.i ], [ %10, %8 ]
-  store ptr %22, ptr @Curl_ssl, align 8
-  %23 = load ptr, ptr @Curl_cfree, align 8
-  tail call void %23(ptr noundef %9) #18
-  br label %24
-
-24:                                               ; preds = %18, %.loopexit.i
-  %25 = load ptr, ptr @Curl_ssl, align 8
-  %26 = getelementptr inbounds i8, ptr %25, i64 216
-  %27 = load ptr, ptr %26, align 8
-  %28 = tail call i64 %27(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef %4) #18
+.loopexit.i:                                      ; preds = %8, %.loopexit.loopexit.i, %18
+  %.sink = phi ptr [ %20, %18 ], [ %.pre.i, %.loopexit.loopexit.i ], [ %10, %8 ]
+  store ptr %.sink, ptr @Curl_ssl, align 8
+  %21 = load ptr, ptr @Curl_cfree, align 8
+  tail call void %21(ptr noundef %9) #18
+  %22 = load ptr, ptr @Curl_ssl, align 8
+  %23 = getelementptr inbounds i8, ptr %22, i64 216
+  %24 = load ptr, ptr %23, align 8
+  %25 = tail call i64 %24(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef %4) #18
   br label %multissl_setup.exit
 
-multissl_setup.exit:                              ; preds = %5, %24
-  %.0 = phi i64 [ %28, %24 ], [ 2, %5 ]
+multissl_setup.exit:                              ; preds = %5, %.loopexit.i
+  %.0 = phi i64 [ %25, %.loopexit.i ], [ 2, %5 ]
   ret i64 %.0
 }
 
@@ -4425,31 +4380,25 @@ define internal i64 @multissl_send_plain(ptr noundef %0, ptr noundef %1, ptr nou
 18:                                               ; preds = %.lr.ph.i
   %19 = getelementptr inbounds [2 x ptr], ptr @available_backends, i64 0, i64 %indvars.iv.i
   %20 = load ptr, ptr %19, align 8
-  store ptr %20, ptr @Curl_ssl, align 8
-  %21 = load ptr, ptr @Curl_cfree, align 8
-  tail call void %21(ptr noundef nonnull %9) #18
-  br label %24
+  br label %.loopexit.i
 
 .loopexit.loopexit.i:                             ; preds = %11
   %.pre.i = load ptr, ptr @available_backends, align 16
   br label %.loopexit.i
 
-.loopexit.i:                                      ; preds = %.loopexit.loopexit.i, %8
-  %22 = phi ptr [ %.pre.i, %.loopexit.loopexit.i ], [ %10, %8 ]
-  store ptr %22, ptr @Curl_ssl, align 8
-  %23 = load ptr, ptr @Curl_cfree, align 8
-  tail call void %23(ptr noundef %9) #18
-  br label %24
-
-24:                                               ; preds = %18, %.loopexit.i
-  %25 = load ptr, ptr @Curl_ssl, align 8
-  %26 = getelementptr inbounds i8, ptr %25, i64 224
-  %27 = load ptr, ptr %26, align 8
-  %28 = tail call i64 %27(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef %4) #18
+.loopexit.i:                                      ; preds = %8, %.loopexit.loopexit.i, %18
+  %.sink = phi ptr [ %20, %18 ], [ %.pre.i, %.loopexit.loopexit.i ], [ %10, %8 ]
+  store ptr %.sink, ptr @Curl_ssl, align 8
+  %21 = load ptr, ptr @Curl_cfree, align 8
+  tail call void %21(ptr noundef %9) #18
+  %22 = load ptr, ptr @Curl_ssl, align 8
+  %23 = getelementptr inbounds i8, ptr %22, i64 224
+  %24 = load ptr, ptr %23, align 8
+  %25 = tail call i64 %24(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef %4) #18
   br label %multissl_setup.exit
 
-multissl_setup.exit:                              ; preds = %5, %24
-  %.0 = phi i64 [ %28, %24 ], [ 2, %5 ]
+multissl_setup.exit:                              ; preds = %5, %.loopexit.i
+  %.0 = phi i64 [ %25, %.loopexit.i ], [ 2, %5 ]
   ret i64 %.0
 }
 

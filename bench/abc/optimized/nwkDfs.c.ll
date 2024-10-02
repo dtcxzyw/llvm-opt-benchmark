@@ -1299,8 +1299,8 @@ define noalias noundef ptr @Nwk_ManDfsNodes(ptr noundef %0, ptr nocapture nounde
   %wide.trip.count = zext nneg i32 %2 to i64
   br label %.lr.ph
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %16
-  %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %16 ]
+.lr.ph:                                           ; preds = %.lr.ph.preheader, %15
+  %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %15 ]
   %9 = getelementptr inbounds ptr, ptr %1, i64 %indvars.iv
   %10 = load ptr, ptr %9, align 8
   %11 = getelementptr i8, ptr %10, i64 32
@@ -1313,19 +1313,16 @@ define noalias noundef ptr @Nwk_ManDfsNodes(ptr noundef %0, ptr nocapture nounde
   %14 = getelementptr i8, ptr %10, i64 72
   %.val12 = load ptr, ptr %14, align 8
   %.val12.val = load ptr, ptr %.val12, align 8
-  tail call void @Nwk_ManDfsNodes_rec(ptr noundef %.val12.val, ptr noundef nonnull %4)
-  br label %16
+  br label %15
 
-15:                                               ; preds = %.lr.ph
-  tail call void @Nwk_ManDfsNodes_rec(ptr noundef nonnull %10, ptr noundef nonnull %4)
-  br label %16
-
-16:                                               ; preds = %13, %15
+15:                                               ; preds = %.lr.ph, %13
+  %.val12.val.sink = phi ptr [ %.val12.val, %13 ], [ %10, %.lr.ph ]
+  tail call void @Nwk_ManDfsNodes_rec(ptr noundef %.val12.val.sink, ptr noundef nonnull %4)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !23
 
-._crit_edge:                                      ; preds = %16, %3
+._crit_edge:                                      ; preds = %15, %3
   ret ptr %4
 }
 
@@ -1808,8 +1805,8 @@ define noalias noundef ptr @Nwk_ManSupportNodes(ptr noundef %0, ptr nocapture no
   %wide.trip.count = zext nneg i32 %2 to i64
   br label %.lr.ph
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %16
-  %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %16 ]
+.lr.ph:                                           ; preds = %.lr.ph.preheader, %15
+  %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %15 ]
   %9 = getelementptr inbounds ptr, ptr %1, i64 %indvars.iv
   %10 = load ptr, ptr %9, align 8
   %11 = getelementptr i8, ptr %10, i64 32
@@ -1822,19 +1819,16 @@ define noalias noundef ptr @Nwk_ManSupportNodes(ptr noundef %0, ptr nocapture no
   %14 = getelementptr i8, ptr %10, i64 72
   %.val12 = load ptr, ptr %14, align 8
   %.val12.val = load ptr, ptr %.val12, align 8
-  tail call void @Nwk_ManSupportNodes_rec(ptr noundef %.val12.val, ptr noundef nonnull %4)
-  br label %16
+  br label %15
 
-15:                                               ; preds = %.lr.ph
-  tail call void @Nwk_ManSupportNodes_rec(ptr noundef nonnull %10, ptr noundef nonnull %4)
-  br label %16
-
-16:                                               ; preds = %13, %15
+15:                                               ; preds = %.lr.ph, %13
+  %.val12.val.sink = phi ptr [ %.val12.val, %13 ], [ %10, %.lr.ph ]
+  tail call void @Nwk_ManSupportNodes_rec(ptr noundef %.val12.val.sink, ptr noundef nonnull %4)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !29
 
-._crit_edge:                                      ; preds = %16, %3
+._crit_edge:                                      ; preds = %15, %3
   ret ptr %4
 }
 
@@ -1849,8 +1843,8 @@ define void @Nwk_ManSupportSum(ptr noundef %0) local_unnamed_addr #0 {
 
 .lr.ph:                                           ; preds = %1, %Vec_PtrFree.exit
   %indvars.iv = phi i64 [ %indvars.iv.next, %Vec_PtrFree.exit ], [ 0, %1 ]
-  %6 = phi ptr [ %22, %Vec_PtrFree.exit ], [ %3, %1 ]
-  %.015 = phi i32 [ %19, %Vec_PtrFree.exit ], [ 0, %1 ]
+  %6 = phi ptr [ %21, %Vec_PtrFree.exit ], [ %3, %1 ]
+  %.015 = phi i32 [ %18, %Vec_PtrFree.exit ], [ 0, %1 ]
   %7 = getelementptr i8, ptr %6, i64 8
   %.val11 = load ptr, ptr %7, align 8
   %8 = getelementptr inbounds ptr, ptr %.val11, i64 %indvars.iv
@@ -1867,43 +1861,40 @@ define void @Nwk_ManSupportSum(ptr noundef %0) local_unnamed_addr #0 {
   %.val.i = load i32, ptr %14, align 8
   %15 = and i32 %.val.i, 7
   %.not.i = icmp eq i32 %15, 2
-  br i1 %.not.i, label %16, label %18
+  br i1 %.not.i, label %16, label %Nwk_ManSupportNodes.exit
 
 16:                                               ; preds = %.lr.ph
   %17 = getelementptr i8, ptr %9, i64 72
   %.val12.i = load ptr, ptr %17, align 8
   %.val12.val.i = load ptr, ptr %.val12.i, align 8
-  tail call void @Nwk_ManSupportNodes_rec(ptr noundef %.val12.val.i, ptr noundef nonnull %10)
   br label %Nwk_ManSupportNodes.exit
 
-18:                                               ; preds = %.lr.ph
-  tail call void @Nwk_ManSupportNodes_rec(ptr noundef nonnull %9, ptr noundef nonnull %10)
-  br label %Nwk_ManSupportNodes.exit
-
-Nwk_ManSupportNodes.exit:                         ; preds = %18, %16
+Nwk_ManSupportNodes.exit:                         ; preds = %16, %.lr.ph
+  %.val12.val.sink.i = phi ptr [ %.val12.val.i, %16 ], [ %9, %.lr.ph ]
+  tail call void @Nwk_ManSupportNodes_rec(ptr noundef %.val12.val.sink.i, ptr noundef nonnull %10)
   %.val = load i32, ptr %11, align 4
-  %19 = add nsw i32 %.val, %.015
-  %20 = load ptr, ptr %13, align 8
-  %.not.i12 = icmp eq ptr %20, null
-  br i1 %.not.i12, label %Vec_PtrFree.exit, label %21
+  %18 = add nsw i32 %.val, %.015
+  %19 = load ptr, ptr %13, align 8
+  %.not.i12 = icmp eq ptr %19, null
+  br i1 %.not.i12, label %Vec_PtrFree.exit, label %20
 
-21:                                               ; preds = %Nwk_ManSupportNodes.exit
-  tail call void @free(ptr noundef nonnull %20) #9
+20:                                               ; preds = %Nwk_ManSupportNodes.exit
+  tail call void @free(ptr noundef nonnull %19) #9
   br label %Vec_PtrFree.exit
 
-Vec_PtrFree.exit:                                 ; preds = %Nwk_ManSupportNodes.exit, %21
+Vec_PtrFree.exit:                                 ; preds = %Nwk_ManSupportNodes.exit, %20
   tail call void @free(ptr noundef nonnull %10) #9
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %22 = load ptr, ptr %2, align 8
-  %23 = getelementptr i8, ptr %22, i64 4
-  %.val10 = load i32, ptr %23, align 4
-  %24 = sext i32 %.val10 to i64
-  %25 = icmp slt i64 %indvars.iv.next, %24
-  br i1 %25, label %.lr.ph, label %.critedge, !llvm.loop !30
+  %21 = load ptr, ptr %2, align 8
+  %22 = getelementptr i8, ptr %21, i64 4
+  %.val10 = load i32, ptr %22, align 4
+  %23 = sext i32 %.val10 to i64
+  %24 = icmp slt i64 %indvars.iv.next, %23
+  br i1 %24, label %.lr.ph, label %.critedge, !llvm.loop !30
 
 .critedge:                                        ; preds = %Vec_PtrFree.exit, %1
-  %.0.lcssa = phi i32 [ 0, %1 ], [ %19, %Vec_PtrFree.exit ]
-  %26 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.2, i32 noundef %.0.lcssa)
+  %.0.lcssa = phi i32 [ 0, %1 ], [ %18, %Vec_PtrFree.exit ]
+  %25 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.2, i32 noundef %.0.lcssa)
   ret void
 }
 

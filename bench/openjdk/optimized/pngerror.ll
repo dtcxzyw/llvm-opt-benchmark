@@ -1092,28 +1092,21 @@ define hidden void @png_chunk_benign_error(ptr noalias noundef %0, ptr noundef %
 ; Function Attrs: nounwind uwtable
 define hidden void @png_chunk_report(ptr noalias noundef %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #4 {
   %4 = icmp slt i32 %2, 2
-  br i1 %4, label %5, label %6
+  br i1 %4, label %png_chunk_benign_error.exit, label %5
 
 5:                                                ; preds = %3
-  tail call void @png_chunk_warning(ptr noundef %0, ptr noundef %1)
-  br label %11
+  %6 = getelementptr inbounds i8, ptr %0, i64 296
+  %7 = load i32, ptr %6, align 8, !alias.scope !30
+  %8 = and i32 %7, 1048576
+  %.not.i = icmp eq i32 %8, 0
+  br i1 %.not.i, label %9, label %png_chunk_benign_error.exit
 
-6:                                                ; preds = %3
-  %7 = getelementptr inbounds i8, ptr %0, i64 296
-  %8 = load i32, ptr %7, align 8, !alias.scope !30
-  %9 = and i32 %8, 1048576
-  %.not.i = icmp eq i32 %9, 0
-  br i1 %.not.i, label %10, label %png_chunk_benign_error.exit
-
-10:                                               ; preds = %6
+9:                                                ; preds = %5
   tail call void @png_chunk_error(ptr noundef nonnull %0, ptr noundef %1) #21
   unreachable
 
-png_chunk_benign_error.exit:                      ; preds = %6
-  tail call void @png_chunk_warning(ptr noundef nonnull %0, ptr noundef %1)
-  br label %11
-
-11:                                               ; preds = %png_chunk_benign_error.exit, %5
+png_chunk_benign_error.exit:                      ; preds = %5, %3
+  tail call void @png_chunk_warning(ptr noundef %0, ptr noundef %1)
   ret void
 }
 

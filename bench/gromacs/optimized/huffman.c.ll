@@ -66,7 +66,6 @@ define void @Ptngc_comp_conv_to_huffman(ptr nocapture noundef readonly %0, i32 n
   store i32 1, ptr %24, align 4
   %31 = getelementptr inbounds i8, ptr %24, i64 4
   store i32 1, ptr %31, align 4
-  tail call fastcc void @assign_codes(ptr noundef nonnull %23, ptr noundef nonnull %24, i32 noundef 0, i32 noundef 0, i32 noundef 1)
   br label %.lr.ph398.preheader
 
 .lr.ph395:                                        ; preds = %.preheader358, %81
@@ -169,22 +168,19 @@ define void @Ptngc_comp_conv_to_huffman(ptr nocapture noundef readonly %0, i32 n
 
 81:                                               ; preds = %75, %._crit_edge391
   %82 = icmp sgt i64 %indvars.iv469, 2
-  br i1 %82, label %.lr.ph395, label %.loopexit, !llvm.loop !7
+  br i1 %82, label %.lr.ph395, label %.lr.ph398.preheader, !llvm.loop !7
 
 .loopexit.thread:                                 ; preds = %.preheader358.thread, %.preheader358
   tail call fastcc void @assign_codes(ptr noundef %23, ptr noundef %24, i32 noundef 0, i32 noundef 0, i32 noundef 1)
   tail call void @Ptngc_merge_sort(ptr noundef %24, i64 noundef %12, i64 noundef 16, ptr noundef nonnull @comp_codes, ptr noundef null) #7
   br label %._crit_edge404
 
-.loopexit:                                        ; preds = %81
+.lr.ph398.preheader:                              ; preds = %81, %.loopexit.thread510
   tail call fastcc void @assign_codes(ptr noundef nonnull %23, ptr noundef %24, i32 noundef 0, i32 noundef 0, i32 noundef 1)
-  br label %.lr.ph398.preheader
-
-.lr.ph398.preheader:                              ; preds = %.loopexit, %.loopexit.thread510
   br label %.lr.ph398
 
 .lr.ph398:                                        ; preds = %.lr.ph398.preheader, %.lr.ph398
-  %indvars.iv472 = phi i64 [ %indvars.iv.next473, %.lr.ph398 ], [ 0, %.lr.ph398.preheader ]
+  %indvars.iv472 = phi i64 [ 0, %.lr.ph398.preheader ], [ %indvars.iv.next473, %.lr.ph398 ]
   %83 = getelementptr inbounds i32, ptr %2, i64 %indvars.iv472
   %84 = load i32, ptr %83, align 4
   %85 = getelementptr inbounds %struct.codelength, ptr %24, i64 %indvars.iv472

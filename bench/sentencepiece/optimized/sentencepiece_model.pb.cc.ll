@@ -727,11 +727,7 @@ define void @_ZN13sentencepiece11TrainerSpecC2ERKS0_(ptr noundef nonnull align 8
 
 41:                                               ; preds = %39
   %42 = invoke noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #20
-          to label %.noexc unwind label %88
-
-.noexc:                                           ; preds = %41
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %42, i8 0, i64 40, i1 false)
-  br label %_ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPT_v.exit.i
+          to label %_ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPT_v.exit.i unwind label %88
 
 43:                                               ; preds = %39
   %44 = getelementptr inbounds i8, ptr %32, i64 24
@@ -753,21 +749,18 @@ define void @_ZN13sentencepiece11TrainerSpecC2ERKS0_(ptr noundef nonnull align 8
 
 _ZNK6google8protobuf8internal9ArenaImpl11RecordAllocEPKSt9type_infom.exit.i.i: ; preds = %47, %43
   %55 = invoke noundef ptr @_ZN6google8protobuf8internal9ArenaImpl28AllocateAlignedAndAddCleanupEmPFvPvE(ptr noundef nonnull align 8 dereferenceable(40) %32, i64 noundef 40, ptr noundef nonnull @_ZN6google8protobuf8internal21arena_destruct_objectINS1_16InternalMetadata9ContainerINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEEvPv)
-          to label %.noexc50 unwind label %88
+          to label %_ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPT_v.exit.i unwind label %88
 
-.noexc50:                                         ; preds = %_ZNK6google8protobuf8internal9ArenaImpl11RecordAllocEPKSt9type_infom.exit.i.i
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %55, i8 0, i64 40, i1 false)
-  br label %_ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPT_v.exit.i
-
-_ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPT_v.exit.i: ; preds = %.noexc50, %.noexc
-  %.sink25.i.i = phi ptr [ %55, %.noexc50 ], [ %42, %.noexc ]
-  %56 = getelementptr inbounds i8, ptr %.sink25.i.i, i64 8
+_ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPT_v.exit.i: ; preds = %_ZNK6google8protobuf8internal9ArenaImpl11RecordAllocEPKSt9type_infom.exit.i.i, %41
+  %.sink.i.i = phi ptr [ %42, %41 ], [ %55, %_ZNK6google8protobuf8internal9ArenaImpl11RecordAllocEPKSt9type_infom.exit.i.i ]
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %.sink.i.i, i8 0, i64 40, i1 false)
+  %56 = getelementptr inbounds i8, ptr %.sink.i.i, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %56) #19
-  %57 = ptrtoint ptr %.sink25.i.i to i64
+  %57 = ptrtoint ptr %.sink.i.i to i64
   %58 = or i64 %57, 1
   %59 = inttoptr i64 %58 to ptr
   store ptr %59, ptr %3, align 8
-  store ptr %32, ptr %.sink25.i.i, align 8
+  store ptr %32, ptr %.sink.i.i, align 8
   br label %60
 
 60:                                               ; preds = %_ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPT_v.exit.i, %35
@@ -1983,7 +1976,6 @@ _ZN6google8protobuf8internal12ReadVarint64EPPKc.exit.thread: ; preds = %140, %13
 
 160:                                              ; preds = %158
   %161 = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #20
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %161, i8 0, i64 40, i1 false)
   br label %_ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPT_v.exit.i
 
 162:                                              ; preds = %158
@@ -2006,18 +1998,18 @@ _ZN6google8protobuf8internal12ReadVarint64EPPKc.exit.thread: ; preds = %140, %13
 
 _ZNK6google8protobuf8internal9ArenaImpl11RecordAllocEPKSt9type_infom.exit.i.i: ; preds = %166, %162
   %174 = tail call noundef ptr @_ZN6google8protobuf8internal9ArenaImpl28AllocateAlignedAndAddCleanupEmPFvPvE(ptr noundef nonnull align 8 dereferenceable(40) %151, i64 noundef 40, ptr noundef nonnull @_ZN6google8protobuf8internal21arena_destruct_objectINS1_16InternalMetadata9ContainerINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEEvPv)
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %174, i8 0, i64 40, i1 false)
   br label %_ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPT_v.exit.i
 
 _ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPT_v.exit.i: ; preds = %_ZNK6google8protobuf8internal9ArenaImpl11RecordAllocEPKSt9type_infom.exit.i.i, %160
-  %.sink25.i.i = phi ptr [ %174, %_ZNK6google8protobuf8internal9ArenaImpl11RecordAllocEPKSt9type_infom.exit.i.i ], [ %161, %160 ]
-  %175 = getelementptr inbounds i8, ptr %.sink25.i.i, i64 8
+  %.sink.i.i = phi ptr [ %174, %_ZNK6google8protobuf8internal9ArenaImpl11RecordAllocEPKSt9type_infom.exit.i.i ], [ %161, %160 ]
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %.sink.i.i, i8 0, i64 40, i1 false)
+  %175 = getelementptr inbounds i8, ptr %.sink.i.i, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %175) #19
-  %176 = ptrtoint ptr %.sink25.i.i to i64
+  %176 = ptrtoint ptr %.sink.i.i to i64
   %177 = or i64 %176, 1
   %178 = inttoptr i64 %177 to ptr
   store ptr %178, ptr %8, align 8
-  store ptr %151, ptr %.sink25.i.i, align 8
+  store ptr %151, ptr %.sink.i.i, align 8
   br label %_ZN13sentencepiece11TrainerSpec22mutable_unknown_fieldsB5cxx11Ev.exit
 
 _ZN13sentencepiece11TrainerSpec22mutable_unknown_fieldsB5cxx11Ev.exit: ; preds = %154, %_ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPT_v.exit.i
@@ -3758,7 +3750,6 @@ _ZN13sentencepiece11TrainerSpec42_internal_mutable_seed_sentencepieces_fileB5cxx
 
 1070:                                             ; preds = %1068
   %1071 = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #20
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %1071, i8 0, i64 40, i1 false)
   br label %_ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPT_v.exit
 
 1072:                                             ; preds = %1068
@@ -3781,18 +3772,18 @@ _ZN13sentencepiece11TrainerSpec42_internal_mutable_seed_sentencepieces_fileB5cxx
 
 _ZNK6google8protobuf8internal9ArenaImpl11RecordAllocEPKSt9type_infom.exit.i: ; preds = %1076, %1072
   %1084 = tail call noundef ptr @_ZN6google8protobuf8internal9ArenaImpl28AllocateAlignedAndAddCleanupEmPFvPvE(ptr noundef nonnull align 8 dereferenceable(40) %1061, i64 noundef 40, ptr noundef nonnull @_ZN6google8protobuf8internal21arena_destruct_objectINS1_16InternalMetadata9ContainerINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEEvPv)
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %1084, i8 0, i64 40, i1 false)
   br label %_ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPT_v.exit
 
 _ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPT_v.exit: ; preds = %1070, %_ZNK6google8protobuf8internal9ArenaImpl11RecordAllocEPKSt9type_infom.exit.i
-  %.sink25.i = phi ptr [ %1084, %_ZNK6google8protobuf8internal9ArenaImpl11RecordAllocEPKSt9type_infom.exit.i ], [ %1071, %1070 ]
-  %1085 = getelementptr inbounds i8, ptr %.sink25.i, i64 8
+  %.sink.i = phi ptr [ %1084, %_ZNK6google8protobuf8internal9ArenaImpl11RecordAllocEPKSt9type_infom.exit.i ], [ %1071, %1070 ]
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %.sink.i, i8 0, i64 40, i1 false)
+  %1085 = getelementptr inbounds i8, ptr %.sink.i, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %1085) #19
-  %1086 = ptrtoint ptr %.sink25.i to i64
+  %1086 = ptrtoint ptr %.sink.i to i64
   %1087 = or i64 %1086, 1
   %1088 = inttoptr i64 %1087 to ptr
   store ptr %1088, ptr %8, align 8
-  store ptr %1061, ptr %.sink25.i, align 8
+  store ptr %1061, ptr %.sink.i, align 8
   br label %1089
 
 1089:                                             ; preds = %_ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPT_v.exit, %1064
@@ -6989,7 +6980,6 @@ define void @_ZN13sentencepiece11TrainerSpec9MergeFromERKS0_(ptr noundef nonnull
 
 23:                                               ; preds = %21
   %24 = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #20
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %24, i8 0, i64 40, i1 false)
   br label %_ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPT_v.exit.i
 
 25:                                               ; preds = %21
@@ -7012,18 +7002,18 @@ define void @_ZN13sentencepiece11TrainerSpec9MergeFromERKS0_(ptr noundef nonnull
 
 _ZNK6google8protobuf8internal9ArenaImpl11RecordAllocEPKSt9type_infom.exit.i.i: ; preds = %29, %25
   %37 = tail call noundef ptr @_ZN6google8protobuf8internal9ArenaImpl28AllocateAlignedAndAddCleanupEmPFvPvE(ptr noundef nonnull align 8 dereferenceable(40) %14, i64 noundef 40, ptr noundef nonnull @_ZN6google8protobuf8internal21arena_destruct_objectINS1_16InternalMetadata9ContainerINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEEvPv)
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %37, i8 0, i64 40, i1 false)
   br label %_ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPT_v.exit.i
 
 _ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPT_v.exit.i: ; preds = %_ZNK6google8protobuf8internal9ArenaImpl11RecordAllocEPKSt9type_infom.exit.i.i, %23
-  %.sink25.i.i = phi ptr [ %37, %_ZNK6google8protobuf8internal9ArenaImpl11RecordAllocEPKSt9type_infom.exit.i.i ], [ %24, %23 ]
-  %38 = getelementptr inbounds i8, ptr %.sink25.i.i, i64 8
+  %.sink.i.i = phi ptr [ %37, %_ZNK6google8protobuf8internal9ArenaImpl11RecordAllocEPKSt9type_infom.exit.i.i ], [ %24, %23 ]
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %.sink.i.i, i8 0, i64 40, i1 false)
+  %38 = getelementptr inbounds i8, ptr %.sink.i.i, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %38) #19
-  %39 = ptrtoint ptr %.sink25.i.i to i64
+  %39 = ptrtoint ptr %.sink.i.i to i64
   %40 = or i64 %39, 1
   %41 = inttoptr i64 %40 to ptr
   store ptr %41, ptr %5, align 8
-  store ptr %14, ptr %.sink25.i.i, align 8
+  store ptr %14, ptr %.sink.i.i, align 8
   br label %_ZN6google8protobuf8internal16InternalMetadata11DoMergeFromINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEvRKT_.exit
 
 _ZN6google8protobuf8internal16InternalMetadata11DoMergeFromINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEvRKT_.exit: ; preds = %17, %_ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPT_v.exit.i
@@ -7901,7 +7891,6 @@ thread-pre-split:                                 ; preds = %2
 
 20:                                               ; preds = %18
   %21 = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #20
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %21, i8 0, i64 40, i1 false)
   br label %_ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPT_v.exit
 
 22:                                               ; preds = %18
@@ -7924,18 +7913,18 @@ thread-pre-split:                                 ; preds = %2
 
 _ZNK6google8protobuf8internal9ArenaImpl11RecordAllocEPKSt9type_infom.exit.i: ; preds = %26, %22
   %34 = tail call noundef ptr @_ZN6google8protobuf8internal9ArenaImpl28AllocateAlignedAndAddCleanupEmPFvPvE(ptr noundef nonnull align 8 dereferenceable(40) %10, i64 noundef 40, ptr noundef nonnull @_ZN6google8protobuf8internal21arena_destruct_objectINS1_16InternalMetadata9ContainerINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEEvPv)
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %34, i8 0, i64 40, i1 false)
   br label %_ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPT_v.exit
 
 _ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPT_v.exit: ; preds = %20, %_ZNK6google8protobuf8internal9ArenaImpl11RecordAllocEPKSt9type_infom.exit.i
-  %.sink25.i = phi ptr [ %34, %_ZNK6google8protobuf8internal9ArenaImpl11RecordAllocEPKSt9type_infom.exit.i ], [ %21, %20 ]
-  %35 = getelementptr inbounds i8, ptr %.sink25.i, i64 8
+  %.sink.i = phi ptr [ %34, %_ZNK6google8protobuf8internal9ArenaImpl11RecordAllocEPKSt9type_infom.exit.i ], [ %21, %20 ]
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %.sink.i, i8 0, i64 40, i1 false)
+  %35 = getelementptr inbounds i8, ptr %.sink.i, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %35) #19
-  %36 = ptrtoint ptr %.sink25.i to i64
+  %36 = ptrtoint ptr %.sink.i to i64
   %37 = or i64 %36, 1
   %38 = inttoptr i64 %37 to ptr
   store ptr %38, ptr %6, align 8
-  store ptr %10, ptr %.sink25.i, align 8
+  store ptr %10, ptr %.sink.i, align 8
   %.pre = load ptr, ptr %5, align 8
   %.pre118 = ptrtoint ptr %.pre to i64
   br label %39
@@ -7960,7 +7949,6 @@ _ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINSt7
 
 48:                                               ; preds = %46
   %49 = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #20
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %49, i8 0, i64 40, i1 false)
   br label %_ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPT_v.exit.i
 
 50:                                               ; preds = %46
@@ -7983,18 +7971,18 @@ _ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINSt7
 
 _ZNK6google8protobuf8internal9ArenaImpl11RecordAllocEPKSt9type_infom.exit.i.i: ; preds = %54, %50
   %62 = tail call noundef ptr @_ZN6google8protobuf8internal9ArenaImpl28AllocateAlignedAndAddCleanupEmPFvPvE(ptr noundef nonnull align 8 dereferenceable(40) %40, i64 noundef 40, ptr noundef nonnull @_ZN6google8protobuf8internal21arena_destruct_objectINS1_16InternalMetadata9ContainerINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEEvPv)
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %62, i8 0, i64 40, i1 false)
   br label %_ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPT_v.exit.i
 
 _ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPT_v.exit.i: ; preds = %_ZNK6google8protobuf8internal9ArenaImpl11RecordAllocEPKSt9type_infom.exit.i.i, %48
-  %.sink25.i.i = phi ptr [ %62, %_ZNK6google8protobuf8internal9ArenaImpl11RecordAllocEPKSt9type_infom.exit.i.i ], [ %49, %48 ]
-  %63 = getelementptr inbounds i8, ptr %.sink25.i.i, i64 8
+  %.sink.i.i = phi ptr [ %62, %_ZNK6google8protobuf8internal9ArenaImpl11RecordAllocEPKSt9type_infom.exit.i.i ], [ %49, %48 ]
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %.sink.i.i, i8 0, i64 40, i1 false)
+  %63 = getelementptr inbounds i8, ptr %.sink.i.i, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %63) #19
-  %64 = ptrtoint ptr %.sink25.i.i to i64
+  %64 = ptrtoint ptr %.sink.i.i to i64
   %65 = or i64 %64, 1
   %66 = inttoptr i64 %65 to ptr
   store ptr %66, ptr %5, align 8
-  store ptr %40, ptr %.sink25.i.i, align 8
+  store ptr %40, ptr %.sink.i.i, align 8
   br label %_ZN6google8protobuf8internal16InternalMetadata6DoSwapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEvPT_.exit
 
 _ZN6google8protobuf8internal16InternalMetadata6DoSwapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEvPT_.exit: ; preds = %42, %_ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPT_v.exit.i
@@ -8346,7 +8334,7 @@ define void @_ZN13sentencepiece14NormalizerSpecC2ERKS0_(ptr noundef nonnull alig
   %19 = and i64 %14, -2
   %20 = inttoptr i64 %19 to ptr
   %21 = getelementptr inbounds i8, ptr %20, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %17, i8 0, i64 40, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %17, i8 0, i64 40, i1 false)
   %22 = getelementptr inbounds i8, ptr %17, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %22) #19
   %23 = ptrtoint ptr %17 to i64
@@ -9013,7 +9001,6 @@ _ZN13sentencepiece14NormalizerSpec40_internal_mutable_normalization_rule_tsvB5cx
 
 197:                                              ; preds = %195
   %198 = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #20
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %198, i8 0, i64 40, i1 false)
   br label %_ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPT_v.exit
 
 199:                                              ; preds = %195
@@ -9036,18 +9023,18 @@ _ZN13sentencepiece14NormalizerSpec40_internal_mutable_normalization_rule_tsvB5cx
 
 _ZNK6google8protobuf8internal9ArenaImpl11RecordAllocEPKSt9type_infom.exit.i: ; preds = %203, %199
   %211 = tail call noundef ptr @_ZN6google8protobuf8internal9ArenaImpl28AllocateAlignedAndAddCleanupEmPFvPvE(ptr noundef nonnull align 8 dereferenceable(40) %188, i64 noundef 40, ptr noundef nonnull @_ZN6google8protobuf8internal21arena_destruct_objectINS1_16InternalMetadata9ContainerINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEEvPv)
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %211, i8 0, i64 40, i1 false)
   br label %_ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPT_v.exit
 
 _ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPT_v.exit: ; preds = %197, %_ZNK6google8protobuf8internal9ArenaImpl11RecordAllocEPKSt9type_infom.exit.i
-  %.sink25.i = phi ptr [ %211, %_ZNK6google8protobuf8internal9ArenaImpl11RecordAllocEPKSt9type_infom.exit.i ], [ %198, %197 ]
-  %212 = getelementptr inbounds i8, ptr %.sink25.i, i64 8
+  %.sink.i = phi ptr [ %211, %_ZNK6google8protobuf8internal9ArenaImpl11RecordAllocEPKSt9type_infom.exit.i ], [ %198, %197 ]
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %.sink.i, i8 0, i64 40, i1 false)
+  %212 = getelementptr inbounds i8, ptr %.sink.i, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %212) #19
-  %213 = ptrtoint ptr %.sink25.i to i64
+  %213 = ptrtoint ptr %.sink.i to i64
   %214 = or i64 %213, 1
   %215 = inttoptr i64 %214 to ptr
   store ptr %215, ptr %7, align 8
-  store ptr %188, ptr %.sink25.i, align 8
+  store ptr %188, ptr %.sink.i, align 8
   br label %216
 
 216:                                              ; preds = %_ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPT_v.exit, %191
@@ -9496,7 +9483,6 @@ define void @_ZN13sentencepiece14NormalizerSpec9MergeFromERKS0_(ptr noundef nonn
 
 23:                                               ; preds = %21
   %24 = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #20
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %24, i8 0, i64 40, i1 false)
   br label %_ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPT_v.exit.i
 
 25:                                               ; preds = %21
@@ -9519,18 +9505,18 @@ define void @_ZN13sentencepiece14NormalizerSpec9MergeFromERKS0_(ptr noundef nonn
 
 _ZNK6google8protobuf8internal9ArenaImpl11RecordAllocEPKSt9type_infom.exit.i.i: ; preds = %29, %25
   %37 = tail call noundef ptr @_ZN6google8protobuf8internal9ArenaImpl28AllocateAlignedAndAddCleanupEmPFvPvE(ptr noundef nonnull align 8 dereferenceable(40) %14, i64 noundef 40, ptr noundef nonnull @_ZN6google8protobuf8internal21arena_destruct_objectINS1_16InternalMetadata9ContainerINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEEvPv)
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %37, i8 0, i64 40, i1 false)
   br label %_ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPT_v.exit.i
 
 _ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPT_v.exit.i: ; preds = %_ZNK6google8protobuf8internal9ArenaImpl11RecordAllocEPKSt9type_infom.exit.i.i, %23
-  %.sink25.i.i = phi ptr [ %37, %_ZNK6google8protobuf8internal9ArenaImpl11RecordAllocEPKSt9type_infom.exit.i.i ], [ %24, %23 ]
-  %38 = getelementptr inbounds i8, ptr %.sink25.i.i, i64 8
+  %.sink.i.i = phi ptr [ %37, %_ZNK6google8protobuf8internal9ArenaImpl11RecordAllocEPKSt9type_infom.exit.i.i ], [ %24, %23 ]
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %.sink.i.i, i8 0, i64 40, i1 false)
+  %38 = getelementptr inbounds i8, ptr %.sink.i.i, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %38) #19
-  %39 = ptrtoint ptr %.sink25.i.i to i64
+  %39 = ptrtoint ptr %.sink.i.i to i64
   %40 = or i64 %39, 1
   %41 = inttoptr i64 %40 to ptr
   store ptr %41, ptr %5, align 8
-  store ptr %14, ptr %.sink25.i.i, align 8
+  store ptr %14, ptr %.sink.i.i, align 8
   br label %_ZN6google8protobuf8internal16InternalMetadata11DoMergeFromINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEvRKT_.exit
 
 _ZN6google8protobuf8internal16InternalMetadata11DoMergeFromINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEvRKT_.exit: ; preds = %17, %_ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPT_v.exit.i
@@ -9750,7 +9736,6 @@ thread-pre-split:                                 ; preds = %2
 
 20:                                               ; preds = %18
   %21 = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #20
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %21, i8 0, i64 40, i1 false)
   br label %_ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPT_v.exit
 
 22:                                               ; preds = %18
@@ -9773,18 +9758,18 @@ thread-pre-split:                                 ; preds = %2
 
 _ZNK6google8protobuf8internal9ArenaImpl11RecordAllocEPKSt9type_infom.exit.i: ; preds = %26, %22
   %34 = tail call noundef ptr @_ZN6google8protobuf8internal9ArenaImpl28AllocateAlignedAndAddCleanupEmPFvPvE(ptr noundef nonnull align 8 dereferenceable(40) %10, i64 noundef 40, ptr noundef nonnull @_ZN6google8protobuf8internal21arena_destruct_objectINS1_16InternalMetadata9ContainerINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEEvPv)
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %34, i8 0, i64 40, i1 false)
   br label %_ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPT_v.exit
 
 _ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPT_v.exit: ; preds = %20, %_ZNK6google8protobuf8internal9ArenaImpl11RecordAllocEPKSt9type_infom.exit.i
-  %.sink25.i = phi ptr [ %34, %_ZNK6google8protobuf8internal9ArenaImpl11RecordAllocEPKSt9type_infom.exit.i ], [ %21, %20 ]
-  %35 = getelementptr inbounds i8, ptr %.sink25.i, i64 8
+  %.sink.i = phi ptr [ %34, %_ZNK6google8protobuf8internal9ArenaImpl11RecordAllocEPKSt9type_infom.exit.i ], [ %21, %20 ]
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %.sink.i, i8 0, i64 40, i1 false)
+  %35 = getelementptr inbounds i8, ptr %.sink.i, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %35) #19
-  %36 = ptrtoint ptr %.sink25.i to i64
+  %36 = ptrtoint ptr %.sink.i to i64
   %37 = or i64 %36, 1
   %38 = inttoptr i64 %37 to ptr
   store ptr %38, ptr %6, align 8
-  store ptr %10, ptr %.sink25.i, align 8
+  store ptr %10, ptr %.sink.i, align 8
   %.pre = load ptr, ptr %5, align 8
   %.pre44 = ptrtoint ptr %.pre to i64
   br label %39
@@ -9809,7 +9794,6 @@ _ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINSt7
 
 48:                                               ; preds = %46
   %49 = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #20
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %49, i8 0, i64 40, i1 false)
   br label %_ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPT_v.exit.i
 
 50:                                               ; preds = %46
@@ -9832,18 +9816,18 @@ _ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINSt7
 
 _ZNK6google8protobuf8internal9ArenaImpl11RecordAllocEPKSt9type_infom.exit.i.i: ; preds = %54, %50
   %62 = tail call noundef ptr @_ZN6google8protobuf8internal9ArenaImpl28AllocateAlignedAndAddCleanupEmPFvPvE(ptr noundef nonnull align 8 dereferenceable(40) %40, i64 noundef 40, ptr noundef nonnull @_ZN6google8protobuf8internal21arena_destruct_objectINS1_16InternalMetadata9ContainerINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEEvPv)
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %62, i8 0, i64 40, i1 false)
   br label %_ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPT_v.exit.i
 
 _ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPT_v.exit.i: ; preds = %_ZNK6google8protobuf8internal9ArenaImpl11RecordAllocEPKSt9type_infom.exit.i.i, %48
-  %.sink25.i.i = phi ptr [ %62, %_ZNK6google8protobuf8internal9ArenaImpl11RecordAllocEPKSt9type_infom.exit.i.i ], [ %49, %48 ]
-  %63 = getelementptr inbounds i8, ptr %.sink25.i.i, i64 8
+  %.sink.i.i = phi ptr [ %62, %_ZNK6google8protobuf8internal9ArenaImpl11RecordAllocEPKSt9type_infom.exit.i.i ], [ %49, %48 ]
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %.sink.i.i, i8 0, i64 40, i1 false)
+  %63 = getelementptr inbounds i8, ptr %.sink.i.i, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %63) #19
-  %64 = ptrtoint ptr %.sink25.i.i to i64
+  %64 = ptrtoint ptr %.sink.i.i to i64
   %65 = or i64 %64, 1
   %66 = inttoptr i64 %65 to ptr
   store ptr %66, ptr %5, align 8
-  store ptr %40, ptr %.sink25.i.i, align 8
+  store ptr %40, ptr %.sink.i.i, align 8
   br label %_ZN6google8protobuf8internal16InternalMetadata6DoSwapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEvPT_.exit
 
 _ZN6google8protobuf8internal16InternalMetadata6DoSwapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEvPT_.exit: ; preds = %42, %_ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPT_v.exit.i
@@ -9987,7 +9971,7 @@ define void @_ZN13sentencepiece19SelfTestData_SampleC2ERKS0_(ptr noundef nonnull
   %14 = inttoptr i64 %13 to ptr
   %15 = getelementptr inbounds i8, ptr %14, i64 8
   %16 = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #20
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %16, i8 0, i64 40, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %16, i8 0, i64 40, i1 false)
   %17 = getelementptr inbounds i8, ptr %16, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %17) #19
   %18 = ptrtoint ptr %16 to i64
@@ -10375,7 +10359,6 @@ _ZN13sentencepiece19SelfTestData_Sample26_internal_mutable_expectedB5cxx11Ev.exi
 
 94:                                               ; preds = %92
   %95 = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #20
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %95, i8 0, i64 40, i1 false)
   br label %_ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPT_v.exit
 
 96:                                               ; preds = %92
@@ -10398,18 +10381,18 @@ _ZN13sentencepiece19SelfTestData_Sample26_internal_mutable_expectedB5cxx11Ev.exi
 
 _ZNK6google8protobuf8internal9ArenaImpl11RecordAllocEPKSt9type_infom.exit.i: ; preds = %100, %96
   %108 = tail call noundef ptr @_ZN6google8protobuf8internal9ArenaImpl28AllocateAlignedAndAddCleanupEmPFvPvE(ptr noundef nonnull align 8 dereferenceable(40) %85, i64 noundef 40, ptr noundef nonnull @_ZN6google8protobuf8internal21arena_destruct_objectINS1_16InternalMetadata9ContainerINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEEvPv)
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %108, i8 0, i64 40, i1 false)
   br label %_ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPT_v.exit
 
 _ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPT_v.exit: ; preds = %94, %_ZNK6google8protobuf8internal9ArenaImpl11RecordAllocEPKSt9type_infom.exit.i
-  %.sink25.i = phi ptr [ %108, %_ZNK6google8protobuf8internal9ArenaImpl11RecordAllocEPKSt9type_infom.exit.i ], [ %95, %94 ]
-  %109 = getelementptr inbounds i8, ptr %.sink25.i, i64 8
+  %.sink.i = phi ptr [ %108, %_ZNK6google8protobuf8internal9ArenaImpl11RecordAllocEPKSt9type_infom.exit.i ], [ %95, %94 ]
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %.sink.i, i8 0, i64 40, i1 false)
+  %109 = getelementptr inbounds i8, ptr %.sink.i, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %109) #19
-  %110 = ptrtoint ptr %.sink25.i to i64
+  %110 = ptrtoint ptr %.sink.i to i64
   %111 = or i64 %110, 1
   %112 = inttoptr i64 %111 to ptr
   store ptr %112, ptr %7, align 8
-  store ptr %85, ptr %.sink25.i, align 8
+  store ptr %85, ptr %.sink.i, align 8
   br label %113
 
 113:                                              ; preds = %_ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPT_v.exit, %88
@@ -10688,7 +10671,6 @@ define void @_ZN13sentencepiece19SelfTestData_Sample9MergeFromERKS0_(ptr noundef
 
 21:                                               ; preds = %19
   %22 = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #20
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %22, i8 0, i64 40, i1 false)
   br label %_ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPT_v.exit.i
 
 23:                                               ; preds = %19
@@ -10711,18 +10693,18 @@ define void @_ZN13sentencepiece19SelfTestData_Sample9MergeFromERKS0_(ptr noundef
 
 _ZNK6google8protobuf8internal9ArenaImpl11RecordAllocEPKSt9type_infom.exit.i.i: ; preds = %27, %23
   %35 = tail call noundef ptr @_ZN6google8protobuf8internal9ArenaImpl28AllocateAlignedAndAddCleanupEmPFvPvE(ptr noundef nonnull align 8 dereferenceable(40) %12, i64 noundef 40, ptr noundef nonnull @_ZN6google8protobuf8internal21arena_destruct_objectINS1_16InternalMetadata9ContainerINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEEvPv)
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %35, i8 0, i64 40, i1 false)
   br label %_ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPT_v.exit.i
 
 _ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPT_v.exit.i: ; preds = %_ZNK6google8protobuf8internal9ArenaImpl11RecordAllocEPKSt9type_infom.exit.i.i, %21
-  %.sink25.i.i = phi ptr [ %35, %_ZNK6google8protobuf8internal9ArenaImpl11RecordAllocEPKSt9type_infom.exit.i.i ], [ %22, %21 ]
-  %36 = getelementptr inbounds i8, ptr %.sink25.i.i, i64 8
+  %.sink.i.i = phi ptr [ %35, %_ZNK6google8protobuf8internal9ArenaImpl11RecordAllocEPKSt9type_infom.exit.i.i ], [ %22, %21 ]
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %.sink.i.i, i8 0, i64 40, i1 false)
+  %36 = getelementptr inbounds i8, ptr %.sink.i.i, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %36) #19
-  %37 = ptrtoint ptr %.sink25.i.i to i64
+  %37 = ptrtoint ptr %.sink.i.i to i64
   %38 = or i64 %37, 1
   %39 = inttoptr i64 %38 to ptr
   store ptr %39, ptr %3, align 8
-  store ptr %12, ptr %.sink25.i.i, align 8
+  store ptr %12, ptr %.sink.i.i, align 8
   br label %_ZN6google8protobuf8internal16InternalMetadata11DoMergeFromINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEvRKT_.exit
 
 _ZN6google8protobuf8internal16InternalMetadata11DoMergeFromINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEvRKT_.exit: ; preds = %15, %_ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPT_v.exit.i
@@ -10908,7 +10890,6 @@ thread-pre-split:                                 ; preds = %2
 
 18:                                               ; preds = %16
   %19 = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #20
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %19, i8 0, i64 40, i1 false)
   br label %_ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPT_v.exit
 
 20:                                               ; preds = %16
@@ -10931,18 +10912,18 @@ thread-pre-split:                                 ; preds = %2
 
 _ZNK6google8protobuf8internal9ArenaImpl11RecordAllocEPKSt9type_infom.exit.i: ; preds = %24, %20
   %32 = tail call noundef ptr @_ZN6google8protobuf8internal9ArenaImpl28AllocateAlignedAndAddCleanupEmPFvPvE(ptr noundef nonnull align 8 dereferenceable(40) %8, i64 noundef 40, ptr noundef nonnull @_ZN6google8protobuf8internal21arena_destruct_objectINS1_16InternalMetadata9ContainerINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEEvPv)
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %32, i8 0, i64 40, i1 false)
   br label %_ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPT_v.exit
 
 _ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPT_v.exit: ; preds = %18, %_ZNK6google8protobuf8internal9ArenaImpl11RecordAllocEPKSt9type_infom.exit.i
-  %.sink25.i = phi ptr [ %32, %_ZNK6google8protobuf8internal9ArenaImpl11RecordAllocEPKSt9type_infom.exit.i ], [ %19, %18 ]
-  %33 = getelementptr inbounds i8, ptr %.sink25.i, i64 8
+  %.sink.i = phi ptr [ %32, %_ZNK6google8protobuf8internal9ArenaImpl11RecordAllocEPKSt9type_infom.exit.i ], [ %19, %18 ]
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %.sink.i, i8 0, i64 40, i1 false)
+  %33 = getelementptr inbounds i8, ptr %.sink.i, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %33) #19
-  %34 = ptrtoint ptr %.sink25.i to i64
+  %34 = ptrtoint ptr %.sink.i to i64
   %35 = or i64 %34, 1
   %36 = inttoptr i64 %35 to ptr
   store ptr %36, ptr %4, align 8
-  store ptr %8, ptr %.sink25.i, align 8
+  store ptr %8, ptr %.sink.i, align 8
   %.pre = load ptr, ptr %3, align 8
   %.pre33 = ptrtoint ptr %.pre to i64
   br label %37
@@ -10967,7 +10948,6 @@ _ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINSt7
 
 46:                                               ; preds = %44
   %47 = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #20
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %47, i8 0, i64 40, i1 false)
   br label %_ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPT_v.exit.i
 
 48:                                               ; preds = %44
@@ -10990,18 +10970,18 @@ _ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINSt7
 
 _ZNK6google8protobuf8internal9ArenaImpl11RecordAllocEPKSt9type_infom.exit.i.i: ; preds = %52, %48
   %60 = tail call noundef ptr @_ZN6google8protobuf8internal9ArenaImpl28AllocateAlignedAndAddCleanupEmPFvPvE(ptr noundef nonnull align 8 dereferenceable(40) %38, i64 noundef 40, ptr noundef nonnull @_ZN6google8protobuf8internal21arena_destruct_objectINS1_16InternalMetadata9ContainerINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEEvPv)
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %60, i8 0, i64 40, i1 false)
   br label %_ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPT_v.exit.i
 
 _ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPT_v.exit.i: ; preds = %_ZNK6google8protobuf8internal9ArenaImpl11RecordAllocEPKSt9type_infom.exit.i.i, %46
-  %.sink25.i.i = phi ptr [ %60, %_ZNK6google8protobuf8internal9ArenaImpl11RecordAllocEPKSt9type_infom.exit.i.i ], [ %47, %46 ]
-  %61 = getelementptr inbounds i8, ptr %.sink25.i.i, i64 8
+  %.sink.i.i = phi ptr [ %60, %_ZNK6google8protobuf8internal9ArenaImpl11RecordAllocEPKSt9type_infom.exit.i.i ], [ %47, %46 ]
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %.sink.i.i, i8 0, i64 40, i1 false)
+  %61 = getelementptr inbounds i8, ptr %.sink.i.i, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %61) #19
-  %62 = ptrtoint ptr %.sink25.i.i to i64
+  %62 = ptrtoint ptr %.sink.i.i to i64
   %63 = or i64 %62, 1
   %64 = inttoptr i64 %63 to ptr
   store ptr %64, ptr %3, align 8
-  store ptr %38, ptr %.sink25.i.i, align 8
+  store ptr %38, ptr %.sink.i.i, align 8
   br label %_ZN6google8protobuf8internal16InternalMetadata6DoSwapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEvPT_.exit
 
 _ZN6google8protobuf8internal16InternalMetadata6DoSwapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEvPT_.exit: ; preds = %40, %_ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPT_v.exit.i
@@ -11203,11 +11183,7 @@ _ZN6google8protobuf16RepeatedPtrFieldIN13sentencepiece19SelfTestData_SampleEEC2E
 
 28:                                               ; preds = %26
   %29 = invoke noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #20
-          to label %.noexc unwind label %53
-
-.noexc:                                           ; preds = %28
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %29, i8 0, i64 40, i1 false)
-  br label %_ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPT_v.exit.i
+          to label %_ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPT_v.exit.i unwind label %53
 
 30:                                               ; preds = %26
   %31 = getelementptr inbounds i8, ptr %19, i64 24
@@ -11229,21 +11205,18 @@ _ZN6google8protobuf16RepeatedPtrFieldIN13sentencepiece19SelfTestData_SampleEEC2E
 
 _ZNK6google8protobuf8internal9ArenaImpl11RecordAllocEPKSt9type_infom.exit.i.i: ; preds = %34, %30
   %42 = invoke noundef ptr @_ZN6google8protobuf8internal9ArenaImpl28AllocateAlignedAndAddCleanupEmPFvPvE(ptr noundef nonnull align 8 dereferenceable(40) %19, i64 noundef 40, ptr noundef nonnull @_ZN6google8protobuf8internal21arena_destruct_objectINS1_16InternalMetadata9ContainerINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEEvPv)
-          to label %.noexc19 unwind label %53
+          to label %_ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPT_v.exit.i unwind label %53
 
-.noexc19:                                         ; preds = %_ZNK6google8protobuf8internal9ArenaImpl11RecordAllocEPKSt9type_infom.exit.i.i
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %42, i8 0, i64 40, i1 false)
-  br label %_ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPT_v.exit.i
-
-_ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPT_v.exit.i: ; preds = %.noexc19, %.noexc
-  %.sink25.i.i = phi ptr [ %42, %.noexc19 ], [ %29, %.noexc ]
-  %43 = getelementptr inbounds i8, ptr %.sink25.i.i, i64 8
+_ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPT_v.exit.i: ; preds = %_ZNK6google8protobuf8internal9ArenaImpl11RecordAllocEPKSt9type_infom.exit.i.i, %28
+  %.sink.i.i = phi ptr [ %29, %28 ], [ %42, %_ZNK6google8protobuf8internal9ArenaImpl11RecordAllocEPKSt9type_infom.exit.i.i ]
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %.sink.i.i, i8 0, i64 40, i1 false)
+  %43 = getelementptr inbounds i8, ptr %.sink.i.i, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %43) #19
-  %44 = ptrtoint ptr %.sink25.i.i to i64
+  %44 = ptrtoint ptr %.sink.i.i to i64
   %45 = or i64 %44, 1
   %46 = inttoptr i64 %45 to ptr
   store ptr %46, ptr %3, align 8
-  store ptr %19, ptr %.sink25.i.i, align 8
+  store ptr %19, ptr %.sink.i.i, align 8
   br label %47
 
 47:                                               ; preds = %_ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPT_v.exit.i, %22
@@ -11744,7 +11717,6 @@ _ZN6google8protobuf8internal8ReadSizeEPPKc.exit.i: ; preds = %_ZN13sentencepiece
 
 145:                                              ; preds = %143
   %146 = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #20
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %146, i8 0, i64 40, i1 false)
   br label %_ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPT_v.exit
 
 147:                                              ; preds = %143
@@ -11767,18 +11739,18 @@ _ZN6google8protobuf8internal8ReadSizeEPPKc.exit.i: ; preds = %_ZN13sentencepiece
 
 _ZNK6google8protobuf8internal9ArenaImpl11RecordAllocEPKSt9type_infom.exit.i: ; preds = %151, %147
   %159 = tail call noundef ptr @_ZN6google8protobuf8internal9ArenaImpl28AllocateAlignedAndAddCleanupEmPFvPvE(ptr noundef nonnull align 8 dereferenceable(40) %136, i64 noundef 40, ptr noundef nonnull @_ZN6google8protobuf8internal21arena_destruct_objectINS1_16InternalMetadata9ContainerINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEEvPv)
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %159, i8 0, i64 40, i1 false)
   br label %_ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPT_v.exit
 
 _ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPT_v.exit: ; preds = %145, %_ZNK6google8protobuf8internal9ArenaImpl11RecordAllocEPKSt9type_infom.exit.i
-  %.sink25.i = phi ptr [ %159, %_ZNK6google8protobuf8internal9ArenaImpl11RecordAllocEPKSt9type_infom.exit.i ], [ %146, %145 ]
-  %160 = getelementptr inbounds i8, ptr %.sink25.i, i64 8
+  %.sink.i = phi ptr [ %159, %_ZNK6google8protobuf8internal9ArenaImpl11RecordAllocEPKSt9type_infom.exit.i ], [ %146, %145 ]
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %.sink.i, i8 0, i64 40, i1 false)
+  %160 = getelementptr inbounds i8, ptr %.sink.i, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %160) #19
-  %161 = ptrtoint ptr %.sink25.i to i64
+  %161 = ptrtoint ptr %.sink.i to i64
   %162 = or i64 %161, 1
   %163 = inttoptr i64 %162 to ptr
   store ptr %163, ptr %7, align 8
-  store ptr %136, ptr %.sink25.i, align 8
+  store ptr %136, ptr %.sink.i, align 8
   br label %164
 
 164:                                              ; preds = %_ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPT_v.exit, %139
@@ -12042,7 +12014,6 @@ define void @_ZN13sentencepiece12SelfTestData9MergeFromERKS0_(ptr noundef nonnul
 
 23:                                               ; preds = %21
   %24 = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #20
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %24, i8 0, i64 40, i1 false)
   br label %_ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPT_v.exit.i
 
 25:                                               ; preds = %21
@@ -12065,18 +12036,18 @@ define void @_ZN13sentencepiece12SelfTestData9MergeFromERKS0_(ptr noundef nonnul
 
 _ZNK6google8protobuf8internal9ArenaImpl11RecordAllocEPKSt9type_infom.exit.i.i: ; preds = %29, %25
   %37 = tail call noundef ptr @_ZN6google8protobuf8internal9ArenaImpl28AllocateAlignedAndAddCleanupEmPFvPvE(ptr noundef nonnull align 8 dereferenceable(40) %14, i64 noundef 40, ptr noundef nonnull @_ZN6google8protobuf8internal21arena_destruct_objectINS1_16InternalMetadata9ContainerINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEEvPv)
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %37, i8 0, i64 40, i1 false)
   br label %_ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPT_v.exit.i
 
 _ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPT_v.exit.i: ; preds = %_ZNK6google8protobuf8internal9ArenaImpl11RecordAllocEPKSt9type_infom.exit.i.i, %23
-  %.sink25.i.i = phi ptr [ %37, %_ZNK6google8protobuf8internal9ArenaImpl11RecordAllocEPKSt9type_infom.exit.i.i ], [ %24, %23 ]
-  %38 = getelementptr inbounds i8, ptr %.sink25.i.i, i64 8
+  %.sink.i.i = phi ptr [ %37, %_ZNK6google8protobuf8internal9ArenaImpl11RecordAllocEPKSt9type_infom.exit.i.i ], [ %24, %23 ]
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %.sink.i.i, i8 0, i64 40, i1 false)
+  %38 = getelementptr inbounds i8, ptr %.sink.i.i, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %38) #19
-  %39 = ptrtoint ptr %.sink25.i.i to i64
+  %39 = ptrtoint ptr %.sink.i.i to i64
   %40 = or i64 %39, 1
   %41 = inttoptr i64 %40 to ptr
   store ptr %41, ptr %5, align 8
-  store ptr %14, ptr %.sink25.i.i, align 8
+  store ptr %14, ptr %.sink.i.i, align 8
   br label %_ZN6google8protobuf8internal16InternalMetadata11DoMergeFromINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEvRKT_.exit
 
 _ZN6google8protobuf8internal16InternalMetadata11DoMergeFromINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEvRKT_.exit: ; preds = %17, %_ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPT_v.exit.i
@@ -12147,7 +12118,6 @@ thread-pre-split:                                 ; preds = %2
 
 20:                                               ; preds = %18
   %21 = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #20
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %21, i8 0, i64 40, i1 false)
   br label %_ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPT_v.exit
 
 22:                                               ; preds = %18
@@ -12170,18 +12140,18 @@ thread-pre-split:                                 ; preds = %2
 
 _ZNK6google8protobuf8internal9ArenaImpl11RecordAllocEPKSt9type_infom.exit.i: ; preds = %26, %22
   %34 = tail call noundef ptr @_ZN6google8protobuf8internal9ArenaImpl28AllocateAlignedAndAddCleanupEmPFvPvE(ptr noundef nonnull align 8 dereferenceable(40) %10, i64 noundef 40, ptr noundef nonnull @_ZN6google8protobuf8internal21arena_destruct_objectINS1_16InternalMetadata9ContainerINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEEvPv)
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %34, i8 0, i64 40, i1 false)
   br label %_ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPT_v.exit
 
 _ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPT_v.exit: ; preds = %20, %_ZNK6google8protobuf8internal9ArenaImpl11RecordAllocEPKSt9type_infom.exit.i
-  %.sink25.i = phi ptr [ %34, %_ZNK6google8protobuf8internal9ArenaImpl11RecordAllocEPKSt9type_infom.exit.i ], [ %21, %20 ]
-  %35 = getelementptr inbounds i8, ptr %.sink25.i, i64 8
+  %.sink.i = phi ptr [ %34, %_ZNK6google8protobuf8internal9ArenaImpl11RecordAllocEPKSt9type_infom.exit.i ], [ %21, %20 ]
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %.sink.i, i8 0, i64 40, i1 false)
+  %35 = getelementptr inbounds i8, ptr %.sink.i, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %35) #19
-  %36 = ptrtoint ptr %.sink25.i to i64
+  %36 = ptrtoint ptr %.sink.i to i64
   %37 = or i64 %36, 1
   %38 = inttoptr i64 %37 to ptr
   store ptr %38, ptr %6, align 8
-  store ptr %10, ptr %.sink25.i, align 8
+  store ptr %10, ptr %.sink.i, align 8
   %.pre = load ptr, ptr %5, align 8
   %.pre19 = ptrtoint ptr %.pre to i64
   br label %39
@@ -12206,7 +12176,6 @@ _ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINSt7
 
 48:                                               ; preds = %46
   %49 = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #20
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %49, i8 0, i64 40, i1 false)
   br label %_ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPT_v.exit.i
 
 50:                                               ; preds = %46
@@ -12229,18 +12198,18 @@ _ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINSt7
 
 _ZNK6google8protobuf8internal9ArenaImpl11RecordAllocEPKSt9type_infom.exit.i.i: ; preds = %54, %50
   %62 = tail call noundef ptr @_ZN6google8protobuf8internal9ArenaImpl28AllocateAlignedAndAddCleanupEmPFvPvE(ptr noundef nonnull align 8 dereferenceable(40) %40, i64 noundef 40, ptr noundef nonnull @_ZN6google8protobuf8internal21arena_destruct_objectINS1_16InternalMetadata9ContainerINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEEvPv)
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %62, i8 0, i64 40, i1 false)
   br label %_ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPT_v.exit.i
 
 _ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPT_v.exit.i: ; preds = %_ZNK6google8protobuf8internal9ArenaImpl11RecordAllocEPKSt9type_infom.exit.i.i, %48
-  %.sink25.i.i = phi ptr [ %62, %_ZNK6google8protobuf8internal9ArenaImpl11RecordAllocEPKSt9type_infom.exit.i.i ], [ %49, %48 ]
-  %63 = getelementptr inbounds i8, ptr %.sink25.i.i, i64 8
+  %.sink.i.i = phi ptr [ %62, %_ZNK6google8protobuf8internal9ArenaImpl11RecordAllocEPKSt9type_infom.exit.i.i ], [ %49, %48 ]
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %.sink.i.i, i8 0, i64 40, i1 false)
+  %63 = getelementptr inbounds i8, ptr %.sink.i.i, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %63) #19
-  %64 = ptrtoint ptr %.sink25.i.i to i64
+  %64 = ptrtoint ptr %.sink.i.i to i64
   %65 = or i64 %64, 1
   %66 = inttoptr i64 %65 to ptr
   store ptr %66, ptr %5, align 8
-  store ptr %40, ptr %.sink25.i.i, align 8
+  store ptr %40, ptr %.sink.i.i, align 8
   br label %_ZN6google8protobuf8internal16InternalMetadata6DoSwapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEvPT_.exit
 
 _ZN6google8protobuf8internal16InternalMetadata6DoSwapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEvPT_.exit: ; preds = %42, %_ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPT_v.exit.i
@@ -12362,7 +12331,7 @@ define void @_ZN13sentencepiece24ModelProto_SentencePieceC2ERKS0_(ptr noundef no
   %19 = and i64 %14, -2
   %20 = inttoptr i64 %19 to ptr
   %21 = getelementptr inbounds i8, ptr %20, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %17, i8 0, i64 40, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %17, i8 0, i64 40, i1 false)
   %22 = getelementptr inbounds i8, ptr %17, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %22) #19
   %23 = ptrtoint ptr %17 to i64
@@ -12746,7 +12715,6 @@ _ZN6google8protobuf8internal12ReadVarint64EPPKc.exit.thread: ; preds = %84, %75,
 
 104:                                              ; preds = %102
   %105 = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #20
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %105, i8 0, i64 40, i1 false)
   br label %_ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPT_v.exit.i
 
 106:                                              ; preds = %102
@@ -12769,18 +12737,18 @@ _ZN6google8protobuf8internal12ReadVarint64EPPKc.exit.thread: ; preds = %84, %75,
 
 _ZNK6google8protobuf8internal9ArenaImpl11RecordAllocEPKSt9type_infom.exit.i.i: ; preds = %110, %106
   %118 = tail call noundef ptr @_ZN6google8protobuf8internal9ArenaImpl28AllocateAlignedAndAddCleanupEmPFvPvE(ptr noundef nonnull align 8 dereferenceable(40) %95, i64 noundef 40, ptr noundef nonnull @_ZN6google8protobuf8internal21arena_destruct_objectINS1_16InternalMetadata9ContainerINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEEvPv)
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %118, i8 0, i64 40, i1 false)
   br label %_ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPT_v.exit.i
 
 _ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPT_v.exit.i: ; preds = %_ZNK6google8protobuf8internal9ArenaImpl11RecordAllocEPKSt9type_infom.exit.i.i, %104
-  %.sink25.i.i = phi ptr [ %118, %_ZNK6google8protobuf8internal9ArenaImpl11RecordAllocEPKSt9type_infom.exit.i.i ], [ %105, %104 ]
-  %119 = getelementptr inbounds i8, ptr %.sink25.i.i, i64 8
+  %.sink.i.i = phi ptr [ %118, %_ZNK6google8protobuf8internal9ArenaImpl11RecordAllocEPKSt9type_infom.exit.i.i ], [ %105, %104 ]
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %.sink.i.i, i8 0, i64 40, i1 false)
+  %119 = getelementptr inbounds i8, ptr %.sink.i.i, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %119) #19
-  %120 = ptrtoint ptr %.sink25.i.i to i64
+  %120 = ptrtoint ptr %.sink.i.i to i64
   %121 = or i64 %120, 1
   %122 = inttoptr i64 %121 to ptr
   store ptr %122, ptr %6, align 8
-  store ptr %95, ptr %.sink25.i.i, align 8
+  store ptr %95, ptr %.sink.i.i, align 8
   br label %_ZN13sentencepiece24ModelProto_SentencePiece22mutable_unknown_fieldsB5cxx11Ev.exit
 
 _ZN13sentencepiece24ModelProto_SentencePiece22mutable_unknown_fieldsB5cxx11Ev.exit: ; preds = %98, %_ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPT_v.exit.i
@@ -12834,7 +12802,6 @@ _ZN13sentencepiece24ModelProto_SentencePiece22mutable_unknown_fieldsB5cxx11Ev.ex
 
 145:                                              ; preds = %143
   %146 = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #20
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %146, i8 0, i64 40, i1 false)
   br label %_ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPT_v.exit
 
 147:                                              ; preds = %143
@@ -12857,18 +12824,18 @@ _ZN13sentencepiece24ModelProto_SentencePiece22mutable_unknown_fieldsB5cxx11Ev.ex
 
 _ZNK6google8protobuf8internal9ArenaImpl11RecordAllocEPKSt9type_infom.exit.i: ; preds = %151, %147
   %159 = tail call noundef ptr @_ZN6google8protobuf8internal9ArenaImpl28AllocateAlignedAndAddCleanupEmPFvPvE(ptr noundef nonnull align 8 dereferenceable(40) %136, i64 noundef 40, ptr noundef nonnull @_ZN6google8protobuf8internal21arena_destruct_objectINS1_16InternalMetadata9ContainerINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEEvPv)
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %159, i8 0, i64 40, i1 false)
   br label %_ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPT_v.exit
 
 _ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPT_v.exit: ; preds = %145, %_ZNK6google8protobuf8internal9ArenaImpl11RecordAllocEPKSt9type_infom.exit.i
-  %.sink25.i = phi ptr [ %159, %_ZNK6google8protobuf8internal9ArenaImpl11RecordAllocEPKSt9type_infom.exit.i ], [ %146, %145 ]
-  %160 = getelementptr inbounds i8, ptr %.sink25.i, i64 8
+  %.sink.i = phi ptr [ %159, %_ZNK6google8protobuf8internal9ArenaImpl11RecordAllocEPKSt9type_infom.exit.i ], [ %146, %145 ]
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %.sink.i, i8 0, i64 40, i1 false)
+  %160 = getelementptr inbounds i8, ptr %.sink.i, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %160) #19
-  %161 = ptrtoint ptr %.sink25.i to i64
+  %161 = ptrtoint ptr %.sink.i to i64
   %162 = or i64 %161, 1
   %163 = inttoptr i64 %162 to ptr
   store ptr %163, ptr %6, align 8
-  store ptr %136, ptr %.sink25.i, align 8
+  store ptr %136, ptr %.sink.i, align 8
   br label %164
 
 164:                                              ; preds = %_ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPT_v.exit, %139
@@ -13215,7 +13182,6 @@ define void @_ZN13sentencepiece24ModelProto_SentencePiece9MergeFromERKS0_(ptr no
 
 23:                                               ; preds = %21
   %24 = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #20
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %24, i8 0, i64 40, i1 false)
   br label %_ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPT_v.exit.i
 
 25:                                               ; preds = %21
@@ -13238,18 +13204,18 @@ define void @_ZN13sentencepiece24ModelProto_SentencePiece9MergeFromERKS0_(ptr no
 
 _ZNK6google8protobuf8internal9ArenaImpl11RecordAllocEPKSt9type_infom.exit.i.i: ; preds = %29, %25
   %37 = tail call noundef ptr @_ZN6google8protobuf8internal9ArenaImpl28AllocateAlignedAndAddCleanupEmPFvPvE(ptr noundef nonnull align 8 dereferenceable(40) %14, i64 noundef 40, ptr noundef nonnull @_ZN6google8protobuf8internal21arena_destruct_objectINS1_16InternalMetadata9ContainerINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEEvPv)
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %37, i8 0, i64 40, i1 false)
   br label %_ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPT_v.exit.i
 
 _ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPT_v.exit.i: ; preds = %_ZNK6google8protobuf8internal9ArenaImpl11RecordAllocEPKSt9type_infom.exit.i.i, %23
-  %.sink25.i.i = phi ptr [ %37, %_ZNK6google8protobuf8internal9ArenaImpl11RecordAllocEPKSt9type_infom.exit.i.i ], [ %24, %23 ]
-  %38 = getelementptr inbounds i8, ptr %.sink25.i.i, i64 8
+  %.sink.i.i = phi ptr [ %37, %_ZNK6google8protobuf8internal9ArenaImpl11RecordAllocEPKSt9type_infom.exit.i.i ], [ %24, %23 ]
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %.sink.i.i, i8 0, i64 40, i1 false)
+  %38 = getelementptr inbounds i8, ptr %.sink.i.i, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %38) #19
-  %39 = ptrtoint ptr %.sink25.i.i to i64
+  %39 = ptrtoint ptr %.sink.i.i to i64
   %40 = or i64 %39, 1
   %41 = inttoptr i64 %40 to ptr
   store ptr %41, ptr %5, align 8
-  store ptr %14, ptr %.sink25.i.i, align 8
+  store ptr %14, ptr %.sink.i.i, align 8
   br label %_ZN6google8protobuf8internal16InternalMetadata11DoMergeFromINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEvRKT_.exit
 
 _ZN6google8protobuf8internal16InternalMetadata11DoMergeFromINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEvRKT_.exit: ; preds = %17, %_ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPT_v.exit.i
@@ -13433,7 +13399,6 @@ thread-pre-split:                                 ; preds = %2
 
 20:                                               ; preds = %18
   %21 = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #20
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %21, i8 0, i64 40, i1 false)
   br label %_ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPT_v.exit
 
 22:                                               ; preds = %18
@@ -13456,18 +13421,18 @@ thread-pre-split:                                 ; preds = %2
 
 _ZNK6google8protobuf8internal9ArenaImpl11RecordAllocEPKSt9type_infom.exit.i: ; preds = %26, %22
   %34 = tail call noundef ptr @_ZN6google8protobuf8internal9ArenaImpl28AllocateAlignedAndAddCleanupEmPFvPvE(ptr noundef nonnull align 8 dereferenceable(40) %10, i64 noundef 40, ptr noundef nonnull @_ZN6google8protobuf8internal21arena_destruct_objectINS1_16InternalMetadata9ContainerINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEEvPv)
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %34, i8 0, i64 40, i1 false)
   br label %_ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPT_v.exit
 
 _ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPT_v.exit: ; preds = %20, %_ZNK6google8protobuf8internal9ArenaImpl11RecordAllocEPKSt9type_infom.exit.i
-  %.sink25.i = phi ptr [ %34, %_ZNK6google8protobuf8internal9ArenaImpl11RecordAllocEPKSt9type_infom.exit.i ], [ %21, %20 ]
-  %35 = getelementptr inbounds i8, ptr %.sink25.i, i64 8
+  %.sink.i = phi ptr [ %34, %_ZNK6google8protobuf8internal9ArenaImpl11RecordAllocEPKSt9type_infom.exit.i ], [ %21, %20 ]
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %.sink.i, i8 0, i64 40, i1 false)
+  %35 = getelementptr inbounds i8, ptr %.sink.i, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %35) #19
-  %36 = ptrtoint ptr %.sink25.i to i64
+  %36 = ptrtoint ptr %.sink.i to i64
   %37 = or i64 %36, 1
   %38 = inttoptr i64 %37 to ptr
   store ptr %38, ptr %6, align 8
-  store ptr %10, ptr %.sink25.i, align 8
+  store ptr %10, ptr %.sink.i, align 8
   %.pre = load ptr, ptr %5, align 8
   %.pre29 = ptrtoint ptr %.pre to i64
   br label %39
@@ -13492,7 +13457,6 @@ _ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINSt7
 
 48:                                               ; preds = %46
   %49 = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #20
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %49, i8 0, i64 40, i1 false)
   br label %_ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPT_v.exit.i
 
 50:                                               ; preds = %46
@@ -13515,18 +13479,18 @@ _ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINSt7
 
 _ZNK6google8protobuf8internal9ArenaImpl11RecordAllocEPKSt9type_infom.exit.i.i: ; preds = %54, %50
   %62 = tail call noundef ptr @_ZN6google8protobuf8internal9ArenaImpl28AllocateAlignedAndAddCleanupEmPFvPvE(ptr noundef nonnull align 8 dereferenceable(40) %40, i64 noundef 40, ptr noundef nonnull @_ZN6google8protobuf8internal21arena_destruct_objectINS1_16InternalMetadata9ContainerINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEEvPv)
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %62, i8 0, i64 40, i1 false)
   br label %_ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPT_v.exit.i
 
 _ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPT_v.exit.i: ; preds = %_ZNK6google8protobuf8internal9ArenaImpl11RecordAllocEPKSt9type_infom.exit.i.i, %48
-  %.sink25.i.i = phi ptr [ %62, %_ZNK6google8protobuf8internal9ArenaImpl11RecordAllocEPKSt9type_infom.exit.i.i ], [ %49, %48 ]
-  %63 = getelementptr inbounds i8, ptr %.sink25.i.i, i64 8
+  %.sink.i.i = phi ptr [ %62, %_ZNK6google8protobuf8internal9ArenaImpl11RecordAllocEPKSt9type_infom.exit.i.i ], [ %49, %48 ]
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %.sink.i.i, i8 0, i64 40, i1 false)
+  %63 = getelementptr inbounds i8, ptr %.sink.i.i, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %63) #19
-  %64 = ptrtoint ptr %.sink25.i.i to i64
+  %64 = ptrtoint ptr %.sink.i.i to i64
   %65 = or i64 %64, 1
   %66 = inttoptr i64 %65 to ptr
   store ptr %66, ptr %5, align 8
-  store ptr %40, ptr %.sink25.i.i, align 8
+  store ptr %40, ptr %.sink.i.i, align 8
   br label %_ZN6google8protobuf8internal16InternalMetadata6DoSwapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEvPT_.exit
 
 _ZN6google8protobuf8internal16InternalMetadata6DoSwapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEvPT_.exit: ; preds = %42, %_ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPT_v.exit.i
@@ -13772,11 +13736,7 @@ _ZN6google8protobuf16RepeatedPtrFieldIN13sentencepiece24ModelProto_SentencePiece
 
 31:                                               ; preds = %29
   %32 = invoke noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #20
-          to label %.noexc unwind label %65
-
-.noexc:                                           ; preds = %31
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %32, i8 0, i64 40, i1 false)
-  br label %_ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPT_v.exit.i
+          to label %_ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPT_v.exit.i unwind label %65
 
 33:                                               ; preds = %29
   %34 = getelementptr inbounds i8, ptr %22, i64 24
@@ -13798,21 +13758,18 @@ _ZN6google8protobuf16RepeatedPtrFieldIN13sentencepiece24ModelProto_SentencePiece
 
 _ZNK6google8protobuf8internal9ArenaImpl11RecordAllocEPKSt9type_infom.exit.i.i: ; preds = %37, %33
   %45 = invoke noundef ptr @_ZN6google8protobuf8internal9ArenaImpl28AllocateAlignedAndAddCleanupEmPFvPvE(ptr noundef nonnull align 8 dereferenceable(40) %22, i64 noundef 40, ptr noundef nonnull @_ZN6google8protobuf8internal21arena_destruct_objectINS1_16InternalMetadata9ContainerINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEEvPv)
-          to label %.noexc30 unwind label %65
+          to label %_ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPT_v.exit.i unwind label %65
 
-.noexc30:                                         ; preds = %_ZNK6google8protobuf8internal9ArenaImpl11RecordAllocEPKSt9type_infom.exit.i.i
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %45, i8 0, i64 40, i1 false)
-  br label %_ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPT_v.exit.i
-
-_ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPT_v.exit.i: ; preds = %.noexc30, %.noexc
-  %.sink25.i.i = phi ptr [ %45, %.noexc30 ], [ %32, %.noexc ]
-  %46 = getelementptr inbounds i8, ptr %.sink25.i.i, i64 8
+_ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPT_v.exit.i: ; preds = %_ZNK6google8protobuf8internal9ArenaImpl11RecordAllocEPKSt9type_infom.exit.i.i, %31
+  %.sink.i.i = phi ptr [ %32, %31 ], [ %45, %_ZNK6google8protobuf8internal9ArenaImpl11RecordAllocEPKSt9type_infom.exit.i.i ]
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %.sink.i.i, i8 0, i64 40, i1 false)
+  %46 = getelementptr inbounds i8, ptr %.sink.i.i, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %46) #19
-  %47 = ptrtoint ptr %.sink25.i.i to i64
+  %47 = ptrtoint ptr %.sink.i.i to i64
   %48 = or i64 %47, 1
   %49 = inttoptr i64 %48 to ptr
   store ptr %49, ptr %3, align 8
-  store ptr %22, ptr %.sink25.i.i, align 8
+  store ptr %22, ptr %.sink.i.i, align 8
   br label %50
 
 50:                                               ; preds = %_ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPT_v.exit.i, %25
@@ -14869,7 +14826,6 @@ _ZN6google8protobuf8internal8ReadSizeEPPKc.exit.i58: ; preds = %_ZN13sentencepie
 
 331:                                              ; preds = %329
   %332 = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #20
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %332, i8 0, i64 40, i1 false)
   br label %_ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPT_v.exit
 
 333:                                              ; preds = %329
@@ -14892,18 +14848,18 @@ _ZN6google8protobuf8internal8ReadSizeEPPKc.exit.i58: ; preds = %_ZN13sentencepie
 
 _ZNK6google8protobuf8internal9ArenaImpl11RecordAllocEPKSt9type_infom.exit.i: ; preds = %337, %333
   %345 = tail call noundef ptr @_ZN6google8protobuf8internal9ArenaImpl28AllocateAlignedAndAddCleanupEmPFvPvE(ptr noundef nonnull align 8 dereferenceable(40) %322, i64 noundef 40, ptr noundef nonnull @_ZN6google8protobuf8internal21arena_destruct_objectINS1_16InternalMetadata9ContainerINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEEvPv)
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %345, i8 0, i64 40, i1 false)
   br label %_ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPT_v.exit
 
 _ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPT_v.exit: ; preds = %331, %_ZNK6google8protobuf8internal9ArenaImpl11RecordAllocEPKSt9type_infom.exit.i
-  %.sink25.i = phi ptr [ %345, %_ZNK6google8protobuf8internal9ArenaImpl11RecordAllocEPKSt9type_infom.exit.i ], [ %332, %331 ]
-  %346 = getelementptr inbounds i8, ptr %.sink25.i, i64 8
+  %.sink.i = phi ptr [ %345, %_ZNK6google8protobuf8internal9ArenaImpl11RecordAllocEPKSt9type_infom.exit.i ], [ %332, %331 ]
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %.sink.i, i8 0, i64 40, i1 false)
+  %346 = getelementptr inbounds i8, ptr %.sink.i, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %346) #19
-  %347 = ptrtoint ptr %.sink25.i to i64
+  %347 = ptrtoint ptr %.sink.i to i64
   %348 = or i64 %347, 1
   %349 = inttoptr i64 %348 to ptr
   store ptr %349, ptr %8, align 8
-  store ptr %322, ptr %.sink25.i, align 8
+  store ptr %322, ptr %.sink.i, align 8
   br label %350
 
 350:                                              ; preds = %_ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPT_v.exit, %325
@@ -15684,7 +15640,6 @@ define void @_ZN13sentencepiece10ModelProto9MergeFromERKS0_(ptr noundef nonnull 
 
 23:                                               ; preds = %21
   %24 = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #20
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %24, i8 0, i64 40, i1 false)
   br label %_ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPT_v.exit.i
 
 25:                                               ; preds = %21
@@ -15707,18 +15662,18 @@ define void @_ZN13sentencepiece10ModelProto9MergeFromERKS0_(ptr noundef nonnull 
 
 _ZNK6google8protobuf8internal9ArenaImpl11RecordAllocEPKSt9type_infom.exit.i.i: ; preds = %29, %25
   %37 = tail call noundef ptr @_ZN6google8protobuf8internal9ArenaImpl28AllocateAlignedAndAddCleanupEmPFvPvE(ptr noundef nonnull align 8 dereferenceable(40) %14, i64 noundef 40, ptr noundef nonnull @_ZN6google8protobuf8internal21arena_destruct_objectINS1_16InternalMetadata9ContainerINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEEvPv)
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %37, i8 0, i64 40, i1 false)
   br label %_ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPT_v.exit.i
 
 _ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPT_v.exit.i: ; preds = %_ZNK6google8protobuf8internal9ArenaImpl11RecordAllocEPKSt9type_infom.exit.i.i, %23
-  %.sink25.i.i = phi ptr [ %37, %_ZNK6google8protobuf8internal9ArenaImpl11RecordAllocEPKSt9type_infom.exit.i.i ], [ %24, %23 ]
-  %38 = getelementptr inbounds i8, ptr %.sink25.i.i, i64 8
+  %.sink.i.i = phi ptr [ %37, %_ZNK6google8protobuf8internal9ArenaImpl11RecordAllocEPKSt9type_infom.exit.i.i ], [ %24, %23 ]
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %.sink.i.i, i8 0, i64 40, i1 false)
+  %38 = getelementptr inbounds i8, ptr %.sink.i.i, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %38) #19
-  %39 = ptrtoint ptr %.sink25.i.i to i64
+  %39 = ptrtoint ptr %.sink.i.i to i64
   %40 = or i64 %39, 1
   %41 = inttoptr i64 %40 to ptr
   store ptr %41, ptr %5, align 8
-  store ptr %14, ptr %.sink25.i.i, align 8
+  store ptr %14, ptr %.sink.i.i, align 8
   br label %_ZN6google8protobuf8internal16InternalMetadata11DoMergeFromINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEvRKT_.exit
 
 _ZN6google8protobuf8internal16InternalMetadata11DoMergeFromINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEvRKT_.exit: ; preds = %17, %_ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPT_v.exit.i
@@ -16046,7 +16001,6 @@ thread-pre-split:                                 ; preds = %2
 
 20:                                               ; preds = %18
   %21 = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #20
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %21, i8 0, i64 40, i1 false)
   br label %_ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPT_v.exit
 
 22:                                               ; preds = %18
@@ -16069,18 +16023,18 @@ thread-pre-split:                                 ; preds = %2
 
 _ZNK6google8protobuf8internal9ArenaImpl11RecordAllocEPKSt9type_infom.exit.i: ; preds = %26, %22
   %34 = tail call noundef ptr @_ZN6google8protobuf8internal9ArenaImpl28AllocateAlignedAndAddCleanupEmPFvPvE(ptr noundef nonnull align 8 dereferenceable(40) %10, i64 noundef 40, ptr noundef nonnull @_ZN6google8protobuf8internal21arena_destruct_objectINS1_16InternalMetadata9ContainerINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEEvPv)
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %34, i8 0, i64 40, i1 false)
   br label %_ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPT_v.exit
 
 _ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPT_v.exit: ; preds = %20, %_ZNK6google8protobuf8internal9ArenaImpl11RecordAllocEPKSt9type_infom.exit.i
-  %.sink25.i = phi ptr [ %34, %_ZNK6google8protobuf8internal9ArenaImpl11RecordAllocEPKSt9type_infom.exit.i ], [ %21, %20 ]
-  %35 = getelementptr inbounds i8, ptr %.sink25.i, i64 8
+  %.sink.i = phi ptr [ %34, %_ZNK6google8protobuf8internal9ArenaImpl11RecordAllocEPKSt9type_infom.exit.i ], [ %21, %20 ]
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %.sink.i, i8 0, i64 40, i1 false)
+  %35 = getelementptr inbounds i8, ptr %.sink.i, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %35) #19
-  %36 = ptrtoint ptr %.sink25.i to i64
+  %36 = ptrtoint ptr %.sink.i to i64
   %37 = or i64 %36, 1
   %38 = inttoptr i64 %37 to ptr
   store ptr %38, ptr %6, align 8
-  store ptr %10, ptr %.sink25.i, align 8
+  store ptr %10, ptr %.sink.i, align 8
   %.pre = load ptr, ptr %5, align 8
   %.pre24 = ptrtoint ptr %.pre to i64
   br label %39
@@ -16105,7 +16059,6 @@ _ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINSt7
 
 48:                                               ; preds = %46
   %49 = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #20
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %49, i8 0, i64 40, i1 false)
   br label %_ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPT_v.exit.i
 
 50:                                               ; preds = %46
@@ -16128,18 +16081,18 @@ _ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINSt7
 
 _ZNK6google8protobuf8internal9ArenaImpl11RecordAllocEPKSt9type_infom.exit.i.i: ; preds = %54, %50
   %62 = tail call noundef ptr @_ZN6google8protobuf8internal9ArenaImpl28AllocateAlignedAndAddCleanupEmPFvPvE(ptr noundef nonnull align 8 dereferenceable(40) %40, i64 noundef 40, ptr noundef nonnull @_ZN6google8protobuf8internal21arena_destruct_objectINS1_16InternalMetadata9ContainerINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEEvPv)
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %62, i8 0, i64 40, i1 false)
   br label %_ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPT_v.exit.i
 
 _ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPT_v.exit.i: ; preds = %_ZNK6google8protobuf8internal9ArenaImpl11RecordAllocEPKSt9type_infom.exit.i.i, %48
-  %.sink25.i.i = phi ptr [ %62, %_ZNK6google8protobuf8internal9ArenaImpl11RecordAllocEPKSt9type_infom.exit.i.i ], [ %49, %48 ]
-  %63 = getelementptr inbounds i8, ptr %.sink25.i.i, i64 8
+  %.sink.i.i = phi ptr [ %62, %_ZNK6google8protobuf8internal9ArenaImpl11RecordAllocEPKSt9type_infom.exit.i.i ], [ %49, %48 ]
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %.sink.i.i, i8 0, i64 40, i1 false)
+  %63 = getelementptr inbounds i8, ptr %.sink.i.i, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %63) #19
-  %64 = ptrtoint ptr %.sink25.i.i to i64
+  %64 = ptrtoint ptr %.sink.i.i to i64
   %65 = or i64 %64, 1
   %66 = inttoptr i64 %65 to ptr
   store ptr %66, ptr %5, align 8
-  store ptr %40, ptr %.sink25.i.i, align 8
+  store ptr %40, ptr %.sink.i.i, align 8
   br label %_ZN6google8protobuf8internal16InternalMetadata6DoSwapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEvPT_.exit
 
 _ZN6google8protobuf8internal16InternalMetadata6DoSwapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEvPT_.exit: ; preds = %42, %_ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPT_v.exit.i

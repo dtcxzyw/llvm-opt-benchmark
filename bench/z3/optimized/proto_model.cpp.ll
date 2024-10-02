@@ -2758,50 +2758,39 @@ _ZNK11ast_manager11is_uninterpEPK4sort.exit:      ; preds = %entry
 if.then:                                          ; preds = %_ZNK11ast_manager11is_uninterpEPK4sort.exit, %_ZNK11ast_manager11is_uninterpEPK4sort.exit, %entry
   %m_user_sort_factory = getelementptr inbounds i8, ptr %this, i64 112
   %2 = load ptr, ptr %m_user_sort_factory, align 8
-  %vtable = load ptr, ptr %2, align 8
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 16
-  %3 = load ptr, ptr %vfn, align 8
-  %call2 = tail call noundef ptr %3(ptr noundef nonnull align 8 dereferenceable(136) %2, ptr noundef nonnull %s)
   br label %return
 
 if.end.i.i:                                       ; preds = %_ZNK11ast_manager11is_uninterpEPK4sort.exit
   %m_factories.i = getelementptr inbounds i8, ptr %this, i64 96
-  %4 = load ptr, ptr %m_factories.i, align 8
-  %cmp.i.i.i.i = icmp eq ptr %4, null
+  %3 = load ptr, ptr %m_factories.i, align 8
+  %cmp.i.i.i.i = icmp eq ptr %3, null
   br i1 %cmp.i.i.i.i, label %if.else9, label %_ZNK6vectorIP13value_factoryLb0EjE3getEjRKS1_.exit.i.i
 
 _ZNK6vectorIP13value_factoryLb0EjE3getEjRKS1_.exit.i.i: ; preds = %if.end.i.i
-  %arrayidx.i.i.i.i = getelementptr inbounds i8, ptr %4, i64 -4
-  %5 = load i32, ptr %arrayidx.i.i.i.i, align 4
-  %cmp.not.i.i.i = icmp ult i32 %1, %5
+  %arrayidx.i.i.i.i = getelementptr inbounds i8, ptr %3, i64 -4
+  %4 = load i32, ptr %arrayidx.i.i.i.i, align 4
+  %cmp.not.i.i.i = icmp ult i32 %1, %4
   br i1 %cmp.not.i.i.i, label %_ZN11proto_model11get_factoryEi.exit, label %if.else9
 
 _ZN11proto_model11get_factoryEi.exit:             ; preds = %_ZNK6vectorIP13value_factoryLb0EjE3getEjRKS1_.exit.i.i
   %idxprom.i.i.i = zext i32 %1 to i64
-  %arrayidx.i.i.i = getelementptr inbounds ptr, ptr %4, i64 %idxprom.i.i.i
+  %arrayidx.i.i.i = getelementptr inbounds ptr, ptr %3, i64 %idxprom.i.i.i
   %.then.val.i.i = load ptr, ptr %arrayidx.i.i.i, align 8
   %tobool.not = icmp eq ptr %.then.val.i.i, null
-  br i1 %tobool.not, label %if.else9, label %if.then5
-
-if.then5:                                         ; preds = %_ZN11proto_model11get_factoryEi.exit
-  %vtable6 = load ptr, ptr %.then.val.i.i, align 8
-  %vfn7 = getelementptr inbounds i8, ptr %vtable6, i64 16
-  %6 = load ptr, ptr %vfn7, align 8
-  %call8 = tail call noundef ptr %6(ptr noundef nonnull align 8 dereferenceable(20) %.then.val.i.i, ptr noundef nonnull %s)
-  br label %return
+  br i1 %tobool.not, label %if.else9, label %return
 
 if.else9:                                         ; preds = %if.end.i.i, %_ZNK6vectorIP13value_factoryLb0EjE3getEjRKS1_.exit.i.i, %_ZN11proto_model11get_factoryEi.exit
   %m_user_sort_factory10 = getelementptr inbounds i8, ptr %this, i64 112
-  %7 = load ptr, ptr %m_user_sort_factory10, align 8
-  %vtable11 = load ptr, ptr %7, align 8
-  %vfn12 = getelementptr inbounds i8, ptr %vtable11, i64 16
-  %8 = load ptr, ptr %vfn12, align 8
-  %call13 = tail call noundef ptr %8(ptr noundef nonnull align 8 dereferenceable(136) %7, ptr noundef nonnull %s)
+  %5 = load ptr, ptr %m_user_sort_factory10, align 8
   br label %return
 
-return:                                           ; preds = %if.else9, %if.then5, %if.then
-  %retval.0 = phi ptr [ %call2, %if.then ], [ %call8, %if.then5 ], [ %call13, %if.else9 ]
-  ret ptr %retval.0
+return:                                           ; preds = %_ZN11proto_model11get_factoryEi.exit, %if.else9, %if.then
+  %.sink11 = phi ptr [ %5, %if.else9 ], [ %2, %if.then ], [ %.then.val.i.i, %_ZN11proto_model11get_factoryEi.exit ]
+  %vtable11 = load ptr, ptr %.sink11, align 8
+  %vfn12 = getelementptr inbounds i8, ptr %vtable11, i64 16
+  %6 = load ptr, ptr %vfn12, align 8
+  %call13 = tail call noundef ptr %6(ptr noundef nonnull align 8 dereferenceable(20) %.sink11, ptr noundef nonnull %s)
+  ret ptr %call13
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -2822,40 +2811,37 @@ _ZNK11ast_manager11is_uninterpEPK4sort.exit:      ; preds = %entry
 if.then:                                          ; preds = %_ZNK11ast_manager11is_uninterpEPK4sort.exit, %_ZNK11ast_manager11is_uninterpEPK4sort.exit, %entry
   %m_user_sort_factory = getelementptr inbounds i8, ptr %this, i64 112
   %2 = load ptr, ptr %m_user_sort_factory, align 8
-  %vtable = load ptr, ptr %2, align 8
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 24
-  %3 = load ptr, ptr %vfn, align 8
-  %call2 = tail call noundef zeroext i1 %3(ptr noundef nonnull align 8 dereferenceable(136) %2, ptr noundef nonnull %s, ptr noundef nonnull align 8 dereferenceable(16) %v1, ptr noundef nonnull align 8 dereferenceable(16) %v2)
-  br label %return
+  br label %return.sink.split
 
 if.end.i.i:                                       ; preds = %_ZNK11ast_manager11is_uninterpEPK4sort.exit
   %m_factories.i = getelementptr inbounds i8, ptr %this, i64 96
-  %4 = load ptr, ptr %m_factories.i, align 8
-  %cmp.i.i.i.i = icmp eq ptr %4, null
+  %3 = load ptr, ptr %m_factories.i, align 8
+  %cmp.i.i.i.i = icmp eq ptr %3, null
   br i1 %cmp.i.i.i.i, label %return, label %_ZNK6vectorIP13value_factoryLb0EjE3getEjRKS1_.exit.i.i
 
 _ZNK6vectorIP13value_factoryLb0EjE3getEjRKS1_.exit.i.i: ; preds = %if.end.i.i
-  %arrayidx.i.i.i.i = getelementptr inbounds i8, ptr %4, i64 -4
-  %5 = load i32, ptr %arrayidx.i.i.i.i, align 4
-  %cmp.not.i.i.i = icmp ult i32 %1, %5
+  %arrayidx.i.i.i.i = getelementptr inbounds i8, ptr %3, i64 -4
+  %4 = load i32, ptr %arrayidx.i.i.i.i, align 4
+  %cmp.not.i.i.i = icmp ult i32 %1, %4
   br i1 %cmp.not.i.i.i, label %_ZN11proto_model11get_factoryEi.exit, label %return
 
 _ZN11proto_model11get_factoryEi.exit:             ; preds = %_ZNK6vectorIP13value_factoryLb0EjE3getEjRKS1_.exit.i.i
   %idxprom.i.i.i = zext i32 %1 to i64
-  %arrayidx.i.i.i = getelementptr inbounds ptr, ptr %4, i64 %idxprom.i.i.i
+  %arrayidx.i.i.i = getelementptr inbounds ptr, ptr %3, i64 %idxprom.i.i.i
   %.then.val.i.i = load ptr, ptr %arrayidx.i.i.i, align 8
   %tobool.not = icmp eq ptr %.then.val.i.i, null
-  br i1 %tobool.not, label %return, label %if.then5
+  br i1 %tobool.not, label %return, label %return.sink.split
 
-if.then5:                                         ; preds = %_ZN11proto_model11get_factoryEi.exit
-  %vtable6 = load ptr, ptr %.then.val.i.i, align 8
+return.sink.split:                                ; preds = %_ZN11proto_model11get_factoryEi.exit, %if.then
+  %.then.val.i.i.sink11 = phi ptr [ %2, %if.then ], [ %.then.val.i.i, %_ZN11proto_model11get_factoryEi.exit ]
+  %vtable6 = load ptr, ptr %.then.val.i.i.sink11, align 8
   %vfn7 = getelementptr inbounds i8, ptr %vtable6, i64 24
-  %6 = load ptr, ptr %vfn7, align 8
-  %call8 = tail call noundef zeroext i1 %6(ptr noundef nonnull align 8 dereferenceable(20) %.then.val.i.i, ptr noundef nonnull %s, ptr noundef nonnull align 8 dereferenceable(16) %v1, ptr noundef nonnull align 8 dereferenceable(16) %v2)
+  %5 = load ptr, ptr %vfn7, align 8
+  %call8 = tail call noundef zeroext i1 %5(ptr noundef nonnull align 8 dereferenceable(20) %.then.val.i.i.sink11, ptr noundef nonnull %s, ptr noundef nonnull align 8 dereferenceable(16) %v1, ptr noundef nonnull align 8 dereferenceable(16) %v2)
   br label %return
 
-return:                                           ; preds = %if.end.i.i, %_ZNK6vectorIP13value_factoryLb0EjE3getEjRKS1_.exit.i.i, %_ZN11proto_model11get_factoryEi.exit, %if.then5, %if.then
-  %retval.0 = phi i1 [ %call2, %if.then ], [ %call8, %if.then5 ], [ false, %_ZN11proto_model11get_factoryEi.exit ], [ false, %_ZNK6vectorIP13value_factoryLb0EjE3getEjRKS1_.exit.i.i ], [ false, %if.end.i.i ]
+return:                                           ; preds = %return.sink.split, %if.end.i.i, %_ZNK6vectorIP13value_factoryLb0EjE3getEjRKS1_.exit.i.i, %_ZN11proto_model11get_factoryEi.exit
+  %retval.0 = phi i1 [ false, %_ZN11proto_model11get_factoryEi.exit ], [ false, %_ZNK6vectorIP13value_factoryLb0EjE3getEjRKS1_.exit.i.i ], [ false, %if.end.i.i ], [ %call8, %return.sink.split ]
   ret i1 %retval.0
 }
 
@@ -2877,50 +2863,39 @@ _ZNK11ast_manager11is_uninterpEPK4sort.exit:      ; preds = %entry
 if.then:                                          ; preds = %_ZNK11ast_manager11is_uninterpEPK4sort.exit, %_ZNK11ast_manager11is_uninterpEPK4sort.exit, %entry
   %m_user_sort_factory = getelementptr inbounds i8, ptr %this, i64 112
   %2 = load ptr, ptr %m_user_sort_factory, align 8
-  %vtable = load ptr, ptr %2, align 8
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 32
-  %3 = load ptr, ptr %vfn, align 8
-  %call2 = tail call noundef ptr %3(ptr noundef nonnull align 8 dereferenceable(136) %2, ptr noundef nonnull %s)
   br label %return
 
 if.end.i.i:                                       ; preds = %_ZNK11ast_manager11is_uninterpEPK4sort.exit
   %m_factories.i = getelementptr inbounds i8, ptr %this, i64 96
-  %4 = load ptr, ptr %m_factories.i, align 8
-  %cmp.i.i.i.i = icmp eq ptr %4, null
+  %3 = load ptr, ptr %m_factories.i, align 8
+  %cmp.i.i.i.i = icmp eq ptr %3, null
   br i1 %cmp.i.i.i.i, label %if.else9, label %_ZNK6vectorIP13value_factoryLb0EjE3getEjRKS1_.exit.i.i
 
 _ZNK6vectorIP13value_factoryLb0EjE3getEjRKS1_.exit.i.i: ; preds = %if.end.i.i
-  %arrayidx.i.i.i.i = getelementptr inbounds i8, ptr %4, i64 -4
-  %5 = load i32, ptr %arrayidx.i.i.i.i, align 4
-  %cmp.not.i.i.i = icmp ult i32 %1, %5
+  %arrayidx.i.i.i.i = getelementptr inbounds i8, ptr %3, i64 -4
+  %4 = load i32, ptr %arrayidx.i.i.i.i, align 4
+  %cmp.not.i.i.i = icmp ult i32 %1, %4
   br i1 %cmp.not.i.i.i, label %_ZN11proto_model11get_factoryEi.exit, label %if.else9
 
 _ZN11proto_model11get_factoryEi.exit:             ; preds = %_ZNK6vectorIP13value_factoryLb0EjE3getEjRKS1_.exit.i.i
   %idxprom.i.i.i = zext i32 %1 to i64
-  %arrayidx.i.i.i = getelementptr inbounds ptr, ptr %4, i64 %idxprom.i.i.i
+  %arrayidx.i.i.i = getelementptr inbounds ptr, ptr %3, i64 %idxprom.i.i.i
   %.then.val.i.i = load ptr, ptr %arrayidx.i.i.i, align 8
   %tobool.not = icmp eq ptr %.then.val.i.i, null
-  br i1 %tobool.not, label %if.else9, label %if.then5
-
-if.then5:                                         ; preds = %_ZN11proto_model11get_factoryEi.exit
-  %vtable6 = load ptr, ptr %.then.val.i.i, align 8
-  %vfn7 = getelementptr inbounds i8, ptr %vtable6, i64 32
-  %6 = load ptr, ptr %vfn7, align 8
-  %call8 = tail call noundef ptr %6(ptr noundef nonnull align 8 dereferenceable(20) %.then.val.i.i, ptr noundef nonnull %s)
-  br label %return
+  br i1 %tobool.not, label %if.else9, label %return
 
 if.else9:                                         ; preds = %if.end.i.i, %_ZNK6vectorIP13value_factoryLb0EjE3getEjRKS1_.exit.i.i, %_ZN11proto_model11get_factoryEi.exit
   %m_user_sort_factory10 = getelementptr inbounds i8, ptr %this, i64 112
-  %7 = load ptr, ptr %m_user_sort_factory10, align 8
-  %vtable11 = load ptr, ptr %7, align 8
-  %vfn12 = getelementptr inbounds i8, ptr %vtable11, i64 32
-  %8 = load ptr, ptr %vfn12, align 8
-  %call13 = tail call noundef ptr %8(ptr noundef nonnull align 8 dereferenceable(136) %7, ptr noundef nonnull %s)
+  %5 = load ptr, ptr %m_user_sort_factory10, align 8
   br label %return
 
-return:                                           ; preds = %if.else9, %if.then5, %if.then
-  %retval.0 = phi ptr [ %call2, %if.then ], [ %call8, %if.then5 ], [ %call13, %if.else9 ]
-  ret ptr %retval.0
+return:                                           ; preds = %_ZN11proto_model11get_factoryEi.exit, %if.else9, %if.then
+  %.sink11 = phi ptr [ %5, %if.else9 ], [ %2, %if.then ], [ %.then.val.i.i, %_ZN11proto_model11get_factoryEi.exit ]
+  %vtable11 = load ptr, ptr %.sink11, align 8
+  %vfn12 = getelementptr inbounds i8, ptr %vtable11, i64 32
+  %6 = load ptr, ptr %vfn12, align 8
+  %call13 = tail call noundef ptr %6(ptr noundef nonnull align 8 dereferenceable(20) %.sink11, ptr noundef nonnull %s)
+  ret ptr %call13
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -2942,39 +2917,36 @@ _ZNK11ast_manager11is_uninterpEPK4sort.exit:      ; preds = %entry
 if.then:                                          ; preds = %_ZNK11ast_manager11is_uninterpEPK4sort.exit, %_ZNK11ast_manager11is_uninterpEPK4sort.exit, %entry
   %m_user_sort_factory = getelementptr inbounds i8, ptr %this, i64 112
   %2 = load ptr, ptr %m_user_sort_factory, align 8
-  %vtable = load ptr, ptr %2, align 8
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 40
-  %3 = load ptr, ptr %vfn, align 8
-  tail call void %3(ptr noundef nonnull align 8 dereferenceable(136) %2, ptr noundef nonnull %n)
-  br label %if.end8
+  br label %if.end8.sink.split
 
 if.end.i.i:                                       ; preds = %_ZNK11ast_manager11is_uninterpEPK4sort.exit
   %m_factories.i = getelementptr inbounds i8, ptr %this, i64 96
-  %4 = load ptr, ptr %m_factories.i, align 8
-  %cmp.i.i.i.i = icmp eq ptr %4, null
+  %3 = load ptr, ptr %m_factories.i, align 8
+  %cmp.i.i.i.i = icmp eq ptr %3, null
   br i1 %cmp.i.i.i.i, label %if.end8, label %_ZNK6vectorIP13value_factoryLb0EjE3getEjRKS1_.exit.i.i
 
 _ZNK6vectorIP13value_factoryLb0EjE3getEjRKS1_.exit.i.i: ; preds = %if.end.i.i
-  %arrayidx.i.i.i.i = getelementptr inbounds i8, ptr %4, i64 -4
-  %5 = load i32, ptr %arrayidx.i.i.i.i, align 4
-  %cmp.not.i.i.i = icmp ult i32 %1, %5
+  %arrayidx.i.i.i.i = getelementptr inbounds i8, ptr %3, i64 -4
+  %4 = load i32, ptr %arrayidx.i.i.i.i, align 4
+  %cmp.not.i.i.i = icmp ult i32 %1, %4
   br i1 %cmp.not.i.i.i, label %_ZN11proto_model11get_factoryEi.exit, label %if.end8
 
 _ZN11proto_model11get_factoryEi.exit:             ; preds = %_ZNK6vectorIP13value_factoryLb0EjE3getEjRKS1_.exit.i.i
   %idxprom.i.i.i = zext i32 %1 to i64
-  %arrayidx.i.i.i = getelementptr inbounds ptr, ptr %4, i64 %idxprom.i.i.i
+  %arrayidx.i.i.i = getelementptr inbounds ptr, ptr %3, i64 %idxprom.i.i.i
   %.then.val.i.i = load ptr, ptr %arrayidx.i.i.i, align 8
   %tobool.not = icmp eq ptr %.then.val.i.i, null
-  br i1 %tobool.not, label %if.end8, label %if.then5
+  br i1 %tobool.not, label %if.end8, label %if.end8.sink.split
 
-if.then5:                                         ; preds = %_ZN11proto_model11get_factoryEi.exit
-  %vtable6 = load ptr, ptr %.then.val.i.i, align 8
+if.end8.sink.split:                               ; preds = %_ZN11proto_model11get_factoryEi.exit, %if.then
+  %.then.val.i.i.sink9 = phi ptr [ %2, %if.then ], [ %.then.val.i.i, %_ZN11proto_model11get_factoryEi.exit ]
+  %vtable6 = load ptr, ptr %.then.val.i.i.sink9, align 8
   %vfn7 = getelementptr inbounds i8, ptr %vtable6, i64 40
-  %6 = load ptr, ptr %vfn7, align 8
-  tail call void %6(ptr noundef nonnull align 8 dereferenceable(20) %.then.val.i.i, ptr noundef nonnull %n)
+  %5 = load ptr, ptr %vfn7, align 8
+  tail call void %5(ptr noundef nonnull align 8 dereferenceable(20) %.then.val.i.i.sink9, ptr noundef nonnull %n)
   br label %if.end8
 
-if.end8:                                          ; preds = %if.end.i.i, %_ZNK6vectorIP13value_factoryLb0EjE3getEjRKS1_.exit.i.i, %_ZN11proto_model11get_factoryEi.exit, %if.then5, %if.then
+if.end8:                                          ; preds = %if.end8.sink.split, %if.end.i.i, %_ZNK6vectorIP13value_factoryLb0EjE3getEjRKS1_.exit.i.i, %_ZN11proto_model11get_factoryEi.exit
   ret void
 }
 

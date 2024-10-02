@@ -653,11 +653,7 @@ read_connect_arg.exit.i:                          ; preds = %101, %92
 105:                                              ; preds = %102
   %106 = getelementptr i8, ptr %93, i64 16
   %107 = call zeroext i1 @ParseVariableBool(ptr noundef %106, ptr noundef nonnull @.str.144, ptr noundef nonnull %14) #17
-  br i1 %107, label %108, label %.thread60.i
-
-.thread60.i:                                      ; preds = %105
-  call void @free(ptr noundef nonnull %93) #17
-  br label %exec_command_connect.exit
+  br i1 %107, label %108, label %ignore_slash_options.exit.sink.split.i
 
 108:                                              ; preds = %105
   %109 = load i8, ptr %14, align 1
@@ -1679,8 +1675,7 @@ param_is_newly_set.exit.thread.i.i:               ; preds = %param_is_newly_set.
   call void @free(ptr noundef %.0.i33.i) #17
   call void @free(ptr noundef %.0.i38.i) #17
   call void @free(ptr noundef %.0.i43.i) #17
-  call void @free(ptr noundef %.023.ph.i) #17
-  br label %exec_command_connect.exit
+  br label %ignore_slash_options.exit.sink.split.i
 
 516:                                              ; preds = %91
   %517 = tail call ptr @psql_scan_slash_option(ptr noundef %1, i32 noundef 0, ptr noundef null, i1 noundef zeroext false) #17
@@ -1694,8 +1689,14 @@ param_is_newly_set.exit.thread.i.i:               ; preds = %param_is_newly_set.
   %.not.i49.i = icmp eq ptr %519, null
   br i1 %.not.i49.i, label %exec_command_connect.exit, label %.lr.ph.i48.i, !llvm.loop !9
 
-exec_command_connect.exit:                        ; preds = %.lr.ph.i48.i, %.thread60.i, %515, %516
-  %.2.i = phi i32 [ 5, %.thread60.i ], [ 2, %516 ], [ %.0.i47.i, %515 ], [ 2, %.lr.ph.i48.i ]
+ignore_slash_options.exit.sink.split.i:           ; preds = %515, %105
+  %.023.ph.sink.i = phi ptr [ %.023.ph.i, %515 ], [ %93, %105 ]
+  %.2.ph.i = phi i32 [ %.0.i47.i, %515 ], [ 5, %105 ]
+  call void @free(ptr noundef %.023.ph.sink.i) #17
+  br label %exec_command_connect.exit
+
+exec_command_connect.exit:                        ; preds = %.lr.ph.i48.i, %516, %ignore_slash_options.exit.sink.split.i
+  %.2.i = phi i32 [ 2, %516 ], [ %.2.ph.i, %ignore_slash_options.exit.sink.split.i ], [ 2, %.lr.ph.i48.i ]
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %14)
   br label %copy_previous_query.exit
 

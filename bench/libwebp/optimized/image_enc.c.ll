@@ -21,14 +21,14 @@ define hidden range(i32 0, 2) i32 @WebPWritePNG(ptr noundef %0, ptr noundef read
   %6 = icmp eq ptr %0, null
   %7 = icmp eq ptr %1, null
   %or.cond = or i1 %6, %7
-  br i1 %or.cond, label %49, label %8
+  br i1 %or.cond, label %47, label %8
 
 8:                                                ; preds = %2
   %9 = call noalias ptr @png_create_write_struct(ptr noundef nonnull @.str, ptr noundef null, ptr noundef nonnull @PNGErrorFunction, ptr noundef null) #8
   store volatile ptr %9, ptr %3, align 8
   %10 = load volatile ptr, ptr %3, align 8
   %11 = icmp eq ptr %10, null
-  br i1 %11, label %49, label %12
+  br i1 %11, label %47, label %12
 
 12:                                               ; preds = %8
   %13 = load volatile ptr, ptr %3, align 8
@@ -36,87 +36,84 @@ define hidden range(i32 0, 2) i32 @WebPWritePNG(ptr noundef %0, ptr noundef read
   store volatile ptr %14, ptr %4, align 8
   %15 = load volatile ptr, ptr %4, align 8
   %16 = icmp eq ptr %15, null
-  br i1 %16, label %17, label %18
+  br i1 %16, label %.sink.split, label %17
 
 17:                                               ; preds = %12
-  call void @png_destroy_write_struct(ptr noundef nonnull %3, ptr noundef null) #8
-  br label %49
+  %18 = load volatile ptr, ptr %3, align 8
+  %19 = call ptr @png_set_longjmp_fn(ptr noundef %18, ptr noundef nonnull @longjmp, i64 noundef 200) #8
+  %20 = call i32 @_setjmp(ptr noundef %19) #9
+  %.not = icmp eq i32 %20, 0
+  br i1 %.not, label %21, label %.sink.split
 
-18:                                               ; preds = %12
-  %19 = load volatile ptr, ptr %3, align 8
-  %20 = call ptr @png_set_longjmp_fn(ptr noundef %19, ptr noundef nonnull @longjmp, i64 noundef 200) #8
-  %21 = call i32 @_setjmp(ptr noundef %20) #9
-  %.not = icmp eq i32 %21, 0
-  br i1 %.not, label %23, label %22
+21:                                               ; preds = %17
+  %22 = load volatile ptr, ptr %3, align 8
+  call void @png_init_io(ptr noundef %22, ptr noundef nonnull %0) #8
+  %23 = getelementptr inbounds i8, ptr %1, i64 4
+  %24 = load i32, ptr %23, align 4
+  %25 = getelementptr inbounds i8, ptr %1, i64 8
+  %26 = load i32, ptr %25, align 8
+  %27 = getelementptr inbounds i8, ptr %1, i64 16
+  %28 = load ptr, ptr %27, align 8
+  store ptr %28, ptr %5, align 8
+  %29 = getelementptr inbounds i8, ptr %1, i64 24
+  %30 = load i32, ptr %29, align 8
+  %31 = load i32, ptr %1, align 8
+  %switch.tableidx = add i32 %31, -1
+  %32 = icmp ult i32 %switch.tableidx, 12
+  br i1 %32, label %switch.hole_check, label %WebPIsAlphaMode.exit
 
-22:                                               ; preds = %18
-  call void @png_destroy_write_struct(ptr noundef nonnull %3, ptr noundef nonnull %4) #8
-  br label %49
-
-23:                                               ; preds = %18
-  %24 = load volatile ptr, ptr %3, align 8
-  call void @png_init_io(ptr noundef %24, ptr noundef nonnull %0) #8
-  %25 = getelementptr inbounds i8, ptr %1, i64 4
-  %26 = load i32, ptr %25, align 4
-  %27 = getelementptr inbounds i8, ptr %1, i64 8
-  %28 = load i32, ptr %27, align 8
-  %29 = getelementptr inbounds i8, ptr %1, i64 16
-  %30 = load ptr, ptr %29, align 8
-  store ptr %30, ptr %5, align 8
-  %31 = getelementptr inbounds i8, ptr %1, i64 24
-  %32 = load i32, ptr %31, align 8
-  %33 = load i32, ptr %1, align 8
-  %switch.tableidx = add i32 %33, -1
-  %34 = icmp ult i32 %switch.tableidx, 12
-  br i1 %34, label %switch.hole_check, label %WebPIsAlphaMode.exit
-
-WebPIsAlphaMode.exit:                             ; preds = %switch.hole_check, %23
-  %35 = add i32 %33, -11
-  %narrow.i.i = icmp ult i32 %35, -4
+WebPIsAlphaMode.exit:                             ; preds = %switch.hole_check, %21
+  %33 = add i32 %31, -11
+  %narrow.i.i = icmp ult i32 %33, -4
   %spec.select = select i1 %narrow.i.i, i32 2, i32 6
   br label %WebPIsAlphaMode.exit.thread
 
-switch.hole_check:                                ; preds = %23
+switch.hole_check:                                ; preds = %21
   %switch.maskindex = trunc nuw i32 %switch.tableidx to i16
   %switch.shifted = lshr i16 2077, %switch.maskindex
   %switch.lobit = trunc i16 %switch.shifted to i1
   br i1 %switch.lobit, label %WebPIsAlphaMode.exit.thread, label %WebPIsAlphaMode.exit
 
 WebPIsAlphaMode.exit.thread:                      ; preds = %switch.hole_check, %WebPIsAlphaMode.exit
-  %36 = phi i32 [ %spec.select, %WebPIsAlphaMode.exit ], [ 6, %switch.hole_check ]
+  %34 = phi i32 [ %spec.select, %WebPIsAlphaMode.exit ], [ 6, %switch.hole_check ]
+  %35 = load volatile ptr, ptr %3, align 8
+  %36 = load volatile ptr, ptr %4, align 8
+  call void @png_set_IHDR(ptr noundef %35, ptr noundef %36, i32 noundef %24, i32 noundef %26, i32 noundef 8, i32 noundef %34, i32 noundef 0, i32 noundef 0, i32 noundef 0) #8
   %37 = load volatile ptr, ptr %3, align 8
   %38 = load volatile ptr, ptr %4, align 8
-  call void @png_set_IHDR(ptr noundef %37, ptr noundef %38, i32 noundef %26, i32 noundef %28, i32 noundef 8, i32 noundef %36, i32 noundef 0, i32 noundef 0, i32 noundef 0) #8
-  %39 = load volatile ptr, ptr %3, align 8
-  %40 = load volatile ptr, ptr %4, align 8
-  call void @png_write_info(ptr noundef %39, ptr noundef %40) #8
-  %.not22 = icmp eq i32 %28, 0
+  call void @png_write_info(ptr noundef %37, ptr noundef %38) #8
+  %.not22 = icmp eq i32 %26, 0
   br i1 %.not22, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %WebPIsAlphaMode.exit.thread
-  %41 = sext i32 %32 to i64
-  br label %42
+  %39 = sext i32 %30 to i64
+  br label %40
 
-42:                                               ; preds = %.lr.ph, %42
-  %.021 = phi i32 [ 0, %.lr.ph ], [ %46, %42 ]
-  %43 = load volatile ptr, ptr %3, align 8
-  call void @png_write_rows(ptr noundef %43, ptr noundef nonnull %5, i32 noundef 1) #8
-  %44 = load ptr, ptr %5, align 8
-  %45 = getelementptr inbounds i8, ptr %44, i64 %41
-  store ptr %45, ptr %5, align 8
-  %46 = add nuw i32 %.021, 1
-  %exitcond.not = icmp eq i32 %46, %28
-  br i1 %exitcond.not, label %._crit_edge, label %42, !llvm.loop !5
+40:                                               ; preds = %.lr.ph, %40
+  %.021 = phi i32 [ 0, %.lr.ph ], [ %44, %40 ]
+  %41 = load volatile ptr, ptr %3, align 8
+  call void @png_write_rows(ptr noundef %41, ptr noundef nonnull %5, i32 noundef 1) #8
+  %42 = load ptr, ptr %5, align 8
+  %43 = getelementptr inbounds i8, ptr %42, i64 %39
+  store ptr %43, ptr %5, align 8
+  %44 = add nuw i32 %.021, 1
+  %exitcond.not = icmp eq i32 %44, %26
+  br i1 %exitcond.not, label %._crit_edge, label %40, !llvm.loop !5
 
-._crit_edge:                                      ; preds = %42, %WebPIsAlphaMode.exit.thread
-  %47 = load volatile ptr, ptr %3, align 8
-  %48 = load volatile ptr, ptr %4, align 8
-  call void @png_write_end(ptr noundef %47, ptr noundef %48) #8
-  call void @png_destroy_write_struct(ptr noundef nonnull %3, ptr noundef nonnull %4) #8
-  br label %49
+._crit_edge:                                      ; preds = %40, %WebPIsAlphaMode.exit.thread
+  %45 = load volatile ptr, ptr %3, align 8
+  %46 = load volatile ptr, ptr %4, align 8
+  call void @png_write_end(ptr noundef %45, ptr noundef %46) #8
+  br label %.sink.split
 
-49:                                               ; preds = %8, %2, %._crit_edge, %22, %17
-  %.016 = phi i32 [ 0, %17 ], [ 0, %22 ], [ 1, %._crit_edge ], [ 0, %2 ], [ 0, %8 ]
+.sink.split:                                      ; preds = %17, %12, %._crit_edge
+  %.sink = phi ptr [ %4, %._crit_edge ], [ null, %12 ], [ %4, %17 ]
+  %.016.ph = phi i32 [ 1, %._crit_edge ], [ 0, %12 ], [ 0, %17 ]
+  call void @png_destroy_write_struct(ptr noundef nonnull %3, ptr noundef %.sink) #8
+  br label %47
+
+47:                                               ; preds = %.sink.split, %8, %2
+  %.016 = phi i32 [ 0, %2 ], [ 0, %8 ], [ %.016.ph, %.sink.split ]
   ret i32 %.016
 }
 

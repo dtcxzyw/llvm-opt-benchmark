@@ -6920,7 +6920,7 @@ define ptr @Abc_NodeGetPrintName(ptr noundef %0) local_unnamed_addr #0 {
   %.val = load i32, ptr %2, align 4
   %3 = and i32 %.val, 15
   %.not = icmp eq i32 %3, 7
-  br i1 %.not, label %.preheader, label %9
+  br i1 %.not, label %.preheader, label %.critedge
 
 .preheader:                                       ; preds = %1
   %4 = getelementptr i8, ptr %0, i64 44
@@ -6937,45 +6937,37 @@ define ptr @Abc_NodeGetPrintName(ptr noundef %0) local_unnamed_addr #0 {
   %8 = getelementptr i8, ptr %.val21.val, i64 8
   %.val21.val.val = load ptr, ptr %8, align 8
   %wide.trip.count = zext nneg i32 %.val19 to i64
-  br label %11
+  br label %9
 
-9:                                                ; preds = %1
-  %10 = tail call ptr @Abc_ObjName(ptr noundef nonnull %0) #19
-  br label %23
-
-11:                                               ; preds = %.lr.ph, %11
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %11 ]
-  %.026 = phi i32 [ 0, %.lr.ph ], [ %spec.select18, %11 ]
-  %.01424 = phi ptr [ null, %.lr.ph ], [ %spec.select, %11 ]
-  %12 = getelementptr inbounds i32, ptr %.val22, i64 %indvars.iv
-  %13 = load i32, ptr %12, align 4
-  %14 = sext i32 %13 to i64
-  %15 = getelementptr inbounds ptr, ptr %.val21.val.val, i64 %14
-  %16 = load ptr, ptr %15, align 8
-  %17 = getelementptr i8, ptr %16, i64 20
-  %.val20 = load i32, ptr %17, align 4
-  %18 = and i32 %.val20, 15
-  %.not23 = icmp eq i32 %18, 3
-  %spec.select = select i1 %.not23, ptr %16, ptr %.01424
-  %19 = zext i1 %.not23 to i32
-  %spec.select18 = add nuw nsw i32 %.026, %19
+9:                                                ; preds = %.lr.ph, %9
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %9 ]
+  %.026 = phi i32 [ 0, %.lr.ph ], [ %spec.select18, %9 ]
+  %.01424 = phi ptr [ null, %.lr.ph ], [ %spec.select, %9 ]
+  %10 = getelementptr inbounds i32, ptr %.val22, i64 %indvars.iv
+  %11 = load i32, ptr %10, align 4
+  %12 = sext i32 %11 to i64
+  %13 = getelementptr inbounds ptr, ptr %.val21.val.val, i64 %12
+  %14 = load ptr, ptr %13, align 8
+  %15 = getelementptr i8, ptr %14, i64 20
+  %.val20 = load i32, ptr %15, align 4
+  %16 = and i32 %.val20, 15
+  %.not23 = icmp eq i32 %16, 3
+  %spec.select = select i1 %.not23, ptr %14, ptr %.01424
+  %17 = zext i1 %.not23 to i32
+  %spec.select18 = add nuw nsw i32 %.026, %17
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.critedge.loopexit, label %11, !llvm.loop !64
+  br i1 %exitcond.not, label %.critedge.loopexit, label %9, !llvm.loop !64
 
-.critedge.loopexit:                               ; preds = %11
-  %20 = icmp eq i32 %spec.select18, 1
-  %21 = select i1 %20, ptr %spec.select, ptr %0
+.critedge.loopexit:                               ; preds = %9
+  %18 = icmp eq i32 %spec.select18, 1
+  %19 = select i1 %18, ptr %spec.select, ptr %0
   br label %.critedge
 
-.critedge:                                        ; preds = %.critedge.loopexit, %.preheader
-  %.0.lcssa = phi ptr [ %0, %.preheader ], [ %21, %.critedge.loopexit ]
-  %22 = tail call ptr @Abc_ObjName(ptr noundef %.0.lcssa) #19
-  br label %23
-
-23:                                               ; preds = %.critedge, %9
-  %.016 = phi ptr [ %22, %.critedge ], [ %10, %9 ]
-  ret ptr %.016
+.critedge:                                        ; preds = %.preheader, %.critedge.loopexit, %1
+  %.0.lcssa.sink = phi ptr [ %0, %1 ], [ %0, %.preheader ], [ %19, %.critedge.loopexit ]
+  %20 = tail call ptr @Abc_ObjName(ptr noundef %.0.lcssa.sink) #19
+  ret ptr %20
 }
 
 ; Function Attrs: nounwind uwtable
@@ -7026,7 +7018,7 @@ define void @Abc_NtkPrintLevel(ptr nocapture noundef %0, ptr noundef %1, i32 nou
   %25 = getelementptr i8, ptr %17, i64 44
   %.val19.i = load i32, ptr %25, align 4
   %26 = icmp sgt i32 %.val19.i, 0
-  br i1 %26, label %.lr.ph.i, label %.critedge.i
+  br i1 %26, label %.lr.ph.i, label %Abc_NodeGetPrintName.exit
 
 .lr.ph.i:                                         ; preds = %.preheader.i
   %.val21.i = load ptr, ptr %17, align 8
@@ -7062,17 +7054,17 @@ define void @Abc_NtkPrintLevel(ptr nocapture noundef %0, ptr noundef %1, i32 nou
 .critedge.loopexit.i:                             ; preds = %30
   %39 = icmp eq i32 %spec.select18.i, 1
   %40 = select i1 %39, ptr %spec.select.i, ptr %17
-  br label %.critedge.i
+  br label %Abc_NodeGetPrintName.exit
 
-.critedge.i:                                      ; preds = %.critedge.loopexit.i, %.preheader.i
-  %.0.lcssa.i = phi ptr [ %17, %.preheader.i ], [ %40, %.critedge.loopexit.i ]
-  %41 = tail call ptr @Abc_ObjName(ptr noundef %.0.lcssa.i) #19
+Abc_NodeGetPrintName.exit:                        ; preds = %.preheader.i, %.critedge.loopexit.i
+  %.0.lcssa.sink.i = phi ptr [ %17, %.preheader.i ], [ %40, %.critedge.loopexit.i ]
+  %41 = tail call ptr @Abc_ObjName(ptr noundef %.0.lcssa.sink.i) #19
   %42 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.78, ptr noundef %41)
   %.pre = load ptr, ptr %8, align 8
   br label %43
 
-43:                                               ; preds = %19, %.lr.ph, %.critedge.i
-  %44 = phi ptr [ %14, %19 ], [ %14, %.lr.ph ], [ %.pre, %.critedge.i ]
+43:                                               ; preds = %19, %.lr.ph, %Abc_NodeGetPrintName.exit
+  %44 = phi ptr [ %14, %19 ], [ %14, %.lr.ph ], [ %.pre, %Abc_NodeGetPrintName.exit ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %45 = getelementptr i8, ptr %44, i64 4
   %.val = load i32, ptr %45, align 4

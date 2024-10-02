@@ -5056,8 +5056,7 @@ if.end:                                           ; preds = %if.then, %entry
 
 delete.notnull.i:                                 ; preds = %if.end
   call void @_ZN7rocksdb16ColumnFamilyDataD1Ev(ptr noundef nonnull align 8 dereferenceable(2656) %7) #32
-  call void @_ZdlPv(ptr noundef %7) #31
-  br label %_ZN7rocksdb16ColumnFamilyData17UnrefAndTryDeleteEv.exit
+  br label %_ZN7rocksdb16ColumnFamilyData17UnrefAndTryDeleteEv.exit.sink.split
 
 land.lhs.true.i:                                  ; preds = %if.end
   %super_version_.i = getelementptr inbounds i8, ptr %7, i64 2456
@@ -5087,10 +5086,14 @@ _ZNSt10unique_ptrIN7rocksdb14ThreadLocalPtrESt14default_deleteIS1_EE5resetEPS1_.
 if.then8.i:                                       ; preds = %_ZNSt10unique_ptrIN7rocksdb14ThreadLocalPtrESt14default_deleteIS1_EE5resetEPS1_.exit.i
   call void @_ZN7rocksdb12SuperVersion7CleanupEv(ptr noundef nonnull align 8 dereferenceable(752) %9)
   call void @_ZN7rocksdb12SuperVersionD1Ev(ptr noundef nonnull align 8 dereferenceable(752) %9) #32
-  call void @_ZdlPv(ptr noundef nonnull %9) #31
+  br label %_ZN7rocksdb16ColumnFamilyData17UnrefAndTryDeleteEv.exit.sink.split
+
+_ZN7rocksdb16ColumnFamilyData17UnrefAndTryDeleteEv.exit.sink.split: ; preds = %if.then8.i, %delete.notnull.i
+  %.sink = phi ptr [ %7, %delete.notnull.i ], [ %9, %if.then8.i ]
+  call void @_ZdlPv(ptr noundef %.sink) #31
   br label %_ZN7rocksdb16ColumnFamilyData17UnrefAndTryDeleteEv.exit
 
-_ZN7rocksdb16ColumnFamilyData17UnrefAndTryDeleteEv.exit: ; preds = %if.end, %delete.notnull.i, %land.lhs.true.i, %_ZNSt10unique_ptrIN7rocksdb14ThreadLocalPtrESt14default_deleteIS1_EE5resetEPS1_.exit.i, %if.then8.i
+_ZN7rocksdb16ColumnFamilyData17UnrefAndTryDeleteEv.exit: ; preds = %_ZN7rocksdb16ColumnFamilyData17UnrefAndTryDeleteEv.exit.sink.split, %if.end, %land.lhs.true.i, %_ZNSt10unique_ptrIN7rocksdb14ThreadLocalPtrESt14default_deleteIS1_EE5resetEPS1_.exit.i
   ret void
 }
 

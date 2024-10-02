@@ -363,7 +363,6 @@ if.then25:                                        ; preds = %lor.lhs.false, %if.
   tail call void @string_list_clear(ptr noundef %.pre, i32 noundef 0) #10
   %4 = load ptr, ptr %refs, align 8
   tail call void @free(ptr noundef %4) #10
-  tail call void @free(ptr noundef nonnull %call) #10
   br label %return
 
 if.end28:                                         ; preds = %lor.lhs.false
@@ -372,11 +371,12 @@ if.end28:                                         ; preds = %lor.lhs.false
   %5 = load ptr, ptr %refs, align 8
   tail call void @string_list_clear(ptr noundef %5, i32 noundef 0) #10
   %6 = load ptr, ptr %refs, align 8
-  tail call void @free(ptr noundef %6) #10
   br label %return
 
 return:                                           ; preds = %if.end28, %if.then25
+  %.sink = phi ptr [ %6, %if.end28 ], [ %call, %if.then25 ]
   %retval.0 = phi ptr [ %call, %if.end28 ], [ null, %if.then25 ]
+  tail call void @free(ptr noundef %.sink) #10
   ret ptr %retval.0
 }
 

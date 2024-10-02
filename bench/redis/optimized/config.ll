@@ -3580,8 +3580,7 @@ if.then:                                          ; preds = %for.body, %for.body
   %.us-phi30 = phi ptr [ null, %for.body.us ], [ %names.027, %for.body ]
   tail call void @sdsfree(ptr noundef %.us-phi30) #25
   %5 = load ptr, ptr %.us-phi, align 8
-  %call = tail call ptr @sdsnew(ptr noundef %5) #25
-  br label %return
+  br label %return.sink.split
 
 if.end:                                           ; preds = %for.body
   %tobool4.not = icmp ne i32 %4, 0
@@ -3626,11 +3625,15 @@ for.end:                                          ; preds = %for.inc
 if.then20:                                        ; preds = %if.end.us, %entry, %for.end
   %names.0.lcssa43 = phi ptr [ %names.1, %for.end ], [ null, %entry ], [ null, %if.end.us ]
   tail call void @sdsfree(ptr noundef %names.0.lcssa43) #25
-  %call21 = tail call ptr @sdsnew(ptr noundef nonnull @.str.364) #25
+  br label %return.sink.split
+
+return.sink.split:                                ; preds = %if.then, %if.then20
+  %.str.364.sink = phi ptr [ @.str.364, %if.then20 ], [ %5, %if.then ]
+  %call21 = tail call ptr @sdsnew(ptr noundef %.str.364.sink) #25
   br label %return
 
-return:                                           ; preds = %for.end, %if.then20, %if.then
-  %retval.0 = phi ptr [ %call, %if.then ], [ %call21, %if.then20 ], [ %names.1, %for.end ]
+return:                                           ; preds = %return.sink.split, %for.end
+  %retval.0 = phi ptr [ %names.1, %for.end ], [ %call21, %return.sink.split ]
   ret ptr %retval.0
 }
 

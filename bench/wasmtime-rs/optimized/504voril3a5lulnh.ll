@@ -5712,6 +5712,7 @@ define void @"_ZN97_$LT$wasi_common..snapshots..preview_1..types..Iovec$u20$as$u
 define void @"_ZN97_$LT$wasi_common..snapshots..preview_1..types..Iovec$u20$as$u20$wiggle..guest_type..GuestType$GT$5write17h3a27b800de0fb486E"(ptr noalias nocapture noundef writeonly sret({ i32, [15 x i32] }) align 8 dereferenceable(64) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %1, ptr noalias nocapture noundef readonly align 8 dereferenceable(32) %2) unnamed_addr #1 {
   %4 = alloca { i32, [15 x i32] }, align 8
   %5 = alloca { i32, [15 x i32] }, align 8
+  %.sroa.346 = alloca [8 x i32], align 8
   %.sroa.15170 = alloca [8 x i32], align 8
   %.sroa.15 = alloca [8 x i32], align 8
   %6 = load ptr, ptr %1, align 8, !nonnull !5, !align !15, !noundef !5
@@ -5857,7 +5858,7 @@ define void @"_ZN97_$LT$wasi_common..snapshots..preview_1..types..Iovec$u20$as$u
   store ptr %6, ptr %.sroa.3108.0..sroa_idx, align 8
   %.sroa.4109.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
   store ptr %8, ptr %.sroa.4109.0..sroa_idx, align 8
-  br label %44
+  br label %45
 
 42:                                               ; preds = %36
   store atomic i32 %30, ptr %.sroa.020.0.copyload.i145 monotonic, align 4, !noalias !156
@@ -5882,12 +5883,16 @@ define void @"_ZN97_$LT$wasi_common..snapshots..preview_1..types..Iovec$u20$as$u
   store i32 %.sroa.13168.0.ph, ptr %.sroa.2118.sroa.4.0..sroa.2118.0..sroa_idx.sroa_idx, align 8
   %.sroa.2118.sroa.5.0..sroa.2118.0..sroa_idx.sroa_idx = getelementptr inbounds i8, ptr %0, i64 28
   store i32 %.sroa.14169.0.ph, ptr %.sroa.2118.sroa.5.0..sroa.2118.0..sroa_idx.sroa_idx, align 4
-  %.sroa.2118.sroa.6.0..sroa.2118.0..sroa_idx.sroa_idx = getelementptr inbounds i8, ptr %0, i64 32
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.2118.sroa.6.0..sroa.2118.0..sroa_idx.sroa_idx, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.15170, i64 32, i1 false)
-  br label %44
+  br label %45
 
-44:                                               ; preds = %41, %43, %26, %42
+44:                                               ; preds = %26, %45, %42
   ret void
+
+45:                                               ; preds = %43, %41
+  %.sroa.15170.sink = phi ptr [ %.sroa.15170, %43 ], [ %.sroa.346, %41 ]
+  %.sroa.2118.sroa.6.0..sroa.2118.0..sroa_idx.sroa_idx = getelementptr inbounds i8, ptr %0, i64 32
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.2118.sroa.6.0..sroa.2118.0..sroa_idx.sroa_idx, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.15170.sink, i64 32, i1 false)
+  br label %44
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
@@ -6064,6 +6069,7 @@ define void @"_ZN98_$LT$wasi_common..snapshots..preview_1..types..Ciovec$u20$as$
 define void @"_ZN98_$LT$wasi_common..snapshots..preview_1..types..Ciovec$u20$as$u20$wiggle..guest_type..GuestType$GT$5write17hcabf8f2d6b880feaE"(ptr noalias nocapture noundef writeonly sret({ i32, [15 x i32] }) align 8 dereferenceable(64) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %1, ptr noalias nocapture noundef readonly align 8 dereferenceable(32) %2) unnamed_addr #1 {
   %4 = alloca { i32, [15 x i32] }, align 8
   %5 = alloca { i32, [15 x i32] }, align 8
+  %.sroa.346 = alloca [8 x i32], align 8
   %.sroa.15170 = alloca [8 x i32], align 8
   %.sroa.15 = alloca [8 x i32], align 8
   %6 = load ptr, ptr %1, align 8, !nonnull !5, !align !15, !noundef !5
@@ -6209,7 +6215,7 @@ define void @"_ZN98_$LT$wasi_common..snapshots..preview_1..types..Ciovec$u20$as$
   store ptr %6, ptr %.sroa.3108.0..sroa_idx, align 8
   %.sroa.4109.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
   store ptr %8, ptr %.sroa.4109.0..sroa_idx, align 8
-  br label %44
+  br label %45
 
 42:                                               ; preds = %36
   store atomic i32 %30, ptr %.sroa.020.0.copyload.i145 monotonic, align 4, !noalias !172
@@ -6234,12 +6240,16 @@ define void @"_ZN98_$LT$wasi_common..snapshots..preview_1..types..Ciovec$u20$as$
   store i32 %.sroa.13168.0.ph, ptr %.sroa.2118.sroa.4.0..sroa.2118.0..sroa_idx.sroa_idx, align 8
   %.sroa.2118.sroa.5.0..sroa.2118.0..sroa_idx.sroa_idx = getelementptr inbounds i8, ptr %0, i64 28
   store i32 %.sroa.14169.0.ph, ptr %.sroa.2118.sroa.5.0..sroa.2118.0..sroa_idx.sroa_idx, align 4
-  %.sroa.2118.sroa.6.0..sroa.2118.0..sroa_idx.sroa_idx = getelementptr inbounds i8, ptr %0, i64 32
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.2118.sroa.6.0..sroa.2118.0..sroa_idx.sroa_idx, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.15170, i64 32, i1 false)
-  br label %44
+  br label %45
 
-44:                                               ; preds = %41, %43, %26, %42
+44:                                               ; preds = %26, %45, %42
   ret void
+
+45:                                               ; preds = %43, %41
+  %.sroa.15170.sink = phi ptr [ %.sroa.15170, %43 ], [ %.sroa.346, %41 ]
+  %.sroa.2118.sroa.6.0..sroa.2118.0..sroa_idx.sroa_idx = getelementptr inbounds i8, ptr %0, i64 32
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.2118.sroa.6.0..sroa.2118.0..sroa_idx.sroa_idx, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.15170.sink, i64 32, i1 false)
+  br label %44
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -7809,7 +7819,9 @@ define void @"_ZN98_$LT$wasi_common..snapshots..preview_1..types..Dirent$u20$as$
   %.sroa.2231 = alloca [15 x i32], align 4
   %7 = alloca { { ptr, ptr }, i32, [1 x i32] }, align 8
   %8 = alloca { i32, [15 x i32] }, align 8
+  %.sroa.368 = alloca [8 x i32], align 8
   %.sroa.15354 = alloca [8 x i32], align 8
+  %.sroa.339 = alloca [8 x i32], align 8
   %.sroa.15330 = alloca [8 x i32], align 8
   %.sroa.15 = alloca [8 x i32], align 8
   %9 = load ptr, ptr %1, align 8, !nonnull !5, !align !15, !noundef !5
@@ -7954,7 +7966,7 @@ define void @"_ZN98_$LT$wasi_common..snapshots..preview_1..types..Dirent$u20$as$
   store ptr %9, ptr %.sroa.3159.0..sroa_idx, align 8
   %.sroa.4160.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
   store ptr %11, ptr %.sroa.4160.0..sroa_idx, align 8
-  br label %80
+  br label %83
 
 46:                                               ; preds = %40
   store atomic i64 %34, ptr %.sroa.020.0.copyload.i262 monotonic, align 8, !noalias !244
@@ -7980,9 +7992,7 @@ define void @"_ZN98_$LT$wasi_common..snapshots..preview_1..types..Dirent$u20$as$
   store i32 %.sroa.13328.0.ph, ptr %.sroa.2169.sroa.4.0..sroa.2169.0..sroa_idx.sroa_idx, align 8
   %.sroa.2169.sroa.5.0..sroa.2169.0..sroa_idx.sroa_idx = getelementptr inbounds i8, ptr %0, i64 28
   store i32 %.sroa.14329.0.ph, ptr %.sroa.2169.sroa.5.0..sroa.2169.0..sroa_idx.sroa_idx, align 4
-  %.sroa.2169.sroa.6.0..sroa.2169.0..sroa_idx.sroa_idx = getelementptr inbounds i8, ptr %0, i64 32
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.2169.sroa.6.0..sroa.2169.0..sroa_idx.sroa_idx, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.15330, i64 32, i1 false)
-  br label %80
+  br label %83
 
 50:                                               ; preds = %46
   %51 = extractvalue { i32, i1 } %47, 0
@@ -8042,7 +8052,7 @@ define void @"_ZN98_$LT$wasi_common..snapshots..preview_1..types..Dirent$u20$as$
   store ptr %9, ptr %.sroa.3190.0..sroa_idx, align 8
   %.sroa.4191.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
   store ptr %11, ptr %.sroa.4191.0..sroa_idx, align 8
-  br label %80
+  br label %82
 
 65:                                               ; preds = %59
   store atomic i32 %53, ptr %.sroa.020.0.copyload.i296 monotonic, align 4, !noalias !248
@@ -8070,9 +8080,7 @@ define void @"_ZN98_$LT$wasi_common..snapshots..preview_1..types..Dirent$u20$as$
   store i32 %.sroa.13352.0.ph, ptr %.sroa.2200.sroa.4.0..sroa.2200.0..sroa_idx.sroa_idx, align 8
   %.sroa.2200.sroa.5.0..sroa.2200.0..sroa_idx.sroa_idx = getelementptr inbounds i8, ptr %0, i64 28
   store i32 %.sroa.14353.0.ph, ptr %.sroa.2200.sroa.5.0..sroa.2200.0..sroa_idx.sroa_idx, align 4
-  %.sroa.2200.sroa.6.0..sroa.2200.0..sroa_idx.sroa_idx = getelementptr inbounds i8, ptr %0, i64 32
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.2200.sroa.6.0..sroa.2200.0..sroa_idx.sroa_idx, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.15354, i64 32, i1 false)
-  br label %80
+  br label %82
 
 69:                                               ; preds = %65
   %70 = extractvalue { i32, i1 } %66, 0
@@ -8112,11 +8120,23 @@ define void @"_ZN98_$LT$wasi_common..snapshots..preview_1..types..Dirent$u20$as$
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(60) %.sroa.2231.0..sroa_idx, ptr noundef nonnull align 4 dereferenceable(60) %.sroa.2231, i64 60, i1 false)
   br label %81
 
-80:                                               ; preds = %45, %49, %64, %68, %30, %81, %78
+80:                                               ; preds = %30, %83, %82, %81, %78
   ret void
 
 81:                                               ; preds = %79, %77
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7)
+  br label %80
+
+82:                                               ; preds = %68, %64
+  %.sroa.15354.sink = phi ptr [ %.sroa.15354, %68 ], [ %.sroa.368, %64 ]
+  %.sroa.2200.sroa.6.0..sroa.2200.0..sroa_idx.sroa_idx = getelementptr inbounds i8, ptr %0, i64 32
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.2200.sroa.6.0..sroa.2200.0..sroa_idx.sroa_idx, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.15354.sink, i64 32, i1 false)
+  br label %80
+
+83:                                               ; preds = %49, %45
+  %.sroa.15330.sink = phi ptr [ %.sroa.15330, %49 ], [ %.sroa.339, %45 ]
+  %.sroa.2169.sroa.6.0..sroa.2169.0..sroa_idx.sroa_idx = getelementptr inbounds i8, ptr %0, i64 32
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.2169.sroa.6.0..sroa.2169.0..sroa_idx.sroa_idx, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.15330.sink, i64 32, i1 false)
   br label %80
 }
 
@@ -9256,6 +9276,7 @@ define void @"_ZN98_$LT$wasi_common..snapshots..preview_1..types..Fdstat$u20$as$
   %.sroa.2138 = alloca [15 x i32], align 4
   %6 = alloca { { ptr, ptr }, i32, [1 x i32] }, align 8
   %7 = alloca { i32, [15 x i32] }, align 8
+  %.sroa.368 = alloca [8 x i32], align 8
   %.sroa.15314 = alloca [8 x i32], align 8
   %.sroa.15 = alloca [8 x i32], align 8
   %8 = alloca { { ptr, ptr }, i32, [1 x i32] }, align 8
@@ -9443,7 +9464,7 @@ define void @"_ZN98_$LT$wasi_common..snapshots..preview_1..types..Fdstat$u20$as$
   store ptr %10, ptr %.sroa.3190.0..sroa_idx, align 8
   %.sroa.4191.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
   store ptr %12, ptr %.sroa.4191.0..sroa_idx, align 8
-  br label %75
+  br label %77
 
 60:                                               ; preds = %54
   store atomic i64 %48, ptr %.sroa.020.0.copyload.i.i267 monotonic, align 8, !noalias !301
@@ -9471,9 +9492,7 @@ define void @"_ZN98_$LT$wasi_common..snapshots..preview_1..types..Fdstat$u20$as$
   store i32 %.sroa.13312.0.ph, ptr %.sroa.2200.sroa.4.0..sroa.2200.0..sroa_idx.sroa_idx, align 8
   %.sroa.2200.sroa.5.0..sroa.2200.0..sroa_idx.sroa_idx = getelementptr inbounds i8, ptr %0, i64 28
   store i32 %.sroa.14313.0.ph, ptr %.sroa.2200.sroa.5.0..sroa.2200.0..sroa_idx.sroa_idx, align 4
-  %.sroa.2200.sroa.6.0..sroa.2200.0..sroa_idx.sroa_idx = getelementptr inbounds i8, ptr %0, i64 32
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.2200.sroa.6.0..sroa.2200.0..sroa_idx.sroa_idx, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.15314, i64 32, i1 false)
-  br label %75
+  br label %77
 
 64:                                               ; preds = %60
   %65 = extractvalue { i32, i1 } %61, 0
@@ -9513,11 +9532,17 @@ define void @"_ZN98_$LT$wasi_common..snapshots..preview_1..types..Fdstat$u20$as$
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(60) %.sroa.2231.0..sroa_idx, ptr noundef nonnull align 4 dereferenceable(60) %.sroa.2231, i64 60, i1 false)
   br label %76
 
-75:                                               ; preds = %41, %45, %59, %63, %24, %76, %73
+75:                                               ; preds = %41, %45, %24, %77, %76, %73
   ret void
 
 76:                                               ; preds = %74, %72
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6)
+  br label %75
+
+77:                                               ; preds = %63, %59
+  %.sroa.15314.sink = phi ptr [ %.sroa.15314, %63 ], [ %.sroa.368, %59 ]
+  %.sroa.2200.sroa.6.0..sroa.2200.0..sroa_idx.sroa_idx = getelementptr inbounds i8, ptr %0, i64 32
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.2200.sroa.6.0..sroa.2200.0..sroa_idx.sroa_idx, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.15314.sink, i64 32, i1 false)
   br label %75
 }
 
@@ -10873,6 +10898,7 @@ define void @"_ZN100_$LT$wasi_common..snapshots..preview_1..types..Filestat$u20$
   %15 = alloca { i32, [15 x i32] }, align 8
   %16 = alloca { { ptr, ptr }, i32, [1 x i32] }, align 8
   %17 = alloca { i32, [15 x i32] }, align 8
+  %.sroa.339 = alloca [8 x i32], align 8
   %.sroa.15570 = alloca [8 x i32], align 8
   %.sroa.15 = alloca [8 x i32], align 8
   %18 = load ptr, ptr %1, align 8, !nonnull !5, !align !15, !noundef !5
@@ -11017,7 +11043,7 @@ define void @"_ZN100_$LT$wasi_common..snapshots..preview_1..types..Filestat$u20$
   store ptr %18, ptr %.sroa.3275.0..sroa_idx, align 8
   %.sroa.4276.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
   store ptr %20, ptr %.sroa.4276.0..sroa_idx, align 8
-  br label %135
+  br label %142
 
 55:                                               ; preds = %49
   store atomic i64 %43, ptr %.sroa.020.0.copyload.i510 monotonic, align 8, !noalias !359
@@ -11045,9 +11071,7 @@ define void @"_ZN100_$LT$wasi_common..snapshots..preview_1..types..Filestat$u20$
   store i32 %.sroa.13568.0.ph, ptr %.sroa.2285.sroa.4.0..sroa.2285.0..sroa_idx.sroa_idx, align 8
   %.sroa.2285.sroa.5.0..sroa.2285.0..sroa_idx.sroa_idx = getelementptr inbounds i8, ptr %0, i64 28
   store i32 %.sroa.14569.0.ph, ptr %.sroa.2285.sroa.5.0..sroa.2285.0..sroa_idx.sroa_idx, align 4
-  %.sroa.2285.sroa.6.0..sroa.2285.0..sroa_idx.sroa_idx = getelementptr inbounds i8, ptr %0, i64 32
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.2285.sroa.6.0..sroa.2285.0..sroa_idx.sroa_idx, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.15570, i64 32, i1 false)
-  br label %135
+  br label %142
 
 59:                                               ; preds = %55
   %60 = extractvalue { i32, i1 } %56, 0
@@ -11292,7 +11316,7 @@ define void @"_ZN100_$LT$wasi_common..snapshots..preview_1..types..Filestat$u20$
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(60) %.sroa.2471.0..sroa_idx, ptr noundef nonnull align 4 dereferenceable(60) %.sroa.2471, i64 60, i1 false)
   br label %136
 
-135:                                              ; preds = %54, %58, %39, %141, %140, %139, %138, %137, %136, %133
+135:                                              ; preds = %39, %142, %141, %140, %139, %138, %137, %136, %133
   ret void
 
 136:                                              ; preds = %134, %132
@@ -11317,6 +11341,12 @@ define void @"_ZN100_$LT$wasi_common..snapshots..preview_1..types..Filestat$u20$
 
 141:                                              ; preds = %71, %67
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %16)
+  br label %135
+
+142:                                              ; preds = %58, %54
+  %.sroa.15570.sink = phi ptr [ %.sroa.15570, %58 ], [ %.sroa.339, %54 ]
+  %.sroa.2285.sroa.6.0..sroa.2285.0..sroa_idx.sroa_idx = getelementptr inbounds i8, ptr %0, i64 32
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.2285.sroa.6.0..sroa.2285.0..sroa_idx.sroa_idx, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.15570.sink, i64 32, i1 false)
   br label %135
 }
 
@@ -12109,6 +12139,7 @@ define void @"_ZN108_$LT$wasi_common..snapshots..preview_1..types..EventFdReadwr
 define void @"_ZN108_$LT$wasi_common..snapshots..preview_1..types..EventFdReadwrite$u20$as$u20$wiggle..guest_type..GuestType$GT$5write17hd3e753effd323a4dE"(ptr noalias nocapture noundef writeonly sret({ i32, [15 x i32] }) align 8 dereferenceable(64) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %1, i64 noundef %2, i16 noundef %3) unnamed_addr #1 {
   %5 = alloca { i32, [15 x i32] }, align 8
   %6 = alloca { i32, [15 x i32] }, align 8
+  %.sroa.339 = alloca [8 x i32], align 8
   %.sroa.15139 = alloca [8 x i32], align 8
   %.sroa.15 = alloca [8 x i32], align 8
   %7 = load ptr, ptr %1, align 8, !nonnull !5, !align !15, !noundef !5
@@ -12250,7 +12281,7 @@ define void @"_ZN108_$LT$wasi_common..snapshots..preview_1..types..EventFdReadwr
   store ptr %7, ptr %.sroa.3101.0..sroa_idx, align 8
   %.sroa.4102.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
   store ptr %9, ptr %.sroa.4102.0..sroa_idx, align 8
-  br label %43
+  br label %44
 
 41:                                               ; preds = %35
   store atomic i16 %3, ptr %.sroa.020.0.copyload.i.i monotonic, align 2, !noalias !400
@@ -12275,12 +12306,16 @@ define void @"_ZN108_$LT$wasi_common..snapshots..preview_1..types..EventFdReadwr
   store i32 %.sroa.13137.0.ph, ptr %.sroa.2111.sroa.4.0..sroa.2111.0..sroa_idx.sroa_idx, align 8
   %.sroa.2111.sroa.5.0..sroa.2111.0..sroa_idx.sroa_idx = getelementptr inbounds i8, ptr %0, i64 28
   store i32 %.sroa.14138.0.ph, ptr %.sroa.2111.sroa.5.0..sroa.2111.0..sroa_idx.sroa_idx, align 4
-  %.sroa.2111.sroa.6.0..sroa.2111.0..sroa_idx.sroa_idx = getelementptr inbounds i8, ptr %0, i64 32
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.2111.sroa.6.0..sroa.2111.0..sroa_idx.sroa_idx, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.15139, i64 32, i1 false)
-  br label %43
+  br label %44
 
-43:                                               ; preds = %40, %42, %27, %41
+43:                                               ; preds = %27, %44, %41
   ret void
+
+44:                                               ; preds = %42, %40
+  %.sroa.15139.sink = phi ptr [ %.sroa.15139, %42 ], [ %.sroa.339, %40 ]
+  %.sroa.2111.sroa.6.0..sroa.2111.0..sroa_idx.sroa_idx = getelementptr inbounds i8, ptr %0, i64 32
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.2111.sroa.6.0..sroa.2111.0..sroa_idx.sroa_idx, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.15139.sink, i64 32, i1 false)
+  br label %43
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
@@ -12312,6 +12347,7 @@ define void @"_ZN97_$LT$wasi_common..snapshots..preview_1..types..Event$u20$as$u
   %.sroa.3212 = alloca [59 x i8], align 1
   %5 = alloca { { ptr, ptr }, i32, [1 x i32] }, align 8
   %6 = alloca { i32, [15 x i32] }, align 8
+  %.sroa.383 = alloca [8 x i32], align 8
   %7 = alloca { { ptr, ptr }, i32, [1 x i32] }, align 8
   %8 = alloca { i32, [15 x i32] }, align 8
   %.sroa.19 = alloca [8 x i32], align 8
@@ -12421,7 +12457,7 @@ define void @"_ZN97_$LT$wasi_common..snapshots..preview_1..types..Event$u20$as$u
   %.sroa.4200.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
   store ptr %11, ptr %.sroa.4200.0..sroa_idx, align 8
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %8)
-  br label %80
+  br label %81
 
 40:                                               ; preds = %31
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %8)
@@ -12439,7 +12475,7 @@ define void @"_ZN97_$LT$wasi_common..snapshots..preview_1..types..Event$u20$as$u
   store i8 %38, ptr %.sroa.2211.0..sroa_idx, align 4
   %.sroa.3212.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 5
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(59) %.sroa.3212.0..sroa_idx, ptr noundef nonnull align 1 dereferenceable(59) %.sroa.3212, i64 59, i1 false)
-  br label %80
+  br label %81
 
 44:                                               ; preds = %40
   %45 = extractvalue { i32, i1 } %41, 0
@@ -12514,7 +12550,7 @@ define void @"_ZN97_$LT$wasi_common..snapshots..preview_1..types..Event$u20$as$u
   store ptr %9, ptr %.sroa.3233.0..sroa_idx, align 8
   %.sroa.4234.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
   store ptr %11, ptr %.sroa.4234.0..sroa_idx, align 8
-  br label %78
+  br label %80
 
 60:                                               ; preds = %56
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %6)
@@ -12544,9 +12580,7 @@ define void @"_ZN97_$LT$wasi_common..snapshots..preview_1..types..Event$u20$as$u
   store i32 %.sroa.21.0, ptr %.sroa.3246.sroa.4.0..sroa.3246.0..sroa_idx.sroa_idx, align 8
   %.sroa.3246.sroa.5.0..sroa.3246.0..sroa_idx.sroa_idx = getelementptr inbounds i8, ptr %0, i64 28
   store i32 %.sroa.22.0, ptr %.sroa.3246.sroa.5.0..sroa.3246.0..sroa_idx.sroa_idx, align 4
-  %.sroa.3246.sroa.6.0..sroa.3246.0..sroa_idx.sroa_idx = getelementptr inbounds i8, ptr %0, i64 32
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.3246.sroa.6.0..sroa.3246.0..sroa_idx.sroa_idx, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.17.i, i64 32, i1 false)
-  br label %78
+  br label %80
 
 64:                                               ; preds = %60
   %65 = extractvalue { i32, i1 } %61, 0
@@ -12610,14 +12644,20 @@ define void @"_ZN97_$LT$wasi_common..snapshots..preview_1..types..Event$u20$as$u
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(46) %.sroa.5286.0..sroa_idx, ptr noundef nonnull align 2 dereferenceable(46) %.sroa.5286, i64 46, i1 false)
   br label %79
 
-78:                                               ; preds = %59, %63, %30, %80, %79, %71
+78:                                               ; preds = %30, %81, %80, %79, %71
   ret void
 
 79:                                               ; preds = %77, %70
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5)
   br label %78
 
-80:                                               ; preds = %43, %39
+80:                                               ; preds = %63, %59
+  %.sroa.17.i.sink = phi ptr [ %.sroa.17.i, %63 ], [ %.sroa.383, %59 ]
+  %.sroa.3246.sroa.6.0..sroa.3246.0..sroa_idx.sroa_idx = getelementptr inbounds i8, ptr %0, i64 32
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.3246.sroa.6.0..sroa.3246.0..sroa_idx.sroa_idx, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.17.i.sink, i64 32, i1 false)
+  br label %78
+
+81:                                               ; preds = %43, %39
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7)
   br label %78
 }
@@ -13487,6 +13527,7 @@ define void @"_ZN109_$LT$wasi_common..snapshots..preview_1..types..SubscriptionC
   %.sroa.2138 = alloca [15 x i32], align 4
   %6 = alloca { { ptr, ptr }, i32, [1 x i32] }, align 8
   %7 = alloca { i32, [15 x i32] }, align 8
+  %.sroa.368 = alloca [8 x i32], align 8
   %.sroa.15315 = alloca [8 x i32], align 8
   %.sroa.15 = alloca [8 x i32], align 8
   %8 = alloca { { ptr, ptr }, i32, [1 x i32] }, align 8
@@ -13674,7 +13715,7 @@ define void @"_ZN109_$LT$wasi_common..snapshots..preview_1..types..SubscriptionC
   store ptr %10, ptr %.sroa.3190.0..sroa_idx, align 8
   %.sroa.4191.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
   store ptr %12, ptr %.sroa.4191.0..sroa_idx, align 8
-  br label %75
+  br label %77
 
 60:                                               ; preds = %54
   store atomic i64 %48, ptr %.sroa.020.0.copyload.i267 monotonic, align 8, !noalias !455
@@ -13702,9 +13743,7 @@ define void @"_ZN109_$LT$wasi_common..snapshots..preview_1..types..SubscriptionC
   store i32 %.sroa.13313.0.ph, ptr %.sroa.2200.sroa.4.0..sroa.2200.0..sroa_idx.sroa_idx, align 8
   %.sroa.2200.sroa.5.0..sroa.2200.0..sroa_idx.sroa_idx = getelementptr inbounds i8, ptr %0, i64 28
   store i32 %.sroa.14314.0.ph, ptr %.sroa.2200.sroa.5.0..sroa.2200.0..sroa_idx.sroa_idx, align 4
-  %.sroa.2200.sroa.6.0..sroa.2200.0..sroa_idx.sroa_idx = getelementptr inbounds i8, ptr %0, i64 32
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.2200.sroa.6.0..sroa.2200.0..sroa_idx.sroa_idx, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.15315, i64 32, i1 false)
-  br label %75
+  br label %77
 
 64:                                               ; preds = %60
   %65 = extractvalue { i32, i1 } %61, 0
@@ -13744,11 +13783,17 @@ define void @"_ZN109_$LT$wasi_common..snapshots..preview_1..types..SubscriptionC
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(60) %.sroa.2231.0..sroa_idx, ptr noundef nonnull align 4 dereferenceable(60) %.sroa.2231, i64 60, i1 false)
   br label %76
 
-75:                                               ; preds = %40, %44, %59, %63, %24, %76, %73
+75:                                               ; preds = %40, %44, %24, %77, %76, %73
   ret void
 
 76:                                               ; preds = %74, %72
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6)
+  br label %75
+
+77:                                               ; preds = %63, %59
+  %.sroa.15315.sink = phi ptr [ %.sroa.15315, %63 ], [ %.sroa.368, %59 ]
+  %.sroa.2200.sroa.6.0..sroa.2200.0..sroa_idx.sroa_idx = getelementptr inbounds i8, ptr %0, i64 32
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.2200.sroa.6.0..sroa.2200.0..sroa_idx.sroa_idx, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.15315.sink, i64 32, i1 false)
   br label %75
 }
 

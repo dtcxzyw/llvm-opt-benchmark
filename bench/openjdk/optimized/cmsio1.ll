@@ -1164,62 +1164,57 @@ define hidden ptr @_cmsReadProfileSequence(ptr noundef %0) local_unnamed_addr #0
   br i1 %or.cond, label %.loopexit, label %6
 
 6:                                                ; preds = %1
-  br i1 %4, label %7, label %9
+  %brmerge = select i1 %4, i1 true, i1 %5
+  br i1 %brmerge, label %.loopexit.sink.split, label %7
 
 7:                                                ; preds = %6
-  %8 = tail call ptr @cmsDupProfileSequenceDescription(ptr noundef %3) #4
-  br label %.loopexit
+  %8 = load i32, ptr %2, align 8
+  %9 = load i32, ptr %3, align 8
+  %.not = icmp eq i32 %8, %9
+  %10 = tail call ptr @cmsDupProfileSequenceDescription(ptr noundef nonnull %2) #4
+  br i1 %.not, label %11, label %.loopexit
 
-9:                                                ; preds = %6
-  br i1 %5, label %10, label %12
-
-10:                                               ; preds = %9
-  %11 = tail call ptr @cmsDupProfileSequenceDescription(ptr noundef nonnull %2) #4
-  br label %.loopexit
-
-12:                                               ; preds = %9
-  %13 = load i32, ptr %2, align 8
-  %14 = load i32, ptr %3, align 8
-  %.not = icmp eq i32 %13, %14
-  %15 = tail call ptr @cmsDupProfileSequenceDescription(ptr noundef nonnull %2) #4
-  br i1 %.not, label %16, label %.loopexit
-
-16:                                               ; preds = %12
-  %.not30 = icmp eq ptr %15, null
+11:                                               ; preds = %7
+  %.not30 = icmp eq ptr %10, null
   br i1 %.not30, label %.loopexit, label %.preheader
 
-.preheader:                                       ; preds = %16
-  %17 = load i32, ptr %2, align 8
-  %.not32 = icmp eq i32 %17, 0
+.preheader:                                       ; preds = %11
+  %12 = load i32, ptr %2, align 8
+  %.not32 = icmp eq i32 %12, 0
   br i1 %.not32, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader
-  %18 = getelementptr inbounds i8, ptr %15, i64 16
-  %19 = getelementptr inbounds i8, ptr %3, i64 16
-  br label %20
+  %13 = getelementptr inbounds i8, ptr %10, i64 16
+  %14 = getelementptr inbounds i8, ptr %3, i64 16
+  br label %15
 
-20:                                               ; preds = %.lr.ph, %20
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %20 ]
-  %21 = load ptr, ptr %18, align 8
-  %22 = getelementptr inbounds %struct.cmsPSEQDESC, ptr %21, i64 %indvars.iv, i32 4
-  %23 = load ptr, ptr %19, align 8
-  %24 = getelementptr inbounds %struct.cmsPSEQDESC, ptr %23, i64 %indvars.iv, i32 4
-  tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %22, ptr noundef nonnull align 4 dereferenceable(16) %24, i64 16, i1 false)
-  %25 = load ptr, ptr %19, align 8
-  %26 = getelementptr inbounds %struct.cmsPSEQDESC, ptr %25, i64 %indvars.iv, i32 7
-  %27 = load ptr, ptr %26, align 8
-  %28 = tail call ptr @cmsMLUdup(ptr noundef %27) #4
-  %29 = load ptr, ptr %18, align 8
-  %30 = getelementptr inbounds %struct.cmsPSEQDESC, ptr %29, i64 %indvars.iv, i32 7
-  store ptr %28, ptr %30, align 8
+15:                                               ; preds = %.lr.ph, %15
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %15 ]
+  %16 = load ptr, ptr %13, align 8
+  %17 = getelementptr inbounds %struct.cmsPSEQDESC, ptr %16, i64 %indvars.iv, i32 4
+  %18 = load ptr, ptr %14, align 8
+  %19 = getelementptr inbounds %struct.cmsPSEQDESC, ptr %18, i64 %indvars.iv, i32 4
+  tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %17, ptr noundef nonnull align 4 dereferenceable(16) %19, i64 16, i1 false)
+  %20 = load ptr, ptr %14, align 8
+  %21 = getelementptr inbounds %struct.cmsPSEQDESC, ptr %20, i64 %indvars.iv, i32 7
+  %22 = load ptr, ptr %21, align 8
+  %23 = tail call ptr @cmsMLUdup(ptr noundef %22) #4
+  %24 = load ptr, ptr %13, align 8
+  %25 = getelementptr inbounds %struct.cmsPSEQDESC, ptr %24, i64 %indvars.iv, i32 7
+  store ptr %23, ptr %25, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %31 = load i32, ptr %2, align 8
-  %32 = zext i32 %31 to i64
-  %33 = icmp ult i64 %indvars.iv.next, %32
-  br i1 %33, label %20, label %.loopexit, !llvm.loop !12
+  %26 = load i32, ptr %2, align 8
+  %27 = zext i32 %26 to i64
+  %28 = icmp ult i64 %indvars.iv.next, %27
+  br i1 %28, label %15, label %.loopexit, !llvm.loop !12
 
-.loopexit:                                        ; preds = %20, %12, %.preheader, %16, %1, %10, %7
-  %.026 = phi ptr [ %8, %7 ], [ %11, %10 ], [ null, %1 ], [ null, %16 ], [ %15, %.preheader ], [ %15, %12 ], [ %15, %20 ]
+.loopexit.sink.split:                             ; preds = %6
+  %.mux = select i1 %4, ptr %3, ptr %2
+  %29 = tail call ptr @cmsDupProfileSequenceDescription(ptr noundef %.mux) #4
+  br label %.loopexit
+
+.loopexit:                                        ; preds = %15, %.loopexit.sink.split, %7, %.preheader, %11, %1
+  %.026 = phi ptr [ null, %1 ], [ null, %11 ], [ %10, %.preheader ], [ %10, %7 ], [ %29, %.loopexit.sink.split ], [ %10, %15 ]
   ret ptr %.026
 }
 

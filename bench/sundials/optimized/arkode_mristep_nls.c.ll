@@ -517,7 +517,7 @@ define range(i32 -29, 1) i32 @mriStep_NlsInit(ptr noundef %0) local_unnamed_addr
 
 5:                                                ; preds = %1
   tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @arkProcessError(ptr noundef nonnull %0, i32 noundef -21, i32 noundef 205, ptr noundef nonnull @__func__.mriStep_NlsInit, ptr noundef nonnull @.str, ptr noundef nonnull @.str.8) #4
-  br label %34
+  br label %26
 
 6:                                                ; preds = %1
   %7 = getelementptr inbounds i8, ptr %3, i64 392
@@ -527,63 +527,43 @@ define range(i32 -29, 1) i32 @mriStep_NlsInit(ptr noundef %0) local_unnamed_addr
   %.not = icmp eq ptr %9, null
   %10 = getelementptr inbounds i8, ptr %3, i64 152
   %11 = load ptr, ptr %10, align 8
-  br i1 %.not, label %14, label %12
+  %.mriStep_NlsLSetup = select i1 %.not, ptr null, ptr @mriStep_NlsLSetup
+  %12 = tail call i32 @SUNNonlinSolSetLSetupFn(ptr noundef %11, ptr noundef %.mriStep_NlsLSetup) #4
+  %.not20 = icmp eq i32 %12, 0
+  br i1 %.not20, label %14, label %13
 
-12:                                               ; preds = %6
-  %13 = tail call i32 @SUNNonlinSolSetLSetupFn(ptr noundef %11, ptr noundef nonnull @mriStep_NlsLSetup) #4
-  br label %16
+13:                                               ; preds = %6
+  tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @arkProcessError(ptr noundef nonnull %0, i32 noundef -22, i32 noundef 223, ptr noundef nonnull @__func__.mriStep_NlsInit, ptr noundef nonnull @.str, ptr noundef nonnull @.str.9) #4
+  br label %26
 
 14:                                               ; preds = %6
-  %15 = tail call i32 @SUNNonlinSolSetLSetupFn(ptr noundef %11, ptr noundef null) #4
-  br label %16
+  %15 = getelementptr inbounds i8, ptr %3, i64 320
+  %16 = load ptr, ptr %15, align 8
+  %.not21 = icmp eq ptr %16, null
+  %17 = getelementptr inbounds i8, ptr %3, i64 152
+  %18 = load ptr, ptr %17, align 8
+  %.mriStep_NlsLSolve = select i1 %.not21, ptr null, ptr @mriStep_NlsLSolve
+  %19 = tail call i32 @SUNNonlinSolSetLSolveFn(ptr noundef %18, ptr noundef %.mriStep_NlsLSolve) #4
+  %.not22 = icmp eq i32 %19, 0
+  br i1 %.not22, label %21, label %20
 
-16:                                               ; preds = %14, %12
-  %.0 = phi i32 [ %13, %12 ], [ %15, %14 ]
-  %.not20 = icmp eq i32 %.0, 0
-  br i1 %.not20, label %18, label %17
-
-17:                                               ; preds = %16
-  tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @arkProcessError(ptr noundef nonnull %0, i32 noundef -22, i32 noundef 223, ptr noundef nonnull @__func__.mriStep_NlsInit, ptr noundef nonnull @.str, ptr noundef nonnull @.str.9) #4
-  br label %34
-
-18:                                               ; preds = %16
-  %19 = getelementptr inbounds i8, ptr %3, i64 320
-  %20 = load ptr, ptr %19, align 8
-  %.not21 = icmp eq ptr %20, null
-  %21 = getelementptr inbounds i8, ptr %3, i64 152
-  %22 = load ptr, ptr %21, align 8
-  br i1 %.not21, label %25, label %23
-
-23:                                               ; preds = %18
-  %24 = tail call i32 @SUNNonlinSolSetLSolveFn(ptr noundef %22, ptr noundef nonnull @mriStep_NlsLSolve) #4
-  br label %27
-
-25:                                               ; preds = %18
-  %26 = tail call i32 @SUNNonlinSolSetLSolveFn(ptr noundef %22, ptr noundef null) #4
-  br label %27
-
-27:                                               ; preds = %25, %23
-  %.1 = phi i32 [ %24, %23 ], [ %26, %25 ]
-  %.not22 = icmp eq i32 %.1, 0
-  br i1 %.not22, label %29, label %28
-
-28:                                               ; preds = %27
+20:                                               ; preds = %14
   tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @arkProcessError(ptr noundef nonnull %0, i32 noundef -22, i32 noundef 236, ptr noundef nonnull @__func__.mriStep_NlsInit, ptr noundef nonnull @.str, ptr noundef nonnull @.str.10) #4
-  br label %34
+  br label %26
 
-29:                                               ; preds = %27
-  %30 = getelementptr inbounds i8, ptr %3, i64 152
-  %31 = load ptr, ptr %30, align 8
-  %32 = tail call i32 @SUNNonlinSolInitialize(ptr noundef %31) #4
-  %.not23 = icmp eq i32 %32, 0
-  br i1 %.not23, label %34, label %33
+21:                                               ; preds = %14
+  %22 = getelementptr inbounds i8, ptr %3, i64 152
+  %23 = load ptr, ptr %22, align 8
+  %24 = tail call i32 @SUNNonlinSolInitialize(ptr noundef %23) #4
+  %.not23 = icmp eq i32 %24, 0
+  br i1 %.not23, label %26, label %25
 
-33:                                               ; preds = %29
+25:                                               ; preds = %21
   tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @arkProcessError(ptr noundef nonnull %0, i32 noundef -22, i32 noundef 245, ptr noundef nonnull @__func__.mriStep_NlsInit, ptr noundef nonnull @.str, ptr noundef nonnull @.str.11) #4
-  br label %34
+  br label %26
 
-34:                                               ; preds = %29, %33, %28, %17, %5
-  %.018 = phi i32 [ -21, %5 ], [ -29, %17 ], [ -29, %28 ], [ -29, %33 ], [ 0, %29 ]
+26:                                               ; preds = %21, %25, %20, %13, %5
+  %.018 = phi i32 [ -21, %5 ], [ -29, %13 ], [ -29, %20 ], [ -29, %25 ], [ 0, %21 ]
   ret i32 %.018
 }
 

@@ -612,24 +612,24 @@ define dso_local void @_ZN4llvm23getInstrProfSectionNameB5cxx11ENS_17InstrProfSe
 .thread13:                                        ; preds = %10
   %13 = getelementptr inbounds [13 x ptr], ptr @_ZN12_GLOBAL__N_121InstrProfSectNameCoffE, i64 0, i64 %12
   %14 = load ptr, ptr %13, align 8
-  %15 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %14) #28
-  br label %22
+  br label %.sink.split
 
 ._crit_edge:                                      ; preds = %10, %.thread
   %.pre-phi = phi i64 [ %6, %.thread ], [ %12, %10 ]
-  %16 = getelementptr inbounds [13 x ptr], ptr @_ZN12_GLOBAL__N_123InstrProfSectNameCommonE, i64 0, i64 %.pre-phi
-  %17 = load ptr, ptr %16, align 8
-  %18 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %17) #28
-  %19 = icmp eq i32 %1, 0
-  %or.cond = and i1 %19, %5
+  %15 = getelementptr inbounds [13 x ptr], ptr @_ZN12_GLOBAL__N_123InstrProfSectNameCommonE, i64 0, i64 %.pre-phi
+  %16 = load ptr, ptr %15, align 8
+  %17 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %16) #28
+  %18 = icmp eq i32 %1, 0
+  %or.cond = and i1 %18, %5
   %brmerge12.demorgan = and i1 %3, %or.cond
-  br i1 %brmerge12.demorgan, label %20, label %22
+  br i1 %brmerge12.demorgan, label %.sink.split, label %20
 
-20:                                               ; preds = %._crit_edge
-  %21 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull @.str.14) #28
-  br label %22
+.sink.split:                                      ; preds = %._crit_edge, %.thread13
+  %.sink = phi ptr [ %14, %.thread13 ], [ @.str.14, %._crit_edge ]
+  %19 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %.sink) #28
+  br label %20
 
-22:                                               ; preds = %.thread13, %20, %._crit_edge
+20:                                               ; preds = %.sink.split, %._crit_edge
   ret void
 }
 
@@ -11092,21 +11092,22 @@ define internal fastcc void @"_ZZN4llvm12OverlapStats16accumulateCountsERKNSt7__
   br label %_ZNSt8functionIFvN4llvm5ErrorEEED2Ev.exit
 
 _ZNSt8functionIFvN4llvm5ErrorEEED2Ev.exit:        ; preds = %3, %13
+  call void @llvm.experimental.noalias.scope.decl(metadata !212)
   %15 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %16 = load i8, ptr %15, align 8
+  %16 = load i8, ptr %15, align 8, !noalias !212
   %17 = trunc i8 %16 to i1
   %18 = load i64, ptr %5, align 8
   %19 = inttoptr i64 %18 to ptr
-  store ptr null, ptr %5, align 8
-  br i1 %17, label %_ZN4llvm8ExpectedISt10unique_ptrINS_15InstrProfReaderESt14default_deleteIS2_EEE9takeErrorEv.exit, label %_ZNSt10unique_ptrIN4llvm15InstrProfReaderESt14default_deleteIS1_EED2Ev.exit
+  br i1 %17, label %_ZN4llvm8ExpectedISt10unique_ptrINS_15InstrProfReaderESt14default_deleteIS2_EEE9takeErrorEv.exit, label %.critedge
 
 _ZN4llvm8ExpectedISt10unique_ptrINS_15InstrProfReaderESt14default_deleteIS2_EEE9takeErrorEv.exit: ; preds = %_ZNSt8functionIFvN4llvm5ErrorEEED2Ev.exit
   store ptr %19, ptr %0, align 8, !alias.scope !212
   %.not = icmp ne i64 %18, 0
   call void @llvm.assume(i1 %.not)
-  br label %.critedge
+  br label %_ZN4llvm8ExpectedISt10unique_ptrINS_15InstrProfReaderESt14default_deleteIS2_EEED2Ev.exit
 
-_ZNSt10unique_ptrIN4llvm15InstrProfReaderESt14default_deleteIS1_EED2Ev.exit: ; preds = %_ZNSt8functionIFvN4llvm5ErrorEEED2Ev.exit
+.critedge:                                        ; preds = %_ZNSt8functionIFvN4llvm5ErrorEEED2Ev.exit
+  store ptr null, ptr %5, align 8
   %20 = trunc i8 %.0.val to i1
   call void @_ZN4llvm15InstrProfReader16accumulateCountsERNS_17CountSumOrPercentEb(ptr noundef nonnull align 8 dereferenceable(112) %19, ptr noundef nonnull align 8 dereferenceable(40) %2, i1 noundef zeroext %20) #28
   store ptr null, ptr %0, align 8
@@ -11115,56 +11116,36 @@ _ZNSt10unique_ptrIN4llvm15InstrProfReaderESt14default_deleteIS1_EED2Ev.exit: ; p
   %23 = load ptr, ptr %22, align 8
   call void %23(ptr noundef nonnull align 8 dereferenceable(112) %19) #28
   %.pr = load ptr, ptr %5, align 8
-  %.pre6 = load i8, ptr %15, align 8
-  br label %.critedge
+  %.not.i1.i = icmp eq ptr %.pr, null
+  br i1 %.not.i1.i, label %_ZN4llvm8ExpectedISt10unique_ptrINS_15InstrProfReaderESt14default_deleteIS2_EEED2Ev.exit, label %_ZNSt10unique_ptrIN4llvm15InstrProfReaderESt14default_deleteIS1_EED2Ev.exit.sink.split.i
 
-.critedge:                                        ; preds = %_ZN4llvm8ExpectedISt10unique_ptrINS_15InstrProfReaderESt14default_deleteIS2_EEE9takeErrorEv.exit, %_ZNSt10unique_ptrIN4llvm15InstrProfReaderESt14default_deleteIS1_EED2Ev.exit
-  %24 = phi i8 [ %16, %_ZN4llvm8ExpectedISt10unique_ptrINS_15InstrProfReaderESt14default_deleteIS2_EEE9takeErrorEv.exit ], [ %.pre6, %_ZNSt10unique_ptrIN4llvm15InstrProfReaderESt14default_deleteIS1_EED2Ev.exit ]
-  %25 = phi ptr [ null, %_ZN4llvm8ExpectedISt10unique_ptrINS_15InstrProfReaderESt14default_deleteIS2_EEE9takeErrorEv.exit ], [ %.pr, %_ZNSt10unique_ptrIN4llvm15InstrProfReaderESt14default_deleteIS1_EED2Ev.exit ]
-  %26 = trunc i8 %24 to i1
-  %.not.i1.i = icmp eq ptr %25, null
-  br i1 %26, label %31, label %27
-
-27:                                               ; preds = %.critedge
-  br i1 %.not.i1.i, label %_ZN4llvm8ExpectedISt10unique_ptrINS_15InstrProfReaderESt14default_deleteIS2_EEED2Ev.exit, label %_ZNKSt14default_deleteIN4llvm15InstrProfReaderEEclEPS1_.exit.i.i
-
-_ZNKSt14default_deleteIN4llvm15InstrProfReaderEEclEPS1_.exit.i.i: ; preds = %27
-  %28 = load ptr, ptr %25, align 8
-  %29 = getelementptr inbounds i8, ptr %28, i64 8
-  %30 = load ptr, ptr %29, align 8
-  call void %30(ptr noundef nonnull align 8 dereferenceable(112) %25) #28
+_ZNSt10unique_ptrIN4llvm15InstrProfReaderESt14default_deleteIS1_EED2Ev.exit.sink.split.i: ; preds = %.critedge
+  %24 = load ptr, ptr %.pr, align 8
+  %25 = getelementptr inbounds i8, ptr %24, i64 8
+  %26 = load ptr, ptr %25, align 8
+  call void %26(ptr noundef nonnull align 8 dereferenceable(8) %.pr) #28
   br label %_ZN4llvm8ExpectedISt10unique_ptrINS_15InstrProfReaderESt14default_deleteIS2_EEED2Ev.exit
 
-31:                                               ; preds = %.critedge
-  br i1 %.not.i1.i, label %_ZN4llvm8ExpectedISt10unique_ptrINS_15InstrProfReaderESt14default_deleteIS2_EEED2Ev.exit, label %_ZNKSt14default_deleteIN4llvm13ErrorInfoBaseEEclEPS1_.exit.i.i
-
-_ZNKSt14default_deleteIN4llvm13ErrorInfoBaseEEclEPS1_.exit.i.i: ; preds = %31
-  %32 = load ptr, ptr %25, align 8
-  %33 = getelementptr inbounds i8, ptr %32, i64 8
-  %34 = load ptr, ptr %33, align 8
-  call void %34(ptr noundef nonnull align 8 dereferenceable(8) %25) #28
-  br label %_ZN4llvm8ExpectedISt10unique_ptrINS_15InstrProfReaderESt14default_deleteIS2_EEED2Ev.exit
-
-_ZN4llvm8ExpectedISt10unique_ptrINS_15InstrProfReaderESt14default_deleteIS2_EEED2Ev.exit: ; preds = %27, %_ZNKSt14default_deleteIN4llvm15InstrProfReaderEEclEPS1_.exit.i.i, %31, %_ZNKSt14default_deleteIN4llvm13ErrorInfoBaseEEclEPS1_.exit.i.i
+_ZN4llvm8ExpectedISt10unique_ptrINS_15InstrProfReaderESt14default_deleteIS2_EEED2Ev.exit: ; preds = %_ZN4llvm8ExpectedISt10unique_ptrINS_15InstrProfReaderESt14default_deleteIS2_EEE9takeErrorEv.exit, %.critedge, %_ZNSt10unique_ptrIN4llvm15InstrProfReaderESt14default_deleteIS1_EED2Ev.exit.sink.split.i
   store ptr null, ptr %5, align 8
-  %35 = load ptr, ptr %4, align 8
-  %.not.i.i5 = icmp eq ptr %35, null
-  br i1 %.not.i.i5, label %_ZN4llvm18IntrusiveRefCntPtrINS_3vfs10FileSystemEED2Ev.exit, label %36
+  %27 = load ptr, ptr %4, align 8
+  %.not.i.i5 = icmp eq ptr %27, null
+  br i1 %.not.i.i5, label %_ZN4llvm18IntrusiveRefCntPtrINS_3vfs10FileSystemEED2Ev.exit, label %28
 
-36:                                               ; preds = %_ZN4llvm8ExpectedISt10unique_ptrINS_15InstrProfReaderESt14default_deleteIS2_EEED2Ev.exit
-  %37 = getelementptr inbounds i8, ptr %35, i64 8
-  %38 = atomicrmw sub ptr %37, i32 1 acq_rel, align 4
-  %39 = icmp eq i32 %38, 1
-  br i1 %39, label %40, label %_ZN4llvm18IntrusiveRefCntPtrINS_3vfs10FileSystemEED2Ev.exit
+28:                                               ; preds = %_ZN4llvm8ExpectedISt10unique_ptrINS_15InstrProfReaderESt14default_deleteIS2_EEED2Ev.exit
+  %29 = getelementptr inbounds i8, ptr %27, i64 8
+  %30 = atomicrmw sub ptr %29, i32 1 acq_rel, align 4
+  %31 = icmp eq i32 %30, 1
+  br i1 %31, label %32, label %_ZN4llvm18IntrusiveRefCntPtrINS_3vfs10FileSystemEED2Ev.exit
 
-40:                                               ; preds = %36
-  %41 = load ptr, ptr %35, align 8
-  %42 = getelementptr inbounds i8, ptr %41, i64 8
-  %43 = load ptr, ptr %42, align 8
-  call void %43(ptr noundef nonnull align 8 dereferenceable(12) %35) #28
+32:                                               ; preds = %28
+  %33 = load ptr, ptr %27, align 8
+  %34 = getelementptr inbounds i8, ptr %33, i64 8
+  %35 = load ptr, ptr %34, align 8
+  call void %35(ptr noundef nonnull align 8 dereferenceable(12) %27) #28
   br label %_ZN4llvm18IntrusiveRefCntPtrINS_3vfs10FileSystemEED2Ev.exit
 
-_ZN4llvm18IntrusiveRefCntPtrINS_3vfs10FileSystemEED2Ev.exit: ; preds = %_ZN4llvm8ExpectedISt10unique_ptrINS_15InstrProfReaderESt14default_deleteIS2_EEED2Ev.exit, %36, %40
+_ZN4llvm18IntrusiveRefCntPtrINS_3vfs10FileSystemEED2Ev.exit: ; preds = %_ZN4llvm8ExpectedISt10unique_ptrINS_15InstrProfReaderESt14default_deleteIS2_EEED2Ev.exit, %28, %32
   ret void
 }
 

@@ -89,10 +89,10 @@ define dso_local ptr @gen_db_file_maps(ptr nocapture noundef readonly %0, ptr no
   br label %.outer
 
 .outer:                                           ; preds = %create_rel_filename_map.exit, %5
-  %.062.ph = phi i32 [ %91, %create_rel_filename_map.exit ], [ 0, %5 ]
+  %.062.ph = phi i32 [ %90, %create_rel_filename_map.exit ], [ 0, %5 ]
   %.061.ph = phi i1 [ %.061, %create_rel_filename_map.exit ], [ true, %5 ]
-  %.060.ph = phi i64 [ %93, %create_rel_filename_map.exit ], [ 0, %5 ]
-  %.0.ph = phi i32 [ %92, %create_rel_filename_map.exit ], [ 0, %5 ]
+  %.060.ph = phi i64 [ %92, %create_rel_filename_map.exit ], [ 0, %5 ]
+  %.0.ph = phi i32 [ %91, %create_rel_filename_map.exit ], [ 0, %5 ]
   %sext = shl i64 %.060.ph, 32
   %15 = ashr exact i64 %sext, 32
   br label %.outer73
@@ -114,7 +114,7 @@ define dso_local ptr @gen_db_file_maps(ptr nocapture noundef readonly %0, ptr no
   %20 = load i32, ptr %12, align 8
   %21 = sext i32 %20 to i64
   %22 = icmp slt i64 %indvars.iv, %21
-  br i1 %22, label %.critedge, label %94
+  br i1 %22, label %.critedge, label %93
 
 23:                                               ; preds = %16
   %24 = load ptr, ptr %6, align 8
@@ -128,19 +128,16 @@ define dso_local ptr @gen_db_file_maps(ptr nocapture noundef readonly %0, ptr no
   %.pre-phi = phi i64 [ %21, %19 ], [ %.pre101, %23 ]
   %27 = phi ptr [ null, %19 ], [ %26, %23 ]
   %28 = icmp slt i64 %indvars.iv, %.pre-phi
-  br i1 %28, label %29, label %.thread
+  br i1 %28, label %29, label %.backedge
 
 29:                                               ; preds = %.critedge
   %30 = load ptr, ptr %13, align 8
   %31 = getelementptr %struct.RelInfo, ptr %30, i64 %indvars.iv
   %.not = icmp eq ptr %31, null
-  br i1 %.not, label %.thread, label %32
+  br i1 %.not, label %.backedge, label %32
 
-.thread:                                          ; preds = %.critedge, %29
+.backedge:                                        ; preds = %29, %.critedge, %37
   tail call fastcc void @report_unmatched_relation(ptr noundef %27, ptr noundef nonnull %0, i1 noundef zeroext false)
-  br label %.backedge
-
-.backedge:                                        ; preds = %.thread, %43
   %.0.be = add i32 %.0, 1
   br label %16, !llvm.loop !5
 
@@ -164,124 +161,120 @@ define dso_local ptr @gen_db_file_maps(ptr nocapture noundef readonly %0, ptr no
   %40 = getelementptr inbounds i8, ptr %31, i64 16
   %41 = load i32, ptr %40, align 8
   %42 = icmp ult i32 %39, %41
-  br i1 %42, label %43, label %44
+  br i1 %42, label %.backedge, label %43
 
 43:                                               ; preds = %37
-  tail call fastcc void @report_unmatched_relation(ptr noundef nonnull %27, ptr noundef nonnull %0, i1 noundef zeroext false)
-  br label %.backedge
+  %44 = icmp ugt i32 %39, %41
+  br i1 %44, label %45, label %49
 
-44:                                               ; preds = %37
-  %45 = icmp ugt i32 %39, %41
-  br i1 %45, label %46, label %50
+45:                                               ; preds = %43
+  %46 = load ptr, ptr %31, align 8
+  %47 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %46, ptr noundef nonnull dereferenceable(9) @.str) #9
+  %.not71 = icmp eq i32 %47, 0
+  br i1 %.not71, label %.outer73.backedge, label %48
 
-46:                                               ; preds = %44
-  %47 = load ptr, ptr %31, align 8
-  %48 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %47, ptr noundef nonnull dereferenceable(9) @.str) #9
-  %.not71 = icmp eq i32 %48, 0
-  br i1 %.not71, label %.outer73.backedge, label %49
-
-49:                                               ; preds = %46
+48:                                               ; preds = %45
   tail call fastcc void @report_unmatched_relation(ptr noundef nonnull %31, ptr noundef nonnull %1, i1 noundef zeroext true)
   br label %.outer73.backedge
 
-.outer73.backedge:                                ; preds = %46, %49, %33, %36, %._crit_edge
-  %.061.ph74.be = phi i1 [ false, %._crit_edge ], [ false, %36 ], [ %.061, %33 ], [ false, %49 ], [ %.061, %46 ]
-  %.0.ph76.be = phi i32 [ %61, %._crit_edge ], [ %.0, %36 ], [ %.0, %33 ], [ %.0, %49 ], [ %.0, %46 ]
+.outer73.backedge:                                ; preds = %45, %48, %33, %36, %._crit_edge
+  %.061.ph74.be = phi i1 [ false, %._crit_edge ], [ false, %36 ], [ %.061, %33 ], [ false, %48 ], [ %.061, %45 ]
+  %.0.ph76.be = phi i32 [ %60, %._crit_edge ], [ %.0, %36 ], [ %.0, %33 ], [ %.0, %48 ], [ %.0, %45 ]
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   br label %.outer73, !llvm.loop !5
 
-50:                                               ; preds = %44
-  %51 = load ptr, ptr %27, align 8
-  %52 = load ptr, ptr %31, align 8
-  %53 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %51, ptr noundef nonnull dereferenceable(1) %52) #9
-  %.not69 = icmp eq i32 %53, 0
-  %54 = getelementptr inbounds i8, ptr %27, i64 8
-  %55 = load ptr, ptr %54, align 8
-  %56 = getelementptr inbounds i8, ptr %31, i64 8
-  %57 = load ptr, ptr %56, align 8
-  br i1 %.not69, label %58, label %._crit_edge
+49:                                               ; preds = %43
+  %50 = load ptr, ptr %27, align 8
+  %51 = load ptr, ptr %31, align 8
+  %52 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %50, ptr noundef nonnull dereferenceable(1) %51) #9
+  %.not69 = icmp eq i32 %52, 0
+  %53 = getelementptr inbounds i8, ptr %27, i64 8
+  %54 = load ptr, ptr %53, align 8
+  %55 = getelementptr inbounds i8, ptr %31, i64 8
+  %56 = load ptr, ptr %55, align 8
+  br i1 %.not69, label %57, label %._crit_edge
 
-58:                                               ; preds = %50
-  %59 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %55, ptr noundef nonnull dereferenceable(1) %57) #9
-  %.not70 = icmp eq i32 %59, 0
-  br i1 %.not70, label %62, label %._crit_edge
+57:                                               ; preds = %49
+  %58 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %54, ptr noundef nonnull dereferenceable(1) %56) #9
+  %.not70 = icmp eq i32 %58, 0
+  br i1 %.not70, label %61, label %._crit_edge
 
-._crit_edge:                                      ; preds = %50, %58
-  %60 = load ptr, ptr %14, align 8
-  tail call void (i32, ptr, ...) @pg_log(i32 noundef 4, ptr noundef nonnull @.str.1, i32 noundef %39, ptr noundef %60, ptr noundef %51, ptr noundef %55, ptr noundef %52, ptr noundef %57) #8
-  %61 = add i32 %.0, 1
+._crit_edge:                                      ; preds = %49, %57
+  %59 = load ptr, ptr %14, align 8
+  tail call void (i32, ptr, ...) @pg_log(i32 noundef 4, ptr noundef nonnull @.str.1, i32 noundef %39, ptr noundef %59, ptr noundef %50, ptr noundef %54, ptr noundef %51, ptr noundef %56) #8
+  %60 = add i32 %.0, 1
   br label %.outer73.backedge
 
-62:                                               ; preds = %58
-  %63 = getelementptr inbounds i8, ptr %27, i64 8
-  %64 = sext i32 %.062.ph to i64
-  %65 = getelementptr %struct.FileNameMap, ptr %11, i64 %64
-  %66 = getelementptr inbounds i8, ptr %27, i64 32
-  %67 = load ptr, ptr %66, align 8
-  %char0.i = load i8, ptr %67, align 1
-  %68 = icmp eq i8 %char0.i, 0
-  br i1 %68, label %69, label %70
+61:                                               ; preds = %57
+  %62 = getelementptr inbounds i8, ptr %27, i64 8
+  %63 = sext i32 %.062.ph to i64
+  %64 = getelementptr %struct.FileNameMap, ptr %11, i64 %63
+  %65 = getelementptr inbounds i8, ptr %27, i64 32
+  %66 = load ptr, ptr %65, align 8
+  %char0.i = load i8, ptr %66, align 1
+  %67 = icmp eq i8 %char0.i, 0
+  br i1 %67, label %68, label %69
 
-69:                                               ; preds = %62
-  store ptr %3, ptr %65, align 8
-  br label %72
+68:                                               ; preds = %61
+  store ptr %3, ptr %64, align 8
+  br label %71
 
-70:                                               ; preds = %62
-  store ptr %67, ptr %65, align 8
-  %71 = load ptr, ptr getelementptr inbounds (i8, ptr @old_cluster, i64 256), align 8
-  br label %72
+69:                                               ; preds = %61
+  store ptr %66, ptr %64, align 8
+  %70 = load ptr, ptr getelementptr inbounds (i8, ptr @old_cluster, i64 256), align 8
+  br label %71
 
-72:                                               ; preds = %70, %69
-  %.sink.i = phi ptr [ @.str.5, %69 ], [ %71, %70 ]
-  %73 = getelementptr inbounds i8, ptr %65, i64 16
-  store ptr %.sink.i, ptr %73, align 8
-  %74 = getelementptr inbounds i8, ptr %31, i64 32
-  %75 = load ptr, ptr %74, align 8
-  %char022.i = load i8, ptr %75, align 1
-  %76 = icmp eq i8 %char022.i, 0
-  %77 = getelementptr inbounds i8, ptr %65, i64 8
-  br i1 %76, label %78, label %79
+71:                                               ; preds = %69, %68
+  %.sink.i = phi ptr [ @.str.5, %68 ], [ %70, %69 ]
+  %72 = getelementptr inbounds i8, ptr %64, i64 16
+  store ptr %.sink.i, ptr %72, align 8
+  %73 = getelementptr inbounds i8, ptr %31, i64 32
+  %74 = load ptr, ptr %73, align 8
+  %char022.i = load i8, ptr %74, align 1
+  %75 = icmp eq i8 %char022.i, 0
+  %76 = getelementptr inbounds i8, ptr %64, i64 8
+  br i1 %75, label %77, label %78
 
-78:                                               ; preds = %72
-  store ptr %4, ptr %77, align 8
+77:                                               ; preds = %71
+  store ptr %4, ptr %76, align 8
   br label %create_rel_filename_map.exit
 
-79:                                               ; preds = %72
-  store ptr %75, ptr %77, align 8
-  %80 = load ptr, ptr getelementptr inbounds (i8, ptr @new_cluster, i64 256), align 8
+78:                                               ; preds = %71
+  store ptr %74, ptr %76, align 8
+  %79 = load ptr, ptr getelementptr inbounds (i8, ptr @new_cluster, i64 256), align 8
   br label %create_rel_filename_map.exit
 
-create_rel_filename_map.exit:                     ; preds = %78, %79
-  %.sink1.i = phi ptr [ @.str.5, %78 ], [ %80, %79 ]
-  %81 = getelementptr inbounds i8, ptr %65, i64 24
-  store ptr %.sink1.i, ptr %81, align 8
-  %82 = load i32, ptr %0, align 8
-  %83 = getelementptr inbounds i8, ptr %65, i64 32
-  store i32 %82, ptr %83, align 8
-  %84 = getelementptr inbounds i8, ptr %27, i64 20
-  %85 = load i32, ptr %84, align 4
-  %86 = getelementptr inbounds i8, ptr %65, i64 36
-  store i32 %85, ptr %86, align 4
-  %87 = load ptr, ptr %27, align 8
-  %88 = getelementptr inbounds i8, ptr %65, i64 40
-  store ptr %87, ptr %88, align 8
-  %89 = load ptr, ptr %63, align 8
-  %90 = getelementptr inbounds i8, ptr %65, i64 48
-  store ptr %89, ptr %90, align 8
-  %91 = add i32 %.062.ph, 1
-  %92 = add i32 %.0, 1
-  %93 = add nsw i64 %indvars.iv, 1
+create_rel_filename_map.exit:                     ; preds = %77, %78
+  %.sink1.i = phi ptr [ @.str.5, %77 ], [ %79, %78 ]
+  %80 = getelementptr inbounds i8, ptr %64, i64 24
+  store ptr %.sink1.i, ptr %80, align 8
+  %81 = load i32, ptr %0, align 8
+  %82 = getelementptr inbounds i8, ptr %64, i64 32
+  store i32 %81, ptr %82, align 8
+  %83 = getelementptr inbounds i8, ptr %27, i64 20
+  %84 = load i32, ptr %83, align 4
+  %85 = getelementptr inbounds i8, ptr %64, i64 36
+  store i32 %84, ptr %85, align 4
+  %86 = load ptr, ptr %27, align 8
+  %87 = getelementptr inbounds i8, ptr %64, i64 40
+  store ptr %86, ptr %87, align 8
+  %88 = load ptr, ptr %62, align 8
+  %89 = getelementptr inbounds i8, ptr %64, i64 48
+  store ptr %88, ptr %89, align 8
+  %90 = add i32 %.062.ph, 1
+  %91 = add i32 %.0, 1
+  %92 = add nsw i64 %indvars.iv, 1
   br label %.outer, !llvm.loop !5
 
-94:                                               ; preds = %19
-  br i1 %.061, label %97, label %95
+93:                                               ; preds = %19
+  br i1 %.061, label %96, label %94
 
-95:                                               ; preds = %94
-  %96 = load ptr, ptr %14, align 8
-  tail call void (ptr, ...) @pg_fatal(ptr noundef nonnull @.str.2, ptr noundef %96) #10
+94:                                               ; preds = %93
+  %95 = load ptr, ptr %14, align 8
+  tail call void (ptr, ...) @pg_fatal(ptr noundef nonnull @.str.2, ptr noundef %95) #10
   unreachable
 
-97:                                               ; preds = %94
+96:                                               ; preds = %93
   store i32 %.062.ph, ptr %2, align 4
   ret ptr %11
 }

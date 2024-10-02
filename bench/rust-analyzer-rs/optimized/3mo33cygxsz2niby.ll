@@ -73049,23 +73049,24 @@ define hidden void @"_ZN4core3ptr68drop_in_place$LT$ide_db..imports..import_asse
   %6 = select i1 %4, i64 %5, i64 0
   switch i64 %6, label %7 [
     i64 0, label %16
-    i64 1, label %25
+    i64 1, label %24
   ]
 
 7:                                                ; preds = %1
   %8 = getelementptr inbounds i8, ptr %0, i64 40
   invoke void @"_ZN4core3ptr30drop_in_place$LT$hir..Type$GT$17hd1776b932bd6974cE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %8)
-          to label %12 unwind label %9
+          to label %12 unwind label %10
 
-common.resume:                                    ; preds = %27, %19, %9
-  %common.resume.op = phi { ptr, i32 } [ %10, %9 ], [ %20, %19 ], [ %28, %27 ]
+common.resume:                                    ; preds = %26, %19, %10
+  %.sink4 = phi i64 [ 8, %26 ], [ 24, %19 ], [ 8, %10 ]
+  %common.resume.op = phi { ptr, i32 } [ %27, %26 ], [ %20, %19 ], [ %11, %10 ]
+  %9 = getelementptr inbounds i8, ptr %0, i64 %.sink4
+  tail call void @"_ZN4core3ptr65drop_in_place$LT$ide_db..imports..import_assets..NameToImport$GT$17hf1e8f5c94f54a91cE.llvm.16532663377229269005"(ptr noalias noundef nonnull align 8 dereferenceable(32) %9) #28
   resume { ptr, i32 } %common.resume.op
 
-9:                                                ; preds = %7
-  %10 = landingpad { ptr, i32 }
+10:                                               ; preds = %7
+  %11 = landingpad { ptr, i32 }
           cleanup
-  %11 = getelementptr inbounds i8, ptr %0, i64 8
-  tail call void @"_ZN4core3ptr65drop_in_place$LT$ide_db..imports..import_assets..NameToImport$GT$17hf1e8f5c94f54a91cE.llvm.16532663377229269005"(ptr noalias noundef nonnull align 8 dereferenceable(32) %11) #28
   br label %common.resume
 
 12:                                               ; preds = %7
@@ -73085,43 +73086,39 @@ common.resume:                                    ; preds = %27, %19, %9
 19:                                               ; preds = %18
   %20 = landingpad { ptr, i32 }
           cleanup
-  %21 = getelementptr inbounds i8, ptr %0, i64 24
-  tail call void @"_ZN4core3ptr65drop_in_place$LT$ide_db..imports..import_assets..NameToImport$GT$17hf1e8f5c94f54a91cE.llvm.16532663377229269005"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %21) #28
   br label %common.resume
 
 "_ZN4core3ptr89drop_in_place$LT$core..option..Option$LT$alloc..vec..Vec$LT$smol_str..SmolStr$GT$$GT$$GT$17h65568f851be6f12dE.llvm.16532663377229269005.exit.i": ; preds = %18, %16
-  %22 = getelementptr inbounds i8, ptr %0, i64 32
-  %23 = load i64, ptr %22, align 8, !alias.scope !32371, !noalias !9, !noundef !9
-  %24 = icmp eq i64 %23, 0
-  br i1 %24, label %"_ZN4core3ptr73drop_in_place$LT$ide_db..imports..import_assets..TraitImportCandidate$GT$17hed31953a24c6a79eE.llvm.16532663377229269005.exit", label %"_ZN4core3ptr73drop_in_place$LT$ide_db..imports..import_assets..TraitImportCandidate$GT$17hed31953a24c6a79eE.llvm.16532663377229269005.exit.sink.split"
+  %21 = getelementptr inbounds i8, ptr %0, i64 32
+  %22 = load i64, ptr %21, align 8, !alias.scope !32371, !noalias !9, !noundef !9
+  %23 = icmp eq i64 %22, 0
+  br i1 %23, label %"_ZN4core3ptr73drop_in_place$LT$ide_db..imports..import_assets..TraitImportCandidate$GT$17hed31953a24c6a79eE.llvm.16532663377229269005.exit", label %"_ZN4core3ptr73drop_in_place$LT$ide_db..imports..import_assets..TraitImportCandidate$GT$17hed31953a24c6a79eE.llvm.16532663377229269005.exit.sink.split"
 
-25:                                               ; preds = %1
-  %26 = getelementptr inbounds i8, ptr %0, i64 40
-  invoke void @"_ZN4core3ptr30drop_in_place$LT$hir..Type$GT$17hd1776b932bd6974cE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %26)
-          to label %30 unwind label %27
+24:                                               ; preds = %1
+  %25 = getelementptr inbounds i8, ptr %0, i64 40
+  invoke void @"_ZN4core3ptr30drop_in_place$LT$hir..Type$GT$17hd1776b932bd6974cE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %25)
+          to label %28 unwind label %26
 
-27:                                               ; preds = %25
-  %28 = landingpad { ptr, i32 }
+26:                                               ; preds = %24
+  %27 = landingpad { ptr, i32 }
           cleanup
-  %29 = getelementptr inbounds i8, ptr %0, i64 8
-  tail call void @"_ZN4core3ptr65drop_in_place$LT$ide_db..imports..import_assets..NameToImport$GT$17hf1e8f5c94f54a91cE.llvm.16532663377229269005"(ptr noalias noundef nonnull align 8 dereferenceable(32) %29) #28
   br label %common.resume
 
-30:                                               ; preds = %25
-  %31 = getelementptr inbounds i8, ptr %0, i64 16
-  %32 = load i64, ptr %31, align 8, !alias.scope !32376, !noalias !9, !noundef !9
-  %33 = icmp eq i64 %32, 0
-  br i1 %33, label %"_ZN4core3ptr73drop_in_place$LT$ide_db..imports..import_assets..TraitImportCandidate$GT$17hed31953a24c6a79eE.llvm.16532663377229269005.exit", label %"_ZN4core3ptr73drop_in_place$LT$ide_db..imports..import_assets..TraitImportCandidate$GT$17hed31953a24c6a79eE.llvm.16532663377229269005.exit.sink.split"
+28:                                               ; preds = %24
+  %29 = getelementptr inbounds i8, ptr %0, i64 16
+  %30 = load i64, ptr %29, align 8, !alias.scope !32376, !noalias !9, !noundef !9
+  %31 = icmp eq i64 %30, 0
+  br i1 %31, label %"_ZN4core3ptr73drop_in_place$LT$ide_db..imports..import_assets..TraitImportCandidate$GT$17hed31953a24c6a79eE.llvm.16532663377229269005.exit", label %"_ZN4core3ptr73drop_in_place$LT$ide_db..imports..import_assets..TraitImportCandidate$GT$17hed31953a24c6a79eE.llvm.16532663377229269005.exit.sink.split"
 
-"_ZN4core3ptr73drop_in_place$LT$ide_db..imports..import_assets..TraitImportCandidate$GT$17hed31953a24c6a79eE.llvm.16532663377229269005.exit.sink.split": ; preds = %30, %"_ZN4core3ptr89drop_in_place$LT$core..option..Option$LT$alloc..vec..Vec$LT$smol_str..SmolStr$GT$$GT$$GT$17h65568f851be6f12dE.llvm.16532663377229269005.exit.i", %12
-  %.sink = phi i64 [ 24, %12 ], [ 40, %"_ZN4core3ptr89drop_in_place$LT$core..option..Option$LT$alloc..vec..Vec$LT$smol_str..SmolStr$GT$$GT$$GT$17h65568f851be6f12dE.llvm.16532663377229269005.exit.i" ], [ 24, %30 ]
-  %.sink4 = phi i64 [ %14, %12 ], [ %23, %"_ZN4core3ptr89drop_in_place$LT$core..option..Option$LT$alloc..vec..Vec$LT$smol_str..SmolStr$GT$$GT$$GT$17h65568f851be6f12dE.llvm.16532663377229269005.exit.i" ], [ %32, %30 ]
-  %34 = getelementptr inbounds i8, ptr %0, i64 %.sink
-  %35 = load ptr, ptr %34, align 8, !noalias !9, !nonnull !9, !noundef !9
-  tail call void @__rust_dealloc(ptr noundef nonnull %35, i64 noundef %.sink4, i64 noundef 1) #27, !noalias !9
+"_ZN4core3ptr73drop_in_place$LT$ide_db..imports..import_assets..TraitImportCandidate$GT$17hed31953a24c6a79eE.llvm.16532663377229269005.exit.sink.split": ; preds = %28, %"_ZN4core3ptr89drop_in_place$LT$core..option..Option$LT$alloc..vec..Vec$LT$smol_str..SmolStr$GT$$GT$$GT$17h65568f851be6f12dE.llvm.16532663377229269005.exit.i", %12
+  %.sink = phi i64 [ 24, %12 ], [ 40, %"_ZN4core3ptr89drop_in_place$LT$core..option..Option$LT$alloc..vec..Vec$LT$smol_str..SmolStr$GT$$GT$$GT$17h65568f851be6f12dE.llvm.16532663377229269005.exit.i" ], [ 24, %28 ]
+  %.sink5 = phi i64 [ %14, %12 ], [ %22, %"_ZN4core3ptr89drop_in_place$LT$core..option..Option$LT$alloc..vec..Vec$LT$smol_str..SmolStr$GT$$GT$$GT$17h65568f851be6f12dE.llvm.16532663377229269005.exit.i" ], [ %30, %28 ]
+  %32 = getelementptr inbounds i8, ptr %0, i64 %.sink
+  %33 = load ptr, ptr %32, align 8, !noalias !9, !nonnull !9, !noundef !9
+  tail call void @__rust_dealloc(ptr noundef nonnull %33, i64 noundef %.sink5, i64 noundef 1) #27, !noalias !9
   br label %"_ZN4core3ptr73drop_in_place$LT$ide_db..imports..import_assets..TraitImportCandidate$GT$17hed31953a24c6a79eE.llvm.16532663377229269005.exit"
 
-"_ZN4core3ptr73drop_in_place$LT$ide_db..imports..import_assets..TraitImportCandidate$GT$17hed31953a24c6a79eE.llvm.16532663377229269005.exit": ; preds = %"_ZN4core3ptr73drop_in_place$LT$ide_db..imports..import_assets..TraitImportCandidate$GT$17hed31953a24c6a79eE.llvm.16532663377229269005.exit.sink.split", %30, %"_ZN4core3ptr89drop_in_place$LT$core..option..Option$LT$alloc..vec..Vec$LT$smol_str..SmolStr$GT$$GT$$GT$17h65568f851be6f12dE.llvm.16532663377229269005.exit.i", %12
+"_ZN4core3ptr73drop_in_place$LT$ide_db..imports..import_assets..TraitImportCandidate$GT$17hed31953a24c6a79eE.llvm.16532663377229269005.exit": ; preds = %"_ZN4core3ptr73drop_in_place$LT$ide_db..imports..import_assets..TraitImportCandidate$GT$17hed31953a24c6a79eE.llvm.16532663377229269005.exit.sink.split", %28, %"_ZN4core3ptr89drop_in_place$LT$core..option..Option$LT$alloc..vec..Vec$LT$smol_str..SmolStr$GT$$GT$$GT$17h65568f851be6f12dE.llvm.16532663377229269005.exit.i", %12
   ret void
 }
 

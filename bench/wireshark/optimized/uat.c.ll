@@ -1514,7 +1514,7 @@ define internal fastcc noundef zeroext i1 @uat_fld_chk_num(i32 noundef range(i32
   %5 = alloca ptr, align 8
   %6 = alloca i32, align 4
   %.not = icmp eq i32 %2, 0
-  br i1 %.not, label %23, label %7
+  br i1 %.not, label %20, label %7
 
 7:                                                ; preds = %4
   %8 = zext i32 %2 to i64
@@ -1533,45 +1533,40 @@ define internal fastcc noundef zeroext i1 @uat_fld_chk_num(i32 noundef range(i32
 .thread.i:                                        ; preds = %11
   %14 = tail call ptr @__errno_location() #19
   store i32 22, ptr %14, align 4
-  br label %16
+  br label %.thread13.sink.split.i
 
 15:                                               ; preds = %7
   %.pre.i = tail call ptr @__errno_location() #19
   %.pr.i = load i32, ptr %.pre.i, align 4
-  switch i32 %.pr.i, label %20 [
-    i32 22, label %16
-    i32 34, label %18
+  switch i32 %.pr.i, label %17 [
+    i32 22, label %.thread13.sink.split.i
+    i32 34, label %16
   ]
 
-16:                                               ; preds = %15, %.thread.i
-  %17 = call noalias ptr @g_strdup(ptr noundef nonnull @.str.29) #16
+16:                                               ; preds = %15
   br label %.thread13.sink.split.i
 
-18:                                               ; preds = %15
-  %19 = call noalias ptr @g_strdup(ptr noundef nonnull @.str.30) #16
+17:                                               ; preds = %15
+  %18 = call ptr @g_strerror(i32 noundef %.pr.i) #19
   br label %.thread13.sink.split.i
 
-20:                                               ; preds = %15
-  %21 = call ptr @g_strerror(i32 noundef %.pr.i) #19
-  %22 = call noalias ptr @g_strdup(ptr noundef %21) #16
-  br label %.thread13.sink.split.i
-
-.thread13.sink.split.i:                           ; preds = %20, %18, %16
-  %.sink.i = phi ptr [ %17, %16 ], [ %19, %18 ], [ %22, %20 ]
-  store ptr %.sink.i, ptr %3, align 8
+.thread13.sink.split.i:                           ; preds = %17, %16, %15, %.thread.i
+  %.str.29.sink.i = phi ptr [ @.str.30, %16 ], [ %18, %17 ], [ @.str.29, %.thread.i ], [ @.str.29, %15 ]
+  %19 = call noalias ptr @g_strdup(ptr noundef %.str.29.sink.i) #16
+  store ptr %19, ptr %3, align 8
   br label %uat_fld_chk_num_check_result.exit
 
 uat_fld_chk_num_check_result.exit:                ; preds = %11, %11, %.thread13.sink.split.i
   %.0.shrunk11.i = phi i1 [ true, %11 ], [ true, %11 ], [ false, %.thread13.sink.split.i ]
   call void @g_free(ptr noundef %9) #16
-  br label %24
+  br label %21
 
-23:                                               ; preds = %4
+20:                                               ; preds = %4
   store ptr null, ptr %3, align 8
-  br label %24
+  br label %21
 
-24:                                               ; preds = %23, %uat_fld_chk_num_check_result.exit
-  %.0 = phi i1 [ %.0.shrunk11.i, %uat_fld_chk_num_check_result.exit ], [ true, %23 ]
+21:                                               ; preds = %20, %uat_fld_chk_num_check_result.exit
+  %.0 = phi i1 [ %.0.shrunk11.i, %uat_fld_chk_num_check_result.exit ], [ true, %20 ]
   ret i1 %.0
 }
 
@@ -1592,7 +1587,7 @@ define internal fastcc noundef zeroext i1 @uat_fld_chk_num64(i32 noundef range(i
   %5 = alloca ptr, align 8
   %6 = alloca i64, align 8
   %.not = icmp eq i32 %2, 0
-  br i1 %.not, label %23, label %7
+  br i1 %.not, label %20, label %7
 
 7:                                                ; preds = %4
   %8 = zext i32 %2 to i64
@@ -1611,45 +1606,40 @@ define internal fastcc noundef zeroext i1 @uat_fld_chk_num64(i32 noundef range(i
 .thread.i:                                        ; preds = %11
   %14 = tail call ptr @__errno_location() #19
   store i32 22, ptr %14, align 4
-  br label %16
+  br label %.thread13.sink.split.i
 
 15:                                               ; preds = %7
   %.pre.i = tail call ptr @__errno_location() #19
   %.pr.i = load i32, ptr %.pre.i, align 4
-  switch i32 %.pr.i, label %20 [
-    i32 22, label %16
-    i32 34, label %18
+  switch i32 %.pr.i, label %17 [
+    i32 22, label %.thread13.sink.split.i
+    i32 34, label %16
   ]
 
-16:                                               ; preds = %15, %.thread.i
-  %17 = call noalias ptr @g_strdup(ptr noundef nonnull @.str.29) #16
+16:                                               ; preds = %15
   br label %.thread13.sink.split.i
 
-18:                                               ; preds = %15
-  %19 = call noalias ptr @g_strdup(ptr noundef nonnull @.str.30) #16
+17:                                               ; preds = %15
+  %18 = call ptr @g_strerror(i32 noundef %.pr.i) #19
   br label %.thread13.sink.split.i
 
-20:                                               ; preds = %15
-  %21 = call ptr @g_strerror(i32 noundef %.pr.i) #19
-  %22 = call noalias ptr @g_strdup(ptr noundef %21) #16
-  br label %.thread13.sink.split.i
-
-.thread13.sink.split.i:                           ; preds = %20, %18, %16
-  %.sink.i = phi ptr [ %17, %16 ], [ %19, %18 ], [ %22, %20 ]
-  store ptr %.sink.i, ptr %3, align 8
+.thread13.sink.split.i:                           ; preds = %17, %16, %15, %.thread.i
+  %.str.29.sink.i = phi ptr [ @.str.30, %16 ], [ %18, %17 ], [ @.str.29, %.thread.i ], [ @.str.29, %15 ]
+  %19 = call noalias ptr @g_strdup(ptr noundef %.str.29.sink.i) #16
+  store ptr %19, ptr %3, align 8
   br label %uat_fld_chk_num_check_result.exit
 
 uat_fld_chk_num_check_result.exit:                ; preds = %11, %11, %.thread13.sink.split.i
   %.0.shrunk11.i = phi i1 [ true, %11 ], [ true, %11 ], [ false, %.thread13.sink.split.i ]
   call void @g_free(ptr noundef %9) #16
-  br label %24
+  br label %21
 
-23:                                               ; preds = %4
+20:                                               ; preds = %4
   store ptr null, ptr %3, align 8
-  br label %24
+  br label %21
 
-24:                                               ; preds = %23, %uat_fld_chk_num_check_result.exit
-  %.0 = phi i1 [ %.0.shrunk11.i, %uat_fld_chk_num_check_result.exit ], [ true, %23 ]
+21:                                               ; preds = %20, %uat_fld_chk_num_check_result.exit
+  %.0 = phi i1 [ %.0.shrunk11.i, %uat_fld_chk_num_check_result.exit ], [ true, %20 ]
   ret i1 %.0
 }
 
@@ -1664,7 +1654,7 @@ define noundef zeroext i1 @uat_fld_chk_num_signed_dec(ptr nocapture noundef read
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
   %.not = icmp eq i32 %2, 0
-  br i1 %.not, label %25, label %9
+  br i1 %.not, label %22, label %9
 
 9:                                                ; preds = %6
   %10 = zext i32 %2 to i64
@@ -1683,45 +1673,40 @@ define noundef zeroext i1 @uat_fld_chk_num_signed_dec(ptr nocapture noundef read
 .thread.i:                                        ; preds = %13
   %16 = tail call ptr @__errno_location() #19
   store i32 22, ptr %16, align 4
-  br label %18
+  br label %.thread13.sink.split.i
 
 17:                                               ; preds = %9
   %.pre.i = tail call ptr @__errno_location() #19
   %.pr.i = load i32, ptr %.pre.i, align 4
-  switch i32 %.pr.i, label %22 [
-    i32 22, label %18
-    i32 34, label %20
+  switch i32 %.pr.i, label %19 [
+    i32 22, label %.thread13.sink.split.i
+    i32 34, label %18
   ]
 
-18:                                               ; preds = %17, %.thread.i
-  %19 = call noalias ptr @g_strdup(ptr noundef nonnull @.str.29) #16
+18:                                               ; preds = %17
   br label %.thread13.sink.split.i
 
-20:                                               ; preds = %17
-  %21 = call noalias ptr @g_strdup(ptr noundef nonnull @.str.30) #16
+19:                                               ; preds = %17
+  %20 = call ptr @g_strerror(i32 noundef %.pr.i) #19
   br label %.thread13.sink.split.i
 
-22:                                               ; preds = %17
-  %23 = call ptr @g_strerror(i32 noundef %.pr.i) #19
-  %24 = call noalias ptr @g_strdup(ptr noundef %23) #16
-  br label %.thread13.sink.split.i
-
-.thread13.sink.split.i:                           ; preds = %22, %20, %18
-  %.sink.i = phi ptr [ %19, %18 ], [ %21, %20 ], [ %24, %22 ]
-  store ptr %.sink.i, ptr %5, align 8
+.thread13.sink.split.i:                           ; preds = %19, %18, %17, %.thread.i
+  %.str.29.sink.i = phi ptr [ @.str.30, %18 ], [ %20, %19 ], [ @.str.29, %.thread.i ], [ @.str.29, %17 ]
+  %21 = call noalias ptr @g_strdup(ptr noundef %.str.29.sink.i) #16
+  store ptr %21, ptr %5, align 8
   br label %uat_fld_chk_num_check_result.exit
 
 uat_fld_chk_num_check_result.exit:                ; preds = %13, %13, %.thread13.sink.split.i
   %.0.shrunk11.i = phi i1 [ true, %13 ], [ true, %13 ], [ false, %.thread13.sink.split.i ]
   call void @g_free(ptr noundef %11) #16
-  br label %26
+  br label %23
 
-25:                                               ; preds = %6
+22:                                               ; preds = %6
   store ptr null, ptr %5, align 8
-  br label %26
+  br label %23
 
-26:                                               ; preds = %25, %uat_fld_chk_num_check_result.exit
-  %.0 = phi i1 [ %.0.shrunk11.i, %uat_fld_chk_num_check_result.exit ], [ true, %25 ]
+23:                                               ; preds = %22, %uat_fld_chk_num_check_result.exit
+  %.0 = phi i1 [ %.0.shrunk11.i, %uat_fld_chk_num_check_result.exit ], [ true, %22 ]
   ret i1 %.0
 }
 
@@ -1732,7 +1717,7 @@ define noundef zeroext i1 @uat_fld_chk_num_signed_dec64(ptr nocapture noundef re
   %7 = alloca ptr, align 8
   %8 = alloca i64, align 8
   %.not = icmp eq i32 %2, 0
-  br i1 %.not, label %25, label %9
+  br i1 %.not, label %22, label %9
 
 9:                                                ; preds = %6
   %10 = zext i32 %2 to i64
@@ -1751,45 +1736,40 @@ define noundef zeroext i1 @uat_fld_chk_num_signed_dec64(ptr nocapture noundef re
 .thread.i:                                        ; preds = %13
   %16 = tail call ptr @__errno_location() #19
   store i32 22, ptr %16, align 4
-  br label %18
+  br label %.thread13.sink.split.i
 
 17:                                               ; preds = %9
   %.pre.i = tail call ptr @__errno_location() #19
   %.pr.i = load i32, ptr %.pre.i, align 4
-  switch i32 %.pr.i, label %22 [
-    i32 22, label %18
-    i32 34, label %20
+  switch i32 %.pr.i, label %19 [
+    i32 22, label %.thread13.sink.split.i
+    i32 34, label %18
   ]
 
-18:                                               ; preds = %17, %.thread.i
-  %19 = call noalias ptr @g_strdup(ptr noundef nonnull @.str.29) #16
+18:                                               ; preds = %17
   br label %.thread13.sink.split.i
 
-20:                                               ; preds = %17
-  %21 = call noalias ptr @g_strdup(ptr noundef nonnull @.str.30) #16
+19:                                               ; preds = %17
+  %20 = call ptr @g_strerror(i32 noundef %.pr.i) #19
   br label %.thread13.sink.split.i
 
-22:                                               ; preds = %17
-  %23 = call ptr @g_strerror(i32 noundef %.pr.i) #19
-  %24 = call noalias ptr @g_strdup(ptr noundef %23) #16
-  br label %.thread13.sink.split.i
-
-.thread13.sink.split.i:                           ; preds = %22, %20, %18
-  %.sink.i = phi ptr [ %19, %18 ], [ %21, %20 ], [ %24, %22 ]
-  store ptr %.sink.i, ptr %5, align 8
+.thread13.sink.split.i:                           ; preds = %19, %18, %17, %.thread.i
+  %.str.29.sink.i = phi ptr [ @.str.30, %18 ], [ %20, %19 ], [ @.str.29, %.thread.i ], [ @.str.29, %17 ]
+  %21 = call noalias ptr @g_strdup(ptr noundef %.str.29.sink.i) #16
+  store ptr %21, ptr %5, align 8
   br label %uat_fld_chk_num_check_result.exit
 
 uat_fld_chk_num_check_result.exit:                ; preds = %13, %13, %.thread13.sink.split.i
   %.0.shrunk11.i = phi i1 [ true, %13 ], [ true, %13 ], [ false, %.thread13.sink.split.i ]
   call void @g_free(ptr noundef %11) #16
-  br label %26
+  br label %23
 
-25:                                               ; preds = %6
+22:                                               ; preds = %6
   store ptr null, ptr %5, align 8
-  br label %26
+  br label %23
 
-26:                                               ; preds = %25, %uat_fld_chk_num_check_result.exit
-  %.0 = phi i1 [ %.0.shrunk11.i, %uat_fld_chk_num_check_result.exit ], [ true, %25 ]
+23:                                               ; preds = %22, %uat_fld_chk_num_check_result.exit
+  %.0 = phi i1 [ %.0.shrunk11.i, %uat_fld_chk_num_check_result.exit ], [ true, %22 ]
   ret i1 %.0
 }
 

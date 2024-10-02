@@ -133,15 +133,15 @@ sub_119:                                          ; preds = %.tail
   call fastcc void @walkdir(ptr noundef nonnull %4, ptr noundef nonnull @pre_sync_fname, i1 noundef zeroext false)
   call fastcc void @walkdir(ptr noundef nonnull %5, ptr noundef nonnull @pre_sync_fname, i1 noundef zeroext true)
   call fastcc void @walkdir(ptr noundef %0, ptr noundef nonnull @fsync_fname, i1 noundef zeroext false)
-  call fastcc void @walkdir(ptr noundef nonnull %4, ptr noundef nonnull @fsync_fname, i1 noundef zeroext false)
   br label %48
 
 .critedge:                                        ; preds = %46
   call fastcc void @walkdir(ptr noundef nonnull %5, ptr noundef nonnull @pre_sync_fname, i1 noundef zeroext true)
-  call fastcc void @walkdir(ptr noundef %0, ptr noundef nonnull @fsync_fname, i1 noundef zeroext false)
   br label %48
 
 48:                                               ; preds = %.critedge, %47
+  %.sink = phi ptr [ %0, %.critedge ], [ %4, %47 ]
+  call fastcc void @walkdir(ptr noundef %.sink, ptr noundef nonnull @fsync_fname, i1 noundef zeroext false)
   call fastcc void @walkdir(ptr noundef nonnull %5, ptr noundef nonnull @fsync_fname, i1 noundef zeroext true)
   br label %49
 

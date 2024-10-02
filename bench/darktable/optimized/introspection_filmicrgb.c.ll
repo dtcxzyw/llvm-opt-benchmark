@@ -702,7 +702,7 @@ define void @process(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noal
   %34 = load i32, ptr %33, align 4, !tbaa !82
   %35 = tail call i32 @dt_iop_have_required_input_format(i32 noundef 4, ptr noundef %0, i32 noundef %34, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #21
   %36 = icmp eq i32 %35, 0
-  br i1 %36, label %2816, label %37
+  br i1 %36, label %2815, label %37
 
 37:                                               ; preds = %6
   %38 = getelementptr inbounds i8, ptr %1, i64 16
@@ -1099,8 +1099,7 @@ define void @process(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noal
 
 .loopexit214:                                     ; preds = %.preheader213, %.loopexit215, %266
   call void @llvm.x86.sse.sfence(), !noalias !131
-  call void @free(ptr noundef nonnull %53) #21
-  br label %2816
+  br label %.sink.split
 
 341:                                              ; preds = %260, %255, %246
   %342 = and i32 %254, 256
@@ -2527,7 +2526,7 @@ RGB_tone_mapping_v4.exit:                         ; preds = %1159, %1163, %1165
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %21) #21, !noalias !164
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %20) #21, !noalias !164
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %19) #21, !noalias !164
-  br label %2815
+  br label %.sink.split
 
 1413:                                             ; preds = %878
   %1414 = getelementptr inbounds i8, ptr %39, i64 68
@@ -2536,7 +2535,7 @@ RGB_tone_mapping_v4.exit:                         ; preds = %1159, %1163, %1165
   br i1 %1416, label %1417, label %1776
 
 1417:                                             ; preds = %1413
-  switch i32 %891, label %2815 [
+  switch i32 %891, label %.sink.split [
     i32 0, label %1418
     i32 1, label %1424
     i32 2, label %1424
@@ -2550,7 +2549,7 @@ RGB_tone_mapping_v4.exit:                         ; preds = %1159, %1163, %1165
   %1422 = load i32, ptr %1421, align 4, !tbaa !84
   %1423 = sext i32 %1422 to i64
   call fastcc void @filmic_split_v1(ptr noundef %880, ptr noundef %3, ptr noundef %42, ptr noundef nonnull %39, ptr noundef nonnull byval(%struct.dt_iop_filmic_rgb_spline_t) align 16 %881, i64 noundef %1420, i64 noundef %1423)
-  br label %2815
+  br label %.sink.split
 
 1424:                                             ; preds = %1417, %1417
   %1425 = load i32, ptr %45, align 4, !tbaa !83
@@ -3003,7 +3002,7 @@ RGB_tone_mapping_v4.exit:                         ; preds = %1159, %1163, %1165
 
 .loopexit207:                                     ; preds = %1724, %1424
   call void @llvm.x86.sse.sfence(), !noalias !180
-  br label %2815
+  br label %.sink.split
 
 1771:                                             ; preds = %1417
   %1772 = load i32, ptr %45, align 4, !tbaa !83
@@ -3011,10 +3010,10 @@ RGB_tone_mapping_v4.exit:                         ; preds = %1159, %1163, %1165
   %1774 = load i32, ptr %48, align 4, !tbaa !84
   %1775 = sext i32 %1774 to i64
   call fastcc void @filmic_split_v4(ptr noundef %880, ptr noundef %3, ptr noundef %42, ptr noundef %44, ptr noundef nonnull %39, ptr noundef nonnull byval(%struct.dt_iop_filmic_rgb_spline_t) align 16 %881, i64 noundef %1773, i64 noundef %1775, float noundef %889, float noundef %887)
-  br label %2815
+  br label %.sink.split
 
 1776:                                             ; preds = %1413
-  switch i32 %891, label %2815 [
+  switch i32 %891, label %.sink.split [
     i32 0, label %1777
     i32 1, label %2060
     i32 2, label %2060
@@ -3381,7 +3380,7 @@ get_pixel_norm.exit:                              ; preds = %1843, %1852, %1856,
 
 .loopexit208:                                     ; preds = %2048, %1777
   call void @llvm.x86.sse.sfence(), !noalias !192
-  br label %2815
+  br label %.sink.split
 
 2060:                                             ; preds = %1776, %1776
   %2061 = load i32, ptr %45, align 4, !tbaa !83
@@ -3921,7 +3920,7 @@ get_pixel_norm.exit88:                            ; preds = %2331, %2335, %2339,
 
 .loopexit209:                                     ; preds = %2455, %2060
   call void @llvm.x86.sse.sfence(), !noalias !203
-  br label %2815
+  br label %.sink.split
 
 2460:                                             ; preds = %1776
   %2461 = load i32, ptr %45, align 4, !tbaa !83
@@ -4384,13 +4383,14 @@ get_pixel_norm.exit89:                            ; preds = %2542, %2551, %2555,
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %9) #21, !noalias !212
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %8) #21, !noalias !212
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %7) #21, !noalias !212
+  br label %.sink.split
+
+.sink.split:                                      ; preds = %.loopexit, %1417, %1418, %.loopexit207, %1771, %1776, %.loopexit208, %.loopexit209, %.loopexit210, %.loopexit214
+  %.sink = phi ptr [ %53, %.loopexit214 ], [ %879, %.loopexit210 ], [ %879, %.loopexit209 ], [ %879, %.loopexit208 ], [ %879, %1776 ], [ %879, %1771 ], [ %879, %.loopexit207 ], [ %879, %1418 ], [ %879, %1417 ], [ %879, %.loopexit ]
+  call void @free(ptr noundef %.sink) #21
   br label %2815
 
-2815:                                             ; preds = %.loopexit210, %.loopexit209, %.loopexit208, %1776, %1771, %.loopexit207, %1418, %1417, %.loopexit
-  call void @free(ptr noundef %879) #21
-  br label %2816
-
-2816:                                             ; preds = %2815, %.loopexit214, %6
+2815:                                             ; preds = %.sink.split, %6
   ret void
 }
 

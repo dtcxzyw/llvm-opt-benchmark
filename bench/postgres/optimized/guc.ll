@@ -2390,207 +2390,203 @@ guc_strdup.exit:                                  ; preds = %guc_malloc.exit.i, 
 define dso_local noundef zeroext i1 @SelectConfigFiles(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = alloca %struct.stat, align 8
   %.not = icmp eq ptr %0, null
-  br i1 %.not, label %6, label %4
+  br i1 %.not, label %4, label %6
 
 4:                                                ; preds = %2
-  %5 = tail call ptr @make_absolute_path(ptr noundef nonnull %0) #29
-  br label %9
+  %5 = tail call ptr @getenv(ptr noundef nonnull @.str.23) #29
+  br label %6
 
-6:                                                ; preds = %2
-  %7 = tail call ptr @getenv(ptr noundef nonnull @.str.23) #29
-  %8 = tail call ptr @make_absolute_path(ptr noundef %7) #29
-  br label %9
+6:                                                ; preds = %2, %4
+  %.sink = phi ptr [ %5, %4 ], [ %0, %2 ]
+  %7 = tail call ptr @make_absolute_path(ptr noundef %.sink) #29
+  %.not51 = icmp ne ptr %7, null
+  br i1 %.not51, label %8, label %17
 
-9:                                                ; preds = %6, %4
-  %.045 = phi ptr [ %5, %4 ], [ %8, %6 ]
-  %.not51 = icmp ne ptr %.045, null
-  br i1 %.not51, label %10, label %19
+8:                                                ; preds = %6
+  %9 = call i32 @stat(ptr noundef nonnull %7, ptr noundef nonnull %3) #29
+  %.not52 = icmp eq i32 %9, 0
+  br i1 %.not52, label %.thread, label %10
 
-10:                                               ; preds = %9
-  %11 = call i32 @stat(ptr noundef nonnull %.045, ptr noundef nonnull %3) #29
-  %.not52 = icmp eq i32 %11, 0
-  br i1 %.not52, label %.thread, label %12
+10:                                               ; preds = %8
+  %11 = tail call ptr @__errno_location() #32
+  %12 = load i32, ptr %11, align 4
+  %13 = tail call ptr @pg_strerror(i32 noundef %12) #29
+  tail call void (ptr, ...) @write_stderr(ptr noundef nonnull @.str.24, ptr noundef %1, ptr noundef nonnull %7, ptr noundef %13) #29
+  %14 = load i32, ptr %11, align 4
+  %15 = icmp eq i32 %14, 2
+  br i1 %15, label %16, label %95
 
-12:                                               ; preds = %10
-  %13 = tail call ptr @__errno_location() #32
-  %14 = load i32, ptr %13, align 4
-  %15 = tail call ptr @pg_strerror(i32 noundef %14) #29
-  tail call void (ptr, ...) @write_stderr(ptr noundef nonnull @.str.24, ptr noundef %1, ptr noundef nonnull %.045, ptr noundef %15) #29
-  %16 = load i32, ptr %13, align 4
-  %17 = icmp eq i32 %16, 2
-  br i1 %17, label %18, label %97
-
-18:                                               ; preds = %12
+16:                                               ; preds = %10
   tail call void (ptr, ...) @write_stderr(ptr noundef nonnull @.str.25) #29
-  br label %97
+  br label %95
 
-19:                                               ; preds = %9
-  %20 = load ptr, ptr @ConfigFileName, align 8
-  %.not53.not = icmp eq ptr %20, null
-  br i1 %.not53.not, label %32, label %33
+17:                                               ; preds = %6
+  %18 = load ptr, ptr @ConfigFileName, align 8
+  %.not53.not = icmp eq ptr %18, null
+  br i1 %.not53.not, label %30, label %31
 
-.thread:                                          ; preds = %10
-  %21 = load ptr, ptr @ConfigFileName, align 8
-  %.not53.not64 = icmp eq ptr %21, null
-  br i1 %.not53.not64, label %22, label %33
+.thread:                                          ; preds = %8
+  %19 = load ptr, ptr @ConfigFileName, align 8
+  %.not53.not64 = icmp eq ptr %19, null
+  br i1 %.not53.not64, label %20, label %31
 
-22:                                               ; preds = %.thread
-  %23 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.045) #30
-  %24 = add i64 %23, 17
-  %25 = load ptr, ptr @GUCMemoryContext, align 8
-  %26 = tail call ptr @MemoryContextAllocExtended(ptr noundef %25, i64 noundef %24, i32 noundef 2) #29
-  %27 = icmp eq ptr %26, null
-  br i1 %27, label %28, label %37
+20:                                               ; preds = %.thread
+  %21 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %7) #30
+  %22 = add i64 %21, 17
+  %23 = load ptr, ptr @GUCMemoryContext, align 8
+  %24 = tail call ptr @MemoryContextAllocExtended(ptr noundef %23, i64 noundef %22, i32 noundef 2) #29
+  %25 = icmp eq ptr %24, null
+  br i1 %25, label %26, label %35
 
-28:                                               ; preds = %22
-  %29 = tail call zeroext i1 @errstart_cold(i32 noundef 22, ptr noundef null) #31
-  tail call void @llvm.assume(i1 %29)
-  %30 = tail call i32 @errcode(i32 noundef 8389) #29
-  %31 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.14) #29
+26:                                               ; preds = %20
+  %27 = tail call zeroext i1 @errstart_cold(i32 noundef 22, ptr noundef null) #31
+  tail call void @llvm.assume(i1 %27)
+  %28 = tail call i32 @errcode(i32 noundef 8389) #29
+  %29 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.14) #29
   tail call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 642, ptr noundef nonnull @__func__.guc_malloc) #29
   unreachable
 
-32:                                               ; preds = %19
+30:                                               ; preds = %17
   tail call void (ptr, ...) @write_stderr(ptr noundef nonnull @.str.28, ptr noundef %1) #29
-  br label %97
+  br label %95
 
-33:                                               ; preds = %.thread, %19
-  %34 = phi ptr [ %21, %.thread ], [ %20, %19 ]
-  %35 = tail call ptr @make_absolute_path(ptr noundef nonnull %34) #29
-  %36 = tail call range(i32 -1, 2) i32 @set_config_with_handle(ptr noundef nonnull @.str.29, ptr noundef null, ptr noundef %35, i32 noundef 1, i32 noundef 10, i32 noundef 10, i32 noundef 0, i1 noundef zeroext true, i32 noundef 0, i1 noundef zeroext false)
-  tail call void @free(ptr noundef %35) #29
+31:                                               ; preds = %.thread, %17
+  %32 = phi ptr [ %19, %.thread ], [ %18, %17 ]
+  %33 = tail call ptr @make_absolute_path(ptr noundef nonnull %32) #29
+  %34 = tail call range(i32 -1, 2) i32 @set_config_with_handle(ptr noundef nonnull @.str.29, ptr noundef null, ptr noundef %33, i32 noundef 1, i32 noundef 10, i32 noundef 10, i32 noundef 0, i1 noundef zeroext true, i32 noundef 0, i1 noundef zeroext false)
+  tail call void @free(ptr noundef %33) #29
   br label %guc_free.exit
 
-37:                                               ; preds = %22
-  %38 = tail call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef nonnull %26, ptr noundef nonnull @.str.26, ptr noundef nonnull %.045, ptr noundef nonnull @.str.27) #29
-  %39 = tail call range(i32 -1, 2) i32 @set_config_with_handle(ptr noundef nonnull @.str.29, ptr noundef null, ptr noundef nonnull %26, i32 noundef 1, i32 noundef 10, i32 noundef 10, i32 noundef 0, i1 noundef zeroext true, i32 noundef 0, i1 noundef zeroext false)
-  tail call void @pfree(ptr noundef nonnull %26) #29
+35:                                               ; preds = %20
+  %36 = tail call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef nonnull %24, ptr noundef nonnull @.str.26, ptr noundef nonnull %7, ptr noundef nonnull @.str.27) #29
+  %37 = tail call range(i32 -1, 2) i32 @set_config_with_handle(ptr noundef nonnull @.str.29, ptr noundef null, ptr noundef nonnull %24, i32 noundef 1, i32 noundef 10, i32 noundef 10, i32 noundef 0, i1 noundef zeroext true, i32 noundef 0, i1 noundef zeroext false)
+  tail call void @pfree(ptr noundef nonnull %24) #29
   br label %guc_free.exit
 
-guc_free.exit:                                    ; preds = %37, %33
-  %40 = load ptr, ptr @ConfigFileName, align 8
-  %41 = call i32 @stat(ptr noundef %40, ptr noundef nonnull %3) #29
-  %.not54 = icmp eq i32 %41, 0
-  br i1 %.not54, label %47, label %42
+guc_free.exit:                                    ; preds = %35, %31
+  %38 = load ptr, ptr @ConfigFileName, align 8
+  %39 = call i32 @stat(ptr noundef %38, ptr noundef nonnull %3) #29
+  %.not54 = icmp eq i32 %39, 0
+  br i1 %.not54, label %45, label %40
 
-42:                                               ; preds = %guc_free.exit
-  %43 = load ptr, ptr @ConfigFileName, align 8
-  %44 = tail call ptr @__errno_location() #32
-  %45 = load i32, ptr %44, align 4
-  %46 = tail call ptr @pg_strerror(i32 noundef %45) #29
-  tail call void (ptr, ...) @write_stderr(ptr noundef nonnull @.str.30, ptr noundef %1, ptr noundef %43, ptr noundef %46) #29
-  tail call void @free(ptr noundef %.045) #29
-  br label %97
+40:                                               ; preds = %guc_free.exit
+  %41 = load ptr, ptr @ConfigFileName, align 8
+  %42 = tail call ptr @__errno_location() #32
+  %43 = load i32, ptr %42, align 4
+  %44 = tail call ptr @pg_strerror(i32 noundef %43) #29
+  tail call void (ptr, ...) @write_stderr(ptr noundef nonnull @.str.30, ptr noundef %1, ptr noundef %41, ptr noundef %44) #29
+  tail call void @free(ptr noundef %7) #29
+  br label %95
 
-47:                                               ; preds = %guc_free.exit
+45:                                               ; preds = %guc_free.exit
   tail call void @ProcessConfigFile(i32 noundef 1) #29
-  %48 = tail call ptr @find_option(ptr noundef nonnull @.str.1, i1 noundef zeroext false, i1 noundef zeroext false, i32 noundef 23)
-  %49 = getelementptr inbounds i8, ptr %48, i64 144
-  %50 = load ptr, ptr %49, align 8
-  %51 = load ptr, ptr %50, align 8
-  %.not55 = icmp ne ptr %51, null
+  %46 = tail call ptr @find_option(ptr noundef nonnull @.str.1, i1 noundef zeroext false, i1 noundef zeroext false, i32 noundef 23)
+  %47 = getelementptr inbounds i8, ptr %46, i64 144
+  %48 = load ptr, ptr %47, align 8
+  %49 = load ptr, ptr %48, align 8
+  %.not55 = icmp ne ptr %49, null
   %brmerge = or i1 %.not55, %.not51
-  br i1 %brmerge, label %54, label %52
+  br i1 %brmerge, label %52, label %50
 
-52:                                               ; preds = %47
-  %53 = load ptr, ptr @ConfigFileName, align 8
-  tail call void (ptr, ...) @write_stderr(ptr noundef nonnull @.str.31, ptr noundef %1, ptr noundef %53) #29
-  br label %97
+50:                                               ; preds = %45
+  %51 = load ptr, ptr @ConfigFileName, align 8
+  tail call void (ptr, ...) @write_stderr(ptr noundef nonnull @.str.31, ptr noundef %1, ptr noundef %51) #29
+  br label %95
 
-54:                                               ; preds = %47
-  %.mux = select i1 %.not55, ptr %51, ptr %.045
+52:                                               ; preds = %45
+  %.mux = select i1 %.not55, ptr %49, ptr %7
   tail call void @SetDataDir(ptr noundef nonnull %.mux) #29
-  %55 = load ptr, ptr @DataDir, align 8
-  %56 = tail call range(i32 -1, 2) i32 @set_config_with_handle(ptr noundef nonnull @.str.1, ptr noundef null, ptr noundef %55, i32 noundef 1, i32 noundef 10, i32 noundef 10, i32 noundef 0, i1 noundef zeroext true, i32 noundef 0, i1 noundef zeroext false)
+  %53 = load ptr, ptr @DataDir, align 8
+  %54 = tail call range(i32 -1, 2) i32 @set_config_with_handle(ptr noundef nonnull @.str.1, ptr noundef null, ptr noundef %53, i32 noundef 1, i32 noundef 10, i32 noundef 10, i32 noundef 0, i1 noundef zeroext true, i32 noundef 0, i1 noundef zeroext false)
   tail call void @ProcessConfigFile(i32 noundef 1) #29
-  %57 = tail call range(i32 -1, 2) i32 @set_config_with_handle(ptr noundef nonnull @.str.111, ptr noundef null, ptr noundef nonnull @.str.112, i32 noundef 1, i32 noundef 1, i32 noundef 10, i32 noundef 0, i1 noundef zeroext true, i32 noundef 0, i1 noundef zeroext false)
-  %58 = load ptr, ptr @HbaFileName, align 8
-  %.not56.not = icmp eq ptr %58, null
-  br i1 %.not56.not, label %59, label %guc_free.exit60
+  %55 = tail call range(i32 -1, 2) i32 @set_config_with_handle(ptr noundef nonnull @.str.111, ptr noundef null, ptr noundef nonnull @.str.112, i32 noundef 1, i32 noundef 1, i32 noundef 10, i32 noundef 0, i1 noundef zeroext true, i32 noundef 0, i1 noundef zeroext false)
+  %56 = load ptr, ptr @HbaFileName, align 8
+  %.not56.not = icmp eq ptr %56, null
+  br i1 %.not56.not, label %57, label %guc_free.exit60
 
-59:                                               ; preds = %54
-  br i1 %.not51, label %60, label %70
+57:                                               ; preds = %52
+  br i1 %.not51, label %58, label %68
 
-60:                                               ; preds = %59
-  %61 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.045) #30
-  %62 = add i64 %61, 13
-  %63 = load ptr, ptr @GUCMemoryContext, align 8
-  %64 = tail call ptr @MemoryContextAllocExtended(ptr noundef %63, i64 noundef %62, i32 noundef 2) #29
-  %65 = icmp eq ptr %64, null
-  br i1 %65, label %66, label %guc_free.exit60.thread
+58:                                               ; preds = %57
+  %59 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %7) #30
+  %60 = add i64 %59, 13
+  %61 = load ptr, ptr @GUCMemoryContext, align 8
+  %62 = tail call ptr @MemoryContextAllocExtended(ptr noundef %61, i64 noundef %60, i32 noundef 2) #29
+  %63 = icmp eq ptr %62, null
+  br i1 %63, label %64, label %guc_free.exit60.thread
 
-66:                                               ; preds = %60
-  %67 = tail call zeroext i1 @errstart_cold(i32 noundef 22, ptr noundef null) #31
-  tail call void @llvm.assume(i1 %67)
-  %68 = tail call i32 @errcode(i32 noundef 8389) #29
-  %69 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.14) #29
+64:                                               ; preds = %58
+  %65 = tail call zeroext i1 @errstart_cold(i32 noundef 22, ptr noundef null) #31
+  tail call void @llvm.assume(i1 %65)
+  %66 = tail call i32 @errcode(i32 noundef 8389) #29
+  %67 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.14) #29
   tail call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 642, ptr noundef nonnull @__func__.guc_malloc) #29
   unreachable
 
-70:                                               ; preds = %59
-  %71 = load ptr, ptr @ConfigFileName, align 8
-  tail call void (ptr, ...) @write_stderr(ptr noundef nonnull @.str.33, ptr noundef %1, ptr noundef %71) #29
-  br label %97
+68:                                               ; preds = %57
+  %69 = load ptr, ptr @ConfigFileName, align 8
+  tail call void (ptr, ...) @write_stderr(ptr noundef nonnull @.str.33, ptr noundef %1, ptr noundef %69) #29
+  br label %95
 
-guc_free.exit60:                                  ; preds = %54
-  %72 = tail call ptr @make_absolute_path(ptr noundef nonnull %58) #29
-  %73 = tail call range(i32 -1, 2) i32 @set_config_with_handle(ptr noundef nonnull @.str.34, ptr noundef null, ptr noundef %72, i32 noundef 1, i32 noundef 10, i32 noundef 10, i32 noundef 0, i1 noundef zeroext true, i32 noundef 0, i1 noundef zeroext false)
-  tail call void @free(ptr noundef %72) #29
-  %74 = load ptr, ptr @IdentFileName, align 8
-  %.not57.not = icmp eq ptr %74, null
-  br i1 %.not57.not, label %78, label %90
+guc_free.exit60:                                  ; preds = %52
+  %70 = tail call ptr @make_absolute_path(ptr noundef nonnull %56) #29
+  %71 = tail call range(i32 -1, 2) i32 @set_config_with_handle(ptr noundef nonnull @.str.34, ptr noundef null, ptr noundef %70, i32 noundef 1, i32 noundef 10, i32 noundef 10, i32 noundef 0, i1 noundef zeroext true, i32 noundef 0, i1 noundef zeroext false)
+  tail call void @free(ptr noundef %70) #29
+  %72 = load ptr, ptr @IdentFileName, align 8
+  %.not57.not = icmp eq ptr %72, null
+  br i1 %.not57.not, label %76, label %88
 
-guc_free.exit60.thread:                           ; preds = %60
-  %75 = tail call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef nonnull %64, ptr noundef nonnull @.str.26, ptr noundef nonnull %.045, ptr noundef nonnull @.str.32) #29
-  %76 = tail call range(i32 -1, 2) i32 @set_config_with_handle(ptr noundef nonnull @.str.34, ptr noundef null, ptr noundef nonnull %64, i32 noundef 1, i32 noundef 10, i32 noundef 10, i32 noundef 0, i1 noundef zeroext true, i32 noundef 0, i1 noundef zeroext false)
-  tail call void @pfree(ptr noundef nonnull %64) #29
-  %77 = load ptr, ptr @IdentFileName, align 8
-  %.not57.not81 = icmp eq ptr %77, null
-  br i1 %.not57.not81, label %.thread82, label %90
+guc_free.exit60.thread:                           ; preds = %58
+  %73 = tail call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef nonnull %62, ptr noundef nonnull @.str.26, ptr noundef nonnull %7, ptr noundef nonnull @.str.32) #29
+  %74 = tail call range(i32 -1, 2) i32 @set_config_with_handle(ptr noundef nonnull @.str.34, ptr noundef null, ptr noundef nonnull %62, i32 noundef 1, i32 noundef 10, i32 noundef 10, i32 noundef 0, i1 noundef zeroext true, i32 noundef 0, i1 noundef zeroext false)
+  tail call void @pfree(ptr noundef nonnull %62) #29
+  %75 = load ptr, ptr @IdentFileName, align 8
+  %.not57.not81 = icmp eq ptr %75, null
+  br i1 %.not57.not81, label %.thread82, label %88
 
-78:                                               ; preds = %guc_free.exit60
-  br i1 %.not51, label %.thread82, label %88
+76:                                               ; preds = %guc_free.exit60
+  br i1 %.not51, label %.thread82, label %86
 
-.thread82:                                        ; preds = %guc_free.exit60.thread, %78
-  %79 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.045) #30
-  %80 = add i64 %79, 15
-  %81 = load ptr, ptr @GUCMemoryContext, align 8
-  %82 = tail call ptr @MemoryContextAllocExtended(ptr noundef %81, i64 noundef %80, i32 noundef 2) #29
-  %83 = icmp eq ptr %82, null
-  br i1 %83, label %84, label %94
+.thread82:                                        ; preds = %guc_free.exit60.thread, %76
+  %77 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %7) #30
+  %78 = add i64 %77, 15
+  %79 = load ptr, ptr @GUCMemoryContext, align 8
+  %80 = tail call ptr @MemoryContextAllocExtended(ptr noundef %79, i64 noundef %78, i32 noundef 2) #29
+  %81 = icmp eq ptr %80, null
+  br i1 %81, label %82, label %92
 
-84:                                               ; preds = %.thread82
-  %85 = tail call zeroext i1 @errstart_cold(i32 noundef 22, ptr noundef null) #31
-  tail call void @llvm.assume(i1 %85)
-  %86 = tail call i32 @errcode(i32 noundef 8389) #29
-  %87 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.14) #29
+82:                                               ; preds = %.thread82
+  %83 = tail call zeroext i1 @errstart_cold(i32 noundef 22, ptr noundef null) #31
+  tail call void @llvm.assume(i1 %83)
+  %84 = tail call i32 @errcode(i32 noundef 8389) #29
+  %85 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.14) #29
   tail call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 642, ptr noundef nonnull @__func__.guc_malloc) #29
   unreachable
 
-88:                                               ; preds = %78
-  %89 = load ptr, ptr @ConfigFileName, align 8
-  tail call void (ptr, ...) @write_stderr(ptr noundef nonnull @.str.36, ptr noundef %1, ptr noundef %89) #29
-  br label %97
+86:                                               ; preds = %76
+  %87 = load ptr, ptr @ConfigFileName, align 8
+  tail call void (ptr, ...) @write_stderr(ptr noundef nonnull @.str.36, ptr noundef %1, ptr noundef %87) #29
+  br label %95
 
-90:                                               ; preds = %guc_free.exit60.thread, %guc_free.exit60
-  %91 = phi ptr [ %77, %guc_free.exit60.thread ], [ %74, %guc_free.exit60 ]
-  %92 = tail call ptr @make_absolute_path(ptr noundef nonnull %91) #29
-  %93 = tail call range(i32 -1, 2) i32 @set_config_with_handle(ptr noundef nonnull @.str.37, ptr noundef null, ptr noundef %92, i32 noundef 1, i32 noundef 10, i32 noundef 10, i32 noundef 0, i1 noundef zeroext true, i32 noundef 0, i1 noundef zeroext false)
-  tail call void @free(ptr noundef %92) #29
+88:                                               ; preds = %guc_free.exit60.thread, %guc_free.exit60
+  %89 = phi ptr [ %75, %guc_free.exit60.thread ], [ %72, %guc_free.exit60 ]
+  %90 = tail call ptr @make_absolute_path(ptr noundef nonnull %89) #29
+  %91 = tail call range(i32 -1, 2) i32 @set_config_with_handle(ptr noundef nonnull @.str.37, ptr noundef null, ptr noundef %90, i32 noundef 1, i32 noundef 10, i32 noundef 10, i32 noundef 0, i1 noundef zeroext true, i32 noundef 0, i1 noundef zeroext false)
+  tail call void @free(ptr noundef %90) #29
   br label %guc_free.exit63
 
-94:                                               ; preds = %.thread82
-  %95 = tail call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef nonnull %82, ptr noundef nonnull @.str.26, ptr noundef nonnull %.045, ptr noundef nonnull @.str.35) #29
-  %96 = tail call range(i32 -1, 2) i32 @set_config_with_handle(ptr noundef nonnull @.str.37, ptr noundef null, ptr noundef nonnull %82, i32 noundef 1, i32 noundef 10, i32 noundef 10, i32 noundef 0, i1 noundef zeroext true, i32 noundef 0, i1 noundef zeroext false)
-  tail call void @pfree(ptr noundef nonnull %82) #29
+92:                                               ; preds = %.thread82
+  %93 = tail call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef nonnull %80, ptr noundef nonnull @.str.26, ptr noundef nonnull %7, ptr noundef nonnull @.str.35) #29
+  %94 = tail call range(i32 -1, 2) i32 @set_config_with_handle(ptr noundef nonnull @.str.37, ptr noundef null, ptr noundef nonnull %80, i32 noundef 1, i32 noundef 10, i32 noundef 10, i32 noundef 0, i1 noundef zeroext true, i32 noundef 0, i1 noundef zeroext false)
+  tail call void @pfree(ptr noundef nonnull %80) #29
   br label %guc_free.exit63
 
-guc_free.exit63:                                  ; preds = %94, %90
-  tail call void @free(ptr noundef %.045) #29
-  br label %97
+guc_free.exit63:                                  ; preds = %92, %88
+  tail call void @free(ptr noundef %7) #29
+  br label %95
 
-97:                                               ; preds = %12, %18, %guc_free.exit63, %88, %70, %52, %42, %32
-  %.0 = phi i1 [ false, %42 ], [ true, %guc_free.exit63 ], [ false, %88 ], [ false, %70 ], [ false, %52 ], [ false, %32 ], [ false, %18 ], [ false, %12 ]
+95:                                               ; preds = %10, %16, %guc_free.exit63, %86, %68, %50, %40, %30
+  %.0 = phi i1 [ false, %40 ], [ true, %guc_free.exit63 ], [ false, %86 ], [ false, %68 ], [ false, %50 ], [ false, %30 ], [ false, %16 ], [ false, %10 ]
   ret i1 %.0
 }
 

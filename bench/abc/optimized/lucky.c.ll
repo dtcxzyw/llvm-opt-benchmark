@@ -398,15 +398,14 @@ define range(i32 0, 2) i32 @minimalFlip1(ptr noundef %0, ptr nocapture noundef %
 
 memCompare.exit:                                  ; preds = %21
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %1, ptr nonnull align 8 %0, i64 %7, i1 false)
-  tail call void @Kit_TruthChangePhase_64bit(ptr noundef nonnull %0, i32 noundef %3, i32 noundef %.03648) #18
   br label %23
 
 .loopexit:                                        ; preds = %11, %21
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %0, ptr align 8 %1, i64 %7, i1 false)
-  tail call void @Kit_TruthChangePhase_64bit(ptr noundef %0, i32 noundef %3, i32 noundef %.03648) #18
   br label %23
 
 23:                                               ; preds = %memCompare.exit, %.loopexit
+  tail call void @Kit_TruthChangePhase_64bit(ptr noundef %0, i32 noundef %3, i32 noundef %.03648) #18
   %24 = add nuw nsw i32 %.03648, 1
   %exitcond.not = icmp eq i32 %24, %3
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !11
@@ -490,15 +489,14 @@ define range(i32 0, 2) i32 @minimalSwap1(ptr noundef %0, ptr nocapture noundef %
 
 memCompare.exit:                                  ; preds = %22
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %1, ptr nonnull align 8 %0, i64 %7, i1 false)
-  tail call void @Kit_TruthSwapAdjacentVars_64bit(ptr noundef nonnull %0, i32 noundef %3, i32 noundef %.03647) #18
   br label %24
 
 .loopexit:                                        ; preds = %12, %22
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %0, ptr align 8 %1, i64 %7, i1 false)
-  tail call void @Kit_TruthSwapAdjacentVars_64bit(ptr noundef %0, i32 noundef %3, i32 noundef %.03647) #18
   br label %24
 
 24:                                               ; preds = %memCompare.exit, %.loopexit
+  tail call void @Kit_TruthSwapAdjacentVars_64bit(ptr noundef %0, i32 noundef %3, i32 noundef %.03647) #18
   %25 = add nuw nsw i32 %.03647, 1
   %exitcond.not = icmp eq i32 %.03647, %9
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !12

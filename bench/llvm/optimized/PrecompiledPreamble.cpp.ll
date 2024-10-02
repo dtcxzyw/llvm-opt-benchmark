@@ -4251,7 +4251,7 @@ define dso_local void @_ZN5clang19PrecompiledPreamble20setupPreambleStorageERKNS
   %19 = alloca %"class.llvm::IntrusiveRefCntPtr", align 8
   %20 = load ptr, ptr %0, align 8
   %.not.i = icmp eq ptr %20, null
-  br i1 %.not.i, label %21, label %94
+  br i1 %.not.i, label %21, label %90
 
 21:                                               ; preds = %3
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -4417,114 +4417,108 @@ _ZNSt10unique_ptrIN4llvm12MemoryBufferESt14default_deleteIS1_EED2Ev.exit.i: ; pr
   %87 = getelementptr inbounds i8, ptr %85, i64 8
   %88 = atomicrmw sub ptr %87, i32 1 acq_rel, align 4
   %89 = icmp eq i32 %88, 1
-  br i1 %89, label %90, label %_ZN4llvm18IntrusiveRefCntPtrINS_3vfs10FileSystemEED2Ev.exit24
+  br i1 %89, label %_ZN4llvm18IntrusiveRefCntPtrINS_3vfs10FileSystemEED2Ev.exit24.sink.split, label %_ZN4llvm18IntrusiveRefCntPtrINS_3vfs10FileSystemEED2Ev.exit24
 
-90:                                               ; preds = %86
-  %91 = load ptr, ptr %85, align 8
-  %92 = getelementptr inbounds i8, ptr %91, i64 8
-  %93 = load ptr, ptr %92, align 8
-  call void %93(ptr noundef nonnull align 8 dereferenceable(12) %85) #21
-  br label %_ZN4llvm18IntrusiveRefCntPtrINS_3vfs10FileSystemEED2Ev.exit24
-
-94:                                               ; preds = %3
+90:                                               ; preds = %3
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %15) #21
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
-  %95 = call { i64, ptr } @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE17_S_to_string_viewESt17basic_string_viewIcS2_E(i64 42, ptr nonnull @.str.11) #21
-  %96 = extractvalue { i64, ptr } %95, 0
-  %97 = extractvalue { i64, ptr } %95, 1
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12__sv_wrapperC1ESt17basic_string_viewIcS2_E(ptr noundef nonnull align 8 dereferenceable(16) %4, i64 %96, ptr %97) #21
-  %98 = load i64, ptr %4, align 8
-  %99 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %100 = load ptr, ptr %99, align 8
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ENS4_12__sv_wrapperERKS3_(ptr noundef nonnull align 8 dereferenceable(32) %14, i64 %98, ptr %100, ptr noundef nonnull align 1 dereferenceable(1) %15) #21
+  %91 = call { i64, ptr } @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE17_S_to_string_viewESt17basic_string_viewIcS2_E(i64 42, ptr nonnull @.str.11) #21
+  %92 = extractvalue { i64, ptr } %91, 0
+  %93 = extractvalue { i64, ptr } %91, 1
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12__sv_wrapperC1ESt17basic_string_viewIcS2_E(ptr noundef nonnull align 8 dereferenceable(16) %4, i64 %92, ptr %93) #21
+  %94 = load i64, ptr %4, align 8
+  %95 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %96 = load ptr, ptr %95, align 8
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ENS4_12__sv_wrapperERKS3_(ptr noundef nonnull align 8 dereferenceable(32) %14, i64 %94, ptr %96, ptr noundef nonnull align 1 dereferenceable(1) %15) #21
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
-  %101 = getelementptr inbounds nuw i8, ptr %1, i64 112
-  %102 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %101, ptr noundef nonnull align 8 dereferenceable(32) %14) #21
+  %97 = getelementptr inbounds nuw i8, ptr %1, i64 112
+  %98 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %97, ptr noundef nonnull align 8 dereferenceable(32) %14) #21
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %14) #21
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %15) #21
-  %103 = load ptr, ptr %0, align 8
-  %104 = getelementptr inbounds nuw i8, ptr %103, i64 24
-  %105 = load ptr, ptr %104, align 8
-  %106 = call noundef i64 @_ZNK4llvm15SmallVectorBaseImE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %104) #21
-  call void @_ZN4llvm12MemoryBuffer12getMemBufferENS_9StringRefES1_b(ptr dead_on_unwind nonnull writable sret(%"class.std::unique_ptr.364") align 8 %16, ptr %105, i64 %106, ptr nonnull @.str.11, i64 42, i1 noundef zeroext false) #21
-  %107 = load i64, ptr %16, align 8
-  store i64 %107, ptr %18, align 8
+  %99 = load ptr, ptr %0, align 8
+  %100 = getelementptr inbounds nuw i8, ptr %99, i64 24
+  %101 = load ptr, ptr %100, align 8
+  %102 = call noundef i64 @_ZNK4llvm15SmallVectorBaseImE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %100) #21
+  call void @_ZN4llvm12MemoryBuffer12getMemBufferENS_9StringRefES1_b(ptr dead_on_unwind nonnull writable sret(%"class.std::unique_ptr.364") align 8 %16, ptr %101, i64 %102, ptr nonnull @.str.11, i64 42, i1 noundef zeroext false) #21
+  %103 = load i64, ptr %16, align 8
+  store i64 %103, ptr %18, align 8
   store ptr null, ptr %16, align 8
-  %108 = load ptr, ptr %2, align 8
-  store ptr %108, ptr %19, align 8
-  %.not.i.i25 = icmp eq ptr %108, null
-  br i1 %.not.i.i25, label %_ZN4llvm18IntrusiveRefCntPtrINS_3vfs10FileSystemEEC2ERKS3_.exit26, label %109
+  %104 = load ptr, ptr %2, align 8
+  store ptr %104, ptr %19, align 8
+  %.not.i.i25 = icmp eq ptr %104, null
+  br i1 %.not.i.i25, label %_ZN4llvm18IntrusiveRefCntPtrINS_3vfs10FileSystemEEC2ERKS3_.exit26, label %105
 
-109:                                              ; preds = %94
-  %110 = getelementptr inbounds i8, ptr %108, i64 8
-  %111 = atomicrmw add ptr %110, i32 1 monotonic, align 4
+105:                                              ; preds = %90
+  %106 = getelementptr inbounds i8, ptr %104, i64 8
+  %107 = atomicrmw add ptr %106, i32 1 monotonic, align 4
   br label %_ZN4llvm18IntrusiveRefCntPtrINS_3vfs10FileSystemEEC2ERKS3_.exit26
 
-_ZN4llvm18IntrusiveRefCntPtrINS_3vfs10FileSystemEEC2ERKS3_.exit26: ; preds = %94, %109
+_ZN4llvm18IntrusiveRefCntPtrINS_3vfs10FileSystemEEC2ERKS3_.exit26: ; preds = %90, %105
   call fastcc void @_ZN12_GLOBAL__N_130createVFSOverlayForPreamblePCHEN4llvm9StringRefESt10unique_ptrINS0_12MemoryBufferESt14default_deleteIS3_EENS0_18IntrusiveRefCntPtrINS0_3vfs10FileSystemEEE(ptr dead_on_unwind noalias writable align 8 %17, ptr nonnull @.str.11, i64 42, ptr noundef %18, ptr noundef %19)
-  %112 = load ptr, ptr %17, align 8
-  %113 = load ptr, ptr %2, align 8
-  store ptr %113, ptr %17, align 8
-  store ptr %112, ptr %2, align 8
-  %.not.i.i27 = icmp eq ptr %113, null
-  br i1 %.not.i.i27, label %_ZN4llvm18IntrusiveRefCntPtrINS_3vfs10FileSystemEED2Ev.exit28, label %114
+  %108 = load ptr, ptr %17, align 8
+  %109 = load ptr, ptr %2, align 8
+  store ptr %109, ptr %17, align 8
+  store ptr %108, ptr %2, align 8
+  %.not.i.i27 = icmp eq ptr %109, null
+  br i1 %.not.i.i27, label %_ZN4llvm18IntrusiveRefCntPtrINS_3vfs10FileSystemEED2Ev.exit28, label %110
 
-114:                                              ; preds = %_ZN4llvm18IntrusiveRefCntPtrINS_3vfs10FileSystemEEC2ERKS3_.exit26
-  %115 = getelementptr inbounds i8, ptr %113, i64 8
-  %116 = atomicrmw sub ptr %115, i32 1 acq_rel, align 4
-  %117 = icmp eq i32 %116, 1
-  br i1 %117, label %118, label %_ZN4llvm18IntrusiveRefCntPtrINS_3vfs10FileSystemEED2Ev.exit28
+110:                                              ; preds = %_ZN4llvm18IntrusiveRefCntPtrINS_3vfs10FileSystemEEC2ERKS3_.exit26
+  %111 = getelementptr inbounds i8, ptr %109, i64 8
+  %112 = atomicrmw sub ptr %111, i32 1 acq_rel, align 4
+  %113 = icmp eq i32 %112, 1
+  br i1 %113, label %114, label %_ZN4llvm18IntrusiveRefCntPtrINS_3vfs10FileSystemEED2Ev.exit28
 
-118:                                              ; preds = %114
-  %119 = load ptr, ptr %113, align 8
-  %120 = getelementptr inbounds i8, ptr %119, i64 8
-  %121 = load ptr, ptr %120, align 8
-  call void %121(ptr noundef nonnull align 8 dereferenceable(12) %113) #21
+114:                                              ; preds = %110
+  %115 = load ptr, ptr %109, align 8
+  %116 = getelementptr inbounds i8, ptr %115, i64 8
+  %117 = load ptr, ptr %116, align 8
+  call void %117(ptr noundef nonnull align 8 dereferenceable(12) %109) #21
   br label %_ZN4llvm18IntrusiveRefCntPtrINS_3vfs10FileSystemEED2Ev.exit28
 
-_ZN4llvm18IntrusiveRefCntPtrINS_3vfs10FileSystemEED2Ev.exit28: ; preds = %_ZN4llvm18IntrusiveRefCntPtrINS_3vfs10FileSystemEEC2ERKS3_.exit26, %114, %118
-  %122 = load ptr, ptr %19, align 8
-  %.not.i.i29 = icmp eq ptr %122, null
-  br i1 %.not.i.i29, label %_ZN4llvm18IntrusiveRefCntPtrINS_3vfs10FileSystemEED2Ev.exit30, label %123
+_ZN4llvm18IntrusiveRefCntPtrINS_3vfs10FileSystemEED2Ev.exit28: ; preds = %_ZN4llvm18IntrusiveRefCntPtrINS_3vfs10FileSystemEEC2ERKS3_.exit26, %110, %114
+  %118 = load ptr, ptr %19, align 8
+  %.not.i.i29 = icmp eq ptr %118, null
+  br i1 %.not.i.i29, label %_ZN4llvm18IntrusiveRefCntPtrINS_3vfs10FileSystemEED2Ev.exit30, label %119
 
-123:                                              ; preds = %_ZN4llvm18IntrusiveRefCntPtrINS_3vfs10FileSystemEED2Ev.exit28
-  %124 = getelementptr inbounds i8, ptr %122, i64 8
-  %125 = atomicrmw sub ptr %124, i32 1 acq_rel, align 4
-  %126 = icmp eq i32 %125, 1
-  br i1 %126, label %127, label %_ZN4llvm18IntrusiveRefCntPtrINS_3vfs10FileSystemEED2Ev.exit30
+119:                                              ; preds = %_ZN4llvm18IntrusiveRefCntPtrINS_3vfs10FileSystemEED2Ev.exit28
+  %120 = getelementptr inbounds i8, ptr %118, i64 8
+  %121 = atomicrmw sub ptr %120, i32 1 acq_rel, align 4
+  %122 = icmp eq i32 %121, 1
+  br i1 %122, label %123, label %_ZN4llvm18IntrusiveRefCntPtrINS_3vfs10FileSystemEED2Ev.exit30
 
-127:                                              ; preds = %123
-  %128 = load ptr, ptr %122, align 8
-  %129 = getelementptr inbounds i8, ptr %128, i64 8
-  %130 = load ptr, ptr %129, align 8
-  call void %130(ptr noundef nonnull align 8 dereferenceable(12) %122) #21
+123:                                              ; preds = %119
+  %124 = load ptr, ptr %118, align 8
+  %125 = getelementptr inbounds i8, ptr %124, i64 8
+  %126 = load ptr, ptr %125, align 8
+  call void %126(ptr noundef nonnull align 8 dereferenceable(12) %118) #21
   br label %_ZN4llvm18IntrusiveRefCntPtrINS_3vfs10FileSystemEED2Ev.exit30
 
-_ZN4llvm18IntrusiveRefCntPtrINS_3vfs10FileSystemEED2Ev.exit30: ; preds = %_ZN4llvm18IntrusiveRefCntPtrINS_3vfs10FileSystemEED2Ev.exit28, %123, %127
-  %131 = load ptr, ptr %18, align 8
-  %.not.i31 = icmp eq ptr %131, null
+_ZN4llvm18IntrusiveRefCntPtrINS_3vfs10FileSystemEED2Ev.exit30: ; preds = %_ZN4llvm18IntrusiveRefCntPtrINS_3vfs10FileSystemEED2Ev.exit28, %119, %123
+  %127 = load ptr, ptr %18, align 8
+  %.not.i31 = icmp eq ptr %127, null
   br i1 %.not.i31, label %_ZNSt10unique_ptrIN4llvm12MemoryBufferESt14default_deleteIS1_EED2Ev.exit33, label %_ZNKSt14default_deleteIN4llvm12MemoryBufferEEclEPS1_.exit.i32
 
 _ZNKSt14default_deleteIN4llvm12MemoryBufferEEclEPS1_.exit.i32: ; preds = %_ZN4llvm18IntrusiveRefCntPtrINS_3vfs10FileSystemEED2Ev.exit30
-  %132 = load ptr, ptr %131, align 8
-  %133 = getelementptr inbounds i8, ptr %132, i64 8
-  %134 = load ptr, ptr %133, align 8
-  call void %134(ptr noundef nonnull align 8 dereferenceable(24) %131) #21
+  %128 = load ptr, ptr %127, align 8
+  %129 = getelementptr inbounds i8, ptr %128, i64 8
+  %130 = load ptr, ptr %129, align 8
+  call void %130(ptr noundef nonnull align 8 dereferenceable(24) %127) #21
   br label %_ZNSt10unique_ptrIN4llvm12MemoryBufferESt14default_deleteIS1_EED2Ev.exit33
 
 _ZNSt10unique_ptrIN4llvm12MemoryBufferESt14default_deleteIS1_EED2Ev.exit33: ; preds = %_ZN4llvm18IntrusiveRefCntPtrINS_3vfs10FileSystemEED2Ev.exit30, %_ZNKSt14default_deleteIN4llvm12MemoryBufferEEclEPS1_.exit.i32
-  %135 = load ptr, ptr %16, align 8
-  %.not.i34 = icmp eq ptr %135, null
-  br i1 %.not.i34, label %_ZN4llvm18IntrusiveRefCntPtrINS_3vfs10FileSystemEED2Ev.exit24, label %_ZNKSt14default_deleteIN4llvm12MemoryBufferEEclEPS1_.exit.i35
+  %131 = load ptr, ptr %16, align 8
+  %.not.i34 = icmp eq ptr %131, null
+  br i1 %.not.i34, label %_ZN4llvm18IntrusiveRefCntPtrINS_3vfs10FileSystemEED2Ev.exit24, label %_ZN4llvm18IntrusiveRefCntPtrINS_3vfs10FileSystemEED2Ev.exit24.sink.split
 
-_ZNKSt14default_deleteIN4llvm12MemoryBufferEEclEPS1_.exit.i35: ; preds = %_ZNSt10unique_ptrIN4llvm12MemoryBufferESt14default_deleteIS1_EED2Ev.exit33
-  %136 = load ptr, ptr %135, align 8
-  %137 = getelementptr inbounds i8, ptr %136, i64 8
-  %138 = load ptr, ptr %137, align 8
-  call void %138(ptr noundef nonnull align 8 dereferenceable(24) %135) #21
+_ZN4llvm18IntrusiveRefCntPtrINS_3vfs10FileSystemEED2Ev.exit24.sink.split: ; preds = %_ZNSt10unique_ptrIN4llvm12MemoryBufferESt14default_deleteIS1_EED2Ev.exit33, %86
+  %.sink48 = phi ptr [ %85, %86 ], [ %131, %_ZNSt10unique_ptrIN4llvm12MemoryBufferESt14default_deleteIS1_EED2Ev.exit33 ]
+  %132 = load ptr, ptr %.sink48, align 8
+  %133 = getelementptr inbounds i8, ptr %132, i64 8
+  %134 = load ptr, ptr %133, align 8
+  call void %134(ptr noundef nonnull align 8 dereferenceable(12) %.sink48) #21
   br label %_ZN4llvm18IntrusiveRefCntPtrINS_3vfs10FileSystemEED2Ev.exit24
 
-_ZN4llvm18IntrusiveRefCntPtrINS_3vfs10FileSystemEED2Ev.exit24: ; preds = %_ZNKSt14default_deleteIN4llvm12MemoryBufferEEclEPS1_.exit.i35, %_ZNSt10unique_ptrIN4llvm12MemoryBufferESt14default_deleteIS1_EED2Ev.exit33, %90, %86, %.critedge
+_ZN4llvm18IntrusiveRefCntPtrINS_3vfs10FileSystemEED2Ev.exit24: ; preds = %_ZN4llvm18IntrusiveRefCntPtrINS_3vfs10FileSystemEED2Ev.exit24.sink.split, %_ZNSt10unique_ptrIN4llvm12MemoryBufferESt14default_deleteIS1_EED2Ev.exit33, %86, %.critedge
   ret void
 }
 

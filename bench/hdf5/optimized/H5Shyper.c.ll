@@ -8076,63 +8076,56 @@ define range(i32 -1, 1) i32 @H5Sselect_hyperslab(i64 noundef %0, i32 noundef %1,
   %58 = getelementptr inbounds i8, ptr %28, i64 56
   %59 = load i32, ptr %58, align 8
   %.not61 = icmp eq i32 %59, 0
-  br i1 %.not61, label %.split36, label %.lr.ph.preheader
+  br i1 %.not61, label %.split, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %.preheader
   %wide.trip.count = zext i32 %59 to i64
   br label %.lr.ph
 
-.split:                                           ; preds = %57
-  %60 = tail call i32 @H5S_select_hyperslab(ptr noundef nonnull %28, i32 noundef %1, ptr noundef nonnull %2, ptr noundef null, ptr noundef nonnull %4, ptr noundef %5)
-  br label %70
-
-61:                                               ; preds = %.lr.ph
+60:                                               ; preds = %.lr.ph
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.split36, label %.lr.ph
+  br i1 %exitcond.not, label %.split, label %.lr.ph
 
-.split36:                                         ; preds = %61, %.preheader
-  %62 = tail call i32 @H5S_select_hyperslab(ptr noundef nonnull %28, i32 noundef %1, ptr noundef %2, ptr noundef nonnull %3, ptr noundef %4, ptr noundef %5)
-  br label %70
+.lr.ph:                                           ; preds = %.lr.ph.preheader, %60
+  %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %60 ]
+  %61 = getelementptr inbounds i64, ptr %3, i64 %indvars.iv
+  %62 = load i64, ptr %61, align 8
+  %63 = icmp eq i64 %62, 0
+  br i1 %63, label %64, label %60
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %61
-  %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %61 ]
-  %63 = getelementptr inbounds i64, ptr %3, i64 %indvars.iv
-  %64 = load i64, ptr %63, align 8
-  %65 = icmp eq i64 %64, 0
-  br i1 %65, label %66, label %61
-
-66:                                               ; preds = %.lr.ph
-  %67 = load i64, ptr @H5E_ARGS_g, align 8
-  %68 = load i64, ptr @H5E_BADVALUE_g, align 8
-  %69 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5Sselect_hyperslab, i32 noundef 10319, i64 noundef %67, i64 noundef %68, ptr noundef nonnull @.str.31) #15
+64:                                               ; preds = %.lr.ph
+  %65 = load i64, ptr @H5E_ARGS_g, align 8
+  %66 = load i64, ptr @H5E_BADVALUE_g, align 8
+  %67 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5Sselect_hyperslab, i32 noundef 10319, i64 noundef %65, i64 noundef %66, ptr noundef nonnull @.str.31) #15
   br label %.thread57
 
-70:                                               ; preds = %.split36, %.split
-  %phi.call = phi i32 [ %60, %.split ], [ %62, %.split36 ]
-  %71 = icmp slt i32 %phi.call, 0
-  br i1 %71, label %72, label %77
+.split:                                           ; preds = %60, %.preheader, %57
+  %.sink = phi ptr [ null, %57 ], [ %3, %.preheader ], [ %3, %60 ]
+  %68 = tail call i32 @H5S_select_hyperslab(ptr noundef nonnull %28, i32 noundef %1, ptr noundef %2, ptr noundef %.sink, ptr noundef %4, ptr noundef %5)
+  %69 = icmp slt i32 %68, 0
+  br i1 %69, label %70, label %75
 
-72:                                               ; preds = %70
-  %73 = load i64, ptr @H5E_DATASPACE_g, align 8
-  %74 = load i64, ptr @H5E_CANTINIT_g, align 8
-  %75 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5Sselect_hyperslab, i32 noundef 10323, i64 noundef %73, i64 noundef %74, ptr noundef nonnull @.str.32) #15
+70:                                               ; preds = %.split
+  %71 = load i64, ptr @H5E_DATASPACE_g, align 8
+  %72 = load i64, ptr @H5E_CANTINIT_g, align 8
+  %73 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5Sselect_hyperslab, i32 noundef 10323, i64 noundef %71, i64 noundef %72, ptr noundef nonnull @.str.32) #15
   br label %.thread57
 
-.thread57:                                        ; preds = %53, %72, %66, %48, %41, %37, %30
-  %76 = tail call i32 @H5CX_pop(i1 noundef zeroext true) #15
+.thread57:                                        ; preds = %53, %70, %64, %48, %41, %37, %30
+  %74 = tail call i32 @H5CX_pop(i1 noundef zeroext true) #15
   br label %.thread51
 
-77:                                               ; preds = %70
-  %78 = tail call i32 @H5CX_pop(i1 noundef zeroext true) #15
-  br label %80
+75:                                               ; preds = %.split
+  %76 = tail call i32 @H5CX_pop(i1 noundef zeroext true) #15
+  br label %78
 
 .thread51:                                        ; preds = %22, %15, %.thread57
-  %79 = tail call i32 @H5E_dump_api_stack() #15
-  br label %80
+  %77 = tail call i32 @H5E_dump_api_stack() #15
+  br label %78
 
-80:                                               ; preds = %77, %.thread51
-  %.0354654 = phi i32 [ -1, %.thread51 ], [ 0, %77 ]
+78:                                               ; preds = %75, %.thread51
+  %.0354654 = phi i32 [ -1, %.thread51 ], [ 0, %75 ]
   ret i32 %.0354654
 }
 

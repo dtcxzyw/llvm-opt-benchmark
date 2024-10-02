@@ -6986,7 +6986,7 @@ define noundef ptr @SparseMatrix_get_submatrix(ptr nocapture noundef readonly %0
   %13 = icmp slt i32 %1, 1
   %14 = icmp slt i32 %2, 1
   %or.cond = or i1 %13, %14
-  br i1 %or.cond, label %336, label %15
+  br i1 %or.cond, label %333, label %15
 
 15:                                               ; preds = %5
   %16 = sext i32 %10 to i64
@@ -7213,12 +7213,11 @@ gv_calloc.exit260:                                ; preds = %.thread306, %36
   %.0219.lcssa = phi i32 [ 0, %.loopexit351 ], [ %.1, %.loopexit350 ]
   %86 = getelementptr inbounds i8, ptr %0, i64 16
   %87 = load i32, ptr %86, align 8
-  switch i32 %87, label %331 [
+  switch i32 %87, label %.sink.split.sink.split [
     i32 1, label %88
     i32 2, label %150
     i32 4, label %222
     i32 8, label %284
-    i32 16, label %330
   ]
 
 88:                                               ; preds = %._crit_edge382
@@ -7716,37 +7715,33 @@ gv_calloc.exit304:                                ; preds = %.thread328, %299
   %exitcond466.not = icmp eq i64 %indvars.iv.next463, %wide.trip.count465
   br i1 %exitcond466.not, label %.loopexit343, label %.lr.ph391
 
-330:                                              ; preds = %._crit_edge382
-  tail call void @free(ptr noundef %29) #16
-  tail call void @free(ptr noundef %43) #16
-  br label %336
-
-331:                                              ; preds = %._crit_edge382
-  tail call void @free(ptr noundef %29) #16
-  tail call void @free(ptr noundef %43) #16
-  br label %336
-
 .loopexit343:                                     ; preds = %.loopexit348, %.loopexit346, %gv_calloc.exit284, %.loopexit, %gv_calloc.exit304, %gv_calloc.exit296, %gv_calloc.exit284.preheader, %gv_calloc.exit272
   %.0244 = phi ptr [ %120, %gv_calloc.exit272 ], [ %179, %gv_calloc.exit284.preheader ], [ %254, %gv_calloc.exit296 ], [ null, %gv_calloc.exit304 ], [ %120, %.loopexit ], [ %179, %gv_calloc.exit284 ], [ %254, %.loopexit346 ], [ null, %.loopexit348 ]
   %.0237 = phi ptr [ %121, %gv_calloc.exit272 ], [ %180, %gv_calloc.exit284.preheader ], [ %255, %gv_calloc.exit296 ], [ %306, %gv_calloc.exit304 ], [ %121, %.loopexit ], [ %180, %gv_calloc.exit284 ], [ %255, %.loopexit346 ], [ %306, %.loopexit348 ]
   %.0236 = phi ptr [ %122, %gv_calloc.exit272 ], [ %181, %gv_calloc.exit284.preheader ], [ %256, %gv_calloc.exit296 ], [ %307, %gv_calloc.exit304 ], [ %122, %.loopexit ], [ %181, %gv_calloc.exit284 ], [ %256, %.loopexit346 ], [ %307, %.loopexit348 ]
   %.8 = phi i32 [ 0, %gv_calloc.exit272 ], [ 0, %gv_calloc.exit284.preheader ], [ 0, %gv_calloc.exit296 ], [ 0, %gv_calloc.exit304 ], [ %.5, %.loopexit ], [ %.10, %gv_calloc.exit284 ], [ %.14, %.loopexit346 ], [ %.18, %.loopexit348 ]
-  %332 = getelementptr inbounds i8, ptr %0, i64 56
-  %333 = load i64, ptr %332, align 8
-  %334 = tail call fastcc noundef ptr @SparseMatrix_from_coordinate_arrays_internal(i32 noundef %.8, i32 noundef %1, i32 noundef %2, ptr noundef readonly %.0236, ptr noundef readonly %.0237, ptr noundef readonly %.0244, i32 noundef %87, i64 noundef %333, i32 noundef 1)
+  %330 = getelementptr inbounds i8, ptr %0, i64 56
+  %331 = load i64, ptr %330, align 8
+  %332 = tail call fastcc noundef ptr @SparseMatrix_from_coordinate_arrays_internal(i32 noundef %.8, i32 noundef %1, i32 noundef %2, ptr noundef readonly %.0236, ptr noundef readonly %.0237, ptr noundef readonly %.0244, i32 noundef %87, i64 noundef %331, i32 noundef 1)
   tail call void @free(ptr noundef %43) #16
   tail call void @free(ptr noundef %29) #16
   tail call void @free(ptr noundef %.0236) #16
   tail call void @free(ptr noundef %.0237) #16
   %.not254 = icmp eq ptr %.0244, null
-  br i1 %.not254, label %336, label %335
+  br i1 %.not254, label %333, label %.sink.split
 
-335:                                              ; preds = %.loopexit343
-  tail call void @free(ptr noundef nonnull %.0244) #16
-  br label %336
+.sink.split.sink.split:                           ; preds = %._crit_edge382
+  tail call void @free(ptr noundef %29) #16
+  br label %.sink.split
 
-336:                                              ; preds = %.loopexit343, %335, %5, %331, %330
-  %.0 = phi ptr [ null, %331 ], [ null, %330 ], [ null, %5 ], [ %334, %335 ], [ %334, %.loopexit343 ]
+.sink.split:                                      ; preds = %.sink.split.sink.split, %.loopexit343
+  %.0244.sink = phi ptr [ %.0244, %.loopexit343 ], [ %43, %.sink.split.sink.split ]
+  %.0.ph = phi ptr [ %332, %.loopexit343 ], [ null, %.sink.split.sink.split ]
+  tail call void @free(ptr noundef %.0244.sink) #16
+  br label %333
+
+333:                                              ; preds = %.sink.split, %.loopexit343, %5
+  %.0 = phi ptr [ null, %5 ], [ %332, %.loopexit343 ], [ %.0.ph, %.sink.split ]
   ret ptr %.0
 }
 

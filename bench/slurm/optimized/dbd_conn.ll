@@ -45,69 +45,49 @@ define ptr @dbd_conn_open(ptr noundef %0, ptr noundef %1, ptr noundef %2, i16 no
   %9 = getelementptr inbounds i8, ptr %5, i64 68
   store i32 1, ptr %9, align 4
   %.not31 = icmp eq ptr %1, null
-  br i1 %.not31, label %12, label %10
-
-10:                                               ; preds = %4
-  %11 = tail call ptr @slurm_xstrdup(ptr noundef nonnull %1) #6
-  br label %15
-
-12:                                               ; preds = %4
-  %13 = load ptr, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 224), align 8
-  %14 = tail call ptr @slurm_xstrdup(ptr noundef %13) #6
-  br label %15
-
-15:                                               ; preds = %12, %10
-  %.sink = phi ptr [ %14, %12 ], [ %11, %10 ]
-  %16 = getelementptr inbounds i8, ptr %5, i64 40
-  store ptr %.sink, ptr %16, align 8
-  %17 = load i16, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 720), align 8
-  %18 = zext i16 %17 to i32
-  %19 = mul nuw nsw i32 %18, 1000
-  %20 = add nuw nsw i32 %19, 35000
-  %21 = getelementptr inbounds i8, ptr %5, i64 112
-  store i32 %20, ptr %21, align 8
+  %10 = load ptr, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 224), align 8
+  %.sink36 = select i1 %.not31, ptr %10, ptr %1
+  %11 = tail call ptr @slurm_xstrdup(ptr noundef %.sink36) #6
+  %12 = getelementptr inbounds i8, ptr %5, i64 40
+  store ptr %11, ptr %12, align 8
+  %13 = load i16, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 720), align 8
+  %14 = zext i16 %13 to i32
+  %15 = mul nuw nsw i32 %14, 1000
+  %16 = add nuw nsw i32 %15, 35000
+  %17 = getelementptr inbounds i8, ptr %5, i64 112
+  store i32 %16, ptr %17, align 8
   %.not32 = icmp eq ptr %2, null
-  br i1 %.not32, label %24, label %22
-
-22:                                               ; preds = %15
-  %23 = tail call ptr @slurm_xstrdup(ptr noundef nonnull %2) #6
-  br label %27
-
-24:                                               ; preds = %15
-  %25 = load ptr, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 40), align 8
-  %26 = tail call ptr @slurm_xstrdup(ptr noundef %25) #6
-  br label %27
-
-27:                                               ; preds = %24, %22
-  %.sink34 = phi ptr [ %26, %24 ], [ %23, %22 ]
-  %28 = getelementptr inbounds i8, ptr %5, i64 80
-  store ptr %.sink34, ptr %28, align 8
+  %18 = load ptr, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 40), align 8
+  %.sink = select i1 %.not32, ptr %18, ptr %2
+  %19 = tail call ptr @slurm_xstrdup(ptr noundef %.sink) #6
+  %20 = getelementptr inbounds i8, ptr %5, i64 80
+  store ptr %19, ptr %20, align 8
   %.not33 = icmp eq i16 %3, 0
-  %29 = load i16, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 64), align 8
-  %spec.select = select i1 %.not33, i16 %29, i16 %3
-  %30 = getelementptr inbounds i8, ptr %5, i64 88
-  store i16 %spec.select, ptr %30, align 8
-  %31 = getelementptr inbounds i8, ptr %5, i64 160
-  store i16 10496, ptr %31, align 8
-  %32 = getelementptr inbounds i8, ptr %5, i64 120
-  store ptr @_acct_full, ptr %32, align 8
-  %33 = getelementptr inbounds i8, ptr %5, i64 128
-  store ptr @_dbd_fail, ptr %33, align 8
-  %34 = getelementptr inbounds i8, ptr %5, i64 136
-  store ptr @_dbd_res_op, ptr %34, align 8
-  %35 = getelementptr inbounds i8, ptr %5, i64 144
-  store ptr @_db_fail, ptr %35, align 8
-  %36 = getelementptr inbounds i8, ptr %5, i64 152
-  store ptr @_db_res_op, ptr %36, align 8
-  %37 = tail call fastcc i32 @_connect_dbd_conn(ptr noundef nonnull %5)
-  br i1 %.not, label %40, label %38
+  %21 = load i16, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 64), align 8
+  %.sink35 = select i1 %.not33, i16 %21, i16 %3
+  %22 = getelementptr inbounds i8, ptr %5, i64 88
+  store i16 %.sink35, ptr %22, align 8
+  %23 = getelementptr inbounds i8, ptr %5, i64 160
+  store i16 10496, ptr %23, align 8
+  %24 = getelementptr inbounds i8, ptr %5, i64 120
+  store ptr @_acct_full, ptr %24, align 8
+  %25 = getelementptr inbounds i8, ptr %5, i64 128
+  store ptr @_dbd_fail, ptr %25, align 8
+  %26 = getelementptr inbounds i8, ptr %5, i64 136
+  store ptr @_dbd_res_op, ptr %26, align 8
+  %27 = getelementptr inbounds i8, ptr %5, i64 144
+  store ptr @_db_fail, ptr %27, align 8
+  %28 = getelementptr inbounds i8, ptr %5, i64 152
+  store ptr @_db_res_op, ptr %28, align 8
+  %29 = tail call fastcc i32 @_connect_dbd_conn(ptr noundef nonnull %5)
+  br i1 %.not, label %32, label %30
 
-38:                                               ; preds = %27
-  %39 = load i16, ptr %7, align 8
-  store i16 %39, ptr %0, align 2
-  br label %40
+30:                                               ; preds = %4
+  %31 = load i16, ptr %7, align 8
+  store i16 %31, ptr %0, align 2
+  br label %32
 
-40:                                               ; preds = %38, %27
+32:                                               ; preds = %30, %4
   ret ptr %5
 }
 

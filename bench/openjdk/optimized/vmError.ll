@@ -683,7 +683,7 @@ define hidden void @_ZN7VMError18print_native_stackEP12outputStream5frameP6Threa
   %11 = getelementptr inbounds i8, ptr %1, i64 8
   %12 = load ptr, ptr %11, align 8
   %.not = icmp eq ptr %12, null
-  br i1 %.not, label %60, label %13
+  br i1 %.not, label %58, label %13
 
 13:                                               ; preds = %7
   tail call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull @.str.11) #21
@@ -693,8 +693,8 @@ define hidden void @_ZN7VMError18print_native_stackEP12outputStream5frameP6Threa
   %smax26 = select i1 %14, i32 100, i32 %16
   br i1 %3, label %.split.us, label %.split
 
-.split.us:                                        ; preds = %13, %38
-  %.0.us = phi i32 [ %17, %38 ], [ 0, %13 ]
+.split.us:                                        ; preds = %13, %36
+  %.0.us = phi i32 [ %17, %36 ], [ 0, %13 ]
   %17 = add nuw i32 %.0.us, 1
   %exitcond27.not = icmp eq i32 %.0.us, %smax26
   br i1 %exitcond27.not, label %.split23.us, label %18
@@ -703,95 +703,95 @@ define hidden void @_ZN7VMError18print_native_stackEP12outputStream5frameP6Threa
   call void @_ZNK5frame14print_on_errorEP12outputStreamPcib(ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull %0, ptr noundef %5, i32 noundef %6, i1 noundef zeroext false) #21
   %19 = load ptr, ptr %11, align 8
   %.not20.us = icmp eq ptr %19, null
-  br i1 %.not20.us, label %38, label %20
+  br i1 %.not20.us, label %36, label %20
 
 20:                                               ; preds = %18
   %21 = icmp eq i32 %.0.us, 0
   %22 = load i32, ptr @_ZN7VMError7_linenoE, align 4
   %23 = icmp ne i32 %22, 0
   %or.cond.us = select i1 %21, i1 %23, i1 false
-  br i1 %or.cond.us, label %29, label %24
+  br i1 %or.cond.us, label %27, label %24
 
 24:                                               ; preds = %20
   %25 = icmp ne i32 %.0.us, 0
   %26 = call noundef zeroext i1 @_ZN7Decoder15get_source_infoEPhPcmPib(ptr noundef nonnull %19, ptr noundef nonnull %8, i64 noundef 128, ptr noundef nonnull %9, i1 noundef zeroext %25) #21
-  br i1 %26, label %27, label %38
+  br i1 %26, label %.sink.split, label %36
 
-27:                                               ; preds = %24
-  %28 = load i32, ptr %9, align 4
-  call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull @.str.12, ptr noundef nonnull %8, i32 noundef %28) #21
-  br label %38
+27:                                               ; preds = %20
+  %28 = call noundef ptr @_ZN2os14file_separatorEv() #21
+  %29 = load i8, ptr %28, align 1
+  %30 = load ptr, ptr @_ZN7VMError9_filenameE, align 8
+  %31 = sext i8 %29 to i32
+  %32 = call noundef ptr @strrchr(ptr noundef nonnull dereferenceable(1) %30, i32 noundef %31) #22
+  %.not.i.us = icmp eq ptr %32, null
+  %33 = getelementptr inbounds i8, ptr %32, i64 1
+  %34 = select i1 %.not.i.us, ptr %30, ptr %33
+  br label %.sink.split
 
-29:                                               ; preds = %20
-  %30 = call noundef ptr @_ZN2os14file_separatorEv() #21
-  %31 = load i8, ptr %30, align 1
-  %32 = load ptr, ptr @_ZN7VMError9_filenameE, align 8
-  %33 = sext i8 %31 to i32
-  %34 = call noundef ptr @strrchr(ptr noundef nonnull dereferenceable(1) %32, i32 noundef %33) #22
-  %.not.i.us = icmp eq ptr %34, null
-  %35 = getelementptr inbounds i8, ptr %34, i64 1
-  %36 = select i1 %.not.i.us, ptr %32, ptr %35
-  %37 = load i32, ptr @_ZN7VMError7_linenoE, align 4
-  call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull @.str.12, ptr noundef %36, i32 noundef %37) #21
-  br label %38
+.sink.split:                                      ; preds = %24, %27
+  %_ZN7VMError7_linenoE.sink = phi ptr [ @_ZN7VMError7_linenoE, %27 ], [ %9, %24 ]
+  %.sink = phi ptr [ %34, %27 ], [ %8, %24 ]
+  %35 = load i32, ptr %_ZN7VMError7_linenoE.sink, align 4
+  call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull @.str.12, ptr noundef %.sink, i32 noundef %35) #21
+  br label %36
 
-38:                                               ; preds = %29, %27, %24, %18
+36:                                               ; preds = %.sink.split, %24, %18
   call void @_ZN12outputStream2crEv(ptr noundef nonnull align 8 dereferenceable(56) %0) #21
   call fastcc void @_ZL10next_frame5frameP6Thread(ptr dead_on_unwind noalias writable align 8 %10, ptr noundef nonnull byval(%class.frame) align 8 %1, ptr noundef %2)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull align 8 dereferenceable(56) %10, i64 56, i1 false)
-  %39 = load ptr, ptr %11, align 8
-  %40 = icmp eq ptr %39, null
-  br i1 %40, label %.thread, label %.split.us, !llvm.loop !11
+  %37 = load ptr, ptr %11, align 8
+  %38 = icmp eq ptr %37, null
+  br i1 %38, label %.thread, label %.split.us, !llvm.loop !11
 
-.split:                                           ; preds = %13, %57
-  %.0 = phi i32 [ %41, %57 ], [ 0, %13 ]
-  %41 = add nuw i32 %.0, 1
+.split:                                           ; preds = %13, %55
+  %.0 = phi i32 [ %39, %55 ], [ 0, %13 ]
+  %39 = add nuw i32 %.0, 1
   %exitcond.not = icmp eq i32 %.0, %smax26
-  br i1 %exitcond.not, label %.split23.us, label %42
+  br i1 %exitcond.not, label %.split23.us, label %40
 
-42:                                               ; preds = %.split
+40:                                               ; preds = %.split
   call void @_ZNK5frame14print_on_errorEP12outputStreamPcib(ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull %0, ptr noundef %5, i32 noundef %6, i1 noundef zeroext false) #21
-  %43 = load ptr, ptr %11, align 8
-  %.not20 = icmp eq ptr %43, null
-  br i1 %.not20, label %57, label %44
+  %41 = load ptr, ptr %11, align 8
+  %.not20 = icmp eq ptr %41, null
+  br i1 %.not20, label %55, label %42
 
-44:                                               ; preds = %42
-  %45 = icmp eq i32 %.0, 0
-  %46 = load i32, ptr @_ZN7VMError7_linenoE, align 4
-  %47 = icmp ne i32 %46, 0
-  %or.cond = select i1 %45, i1 %47, i1 false
-  br i1 %or.cond, label %48, label %57
+42:                                               ; preds = %40
+  %43 = icmp eq i32 %.0, 0
+  %44 = load i32, ptr @_ZN7VMError7_linenoE, align 4
+  %45 = icmp ne i32 %44, 0
+  %or.cond = select i1 %43, i1 %45, i1 false
+  br i1 %or.cond, label %46, label %55
 
-48:                                               ; preds = %44
-  %49 = call noundef ptr @_ZN2os14file_separatorEv() #21
-  %50 = load i8, ptr %49, align 1
-  %51 = load ptr, ptr @_ZN7VMError9_filenameE, align 8
-  %52 = sext i8 %50 to i32
-  %53 = call noundef ptr @strrchr(ptr noundef nonnull dereferenceable(1) %51, i32 noundef %52) #22
-  %.not.i = icmp eq ptr %53, null
-  %54 = getelementptr inbounds i8, ptr %53, i64 1
-  %55 = select i1 %.not.i, ptr %51, ptr %54
-  %56 = load i32, ptr @_ZN7VMError7_linenoE, align 4
-  call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull @.str.12, ptr noundef %55, i32 noundef %56) #21
-  br label %57
+46:                                               ; preds = %42
+  %47 = call noundef ptr @_ZN2os14file_separatorEv() #21
+  %48 = load i8, ptr %47, align 1
+  %49 = load ptr, ptr @_ZN7VMError9_filenameE, align 8
+  %50 = sext i8 %48 to i32
+  %51 = call noundef ptr @strrchr(ptr noundef nonnull dereferenceable(1) %49, i32 noundef %50) #22
+  %.not.i = icmp eq ptr %51, null
+  %52 = getelementptr inbounds i8, ptr %51, i64 1
+  %53 = select i1 %.not.i, ptr %49, ptr %52
+  %54 = load i32, ptr @_ZN7VMError7_linenoE, align 4
+  call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull @.str.12, ptr noundef %53, i32 noundef %54) #21
+  br label %55
 
-57:                                               ; preds = %44, %48, %42
+55:                                               ; preds = %42, %46, %40
   call void @_ZN12outputStream2crEv(ptr noundef nonnull align 8 dereferenceable(56) %0) #21
   call fastcc void @_ZL10next_frame5frameP6Thread(ptr dead_on_unwind noalias writable align 8 %10, ptr noundef nonnull byval(%class.frame) align 8 %1, ptr noundef %2)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull align 8 dereferenceable(56) %10, i64 56, i1 false)
-  %58 = load ptr, ptr %11, align 8
-  %59 = icmp eq ptr %58, null
-  br i1 %59, label %.thread, label %.split, !llvm.loop !11
+  %56 = load ptr, ptr %11, align 8
+  %57 = icmp eq ptr %56, null
+  br i1 %57, label %.thread, label %.split, !llvm.loop !11
 
 .split23.us:                                      ; preds = %.split, %.split.us
   call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull @.str.13) #21
   br label %.thread
 
-60:                                               ; preds = %7
+58:                                               ; preds = %7
   tail call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull @.str.14) #21
   br label %.thread
 
-.thread:                                          ; preds = %57, %38, %.split23.us, %60
+.thread:                                          ; preds = %55, %36, %.split23.us, %58
   ret void
 }
 

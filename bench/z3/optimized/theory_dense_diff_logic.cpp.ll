@@ -8137,11 +8137,7 @@ entry:
   %_k = alloca %class.rational, align 8
   %offset = alloca %class.inf_rational, align 8
   %call = tail call noundef zeroext i1 @_ZN6memory20above_high_watermarkEv()
-  br i1 %call, label %if.then, label %if.end
-
-if.then:                                          ; preds = %entry
-  tail call void @_ZN3smt23theory_dense_diff_logicINS_6mi_extEE25found_non_diff_logic_exprEP4expr(ptr noundef nonnull align 8 dereferenceable(488) %this, ptr noundef %n)
-  br label %return
+  br i1 %call, label %return.sink.split, label %if.end
 
 if.end:                                           ; preds = %entry
   %m_args.i = getelementptr inbounds i8, ptr %n, i64 32
@@ -8153,7 +8149,7 @@ if.end:                                           ; preds = %entry
   %bf.load.i.i.i.i = load i32, ptr %m_kind.i.i.i.i, align 4
   %bf.clear.i.i.i.i = and i32 %bf.load.i.i.i.i, 65535
   %cmp.i.i.i = icmp eq i32 %bf.clear.i.i.i.i, 0
-  br i1 %cmp.i.i.i, label %land.rhs.i.i.i, label %if.then7
+  br i1 %cmp.i.i.i, label %land.rhs.i.i.i, label %return.sink.split
 
 land.rhs.i.i.i:                                   ; preds = %if.end
   %m_decl.i.i.i.i = getelementptr inbounds i8, ptr %1, i64 16
@@ -8161,7 +8157,7 @@ land.rhs.i.i.i:                                   ; preds = %if.end
   %m_info.i.i.i.i.i = getelementptr inbounds i8, ptr %2, i64 24
   %3 = load ptr, ptr %m_info.i.i.i.i.i, align 8
   %tobool.not.i.i.i.i.i = icmp eq ptr %3, null
-  br i1 %tobool.not.i.i.i.i.i, label %if.then7, label %_ZNK10arith_util10is_numeralEPK4expr.exit
+  br i1 %tobool.not.i.i.i.i.i, label %return.sink.split, label %_ZNK10arith_util10is_numeralEPK4expr.exit
 
 _ZNK10arith_util10is_numeralEPK4expr.exit:        ; preds = %land.rhs.i.i.i
   %4 = load i32, ptr %3, align 8
@@ -8170,11 +8166,7 @@ _ZNK10arith_util10is_numeralEPK4expr.exit:        ; preds = %land.rhs.i.i.i
   %5 = load i32, ptr %m_kind.i.i.i.i.i.i, align 4
   %cmp2.i.i.i.i.i.i = icmp eq i32 %5, 0
   %6 = select i1 %cmp.i.i.i.i.i.i, i1 %cmp2.i.i.i.i.i.i, i1 false
-  br i1 %6, label %if.end8, label %if.then7
-
-if.then7:                                         ; preds = %land.rhs.i.i.i, %if.end, %_ZNK10arith_util10is_numeralEPK4expr.exit
-  tail call void @_ZN3smt23theory_dense_diff_logicINS_6mi_extEE25found_non_diff_logic_exprEP4expr(ptr noundef nonnull align 8 dereferenceable(488) %this, ptr noundef nonnull %n)
-  br label %return
+  br i1 %6, label %if.end8, label %return.sink.split
 
 if.end8:                                          ; preds = %_ZNK10arith_util10is_numeralEPK4expr.exit
   store i32 0, ptr %_k, align 8
@@ -8878,8 +8870,12 @@ ehcleanup:                                        ; preds = %lpad13, %lpad
   call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %_k) #20
   resume { ptr, i32 } %.pn
 
-return:                                           ; preds = %.noexc.i, %if.then7, %if.then
-  %retval.0 = phi i1 [ false, %if.then ], [ false, %if.then7 ], [ %retval.1, %.noexc.i ]
+return.sink.split:                                ; preds = %_ZNK10arith_util10is_numeralEPK4expr.exit, %if.end, %land.rhs.i.i.i, %entry
+  tail call void @_ZN3smt23theory_dense_diff_logicINS_6mi_extEE25found_non_diff_logic_exprEP4expr(ptr noundef nonnull align 8 dereferenceable(488) %this, ptr noundef %n)
+  br label %return
+
+return:                                           ; preds = %return.sink.split, %.noexc.i
+  %retval.0 = phi i1 [ %retval.1, %.noexc.i ], [ false, %return.sink.split ]
   ret i1 %retval.0
 }
 
@@ -26551,11 +26547,7 @@ entry:
   %_k = alloca %class.rational, align 8
   %offset = alloca %class.rational, align 8
   %call = tail call noundef zeroext i1 @_ZN6memory20above_high_watermarkEv()
-  br i1 %call, label %if.then, label %if.end
-
-if.then:                                          ; preds = %entry
-  tail call void @_ZN3smt23theory_dense_diff_logicINS_5i_extEE25found_non_diff_logic_exprEP4expr(ptr noundef nonnull align 8 dereferenceable(424) %this, ptr noundef %n)
-  br label %return
+  br i1 %call, label %return.sink.split, label %if.end
 
 if.end:                                           ; preds = %entry
   %m_args.i = getelementptr inbounds i8, ptr %n, i64 32
@@ -26567,7 +26559,7 @@ if.end:                                           ; preds = %entry
   %bf.load.i.i.i.i = load i32, ptr %m_kind.i.i.i.i, align 4
   %bf.clear.i.i.i.i = and i32 %bf.load.i.i.i.i, 65535
   %cmp.i.i.i = icmp eq i32 %bf.clear.i.i.i.i, 0
-  br i1 %cmp.i.i.i, label %land.rhs.i.i.i, label %if.then7
+  br i1 %cmp.i.i.i, label %land.rhs.i.i.i, label %return.sink.split
 
 land.rhs.i.i.i:                                   ; preds = %if.end
   %m_decl.i.i.i.i = getelementptr inbounds i8, ptr %1, i64 16
@@ -26575,7 +26567,7 @@ land.rhs.i.i.i:                                   ; preds = %if.end
   %m_info.i.i.i.i.i = getelementptr inbounds i8, ptr %2, i64 24
   %3 = load ptr, ptr %m_info.i.i.i.i.i, align 8
   %tobool.not.i.i.i.i.i = icmp eq ptr %3, null
-  br i1 %tobool.not.i.i.i.i.i, label %if.then7, label %_ZNK10arith_util10is_numeralEPK4expr.exit
+  br i1 %tobool.not.i.i.i.i.i, label %return.sink.split, label %_ZNK10arith_util10is_numeralEPK4expr.exit
 
 _ZNK10arith_util10is_numeralEPK4expr.exit:        ; preds = %land.rhs.i.i.i
   %4 = load i32, ptr %3, align 8
@@ -26584,11 +26576,7 @@ _ZNK10arith_util10is_numeralEPK4expr.exit:        ; preds = %land.rhs.i.i.i
   %5 = load i32, ptr %m_kind.i.i.i.i.i.i, align 4
   %cmp2.i.i.i.i.i.i = icmp eq i32 %5, 0
   %6 = select i1 %cmp.i.i.i.i.i.i, i1 %cmp2.i.i.i.i.i.i, i1 false
-  br i1 %6, label %if.end8, label %if.then7
-
-if.then7:                                         ; preds = %land.rhs.i.i.i, %if.end, %_ZNK10arith_util10is_numeralEPK4expr.exit
-  tail call void @_ZN3smt23theory_dense_diff_logicINS_5i_extEE25found_non_diff_logic_exprEP4expr(ptr noundef nonnull align 8 dereferenceable(424) %this, ptr noundef nonnull %n)
-  br label %return
+  br i1 %6, label %if.end8, label %return.sink.split
 
 if.end8:                                          ; preds = %_ZNK10arith_util10is_numeralEPK4expr.exit
   store i32 0, ptr %_k, align 8
@@ -27313,8 +27301,12 @@ ehcleanup:                                        ; preds = %lpad13, %lpad
   call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %_k) #20
   resume { ptr, i32 } %.pn
 
-return:                                           ; preds = %.noexc.i222, %if.then7, %if.then
-  %retval.0 = phi i1 [ false, %if.then ], [ false, %if.then7 ], [ %retval.1, %.noexc.i222 ]
+return.sink.split:                                ; preds = %_ZNK10arith_util10is_numeralEPK4expr.exit, %if.end, %land.rhs.i.i.i, %entry
+  tail call void @_ZN3smt23theory_dense_diff_logicINS_5i_extEE25found_non_diff_logic_exprEP4expr(ptr noundef nonnull align 8 dereferenceable(424) %this, ptr noundef %n)
+  br label %return
+
+return:                                           ; preds = %return.sink.split, %.noexc.i222
+  %retval.0 = phi i1 [ %retval.1, %.noexc.i222 ], [ false, %return.sink.split ]
   ret i1 %retval.0
 }
 
@@ -39403,11 +39395,7 @@ entry:
   %_k = alloca %class.rational, align 8
   %offset = alloca %class.inf_s_integer, align 4
   %call = tail call noundef zeroext i1 @_ZN6memory20above_high_watermarkEv()
-  br i1 %call, label %if.then, label %if.end
-
-if.then:                                          ; preds = %entry
-  tail call void @_ZN3smt23theory_dense_diff_logicINS_7smi_extEE25found_non_diff_logic_exprEP4expr(ptr noundef nonnull align 8 dereferenceable(376) %this, ptr noundef %n)
-  br label %return
+  br i1 %call, label %return.sink.split, label %if.end
 
 if.end:                                           ; preds = %entry
   %m_args.i = getelementptr inbounds i8, ptr %n, i64 32
@@ -39419,7 +39407,7 @@ if.end:                                           ; preds = %entry
   %bf.load.i.i.i.i = load i32, ptr %m_kind.i.i.i.i, align 4
   %bf.clear.i.i.i.i = and i32 %bf.load.i.i.i.i, 65535
   %cmp.i.i.i = icmp eq i32 %bf.clear.i.i.i.i, 0
-  br i1 %cmp.i.i.i, label %land.rhs.i.i.i, label %if.then7
+  br i1 %cmp.i.i.i, label %land.rhs.i.i.i, label %return.sink.split
 
 land.rhs.i.i.i:                                   ; preds = %if.end
   %m_decl.i.i.i.i = getelementptr inbounds i8, ptr %1, i64 16
@@ -39427,7 +39415,7 @@ land.rhs.i.i.i:                                   ; preds = %if.end
   %m_info.i.i.i.i.i = getelementptr inbounds i8, ptr %2, i64 24
   %3 = load ptr, ptr %m_info.i.i.i.i.i, align 8
   %tobool.not.i.i.i.i.i = icmp eq ptr %3, null
-  br i1 %tobool.not.i.i.i.i.i, label %if.then7, label %_ZNK10arith_util10is_numeralEPK4expr.exit
+  br i1 %tobool.not.i.i.i.i.i, label %return.sink.split, label %_ZNK10arith_util10is_numeralEPK4expr.exit
 
 _ZNK10arith_util10is_numeralEPK4expr.exit:        ; preds = %land.rhs.i.i.i
   %4 = load i32, ptr %3, align 8
@@ -39436,11 +39424,7 @@ _ZNK10arith_util10is_numeralEPK4expr.exit:        ; preds = %land.rhs.i.i.i
   %5 = load i32, ptr %m_kind.i.i.i.i.i.i, align 4
   %cmp2.i.i.i.i.i.i = icmp eq i32 %5, 0
   %6 = select i1 %cmp.i.i.i.i.i.i, i1 %cmp2.i.i.i.i.i.i, i1 false
-  br i1 %6, label %if.end8, label %if.then7
-
-if.then7:                                         ; preds = %land.rhs.i.i.i, %if.end, %_ZNK10arith_util10is_numeralEPK4expr.exit
-  tail call void @_ZN3smt23theory_dense_diff_logicINS_7smi_extEE25found_non_diff_logic_exprEP4expr(ptr noundef nonnull align 8 dereferenceable(376) %this, ptr noundef nonnull %n)
-  br label %return
+  br i1 %6, label %if.end8, label %return.sink.split
 
 if.end8:                                          ; preds = %_ZNK10arith_util10is_numeralEPK4expr.exit
   store i32 0, ptr %_k, align 8
@@ -40099,8 +40083,12 @@ terminate.lpad.i:                                 ; preds = %.noexc.i, %cleanup
   call void @__clang_call_terminate(ptr %122) #21
   unreachable
 
-return:                                           ; preds = %.noexc.i, %if.then7, %if.then
-  %retval.0 = phi i1 [ false, %if.then ], [ false, %if.then7 ], [ %retval.1, %.noexc.i ]
+return.sink.split:                                ; preds = %_ZNK10arith_util10is_numeralEPK4expr.exit, %if.end, %land.rhs.i.i.i, %entry
+  tail call void @_ZN3smt23theory_dense_diff_logicINS_7smi_extEE25found_non_diff_logic_exprEP4expr(ptr noundef nonnull align 8 dereferenceable(376) %this, ptr noundef %n)
+  br label %return
+
+return:                                           ; preds = %return.sink.split, %.noexc.i
+  %retval.0 = phi i1 [ %retval.1, %.noexc.i ], [ false, %return.sink.split ]
   ret i1 %retval.0
 }
 
@@ -50937,11 +50925,7 @@ entry:
   %_k = alloca %class.rational, align 8
   %offset = alloca %class.s_integer, align 4
   %call = tail call noundef zeroext i1 @_ZN6memory20above_high_watermarkEv()
-  br i1 %call, label %if.then, label %if.end
-
-if.then:                                          ; preds = %entry
-  tail call void @_ZN3smt23theory_dense_diff_logicINS_6si_extEE25found_non_diff_logic_exprEP4expr(ptr noundef nonnull align 8 dereferenceable(368) %this, ptr noundef %n)
-  br label %return
+  br i1 %call, label %return.sink.split, label %if.end
 
 if.end:                                           ; preds = %entry
   %m_args.i = getelementptr inbounds i8, ptr %n, i64 32
@@ -50953,7 +50937,7 @@ if.end:                                           ; preds = %entry
   %bf.load.i.i.i.i = load i32, ptr %m_kind.i.i.i.i, align 4
   %bf.clear.i.i.i.i = and i32 %bf.load.i.i.i.i, 65535
   %cmp.i.i.i = icmp eq i32 %bf.clear.i.i.i.i, 0
-  br i1 %cmp.i.i.i, label %land.rhs.i.i.i, label %if.then7
+  br i1 %cmp.i.i.i, label %land.rhs.i.i.i, label %return.sink.split
 
 land.rhs.i.i.i:                                   ; preds = %if.end
   %m_decl.i.i.i.i = getelementptr inbounds i8, ptr %1, i64 16
@@ -50961,7 +50945,7 @@ land.rhs.i.i.i:                                   ; preds = %if.end
   %m_info.i.i.i.i.i = getelementptr inbounds i8, ptr %2, i64 24
   %3 = load ptr, ptr %m_info.i.i.i.i.i, align 8
   %tobool.not.i.i.i.i.i = icmp eq ptr %3, null
-  br i1 %tobool.not.i.i.i.i.i, label %if.then7, label %_ZNK10arith_util10is_numeralEPK4expr.exit
+  br i1 %tobool.not.i.i.i.i.i, label %return.sink.split, label %_ZNK10arith_util10is_numeralEPK4expr.exit
 
 _ZNK10arith_util10is_numeralEPK4expr.exit:        ; preds = %land.rhs.i.i.i
   %4 = load i32, ptr %3, align 8
@@ -50970,11 +50954,7 @@ _ZNK10arith_util10is_numeralEPK4expr.exit:        ; preds = %land.rhs.i.i.i
   %5 = load i32, ptr %m_kind.i.i.i.i.i.i, align 4
   %cmp2.i.i.i.i.i.i = icmp eq i32 %5, 0
   %6 = select i1 %cmp.i.i.i.i.i.i, i1 %cmp2.i.i.i.i.i.i, i1 false
-  br i1 %6, label %if.end8, label %if.then7
-
-if.then7:                                         ; preds = %land.rhs.i.i.i, %if.end, %_ZNK10arith_util10is_numeralEPK4expr.exit
-  tail call void @_ZN3smt23theory_dense_diff_logicINS_6si_extEE25found_non_diff_logic_exprEP4expr(ptr noundef nonnull align 8 dereferenceable(368) %this, ptr noundef nonnull %n)
-  br label %return
+  br i1 %6, label %if.end8, label %return.sink.split
 
 if.end8:                                          ; preds = %_ZNK10arith_util10is_numeralEPK4expr.exit
   store i32 0, ptr %_k, align 8
@@ -51630,8 +51610,12 @@ terminate.lpad.i:                                 ; preds = %.noexc.i, %cleanup
   call void @__clang_call_terminate(ptr %122) #21
   unreachable
 
-return:                                           ; preds = %.noexc.i, %if.then7, %if.then
-  %retval.0 = phi i1 [ false, %if.then ], [ false, %if.then7 ], [ %retval.1, %.noexc.i ]
+return.sink.split:                                ; preds = %_ZNK10arith_util10is_numeralEPK4expr.exit, %if.end, %land.rhs.i.i.i, %entry
+  tail call void @_ZN3smt23theory_dense_diff_logicINS_6si_extEE25found_non_diff_logic_exprEP4expr(ptr noundef nonnull align 8 dereferenceable(368) %this, ptr noundef %n)
+  br label %return
+
+return:                                           ; preds = %return.sink.split, %.noexc.i
+  %retval.0 = phi i1 [ %retval.1, %.noexc.i ], [ false, %return.sink.split ]
   ret i1 %retval.0
 }
 

@@ -1271,7 +1271,7 @@ define internal void @f5eth_tmmdist_stats_tree_init(ptr noundef %0) #0 {
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 2) i32 @f5eth_virtdist_stats_tree_packet(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture readnone %2, ptr noundef readonly %3, i32 %4) #0 {
   %6 = icmp eq ptr %3, null
-  br i1 %6, label %39, label %7
+  br i1 %6, label %35, label %7
 
 7:                                                ; preds = %5
   %8 = getelementptr inbounds i8, ptr %1, i64 80
@@ -1286,37 +1286,37 @@ define internal range(i32 0, 2) i32 @f5eth_virtdist_stats_tree_packet(ptr nounde
   %17 = getelementptr inbounds i8, ptr %3, i64 24
   %18 = load ptr, ptr %17, align 8
   %19 = icmp eq ptr %18, null
-  br i1 %19, label %20, label %33
+  br i1 %19, label %20, label %29
 
 20:                                               ; preds = %7
   %21 = getelementptr inbounds i8, ptr %3, i64 8
   %22 = load i64, ptr %21, align 8
   %23 = icmp eq i64 %22, 0
   %24 = load i32, ptr @st_node_virtpktdist, align 4
-  br i1 %23, label %25, label %29
+  br i1 %23, label %25, label %27
 
 25:                                               ; preds = %20
   %26 = tail call i32 @stats_tree_manip_node_int(i32 noundef 0, ptr noundef %0, ptr noundef nonnull @.str.285, i32 noundef %24, i32 noundef 1, i32 noundef 1) #7
-  %27 = load i32, ptr @st_node_virtbytedist, align 4
-  %28 = tail call i32 @stats_tree_manip_node_int(i32 noundef 0, ptr noundef %0, ptr noundef nonnull @.str.285, i32 noundef %27, i32 noundef 1, i32 noundef %14) #7
-  br label %39
+  br label %.sink.split
 
-29:                                               ; preds = %20
-  %30 = tail call i32 @stats_tree_manip_node_int(i32 noundef 0, ptr noundef %0, ptr noundef nonnull @.str.286, i32 noundef %24, i32 noundef 1, i32 noundef 1) #7
-  %31 = load i32, ptr @st_node_virtbytedist, align 4
-  %32 = tail call i32 @stats_tree_manip_node_int(i32 noundef 0, ptr noundef %0, ptr noundef nonnull @.str.286, i32 noundef %31, i32 noundef 1, i32 noundef %14) #7
-  br label %39
+27:                                               ; preds = %20
+  %28 = tail call i32 @stats_tree_manip_node_int(i32 noundef 0, ptr noundef %0, ptr noundef nonnull @.str.286, i32 noundef %24, i32 noundef 1, i32 noundef 1) #7
+  br label %.sink.split
 
-33:                                               ; preds = %7
-  %34 = load i32, ptr @st_node_virtpktdist, align 4
-  %35 = tail call i32 @stats_tree_manip_node_int(i32 noundef 0, ptr noundef %0, ptr noundef nonnull %18, i32 noundef %34, i32 noundef 1, i32 noundef 1) #7
-  %36 = load ptr, ptr %17, align 8
-  %37 = load i32, ptr @st_node_virtbytedist, align 4
-  %38 = tail call i32 @stats_tree_manip_node_int(i32 noundef 0, ptr noundef %0, ptr noundef %36, i32 noundef %37, i32 noundef 1, i32 noundef %14) #7
-  br label %39
+29:                                               ; preds = %7
+  %30 = load i32, ptr @st_node_virtpktdist, align 4
+  %31 = tail call i32 @stats_tree_manip_node_int(i32 noundef 0, ptr noundef %0, ptr noundef nonnull %18, i32 noundef %30, i32 noundef 1, i32 noundef 1) #7
+  %32 = load ptr, ptr %17, align 8
+  br label %.sink.split
 
-39:                                               ; preds = %33, %29, %25, %5
-  %.0 = phi i32 [ 0, %5 ], [ 1, %25 ], [ 1, %29 ], [ 1, %33 ]
+.sink.split:                                      ; preds = %25, %27, %29
+  %.sink = phi ptr [ %32, %29 ], [ @.str.286, %27 ], [ @.str.285, %25 ]
+  %33 = load i32, ptr @st_node_virtbytedist, align 4
+  %34 = tail call i32 @stats_tree_manip_node_int(i32 noundef 0, ptr noundef %0, ptr noundef %.sink, i32 noundef %33, i32 noundef 1, i32 noundef %14) #7
+  br label %35
+
+35:                                               ; preds = %.sink.split, %5
+  %.0 = phi i32 [ 0, %5 ], [ 1, %.sink.split ]
   ret i32 %.0
 }
 

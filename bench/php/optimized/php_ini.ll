@@ -448,7 +448,7 @@ declare void @php_info_print_table_end() local_unnamed_addr #2
 define void @config_zval_dtor(ptr nocapture noundef readonly %0) #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load i8, ptr %2, align 8
-  switch i8 %3, label %18 [
+  switch i8 %3, label %17 [
     i8 7, label %4
     i8 6, label %7
   ]
@@ -457,8 +457,7 @@ define void @config_zval_dtor(ptr nocapture noundef readonly %0) #0 {
   %5 = load ptr, ptr %0, align 8
   tail call void @zend_hash_destroy(ptr noundef %5) #15
   %6 = load ptr, ptr %0, align 8
-  tail call void @free(ptr noundef %6) #15
-  br label %18
+  br label %.sink.split
 
 7:                                                ; preds = %1
   %8 = load ptr, ptr %0, align 8
@@ -466,7 +465,7 @@ define void @config_zval_dtor(ptr nocapture noundef readonly %0) #0 {
   %10 = load i32, ptr %9, align 4
   %11 = and i32 %10, 64
   %.not = icmp eq i32 %11, 0
-  br i1 %.not, label %12, label %18
+  br i1 %.not, label %12, label %17
 
 12:                                               ; preds = %7
   %13 = load i32, ptr %8, align 4
@@ -475,13 +474,14 @@ define void @config_zval_dtor(ptr nocapture noundef readonly %0) #0 {
   %15 = add i32 %13, -1
   store i32 %15, ptr %8, align 4
   %16 = icmp eq i32 %15, 0
-  br i1 %16, label %17, label %18
+  br i1 %16, label %.sink.split, label %17
 
-17:                                               ; preds = %12
-  tail call void @free(ptr noundef nonnull %8) #15
-  br label %18
+.sink.split:                                      ; preds = %12, %4
+  %.sink = phi ptr [ %6, %4 ], [ %8, %12 ]
+  tail call void @free(ptr noundef %.sink) #15
+  br label %17
 
-18:                                               ; preds = %1, %12, %17, %7, %4
+17:                                               ; preds = %.sink.split, %1, %12, %7
   ret void
 }
 

@@ -116,7 +116,7 @@ define internal void @tkgen_textspan(ptr noundef %0, double %1, double %2, ptr n
   %7 = getelementptr inbounds i8, ptr %6, i64 160
   %8 = load i32, ptr %7, align 8
   %.not = icmp eq i32 %8, 0
-  br i1 %.not, label %77, label %9
+  br i1 %.not, label %75, label %9
 
 9:                                                ; preds = %4
   %10 = getelementptr inbounds i8, ptr %3, i64 8
@@ -128,128 +128,125 @@ define internal void @tkgen_textspan(ptr noundef %0, double %1, double %2, ptr n
   %16 = fmul double %13, %15
   %17 = fptosi double %16 to i32
   %.not31 = icmp eq i32 %17, 0
-  br i1 %.not31, label %77, label %18
+  br i1 %.not31, label %75, label %18
 
 18:                                               ; preds = %9
   %19 = getelementptr inbounds i8, ptr %0, i64 256
   %20 = load i8, ptr %19, align 8
   %21 = trunc i8 %20 to i1
-  br i1 %21, label %22, label %26
+  br i1 %21, label %22, label %tkgen_canvas.exit
 
 22:                                               ; preds = %18
   %23 = getelementptr inbounds i8, ptr %0, i64 264
   %24 = load ptr, ptr %23, align 8
-  %25 = tail call i32 @gvputs(ptr noundef nonnull %0, ptr noundef %24) #6
   br label %tkgen_canvas.exit
 
-26:                                               ; preds = %18
-  %27 = tail call i32 @gvputs(ptr noundef nonnull %0, ptr noundef nonnull @.str.14) #6
-  br label %tkgen_canvas.exit
-
-tkgen_canvas.exit:                                ; preds = %22, %26
-  %28 = tail call i32 @gvputs(ptr noundef nonnull %0, ptr noundef nonnull @.str.6) #6
-  %29 = sitofp i32 %17 to double
-  %30 = fneg double %29
-  %31 = tail call double @llvm.fmuladd.f64(double %30, double 5.500000e-01, double %2)
-  tail call void @gvprintpointf(ptr noundef nonnull %0, double %1, double %31) #6
-  %32 = load ptr, ptr %3, align 8
-  tail call void (ptr, ptr, ...) @gvprintf(ptr noundef nonnull %0, ptr noundef nonnull @.str.7, ptr noundef %32) #6
-  %33 = getelementptr inbounds i8, ptr %6, i64 32
-  %.sroa.0.0.copyload = load ptr, ptr %33, align 1
+tkgen_canvas.exit:                                ; preds = %18, %22
+  %.str.14.sink.i = phi ptr [ %24, %22 ], [ @.str.14, %18 ]
+  %25 = tail call i32 @gvputs(ptr noundef nonnull %0, ptr noundef %.str.14.sink.i) #6
+  %26 = tail call i32 @gvputs(ptr noundef nonnull %0, ptr noundef nonnull @.str.6) #6
+  %27 = sitofp i32 %17 to double
+  %28 = fneg double %27
+  %29 = tail call double @llvm.fmuladd.f64(double %28, double 5.500000e-01, double %2)
+  tail call void @gvprintpointf(ptr noundef nonnull %0, double %1, double %29) #6
+  %30 = load ptr, ptr %3, align 8
+  tail call void (ptr, ptr, ...) @gvprintf(ptr noundef nonnull %0, ptr noundef nonnull @.str.7, ptr noundef %30) #6
+  %31 = getelementptr inbounds i8, ptr %6, i64 32
+  %.sroa.0.0.copyload = load ptr, ptr %31, align 1
   %.sroa.834.0..sroa_idx = getelementptr inbounds i8, ptr %6, i64 64
   %.sroa.834.0.copyload = load i32, ptr %.sroa.834.0..sroa_idx, align 1
-  switch i32 %.sroa.834.0.copyload, label %48 [
-    i32 5, label %34
-    i32 1, label %36
+  switch i32 %.sroa.834.0.copyload, label %46 [
+    i32 5, label %32
+    i32 1, label %34
   ]
+
+32:                                               ; preds = %tkgen_canvas.exit
+  %33 = tail call i32 @gvputs(ptr noundef nonnull %0, ptr noundef %.sroa.0.0.copyload) #6
+  br label %tkgen_print_color.exit
 
 34:                                               ; preds = %tkgen_canvas.exit
-  %35 = tail call i32 @gvputs(ptr noundef nonnull %0, ptr noundef %.sroa.0.0.copyload) #6
+  %35 = ptrtoint ptr %.sroa.0.0.copyload to i64
+  %36 = and i64 %35, 4278190080
+  %37 = icmp eq i64 %36, 0
+  br i1 %37, label %38, label %40
+
+38:                                               ; preds = %34
+  %39 = tail call i32 @gvputs(ptr noundef nonnull %0, ptr noundef nonnull @.str.15) #6
   br label %tkgen_print_color.exit
 
-36:                                               ; preds = %tkgen_canvas.exit
-  %37 = ptrtoint ptr %.sroa.0.0.copyload to i64
-  %38 = and i64 %37, 4278190080
-  %39 = icmp eq i64 %38, 0
-  br i1 %39, label %40, label %42
-
-40:                                               ; preds = %36
-  %41 = tail call i32 @gvputs(ptr noundef nonnull %0, ptr noundef nonnull @.str.15) #6
-  br label %tkgen_print_color.exit
-
-42:                                               ; preds = %36
-  %.sroa.0.0.extract.trunc = trunc i64 %37 to i32
-  %43 = and i32 %.sroa.0.0.extract.trunc, 255
-  %44 = lshr i32 %.sroa.0.0.extract.trunc, 8
+40:                                               ; preds = %34
+  %.sroa.0.0.extract.trunc = trunc i64 %35 to i32
+  %41 = and i32 %.sroa.0.0.extract.trunc, 255
+  %42 = lshr i32 %.sroa.0.0.extract.trunc, 8
+  %43 = and i32 %42, 255
+  %44 = lshr i32 %.sroa.0.0.extract.trunc, 16
   %45 = and i32 %44, 255
-  %46 = lshr i32 %.sroa.0.0.extract.trunc, 16
-  %47 = and i32 %46, 255
-  tail call void (ptr, ptr, ...) @gvprintf(ptr noundef nonnull %0, ptr noundef nonnull @.str.16, i32 noundef %43, i32 noundef %45, i32 noundef %47) #6
+  tail call void (ptr, ptr, ...) @gvprintf(ptr noundef nonnull %0, ptr noundef nonnull @.str.16, i32 noundef %41, i32 noundef %43, i32 noundef %45) #6
   br label %tkgen_print_color.exit
 
-48:                                               ; preds = %tkgen_canvas.exit
-  %49 = load ptr, ptr @stderr, align 8
-  %50 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %49, ptr noundef nonnull @.str.17, ptr noundef nonnull @.str.18, i32 noundef 43) #7
+46:                                               ; preds = %tkgen_canvas.exit
+  %47 = load ptr, ptr @stderr, align 8
+  %48 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %47, ptr noundef nonnull @.str.17, ptr noundef nonnull @.str.18, i32 noundef 43) #7
   tail call void @abort() #8
   unreachable
 
-tkgen_print_color.exit:                           ; preds = %34, %40, %42
-  %51 = tail call i32 @gvputs(ptr noundef nonnull %0, ptr noundef nonnull @.str.8) #6
-  %52 = load ptr, ptr %10, align 8
-  %53 = getelementptr inbounds i8, ptr %52, i64 16
-  %54 = load ptr, ptr %53, align 8
-  %.not32 = icmp eq ptr %54, null
-  %55 = getelementptr inbounds i8, ptr %54, i64 8
-  %.0.in = select i1 %.not32, ptr %52, ptr %55
+tkgen_print_color.exit:                           ; preds = %32, %38, %40
+  %49 = tail call i32 @gvputs(ptr noundef nonnull %0, ptr noundef nonnull @.str.8) #6
+  %50 = load ptr, ptr %10, align 8
+  %51 = getelementptr inbounds i8, ptr %50, i64 16
+  %52 = load ptr, ptr %51, align 8
+  %.not32 = icmp eq ptr %52, null
+  %53 = getelementptr inbounds i8, ptr %52, i64 8
+  %.0.in = select i1 %.not32, ptr %50, ptr %53
   %.0 = load ptr, ptr %.0.in, align 8
+  %54 = tail call i32 @gvputs(ptr noundef nonnull %0, ptr noundef nonnull @.str.9) #6
+  %55 = tail call i32 @gvputs(ptr noundef nonnull %0, ptr noundef %.0) #6
   %56 = tail call i32 @gvputs(ptr noundef nonnull %0, ptr noundef nonnull @.str.9) #6
-  %57 = tail call i32 @gvputs(ptr noundef nonnull %0, ptr noundef %.0) #6
-  %58 = tail call i32 @gvputs(ptr noundef nonnull %0, ptr noundef nonnull @.str.9) #6
   tail call void (ptr, ptr, ...) @gvprintf(ptr noundef nonnull %0, ptr noundef nonnull @.str.10, i32 noundef %17) #6
-  %59 = getelementptr inbounds i8, ptr %3, i64 64
-  %60 = load i8, ptr %59, align 8
-  switch i8 %60, label %63 [
+  %57 = getelementptr inbounds i8, ptr %3, i64 64
+  %58 = load i8, ptr %57, align 8
+  switch i8 %58, label %61 [
     i8 108, label %.sink.split
-    i8 114, label %61
+    i8 114, label %59
   ]
 
-61:                                               ; preds = %tkgen_print_color.exit
+59:                                               ; preds = %tkgen_print_color.exit
   br label %.sink.split
 
-.sink.split:                                      ; preds = %tkgen_print_color.exit, %61
-  %.str.12.sink = phi ptr [ @.str.12, %61 ], [ @.str.11, %tkgen_print_color.exit ]
-  %62 = tail call i32 @gvputs(ptr noundef nonnull %0, ptr noundef nonnull %.str.12.sink) #6
-  br label %63
+.sink.split:                                      ; preds = %tkgen_print_color.exit, %59
+  %.str.12.sink = phi ptr [ @.str.12, %59 ], [ @.str.11, %tkgen_print_color.exit ]
+  %60 = tail call i32 @gvputs(ptr noundef nonnull %0, ptr noundef nonnull %.str.12.sink) #6
+  br label %61
 
-63:                                               ; preds = %.sink.split, %tkgen_print_color.exit
-  %64 = load ptr, ptr %5, align 8
-  %65 = getelementptr inbounds i8, ptr %64, i64 24
-  %66 = load i32, ptr %65, align 8
-  %67 = icmp ult i32 %66, 12
-  br i1 %67, label %switch.lookup, label %68
+61:                                               ; preds = %.sink.split, %tkgen_print_color.exit
+  %62 = load ptr, ptr %5, align 8
+  %63 = getelementptr inbounds i8, ptr %62, i64 24
+  %64 = load i32, ptr %63, align 8
+  %65 = icmp ult i32 %64, 12
+  br i1 %65, label %switch.lookup, label %66
 
-68:                                               ; preds = %63
-  %69 = load ptr, ptr @stderr, align 8
-  %70 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %69, ptr noundef nonnull @.str.17, ptr noundef nonnull @.str.18, i32 noundef 100) #7
+66:                                               ; preds = %61
+  %67 = load ptr, ptr @stderr, align 8
+  %68 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %67, ptr noundef nonnull @.str.17, ptr noundef nonnull @.str.18, i32 noundef 100) #7
   tail call void @abort() #8
   unreachable
 
-switch.lookup:                                    ; preds = %63
-  %71 = zext nneg i32 %66 to i64
-  %switch.gep = getelementptr inbounds [12 x ptr], ptr @switch.table.tkgen_polyline, i64 0, i64 %71
+switch.lookup:                                    ; preds = %61
+  %69 = zext nneg i32 %64 to i64
+  %switch.gep = getelementptr inbounds [12 x ptr], ptr @switch.table.tkgen_polyline, i64 0, i64 %69
   %switch.load = load ptr, ptr %switch.gep, align 8
-  %72 = zext nneg i32 %66 to i64
-  %switch.gep35 = getelementptr inbounds [12 x i32], ptr @switch.table.tkgen_polyline.5, i64 0, i64 %72
+  %70 = zext nneg i32 %64 to i64
+  %switch.gep35 = getelementptr inbounds [12 x i32], ptr @switch.table.tkgen_polyline.5, i64 0, i64 %70
   %switch.load36 = load i32, ptr %switch.gep35, align 4
-  %73 = getelementptr inbounds i8, ptr %64, i64 16
-  %74 = load ptr, ptr %73, align 8
-  %75 = getelementptr inbounds i8, ptr %74, i64 8
-  %.014.i = load i64, ptr %75, align 8
+  %71 = getelementptr inbounds i8, ptr %62, i64 16
+  %72 = load ptr, ptr %71, align 8
+  %73 = getelementptr inbounds i8, ptr %72, i64 8
+  %.014.i = load i64, ptr %73, align 8
   tail call void (ptr, ptr, ...) @gvprintf(ptr noundef nonnull %0, ptr noundef nonnull @.str.23, i32 noundef %switch.load36, ptr noundef nonnull %switch.load, i64 noundef %.014.i) #6
-  %76 = tail call i32 @gvputs(ptr noundef nonnull %0, ptr noundef nonnull @.str.13) #6
-  br label %77
+  %74 = tail call i32 @gvputs(ptr noundef nonnull %0, ptr noundef nonnull @.str.13) #6
+  br label %75
 
-77:                                               ; preds = %9, %switch.lookup, %4
+75:                                               ; preds = %9, %switch.lookup, %4
   ret void
 }
 
@@ -260,7 +257,7 @@ define internal void @tkgen_ellipse(ptr noundef %0, ptr noundef %1, i32 noundef 
   %6 = getelementptr inbounds i8, ptr %5, i64 160
   %7 = load i32, ptr %6, align 8
   %.not = icmp eq i32 %7, 0
-  br i1 %.not, label %105, label %8
+  br i1 %.not, label %103, label %8
 
 8:                                                ; preds = %3
   %9 = getelementptr inbounds i8, ptr %1, i64 16
@@ -279,180 +276,177 @@ define internal void @tkgen_ellipse(ptr noundef %0, ptr noundef %1, i32 noundef 
   %20 = getelementptr inbounds i8, ptr %0, i64 256
   %21 = load i8, ptr %20, align 8
   %22 = trunc i8 %21 to i1
-  br i1 %22, label %23, label %27
+  br i1 %22, label %23, label %tkgen_canvas.exit
 
 23:                                               ; preds = %8
   %24 = getelementptr inbounds i8, ptr %0, i64 264
   %25 = load ptr, ptr %24, align 8
-  %26 = tail call i32 @gvputs(ptr noundef nonnull %0, ptr noundef %25) #6
   br label %tkgen_canvas.exit
 
-27:                                               ; preds = %8
-  %28 = tail call i32 @gvputs(ptr noundef nonnull %0, ptr noundef nonnull @.str.14) #6
-  br label %tkgen_canvas.exit
-
-tkgen_canvas.exit:                                ; preds = %23, %27
-  %29 = tail call i32 @gvputs(ptr noundef nonnull %0, ptr noundef nonnull @.str.24) #6
+tkgen_canvas.exit:                                ; preds = %8, %23
+  %.str.14.sink.i = phi ptr [ %25, %23 ], [ @.str.14, %8 ]
+  %26 = tail call i32 @gvputs(ptr noundef nonnull %0, ptr noundef %.str.14.sink.i) #6
+  %27 = tail call i32 @gvputs(ptr noundef nonnull %0, ptr noundef nonnull @.str.24) #6
   tail call void @gvprintpointflist(ptr noundef nonnull %0, ptr noundef nonnull %1, i64 noundef 2) #6
-  %30 = tail call i32 @gvputs(ptr noundef nonnull %0, ptr noundef nonnull @.str.25) #6
+  %28 = tail call i32 @gvputs(ptr noundef nonnull %0, ptr noundef nonnull @.str.25) #6
   %.not29 = icmp eq i32 %2, 0
-  br i1 %.not29, label %50, label %31
+  br i1 %.not29, label %48, label %29
 
-31:                                               ; preds = %tkgen_canvas.exit
-  %32 = getelementptr inbounds i8, ptr %5, i64 72
-  %.sroa.0.0.copyload = load ptr, ptr %32, align 1
+29:                                               ; preds = %tkgen_canvas.exit
+  %30 = getelementptr inbounds i8, ptr %5, i64 72
+  %.sroa.0.0.copyload = load ptr, ptr %30, align 1
   %.sroa.833.0..sroa_idx = getelementptr inbounds i8, ptr %5, i64 104
   %.sroa.833.0.copyload = load i32, ptr %.sroa.833.0..sroa_idx, align 1
-  switch i32 %.sroa.833.0.copyload, label %47 [
-    i32 5, label %33
-    i32 1, label %35
+  switch i32 %.sroa.833.0.copyload, label %45 [
+    i32 5, label %31
+    i32 1, label %33
   ]
 
-33:                                               ; preds = %31
-  %34 = tail call i32 @gvputs(ptr noundef nonnull %0, ptr noundef %.sroa.0.0.copyload) #6
+31:                                               ; preds = %29
+  %32 = tail call i32 @gvputs(ptr noundef nonnull %0, ptr noundef %.sroa.0.0.copyload) #6
   br label %tkgen_print_color.exit
 
-35:                                               ; preds = %31
-  %36 = ptrtoint ptr %.sroa.0.0.copyload to i64
-  %37 = and i64 %36, 4278190080
-  %38 = icmp eq i64 %37, 0
-  br i1 %38, label %39, label %41
+33:                                               ; preds = %29
+  %34 = ptrtoint ptr %.sroa.0.0.copyload to i64
+  %35 = and i64 %34, 4278190080
+  %36 = icmp eq i64 %35, 0
+  br i1 %36, label %37, label %39
 
-39:                                               ; preds = %35
-  %40 = tail call i32 @gvputs(ptr noundef nonnull %0, ptr noundef nonnull @.str.15) #6
+37:                                               ; preds = %33
+  %38 = tail call i32 @gvputs(ptr noundef nonnull %0, ptr noundef nonnull @.str.15) #6
   br label %tkgen_print_color.exit
 
-41:                                               ; preds = %35
-  %.sroa.0.0.extract.trunc = trunc i64 %36 to i32
-  %42 = and i32 %.sroa.0.0.extract.trunc, 255
-  %43 = lshr i32 %.sroa.0.0.extract.trunc, 8
+39:                                               ; preds = %33
+  %.sroa.0.0.extract.trunc = trunc i64 %34 to i32
+  %40 = and i32 %.sroa.0.0.extract.trunc, 255
+  %41 = lshr i32 %.sroa.0.0.extract.trunc, 8
+  %42 = and i32 %41, 255
+  %43 = lshr i32 %.sroa.0.0.extract.trunc, 16
   %44 = and i32 %43, 255
-  %45 = lshr i32 %.sroa.0.0.extract.trunc, 16
-  %46 = and i32 %45, 255
-  tail call void (ptr, ptr, ...) @gvprintf(ptr noundef nonnull %0, ptr noundef nonnull @.str.16, i32 noundef %42, i32 noundef %44, i32 noundef %46) #6
+  tail call void (ptr, ptr, ...) @gvprintf(ptr noundef nonnull %0, ptr noundef nonnull @.str.16, i32 noundef %40, i32 noundef %42, i32 noundef %44) #6
   br label %tkgen_print_color.exit
 
-47:                                               ; preds = %31
-  %48 = load ptr, ptr @stderr, align 8
-  %49 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %48, ptr noundef nonnull @.str.17, ptr noundef nonnull @.str.18, i32 noundef 43) #7
+45:                                               ; preds = %29
+  %46 = load ptr, ptr @stderr, align 8
+  %47 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %46, ptr noundef nonnull @.str.17, ptr noundef nonnull @.str.18, i32 noundef 43) #7
   tail call void @abort() #8
   unreachable
 
-50:                                               ; preds = %tkgen_canvas.exit
-  %51 = load i32, ptr @first_periphery, align 4
-  %.not30 = icmp eq i32 %51, 0
-  br i1 %.not30, label %54, label %52
+48:                                               ; preds = %tkgen_canvas.exit
+  %49 = load i32, ptr @first_periphery, align 4
+  %.not30 = icmp eq i32 %49, 0
+  br i1 %.not30, label %52, label %50
 
-52:                                               ; preds = %50
-  %53 = tail call i32 @gvputs(ptr noundef nonnull %0, ptr noundef nonnull @.str.26) #6
+50:                                               ; preds = %48
+  %51 = tail call i32 @gvputs(ptr noundef nonnull %0, ptr noundef nonnull @.str.26) #6
   br label %tkgen_print_color.exit
 
-54:                                               ; preds = %50
-  %55 = tail call i32 @gvputs(ptr noundef nonnull %0, ptr noundef nonnull @.str.15) #6
+52:                                               ; preds = %48
+  %53 = tail call i32 @gvputs(ptr noundef nonnull %0, ptr noundef nonnull @.str.15) #6
   br label %tkgen_print_color.exit
 
-tkgen_print_color.exit:                           ; preds = %41, %39, %33, %52, %54
-  %56 = load i32, ptr @first_periphery, align 4
-  %57 = icmp eq i32 %56, 1
-  br i1 %57, label %58, label %59
+tkgen_print_color.exit:                           ; preds = %39, %37, %31, %50, %52
+  %54 = load i32, ptr @first_periphery, align 4
+  %55 = icmp eq i32 %54, 1
+  br i1 %55, label %56, label %57
 
-58:                                               ; preds = %tkgen_print_color.exit
+56:                                               ; preds = %tkgen_print_color.exit
   store i32 0, ptr @first_periphery, align 4
-  br label %59
+  br label %57
 
-59:                                               ; preds = %58, %tkgen_print_color.exit
-  %60 = tail call i32 @gvputs(ptr noundef nonnull %0, ptr noundef nonnull @.str.27) #6
-  %61 = getelementptr inbounds i8, ptr %5, i64 168
-  %62 = load double, ptr %61, align 8
-  tail call void @gvprintdouble(ptr noundef nonnull %0, double noundef %62) #6
-  %63 = tail call i32 @gvputs(ptr noundef nonnull %0, ptr noundef nonnull @.str.28) #6
-  %64 = getelementptr inbounds i8, ptr %5, i64 32
-  %.sroa.034.0.copyload = load ptr, ptr %64, align 1
+57:                                               ; preds = %56, %tkgen_print_color.exit
+  %58 = tail call i32 @gvputs(ptr noundef nonnull %0, ptr noundef nonnull @.str.27) #6
+  %59 = getelementptr inbounds i8, ptr %5, i64 168
+  %60 = load double, ptr %59, align 8
+  tail call void @gvprintdouble(ptr noundef nonnull %0, double noundef %60) #6
+  %61 = tail call i32 @gvputs(ptr noundef nonnull %0, ptr noundef nonnull @.str.28) #6
+  %62 = getelementptr inbounds i8, ptr %5, i64 32
+  %.sroa.034.0.copyload = load ptr, ptr %62, align 1
   %.sroa.837.0..sroa_idx = getelementptr inbounds i8, ptr %5, i64 64
   %.sroa.837.0.copyload = load i32, ptr %.sroa.837.0..sroa_idx, align 1
-  switch i32 %.sroa.837.0.copyload, label %79 [
-    i32 5, label %65
-    i32 1, label %67
+  switch i32 %.sroa.837.0.copyload, label %77 [
+    i32 5, label %63
+    i32 1, label %65
   ]
 
-65:                                               ; preds = %59
-  %66 = tail call i32 @gvputs(ptr noundef nonnull %0, ptr noundef %.sroa.034.0.copyload) #6
+63:                                               ; preds = %57
+  %64 = tail call i32 @gvputs(ptr noundef nonnull %0, ptr noundef %.sroa.034.0.copyload) #6
   br label %tkgen_print_color.exit31
 
-67:                                               ; preds = %59
-  %68 = ptrtoint ptr %.sroa.034.0.copyload to i64
-  %69 = and i64 %68, 4278190080
-  %70 = icmp eq i64 %69, 0
-  br i1 %70, label %71, label %73
+65:                                               ; preds = %57
+  %66 = ptrtoint ptr %.sroa.034.0.copyload to i64
+  %67 = and i64 %66, 4278190080
+  %68 = icmp eq i64 %67, 0
+  br i1 %68, label %69, label %71
 
-71:                                               ; preds = %67
-  %72 = tail call i32 @gvputs(ptr noundef nonnull %0, ptr noundef nonnull @.str.15) #6
+69:                                               ; preds = %65
+  %70 = tail call i32 @gvputs(ptr noundef nonnull %0, ptr noundef nonnull @.str.15) #6
   br label %tkgen_print_color.exit31
 
-73:                                               ; preds = %67
-  %.sroa.034.0.extract.trunc = trunc i64 %68 to i32
-  %74 = and i32 %.sroa.034.0.extract.trunc, 255
-  %75 = lshr i32 %.sroa.034.0.extract.trunc, 8
+71:                                               ; preds = %65
+  %.sroa.034.0.extract.trunc = trunc i64 %66 to i32
+  %72 = and i32 %.sroa.034.0.extract.trunc, 255
+  %73 = lshr i32 %.sroa.034.0.extract.trunc, 8
+  %74 = and i32 %73, 255
+  %75 = lshr i32 %.sroa.034.0.extract.trunc, 16
   %76 = and i32 %75, 255
-  %77 = lshr i32 %.sroa.034.0.extract.trunc, 16
-  %78 = and i32 %77, 255
-  tail call void (ptr, ptr, ...) @gvprintf(ptr noundef nonnull %0, ptr noundef nonnull @.str.16, i32 noundef %74, i32 noundef %76, i32 noundef %78) #6
+  tail call void (ptr, ptr, ...) @gvprintf(ptr noundef nonnull %0, ptr noundef nonnull @.str.16, i32 noundef %72, i32 noundef %74, i32 noundef %76) #6
   br label %tkgen_print_color.exit31
 
-79:                                               ; preds = %59
-  %80 = load ptr, ptr @stderr, align 8
-  %81 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %80, ptr noundef nonnull @.str.17, ptr noundef nonnull @.str.18, i32 noundef 43) #7
+77:                                               ; preds = %57
+  %78 = load ptr, ptr @stderr, align 8
+  %79 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %78, ptr noundef nonnull @.str.17, ptr noundef nonnull @.str.18, i32 noundef 43) #7
   tail call void @abort() #8
   unreachable
 
-tkgen_print_color.exit31:                         ; preds = %65, %71, %73
-  %82 = load i32, ptr %6, align 8
-  %83 = icmp eq i32 %82, 1
-  br i1 %83, label %84, label %86
+tkgen_print_color.exit31:                         ; preds = %63, %69, %71
+  %80 = load i32, ptr %6, align 8
+  %81 = icmp eq i32 %80, 1
+  br i1 %81, label %82, label %84
 
-84:                                               ; preds = %tkgen_print_color.exit31
-  %85 = tail call i32 @gvputs(ptr noundef nonnull %0, ptr noundef nonnull @.str.29) #6
+82:                                               ; preds = %tkgen_print_color.exit31
+  %83 = tail call i32 @gvputs(ptr noundef nonnull %0, ptr noundef nonnull @.str.29) #6
   %.pr = load i32, ptr %6, align 8
-  br label %86
+  br label %84
 
-86:                                               ; preds = %84, %tkgen_print_color.exit31
-  %87 = phi i32 [ %.pr, %84 ], [ %82, %tkgen_print_color.exit31 ]
-  %88 = icmp eq i32 %87, 2
-  br i1 %88, label %89, label %91
+84:                                               ; preds = %82, %tkgen_print_color.exit31
+  %85 = phi i32 [ %.pr, %82 ], [ %80, %tkgen_print_color.exit31 ]
+  %86 = icmp eq i32 %85, 2
+  br i1 %86, label %87, label %89
 
-89:                                               ; preds = %86
-  %90 = tail call i32 @gvputs(ptr noundef nonnull %0, ptr noundef nonnull @.str.30) #6
-  br label %91
+87:                                               ; preds = %84
+  %88 = tail call i32 @gvputs(ptr noundef nonnull %0, ptr noundef nonnull @.str.30) #6
+  br label %89
 
-91:                                               ; preds = %89, %86
-  %92 = load ptr, ptr %4, align 8
-  %93 = getelementptr inbounds i8, ptr %92, i64 24
-  %94 = load i32, ptr %93, align 8
-  %95 = icmp ult i32 %94, 12
-  br i1 %95, label %switch.lookup, label %96
+89:                                               ; preds = %87, %84
+  %90 = load ptr, ptr %4, align 8
+  %91 = getelementptr inbounds i8, ptr %90, i64 24
+  %92 = load i32, ptr %91, align 8
+  %93 = icmp ult i32 %92, 12
+  br i1 %93, label %switch.lookup, label %94
 
-96:                                               ; preds = %91
-  %97 = load ptr, ptr @stderr, align 8
-  %98 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %97, ptr noundef nonnull @.str.17, ptr noundef nonnull @.str.18, i32 noundef 100) #7
+94:                                               ; preds = %89
+  %95 = load ptr, ptr @stderr, align 8
+  %96 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %95, ptr noundef nonnull @.str.17, ptr noundef nonnull @.str.18, i32 noundef 100) #7
   tail call void @abort() #8
   unreachable
 
-switch.lookup:                                    ; preds = %91
-  %99 = zext nneg i32 %94 to i64
-  %switch.gep = getelementptr inbounds [12 x ptr], ptr @switch.table.tkgen_polyline, i64 0, i64 %99
+switch.lookup:                                    ; preds = %89
+  %97 = zext nneg i32 %92 to i64
+  %switch.gep = getelementptr inbounds [12 x ptr], ptr @switch.table.tkgen_polyline, i64 0, i64 %97
   %switch.load = load ptr, ptr %switch.gep, align 8
-  %100 = zext nneg i32 %94 to i64
-  %switch.gep39 = getelementptr inbounds [12 x i32], ptr @switch.table.tkgen_polyline.5, i64 0, i64 %100
+  %98 = zext nneg i32 %92 to i64
+  %switch.gep39 = getelementptr inbounds [12 x i32], ptr @switch.table.tkgen_polyline.5, i64 0, i64 %98
   %switch.load40 = load i32, ptr %switch.gep39, align 4
-  %101 = getelementptr inbounds i8, ptr %92, i64 16
-  %102 = load ptr, ptr %101, align 8
-  %103 = getelementptr inbounds i8, ptr %102, i64 8
-  %.014.i = load i64, ptr %103, align 8
+  %99 = getelementptr inbounds i8, ptr %90, i64 16
+  %100 = load ptr, ptr %99, align 8
+  %101 = getelementptr inbounds i8, ptr %100, i64 8
+  %.014.i = load i64, ptr %101, align 8
   tail call void (ptr, ptr, ...) @gvprintf(ptr noundef nonnull %0, ptr noundef nonnull @.str.23, i32 noundef %switch.load40, ptr noundef nonnull %switch.load, i64 noundef %.014.i) #6
-  %104 = tail call i32 @gvputs(ptr noundef nonnull %0, ptr noundef nonnull @.str.13) #6
-  br label %105
+  %102 = tail call i32 @gvputs(ptr noundef nonnull %0, ptr noundef nonnull @.str.13) #6
+  br label %103
 
-105:                                              ; preds = %switch.lookup, %3
+103:                                              ; preds = %switch.lookup, %3
   ret void
 }
 
@@ -463,356 +457,43 @@ define internal void @tkgen_polygon(ptr noundef %0, ptr noundef %1, i64 noundef 
   %7 = getelementptr inbounds i8, ptr %6, i64 160
   %8 = load i32, ptr %7, align 8
   %.not = icmp eq i32 %8, 0
-  br i1 %.not, label %95, label %9
+  br i1 %.not, label %93, label %9
 
 9:                                                ; preds = %4
   %10 = getelementptr inbounds i8, ptr %0, i64 256
   %11 = load i8, ptr %10, align 8
   %12 = trunc i8 %11 to i1
-  br i1 %12, label %13, label %17
+  br i1 %12, label %13, label %tkgen_canvas.exit
 
 13:                                               ; preds = %9
   %14 = getelementptr inbounds i8, ptr %0, i64 264
   %15 = load ptr, ptr %14, align 8
-  %16 = tail call i32 @gvputs(ptr noundef nonnull %0, ptr noundef %15) #6
   br label %tkgen_canvas.exit
 
-17:                                               ; preds = %9
-  %18 = tail call i32 @gvputs(ptr noundef nonnull %0, ptr noundef nonnull @.str.14) #6
-  br label %tkgen_canvas.exit
-
-tkgen_canvas.exit:                                ; preds = %13, %17
-  %19 = tail call i32 @gvputs(ptr noundef nonnull %0, ptr noundef nonnull @.str.31) #6
+tkgen_canvas.exit:                                ; preds = %9, %13
+  %.str.14.sink.i = phi ptr [ %15, %13 ], [ @.str.14, %9 ]
+  %16 = tail call i32 @gvputs(ptr noundef nonnull %0, ptr noundef %.str.14.sink.i) #6
+  %17 = tail call i32 @gvputs(ptr noundef nonnull %0, ptr noundef nonnull @.str.31) #6
   tail call void @gvprintpointflist(ptr noundef nonnull %0, ptr noundef %1, i64 noundef %2) #6
-  %20 = tail call i32 @gvputs(ptr noundef nonnull %0, ptr noundef nonnull @.str.25) #6
+  %18 = tail call i32 @gvputs(ptr noundef nonnull %0, ptr noundef nonnull @.str.25) #6
   %.not24 = icmp eq i32 %3, 0
-  br i1 %.not24, label %40, label %21
+  br i1 %.not24, label %38, label %19
 
-21:                                               ; preds = %tkgen_canvas.exit
-  %22 = getelementptr inbounds i8, ptr %6, i64 72
-  %.sroa.0.0.copyload = load ptr, ptr %22, align 1
+19:                                               ; preds = %tkgen_canvas.exit
+  %20 = getelementptr inbounds i8, ptr %6, i64 72
+  %.sroa.0.0.copyload = load ptr, ptr %20, align 1
   %.sroa.828.0..sroa_idx = getelementptr inbounds i8, ptr %6, i64 104
   %.sroa.828.0.copyload = load i32, ptr %.sroa.828.0..sroa_idx, align 1
-  switch i32 %.sroa.828.0.copyload, label %37 [
-    i32 5, label %23
-    i32 1, label %25
-  ]
-
-23:                                               ; preds = %21
-  %24 = tail call i32 @gvputs(ptr noundef nonnull %0, ptr noundef %.sroa.0.0.copyload) #6
-  br label %tkgen_print_color.exit
-
-25:                                               ; preds = %21
-  %26 = ptrtoint ptr %.sroa.0.0.copyload to i64
-  %27 = and i64 %26, 4278190080
-  %28 = icmp eq i64 %27, 0
-  br i1 %28, label %29, label %31
-
-29:                                               ; preds = %25
-  %30 = tail call i32 @gvputs(ptr noundef nonnull %0, ptr noundef nonnull @.str.15) #6
-  br label %tkgen_print_color.exit
-
-31:                                               ; preds = %25
-  %.sroa.0.0.extract.trunc = trunc i64 %26 to i32
-  %32 = and i32 %.sroa.0.0.extract.trunc, 255
-  %33 = lshr i32 %.sroa.0.0.extract.trunc, 8
-  %34 = and i32 %33, 255
-  %35 = lshr i32 %.sroa.0.0.extract.trunc, 16
-  %36 = and i32 %35, 255
-  tail call void (ptr, ptr, ...) @gvprintf(ptr noundef nonnull %0, ptr noundef nonnull @.str.16, i32 noundef %32, i32 noundef %34, i32 noundef %36) #6
-  br label %tkgen_print_color.exit
-
-37:                                               ; preds = %21
-  %38 = load ptr, ptr @stderr, align 8
-  %39 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %38, ptr noundef nonnull @.str.17, ptr noundef nonnull @.str.18, i32 noundef 43) #7
-  tail call void @abort() #8
-  unreachable
-
-40:                                               ; preds = %tkgen_canvas.exit
-  %41 = load i32, ptr @first_periphery, align 4
-  %.not25 = icmp eq i32 %41, 0
-  br i1 %.not25, label %44, label %42
-
-42:                                               ; preds = %40
-  %43 = tail call i32 @gvputs(ptr noundef nonnull %0, ptr noundef nonnull @.str.26) #6
-  br label %tkgen_print_color.exit
-
-44:                                               ; preds = %40
-  %45 = tail call i32 @gvputs(ptr noundef nonnull %0, ptr noundef nonnull @.str.15) #6
-  br label %tkgen_print_color.exit
-
-tkgen_print_color.exit:                           ; preds = %31, %29, %23, %42, %44
-  %46 = load i32, ptr @first_periphery, align 4
-  %47 = icmp eq i32 %46, 1
-  br i1 %47, label %48, label %49
-
-48:                                               ; preds = %tkgen_print_color.exit
-  store i32 0, ptr @first_periphery, align 4
-  br label %49
-
-49:                                               ; preds = %48, %tkgen_print_color.exit
-  %50 = tail call i32 @gvputs(ptr noundef nonnull %0, ptr noundef nonnull @.str.27) #6
-  %51 = getelementptr inbounds i8, ptr %6, i64 168
-  %52 = load double, ptr %51, align 8
-  tail call void @gvprintdouble(ptr noundef nonnull %0, double noundef %52) #6
-  %53 = tail call i32 @gvputs(ptr noundef nonnull %0, ptr noundef nonnull @.str.28) #6
-  %54 = getelementptr inbounds i8, ptr %6, i64 32
-  %.sroa.029.0.copyload = load ptr, ptr %54, align 1
-  %.sroa.832.0..sroa_idx = getelementptr inbounds i8, ptr %6, i64 64
-  %.sroa.832.0.copyload = load i32, ptr %.sroa.832.0..sroa_idx, align 1
-  switch i32 %.sroa.832.0.copyload, label %69 [
-    i32 5, label %55
-    i32 1, label %57
-  ]
-
-55:                                               ; preds = %49
-  %56 = tail call i32 @gvputs(ptr noundef nonnull %0, ptr noundef %.sroa.029.0.copyload) #6
-  br label %tkgen_print_color.exit26
-
-57:                                               ; preds = %49
-  %58 = ptrtoint ptr %.sroa.029.0.copyload to i64
-  %59 = and i64 %58, 4278190080
-  %60 = icmp eq i64 %59, 0
-  br i1 %60, label %61, label %63
-
-61:                                               ; preds = %57
-  %62 = tail call i32 @gvputs(ptr noundef nonnull %0, ptr noundef nonnull @.str.15) #6
-  br label %tkgen_print_color.exit26
-
-63:                                               ; preds = %57
-  %.sroa.029.0.extract.trunc = trunc i64 %58 to i32
-  %64 = and i32 %.sroa.029.0.extract.trunc, 255
-  %65 = lshr i32 %.sroa.029.0.extract.trunc, 8
-  %66 = and i32 %65, 255
-  %67 = lshr i32 %.sroa.029.0.extract.trunc, 16
-  %68 = and i32 %67, 255
-  tail call void (ptr, ptr, ...) @gvprintf(ptr noundef nonnull %0, ptr noundef nonnull @.str.16, i32 noundef %64, i32 noundef %66, i32 noundef %68) #6
-  br label %tkgen_print_color.exit26
-
-69:                                               ; preds = %49
-  %70 = load ptr, ptr @stderr, align 8
-  %71 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %70, ptr noundef nonnull @.str.17, ptr noundef nonnull @.str.18, i32 noundef 43) #7
-  tail call void @abort() #8
-  unreachable
-
-tkgen_print_color.exit26:                         ; preds = %55, %61, %63
-  %72 = load i32, ptr %7, align 8
-  %73 = icmp eq i32 %72, 1
-  br i1 %73, label %74, label %76
-
-74:                                               ; preds = %tkgen_print_color.exit26
-  %75 = tail call i32 @gvputs(ptr noundef nonnull %0, ptr noundef nonnull @.str.29) #6
-  %.pr = load i32, ptr %7, align 8
-  br label %76
-
-76:                                               ; preds = %74, %tkgen_print_color.exit26
-  %77 = phi i32 [ %.pr, %74 ], [ %72, %tkgen_print_color.exit26 ]
-  %78 = icmp eq i32 %77, 2
-  br i1 %78, label %79, label %81
-
-79:                                               ; preds = %76
-  %80 = tail call i32 @gvputs(ptr noundef nonnull %0, ptr noundef nonnull @.str.30) #6
-  br label %81
-
-81:                                               ; preds = %79, %76
-  %82 = load ptr, ptr %5, align 8
-  %83 = getelementptr inbounds i8, ptr %82, i64 24
-  %84 = load i32, ptr %83, align 8
-  %85 = icmp ult i32 %84, 12
-  br i1 %85, label %switch.lookup, label %86
-
-86:                                               ; preds = %81
-  %87 = load ptr, ptr @stderr, align 8
-  %88 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %87, ptr noundef nonnull @.str.17, ptr noundef nonnull @.str.18, i32 noundef 100) #7
-  tail call void @abort() #8
-  unreachable
-
-switch.lookup:                                    ; preds = %81
-  %89 = zext nneg i32 %84 to i64
-  %switch.gep = getelementptr inbounds [12 x ptr], ptr @switch.table.tkgen_polyline, i64 0, i64 %89
-  %switch.load = load ptr, ptr %switch.gep, align 8
-  %90 = zext nneg i32 %84 to i64
-  %switch.gep34 = getelementptr inbounds [12 x i32], ptr @switch.table.tkgen_polyline.5, i64 0, i64 %90
-  %switch.load35 = load i32, ptr %switch.gep34, align 4
-  %91 = getelementptr inbounds i8, ptr %82, i64 16
-  %92 = load ptr, ptr %91, align 8
-  %93 = getelementptr inbounds i8, ptr %92, i64 8
-  %.014.i = load i64, ptr %93, align 8
-  tail call void (ptr, ptr, ...) @gvprintf(ptr noundef nonnull %0, ptr noundef nonnull @.str.23, i32 noundef %switch.load35, ptr noundef nonnull %switch.load, i64 noundef %.014.i) #6
-  %94 = tail call i32 @gvputs(ptr noundef nonnull %0, ptr noundef nonnull @.str.13) #6
-  br label %95
-
-95:                                               ; preds = %switch.lookup, %4
-  ret void
-}
-
-; Function Attrs: nounwind uwtable
-define internal void @tkgen_bezier(ptr noundef %0, ptr noundef %1, i64 noundef %2, i32 %3) #0 {
-  %5 = getelementptr inbounds i8, ptr %0, i64 32
-  %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 160
-  %8 = load i32, ptr %7, align 8
-  %.not = icmp eq i32 %8, 0
-  br i1 %.not, label %66, label %9
-
-9:                                                ; preds = %4
-  %10 = getelementptr inbounds i8, ptr %0, i64 256
-  %11 = load i8, ptr %10, align 8
-  %12 = trunc i8 %11 to i1
-  br i1 %12, label %13, label %17
-
-13:                                               ; preds = %9
-  %14 = getelementptr inbounds i8, ptr %0, i64 264
-  %15 = load ptr, ptr %14, align 8
-  %16 = tail call i32 @gvputs(ptr noundef nonnull %0, ptr noundef %15) #6
-  br label %tkgen_canvas.exit
-
-17:                                               ; preds = %9
-  %18 = tail call i32 @gvputs(ptr noundef nonnull %0, ptr noundef nonnull @.str.14) #6
-  br label %tkgen_canvas.exit
-
-tkgen_canvas.exit:                                ; preds = %13, %17
-  %19 = tail call i32 @gvputs(ptr noundef nonnull %0, ptr noundef nonnull @.str.32) #6
-  tail call void @gvprintpointflist(ptr noundef nonnull %0, ptr noundef %1, i64 noundef %2) #6
-  %20 = tail call i32 @gvputs(ptr noundef nonnull %0, ptr noundef nonnull @.str.25) #6
-  %21 = getelementptr inbounds i8, ptr %6, i64 32
-  %.sroa.0.0.copyload = load ptr, ptr %21, align 1
-  %.sroa.820.0..sroa_idx = getelementptr inbounds i8, ptr %6, i64 64
-  %.sroa.820.0.copyload = load i32, ptr %.sroa.820.0..sroa_idx, align 1
-  switch i32 %.sroa.820.0.copyload, label %36 [
-    i32 5, label %22
-    i32 1, label %24
-  ]
-
-22:                                               ; preds = %tkgen_canvas.exit
-  %23 = tail call i32 @gvputs(ptr noundef nonnull %0, ptr noundef %.sroa.0.0.copyload) #6
-  br label %tkgen_print_color.exit
-
-24:                                               ; preds = %tkgen_canvas.exit
-  %25 = ptrtoint ptr %.sroa.0.0.copyload to i64
-  %26 = and i64 %25, 4278190080
-  %27 = icmp eq i64 %26, 0
-  br i1 %27, label %28, label %30
-
-28:                                               ; preds = %24
-  %29 = tail call i32 @gvputs(ptr noundef nonnull %0, ptr noundef nonnull @.str.15) #6
-  br label %tkgen_print_color.exit
-
-30:                                               ; preds = %24
-  %.sroa.0.0.extract.trunc = trunc i64 %25 to i32
-  %31 = and i32 %.sroa.0.0.extract.trunc, 255
-  %32 = lshr i32 %.sroa.0.0.extract.trunc, 8
-  %33 = and i32 %32, 255
-  %34 = lshr i32 %.sroa.0.0.extract.trunc, 16
-  %35 = and i32 %34, 255
-  tail call void (ptr, ptr, ...) @gvprintf(ptr noundef nonnull %0, ptr noundef nonnull @.str.16, i32 noundef %31, i32 noundef %33, i32 noundef %35) #6
-  br label %tkgen_print_color.exit
-
-36:                                               ; preds = %tkgen_canvas.exit
-  %37 = load ptr, ptr @stderr, align 8
-  %38 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %37, ptr noundef nonnull @.str.17, ptr noundef nonnull @.str.18, i32 noundef 43) #7
-  tail call void @abort() #8
-  unreachable
-
-tkgen_print_color.exit:                           ; preds = %22, %28, %30
-  %39 = tail call i32 @gvputs(ptr noundef nonnull %0, ptr noundef nonnull @.str.27) #6
-  %40 = getelementptr inbounds i8, ptr %6, i64 168
-  %41 = load double, ptr %40, align 8
-  tail call void @gvprintdouble(ptr noundef nonnull %0, double noundef %41) #6
-  %42 = load i32, ptr %7, align 8
-  %43 = icmp eq i32 %42, 1
-  br i1 %43, label %44, label %46
-
-44:                                               ; preds = %tkgen_print_color.exit
-  %45 = tail call i32 @gvputs(ptr noundef nonnull %0, ptr noundef nonnull @.str.29) #6
-  %.pr = load i32, ptr %7, align 8
-  br label %46
-
-46:                                               ; preds = %44, %tkgen_print_color.exit
-  %47 = phi i32 [ %.pr, %44 ], [ %42, %tkgen_print_color.exit ]
-  %48 = icmp eq i32 %47, 2
-  br i1 %48, label %49, label %51
-
-49:                                               ; preds = %46
-  %50 = tail call i32 @gvputs(ptr noundef nonnull %0, ptr noundef nonnull @.str.30) #6
-  br label %51
-
-51:                                               ; preds = %49, %46
-  %52 = tail call i32 @gvputs(ptr noundef nonnull %0, ptr noundef nonnull @.str.33) #6
-  %53 = load ptr, ptr %5, align 8
-  %54 = getelementptr inbounds i8, ptr %53, i64 24
-  %55 = load i32, ptr %54, align 8
-  %56 = icmp ult i32 %55, 12
-  br i1 %56, label %switch.lookup, label %57
-
-57:                                               ; preds = %51
-  %58 = load ptr, ptr @stderr, align 8
-  %59 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %58, ptr noundef nonnull @.str.17, ptr noundef nonnull @.str.18, i32 noundef 100) #7
-  tail call void @abort() #8
-  unreachable
-
-switch.lookup:                                    ; preds = %51
-  %60 = zext nneg i32 %55 to i64
-  %switch.gep = getelementptr inbounds [12 x ptr], ptr @switch.table.tkgen_polyline, i64 0, i64 %60
-  %switch.load = load ptr, ptr %switch.gep, align 8
-  %61 = zext nneg i32 %55 to i64
-  %switch.gep21 = getelementptr inbounds [12 x i32], ptr @switch.table.tkgen_polyline.5, i64 0, i64 %61
-  %switch.load22 = load i32, ptr %switch.gep21, align 4
-  %62 = getelementptr inbounds i8, ptr %53, i64 16
-  %63 = load ptr, ptr %62, align 8
-  %64 = getelementptr inbounds i8, ptr %63, i64 8
-  %.014.i = load i64, ptr %64, align 8
-  tail call void (ptr, ptr, ...) @gvprintf(ptr noundef nonnull %0, ptr noundef nonnull @.str.23, i32 noundef %switch.load22, ptr noundef nonnull %switch.load, i64 noundef %.014.i) #6
-  %65 = tail call i32 @gvputs(ptr noundef nonnull %0, ptr noundef nonnull @.str.13) #6
-  br label %66
-
-66:                                               ; preds = %switch.lookup, %4
-  ret void
-}
-
-; Function Attrs: nounwind uwtable
-define internal void @tkgen_polyline(ptr noundef %0, ptr noundef %1, i64 noundef %2) #0 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 32
-  %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 160
-  %7 = load i32, ptr %6, align 8
-  %.not = icmp eq i32 %7, 0
-  br i1 %.not, label %61, label %8
-
-8:                                                ; preds = %3
-  %9 = getelementptr inbounds i8, ptr %0, i64 256
-  %10 = load i8, ptr %9, align 8
-  %11 = trunc i8 %10 to i1
-  br i1 %11, label %12, label %16
-
-12:                                               ; preds = %8
-  %13 = getelementptr inbounds i8, ptr %0, i64 264
-  %14 = load ptr, ptr %13, align 8
-  %15 = tail call i32 @gvputs(ptr noundef nonnull %0, ptr noundef %14) #6
-  br label %tkgen_canvas.exit
-
-16:                                               ; preds = %8
-  %17 = tail call i32 @gvputs(ptr noundef nonnull %0, ptr noundef nonnull @.str.14) #6
-  br label %tkgen_canvas.exit
-
-tkgen_canvas.exit:                                ; preds = %12, %16
-  %18 = tail call i32 @gvputs(ptr noundef nonnull %0, ptr noundef nonnull @.str.32) #6
-  tail call void @gvprintpointflist(ptr noundef nonnull %0, ptr noundef %1, i64 noundef %2) #6
-  %19 = tail call i32 @gvputs(ptr noundef nonnull %0, ptr noundef nonnull @.str.25) #6
-  %20 = getelementptr inbounds i8, ptr %5, i64 32
-  %.sroa.0.0.copyload = load ptr, ptr %20, align 1
-  %.sroa.816.0..sroa_idx = getelementptr inbounds i8, ptr %5, i64 64
-  %.sroa.816.0.copyload = load i32, ptr %.sroa.816.0..sroa_idx, align 1
-  switch i32 %.sroa.816.0.copyload, label %35 [
+  switch i32 %.sroa.828.0.copyload, label %35 [
     i32 5, label %21
     i32 1, label %23
   ]
 
-21:                                               ; preds = %tkgen_canvas.exit
+21:                                               ; preds = %19
   %22 = tail call i32 @gvputs(ptr noundef nonnull %0, ptr noundef %.sroa.0.0.copyload) #6
   br label %tkgen_print_color.exit
 
-23:                                               ; preds = %tkgen_canvas.exit
+23:                                               ; preds = %19
   %24 = ptrtoint ptr %.sroa.0.0.copyload to i64
   %25 = and i64 %24, 4278190080
   %26 = icmp eq i64 %25, 0
@@ -832,60 +513,364 @@ tkgen_canvas.exit:                                ; preds = %12, %16
   tail call void (ptr, ptr, ...) @gvprintf(ptr noundef nonnull %0, ptr noundef nonnull @.str.16, i32 noundef %30, i32 noundef %32, i32 noundef %34) #6
   br label %tkgen_print_color.exit
 
-35:                                               ; preds = %tkgen_canvas.exit
+35:                                               ; preds = %19
   %36 = load ptr, ptr @stderr, align 8
   %37 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %36, ptr noundef nonnull @.str.17, ptr noundef nonnull @.str.18, i32 noundef 43) #7
   tail call void @abort() #8
   unreachable
 
-tkgen_print_color.exit:                           ; preds = %21, %27, %29
-  %38 = load i32, ptr %6, align 8
-  %39 = icmp eq i32 %38, 1
-  br i1 %39, label %40, label %42
+38:                                               ; preds = %tkgen_canvas.exit
+  %39 = load i32, ptr @first_periphery, align 4
+  %.not25 = icmp eq i32 %39, 0
+  br i1 %.not25, label %42, label %40
 
-40:                                               ; preds = %tkgen_print_color.exit
-  %41 = tail call i32 @gvputs(ptr noundef nonnull %0, ptr noundef nonnull @.str.29) #6
-  %.pr = load i32, ptr %6, align 8
-  br label %42
+40:                                               ; preds = %38
+  %41 = tail call i32 @gvputs(ptr noundef nonnull %0, ptr noundef nonnull @.str.26) #6
+  br label %tkgen_print_color.exit
 
-42:                                               ; preds = %40, %tkgen_print_color.exit
-  %43 = phi i32 [ %.pr, %40 ], [ %38, %tkgen_print_color.exit ]
-  %44 = icmp eq i32 %43, 2
-  br i1 %44, label %45, label %47
+42:                                               ; preds = %38
+  %43 = tail call i32 @gvputs(ptr noundef nonnull %0, ptr noundef nonnull @.str.15) #6
+  br label %tkgen_print_color.exit
 
-45:                                               ; preds = %42
-  %46 = tail call i32 @gvputs(ptr noundef nonnull %0, ptr noundef nonnull @.str.30) #6
+tkgen_print_color.exit:                           ; preds = %29, %27, %21, %40, %42
+  %44 = load i32, ptr @first_periphery, align 4
+  %45 = icmp eq i32 %44, 1
+  br i1 %45, label %46, label %47
+
+46:                                               ; preds = %tkgen_print_color.exit
+  store i32 0, ptr @first_periphery, align 4
   br label %47
 
-47:                                               ; preds = %45, %42
-  %48 = load ptr, ptr %4, align 8
-  %49 = getelementptr inbounds i8, ptr %48, i64 24
-  %50 = load i32, ptr %49, align 8
-  %51 = icmp ult i32 %50, 12
-  br i1 %51, label %switch.lookup, label %52
+47:                                               ; preds = %46, %tkgen_print_color.exit
+  %48 = tail call i32 @gvputs(ptr noundef nonnull %0, ptr noundef nonnull @.str.27) #6
+  %49 = getelementptr inbounds i8, ptr %6, i64 168
+  %50 = load double, ptr %49, align 8
+  tail call void @gvprintdouble(ptr noundef nonnull %0, double noundef %50) #6
+  %51 = tail call i32 @gvputs(ptr noundef nonnull %0, ptr noundef nonnull @.str.28) #6
+  %52 = getelementptr inbounds i8, ptr %6, i64 32
+  %.sroa.029.0.copyload = load ptr, ptr %52, align 1
+  %.sroa.832.0..sroa_idx = getelementptr inbounds i8, ptr %6, i64 64
+  %.sroa.832.0.copyload = load i32, ptr %.sroa.832.0..sroa_idx, align 1
+  switch i32 %.sroa.832.0.copyload, label %67 [
+    i32 5, label %53
+    i32 1, label %55
+  ]
 
-52:                                               ; preds = %47
-  %53 = load ptr, ptr @stderr, align 8
-  %54 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %53, ptr noundef nonnull @.str.17, ptr noundef nonnull @.str.18, i32 noundef 100) #7
+53:                                               ; preds = %47
+  %54 = tail call i32 @gvputs(ptr noundef nonnull %0, ptr noundef %.sroa.029.0.copyload) #6
+  br label %tkgen_print_color.exit26
+
+55:                                               ; preds = %47
+  %56 = ptrtoint ptr %.sroa.029.0.copyload to i64
+  %57 = and i64 %56, 4278190080
+  %58 = icmp eq i64 %57, 0
+  br i1 %58, label %59, label %61
+
+59:                                               ; preds = %55
+  %60 = tail call i32 @gvputs(ptr noundef nonnull %0, ptr noundef nonnull @.str.15) #6
+  br label %tkgen_print_color.exit26
+
+61:                                               ; preds = %55
+  %.sroa.029.0.extract.trunc = trunc i64 %56 to i32
+  %62 = and i32 %.sroa.029.0.extract.trunc, 255
+  %63 = lshr i32 %.sroa.029.0.extract.trunc, 8
+  %64 = and i32 %63, 255
+  %65 = lshr i32 %.sroa.029.0.extract.trunc, 16
+  %66 = and i32 %65, 255
+  tail call void (ptr, ptr, ...) @gvprintf(ptr noundef nonnull %0, ptr noundef nonnull @.str.16, i32 noundef %62, i32 noundef %64, i32 noundef %66) #6
+  br label %tkgen_print_color.exit26
+
+67:                                               ; preds = %47
+  %68 = load ptr, ptr @stderr, align 8
+  %69 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %68, ptr noundef nonnull @.str.17, ptr noundef nonnull @.str.18, i32 noundef 43) #7
   tail call void @abort() #8
   unreachable
 
-switch.lookup:                                    ; preds = %47
-  %55 = zext nneg i32 %50 to i64
-  %switch.gep = getelementptr inbounds [12 x ptr], ptr @switch.table.tkgen_polyline, i64 0, i64 %55
-  %switch.load = load ptr, ptr %switch.gep, align 8
-  %56 = zext nneg i32 %50 to i64
-  %switch.gep17 = getelementptr inbounds [12 x i32], ptr @switch.table.tkgen_polyline.5, i64 0, i64 %56
-  %switch.load18 = load i32, ptr %switch.gep17, align 4
-  %57 = getelementptr inbounds i8, ptr %48, i64 16
-  %58 = load ptr, ptr %57, align 8
-  %59 = getelementptr inbounds i8, ptr %58, i64 8
-  %.014.i = load i64, ptr %59, align 8
-  tail call void (ptr, ptr, ...) @gvprintf(ptr noundef nonnull %0, ptr noundef nonnull @.str.23, i32 noundef %switch.load18, ptr noundef nonnull %switch.load, i64 noundef %.014.i) #6
-  %60 = tail call i32 @gvputs(ptr noundef nonnull %0, ptr noundef nonnull @.str.13) #6
-  br label %61
+tkgen_print_color.exit26:                         ; preds = %53, %59, %61
+  %70 = load i32, ptr %7, align 8
+  %71 = icmp eq i32 %70, 1
+  br i1 %71, label %72, label %74
 
-61:                                               ; preds = %switch.lookup, %3
+72:                                               ; preds = %tkgen_print_color.exit26
+  %73 = tail call i32 @gvputs(ptr noundef nonnull %0, ptr noundef nonnull @.str.29) #6
+  %.pr = load i32, ptr %7, align 8
+  br label %74
+
+74:                                               ; preds = %72, %tkgen_print_color.exit26
+  %75 = phi i32 [ %.pr, %72 ], [ %70, %tkgen_print_color.exit26 ]
+  %76 = icmp eq i32 %75, 2
+  br i1 %76, label %77, label %79
+
+77:                                               ; preds = %74
+  %78 = tail call i32 @gvputs(ptr noundef nonnull %0, ptr noundef nonnull @.str.30) #6
+  br label %79
+
+79:                                               ; preds = %77, %74
+  %80 = load ptr, ptr %5, align 8
+  %81 = getelementptr inbounds i8, ptr %80, i64 24
+  %82 = load i32, ptr %81, align 8
+  %83 = icmp ult i32 %82, 12
+  br i1 %83, label %switch.lookup, label %84
+
+84:                                               ; preds = %79
+  %85 = load ptr, ptr @stderr, align 8
+  %86 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %85, ptr noundef nonnull @.str.17, ptr noundef nonnull @.str.18, i32 noundef 100) #7
+  tail call void @abort() #8
+  unreachable
+
+switch.lookup:                                    ; preds = %79
+  %87 = zext nneg i32 %82 to i64
+  %switch.gep = getelementptr inbounds [12 x ptr], ptr @switch.table.tkgen_polyline, i64 0, i64 %87
+  %switch.load = load ptr, ptr %switch.gep, align 8
+  %88 = zext nneg i32 %82 to i64
+  %switch.gep34 = getelementptr inbounds [12 x i32], ptr @switch.table.tkgen_polyline.5, i64 0, i64 %88
+  %switch.load35 = load i32, ptr %switch.gep34, align 4
+  %89 = getelementptr inbounds i8, ptr %80, i64 16
+  %90 = load ptr, ptr %89, align 8
+  %91 = getelementptr inbounds i8, ptr %90, i64 8
+  %.014.i = load i64, ptr %91, align 8
+  tail call void (ptr, ptr, ...) @gvprintf(ptr noundef nonnull %0, ptr noundef nonnull @.str.23, i32 noundef %switch.load35, ptr noundef nonnull %switch.load, i64 noundef %.014.i) #6
+  %92 = tail call i32 @gvputs(ptr noundef nonnull %0, ptr noundef nonnull @.str.13) #6
+  br label %93
+
+93:                                               ; preds = %switch.lookup, %4
+  ret void
+}
+
+; Function Attrs: nounwind uwtable
+define internal void @tkgen_bezier(ptr noundef %0, ptr noundef %1, i64 noundef %2, i32 %3) #0 {
+  %5 = getelementptr inbounds i8, ptr %0, i64 32
+  %6 = load ptr, ptr %5, align 8
+  %7 = getelementptr inbounds i8, ptr %6, i64 160
+  %8 = load i32, ptr %7, align 8
+  %.not = icmp eq i32 %8, 0
+  br i1 %.not, label %64, label %9
+
+9:                                                ; preds = %4
+  %10 = getelementptr inbounds i8, ptr %0, i64 256
+  %11 = load i8, ptr %10, align 8
+  %12 = trunc i8 %11 to i1
+  br i1 %12, label %13, label %tkgen_canvas.exit
+
+13:                                               ; preds = %9
+  %14 = getelementptr inbounds i8, ptr %0, i64 264
+  %15 = load ptr, ptr %14, align 8
+  br label %tkgen_canvas.exit
+
+tkgen_canvas.exit:                                ; preds = %9, %13
+  %.str.14.sink.i = phi ptr [ %15, %13 ], [ @.str.14, %9 ]
+  %16 = tail call i32 @gvputs(ptr noundef nonnull %0, ptr noundef %.str.14.sink.i) #6
+  %17 = tail call i32 @gvputs(ptr noundef nonnull %0, ptr noundef nonnull @.str.32) #6
+  tail call void @gvprintpointflist(ptr noundef nonnull %0, ptr noundef %1, i64 noundef %2) #6
+  %18 = tail call i32 @gvputs(ptr noundef nonnull %0, ptr noundef nonnull @.str.25) #6
+  %19 = getelementptr inbounds i8, ptr %6, i64 32
+  %.sroa.0.0.copyload = load ptr, ptr %19, align 1
+  %.sroa.820.0..sroa_idx = getelementptr inbounds i8, ptr %6, i64 64
+  %.sroa.820.0.copyload = load i32, ptr %.sroa.820.0..sroa_idx, align 1
+  switch i32 %.sroa.820.0.copyload, label %34 [
+    i32 5, label %20
+    i32 1, label %22
+  ]
+
+20:                                               ; preds = %tkgen_canvas.exit
+  %21 = tail call i32 @gvputs(ptr noundef nonnull %0, ptr noundef %.sroa.0.0.copyload) #6
+  br label %tkgen_print_color.exit
+
+22:                                               ; preds = %tkgen_canvas.exit
+  %23 = ptrtoint ptr %.sroa.0.0.copyload to i64
+  %24 = and i64 %23, 4278190080
+  %25 = icmp eq i64 %24, 0
+  br i1 %25, label %26, label %28
+
+26:                                               ; preds = %22
+  %27 = tail call i32 @gvputs(ptr noundef nonnull %0, ptr noundef nonnull @.str.15) #6
+  br label %tkgen_print_color.exit
+
+28:                                               ; preds = %22
+  %.sroa.0.0.extract.trunc = trunc i64 %23 to i32
+  %29 = and i32 %.sroa.0.0.extract.trunc, 255
+  %30 = lshr i32 %.sroa.0.0.extract.trunc, 8
+  %31 = and i32 %30, 255
+  %32 = lshr i32 %.sroa.0.0.extract.trunc, 16
+  %33 = and i32 %32, 255
+  tail call void (ptr, ptr, ...) @gvprintf(ptr noundef nonnull %0, ptr noundef nonnull @.str.16, i32 noundef %29, i32 noundef %31, i32 noundef %33) #6
+  br label %tkgen_print_color.exit
+
+34:                                               ; preds = %tkgen_canvas.exit
+  %35 = load ptr, ptr @stderr, align 8
+  %36 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %35, ptr noundef nonnull @.str.17, ptr noundef nonnull @.str.18, i32 noundef 43) #7
+  tail call void @abort() #8
+  unreachable
+
+tkgen_print_color.exit:                           ; preds = %20, %26, %28
+  %37 = tail call i32 @gvputs(ptr noundef nonnull %0, ptr noundef nonnull @.str.27) #6
+  %38 = getelementptr inbounds i8, ptr %6, i64 168
+  %39 = load double, ptr %38, align 8
+  tail call void @gvprintdouble(ptr noundef nonnull %0, double noundef %39) #6
+  %40 = load i32, ptr %7, align 8
+  %41 = icmp eq i32 %40, 1
+  br i1 %41, label %42, label %44
+
+42:                                               ; preds = %tkgen_print_color.exit
+  %43 = tail call i32 @gvputs(ptr noundef nonnull %0, ptr noundef nonnull @.str.29) #6
+  %.pr = load i32, ptr %7, align 8
+  br label %44
+
+44:                                               ; preds = %42, %tkgen_print_color.exit
+  %45 = phi i32 [ %.pr, %42 ], [ %40, %tkgen_print_color.exit ]
+  %46 = icmp eq i32 %45, 2
+  br i1 %46, label %47, label %49
+
+47:                                               ; preds = %44
+  %48 = tail call i32 @gvputs(ptr noundef nonnull %0, ptr noundef nonnull @.str.30) #6
+  br label %49
+
+49:                                               ; preds = %47, %44
+  %50 = tail call i32 @gvputs(ptr noundef nonnull %0, ptr noundef nonnull @.str.33) #6
+  %51 = load ptr, ptr %5, align 8
+  %52 = getelementptr inbounds i8, ptr %51, i64 24
+  %53 = load i32, ptr %52, align 8
+  %54 = icmp ult i32 %53, 12
+  br i1 %54, label %switch.lookup, label %55
+
+55:                                               ; preds = %49
+  %56 = load ptr, ptr @stderr, align 8
+  %57 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %56, ptr noundef nonnull @.str.17, ptr noundef nonnull @.str.18, i32 noundef 100) #7
+  tail call void @abort() #8
+  unreachable
+
+switch.lookup:                                    ; preds = %49
+  %58 = zext nneg i32 %53 to i64
+  %switch.gep = getelementptr inbounds [12 x ptr], ptr @switch.table.tkgen_polyline, i64 0, i64 %58
+  %switch.load = load ptr, ptr %switch.gep, align 8
+  %59 = zext nneg i32 %53 to i64
+  %switch.gep21 = getelementptr inbounds [12 x i32], ptr @switch.table.tkgen_polyline.5, i64 0, i64 %59
+  %switch.load22 = load i32, ptr %switch.gep21, align 4
+  %60 = getelementptr inbounds i8, ptr %51, i64 16
+  %61 = load ptr, ptr %60, align 8
+  %62 = getelementptr inbounds i8, ptr %61, i64 8
+  %.014.i = load i64, ptr %62, align 8
+  tail call void (ptr, ptr, ...) @gvprintf(ptr noundef nonnull %0, ptr noundef nonnull @.str.23, i32 noundef %switch.load22, ptr noundef nonnull %switch.load, i64 noundef %.014.i) #6
+  %63 = tail call i32 @gvputs(ptr noundef nonnull %0, ptr noundef nonnull @.str.13) #6
+  br label %64
+
+64:                                               ; preds = %switch.lookup, %4
+  ret void
+}
+
+; Function Attrs: nounwind uwtable
+define internal void @tkgen_polyline(ptr noundef %0, ptr noundef %1, i64 noundef %2) #0 {
+  %4 = getelementptr inbounds i8, ptr %0, i64 32
+  %5 = load ptr, ptr %4, align 8
+  %6 = getelementptr inbounds i8, ptr %5, i64 160
+  %7 = load i32, ptr %6, align 8
+  %.not = icmp eq i32 %7, 0
+  br i1 %.not, label %59, label %8
+
+8:                                                ; preds = %3
+  %9 = getelementptr inbounds i8, ptr %0, i64 256
+  %10 = load i8, ptr %9, align 8
+  %11 = trunc i8 %10 to i1
+  br i1 %11, label %12, label %tkgen_canvas.exit
+
+12:                                               ; preds = %8
+  %13 = getelementptr inbounds i8, ptr %0, i64 264
+  %14 = load ptr, ptr %13, align 8
+  br label %tkgen_canvas.exit
+
+tkgen_canvas.exit:                                ; preds = %8, %12
+  %.str.14.sink.i = phi ptr [ %14, %12 ], [ @.str.14, %8 ]
+  %15 = tail call i32 @gvputs(ptr noundef nonnull %0, ptr noundef %.str.14.sink.i) #6
+  %16 = tail call i32 @gvputs(ptr noundef nonnull %0, ptr noundef nonnull @.str.32) #6
+  tail call void @gvprintpointflist(ptr noundef nonnull %0, ptr noundef %1, i64 noundef %2) #6
+  %17 = tail call i32 @gvputs(ptr noundef nonnull %0, ptr noundef nonnull @.str.25) #6
+  %18 = getelementptr inbounds i8, ptr %5, i64 32
+  %.sroa.0.0.copyload = load ptr, ptr %18, align 1
+  %.sroa.816.0..sroa_idx = getelementptr inbounds i8, ptr %5, i64 64
+  %.sroa.816.0.copyload = load i32, ptr %.sroa.816.0..sroa_idx, align 1
+  switch i32 %.sroa.816.0.copyload, label %33 [
+    i32 5, label %19
+    i32 1, label %21
+  ]
+
+19:                                               ; preds = %tkgen_canvas.exit
+  %20 = tail call i32 @gvputs(ptr noundef nonnull %0, ptr noundef %.sroa.0.0.copyload) #6
+  br label %tkgen_print_color.exit
+
+21:                                               ; preds = %tkgen_canvas.exit
+  %22 = ptrtoint ptr %.sroa.0.0.copyload to i64
+  %23 = and i64 %22, 4278190080
+  %24 = icmp eq i64 %23, 0
+  br i1 %24, label %25, label %27
+
+25:                                               ; preds = %21
+  %26 = tail call i32 @gvputs(ptr noundef nonnull %0, ptr noundef nonnull @.str.15) #6
+  br label %tkgen_print_color.exit
+
+27:                                               ; preds = %21
+  %.sroa.0.0.extract.trunc = trunc i64 %22 to i32
+  %28 = and i32 %.sroa.0.0.extract.trunc, 255
+  %29 = lshr i32 %.sroa.0.0.extract.trunc, 8
+  %30 = and i32 %29, 255
+  %31 = lshr i32 %.sroa.0.0.extract.trunc, 16
+  %32 = and i32 %31, 255
+  tail call void (ptr, ptr, ...) @gvprintf(ptr noundef nonnull %0, ptr noundef nonnull @.str.16, i32 noundef %28, i32 noundef %30, i32 noundef %32) #6
+  br label %tkgen_print_color.exit
+
+33:                                               ; preds = %tkgen_canvas.exit
+  %34 = load ptr, ptr @stderr, align 8
+  %35 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %34, ptr noundef nonnull @.str.17, ptr noundef nonnull @.str.18, i32 noundef 43) #7
+  tail call void @abort() #8
+  unreachable
+
+tkgen_print_color.exit:                           ; preds = %19, %25, %27
+  %36 = load i32, ptr %6, align 8
+  %37 = icmp eq i32 %36, 1
+  br i1 %37, label %38, label %40
+
+38:                                               ; preds = %tkgen_print_color.exit
+  %39 = tail call i32 @gvputs(ptr noundef nonnull %0, ptr noundef nonnull @.str.29) #6
+  %.pr = load i32, ptr %6, align 8
+  br label %40
+
+40:                                               ; preds = %38, %tkgen_print_color.exit
+  %41 = phi i32 [ %.pr, %38 ], [ %36, %tkgen_print_color.exit ]
+  %42 = icmp eq i32 %41, 2
+  br i1 %42, label %43, label %45
+
+43:                                               ; preds = %40
+  %44 = tail call i32 @gvputs(ptr noundef nonnull %0, ptr noundef nonnull @.str.30) #6
+  br label %45
+
+45:                                               ; preds = %43, %40
+  %46 = load ptr, ptr %4, align 8
+  %47 = getelementptr inbounds i8, ptr %46, i64 24
+  %48 = load i32, ptr %47, align 8
+  %49 = icmp ult i32 %48, 12
+  br i1 %49, label %switch.lookup, label %50
+
+50:                                               ; preds = %45
+  %51 = load ptr, ptr @stderr, align 8
+  %52 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %51, ptr noundef nonnull @.str.17, ptr noundef nonnull @.str.18, i32 noundef 100) #7
+  tail call void @abort() #8
+  unreachable
+
+switch.lookup:                                    ; preds = %45
+  %53 = zext nneg i32 %48 to i64
+  %switch.gep = getelementptr inbounds [12 x ptr], ptr @switch.table.tkgen_polyline, i64 0, i64 %53
+  %switch.load = load ptr, ptr %switch.gep, align 8
+  %54 = zext nneg i32 %48 to i64
+  %switch.gep17 = getelementptr inbounds [12 x i32], ptr @switch.table.tkgen_polyline.5, i64 0, i64 %54
+  %switch.load18 = load i32, ptr %switch.gep17, align 4
+  %55 = getelementptr inbounds i8, ptr %46, i64 16
+  %56 = load ptr, ptr %55, align 8
+  %57 = getelementptr inbounds i8, ptr %56, i64 8
+  %.014.i = load i64, ptr %57, align 8
+  tail call void (ptr, ptr, ...) @gvprintf(ptr noundef nonnull %0, ptr noundef nonnull @.str.23, i32 noundef %switch.load18, ptr noundef nonnull %switch.load, i64 noundef %.014.i) #6
+  %58 = tail call i32 @gvputs(ptr noundef nonnull %0, ptr noundef nonnull @.str.13) #6
+  br label %59
+
+59:                                               ; preds = %switch.lookup, %3
   ret void
 }
 

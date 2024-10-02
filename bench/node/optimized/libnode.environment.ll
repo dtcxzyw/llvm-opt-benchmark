@@ -2862,11 +2862,7 @@ _ZN4node21FIXED_ONE_BYTE_STRINGILi33EEEN2v85LocalINS1_6StringEEEPNS1_7IsolateERA
 
 if.end:                                           ; preds = %_ZN4node21FIXED_ONE_BYTE_STRINGILi33EEEN2v85LocalINS1_6StringEEEPNS1_7IsolateERAT__Kc.exit
   %call36 = call noundef zeroext i1 @_ZNK2v85Value8IsObjectEv(ptr noundef nonnull align 1 dereferenceable(1) %call29) #12
-  br i1 %call36, label %if.then37, label %if.end54
-
-if.then37:                                        ; preds = %if.end
-  %call4.i149 = call noundef ptr @_ZN2v820EscapableHandleScope6EscapeEPm(ptr noundef nonnull align 8 dereferenceable(32) %handle_scope, ptr noundef nonnull %call29) #12
-  br label %cleanup
+  br i1 %call36, label %cleanup.sink.split, label %if.end54
 
 if.end54:                                         ; preds = %if.end
   %call55 = call ptr @_ZN2v86Object3NewEPNS_7IsolateE(ptr noundef %call3) #12
@@ -2878,14 +2874,15 @@ if.end54:                                         ; preds = %if.end
 lor.rhs:                                          ; preds = %if.end54
   %call90 = call i16 @_ZN4node21InitializePrimordialsEN2v85LocalINS0_7ContextEEE(ptr nonnull %context.coerce)
   %tobool.i = trunc i16 %call90 to i1
-  br i1 %tobool.i, label %if.end93, label %cleanup
+  br i1 %tobool.i, label %cleanup.sink.split, label %cleanup
 
-if.end93:                                         ; preds = %lor.rhs
-  %call4.i = call noundef ptr @_ZN2v820EscapableHandleScope6EscapeEPm(ptr noundef nonnull align 8 dereferenceable(32) %handle_scope, ptr noundef %call55) #12
+cleanup.sink.split:                               ; preds = %lor.rhs, %if.end
+  %call55.sink = phi ptr [ %call29, %if.end ], [ %call55, %lor.rhs ]
+  %call4.i = call noundef ptr @_ZN2v820EscapableHandleScope6EscapeEPm(ptr noundef nonnull align 8 dereferenceable(32) %handle_scope, ptr noundef %call55.sink) #12
   br label %cleanup
 
-cleanup:                                          ; preds = %lor.rhs, %if.end54, %_ZN4node21FIXED_ONE_BYTE_STRINGILi33EEEN2v85LocalINS1_6StringEEEPNS1_7IsolateERAT__Kc.exit, %if.end93, %if.then37
-  %retval.sroa.0.0 = phi ptr [ %call4.i149, %if.then37 ], [ %call4.i, %if.end93 ], [ null, %_ZN4node21FIXED_ONE_BYTE_STRINGILi33EEEN2v85LocalINS1_6StringEEEPNS1_7IsolateERAT__Kc.exit ], [ null, %if.end54 ], [ null, %lor.rhs ]
+cleanup:                                          ; preds = %cleanup.sink.split, %lor.rhs, %if.end54, %_ZN4node21FIXED_ONE_BYTE_STRINGILi33EEEN2v85LocalINS1_6StringEEEPNS1_7IsolateERAT__Kc.exit
+  %retval.sroa.0.0 = phi ptr [ null, %_ZN4node21FIXED_ONE_BYTE_STRINGILi33EEEN2v85LocalINS1_6StringEEEPNS1_7IsolateERAT__Kc.exit ], [ null, %if.end54 ], [ null, %lor.rhs ], [ %call4.i, %cleanup.sink.split ]
   call void @_ZN2v811HandleScopeD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %handle_scope) #12
   ret ptr %retval.sroa.0.0
 }

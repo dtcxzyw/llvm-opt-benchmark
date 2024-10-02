@@ -2219,89 +2219,73 @@ dtls_cid_length.exit:                             ; preds = %28, %31, %38, %41
   %49 = zext i16 %48 to i32
   %50 = add i32 %.pre-phi, %49
   %51 = icmp eq i32 %50, %5
-  br i1 %51, label %52, label %.preheader, !llvm.loop !10
-
-52:                                               ; preds = %46
-  %53 = tail call i32 @dissect_dtls(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr poison)
-  br label %looks_like_dtls.exit76.thread
+  br i1 %51, label %looks_like_dtls.exit76.thread.sink.split, label %.preheader, !llvm.loop !10
 
 .critedge:                                        ; preds = %12, %9, %.preheader
-  %54 = getelementptr inbounds i8, ptr %1, i64 272
-  %55 = load i32, ptr %54, align 8
-  %56 = icmp ne i32 %55, 0
-  %57 = icmp ugt i32 %.063, 12
-  %or.cond = and i1 %57, %56
-  br i1 %or.cond, label %58, label %looks_like_dtls.exit76.thread
+  %52 = getelementptr inbounds i8, ptr %1, i64 272
+  %53 = load i32, ptr %52, align 8
+  %54 = icmp ne i32 %53, 0
+  %55 = icmp ugt i32 %.063, 12
+  %or.cond = and i1 %55, %54
+  br i1 %or.cond, label %looks_like_dtls.exit76.thread.sink.split, label %looks_like_dtls.exit76.thread
 
-58:                                               ; preds = %.critedge
-  %59 = tail call i32 @dissect_dtls(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, ptr poison)
-  br label %looks_like_dtls.exit76.thread
+.preheader81:                                     ; preds = %4, %67
+  %.2 = phi i32 [ %71, %67 ], [ 0, %4 ]
+  %56 = tail call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef %.2) #6
+  %57 = icmp sgt i32 %56, 2
+  br i1 %57, label %58, label %73
 
-.preheader81:                                     ; preds = %4, %71
-  %.2 = phi i32 [ %75, %71 ], [ 0, %4 ]
-  %60 = tail call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef %.2) #6
-  %61 = icmp sgt i32 %60, 2
-  br i1 %61, label %62, label %81
+58:                                               ; preds = %.preheader81
+  %59 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.2) #6
+  %60 = tail call i32 @ssl_is_valid_content_type(i8 noundef zeroext %59) #6
+  %.not.i74 = icmp eq i32 %60, 0
+  br i1 %.not.i74, label %looks_like_dtls.exit76.thread, label %61
 
-62:                                               ; preds = %.preheader81
-  %63 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.2) #6
-  %64 = tail call i32 @ssl_is_valid_content_type(i8 noundef zeroext %63) #6
-  %.not.i74 = icmp eq i32 %64, 0
-  br i1 %.not.i74, label %looks_like_dtls.exit76.thread, label %65
-
-65:                                               ; preds = %62
-  %66 = add i32 %.2, 1
-  %67 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %66) #6
-  switch i16 %67, label %looks_like_dtls.exit76.thread [
+61:                                               ; preds = %58
+  %62 = add i32 %.2, 1
+  %63 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %62) #6
+  switch i16 %63, label %looks_like_dtls.exit76.thread [
     i16 -257, label %looks_like_dtls.exit76
     i16 -259, label %looks_like_dtls.exit76
     i16 256, label %looks_like_dtls.exit76
   ]
 
-looks_like_dtls.exit76:                           ; preds = %65, %65, %65
-  %68 = add i32 %.2, 3
-  %69 = tail call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef %68) #6
-  %70 = icmp sgt i32 %69, 9
-  br i1 %70, label %71, label %77
+looks_like_dtls.exit76:                           ; preds = %61, %61, %61
+  %64 = add i32 %.2, 3
+  %65 = tail call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef %64) #6
+  %66 = icmp sgt i32 %65, 9
+  br i1 %66, label %67, label %looks_like_dtls.exit76.thread.sink.split
 
-71:                                               ; preds = %looks_like_dtls.exit76
-  %72 = add i32 %.2, 11
-  %73 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %72) #6
-  %74 = zext i16 %73 to i32
+67:                                               ; preds = %looks_like_dtls.exit76
+  %68 = add i32 %.2, 11
+  %69 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %68) #6
+  %70 = zext i16 %69 to i32
   %.reass = add i32 %.2, 13
-  %75 = add i32 %.reass, %74
-  %76 = icmp eq i32 %75, %5
-  br i1 %76, label %79, label %.preheader81, !llvm.loop !11
+  %71 = add i32 %.reass, %70
+  %72 = icmp eq i32 %71, %5
+  br i1 %72, label %looks_like_dtls.exit76.thread.sink.split, label %.preheader81, !llvm.loop !11
 
-77:                                               ; preds = %looks_like_dtls.exit76
-  %78 = tail call i32 @dissect_dtls(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr poison)
-  br label %looks_like_dtls.exit76.thread
+73:                                               ; preds = %.preheader81
+  %74 = icmp ugt i32 %5, 2
+  br i1 %74, label %75, label %looks_like_dtls.exit76.thread
 
-79:                                               ; preds = %71
+75:                                               ; preds = %73
+  %76 = tail call i32 @tvb_reported_length(ptr noundef %0) #6
+  %.not = icmp ugt i32 %.2, %76
+  br i1 %.not, label %77, label %looks_like_dtls.exit76.thread.sink.split
+
+77:                                               ; preds = %75
+  %78 = getelementptr inbounds i8, ptr %1, i64 272
+  %79 = load i32, ptr %78, align 8
+  %.not67 = icmp eq i32 %79, 0
+  br i1 %.not67, label %looks_like_dtls.exit76.thread, label %looks_like_dtls.exit76.thread.sink.split
+
+looks_like_dtls.exit76.thread.sink.split:         ; preds = %67, %looks_like_dtls.exit76, %46, %75, %77, %.critedge
   %80 = tail call i32 @dissect_dtls(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr poison)
   br label %looks_like_dtls.exit76.thread
 
-81:                                               ; preds = %.preheader81
-  %82 = icmp ugt i32 %5, 2
-  br i1 %82, label %83, label %looks_like_dtls.exit76.thread
-
-83:                                               ; preds = %81
-  %84 = tail call i32 @tvb_reported_length(ptr noundef %0) #6
-  %.not = icmp ugt i32 %.2, %84
-  br i1 %.not, label %85, label %88
-
-85:                                               ; preds = %83
-  %86 = getelementptr inbounds i8, ptr %1, i64 272
-  %87 = load i32, ptr %86, align 8
-  %.not67 = icmp eq i32 %87, 0
-  br i1 %.not67, label %looks_like_dtls.exit76.thread, label %88
-
-88:                                               ; preds = %85, %83
-  %89 = tail call i32 @dissect_dtls(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr poison)
-  br label %looks_like_dtls.exit76.thread
-
-looks_like_dtls.exit76.thread:                    ; preds = %65, %62, %81, %85, %.critedge, %88, %79, %77, %58, %52
-  %.0 = phi i32 [ 1, %52 ], [ 1, %58 ], [ 1, %79 ], [ 1, %77 ], [ 1, %88 ], [ 0, %.critedge ], [ 0, %85 ], [ 0, %81 ], [ 0, %62 ], [ 0, %65 ]
+looks_like_dtls.exit76.thread:                    ; preds = %61, %58, %looks_like_dtls.exit76.thread.sink.split, %73, %77, %.critedge
+  %.0 = phi i32 [ 0, %.critedge ], [ 0, %77 ], [ 0, %73 ], [ 1, %looks_like_dtls.exit76.thread.sink.split ], [ 0, %58 ], [ 0, %61 ]
   ret i32 %.0
 }
 

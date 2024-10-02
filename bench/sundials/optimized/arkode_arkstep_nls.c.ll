@@ -311,7 +311,7 @@ define range(i32 -29, 1) i32 @arkStep_NlsInit(ptr noundef %0) local_unnamed_addr
 
 5:                                                ; preds = %1
   tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @arkProcessError(ptr noundef nonnull %0, i32 noundef -21, i32 noundef 178, ptr noundef nonnull @__func__.arkStep_NlsInit, ptr noundef nonnull @.str, ptr noundef nonnull @.str.6) #4
-  br label %59
+  br label %51
 
 6:                                                ; preds = %1
   %7 = getelementptr inbounds i8, ptr %3, i64 400
@@ -321,121 +321,101 @@ define range(i32 -29, 1) i32 @arkStep_NlsInit(ptr noundef %0) local_unnamed_addr
   %.not = icmp eq ptr %9, null
   %10 = getelementptr inbounds i8, ptr %3, i64 128
   %11 = load ptr, ptr %10, align 8
-  br i1 %.not, label %14, label %12
+  %.arkStep_NlsLSetup = select i1 %.not, ptr null, ptr @arkStep_NlsLSetup
+  %12 = tail call i32 @SUNNonlinSolSetLSetupFn(ptr noundef %11, ptr noundef %.arkStep_NlsLSetup) #4
+  %.not41 = icmp eq i32 %12, 0
+  br i1 %.not41, label %14, label %13
 
-12:                                               ; preds = %6
-  %13 = tail call i32 @SUNNonlinSolSetLSetupFn(ptr noundef %11, ptr noundef nonnull @arkStep_NlsLSetup) #4
-  br label %16
+13:                                               ; preds = %6
+  tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @arkProcessError(ptr noundef nonnull %0, i32 noundef -22, i32 noundef 196, ptr noundef nonnull @__func__.arkStep_NlsInit, ptr noundef nonnull @.str, ptr noundef nonnull @.str.7) #4
+  br label %51
 
 14:                                               ; preds = %6
-  %15 = tail call i32 @SUNNonlinSolSetLSetupFn(ptr noundef %11, ptr noundef null) #4
-  br label %16
+  %15 = getelementptr inbounds i8, ptr %3, i64 288
+  %16 = load ptr, ptr %15, align 8
+  %.not42 = icmp eq ptr %16, null
+  %17 = getelementptr inbounds i8, ptr %3, i64 128
+  %18 = load ptr, ptr %17, align 8
+  %.arkStep_NlsLSolve = select i1 %.not42, ptr null, ptr @arkStep_NlsLSolve
+  %19 = tail call i32 @SUNNonlinSolSetLSolveFn(ptr noundef %18, ptr noundef %.arkStep_NlsLSolve) #4
+  %.not43 = icmp eq i32 %19, 0
+  br i1 %.not43, label %21, label %20
 
-16:                                               ; preds = %14, %12
-  %.0 = phi i32 [ %13, %12 ], [ %15, %14 ]
-  %.not41 = icmp eq i32 %.0, 0
-  br i1 %.not41, label %18, label %17
-
-17:                                               ; preds = %16
-  tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @arkProcessError(ptr noundef nonnull %0, i32 noundef -22, i32 noundef 196, ptr noundef nonnull @__func__.arkStep_NlsInit, ptr noundef nonnull @.str, ptr noundef nonnull @.str.7) #4
-  br label %59
-
-18:                                               ; preds = %16
-  %19 = getelementptr inbounds i8, ptr %3, i64 288
-  %20 = load ptr, ptr %19, align 8
-  %.not42 = icmp eq ptr %20, null
-  %21 = getelementptr inbounds i8, ptr %3, i64 128
-  %22 = load ptr, ptr %21, align 8
-  br i1 %.not42, label %25, label %23
-
-23:                                               ; preds = %18
-  %24 = tail call i32 @SUNNonlinSolSetLSolveFn(ptr noundef %22, ptr noundef nonnull @arkStep_NlsLSolve) #4
-  br label %27
-
-25:                                               ; preds = %18
-  %26 = tail call i32 @SUNNonlinSolSetLSolveFn(ptr noundef %22, ptr noundef null) #4
-  br label %27
-
-27:                                               ; preds = %25, %23
-  %.1 = phi i32 [ %24, %23 ], [ %26, %25 ]
-  %.not43 = icmp eq i32 %.1, 0
-  br i1 %.not43, label %29, label %28
-
-28:                                               ; preds = %27
+20:                                               ; preds = %14
   tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @arkProcessError(ptr noundef nonnull %0, i32 noundef -22, i32 noundef 209, ptr noundef nonnull @__func__.arkStep_NlsInit, ptr noundef nonnull @.str, ptr noundef nonnull @.str.8) #4
-  br label %59
+  br label %51
 
-29:                                               ; preds = %27
-  %30 = getelementptr inbounds i8, ptr %3, i64 128
-  %31 = load ptr, ptr %30, align 8
-  %32 = tail call i32 @SUNNonlinSolGetType(ptr noundef %31) #4
-  %33 = icmp eq i32 %32, 0
-  br i1 %33, label %34, label %39
+21:                                               ; preds = %14
+  %22 = getelementptr inbounds i8, ptr %3, i64 128
+  %23 = load ptr, ptr %22, align 8
+  %24 = tail call i32 @SUNNonlinSolGetType(ptr noundef %23) #4
+  %25 = icmp eq i32 %24, 0
+  br i1 %25, label %26, label %31
 
-34:                                               ; preds = %29
-  %35 = getelementptr inbounds i8, ptr %3, i64 368
-  %36 = load i32, ptr %35, align 8
-  %37 = icmp ult i32 %36, 3
-  br i1 %37, label %switch.lookup, label %38
+26:                                               ; preds = %21
+  %27 = getelementptr inbounds i8, ptr %3, i64 368
+  %28 = load i32, ptr %27, align 8
+  %29 = icmp ult i32 %28, 3
+  br i1 %29, label %switch.lookup, label %30
 
-38:                                               ; preds = %34
+30:                                               ; preds = %26
   tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @arkProcessError(ptr noundef nonnull %0, i32 noundef -22, i32 noundef 231, ptr noundef nonnull @__func__.arkStep_NlsInit, ptr noundef nonnull @.str, ptr noundef nonnull @.str.9) #4
-  br label %59
+  br label %51
 
-39:                                               ; preds = %29
-  %40 = load ptr, ptr %30, align 8
-  %41 = tail call i32 @SUNNonlinSolGetType(ptr noundef %40) #4
-  %42 = icmp eq i32 %41, 1
-  br i1 %42, label %43, label %48
+31:                                               ; preds = %21
+  %32 = load ptr, ptr %22, align 8
+  %33 = tail call i32 @SUNNonlinSolGetType(ptr noundef %32) #4
+  %34 = icmp eq i32 %33, 1
+  br i1 %34, label %35, label %40
 
-43:                                               ; preds = %39
-  %44 = getelementptr inbounds i8, ptr %3, i64 368
-  %45 = load i32, ptr %44, align 8
-  %46 = icmp ult i32 %45, 3
-  br i1 %46, label %switch.lookup46, label %47
+35:                                               ; preds = %31
+  %36 = getelementptr inbounds i8, ptr %3, i64 368
+  %37 = load i32, ptr %36, align 8
+  %38 = icmp ult i32 %37, 3
+  br i1 %38, label %switch.lookup48, label %39
+
+39:                                               ; preds = %35
+  tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @arkProcessError(ptr noundef nonnull %0, i32 noundef -22, i32 noundef 255, ptr noundef nonnull @__func__.arkStep_NlsInit, ptr noundef nonnull @.str, ptr noundef nonnull @.str.9) #4
+  br label %51
+
+40:                                               ; preds = %31
+  tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @arkProcessError(ptr noundef nonnull %0, i32 noundef -22, i32 noundef 262, ptr noundef nonnull @__func__.arkStep_NlsInit, ptr noundef nonnull @.str, ptr noundef nonnull @.str.10) #4
+  br label %51
+
+switch.lookup:                                    ; preds = %26
+  %41 = zext nneg i32 %28 to i64
+  %switch.gep = getelementptr inbounds [3 x ptr], ptr @switch.table.arkStep_NlsInit, i64 0, i64 %41
+  br label %43
+
+switch.lookup48:                                  ; preds = %35
+  %42 = zext nneg i32 %37 to i64
+  %switch.gep49 = getelementptr inbounds [3 x ptr], ptr @switch.table.arkStep_NlsInit.1, i64 0, i64 %42
+  br label %43
+
+43:                                               ; preds = %switch.lookup48, %switch.lookup
+  %arkStep_NlsFPFunction_MassFixed.sink.in = phi ptr [ %switch.gep, %switch.lookup ], [ %switch.gep49, %switch.lookup48 ]
+  %arkStep_NlsFPFunction_MassFixed.sink = load ptr, ptr %arkStep_NlsFPFunction_MassFixed.sink.in, align 8
+  %44 = load ptr, ptr %22, align 8
+  %45 = tail call i32 @SUNNonlinSolSetSysFn(ptr noundef %44, ptr noundef nonnull %arkStep_NlsFPFunction_MassFixed.sink) #4
+  %.not44 = icmp eq i32 %45, 0
+  br i1 %.not44, label %47, label %46
+
+46:                                               ; preds = %43
+  tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @arkProcessError(ptr noundef nonnull %0, i32 noundef -22, i32 noundef 268, ptr noundef nonnull @__func__.arkStep_NlsInit, ptr noundef nonnull @.str, ptr noundef nonnull @.str.11) #4
+  br label %51
 
 47:                                               ; preds = %43
-  tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @arkProcessError(ptr noundef nonnull %0, i32 noundef -22, i32 noundef 255, ptr noundef nonnull @__func__.arkStep_NlsInit, ptr noundef nonnull @.str, ptr noundef nonnull @.str.9) #4
-  br label %59
+  %48 = load ptr, ptr %22, align 8
+  %49 = tail call i32 @SUNNonlinSolInitialize(ptr noundef %48) #4
+  %.not45 = icmp eq i32 %49, 0
+  br i1 %.not45, label %51, label %50
 
-48:                                               ; preds = %39
-  tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @arkProcessError(ptr noundef nonnull %0, i32 noundef -22, i32 noundef 262, ptr noundef nonnull @__func__.arkStep_NlsInit, ptr noundef nonnull @.str, ptr noundef nonnull @.str.10) #4
-  br label %59
-
-switch.lookup:                                    ; preds = %34
-  %49 = zext nneg i32 %36 to i64
-  %switch.gep = getelementptr inbounds [3 x ptr], ptr @switch.table.arkStep_NlsInit, i64 0, i64 %49
-  br label %51
-
-switch.lookup46:                                  ; preds = %43
-  %50 = zext nneg i32 %45 to i64
-  %switch.gep47 = getelementptr inbounds [3 x ptr], ptr @switch.table.arkStep_NlsInit.1, i64 0, i64 %50
-  br label %51
-
-51:                                               ; preds = %switch.lookup46, %switch.lookup
-  %arkStep_NlsFPFunction_MassFixed.sink.in = phi ptr [ %switch.gep, %switch.lookup ], [ %switch.gep47, %switch.lookup46 ]
-  %arkStep_NlsFPFunction_MassFixed.sink = load ptr, ptr %arkStep_NlsFPFunction_MassFixed.sink.in, align 8
-  %52 = load ptr, ptr %30, align 8
-  %53 = tail call i32 @SUNNonlinSolSetSysFn(ptr noundef %52, ptr noundef nonnull %arkStep_NlsFPFunction_MassFixed.sink) #4
-  %.not44 = icmp eq i32 %53, 0
-  br i1 %.not44, label %55, label %54
-
-54:                                               ; preds = %51
-  tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @arkProcessError(ptr noundef nonnull %0, i32 noundef -22, i32 noundef 268, ptr noundef nonnull @__func__.arkStep_NlsInit, ptr noundef nonnull @.str, ptr noundef nonnull @.str.11) #4
-  br label %59
-
-55:                                               ; preds = %51
-  %56 = load ptr, ptr %30, align 8
-  %57 = tail call i32 @SUNNonlinSolInitialize(ptr noundef %56) #4
-  %.not45 = icmp eq i32 %57, 0
-  br i1 %.not45, label %59, label %58
-
-58:                                               ; preds = %55
+50:                                               ; preds = %47
   tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @arkProcessError(ptr noundef nonnull %0, i32 noundef -22, i32 noundef 277, ptr noundef nonnull @__func__.arkStep_NlsInit, ptr noundef nonnull @.str, ptr noundef nonnull @.str.12) #4
-  br label %59
+  br label %51
 
-59:                                               ; preds = %55, %58, %54, %48, %47, %38, %28, %17, %5
-  %.037 = phi i32 [ -21, %5 ], [ -29, %17 ], [ -29, %28 ], [ -22, %54 ], [ -29, %58 ], [ -22, %38 ], [ -22, %47 ], [ -22, %48 ], [ 0, %55 ]
+51:                                               ; preds = %47, %50, %46, %40, %39, %30, %20, %13, %5
+  %.037 = phi i32 [ -21, %5 ], [ -29, %13 ], [ -29, %20 ], [ -22, %46 ], [ -29, %50 ], [ -22, %30 ], [ -22, %39 ], [ -22, %40 ], [ 0, %47 ]
   ret i32 %.037
 }
 

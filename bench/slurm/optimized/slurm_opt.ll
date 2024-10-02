@@ -7662,21 +7662,17 @@ define internal ptr @arg_get_alloc_nodelist(ptr nocapture noundef readonly %0) #
   %2 = getelementptr inbounds i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null
-  br i1 %.not, label %4, label %6
+  br i1 %.not, label %7, label %4
 
 4:                                                ; preds = %1
-  %5 = tail call ptr @xstrdup(ptr noundef nonnull @.str.60) #23
-  br label %10
+  %5 = getelementptr inbounds i8, ptr %3, i64 8
+  %6 = load ptr, ptr %5, align 8
+  br label %7
 
-6:                                                ; preds = %1
-  %7 = getelementptr inbounds i8, ptr %3, i64 8
-  %8 = load ptr, ptr %7, align 8
-  %9 = tail call ptr @xstrdup(ptr noundef %8) #23
-  br label %10
-
-10:                                               ; preds = %6, %4
-  %.0 = phi ptr [ %9, %6 ], [ %5, %4 ]
-  ret ptr %.0
+7:                                                ; preds = %1, %4
+  %.sink = phi ptr [ %6, %4 ], [ @.str.60, %1 ]
+  %8 = tail call ptr @xstrdup(ptr noundef %.sink) #23
+  ret ptr %8
 }
 
 ; Function Attrs: nounwind uwtable
@@ -7737,20 +7733,16 @@ define internal ptr @arg_get_array_inx(ptr nocapture noundef nonnull readonly %0
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null
-  br i1 %.not, label %4, label %6
+  br i1 %.not, label %6, label %4
 
 4:                                                ; preds = %1
-  %5 = tail call ptr @xstrdup(ptr noundef nonnull @.str.60) #23
-  br label %9
+  %5 = load ptr, ptr %3, align 8
+  br label %6
 
-6:                                                ; preds = %1
-  %7 = load ptr, ptr %3, align 8
-  %8 = tail call ptr @xstrdup(ptr noundef %7) #23
-  br label %9
-
-9:                                                ; preds = %6, %4
-  %.0 = phi ptr [ %8, %6 ], [ %5, %4 ]
-  ret ptr %.0
+6:                                                ; preds = %1, %4
+  %.sink = phi ptr [ %5, %4 ], [ @.str.60, %1 ]
+  %7 = tail call ptr @xstrdup(ptr noundef %.sink) #23
+  ret ptr %7
 }
 
 ; Function Attrs: nounwind uwtable
@@ -7938,21 +7930,17 @@ define internal ptr @arg_get_batch_features(ptr nocapture noundef nonnull readon
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null
-  br i1 %.not, label %4, label %6
+  br i1 %.not, label %7, label %4
 
 4:                                                ; preds = %1
-  %5 = tail call ptr @xstrdup(ptr noundef nonnull @.str.60) #23
-  br label %10
+  %5 = getelementptr inbounds i8, ptr %3, i64 8
+  %6 = load ptr, ptr %5, align 8
+  br label %7
 
-6:                                                ; preds = %1
-  %7 = getelementptr inbounds i8, ptr %3, i64 8
-  %8 = load ptr, ptr %7, align 8
-  %9 = tail call ptr @xstrdup(ptr noundef %8) #23
-  br label %10
-
-10:                                               ; preds = %6, %4
-  %.0 = phi ptr [ %9, %6 ], [ %5, %4 ]
-  ret ptr %.0
+7:                                                ; preds = %1, %4
+  %.sink = phi ptr [ %6, %4 ], [ @.str.60, %1 ]
+  %8 = tail call ptr @xstrdup(ptr noundef %.sink) #23
+  ret ptr %8
 }
 
 ; Function Attrs: nounwind uwtable
@@ -8946,21 +8934,17 @@ define internal ptr @arg_get_cpu_bind(ptr nocapture noundef nonnull readonly %0)
   %2 = getelementptr inbounds i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null
-  br i1 %.not, label %4, label %6
+  br i1 %.not, label %7, label %4
 
 4:                                                ; preds = %1
-  %5 = tail call ptr @xstrdup(ptr noundef nonnull @.str.60) #23
-  br label %10
+  %5 = getelementptr inbounds i8, ptr %3, i64 56
+  %6 = load ptr, ptr %5, align 8
+  br label %7
 
-6:                                                ; preds = %1
-  %7 = getelementptr inbounds i8, ptr %3, i64 56
-  %8 = load ptr, ptr %7, align 8
-  %9 = tail call ptr @xstrdup(ptr noundef %8) #23
-  br label %10
-
-10:                                               ; preds = %6, %4
-  %.0 = phi ptr [ %9, %6 ], [ %5, %4 ]
-  ret ptr %.0
+7:                                                ; preds = %1, %4
+  %.sink = phi ptr [ %6, %4 ], [ @.str.60, %1 ]
+  %8 = tail call ptr @xstrdup(ptr noundef %.sink) #23
+  ret ptr %8
 }
 
 ; Function Attrs: nounwind uwtable
@@ -9774,21 +9758,17 @@ define internal ptr @arg_get_epilog(ptr nocapture noundef nonnull readonly %0) #
   %2 = getelementptr inbounds i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null
-  br i1 %.not, label %4, label %6
+  br i1 %.not, label %7, label %4
 
 4:                                                ; preds = %1
-  %5 = tail call ptr @xstrdup(ptr noundef nonnull @.str.60) #23
-  br label %10
+  %5 = getelementptr inbounds i8, ptr %3, i64 72
+  %6 = load ptr, ptr %5, align 8
+  br label %7
 
-6:                                                ; preds = %1
-  %7 = getelementptr inbounds i8, ptr %3, i64 72
-  %8 = load ptr, ptr %7, align 8
-  %9 = tail call ptr @xstrdup(ptr noundef %8) #23
-  br label %10
-
-10:                                               ; preds = %6, %4
-  %.0 = phi ptr [ %9, %6 ], [ %5, %4 ]
-  ret ptr %.0
+7:                                                ; preds = %1, %4
+  %.sink = phi ptr [ %6, %4 ], [ @.str.60, %1 ]
+  %8 = tail call ptr @xstrdup(ptr noundef %.sink) #23
+  ret ptr %8
 }
 
 ; Function Attrs: nounwind uwtable
@@ -9824,30 +9804,20 @@ define internal range(i32 -1, 1) i32 @arg_set_efname(ptr noundef %0, ptr noundef
   %9 = getelementptr inbounds i8, ptr %0, i64 24
   %10 = load ptr, ptr %9, align 8
   %.not9 = icmp eq ptr %10, null
-  br i1 %.not9, label %19, label %11
+  br i1 %.not9, label %15, label %11
 
 11:                                               ; preds = %8, %5, %2
   %12 = getelementptr inbounds i8, ptr %0, i64 768
   tail call void @slurm_xfree(ptr noundef nonnull %12) #23
   %13 = tail call i32 @xstrcasecmp(ptr noundef %1, ptr noundef nonnull @.str.90) #23
   %.not10 = icmp eq i32 %13, 0
-  br i1 %.not10, label %14, label %16
+  %.str.133. = select i1 %.not10, ptr @.str.133, ptr %1
+  %14 = tail call ptr @xstrdup(ptr noundef %.str.133.) #23
+  store ptr %14, ptr %12, align 8
+  br label %15
 
-14:                                               ; preds = %11
-  %15 = tail call ptr @xstrdup(ptr noundef nonnull @.str.133) #23
-  br label %18
-
-16:                                               ; preds = %11
-  %17 = tail call ptr @xstrdup(ptr noundef %1) #23
-  br label %18
-
-18:                                               ; preds = %16, %14
-  %storemerge = phi ptr [ %15, %14 ], [ %17, %16 ]
-  store ptr %storemerge, ptr %12, align 8
-  br label %19
-
-19:                                               ; preds = %8, %18
-  %.0 = phi i32 [ 0, %18 ], [ -1, %8 ]
+15:                                               ; preds = %8, %11
+  %.0 = phi i32 [ 0, %11 ], [ -1, %8 ]
   ret i32 %.0
 }
 
@@ -10286,33 +10256,29 @@ define internal ptr @arg_get_export(ptr nocapture noundef readonly %0) #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null
-  br i1 %.not, label %4, label %12
+  br i1 %.not, label %4, label %10
 
 4:                                                ; preds = %1
   %5 = getelementptr inbounds i8, ptr %0, i64 16
   %6 = load ptr, ptr %5, align 8
   %.not5 = icmp eq ptr %6, null
-  br i1 %.not5, label %7, label %12
+  br i1 %.not5, label %7, label %10
 
 7:                                                ; preds = %4
   %8 = getelementptr inbounds i8, ptr %0, i64 24
   %9 = load ptr, ptr %8, align 8
   %.not6 = icmp eq ptr %9, null
-  br i1 %.not6, label %10, label %12
+  br i1 %.not6, label %13, label %10
 
-10:                                               ; preds = %7
-  %11 = tail call ptr @xstrdup(ptr noundef nonnull @.str.60) #23
-  br label %16
+10:                                               ; preds = %7, %4, %1
+  %11 = getelementptr inbounds i8, ptr %0, i64 760
+  %12 = load ptr, ptr %11, align 8
+  br label %13
 
-12:                                               ; preds = %7, %4, %1
-  %13 = getelementptr inbounds i8, ptr %0, i64 760
-  %14 = load ptr, ptr %13, align 8
-  %15 = tail call ptr @xstrdup(ptr noundef %14) #23
-  br label %16
-
-16:                                               ; preds = %12, %10
-  %.0 = phi ptr [ %15, %12 ], [ %11, %10 ]
-  ret ptr %.0
+13:                                               ; preds = %7, %10
+  %.sink = phi ptr [ %12, %10 ], [ @.str.60, %7 ]
+  %14 = tail call ptr @xstrdup(ptr noundef %.sink) #23
+  ret ptr %14
 }
 
 ; Function Attrs: nounwind uwtable
@@ -11521,21 +11487,17 @@ define internal ptr @arg_get_het_group(ptr nocapture noundef readonly %0) #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null
-  br i1 %.not, label %4, label %6
+  br i1 %.not, label %7, label %4
 
 4:                                                ; preds = %1
-  %5 = tail call ptr @xstrdup(ptr noundef nonnull @.str.60) #23
-  br label %10
+  %5 = getelementptr inbounds i8, ptr %3, i64 136
+  %6 = load ptr, ptr %5, align 8
+  br label %7
 
-6:                                                ; preds = %1
-  %7 = getelementptr inbounds i8, ptr %3, i64 136
-  %8 = load ptr, ptr %7, align 8
-  %9 = tail call ptr @xstrdup(ptr noundef %8) #23
-  br label %10
-
-10:                                               ; preds = %6, %4
-  %.0 = phi ptr [ %9, %6 ], [ %5, %4 ]
-  ret ptr %.0
+7:                                                ; preds = %1, %4
+  %.sink = phi ptr [ %6, %4 ], [ @.str.60, %1 ]
+  %8 = tail call ptr @xstrdup(ptr noundef %.sink) #23
+  ret ptr %8
 }
 
 ; Function Attrs: nounwind uwtable
@@ -11722,30 +11684,20 @@ define internal range(i32 -1, 1) i32 @arg_set_ifname(ptr noundef %0, ptr noundef
   %6 = getelementptr inbounds i8, ptr %0, i64 24
   %7 = load ptr, ptr %6, align 8
   %.not7 = icmp eq ptr %7, null
-  br i1 %.not7, label %16, label %8
+  br i1 %.not7, label %12, label %8
 
 8:                                                ; preds = %5, %2
   %9 = getelementptr inbounds i8, ptr %0, i64 776
   tail call void @slurm_xfree(ptr noundef nonnull %9) #23
   %10 = tail call i32 @xstrcasecmp(ptr noundef %1, ptr noundef nonnull @.str.90) #23
   %.not8 = icmp eq i32 %10, 0
-  br i1 %.not8, label %11, label %13
+  %.str.133. = select i1 %.not8, ptr @.str.133, ptr %1
+  %11 = tail call ptr @xstrdup(ptr noundef %.str.133.) #23
+  store ptr %11, ptr %9, align 8
+  br label %12
 
-11:                                               ; preds = %8
-  %12 = tail call ptr @xstrdup(ptr noundef nonnull @.str.133) #23
-  br label %15
-
-13:                                               ; preds = %8
-  %14 = tail call ptr @xstrdup(ptr noundef %1) #23
-  br label %15
-
-15:                                               ; preds = %13, %11
-  %storemerge = phi ptr [ %12, %11 ], [ %14, %13 ]
-  store ptr %storemerge, ptr %9, align 8
-  br label %16
-
-16:                                               ; preds = %5, %15
-  %.0 = phi i32 [ 0, %15 ], [ -1, %5 ]
+12:                                               ; preds = %5, %8
+  %.0 = phi i32 [ 0, %8 ], [ -1, %5 ]
   ret i32 %.0
 }
 
@@ -12981,21 +12933,17 @@ define internal ptr @arg_get_mpi_type(ptr nocapture noundef nonnull readonly %0)
   %2 = getelementptr inbounds i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null
-  br i1 %.not, label %4, label %6
+  br i1 %.not, label %7, label %4
 
 4:                                                ; preds = %1
-  %5 = tail call ptr @xstrdup(ptr noundef nonnull @.str.60) #23
-  br label %10
+  %5 = getelementptr inbounds i8, ptr %3, i64 112
+  %6 = load ptr, ptr %5, align 8
+  br label %7
 
-6:                                                ; preds = %1
-  %7 = getelementptr inbounds i8, ptr %3, i64 112
-  %8 = load ptr, ptr %7, align 8
-  %9 = tail call ptr @xstrdup(ptr noundef %8) #23
-  br label %10
-
-10:                                               ; preds = %6, %4
-  %.0 = phi ptr [ %9, %6 ], [ %5, %4 ]
-  ret ptr %.0
+7:                                                ; preds = %1, %4
+  %.sink = phi ptr [ %6, %4 ], [ @.str.60, %1 ]
+  %8 = tail call ptr @xstrdup(ptr noundef %.sink) #23
+  ret ptr %8
 }
 
 ; Function Attrs: nounwind uwtable
@@ -14446,30 +14394,20 @@ define internal range(i32 -1, 1) i32 @arg_set_ofname(ptr noundef %0, ptr noundef
   %9 = getelementptr inbounds i8, ptr %0, i64 24
   %10 = load ptr, ptr %9, align 8
   %.not9 = icmp eq ptr %10, null
-  br i1 %.not9, label %19, label %11
+  br i1 %.not9, label %15, label %11
 
 11:                                               ; preds = %8, %5, %2
   %12 = getelementptr inbounds i8, ptr %0, i64 784
   tail call void @slurm_xfree(ptr noundef nonnull %12) #23
   %13 = tail call i32 @xstrcasecmp(ptr noundef %1, ptr noundef nonnull @.str.90) #23
   %.not10 = icmp eq i32 %13, 0
-  br i1 %.not10, label %14, label %16
+  %.str.133. = select i1 %.not10, ptr @.str.133, ptr %1
+  %14 = tail call ptr @xstrdup(ptr noundef %.str.133.) #23
+  store ptr %14, ptr %12, align 8
+  br label %15
 
-14:                                               ; preds = %11
-  %15 = tail call ptr @xstrdup(ptr noundef nonnull @.str.133) #23
-  br label %18
-
-16:                                               ; preds = %11
-  %17 = tail call ptr @xstrdup(ptr noundef %1) #23
-  br label %18
-
-18:                                               ; preds = %16, %14
-  %storemerge = phi ptr [ %15, %14 ], [ %17, %16 ]
-  store ptr %storemerge, ptr %12, align 8
-  br label %19
-
-19:                                               ; preds = %8, %18
-  %.0 = phi i32 [ 0, %18 ], [ -1, %8 ]
+15:                                               ; preds = %8, %11
+  %.0 = phi i32 [ 0, %11 ], [ -1, %8 ]
   ret i32 %.0
 }
 
@@ -14820,21 +14758,17 @@ define internal ptr @arg_get_power(ptr nocapture noundef readonly %0) #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 660
   %3 = load i8, ptr %2, align 4
   %.not = icmp eq i8 %3, 0
-  br i1 %.not, label %8, label %4
+  br i1 %.not, label %7, label %4
 
 4:                                                ; preds = %1
   %5 = zext i8 %3 to i16
   %6 = tail call ptr @power_flags_str(i16 noundef zeroext %5) #23
-  %7 = tail call ptr @xstrdup(ptr noundef %6) #23
-  br label %10
+  br label %7
 
-8:                                                ; preds = %1
-  %9 = tail call ptr @xstrdup(ptr noundef nonnull @.str.94) #23
-  br label %10
-
-10:                                               ; preds = %8, %4
-  %.0 = phi ptr [ %7, %4 ], [ %9, %8 ]
-  ret ptr %.0
+7:                                                ; preds = %1, %4
+  %.str.94.sink = phi ptr [ %6, %4 ], [ @.str.94, %1 ]
+  %8 = tail call ptr @xstrdup(ptr noundef %.str.94.sink) #23
+  ret ptr %8
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
@@ -15163,21 +15097,17 @@ define internal ptr @arg_get_prolog(ptr nocapture noundef nonnull readonly %0) #
   %2 = getelementptr inbounds i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null
-  br i1 %.not, label %4, label %6
+  br i1 %.not, label %7, label %4
 
 4:                                                ; preds = %1
-  %5 = tail call ptr @xstrdup(ptr noundef nonnull @.str.60) #23
-  br label %10
+  %5 = getelementptr inbounds i8, ptr %3, i64 160
+  %6 = load ptr, ptr %5, align 8
+  br label %7
 
-6:                                                ; preds = %1
-  %7 = getelementptr inbounds i8, ptr %3, i64 160
-  %8 = load ptr, ptr %7, align 8
-  %9 = tail call ptr @xstrdup(ptr noundef %8) #23
-  br label %10
-
-10:                                               ; preds = %6, %4
-  %.0 = phi ptr [ %9, %6 ], [ %5, %4 ]
-  ret ptr %.0
+7:                                                ; preds = %1, %4
+  %.sink = phi ptr [ %6, %4 ], [ @.str.60, %1 ]
+  %8 = tail call ptr @xstrdup(ptr noundef %.sink) #23
+  ret ptr %8
 }
 
 ; Function Attrs: nounwind uwtable
@@ -15245,33 +15175,28 @@ define internal ptr @arg_get_propagate(ptr nocapture noundef readonly %0) #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null
-  br i1 %.not, label %4, label %9
+  br i1 %.not, label %4, label %7
 
 4:                                                ; preds = %1
   %5 = getelementptr inbounds i8, ptr %0, i64 24
   %6 = load ptr, ptr %5, align 8
   %.not9 = icmp eq ptr %6, null
-  br i1 %.not9, label %7, label %13
+  br i1 %.not9, label %13, label %10
 
-7:                                                ; preds = %4
-  %8 = tail call ptr @xstrdup(ptr noundef nonnull @.str.60) #23
-  br label %17
+7:                                                ; preds = %1
+  %8 = getelementptr inbounds i8, ptr %3, i64 40
+  %9 = load ptr, ptr %8, align 8
+  br label %13
 
-9:                                                ; preds = %1
-  %10 = getelementptr inbounds i8, ptr %3, i64 40
-  %11 = load ptr, ptr %10, align 8
-  %12 = tail call ptr @xstrdup(ptr noundef %11) #23
-  br label %17
+10:                                               ; preds = %4
+  %11 = getelementptr inbounds i8, ptr %6, i64 168
+  %12 = load ptr, ptr %11, align 8
+  br label %13
 
-13:                                               ; preds = %4
-  %14 = getelementptr inbounds i8, ptr %6, i64 168
-  %15 = load ptr, ptr %14, align 8
-  %16 = tail call ptr @xstrdup(ptr noundef %15) #23
-  br label %17
-
-17:                                               ; preds = %13, %9, %7
-  %.0 = phi ptr [ %12, %9 ], [ %16, %13 ], [ %8, %7 ]
-  ret ptr %.0
+13:                                               ; preds = %4, %10, %7
+  %.sink = phi ptr [ %12, %10 ], [ %9, %7 ], [ @.str.60, %4 ]
+  %14 = tail call ptr @xstrdup(ptr noundef %.sink) #23
+  ret ptr %14
 }
 
 ; Function Attrs: nounwind uwtable
@@ -15329,21 +15254,17 @@ define internal ptr @arg_get_pty(ptr nocapture noundef nonnull readonly %0) #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null
-  br i1 %.not, label %4, label %6
+  br i1 %.not, label %7, label %4
 
 4:                                                ; preds = %1
-  %5 = tail call ptr @xstrdup(ptr noundef nonnull @.str.60) #23
-  br label %10
+  %5 = getelementptr inbounds i8, ptr %3, i64 176
+  %6 = load ptr, ptr %5, align 8
+  br label %7
 
-6:                                                ; preds = %1
-  %7 = getelementptr inbounds i8, ptr %3, i64 176
-  %8 = load ptr, ptr %7, align 8
-  %9 = tail call ptr @xstrdup(ptr noundef %8) #23
-  br label %10
-
-10:                                               ; preds = %6, %4
-  %.0 = phi ptr [ %9, %6 ], [ %5, %4 ]
-  ret ptr %.0
+7:                                                ; preds = %1, %4
+  %.sink = phi ptr [ %6, %4 ], [ @.str.60, %1 ]
+  %8 = tail call ptr @xstrdup(ptr noundef %.sink) #23
+  ret ptr %8
 }
 
 ; Function Attrs: nounwind uwtable
@@ -15960,23 +15881,19 @@ define internal ptr @arg_get_slurmd_debug(ptr nocapture noundef readonly %0) #0 
   %2 = getelementptr inbounds i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null
-  br i1 %.not, label %4, label %6
+  br i1 %.not, label %9, label %4
 
 4:                                                ; preds = %1
-  %5 = tail call ptr @xstrdup(ptr noundef nonnull @.str.60) #23
-  br label %12
+  %5 = getelementptr inbounds i8, ptr %3, i64 200
+  %6 = load i32, ptr %5, align 8
+  %7 = trunc i32 %6 to i16
+  %8 = tail call ptr @log_num2string(i16 noundef zeroext %7) #23
+  br label %9
 
-6:                                                ; preds = %1
-  %7 = getelementptr inbounds i8, ptr %3, i64 200
-  %8 = load i32, ptr %7, align 8
-  %9 = trunc i32 %8 to i16
-  %10 = tail call ptr @log_num2string(i16 noundef zeroext %9) #23
-  %11 = tail call ptr @xstrdup(ptr noundef %10) #23
-  br label %12
-
-12:                                               ; preds = %6, %4
-  %.0 = phi ptr [ %11, %6 ], [ %5, %4 ]
-  ret ptr %.0
+9:                                                ; preds = %1, %4
+  %.sink = phi ptr [ %8, %4 ], [ @.str.60, %1 ]
+  %10 = tail call ptr @xstrdup(ptr noundef %.sink) #23
+  ret ptr %10
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
@@ -16486,21 +16403,17 @@ define internal ptr @arg_get_task_epilog(ptr nocapture noundef nonnull readonly 
   %2 = getelementptr inbounds i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null
-  br i1 %.not, label %4, label %6
+  br i1 %.not, label %7, label %4
 
 4:                                                ; preds = %1
-  %5 = tail call ptr @xstrdup(ptr noundef nonnull @.str.60) #23
-  br label %10
+  %5 = getelementptr inbounds i8, ptr %3, i64 208
+  %6 = load ptr, ptr %5, align 8
+  br label %7
 
-6:                                                ; preds = %1
-  %7 = getelementptr inbounds i8, ptr %3, i64 208
-  %8 = load ptr, ptr %7, align 8
-  %9 = tail call ptr @xstrdup(ptr noundef %8) #23
-  br label %10
-
-10:                                               ; preds = %6, %4
-  %.0 = phi ptr [ %9, %6 ], [ %5, %4 ]
-  ret ptr %.0
+7:                                                ; preds = %1, %4
+  %.sink = phi ptr [ %6, %4 ], [ @.str.60, %1 ]
+  %8 = tail call ptr @xstrdup(ptr noundef %.sink) #23
+  ret ptr %8
 }
 
 ; Function Attrs: nounwind uwtable
@@ -16545,21 +16458,17 @@ define internal ptr @arg_get_task_prolog(ptr nocapture noundef nonnull readonly 
   %2 = getelementptr inbounds i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null
-  br i1 %.not, label %4, label %6
+  br i1 %.not, label %7, label %4
 
 4:                                                ; preds = %1
-  %5 = tail call ptr @xstrdup(ptr noundef nonnull @.str.60) #23
-  br label %10
+  %5 = getelementptr inbounds i8, ptr %3, i64 216
+  %6 = load ptr, ptr %5, align 8
+  br label %7
 
-6:                                                ; preds = %1
-  %7 = getelementptr inbounds i8, ptr %3, i64 216
-  %8 = load ptr, ptr %7, align 8
-  %9 = tail call ptr @xstrdup(ptr noundef %8) #23
-  br label %10
-
-10:                                               ; preds = %6, %4
-  %.0 = phi ptr [ %9, %6 ], [ %5, %4 ]
-  ret ptr %.0
+7:                                                ; preds = %1, %4
+  %.sink = phi ptr [ %6, %4 ], [ @.str.60, %1 ]
+  %8 = tail call ptr @xstrdup(ptr noundef %.sink) #23
+  ret ptr %8
 }
 
 ; Function Attrs: nounwind uwtable
@@ -18184,21 +18093,17 @@ define internal ptr @arg_get_wrap(ptr nocapture noundef nonnull readonly %0) #0 
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null
-  br i1 %.not, label %4, label %6
+  br i1 %.not, label %7, label %4
 
 4:                                                ; preds = %1
-  %5 = tail call ptr @xstrdup(ptr noundef nonnull @.str.60) #23
-  br label %10
+  %5 = getelementptr inbounds i8, ptr %3, i64 64
+  %6 = load ptr, ptr %5, align 8
+  br label %7
 
-6:                                                ; preds = %1
-  %7 = getelementptr inbounds i8, ptr %3, i64 64
-  %8 = load ptr, ptr %7, align 8
-  %9 = tail call ptr @xstrdup(ptr noundef %8) #23
-  br label %10
-
-10:                                               ; preds = %6, %4
-  %.0 = phi ptr [ %9, %6 ], [ %5, %4 ]
-  ret ptr %.0
+7:                                                ; preds = %1, %4
+  %.sink = phi ptr [ %6, %4 ], [ @.str.60, %1 ]
+  %8 = tail call ptr @xstrdup(ptr noundef %.sink) #23
+  ret ptr %8
 }
 
 ; Function Attrs: nounwind uwtable

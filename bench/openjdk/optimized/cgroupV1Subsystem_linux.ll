@@ -124,7 +124,7 @@ define hidden void @_ZN18CgroupV1Controller18set_subsystem_pathEPc(ptr nocapture
   %6 = icmp ne ptr %5, null
   %7 = icmp ne ptr %1, null
   %or.cond = and i1 %7, %6
-  br i1 %or.cond, label %sub_0, label %45
+  br i1 %or.cond, label %sub_0, label %43
 
 sub_0:                                            ; preds = %2
   %8 = load i8, ptr %5, align 1
@@ -144,63 +144,60 @@ sub_017:                                          ; preds = %.tail
   call void @_ZN12outputStream9print_rawEPKcm(ptr noundef nonnull align 8 dereferenceable(56) %3, ptr noundef %13, i64 noundef %14) #7
   %15 = load i8, ptr %1, align 1
   %.not20 = icmp eq i8 %15, 47
-  br i1 %.not20, label %.tail16, label %.tail16.thread
+  br i1 %.not20, label %.tail16, label %.sink.split.sink.split
 
 .tail16:                                          ; preds = %sub_017
   %16 = getelementptr inbounds i8, ptr %1, i64 1
   %17 = load i8, ptr %16, align 1
   %18 = icmp eq i8 %17, 0
-  br i1 %18, label %.sink.split, label %.tail16.thread
-
-.tail16.thread:                                   ; preds = %sub_017, %.tail16
-  %19 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #8
-  call void @_ZN12outputStream9print_rawEPKcm(ptr noundef nonnull align 8 dereferenceable(56) %3, ptr noundef nonnull %1, i64 noundef %19) #7
-  br label %.sink.split
+  br i1 %18, label %.sink.split, label %.sink.split.sink.split
 
 .tail.thread:                                     ; preds = %sub_0, %.tail
-  %20 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %5, ptr noundef nonnull dereferenceable(1) %1) #8
-  %21 = icmp eq i32 %20, 0
-  br i1 %21, label %22, label %26
+  %19 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %5, ptr noundef nonnull dereferenceable(1) %1) #8
+  %20 = icmp eq i32 %19, 0
+  br i1 %20, label %21, label %24
 
-22:                                               ; preds = %.tail.thread
-  %23 = getelementptr inbounds i8, ptr %0, i64 16
-  %24 = load ptr, ptr %23, align 8
-  %25 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %24) #8
-  call void @_ZN12outputStream9print_rawEPKcm(ptr noundef nonnull align 8 dereferenceable(56) %3, ptr noundef %24, i64 noundef %25) #7
-  br label %.sink.split
+21:                                               ; preds = %.tail.thread
+  %22 = getelementptr inbounds i8, ptr %0, i64 16
+  %23 = load ptr, ptr %22, align 8
+  br label %.sink.split.sink.split
 
-26:                                               ; preds = %.tail.thread
-  %27 = call noundef ptr @strstr(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(1) %5) #8
-  %28 = icmp eq ptr %27, %5
-  br i1 %28, label %29, label %45
+24:                                               ; preds = %.tail.thread
+  %25 = call noundef ptr @strstr(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(1) %5) #8
+  %26 = icmp eq ptr %25, %5
+  br i1 %26, label %27, label %43
 
-29:                                               ; preds = %26
-  %30 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #8
-  %31 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %5) #8
-  %32 = icmp ugt i64 %30, %31
-  br i1 %32, label %33, label %45
+27:                                               ; preds = %24
+  %28 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #8
+  %29 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %5) #8
+  %30 = icmp ugt i64 %28, %29
+  br i1 %30, label %31, label %43
 
-33:                                               ; preds = %29
-  %34 = getelementptr inbounds i8, ptr %0, i64 16
-  %35 = load ptr, ptr %34, align 8
+31:                                               ; preds = %27
+  %32 = getelementptr inbounds i8, ptr %0, i64 16
+  %33 = load ptr, ptr %32, align 8
+  %34 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %33) #8
+  call void @_ZN12outputStream9print_rawEPKcm(ptr noundef nonnull align 8 dereferenceable(56) %3, ptr noundef %33, i64 noundef %34) #7
+  %35 = load ptr, ptr %4, align 8
   %36 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %35) #8
-  call void @_ZN12outputStream9print_rawEPKcm(ptr noundef nonnull align 8 dereferenceable(56) %3, ptr noundef %35, i64 noundef %36) #7
-  %37 = load ptr, ptr %4, align 8
-  %38 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %37) #8
-  %39 = getelementptr inbounds i8, ptr %1, i64 %38
-  %40 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %39) #8
-  call void @_ZN12outputStream9print_rawEPKcm(ptr noundef nonnull align 8 dereferenceable(56) %3, ptr noundef nonnull %39, i64 noundef %40) #7
+  %37 = getelementptr inbounds i8, ptr %1, i64 %36
+  br label %.sink.split.sink.split
+
+.sink.split.sink.split:                           ; preds = %.tail16, %sub_017, %31, %21
+  %.sink25 = phi ptr [ %23, %21 ], [ %37, %31 ], [ %1, %sub_017 ], [ %1, %.tail16 ]
+  %38 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.sink25) #8
+  call void @_ZN12outputStream9print_rawEPKcm(ptr noundef nonnull align 8 dereferenceable(56) %3, ptr noundef %.sink25, i64 noundef %38) #7
   br label %.sink.split
 
-.sink.split:                                      ; preds = %.tail16, %.tail16.thread, %22, %33
-  %41 = getelementptr inbounds i8, ptr %3, i64 56
-  %42 = load ptr, ptr %41, align 8
-  %43 = call noundef ptr @_ZN2os6strdupEPKc8MEMFLAGS(ptr noundef %42, i8 noundef zeroext 9) #7
-  %44 = getelementptr inbounds i8, ptr %0, i64 32
-  store ptr %43, ptr %44, align 8
-  br label %45
+.sink.split:                                      ; preds = %.sink.split.sink.split, %.tail16
+  %39 = getelementptr inbounds i8, ptr %3, i64 56
+  %40 = load ptr, ptr %39, align 8
+  %41 = call noundef ptr @_ZN2os6strdupEPKc8MEMFLAGS(ptr noundef %40, i8 noundef zeroext 9) #7
+  %42 = getelementptr inbounds i8, ptr %0, i64 32
+  store ptr %41, ptr %42, align 8
+  br label %43
 
-45:                                               ; preds = %.sink.split, %26, %29, %2
+43:                                               ; preds = %.sink.split, %24, %27, %2
   call void @_ZN12stringStreamD1Ev(ptr noundef nonnull align 8 dereferenceable(129) %3) #7
   ret void
 }

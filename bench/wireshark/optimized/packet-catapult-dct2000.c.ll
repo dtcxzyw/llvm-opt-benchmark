@@ -4991,205 +4991,137 @@ declare void @tvb_get_ipv6(ptr noundef, i32 noundef, ptr noundef) local_unnamed_
 define internal fastcc ptr @look_for_dissector(ptr noundef %0) unnamed_addr #0 {
   %2 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(9) @.str.425, i64 noundef 8) #10
   %3 = icmp eq i32 %2, 0
-  br i1 %3, label %4, label %6
+  br i1 %3, label %72, label %4
 
 4:                                                ; preds = %1
-  %5 = tail call ptr @find_dissector(ptr noundef nonnull @.str.425) #9
-  br label %107
+  %5 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(8) @.str.426, i64 noundef 7) #10
+  %6 = icmp eq i32 %5, 0
+  br i1 %6, label %72, label %7
 
-6:                                                ; preds = %1
-  %7 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(8) @.str.426, i64 noundef 7) #10
-  %8 = icmp eq i32 %7, 0
-  br i1 %8, label %9, label %11
+7:                                                ; preds = %4
+  %8 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(5) @.str.428, i64 noundef 4) #10
+  %9 = icmp eq i32 %8, 0
+  br i1 %9, label %72, label %10
 
-9:                                                ; preds = %6
-  %10 = tail call ptr @find_dissector(ptr noundef nonnull @.str.427) #9
-  br label %107
+10:                                               ; preds = %7
+  %11 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(7) @.str.429, i64 noundef 6) #10
+  %12 = icmp eq i32 %11, 0
+  br i1 %12, label %72, label %13
 
-11:                                               ; preds = %6
-  %12 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(5) @.str.428, i64 noundef 4) #10
-  %13 = icmp eq i32 %12, 0
-  br i1 %13, label %14, label %16
+13:                                               ; preds = %10
+  %14 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(8) @.str.431, i64 noundef 7) #10
+  %15 = icmp eq i32 %14, 0
+  br i1 %15, label %72, label %16
 
-14:                                               ; preds = %11
-  %15 = tail call ptr @find_dissector(ptr noundef nonnull @.str.428) #9
-  br label %107
-
-16:                                               ; preds = %11
-  %17 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(7) @.str.429, i64 noundef 6) #10
+16:                                               ; preds = %13
+  %17 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(8) @.str.433, i64 noundef 7) #10
   %18 = icmp eq i32 %17, 0
-  br i1 %18, label %19, label %21
+  br i1 %18, label %72, label %19
 
 19:                                               ; preds = %16
-  %20 = tail call ptr @find_dissector(ptr noundef nonnull @.str.430) #9
-  br label %107
+  %20 = load i32, ptr @catapult_dct2000_dissect_old_protocol_names, align 4
+  %.not = icmp eq i32 %20, 0
+  br i1 %.not, label %.tail.thread, label %21
 
-21:                                               ; preds = %16
-  %22 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(8) @.str.431, i64 noundef 7) #10
+21:                                               ; preds = %19
+  %22 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(5) @.str.435) #10
   %23 = icmp eq i32 %22, 0
-  br i1 %23, label %24, label %26
+  br i1 %23, label %72, label %24
 
 24:                                               ; preds = %21
-  %25 = tail call ptr @find_dissector(ptr noundef nonnull @.str.432) #9
-  br label %107
+  %25 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(10) @.str.437) #10
+  %26 = icmp eq i32 %25, 0
+  br i1 %26, label %72, label %27
 
-26:                                               ; preds = %21
-  %27 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(8) @.str.433, i64 noundef 7) #10
-  %28 = icmp eq i32 %27, 0
-  br i1 %28, label %29, label %31
+27:                                               ; preds = %24
+  %28 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(5) @.str.438) #10
+  %29 = icmp eq i32 %28, 0
+  br i1 %29, label %72, label %30
 
-29:                                               ; preds = %26
-  %30 = tail call ptr @find_dissector(ptr noundef nonnull @.str.434) #9
-  br label %107
+30:                                               ; preds = %27
+  %31 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(4) @.str.439) #10
+  %32 = icmp eq i32 %31, 0
+  br i1 %32, label %72, label %33
 
-31:                                               ; preds = %26
-  %32 = load i32, ptr @catapult_dct2000_dissect_old_protocol_names, align 4
-  %.not = icmp eq i32 %32, 0
-  br i1 %.not, label %.tail.thread, label %33
-
-33:                                               ; preds = %31
-  %34 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(5) @.str.435) #10
+33:                                               ; preds = %30
+  %34 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(4) @.str.440) #10
   %35 = icmp eq i32 %34, 0
-  br i1 %35, label %36, label %38
+  br i1 %35, label %72, label %36
 
 36:                                               ; preds = %33
-  %37 = tail call ptr @find_dissector(ptr noundef nonnull @.str.436) #9
-  br label %107
+  %37 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(4) @.str.441) #10
+  %38 = icmp eq i32 %37, 0
+  br i1 %38, label %72, label %39
 
-38:                                               ; preds = %33
-  %39 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(10) @.str.437) #10
-  %40 = icmp eq i32 %39, 0
-  br i1 %40, label %53, label %41
+39:                                               ; preds = %36
+  %40 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(5) @.str.300, i64 noundef 4) #10
+  %41 = icmp eq i32 %40, 0
+  br i1 %41, label %72, label %42
 
-41:                                               ; preds = %38
-  %42 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(5) @.str.438) #10
-  %43 = icmp eq i32 %42, 0
-  br i1 %43, label %53, label %44
+42:                                               ; preds = %39
+  %43 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(9) @.str.301) #10
+  %44 = icmp eq i32 %43, 0
+  br i1 %44, label %72, label %45
 
-44:                                               ; preds = %41
-  %45 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(4) @.str.439) #10
-  %46 = icmp eq i32 %45, 0
-  br i1 %46, label %53, label %47
+45:                                               ; preds = %42
+  %46 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(11) @.str.443, i64 noundef 10) #10
+  %47 = icmp eq i32 %46, 0
+  br i1 %47, label %72, label %48
 
-47:                                               ; preds = %44
-  %48 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(4) @.str.440) #10
-  %49 = icmp eq i32 %48, 0
-  br i1 %49, label %53, label %50
+48:                                               ; preds = %45
+  %49 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(5) @.str.445) #10
+  %50 = icmp eq i32 %49, 0
+  br i1 %50, label %72, label %51
 
-50:                                               ; preds = %47
-  %51 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(4) @.str.441) #10
-  %52 = icmp eq i32 %51, 0
-  br i1 %52, label %53, label %55
+51:                                               ; preds = %48
+  %52 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(10) @.str.447, i64 noundef 9) #10
+  %53 = icmp eq i32 %52, 0
+  br i1 %53, label %72, label %54
 
-53:                                               ; preds = %50, %47, %44, %41, %38
-  %54 = tail call ptr @find_dissector(ptr noundef nonnull @.str.442) #9
-  br label %107
+54:                                               ; preds = %51
+  %55 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(7) @.str.448) #10
+  %56 = icmp eq i32 %55, 0
+  br i1 %56, label %72, label %57
 
-55:                                               ; preds = %50
-  %56 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(5) @.str.300, i64 noundef 4) #10
-  %57 = icmp eq i32 %56, 0
-  br i1 %57, label %61, label %58
+57:                                               ; preds = %54
+  %58 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(6) @.str.450) #10
+  %59 = icmp eq i32 %58, 0
+  br i1 %59, label %72, label %60
 
-58:                                               ; preds = %55
-  %59 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(9) @.str.301) #10
-  %60 = icmp eq i32 %59, 0
-  br i1 %60, label %61, label %63
+60:                                               ; preds = %57
+  %61 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(5) @.str.452, i64 noundef 4) #10
+  %62 = icmp eq i32 %61, 0
+  br i1 %62, label %72, label %63
 
-61:                                               ; preds = %58, %55
-  %62 = tail call ptr @find_dissector(ptr noundef nonnull @.str.299) #9
-  br label %107
-
-63:                                               ; preds = %58
-  %64 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(11) @.str.443, i64 noundef 10) #10
+63:                                               ; preds = %60
+  %64 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(4) @.str.453) #10
   %65 = icmp eq i32 %64, 0
-  br i1 %65, label %66, label %68
+  br i1 %65, label %72, label %sub_0
 
-66:                                               ; preds = %63
-  %67 = tail call ptr @find_dissector(ptr noundef nonnull @.str.444) #9
-  br label %107
-
-68:                                               ; preds = %63
-  %69 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(5) @.str.445) #10
-  %70 = icmp eq i32 %69, 0
-  br i1 %70, label %71, label %73
-
-71:                                               ; preds = %68
-  %72 = tail call ptr @find_dissector(ptr noundef nonnull @.str.446) #9
-  br label %107
-
-73:                                               ; preds = %68
-  %74 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(10) @.str.447, i64 noundef 9) #10
-  %75 = icmp eq i32 %74, 0
-  br i1 %75, label %76, label %78
-
-76:                                               ; preds = %73
-  %77 = tail call ptr @find_dissector(ptr noundef nonnull @.str.333) #9
-  br label %107
-
-78:                                               ; preds = %73
-  %79 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(7) @.str.448) #10
-  %80 = icmp eq i32 %79, 0
-  br i1 %80, label %81, label %83
-
-81:                                               ; preds = %78
-  %82 = tail call ptr @find_dissector(ptr noundef nonnull @.str.449) #9
-  br label %107
-
-83:                                               ; preds = %78
-  %84 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(6) @.str.450) #10
-  %85 = icmp eq i32 %84, 0
-  br i1 %85, label %86, label %88
-
-86:                                               ; preds = %83
-  %87 = tail call ptr @find_dissector(ptr noundef nonnull @.str.451) #9
-  br label %107
-
-88:                                               ; preds = %83
-  %89 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(5) @.str.452, i64 noundef 4) #10
-  %90 = icmp eq i32 %89, 0
-  br i1 %90, label %91, label %93
-
-91:                                               ; preds = %88
-  %92 = tail call ptr @find_dissector(ptr noundef nonnull @.str.452) #9
-  br label %107
-
-93:                                               ; preds = %88
-  %94 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(4) @.str.453) #10
-  %95 = icmp eq i32 %94, 0
-  br i1 %95, label %96, label %sub_0
-
-96:                                               ; preds = %93
-  %97 = tail call ptr @find_dissector(ptr noundef nonnull @.str.454) #9
-  br label %107
-
-sub_0:                                            ; preds = %93
-  %98 = load i8, ptr %0, align 1
-  %.not24 = icmp eq i8 %98, 103
+sub_0:                                            ; preds = %63
+  %66 = load i8, ptr %0, align 1
+  %.not24 = icmp eq i8 %66, 103
   br i1 %.not24, label %sub_1, label %.tail.thread
 
 sub_1:                                            ; preds = %sub_0
-  %99 = getelementptr inbounds i8, ptr %0, i64 1
-  %100 = load i8, ptr %99, align 1
-  %.not25 = icmp eq i8 %100, 116
+  %67 = getelementptr inbounds i8, ptr %0, i64 1
+  %68 = load i8, ptr %67, align 1
+  %.not25 = icmp eq i8 %68, 116
   br i1 %.not25, label %.tail, label %.tail.thread
 
 .tail:                                            ; preds = %sub_1
-  %101 = getelementptr inbounds i8, ptr %0, i64 2
-  %102 = load i8, ptr %101, align 1
-  %103 = icmp eq i8 %102, 112
-  br i1 %103, label %104, label %.tail.thread
+  %69 = getelementptr inbounds i8, ptr %0, i64 2
+  %70 = load i8, ptr %69, align 1
+  %71 = icmp eq i8 %70, 112
+  br i1 %71, label %72, label %.tail.thread
 
-104:                                              ; preds = %.tail
-  %105 = tail call ptr @find_dissector(ptr noundef nonnull @.str.455) #9
-  br label %107
+.tail.thread:                                     ; preds = %sub_1, %sub_0, %.tail, %19
+  br label %72
 
-.tail.thread:                                     ; preds = %sub_1, %sub_0, %.tail, %31
-  %106 = tail call ptr @find_dissector(ptr noundef %0) #9
-  br label %107
-
-107:                                              ; preds = %.tail.thread, %104, %96, %91, %86, %81, %76, %71, %66, %61, %53, %36, %29, %24, %19, %14, %9, %4
-  %.0 = phi ptr [ %5, %4 ], [ %10, %9 ], [ %15, %14 ], [ %20, %19 ], [ %25, %24 ], [ %30, %29 ], [ %37, %36 ], [ %54, %53 ], [ %62, %61 ], [ %67, %66 ], [ %72, %71 ], [ %77, %76 ], [ %82, %81 ], [ %87, %86 ], [ %92, %91 ], [ %97, %96 ], [ %105, %104 ], [ %106, %.tail.thread ]
-  ret ptr %.0
+72:                                               ; preds = %.tail, %63, %60, %57, %54, %51, %48, %45, %39, %42, %24, %27, %30, %33, %36, %21, %16, %13, %10, %7, %4, %1, %.tail.thread
+  %.sink = phi ptr [ %0, %.tail.thread ], [ @.str.425, %1 ], [ @.str.427, %4 ], [ @.str.428, %7 ], [ @.str.430, %10 ], [ @.str.432, %13 ], [ @.str.434, %16 ], [ @.str.436, %21 ], [ @.str.442, %36 ], [ @.str.442, %33 ], [ @.str.442, %30 ], [ @.str.442, %27 ], [ @.str.442, %24 ], [ @.str.299, %42 ], [ @.str.299, %39 ], [ @.str.444, %45 ], [ @.str.446, %48 ], [ @.str.333, %51 ], [ @.str.449, %54 ], [ @.str.451, %57 ], [ @.str.452, %60 ], [ @.str.454, %63 ], [ @.str.455, %.tail ]
+  %73 = tail call ptr @find_dissector(ptr noundef %.sink) #9
+  ret ptr %73
 }
 
 declare ptr @proto_tree_add_string_format(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, ...) local_unnamed_addr #1

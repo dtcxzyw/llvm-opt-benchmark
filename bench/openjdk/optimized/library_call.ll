@@ -35917,7 +35917,7 @@ define hidden noundef zeroext i1 @_ZN14LibraryCallKit30inline_digestBase_implCom
   %33 = icmp ne i32 %32, 22
   %34 = icmp eq ptr %30, null
   %35 = or i1 %34, %33
-  br i1 %35, label %106, label %36
+  br i1 %35, label %100, label %36
 
 36:                                               ; preds = %2
   %37 = getelementptr inbounds i8, ptr %30, i64 80
@@ -35926,12 +35926,12 @@ define hidden noundef zeroext i1 @_ZN14LibraryCallKit30inline_digestBase_implCom
   %40 = load ptr, ptr %39, align 8
   %41 = load ptr, ptr @_ZN4Type6BOTTOME, align 8
   %42 = icmp eq ptr %40, %41
-  br i1 %42, label %106, label %43
+  br i1 %42, label %100, label %43
 
 43:                                               ; preds = %36
   %44 = tail call noundef zeroext i8 @_ZNK4Type24array_element_basic_typeEv(ptr noundef nonnull align 8 dereferenceable(20) %40) #13
   %.not = icmp eq i8 %44, 8
-  br i1 %.not, label %45, label %106
+  br i1 %.not, label %45, label %100
 
 45:                                               ; preds = %43
   %46 = tail call noundef ptr @_ZN8GraphKit16must_be_not_nullEP4Nodeb(ptr noundef nonnull align 8 dereferenceable(84) %0, ptr noundef nonnull %20, i1 noundef zeroext true) #13
@@ -36024,7 +36024,7 @@ _ZN14LibraryCallKit28get_state_from_digest_objectEP4Node9BasicType.exit44: ; pre
   %87 = load ptr, ptr @_ZN12StubRoutines18_sha3_implCompressE, align 8
   %88 = tail call noundef ptr @_ZN14LibraryCallKit22load_field_from_objectEP4NodePKcS3_mbP15ciInstanceKlass(ptr noundef nonnull align 8 dereferenceable(108) %0, ptr noundef %16, ptr noundef nonnull @.str.127, ptr noundef nonnull @.str.98, i64 noundef 262144, i1 noundef zeroext false, ptr noundef null)
   %89 = icmp eq ptr %88, null
-  br i1 %89, label %106, label %93
+  br i1 %89, label %100, label %93
 
 90:                                               ; preds = %45
   %91 = load ptr, ptr @g_assert_poison, align 8
@@ -36041,26 +36041,17 @@ _ZN14LibraryCallKit28get_state_from_digest_objectEP4Node9BasicType.exit44: ; pre
   %94 = icmp eq ptr %.033, null
   %95 = icmp eq ptr %.031, null
   %or.cond = or i1 %94, %95
-  br i1 %or.cond, label %106, label %96
+  br i1 %or.cond, label %100, label %.sink.split
 
-96:                                               ; preds = %93
-  %97 = icmp eq ptr %.032, null
-  br i1 %97, label %98, label %102
+.sink.split:                                      ; preds = %93
+  %96 = icmp ne ptr %.032, null
+  %97 = tail call noundef ptr @_ZN11OptoRuntime28digestBase_implCompress_TypeEb(i1 noundef zeroext %96) #13
+  %98 = load ptr, ptr @_ZN7TypePtr6BOTTOME, align 8
+  %99 = tail call noundef ptr @_ZN8GraphKit17make_runtime_callEiPK8TypeFuncPhPKcPK7TypePtrP4NodeSA_SA_SA_SA_SA_SA_SA_(ptr noundef nonnull align 8 dereferenceable(84) %0, i32 noundef 1, ptr noundef %97, ptr noundef nonnull %.031, ptr noundef nonnull %.0, ptr noundef %98, ptr noundef %47, ptr noundef nonnull %.033, ptr noundef %.032, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null) #13
+  br label %100
 
-98:                                               ; preds = %96
-  %99 = tail call noundef ptr @_ZN11OptoRuntime28digestBase_implCompress_TypeEb(i1 noundef zeroext false) #13
-  %100 = load ptr, ptr @_ZN7TypePtr6BOTTOME, align 8
-  %101 = tail call noundef ptr @_ZN8GraphKit17make_runtime_callEiPK8TypeFuncPhPKcPK7TypePtrP4NodeSA_SA_SA_SA_SA_SA_SA_(ptr noundef nonnull align 8 dereferenceable(84) %0, i32 noundef 1, ptr noundef %99, ptr noundef nonnull %.031, ptr noundef nonnull %.0, ptr noundef %100, ptr noundef %47, ptr noundef nonnull %.033, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null) #13
-  br label %106
-
-102:                                              ; preds = %96
-  %103 = tail call noundef ptr @_ZN11OptoRuntime28digestBase_implCompress_TypeEb(i1 noundef zeroext true) #13
-  %104 = load ptr, ptr @_ZN7TypePtr6BOTTOME, align 8
-  %105 = tail call noundef ptr @_ZN8GraphKit17make_runtime_callEiPK8TypeFuncPhPKcPK7TypePtrP4NodeSA_SA_SA_SA_SA_SA_SA_(ptr noundef nonnull align 8 dereferenceable(84) %0, i32 noundef 1, ptr noundef %103, ptr noundef nonnull %.031, ptr noundef nonnull %.0, ptr noundef %104, ptr noundef %47, ptr noundef nonnull %.033, ptr noundef nonnull %.032, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null) #13
-  br label %106
-
-106:                                              ; preds = %98, %102, %93, %_ZN14LibraryCallKit28get_state_from_digest_objectEP4Node9BasicType.exit44, %43, %2, %36
-  %.034 = phi i1 [ false, %36 ], [ false, %2 ], [ false, %43 ], [ false, %_ZN14LibraryCallKit28get_state_from_digest_objectEP4Node9BasicType.exit44 ], [ false, %93 ], [ true, %102 ], [ true, %98 ]
+100:                                              ; preds = %.sink.split, %93, %_ZN14LibraryCallKit28get_state_from_digest_objectEP4Node9BasicType.exit44, %43, %2, %36
+  %.034 = phi i1 [ false, %36 ], [ false, %2 ], [ false, %43 ], [ false, %_ZN14LibraryCallKit28get_state_from_digest_objectEP4Node9BasicType.exit44 ], [ false, %93 ], [ true, %.sink.split ]
   ret i1 %.034
 }
 

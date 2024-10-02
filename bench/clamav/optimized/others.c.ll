@@ -2723,7 +2723,7 @@ define range(i32 0, 35) i32 @cli_append_virus(ptr noundef %0, ptr noundef %1) lo
 8:                                                ; preds = %5
   %9 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(15) @.str.80, i64 noundef 14) #28
   %10 = icmp eq i32 %9, 0
-  br i1 %10, label %11, label %17
+  br i1 %10, label %11, label %16
 
 11:                                               ; preds = %8, %5, %2
   %12 = getelementptr inbounds i8, ptr %0, i64 64
@@ -2732,16 +2732,12 @@ define range(i32 0, 35) i32 @cli_append_virus(ptr noundef %0, ptr noundef %1) lo
   %15 = lshr i32 %14, 3
   %.lobit.i = and i32 %15, 1
   %..i = xor i32 %.lobit.i, 1
-  %16 = tail call fastcc range(i32 0, 35) i32 @append_virus(ptr noundef nonnull %0, ptr noundef %1, i32 noundef %..i)
-  br label %19
+  br label %16
 
-17:                                               ; preds = %8
-  %18 = tail call fastcc i32 @append_virus(ptr noundef %0, ptr noundef %1, i32 noundef 0)
-  br label %19
-
-19:                                               ; preds = %17, %11
-  %.0 = phi i32 [ %16, %11 ], [ %18, %17 ]
-  ret i32 %.0
+16:                                               ; preds = %8, %11
+  %.sink = phi i32 [ %..i, %11 ], [ 0, %8 ]
+  %17 = tail call fastcc i32 @append_virus(ptr noundef %0, ptr noundef %1, i32 noundef %.sink)
+  ret i32 %17
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)

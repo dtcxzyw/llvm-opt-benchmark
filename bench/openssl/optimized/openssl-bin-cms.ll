@@ -1030,12 +1030,7 @@ sw.bb264:                                         ; preds = %while.body
 if.then266:                                       ; preds = %sw.bb264
   %call268 = call i32 @OPENSSL_sk_num(ptr noundef %call) #2
   %cmp269 = icmp sgt i32 %call268, 0
-  br i1 %cmp269, label %if.then270, label %if.then288
-
-if.then270:                                       ; preds = %if.then266
-  %call272 = call i32 @OPENSSL_sk_num(ptr noundef %call) #2
-  %add = add nsw i32 %call272, -1
-  br label %if.end286
+  br i1 %cmp269, label %if.end286.sink.split, label %if.then288
 
 if.else274:                                       ; preds = %sw.bb264
   %cmp275 = icmp eq ptr %keyfile.01202, null
@@ -1043,15 +1038,17 @@ if.else274:                                       ; preds = %sw.bb264
   %or.cond1.not = select i1 %cmp275, i1 %cmp277, i1 false
   %spec.select419 = sext i1 %or.cond1.not to i32
   %cmp280.not = icmp eq ptr %skkeys.11247, null
-  br i1 %cmp280.not, label %if.end286, label %if.then281
+  br i1 %cmp280.not, label %if.end286, label %if.end286.sink.split
 
-if.then281:                                       ; preds = %if.else274
-  %call283 = call i32 @OPENSSL_sk_num(ptr noundef nonnull %skkeys.11247) #2
-  %add284 = add nsw i32 %call283, %spec.select419
+if.end286.sink.split:                             ; preds = %if.else274, %if.then266
+  %skkeys.11247.sink = phi ptr [ %call, %if.then266 ], [ %skkeys.11247, %if.else274 ]
+  %spec.select419.sink = phi i32 [ -1, %if.then266 ], [ %spec.select419, %if.else274 ]
+  %call283 = call i32 @OPENSSL_sk_num(ptr noundef %skkeys.11247.sink) #2
+  %add284 = add nsw i32 %call283, %spec.select419.sink
   br label %if.end286
 
-if.end286:                                        ; preds = %if.else274, %if.then281, %if.then270
-  %keyidx.0 = phi i32 [ %add, %if.then270 ], [ %add284, %if.then281 ], [ %spec.select419, %if.else274 ]
+if.end286:                                        ; preds = %if.end286.sink.split, %if.else274
+  %keyidx.0 = phi i32 [ %spec.select419, %if.else274 ], [ %add284, %if.end286.sink.split ]
   %cmp287 = icmp slt i32 %keyidx.0, 0
   br i1 %cmp287, label %if.then288, label %if.end290
 

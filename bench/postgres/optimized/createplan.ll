@@ -9428,9 +9428,9 @@ define internal fastcc ptr @get_switched_clauses(ptr noundef readonly %0, ptr no
   %6 = icmp sgt i32 %5, 0
   br i1 %6, label %.lr.ph44, label %._crit_edge
 
-.lr.ph44:                                         ; preds = %.lr.ph, %44
-  %indvars.iv = phi i64 [ %indvars.iv.next, %44 ], [ 0, %.lr.ph ]
-  %.03842 = phi ptr [ %.1, %44 ], [ null, %.lr.ph ]
+.lr.ph44:                                         ; preds = %.lr.ph, %41
+  %indvars.iv = phi i64 [ %indvars.iv.next, %41 ], [ 0, %.lr.ph ]
+  %.03842 = phi ptr [ %42, %41 ], [ null, %.lr.ph ]
   %7 = load ptr, ptr %4, align 8
   %8 = getelementptr %union.ListCell, ptr %7, i64 %indvars.iv
   %9 = load ptr, ptr %8, align 8
@@ -9439,7 +9439,7 @@ define internal fastcc ptr @get_switched_clauses(ptr noundef readonly %0, ptr no
   %12 = getelementptr inbounds i8, ptr %9, i64 80
   %13 = load ptr, ptr %12, align 8
   %14 = tail call zeroext i1 @bms_is_subset(ptr noundef %13, ptr noundef %1) #12
-  br i1 %14, label %15, label %42
+  br i1 %14, label %15, label %41
 
 15:                                               ; preds = %.lr.ph44
   %16 = tail call noundef ptr @palloc0(i64 noundef 48) #12
@@ -9477,26 +9477,22 @@ define internal fastcc ptr @get_switched_clauses(ptr noundef readonly %0, ptr no
   %40 = getelementptr inbounds i8, ptr %16, i64 40
   store i32 %39, ptr %40, align 8
   tail call void @CommuteOpExpr(ptr noundef nonnull %16) #12
-  %41 = tail call ptr @lappend(ptr noundef %.03842, ptr noundef nonnull %16) #12
-  br label %44
+  br label %41
 
-42:                                               ; preds = %.lr.ph44
-  %43 = tail call ptr @lappend(ptr noundef %.03842, ptr noundef %11) #12
-  br label %44
-
-44:                                               ; preds = %15, %42
-  %.sink = phi i8 [ 0, %15 ], [ 1, %42 ]
-  %.1 = phi ptr [ %41, %15 ], [ %43, %42 ]
-  %45 = getelementptr inbounds i8, ptr %9, i64 192
-  store i8 %.sink, ptr %45, align 8
+41:                                               ; preds = %.lr.ph44, %15
+  %.sink47 = phi ptr [ %16, %15 ], [ %11, %.lr.ph44 ]
+  %.sink = phi i8 [ 0, %15 ], [ 1, %.lr.ph44 ]
+  %42 = tail call ptr @lappend(ptr noundef %.03842, ptr noundef %.sink47) #12
+  %43 = getelementptr inbounds i8, ptr %9, i64 192
+  store i8 %.sink, ptr %43, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %46 = load i32, ptr %3, align 4
-  %47 = sext i32 %46 to i64
-  %48 = icmp slt i64 %indvars.iv.next, %47
-  br i1 %48, label %.lr.ph44, label %._crit_edge
+  %44 = load i32, ptr %3, align 4
+  %45 = sext i32 %44 to i64
+  %46 = icmp slt i64 %indvars.iv.next, %45
+  br i1 %46, label %.lr.ph44, label %._crit_edge
 
-._crit_edge:                                      ; preds = %44, %.lr.ph, %2
-  %.0.lcssa = phi ptr [ null, %2 ], [ null, %.lr.ph ], [ %.1, %44 ]
+._crit_edge:                                      ; preds = %41, %.lr.ph, %2
+  %.0.lcssa = phi ptr [ null, %2 ], [ null, %.lr.ph ], [ %42, %41 ]
   ret ptr %.0.lcssa
 }
 

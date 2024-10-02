@@ -5519,11 +5519,11 @@ select.unfold:                                    ; preds = %93, %.thread, %86
   %175 = zext nneg i32 %174 to i64
   br label %176
 
-176:                                              ; preds = %900, %159
-  %177 = phi i64 [ %191, %900 ], [ 0, %159 ]
-  %178 = phi i32 [ %789, %900 ], [ 0, %159 ]
-  %179 = phi ptr [ %901, %900 ], [ %80, %159 ]
-  %180 = phi i32 [ %776, %900 ], [ %13, %159 ]
+176:                                              ; preds = %897, %159
+  %177 = phi i64 [ %191, %897 ], [ 0, %159 ]
+  %178 = phi i32 [ %789, %897 ], [ 0, %159 ]
+  %179 = phi ptr [ %898, %897 ], [ %80, %159 ]
+  %180 = phi i32 [ %776, %897 ], [ %13, %159 ]
   %181 = load ptr, ptr %0, align 64
   %182 = getelementptr inbounds i8, ptr %181, i64 8256
   %183 = icmp eq ptr %182, %0
@@ -6562,14 +6562,14 @@ select.unfold:                                    ; preds = %93, %.thread, %86
   %766 = load i32, ptr %14, align 4
   %767 = and i32 %766, -2
   store i32 %767, ptr %14, align 4
-  br i1 %11, label %902, label %768
+  br i1 %11, label %899, label %768
 
 768:                                              ; preds = %.thread43
   %769 = getelementptr inbounds i8, ptr %10, i64 924
   %770 = load i32, ptr %769, align 4
   %771 = and i32 %770, -2
   store i32 %771, ptr %769, align 4
-  br label %902
+  br label %899
 
 772:                                              ; preds = %390, %667, %662, %485, %429, %424, %325
   %773 = phi i32 [ %280, %325 ], [ -22, %429 ], [ -22, %424 ], [ %464, %485 ], [ -11, %667 ], [ -11, %662 ], [ %369, %390 ]
@@ -6762,36 +6762,33 @@ select.unfold:                                    ; preds = %93, %.thread, %86
 
 890:                                              ; preds = %879
   %891 = icmp eq i64 %177, %173
-  br i1 %891, label %892, label %896
+  br i1 %891, label %892, label %894
 
 892:                                              ; preds = %890
   %893 = call i32 @sata_down_spd_limit(ptr noundef %0, i32 noundef 0) #18
-  br i1 %11, label %900, label %894
+  br i1 %11, label %897, label %.sink.split
 
-894:                                              ; preds = %892
-  %895 = call i32 @sata_down_spd_limit(ptr noundef nonnull %10, i32 noundef 0) #18
-  br label %900
+894:                                              ; preds = %890
+  %895 = icmp eq i32 %789, -32
+  br i1 %895, label %.sink.split, label %897
 
-896:                                              ; preds = %890
-  %897 = icmp eq i32 %789, -32
-  br i1 %897, label %898, label %900
+.sink.split:                                      ; preds = %894, %892
+  %.sink = phi ptr [ %10, %892 ], [ %775, %894 ]
+  %896 = call i32 @sata_down_spd_limit(ptr noundef %.sink, i32 noundef 0) #18
+  br label %897
 
-898:                                              ; preds = %896
-  %899 = call i32 @sata_down_spd_limit(ptr noundef %775, i32 noundef 0) #18
-  br label %900
-
-900:                                              ; preds = %898, %896, %894, %892
-  %901 = select i1 %72, ptr %774, ptr %24
+897:                                              ; preds = %.sink.split, %894, %892
+  %898 = select i1 %72, ptr %774, ptr %24
   br label %176
 
-902:                                              ; preds = %.thread43, %768
-  %903 = load ptr, ptr %46, align 16
-  %904 = call i64 @_raw_spin_lock_irqsave(ptr noundef %903) #18
-  %905 = load i32, ptr %49, align 32
-  %906 = and i32 %905, -257
-  store i32 %906, ptr %49, align 32
-  %907 = load ptr, ptr %46, align 16
-  call void @_raw_spin_unlock_irqrestore(ptr noundef %907, i64 noundef %904) #18
+899:                                              ; preds = %.thread43, %768
+  %900 = load ptr, ptr %46, align 16
+  %901 = call i64 @_raw_spin_lock_irqsave(ptr noundef %900) #18
+  %902 = load i32, ptr %49, align 32
+  %903 = and i32 %902, -257
+  store i32 %903, ptr %49, align 32
+  %904 = load ptr, ptr %46, align 16
+  call void @_raw_spin_unlock_irqrestore(ptr noundef %904, i64 noundef %901) #18
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #18
   ret i32 %765
 }

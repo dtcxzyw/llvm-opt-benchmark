@@ -3231,29 +3231,26 @@ entry:
   %m_enabled.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i8, ptr %m_enabled.i, align 8
   %tobool.i = trunc i8 %0 to i1
-  br i1 %tobool.i, label %_ZNK3euf9relevancy11is_relevantEPNS_5enodeE.exit, label %if.then
+  br i1 %tobool.i, label %_ZNK3euf9relevancy11is_relevantEPNS_5enodeE.exit, label %if.end4.sink.split
 
 _ZNK3euf9relevancy11is_relevantEPNS_5enodeE.exit: ; preds = %entry
   %m_is_relevant.i.i = getelementptr inbounds i8, ptr %root, i64 16
   %1 = load i8, ptr %m_is_relevant.i.i, align 8
   %tobool.i.i = trunc i8 %1 to i1
-  br i1 %tobool.i.i, label %if.then, label %_ZNK3euf9relevancy11is_relevantEPNS_5enodeE.exit8
-
-if.then:                                          ; preds = %entry, %_ZNK3euf9relevancy11is_relevantEPNS_5enodeE.exit
-  tail call void @_ZN3euf9relevancy13mark_relevantEPNS_5enodeE(ptr noundef nonnull align 8 dereferenceable(672) %this, ptr noundef %other)
-  br label %if.end4
+  br i1 %tobool.i.i, label %if.end4.sink.split, label %_ZNK3euf9relevancy11is_relevantEPNS_5enodeE.exit8
 
 _ZNK3euf9relevancy11is_relevantEPNS_5enodeE.exit8: ; preds = %_ZNK3euf9relevancy11is_relevantEPNS_5enodeE.exit
   %m_is_relevant.i.i6 = getelementptr inbounds i8, ptr %other, i64 16
   %2 = load i8, ptr %m_is_relevant.i.i6, align 8
   %tobool.i.i7 = trunc i8 %2 to i1
-  br i1 %tobool.i.i7, label %if.then3, label %if.end4
+  br i1 %tobool.i.i7, label %if.end4.sink.split, label %if.end4
 
-if.then3:                                         ; preds = %_ZNK3euf9relevancy11is_relevantEPNS_5enodeE.exit8
-  tail call void @_ZN3euf9relevancy13mark_relevantEPNS_5enodeE(ptr noundef nonnull align 8 dereferenceable(672) %this, ptr noundef nonnull %root)
+if.end4.sink.split:                               ; preds = %_ZNK3euf9relevancy11is_relevantEPNS_5enodeE.exit8, %_ZNK3euf9relevancy11is_relevantEPNS_5enodeE.exit, %entry
+  %root.sink = phi ptr [ %other, %entry ], [ %other, %_ZNK3euf9relevancy11is_relevantEPNS_5enodeE.exit ], [ %root, %_ZNK3euf9relevancy11is_relevantEPNS_5enodeE.exit8 ]
+  tail call void @_ZN3euf9relevancy13mark_relevantEPNS_5enodeE(ptr noundef nonnull align 8 dereferenceable(672) %this, ptr noundef %root.sink)
   br label %if.end4
 
-if.end4:                                          ; preds = %_ZNK3euf9relevancy11is_relevantEPNS_5enodeE.exit8, %if.then3, %if.then
+if.end4:                                          ; preds = %if.end4.sink.split, %_ZNK3euf9relevancy11is_relevantEPNS_5enodeE.exit8
   ret void
 }
 

@@ -1100,41 +1100,21 @@ if.else:                                          ; preds = %if.then
 
 if.end4:                                          ; preds = %entry
   %cmp.i = icmp eq ptr %filename, null
-  br i1 %cmp.i, label %entry.split.i, label %lor.lhs.false.i
-
-entry.split.i:                                    ; preds = %if.end4
-  %2 = load ptr, ptr @stdin, align 8
-  %call.i.i = tail call i32 @FMT_istext(i32 noundef 32769) #28
-  %tobool.not.i.i = icmp eq i32 %call.i.i, 0
-  %cond.i.i = select i1 %tobool.not.i.i, i32 0, i32 16
-  %call1.i.i = tail call ptr @BIO_new_fp(ptr noundef %2, i32 noundef %cond.i.i) #28
-  %cmp7.not.i = icmp eq ptr %call1.i.i, null
-  br i1 %cmp7.not.i, label %if.then.i.thread, label %if.end.i
-
-if.then.i.thread:                                 ; preds = %entry.split.i
-  %3 = load ptr, ptr @bio_err, align 8
-  %call15.i = tail call ptr @__errno_location() #29
-  %4 = load i32, ptr %call15.i, align 4
-  %call16.i = tail call ptr @strerror(i32 noundef %4) #28
-  %call17.i = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %3, ptr noundef nonnull @.str.213, ptr noundef nonnull @.str.186, ptr noundef %call16.i) #28
-  %5 = load ptr, ptr @bio_err, align 8
-  tail call void @ERR_print_errors(ptr noundef %5) #28
-  br label %app_load_config_internal.exit
+  br i1 %cmp.i, label %if.then.i, label %lor.lhs.false.i
 
 lor.lhs.false.i:                                  ; preds = %if.else, %if.then2, %if.end4
-  %6 = load i8, ptr %filename, align 1
-  %cmp1.not.i = icmp eq i8 %6, 0
+  %2 = load i8, ptr %filename, align 1
+  %cmp1.not.i = icmp eq i8 %2, 0
   br i1 %cmp1.not.i, label %if.else.i, label %if.then.i
 
-if.then.i:                                        ; preds = %lor.lhs.false.i
-  %call10.i = tail call fastcc ptr @bio_open_default_(ptr noundef nonnull %filename, i8 noundef signext 114, i32 noundef 32769, i32 noundef 0)
+if.then.i:                                        ; preds = %lor.lhs.false.i, %if.end4
+  %call10.i = tail call fastcc ptr @bio_open_default_(ptr noundef %filename, i8 noundef signext 114, i32 noundef 32769, i32 noundef 0)
   %cmp3.i = icmp eq ptr %call10.i, null
   br i1 %cmp3.i, label %app_load_config_internal.exit, label %if.end.i
 
-if.end.i:                                         ; preds = %entry.split.i, %if.then.i
-  %phi.call.i12 = phi ptr [ %call10.i, %if.then.i ], [ %call1.i.i, %entry.split.i ]
-  %call6.i = tail call ptr @app_load_config_bio(ptr noundef nonnull %phi.call.i12, ptr noundef %filename)
-  %call7.i = tail call i32 @BIO_free(ptr noundef nonnull %phi.call.i12) #28
+if.end.i:                                         ; preds = %if.then.i
+  %call6.i = tail call ptr @app_load_config_bio(ptr noundef nonnull %call10.i, ptr noundef %filename)
+  %call7.i = tail call i32 @BIO_free(ptr noundef nonnull %call10.i) #28
   br label %app_load_config_internal.exit
 
 if.else.i:                                        ; preds = %lor.lhs.false.i
@@ -1142,8 +1122,8 @@ if.else.i:                                        ; preds = %lor.lhs.false.i
   %call9.i = tail call ptr @NCONF_new_ex(ptr noundef %call8.i, ptr noundef null) #28
   br label %app_load_config_internal.exit
 
-app_load_config_internal.exit:                    ; preds = %if.then.i.thread, %if.then.i, %if.end.i, %if.else.i
-  %retval.0.i = phi ptr [ null, %if.then.i ], [ %call6.i, %if.end.i ], [ %call9.i, %if.else.i ], [ null, %if.then.i.thread ]
+app_load_config_internal.exit:                    ; preds = %if.then.i, %if.end.i, %if.else.i
+  %retval.0.i = phi ptr [ null, %if.then.i ], [ %call6.i, %if.end.i ], [ %call9.i, %if.else.i ]
   ret ptr %retval.0.i
 }
 
@@ -1151,29 +1131,22 @@ app_load_config_internal.exit:                    ; preds = %if.then.i.thread, %
 define ptr @app_load_config_internal(ptr noundef %filename, i32 noundef %quiet) local_unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %filename, null
-  br i1 %cmp, label %entry.split, label %lor.lhs.false
-
-entry.split:                                      ; preds = %entry
-  %call5 = tail call fastcc ptr @bio_open_default_(ptr noundef null, i8 noundef signext 114, i32 noundef 32769, i32 noundef %quiet)
-  br label %if.then
+  br i1 %cmp, label %if.then, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %entry
   %0 = load i8, ptr %filename, align 1
   %cmp1.not = icmp eq i8 %0, 0
-  br i1 %cmp1.not, label %if.else, label %lor.lhs.false.split
+  br i1 %cmp1.not, label %if.else, label %if.then
 
-lor.lhs.false.split:                              ; preds = %lor.lhs.false
-  %call10 = tail call fastcc ptr @bio_open_default_(ptr noundef nonnull %filename, i8 noundef signext 114, i32 noundef 32769, i32 noundef %quiet)
-  br label %if.then
-
-if.then:                                          ; preds = %lor.lhs.false.split, %entry.split
-  %phi.call = phi ptr [ %call5, %entry.split ], [ %call10, %lor.lhs.false.split ]
-  %cmp3 = icmp eq ptr %phi.call, null
+if.then:                                          ; preds = %lor.lhs.false, %entry
+  %filename.sink = phi ptr [ null, %entry ], [ %filename, %lor.lhs.false ]
+  %call10 = tail call fastcc ptr @bio_open_default_(ptr noundef %filename.sink, i8 noundef signext 114, i32 noundef 32769, i32 noundef %quiet)
+  %cmp3 = icmp eq ptr %call10, null
   br i1 %cmp3, label %return, label %if.end
 
 if.end:                                           ; preds = %if.then
-  %call6 = tail call ptr @app_load_config_bio(ptr noundef nonnull %phi.call, ptr noundef %filename)
-  %call7 = tail call i32 @BIO_free(ptr noundef nonnull %phi.call) #28
+  %call6 = tail call ptr @app_load_config_bio(ptr noundef nonnull %call10, ptr noundef %filename)
+  %call7 = tail call i32 @BIO_free(ptr noundef nonnull %call10) #28
   br label %return
 
 if.else:                                          ; preds = %lor.lhs.false
@@ -1330,53 +1303,45 @@ entry:
 if.then:                                          ; preds = %entry
   %0 = load ptr, ptr @default_config_file, align 8
   %cmp.i = icmp eq ptr %0, null
-  br i1 %cmp.i, label %entry.split.i, label %lor.lhs.false.i
-
-entry.split.i:                                    ; preds = %if.then
-  %1 = load ptr, ptr @stdin, align 8
-  %call.i.i9 = tail call i32 @FMT_istext(i32 noundef 32769) #28
-  %tobool.not.i.i10 = icmp eq i32 %call.i.i9, 0
-  %cond.i.i11 = select i1 %tobool.not.i.i10, i32 0, i32 16
-  %call1.i.i12 = tail call ptr @BIO_new_fp(ptr noundef %1, i32 noundef %cond.i.i11) #28
-  br label %if.then.i
+  br i1 %cmp.i, label %if.then.i7, label %lor.lhs.false.i
 
 lor.lhs.false.i:                                  ; preds = %if.then
-  %2 = load i8, ptr %0, align 1
-  switch i8 %2, label %if.else.i5 [
+  %1 = load i8, ptr %0, align 1
+  switch i8 %1, label %if.else.i5 [
     i8 0, label %if.else.i
     i8 45, label %lor.lhs.false.tail.i
   ]
 
 lor.lhs.false.tail.i:                             ; preds = %lor.lhs.false.i
-  %3 = getelementptr inbounds i8, ptr %0, i64 1
-  %4 = load i8, ptr %3, align 1
-  %5 = icmp eq i8 %4, 0
-  br i1 %5, label %if.then.i7, label %if.else.i5
+  %2 = getelementptr inbounds i8, ptr %0, i64 1
+  %3 = load i8, ptr %2, align 1
+  %4 = icmp eq i8 %3, 0
+  br i1 %4, label %if.then.i7, label %if.else.i5
 
-if.then.i7:                                       ; preds = %lor.lhs.false.tail.i
-  %6 = load ptr, ptr @stdin, align 8
+if.then.i7:                                       ; preds = %if.then, %lor.lhs.false.tail.i
+  %5 = load ptr, ptr @stdin, align 8
   %call.i.i = tail call i32 @FMT_istext(i32 noundef 32769) #28
   %tobool.not.i.i = icmp eq i32 %call.i.i, 0
   %cond.i.i = select i1 %tobool.not.i.i, i32 0, i32 16
-  %call1.i.i = tail call ptr @BIO_new_fp(ptr noundef %6, i32 noundef %cond.i.i) #28
-  br label %if.then.i
+  %call1.i.i = tail call ptr @BIO_new_fp(ptr noundef %5, i32 noundef %cond.i.i) #28
+  br label %bio_open_default_.exit
 
 if.else.i5:                                       ; preds = %lor.lhs.false.i, %lor.lhs.false.tail.i
   %call12.i.i = tail call i32 @FMT_istext(i32 noundef 32769) #28
   %tobool13.not.i.i = icmp eq i32 %call12.i.i, 0
   %cond14.i.i = select i1 %tobool13.not.i.i, ptr @.str.211, ptr @.str.116
   %call19.i = tail call ptr @BIO_new_file(ptr noundef nonnull %0, ptr noundef nonnull %cond14.i.i) #28
-  br label %if.then.i
+  br label %bio_open_default_.exit
 
-if.then.i:                                        ; preds = %if.else.i5, %if.then.i7, %entry.split.i
-  %phi.call.i = phi ptr [ %call1.i.i12, %entry.split.i ], [ %call1.i.i, %if.then.i7 ], [ %call19.i, %if.else.i5 ]
+bio_open_default_.exit:                           ; preds = %if.then.i7, %if.else.i5
+  %retval.0.i6 = phi ptr [ %call1.i.i, %if.then.i7 ], [ %call19.i, %if.else.i5 ]
   tail call void @ERR_clear_error() #28
-  %cmp3.i = icmp eq ptr %phi.call.i, null
+  %cmp3.i = icmp eq ptr %retval.0.i6, null
   br i1 %cmp3.i, label %return, label %if.end.i
 
-if.end.i:                                         ; preds = %if.then.i
-  %call6.i = tail call ptr @app_load_config_bio(ptr noundef nonnull %phi.call.i, ptr noundef %0)
-  %call7.i = tail call i32 @BIO_free(ptr noundef nonnull %phi.call.i) #28
+if.end.i:                                         ; preds = %bio_open_default_.exit
+  %call6.i = tail call ptr @app_load_config_bio(ptr noundef nonnull %retval.0.i6, ptr noundef %0)
+  %call7.i = tail call i32 @BIO_free(ptr noundef nonnull %retval.0.i6) #28
   br label %if.end
 
 if.else.i:                                        ; preds = %lor.lhs.false.i
@@ -1390,26 +1355,26 @@ if.end:                                           ; preds = %if.else.i, %if.end.
   br i1 %cmp1, label %return, label %if.end3
 
 if.end3:                                          ; preds = %entry, %if.end
-  %to_free.022 = phi ptr [ %config.addr.0, %if.end ], [ null, %entry ]
-  %config.addr.021 = phi ptr [ %config.addr.0, %if.end ], [ %config, %entry ]
-  %call4 = tail call i32 @CONF_modules_load(ptr noundef nonnull %config.addr.021, ptr noundef null, i64 noundef 0) #28
+  %to_free.018 = phi ptr [ %config.addr.0, %if.end ], [ null, %entry ]
+  %config.addr.017 = phi ptr [ %config.addr.0, %if.end ], [ %config, %entry ]
+  %call4 = tail call i32 @CONF_modules_load(ptr noundef nonnull %config.addr.017, ptr noundef null, i64 noundef 0) #28
   %cmp5 = icmp slt i32 %call4, 1
   br i1 %cmp5, label %if.then6, label %return.sink.split
 
 if.then6:                                         ; preds = %if.end3
+  %6 = load ptr, ptr @bio_err, align 8
+  %call7 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %6, ptr noundef nonnull @.str.14) #28
   %7 = load ptr, ptr @bio_err, align 8
-  %call7 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %7, ptr noundef nonnull @.str.14) #28
-  %8 = load ptr, ptr @bio_err, align 8
-  tail call void @ERR_print_errors(ptr noundef %8) #28
+  tail call void @ERR_print_errors(ptr noundef %7) #28
   br label %return.sink.split
 
 return.sink.split:                                ; preds = %if.end3, %if.then6
   %retval.0.ph = phi i32 [ 0, %if.then6 ], [ 1, %if.end3 ]
-  tail call void @NCONF_free(ptr noundef %to_free.022) #28
+  tail call void @NCONF_free(ptr noundef %to_free.018) #28
   br label %return
 
-return:                                           ; preds = %return.sink.split, %if.then.i, %if.end
-  %retval.0 = phi i32 [ 1, %if.end ], [ 1, %if.then.i ], [ %retval.0.ph, %return.sink.split ]
+return:                                           ; preds = %return.sink.split, %bio_open_default_.exit, %if.end
+  %retval.0 = phi i32 [ 1, %if.end ], [ 1, %bio_open_default_.exit ], [ %retval.0.ph, %return.sink.split ]
   ret i32 %retval.0
 }
 
@@ -1503,11 +1468,7 @@ if.end:                                           ; preds = %if.then
 if.end3.i:                                        ; preds = %if.end
   %call4.i = tail call i32 @CONF_modules_load(ptr noundef nonnull %call, ptr noundef null, i64 noundef 0) #28
   %cmp5.i = icmp slt i32 %call4.i, 1
-  br i1 %cmp5.i, label %if.then5, label %app_load_modules.exit
-
-app_load_modules.exit:                            ; preds = %if.end3.i
-  tail call void @NCONF_free(ptr noundef null) #28
-  br label %return
+  br i1 %cmp5.i, label %if.then5, label %return.sink.split
 
 if.then5:                                         ; preds = %if.end3.i
   %1 = load ptr, ptr @bio_err, align 8
@@ -1515,11 +1476,16 @@ if.then5:                                         ; preds = %if.end3.i
   %2 = load ptr, ptr @bio_err, align 8
   tail call void @ERR_print_errors(ptr noundef %2) #28
   tail call void @NCONF_free(ptr noundef null) #28
-  tail call void @NCONF_free(ptr noundef nonnull %call) #28
+  br label %return.sink.split
+
+return.sink.split:                                ; preds = %if.end3.i, %if.then5
+  %.sink = phi ptr [ %call, %if.then5 ], [ null, %if.end3.i ]
+  %retval.0.ph = phi ptr [ null, %if.then5 ], [ %call, %if.end3.i ]
+  tail call void @NCONF_free(ptr noundef %.sink) #28
   br label %return
 
-return:                                           ; preds = %app_load_modules.exit, %entry, %if.then5, %if.end, %if.then
-  %retval.0 = phi ptr [ null, %if.then ], [ %call, %app_load_modules.exit ], [ null, %if.then5 ], [ %call, %if.end ], [ null, %entry ]
+return:                                           ; preds = %return.sink.split, %entry, %if.end, %if.then
+  %retval.0 = phi ptr [ null, %if.then ], [ %call, %if.end ], [ null, %entry ], [ %retval.0.ph, %return.sink.split ]
   ret ptr %retval.0
 }
 
@@ -3899,7 +3865,7 @@ if.end7:                                          ; preds = %if.end
 if.end11:                                         ; preds = %if.end7
   %call12 = call i32 (ptr, i64, ptr, ...) @BIO_snprintf(ptr noundef nonnull %buf, i64 noundef 256, ptr noundef nonnull @.str.128, ptr noundef %dbfile) #28
   %2 = load i8, ptr %buf, align 16
-  switch i8 %2, label %if.else.i26 [
+  switch i8 %2, label %if.else.i27 [
     i8 0, label %if.else.i
     i8 45, label %lor.lhs.false.tail.i
   ]
@@ -3908,9 +3874,9 @@ lor.lhs.false.tail.i:                             ; preds = %if.end11
   %3 = getelementptr inbounds i8, ptr %buf, i64 1
   %4 = load i8, ptr %3, align 1
   %5 = icmp eq i8 %4, 0
-  br i1 %5, label %if.then.i28, label %if.else.i26
+  br i1 %5, label %if.then.i29, label %if.else.i27
 
-if.then.i28:                                      ; preds = %lor.lhs.false.tail.i
+if.then.i29:                                      ; preds = %lor.lhs.false.tail.i
   %6 = load ptr, ptr @stdin, align 8
   %call.i.i = call i32 @FMT_istext(i32 noundef 32769) #28
   %tobool.not.i.i = icmp eq i32 %call.i.i, 0
@@ -3918,22 +3884,22 @@ if.then.i28:                                      ; preds = %lor.lhs.false.tail.
   %call1.i.i = call ptr @BIO_new_fp(ptr noundef %6, i32 noundef %cond.i.i) #28
   br label %bio_open_default_.exit
 
-if.else.i26:                                      ; preds = %if.end11, %lor.lhs.false.tail.i
+if.else.i27:                                      ; preds = %if.end11, %lor.lhs.false.tail.i
   %call12.i.i = call i32 @FMT_istext(i32 noundef 32769) #28
   %tobool13.not.i.i = icmp eq i32 %call12.i.i, 0
   %cond14.i.i = select i1 %tobool13.not.i.i, ptr @.str.211, ptr @.str.116
   %call19.i = call ptr @BIO_new_file(ptr noundef nonnull %buf, ptr noundef nonnull %cond14.i.i) #28
   br label %bio_open_default_.exit
 
-bio_open_default_.exit:                           ; preds = %if.then.i28, %if.else.i26
-  %retval.0.i27 = phi ptr [ %call1.i.i, %if.then.i28 ], [ %call19.i, %if.else.i26 ]
+bio_open_default_.exit:                           ; preds = %if.then.i29, %if.else.i27
+  %retval.0.i28 = phi ptr [ %call1.i.i, %if.then.i29 ], [ %call19.i, %if.else.i27 ]
   call void @ERR_clear_error() #28
-  %cmp3.i = icmp eq ptr %retval.0.i27, null
+  %cmp3.i = icmp eq ptr %retval.0.i28, null
   br i1 %cmp3.i, label %app_load_config_internal.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %bio_open_default_.exit
-  %call6.i = call ptr @app_load_config_bio(ptr noundef nonnull %retval.0.i27, ptr noundef nonnull %buf)
-  %call7.i = call i32 @BIO_free(ptr noundef nonnull %retval.0.i27) #28
+  %call6.i = call ptr @app_load_config_bio(ptr noundef nonnull %retval.0.i28, ptr noundef nonnull %buf)
+  %call7.i = call i32 @BIO_free(ptr noundef nonnull %retval.0.i28) #28
   br label %app_load_config_internal.exit
 
 if.else.i:                                        ; preds = %if.end11
@@ -3945,9 +3911,9 @@ app_load_config_internal.exit:                    ; preds = %bio_open_default_.e
   %retval.0.i = phi ptr [ null, %bio_open_default_.exit ], [ %call6.i, %if.end.i ], [ %call9.i, %if.else.i ]
   %call.i = call noalias ptr @CRYPTO_malloc(i64 noundef 168, ptr noundef nonnull @.str.1, i32 noundef 682) #28
   %cmp.i = icmp eq ptr %call.i, null
-  br i1 %cmp.i, label %if.then.i, label %app_malloc.exit
+  br i1 %cmp.i, label %if.then.i19, label %app_malloc.exit
 
-if.then.i:                                        ; preds = %app_load_config_internal.exit
+if.then.i19:                                      ; preds = %app_load_config_internal.exit
   %call1.i = call ptr @opt_getprog() #28
   call void (ptr, ...) @app_bail_out(ptr noundef nonnull @.str.32, ptr noundef %call1.i, i64 noundef 168, ptr noundef nonnull @.str.129)
   unreachable
@@ -3969,10 +3935,10 @@ if.end18:                                         ; preds = %app_malloc.exit, %i
   br i1 %cmp19.not, label %if.end28, label %if.then20
 
 if.then20:                                        ; preds = %if.end18
-  %call.i19 = call i32 @ERR_set_mark() #28
-  %call1.i20 = call ptr @NCONF_get_string(ptr noundef nonnull %retval.0.i, ptr noundef null, ptr noundef nonnull @.str.130) #28
-  %cmp.i21 = icmp eq ptr %call1.i20, null
-  br i1 %cmp.i21, label %app_conf_try_string.exit.thread, label %if.then23
+  %call.i20 = call i32 @ERR_set_mark() #28
+  %call1.i21 = call ptr @NCONF_get_string(ptr noundef nonnull %retval.0.i, ptr noundef null, ptr noundef nonnull @.str.130) #28
+  %cmp.i22 = icmp eq ptr %call1.i21, null
+  br i1 %cmp.i22, label %app_conf_try_string.exit.thread, label %if.then23
 
 app_conf_try_string.exit.thread:                  ; preds = %if.then20
   %call2.i = call i32 @ERR_pop_to_mark() #28
@@ -3980,7 +3946,7 @@ app_conf_try_string.exit.thread:                  ; preds = %if.then20
 
 if.then23:                                        ; preds = %if.then20
   %call3.i = call i32 @ERR_clear_last_mark() #28
-  %call24 = call i32 @parse_yesno(ptr noundef nonnull %call1.i20, i32 noundef 1)
+  %call24 = call i32 @parse_yesno(ptr noundef nonnull %call1.i21, i32 noundef 1)
   store i32 %call24, ptr %call.i, align 8
   br label %if.end28
 

@@ -6095,8 +6095,8 @@ define void @png_read_IDAT_data(ptr noalias noundef %0, ptr noundef %1, i64 noun
   %23 = getelementptr inbounds i8, ptr %0, i64 368
   br label %24
 
-24:                                               ; preds = %114, %3
-  %.1 = phi i64 [ %spec.select, %3 ], [ %.3, %114 ]
+24:                                               ; preds = %113, %3
+  %.1 = phi i64 [ %spec.select, %3 ], [ %.3, %113 ]
   %25 = load i32, ptr %10, align 8
   %26 = icmp eq i32 %25, 0
   br i1 %26, label %.preheader.preheader, label %82
@@ -6290,7 +6290,7 @@ png_zlib_inflate.exit:                            ; preds = %92, %94
   store i32 0, ptr %8, align 8
   switch i32 %.0.i, label %110 [
     i32 1, label %100
-    i32 0, label %114
+    i32 0, label %113
   ]
 
 100:                                              ; preds = %png_zlib_inflate.exit
@@ -6309,45 +6309,42 @@ png_zlib_inflate.exit:                            ; preds = %92, %94
 107:                                              ; preds = %100
   %108 = load i32, ptr %11, align 8
   %.not70 = icmp eq i32 %108, 0
-  br i1 %.not70, label %115, label %109
+  br i1 %.not70, label %114, label %109
 
 109:                                              ; preds = %107, %100
   call void @png_chunk_benign_error(ptr noundef nonnull %0, ptr noundef nonnull @.str.56) #12
-  br label %115
+  br label %114
 
 110:                                              ; preds = %png_zlib_inflate.exit
   call void @png_zstream_error(ptr noundef nonnull %0, i32 noundef %.0.i) #12
   %111 = load ptr, ptr %23, align 8
-  br i1 %9, label %113, label %112
+  br i1 %9, label %.loopexit.sink.split, label %112
 
 112:                                              ; preds = %110
   call void @png_chunk_error(ptr noundef nonnull %0, ptr noundef %111) #11
   unreachable
 
-113:                                              ; preds = %110
-  call void @png_chunk_benign_error(ptr noundef nonnull %0, ptr noundef %111) #12
-  br label %.loopexit
-
-114:                                              ; preds = %png_zlib_inflate.exit
+113:                                              ; preds = %png_zlib_inflate.exit
   %cond = icmp eq i64 %.3, 0
   br i1 %cond, label %.loopexit, label %24
 
-115:                                              ; preds = %107, %109
+114:                                              ; preds = %107, %109
   %.not71 = icmp eq i64 %.3, 0
-  br i1 %.not71, label %.loopexit, label %116
+  br i1 %.not71, label %.loopexit, label %115
+
+115:                                              ; preds = %114
+  br i1 %9, label %.loopexit.sink.split, label %116
 
 116:                                              ; preds = %115
-  br i1 %9, label %118, label %117
-
-117:                                              ; preds = %116
   call void @png_error(ptr noundef nonnull %0, ptr noundef nonnull @.str.55) #11
   unreachable
 
-118:                                              ; preds = %116
-  call void @png_chunk_benign_error(ptr noundef nonnull %0, ptr noundef nonnull @.str.57) #12
+.loopexit.sink.split:                             ; preds = %115, %110
+  %.str.57.sink = phi ptr [ %111, %110 ], [ @.str.57, %115 ]
+  call void @png_chunk_benign_error(ptr noundef nonnull %0, ptr noundef %.str.57.sink) #12
   br label %.loopexit
 
-.loopexit:                                        ; preds = %114, %118, %115, %113
+.loopexit:                                        ; preds = %113, %.loopexit.sink.split, %114
   ret void
 }
 

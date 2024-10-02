@@ -844,17 +844,8 @@ define dso_local void @native_flush_tlb_multi(ptr noundef %0, ptr noundef %1) lo
   %55 = getelementptr inbounds i8, ptr %1, i64 37
   %56 = load i8, ptr %55, align 1
   %57 = icmp eq i8 %56, 0
-  br i1 %57, label %59, label %58
-
-58:                                               ; preds = %54
-  tail call void @on_each_cpu_cond_mask(ptr noundef null, ptr noundef nonnull @flush_tlb_func, ptr noundef %1, i1 noundef zeroext true, ptr noundef %0) #11
-  br label %60
-
-59:                                               ; preds = %54
-  tail call void @on_each_cpu_cond_mask(ptr noundef nonnull @tlb_is_not_lazy, ptr noundef nonnull @flush_tlb_func, ptr noundef %1, i1 noundef zeroext true, ptr noundef %0) #11
-  br label %60
-
-60:                                               ; preds = %59, %58
+  %tlb_is_not_lazy. = select i1 %57, ptr @tlb_is_not_lazy, ptr null
+  tail call void @on_each_cpu_cond_mask(ptr noundef %tlb_is_not_lazy., ptr noundef nonnull @flush_tlb_func, ptr noundef %1, i1 noundef zeroext true, ptr noundef %0) #11
   ret void
 }
 

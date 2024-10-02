@@ -2534,13 +2534,13 @@ define internal fastcc void @hwloc_utils_get_best_node_in_nodeset_by_memattr(ptr
   %6 = alloca i64, align 8
   %7 = call i32 @hwloc_memattr_get_flags(ptr noundef %0, i32 noundef %1, ptr noundef nonnull %6) #21
   %8 = icmp slt i32 %7, 0
-  br i1 %8, label %67, label %9
+  br i1 %8, label %65, label %9
 
 9:                                                ; preds = %4
   store i32 0, ptr %5, align 4
   %10 = call i32 @hwloc_memattr_get_targets(ptr noundef %0, i32 noundef %1, ptr noundef nonnull %3, i64 noundef 0, ptr noundef nonnull %5, ptr noundef null, ptr noundef null) #21
   %11 = icmp slt i32 %10, 0
-  br i1 %11, label %67, label %12
+  br i1 %11, label %65, label %12
 
 12:                                               ; preds = %9
   %13 = load i32, ptr %5, align 4
@@ -2551,12 +2551,12 @@ define internal fastcc void @hwloc_utils_get_best_node_in_nodeset_by_memattr(ptr
   %18 = icmp ne ptr %16, null
   %19 = icmp ne ptr %17, null
   %or.cond = and i1 %18, %19
-  br i1 %or.cond, label %20, label %66
+  br i1 %or.cond, label %20, label %.sink.split
 
 20:                                               ; preds = %12
   %21 = call i32 @hwloc_memattr_get_targets(ptr noundef %0, i32 noundef %1, ptr noundef nonnull %3, i64 noundef 0, ptr noundef nonnull %5, ptr noundef nonnull %16, ptr noundef nonnull %17) #21
   %22 = icmp slt i32 %21, 0
-  br i1 %22, label %66, label %23
+  br i1 %22, label %.sink.split, label %23
 
 23:                                               ; preds = %20
   %24 = call i32 @hwloc_bitmap_first(ptr noundef %2) #22
@@ -2683,25 +2683,18 @@ define internal fastcc void @hwloc_utils_get_best_node_in_nodeset_by_memattr(ptr
 
 ._crit_edge72.thread:                             ; preds = %.preheader.lr.ph.split, %.preheader.lr.ph.split.us, %23, %._crit_edge72
   call void @hwloc_bitmap_zero(ptr noundef %2) #21
-  br label %65
+  br label %.sink.split
 
 63:                                               ; preds = %._crit_edge72
   %64 = call i32 @hwloc_bitmap_only(ptr noundef %2, i32 noundef %.051.lcssa) #21
+  br label %.sink.split
+
+.sink.split:                                      ; preds = %12, %20, %._crit_edge72.thread, %63
+  call void @free(ptr noundef %16) #21
+  call void @free(ptr noundef %17) #21
   br label %65
 
-65:                                               ; preds = %63, %._crit_edge72.thread
-  call void @free(ptr noundef nonnull %16) #21
-  br label %.sink.split
-
-66:                                               ; preds = %20, %12
-  call void @free(ptr noundef %16) #21
-  br label %.sink.split
-
-.sink.split:                                      ; preds = %65, %66
-  call void @free(ptr noundef %17) #21
-  br label %67
-
-67:                                               ; preds = %.sink.split, %4, %9
+65:                                               ; preds = %.sink.split, %4, %9
   ret void
 }
 

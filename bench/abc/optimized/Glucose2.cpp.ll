@@ -512,7 +512,7 @@ define void @_ZN6Gluco26SolverC2Ev(ptr noundef nonnull align 8 dereferenceable(1
   %87 = getelementptr inbounds i8, ptr %0, i64 848
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(52) %86, i8 0, i64 52, i1 false)
   invoke void @_ZN6Gluco215RegionAllocatorIjE8capacityEj(ptr noundef nonnull align 8 dereferenceable(20) %65, i32 noundef 1048576)
-          to label %88 unwind label %154
+          to label %88 unwind label %152
 
 88:                                               ; preds = %1
   %89 = getelementptr inbounds i8, ptr %0, i64 884
@@ -560,7 +560,7 @@ define void @_ZN6Gluco26SolverC2Ev(ptr noundef nonnull align 8 dereferenceable(1
   %117 = load double, ptr %18, align 8
   %118 = fptosi double %117 to i32
   invoke void @_ZN6Gluco23vecIjE6growToEi(ptr noundef nonnull align 8 dereferenceable(16) %91, i32 noundef %118)
-          to label %.noexc unwind label %156
+          to label %.noexc unwind label %154
 
 .noexc:                                           ; preds = %88
   %119 = getelementptr inbounds i8, ptr %0, i64 976
@@ -596,7 +596,7 @@ define void @_ZN6Gluco26SolverC2Ev(ptr noundef nonnull align 8 dereferenceable(1
   %130 = load double, ptr %21, align 8
   %131 = fptosi double %130 to i32
   invoke void @_ZN6Gluco23vecIjE6growToEi(ptr noundef nonnull align 8 dereferenceable(16) %90, i32 noundef %131)
-          to label %.noexc24 unwind label %156
+          to label %.noexc24 unwind label %154
 
 .noexc24:                                         ; preds = %.loopexit126
   %132 = getelementptr inbounds i8, ptr %0, i64 912
@@ -638,614 +638,604 @@ define void @_ZN6Gluco26SolverC2Ev(ptr noundef nonnull align 8 dereferenceable(1
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %146, i8 0, i64 24, i1 false)
   %147 = load i8, ptr %55, align 8
   %148 = trunc i8 %147 to i1
-  br i1 %148, label %149, label %160
+  br i1 %148, label %.sink.split, label %156
 
-149:                                              ; preds = %.loopexit
-  %150 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Gluco219opt_certified_file_E, i64 40), align 8
-  %151 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %150, ptr noundef nonnull dereferenceable(5) @.str.62) #30
-  %.not = icmp eq i32 %151, 0
-  br i1 %.not, label %152, label %158
+.sink.split:                                      ; preds = %.loopexit
+  %149 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Gluco219opt_certified_file_E, i64 40), align 8
+  %150 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %149, ptr noundef nonnull dereferenceable(5) @.str.62) #30
+  %.not = icmp eq i32 %150, 0
+  %.str.63. = select i1 %.not, ptr @.str.63, ptr %149
+  %151 = tail call noalias ptr @fopen(ptr noundef %.str.63., ptr noundef nonnull @.str.64)
+  store ptr %151, ptr %54, align 8
+  br label %156
 
-152:                                              ; preds = %149
-  %153 = tail call noalias ptr @fopen(ptr noundef nonnull @.str.63, ptr noundef nonnull @.str.64)
-  br label %.sink.split
-
-154:                                              ; preds = %1
-  %155 = landingpad { ptr, i32 }
+152:                                              ; preds = %1
+  %153 = landingpad { ptr, i32 }
           cleanup
   br label %_ZN6Gluco215ClauseAllocatorD2Ev.exit
 
-156:                                              ; preds = %.loopexit126, %88
-  %157 = landingpad { ptr, i32 }
+154:                                              ; preds = %.loopexit126, %88
+  %155 = landingpad { ptr, i32 }
           cleanup
   br label %_ZN6Gluco23vecINS_3LitEED2Ev.exit32
 
-158:                                              ; preds = %149
-  %159 = tail call noalias ptr @fopen(ptr noundef %150, ptr noundef nonnull @.str.64)
-  br label %.sink.split
-
-.sink.split:                                      ; preds = %152, %158
-  %.sink = phi ptr [ %159, %158 ], [ %153, %152 ]
-  store ptr %.sink, ptr %54, align 8
-  br label %160
-
-160:                                              ; preds = %.sink.split, %.loopexit
-  %161 = getelementptr inbounds i8, ptr %0, i64 1300
-  store i32 0, ptr %161, align 4
-  %162 = getelementptr inbounds i8, ptr %0, i64 88
-  store i32 0, ptr %162, align 8
-  %163 = getelementptr inbounds i8, ptr %0, i64 1296
-  store i32 0, ptr %163, align 8
-  %164 = getelementptr inbounds i8, ptr %0, i64 1292
-  store i32 0, ptr %164, align 4
-  %165 = getelementptr inbounds i8, ptr %2, i64 8
-  store i64 0, ptr %165, align 8
-  %166 = getelementptr inbounds i8, ptr %2, i64 8
-  %167 = getelementptr inbounds i8, ptr %2, i64 12
-  store i32 4, ptr %167, align 4
+156:                                              ; preds = %.sink.split, %.loopexit
+  %157 = getelementptr inbounds i8, ptr %0, i64 1300
+  store i32 0, ptr %157, align 4
+  %158 = getelementptr inbounds i8, ptr %0, i64 88
+  store i32 0, ptr %158, align 8
+  %159 = getelementptr inbounds i8, ptr %0, i64 1296
+  store i32 0, ptr %159, align 8
+  %160 = getelementptr inbounds i8, ptr %0, i64 1292
+  store i32 0, ptr %160, align 4
+  %161 = getelementptr inbounds i8, ptr %2, i64 8
+  store i64 0, ptr %161, align 8
+  %162 = getelementptr inbounds i8, ptr %2, i64 8
+  %163 = getelementptr inbounds i8, ptr %2, i64 12
+  store i32 4, ptr %163, align 4
   %malloc = tail call dereferenceable_or_null(16) ptr @malloc(i64 16)
   store ptr %malloc, ptr %2, align 8
-  %168 = icmp eq ptr %malloc, null
+  %164 = icmp eq ptr %malloc, null
+  br i1 %164, label %165, label %.lr.ph.i.preheader
+
+165:                                              ; preds = %156
+  %166 = tail call ptr @__errno_location() #31
+  %167 = load i32, ptr %166, align 4
+  %168 = icmp eq i32 %167, 12
   br i1 %168, label %169, label %.lr.ph.i.preheader
 
-169:                                              ; preds = %160
-  %170 = tail call ptr @__errno_location() #31
-  %171 = load i32, ptr %170, align 4
-  %172 = icmp eq i32 %171, 12
-  br i1 %172, label %173, label %.lr.ph.i.preheader
-
-.lr.ph.i.preheader:                               ; preds = %160, %169
+.lr.ph.i.preheader:                               ; preds = %156, %165
   br label %.lr.ph.i
 
-173:                                              ; preds = %169
-  %174 = tail call ptr @__cxa_allocate_exception(i64 1) #32
-  invoke void @__cxa_throw(ptr %174, ptr nonnull @_ZTIN6Gluco220OutOfMemoryExceptionE, ptr null) #33
-          to label %.noexc26 unwind label %194
+169:                                              ; preds = %165
+  %170 = tail call ptr @__cxa_allocate_exception(i64 1) #32
+  invoke void @__cxa_throw(ptr %170, ptr nonnull @_ZTIN6Gluco220OutOfMemoryExceptionE, ptr null) #33
+          to label %.noexc26 unwind label %190
 
-.noexc26:                                         ; preds = %173
+.noexc26:                                         ; preds = %169
   unreachable
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i.preheader, %.lr.ph.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.lr.ph.i ], [ 0, %.lr.ph.i.preheader ]
-  %175 = load ptr, ptr %2, align 8
-  %176 = getelementptr inbounds %"struct.Gluco2::Lit", ptr %175, i64 %indvars.iv.i
-  store i32 0, ptr %176, align 4
+  %171 = load ptr, ptr %2, align 8
+  %172 = getelementptr inbounds %"struct.Gluco2::Lit", ptr %171, i64 %indvars.iv.i
+  store i32 0, ptr %172, align 4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 3
   br i1 %exitcond.not.i, label %_ZN6Gluco23vecINS_3LitEE6growToEi.exit, label %.lr.ph.i, !llvm.loop !6
 
 _ZN6Gluco23vecINS_3LitEE6growToEi.exit:           ; preds = %.lr.ph.i
-  store i32 3, ptr %166, align 8
-  %177 = invoke noundef i32 @_ZN6Gluco215ClauseAllocator5allocINS_3vecINS_3LitEEEEEjRKT_b(ptr noundef nonnull align 8 dereferenceable(21) %65, ptr noundef nonnull align 8 dereferenceable(16) %2, i1 noundef zeroext false)
-          to label %178 unwind label %194
+  store i32 3, ptr %162, align 8
+  %173 = invoke noundef i32 @_ZN6Gluco215ClauseAllocator5allocINS_3vecINS_3LitEEEEEjRKT_b(ptr noundef nonnull align 8 dereferenceable(21) %65, ptr noundef nonnull align 8 dereferenceable(16) %2, i1 noundef zeroext false)
+          to label %174 unwind label %190
 
-178:                                              ; preds = %_ZN6Gluco23vecINS_3LitEE6growToEi.exit
-  %179 = getelementptr inbounds i8, ptr %0, i64 1288
-  store i32 %177, ptr %179, align 8
-  %180 = load ptr, ptr %65, align 8
-  %181 = zext i32 %177 to i64
-  %182 = getelementptr inbounds i32, ptr %180, i64 %181
-  %183 = load i96, ptr %182, align 4
-  %184 = and i96 %183, 8
-  %.not.i27 = icmp eq i96 %184, 0
-  br i1 %.not.i27, label %_ZN6Gluco26Clause6shrinkEi.exit, label %185
+174:                                              ; preds = %_ZN6Gluco23vecINS_3LitEE6growToEi.exit
+  %175 = getelementptr inbounds i8, ptr %0, i64 1288
+  store i32 %173, ptr %175, align 8
+  %176 = load ptr, ptr %65, align 8
+  %177 = zext i32 %173 to i64
+  %178 = getelementptr inbounds i32, ptr %176, i64 %177
+  %179 = load i96, ptr %178, align 4
+  %180 = and i96 %179, 8
+  %.not.i27 = icmp eq i96 %180, 0
+  br i1 %.not.i27, label %_ZN6Gluco26Clause6shrinkEi.exit, label %181
 
-185:                                              ; preds = %178
-  %186 = getelementptr inbounds i8, ptr %182, i64 12
-  %187 = trunc i96 %183 to i64
-  %188 = lshr i64 %187, 32
-  %189 = getelementptr inbounds [0 x %union.anon], ptr %186, i64 0, i64 %188
-  %190 = load i32, ptr %189, align 4
-  store i32 %190, ptr %186, align 4
+181:                                              ; preds = %174
+  %182 = getelementptr inbounds i8, ptr %178, i64 12
+  %183 = trunc i96 %179 to i64
+  %184 = lshr i64 %183, 32
+  %185 = getelementptr inbounds [0 x %union.anon], ptr %182, i64 0, i64 %184
+  %186 = load i32, ptr %185, align 4
+  store i32 %186, ptr %182, align 4
   br label %_ZN6Gluco26Clause6shrinkEi.exit
 
-_ZN6Gluco26Clause6shrinkEi.exit:                  ; preds = %178, %185
-  %191 = and i96 %183, -18446744069414584321
-  store i96 %191, ptr %182, align 4
-  %192 = getelementptr inbounds i8, ptr %0, i64 1376
-  store i32 0, ptr %192, align 8
-  %193 = load ptr, ptr %2, align 8
-  %.not.i.i29 = icmp eq ptr %193, null
+_ZN6Gluco26Clause6shrinkEi.exit:                  ; preds = %174, %181
+  %187 = and i96 %179, -18446744069414584321
+  store i96 %187, ptr %178, align 4
+  %188 = getelementptr inbounds i8, ptr %0, i64 1376
+  store i32 0, ptr %188, align 8
+  %189 = load ptr, ptr %2, align 8
+  %.not.i.i29 = icmp eq ptr %189, null
   br i1 %.not.i.i29, label %_ZN6Gluco23vecINS_3LitEED2Ev.exit, label %.preheader.i.i
 
 .preheader.i.i:                                   ; preds = %_ZN6Gluco26Clause6shrinkEi.exit
-  store i32 0, ptr %166, align 8
-  call void @free(ptr noundef nonnull %193) #32
+  store i32 0, ptr %162, align 8
+  call void @free(ptr noundef nonnull %189) #32
   br label %_ZN6Gluco23vecINS_3LitEED2Ev.exit
 
 _ZN6Gluco23vecINS_3LitEED2Ev.exit:                ; preds = %_ZN6Gluco26Clause6shrinkEi.exit, %.preheader.i.i
   ret void
 
-194:                                              ; preds = %173, %_ZN6Gluco23vecINS_3LitEE6growToEi.exit
-  %195 = landingpad { ptr, i32 }
+190:                                              ; preds = %169, %_ZN6Gluco23vecINS_3LitEE6growToEi.exit
+  %191 = landingpad { ptr, i32 }
           cleanup
-  %196 = load ptr, ptr %2, align 8
-  %.not.i.i30 = icmp eq ptr %196, null
+  %192 = load ptr, ptr %2, align 8
+  %.not.i.i30 = icmp eq ptr %192, null
   br i1 %.not.i.i30, label %_ZN6Gluco23vecINS_3LitEED2Ev.exit32, label %.preheader.i.i31
 
-.preheader.i.i31:                                 ; preds = %194
-  store i32 0, ptr %166, align 8
-  call void @free(ptr noundef nonnull %196) #32
+.preheader.i.i31:                                 ; preds = %190
+  store i32 0, ptr %162, align 8
+  call void @free(ptr noundef nonnull %192) #32
   store ptr null, ptr %2, align 8
-  %197 = getelementptr inbounds i8, ptr %2, i64 12
-  store i32 0, ptr %197, align 4
+  %193 = getelementptr inbounds i8, ptr %2, i64 12
+  store i32 0, ptr %193, align 4
   br label %_ZN6Gluco23vecINS_3LitEED2Ev.exit32
 
-_ZN6Gluco23vecINS_3LitEED2Ev.exit32:              ; preds = %.preheader.i.i31, %194, %156
-  %.pn = phi { ptr, i32 } [ %157, %156 ], [ %195, %194 ], [ %195, %.preheader.i.i31 ]
-  %198 = load ptr, ptr %115, align 8
-  %.not.i.i33 = icmp eq ptr %198, null
+_ZN6Gluco23vecINS_3LitEED2Ev.exit32:              ; preds = %.preheader.i.i31, %190, %154
+  %.pn = phi { ptr, i32 } [ %155, %154 ], [ %191, %190 ], [ %191, %.preheader.i.i31 ]
+  %194 = load ptr, ptr %115, align 8
+  %.not.i.i33 = icmp eq ptr %194, null
   br i1 %.not.i.i33, label %_ZN6Gluco23vecINS_3LitEED2Ev.exit35, label %.preheader.i.i34
 
 .preheader.i.i34:                                 ; preds = %_ZN6Gluco23vecINS_3LitEED2Ev.exit32
-  %199 = getelementptr inbounds i8, ptr %0, i64 1408
-  store i32 0, ptr %199, align 8
-  call void @free(ptr noundef nonnull %198) #32
+  %195 = getelementptr inbounds i8, ptr %0, i64 1408
+  store i32 0, ptr %195, align 8
+  call void @free(ptr noundef nonnull %194) #32
   store ptr null, ptr %115, align 8
-  %200 = getelementptr inbounds i8, ptr %0, i64 1412
-  store i32 0, ptr %200, align 4
+  %196 = getelementptr inbounds i8, ptr %0, i64 1412
+  store i32 0, ptr %196, align 4
   br label %_ZN6Gluco23vecINS_3LitEED2Ev.exit35
 
 _ZN6Gluco23vecINS_3LitEED2Ev.exit35:              ; preds = %_ZN6Gluco23vecINS_3LitEED2Ev.exit32, %.preheader.i.i34
-  %201 = load ptr, ptr %114, align 8
-  %.not.i.i36 = icmp eq ptr %201, null
+  %197 = load ptr, ptr %114, align 8
+  %.not.i.i36 = icmp eq ptr %197, null
   br i1 %.not.i.i36, label %_ZN6Gluco23vecIiED2Ev.exit, label %.preheader.i.i37
 
 .preheader.i.i37:                                 ; preds = %_ZN6Gluco23vecINS_3LitEED2Ev.exit35
-  %202 = getelementptr inbounds i8, ptr %0, i64 1392
-  store i32 0, ptr %202, align 8
-  call void @free(ptr noundef nonnull %201) #32
+  %198 = getelementptr inbounds i8, ptr %0, i64 1392
+  store i32 0, ptr %198, align 8
+  call void @free(ptr noundef nonnull %197) #32
   store ptr null, ptr %114, align 8
-  %203 = getelementptr inbounds i8, ptr %0, i64 1396
-  store i32 0, ptr %203, align 4
+  %199 = getelementptr inbounds i8, ptr %0, i64 1396
+  store i32 0, ptr %199, align 4
   br label %_ZN6Gluco23vecIiED2Ev.exit
 
 _ZN6Gluco23vecIiED2Ev.exit:                       ; preds = %_ZN6Gluco23vecINS_3LitEED2Ev.exit35, %.preheader.i.i37
-  %204 = load ptr, ptr %113, align 8
-  %.not.i.i38 = icmp eq ptr %204, null
+  %200 = load ptr, ptr %113, align 8
+  %.not.i.i38 = icmp eq ptr %200, null
   br i1 %.not.i.i38, label %_ZN6Gluco23vecIiED2Ev.exit40, label %.preheader.i.i39
 
 .preheader.i.i39:                                 ; preds = %_ZN6Gluco23vecIiED2Ev.exit
-  %205 = getelementptr inbounds i8, ptr %0, i64 1368
-  store i32 0, ptr %205, align 8
-  call void @free(ptr noundef nonnull %204) #32
+  %201 = getelementptr inbounds i8, ptr %0, i64 1368
+  store i32 0, ptr %201, align 8
+  call void @free(ptr noundef nonnull %200) #32
   store ptr null, ptr %113, align 8
-  %206 = getelementptr inbounds i8, ptr %0, i64 1372
-  store i32 0, ptr %206, align 4
+  %202 = getelementptr inbounds i8, ptr %0, i64 1372
+  store i32 0, ptr %202, align 4
   br label %_ZN6Gluco23vecIiED2Ev.exit40
 
 _ZN6Gluco23vecIiED2Ev.exit40:                     ; preds = %_ZN6Gluco23vecIiED2Ev.exit, %.preheader.i.i39
-  %207 = load ptr, ptr %112, align 8
-  %.not.i.i41 = icmp eq ptr %207, null
+  %203 = load ptr, ptr %112, align 8
+  %.not.i.i41 = icmp eq ptr %203, null
   br i1 %.not.i.i41, label %_ZN6Gluco23vecIiED2Ev.exit43, label %.preheader.i.i42
 
 .preheader.i.i42:                                 ; preds = %_ZN6Gluco23vecIiED2Ev.exit40
-  %208 = getelementptr inbounds i8, ptr %0, i64 1352
-  store i32 0, ptr %208, align 8
-  call void @free(ptr noundef nonnull %207) #32
+  %204 = getelementptr inbounds i8, ptr %0, i64 1352
+  store i32 0, ptr %204, align 8
+  call void @free(ptr noundef nonnull %203) #32
   store ptr null, ptr %112, align 8
-  %209 = getelementptr inbounds i8, ptr %0, i64 1356
-  store i32 0, ptr %209, align 4
+  %205 = getelementptr inbounds i8, ptr %0, i64 1356
+  store i32 0, ptr %205, align 4
   br label %_ZN6Gluco23vecIiED2Ev.exit43
 
 _ZN6Gluco23vecIiED2Ev.exit43:                     ; preds = %_ZN6Gluco23vecIiED2Ev.exit40, %.preheader.i.i42
   call void @_ZN6Gluco25Heap2INS_6Solver12JustOrderLt2ENS1_7JustKeyEED2Ev(ptr noundef nonnull align 8 dereferenceable(40) %109) #32
-  %210 = load ptr, ptr %108, align 8
-  %.not.i.i44 = icmp eq ptr %210, null
+  %206 = load ptr, ptr %108, align 8
+  %.not.i.i44 = icmp eq ptr %206, null
   br i1 %.not.i.i44, label %_ZN6Gluco23vecINS_3LitEED2Ev.exit46, label %.preheader.i.i45
 
 .preheader.i.i45:                                 ; preds = %_ZN6Gluco23vecIiED2Ev.exit43
-  %211 = getelementptr inbounds i8, ptr %0, i64 1280
-  store i32 0, ptr %211, align 8
-  call void @free(ptr noundef nonnull %210) #32
+  %207 = getelementptr inbounds i8, ptr %0, i64 1280
+  store i32 0, ptr %207, align 8
+  call void @free(ptr noundef nonnull %206) #32
   store ptr null, ptr %108, align 8
-  %212 = getelementptr inbounds i8, ptr %0, i64 1284
-  store i32 0, ptr %212, align 4
+  %208 = getelementptr inbounds i8, ptr %0, i64 1284
+  store i32 0, ptr %208, align 4
   br label %_ZN6Gluco23vecINS_3LitEED2Ev.exit46
 
 _ZN6Gluco23vecINS_3LitEED2Ev.exit46:              ; preds = %_ZN6Gluco23vecIiED2Ev.exit43, %.preheader.i.i45
-  %213 = load ptr, ptr %107, align 8
-  %.not.i.i47 = icmp eq ptr %213, null
+  %209 = load ptr, ptr %107, align 8
+  %.not.i.i47 = icmp eq ptr %209, null
   br i1 %.not.i.i47, label %_ZN6Gluco23vecINS_3LitEED2Ev.exit49, label %.preheader.i.i48
 
 .preheader.i.i48:                                 ; preds = %_ZN6Gluco23vecINS_3LitEED2Ev.exit46
-  %214 = getelementptr inbounds i8, ptr %0, i64 1264
-  store i32 0, ptr %214, align 8
-  call void @free(ptr noundef nonnull %213) #32
+  %210 = getelementptr inbounds i8, ptr %0, i64 1264
+  store i32 0, ptr %210, align 8
+  call void @free(ptr noundef nonnull %209) #32
   store ptr null, ptr %107, align 8
-  %215 = getelementptr inbounds i8, ptr %0, i64 1268
-  store i32 0, ptr %215, align 4
+  %211 = getelementptr inbounds i8, ptr %0, i64 1268
+  store i32 0, ptr %211, align 4
   br label %_ZN6Gluco23vecINS_3LitEED2Ev.exit49
 
 _ZN6Gluco23vecINS_3LitEED2Ev.exit49:              ; preds = %_ZN6Gluco23vecINS_3LitEED2Ev.exit46, %.preheader.i.i48
-  %216 = load ptr, ptr %106, align 8
-  %.not.i.i50 = icmp eq ptr %216, null
+  %212 = load ptr, ptr %106, align 8
+  %.not.i.i50 = icmp eq ptr %212, null
   br i1 %.not.i.i50, label %_ZN6Gluco23vecIjED2Ev.exit, label %.preheader.i.i51
 
 .preheader.i.i51:                                 ; preds = %_ZN6Gluco23vecINS_3LitEED2Ev.exit49
-  %217 = getelementptr inbounds i8, ptr %0, i64 1248
-  store i32 0, ptr %217, align 8
-  call void @free(ptr noundef nonnull %216) #32
+  %213 = getelementptr inbounds i8, ptr %0, i64 1248
+  store i32 0, ptr %213, align 8
+  call void @free(ptr noundef nonnull %212) #32
   store ptr null, ptr %106, align 8
-  %218 = getelementptr inbounds i8, ptr %0, i64 1252
-  store i32 0, ptr %218, align 4
+  %214 = getelementptr inbounds i8, ptr %0, i64 1252
+  store i32 0, ptr %214, align 4
   br label %_ZN6Gluco23vecIjED2Ev.exit
 
 _ZN6Gluco23vecIjED2Ev.exit:                       ; preds = %_ZN6Gluco23vecINS_3LitEED2Ev.exit49, %.preheader.i.i51
-  %219 = load ptr, ptr %105, align 8
-  %.not.i.i52 = icmp eq ptr %219, null
+  %215 = load ptr, ptr %105, align 8
+  %.not.i.i52 = icmp eq ptr %215, null
   br i1 %.not.i.i52, label %_ZN6Gluco23vecINS_6Solver8NodeDataEED2Ev.exit, label %.preheader.i.i53
 
 .preheader.i.i53:                                 ; preds = %_ZN6Gluco23vecIjED2Ev.exit
-  %220 = getelementptr inbounds i8, ptr %0, i64 1232
-  store i32 0, ptr %220, align 8
-  call void @free(ptr noundef nonnull %219) #32
+  %216 = getelementptr inbounds i8, ptr %0, i64 1232
+  store i32 0, ptr %216, align 8
+  call void @free(ptr noundef nonnull %215) #32
   store ptr null, ptr %105, align 8
-  %221 = getelementptr inbounds i8, ptr %0, i64 1236
-  store i32 0, ptr %221, align 4
+  %217 = getelementptr inbounds i8, ptr %0, i64 1236
+  store i32 0, ptr %217, align 4
   br label %_ZN6Gluco23vecINS_6Solver8NodeDataEED2Ev.exit
 
 _ZN6Gluco23vecINS_6Solver8NodeDataEED2Ev.exit:    ; preds = %_ZN6Gluco23vecIjED2Ev.exit, %.preheader.i.i53
-  %222 = load ptr, ptr %104, align 8
-  %.not.i.i54 = icmp eq ptr %222, null
+  %218 = load ptr, ptr %104, align 8
+  %.not.i.i54 = icmp eq ptr %218, null
   br i1 %.not.i.i54, label %_ZN6Gluco23vecIiED2Ev.exit56, label %.preheader.i.i55
 
 .preheader.i.i55:                                 ; preds = %_ZN6Gluco23vecINS_6Solver8NodeDataEED2Ev.exit
-  %223 = getelementptr inbounds i8, ptr %0, i64 1208
-  store i32 0, ptr %223, align 8
-  call void @free(ptr noundef nonnull %222) #32
+  %219 = getelementptr inbounds i8, ptr %0, i64 1208
+  store i32 0, ptr %219, align 8
+  call void @free(ptr noundef nonnull %218) #32
   store ptr null, ptr %104, align 8
-  %224 = getelementptr inbounds i8, ptr %0, i64 1212
-  store i32 0, ptr %224, align 4
+  %220 = getelementptr inbounds i8, ptr %0, i64 1212
+  store i32 0, ptr %220, align 4
   br label %_ZN6Gluco23vecIiED2Ev.exit56
 
 _ZN6Gluco23vecIiED2Ev.exit56:                     ; preds = %_ZN6Gluco23vecINS_6Solver8NodeDataEED2Ev.exit, %.preheader.i.i55
-  %225 = load ptr, ptr %103, align 8
-  %.not.i.i57 = icmp eq ptr %225, null
+  %221 = load ptr, ptr %103, align 8
+  %.not.i.i57 = icmp eq ptr %221, null
   br i1 %.not.i.i57, label %_ZN6Gluco23vecIiED2Ev.exit59, label %.preheader.i.i58
 
 .preheader.i.i58:                                 ; preds = %_ZN6Gluco23vecIiED2Ev.exit56
-  %226 = getelementptr inbounds i8, ptr %0, i64 1192
-  store i32 0, ptr %226, align 8
-  call void @free(ptr noundef nonnull %225) #32
+  %222 = getelementptr inbounds i8, ptr %0, i64 1192
+  store i32 0, ptr %222, align 8
+  call void @free(ptr noundef nonnull %221) #32
   store ptr null, ptr %103, align 8
-  %227 = getelementptr inbounds i8, ptr %0, i64 1196
-  store i32 0, ptr %227, align 4
+  %223 = getelementptr inbounds i8, ptr %0, i64 1196
+  store i32 0, ptr %223, align 4
   br label %_ZN6Gluco23vecIiED2Ev.exit59
 
 _ZN6Gluco23vecIiED2Ev.exit59:                     ; preds = %_ZN6Gluco23vecIiED2Ev.exit56, %.preheader.i.i58
-  %228 = load ptr, ptr %95, align 8
-  %.not.i.i60 = icmp eq ptr %228, null
+  %224 = load ptr, ptr %95, align 8
+  %.not.i.i60 = icmp eq ptr %224, null
   br i1 %.not.i.i60, label %_ZN6Gluco23vecINS_3LitEED2Ev.exit62, label %.preheader.i.i61
 
 .preheader.i.i61:                                 ; preds = %_ZN6Gluco23vecIiED2Ev.exit59
-  %229 = getelementptr inbounds i8, ptr %0, i64 1088
-  store i32 0, ptr %229, align 8
-  call void @free(ptr noundef nonnull %228) #32
+  %225 = getelementptr inbounds i8, ptr %0, i64 1088
+  store i32 0, ptr %225, align 8
+  call void @free(ptr noundef nonnull %224) #32
   store ptr null, ptr %95, align 8
-  %230 = getelementptr inbounds i8, ptr %0, i64 1092
-  store i32 0, ptr %230, align 4
+  %226 = getelementptr inbounds i8, ptr %0, i64 1092
+  store i32 0, ptr %226, align 4
   br label %_ZN6Gluco23vecINS_3LitEED2Ev.exit62
 
 _ZN6Gluco23vecINS_3LitEED2Ev.exit62:              ; preds = %_ZN6Gluco23vecIiED2Ev.exit59, %.preheader.i.i61
-  %231 = load ptr, ptr %94, align 8
-  %.not.i.i63 = icmp eq ptr %231, null
+  %227 = load ptr, ptr %94, align 8
+  %.not.i.i63 = icmp eq ptr %227, null
   br i1 %.not.i.i63, label %_ZN6Gluco23vecINS_3LitEED2Ev.exit65, label %.preheader.i.i64
 
 .preheader.i.i64:                                 ; preds = %_ZN6Gluco23vecINS_3LitEED2Ev.exit62
-  %232 = getelementptr inbounds i8, ptr %0, i64 1072
-  store i32 0, ptr %232, align 8
-  call void @free(ptr noundef nonnull %231) #32
+  %228 = getelementptr inbounds i8, ptr %0, i64 1072
+  store i32 0, ptr %228, align 8
+  call void @free(ptr noundef nonnull %227) #32
   store ptr null, ptr %94, align 8
-  %233 = getelementptr inbounds i8, ptr %0, i64 1076
-  store i32 0, ptr %233, align 4
+  %229 = getelementptr inbounds i8, ptr %0, i64 1076
+  store i32 0, ptr %229, align 4
   br label %_ZN6Gluco23vecINS_3LitEED2Ev.exit65
 
 _ZN6Gluco23vecINS_3LitEED2Ev.exit65:              ; preds = %_ZN6Gluco23vecINS_3LitEED2Ev.exit62, %.preheader.i.i64
-  %234 = load ptr, ptr %93, align 8
-  %.not.i.i66 = icmp eq ptr %234, null
+  %230 = load ptr, ptr %93, align 8
+  %.not.i.i66 = icmp eq ptr %230, null
   br i1 %.not.i.i66, label %_ZN6Gluco23vecINS_3LitEED2Ev.exit68, label %.preheader.i.i67
 
 .preheader.i.i67:                                 ; preds = %_ZN6Gluco23vecINS_3LitEED2Ev.exit65
-  %235 = getelementptr inbounds i8, ptr %0, i64 1056
-  store i32 0, ptr %235, align 8
-  call void @free(ptr noundef nonnull %234) #32
+  %231 = getelementptr inbounds i8, ptr %0, i64 1056
+  store i32 0, ptr %231, align 8
+  call void @free(ptr noundef nonnull %230) #32
   store ptr null, ptr %93, align 8
-  %236 = getelementptr inbounds i8, ptr %0, i64 1060
-  store i32 0, ptr %236, align 4
+  %232 = getelementptr inbounds i8, ptr %0, i64 1060
+  store i32 0, ptr %232, align 4
   br label %_ZN6Gluco23vecINS_3LitEED2Ev.exit68
 
 _ZN6Gluco23vecINS_3LitEED2Ev.exit68:              ; preds = %_ZN6Gluco23vecINS_3LitEED2Ev.exit65, %.preheader.i.i67
-  %237 = load ptr, ptr %92, align 8
-  %.not.i.i69 = icmp eq ptr %237, null
+  %233 = load ptr, ptr %92, align 8
+  %.not.i.i69 = icmp eq ptr %233, null
   br i1 %.not.i.i69, label %_ZN6Gluco23vecIcED2Ev.exit, label %.preheader.i.i70
 
 .preheader.i.i70:                                 ; preds = %_ZN6Gluco23vecINS_3LitEED2Ev.exit68
-  %238 = getelementptr inbounds i8, ptr %0, i64 1040
-  store i32 0, ptr %238, align 8
-  call void @free(ptr noundef nonnull %237) #32
+  %234 = getelementptr inbounds i8, ptr %0, i64 1040
+  store i32 0, ptr %234, align 8
+  call void @free(ptr noundef nonnull %233) #32
   store ptr null, ptr %92, align 8
-  %239 = getelementptr inbounds i8, ptr %0, i64 1044
-  store i32 0, ptr %239, align 4
+  %235 = getelementptr inbounds i8, ptr %0, i64 1044
+  store i32 0, ptr %235, align 4
   br label %_ZN6Gluco23vecIcED2Ev.exit
 
 _ZN6Gluco23vecIcED2Ev.exit:                       ; preds = %_ZN6Gluco23vecINS_3LitEED2Ev.exit68, %.preheader.i.i70
-  %240 = load ptr, ptr %91, align 8
-  %.not.i.i.i = icmp eq ptr %240, null
+  %236 = load ptr, ptr %91, align 8
+  %.not.i.i.i = icmp eq ptr %236, null
   br i1 %.not.i.i.i, label %_ZN6Gluco26bqueueIjED2Ev.exit, label %.preheader.i.i.i
 
 .preheader.i.i.i:                                 ; preds = %_ZN6Gluco23vecIcED2Ev.exit
-  %241 = getelementptr inbounds i8, ptr %0, i64 968
-  store i32 0, ptr %241, align 8
-  call void @free(ptr noundef nonnull %240) #32
+  %237 = getelementptr inbounds i8, ptr %0, i64 968
+  store i32 0, ptr %237, align 8
+  call void @free(ptr noundef nonnull %236) #32
   store ptr null, ptr %91, align 8
-  %242 = getelementptr inbounds i8, ptr %0, i64 972
-  store i32 0, ptr %242, align 4
+  %238 = getelementptr inbounds i8, ptr %0, i64 972
+  store i32 0, ptr %238, align 4
   br label %_ZN6Gluco26bqueueIjED2Ev.exit
 
 _ZN6Gluco26bqueueIjED2Ev.exit:                    ; preds = %.preheader.i.i.i, %_ZN6Gluco23vecIcED2Ev.exit
-  %243 = load ptr, ptr %90, align 8
-  %.not.i.i.i71 = icmp eq ptr %243, null
+  %239 = load ptr, ptr %90, align 8
+  %.not.i.i.i71 = icmp eq ptr %239, null
   br i1 %.not.i.i.i71, label %_ZN6Gluco26bqueueIjED2Ev.exit73, label %.preheader.i.i.i72
 
 .preheader.i.i.i72:                               ; preds = %_ZN6Gluco26bqueueIjED2Ev.exit
-  %244 = getelementptr inbounds i8, ptr %0, i64 904
-  store i32 0, ptr %244, align 8
-  call void @free(ptr noundef nonnull %243) #32
+  %240 = getelementptr inbounds i8, ptr %0, i64 904
+  store i32 0, ptr %240, align 8
+  call void @free(ptr noundef nonnull %239) #32
   store ptr null, ptr %90, align 8
-  %245 = getelementptr inbounds i8, ptr %0, i64 908
-  store i32 0, ptr %245, align 4
+  %241 = getelementptr inbounds i8, ptr %0, i64 908
+  store i32 0, ptr %241, align 4
   br label %_ZN6Gluco26bqueueIjED2Ev.exit73
 
 _ZN6Gluco26bqueueIjED2Ev.exit73:                  ; preds = %.preheader.i.i.i72, %_ZN6Gluco26bqueueIjED2Ev.exit
-  %246 = load ptr, ptr %65, align 8
-  %.not.i.i74 = icmp eq ptr %246, null
-  br i1 %.not.i.i74, label %_ZN6Gluco215ClauseAllocatorD2Ev.exit, label %247
+  %242 = load ptr, ptr %65, align 8
+  %.not.i.i74 = icmp eq ptr %242, null
+  br i1 %.not.i.i74, label %_ZN6Gluco215ClauseAllocatorD2Ev.exit, label %243
 
-247:                                              ; preds = %_ZN6Gluco26bqueueIjED2Ev.exit73
-  call void @free(ptr noundef nonnull %246) #32
+243:                                              ; preds = %_ZN6Gluco26bqueueIjED2Ev.exit73
+  call void @free(ptr noundef nonnull %242) #32
   br label %_ZN6Gluco215ClauseAllocatorD2Ev.exit
 
-_ZN6Gluco215ClauseAllocatorD2Ev.exit:             ; preds = %247, %_ZN6Gluco26bqueueIjED2Ev.exit73, %154
-  %.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %155, %154 ], [ %.pn, %_ZN6Gluco26bqueueIjED2Ev.exit73 ], [ %.pn, %247 ]
-  %248 = load ptr, ptr %87, align 8
-  %.not.i.i75 = icmp eq ptr %248, null
+_ZN6Gluco215ClauseAllocatorD2Ev.exit:             ; preds = %243, %_ZN6Gluco26bqueueIjED2Ev.exit73, %152
+  %.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %153, %152 ], [ %.pn, %_ZN6Gluco26bqueueIjED2Ev.exit73 ], [ %.pn, %243 ]
+  %244 = load ptr, ptr %87, align 8
+  %.not.i.i75 = icmp eq ptr %244, null
   br i1 %.not.i.i75, label %_ZN6Gluco23vecINS_3LitEED2Ev.exit77, label %.preheader.i.i76
 
 .preheader.i.i76:                                 ; preds = %_ZN6Gluco215ClauseAllocatorD2Ev.exit
-  %249 = getelementptr inbounds i8, ptr %0, i64 856
-  store i32 0, ptr %249, align 8
-  call void @free(ptr noundef nonnull %248) #32
+  %245 = getelementptr inbounds i8, ptr %0, i64 856
+  store i32 0, ptr %245, align 8
+  call void @free(ptr noundef nonnull %244) #32
   store ptr null, ptr %87, align 8
-  %250 = getelementptr inbounds i8, ptr %0, i64 860
-  store i32 0, ptr %250, align 4
+  %246 = getelementptr inbounds i8, ptr %0, i64 860
+  store i32 0, ptr %246, align 4
   br label %_ZN6Gluco23vecINS_3LitEED2Ev.exit77
 
 _ZN6Gluco23vecINS_3LitEED2Ev.exit77:              ; preds = %_ZN6Gluco215ClauseAllocatorD2Ev.exit, %.preheader.i.i76
-  %251 = load ptr, ptr %86, align 8
-  %.not.i.i78 = icmp eq ptr %251, null
+  %247 = load ptr, ptr %86, align 8
+  %.not.i.i78 = icmp eq ptr %247, null
   br i1 %.not.i.i78, label %_ZN6Gluco23vecIjED2Ev.exit80, label %.preheader.i.i79
 
 .preheader.i.i79:                                 ; preds = %_ZN6Gluco23vecINS_3LitEED2Ev.exit77
-  %252 = getelementptr inbounds i8, ptr %0, i64 840
-  store i32 0, ptr %252, align 8
-  call void @free(ptr noundef nonnull %251) #32
+  %248 = getelementptr inbounds i8, ptr %0, i64 840
+  store i32 0, ptr %248, align 8
+  call void @free(ptr noundef nonnull %247) #32
   store ptr null, ptr %86, align 8
-  %253 = getelementptr inbounds i8, ptr %0, i64 844
-  store i32 0, ptr %253, align 4
+  %249 = getelementptr inbounds i8, ptr %0, i64 844
+  store i32 0, ptr %249, align 4
   br label %_ZN6Gluco23vecIjED2Ev.exit80
 
 _ZN6Gluco23vecIjED2Ev.exit80:                     ; preds = %_ZN6Gluco23vecINS_3LitEED2Ev.exit77, %.preheader.i.i79
   call void @_ZN6Gluco24HeapINS_6Solver10VarOrderLtEED2Ev(ptr noundef nonnull align 8 dereferenceable(40) %82) #32
-  %254 = load ptr, ptr %81, align 8
-  %.not.i.i81 = icmp eq ptr %254, null
+  %250 = load ptr, ptr %81, align 8
+  %.not.i.i81 = icmp eq ptr %250, null
   br i1 %.not.i.i81, label %_ZN6Gluco23vecINS_3LitEED2Ev.exit83, label %.preheader.i.i82
 
 .preheader.i.i82:                                 ; preds = %_ZN6Gluco23vecIjED2Ev.exit80
-  %255 = getelementptr inbounds i8, ptr %0, i64 768
-  store i32 0, ptr %255, align 8
-  call void @free(ptr noundef nonnull %254) #32
+  %251 = getelementptr inbounds i8, ptr %0, i64 768
+  store i32 0, ptr %251, align 8
+  call void @free(ptr noundef nonnull %250) #32
   store ptr null, ptr %81, align 8
-  %256 = getelementptr inbounds i8, ptr %0, i64 772
-  store i32 0, ptr %256, align 4
+  %252 = getelementptr inbounds i8, ptr %0, i64 772
+  store i32 0, ptr %252, align 4
   br label %_ZN6Gluco23vecINS_3LitEED2Ev.exit83
 
 _ZN6Gluco23vecINS_3LitEED2Ev.exit83:              ; preds = %_ZN6Gluco23vecIjED2Ev.exit80, %.preheader.i.i82
-  %257 = load ptr, ptr %78, align 8
-  %.not.i.i84 = icmp eq ptr %257, null
+  %253 = load ptr, ptr %78, align 8
+  %.not.i.i84 = icmp eq ptr %253, null
   br i1 %.not.i.i84, label %_ZN6Gluco23vecINS_6Solver7VarDataEED2Ev.exit, label %.preheader.i.i85
 
 .preheader.i.i85:                                 ; preds = %_ZN6Gluco23vecINS_3LitEED2Ev.exit83
-  %258 = getelementptr inbounds i8, ptr %0, i64 736
-  store i32 0, ptr %258, align 8
-  call void @free(ptr noundef nonnull %257) #32
+  %254 = getelementptr inbounds i8, ptr %0, i64 736
+  store i32 0, ptr %254, align 8
+  call void @free(ptr noundef nonnull %253) #32
   store ptr null, ptr %78, align 8
-  %259 = getelementptr inbounds i8, ptr %0, i64 740
-  store i32 0, ptr %259, align 4
+  %255 = getelementptr inbounds i8, ptr %0, i64 740
+  store i32 0, ptr %255, align 4
   br label %_ZN6Gluco23vecINS_6Solver7VarDataEED2Ev.exit
 
 _ZN6Gluco23vecINS_6Solver7VarDataEED2Ev.exit:     ; preds = %_ZN6Gluco23vecINS_3LitEED2Ev.exit83, %.preheader.i.i85
-  %260 = load ptr, ptr %77, align 8
-  %.not.i.i86 = icmp eq ptr %260, null
+  %256 = load ptr, ptr %77, align 8
+  %.not.i.i86 = icmp eq ptr %256, null
   br i1 %.not.i.i86, label %_ZN6Gluco23vecIiED2Ev.exit88, label %.preheader.i.i87
 
 .preheader.i.i87:                                 ; preds = %_ZN6Gluco23vecINS_6Solver7VarDataEED2Ev.exit
-  %261 = getelementptr inbounds i8, ptr %0, i64 720
-  store i32 0, ptr %261, align 8
-  call void @free(ptr noundef nonnull %260) #32
+  %257 = getelementptr inbounds i8, ptr %0, i64 720
+  store i32 0, ptr %257, align 8
+  call void @free(ptr noundef nonnull %256) #32
   store ptr null, ptr %77, align 8
-  %262 = getelementptr inbounds i8, ptr %0, i64 724
-  store i32 0, ptr %262, align 4
+  %258 = getelementptr inbounds i8, ptr %0, i64 724
+  store i32 0, ptr %258, align 4
   br label %_ZN6Gluco23vecIiED2Ev.exit88
 
 _ZN6Gluco23vecIiED2Ev.exit88:                     ; preds = %_ZN6Gluco23vecINS_6Solver7VarDataEED2Ev.exit, %.preheader.i.i87
-  %263 = load ptr, ptr %76, align 8
-  %.not.i.i89 = icmp eq ptr %263, null
+  %259 = load ptr, ptr %76, align 8
+  %.not.i.i89 = icmp eq ptr %259, null
   br i1 %.not.i.i89, label %_ZN6Gluco23vecIiED2Ev.exit91, label %.preheader.i.i90
 
 .preheader.i.i90:                                 ; preds = %_ZN6Gluco23vecIiED2Ev.exit88
-  %264 = getelementptr inbounds i8, ptr %0, i64 704
-  store i32 0, ptr %264, align 8
-  call void @free(ptr noundef nonnull %263) #32
+  %260 = getelementptr inbounds i8, ptr %0, i64 704
+  store i32 0, ptr %260, align 8
+  call void @free(ptr noundef nonnull %259) #32
   store ptr null, ptr %76, align 8
-  %265 = getelementptr inbounds i8, ptr %0, i64 708
-  store i32 0, ptr %265, align 4
+  %261 = getelementptr inbounds i8, ptr %0, i64 708
+  store i32 0, ptr %261, align 4
   br label %_ZN6Gluco23vecIiED2Ev.exit91
 
 _ZN6Gluco23vecIiED2Ev.exit91:                     ; preds = %_ZN6Gluco23vecIiED2Ev.exit88, %.preheader.i.i90
-  %266 = load ptr, ptr %75, align 8
-  %.not.i.i92 = icmp eq ptr %266, null
+  %262 = load ptr, ptr %75, align 8
+  %.not.i.i92 = icmp eq ptr %262, null
   br i1 %.not.i.i92, label %_ZN6Gluco23vecINS_3LitEED2Ev.exit94, label %.preheader.i.i93
 
 .preheader.i.i93:                                 ; preds = %_ZN6Gluco23vecIiED2Ev.exit91
-  %267 = getelementptr inbounds i8, ptr %0, i64 688
-  store i32 0, ptr %267, align 8
-  call void @free(ptr noundef nonnull %266) #32
+  %263 = getelementptr inbounds i8, ptr %0, i64 688
+  store i32 0, ptr %263, align 8
+  call void @free(ptr noundef nonnull %262) #32
   store ptr null, ptr %75, align 8
-  %268 = getelementptr inbounds i8, ptr %0, i64 692
-  store i32 0, ptr %268, align 4
+  %264 = getelementptr inbounds i8, ptr %0, i64 692
+  store i32 0, ptr %264, align 4
   br label %_ZN6Gluco23vecINS_3LitEED2Ev.exit94
 
 _ZN6Gluco23vecINS_3LitEED2Ev.exit94:              ; preds = %_ZN6Gluco23vecIiED2Ev.exit91, %.preheader.i.i93
-  %269 = load ptr, ptr %74, align 8
-  %.not.i.i95 = icmp eq ptr %269, null
+  %265 = load ptr, ptr %74, align 8
+  %.not.i.i95 = icmp eq ptr %265, null
   br i1 %.not.i.i95, label %_ZN6Gluco23vecIcED2Ev.exit97, label %.preheader.i.i96
 
 .preheader.i.i96:                                 ; preds = %_ZN6Gluco23vecINS_3LitEED2Ev.exit94
-  %270 = getelementptr inbounds i8, ptr %0, i64 672
-  store i32 0, ptr %270, align 8
-  call void @free(ptr noundef nonnull %269) #32
+  %266 = getelementptr inbounds i8, ptr %0, i64 672
+  store i32 0, ptr %266, align 8
+  call void @free(ptr noundef nonnull %265) #32
   store ptr null, ptr %74, align 8
-  %271 = getelementptr inbounds i8, ptr %0, i64 676
-  store i32 0, ptr %271, align 4
+  %267 = getelementptr inbounds i8, ptr %0, i64 676
+  store i32 0, ptr %267, align 4
   br label %_ZN6Gluco23vecIcED2Ev.exit97
 
 _ZN6Gluco23vecIcED2Ev.exit97:                     ; preds = %_ZN6Gluco23vecINS_3LitEED2Ev.exit94, %.preheader.i.i96
-  %272 = load ptr, ptr %73, align 8
-  %.not.i.i98 = icmp eq ptr %272, null
+  %268 = load ptr, ptr %73, align 8
+  %.not.i.i98 = icmp eq ptr %268, null
   br i1 %.not.i.i98, label %_ZN6Gluco23vecIcED2Ev.exit100, label %.preheader.i.i99
 
 .preheader.i.i99:                                 ; preds = %_ZN6Gluco23vecIcED2Ev.exit97
-  %273 = getelementptr inbounds i8, ptr %0, i64 656
-  store i32 0, ptr %273, align 8
-  call void @free(ptr noundef nonnull %272) #32
+  %269 = getelementptr inbounds i8, ptr %0, i64 656
+  store i32 0, ptr %269, align 8
+  call void @free(ptr noundef nonnull %268) #32
   store ptr null, ptr %73, align 8
-  %274 = getelementptr inbounds i8, ptr %0, i64 660
-  store i32 0, ptr %274, align 4
+  %270 = getelementptr inbounds i8, ptr %0, i64 660
+  store i32 0, ptr %270, align 4
   br label %_ZN6Gluco23vecIcED2Ev.exit100
 
 _ZN6Gluco23vecIcED2Ev.exit100:                    ; preds = %_ZN6Gluco23vecIcED2Ev.exit97, %.preheader.i.i99
-  %275 = load ptr, ptr %72, align 8
-  %.not.i.i101 = icmp eq ptr %275, null
+  %271 = load ptr, ptr %72, align 8
+  %.not.i.i101 = icmp eq ptr %271, null
   br i1 %.not.i.i101, label %_ZN6Gluco23vecINS_5lboolEED2Ev.exit, label %.preheader.i.i102
 
 .preheader.i.i102:                                ; preds = %_ZN6Gluco23vecIcED2Ev.exit100
-  %276 = getelementptr inbounds i8, ptr %0, i64 640
-  store i32 0, ptr %276, align 8
-  call void @free(ptr noundef nonnull %275) #32
+  %272 = getelementptr inbounds i8, ptr %0, i64 640
+  store i32 0, ptr %272, align 8
+  call void @free(ptr noundef nonnull %271) #32
   store ptr null, ptr %72, align 8
-  %277 = getelementptr inbounds i8, ptr %0, i64 644
-  store i32 0, ptr %277, align 4
+  %273 = getelementptr inbounds i8, ptr %0, i64 644
+  store i32 0, ptr %273, align 4
   br label %_ZN6Gluco23vecINS_5lboolEED2Ev.exit
 
 _ZN6Gluco23vecINS_5lboolEED2Ev.exit:              ; preds = %_ZN6Gluco23vecIcED2Ev.exit100, %.preheader.i.i102
-  %278 = load ptr, ptr %71, align 8
-  %.not.i.i103 = icmp eq ptr %278, null
+  %274 = load ptr, ptr %71, align 8
+  %.not.i.i103 = icmp eq ptr %274, null
   br i1 %.not.i.i103, label %_ZN6Gluco23vecIjED2Ev.exit105, label %.preheader.i.i104
 
 .preheader.i.i104:                                ; preds = %_ZN6Gluco23vecINS_5lboolEED2Ev.exit
-  %279 = getelementptr inbounds i8, ptr %0, i64 624
-  store i32 0, ptr %279, align 8
-  call void @free(ptr noundef nonnull %278) #32
+  %275 = getelementptr inbounds i8, ptr %0, i64 624
+  store i32 0, ptr %275, align 8
+  call void @free(ptr noundef nonnull %274) #32
   store ptr null, ptr %71, align 8
-  %280 = getelementptr inbounds i8, ptr %0, i64 628
-  store i32 0, ptr %280, align 4
+  %276 = getelementptr inbounds i8, ptr %0, i64 628
+  store i32 0, ptr %276, align 4
   br label %_ZN6Gluco23vecIjED2Ev.exit105
 
 _ZN6Gluco23vecIjED2Ev.exit105:                    ; preds = %_ZN6Gluco23vecINS_5lboolEED2Ev.exit, %.preheader.i.i104
-  %281 = load ptr, ptr %70, align 8
-  %.not.i.i106 = icmp eq ptr %281, null
+  %277 = load ptr, ptr %70, align 8
+  %.not.i.i106 = icmp eq ptr %277, null
   br i1 %.not.i.i106, label %_ZN6Gluco23vecIjED2Ev.exit108, label %.preheader.i.i107
 
 .preheader.i.i107:                                ; preds = %_ZN6Gluco23vecIjED2Ev.exit105
-  %282 = getelementptr inbounds i8, ptr %0, i64 608
-  store i32 0, ptr %282, align 8
-  call void @free(ptr noundef nonnull %281) #32
+  %278 = getelementptr inbounds i8, ptr %0, i64 608
+  store i32 0, ptr %278, align 8
+  call void @free(ptr noundef nonnull %277) #32
   store ptr null, ptr %70, align 8
-  %283 = getelementptr inbounds i8, ptr %0, i64 612
-  store i32 0, ptr %283, align 4
+  %279 = getelementptr inbounds i8, ptr %0, i64 612
+  store i32 0, ptr %279, align 4
   br label %_ZN6Gluco23vecIjED2Ev.exit108
 
 _ZN6Gluco23vecIjED2Ev.exit108:                    ; preds = %_ZN6Gluco23vecIjED2Ev.exit105, %.preheader.i.i107
   call void @_ZN6Gluco28OccListsINS_3LitENS_3vecINS_6Solver7WatcherEEENS3_14WatcherDeletedEED2Ev(ptr noundef nonnull align 8 dereferenceable(56) %68) #32
   call void @_ZN6Gluco28OccListsINS_3LitENS_3vecINS_6Solver7WatcherEEENS3_14WatcherDeletedEED2Ev(ptr noundef nonnull align 8 dereferenceable(56) %64) #32
-  %284 = load ptr, ptr %62, align 8
-  %.not.i.i109 = icmp eq ptr %284, null
+  %280 = load ptr, ptr %62, align 8
+  %.not.i.i109 = icmp eq ptr %280, null
   br i1 %.not.i.i109, label %_ZN6Gluco23vecIdED2Ev.exit, label %.preheader.i.i110
 
 .preheader.i.i110:                                ; preds = %_ZN6Gluco23vecIjED2Ev.exit108
-  %285 = getelementptr inbounds i8, ptr %0, i64 472
-  store i32 0, ptr %285, align 8
-  call void @free(ptr noundef nonnull %284) #32
+  %281 = getelementptr inbounds i8, ptr %0, i64 472
+  store i32 0, ptr %281, align 8
+  call void @free(ptr noundef nonnull %280) #32
   store ptr null, ptr %62, align 8
-  %286 = getelementptr inbounds i8, ptr %0, i64 476
-  store i32 0, ptr %286, align 4
+  %282 = getelementptr inbounds i8, ptr %0, i64 476
+  store i32 0, ptr %282, align 4
   br label %_ZN6Gluco23vecIdED2Ev.exit
 
 _ZN6Gluco23vecIdED2Ev.exit:                       ; preds = %_ZN6Gluco23vecIjED2Ev.exit108, %.preheader.i.i110
-  %287 = load ptr, ptr %11, align 8
-  %.not.i.i111 = icmp eq ptr %287, null
+  %283 = load ptr, ptr %11, align 8
+  %.not.i.i111 = icmp eq ptr %283, null
   br i1 %.not.i.i111, label %_ZN6Gluco23vecINS_3LitEED2Ev.exit113, label %.preheader.i.i112
 
 .preheader.i.i112:                                ; preds = %_ZN6Gluco23vecIdED2Ev.exit
-  %288 = getelementptr inbounds i8, ptr %0, i64 120
-  store i32 0, ptr %288, align 8
-  call void @free(ptr noundef nonnull %287) #32
+  %284 = getelementptr inbounds i8, ptr %0, i64 120
+  store i32 0, ptr %284, align 8
+  call void @free(ptr noundef nonnull %283) #32
   store ptr null, ptr %11, align 8
-  %289 = getelementptr inbounds i8, ptr %0, i64 124
-  store i32 0, ptr %289, align 4
+  %285 = getelementptr inbounds i8, ptr %0, i64 124
+  store i32 0, ptr %285, align 4
   br label %_ZN6Gluco23vecINS_3LitEED2Ev.exit113
 
 _ZN6Gluco23vecINS_3LitEED2Ev.exit113:             ; preds = %_ZN6Gluco23vecIdED2Ev.exit, %.preheader.i.i112
-  %290 = load ptr, ptr %10, align 8
-  %.not.i.i114 = icmp eq ptr %290, null
+  %286 = load ptr, ptr %10, align 8
+  %.not.i.i114 = icmp eq ptr %286, null
   br i1 %.not.i.i114, label %_ZN6Gluco23vecINS_5lboolEED2Ev.exit116, label %.preheader.i.i115
 
 .preheader.i.i115:                                ; preds = %_ZN6Gluco23vecINS_3LitEED2Ev.exit113
-  %291 = getelementptr inbounds i8, ptr %0, i64 104
-  store i32 0, ptr %291, align 8
-  call void @free(ptr noundef nonnull %290) #32
+  %287 = getelementptr inbounds i8, ptr %0, i64 104
+  store i32 0, ptr %287, align 8
+  call void @free(ptr noundef nonnull %286) #32
   store ptr null, ptr %10, align 8
-  %292 = getelementptr inbounds i8, ptr %0, i64 108
-  store i32 0, ptr %292, align 4
+  %288 = getelementptr inbounds i8, ptr %0, i64 108
+  store i32 0, ptr %288, align 4
   br label %_ZN6Gluco23vecINS_5lboolEED2Ev.exit116
 
 _ZN6Gluco23vecINS_5lboolEED2Ev.exit116:           ; preds = %_ZN6Gluco23vecINS_3LitEED2Ev.exit113, %.preheader.i.i115
-  %293 = load ptr, ptr %9, align 8
-  %.not.i.i117 = icmp eq ptr %293, null
+  %289 = load ptr, ptr %9, align 8
+  %.not.i.i117 = icmp eq ptr %289, null
   br i1 %.not.i.i117, label %_ZN6Gluco23vecINS_3LitEED2Ev.exit119, label %.preheader.i.i118
 
 .preheader.i.i118:                                ; preds = %_ZN6Gluco23vecINS_5lboolEED2Ev.exit116
-  %294 = getelementptr inbounds i8, ptr %0, i64 80
-  store i32 0, ptr %294, align 8
-  call void @free(ptr noundef nonnull %293) #32
+  %290 = getelementptr inbounds i8, ptr %0, i64 80
+  store i32 0, ptr %290, align 8
+  call void @free(ptr noundef nonnull %289) #32
   store ptr null, ptr %9, align 8
-  %295 = getelementptr inbounds i8, ptr %0, i64 84
-  store i32 0, ptr %295, align 4
+  %291 = getelementptr inbounds i8, ptr %0, i64 84
+  store i32 0, ptr %291, align 4
   br label %_ZN6Gluco23vecINS_3LitEED2Ev.exit119
 
 _ZN6Gluco23vecINS_3LitEED2Ev.exit119:             ; preds = %_ZN6Gluco23vecINS_5lboolEED2Ev.exit116, %.preheader.i.i118
-  %296 = load ptr, ptr %8, align 8
-  %.not.i.i120 = icmp eq ptr %296, null
+  %292 = load ptr, ptr %8, align 8
+  %.not.i.i120 = icmp eq ptr %292, null
   br i1 %.not.i.i120, label %_ZN6Gluco23vecIiED2Ev.exit122, label %.preheader.i.i121
 
 .preheader.i.i121:                                ; preds = %_ZN6Gluco23vecINS_3LitEED2Ev.exit119
-  %297 = getelementptr inbounds i8, ptr %0, i64 64
-  store i32 0, ptr %297, align 8
-  call void @free(ptr noundef nonnull %296) #32
+  %293 = getelementptr inbounds i8, ptr %0, i64 64
+  store i32 0, ptr %293, align 8
+  call void @free(ptr noundef nonnull %292) #32
   store ptr null, ptr %8, align 8
-  %298 = getelementptr inbounds i8, ptr %0, i64 68
-  store i32 0, ptr %298, align 4
+  %294 = getelementptr inbounds i8, ptr %0, i64 68
+  store i32 0, ptr %294, align 4
   br label %_ZN6Gluco23vecIiED2Ev.exit122
 
 _ZN6Gluco23vecIiED2Ev.exit122:                    ; preds = %_ZN6Gluco23vecINS_3LitEED2Ev.exit119, %.preheader.i.i121

@@ -7766,22 +7766,22 @@ _ZSt4moveIPN4llvm3BTF11BPFLineInfoES3_ET0_T_S5_S4_.exit.i28.i56: ; preds = %133,
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal fastcc void @"_ZSt16__merge_adaptiveIPN4llvm3BTF11BPFLineInfoElS3_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_9BTFParser13parseLineInfoERNS7_12ParseContextERNS0_13DataExtractorEmmE3$_0EEEvT_SE_SE_T0_SF_T1_SF_T2_"(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, i64 noundef %4, ptr noundef %5, i64 noundef %6) unnamed_addr #0 {
-  %.not120 = icmp sgt i64 %3, %4
-  %.not70121 = icmp sgt i64 %3, %6
-  %or.cond122 = or i1 %.not70121, %.not120
-  br i1 %or.cond122, label %.lr.ph, label %tailrecurse._crit_edge
+  %.not119 = icmp sgt i64 %3, %4
+  %.not70120 = icmp sgt i64 %3, %6
+  %or.cond121 = or i1 %.not70120, %.not119
+  br i1 %or.cond121, label %.lr.ph, label %tailrecurse._crit_edge
 
 .lr.ph:                                           ; preds = %7
   %8 = ptrtoint ptr %2 to i64
   br label %30
 
 tailrecurse._crit_edge:                           ; preds = %_ZSt17__rotate_adaptiveIPN4llvm3BTF11BPFLineInfoES3_lET_S4_S4_S4_T1_S5_T0_S5_.exit, %7
-  %.tr.lcssa = phi ptr [ %0, %7 ], [ %.0.i95, %_ZSt17__rotate_adaptiveIPN4llvm3BTF11BPFLineInfoES3_lET_S4_S4_S4_T1_S5_T0_S5_.exit ]
-  %.tr109.lcssa = phi ptr [ %1, %7 ], [ %.0105, %_ZSt17__rotate_adaptiveIPN4llvm3BTF11BPFLineInfoES3_lET_S4_S4_S4_T1_S5_T0_S5_.exit ]
-  %9 = ptrtoint ptr %.tr109.lcssa to i64
+  %.tr.lcssa = phi ptr [ %0, %7 ], [ %.0.i94, %_ZSt17__rotate_adaptiveIPN4llvm3BTF11BPFLineInfoES3_lET_S4_S4_S4_T1_S5_T0_S5_.exit ]
+  %.tr108.lcssa = phi ptr [ %1, %7 ], [ %.0104, %_ZSt17__rotate_adaptiveIPN4llvm3BTF11BPFLineInfoES3_lET_S4_S4_S4_T1_S5_T0_S5_.exit ]
+  %9 = ptrtoint ptr %.tr108.lcssa to i64
   %10 = ptrtoint ptr %.tr.lcssa to i64
   %11 = sub i64 %9, %10
-  %.not.i.i.i.i.i = icmp eq ptr %.tr109.lcssa, %.tr.lcssa
+  %.not.i.i.i.i.i = icmp eq ptr %.tr108.lcssa, %.tr.lcssa
   br i1 %.not.i.i.i.i.i, label %_ZSt4moveIPN4llvm3BTF11BPFLineInfoES3_ET0_T_S5_S4_.exit, label %12
 
 12:                                               ; preds = %tailrecurse._crit_edge
@@ -7790,15 +7790,15 @@ tailrecurse._crit_edge:                           ; preds = %_ZSt17__rotate_adap
 
 _ZSt4moveIPN4llvm3BTF11BPFLineInfoES3_ET0_T_S5_S4_.exit: ; preds = %tailrecurse._crit_edge, %12
   %13 = getelementptr inbounds i8, ptr %5, i64 %11
-  %14 = icmp ne ptr %.tr109.lcssa, %.tr.lcssa
-  %15 = icmp ne ptr %.tr109.lcssa, %2
+  %14 = icmp ne ptr %.tr108.lcssa, %.tr.lcssa
+  %15 = icmp ne ptr %.tr108.lcssa, %2
   %16 = and i1 %14, %15
   br i1 %16, label %.lr.ph.i, label %._crit_edge.i
 
 .lr.ph.i:                                         ; preds = %_ZSt4moveIPN4llvm3BTF11BPFLineInfoES3_ET0_T_S5_S4_.exit, %22
   %.024.i = phi ptr [ %23, %22 ], [ %.tr.lcssa, %_ZSt4moveIPN4llvm3BTF11BPFLineInfoES3_ET0_T_S5_S4_.exit ]
   %.01823.i = phi ptr [ %.1.i, %22 ], [ %5, %_ZSt4moveIPN4llvm3BTF11BPFLineInfoES3_ET0_T_S5_S4_.exit ]
-  %.01922.i = phi ptr [ %.120.i, %22 ], [ %.tr109.lcssa, %_ZSt4moveIPN4llvm3BTF11BPFLineInfoES3_ET0_T_S5_S4_.exit ]
+  %.01922.i = phi ptr [ %.120.i, %22 ], [ %.tr108.lcssa, %_ZSt4moveIPN4llvm3BTF11BPFLineInfoES3_ET0_T_S5_S4_.exit ]
   %.019.val.i = load i32, ptr %.01922.i, align 4
   %.018.val.i = load i32, ptr %.01823.i, align 4
   %17 = icmp ult i32 %.019.val.i, %.018.val.i
@@ -7837,263 +7837,259 @@ _ZSt4moveIPN4llvm3BTF11BPFLineInfoES3_ET0_T_S5_S4_.exit.i: ; preds = %._crit_edg
   br label %"_ZSt21__move_merge_adaptiveIPN4llvm3BTF11BPFLineInfoES3_S3_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_9BTFParser13parseLineInfoERNS7_12ParseContextERNS0_13DataExtractorEmmE3$_0EEEvT_SE_T0_SF_T1_T2_.exit"
 
 30:                                               ; preds = %.lr.ph, %_ZSt17__rotate_adaptiveIPN4llvm3BTF11BPFLineInfoES3_lET_S4_S4_S4_T1_S5_T0_S5_.exit
-  %.not129 = phi i1 [ %.not120, %.lr.ph ], [ %.not, %_ZSt17__rotate_adaptiveIPN4llvm3BTF11BPFLineInfoES3_lET_S4_S4_S4_T1_S5_T0_S5_.exit ]
-  %.tr112128 = phi i64 [ %4, %.lr.ph ], [ %120, %_ZSt17__rotate_adaptiveIPN4llvm3BTF11BPFLineInfoES3_lET_S4_S4_S4_T1_S5_T0_S5_.exit ]
-  %.tr111127 = phi i64 [ %3, %.lr.ph ], [ %89, %_ZSt17__rotate_adaptiveIPN4llvm3BTF11BPFLineInfoES3_lET_S4_S4_S4_T1_S5_T0_S5_.exit ]
-  %.tr109125 = phi ptr [ %1, %.lr.ph ], [ %.0105, %_ZSt17__rotate_adaptiveIPN4llvm3BTF11BPFLineInfoES3_lET_S4_S4_S4_T1_S5_T0_S5_.exit ]
-  %.tr123 = phi ptr [ %0, %.lr.ph ], [ %.0.i95, %_ZSt17__rotate_adaptiveIPN4llvm3BTF11BPFLineInfoES3_lET_S4_S4_S4_T1_S5_T0_S5_.exit ]
-  %.not71 = icmp sgt i64 %.tr112128, %6
-  %31 = ptrtoint ptr %.tr109125 to i64
-  br i1 %.not71, label %58, label %32
+  %.not128 = phi i1 [ %.not119, %.lr.ph ], [ %.not, %_ZSt17__rotate_adaptiveIPN4llvm3BTF11BPFLineInfoES3_lET_S4_S4_S4_T1_S5_T0_S5_.exit ]
+  %.tr111127 = phi i64 [ %4, %.lr.ph ], [ %117, %_ZSt17__rotate_adaptiveIPN4llvm3BTF11BPFLineInfoES3_lET_S4_S4_S4_T1_S5_T0_S5_.exit ]
+  %.tr110126 = phi i64 [ %3, %.lr.ph ], [ %86, %_ZSt17__rotate_adaptiveIPN4llvm3BTF11BPFLineInfoES3_lET_S4_S4_S4_T1_S5_T0_S5_.exit ]
+  %.tr108124 = phi ptr [ %1, %.lr.ph ], [ %.0104, %_ZSt17__rotate_adaptiveIPN4llvm3BTF11BPFLineInfoES3_lET_S4_S4_S4_T1_S5_T0_S5_.exit ]
+  %.tr122 = phi ptr [ %0, %.lr.ph ], [ %.0.i94, %_ZSt17__rotate_adaptiveIPN4llvm3BTF11BPFLineInfoES3_lET_S4_S4_S4_T1_S5_T0_S5_.exit ]
+  %.not71 = icmp sgt i64 %.tr111127, %6
+  br i1 %.not71, label %54, label %31
 
-32:                                               ; preds = %30
-  %33 = sub i64 %8, %31
-  %.not.i.i.i.i.i73 = icmp eq ptr %2, %.tr109125
+31:                                               ; preds = %30
+  %.not.i.i.i.i.i73 = icmp eq ptr %2, %.tr108124
   br i1 %.not.i.i.i.i.i73, label %"_ZSt21__move_merge_adaptiveIPN4llvm3BTF11BPFLineInfoES3_S3_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_9BTFParser13parseLineInfoERNS7_12ParseContextERNS0_13DataExtractorEmmE3$_0EEEvT_SE_T0_SF_T1_T2_.exit", label %_ZSt4moveIPN4llvm3BTF11BPFLineInfoES3_ET0_T_S5_S4_.exit74.thread
 
-_ZSt4moveIPN4llvm3BTF11BPFLineInfoES3_ET0_T_S5_S4_.exit74.thread: ; preds = %32
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %5, ptr align 4 %.tr109125, i64 %33, i1 false)
-  %34 = icmp eq ptr %.tr123, %.tr109125
-  br i1 %34, label %35, label %38
+_ZSt4moveIPN4llvm3BTF11BPFLineInfoES3_ET0_T_S5_S4_.exit74.thread: ; preds = %31
+  %32 = ptrtoint ptr %.tr108124 to i64
+  %33 = sub i64 %8, %32
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %5, ptr align 4 %.tr108124, i64 %33, i1 false)
+  %34 = getelementptr inbounds i8, ptr %5, i64 %33
+  %35 = icmp eq ptr %.tr122, %.tr108124
+  br i1 %35, label %_ZSt13move_backwardIPN4llvm3BTF11BPFLineInfoES3_ET0_T_S5_S4_.exit.sink.split.i, label %36
 
-35:                                               ; preds = %_ZSt4moveIPN4llvm3BTF11BPFLineInfoES3_ET0_T_S5_S4_.exit74.thread
-  %36 = ashr exact i64 %33, 4
-  %.pre.i.i.i.i.i.i = sub nsw i64 0, %36
-  %37 = getelementptr inbounds %"struct.llvm::BTF::BPFLineInfo", ptr %2, i64 %.pre.i.i.i.i.i.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %37, ptr align 4 %5, i64 %33, i1 false)
-  br label %"_ZSt21__move_merge_adaptiveIPN4llvm3BTF11BPFLineInfoES3_S3_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_9BTFParser13parseLineInfoERNS7_12ParseContextERNS0_13DataExtractorEmmE3$_0EEEvT_SE_T0_SF_T1_T2_.exit"
-
-38:                                               ; preds = %_ZSt4moveIPN4llvm3BTF11BPFLineInfoES3_ET0_T_S5_S4_.exit74.thread
-  %39 = getelementptr inbounds i8, ptr %5, i64 %33
-  %40 = getelementptr inbounds i8, ptr %39, i64 -16
+36:                                               ; preds = %_ZSt4moveIPN4llvm3BTF11BPFLineInfoES3_ET0_T_S5_S4_.exit74.thread
+  %37 = getelementptr inbounds i8, ptr %34, i64 -16
   br label %.outer
 
-.outer:                                           ; preds = %44, %38
-  %.026.i.ph.pn = phi ptr [ %.tr109125, %38 ], [ %.026.i.ph, %44 ]
-  %.024.i75.ph = phi ptr [ %40, %38 ], [ %.024.i75, %44 ]
-  %.0.i.ph = phi ptr [ %2, %38 ], [ %43, %44 ]
+.outer:                                           ; preds = %41, %36
+  %.026.i.ph.pn = phi ptr [ %.tr108124, %36 ], [ %.026.i.ph, %41 ]
+  %.024.i75.ph = phi ptr [ %37, %36 ], [ %.024.i75, %41 ]
+  %.0.i.ph = phi ptr [ %2, %36 ], [ %40, %41 ]
   %.026.i.ph = getelementptr inbounds i8, ptr %.026.i.ph.pn, i64 -16
-  br label %41
+  br label %38
 
-41:                                               ; preds = %.outer, %56
-  %.024.i75 = phi ptr [ %57, %56 ], [ %.024.i75.ph, %.outer ]
-  %.0.i = phi ptr [ %43, %56 ], [ %.0.i.ph, %.outer ]
+38:                                               ; preds = %.outer, %47
+  %.024.i75 = phi ptr [ %48, %47 ], [ %.024.i75.ph, %.outer ]
+  %.0.i = phi ptr [ %40, %47 ], [ %.0.i.ph, %.outer ]
   %.024.val.i = load i32, ptr %.024.i75, align 4
   %.026.val.i = load i32, ptr %.026.i.ph, align 4
-  %42 = icmp ult i32 %.024.val.i, %.026.val.i
-  %43 = getelementptr inbounds i8, ptr %.0.i, i64 -16
-  br i1 %42, label %44, label %54
+  %39 = icmp ult i32 %.024.val.i, %.026.val.i
+  %40 = getelementptr inbounds i8, ptr %.0.i, i64 -16
+  br i1 %39, label %41, label %45
 
-44:                                               ; preds = %41
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %43, ptr noundef nonnull align 4 dereferenceable(16) %.026.i.ph, i64 16, i1 false)
-  %45 = icmp eq ptr %.tr123, %.026.i.ph
-  br i1 %45, label %46, label %.outer, !llvm.loop !365
+41:                                               ; preds = %38
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %40, ptr noundef nonnull align 4 dereferenceable(16) %.026.i.ph, i64 16, i1 false)
+  %42 = icmp eq ptr %.tr122, %.026.i.ph
+  br i1 %42, label %43, label %.outer, !llvm.loop !365
 
-46:                                               ; preds = %44
-  %47 = getelementptr inbounds i8, ptr %.024.i75, i64 16
-  %.not.i.i.i.i.i32.i = icmp eq ptr %47, %5
-  br i1 %.not.i.i.i.i.i32.i, label %"_ZSt21__move_merge_adaptiveIPN4llvm3BTF11BPFLineInfoES3_S3_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_9BTFParser13parseLineInfoERNS7_12ParseContextERNS0_13DataExtractorEmmE3$_0EEEvT_SE_T0_SF_T1_T2_.exit", label %48
+43:                                               ; preds = %41
+  %44 = getelementptr inbounds i8, ptr %.024.i75, i64 16
+  %.not.i.i.i.i.i32.i = icmp eq ptr %44, %5
+  br i1 %.not.i.i.i.i.i32.i, label %"_ZSt21__move_merge_adaptiveIPN4llvm3BTF11BPFLineInfoES3_S3_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_9BTFParser13parseLineInfoERNS7_12ParseContextERNS0_13DataExtractorEmmE3$_0EEEvT_SE_T0_SF_T1_T2_.exit", label %_ZSt13move_backwardIPN4llvm3BTF11BPFLineInfoES3_ET0_T_S5_S4_.exit.sink.split.i
 
-48:                                               ; preds = %46
-  %49 = ptrtoint ptr %47 to i64
+45:                                               ; preds = %38
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %40, ptr noundef nonnull align 4 dereferenceable(16) %.024.i75, i64 16, i1 false)
+  %46 = icmp eq ptr %5, %.024.i75
+  br i1 %46, label %"_ZSt21__move_merge_adaptiveIPN4llvm3BTF11BPFLineInfoES3_S3_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_9BTFParser13parseLineInfoERNS7_12ParseContextERNS0_13DataExtractorEmmE3$_0EEEvT_SE_T0_SF_T1_T2_.exit", label %47
+
+47:                                               ; preds = %45
+  %48 = getelementptr inbounds i8, ptr %.024.i75, i64 -16
+  br label %38, !llvm.loop !365
+
+_ZSt13move_backwardIPN4llvm3BTF11BPFLineInfoES3_ET0_T_S5_S4_.exit.sink.split.i: ; preds = %_ZSt4moveIPN4llvm3BTF11BPFLineInfoES3_ET0_T_S5_S4_.exit74.thread, %43
+  %.sink41.i = phi ptr [ %44, %43 ], [ %34, %_ZSt4moveIPN4llvm3BTF11BPFLineInfoES3_ET0_T_S5_S4_.exit74.thread ]
+  %.lcssa.sink.i = phi ptr [ %40, %43 ], [ %2, %_ZSt4moveIPN4llvm3BTF11BPFLineInfoES3_ET0_T_S5_S4_.exit74.thread ]
+  %49 = ptrtoint ptr %.sink41.i to i64
   %50 = ptrtoint ptr %5 to i64
   %51 = sub i64 %49, %50
   %52 = ashr exact i64 %51, 4
   %.pre.i.i.i.i.i33.i = sub nsw i64 0, %52
-  %53 = getelementptr inbounds %"struct.llvm::BTF::BPFLineInfo", ptr %43, i64 %.pre.i.i.i.i.i33.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 4 %53, ptr align 4 %5, i64 %51, i1 false)
+  %53 = getelementptr inbounds %"struct.llvm::BTF::BPFLineInfo", ptr %.lcssa.sink.i, i64 %.pre.i.i.i.i.i33.i
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %53, ptr align 4 %5, i64 %51, i1 false)
   br label %"_ZSt21__move_merge_adaptiveIPN4llvm3BTF11BPFLineInfoES3_S3_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_9BTFParser13parseLineInfoERNS7_12ParseContextERNS0_13DataExtractorEmmE3$_0EEEvT_SE_T0_SF_T1_T2_.exit"
 
-54:                                               ; preds = %41
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %43, ptr noundef nonnull align 4 dereferenceable(16) %.024.i75, i64 16, i1 false)
-  %55 = icmp eq ptr %5, %.024.i75
-  br i1 %55, label %"_ZSt21__move_merge_adaptiveIPN4llvm3BTF11BPFLineInfoES3_S3_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_9BTFParser13parseLineInfoERNS7_12ParseContextERNS0_13DataExtractorEmmE3$_0EEEvT_SE_T0_SF_T1_T2_.exit", label %56
+54:                                               ; preds = %30
+  %55 = ptrtoint ptr %.tr108124 to i64
+  br i1 %.not128, label %_ZSt7advanceIPN4llvm3BTF11BPFLineInfoElEvRT_T0_.exit, label %_ZSt7advanceIPN4llvm3BTF11BPFLineInfoElEvRT_T0_.exit82
 
-56:                                               ; preds = %54
-  %57 = getelementptr inbounds i8, ptr %.024.i75, i64 -16
-  br label %41, !llvm.loop !365
-
-58:                                               ; preds = %30
-  br i1 %.not129, label %_ZSt7advanceIPN4llvm3BTF11BPFLineInfoElEvRT_T0_.exit, label %_ZSt7advanceIPN4llvm3BTF11BPFLineInfoElEvRT_T0_.exit82
-
-_ZSt7advanceIPN4llvm3BTF11BPFLineInfoElEvRT_T0_.exit: ; preds = %58
-  %59 = sdiv i64 %.tr111127, 2
-  %60 = getelementptr inbounds %"struct.llvm::BTF::BPFLineInfo", ptr %.tr123, i64 %59
-  %.val = load i32, ptr %60, align 4
-  %61 = sub i64 %8, %31
-  %62 = ashr exact i64 %61, 4
-  %63 = icmp sgt i64 %62, 0
-  br i1 %63, label %_ZSt7advanceIPN4llvm3BTF11BPFLineInfoElEvRT_T0_.exit.i, label %"_ZSt13__lower_boundIPN4llvm3BTF11BPFLineInfoES2_N9__gnu_cxx5__ops14_Iter_comp_valIZNS0_9BTFParser13parseLineInfoERNS7_12ParseContextERNS0_13DataExtractorEmmE3$_0EEET_SE_SE_RKT0_T1_.exit"
+_ZSt7advanceIPN4llvm3BTF11BPFLineInfoElEvRT_T0_.exit: ; preds = %54
+  %56 = sdiv i64 %.tr110126, 2
+  %57 = getelementptr inbounds %"struct.llvm::BTF::BPFLineInfo", ptr %.tr122, i64 %56
+  %.val = load i32, ptr %57, align 4
+  %58 = sub i64 %8, %55
+  %59 = ashr exact i64 %58, 4
+  %60 = icmp sgt i64 %59, 0
+  br i1 %60, label %_ZSt7advanceIPN4llvm3BTF11BPFLineInfoElEvRT_T0_.exit.i, label %"_ZSt13__lower_boundIPN4llvm3BTF11BPFLineInfoES2_N9__gnu_cxx5__ops14_Iter_comp_valIZNS0_9BTFParser13parseLineInfoERNS7_12ParseContextERNS0_13DataExtractorEmmE3$_0EEET_SE_SE_RKT0_T1_.exit"
 
 _ZSt7advanceIPN4llvm3BTF11BPFLineInfoElEvRT_T0_.exit.i: ; preds = %_ZSt7advanceIPN4llvm3BTF11BPFLineInfoElEvRT_T0_.exit, %_ZSt7advanceIPN4llvm3BTF11BPFLineInfoElEvRT_T0_.exit.i
-  %.05.i = phi ptr [ %.1.i78, %_ZSt7advanceIPN4llvm3BTF11BPFLineInfoElEvRT_T0_.exit.i ], [ %.tr109125, %_ZSt7advanceIPN4llvm3BTF11BPFLineInfoElEvRT_T0_.exit ]
-  %.0114.i = phi i64 [ %.112.i, %_ZSt7advanceIPN4llvm3BTF11BPFLineInfoElEvRT_T0_.exit.i ], [ %62, %_ZSt7advanceIPN4llvm3BTF11BPFLineInfoElEvRT_T0_.exit ]
-  %64 = lshr i64 %.0114.i, 1
-  %65 = getelementptr inbounds %"struct.llvm::BTF::BPFLineInfo", ptr %.05.i, i64 %64
-  %.val.i = load i32, ptr %65, align 4
-  %66 = icmp ult i32 %.val.i, %.val
-  %67 = getelementptr inbounds i8, ptr %65, i64 16
-  %68 = xor i64 %64, -1
-  %69 = add nsw i64 %.0114.i, %68
-  %.112.i = select i1 %66, i64 %69, i64 %64
-  %.1.i78 = select i1 %66, ptr %67, ptr %.05.i
-  %70 = icmp sgt i64 %.112.i, 0
-  br i1 %70, label %_ZSt7advanceIPN4llvm3BTF11BPFLineInfoElEvRT_T0_.exit.i, label %"_ZSt13__lower_boundIPN4llvm3BTF11BPFLineInfoES2_N9__gnu_cxx5__ops14_Iter_comp_valIZNS0_9BTFParser13parseLineInfoERNS7_12ParseContextERNS0_13DataExtractorEmmE3$_0EEET_SE_SE_RKT0_T1_.exit.loopexit", !llvm.loop !354
+  %.05.i = phi ptr [ %.1.i78, %_ZSt7advanceIPN4llvm3BTF11BPFLineInfoElEvRT_T0_.exit.i ], [ %.tr108124, %_ZSt7advanceIPN4llvm3BTF11BPFLineInfoElEvRT_T0_.exit ]
+  %.0114.i = phi i64 [ %.112.i, %_ZSt7advanceIPN4llvm3BTF11BPFLineInfoElEvRT_T0_.exit.i ], [ %59, %_ZSt7advanceIPN4llvm3BTF11BPFLineInfoElEvRT_T0_.exit ]
+  %61 = lshr i64 %.0114.i, 1
+  %62 = getelementptr inbounds %"struct.llvm::BTF::BPFLineInfo", ptr %.05.i, i64 %61
+  %.val.i = load i32, ptr %62, align 4
+  %63 = icmp ult i32 %.val.i, %.val
+  %64 = getelementptr inbounds i8, ptr %62, i64 16
+  %65 = xor i64 %61, -1
+  %66 = add nsw i64 %.0114.i, %65
+  %.112.i = select i1 %63, i64 %66, i64 %61
+  %.1.i78 = select i1 %63, ptr %64, ptr %.05.i
+  %67 = icmp sgt i64 %.112.i, 0
+  br i1 %67, label %_ZSt7advanceIPN4llvm3BTF11BPFLineInfoElEvRT_T0_.exit.i, label %"_ZSt13__lower_boundIPN4llvm3BTF11BPFLineInfoES2_N9__gnu_cxx5__ops14_Iter_comp_valIZNS0_9BTFParser13parseLineInfoERNS7_12ParseContextERNS0_13DataExtractorEmmE3$_0EEET_SE_SE_RKT0_T1_.exit.loopexit", !llvm.loop !354
 
 "_ZSt13__lower_boundIPN4llvm3BTF11BPFLineInfoES2_N9__gnu_cxx5__ops14_Iter_comp_valIZNS0_9BTFParser13parseLineInfoERNS7_12ParseContextERNS0_13DataExtractorEmmE3$_0EEET_SE_SE_RKT0_T1_.exit.loopexit": ; preds = %_ZSt7advanceIPN4llvm3BTF11BPFLineInfoElEvRT_T0_.exit.i
   %.pre = ptrtoint ptr %.1.i78 to i64
   br label %"_ZSt13__lower_boundIPN4llvm3BTF11BPFLineInfoES2_N9__gnu_cxx5__ops14_Iter_comp_valIZNS0_9BTFParser13parseLineInfoERNS7_12ParseContextERNS0_13DataExtractorEmmE3$_0EEET_SE_SE_RKT0_T1_.exit"
 
 "_ZSt13__lower_boundIPN4llvm3BTF11BPFLineInfoES2_N9__gnu_cxx5__ops14_Iter_comp_valIZNS0_9BTFParser13parseLineInfoERNS7_12ParseContextERNS0_13DataExtractorEmmE3$_0EEET_SE_SE_RKT0_T1_.exit": ; preds = %"_ZSt13__lower_boundIPN4llvm3BTF11BPFLineInfoES2_N9__gnu_cxx5__ops14_Iter_comp_valIZNS0_9BTFParser13parseLineInfoERNS7_12ParseContextERNS0_13DataExtractorEmmE3$_0EEET_SE_SE_RKT0_T1_.exit.loopexit", %_ZSt7advanceIPN4llvm3BTF11BPFLineInfoElEvRT_T0_.exit
-  %.pre-phi = phi i64 [ %.pre, %"_ZSt13__lower_boundIPN4llvm3BTF11BPFLineInfoES2_N9__gnu_cxx5__ops14_Iter_comp_valIZNS0_9BTFParser13parseLineInfoERNS7_12ParseContextERNS0_13DataExtractorEmmE3$_0EEET_SE_SE_RKT0_T1_.exit.loopexit" ], [ %31, %_ZSt7advanceIPN4llvm3BTF11BPFLineInfoElEvRT_T0_.exit ]
-  %.0.lcssa.i77 = phi ptr [ %.1.i78, %"_ZSt13__lower_boundIPN4llvm3BTF11BPFLineInfoES2_N9__gnu_cxx5__ops14_Iter_comp_valIZNS0_9BTFParser13parseLineInfoERNS7_12ParseContextERNS0_13DataExtractorEmmE3$_0EEET_SE_SE_RKT0_T1_.exit.loopexit" ], [ %.tr109125, %_ZSt7advanceIPN4llvm3BTF11BPFLineInfoElEvRT_T0_.exit ]
-  %71 = sub i64 %.pre-phi, %31
-  %72 = ashr exact i64 %71, 4
-  br label %88
+  %.pre-phi = phi i64 [ %.pre, %"_ZSt13__lower_boundIPN4llvm3BTF11BPFLineInfoES2_N9__gnu_cxx5__ops14_Iter_comp_valIZNS0_9BTFParser13parseLineInfoERNS7_12ParseContextERNS0_13DataExtractorEmmE3$_0EEET_SE_SE_RKT0_T1_.exit.loopexit" ], [ %55, %_ZSt7advanceIPN4llvm3BTF11BPFLineInfoElEvRT_T0_.exit ]
+  %.0.lcssa.i77 = phi ptr [ %.1.i78, %"_ZSt13__lower_boundIPN4llvm3BTF11BPFLineInfoES2_N9__gnu_cxx5__ops14_Iter_comp_valIZNS0_9BTFParser13parseLineInfoERNS7_12ParseContextERNS0_13DataExtractorEmmE3$_0EEET_SE_SE_RKT0_T1_.exit.loopexit" ], [ %.tr108124, %_ZSt7advanceIPN4llvm3BTF11BPFLineInfoElEvRT_T0_.exit ]
+  %68 = sub i64 %.pre-phi, %55
+  %69 = ashr exact i64 %68, 4
+  br label %85
 
-_ZSt7advanceIPN4llvm3BTF11BPFLineInfoElEvRT_T0_.exit82: ; preds = %58
-  %73 = sdiv i64 %.tr112128, 2
-  %74 = getelementptr inbounds %"struct.llvm::BTF::BPFLineInfo", ptr %.tr109125, i64 %73
-  %.val72 = load i32, ptr %74, align 4
-  %75 = ptrtoint ptr %.tr123 to i64
-  %76 = sub i64 %31, %75
-  %77 = ashr exact i64 %76, 4
-  %78 = icmp sgt i64 %77, 0
-  br i1 %78, label %_ZSt7advanceIPN4llvm3BTF11BPFLineInfoElEvRT_T0_.exit.i85, label %"_ZSt13__upper_boundIPN4llvm3BTF11BPFLineInfoES2_N9__gnu_cxx5__ops14_Val_comp_iterIZNS0_9BTFParser13parseLineInfoERNS7_12ParseContextERNS0_13DataExtractorEmmE3$_0EEET_SE_SE_RKT0_T1_.exit"
+_ZSt7advanceIPN4llvm3BTF11BPFLineInfoElEvRT_T0_.exit82: ; preds = %54
+  %70 = sdiv i64 %.tr111127, 2
+  %71 = getelementptr inbounds %"struct.llvm::BTF::BPFLineInfo", ptr %.tr108124, i64 %70
+  %.val72 = load i32, ptr %71, align 4
+  %72 = ptrtoint ptr %.tr122 to i64
+  %73 = sub i64 %55, %72
+  %74 = ashr exact i64 %73, 4
+  %75 = icmp sgt i64 %74, 0
+  br i1 %75, label %_ZSt7advanceIPN4llvm3BTF11BPFLineInfoElEvRT_T0_.exit.i85, label %"_ZSt13__upper_boundIPN4llvm3BTF11BPFLineInfoES2_N9__gnu_cxx5__ops14_Val_comp_iterIZNS0_9BTFParser13parseLineInfoERNS7_12ParseContextERNS0_13DataExtractorEmmE3$_0EEET_SE_SE_RKT0_T1_.exit"
 
 _ZSt7advanceIPN4llvm3BTF11BPFLineInfoElEvRT_T0_.exit.i85: ; preds = %_ZSt7advanceIPN4llvm3BTF11BPFLineInfoElEvRT_T0_.exit82, %_ZSt7advanceIPN4llvm3BTF11BPFLineInfoElEvRT_T0_.exit.i85
-  %.05.i86 = phi ptr [ %.1.i91, %_ZSt7advanceIPN4llvm3BTF11BPFLineInfoElEvRT_T0_.exit.i85 ], [ %.tr123, %_ZSt7advanceIPN4llvm3BTF11BPFLineInfoElEvRT_T0_.exit82 ]
-  %.0114.i87 = phi i64 [ %.112.i90, %_ZSt7advanceIPN4llvm3BTF11BPFLineInfoElEvRT_T0_.exit.i85 ], [ %77, %_ZSt7advanceIPN4llvm3BTF11BPFLineInfoElEvRT_T0_.exit82 ]
-  %79 = lshr i64 %.0114.i87, 1
-  %80 = getelementptr inbounds %"struct.llvm::BTF::BPFLineInfo", ptr %.05.i86, i64 %79
-  %.val13.i = load i32, ptr %80, align 4
-  %81 = icmp ult i32 %.val72, %.val13.i
-  %82 = getelementptr inbounds i8, ptr %80, i64 16
-  %83 = xor i64 %79, -1
-  %84 = add nsw i64 %.0114.i87, %83
-  %.112.i90 = select i1 %81, i64 %79, i64 %84
-  %.1.i91 = select i1 %81, ptr %.05.i86, ptr %82
-  %85 = icmp sgt i64 %.112.i90, 0
-  br i1 %85, label %_ZSt7advanceIPN4llvm3BTF11BPFLineInfoElEvRT_T0_.exit.i85, label %"_ZSt13__upper_boundIPN4llvm3BTF11BPFLineInfoES2_N9__gnu_cxx5__ops14_Val_comp_iterIZNS0_9BTFParser13parseLineInfoERNS7_12ParseContextERNS0_13DataExtractorEmmE3$_0EEET_SE_SE_RKT0_T1_.exit.loopexit", !llvm.loop !355
+  %.05.i86 = phi ptr [ %.1.i91, %_ZSt7advanceIPN4llvm3BTF11BPFLineInfoElEvRT_T0_.exit.i85 ], [ %.tr122, %_ZSt7advanceIPN4llvm3BTF11BPFLineInfoElEvRT_T0_.exit82 ]
+  %.0114.i87 = phi i64 [ %.112.i90, %_ZSt7advanceIPN4llvm3BTF11BPFLineInfoElEvRT_T0_.exit.i85 ], [ %74, %_ZSt7advanceIPN4llvm3BTF11BPFLineInfoElEvRT_T0_.exit82 ]
+  %76 = lshr i64 %.0114.i87, 1
+  %77 = getelementptr inbounds %"struct.llvm::BTF::BPFLineInfo", ptr %.05.i86, i64 %76
+  %.val13.i = load i32, ptr %77, align 4
+  %78 = icmp ult i32 %.val72, %.val13.i
+  %79 = getelementptr inbounds i8, ptr %77, i64 16
+  %80 = xor i64 %76, -1
+  %81 = add nsw i64 %.0114.i87, %80
+  %.112.i90 = select i1 %78, i64 %76, i64 %81
+  %.1.i91 = select i1 %78, ptr %.05.i86, ptr %79
+  %82 = icmp sgt i64 %.112.i90, 0
+  br i1 %82, label %_ZSt7advanceIPN4llvm3BTF11BPFLineInfoElEvRT_T0_.exit.i85, label %"_ZSt13__upper_boundIPN4llvm3BTF11BPFLineInfoES2_N9__gnu_cxx5__ops14_Val_comp_iterIZNS0_9BTFParser13parseLineInfoERNS7_12ParseContextERNS0_13DataExtractorEmmE3$_0EEET_SE_SE_RKT0_T1_.exit.loopexit", !llvm.loop !355
 
 "_ZSt13__upper_boundIPN4llvm3BTF11BPFLineInfoES2_N9__gnu_cxx5__ops14_Val_comp_iterIZNS0_9BTFParser13parseLineInfoERNS7_12ParseContextERNS0_13DataExtractorEmmE3$_0EEET_SE_SE_RKT0_T1_.exit.loopexit": ; preds = %_ZSt7advanceIPN4llvm3BTF11BPFLineInfoElEvRT_T0_.exit.i85
-  %.pre137 = ptrtoint ptr %.1.i91 to i64
+  %.pre136 = ptrtoint ptr %.1.i91 to i64
   br label %"_ZSt13__upper_boundIPN4llvm3BTF11BPFLineInfoES2_N9__gnu_cxx5__ops14_Val_comp_iterIZNS0_9BTFParser13parseLineInfoERNS7_12ParseContextERNS0_13DataExtractorEmmE3$_0EEET_SE_SE_RKT0_T1_.exit"
 
 "_ZSt13__upper_boundIPN4llvm3BTF11BPFLineInfoES2_N9__gnu_cxx5__ops14_Val_comp_iterIZNS0_9BTFParser13parseLineInfoERNS7_12ParseContextERNS0_13DataExtractorEmmE3$_0EEET_SE_SE_RKT0_T1_.exit": ; preds = %"_ZSt13__upper_boundIPN4llvm3BTF11BPFLineInfoES2_N9__gnu_cxx5__ops14_Val_comp_iterIZNS0_9BTFParser13parseLineInfoERNS7_12ParseContextERNS0_13DataExtractorEmmE3$_0EEET_SE_SE_RKT0_T1_.exit.loopexit", %_ZSt7advanceIPN4llvm3BTF11BPFLineInfoElEvRT_T0_.exit82
-  %.pre-phi138 = phi i64 [ %.pre137, %"_ZSt13__upper_boundIPN4llvm3BTF11BPFLineInfoES2_N9__gnu_cxx5__ops14_Val_comp_iterIZNS0_9BTFParser13parseLineInfoERNS7_12ParseContextERNS0_13DataExtractorEmmE3$_0EEET_SE_SE_RKT0_T1_.exit.loopexit" ], [ %75, %_ZSt7advanceIPN4llvm3BTF11BPFLineInfoElEvRT_T0_.exit82 ]
-  %.0.lcssa.i84 = phi ptr [ %.1.i91, %"_ZSt13__upper_boundIPN4llvm3BTF11BPFLineInfoES2_N9__gnu_cxx5__ops14_Val_comp_iterIZNS0_9BTFParser13parseLineInfoERNS7_12ParseContextERNS0_13DataExtractorEmmE3$_0EEET_SE_SE_RKT0_T1_.exit.loopexit" ], [ %.tr123, %_ZSt7advanceIPN4llvm3BTF11BPFLineInfoElEvRT_T0_.exit82 ]
-  %86 = sub i64 %.pre-phi138, %75
-  %87 = ashr exact i64 %86, 4
-  br label %88
+  %.pre-phi137 = phi i64 [ %.pre136, %"_ZSt13__upper_boundIPN4llvm3BTF11BPFLineInfoES2_N9__gnu_cxx5__ops14_Val_comp_iterIZNS0_9BTFParser13parseLineInfoERNS7_12ParseContextERNS0_13DataExtractorEmmE3$_0EEET_SE_SE_RKT0_T1_.exit.loopexit" ], [ %72, %_ZSt7advanceIPN4llvm3BTF11BPFLineInfoElEvRT_T0_.exit82 ]
+  %.0.lcssa.i84 = phi ptr [ %.1.i91, %"_ZSt13__upper_boundIPN4llvm3BTF11BPFLineInfoES2_N9__gnu_cxx5__ops14_Val_comp_iterIZNS0_9BTFParser13parseLineInfoERNS7_12ParseContextERNS0_13DataExtractorEmmE3$_0EEET_SE_SE_RKT0_T1_.exit.loopexit" ], [ %.tr122, %_ZSt7advanceIPN4llvm3BTF11BPFLineInfoElEvRT_T0_.exit82 ]
+  %83 = sub i64 %.pre-phi137, %72
+  %84 = ashr exact i64 %83, 4
+  br label %85
 
-88:                                               ; preds = %"_ZSt13__upper_boundIPN4llvm3BTF11BPFLineInfoES2_N9__gnu_cxx5__ops14_Val_comp_iterIZNS0_9BTFParser13parseLineInfoERNS7_12ParseContextERNS0_13DataExtractorEmmE3$_0EEET_SE_SE_RKT0_T1_.exit", %"_ZSt13__lower_boundIPN4llvm3BTF11BPFLineInfoES2_N9__gnu_cxx5__ops14_Iter_comp_valIZNS0_9BTFParser13parseLineInfoERNS7_12ParseContextERNS0_13DataExtractorEmmE3$_0EEET_SE_SE_RKT0_T1_.exit"
-  %.0106 = phi ptr [ %60, %"_ZSt13__lower_boundIPN4llvm3BTF11BPFLineInfoES2_N9__gnu_cxx5__ops14_Iter_comp_valIZNS0_9BTFParser13parseLineInfoERNS7_12ParseContextERNS0_13DataExtractorEmmE3$_0EEET_SE_SE_RKT0_T1_.exit" ], [ %.0.lcssa.i84, %"_ZSt13__upper_boundIPN4llvm3BTF11BPFLineInfoES2_N9__gnu_cxx5__ops14_Val_comp_iterIZNS0_9BTFParser13parseLineInfoERNS7_12ParseContextERNS0_13DataExtractorEmmE3$_0EEET_SE_SE_RKT0_T1_.exit" ]
-  %.0105 = phi ptr [ %.0.lcssa.i77, %"_ZSt13__lower_boundIPN4llvm3BTF11BPFLineInfoES2_N9__gnu_cxx5__ops14_Iter_comp_valIZNS0_9BTFParser13parseLineInfoERNS7_12ParseContextERNS0_13DataExtractorEmmE3$_0EEET_SE_SE_RKT0_T1_.exit" ], [ %74, %"_ZSt13__upper_boundIPN4llvm3BTF11BPFLineInfoES2_N9__gnu_cxx5__ops14_Val_comp_iterIZNS0_9BTFParser13parseLineInfoERNS7_12ParseContextERNS0_13DataExtractorEmmE3$_0EEET_SE_SE_RKT0_T1_.exit" ]
-  %.066 = phi i64 [ %72, %"_ZSt13__lower_boundIPN4llvm3BTF11BPFLineInfoES2_N9__gnu_cxx5__ops14_Iter_comp_valIZNS0_9BTFParser13parseLineInfoERNS7_12ParseContextERNS0_13DataExtractorEmmE3$_0EEET_SE_SE_RKT0_T1_.exit" ], [ %73, %"_ZSt13__upper_boundIPN4llvm3BTF11BPFLineInfoES2_N9__gnu_cxx5__ops14_Val_comp_iterIZNS0_9BTFParser13parseLineInfoERNS7_12ParseContextERNS0_13DataExtractorEmmE3$_0EEET_SE_SE_RKT0_T1_.exit" ]
-  %.0 = phi i64 [ %59, %"_ZSt13__lower_boundIPN4llvm3BTF11BPFLineInfoES2_N9__gnu_cxx5__ops14_Iter_comp_valIZNS0_9BTFParser13parseLineInfoERNS7_12ParseContextERNS0_13DataExtractorEmmE3$_0EEET_SE_SE_RKT0_T1_.exit" ], [ %87, %"_ZSt13__upper_boundIPN4llvm3BTF11BPFLineInfoES2_N9__gnu_cxx5__ops14_Val_comp_iterIZNS0_9BTFParser13parseLineInfoERNS7_12ParseContextERNS0_13DataExtractorEmmE3$_0EEET_SE_SE_RKT0_T1_.exit" ]
-  %89 = sub nsw i64 %.tr111127, %.0
-  %90 = icmp sle i64 %89, %.066
+85:                                               ; preds = %"_ZSt13__upper_boundIPN4llvm3BTF11BPFLineInfoES2_N9__gnu_cxx5__ops14_Val_comp_iterIZNS0_9BTFParser13parseLineInfoERNS7_12ParseContextERNS0_13DataExtractorEmmE3$_0EEET_SE_SE_RKT0_T1_.exit", %"_ZSt13__lower_boundIPN4llvm3BTF11BPFLineInfoES2_N9__gnu_cxx5__ops14_Iter_comp_valIZNS0_9BTFParser13parseLineInfoERNS7_12ParseContextERNS0_13DataExtractorEmmE3$_0EEET_SE_SE_RKT0_T1_.exit"
+  %.0105 = phi ptr [ %57, %"_ZSt13__lower_boundIPN4llvm3BTF11BPFLineInfoES2_N9__gnu_cxx5__ops14_Iter_comp_valIZNS0_9BTFParser13parseLineInfoERNS7_12ParseContextERNS0_13DataExtractorEmmE3$_0EEET_SE_SE_RKT0_T1_.exit" ], [ %.0.lcssa.i84, %"_ZSt13__upper_boundIPN4llvm3BTF11BPFLineInfoES2_N9__gnu_cxx5__ops14_Val_comp_iterIZNS0_9BTFParser13parseLineInfoERNS7_12ParseContextERNS0_13DataExtractorEmmE3$_0EEET_SE_SE_RKT0_T1_.exit" ]
+  %.0104 = phi ptr [ %.0.lcssa.i77, %"_ZSt13__lower_boundIPN4llvm3BTF11BPFLineInfoES2_N9__gnu_cxx5__ops14_Iter_comp_valIZNS0_9BTFParser13parseLineInfoERNS7_12ParseContextERNS0_13DataExtractorEmmE3$_0EEET_SE_SE_RKT0_T1_.exit" ], [ %71, %"_ZSt13__upper_boundIPN4llvm3BTF11BPFLineInfoES2_N9__gnu_cxx5__ops14_Val_comp_iterIZNS0_9BTFParser13parseLineInfoERNS7_12ParseContextERNS0_13DataExtractorEmmE3$_0EEET_SE_SE_RKT0_T1_.exit" ]
+  %.066 = phi i64 [ %69, %"_ZSt13__lower_boundIPN4llvm3BTF11BPFLineInfoES2_N9__gnu_cxx5__ops14_Iter_comp_valIZNS0_9BTFParser13parseLineInfoERNS7_12ParseContextERNS0_13DataExtractorEmmE3$_0EEET_SE_SE_RKT0_T1_.exit" ], [ %70, %"_ZSt13__upper_boundIPN4llvm3BTF11BPFLineInfoES2_N9__gnu_cxx5__ops14_Val_comp_iterIZNS0_9BTFParser13parseLineInfoERNS7_12ParseContextERNS0_13DataExtractorEmmE3$_0EEET_SE_SE_RKT0_T1_.exit" ]
+  %.0 = phi i64 [ %56, %"_ZSt13__lower_boundIPN4llvm3BTF11BPFLineInfoES2_N9__gnu_cxx5__ops14_Iter_comp_valIZNS0_9BTFParser13parseLineInfoERNS7_12ParseContextERNS0_13DataExtractorEmmE3$_0EEET_SE_SE_RKT0_T1_.exit" ], [ %84, %"_ZSt13__upper_boundIPN4llvm3BTF11BPFLineInfoES2_N9__gnu_cxx5__ops14_Val_comp_iterIZNS0_9BTFParser13parseLineInfoERNS7_12ParseContextERNS0_13DataExtractorEmmE3$_0EEET_SE_SE_RKT0_T1_.exit" ]
+  %86 = sub nsw i64 %.tr110126, %.0
+  %87 = icmp sle i64 %86, %.066
   %.not.i = icmp sgt i64 %.066, %6
-  %or.cond.i = or i1 %.not.i, %90
-  br i1 %or.cond.i, label %104, label %91
+  %or.cond.i = or i1 %.not.i, %87
+  br i1 %or.cond.i, label %101, label %88
 
-91:                                               ; preds = %88
+88:                                               ; preds = %85
   %.not35.i = icmp eq i64 %.066, 0
-  br i1 %.not35.i, label %_ZSt17__rotate_adaptiveIPN4llvm3BTF11BPFLineInfoES3_lET_S4_S4_S4_T1_S5_T0_S5_.exit, label %92
+  br i1 %.not35.i, label %_ZSt17__rotate_adaptiveIPN4llvm3BTF11BPFLineInfoES3_lET_S4_S4_S4_T1_S5_T0_S5_.exit, label %89
 
-92:                                               ; preds = %91
-  %93 = ptrtoint ptr %.0105 to i64
-  %94 = ptrtoint ptr %.tr109125 to i64
-  %95 = sub i64 %93, %94
-  %.not.i.i.i.i.i.i92 = icmp eq ptr %.0105, %.tr109125
-  br i1 %.not.i.i.i.i.i.i92, label %_ZSt4moveIPN4llvm3BTF11BPFLineInfoES3_ET0_T_S5_S4_.exit.i93, label %96
+89:                                               ; preds = %88
+  %90 = ptrtoint ptr %.0104 to i64
+  %91 = ptrtoint ptr %.tr108124 to i64
+  %92 = sub i64 %90, %91
+  %.not.i.i.i.i.i.i92 = icmp eq ptr %.0104, %.tr108124
+  br i1 %.not.i.i.i.i.i.i92, label %_ZSt4moveIPN4llvm3BTF11BPFLineInfoES3_ET0_T_S5_S4_.exit.i93, label %93
 
-96:                                               ; preds = %92
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %5, ptr align 4 %.tr109125, i64 %95, i1 false)
+93:                                               ; preds = %89
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %5, ptr align 4 %.tr108124, i64 %92, i1 false)
   br label %_ZSt4moveIPN4llvm3BTF11BPFLineInfoES3_ET0_T_S5_S4_.exit.i93
 
-_ZSt4moveIPN4llvm3BTF11BPFLineInfoES3_ET0_T_S5_S4_.exit.i93: ; preds = %96, %92
-  %.not.i.i.i.i.i36.i = icmp eq ptr %.tr109125, %.0106
-  br i1 %.not.i.i.i.i.i36.i, label %_ZSt13move_backwardIPN4llvm3BTF11BPFLineInfoES3_ET0_T_S5_S4_.exit.i, label %97
+_ZSt4moveIPN4llvm3BTF11BPFLineInfoES3_ET0_T_S5_S4_.exit.i93: ; preds = %93, %89
+  %.not.i.i.i.i.i36.i = icmp eq ptr %.tr108124, %.0105
+  br i1 %.not.i.i.i.i.i36.i, label %_ZSt13move_backwardIPN4llvm3BTF11BPFLineInfoES3_ET0_T_S5_S4_.exit.i, label %94
 
-97:                                               ; preds = %_ZSt4moveIPN4llvm3BTF11BPFLineInfoES3_ET0_T_S5_S4_.exit.i93
-  %98 = ptrtoint ptr %.0106 to i64
-  %99 = sub i64 %94, %98
-  %100 = ashr exact i64 %99, 4
-  %.pre.i.i.i.i.i.i94 = sub nsw i64 0, %100
-  %101 = getelementptr inbounds %"struct.llvm::BTF::BPFLineInfo", ptr %.0105, i64 %.pre.i.i.i.i.i.i94
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %101, ptr align 4 %.0106, i64 %99, i1 false)
+94:                                               ; preds = %_ZSt4moveIPN4llvm3BTF11BPFLineInfoES3_ET0_T_S5_S4_.exit.i93
+  %95 = ptrtoint ptr %.0105 to i64
+  %96 = sub i64 %91, %95
+  %97 = ashr exact i64 %96, 4
+  %.pre.i.i.i.i.i.i = sub nsw i64 0, %97
+  %98 = getelementptr inbounds %"struct.llvm::BTF::BPFLineInfo", ptr %.0104, i64 %.pre.i.i.i.i.i.i
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %98, ptr align 4 %.0105, i64 %96, i1 false)
   br label %_ZSt13move_backwardIPN4llvm3BTF11BPFLineInfoES3_ET0_T_S5_S4_.exit.i
 
-_ZSt13move_backwardIPN4llvm3BTF11BPFLineInfoES3_ET0_T_S5_S4_.exit.i: ; preds = %97, %_ZSt4moveIPN4llvm3BTF11BPFLineInfoES3_ET0_T_S5_S4_.exit.i93
-  br i1 %.not.i.i.i.i.i.i92, label %_ZSt4moveIPN4llvm3BTF11BPFLineInfoES3_ET0_T_S5_S4_.exit38.i, label %102
+_ZSt13move_backwardIPN4llvm3BTF11BPFLineInfoES3_ET0_T_S5_S4_.exit.i: ; preds = %94, %_ZSt4moveIPN4llvm3BTF11BPFLineInfoES3_ET0_T_S5_S4_.exit.i93
+  br i1 %.not.i.i.i.i.i.i92, label %_ZSt4moveIPN4llvm3BTF11BPFLineInfoES3_ET0_T_S5_S4_.exit38.i, label %99
 
-102:                                              ; preds = %_ZSt13move_backwardIPN4llvm3BTF11BPFLineInfoES3_ET0_T_S5_S4_.exit.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %.0106, ptr align 4 %5, i64 %95, i1 false)
+99:                                               ; preds = %_ZSt13move_backwardIPN4llvm3BTF11BPFLineInfoES3_ET0_T_S5_S4_.exit.i
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %.0105, ptr align 4 %5, i64 %92, i1 false)
   br label %_ZSt4moveIPN4llvm3BTF11BPFLineInfoES3_ET0_T_S5_S4_.exit38.i
 
-_ZSt4moveIPN4llvm3BTF11BPFLineInfoES3_ET0_T_S5_S4_.exit38.i: ; preds = %102, %_ZSt13move_backwardIPN4llvm3BTF11BPFLineInfoES3_ET0_T_S5_S4_.exit.i
-  %103 = getelementptr inbounds i8, ptr %.0106, i64 %95
+_ZSt4moveIPN4llvm3BTF11BPFLineInfoES3_ET0_T_S5_S4_.exit38.i: ; preds = %99, %_ZSt13move_backwardIPN4llvm3BTF11BPFLineInfoES3_ET0_T_S5_S4_.exit.i
+  %100 = getelementptr inbounds i8, ptr %.0105, i64 %92
   br label %_ZSt17__rotate_adaptiveIPN4llvm3BTF11BPFLineInfoES3_lET_S4_S4_S4_T1_S5_T0_S5_.exit
 
-104:                                              ; preds = %88
-  %.not33.i = icmp sgt i64 %89, %6
-  br i1 %.not33.i, label %118, label %105
+101:                                              ; preds = %85
+  %.not33.i = icmp sgt i64 %86, %6
+  br i1 %.not33.i, label %115, label %102
 
-105:                                              ; preds = %104
-  %.not34.i = icmp eq i64 %.tr111127, %.0
-  br i1 %.not34.i, label %_ZSt17__rotate_adaptiveIPN4llvm3BTF11BPFLineInfoES3_lET_S4_S4_S4_T1_S5_T0_S5_.exit, label %106
+102:                                              ; preds = %101
+  %.not34.i = icmp eq i64 %.tr110126, %.0
+  br i1 %.not34.i, label %_ZSt17__rotate_adaptiveIPN4llvm3BTF11BPFLineInfoES3_lET_S4_S4_S4_T1_S5_T0_S5_.exit, label %103
 
-106:                                              ; preds = %105
-  %107 = ptrtoint ptr %.tr109125 to i64
-  %108 = ptrtoint ptr %.0106 to i64
-  %109 = sub i64 %107, %108
-  %.not.i.i.i.i.i39.i = icmp eq ptr %.tr109125, %.0106
-  br i1 %.not.i.i.i.i.i39.i, label %_ZSt4moveIPN4llvm3BTF11BPFLineInfoES3_ET0_T_S5_S4_.exit40.i, label %110
+103:                                              ; preds = %102
+  %104 = ptrtoint ptr %.tr108124 to i64
+  %105 = ptrtoint ptr %.0105 to i64
+  %106 = sub i64 %104, %105
+  %.not.i.i.i.i.i39.i = icmp eq ptr %.tr108124, %.0105
+  br i1 %.not.i.i.i.i.i39.i, label %_ZSt4moveIPN4llvm3BTF11BPFLineInfoES3_ET0_T_S5_S4_.exit40.i, label %107
 
-110:                                              ; preds = %106
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %5, ptr align 4 %.0106, i64 %109, i1 false)
+107:                                              ; preds = %103
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %5, ptr align 4 %.0105, i64 %106, i1 false)
   br label %_ZSt4moveIPN4llvm3BTF11BPFLineInfoES3_ET0_T_S5_S4_.exit40.i
 
-_ZSt4moveIPN4llvm3BTF11BPFLineInfoES3_ET0_T_S5_S4_.exit40.i: ; preds = %110, %106
-  %.not.i.i.i.i.i41.i = icmp eq ptr %.0105, %.tr109125
-  br i1 %.not.i.i.i.i.i41.i, label %_ZSt4moveIPN4llvm3BTF11BPFLineInfoES3_ET0_T_S5_S4_.exit42.i, label %111
+_ZSt4moveIPN4llvm3BTF11BPFLineInfoES3_ET0_T_S5_S4_.exit40.i: ; preds = %107, %103
+  %.not.i.i.i.i.i41.i = icmp eq ptr %.0104, %.tr108124
+  br i1 %.not.i.i.i.i.i41.i, label %_ZSt4moveIPN4llvm3BTF11BPFLineInfoES3_ET0_T_S5_S4_.exit42.i, label %108
 
-111:                                              ; preds = %_ZSt4moveIPN4llvm3BTF11BPFLineInfoES3_ET0_T_S5_S4_.exit40.i
-  %112 = ptrtoint ptr %.0105 to i64
-  %113 = sub i64 %112, %107
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %.0106, ptr align 4 %.tr109125, i64 %113, i1 false)
+108:                                              ; preds = %_ZSt4moveIPN4llvm3BTF11BPFLineInfoES3_ET0_T_S5_S4_.exit40.i
+  %109 = ptrtoint ptr %.0104 to i64
+  %110 = sub i64 %109, %104
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %.0105, ptr align 4 %.tr108124, i64 %110, i1 false)
   br label %_ZSt4moveIPN4llvm3BTF11BPFLineInfoES3_ET0_T_S5_S4_.exit42.i
 
-_ZSt4moveIPN4llvm3BTF11BPFLineInfoES3_ET0_T_S5_S4_.exit42.i: ; preds = %111, %_ZSt4moveIPN4llvm3BTF11BPFLineInfoES3_ET0_T_S5_S4_.exit40.i
-  %114 = ashr exact i64 %109, 4
-  %.pre.i.i.i.i.i44.i = sub nsw i64 0, %114
-  br i1 %.not.i.i.i.i.i39.i, label %_ZSt13move_backwardIPN4llvm3BTF11BPFLineInfoES3_ET0_T_S5_S4_.exit45.i, label %115
+_ZSt4moveIPN4llvm3BTF11BPFLineInfoES3_ET0_T_S5_S4_.exit42.i: ; preds = %108, %_ZSt4moveIPN4llvm3BTF11BPFLineInfoES3_ET0_T_S5_S4_.exit40.i
+  %111 = ashr exact i64 %106, 4
+  %.pre.i.i.i.i.i44.i = sub nsw i64 0, %111
+  br i1 %.not.i.i.i.i.i39.i, label %_ZSt13move_backwardIPN4llvm3BTF11BPFLineInfoES3_ET0_T_S5_S4_.exit45.i, label %112
 
-115:                                              ; preds = %_ZSt4moveIPN4llvm3BTF11BPFLineInfoES3_ET0_T_S5_S4_.exit42.i
-  %116 = getelementptr inbounds %"struct.llvm::BTF::BPFLineInfo", ptr %.0105, i64 %.pre.i.i.i.i.i44.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %116, ptr align 4 %5, i64 %109, i1 false)
+112:                                              ; preds = %_ZSt4moveIPN4llvm3BTF11BPFLineInfoES3_ET0_T_S5_S4_.exit42.i
+  %113 = getelementptr inbounds %"struct.llvm::BTF::BPFLineInfo", ptr %.0104, i64 %.pre.i.i.i.i.i44.i
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %113, ptr align 4 %5, i64 %106, i1 false)
   br label %_ZSt13move_backwardIPN4llvm3BTF11BPFLineInfoES3_ET0_T_S5_S4_.exit45.i
 
-_ZSt13move_backwardIPN4llvm3BTF11BPFLineInfoES3_ET0_T_S5_S4_.exit45.i: ; preds = %115, %_ZSt4moveIPN4llvm3BTF11BPFLineInfoES3_ET0_T_S5_S4_.exit42.i
-  %117 = getelementptr inbounds %"struct.llvm::BTF::BPFLineInfo", ptr %.0105, i64 %.pre.i.i.i.i.i44.i
+_ZSt13move_backwardIPN4llvm3BTF11BPFLineInfoES3_ET0_T_S5_S4_.exit45.i: ; preds = %112, %_ZSt4moveIPN4llvm3BTF11BPFLineInfoES3_ET0_T_S5_S4_.exit42.i
+  %114 = getelementptr inbounds %"struct.llvm::BTF::BPFLineInfo", ptr %.0104, i64 %.pre.i.i.i.i.i44.i
   br label %_ZSt17__rotate_adaptiveIPN4llvm3BTF11BPFLineInfoES3_lET_S4_S4_S4_T1_S5_T0_S5_.exit
 
-118:                                              ; preds = %104
-  %119 = tail call noundef ptr @_ZNSt3_V28__rotateIPN4llvm3BTF11BPFLineInfoEEET_S5_S5_S5_St26random_access_iterator_tag(ptr noundef %.0106, ptr noundef %.tr109125, ptr noundef %.0105)
+115:                                              ; preds = %101
+  %116 = tail call noundef ptr @_ZNSt3_V28__rotateIPN4llvm3BTF11BPFLineInfoEEET_S5_S5_S5_St26random_access_iterator_tag(ptr noundef %.0105, ptr noundef %.tr108124, ptr noundef %.0104)
   br label %_ZSt17__rotate_adaptiveIPN4llvm3BTF11BPFLineInfoES3_lET_S4_S4_S4_T1_S5_T0_S5_.exit
 
-_ZSt17__rotate_adaptiveIPN4llvm3BTF11BPFLineInfoES3_lET_S4_S4_S4_T1_S5_T0_S5_.exit: ; preds = %91, %_ZSt4moveIPN4llvm3BTF11BPFLineInfoES3_ET0_T_S5_S4_.exit38.i, %105, %_ZSt13move_backwardIPN4llvm3BTF11BPFLineInfoES3_ET0_T_S5_S4_.exit45.i, %118
-  %.0.i95 = phi ptr [ %103, %_ZSt4moveIPN4llvm3BTF11BPFLineInfoES3_ET0_T_S5_S4_.exit38.i ], [ %117, %_ZSt13move_backwardIPN4llvm3BTF11BPFLineInfoES3_ET0_T_S5_S4_.exit45.i ], [ %119, %118 ], [ %.0106, %91 ], [ %.0105, %105 ]
-  tail call fastcc void @"_ZSt16__merge_adaptiveIPN4llvm3BTF11BPFLineInfoElS3_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_9BTFParser13parseLineInfoERNS7_12ParseContextERNS0_13DataExtractorEmmE3$_0EEEvT_SE_SE_T0_SF_T1_SF_T2_"(ptr noundef %.tr123, ptr noundef %.0106, ptr noundef %.0.i95, i64 noundef %.0, i64 noundef %.066, ptr noundef %5, i64 noundef %6)
-  %120 = sub nsw i64 %.tr112128, %.066
-  %.not = icmp sgt i64 %89, %120
-  %.not70 = icmp sgt i64 %89, %6
+_ZSt17__rotate_adaptiveIPN4llvm3BTF11BPFLineInfoES3_lET_S4_S4_S4_T1_S5_T0_S5_.exit: ; preds = %88, %_ZSt4moveIPN4llvm3BTF11BPFLineInfoES3_ET0_T_S5_S4_.exit38.i, %102, %_ZSt13move_backwardIPN4llvm3BTF11BPFLineInfoES3_ET0_T_S5_S4_.exit45.i, %115
+  %.0.i94 = phi ptr [ %100, %_ZSt4moveIPN4llvm3BTF11BPFLineInfoES3_ET0_T_S5_S4_.exit38.i ], [ %114, %_ZSt13move_backwardIPN4llvm3BTF11BPFLineInfoES3_ET0_T_S5_S4_.exit45.i ], [ %116, %115 ], [ %.0105, %88 ], [ %.0104, %102 ]
+  tail call fastcc void @"_ZSt16__merge_adaptiveIPN4llvm3BTF11BPFLineInfoElS3_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_9BTFParser13parseLineInfoERNS7_12ParseContextERNS0_13DataExtractorEmmE3$_0EEEvT_SE_SE_T0_SF_T1_SF_T2_"(ptr noundef %.tr122, ptr noundef %.0105, ptr noundef %.0.i94, i64 noundef %.0, i64 noundef %.066, ptr noundef %5, i64 noundef %6)
+  %117 = sub nsw i64 %.tr111127, %.066
+  %.not = icmp sgt i64 %86, %117
+  %.not70 = icmp sgt i64 %86, %6
   %or.cond = or i1 %.not70, %.not
   br i1 %or.cond, label %30, label %tailrecurse._crit_edge
 
-"_ZSt21__move_merge_adaptiveIPN4llvm3BTF11BPFLineInfoES3_S3_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_9BTFParser13parseLineInfoERNS7_12ParseContextERNS0_13DataExtractorEmmE3$_0EEEvT_SE_T0_SF_T1_T2_.exit": ; preds = %54, %32, %48, %46, %35, %_ZSt4moveIPN4llvm3BTF11BPFLineInfoES3_ET0_T_S5_S4_.exit.i, %._crit_edge.i
+"_ZSt21__move_merge_adaptiveIPN4llvm3BTF11BPFLineInfoES3_S3_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_9BTFParser13parseLineInfoERNS7_12ParseContextERNS0_13DataExtractorEmmE3$_0EEEvT_SE_T0_SF_T1_T2_.exit": ; preds = %45, %31, %_ZSt13move_backwardIPN4llvm3BTF11BPFLineInfoES3_ET0_T_S5_S4_.exit.sink.split.i, %43, %_ZSt4moveIPN4llvm3BTF11BPFLineInfoES3_ET0_T_S5_S4_.exit.i, %._crit_edge.i
   ret void
 }
 
@@ -9416,22 +9412,22 @@ _ZSt4moveIPN4llvm3BTF13BPFFieldRelocES3_ET0_T_S5_S4_.exit.i28.i56: ; preds = %13
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal fastcc void @"_ZSt16__merge_adaptiveIPN4llvm3BTF13BPFFieldRelocElS3_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_9BTFParser14parseRelocInfoERNS7_12ParseContextERNS0_13DataExtractorEmmE3$_0EEEvT_SE_SE_T0_SF_T1_SF_T2_"(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, i64 noundef %4, ptr noundef %5, i64 noundef %6) unnamed_addr #0 {
-  %.not120 = icmp sgt i64 %3, %4
-  %.not70121 = icmp sgt i64 %3, %6
-  %or.cond122 = or i1 %.not70121, %.not120
-  br i1 %or.cond122, label %.lr.ph, label %tailrecurse._crit_edge
+  %.not119 = icmp sgt i64 %3, %4
+  %.not70120 = icmp sgt i64 %3, %6
+  %or.cond121 = or i1 %.not70120, %.not119
+  br i1 %or.cond121, label %.lr.ph, label %tailrecurse._crit_edge
 
 .lr.ph:                                           ; preds = %7
   %8 = ptrtoint ptr %2 to i64
   br label %30
 
 tailrecurse._crit_edge:                           ; preds = %_ZSt17__rotate_adaptiveIPN4llvm3BTF13BPFFieldRelocES3_lET_S4_S4_S4_T1_S5_T0_S5_.exit, %7
-  %.tr.lcssa = phi ptr [ %0, %7 ], [ %.0.i95, %_ZSt17__rotate_adaptiveIPN4llvm3BTF13BPFFieldRelocES3_lET_S4_S4_S4_T1_S5_T0_S5_.exit ]
-  %.tr109.lcssa = phi ptr [ %1, %7 ], [ %.0105, %_ZSt17__rotate_adaptiveIPN4llvm3BTF13BPFFieldRelocES3_lET_S4_S4_S4_T1_S5_T0_S5_.exit ]
-  %9 = ptrtoint ptr %.tr109.lcssa to i64
+  %.tr.lcssa = phi ptr [ %0, %7 ], [ %.0.i94, %_ZSt17__rotate_adaptiveIPN4llvm3BTF13BPFFieldRelocES3_lET_S4_S4_S4_T1_S5_T0_S5_.exit ]
+  %.tr108.lcssa = phi ptr [ %1, %7 ], [ %.0104, %_ZSt17__rotate_adaptiveIPN4llvm3BTF13BPFFieldRelocES3_lET_S4_S4_S4_T1_S5_T0_S5_.exit ]
+  %9 = ptrtoint ptr %.tr108.lcssa to i64
   %10 = ptrtoint ptr %.tr.lcssa to i64
   %11 = sub i64 %9, %10
-  %.not.i.i.i.i.i = icmp eq ptr %.tr109.lcssa, %.tr.lcssa
+  %.not.i.i.i.i.i = icmp eq ptr %.tr108.lcssa, %.tr.lcssa
   br i1 %.not.i.i.i.i.i, label %_ZSt4moveIPN4llvm3BTF13BPFFieldRelocES3_ET0_T_S5_S4_.exit, label %12
 
 12:                                               ; preds = %tailrecurse._crit_edge
@@ -9440,15 +9436,15 @@ tailrecurse._crit_edge:                           ; preds = %_ZSt17__rotate_adap
 
 _ZSt4moveIPN4llvm3BTF13BPFFieldRelocES3_ET0_T_S5_S4_.exit: ; preds = %tailrecurse._crit_edge, %12
   %13 = getelementptr inbounds i8, ptr %5, i64 %11
-  %14 = icmp ne ptr %.tr109.lcssa, %.tr.lcssa
-  %15 = icmp ne ptr %.tr109.lcssa, %2
+  %14 = icmp ne ptr %.tr108.lcssa, %.tr.lcssa
+  %15 = icmp ne ptr %.tr108.lcssa, %2
   %16 = and i1 %14, %15
   br i1 %16, label %.lr.ph.i, label %._crit_edge.i
 
 .lr.ph.i:                                         ; preds = %_ZSt4moveIPN4llvm3BTF13BPFFieldRelocES3_ET0_T_S5_S4_.exit, %22
   %.024.i = phi ptr [ %23, %22 ], [ %.tr.lcssa, %_ZSt4moveIPN4llvm3BTF13BPFFieldRelocES3_ET0_T_S5_S4_.exit ]
   %.01823.i = phi ptr [ %.1.i, %22 ], [ %5, %_ZSt4moveIPN4llvm3BTF13BPFFieldRelocES3_ET0_T_S5_S4_.exit ]
-  %.01922.i = phi ptr [ %.120.i, %22 ], [ %.tr109.lcssa, %_ZSt4moveIPN4llvm3BTF13BPFFieldRelocES3_ET0_T_S5_S4_.exit ]
+  %.01922.i = phi ptr [ %.120.i, %22 ], [ %.tr108.lcssa, %_ZSt4moveIPN4llvm3BTF13BPFFieldRelocES3_ET0_T_S5_S4_.exit ]
   %.019.val.i = load i32, ptr %.01922.i, align 4
   %.018.val.i = load i32, ptr %.01823.i, align 4
   %17 = icmp ult i32 %.019.val.i, %.018.val.i
@@ -9487,263 +9483,259 @@ _ZSt4moveIPN4llvm3BTF13BPFFieldRelocES3_ET0_T_S5_S4_.exit.i: ; preds = %._crit_e
   br label %"_ZSt21__move_merge_adaptiveIPN4llvm3BTF13BPFFieldRelocES3_S3_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_9BTFParser14parseRelocInfoERNS7_12ParseContextERNS0_13DataExtractorEmmE3$_0EEEvT_SE_T0_SF_T1_T2_.exit"
 
 30:                                               ; preds = %.lr.ph, %_ZSt17__rotate_adaptiveIPN4llvm3BTF13BPFFieldRelocES3_lET_S4_S4_S4_T1_S5_T0_S5_.exit
-  %.not129 = phi i1 [ %.not120, %.lr.ph ], [ %.not, %_ZSt17__rotate_adaptiveIPN4llvm3BTF13BPFFieldRelocES3_lET_S4_S4_S4_T1_S5_T0_S5_.exit ]
-  %.tr112128 = phi i64 [ %4, %.lr.ph ], [ %120, %_ZSt17__rotate_adaptiveIPN4llvm3BTF13BPFFieldRelocES3_lET_S4_S4_S4_T1_S5_T0_S5_.exit ]
-  %.tr111127 = phi i64 [ %3, %.lr.ph ], [ %89, %_ZSt17__rotate_adaptiveIPN4llvm3BTF13BPFFieldRelocES3_lET_S4_S4_S4_T1_S5_T0_S5_.exit ]
-  %.tr109125 = phi ptr [ %1, %.lr.ph ], [ %.0105, %_ZSt17__rotate_adaptiveIPN4llvm3BTF13BPFFieldRelocES3_lET_S4_S4_S4_T1_S5_T0_S5_.exit ]
-  %.tr123 = phi ptr [ %0, %.lr.ph ], [ %.0.i95, %_ZSt17__rotate_adaptiveIPN4llvm3BTF13BPFFieldRelocES3_lET_S4_S4_S4_T1_S5_T0_S5_.exit ]
-  %.not71 = icmp sgt i64 %.tr112128, %6
-  %31 = ptrtoint ptr %.tr109125 to i64
-  br i1 %.not71, label %58, label %32
+  %.not128 = phi i1 [ %.not119, %.lr.ph ], [ %.not, %_ZSt17__rotate_adaptiveIPN4llvm3BTF13BPFFieldRelocES3_lET_S4_S4_S4_T1_S5_T0_S5_.exit ]
+  %.tr111127 = phi i64 [ %4, %.lr.ph ], [ %117, %_ZSt17__rotate_adaptiveIPN4llvm3BTF13BPFFieldRelocES3_lET_S4_S4_S4_T1_S5_T0_S5_.exit ]
+  %.tr110126 = phi i64 [ %3, %.lr.ph ], [ %86, %_ZSt17__rotate_adaptiveIPN4llvm3BTF13BPFFieldRelocES3_lET_S4_S4_S4_T1_S5_T0_S5_.exit ]
+  %.tr108124 = phi ptr [ %1, %.lr.ph ], [ %.0104, %_ZSt17__rotate_adaptiveIPN4llvm3BTF13BPFFieldRelocES3_lET_S4_S4_S4_T1_S5_T0_S5_.exit ]
+  %.tr122 = phi ptr [ %0, %.lr.ph ], [ %.0.i94, %_ZSt17__rotate_adaptiveIPN4llvm3BTF13BPFFieldRelocES3_lET_S4_S4_S4_T1_S5_T0_S5_.exit ]
+  %.not71 = icmp sgt i64 %.tr111127, %6
+  br i1 %.not71, label %54, label %31
 
-32:                                               ; preds = %30
-  %33 = sub i64 %8, %31
-  %.not.i.i.i.i.i73 = icmp eq ptr %2, %.tr109125
+31:                                               ; preds = %30
+  %.not.i.i.i.i.i73 = icmp eq ptr %2, %.tr108124
   br i1 %.not.i.i.i.i.i73, label %"_ZSt21__move_merge_adaptiveIPN4llvm3BTF13BPFFieldRelocES3_S3_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_9BTFParser14parseRelocInfoERNS7_12ParseContextERNS0_13DataExtractorEmmE3$_0EEEvT_SE_T0_SF_T1_T2_.exit", label %_ZSt4moveIPN4llvm3BTF13BPFFieldRelocES3_ET0_T_S5_S4_.exit74.thread
 
-_ZSt4moveIPN4llvm3BTF13BPFFieldRelocES3_ET0_T_S5_S4_.exit74.thread: ; preds = %32
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %5, ptr align 4 %.tr109125, i64 %33, i1 false)
-  %34 = icmp eq ptr %.tr123, %.tr109125
-  br i1 %34, label %35, label %38
+_ZSt4moveIPN4llvm3BTF13BPFFieldRelocES3_ET0_T_S5_S4_.exit74.thread: ; preds = %31
+  %32 = ptrtoint ptr %.tr108124 to i64
+  %33 = sub i64 %8, %32
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %5, ptr align 4 %.tr108124, i64 %33, i1 false)
+  %34 = getelementptr inbounds i8, ptr %5, i64 %33
+  %35 = icmp eq ptr %.tr122, %.tr108124
+  br i1 %35, label %_ZSt13move_backwardIPN4llvm3BTF13BPFFieldRelocES3_ET0_T_S5_S4_.exit.sink.split.i, label %36
 
-35:                                               ; preds = %_ZSt4moveIPN4llvm3BTF13BPFFieldRelocES3_ET0_T_S5_S4_.exit74.thread
-  %36 = ashr exact i64 %33, 4
-  %.pre.i.i.i.i.i.i = sub nsw i64 0, %36
-  %37 = getelementptr inbounds %"struct.llvm::BTF::BPFFieldReloc", ptr %2, i64 %.pre.i.i.i.i.i.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %37, ptr align 4 %5, i64 %33, i1 false)
-  br label %"_ZSt21__move_merge_adaptiveIPN4llvm3BTF13BPFFieldRelocES3_S3_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_9BTFParser14parseRelocInfoERNS7_12ParseContextERNS0_13DataExtractorEmmE3$_0EEEvT_SE_T0_SF_T1_T2_.exit"
-
-38:                                               ; preds = %_ZSt4moveIPN4llvm3BTF13BPFFieldRelocES3_ET0_T_S5_S4_.exit74.thread
-  %39 = getelementptr inbounds i8, ptr %5, i64 %33
-  %40 = getelementptr inbounds i8, ptr %39, i64 -16
+36:                                               ; preds = %_ZSt4moveIPN4llvm3BTF13BPFFieldRelocES3_ET0_T_S5_S4_.exit74.thread
+  %37 = getelementptr inbounds i8, ptr %34, i64 -16
   br label %.outer
 
-.outer:                                           ; preds = %44, %38
-  %.026.i.ph.pn = phi ptr [ %.tr109125, %38 ], [ %.026.i.ph, %44 ]
-  %.024.i75.ph = phi ptr [ %40, %38 ], [ %.024.i75, %44 ]
-  %.0.i.ph = phi ptr [ %2, %38 ], [ %43, %44 ]
+.outer:                                           ; preds = %41, %36
+  %.026.i.ph.pn = phi ptr [ %.tr108124, %36 ], [ %.026.i.ph, %41 ]
+  %.024.i75.ph = phi ptr [ %37, %36 ], [ %.024.i75, %41 ]
+  %.0.i.ph = phi ptr [ %2, %36 ], [ %40, %41 ]
   %.026.i.ph = getelementptr inbounds i8, ptr %.026.i.ph.pn, i64 -16
-  br label %41
+  br label %38
 
-41:                                               ; preds = %.outer, %56
-  %.024.i75 = phi ptr [ %57, %56 ], [ %.024.i75.ph, %.outer ]
-  %.0.i = phi ptr [ %43, %56 ], [ %.0.i.ph, %.outer ]
+38:                                               ; preds = %.outer, %47
+  %.024.i75 = phi ptr [ %48, %47 ], [ %.024.i75.ph, %.outer ]
+  %.0.i = phi ptr [ %40, %47 ], [ %.0.i.ph, %.outer ]
   %.024.val.i = load i32, ptr %.024.i75, align 4
   %.026.val.i = load i32, ptr %.026.i.ph, align 4
-  %42 = icmp ult i32 %.024.val.i, %.026.val.i
-  %43 = getelementptr inbounds i8, ptr %.0.i, i64 -16
-  br i1 %42, label %44, label %54
+  %39 = icmp ult i32 %.024.val.i, %.026.val.i
+  %40 = getelementptr inbounds i8, ptr %.0.i, i64 -16
+  br i1 %39, label %41, label %45
 
-44:                                               ; preds = %41
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %43, ptr noundef nonnull align 4 dereferenceable(16) %.026.i.ph, i64 16, i1 false)
-  %45 = icmp eq ptr %.tr123, %.026.i.ph
-  br i1 %45, label %46, label %.outer, !llvm.loop !381
+41:                                               ; preds = %38
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %40, ptr noundef nonnull align 4 dereferenceable(16) %.026.i.ph, i64 16, i1 false)
+  %42 = icmp eq ptr %.tr122, %.026.i.ph
+  br i1 %42, label %43, label %.outer, !llvm.loop !381
 
-46:                                               ; preds = %44
-  %47 = getelementptr inbounds i8, ptr %.024.i75, i64 16
-  %.not.i.i.i.i.i32.i = icmp eq ptr %47, %5
-  br i1 %.not.i.i.i.i.i32.i, label %"_ZSt21__move_merge_adaptiveIPN4llvm3BTF13BPFFieldRelocES3_S3_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_9BTFParser14parseRelocInfoERNS7_12ParseContextERNS0_13DataExtractorEmmE3$_0EEEvT_SE_T0_SF_T1_T2_.exit", label %48
+43:                                               ; preds = %41
+  %44 = getelementptr inbounds i8, ptr %.024.i75, i64 16
+  %.not.i.i.i.i.i32.i = icmp eq ptr %44, %5
+  br i1 %.not.i.i.i.i.i32.i, label %"_ZSt21__move_merge_adaptiveIPN4llvm3BTF13BPFFieldRelocES3_S3_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_9BTFParser14parseRelocInfoERNS7_12ParseContextERNS0_13DataExtractorEmmE3$_0EEEvT_SE_T0_SF_T1_T2_.exit", label %_ZSt13move_backwardIPN4llvm3BTF13BPFFieldRelocES3_ET0_T_S5_S4_.exit.sink.split.i
 
-48:                                               ; preds = %46
-  %49 = ptrtoint ptr %47 to i64
+45:                                               ; preds = %38
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %40, ptr noundef nonnull align 4 dereferenceable(16) %.024.i75, i64 16, i1 false)
+  %46 = icmp eq ptr %5, %.024.i75
+  br i1 %46, label %"_ZSt21__move_merge_adaptiveIPN4llvm3BTF13BPFFieldRelocES3_S3_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_9BTFParser14parseRelocInfoERNS7_12ParseContextERNS0_13DataExtractorEmmE3$_0EEEvT_SE_T0_SF_T1_T2_.exit", label %47
+
+47:                                               ; preds = %45
+  %48 = getelementptr inbounds i8, ptr %.024.i75, i64 -16
+  br label %38, !llvm.loop !381
+
+_ZSt13move_backwardIPN4llvm3BTF13BPFFieldRelocES3_ET0_T_S5_S4_.exit.sink.split.i: ; preds = %_ZSt4moveIPN4llvm3BTF13BPFFieldRelocES3_ET0_T_S5_S4_.exit74.thread, %43
+  %.sink41.i = phi ptr [ %44, %43 ], [ %34, %_ZSt4moveIPN4llvm3BTF13BPFFieldRelocES3_ET0_T_S5_S4_.exit74.thread ]
+  %.lcssa.sink.i = phi ptr [ %40, %43 ], [ %2, %_ZSt4moveIPN4llvm3BTF13BPFFieldRelocES3_ET0_T_S5_S4_.exit74.thread ]
+  %49 = ptrtoint ptr %.sink41.i to i64
   %50 = ptrtoint ptr %5 to i64
   %51 = sub i64 %49, %50
   %52 = ashr exact i64 %51, 4
   %.pre.i.i.i.i.i33.i = sub nsw i64 0, %52
-  %53 = getelementptr inbounds %"struct.llvm::BTF::BPFFieldReloc", ptr %43, i64 %.pre.i.i.i.i.i33.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 4 %53, ptr align 4 %5, i64 %51, i1 false)
+  %53 = getelementptr inbounds %"struct.llvm::BTF::BPFFieldReloc", ptr %.lcssa.sink.i, i64 %.pre.i.i.i.i.i33.i
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %53, ptr align 4 %5, i64 %51, i1 false)
   br label %"_ZSt21__move_merge_adaptiveIPN4llvm3BTF13BPFFieldRelocES3_S3_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_9BTFParser14parseRelocInfoERNS7_12ParseContextERNS0_13DataExtractorEmmE3$_0EEEvT_SE_T0_SF_T1_T2_.exit"
 
-54:                                               ; preds = %41
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %43, ptr noundef nonnull align 4 dereferenceable(16) %.024.i75, i64 16, i1 false)
-  %55 = icmp eq ptr %5, %.024.i75
-  br i1 %55, label %"_ZSt21__move_merge_adaptiveIPN4llvm3BTF13BPFFieldRelocES3_S3_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_9BTFParser14parseRelocInfoERNS7_12ParseContextERNS0_13DataExtractorEmmE3$_0EEEvT_SE_T0_SF_T1_T2_.exit", label %56
+54:                                               ; preds = %30
+  %55 = ptrtoint ptr %.tr108124 to i64
+  br i1 %.not128, label %_ZSt7advanceIPN4llvm3BTF13BPFFieldRelocElEvRT_T0_.exit, label %_ZSt7advanceIPN4llvm3BTF13BPFFieldRelocElEvRT_T0_.exit82
 
-56:                                               ; preds = %54
-  %57 = getelementptr inbounds i8, ptr %.024.i75, i64 -16
-  br label %41, !llvm.loop !381
-
-58:                                               ; preds = %30
-  br i1 %.not129, label %_ZSt7advanceIPN4llvm3BTF13BPFFieldRelocElEvRT_T0_.exit, label %_ZSt7advanceIPN4llvm3BTF13BPFFieldRelocElEvRT_T0_.exit82
-
-_ZSt7advanceIPN4llvm3BTF13BPFFieldRelocElEvRT_T0_.exit: ; preds = %58
-  %59 = sdiv i64 %.tr111127, 2
-  %60 = getelementptr inbounds %"struct.llvm::BTF::BPFFieldReloc", ptr %.tr123, i64 %59
-  %.val = load i32, ptr %60, align 4
-  %61 = sub i64 %8, %31
-  %62 = ashr exact i64 %61, 4
-  %63 = icmp sgt i64 %62, 0
-  br i1 %63, label %_ZSt7advanceIPN4llvm3BTF13BPFFieldRelocElEvRT_T0_.exit.i, label %"_ZSt13__lower_boundIPN4llvm3BTF13BPFFieldRelocES2_N9__gnu_cxx5__ops14_Iter_comp_valIZNS0_9BTFParser14parseRelocInfoERNS7_12ParseContextERNS0_13DataExtractorEmmE3$_0EEET_SE_SE_RKT0_T1_.exit"
+_ZSt7advanceIPN4llvm3BTF13BPFFieldRelocElEvRT_T0_.exit: ; preds = %54
+  %56 = sdiv i64 %.tr110126, 2
+  %57 = getelementptr inbounds %"struct.llvm::BTF::BPFFieldReloc", ptr %.tr122, i64 %56
+  %.val = load i32, ptr %57, align 4
+  %58 = sub i64 %8, %55
+  %59 = ashr exact i64 %58, 4
+  %60 = icmp sgt i64 %59, 0
+  br i1 %60, label %_ZSt7advanceIPN4llvm3BTF13BPFFieldRelocElEvRT_T0_.exit.i, label %"_ZSt13__lower_boundIPN4llvm3BTF13BPFFieldRelocES2_N9__gnu_cxx5__ops14_Iter_comp_valIZNS0_9BTFParser14parseRelocInfoERNS7_12ParseContextERNS0_13DataExtractorEmmE3$_0EEET_SE_SE_RKT0_T1_.exit"
 
 _ZSt7advanceIPN4llvm3BTF13BPFFieldRelocElEvRT_T0_.exit.i: ; preds = %_ZSt7advanceIPN4llvm3BTF13BPFFieldRelocElEvRT_T0_.exit, %_ZSt7advanceIPN4llvm3BTF13BPFFieldRelocElEvRT_T0_.exit.i
-  %.05.i = phi ptr [ %.1.i78, %_ZSt7advanceIPN4llvm3BTF13BPFFieldRelocElEvRT_T0_.exit.i ], [ %.tr109125, %_ZSt7advanceIPN4llvm3BTF13BPFFieldRelocElEvRT_T0_.exit ]
-  %.0114.i = phi i64 [ %.112.i, %_ZSt7advanceIPN4llvm3BTF13BPFFieldRelocElEvRT_T0_.exit.i ], [ %62, %_ZSt7advanceIPN4llvm3BTF13BPFFieldRelocElEvRT_T0_.exit ]
-  %64 = lshr i64 %.0114.i, 1
-  %65 = getelementptr inbounds %"struct.llvm::BTF::BPFFieldReloc", ptr %.05.i, i64 %64
-  %.val.i = load i32, ptr %65, align 4
-  %66 = icmp ult i32 %.val.i, %.val
-  %67 = getelementptr inbounds i8, ptr %65, i64 16
-  %68 = xor i64 %64, -1
-  %69 = add nsw i64 %.0114.i, %68
-  %.112.i = select i1 %66, i64 %69, i64 %64
-  %.1.i78 = select i1 %66, ptr %67, ptr %.05.i
-  %70 = icmp sgt i64 %.112.i, 0
-  br i1 %70, label %_ZSt7advanceIPN4llvm3BTF13BPFFieldRelocElEvRT_T0_.exit.i, label %"_ZSt13__lower_boundIPN4llvm3BTF13BPFFieldRelocES2_N9__gnu_cxx5__ops14_Iter_comp_valIZNS0_9BTFParser14parseRelocInfoERNS7_12ParseContextERNS0_13DataExtractorEmmE3$_0EEET_SE_SE_RKT0_T1_.exit.loopexit", !llvm.loop !370
+  %.05.i = phi ptr [ %.1.i78, %_ZSt7advanceIPN4llvm3BTF13BPFFieldRelocElEvRT_T0_.exit.i ], [ %.tr108124, %_ZSt7advanceIPN4llvm3BTF13BPFFieldRelocElEvRT_T0_.exit ]
+  %.0114.i = phi i64 [ %.112.i, %_ZSt7advanceIPN4llvm3BTF13BPFFieldRelocElEvRT_T0_.exit.i ], [ %59, %_ZSt7advanceIPN4llvm3BTF13BPFFieldRelocElEvRT_T0_.exit ]
+  %61 = lshr i64 %.0114.i, 1
+  %62 = getelementptr inbounds %"struct.llvm::BTF::BPFFieldReloc", ptr %.05.i, i64 %61
+  %.val.i = load i32, ptr %62, align 4
+  %63 = icmp ult i32 %.val.i, %.val
+  %64 = getelementptr inbounds i8, ptr %62, i64 16
+  %65 = xor i64 %61, -1
+  %66 = add nsw i64 %.0114.i, %65
+  %.112.i = select i1 %63, i64 %66, i64 %61
+  %.1.i78 = select i1 %63, ptr %64, ptr %.05.i
+  %67 = icmp sgt i64 %.112.i, 0
+  br i1 %67, label %_ZSt7advanceIPN4llvm3BTF13BPFFieldRelocElEvRT_T0_.exit.i, label %"_ZSt13__lower_boundIPN4llvm3BTF13BPFFieldRelocES2_N9__gnu_cxx5__ops14_Iter_comp_valIZNS0_9BTFParser14parseRelocInfoERNS7_12ParseContextERNS0_13DataExtractorEmmE3$_0EEET_SE_SE_RKT0_T1_.exit.loopexit", !llvm.loop !370
 
 "_ZSt13__lower_boundIPN4llvm3BTF13BPFFieldRelocES2_N9__gnu_cxx5__ops14_Iter_comp_valIZNS0_9BTFParser14parseRelocInfoERNS7_12ParseContextERNS0_13DataExtractorEmmE3$_0EEET_SE_SE_RKT0_T1_.exit.loopexit": ; preds = %_ZSt7advanceIPN4llvm3BTF13BPFFieldRelocElEvRT_T0_.exit.i
   %.pre = ptrtoint ptr %.1.i78 to i64
   br label %"_ZSt13__lower_boundIPN4llvm3BTF13BPFFieldRelocES2_N9__gnu_cxx5__ops14_Iter_comp_valIZNS0_9BTFParser14parseRelocInfoERNS7_12ParseContextERNS0_13DataExtractorEmmE3$_0EEET_SE_SE_RKT0_T1_.exit"
 
 "_ZSt13__lower_boundIPN4llvm3BTF13BPFFieldRelocES2_N9__gnu_cxx5__ops14_Iter_comp_valIZNS0_9BTFParser14parseRelocInfoERNS7_12ParseContextERNS0_13DataExtractorEmmE3$_0EEET_SE_SE_RKT0_T1_.exit": ; preds = %"_ZSt13__lower_boundIPN4llvm3BTF13BPFFieldRelocES2_N9__gnu_cxx5__ops14_Iter_comp_valIZNS0_9BTFParser14parseRelocInfoERNS7_12ParseContextERNS0_13DataExtractorEmmE3$_0EEET_SE_SE_RKT0_T1_.exit.loopexit", %_ZSt7advanceIPN4llvm3BTF13BPFFieldRelocElEvRT_T0_.exit
-  %.pre-phi = phi i64 [ %.pre, %"_ZSt13__lower_boundIPN4llvm3BTF13BPFFieldRelocES2_N9__gnu_cxx5__ops14_Iter_comp_valIZNS0_9BTFParser14parseRelocInfoERNS7_12ParseContextERNS0_13DataExtractorEmmE3$_0EEET_SE_SE_RKT0_T1_.exit.loopexit" ], [ %31, %_ZSt7advanceIPN4llvm3BTF13BPFFieldRelocElEvRT_T0_.exit ]
-  %.0.lcssa.i77 = phi ptr [ %.1.i78, %"_ZSt13__lower_boundIPN4llvm3BTF13BPFFieldRelocES2_N9__gnu_cxx5__ops14_Iter_comp_valIZNS0_9BTFParser14parseRelocInfoERNS7_12ParseContextERNS0_13DataExtractorEmmE3$_0EEET_SE_SE_RKT0_T1_.exit.loopexit" ], [ %.tr109125, %_ZSt7advanceIPN4llvm3BTF13BPFFieldRelocElEvRT_T0_.exit ]
-  %71 = sub i64 %.pre-phi, %31
-  %72 = ashr exact i64 %71, 4
-  br label %88
+  %.pre-phi = phi i64 [ %.pre, %"_ZSt13__lower_boundIPN4llvm3BTF13BPFFieldRelocES2_N9__gnu_cxx5__ops14_Iter_comp_valIZNS0_9BTFParser14parseRelocInfoERNS7_12ParseContextERNS0_13DataExtractorEmmE3$_0EEET_SE_SE_RKT0_T1_.exit.loopexit" ], [ %55, %_ZSt7advanceIPN4llvm3BTF13BPFFieldRelocElEvRT_T0_.exit ]
+  %.0.lcssa.i77 = phi ptr [ %.1.i78, %"_ZSt13__lower_boundIPN4llvm3BTF13BPFFieldRelocES2_N9__gnu_cxx5__ops14_Iter_comp_valIZNS0_9BTFParser14parseRelocInfoERNS7_12ParseContextERNS0_13DataExtractorEmmE3$_0EEET_SE_SE_RKT0_T1_.exit.loopexit" ], [ %.tr108124, %_ZSt7advanceIPN4llvm3BTF13BPFFieldRelocElEvRT_T0_.exit ]
+  %68 = sub i64 %.pre-phi, %55
+  %69 = ashr exact i64 %68, 4
+  br label %85
 
-_ZSt7advanceIPN4llvm3BTF13BPFFieldRelocElEvRT_T0_.exit82: ; preds = %58
-  %73 = sdiv i64 %.tr112128, 2
-  %74 = getelementptr inbounds %"struct.llvm::BTF::BPFFieldReloc", ptr %.tr109125, i64 %73
-  %.val72 = load i32, ptr %74, align 4
-  %75 = ptrtoint ptr %.tr123 to i64
-  %76 = sub i64 %31, %75
-  %77 = ashr exact i64 %76, 4
-  %78 = icmp sgt i64 %77, 0
-  br i1 %78, label %_ZSt7advanceIPN4llvm3BTF13BPFFieldRelocElEvRT_T0_.exit.i85, label %"_ZSt13__upper_boundIPN4llvm3BTF13BPFFieldRelocES2_N9__gnu_cxx5__ops14_Val_comp_iterIZNS0_9BTFParser14parseRelocInfoERNS7_12ParseContextERNS0_13DataExtractorEmmE3$_0EEET_SE_SE_RKT0_T1_.exit"
+_ZSt7advanceIPN4llvm3BTF13BPFFieldRelocElEvRT_T0_.exit82: ; preds = %54
+  %70 = sdiv i64 %.tr111127, 2
+  %71 = getelementptr inbounds %"struct.llvm::BTF::BPFFieldReloc", ptr %.tr108124, i64 %70
+  %.val72 = load i32, ptr %71, align 4
+  %72 = ptrtoint ptr %.tr122 to i64
+  %73 = sub i64 %55, %72
+  %74 = ashr exact i64 %73, 4
+  %75 = icmp sgt i64 %74, 0
+  br i1 %75, label %_ZSt7advanceIPN4llvm3BTF13BPFFieldRelocElEvRT_T0_.exit.i85, label %"_ZSt13__upper_boundIPN4llvm3BTF13BPFFieldRelocES2_N9__gnu_cxx5__ops14_Val_comp_iterIZNS0_9BTFParser14parseRelocInfoERNS7_12ParseContextERNS0_13DataExtractorEmmE3$_0EEET_SE_SE_RKT0_T1_.exit"
 
 _ZSt7advanceIPN4llvm3BTF13BPFFieldRelocElEvRT_T0_.exit.i85: ; preds = %_ZSt7advanceIPN4llvm3BTF13BPFFieldRelocElEvRT_T0_.exit82, %_ZSt7advanceIPN4llvm3BTF13BPFFieldRelocElEvRT_T0_.exit.i85
-  %.05.i86 = phi ptr [ %.1.i91, %_ZSt7advanceIPN4llvm3BTF13BPFFieldRelocElEvRT_T0_.exit.i85 ], [ %.tr123, %_ZSt7advanceIPN4llvm3BTF13BPFFieldRelocElEvRT_T0_.exit82 ]
-  %.0114.i87 = phi i64 [ %.112.i90, %_ZSt7advanceIPN4llvm3BTF13BPFFieldRelocElEvRT_T0_.exit.i85 ], [ %77, %_ZSt7advanceIPN4llvm3BTF13BPFFieldRelocElEvRT_T0_.exit82 ]
-  %79 = lshr i64 %.0114.i87, 1
-  %80 = getelementptr inbounds %"struct.llvm::BTF::BPFFieldReloc", ptr %.05.i86, i64 %79
-  %.val13.i = load i32, ptr %80, align 4
-  %81 = icmp ult i32 %.val72, %.val13.i
-  %82 = getelementptr inbounds i8, ptr %80, i64 16
-  %83 = xor i64 %79, -1
-  %84 = add nsw i64 %.0114.i87, %83
-  %.112.i90 = select i1 %81, i64 %79, i64 %84
-  %.1.i91 = select i1 %81, ptr %.05.i86, ptr %82
-  %85 = icmp sgt i64 %.112.i90, 0
-  br i1 %85, label %_ZSt7advanceIPN4llvm3BTF13BPFFieldRelocElEvRT_T0_.exit.i85, label %"_ZSt13__upper_boundIPN4llvm3BTF13BPFFieldRelocES2_N9__gnu_cxx5__ops14_Val_comp_iterIZNS0_9BTFParser14parseRelocInfoERNS7_12ParseContextERNS0_13DataExtractorEmmE3$_0EEET_SE_SE_RKT0_T1_.exit.loopexit", !llvm.loop !371
+  %.05.i86 = phi ptr [ %.1.i91, %_ZSt7advanceIPN4llvm3BTF13BPFFieldRelocElEvRT_T0_.exit.i85 ], [ %.tr122, %_ZSt7advanceIPN4llvm3BTF13BPFFieldRelocElEvRT_T0_.exit82 ]
+  %.0114.i87 = phi i64 [ %.112.i90, %_ZSt7advanceIPN4llvm3BTF13BPFFieldRelocElEvRT_T0_.exit.i85 ], [ %74, %_ZSt7advanceIPN4llvm3BTF13BPFFieldRelocElEvRT_T0_.exit82 ]
+  %76 = lshr i64 %.0114.i87, 1
+  %77 = getelementptr inbounds %"struct.llvm::BTF::BPFFieldReloc", ptr %.05.i86, i64 %76
+  %.val13.i = load i32, ptr %77, align 4
+  %78 = icmp ult i32 %.val72, %.val13.i
+  %79 = getelementptr inbounds i8, ptr %77, i64 16
+  %80 = xor i64 %76, -1
+  %81 = add nsw i64 %.0114.i87, %80
+  %.112.i90 = select i1 %78, i64 %76, i64 %81
+  %.1.i91 = select i1 %78, ptr %.05.i86, ptr %79
+  %82 = icmp sgt i64 %.112.i90, 0
+  br i1 %82, label %_ZSt7advanceIPN4llvm3BTF13BPFFieldRelocElEvRT_T0_.exit.i85, label %"_ZSt13__upper_boundIPN4llvm3BTF13BPFFieldRelocES2_N9__gnu_cxx5__ops14_Val_comp_iterIZNS0_9BTFParser14parseRelocInfoERNS7_12ParseContextERNS0_13DataExtractorEmmE3$_0EEET_SE_SE_RKT0_T1_.exit.loopexit", !llvm.loop !371
 
 "_ZSt13__upper_boundIPN4llvm3BTF13BPFFieldRelocES2_N9__gnu_cxx5__ops14_Val_comp_iterIZNS0_9BTFParser14parseRelocInfoERNS7_12ParseContextERNS0_13DataExtractorEmmE3$_0EEET_SE_SE_RKT0_T1_.exit.loopexit": ; preds = %_ZSt7advanceIPN4llvm3BTF13BPFFieldRelocElEvRT_T0_.exit.i85
-  %.pre137 = ptrtoint ptr %.1.i91 to i64
+  %.pre136 = ptrtoint ptr %.1.i91 to i64
   br label %"_ZSt13__upper_boundIPN4llvm3BTF13BPFFieldRelocES2_N9__gnu_cxx5__ops14_Val_comp_iterIZNS0_9BTFParser14parseRelocInfoERNS7_12ParseContextERNS0_13DataExtractorEmmE3$_0EEET_SE_SE_RKT0_T1_.exit"
 
 "_ZSt13__upper_boundIPN4llvm3BTF13BPFFieldRelocES2_N9__gnu_cxx5__ops14_Val_comp_iterIZNS0_9BTFParser14parseRelocInfoERNS7_12ParseContextERNS0_13DataExtractorEmmE3$_0EEET_SE_SE_RKT0_T1_.exit": ; preds = %"_ZSt13__upper_boundIPN4llvm3BTF13BPFFieldRelocES2_N9__gnu_cxx5__ops14_Val_comp_iterIZNS0_9BTFParser14parseRelocInfoERNS7_12ParseContextERNS0_13DataExtractorEmmE3$_0EEET_SE_SE_RKT0_T1_.exit.loopexit", %_ZSt7advanceIPN4llvm3BTF13BPFFieldRelocElEvRT_T0_.exit82
-  %.pre-phi138 = phi i64 [ %.pre137, %"_ZSt13__upper_boundIPN4llvm3BTF13BPFFieldRelocES2_N9__gnu_cxx5__ops14_Val_comp_iterIZNS0_9BTFParser14parseRelocInfoERNS7_12ParseContextERNS0_13DataExtractorEmmE3$_0EEET_SE_SE_RKT0_T1_.exit.loopexit" ], [ %75, %_ZSt7advanceIPN4llvm3BTF13BPFFieldRelocElEvRT_T0_.exit82 ]
-  %.0.lcssa.i84 = phi ptr [ %.1.i91, %"_ZSt13__upper_boundIPN4llvm3BTF13BPFFieldRelocES2_N9__gnu_cxx5__ops14_Val_comp_iterIZNS0_9BTFParser14parseRelocInfoERNS7_12ParseContextERNS0_13DataExtractorEmmE3$_0EEET_SE_SE_RKT0_T1_.exit.loopexit" ], [ %.tr123, %_ZSt7advanceIPN4llvm3BTF13BPFFieldRelocElEvRT_T0_.exit82 ]
-  %86 = sub i64 %.pre-phi138, %75
-  %87 = ashr exact i64 %86, 4
-  br label %88
+  %.pre-phi137 = phi i64 [ %.pre136, %"_ZSt13__upper_boundIPN4llvm3BTF13BPFFieldRelocES2_N9__gnu_cxx5__ops14_Val_comp_iterIZNS0_9BTFParser14parseRelocInfoERNS7_12ParseContextERNS0_13DataExtractorEmmE3$_0EEET_SE_SE_RKT0_T1_.exit.loopexit" ], [ %72, %_ZSt7advanceIPN4llvm3BTF13BPFFieldRelocElEvRT_T0_.exit82 ]
+  %.0.lcssa.i84 = phi ptr [ %.1.i91, %"_ZSt13__upper_boundIPN4llvm3BTF13BPFFieldRelocES2_N9__gnu_cxx5__ops14_Val_comp_iterIZNS0_9BTFParser14parseRelocInfoERNS7_12ParseContextERNS0_13DataExtractorEmmE3$_0EEET_SE_SE_RKT0_T1_.exit.loopexit" ], [ %.tr122, %_ZSt7advanceIPN4llvm3BTF13BPFFieldRelocElEvRT_T0_.exit82 ]
+  %83 = sub i64 %.pre-phi137, %72
+  %84 = ashr exact i64 %83, 4
+  br label %85
 
-88:                                               ; preds = %"_ZSt13__upper_boundIPN4llvm3BTF13BPFFieldRelocES2_N9__gnu_cxx5__ops14_Val_comp_iterIZNS0_9BTFParser14parseRelocInfoERNS7_12ParseContextERNS0_13DataExtractorEmmE3$_0EEET_SE_SE_RKT0_T1_.exit", %"_ZSt13__lower_boundIPN4llvm3BTF13BPFFieldRelocES2_N9__gnu_cxx5__ops14_Iter_comp_valIZNS0_9BTFParser14parseRelocInfoERNS7_12ParseContextERNS0_13DataExtractorEmmE3$_0EEET_SE_SE_RKT0_T1_.exit"
-  %.0106 = phi ptr [ %60, %"_ZSt13__lower_boundIPN4llvm3BTF13BPFFieldRelocES2_N9__gnu_cxx5__ops14_Iter_comp_valIZNS0_9BTFParser14parseRelocInfoERNS7_12ParseContextERNS0_13DataExtractorEmmE3$_0EEET_SE_SE_RKT0_T1_.exit" ], [ %.0.lcssa.i84, %"_ZSt13__upper_boundIPN4llvm3BTF13BPFFieldRelocES2_N9__gnu_cxx5__ops14_Val_comp_iterIZNS0_9BTFParser14parseRelocInfoERNS7_12ParseContextERNS0_13DataExtractorEmmE3$_0EEET_SE_SE_RKT0_T1_.exit" ]
-  %.0105 = phi ptr [ %.0.lcssa.i77, %"_ZSt13__lower_boundIPN4llvm3BTF13BPFFieldRelocES2_N9__gnu_cxx5__ops14_Iter_comp_valIZNS0_9BTFParser14parseRelocInfoERNS7_12ParseContextERNS0_13DataExtractorEmmE3$_0EEET_SE_SE_RKT0_T1_.exit" ], [ %74, %"_ZSt13__upper_boundIPN4llvm3BTF13BPFFieldRelocES2_N9__gnu_cxx5__ops14_Val_comp_iterIZNS0_9BTFParser14parseRelocInfoERNS7_12ParseContextERNS0_13DataExtractorEmmE3$_0EEET_SE_SE_RKT0_T1_.exit" ]
-  %.066 = phi i64 [ %72, %"_ZSt13__lower_boundIPN4llvm3BTF13BPFFieldRelocES2_N9__gnu_cxx5__ops14_Iter_comp_valIZNS0_9BTFParser14parseRelocInfoERNS7_12ParseContextERNS0_13DataExtractorEmmE3$_0EEET_SE_SE_RKT0_T1_.exit" ], [ %73, %"_ZSt13__upper_boundIPN4llvm3BTF13BPFFieldRelocES2_N9__gnu_cxx5__ops14_Val_comp_iterIZNS0_9BTFParser14parseRelocInfoERNS7_12ParseContextERNS0_13DataExtractorEmmE3$_0EEET_SE_SE_RKT0_T1_.exit" ]
-  %.0 = phi i64 [ %59, %"_ZSt13__lower_boundIPN4llvm3BTF13BPFFieldRelocES2_N9__gnu_cxx5__ops14_Iter_comp_valIZNS0_9BTFParser14parseRelocInfoERNS7_12ParseContextERNS0_13DataExtractorEmmE3$_0EEET_SE_SE_RKT0_T1_.exit" ], [ %87, %"_ZSt13__upper_boundIPN4llvm3BTF13BPFFieldRelocES2_N9__gnu_cxx5__ops14_Val_comp_iterIZNS0_9BTFParser14parseRelocInfoERNS7_12ParseContextERNS0_13DataExtractorEmmE3$_0EEET_SE_SE_RKT0_T1_.exit" ]
-  %89 = sub nsw i64 %.tr111127, %.0
-  %90 = icmp sle i64 %89, %.066
+85:                                               ; preds = %"_ZSt13__upper_boundIPN4llvm3BTF13BPFFieldRelocES2_N9__gnu_cxx5__ops14_Val_comp_iterIZNS0_9BTFParser14parseRelocInfoERNS7_12ParseContextERNS0_13DataExtractorEmmE3$_0EEET_SE_SE_RKT0_T1_.exit", %"_ZSt13__lower_boundIPN4llvm3BTF13BPFFieldRelocES2_N9__gnu_cxx5__ops14_Iter_comp_valIZNS0_9BTFParser14parseRelocInfoERNS7_12ParseContextERNS0_13DataExtractorEmmE3$_0EEET_SE_SE_RKT0_T1_.exit"
+  %.0105 = phi ptr [ %57, %"_ZSt13__lower_boundIPN4llvm3BTF13BPFFieldRelocES2_N9__gnu_cxx5__ops14_Iter_comp_valIZNS0_9BTFParser14parseRelocInfoERNS7_12ParseContextERNS0_13DataExtractorEmmE3$_0EEET_SE_SE_RKT0_T1_.exit" ], [ %.0.lcssa.i84, %"_ZSt13__upper_boundIPN4llvm3BTF13BPFFieldRelocES2_N9__gnu_cxx5__ops14_Val_comp_iterIZNS0_9BTFParser14parseRelocInfoERNS7_12ParseContextERNS0_13DataExtractorEmmE3$_0EEET_SE_SE_RKT0_T1_.exit" ]
+  %.0104 = phi ptr [ %.0.lcssa.i77, %"_ZSt13__lower_boundIPN4llvm3BTF13BPFFieldRelocES2_N9__gnu_cxx5__ops14_Iter_comp_valIZNS0_9BTFParser14parseRelocInfoERNS7_12ParseContextERNS0_13DataExtractorEmmE3$_0EEET_SE_SE_RKT0_T1_.exit" ], [ %71, %"_ZSt13__upper_boundIPN4llvm3BTF13BPFFieldRelocES2_N9__gnu_cxx5__ops14_Val_comp_iterIZNS0_9BTFParser14parseRelocInfoERNS7_12ParseContextERNS0_13DataExtractorEmmE3$_0EEET_SE_SE_RKT0_T1_.exit" ]
+  %.066 = phi i64 [ %69, %"_ZSt13__lower_boundIPN4llvm3BTF13BPFFieldRelocES2_N9__gnu_cxx5__ops14_Iter_comp_valIZNS0_9BTFParser14parseRelocInfoERNS7_12ParseContextERNS0_13DataExtractorEmmE3$_0EEET_SE_SE_RKT0_T1_.exit" ], [ %70, %"_ZSt13__upper_boundIPN4llvm3BTF13BPFFieldRelocES2_N9__gnu_cxx5__ops14_Val_comp_iterIZNS0_9BTFParser14parseRelocInfoERNS7_12ParseContextERNS0_13DataExtractorEmmE3$_0EEET_SE_SE_RKT0_T1_.exit" ]
+  %.0 = phi i64 [ %56, %"_ZSt13__lower_boundIPN4llvm3BTF13BPFFieldRelocES2_N9__gnu_cxx5__ops14_Iter_comp_valIZNS0_9BTFParser14parseRelocInfoERNS7_12ParseContextERNS0_13DataExtractorEmmE3$_0EEET_SE_SE_RKT0_T1_.exit" ], [ %84, %"_ZSt13__upper_boundIPN4llvm3BTF13BPFFieldRelocES2_N9__gnu_cxx5__ops14_Val_comp_iterIZNS0_9BTFParser14parseRelocInfoERNS7_12ParseContextERNS0_13DataExtractorEmmE3$_0EEET_SE_SE_RKT0_T1_.exit" ]
+  %86 = sub nsw i64 %.tr110126, %.0
+  %87 = icmp sle i64 %86, %.066
   %.not.i = icmp sgt i64 %.066, %6
-  %or.cond.i = or i1 %.not.i, %90
-  br i1 %or.cond.i, label %104, label %91
+  %or.cond.i = or i1 %.not.i, %87
+  br i1 %or.cond.i, label %101, label %88
 
-91:                                               ; preds = %88
+88:                                               ; preds = %85
   %.not35.i = icmp eq i64 %.066, 0
-  br i1 %.not35.i, label %_ZSt17__rotate_adaptiveIPN4llvm3BTF13BPFFieldRelocES3_lET_S4_S4_S4_T1_S5_T0_S5_.exit, label %92
+  br i1 %.not35.i, label %_ZSt17__rotate_adaptiveIPN4llvm3BTF13BPFFieldRelocES3_lET_S4_S4_S4_T1_S5_T0_S5_.exit, label %89
 
-92:                                               ; preds = %91
-  %93 = ptrtoint ptr %.0105 to i64
-  %94 = ptrtoint ptr %.tr109125 to i64
-  %95 = sub i64 %93, %94
-  %.not.i.i.i.i.i.i92 = icmp eq ptr %.0105, %.tr109125
-  br i1 %.not.i.i.i.i.i.i92, label %_ZSt4moveIPN4llvm3BTF13BPFFieldRelocES3_ET0_T_S5_S4_.exit.i93, label %96
+89:                                               ; preds = %88
+  %90 = ptrtoint ptr %.0104 to i64
+  %91 = ptrtoint ptr %.tr108124 to i64
+  %92 = sub i64 %90, %91
+  %.not.i.i.i.i.i.i92 = icmp eq ptr %.0104, %.tr108124
+  br i1 %.not.i.i.i.i.i.i92, label %_ZSt4moveIPN4llvm3BTF13BPFFieldRelocES3_ET0_T_S5_S4_.exit.i93, label %93
 
-96:                                               ; preds = %92
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %5, ptr align 4 %.tr109125, i64 %95, i1 false)
+93:                                               ; preds = %89
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %5, ptr align 4 %.tr108124, i64 %92, i1 false)
   br label %_ZSt4moveIPN4llvm3BTF13BPFFieldRelocES3_ET0_T_S5_S4_.exit.i93
 
-_ZSt4moveIPN4llvm3BTF13BPFFieldRelocES3_ET0_T_S5_S4_.exit.i93: ; preds = %96, %92
-  %.not.i.i.i.i.i36.i = icmp eq ptr %.tr109125, %.0106
-  br i1 %.not.i.i.i.i.i36.i, label %_ZSt13move_backwardIPN4llvm3BTF13BPFFieldRelocES3_ET0_T_S5_S4_.exit.i, label %97
+_ZSt4moveIPN4llvm3BTF13BPFFieldRelocES3_ET0_T_S5_S4_.exit.i93: ; preds = %93, %89
+  %.not.i.i.i.i.i36.i = icmp eq ptr %.tr108124, %.0105
+  br i1 %.not.i.i.i.i.i36.i, label %_ZSt13move_backwardIPN4llvm3BTF13BPFFieldRelocES3_ET0_T_S5_S4_.exit.i, label %94
 
-97:                                               ; preds = %_ZSt4moveIPN4llvm3BTF13BPFFieldRelocES3_ET0_T_S5_S4_.exit.i93
-  %98 = ptrtoint ptr %.0106 to i64
-  %99 = sub i64 %94, %98
-  %100 = ashr exact i64 %99, 4
-  %.pre.i.i.i.i.i.i94 = sub nsw i64 0, %100
-  %101 = getelementptr inbounds %"struct.llvm::BTF::BPFFieldReloc", ptr %.0105, i64 %.pre.i.i.i.i.i.i94
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %101, ptr align 4 %.0106, i64 %99, i1 false)
+94:                                               ; preds = %_ZSt4moveIPN4llvm3BTF13BPFFieldRelocES3_ET0_T_S5_S4_.exit.i93
+  %95 = ptrtoint ptr %.0105 to i64
+  %96 = sub i64 %91, %95
+  %97 = ashr exact i64 %96, 4
+  %.pre.i.i.i.i.i.i = sub nsw i64 0, %97
+  %98 = getelementptr inbounds %"struct.llvm::BTF::BPFFieldReloc", ptr %.0104, i64 %.pre.i.i.i.i.i.i
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %98, ptr align 4 %.0105, i64 %96, i1 false)
   br label %_ZSt13move_backwardIPN4llvm3BTF13BPFFieldRelocES3_ET0_T_S5_S4_.exit.i
 
-_ZSt13move_backwardIPN4llvm3BTF13BPFFieldRelocES3_ET0_T_S5_S4_.exit.i: ; preds = %97, %_ZSt4moveIPN4llvm3BTF13BPFFieldRelocES3_ET0_T_S5_S4_.exit.i93
-  br i1 %.not.i.i.i.i.i.i92, label %_ZSt4moveIPN4llvm3BTF13BPFFieldRelocES3_ET0_T_S5_S4_.exit38.i, label %102
+_ZSt13move_backwardIPN4llvm3BTF13BPFFieldRelocES3_ET0_T_S5_S4_.exit.i: ; preds = %94, %_ZSt4moveIPN4llvm3BTF13BPFFieldRelocES3_ET0_T_S5_S4_.exit.i93
+  br i1 %.not.i.i.i.i.i.i92, label %_ZSt4moveIPN4llvm3BTF13BPFFieldRelocES3_ET0_T_S5_S4_.exit38.i, label %99
 
-102:                                              ; preds = %_ZSt13move_backwardIPN4llvm3BTF13BPFFieldRelocES3_ET0_T_S5_S4_.exit.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %.0106, ptr align 4 %5, i64 %95, i1 false)
+99:                                               ; preds = %_ZSt13move_backwardIPN4llvm3BTF13BPFFieldRelocES3_ET0_T_S5_S4_.exit.i
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %.0105, ptr align 4 %5, i64 %92, i1 false)
   br label %_ZSt4moveIPN4llvm3BTF13BPFFieldRelocES3_ET0_T_S5_S4_.exit38.i
 
-_ZSt4moveIPN4llvm3BTF13BPFFieldRelocES3_ET0_T_S5_S4_.exit38.i: ; preds = %102, %_ZSt13move_backwardIPN4llvm3BTF13BPFFieldRelocES3_ET0_T_S5_S4_.exit.i
-  %103 = getelementptr inbounds i8, ptr %.0106, i64 %95
+_ZSt4moveIPN4llvm3BTF13BPFFieldRelocES3_ET0_T_S5_S4_.exit38.i: ; preds = %99, %_ZSt13move_backwardIPN4llvm3BTF13BPFFieldRelocES3_ET0_T_S5_S4_.exit.i
+  %100 = getelementptr inbounds i8, ptr %.0105, i64 %92
   br label %_ZSt17__rotate_adaptiveIPN4llvm3BTF13BPFFieldRelocES3_lET_S4_S4_S4_T1_S5_T0_S5_.exit
 
-104:                                              ; preds = %88
-  %.not33.i = icmp sgt i64 %89, %6
-  br i1 %.not33.i, label %118, label %105
+101:                                              ; preds = %85
+  %.not33.i = icmp sgt i64 %86, %6
+  br i1 %.not33.i, label %115, label %102
 
-105:                                              ; preds = %104
-  %.not34.i = icmp eq i64 %.tr111127, %.0
-  br i1 %.not34.i, label %_ZSt17__rotate_adaptiveIPN4llvm3BTF13BPFFieldRelocES3_lET_S4_S4_S4_T1_S5_T0_S5_.exit, label %106
+102:                                              ; preds = %101
+  %.not34.i = icmp eq i64 %.tr110126, %.0
+  br i1 %.not34.i, label %_ZSt17__rotate_adaptiveIPN4llvm3BTF13BPFFieldRelocES3_lET_S4_S4_S4_T1_S5_T0_S5_.exit, label %103
 
-106:                                              ; preds = %105
-  %107 = ptrtoint ptr %.tr109125 to i64
-  %108 = ptrtoint ptr %.0106 to i64
-  %109 = sub i64 %107, %108
-  %.not.i.i.i.i.i39.i = icmp eq ptr %.tr109125, %.0106
-  br i1 %.not.i.i.i.i.i39.i, label %_ZSt4moveIPN4llvm3BTF13BPFFieldRelocES3_ET0_T_S5_S4_.exit40.i, label %110
+103:                                              ; preds = %102
+  %104 = ptrtoint ptr %.tr108124 to i64
+  %105 = ptrtoint ptr %.0105 to i64
+  %106 = sub i64 %104, %105
+  %.not.i.i.i.i.i39.i = icmp eq ptr %.tr108124, %.0105
+  br i1 %.not.i.i.i.i.i39.i, label %_ZSt4moveIPN4llvm3BTF13BPFFieldRelocES3_ET0_T_S5_S4_.exit40.i, label %107
 
-110:                                              ; preds = %106
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %5, ptr align 4 %.0106, i64 %109, i1 false)
+107:                                              ; preds = %103
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %5, ptr align 4 %.0105, i64 %106, i1 false)
   br label %_ZSt4moveIPN4llvm3BTF13BPFFieldRelocES3_ET0_T_S5_S4_.exit40.i
 
-_ZSt4moveIPN4llvm3BTF13BPFFieldRelocES3_ET0_T_S5_S4_.exit40.i: ; preds = %110, %106
-  %.not.i.i.i.i.i41.i = icmp eq ptr %.0105, %.tr109125
-  br i1 %.not.i.i.i.i.i41.i, label %_ZSt4moveIPN4llvm3BTF13BPFFieldRelocES3_ET0_T_S5_S4_.exit42.i, label %111
+_ZSt4moveIPN4llvm3BTF13BPFFieldRelocES3_ET0_T_S5_S4_.exit40.i: ; preds = %107, %103
+  %.not.i.i.i.i.i41.i = icmp eq ptr %.0104, %.tr108124
+  br i1 %.not.i.i.i.i.i41.i, label %_ZSt4moveIPN4llvm3BTF13BPFFieldRelocES3_ET0_T_S5_S4_.exit42.i, label %108
 
-111:                                              ; preds = %_ZSt4moveIPN4llvm3BTF13BPFFieldRelocES3_ET0_T_S5_S4_.exit40.i
-  %112 = ptrtoint ptr %.0105 to i64
-  %113 = sub i64 %112, %107
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %.0106, ptr align 4 %.tr109125, i64 %113, i1 false)
+108:                                              ; preds = %_ZSt4moveIPN4llvm3BTF13BPFFieldRelocES3_ET0_T_S5_S4_.exit40.i
+  %109 = ptrtoint ptr %.0104 to i64
+  %110 = sub i64 %109, %104
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %.0105, ptr align 4 %.tr108124, i64 %110, i1 false)
   br label %_ZSt4moveIPN4llvm3BTF13BPFFieldRelocES3_ET0_T_S5_S4_.exit42.i
 
-_ZSt4moveIPN4llvm3BTF13BPFFieldRelocES3_ET0_T_S5_S4_.exit42.i: ; preds = %111, %_ZSt4moveIPN4llvm3BTF13BPFFieldRelocES3_ET0_T_S5_S4_.exit40.i
-  %114 = ashr exact i64 %109, 4
-  %.pre.i.i.i.i.i44.i = sub nsw i64 0, %114
-  br i1 %.not.i.i.i.i.i39.i, label %_ZSt13move_backwardIPN4llvm3BTF13BPFFieldRelocES3_ET0_T_S5_S4_.exit45.i, label %115
+_ZSt4moveIPN4llvm3BTF13BPFFieldRelocES3_ET0_T_S5_S4_.exit42.i: ; preds = %108, %_ZSt4moveIPN4llvm3BTF13BPFFieldRelocES3_ET0_T_S5_S4_.exit40.i
+  %111 = ashr exact i64 %106, 4
+  %.pre.i.i.i.i.i44.i = sub nsw i64 0, %111
+  br i1 %.not.i.i.i.i.i39.i, label %_ZSt13move_backwardIPN4llvm3BTF13BPFFieldRelocES3_ET0_T_S5_S4_.exit45.i, label %112
 
-115:                                              ; preds = %_ZSt4moveIPN4llvm3BTF13BPFFieldRelocES3_ET0_T_S5_S4_.exit42.i
-  %116 = getelementptr inbounds %"struct.llvm::BTF::BPFFieldReloc", ptr %.0105, i64 %.pre.i.i.i.i.i44.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %116, ptr align 4 %5, i64 %109, i1 false)
+112:                                              ; preds = %_ZSt4moveIPN4llvm3BTF13BPFFieldRelocES3_ET0_T_S5_S4_.exit42.i
+  %113 = getelementptr inbounds %"struct.llvm::BTF::BPFFieldReloc", ptr %.0104, i64 %.pre.i.i.i.i.i44.i
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %113, ptr align 4 %5, i64 %106, i1 false)
   br label %_ZSt13move_backwardIPN4llvm3BTF13BPFFieldRelocES3_ET0_T_S5_S4_.exit45.i
 
-_ZSt13move_backwardIPN4llvm3BTF13BPFFieldRelocES3_ET0_T_S5_S4_.exit45.i: ; preds = %115, %_ZSt4moveIPN4llvm3BTF13BPFFieldRelocES3_ET0_T_S5_S4_.exit42.i
-  %117 = getelementptr inbounds %"struct.llvm::BTF::BPFFieldReloc", ptr %.0105, i64 %.pre.i.i.i.i.i44.i
+_ZSt13move_backwardIPN4llvm3BTF13BPFFieldRelocES3_ET0_T_S5_S4_.exit45.i: ; preds = %112, %_ZSt4moveIPN4llvm3BTF13BPFFieldRelocES3_ET0_T_S5_S4_.exit42.i
+  %114 = getelementptr inbounds %"struct.llvm::BTF::BPFFieldReloc", ptr %.0104, i64 %.pre.i.i.i.i.i44.i
   br label %_ZSt17__rotate_adaptiveIPN4llvm3BTF13BPFFieldRelocES3_lET_S4_S4_S4_T1_S5_T0_S5_.exit
 
-118:                                              ; preds = %104
-  %119 = tail call noundef ptr @_ZNSt3_V28__rotateIPN4llvm3BTF13BPFFieldRelocEEET_S5_S5_S5_St26random_access_iterator_tag(ptr noundef %.0106, ptr noundef %.tr109125, ptr noundef %.0105)
+115:                                              ; preds = %101
+  %116 = tail call noundef ptr @_ZNSt3_V28__rotateIPN4llvm3BTF13BPFFieldRelocEEET_S5_S5_S5_St26random_access_iterator_tag(ptr noundef %.0105, ptr noundef %.tr108124, ptr noundef %.0104)
   br label %_ZSt17__rotate_adaptiveIPN4llvm3BTF13BPFFieldRelocES3_lET_S4_S4_S4_T1_S5_T0_S5_.exit
 
-_ZSt17__rotate_adaptiveIPN4llvm3BTF13BPFFieldRelocES3_lET_S4_S4_S4_T1_S5_T0_S5_.exit: ; preds = %91, %_ZSt4moveIPN4llvm3BTF13BPFFieldRelocES3_ET0_T_S5_S4_.exit38.i, %105, %_ZSt13move_backwardIPN4llvm3BTF13BPFFieldRelocES3_ET0_T_S5_S4_.exit45.i, %118
-  %.0.i95 = phi ptr [ %103, %_ZSt4moveIPN4llvm3BTF13BPFFieldRelocES3_ET0_T_S5_S4_.exit38.i ], [ %117, %_ZSt13move_backwardIPN4llvm3BTF13BPFFieldRelocES3_ET0_T_S5_S4_.exit45.i ], [ %119, %118 ], [ %.0106, %91 ], [ %.0105, %105 ]
-  tail call fastcc void @"_ZSt16__merge_adaptiveIPN4llvm3BTF13BPFFieldRelocElS3_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_9BTFParser14parseRelocInfoERNS7_12ParseContextERNS0_13DataExtractorEmmE3$_0EEEvT_SE_SE_T0_SF_T1_SF_T2_"(ptr noundef %.tr123, ptr noundef %.0106, ptr noundef %.0.i95, i64 noundef %.0, i64 noundef %.066, ptr noundef %5, i64 noundef %6)
-  %120 = sub nsw i64 %.tr112128, %.066
-  %.not = icmp sgt i64 %89, %120
-  %.not70 = icmp sgt i64 %89, %6
+_ZSt17__rotate_adaptiveIPN4llvm3BTF13BPFFieldRelocES3_lET_S4_S4_S4_T1_S5_T0_S5_.exit: ; preds = %88, %_ZSt4moveIPN4llvm3BTF13BPFFieldRelocES3_ET0_T_S5_S4_.exit38.i, %102, %_ZSt13move_backwardIPN4llvm3BTF13BPFFieldRelocES3_ET0_T_S5_S4_.exit45.i, %115
+  %.0.i94 = phi ptr [ %100, %_ZSt4moveIPN4llvm3BTF13BPFFieldRelocES3_ET0_T_S5_S4_.exit38.i ], [ %114, %_ZSt13move_backwardIPN4llvm3BTF13BPFFieldRelocES3_ET0_T_S5_S4_.exit45.i ], [ %116, %115 ], [ %.0105, %88 ], [ %.0104, %102 ]
+  tail call fastcc void @"_ZSt16__merge_adaptiveIPN4llvm3BTF13BPFFieldRelocElS3_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_9BTFParser14parseRelocInfoERNS7_12ParseContextERNS0_13DataExtractorEmmE3$_0EEEvT_SE_SE_T0_SF_T1_SF_T2_"(ptr noundef %.tr122, ptr noundef %.0105, ptr noundef %.0.i94, i64 noundef %.0, i64 noundef %.066, ptr noundef %5, i64 noundef %6)
+  %117 = sub nsw i64 %.tr111127, %.066
+  %.not = icmp sgt i64 %86, %117
+  %.not70 = icmp sgt i64 %86, %6
   %or.cond = or i1 %.not70, %.not
   br i1 %or.cond, label %30, label %tailrecurse._crit_edge
 
-"_ZSt21__move_merge_adaptiveIPN4llvm3BTF13BPFFieldRelocES3_S3_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_9BTFParser14parseRelocInfoERNS7_12ParseContextERNS0_13DataExtractorEmmE3$_0EEEvT_SE_T0_SF_T1_T2_.exit": ; preds = %54, %32, %48, %46, %35, %_ZSt4moveIPN4llvm3BTF13BPFFieldRelocES3_ET0_T_S5_S4_.exit.i, %._crit_edge.i
+"_ZSt21__move_merge_adaptiveIPN4llvm3BTF13BPFFieldRelocES3_S3_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_9BTFParser14parseRelocInfoERNS7_12ParseContextERNS0_13DataExtractorEmmE3$_0EEEvT_SE_T0_SF_T1_T2_.exit": ; preds = %45, %31, %_ZSt13move_backwardIPN4llvm3BTF13BPFFieldRelocES3_ET0_T_S5_S4_.exit.sink.split.i, %43, %_ZSt4moveIPN4llvm3BTF13BPFFieldRelocES3_ET0_T_S5_S4_.exit.i, %._crit_edge.i
   ret void
 }
 

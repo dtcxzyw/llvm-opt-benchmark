@@ -470,14 +470,14 @@ ReplicationOriginShmemSize.exit22:                ; preds = %13, %16
   %22 = ptrtoint ptr %9 to i64
   %23 = and i64 %22, 7
   %24 = icmp eq i64 %23, 0
-  br i1 %24, label %25, label %38
+  br i1 %24, label %25, label %.loopexit23.sink.split
 
 25:                                               ; preds = %ReplicationOriginShmemSize.exit22
   %26 = and i64 %.0.i21, 7
   %27 = icmp eq i64 %26, 0
   %28 = icmp ult i64 %.0.i21, 1025
   %or.cond3 = and i1 %28, %27
-  br i1 %or.cond3, label %29, label %38
+  br i1 %or.cond3, label %29, label %.loopexit23.sink.split
 
 29:                                               ; preds = %25
   %30 = getelementptr i8, ptr %9, i64 %.0.i21
@@ -492,35 +492,35 @@ ReplicationOriginShmemSize.exit22:                ; preds = %13, %16
   %35 = add i64 %umax, %34
   %36 = and i64 %35, -8
   %37 = add i64 %36, 8
-  call void @llvm.memset.p0.i64(ptr align 8 %9, i8 0, i64 %37, i1 false)
+  br label %.loopexit23.sink.split
+
+.loopexit23.sink.split:                           ; preds = %ReplicationOriginShmemSize.exit22, %25, %.lr.ph.preheader
+  %.sink = phi i64 [ %37, %.lr.ph.preheader ], [ %.0.i21, %25 ], [ %.0.i21, %ReplicationOriginShmemSize.exit22 ]
+  call void @llvm.memset.p0.i64(ptr align 1 %9, i8 0, i64 %.sink, i1 false)
   br label %.loopexit23
 
-38:                                               ; preds = %25, %ReplicationOriginShmemSize.exit22
-  call void @llvm.memset.p0.i64(ptr align 1 %9, i8 0, i64 %.0.i21, i1 false)
-  br label %.loopexit23
-
-.loopexit23:                                      ; preds = %.lr.ph.preheader, %29, %38
-  %39 = load ptr, ptr @replication_states_ctl, align 8
-  store i32 62, ptr %39, align 8
-  %40 = load i32, ptr @max_replication_slots, align 4
-  %41 = icmp sgt i32 %40, 0
-  br i1 %41, label %.lr.ph26, label %.loopexit
+.loopexit23:                                      ; preds = %.loopexit23.sink.split, %29
+  %38 = load ptr, ptr @replication_states_ctl, align 8
+  store i32 62, ptr %38, align 8
+  %39 = load i32, ptr @max_replication_slots, align 4
+  %40 = icmp sgt i32 %39, 0
+  br i1 %40, label %.lr.ph26, label %.loopexit
 
 .lr.ph26:                                         ; preds = %.loopexit23, %.lr.ph26
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph26 ], [ 0, %.loopexit23 ]
-  %42 = load ptr, ptr @replication_states, align 8
-  %43 = getelementptr %struct.ReplicationState, ptr %42, i64 %indvars.iv, i32 5
-  %44 = load ptr, ptr @replication_states_ctl, align 8
-  %45 = load i32, ptr %44, align 8
-  call void @LWLockInitialize(ptr noundef %43, i32 noundef %45) #10
-  %46 = load ptr, ptr @replication_states, align 8
-  %47 = getelementptr %struct.ReplicationState, ptr %46, i64 %indvars.iv, i32 4
-  call void @ConditionVariableInit(ptr noundef %47) #10
+  %41 = load ptr, ptr @replication_states, align 8
+  %42 = getelementptr %struct.ReplicationState, ptr %41, i64 %indvars.iv, i32 5
+  %43 = load ptr, ptr @replication_states_ctl, align 8
+  %44 = load i32, ptr %43, align 8
+  call void @LWLockInitialize(ptr noundef %42, i32 noundef %44) #10
+  %45 = load ptr, ptr @replication_states, align 8
+  %46 = getelementptr %struct.ReplicationState, ptr %45, i64 %indvars.iv, i32 4
+  call void @ConditionVariableInit(ptr noundef %46) #10
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %48 = load i32, ptr @max_replication_slots, align 4
-  %49 = sext i32 %48 to i64
-  %50 = icmp slt i64 %indvars.iv.next, %49
-  br i1 %50, label %.lr.ph26, label %.loopexit, !llvm.loop !8
+  %47 = load i32, ptr @max_replication_slots, align 4
+  %48 = sext i32 %47 to i64
+  %49 = icmp slt i64 %indvars.iv.next, %48
+  br i1 %49, label %.lr.ph26, label %.loopexit, !llvm.loop !8
 
 .loopexit:                                        ; preds = %.lr.ph26, %.loopexit23, %0, %ReplicationOriginShmemSize.exit
   ret void

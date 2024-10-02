@@ -49,7 +49,7 @@ define range(i32 -1, 1) i32 @H5FD__onion_ingest_history(ptr nocapture noundef %0
   %10 = load i64, ptr @H5E_ARGS_g, align 8
   %11 = load i64, ptr @H5E_BADVALUE_g, align 8
   %12 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5FD__onion_ingest_history, i32 noundef 55, i64 noundef %10, i64 noundef %11, ptr noundef nonnull @.str.1) #5
-  br label %68
+  br label %66
 
 13:                                               ; preds = %4
   %14 = tail call noalias ptr @malloc(i64 noundef %3) #6
@@ -60,7 +60,7 @@ define range(i32 -1, 1) i32 @H5FD__onion_ingest_history(ptr nocapture noundef %0
   %17 = load i64, ptr @H5E_VFL_g, align 8
   %18 = load i64, ptr @H5E_CANTALLOC_g, align 8
   %19 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5FD__onion_ingest_history, i32 noundef 58, i64 noundef %17, i64 noundef %18, ptr noundef nonnull @.str.2) #5
-  br label %68
+  br label %66
 
 20:                                               ; preds = %13
   %21 = tail call i32 @H5FD_set_eoa(ptr noundef %1, i32 noundef 3, i64 noundef %7) #5
@@ -71,7 +71,7 @@ define range(i32 -1, 1) i32 @H5FD__onion_ingest_history(ptr nocapture noundef %0
   %24 = load i64, ptr @H5E_VFL_g, align 8
   %25 = load i64, ptr @H5E_CANTSET_g, align 8
   %26 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5FD__onion_ingest_history, i32 noundef 61, i64 noundef %24, i64 noundef %25, ptr noundef nonnull @.str.3) #5
-  br label %68
+  br label %66
 
 27:                                               ; preds = %20
   %28 = tail call i32 @H5FD_read(ptr noundef %1, i32 noundef 3, i64 noundef %2, i64 noundef %3, ptr noundef nonnull %14) #5
@@ -82,7 +82,7 @@ define range(i32 -1, 1) i32 @H5FD__onion_ingest_history(ptr nocapture noundef %0
   %31 = load i64, ptr @H5E_VFL_g, align 8
   %32 = load i64, ptr @H5E_READERROR_g, align 8
   %33 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5FD__onion_ingest_history, i32 noundef 64, i64 noundef %31, i64 noundef %32, ptr noundef nonnull @.str.4) #5
-  br label %68
+  br label %66
 
 34:                                               ; preds = %27
   %35 = tail call i64 @H5FD__onion_history_decode(ptr noundef nonnull %14, ptr noundef nonnull %0)
@@ -93,7 +93,7 @@ define range(i32 -1, 1) i32 @H5FD__onion_ingest_history(ptr nocapture noundef %0
   %37 = load i64, ptr @H5E_VFL_g, align 8
   %38 = load i64, ptr @H5E_CANTDECODE_g, align 8
   %39 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5FD__onion_ingest_history, i32 noundef 67, i64 noundef %37, i64 noundef %38, ptr noundef nonnull @.str.5) #5
-  br label %68
+  br label %66
 
 40:                                               ; preds = %34
   %41 = add i64 %3, -4
@@ -107,7 +107,7 @@ define range(i32 -1, 1) i32 @H5FD__onion_ingest_history(ptr nocapture noundef %0
   %46 = load i64, ptr @H5E_VFL_g, align 8
   %47 = load i64, ptr @H5E_BADVALUE_g, align 8
   %48 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5FD__onion_ingest_history, i32 noundef 71, i64 noundef %46, i64 noundef %47, ptr noundef nonnull @.str.6) #5
-  br label %68
+  br label %66
 
 49:                                               ; preds = %40
   %50 = getelementptr inbounds i8, ptr %0, i64 8
@@ -126,32 +126,29 @@ define range(i32 -1, 1) i32 @H5FD__onion_ingest_history(ptr nocapture noundef %0
   %57 = load i64, ptr @H5E_VFL_g, align 8
   %58 = load i64, ptr @H5E_CANTALLOC_g, align 8
   %59 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5FD__onion_ingest_history, i32 noundef 76, i64 noundef %57, i64 noundef %58, ptr noundef nonnull @.str.7) #5
-  br label %68
+  br label %66
 
 60:                                               ; preds = %52, %49
   %61 = tail call i64 @H5FD__onion_history_decode(ptr noundef nonnull %14, ptr noundef nonnull %0)
   %.not43 = icmp eq i64 %61, %3
-  br i1 %.not43, label %66, label %62
+  br i1 %.not43, label %69, label %62
 
 62:                                               ; preds = %60
   %63 = load i64, ptr @H5E_VFL_g, align 8
   %64 = load i64, ptr @H5E_CANTDECODE_g, align 8
   %65 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5FD__onion_ingest_history, i32 noundef 79, i64 noundef %63, i64 noundef %64, ptr noundef nonnull @.str.8) #5
-  br label %68
+  br label %66
 
-66:                                               ; preds = %60
-  %67 = tail call ptr @H5MM_xfree(ptr noundef nonnull %14) #5
-  br label %72
-
-68:                                               ; preds = %9, %16, %23, %30, %36, %45, %56, %62
+66:                                               ; preds = %9, %16, %23, %30, %36, %45, %56, %62
   %.036.ph = phi ptr [ %14, %62 ], [ %14, %56 ], [ %14, %45 ], [ %14, %36 ], [ %14, %30 ], [ %14, %23 ], [ null, %16 ], [ null, %9 ]
-  %69 = tail call ptr @H5MM_xfree(ptr noundef %.036.ph) #5
-  %70 = load ptr, ptr %5, align 8
-  %71 = tail call ptr @H5MM_xfree(ptr noundef %70) #5
-  br label %72
+  %67 = tail call ptr @H5MM_xfree(ptr noundef %.036.ph) #5
+  %68 = load ptr, ptr %5, align 8
+  br label %69
 
-72:                                               ; preds = %66, %68
-  %.046 = phi i32 [ -1, %68 ], [ 0, %66 ]
+69:                                               ; preds = %60, %66
+  %.sink = phi ptr [ %68, %66 ], [ %14, %60 ]
+  %.046 = phi i32 [ -1, %66 ], [ 0, %60 ]
+  %70 = tail call ptr @H5MM_xfree(ptr noundef %.sink) #5
   ret i32 %.046
 }
 

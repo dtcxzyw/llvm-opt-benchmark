@@ -625,11 +625,7 @@ refresh_matview_datafill.exit:                    ; preds = %187, %191
   %285 = call ptr @palloc0(i64 noundef %284) #8
   %286 = call ptr @RelationGetIndexList(ptr noundef nonnull %209) #8
   %.not99.i = icmp eq ptr %286, null
-  br i1 %.not99.i, label %._crit_edge.thread.i, label %.lr.ph124.i
-
-._crit_edge.thread.i:                             ; preds = %280
-  call void @list_free(ptr noundef null) #8
-  br label %384
+  br i1 %.not99.i, label %.sink.split, label %.lr.ph124.i
 
 .lr.ph124.i:                                      ; preds = %280
   %287 = getelementptr inbounds i8, ptr %286, i64 4
@@ -637,11 +633,7 @@ refresh_matview_datafill.exit:                    ; preds = %187, %191
   %289 = getelementptr inbounds i8, ptr %282, i64 24
   %290 = load i32, ptr %287, align 4
   %291 = icmp sgt i32 %290, 0
-  br i1 %291, label %.lr.ph125, label %._crit_edge.i.thread
-
-._crit_edge.i.thread:                             ; preds = %.lr.ph124.i
-  call void @list_free(ptr noundef nonnull %286) #8
-  br label %384
+  br i1 %291, label %.lr.ph125, label %.sink.split
 
 .lr.ph125:                                        ; preds = %.lr.ph124.i, %is_usable_unique_index.exit.thread.i
   %.0123.i124 = phi i8 [ %.1.i, %is_usable_unique_index.exit.thread.i ], [ 0, %.lr.ph124.i ]
@@ -811,7 +803,12 @@ is_usable_unique_index.exit.thread.i:             ; preds = %324, %379, %is_usab
   call void @list_free(ptr noundef nonnull %286) #8
   br i1 %383, label %387, label %384
 
-384:                                              ; preds = %._crit_edge.i.thread, %._crit_edge.i, %._crit_edge.thread.i
+.sink.split:                                      ; preds = %.lr.ph124.i, %280
+  %.sink = phi ptr [ null, %280 ], [ %286, %.lr.ph124.i ]
+  call void @list_free(ptr noundef %.sink) #8
+  br label %384
+
+384:                                              ; preds = %.sink.split, %._crit_edge.i
   %385 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
   call void @llvm.assume(i1 %385)
   %386 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.29) #8

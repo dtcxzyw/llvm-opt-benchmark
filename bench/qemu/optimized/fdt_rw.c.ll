@@ -1048,9 +1048,7 @@ if.end13:                                         ; preds = %if.then2
   %9 = load i32, ptr %oldlen, align 4
   %idx.ext = sext i32 %9 to i64
   %add.ptr = getelementptr i8, ptr %data, i64 %idx.ext
-  %conv18 = sext i32 %len to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr, ptr align 1 %val, i64 %conv18, i1 false)
-  br label %return
+  br label %return.sink.split
 
 if.else:                                          ; preds = %if.end
   %call19 = call fastcc i32 @fdt_add_property_(ptr noundef nonnull %fdt, i32 noundef %nodeoffset, ptr noundef %name, i32 noundef %len, ptr noundef %prop)
@@ -1060,12 +1058,16 @@ if.else:                                          ; preds = %if.end
 if.end22:                                         ; preds = %if.else
   %10 = load ptr, ptr %prop, align 8
   %data23 = getelementptr inbounds i8, ptr %10, i64 12
-  %conv25 = sext i32 %len to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %data23, ptr align 1 %val, i64 %conv25, i1 false)
+  br label %return.sink.split
+
+return.sink.split:                                ; preds = %if.end22, %if.end13
+  %add.ptr.sink = phi ptr [ %add.ptr, %if.end13 ], [ %data23, %if.end22 ]
+  %conv18 = sext i32 %len to i64
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr.sink, ptr align 1 %val, i64 %conv18, i1 false)
   br label %return
 
-return:                                           ; preds = %if.end8.i, %if.end3.i, %entry, %if.end13, %if.end22, %if.else, %if.then2
-  %retval.0 = phi i32 [ %call10, %if.then2 ], [ %call19, %if.else ], [ 0, %if.end22 ], [ 0, %if.end13 ], [ -12, %if.end8.i ], [ -10, %if.end3.i ], [ %call1.i, %entry ]
+return:                                           ; preds = %return.sink.split, %if.end8.i, %if.end3.i, %entry, %if.else, %if.then2
+  %retval.0 = phi i32 [ %call10, %if.then2 ], [ %call19, %if.else ], [ -12, %if.end8.i ], [ -10, %if.end3.i ], [ %call1.i, %entry ], [ 0, %return.sink.split ]
   ret i32 %retval.0
 }
 

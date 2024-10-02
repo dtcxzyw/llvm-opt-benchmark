@@ -1638,65 +1638,51 @@ thread-pre-split:                                 ; preds = %16
 52:                                               ; preds = %49, %48
   %.0154 = phi ptr [ %51, %49 ], [ null, %48 ]
   %53 = load i64, ptr %4, align 8
-  switch i64 %53, label %58 [
-    i64 0, label %54
-    i64 2, label %56
-  ]
-
-54:                                               ; preds = %52
-  %55 = call i32 @_php_stream_scandir(ptr noundef nonnull %27, ptr noundef nonnull %5, i32 noundef 0, ptr noundef %.0154, ptr noundef nonnull @php_stream_dirent_alphasort) #13
-  br label %60
+  %switch.selectcmp = icmp eq i64 %53, 2
+  %switch.select = select i1 %switch.selectcmp, ptr null, ptr @php_stream_dirent_alphasortr
+  %switch.selectcmp221 = icmp eq i64 %53, 0
+  %switch.select222 = select i1 %switch.selectcmp221, ptr @php_stream_dirent_alphasort, ptr %switch.select
+  %54 = call i32 @_php_stream_scandir(ptr noundef nonnull %27, ptr noundef nonnull %5, i32 noundef 0, ptr noundef %.0154, ptr noundef %switch.select222) #13
+  %55 = icmp slt i32 %54, 0
+  br i1 %55, label %56, label %61
 
 56:                                               ; preds = %52
-  %57 = call i32 @_php_stream_scandir(ptr noundef nonnull %27, ptr noundef nonnull %5, i32 noundef 0, ptr noundef %.0154, ptr noundef null) #13
-  br label %60
-
-58:                                               ; preds = %52
-  %59 = call i32 @_php_stream_scandir(ptr noundef nonnull %27, ptr noundef nonnull %5, i32 noundef 0, ptr noundef %.0154, ptr noundef nonnull @php_stream_dirent_alphasortr) #13
-  br label %60
-
-60:                                               ; preds = %56, %58, %54
-  %.0152 = phi i32 [ %55, %54 ], [ %57, %56 ], [ %59, %58 ]
-  %61 = icmp slt i32 %.0152, 0
-  br i1 %61, label %62, label %67
-
-62:                                               ; preds = %60
-  %63 = tail call ptr @__errno_location() #16
-  %64 = load i32, ptr %63, align 4
-  %65 = call ptr @strerror(i32 noundef %64) #13
-  call void (ptr, i32, ptr, ...) @php_error_docref(ptr noundef null, i32 noundef 2, ptr noundef nonnull @.str.12, i32 noundef %64, ptr noundef %65) #13
-  %66 = getelementptr inbounds i8, ptr %1, i64 8
-  store i32 2, ptr %66, align 8
+  %57 = tail call ptr @__errno_location() #16
+  %58 = load i32, ptr %57, align 4
+  %59 = call ptr @strerror(i32 noundef %58) #13
+  call void (ptr, i32, ptr, ...) @php_error_docref(ptr noundef null, i32 noundef 2, ptr noundef nonnull @.str.12, i32 noundef %58, ptr noundef %59) #13
+  %60 = getelementptr inbounds i8, ptr %1, i64 8
+  store i32 2, ptr %60, align 8
   br label %._crit_edge.thread
 
-67:                                               ; preds = %60
-  %68 = call ptr @_zend_new_array_0() #13
-  store ptr %68, ptr %1, align 8
-  %69 = getelementptr inbounds i8, ptr %1, i64 8
-  store i32 775, ptr %69, align 8
-  %.not218 = icmp eq i32 %.0152, 0
+61:                                               ; preds = %52
+  %62 = call ptr @_zend_new_array_0() #13
+  store ptr %62, ptr %1, align 8
+  %63 = getelementptr inbounds i8, ptr %1, i64 8
+  store i32 775, ptr %63, align 8
+  %.not218 = icmp eq i32 %54, 0
   br i1 %.not218, label %._crit_edge.thread, label %.lr.ph.preheader
 
-.lr.ph.preheader:                                 ; preds = %67
-  %wide.trip.count = zext nneg i32 %.0152 to i64
+.lr.ph.preheader:                                 ; preds = %61
+  %wide.trip.count = zext nneg i32 %54 to i64
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %70 = load ptr, ptr %5, align 8
-  %71 = getelementptr inbounds ptr, ptr %70, i64 %indvars.iv
-  %72 = load ptr, ptr %71, align 8
-  %73 = call i32 @add_next_index_str(ptr noundef nonnull %1, ptr noundef %72) #13
+  %64 = load ptr, ptr %5, align 8
+  %65 = getelementptr inbounds ptr, ptr %64, i64 %indvars.iv
+  %66 = load ptr, ptr %65, align 8
+  %67 = call i32 @add_next_index_str(ptr noundef nonnull %1, ptr noundef %66) #13
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.lr.ph
-  %74 = load ptr, ptr %5, align 8
-  call void @_efree(ptr noundef %74) #13
+  %68 = load ptr, ptr %5, align 8
+  call void @_efree(ptr noundef %68) #13
   br label %._crit_edge.thread
 
-._crit_edge.thread:                               ; preds = %67, %._crit_edge, %62, %45, %43
+._crit_edge.thread:                               ; preds = %61, %._crit_edge, %56, %45, %43
   ret void
 }
 

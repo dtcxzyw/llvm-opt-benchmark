@@ -256,20 +256,20 @@ define hidden noundef zeroext i1 @_ZN5JVMCI21shared_library_existsEv() local_unn
 3:                                                ; preds = %0
   %4 = load ptr, ptr @JVMCILibPath, align 8
   %.not.i = icmp eq ptr %4, null
-  br i1 %.not.i, label %7, label %5
+  br i1 %.not.i, label %5, label %_ZN5JVMCI23get_shared_library_pathEPcmb.exit.sink.split
 
 5:                                                ; preds = %3
-  %6 = call noundef zeroext i1 @_ZN2os14dll_locate_libEPcmPKcS2_(ptr noundef nonnull %1, i64 noundef 4097, ptr noundef nonnull %4, ptr noundef nonnull @.str) #13
+  %6 = load ptr, ptr @_ZN9Arguments22_sun_boot_library_pathE, align 8
+  %7 = load ptr, ptr %6, align 8
+  br label %_ZN5JVMCI23get_shared_library_pathEPcmb.exit.sink.split
+
+_ZN5JVMCI23get_shared_library_pathEPcmb.exit.sink.split: ; preds = %3, %5
+  %.sink = phi ptr [ %7, %5 ], [ %4, %3 ]
+  %8 = call noundef zeroext i1 @_ZN2os14dll_locate_libEPcmPKcS2_(ptr noundef nonnull %1, i64 noundef 4097, ptr noundef %.sink, ptr noundef nonnull @.str) #13
   br label %_ZN5JVMCI23get_shared_library_pathEPcmb.exit
 
-7:                                                ; preds = %3
-  %8 = load ptr, ptr @_ZN9Arguments22_sun_boot_library_pathE, align 8
-  %9 = load ptr, ptr %8, align 8
-  %10 = call noundef zeroext i1 @_ZN2os14dll_locate_libEPcmPKcS2_(ptr noundef nonnull %1, i64 noundef 4097, ptr noundef %9, ptr noundef nonnull @.str) #13
-  br label %_ZN5JVMCI23get_shared_library_pathEPcmb.exit
-
-_ZN5JVMCI23get_shared_library_pathEPcmb.exit:     ; preds = %7, %5, %0
-  %.0 = phi i1 [ true, %0 ], [ %10, %7 ], [ %6, %5 ]
+_ZN5JVMCI23get_shared_library_pathEPcmb.exit:     ; preds = %_ZN5JVMCI23get_shared_library_pathEPcmb.exit.sink.split, %0
+  %.0 = phi i1 [ true, %0 ], [ %8, %_ZN5JVMCI23get_shared_library_pathEPcmb.exit.sink.split ]
   ret i1 %.0
 }
 

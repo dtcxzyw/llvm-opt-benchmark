@@ -1400,8 +1400,7 @@ define internal fastcc void @process_psqlrc(ptr noundef %0) unnamed_addr #0 {
   store ptr %15, ptr %6, align 8
   call void @expand_tilde(ptr noundef nonnull %6) #15
   %16 = load ptr, ptr %6, align 8
-  call fastcc void @process_psqlrc_file(ptr noundef %16)
-  br label %21
+  br label %.sink.split
 
 17:                                               ; preds = %13, %11
   %18 = call zeroext i1 @get_home_path(ptr noundef nonnull %2) #15
@@ -1409,10 +1408,14 @@ define internal fastcc void @process_psqlrc(ptr noundef %0) unnamed_addr #0 {
 
 19:                                               ; preds = %17
   %20 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %3, i64 noundef 1024, ptr noundef nonnull @.str.94, ptr noundef nonnull %2, ptr noundef nonnull @.str.96) #15
-  call fastcc void @process_psqlrc_file(ptr noundef nonnull %3)
+  br label %.sink.split
+
+.sink.split:                                      ; preds = %14, %19
+  %.sink = phi ptr [ %3, %19 ], [ %16, %14 ]
+  call fastcc void @process_psqlrc_file(ptr noundef %.sink)
   br label %21
 
-21:                                               ; preds = %17, %19, %14
+21:                                               ; preds = %.sink.split, %17
   ret void
 }
 

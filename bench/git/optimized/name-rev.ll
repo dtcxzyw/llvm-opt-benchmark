@@ -1957,31 +1957,21 @@ if.then.i:                                        ; preds = %entry
   %1 = load ptr, ptr @the_repository, align 8
   %hash_algo.i = getelementptr inbounds i8, ptr %1, i64 256
   %2 = load ptr, ptr %hash_algo.i, align 8
-  br label %if.end.i
+  br label %oidcmp.exit
 
 if.else.i:                                        ; preds = %entry
   %idxprom.i = sext i32 %0 to i64
   %arrayidx.i = getelementptr inbounds [3 x %struct.git_hash_algo], ptr @hash_algos, i64 0, i64 %idxprom.i
-  br label %if.end.i
+  br label %oidcmp.exit
 
-if.end.i:                                         ; preds = %if.else.i, %if.then.i
+oidcmp.exit:                                      ; preds = %if.then.i, %if.else.i
   %algop.0.i = phi ptr [ %arrayidx.i, %if.else.i ], [ %2, %if.then.i ]
   %3 = getelementptr i8, ptr %algop.0.i, i64 16
   %algop.0.val.i = load i64, ptr %3, align 8
   %cmp.i.i = icmp eq i64 %algop.0.val.i, 32
-  br i1 %cmp.i.i, label %if.then.i.i, label %if.end.i.i
-
-if.then.i.i:                                      ; preds = %if.end.i
-  %call.i.i = tail call i32 @memcmp(ptr noundef nonnull readonly dereferenceable(32) %a_, ptr noundef nonnull readonly dereferenceable(32) %b_, i64 noundef 32) #19
-  br label %oidcmp.exit
-
-if.end.i.i:                                       ; preds = %if.end.i
-  %call1.i.i = tail call i32 @memcmp(ptr noundef nonnull readonly dereferenceable(20) %a_, ptr noundef nonnull readonly dereferenceable(20) %b_, i64 noundef 20) #19
-  br label %oidcmp.exit
-
-oidcmp.exit:                                      ; preds = %if.then.i.i, %if.end.i.i
-  %retval.0.i.i = phi i32 [ %call.i.i, %if.then.i.i ], [ %call1.i.i, %if.end.i.i ]
-  ret i32 %retval.0.i.i
+  %..i.i = select i1 %cmp.i.i, i64 32, i64 20
+  %call1.i.i = tail call i32 @memcmp(ptr noundef nonnull readonly dereferenceable(20) %a_, ptr noundef nonnull readonly dereferenceable(20) %b_, i64 noundef %..i.i) #19
+  ret i32 %call1.i.i
 }
 
 declare i32 @oid_pos(ptr noundef, ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #2

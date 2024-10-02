@@ -10489,7 +10489,7 @@ define noundef i32 @assoc_mgr_update_res(ptr nocapture noundef readonly %0, i1 n
 3:                                                ; preds = %2
   %4 = load ptr, ptr @assoc_mgr_res_list, align 8
   %.not = icmp eq ptr %4, null
-  br i1 %.not, label %136, label %6
+  br i1 %.not, label %134, label %6
 
 .thread:                                          ; preds = %2
   tail call void @assoc_mgr_lock(ptr noundef nonnull @__const._refresh_assoc_mgr_res_list.locks)
@@ -10513,13 +10513,13 @@ define noundef i32 @assoc_mgr_update_res(ptr nocapture noundef readonly %0, i1 n
   %13 = phi ptr [ %10, %.lr.ph ], [ %23, %.backedge ]
   %14 = load ptr, ptr @slurmdbd_conf, align 8
   %.not80 = icmp eq ptr %14, null
-  br i1 %.not80, label %15, label %34
+  br i1 %.not80, label %15, label %33
 
 15:                                               ; preds = %12
   %16 = getelementptr inbounds i8, ptr %13, i64 16
   %17 = load ptr, ptr %16, align 8
   %.not81 = icmp eq ptr %17, null
-  br i1 %.not81, label %34, label %18
+  br i1 %.not81, label %33, label %18
 
 18:                                               ; preds = %15
   %19 = load ptr, ptr %17, align 8
@@ -10528,10 +10528,11 @@ define noundef i32 @assoc_mgr_update_res(ptr nocapture noundef readonly %0, i1 n
 
 20:                                               ; preds = %18
   %21 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.56) #20
-  tail call void @slurmdb_destroy_res_rec(ptr noundef nonnull %13) #20
   br label %.backedge
 
-.backedge:                                        ; preds = %20, %33, %135
+.backedge:                                        ; preds = %52, %67, %132, %48, %63, %118, %120, %121, %123, %46, %58, %60, %61, %27, %30, %20
+  %.sink = phi ptr [ %13, %20 ], [ %13, %30 ], [ %13, %27 ], [ %13, %46 ], [ %13, %132 ], [ %13, %123 ], [ %13, %120 ], [ %13, %118 ], [ %13, %121 ], [ %13, %67 ], [ %13, %63 ], [ %13, %48 ], [ %13, %52 ], [ null, %58 ], [ null, %60 ], [ null, %61 ]
+  tail call void @slurmdb_destroy_res_rec(ptr noundef %.sink) #20
   %22 = load ptr, ptr %0, align 8
   %23 = tail call ptr @list_pop(ptr noundef %22) #20
   %.not79 = icmp eq ptr %23, null
@@ -10541,254 +10542,245 @@ define noundef i32 @assoc_mgr_update_res(ptr nocapture noundef readonly %0, i1 n
   %25 = load ptr, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 224), align 8
   %26 = tail call i32 @xstrcmp(ptr noundef nonnull %19, ptr noundef %25) #20
   %.not83 = icmp eq i32 %26, 0
-  br i1 %.not83, label %34, label %27
+  br i1 %.not83, label %33, label %27
 
 27:                                               ; preds = %24
   %28 = tail call i32 @get_log_level() #20
   %29 = icmp sgt i32 %28, 4
-  br i1 %29, label %30, label %33
+  br i1 %29, label %30, label %.backedge
 
 30:                                               ; preds = %27
   %31 = load ptr, ptr %16, align 8
   %32 = load ptr, ptr %31, align 8
   tail call void (i32, ptr, ...) @log_var(i32 noundef 5, ptr noundef nonnull @.str.57, ptr noundef %32) #20
-  br label %33
-
-33:                                               ; preds = %30, %27
-  tail call void @slurmdb_destroy_res_rec(ptr noundef nonnull %13) #20
   br label %.backedge
 
-34:                                               ; preds = %12, %15, %24
-  %35 = getelementptr inbounds i8, ptr %13, i64 8
-  %36 = load ptr, ptr %35, align 8
-  %.not84 = icmp eq ptr %36, null
-  br i1 %.not84, label %38, label %37
+33:                                               ; preds = %12, %15, %24
+  %34 = getelementptr inbounds i8, ptr %13, i64 8
+  %35 = load ptr, ptr %34, align 8
+  %.not84 = icmp eq ptr %35, null
+  br i1 %.not84, label %37, label %36
 
-37:                                               ; preds = %34
-  tail call void @list_destroy(ptr noundef nonnull %36) #20
-  br label %38
+36:                                               ; preds = %33
+  tail call void @list_destroy(ptr noundef nonnull %35) #20
+  br label %37
 
-38:                                               ; preds = %37, %34
-  store ptr null, ptr %35, align 8
+37:                                               ; preds = %36, %33
+  store ptr null, ptr %34, align 8
   tail call void @list_iterator_reset(ptr noundef %8) #20
-  %39 = getelementptr inbounds i8, ptr %13, i64 44
-  br label %40
+  %38 = getelementptr inbounds i8, ptr %13, i64 44
+  br label %39
 
-40:                                               ; preds = %42, %38
-  %41 = tail call ptr @list_next(ptr noundef %8) #20
-  %.not85 = icmp eq ptr %41, null
-  br i1 %.not85, label %47, label %42
+39:                                               ; preds = %41, %37
+  %40 = tail call ptr @list_next(ptr noundef %8) #20
+  %.not85 = icmp eq ptr %40, null
+  br i1 %.not85, label %46, label %41
 
-42:                                               ; preds = %40
-  %43 = load i32, ptr %39, align 4
-  %44 = getelementptr inbounds i8, ptr %41, i64 44
-  %45 = load i32, ptr %44, align 4
-  %46 = icmp eq i32 %43, %45
-  br i1 %46, label %47, label %40, !llvm.loop !86
+41:                                               ; preds = %39
+  %42 = load i32, ptr %38, align 4
+  %43 = getelementptr inbounds i8, ptr %40, i64 44
+  %44 = load i32, ptr %43, align 4
+  %45 = icmp eq i32 %42, %44
+  br i1 %45, label %46, label %39, !llvm.loop !86
 
-47:                                               ; preds = %42, %40
-  %48 = load i16, ptr %11, align 8
-  switch i16 %48, label %135 [
-    i16 18, label %49
-    i16 20, label %64
-    i16 19, label %124
+46:                                               ; preds = %41, %39
+  %47 = load i16, ptr %11, align 8
+  switch i16 %47, label %.backedge [
+    i16 18, label %48
+    i16 20, label %63
+    i16 19, label %123
   ]
 
-49:                                               ; preds = %47
-  br i1 %.not85, label %50, label %135
+48:                                               ; preds = %46
+  br i1 %.not85, label %49, label %.backedge
 
-50:                                               ; preds = %49
-  %51 = getelementptr inbounds i8, ptr %13, i64 16
-  %52 = load ptr, ptr %51, align 8
-  %.not96 = icmp eq ptr %52, null
-  br i1 %.not96, label %53, label %55
+49:                                               ; preds = %48
+  %50 = getelementptr inbounds i8, ptr %13, i64 16
+  %51 = load ptr, ptr %50, align 8
+  %.not96 = icmp eq ptr %51, null
+  br i1 %.not96, label %52, label %54
 
-53:                                               ; preds = %50
-  %54 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.58) #20
-  br label %135
+52:                                               ; preds = %49
+  %53 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.58) #20
+  br label %.backedge
 
-55:                                               ; preds = %50
-  %56 = load ptr, ptr @assoc_mgr_res_list, align 8
-  tail call void @list_append(ptr noundef %56, ptr noundef nonnull %13) #20
-  %57 = getelementptr inbounds i8, ptr %13, i64 80
-  %58 = load i32, ptr %57, align 8
-  %cond2 = icmp eq i32 %58, 1
-  br i1 %cond2, label %59, label %62
+54:                                               ; preds = %49
+  %55 = load ptr, ptr @assoc_mgr_res_list, align 8
+  tail call void @list_append(ptr noundef %55, ptr noundef nonnull %13) #20
+  %56 = getelementptr inbounds i8, ptr %13, i64 80
+  %57 = load i32, ptr %56, align 8
+  %cond2 = icmp eq i32 %57, 1
+  br i1 %cond2, label %58, label %61
 
-59:                                               ; preds = %55
-  %60 = load ptr, ptr getelementptr inbounds (i8, ptr @init_setup, i64 16), align 8
-  %.not97 = icmp eq ptr %60, null
-  br i1 %.not97, label %135, label %61
+58:                                               ; preds = %54
+  %59 = load ptr, ptr getelementptr inbounds (i8, ptr @init_setup, i64 16), align 8
+  %.not97 = icmp eq ptr %59, null
+  br i1 %.not97, label %.backedge, label %60
 
-61:                                               ; preds = %59
-  tail call void %60(ptr noundef nonnull %13) #20
-  br label %135
+60:                                               ; preds = %58
+  tail call void %59(ptr noundef nonnull %13) #20
+  br label %.backedge
 
-62:                                               ; preds = %55
-  %63 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.59, i32 noundef %58) #20
-  br label %135
+61:                                               ; preds = %54
+  %62 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.59, i32 noundef %57) #20
+  br label %.backedge
 
-64:                                               ; preds = %47
-  br i1 %.not85, label %135, label %65
+63:                                               ; preds = %46
+  br i1 %.not85, label %.backedge, label %64
 
-65:                                               ; preds = %64
-  %66 = getelementptr inbounds i8, ptr %13, i64 16
-  %67 = load ptr, ptr %66, align 8
-  %.not87 = icmp eq ptr %67, null
-  br i1 %.not87, label %68, label %70
+64:                                               ; preds = %63
+  %65 = getelementptr inbounds i8, ptr %13, i64 16
+  %66 = load ptr, ptr %65, align 8
+  %.not87 = icmp eq ptr %66, null
+  br i1 %.not87, label %67, label %69
 
-68:                                               ; preds = %65
-  %69 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.60) #20
-  br label %135
+67:                                               ; preds = %64
+  %68 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.60) #20
+  br label %.backedge
 
-70:                                               ; preds = %65
-  %71 = getelementptr inbounds i8, ptr %13, i64 40
-  %72 = load i32, ptr %71, align 8
-  %73 = and i32 %72, 268435456
-  %.not88 = icmp eq i32 %73, 0
-  br i1 %.not88, label %74, label %90
+69:                                               ; preds = %64
+  %70 = getelementptr inbounds i8, ptr %13, i64 40
+  %71 = load i32, ptr %70, align 8
+  %72 = and i32 %71, 268435456
+  %.not88 = icmp eq i32 %72, 0
+  br i1 %.not88, label %73, label %89
 
-74:                                               ; preds = %70
-  %75 = and i32 %72, 268435455
-  %76 = and i32 %72, 536870912
-  %.not89 = icmp eq i32 %76, 0
-  br i1 %.not89, label %81, label %77
+73:                                               ; preds = %69
+  %74 = and i32 %71, 268435455
+  %75 = and i32 %71, 536870912
+  %.not89 = icmp eq i32 %75, 0
+  br i1 %.not89, label %80, label %76
 
-77:                                               ; preds = %74
-  %78 = getelementptr inbounds i8, ptr %41, i64 40
-  %79 = load i32, ptr %78, align 8
-  %80 = or i32 %79, %75
-  store i32 %80, ptr %78, align 8
-  br label %90
+76:                                               ; preds = %73
+  %77 = getelementptr inbounds i8, ptr %40, i64 40
+  %78 = load i32, ptr %77, align 8
+  %79 = or i32 %78, %74
+  store i32 %79, ptr %77, align 8
+  br label %89
 
-81:                                               ; preds = %74
-  %82 = and i32 %72, 1073741824
-  %.not90 = icmp eq i32 %82, 0
-  br i1 %.not90, label %88, label %83
+80:                                               ; preds = %73
+  %81 = and i32 %71, 1073741824
+  %.not90 = icmp eq i32 %81, 0
+  br i1 %.not90, label %87, label %82
 
-83:                                               ; preds = %81
-  %84 = xor i32 %75, -1
-  %85 = getelementptr inbounds i8, ptr %41, i64 40
-  %86 = load i32, ptr %85, align 8
-  %87 = and i32 %86, %84
-  store i32 %87, ptr %85, align 8
-  br label %90
+82:                                               ; preds = %80
+  %83 = xor i32 %74, -1
+  %84 = getelementptr inbounds i8, ptr %40, i64 40
+  %85 = load i32, ptr %84, align 8
+  %86 = and i32 %85, %83
+  store i32 %86, ptr %84, align 8
+  br label %89
 
-88:                                               ; preds = %81
-  %89 = getelementptr inbounds i8, ptr %41, i64 40
-  store i32 %75, ptr %89, align 8
-  br label %90
+87:                                               ; preds = %80
+  %88 = getelementptr inbounds i8, ptr %40, i64 40
+  store i32 %74, ptr %88, align 8
+  br label %89
 
-90:                                               ; preds = %77, %88, %83, %70
-  %91 = getelementptr inbounds i8, ptr %13, i64 24
-  %92 = load i32, ptr %91, align 8
-  %.not91 = icmp eq i32 %92, -2
-  br i1 %.not91, label %95, label %93
+89:                                               ; preds = %76, %87, %82, %69
+  %90 = getelementptr inbounds i8, ptr %13, i64 24
+  %91 = load i32, ptr %90, align 8
+  %.not91 = icmp eq i32 %91, -2
+  br i1 %.not91, label %94, label %92
 
-93:                                               ; preds = %90
-  %94 = getelementptr inbounds i8, ptr %41, i64 24
-  store i32 %92, ptr %94, align 8
-  br label %95
+92:                                               ; preds = %89
+  %93 = getelementptr inbounds i8, ptr %40, i64 24
+  store i32 %91, ptr %93, align 8
+  br label %94
 
-95:                                               ; preds = %93, %90
-  %96 = getelementptr inbounds i8, ptr %13, i64 4
-  %97 = load i32, ptr %96, align 4
-  %.not92 = icmp eq i32 %97, -2
-  br i1 %.not92, label %100, label %98
+94:                                               ; preds = %92, %89
+  %95 = getelementptr inbounds i8, ptr %13, i64 4
+  %96 = load i32, ptr %95, align 4
+  %.not92 = icmp eq i32 %96, -2
+  br i1 %.not92, label %99, label %97
 
-98:                                               ; preds = %95
-  %99 = getelementptr inbounds i8, ptr %41, i64 4
-  store i32 %97, ptr %99, align 4
-  br label %100
+97:                                               ; preds = %94
+  %98 = getelementptr inbounds i8, ptr %40, i64 4
+  store i32 %96, ptr %98, align 4
+  br label %99
 
-100:                                              ; preds = %98, %95
-  %101 = getelementptr inbounds i8, ptr %13, i64 80
-  %102 = load i32, ptr %101, align 8
-  %.not93 = icmp eq i32 %102, 0
-  br i1 %.not93, label %105, label %103
+99:                                               ; preds = %97, %94
+  %100 = getelementptr inbounds i8, ptr %13, i64 80
+  %101 = load i32, ptr %100, align 8
+  %.not93 = icmp eq i32 %101, 0
+  br i1 %.not93, label %104, label %102
 
-103:                                              ; preds = %100
-  %104 = getelementptr inbounds i8, ptr %41, i64 80
-  store i32 %102, ptr %104, align 8
-  br label %105
+102:                                              ; preds = %99
+  %103 = getelementptr inbounds i8, ptr %40, i64 80
+  store i32 %101, ptr %103, align 8
+  br label %104
 
-105:                                              ; preds = %103, %100
-  %106 = load ptr, ptr %66, align 8
-  %107 = getelementptr inbounds i8, ptr %106, i64 8
-  %108 = load i32, ptr %107, align 8
-  %.not94 = icmp eq i32 %108, -2
-  br i1 %.not94, label %113, label %109
+104:                                              ; preds = %102, %99
+  %105 = load ptr, ptr %65, align 8
+  %106 = getelementptr inbounds i8, ptr %105, i64 8
+  %107 = load i32, ptr %106, align 8
+  %.not94 = icmp eq i32 %107, -2
+  br i1 %.not94, label %112, label %108
 
-109:                                              ; preds = %105
-  %110 = getelementptr inbounds i8, ptr %41, i64 16
-  %111 = load ptr, ptr %110, align 8
-  %112 = getelementptr inbounds i8, ptr %111, i64 8
-  store i32 %108, ptr %112, align 8
-  br label %113
+108:                                              ; preds = %104
+  %109 = getelementptr inbounds i8, ptr %40, i64 16
+  %110 = load ptr, ptr %109, align 8
+  %111 = getelementptr inbounds i8, ptr %110, i64 8
+  store i32 %107, ptr %111, align 8
+  br label %112
 
-113:                                              ; preds = %109, %105
-  %114 = getelementptr inbounds i8, ptr %13, i64 48
-  %115 = load i64, ptr %114, align 8
-  %116 = getelementptr inbounds i8, ptr %41, i64 48
-  store i64 %115, ptr %116, align 8
-  %117 = getelementptr inbounds i8, ptr %41, i64 80
-  %118 = load i32, ptr %117, align 8
-  %cond1 = icmp eq i32 %118, 1
-  br i1 %cond1, label %119, label %122
+112:                                              ; preds = %108, %104
+  %113 = getelementptr inbounds i8, ptr %13, i64 48
+  %114 = load i64, ptr %113, align 8
+  %115 = getelementptr inbounds i8, ptr %40, i64 48
+  store i64 %114, ptr %115, align 8
+  %116 = getelementptr inbounds i8, ptr %40, i64 80
+  %117 = load i32, ptr %116, align 8
+  %cond1 = icmp eq i32 %117, 1
+  br i1 %cond1, label %118, label %121
 
-119:                                              ; preds = %113
-  %120 = load ptr, ptr getelementptr inbounds (i8, ptr @init_setup, i64 88), align 8
-  %.not95 = icmp eq ptr %120, null
-  br i1 %.not95, label %135, label %121
+118:                                              ; preds = %112
+  %119 = load ptr, ptr getelementptr inbounds (i8, ptr @init_setup, i64 88), align 8
+  %.not95 = icmp eq ptr %119, null
+  br i1 %.not95, label %.backedge, label %120
 
-121:                                              ; preds = %119
-  tail call void %120(ptr noundef nonnull %41) #20
-  br label %135
+120:                                              ; preds = %118
+  tail call void %119(ptr noundef nonnull %40) #20
+  br label %.backedge
 
-122:                                              ; preds = %113
-  %123 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.61, i32 noundef %118) #20
-  br label %135
+121:                                              ; preds = %112
+  %122 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.61, i32 noundef %117) #20
+  br label %.backedge
 
-124:                                              ; preds = %47
-  br i1 %.not85, label %135, label %125
+123:                                              ; preds = %46
+  br i1 %.not85, label %.backedge, label %124
 
-125:                                              ; preds = %124
-  %126 = getelementptr inbounds i8, ptr %41, i64 80
-  %127 = load i32, ptr %126, align 8
-  %cond = icmp eq i32 %127, 1
-  br i1 %cond, label %128, label %131
+124:                                              ; preds = %123
+  %125 = getelementptr inbounds i8, ptr %40, i64 80
+  %126 = load i32, ptr %125, align 8
+  %cond = icmp eq i32 %126, 1
+  br i1 %cond, label %127, label %130
 
-128:                                              ; preds = %125
-  %129 = load ptr, ptr getelementptr inbounds (i8, ptr @init_setup, i64 40), align 8
-  %.not86 = icmp eq ptr %129, null
-  br i1 %.not86, label %133, label %130
+127:                                              ; preds = %124
+  %128 = load ptr, ptr getelementptr inbounds (i8, ptr @init_setup, i64 40), align 8
+  %.not86 = icmp eq ptr %128, null
+  br i1 %.not86, label %132, label %129
 
-130:                                              ; preds = %128
-  tail call void %129(ptr noundef nonnull %41) #20
-  br label %133
+129:                                              ; preds = %127
+  tail call void %128(ptr noundef nonnull %40) #20
+  br label %132
 
-131:                                              ; preds = %125
-  %132 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.62, i32 noundef %127) #20
-  br label %133
+130:                                              ; preds = %124
+  %131 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.62, i32 noundef %126) #20
+  br label %132
 
-133:                                              ; preds = %128, %130, %131
-  %134 = tail call i32 @list_delete_item(ptr noundef %8) #20
-  br label %135
-
-135:                                              ; preds = %62, %61, %59, %47, %124, %122, %121, %119, %64, %49, %133, %68, %53
-  %.063 = phi ptr [ %13, %47 ], [ %13, %133 ], [ %13, %124 ], [ %13, %121 ], [ %13, %119 ], [ %13, %122 ], [ %13, %68 ], [ %13, %64 ], [ %13, %49 ], [ %13, %53 ], [ null, %59 ], [ null, %61 ], [ null, %62 ]
-  tail call void @slurmdb_destroy_res_rec(ptr noundef %.063) #20
+132:                                              ; preds = %127, %129, %130
+  %133 = tail call i32 @list_delete_item(ptr noundef %8) #20
   br label %.backedge
 
 ._crit_edge:                                      ; preds = %.backedge, %6
   tail call void @list_iterator_destroy(ptr noundef %8) #20
-  br i1 %1, label %136, label %.sink.split
+  br i1 %1, label %134, label %.sink.split
 
 .sink.split:                                      ; preds = %._crit_edge, %.thread
   tail call void @assoc_mgr_unlock(ptr noundef nonnull @__const._refresh_assoc_mgr_res_list.locks)
-  br label %136
+  br label %134
 
-136:                                              ; preds = %.sink.split, %3, %._crit_edge
+134:                                              ; preds = %.sink.split, %3, %._crit_edge
   ret i32 0
 }
 

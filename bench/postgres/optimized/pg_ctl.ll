@@ -2292,7 +2292,7 @@ define internal fastcc noundef ptr @find_other_exec_or_die(ptr noundef %0, ptr n
   %5 = tail call ptr @pg_malloc(i64 noundef 1024) #17
   %6 = tail call i32 @find_other_exec(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %5) #17
   %7 = icmp slt i32 %6, 0
-  br i1 %7, label %8, label %20
+  br i1 %7, label %8, label %17
 
 8:                                                ; preds = %3
   %9 = call i32 @find_my_exec(ptr noundef %0, ptr noundef nonnull %4) #17
@@ -2307,21 +2307,14 @@ define internal fastcc noundef ptr @find_other_exec_or_die(ptr noundef %0, ptr n
 14:                                               ; preds = %11, %8
   %15 = icmp eq i32 %6, -1
   %16 = load ptr, ptr @progname, align 8
-  br i1 %15, label %17, label %18
-
-17:                                               ; preds = %14
-  call void (ptr, ...) @write_stderr(ptr noundef nonnull @.str.105, ptr noundef %1, ptr noundef %16, ptr noundef nonnull %4)
-  br label %19
-
-18:                                               ; preds = %14
-  call void (ptr, ...) @write_stderr(ptr noundef nonnull @.str.106, ptr noundef %1, ptr noundef nonnull %4, ptr noundef %16)
-  br label %19
-
-19:                                               ; preds = %18, %17
+  %. = select i1 %15, ptr %4, ptr %16
+  %.9 = select i1 %15, ptr %16, ptr %4
+  %.str.105..str.106 = select i1 %15, ptr @.str.105, ptr @.str.106
+  call void (ptr, ...) @write_stderr(ptr noundef nonnull %.str.105..str.106, ptr noundef %1, ptr noundef %.9, ptr noundef %.)
   call void @exit(i32 noundef 1) #20
   unreachable
 
-20:                                               ; preds = %3
+17:                                               ; preds = %3
   ret ptr %5
 }
 

@@ -1702,8 +1702,8 @@ define void @_ZN8WasmEdge6Plugin6Plugin21getDefaultPluginPathsB5cxx11Ev(ptr dead
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, i8 0, i64 24, i1 false)
   %24 = tail call ptr @getenv(ptr noundef nonnull @.str) #27
   %.not = icmp eq ptr %24, null
-  %.sink115.sroa.gep = getelementptr inbounds i8, ptr %23, i64 8
-  %.sink115.sroa.gep118 = getelementptr inbounds i8, ptr %9, i64 8
+  %.sink113.sroa.gep = getelementptr inbounds i8, ptr %23, i64 8
+  %.sink113.sroa.gep118 = getelementptr inbounds i8, ptr %9, i64 8
   br i1 %.not, label %88, label %25
 
 25:                                               ; preds = %1
@@ -1909,11 +1909,11 @@ _ZNSt10filesystem7__cxx114pathD2Ev.exit32:        ; preds = %_ZNSt6vectorINSt10f
   br label %.invoke
 
 .invoke:                                          ; preds = %189, %93
-  %.sink115.sroa.phi = phi ptr [ %.sink115.sroa.gep, %189 ], [ %.sink115.sroa.gep118, %93 ]
-  %.sink115 = phi ptr [ %23, %189 ], [ %9, %93 ]
+  %.sink113.sroa.phi = phi ptr [ %.sink113.sroa.gep, %189 ], [ %.sink113.sroa.gep118, %93 ]
+  %.sink113 = phi ptr [ %23, %189 ], [ %9, %93 ]
   %.str.10.sink = phi ptr [ @.str.10, %189 ], [ @.str.4, %93 ]
-  store ptr %.str.10.sink, ptr %.sink115.sroa.phi, align 8
-  invoke void @_ZN6spdlog5errorISt17basic_string_viewIcSt11char_traitsIcEEEEvRKT_(ptr noundef nonnull align 8 dereferenceable(16) %.sink115)
+  store ptr %.str.10.sink, ptr %.sink113.sroa.phi, align 8
+  invoke void @_ZN6spdlog5errorISt17basic_string_viewIcSt11char_traitsIcEEEEvRKT_(ptr noundef nonnull align 8 dereferenceable(16) %.sink113)
           to label %190 unwind label %.loopexit.split-lp
 
 94:                                               ; preds = %90
@@ -2259,8 +2259,8 @@ _ZNSt10filesystem7__cxx114pathD2Ev.exit85:        ; preds = %176, %179
   br label %.invoke
 
 190:                                              ; preds = %.invoke, %_ZNSt10filesystem7__cxx114pathD2Ev.exit85
-  %.sink113 = phi ptr [ %3, %_ZNSt10filesystem7__cxx114pathD2Ev.exit85 ], [ %0, %.invoke ]
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sink113, i8 0, i64 24, i1 false)
+  %.sink111 = phi ptr [ %3, %_ZNSt10filesystem7__cxx114pathD2Ev.exit85 ], [ %0, %.invoke ]
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sink111, i8 0, i64 24, i1 false)
   %191 = load ptr, ptr %3, align 8
   %192 = getelementptr inbounds i8, ptr %3, i64 8
   %193 = load ptr, ptr %192, align 8

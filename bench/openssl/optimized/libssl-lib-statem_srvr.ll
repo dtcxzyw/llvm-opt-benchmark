@@ -3273,13 +3273,13 @@ if.end39:                                         ; preds = %if.end33
   br label %for.body
 
 for.body:                                         ; preds = %if.end39, %for.body
-  %i.0102 = phi i64 [ 8, %if.end39 ], [ %sub, %for.body ]
-  %nonce.0101 = phi i64 [ %14, %if.end39 ], [ %shr, %for.body ]
-  %conv44 = trunc i64 %nonce.0101 to i8
-  %sub = add nsw i64 %i.0102, -1
+  %i.0104 = phi i64 [ 8, %if.end39 ], [ %sub, %for.body ]
+  %nonce.0103 = phi i64 [ %14, %if.end39 ], [ %shr, %for.body ]
+  %conv44 = trunc i64 %nonce.0103 to i8
+  %sub = add nsw i64 %i.0104, -1
   %arrayidx = getelementptr inbounds [8 x i8], ptr %tick_nonce, i64 0, i64 %sub
   store i8 %conv44, ptr %arrayidx, align 1
-  %shr = lshr i64 %nonce.0101, 8
+  %shr = lshr i64 %nonce.0103, 8
   %cmp41.not = icmp eq i64 %sub, 0
   br i1 %cmp41.not, label %for.end, label %for.body, !llvm.loop !6
 
@@ -3455,7 +3455,7 @@ if.then.i:                                        ; preds = %if.else
   call void @ERR_new() #12
   call void @ERR_set_debug(ptr noundef nonnull @.str.1, i32 noundef 3965, ptr noundef nonnull @__func__.construct_stateless_ticket) #12
   call void (ptr, i32, i32, ptr, ...) @ossl_statem_fatal(ptr noundef nonnull %s, i32 noundef 80, i32 noundef 786691, ptr noundef null) #12
-  br label %construct_stateless_ticket.exit.thread91
+  br label %construct_stateless_ticket.exit.thread93
 
 if.end.i72:                                       ; preds = %if.else
   %conv.i = sext i32 %call.i71 to i64
@@ -3467,7 +3467,7 @@ if.then8.i:                                       ; preds = %if.end.i72
   call void @ERR_new() #12
   call void @ERR_set_debug(ptr noundef nonnull @.str.1, i32 noundef 3970, ptr noundef nonnull @__func__.construct_stateless_ticket) #12
   call void (ptr, i32, i32, ptr, ...) @ossl_statem_fatal(ptr noundef nonnull %s, i32 noundef 80, i32 noundef 524303, ptr noundef null) #12
-  br label %construct_stateless_ticket.exit.thread91
+  br label %construct_stateless_ticket.exit.thread93
 
 if.end9.i:                                        ; preds = %if.end.i72
   %call10.i = call ptr @EVP_CIPHER_CTX_new() #12
@@ -3478,7 +3478,7 @@ if.then13.i:                                      ; preds = %if.end9.i
   call void @ERR_new() #12
   call void @ERR_set_debug(ptr noundef nonnull @.str.1, i32 noundef 3976, ptr noundef nonnull @__func__.construct_stateless_ticket) #12
   call void (ptr, i32, i32, ptr, ...) @ossl_statem_fatal(ptr noundef nonnull %s, i32 noundef 80, i32 noundef 524294, ptr noundef null) #12
-  br label %construct_stateless_ticket.exit.thread91
+  br label %construct_stateless_ticket.exit.thread93
 
 if.end14.i:                                       ; preds = %if.end9.i
   %call15.i = call ptr @ssl_hmac_new(ptr noundef %42) #12
@@ -3489,7 +3489,7 @@ if.then18.i:                                      ; preds = %if.end14.i
   call void @ERR_new() #12
   call void @ERR_set_debug(ptr noundef nonnull @.str.1, i32 noundef 3981, ptr noundef nonnull @__func__.construct_stateless_ticket) #12
   call void (ptr, i32, i32, ptr, ...) @ossl_statem_fatal(ptr noundef nonnull %s, i32 noundef 80, i32 noundef 524308, ptr noundef null) #12
-  br label %construct_stateless_ticket.exit.thread91
+  br label %construct_stateless_ticket.exit.thread93
 
 if.end19.i:                                       ; preds = %if.end14.i
   store ptr %call5.i, ptr %p.i, align 8
@@ -3502,7 +3502,7 @@ if.then22.i:                                      ; preds = %if.end19.i
   call void @ERR_new() #12
   call void @ERR_set_debug(ptr noundef nonnull @.str.1, i32 noundef 3987, ptr noundef nonnull @__func__.construct_stateless_ticket) #12
   call void (ptr, i32, i32, ptr, ...) @ossl_statem_fatal(ptr noundef nonnull %s, i32 noundef 80, i32 noundef 786691, ptr noundef null) #12
-  br label %construct_stateless_ticket.exit.thread91
+  br label %construct_stateless_ticket.exit.thread93
 
 if.end23.i:                                       ; preds = %if.end19.i
   store ptr %call5.i, ptr %const_p.i, align 8
@@ -3517,7 +3517,7 @@ if.then28.i:                                      ; preds = %if.end23.i
   call void @ERR_new() #12
   call void @ERR_set_debug(ptr noundef nonnull @.str.1, i32 noundef 3998, ptr noundef nonnull @__func__.construct_stateless_ticket) #12
   call void (ptr, i32, i32, ptr, ...) @ossl_statem_fatal(ptr noundef nonnull %s, i32 noundef 80, i32 noundef 786691, ptr noundef null) #12
-  br label %construct_stateless_ticket.exit.thread91
+  br label %construct_stateless_ticket.exit.thread93
 
 if.end29.i:                                       ; preds = %if.end23.i
   %call30.i = call i32 @i2d_SSL_SESSION(ptr noundef nonnull %call25.i, ptr noundef null) #12
@@ -3531,7 +3531,7 @@ if.then36.i:                                      ; preds = %if.end29.i
   call void @ERR_set_debug(ptr noundef nonnull @.str.1, i32 noundef 4005, ptr noundef nonnull @__func__.construct_stateless_ticket) #12
   call void (ptr, i32, i32, ptr, ...) @ossl_statem_fatal(ptr noundef nonnull %s, i32 noundef 80, i32 noundef 786691, ptr noundef null) #12
   call void @SSL_SESSION_free(ptr noundef nonnull %call25.i) #12
-  br label %construct_stateless_ticket.exit.thread91
+  br label %construct_stateless_ticket.exit.thread93
 
 if.end37.i:                                       ; preds = %if.end29.i
   store ptr %call5.i, ptr %p.i, align 8
@@ -3544,7 +3544,7 @@ if.then40.i:                                      ; preds = %if.end37.i
   call void @ERR_set_debug(ptr noundef nonnull @.str.1, i32 noundef 4011, ptr noundef nonnull @__func__.construct_stateless_ticket) #12
   call void (ptr, i32, i32, ptr, ...) @ossl_statem_fatal(ptr noundef nonnull %s, i32 noundef 80, i32 noundef 786691, ptr noundef null) #12
   call void @SSL_SESSION_free(ptr noundef nonnull %call25.i) #12
-  br label %construct_stateless_ticket.exit.thread91
+  br label %construct_stateless_ticket.exit.thread93
 
 if.end41.i:                                       ; preds = %if.end37.i
   call void @SSL_SESSION_free(ptr noundef nonnull %call25.i) #12
@@ -3605,7 +3605,7 @@ if.then94.i:                                      ; preds = %lor.lhs.false91.i, 
   call void @ERR_new() #12
   call void @ERR_set_debug(ptr noundef nonnull @.str.1, i32 noundef 4053, ptr noundef nonnull @__func__.construct_stateless_ticket) #12
   call void (ptr, i32, i32, ptr, ...) @ossl_statem_fatal(ptr noundef nonnull %s, i32 noundef 80, i32 noundef 786691, ptr noundef null) #12
-  br label %construct_stateless_ticket.exit.thread91
+  br label %construct_stateless_ticket.exit.thread93
 
 if.end96.i:                                       ; preds = %if.end71.i
   %cmp97.i = icmp slt i32 %ret.0.i, 0
@@ -3615,7 +3615,7 @@ if.then99.i:                                      ; preds = %if.end96.i
   call void @ERR_new() #12
   call void @ERR_set_debug(ptr noundef nonnull @.str.1, i32 noundef 4062, ptr noundef nonnull @__func__.construct_stateless_ticket) #12
   call void (ptr, i32, i32, ptr, ...) @ossl_statem_fatal(ptr noundef nonnull %s, i32 noundef 80, i32 noundef 234, ptr noundef null) #12
-  br label %construct_stateless_ticket.exit.thread91
+  br label %construct_stateless_ticket.exit.thread93
 
 if.end100.i:                                      ; preds = %if.end96.i
   %call101.i = call i32 @EVP_CIPHER_CTX_get_iv_length(ptr noundef nonnull %call10.i) #12
@@ -3626,7 +3626,7 @@ if.then104.i:                                     ; preds = %if.end100.i
   call void @ERR_new() #12
   call void @ERR_set_debug(ptr noundef nonnull @.str.1, i32 noundef 4067, ptr noundef nonnull @__func__.construct_stateless_ticket) #12
   call void (ptr, i32, i32, ptr, ...) @ossl_statem_fatal(ptr noundef nonnull %s, i32 noundef 80, i32 noundef 786691, ptr noundef null) #12
-  br label %construct_stateless_ticket.exit.thread91
+  br label %construct_stateless_ticket.exit.thread93
 
 if.else106.i:                                     ; preds = %lor.lhs.false44.i
   %54 = load ptr, ptr %43, align 8
@@ -3637,7 +3637,7 @@ if.else106.i:                                     ; preds = %lor.lhs.false44.i
 
 if.then112.i:                                     ; preds = %if.else106.i
   call void @ossl_statem_send_fatal(ptr noundef nonnull %s, i32 noundef 80) #12
-  br label %construct_stateless_ticket.exit.thread91
+  br label %construct_stateless_ticket.exit.thread93
 
 if.end113.i:                                      ; preds = %if.else106.i
   %call114.i = call i32 @EVP_CIPHER_get_iv_length(ptr noundef nonnull %call109.i) #12
@@ -3670,7 +3670,7 @@ if.then136.i:                                     ; preds = %lor.lhs.false130.i,
   call void @ERR_new() #12
   call void @ERR_set_debug(ptr noundef nonnull @.str.1, i32 noundef 4089, ptr noundef nonnull @__func__.construct_stateless_ticket) #12
   call void (ptr, i32, i32, ptr, ...) @ossl_statem_fatal(ptr noundef nonnull %s, i32 noundef 80, i32 noundef 786691, ptr noundef null) #12
-  br label %construct_stateless_ticket.exit.thread91
+  br label %construct_stateless_ticket.exit.thread93
 
 if.end137.i:                                      ; preds = %lor.lhs.false130.i
   call void @EVP_CIPHER_free(ptr noundef nonnull %call109.i) #12
@@ -3682,7 +3682,7 @@ if.end141.i:                                      ; preds = %if.end137.i, %if.en
   %iv_len.0.i = phi i32 [ %call101.i, %if.end100.i ], [ %call114.i, %if.end137.i ]
   %call142.i = call fastcc i32 @create_ticket_prequel(ptr noundef nonnull %s, ptr noundef %pkt, i32 noundef %41, ptr noundef %tick_nonce)
   %tobool143.not.i = icmp eq i32 %call142.i, 0
-  br i1 %tobool143.not.i, label %construct_stateless_ticket.exit.thread91, label %if.end145.i
+  br i1 %tobool143.not.i, label %construct_stateless_ticket.exit.thread93, label %if.end145.i
 
 if.end145.i:                                      ; preds = %if.end141.i
   %call146.i = call i32 @WPACKET_get_total_written(ptr noundef %pkt, ptr noundef nonnull %macoffset.i) #12
@@ -3803,7 +3803,7 @@ if.then210.i:                                     ; preds = %lor.lhs.false207.i,
   call void @ERR_new() #12
   call void @ERR_set_debug(ptr noundef nonnull @.str.1, i32 noundef 4126, ptr noundef nonnull @__func__.construct_stateless_ticket) #12
   call void (ptr, i32, i32, ptr, ...) @ossl_statem_fatal(ptr noundef nonnull %s, i32 noundef 80, i32 noundef 786691, ptr noundef null) #12
-  br label %construct_stateless_ticket.exit.thread91
+  br label %construct_stateless_ticket.exit.thread93
 
 if.end211.i:                                      ; preds = %lor.lhs.false207.i
   %call212.i = call i32 @WPACKET_close(ptr noundef %pkt) #12
@@ -3814,9 +3814,9 @@ if.then214.i:                                     ; preds = %if.end211.i
   call void @ERR_new() #12
   call void @ERR_set_debug(ptr noundef nonnull @.str.1, i32 noundef 4132, ptr noundef nonnull @__func__.construct_stateless_ticket) #12
   call void (ptr, i32, i32, ptr, ...) @ossl_statem_fatal(ptr noundef nonnull %s, i32 noundef 80, i32 noundef 786691, ptr noundef null) #12
-  br label %construct_stateless_ticket.exit.thread91
+  br label %construct_stateless_ticket.exit.thread93
 
-construct_stateless_ticket.exit.thread91:         ; preds = %if.then.i, %if.then8.i, %if.then13.i, %if.then18.i, %if.then28.i, %if.then36.i, %if.then94.i, %if.then99.i, %if.then104.i, %if.then210.i, %if.then214.i, %if.end141.i, %if.then112.i, %if.then136.i, %if.then40.i, %if.then22.i
+construct_stateless_ticket.exit.thread93:         ; preds = %if.then.i, %if.then8.i, %if.then13.i, %if.then18.i, %if.then28.i, %if.then36.i, %if.then94.i, %if.then99.i, %if.then104.i, %if.then210.i, %if.then214.i, %if.end141.i, %if.then112.i, %if.then136.i, %if.then40.i, %if.then22.i
   %hctx.0.i.ph = phi ptr [ %call15.i, %if.then22.i ], [ %call15.i, %if.then40.i ], [ %call15.i, %if.then136.i ], [ %call15.i, %if.then112.i ], [ %call15.i, %if.end141.i ], [ %call15.i, %if.then214.i ], [ %call15.i, %if.then210.i ], [ %call15.i, %if.then104.i ], [ %call15.i, %if.then99.i ], [ %call15.i, %if.then94.i ], [ %call15.i, %if.then36.i ], [ %call15.i, %if.then28.i ], [ null, %if.then18.i ], [ null, %if.then13.i ], [ null, %if.then8.i ], [ null, %if.then.i ]
   %ctx.0.i.ph = phi ptr [ %call10.i, %if.then22.i ], [ %call10.i, %if.then40.i ], [ %call10.i, %if.then136.i ], [ %call10.i, %if.then112.i ], [ %call10.i, %if.end141.i ], [ %call10.i, %if.then214.i ], [ %call10.i, %if.then210.i ], [ %call10.i, %if.then104.i ], [ %call10.i, %if.then99.i ], [ %call10.i, %if.then94.i ], [ %call10.i, %if.then36.i ], [ %call10.i, %if.then28.i ], [ %call10.i, %if.then18.i ], [ null, %if.then13.i ], [ null, %if.then8.i ], [ null, %if.then.i ]
   %senc.0.i.ph = phi ptr [ %call5.i, %if.then22.i ], [ %call5.i, %if.then40.i ], [ %call5.i, %if.then136.i ], [ %call5.i, %if.then112.i ], [ %call5.i, %if.end141.i ], [ %call5.i, %if.then214.i ], [ %call5.i, %if.then210.i ], [ %call5.i, %if.then104.i ], [ %call5.i, %if.then99.i ], [ %call5.i, %if.then94.i ], [ %call5.i, %if.then36.i ], [ %call5.i, %if.then28.i ], [ %call5.i, %if.then18.i ], [ %call5.i, %if.then13.i ], [ null, %if.then8.i ], [ null, %if.then.i ]
@@ -3938,8 +3938,8 @@ tls_update_ticket_counts.exit87:                  ; preds = %if.end170, %if.then
   call void @ssl_update_cache(ptr noundef nonnull %s, i32 noundef 2) #12
   br label %err
 
-err:                                              ; preds = %if.then131, %if.then6.i, %if.then.i77, %if.then144, %construct_stateless_ticket.exit.thread91, %if.end147, %land.lhs.true154, %tls_update_ticket_counts.exit87, %if.then166, %for.end, %if.end28, %if.then20, %if.then98, %if.then75, %if.then38, %if.then15
-  %ret.0 = phi i32 [ 0, %if.then98 ], [ 0, %if.then166 ], [ 0, %if.then20 ], [ 0, %if.then38 ], [ 0, %if.then75 ], [ 0, %for.end ], [ 0, %if.end28 ], [ 0, %if.then15 ], [ 1, %tls_update_ticket_counts.exit87 ], [ 1, %land.lhs.true154 ], [ 1, %if.end147 ], [ 0, %construct_stateless_ticket.exit.thread91 ], [ 2, %if.then144 ], [ 2, %if.then.i77 ], [ 0, %if.then6.i ], [ 0, %if.then131 ]
+err:                                              ; preds = %if.then131, %if.then6.i, %if.then.i77, %if.then144, %construct_stateless_ticket.exit.thread93, %if.end147, %land.lhs.true154, %tls_update_ticket_counts.exit87, %if.then166, %for.end, %if.end28, %if.then20, %if.then98, %if.then75, %if.then38, %if.then15
+  %ret.0 = phi i32 [ 0, %if.then98 ], [ 0, %if.then166 ], [ 0, %if.then20 ], [ 0, %if.then38 ], [ 0, %if.then75 ], [ 0, %for.end ], [ 0, %if.end28 ], [ 0, %if.then15 ], [ 1, %tls_update_ticket_counts.exit87 ], [ 1, %land.lhs.true154 ], [ 1, %if.end147 ], [ 0, %construct_stateless_ticket.exit.thread93 ], [ 2, %if.then144 ], [ 2, %if.then.i77 ], [ 0, %if.then6.i ], [ 0, %if.then131 ]
   ret i32 %ret.0
 }
 

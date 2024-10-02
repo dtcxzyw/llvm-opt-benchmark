@@ -8357,20 +8357,9 @@ define internal noundef i32 @OnUpdateJit(ptr noundef %0, ptr noundef %1, ptr nou
   %8 = load i8, ptr getelementptr inbounds (i8, ptr @pcre_globals, i64 72), align 8
   %9 = trunc i8 %8 to i1
   %10 = load ptr, ptr @jit_stack, align 8
-  %11 = icmp ne ptr %10, null
-  %or.cond = select i1 %9, i1 %11, i1 false
-  %12 = load ptr, ptr @mctx, align 8
-  br i1 %or.cond, label %13, label %14
-
-13:                                               ; preds = %6
-  tail call void @php_pcre2_jit_stack_assign(ptr noundef %12, ptr noundef null, ptr noundef nonnull %10) #23
-  br label %15
-
-14:                                               ; preds = %6
-  tail call void @php_pcre2_jit_stack_assign(ptr noundef %12, ptr noundef null, ptr noundef null) #23
-  br label %15
-
-15:                                               ; preds = %14, %13
+  %11 = load ptr, ptr @mctx, align 8
+  %. = select i1 %9, ptr %10, ptr null
+  tail call void @php_pcre2_jit_stack_assign(ptr noundef %11, ptr noundef null, ptr noundef %.) #23
   ret i32 0
 }
 

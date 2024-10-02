@@ -53,7 +53,7 @@ define i32 @ompi_coll_base_allgatherv_intra_bruck(ptr noundef %0, i32 noundef %1
   %38 = getelementptr inbounds i32, ptr %37, i64 %36
   %39 = getelementptr inbounds i32, ptr %38, i64 %36
   %40 = icmp sgt i32 %.val.val, 1
-  br i1 %40, label %.lr.ph118, label %._crit_edge119
+  br i1 %40, label %.lr.ph118, label %.thread.sink.split
 
 .lr.ph118:                                        ; preds = %35
   %41 = add i32 %.val109, %.val.val
@@ -109,20 +109,20 @@ define i32 @ompi_coll_base_allgatherv_intra_bruck(ptr noundef %0, i32 noundef %1
 ._crit_edge:                                      ; preds = %.lr.ph, %43
   %70 = call i32 @ompi_datatype_create_indexed(i32 noundef %.090, ptr noundef nonnull %38, ptr noundef nonnull %39, ptr noundef %6, ptr noundef nonnull %11) #7
   %.not104 = icmp eq i32 %70, 0
-  br i1 %.not104, label %71, label %90
+  br i1 %.not104, label %71, label %.thread.sink.split
 
 71:                                               ; preds = %._crit_edge
   %72 = call i32 @ompi_datatype_create_indexed(i32 noundef %.090, ptr noundef nonnull %33, ptr noundef nonnull %37, ptr noundef %6, ptr noundef nonnull %10) #7
   %.val110 = load ptr, ptr %11, align 8
   %73 = call i32 @opal_datatype_commit(ptr noundef %.val110) #7
   %.not105 = icmp eq i32 %73, 0
-  br i1 %.not105, label %74, label %90
+  br i1 %.not105, label %74, label %.thread.sink.split
 
 74:                                               ; preds = %71
   %.val111 = load ptr, ptr %10, align 8
   %75 = call i32 @opal_datatype_commit(ptr noundef %.val111) #7
   %.not106 = icmp eq i32 %75, 0
-  br i1 %.not106, label %76, label %90
+  br i1 %.not106, label %76, label %.thread.sink.split
 
 76:                                               ; preds = %74
   %77 = load ptr, ptr %11, align 8
@@ -143,26 +143,22 @@ define i32 @ompi_coll_base_allgatherv_intra_bruck(ptr noundef %0, i32 noundef %1
 ompi_coll_base_sendrecv.exit:                     ; preds = %81, %83
   %.0.i = phi i32 [ %82, %81 ], [ %84, %83 ]
   %.not107 = icmp eq i32 %.0.i, 0
-  br i1 %.not107, label %85, label %90
+  br i1 %.not107, label %85, label %.thread.sink.split
 
 85:                                               ; preds = %ompi_coll_base_sendrecv.exit
   %86 = call i32 @ompi_datatype_destroy(ptr noundef nonnull %11) #7
   %87 = call i32 @ompi_datatype_destroy(ptr noundef nonnull %10) #7
   %88 = shl i32 %.091116, 1
   %89 = icmp slt i32 %88, %.val.val
-  br i1 %89, label %43, label %._crit_edge119, !llvm.loop !6
+  br i1 %89, label %43, label %.thread.sink.split, !llvm.loop !6
 
-._crit_edge119:                                   ; preds = %85, %35
+.thread.sink.split:                               ; preds = %ompi_coll_base_sendrecv.exit, %74, %71, %._crit_edge, %85, %35
+  %.0.ph = phi i32 [ 0, %35 ], [ 0, %85 ], [ %70, %._crit_edge ], [ %73, %71 ], [ %75, %74 ], [ %.0.i, %ompi_coll_base_sendrecv.exit ]
   call void @free(ptr noundef %33) #7
   br label %.thread
 
-90:                                               ; preds = %._crit_edge, %71, %74, %ompi_coll_base_sendrecv.exit
-  %.092 = phi i32 [ %70, %._crit_edge ], [ %73, %71 ], [ %75, %74 ], [ %.0.i, %ompi_coll_base_sendrecv.exit ]
-  call void @free(ptr noundef nonnull %33) #7
-  br label %.thread
-
-.thread:                                          ; preds = %30, %15, %90, %._crit_edge119
-  %.0 = phi i32 [ 0, %._crit_edge119 ], [ %.092, %90 ], [ -1, %30 ], [ %29, %15 ]
+.thread:                                          ; preds = %.thread.sink.split, %30, %15
+  %.0 = phi i32 [ -1, %30 ], [ %29, %15 ], [ %.0.ph, %.thread.sink.split ]
   ret i32 %.0
 }
 

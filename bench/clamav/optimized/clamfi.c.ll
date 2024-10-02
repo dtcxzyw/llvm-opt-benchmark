@@ -1424,33 +1424,33 @@ declare ptr @cli_strerror(i32 noundef, ptr noundef, i64 noundef) local_unnamed_a
 ; Function Attrs: nounwind uwtable
 define dso_local range(i32 0, 4) i32 @clamfi_connect(ptr nocapture noundef readnone %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %.not = icmp eq ptr %2, null
-  br i1 %.not, label %8, label %4
+  br i1 %.not, label %6, label %4
 
 4:                                                ; preds = %3
   %5 = tail call i32 @islocalnet_sock(ptr noundef nonnull %2) #17
   %.not11 = icmp eq i32 %5, 0
-  br i1 %.not11, label %14, label %6
+  br i1 %.not11, label %12, label %.sink.split
 
-6:                                                ; preds = %4
-  %7 = tail call i32 (i32, ptr, ...) @logg(i32 noundef 2, ptr noundef nonnull @.str.31, ptr noundef %1) #17
-  br label %14
-
-8:                                                ; preds = %3
-  %9 = tail call i32 @strcasecmp(ptr noundef %1, ptr noundef nonnull @.str.32) #18
-  %.not8 = icmp eq i32 %9, 0
+6:                                                ; preds = %3
+  %7 = tail call i32 @strcasecmp(ptr noundef %1, ptr noundef nonnull @.str.32) #18
+  %.not8 = icmp eq i32 %7, 0
   %spec.store.select = select i1 %.not8, ptr null, ptr %1
-  %10 = tail call i32 @islocalnet_name(ptr noundef %spec.store.select) #17
-  %.not9 = icmp eq i32 %10, 0
-  br i1 %.not9, label %14, label %11
+  %8 = tail call i32 @islocalnet_name(ptr noundef %spec.store.select) #17
+  %.not9 = icmp eq i32 %8, 0
+  br i1 %.not9, label %12, label %9
 
-11:                                               ; preds = %8
+9:                                                ; preds = %6
   %.not10 = icmp eq ptr %spec.store.select, null
-  %12 = select i1 %.not10, ptr @.str.33, ptr %spec.store.select
-  %13 = tail call i32 (i32, ptr, ...) @logg(i32 noundef 2, ptr noundef nonnull @.str.31, ptr noundef nonnull %12) #17
-  br label %14
+  %10 = select i1 %.not10, ptr @.str.33, ptr %spec.store.select
+  br label %.sink.split
 
-14:                                               ; preds = %4, %8, %11, %6
-  %.0 = phi i32 [ 3, %6 ], [ 3, %11 ], [ 0, %8 ], [ 0, %4 ]
+.sink.split:                                      ; preds = %4, %9
+  %.sink = phi ptr [ %10, %9 ], [ %1, %4 ]
+  %11 = tail call i32 (i32, ptr, ...) @logg(i32 noundef 2, ptr noundef nonnull @.str.31, ptr noundef %.sink) #17
+  br label %12
+
+12:                                               ; preds = %.sink.split, %4, %6
+  %.0 = phi i32 [ 0, %6 ], [ 0, %4 ], [ 3, %.sink.split ]
   ret i32 %.0
 }
 

@@ -161,7 +161,7 @@ define dso_local void @InitProcGlobal() local_unnamed_addr #0 {
   %25 = icmp eq i64 %24, 0
   %26 = icmp ult i32 %5, 2
   %or.cond = select i1 %25, i1 %26, i1 false
-  br i1 %or.cond, label %27, label %36
+  br i1 %or.cond, label %27, label %.loopexit123.sink.split
 
 27:                                               ; preds = %0
   %28 = getelementptr i8, ptr %22, i64 %21
@@ -176,322 +176,322 @@ define dso_local void @InitProcGlobal() local_unnamed_addr #0 {
   %33 = add i64 %umax, %32
   %34 = and i64 %33, -8
   %35 = add i64 %34, 8
-  call void @llvm.memset.p0.i64(ptr align 8 %22, i8 0, i64 %35, i1 false)
+  br label %.loopexit123.sink.split
+
+.loopexit123.sink.split:                          ; preds = %0, %.lr.ph.preheader
+  %.sink = phi i64 [ %35, %.lr.ph.preheader ], [ %21, %0 ]
+  call void @llvm.memset.p0.i64(ptr align 1 %22, i8 0, i64 %.sink, i1 false)
   br label %.loopexit123
 
-36:                                               ; preds = %0
-  call void @llvm.memset.p0.i64(ptr align 1 %22, i8 0, i64 %21, i1 false)
-  br label %.loopexit123
+.loopexit123:                                     ; preds = %.loopexit123.sink.split, %27
+  %36 = load ptr, ptr @ProcGlobal, align 8
+  store ptr %22, ptr %36, align 8
+  %37 = load i32, ptr @MaxBackends, align 4
+  %38 = add i32 %37, 6
+  %39 = load ptr, ptr @ProcGlobal, align 8
+  %40 = getelementptr inbounds i8, ptr %39, i64 32
+  store i32 %38, ptr %40, align 8
+  %41 = shl nuw nsw i64 %20, 2
+  %42 = call ptr @ShmemAlloc(i64 noundef %41) #13
+  %43 = load ptr, ptr @ProcGlobal, align 8
+  %44 = getelementptr inbounds i8, ptr %43, i64 8
+  store ptr %42, ptr %44, align 8
+  %45 = ptrtoint ptr %42 to i64
+  %46 = and i64 %45, 7
+  %47 = icmp eq i64 %46, 0
+  br i1 %47, label %48, label %.loopexit122.sink.split
 
-.loopexit123:                                     ; preds = %.lr.ph.preheader, %27, %36
-  %37 = load ptr, ptr @ProcGlobal, align 8
-  store ptr %22, ptr %37, align 8
-  %38 = load i32, ptr @MaxBackends, align 4
-  %39 = add i32 %38, 6
-  %40 = load ptr, ptr @ProcGlobal, align 8
-  %41 = getelementptr inbounds i8, ptr %40, i64 32
-  store i32 %39, ptr %41, align 8
-  %42 = shl nuw nsw i64 %20, 2
-  %43 = call ptr @ShmemAlloc(i64 noundef %42) #13
-  %44 = load ptr, ptr @ProcGlobal, align 8
-  %45 = getelementptr inbounds i8, ptr %44, i64 8
-  store ptr %43, ptr %45, align 8
-  %46 = ptrtoint ptr %43 to i64
-  %47 = and i64 %46, 7
-  %48 = icmp eq i64 %47, 0
-  br i1 %48, label %49, label %62
+48:                                               ; preds = %.loopexit123
+  %49 = and i64 %20, 1
+  %50 = icmp eq i64 %49, 0
+  %51 = icmp ult i32 %5, 257
+  %or.cond7 = select i1 %50, i1 %51, i1 false
+  br i1 %or.cond7, label %52, label %.loopexit122.sink.split
 
-49:                                               ; preds = %.loopexit123
-  %50 = and i64 %20, 1
-  %51 = icmp eq i64 %50, 0
-  %52 = icmp ult i32 %5, 257
-  %or.cond7 = select i1 %51, i1 %52, i1 false
-  br i1 %or.cond7, label %53, label %62
+52:                                               ; preds = %48
+  %53 = getelementptr i8, ptr %42, i64 %41
+  %54 = icmp ult ptr %42, %53
+  br i1 %54, label %.lr.ph126.preheader, label %.loopexit122
 
-53:                                               ; preds = %49
-  %54 = getelementptr i8, ptr %43, i64 %42
-  %55 = icmp ult ptr %43, %54
-  br i1 %55, label %.lr.ph126.preheader, label %.loopexit122
+.lr.ph126.preheader:                              ; preds = %52
+  %55 = add i64 %41, %45
+  %56 = add i64 %45, 8
+  %umax134 = call i64 @llvm.umax.i64(i64 %55, i64 %56)
+  %57 = xor i64 %45, -1
+  %58 = add i64 %umax134, %57
+  %59 = and i64 %58, -8
+  %60 = add i64 %59, 8
+  br label %.loopexit122.sink.split
 
-.lr.ph126.preheader:                              ; preds = %53
-  %56 = add i64 %42, %46
-  %57 = add i64 %46, 8
-  %umax134 = call i64 @llvm.umax.i64(i64 %56, i64 %57)
-  %58 = xor i64 %46, -1
-  %59 = add i64 %umax134, %58
-  %60 = and i64 %59, -8
-  %61 = add i64 %60, 8
-  call void @llvm.memset.p0.i64(ptr align 8 %43, i8 0, i64 %61, i1 false)
+.loopexit122.sink.split:                          ; preds = %.loopexit123, %48, %.lr.ph126.preheader
+  %.sink139 = phi i64 [ %60, %.lr.ph126.preheader ], [ %41, %48 ], [ %41, %.loopexit123 ]
+  call void @llvm.memset.p0.i64(ptr align 1 %42, i8 0, i64 %.sink139, i1 false)
   br label %.loopexit122
 
-62:                                               ; preds = %49, %.loopexit123
-  call void @llvm.memset.p0.i64(ptr align 1 %43, i8 0, i64 %42, i1 false)
-  br label %.loopexit122
+.loopexit122:                                     ; preds = %.loopexit122.sink.split, %52
+  %61 = shl nuw nsw i64 %20, 1
+  %62 = call ptr @ShmemAlloc(i64 noundef %61) #13
+  %63 = load ptr, ptr @ProcGlobal, align 8
+  %64 = getelementptr inbounds i8, ptr %63, i64 16
+  store ptr %62, ptr %64, align 8
+  %65 = ptrtoint ptr %62 to i64
+  %66 = and i64 %65, 7
+  %67 = icmp eq i64 %66, 0
+  br i1 %67, label %68, label %.loopexit121.sink.split
 
-.loopexit122:                                     ; preds = %.lr.ph126.preheader, %53, %62
-  %63 = shl nuw nsw i64 %20, 1
-  %64 = call ptr @ShmemAlloc(i64 noundef %63) #13
-  %65 = load ptr, ptr @ProcGlobal, align 8
-  %66 = getelementptr inbounds i8, ptr %65, i64 16
-  store ptr %64, ptr %66, align 8
-  %67 = ptrtoint ptr %64 to i64
-  %68 = and i64 %67, 7
-  %69 = icmp eq i64 %68, 0
-  br i1 %69, label %70, label %83
+68:                                               ; preds = %.loopexit122
+  %69 = and i64 %20, 3
+  %70 = icmp eq i64 %69, 0
+  %71 = icmp ult i32 %5, 513
+  %or.cond11 = select i1 %70, i1 %71, i1 false
+  br i1 %or.cond11, label %72, label %.loopexit121.sink.split
 
-70:                                               ; preds = %.loopexit122
-  %71 = and i64 %20, 3
-  %72 = icmp eq i64 %71, 0
-  %73 = icmp ult i32 %5, 513
-  %or.cond11 = select i1 %72, i1 %73, i1 false
-  br i1 %or.cond11, label %74, label %83
+72:                                               ; preds = %68
+  %73 = getelementptr i8, ptr %62, i64 %61
+  %74 = icmp ult ptr %62, %73
+  br i1 %74, label %.lr.ph128.preheader, label %.loopexit121
 
-74:                                               ; preds = %70
-  %75 = getelementptr i8, ptr %64, i64 %63
-  %76 = icmp ult ptr %64, %75
-  br i1 %76, label %.lr.ph128.preheader, label %.loopexit121
+.lr.ph128.preheader:                              ; preds = %72
+  %75 = add i64 %61, %65
+  %76 = add i64 %65, 8
+  %umax135 = call i64 @llvm.umax.i64(i64 %75, i64 %76)
+  %77 = xor i64 %65, -1
+  %78 = add i64 %umax135, %77
+  %79 = and i64 %78, -8
+  %80 = add i64 %79, 8
+  br label %.loopexit121.sink.split
 
-.lr.ph128.preheader:                              ; preds = %74
-  %77 = add i64 %63, %67
-  %78 = add i64 %67, 8
-  %umax135 = call i64 @llvm.umax.i64(i64 %77, i64 %78)
-  %79 = xor i64 %67, -1
-  %80 = add i64 %umax135, %79
-  %81 = and i64 %80, -8
-  %82 = add i64 %81, 8
-  call void @llvm.memset.p0.i64(ptr align 8 %64, i8 0, i64 %82, i1 false)
+.loopexit121.sink.split:                          ; preds = %.loopexit122, %68, %.lr.ph128.preheader
+  %.sink140 = phi i64 [ %80, %.lr.ph128.preheader ], [ %61, %68 ], [ %61, %.loopexit122 ]
+  call void @llvm.memset.p0.i64(ptr align 1 %62, i8 0, i64 %.sink140, i1 false)
   br label %.loopexit121
 
-83:                                               ; preds = %70, %.loopexit122
-  call void @llvm.memset.p0.i64(ptr align 1 %64, i8 0, i64 %63, i1 false)
-  br label %.loopexit121
+.loopexit121:                                     ; preds = %.loopexit121.sink.split, %72
+  %81 = call ptr @ShmemAlloc(i64 noundef %20) #13
+  %82 = load ptr, ptr @ProcGlobal, align 8
+  %83 = getelementptr inbounds i8, ptr %82, i64 24
+  store ptr %81, ptr %83, align 8
+  %84 = ptrtoint ptr %81 to i64
+  %85 = and i64 %84, 7
+  %86 = icmp eq i64 %85, 0
+  br i1 %86, label %87, label %.loopexit.sink.split
 
-.loopexit121:                                     ; preds = %.lr.ph128.preheader, %74, %83
-  %84 = call ptr @ShmemAlloc(i64 noundef %20) #13
-  %85 = load ptr, ptr @ProcGlobal, align 8
-  %86 = getelementptr inbounds i8, ptr %85, i64 24
-  store ptr %84, ptr %86, align 8
-  %87 = ptrtoint ptr %84 to i64
-  %88 = and i64 %87, 7
+87:                                               ; preds = %.loopexit121
+  %88 = and i64 %20, 7
   %89 = icmp eq i64 %88, 0
-  br i1 %89, label %90, label %103
+  %90 = icmp ult i32 %5, 1025
+  %or.cond15 = select i1 %89, i1 %90, i1 false
+  br i1 %or.cond15, label %91, label %.loopexit.sink.split
 
-90:                                               ; preds = %.loopexit121
-  %91 = and i64 %20, 7
-  %92 = icmp eq i64 %91, 0
-  %93 = icmp ult i32 %5, 1025
-  %or.cond15 = select i1 %92, i1 %93, i1 false
-  br i1 %or.cond15, label %94, label %103
+91:                                               ; preds = %87
+  %92 = getelementptr i8, ptr %81, i64 %20
+  %93 = icmp ult ptr %81, %92
+  br i1 %93, label %.lr.ph130.preheader, label %.loopexit
 
-94:                                               ; preds = %90
-  %95 = getelementptr i8, ptr %84, i64 %20
-  %96 = icmp ult ptr %84, %95
-  br i1 %96, label %.lr.ph130.preheader, label %.loopexit
+.lr.ph130.preheader:                              ; preds = %91
+  %94 = add i64 %84, %20
+  %95 = add i64 %84, 8
+  %umax136 = call i64 @llvm.umax.i64(i64 %94, i64 %95)
+  %96 = xor i64 %84, -1
+  %97 = add i64 %umax136, %96
+  %98 = and i64 %97, -8
+  %99 = add i64 %98, 8
+  br label %.loopexit.sink.split
 
-.lr.ph130.preheader:                              ; preds = %94
-  %97 = add i64 %87, %20
-  %98 = add i64 %87, 8
-  %umax136 = call i64 @llvm.umax.i64(i64 %97, i64 %98)
-  %99 = xor i64 %87, -1
-  %100 = add i64 %umax136, %99
-  %101 = and i64 %100, -8
-  %102 = add i64 %101, 8
-  call void @llvm.memset.p0.i64(ptr align 8 %84, i8 0, i64 %102, i1 false)
+.loopexit.sink.split:                             ; preds = %.loopexit121, %87, %.lr.ph130.preheader
+  %.sink141 = phi i64 [ %99, %.lr.ph130.preheader ], [ %20, %87 ], [ %20, %.loopexit121 ]
+  call void @llvm.memset.p0.i64(ptr align 1 %81, i8 0, i64 %.sink141, i1 false)
   br label %.loopexit
 
-103:                                              ; preds = %90, %.loopexit121
-  call void @llvm.memset.p0.i64(ptr align 1 %84, i8 0, i64 %20, i1 false)
-  br label %.loopexit
-
-.loopexit:                                        ; preds = %.lr.ph130.preheader, %94, %103
+.loopexit:                                        ; preds = %.loopexit.sink.split, %91
   %.not = icmp eq i32 %5, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph133
 
-.lr.ph133:                                        ; preds = %.loopexit, %177
-  %.0132 = phi i32 [ %183, %177 ], [ 0, %.loopexit ]
-  %104 = sext i32 %.0132 to i64
-  %105 = getelementptr %struct.PGPROC, ptr %22, i64 %104
-  %106 = load i32, ptr @MaxBackends, align 4
-  %107 = add i32 %106, 6
-  %108 = icmp slt i32 %.0132, %107
-  br i1 %108, label %109, label %114
+.lr.ph133:                                        ; preds = %.loopexit, %173
+  %.0132 = phi i32 [ %179, %173 ], [ 0, %.loopexit ]
+  %100 = sext i32 %.0132 to i64
+  %101 = getelementptr %struct.PGPROC, ptr %22, i64 %100
+  %102 = load i32, ptr @MaxBackends, align 4
+  %103 = add i32 %102, 6
+  %104 = icmp slt i32 %.0132, %103
+  br i1 %104, label %105, label %110
 
-109:                                              ; preds = %.lr.ph133
-  %110 = call ptr @PGSemaphoreCreate() #13
-  %111 = getelementptr inbounds i8, ptr %105, i64 24
-  store ptr %110, ptr %111, align 8
-  %112 = getelementptr inbounds i8, ptr %105, i64 36
-  call void @InitSharedLatch(ptr noundef nonnull %112) #13
-  %113 = getelementptr inbounds i8, ptr %105, i64 752
-  call void @LWLockInitialize(ptr noundef nonnull %113, i32 noundef 64) #13
-  br label %114
+105:                                              ; preds = %.lr.ph133
+  %106 = call ptr @PGSemaphoreCreate() #13
+  %107 = getelementptr inbounds i8, ptr %101, i64 24
+  store ptr %106, ptr %107, align 8
+  %108 = getelementptr inbounds i8, ptr %101, i64 36
+  call void @InitSharedLatch(ptr noundef nonnull %108) #13
+  %109 = getelementptr inbounds i8, ptr %101, i64 752
+  call void @LWLockInitialize(ptr noundef nonnull %109, i32 noundef 64) #13
+  br label %110
 
-114:                                              ; preds = %109, %.lr.ph133
-  %115 = load i32, ptr @MaxConnections, align 4
-  %116 = icmp slt i32 %.0132, %115
-  br i1 %116, label %117, label %127
+110:                                              ; preds = %105, %.lr.ph133
+  %111 = load i32, ptr @MaxConnections, align 4
+  %112 = icmp slt i32 %.0132, %111
+  br i1 %112, label %113, label %123
 
-117:                                              ; preds = %114
-  %118 = load ptr, ptr @ProcGlobal, align 8
-  %119 = getelementptr inbounds i8, ptr %118, i64 40
-  %120 = getelementptr inbounds i8, ptr %118, i64 48
-  %121 = load ptr, ptr %120, align 8
-  %122 = icmp eq ptr %121, null
-  br i1 %122, label %123, label %dlist_push_tail.exit
+113:                                              ; preds = %110
+  %114 = load ptr, ptr @ProcGlobal, align 8
+  %115 = getelementptr inbounds i8, ptr %114, i64 40
+  %116 = getelementptr inbounds i8, ptr %114, i64 48
+  %117 = load ptr, ptr %116, align 8
+  %118 = icmp eq ptr %117, null
+  br i1 %118, label %119, label %dlist_push_tail.exit
 
-123:                                              ; preds = %117
-  store ptr %119, ptr %119, align 8
-  store ptr %119, ptr %120, align 8
+119:                                              ; preds = %113
+  store ptr %115, ptr %115, align 8
+  store ptr %115, ptr %116, align 8
   br label %dlist_push_tail.exit
 
-dlist_push_tail.exit:                             ; preds = %117, %123
-  %124 = getelementptr inbounds i8, ptr %105, i64 8
-  store ptr %119, ptr %124, align 8
-  %125 = load ptr, ptr %119, align 8
-  store ptr %125, ptr %105, align 8
-  %126 = getelementptr inbounds i8, ptr %125, i64 8
-  store ptr %105, ptr %126, align 8
-  store ptr %105, ptr %119, align 8
+dlist_push_tail.exit:                             ; preds = %113, %119
+  %120 = getelementptr inbounds i8, ptr %101, i64 8
+  store ptr %115, ptr %120, align 8
+  %121 = load ptr, ptr %115, align 8
+  store ptr %121, ptr %101, align 8
+  %122 = getelementptr inbounds i8, ptr %121, i64 8
+  store ptr %101, ptr %122, align 8
+  store ptr %101, ptr %115, align 8
   br label %.sink.split
 
-127:                                              ; preds = %114
-  %128 = load i32, ptr @autovacuum_max_workers, align 4
-  %129 = add i32 %115, 1
-  %130 = add i32 %129, %128
-  %131 = icmp slt i32 %.0132, %130
-  br i1 %131, label %132, label %142
+123:                                              ; preds = %110
+  %124 = load i32, ptr @autovacuum_max_workers, align 4
+  %125 = add i32 %111, 1
+  %126 = add i32 %125, %124
+  %127 = icmp slt i32 %.0132, %126
+  br i1 %127, label %128, label %138
 
-132:                                              ; preds = %127
-  %133 = load ptr, ptr @ProcGlobal, align 8
-  %134 = getelementptr inbounds i8, ptr %133, i64 56
-  %135 = getelementptr inbounds i8, ptr %133, i64 64
-  %136 = load ptr, ptr %135, align 8
-  %137 = icmp eq ptr %136, null
-  br i1 %137, label %138, label %dlist_push_tail.exit118
+128:                                              ; preds = %123
+  %129 = load ptr, ptr @ProcGlobal, align 8
+  %130 = getelementptr inbounds i8, ptr %129, i64 56
+  %131 = getelementptr inbounds i8, ptr %129, i64 64
+  %132 = load ptr, ptr %131, align 8
+  %133 = icmp eq ptr %132, null
+  br i1 %133, label %134, label %dlist_push_tail.exit118
 
-138:                                              ; preds = %132
-  store ptr %134, ptr %134, align 8
-  store ptr %134, ptr %135, align 8
+134:                                              ; preds = %128
+  store ptr %130, ptr %130, align 8
+  store ptr %130, ptr %131, align 8
   br label %dlist_push_tail.exit118
 
-dlist_push_tail.exit118:                          ; preds = %132, %138
-  %139 = getelementptr inbounds i8, ptr %105, i64 8
-  store ptr %134, ptr %139, align 8
-  %140 = load ptr, ptr %134, align 8
-  store ptr %140, ptr %105, align 8
-  %141 = getelementptr inbounds i8, ptr %140, i64 8
-  store ptr %105, ptr %141, align 8
-  store ptr %105, ptr %134, align 8
+dlist_push_tail.exit118:                          ; preds = %128, %134
+  %135 = getelementptr inbounds i8, ptr %101, i64 8
+  store ptr %130, ptr %135, align 8
+  %136 = load ptr, ptr %130, align 8
+  store ptr %136, ptr %101, align 8
+  %137 = getelementptr inbounds i8, ptr %136, i64 8
+  store ptr %101, ptr %137, align 8
+  store ptr %101, ptr %130, align 8
   br label %.sink.split
 
-142:                                              ; preds = %127
-  %143 = load i32, ptr @max_worker_processes, align 4
-  %144 = add i32 %143, %130
-  %145 = icmp slt i32 %.0132, %144
-  br i1 %145, label %146, label %156
+138:                                              ; preds = %123
+  %139 = load i32, ptr @max_worker_processes, align 4
+  %140 = add i32 %139, %126
+  %141 = icmp slt i32 %.0132, %140
+  br i1 %141, label %142, label %152
 
-146:                                              ; preds = %142
-  %147 = load ptr, ptr @ProcGlobal, align 8
-  %148 = getelementptr inbounds i8, ptr %147, i64 72
-  %149 = getelementptr inbounds i8, ptr %147, i64 80
-  %150 = load ptr, ptr %149, align 8
-  %151 = icmp eq ptr %150, null
-  br i1 %151, label %152, label %dlist_push_tail.exit119
+142:                                              ; preds = %138
+  %143 = load ptr, ptr @ProcGlobal, align 8
+  %144 = getelementptr inbounds i8, ptr %143, i64 72
+  %145 = getelementptr inbounds i8, ptr %143, i64 80
+  %146 = load ptr, ptr %145, align 8
+  %147 = icmp eq ptr %146, null
+  br i1 %147, label %148, label %dlist_push_tail.exit119
 
-152:                                              ; preds = %146
-  store ptr %148, ptr %148, align 8
-  store ptr %148, ptr %149, align 8
+148:                                              ; preds = %142
+  store ptr %144, ptr %144, align 8
+  store ptr %144, ptr %145, align 8
   br label %dlist_push_tail.exit119
 
-dlist_push_tail.exit119:                          ; preds = %146, %152
-  %153 = getelementptr inbounds i8, ptr %105, i64 8
-  store ptr %148, ptr %153, align 8
-  %154 = load ptr, ptr %148, align 8
-  store ptr %154, ptr %105, align 8
-  %155 = getelementptr inbounds i8, ptr %154, i64 8
-  store ptr %105, ptr %155, align 8
-  store ptr %105, ptr %148, align 8
+dlist_push_tail.exit119:                          ; preds = %142, %148
+  %149 = getelementptr inbounds i8, ptr %101, i64 8
+  store ptr %144, ptr %149, align 8
+  %150 = load ptr, ptr %144, align 8
+  store ptr %150, ptr %101, align 8
+  %151 = getelementptr inbounds i8, ptr %150, i64 8
+  store ptr %101, ptr %151, align 8
+  store ptr %101, ptr %144, align 8
   br label %.sink.split
 
-156:                                              ; preds = %142
-  %157 = load i32, ptr @MaxBackends, align 4
-  %158 = icmp slt i32 %.0132, %157
-  br i1 %158, label %159, label %172
+152:                                              ; preds = %138
+  %153 = load i32, ptr @MaxBackends, align 4
+  %154 = icmp slt i32 %.0132, %153
+  br i1 %154, label %155, label %168
 
-159:                                              ; preds = %156
-  %160 = load ptr, ptr @ProcGlobal, align 8
-  %161 = getelementptr inbounds i8, ptr %160, i64 88
-  %162 = getelementptr inbounds i8, ptr %160, i64 96
-  %163 = load ptr, ptr %162, align 8
-  %164 = icmp eq ptr %163, null
-  br i1 %164, label %165, label %dlist_push_tail.exit120
+155:                                              ; preds = %152
+  %156 = load ptr, ptr @ProcGlobal, align 8
+  %157 = getelementptr inbounds i8, ptr %156, i64 88
+  %158 = getelementptr inbounds i8, ptr %156, i64 96
+  %159 = load ptr, ptr %158, align 8
+  %160 = icmp eq ptr %159, null
+  br i1 %160, label %161, label %dlist_push_tail.exit120
 
-165:                                              ; preds = %159
-  store ptr %161, ptr %161, align 8
-  store ptr %161, ptr %162, align 8
+161:                                              ; preds = %155
+  store ptr %157, ptr %157, align 8
+  store ptr %157, ptr %158, align 8
   br label %dlist_push_tail.exit120
 
-dlist_push_tail.exit120:                          ; preds = %159, %165
-  %166 = getelementptr inbounds i8, ptr %105, i64 8
-  store ptr %161, ptr %166, align 8
-  %167 = load ptr, ptr %161, align 8
-  store ptr %167, ptr %105, align 8
-  %168 = getelementptr inbounds i8, ptr %167, i64 8
-  store ptr %105, ptr %168, align 8
-  store ptr %105, ptr %161, align 8
+dlist_push_tail.exit120:                          ; preds = %155, %161
+  %162 = getelementptr inbounds i8, ptr %101, i64 8
+  store ptr %157, ptr %162, align 8
+  %163 = load ptr, ptr %157, align 8
+  store ptr %163, ptr %101, align 8
+  %164 = getelementptr inbounds i8, ptr %163, i64 8
+  store ptr %101, ptr %164, align 8
+  store ptr %101, ptr %157, align 8
   br label %.sink.split
 
 .sink.split:                                      ; preds = %dlist_push_tail.exit, %dlist_push_tail.exit119, %dlist_push_tail.exit120, %dlist_push_tail.exit118
-  %.sink141 = phi i64 [ 56, %dlist_push_tail.exit118 ], [ 88, %dlist_push_tail.exit120 ], [ 72, %dlist_push_tail.exit119 ], [ 40, %dlist_push_tail.exit ]
-  %169 = load ptr, ptr @ProcGlobal, align 8
-  %170 = getelementptr inbounds i8, ptr %169, i64 %.sink141
-  %171 = getelementptr inbounds i8, ptr %105, i64 16
-  store ptr %170, ptr %171, align 8
-  br label %172
+  %.sink145 = phi i64 [ 56, %dlist_push_tail.exit118 ], [ 88, %dlist_push_tail.exit120 ], [ 72, %dlist_push_tail.exit119 ], [ 40, %dlist_push_tail.exit ]
+  %165 = load ptr, ptr @ProcGlobal, align 8
+  %166 = getelementptr inbounds i8, ptr %165, i64 %.sink145
+  %167 = getelementptr inbounds i8, ptr %101, i64 16
+  store ptr %166, ptr %167, align 8
+  br label %168
 
-172:                                              ; preds = %.sink.split, %156
-  %173 = getelementptr inbounds i8, ptr %105, i64 184
-  br label %174
+168:                                              ; preds = %.sink.split, %152
+  %169 = getelementptr inbounds i8, ptr %101, i64 184
+  br label %170
 
-174:                                              ; preds = %172, %174
-  %indvars.iv = phi i64 [ 0, %172 ], [ %indvars.iv.next, %174 ]
-  %175 = getelementptr [16 x %struct.dlist_head], ptr %173, i64 0, i64 %indvars.iv
-  store ptr %175, ptr %175, align 8
-  %176 = getelementptr inbounds i8, ptr %175, i64 8
-  store ptr %175, ptr %176, align 8
+170:                                              ; preds = %168, %170
+  %indvars.iv = phi i64 [ 0, %168 ], [ %indvars.iv.next, %170 ]
+  %171 = getelementptr [16 x %struct.dlist_head], ptr %169, i64 0, i64 %indvars.iv
+  store ptr %171, ptr %171, align 8
+  %172 = getelementptr inbounds i8, ptr %171, i64 8
+  store ptr %171, ptr %172, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 16
-  br i1 %exitcond.not, label %177, label %174, !llvm.loop !5
+  br i1 %exitcond.not, label %173, label %170, !llvm.loop !5
 
-177:                                              ; preds = %174
-  %178 = getelementptr inbounds i8, ptr %105, i64 856
-  store ptr %178, ptr %178, align 8
-  %179 = getelementptr inbounds i8, ptr %105, i64 864
-  store ptr %178, ptr %179, align 8
-  %180 = getelementptr inbounds i8, ptr %105, i64 704
-  store volatile i32 -1, ptr %180, align 4
-  %181 = getelementptr inbounds i8, ptr %105, i64 720
-  store volatile i32 -1, ptr %181, align 4
-  %182 = getelementptr inbounds i8, ptr %105, i64 136
-  store volatile i64 0, ptr %182, align 8
-  %183 = add nuw i32 %.0132, 1
-  %exitcond138.not = icmp eq i32 %183, %5
+173:                                              ; preds = %170
+  %174 = getelementptr inbounds i8, ptr %101, i64 856
+  store ptr %174, ptr %174, align 8
+  %175 = getelementptr inbounds i8, ptr %101, i64 864
+  store ptr %174, ptr %175, align 8
+  %176 = getelementptr inbounds i8, ptr %101, i64 704
+  store volatile i32 -1, ptr %176, align 4
+  %177 = getelementptr inbounds i8, ptr %101, i64 720
+  store volatile i32 -1, ptr %177, align 4
+  %178 = getelementptr inbounds i8, ptr %101, i64 136
+  store volatile i64 0, ptr %178, align 8
+  %179 = add nuw i32 %.0132, 1
+  %exitcond138.not = icmp eq i32 %179, %5
   br i1 %exitcond138.not, label %._crit_edge, label %.lr.ph133, !llvm.loop !7
 
-._crit_edge:                                      ; preds = %177, %.loopexit
-  %184 = load i32, ptr @MaxBackends, align 4
-  %185 = sext i32 %184 to i64
-  %186 = getelementptr %struct.PGPROC, ptr %22, i64 %185
-  store ptr %186, ptr @AuxiliaryProcs, align 8
-  %187 = add i32 %184, 6
-  %188 = sext i32 %187 to i64
-  %189 = getelementptr %struct.PGPROC, ptr %22, i64 %188
-  store ptr %189, ptr @PreparedXactProcs, align 8
-  %190 = call ptr @ShmemAlloc(i64 noundef 1) #13
-  store ptr %190, ptr @ProcStructLock, align 8
+._crit_edge:                                      ; preds = %173, %.loopexit
+  %180 = load i32, ptr @MaxBackends, align 4
+  %181 = sext i32 %180 to i64
+  %182 = getelementptr %struct.PGPROC, ptr %22, i64 %181
+  store ptr %182, ptr @AuxiliaryProcs, align 8
+  %183 = add i32 %180, 6
+  %184 = sext i32 %183 to i64
+  %185 = getelementptr %struct.PGPROC, ptr %22, i64 %184
+  store ptr %185, ptr @PreparedXactProcs, align 8
+  %186 = call ptr @ShmemAlloc(i64 noundef 1) #13
+  store ptr %186, ptr @ProcStructLock, align 8
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
-  %191 = load ptr, ptr @ProcStructLock, align 8
-  store i8 0, ptr %191, align 1
+  %187 = load ptr, ptr @ProcStructLock, align 8
+  store i8 0, ptr %187, align 1
   ret void
 }
 

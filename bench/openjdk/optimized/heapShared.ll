@@ -5901,61 +5901,52 @@ _ZN10HeapShared15resolve_or_initEP5KlassbP10JavaThread.exit: ; preds = %158, %16
   %198 = getelementptr inbounds i8, ptr %189, i64 12
   %199 = load i32, ptr %198, align 4
   %200 = icmp slt i32 %199, 5
-  br i1 %200, label %207, label %201
+  %201 = icmp eq i32 %199, 6
+  %or.cond = or i1 %200, %201
+  br i1 %or.cond, label %_ZN10HeapShared15resolve_or_initEP5KlassbP10JavaThread.exit44.us.sink.split, label %_ZN10HeapShared15resolve_or_initEP5KlassbP10JavaThread.exit44.us
 
-201:                                              ; preds = %197
-  %202 = icmp eq i32 %199, 6
-  br i1 %202, label %203, label %_ZN10HeapShared15resolve_or_initEP5KlassbP10JavaThread.exit44.us
-
-203:                                              ; preds = %201
-  %204 = load ptr, ptr %189, align 8
-  %205 = getelementptr inbounds i8, ptr %204, i64 176
-  %206 = load ptr, ptr %205, align 8
-  tail call void %206(ptr noundef nonnull align 8 dereferenceable(232) %189, ptr noundef nonnull %2) #20
+_ZN10HeapShared15resolve_or_initEP5KlassbP10JavaThread.exit44.us.sink.split: ; preds = %197
+  %202 = load ptr, ptr %189, align 8
+  %203 = getelementptr inbounds i8, ptr %202, i64 176
+  %204 = load ptr, ptr %203, align 8
+  tail call void %204(ptr noundef nonnull align 8 dereferenceable(232) %189, ptr noundef nonnull %2) #20
   br label %_ZN10HeapShared15resolve_or_initEP5KlassbP10JavaThread.exit44.us
 
-207:                                              ; preds = %197
-  %208 = load ptr, ptr %189, align 8
-  %209 = getelementptr inbounds i8, ptr %208, i64 176
-  %210 = load ptr, ptr %209, align 8
-  tail call void %210(ptr noundef nonnull align 8 dereferenceable(464) %189, ptr noundef nonnull %2) #20
-  br label %_ZN10HeapShared15resolve_or_initEP5KlassbP10JavaThread.exit44.us
-
-_ZN10HeapShared15resolve_or_initEP5KlassbP10JavaThread.exit44.us: ; preds = %207, %203, %201
-  %211 = load ptr, ptr %180, align 8
-  %.not81.us = icmp eq ptr %211, null
+_ZN10HeapShared15resolve_or_initEP5KlassbP10JavaThread.exit44.us: ; preds = %197, %_ZN10HeapShared15resolve_or_initEP5KlassbP10JavaThread.exit44.us.sink.split
+  %205 = load ptr, ptr %180, align 8
+  %.not81.us = icmp eq ptr %205, null
   br i1 %.not81.us, label %193, label %_ZN12ResourceMarkD2Ev.exit
 
-_ZN10HeapShared15resolve_or_initEP5KlassbP10JavaThread.exit44.thread: ; preds = %220, %_ZN10HeapShared15resolve_or_initEP5KlassbP10JavaThread.exit44
+_ZN10HeapShared15resolve_or_initEP5KlassbP10JavaThread.exit44.thread: ; preds = %214, %_ZN10HeapShared15resolve_or_initEP5KlassbP10JavaThread.exit44
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %212 = load i32, ptr %184, align 8
-  %213 = sext i32 %212 to i64
-  %214 = icmp slt i64 %indvars.iv.next, %213
-  br i1 %214, label %.lr.ph.split, label %_ZN12ResourceMarkD2Ev.exit, !llvm.loop !42
+  %206 = load i32, ptr %184, align 8
+  %207 = sext i32 %206 to i64
+  %208 = icmp slt i64 %indvars.iv.next, %207
+  br i1 %208, label %.lr.ph.split, label %_ZN12ResourceMarkD2Ev.exit, !llvm.loop !42
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %_ZN10HeapShared15resolve_or_initEP5KlassbP10JavaThread.exit44.thread
   %indvars.iv = phi i64 [ %indvars.iv.next, %_ZN10HeapShared15resolve_or_initEP5KlassbP10JavaThread.exit44.thread ], [ 0, %.lr.ph ]
-  %215 = getelementptr inbounds ptr, ptr %185, i64 %indvars.iv
+  %209 = getelementptr inbounds ptr, ptr %185, i64 %indvars.iv
+  %210 = load ptr, ptr %209, align 8
+  %211 = getelementptr inbounds i8, ptr %210, i64 188
+  %212 = load i16, ptr %211, align 4
+  %213 = and i16 %212, 1
+  %.not80 = icmp eq i16 %213, 0
+  br i1 %.not80, label %_ZN12ResourceMarkD2Ev.exit, label %214
+
+214:                                              ; preds = %.lr.ph.split
+  %215 = getelementptr inbounds i8, ptr %210, i64 152
   %216 = load ptr, ptr %215, align 8
-  %217 = getelementptr inbounds i8, ptr %216, i64 188
-  %218 = load i16, ptr %217, align 4
-  %219 = and i16 %218, 1
-  %.not80 = icmp eq i16 %219, 0
-  br i1 %.not80, label %_ZN12ResourceMarkD2Ev.exit, label %220
+  %217 = icmp eq ptr %216, null
+  br i1 %217, label %_ZN10HeapShared15resolve_or_initEP5KlassbP10JavaThread.exit44, label %_ZN10HeapShared15resolve_or_initEP5KlassbP10JavaThread.exit44.thread
 
-220:                                              ; preds = %.lr.ph.split
-  %221 = getelementptr inbounds i8, ptr %216, i64 152
-  %222 = load ptr, ptr %221, align 8
-  %223 = icmp eq ptr %222, null
-  br i1 %223, label %_ZN10HeapShared15resolve_or_initEP5KlassbP10JavaThread.exit44, label %_ZN10HeapShared15resolve_or_initEP5KlassbP10JavaThread.exit44.thread
-
-_ZN10HeapShared15resolve_or_initEP5KlassbP10JavaThread.exit44: ; preds = %220
-  %224 = getelementptr inbounds i8, ptr %216, i64 24
-  %225 = load ptr, ptr %224, align 8
-  %226 = tail call noundef ptr @_ZN16SystemDictionary15resolve_or_nullEP6Symbol6HandleS2_P10JavaThread(ptr noundef %225, ptr null, ptr null, ptr noundef %2) #20
+_ZN10HeapShared15resolve_or_initEP5KlassbP10JavaThread.exit44: ; preds = %214
+  %218 = getelementptr inbounds i8, ptr %210, i64 24
+  %219 = load ptr, ptr %218, align 8
+  %220 = tail call noundef ptr @_ZN16SystemDictionary15resolve_or_nullEP6Symbol6HandleS2_P10JavaThread(ptr noundef %219, ptr null, ptr null, ptr noundef %2) #20
   %.pre = load ptr, ptr %180, align 8
-  %227 = icmp eq ptr %.pre, null
-  br i1 %227, label %_ZN10HeapShared15resolve_or_initEP5KlassbP10JavaThread.exit44.thread, label %_ZN12ResourceMarkD2Ev.exit
+  %221 = icmp eq ptr %.pre, null
+  br i1 %221, label %_ZN10HeapShared15resolve_or_initEP5KlassbP10JavaThread.exit44.thread, label %_ZN12ResourceMarkD2Ev.exit
 
 _ZN12ResourceMarkD2Ev.exit:                       ; preds = %.lr.ph.split, %_ZN10HeapShared15resolve_or_initEP5KlassbP10JavaThread.exit44, %_ZN10HeapShared15resolve_or_initEP5KlassbP10JavaThread.exit44.thread, %.lr.ph.split.us, %_ZN10HeapShared15resolve_or_initEP5KlassbP10JavaThread.exit44.us, %193, %.preheader, %132, %130, %103, %101, %75, %73, %182, %_ZN10HeapShared15resolve_or_initEP5KlassbP10JavaThread.exit, %111, %82, %_ZNK16CompactHashtableIPK5KlassPK31ArchivedKlassSubGraphInfoRecordXadL_Z33read_value_from_compact_hashtableIS5_ET_PhjEEXadL_ZN10HeapShared37record_equals_compact_hashtable_entryES5_S2_iEEE6lookupES2_ji.exit, %3
   %.0 = phi ptr [ null, %3 ], [ null, %_ZNK16CompactHashtableIPK5KlassPK31ArchivedKlassSubGraphInfoRecordXadL_Z33read_value_from_compact_hashtableIS5_ET_PhjEEXadL_ZN10HeapShared37record_equals_compact_hashtable_entryES5_S2_iEEE6lookupES2_ji.exit ], [ null, %82 ], [ null, %111 ], [ null, %_ZN10HeapShared15resolve_or_initEP5KlassbP10JavaThread.exit ], [ %.0.i.ph, %182 ], [ null, %73 ], [ null, %75 ], [ null, %101 ], [ null, %103 ], [ null, %130 ], [ null, %132 ], [ %.0.i.ph, %.preheader ], [ null, %.lr.ph.split.us ], [ null, %_ZN10HeapShared15resolve_or_initEP5KlassbP10JavaThread.exit44.us ], [ %.0.i.ph, %193 ], [ null, %.lr.ph.split ], [ null, %_ZN10HeapShared15resolve_or_initEP5KlassbP10JavaThread.exit44 ], [ %.0.i.ph, %_ZN10HeapShared15resolve_or_initEP5KlassbP10JavaThread.exit44.thread ]

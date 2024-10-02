@@ -548,7 +548,7 @@ _ZNSt3__114__split_bufferIfRNS_9allocatorIfEEE5clearB8ne190000Ev.exit.i.i.i: ; p
 108:                                              ; preds = %104, %102
   %.pn36 = phi { ptr, i32 } [ %105, %104 ], [ %103, %102 ]
   invoke void @__cxa_end_catch()
-          to label %.body unwind label %270
+          to label %.body unwind label %269
 
 ._crit_edge104.loopexit:                          ; preds = %106
   %.pre110 = load ptr, ptr %9, align 8
@@ -722,8 +722,7 @@ _ZNSt3__16vectorINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEENS4_I
 _ZNSt3__16vectorINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEENS4_IS6_EEE7__clearB8ne190000Ev.exit.i.i: ; preds = %_ZNSt3__16vectorINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEENS4_IS6_EEE7__clearB8ne190000Ev.exit.i.loopexit.i, %175
   %178 = phi ptr [ %.pre.i, %_ZNSt3__16vectorINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEENS4_IS6_EEE7__clearB8ne190000Ev.exit.i.loopexit.i ], [ %174, %175 ]
   store ptr %174, ptr %33, align 8
-  call void @_ZdlPv(ptr noundef %178) #31
-  br label %_ZNSt3__16vectorINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEENS4_IS6_EEED2B8ne190000Ev.exit
+  br label %_ZNSt3__16vectorINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEENS4_IS6_EEED2B8ne190000Ev.exit.sink.split
 
 .body:                                            ; preds = %_ZN5drjit12DynamicArrayIfED2Ev.exit.i, %138, %141, %94, %108
   %.pn36.pn = phi { ptr, i32 } [ %.pn36, %108 ], [ %95, %94 ], [ %129, %141 ], [ %129, %138 ], [ %129, %_ZN5drjit12DynamicArrayIfED2Ev.exit.i ]
@@ -960,42 +959,43 @@ _ZN5drjit12DynamicArrayIfED2Ev.exit.i71:          ; preds = %259, %236
 
 _ZN7mitsuba22ContinuousDistributionINS_8SpectrumIfLm4EEEED2Ev.exit72: ; preds = %_ZN5drjit12DynamicArrayIfED2Ev.exit.i71, %262, %265
   %.not.i.i73 = icmp eq ptr %215, null
-  br i1 %.not.i.i73, label %_ZNSt3__16vectorINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEENS4_IS6_EEED2B8ne190000Ev.exit, label %266
-
-266:                                              ; preds = %_ZN7mitsuba22ContinuousDistributionINS_8SpectrumIfLm4EEEED2Ev.exit72
-  call void @_ZdlPv(ptr noundef nonnull %215) #31
-  br label %_ZNSt3__16vectorINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEENS4_IS6_EEED2B8ne190000Ev.exit
+  br i1 %.not.i.i73, label %_ZNSt3__16vectorINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEENS4_IS6_EEED2B8ne190000Ev.exit, label %_ZNSt3__16vectorINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEENS4_IS6_EEED2B8ne190000Ev.exit.sink.split
 
 .body68.thread:                                   ; preds = %.noexc.i.i62
-  %267 = landingpad { ptr, i32 }
+  %266 = landingpad { ptr, i32 }
           cleanup
-  br label %268
+  br label %267
 
 .body68:                                          ; preds = %235, %232, %_ZN5drjit12DynamicArrayIfED2Ev.exit.i65
   %.not.i.i75 = icmp eq ptr %215, null
-  br i1 %.not.i.i75, label %.body60, label %268
+  br i1 %.not.i.i75, label %.body60, label %267
 
-268:                                              ; preds = %.body68.thread, %.body68
-  %.pn32114 = phi { ptr, i32 } [ %267, %.body68.thread ], [ %223, %.body68 ]
-  %269 = phi ptr [ %195, %.body68.thread ], [ %215, %.body68 ]
-  store ptr %269, ptr %188, align 8
-  call void @_ZdlPv(ptr noundef nonnull %269) #31
+267:                                              ; preds = %.body68.thread, %.body68
+  %.pn32114 = phi { ptr, i32 } [ %266, %.body68.thread ], [ %223, %.body68 ]
+  %268 = phi ptr [ %195, %.body68.thread ], [ %215, %.body68 ]
+  store ptr %268, ptr %188, align 8
+  call void @_ZdlPv(ptr noundef nonnull %268) #31
   br label %.body60
 
-_ZNSt3__16vectorINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEENS4_IS6_EEED2B8ne190000Ev.exit: ; preds = %266, %_ZN7mitsuba22ContinuousDistributionINS_8SpectrumIfLm4EEEED2Ev.exit72, %_ZNSt3__16vectorINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEENS4_IS6_EEE7__clearB8ne190000Ev.exit.i.i, %_ZNSt3__16vectorIfNS_9allocatorIfEEED2B8ne190000Ev.exit
+_ZNSt3__16vectorINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEENS4_IS6_EEED2B8ne190000Ev.exit.sink.split: ; preds = %_ZN7mitsuba22ContinuousDistributionINS_8SpectrumIfLm4EEEED2Ev.exit72, %_ZNSt3__16vectorINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEENS4_IS6_EEE7__clearB8ne190000Ev.exit.i.i
+  %.sink = phi ptr [ %178, %_ZNSt3__16vectorINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEENS4_IS6_EEE7__clearB8ne190000Ev.exit.i.i ], [ %215, %_ZN7mitsuba22ContinuousDistributionINS_8SpectrumIfLm4EEEED2Ev.exit72 ]
+  call void @_ZdlPv(ptr noundef %.sink) #31
+  br label %_ZNSt3__16vectorINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEENS4_IS6_EEED2B8ne190000Ev.exit
+
+_ZNSt3__16vectorINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEENS4_IS6_EEED2B8ne190000Ev.exit: ; preds = %_ZNSt3__16vectorINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEENS4_IS6_EEED2B8ne190000Ev.exit.sink.split, %_ZN7mitsuba22ContinuousDistributionINS_8SpectrumIfLm4EEEED2Ev.exit72, %_ZNSt3__16vectorIfNS_9allocatorIfEEED2B8ne190000Ev.exit
   ret void
 
-.body60:                                          ; preds = %268, %.body68, %196, %199, %80, %208, %206, %_ZNSt3__16vectorIfNS_9allocatorIfEEED2B8ne190000Ev.exit54, %93, %87, %86
-  %.pn36.pn.pn = phi { ptr, i32 } [ %.pn36.pn, %_ZNSt3__16vectorIfNS_9allocatorIfEEED2B8ne190000Ev.exit54 ], [ %.pn34, %93 ], [ %209, %208 ], [ %207, %206 ], [ %88, %87 ], [ %.pn, %86 ], [ %81, %80 ], [ %197, %199 ], [ %197, %196 ], [ %223, %.body68 ], [ %.pn32114, %268 ]
+.body60:                                          ; preds = %267, %.body68, %196, %199, %80, %208, %206, %_ZNSt3__16vectorIfNS_9allocatorIfEEED2B8ne190000Ev.exit54, %93, %87, %86
+  %.pn36.pn.pn = phi { ptr, i32 } [ %.pn36.pn, %_ZNSt3__16vectorIfNS_9allocatorIfEEED2B8ne190000Ev.exit54 ], [ %.pn34, %93 ], [ %209, %208 ], [ %207, %206 ], [ %88, %87 ], [ %.pn, %86 ], [ %81, %80 ], [ %197, %199 ], [ %197, %196 ], [ %223, %.body68 ], [ %.pn32114, %267 ]
   call void @_ZN7mitsuba22ContinuousDistributionINS_8SpectrumIfLm4EEEED2Ev(ptr noundef nonnull align 8 dereferenceable(88) %16) #28
   call void @_ZN7mitsuba7TextureIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEEED2Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) #28
   resume { ptr, i32 } %.pn36.pn.pn
 
-270:                                              ; preds = %108
-  %271 = landingpad { ptr, i32 }
+269:                                              ; preds = %108
+  %270 = landingpad { ptr, i32 }
           catch ptr null
-  %272 = extractvalue { ptr, i32 } %271, 0
-  call void @__clang_call_terminate(ptr %272) #32
+  %271 = extractvalue { ptr, i32 } %270, 0
+  call void @__clang_call_terminate(ptr %271) #32
   unreachable
 }
 

@@ -931,20 +931,16 @@ define dso_local ptr @_ZN4node12MakeCallbackEPN2v87IsolateENS0_5LocalINS0_6Objec
 entry:
   %call = tail call ptr @_ZN2v86String11NewFromUtf8EPNS_7IsolateEPKcNS_13NewStringTypeEi(ptr noundef %isolate, ptr noundef %method, i32 noundef 0, i32 noundef -1) #13
   %cmp.i.i = icmp eq ptr %call, null
-  br i1 %cmp.i.i, label %if.then.i, label %entry.split
-
-entry.split:                                      ; preds = %entry
-  %call192 = tail call ptr @_ZN4node12MakeCallbackEPN2v87IsolateENS0_5LocalINS0_6ObjectEEENS3_INS0_6StringEEEiPNS3_INS0_5ValueEEENS_13async_contextE(ptr noundef %isolate, ptr %recv.coerce, ptr nonnull %call, i32 noundef %argc, ptr noundef %argv, double %asyncContext.coerce0, double %asyncContext.coerce1)
-  br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit
+  br i1 %cmp.i.i, label %if.then.i, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit
 
 if.then.i:                                        ; preds = %entry
   tail call void @_ZN2v812api_internal12ToLocalEmptyEv() #13
-  %call193 = tail call ptr @_ZN4node12MakeCallbackEPN2v87IsolateENS0_5LocalINS0_6ObjectEEENS3_INS0_6StringEEEiPNS3_INS0_5ValueEEENS_13async_contextE(ptr noundef %isolate, ptr %recv.coerce, ptr null, i32 noundef %argc, ptr noundef %argv, double %asyncContext.coerce0, double %asyncContext.coerce1)
   br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit
 
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit: ; preds = %entry.split, %if.then.i
-  %phi.call = phi ptr [ %call192, %entry.split ], [ %call193, %if.then.i ]
-  ret ptr %phi.call
+_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit: ; preds = %entry, %if.then.i
+  %call.sink = phi ptr [ null, %if.then.i ], [ %call, %entry ]
+  %call192 = tail call ptr @_ZN4node12MakeCallbackEPN2v87IsolateENS0_5LocalINS0_6ObjectEEENS3_INS0_6StringEEEiPNS3_INS0_5ValueEEENS_13async_contextE(ptr noundef %isolate, ptr %recv.coerce, ptr %call.sink, i32 noundef %argc, ptr noundef %argv, double %asyncContext.coerce0, double %asyncContext.coerce1)
+  ret ptr %call192
 }
 
 declare ptr @_ZN2v86String11NewFromUtf8EPNS_7IsolateEPKcNS_13NewStringTypeEi(ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #0
@@ -1203,20 +1199,15 @@ entry:
   call void @_ZN2v820EscapableHandleScopeC1EPNS_7IsolateE(ptr noundef nonnull align 8 dereferenceable(32) %handle_scope, ptr noundef %isolate) #13
   %call.i = call ptr @_ZN2v86String11NewFromUtf8EPNS_7IsolateEPKcNS_13NewStringTypeEi(ptr noundef %isolate, ptr noundef %method, i32 noundef 0, i32 noundef -1) #13
   %cmp.i.i.i2 = icmp eq ptr %call.i, null
-  br i1 %cmp.i.i.i2, label %if.then.i.i, label %entry.split.i
-
-entry.split.i:                                    ; preds = %entry
-  %call192.i = call ptr @_ZN4node12MakeCallbackEPN2v87IsolateENS0_5LocalINS0_6ObjectEEENS3_INS0_6StringEEEiPNS3_INS0_5ValueEEENS_13async_contextE(ptr noundef %isolate, ptr %recv.coerce, ptr nonnull %call.i, i32 noundef %argc, ptr noundef %argv, double 0.000000e+00, double 0.000000e+00)
-  br label %_ZN4node12MakeCallbackEPN2v87IsolateENS0_5LocalINS0_6ObjectEEEPKciPNS3_INS0_5ValueEEENS_13async_contextE.exit
+  br i1 %cmp.i.i.i2, label %if.then.i.i, label %_ZN4node12MakeCallbackEPN2v87IsolateENS0_5LocalINS0_6ObjectEEEPKciPNS3_INS0_5ValueEEENS_13async_contextE.exit
 
 if.then.i.i:                                      ; preds = %entry
   call void @_ZN2v812api_internal12ToLocalEmptyEv() #13
-  %call193.i = call ptr @_ZN4node12MakeCallbackEPN2v87IsolateENS0_5LocalINS0_6ObjectEEENS3_INS0_6StringEEEiPNS3_INS0_5ValueEEENS_13async_contextE(ptr noundef %isolate, ptr %recv.coerce, ptr null, i32 noundef %argc, ptr noundef %argv, double 0.000000e+00, double 0.000000e+00)
   br label %_ZN4node12MakeCallbackEPN2v87IsolateENS0_5LocalINS0_6ObjectEEEPKciPNS3_INS0_5ValueEEENS_13async_contextE.exit
 
-_ZN4node12MakeCallbackEPN2v87IsolateENS0_5LocalINS0_6ObjectEEEPKciPNS3_INS0_5ValueEEENS_13async_contextE.exit: ; preds = %entry.split.i, %if.then.i.i
-  %phi.call.i = phi ptr [ %call192.i, %entry.split.i ], [ %call193.i, %if.then.i.i ]
-  %call4.i = call noundef ptr @_ZN2v820EscapableHandleScope6EscapeEPm(ptr noundef nonnull align 8 dereferenceable(32) %handle_scope, ptr noundef %phi.call.i) #13
+_ZN4node12MakeCallbackEPN2v87IsolateENS0_5LocalINS0_6ObjectEEEPKciPNS3_INS0_5ValueEEENS_13async_contextE.exit: ; preds = %entry, %if.then.i.i
+  %call192.i = call ptr @_ZN4node12MakeCallbackEPN2v87IsolateENS0_5LocalINS0_6ObjectEEENS3_INS0_6StringEEEiPNS3_INS0_5ValueEEENS_13async_contextE(ptr noundef %isolate, ptr %recv.coerce, ptr %call.i, i32 noundef %argc, ptr noundef %argv, double 0.000000e+00, double 0.000000e+00)
+  %call4.i = call noundef ptr @_ZN2v820EscapableHandleScope6EscapeEPm(ptr noundef nonnull align 8 dereferenceable(32) %handle_scope, ptr noundef %call192.i) #13
   call void @_ZN2v811HandleScopeD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %handle_scope) #13
   ret ptr %call4.i
 }

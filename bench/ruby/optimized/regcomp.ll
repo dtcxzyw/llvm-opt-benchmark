@@ -1878,7 +1878,7 @@ next_setup.exit.thread:                           ; preds = %59, %63, %21, %38, 
   %102 = load i32, ptr %97, align 8
   %103 = call i32 %101(i32 noundef %102, ptr noundef %.0107293.i, ptr noundef nonnull %95, ptr noundef nonnull %6, ptr noundef %99) #20
   %104 = icmp slt i32 %103, 0
-  br i1 %104, label %expand_case_fold_make_rem_string.exit.thread.i, label %105
+  br i1 %104, label %.sink.split.i, label %105
 
 105:                                              ; preds = %98
   %106 = load ptr, ptr %96, align 8
@@ -1938,14 +1938,14 @@ is_case_fold_variable_len.exit.thread.i:          ; preds = %116, %114
 
 129:                                              ; preds = %126
   call void @onig_node_free(ptr noundef nonnull %.0163291.i) #20
-  br label %expand_case_fold_make_rem_string.exit.thread.i
+  br label %.sink.split.i
 
 130:                                              ; preds = %126, %123
   %.3103.i = phi ptr [ %127, %126 ], [ %.0100294.i, %123 ]
   %.299.i = phi ptr [ %127, %126 ], [ %.097295.i, %123 ]
   %131 = call ptr @onig_node_new_str(ptr noundef null, ptr noundef null) #20
   %132 = icmp eq ptr %131, null
-  br i1 %132, label %expand_case_fold_make_rem_string.exit.thread.i, label %133
+  br i1 %132, label %.sink.split.i, label %133
 
 133:                                              ; preds = %130
   %.not132.i = icmp eq ptr %.299.i, null
@@ -1958,7 +1958,7 @@ is_case_fold_variable_len.exit.thread.i:          ; preds = %116, %114
 
 137:                                              ; preds = %134
   call void @onig_node_free(ptr noundef nonnull %131) #20
-  br label %expand_case_fold_make_rem_string.exit.thread.i
+  br label %.sink.split.i
 
 138:                                              ; preds = %134, %133, %is_case_fold_variable_len.exit.thread.i
   %.1164.i = phi ptr [ %131, %133 ], [ %131, %134 ], [ %.0163291.i, %is_case_fold_variable_len.exit.thread.i ]
@@ -1969,7 +1969,7 @@ is_case_fold_variable_len.exit.thread.i:          ; preds = %116, %114
   %140 = getelementptr i8, ptr %.0107293.i, i64 %139
   %141 = call i32 @onig_node_str_cat(ptr noundef nonnull %.1.i, ptr noundef %.0107293.i, ptr noundef %140) #20
   %.not133.i = icmp eq i32 %141, 0
-  br i1 %.not133.i, label %250, label %expand_case_fold_make_rem_string.exit.thread.i
+  br i1 %.not133.i, label %250, label %.sink.split.i
 
 is_case_fold_variable_len.exit.i:                 ; preds = %119, %.lr.ph.i.i
   %142 = add nuw i32 %103, 1
@@ -2007,7 +2007,7 @@ is_case_fold_variable_len.exit.i:                 ; preds = %119, %.lr.ph.i.i
 
 159:                                              ; preds = %156
   call void @onig_node_free(ptr noundef nonnull %.0163291.i) #20
-  br label %expand_case_fold_make_rem_string.exit.thread.i
+  br label %.sink.split.i
 
 160:                                              ; preds = %156, %153
   %.6106.i = phi ptr [ %157, %156 ], [ %.0100294.i, %153 ]
@@ -2191,7 +2191,7 @@ is_case_fold_variable_len.exit.i:                 ; preds = %119, %.lr.ph.i.i
 
 expand_case_fold_string_alt.exit.thread.i:        ; preds = %177, %165, %.loopexit114.i.i
   call void @llvm.lifetime.end.p0(i64 7, ptr nonnull %5)
-  br label %expand_case_fold_make_rem_string.exit.thread.i
+  br label %.sink.split.i
 
 236:                                              ; preds = %233
   call void @llvm.lifetime.end.p0(i64 7, ptr nonnull %5)
@@ -2208,7 +2208,7 @@ expand_case_fold_string_alt.exit.thread.i:        ; preds = %177, %165, %.loopex
 
 241:                                              ; preds = %238
   call void @onig_node_free(ptr noundef nonnull %.4167.i) #20
-  br label %expand_case_fold_make_rem_string.exit.thread.i
+  br label %.sink.split.i
 
 242:                                              ; preds = %238, %237
   %.7.i = phi ptr [ %.6106.i, %238 ], [ %.4167.i, %237 ]
@@ -2226,7 +2226,7 @@ expand_case_fold_string_alt.exit.thread.i:        ; preds = %177, %165, %.loopex
 
 249:                                              ; preds = %246
   call void @onig_node_free(ptr noundef nonnull %.4167.i) #20
-  br label %expand_case_fold_make_rem_string.exit.thread.i
+  br label %.sink.split.i
 
 250:                                              ; preds = %246, %245, %242, %138
   %.pre-phi.i = phi i64 [ %181, %242 ], [ %181, %246 ], [ %181, %245 ], [ %139, %138 ]
@@ -2267,7 +2267,7 @@ expand_case_fold_string_alt.exit.thread.i:        ; preds = %177, %165, %.loopex
 262:                                              ; preds = %261
   %263 = call ptr @onig_node_new_str(ptr noundef %.0107.lcssa.i, ptr noundef nonnull %95) #20
   %264 = icmp eq ptr %263, null
-  br i1 %264, label %expand_case_fold_make_rem_string.exit.thread.i, label %265
+  br i1 %264, label %.sink.split.i, label %265
 
 265:                                              ; preds = %262
   %266 = call fastcc i32 @update_string_node_case_fold(ptr noundef readonly %1, ptr noundef %263)
@@ -2276,7 +2276,7 @@ expand_case_fold_string_alt.exit.thread.i:        ; preds = %177, %165, %.loopex
 
 267:                                              ; preds = %265
   call void @onig_node_free(ptr noundef nonnull %263) #20
-  br label %expand_case_fold_make_rem_string.exit.thread.i
+  br label %.sink.split.i
 
 268:                                              ; preds = %265
   %269 = getelementptr inbounds i8, ptr %263, i64 24
@@ -2297,7 +2297,7 @@ expand_case_fold_string_alt.exit.thread.i:        ; preds = %177, %165, %.loopex
 277:                                              ; preds = %274
   call void @onig_node_free(ptr noundef nonnull %263) #20
   call void @onig_node_free(ptr noundef nonnull %.0163.lcssa.i) #20
-  br label %expand_case_fold_make_rem_string.exit.thread.i
+  br label %.sink.split.i
 
 278:                                              ; preds = %268
   br i1 %273, label %282, label %.thread.i
@@ -2311,7 +2311,7 @@ expand_case_fold_string_alt.exit.thread.i:        ; preds = %177, %165, %.loopex
 
 281:                                              ; preds = %.thread.i
   call void @onig_node_free(ptr noundef nonnull %263) #20
-  br label %expand_case_fold_make_rem_string.exit.thread.i
+  br label %.sink.split.i
 
 282:                                              ; preds = %.thread.i, %278, %261
   %.3166.i = phi ptr [ %.0163.lcssa.i, %.thread.i ], [ %.0163.lcssa.i, %261 ], [ %263, %278 ]
@@ -2371,17 +2371,16 @@ expand_case_fold_string_alt.exit.thread.i:        ; preds = %177, %165, %.loopex
 
 swap_node.exit.i:                                 ; preds = %305, %301, %298
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %.sroa.0.i.i)
-  call void @onig_node_free(ptr noundef nonnull %283) #20
+  br label %.sink.split.i
+
+.sink.split.i:                                    ; preds = %138, %130, %98, %swap_node.exit.i, %281, %277, %267, %262, %249, %241, %expand_case_fold_string_alt.exit.thread.i, %159, %137, %129
+  %.1101.sink.i = phi ptr [ %283, %swap_node.exit.i ], [ %.10177.i, %281 ], [ null, %277 ], [ %.6106.i, %249 ], [ %.6106.i, %241 ], [ null, %159 ], [ %.3103.i, %137 ], [ null, %129 ], [ %.6106.i, %expand_case_fold_string_alt.exit.thread.i ], [ %.0100.lcssa.i, %267 ], [ %.0100.lcssa.i, %262 ], [ %.2102.i, %138 ], [ %.0100294.i, %98 ], [ %.3103.i, %130 ]
+  %.0.ph.i = phi i32 [ 0, %swap_node.exit.i ], [ -5, %281 ], [ -5, %277 ], [ -5, %249 ], [ -5, %241 ], [ -5, %159 ], [ -5, %137 ], [ -5, %129 ], [ -5, %expand_case_fold_string_alt.exit.thread.i ], [ -5, %267 ], [ -5, %262 ], [ %141, %138 ], [ %103, %98 ], [ -5, %130 ]
+  call void @onig_node_free(ptr noundef %.1101.sink.i) #20
   br label %expand_case_fold_string.exit
 
-expand_case_fold_make_rem_string.exit.thread.i:   ; preds = %138, %130, %98, %281, %277, %267, %262, %249, %241, %expand_case_fold_string_alt.exit.thread.i, %159, %137, %129
-  %.0108.i = phi i32 [ -5, %281 ], [ -5, %277 ], [ -5, %249 ], [ -5, %241 ], [ -5, %159 ], [ -5, %137 ], [ -5, %129 ], [ -5, %expand_case_fold_string_alt.exit.thread.i ], [ -5, %267 ], [ -5, %262 ], [ %141, %138 ], [ %103, %98 ], [ -5, %130 ]
-  %.1101.i = phi ptr [ %.10177.i, %281 ], [ null, %277 ], [ %.6106.i, %249 ], [ %.6106.i, %241 ], [ null, %159 ], [ %.3103.i, %137 ], [ null, %129 ], [ %.6106.i, %expand_case_fold_string_alt.exit.thread.i ], [ %.0100.lcssa.i, %267 ], [ %.0100.lcssa.i, %262 ], [ %.2102.i, %138 ], [ %.0100294.i, %98 ], [ %.3103.i, %130 ]
-  call void @onig_node_free(ptr noundef %.1101.i) #20
-  br label %expand_case_fold_string.exit
-
-expand_case_fold_string.exit:                     ; preds = %89, %91, %swap_node.exit.i, %expand_case_fold_make_rem_string.exit.thread.i
-  %.0.i291 = phi i32 [ %.0108.i, %expand_case_fold_make_rem_string.exit.thread.i ], [ 0, %swap_node.exit.i ], [ 0, %89 ], [ 0, %91 ]
+expand_case_fold_string.exit:                     ; preds = %89, %91, %.sink.split.i
+  %.0.i291 = phi i32 [ 0, %89 ], [ 0, %91 ], [ %.0.ph.i, %.sink.split.i ]
   call void @llvm.lifetime.end.p0(i64 260, ptr nonnull %6)
   br label %common.ret760
 

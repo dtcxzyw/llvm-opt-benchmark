@@ -70,8 +70,6 @@ $_ZN5folly6fibers12FiberManager3addENS_8FunctionIFvvEEE = comdat any
 
 $_ZNK5folly8Executor16getNumPrioritiesEv = comdat any
 
-$_ZN5folly13fbstring_coreIcE18destroyMediumLargeEv = comdat any
-
 $__clang_call_terminate = comdat any
 
 $_ZN5folly18threadlocal_detail14StaticMetaBaseD2Ev = comdat any
@@ -473,23 +471,20 @@ if.end.i.i:                                       ; preds = %invoke.cont11
   %4 = and i8 %3, -64
   %cmp.i = icmp eq i8 %4, -128
   %5 = load ptr, ptr %ref.tmp7, align 8, !tbaa !17
-  br i1 %cmp.i, label %if.then.i, label %if.else.i
-
-if.then.i:                                        ; preds = %if.end.i.i
-  call void @free(ptr noundef %5) #12
-  br label %_ZN5folly14basic_fbstringIcSt11char_traitsIcESaIcENS_13fbstring_coreIcEEED2Ev.exit
+  br i1 %cmp.i, label %if.end.sink.split.i, label %if.else.i
 
 if.else.i:                                        ; preds = %if.end.i.i
   %add.ptr.i.i.i = getelementptr inbounds i8, ptr %5, i64 -8
   %6 = atomicrmw sub ptr %add.ptr.i.i.i, i64 1 acq_rel, align 8
   %cmp.i.i1 = icmp eq i64 %6, 1
-  br i1 %cmp.i.i1, label %if.then.i.i, label %_ZN5folly14basic_fbstringIcSt11char_traitsIcESaIcENS_13fbstring_coreIcEEED2Ev.exit
+  br i1 %cmp.i.i1, label %if.end.sink.split.i, label %_ZN5folly14basic_fbstringIcSt11char_traitsIcESaIcENS_13fbstring_coreIcEEED2Ev.exit
 
-if.then.i.i:                                      ; preds = %if.else.i
-  call void @free(ptr noundef nonnull %add.ptr.i.i.i) #12
+if.end.sink.split.i:                              ; preds = %if.else.i, %if.end.i.i
+  %add.ptr.i.i.sink.i = phi ptr [ %5, %if.end.i.i ], [ %add.ptr.i.i.i, %if.else.i ]
+  call void @free(ptr noundef %add.ptr.i.i.sink.i) #12
   br label %_ZN5folly14basic_fbstringIcSt11char_traitsIcESaIcENS_13fbstring_coreIcEEED2Ev.exit
 
-_ZN5folly14basic_fbstringIcSt11char_traitsIcESaIcENS_13fbstring_coreIcEEED2Ev.exit: ; preds = %if.then.i.i, %if.else.i, %if.then.i, %invoke.cont11
+_ZN5folly14basic_fbstringIcSt11char_traitsIcESaIcENS_13fbstring_coreIcEEED2Ev.exit: ; preds = %if.end.sink.split.i, %if.else.i, %invoke.cont11
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %ref.tmp7) #12
   call void @_ZN6google10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %ref.tmp) #12
   call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %ref.tmp) #12
@@ -513,11 +508,24 @@ lpad10:                                           ; preds = %invoke.cont9
   br i1 %cmp.i.i25, label %ehcleanup, label %if.end.i.i26
 
 if.end.i.i26:                                     ; preds = %lpad10
-  call void @_ZN5folly13fbstring_coreIcE18destroyMediumLargeEv(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp7) #12
+  %11 = and i8 %10, -64
+  %cmp.i3 = icmp eq i8 %11, -128
+  %12 = load ptr, ptr %ref.tmp7, align 8, !tbaa !17
+  br i1 %cmp.i3, label %if.end.sink.split.i7, label %if.else.i4
+
+if.else.i4:                                       ; preds = %if.end.i.i26
+  %add.ptr.i.i.i5 = getelementptr inbounds i8, ptr %12, i64 -8
+  %13 = atomicrmw sub ptr %add.ptr.i.i.i5, i64 1 acq_rel, align 8
+  %cmp.i.i6 = icmp eq i64 %13, 1
+  br i1 %cmp.i.i6, label %if.end.sink.split.i7, label %ehcleanup
+
+if.end.sink.split.i7:                             ; preds = %if.else.i4, %if.end.i.i26
+  %add.ptr.i.i.sink.i8 = phi ptr [ %12, %if.end.i.i26 ], [ %add.ptr.i.i.i5, %if.else.i4 ]
+  call void @free(ptr noundef %add.ptr.i.i.sink.i8) #12
   br label %ehcleanup
 
-ehcleanup:                                        ; preds = %if.end.i.i26, %lpad10, %lpad8
-  %.pn = phi { ptr, i32 } [ %8, %lpad8 ], [ %9, %lpad10 ], [ %9, %if.end.i.i26 ]
+ehcleanup:                                        ; preds = %if.end.sink.split.i7, %if.else.i4, %lpad10, %lpad8
+  %.pn = phi { ptr, i32 } [ %8, %lpad8 ], [ %9, %lpad10 ], [ %9, %if.else.i4 ], [ %9, %if.end.sink.split.i7 ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %ref.tmp7) #12
   br label %ehcleanup13
 
@@ -554,34 +562,6 @@ declare noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIc
 declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #6
 
 declare noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef, i64 noundef) local_unnamed_addr #2
-
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZN5folly13fbstring_coreIcE18destroyMediumLargeEv(ptr noundef nonnull align 8 dereferenceable(24) %this) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
-entry:
-  %arrayidx.i = getelementptr inbounds i8, ptr %this, i64 23
-  %0 = load i8, ptr %arrayidx.i, align 1, !tbaa !17
-  %1 = and i8 %0, -64
-  %cmp = icmp eq i8 %1, -128
-  %2 = load ptr, ptr %this, align 8, !tbaa !17
-  br i1 %cmp, label %if.then, label %if.else
-
-if.then:                                          ; preds = %entry
-  tail call void @free(ptr noundef %2) #12
-  br label %if.end
-
-if.else:                                          ; preds = %entry
-  %add.ptr.i.i = getelementptr inbounds i8, ptr %2, i64 -8
-  %3 = atomicrmw sub ptr %add.ptr.i.i, i64 1 acq_rel, align 8
-  %cmp.i = icmp eq i64 %3, 1
-  br i1 %cmp.i, label %if.then.i, label %if.end
-
-if.then.i:                                        ; preds = %if.else
-  tail call void @free(ptr noundef nonnull %add.ptr.i.i) #12
-  br label %if.end
-
-if.end:                                           ; preds = %if.then.i, %if.else, %if.then
-  ret void
-}
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
 declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #7

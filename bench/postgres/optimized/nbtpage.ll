@@ -4059,57 +4059,57 @@ define dso_local void @_bt_pendingfsm_finalize(ptr noundef %0, ptr nocapture nou
   %8 = getelementptr inbounds i8, ptr %1, i64 64
   %9 = load i32, ptr %8, align 8
   %10 = icmp eq i32 %9, 0
-  br i1 %10, label %11, label %15
+  br i1 %10, label %11, label %14
 
 11:                                               ; preds = %2
   %12 = getelementptr inbounds i8, ptr %1, i64 56
   %13 = load ptr, ptr %12, align 8
   %.not = icmp eq ptr %13, null
-  br i1 %.not, label %35, label %14
+  br i1 %.not, label %34, label %.sink.split
 
-14:                                               ; preds = %11
-  tail call void @pfree(ptr noundef nonnull %13) #9
-  br label %35
+14:                                               ; preds = %2
+  %15 = tail call i32 @GetOldestNonRemovableTransactionId(ptr noundef %7) #9
+  %16 = load i32, ptr %8, align 8
+  %17 = icmp sgt i32 %16, 0
+  br i1 %17, label %.lr.ph, label %._crit_edge
 
-15:                                               ; preds = %2
-  %16 = tail call i32 @GetOldestNonRemovableTransactionId(ptr noundef %7) #9
-  %17 = load i32, ptr %8, align 8
-  %18 = icmp sgt i32 %17, 0
-  br i1 %18, label %.lr.ph, label %._crit_edge
+.lr.ph:                                           ; preds = %14
+  %18 = getelementptr inbounds i8, ptr %1, i64 56
+  %19 = getelementptr inbounds i8, ptr %4, i64 32
+  br label %20
 
-.lr.ph:                                           ; preds = %15
-  %19 = getelementptr inbounds i8, ptr %1, i64 56
-  %20 = getelementptr inbounds i8, ptr %4, i64 32
-  br label %21
+20:                                               ; preds = %.lr.ph, %26
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %26 ]
+  %21 = load ptr, ptr %18, align 8
+  %22 = getelementptr %struct.BTPendingFSM, ptr %21, i64 %indvars.iv
+  %23 = load i32, ptr %22, align 8
+  %24 = getelementptr inbounds i8, ptr %22, i64 8
+  %.sroa.0.0.copyload = load i64, ptr %24, align 8
+  %25 = tail call zeroext i1 @GlobalVisCheckRemovableFullXid(ptr noundef %7, i64 %.sroa.0.0.copyload) #9
+  br i1 %25, label %26, label %._crit_edge
 
-21:                                               ; preds = %.lr.ph, %27
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %27 ]
-  %22 = load ptr, ptr %19, align 8
-  %23 = getelementptr %struct.BTPendingFSM, ptr %22, i64 %indvars.iv
-  %24 = load i32, ptr %23, align 8
-  %25 = getelementptr inbounds i8, ptr %23, i64 8
-  %.sroa.0.0.copyload = load i64, ptr %25, align 8
-  %26 = tail call zeroext i1 @GlobalVisCheckRemovableFullXid(ptr noundef %7, i64 %.sroa.0.0.copyload) #9
-  br i1 %26, label %27, label %._crit_edge
-
-27:                                               ; preds = %21
-  tail call void @RecordFreeIndexPage(ptr noundef %0, i32 noundef %24) #9
-  %28 = load i32, ptr %20, align 8
-  %29 = add i32 %28, 1
-  store i32 %29, ptr %20, align 8
+26:                                               ; preds = %20
+  tail call void @RecordFreeIndexPage(ptr noundef %0, i32 noundef %23) #9
+  %27 = load i32, ptr %19, align 8
+  %28 = add i32 %27, 1
+  store i32 %28, ptr %19, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %30 = load i32, ptr %8, align 8
-  %31 = sext i32 %30 to i64
-  %32 = icmp slt i64 %indvars.iv.next, %31
-  br i1 %32, label %21, label %._crit_edge, !llvm.loop !18
+  %29 = load i32, ptr %8, align 8
+  %30 = sext i32 %29 to i64
+  %31 = icmp slt i64 %indvars.iv.next, %30
+  br i1 %31, label %20, label %._crit_edge, !llvm.loop !18
 
-._crit_edge:                                      ; preds = %27, %21, %15
-  %33 = getelementptr inbounds i8, ptr %1, i64 56
-  %34 = load ptr, ptr %33, align 8
-  tail call void @pfree(ptr noundef %34) #9
-  br label %35
+._crit_edge:                                      ; preds = %26, %20, %14
+  %32 = getelementptr inbounds i8, ptr %1, i64 56
+  %33 = load ptr, ptr %32, align 8
+  br label %.sink.split
 
-35:                                               ; preds = %11, %14, %._crit_edge
+.sink.split:                                      ; preds = %11, %._crit_edge
+  %.sink = phi ptr [ %33, %._crit_edge ], [ %13, %11 ]
+  tail call void @pfree(ptr noundef %.sink) #9
+  br label %34
+
+34:                                               ; preds = %.sink.split, %11
   ret void
 }
 

@@ -16508,10 +16508,7 @@ if.then9:                                         ; preds = %if.then3
 if.then.i.i.i.i:                                  ; preds = %if.then9
   %3 = ptrtoint ptr %add.ptr16 to i64
   %sub.i.i.i.i = sub i64 %3, %sub.ptr.rhs.cast6
-  %idx.neg.i.i.i.i = sub i64 0, %sub.i.i.i.i
-  %add.ptr.i.i.i.i = getelementptr inbounds %struct.HasAddressOfOperator, ptr %2, i64 %idx.neg.i.i.i.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %add.ptr.i.i.i.i, ptr align 1 %position, i64 %sub.i.i.i.i, i1 false)
-  br label %if.end
+  br label %if.end.sink.split
 
 if.else:                                          ; preds = %if.then3
   %cmp.i.i.i.i.i.i30 = icmp eq ptr %position, %1
@@ -16519,12 +16516,17 @@ if.else:                                          ; preds = %if.then3
 
 if.end.i.i.i.i.i.i31:                             ; preds = %if.else
   %add.ptr23 = getelementptr inbounds %struct.HasAddressOfOperator, ptr %1, i64 %n
-  %idx.neg24 = sub i64 0, %sub.ptr.sub7
-  %add.ptr25 = getelementptr inbounds %struct.HasAddressOfOperator, ptr %add.ptr23, i64 %idx.neg24
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %add.ptr25, ptr align 1 %position, i64 %sub.ptr.sub7, i1 false)
+  br label %if.end.sink.split
+
+if.end.sink.split:                                ; preds = %if.then.i.i.i.i, %if.end.i.i.i.i.i.i31
+  %sub.ptr.sub7.sink45 = phi i64 [ %sub.ptr.sub7, %if.end.i.i.i.i.i.i31 ], [ %sub.i.i.i.i, %if.then.i.i.i.i ]
+  %add.ptr23.sink = phi ptr [ %add.ptr23, %if.end.i.i.i.i.i.i31 ], [ %2, %if.then.i.i.i.i ]
+  %idx.neg24 = sub i64 0, %sub.ptr.sub7.sink45
+  %add.ptr25 = getelementptr inbounds %struct.HasAddressOfOperator, ptr %add.ptr23.sink, i64 %idx.neg24
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %add.ptr25, ptr align 1 %position, i64 %sub.ptr.sub7.sink45, i1 false)
   br label %if.end
 
-if.end:                                           ; preds = %if.end.i.i.i.i.i.i31, %if.else, %if.then.i.i.i.i, %if.then9
+if.end:                                           ; preds = %if.end.sink.split, %if.else, %if.then9
   %4 = load ptr, ptr %mpEnd, align 8
   %add.ptr29 = getelementptr inbounds %struct.HasAddressOfOperator, ptr %4, i64 %n
   store ptr %add.ptr29, ptr %mpEnd, align 8

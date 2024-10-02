@@ -345,63 +345,43 @@ define range(i32 -15, 1) i32 @idaNlsInit(ptr noundef %0) local_unnamed_addr #0 {
   %.not = icmp eq ptr %3, null
   %4 = getelementptr inbounds i8, ptr %0, i64 1736
   %5 = load ptr, ptr %4, align 8
-  br i1 %.not, label %8, label %6
+  %.idaNlsLSetup = select i1 %.not, ptr null, ptr @idaNlsLSetup
+  %6 = tail call i32 @SUNNonlinSolSetLSetupFn(ptr noundef %5, ptr noundef %.idaNlsLSetup) #2
+  %.not14 = icmp eq i32 %6, 0
+  br i1 %.not14, label %8, label %7
 
-6:                                                ; preds = %1
-  %7 = tail call i32 @SUNNonlinSolSetLSetupFn(ptr noundef %5, ptr noundef nonnull @idaNlsLSetup) #2
-  br label %10
+7:                                                ; preds = %1
+  tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @IDAProcessError(ptr noundef nonnull %0, i32 noundef -22, i32 noundef 204, ptr noundef nonnull @__func__.idaNlsInit, ptr noundef nonnull @.str, ptr noundef nonnull @.str.9) #2
+  br label %20
 
 8:                                                ; preds = %1
-  %9 = tail call i32 @SUNNonlinSolSetLSetupFn(ptr noundef %5, ptr noundef null) #2
-  br label %10
+  %9 = getelementptr inbounds i8, ptr %0, i64 1864
+  %10 = load ptr, ptr %9, align 8
+  %.not15 = icmp eq ptr %10, null
+  %11 = getelementptr inbounds i8, ptr %0, i64 1736
+  %12 = load ptr, ptr %11, align 8
+  %.idaNlsLSolve = select i1 %.not15, ptr null, ptr @idaNlsLSolve
+  %13 = tail call i32 @SUNNonlinSolSetLSolveFn(ptr noundef %12, ptr noundef %.idaNlsLSolve) #2
+  %.not16 = icmp eq i32 %13, 0
+  br i1 %.not16, label %15, label %14
 
-10:                                               ; preds = %8, %6
-  %.0 = phi i32 [ %7, %6 ], [ %9, %8 ]
-  %.not14 = icmp eq i32 %.0, 0
-  br i1 %.not14, label %12, label %11
-
-11:                                               ; preds = %10
-  tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @IDAProcessError(ptr noundef nonnull %0, i32 noundef -22, i32 noundef 204, ptr noundef nonnull @__func__.idaNlsInit, ptr noundef nonnull @.str, ptr noundef nonnull @.str.9) #2
-  br label %28
-
-12:                                               ; preds = %10
-  %13 = getelementptr inbounds i8, ptr %0, i64 1864
-  %14 = load ptr, ptr %13, align 8
-  %.not15 = icmp eq ptr %14, null
-  %15 = getelementptr inbounds i8, ptr %0, i64 1736
-  %16 = load ptr, ptr %15, align 8
-  br i1 %.not15, label %19, label %17
-
-17:                                               ; preds = %12
-  %18 = tail call i32 @SUNNonlinSolSetLSolveFn(ptr noundef %16, ptr noundef nonnull @idaNlsLSolve) #2
-  br label %21
-
-19:                                               ; preds = %12
-  %20 = tail call i32 @SUNNonlinSolSetLSolveFn(ptr noundef %16, ptr noundef null) #2
-  br label %21
-
-21:                                               ; preds = %19, %17
-  %.1 = phi i32 [ %18, %17 ], [ %20, %19 ]
-  %.not16 = icmp eq i32 %.1, 0
-  br i1 %.not16, label %23, label %22
-
-22:                                               ; preds = %21
+14:                                               ; preds = %8
   tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @IDAProcessError(ptr noundef nonnull %0, i32 noundef -22, i32 noundef 218, ptr noundef nonnull @__func__.idaNlsInit, ptr noundef nonnull @.str, ptr noundef nonnull @.str.10) #2
-  br label %28
+  br label %20
 
-23:                                               ; preds = %21
-  %24 = getelementptr inbounds i8, ptr %0, i64 1736
-  %25 = load ptr, ptr %24, align 8
-  %26 = tail call i32 @SUNNonlinSolInitialize(ptr noundef %25) #2
-  %.not17 = icmp eq i32 %26, 0
-  br i1 %.not17, label %28, label %27
+15:                                               ; preds = %8
+  %16 = getelementptr inbounds i8, ptr %0, i64 1736
+  %17 = load ptr, ptr %16, align 8
+  %18 = tail call i32 @SUNNonlinSolInitialize(ptr noundef %17) #2
+  %.not17 = icmp eq i32 %18, 0
+  br i1 %.not17, label %20, label %19
 
-27:                                               ; preds = %23
+19:                                               ; preds = %15
   tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @IDAProcessError(ptr noundef nonnull %0, i32 noundef -22, i32 noundef 228, ptr noundef nonnull @__func__.idaNlsInit, ptr noundef nonnull @.str, ptr noundef nonnull @.str.11) #2
-  br label %28
+  br label %20
 
-28:                                               ; preds = %23, %27, %22, %11
-  %.013 = phi i32 [ -15, %11 ], [ -15, %22 ], [ -15, %27 ], [ 0, %23 ]
+20:                                               ; preds = %15, %19, %14, %7
+  %.013 = phi i32 [ -15, %7 ], [ -15, %14 ], [ -15, %19 ], [ 0, %15 ]
   ret i32 %.013
 }
 

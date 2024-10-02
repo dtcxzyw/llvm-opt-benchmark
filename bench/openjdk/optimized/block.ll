@@ -792,32 +792,21 @@ _ZNK5Block3endEv.exit:                            ; preds = %1, %24
   %61 = fcmp oeq float %60, -1.000000e+00
   %62 = fcmp ugt float %60, 0x3F1A36E2E0000000
   %or.cond = or i1 %61, %62
-  br i1 %or.cond, label %63, label %77
+  br i1 %or.cond, label %63, label %69
 
 63:                                               ; preds = %58, %50, %46
   %64 = and i32 %47, 3
   %65 = icmp eq i32 %64, 2
   %66 = load ptr, ptr %.1, align 8
-  br i1 %65, label %67, label %71
+  %.sink.in.idx = select i1 %65, i64 328, i64 0
+  %.sink.in = getelementptr inbounds i8, ptr %66, i64 %.sink.in.idx
+  %.sink = load ptr, ptr %.sink.in, align 8
+  %67 = tail call noundef i32 %.sink(ptr noundef nonnull align 8 dereferenceable(52) %.1) #12
+  %68 = icmp eq i32 %67, 175
+  br label %69
 
-67:                                               ; preds = %63
-  %68 = getelementptr inbounds i8, ptr %66, i64 328
-  %69 = load ptr, ptr %68, align 8
-  %70 = tail call noundef i32 %69(ptr noundef nonnull align 8 dereferenceable(64) %.1) #12
-  br label %74
-
-71:                                               ; preds = %63
-  %72 = load ptr, ptr %66, align 8
-  %73 = tail call noundef i32 %72(ptr noundef nonnull align 8 dereferenceable(52) %.1) #12
-  br label %74
-
-74:                                               ; preds = %71, %67
-  %75 = phi i32 [ %70, %67 ], [ %73, %71 ]
-  %76 = icmp eq i32 %75, 175
-  br label %77
-
-77:                                               ; preds = %58, %74
-  %.0 = phi i1 [ %76, %74 ], [ true, %58 ]
+69:                                               ; preds = %58, %63
+  %.0 = phi i1 [ %68, %63 ], [ true, %58 ]
   ret i1 %.0
 }
 
@@ -919,7 +908,7 @@ _ZNK5Block3endEv.exit.i:                          ; preds = %40, %21
   %.1.i = phi ptr [ %61, %58 ], [ %.014.i, %54 ]
   %64 = and i32 %63, 1023
   %65 = icmp eq i32 %64, 520
-  br i1 %65, label %66, label %79
+  br i1 %65, label %66, label %_ZNK5Block17has_uncommon_codeEv.exit
 
 66:                                               ; preds = %62
   %67 = getelementptr inbounds i8, ptr %.1.i, i64 8
@@ -929,7 +918,7 @@ _ZNK5Block3endEv.exit.i:                          ; preds = %40, %21
   %71 = load i32, ptr %70, align 4
   %72 = and i32 %71, 31
   %73 = icmp eq i32 %72, 30
-  br i1 %73, label %74, label %79
+  br i1 %73, label %74, label %_ZNK5Block17has_uncommon_codeEv.exit
 
 74:                                               ; preds = %66
   %75 = getelementptr inbounds i8, ptr %69, i64 128
@@ -937,95 +926,84 @@ _ZNK5Block3endEv.exit.i:                          ; preds = %40, %21
   %77 = fcmp oeq float %76, -1.000000e+00
   %78 = fcmp ugt float %76, 0x3F1A36E2E0000000
   %or.cond.i = or i1 %77, %78
-  br i1 %or.cond.i, label %79, label %_ZNK5Block17has_uncommon_codeEv.exit.thread
+  br i1 %or.cond.i, label %_ZNK5Block17has_uncommon_codeEv.exit, label %_ZNK5Block17has_uncommon_codeEv.exit.thread
 
-79:                                               ; preds = %74, %66, %62
-  %80 = and i32 %63, 3
-  %81 = icmp eq i32 %80, 2
-  %82 = load ptr, ptr %.1.i, align 8
-  br i1 %81, label %83, label %87
-
-83:                                               ; preds = %79
-  %84 = getelementptr inbounds i8, ptr %82, i64 328
-  %85 = load ptr, ptr %84, align 8
-  %86 = tail call noundef i32 %85(ptr noundef nonnull align 8 dereferenceable(64) %.1.i) #12
-  br label %_ZNK5Block17has_uncommon_codeEv.exit
-
-87:                                               ; preds = %79
-  %88 = load ptr, ptr %82, align 8
-  %89 = tail call noundef i32 %88(ptr noundef nonnull align 8 dereferenceable(52) %.1.i) #12
-  br label %_ZNK5Block17has_uncommon_codeEv.exit
-
-_ZNK5Block17has_uncommon_codeEv.exit:             ; preds = %83, %87
-  %90 = phi i32 [ %86, %83 ], [ %89, %87 ]
-  %91 = icmp eq i32 %90, 175
-  br i1 %91, label %_ZNK5Block17has_uncommon_codeEv.exit.thread, label %.preheader
+_ZNK5Block17has_uncommon_codeEv.exit:             ; preds = %74, %66, %62
+  %79 = and i32 %63, 3
+  %80 = icmp eq i32 %79, 2
+  %81 = load ptr, ptr %.1.i, align 8
+  %spec.select.idx = select i1 %80, i64 328, i64 0
+  %spec.select = getelementptr inbounds i8, ptr %81, i64 %spec.select.idx
+  %.sink.i = load ptr, ptr %spec.select, align 8
+  %82 = tail call noundef i32 %.sink.i(ptr noundef nonnull align 8 dereferenceable(52) %.1.i) #12
+  %83 = icmp eq i32 %82, 175
+  br i1 %83, label %_ZNK5Block17has_uncommon_codeEv.exit.thread, label %.preheader
 
 .preheader:                                       ; preds = %_ZNK5Block17has_uncommon_codeEv.exit
-  %92 = load i32, ptr %3, align 8
-  %.not.i.i = icmp ne i32 %92, 0
+  %84 = load i32, ptr %3, align 8
+  %.not.i.i = icmp ne i32 %84, 0
   tail call void @llvm.assume(i1 %.not.i.i)
-  %93 = load ptr, ptr %8, align 8
-  %94 = load ptr, ptr %93, align 8
-  %95 = getelementptr inbounds i8, ptr %94, i64 24
-  %96 = load i32, ptr %95, align 8
-  %97 = icmp ugt i32 %96, 1
-  br i1 %97, label %.lr.ph, label %._crit_edge.thread
+  %85 = load ptr, ptr %8, align 8
+  %86 = load ptr, ptr %85, align 8
+  %87 = getelementptr inbounds i8, ptr %86, i64 24
+  %88 = load i32, ptr %87, align 8
+  %89 = icmp ugt i32 %88, 1
+  br i1 %89, label %.lr.ph, label %._crit_edge.thread
 
 .lr.ph:                                           ; preds = %.preheader
-  %98 = getelementptr inbounds i8, ptr %94, i64 8
-  %99 = load ptr, ptr %98, align 8
-  %100 = getelementptr inbounds i8, ptr %0, i64 120
+  %90 = getelementptr inbounds i8, ptr %86, i64 8
+  %91 = load ptr, ptr %90, align 8
+  %92 = getelementptr inbounds i8, ptr %0, i64 120
+  %93 = load ptr, ptr %92, align 8
+  %wide.trip.count = zext i32 %88 to i64
+  br label %94
+
+94:                                               ; preds = %.lr.ph, %115
+  %indvars.iv = phi i64 [ 1, %.lr.ph ], [ %indvars.iv.next, %115 ]
+  %.02235 = phi i32 [ 0, %.lr.ph ], [ %.1, %115 ]
+  %.02334 = phi i32 [ 0, %.lr.ph ], [ %.124, %115 ]
+  %.02533 = phi i32 [ 0, %.lr.ph ], [ %.126, %115 ]
+  %95 = getelementptr inbounds ptr, ptr %91, i64 %indvars.iv
+  %96 = load ptr, ptr %95, align 8
+  %97 = getelementptr inbounds i8, ptr %96, i64 40
+  %98 = load i32, ptr %97, align 8
+  %99 = zext i32 %98 to i64
+  %100 = getelementptr inbounds ptr, ptr %93, i64 %99
   %101 = load ptr, ptr %100, align 8
-  %wide.trip.count = zext i32 %96 to i64
-  br label %102
+  %102 = getelementptr inbounds i8, ptr %101, i64 8
+  %103 = load double, ptr %102, align 8
+  %104 = fmul double %103, 0x3FC435E507600000
+  %105 = fcmp olt double %104, 0x3F8EB851DE800000
+  br i1 %105, label %106, label %108
 
-102:                                              ; preds = %.lr.ph, %123
-  %indvars.iv = phi i64 [ 1, %.lr.ph ], [ %indvars.iv.next, %123 ]
-  %.02235 = phi i32 [ 0, %.lr.ph ], [ %.1, %123 ]
-  %.02334 = phi i32 [ 0, %.lr.ph ], [ %.124, %123 ]
-  %.02533 = phi i32 [ 0, %.lr.ph ], [ %.126, %123 ]
-  %103 = getelementptr inbounds ptr, ptr %99, i64 %indvars.iv
-  %104 = load ptr, ptr %103, align 8
-  %105 = getelementptr inbounds i8, ptr %104, i64 40
-  %106 = load i32, ptr %105, align 8
-  %107 = zext i32 %106 to i64
-  %108 = getelementptr inbounds ptr, ptr %101, i64 %107
-  %109 = load ptr, ptr %108, align 8
-  %110 = getelementptr inbounds i8, ptr %109, i64 8
-  %111 = load double, ptr %110, align 8
-  %112 = fmul double %111, 0x3FC435E507600000
-  %113 = fcmp olt double %112, 0x3F8EB851DE800000
-  br i1 %113, label %114, label %116
+106:                                              ; preds = %94
+  %107 = add i32 %.02533, 1
+  br label %115
 
-114:                                              ; preds = %102
-  %115 = add i32 %.02533, 1
-  br label %123
+108:                                              ; preds = %94
+  %109 = add i32 %.02334, 1
+  %110 = load double, ptr %18, align 8
+  %111 = fmul double %103, 0x3F1B981740000000
+  %112 = fcmp olt double %110, %111
+  br i1 %112, label %113, label %115
 
-116:                                              ; preds = %102
-  %117 = add i32 %.02334, 1
-  %118 = load double, ptr %18, align 8
-  %119 = fmul double %111, 0x3F1B981740000000
-  %120 = fcmp olt double %118, %119
-  br i1 %120, label %121, label %123
+113:                                              ; preds = %108
+  %114 = add i32 %.02235, 1
+  br label %115
 
-121:                                              ; preds = %116
-  %122 = add i32 %.02235, 1
-  br label %123
-
-123:                                              ; preds = %114, %121, %116
-  %.126 = phi i32 [ %115, %114 ], [ %.02533, %121 ], [ %.02533, %116 ]
-  %.124 = phi i32 [ %.02334, %114 ], [ %117, %121 ], [ %117, %116 ]
-  %.1 = phi i32 [ %.02235, %114 ], [ %122, %121 ], [ %.02235, %116 ]
+115:                                              ; preds = %106, %113, %108
+  %.126 = phi i32 [ %107, %106 ], [ %.02533, %113 ], [ %.02533, %108 ]
+  %.124 = phi i32 [ %.02334, %106 ], [ %109, %113 ], [ %109, %108 ]
+  %.1 = phi i32 [ %.02235, %106 ], [ %114, %113 ], [ %.02235, %108 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %102, !llvm.loop !13
+  br i1 %exitcond.not, label %._crit_edge, label %94, !llvm.loop !13
 
-._crit_edge:                                      ; preds = %123
-  %124 = add i32 %96, -1
-  %125 = icmp eq i32 %.126, %124
-  %126 = icmp eq i32 %.1, %.124
-  %or.cond = select i1 %125, i1 true, i1 %126
+._crit_edge:                                      ; preds = %115
+  %116 = add i32 %88, -1
+  %117 = icmp eq i32 %.126, %116
+  %118 = icmp eq i32 %.1, %.124
+  %or.cond = select i1 %117, i1 true, i1 %118
   br i1 %or.cond, label %_ZNK5Block17has_uncommon_codeEv.exit.thread, label %._crit_edge.thread
 
 ._crit_edge.thread:                               ; preds = %.preheader, %._crit_edge

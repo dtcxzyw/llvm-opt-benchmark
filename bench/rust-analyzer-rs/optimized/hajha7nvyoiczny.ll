@@ -131126,7 +131126,7 @@ define hidden void @_ZN6hir_ty3mir7MirBody11walk_places17hbdbb993e8bfd256cE(ptr 
   %9 = getelementptr inbounds i8, ptr %0, i64 128
   br label %10
 
-default.unreachable83:                            ; preds = %65
+default.unreachable83:                            ; preds = %58
   unreachable
 
 .loopexit:                                        ; preds = %28, %.lr.ph77
@@ -131163,15 +131163,21 @@ default.unreachable83:                            ; preds = %65
   %25 = add nsw i64 %24, -11
   %26 = select i1 %23, i64 %25, i64 0
   switch i64 %26, label %.loopexit [
-    i64 0, label %65
-    i64 1, label %95
-    i64 2, label %95
+    i64 0, label %58
+    i64 1, label %88
+    i64 2, label %88
     i64 3, label %_ZN6hir_ty3mir7MirBody11walk_places11for_operand17h701013d9488e36cbE.exit53
     i64 4, label %_ZN6hir_ty3mir7MirBody11walk_places11for_operand17h701013d9488e36cbE.exit53
     i64 5, label %_ZN6hir_ty3mir7MirBody11walk_places11for_operand17h701013d9488e36cbE.exit53
   ]
 
-_ZN6hir_ty3mir7MirBody11walk_places11for_operand17h701013d9488e36cbE.exit: ; preds = %59, %56, %40, %36, %33, %32, %._crit_edge, %_ZN6hir_ty3mir7MirBody11walk_places11for_operand17h701013d9488e36cbE.exit47, %"_ZN94_$LT$core..slice..iter..IterMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8for_each17h284ab6db09b4e897E.exit", %34, %28, %28, %28, %28, %28, %28, %28, %28
+_ZN6hir_ty3mir7MirBody11walk_places11for_operand17h701013d9488e36cbE.exit.sink.split: ; preds = %"_ZN6hir_ty3mir7MirBody11walk_places28_$u7b$$u7b$closure$u7d$$u7d$17hf3102d86123ae567E.exit.i", %57, %54, %51, %_ZN6hir_ty3mir7MirBody11walk_places11for_operand17h701013d9488e36cbE.exit41, %33, %28, %32
+  %.sink = phi i64 [ 4, %32 ], [ 12, %28 ], [ 20, %33 ], [ 56, %_ZN6hir_ty3mir7MirBody11walk_places11for_operand17h701013d9488e36cbE.exit41 ], [ 20, %51 ], [ 32, %54 ], [ 32, %57 ], [ 56, %"_ZN6hir_ty3mir7MirBody11walk_places28_$u7b$$u7b$closure$u7d$$u7d$17hf3102d86123ae567E.exit.i" ]
+  %.0.i43 = getelementptr inbounds i8, ptr %.sroa.061.078, i64 %.sink
+  tail call fastcc void @"_ZN6hir_ty3mir5lower26mir_body_for_closure_query28_$u7b$$u7b$closure$u7d$$u7d$17hcdc2a249a6fa2b67E"(ptr noalias noundef align 8 dereferenceable(32) %1, ptr noalias noundef align 4 dereferenceable(8) %.0.i43, ptr noalias noundef align 8 dereferenceable(64) %9)
+  br label %_ZN6hir_ty3mir7MirBody11walk_places11for_operand17h701013d9488e36cbE.exit
+
+_ZN6hir_ty3mir7MirBody11walk_places11for_operand17h701013d9488e36cbE.exit: ; preds = %_ZN6hir_ty3mir7MirBody11walk_places11for_operand17h701013d9488e36cbE.exit.sink.split, %51, %33, %32, %._crit_edge, %28, %28, %28, %28, %28, %28, %28, %28
   %27 = icmp eq ptr %11, %7
   br i1 %27, label %._crit_edge81, label %10
 
@@ -131187,11 +131193,11 @@ _ZN6hir_ty3mir7MirBody11walk_places11for_operand17h701013d9488e36cbE.exit: ; pre
     i32 3, label %_ZN6hir_ty3mir7MirBody11walk_places11for_operand17h701013d9488e36cbE.exit
     i32 4, label %_ZN6hir_ty3mir7MirBody11walk_places11for_operand17h701013d9488e36cbE.exit
     i32 5, label %_ZN6hir_ty3mir7MirBody11walk_places11for_operand17h701013d9488e36cbE.exit
-    i32 6, label %34
-    i32 7, label %36
-    i32 8, label %41
-    i32 9, label %56
-    i32 10, label %60
+    i32 6, label %_ZN6hir_ty3mir7MirBody11walk_places11for_operand17h701013d9488e36cbE.exit.sink.split
+    i32 7, label %33
+    i32 8, label %37
+    i32 9, label %51
+    i32 10, label %54
     i32 11, label %_ZN6hir_ty3mir7MirBody11walk_places11for_operand17h701013d9488e36cbE.exit
     i32 12, label %_ZN6hir_ty3mir7MirBody11walk_places11for_operand17h701013d9488e36cbE.exit
     i32 13, label %_ZN6hir_ty3mir7MirBody11walk_places11for_operand17h701013d9488e36cbE.exit
@@ -131199,199 +131205,170 @@ _ZN6hir_ty3mir7MirBody11walk_places11for_operand17h701013d9488e36cbE.exit: ; pre
 
 32:                                               ; preds = %28
   %switch.i = icmp ult i32 %29, 2
-  br i1 %switch.i, label %33, label %_ZN6hir_ty3mir7MirBody11walk_places11for_operand17h701013d9488e36cbE.exit
+  br i1 %switch.i, label %_ZN6hir_ty3mir7MirBody11walk_places11for_operand17h701013d9488e36cbE.exit.sink.split, label %_ZN6hir_ty3mir7MirBody11walk_places11for_operand17h701013d9488e36cbE.exit
 
-33:                                               ; preds = %32
-  %.0.i35 = getelementptr inbounds i8, ptr %.sroa.061.078, i64 4
-  tail call fastcc void @"_ZN6hir_ty3mir5lower26mir_body_for_closure_query28_$u7b$$u7b$closure$u7d$$u7d$17hcdc2a249a6fa2b67E"(ptr noalias noundef readonly align 8 dereferenceable(32) %1, ptr noalias noundef align 4 dereferenceable(8) %.0.i35, ptr noalias noundef align 8 dereferenceable(64) %9)
-  br label %_ZN6hir_ty3mir7MirBody11walk_places11for_operand17h701013d9488e36cbE.exit
+33:                                               ; preds = %28
+  %34 = getelementptr inbounds i8, ptr %.sroa.061.078, i64 32
+  tail call fastcc void @"_ZN6hir_ty3mir5lower26mir_body_for_closure_query28_$u7b$$u7b$closure$u7d$$u7d$17hcdc2a249a6fa2b67E"(ptr noalias noundef align 8 dereferenceable(32) %1, ptr noalias noundef align 4 dereferenceable(8) %34, ptr noalias noundef align 8 dereferenceable(64) %9)
+  %35 = getelementptr inbounds i8, ptr %.sroa.061.078, i64 16
+  %36 = load i32, ptr %35, align 8, !range !1419, !alias.scope !29490, !noalias !29493, !noundef !9
+  %switch.i36 = icmp ult i32 %36, 2
+  br i1 %switch.i36, label %_ZN6hir_ty3mir7MirBody11walk_places11for_operand17h701013d9488e36cbE.exit.sink.split, label %_ZN6hir_ty3mir7MirBody11walk_places11for_operand17h701013d9488e36cbE.exit
 
-34:                                               ; preds = %28
-  %35 = getelementptr inbounds i8, ptr %.sroa.061.078, i64 12
-  tail call fastcc void @"_ZN6hir_ty3mir5lower26mir_body_for_closure_query28_$u7b$$u7b$closure$u7d$$u7d$17hcdc2a249a6fa2b67E"(ptr noalias noundef align 8 dereferenceable(32) %1, ptr noalias noundef align 4 dereferenceable(8) %35, ptr noalias noundef align 8 dereferenceable(64) %9)
-  br label %_ZN6hir_ty3mir7MirBody11walk_places11for_operand17h701013d9488e36cbE.exit
+37:                                               ; preds = %28
+  %38 = getelementptr inbounds i8, ptr %.sroa.061.078, i64 24
+  %39 = load i32, ptr %38, align 8, !range !1419, !alias.scope !29496, !noalias !29499, !noundef !9
+  %switch.i39 = icmp ult i32 %39, 2
+  br i1 %switch.i39, label %40, label %_ZN6hir_ty3mir7MirBody11walk_places11for_operand17h701013d9488e36cbE.exit41
 
-36:                                               ; preds = %28
-  %37 = getelementptr inbounds i8, ptr %.sroa.061.078, i64 32
-  tail call fastcc void @"_ZN6hir_ty3mir5lower26mir_body_for_closure_query28_$u7b$$u7b$closure$u7d$$u7d$17hcdc2a249a6fa2b67E"(ptr noalias noundef align 8 dereferenceable(32) %1, ptr noalias noundef align 4 dereferenceable(8) %37, ptr noalias noundef align 8 dereferenceable(64) %9)
-  %38 = getelementptr inbounds i8, ptr %.sroa.061.078, i64 16
-  %39 = load i32, ptr %38, align 8, !range !1419, !alias.scope !29490, !noalias !29493, !noundef !9
-  %switch.i36 = icmp ult i32 %39, 2
-  br i1 %switch.i36, label %40, label %_ZN6hir_ty3mir7MirBody11walk_places11for_operand17h701013d9488e36cbE.exit
-
-40:                                               ; preds = %36
-  %.0.i37 = getelementptr inbounds i8, ptr %.sroa.061.078, i64 20
-  tail call fastcc void @"_ZN6hir_ty3mir5lower26mir_body_for_closure_query28_$u7b$$u7b$closure$u7d$$u7d$17hcdc2a249a6fa2b67E"(ptr noalias noundef readonly align 8 dereferenceable(32) %1, ptr noalias noundef align 4 dereferenceable(8) %.0.i37, ptr noalias noundef align 8 dereferenceable(64) %9)
-  br label %_ZN6hir_ty3mir7MirBody11walk_places11for_operand17h701013d9488e36cbE.exit
-
-41:                                               ; preds = %28
-  %42 = getelementptr inbounds i8, ptr %.sroa.061.078, i64 24
-  %43 = load i32, ptr %42, align 8, !range !1419, !alias.scope !29496, !noalias !29499, !noundef !9
-  %switch.i39 = icmp ult i32 %43, 2
-  br i1 %switch.i39, label %44, label %_ZN6hir_ty3mir7MirBody11walk_places11for_operand17h701013d9488e36cbE.exit41
-
-44:                                               ; preds = %41
+40:                                               ; preds = %37
   %.0.i40 = getelementptr inbounds i8, ptr %.sroa.061.078, i64 28
   tail call fastcc void @"_ZN6hir_ty3mir5lower26mir_body_for_closure_query28_$u7b$$u7b$closure$u7d$$u7d$17hcdc2a249a6fa2b67E"(ptr noalias noundef readonly align 8 dereferenceable(32) %1, ptr noalias noundef align 4 dereferenceable(8) %.0.i40, ptr noalias noundef align 8 dereferenceable(64) %9)
   br label %_ZN6hir_ty3mir7MirBody11walk_places11for_operand17h701013d9488e36cbE.exit41
 
-_ZN6hir_ty3mir7MirBody11walk_places11for_operand17h701013d9488e36cbE.exit41: ; preds = %41, %44
-  %45 = getelementptr inbounds i8, ptr %.sroa.061.078, i64 40
-  %46 = load ptr, ptr %45, align 8, !nonnull !9, !align !30, !noundef !9
-  %47 = getelementptr inbounds i8, ptr %.sroa.061.078, i64 48
-  %48 = load i64, ptr %47, align 8, !noundef !9
-  %49 = getelementptr inbounds { i32, [3 x i32] }, ptr %46, i64 %48
-  %50 = icmp eq i64 %48, 0
-  br i1 %50, label %"_ZN94_$LT$core..slice..iter..IterMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8for_each17h284ab6db09b4e897E.exit", label %.lr.ph.i
+_ZN6hir_ty3mir7MirBody11walk_places11for_operand17h701013d9488e36cbE.exit41: ; preds = %37, %40
+  %41 = getelementptr inbounds i8, ptr %.sroa.061.078, i64 40
+  %42 = load ptr, ptr %41, align 8, !nonnull !9, !align !30, !noundef !9
+  %43 = getelementptr inbounds i8, ptr %.sroa.061.078, i64 48
+  %44 = load i64, ptr %43, align 8, !noundef !9
+  %45 = getelementptr inbounds { i32, [3 x i32] }, ptr %42, i64 %44
+  %46 = icmp eq i64 %44, 0
+  br i1 %46, label %_ZN6hir_ty3mir7MirBody11walk_places11for_operand17h701013d9488e36cbE.exit.sink.split, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %_ZN6hir_ty3mir7MirBody11walk_places11for_operand17h701013d9488e36cbE.exit41, %"_ZN6hir_ty3mir7MirBody11walk_places28_$u7b$$u7b$closure$u7d$$u7d$17hf3102d86123ae567E.exit.i"
-  %.sroa.0.08.i = phi ptr [ %51, %"_ZN6hir_ty3mir7MirBody11walk_places28_$u7b$$u7b$closure$u7d$$u7d$17hf3102d86123ae567E.exit.i" ], [ %46, %_ZN6hir_ty3mir7MirBody11walk_places11for_operand17h701013d9488e36cbE.exit41 ]
-  %51 = getelementptr inbounds i8, ptr %.sroa.0.08.i, i64 16
-  %52 = load i32, ptr %.sroa.0.08.i, align 8, !range !1419, !alias.scope !29502, !noalias !29507, !noundef !9
-  %switch.i.i.i = icmp ult i32 %52, 2
-  br i1 %switch.i.i.i, label %53, label %"_ZN6hir_ty3mir7MirBody11walk_places28_$u7b$$u7b$closure$u7d$$u7d$17hf3102d86123ae567E.exit.i"
+  %.sroa.0.08.i = phi ptr [ %47, %"_ZN6hir_ty3mir7MirBody11walk_places28_$u7b$$u7b$closure$u7d$$u7d$17hf3102d86123ae567E.exit.i" ], [ %42, %_ZN6hir_ty3mir7MirBody11walk_places11for_operand17h701013d9488e36cbE.exit41 ]
+  %47 = getelementptr inbounds i8, ptr %.sroa.0.08.i, i64 16
+  %48 = load i32, ptr %.sroa.0.08.i, align 8, !range !1419, !alias.scope !29502, !noalias !29507, !noundef !9
+  %switch.i.i.i = icmp ult i32 %48, 2
+  br i1 %switch.i.i.i, label %49, label %"_ZN6hir_ty3mir7MirBody11walk_places28_$u7b$$u7b$closure$u7d$$u7d$17hf3102d86123ae567E.exit.i"
 
-53:                                               ; preds = %.lr.ph.i
+49:                                               ; preds = %.lr.ph.i
   %.0.i.i.i = getelementptr inbounds i8, ptr %.sroa.0.08.i, i64 4
   tail call fastcc void @"_ZN6hir_ty3mir5lower26mir_body_for_closure_query28_$u7b$$u7b$closure$u7d$$u7d$17hcdc2a249a6fa2b67E"(ptr noalias noundef readonly align 8 dereferenceable(32) %1, ptr noalias noundef align 4 dereferenceable(8) %.0.i.i.i, ptr noalias noundef align 8 dereferenceable(64) %9)
   br label %"_ZN6hir_ty3mir7MirBody11walk_places28_$u7b$$u7b$closure$u7d$$u7d$17hf3102d86123ae567E.exit.i"
 
-"_ZN6hir_ty3mir7MirBody11walk_places28_$u7b$$u7b$closure$u7d$$u7d$17hf3102d86123ae567E.exit.i": ; preds = %53, %.lr.ph.i
-  %54 = icmp eq ptr %51, %49
-  br i1 %54, label %"_ZN94_$LT$core..slice..iter..IterMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8for_each17h284ab6db09b4e897E.exit", label %.lr.ph.i
+"_ZN6hir_ty3mir7MirBody11walk_places28_$u7b$$u7b$closure$u7d$$u7d$17hf3102d86123ae567E.exit.i": ; preds = %49, %.lr.ph.i
+  %50 = icmp eq ptr %47, %45
+  br i1 %50, label %_ZN6hir_ty3mir7MirBody11walk_places11for_operand17h701013d9488e36cbE.exit.sink.split, label %.lr.ph.i
 
-"_ZN94_$LT$core..slice..iter..IterMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8for_each17h284ab6db09b4e897E.exit": ; preds = %"_ZN6hir_ty3mir7MirBody11walk_places28_$u7b$$u7b$closure$u7d$$u7d$17hf3102d86123ae567E.exit.i", %_ZN6hir_ty3mir7MirBody11walk_places11for_operand17h701013d9488e36cbE.exit41
-  %55 = getelementptr inbounds i8, ptr %.sroa.061.078, i64 56
-  tail call fastcc void @"_ZN6hir_ty3mir5lower26mir_body_for_closure_query28_$u7b$$u7b$closure$u7d$$u7d$17hcdc2a249a6fa2b67E"(ptr noalias noundef align 8 dereferenceable(32) %1, ptr noalias noundef align 4 dereferenceable(8) %55, ptr noalias noundef align 8 dereferenceable(64) %9)
-  br label %_ZN6hir_ty3mir7MirBody11walk_places11for_operand17h701013d9488e36cbE.exit
+51:                                               ; preds = %28
+  %52 = getelementptr inbounds i8, ptr %.sroa.061.078, i64 16
+  %53 = load i32, ptr %52, align 8, !range !1419, !alias.scope !29513, !noalias !29516, !noundef !9
+  %switch.i42 = icmp ult i32 %53, 2
+  br i1 %switch.i42, label %_ZN6hir_ty3mir7MirBody11walk_places11for_operand17h701013d9488e36cbE.exit.sink.split, label %_ZN6hir_ty3mir7MirBody11walk_places11for_operand17h701013d9488e36cbE.exit
 
-56:                                               ; preds = %28
-  %57 = getelementptr inbounds i8, ptr %.sroa.061.078, i64 16
-  %58 = load i32, ptr %57, align 8, !range !1419, !alias.scope !29513, !noalias !29516, !noundef !9
-  %switch.i42 = icmp ult i32 %58, 2
-  br i1 %switch.i42, label %59, label %_ZN6hir_ty3mir7MirBody11walk_places11for_operand17h701013d9488e36cbE.exit
+54:                                               ; preds = %28
+  %55 = getelementptr inbounds i8, ptr %.sroa.061.078, i64 16
+  %56 = load i32, ptr %55, align 8, !range !1419, !alias.scope !29519, !noalias !29522, !noundef !9
+  %switch.i45 = icmp ult i32 %56, 2
+  br i1 %switch.i45, label %57, label %_ZN6hir_ty3mir7MirBody11walk_places11for_operand17h701013d9488e36cbE.exit.sink.split
 
-59:                                               ; preds = %56
-  %.0.i43 = getelementptr inbounds i8, ptr %.sroa.061.078, i64 20
-  tail call fastcc void @"_ZN6hir_ty3mir5lower26mir_body_for_closure_query28_$u7b$$u7b$closure$u7d$$u7d$17hcdc2a249a6fa2b67E"(ptr noalias noundef readonly align 8 dereferenceable(32) %1, ptr noalias noundef align 4 dereferenceable(8) %.0.i43, ptr noalias noundef align 8 dereferenceable(64) %9)
-  br label %_ZN6hir_ty3mir7MirBody11walk_places11for_operand17h701013d9488e36cbE.exit
-
-60:                                               ; preds = %28
-  %61 = getelementptr inbounds i8, ptr %.sroa.061.078, i64 16
-  %62 = load i32, ptr %61, align 8, !range !1419, !alias.scope !29519, !noalias !29522, !noundef !9
-  %switch.i45 = icmp ult i32 %62, 2
-  br i1 %switch.i45, label %63, label %_ZN6hir_ty3mir7MirBody11walk_places11for_operand17h701013d9488e36cbE.exit47
-
-63:                                               ; preds = %60
+57:                                               ; preds = %54
   %.0.i46 = getelementptr inbounds i8, ptr %.sroa.061.078, i64 20
   tail call fastcc void @"_ZN6hir_ty3mir5lower26mir_body_for_closure_query28_$u7b$$u7b$closure$u7d$$u7d$17hcdc2a249a6fa2b67E"(ptr noalias noundef readonly align 8 dereferenceable(32) %1, ptr noalias noundef align 4 dereferenceable(8) %.0.i46, ptr noalias noundef align 8 dereferenceable(64) %9)
-  br label %_ZN6hir_ty3mir7MirBody11walk_places11for_operand17h701013d9488e36cbE.exit47
+  br label %_ZN6hir_ty3mir7MirBody11walk_places11for_operand17h701013d9488e36cbE.exit.sink.split
 
-_ZN6hir_ty3mir7MirBody11walk_places11for_operand17h701013d9488e36cbE.exit47: ; preds = %60, %63
-  %64 = getelementptr inbounds i8, ptr %.sroa.061.078, i64 32
-  tail call fastcc void @"_ZN6hir_ty3mir5lower26mir_body_for_closure_query28_$u7b$$u7b$closure$u7d$$u7d$17hcdc2a249a6fa2b67E"(ptr noalias noundef align 8 dereferenceable(32) %1, ptr noalias noundef align 4 dereferenceable(8) %64, ptr noalias noundef align 8 dereferenceable(64) %9)
-  br label %_ZN6hir_ty3mir7MirBody11walk_places11for_operand17h701013d9488e36cbE.exit
-
-65:                                               ; preds = %.lr.ph77
-  %66 = getelementptr inbounds i8, ptr %.sroa.062.076, i64 56
-  tail call fastcc void @"_ZN6hir_ty3mir5lower26mir_body_for_closure_query28_$u7b$$u7b$closure$u7d$$u7d$17hcdc2a249a6fa2b67E"(ptr noalias noundef align 8 dereferenceable(32) %1, ptr noalias noundef align 4 dereferenceable(8) %66, ptr noalias noundef align 8 dereferenceable(64) %9)
-  %67 = load i8, ptr %20, align 8, !range !29525, !noundef !9
-  switch i8 %67, label %default.unreachable83 [
-    i8 0, label %86
-    i8 1, label %69
-    i8 2, label %90
-    i8 3, label %90
-    i8 4, label %70
-    i8 5, label %71
-    i8 6, label %86
-    i8 7, label %90
-    i8 8, label %78
-    i8 9, label %85
+58:                                               ; preds = %.lr.ph77
+  %59 = getelementptr inbounds i8, ptr %.sroa.062.076, i64 56
+  tail call fastcc void @"_ZN6hir_ty3mir5lower26mir_body_for_closure_query28_$u7b$$u7b$closure$u7d$$u7d$17hcdc2a249a6fa2b67E"(ptr noalias noundef align 8 dereferenceable(32) %1, ptr noalias noundef align 4 dereferenceable(8) %59, ptr noalias noundef align 8 dereferenceable(64) %9)
+  %60 = load i8, ptr %20, align 8, !range !29525, !noundef !9
+  switch i8 %60, label %default.unreachable83 [
+    i8 0, label %79
+    i8 1, label %62
+    i8 2, label %83
+    i8 3, label %83
+    i8 4, label %63
+    i8 5, label %64
+    i8 6, label %79
+    i8 7, label %83
+    i8 8, label %71
+    i8 9, label %78
     i8 10, label %_ZN6hir_ty3mir7MirBody11walk_places11for_operand17h701013d9488e36cbE.exit53
-    i8 11, label %90
+    i8 11, label %83
   ]
 
-_ZN6hir_ty3mir7MirBody11walk_places11for_operand17h701013d9488e36cbE.exit53: ; preds = %_ZN6hir_ty3mir7MirBody11walk_places11for_operand17h701013d9488e36cbE.exit60, %78, %89, %86, %77, %_ZN6hir_ty3mir7MirBody11walk_places11for_operand17h701013d9488e36cbE.exit50, %65, %90, %95, %.lr.ph77, %.lr.ph77, %.lr.ph77
-  %68 = icmp eq ptr %19, %14
-  br i1 %68, label %._crit_edge, label %.lr.ph77
+_ZN6hir_ty3mir7MirBody11walk_places11for_operand17h701013d9488e36cbE.exit53.sink.split: ; preds = %88, %83, %70, %82
+  %.0.i55.sink = phi ptr [ %.0.i55, %82 ], [ %.0.i52, %70 ], [ %.032, %83 ], [ %.0, %88 ]
+  tail call fastcc void @"_ZN6hir_ty3mir5lower26mir_body_for_closure_query28_$u7b$$u7b$closure$u7d$$u7d$17hcdc2a249a6fa2b67E"(ptr noalias noundef align 8 dereferenceable(32) %1, ptr noalias noundef align 4 dereferenceable(8) %.0.i55.sink, ptr noalias noundef align 8 dereferenceable(64) %9)
+  br label %_ZN6hir_ty3mir7MirBody11walk_places11for_operand17h701013d9488e36cbE.exit53
 
-69:                                               ; preds = %65
-  br label %86
+_ZN6hir_ty3mir7MirBody11walk_places11for_operand17h701013d9488e36cbE.exit53: ; preds = %_ZN6hir_ty3mir7MirBody11walk_places11for_operand17h701013d9488e36cbE.exit60, %_ZN6hir_ty3mir7MirBody11walk_places11for_operand17h701013d9488e36cbE.exit53.sink.split, %71, %79, %_ZN6hir_ty3mir7MirBody11walk_places11for_operand17h701013d9488e36cbE.exit50, %58, %.lr.ph77, %.lr.ph77, %.lr.ph77
+  %61 = icmp eq ptr %19, %14
+  br i1 %61, label %._crit_edge, label %.lr.ph77
 
-70:                                               ; preds = %65
-  br label %86
+62:                                               ; preds = %58
+  br label %79
 
-71:                                               ; preds = %65
-  %72 = getelementptr inbounds i8, ptr %.sroa.062.076, i64 16
-  %73 = load i32, ptr %72, align 8, !range !1419, !alias.scope !29526, !noalias !29529, !noundef !9
-  %switch.i48 = icmp ult i32 %73, 2
-  br i1 %switch.i48, label %74, label %_ZN6hir_ty3mir7MirBody11walk_places11for_operand17h701013d9488e36cbE.exit50
+63:                                               ; preds = %58
+  br label %79
 
-74:                                               ; preds = %71
+64:                                               ; preds = %58
+  %65 = getelementptr inbounds i8, ptr %.sroa.062.076, i64 16
+  %66 = load i32, ptr %65, align 8, !range !1419, !alias.scope !29526, !noalias !29529, !noundef !9
+  %switch.i48 = icmp ult i32 %66, 2
+  br i1 %switch.i48, label %67, label %_ZN6hir_ty3mir7MirBody11walk_places11for_operand17h701013d9488e36cbE.exit50
+
+67:                                               ; preds = %64
   %.0.i49 = getelementptr inbounds i8, ptr %.sroa.062.076, i64 20
   tail call fastcc void @"_ZN6hir_ty3mir5lower26mir_body_for_closure_query28_$u7b$$u7b$closure$u7d$$u7d$17hcdc2a249a6fa2b67E"(ptr noalias noundef readonly align 8 dereferenceable(32) %1, ptr noalias noundef align 4 dereferenceable(8) %.0.i49, ptr noalias noundef align 8 dereferenceable(64) %9)
   br label %_ZN6hir_ty3mir7MirBody11walk_places11for_operand17h701013d9488e36cbE.exit50
 
-_ZN6hir_ty3mir7MirBody11walk_places11for_operand17h701013d9488e36cbE.exit50: ; preds = %71, %74
-  %75 = getelementptr inbounds i8, ptr %.sroa.062.076, i64 32
-  %76 = load i32, ptr %75, align 8, !range !1419, !alias.scope !29532, !noalias !29535, !noundef !9
-  %switch.i51 = icmp ult i32 %76, 2
-  br i1 %switch.i51, label %77, label %_ZN6hir_ty3mir7MirBody11walk_places11for_operand17h701013d9488e36cbE.exit53
+_ZN6hir_ty3mir7MirBody11walk_places11for_operand17h701013d9488e36cbE.exit50: ; preds = %64, %67
+  %68 = getelementptr inbounds i8, ptr %.sroa.062.076, i64 32
+  %69 = load i32, ptr %68, align 8, !range !1419, !alias.scope !29532, !noalias !29535, !noundef !9
+  %switch.i51 = icmp ult i32 %69, 2
+  br i1 %switch.i51, label %70, label %_ZN6hir_ty3mir7MirBody11walk_places11for_operand17h701013d9488e36cbE.exit53
 
-77:                                               ; preds = %_ZN6hir_ty3mir7MirBody11walk_places11for_operand17h701013d9488e36cbE.exit50
+70:                                               ; preds = %_ZN6hir_ty3mir7MirBody11walk_places11for_operand17h701013d9488e36cbE.exit50
   %.0.i52 = getelementptr inbounds i8, ptr %.sroa.062.076, i64 36
-  tail call fastcc void @"_ZN6hir_ty3mir5lower26mir_body_for_closure_query28_$u7b$$u7b$closure$u7d$$u7d$17hcdc2a249a6fa2b67E"(ptr noalias noundef readonly align 8 dereferenceable(32) %1, ptr noalias noundef align 4 dereferenceable(8) %.0.i52, ptr noalias noundef align 8 dereferenceable(64) %9)
-  br label %_ZN6hir_ty3mir7MirBody11walk_places11for_operand17h701013d9488e36cbE.exit53
+  br label %_ZN6hir_ty3mir7MirBody11walk_places11for_operand17h701013d9488e36cbE.exit53.sink.split
 
-78:                                               ; preds = %65
-  %79 = getelementptr inbounds i8, ptr %.sroa.062.076, i64 16
-  %80 = load ptr, ptr %79, align 8, !nonnull !9, !align !30, !noundef !9
-  %81 = getelementptr inbounds i8, ptr %.sroa.062.076, i64 24
-  %82 = load i64, ptr %81, align 8, !noundef !9
-  %83 = getelementptr inbounds { i32, [3 x i32] }, ptr %80, i64 %82
-  %84 = icmp eq i64 %82, 0
-  br i1 %84, label %_ZN6hir_ty3mir7MirBody11walk_places11for_operand17h701013d9488e36cbE.exit53, label %.lr.ph
+71:                                               ; preds = %58
+  %72 = getelementptr inbounds i8, ptr %.sroa.062.076, i64 16
+  %73 = load ptr, ptr %72, align 8, !nonnull !9, !align !30, !noundef !9
+  %74 = getelementptr inbounds i8, ptr %.sroa.062.076, i64 24
+  %75 = load i64, ptr %74, align 8, !noundef !9
+  %76 = getelementptr inbounds { i32, [3 x i32] }, ptr %73, i64 %75
+  %77 = icmp eq i64 %75, 0
+  br i1 %77, label %_ZN6hir_ty3mir7MirBody11walk_places11for_operand17h701013d9488e36cbE.exit53, label %.lr.ph
 
-85:                                               ; preds = %65
-  br label %86
+78:                                               ; preds = %58
+  br label %79
 
-86:                                               ; preds = %65, %65, %85, %70, %69
-  %.sink = phi i64 [ 24, %85 ], [ 24, %70 ], [ 24, %69 ], [ 16, %65 ], [ 16, %65 ]
-  %87 = getelementptr inbounds i8, ptr %.sroa.062.076, i64 %.sink
-  %88 = load i32, ptr %87, align 8, !range !1419, !alias.scope !29538, !noalias !29541, !noundef !9
-  %switch.i54 = icmp ult i32 %88, 2
-  br i1 %switch.i54, label %89, label %_ZN6hir_ty3mir7MirBody11walk_places11for_operand17h701013d9488e36cbE.exit53
+79:                                               ; preds = %58, %58, %78, %63, %62
+  %.sink85 = phi i64 [ 24, %78 ], [ 24, %63 ], [ 24, %62 ], [ 16, %58 ], [ 16, %58 ]
+  %80 = getelementptr inbounds i8, ptr %.sroa.062.076, i64 %.sink85
+  %81 = load i32, ptr %80, align 8, !range !1419, !alias.scope !29538, !noalias !29541, !noundef !9
+  %switch.i54 = icmp ult i32 %81, 2
+  br i1 %switch.i54, label %82, label %_ZN6hir_ty3mir7MirBody11walk_places11for_operand17h701013d9488e36cbE.exit53
 
-89:                                               ; preds = %86
-  %.0.i55 = getelementptr inbounds i8, ptr %87, i64 4
-  tail call fastcc void @"_ZN6hir_ty3mir5lower26mir_body_for_closure_query28_$u7b$$u7b$closure$u7d$$u7d$17hcdc2a249a6fa2b67E"(ptr noalias noundef readonly align 8 dereferenceable(32) %1, ptr noalias noundef align 4 dereferenceable(8) %.0.i55, ptr noalias noundef align 8 dereferenceable(64) %9)
-  br label %_ZN6hir_ty3mir7MirBody11walk_places11for_operand17h701013d9488e36cbE.exit53
+82:                                               ; preds = %79
+  %.0.i55 = getelementptr inbounds i8, ptr %80, i64 4
+  br label %_ZN6hir_ty3mir7MirBody11walk_places11for_operand17h701013d9488e36cbE.exit53.sink.split
 
-90:                                               ; preds = %65, %65, %65, %65
+83:                                               ; preds = %58, %58, %58, %58
   %.032 = getelementptr inbounds i8, ptr %.sroa.062.076, i64 12
-  tail call fastcc void @"_ZN6hir_ty3mir5lower26mir_body_for_closure_query28_$u7b$$u7b$closure$u7d$$u7d$17hcdc2a249a6fa2b67E"(ptr noalias noundef align 8 dereferenceable(32) %1, ptr noalias noundef align 4 dereferenceable(8) %.032, ptr noalias noundef align 8 dereferenceable(64) %9)
-  br label %_ZN6hir_ty3mir7MirBody11walk_places11for_operand17h701013d9488e36cbE.exit53
+  br label %_ZN6hir_ty3mir7MirBody11walk_places11for_operand17h701013d9488e36cbE.exit53.sink.split
 
-.lr.ph:                                           ; preds = %78, %_ZN6hir_ty3mir7MirBody11walk_places11for_operand17h701013d9488e36cbE.exit60
-  %.sroa.064.075 = phi ptr [ %91, %_ZN6hir_ty3mir7MirBody11walk_places11for_operand17h701013d9488e36cbE.exit60 ], [ %80, %78 ]
-  %91 = getelementptr inbounds i8, ptr %.sroa.064.075, i64 16
-  %92 = load i32, ptr %.sroa.064.075, align 8, !range !1419, !alias.scope !29544, !noalias !29547, !noundef !9
-  %switch.i58 = icmp ult i32 %92, 2
-  br i1 %switch.i58, label %93, label %_ZN6hir_ty3mir7MirBody11walk_places11for_operand17h701013d9488e36cbE.exit60
+.lr.ph:                                           ; preds = %71, %_ZN6hir_ty3mir7MirBody11walk_places11for_operand17h701013d9488e36cbE.exit60
+  %.sroa.064.075 = phi ptr [ %84, %_ZN6hir_ty3mir7MirBody11walk_places11for_operand17h701013d9488e36cbE.exit60 ], [ %73, %71 ]
+  %84 = getelementptr inbounds i8, ptr %.sroa.064.075, i64 16
+  %85 = load i32, ptr %.sroa.064.075, align 8, !range !1419, !alias.scope !29544, !noalias !29547, !noundef !9
+  %switch.i58 = icmp ult i32 %85, 2
+  br i1 %switch.i58, label %86, label %_ZN6hir_ty3mir7MirBody11walk_places11for_operand17h701013d9488e36cbE.exit60
 
-93:                                               ; preds = %.lr.ph
+86:                                               ; preds = %.lr.ph
   %.0.i59 = getelementptr inbounds i8, ptr %.sroa.064.075, i64 4
   tail call fastcc void @"_ZN6hir_ty3mir5lower26mir_body_for_closure_query28_$u7b$$u7b$closure$u7d$$u7d$17hcdc2a249a6fa2b67E"(ptr noalias noundef readonly align 8 dereferenceable(32) %1, ptr noalias noundef align 4 dereferenceable(8) %.0.i59, ptr noalias noundef align 8 dereferenceable(64) %9)
   br label %_ZN6hir_ty3mir7MirBody11walk_places11for_operand17h701013d9488e36cbE.exit60
 
-_ZN6hir_ty3mir7MirBody11walk_places11for_operand17h701013d9488e36cbE.exit60: ; preds = %.lr.ph, %93
-  %94 = icmp eq ptr %91, %83
-  br i1 %94, label %_ZN6hir_ty3mir7MirBody11walk_places11for_operand17h701013d9488e36cbE.exit53, label %.lr.ph
+_ZN6hir_ty3mir7MirBody11walk_places11for_operand17h701013d9488e36cbE.exit60: ; preds = %.lr.ph, %86
+  %87 = icmp eq ptr %84, %76
+  br i1 %87, label %_ZN6hir_ty3mir7MirBody11walk_places11for_operand17h701013d9488e36cbE.exit53, label %.lr.ph
 
-95:                                               ; preds = %.lr.ph77, %.lr.ph77
+88:                                               ; preds = %.lr.ph77, %.lr.ph77
   %.0 = getelementptr inbounds i8, ptr %.sroa.062.076, i64 12
-  tail call fastcc void @"_ZN6hir_ty3mir5lower26mir_body_for_closure_query28_$u7b$$u7b$closure$u7d$$u7d$17hcdc2a249a6fa2b67E"(ptr noalias noundef align 8 dereferenceable(32) %1, ptr noalias noundef align 4 dereferenceable(8) %.0, ptr noalias noundef align 8 dereferenceable(64) %9)
-  br label %_ZN6hir_ty3mir7MirBody11walk_places11for_operand17h701013d9488e36cbE.exit53
+  br label %_ZN6hir_ty3mir7MirBody11walk_places11for_operand17h701013d9488e36cbE.exit53.sink.split
 }
 
 ; Function Attrs: nonlazybind uwtable

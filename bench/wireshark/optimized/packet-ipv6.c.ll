@@ -3154,7 +3154,7 @@ p_ipv6_pinfo_add_len.exit.thread:                 ; preds = %p_ipv6_pinfo_select
   %57 = tail call ptr @proto_tree_add_item(ptr noundef %47, i32 noundef %56, ptr noundef %0, i32 noundef 2, i32 noundef 2, i32 noundef 0) #13
   %58 = load i32, ptr @hf_ipv6_fraghdr_ident, align 4
   %59 = tail call ptr @proto_tree_add_item(ptr noundef %47, i32 noundef %58, ptr noundef %0, i32 noundef 4, i32 noundef 4, i32 noundef 0) #13
-  br i1 %29, label %82, label %60
+  br i1 %29, label %80, label %60
 
 60:                                               ; preds = %44
   %61 = getelementptr inbounds i8, ptr %28, i64 8
@@ -3163,7 +3163,7 @@ p_ipv6_pinfo_add_len.exit.thread:                 ; preds = %p_ipv6_pinfo_select
   %64 = and i16 %8, -7
   %or.cond.not = icmp eq i16 %64, 0
   %or.cond = select i1 %63, i1 true, i1 %or.cond.not
-  br i1 %or.cond, label %82, label %65
+  br i1 %or.cond, label %80, label %65
 
 65:                                               ; preds = %60
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6)
@@ -3187,50 +3187,48 @@ p_ipv6_pinfo_add_len.exit.thread:                 ; preds = %p_ipv6_pinfo_select
   %73 = tail call ptr @fragment_add_check(ptr noundef nonnull @ipv6_reassembly_table, ptr noundef %0, i32 noundef 8, ptr noundef nonnull %1, i32 noundef %12, ptr noundef null, i32 noundef %15, i32 noundef %62, i32 noundef %11) #13
   %74 = call ptr @process_reassembled_data(ptr noundef %0, i32 noundef 8, ptr noundef nonnull %1, ptr noundef nonnull @.str.909, ptr noundef %73, ptr noundef nonnull @ipv6_frag_items, ptr noundef nonnull %6, ptr noundef %.0.i) #13
   %.not27.i = icmp eq ptr %74, null
-  br i1 %.not27.i, label %75, label %79
+  br i1 %.not27.i, label %75, label %78
 
 .thread:                                          ; preds = %68
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6)
-  br label %82
+  br label %80
 
 75:                                               ; preds = %68, %70, %72
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6)
   %76 = call ptr @tvb_new_subset_remaining(ptr noundef %0, i32 noundef 8) #13
   %77 = call i32 @call_data_dissector(ptr noundef %76, ptr noundef nonnull %1, ptr noundef %2) #13
-  %78 = call i32 @tvb_captured_length(ptr noundef %0) #13
-  br label %94
+  br label %91
 
-79:                                               ; preds = %72
+78:                                               ; preds = %72
   store i32 0, ptr %66, align 8
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6)
   store i32 0, ptr %61, align 8
-  %80 = call ptr @tvb_new_subset_remaining(ptr noundef nonnull %74, i32 noundef 0) #13
-  call void @ipv6_dissect_next(i32 noundef %17, ptr noundef %80, ptr noundef nonnull %1, ptr noundef %2, ptr noundef %3)
-  %81 = call i32 @tvb_captured_length(ptr noundef nonnull %74) #13
-  br label %94
+  %79 = call ptr @tvb_new_subset_remaining(ptr noundef nonnull %74, i32 noundef 0) #13
+  call void @ipv6_dissect_next(i32 noundef %17, ptr noundef %79, ptr noundef nonnull %1, ptr noundef %2, ptr noundef %3)
+  br label %91
 
-82:                                               ; preds = %.thread, %60, %44
+80:                                               ; preds = %.thread, %60, %44
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %5)
   store i8 %7, ptr %5, align 1
+  %81 = load ptr, ptr %18, align 8
+  %82 = call noalias ptr @wmem_memdup(ptr noundef %81, ptr noundef nonnull %5, i64 noundef 1) #13
   %83 = load ptr, ptr %18, align 8
-  %84 = call noalias ptr @wmem_memdup(ptr noundef %83, ptr noundef nonnull %5, i64 noundef 1) #13
-  %85 = load ptr, ptr %18, align 8
-  %86 = load i32, ptr @proto_ipv6, align 4
-  %87 = getelementptr inbounds i8, ptr %1, i64 376
-  %88 = load i8, ptr %87, align 8
-  %89 = zext i8 %88 to i32
-  %90 = shl nuw nsw i32 %89, 8
-  %91 = or disjoint i32 %90, 1
-  call void @p_add_proto_data(ptr noundef %85, ptr noundef nonnull %1, i32 noundef %86, i32 noundef %91, ptr noundef %84) #13
+  %84 = load i32, ptr @proto_ipv6, align 4
+  %85 = getelementptr inbounds i8, ptr %1, i64 376
+  %86 = load i8, ptr %85, align 8
+  %87 = zext i8 %86 to i32
+  %88 = shl nuw nsw i32 %87, 8
+  %89 = or disjoint i32 %88, 1
+  call void @p_add_proto_data(ptr noundef %83, ptr noundef nonnull %1, i32 noundef %84, i32 noundef %89, ptr noundef %82) #13
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5)
-  %92 = call ptr @tvb_new_subset_remaining(ptr noundef %0, i32 noundef 8) #13
-  call void @ipv6_dissect_next(i32 noundef %17, ptr noundef %92, ptr noundef nonnull %1, ptr noundef %2, ptr noundef %3)
-  %93 = call i32 @tvb_captured_length(ptr noundef %0) #13
-  br label %94
+  %90 = call ptr @tvb_new_subset_remaining(ptr noundef %0, i32 noundef 8) #13
+  call void @ipv6_dissect_next(i32 noundef %17, ptr noundef %90, ptr noundef nonnull %1, ptr noundef %2, ptr noundef %3)
+  br label %91
 
-94:                                               ; preds = %82, %79, %75
-  %.0 = phi i32 [ %78, %75 ], [ %81, %79 ], [ %93, %82 ]
-  ret i32 %.0
+91:                                               ; preds = %80, %78, %75
+  %.sink = phi ptr [ %0, %80 ], [ %74, %78 ], [ %0, %75 ]
+  %92 = call i32 @tvb_captured_length(ptr noundef %.sink) #13
+  ret i32 %92
 }
 
 ; Function Attrs: nounwind uwtable

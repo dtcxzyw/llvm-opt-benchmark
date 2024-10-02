@@ -11567,9 +11567,9 @@ if.then:                                          ; preds = %for.cond.i.i
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %p.i)
   store ptr %s, ptr %p.i, align 8
   %or.cond.i.i = icmp ugt i32 %req_comp, 4
-  br i1 %or.cond.i.i, label %if.then.i.i12, label %if.end.i.i
+  br i1 %or.cond.i.i, label %if.then.i.i11, label %if.end.i.i
 
-if.then.i.i12:                                    ; preds = %if.then
+if.then.i.i11:                                    ; preds = %if.then
   %16 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZL22stbi__g_failure_reason)
   store ptr @.str.7, ptr %16, align 8
   br label %_ZL14stbi__png_loadP13stbi__contextPiS1_S1_iP17stbi__result_info.exit
@@ -11623,7 +11623,7 @@ if.then20.i.i:                                    ; preds = %land.lhs.true.i.i
 
 if.end.i.i.i8:                                    ; preds = %if.then20.i.i
   %or.cond.not.i.i.i.i.i.i = icmp sgt i32 %21, -1
-  br i1 %or.cond.not.i.i.i.i.i.i, label %if.end.i.i.i.i.i.i, label %if.then2.i.i.i9
+  br i1 %or.cond.not.i.i.i.i.i.i, label %if.end.i.i.i.i.i.i, label %if.end37.thread.i.i
 
 if.end.i.i.i.i.i.i:                               ; preds = %if.end.i.i.i8
   %cmp2.i.i.i.i.i.i = icmp eq i32 %21, 0
@@ -11632,13 +11632,13 @@ if.end.i.i.i.i.i.i:                               ; preds = %if.end.i.i.i8
 _ZL21stbi__mul2sizes_validii.exit.i.i.i.i.i:      ; preds = %if.end.i.i.i.i.i.i
   %div.i.i.i.i.i.i = udiv i32 2147483647, %21
   %cmp5.i.not.i.i.i.i.i = icmp ugt i32 %req_comp, %div.i.i.i.i.i.i
-  br i1 %cmp5.i.not.i.i.i.i.i, label %if.then2.i.i.i9, label %land.lhs.true.i.i.i.i.i
+  br i1 %cmp5.i.not.i.i.i.i.i, label %if.end37.thread.i.i, label %land.lhs.true.i.i.i.i.i
 
 land.lhs.true.i.i.i.i.i:                          ; preds = %_ZL21stbi__mul2sizes_validii.exit.i.i.i.i.i, %if.end.i.i.i.i.i.i
   %mul.i.i.i.i.i = mul i32 %21, %req_comp
   %23 = or i32 %22, %mul.i.i.i.i.i
   %or.cond.not.i6.i.i.i.i.i = icmp sgt i32 %23, -1
-  br i1 %or.cond.not.i6.i.i.i.i.i, label %if.end.i8.i.i.i.i.i, label %if.then2.i.i.i9
+  br i1 %or.cond.not.i6.i.i.i.i.i, label %if.end.i8.i.i.i.i.i, label %if.end37.thread.i.i
 
 if.end.i8.i.i.i.i.i:                              ; preds = %land.lhs.true.i.i.i.i.i
   %cmp2.i9.i.i.i.i.i = icmp eq i32 %22, 0
@@ -11647,14 +11647,14 @@ if.end.i8.i.i.i.i.i:                              ; preds = %land.lhs.true.i.i.i
 _ZL21stbi__mul2sizes_validii.exit14.i.i.i.i.i:    ; preds = %if.end.i8.i.i.i.i.i
   %div.i11.i.i.i.i.i = udiv i32 2147483647, %22
   %cmp5.i12.not.i.i.i.i.i = icmp sgt i32 %mul.i.i.i.i.i, %div.i11.i.i.i.i.i
-  br i1 %cmp5.i12.not.i.i.i.i.i, label %if.then2.i.i.i9, label %_ZL17stbi__malloc_mad3iiii.exit.i.i.i
+  br i1 %cmp5.i12.not.i.i.i.i.i, label %if.end37.thread.i.i, label %_ZL17stbi__malloc_mad3iiii.exit.i.i.i
 
 _ZL17stbi__malloc_mad3iiii.exit.i.i.i:            ; preds = %_ZL21stbi__mul2sizes_validii.exit14.i.i.i.i.i, %if.end.i8.i.i.i.i.i
   %mul1.i.i.i.i = mul nsw i32 %mul.i.i.i.i.i, %22
-  %conv.i.i.i.i10 = sext i32 %mul1.i.i.i.i to i64
-  %call.i.i.i.i.i = tail call noalias noundef ptr @malloc(i64 noundef %conv.i.i.i.i10) #47
+  %conv.i.i.i.i9 = sext i32 %mul1.i.i.i.i to i64
+  %call.i.i.i.i.i = tail call noalias noundef ptr @malloc(i64 noundef %conv.i.i.i.i9) #47
   %cmp1.i.i.i = icmp eq ptr %call.i.i.i.i.i, null
-  br i1 %cmp1.i.i.i, label %if.then2.i.i.i9, label %for.cond.preheader.i.i.i
+  br i1 %cmp1.i.i.i, label %if.end37.thread.i.i, label %for.cond.preheader.i.i.i
 
 for.cond.preheader.i.i.i:                         ; preds = %_ZL17stbi__malloc_mad3iiii.exit.i.i.i
   %invariant.op.i.i.i = mul i32 %21, %20
@@ -11665,7 +11665,7 @@ for.body.lr.ph.i.i.i:                             ; preds = %for.cond.preheader.
   %mul11.i.i.i = shl nsw i32 %20, 3
   %add.i.i.i = or disjoint i32 %mul11.i.i.i, %req_comp
   %i.11168.i.i.i = add nsw i32 %21, -1
-  switch i32 %add.i.i.i, label %sw.default.i.i.i [
+  switch i32 %add.i.i.i, label %if.end37.thread.sink.split.i.i [
     i32 10, label %for.body.lr.ph.split.i.i.i
     i32 11, label %for.body.lr.ph.split.i.i.i
     i32 12, label %for.body.lr.ph.split.i.i.i
@@ -11683,10 +11683,6 @@ for.body.lr.ph.i.i.i:                             ; preds = %for.cond.preheader.
 for.body.lr.ph.split.i.i.i:                       ; preds = %for.body.lr.ph.i.i.i, %for.body.lr.ph.i.i.i, %for.body.lr.ph.i.i.i, %for.body.lr.ph.i.i.i, %for.body.lr.ph.i.i.i, %for.body.lr.ph.i.i.i, %for.body.lr.ph.i.i.i, %for.body.lr.ph.i.i.i, %for.body.lr.ph.i.i.i, %for.body.lr.ph.i.i.i, %for.body.lr.ph.i.i.i, %for.body.lr.ph.i.i.i
   %wide.trip.count.i.i.i = zext nneg i32 %22 to i64
   br label %for.body.i.i.i
-
-if.then2.i.i.i9:                                  ; preds = %_ZL17stbi__malloc_mad3iiii.exit.i.i.i, %_ZL21stbi__mul2sizes_validii.exit14.i.i.i.i.i, %land.lhs.true.i.i.i.i.i, %_ZL21stbi__mul2sizes_validii.exit.i.i.i.i.i, %if.end.i.i.i8
-  tail call void @free(ptr noundef %19) #44
-  br label %if.end37.thread.i.i
 
 for.body.i.i.i:                                   ; preds = %for.inc200.i.i.i, %for.body.lr.ph.split.i.i.i
   %indvars.iv.i.i.i = phi i64 [ 0, %for.body.lr.ph.split.i.i.i ], [ %indvars.iv.next.i.i.i, %for.inc200.i.i.i ]
@@ -11879,9 +11875,9 @@ for.body111.i.i.i:                                ; preds = %for.cond109.prehead
   %conv116.i.i.i = zext i8 %37 to i32
   %mul.i.i.i.i = mul nuw nsw i32 %conv.i.i.i, 77
   %mul1.i132.i.i.i = mul nuw nsw i32 %conv114.i.i.i, 150
-  %add.i.i.i.i11 = add nuw nsw i32 %mul1.i132.i.i.i, %mul.i.i.i.i
+  %add.i.i.i.i10 = add nuw nsw i32 %mul1.i132.i.i.i, %mul.i.i.i.i
   %mul2.i.i.i.i = mul nuw nsw i32 %conv116.i.i.i, 29
-  %add3.i.i.i.i = add nuw nsw i32 %add.i.i.i.i11, %mul2.i.i.i.i
+  %add3.i.i.i.i = add nuw nsw i32 %add.i.i.i.i10, %mul2.i.i.i.i
   %shr.i.i.i.i = lshr i32 %add3.i.i.i.i, 8
   %conv.i133.i.i.i = trunc nuw i32 %shr.i.i.i.i to i8
   store i8 %conv.i133.i.i.i, ptr %dest.7191.i.i.i, align 1
@@ -11995,11 +11991,6 @@ for.body185.i.i.i:                                ; preds = %for.cond183.prehead
   %cmp184.i.i.i = icmp sgt i32 %i.11.i.i.i, -1
   br i1 %cmp184.i.i.i, label %for.body185.i.i.i, label %for.inc200.i.i.i, !llvm.loop !71
 
-sw.default.i.i.i:                                 ; preds = %for.body.lr.ph.i.i.i
-  tail call void @free(ptr noundef %19) #44
-  tail call void @free(ptr noundef nonnull %call.i.i.i.i.i) #44
-  br label %if.end37.thread.i.i
-
 for.inc200.i.i.i:                                 ; preds = %for.body165.i.i.i, %for.body147.i.i.i, %for.body128.i.i.i, %for.body111.i.i.i, %for.body94.i.i.i, %for.body78.i.i.i, %for.body64.i.i.i, %for.body52.i.i.i, %for.body37.i.i.i, %for.body23.i.i.i, %for.body14.i.i.i, %for.body185.i.i.i, %for.cond12.preheader.i.i.i, %for.cond21.preheader.i.i.i, %for.cond35.preheader.i.i.i, %for.cond50.preheader.i.i.i, %for.cond62.preheader.i.i.i, %for.cond76.preheader.i.i.i, %for.cond92.preheader.i.i.i, %for.cond109.preheader.i.i.i, %for.cond126.preheader.i.i.i, %for.cond145.preheader.i.i.i, %for.cond163.preheader.i.i.i, %for.cond183.preheader.i.i.i
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i, %wide.trip.count.i.i.i
@@ -12012,7 +12003,7 @@ if.end.i38.i.i:                                   ; preds = %if.then20.i.i
   %conv.i39.i.i = zext i32 %mul2.i.i.i to i64
   %call.i.i.i.i7 = tail call noalias noundef ptr @malloc(i64 noundef %conv.i39.i.i) #47
   %cmp3.i.i.i = icmp eq ptr %call.i.i.i.i7, null
-  br i1 %cmp3.i.i.i, label %if.then4.i.i.i, label %for.cond.preheader.i40.i.i
+  br i1 %cmp3.i.i.i, label %if.end37.thread.i.i, label %for.cond.preheader.i40.i.i
 
 for.cond.preheader.i40.i.i:                       ; preds = %if.end.i38.i.i
   %invariant.op.i41.i.i = mul i32 %21, %20
@@ -12025,7 +12016,7 @@ for.body.lr.ph.i43.i.i:                           ; preds = %for.cond.preheader.
   %add.i44.i.i = or disjoint i32 %mul14.i.i.i, %req_comp
   %i.11164.i.i.i = add i32 %21, -1
   %cmp188165.i.i.i = icmp sgt i32 %i.11164.i.i.i, -1
-  switch i32 %add.i44.i.i, label %sw.default.i84.i.i [
+  switch i32 %add.i44.i.i, label %if.end37.thread.sink.split.i.i [
     i32 10, label %for.body.lr.ph.split.i45.i.i
     i32 11, label %for.body.lr.ph.split.i45.i.i
     i32 12, label %for.body.lr.ph.split.i45.i.i
@@ -12043,10 +12034,6 @@ for.body.lr.ph.i43.i.i:                           ; preds = %for.cond.preheader.
 for.body.lr.ph.split.i45.i.i:                     ; preds = %for.body.lr.ph.i43.i.i, %for.body.lr.ph.i43.i.i, %for.body.lr.ph.i43.i.i, %for.body.lr.ph.i43.i.i, %for.body.lr.ph.i43.i.i, %for.body.lr.ph.i43.i.i, %for.body.lr.ph.i43.i.i, %for.body.lr.ph.i43.i.i, %for.body.lr.ph.i43.i.i, %for.body.lr.ph.i43.i.i, %for.body.lr.ph.i43.i.i, %for.body.lr.ph.i43.i.i
   %wide.trip.count.i46.i.i = zext nneg i32 %22 to i64
   br label %for.body.i47.i.i
-
-if.then4.i.i.i:                                   ; preds = %if.end.i38.i.i
-  tail call void @free(ptr noundef %19) #44
-  br label %if.end37.thread.i.i
 
 for.body.i47.i.i:                                 ; preds = %for.inc204.i.i.i, %for.body.lr.ph.split.i45.i.i
   %indvars.iv.i48.i.i = phi i64 [ 0, %for.body.lr.ph.split.i45.i.i ], [ %indvars.iv.next.i51.i.i, %for.inc204.i.i.i ]
@@ -12355,18 +12342,20 @@ for.body189.i.i.i:                                ; preds = %for.cond187.prehead
   %cmp188.not.i.i.i = icmp eq i32 %i.11168.i82.i.i, 0
   br i1 %cmp188.not.i.i.i, label %for.inc204.i.i.i, label %for.body189.i.i.i, !llvm.loop !84
 
-sw.default.i84.i.i:                               ; preds = %for.body.lr.ph.i43.i.i
-  tail call void @free(ptr noundef %19) #44
-  tail call void @free(ptr noundef nonnull %call.i.i.i.i7) #44
-  br label %if.end37.thread.i.i
-
 for.inc204.i.i.i:                                 ; preds = %for.body169.i.i.i, %for.body151.i.i.i, %for.body132.i.i.i, %for.body114.i.i.i, %for.body97.i.i.i, %for.body81.i.i.i, %for.body67.i.i.i, %for.body55.i.i.i, %for.body40.i.i.i, %for.body26.i.i.i, %for.body17.i.i.i, %for.body189.i.i.i, %for.cond15.preheader.i.i.i, %for.cond24.preheader.i.i.i, %for.cond38.preheader.i.i.i, %for.cond53.preheader.i.i.i, %for.cond65.preheader.i.i.i, %for.cond79.preheader.i.i.i, %for.cond95.preheader.i.i.i, %for.cond112.preheader.i.i.i, %for.cond130.preheader.i.i.i, %for.cond149.preheader.i.i.i, %for.cond167.preheader.i.i.i, %for.cond187.preheader.i.i.i
   %indvars.iv.next.i51.i.i = add nuw nsw i64 %indvars.iv.i48.i.i, 1
   %exitcond.not.i52.i.i = icmp eq i64 %indvars.iv.next.i51.i.i, %wide.trip.count.i46.i.i
   br i1 %exitcond.not.i52.i.i, label %if.end37.i.i, label %for.body.i47.i.i, !llvm.loop !85
 
-if.end37.thread.i.i:                              ; preds = %sw.default.i84.i.i, %if.then4.i.i.i, %sw.default.i.i.i, %if.then2.i.i.i9
-  %.str.26.sink.i.i = phi ptr [ @.str.26, %if.then2.i.i.i9 ], [ @.str.32, %sw.default.i.i.i ], [ @.str.26, %if.then4.i.i.i ], [ @.str.32, %sw.default.i84.i.i ]
+if.end37.thread.sink.split.i.i:                   ; preds = %for.body.lr.ph.i43.i.i, %for.body.lr.ph.i.i.i
+  %.sink.ph.i.i = phi ptr [ %call.i.i.i.i.i, %for.body.lr.ph.i.i.i ], [ %call.i.i.i.i7, %for.body.lr.ph.i43.i.i ]
+  tail call void @free(ptr noundef %19) #44
+  br label %if.end37.thread.i.i
+
+if.end37.thread.i.i:                              ; preds = %if.end37.thread.sink.split.i.i, %if.end.i38.i.i, %_ZL17stbi__malloc_mad3iiii.exit.i.i.i, %_ZL21stbi__mul2sizes_validii.exit14.i.i.i.i.i, %land.lhs.true.i.i.i.i.i, %_ZL21stbi__mul2sizes_validii.exit.i.i.i.i.i, %if.end.i.i.i8
+  %.sink.i.i = phi ptr [ %19, %_ZL17stbi__malloc_mad3iiii.exit.i.i.i ], [ %19, %_ZL21stbi__mul2sizes_validii.exit14.i.i.i.i.i ], [ %19, %land.lhs.true.i.i.i.i.i ], [ %19, %_ZL21stbi__mul2sizes_validii.exit.i.i.i.i.i ], [ %19, %if.end.i.i.i8 ], [ %19, %if.end.i38.i.i ], [ %.sink.ph.i.i, %if.end37.thread.sink.split.i.i ]
+  %.str.26.sink.i.i = phi ptr [ @.str.26, %_ZL17stbi__malloc_mad3iiii.exit.i.i.i ], [ @.str.26, %_ZL21stbi__mul2sizes_validii.exit14.i.i.i.i.i ], [ @.str.26, %land.lhs.true.i.i.i.i.i ], [ @.str.26, %_ZL21stbi__mul2sizes_validii.exit.i.i.i.i.i ], [ @.str.26, %if.end.i.i.i8 ], [ @.str.26, %if.end.i38.i.i ], [ @.str.32, %if.end37.thread.sink.split.i.i ]
+  tail call void @free(ptr noundef %.sink.i.i) #44
   %78 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZL22stbi__g_failure_reason)
   store ptr %.str.26.sink.i.i, ptr %78, align 8
   store i32 %req_comp, ptr %img_out_n.i.i, align 4
@@ -12406,8 +12395,8 @@ if.end52.i.i:                                     ; preds = %if.then49.i.i, %if.
   tail call void @free(ptr noundef %84) #44
   br label %_ZL14stbi__png_loadP13stbi__contextPiS1_S1_iP17stbi__result_info.exit
 
-_ZL14stbi__png_loadP13stbi__contextPiS1_S1_iP17stbi__result_info.exit: ; preds = %if.then.i.i12, %if.else11.i.i, %if.end37.thread.i.i, %if.end52.i.i
-  %retval.0.i.i6 = phi ptr [ null, %if.then.i.i12 ], [ %result.0.i.i, %if.end52.i.i ], [ null, %if.else11.i.i ], [ null, %if.end37.thread.i.i ]
+_ZL14stbi__png_loadP13stbi__contextPiS1_S1_iP17stbi__result_info.exit: ; preds = %if.then.i.i11, %if.else11.i.i, %if.end37.thread.i.i, %if.end52.i.i
+  %retval.0.i.i6 = phi ptr [ null, %if.then.i.i11 ], [ %result.0.i.i, %if.end52.i.i ], [ null, %if.else11.i.i ], [ null, %if.end37.thread.i.i ]
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %p.i)
   br label %return
 
@@ -12415,8 +12404,8 @@ if.end:                                           ; preds = %_ZL10stbi__get8P13s
   %85 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZL22stbi__g_failure_reason)
   %86 = load ptr, ptr %img_buffer_original.i.i.i.i, align 8
   store ptr %86, ptr %img_buffer.i.i.i, align 8
-  %img_buffer_original_end.i.i14 = getelementptr inbounds i8, ptr %s, i64 216
-  %87 = load ptr, ptr %img_buffer_original_end.i.i14, align 8
+  %img_buffer_original_end.i.i13 = getelementptr inbounds i8, ptr %s, i64 216
+  %87 = load ptr, ptr %img_buffer_original_end.i.i13, align 8
   store ptr %87, ptr %img_buffer_end.i.i.i, align 8
   store ptr @.str.5, ptr %85, align 8
   br label %return

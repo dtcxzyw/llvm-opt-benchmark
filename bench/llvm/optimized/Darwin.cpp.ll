@@ -18713,154 +18713,146 @@ _ZN4llvm9StringRefC2EPKc.exit273:                 ; preds = %.lr.ph, %67
   %74 = phi ptr [ %53, %_ZN4llvmeqENS_9StringRefES0_.exit.thread ], [ %.pre, %._crit_edge611 ]
   %75 = getelementptr inbounds nuw i8, ptr %73, i64 64
   %76 = load i32, ptr %75, align 8
-  switch i32 %76, label %77 [
-    i32 2349, label %78
-    i32 427, label %78
-    i32 280, label %84
-    i32 1930, label %96
-    i32 1995, label %106
-    i32 3144, label %116
-    i32 509, label %121
-    i32 1030, label %126
-    i32 3331, label %131
-    i32 3325, label %136
+  switch i32 %76, label %_ZN4llvmeqENS_9StringRefES0_.exit271.thread.sink.split [
+    i32 2349, label %77
+    i32 427, label %77
+    i32 280, label %83
+    i32 1930, label %95
+    i32 1995, label %105
+    i32 3144, label %115
+    i32 509, label %120
+    i32 1030, label %125
+    i32 3331, label %130
+    i32 3325, label %135
   ]
 
-77:                                               ; preds = %72
+77:                                               ; preds = %72, %72
   call void @_ZN4llvm3opt7ArgList6appendEPNS0_3ArgE(ptr noundef nonnull align 8 dereferenceable(176) %7, ptr noundef nonnull %74) #20
-  br label %_ZN4llvmeqENS_9StringRefES0_.exit271.thread
+  %78 = load ptr, ptr %6, align 8
+  %79 = call { ptr, ptr } @_ZNK4llvm3opt8OptTable9getOptionENS0_12OptSpecifierE(ptr noundef nonnull align 8 dereferenceable(88) %10, i32 3176) #20
+  %80 = extractvalue { ptr, ptr } %79, 0
+  %81 = extractvalue { ptr, ptr } %79, 1
+  %82 = call noundef ptr @_ZNK4llvm3opt14DerivedArgList11MakeFlagArgEPKNS0_3ArgENS0_6OptionE(ptr noundef nonnull align 8 dereferenceable(328) %7, ptr noundef %78, ptr %80, ptr %81) #20
+  br label %_ZN4llvmeqENS_9StringRefES0_.exit271.thread.sink.split
 
-78:                                               ; preds = %72, %72
-  call void @_ZN4llvm3opt7ArgList6appendEPNS0_3ArgE(ptr noundef nonnull align 8 dereferenceable(176) %7, ptr noundef nonnull %74) #20
-  %79 = load ptr, ptr %6, align 8
-  %80 = call { ptr, ptr } @_ZNK4llvm3opt8OptTable9getOptionENS0_12OptSpecifierE(ptr noundef nonnull align 8 dereferenceable(88) %10, i32 3176) #20
-  %81 = extractvalue { ptr, ptr } %80, 0
-  %82 = extractvalue { ptr, ptr } %80, 1
-  %83 = call noundef ptr @_ZNK4llvm3opt14DerivedArgList11MakeFlagArgEPKNS0_3ArgENS0_6OptionE(ptr noundef nonnull align 8 dereferenceable(328) %7, ptr noundef %79, ptr %81, ptr %82) #20
-  call void @_ZN4llvm3opt7ArgList6appendEPNS0_3ArgE(ptr noundef nonnull align 8 dereferenceable(176) %7, ptr noundef %83) #20
-  br label %_ZN4llvmeqENS_9StringRefES0_.exit271.thread
-
-84:                                               ; preds = %72
-  %85 = call { ptr, ptr } @_ZNK4llvm3opt8OptTable9getOptionENS0_12OptSpecifierE(ptr noundef nonnull align 8 dereferenceable(88) %10, i32 2289) #20
-  %86 = extractvalue { ptr, ptr } %85, 0
-  %87 = extractvalue { ptr, ptr } %85, 1
-  %88 = load ptr, ptr %6, align 8
-  %89 = getelementptr inbounds nuw i8, ptr %88, i64 48
+83:                                               ; preds = %72
+  %84 = call { ptr, ptr } @_ZNK4llvm3opt8OptTable9getOptionENS0_12OptSpecifierE(ptr noundef nonnull align 8 dereferenceable(88) %10, i32 2289) #20
+  %85 = extractvalue { ptr, ptr } %84, 0
+  %86 = extractvalue { ptr, ptr } %84, 1
+  %87 = load ptr, ptr %6, align 8
+  %88 = getelementptr inbounds nuw i8, ptr %87, i64 48
+  %89 = load ptr, ptr %88, align 8
   %90 = load ptr, ptr %89, align 8
-  %91 = load ptr, ptr %90, align 8
-  %.not.i274 = icmp eq ptr %91, null
-  br i1 %.not.i274, label %_ZN4llvm9StringRefC2EPKc.exit275, label %92
+  %.not.i274 = icmp eq ptr %90, null
+  br i1 %.not.i274, label %_ZN4llvm9StringRefC2EPKc.exit275, label %91
 
-92:                                               ; preds = %84
-  %93 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %91) #20
+91:                                               ; preds = %83
+  %92 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %90) #20
   br label %_ZN4llvm9StringRefC2EPKc.exit275
 
-_ZN4llvm9StringRefC2EPKc.exit275:                 ; preds = %84, %92
-  %94 = phi i64 [ %93, %92 ], [ 0, %84 ]
-  %95 = call noundef ptr @_ZNK4llvm3opt14DerivedArgList15MakeSeparateArgEPKNS0_3ArgENS0_6OptionENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(328) %7, ptr noundef nonnull %74, ptr %86, ptr %87, ptr %91, i64 %94) #20
-  call void @_ZN4llvm3opt7ArgList6appendEPNS0_3ArgE(ptr noundef nonnull align 8 dereferenceable(176) %7, ptr noundef %95) #20
+_ZN4llvm9StringRefC2EPKc.exit275:                 ; preds = %83, %91
+  %93 = phi i64 [ %92, %91 ], [ 0, %83 ]
+  %94 = call noundef ptr @_ZNK4llvm3opt14DerivedArgList15MakeSeparateArgEPKNS0_3ArgENS0_6OptionENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(328) %7, ptr noundef nonnull %74, ptr %85, ptr %86, ptr %90, i64 %93) #20
+  br label %_ZN4llvmeqENS_9StringRefES0_.exit271.thread.sink.split
+
+95:                                               ; preds = %72
+  %96 = call { ptr, ptr } @_ZNK4llvm3opt8OptTable9getOptionENS0_12OptSpecifierE(ptr noundef nonnull align 8 dereferenceable(88) %10, i32 2010) #20
+  %97 = extractvalue { ptr, ptr } %96, 0
+  %98 = extractvalue { ptr, ptr } %96, 1
+  %99 = call noundef ptr @_ZNK4llvm3opt14DerivedArgList11MakeFlagArgEPKNS0_3ArgENS0_6OptionE(ptr noundef nonnull align 8 dereferenceable(328) %7, ptr noundef nonnull %74, ptr %97, ptr %98) #20
+  call void @_ZN4llvm3opt7ArgList6appendEPNS0_3ArgE(ptr noundef nonnull align 8 dereferenceable(176) %7, ptr noundef %99) #20
+  %100 = load ptr, ptr %6, align 8
+  %101 = call { ptr, ptr } @_ZNK4llvm3opt8OptTable9getOptionENS0_12OptSpecifierE(ptr noundef nonnull align 8 dereferenceable(88) %10, i32 1087) #20
+  %102 = extractvalue { ptr, ptr } %101, 0
+  %103 = extractvalue { ptr, ptr } %101, 1
+  %104 = call noundef ptr @_ZNK4llvm3opt14DerivedArgList11MakeFlagArgEPKNS0_3ArgENS0_6OptionE(ptr noundef nonnull align 8 dereferenceable(328) %7, ptr noundef %100, ptr %102, ptr %103) #20
+  br label %_ZN4llvmeqENS_9StringRefES0_.exit271.thread.sink.split
+
+105:                                              ; preds = %72
+  %106 = call { ptr, ptr } @_ZNK4llvm3opt8OptTable9getOptionENS0_12OptSpecifierE(ptr noundef nonnull align 8 dereferenceable(88) %10, i32 2010) #20
+  %107 = extractvalue { ptr, ptr } %106, 0
+  %108 = extractvalue { ptr, ptr } %106, 1
+  %109 = call noundef ptr @_ZNK4llvm3opt14DerivedArgList11MakeFlagArgEPKNS0_3ArgENS0_6OptionE(ptr noundef nonnull align 8 dereferenceable(328) %7, ptr noundef nonnull %74, ptr %107, ptr %108) #20
+  call void @_ZN4llvm3opt7ArgList6appendEPNS0_3ArgE(ptr noundef nonnull align 8 dereferenceable(176) %7, ptr noundef %109) #20
+  %110 = load ptr, ptr %6, align 8
+  %111 = call { ptr, ptr } @_ZNK4llvm3opt8OptTable9getOptionENS0_12OptSpecifierE(ptr noundef nonnull align 8 dereferenceable(88) %10, i32 634) #20
+  %112 = extractvalue { ptr, ptr } %111, 0
+  %113 = extractvalue { ptr, ptr } %111, 1
+  %114 = call noundef ptr @_ZNK4llvm3opt14DerivedArgList11MakeFlagArgEPKNS0_3ArgENS0_6OptionE(ptr noundef nonnull align 8 dereferenceable(328) %7, ptr noundef %110, ptr %112, ptr %113) #20
+  br label %_ZN4llvmeqENS_9StringRefES0_.exit271.thread.sink.split
+
+115:                                              ; preds = %72
+  %116 = call { ptr, ptr } @_ZNK4llvm3opt8OptTable9getOptionENS0_12OptSpecifierE(ptr noundef nonnull align 8 dereferenceable(88) %10, i32 323) #20
+  %117 = extractvalue { ptr, ptr } %116, 0
+  %118 = extractvalue { ptr, ptr } %116, 1
+  %119 = call noundef ptr @_ZNK4llvm3opt14DerivedArgList11MakeFlagArgEPKNS0_3ArgENS0_6OptionE(ptr noundef nonnull align 8 dereferenceable(328) %7, ptr noundef nonnull %74, ptr %117, ptr %118) #20
+  br label %_ZN4llvmeqENS_9StringRefES0_.exit271.thread.sink.split
+
+120:                                              ; preds = %72
+  %121 = call { ptr, ptr } @_ZNK4llvm3opt8OptTable9getOptionENS0_12OptSpecifierE(ptr noundef nonnull align 8 dereferenceable(88) %10, i32 2220) #20
+  %122 = extractvalue { ptr, ptr } %121, 0
+  %123 = extractvalue { ptr, ptr } %121, 1
+  %124 = call noundef ptr @_ZNK4llvm3opt14DerivedArgList11MakeFlagArgEPKNS0_3ArgENS0_6OptionE(ptr noundef nonnull align 8 dereferenceable(328) %7, ptr noundef nonnull %74, ptr %122, ptr %123) #20
+  br label %_ZN4llvmeqENS_9StringRefES0_.exit271.thread.sink.split
+
+125:                                              ; preds = %72
+  %126 = call { ptr, ptr } @_ZNK4llvm3opt8OptTable9getOptionENS0_12OptSpecifierE(ptr noundef nonnull align 8 dereferenceable(88) %10, i32 2458) #20
+  %127 = extractvalue { ptr, ptr } %126, 0
+  %128 = extractvalue { ptr, ptr } %126, 1
+  %129 = call noundef ptr @_ZNK4llvm3opt14DerivedArgList11MakeFlagArgEPKNS0_3ArgENS0_6OptionE(ptr noundef nonnull align 8 dereferenceable(328) %7, ptr noundef nonnull %74, ptr %127, ptr %128) #20
+  br label %_ZN4llvmeqENS_9StringRefES0_.exit271.thread.sink.split
+
+130:                                              ; preds = %72
+  %131 = call { ptr, ptr } @_ZNK4llvm3opt8OptTable9getOptionENS0_12OptSpecifierE(ptr noundef nonnull align 8 dereferenceable(88) %10, i32 2840) #20
+  %132 = extractvalue { ptr, ptr } %131, 0
+  %133 = extractvalue { ptr, ptr } %131, 1
+  %134 = call noundef ptr @_ZNK4llvm3opt14DerivedArgList11MakeFlagArgEPKNS0_3ArgENS0_6OptionE(ptr noundef nonnull align 8 dereferenceable(328) %7, ptr noundef nonnull %74, ptr %132, ptr %133) #20
+  br label %_ZN4llvmeqENS_9StringRefES0_.exit271.thread.sink.split
+
+135:                                              ; preds = %72
+  %136 = call { ptr, ptr } @_ZNK4llvm3opt8OptTable9getOptionENS0_12OptSpecifierE(ptr noundef nonnull align 8 dereferenceable(88) %10, i32 2645) #20
+  %137 = extractvalue { ptr, ptr } %136, 0
+  %138 = extractvalue { ptr, ptr } %136, 1
+  %139 = call noundef ptr @_ZNK4llvm3opt14DerivedArgList11MakeFlagArgEPKNS0_3ArgENS0_6OptionE(ptr noundef nonnull align 8 dereferenceable(328) %7, ptr noundef nonnull %74, ptr %137, ptr %138) #20
+  br label %_ZN4llvmeqENS_9StringRefES0_.exit271.thread.sink.split
+
+_ZN4llvmeqENS_9StringRefES0_.exit271.thread.sink.split: ; preds = %72, %135, %130, %125, %120, %115, %105, %95, %_ZN4llvm9StringRefC2EPKc.exit275, %77
+  %.sink = phi ptr [ %82, %77 ], [ %94, %_ZN4llvm9StringRefC2EPKc.exit275 ], [ %104, %95 ], [ %114, %105 ], [ %119, %115 ], [ %124, %120 ], [ %129, %125 ], [ %134, %130 ], [ %139, %135 ], [ %74, %72 ]
+  call void @_ZN4llvm3opt7ArgList6appendEPNS0_3ArgE(ptr noundef nonnull align 8 dereferenceable(176) %7, ptr noundef %.sink) #20
   br label %_ZN4llvmeqENS_9StringRefES0_.exit271.thread
 
-96:                                               ; preds = %72
-  %97 = call { ptr, ptr } @_ZNK4llvm3opt8OptTable9getOptionENS0_12OptSpecifierE(ptr noundef nonnull align 8 dereferenceable(88) %10, i32 2010) #20
-  %98 = extractvalue { ptr, ptr } %97, 0
-  %99 = extractvalue { ptr, ptr } %97, 1
-  %100 = call noundef ptr @_ZNK4llvm3opt14DerivedArgList11MakeFlagArgEPKNS0_3ArgENS0_6OptionE(ptr noundef nonnull align 8 dereferenceable(328) %7, ptr noundef nonnull %74, ptr %98, ptr %99) #20
-  call void @_ZN4llvm3opt7ArgList6appendEPNS0_3ArgE(ptr noundef nonnull align 8 dereferenceable(176) %7, ptr noundef %100) #20
-  %101 = load ptr, ptr %6, align 8
-  %102 = call { ptr, ptr } @_ZNK4llvm3opt8OptTable9getOptionENS0_12OptSpecifierE(ptr noundef nonnull align 8 dereferenceable(88) %10, i32 1087) #20
-  %103 = extractvalue { ptr, ptr } %102, 0
-  %104 = extractvalue { ptr, ptr } %102, 1
-  %105 = call noundef ptr @_ZNK4llvm3opt14DerivedArgList11MakeFlagArgEPKNS0_3ArgENS0_6OptionE(ptr noundef nonnull align 8 dereferenceable(328) %7, ptr noundef %101, ptr %103, ptr %104) #20
-  call void @_ZN4llvm3opt7ArgList6appendEPNS0_3ArgE(ptr noundef nonnull align 8 dereferenceable(176) %7, ptr noundef %105) #20
-  br label %_ZN4llvmeqENS_9StringRefES0_.exit271.thread
-
-106:                                              ; preds = %72
-  %107 = call { ptr, ptr } @_ZNK4llvm3opt8OptTable9getOptionENS0_12OptSpecifierE(ptr noundef nonnull align 8 dereferenceable(88) %10, i32 2010) #20
-  %108 = extractvalue { ptr, ptr } %107, 0
-  %109 = extractvalue { ptr, ptr } %107, 1
-  %110 = call noundef ptr @_ZNK4llvm3opt14DerivedArgList11MakeFlagArgEPKNS0_3ArgENS0_6OptionE(ptr noundef nonnull align 8 dereferenceable(328) %7, ptr noundef nonnull %74, ptr %108, ptr %109) #20
-  call void @_ZN4llvm3opt7ArgList6appendEPNS0_3ArgE(ptr noundef nonnull align 8 dereferenceable(176) %7, ptr noundef %110) #20
-  %111 = load ptr, ptr %6, align 8
-  %112 = call { ptr, ptr } @_ZNK4llvm3opt8OptTable9getOptionENS0_12OptSpecifierE(ptr noundef nonnull align 8 dereferenceable(88) %10, i32 634) #20
-  %113 = extractvalue { ptr, ptr } %112, 0
-  %114 = extractvalue { ptr, ptr } %112, 1
-  %115 = call noundef ptr @_ZNK4llvm3opt14DerivedArgList11MakeFlagArgEPKNS0_3ArgENS0_6OptionE(ptr noundef nonnull align 8 dereferenceable(328) %7, ptr noundef %111, ptr %113, ptr %114) #20
-  call void @_ZN4llvm3opt7ArgList6appendEPNS0_3ArgE(ptr noundef nonnull align 8 dereferenceable(176) %7, ptr noundef %115) #20
-  br label %_ZN4llvmeqENS_9StringRefES0_.exit271.thread
-
-116:                                              ; preds = %72
-  %117 = call { ptr, ptr } @_ZNK4llvm3opt8OptTable9getOptionENS0_12OptSpecifierE(ptr noundef nonnull align 8 dereferenceable(88) %10, i32 323) #20
-  %118 = extractvalue { ptr, ptr } %117, 0
-  %119 = extractvalue { ptr, ptr } %117, 1
-  %120 = call noundef ptr @_ZNK4llvm3opt14DerivedArgList11MakeFlagArgEPKNS0_3ArgENS0_6OptionE(ptr noundef nonnull align 8 dereferenceable(328) %7, ptr noundef nonnull %74, ptr %118, ptr %119) #20
-  call void @_ZN4llvm3opt7ArgList6appendEPNS0_3ArgE(ptr noundef nonnull align 8 dereferenceable(176) %7, ptr noundef %120) #20
-  br label %_ZN4llvmeqENS_9StringRefES0_.exit271.thread
-
-121:                                              ; preds = %72
-  %122 = call { ptr, ptr } @_ZNK4llvm3opt8OptTable9getOptionENS0_12OptSpecifierE(ptr noundef nonnull align 8 dereferenceable(88) %10, i32 2220) #20
-  %123 = extractvalue { ptr, ptr } %122, 0
-  %124 = extractvalue { ptr, ptr } %122, 1
-  %125 = call noundef ptr @_ZNK4llvm3opt14DerivedArgList11MakeFlagArgEPKNS0_3ArgENS0_6OptionE(ptr noundef nonnull align 8 dereferenceable(328) %7, ptr noundef nonnull %74, ptr %123, ptr %124) #20
-  call void @_ZN4llvm3opt7ArgList6appendEPNS0_3ArgE(ptr noundef nonnull align 8 dereferenceable(176) %7, ptr noundef %125) #20
-  br label %_ZN4llvmeqENS_9StringRefES0_.exit271.thread
-
-126:                                              ; preds = %72
-  %127 = call { ptr, ptr } @_ZNK4llvm3opt8OptTable9getOptionENS0_12OptSpecifierE(ptr noundef nonnull align 8 dereferenceable(88) %10, i32 2458) #20
-  %128 = extractvalue { ptr, ptr } %127, 0
-  %129 = extractvalue { ptr, ptr } %127, 1
-  %130 = call noundef ptr @_ZNK4llvm3opt14DerivedArgList11MakeFlagArgEPKNS0_3ArgENS0_6OptionE(ptr noundef nonnull align 8 dereferenceable(328) %7, ptr noundef nonnull %74, ptr %128, ptr %129) #20
-  call void @_ZN4llvm3opt7ArgList6appendEPNS0_3ArgE(ptr noundef nonnull align 8 dereferenceable(176) %7, ptr noundef %130) #20
-  br label %_ZN4llvmeqENS_9StringRefES0_.exit271.thread
-
-131:                                              ; preds = %72
-  %132 = call { ptr, ptr } @_ZNK4llvm3opt8OptTable9getOptionENS0_12OptSpecifierE(ptr noundef nonnull align 8 dereferenceable(88) %10, i32 2840) #20
-  %133 = extractvalue { ptr, ptr } %132, 0
-  %134 = extractvalue { ptr, ptr } %132, 1
-  %135 = call noundef ptr @_ZNK4llvm3opt14DerivedArgList11MakeFlagArgEPKNS0_3ArgENS0_6OptionE(ptr noundef nonnull align 8 dereferenceable(328) %7, ptr noundef nonnull %74, ptr %133, ptr %134) #20
-  call void @_ZN4llvm3opt7ArgList6appendEPNS0_3ArgE(ptr noundef nonnull align 8 dereferenceable(176) %7, ptr noundef %135) #20
-  br label %_ZN4llvmeqENS_9StringRefES0_.exit271.thread
-
-136:                                              ; preds = %72
-  %137 = call { ptr, ptr } @_ZNK4llvm3opt8OptTable9getOptionENS0_12OptSpecifierE(ptr noundef nonnull align 8 dereferenceable(88) %10, i32 2645) #20
-  %138 = extractvalue { ptr, ptr } %137, 0
-  %139 = extractvalue { ptr, ptr } %137, 1
-  %140 = call noundef ptr @_ZNK4llvm3opt14DerivedArgList11MakeFlagArgEPKNS0_3ArgENS0_6OptionE(ptr noundef nonnull align 8 dereferenceable(328) %7, ptr noundef nonnull %74, ptr %138, ptr %139) #20
-  call void @_ZN4llvm3opt7ArgList6appendEPNS0_3ArgE(ptr noundef nonnull align 8 dereferenceable(176) %7, ptr noundef %140) #20
-  br label %_ZN4llvmeqENS_9StringRefES0_.exit271.thread
-
-_ZN4llvmeqENS_9StringRefES0_.exit271.thread:      ; preds = %_ZN4llvm9StringRefC2EPKc.exit273, %58, %77, %78, %_ZN4llvm9StringRefC2EPKc.exit275, %96, %106, %116, %121, %126, %131, %136, %_ZN4llvmeqENS_9StringRefES0_.exit.thread568, %_ZN4llvmeqENS_9StringRefES0_.exit271
-  %141 = getelementptr inbounds i8, ptr %.sroa.0547.0609, i64 8
-  %.not2.i.i = icmp eq ptr %141, %14
+_ZN4llvmeqENS_9StringRefES0_.exit271.thread:      ; preds = %_ZN4llvm9StringRefC2EPKc.exit273, %_ZN4llvmeqENS_9StringRefES0_.exit271.thread.sink.split, %58, %_ZN4llvmeqENS_9StringRefES0_.exit.thread568, %_ZN4llvmeqENS_9StringRefES0_.exit271
+  %140 = getelementptr inbounds i8, ptr %.sroa.0547.0609, i64 8
+  %.not2.i.i = icmp eq ptr %140, %14
   br i1 %.not2.i.i, label %_ZN4llvm3opt12arg_iteratorIPKPNS0_3ArgELj0EEppEv.exit, label %.lr.ph.i.i
 
-.lr.ph.i.i:                                       ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit271.thread, %143
-  %.sroa.0547.2 = phi ptr [ %144, %143 ], [ %141, %_ZN4llvmeqENS_9StringRefES0_.exit271.thread ]
-  %142 = load ptr, ptr %.sroa.0547.2, align 8
-  %.not1.i.i = icmp eq ptr %142, null
-  br i1 %.not1.i.i, label %143, label %_ZN4llvm3opt12arg_iteratorIPKPNS0_3ArgELj0EEppEv.exit
+.lr.ph.i.i:                                       ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit271.thread, %142
+  %.sroa.0547.2 = phi ptr [ %143, %142 ], [ %140, %_ZN4llvmeqENS_9StringRefES0_.exit271.thread ]
+  %141 = load ptr, ptr %.sroa.0547.2, align 8
+  %.not1.i.i = icmp eq ptr %141, null
+  br i1 %.not1.i.i, label %142, label %_ZN4llvm3opt12arg_iteratorIPKPNS0_3ArgELj0EEppEv.exit
 
-143:                                              ; preds = %.lr.ph.i.i
-  %144 = getelementptr inbounds i8, ptr %.sroa.0547.2, i64 8
-  %.not.i.i = icmp eq ptr %144, %14
+142:                                              ; preds = %.lr.ph.i.i
+  %143 = getelementptr inbounds i8, ptr %.sroa.0547.2, i64 8
+  %.not.i.i = icmp eq ptr %143, %14
   br i1 %.not.i.i, label %_ZN4llvm3opt12arg_iteratorIPKPNS0_3ArgELj0EEppEv.exit, label %.lr.ph.i.i, !llvm.loop !79
 
-_ZN4llvm3opt12arg_iteratorIPKPNS0_3ArgELj0EEppEv.exit: ; preds = %.lr.ph.i.i, %143, %_ZN4llvmeqENS_9StringRefES0_.exit271.thread
-  %.sroa.0547.3 = phi ptr [ %141, %_ZN4llvmeqENS_9StringRefES0_.exit271.thread ], [ %.sroa.0547.2, %.lr.ph.i.i ], [ %144, %143 ]
+_ZN4llvm3opt12arg_iteratorIPKPNS0_3ArgELj0EEppEv.exit: ; preds = %.lr.ph.i.i, %142, %_ZN4llvmeqENS_9StringRefES0_.exit271.thread
+  %.sroa.0547.3 = phi ptr [ %140, %_ZN4llvmeqENS_9StringRefES0_.exit271.thread ], [ %.sroa.0547.2, %.lr.ph.i.i ], [ %143, %142 ]
   %.not603 = icmp eq ptr %.sroa.0547.3, %.sroa.0541.0
   br i1 %.not603, label %._crit_edge, label %31
 
 ._crit_edge:                                      ; preds = %_ZN4llvm3opt12arg_iteratorIPKPNS0_3ArgELj0EEppEv.exit, %_ZNK4llvm3opt7ArgList3endEv.exit
-  %145 = icmp eq i64 %3, 0
-  br i1 %145, label %_ZN4llvmeqENS_9StringRefES0_.exit403.thread, label %146
+  %144 = icmp eq i64 %3, 0
+  br i1 %144, label %_ZN4llvmeqENS_9StringRefES0_.exit403.thread, label %145
 
-146:                                              ; preds = %._crit_edge
-  %147 = call { ptr, ptr } @_ZNK4llvm3opt8OptTable9getOptionENS0_12OptSpecifierE(ptr noundef nonnull align 8 dereferenceable(88) %10, i32 2223) #20
-  %148 = extractvalue { ptr, ptr } %147, 0
-  %149 = extractvalue { ptr, ptr } %147, 1
-  %150 = call { ptr, ptr } @_ZNK4llvm3opt8OptTable9getOptionENS0_12OptSpecifierE(ptr noundef nonnull align 8 dereferenceable(88) %10, i32 2163) #20
-  %151 = extractvalue { ptr, ptr } %150, 0
-  %152 = extractvalue { ptr, ptr } %150, 1
+145:                                              ; preds = %._crit_edge
+  %146 = call { ptr, ptr } @_ZNK4llvm3opt8OptTable9getOptionENS0_12OptSpecifierE(ptr noundef nonnull align 8 dereferenceable(88) %10, i32 2223) #20
+  %147 = extractvalue { ptr, ptr } %146, 0
+  %148 = extractvalue { ptr, ptr } %146, 1
+  %149 = call { ptr, ptr } @_ZNK4llvm3opt8OptTable9getOptionENS0_12OptSpecifierE(ptr noundef nonnull align 8 dereferenceable(88) %10, i32 2163) #20
+  %150 = extractvalue { ptr, ptr } %149, 0
+  %151 = extractvalue { ptr, ptr } %149, 1
   switch i64 %3, label %_ZN4llvmeqENS_9StringRefES0_.exit403.thread [
     i64 3, label %_ZN4llvmeqENS_9StringRefES0_.exit279
     i64 6, label %_ZN4llvmeqENS_9StringRefES0_.exit283
@@ -18870,290 +18862,290 @@ _ZN4llvm3opt12arg_iteratorIPKPNS0_3ArgELj0EEppEv.exit: ; preds = %.lr.ph.i.i, %1
     i64 8, label %_ZN4llvmeqENS_9StringRefES0_.exit343
   ]
 
-_ZN4llvmeqENS_9StringRefES0_.exit279:             ; preds = %146
+_ZN4llvmeqENS_9StringRefES0_.exit279:             ; preds = %145
   %bcmp.i278 = call i32 @bcmp(ptr noundef nonnull dereferenceable(3) %2, ptr noundef nonnull dereferenceable(3) @.str.202, i64 3)
-  %153 = icmp eq i32 %bcmp.i278, 0
-  br i1 %153, label %_ZN4llvmeqENS_9StringRefES0_.exit403.thread, label %_ZN4llvmeqENS_9StringRefES0_.exit363
+  %152 = icmp eq i32 %bcmp.i278, 0
+  br i1 %152, label %_ZN4llvmeqENS_9StringRefES0_.exit403.thread, label %_ZN4llvmeqENS_9StringRefES0_.exit363
 
-_ZN4llvmeqENS_9StringRefES0_.exit283:             ; preds = %146
+_ZN4llvmeqENS_9StringRefES0_.exit283:             ; preds = %145
   %bcmp.i282 = call i32 @bcmp(ptr %2, ptr nonnull @.str.203, i64 %3)
-  %154 = icmp eq i32 %bcmp.i282, 0
-  br i1 %154, label %155, label %_ZN4llvmeqENS_9StringRefES0_.exit287
+  %153 = icmp eq i32 %bcmp.i282, 0
+  br i1 %153, label %154, label %_ZN4llvmeqENS_9StringRefES0_.exit287
 
-155:                                              ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit283
-  %156 = call noundef ptr @_ZNK4llvm3opt14DerivedArgList13MakeJoinedArgEPKNS0_3ArgENS0_6OptionENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(328) %7, ptr noundef null, ptr %148, ptr %149, ptr nonnull @.str.204, i64 3) #20
+154:                                              ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit283
+  %155 = call noundef ptr @_ZNK4llvm3opt14DerivedArgList13MakeJoinedArgEPKNS0_3ArgENS0_6OptionENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(328) %7, ptr noundef null, ptr %147, ptr %148, ptr nonnull @.str.204, i64 3) #20
   br label %_ZN4llvmeqENS_9StringRefES0_.exit403.thread.sink.split
 
 _ZN4llvmeqENS_9StringRefES0_.exit287:             ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit283
   %bcmp.i286 = call i32 @bcmp(ptr noundef nonnull dereferenceable(6) %2, ptr noundef nonnull dereferenceable(6) @.str.205, i64 6)
-  %157 = icmp eq i32 %bcmp.i286, 0
-  br i1 %157, label %158, label %_ZN4llvmeqENS_9StringRefES0_.exit291
+  %156 = icmp eq i32 %bcmp.i286, 0
+  br i1 %156, label %157, label %_ZN4llvmeqENS_9StringRefES0_.exit291
 
-158:                                              ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit287
-  %159 = call noundef ptr @_ZNK4llvm3opt14DerivedArgList13MakeJoinedArgEPKNS0_3ArgENS0_6OptionENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(328) %7, ptr noundef null, ptr %148, ptr %149, ptr nonnull @.str.206, i64 3) #20
+157:                                              ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit287
+  %158 = call noundef ptr @_ZNK4llvm3opt14DerivedArgList13MakeJoinedArgEPKNS0_3ArgENS0_6OptionENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(328) %7, ptr noundef null, ptr %147, ptr %148, ptr nonnull @.str.206, i64 3) #20
   br label %_ZN4llvmeqENS_9StringRefES0_.exit403.thread.sink.split
 
 _ZN4llvmeqENS_9StringRefES0_.exit291:             ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit287
   %bcmp.i290 = call i32 @bcmp(ptr noundef nonnull dereferenceable(6) %2, ptr noundef nonnull dereferenceable(6) @.str.207, i64 6)
-  %160 = icmp eq i32 %bcmp.i290, 0
-  br i1 %160, label %161, label %_ZN4llvmeqENS_9StringRefES0_.exit299
+  %159 = icmp eq i32 %bcmp.i290, 0
+  br i1 %159, label %160, label %_ZN4llvmeqENS_9StringRefES0_.exit299
 
-161:                                              ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit291
-  %162 = call noundef ptr @_ZNK4llvm3opt14DerivedArgList13MakeJoinedArgEPKNS0_3ArgENS0_6OptionENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(328) %7, ptr noundef null, ptr %148, ptr %149, ptr nonnull @.str.208, i64 3) #20
+160:                                              ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit291
+  %161 = call noundef ptr @_ZNK4llvm3opt14DerivedArgList13MakeJoinedArgEPKNS0_3ArgENS0_6OptionENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(328) %7, ptr noundef null, ptr %147, ptr %148, ptr nonnull @.str.208, i64 3) #20
   br label %_ZN4llvmeqENS_9StringRefES0_.exit403.thread.sink.split
 
-_ZN4llvmeqENS_9StringRefES0_.exit295:             ; preds = %146
+_ZN4llvmeqENS_9StringRefES0_.exit295:             ; preds = %145
   %bcmp.i294 = call i32 @bcmp(ptr %2, ptr nonnull @.str.209, i64 %3)
-  %163 = icmp eq i32 %bcmp.i294, 0
-  br i1 %163, label %164, label %_ZN4llvmeqENS_9StringRefES0_.exit303
+  %162 = icmp eq i32 %bcmp.i294, 0
+  br i1 %162, label %163, label %_ZN4llvmeqENS_9StringRefES0_.exit303
 
-164:                                              ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit295
-  %165 = call noundef ptr @_ZNK4llvm3opt14DerivedArgList13MakeJoinedArgEPKNS0_3ArgENS0_6OptionENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(328) %7, ptr noundef null, ptr %148, ptr %149, ptr nonnull @.str.210, i64 4) #20
+163:                                              ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit295
+  %164 = call noundef ptr @_ZNK4llvm3opt14DerivedArgList13MakeJoinedArgEPKNS0_3ArgENS0_6OptionENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(328) %7, ptr noundef null, ptr %147, ptr %148, ptr nonnull @.str.210, i64 4) #20
   br label %_ZN4llvmeqENS_9StringRefES0_.exit403.thread.sink.split
 
 _ZN4llvmeqENS_9StringRefES0_.exit299:             ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit291
   %bcmp.i298 = call i32 @bcmp(ptr %2, ptr nonnull @.str.211, i64 %3)
-  %166 = icmp eq i32 %bcmp.i298, 0
-  br i1 %166, label %167, label %_ZN4llvmeqENS_9StringRefES0_.exit311
+  %165 = icmp eq i32 %bcmp.i298, 0
+  br i1 %165, label %166, label %_ZN4llvmeqENS_9StringRefES0_.exit311
 
-167:                                              ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit299
-  %168 = call noundef ptr @_ZNK4llvm3opt14DerivedArgList13MakeJoinedArgEPKNS0_3ArgENS0_6OptionENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(328) %7, ptr noundef null, ptr %148, ptr %149, ptr nonnull @.str.212, i64 3) #20
+166:                                              ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit299
+  %167 = call noundef ptr @_ZNK4llvm3opt14DerivedArgList13MakeJoinedArgEPKNS0_3ArgENS0_6OptionENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(328) %7, ptr noundef null, ptr %147, ptr %148, ptr nonnull @.str.212, i64 3) #20
   br label %_ZN4llvmeqENS_9StringRefES0_.exit403.thread.sink.split
 
 _ZN4llvmeqENS_9StringRefES0_.exit303:             ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit295
   %bcmp.i302 = call i32 @bcmp(ptr %2, ptr nonnull @.str.213, i64 %3)
-  %169 = icmp eq i32 %bcmp.i302, 0
-  br i1 %169, label %170, label %_ZN4llvmeqENS_9StringRefES0_.exit307
+  %168 = icmp eq i32 %bcmp.i302, 0
+  br i1 %168, label %169, label %_ZN4llvmeqENS_9StringRefES0_.exit307
 
-170:                                              ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit303
-  %171 = call noundef ptr @_ZNK4llvm3opt14DerivedArgList13MakeJoinedArgEPKNS0_3ArgENS0_6OptionENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(328) %7, ptr noundef null, ptr %148, ptr %149, ptr nonnull @.str.214, i64 4) #20
+169:                                              ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit303
+  %170 = call noundef ptr @_ZNK4llvm3opt14DerivedArgList13MakeJoinedArgEPKNS0_3ArgENS0_6OptionENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(328) %7, ptr noundef null, ptr %147, ptr %148, ptr nonnull @.str.214, i64 4) #20
   br label %_ZN4llvmeqENS_9StringRefES0_.exit403.thread.sink.split
 
 _ZN4llvmeqENS_9StringRefES0_.exit307:             ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit303
   %bcmp.i306 = call i32 @bcmp(ptr noundef nonnull dereferenceable(7) %2, ptr noundef nonnull dereferenceable(7) @.str.215, i64 7)
-  %172 = icmp eq i32 %bcmp.i306, 0
-  br i1 %172, label %173, label %_ZN4llvmeqENS_9StringRefES0_.exit319
+  %171 = icmp eq i32 %bcmp.i306, 0
+  br i1 %171, label %172, label %_ZN4llvmeqENS_9StringRefES0_.exit319
 
-173:                                              ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit307
-  %174 = call noundef ptr @_ZNK4llvm3opt14DerivedArgList13MakeJoinedArgEPKNS0_3ArgENS0_6OptionENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(328) %7, ptr noundef null, ptr %148, ptr %149, ptr nonnull @.str.216, i64 4) #20
+172:                                              ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit307
+  %173 = call noundef ptr @_ZNK4llvm3opt14DerivedArgList13MakeJoinedArgEPKNS0_3ArgENS0_6OptionENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(328) %7, ptr noundef null, ptr %147, ptr %148, ptr nonnull @.str.216, i64 4) #20
   br label %_ZN4llvmeqENS_9StringRefES0_.exit403.thread.sink.split
 
 _ZN4llvmeqENS_9StringRefES0_.exit311:             ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit299
   %bcmp.i310 = call i32 @bcmp(ptr %2, ptr nonnull @.str.217, i64 %3)
-  %175 = icmp eq i32 %bcmp.i310, 0
-  br i1 %175, label %176, label %_ZN4llvmeqENS_9StringRefES0_.exit355
+  %174 = icmp eq i32 %bcmp.i310, 0
+  br i1 %174, label %175, label %_ZN4llvmeqENS_9StringRefES0_.exit355
 
-176:                                              ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit311
-  %177 = call noundef ptr @_ZNK4llvm3opt14DerivedArgList13MakeJoinedArgEPKNS0_3ArgENS0_6OptionENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(328) %7, ptr noundef null, ptr %148, ptr %149, ptr nonnull @.str.218, i64 3) #20
+175:                                              ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit311
+  %176 = call noundef ptr @_ZNK4llvm3opt14DerivedArgList13MakeJoinedArgEPKNS0_3ArgENS0_6OptionENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(328) %7, ptr noundef null, ptr %147, ptr %148, ptr nonnull @.str.218, i64 3) #20
   br label %_ZN4llvmeqENS_9StringRefES0_.exit403.thread.sink.split
 
-_ZN4llvmeqENS_9StringRefES0_.exit315:             ; preds = %146
+_ZN4llvmeqENS_9StringRefES0_.exit315:             ; preds = %145
   %bcmp.i314 = call i32 @bcmp(ptr %2, ptr nonnull @.str.219, i64 %3)
-  %178 = icmp eq i32 %bcmp.i314, 0
-  br i1 %178, label %180, label %_ZN4llvmeqENS_9StringRefES0_.exit371
+  %177 = icmp eq i32 %bcmp.i314, 0
+  br i1 %177, label %179, label %_ZN4llvmeqENS_9StringRefES0_.exit371
 
 _ZN4llvmeqENS_9StringRefES0_.exit319:             ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit307
   %bcmp.i318 = call i32 @bcmp(ptr %2, ptr nonnull @.str.220, i64 %3)
-  %179 = icmp eq i32 %bcmp.i318, 0
-  br i1 %179, label %180, label %_ZN4llvmeqENS_9StringRefES0_.exit339
+  %178 = icmp eq i32 %bcmp.i318, 0
+  br i1 %178, label %179, label %_ZN4llvmeqENS_9StringRefES0_.exit339
 
-180:                                              ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit319, %_ZN4llvmeqENS_9StringRefES0_.exit315
-  %181 = call { ptr, ptr } @_ZNK4llvm3opt8OptTable9getOptionENS0_12OptSpecifierE(ptr noundef nonnull align 8 dereferenceable(88) %10, i32 2119) #20
-  %182 = extractvalue { ptr, ptr } %181, 0
-  %183 = extractvalue { ptr, ptr } %181, 1
-  %184 = call noundef ptr @_ZNK4llvm3opt14DerivedArgList11MakeFlagArgEPKNS0_3ArgENS0_6OptionE(ptr noundef nonnull align 8 dereferenceable(328) %7, ptr noundef null, ptr %182, ptr %183) #20
+179:                                              ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit319, %_ZN4llvmeqENS_9StringRefES0_.exit315
+  %180 = call { ptr, ptr } @_ZNK4llvm3opt8OptTable9getOptionENS0_12OptSpecifierE(ptr noundef nonnull align 8 dereferenceable(88) %10, i32 2119) #20
+  %181 = extractvalue { ptr, ptr } %180, 0
+  %182 = extractvalue { ptr, ptr } %180, 1
+  %183 = call noundef ptr @_ZNK4llvm3opt14DerivedArgList11MakeFlagArgEPKNS0_3ArgENS0_6OptionE(ptr noundef nonnull align 8 dereferenceable(328) %7, ptr noundef null, ptr %181, ptr %182) #20
   br label %_ZN4llvmeqENS_9StringRefES0_.exit403.thread.sink.split
 
-_ZN4llvmeqENS_9StringRefES0_.exit323:             ; preds = %146
+_ZN4llvmeqENS_9StringRefES0_.exit323:             ; preds = %145
   %bcmp.i322 = call i32 @bcmp(ptr %2, ptr nonnull @.str, i64 %3)
-  %185 = icmp eq i32 %bcmp.i322, 0
-  br i1 %185, label %_ZN4llvmeqENS_9StringRefES0_.exit403.thread, label %_ZN4llvmeqENS_9StringRefES0_.exit327
+  %184 = icmp eq i32 %bcmp.i322, 0
+  br i1 %184, label %_ZN4llvmeqENS_9StringRefES0_.exit403.thread, label %_ZN4llvmeqENS_9StringRefES0_.exit327
 
 _ZN4llvmeqENS_9StringRefES0_.exit327:             ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit323
   %bcmp.i326 = call i32 @bcmp(ptr noundef nonnull dereferenceable(4) %2, ptr noundef nonnull dereferenceable(4) @.str.1, i64 4)
-  %186 = icmp eq i32 %bcmp.i326, 0
-  br i1 %186, label %187, label %_ZN4llvmeqENS_9StringRefES0_.exit331
+  %185 = icmp eq i32 %bcmp.i326, 0
+  br i1 %185, label %186, label %_ZN4llvmeqENS_9StringRefES0_.exit331
 
-187:                                              ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit327
-  %188 = call noundef ptr @_ZNK4llvm3opt14DerivedArgList13MakeJoinedArgEPKNS0_3ArgENS0_6OptionENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(328) %7, ptr noundef null, ptr %151, ptr %152, ptr nonnull @.str.1, i64 4) #20
+186:                                              ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit327
+  %187 = call noundef ptr @_ZNK4llvm3opt14DerivedArgList13MakeJoinedArgEPKNS0_3ArgENS0_6OptionENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(328) %7, ptr noundef null, ptr %150, ptr %151, ptr nonnull @.str.1, i64 4) #20
   br label %_ZN4llvmeqENS_9StringRefES0_.exit403.thread.sink.split
 
 _ZN4llvmeqENS_9StringRefES0_.exit331:             ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit327
   %bcmp.i330 = call i32 @bcmp(ptr noundef nonnull dereferenceable(4) %2, ptr noundef nonnull dereferenceable(4) @.str.3, i64 4)
-  %189 = icmp eq i32 %bcmp.i330, 0
-  br i1 %189, label %190, label %_ZN4llvmeqENS_9StringRefES0_.exit335
+  %188 = icmp eq i32 %bcmp.i330, 0
+  br i1 %188, label %189, label %_ZN4llvmeqENS_9StringRefES0_.exit335
 
-190:                                              ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit331
-  %191 = call noundef ptr @_ZNK4llvm3opt14DerivedArgList13MakeJoinedArgEPKNS0_3ArgENS0_6OptionENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(328) %7, ptr noundef null, ptr %151, ptr %152, ptr nonnull @.str.3, i64 4) #20
+189:                                              ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit331
+  %190 = call noundef ptr @_ZNK4llvm3opt14DerivedArgList13MakeJoinedArgEPKNS0_3ArgENS0_6OptionENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(328) %7, ptr noundef null, ptr %150, ptr %151, ptr nonnull @.str.3, i64 4) #20
   br label %_ZN4llvmeqENS_9StringRefES0_.exit403.thread.sink.split
 
 _ZN4llvmeqENS_9StringRefES0_.exit335:             ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit331
   %bcmp.i334 = call i32 @bcmp(ptr noundef nonnull dereferenceable(4) %2, ptr noundef nonnull dereferenceable(4) @.str.4, i64 4)
-  %192 = icmp eq i32 %bcmp.i334, 0
-  br i1 %192, label %193, label %_ZN4llvmeqENS_9StringRefES0_.exit403.thread
+  %191 = icmp eq i32 %bcmp.i334, 0
+  br i1 %191, label %192, label %_ZN4llvmeqENS_9StringRefES0_.exit403.thread
 
-193:                                              ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit335
-  %194 = call noundef ptr @_ZNK4llvm3opt14DerivedArgList13MakeJoinedArgEPKNS0_3ArgENS0_6OptionENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(328) %7, ptr noundef null, ptr %151, ptr %152, ptr nonnull @.str.4, i64 4) #20
+192:                                              ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit335
+  %193 = call noundef ptr @_ZNK4llvm3opt14DerivedArgList13MakeJoinedArgEPKNS0_3ArgENS0_6OptionENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(328) %7, ptr noundef null, ptr %150, ptr %151, ptr nonnull @.str.4, i64 4) #20
   br label %_ZN4llvmeqENS_9StringRefES0_.exit403.thread.sink.split
 
 _ZN4llvmeqENS_9StringRefES0_.exit339:             ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit319
   %bcmp.i338 = call i32 @bcmp(ptr %2, ptr nonnull @.str.5, i64 %3)
-  %195 = icmp eq i32 %bcmp.i338, 0
-  br i1 %195, label %196, label %_ZN4llvmeqENS_9StringRefES0_.exit347
+  %194 = icmp eq i32 %bcmp.i338, 0
+  br i1 %194, label %195, label %_ZN4llvmeqENS_9StringRefES0_.exit347
 
-196:                                              ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit339
-  %197 = call noundef ptr @_ZNK4llvm3opt14DerivedArgList13MakeJoinedArgEPKNS0_3ArgENS0_6OptionENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(328) %7, ptr noundef null, ptr %151, ptr %152, ptr nonnull @.str.5, i64 7) #20
+195:                                              ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit339
+  %196 = call noundef ptr @_ZNK4llvm3opt14DerivedArgList13MakeJoinedArgEPKNS0_3ArgENS0_6OptionENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(328) %7, ptr noundef null, ptr %150, ptr %151, ptr nonnull @.str.5, i64 7) #20
   br label %_ZN4llvmeqENS_9StringRefES0_.exit403.thread.sink.split
 
-_ZN4llvmeqENS_9StringRefES0_.exit343:             ; preds = %146
+_ZN4llvmeqENS_9StringRefES0_.exit343:             ; preds = %145
   %bcmp.i342 = call i32 @bcmp(ptr %2, ptr nonnull @.str.221, i64 %3)
-  %198 = icmp eq i32 %bcmp.i342, 0
-  br i1 %198, label %199, label %_ZN4llvmeqENS_9StringRefES0_.exit351
+  %197 = icmp eq i32 %bcmp.i342, 0
+  br i1 %197, label %198, label %_ZN4llvmeqENS_9StringRefES0_.exit351
 
-199:                                              ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit343
-  %200 = call noundef ptr @_ZNK4llvm3opt14DerivedArgList13MakeJoinedArgEPKNS0_3ArgENS0_6OptionENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(328) %7, ptr noundef null, ptr %151, ptr %152, ptr nonnull @.str.221, i64 8) #20
+198:                                              ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit343
+  %199 = call noundef ptr @_ZNK4llvm3opt14DerivedArgList13MakeJoinedArgEPKNS0_3ArgENS0_6OptionENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(328) %7, ptr noundef null, ptr %150, ptr %151, ptr nonnull @.str.221, i64 8) #20
   br label %_ZN4llvmeqENS_9StringRefES0_.exit403.thread.sink.split
 
 _ZN4llvmeqENS_9StringRefES0_.exit347:             ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit339
   %bcmp.i346 = call i32 @bcmp(ptr %2, ptr nonnull @.str.6, i64 %3)
-  %201 = icmp eq i32 %bcmp.i346, 0
-  br i1 %201, label %202, label %_ZN4llvmeqENS_9StringRefES0_.exit359
+  %200 = icmp eq i32 %bcmp.i346, 0
+  br i1 %200, label %201, label %_ZN4llvmeqENS_9StringRefES0_.exit359
 
-202:                                              ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit347
-  %203 = call noundef ptr @_ZNK4llvm3opt14DerivedArgList13MakeJoinedArgEPKNS0_3ArgENS0_6OptionENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(328) %7, ptr noundef null, ptr %151, ptr %152, ptr nonnull @.str.222, i64 10) #20
+201:                                              ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit347
+  %202 = call noundef ptr @_ZNK4llvm3opt14DerivedArgList13MakeJoinedArgEPKNS0_3ArgENS0_6OptionENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(328) %7, ptr noundef null, ptr %150, ptr %151, ptr nonnull @.str.222, i64 10) #20
   br label %_ZN4llvmeqENS_9StringRefES0_.exit403.thread.sink.split
 
 _ZN4llvmeqENS_9StringRefES0_.exit351:             ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit343
   %bcmp.i350 = call i32 @bcmp(ptr %2, ptr nonnull @.str.7, i64 %3)
-  %204 = icmp eq i32 %bcmp.i350, 0
-  br i1 %204, label %205, label %_ZN4llvmeqENS_9StringRefES0_.exit403.thread
+  %203 = icmp eq i32 %bcmp.i350, 0
+  br i1 %203, label %204, label %_ZN4llvmeqENS_9StringRefES0_.exit403.thread
 
-205:                                              ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit351
-  %206 = call noundef ptr @_ZNK4llvm3opt14DerivedArgList13MakeJoinedArgEPKNS0_3ArgENS0_6OptionENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(328) %7, ptr noundef null, ptr %151, ptr %152, ptr nonnull @.str.221, i64 8) #20
+204:                                              ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit351
+  %205 = call noundef ptr @_ZNK4llvm3opt14DerivedArgList13MakeJoinedArgEPKNS0_3ArgENS0_6OptionENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(328) %7, ptr noundef null, ptr %150, ptr %151, ptr nonnull @.str.221, i64 8) #20
   br label %_ZN4llvmeqENS_9StringRefES0_.exit403.thread.sink.split
 
 _ZN4llvmeqENS_9StringRefES0_.exit355:             ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit311
   %bcmp.i354 = call i32 @bcmp(ptr %2, ptr nonnull @.str.10, i64 %3)
-  %207 = icmp eq i32 %bcmp.i354, 0
-  br i1 %207, label %209, label %_ZN4llvmeqENS_9StringRefES0_.exit367
+  %206 = icmp eq i32 %bcmp.i354, 0
+  br i1 %206, label %208, label %_ZN4llvmeqENS_9StringRefES0_.exit367
 
 _ZN4llvmeqENS_9StringRefES0_.exit359:             ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit347
   %bcmp.i358 = call i32 @bcmp(ptr %2, ptr nonnull @.str.11, i64 %3)
-  %208 = icmp eq i32 %bcmp.i358, 0
-  br i1 %208, label %209, label %_ZN4llvmeqENS_9StringRefES0_.exit391
+  %207 = icmp eq i32 %bcmp.i358, 0
+  br i1 %207, label %208, label %_ZN4llvmeqENS_9StringRefES0_.exit391
 
-209:                                              ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit359, %_ZN4llvmeqENS_9StringRefES0_.exit355
-  %210 = call { ptr, ptr } @_ZNK4llvm3opt8OptTable9getOptionENS0_12OptSpecifierE(ptr noundef nonnull align 8 dereferenceable(88) %10, i32 2119) #20
-  %211 = extractvalue { ptr, ptr } %210, 0
-  %212 = extractvalue { ptr, ptr } %210, 1
-  %213 = call noundef ptr @_ZNK4llvm3opt14DerivedArgList11MakeFlagArgEPKNS0_3ArgENS0_6OptionE(ptr noundef nonnull align 8 dereferenceable(328) %7, ptr noundef null, ptr %211, ptr %212) #20
+208:                                              ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit359, %_ZN4llvmeqENS_9StringRefES0_.exit355
+  %209 = call { ptr, ptr } @_ZNK4llvm3opt8OptTable9getOptionENS0_12OptSpecifierE(ptr noundef nonnull align 8 dereferenceable(88) %10, i32 2119) #20
+  %210 = extractvalue { ptr, ptr } %209, 0
+  %211 = extractvalue { ptr, ptr } %209, 1
+  %212 = call noundef ptr @_ZNK4llvm3opt14DerivedArgList11MakeFlagArgEPKNS0_3ArgENS0_6OptionE(ptr noundef nonnull align 8 dereferenceable(328) %7, ptr noundef null, ptr %210, ptr %211) #20
   br label %_ZN4llvmeqENS_9StringRefES0_.exit403.thread.sink.split
 
 _ZN4llvmeqENS_9StringRefES0_.exit363:             ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit279
   %bcmp.i362 = call i32 @bcmp(ptr %2, ptr nonnull @.str.12, i64 %3)
-  %214 = icmp eq i32 %bcmp.i362, 0
-  br i1 %214, label %215, label %_ZN4llvmeqENS_9StringRefES0_.exit403.thread
+  %213 = icmp eq i32 %bcmp.i362, 0
+  br i1 %213, label %214, label %_ZN4llvmeqENS_9StringRefES0_.exit403.thread
 
-215:                                              ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit363
-  %216 = call noundef ptr @_ZNK4llvm3opt14DerivedArgList13MakeJoinedArgEPKNS0_3ArgENS0_6OptionENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(328) %7, ptr noundef null, ptr %151, ptr %152, ptr nonnull @.str.13, i64 6) #20
+214:                                              ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit363
+  %215 = call noundef ptr @_ZNK4llvm3opt14DerivedArgList13MakeJoinedArgEPKNS0_3ArgENS0_6OptionENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(328) %7, ptr noundef null, ptr %150, ptr %151, ptr nonnull @.str.13, i64 6) #20
   br label %_ZN4llvmeqENS_9StringRefES0_.exit403.thread.sink.split
 
 _ZN4llvmeqENS_9StringRefES0_.exit367:             ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit355
   %bcmp.i366 = call i32 @bcmp(ptr %2, ptr nonnull @.str.13, i64 %3)
-  %217 = icmp eq i32 %bcmp.i366, 0
-  br i1 %217, label %218, label %_ZN4llvmeqENS_9StringRefES0_.exit375
+  %216 = icmp eq i32 %bcmp.i366, 0
+  br i1 %216, label %217, label %_ZN4llvmeqENS_9StringRefES0_.exit375
 
-218:                                              ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit367
-  %219 = call noundef ptr @_ZNK4llvm3opt14DerivedArgList13MakeJoinedArgEPKNS0_3ArgENS0_6OptionENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(328) %7, ptr noundef null, ptr %151, ptr %152, ptr nonnull @.str.13, i64 6) #20
+217:                                              ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit367
+  %218 = call noundef ptr @_ZNK4llvm3opt14DerivedArgList13MakeJoinedArgEPKNS0_3ArgENS0_6OptionENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(328) %7, ptr noundef null, ptr %150, ptr %151, ptr nonnull @.str.13, i64 6) #20
   br label %_ZN4llvmeqENS_9StringRefES0_.exit403.thread.sink.split
 
 _ZN4llvmeqENS_9StringRefES0_.exit371:             ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit315
   %bcmp.i370 = call i32 @bcmp(ptr %2, ptr nonnull @.str.14, i64 %3)
-  %220 = icmp eq i32 %bcmp.i370, 0
-  br i1 %220, label %221, label %_ZN4llvmeqENS_9StringRefES0_.exit379
+  %219 = icmp eq i32 %bcmp.i370, 0
+  br i1 %219, label %220, label %_ZN4llvmeqENS_9StringRefES0_.exit379
 
-221:                                              ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit371
-  %222 = call noundef ptr @_ZNK4llvm3opt14DerivedArgList13MakeJoinedArgEPKNS0_3ArgENS0_6OptionENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(328) %7, ptr noundef null, ptr %151, ptr %152, ptr nonnull @.str.223, i64 8) #20
+220:                                              ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit371
+  %221 = call noundef ptr @_ZNK4llvm3opt14DerivedArgList13MakeJoinedArgEPKNS0_3ArgENS0_6OptionENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(328) %7, ptr noundef null, ptr %150, ptr %151, ptr nonnull @.str.223, i64 8) #20
   br label %_ZN4llvmeqENS_9StringRefES0_.exit403.thread.sink.split
 
 _ZN4llvmeqENS_9StringRefES0_.exit375:             ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit367
   %bcmp.i374 = call i32 @bcmp(ptr %2, ptr nonnull @.str.22, i64 %3)
-  %223 = icmp eq i32 %bcmp.i374, 0
-  br i1 %223, label %224, label %_ZN4llvmeqENS_9StringRefES0_.exit383
+  %222 = icmp eq i32 %bcmp.i374, 0
+  br i1 %222, label %223, label %_ZN4llvmeqENS_9StringRefES0_.exit383
 
-224:                                              ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit375
-  %225 = call noundef ptr @_ZNK4llvm3opt14DerivedArgList13MakeJoinedArgEPKNS0_3ArgENS0_6OptionENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(328) %7, ptr noundef null, ptr %151, ptr %152, ptr nonnull @.str.22, i64 6) #20
+223:                                              ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit375
+  %224 = call noundef ptr @_ZNK4llvm3opt14DerivedArgList13MakeJoinedArgEPKNS0_3ArgENS0_6OptionENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(328) %7, ptr noundef null, ptr %150, ptr %151, ptr nonnull @.str.22, i64 6) #20
   br label %_ZN4llvmeqENS_9StringRefES0_.exit403.thread.sink.split
 
 _ZN4llvmeqENS_9StringRefES0_.exit379:             ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit371
   %bcmp.i378 = call i32 @bcmp(ptr %2, ptr nonnull @.str.15, i64 %3)
-  %226 = icmp eq i32 %bcmp.i378, 0
-  br i1 %226, label %227, label %_ZN4llvmeqENS_9StringRefES0_.exit387
+  %225 = icmp eq i32 %bcmp.i378, 0
+  br i1 %225, label %226, label %_ZN4llvmeqENS_9StringRefES0_.exit387
 
-227:                                              ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit379
-  %228 = call noundef ptr @_ZNK4llvm3opt14DerivedArgList13MakeJoinedArgEPKNS0_3ArgENS0_6OptionENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(328) %7, ptr noundef null, ptr %151, ptr %152, ptr nonnull @.str.224, i64 6) #20
+226:                                              ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit379
+  %227 = call noundef ptr @_ZNK4llvm3opt14DerivedArgList13MakeJoinedArgEPKNS0_3ArgENS0_6OptionENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(328) %7, ptr noundef null, ptr %150, ptr %151, ptr nonnull @.str.224, i64 6) #20
   br label %_ZN4llvmeqENS_9StringRefES0_.exit403.thread.sink.split
 
 _ZN4llvmeqENS_9StringRefES0_.exit383:             ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit375
   %bcmp.i382 = call i32 @bcmp(ptr %2, ptr nonnull @.str.16, i64 %3)
-  %229 = icmp eq i32 %bcmp.i382, 0
-  br i1 %229, label %230, label %_ZN4llvmeqENS_9StringRefES0_.exit395
+  %228 = icmp eq i32 %bcmp.i382, 0
+  br i1 %228, label %229, label %_ZN4llvmeqENS_9StringRefES0_.exit395
 
-230:                                              ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit383
-  %231 = call noundef ptr @_ZNK4llvm3opt14DerivedArgList13MakeJoinedArgEPKNS0_3ArgENS0_6OptionENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(328) %7, ptr noundef null, ptr %151, ptr %152, ptr nonnull @.str.16, i64 6) #20
+229:                                              ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit383
+  %230 = call noundef ptr @_ZNK4llvm3opt14DerivedArgList13MakeJoinedArgEPKNS0_3ArgENS0_6OptionENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(328) %7, ptr noundef null, ptr %150, ptr %151, ptr nonnull @.str.16, i64 6) #20
   br label %_ZN4llvmeqENS_9StringRefES0_.exit403.thread.sink.split
 
 _ZN4llvmeqENS_9StringRefES0_.exit387:             ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit379
   %bcmp.i386 = call i32 @bcmp(ptr %2, ptr nonnull @.str.17, i64 %3)
-  %232 = icmp eq i32 %bcmp.i386, 0
-  br i1 %232, label %233, label %_ZN4llvmeqENS_9StringRefES0_.exit403.thread
+  %231 = icmp eq i32 %bcmp.i386, 0
+  br i1 %231, label %232, label %_ZN4llvmeqENS_9StringRefES0_.exit403.thread
 
-233:                                              ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit387
-  %234 = call noundef ptr @_ZNK4llvm3opt14DerivedArgList13MakeJoinedArgEPKNS0_3ArgENS0_6OptionENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(328) %7, ptr noundef null, ptr %151, ptr %152, ptr nonnull @.str.225, i64 6) #20
+232:                                              ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit387
+  %233 = call noundef ptr @_ZNK4llvm3opt14DerivedArgList13MakeJoinedArgEPKNS0_3ArgENS0_6OptionENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(328) %7, ptr noundef null, ptr %150, ptr %151, ptr nonnull @.str.225, i64 6) #20
   br label %_ZN4llvmeqENS_9StringRefES0_.exit403.thread.sink.split
 
 _ZN4llvmeqENS_9StringRefES0_.exit391:             ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit359
   %bcmp.i390 = call i32 @bcmp(ptr %2, ptr nonnull @.str.18, i64 %3)
-  %235 = icmp eq i32 %bcmp.i390, 0
-  br i1 %235, label %236, label %_ZN4llvmeqENS_9StringRefES0_.exit403.thread
+  %234 = icmp eq i32 %bcmp.i390, 0
+  br i1 %234, label %235, label %_ZN4llvmeqENS_9StringRefES0_.exit403.thread
 
-236:                                              ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit391
-  %237 = call noundef ptr @_ZNK4llvm3opt14DerivedArgList13MakeJoinedArgEPKNS0_3ArgENS0_6OptionENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(328) %7, ptr noundef null, ptr %151, ptr %152, ptr nonnull @.str.18, i64 7) #20
+235:                                              ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit391
+  %236 = call noundef ptr @_ZNK4llvm3opt14DerivedArgList13MakeJoinedArgEPKNS0_3ArgENS0_6OptionENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(328) %7, ptr noundef null, ptr %150, ptr %151, ptr nonnull @.str.18, i64 7) #20
   br label %_ZN4llvmeqENS_9StringRefES0_.exit403.thread.sink.split
 
 _ZN4llvmeqENS_9StringRefES0_.exit395:             ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit383
   %bcmp.i394 = call i32 @bcmp(ptr %2, ptr nonnull @.str.19, i64 %3)
-  %238 = icmp eq i32 %bcmp.i394, 0
-  br i1 %238, label %239, label %_ZN4llvmeqENS_9StringRefES0_.exit399
+  %237 = icmp eq i32 %bcmp.i394, 0
+  br i1 %237, label %238, label %_ZN4llvmeqENS_9StringRefES0_.exit399
 
-239:                                              ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit395
-  %240 = call noundef ptr @_ZNK4llvm3opt14DerivedArgList13MakeJoinedArgEPKNS0_3ArgENS0_6OptionENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(328) %7, ptr noundef null, ptr %151, ptr %152, ptr nonnull @.str.19, i64 6) #20
+238:                                              ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit395
+  %239 = call noundef ptr @_ZNK4llvm3opt14DerivedArgList13MakeJoinedArgEPKNS0_3ArgENS0_6OptionENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(328) %7, ptr noundef null, ptr %150, ptr %151, ptr nonnull @.str.19, i64 6) #20
   br label %_ZN4llvmeqENS_9StringRefES0_.exit403.thread.sink.split
 
 _ZN4llvmeqENS_9StringRefES0_.exit399:             ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit395
   %bcmp.i398 = call i32 @bcmp(ptr noundef nonnull dereferenceable(6) %2, ptr noundef nonnull dereferenceable(6) @.str.20, i64 6)
-  %241 = icmp eq i32 %bcmp.i398, 0
-  br i1 %241, label %242, label %_ZN4llvmeqENS_9StringRefES0_.exit403
+  %240 = icmp eq i32 %bcmp.i398, 0
+  br i1 %240, label %241, label %_ZN4llvmeqENS_9StringRefES0_.exit403
 
-242:                                              ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit399
-  %243 = call noundef ptr @_ZNK4llvm3opt14DerivedArgList13MakeJoinedArgEPKNS0_3ArgENS0_6OptionENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(328) %7, ptr noundef null, ptr %151, ptr %152, ptr nonnull @.str.20, i64 6) #20
+241:                                              ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit399
+  %242 = call noundef ptr @_ZNK4llvm3opt14DerivedArgList13MakeJoinedArgEPKNS0_3ArgENS0_6OptionENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(328) %7, ptr noundef null, ptr %150, ptr %151, ptr nonnull @.str.20, i64 6) #20
   br label %_ZN4llvmeqENS_9StringRefES0_.exit403.thread.sink.split
 
 _ZN4llvmeqENS_9StringRefES0_.exit403:             ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit399
   %bcmp.i402 = call i32 @bcmp(ptr noundef nonnull dereferenceable(6) %2, ptr noundef nonnull dereferenceable(6) @.str.21, i64 6)
-  %244 = icmp eq i32 %bcmp.i402, 0
-  br i1 %244, label %245, label %_ZN4llvmeqENS_9StringRefES0_.exit403.thread
+  %243 = icmp eq i32 %bcmp.i402, 0
+  br i1 %243, label %244, label %_ZN4llvmeqENS_9StringRefES0_.exit403.thread
 
-245:                                              ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit403
-  %246 = call noundef ptr @_ZNK4llvm3opt14DerivedArgList13MakeJoinedArgEPKNS0_3ArgENS0_6OptionENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(328) %7, ptr noundef null, ptr %151, ptr %152, ptr nonnull @.str.21, i64 6) #20
+244:                                              ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit403
+  %245 = call noundef ptr @_ZNK4llvm3opt14DerivedArgList13MakeJoinedArgEPKNS0_3ArgENS0_6OptionENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(328) %7, ptr noundef null, ptr %150, ptr %151, ptr nonnull @.str.21, i64 6) #20
   br label %_ZN4llvmeqENS_9StringRefES0_.exit403.thread.sink.split
 
-_ZN4llvmeqENS_9StringRefES0_.exit403.thread.sink.split: ; preds = %155, %161, %167, %173, %180, %187, %193, %199, %205, %215, %221, %227, %233, %239, %245, %242, %236, %230, %224, %218, %209, %202, %196, %190, %176, %170, %164, %158
-  %.sink = phi ptr [ %159, %158 ], [ %165, %164 ], [ %171, %170 ], [ %177, %176 ], [ %191, %190 ], [ %197, %196 ], [ %203, %202 ], [ %213, %209 ], [ %219, %218 ], [ %225, %224 ], [ %231, %230 ], [ %237, %236 ], [ %243, %242 ], [ %246, %245 ], [ %240, %239 ], [ %234, %233 ], [ %228, %227 ], [ %222, %221 ], [ %216, %215 ], [ %206, %205 ], [ %200, %199 ], [ %194, %193 ], [ %188, %187 ], [ %184, %180 ], [ %174, %173 ], [ %168, %167 ], [ %162, %161 ], [ %156, %155 ]
-  call void @_ZN4llvm3opt7ArgList6appendEPNS0_3ArgE(ptr noundef nonnull align 8 dereferenceable(176) %7, ptr noundef %.sink) #20
+_ZN4llvmeqENS_9StringRefES0_.exit403.thread.sink.split: ; preds = %154, %160, %166, %172, %179, %186, %192, %198, %204, %214, %220, %226, %232, %238, %244, %241, %235, %229, %223, %217, %208, %201, %195, %189, %175, %169, %163, %157
+  %.sink613 = phi ptr [ %158, %157 ], [ %164, %163 ], [ %170, %169 ], [ %176, %175 ], [ %190, %189 ], [ %196, %195 ], [ %202, %201 ], [ %212, %208 ], [ %218, %217 ], [ %224, %223 ], [ %230, %229 ], [ %236, %235 ], [ %242, %241 ], [ %245, %244 ], [ %239, %238 ], [ %233, %232 ], [ %227, %226 ], [ %221, %220 ], [ %215, %214 ], [ %205, %204 ], [ %199, %198 ], [ %193, %192 ], [ %187, %186 ], [ %183, %179 ], [ %173, %172 ], [ %167, %166 ], [ %161, %160 ], [ %155, %154 ]
+  call void @_ZN4llvm3opt7ArgList6appendEPNS0_3ArgE(ptr noundef nonnull align 8 dereferenceable(176) %7, ptr noundef %.sink613) #20
   br label %_ZN4llvmeqENS_9StringRefES0_.exit403.thread
 
-_ZN4llvmeqENS_9StringRefES0_.exit403.thread:      ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit403.thread.sink.split, %_ZN4llvmeqENS_9StringRefES0_.exit391, %_ZN4llvmeqENS_9StringRefES0_.exit387, %_ZN4llvmeqENS_9StringRefES0_.exit363, %_ZN4llvmeqENS_9StringRefES0_.exit351, %_ZN4llvmeqENS_9StringRefES0_.exit335, %146, %_ZN4llvmeqENS_9StringRefES0_.exit279, %_ZN4llvmeqENS_9StringRefES0_.exit323, %_ZN4llvmeqENS_9StringRefES0_.exit403, %._crit_edge
+_ZN4llvmeqENS_9StringRefES0_.exit403.thread:      ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit403.thread.sink.split, %_ZN4llvmeqENS_9StringRefES0_.exit391, %_ZN4llvmeqENS_9StringRefES0_.exit387, %_ZN4llvmeqENS_9StringRefES0_.exit363, %_ZN4llvmeqENS_9StringRefES0_.exit351, %_ZN4llvmeqENS_9StringRefES0_.exit335, %145, %_ZN4llvmeqENS_9StringRefES0_.exit279, %_ZN4llvmeqENS_9StringRefES0_.exit323, %_ZN4llvmeqENS_9StringRefES0_.exit403, %._crit_edge
   ret ptr %7
 }
 

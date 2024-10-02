@@ -6355,7 +6355,7 @@ define internal void @_ZN8LightGBM23DataParallelTreeLearnerINS_14GPUTreeLearnerE
   %8 = getelementptr inbounds i8, ptr %2, i64 12
   %9 = load i32, ptr %8, align 4
   %10 = icmp sgt i32 %9, 0
-  br i1 %10, label %11, label %146
+  br i1 %10, label %11, label %105
 
 11:                                               ; preds = %3
   %12 = add nsw i32 %9, -1
@@ -6397,7 +6397,7 @@ define internal void @_ZN8LightGBM23DataParallelTreeLearnerINS_14GPUTreeLearnerE
   %33 = getelementptr inbounds i8, ptr %32, i64 832
   %34 = load i8, ptr %33, align 8
   %35 = trunc i8 %34 to i1
-  br i1 %35, label %36, label %125
+  br i1 %35, label %36, label %_ZN8LightGBM16FeatureHistogram20CopyFromInt16ToInt32EPc.exit.sink.split
 
 36:                                               ; preds = %31
   %37 = load ptr, ptr %22, align 8
@@ -6410,137 +6410,96 @@ define internal void @_ZN8LightGBM23DataParallelTreeLearnerINS_14GPUTreeLearnerE
   %44 = getelementptr inbounds i8, ptr %43, i64 %41
   %45 = load i8, ptr %44, align 1
   %46 = icmp ult i8 %45, 17
-  br i1 %46, label %47, label %66
+  br i1 %46, label %_ZN8LightGBM16FeatureHistogram20CopyFromInt16ToInt32EPc.exit.sink.split, label %47
 
 47:                                               ; preds = %36
-  %48 = load ptr, ptr %19, align 8
-  %49 = load ptr, ptr %24, align 8
-  %50 = getelementptr inbounds i32, ptr %49, i64 %indvars.iv
-  %51 = load i32, ptr %50, align 4
-  %52 = sext i32 %51 to i64
-  %53 = getelementptr inbounds i8, ptr %48, i64 %52
+  %48 = getelementptr inbounds i8, ptr %37, i64 5192
+  %49 = load ptr, ptr %48, align 8
+  %50 = getelementptr inbounds i8, ptr %49, i64 %41
+  %51 = load i8, ptr %50, align 1
+  %52 = icmp eq i8 %51, 32
+  br i1 %52, label %_ZN8LightGBM16FeatureHistogram20CopyFromInt16ToInt32EPc.exit.sink.split, label %53
+
+53:                                               ; preds = %47
   %54 = load ptr, ptr %21, align 8
   %55 = getelementptr inbounds %"class.LightGBM::FeatureHistogram", ptr %54, i64 %indvars.iv
-  %56 = getelementptr inbounds i8, ptr %55, i64 16
-  %57 = load ptr, ptr %56, align 8
-  %58 = load ptr, ptr %55, align 8
-  %59 = load i32, ptr %58, align 8
-  %60 = getelementptr inbounds i8, ptr %58, i64 8
-  %61 = load i8, ptr %60, align 8
-  %62 = sext i8 %61 to i32
-  %63 = sub nsw i32 %59, %62
-  %64 = shl i32 %63, 2
-  %65 = sext i32 %64 to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %53, ptr align 2 %57, i64 %65, i1 false)
-  br label %_ZN8LightGBM16FeatureHistogram20CopyFromInt16ToInt32EPc.exit
+  %56 = load ptr, ptr %19, align 8
+  %57 = load ptr, ptr %20, align 8
+  %58 = getelementptr inbounds i32, ptr %57, i64 %indvars.iv
+  %59 = load i32, ptr %58, align 4
+  %60 = sext i32 %59 to i64
+  %61 = getelementptr inbounds i8, ptr %56, i64 %60
+  %62 = getelementptr inbounds i8, ptr %55, i64 16
+  %63 = load ptr, ptr %62, align 8
+  %64 = load ptr, ptr %55, align 8
+  %65 = load i32, ptr %64, align 8
+  %66 = getelementptr inbounds i8, ptr %64, i64 8
+  %67 = load i8, ptr %66, align 8
+  %68 = sext i8 %67 to i32
+  %69 = icmp sgt i32 %65, %68
+  br i1 %69, label %.lr.ph.i, label %_ZN8LightGBM16FeatureHistogram20CopyFromInt16ToInt32EPc.exit
 
-66:                                               ; preds = %36
-  %67 = getelementptr inbounds i8, ptr %37, i64 5192
-  %68 = load ptr, ptr %67, align 8
-  %69 = getelementptr inbounds i8, ptr %68, i64 %41
-  %70 = load i8, ptr %69, align 1
-  %71 = icmp eq i8 %70, 32
-  br i1 %71, label %72, label %91
-
-72:                                               ; preds = %66
-  %73 = load ptr, ptr %19, align 8
-  %74 = load ptr, ptr %20, align 8
-  %75 = getelementptr inbounds i32, ptr %74, i64 %indvars.iv
-  %76 = load i32, ptr %75, align 4
-  %77 = sext i32 %76 to i64
-  %78 = getelementptr inbounds i8, ptr %73, i64 %77
-  %79 = load ptr, ptr %21, align 8
-  %80 = getelementptr inbounds %"class.LightGBM::FeatureHistogram", ptr %79, i64 %indvars.iv
-  %81 = getelementptr inbounds i8, ptr %80, i64 8
-  %82 = load ptr, ptr %81, align 8
-  %83 = load ptr, ptr %80, align 8
-  %84 = load i32, ptr %83, align 8
-  %85 = getelementptr inbounds i8, ptr %83, i64 8
-  %86 = load i8, ptr %85, align 8
-  %87 = sext i8 %86 to i32
-  %88 = sub nsw i32 %84, %87
-  %89 = shl i32 %88, 3
-  %90 = sext i32 %89 to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %78, ptr align 4 %82, i64 %90, i1 false)
-  br label %_ZN8LightGBM16FeatureHistogram20CopyFromInt16ToInt32EPc.exit
-
-91:                                               ; preds = %66
-  %92 = load ptr, ptr %21, align 8
-  %93 = getelementptr inbounds %"class.LightGBM::FeatureHistogram", ptr %92, i64 %indvars.iv
-  %94 = load ptr, ptr %19, align 8
-  %95 = load ptr, ptr %20, align 8
-  %96 = getelementptr inbounds i32, ptr %95, i64 %indvars.iv
-  %97 = load i32, ptr %96, align 4
-  %98 = sext i32 %97 to i64
-  %99 = getelementptr inbounds i8, ptr %94, i64 %98
-  %100 = getelementptr inbounds i8, ptr %93, i64 16
-  %101 = load ptr, ptr %100, align 8
-  %102 = load ptr, ptr %93, align 8
-  %103 = load i32, ptr %102, align 8
-  %104 = getelementptr inbounds i8, ptr %102, i64 8
-  %105 = load i8, ptr %104, align 8
-  %106 = sext i8 %105 to i32
-  %107 = icmp sgt i32 %103, %106
-  br i1 %107, label %.lr.ph.i, label %_ZN8LightGBM16FeatureHistogram20CopyFromInt16ToInt32EPc.exit
-
-.lr.ph.i:                                         ; preds = %91, %.lr.ph.i
-  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.lr.ph.i ], [ 0, %91 ]
-  %108 = getelementptr inbounds i32, ptr %101, i64 %indvars.iv.i
-  %109 = load i32, ptr %108, align 4
-  %110 = lshr i32 %109, 16
-  %111 = zext nneg i32 %110 to i64
-  %sext.i = shl nuw i64 %111, 48
-  %112 = ashr exact i64 %sext.i, 16
-  %113 = and i32 %109, 65535
-  %114 = zext nneg i32 %113 to i64
-  %115 = or disjoint i64 %112, %114
-  %116 = getelementptr inbounds i64, ptr %99, i64 %indvars.iv.i
-  store i64 %115, ptr %116, align 8
+.lr.ph.i:                                         ; preds = %53, %.lr.ph.i
+  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.lr.ph.i ], [ 0, %53 ]
+  %70 = getelementptr inbounds i32, ptr %63, i64 %indvars.iv.i
+  %71 = load i32, ptr %70, align 4
+  %72 = lshr i32 %71, 16
+  %73 = zext nneg i32 %72 to i64
+  %sext.i = shl nuw i64 %73, 48
+  %74 = ashr exact i64 %sext.i, 16
+  %75 = and i32 %71, 65535
+  %76 = zext nneg i32 %75 to i64
+  %77 = or disjoint i64 %74, %76
+  %78 = getelementptr inbounds i64, ptr %61, i64 %indvars.iv.i
+  store i64 %77, ptr %78, align 8
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %117 = load ptr, ptr %93, align 8
-  %118 = load i32, ptr %117, align 8
-  %119 = getelementptr inbounds i8, ptr %117, i64 8
-  %120 = load i8, ptr %119, align 8
-  %121 = sext i8 %120 to i32
-  %122 = sub nsw i32 %118, %121
-  %123 = sext i32 %122 to i64
-  %124 = icmp slt i64 %indvars.iv.next.i, %123
-  br i1 %124, label %.lr.ph.i, label %_ZN8LightGBM16FeatureHistogram20CopyFromInt16ToInt32EPc.exit, !llvm.loop !25
+  %79 = load ptr, ptr %55, align 8
+  %80 = load i32, ptr %79, align 8
+  %81 = getelementptr inbounds i8, ptr %79, i64 8
+  %82 = load i8, ptr %81, align 8
+  %83 = sext i8 %82 to i32
+  %84 = sub nsw i32 %80, %83
+  %85 = sext i32 %84 to i64
+  %86 = icmp slt i64 %indvars.iv.next.i, %85
+  br i1 %86, label %.lr.ph.i, label %_ZN8LightGBM16FeatureHistogram20CopyFromInt16ToInt32EPc.exit, !llvm.loop !25
 
-125:                                              ; preds = %31
-  %126 = load ptr, ptr %19, align 8
-  %127 = load ptr, ptr %20, align 8
-  %128 = getelementptr inbounds i32, ptr %127, i64 %indvars.iv
-  %129 = load i32, ptr %128, align 4
-  %130 = sext i32 %129 to i64
-  %131 = getelementptr inbounds i8, ptr %126, i64 %130
-  %132 = load ptr, ptr %21, align 8
-  %133 = getelementptr inbounds %"class.LightGBM::FeatureHistogram", ptr %132, i64 %indvars.iv
-  %134 = getelementptr inbounds i8, ptr %133, i64 8
-  %135 = load ptr, ptr %134, align 8
-  %136 = load ptr, ptr %133, align 8
-  %137 = load i32, ptr %136, align 8
-  %138 = getelementptr inbounds i8, ptr %136, i64 8
-  %139 = load i8, ptr %138, align 8
-  %140 = sext i8 %139 to i32
-  %141 = sub nsw i32 %137, %140
-  %142 = shl i32 %141, 4
-  %143 = sext i32 %142 to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %131, ptr align 8 %135, i64 %143, i1 false)
+_ZN8LightGBM16FeatureHistogram20CopyFromInt16ToInt32EPc.exit.sink.split: ; preds = %31, %47, %36
+  %.sink.in = phi ptr [ %24, %36 ], [ %20, %47 ], [ %20, %31 ]
+  %.sink41 = phi i64 [ 16, %36 ], [ 8, %47 ], [ 8, %31 ]
+  %.sink31 = phi i32 [ 2, %36 ], [ 3, %47 ], [ 4, %31 ]
+  %.sink43 = load ptr, ptr %19, align 8
+  %.sink = load ptr, ptr %.sink.in, align 8
+  %87 = getelementptr inbounds i32, ptr %.sink, i64 %indvars.iv
+  %88 = load i32, ptr %87, align 4
+  %89 = sext i32 %88 to i64
+  %90 = getelementptr inbounds i8, ptr %.sink43, i64 %89
+  %91 = load ptr, ptr %21, align 8
+  %92 = getelementptr inbounds %"class.LightGBM::FeatureHistogram", ptr %91, i64 %indvars.iv
+  %93 = getelementptr inbounds i8, ptr %92, i64 %.sink41
+  %94 = load ptr, ptr %93, align 8
+  %95 = load ptr, ptr %92, align 8
+  %96 = load i32, ptr %95, align 8
+  %97 = getelementptr inbounds i8, ptr %95, i64 8
+  %98 = load i8, ptr %97, align 8
+  %99 = sext i8 %98 to i32
+  %100 = sub nsw i32 %96, %99
+  %101 = shl i32 %100, %.sink31
+  %102 = sext i32 %101 to i64
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %90, ptr align 2 %94, i64 %102, i1 false)
   br label %_ZN8LightGBM16FeatureHistogram20CopyFromInt16ToInt32EPc.exit
 
-_ZN8LightGBM16FeatureHistogram20CopyFromInt16ToInt32EPc.exit: ; preds = %.lr.ph.i, %91, %26, %47, %72, %125
+_ZN8LightGBM16FeatureHistogram20CopyFromInt16ToInt32EPc.exit: ; preds = %.lr.ph.i, %_ZN8LightGBM16FeatureHistogram20CopyFromInt16ToInt32EPc.exit.sink.split, %53, %26
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
-  %144 = load i32, ptr %5, align 4
-  %145 = sext i32 %144 to i64
-  %.not.not = icmp slt i64 %indvars.iv, %145
+  %103 = load i32, ptr %5, align 4
+  %104 = sext i32 %103 to i64
+  %.not.not = icmp slt i64 %indvars.iv, %104
   br i1 %.not.not, label %26, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %_ZN8LightGBM16FeatureHistogram20CopyFromInt16ToInt32EPc.exit, %11
   call void @__kmpc_for_static_fini(ptr nonnull @1, i32 %13)
-  br label %146
+  br label %105
 
-146:                                              ; preds = %._crit_edge, %3
+105:                                              ; preds = %._crit_edge, %3
   ret void
 }
 
@@ -11799,7 +11758,7 @@ define internal void @_ZN8LightGBM23DataParallelTreeLearnerINS_17SerialTreeLearn
   %8 = getelementptr inbounds i8, ptr %2, i64 12
   %9 = load i32, ptr %8, align 4
   %10 = icmp sgt i32 %9, 0
-  br i1 %10, label %11, label %146
+  br i1 %10, label %11, label %105
 
 11:                                               ; preds = %3
   %12 = add nsw i32 %9, -1
@@ -11841,7 +11800,7 @@ define internal void @_ZN8LightGBM23DataParallelTreeLearnerINS_17SerialTreeLearn
   %33 = getelementptr inbounds i8, ptr %32, i64 832
   %34 = load i8, ptr %33, align 8
   %35 = trunc i8 %34 to i1
-  br i1 %35, label %36, label %125
+  br i1 %35, label %36, label %_ZN8LightGBM16FeatureHistogram20CopyFromInt16ToInt32EPc.exit.sink.split
 
 36:                                               ; preds = %31
   %37 = load ptr, ptr %22, align 8
@@ -11854,137 +11813,96 @@ define internal void @_ZN8LightGBM23DataParallelTreeLearnerINS_17SerialTreeLearn
   %44 = getelementptr inbounds i8, ptr %43, i64 %41
   %45 = load i8, ptr %44, align 1
   %46 = icmp ult i8 %45, 17
-  br i1 %46, label %47, label %66
+  br i1 %46, label %_ZN8LightGBM16FeatureHistogram20CopyFromInt16ToInt32EPc.exit.sink.split, label %47
 
 47:                                               ; preds = %36
-  %48 = load ptr, ptr %19, align 8
-  %49 = load ptr, ptr %24, align 8
-  %50 = getelementptr inbounds i32, ptr %49, i64 %indvars.iv
-  %51 = load i32, ptr %50, align 4
-  %52 = sext i32 %51 to i64
-  %53 = getelementptr inbounds i8, ptr %48, i64 %52
+  %48 = getelementptr inbounds i8, ptr %37, i64 5192
+  %49 = load ptr, ptr %48, align 8
+  %50 = getelementptr inbounds i8, ptr %49, i64 %41
+  %51 = load i8, ptr %50, align 1
+  %52 = icmp eq i8 %51, 32
+  br i1 %52, label %_ZN8LightGBM16FeatureHistogram20CopyFromInt16ToInt32EPc.exit.sink.split, label %53
+
+53:                                               ; preds = %47
   %54 = load ptr, ptr %21, align 8
   %55 = getelementptr inbounds %"class.LightGBM::FeatureHistogram", ptr %54, i64 %indvars.iv
-  %56 = getelementptr inbounds i8, ptr %55, i64 16
-  %57 = load ptr, ptr %56, align 8
-  %58 = load ptr, ptr %55, align 8
-  %59 = load i32, ptr %58, align 8
-  %60 = getelementptr inbounds i8, ptr %58, i64 8
-  %61 = load i8, ptr %60, align 8
-  %62 = sext i8 %61 to i32
-  %63 = sub nsw i32 %59, %62
-  %64 = shl i32 %63, 2
-  %65 = sext i32 %64 to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %53, ptr align 2 %57, i64 %65, i1 false)
-  br label %_ZN8LightGBM16FeatureHistogram20CopyFromInt16ToInt32EPc.exit
+  %56 = load ptr, ptr %19, align 8
+  %57 = load ptr, ptr %20, align 8
+  %58 = getelementptr inbounds i32, ptr %57, i64 %indvars.iv
+  %59 = load i32, ptr %58, align 4
+  %60 = sext i32 %59 to i64
+  %61 = getelementptr inbounds i8, ptr %56, i64 %60
+  %62 = getelementptr inbounds i8, ptr %55, i64 16
+  %63 = load ptr, ptr %62, align 8
+  %64 = load ptr, ptr %55, align 8
+  %65 = load i32, ptr %64, align 8
+  %66 = getelementptr inbounds i8, ptr %64, i64 8
+  %67 = load i8, ptr %66, align 8
+  %68 = sext i8 %67 to i32
+  %69 = icmp sgt i32 %65, %68
+  br i1 %69, label %.lr.ph.i, label %_ZN8LightGBM16FeatureHistogram20CopyFromInt16ToInt32EPc.exit
 
-66:                                               ; preds = %36
-  %67 = getelementptr inbounds i8, ptr %37, i64 5192
-  %68 = load ptr, ptr %67, align 8
-  %69 = getelementptr inbounds i8, ptr %68, i64 %41
-  %70 = load i8, ptr %69, align 1
-  %71 = icmp eq i8 %70, 32
-  br i1 %71, label %72, label %91
-
-72:                                               ; preds = %66
-  %73 = load ptr, ptr %19, align 8
-  %74 = load ptr, ptr %20, align 8
-  %75 = getelementptr inbounds i32, ptr %74, i64 %indvars.iv
-  %76 = load i32, ptr %75, align 4
-  %77 = sext i32 %76 to i64
-  %78 = getelementptr inbounds i8, ptr %73, i64 %77
-  %79 = load ptr, ptr %21, align 8
-  %80 = getelementptr inbounds %"class.LightGBM::FeatureHistogram", ptr %79, i64 %indvars.iv
-  %81 = getelementptr inbounds i8, ptr %80, i64 8
-  %82 = load ptr, ptr %81, align 8
-  %83 = load ptr, ptr %80, align 8
-  %84 = load i32, ptr %83, align 8
-  %85 = getelementptr inbounds i8, ptr %83, i64 8
-  %86 = load i8, ptr %85, align 8
-  %87 = sext i8 %86 to i32
-  %88 = sub nsw i32 %84, %87
-  %89 = shl i32 %88, 3
-  %90 = sext i32 %89 to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %78, ptr align 4 %82, i64 %90, i1 false)
-  br label %_ZN8LightGBM16FeatureHistogram20CopyFromInt16ToInt32EPc.exit
-
-91:                                               ; preds = %66
-  %92 = load ptr, ptr %21, align 8
-  %93 = getelementptr inbounds %"class.LightGBM::FeatureHistogram", ptr %92, i64 %indvars.iv
-  %94 = load ptr, ptr %19, align 8
-  %95 = load ptr, ptr %20, align 8
-  %96 = getelementptr inbounds i32, ptr %95, i64 %indvars.iv
-  %97 = load i32, ptr %96, align 4
-  %98 = sext i32 %97 to i64
-  %99 = getelementptr inbounds i8, ptr %94, i64 %98
-  %100 = getelementptr inbounds i8, ptr %93, i64 16
-  %101 = load ptr, ptr %100, align 8
-  %102 = load ptr, ptr %93, align 8
-  %103 = load i32, ptr %102, align 8
-  %104 = getelementptr inbounds i8, ptr %102, i64 8
-  %105 = load i8, ptr %104, align 8
-  %106 = sext i8 %105 to i32
-  %107 = icmp sgt i32 %103, %106
-  br i1 %107, label %.lr.ph.i, label %_ZN8LightGBM16FeatureHistogram20CopyFromInt16ToInt32EPc.exit
-
-.lr.ph.i:                                         ; preds = %91, %.lr.ph.i
-  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.lr.ph.i ], [ 0, %91 ]
-  %108 = getelementptr inbounds i32, ptr %101, i64 %indvars.iv.i
-  %109 = load i32, ptr %108, align 4
-  %110 = lshr i32 %109, 16
-  %111 = zext nneg i32 %110 to i64
-  %sext.i = shl nuw i64 %111, 48
-  %112 = ashr exact i64 %sext.i, 16
-  %113 = and i32 %109, 65535
-  %114 = zext nneg i32 %113 to i64
-  %115 = or disjoint i64 %112, %114
-  %116 = getelementptr inbounds i64, ptr %99, i64 %indvars.iv.i
-  store i64 %115, ptr %116, align 8
+.lr.ph.i:                                         ; preds = %53, %.lr.ph.i
+  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.lr.ph.i ], [ 0, %53 ]
+  %70 = getelementptr inbounds i32, ptr %63, i64 %indvars.iv.i
+  %71 = load i32, ptr %70, align 4
+  %72 = lshr i32 %71, 16
+  %73 = zext nneg i32 %72 to i64
+  %sext.i = shl nuw i64 %73, 48
+  %74 = ashr exact i64 %sext.i, 16
+  %75 = and i32 %71, 65535
+  %76 = zext nneg i32 %75 to i64
+  %77 = or disjoint i64 %74, %76
+  %78 = getelementptr inbounds i64, ptr %61, i64 %indvars.iv.i
+  store i64 %77, ptr %78, align 8
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %117 = load ptr, ptr %93, align 8
-  %118 = load i32, ptr %117, align 8
-  %119 = getelementptr inbounds i8, ptr %117, i64 8
-  %120 = load i8, ptr %119, align 8
-  %121 = sext i8 %120 to i32
-  %122 = sub nsw i32 %118, %121
-  %123 = sext i32 %122 to i64
-  %124 = icmp slt i64 %indvars.iv.next.i, %123
-  br i1 %124, label %.lr.ph.i, label %_ZN8LightGBM16FeatureHistogram20CopyFromInt16ToInt32EPc.exit, !llvm.loop !25
+  %79 = load ptr, ptr %55, align 8
+  %80 = load i32, ptr %79, align 8
+  %81 = getelementptr inbounds i8, ptr %79, i64 8
+  %82 = load i8, ptr %81, align 8
+  %83 = sext i8 %82 to i32
+  %84 = sub nsw i32 %80, %83
+  %85 = sext i32 %84 to i64
+  %86 = icmp slt i64 %indvars.iv.next.i, %85
+  br i1 %86, label %.lr.ph.i, label %_ZN8LightGBM16FeatureHistogram20CopyFromInt16ToInt32EPc.exit, !llvm.loop !25
 
-125:                                              ; preds = %31
-  %126 = load ptr, ptr %19, align 8
-  %127 = load ptr, ptr %20, align 8
-  %128 = getelementptr inbounds i32, ptr %127, i64 %indvars.iv
-  %129 = load i32, ptr %128, align 4
-  %130 = sext i32 %129 to i64
-  %131 = getelementptr inbounds i8, ptr %126, i64 %130
-  %132 = load ptr, ptr %21, align 8
-  %133 = getelementptr inbounds %"class.LightGBM::FeatureHistogram", ptr %132, i64 %indvars.iv
-  %134 = getelementptr inbounds i8, ptr %133, i64 8
-  %135 = load ptr, ptr %134, align 8
-  %136 = load ptr, ptr %133, align 8
-  %137 = load i32, ptr %136, align 8
-  %138 = getelementptr inbounds i8, ptr %136, i64 8
-  %139 = load i8, ptr %138, align 8
-  %140 = sext i8 %139 to i32
-  %141 = sub nsw i32 %137, %140
-  %142 = shl i32 %141, 4
-  %143 = sext i32 %142 to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %131, ptr align 8 %135, i64 %143, i1 false)
+_ZN8LightGBM16FeatureHistogram20CopyFromInt16ToInt32EPc.exit.sink.split: ; preds = %31, %47, %36
+  %.sink.in = phi ptr [ %24, %36 ], [ %20, %47 ], [ %20, %31 ]
+  %.sink41 = phi i64 [ 16, %36 ], [ 8, %47 ], [ 8, %31 ]
+  %.sink31 = phi i32 [ 2, %36 ], [ 3, %47 ], [ 4, %31 ]
+  %.sink43 = load ptr, ptr %19, align 8
+  %.sink = load ptr, ptr %.sink.in, align 8
+  %87 = getelementptr inbounds i32, ptr %.sink, i64 %indvars.iv
+  %88 = load i32, ptr %87, align 4
+  %89 = sext i32 %88 to i64
+  %90 = getelementptr inbounds i8, ptr %.sink43, i64 %89
+  %91 = load ptr, ptr %21, align 8
+  %92 = getelementptr inbounds %"class.LightGBM::FeatureHistogram", ptr %91, i64 %indvars.iv
+  %93 = getelementptr inbounds i8, ptr %92, i64 %.sink41
+  %94 = load ptr, ptr %93, align 8
+  %95 = load ptr, ptr %92, align 8
+  %96 = load i32, ptr %95, align 8
+  %97 = getelementptr inbounds i8, ptr %95, i64 8
+  %98 = load i8, ptr %97, align 8
+  %99 = sext i8 %98 to i32
+  %100 = sub nsw i32 %96, %99
+  %101 = shl i32 %100, %.sink31
+  %102 = sext i32 %101 to i64
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %90, ptr align 2 %94, i64 %102, i1 false)
   br label %_ZN8LightGBM16FeatureHistogram20CopyFromInt16ToInt32EPc.exit
 
-_ZN8LightGBM16FeatureHistogram20CopyFromInt16ToInt32EPc.exit: ; preds = %.lr.ph.i, %91, %26, %47, %72, %125
+_ZN8LightGBM16FeatureHistogram20CopyFromInt16ToInt32EPc.exit: ; preds = %.lr.ph.i, %_ZN8LightGBM16FeatureHistogram20CopyFromInt16ToInt32EPc.exit.sink.split, %53, %26
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
-  %144 = load i32, ptr %5, align 4
-  %145 = sext i32 %144 to i64
-  %.not.not = icmp slt i64 %indvars.iv, %145
+  %103 = load i32, ptr %5, align 4
+  %104 = sext i32 %103 to i64
+  %.not.not = icmp slt i64 %indvars.iv, %104
   br i1 %.not.not, label %26, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %_ZN8LightGBM16FeatureHistogram20CopyFromInt16ToInt32EPc.exit, %11
   call void @__kmpc_for_static_fini(ptr nonnull @1, i32 %13)
-  br label %146
+  br label %105
 
-146:                                              ; preds = %._crit_edge, %3
+105:                                              ; preds = %._crit_edge, %3
   ret void
 }
 

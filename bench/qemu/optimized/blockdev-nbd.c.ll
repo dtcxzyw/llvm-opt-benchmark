@@ -108,9 +108,9 @@ if.end5.i:                                        ; preds = %if.end.i
 
 error.thread:                                     ; preds = %if.end5.i, %if.then.i, %if.then4.i
   %4 = load ptr, ptr @nbd_server, align 8
-  %tlscreds11 = getelementptr inbounds i8, ptr %4, i64 8
-  store ptr null, ptr %tlscreds11, align 8
-  br label %if.end.i8
+  %tlscreds10 = getelementptr inbounds i8, ptr %4, i64 8
+  store ptr null, ptr %tlscreds10, align 8
+  br label %if.end.i7
 
 nbd_get_tls_creds.exit:                           ; preds = %if.end5.i
   %call9.i = tail call ptr @object_ref(ptr noundef nonnull %call1.i) #9
@@ -127,56 +127,53 @@ if.end15:                                         ; preds = %nbd_get_tls_creds.e
   %max_connections.i = getelementptr inbounds i8, ptr %6, i64 24
   %7 = load i32, ptr %max_connections.i, align 8
   %tobool.not.i4 = icmp eq i32 %7, 0
-  br i1 %tobool.not.i4, label %if.then.i6, label %lor.lhs.false.i
+  br i1 %tobool.not.i4, label %nbd_update_server_watch.exit, label %lor.lhs.false.i
 
 lor.lhs.false.i:                                  ; preds = %if.end15
   %connections.i = getelementptr inbounds i8, ptr %6, i64 28
   %8 = load i32, ptr %connections.i, align 4
   %cmp.i = icmp ult i32 %8, %7
-  br i1 %cmp.i, label %if.then.i6, label %if.else.i
+  %spec.select.i = select i1 %cmp.i, ptr @nbd_accept, ptr null
+  br label %nbd_update_server_watch.exit
 
-if.then.i6:                                       ; preds = %lor.lhs.false.i, %if.end15
+nbd_update_server_watch.exit:                     ; preds = %if.end15, %lor.lhs.false.i
+  %.sink5.i = phi ptr [ @nbd_accept, %if.end15 ], [ %spec.select.i, %lor.lhs.false.i ]
   %9 = load ptr, ptr %6, align 8
-  tail call void @qio_net_listener_set_client_func(ptr noundef %9, ptr noundef nonnull @nbd_accept, ptr noundef null, ptr noundef null) #9
-  br label %return
-
-if.else.i:                                        ; preds = %lor.lhs.false.i
-  %10 = load ptr, ptr %6, align 8
-  tail call void @qio_net_listener_set_client_func(ptr noundef %10, ptr noundef null, ptr noundef null, ptr noundef null) #9
+  tail call void @qio_net_listener_set_client_func(ptr noundef %9, ptr noundef %.sink5.i, ptr noundef null, ptr noundef null) #9
   br label %return
 
 error:                                            ; preds = %if.end
   %.pr = load ptr, ptr @nbd_server, align 8
-  %tobool.not.i7 = icmp eq ptr %.pr, null
-  br i1 %tobool.not.i7, label %nbd_server_free.exit, label %if.end.i8
+  %tobool.not.i6 = icmp eq ptr %.pr, null
+  br i1 %tobool.not.i6, label %nbd_server_free.exit, label %if.end.i7
 
-if.end.i8:                                        ; preds = %error.thread, %error
-  %11 = phi ptr [ %4, %error.thread ], [ %.pr, %error ]
-  %12 = load ptr, ptr %11, align 8
-  tail call void @qio_net_listener_disconnect(ptr noundef %12) #9
-  %13 = load ptr, ptr %11, align 8
-  tail call void @object_unref(ptr noundef %13) #9
-  %tlscreds.i = getelementptr inbounds i8, ptr %11, i64 8
-  %14 = load ptr, ptr %tlscreds.i, align 8
-  %tobool2.not.i = icmp eq ptr %14, null
-  br i1 %tobool2.not.i, label %if.end5.i9, label %if.then3.i
+if.end.i7:                                        ; preds = %error.thread, %error
+  %10 = phi ptr [ %4, %error.thread ], [ %.pr, %error ]
+  %11 = load ptr, ptr %10, align 8
+  tail call void @qio_net_listener_disconnect(ptr noundef %11) #9
+  %12 = load ptr, ptr %10, align 8
+  tail call void @object_unref(ptr noundef %12) #9
+  %tlscreds.i = getelementptr inbounds i8, ptr %10, i64 8
+  %13 = load ptr, ptr %tlscreds.i, align 8
+  %tobool2.not.i = icmp eq ptr %13, null
+  br i1 %tobool2.not.i, label %if.end5.i8, label %if.then3.i
 
-if.then3.i:                                       ; preds = %if.end.i8
-  tail call void @object_unref(ptr noundef nonnull %14) #9
-  br label %if.end5.i9
+if.then3.i:                                       ; preds = %if.end.i7
+  tail call void @object_unref(ptr noundef nonnull %13) #9
+  br label %if.end5.i8
 
-if.end5.i9:                                       ; preds = %if.then3.i, %if.end.i8
-  %tlsauthz.i = getelementptr inbounds i8, ptr %11, i64 16
-  %15 = load ptr, ptr %tlsauthz.i, align 8
-  tail call void @g_free(ptr noundef %15) #9
-  tail call void @g_free(ptr noundef nonnull %11) #9
+if.end5.i8:                                       ; preds = %if.then3.i, %if.end.i7
+  %tlsauthz.i = getelementptr inbounds i8, ptr %10, i64 16
+  %14 = load ptr, ptr %tlsauthz.i, align 8
+  tail call void @g_free(ptr noundef %14) #9
+  tail call void @g_free(ptr noundef nonnull %10) #9
   br label %nbd_server_free.exit
 
-nbd_server_free.exit:                             ; preds = %error, %if.end5.i9
+nbd_server_free.exit:                             ; preds = %error, %if.end5.i8
   store ptr null, ptr @nbd_server, align 8
   br label %return
 
-return:                                           ; preds = %if.else.i, %if.then.i6, %nbd_server_free.exit, %if.then
+return:                                           ; preds = %nbd_server_free.exit, %nbd_update_server_watch.exit, %if.then
   ret void
 }
 
@@ -452,19 +449,10 @@ entry:
   %max_connections.i = getelementptr inbounds i8, ptr %0, i64 24
   %2 = load i32, ptr %max_connections.i, align 8
   %3 = add i32 %2, -1
-  %or.cond.not = icmp ult i32 %3, %inc
+  %.not = icmp ult i32 %3, %inc
+  %.sink5.i = select i1 %.not, ptr null, ptr @nbd_accept
   %4 = load ptr, ptr %0, align 8
-  br i1 %or.cond.not, label %if.else.i, label %if.then.i
-
-if.then.i:                                        ; preds = %entry
-  tail call void @qio_net_listener_set_client_func(ptr noundef %4, ptr noundef nonnull @nbd_accept, ptr noundef null, ptr noundef null) #9
-  br label %nbd_update_server_watch.exit
-
-if.else.i:                                        ; preds = %entry
-  tail call void @qio_net_listener_set_client_func(ptr noundef %4, ptr noundef null, ptr noundef null, ptr noundef null) #9
-  br label %nbd_update_server_watch.exit
-
-nbd_update_server_watch.exit:                     ; preds = %if.then.i, %if.else.i
+  tail call void @qio_net_listener_set_client_func(ptr noundef %4, ptr noundef %.sink5.i, ptr noundef null, ptr noundef null) #9
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %cioc, ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.10, i32 noundef 30, ptr noundef nonnull @__func__.QIO_CHANNEL) #9
   tail call void @qio_channel_set_name(ptr noundef %call.i, ptr noundef nonnull @.str.8) #9
   %5 = load ptr, ptr @nbd_server, align 8
@@ -500,19 +488,10 @@ if.end:                                           ; preds = %entry
   %max_connections.i = getelementptr inbounds i8, ptr %0, i64 24
   %2 = load i32, ptr %max_connections.i, align 8
   %3 = add i32 %2, -1
-  %or.cond.not = icmp ult i32 %3, %dec
+  %.not = icmp ult i32 %3, %dec
+  %.sink5.i = select i1 %.not, ptr null, ptr @nbd_accept
   %4 = load ptr, ptr %0, align 8
-  br i1 %or.cond.not, label %if.else.i, label %if.then.i
-
-if.then.i:                                        ; preds = %if.end
-  tail call void @qio_net_listener_set_client_func(ptr noundef %4, ptr noundef nonnull @nbd_accept, ptr noundef null, ptr noundef null) #9
-  br label %nbd_update_server_watch.exit
-
-if.else.i:                                        ; preds = %if.end
-  tail call void @qio_net_listener_set_client_func(ptr noundef %4, ptr noundef null, ptr noundef null, ptr noundef null) #9
-  br label %nbd_update_server_watch.exit
-
-nbd_update_server_watch.exit:                     ; preds = %if.then.i, %if.else.i
+  tail call void @qio_net_listener_set_client_func(ptr noundef %4, ptr noundef %.sink5.i, ptr noundef null, ptr noundef null) #9
   ret void
 }
 

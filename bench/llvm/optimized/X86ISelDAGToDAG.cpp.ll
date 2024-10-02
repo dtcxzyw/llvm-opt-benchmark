@@ -3710,15 +3710,15 @@ _ZN4llvm5SDLocC2EPKNS_6SDNodeE.exit.i:            ; preds = %89, %86
 _ZN4llvm5SDLocD2Ev.exit.i:                        ; preds = %95, %_ZN4llvm5SDLocC2EPKNS_6SDNodeE.exit.i
   %96 = load ptr, ptr %20, align 8
   call void @_ZN4llvm12SelectionDAG18ReplaceAllUsesWithEPNS_6SDNodeES2_(ptr noundef nonnull align 8 dereferenceable(904) %96, ptr noundef nonnull %46, ptr noundef %93) #23
-  call void @_ZN4llvm16SelectionDAGISel22EnforceNodeIdInvariantEPNS_6SDNodeE(ptr noundef %93) #23
   br label %_ZN12_GLOBAL__N_115X86DAGToDAGISel21tryOptimizeRem8ExtendEPN4llvm6SDNodeE.exit
 
 97:                                               ; preds = %84
   call void @_ZN4llvm12SelectionDAG18ReplaceAllUsesWithEPNS_6SDNodeES2_(ptr noundef nonnull align 8 dereferenceable(904) %42, ptr noundef nonnull %46, ptr noundef nonnull %.sroa.019.0.copyload.i) #23
-  call void @_ZN4llvm16SelectionDAGISel22EnforceNodeIdInvariantEPNS_6SDNodeE(ptr noundef nonnull %.sroa.019.0.copyload.i) #23
   br label %_ZN12_GLOBAL__N_115X86DAGToDAGISel21tryOptimizeRem8ExtendEPN4llvm6SDNodeE.exit
 
 _ZN12_GLOBAL__N_115X86DAGToDAGISel21tryOptimizeRem8ExtendEPN4llvm6SDNodeE.exit: ; preds = %_ZN4llvm5SDLocD2Ev.exit.i, %97
+  %.sink = phi ptr [ %93, %_ZN4llvm5SDLocD2Ev.exit.i ], [ %.sroa.019.0.copyload.i, %97 ]
+  call void @_ZN4llvm16SelectionDAGISel22EnforceNodeIdInvariantEPNS_6SDNodeE(ptr noundef %.sink) #23
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
   br label %.backedge
@@ -4013,10 +4013,10 @@ _ZN4llvm23SmallVectorTemplateBaseINS_7SDValueELb1EE9push_backES1_.exit91: ; pred
   br i1 %.not.i.i.i95, label %_ZN4llvm23SmallVectorTemplateBaseINS_7SDValueELb1EE9push_backES1_.exit94.sink.split, label %_ZN4llvm23SmallVectorTemplateBaseINS_7SDValueELb1EE9push_backES1_.exit94
 
 _ZN4llvm23SmallVectorTemplateBaseINS_7SDValueELb1EE9push_backES1_.exit94.sink.split: ; preds = %.critedge, %_ZN4llvm23SmallVectorTemplateBaseINS_7SDValueELb1EE9push_backES1_.exit91
-  %.sink = phi i64 [ %217, %_ZN4llvm23SmallVectorTemplateBaseINS_7SDValueELb1EE9push_backES1_.exit91 ], [ %222, %.critedge ]
+  %.sink192 = phi i64 [ %217, %_ZN4llvm23SmallVectorTemplateBaseINS_7SDValueELb1EE9push_backES1_.exit91 ], [ %222, %.critedge ]
   %.sroa.023.0.copyload.c.sink.ph = phi ptr [ %.sroa.020.0.copyload, %_ZN4llvm23SmallVectorTemplateBaseINS_7SDValueELb1EE9push_backES1_.exit91 ], [ %.sroa.023.0.copyload.c, %.critedge ]
   %.sroa.224.0.copyload.c.sink.ph = phi i32 [ %.sroa.221.0.copyload, %_ZN4llvm23SmallVectorTemplateBaseINS_7SDValueELb1EE9push_backES1_.exit91 ], [ %.sroa.224.0.copyload.c, %.critedge ]
-  call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull %33, i64 noundef %.sink, i64 noundef 16) #23
+  call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull %33, i64 noundef %.sink192, i64 noundef 16) #23
   br label %_ZN4llvm23SmallVectorTemplateBaseINS_7SDValueELb1EE9push_backES1_.exit94
 
 _ZN4llvm23SmallVectorTemplateBaseINS_7SDValueELb1EE9push_backES1_.exit94: ; preds = %_ZN4llvm23SmallVectorTemplateBaseINS_7SDValueELb1EE9push_backES1_.exit94.sink.split, %.critedge, %_ZN4llvm23SmallVectorTemplateBaseINS_7SDValueELb1EE9push_backES1_.exit91
@@ -33951,27 +33951,27 @@ define internal fastcc noundef zeroext i1 @_ZNK12_GLOBAL__N_115X86DAGToDAGISel18
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load i32, ptr %2, align 8
   %4 = icmp eq i32 %3, 185
-  br i1 %4, label %5, label %14
+  br i1 %4, label %5, label %.sink.split
 
 5:                                                ; preds = %1
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %7 = load ptr, ptr %6, align 8
   %8 = load ptr, ptr %7, align 8
   %9 = tail call fastcc noundef zeroext i1 @_ZL18isLegalMaskComparePN4llvm6SDNodeEPKNS_12X86SubtargetE(ptr noundef %8, ptr noundef %.272.val)
-  br i1 %9, label %16, label %10
+  br i1 %9, label %14, label %10
 
 10:                                               ; preds = %5
   %11 = getelementptr inbounds i8, ptr %7, i64 40
   %12 = load ptr, ptr %11, align 8
-  %13 = tail call fastcc noundef zeroext i1 @_ZL18isLegalMaskComparePN4llvm6SDNodeEPKNS_12X86SubtargetE(ptr noundef %12, ptr noundef %.272.val)
-  br label %16
+  br label %.sink.split
 
-14:                                               ; preds = %1
-  %15 = tail call fastcc noundef zeroext i1 @_ZL18isLegalMaskComparePN4llvm6SDNodeEPKNS_12X86SubtargetE(ptr noundef nonnull %0, ptr noundef %.272.val)
-  br label %16
+.sink.split:                                      ; preds = %1, %10
+  %.sink = phi ptr [ %12, %10 ], [ %0, %1 ]
+  %13 = tail call fastcc noundef zeroext i1 @_ZL18isLegalMaskComparePN4llvm6SDNodeEPKNS_12X86SubtargetE(ptr noundef %.sink, ptr noundef %.272.val)
+  br label %14
 
-16:                                               ; preds = %5, %10, %14
-  %.0 = phi i1 [ %15, %14 ], [ true, %5 ], [ %13, %10 ]
+14:                                               ; preds = %.sink.split, %5
+  %.0 = phi i1 [ true, %5 ], [ %13, %.sink.split ]
   ret i1 %.0
 }
 

@@ -4126,7 +4126,6 @@ _ZN4llvm5APIntD2Ev.exit27.i:                      ; preds = %1817, %1814, %_ZN4l
 1819:                                             ; preds = %_ZN4llvm5APIntD2Ev.exit27.i
   %1820 = getelementptr inbounds i8, ptr %.sroa.03.068, i64 -88
   %1821 = load ptr, ptr %1820, align 8
-  call void @_ZN4llvm5Value18replaceAllUsesWithEPS0_(ptr noundef nonnull align 8 dereferenceable(24) %413, ptr noundef %1821) #15
   br label %.sink.split.i
 
 1822:                                             ; preds = %_ZN4llvm5APIntD2Ev.exit27.i
@@ -4188,10 +4187,11 @@ _ZN4llvm11Instruction11setDebugLocENS_8DebugLocE.exit.i: ; preds = %_ZN4llvm8Deb
 _ZN4llvm8DebugLocD2Ev.exit.i:                     ; preds = %1842, %_ZN4llvm11Instruction11setDebugLocENS_8DebugLocE.exit.i, %1840, %_ZN4llvm13TrackingMDRef7untrackEv.exit.i.i.i.i.i
   %1843 = call noundef zeroext i1 @_ZNK4llvm11Instruction7isExactEv(ptr noundef nonnull align 8 dereferenceable(72) %413) #19
   call void @_ZN4llvm11Instruction10setIsExactEb(ptr noundef nonnull align 8 dereferenceable(72) %1829, i1 noundef zeroext %1843) #15
-  call void @_ZN4llvm5Value18replaceAllUsesWithEPS0_(ptr noundef nonnull align 8 dereferenceable(24) %413, ptr noundef nonnull %1829) #15
   br label %.sink.split.i
 
 .sink.split.i:                                    ; preds = %_ZN4llvm8DebugLocD2Ev.exit.i, %1819
+  %.sink.i = phi ptr [ %1829, %_ZN4llvm8DebugLocD2Ev.exit.i ], [ %1821, %1819 ]
+  call void @_ZN4llvm5Value18replaceAllUsesWithEPS0_(ptr noundef nonnull align 8 dereferenceable(24) %413, ptr noundef %.sink.i) #15
   %1844 = call { ptr, i64 } @_ZN4llvm11Instruction15eraseFromParentEv(ptr noundef nonnull align 8 dereferenceable(72) %413) #15
   br label %1845
 

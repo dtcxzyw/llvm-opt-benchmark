@@ -674,16 +674,20 @@ define ptr @cuddZddWeakDiv(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 {
 
 53:                                               ; preds = %49
   tail call void @Cudd_Ref(ptr noundef nonnull %50) #4
-  tail call void @Cudd_RecursiveDerefZdd(ptr noundef nonnull %0, ptr noundef nonnull %44) #4
-  br label %55
+  br label %.sink.split
 
 54:                                               ; preds = %42
   tail call void @Cudd_RecursiveDerefZdd(ptr noundef nonnull %0, ptr noundef %26) #4
-  tail call void @Cudd_RecursiveDerefZdd(ptr noundef nonnull %0, ptr noundef %32) #4
+  br label %.sink.split
+
+.sink.split:                                      ; preds = %54, %53
+  %.sink139 = phi ptr [ %44, %53 ], [ %32, %54 ]
+  %.1.ph = phi ptr [ %50, %53 ], [ %.sink, %54 ]
+  tail call void @Cudd_RecursiveDerefZdd(ptr noundef nonnull %0, ptr noundef %.sink139) #4
   br label %55
 
-55:                                               ; preds = %47, %53, %54
-  %.1 = phi ptr [ %50, %53 ], [ %.sink, %54 ], [ %44, %47 ]
+55:                                               ; preds = %.sink.split, %47
+  %.1 = phi ptr [ %44, %47 ], [ %.1.ph, %.sink.split ]
   %56 = icmp eq ptr %.1, %13
   br i1 %56, label %57, label %58
 
@@ -727,16 +731,20 @@ define ptr @cuddZddWeakDiv(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 {
 
 69:                                               ; preds = %65
   tail call void @Cudd_Ref(ptr noundef nonnull %66) #4
-  tail call void @Cudd_RecursiveDerefZdd(ptr noundef nonnull %0, ptr noundef nonnull %60) #4
-  br label %71
+  br label %.sink.split140
 
 70:                                               ; preds = %58
   tail call void @Cudd_RecursiveDerefZdd(ptr noundef nonnull %0, ptr noundef %28) #4
-  tail call void @Cudd_RecursiveDerefZdd(ptr noundef nonnull %0, ptr noundef %34) #4
+  br label %.sink.split140
+
+.sink.split140:                                   ; preds = %70, %69
+  %.sink141 = phi ptr [ %60, %69 ], [ %34, %70 ]
+  %.2.ph = phi ptr [ %66, %69 ], [ %.1, %70 ]
+  tail call void @Cudd_RecursiveDerefZdd(ptr noundef nonnull %0, ptr noundef %.sink141) #4
   br label %71
 
-71:                                               ; preds = %63, %69, %70
-  %.2 = phi ptr [ %66, %69 ], [ %.1, %70 ], [ %60, %63 ]
+71:                                               ; preds = %.sink.split140, %63
+  %.2 = phi ptr [ %60, %63 ], [ %.2.ph, %.sink.split140 ]
   tail call void @cuddCacheInsert2(ptr noundef nonnull %0, ptr noundef nonnull @cuddZddWeakDiv, ptr noundef %1, ptr noundef nonnull %2, ptr noundef nonnull %.2) #4
   tail call void @Cudd_Deref(ptr noundef nonnull %.2) #4
   br label %72
@@ -1140,16 +1148,20 @@ define ptr @cuddZddWeakDivF(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 {
 
 94:                                               ; preds = %90
   tail call void @Cudd_Ref(ptr noundef nonnull %91) #4
-  tail call void @Cudd_RecursiveDerefZdd(ptr noundef nonnull %0, ptr noundef nonnull %85) #4
-  br label %96
+  br label %.sink.split
 
 95:                                               ; preds = %83
   tail call void @Cudd_RecursiveDerefZdd(ptr noundef nonnull %0, ptr noundef %67) #4
-  tail call void @Cudd_RecursiveDerefZdd(ptr noundef nonnull %0, ptr noundef %73) #4
+  br label %.sink.split
+
+.sink.split:                                      ; preds = %95, %94
+  %.sink237 = phi ptr [ %85, %94 ], [ %73, %95 ]
+  %.1.ph = phi ptr [ %91, %94 ], [ %.sink, %95 ]
+  tail call void @Cudd_RecursiveDerefZdd(ptr noundef nonnull %0, ptr noundef %.sink237) #4
   br label %96
 
-96:                                               ; preds = %88, %94, %95
-  %.1 = phi ptr [ %91, %94 ], [ %.sink, %95 ], [ %85, %88 ]
+96:                                               ; preds = %.sink.split, %88
+  %.1 = phi ptr [ %85, %88 ], [ %.1.ph, %.sink.split ]
   %97 = icmp eq ptr %.1, %13
   br i1 %97, label %98, label %99
 
@@ -1193,16 +1205,20 @@ define ptr @cuddZddWeakDivF(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 {
 
 110:                                              ; preds = %106
   tail call void @Cudd_Ref(ptr noundef nonnull %107) #4
-  tail call void @Cudd_RecursiveDerefZdd(ptr noundef nonnull %0, ptr noundef nonnull %101) #4
-  br label %112
+  br label %.sink.split238
 
 111:                                              ; preds = %99
   tail call void @Cudd_RecursiveDerefZdd(ptr noundef nonnull %0, ptr noundef %69) #4
-  tail call void @Cudd_RecursiveDerefZdd(ptr noundef nonnull %0, ptr noundef %75) #4
+  br label %.sink.split238
+
+.sink.split238:                                   ; preds = %111, %110
+  %.sink239 = phi ptr [ %101, %110 ], [ %75, %111 ]
+  %.2.ph = phi ptr [ %107, %110 ], [ %.1, %111 ]
+  tail call void @Cudd_RecursiveDerefZdd(ptr noundef nonnull %0, ptr noundef %.sink239) #4
   br label %112
 
-112:                                              ; preds = %104, %110, %111
-  %.2 = phi ptr [ %107, %110 ], [ %.1, %111 ], [ %101, %104 ]
+112:                                              ; preds = %.sink.split238, %104
+  %.2 = phi ptr [ %101, %104 ], [ %.2.ph, %.sink.split238 ]
   tail call void @cuddCacheInsert2(ptr noundef nonnull %0, ptr noundef nonnull @cuddZddWeakDivF, ptr noundef nonnull %1, ptr noundef nonnull %2, ptr noundef nonnull %.2) #4
   tail call void @Cudd_Deref(ptr noundef nonnull %.2) #4
   br label %113

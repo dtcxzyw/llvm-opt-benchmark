@@ -1373,7 +1373,7 @@ declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #3
 define ptr @Cudd_addRestrict(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 {
   %4 = tail call ptr @Cudd_Support(ptr noundef %0, ptr noundef %1) #8
   %5 = icmp eq ptr %4, null
-  br i1 %5, label %50, label %6
+  br i1 %5, label %49, label %6
 
 6:                                                ; preds = %3
   %7 = ptrtoint ptr %4 to i64
@@ -1385,75 +1385,75 @@ define ptr @Cudd_addRestrict(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 
   store i32 %12, ptr %10, align 4
   %13 = tail call ptr @Cudd_Support(ptr noundef %0, ptr noundef %2) #8
   %14 = icmp eq ptr %13, null
-  br i1 %14, label %15, label %16
+  br i1 %14, label %.sink.split, label %15
 
 15:                                               ; preds = %6
+  %16 = ptrtoint ptr %13 to i64
+  %17 = and i64 %16, -2
+  %18 = inttoptr i64 %17 to ptr
+  %19 = getelementptr inbounds i8, ptr %18, i64 4
+  %20 = load i32, ptr %19, align 4
+  %21 = add i32 %20, 1
+  store i32 %21, ptr %19, align 4
+  %22 = tail call ptr @Cudd_bddLiteralSetIntersection(ptr noundef %0, ptr noundef nonnull %4, ptr noundef nonnull %13) #8
+  %23 = icmp eq ptr %22, null
+  br i1 %23, label %24, label %25
+
+24:                                               ; preds = %15
   tail call void @Cudd_RecursiveDeref(ptr noundef %0, ptr noundef nonnull %4) #8
-  br label %50
+  br label %.sink.split
 
-16:                                               ; preds = %6
-  %17 = ptrtoint ptr %13 to i64
-  %18 = and i64 %17, -2
-  %19 = inttoptr i64 %18 to ptr
-  %20 = getelementptr inbounds i8, ptr %19, i64 4
-  %21 = load i32, ptr %20, align 4
-  %22 = add i32 %21, 1
-  store i32 %22, ptr %20, align 4
-  %23 = tail call ptr @Cudd_bddLiteralSetIntersection(ptr noundef %0, ptr noundef nonnull %4, ptr noundef nonnull %13) #8
-  %24 = icmp eq ptr %23, null
-  br i1 %24, label %25, label %26
-
-25:                                               ; preds = %16
-  tail call void @Cudd_RecursiveDeref(ptr noundef %0, ptr noundef nonnull %4) #8
-  tail call void @Cudd_RecursiveDeref(ptr noundef %0, ptr noundef nonnull %13) #8
-  br label %50
-
-26:                                               ; preds = %16
-  %27 = ptrtoint ptr %23 to i64
-  %28 = and i64 %27, -2
-  %29 = inttoptr i64 %28 to ptr
-  %30 = getelementptr inbounds i8, ptr %29, i64 4
-  %31 = load i32, ptr %30, align 4
-  %32 = add i32 %31, 1
-  store i32 %32, ptr %30, align 4
+25:                                               ; preds = %15
+  %26 = ptrtoint ptr %22 to i64
+  %27 = and i64 %26, -2
+  %28 = inttoptr i64 %27 to ptr
+  %29 = getelementptr inbounds i8, ptr %28, i64 4
+  %30 = load i32, ptr %29, align 4
+  %31 = add i32 %30, 1
+  store i32 %31, ptr %29, align 4
   tail call void @Cudd_RecursiveDeref(ptr noundef %0, ptr noundef nonnull %4) #8
   tail call void @Cudd_RecursiveDeref(ptr noundef %0, ptr noundef nonnull %13) #8
-  %33 = getelementptr inbounds i8, ptr %0, i64 40
-  %34 = load ptr, ptr %33, align 8
-  %.not = icmp eq ptr %23, %34
-  tail call void @Cudd_RecursiveDeref(ptr noundef %0, ptr noundef nonnull %23) #8
-  br i1 %.not, label %50, label %.preheader
+  %32 = getelementptr inbounds i8, ptr %0, i64 40
+  %33 = load ptr, ptr %32, align 8
+  %.not = icmp eq ptr %22, %33
+  tail call void @Cudd_RecursiveDeref(ptr noundef %0, ptr noundef nonnull %22) #8
+  br i1 %.not, label %49, label %.preheader
 
-.preheader:                                       ; preds = %26
-  %35 = getelementptr inbounds i8, ptr %0, i64 448
-  br label %36
+.preheader:                                       ; preds = %25
+  %34 = getelementptr inbounds i8, ptr %0, i64 448
+  br label %35
 
-36:                                               ; preds = %.preheader, %36
-  store i32 0, ptr %35, align 8
-  %37 = tail call ptr @cuddAddRestrictRecur(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2)
-  %38 = load i32, ptr %35, align 8
-  %39 = icmp eq i32 %38, 1
-  br i1 %39, label %36, label %40, !llvm.loop !12
+35:                                               ; preds = %.preheader, %35
+  store i32 0, ptr %34, align 8
+  %36 = tail call ptr @cuddAddRestrictRecur(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2)
+  %37 = load i32, ptr %34, align 8
+  %38 = icmp eq i32 %37, 1
+  br i1 %38, label %35, label %39, !llvm.loop !12
 
-40:                                               ; preds = %36
-  %41 = tail call i32 @Cudd_DagSize(ptr noundef %1) #8
-  %42 = tail call i32 @Cudd_DagSize(ptr noundef %37) #8
-  %.not46 = icmp sgt i32 %41, %42
-  br i1 %.not46, label %50, label %43
+39:                                               ; preds = %35
+  %40 = tail call i32 @Cudd_DagSize(ptr noundef %1) #8
+  %41 = tail call i32 @Cudd_DagSize(ptr noundef %36) #8
+  %.not46 = icmp sgt i32 %40, %41
+  br i1 %.not46, label %49, label %42
 
-43:                                               ; preds = %40
-  %44 = ptrtoint ptr %37 to i64
-  %45 = and i64 %44, -2
-  %46 = inttoptr i64 %45 to ptr
-  %47 = getelementptr inbounds i8, ptr %46, i64 4
-  %48 = load i32, ptr %47, align 4
-  %49 = add i32 %48, 1
-  store i32 %49, ptr %47, align 4
-  tail call void @Cudd_RecursiveDeref(ptr noundef nonnull %0, ptr noundef %37) #8
-  br label %50
+42:                                               ; preds = %39
+  %43 = ptrtoint ptr %36 to i64
+  %44 = and i64 %43, -2
+  %45 = inttoptr i64 %44 to ptr
+  %46 = getelementptr inbounds i8, ptr %45, i64 4
+  %47 = load i32, ptr %46, align 4
+  %48 = add i32 %47, 1
+  store i32 %48, ptr %46, align 4
+  br label %.sink.split
 
-50:                                               ; preds = %26, %40, %3, %43, %25, %15
-  %.0 = phi ptr [ null, %15 ], [ null, %25 ], [ %1, %43 ], [ null, %3 ], [ %37, %40 ], [ %1, %26 ]
+.sink.split:                                      ; preds = %6, %24, %42
+  %.lcssa.sink = phi ptr [ %36, %42 ], [ %13, %24 ], [ %4, %6 ]
+  %.0.ph = phi ptr [ %1, %42 ], [ null, %24 ], [ null, %6 ]
+  tail call void @Cudd_RecursiveDeref(ptr noundef %0, ptr noundef %.lcssa.sink) #8
+  br label %49
+
+49:                                               ; preds = %.sink.split, %25, %39, %3
+  %.0 = phi ptr [ null, %3 ], [ %36, %39 ], [ %1, %25 ], [ %.0.ph, %.sink.split ]
   ret ptr %.0
 }
 

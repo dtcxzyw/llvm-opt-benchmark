@@ -214,20 +214,15 @@ entry:
 lor.lhs.false:                                    ; preds = %entry
   %1 = load ptr, ptr %a, align 8
   %cmp1 = icmp eq ptr %1, null
-  br i1 %cmp1, label %if.then.split, label %lor.lhs.false.split
-
-lor.lhs.false.split:                              ; preds = %lor.lhs.false
-  %call1.i = call ptr @ASN1_item_d2i(ptr noundef nonnull %a, ptr noundef nonnull %q, i64 noundef %length, ptr noundef nonnull @X509_it.local_it) #6
-  br label %if.end
+  br i1 %cmp1, label %if.then.split, label %if.end
 
 if.then.split:                                    ; preds = %entry, %lor.lhs.false
-  %call1.i15 = call ptr @ASN1_item_d2i(ptr noundef %a, ptr noundef nonnull %q, i64 noundef %length, ptr noundef nonnull @X509_it.local_it) #6
   br label %if.end
 
-if.end:                                           ; preds = %lor.lhs.false.split, %if.then.split
-  %phi.call = phi ptr [ %call1.i, %lor.lhs.false.split ], [ %call1.i15, %if.then.split ]
-  %tobool9.not = phi i1 [ true, %lor.lhs.false.split ], [ false, %if.then.split ]
-  %cmp2 = icmp eq ptr %phi.call, null
+if.end:                                           ; preds = %lor.lhs.false, %if.then.split
+  %tobool9.not = phi i1 [ false, %if.then.split ], [ true, %lor.lhs.false ]
+  %call1.i = call ptr @ASN1_item_d2i(ptr noundef %a, ptr noundef nonnull %q, i64 noundef %length, ptr noundef nonnull @X509_it.local_it) #6
+  %cmp2 = icmp eq ptr %call1.i, null
   br i1 %cmp2, label %return, label %if.end4
 
 if.end4:                                          ; preds = %if.end
@@ -241,7 +236,7 @@ if.end4:                                          ; preds = %if.end
   br i1 %cmp5, label %land.lhs.true, label %if.end8
 
 land.lhs.true:                                    ; preds = %if.end4
-  %aux = getelementptr inbounds i8, ptr %phi.call, i64 336
+  %aux = getelementptr inbounds i8, ptr %call1.i, i64 336
   %call6 = call ptr @d2i_X509_CERT_AUX(ptr noundef nonnull %aux, ptr noundef nonnull %q, i64 noundef %sub) #6
   %tobool.not = icmp eq ptr %call6, null
   br i1 %tobool.not, label %err, label %land.lhs.true.if.end8_crit_edge
@@ -259,7 +254,7 @@ err:                                              ; preds = %land.lhs.true
   br i1 %tobool9.not, label %return, label %if.then10
 
 if.then10:                                        ; preds = %err
-  call void @ASN1_item_free(ptr noundef nonnull %phi.call, ptr noundef nonnull @X509_it.local_it) #6
+  call void @ASN1_item_free(ptr noundef nonnull %call1.i, ptr noundef nonnull @X509_it.local_it) #6
   br i1 %cmp, label %return, label %if.then12
 
 if.then12:                                        ; preds = %if.then10
@@ -267,7 +262,7 @@ if.then12:                                        ; preds = %if.then10
   br label %return
 
 return:                                           ; preds = %err, %if.then12, %if.then10, %if.end, %if.end8
-  %retval.0 = phi ptr [ %phi.call, %if.end8 ], [ null, %if.end ], [ null, %if.then10 ], [ null, %if.then12 ], [ null, %err ]
+  %retval.0 = phi ptr [ %call1.i, %if.end8 ], [ null, %if.end ], [ null, %if.then10 ], [ null, %if.then12 ], [ null, %err ]
   ret ptr %retval.0
 }
 
@@ -302,49 +297,49 @@ lor.lhs.false:                                    ; preds = %entry
   br i1 %cmp1.not, label %if.end, label %cond.end.i
 
 cond.end.i:                                       ; preds = %lor.lhs.false
-  %call1.i15.i = tail call i32 @ASN1_item_i2d(ptr noundef %a, ptr noundef nonnull %pp, ptr noundef nonnull @X509_it.local_it) #6
-  %cmp1.i14 = icmp slt i32 %call1.i15.i, 1
-  %or.cond.i16 = or i1 %cmp2.i, %cmp1.i14
-  br i1 %or.cond.i16, label %return, label %if.end.i17
+  %call1.i.i14 = tail call i32 @ASN1_item_i2d(ptr noundef %a, ptr noundef nonnull %pp, ptr noundef nonnull @X509_it.local_it) #6
+  %cmp1.i15 = icmp slt i32 %call1.i.i14, 1
+  %or.cond.i17 = or i1 %cmp2.i, %cmp1.i15
+  br i1 %or.cond.i17, label %return, label %if.end.i18
 
-if.end.i17:                                       ; preds = %cond.end.i
-  %aux.i18 = getelementptr inbounds i8, ptr %a, i64 336
-  %2 = load ptr, ptr %aux.i18, align 8
-  %call3.i19 = tail call i32 @i2d_X509_CERT_AUX(ptr noundef %2, ptr noundef nonnull %pp) #6
-  %cmp4.i20 = icmp slt i32 %call3.i19, 0
-  br i1 %cmp4.i20, label %if.then7.i, label %if.end9.i21
+if.end.i18:                                       ; preds = %cond.end.i
+  %aux.i19 = getelementptr inbounds i8, ptr %a, i64 336
+  %2 = load ptr, ptr %aux.i19, align 8
+  %call3.i20 = tail call i32 @i2d_X509_CERT_AUX(ptr noundef %2, ptr noundef nonnull %pp) #6
+  %cmp4.i21 = icmp slt i32 %call3.i20, 0
+  br i1 %cmp4.i21, label %if.then7.i, label %if.end9.i22
 
-if.then7.i:                                       ; preds = %if.end.i17
+if.then7.i:                                       ; preds = %if.end.i18
   store ptr %1, ptr %pp, align 8
   br label %return
 
-if.end9.i21:                                      ; preds = %if.end.i17
-  %add.i22 = add nuw nsw i32 %call3.i19, %call1.i15.i
+if.end9.i22:                                      ; preds = %if.end.i18
+  %add.i23 = add nuw nsw i32 %call3.i20, %call1.i.i14
   br label %return
 
 if.end:                                           ; preds = %lor.lhs.false
-  %call1.i.i28 = tail call i32 @ASN1_item_i2d(ptr noundef %a, ptr noundef null, ptr noundef nonnull @X509_it.local_it) #6
-  %cmp1.i32 = icmp slt i32 %call1.i.i28, 1
-  %or.cond.i34 = or i1 %cmp2.i, %cmp1.i32
-  br i1 %or.cond.i34, label %i2d_x509_aux_internal.exit45, label %if.end.i35
+  %call1.i.i30 = tail call i32 @ASN1_item_i2d(ptr noundef %a, ptr noundef null, ptr noundef nonnull @X509_it.local_it) #6
+  %cmp1.i31 = icmp slt i32 %call1.i.i30, 1
+  %or.cond.i33 = or i1 %cmp2.i, %cmp1.i31
+  br i1 %or.cond.i33, label %i2d_x509_aux_internal.exit44, label %if.end.i34
 
-if.end.i35:                                       ; preds = %if.end
-  %aux.i36 = getelementptr inbounds i8, ptr %a, i64 336
-  %3 = load ptr, ptr %aux.i36, align 8
-  %call3.i37 = tail call i32 @i2d_X509_CERT_AUX(ptr noundef %3, ptr noundef null) #6
-  %cmp4.i38 = icmp slt i32 %call3.i37, 0
-  br i1 %cmp4.i38, label %return, label %i2d_x509_aux_internal.exit45.thread70
+if.end.i34:                                       ; preds = %if.end
+  %aux.i35 = getelementptr inbounds i8, ptr %a, i64 336
+  %3 = load ptr, ptr %aux.i35, align 8
+  %call3.i36 = tail call i32 @i2d_X509_CERT_AUX(ptr noundef %3, ptr noundef null) #6
+  %cmp4.i37 = icmp slt i32 %call3.i36, 0
+  br i1 %cmp4.i37, label %return, label %i2d_x509_aux_internal.exit44.thread67
 
-i2d_x509_aux_internal.exit45.thread70:            ; preds = %if.end.i35
-  %add.i40 = add nuw nsw i32 %call3.i37, %call1.i.i28
+i2d_x509_aux_internal.exit44.thread67:            ; preds = %if.end.i34
+  %add.i39 = add nuw nsw i32 %call3.i36, %call1.i.i30
   br label %if.end5
 
-i2d_x509_aux_internal.exit45:                     ; preds = %if.end
-  br i1 %cmp1.i32, label %return, label %if.end5
+i2d_x509_aux_internal.exit44:                     ; preds = %if.end
+  br i1 %cmp1.i31, label %return, label %if.end5
 
-if.end5:                                          ; preds = %i2d_x509_aux_internal.exit45.thread70, %i2d_x509_aux_internal.exit45
-  %retval.0.i4173 = phi i32 [ %add.i40, %i2d_x509_aux_internal.exit45.thread70 ], [ %call1.i.i28, %i2d_x509_aux_internal.exit45 ]
-  %conv = zext nneg i32 %retval.0.i4173 to i64
+if.end5:                                          ; preds = %i2d_x509_aux_internal.exit44.thread67, %i2d_x509_aux_internal.exit44
+  %retval.0.i4070 = phi i32 [ %add.i39, %i2d_x509_aux_internal.exit44.thread67 ], [ %call1.i.i30, %i2d_x509_aux_internal.exit44 ]
+  %conv = zext nneg i32 %retval.0.i4070 to i64
   %call6 = tail call noalias ptr @CRYPTO_malloc(i64 noundef %conv, ptr noundef nonnull @.str.2, i32 noundef 274) #6
   store ptr %call6, ptr %tmp, align 8
   store ptr %call6, ptr %pp, align 8
@@ -352,38 +347,38 @@ if.end5:                                          ; preds = %i2d_x509_aux_intern
   br i1 %cmp7, label %return, label %if.end10
 
 if.end10:                                         ; preds = %if.end5
-  %call1.i15.i48 = call i32 @ASN1_item_i2d(ptr noundef %a, ptr noundef nonnull %tmp, ptr noundef nonnull @X509_it.local_it) #6
-  %cmp1.i52 = icmp slt i32 %call1.i15.i48, 1
-  %or.cond.i54 = or i1 %cmp2.i, %cmp1.i52
-  br i1 %or.cond.i54, label %i2d_x509_aux_internal.exit67, label %if.end.i55
+  %call1.i.i50 = call i32 @ASN1_item_i2d(ptr noundef %a, ptr noundef nonnull %tmp, ptr noundef nonnull @X509_it.local_it) #6
+  %cmp1.i51 = icmp slt i32 %call1.i.i50, 1
+  %or.cond.i53 = or i1 %cmp2.i, %cmp1.i51
+  br i1 %or.cond.i53, label %i2d_x509_aux_internal.exit64, label %if.end.i54
 
-if.end.i55:                                       ; preds = %if.end10
-  %aux.i56 = getelementptr inbounds i8, ptr %a, i64 336
-  %4 = load ptr, ptr %aux.i56, align 8
-  %call3.i57 = call i32 @i2d_X509_CERT_AUX(ptr noundef %4, ptr noundef nonnull %tmp) #6
-  %cmp4.i58 = icmp slt i32 %call3.i57, 0
-  br i1 %cmp4.i58, label %i2d_x509_aux_internal.exit67.thread, label %i2d_x509_aux_internal.exit67.thread77
+if.end.i54:                                       ; preds = %if.end10
+  %aux.i55 = getelementptr inbounds i8, ptr %a, i64 336
+  %4 = load ptr, ptr %aux.i55, align 8
+  %call3.i56 = call i32 @i2d_X509_CERT_AUX(ptr noundef %4, ptr noundef nonnull %tmp) #6
+  %cmp4.i57 = icmp slt i32 %call3.i56, 0
+  br i1 %cmp4.i57, label %i2d_x509_aux_internal.exit64.thread, label %i2d_x509_aux_internal.exit64.thread74
 
-i2d_x509_aux_internal.exit67.thread:              ; preds = %if.end.i55
+i2d_x509_aux_internal.exit64.thread:              ; preds = %if.end.i54
   store ptr %call6, ptr %tmp, align 8
   br label %if.then14
 
-i2d_x509_aux_internal.exit67.thread77:            ; preds = %if.end.i55
-  %add.i60 = add nuw nsw i32 %call3.i57, %call1.i15.i48
+i2d_x509_aux_internal.exit64.thread74:            ; preds = %if.end.i54
+  %add.i59 = add nuw nsw i32 %call3.i56, %call1.i.i50
   br label %return
 
-i2d_x509_aux_internal.exit67:                     ; preds = %if.end10
-  br i1 %cmp1.i52, label %if.then14, label %return
+i2d_x509_aux_internal.exit64:                     ; preds = %if.end10
+  br i1 %cmp1.i51, label %if.then14, label %return
 
-if.then14:                                        ; preds = %i2d_x509_aux_internal.exit67.thread, %i2d_x509_aux_internal.exit67
-  %retval.0.i6176 = phi i32 [ %call3.i57, %i2d_x509_aux_internal.exit67.thread ], [ %call1.i15.i48, %i2d_x509_aux_internal.exit67 ]
+if.then14:                                        ; preds = %i2d_x509_aux_internal.exit64.thread, %i2d_x509_aux_internal.exit64
+  %retval.0.i6073 = phi i32 [ %call3.i56, %i2d_x509_aux_internal.exit64.thread ], [ %call1.i.i50, %i2d_x509_aux_internal.exit64 ]
   %5 = load ptr, ptr %pp, align 8
   call void @CRYPTO_free(ptr noundef %5, ptr noundef nonnull @.str.2, i32 noundef 281) #6
   store ptr null, ptr %pp, align 8
   br label %return
 
-return:                                           ; preds = %if.end.i, %if.end.i35, %i2d_x509_aux_internal.exit67.thread77, %if.end9.i21, %if.then7.i, %cond.end.i, %entry.split, %i2d_x509_aux_internal.exit67, %if.then14, %if.end5, %i2d_x509_aux_internal.exit45
-  %retval.0 = phi i32 [ %call1.i.i28, %i2d_x509_aux_internal.exit45 ], [ -1, %if.end5 ], [ %retval.0.i6176, %if.then14 ], [ %call1.i15.i48, %i2d_x509_aux_internal.exit67 ], [ %call1.i.i, %entry.split ], [ %add.i22, %if.end9.i21 ], [ %call1.i15.i, %cond.end.i ], [ %call3.i19, %if.then7.i ], [ %add.i60, %i2d_x509_aux_internal.exit67.thread77 ], [ %call3.i37, %if.end.i35 ], [ %spec.select, %if.end.i ]
+return:                                           ; preds = %if.end.i, %if.end.i34, %i2d_x509_aux_internal.exit64.thread74, %if.end9.i22, %if.then7.i, %cond.end.i, %entry.split, %i2d_x509_aux_internal.exit64, %if.then14, %if.end5, %i2d_x509_aux_internal.exit44
+  %retval.0 = phi i32 [ %call1.i.i30, %i2d_x509_aux_internal.exit44 ], [ -1, %if.end5 ], [ %retval.0.i6073, %if.then14 ], [ %call1.i.i50, %i2d_x509_aux_internal.exit64 ], [ %call1.i.i, %entry.split ], [ %add.i23, %if.end9.i22 ], [ %call1.i.i14, %cond.end.i ], [ %call3.i20, %if.then7.i ], [ %add.i59, %i2d_x509_aux_internal.exit64.thread74 ], [ %call3.i36, %if.end.i34 ], [ %spec.select, %if.end.i ]
   ret i32 %retval.0
 }
 

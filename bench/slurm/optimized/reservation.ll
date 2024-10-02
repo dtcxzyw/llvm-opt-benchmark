@@ -11211,12 +11211,12 @@ define dso_local range(i32 0, 2054) i32 @validate_job_resv(ptr noundef %0) local
 12:                                               ; preds = %8
   %13 = load ptr, ptr @resv_list, align 8
   %.not = icmp eq ptr %13, null
-  br i1 %.not, label %105, label %14
+  br i1 %.not, label %103, label %14
 
 14:                                               ; preds = %12
   %15 = tail call ptr @xstrchr(ptr noundef nonnull %6, i32 noundef 44) #21
   %.not25 = icmp eq ptr %15, null
-  br i1 %.not25, label %77, label %16
+  br i1 %.not25, label %75, label %16
 
 16:                                               ; preds = %14
   store ptr null, ptr %4, align 8
@@ -11231,7 +11231,7 @@ define dso_local range(i32 0, 2054) i32 @validate_job_resv(ptr noundef %0) local
 _get_resv_list.exit.thread:                       ; preds = %16
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
-  br label %73
+  br label %71
 
 19:                                               ; preds = %16
   %20 = load ptr, ptr %5, align 8
@@ -11255,206 +11255,204 @@ _get_resv_list.exit.thread:                       ; preds = %16
   store ptr null, ptr %23, align 8
   call void @slurm_xfree(ptr noundef nonnull %4) #21
   %27 = load ptr, ptr %5, align 8
-  %28 = call ptr @xstrdup(ptr noundef %27) #21
   br label %.loopexit.sink.split.i
 
-.lr.ph.i:                                         ; preds = %19, %69
-  %.03659.i = phi ptr [ %70, %69 ], [ %22, %19 ]
-  %29 = load ptr, ptr @resv_list, align 8
-  %30 = call ptr @list_find_first(ptr noundef %29, ptr noundef nonnull @_find_resv_name, ptr noundef nonnull %.03659.i) #21
-  %.not48.i = icmp eq ptr %30, null
-  br i1 %.not48.i, label %64, label %31
+.lr.ph.i:                                         ; preds = %19, %66
+  %.03659.i = phi ptr [ %67, %66 ], [ %22, %19 ]
+  %28 = load ptr, ptr @resv_list, align 8
+  %29 = call ptr @list_find_first(ptr noundef %28, ptr noundef nonnull @_find_resv_name, ptr noundef nonnull %.03659.i) #21
+  %.not48.i = icmp eq ptr %29, null
+  br i1 %.not48.i, label %62, label %30
 
-31:                                               ; preds = %.lr.ph.i
-  %32 = call fastcc i32 @_valid_job_access_resv(ptr noundef nonnull %0, ptr noundef nonnull %30, i1 noundef zeroext true)
-  %33 = icmp eq i32 %32, 0
-  br i1 %33, label %34, label %_validate_job_resv_internal.exit.i
+30:                                               ; preds = %.lr.ph.i
+  %31 = call fastcc i32 @_valid_job_access_resv(ptr noundef nonnull %0, ptr noundef nonnull %29, i1 noundef zeroext true)
+  %32 = icmp eq i32 %31, 0
+  br i1 %32, label %33, label %_validate_job_resv_internal.exit.i
 
-34:                                               ; preds = %31
-  %35 = getelementptr inbounds i8, ptr %30, i64 128
-  %36 = load i64, ptr %35, align 8
-  %37 = and i64 %36, 1048576
-  %.not.i.i = icmp eq i64 %37, 0
-  br i1 %.not.i.i, label %54, label %38
+33:                                               ; preds = %30
+  %34 = getelementptr inbounds i8, ptr %29, i64 128
+  %35 = load i64, ptr %34, align 8
+  %36 = and i64 %35, 1048576
+  %.not.i.i = icmp eq i64 %36, 0
+  br i1 %.not.i.i, label %52, label %37
 
-38:                                               ; preds = %34
-  %39 = getelementptr inbounds i8, ptr %30, i64 112
-  %40 = load i64, ptr %39, align 8
-  %.not9.i.i = icmp eq i64 %40, 0
-  br i1 %.not9.i.i, label %54, label %41
+37:                                               ; preds = %33
+  %38 = getelementptr inbounds i8, ptr %29, i64 112
+  %39 = load i64, ptr %38, align 8
+  %.not9.i.i = icmp eq i64 %39, 0
+  br i1 %.not9.i.i, label %52, label %40
 
-41:                                               ; preds = %38
-  %42 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
-  %43 = and i64 %42, 16384
-  %.not10.i.i = icmp eq i64 %43, 0
-  br i1 %.not10.i.i, label %54, label %44
+40:                                               ; preds = %37
+  %41 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
+  %42 = and i64 %41, 16384
+  %.not10.i.i = icmp eq i64 %42, 0
+  br i1 %.not10.i.i, label %52, label %43
 
-44:                                               ; preds = %41
-  %45 = call i32 @get_log_level() #21
-  %46 = icmp sgt i32 %45, 3
-  br i1 %46, label %47, label %54
+43:                                               ; preds = %40
+  %44 = call i32 @get_log_level() #21
+  %45 = icmp sgt i32 %44, 3
+  br i1 %45, label %46, label %52
 
-47:                                               ; preds = %44
-  %48 = getelementptr inbounds i8, ptr %30, i64 184
-  %49 = load ptr, ptr %48, align 8
-  call void (i32, ptr, ...) @log_var(i32 noundef 4, ptr noundef nonnull @.str.199, ptr noundef %49, ptr noundef nonnull %0) #21
-  br label %54
-
-_validate_job_resv_internal.exit.i:               ; preds = %31
-  %50 = load ptr, ptr %23, align 8
-  %.not53.i = icmp eq ptr %50, null
-  br i1 %.not53.i, label %52, label %51
-
-51:                                               ; preds = %_validate_job_resv_internal.exit.i
-  call void @list_destroy(ptr noundef nonnull %50) #21
+46:                                               ; preds = %43
+  %47 = getelementptr inbounds i8, ptr %29, i64 184
+  %48 = load ptr, ptr %47, align 8
+  call void (i32, ptr, ...) @log_var(i32 noundef 4, ptr noundef nonnull @.str.199, ptr noundef %48, ptr noundef nonnull %0) #21
   br label %52
 
-52:                                               ; preds = %51, %_validate_job_resv_internal.exit.i
+_validate_job_resv_internal.exit.i:               ; preds = %30
+  %49 = load ptr, ptr %23, align 8
+  %.not53.i = icmp eq ptr %49, null
+  br i1 %.not53.i, label %51, label %50
+
+50:                                               ; preds = %_validate_job_resv_internal.exit.i
+  call void @list_destroy(ptr noundef nonnull %49) #21
+  br label %51
+
+51:                                               ; preds = %50, %_validate_job_resv_internal.exit.i
   store ptr null, ptr %23, align 8
   call void @slurm_xfree(ptr noundef nonnull %4) #21
-  %53 = call ptr @xstrdup(ptr noundef nonnull %.03659.i) #21
   br label %.loopexit.sink.split.i
 
-54:                                               ; preds = %47, %44, %41, %38, %34
-  %55 = getelementptr inbounds i8, ptr %30, i64 112
-  store i64 0, ptr %55, align 8
-  call fastcc void @_validate_node_choice(ptr noundef nonnull %30)
-  %56 = load ptr, ptr %23, align 8
-  %.not51.i = icmp eq ptr %56, null
-  br i1 %.not51.i, label %57, label %59
+52:                                               ; preds = %46, %43, %40, %37, %33
+  %53 = getelementptr inbounds i8, ptr %29, i64 112
+  store i64 0, ptr %53, align 8
+  call fastcc void @_validate_node_choice(ptr noundef nonnull %29)
+  %54 = load ptr, ptr %23, align 8
+  %.not51.i = icmp eq ptr %54, null
+  br i1 %.not51.i, label %55, label %57
 
-57:                                               ; preds = %54
-  %58 = call ptr @list_create(ptr noundef null) #21
-  store ptr %58, ptr %23, align 8
-  br label %59
+55:                                               ; preds = %52
+  %56 = call ptr @list_create(ptr noundef null) #21
+  store ptr %56, ptr %23, align 8
+  br label %57
 
-59:                                               ; preds = %57, %54
-  %60 = phi ptr [ %58, %57 ], [ %56, %54 ]
-  %61 = call ptr @list_find_first(ptr noundef %60, ptr noundef nonnull @_find_resv_ptr, ptr noundef nonnull %30) #21
-  %.not52.i = icmp eq ptr %61, null
-  br i1 %.not52.i, label %62, label %69
+57:                                               ; preds = %55, %52
+  %58 = phi ptr [ %56, %55 ], [ %54, %52 ]
+  %59 = call ptr @list_find_first(ptr noundef %58, ptr noundef nonnull @_find_resv_ptr, ptr noundef nonnull %29) #21
+  %.not52.i = icmp eq ptr %59, null
+  br i1 %.not52.i, label %60, label %66
 
-62:                                               ; preds = %59
+60:                                               ; preds = %57
+  %61 = load ptr, ptr %23, align 8
+  call void @list_append(ptr noundef %61, ptr noundef nonnull %29) #21
+  br label %66
+
+62:                                               ; preds = %.lr.ph.i
   %63 = load ptr, ptr %23, align 8
-  call void @list_append(ptr noundef %63, ptr noundef nonnull %30) #21
-  br label %69
+  %.not49.i = icmp eq ptr %63, null
+  br i1 %.not49.i, label %65, label %64
 
-64:                                               ; preds = %.lr.ph.i
-  %65 = load ptr, ptr %23, align 8
-  %.not49.i = icmp eq ptr %65, null
-  br i1 %.not49.i, label %67, label %66
+64:                                               ; preds = %62
+  call void @list_destroy(ptr noundef nonnull %63) #21
+  br label %65
 
-66:                                               ; preds = %64
-  call void @list_destroy(ptr noundef nonnull %65) #21
-  br label %67
-
-67:                                               ; preds = %66, %64
+65:                                               ; preds = %64, %62
   store ptr null, ptr %23, align 8
   call void @slurm_xfree(ptr noundef nonnull %4) #21
-  %68 = call ptr @xstrdup(ptr noundef nonnull %.03659.i) #21
   br label %.loopexit.sink.split.i
 
-69:                                               ; preds = %62, %59
-  %70 = call ptr @strtok_r(ptr noundef null, ptr noundef nonnull @.str.119, ptr noundef nonnull %2) #21
-  %.not47.i = icmp eq ptr %70, null
+66:                                               ; preds = %60, %57
+  %67 = call ptr @strtok_r(ptr noundef null, ptr noundef nonnull @.str.119, ptr noundef nonnull %2) #21
+  %.not47.i = icmp eq ptr %67, null
   br i1 %.not47.i, label %_get_resv_list.exit, label %.lr.ph.i, !llvm.loop !73
 
-.loopexit.sink.split.i:                           ; preds = %67, %52, %.thread.i
-  %.sink.i = phi ptr [ %28, %.thread.i ], [ %68, %67 ], [ %53, %52 ]
-  %.2.ph.i = phi i32 [ 2053, %.thread.i ], [ 2053, %67 ], [ %32, %52 ]
-  store ptr %.sink.i, ptr %4, align 8
+.loopexit.sink.split.i:                           ; preds = %65, %51, %.thread.i
+  %.sink67.i = phi ptr [ %27, %.thread.i ], [ %.03659.i, %65 ], [ %.03659.i, %51 ]
+  %.2.ph.i = phi i32 [ 2053, %.thread.i ], [ 2053, %65 ], [ %31, %51 ]
+  %68 = call ptr @xstrdup(ptr noundef %.sink67.i) #21
+  store ptr %68, ptr %4, align 8
   br label %_get_resv_list.exit
 
-_get_resv_list.exit:                              ; preds = %69, %.loopexit.sink.split.i
-  %.2.i = phi i32 [ %.2.ph.i, %.loopexit.sink.split.i ], [ 0, %69 ]
+_get_resv_list.exit:                              ; preds = %66, %.loopexit.sink.split.i
+  %.2.i = phi i32 [ %.2.ph.i, %.loopexit.sink.split.i ], [ 0, %66 ]
   call void @slurm_xfree(ptr noundef nonnull %3) #21
   %.pre = load ptr, ptr %4, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
   %.not26 = icmp eq ptr %.pre, null
-  br i1 %.not26, label %73, label %_validate_job_resv_internal.exit.thread
+  br i1 %.not26, label %71, label %_validate_job_resv_internal.exit.thread
 
 _validate_job_resv_internal.exit.thread:          ; preds = %_get_resv_list.exit
-  %71 = call ptr @slurm_strerror(i32 noundef %.2.i) #21
-  %72 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.88, ptr noundef nonnull %0, ptr noundef nonnull %.pre, ptr noundef %71) #21
+  %69 = call ptr @slurm_strerror(i32 noundef %.2.i) #21
+  %70 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.88, ptr noundef nonnull %0, ptr noundef nonnull %.pre, ptr noundef %69) #21
   call void @slurm_xfree(ptr noundef nonnull %4) #21
   br label %.sink.split
 
-73:                                               ; preds = %_get_resv_list.exit.thread, %_get_resv_list.exit
+71:                                               ; preds = %_get_resv_list.exit.thread, %_get_resv_list.exit
   %.037.i47 = phi i32 [ 0, %_get_resv_list.exit.thread ], [ %.2.i, %_get_resv_list.exit ]
-  %74 = getelementptr inbounds i8, ptr %0, i64 800
-  %75 = load ptr, ptr %74, align 8
-  %76 = call ptr @list_peek(ptr noundef %75) #21
+  %72 = getelementptr inbounds i8, ptr %0, i64 800
+  %73 = load ptr, ptr %72, align 8
+  %74 = call ptr @list_peek(ptr noundef %73) #21
   br label %_validate_job_resv_internal.exit
 
-77:                                               ; preds = %14
-  %78 = load ptr, ptr %5, align 8
-  %79 = load ptr, ptr @resv_list, align 8
-  %80 = tail call ptr @list_find_first(ptr noundef %79, ptr noundef nonnull @_find_resv_name, ptr noundef %78) #21
-  %81 = tail call fastcc i32 @_valid_job_access_resv(ptr noundef nonnull %0, ptr noundef %80, i1 noundef zeroext true)
-  %82 = icmp eq i32 %81, 0
-  br i1 %82, label %83, label %_validate_job_resv_internal.exit
+75:                                               ; preds = %14
+  %76 = load ptr, ptr %5, align 8
+  %77 = load ptr, ptr @resv_list, align 8
+  %78 = tail call ptr @list_find_first(ptr noundef %77, ptr noundef nonnull @_find_resv_name, ptr noundef %76) #21
+  %79 = tail call fastcc i32 @_valid_job_access_resv(ptr noundef nonnull %0, ptr noundef %78, i1 noundef zeroext true)
+  %80 = icmp eq i32 %79, 0
+  br i1 %80, label %81, label %_validate_job_resv_internal.exit
 
-83:                                               ; preds = %77
-  %84 = getelementptr inbounds i8, ptr %80, i64 128
-  %85 = load i64, ptr %84, align 8
-  %86 = and i64 %85, 1048576
-  %.not.i28 = icmp eq i64 %86, 0
-  br i1 %.not.i28, label %_validate_job_resv_internal.exit.thread33, label %87
+81:                                               ; preds = %75
+  %82 = getelementptr inbounds i8, ptr %78, i64 128
+  %83 = load i64, ptr %82, align 8
+  %84 = and i64 %83, 1048576
+  %.not.i28 = icmp eq i64 %84, 0
+  br i1 %.not.i28, label %_validate_job_resv_internal.exit.thread33, label %85
 
-87:                                               ; preds = %83
-  %88 = getelementptr inbounds i8, ptr %80, i64 112
-  %89 = load i64, ptr %88, align 8
-  %.not9.i = icmp eq i64 %89, 0
-  br i1 %.not9.i, label %_validate_job_resv_internal.exit.thread33, label %90
+85:                                               ; preds = %81
+  %86 = getelementptr inbounds i8, ptr %78, i64 112
+  %87 = load i64, ptr %86, align 8
+  %.not9.i = icmp eq i64 %87, 0
+  br i1 %.not9.i, label %_validate_job_resv_internal.exit.thread33, label %88
 
-90:                                               ; preds = %87
-  %91 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
-  %92 = and i64 %91, 16384
-  %.not10.i = icmp eq i64 %92, 0
-  br i1 %.not10.i, label %_validate_job_resv_internal.exit.thread33, label %93
+88:                                               ; preds = %85
+  %89 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
+  %90 = and i64 %89, 16384
+  %.not10.i = icmp eq i64 %90, 0
+  br i1 %.not10.i, label %_validate_job_resv_internal.exit.thread33, label %91
 
-93:                                               ; preds = %90
-  %94 = tail call i32 @get_log_level() #21
-  %95 = icmp sgt i32 %94, 3
-  br i1 %95, label %96, label %_validate_job_resv_internal.exit.thread33
+91:                                               ; preds = %88
+  %92 = tail call i32 @get_log_level() #21
+  %93 = icmp sgt i32 %92, 3
+  br i1 %93, label %94, label %_validate_job_resv_internal.exit.thread33
 
-96:                                               ; preds = %93
-  %97 = getelementptr inbounds i8, ptr %80, i64 184
-  %98 = load ptr, ptr %97, align 8
-  tail call void (i32, ptr, ...) @log_var(i32 noundef 4, ptr noundef nonnull @.str.199, ptr noundef %98, ptr noundef nonnull %0) #21
+94:                                               ; preds = %91
+  %95 = getelementptr inbounds i8, ptr %78, i64 184
+  %96 = load ptr, ptr %95, align 8
+  tail call void (i32, ptr, ...) @log_var(i32 noundef 4, ptr noundef nonnull @.str.199, ptr noundef %96, ptr noundef nonnull %0) #21
   br label %_validate_job_resv_internal.exit.thread33
 
-_validate_job_resv_internal.exit.thread33:        ; preds = %83, %87, %90, %93, %96
-  %99 = getelementptr inbounds i8, ptr %80, i64 112
-  store i64 0, ptr %99, align 8
-  tail call fastcc void @_validate_node_choice(ptr noundef nonnull %80)
-  br label %100
+_validate_job_resv_internal.exit.thread33:        ; preds = %81, %85, %88, %91, %94
+  %97 = getelementptr inbounds i8, ptr %78, i64 112
+  store i64 0, ptr %97, align 8
+  tail call fastcc void @_validate_node_choice(ptr noundef nonnull %78)
+  br label %98
 
-_validate_job_resv_internal.exit:                 ; preds = %77, %73
-  %.021 = phi ptr [ %76, %73 ], [ %80, %77 ]
-  %.0 = phi i32 [ %.037.i47, %73 ], [ %81, %77 ]
+_validate_job_resv_internal.exit:                 ; preds = %75, %71
+  %.021 = phi ptr [ %74, %71 ], [ %78, %75 ]
+  %.0 = phi i32 [ %.037.i47, %71 ], [ %79, %75 ]
   %.not27 = icmp eq ptr %.021, null
-  br i1 %.not27, label %.sink.split, label %100
+  br i1 %.not27, label %.sink.split, label %98
 
-100:                                              ; preds = %_validate_job_resv_internal.exit.thread33, %_validate_job_resv_internal.exit
+98:                                               ; preds = %_validate_job_resv_internal.exit.thread33, %_validate_job_resv_internal.exit
   %.038 = phi i32 [ 0, %_validate_job_resv_internal.exit.thread33 ], [ %.0, %_validate_job_resv_internal.exit ]
-  %.02137 = phi ptr [ %80, %_validate_job_resv_internal.exit.thread33 ], [ %.021, %_validate_job_resv_internal.exit ]
-  %101 = getelementptr inbounds i8, ptr %.02137, i64 236
-  %102 = load i32, ptr %101, align 4
+  %.02137 = phi ptr [ %78, %_validate_job_resv_internal.exit.thread33 ], [ %.021, %_validate_job_resv_internal.exit ]
+  %99 = getelementptr inbounds i8, ptr %.02137, i64 236
+  %100 = load i32, ptr %99, align 4
   br label %.sink.split
 
-.sink.split:                                      ; preds = %_validate_job_resv_internal.exit, %_validate_job_resv_internal.exit.thread, %11, %100
-  %.sink = phi i32 [ %102, %100 ], [ 0, %11 ], [ 0, %_validate_job_resv_internal.exit.thread ], [ 0, %_validate_job_resv_internal.exit ]
-  %.02137.sink = phi ptr [ %.02137, %100 ], [ null, %11 ], [ null, %_validate_job_resv_internal.exit.thread ], [ null, %_validate_job_resv_internal.exit ]
-  %.022.ph = phi i32 [ %.038, %100 ], [ 0, %11 ], [ %.2.i, %_validate_job_resv_internal.exit.thread ], [ %.0, %_validate_job_resv_internal.exit ]
-  %103 = getelementptr inbounds i8, ptr %0, i64 792
-  store i32 %.sink, ptr %103, align 8
-  %104 = getelementptr inbounds i8, ptr %0, i64 816
-  store ptr %.02137.sink, ptr %104, align 8
-  br label %105
+.sink.split:                                      ; preds = %_validate_job_resv_internal.exit, %_validate_job_resv_internal.exit.thread, %11, %98
+  %.sink = phi i32 [ %100, %98 ], [ 0, %11 ], [ 0, %_validate_job_resv_internal.exit.thread ], [ 0, %_validate_job_resv_internal.exit ]
+  %.02137.sink = phi ptr [ %.02137, %98 ], [ null, %11 ], [ null, %_validate_job_resv_internal.exit.thread ], [ null, %_validate_job_resv_internal.exit ]
+  %.022.ph = phi i32 [ %.038, %98 ], [ 0, %11 ], [ %.2.i, %_validate_job_resv_internal.exit.thread ], [ %.0, %_validate_job_resv_internal.exit ]
+  %101 = getelementptr inbounds i8, ptr %0, i64 792
+  store i32 %.sink, ptr %101, align 8
+  %102 = getelementptr inbounds i8, ptr %0, i64 816
+  store ptr %.02137.sink, ptr %102, align 8
+  br label %103
 
-105:                                              ; preds = %.sink.split, %12
+103:                                              ; preds = %.sink.split, %12
   %.022 = phi i32 [ 2053, %12 ], [ %.022.ph, %.sink.split ]
   ret i32 %.022
 }

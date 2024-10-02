@@ -2374,50 +2374,49 @@ _ZN4llvm16dyn_cast_or_nullIN5clang24TemplateTemplateParmDeclENS1_12TemplateDeclE
   store i64 %.sroa.0.0.copyload.i, ptr %5, align 8
   %27 = call noundef ptr @_ZNK5clang12TemplateName26getAsDependentTemplateNameEv(ptr noundef nonnull align 8 dereferenceable(8) %5) #16
   %.not.i.i = icmp eq ptr %27, null
-  br i1 %.not.i.i, label %33, label %28
+  br i1 %.not.i.i, label %31, label %28
 
 28:                                               ; preds = %_ZN4llvm16dyn_cast_or_nullIN5clang24TemplateTemplateParmDeclENS1_12TemplateDeclEEEDaPT0_.exit.thread.i
   %29 = getelementptr inbounds nuw i8, ptr %27, i64 8
   %.0.copyload.i.i.i.i.i.i = load i64, ptr %29, align 8
   %30 = and i64 %.0.copyload.i.i.i.i.i.i, -8
-  %31 = inttoptr i64 %30 to ptr
-  %32 = call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_138CollectUnexpandedParameterPacksVisitorEE27TraverseNestedNameSpecifierEPNS_19NestedNameSpecifierE(ptr noundef nonnull align 1 dereferenceable(1) %9, ptr noundef %31)
+  br label %_ZN12_GLOBAL__N_138CollectUnexpandedParameterPacksVisitor20TraverseTemplateNameEN5clang12TemplateNameE.exit.sink.split
+
+31:                                               ; preds = %_ZN4llvm16dyn_cast_or_nullIN5clang24TemplateTemplateParmDeclENS1_12TemplateDeclEEEDaPT0_.exit.thread.i
+  %32 = call noundef ptr @_ZNK5clang12TemplateName26getAsQualifiedTemplateNameEv(ptr noundef nonnull align 8 dereferenceable(8) %5) #16
+  %.not9.i.i = icmp eq ptr %32, null
+  br i1 %.not9.i.i, label %_ZN12_GLOBAL__N_138CollectUnexpandedParameterPacksVisitor20TraverseTemplateNameEN5clang12TemplateNameE.exit, label %33
+
+33:                                               ; preds = %31
+  %34 = getelementptr inbounds nuw i8, ptr %32, i64 8
+  %.0.copyload.i.i.i.i11.i.i = load i64, ptr %34, align 8
+  %35 = and i64 %.0.copyload.i.i.i.i11.i.i, -8
+  %.not10.i.i = icmp eq i64 %35, 0
+  br i1 %.not10.i.i, label %_ZN12_GLOBAL__N_138CollectUnexpandedParameterPacksVisitor20TraverseTemplateNameEN5clang12TemplateNameE.exit, label %_ZN12_GLOBAL__N_138CollectUnexpandedParameterPacksVisitor20TraverseTemplateNameEN5clang12TemplateNameE.exit.sink.split
+
+_ZN12_GLOBAL__N_138CollectUnexpandedParameterPacksVisitor20TraverseTemplateNameEN5clang12TemplateNameE.exit.sink.split: ; preds = %33, %28
+  %.sink4 = phi i64 [ %30, %28 ], [ %35, %33 ]
+  %36 = inttoptr i64 %.sink4 to ptr
+  %37 = call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_138CollectUnexpandedParameterPacksVisitorEE27TraverseNestedNameSpecifierEPNS_19NestedNameSpecifierE(ptr noundef nonnull align 1 dereferenceable(1) %9, ptr noundef %36)
   br label %_ZN12_GLOBAL__N_138CollectUnexpandedParameterPacksVisitor20TraverseTemplateNameEN5clang12TemplateNameE.exit
 
-33:                                               ; preds = %_ZN4llvm16dyn_cast_or_nullIN5clang24TemplateTemplateParmDeclENS1_12TemplateDeclEEEDaPT0_.exit.thread.i
-  %34 = call noundef ptr @_ZNK5clang12TemplateName26getAsQualifiedTemplateNameEv(ptr noundef nonnull align 8 dereferenceable(8) %5) #16
-  %.not9.i.i = icmp eq ptr %34, null
-  br i1 %.not9.i.i, label %_ZN12_GLOBAL__N_138CollectUnexpandedParameterPacksVisitor20TraverseTemplateNameEN5clang12TemplateNameE.exit, label %35
-
-35:                                               ; preds = %33
-  %36 = getelementptr inbounds nuw i8, ptr %34, i64 8
-  %.0.copyload.i.i.i.i11.i.i = load i64, ptr %36, align 8
-  %37 = and i64 %.0.copyload.i.i.i.i11.i.i, -8
-  %.not10.i.i = icmp eq i64 %37, 0
-  br i1 %.not10.i.i, label %_ZN12_GLOBAL__N_138CollectUnexpandedParameterPacksVisitor20TraverseTemplateNameEN5clang12TemplateNameE.exit, label %38
-
-38:                                               ; preds = %35
-  %39 = inttoptr i64 %37 to ptr
-  %40 = call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_138CollectUnexpandedParameterPacksVisitorEE27TraverseNestedNameSpecifierEPNS_19NestedNameSpecifierE(ptr noundef nonnull align 1 dereferenceable(1) %9, ptr noundef nonnull %39)
-  br label %_ZN12_GLOBAL__N_138CollectUnexpandedParameterPacksVisitor20TraverseTemplateNameEN5clang12TemplateNameE.exit
-
-_ZN12_GLOBAL__N_138CollectUnexpandedParameterPacksVisitor20TraverseTemplateNameEN5clang12TemplateNameE.exit: ; preds = %38, %28, %33, %35
+_ZN12_GLOBAL__N_138CollectUnexpandedParameterPacksVisitor20TraverseTemplateNameEN5clang12TemplateNameE.exit: ; preds = %_ZN12_GLOBAL__N_138CollectUnexpandedParameterPacksVisitor20TraverseTemplateNameEN5clang12TemplateNameE.exit.sink.split, %31, %33
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
-  %41 = load ptr, ptr %8, align 8
-  %42 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %8) #16
-  %43 = call noundef zeroext i1 @_ZN5clang4Sema32DiagnoseUnexpandedParameterPacksENS_14SourceLocationENS0_30UnexpandedParameterPackContextEN4llvm8ArrayRefISt4pairINS3_12PointerUnionIJPKNS_20TemplateTypeParmTypeEPNS_9NamedDeclEEEES1_EEE(ptr noundef nonnull align 8 dereferenceable(17560) %0, i32 %1, i32 noundef %3, ptr %41, i64 %42)
-  %44 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %8) #16
-  %45 = load ptr, ptr %8, align 8
-  %46 = icmp eq ptr %45, %14
-  br i1 %46, label %_ZN4llvm11SmallVectorISt4pairINS_12PointerUnionIJPKN5clang20TemplateTypeParmTypeEPNS3_9NamedDeclEEEENS3_14SourceLocationEELj2EED2Ev.exit, label %47
+  %38 = load ptr, ptr %8, align 8
+  %39 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %8) #16
+  %40 = call noundef zeroext i1 @_ZN5clang4Sema32DiagnoseUnexpandedParameterPacksENS_14SourceLocationENS0_30UnexpandedParameterPackContextEN4llvm8ArrayRefISt4pairINS3_12PointerUnionIJPKNS_20TemplateTypeParmTypeEPNS_9NamedDeclEEEES1_EEE(ptr noundef nonnull align 8 dereferenceable(17560) %0, i32 %1, i32 noundef %3, ptr %38, i64 %39)
+  %41 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %8) #16
+  %42 = load ptr, ptr %8, align 8
+  %43 = icmp eq ptr %42, %14
+  br i1 %43, label %_ZN4llvm11SmallVectorISt4pairINS_12PointerUnionIJPKN5clang20TemplateTypeParmTypeEPNS3_9NamedDeclEEEENS3_14SourceLocationEELj2EED2Ev.exit, label %44
 
-47:                                               ; preds = %_ZN12_GLOBAL__N_138CollectUnexpandedParameterPacksVisitor20TraverseTemplateNameEN5clang12TemplateNameE.exit
-  call void @free(ptr noundef %45) #16
+44:                                               ; preds = %_ZN12_GLOBAL__N_138CollectUnexpandedParameterPacksVisitor20TraverseTemplateNameEN5clang12TemplateNameE.exit
+  call void @free(ptr noundef %42) #16
   br label %_ZN4llvm11SmallVectorISt4pairINS_12PointerUnionIJPKN5clang20TemplateTypeParmTypeEPNS3_9NamedDeclEEEENS3_14SourceLocationEELj2EED2Ev.exit
 
-_ZN4llvm11SmallVectorISt4pairINS_12PointerUnionIJPKN5clang20TemplateTypeParmTypeEPNS3_9NamedDeclEEEENS3_14SourceLocationEELj2EED2Ev.exit: ; preds = %47, %_ZN12_GLOBAL__N_138CollectUnexpandedParameterPacksVisitor20TraverseTemplateNameEN5clang12TemplateNameE.exit, %4, %11
-  %.0 = phi i1 [ false, %11 ], [ false, %4 ], [ %43, %_ZN12_GLOBAL__N_138CollectUnexpandedParameterPacksVisitor20TraverseTemplateNameEN5clang12TemplateNameE.exit ], [ %43, %47 ]
+_ZN4llvm11SmallVectorISt4pairINS_12PointerUnionIJPKN5clang20TemplateTypeParmTypeEPNS3_9NamedDeclEEEENS3_14SourceLocationEELj2EED2Ev.exit: ; preds = %44, %_ZN12_GLOBAL__N_138CollectUnexpandedParameterPacksVisitor20TraverseTemplateNameEN5clang12TemplateNameE.exit, %4, %11
+  %.0 = phi i1 [ false, %11 ], [ false, %4 ], [ %40, %_ZN12_GLOBAL__N_138CollectUnexpandedParameterPacksVisitor20TraverseTemplateNameEN5clang12TemplateNameE.exit ], [ %40, %44 ]
   ret i1 %.0
 }
 

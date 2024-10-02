@@ -3283,17 +3283,17 @@ _ZN12_GLOBAL__N_122CoverageMappingBuilder20emitExpansionRegionsEv.exit.i: ; pred
   %221 = load ptr, ptr %27, align 8
   %222 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %27) #22
   %223 = getelementptr inbounds %"struct.llvm::coverage::CounterMappingRegion", ptr %221, i64 %222
-  %.not102.i.i = icmp eq i64 %222, 0
-  br i1 %.not102.i.i, label %._crit_edge.i.i, label %.lr.ph.i2.i
+  %.not96.i.i = icmp eq i64 %222, 0
+  br i1 %.not96.i.i, label %._crit_edge.i.i, label %.lr.ph.i2.i
 
 .lr.ph.i2.i:                                      ; preds = %_ZN12_GLOBAL__N_122CoverageMappingBuilder20emitExpansionRegionsEv.exit.i, %.lr.ph.i2.i
-  %.0103.i.i = phi ptr [ %241, %.lr.ph.i2.i ], [ %221, %_ZN12_GLOBAL__N_122CoverageMappingBuilder20emitExpansionRegionsEv.exit.i ]
-  %224 = getelementptr inbounds nuw i8, ptr %.0103.i.i, i64 28
+  %.097.i.i = phi ptr [ %241, %.lr.ph.i2.i ], [ %221, %_ZN12_GLOBAL__N_122CoverageMappingBuilder20emitExpansionRegionsEv.exit.i ]
+  %224 = getelementptr inbounds nuw i8, ptr %.097.i.i, i64 28
   %225 = load i32, ptr %224, align 4
   %226 = zext i32 %225 to i64
   %227 = load ptr, ptr %4, align 8
   %228 = getelementptr inbounds %"struct.std::pair.1796", ptr %227, i64 %226
-  %229 = getelementptr inbounds nuw i8, ptr %.0103.i.i, i64 36
+  %229 = getelementptr inbounds nuw i8, ptr %.097.i.i, i64 36
   %230 = load i32, ptr %229, align 4
   %231 = load i32, ptr %228, align 4
   %232 = call i32 @llvm.umin.i32(i32 %230, i32 %231)
@@ -3302,12 +3302,12 @@ _ZN12_GLOBAL__N_122CoverageMappingBuilder20emitExpansionRegionsEv.exit.i: ; pred
   %234 = zext i32 %233 to i64
   %235 = load ptr, ptr %4, align 8
   %236 = getelementptr inbounds %"struct.std::pair.1796", ptr %235, i64 %234, i32 1
-  %237 = getelementptr inbounds nuw i8, ptr %.0103.i.i, i64 44
+  %237 = getelementptr inbounds nuw i8, ptr %.097.i.i, i64 44
   %238 = load i32, ptr %236, align 4
   %239 = load i32, ptr %237, align 4
   %240 = call i32 @llvm.umax.i32(i32 %238, i32 %239)
   store i32 %240, ptr %236, align 4
-  %241 = getelementptr inbounds i8, ptr %.0103.i.i, i64 56
+  %241 = getelementptr inbounds i8, ptr %.097.i.i, i64 56
   %.not.i3.i = icmp eq ptr %241, %223
   br i1 %.not.i3.i, label %._crit_edge.i.i, label %.lr.ph.i2.i
 
@@ -3345,9 +3345,9 @@ _ZN12_GLOBAL__N_122CoverageMappingBuilder20emitExpansionRegionsEv.exit.i: ; pred
   %257 = getelementptr inbounds i8, ptr %.sroa.04.08.i.i.i.i.i.i.i, i64 20
   %258 = getelementptr inbounds i8, ptr %.09.i.i.i.i.i.i.i, i64 20
   %.not.i.i.i.i.i.i4.i = icmp eq ptr %257, %247
-  br i1 %.not.i.i.i.i.i.i4.i, label %.lr.ph106.i.i, label %.lr.ph.i.i.i.i.i.i.i, !llvm.loop !65
+  br i1 %.not.i.i.i.i.i.i4.i, label %.lr.ph100.i.i, label %.lr.ph.i.i.i.i.i.i.i, !llvm.loop !65
 
-.lr.ph106.i.i:                                    ; preds = %.lr.ph.i.i.i.i.i.i.i
+.lr.ph100.i.i:                                    ; preds = %.lr.ph.i.i.i.i.i.i.i
   %259 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %260 = getelementptr inbounds nuw i8, ptr %5, i64 28
   %261 = getelementptr inbounds nuw i8, ptr %5, i64 32
@@ -3358,21 +3358,21 @@ _ZN12_GLOBAL__N_122CoverageMappingBuilder20emitExpansionRegionsEv.exit.i: ; pred
   %266 = getelementptr inbounds nuw i8, ptr %5, i64 52
   br label %267
 
-267:                                              ; preds = %.thread84.i.i, %.lr.ph106.i.i
-  %.sroa.058.0105.i.i = phi ptr [ %256, %.lr.ph106.i.i ], [ %314, %.thread84.i.i ]
-  %268 = load i64, ptr %.sroa.058.0105.i.i, align 4
-  %.sroa.055.0.extract.trunc.i.i = trunc i64 %268 to i32
-  %.sroa.256.0.extract.shift.i.i = lshr i64 %268, 32
-  %.sroa.256.0.extract.trunc.i.i = trunc nuw i64 %.sroa.256.0.extract.shift.i.i to i32
-  %269 = call fastcc i64 @_ZN12_GLOBAL__N_122CoverageMappingBuilder17getCoverageFileIDEN5clang14SourceLocationE(ptr noundef nonnull align 8 dereferenceable(1960) %13, i32 %.sroa.055.0.extract.trunc.i.i)
-  %.sroa.050.0.extract.trunc.i.i = trunc i64 %269 to i32
-  %.not101.i.i = icmp ult i64 %269, 4294967296
-  br i1 %.not101.i.i, label %.thread84.i.i, label %270
+267:                                              ; preds = %.thread78.i.i, %.lr.ph100.i.i
+  %.sroa.052.099.i.i = phi ptr [ %256, %.lr.ph100.i.i ], [ %314, %.thread78.i.i ]
+  %268 = load i64, ptr %.sroa.052.099.i.i, align 4
+  %.sroa.049.0.extract.trunc.i.i = trunc i64 %268 to i32
+  %.sroa.250.0.extract.shift.i.i = lshr i64 %268, 32
+  %.sroa.250.0.extract.trunc.i.i = trunc nuw i64 %.sroa.250.0.extract.shift.i.i to i32
+  %269 = call fastcc i64 @_ZN12_GLOBAL__N_122CoverageMappingBuilder17getCoverageFileIDEN5clang14SourceLocationE(ptr noundef nonnull align 8 dereferenceable(1960) %13, i32 %.sroa.049.0.extract.trunc.i.i)
+  %.sroa.044.0.extract.trunc.i.i = trunc i64 %269 to i32
+  %.not95.i.i = icmp ult i64 %269, 4294967296
+  br i1 %.not95.i.i, label %.thread78.i.i, label %270
 
 270:                                              ; preds = %267
-  %271 = getelementptr inbounds nuw i8, ptr %.sroa.058.0105.i.i, i64 16
+  %271 = getelementptr inbounds nuw i8, ptr %.sroa.052.099.i.i, i64 16
   %272 = load i32, ptr %271, align 4
-  switch i32 %272, label %.thread84.i.i [
+  switch i32 %272, label %.thread78.i.i [
     i32 2, label %273
     i32 0, label %.thread.i.i
     i32 1, label %.thread.i.i
@@ -3380,19 +3380,19 @@ _ZN12_GLOBAL__N_122CoverageMappingBuilder20emitExpansionRegionsEv.exit.i: ; pred
 
 273:                                              ; preds = %270
   %274 = load ptr, ptr %23, align 8
-  %275 = getelementptr inbounds nuw i8, ptr %.sroa.058.0105.i.i, i64 8
+  %275 = getelementptr inbounds nuw i8, ptr %.sroa.052.099.i.i, i64 8
   %.sroa.03.0.copyload.i.i = load i32, ptr %275, align 4
-  %276 = getelementptr inbounds nuw i8, ptr %.sroa.058.0105.i.i, i64 12
+  %276 = getelementptr inbounds nuw i8, ptr %.sroa.052.099.i.i, i64 12
   %.sroa.02.0.copyload.i.i = load i32, ptr %276, align 4
-  %277 = call noundef i32 @_ZNK5clang13SourceManager21getSpellingLineNumberENS_14SourceLocationEPb(ptr noundef nonnull align 8 dereferenceable(696) %274, i32 %.sroa.055.0.extract.trunc.i.i, ptr noundef null) #22, !noalias !66
-  %278 = call noundef i32 @_ZNK5clang13SourceManager23getSpellingColumnNumberENS_14SourceLocationEPb(ptr noundef nonnull align 8 dereferenceable(696) %274, i32 %.sroa.055.0.extract.trunc.i.i, ptr noundef null) #22, !noalias !66
-  %279 = call noundef i32 @_ZNK5clang13SourceManager21getSpellingLineNumberENS_14SourceLocationEPb(ptr noundef nonnull align 8 dereferenceable(696) %274, i32 %.sroa.256.0.extract.trunc.i.i, ptr noundef null) #22, !noalias !66
-  %280 = call noundef i32 @_ZNK5clang13SourceManager23getSpellingColumnNumberENS_14SourceLocationEPb(ptr noundef nonnull align 8 dereferenceable(696) %274, i32 %.sroa.256.0.extract.trunc.i.i, ptr noundef null) #22, !noalias !66
+  %277 = call noundef i32 @_ZNK5clang13SourceManager21getSpellingLineNumberENS_14SourceLocationEPb(ptr noundef nonnull align 8 dereferenceable(696) %274, i32 %.sroa.049.0.extract.trunc.i.i, ptr noundef null) #22, !noalias !66
+  %278 = call noundef i32 @_ZNK5clang13SourceManager23getSpellingColumnNumberENS_14SourceLocationEPb(ptr noundef nonnull align 8 dereferenceable(696) %274, i32 %.sroa.049.0.extract.trunc.i.i, ptr noundef null) #22, !noalias !66
+  %279 = call noundef i32 @_ZNK5clang13SourceManager21getSpellingLineNumberENS_14SourceLocationEPb(ptr noundef nonnull align 8 dereferenceable(696) %274, i32 %.sroa.250.0.extract.trunc.i.i, ptr noundef null) #22, !noalias !66
+  %280 = call noundef i32 @_ZNK5clang13SourceManager23getSpellingColumnNumberENS_14SourceLocationEPb(ptr noundef nonnull align 8 dereferenceable(696) %274, i32 %.sroa.250.0.extract.trunc.i.i, ptr noundef null) #22, !noalias !66
   %.not.i.i.i = icmp eq i32 %.sroa.03.0.copyload.i.i, 0
   br i1 %.not.i.i.i, label %287, label %281
 
 281:                                              ; preds = %273
-  %282 = call noundef zeroext i1 @_ZNK5clang13SourceManager19isWrittenInSameFileENS_14SourceLocationES1_(ptr noundef nonnull align 8 dereferenceable(696) %274, i32 %.sroa.055.0.extract.trunc.i.i, i32 %.sroa.03.0.copyload.i.i), !noalias !66
+  %282 = call noundef zeroext i1 @_ZNK5clang13SourceManager19isWrittenInSameFileENS_14SourceLocationES1_(ptr noundef nonnull align 8 dereferenceable(696) %274, i32 %.sroa.049.0.extract.trunc.i.i, i32 %.sroa.03.0.copyload.i.i), !noalias !66
   br i1 %282, label %283, label %287
 
 283:                                              ; preds = %281
@@ -3408,7 +3408,7 @@ _ZN12_GLOBAL__N_122CoverageMappingBuilder20emitExpansionRegionsEv.exit.i: ; pred
   br i1 %.not14.i.i.i, label %296, label %288
 
 288:                                              ; preds = %287
-  %289 = call noundef zeroext i1 @_ZNK5clang13SourceManager19isWrittenInSameFileENS_14SourceLocationES1_(ptr noundef nonnull align 8 dereferenceable(696) %274, i32 %.sroa.256.0.extract.trunc.i.i, i32 %.sroa.02.0.copyload.i.i), !noalias !66
+  %289 = call noundef zeroext i1 @_ZNK5clang13SourceManager19isWrittenInSameFileENS_14SourceLocationES1_(ptr noundef nonnull align 8 dereferenceable(696) %274, i32 %.sroa.250.0.extract.trunc.i.i, i32 %.sroa.02.0.copyload.i.i), !noalias !66
   br i1 %289, label %290, label %296
 
 290:                                              ; preds = %288
@@ -3425,63 +3425,63 @@ _ZN12_GLOBAL__N_122CoverageMappingBuilder20emitExpansionRegionsEv.exit.i: ; pred
   %.sroa.14.0.i.i.i = phi i32 [ %295, %293 ], [ %280, %290 ], [ %280, %288 ], [ %280, %287 ]
   %.sroa.9.0.i.i.i = phi i32 [ %294, %293 ], [ %279, %290 ], [ %279, %288 ], [ %279, %287 ]
   %297 = icmp ult i32 %.sroa.0.0.i.i.i, %.sroa.9.0.i.i.i
-  br i1 %297, label %.thread93.i.i, label %298
+  br i1 %297, label %.thread87.i.i, label %298
 
 298:                                              ; preds = %296
   %299 = icmp eq i32 %.sroa.0.0.i.i.i, %.sroa.9.0.i.i.i
   %300 = icmp ne i32 %.sroa.14.0.i.i.i, 0
   %or.cond.i.i.i = and i1 %300, %299
-  br i1 %or.cond.i.i.i, label %.thread93.i.i, label %.thread84.i.i
+  br i1 %or.cond.i.i.i, label %.thread87.i.i, label %.thread78.i.i
 
 .thread.i.i:                                      ; preds = %270, %270
   %301 = load ptr, ptr %23, align 8
-  %302 = call noundef i32 @_ZNK5clang13SourceManager21getSpellingLineNumberENS_14SourceLocationEPb(ptr noundef nonnull align 8 dereferenceable(696) %301, i32 %.sroa.055.0.extract.trunc.i.i, ptr noundef null) #22
-  %303 = call noundef i32 @_ZNK5clang13SourceManager23getSpellingColumnNumberENS_14SourceLocationEPb(ptr noundef nonnull align 8 dereferenceable(696) %301, i32 %.sroa.055.0.extract.trunc.i.i, ptr noundef null) #22
-  %304 = call noundef i32 @_ZNK5clang13SourceManager21getSpellingLineNumberENS_14SourceLocationEPb(ptr noundef nonnull align 8 dereferenceable(696) %301, i32 %.sroa.256.0.extract.trunc.i.i, ptr noundef null) #22
-  %305 = call noundef i32 @_ZNK5clang13SourceManager23getSpellingColumnNumberENS_14SourceLocationEPb(ptr noundef nonnull align 8 dereferenceable(696) %301, i32 %.sroa.256.0.extract.trunc.i.i, ptr noundef null) #22
-  br label %.thread93.i.i
+  %302 = call noundef i32 @_ZNK5clang13SourceManager21getSpellingLineNumberENS_14SourceLocationEPb(ptr noundef nonnull align 8 dereferenceable(696) %301, i32 %.sroa.049.0.extract.trunc.i.i, ptr noundef null) #22
+  %303 = call noundef i32 @_ZNK5clang13SourceManager23getSpellingColumnNumberENS_14SourceLocationEPb(ptr noundef nonnull align 8 dereferenceable(696) %301, i32 %.sroa.049.0.extract.trunc.i.i, ptr noundef null) #22
+  %304 = call noundef i32 @_ZNK5clang13SourceManager21getSpellingLineNumberENS_14SourceLocationEPb(ptr noundef nonnull align 8 dereferenceable(696) %301, i32 %.sroa.250.0.extract.trunc.i.i, ptr noundef null) #22
+  %305 = call noundef i32 @_ZNK5clang13SourceManager23getSpellingColumnNumberENS_14SourceLocationEPb(ptr noundef nonnull align 8 dereferenceable(696) %301, i32 %.sroa.250.0.extract.trunc.i.i, ptr noundef null) #22
+  br label %.thread87.i.i
 
-.thread93.i.i:                                    ; preds = %.thread.i.i, %298, %296
-  %.sroa.12.280.i.i = phi i32 [ %305, %.thread.i.i ], [ %.sroa.14.0.i.i.i, %296 ], [ %.sroa.14.0.i.i.i, %298 ]
-  %.sroa.047.279.i.i = phi i32 [ %302, %.thread.i.i ], [ %.sroa.0.0.i.i.i, %296 ], [ %.sroa.0.0.i.i.i, %298 ]
-  %.sroa.448.278.i.i = phi i32 [ %303, %.thread.i.i ], [ 1, %296 ], [ 1, %298 ]
-  %.sroa.8.277.i.i = phi i32 [ %304, %.thread.i.i ], [ %.sroa.9.0.i.i.i, %296 ], [ %.sroa.0.0.i.i.i, %298 ]
+.thread87.i.i:                                    ; preds = %.thread.i.i, %298, %296
+  %.sroa.9.274.i.i = phi i32 [ %305, %.thread.i.i ], [ %.sroa.14.0.i.i.i, %296 ], [ %.sroa.14.0.i.i.i, %298 ]
+  %.sroa.040.273.i.i = phi i32 [ %302, %.thread.i.i ], [ %.sroa.0.0.i.i.i, %296 ], [ %.sroa.0.0.i.i.i, %298 ]
+  %.sroa.341.272.i.i = phi i32 [ %303, %.thread.i.i ], [ 1, %296 ], [ 1, %298 ]
+  %.sroa.642.271.i.i = phi i32 [ %304, %.thread.i.i ], [ %.sroa.9.0.i.i.i, %296 ], [ %.sroa.0.0.i.i.i, %298 ]
   store i8 0, ptr %259, align 4, !alias.scope !69
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %5, i8 0, i64 16, i1 false), !alias.scope !69
-  store i32 %.sroa.050.0.extract.trunc.i.i, ptr %260, align 4, !alias.scope !69
+  store i32 %.sroa.044.0.extract.trunc.i.i, ptr %260, align 4, !alias.scope !69
   store i32 0, ptr %261, align 4, !alias.scope !69
-  store i32 %.sroa.047.279.i.i, ptr %262, align 4, !alias.scope !69
-  store i32 %.sroa.448.278.i.i, ptr %263, align 4, !alias.scope !69
-  store i32 %.sroa.8.277.i.i, ptr %264, align 4, !alias.scope !69
-  store i32 %.sroa.12.280.i.i, ptr %265, align 4, !alias.scope !69
+  store i32 %.sroa.040.273.i.i, ptr %262, align 4, !alias.scope !69
+  store i32 %.sroa.341.272.i.i, ptr %263, align 4, !alias.scope !69
+  store i32 %.sroa.642.271.i.i, ptr %264, align 4, !alias.scope !69
+  store i32 %.sroa.9.274.i.i, ptr %265, align 4, !alias.scope !69
   store i32 2, ptr %266, align 4, !alias.scope !69
   %306 = and i64 %269, 4294967295
   %307 = load ptr, ptr %4, align 8
   %308 = getelementptr inbounds %"struct.std::pair.1796", ptr %307, i64 %306
   %309 = load i32, ptr %308, align 4
-  %.not32.i.i = icmp ult i32 %.sroa.047.279.i.i, %309
-  br i1 %.not32.i.i, label %.thread84.i.i, label %310
+  %.not32.i.i = icmp ult i32 %.sroa.040.273.i.i, %309
+  br i1 %.not32.i.i, label %.thread78.i.i, label %310
 
-310:                                              ; preds = %.thread93.i.i
+310:                                              ; preds = %.thread87.i.i
   %311 = getelementptr inbounds nuw i8, ptr %308, i64 4
   %312 = load i32, ptr %311, align 4
-  %.not33.i.i = icmp ugt i32 %.sroa.8.277.i.i, %312
-  br i1 %.not33.i.i, label %.thread84.i.i, label %313
+  %.not33.i.i = icmp ugt i32 %.sroa.642.271.i.i, %312
+  br i1 %.not33.i.i, label %.thread78.i.i, label %313
 
 313:                                              ; preds = %310
   call void @_ZN4llvm23SmallVectorTemplateBaseINS_8coverage20CounterMappingRegionELb1EE9push_backERKS2_(ptr noundef nonnull align 8 dereferenceable(16) %27, ptr noundef nonnull align 4 dereferenceable(56) %5)
-  br label %.thread84.i.i
+  br label %.thread78.i.i
 
-.thread84.i.i:                                    ; preds = %313, %310, %.thread93.i.i, %298, %270, %267
-  %314 = getelementptr inbounds i8, ptr %.sroa.058.0105.i.i, i64 20
-  %.not100.i.i = icmp eq ptr %.sroa.058.0105.i.i, %.09.i.i.i.i.i.i.i
-  br i1 %.not100.i.i, label %._crit_edge107.i.i, label %267
+.thread78.i.i:                                    ; preds = %313, %310, %.thread87.i.i, %298, %270, %267
+  %314 = getelementptr inbounds i8, ptr %.sroa.052.099.i.i, i64 20
+  %.not94.i.i = icmp eq ptr %.sroa.052.099.i.i, %.09.i.i.i.i.i.i.i
+  br i1 %.not94.i.i, label %._crit_edge101.i.i, label %267
 
-._crit_edge107.i.i:                               ; preds = %.thread84.i.i
+._crit_edge101.i.i:                               ; preds = %.thread78.i.i
   call void @_ZdlPvm(ptr noundef nonnull %256, i64 noundef %251) #25
   br label %_ZNSt6vectorIN5clang12SkippedRangeESaIS1_EED2Ev.exit.i.i
 
-_ZNSt6vectorIN5clang12SkippedRangeESaIS1_EED2Ev.exit.i.i: ; preds = %._crit_edge107.i.i, %._crit_edge.i.i
+_ZNSt6vectorIN5clang12SkippedRangeESaIS1_EED2Ev.exit.i.i: ; preds = %._crit_edge101.i.i, %._crit_edge.i.i
   %315 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %4) #22
   %316 = load ptr, ptr %4, align 8
   %317 = icmp eq ptr %316, %217

@@ -1104,64 +1104,63 @@ define noalias noundef ptr @stmm_copy(ptr nocapture noundef readonly %0) local_u
   %10 = getelementptr inbounds i8, ptr %4, i64 40
   store ptr %9, ptr %10, align 8
   %11 = icmp eq ptr %9, null
-  br i1 %11, label %12, label %13
+  br i1 %11, label %.loopexit.sink.split, label %12
 
 12:                                               ; preds = %6
-  tail call void @free(ptr noundef nonnull %4) #13
-  br label %.loopexit
+  %13 = tail call ptr @Extra_MmFixedStart(i32 noundef 24) #13
+  %14 = getelementptr inbounds i8, ptr %4, i64 48
+  store ptr %13, ptr %14, align 8
+  %15 = icmp sgt i32 %3, 0
+  br i1 %15, label %.lr.ph47, label %.loopexit
 
-13:                                               ; preds = %6
-  %14 = tail call ptr @Extra_MmFixedStart(i32 noundef 24) #13
-  %15 = getelementptr inbounds i8, ptr %4, i64 48
-  store ptr %14, ptr %15, align 8
-  %16 = icmp sgt i32 %3, 0
-  br i1 %16, label %.lr.ph47, label %.loopexit
-
-.lr.ph47:                                         ; preds = %13
-  %17 = getelementptr inbounds i8, ptr %0, i64 40
+.lr.ph47:                                         ; preds = %12
+  %16 = getelementptr inbounds i8, ptr %0, i64 40
   %wide.trip.count = zext nneg i32 %3 to i64
-  br label %18
+  br label %17
 
-18:                                               ; preds = %.lr.ph47, %._crit_edge
+17:                                               ; preds = %.lr.ph47, %._crit_edge
   %indvars.iv = phi i64 [ 0, %.lr.ph47 ], [ %indvars.iv.next, %._crit_edge ]
-  %19 = getelementptr inbounds ptr, ptr %9, i64 %indvars.iv
-  store ptr null, ptr %19, align 8
-  %20 = load ptr, ptr %17, align 8
-  %21 = getelementptr inbounds ptr, ptr %20, i64 %indvars.iv
-  %.03742 = load ptr, ptr %21, align 8
+  %18 = getelementptr inbounds ptr, ptr %9, i64 %indvars.iv
+  store ptr null, ptr %18, align 8
+  %19 = load ptr, ptr %16, align 8
+  %20 = getelementptr inbounds ptr, ptr %19, i64 %indvars.iv
+  %.03742 = load ptr, ptr %20, align 8
   %.not43 = icmp eq ptr %.03742, null
   br i1 %.not43, label %._crit_edge, label %.lr.ph
 
-.lr.ph:                                           ; preds = %18, %25
-  %.03744 = phi ptr [ %.037, %25 ], [ %.03742, %18 ]
-  %22 = tail call ptr @Extra_MmFixedEntryFetch(ptr noundef %14) #13
-  %23 = icmp eq ptr %22, null
-  br i1 %23, label %24, label %25
+.lr.ph:                                           ; preds = %17, %24
+  %.03744 = phi ptr [ %.037, %24 ], [ %.03742, %17 ]
+  %21 = tail call ptr @Extra_MmFixedEntryFetch(ptr noundef %13) #13
+  %22 = icmp eq ptr %21, null
+  br i1 %22, label %23, label %24
+
+23:                                               ; preds = %.lr.ph
+  tail call void @Extra_MmFixedStop(ptr noundef %13) #13
+  tail call void @free(ptr noundef nonnull %9) #13
+  br label %.loopexit.sink.split
 
 24:                                               ; preds = %.lr.ph
-  tail call void @Extra_MmFixedStop(ptr noundef %14) #13
-  tail call void @free(ptr noundef nonnull %9) #13
-  tail call void @free(ptr noundef %4) #13
-  br label %.loopexit
-
-25:                                               ; preds = %.lr.ph
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %22, ptr noundef nonnull align 8 dereferenceable(24) %.03744, i64 24, i1 false)
-  %26 = load ptr, ptr %19, align 8
-  %27 = getelementptr inbounds i8, ptr %22, i64 16
-  store ptr %26, ptr %27, align 8
-  store ptr %22, ptr %19, align 8
-  %28 = getelementptr inbounds i8, ptr %.03744, i64 16
-  %.037 = load ptr, ptr %28, align 8
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %21, ptr noundef nonnull align 8 dereferenceable(24) %.03744, i64 24, i1 false)
+  %25 = load ptr, ptr %18, align 8
+  %26 = getelementptr inbounds i8, ptr %21, i64 16
+  store ptr %25, ptr %26, align 8
+  store ptr %21, ptr %18, align 8
+  %27 = getelementptr inbounds i8, ptr %.03744, i64 16
+  %.037 = load ptr, ptr %27, align 8
   %.not = icmp eq ptr %.037, null
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !14
 
-._crit_edge:                                      ; preds = %25, %18
+._crit_edge:                                      ; preds = %24, %17
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit, label %18, !llvm.loop !15
+  br i1 %exitcond.not, label %.loopexit, label %17, !llvm.loop !15
 
-.loopexit:                                        ; preds = %._crit_edge, %13, %1, %24, %12
-  %.0 = phi ptr [ null, %12 ], [ null, %24 ], [ null, %1 ], [ %4, %13 ], [ %4, %._crit_edge ]
+.loopexit.sink.split:                             ; preds = %6, %23
+  tail call void @free(ptr noundef %4) #13
+  br label %.loopexit
+
+.loopexit:                                        ; preds = %._crit_edge, %.loopexit.sink.split, %12, %1
+  %.0 = phi ptr [ null, %1 ], [ %4, %12 ], [ null, %.loopexit.sink.split ], [ %4, %._crit_edge ]
   ret ptr %.0
 }
 

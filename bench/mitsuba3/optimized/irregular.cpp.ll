@@ -669,7 +669,7 @@ _ZNSt3__114__split_bufferIfRNS_9allocatorIfEEE5clearB8ne190000Ev.exit.i.i.i77: ;
 176:                                              ; preds = %142, %140
   %.pn49 = phi { ptr, i32 } [ %143, %142 ], [ %141, %140 ]
   invoke void @__cxa_end_catch()
-          to label %280 unwind label %387
+          to label %280 unwind label %386
 
 .loopexit147:                                     ; preds = %144, %_ZNSt3__119__allocate_at_leastB8ne190000INS_9allocatorIfEEEENS_19__allocation_resultINS_16allocator_traitsIT_E7pointerEEERS5_m.exit.i.i.i76
   %lpad.loopexit149 = landingpad { ptr, i32 }
@@ -725,7 +725,7 @@ _ZNSt3__114__split_bufferIfRNS_9allocatorIfEEE5clearB8ne190000Ev.exit.i.i.i77: ;
 198:                                              ; preds = %187, %185
   %.pn51 = phi { ptr, i32 } [ %188, %187 ], [ %186, %185 ]
   invoke void @__cxa_end_catch()
-          to label %280 unwind label %387
+          to label %280 unwind label %386
 
 ._crit_edge166.loopexit:                          ; preds = %189
   %.pre185 = load ptr, ptr %13, align 8
@@ -938,8 +938,7 @@ _ZNSt3__16vectorINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEENS4_I
 _ZNSt3__16vectorINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEENS4_IS6_EEE7__clearB8ne190000Ev.exit.i.i105: ; preds = %_ZNSt3__16vectorINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEENS4_IS6_EEE7__clearB8ne190000Ev.exit.i.loopexit.i103, %276
   %279 = phi ptr [ %.pre.i104, %_ZNSt3__16vectorINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEENS4_IS6_EEE7__clearB8ne190000Ev.exit.i.loopexit.i103 ], [ %275, %276 ]
   store ptr %275, ptr %48, align 8
-  call void @_ZdlPv(ptr noundef %279) #31
-  br label %_ZNSt3__16vectorINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEENS4_IS6_EEED2B8ne190000Ev.exit106
+  br label %_ZNSt3__16vectorINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEENS4_IS6_EEED2B8ne190000Ev.exit106.sink.split
 
 280:                                              ; preds = %198, %176, %130
   %.pn51.pn = phi { ptr, i32 } [ %.pn51, %198 ], [ %.pn49, %176 ], [ %131, %130 ]
@@ -1052,7 +1051,7 @@ _ZNSt3__119__allocate_at_leastB8ne190000INS_9allocatorIfEEEENS_19__allocation_re
 .body125.thread:                                  ; preds = %_ZNSt3__119__allocate_at_leastB8ne190000INS_9allocatorIfEEEENS_19__allocation_resultINS_16allocator_traitsIT_E7pointerEEERS5_m.exit.i.i119
   %310 = landingpad { ptr, i32 }
           cleanup
-  br label %385
+  br label %384
 
 .lr.ph:                                           ; preds = %_ZNSt3__119__allocate_at_leastB8ne190000INS_9allocatorIfEEEENS_19__allocation_resultINS_16allocator_traitsIT_E7pointerEEERS5_m.exit.i.i119
   call void @llvm.memset.p0.i64(ptr nonnull align 4 %309, i8 0, i64 %302, i1 false)
@@ -1096,7 +1095,7 @@ _ZNSt3__119__allocate_at_leastB8ne190000INS_9allocatorIfEEEENS_19__allocation_re
   %.sroa.0.0190 = phi ptr [ null, %295 ], [ %309, %311 ]
   %327 = phi ptr [ null, %295 ], [ %303, %311 ]
   invoke void @_ZN7mitsuba31IrregularContinuousDistributionINS_8SpectrumIfLm4EEEEC2EPKfS5_m(ptr noundef nonnull align 8 dereferenceable(104) %21, ptr noundef %.sroa.0.0190, ptr noundef %327, i64 noundef %289)
-          to label %328 unwind label %382
+          to label %328 unwind label %381
 
 328:                                              ; preds = %._crit_edge
   %329 = load ptr, ptr %21, align 8
@@ -1202,47 +1201,48 @@ _ZN7mitsuba31IrregularContinuousDistributionINS_8SpectrumIfLm4EEEED2Ev.exit130: 
 
 _ZNSt3__16vectorIfNS_9allocatorIfEEED2B8ne190000Ev.exit132: ; preds = %_ZN7mitsuba31IrregularContinuousDistributionINS_8SpectrumIfLm4EEEED2Ev.exit130, %380
   %.not.i.i133 = icmp eq ptr %327, null
-  br i1 %.not.i.i133, label %_ZNSt3__16vectorINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEENS4_IS6_EEED2B8ne190000Ev.exit106, label %381
+  br i1 %.not.i.i133, label %_ZNSt3__16vectorINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEENS4_IS6_EEED2B8ne190000Ev.exit106, label %_ZNSt3__16vectorINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEENS4_IS6_EEED2B8ne190000Ev.exit106.sink.split
 
-381:                                              ; preds = %_ZNSt3__16vectorIfNS_9allocatorIfEEED2B8ne190000Ev.exit132
-  call void @_ZdlPv(ptr noundef nonnull %327) #31
-  br label %_ZNSt3__16vectorINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEENS4_IS6_EEED2B8ne190000Ev.exit106
-
-382:                                              ; preds = %._crit_edge
-  %383 = landingpad { ptr, i32 }
+381:                                              ; preds = %._crit_edge
+  %382 = landingpad { ptr, i32 }
           cleanup
   %.not.i.i135 = icmp eq ptr %.sroa.0.0190, null
-  br i1 %.not.i.i135, label %.body125, label %384
+  br i1 %.not.i.i135, label %.body125, label %383
 
-384:                                              ; preds = %382
+383:                                              ; preds = %381
   call void @_ZdlPv(ptr noundef nonnull %.sroa.0.0190) #31
   br label %.body125
 
-.body125:                                         ; preds = %384, %382
+.body125:                                         ; preds = %383, %381
   %.not.i.i137 = icmp eq ptr %327, null
-  br i1 %.not.i.i137, label %.body, label %385
+  br i1 %.not.i.i137, label %.body, label %384
 
-385:                                              ; preds = %.body125.thread, %.body125
-  %.pn.pn193 = phi { ptr, i32 } [ %310, %.body125.thread ], [ %383, %.body125 ]
-  %386 = phi ptr [ %303, %.body125.thread ], [ %327, %.body125 ]
-  store ptr %386, ptr %297, align 8
-  call void @_ZdlPv(ptr noundef nonnull %386) #31
+384:                                              ; preds = %.body125.thread, %.body125
+  %.pn.pn193 = phi { ptr, i32 } [ %310, %.body125.thread ], [ %382, %.body125 ]
+  %385 = phi ptr [ %303, %.body125.thread ], [ %327, %.body125 ]
+  store ptr %385, ptr %297, align 8
+  call void @_ZdlPv(ptr noundef nonnull %385) #31
   br label %.body
 
-_ZNSt3__16vectorINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEENS4_IS6_EEED2B8ne190000Ev.exit106: ; preds = %381, %_ZNSt3__16vectorIfNS_9allocatorIfEEED2B8ne190000Ev.exit132, %_ZNSt3__16vectorINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEENS4_IS6_EEE7__clearB8ne190000Ev.exit.i.i105, %_ZNSt3__16vectorINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEENS4_IS6_EEED2B8ne190000Ev.exit97
+_ZNSt3__16vectorINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEENS4_IS6_EEED2B8ne190000Ev.exit106.sink.split: ; preds = %_ZNSt3__16vectorIfNS_9allocatorIfEEED2B8ne190000Ev.exit132, %_ZNSt3__16vectorINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEENS4_IS6_EEE7__clearB8ne190000Ev.exit.i.i105
+  %.sink = phi ptr [ %279, %_ZNSt3__16vectorINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEENS4_IS6_EEE7__clearB8ne190000Ev.exit.i.i105 ], [ %327, %_ZNSt3__16vectorIfNS_9allocatorIfEEED2B8ne190000Ev.exit132 ]
+  call void @_ZdlPv(ptr noundef %.sink) #31
+  br label %_ZNSt3__16vectorINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEENS4_IS6_EEED2B8ne190000Ev.exit106
+
+_ZNSt3__16vectorINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEENS4_IS6_EEED2B8ne190000Ev.exit106: ; preds = %_ZNSt3__16vectorINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEENS4_IS6_EEED2B8ne190000Ev.exit106.sink.split, %_ZNSt3__16vectorIfNS_9allocatorIfEEED2B8ne190000Ev.exit132, %_ZNSt3__16vectorINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEENS4_IS6_EEED2B8ne190000Ev.exit97
   ret void
 
-.body:                                            ; preds = %385, %.body125, %304, %307, %58, %325, %323, %321, %287, %66, %60
-  %.pn54.pn.pn = phi { ptr, i32 } [ %.pn54.pn, %287 ], [ %.pn45, %66 ], [ %326, %325 ], [ %324, %323 ], [ %322, %321 ], [ %61, %60 ], [ %59, %58 ], [ %305, %307 ], [ %305, %304 ], [ %383, %.body125 ], [ %.pn.pn193, %385 ]
+.body:                                            ; preds = %384, %.body125, %304, %307, %58, %325, %323, %321, %287, %66, %60
+  %.pn54.pn.pn = phi { ptr, i32 } [ %.pn54.pn, %287 ], [ %.pn45, %66 ], [ %326, %325 ], [ %324, %323 ], [ %322, %321 ], [ %61, %60 ], [ %59, %58 ], [ %305, %307 ], [ %305, %304 ], [ %382, %.body125 ], [ %.pn.pn193, %384 ]
   call void @_ZN7mitsuba31IrregularContinuousDistributionINS_8SpectrumIfLm4EEEED2Ev(ptr noundef nonnull align 8 dereferenceable(104) %22) #28
   call void @_ZN7mitsuba7TextureIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEEED2Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) #28
   resume { ptr, i32 } %.pn54.pn.pn
 
-387:                                              ; preds = %198, %176
-  %388 = landingpad { ptr, i32 }
+386:                                              ; preds = %198, %176
+  %387 = landingpad { ptr, i32 }
           catch ptr null
-  %389 = extractvalue { ptr, i32 } %388, 0
-  call void @__clang_call_terminate(ptr %389) #32
+  %388 = extractvalue { ptr, i32 } %387, 0
+  call void @__clang_call_terminate(ptr %388) #32
   unreachable
 }
 

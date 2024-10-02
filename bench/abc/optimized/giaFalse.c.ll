@@ -2207,105 +2207,100 @@ Vec_QuePop.exit:                                  ; preds = %163, %Vec_QueMoveDo
   %.not46 = icmp eq i32 %3, 0
   br i1 %.not46, label %.split, label %.split42
 
-.split:                                           ; preds = %224
-  %226 = tail call ptr @Gia_ManFalseRebuild(ptr noundef nonnull %0, ptr noundef nonnull %130, i32 poison, i32 noundef %4)
-  br label %235
-
 .split42:                                         ; preds = %224
-  %227 = icmp sgt i32 %.val50, 0
-  br i1 %227, label %.lr.ph.i, label %Vec_WecSizeUsed.exit
+  %226 = icmp sgt i32 %.val50, 0
+  br i1 %226, label %.lr.ph.i, label %Vec_WecSizeUsed.exit
 
 .lr.ph.i:                                         ; preds = %.split42
   %.val8.i = load ptr, ptr %137, align 8
   %wide.trip.count.i = zext nneg i32 %.val50 to i64
-  br label %228
+  br label %227
 
-228:                                              ; preds = %228, %.lr.ph.i
-  %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %228 ]
-  %.011.i = phi i32 [ 0, %.lr.ph.i ], [ %232, %228 ]
-  %229 = getelementptr %struct.Vec_Int_t_, ptr %.val8.i, i64 %indvars.iv.i, i32 1
-  %.val.i64 = load i32, ptr %229, align 4
-  %230 = icmp sgt i32 %.val.i64, 0
-  %231 = zext i1 %230 to i32
-  %232 = add nuw nsw i32 %.011.i, %231
+227:                                              ; preds = %227, %.lr.ph.i
+  %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %227 ]
+  %.011.i = phi i32 [ 0, %.lr.ph.i ], [ %231, %227 ]
+  %228 = getelementptr %struct.Vec_Int_t_, ptr %.val8.i, i64 %indvars.iv.i, i32 1
+  %.val.i64 = load i32, ptr %228, align 4
+  %229 = icmp sgt i32 %.val.i64, 0
+  %230 = zext i1 %229 to i32
+  %231 = add nuw nsw i32 %.011.i, %230
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %Vec_WecSizeUsed.exit, label %228, !llvm.loop !20
+  br i1 %exitcond.not.i, label %Vec_WecSizeUsed.exit, label %227, !llvm.loop !20
 
-Vec_WecSizeUsed.exit:                             ; preds = %228, %.split42
-  %.0.lcssa.i = phi i32 [ 0, %.split42 ], [ %232, %228 ]
-  %233 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.11, i32 noundef %.0.lcssa.i)
-  %234 = tail call ptr @Gia_ManFalseRebuild(ptr noundef %0, ptr noundef nonnull %130, i32 poison, i32 noundef %4)
-  br label %235
+Vec_WecSizeUsed.exit:                             ; preds = %227, %.split42
+  %.0.lcssa.i = phi i32 [ 0, %.split42 ], [ %231, %227 ]
+  %232 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.11, i32 noundef %.0.lcssa.i)
+  br label %.split
 
-235:                                              ; preds = %.split, %Vec_WecSizeUsed.exit
-  %phi.call = phi ptr [ %226, %.split ], [ %234, %Vec_WecSizeUsed.exit ]
-  %236 = load i32, ptr %130, align 8
-  %237 = icmp sgt i32 %236, 0
+.split:                                           ; preds = %224, %Vec_WecSizeUsed.exit
+  %233 = tail call ptr @Gia_ManFalseRebuild(ptr noundef %0, ptr noundef nonnull %130, i32 poison, i32 noundef %4)
+  %234 = load i32, ptr %130, align 8
+  %235 = icmp sgt i32 %234, 0
   %.pre94 = load ptr, ptr %137, align 8
-  br i1 %237, label %.lr.ph.i.i66.preheader, label %._crit_edge.i.i
+  br i1 %235, label %.lr.ph.i.i66.preheader, label %._crit_edge.i.i
 
-.lr.ph.i.i66.preheader:                           ; preds = %235
-  %238 = zext nneg i32 %236 to i64
+.lr.ph.i.i66.preheader:                           ; preds = %.split
+  %236 = zext nneg i32 %234 to i64
   br label %.lr.ph.i.i66
 
-.lr.ph.i.i66:                                     ; preds = %.lr.ph.i.i66.preheader, %242
-  %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %242 ], [ 0, %.lr.ph.i.i66.preheader ]
-  %239 = getelementptr inbounds %struct.Vec_Int_t_, ptr %.pre94, i64 %indvars.iv.i.i, i32 2
-  %240 = load ptr, ptr %239, align 8
-  %.not15.i.i = icmp eq ptr %240, null
-  br i1 %.not15.i.i, label %242, label %241
+.lr.ph.i.i66:                                     ; preds = %.lr.ph.i.i66.preheader, %240
+  %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %240 ], [ 0, %.lr.ph.i.i66.preheader ]
+  %237 = getelementptr inbounds %struct.Vec_Int_t_, ptr %.pre94, i64 %indvars.iv.i.i, i32 2
+  %238 = load ptr, ptr %237, align 8
+  %.not15.i.i = icmp eq ptr %238, null
+  br i1 %.not15.i.i, label %240, label %239
 
-241:                                              ; preds = %.lr.ph.i.i66
-  tail call void @free(ptr noundef nonnull %240) #17
-  store ptr null, ptr %239, align 8
-  br label %242
+239:                                              ; preds = %.lr.ph.i.i66
+  tail call void @free(ptr noundef nonnull %238) #17
+  store ptr null, ptr %237, align 8
+  br label %240
 
-242:                                              ; preds = %241, %.lr.ph.i.i66
+240:                                              ; preds = %239, %.lr.ph.i.i66
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next.i.i, %238
+  %exitcond.not = icmp eq i64 %indvars.iv.next.i.i, %236
   br i1 %exitcond.not, label %._crit_edge.i.i.thread, label %.lr.ph.i.i66, !llvm.loop !21
 
-._crit_edge.i.i:                                  ; preds = %235
+._crit_edge.i.i:                                  ; preds = %.split
   %.not.i.i65 = icmp eq ptr %.pre94, null
   br i1 %.not.i.i65, label %Vec_WecFree.exit, label %._crit_edge.i.i.thread
 
-._crit_edge.i.i.thread:                           ; preds = %242, %._crit_edge.i.i
+._crit_edge.i.i.thread:                           ; preds = %240, %._crit_edge.i.i
   tail call void @free(ptr noundef nonnull %.pre94) #17
   br label %Vec_WecFree.exit
 
 Vec_WecFree.exit:                                 ; preds = %._crit_edge.i.i, %._crit_edge.i.i.thread
   tail call void @free(ptr noundef nonnull %130) #17
-  %243 = load ptr, ptr %17, align 8
-  %.not.i67 = icmp eq ptr %243, null
-  br i1 %.not.i67, label %Vec_FltFree.exit, label %244
+  %241 = load ptr, ptr %17, align 8
+  %.not.i67 = icmp eq ptr %241, null
+  br i1 %.not.i67, label %Vec_FltFree.exit, label %242
 
-244:                                              ; preds = %Vec_WecFree.exit
-  tail call void @free(ptr noundef nonnull %243) #17
+242:                                              ; preds = %Vec_WecFree.exit
+  tail call void @free(ptr noundef nonnull %241) #17
   br label %Vec_FltFree.exit
 
-Vec_FltFree.exit:                                 ; preds = %Vec_WecFree.exit, %244
+Vec_FltFree.exit:                                 ; preds = %Vec_WecFree.exit, %242
   tail call void @free(ptr noundef nonnull %9) #17
-  %245 = load ptr, ptr %69, align 8
-  %.not.i68 = icmp eq ptr %245, null
-  br i1 %.not.i68, label %247, label %246
+  %243 = load ptr, ptr %69, align 8
+  %.not.i68 = icmp eq ptr %243, null
+  br i1 %.not.i68, label %245, label %244
 
-246:                                              ; preds = %Vec_FltFree.exit
-  tail call void @free(ptr noundef nonnull %245) #17
-  br label %247
+244:                                              ; preds = %Vec_FltFree.exit
+  tail call void @free(ptr noundef nonnull %243) #17
+  br label %245
 
-247:                                              ; preds = %246, %Vec_FltFree.exit
-  %248 = load ptr, ptr %67, align 8
-  %.not10.i = icmp eq ptr %248, null
-  br i1 %.not10.i, label %Vec_QueFree.exit, label %249
+245:                                              ; preds = %244, %Vec_FltFree.exit
+  %246 = load ptr, ptr %67, align 8
+  %.not10.i = icmp eq ptr %246, null
+  br i1 %.not10.i, label %Vec_QueFree.exit, label %247
 
-249:                                              ; preds = %247
-  tail call void @free(ptr noundef nonnull %248) #17
+247:                                              ; preds = %245
+  tail call void @free(ptr noundef nonnull %246) #17
   br label %Vec_QueFree.exit
 
-Vec_QueFree.exit:                                 ; preds = %247, %249
+Vec_QueFree.exit:                                 ; preds = %245, %247
   tail call void @free(ptr noundef nonnull %61) #17
-  ret ptr %phi.call
+  ret ptr %233
 }
 
 declare i32 @Gia_ManLevelNum(ptr noundef) local_unnamed_addr #1

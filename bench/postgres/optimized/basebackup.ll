@@ -2411,14 +2411,14 @@ define internal fastcc void @sendFileWithContent(ptr noundef %0, ptr noundef %1,
   %56 = ptrtoint ptr %54 to i64
   %57 = and i64 %56, 7
   %58 = icmp eq i64 %57, 0
-  br i1 %58, label %59, label %72
+  br i1 %58, label %59, label %.loopexit.i.sink.split
 
 59:                                               ; preds = %52
   %60 = and i64 %49, 7
   %61 = icmp eq i64 %60, 0
   %62 = icmp ult i64 %55, 1025
   %or.cond3.i = and i1 %61, %62
-  br i1 %or.cond3.i, label %63, label %72
+  br i1 %or.cond3.i, label %63, label %.loopexit.i.sink.split
 
 63:                                               ; preds = %59
   %64 = getelementptr i8, ptr %54, i64 %55
@@ -2433,18 +2433,18 @@ define internal fastcc void @sendFileWithContent(ptr noundef %0, ptr noundef %1,
   %69 = add i64 %umax.i, %68
   %70 = and i64 %69, -8
   %71 = add i64 %70, 8
-  call void @llvm.memset.p0.i64(ptr align 8 %54, i8 0, i64 %71, i1 false)
+  br label %.loopexit.i.sink.split
+
+.loopexit.i.sink.split:                           ; preds = %52, %59, %.lr.ph.preheader.i
+  %.sink = phi i64 [ %71, %.lr.ph.preheader.i ], [ %55, %59 ], [ %55, %52 ]
+  call void @llvm.memset.p0.i64(ptr align 1 %54, i8 0, i64 %.sink, i1 false)
   br label %.loopexit.i
 
-72:                                               ; preds = %59, %52
-  call void @llvm.memset.p0.i64(ptr align 1 %54, i8 0, i64 %55, i1 false)
-  br label %.loopexit.i
-
-.loopexit.i:                                      ; preds = %72, %.lr.ph.preheader.i, %63
-  %73 = load ptr, ptr %0, align 8
-  %74 = getelementptr inbounds i8, ptr %73, i64 16
-  %75 = load ptr, ptr %74, align 8
-  call void %75(ptr noundef nonnull %0, i64 noundef %55) #18
+.loopexit.i:                                      ; preds = %.loopexit.i.sink.split, %63
+  %72 = load ptr, ptr %0, align 8
+  %73 = getelementptr inbounds i8, ptr %72, i64 16
+  %74 = load ptr, ptr %73, align 8
+  call void %74(ptr noundef nonnull %0, i64 noundef %55) #18
   br label %_tarWritePadding.exit
 
 _tarWritePadding.exit:                            ; preds = %._crit_edge, %.loopexit.i
@@ -2492,7 +2492,7 @@ define internal fastcc noundef zeroext i1 @sendFile(ptr noundef %0, ptr noundef 
   %31 = load i32, ptr %30, align 4
   %32 = icmp eq i32 %31, 2
   %brmerge.not = and i1 %4, %32
-  br i1 %brmerge.not, label %276, label %33
+  br i1 %brmerge.not, label %274, label %33
 
 33:                                               ; preds = %29
   %34 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #19
@@ -2828,9 +2828,9 @@ push_to_sink.exit144.thread:                      ; preds = %132, %135, %push_to
   %196 = getelementptr inbounds i8, ptr %0, i64 16
   br label %197
 
-197:                                              ; preds = %.lr.ph186, %225
-  %198 = phi i64 [ %194, %.lr.ph186 ], [ %230, %225 ]
-  %.2185 = phi i64 [ %.1, %.lr.ph186 ], [ %229, %225 ]
+197:                                              ; preds = %.lr.ph186, %224
+  %198 = phi i64 [ %194, %.lr.ph186 ], [ %229, %224 ]
+  %.2185 = phi i64 [ %.1, %.lr.ph186 ], [ %228, %224 ]
   %199 = sub i64 %198, %.2185
   %200 = load i64, ptr %196, align 8
   %. = call i64 @llvm.umin.i64(i64 %200, i64 %199)
@@ -2838,14 +2838,14 @@ push_to_sink.exit144.thread:                      ; preds = %132, %135, %push_to
   %202 = ptrtoint ptr %201 to i64
   %203 = and i64 %202, 7
   %204 = icmp eq i64 %203, 0
-  br i1 %204, label %205, label %218
+  br i1 %204, label %205, label %.loopexit.sink.split
 
 205:                                              ; preds = %197
   %206 = and i64 %., 7
   %207 = icmp eq i64 %206, 0
   %208 = icmp ult i64 %., 1025
   %or.cond5 = and i1 %208, %207
-  br i1 %or.cond5, label %209, label %218
+  br i1 %or.cond5, label %209, label %.loopexit.sink.split
 
 209:                                              ; preds = %205
   %210 = getelementptr i8, ptr %201, i64 %.
@@ -2860,119 +2860,119 @@ push_to_sink.exit144.thread:                      ; preds = %132, %135, %push_to
   %215 = add i64 %umax, %214
   %216 = and i64 %215, -8
   %217 = add i64 %216, 8
-  call void @llvm.memset.p0.i64(ptr align 8 %201, i8 0, i64 %217, i1 false)
+  br label %.loopexit.sink.split
+
+.loopexit.sink.split:                             ; preds = %197, %205, %.lr.ph.preheader
+  %.sink = phi i64 [ %217, %.lr.ph.preheader ], [ %., %205 ], [ %., %197 ]
+  call void @llvm.memset.p0.i64(ptr align 1 %201, i8 0, i64 %.sink, i1 false)
   br label %.loopexit
 
-218:                                              ; preds = %205, %197
-  call void @llvm.memset.p0.i64(ptr align 1 %201, i8 0, i64 %., i1 false)
-  br label %.loopexit
+.loopexit:                                        ; preds = %.loopexit.sink.split, %209
+  %218 = load ptr, ptr %149, align 8
+  %219 = call i32 @pg_checksum_update(ptr noundef nonnull %17, ptr noundef %218, i64 noundef %.) #18
+  %220 = icmp slt i32 %219, 0
+  br i1 %220, label %221, label %224
 
-.loopexit:                                        ; preds = %.lr.ph.preheader, %209, %218
-  %219 = load ptr, ptr %149, align 8
-  %220 = call i32 @pg_checksum_update(ptr noundef nonnull %17, ptr noundef %219, i64 noundef %.) #18
-  %221 = icmp slt i32 %220, 0
-  br i1 %221, label %222, label %225
-
-222:                                              ; preds = %.loopexit
-  %223 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #19
-  call void @llvm.assume(i1 %223)
-  %224 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.96) #18
+221:                                              ; preds = %.loopexit
+  %222 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #19
+  call void @llvm.assume(i1 %222)
+  %223 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.96) #18
   call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1772, ptr noundef nonnull @__func__.sendFile) #18
   unreachable
 
-225:                                              ; preds = %.loopexit
-  %226 = load ptr, ptr %0, align 8
-  %227 = getelementptr inbounds i8, ptr %226, i64 16
-  %228 = load ptr, ptr %227, align 8
-  call void %228(ptr noundef nonnull %0, i64 noundef %.) #18
-  %229 = add i64 %., %.2185
-  %230 = load i64, ptr %148, align 8
-  %231 = icmp slt i64 %229, %230
-  br i1 %231, label %197, label %._crit_edge, !llvm.loop !15
+224:                                              ; preds = %.loopexit
+  %225 = load ptr, ptr %0, align 8
+  %226 = getelementptr inbounds i8, ptr %225, i64 16
+  %227 = load ptr, ptr %226, align 8
+  call void %227(ptr noundef nonnull %0, i64 noundef %.) #18
+  %228 = add i64 %., %.2185
+  %229 = load i64, ptr %148, align 8
+  %230 = icmp slt i64 %228, %229
+  br i1 %230, label %197, label %._crit_edge, !llvm.loop !15
 
-._crit_edge:                                      ; preds = %225, %193
-  %.2.lcssa = phi i64 [ %.1, %193 ], [ %229, %225 ]
-  %232 = add i64 %.2.lcssa, 511
-  %233 = and i64 %232, 8589934080
-  %234 = sub i64 %233, %.2.lcssa
-  %235 = trunc i64 %234 to i32
-  %236 = icmp sgt i32 %235, 0
-  br i1 %236, label %237, label %_tarWritePadding.exit
+._crit_edge:                                      ; preds = %224, %193
+  %.2.lcssa = phi i64 [ %.1, %193 ], [ %228, %224 ]
+  %231 = add i64 %.2.lcssa, 511
+  %232 = and i64 %231, 8589934080
+  %233 = sub i64 %232, %.2.lcssa
+  %234 = trunc i64 %233 to i32
+  %235 = icmp sgt i32 %234, 0
+  br i1 %235, label %236, label %_tarWritePadding.exit
 
-237:                                              ; preds = %._crit_edge
-  %238 = load ptr, ptr %149, align 8
-  %239 = and i64 %234, 2147483647
-  %240 = ptrtoint ptr %238 to i64
-  %241 = and i64 %240, 7
-  %242 = icmp eq i64 %241, 0
-  br i1 %242, label %243, label %256
+236:                                              ; preds = %._crit_edge
+  %237 = load ptr, ptr %149, align 8
+  %238 = and i64 %233, 2147483647
+  %239 = ptrtoint ptr %237 to i64
+  %240 = and i64 %239, 7
+  %241 = icmp eq i64 %240, 0
+  br i1 %241, label %242, label %.loopexit.i.sink.split
 
-243:                                              ; preds = %237
-  %244 = and i64 %234, 7
-  %245 = icmp eq i64 %244, 0
-  %246 = icmp ult i64 %239, 1025
-  %or.cond3.i = and i1 %245, %246
-  br i1 %or.cond3.i, label %247, label %256
+242:                                              ; preds = %236
+  %243 = and i64 %233, 7
+  %244 = icmp eq i64 %243, 0
+  %245 = icmp ult i64 %238, 1025
+  %or.cond3.i = and i1 %244, %245
+  br i1 %or.cond3.i, label %246, label %.loopexit.i.sink.split
 
-247:                                              ; preds = %243
-  %248 = getelementptr i8, ptr %238, i64 %239
-  %249 = icmp ult ptr %238, %248
-  br i1 %249, label %.lr.ph.preheader.i, label %.loopexit.i
+246:                                              ; preds = %242
+  %247 = getelementptr i8, ptr %237, i64 %238
+  %248 = icmp ult ptr %237, %247
+  br i1 %248, label %.lr.ph.preheader.i, label %.loopexit.i
 
-.lr.ph.preheader.i:                               ; preds = %247
-  %250 = add i64 %239, %240
-  %251 = add i64 %240, 8
-  %umax.i = call i64 @llvm.umax.i64(i64 %250, i64 %251)
-  %252 = xor i64 %240, -1
-  %253 = add i64 %umax.i, %252
-  %254 = and i64 %253, -8
-  %255 = add i64 %254, 8
-  call void @llvm.memset.p0.i64(ptr align 8 %238, i8 0, i64 %255, i1 false)
+.lr.ph.preheader.i:                               ; preds = %246
+  %249 = add i64 %238, %239
+  %250 = add i64 %239, 8
+  %umax.i = call i64 @llvm.umax.i64(i64 %249, i64 %250)
+  %251 = xor i64 %239, -1
+  %252 = add i64 %umax.i, %251
+  %253 = and i64 %252, -8
+  %254 = add i64 %253, 8
+  br label %.loopexit.i.sink.split
+
+.loopexit.i.sink.split:                           ; preds = %236, %242, %.lr.ph.preheader.i
+  %.sink233 = phi i64 [ %254, %.lr.ph.preheader.i ], [ %238, %242 ], [ %238, %236 ]
+  call void @llvm.memset.p0.i64(ptr align 1 %237, i8 0, i64 %.sink233, i1 false)
   br label %.loopexit.i
 
-256:                                              ; preds = %243, %237
-  call void @llvm.memset.p0.i64(ptr align 1 %238, i8 0, i64 %239, i1 false)
-  br label %.loopexit.i
-
-.loopexit.i:                                      ; preds = %256, %.lr.ph.preheader.i, %247
-  %257 = load ptr, ptr %0, align 8
-  %258 = getelementptr inbounds i8, ptr %257, i64 16
-  %259 = load ptr, ptr %258, align 8
-  call void %259(ptr noundef nonnull %0, i64 noundef %239) #18
+.loopexit.i:                                      ; preds = %.loopexit.i.sink.split, %246
+  %255 = load ptr, ptr %0, align 8
+  %256 = getelementptr inbounds i8, ptr %255, i64 16
+  %257 = load ptr, ptr %256, align 8
+  call void %257(ptr noundef nonnull %0, i64 noundef %238) #18
   br label %_tarWritePadding.exit
 
 _tarWritePadding.exit:                            ; preds = %._crit_edge, %.loopexit.i
-  %260 = call i32 @CloseTransientFile(i32 noundef %27) #18
-  %261 = load i32, ptr %16, align 4
-  %262 = icmp sgt i32 %261, 1
-  br i1 %262, label %263, label %269
+  %258 = call i32 @CloseTransientFile(i32 noundef %27) #18
+  %259 = load i32, ptr %16, align 4
+  %260 = icmp sgt i32 %259, 1
+  br i1 %260, label %261, label %267
 
-263:                                              ; preds = %_tarWritePadding.exit
-  %264 = call zeroext i1 @errstart(i32 noundef 19, ptr noundef null) #18
-  br i1 %264, label %265, label %268
+261:                                              ; preds = %_tarWritePadding.exit
+  %262 = call zeroext i1 @errstart(i32 noundef 19, ptr noundef null) #18
+  br i1 %262, label %263, label %266
 
-265:                                              ; preds = %263
-  %266 = zext nneg i32 %261 to i64
-  %267 = call i32 (ptr, ptr, i64, ...) @errmsg_plural(ptr noundef nonnull @.str.98, ptr noundef nonnull @.str.99, i64 noundef %266, ptr noundef %1, i32 noundef %261) #18
+263:                                              ; preds = %261
+  %264 = zext nneg i32 %259 to i64
+  %265 = call i32 (ptr, ptr, i64, ...) @errmsg_plural(ptr noundef nonnull @.str.98, ptr noundef nonnull @.str.99, i64 noundef %264, ptr noundef %1, i32 noundef %259) #18
   call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1792, ptr noundef nonnull @__func__.sendFile) #18
-  br label %268
+  br label %266
 
-268:                                              ; preds = %263, %265
-  call void @pgstat_report_checksum_failures_in_db(i32 noundef %5, i32 noundef %261) #18
-  br label %269
+266:                                              ; preds = %261, %263
+  call void @pgstat_report_checksum_failures_in_db(i32 noundef %5, i32 noundef %259) #18
+  br label %267
 
-269:                                              ; preds = %268, %_tarWritePadding.exit
-  %270 = sext i32 %261 to i64
-  %271 = load i64, ptr @total_checksum_failures, align 8
-  %272 = add i64 %271, %270
-  store i64 %272, ptr @total_checksum_failures, align 8
-  %273 = load i64, ptr %148, align 8
-  %274 = getelementptr inbounds i8, ptr %3, i64 88
-  %275 = load i64, ptr %274, align 8
-  call void @AddFileToBackupManifest(ptr noundef %9, i32 noundef %6, ptr noundef %2, i64 noundef %273, i64 noundef %275, ptr noundef nonnull %17) #18
-  br label %276
+267:                                              ; preds = %266, %_tarWritePadding.exit
+  %268 = sext i32 %259 to i64
+  %269 = load i64, ptr @total_checksum_failures, align 8
+  %270 = add i64 %269, %268
+  store i64 %270, ptr @total_checksum_failures, align 8
+  %271 = load i64, ptr %148, align 8
+  %272 = getelementptr inbounds i8, ptr %3, i64 88
+  %273 = load i64, ptr %272, align 8
+  call void @AddFileToBackupManifest(ptr noundef %9, i32 noundef %6, ptr noundef %2, i64 noundef %271, i64 noundef %273, ptr noundef nonnull %17) #18
+  br label %274
 
-276:                                              ; preds = %29, %269
+274:                                              ; preds = %29, %267
   ret i1 %28
 }
 

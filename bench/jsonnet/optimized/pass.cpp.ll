@@ -854,15 +854,15 @@ define void @_ZN7jsonnet8internal12CompilerPass6fieldsERSt6vectorINS0_11ObjectFi
   %.not3031 = icmp eq ptr %3, %5
   br i1 %.not3031, label %._crit_edge, label %.lr.ph
 
-.lr.ph:                                           ; preds = %2, %75
-  %.sroa.027.032 = phi ptr [ %80, %75 ], [ %3, %2 ]
+.lr.ph:                                           ; preds = %2, %66
+  %.sroa.027.032 = phi ptr [ %71, %66 ], [ %3, %2 ]
   %6 = load i32, ptr %.sroa.027.032, align 8
-  switch i32 %6, label %75 [
+  switch i32 %6, label %66 [
     i32 4, label %7
-    i32 0, label %56
-    i32 1, label %24
-    i32 3, label %29
-    i32 2, label %34
+    i32 0, label %47
+    i32 1, label %34
+    i32 3, label %24
+    i32 2, label %25
   ]
 
 7:                                                ; preds = %.lr.ph
@@ -889,95 +889,84 @@ define void @_ZN7jsonnet8internal12CompilerPass6fieldsERSt6vectorINS0_11ObjectFi
   br label %.sink.split
 
 24:                                               ; preds = %.lr.ph
-  %25 = getelementptr inbounds i8, ptr %.sroa.027.032, i64 8
-  %26 = load ptr, ptr %0, align 8
-  %27 = getelementptr inbounds i8, ptr %26, i64 8
-  %28 = load ptr, ptr %27, align 8
-  tail call void %28(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(24) %25)
-  br label %47
+  br label %34
 
-29:                                               ; preds = %.lr.ph
+25:                                               ; preds = %.lr.ph
+  %26 = getelementptr inbounds i8, ptr %.sroa.027.032, i64 8
+  %27 = load ptr, ptr %0, align 8
+  %28 = getelementptr inbounds i8, ptr %27, i64 8
+  %29 = load ptr, ptr %28, align 8
+  tail call void %29(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(24) %26)
   %30 = getelementptr inbounds i8, ptr %.sroa.027.032, i64 112
   %31 = load ptr, ptr %0, align 8
   %32 = getelementptr inbounds i8, ptr %31, i64 48
   %33 = load ptr, ptr %32, align 8
   tail call void %33(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(8) %30)
-  br label %47
+  br label %34
 
-34:                                               ; preds = %.lr.ph
-  %35 = getelementptr inbounds i8, ptr %.sroa.027.032, i64 8
+34:                                               ; preds = %.lr.ph, %24, %25
+  %.sink37 = phi i64 [ 112, %24 ], [ 32, %25 ], [ 8, %.lr.ph ]
+  %.sink36 = phi i64 [ 48, %24 ], [ 8, %25 ], [ 8, %.lr.ph ]
+  %35 = getelementptr inbounds i8, ptr %.sroa.027.032, i64 %.sink37
   %36 = load ptr, ptr %0, align 8
-  %37 = getelementptr inbounds i8, ptr %36, i64 8
+  %37 = getelementptr inbounds i8, ptr %36, i64 %.sink36
   %38 = load ptr, ptr %37, align 8
-  tail call void %38(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(24) %35)
-  %39 = getelementptr inbounds i8, ptr %.sroa.027.032, i64 112
-  %40 = load ptr, ptr %0, align 8
-  %41 = getelementptr inbounds i8, ptr %40, i64 48
-  %42 = load ptr, ptr %41, align 8
-  tail call void %42(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(8) %39)
-  %43 = getelementptr inbounds i8, ptr %.sroa.027.032, i64 32
-  %44 = load ptr, ptr %0, align 8
-  %45 = getelementptr inbounds i8, ptr %44, i64 8
-  %46 = load ptr, ptr %45, align 8
-  tail call void %46(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(24) %43)
-  br label %47
-
-47:                                               ; preds = %29, %34, %24
-  %48 = load ptr, ptr %0, align 8
-  %49 = getelementptr inbounds i8, ptr %48, i64 32
-  %50 = load ptr, ptr %49, align 8
-  tail call void %50(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(288) %.sroa.027.032)
-  %51 = getelementptr inbounds i8, ptr %.sroa.027.032, i64 224
-  %52 = load ptr, ptr %0, align 8
-  %53 = getelementptr inbounds i8, ptr %52, i64 8
-  %54 = load ptr, ptr %53, align 8
-  tail call void %54(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(24) %51)
-  %55 = getelementptr inbounds i8, ptr %.sroa.027.032, i64 248
+  tail call void %38(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(8) %35)
+  %39 = load ptr, ptr %0, align 8
+  %40 = getelementptr inbounds i8, ptr %39, i64 32
+  %41 = load ptr, ptr %40, align 8
+  tail call void %41(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(288) %.sroa.027.032)
+  %42 = getelementptr inbounds i8, ptr %.sroa.027.032, i64 224
+  %43 = load ptr, ptr %0, align 8
+  %44 = getelementptr inbounds i8, ptr %43, i64 8
+  %45 = load ptr, ptr %44, align 8
+  tail call void %45(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(24) %42)
+  %46 = getelementptr inbounds i8, ptr %.sroa.027.032, i64 248
   br label %.sink.split
 
-56:                                               ; preds = %.lr.ph
-  %57 = getelementptr inbounds i8, ptr %.sroa.027.032, i64 8
-  %58 = load ptr, ptr %0, align 8
-  %59 = getelementptr inbounds i8, ptr %58, i64 8
-  %60 = load ptr, ptr %59, align 8
-  tail call void %60(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(24) %57)
-  %61 = getelementptr inbounds i8, ptr %.sroa.027.032, i64 248
-  %62 = load ptr, ptr %0, align 8
-  %63 = getelementptr inbounds i8, ptr %62, i64 48
-  %64 = load ptr, ptr %63, align 8
-  tail call void %64(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(8) %61)
-  %65 = getelementptr inbounds i8, ptr %.sroa.027.032, i64 256
-  %66 = load ptr, ptr %65, align 8
-  %.not = icmp eq ptr %66, null
-  br i1 %.not, label %75, label %67
+47:                                               ; preds = %.lr.ph
+  %48 = getelementptr inbounds i8, ptr %.sroa.027.032, i64 8
+  %49 = load ptr, ptr %0, align 8
+  %50 = getelementptr inbounds i8, ptr %49, i64 8
+  %51 = load ptr, ptr %50, align 8
+  tail call void %51(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(24) %48)
+  %52 = getelementptr inbounds i8, ptr %.sroa.027.032, i64 248
+  %53 = load ptr, ptr %0, align 8
+  %54 = getelementptr inbounds i8, ptr %53, i64 48
+  %55 = load ptr, ptr %54, align 8
+  tail call void %55(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(8) %52)
+  %56 = getelementptr inbounds i8, ptr %.sroa.027.032, i64 256
+  %57 = load ptr, ptr %56, align 8
+  %.not = icmp eq ptr %57, null
+  br i1 %.not, label %66, label %58
 
-67:                                               ; preds = %56
-  %68 = getelementptr inbounds i8, ptr %.sroa.027.032, i64 224
-  %69 = load ptr, ptr %0, align 8
-  %70 = getelementptr inbounds i8, ptr %69, i64 8
-  %71 = load ptr, ptr %70, align 8
-  tail call void %71(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(24) %68)
+58:                                               ; preds = %47
+  %59 = getelementptr inbounds i8, ptr %.sroa.027.032, i64 224
+  %60 = load ptr, ptr %0, align 8
+  %61 = getelementptr inbounds i8, ptr %60, i64 8
+  %62 = load ptr, ptr %61, align 8
+  tail call void %62(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(24) %59)
   br label %.sink.split
 
-.sink.split:                                      ; preds = %7, %47, %67
-  %.sink = phi ptr [ %65, %67 ], [ %55, %47 ], [ %23, %7 ]
-  %72 = load ptr, ptr %0, align 8
-  %73 = getelementptr inbounds i8, ptr %72, i64 48
-  %74 = load ptr, ptr %73, align 8
-  tail call void %74(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(8) %.sink)
-  br label %75
+.sink.split:                                      ; preds = %7, %34, %58
+  %.sink = phi ptr [ %56, %58 ], [ %46, %34 ], [ %23, %7 ]
+  %63 = load ptr, ptr %0, align 8
+  %64 = getelementptr inbounds i8, ptr %63, i64 48
+  %65 = load ptr, ptr %64, align 8
+  tail call void %65(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(8) %.sink)
+  br label %66
 
-75:                                               ; preds = %.sink.split, %.lr.ph, %56
-  %76 = getelementptr inbounds i8, ptr %.sroa.027.032, i64 264
-  %77 = load ptr, ptr %0, align 8
-  %78 = getelementptr inbounds i8, ptr %77, i64 8
-  %79 = load ptr, ptr %78, align 8
-  tail call void %79(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(24) %76)
-  %80 = getelementptr inbounds i8, ptr %.sroa.027.032, i64 288
-  %.not30 = icmp eq ptr %80, %5
+66:                                               ; preds = %.sink.split, %.lr.ph, %47
+  %67 = getelementptr inbounds i8, ptr %.sroa.027.032, i64 264
+  %68 = load ptr, ptr %0, align 8
+  %69 = getelementptr inbounds i8, ptr %68, i64 8
+  %70 = load ptr, ptr %69, align 8
+  tail call void %70(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(24) %67)
+  %71 = getelementptr inbounds i8, ptr %.sroa.027.032, i64 288
+  %.not30 = icmp eq ptr %71, %5
   br i1 %.not30, label %._crit_edge, label %.lr.ph
 
-._crit_edge:                                      ; preds = %75, %2
+._crit_edge:                                      ; preds = %66, %2
   ret void
 }
 

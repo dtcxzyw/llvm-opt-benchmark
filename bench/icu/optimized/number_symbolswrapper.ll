@@ -617,29 +617,23 @@ sw.bb2.i:                                         ; preds = %if.end
   %fPtr.i = getelementptr inbounds i8, ptr %this, i64 8
   %1 = load ptr, ptr %fPtr.i, align 8
   %isnull.i = icmp eq ptr %1, null
-  br i1 %isnull.i, label %_ZN6icu_756number4impl14SymbolsWrapper9doCleanupEv.exit, label %delete.notnull.i
-
-delete.notnull.i:                                 ; preds = %sw.bb2.i
-  %vtable.i = load ptr, ptr %1, align 8
-  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 8
-  %2 = load ptr, ptr %vfn.i, align 8
-  tail call void %2(ptr noundef nonnull align 8 dereferenceable(2883) %1) #11
-  br label %_ZN6icu_756number4impl14SymbolsWrapper9doCleanupEv.exit
+  br i1 %isnull.i, label %_ZN6icu_756number4impl14SymbolsWrapper9doCleanupEv.exit, label %sw.epilog.sink.split.i
 
 sw.bb3.i:                                         ; preds = %if.end
   %fPtr4.i = getelementptr inbounds i8, ptr %this, i64 8
-  %3 = load ptr, ptr %fPtr4.i, align 8
-  %isnull5.i = icmp eq ptr %3, null
-  br i1 %isnull5.i, label %_ZN6icu_756number4impl14SymbolsWrapper9doCleanupEv.exit, label %delete.notnull6.i
+  %2 = load ptr, ptr %fPtr4.i, align 8
+  %isnull5.i = icmp eq ptr %2, null
+  br i1 %isnull5.i, label %_ZN6icu_756number4impl14SymbolsWrapper9doCleanupEv.exit, label %sw.epilog.sink.split.i
 
-delete.notnull6.i:                                ; preds = %sw.bb3.i
-  %vtable7.i = load ptr, ptr %3, align 8
+sw.epilog.sink.split.i:                           ; preds = %sw.bb3.i, %sw.bb2.i
+  %.sink3.i = phi ptr [ %1, %sw.bb2.i ], [ %2, %sw.bb3.i ]
+  %vtable7.i = load ptr, ptr %.sink3.i, align 8
   %vfn8.i = getelementptr inbounds i8, ptr %vtable7.i, i64 8
-  %4 = load ptr, ptr %vfn8.i, align 8
-  tail call void %4(ptr noundef nonnull align 8 dereferenceable(86) %3) #11
+  %3 = load ptr, ptr %vfn8.i, align 8
+  tail call void %3(ptr noundef nonnull align 8 dereferenceable(86) %.sink3.i) #11
   br label %_ZN6icu_756number4impl14SymbolsWrapper9doCleanupEv.exit
 
-_ZN6icu_756number4impl14SymbolsWrapper9doCleanupEv.exit: ; preds = %if.end, %sw.bb2.i, %delete.notnull.i, %sw.bb3.i, %delete.notnull6.i
+_ZN6icu_756number4impl14SymbolsWrapper9doCleanupEv.exit: ; preds = %if.end, %sw.bb2.i, %sw.bb3.i, %sw.epilog.sink.split.i
   tail call void @_ZN6icu_756number4impl14SymbolsWrapper10doCopyFromERKS2_(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(16) %other)
   br label %return
 
@@ -660,29 +654,23 @@ sw.bb2:                                           ; preds = %entry
   %fPtr = getelementptr inbounds i8, ptr %this, i64 8
   %1 = load ptr, ptr %fPtr, align 8
   %isnull = icmp eq ptr %1, null
-  br i1 %isnull, label %sw.epilog, label %delete.notnull
-
-delete.notnull:                                   ; preds = %sw.bb2
-  %vtable = load ptr, ptr %1, align 8
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 8
-  %2 = load ptr, ptr %vfn, align 8
-  tail call void %2(ptr noundef nonnull align 8 dereferenceable(2883) %1) #11
-  br label %sw.epilog
+  br i1 %isnull, label %sw.epilog, label %sw.epilog.sink.split
 
 sw.bb3:                                           ; preds = %entry
   %fPtr4 = getelementptr inbounds i8, ptr %this, i64 8
-  %3 = load ptr, ptr %fPtr4, align 8
-  %isnull5 = icmp eq ptr %3, null
-  br i1 %isnull5, label %sw.epilog, label %delete.notnull6
+  %2 = load ptr, ptr %fPtr4, align 8
+  %isnull5 = icmp eq ptr %2, null
+  br i1 %isnull5, label %sw.epilog, label %sw.epilog.sink.split
 
-delete.notnull6:                                  ; preds = %sw.bb3
-  %vtable7 = load ptr, ptr %3, align 8
+sw.epilog.sink.split:                             ; preds = %sw.bb3, %sw.bb2
+  %.sink3 = phi ptr [ %1, %sw.bb2 ], [ %2, %sw.bb3 ]
+  %vtable7 = load ptr, ptr %.sink3, align 8
   %vfn8 = getelementptr inbounds i8, ptr %vtable7, i64 8
-  %4 = load ptr, ptr %vfn8, align 8
-  tail call void %4(ptr noundef nonnull align 8 dereferenceable(86) %3) #11
+  %3 = load ptr, ptr %vfn8, align 8
+  tail call void %3(ptr noundef nonnull align 8 dereferenceable(86) %.sink3) #11
   br label %sw.epilog
 
-sw.epilog:                                        ; preds = %sw.bb3, %delete.notnull6, %sw.bb2, %delete.notnull, %entry
+sw.epilog:                                        ; preds = %sw.epilog.sink.split, %sw.bb3, %sw.bb2, %entry
   ret void
 }
 
@@ -703,44 +691,38 @@ sw.bb2.i:                                         ; preds = %if.end
   %fPtr.i = getelementptr inbounds i8, ptr %this, i64 8
   %1 = load ptr, ptr %fPtr.i, align 8
   %isnull.i = icmp eq ptr %1, null
-  br i1 %isnull.i, label %_ZN6icu_756number4impl14SymbolsWrapper9doCleanupEv.exit, label %delete.notnull.i
-
-delete.notnull.i:                                 ; preds = %sw.bb2.i
-  %vtable.i = load ptr, ptr %1, align 8
-  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 8
-  %2 = load ptr, ptr %vfn.i, align 8
-  tail call void %2(ptr noundef nonnull align 8 dereferenceable(2883) %1) #11
-  br label %_ZN6icu_756number4impl14SymbolsWrapper9doCleanupEv.exit
+  br i1 %isnull.i, label %_ZN6icu_756number4impl14SymbolsWrapper9doCleanupEv.exit, label %sw.epilog.sink.split.i
 
 sw.bb3.i:                                         ; preds = %if.end
   %fPtr4.i = getelementptr inbounds i8, ptr %this, i64 8
-  %3 = load ptr, ptr %fPtr4.i, align 8
-  %isnull5.i = icmp eq ptr %3, null
-  br i1 %isnull5.i, label %_ZN6icu_756number4impl14SymbolsWrapper9doCleanupEv.exit, label %delete.notnull6.i
+  %2 = load ptr, ptr %fPtr4.i, align 8
+  %isnull5.i = icmp eq ptr %2, null
+  br i1 %isnull5.i, label %_ZN6icu_756number4impl14SymbolsWrapper9doCleanupEv.exit, label %sw.epilog.sink.split.i
 
-delete.notnull6.i:                                ; preds = %sw.bb3.i
-  %vtable7.i = load ptr, ptr %3, align 8
+sw.epilog.sink.split.i:                           ; preds = %sw.bb3.i, %sw.bb2.i
+  %.sink3.i = phi ptr [ %1, %sw.bb2.i ], [ %2, %sw.bb3.i ]
+  %vtable7.i = load ptr, ptr %.sink3.i, align 8
   %vfn8.i = getelementptr inbounds i8, ptr %vtable7.i, i64 8
-  %4 = load ptr, ptr %vfn8.i, align 8
-  tail call void %4(ptr noundef nonnull align 8 dereferenceable(86) %3) #11
+  %3 = load ptr, ptr %vfn8.i, align 8
+  tail call void %3(ptr noundef nonnull align 8 dereferenceable(86) %.sink3.i) #11
   br label %_ZN6icu_756number4impl14SymbolsWrapper9doCleanupEv.exit
 
-_ZN6icu_756number4impl14SymbolsWrapper9doCleanupEv.exit: ; preds = %if.end, %sw.bb2.i, %delete.notnull.i, %sw.bb3.i, %delete.notnull6.i
-  %5 = load i32, ptr %src, align 8
-  store i32 %5, ptr %this, align 8
-  %.off.i = add i32 %5, -1
+_ZN6icu_756number4impl14SymbolsWrapper9doCleanupEv.exit: ; preds = %if.end, %sw.bb2.i, %sw.bb3.i, %sw.epilog.sink.split.i
+  %4 = load i32, ptr %src, align 8
+  store i32 %4, ptr %this, align 8
+  %.off.i = add i32 %4, -1
   %switch.i = icmp ult i32 %.off.i, 2
-  br i1 %switch.i, label %sw.epilog.sink.split.i, label %return
+  br i1 %switch.i, label %sw.epilog.sink.split.i2, label %return
 
-sw.epilog.sink.split.i:                           ; preds = %_ZN6icu_756number4impl14SymbolsWrapper9doCleanupEv.exit
+sw.epilog.sink.split.i2:                          ; preds = %_ZN6icu_756number4impl14SymbolsWrapper9doCleanupEv.exit
   %fPtr8.i = getelementptr inbounds i8, ptr %src, i64 8
-  %6 = load ptr, ptr %fPtr8.i, align 8
+  %5 = load ptr, ptr %fPtr8.i, align 8
   %fPtr9.i = getelementptr inbounds i8, ptr %this, i64 8
-  store ptr %6, ptr %fPtr9.i, align 8
+  store ptr %5, ptr %fPtr9.i, align 8
   store ptr null, ptr %fPtr8.i, align 8
   br label %return
 
-return:                                           ; preds = %sw.epilog.sink.split.i, %_ZN6icu_756number4impl14SymbolsWrapper9doCleanupEv.exit, %entry
+return:                                           ; preds = %sw.epilog.sink.split.i2, %_ZN6icu_756number4impl14SymbolsWrapper9doCleanupEv.exit, %entry
   ret ptr %this
 }
 
@@ -757,29 +739,23 @@ sw.bb2.i:                                         ; preds = %entry
   %fPtr.i = getelementptr inbounds i8, ptr %this, i64 8
   %1 = load ptr, ptr %fPtr.i, align 8
   %isnull.i = icmp eq ptr %1, null
-  br i1 %isnull.i, label %_ZN6icu_756number4impl14SymbolsWrapper9doCleanupEv.exit, label %delete.notnull.i
-
-delete.notnull.i:                                 ; preds = %sw.bb2.i
-  %vtable.i = load ptr, ptr %1, align 8
-  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 8
-  %2 = load ptr, ptr %vfn.i, align 8
-  tail call void %2(ptr noundef nonnull align 8 dereferenceable(2883) %1) #11
-  br label %_ZN6icu_756number4impl14SymbolsWrapper9doCleanupEv.exit
+  br i1 %isnull.i, label %_ZN6icu_756number4impl14SymbolsWrapper9doCleanupEv.exit, label %sw.epilog.sink.split.i
 
 sw.bb3.i:                                         ; preds = %entry
   %fPtr4.i = getelementptr inbounds i8, ptr %this, i64 8
-  %3 = load ptr, ptr %fPtr4.i, align 8
-  %isnull5.i = icmp eq ptr %3, null
-  br i1 %isnull5.i, label %_ZN6icu_756number4impl14SymbolsWrapper9doCleanupEv.exit, label %delete.notnull6.i
+  %2 = load ptr, ptr %fPtr4.i, align 8
+  %isnull5.i = icmp eq ptr %2, null
+  br i1 %isnull5.i, label %_ZN6icu_756number4impl14SymbolsWrapper9doCleanupEv.exit, label %sw.epilog.sink.split.i
 
-delete.notnull6.i:                                ; preds = %sw.bb3.i
-  %vtable7.i = load ptr, ptr %3, align 8
+sw.epilog.sink.split.i:                           ; preds = %sw.bb3.i, %sw.bb2.i
+  %.sink3.i = phi ptr [ %1, %sw.bb2.i ], [ %2, %sw.bb3.i ]
+  %vtable7.i = load ptr, ptr %.sink3.i, align 8
   %vfn8.i = getelementptr inbounds i8, ptr %vtable7.i, i64 8
-  %4 = load ptr, ptr %vfn8.i, align 8
-  tail call void %4(ptr noundef nonnull align 8 dereferenceable(86) %3) #11
+  %3 = load ptr, ptr %vfn8.i, align 8
+  tail call void %3(ptr noundef nonnull align 8 dereferenceable(86) %.sink3.i) #11
   br label %_ZN6icu_756number4impl14SymbolsWrapper9doCleanupEv.exit
 
-_ZN6icu_756number4impl14SymbolsWrapper9doCleanupEv.exit: ; preds = %entry, %sw.bb2.i, %delete.notnull.i, %sw.bb3.i, %delete.notnull6.i
+_ZN6icu_756number4impl14SymbolsWrapper9doCleanupEv.exit: ; preds = %entry, %sw.bb2.i, %sw.bb3.i, %sw.epilog.sink.split.i
   ret void
 }
 
@@ -796,29 +772,23 @@ sw.bb2.i:                                         ; preds = %entry
   %fPtr.i = getelementptr inbounds i8, ptr %this, i64 8
   %1 = load ptr, ptr %fPtr.i, align 8
   %isnull.i = icmp eq ptr %1, null
-  br i1 %isnull.i, label %_ZN6icu_756number4impl14SymbolsWrapper9doCleanupEv.exit, label %delete.notnull.i
-
-delete.notnull.i:                                 ; preds = %sw.bb2.i
-  %vtable.i = load ptr, ptr %1, align 8
-  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 8
-  %2 = load ptr, ptr %vfn.i, align 8
-  tail call void %2(ptr noundef nonnull align 8 dereferenceable(2883) %1) #11
-  br label %_ZN6icu_756number4impl14SymbolsWrapper9doCleanupEv.exit
+  br i1 %isnull.i, label %_ZN6icu_756number4impl14SymbolsWrapper9doCleanupEv.exit, label %sw.epilog.sink.split.i
 
 sw.bb3.i:                                         ; preds = %entry
   %fPtr4.i = getelementptr inbounds i8, ptr %this, i64 8
-  %3 = load ptr, ptr %fPtr4.i, align 8
-  %isnull5.i = icmp eq ptr %3, null
-  br i1 %isnull5.i, label %_ZN6icu_756number4impl14SymbolsWrapper9doCleanupEv.exit, label %delete.notnull6.i
+  %2 = load ptr, ptr %fPtr4.i, align 8
+  %isnull5.i = icmp eq ptr %2, null
+  br i1 %isnull5.i, label %_ZN6icu_756number4impl14SymbolsWrapper9doCleanupEv.exit, label %sw.epilog.sink.split.i
 
-delete.notnull6.i:                                ; preds = %sw.bb3.i
-  %vtable7.i = load ptr, ptr %3, align 8
+sw.epilog.sink.split.i:                           ; preds = %sw.bb3.i, %sw.bb2.i
+  %.sink3.i = phi ptr [ %1, %sw.bb2.i ], [ %2, %sw.bb3.i ]
+  %vtable7.i = load ptr, ptr %.sink3.i, align 8
   %vfn8.i = getelementptr inbounds i8, ptr %vtable7.i, i64 8
-  %4 = load ptr, ptr %vfn8.i, align 8
-  tail call void %4(ptr noundef nonnull align 8 dereferenceable(86) %3) #11
+  %3 = load ptr, ptr %vfn8.i, align 8
+  tail call void %3(ptr noundef nonnull align 8 dereferenceable(86) %.sink3.i) #11
   br label %_ZN6icu_756number4impl14SymbolsWrapper9doCleanupEv.exit
 
-_ZN6icu_756number4impl14SymbolsWrapper9doCleanupEv.exit: ; preds = %entry, %sw.bb2.i, %delete.notnull.i, %sw.bb3.i, %delete.notnull6.i
+_ZN6icu_756number4impl14SymbolsWrapper9doCleanupEv.exit: ; preds = %entry, %sw.bb2.i, %sw.bb3.i, %sw.epilog.sink.split.i
   store i32 1, ptr %this, align 8
   %call = tail call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 2888) #11
   %new.isnull = icmp eq ptr %call, null
@@ -834,10 +804,10 @@ new.cont:                                         ; preds = %new.notnull, %_ZN6i
   ret void
 
 lpad:                                             ; preds = %new.notnull
-  %5 = landingpad { ptr, i32 }
+  %4 = landingpad { ptr, i32 }
           cleanup
   tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %call) #11
-  resume { ptr, i32 } %5
+  resume { ptr, i32 } %4
 }
 
 ; Function Attrs: nounwind
@@ -861,29 +831,23 @@ sw.bb2.i:                                         ; preds = %entry
   %fPtr.i = getelementptr inbounds i8, ptr %this, i64 8
   %1 = load ptr, ptr %fPtr.i, align 8
   %isnull.i = icmp eq ptr %1, null
-  br i1 %isnull.i, label %_ZN6icu_756number4impl14SymbolsWrapper9doCleanupEv.exit, label %delete.notnull.i
-
-delete.notnull.i:                                 ; preds = %sw.bb2.i
-  %vtable.i = load ptr, ptr %1, align 8
-  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 8
-  %2 = load ptr, ptr %vfn.i, align 8
-  tail call void %2(ptr noundef nonnull align 8 dereferenceable(2883) %1) #11
-  br label %_ZN6icu_756number4impl14SymbolsWrapper9doCleanupEv.exit
+  br i1 %isnull.i, label %_ZN6icu_756number4impl14SymbolsWrapper9doCleanupEv.exit, label %sw.epilog.sink.split.i
 
 sw.bb3.i:                                         ; preds = %entry
   %fPtr4.i = getelementptr inbounds i8, ptr %this, i64 8
-  %3 = load ptr, ptr %fPtr4.i, align 8
-  %isnull5.i = icmp eq ptr %3, null
-  br i1 %isnull5.i, label %_ZN6icu_756number4impl14SymbolsWrapper9doCleanupEv.exit, label %delete.notnull6.i
+  %2 = load ptr, ptr %fPtr4.i, align 8
+  %isnull5.i = icmp eq ptr %2, null
+  br i1 %isnull5.i, label %_ZN6icu_756number4impl14SymbolsWrapper9doCleanupEv.exit, label %sw.epilog.sink.split.i
 
-delete.notnull6.i:                                ; preds = %sw.bb3.i
-  %vtable7.i = load ptr, ptr %3, align 8
+sw.epilog.sink.split.i:                           ; preds = %sw.bb3.i, %sw.bb2.i
+  %.sink3.i = phi ptr [ %1, %sw.bb2.i ], [ %2, %sw.bb3.i ]
+  %vtable7.i = load ptr, ptr %.sink3.i, align 8
   %vfn8.i = getelementptr inbounds i8, ptr %vtable7.i, i64 8
-  %4 = load ptr, ptr %vfn8.i, align 8
-  tail call void %4(ptr noundef nonnull align 8 dereferenceable(86) %3) #11
+  %3 = load ptr, ptr %vfn8.i, align 8
+  tail call void %3(ptr noundef nonnull align 8 dereferenceable(86) %.sink3.i) #11
   br label %_ZN6icu_756number4impl14SymbolsWrapper9doCleanupEv.exit
 
-_ZN6icu_756number4impl14SymbolsWrapper9doCleanupEv.exit: ; preds = %entry, %sw.bb2.i, %delete.notnull.i, %sw.bb3.i, %delete.notnull6.i
+_ZN6icu_756number4impl14SymbolsWrapper9doCleanupEv.exit: ; preds = %entry, %sw.bb2.i, %sw.bb3.i, %sw.epilog.sink.split.i
   store i32 2, ptr %this, align 8
   %fPtr = getelementptr inbounds i8, ptr %this, i64 8
   store ptr %ns, ptr %fPtr, align 8

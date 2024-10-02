@@ -972,7 +972,7 @@ define dso_local i32 @sacctmgr_remove_assoc_usage(ptr noundef %0) local_unnamed_
 
 7:                                                ; preds = %5, %3, %1
   %8 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.15) #20
-  br label %102
+  br label %101
 
 9:                                                ; preds = %5
   %10 = getelementptr inbounds i8, ptr %0, i64 8
@@ -1007,7 +1007,7 @@ define dso_local i32 @sacctmgr_remove_assoc_usage(ptr noundef %0) local_unnamed_
 
 25:                                               ; preds = %23
   %puts = tail call i32 @puts(ptr nonnull dereferenceable(1) @str.4)
-  br label %102
+  br label %101
 
 26:                                               ; preds = %23
   %27 = load ptr, ptr @db_conn, align 8
@@ -1048,9 +1048,9 @@ define dso_local i32 @sacctmgr_remove_assoc_usage(ptr noundef %0) local_unnamed_
   %.not92 = icmp eq ptr %.069, null
   br i1 %.not107, label %sacctmgr_find_cluster_from_list.exit.thread, label %.lr.ph136.split
 
-.lr.ph136.split:                                  ; preds = %.lr.ph136, %95
-  %46 = phi ptr [ %96, %95 ], [ %45, %.lr.ph136 ]
-  %.0134 = phi i32 [ %.2, %95 ], [ 0, %.lr.ph136 ]
+.lr.ph136.split:                                  ; preds = %.lr.ph136, %94
+  %46 = phi ptr [ %95, %94 ], [ %45, %.lr.ph136 ]
+  %.0134 = phi i32 [ %.2, %94 ], [ 0, %.lr.ph136 ]
   %47 = call ptr @list_iterator_create(ptr noundef nonnull %32) #20
   br label %48
 
@@ -1093,7 +1093,7 @@ sacctmgr_find_cluster_from_list.exit.thread:      ; preds = %.lr.ph136, %sacctmg
 .preheader108:                                    ; preds = %56
   %62 = call ptr @list_next(ptr noundef %36) #20
   %.not93130 = icmp eq ptr %62, null
-  br i1 %.not93130, label %._crit_edge132, label %.lr.ph131
+  br i1 %.not93130, label %._crit_edge129, label %.lr.ph131
 
 .preheader:                                       ; preds = %.preheader109, %._crit_edge
   %63 = phi ptr [ %72, %._crit_edge ], [ %61, %.preheader109 ]
@@ -1125,10 +1125,6 @@ sacctmgr_find_cluster_from_list.exit.thread:      ; preds = %.lr.ph136, %sacctmg
   %.not95 = icmp eq ptr %72, null
   br i1 %.not95, label %._crit_edge129, label %.preheader, !llvm.loop !13
 
-._crit_edge129:                                   ; preds = %._crit_edge, %.preheader109
-  call void @list_iterator_reset(ptr noundef nonnull %.069) #20
-  br label %80
-
 .lr.ph131:                                        ; preds = %.preheader108, %77
   %73 = phi ptr [ %79, %77 ], [ %62, %.preheader108 ]
   %74 = call ptr @sacctmgr_find_assoc_from_list(ptr noundef %28, ptr noundef null, ptr noundef nonnull %73, ptr noundef nonnull %46, ptr noundef nonnull @.str.20)
@@ -1145,77 +1141,75 @@ sacctmgr_find_cluster_from_list.exit.thread:      ; preds = %.lr.ph136, %sacctmg
   call void @list_append(ptr noundef %78, ptr noundef nonnull %74) #20
   %79 = call ptr @list_next(ptr noundef %36) #20
   %.not93 = icmp eq ptr %79, null
-  br i1 %.not93, label %._crit_edge132, label %.lr.ph131, !llvm.loop !14
+  br i1 %.not93, label %._crit_edge129, label %.lr.ph131, !llvm.loop !14
 
-._crit_edge132:                                   ; preds = %77, %.preheader108
-  call void @list_iterator_reset(ptr noundef %36) #20
-  br label %80
+._crit_edge129:                                   ; preds = %._crit_edge, %77, %.preheader108, %.preheader109
+  %.sink = phi ptr [ %.069, %.preheader109 ], [ %36, %.preheader108 ], [ %36, %77 ], [ %.069, %._crit_edge ]
+  call void @list_iterator_reset(ptr noundef %.sink) #20
+  %80 = load ptr, ptr %58, align 8
+  %81 = call i32 @list_count(ptr noundef %80) #20
+  %.not96 = icmp eq i32 %81, 0
+  br i1 %.not96, label %91, label %82
 
-80:                                               ; preds = %._crit_edge132, %._crit_edge129
-  %81 = load ptr, ptr %58, align 8
-  %82 = call i32 @list_count(ptr noundef %81) #20
-  %.not96 = icmp eq i32 %82, 0
-  br i1 %.not96, label %92, label %83
-
-83:                                               ; preds = %80
+82:                                               ; preds = %._crit_edge129
   call void @list_append(ptr noundef %57, ptr noundef nonnull %58) #20
-  %84 = getelementptr inbounds i8, ptr %49, i64 152
-  %85 = load ptr, ptr %84, align 8
-  %86 = getelementptr inbounds i8, ptr %49, i64 160
-  %87 = load i32, ptr %86, align 8
-  %88 = trunc i32 %87 to i16
-  %89 = getelementptr inbounds i8, ptr %49, i64 296
-  %90 = load i16, ptr %89, align 8
-  %91 = call i32 @slurmdb_send_accounting_update(ptr noundef %57, ptr noundef nonnull %46, ptr noundef %85, i16 noundef zeroext %88, i16 noundef zeroext %90) #20
-  br label %93
+  %83 = getelementptr inbounds i8, ptr %49, i64 152
+  %84 = load ptr, ptr %83, align 8
+  %85 = getelementptr inbounds i8, ptr %49, i64 160
+  %86 = load i32, ptr %85, align 8
+  %87 = trunc i32 %86 to i16
+  %88 = getelementptr inbounds i8, ptr %49, i64 296
+  %89 = load i16, ptr %88, align 8
+  %90 = call i32 @slurmdb_send_accounting_update(ptr noundef %57, ptr noundef nonnull %46, ptr noundef %84, i16 noundef zeroext %87, i16 noundef zeroext %89) #20
+  br label %92
 
-92:                                               ; preds = %80
+91:                                               ; preds = %._crit_edge129
   call void @slurmdb_destroy_update_object(ptr noundef nonnull %58) #20
-  br label %93
+  br label %92
 
-93:                                               ; preds = %92, %83
-  %.2 = phi i32 [ %91, %83 ], [ %.0134, %92 ]
+92:                                               ; preds = %91, %82
+  %.2 = phi i32 [ %90, %82 ], [ %.0134, %91 ]
   %.not97 = icmp eq ptr %57, null
-  br i1 %.not97, label %95, label %94
+  br i1 %.not97, label %94, label %93
 
-94:                                               ; preds = %93
+93:                                               ; preds = %92
   call void @list_destroy(ptr noundef nonnull %57) #20
-  br label %95
+  br label %94
 
-95:                                               ; preds = %94, %93
-  %96 = call ptr @list_next(ptr noundef %34) #20
-  %.not90 = icmp eq ptr %96, null
+94:                                               ; preds = %93, %92
+  %95 = call ptr @list_next(ptr noundef %34) #20
+  %.not90 = icmp eq ptr %95, null
   br i1 %.not90, label %.loopexit, label %.lr.ph136.split, !llvm.loop !15
 
-.loopexit:                                        ; preds = %95, %44, %75, %67, %sacctmgr_find_cluster_from_list.exit.thread
-  %.1 = phi i32 [ -1, %67 ], [ -1, %75 ], [ -1, %sacctmgr_find_cluster_from_list.exit.thread ], [ 0, %44 ], [ %.2, %95 ]
+.loopexit:                                        ; preds = %94, %44, %75, %67, %sacctmgr_find_cluster_from_list.exit.thread
+  %.1 = phi i32 [ -1, %67 ], [ -1, %75 ], [ -1, %sacctmgr_find_cluster_from_list.exit.thread ], [ 0, %44 ], [ %.2, %94 ]
   call void @list_iterator_destroy(ptr noundef %34) #20
   call void @list_iterator_destroy(ptr noundef %36) #20
   %.not100 = icmp eq ptr %.069, null
-  br i1 %.not100, label %98, label %97
+  br i1 %.not100, label %97, label %96
 
-97:                                               ; preds = %.loopexit
+96:                                               ; preds = %.loopexit
   call void @list_iterator_destroy(ptr noundef nonnull %.069) #20
-  br label %98
+  br label %97
 
-98:                                               ; preds = %.loopexit, %97
+97:                                               ; preds = %.loopexit, %96
   %.not101 = icmp eq ptr %28, null
-  br i1 %.not101, label %100, label %99
+  br i1 %.not101, label %99, label %98
 
-99:                                               ; preds = %98
+98:                                               ; preds = %97
   call void @list_destroy(ptr noundef nonnull %28) #20
-  br label %100
+  br label %99
 
-100:                                              ; preds = %99, %98
+99:                                               ; preds = %98, %97
   %.not102 = icmp eq ptr %32, null
-  br i1 %.not102, label %102, label %101
+  br i1 %.not102, label %101, label %100
 
-101:                                              ; preds = %100
+100:                                              ; preds = %99
   call void @list_destroy(ptr noundef nonnull %32) #20
-  br label %102
+  br label %101
 
-102:                                              ; preds = %100, %101, %25, %7
-  %.070 = phi i32 [ 0, %25 ], [ -1, %7 ], [ %.1, %101 ], [ %.1, %100 ]
+101:                                              ; preds = %99, %100, %25, %7
+  %.070 = phi i32 [ 0, %25 ], [ -1, %7 ], [ %.1, %100 ], [ %.1, %99 ]
   ret i32 %.070
 }
 

@@ -5717,8 +5717,7 @@ _ZN7QStringD2Ev.exit11:                           ; preds = %41, %_ZN17QArrayDat
   %65 = getelementptr inbounds i8, ptr %64, i64 32
   %66 = load ptr, ptr %65, align 8
   call void @_ZN17QAbstractItemView4editERK11QModelIndex(ptr noundef nonnull align 8 dereferenceable(40) %66, ptr noundef nonnull align 8 dereferenceable(24) %5)
-  call void @_ZN13ProfileDialog13updateWidgetsEv(ptr noundef nonnull readonly align 8 dereferenceable(120) %0)
-  br label %79
+  br label %_ZNK11QModelIndex7isValidEv.exit.thread
 
 67:                                               ; preds = %1
   %68 = landingpad { ptr, i32 }
@@ -5756,18 +5755,15 @@ _ZN17QArrayDataPointerIDsE5derefEv.exit.i.i21:    ; preds = %75
   %.not.i.i22 = icmp eq i32 %78, 1
   br i1 %.not.i.i22, label %_ZN7QStringD2Ev.exit15.sink.split, label %_ZN7QStringD2Ev.exit15
 
-_ZNK11QModelIndex7isValidEv.exit.thread:          ; preds = %_ZN7QStringD2Ev.exit11
+_ZNK11QModelIndex7isValidEv.exit.thread:          ; preds = %_ZN7QStringD2Ev.exit11, %54
   call void @_ZN13ProfileDialog13updateWidgetsEv(ptr noundef nonnull align 8 dereferenceable(120) %0)
-  br label %79
-
-79:                                               ; preds = %_ZNK11QModelIndex7isValidEv.exit.thread, %54
   ret void
 
 _ZN7QStringD2Ev.exit15.sink.split:                ; preds = %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i21, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i17, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i13
   %.sink29 = phi ptr [ %3, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i13 ], [ %4, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i17 ], [ %7, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i21 ]
   %.pn.ph = phi { ptr, i32 } [ %68, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i13 ], [ %72, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i17 ], [ %76, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i21 ]
-  %80 = load ptr, ptr %.sink29, align 8
-  call void @_ZN10QArrayData10deallocateEPS_xx(ptr noundef %80, i64 noundef 2, i64 noundef 8) #18
+  %79 = load ptr, ptr %.sink29, align 8
+  call void @_ZN10QArrayData10deallocateEPS_xx(ptr noundef %79, i64 noundef 2, i64 noundef 8) #18
   br label %_ZN7QStringD2Ev.exit15
 
 _ZN7QStringD2Ev.exit15:                           ; preds = %_ZN7QStringD2Ev.exit15.sink.split, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i21, %75, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i17, %71, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i13, %67

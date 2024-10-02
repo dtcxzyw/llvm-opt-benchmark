@@ -3743,8 +3743,7 @@ add_to_phi_worklist_no_val.exit1682:              ; preds = %2098, %2109, %2117
 
 2140:                                             ; preds = %.lr.ph1827
   tail call void @zend_ssa_remove_uses_of_var(ptr noundef nonnull %2, i32 noundef %2132) #12
-  tail call void @zend_ssa_remove_phi(ptr noundef nonnull %2, ptr noundef nonnull %.113591825) #12
-  br label %try_remove_trivial_phi.exit
+  br label %try_remove_trivial_phi.exit.sink.split
 
 2141:                                             ; preds = %.lr.ph1827
   %2142 = getelementptr inbounds i8, ptr %.113591825, i64 8
@@ -3798,10 +3797,14 @@ get_common_phi_source.exit.i:                     ; preds = %2163
 
 2165:                                             ; preds = %get_common_phi_source.exit.i
   tail call void @zend_ssa_rename_var_uses(ptr noundef %.val, i32 noundef %2132, i32 noundef %.1.i.i, i1 noundef zeroext true) #12
-  tail call void @zend_ssa_remove_phi(ptr noundef %.val, ptr noundef nonnull %.113591825) #12
+  br label %try_remove_trivial_phi.exit.sink.split
+
+try_remove_trivial_phi.exit.sink.split:           ; preds = %2140, %2165
+  %.val.sink = phi ptr [ %.val, %2165 ], [ %2, %2140 ]
+  tail call void @zend_ssa_remove_phi(ptr noundef %.val.sink, ptr noundef nonnull %.113591825) #12
   br label %try_remove_trivial_phi.exit
 
-try_remove_trivial_phi.exit:                      ; preds = %2162, %2165, %get_common_phi_source.exit.i, %2145, %2141, %2140
+try_remove_trivial_phi.exit:                      ; preds = %2162, %try_remove_trivial_phi.exit.sink.split, %get_common_phi_source.exit.i, %2145, %2141
   %.11359 = load ptr, ptr %.113591825, align 8
   %.not1484 = icmp eq ptr %.11359, null
   br i1 %.not1484, label %._crit_edge1828.loopexit, label %.lr.ph1827

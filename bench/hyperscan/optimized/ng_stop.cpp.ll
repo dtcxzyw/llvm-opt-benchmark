@@ -691,7 +691,7 @@ for.body54.lr.ph:                                 ; preds = %_ZNK3ue29CharReach1
   br i1 %cmp.not.i.i99, label %if.end.i.i, label %for.inc63
 
 if.end.i.i:                                       ; preds = %for.body54.lr.ph, %_ZNK3ue29CharReach9find_nextEm.exit
-  %c.068100 = phi i64 [ %retval.0.i.i31, %_ZNK3ue29CharReach9find_nextEm.exit ], [ %add.i.i, %for.body54.lr.ph ]
+  %c.068100 = phi i64 [ %add9.i.i, %_ZNK3ue29CharReach9find_nextEm.exit ], [ %add.i.i, %for.body54.lr.ph ]
   %div1.i.i.i = lshr i64 %c.068100, 6
   %rem.i.i = and i64 %c.068100, 63
   %cmp4.not.i.i32 = icmp eq i64 %rem.i.i, 63
@@ -710,8 +710,6 @@ if.then5.i.i:                                     ; preds = %if.end.i.i
 
 if.then7.i.i:                                     ; preds = %if.then5.i.i
   %mul.i.i34 = and i64 %c.068100, 192
-  %24 = call range(i64 1, 65) i64 @llvm.cttz.i64(i64 %and.i.i, i1 true)
-  %add9.i.i = or disjoint i64 %24, %mul.i.i34
   br label %_ZNK3ue29CharReach9find_nextEm.exit
 
 for.cond.i.i:                                     ; preds = %for.cond.i.i.preheader, %for.body.i.i35
@@ -722,27 +720,28 @@ for.cond.i.i:                                     ; preds = %for.cond.i.i.prehea
 for.body.i.i35:                                   ; preds = %for.cond.i.i
   %i.0.i.i = add nuw nsw i64 %i.0.in.i.i, 1
   %arrayidx.i.i13.i.i = getelementptr inbounds [4 x i64], ptr %cr, i64 0, i64 %i.0.i.i
-  %25 = load i64, ptr %arrayidx.i.i13.i.i, align 8
-  %tobool17.not.i.i = icmp eq i64 %25, 0
+  %24 = load i64, ptr %arrayidx.i.i13.i.i, align 8
+  %tobool17.not.i.i = icmp eq i64 %24, 0
   br i1 %tobool17.not.i.i, label %for.cond.i.i, label %if.then18.i.i, !llvm.loop !11
 
 if.then18.i.i:                                    ; preds = %for.body.i.i35
   %mul19.i.i = shl nuw nsw i64 %i.0.i.i, 6
-  %26 = call noundef range(i64 0, 65) i64 @llvm.cttz.i64(i64 %25, i1 true)
-  %add21.i.i = or disjoint i64 %26, %mul19.i.i
   br label %_ZNK3ue29CharReach9find_nextEm.exit
 
 _ZNK3ue29CharReach9find_nextEm.exit:              ; preds = %if.then7.i.i, %if.then18.i.i
-  %retval.0.i.i31 = phi i64 [ %add9.i.i, %if.then7.i.i ], [ %add21.i.i, %if.then18.i.i ]
-  %add.ptr.i30 = getelementptr inbounds i8, ptr %call5.i.i.i.i1.i.i27, i64 %retval.0.i.i31
-  %27 = load i8, ptr %add.ptr.i30, align 1
-  %conv58 = or i8 %27, %21
+  %and.i.i.sink = phi i64 [ %and.i.i, %if.then7.i.i ], [ %24, %if.then18.i.i ]
+  %mul.i.i34.sink = phi i64 [ %mul.i.i34, %if.then7.i.i ], [ %mul19.i.i, %if.then18.i.i ]
+  %25 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %and.i.i.sink, i1 true)
+  %add9.i.i = or disjoint i64 %25, %mul.i.i34.sink
+  %add.ptr.i30 = getelementptr inbounds i8, ptr %call5.i.i.i.i1.i.i27, i64 %add9.i.i
+  %26 = load i8, ptr %add.ptr.i30, align 1
+  %conv58 = or i8 %26, %21
   store i8 %conv58, ptr %add.ptr.i30, align 1
-  %cmp.not.i.i = icmp ult i64 %retval.0.i.i31, 256
+  %cmp.not.i.i = icmp ult i64 %mul.i.i34.sink, 256
   br i1 %cmp.not.i.i, label %if.end.i.i, label %for.inc63
 
 lpad39:                                           ; preds = %for.end36
-  %28 = landingpad { ptr, i32 }
+  %27 = landingpad { ptr, i32 }
           cleanup
   br label %_ZNSt6vectorIN3ue29CharReachESaIS1_EED2Ev.exit45
 
@@ -753,40 +752,40 @@ for.inc63:                                        ; preds = %for.inc.i.i, %_ZNK3
 
 _ZNSt6vectorIN3ue29CharReachESaIS1_EED2Ev.exit:   ; preds = %for.inc63
   call void @_ZdlPv(ptr noundef nonnull %call5.i.i.i.i2.i.i19) #15
-  %29 = load ptr, ptr %_M_parent.i.i.i.i.i, align 8
-  invoke void @_ZNSt8_Rb_treeIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_8NGHolderENS0_19NFAGraphVertexPropsENS0_17NFAGraphEdgePropsEEEEESt4pairIKS8_NS0_20BoundedRepeatSummaryEESt10_Select1stISC_ESt4lessIS8_ESaISC_EE8_M_eraseEPSt13_Rb_tree_nodeISC_E(ptr noundef nonnull align 8 dereferenceable(48) %no_vertices, ptr noundef %29)
+  %28 = load ptr, ptr %_M_parent.i.i.i.i.i, align 8
+  invoke void @_ZNSt8_Rb_treeIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_8NGHolderENS0_19NFAGraphVertexPropsENS0_17NFAGraphEdgePropsEEEEESt4pairIKS8_NS0_20BoundedRepeatSummaryEESt10_Select1stISC_ESt4lessIS8_ESaISC_EE8_M_eraseEPSt13_Rb_tree_nodeISC_E(ptr noundef nonnull align 8 dereferenceable(48) %no_vertices, ptr noundef %28)
           to label %_ZNSt3mapIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_8NGHolderENS0_19NFAGraphVertexPropsENS0_17NFAGraphEdgePropsEEEEENS0_20BoundedRepeatSummaryESt4lessIS8_ESaISt4pairIKS8_S9_EEED2Ev.exit unwind label %terminate.lpad.i.i
 
 terminate.lpad.i.i:                               ; preds = %_ZNSt6vectorIN3ue29CharReachESaIS1_EED2Ev.exit
-  %30 = landingpad { ptr, i32 }
+  %29 = landingpad { ptr, i32 }
           catch ptr null
-  %31 = extractvalue { ptr, i32 } %30, 0
-  call void @__clang_call_terminate(ptr %31) #17
+  %30 = extractvalue { ptr, i32 } %29, 0
+  call void @__clang_call_terminate(ptr %30) #17
   unreachable
 
 _ZNSt3mapIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_8NGHolderENS0_19NFAGraphVertexPropsENS0_17NFAGraphEdgePropsEEEEENS0_20BoundedRepeatSummaryESt4lessIS8_ESaISt4pairIKS8_S9_EEED2Ev.exit: ; preds = %_ZNSt6vectorIN3ue29CharReachESaIS1_EED2Ev.exit
-  %32 = load ptr, ptr %startDs.i, align 8
-  %tobool.not.i.i.i.i40 = icmp eq ptr %32, null
+  %31 = load ptr, ptr %startDs.i, align 8
+  %tobool.not.i.i.i.i40 = icmp eq ptr %31, null
   br i1 %tobool.not.i.i.i.i40, label %_ZNSt6vectorIN3ue211DepthMinMaxESaIS1_EED2Ev.exit.i42, label %if.then.i.i.i.i41
 
 if.then.i.i.i.i41:                                ; preds = %_ZNSt3mapIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_8NGHolderENS0_19NFAGraphVertexPropsENS0_17NFAGraphEdgePropsEEEEENS0_20BoundedRepeatSummaryESt4lessIS8_ESaISt4pairIKS8_S9_EEED2Ev.exit
-  call void @_ZdlPv(ptr noundef nonnull %32) #15
+  call void @_ZdlPv(ptr noundef nonnull %31) #15
   br label %_ZNSt6vectorIN3ue211DepthMinMaxESaIS1_EED2Ev.exit.i42
 
 _ZNSt6vectorIN3ue211DepthMinMaxESaIS1_EED2Ev.exit.i42: ; preds = %if.then.i.i.i.i41, %_ZNSt3mapIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_8NGHolderENS0_19NFAGraphVertexPropsENS0_17NFAGraphEdgePropsEEEEENS0_20BoundedRepeatSummaryESt4lessIS8_ESaISt4pairIKS8_S9_EEED2Ev.exit
-  %33 = load ptr, ptr %depths, align 8
-  %tobool.not.i.i.i1.i = icmp eq ptr %33, null
+  %32 = load ptr, ptr %depths, align 8
+  %tobool.not.i.i.i1.i = icmp eq ptr %32, null
   br i1 %tobool.not.i.i.i1.i, label %_ZN3ue212_GLOBAL__N_110InitDepthsD2Ev.exit, label %if.then.i.i.i2.i
 
 if.then.i.i.i2.i:                                 ; preds = %_ZNSt6vectorIN3ue211DepthMinMaxESaIS1_EED2Ev.exit.i42
-  call void @_ZdlPv(ptr noundef nonnull %33) #15
+  call void @_ZdlPv(ptr noundef nonnull %32) #15
   br label %_ZN3ue212_GLOBAL__N_110InitDepthsD2Ev.exit
 
 _ZN3ue212_GLOBAL__N_110InitDepthsD2Ev.exit:       ; preds = %_ZNSt6vectorIN3ue211DepthMinMaxESaIS1_EED2Ev.exit.i42, %if.then.i.i.i2.i
   ret void
 
 _ZNSt6vectorIN3ue29CharReachESaIS1_EED2Ev.exit45: ; preds = %lpad2.loopexit, %lpad2.loopexit.split-lp, %lpad39
-  %.pn = phi { ptr, i32 } [ %28, %lpad39 ], [ %lpad.loopexit, %lpad2.loopexit ], [ %lpad.loopexit.split-lp, %lpad2.loopexit.split-lp ]
+  %.pn = phi { ptr, i32 } [ %27, %lpad39 ], [ %lpad.loopexit, %lpad2.loopexit ], [ %lpad.loopexit.split-lp, %lpad2.loopexit.split-lp ]
   call void @_ZdlPv(ptr noundef nonnull %call5.i.i.i.i2.i.i19) #15
   br label %ehcleanup66
 
@@ -860,7 +859,7 @@ for.body.preheader:                               ; preds = %_ZNK3ue29CharReach1
   br i1 %cmp.not.i.i941, label %if.end.i.i, label %nrvo.skipdtor
 
 if.end.i.i:                                       ; preds = %for.body.preheader, %_ZNK3ue29CharReach9find_nextEm.exit
-  %c.02142 = phi i64 [ %retval.0.i.i10, %_ZNK3ue29CharReach9find_nextEm.exit ], [ %add.i.i, %for.body.preheader ]
+  %c.02142 = phi i64 [ %add9.i.i, %_ZNK3ue29CharReach9find_nextEm.exit ], [ %add.i.i, %for.body.preheader ]
   %div1.i.i.i = lshr i64 %c.02142, 6
   %rem.i.i = and i64 %c.02142, 63
   %cmp4.not.i.i11 = icmp eq i64 %rem.i.i, 63
@@ -879,8 +878,6 @@ if.then5.i.i:                                     ; preds = %if.end.i.i
 
 if.then7.i.i:                                     ; preds = %if.then5.i.i
   %mul.i.i13 = and i64 %c.02142, 192
-  %6 = tail call range(i64 1, 65) i64 @llvm.cttz.i64(i64 %and.i.i, i1 true)
-  %add9.i.i = or disjoint i64 %6, %mul.i.i13
   br label %_ZNK3ue29CharReach9find_nextEm.exit
 
 for.cond.i.i:                                     ; preds = %for.cond.i.i.preheader, %for.body.i.i14
@@ -891,23 +888,24 @@ for.cond.i.i:                                     ; preds = %for.cond.i.i.prehea
 for.body.i.i14:                                   ; preds = %for.cond.i.i
   %i.0.i.i = add nuw nsw i64 %i.0.in.i.i, 1
   %arrayidx.i.i13.i.i = getelementptr inbounds [4 x i64], ptr %escape, i64 0, i64 %i.0.i.i
-  %7 = load i64, ptr %arrayidx.i.i13.i.i, align 8
-  %tobool17.not.i.i = icmp eq i64 %7, 0
+  %6 = load i64, ptr %arrayidx.i.i13.i.i, align 8
+  %tobool17.not.i.i = icmp eq i64 %6, 0
   br i1 %tobool17.not.i.i, label %for.cond.i.i, label %if.then18.i.i, !llvm.loop !11
 
 if.then18.i.i:                                    ; preds = %for.body.i.i14
   %mul19.i.i = shl nuw nsw i64 %i.0.i.i, 6
-  %8 = tail call noundef range(i64 0, 65) i64 @llvm.cttz.i64(i64 %7, i1 true)
-  %add21.i.i = or disjoint i64 %8, %mul19.i.i
   br label %_ZNK3ue29CharReach9find_nextEm.exit
 
 _ZNK3ue29CharReach9find_nextEm.exit:              ; preds = %if.then7.i.i, %if.then18.i.i
-  %retval.0.i.i10 = phi i64 [ %add9.i.i, %if.then7.i.i ], [ %add21.i.i, %if.then18.i.i ]
-  %add.ptr.i = getelementptr inbounds i8, ptr %call5.i.i.i.i1.i.i7, i64 %retval.0.i.i10
-  %9 = load i8, ptr %add.ptr.i, align 1
-  %or4 = or i8 %9, %conv.i.i
+  %and.i.i.sink = phi i64 [ %and.i.i, %if.then7.i.i ], [ %6, %if.then18.i.i ]
+  %mul.i.i13.sink = phi i64 [ %mul.i.i13, %if.then7.i.i ], [ %mul19.i.i, %if.then18.i.i ]
+  %7 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %and.i.i.sink, i1 true)
+  %add9.i.i = or disjoint i64 %7, %mul.i.i13.sink
+  %add.ptr.i = getelementptr inbounds i8, ptr %call5.i.i.i.i1.i.i7, i64 %add9.i.i
+  %8 = load i8, ptr %add.ptr.i, align 1
+  %or4 = or i8 %8, %conv.i.i
   store i8 %or4, ptr %add.ptr.i, align 1
-  %cmp.not.i.i9 = icmp ult i64 %retval.0.i.i10, 256
+  %cmp.not.i.i9 = icmp ult i64 %mul.i.i13.sink, 256
   br i1 %cmp.not.i.i9, label %if.end.i.i, label %nrvo.skipdtor
 
 nrvo.skipdtor:                                    ; preds = %for.inc.i.i, %_ZNK3ue29CharReach9find_nextEm.exit, %for.cond.i.i, %for.body.preheader, %_ZNK3ue29CharReach10find_firstEv.exit

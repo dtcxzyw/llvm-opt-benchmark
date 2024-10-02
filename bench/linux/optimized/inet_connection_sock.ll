@@ -3749,8 +3749,7 @@ define internal void @reqsk_timer_handler(ptr noundef %0) #0 align 16 {
   %144 = getelementptr inbounds i8, ptr %137, i64 972
   tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; decl $0", "=*m,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %144, ptr elementtype(i32) %144) #12, !srcloc !35
   tail call fastcc void @reqsk_put(ptr noundef %3)
-  tail call fastcc void @reqsk_put(ptr noundef nonnull %27)
-  br label %181
+  br label %.sink.split
 
 145:                                              ; preds = %99, %.thread11
   %146 = icmp eq ptr %27, null
@@ -3821,10 +3820,14 @@ define internal void @reqsk_timer_handler(ptr noundef %0) #0 align 16 {
 .thread:                                          ; preds = %12, %9, %.thread8, %145
   %179 = load ptr, ptr %4, align 8
   %180 = tail call zeroext i1 @inet_csk_reqsk_queue_drop(ptr noundef %179, ptr noundef %3)
-  tail call fastcc void @reqsk_put(ptr noundef %3)
+  br label %.sink.split
+
+.sink.split:                                      ; preds = %143, %.thread
+  %.sink = phi ptr [ %3, %.thread ], [ %27, %143 ]
+  tail call fastcc void @reqsk_put(ptr noundef %.sink)
   br label %181
 
-181:                                              ; preds = %.thread, %143, %113
+181:                                              ; preds = %.sink.split, %113
   ret void
 }
 

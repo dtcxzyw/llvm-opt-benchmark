@@ -952,67 +952,60 @@ define internal fastcc void @Sim_SymmsBalanceCollect_rec(ptr noundef %0, ptr noc
   %.not21 = icmp eq i64 %4, 0
   br i1 %.not21, label %.lr.ph, label %tailrecurse._crit_edge
 
-tailrecurse._crit_edge:                           ; preds = %tailrecurse, %2
-  %.tr.lcssa = phi ptr [ %0, %2 ], [ %31, %tailrecurse ]
-  tail call fastcc void @Vec_PtrPushUnique(ptr noundef %1, ptr noundef %.tr.lcssa)
-  br label %33
-
 .lr.ph:                                           ; preds = %2, %tailrecurse
-  %.tr22 = phi ptr [ %31, %tailrecurse ], [ %0, %2 ]
+  %.tr22 = phi ptr [ %30, %tailrecurse ], [ %0, %2 ]
   %5 = getelementptr i8, ptr %.tr22, i64 20
   %.val = load i32, ptr %5, align 4
   %6 = and i32 %.val, 15
   switch i32 %6, label %tailrecurse [
-    i32 5, label %7
-    i32 2, label %7
+    i32 5, label %tailrecurse._crit_edge
+    i32 2, label %tailrecurse._crit_edge
   ]
-
-7:                                                ; preds = %.lr.ph, %.lr.ph
-  tail call fastcc void @Vec_PtrPushUnique(ptr noundef %1, ptr noundef nonnull %.tr22)
-  br label %33
 
 tailrecurse:                                      ; preds = %.lr.ph
   %.val.i = load ptr, ptr %.tr22, align 8
-  %8 = getelementptr i8, ptr %.tr22, i64 32
-  %.val2.i = load ptr, ptr %8, align 8
-  %9 = getelementptr i8, ptr %.val.i, i64 32
-  %.val.val.i = load ptr, ptr %9, align 8
+  %7 = getelementptr i8, ptr %.tr22, i64 32
+  %.val2.i = load ptr, ptr %7, align 8
+  %8 = getelementptr i8, ptr %.val.i, i64 32
+  %.val.val.i = load ptr, ptr %8, align 8
   %.val2.val.i = load i32, ptr %.val2.i, align 4
-  %10 = getelementptr i8, ptr %.val.val.i, i64 8
-  %.val.val.val.i = load ptr, ptr %10, align 8
-  %11 = sext i32 %.val2.val.i to i64
-  %12 = getelementptr inbounds ptr, ptr %.val.val.val.i, i64 %11
-  %13 = load ptr, ptr %12, align 8
-  %14 = lshr i32 %.val, 10
-  %15 = and i32 %14, 1
-  %16 = ptrtoint ptr %13 to i64
-  %17 = zext nneg i32 %15 to i64
-  %18 = xor i64 %16, %17
-  %19 = inttoptr i64 %18 to ptr
-  tail call fastcc void @Sim_SymmsBalanceCollect_rec(ptr noundef %19, ptr noundef %1)
+  %9 = getelementptr i8, ptr %.val.val.i, i64 8
+  %.val.val.val.i = load ptr, ptr %9, align 8
+  %10 = sext i32 %.val2.val.i to i64
+  %11 = getelementptr inbounds ptr, ptr %.val.val.val.i, i64 %10
+  %12 = load ptr, ptr %11, align 8
+  %13 = lshr i32 %.val, 10
+  %14 = and i32 %13, 1
+  %15 = ptrtoint ptr %12 to i64
+  %16 = zext nneg i32 %14 to i64
+  %17 = xor i64 %15, %16
+  %18 = inttoptr i64 %17 to ptr
+  tail call fastcc void @Sim_SymmsBalanceCollect_rec(ptr noundef %18, ptr noundef %1)
   %.val.i11 = load ptr, ptr %.tr22, align 8
-  %.val2.i12 = load ptr, ptr %8, align 8
-  %20 = getelementptr i8, ptr %.val.i11, i64 32
-  %.val.val.i13 = load ptr, ptr %20, align 8
-  %21 = getelementptr i8, ptr %.val2.i12, i64 4
-  %.val2.val.i14 = load i32, ptr %21, align 4
-  %22 = getelementptr i8, ptr %.val.val.i13, i64 8
-  %.val.val.val.i15 = load ptr, ptr %22, align 8
-  %23 = sext i32 %.val2.val.i14 to i64
-  %24 = getelementptr inbounds ptr, ptr %.val.val.val.i15, i64 %23
-  %25 = load ptr, ptr %24, align 8
+  %.val2.i12 = load ptr, ptr %7, align 8
+  %19 = getelementptr i8, ptr %.val.i11, i64 32
+  %.val.val.i13 = load ptr, ptr %19, align 8
+  %20 = getelementptr i8, ptr %.val2.i12, i64 4
+  %.val2.val.i14 = load i32, ptr %20, align 4
+  %21 = getelementptr i8, ptr %.val.val.i13, i64 8
+  %.val.val.val.i15 = load ptr, ptr %21, align 8
+  %22 = sext i32 %.val2.val.i14 to i64
+  %23 = getelementptr inbounds ptr, ptr %.val.val.val.i15, i64 %22
+  %24 = load ptr, ptr %23, align 8
   %.val3.i16 = load i32, ptr %5, align 4
-  %26 = lshr i32 %.val3.i16, 11
-  %27 = and i32 %26, 1
-  %28 = ptrtoint ptr %25 to i64
-  %29 = zext nneg i32 %27 to i64
-  %30 = xor i64 %29, %28
-  %31 = inttoptr i64 %30 to ptr
-  %32 = and i64 %30, 1
-  %.not = icmp eq i64 %32, 0
+  %25 = lshr i32 %.val3.i16, 11
+  %26 = and i32 %25, 1
+  %27 = ptrtoint ptr %24 to i64
+  %28 = zext nneg i32 %26 to i64
+  %29 = xor i64 %28, %27
+  %30 = inttoptr i64 %29 to ptr
+  %31 = and i64 %29, 1
+  %.not = icmp eq i64 %31, 0
   br i1 %.not, label %.lr.ph, label %tailrecurse._crit_edge
 
-33:                                               ; preds = %7, %tailrecurse._crit_edge
+tailrecurse._crit_edge:                           ; preds = %.lr.ph, %.lr.ph, %tailrecurse, %2
+  %.tr22.lcssa.sink = phi ptr [ %0, %2 ], [ %30, %tailrecurse ], [ %.tr22, %.lr.ph ], [ %.tr22, %.lr.ph ]
+  tail call fastcc void @Vec_PtrPushUnique(ptr noundef %1, ptr noundef %.tr22.lcssa.sink)
   ret void
 }
 

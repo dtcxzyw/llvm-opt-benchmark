@@ -1870,14 +1870,14 @@ _ZN4llvm5ErrorD2Ev.exit:                          ; preds = %_ZN4llvm6object14ge
 
 25:                                               ; preds = %_ZN4llvm6object14getElfArchTypeENS_9StringRefE.exit
   %trunc = trunc i16 %.sroa.0.0.i to i8
-  switch i8 %trunc, label %_ZN4llvm5ErrorD2Ev.exit38 [
+  switch i8 %trunc, label %_ZN4llvm5ErrorD2Ev.exit35 [
     i8 1, label %26
     i8 2, label %78
   ]
 
 26:                                               ; preds = %25
-  %trunc82 = trunc nuw i16 %.sroa.3.0.extract.shift to i8
-  switch i8 %trunc82, label %_ZN4llvm5ErrorD2Ev.exit20 [
+  %trunc75 = trunc nuw i16 %.sroa.3.0.extract.shift to i8
+  switch i8 %trunc75, label %_ZN4llvm5ErrorD2Ev.exit19 [
     i8 1, label %27
     i8 2, label %49
   ]
@@ -1994,7 +1994,7 @@ _ZNKSt14default_deleteIN4llvm13ErrorInfoBaseEEclEPS1_.exit.i.i.i15: ; preds = %5
   store i64 %53, ptr %0, align 8
   br label %_ZN4llvm8ExpectedISt10unique_ptrINS_6object13ELFObjectFileINS2_7ELFTypeILNS_10endiannessE1ELb0EEEEESt14default_deleteIS7_EEED2Ev.exit
 
-_ZN4llvm5ErrorD2Ev.exit20:                        ; preds = %26
+_ZN4llvm5ErrorD2Ev.exit19:                        ; preds = %26
   %71 = getelementptr inbounds nuw i8, ptr %9, i64 32
   %72 = getelementptr inbounds nuw i8, ptr %9, i64 33
   store i8 1, ptr %72, align 1
@@ -2011,8 +2011,8 @@ _ZN4llvm5ErrorD2Ev.exit20:                        ; preds = %26
   br label %_ZN4llvm8ExpectedISt10unique_ptrINS_6object13ELFObjectFileINS2_7ELFTypeILNS_10endiannessE1ELb0EEEEESt14default_deleteIS7_EEED2Ev.exit
 
 78:                                               ; preds = %25
-  %trunc81 = trunc nuw i16 %.sroa.3.0.extract.shift to i8
-  switch i8 %trunc81, label %_ZN4llvm5ErrorD2Ev.exit37 [
+  %trunc74 = trunc nuw i16 %.sroa.3.0.extract.shift to i8
+  switch i8 %trunc74, label %_ZN4llvm5ErrorD2Ev.exit34 [
     i8 1, label %79
     i8 2, label %101
   ]
@@ -2028,34 +2028,34 @@ _ZN4llvm5ErrorD2Ev.exit20:                        ; preds = %26
 _ZN4llvm8ExpectedINS_6object13ELFObjectFileINS1_7ELFTypeILNS_10endiannessE1ELb1EEEEEE9takeErrorEv.exit.i: ; preds = %79
   %83 = load i64, ptr %5, align 8, !noalias !45
   store ptr null, ptr %5, align 8, !noalias !45
-  %.not.i25 = icmp eq i64 %83, 0
-  br i1 %.not.i25, label %84, label %97
+  %.not.i24 = icmp eq i64 %83, 0
+  br i1 %.not.i24, label %84, label %97
 
 84:                                               ; preds = %_ZN4llvm8ExpectedINS_6object13ELFObjectFileINS1_7ELFTypeILNS_10endiannessE1ELb1EEEEEE9takeErrorEv.exit.i, %79
   %85 = call noalias noundef nonnull dereferenceable(184) ptr @_Znwm(i64 noundef 184) #19, !noalias !48
   call void @_ZN4llvm6object13ELFObjectFileINS0_7ELFTypeILNS_10endiannessE1ELb1EEEEC2EOS5_(ptr noundef nonnull align 8 dereferenceable(177) %85, ptr noundef nonnull align 8 dereferenceable(177) %5), !noalias !48
-  %.pre.i21 = load i8, ptr %80, align 8, !noalias !42
-  %.pre10.i22 = load ptr, ptr %5, align 8, !noalias !42
-  %86 = trunc i8 %.pre.i21 to i1
+  %.pre.i20 = load i8, ptr %80, align 8, !noalias !42
+  %.pre10.i21 = load ptr, ptr %5, align 8, !noalias !42
+  %86 = trunc i8 %.pre.i20 to i1
   br i1 %86, label %89, label %87
 
 87:                                               ; preds = %84
-  %88 = load ptr, ptr %.pre10.i22, align 8, !noalias !42
+  %88 = load ptr, ptr %.pre10.i21, align 8, !noalias !42
   call void %88(ptr noundef nonnull align 8 dereferenceable(177) %5) #18, !noalias !42
   br label %93
 
 89:                                               ; preds = %84
-  %.not.i.i.i23 = icmp eq ptr %.pre10.i22, null
-  br i1 %.not.i.i.i23, label %93, label %_ZNKSt14default_deleteIN4llvm13ErrorInfoBaseEEclEPS1_.exit.i.i.i24
+  %.not.i.i.i22 = icmp eq ptr %.pre10.i21, null
+  br i1 %.not.i.i.i22, label %93, label %_ZNKSt14default_deleteIN4llvm13ErrorInfoBaseEEclEPS1_.exit.i.i.i23
 
-_ZNKSt14default_deleteIN4llvm13ErrorInfoBaseEEclEPS1_.exit.i.i.i24: ; preds = %89
-  %90 = load ptr, ptr %.pre10.i22, align 8, !noalias !42
+_ZNKSt14default_deleteIN4llvm13ErrorInfoBaseEEclEPS1_.exit.i.i.i23: ; preds = %89
+  %90 = load ptr, ptr %.pre10.i21, align 8, !noalias !42
   %91 = getelementptr inbounds i8, ptr %90, i64 8
   %92 = load ptr, ptr %91, align 8, !noalias !42
-  call void %92(ptr noundef nonnull align 8 dereferenceable(8) %.pre10.i22) #18, !noalias !42
+  call void %92(ptr noundef nonnull align 8 dereferenceable(8) %.pre10.i21) #18, !noalias !42
   br label %93
 
-93:                                               ; preds = %89, %_ZNKSt14default_deleteIN4llvm13ErrorInfoBaseEEclEPS1_.exit.i.i.i24, %87
+93:                                               ; preds = %89, %_ZNKSt14default_deleteIN4llvm13ErrorInfoBaseEEclEPS1_.exit.i.i.i23, %87
   call void @llvm.lifetime.end.p0(i64 192, ptr nonnull %5)
   %94 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %95 = load i8, ptr %94, align 8
@@ -2084,34 +2084,34 @@ _ZNKSt14default_deleteIN4llvm13ErrorInfoBaseEEclEPS1_.exit.i.i.i24: ; preds = %8
 _ZN4llvm8ExpectedINS_6object13ELFObjectFileINS1_7ELFTypeILNS_10endiannessE0ELb1EEEEEE9takeErrorEv.exit.i: ; preds = %101
   %105 = load i64, ptr %4, align 8, !noalias !54
   store ptr null, ptr %4, align 8, !noalias !54
-  %.not.i33 = icmp eq i64 %105, 0
-  br i1 %.not.i33, label %106, label %119
+  %.not.i31 = icmp eq i64 %105, 0
+  br i1 %.not.i31, label %106, label %119
 
 106:                                              ; preds = %_ZN4llvm8ExpectedINS_6object13ELFObjectFileINS1_7ELFTypeILNS_10endiannessE0ELb1EEEEEE9takeErrorEv.exit.i, %101
   %107 = call noalias noundef nonnull dereferenceable(184) ptr @_Znwm(i64 noundef 184) #19, !noalias !57
   call void @_ZN4llvm6object13ELFObjectFileINS0_7ELFTypeILNS_10endiannessE0ELb1EEEEC2EOS5_(ptr noundef nonnull align 8 dereferenceable(177) %107, ptr noundef nonnull align 8 dereferenceable(177) %4), !noalias !57
-  %.pre.i29 = load i8, ptr %102, align 8, !noalias !51
-  %.pre10.i30 = load ptr, ptr %4, align 8, !noalias !51
-  %108 = trunc i8 %.pre.i29 to i1
+  %.pre.i27 = load i8, ptr %102, align 8, !noalias !51
+  %.pre10.i28 = load ptr, ptr %4, align 8, !noalias !51
+  %108 = trunc i8 %.pre.i27 to i1
   br i1 %108, label %111, label %109
 
 109:                                              ; preds = %106
-  %110 = load ptr, ptr %.pre10.i30, align 8, !noalias !51
+  %110 = load ptr, ptr %.pre10.i28, align 8, !noalias !51
   call void %110(ptr noundef nonnull align 8 dereferenceable(177) %4) #18, !noalias !51
   br label %115
 
 111:                                              ; preds = %106
-  %.not.i.i.i31 = icmp eq ptr %.pre10.i30, null
-  br i1 %.not.i.i.i31, label %115, label %_ZNKSt14default_deleteIN4llvm13ErrorInfoBaseEEclEPS1_.exit.i.i.i32
+  %.not.i.i.i29 = icmp eq ptr %.pre10.i28, null
+  br i1 %.not.i.i.i29, label %115, label %_ZNKSt14default_deleteIN4llvm13ErrorInfoBaseEEclEPS1_.exit.i.i.i30
 
-_ZNKSt14default_deleteIN4llvm13ErrorInfoBaseEEclEPS1_.exit.i.i.i32: ; preds = %111
-  %112 = load ptr, ptr %.pre10.i30, align 8, !noalias !51
+_ZNKSt14default_deleteIN4llvm13ErrorInfoBaseEEclEPS1_.exit.i.i.i30: ; preds = %111
+  %112 = load ptr, ptr %.pre10.i28, align 8, !noalias !51
   %113 = getelementptr inbounds i8, ptr %112, i64 8
   %114 = load ptr, ptr %113, align 8, !noalias !51
-  call void %114(ptr noundef nonnull align 8 dereferenceable(8) %.pre10.i30) #18, !noalias !51
+  call void %114(ptr noundef nonnull align 8 dereferenceable(8) %.pre10.i28) #18, !noalias !51
   br label %115
 
-115:                                              ; preds = %111, %_ZNKSt14default_deleteIN4llvm13ErrorInfoBaseEEclEPS1_.exit.i.i.i32, %109
+115:                                              ; preds = %111, %_ZNKSt14default_deleteIN4llvm13ErrorInfoBaseEEclEPS1_.exit.i.i.i30, %109
   call void @llvm.lifetime.end.p0(i64 192, ptr nonnull %4)
   %116 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %117 = load i8, ptr %116, align 8
@@ -2129,7 +2129,7 @@ _ZNKSt14default_deleteIN4llvm13ErrorInfoBaseEEclEPS1_.exit.i.i.i32: ; preds = %1
   store i64 %105, ptr %0, align 8
   br label %_ZN4llvm8ExpectedISt10unique_ptrINS_6object13ELFObjectFileINS2_7ELFTypeILNS_10endiannessE1ELb0EEEEESt14default_deleteIS7_EEED2Ev.exit
 
-_ZN4llvm5ErrorD2Ev.exit37:                        ; preds = %78
+_ZN4llvm5ErrorD2Ev.exit34:                        ; preds = %78
   %123 = getelementptr inbounds nuw i8, ptr %10, i64 32
   %124 = getelementptr inbounds nuw i8, ptr %10, i64 33
   store i8 1, ptr %124, align 1
@@ -2145,7 +2145,7 @@ _ZN4llvm5ErrorD2Ev.exit37:                        ; preds = %78
   store ptr %125, ptr %0, align 8, !alias.scope !67
   br label %_ZN4llvm8ExpectedISt10unique_ptrINS_6object13ELFObjectFileINS2_7ELFTypeILNS_10endiannessE1ELb0EEEEESt14default_deleteIS7_EEED2Ev.exit
 
-_ZN4llvm5ErrorD2Ev.exit38:                        ; preds = %25
+_ZN4llvm5ErrorD2Ev.exit35:                        ; preds = %25
   %130 = getelementptr inbounds nuw i8, ptr %11, i64 32
   %131 = getelementptr inbounds nuw i8, ptr %11, i64 33
   store i8 1, ptr %131, align 1
@@ -2161,7 +2161,7 @@ _ZN4llvm5ErrorD2Ev.exit38:                        ; preds = %25
   store ptr %132, ptr %0, align 8, !alias.scope !77
   br label %_ZN4llvm8ExpectedISt10unique_ptrINS_6object13ELFObjectFileINS2_7ELFTypeILNS_10endiannessE1ELb0EEEEESt14default_deleteIS7_EEED2Ev.exit
 
-_ZN4llvm8ExpectedISt10unique_ptrINS_6object13ELFObjectFileINS2_7ELFTypeILNS_10endiannessE1ELb0EEEEESt14default_deleteIS7_EEED2Ev.exit: ; preds = %115, %119, %93, %97, %63, %67, %41, %45, %_ZN4llvm5ErrorD2Ev.exit38, %_ZN4llvm5ErrorD2Ev.exit37, %_ZN4llvm5ErrorD2Ev.exit20, %_ZN4llvm5ErrorD2Ev.exit
+_ZN4llvm8ExpectedISt10unique_ptrINS_6object13ELFObjectFileINS2_7ELFTypeILNS_10endiannessE1ELb0EEEEESt14default_deleteIS7_EEED2Ev.exit: ; preds = %115, %119, %93, %97, %63, %67, %41, %45, %_ZN4llvm5ErrorD2Ev.exit35, %_ZN4llvm5ErrorD2Ev.exit34, %_ZN4llvm5ErrorD2Ev.exit19, %_ZN4llvm5ErrorD2Ev.exit
   ret void
 }
 

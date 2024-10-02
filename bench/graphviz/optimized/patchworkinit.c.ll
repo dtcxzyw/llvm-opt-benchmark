@@ -255,8 +255,8 @@ clist_append.exit:                                ; preds = %5
   %.not5 = icmp eq ptr %12, null
   br i1 %.not5, label %._crit_edge, label %.lr.ph
 
-.lr.ph:                                           ; preds = %11, %45
-  %.0176 = phi ptr [ %46, %45 ], [ %12, %11 ]
+.lr.ph:                                           ; preds = %11, %44
+  %.0176 = phi ptr [ %45, %44 ], [ %12, %11 ]
   %13 = call ptr @agnameof(ptr noundef nonnull %.0176) #12
   %14 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %13, ptr noundef nonnull dereferenceable(8) @.str.2, i64 noundef 7) #16
   %15 = icmp eq i32 %14, 0
@@ -315,89 +315,86 @@ clist_append.exit26:                              ; preds = %._crit_edge.i.i20, 
   %42 = load i64, ptr %.0.sroa.phi, align 8
   %43 = add i64 %42, 1
   store i64 %43, ptr %.0.sroa.phi, align 8
-  call fastcc void @mkClusters(ptr noundef nonnull %.0176, ptr noundef null)
-  br label %45
+  br label %44
 
-44:                                               ; preds = %.lr.ph
-  call fastcc void @mkClusters(ptr noundef nonnull %.0176, ptr noundef nonnull %.0)
-  br label %45
-
-45:                                               ; preds = %clist_append.exit26, %44
-  %46 = call ptr @agnxtsubg(ptr noundef nonnull %.0176) #12
-  %.not = icmp eq ptr %46, null
+44:                                               ; preds = %.lr.ph, %clist_append.exit26
+  %.sink = phi ptr [ null, %clist_append.exit26 ], [ %.0, %.lr.ph ]
+  call fastcc void @mkClusters(ptr noundef nonnull %.0176, ptr noundef %.sink)
+  %45 = call ptr @agnxtsubg(ptr noundef nonnull %.0176) #12
+  %.not = icmp eq ptr %45, null
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
-._crit_edge:                                      ; preds = %45, %11
-  br i1 %4, label %47, label %81
+._crit_edge:                                      ; preds = %44, %11
+  br i1 %4, label %46, label %80
 
-47:                                               ; preds = %._crit_edge
+46:                                               ; preds = %._crit_edge
   %.val = load i64, ptr %.0.sroa.gep, align 8
-  %48 = trunc i64 %.val to i32
-  %49 = add i32 %48, -1
-  %50 = getelementptr inbounds i8, ptr %0, i64 16
-  %51 = load ptr, ptr %50, align 8
-  %52 = getelementptr inbounds i8, ptr %51, i64 236
-  store i32 %49, ptr %52, align 4
-  %53 = icmp ugt i64 %.val, 1
-  br i1 %53, label %54, label %79
+  %47 = trunc i64 %.val to i32
+  %48 = add i32 %47, -1
+  %49 = getelementptr inbounds i8, ptr %0, i64 16
+  %50 = load ptr, ptr %49, align 8
+  %51 = getelementptr inbounds i8, ptr %50, i64 236
+  store i32 %48, ptr %51, align 4
+  %52 = icmp ugt i64 %.val, 1
+  br i1 %52, label %53, label %78
 
-54:                                               ; preds = %47
-  %55 = load i64, ptr %.0.sroa.gep3, align 8
-  %56 = icmp ugt i64 %55, %.val
-  br i1 %56, label %57, label %.clist_shrink_to_fit.exit_crit_edge
+53:                                               ; preds = %46
+  %54 = load i64, ptr %.0.sroa.gep3, align 8
+  %55 = icmp ugt i64 %54, %.val
+  br i1 %55, label %56, label %.clist_shrink_to_fit.exit_crit_edge
 
-.clist_shrink_to_fit.exit_crit_edge:              ; preds = %54
+.clist_shrink_to_fit.exit_crit_edge:              ; preds = %53
   %.pre = load ptr, ptr %3, align 8
   br label %clist_shrink_to_fit.exit
 
-57:                                               ; preds = %54
-  %58 = icmp ugt i64 %.val, 2305843009213693951
-  br i1 %58, label %59, label %62
+56:                                               ; preds = %53
+  %57 = icmp ugt i64 %.val, 2305843009213693951
+  br i1 %57, label %58, label %61
 
-59:                                               ; preds = %57
-  %60 = load ptr, ptr @stderr, align 8
-  %61 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %60, ptr noundef nonnull @.str.5, i64 noundef %.val, i64 noundef 8) #13
+58:                                               ; preds = %56
+  %59 = load ptr, ptr @stderr, align 8
+  %60 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %59, ptr noundef nonnull @.str.5, i64 noundef %.val, i64 noundef 8) #13
   call fastcc void @graphviz_exit() #14
   unreachable
 
-62:                                               ; preds = %57
-  %63 = load ptr, ptr %3, align 8
-  %64 = shl i64 %55, 3
-  %65 = shl nuw i64 %.val, 3
-  %66 = call ptr @realloc(ptr noundef %63, i64 noundef %65) #17
-  %67 = icmp eq ptr %66, null
-  br i1 %67, label %68, label %71
+61:                                               ; preds = %56
+  %62 = load ptr, ptr %3, align 8
+  %63 = shl i64 %54, 3
+  %64 = shl nuw i64 %.val, 3
+  %65 = call ptr @realloc(ptr noundef %62, i64 noundef %64) #17
+  %66 = icmp eq ptr %65, null
+  br i1 %66, label %67, label %70
 
-68:                                               ; preds = %62
-  %69 = load ptr, ptr @stderr, align 8
-  %70 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %69, ptr noundef nonnull @.str.6, i64 noundef %65) #13
+67:                                               ; preds = %61
+  %68 = load ptr, ptr @stderr, align 8
+  %69 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %68, ptr noundef nonnull @.str.6, i64 noundef %64) #13
   call fastcc void @graphviz_exit() #14
   unreachable
 
-71:                                               ; preds = %62
-  %72 = icmp ugt i64 %65, %64
-  br i1 %72, label %73, label %clist_shrink_to_fit.exit
+70:                                               ; preds = %61
+  %71 = icmp ugt i64 %64, %63
+  br i1 %71, label %72, label %clist_shrink_to_fit.exit
 
-73:                                               ; preds = %71
-  %74 = getelementptr inbounds i8, ptr %66, i64 %64
-  %75 = sub nuw i64 %65, %64
-  call void @llvm.memset.p0.i64(ptr nonnull align 1 %74, i8 0, i64 %75, i1 false)
+72:                                               ; preds = %70
+  %73 = getelementptr inbounds i8, ptr %65, i64 %63
+  %74 = sub nuw i64 %64, %63
+  call void @llvm.memset.p0.i64(ptr nonnull align 1 %73, i8 0, i64 %74, i1 false)
   br label %clist_shrink_to_fit.exit
 
-clist_shrink_to_fit.exit:                         ; preds = %71, %73, %.clist_shrink_to_fit.exit_crit_edge
-  %76 = phi ptr [ %.pre, %.clist_shrink_to_fit.exit_crit_edge ], [ %66, %73 ], [ %66, %71 ]
-  %77 = load ptr, ptr %50, align 8
-  %78 = getelementptr inbounds i8, ptr %77, i64 240
-  store ptr %76, ptr %78, align 8
-  br label %81
+clist_shrink_to_fit.exit:                         ; preds = %70, %72, %.clist_shrink_to_fit.exit_crit_edge
+  %75 = phi ptr [ %.pre, %.clist_shrink_to_fit.exit_crit_edge ], [ %65, %72 ], [ %65, %70 ]
+  %76 = load ptr, ptr %49, align 8
+  %77 = getelementptr inbounds i8, ptr %76, i64 240
+  store ptr %75, ptr %77, align 8
+  br label %80
 
-79:                                               ; preds = %47
+78:                                               ; preds = %46
   store i64 0, ptr %.0.sroa.gep, align 8
-  %80 = load ptr, ptr %3, align 8
-  call void @free(ptr noundef %80) #12
-  br label %81
+  %79 = load ptr, ptr %3, align 8
+  call void @free(ptr noundef %79) #12
+  br label %80
 
-81:                                               ; preds = %clist_shrink_to_fit.exit, %79, %._crit_edge
+80:                                               ; preds = %clist_shrink_to_fit.exit, %78, %._crit_edge
   ret void
 }
 

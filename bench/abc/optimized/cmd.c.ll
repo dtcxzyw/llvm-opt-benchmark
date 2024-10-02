@@ -1178,13 +1178,13 @@ define internal range(i32 0, 2) i32 @CmdCommandSetVariable(ptr noundef %0, i32 n
   tail call void (...) @Extra_UtilGetoptReset() #17
   %6 = tail call i32 @Extra_UtilGetopt(i32 noundef %1, ptr noundef %2, ptr noundef nonnull @.str.65) #17
   %.not = icmp eq i32 %6, -1
-  br i1 %.not, label %7, label %86
+  br i1 %.not, label %7, label %83
 
 7:                                                ; preds = %3
   %8 = icmp eq i32 %1, 0
   %9 = icmp sgt i32 %1, 3
   %or.cond = or i1 %8, %9
-  br i1 %or.cond, label %86, label %10
+  br i1 %or.cond, label %83, label %10
 
 10:                                               ; preds = %7
   %11 = icmp eq i32 %1, 1
@@ -1194,7 +1194,7 @@ define internal range(i32 0, 2) i32 @CmdCommandSetVariable(ptr noundef %0, i32 n
   %13 = getelementptr inbounds i8, ptr %0, i64 32
   %14 = load ptr, ptr %13, align 8
   tail call void @CmdPrintTable(ptr noundef %14, i32 noundef 0) #17
-  br label %94
+  br label %91
 
 15:                                               ; preds = %10
   %16 = getelementptr inbounds i8, ptr %2, i64 8
@@ -1228,129 +1228,125 @@ define internal range(i32 0, 2) i32 @CmdCommandSetVariable(ptr noundef %0, i32 n
 
 27:                                               ; preds = %26, %24, %15
   %28 = icmp eq i32 %1, 2
-  br i1 %28, label %29, label %31
+  br i1 %28, label %32, label %29
 
 29:                                               ; preds = %27
-  %30 = call ptr @Extra_UtilStrsav(ptr noundef nonnull @.str.95) #17
-  br label %35
+  %30 = getelementptr inbounds i8, ptr %2, i64 16
+  %31 = load ptr, ptr %30, align 8
+  br label %32
 
-31:                                               ; preds = %27
-  %32 = getelementptr inbounds i8, ptr %2, i64 16
-  %33 = load ptr, ptr %32, align 8
-  %34 = call ptr @Extra_UtilStrsav(ptr noundef %33) #17
-  br label %35
-
-35:                                               ; preds = %31, %29
-  %36 = phi ptr [ %30, %29 ], [ %34, %31 ]
-  %37 = load ptr, ptr %18, align 8
+32:                                               ; preds = %27, %29
+  %.sink = phi ptr [ %31, %29 ], [ @.str.95, %27 ]
+  %33 = call ptr @Extra_UtilStrsav(ptr noundef %.sink) #17
+  %34 = load ptr, ptr %18, align 8
+  %35 = load ptr, ptr %16, align 8
+  %36 = call ptr @Extra_UtilStrsav(ptr noundef %35) #17
+  %37 = call i32 @st__insert(ptr noundef %34, ptr noundef %36, ptr noundef %33) #17
   %38 = load ptr, ptr %16, align 8
-  %39 = call ptr @Extra_UtilStrsav(ptr noundef %38) #17
-  %40 = call i32 @st__insert(ptr noundef %37, ptr noundef %39, ptr noundef %36) #17
-  %41 = load ptr, ptr %16, align 8
-  %42 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %41, ptr noundef nonnull dereferenceable(7) @.str.96) #19
-  %43 = icmp eq i32 %42, 0
-  br i1 %43, label %44, label %56
+  %39 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %38, ptr noundef nonnull dereferenceable(7) @.str.96) #19
+  %40 = icmp eq i32 %39, 0
+  br i1 %40, label %41, label %53
 
-44:                                               ; preds = %35
-  %45 = getelementptr inbounds i8, ptr %0, i64 128
-  %46 = load ptr, ptr %45, align 8
-  %47 = load ptr, ptr @stdout, align 8
-  %.not56 = icmp eq ptr %46, %47
-  br i1 %.not56, label %50, label %48
+41:                                               ; preds = %32
+  %42 = getelementptr inbounds i8, ptr %0, i64 128
+  %43 = load ptr, ptr %42, align 8
+  %44 = load ptr, ptr @stdout, align 8
+  %.not56 = icmp eq ptr %43, %44
+  br i1 %.not56, label %47, label %45
 
-48:                                               ; preds = %44
-  %49 = call i32 @fclose(ptr noundef %46)
-  br label %50
+45:                                               ; preds = %41
+  %46 = call i32 @fclose(ptr noundef %43)
+  br label %47
 
-50:                                               ; preds = %48, %44
-  %strcmpload = load i8, ptr %36, align 1
-  %51 = icmp eq i8 %strcmpload, 0
-  %spec.store.select = select i1 %51, ptr @.str.97, ptr %36
-  %52 = call ptr @CmdFileOpen(ptr noundef nonnull %0, ptr noundef nonnull %spec.store.select, ptr noundef nonnull @.str.98, ptr noundef null, i32 noundef 0) #17
-  store ptr %52, ptr %45, align 8
-  %53 = icmp eq ptr %52, null
-  br i1 %53, label %54, label %56
+47:                                               ; preds = %45, %41
+  %strcmpload = load i8, ptr %33, align 1
+  %48 = icmp eq i8 %strcmpload, 0
+  %spec.store.select = select i1 %48, ptr @.str.97, ptr %33
+  %49 = call ptr @CmdFileOpen(ptr noundef nonnull %0, ptr noundef nonnull %spec.store.select, ptr noundef nonnull @.str.98, ptr noundef null, i32 noundef 0) #17
+  store ptr %49, ptr %42, align 8
+  %50 = icmp eq ptr %49, null
+  br i1 %50, label %51, label %53
 
-54:                                               ; preds = %50
-  %55 = load ptr, ptr @stdout, align 8
-  store ptr %55, ptr %45, align 8
-  br label %56
+51:                                               ; preds = %47
+  %52 = load ptr, ptr @stdout, align 8
+  store ptr %52, ptr %42, align 8
+  br label %53
 
-56:                                               ; preds = %50, %54, %35
-  %.046 = phi ptr [ %spec.store.select, %54 ], [ %spec.store.select, %50 ], [ %36, %35 ]
-  %57 = load ptr, ptr %16, align 8
-  %58 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %57, ptr noundef nonnull dereferenceable(7) @.str.99) #19
-  %59 = icmp eq i32 %58, 0
-  br i1 %59, label %60, label %72
+53:                                               ; preds = %47, %51, %32
+  %.046 = phi ptr [ %spec.store.select, %51 ], [ %spec.store.select, %47 ], [ %33, %32 ]
+  %54 = load ptr, ptr %16, align 8
+  %55 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %54, ptr noundef nonnull dereferenceable(7) @.str.99) #19
+  %56 = icmp eq i32 %55, 0
+  br i1 %56, label %57, label %69
 
-60:                                               ; preds = %56
-  %61 = getelementptr inbounds i8, ptr %0, i64 136
-  %62 = load ptr, ptr %61, align 8
-  %63 = load ptr, ptr @stderr, align 8
-  %.not57 = icmp eq ptr %62, %63
-  br i1 %.not57, label %66, label %64
+57:                                               ; preds = %53
+  %58 = getelementptr inbounds i8, ptr %0, i64 136
+  %59 = load ptr, ptr %58, align 8
+  %60 = load ptr, ptr @stderr, align 8
+  %.not57 = icmp eq ptr %59, %60
+  br i1 %.not57, label %63, label %61
 
-64:                                               ; preds = %60
-  %65 = call i32 @fclose(ptr noundef %62)
-  br label %66
+61:                                               ; preds = %57
+  %62 = call i32 @fclose(ptr noundef %59)
+  br label %63
 
-66:                                               ; preds = %64, %60
+63:                                               ; preds = %61, %57
   %strcmpload58 = load i8, ptr %.046, align 1
-  %67 = icmp eq i8 %strcmpload58, 0
-  %spec.store.select2 = select i1 %67, ptr @.str.97, ptr %.046
-  %68 = call ptr @CmdFileOpen(ptr noundef nonnull %0, ptr noundef nonnull %spec.store.select2, ptr noundef nonnull @.str.98, ptr noundef null, i32 noundef 0) #17
-  store ptr %68, ptr %61, align 8
-  %69 = icmp eq ptr %68, null
-  br i1 %69, label %70, label %72
+  %64 = icmp eq i8 %strcmpload58, 0
+  %spec.store.select2 = select i1 %64, ptr @.str.97, ptr %.046
+  %65 = call ptr @CmdFileOpen(ptr noundef nonnull %0, ptr noundef nonnull %spec.store.select2, ptr noundef nonnull @.str.98, ptr noundef null, i32 noundef 0) #17
+  store ptr %65, ptr %58, align 8
+  %66 = icmp eq ptr %65, null
+  br i1 %66, label %67, label %69
 
-70:                                               ; preds = %66
-  %71 = load ptr, ptr @stderr, align 8
-  store ptr %71, ptr %61, align 8
-  br label %72
+67:                                               ; preds = %63
+  %68 = load ptr, ptr @stderr, align 8
+  store ptr %68, ptr %58, align 8
+  br label %69
 
-72:                                               ; preds = %66, %70, %56
-  %.1 = phi ptr [ %spec.store.select2, %70 ], [ %spec.store.select2, %66 ], [ %.046, %56 ]
-  %73 = load ptr, ptr %16, align 8
-  %74 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %73, ptr noundef nonnull dereferenceable(8) @.str.6) #19
-  %75 = icmp eq i32 %74, 0
-  br i1 %75, label %76, label %94
+69:                                               ; preds = %63, %67, %53
+  %.1 = phi ptr [ %spec.store.select2, %67 ], [ %spec.store.select2, %63 ], [ %.046, %53 ]
+  %70 = load ptr, ptr %16, align 8
+  %71 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %70, ptr noundef nonnull dereferenceable(8) @.str.6) #19
+  %72 = icmp eq i32 %71, 0
+  br i1 %72, label %73, label %91
 
-76:                                               ; preds = %72
-  %77 = getelementptr inbounds i8, ptr %0, i64 144
-  %78 = load ptr, ptr %77, align 8
-  %.not59 = icmp eq ptr %78, null
-  br i1 %.not59, label %81, label %79
+73:                                               ; preds = %69
+  %74 = getelementptr inbounds i8, ptr %0, i64 144
+  %75 = load ptr, ptr %74, align 8
+  %.not59 = icmp eq ptr %75, null
+  br i1 %.not59, label %78, label %76
 
-79:                                               ; preds = %76
-  %80 = call i32 @fclose(ptr noundef nonnull %78)
-  br label %81
+76:                                               ; preds = %73
+  %77 = call i32 @fclose(ptr noundef nonnull %75)
+  br label %78
 
-81:                                               ; preds = %79, %76
+78:                                               ; preds = %76, %73
   %strcmpload60 = load i8, ptr %.1, align 1
-  %82 = icmp eq i8 %strcmpload60, 0
-  br i1 %82, label %83, label %84
+  %79 = icmp eq i8 %strcmpload60, 0
+  br i1 %79, label %80, label %81
 
-83:                                               ; preds = %81
-  store ptr null, ptr %77, align 8
-  br label %94
+80:                                               ; preds = %78
+  store ptr null, ptr %74, align 8
+  br label %91
 
-84:                                               ; preds = %81
-  %85 = call ptr @CmdFileOpen(ptr noundef nonnull %0, ptr noundef nonnull %.1, ptr noundef nonnull @.str.98, ptr noundef null, i32 noundef 0) #17
-  store ptr %85, ptr %77, align 8
-  br label %94
+81:                                               ; preds = %78
+  %82 = call ptr @CmdFileOpen(ptr noundef nonnull %0, ptr noundef nonnull %.1, ptr noundef nonnull @.str.98, ptr noundef null, i32 noundef 0) #17
+  store ptr %82, ptr %74, align 8
+  br label %91
 
-86:                                               ; preds = %7, %3
-  %87 = getelementptr inbounds i8, ptr %0, i64 136
-  %88 = load ptr, ptr %87, align 8
-  %89 = tail call i64 @fwrite(ptr nonnull @.str.100, i64 31, i64 1, ptr %88)
-  %90 = load ptr, ptr %87, align 8
-  %91 = tail call i64 @fwrite(ptr nonnull @.str.101, i64 44, i64 1, ptr %90)
-  %92 = load ptr, ptr %87, align 8
-  %93 = tail call i64 @fwrite(ptr nonnull @.str.71, i64 33, i64 1, ptr %92)
-  br label %94
+83:                                               ; preds = %7, %3
+  %84 = getelementptr inbounds i8, ptr %0, i64 136
+  %85 = load ptr, ptr %84, align 8
+  %86 = tail call i64 @fwrite(ptr nonnull @.str.100, i64 31, i64 1, ptr %85)
+  %87 = load ptr, ptr %84, align 8
+  %88 = tail call i64 @fwrite(ptr nonnull @.str.101, i64 44, i64 1, ptr %87)
+  %89 = load ptr, ptr %84, align 8
+  %90 = tail call i64 @fwrite(ptr nonnull @.str.71, i64 33, i64 1, ptr %89)
+  br label %91
 
-94:                                               ; preds = %84, %72, %83, %86, %12
-  %.0 = phi i32 [ 1, %86 ], [ 0, %12 ], [ 0, %83 ], [ 0, %84 ], [ 0, %72 ]
+91:                                               ; preds = %81, %69, %80, %83, %12
+  %.0 = phi i32 [ 1, %83 ], [ 0, %12 ], [ 0, %80 ], [ 0, %81 ], [ 0, %69 ]
   ret i32 %.0
 }
 

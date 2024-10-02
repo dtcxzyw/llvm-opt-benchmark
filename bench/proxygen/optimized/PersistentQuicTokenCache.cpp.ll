@@ -7192,23 +7192,16 @@ if.end.i4:                                        ; preds = %call.i.noexc
   %retval.sroa.0.0.copyload.i.i.i.i.i = load i64, ptr %deadline, align 8
   store i64 %retval.sroa.0.0.copyload.i.i.i.i.i, ptr %converted.i.i, align 8
   %cmp.i.i.i.i = icmp eq i64 %retval.sroa.0.0.copyload.i.i.i.i.i, 9223372036854775807
-  br i1 %cmp.i.i.i.i, label %cond.true.i.i, label %cond.false.i.i
+  %.converted.i.i = select i1 %cmp.i.i.i.i, ptr null, ptr %converted.i.i
+  %call6.i.i7 = invoke noundef i32 @_ZN5folly6detail13futexWaitImplEPKSt6atomicIjEjPKNSt6chrono10time_pointINS5_3_V212system_clockENS5_8durationIlSt5ratioILl1ELl1000000000EEEEEEPKNS6_INS7_12steady_clockESC_EEj(ptr noundef nonnull %this, i32 noundef 2, ptr noundef null, ptr noundef %.converted.i.i, i32 noundef -1)
+          to label %call6.i.i.noexc unwind label %terminate.lpad
 
-cond.true.i.i:                                    ; preds = %if.end.i4
-  %call6.i.i7 = invoke noundef i32 @_ZN5folly6detail13futexWaitImplEPKSt6atomicIjEjPKNSt6chrono10time_pointINS5_3_V212system_clockENS5_8durationIlSt5ratioILl1ELl1000000000EEEEEEPKNS6_INS7_12steady_clockESC_EEj(ptr noundef nonnull %this, i32 noundef 2, ptr noundef null, ptr noundef null, i32 noundef -1)
-          to label %_ZN5folly6detail14futexWaitUntilISt6atomicIjENSt6chrono3_V212steady_clockENS4_8durationIlSt5ratioILl1ELl1000000000EEEEEENS0_11FutexResultEPKT_jRKNS4_10time_pointIT0_T1_EEj.exit.i unwind label %terminate.lpad
-
-cond.false.i.i:                                   ; preds = %if.end.i4
-  %call.i.i.i8 = invoke noundef i32 @_ZN5folly6detail13futexWaitImplEPKSt6atomicIjEjPKNSt6chrono10time_pointINS5_3_V212system_clockENS5_8durationIlSt5ratioILl1ELl1000000000EEEEEEPKNS6_INS7_12steady_clockESC_EEj(ptr noundef nonnull %this, i32 noundef 2, ptr noundef null, ptr noundef nonnull %converted.i.i, i32 noundef -1)
-          to label %_ZN5folly6detail14futexWaitUntilISt6atomicIjENSt6chrono3_V212steady_clockENS4_8durationIlSt5ratioILl1ELl1000000000EEEEEENS0_11FutexResultEPKT_jRKNS4_10time_pointIT0_T1_EEj.exit.i unwind label %terminate.lpad
-
-_ZN5folly6detail14futexWaitUntilISt6atomicIjENSt6chrono3_V212steady_clockENS4_8durationIlSt5ratioILl1ELl1000000000EEEEEENS0_11FutexResultEPKT_jRKNS4_10time_pointIT0_T1_EEj.exit.i: ; preds = %cond.false.i.i, %cond.true.i.i
-  %cond.i.i = phi i32 [ %call6.i.i7, %cond.true.i.i ], [ %call.i.i.i8, %cond.false.i.i ]
+call6.i.i.noexc:                                  ; preds = %if.end.i4
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %converted.i.i)
   br label %invoke.cont14
 
-invoke.cont14:                                    ; preds = %_ZN5folly6detail14futexWaitUntilISt6atomicIjENSt6chrono3_V212steady_clockENS4_8durationIlSt5ratioILl1ELl1000000000EEEEEENS0_11FutexResultEPKT_jRKNS4_10time_pointIT0_T1_EEj.exit.i, %if.then.i
-  %retval.0.i5 = phi i32 [ %8, %if.then.i ], [ %cond.i.i, %_ZN5folly6detail14futexWaitUntilISt6atomicIjENSt6chrono3_V212steady_clockENS4_8durationIlSt5ratioILl1ELl1000000000EEEEEENS0_11FutexResultEPKT_jRKNS4_10time_pointIT0_T1_EEj.exit.i ]
+invoke.cont14:                                    ; preds = %call6.i.i.noexc, %if.then.i
+  %retval.0.i5 = phi i32 [ %8, %if.then.i ], [ %call6.i.i7, %call6.i.i.noexc ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %pre.i)
   %cmp16.not.not = icmp ne i32 %retval.0.i5, 3
   br i1 %cmp16.not.not, label %if.end18, label %return
@@ -7222,7 +7215,7 @@ return:                                           ; preds = %if.end37.i, %if.end
   %retval.0 = phi i1 [ false, %if.end11.i ], [ true, %if.end.i ], [ true, %if.end14.i ], [ %cmp16.not.not, %invoke.cont14 ], [ %cmp16.not.not, %if.end18 ], [ true, %while.body ], [ %cmp.i.i.i.not.i, %if.end20.i ], [ %cmp.i.i.i.not.i, %if.end37.i ]
   ret i1 %retval.0
 
-terminate.lpad:                                   ; preds = %cond.false.i.i, %cond.true.i.i, %while.cond9
+terminate.lpad:                                   ; preds = %if.end.i4, %while.cond9
   %10 = landingpad { ptr, i32 }
           catch ptr null
   %11 = extractvalue { ptr, i32 } %10, 0

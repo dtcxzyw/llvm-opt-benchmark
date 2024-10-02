@@ -745,7 +745,7 @@ if.end5.i:                                        ; preds = %if.end12
   %call.i.i = tail call ptr @OPENSSL_sk_new_null() #7
   store ptr %call.i.i, ptr %regInfo.i, align 8
   %cmp7.i = icmp eq ptr %call.i.i, null
-  br i1 %cmp7.i, label %err.split.i, label %if.end9.i
+  br i1 %cmp7.i, label %OSSL_CRMF_MSG_push0_regInfo.exit, label %if.end9.i
 
 if.end9.i:                                        ; preds = %if.end5.i
   %call.i8.i = tail call i32 @OPENSSL_sk_push(ptr noundef nonnull %call.i.i, ptr noundef nonnull %call) #7
@@ -755,19 +755,19 @@ if.end9.i:                                        ; preds = %if.end5.i
 if.end9.thread.i:                                 ; preds = %if.end12
   %call.i816.i = tail call i32 @OPENSSL_sk_push(ptr noundef nonnull %0, ptr noundef nonnull %call) #7
   %tobool.not17.i = icmp eq i32 %call.i816.i, 0
-  br i1 %tobool.not17.i, label %err.split.i, label %return
-
-err.split.i:                                      ; preds = %if.end9.thread.i, %if.end5.i
-  tail call void @OPENSSL_sk_free(ptr noundef null) #7
-  br label %err
+  br i1 %tobool.not17.i, label %OSSL_CRMF_MSG_push0_regInfo.exit, label %return
 
 if.then15.i:                                      ; preds = %if.end9.i
   store ptr null, ptr %regInfo.i, align 8
-  tail call void @OPENSSL_sk_free(ptr noundef nonnull %call.i.i) #7
+  br label %OSSL_CRMF_MSG_push0_regInfo.exit
+
+OSSL_CRMF_MSG_push0_regInfo.exit:                 ; preds = %if.end5.i, %if.end9.thread.i, %if.then15.i
+  %call.i.sink.i = phi ptr [ %call.i.i, %if.then15.i ], [ null, %if.end9.thread.i ], [ null, %if.end5.i ]
+  tail call void @OPENSSL_sk_free(ptr noundef %call.i.sink.i) #7
   br label %err
 
-err:                                              ; preds = %if.then15.i, %err.split.i, %if.end8, %if.end4, %if.end, %entry
-  %atav.0 = phi ptr [ null, %entry ], [ null, %if.end ], [ %call, %if.end4 ], [ %call, %if.end8 ], [ %call, %err.split.i ], [ %call, %if.then15.i ]
+err:                                              ; preds = %OSSL_CRMF_MSG_push0_regInfo.exit, %if.end8, %if.end4, %if.end, %entry
+  %atav.0 = phi ptr [ null, %entry ], [ null, %if.end ], [ %call, %if.end4 ], [ %call, %if.end8 ], [ %call, %OSSL_CRMF_MSG_push0_regInfo.exit ]
   tail call void @OSSL_CRMF_ATTRIBUTETYPEANDVALUE_free(ptr noundef %atav.0) #7
   br label %return
 
@@ -854,7 +854,7 @@ if.end5.i:                                        ; preds = %if.end12
   %call.i.i = tail call ptr @OPENSSL_sk_new_null() #7
   store ptr %call.i.i, ptr %regInfo.i, align 8
   %cmp7.i = icmp eq ptr %call.i.i, null
-  br i1 %cmp7.i, label %err.split.i, label %if.end9.i
+  br i1 %cmp7.i, label %OSSL_CRMF_MSG_push0_regInfo.exit, label %if.end9.i
 
 if.end9.i:                                        ; preds = %if.end5.i
   %call.i8.i = tail call i32 @OPENSSL_sk_push(ptr noundef nonnull %call.i.i, ptr noundef nonnull %call) #7
@@ -864,19 +864,19 @@ if.end9.i:                                        ; preds = %if.end5.i
 if.end9.thread.i:                                 ; preds = %if.end12
   %call.i816.i = tail call i32 @OPENSSL_sk_push(ptr noundef nonnull %0, ptr noundef nonnull %call) #7
   %tobool.not17.i = icmp eq i32 %call.i816.i, 0
-  br i1 %tobool.not17.i, label %err.split.i, label %return
-
-err.split.i:                                      ; preds = %if.end9.thread.i, %if.end5.i
-  tail call void @OPENSSL_sk_free(ptr noundef null) #7
-  br label %err
+  br i1 %tobool.not17.i, label %OSSL_CRMF_MSG_push0_regInfo.exit, label %return
 
 if.then15.i:                                      ; preds = %if.end9.i
   store ptr null, ptr %regInfo.i, align 8
-  tail call void @OPENSSL_sk_free(ptr noundef nonnull %call.i.i) #7
+  br label %OSSL_CRMF_MSG_push0_regInfo.exit
+
+OSSL_CRMF_MSG_push0_regInfo.exit:                 ; preds = %if.end5.i, %if.end9.thread.i, %if.then15.i
+  %call.i.sink.i = phi ptr [ %call.i.i, %if.then15.i ], [ null, %if.end9.thread.i ], [ null, %if.end5.i ]
+  tail call void @OPENSSL_sk_free(ptr noundef %call.i.sink.i) #7
   br label %err
 
-err:                                              ; preds = %if.then15.i, %err.split.i, %if.end8, %if.end4, %if.end, %entry
-  %atav.0 = phi ptr [ null, %entry ], [ null, %if.end ], [ %call, %if.end4 ], [ %call, %if.end8 ], [ %call, %err.split.i ], [ %call, %if.then15.i ]
+err:                                              ; preds = %OSSL_CRMF_MSG_push0_regInfo.exit, %if.end8, %if.end4, %if.end, %entry
+  %atav.0 = phi ptr [ null, %entry ], [ null, %if.end ], [ %call, %if.end4 ], [ %call, %if.end8 ], [ %call, %OSSL_CRMF_MSG_push0_regInfo.exit ]
   tail call void @OSSL_CRMF_ATTRIBUTETYPEANDVALUE_free(ptr noundef %atav.0) #7
   br label %return
 

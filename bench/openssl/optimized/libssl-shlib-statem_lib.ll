@@ -1035,18 +1035,18 @@ if.end105:                                        ; preds = %if.end101
 
 if.end109:                                        ; preds = %if.end105
   call void @CRYPTO_free(ptr noundef nonnull %sig.1, ptr noundef nonnull @.str, i32 noundef 432) #11
-  call void @EVP_MD_CTX_free(ptr noundef nonnull %call11) #11
   br label %return
 
 err:                                              ; preds = %if.end105, %if.end14, %if.then104, %if.then88, %if.then79, %if.then74, %if.then65, %if.then45, %if.then32, %if.then24, %if.then13, %if.then9, %if.then
   %sig.0 = phi ptr [ null, %if.then ], [ null, %if.then9 ], [ null, %if.then13 ], [ null, %if.then32 ], [ null, %if.then45 ], [ null, %if.then65 ], [ %call67, %if.then74 ], [ %sig.1, %if.end105 ], [ %sig.1, %if.then104 ], [ null, %if.then79 ], [ %call81, %if.then88 ], [ null, %if.then24 ], [ null, %if.end14 ]
   %mctx.0 = phi ptr [ null, %if.then ], [ null, %if.then9 ], [ null, %if.then13 ], [ %call11, %if.then32 ], [ %call11, %if.then45 ], [ %call11, %if.then65 ], [ %call11, %if.then74 ], [ %call11, %if.end105 ], [ %call11, %if.then104 ], [ %call11, %if.then79 ], [ %call11, %if.then88 ], [ %call11, %if.then24 ], [ %call11, %if.end14 ]
   call void @CRYPTO_free(ptr noundef %sig.0, ptr noundef nonnull @.str, i32 noundef 436) #11
-  call void @EVP_MD_CTX_free(ptr noundef %mctx.0) #11
   br label %return
 
 return:                                           ; preds = %err, %if.end109
+  %mctx.0.sink = phi ptr [ %mctx.0, %err ], [ %call11, %if.end109 ]
   %retval.0 = phi i32 [ 0, %err ], [ 1, %if.end109 ]
+  call void @EVP_MD_CTX_free(ptr noundef %mctx.0.sink) #11
   ret i32 %retval.0
 }
 

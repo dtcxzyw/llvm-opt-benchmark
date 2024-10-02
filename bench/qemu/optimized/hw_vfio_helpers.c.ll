@@ -1546,13 +1546,13 @@ if.end:                                           ; preds = %for.body
   %2 = load i32, ptr %flags.i, align 4
   %and.i = and i32 %2, 8
   %tobool.not.i = icmp eq i32 %and.i, 0
-  br i1 %tobool.not.i, label %if.then3, label %if.end.i
+  br i1 %tobool.not.i, label %for.inc.sink.split, label %if.end.i
 
 if.end.i:                                         ; preds = %if.end
   %cap_offset.i = getelementptr inbounds i8, ptr %1, i64 12
   %3 = load i32, ptr %cap_offset.i, align 4
   %cmp.not8.i.i = icmp eq i32 %3, 0
-  br i1 %cmp.not8.i.i, label %if.then3, label %for.body.i.i
+  br i1 %cmp.not8.i.i, label %for.inc.sink.split, label %for.body.i.i
 
 for.body.i.i:                                     ; preds = %if.end.i, %for.inc.i.i
   %idx.ext.pn.pn.in.i.i = phi i32 [ %5, %for.inc.i.i ], [ %3, %if.end.i ]
@@ -1566,11 +1566,7 @@ for.inc.i.i:                                      ; preds = %for.body.i.i
   %next.i.i = getelementptr inbounds i8, ptr %hdr.09.i.i, i64 4
   %5 = load i32, ptr %next.i.i, align 4
   %cmp.not.i.i = icmp eq i32 %5, 0
-  br i1 %cmp.not.i.i, label %if.then3, label %for.body.i.i, !llvm.loop !5
-
-if.then3:                                         ; preds = %for.inc.i.i, %if.end.i, %if.end
-  tail call void @g_free(ptr noundef nonnull %1) #11
-  br label %for.inc
+  br i1 %cmp.not.i.i, label %for.inc.sink.split, label %for.body.i.i, !llvm.loop !5
 
 if.end4:                                          ; preds = %for.body.i.i
   %6 = load ptr, ptr %name, align 8
@@ -1622,10 +1618,14 @@ land.lhs.true:                                    ; preds = %trace_vfio_get_dev_
 
 if.end12:                                         ; preds = %land.lhs.true, %trace_vfio_get_dev_region.exit
   %17 = load ptr, ptr %info, align 8
-  tail call void @g_free(ptr noundef %17) #11
+  br label %for.inc.sink.split
+
+for.inc.sink.split:                               ; preds = %for.inc.i.i, %if.end, %if.end.i, %if.end12
+  %.sink = phi ptr [ %17, %if.end12 ], [ %1, %if.end.i ], [ %1, %if.end ], [ %1, %for.inc.i.i ]
+  tail call void @g_free(ptr noundef %.sink) #11
   br label %for.inc
 
-for.inc:                                          ; preds = %for.body, %if.end12, %if.then3
+for.inc:                                          ; preds = %for.inc.sink.split, %for.body
   %inc = add nuw i32 %i.018, 1
   %18 = load i32, ptr %num_regions, align 4
   %cmp = icmp ult i32 %inc, %18

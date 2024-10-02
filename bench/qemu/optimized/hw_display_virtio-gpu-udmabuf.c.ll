@@ -185,17 +185,13 @@ while.end21.i.i:                                  ; preds = %while.end.i27.i
 
 rcu_read_unlock.exit.i:                           ; preds = %while.end21.i.i, %while.end.i27.i, %if.end.i.i
   %tobool.not.i = icmp eq ptr %call5.i, null
-  br i1 %tobool.not.i, label %if.then8.i, label %lor.lhs.false.i
+  br i1 %tobool.not.i, label %return.sink.split.i, label %lor.lhs.false.i
 
 lor.lhs.false.i:                                  ; preds = %rcu_read_unlock.exit.i
   %fd.i = getelementptr inbounds i8, ptr %call5.i, i64 360
   %12 = load i32, ptr %fd.i, align 8
   %cmp6.i = icmp slt i32 %12, 0
-  br i1 %cmp6.i, label %if.then8.i, label %if.end9.i
-
-if.then8.i:                                       ; preds = %lor.lhs.false.i, %rcu_read_unlock.exit.i
-  call void @g_free(ptr noundef %call1.i) #9
-  br label %virtio_gpu_create_udmabuf.exit
+  br i1 %cmp6.i, label %return.sink.split.i, label %if.end9.i
 
 if.end9.i:                                        ; preds = %lor.lhs.false.i
   %arrayidx13.i = getelementptr [0 x %struct.udmabuf_create_item], ptr %list11.i, i64 0, i64 %idxprom.i
@@ -221,20 +217,20 @@ for.end.i:                                        ; preds = %if.end9.i, %if.end.
   %call25.i = call i32 (i32, i64, ...) @ioctl(i32 noundef %call.i, i64 noundef 1074296131, ptr noundef nonnull %call1.i) #9
   store i32 %call25.i, ptr %dmabuf_fd, align 8
   %cmp27.i = icmp slt i32 %call25.i, 0
-  br i1 %cmp27.i, label %if.then29.i, label %if.end32.i
+  br i1 %cmp27.i, label %if.then29.i, label %return.sink.split.i
 
 if.then29.i:                                      ; preds = %for.end.i
   %call30.i = tail call ptr @__errno_location() #12
   %17 = load i32, ptr %call30.i, align 4
   %call31.i = call ptr @strerror(i32 noundef %17) #9
   call void (ptr, ...) @warn_report(ptr noundef nonnull @.str.3, ptr noundef nonnull @__func__.virtio_gpu_create_udmabuf, ptr noundef %call31.i) #9
-  br label %if.end32.i
+  br label %return.sink.split.i
 
-if.end32.i:                                       ; preds = %if.then29.i, %for.end.i
-  call void @g_free(ptr noundef nonnull %call1.i) #9
+return.sink.split.i:                              ; preds = %lor.lhs.false.i, %rcu_read_unlock.exit.i, %if.then29.i, %for.end.i
+  call void @g_free(ptr noundef %call1.i) #9
   br label %virtio_gpu_create_udmabuf.exit
 
-virtio_gpu_create_udmabuf.exit:                   ; preds = %if.else, %if.then8.i, %if.end32.i
+virtio_gpu_create_udmabuf.exit:                   ; preds = %if.else, %return.sink.split.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %offset.i)
   %18 = load i32, ptr %dmabuf_fd, align 8
   %cmp5 = icmp slt i32 %18, 0

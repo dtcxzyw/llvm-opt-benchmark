@@ -5933,10 +5933,14 @@ define void @env_merge_filter(ptr nocapture noundef readonly %0, ptr noundef %1)
 
 14:                                               ; preds = %11
   %15 = load ptr, ptr @environ, align 8
-  call void @env_array_merge(ptr noundef nonnull %10, ptr noundef %15)
+  br label %.backedge.sink.split
+
+.backedge.sink.split:                             ; preds = %14, %.loopexit.sink.split
+  %.sink = phi ptr [ %3, %.loopexit.sink.split ], [ %15, %14 ]
+  call void @env_array_merge(ptr noundef nonnull %10, ptr noundef %.sink)
   br label %.backedge
 
-.backedge:                                        ; preds = %32, %19, %.loopexit.sink.split, %14
+.backedge:                                        ; preds = %32, %.backedge.sink.split, %19
   %16 = call ptr @find_quote_token(ptr noundef null, ptr noundef nonnull @.str.154, ptr noundef nonnull %5)
   %.not = icmp eq ptr %16, null
   br i1 %.not, label %._crit_edge, label %11, !llvm.loop !31
@@ -5984,8 +5988,7 @@ define void @env_merge_filter(ptr nocapture noundef readonly %0, ptr noundef %1)
 .loopexit.sink.split:                             ; preds = %27, %17
   %.lcssa.sink = phi ptr [ %.033, %17 ], [ %29, %27 ]
   store ptr %.lcssa.sink, ptr %3, align 16
-  call void @env_array_merge(ptr noundef nonnull %10, ptr noundef nonnull %3)
-  br label %.backedge
+  br label %.backedge.sink.split
 
 ._crit_edge:                                      ; preds = %.backedge, %2
   call void @slurm_xfree(ptr noundef nonnull %4) #18

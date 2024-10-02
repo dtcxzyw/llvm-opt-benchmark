@@ -14501,22 +14501,22 @@ _ZSt11swap_rangesIPPKSt4pairIKN4llvm10sampleprof12LineLocationENS2_12SampleRecor
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZSt16__merge_adaptiveIPPKSt4pairIKN4llvm10sampleprof12LineLocationENS2_12SampleRecordEElS9_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS2_12SampleSorterIS3_S5_EC1ERKSt3mapIS3_S5_St4lessIS3_ESaIS6_EEEUlS8_S8_E_EEEvT_SO_SO_T0_SP_T1_SP_T2_(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, i64 noundef %4, ptr noundef %5, i64 noundef %6) local_unnamed_addr #2 comdat {
-  %.not124 = icmp sgt i64 %3, %4
-  %.not70125 = icmp sgt i64 %3, %6
-  %or.cond126 = or i1 %.not70125, %.not124
-  br i1 %or.cond126, label %.lr.ph, label %tailrecurse._crit_edge
+  %.not123 = icmp sgt i64 %3, %4
+  %.not70124 = icmp sgt i64 %3, %6
+  %or.cond125 = or i1 %.not70124, %.not123
+  br i1 %or.cond125, label %.lr.ph, label %tailrecurse._crit_edge
 
 .lr.ph:                                           ; preds = %7
   %8 = ptrtoint ptr %2 to i64
   br label %39
 
 tailrecurse._crit_edge:                           ; preds = %_ZSt17__rotate_adaptiveIPPKSt4pairIKN4llvm10sampleprof12LineLocationENS2_12SampleRecordEES9_lET_SA_SA_SA_T1_SB_T0_SB_.exit, %7
-  %.tr.lcssa = phi ptr [ %0, %7 ], [ %.0.i97, %_ZSt17__rotate_adaptiveIPPKSt4pairIKN4llvm10sampleprof12LineLocationENS2_12SampleRecordEES9_lET_SA_SA_SA_T1_SB_T0_SB_.exit ]
-  %.tr111.lcssa = phi ptr [ %1, %7 ], [ %.0107, %_ZSt17__rotate_adaptiveIPPKSt4pairIKN4llvm10sampleprof12LineLocationENS2_12SampleRecordEES9_lET_SA_SA_SA_T1_SB_T0_SB_.exit ]
-  %9 = ptrtoint ptr %.tr111.lcssa to i64
+  %.tr.lcssa = phi ptr [ %0, %7 ], [ %.0.i96, %_ZSt17__rotate_adaptiveIPPKSt4pairIKN4llvm10sampleprof12LineLocationENS2_12SampleRecordEES9_lET_SA_SA_SA_T1_SB_T0_SB_.exit ]
+  %.tr110.lcssa = phi ptr [ %1, %7 ], [ %.0106, %_ZSt17__rotate_adaptiveIPPKSt4pairIKN4llvm10sampleprof12LineLocationENS2_12SampleRecordEES9_lET_SA_SA_SA_T1_SB_T0_SB_.exit ]
+  %9 = ptrtoint ptr %.tr110.lcssa to i64
   %10 = ptrtoint ptr %.tr.lcssa to i64
   %11 = sub i64 %9, %10
-  %.not.i.i.i.i.i = icmp eq ptr %.tr111.lcssa, %.tr.lcssa
+  %.not.i.i.i.i.i = icmp eq ptr %.tr110.lcssa, %.tr.lcssa
   br i1 %.not.i.i.i.i.i, label %_ZSt4moveIPPKSt4pairIKN4llvm10sampleprof12LineLocationENS2_12SampleRecordEES9_ET0_T_SB_SA_.exit, label %12
 
 12:                                               ; preds = %tailrecurse._crit_edge
@@ -14525,15 +14525,15 @@ tailrecurse._crit_edge:                           ; preds = %_ZSt17__rotate_adap
 
 _ZSt4moveIPPKSt4pairIKN4llvm10sampleprof12LineLocationENS2_12SampleRecordEES9_ET0_T_SB_SA_.exit: ; preds = %tailrecurse._crit_edge, %12
   %13 = getelementptr inbounds i8, ptr %5, i64 %11
-  %14 = icmp ne ptr %.tr111.lcssa, %.tr.lcssa
-  %15 = icmp ne ptr %.tr111.lcssa, %2
+  %14 = icmp ne ptr %.tr110.lcssa, %.tr.lcssa
+  %15 = icmp ne ptr %.tr110.lcssa, %2
   %16 = and i1 %14, %15
   br i1 %16, label %.lr.ph.i, label %._crit_edge.i
 
 .lr.ph.i:                                         ; preds = %_ZSt4moveIPPKSt4pairIKN4llvm10sampleprof12LineLocationENS2_12SampleRecordEES9_ET0_T_SB_SA_.exit, %31
   %.025.i = phi ptr [ %32, %31 ], [ %.tr.lcssa, %_ZSt4moveIPPKSt4pairIKN4llvm10sampleprof12LineLocationENS2_12SampleRecordEES9_ET0_T_SB_SA_.exit ]
   %.01824.i = phi ptr [ %.1.i, %31 ], [ %5, %_ZSt4moveIPPKSt4pairIKN4llvm10sampleprof12LineLocationENS2_12SampleRecordEES9_ET0_T_SB_SA_.exit ]
-  %.01923.i = phi ptr [ %.120.i, %31 ], [ %.tr111.lcssa, %_ZSt4moveIPPKSt4pairIKN4llvm10sampleprof12LineLocationENS2_12SampleRecordEES9_ET0_T_SB_SA_.exit ]
+  %.01923.i = phi ptr [ %.120.i, %31 ], [ %.tr110.lcssa, %_ZSt4moveIPPKSt4pairIKN4llvm10sampleprof12LineLocationENS2_12SampleRecordEES9_ET0_T_SB_SA_.exit ]
   %17 = load ptr, ptr %.01923.i, align 8
   %18 = load ptr, ptr %.01824.i, align 8
   %19 = load i32, ptr %17, align 4
@@ -14586,337 +14586,333 @@ _ZSt4moveIPPKSt4pairIKN4llvm10sampleprof12LineLocationENS2_12SampleRecordEES9_ET
   br label %_ZSt21__move_merge_adaptiveIPPKSt4pairIKN4llvm10sampleprof12LineLocationENS2_12SampleRecordEES9_S9_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS2_12SampleSorterIS3_S5_EC1ERKSt3mapIS3_S5_St4lessIS3_ESaIS6_EEEUlS8_S8_E_EEEvT_SO_T0_SP_T1_T2_.exit
 
 39:                                               ; preds = %.lr.ph, %_ZSt17__rotate_adaptiveIPPKSt4pairIKN4llvm10sampleprof12LineLocationENS2_12SampleRecordEES9_lET_SA_SA_SA_T1_SB_T0_SB_.exit
-  %.not132 = phi i1 [ %.not124, %.lr.ph ], [ %.not, %_ZSt17__rotate_adaptiveIPPKSt4pairIKN4llvm10sampleprof12LineLocationENS2_12SampleRecordEES9_lET_SA_SA_SA_T1_SB_T0_SB_.exit ]
-  %.tr114131 = phi i64 [ %4, %.lr.ph ], [ %172, %_ZSt17__rotate_adaptiveIPPKSt4pairIKN4llvm10sampleprof12LineLocationENS2_12SampleRecordEES9_lET_SA_SA_SA_T1_SB_T0_SB_.exit ]
-  %.tr113130 = phi i64 [ %3, %.lr.ph ], [ %141, %_ZSt17__rotate_adaptiveIPPKSt4pairIKN4llvm10sampleprof12LineLocationENS2_12SampleRecordEES9_lET_SA_SA_SA_T1_SB_T0_SB_.exit ]
-  %.tr111128 = phi ptr [ %1, %.lr.ph ], [ %.0107, %_ZSt17__rotate_adaptiveIPPKSt4pairIKN4llvm10sampleprof12LineLocationENS2_12SampleRecordEES9_lET_SA_SA_SA_T1_SB_T0_SB_.exit ]
-  %.tr127 = phi ptr [ %0, %.lr.ph ], [ %.0.i97, %_ZSt17__rotate_adaptiveIPPKSt4pairIKN4llvm10sampleprof12LineLocationENS2_12SampleRecordEES9_lET_SA_SA_SA_T1_SB_T0_SB_.exit ]
-  %.not71 = icmp sgt i64 %.tr114131, %6
-  %40 = ptrtoint ptr %.tr111128 to i64
-  br i1 %.not71, label %77, label %41
+  %.not131 = phi i1 [ %.not123, %.lr.ph ], [ %.not, %_ZSt17__rotate_adaptiveIPPKSt4pairIKN4llvm10sampleprof12LineLocationENS2_12SampleRecordEES9_lET_SA_SA_SA_T1_SB_T0_SB_.exit ]
+  %.tr113130 = phi i64 [ %4, %.lr.ph ], [ %169, %_ZSt17__rotate_adaptiveIPPKSt4pairIKN4llvm10sampleprof12LineLocationENS2_12SampleRecordEES9_lET_SA_SA_SA_T1_SB_T0_SB_.exit ]
+  %.tr112129 = phi i64 [ %3, %.lr.ph ], [ %138, %_ZSt17__rotate_adaptiveIPPKSt4pairIKN4llvm10sampleprof12LineLocationENS2_12SampleRecordEES9_lET_SA_SA_SA_T1_SB_T0_SB_.exit ]
+  %.tr110127 = phi ptr [ %1, %.lr.ph ], [ %.0106, %_ZSt17__rotate_adaptiveIPPKSt4pairIKN4llvm10sampleprof12LineLocationENS2_12SampleRecordEES9_lET_SA_SA_SA_T1_SB_T0_SB_.exit ]
+  %.tr126 = phi ptr [ %0, %.lr.ph ], [ %.0.i96, %_ZSt17__rotate_adaptiveIPPKSt4pairIKN4llvm10sampleprof12LineLocationENS2_12SampleRecordEES9_lET_SA_SA_SA_T1_SB_T0_SB_.exit ]
+  %.not71 = icmp sgt i64 %.tr113130, %6
+  br i1 %.not71, label %73, label %40
 
-41:                                               ; preds = %39
-  %42 = sub i64 %8, %40
-  %.not.i.i.i.i.i72 = icmp eq ptr %2, %.tr111128
+40:                                               ; preds = %39
+  %.not.i.i.i.i.i72 = icmp eq ptr %2, %.tr110127
   br i1 %.not.i.i.i.i.i72, label %_ZSt21__move_merge_adaptiveIPPKSt4pairIKN4llvm10sampleprof12LineLocationENS2_12SampleRecordEES9_S9_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS2_12SampleSorterIS3_S5_EC1ERKSt3mapIS3_S5_St4lessIS3_ESaIS6_EEEUlS8_S8_E_EEEvT_SO_T0_SP_T1_T2_.exit, label %_ZSt4moveIPPKSt4pairIKN4llvm10sampleprof12LineLocationENS2_12SampleRecordEES9_ET0_T_SB_SA_.exit73.thread
 
-_ZSt4moveIPPKSt4pairIKN4llvm10sampleprof12LineLocationENS2_12SampleRecordEES9_ET0_T_SB_SA_.exit73.thread: ; preds = %41
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %5, ptr align 8 %.tr111128, i64 %42, i1 false)
-  %43 = icmp eq ptr %.tr127, %.tr111128
-  br i1 %43, label %44, label %47
+_ZSt4moveIPPKSt4pairIKN4llvm10sampleprof12LineLocationENS2_12SampleRecordEES9_ET0_T_SB_SA_.exit73.thread: ; preds = %40
+  %41 = ptrtoint ptr %.tr110127 to i64
+  %42 = sub i64 %8, %41
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %5, ptr align 8 %.tr110127, i64 %42, i1 false)
+  %43 = getelementptr inbounds i8, ptr %5, i64 %42
+  %44 = icmp eq ptr %.tr126, %.tr110127
+  br i1 %44, label %_ZSt13move_backwardIPPKSt4pairIKN4llvm10sampleprof12LineLocationENS2_12SampleRecordEES9_ET0_T_SB_SA_.exit.sink.split.i, label %45
 
-44:                                               ; preds = %_ZSt4moveIPPKSt4pairIKN4llvm10sampleprof12LineLocationENS2_12SampleRecordEES9_ET0_T_SB_SA_.exit73.thread
-  %45 = ashr exact i64 %42, 3
-  %.pre.i.i.i.i.i.i = sub nsw i64 0, %45
-  %46 = getelementptr inbounds ptr, ptr %2, i64 %.pre.i.i.i.i.i.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %46, ptr align 8 %5, i64 %42, i1 false)
-  br label %_ZSt21__move_merge_adaptiveIPPKSt4pairIKN4llvm10sampleprof12LineLocationENS2_12SampleRecordEES9_S9_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS2_12SampleSorterIS3_S5_EC1ERKSt3mapIS3_S5_St4lessIS3_ESaIS6_EEEUlS8_S8_E_EEEvT_SO_T0_SP_T1_T2_.exit
-
-47:                                               ; preds = %_ZSt4moveIPPKSt4pairIKN4llvm10sampleprof12LineLocationENS2_12SampleRecordEES9_ET0_T_SB_SA_.exit73.thread
-  %48 = getelementptr inbounds i8, ptr %5, i64 %42
-  %49 = getelementptr inbounds i8, ptr %48, i64 -8
+45:                                               ; preds = %_ZSt4moveIPPKSt4pairIKN4llvm10sampleprof12LineLocationENS2_12SampleRecordEES9_ET0_T_SB_SA_.exit73.thread
+  %46 = getelementptr inbounds i8, ptr %43, i64 -8
   br label %.outer
 
-.outer:                                           ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm10sampleprof12SampleSorterINS3_12LineLocationENS3_12SampleRecordEEC1ERKSt3mapIS5_S6_St4lessIS5_ESaISt4pairIKS5_S6_EEEEUlPKSD_SJ_E_EclIPSJ_SN_EEbT_T0_.exit.thread.i76, %47
-  %.026.i.ph.pn = phi ptr [ %.tr111128, %47 ], [ %.026.i.ph, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm10sampleprof12SampleSorterINS3_12LineLocationENS3_12SampleRecordEEC1ERKSt3mapIS5_S6_St4lessIS5_ESaISt4pairIKS5_S6_EEEEUlPKSD_SJ_E_EclIPSJ_SN_EEbT_T0_.exit.thread.i76 ]
-  %.024.i.ph = phi ptr [ %49, %47 ], [ %.024.i, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm10sampleprof12SampleSorterINS3_12LineLocationENS3_12SampleRecordEEC1ERKSt3mapIS5_S6_St4lessIS5_ESaISt4pairIKS5_S6_EEEEUlPKSD_SJ_E_EclIPSJ_SN_EEbT_T0_.exit.thread.i76 ]
-  %.0.i.ph = phi ptr [ %2, %47 ], [ %63, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm10sampleprof12SampleSorterINS3_12LineLocationENS3_12SampleRecordEEC1ERKSt3mapIS5_S6_St4lessIS5_ESaISt4pairIKS5_S6_EEEEUlPKSD_SJ_E_EclIPSJ_SN_EEbT_T0_.exit.thread.i76 ]
+.outer:                                           ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm10sampleprof12SampleSorterINS3_12LineLocationENS3_12SampleRecordEEC1ERKSt3mapIS5_S6_St4lessIS5_ESaISt4pairIKS5_S6_EEEEUlPKSD_SJ_E_EclIPSJ_SN_EEbT_T0_.exit.thread.i76, %45
+  %.026.i.ph.pn = phi ptr [ %.tr110127, %45 ], [ %.026.i.ph, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm10sampleprof12SampleSorterINS3_12LineLocationENS3_12SampleRecordEEC1ERKSt3mapIS5_S6_St4lessIS5_ESaISt4pairIKS5_S6_EEEEUlPKSD_SJ_E_EclIPSJ_SN_EEbT_T0_.exit.thread.i76 ]
+  %.024.i.ph = phi ptr [ %46, %45 ], [ %.024.i, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm10sampleprof12SampleSorterINS3_12LineLocationENS3_12SampleRecordEEC1ERKSt3mapIS5_S6_St4lessIS5_ESaISt4pairIKS5_S6_EEEEUlPKSD_SJ_E_EclIPSJ_SN_EEbT_T0_.exit.thread.i76 ]
+  %.0.i.ph = phi ptr [ %2, %45 ], [ %60, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm10sampleprof12SampleSorterINS3_12LineLocationENS3_12SampleRecordEEC1ERKSt3mapIS5_S6_St4lessIS5_ESaISt4pairIKS5_S6_EEEEUlPKSD_SJ_E_EclIPSJ_SN_EEbT_T0_.exit.thread.i76 ]
   %.026.i.ph = getelementptr inbounds i8, ptr %.026.i.ph.pn, i64 -8
-  br label %50
+  br label %47
 
-50:                                               ; preds = %.outer, %75
-  %.024.i = phi ptr [ %76, %75 ], [ %.024.i.ph, %.outer ]
-  %.0.i = phi ptr [ %73, %75 ], [ %.0.i.ph, %.outer ]
-  %51 = load ptr, ptr %.024.i, align 8
-  %52 = load ptr, ptr %.026.i.ph, align 8
-  %53 = load i32, ptr %51, align 4
-  %54 = load i32, ptr %52, align 4
-  %55 = icmp ult i32 %53, %54
-  br i1 %55, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm10sampleprof12SampleSorterINS3_12LineLocationENS3_12SampleRecordEEC1ERKSt3mapIS5_S6_St4lessIS5_ESaISt4pairIKS5_S6_EEEEUlPKSD_SJ_E_EclIPSJ_SN_EEbT_T0_.exit.thread.i76, label %56
+47:                                               ; preds = %.outer, %66
+  %.024.i = phi ptr [ %67, %66 ], [ %.024.i.ph, %.outer ]
+  %.0.i = phi ptr [ %64, %66 ], [ %.0.i.ph, %.outer ]
+  %48 = load ptr, ptr %.024.i, align 8
+  %49 = load ptr, ptr %.026.i.ph, align 8
+  %50 = load i32, ptr %48, align 4
+  %51 = load i32, ptr %49, align 4
+  %52 = icmp ult i32 %50, %51
+  br i1 %52, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm10sampleprof12SampleSorterINS3_12LineLocationENS3_12SampleRecordEEC1ERKSt3mapIS5_S6_St4lessIS5_ESaISt4pairIKS5_S6_EEEEUlPKSD_SJ_E_EclIPSJ_SN_EEbT_T0_.exit.thread.i76, label %53
 
-56:                                               ; preds = %50
-  %57 = icmp eq i32 %53, %54
-  br i1 %57, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm10sampleprof12SampleSorterINS3_12LineLocationENS3_12SampleRecordEEC1ERKSt3mapIS5_S6_St4lessIS5_ESaISt4pairIKS5_S6_EEEEUlPKSD_SJ_E_EclIPSJ_SN_EEbT_T0_.exit.i75, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm10sampleprof12SampleSorterINS3_12LineLocationENS3_12SampleRecordEEC1ERKSt3mapIS5_S6_St4lessIS5_ESaISt4pairIKS5_S6_EEEEUlPKSD_SJ_E_EclIPSJ_SN_EEbT_T0_.exit.thread35.i
+53:                                               ; preds = %47
+  %54 = icmp eq i32 %50, %51
+  br i1 %54, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm10sampleprof12SampleSorterINS3_12LineLocationENS3_12SampleRecordEEC1ERKSt3mapIS5_S6_St4lessIS5_ESaISt4pairIKS5_S6_EEEEUlPKSD_SJ_E_EclIPSJ_SN_EEbT_T0_.exit.i75, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm10sampleprof12SampleSorterINS3_12LineLocationENS3_12SampleRecordEEC1ERKSt3mapIS5_S6_St4lessIS5_ESaISt4pairIKS5_S6_EEEEUlPKSD_SJ_E_EclIPSJ_SN_EEbT_T0_.exit.thread35.i
 
-_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm10sampleprof12SampleSorterINS3_12LineLocationENS3_12SampleRecordEEC1ERKSt3mapIS5_S6_St4lessIS5_ESaISt4pairIKS5_S6_EEEEUlPKSD_SJ_E_EclIPSJ_SN_EEbT_T0_.exit.i75: ; preds = %56
-  %58 = getelementptr inbounds nuw i8, ptr %51, i64 4
-  %59 = load i32, ptr %58, align 4
-  %60 = getelementptr inbounds nuw i8, ptr %52, i64 4
-  %61 = load i32, ptr %60, align 4
-  %62 = icmp ult i32 %59, %61
-  br i1 %62, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm10sampleprof12SampleSorterINS3_12LineLocationENS3_12SampleRecordEEC1ERKSt3mapIS5_S6_St4lessIS5_ESaISt4pairIKS5_S6_EEEEUlPKSD_SJ_E_EclIPSJ_SN_EEbT_T0_.exit.thread.i76, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm10sampleprof12SampleSorterINS3_12LineLocationENS3_12SampleRecordEEC1ERKSt3mapIS5_S6_St4lessIS5_ESaISt4pairIKS5_S6_EEEEUlPKSD_SJ_E_EclIPSJ_SN_EEbT_T0_.exit.thread35.i
+_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm10sampleprof12SampleSorterINS3_12LineLocationENS3_12SampleRecordEEC1ERKSt3mapIS5_S6_St4lessIS5_ESaISt4pairIKS5_S6_EEEEUlPKSD_SJ_E_EclIPSJ_SN_EEbT_T0_.exit.i75: ; preds = %53
+  %55 = getelementptr inbounds nuw i8, ptr %48, i64 4
+  %56 = load i32, ptr %55, align 4
+  %57 = getelementptr inbounds nuw i8, ptr %49, i64 4
+  %58 = load i32, ptr %57, align 4
+  %59 = icmp ult i32 %56, %58
+  br i1 %59, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm10sampleprof12SampleSorterINS3_12LineLocationENS3_12SampleRecordEEC1ERKSt3mapIS5_S6_St4lessIS5_ESaISt4pairIKS5_S6_EEEEUlPKSD_SJ_E_EclIPSJ_SN_EEbT_T0_.exit.thread.i76, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm10sampleprof12SampleSorterINS3_12LineLocationENS3_12SampleRecordEEC1ERKSt3mapIS5_S6_St4lessIS5_ESaISt4pairIKS5_S6_EEEEUlPKSD_SJ_E_EclIPSJ_SN_EEbT_T0_.exit.thread35.i
 
-_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm10sampleprof12SampleSorterINS3_12LineLocationENS3_12SampleRecordEEC1ERKSt3mapIS5_S6_St4lessIS5_ESaISt4pairIKS5_S6_EEEEUlPKSD_SJ_E_EclIPSJ_SN_EEbT_T0_.exit.thread.i76: ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm10sampleprof12SampleSorterINS3_12LineLocationENS3_12SampleRecordEEC1ERKSt3mapIS5_S6_St4lessIS5_ESaISt4pairIKS5_S6_EEEEUlPKSD_SJ_E_EclIPSJ_SN_EEbT_T0_.exit.i75, %50
-  %63 = getelementptr inbounds i8, ptr %.0.i, i64 -8
-  store ptr %52, ptr %63, align 8
-  %64 = icmp eq ptr %.tr127, %.026.i.ph
-  br i1 %64, label %65, label %.outer, !llvm.loop !198
+_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm10sampleprof12SampleSorterINS3_12LineLocationENS3_12SampleRecordEEC1ERKSt3mapIS5_S6_St4lessIS5_ESaISt4pairIKS5_S6_EEEEUlPKSD_SJ_E_EclIPSJ_SN_EEbT_T0_.exit.thread.i76: ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm10sampleprof12SampleSorterINS3_12LineLocationENS3_12SampleRecordEEC1ERKSt3mapIS5_S6_St4lessIS5_ESaISt4pairIKS5_S6_EEEEUlPKSD_SJ_E_EclIPSJ_SN_EEbT_T0_.exit.i75, %47
+  %60 = getelementptr inbounds i8, ptr %.0.i, i64 -8
+  store ptr %49, ptr %60, align 8
+  %61 = icmp eq ptr %.tr126, %.026.i.ph
+  br i1 %61, label %62, label %.outer, !llvm.loop !198
 
-65:                                               ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm10sampleprof12SampleSorterINS3_12LineLocationENS3_12SampleRecordEEC1ERKSt3mapIS5_S6_St4lessIS5_ESaISt4pairIKS5_S6_EEEEUlPKSD_SJ_E_EclIPSJ_SN_EEbT_T0_.exit.thread.i76
-  %66 = getelementptr inbounds i8, ptr %.024.i, i64 8
-  %.not.i.i.i.i.i32.i = icmp eq ptr %66, %5
-  br i1 %.not.i.i.i.i.i32.i, label %_ZSt21__move_merge_adaptiveIPPKSt4pairIKN4llvm10sampleprof12LineLocationENS2_12SampleRecordEES9_S9_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS2_12SampleSorterIS3_S5_EC1ERKSt3mapIS3_S5_St4lessIS3_ESaIS6_EEEUlS8_S8_E_EEEvT_SO_T0_SP_T1_T2_.exit, label %67
+62:                                               ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm10sampleprof12SampleSorterINS3_12LineLocationENS3_12SampleRecordEEC1ERKSt3mapIS5_S6_St4lessIS5_ESaISt4pairIKS5_S6_EEEEUlPKSD_SJ_E_EclIPSJ_SN_EEbT_T0_.exit.thread.i76
+  %63 = getelementptr inbounds i8, ptr %.024.i, i64 8
+  %.not.i.i.i.i.i32.i = icmp eq ptr %63, %5
+  br i1 %.not.i.i.i.i.i32.i, label %_ZSt21__move_merge_adaptiveIPPKSt4pairIKN4llvm10sampleprof12LineLocationENS2_12SampleRecordEES9_S9_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS2_12SampleSorterIS3_S5_EC1ERKSt3mapIS3_S5_St4lessIS3_ESaIS6_EEEUlS8_S8_E_EEEvT_SO_T0_SP_T1_T2_.exit, label %_ZSt13move_backwardIPPKSt4pairIKN4llvm10sampleprof12LineLocationENS2_12SampleRecordEES9_ET0_T_SB_SA_.exit.sink.split.i
 
-67:                                               ; preds = %65
-  %68 = ptrtoint ptr %66 to i64
+_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm10sampleprof12SampleSorterINS3_12LineLocationENS3_12SampleRecordEEC1ERKSt3mapIS5_S6_St4lessIS5_ESaISt4pairIKS5_S6_EEEEUlPKSD_SJ_E_EclIPSJ_SN_EEbT_T0_.exit.thread35.i: ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm10sampleprof12SampleSorterINS3_12LineLocationENS3_12SampleRecordEEC1ERKSt3mapIS5_S6_St4lessIS5_ESaISt4pairIKS5_S6_EEEEUlPKSD_SJ_E_EclIPSJ_SN_EEbT_T0_.exit.i75, %53
+  %64 = getelementptr inbounds i8, ptr %.0.i, i64 -8
+  store ptr %48, ptr %64, align 8
+  %65 = icmp eq ptr %5, %.024.i
+  br i1 %65, label %_ZSt21__move_merge_adaptiveIPPKSt4pairIKN4llvm10sampleprof12LineLocationENS2_12SampleRecordEES9_S9_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS2_12SampleSorterIS3_S5_EC1ERKSt3mapIS3_S5_St4lessIS3_ESaIS6_EEEUlS8_S8_E_EEEvT_SO_T0_SP_T1_T2_.exit, label %66
+
+66:                                               ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm10sampleprof12SampleSorterINS3_12LineLocationENS3_12SampleRecordEEC1ERKSt3mapIS5_S6_St4lessIS5_ESaISt4pairIKS5_S6_EEEEUlPKSD_SJ_E_EclIPSJ_SN_EEbT_T0_.exit.thread35.i
+  %67 = getelementptr inbounds i8, ptr %.024.i, i64 -8
+  br label %47, !llvm.loop !198
+
+_ZSt13move_backwardIPPKSt4pairIKN4llvm10sampleprof12LineLocationENS2_12SampleRecordEES9_ET0_T_SB_SA_.exit.sink.split.i: ; preds = %_ZSt4moveIPPKSt4pairIKN4llvm10sampleprof12LineLocationENS2_12SampleRecordEES9_ET0_T_SB_SA_.exit73.thread, %62
+  %.sink42.i = phi ptr [ %63, %62 ], [ %43, %_ZSt4moveIPPKSt4pairIKN4llvm10sampleprof12LineLocationENS2_12SampleRecordEES9_ET0_T_SB_SA_.exit73.thread ]
+  %.lcssa.sink.i = phi ptr [ %60, %62 ], [ %2, %_ZSt4moveIPPKSt4pairIKN4llvm10sampleprof12LineLocationENS2_12SampleRecordEES9_ET0_T_SB_SA_.exit73.thread ]
+  %68 = ptrtoint ptr %.sink42.i to i64
   %69 = ptrtoint ptr %5 to i64
   %70 = sub i64 %68, %69
   %71 = ashr exact i64 %70, 3
   %.pre.i.i.i.i.i33.i = sub nsw i64 0, %71
-  %72 = getelementptr inbounds ptr, ptr %63, i64 %.pre.i.i.i.i.i33.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %72, ptr align 8 %5, i64 %70, i1 false)
+  %72 = getelementptr inbounds ptr, ptr %.lcssa.sink.i, i64 %.pre.i.i.i.i.i33.i
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %72, ptr align 8 %5, i64 %70, i1 false)
   br label %_ZSt21__move_merge_adaptiveIPPKSt4pairIKN4llvm10sampleprof12LineLocationENS2_12SampleRecordEES9_S9_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS2_12SampleSorterIS3_S5_EC1ERKSt3mapIS3_S5_St4lessIS3_ESaIS6_EEEUlS8_S8_E_EEEvT_SO_T0_SP_T1_T2_.exit
 
-_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm10sampleprof12SampleSorterINS3_12LineLocationENS3_12SampleRecordEEC1ERKSt3mapIS5_S6_St4lessIS5_ESaISt4pairIKS5_S6_EEEEUlPKSD_SJ_E_EclIPSJ_SN_EEbT_T0_.exit.thread35.i: ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm10sampleprof12SampleSorterINS3_12LineLocationENS3_12SampleRecordEEC1ERKSt3mapIS5_S6_St4lessIS5_ESaISt4pairIKS5_S6_EEEEUlPKSD_SJ_E_EclIPSJ_SN_EEbT_T0_.exit.i75, %56
-  %73 = getelementptr inbounds i8, ptr %.0.i, i64 -8
-  store ptr %51, ptr %73, align 8
-  %74 = icmp eq ptr %5, %.024.i
-  br i1 %74, label %_ZSt21__move_merge_adaptiveIPPKSt4pairIKN4llvm10sampleprof12LineLocationENS2_12SampleRecordEES9_S9_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS2_12SampleSorterIS3_S5_EC1ERKSt3mapIS3_S5_St4lessIS3_ESaIS6_EEEUlS8_S8_E_EEEvT_SO_T0_SP_T1_T2_.exit, label %75
+73:                                               ; preds = %39
+  %74 = ptrtoint ptr %.tr110127 to i64
+  br i1 %.not131, label %_ZSt7advanceIPPKSt4pairIKN4llvm10sampleprof12LineLocationENS2_12SampleRecordEElEvRT_T0_.exit, label %_ZSt7advanceIPPKSt4pairIKN4llvm10sampleprof12LineLocationENS2_12SampleRecordEElEvRT_T0_.exit83
 
-75:                                               ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm10sampleprof12SampleSorterINS3_12LineLocationENS3_12SampleRecordEEC1ERKSt3mapIS5_S6_St4lessIS5_ESaISt4pairIKS5_S6_EEEEUlPKSD_SJ_E_EclIPSJ_SN_EEbT_T0_.exit.thread35.i
-  %76 = getelementptr inbounds i8, ptr %.024.i, i64 -8
-  br label %50, !llvm.loop !198
-
-77:                                               ; preds = %39
-  br i1 %.not132, label %_ZSt7advanceIPPKSt4pairIKN4llvm10sampleprof12LineLocationENS2_12SampleRecordEElEvRT_T0_.exit, label %_ZSt7advanceIPPKSt4pairIKN4llvm10sampleprof12LineLocationENS2_12SampleRecordEElEvRT_T0_.exit83
-
-_ZSt7advanceIPPKSt4pairIKN4llvm10sampleprof12LineLocationENS2_12SampleRecordEElEvRT_T0_.exit: ; preds = %77
-  %78 = sdiv i64 %.tr113130, 2
-  %79 = getelementptr inbounds ptr, ptr %.tr127, i64 %78
-  %80 = sub i64 %8, %40
-  %81 = ashr exact i64 %80, 3
-  %82 = icmp sgt i64 %81, 0
-  br i1 %82, label %_ZSt7advanceIPPKSt4pairIKN4llvm10sampleprof12LineLocationENS2_12SampleRecordEElEvRT_T0_.exit.lr.ph.i, label %_ZSt13__lower_boundIPPKSt4pairIKN4llvm10sampleprof12LineLocationENS2_12SampleRecordEES8_N9__gnu_cxx5__ops14_Iter_comp_valIZNS2_12SampleSorterIS3_S5_EC1ERKSt3mapIS3_S5_St4lessIS3_ESaIS6_EEEUlS8_S8_E_EEET_SO_SO_RKT0_T1_.exit
+_ZSt7advanceIPPKSt4pairIKN4llvm10sampleprof12LineLocationENS2_12SampleRecordEElEvRT_T0_.exit: ; preds = %73
+  %75 = sdiv i64 %.tr112129, 2
+  %76 = getelementptr inbounds ptr, ptr %.tr126, i64 %75
+  %77 = sub i64 %8, %74
+  %78 = ashr exact i64 %77, 3
+  %79 = icmp sgt i64 %78, 0
+  br i1 %79, label %_ZSt7advanceIPPKSt4pairIKN4llvm10sampleprof12LineLocationENS2_12SampleRecordEElEvRT_T0_.exit.lr.ph.i, label %_ZSt13__lower_boundIPPKSt4pairIKN4llvm10sampleprof12LineLocationENS2_12SampleRecordEES8_N9__gnu_cxx5__ops14_Iter_comp_valIZNS2_12SampleSorterIS3_S5_EC1ERKSt3mapIS3_S5_St4lessIS3_ESaIS6_EEEUlS8_S8_E_EEET_SO_SO_RKT0_T1_.exit
 
 _ZSt7advanceIPPKSt4pairIKN4llvm10sampleprof12LineLocationENS2_12SampleRecordEElEvRT_T0_.exit.lr.ph.i: ; preds = %_ZSt7advanceIPPKSt4pairIKN4llvm10sampleprof12LineLocationENS2_12SampleRecordEElEvRT_T0_.exit
-  %83 = load ptr, ptr %79, align 8
-  %84 = load i32, ptr %83, align 4
-  %85 = getelementptr inbounds nuw i8, ptr %83, i64 4
+  %80 = load ptr, ptr %76, align 8
+  %81 = load i32, ptr %80, align 4
+  %82 = getelementptr inbounds nuw i8, ptr %80, i64 4
   br label %_ZSt7advanceIPPKSt4pairIKN4llvm10sampleprof12LineLocationENS2_12SampleRecordEElEvRT_T0_.exit.i
 
 _ZSt7advanceIPPKSt4pairIKN4llvm10sampleprof12LineLocationENS2_12SampleRecordEElEvRT_T0_.exit.i: ; preds = %.thread21.i, %_ZSt7advanceIPPKSt4pairIKN4llvm10sampleprof12LineLocationENS2_12SampleRecordEElEvRT_T0_.exit.lr.ph.i
-  %.026.i79 = phi ptr [ %.tr111128, %_ZSt7advanceIPPKSt4pairIKN4llvm10sampleprof12LineLocationENS2_12SampleRecordEElEvRT_T0_.exit.lr.ph.i ], [ %104, %.thread21.i ]
-  %.01125.i = phi i64 [ %81, %_ZSt7advanceIPPKSt4pairIKN4llvm10sampleprof12LineLocationENS2_12SampleRecordEElEvRT_T0_.exit.lr.ph.i ], [ %103, %.thread21.i ]
-  %86 = lshr i64 %.01125.i, 1
-  %87 = getelementptr inbounds ptr, ptr %.026.i79, i64 %86
-  %88 = load ptr, ptr %87, align 8
-  %89 = load i32, ptr %88, align 4
-  %90 = icmp ult i32 %89, %84
-  br i1 %90, label %.thread.i, label %94
+  %.026.i79 = phi ptr [ %.tr110127, %_ZSt7advanceIPPKSt4pairIKN4llvm10sampleprof12LineLocationENS2_12SampleRecordEElEvRT_T0_.exit.lr.ph.i ], [ %101, %.thread21.i ]
+  %.01125.i = phi i64 [ %78, %_ZSt7advanceIPPKSt4pairIKN4llvm10sampleprof12LineLocationENS2_12SampleRecordEElEvRT_T0_.exit.lr.ph.i ], [ %100, %.thread21.i ]
+  %83 = lshr i64 %.01125.i, 1
+  %84 = getelementptr inbounds ptr, ptr %.026.i79, i64 %83
+  %85 = load ptr, ptr %84, align 8
+  %86 = load i32, ptr %85, align 4
+  %87 = icmp ult i32 %86, %81
+  br i1 %87, label %.thread.i, label %91
 
 .thread.i:                                        ; preds = %_ZSt7advanceIPPKSt4pairIKN4llvm10sampleprof12LineLocationENS2_12SampleRecordEElEvRT_T0_.exit.i
-  %91 = getelementptr inbounds i8, ptr %87, i64 8
-  %92 = xor i64 %86, -1
-  %93 = add nsw i64 %.01125.i, %92
+  %88 = getelementptr inbounds i8, ptr %84, i64 8
+  %89 = xor i64 %83, -1
+  %90 = add nsw i64 %.01125.i, %89
   br label %.thread21.i
 
-94:                                               ; preds = %_ZSt7advanceIPPKSt4pairIKN4llvm10sampleprof12LineLocationENS2_12SampleRecordEElEvRT_T0_.exit.i
-  %95 = icmp eq i32 %89, %84
-  br i1 %95, label %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm10sampleprof12SampleSorterINS3_12LineLocationENS3_12SampleRecordEEC1ERKSt3mapIS5_S6_St4lessIS5_ESaISt4pairIKS5_S6_EEEEUlPKSD_SJ_E_EclIPSJ_KSJ_EEbT_RT0_.exit.i, label %.thread21.i
+91:                                               ; preds = %_ZSt7advanceIPPKSt4pairIKN4llvm10sampleprof12LineLocationENS2_12SampleRecordEElEvRT_T0_.exit.i
+  %92 = icmp eq i32 %86, %81
+  br i1 %92, label %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm10sampleprof12SampleSorterINS3_12LineLocationENS3_12SampleRecordEEC1ERKSt3mapIS5_S6_St4lessIS5_ESaISt4pairIKS5_S6_EEEEUlPKSD_SJ_E_EclIPSJ_KSJ_EEbT_RT0_.exit.i, label %.thread21.i
 
-_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm10sampleprof12SampleSorterINS3_12LineLocationENS3_12SampleRecordEEC1ERKSt3mapIS5_S6_St4lessIS5_ESaISt4pairIKS5_S6_EEEEUlPKSD_SJ_E_EclIPSJ_KSJ_EEbT_RT0_.exit.i: ; preds = %94
-  %96 = getelementptr inbounds nuw i8, ptr %88, i64 4
-  %97 = load i32, ptr %96, align 4
-  %98 = load i32, ptr %85, align 4
-  %99 = icmp ult i32 %97, %98
-  %cond.fr.i = freeze i1 %99
-  %100 = getelementptr inbounds i8, ptr %87, i64 8
-  %101 = xor i64 %86, -1
-  %102 = add nsw i64 %.01125.i, %101
-  %spec.select.i = select i1 %cond.fr.i, i64 %102, i64 %86
-  %spec.select24.i = select i1 %cond.fr.i, ptr %100, ptr %.026.i79
+_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm10sampleprof12SampleSorterINS3_12LineLocationENS3_12SampleRecordEEC1ERKSt3mapIS5_S6_St4lessIS5_ESaISt4pairIKS5_S6_EEEEUlPKSD_SJ_E_EclIPSJ_KSJ_EEbT_RT0_.exit.i: ; preds = %91
+  %93 = getelementptr inbounds nuw i8, ptr %85, i64 4
+  %94 = load i32, ptr %93, align 4
+  %95 = load i32, ptr %82, align 4
+  %96 = icmp ult i32 %94, %95
+  %cond.fr.i = freeze i1 %96
+  %97 = getelementptr inbounds i8, ptr %84, i64 8
+  %98 = xor i64 %83, -1
+  %99 = add nsw i64 %.01125.i, %98
+  %spec.select.i = select i1 %cond.fr.i, i64 %99, i64 %83
+  %spec.select24.i = select i1 %cond.fr.i, ptr %97, ptr %.026.i79
   br label %.thread21.i
 
-.thread21.i:                                      ; preds = %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm10sampleprof12SampleSorterINS3_12LineLocationENS3_12SampleRecordEEC1ERKSt3mapIS5_S6_St4lessIS5_ESaISt4pairIKS5_S6_EEEEUlPKSD_SJ_E_EclIPSJ_KSJ_EEbT_RT0_.exit.i, %94, %.thread.i
-  %103 = phi i64 [ %86, %94 ], [ %93, %.thread.i ], [ %spec.select.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm10sampleprof12SampleSorterINS3_12LineLocationENS3_12SampleRecordEEC1ERKSt3mapIS5_S6_St4lessIS5_ESaISt4pairIKS5_S6_EEEEUlPKSD_SJ_E_EclIPSJ_KSJ_EEbT_RT0_.exit.i ]
-  %104 = phi ptr [ %.026.i79, %94 ], [ %91, %.thread.i ], [ %spec.select24.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm10sampleprof12SampleSorterINS3_12LineLocationENS3_12SampleRecordEEC1ERKSt3mapIS5_S6_St4lessIS5_ESaISt4pairIKS5_S6_EEEEUlPKSD_SJ_E_EclIPSJ_KSJ_EEbT_RT0_.exit.i ]
-  %105 = icmp sgt i64 %103, 0
-  br i1 %105, label %_ZSt7advanceIPPKSt4pairIKN4llvm10sampleprof12LineLocationENS2_12SampleRecordEElEvRT_T0_.exit.i, label %_ZSt13__lower_boundIPPKSt4pairIKN4llvm10sampleprof12LineLocationENS2_12SampleRecordEES8_N9__gnu_cxx5__ops14_Iter_comp_valIZNS2_12SampleSorterIS3_S5_EC1ERKSt3mapIS3_S5_St4lessIS3_ESaIS6_EEEUlS8_S8_E_EEET_SO_SO_RKT0_T1_.exit.loopexit, !llvm.loop !191
+.thread21.i:                                      ; preds = %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm10sampleprof12SampleSorterINS3_12LineLocationENS3_12SampleRecordEEC1ERKSt3mapIS5_S6_St4lessIS5_ESaISt4pairIKS5_S6_EEEEUlPKSD_SJ_E_EclIPSJ_KSJ_EEbT_RT0_.exit.i, %91, %.thread.i
+  %100 = phi i64 [ %83, %91 ], [ %90, %.thread.i ], [ %spec.select.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm10sampleprof12SampleSorterINS3_12LineLocationENS3_12SampleRecordEEC1ERKSt3mapIS5_S6_St4lessIS5_ESaISt4pairIKS5_S6_EEEEUlPKSD_SJ_E_EclIPSJ_KSJ_EEbT_RT0_.exit.i ]
+  %101 = phi ptr [ %.026.i79, %91 ], [ %88, %.thread.i ], [ %spec.select24.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm10sampleprof12SampleSorterINS3_12LineLocationENS3_12SampleRecordEEC1ERKSt3mapIS5_S6_St4lessIS5_ESaISt4pairIKS5_S6_EEEEUlPKSD_SJ_E_EclIPSJ_KSJ_EEbT_RT0_.exit.i ]
+  %102 = icmp sgt i64 %100, 0
+  br i1 %102, label %_ZSt7advanceIPPKSt4pairIKN4llvm10sampleprof12LineLocationENS2_12SampleRecordEElEvRT_T0_.exit.i, label %_ZSt13__lower_boundIPPKSt4pairIKN4llvm10sampleprof12LineLocationENS2_12SampleRecordEES8_N9__gnu_cxx5__ops14_Iter_comp_valIZNS2_12SampleSorterIS3_S5_EC1ERKSt3mapIS3_S5_St4lessIS3_ESaIS6_EEEUlS8_S8_E_EEET_SO_SO_RKT0_T1_.exit.loopexit, !llvm.loop !191
 
 _ZSt13__lower_boundIPPKSt4pairIKN4llvm10sampleprof12LineLocationENS2_12SampleRecordEES8_N9__gnu_cxx5__ops14_Iter_comp_valIZNS2_12SampleSorterIS3_S5_EC1ERKSt3mapIS3_S5_St4lessIS3_ESaIS6_EEEUlS8_S8_E_EEET_SO_SO_RKT0_T1_.exit.loopexit: ; preds = %.thread21.i
-  %.pre = ptrtoint ptr %104 to i64
+  %.pre = ptrtoint ptr %101 to i64
   br label %_ZSt13__lower_boundIPPKSt4pairIKN4llvm10sampleprof12LineLocationENS2_12SampleRecordEES8_N9__gnu_cxx5__ops14_Iter_comp_valIZNS2_12SampleSorterIS3_S5_EC1ERKSt3mapIS3_S5_St4lessIS3_ESaIS6_EEEUlS8_S8_E_EEET_SO_SO_RKT0_T1_.exit
 
 _ZSt13__lower_boundIPPKSt4pairIKN4llvm10sampleprof12LineLocationENS2_12SampleRecordEES8_N9__gnu_cxx5__ops14_Iter_comp_valIZNS2_12SampleSorterIS3_S5_EC1ERKSt3mapIS3_S5_St4lessIS3_ESaIS6_EEEUlS8_S8_E_EEET_SO_SO_RKT0_T1_.exit: ; preds = %_ZSt13__lower_boundIPPKSt4pairIKN4llvm10sampleprof12LineLocationENS2_12SampleRecordEES8_N9__gnu_cxx5__ops14_Iter_comp_valIZNS2_12SampleSorterIS3_S5_EC1ERKSt3mapIS3_S5_St4lessIS3_ESaIS6_EEEUlS8_S8_E_EEET_SO_SO_RKT0_T1_.exit.loopexit, %_ZSt7advanceIPPKSt4pairIKN4llvm10sampleprof12LineLocationENS2_12SampleRecordEElEvRT_T0_.exit
-  %.pre-phi = phi i64 [ %.pre, %_ZSt13__lower_boundIPPKSt4pairIKN4llvm10sampleprof12LineLocationENS2_12SampleRecordEES8_N9__gnu_cxx5__ops14_Iter_comp_valIZNS2_12SampleSorterIS3_S5_EC1ERKSt3mapIS3_S5_St4lessIS3_ESaIS6_EEEUlS8_S8_E_EEET_SO_SO_RKT0_T1_.exit.loopexit ], [ %40, %_ZSt7advanceIPPKSt4pairIKN4llvm10sampleprof12LineLocationENS2_12SampleRecordEElEvRT_T0_.exit ]
-  %.0.lcssa.i78 = phi ptr [ %104, %_ZSt13__lower_boundIPPKSt4pairIKN4llvm10sampleprof12LineLocationENS2_12SampleRecordEES8_N9__gnu_cxx5__ops14_Iter_comp_valIZNS2_12SampleSorterIS3_S5_EC1ERKSt3mapIS3_S5_St4lessIS3_ESaIS6_EEEUlS8_S8_E_EEET_SO_SO_RKT0_T1_.exit.loopexit ], [ %.tr111128, %_ZSt7advanceIPPKSt4pairIKN4llvm10sampleprof12LineLocationENS2_12SampleRecordEElEvRT_T0_.exit ]
-  %106 = sub i64 %.pre-phi, %40
-  %107 = ashr exact i64 %106, 3
-  br label %140
+  %.pre-phi = phi i64 [ %.pre, %_ZSt13__lower_boundIPPKSt4pairIKN4llvm10sampleprof12LineLocationENS2_12SampleRecordEES8_N9__gnu_cxx5__ops14_Iter_comp_valIZNS2_12SampleSorterIS3_S5_EC1ERKSt3mapIS3_S5_St4lessIS3_ESaIS6_EEEUlS8_S8_E_EEET_SO_SO_RKT0_T1_.exit.loopexit ], [ %74, %_ZSt7advanceIPPKSt4pairIKN4llvm10sampleprof12LineLocationENS2_12SampleRecordEElEvRT_T0_.exit ]
+  %.0.lcssa.i78 = phi ptr [ %101, %_ZSt13__lower_boundIPPKSt4pairIKN4llvm10sampleprof12LineLocationENS2_12SampleRecordEES8_N9__gnu_cxx5__ops14_Iter_comp_valIZNS2_12SampleSorterIS3_S5_EC1ERKSt3mapIS3_S5_St4lessIS3_ESaIS6_EEEUlS8_S8_E_EEET_SO_SO_RKT0_T1_.exit.loopexit ], [ %.tr110127, %_ZSt7advanceIPPKSt4pairIKN4llvm10sampleprof12LineLocationENS2_12SampleRecordEElEvRT_T0_.exit ]
+  %103 = sub i64 %.pre-phi, %74
+  %104 = ashr exact i64 %103, 3
+  br label %137
 
-_ZSt7advanceIPPKSt4pairIKN4llvm10sampleprof12LineLocationENS2_12SampleRecordEElEvRT_T0_.exit83: ; preds = %77
-  %108 = sdiv i64 %.tr114131, 2
-  %109 = getelementptr inbounds ptr, ptr %.tr111128, i64 %108
-  %110 = ptrtoint ptr %.tr127 to i64
-  %111 = sub i64 %40, %110
-  %112 = ashr exact i64 %111, 3
-  %113 = icmp sgt i64 %112, 0
-  br i1 %113, label %_ZSt7advanceIPPKSt4pairIKN4llvm10sampleprof12LineLocationENS2_12SampleRecordEElEvRT_T0_.exit.lr.ph.i86, label %_ZSt13__upper_boundIPPKSt4pairIKN4llvm10sampleprof12LineLocationENS2_12SampleRecordEES8_N9__gnu_cxx5__ops14_Val_comp_iterIZNS2_12SampleSorterIS3_S5_EC1ERKSt3mapIS3_S5_St4lessIS3_ESaIS6_EEEUlS8_S8_E_EEET_SO_SO_RKT0_T1_.exit
+_ZSt7advanceIPPKSt4pairIKN4llvm10sampleprof12LineLocationENS2_12SampleRecordEElEvRT_T0_.exit83: ; preds = %73
+  %105 = sdiv i64 %.tr113130, 2
+  %106 = getelementptr inbounds ptr, ptr %.tr110127, i64 %105
+  %107 = ptrtoint ptr %.tr126 to i64
+  %108 = sub i64 %74, %107
+  %109 = ashr exact i64 %108, 3
+  %110 = icmp sgt i64 %109, 0
+  br i1 %110, label %_ZSt7advanceIPPKSt4pairIKN4llvm10sampleprof12LineLocationENS2_12SampleRecordEElEvRT_T0_.exit.lr.ph.i86, label %_ZSt13__upper_boundIPPKSt4pairIKN4llvm10sampleprof12LineLocationENS2_12SampleRecordEES8_N9__gnu_cxx5__ops14_Val_comp_iterIZNS2_12SampleSorterIS3_S5_EC1ERKSt3mapIS3_S5_St4lessIS3_ESaIS6_EEEUlS8_S8_E_EEET_SO_SO_RKT0_T1_.exit
 
 _ZSt7advanceIPPKSt4pairIKN4llvm10sampleprof12LineLocationENS2_12SampleRecordEElEvRT_T0_.exit.lr.ph.i86: ; preds = %_ZSt7advanceIPPKSt4pairIKN4llvm10sampleprof12LineLocationENS2_12SampleRecordEElEvRT_T0_.exit83
-  %114 = load ptr, ptr %109, align 8
-  %115 = load i32, ptr %114, align 4
-  %116 = getelementptr inbounds nuw i8, ptr %114, i64 4
+  %111 = load ptr, ptr %106, align 8
+  %112 = load i32, ptr %111, align 4
+  %113 = getelementptr inbounds nuw i8, ptr %111, i64 4
   br label %_ZSt7advanceIPPKSt4pairIKN4llvm10sampleprof12LineLocationENS2_12SampleRecordEElEvRT_T0_.exit.i87
 
 _ZSt7advanceIPPKSt4pairIKN4llvm10sampleprof12LineLocationENS2_12SampleRecordEElEvRT_T0_.exit.i87: ; preds = %.thread.i92, %_ZSt7advanceIPPKSt4pairIKN4llvm10sampleprof12LineLocationENS2_12SampleRecordEElEvRT_T0_.exit.lr.ph.i86
-  %.025.i88 = phi ptr [ %.tr127, %_ZSt7advanceIPPKSt4pairIKN4llvm10sampleprof12LineLocationENS2_12SampleRecordEElEvRT_T0_.exit.lr.ph.i86 ], [ %136, %.thread.i92 ]
-  %.01124.i = phi i64 [ %112, %_ZSt7advanceIPPKSt4pairIKN4llvm10sampleprof12LineLocationENS2_12SampleRecordEElEvRT_T0_.exit.lr.ph.i86 ], [ %135, %.thread.i92 ]
-  %117 = lshr i64 %.01124.i, 1
-  %118 = getelementptr inbounds ptr, ptr %.025.i88, i64 %117
-  %119 = load ptr, ptr %118, align 8
-  %120 = load i32, ptr %119, align 4
-  %121 = icmp ult i32 %115, %120
-  br i1 %121, label %.thread.i92, label %122
+  %.025.i88 = phi ptr [ %.tr126, %_ZSt7advanceIPPKSt4pairIKN4llvm10sampleprof12LineLocationENS2_12SampleRecordEElEvRT_T0_.exit.lr.ph.i86 ], [ %133, %.thread.i92 ]
+  %.01124.i = phi i64 [ %109, %_ZSt7advanceIPPKSt4pairIKN4llvm10sampleprof12LineLocationENS2_12SampleRecordEElEvRT_T0_.exit.lr.ph.i86 ], [ %132, %.thread.i92 ]
+  %114 = lshr i64 %.01124.i, 1
+  %115 = getelementptr inbounds ptr, ptr %.025.i88, i64 %114
+  %116 = load ptr, ptr %115, align 8
+  %117 = load i32, ptr %116, align 4
+  %118 = icmp ult i32 %112, %117
+  br i1 %118, label %.thread.i92, label %119
 
-122:                                              ; preds = %_ZSt7advanceIPPKSt4pairIKN4llvm10sampleprof12LineLocationENS2_12SampleRecordEElEvRT_T0_.exit.i87
-  %123 = icmp eq i32 %115, %120
-  br i1 %123, label %_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN4llvm10sampleprof12SampleSorterINS3_12LineLocationENS3_12SampleRecordEEC1ERKSt3mapIS5_S6_St4lessIS5_ESaISt4pairIKS5_S6_EEEEUlPKSD_SJ_E_EclIKSJ_PSJ_EEbRT_T0_.exit.i, label %.thread21.i91
+119:                                              ; preds = %_ZSt7advanceIPPKSt4pairIKN4llvm10sampleprof12LineLocationENS2_12SampleRecordEElEvRT_T0_.exit.i87
+  %120 = icmp eq i32 %112, %117
+  br i1 %120, label %_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN4llvm10sampleprof12SampleSorterINS3_12LineLocationENS3_12SampleRecordEEC1ERKSt3mapIS5_S6_St4lessIS5_ESaISt4pairIKS5_S6_EEEEUlPKSD_SJ_E_EclIKSJ_PSJ_EEbRT_T0_.exit.i, label %.thread21.i91
 
-.thread21.i91:                                    ; preds = %122
-  %124 = getelementptr inbounds i8, ptr %118, i64 8
-  %125 = xor i64 %117, -1
-  %126 = add nsw i64 %.01124.i, %125
+.thread21.i91:                                    ; preds = %119
+  %121 = getelementptr inbounds i8, ptr %115, i64 8
+  %122 = xor i64 %114, -1
+  %123 = add nsw i64 %.01124.i, %122
   br label %.thread.i92
 
-_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN4llvm10sampleprof12SampleSorterINS3_12LineLocationENS3_12SampleRecordEEC1ERKSt3mapIS5_S6_St4lessIS5_ESaISt4pairIKS5_S6_EEEEUlPKSD_SJ_E_EclIKSJ_PSJ_EEbRT_T0_.exit.i: ; preds = %122
-  %127 = load i32, ptr %116, align 4
-  %128 = getelementptr inbounds nuw i8, ptr %119, i64 4
-  %129 = load i32, ptr %128, align 4
-  %130 = icmp ult i32 %127, %129
-  %cond.fr.i93 = freeze i1 %130
-  br i1 %cond.fr.i93, label %.thread.i92, label %131
+_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN4llvm10sampleprof12SampleSorterINS3_12LineLocationENS3_12SampleRecordEEC1ERKSt3mapIS5_S6_St4lessIS5_ESaISt4pairIKS5_S6_EEEEUlPKSD_SJ_E_EclIKSJ_PSJ_EEbRT_T0_.exit.i: ; preds = %119
+  %124 = load i32, ptr %113, align 4
+  %125 = getelementptr inbounds nuw i8, ptr %116, i64 4
+  %126 = load i32, ptr %125, align 4
+  %127 = icmp ult i32 %124, %126
+  %cond.fr.i93 = freeze i1 %127
+  br i1 %cond.fr.i93, label %.thread.i92, label %128
 
-131:                                              ; preds = %_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN4llvm10sampleprof12SampleSorterINS3_12LineLocationENS3_12SampleRecordEEC1ERKSt3mapIS5_S6_St4lessIS5_ESaISt4pairIKS5_S6_EEEEUlPKSD_SJ_E_EclIKSJ_PSJ_EEbRT_T0_.exit.i
-  %132 = xor i64 %117, -1
-  %133 = add nsw i64 %.01124.i, %132
-  %134 = getelementptr inbounds i8, ptr %118, i64 8
+128:                                              ; preds = %_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN4llvm10sampleprof12SampleSorterINS3_12LineLocationENS3_12SampleRecordEEC1ERKSt3mapIS5_S6_St4lessIS5_ESaISt4pairIKS5_S6_EEEEUlPKSD_SJ_E_EclIKSJ_PSJ_EEbRT_T0_.exit.i
+  %129 = xor i64 %114, -1
+  %130 = add nsw i64 %.01124.i, %129
+  %131 = getelementptr inbounds i8, ptr %115, i64 8
   br label %.thread.i92
 
-.thread.i92:                                      ; preds = %131, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN4llvm10sampleprof12SampleSorterINS3_12LineLocationENS3_12SampleRecordEEC1ERKSt3mapIS5_S6_St4lessIS5_ESaISt4pairIKS5_S6_EEEEUlPKSD_SJ_E_EclIKSJ_PSJ_EEbRT_T0_.exit.i, %.thread21.i91, %_ZSt7advanceIPPKSt4pairIKN4llvm10sampleprof12LineLocationENS2_12SampleRecordEElEvRT_T0_.exit.i87
-  %135 = phi i64 [ %126, %.thread21.i91 ], [ %117, %_ZSt7advanceIPPKSt4pairIKN4llvm10sampleprof12LineLocationENS2_12SampleRecordEElEvRT_T0_.exit.i87 ], [ %117, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN4llvm10sampleprof12SampleSorterINS3_12LineLocationENS3_12SampleRecordEEC1ERKSt3mapIS5_S6_St4lessIS5_ESaISt4pairIKS5_S6_EEEEUlPKSD_SJ_E_EclIKSJ_PSJ_EEbRT_T0_.exit.i ], [ %133, %131 ]
-  %136 = phi ptr [ %124, %.thread21.i91 ], [ %.025.i88, %_ZSt7advanceIPPKSt4pairIKN4llvm10sampleprof12LineLocationENS2_12SampleRecordEElEvRT_T0_.exit.i87 ], [ %.025.i88, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN4llvm10sampleprof12SampleSorterINS3_12LineLocationENS3_12SampleRecordEEC1ERKSt3mapIS5_S6_St4lessIS5_ESaISt4pairIKS5_S6_EEEEUlPKSD_SJ_E_EclIKSJ_PSJ_EEbRT_T0_.exit.i ], [ %134, %131 ]
-  %137 = icmp sgt i64 %135, 0
-  br i1 %137, label %_ZSt7advanceIPPKSt4pairIKN4llvm10sampleprof12LineLocationENS2_12SampleRecordEElEvRT_T0_.exit.i87, label %_ZSt13__upper_boundIPPKSt4pairIKN4llvm10sampleprof12LineLocationENS2_12SampleRecordEES8_N9__gnu_cxx5__ops14_Val_comp_iterIZNS2_12SampleSorterIS3_S5_EC1ERKSt3mapIS3_S5_St4lessIS3_ESaIS6_EEEUlS8_S8_E_EEET_SO_SO_RKT0_T1_.exit.loopexit, !llvm.loop !192
+.thread.i92:                                      ; preds = %128, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN4llvm10sampleprof12SampleSorterINS3_12LineLocationENS3_12SampleRecordEEC1ERKSt3mapIS5_S6_St4lessIS5_ESaISt4pairIKS5_S6_EEEEUlPKSD_SJ_E_EclIKSJ_PSJ_EEbRT_T0_.exit.i, %.thread21.i91, %_ZSt7advanceIPPKSt4pairIKN4llvm10sampleprof12LineLocationENS2_12SampleRecordEElEvRT_T0_.exit.i87
+  %132 = phi i64 [ %123, %.thread21.i91 ], [ %114, %_ZSt7advanceIPPKSt4pairIKN4llvm10sampleprof12LineLocationENS2_12SampleRecordEElEvRT_T0_.exit.i87 ], [ %114, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN4llvm10sampleprof12SampleSorterINS3_12LineLocationENS3_12SampleRecordEEC1ERKSt3mapIS5_S6_St4lessIS5_ESaISt4pairIKS5_S6_EEEEUlPKSD_SJ_E_EclIKSJ_PSJ_EEbRT_T0_.exit.i ], [ %130, %128 ]
+  %133 = phi ptr [ %121, %.thread21.i91 ], [ %.025.i88, %_ZSt7advanceIPPKSt4pairIKN4llvm10sampleprof12LineLocationENS2_12SampleRecordEElEvRT_T0_.exit.i87 ], [ %.025.i88, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN4llvm10sampleprof12SampleSorterINS3_12LineLocationENS3_12SampleRecordEEC1ERKSt3mapIS5_S6_St4lessIS5_ESaISt4pairIKS5_S6_EEEEUlPKSD_SJ_E_EclIKSJ_PSJ_EEbRT_T0_.exit.i ], [ %131, %128 ]
+  %134 = icmp sgt i64 %132, 0
+  br i1 %134, label %_ZSt7advanceIPPKSt4pairIKN4llvm10sampleprof12LineLocationENS2_12SampleRecordEElEvRT_T0_.exit.i87, label %_ZSt13__upper_boundIPPKSt4pairIKN4llvm10sampleprof12LineLocationENS2_12SampleRecordEES8_N9__gnu_cxx5__ops14_Val_comp_iterIZNS2_12SampleSorterIS3_S5_EC1ERKSt3mapIS3_S5_St4lessIS3_ESaIS6_EEEUlS8_S8_E_EEET_SO_SO_RKT0_T1_.exit.loopexit, !llvm.loop !192
 
 _ZSt13__upper_boundIPPKSt4pairIKN4llvm10sampleprof12LineLocationENS2_12SampleRecordEES8_N9__gnu_cxx5__ops14_Val_comp_iterIZNS2_12SampleSorterIS3_S5_EC1ERKSt3mapIS3_S5_St4lessIS3_ESaIS6_EEEUlS8_S8_E_EEET_SO_SO_RKT0_T1_.exit.loopexit: ; preds = %.thread.i92
-  %.pre141 = ptrtoint ptr %136 to i64
+  %.pre140 = ptrtoint ptr %133 to i64
   br label %_ZSt13__upper_boundIPPKSt4pairIKN4llvm10sampleprof12LineLocationENS2_12SampleRecordEES8_N9__gnu_cxx5__ops14_Val_comp_iterIZNS2_12SampleSorterIS3_S5_EC1ERKSt3mapIS3_S5_St4lessIS3_ESaIS6_EEEUlS8_S8_E_EEET_SO_SO_RKT0_T1_.exit
 
 _ZSt13__upper_boundIPPKSt4pairIKN4llvm10sampleprof12LineLocationENS2_12SampleRecordEES8_N9__gnu_cxx5__ops14_Val_comp_iterIZNS2_12SampleSorterIS3_S5_EC1ERKSt3mapIS3_S5_St4lessIS3_ESaIS6_EEEUlS8_S8_E_EEET_SO_SO_RKT0_T1_.exit: ; preds = %_ZSt13__upper_boundIPPKSt4pairIKN4llvm10sampleprof12LineLocationENS2_12SampleRecordEES8_N9__gnu_cxx5__ops14_Val_comp_iterIZNS2_12SampleSorterIS3_S5_EC1ERKSt3mapIS3_S5_St4lessIS3_ESaIS6_EEEUlS8_S8_E_EEET_SO_SO_RKT0_T1_.exit.loopexit, %_ZSt7advanceIPPKSt4pairIKN4llvm10sampleprof12LineLocationENS2_12SampleRecordEElEvRT_T0_.exit83
-  %.pre-phi142 = phi i64 [ %.pre141, %_ZSt13__upper_boundIPPKSt4pairIKN4llvm10sampleprof12LineLocationENS2_12SampleRecordEES8_N9__gnu_cxx5__ops14_Val_comp_iterIZNS2_12SampleSorterIS3_S5_EC1ERKSt3mapIS3_S5_St4lessIS3_ESaIS6_EEEUlS8_S8_E_EEET_SO_SO_RKT0_T1_.exit.loopexit ], [ %110, %_ZSt7advanceIPPKSt4pairIKN4llvm10sampleprof12LineLocationENS2_12SampleRecordEElEvRT_T0_.exit83 ]
-  %.0.lcssa.i85 = phi ptr [ %136, %_ZSt13__upper_boundIPPKSt4pairIKN4llvm10sampleprof12LineLocationENS2_12SampleRecordEES8_N9__gnu_cxx5__ops14_Val_comp_iterIZNS2_12SampleSorterIS3_S5_EC1ERKSt3mapIS3_S5_St4lessIS3_ESaIS6_EEEUlS8_S8_E_EEET_SO_SO_RKT0_T1_.exit.loopexit ], [ %.tr127, %_ZSt7advanceIPPKSt4pairIKN4llvm10sampleprof12LineLocationENS2_12SampleRecordEElEvRT_T0_.exit83 ]
-  %138 = sub i64 %.pre-phi142, %110
-  %139 = ashr exact i64 %138, 3
-  br label %140
+  %.pre-phi141 = phi i64 [ %.pre140, %_ZSt13__upper_boundIPPKSt4pairIKN4llvm10sampleprof12LineLocationENS2_12SampleRecordEES8_N9__gnu_cxx5__ops14_Val_comp_iterIZNS2_12SampleSorterIS3_S5_EC1ERKSt3mapIS3_S5_St4lessIS3_ESaIS6_EEEUlS8_S8_E_EEET_SO_SO_RKT0_T1_.exit.loopexit ], [ %107, %_ZSt7advanceIPPKSt4pairIKN4llvm10sampleprof12LineLocationENS2_12SampleRecordEElEvRT_T0_.exit83 ]
+  %.0.lcssa.i85 = phi ptr [ %133, %_ZSt13__upper_boundIPPKSt4pairIKN4llvm10sampleprof12LineLocationENS2_12SampleRecordEES8_N9__gnu_cxx5__ops14_Val_comp_iterIZNS2_12SampleSorterIS3_S5_EC1ERKSt3mapIS3_S5_St4lessIS3_ESaIS6_EEEUlS8_S8_E_EEET_SO_SO_RKT0_T1_.exit.loopexit ], [ %.tr126, %_ZSt7advanceIPPKSt4pairIKN4llvm10sampleprof12LineLocationENS2_12SampleRecordEElEvRT_T0_.exit83 ]
+  %135 = sub i64 %.pre-phi141, %107
+  %136 = ashr exact i64 %135, 3
+  br label %137
 
-140:                                              ; preds = %_ZSt13__upper_boundIPPKSt4pairIKN4llvm10sampleprof12LineLocationENS2_12SampleRecordEES8_N9__gnu_cxx5__ops14_Val_comp_iterIZNS2_12SampleSorterIS3_S5_EC1ERKSt3mapIS3_S5_St4lessIS3_ESaIS6_EEEUlS8_S8_E_EEET_SO_SO_RKT0_T1_.exit, %_ZSt13__lower_boundIPPKSt4pairIKN4llvm10sampleprof12LineLocationENS2_12SampleRecordEES8_N9__gnu_cxx5__ops14_Iter_comp_valIZNS2_12SampleSorterIS3_S5_EC1ERKSt3mapIS3_S5_St4lessIS3_ESaIS6_EEEUlS8_S8_E_EEET_SO_SO_RKT0_T1_.exit
-  %.0108 = phi ptr [ %79, %_ZSt13__lower_boundIPPKSt4pairIKN4llvm10sampleprof12LineLocationENS2_12SampleRecordEES8_N9__gnu_cxx5__ops14_Iter_comp_valIZNS2_12SampleSorterIS3_S5_EC1ERKSt3mapIS3_S5_St4lessIS3_ESaIS6_EEEUlS8_S8_E_EEET_SO_SO_RKT0_T1_.exit ], [ %.0.lcssa.i85, %_ZSt13__upper_boundIPPKSt4pairIKN4llvm10sampleprof12LineLocationENS2_12SampleRecordEES8_N9__gnu_cxx5__ops14_Val_comp_iterIZNS2_12SampleSorterIS3_S5_EC1ERKSt3mapIS3_S5_St4lessIS3_ESaIS6_EEEUlS8_S8_E_EEET_SO_SO_RKT0_T1_.exit ]
-  %.0107 = phi ptr [ %.0.lcssa.i78, %_ZSt13__lower_boundIPPKSt4pairIKN4llvm10sampleprof12LineLocationENS2_12SampleRecordEES8_N9__gnu_cxx5__ops14_Iter_comp_valIZNS2_12SampleSorterIS3_S5_EC1ERKSt3mapIS3_S5_St4lessIS3_ESaIS6_EEEUlS8_S8_E_EEET_SO_SO_RKT0_T1_.exit ], [ %109, %_ZSt13__upper_boundIPPKSt4pairIKN4llvm10sampleprof12LineLocationENS2_12SampleRecordEES8_N9__gnu_cxx5__ops14_Val_comp_iterIZNS2_12SampleSorterIS3_S5_EC1ERKSt3mapIS3_S5_St4lessIS3_ESaIS6_EEEUlS8_S8_E_EEET_SO_SO_RKT0_T1_.exit ]
-  %.066 = phi i64 [ %107, %_ZSt13__lower_boundIPPKSt4pairIKN4llvm10sampleprof12LineLocationENS2_12SampleRecordEES8_N9__gnu_cxx5__ops14_Iter_comp_valIZNS2_12SampleSorterIS3_S5_EC1ERKSt3mapIS3_S5_St4lessIS3_ESaIS6_EEEUlS8_S8_E_EEET_SO_SO_RKT0_T1_.exit ], [ %108, %_ZSt13__upper_boundIPPKSt4pairIKN4llvm10sampleprof12LineLocationENS2_12SampleRecordEES8_N9__gnu_cxx5__ops14_Val_comp_iterIZNS2_12SampleSorterIS3_S5_EC1ERKSt3mapIS3_S5_St4lessIS3_ESaIS6_EEEUlS8_S8_E_EEET_SO_SO_RKT0_T1_.exit ]
-  %.0 = phi i64 [ %78, %_ZSt13__lower_boundIPPKSt4pairIKN4llvm10sampleprof12LineLocationENS2_12SampleRecordEES8_N9__gnu_cxx5__ops14_Iter_comp_valIZNS2_12SampleSorterIS3_S5_EC1ERKSt3mapIS3_S5_St4lessIS3_ESaIS6_EEEUlS8_S8_E_EEET_SO_SO_RKT0_T1_.exit ], [ %139, %_ZSt13__upper_boundIPPKSt4pairIKN4llvm10sampleprof12LineLocationENS2_12SampleRecordEES8_N9__gnu_cxx5__ops14_Val_comp_iterIZNS2_12SampleSorterIS3_S5_EC1ERKSt3mapIS3_S5_St4lessIS3_ESaIS6_EEEUlS8_S8_E_EEET_SO_SO_RKT0_T1_.exit ]
-  %141 = sub nsw i64 %.tr113130, %.0
-  %142 = icmp sle i64 %141, %.066
+137:                                              ; preds = %_ZSt13__upper_boundIPPKSt4pairIKN4llvm10sampleprof12LineLocationENS2_12SampleRecordEES8_N9__gnu_cxx5__ops14_Val_comp_iterIZNS2_12SampleSorterIS3_S5_EC1ERKSt3mapIS3_S5_St4lessIS3_ESaIS6_EEEUlS8_S8_E_EEET_SO_SO_RKT0_T1_.exit, %_ZSt13__lower_boundIPPKSt4pairIKN4llvm10sampleprof12LineLocationENS2_12SampleRecordEES8_N9__gnu_cxx5__ops14_Iter_comp_valIZNS2_12SampleSorterIS3_S5_EC1ERKSt3mapIS3_S5_St4lessIS3_ESaIS6_EEEUlS8_S8_E_EEET_SO_SO_RKT0_T1_.exit
+  %.0107 = phi ptr [ %76, %_ZSt13__lower_boundIPPKSt4pairIKN4llvm10sampleprof12LineLocationENS2_12SampleRecordEES8_N9__gnu_cxx5__ops14_Iter_comp_valIZNS2_12SampleSorterIS3_S5_EC1ERKSt3mapIS3_S5_St4lessIS3_ESaIS6_EEEUlS8_S8_E_EEET_SO_SO_RKT0_T1_.exit ], [ %.0.lcssa.i85, %_ZSt13__upper_boundIPPKSt4pairIKN4llvm10sampleprof12LineLocationENS2_12SampleRecordEES8_N9__gnu_cxx5__ops14_Val_comp_iterIZNS2_12SampleSorterIS3_S5_EC1ERKSt3mapIS3_S5_St4lessIS3_ESaIS6_EEEUlS8_S8_E_EEET_SO_SO_RKT0_T1_.exit ]
+  %.0106 = phi ptr [ %.0.lcssa.i78, %_ZSt13__lower_boundIPPKSt4pairIKN4llvm10sampleprof12LineLocationENS2_12SampleRecordEES8_N9__gnu_cxx5__ops14_Iter_comp_valIZNS2_12SampleSorterIS3_S5_EC1ERKSt3mapIS3_S5_St4lessIS3_ESaIS6_EEEUlS8_S8_E_EEET_SO_SO_RKT0_T1_.exit ], [ %106, %_ZSt13__upper_boundIPPKSt4pairIKN4llvm10sampleprof12LineLocationENS2_12SampleRecordEES8_N9__gnu_cxx5__ops14_Val_comp_iterIZNS2_12SampleSorterIS3_S5_EC1ERKSt3mapIS3_S5_St4lessIS3_ESaIS6_EEEUlS8_S8_E_EEET_SO_SO_RKT0_T1_.exit ]
+  %.066 = phi i64 [ %104, %_ZSt13__lower_boundIPPKSt4pairIKN4llvm10sampleprof12LineLocationENS2_12SampleRecordEES8_N9__gnu_cxx5__ops14_Iter_comp_valIZNS2_12SampleSorterIS3_S5_EC1ERKSt3mapIS3_S5_St4lessIS3_ESaIS6_EEEUlS8_S8_E_EEET_SO_SO_RKT0_T1_.exit ], [ %105, %_ZSt13__upper_boundIPPKSt4pairIKN4llvm10sampleprof12LineLocationENS2_12SampleRecordEES8_N9__gnu_cxx5__ops14_Val_comp_iterIZNS2_12SampleSorterIS3_S5_EC1ERKSt3mapIS3_S5_St4lessIS3_ESaIS6_EEEUlS8_S8_E_EEET_SO_SO_RKT0_T1_.exit ]
+  %.0 = phi i64 [ %75, %_ZSt13__lower_boundIPPKSt4pairIKN4llvm10sampleprof12LineLocationENS2_12SampleRecordEES8_N9__gnu_cxx5__ops14_Iter_comp_valIZNS2_12SampleSorterIS3_S5_EC1ERKSt3mapIS3_S5_St4lessIS3_ESaIS6_EEEUlS8_S8_E_EEET_SO_SO_RKT0_T1_.exit ], [ %136, %_ZSt13__upper_boundIPPKSt4pairIKN4llvm10sampleprof12LineLocationENS2_12SampleRecordEES8_N9__gnu_cxx5__ops14_Val_comp_iterIZNS2_12SampleSorterIS3_S5_EC1ERKSt3mapIS3_S5_St4lessIS3_ESaIS6_EEEUlS8_S8_E_EEET_SO_SO_RKT0_T1_.exit ]
+  %138 = sub nsw i64 %.tr112129, %.0
+  %139 = icmp sle i64 %138, %.066
   %.not.i = icmp sgt i64 %.066, %6
-  %or.cond.i = or i1 %.not.i, %142
-  br i1 %or.cond.i, label %156, label %143
+  %or.cond.i = or i1 %.not.i, %139
+  br i1 %or.cond.i, label %153, label %140
 
-143:                                              ; preds = %140
+140:                                              ; preds = %137
   %.not35.i = icmp eq i64 %.066, 0
-  br i1 %.not35.i, label %_ZSt17__rotate_adaptiveIPPKSt4pairIKN4llvm10sampleprof12LineLocationENS2_12SampleRecordEES9_lET_SA_SA_SA_T1_SB_T0_SB_.exit, label %144
+  br i1 %.not35.i, label %_ZSt17__rotate_adaptiveIPPKSt4pairIKN4llvm10sampleprof12LineLocationENS2_12SampleRecordEES9_lET_SA_SA_SA_T1_SB_T0_SB_.exit, label %141
 
-144:                                              ; preds = %143
-  %145 = ptrtoint ptr %.0107 to i64
-  %146 = ptrtoint ptr %.tr111128 to i64
-  %147 = sub i64 %145, %146
-  %.not.i.i.i.i.i.i94 = icmp eq ptr %.0107, %.tr111128
-  br i1 %.not.i.i.i.i.i.i94, label %_ZSt4moveIPPKSt4pairIKN4llvm10sampleprof12LineLocationENS2_12SampleRecordEES9_ET0_T_SB_SA_.exit.i95, label %148
+141:                                              ; preds = %140
+  %142 = ptrtoint ptr %.0106 to i64
+  %143 = ptrtoint ptr %.tr110127 to i64
+  %144 = sub i64 %142, %143
+  %.not.i.i.i.i.i.i94 = icmp eq ptr %.0106, %.tr110127
+  br i1 %.not.i.i.i.i.i.i94, label %_ZSt4moveIPPKSt4pairIKN4llvm10sampleprof12LineLocationENS2_12SampleRecordEES9_ET0_T_SB_SA_.exit.i95, label %145
 
-148:                                              ; preds = %144
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %5, ptr align 8 %.tr111128, i64 %147, i1 false)
+145:                                              ; preds = %141
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %5, ptr align 8 %.tr110127, i64 %144, i1 false)
   br label %_ZSt4moveIPPKSt4pairIKN4llvm10sampleprof12LineLocationENS2_12SampleRecordEES9_ET0_T_SB_SA_.exit.i95
 
-_ZSt4moveIPPKSt4pairIKN4llvm10sampleprof12LineLocationENS2_12SampleRecordEES9_ET0_T_SB_SA_.exit.i95: ; preds = %148, %144
-  %.not.i.i.i.i.i36.i = icmp eq ptr %.tr111128, %.0108
-  br i1 %.not.i.i.i.i.i36.i, label %_ZSt13move_backwardIPPKSt4pairIKN4llvm10sampleprof12LineLocationENS2_12SampleRecordEES9_ET0_T_SB_SA_.exit.i, label %149
+_ZSt4moveIPPKSt4pairIKN4llvm10sampleprof12LineLocationENS2_12SampleRecordEES9_ET0_T_SB_SA_.exit.i95: ; preds = %145, %141
+  %.not.i.i.i.i.i36.i = icmp eq ptr %.tr110127, %.0107
+  br i1 %.not.i.i.i.i.i36.i, label %_ZSt13move_backwardIPPKSt4pairIKN4llvm10sampleprof12LineLocationENS2_12SampleRecordEES9_ET0_T_SB_SA_.exit.i, label %146
 
-149:                                              ; preds = %_ZSt4moveIPPKSt4pairIKN4llvm10sampleprof12LineLocationENS2_12SampleRecordEES9_ET0_T_SB_SA_.exit.i95
-  %150 = ptrtoint ptr %.0108 to i64
-  %151 = sub i64 %146, %150
-  %152 = ashr exact i64 %151, 3
-  %.pre.i.i.i.i.i.i96 = sub nsw i64 0, %152
-  %153 = getelementptr inbounds ptr, ptr %.0107, i64 %.pre.i.i.i.i.i.i96
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %153, ptr align 8 %.0108, i64 %151, i1 false)
+146:                                              ; preds = %_ZSt4moveIPPKSt4pairIKN4llvm10sampleprof12LineLocationENS2_12SampleRecordEES9_ET0_T_SB_SA_.exit.i95
+  %147 = ptrtoint ptr %.0107 to i64
+  %148 = sub i64 %143, %147
+  %149 = ashr exact i64 %148, 3
+  %.pre.i.i.i.i.i.i = sub nsw i64 0, %149
+  %150 = getelementptr inbounds ptr, ptr %.0106, i64 %.pre.i.i.i.i.i.i
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %150, ptr align 8 %.0107, i64 %148, i1 false)
   br label %_ZSt13move_backwardIPPKSt4pairIKN4llvm10sampleprof12LineLocationENS2_12SampleRecordEES9_ET0_T_SB_SA_.exit.i
 
-_ZSt13move_backwardIPPKSt4pairIKN4llvm10sampleprof12LineLocationENS2_12SampleRecordEES9_ET0_T_SB_SA_.exit.i: ; preds = %149, %_ZSt4moveIPPKSt4pairIKN4llvm10sampleprof12LineLocationENS2_12SampleRecordEES9_ET0_T_SB_SA_.exit.i95
-  br i1 %.not.i.i.i.i.i.i94, label %_ZSt4moveIPPKSt4pairIKN4llvm10sampleprof12LineLocationENS2_12SampleRecordEES9_ET0_T_SB_SA_.exit38.i, label %154
+_ZSt13move_backwardIPPKSt4pairIKN4llvm10sampleprof12LineLocationENS2_12SampleRecordEES9_ET0_T_SB_SA_.exit.i: ; preds = %146, %_ZSt4moveIPPKSt4pairIKN4llvm10sampleprof12LineLocationENS2_12SampleRecordEES9_ET0_T_SB_SA_.exit.i95
+  br i1 %.not.i.i.i.i.i.i94, label %_ZSt4moveIPPKSt4pairIKN4llvm10sampleprof12LineLocationENS2_12SampleRecordEES9_ET0_T_SB_SA_.exit38.i, label %151
 
-154:                                              ; preds = %_ZSt13move_backwardIPPKSt4pairIKN4llvm10sampleprof12LineLocationENS2_12SampleRecordEES9_ET0_T_SB_SA_.exit.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %.0108, ptr align 8 %5, i64 %147, i1 false)
+151:                                              ; preds = %_ZSt13move_backwardIPPKSt4pairIKN4llvm10sampleprof12LineLocationENS2_12SampleRecordEES9_ET0_T_SB_SA_.exit.i
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %.0107, ptr align 8 %5, i64 %144, i1 false)
   br label %_ZSt4moveIPPKSt4pairIKN4llvm10sampleprof12LineLocationENS2_12SampleRecordEES9_ET0_T_SB_SA_.exit38.i
 
-_ZSt4moveIPPKSt4pairIKN4llvm10sampleprof12LineLocationENS2_12SampleRecordEES9_ET0_T_SB_SA_.exit38.i: ; preds = %154, %_ZSt13move_backwardIPPKSt4pairIKN4llvm10sampleprof12LineLocationENS2_12SampleRecordEES9_ET0_T_SB_SA_.exit.i
-  %155 = getelementptr inbounds i8, ptr %.0108, i64 %147
+_ZSt4moveIPPKSt4pairIKN4llvm10sampleprof12LineLocationENS2_12SampleRecordEES9_ET0_T_SB_SA_.exit38.i: ; preds = %151, %_ZSt13move_backwardIPPKSt4pairIKN4llvm10sampleprof12LineLocationENS2_12SampleRecordEES9_ET0_T_SB_SA_.exit.i
+  %152 = getelementptr inbounds i8, ptr %.0107, i64 %144
   br label %_ZSt17__rotate_adaptiveIPPKSt4pairIKN4llvm10sampleprof12LineLocationENS2_12SampleRecordEES9_lET_SA_SA_SA_T1_SB_T0_SB_.exit
 
-156:                                              ; preds = %140
-  %.not33.i = icmp sgt i64 %141, %6
-  br i1 %.not33.i, label %170, label %157
+153:                                              ; preds = %137
+  %.not33.i = icmp sgt i64 %138, %6
+  br i1 %.not33.i, label %167, label %154
 
-157:                                              ; preds = %156
-  %.not34.i = icmp eq i64 %.tr113130, %.0
-  br i1 %.not34.i, label %_ZSt17__rotate_adaptiveIPPKSt4pairIKN4llvm10sampleprof12LineLocationENS2_12SampleRecordEES9_lET_SA_SA_SA_T1_SB_T0_SB_.exit, label %158
+154:                                              ; preds = %153
+  %.not34.i = icmp eq i64 %.tr112129, %.0
+  br i1 %.not34.i, label %_ZSt17__rotate_adaptiveIPPKSt4pairIKN4llvm10sampleprof12LineLocationENS2_12SampleRecordEES9_lET_SA_SA_SA_T1_SB_T0_SB_.exit, label %155
 
-158:                                              ; preds = %157
-  %159 = ptrtoint ptr %.tr111128 to i64
-  %160 = ptrtoint ptr %.0108 to i64
-  %161 = sub i64 %159, %160
-  %.not.i.i.i.i.i39.i = icmp eq ptr %.tr111128, %.0108
-  br i1 %.not.i.i.i.i.i39.i, label %_ZSt4moveIPPKSt4pairIKN4llvm10sampleprof12LineLocationENS2_12SampleRecordEES9_ET0_T_SB_SA_.exit40.i, label %162
+155:                                              ; preds = %154
+  %156 = ptrtoint ptr %.tr110127 to i64
+  %157 = ptrtoint ptr %.0107 to i64
+  %158 = sub i64 %156, %157
+  %.not.i.i.i.i.i39.i = icmp eq ptr %.tr110127, %.0107
+  br i1 %.not.i.i.i.i.i39.i, label %_ZSt4moveIPPKSt4pairIKN4llvm10sampleprof12LineLocationENS2_12SampleRecordEES9_ET0_T_SB_SA_.exit40.i, label %159
 
-162:                                              ; preds = %158
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %5, ptr align 8 %.0108, i64 %161, i1 false)
+159:                                              ; preds = %155
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %5, ptr align 8 %.0107, i64 %158, i1 false)
   br label %_ZSt4moveIPPKSt4pairIKN4llvm10sampleprof12LineLocationENS2_12SampleRecordEES9_ET0_T_SB_SA_.exit40.i
 
-_ZSt4moveIPPKSt4pairIKN4llvm10sampleprof12LineLocationENS2_12SampleRecordEES9_ET0_T_SB_SA_.exit40.i: ; preds = %162, %158
-  %.not.i.i.i.i.i41.i = icmp eq ptr %.0107, %.tr111128
-  br i1 %.not.i.i.i.i.i41.i, label %_ZSt4moveIPPKSt4pairIKN4llvm10sampleprof12LineLocationENS2_12SampleRecordEES9_ET0_T_SB_SA_.exit42.i, label %163
+_ZSt4moveIPPKSt4pairIKN4llvm10sampleprof12LineLocationENS2_12SampleRecordEES9_ET0_T_SB_SA_.exit40.i: ; preds = %159, %155
+  %.not.i.i.i.i.i41.i = icmp eq ptr %.0106, %.tr110127
+  br i1 %.not.i.i.i.i.i41.i, label %_ZSt4moveIPPKSt4pairIKN4llvm10sampleprof12LineLocationENS2_12SampleRecordEES9_ET0_T_SB_SA_.exit42.i, label %160
 
-163:                                              ; preds = %_ZSt4moveIPPKSt4pairIKN4llvm10sampleprof12LineLocationENS2_12SampleRecordEES9_ET0_T_SB_SA_.exit40.i
-  %164 = ptrtoint ptr %.0107 to i64
-  %165 = sub i64 %164, %159
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %.0108, ptr align 8 %.tr111128, i64 %165, i1 false)
+160:                                              ; preds = %_ZSt4moveIPPKSt4pairIKN4llvm10sampleprof12LineLocationENS2_12SampleRecordEES9_ET0_T_SB_SA_.exit40.i
+  %161 = ptrtoint ptr %.0106 to i64
+  %162 = sub i64 %161, %156
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %.0107, ptr align 8 %.tr110127, i64 %162, i1 false)
   br label %_ZSt4moveIPPKSt4pairIKN4llvm10sampleprof12LineLocationENS2_12SampleRecordEES9_ET0_T_SB_SA_.exit42.i
 
-_ZSt4moveIPPKSt4pairIKN4llvm10sampleprof12LineLocationENS2_12SampleRecordEES9_ET0_T_SB_SA_.exit42.i: ; preds = %163, %_ZSt4moveIPPKSt4pairIKN4llvm10sampleprof12LineLocationENS2_12SampleRecordEES9_ET0_T_SB_SA_.exit40.i
-  %166 = ashr exact i64 %161, 3
-  %.pre.i.i.i.i.i44.i = sub nsw i64 0, %166
-  br i1 %.not.i.i.i.i.i39.i, label %_ZSt13move_backwardIPPKSt4pairIKN4llvm10sampleprof12LineLocationENS2_12SampleRecordEES9_ET0_T_SB_SA_.exit45.i, label %167
+_ZSt4moveIPPKSt4pairIKN4llvm10sampleprof12LineLocationENS2_12SampleRecordEES9_ET0_T_SB_SA_.exit42.i: ; preds = %160, %_ZSt4moveIPPKSt4pairIKN4llvm10sampleprof12LineLocationENS2_12SampleRecordEES9_ET0_T_SB_SA_.exit40.i
+  %163 = ashr exact i64 %158, 3
+  %.pre.i.i.i.i.i44.i = sub nsw i64 0, %163
+  br i1 %.not.i.i.i.i.i39.i, label %_ZSt13move_backwardIPPKSt4pairIKN4llvm10sampleprof12LineLocationENS2_12SampleRecordEES9_ET0_T_SB_SA_.exit45.i, label %164
 
-167:                                              ; preds = %_ZSt4moveIPPKSt4pairIKN4llvm10sampleprof12LineLocationENS2_12SampleRecordEES9_ET0_T_SB_SA_.exit42.i
-  %168 = getelementptr inbounds ptr, ptr %.0107, i64 %.pre.i.i.i.i.i44.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %168, ptr align 8 %5, i64 %161, i1 false)
+164:                                              ; preds = %_ZSt4moveIPPKSt4pairIKN4llvm10sampleprof12LineLocationENS2_12SampleRecordEES9_ET0_T_SB_SA_.exit42.i
+  %165 = getelementptr inbounds ptr, ptr %.0106, i64 %.pre.i.i.i.i.i44.i
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %165, ptr align 8 %5, i64 %158, i1 false)
   br label %_ZSt13move_backwardIPPKSt4pairIKN4llvm10sampleprof12LineLocationENS2_12SampleRecordEES9_ET0_T_SB_SA_.exit45.i
 
-_ZSt13move_backwardIPPKSt4pairIKN4llvm10sampleprof12LineLocationENS2_12SampleRecordEES9_ET0_T_SB_SA_.exit45.i: ; preds = %167, %_ZSt4moveIPPKSt4pairIKN4llvm10sampleprof12LineLocationENS2_12SampleRecordEES9_ET0_T_SB_SA_.exit42.i
-  %169 = getelementptr inbounds ptr, ptr %.0107, i64 %.pre.i.i.i.i.i44.i
+_ZSt13move_backwardIPPKSt4pairIKN4llvm10sampleprof12LineLocationENS2_12SampleRecordEES9_ET0_T_SB_SA_.exit45.i: ; preds = %164, %_ZSt4moveIPPKSt4pairIKN4llvm10sampleprof12LineLocationENS2_12SampleRecordEES9_ET0_T_SB_SA_.exit42.i
+  %166 = getelementptr inbounds ptr, ptr %.0106, i64 %.pre.i.i.i.i.i44.i
   br label %_ZSt17__rotate_adaptiveIPPKSt4pairIKN4llvm10sampleprof12LineLocationENS2_12SampleRecordEES9_lET_SA_SA_SA_T1_SB_T0_SB_.exit
 
-170:                                              ; preds = %156
-  %171 = tail call noundef ptr @_ZNSt3_V28__rotateIPPKSt4pairIKN4llvm10sampleprof12LineLocationENS3_12SampleRecordEEEET_SB_SB_SB_St26random_access_iterator_tag(ptr noundef %.0108, ptr noundef %.tr111128, ptr noundef %.0107)
+167:                                              ; preds = %153
+  %168 = tail call noundef ptr @_ZNSt3_V28__rotateIPPKSt4pairIKN4llvm10sampleprof12LineLocationENS3_12SampleRecordEEEET_SB_SB_SB_St26random_access_iterator_tag(ptr noundef %.0107, ptr noundef %.tr110127, ptr noundef %.0106)
   br label %_ZSt17__rotate_adaptiveIPPKSt4pairIKN4llvm10sampleprof12LineLocationENS2_12SampleRecordEES9_lET_SA_SA_SA_T1_SB_T0_SB_.exit
 
-_ZSt17__rotate_adaptiveIPPKSt4pairIKN4llvm10sampleprof12LineLocationENS2_12SampleRecordEES9_lET_SA_SA_SA_T1_SB_T0_SB_.exit: ; preds = %143, %_ZSt4moveIPPKSt4pairIKN4llvm10sampleprof12LineLocationENS2_12SampleRecordEES9_ET0_T_SB_SA_.exit38.i, %157, %_ZSt13move_backwardIPPKSt4pairIKN4llvm10sampleprof12LineLocationENS2_12SampleRecordEES9_ET0_T_SB_SA_.exit45.i, %170
-  %.0.i97 = phi ptr [ %155, %_ZSt4moveIPPKSt4pairIKN4llvm10sampleprof12LineLocationENS2_12SampleRecordEES9_ET0_T_SB_SA_.exit38.i ], [ %169, %_ZSt13move_backwardIPPKSt4pairIKN4llvm10sampleprof12LineLocationENS2_12SampleRecordEES9_ET0_T_SB_SA_.exit45.i ], [ %171, %170 ], [ %.0108, %143 ], [ %.0107, %157 ]
-  tail call void @_ZSt16__merge_adaptiveIPPKSt4pairIKN4llvm10sampleprof12LineLocationENS2_12SampleRecordEElS9_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS2_12SampleSorterIS3_S5_EC1ERKSt3mapIS3_S5_St4lessIS3_ESaIS6_EEEUlS8_S8_E_EEEvT_SO_SO_T0_SP_T1_SP_T2_(ptr noundef %.tr127, ptr noundef %.0108, ptr noundef %.0.i97, i64 noundef %.0, i64 noundef %.066, ptr noundef %5, i64 noundef %6)
-  %172 = sub nsw i64 %.tr114131, %.066
-  %.not = icmp sgt i64 %141, %172
-  %.not70 = icmp sgt i64 %141, %6
+_ZSt17__rotate_adaptiveIPPKSt4pairIKN4llvm10sampleprof12LineLocationENS2_12SampleRecordEES9_lET_SA_SA_SA_T1_SB_T0_SB_.exit: ; preds = %140, %_ZSt4moveIPPKSt4pairIKN4llvm10sampleprof12LineLocationENS2_12SampleRecordEES9_ET0_T_SB_SA_.exit38.i, %154, %_ZSt13move_backwardIPPKSt4pairIKN4llvm10sampleprof12LineLocationENS2_12SampleRecordEES9_ET0_T_SB_SA_.exit45.i, %167
+  %.0.i96 = phi ptr [ %152, %_ZSt4moveIPPKSt4pairIKN4llvm10sampleprof12LineLocationENS2_12SampleRecordEES9_ET0_T_SB_SA_.exit38.i ], [ %166, %_ZSt13move_backwardIPPKSt4pairIKN4llvm10sampleprof12LineLocationENS2_12SampleRecordEES9_ET0_T_SB_SA_.exit45.i ], [ %168, %167 ], [ %.0107, %140 ], [ %.0106, %154 ]
+  tail call void @_ZSt16__merge_adaptiveIPPKSt4pairIKN4llvm10sampleprof12LineLocationENS2_12SampleRecordEElS9_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS2_12SampleSorterIS3_S5_EC1ERKSt3mapIS3_S5_St4lessIS3_ESaIS6_EEEUlS8_S8_E_EEEvT_SO_SO_T0_SP_T1_SP_T2_(ptr noundef %.tr126, ptr noundef %.0107, ptr noundef %.0.i96, i64 noundef %.0, i64 noundef %.066, ptr noundef %5, i64 noundef %6)
+  %169 = sub nsw i64 %.tr113130, %.066
+  %.not = icmp sgt i64 %138, %169
+  %.not70 = icmp sgt i64 %138, %6
   %or.cond = or i1 %.not70, %.not
   br i1 %or.cond, label %39, label %tailrecurse._crit_edge
 
-_ZSt21__move_merge_adaptiveIPPKSt4pairIKN4llvm10sampleprof12LineLocationENS2_12SampleRecordEES9_S9_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS2_12SampleSorterIS3_S5_EC1ERKSt3mapIS3_S5_St4lessIS3_ESaIS6_EEEUlS8_S8_E_EEEvT_SO_T0_SP_T1_T2_.exit: ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm10sampleprof12SampleSorterINS3_12LineLocationENS3_12SampleRecordEEC1ERKSt3mapIS5_S6_St4lessIS5_ESaISt4pairIKS5_S6_EEEEUlPKSD_SJ_E_EclIPSJ_SN_EEbT_T0_.exit.thread35.i, %41, %67, %65, %44, %_ZSt4moveIPPKSt4pairIKN4llvm10sampleprof12LineLocationENS2_12SampleRecordEES9_ET0_T_SB_SA_.exit.i, %._crit_edge.i
+_ZSt21__move_merge_adaptiveIPPKSt4pairIKN4llvm10sampleprof12LineLocationENS2_12SampleRecordEES9_S9_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS2_12SampleSorterIS3_S5_EC1ERKSt3mapIS3_S5_St4lessIS3_ESaIS6_EEEUlS8_S8_E_EEEvT_SO_T0_SP_T1_T2_.exit: ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm10sampleprof12SampleSorterINS3_12LineLocationENS3_12SampleRecordEEC1ERKSt3mapIS5_S6_St4lessIS5_ESaISt4pairIKS5_S6_EEEEUlPKSD_SJ_E_EclIPSJ_SN_EEbT_T0_.exit.thread35.i, %40, %_ZSt13move_backwardIPPKSt4pairIKN4llvm10sampleprof12LineLocationENS2_12SampleRecordEES9_ET0_T_SB_SA_.exit.sink.split.i, %62, %_ZSt4moveIPPKSt4pairIKN4llvm10sampleprof12LineLocationENS2_12SampleRecordEES9_ET0_T_SB_SA_.exit.i, %._crit_edge.i
   ret void
 }
 
@@ -15800,22 +15796,22 @@ _ZSt11swap_rangesIPPKSt4pairIKN4llvm10sampleprof12LineLocationESt3mapINS2_10Func
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZSt16__merge_adaptiveIPPKSt4pairIKN4llvm10sampleprof12LineLocationESt3mapINS2_10FunctionIdENS2_15FunctionSamplesESt4lessIS6_ESaIS0_IKS6_S7_EEEElSH_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS2_12SampleSorterIS3_SD_EC1ERKS5_IS3_SD_S8_IS3_ESaISE_EEEUlSG_SG_E_EEEvT_SU_SU_T0_SV_T1_SV_T2_(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, i64 noundef %4, ptr noundef %5, i64 noundef %6) local_unnamed_addr #2 comdat {
-  %.not124 = icmp sgt i64 %3, %4
-  %.not70125 = icmp sgt i64 %3, %6
-  %or.cond126 = or i1 %.not70125, %.not124
-  br i1 %or.cond126, label %.lr.ph, label %tailrecurse._crit_edge
+  %.not123 = icmp sgt i64 %3, %4
+  %.not70124 = icmp sgt i64 %3, %6
+  %or.cond125 = or i1 %.not70124, %.not123
+  br i1 %or.cond125, label %.lr.ph, label %tailrecurse._crit_edge
 
 .lr.ph:                                           ; preds = %7
   %8 = ptrtoint ptr %2 to i64
   br label %39
 
 tailrecurse._crit_edge:                           ; preds = %_ZSt17__rotate_adaptiveIPPKSt4pairIKN4llvm10sampleprof12LineLocationESt3mapINS2_10FunctionIdENS2_15FunctionSamplesESt4lessIS6_ESaIS0_IKS6_S7_EEEESH_lET_SI_SI_SI_T1_SJ_T0_SJ_.exit, %7
-  %.tr.lcssa = phi ptr [ %0, %7 ], [ %.0.i97, %_ZSt17__rotate_adaptiveIPPKSt4pairIKN4llvm10sampleprof12LineLocationESt3mapINS2_10FunctionIdENS2_15FunctionSamplesESt4lessIS6_ESaIS0_IKS6_S7_EEEESH_lET_SI_SI_SI_T1_SJ_T0_SJ_.exit ]
-  %.tr111.lcssa = phi ptr [ %1, %7 ], [ %.0107, %_ZSt17__rotate_adaptiveIPPKSt4pairIKN4llvm10sampleprof12LineLocationESt3mapINS2_10FunctionIdENS2_15FunctionSamplesESt4lessIS6_ESaIS0_IKS6_S7_EEEESH_lET_SI_SI_SI_T1_SJ_T0_SJ_.exit ]
-  %9 = ptrtoint ptr %.tr111.lcssa to i64
+  %.tr.lcssa = phi ptr [ %0, %7 ], [ %.0.i96, %_ZSt17__rotate_adaptiveIPPKSt4pairIKN4llvm10sampleprof12LineLocationESt3mapINS2_10FunctionIdENS2_15FunctionSamplesESt4lessIS6_ESaIS0_IKS6_S7_EEEESH_lET_SI_SI_SI_T1_SJ_T0_SJ_.exit ]
+  %.tr110.lcssa = phi ptr [ %1, %7 ], [ %.0106, %_ZSt17__rotate_adaptiveIPPKSt4pairIKN4llvm10sampleprof12LineLocationESt3mapINS2_10FunctionIdENS2_15FunctionSamplesESt4lessIS6_ESaIS0_IKS6_S7_EEEESH_lET_SI_SI_SI_T1_SJ_T0_SJ_.exit ]
+  %9 = ptrtoint ptr %.tr110.lcssa to i64
   %10 = ptrtoint ptr %.tr.lcssa to i64
   %11 = sub i64 %9, %10
-  %.not.i.i.i.i.i = icmp eq ptr %.tr111.lcssa, %.tr.lcssa
+  %.not.i.i.i.i.i = icmp eq ptr %.tr110.lcssa, %.tr.lcssa
   br i1 %.not.i.i.i.i.i, label %_ZSt4moveIPPKSt4pairIKN4llvm10sampleprof12LineLocationESt3mapINS2_10FunctionIdENS2_15FunctionSamplesESt4lessIS6_ESaIS0_IKS6_S7_EEEESH_ET0_T_SJ_SI_.exit, label %12
 
 12:                                               ; preds = %tailrecurse._crit_edge
@@ -15824,15 +15820,15 @@ tailrecurse._crit_edge:                           ; preds = %_ZSt17__rotate_adap
 
 _ZSt4moveIPPKSt4pairIKN4llvm10sampleprof12LineLocationESt3mapINS2_10FunctionIdENS2_15FunctionSamplesESt4lessIS6_ESaIS0_IKS6_S7_EEEESH_ET0_T_SJ_SI_.exit: ; preds = %tailrecurse._crit_edge, %12
   %13 = getelementptr inbounds i8, ptr %5, i64 %11
-  %14 = icmp ne ptr %.tr111.lcssa, %.tr.lcssa
-  %15 = icmp ne ptr %.tr111.lcssa, %2
+  %14 = icmp ne ptr %.tr110.lcssa, %.tr.lcssa
+  %15 = icmp ne ptr %.tr110.lcssa, %2
   %16 = and i1 %14, %15
   br i1 %16, label %.lr.ph.i, label %._crit_edge.i
 
 .lr.ph.i:                                         ; preds = %_ZSt4moveIPPKSt4pairIKN4llvm10sampleprof12LineLocationESt3mapINS2_10FunctionIdENS2_15FunctionSamplesESt4lessIS6_ESaIS0_IKS6_S7_EEEESH_ET0_T_SJ_SI_.exit, %31
   %.025.i = phi ptr [ %32, %31 ], [ %.tr.lcssa, %_ZSt4moveIPPKSt4pairIKN4llvm10sampleprof12LineLocationESt3mapINS2_10FunctionIdENS2_15FunctionSamplesESt4lessIS6_ESaIS0_IKS6_S7_EEEESH_ET0_T_SJ_SI_.exit ]
   %.01824.i = phi ptr [ %.1.i, %31 ], [ %5, %_ZSt4moveIPPKSt4pairIKN4llvm10sampleprof12LineLocationESt3mapINS2_10FunctionIdENS2_15FunctionSamplesESt4lessIS6_ESaIS0_IKS6_S7_EEEESH_ET0_T_SJ_SI_.exit ]
-  %.01923.i = phi ptr [ %.120.i, %31 ], [ %.tr111.lcssa, %_ZSt4moveIPPKSt4pairIKN4llvm10sampleprof12LineLocationESt3mapINS2_10FunctionIdENS2_15FunctionSamplesESt4lessIS6_ESaIS0_IKS6_S7_EEEESH_ET0_T_SJ_SI_.exit ]
+  %.01923.i = phi ptr [ %.120.i, %31 ], [ %.tr110.lcssa, %_ZSt4moveIPPKSt4pairIKN4llvm10sampleprof12LineLocationESt3mapINS2_10FunctionIdENS2_15FunctionSamplesESt4lessIS6_ESaIS0_IKS6_S7_EEEESH_ET0_T_SJ_SI_.exit ]
   %17 = load ptr, ptr %.01923.i, align 8
   %18 = load ptr, ptr %.01824.i, align 8
   %19 = load i32, ptr %17, align 4
@@ -15885,337 +15881,333 @@ _ZSt4moveIPPKSt4pairIKN4llvm10sampleprof12LineLocationESt3mapINS2_10FunctionIdEN
   br label %_ZSt21__move_merge_adaptiveIPPKSt4pairIKN4llvm10sampleprof12LineLocationESt3mapINS2_10FunctionIdENS2_15FunctionSamplesESt4lessIS6_ESaIS0_IKS6_S7_EEEESH_SH_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS2_12SampleSorterIS3_SD_EC1ERKS5_IS3_SD_S8_IS3_ESaISE_EEEUlSG_SG_E_EEEvT_SU_T0_SV_T1_T2_.exit
 
 39:                                               ; preds = %.lr.ph, %_ZSt17__rotate_adaptiveIPPKSt4pairIKN4llvm10sampleprof12LineLocationESt3mapINS2_10FunctionIdENS2_15FunctionSamplesESt4lessIS6_ESaIS0_IKS6_S7_EEEESH_lET_SI_SI_SI_T1_SJ_T0_SJ_.exit
-  %.not132 = phi i1 [ %.not124, %.lr.ph ], [ %.not, %_ZSt17__rotate_adaptiveIPPKSt4pairIKN4llvm10sampleprof12LineLocationESt3mapINS2_10FunctionIdENS2_15FunctionSamplesESt4lessIS6_ESaIS0_IKS6_S7_EEEESH_lET_SI_SI_SI_T1_SJ_T0_SJ_.exit ]
-  %.tr114131 = phi i64 [ %4, %.lr.ph ], [ %172, %_ZSt17__rotate_adaptiveIPPKSt4pairIKN4llvm10sampleprof12LineLocationESt3mapINS2_10FunctionIdENS2_15FunctionSamplesESt4lessIS6_ESaIS0_IKS6_S7_EEEESH_lET_SI_SI_SI_T1_SJ_T0_SJ_.exit ]
-  %.tr113130 = phi i64 [ %3, %.lr.ph ], [ %141, %_ZSt17__rotate_adaptiveIPPKSt4pairIKN4llvm10sampleprof12LineLocationESt3mapINS2_10FunctionIdENS2_15FunctionSamplesESt4lessIS6_ESaIS0_IKS6_S7_EEEESH_lET_SI_SI_SI_T1_SJ_T0_SJ_.exit ]
-  %.tr111128 = phi ptr [ %1, %.lr.ph ], [ %.0107, %_ZSt17__rotate_adaptiveIPPKSt4pairIKN4llvm10sampleprof12LineLocationESt3mapINS2_10FunctionIdENS2_15FunctionSamplesESt4lessIS6_ESaIS0_IKS6_S7_EEEESH_lET_SI_SI_SI_T1_SJ_T0_SJ_.exit ]
-  %.tr127 = phi ptr [ %0, %.lr.ph ], [ %.0.i97, %_ZSt17__rotate_adaptiveIPPKSt4pairIKN4llvm10sampleprof12LineLocationESt3mapINS2_10FunctionIdENS2_15FunctionSamplesESt4lessIS6_ESaIS0_IKS6_S7_EEEESH_lET_SI_SI_SI_T1_SJ_T0_SJ_.exit ]
-  %.not71 = icmp sgt i64 %.tr114131, %6
-  %40 = ptrtoint ptr %.tr111128 to i64
-  br i1 %.not71, label %77, label %41
+  %.not131 = phi i1 [ %.not123, %.lr.ph ], [ %.not, %_ZSt17__rotate_adaptiveIPPKSt4pairIKN4llvm10sampleprof12LineLocationESt3mapINS2_10FunctionIdENS2_15FunctionSamplesESt4lessIS6_ESaIS0_IKS6_S7_EEEESH_lET_SI_SI_SI_T1_SJ_T0_SJ_.exit ]
+  %.tr113130 = phi i64 [ %4, %.lr.ph ], [ %169, %_ZSt17__rotate_adaptiveIPPKSt4pairIKN4llvm10sampleprof12LineLocationESt3mapINS2_10FunctionIdENS2_15FunctionSamplesESt4lessIS6_ESaIS0_IKS6_S7_EEEESH_lET_SI_SI_SI_T1_SJ_T0_SJ_.exit ]
+  %.tr112129 = phi i64 [ %3, %.lr.ph ], [ %138, %_ZSt17__rotate_adaptiveIPPKSt4pairIKN4llvm10sampleprof12LineLocationESt3mapINS2_10FunctionIdENS2_15FunctionSamplesESt4lessIS6_ESaIS0_IKS6_S7_EEEESH_lET_SI_SI_SI_T1_SJ_T0_SJ_.exit ]
+  %.tr110127 = phi ptr [ %1, %.lr.ph ], [ %.0106, %_ZSt17__rotate_adaptiveIPPKSt4pairIKN4llvm10sampleprof12LineLocationESt3mapINS2_10FunctionIdENS2_15FunctionSamplesESt4lessIS6_ESaIS0_IKS6_S7_EEEESH_lET_SI_SI_SI_T1_SJ_T0_SJ_.exit ]
+  %.tr126 = phi ptr [ %0, %.lr.ph ], [ %.0.i96, %_ZSt17__rotate_adaptiveIPPKSt4pairIKN4llvm10sampleprof12LineLocationESt3mapINS2_10FunctionIdENS2_15FunctionSamplesESt4lessIS6_ESaIS0_IKS6_S7_EEEESH_lET_SI_SI_SI_T1_SJ_T0_SJ_.exit ]
+  %.not71 = icmp sgt i64 %.tr113130, %6
+  br i1 %.not71, label %73, label %40
 
-41:                                               ; preds = %39
-  %42 = sub i64 %8, %40
-  %.not.i.i.i.i.i72 = icmp eq ptr %2, %.tr111128
+40:                                               ; preds = %39
+  %.not.i.i.i.i.i72 = icmp eq ptr %2, %.tr110127
   br i1 %.not.i.i.i.i.i72, label %_ZSt21__move_merge_adaptiveIPPKSt4pairIKN4llvm10sampleprof12LineLocationESt3mapINS2_10FunctionIdENS2_15FunctionSamplesESt4lessIS6_ESaIS0_IKS6_S7_EEEESH_SH_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS2_12SampleSorterIS3_SD_EC1ERKS5_IS3_SD_S8_IS3_ESaISE_EEEUlSG_SG_E_EEEvT_SU_T0_SV_T1_T2_.exit, label %_ZSt4moveIPPKSt4pairIKN4llvm10sampleprof12LineLocationESt3mapINS2_10FunctionIdENS2_15FunctionSamplesESt4lessIS6_ESaIS0_IKS6_S7_EEEESH_ET0_T_SJ_SI_.exit73.thread
 
-_ZSt4moveIPPKSt4pairIKN4llvm10sampleprof12LineLocationESt3mapINS2_10FunctionIdENS2_15FunctionSamplesESt4lessIS6_ESaIS0_IKS6_S7_EEEESH_ET0_T_SJ_SI_.exit73.thread: ; preds = %41
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %5, ptr align 8 %.tr111128, i64 %42, i1 false)
-  %43 = icmp eq ptr %.tr127, %.tr111128
-  br i1 %43, label %44, label %47
+_ZSt4moveIPPKSt4pairIKN4llvm10sampleprof12LineLocationESt3mapINS2_10FunctionIdENS2_15FunctionSamplesESt4lessIS6_ESaIS0_IKS6_S7_EEEESH_ET0_T_SJ_SI_.exit73.thread: ; preds = %40
+  %41 = ptrtoint ptr %.tr110127 to i64
+  %42 = sub i64 %8, %41
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %5, ptr align 8 %.tr110127, i64 %42, i1 false)
+  %43 = getelementptr inbounds i8, ptr %5, i64 %42
+  %44 = icmp eq ptr %.tr126, %.tr110127
+  br i1 %44, label %_ZSt13move_backwardIPPKSt4pairIKN4llvm10sampleprof12LineLocationESt3mapINS2_10FunctionIdENS2_15FunctionSamplesESt4lessIS6_ESaIS0_IKS6_S7_EEEESH_ET0_T_SJ_SI_.exit.sink.split.i, label %45
 
-44:                                               ; preds = %_ZSt4moveIPPKSt4pairIKN4llvm10sampleprof12LineLocationESt3mapINS2_10FunctionIdENS2_15FunctionSamplesESt4lessIS6_ESaIS0_IKS6_S7_EEEESH_ET0_T_SJ_SI_.exit73.thread
-  %45 = ashr exact i64 %42, 3
-  %.pre.i.i.i.i.i.i = sub nsw i64 0, %45
-  %46 = getelementptr inbounds ptr, ptr %2, i64 %.pre.i.i.i.i.i.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %46, ptr align 8 %5, i64 %42, i1 false)
-  br label %_ZSt21__move_merge_adaptiveIPPKSt4pairIKN4llvm10sampleprof12LineLocationESt3mapINS2_10FunctionIdENS2_15FunctionSamplesESt4lessIS6_ESaIS0_IKS6_S7_EEEESH_SH_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS2_12SampleSorterIS3_SD_EC1ERKS5_IS3_SD_S8_IS3_ESaISE_EEEUlSG_SG_E_EEEvT_SU_T0_SV_T1_T2_.exit
-
-47:                                               ; preds = %_ZSt4moveIPPKSt4pairIKN4llvm10sampleprof12LineLocationESt3mapINS2_10FunctionIdENS2_15FunctionSamplesESt4lessIS6_ESaIS0_IKS6_S7_EEEESH_ET0_T_SJ_SI_.exit73.thread
-  %48 = getelementptr inbounds i8, ptr %5, i64 %42
-  %49 = getelementptr inbounds i8, ptr %48, i64 -8
+45:                                               ; preds = %_ZSt4moveIPPKSt4pairIKN4llvm10sampleprof12LineLocationESt3mapINS2_10FunctionIdENS2_15FunctionSamplesESt4lessIS6_ESaIS0_IKS6_S7_EEEESH_ET0_T_SJ_SI_.exit73.thread
+  %46 = getelementptr inbounds i8, ptr %43, i64 -8
   br label %.outer
 
-.outer:                                           ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm10sampleprof12SampleSorterINS3_12LineLocationESt3mapINS3_10FunctionIdENS3_15FunctionSamplesESt4lessIS7_ESaISt4pairIKS7_S8_EEEEC1ERKS6_IS5_SF_S9_IS5_ESaISB_IKS5_SF_EEEEUlPKSJ_SP_E_EclIPSP_ST_EEbT_T0_.exit.thread.i76, %47
-  %.026.i.ph.pn = phi ptr [ %.tr111128, %47 ], [ %.026.i.ph, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm10sampleprof12SampleSorterINS3_12LineLocationESt3mapINS3_10FunctionIdENS3_15FunctionSamplesESt4lessIS7_ESaISt4pairIKS7_S8_EEEEC1ERKS6_IS5_SF_S9_IS5_ESaISB_IKS5_SF_EEEEUlPKSJ_SP_E_EclIPSP_ST_EEbT_T0_.exit.thread.i76 ]
-  %.024.i.ph = phi ptr [ %49, %47 ], [ %.024.i, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm10sampleprof12SampleSorterINS3_12LineLocationESt3mapINS3_10FunctionIdENS3_15FunctionSamplesESt4lessIS7_ESaISt4pairIKS7_S8_EEEEC1ERKS6_IS5_SF_S9_IS5_ESaISB_IKS5_SF_EEEEUlPKSJ_SP_E_EclIPSP_ST_EEbT_T0_.exit.thread.i76 ]
-  %.0.i.ph = phi ptr [ %2, %47 ], [ %63, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm10sampleprof12SampleSorterINS3_12LineLocationESt3mapINS3_10FunctionIdENS3_15FunctionSamplesESt4lessIS7_ESaISt4pairIKS7_S8_EEEEC1ERKS6_IS5_SF_S9_IS5_ESaISB_IKS5_SF_EEEEUlPKSJ_SP_E_EclIPSP_ST_EEbT_T0_.exit.thread.i76 ]
+.outer:                                           ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm10sampleprof12SampleSorterINS3_12LineLocationESt3mapINS3_10FunctionIdENS3_15FunctionSamplesESt4lessIS7_ESaISt4pairIKS7_S8_EEEEC1ERKS6_IS5_SF_S9_IS5_ESaISB_IKS5_SF_EEEEUlPKSJ_SP_E_EclIPSP_ST_EEbT_T0_.exit.thread.i76, %45
+  %.026.i.ph.pn = phi ptr [ %.tr110127, %45 ], [ %.026.i.ph, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm10sampleprof12SampleSorterINS3_12LineLocationESt3mapINS3_10FunctionIdENS3_15FunctionSamplesESt4lessIS7_ESaISt4pairIKS7_S8_EEEEC1ERKS6_IS5_SF_S9_IS5_ESaISB_IKS5_SF_EEEEUlPKSJ_SP_E_EclIPSP_ST_EEbT_T0_.exit.thread.i76 ]
+  %.024.i.ph = phi ptr [ %46, %45 ], [ %.024.i, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm10sampleprof12SampleSorterINS3_12LineLocationESt3mapINS3_10FunctionIdENS3_15FunctionSamplesESt4lessIS7_ESaISt4pairIKS7_S8_EEEEC1ERKS6_IS5_SF_S9_IS5_ESaISB_IKS5_SF_EEEEUlPKSJ_SP_E_EclIPSP_ST_EEbT_T0_.exit.thread.i76 ]
+  %.0.i.ph = phi ptr [ %2, %45 ], [ %60, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm10sampleprof12SampleSorterINS3_12LineLocationESt3mapINS3_10FunctionIdENS3_15FunctionSamplesESt4lessIS7_ESaISt4pairIKS7_S8_EEEEC1ERKS6_IS5_SF_S9_IS5_ESaISB_IKS5_SF_EEEEUlPKSJ_SP_E_EclIPSP_ST_EEbT_T0_.exit.thread.i76 ]
   %.026.i.ph = getelementptr inbounds i8, ptr %.026.i.ph.pn, i64 -8
-  br label %50
+  br label %47
 
-50:                                               ; preds = %.outer, %75
-  %.024.i = phi ptr [ %76, %75 ], [ %.024.i.ph, %.outer ]
-  %.0.i = phi ptr [ %73, %75 ], [ %.0.i.ph, %.outer ]
-  %51 = load ptr, ptr %.024.i, align 8
-  %52 = load ptr, ptr %.026.i.ph, align 8
-  %53 = load i32, ptr %51, align 4
-  %54 = load i32, ptr %52, align 4
-  %55 = icmp ult i32 %53, %54
-  br i1 %55, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm10sampleprof12SampleSorterINS3_12LineLocationESt3mapINS3_10FunctionIdENS3_15FunctionSamplesESt4lessIS7_ESaISt4pairIKS7_S8_EEEEC1ERKS6_IS5_SF_S9_IS5_ESaISB_IKS5_SF_EEEEUlPKSJ_SP_E_EclIPSP_ST_EEbT_T0_.exit.thread.i76, label %56
+47:                                               ; preds = %.outer, %66
+  %.024.i = phi ptr [ %67, %66 ], [ %.024.i.ph, %.outer ]
+  %.0.i = phi ptr [ %64, %66 ], [ %.0.i.ph, %.outer ]
+  %48 = load ptr, ptr %.024.i, align 8
+  %49 = load ptr, ptr %.026.i.ph, align 8
+  %50 = load i32, ptr %48, align 4
+  %51 = load i32, ptr %49, align 4
+  %52 = icmp ult i32 %50, %51
+  br i1 %52, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm10sampleprof12SampleSorterINS3_12LineLocationESt3mapINS3_10FunctionIdENS3_15FunctionSamplesESt4lessIS7_ESaISt4pairIKS7_S8_EEEEC1ERKS6_IS5_SF_S9_IS5_ESaISB_IKS5_SF_EEEEUlPKSJ_SP_E_EclIPSP_ST_EEbT_T0_.exit.thread.i76, label %53
 
-56:                                               ; preds = %50
-  %57 = icmp eq i32 %53, %54
-  br i1 %57, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm10sampleprof12SampleSorterINS3_12LineLocationESt3mapINS3_10FunctionIdENS3_15FunctionSamplesESt4lessIS7_ESaISt4pairIKS7_S8_EEEEC1ERKS6_IS5_SF_S9_IS5_ESaISB_IKS5_SF_EEEEUlPKSJ_SP_E_EclIPSP_ST_EEbT_T0_.exit.i75, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm10sampleprof12SampleSorterINS3_12LineLocationESt3mapINS3_10FunctionIdENS3_15FunctionSamplesESt4lessIS7_ESaISt4pairIKS7_S8_EEEEC1ERKS6_IS5_SF_S9_IS5_ESaISB_IKS5_SF_EEEEUlPKSJ_SP_E_EclIPSP_ST_EEbT_T0_.exit.thread35.i
+53:                                               ; preds = %47
+  %54 = icmp eq i32 %50, %51
+  br i1 %54, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm10sampleprof12SampleSorterINS3_12LineLocationESt3mapINS3_10FunctionIdENS3_15FunctionSamplesESt4lessIS7_ESaISt4pairIKS7_S8_EEEEC1ERKS6_IS5_SF_S9_IS5_ESaISB_IKS5_SF_EEEEUlPKSJ_SP_E_EclIPSP_ST_EEbT_T0_.exit.i75, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm10sampleprof12SampleSorterINS3_12LineLocationESt3mapINS3_10FunctionIdENS3_15FunctionSamplesESt4lessIS7_ESaISt4pairIKS7_S8_EEEEC1ERKS6_IS5_SF_S9_IS5_ESaISB_IKS5_SF_EEEEUlPKSJ_SP_E_EclIPSP_ST_EEbT_T0_.exit.thread35.i
 
-_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm10sampleprof12SampleSorterINS3_12LineLocationESt3mapINS3_10FunctionIdENS3_15FunctionSamplesESt4lessIS7_ESaISt4pairIKS7_S8_EEEEC1ERKS6_IS5_SF_S9_IS5_ESaISB_IKS5_SF_EEEEUlPKSJ_SP_E_EclIPSP_ST_EEbT_T0_.exit.i75: ; preds = %56
-  %58 = getelementptr inbounds nuw i8, ptr %51, i64 4
-  %59 = load i32, ptr %58, align 4
-  %60 = getelementptr inbounds nuw i8, ptr %52, i64 4
-  %61 = load i32, ptr %60, align 4
-  %62 = icmp ult i32 %59, %61
-  br i1 %62, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm10sampleprof12SampleSorterINS3_12LineLocationESt3mapINS3_10FunctionIdENS3_15FunctionSamplesESt4lessIS7_ESaISt4pairIKS7_S8_EEEEC1ERKS6_IS5_SF_S9_IS5_ESaISB_IKS5_SF_EEEEUlPKSJ_SP_E_EclIPSP_ST_EEbT_T0_.exit.thread.i76, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm10sampleprof12SampleSorterINS3_12LineLocationESt3mapINS3_10FunctionIdENS3_15FunctionSamplesESt4lessIS7_ESaISt4pairIKS7_S8_EEEEC1ERKS6_IS5_SF_S9_IS5_ESaISB_IKS5_SF_EEEEUlPKSJ_SP_E_EclIPSP_ST_EEbT_T0_.exit.thread35.i
+_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm10sampleprof12SampleSorterINS3_12LineLocationESt3mapINS3_10FunctionIdENS3_15FunctionSamplesESt4lessIS7_ESaISt4pairIKS7_S8_EEEEC1ERKS6_IS5_SF_S9_IS5_ESaISB_IKS5_SF_EEEEUlPKSJ_SP_E_EclIPSP_ST_EEbT_T0_.exit.i75: ; preds = %53
+  %55 = getelementptr inbounds nuw i8, ptr %48, i64 4
+  %56 = load i32, ptr %55, align 4
+  %57 = getelementptr inbounds nuw i8, ptr %49, i64 4
+  %58 = load i32, ptr %57, align 4
+  %59 = icmp ult i32 %56, %58
+  br i1 %59, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm10sampleprof12SampleSorterINS3_12LineLocationESt3mapINS3_10FunctionIdENS3_15FunctionSamplesESt4lessIS7_ESaISt4pairIKS7_S8_EEEEC1ERKS6_IS5_SF_S9_IS5_ESaISB_IKS5_SF_EEEEUlPKSJ_SP_E_EclIPSP_ST_EEbT_T0_.exit.thread.i76, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm10sampleprof12SampleSorterINS3_12LineLocationESt3mapINS3_10FunctionIdENS3_15FunctionSamplesESt4lessIS7_ESaISt4pairIKS7_S8_EEEEC1ERKS6_IS5_SF_S9_IS5_ESaISB_IKS5_SF_EEEEUlPKSJ_SP_E_EclIPSP_ST_EEbT_T0_.exit.thread35.i
 
-_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm10sampleprof12SampleSorterINS3_12LineLocationESt3mapINS3_10FunctionIdENS3_15FunctionSamplesESt4lessIS7_ESaISt4pairIKS7_S8_EEEEC1ERKS6_IS5_SF_S9_IS5_ESaISB_IKS5_SF_EEEEUlPKSJ_SP_E_EclIPSP_ST_EEbT_T0_.exit.thread.i76: ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm10sampleprof12SampleSorterINS3_12LineLocationESt3mapINS3_10FunctionIdENS3_15FunctionSamplesESt4lessIS7_ESaISt4pairIKS7_S8_EEEEC1ERKS6_IS5_SF_S9_IS5_ESaISB_IKS5_SF_EEEEUlPKSJ_SP_E_EclIPSP_ST_EEbT_T0_.exit.i75, %50
-  %63 = getelementptr inbounds i8, ptr %.0.i, i64 -8
-  store ptr %52, ptr %63, align 8
-  %64 = icmp eq ptr %.tr127, %.026.i.ph
-  br i1 %64, label %65, label %.outer, !llvm.loop !212
+_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm10sampleprof12SampleSorterINS3_12LineLocationESt3mapINS3_10FunctionIdENS3_15FunctionSamplesESt4lessIS7_ESaISt4pairIKS7_S8_EEEEC1ERKS6_IS5_SF_S9_IS5_ESaISB_IKS5_SF_EEEEUlPKSJ_SP_E_EclIPSP_ST_EEbT_T0_.exit.thread.i76: ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm10sampleprof12SampleSorterINS3_12LineLocationESt3mapINS3_10FunctionIdENS3_15FunctionSamplesESt4lessIS7_ESaISt4pairIKS7_S8_EEEEC1ERKS6_IS5_SF_S9_IS5_ESaISB_IKS5_SF_EEEEUlPKSJ_SP_E_EclIPSP_ST_EEbT_T0_.exit.i75, %47
+  %60 = getelementptr inbounds i8, ptr %.0.i, i64 -8
+  store ptr %49, ptr %60, align 8
+  %61 = icmp eq ptr %.tr126, %.026.i.ph
+  br i1 %61, label %62, label %.outer, !llvm.loop !212
 
-65:                                               ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm10sampleprof12SampleSorterINS3_12LineLocationESt3mapINS3_10FunctionIdENS3_15FunctionSamplesESt4lessIS7_ESaISt4pairIKS7_S8_EEEEC1ERKS6_IS5_SF_S9_IS5_ESaISB_IKS5_SF_EEEEUlPKSJ_SP_E_EclIPSP_ST_EEbT_T0_.exit.thread.i76
-  %66 = getelementptr inbounds i8, ptr %.024.i, i64 8
-  %.not.i.i.i.i.i32.i = icmp eq ptr %66, %5
-  br i1 %.not.i.i.i.i.i32.i, label %_ZSt21__move_merge_adaptiveIPPKSt4pairIKN4llvm10sampleprof12LineLocationESt3mapINS2_10FunctionIdENS2_15FunctionSamplesESt4lessIS6_ESaIS0_IKS6_S7_EEEESH_SH_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS2_12SampleSorterIS3_SD_EC1ERKS5_IS3_SD_S8_IS3_ESaISE_EEEUlSG_SG_E_EEEvT_SU_T0_SV_T1_T2_.exit, label %67
+62:                                               ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm10sampleprof12SampleSorterINS3_12LineLocationESt3mapINS3_10FunctionIdENS3_15FunctionSamplesESt4lessIS7_ESaISt4pairIKS7_S8_EEEEC1ERKS6_IS5_SF_S9_IS5_ESaISB_IKS5_SF_EEEEUlPKSJ_SP_E_EclIPSP_ST_EEbT_T0_.exit.thread.i76
+  %63 = getelementptr inbounds i8, ptr %.024.i, i64 8
+  %.not.i.i.i.i.i32.i = icmp eq ptr %63, %5
+  br i1 %.not.i.i.i.i.i32.i, label %_ZSt21__move_merge_adaptiveIPPKSt4pairIKN4llvm10sampleprof12LineLocationESt3mapINS2_10FunctionIdENS2_15FunctionSamplesESt4lessIS6_ESaIS0_IKS6_S7_EEEESH_SH_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS2_12SampleSorterIS3_SD_EC1ERKS5_IS3_SD_S8_IS3_ESaISE_EEEUlSG_SG_E_EEEvT_SU_T0_SV_T1_T2_.exit, label %_ZSt13move_backwardIPPKSt4pairIKN4llvm10sampleprof12LineLocationESt3mapINS2_10FunctionIdENS2_15FunctionSamplesESt4lessIS6_ESaIS0_IKS6_S7_EEEESH_ET0_T_SJ_SI_.exit.sink.split.i
 
-67:                                               ; preds = %65
-  %68 = ptrtoint ptr %66 to i64
+_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm10sampleprof12SampleSorterINS3_12LineLocationESt3mapINS3_10FunctionIdENS3_15FunctionSamplesESt4lessIS7_ESaISt4pairIKS7_S8_EEEEC1ERKS6_IS5_SF_S9_IS5_ESaISB_IKS5_SF_EEEEUlPKSJ_SP_E_EclIPSP_ST_EEbT_T0_.exit.thread35.i: ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm10sampleprof12SampleSorterINS3_12LineLocationESt3mapINS3_10FunctionIdENS3_15FunctionSamplesESt4lessIS7_ESaISt4pairIKS7_S8_EEEEC1ERKS6_IS5_SF_S9_IS5_ESaISB_IKS5_SF_EEEEUlPKSJ_SP_E_EclIPSP_ST_EEbT_T0_.exit.i75, %53
+  %64 = getelementptr inbounds i8, ptr %.0.i, i64 -8
+  store ptr %48, ptr %64, align 8
+  %65 = icmp eq ptr %5, %.024.i
+  br i1 %65, label %_ZSt21__move_merge_adaptiveIPPKSt4pairIKN4llvm10sampleprof12LineLocationESt3mapINS2_10FunctionIdENS2_15FunctionSamplesESt4lessIS6_ESaIS0_IKS6_S7_EEEESH_SH_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS2_12SampleSorterIS3_SD_EC1ERKS5_IS3_SD_S8_IS3_ESaISE_EEEUlSG_SG_E_EEEvT_SU_T0_SV_T1_T2_.exit, label %66
+
+66:                                               ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm10sampleprof12SampleSorterINS3_12LineLocationESt3mapINS3_10FunctionIdENS3_15FunctionSamplesESt4lessIS7_ESaISt4pairIKS7_S8_EEEEC1ERKS6_IS5_SF_S9_IS5_ESaISB_IKS5_SF_EEEEUlPKSJ_SP_E_EclIPSP_ST_EEbT_T0_.exit.thread35.i
+  %67 = getelementptr inbounds i8, ptr %.024.i, i64 -8
+  br label %47, !llvm.loop !212
+
+_ZSt13move_backwardIPPKSt4pairIKN4llvm10sampleprof12LineLocationESt3mapINS2_10FunctionIdENS2_15FunctionSamplesESt4lessIS6_ESaIS0_IKS6_S7_EEEESH_ET0_T_SJ_SI_.exit.sink.split.i: ; preds = %_ZSt4moveIPPKSt4pairIKN4llvm10sampleprof12LineLocationESt3mapINS2_10FunctionIdENS2_15FunctionSamplesESt4lessIS6_ESaIS0_IKS6_S7_EEEESH_ET0_T_SJ_SI_.exit73.thread, %62
+  %.sink42.i = phi ptr [ %63, %62 ], [ %43, %_ZSt4moveIPPKSt4pairIKN4llvm10sampleprof12LineLocationESt3mapINS2_10FunctionIdENS2_15FunctionSamplesESt4lessIS6_ESaIS0_IKS6_S7_EEEESH_ET0_T_SJ_SI_.exit73.thread ]
+  %.lcssa.sink.i = phi ptr [ %60, %62 ], [ %2, %_ZSt4moveIPPKSt4pairIKN4llvm10sampleprof12LineLocationESt3mapINS2_10FunctionIdENS2_15FunctionSamplesESt4lessIS6_ESaIS0_IKS6_S7_EEEESH_ET0_T_SJ_SI_.exit73.thread ]
+  %68 = ptrtoint ptr %.sink42.i to i64
   %69 = ptrtoint ptr %5 to i64
   %70 = sub i64 %68, %69
   %71 = ashr exact i64 %70, 3
   %.pre.i.i.i.i.i33.i = sub nsw i64 0, %71
-  %72 = getelementptr inbounds ptr, ptr %63, i64 %.pre.i.i.i.i.i33.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %72, ptr align 8 %5, i64 %70, i1 false)
+  %72 = getelementptr inbounds ptr, ptr %.lcssa.sink.i, i64 %.pre.i.i.i.i.i33.i
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %72, ptr align 8 %5, i64 %70, i1 false)
   br label %_ZSt21__move_merge_adaptiveIPPKSt4pairIKN4llvm10sampleprof12LineLocationESt3mapINS2_10FunctionIdENS2_15FunctionSamplesESt4lessIS6_ESaIS0_IKS6_S7_EEEESH_SH_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS2_12SampleSorterIS3_SD_EC1ERKS5_IS3_SD_S8_IS3_ESaISE_EEEUlSG_SG_E_EEEvT_SU_T0_SV_T1_T2_.exit
 
-_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm10sampleprof12SampleSorterINS3_12LineLocationESt3mapINS3_10FunctionIdENS3_15FunctionSamplesESt4lessIS7_ESaISt4pairIKS7_S8_EEEEC1ERKS6_IS5_SF_S9_IS5_ESaISB_IKS5_SF_EEEEUlPKSJ_SP_E_EclIPSP_ST_EEbT_T0_.exit.thread35.i: ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm10sampleprof12SampleSorterINS3_12LineLocationESt3mapINS3_10FunctionIdENS3_15FunctionSamplesESt4lessIS7_ESaISt4pairIKS7_S8_EEEEC1ERKS6_IS5_SF_S9_IS5_ESaISB_IKS5_SF_EEEEUlPKSJ_SP_E_EclIPSP_ST_EEbT_T0_.exit.i75, %56
-  %73 = getelementptr inbounds i8, ptr %.0.i, i64 -8
-  store ptr %51, ptr %73, align 8
-  %74 = icmp eq ptr %5, %.024.i
-  br i1 %74, label %_ZSt21__move_merge_adaptiveIPPKSt4pairIKN4llvm10sampleprof12LineLocationESt3mapINS2_10FunctionIdENS2_15FunctionSamplesESt4lessIS6_ESaIS0_IKS6_S7_EEEESH_SH_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS2_12SampleSorterIS3_SD_EC1ERKS5_IS3_SD_S8_IS3_ESaISE_EEEUlSG_SG_E_EEEvT_SU_T0_SV_T1_T2_.exit, label %75
+73:                                               ; preds = %39
+  %74 = ptrtoint ptr %.tr110127 to i64
+  br i1 %.not131, label %_ZSt7advanceIPPKSt4pairIKN4llvm10sampleprof12LineLocationESt3mapINS2_10FunctionIdENS2_15FunctionSamplesESt4lessIS6_ESaIS0_IKS6_S7_EEEElEvRT_T0_.exit, label %_ZSt7advanceIPPKSt4pairIKN4llvm10sampleprof12LineLocationESt3mapINS2_10FunctionIdENS2_15FunctionSamplesESt4lessIS6_ESaIS0_IKS6_S7_EEEElEvRT_T0_.exit83
 
-75:                                               ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm10sampleprof12SampleSorterINS3_12LineLocationESt3mapINS3_10FunctionIdENS3_15FunctionSamplesESt4lessIS7_ESaISt4pairIKS7_S8_EEEEC1ERKS6_IS5_SF_S9_IS5_ESaISB_IKS5_SF_EEEEUlPKSJ_SP_E_EclIPSP_ST_EEbT_T0_.exit.thread35.i
-  %76 = getelementptr inbounds i8, ptr %.024.i, i64 -8
-  br label %50, !llvm.loop !212
-
-77:                                               ; preds = %39
-  br i1 %.not132, label %_ZSt7advanceIPPKSt4pairIKN4llvm10sampleprof12LineLocationESt3mapINS2_10FunctionIdENS2_15FunctionSamplesESt4lessIS6_ESaIS0_IKS6_S7_EEEElEvRT_T0_.exit, label %_ZSt7advanceIPPKSt4pairIKN4llvm10sampleprof12LineLocationESt3mapINS2_10FunctionIdENS2_15FunctionSamplesESt4lessIS6_ESaIS0_IKS6_S7_EEEElEvRT_T0_.exit83
-
-_ZSt7advanceIPPKSt4pairIKN4llvm10sampleprof12LineLocationESt3mapINS2_10FunctionIdENS2_15FunctionSamplesESt4lessIS6_ESaIS0_IKS6_S7_EEEElEvRT_T0_.exit: ; preds = %77
-  %78 = sdiv i64 %.tr113130, 2
-  %79 = getelementptr inbounds ptr, ptr %.tr127, i64 %78
-  %80 = sub i64 %8, %40
-  %81 = ashr exact i64 %80, 3
-  %82 = icmp sgt i64 %81, 0
-  br i1 %82, label %_ZSt7advanceIPPKSt4pairIKN4llvm10sampleprof12LineLocationESt3mapINS2_10FunctionIdENS2_15FunctionSamplesESt4lessIS6_ESaIS0_IKS6_S7_EEEElEvRT_T0_.exit.lr.ph.i, label %_ZSt13__lower_boundIPPKSt4pairIKN4llvm10sampleprof12LineLocationESt3mapINS2_10FunctionIdENS2_15FunctionSamplesESt4lessIS6_ESaIS0_IKS6_S7_EEEESG_N9__gnu_cxx5__ops14_Iter_comp_valIZNS2_12SampleSorterIS3_SD_EC1ERKS5_IS3_SD_S8_IS3_ESaISE_EEEUlSG_SG_E_EEET_SU_SU_RKT0_T1_.exit
+_ZSt7advanceIPPKSt4pairIKN4llvm10sampleprof12LineLocationESt3mapINS2_10FunctionIdENS2_15FunctionSamplesESt4lessIS6_ESaIS0_IKS6_S7_EEEElEvRT_T0_.exit: ; preds = %73
+  %75 = sdiv i64 %.tr112129, 2
+  %76 = getelementptr inbounds ptr, ptr %.tr126, i64 %75
+  %77 = sub i64 %8, %74
+  %78 = ashr exact i64 %77, 3
+  %79 = icmp sgt i64 %78, 0
+  br i1 %79, label %_ZSt7advanceIPPKSt4pairIKN4llvm10sampleprof12LineLocationESt3mapINS2_10FunctionIdENS2_15FunctionSamplesESt4lessIS6_ESaIS0_IKS6_S7_EEEElEvRT_T0_.exit.lr.ph.i, label %_ZSt13__lower_boundIPPKSt4pairIKN4llvm10sampleprof12LineLocationESt3mapINS2_10FunctionIdENS2_15FunctionSamplesESt4lessIS6_ESaIS0_IKS6_S7_EEEESG_N9__gnu_cxx5__ops14_Iter_comp_valIZNS2_12SampleSorterIS3_SD_EC1ERKS5_IS3_SD_S8_IS3_ESaISE_EEEUlSG_SG_E_EEET_SU_SU_RKT0_T1_.exit
 
 _ZSt7advanceIPPKSt4pairIKN4llvm10sampleprof12LineLocationESt3mapINS2_10FunctionIdENS2_15FunctionSamplesESt4lessIS6_ESaIS0_IKS6_S7_EEEElEvRT_T0_.exit.lr.ph.i: ; preds = %_ZSt7advanceIPPKSt4pairIKN4llvm10sampleprof12LineLocationESt3mapINS2_10FunctionIdENS2_15FunctionSamplesESt4lessIS6_ESaIS0_IKS6_S7_EEEElEvRT_T0_.exit
-  %83 = load ptr, ptr %79, align 8
-  %84 = load i32, ptr %83, align 4
-  %85 = getelementptr inbounds nuw i8, ptr %83, i64 4
+  %80 = load ptr, ptr %76, align 8
+  %81 = load i32, ptr %80, align 4
+  %82 = getelementptr inbounds nuw i8, ptr %80, i64 4
   br label %_ZSt7advanceIPPKSt4pairIKN4llvm10sampleprof12LineLocationESt3mapINS2_10FunctionIdENS2_15FunctionSamplesESt4lessIS6_ESaIS0_IKS6_S7_EEEElEvRT_T0_.exit.i
 
 _ZSt7advanceIPPKSt4pairIKN4llvm10sampleprof12LineLocationESt3mapINS2_10FunctionIdENS2_15FunctionSamplesESt4lessIS6_ESaIS0_IKS6_S7_EEEElEvRT_T0_.exit.i: ; preds = %.thread21.i, %_ZSt7advanceIPPKSt4pairIKN4llvm10sampleprof12LineLocationESt3mapINS2_10FunctionIdENS2_15FunctionSamplesESt4lessIS6_ESaIS0_IKS6_S7_EEEElEvRT_T0_.exit.lr.ph.i
-  %.026.i79 = phi ptr [ %.tr111128, %_ZSt7advanceIPPKSt4pairIKN4llvm10sampleprof12LineLocationESt3mapINS2_10FunctionIdENS2_15FunctionSamplesESt4lessIS6_ESaIS0_IKS6_S7_EEEElEvRT_T0_.exit.lr.ph.i ], [ %104, %.thread21.i ]
-  %.01125.i = phi i64 [ %81, %_ZSt7advanceIPPKSt4pairIKN4llvm10sampleprof12LineLocationESt3mapINS2_10FunctionIdENS2_15FunctionSamplesESt4lessIS6_ESaIS0_IKS6_S7_EEEElEvRT_T0_.exit.lr.ph.i ], [ %103, %.thread21.i ]
-  %86 = lshr i64 %.01125.i, 1
-  %87 = getelementptr inbounds ptr, ptr %.026.i79, i64 %86
-  %88 = load ptr, ptr %87, align 8
-  %89 = load i32, ptr %88, align 4
-  %90 = icmp ult i32 %89, %84
-  br i1 %90, label %.thread.i, label %94
+  %.026.i79 = phi ptr [ %.tr110127, %_ZSt7advanceIPPKSt4pairIKN4llvm10sampleprof12LineLocationESt3mapINS2_10FunctionIdENS2_15FunctionSamplesESt4lessIS6_ESaIS0_IKS6_S7_EEEElEvRT_T0_.exit.lr.ph.i ], [ %101, %.thread21.i ]
+  %.01125.i = phi i64 [ %78, %_ZSt7advanceIPPKSt4pairIKN4llvm10sampleprof12LineLocationESt3mapINS2_10FunctionIdENS2_15FunctionSamplesESt4lessIS6_ESaIS0_IKS6_S7_EEEElEvRT_T0_.exit.lr.ph.i ], [ %100, %.thread21.i ]
+  %83 = lshr i64 %.01125.i, 1
+  %84 = getelementptr inbounds ptr, ptr %.026.i79, i64 %83
+  %85 = load ptr, ptr %84, align 8
+  %86 = load i32, ptr %85, align 4
+  %87 = icmp ult i32 %86, %81
+  br i1 %87, label %.thread.i, label %91
 
 .thread.i:                                        ; preds = %_ZSt7advanceIPPKSt4pairIKN4llvm10sampleprof12LineLocationESt3mapINS2_10FunctionIdENS2_15FunctionSamplesESt4lessIS6_ESaIS0_IKS6_S7_EEEElEvRT_T0_.exit.i
-  %91 = getelementptr inbounds i8, ptr %87, i64 8
-  %92 = xor i64 %86, -1
-  %93 = add nsw i64 %.01125.i, %92
+  %88 = getelementptr inbounds i8, ptr %84, i64 8
+  %89 = xor i64 %83, -1
+  %90 = add nsw i64 %.01125.i, %89
   br label %.thread21.i
 
-94:                                               ; preds = %_ZSt7advanceIPPKSt4pairIKN4llvm10sampleprof12LineLocationESt3mapINS2_10FunctionIdENS2_15FunctionSamplesESt4lessIS6_ESaIS0_IKS6_S7_EEEElEvRT_T0_.exit.i
-  %95 = icmp eq i32 %89, %84
-  br i1 %95, label %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm10sampleprof12SampleSorterINS3_12LineLocationESt3mapINS3_10FunctionIdENS3_15FunctionSamplesESt4lessIS7_ESaISt4pairIKS7_S8_EEEEC1ERKS6_IS5_SF_S9_IS5_ESaISB_IKS5_SF_EEEEUlPKSJ_SP_E_EclIPSP_KSP_EEbT_RT0_.exit.i, label %.thread21.i
+91:                                               ; preds = %_ZSt7advanceIPPKSt4pairIKN4llvm10sampleprof12LineLocationESt3mapINS2_10FunctionIdENS2_15FunctionSamplesESt4lessIS6_ESaIS0_IKS6_S7_EEEElEvRT_T0_.exit.i
+  %92 = icmp eq i32 %86, %81
+  br i1 %92, label %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm10sampleprof12SampleSorterINS3_12LineLocationESt3mapINS3_10FunctionIdENS3_15FunctionSamplesESt4lessIS7_ESaISt4pairIKS7_S8_EEEEC1ERKS6_IS5_SF_S9_IS5_ESaISB_IKS5_SF_EEEEUlPKSJ_SP_E_EclIPSP_KSP_EEbT_RT0_.exit.i, label %.thread21.i
 
-_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm10sampleprof12SampleSorterINS3_12LineLocationESt3mapINS3_10FunctionIdENS3_15FunctionSamplesESt4lessIS7_ESaISt4pairIKS7_S8_EEEEC1ERKS6_IS5_SF_S9_IS5_ESaISB_IKS5_SF_EEEEUlPKSJ_SP_E_EclIPSP_KSP_EEbT_RT0_.exit.i: ; preds = %94
-  %96 = getelementptr inbounds nuw i8, ptr %88, i64 4
-  %97 = load i32, ptr %96, align 4
-  %98 = load i32, ptr %85, align 4
-  %99 = icmp ult i32 %97, %98
-  %cond.fr.i = freeze i1 %99
-  %100 = getelementptr inbounds i8, ptr %87, i64 8
-  %101 = xor i64 %86, -1
-  %102 = add nsw i64 %.01125.i, %101
-  %spec.select.i = select i1 %cond.fr.i, i64 %102, i64 %86
-  %spec.select24.i = select i1 %cond.fr.i, ptr %100, ptr %.026.i79
+_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm10sampleprof12SampleSorterINS3_12LineLocationESt3mapINS3_10FunctionIdENS3_15FunctionSamplesESt4lessIS7_ESaISt4pairIKS7_S8_EEEEC1ERKS6_IS5_SF_S9_IS5_ESaISB_IKS5_SF_EEEEUlPKSJ_SP_E_EclIPSP_KSP_EEbT_RT0_.exit.i: ; preds = %91
+  %93 = getelementptr inbounds nuw i8, ptr %85, i64 4
+  %94 = load i32, ptr %93, align 4
+  %95 = load i32, ptr %82, align 4
+  %96 = icmp ult i32 %94, %95
+  %cond.fr.i = freeze i1 %96
+  %97 = getelementptr inbounds i8, ptr %84, i64 8
+  %98 = xor i64 %83, -1
+  %99 = add nsw i64 %.01125.i, %98
+  %spec.select.i = select i1 %cond.fr.i, i64 %99, i64 %83
+  %spec.select24.i = select i1 %cond.fr.i, ptr %97, ptr %.026.i79
   br label %.thread21.i
 
-.thread21.i:                                      ; preds = %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm10sampleprof12SampleSorterINS3_12LineLocationESt3mapINS3_10FunctionIdENS3_15FunctionSamplesESt4lessIS7_ESaISt4pairIKS7_S8_EEEEC1ERKS6_IS5_SF_S9_IS5_ESaISB_IKS5_SF_EEEEUlPKSJ_SP_E_EclIPSP_KSP_EEbT_RT0_.exit.i, %94, %.thread.i
-  %103 = phi i64 [ %86, %94 ], [ %93, %.thread.i ], [ %spec.select.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm10sampleprof12SampleSorterINS3_12LineLocationESt3mapINS3_10FunctionIdENS3_15FunctionSamplesESt4lessIS7_ESaISt4pairIKS7_S8_EEEEC1ERKS6_IS5_SF_S9_IS5_ESaISB_IKS5_SF_EEEEUlPKSJ_SP_E_EclIPSP_KSP_EEbT_RT0_.exit.i ]
-  %104 = phi ptr [ %.026.i79, %94 ], [ %91, %.thread.i ], [ %spec.select24.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm10sampleprof12SampleSorterINS3_12LineLocationESt3mapINS3_10FunctionIdENS3_15FunctionSamplesESt4lessIS7_ESaISt4pairIKS7_S8_EEEEC1ERKS6_IS5_SF_S9_IS5_ESaISB_IKS5_SF_EEEEUlPKSJ_SP_E_EclIPSP_KSP_EEbT_RT0_.exit.i ]
-  %105 = icmp sgt i64 %103, 0
-  br i1 %105, label %_ZSt7advanceIPPKSt4pairIKN4llvm10sampleprof12LineLocationESt3mapINS2_10FunctionIdENS2_15FunctionSamplesESt4lessIS6_ESaIS0_IKS6_S7_EEEElEvRT_T0_.exit.i, label %_ZSt13__lower_boundIPPKSt4pairIKN4llvm10sampleprof12LineLocationESt3mapINS2_10FunctionIdENS2_15FunctionSamplesESt4lessIS6_ESaIS0_IKS6_S7_EEEESG_N9__gnu_cxx5__ops14_Iter_comp_valIZNS2_12SampleSorterIS3_SD_EC1ERKS5_IS3_SD_S8_IS3_ESaISE_EEEUlSG_SG_E_EEET_SU_SU_RKT0_T1_.exit.loopexit, !llvm.loop !205
+.thread21.i:                                      ; preds = %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm10sampleprof12SampleSorterINS3_12LineLocationESt3mapINS3_10FunctionIdENS3_15FunctionSamplesESt4lessIS7_ESaISt4pairIKS7_S8_EEEEC1ERKS6_IS5_SF_S9_IS5_ESaISB_IKS5_SF_EEEEUlPKSJ_SP_E_EclIPSP_KSP_EEbT_RT0_.exit.i, %91, %.thread.i
+  %100 = phi i64 [ %83, %91 ], [ %90, %.thread.i ], [ %spec.select.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm10sampleprof12SampleSorterINS3_12LineLocationESt3mapINS3_10FunctionIdENS3_15FunctionSamplesESt4lessIS7_ESaISt4pairIKS7_S8_EEEEC1ERKS6_IS5_SF_S9_IS5_ESaISB_IKS5_SF_EEEEUlPKSJ_SP_E_EclIPSP_KSP_EEbT_RT0_.exit.i ]
+  %101 = phi ptr [ %.026.i79, %91 ], [ %88, %.thread.i ], [ %spec.select24.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm10sampleprof12SampleSorterINS3_12LineLocationESt3mapINS3_10FunctionIdENS3_15FunctionSamplesESt4lessIS7_ESaISt4pairIKS7_S8_EEEEC1ERKS6_IS5_SF_S9_IS5_ESaISB_IKS5_SF_EEEEUlPKSJ_SP_E_EclIPSP_KSP_EEbT_RT0_.exit.i ]
+  %102 = icmp sgt i64 %100, 0
+  br i1 %102, label %_ZSt7advanceIPPKSt4pairIKN4llvm10sampleprof12LineLocationESt3mapINS2_10FunctionIdENS2_15FunctionSamplesESt4lessIS6_ESaIS0_IKS6_S7_EEEElEvRT_T0_.exit.i, label %_ZSt13__lower_boundIPPKSt4pairIKN4llvm10sampleprof12LineLocationESt3mapINS2_10FunctionIdENS2_15FunctionSamplesESt4lessIS6_ESaIS0_IKS6_S7_EEEESG_N9__gnu_cxx5__ops14_Iter_comp_valIZNS2_12SampleSorterIS3_SD_EC1ERKS5_IS3_SD_S8_IS3_ESaISE_EEEUlSG_SG_E_EEET_SU_SU_RKT0_T1_.exit.loopexit, !llvm.loop !205
 
 _ZSt13__lower_boundIPPKSt4pairIKN4llvm10sampleprof12LineLocationESt3mapINS2_10FunctionIdENS2_15FunctionSamplesESt4lessIS6_ESaIS0_IKS6_S7_EEEESG_N9__gnu_cxx5__ops14_Iter_comp_valIZNS2_12SampleSorterIS3_SD_EC1ERKS5_IS3_SD_S8_IS3_ESaISE_EEEUlSG_SG_E_EEET_SU_SU_RKT0_T1_.exit.loopexit: ; preds = %.thread21.i
-  %.pre = ptrtoint ptr %104 to i64
+  %.pre = ptrtoint ptr %101 to i64
   br label %_ZSt13__lower_boundIPPKSt4pairIKN4llvm10sampleprof12LineLocationESt3mapINS2_10FunctionIdENS2_15FunctionSamplesESt4lessIS6_ESaIS0_IKS6_S7_EEEESG_N9__gnu_cxx5__ops14_Iter_comp_valIZNS2_12SampleSorterIS3_SD_EC1ERKS5_IS3_SD_S8_IS3_ESaISE_EEEUlSG_SG_E_EEET_SU_SU_RKT0_T1_.exit
 
 _ZSt13__lower_boundIPPKSt4pairIKN4llvm10sampleprof12LineLocationESt3mapINS2_10FunctionIdENS2_15FunctionSamplesESt4lessIS6_ESaIS0_IKS6_S7_EEEESG_N9__gnu_cxx5__ops14_Iter_comp_valIZNS2_12SampleSorterIS3_SD_EC1ERKS5_IS3_SD_S8_IS3_ESaISE_EEEUlSG_SG_E_EEET_SU_SU_RKT0_T1_.exit: ; preds = %_ZSt13__lower_boundIPPKSt4pairIKN4llvm10sampleprof12LineLocationESt3mapINS2_10FunctionIdENS2_15FunctionSamplesESt4lessIS6_ESaIS0_IKS6_S7_EEEESG_N9__gnu_cxx5__ops14_Iter_comp_valIZNS2_12SampleSorterIS3_SD_EC1ERKS5_IS3_SD_S8_IS3_ESaISE_EEEUlSG_SG_E_EEET_SU_SU_RKT0_T1_.exit.loopexit, %_ZSt7advanceIPPKSt4pairIKN4llvm10sampleprof12LineLocationESt3mapINS2_10FunctionIdENS2_15FunctionSamplesESt4lessIS6_ESaIS0_IKS6_S7_EEEElEvRT_T0_.exit
-  %.pre-phi = phi i64 [ %.pre, %_ZSt13__lower_boundIPPKSt4pairIKN4llvm10sampleprof12LineLocationESt3mapINS2_10FunctionIdENS2_15FunctionSamplesESt4lessIS6_ESaIS0_IKS6_S7_EEEESG_N9__gnu_cxx5__ops14_Iter_comp_valIZNS2_12SampleSorterIS3_SD_EC1ERKS5_IS3_SD_S8_IS3_ESaISE_EEEUlSG_SG_E_EEET_SU_SU_RKT0_T1_.exit.loopexit ], [ %40, %_ZSt7advanceIPPKSt4pairIKN4llvm10sampleprof12LineLocationESt3mapINS2_10FunctionIdENS2_15FunctionSamplesESt4lessIS6_ESaIS0_IKS6_S7_EEEElEvRT_T0_.exit ]
-  %.0.lcssa.i78 = phi ptr [ %104, %_ZSt13__lower_boundIPPKSt4pairIKN4llvm10sampleprof12LineLocationESt3mapINS2_10FunctionIdENS2_15FunctionSamplesESt4lessIS6_ESaIS0_IKS6_S7_EEEESG_N9__gnu_cxx5__ops14_Iter_comp_valIZNS2_12SampleSorterIS3_SD_EC1ERKS5_IS3_SD_S8_IS3_ESaISE_EEEUlSG_SG_E_EEET_SU_SU_RKT0_T1_.exit.loopexit ], [ %.tr111128, %_ZSt7advanceIPPKSt4pairIKN4llvm10sampleprof12LineLocationESt3mapINS2_10FunctionIdENS2_15FunctionSamplesESt4lessIS6_ESaIS0_IKS6_S7_EEEElEvRT_T0_.exit ]
-  %106 = sub i64 %.pre-phi, %40
-  %107 = ashr exact i64 %106, 3
-  br label %140
+  %.pre-phi = phi i64 [ %.pre, %_ZSt13__lower_boundIPPKSt4pairIKN4llvm10sampleprof12LineLocationESt3mapINS2_10FunctionIdENS2_15FunctionSamplesESt4lessIS6_ESaIS0_IKS6_S7_EEEESG_N9__gnu_cxx5__ops14_Iter_comp_valIZNS2_12SampleSorterIS3_SD_EC1ERKS5_IS3_SD_S8_IS3_ESaISE_EEEUlSG_SG_E_EEET_SU_SU_RKT0_T1_.exit.loopexit ], [ %74, %_ZSt7advanceIPPKSt4pairIKN4llvm10sampleprof12LineLocationESt3mapINS2_10FunctionIdENS2_15FunctionSamplesESt4lessIS6_ESaIS0_IKS6_S7_EEEElEvRT_T0_.exit ]
+  %.0.lcssa.i78 = phi ptr [ %101, %_ZSt13__lower_boundIPPKSt4pairIKN4llvm10sampleprof12LineLocationESt3mapINS2_10FunctionIdENS2_15FunctionSamplesESt4lessIS6_ESaIS0_IKS6_S7_EEEESG_N9__gnu_cxx5__ops14_Iter_comp_valIZNS2_12SampleSorterIS3_SD_EC1ERKS5_IS3_SD_S8_IS3_ESaISE_EEEUlSG_SG_E_EEET_SU_SU_RKT0_T1_.exit.loopexit ], [ %.tr110127, %_ZSt7advanceIPPKSt4pairIKN4llvm10sampleprof12LineLocationESt3mapINS2_10FunctionIdENS2_15FunctionSamplesESt4lessIS6_ESaIS0_IKS6_S7_EEEElEvRT_T0_.exit ]
+  %103 = sub i64 %.pre-phi, %74
+  %104 = ashr exact i64 %103, 3
+  br label %137
 
-_ZSt7advanceIPPKSt4pairIKN4llvm10sampleprof12LineLocationESt3mapINS2_10FunctionIdENS2_15FunctionSamplesESt4lessIS6_ESaIS0_IKS6_S7_EEEElEvRT_T0_.exit83: ; preds = %77
-  %108 = sdiv i64 %.tr114131, 2
-  %109 = getelementptr inbounds ptr, ptr %.tr111128, i64 %108
-  %110 = ptrtoint ptr %.tr127 to i64
-  %111 = sub i64 %40, %110
-  %112 = ashr exact i64 %111, 3
-  %113 = icmp sgt i64 %112, 0
-  br i1 %113, label %_ZSt7advanceIPPKSt4pairIKN4llvm10sampleprof12LineLocationESt3mapINS2_10FunctionIdENS2_15FunctionSamplesESt4lessIS6_ESaIS0_IKS6_S7_EEEElEvRT_T0_.exit.lr.ph.i86, label %_ZSt13__upper_boundIPPKSt4pairIKN4llvm10sampleprof12LineLocationESt3mapINS2_10FunctionIdENS2_15FunctionSamplesESt4lessIS6_ESaIS0_IKS6_S7_EEEESG_N9__gnu_cxx5__ops14_Val_comp_iterIZNS2_12SampleSorterIS3_SD_EC1ERKS5_IS3_SD_S8_IS3_ESaISE_EEEUlSG_SG_E_EEET_SU_SU_RKT0_T1_.exit
+_ZSt7advanceIPPKSt4pairIKN4llvm10sampleprof12LineLocationESt3mapINS2_10FunctionIdENS2_15FunctionSamplesESt4lessIS6_ESaIS0_IKS6_S7_EEEElEvRT_T0_.exit83: ; preds = %73
+  %105 = sdiv i64 %.tr113130, 2
+  %106 = getelementptr inbounds ptr, ptr %.tr110127, i64 %105
+  %107 = ptrtoint ptr %.tr126 to i64
+  %108 = sub i64 %74, %107
+  %109 = ashr exact i64 %108, 3
+  %110 = icmp sgt i64 %109, 0
+  br i1 %110, label %_ZSt7advanceIPPKSt4pairIKN4llvm10sampleprof12LineLocationESt3mapINS2_10FunctionIdENS2_15FunctionSamplesESt4lessIS6_ESaIS0_IKS6_S7_EEEElEvRT_T0_.exit.lr.ph.i86, label %_ZSt13__upper_boundIPPKSt4pairIKN4llvm10sampleprof12LineLocationESt3mapINS2_10FunctionIdENS2_15FunctionSamplesESt4lessIS6_ESaIS0_IKS6_S7_EEEESG_N9__gnu_cxx5__ops14_Val_comp_iterIZNS2_12SampleSorterIS3_SD_EC1ERKS5_IS3_SD_S8_IS3_ESaISE_EEEUlSG_SG_E_EEET_SU_SU_RKT0_T1_.exit
 
 _ZSt7advanceIPPKSt4pairIKN4llvm10sampleprof12LineLocationESt3mapINS2_10FunctionIdENS2_15FunctionSamplesESt4lessIS6_ESaIS0_IKS6_S7_EEEElEvRT_T0_.exit.lr.ph.i86: ; preds = %_ZSt7advanceIPPKSt4pairIKN4llvm10sampleprof12LineLocationESt3mapINS2_10FunctionIdENS2_15FunctionSamplesESt4lessIS6_ESaIS0_IKS6_S7_EEEElEvRT_T0_.exit83
-  %114 = load ptr, ptr %109, align 8
-  %115 = load i32, ptr %114, align 4
-  %116 = getelementptr inbounds nuw i8, ptr %114, i64 4
+  %111 = load ptr, ptr %106, align 8
+  %112 = load i32, ptr %111, align 4
+  %113 = getelementptr inbounds nuw i8, ptr %111, i64 4
   br label %_ZSt7advanceIPPKSt4pairIKN4llvm10sampleprof12LineLocationESt3mapINS2_10FunctionIdENS2_15FunctionSamplesESt4lessIS6_ESaIS0_IKS6_S7_EEEElEvRT_T0_.exit.i87
 
 _ZSt7advanceIPPKSt4pairIKN4llvm10sampleprof12LineLocationESt3mapINS2_10FunctionIdENS2_15FunctionSamplesESt4lessIS6_ESaIS0_IKS6_S7_EEEElEvRT_T0_.exit.i87: ; preds = %.thread.i92, %_ZSt7advanceIPPKSt4pairIKN4llvm10sampleprof12LineLocationESt3mapINS2_10FunctionIdENS2_15FunctionSamplesESt4lessIS6_ESaIS0_IKS6_S7_EEEElEvRT_T0_.exit.lr.ph.i86
-  %.025.i88 = phi ptr [ %.tr127, %_ZSt7advanceIPPKSt4pairIKN4llvm10sampleprof12LineLocationESt3mapINS2_10FunctionIdENS2_15FunctionSamplesESt4lessIS6_ESaIS0_IKS6_S7_EEEElEvRT_T0_.exit.lr.ph.i86 ], [ %136, %.thread.i92 ]
-  %.01124.i = phi i64 [ %112, %_ZSt7advanceIPPKSt4pairIKN4llvm10sampleprof12LineLocationESt3mapINS2_10FunctionIdENS2_15FunctionSamplesESt4lessIS6_ESaIS0_IKS6_S7_EEEElEvRT_T0_.exit.lr.ph.i86 ], [ %135, %.thread.i92 ]
-  %117 = lshr i64 %.01124.i, 1
-  %118 = getelementptr inbounds ptr, ptr %.025.i88, i64 %117
-  %119 = load ptr, ptr %118, align 8
-  %120 = load i32, ptr %119, align 4
-  %121 = icmp ult i32 %115, %120
-  br i1 %121, label %.thread.i92, label %122
+  %.025.i88 = phi ptr [ %.tr126, %_ZSt7advanceIPPKSt4pairIKN4llvm10sampleprof12LineLocationESt3mapINS2_10FunctionIdENS2_15FunctionSamplesESt4lessIS6_ESaIS0_IKS6_S7_EEEElEvRT_T0_.exit.lr.ph.i86 ], [ %133, %.thread.i92 ]
+  %.01124.i = phi i64 [ %109, %_ZSt7advanceIPPKSt4pairIKN4llvm10sampleprof12LineLocationESt3mapINS2_10FunctionIdENS2_15FunctionSamplesESt4lessIS6_ESaIS0_IKS6_S7_EEEElEvRT_T0_.exit.lr.ph.i86 ], [ %132, %.thread.i92 ]
+  %114 = lshr i64 %.01124.i, 1
+  %115 = getelementptr inbounds ptr, ptr %.025.i88, i64 %114
+  %116 = load ptr, ptr %115, align 8
+  %117 = load i32, ptr %116, align 4
+  %118 = icmp ult i32 %112, %117
+  br i1 %118, label %.thread.i92, label %119
 
-122:                                              ; preds = %_ZSt7advanceIPPKSt4pairIKN4llvm10sampleprof12LineLocationESt3mapINS2_10FunctionIdENS2_15FunctionSamplesESt4lessIS6_ESaIS0_IKS6_S7_EEEElEvRT_T0_.exit.i87
-  %123 = icmp eq i32 %115, %120
-  br i1 %123, label %_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN4llvm10sampleprof12SampleSorterINS3_12LineLocationESt3mapINS3_10FunctionIdENS3_15FunctionSamplesESt4lessIS7_ESaISt4pairIKS7_S8_EEEEC1ERKS6_IS5_SF_S9_IS5_ESaISB_IKS5_SF_EEEEUlPKSJ_SP_E_EclIKSP_PSP_EEbRT_T0_.exit.i, label %.thread21.i91
+119:                                              ; preds = %_ZSt7advanceIPPKSt4pairIKN4llvm10sampleprof12LineLocationESt3mapINS2_10FunctionIdENS2_15FunctionSamplesESt4lessIS6_ESaIS0_IKS6_S7_EEEElEvRT_T0_.exit.i87
+  %120 = icmp eq i32 %112, %117
+  br i1 %120, label %_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN4llvm10sampleprof12SampleSorterINS3_12LineLocationESt3mapINS3_10FunctionIdENS3_15FunctionSamplesESt4lessIS7_ESaISt4pairIKS7_S8_EEEEC1ERKS6_IS5_SF_S9_IS5_ESaISB_IKS5_SF_EEEEUlPKSJ_SP_E_EclIKSP_PSP_EEbRT_T0_.exit.i, label %.thread21.i91
 
-.thread21.i91:                                    ; preds = %122
-  %124 = getelementptr inbounds i8, ptr %118, i64 8
-  %125 = xor i64 %117, -1
-  %126 = add nsw i64 %.01124.i, %125
+.thread21.i91:                                    ; preds = %119
+  %121 = getelementptr inbounds i8, ptr %115, i64 8
+  %122 = xor i64 %114, -1
+  %123 = add nsw i64 %.01124.i, %122
   br label %.thread.i92
 
-_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN4llvm10sampleprof12SampleSorterINS3_12LineLocationESt3mapINS3_10FunctionIdENS3_15FunctionSamplesESt4lessIS7_ESaISt4pairIKS7_S8_EEEEC1ERKS6_IS5_SF_S9_IS5_ESaISB_IKS5_SF_EEEEUlPKSJ_SP_E_EclIKSP_PSP_EEbRT_T0_.exit.i: ; preds = %122
-  %127 = load i32, ptr %116, align 4
-  %128 = getelementptr inbounds nuw i8, ptr %119, i64 4
-  %129 = load i32, ptr %128, align 4
-  %130 = icmp ult i32 %127, %129
-  %cond.fr.i93 = freeze i1 %130
-  br i1 %cond.fr.i93, label %.thread.i92, label %131
+_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN4llvm10sampleprof12SampleSorterINS3_12LineLocationESt3mapINS3_10FunctionIdENS3_15FunctionSamplesESt4lessIS7_ESaISt4pairIKS7_S8_EEEEC1ERKS6_IS5_SF_S9_IS5_ESaISB_IKS5_SF_EEEEUlPKSJ_SP_E_EclIKSP_PSP_EEbRT_T0_.exit.i: ; preds = %119
+  %124 = load i32, ptr %113, align 4
+  %125 = getelementptr inbounds nuw i8, ptr %116, i64 4
+  %126 = load i32, ptr %125, align 4
+  %127 = icmp ult i32 %124, %126
+  %cond.fr.i93 = freeze i1 %127
+  br i1 %cond.fr.i93, label %.thread.i92, label %128
 
-131:                                              ; preds = %_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN4llvm10sampleprof12SampleSorterINS3_12LineLocationESt3mapINS3_10FunctionIdENS3_15FunctionSamplesESt4lessIS7_ESaISt4pairIKS7_S8_EEEEC1ERKS6_IS5_SF_S9_IS5_ESaISB_IKS5_SF_EEEEUlPKSJ_SP_E_EclIKSP_PSP_EEbRT_T0_.exit.i
-  %132 = xor i64 %117, -1
-  %133 = add nsw i64 %.01124.i, %132
-  %134 = getelementptr inbounds i8, ptr %118, i64 8
+128:                                              ; preds = %_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN4llvm10sampleprof12SampleSorterINS3_12LineLocationESt3mapINS3_10FunctionIdENS3_15FunctionSamplesESt4lessIS7_ESaISt4pairIKS7_S8_EEEEC1ERKS6_IS5_SF_S9_IS5_ESaISB_IKS5_SF_EEEEUlPKSJ_SP_E_EclIKSP_PSP_EEbRT_T0_.exit.i
+  %129 = xor i64 %114, -1
+  %130 = add nsw i64 %.01124.i, %129
+  %131 = getelementptr inbounds i8, ptr %115, i64 8
   br label %.thread.i92
 
-.thread.i92:                                      ; preds = %131, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN4llvm10sampleprof12SampleSorterINS3_12LineLocationESt3mapINS3_10FunctionIdENS3_15FunctionSamplesESt4lessIS7_ESaISt4pairIKS7_S8_EEEEC1ERKS6_IS5_SF_S9_IS5_ESaISB_IKS5_SF_EEEEUlPKSJ_SP_E_EclIKSP_PSP_EEbRT_T0_.exit.i, %.thread21.i91, %_ZSt7advanceIPPKSt4pairIKN4llvm10sampleprof12LineLocationESt3mapINS2_10FunctionIdENS2_15FunctionSamplesESt4lessIS6_ESaIS0_IKS6_S7_EEEElEvRT_T0_.exit.i87
-  %135 = phi i64 [ %126, %.thread21.i91 ], [ %117, %_ZSt7advanceIPPKSt4pairIKN4llvm10sampleprof12LineLocationESt3mapINS2_10FunctionIdENS2_15FunctionSamplesESt4lessIS6_ESaIS0_IKS6_S7_EEEElEvRT_T0_.exit.i87 ], [ %117, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN4llvm10sampleprof12SampleSorterINS3_12LineLocationESt3mapINS3_10FunctionIdENS3_15FunctionSamplesESt4lessIS7_ESaISt4pairIKS7_S8_EEEEC1ERKS6_IS5_SF_S9_IS5_ESaISB_IKS5_SF_EEEEUlPKSJ_SP_E_EclIKSP_PSP_EEbRT_T0_.exit.i ], [ %133, %131 ]
-  %136 = phi ptr [ %124, %.thread21.i91 ], [ %.025.i88, %_ZSt7advanceIPPKSt4pairIKN4llvm10sampleprof12LineLocationESt3mapINS2_10FunctionIdENS2_15FunctionSamplesESt4lessIS6_ESaIS0_IKS6_S7_EEEElEvRT_T0_.exit.i87 ], [ %.025.i88, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN4llvm10sampleprof12SampleSorterINS3_12LineLocationESt3mapINS3_10FunctionIdENS3_15FunctionSamplesESt4lessIS7_ESaISt4pairIKS7_S8_EEEEC1ERKS6_IS5_SF_S9_IS5_ESaISB_IKS5_SF_EEEEUlPKSJ_SP_E_EclIKSP_PSP_EEbRT_T0_.exit.i ], [ %134, %131 ]
-  %137 = icmp sgt i64 %135, 0
-  br i1 %137, label %_ZSt7advanceIPPKSt4pairIKN4llvm10sampleprof12LineLocationESt3mapINS2_10FunctionIdENS2_15FunctionSamplesESt4lessIS6_ESaIS0_IKS6_S7_EEEElEvRT_T0_.exit.i87, label %_ZSt13__upper_boundIPPKSt4pairIKN4llvm10sampleprof12LineLocationESt3mapINS2_10FunctionIdENS2_15FunctionSamplesESt4lessIS6_ESaIS0_IKS6_S7_EEEESG_N9__gnu_cxx5__ops14_Val_comp_iterIZNS2_12SampleSorterIS3_SD_EC1ERKS5_IS3_SD_S8_IS3_ESaISE_EEEUlSG_SG_E_EEET_SU_SU_RKT0_T1_.exit.loopexit, !llvm.loop !206
+.thread.i92:                                      ; preds = %128, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN4llvm10sampleprof12SampleSorterINS3_12LineLocationESt3mapINS3_10FunctionIdENS3_15FunctionSamplesESt4lessIS7_ESaISt4pairIKS7_S8_EEEEC1ERKS6_IS5_SF_S9_IS5_ESaISB_IKS5_SF_EEEEUlPKSJ_SP_E_EclIKSP_PSP_EEbRT_T0_.exit.i, %.thread21.i91, %_ZSt7advanceIPPKSt4pairIKN4llvm10sampleprof12LineLocationESt3mapINS2_10FunctionIdENS2_15FunctionSamplesESt4lessIS6_ESaIS0_IKS6_S7_EEEElEvRT_T0_.exit.i87
+  %132 = phi i64 [ %123, %.thread21.i91 ], [ %114, %_ZSt7advanceIPPKSt4pairIKN4llvm10sampleprof12LineLocationESt3mapINS2_10FunctionIdENS2_15FunctionSamplesESt4lessIS6_ESaIS0_IKS6_S7_EEEElEvRT_T0_.exit.i87 ], [ %114, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN4llvm10sampleprof12SampleSorterINS3_12LineLocationESt3mapINS3_10FunctionIdENS3_15FunctionSamplesESt4lessIS7_ESaISt4pairIKS7_S8_EEEEC1ERKS6_IS5_SF_S9_IS5_ESaISB_IKS5_SF_EEEEUlPKSJ_SP_E_EclIKSP_PSP_EEbRT_T0_.exit.i ], [ %130, %128 ]
+  %133 = phi ptr [ %121, %.thread21.i91 ], [ %.025.i88, %_ZSt7advanceIPPKSt4pairIKN4llvm10sampleprof12LineLocationESt3mapINS2_10FunctionIdENS2_15FunctionSamplesESt4lessIS6_ESaIS0_IKS6_S7_EEEElEvRT_T0_.exit.i87 ], [ %.025.i88, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN4llvm10sampleprof12SampleSorterINS3_12LineLocationESt3mapINS3_10FunctionIdENS3_15FunctionSamplesESt4lessIS7_ESaISt4pairIKS7_S8_EEEEC1ERKS6_IS5_SF_S9_IS5_ESaISB_IKS5_SF_EEEEUlPKSJ_SP_E_EclIKSP_PSP_EEbRT_T0_.exit.i ], [ %131, %128 ]
+  %134 = icmp sgt i64 %132, 0
+  br i1 %134, label %_ZSt7advanceIPPKSt4pairIKN4llvm10sampleprof12LineLocationESt3mapINS2_10FunctionIdENS2_15FunctionSamplesESt4lessIS6_ESaIS0_IKS6_S7_EEEElEvRT_T0_.exit.i87, label %_ZSt13__upper_boundIPPKSt4pairIKN4llvm10sampleprof12LineLocationESt3mapINS2_10FunctionIdENS2_15FunctionSamplesESt4lessIS6_ESaIS0_IKS6_S7_EEEESG_N9__gnu_cxx5__ops14_Val_comp_iterIZNS2_12SampleSorterIS3_SD_EC1ERKS5_IS3_SD_S8_IS3_ESaISE_EEEUlSG_SG_E_EEET_SU_SU_RKT0_T1_.exit.loopexit, !llvm.loop !206
 
 _ZSt13__upper_boundIPPKSt4pairIKN4llvm10sampleprof12LineLocationESt3mapINS2_10FunctionIdENS2_15FunctionSamplesESt4lessIS6_ESaIS0_IKS6_S7_EEEESG_N9__gnu_cxx5__ops14_Val_comp_iterIZNS2_12SampleSorterIS3_SD_EC1ERKS5_IS3_SD_S8_IS3_ESaISE_EEEUlSG_SG_E_EEET_SU_SU_RKT0_T1_.exit.loopexit: ; preds = %.thread.i92
-  %.pre141 = ptrtoint ptr %136 to i64
+  %.pre140 = ptrtoint ptr %133 to i64
   br label %_ZSt13__upper_boundIPPKSt4pairIKN4llvm10sampleprof12LineLocationESt3mapINS2_10FunctionIdENS2_15FunctionSamplesESt4lessIS6_ESaIS0_IKS6_S7_EEEESG_N9__gnu_cxx5__ops14_Val_comp_iterIZNS2_12SampleSorterIS3_SD_EC1ERKS5_IS3_SD_S8_IS3_ESaISE_EEEUlSG_SG_E_EEET_SU_SU_RKT0_T1_.exit
 
 _ZSt13__upper_boundIPPKSt4pairIKN4llvm10sampleprof12LineLocationESt3mapINS2_10FunctionIdENS2_15FunctionSamplesESt4lessIS6_ESaIS0_IKS6_S7_EEEESG_N9__gnu_cxx5__ops14_Val_comp_iterIZNS2_12SampleSorterIS3_SD_EC1ERKS5_IS3_SD_S8_IS3_ESaISE_EEEUlSG_SG_E_EEET_SU_SU_RKT0_T1_.exit: ; preds = %_ZSt13__upper_boundIPPKSt4pairIKN4llvm10sampleprof12LineLocationESt3mapINS2_10FunctionIdENS2_15FunctionSamplesESt4lessIS6_ESaIS0_IKS6_S7_EEEESG_N9__gnu_cxx5__ops14_Val_comp_iterIZNS2_12SampleSorterIS3_SD_EC1ERKS5_IS3_SD_S8_IS3_ESaISE_EEEUlSG_SG_E_EEET_SU_SU_RKT0_T1_.exit.loopexit, %_ZSt7advanceIPPKSt4pairIKN4llvm10sampleprof12LineLocationESt3mapINS2_10FunctionIdENS2_15FunctionSamplesESt4lessIS6_ESaIS0_IKS6_S7_EEEElEvRT_T0_.exit83
-  %.pre-phi142 = phi i64 [ %.pre141, %_ZSt13__upper_boundIPPKSt4pairIKN4llvm10sampleprof12LineLocationESt3mapINS2_10FunctionIdENS2_15FunctionSamplesESt4lessIS6_ESaIS0_IKS6_S7_EEEESG_N9__gnu_cxx5__ops14_Val_comp_iterIZNS2_12SampleSorterIS3_SD_EC1ERKS5_IS3_SD_S8_IS3_ESaISE_EEEUlSG_SG_E_EEET_SU_SU_RKT0_T1_.exit.loopexit ], [ %110, %_ZSt7advanceIPPKSt4pairIKN4llvm10sampleprof12LineLocationESt3mapINS2_10FunctionIdENS2_15FunctionSamplesESt4lessIS6_ESaIS0_IKS6_S7_EEEElEvRT_T0_.exit83 ]
-  %.0.lcssa.i85 = phi ptr [ %136, %_ZSt13__upper_boundIPPKSt4pairIKN4llvm10sampleprof12LineLocationESt3mapINS2_10FunctionIdENS2_15FunctionSamplesESt4lessIS6_ESaIS0_IKS6_S7_EEEESG_N9__gnu_cxx5__ops14_Val_comp_iterIZNS2_12SampleSorterIS3_SD_EC1ERKS5_IS3_SD_S8_IS3_ESaISE_EEEUlSG_SG_E_EEET_SU_SU_RKT0_T1_.exit.loopexit ], [ %.tr127, %_ZSt7advanceIPPKSt4pairIKN4llvm10sampleprof12LineLocationESt3mapINS2_10FunctionIdENS2_15FunctionSamplesESt4lessIS6_ESaIS0_IKS6_S7_EEEElEvRT_T0_.exit83 ]
-  %138 = sub i64 %.pre-phi142, %110
-  %139 = ashr exact i64 %138, 3
-  br label %140
+  %.pre-phi141 = phi i64 [ %.pre140, %_ZSt13__upper_boundIPPKSt4pairIKN4llvm10sampleprof12LineLocationESt3mapINS2_10FunctionIdENS2_15FunctionSamplesESt4lessIS6_ESaIS0_IKS6_S7_EEEESG_N9__gnu_cxx5__ops14_Val_comp_iterIZNS2_12SampleSorterIS3_SD_EC1ERKS5_IS3_SD_S8_IS3_ESaISE_EEEUlSG_SG_E_EEET_SU_SU_RKT0_T1_.exit.loopexit ], [ %107, %_ZSt7advanceIPPKSt4pairIKN4llvm10sampleprof12LineLocationESt3mapINS2_10FunctionIdENS2_15FunctionSamplesESt4lessIS6_ESaIS0_IKS6_S7_EEEElEvRT_T0_.exit83 ]
+  %.0.lcssa.i85 = phi ptr [ %133, %_ZSt13__upper_boundIPPKSt4pairIKN4llvm10sampleprof12LineLocationESt3mapINS2_10FunctionIdENS2_15FunctionSamplesESt4lessIS6_ESaIS0_IKS6_S7_EEEESG_N9__gnu_cxx5__ops14_Val_comp_iterIZNS2_12SampleSorterIS3_SD_EC1ERKS5_IS3_SD_S8_IS3_ESaISE_EEEUlSG_SG_E_EEET_SU_SU_RKT0_T1_.exit.loopexit ], [ %.tr126, %_ZSt7advanceIPPKSt4pairIKN4llvm10sampleprof12LineLocationESt3mapINS2_10FunctionIdENS2_15FunctionSamplesESt4lessIS6_ESaIS0_IKS6_S7_EEEElEvRT_T0_.exit83 ]
+  %135 = sub i64 %.pre-phi141, %107
+  %136 = ashr exact i64 %135, 3
+  br label %137
 
-140:                                              ; preds = %_ZSt13__upper_boundIPPKSt4pairIKN4llvm10sampleprof12LineLocationESt3mapINS2_10FunctionIdENS2_15FunctionSamplesESt4lessIS6_ESaIS0_IKS6_S7_EEEESG_N9__gnu_cxx5__ops14_Val_comp_iterIZNS2_12SampleSorterIS3_SD_EC1ERKS5_IS3_SD_S8_IS3_ESaISE_EEEUlSG_SG_E_EEET_SU_SU_RKT0_T1_.exit, %_ZSt13__lower_boundIPPKSt4pairIKN4llvm10sampleprof12LineLocationESt3mapINS2_10FunctionIdENS2_15FunctionSamplesESt4lessIS6_ESaIS0_IKS6_S7_EEEESG_N9__gnu_cxx5__ops14_Iter_comp_valIZNS2_12SampleSorterIS3_SD_EC1ERKS5_IS3_SD_S8_IS3_ESaISE_EEEUlSG_SG_E_EEET_SU_SU_RKT0_T1_.exit
-  %.0108 = phi ptr [ %79, %_ZSt13__lower_boundIPPKSt4pairIKN4llvm10sampleprof12LineLocationESt3mapINS2_10FunctionIdENS2_15FunctionSamplesESt4lessIS6_ESaIS0_IKS6_S7_EEEESG_N9__gnu_cxx5__ops14_Iter_comp_valIZNS2_12SampleSorterIS3_SD_EC1ERKS5_IS3_SD_S8_IS3_ESaISE_EEEUlSG_SG_E_EEET_SU_SU_RKT0_T1_.exit ], [ %.0.lcssa.i85, %_ZSt13__upper_boundIPPKSt4pairIKN4llvm10sampleprof12LineLocationESt3mapINS2_10FunctionIdENS2_15FunctionSamplesESt4lessIS6_ESaIS0_IKS6_S7_EEEESG_N9__gnu_cxx5__ops14_Val_comp_iterIZNS2_12SampleSorterIS3_SD_EC1ERKS5_IS3_SD_S8_IS3_ESaISE_EEEUlSG_SG_E_EEET_SU_SU_RKT0_T1_.exit ]
-  %.0107 = phi ptr [ %.0.lcssa.i78, %_ZSt13__lower_boundIPPKSt4pairIKN4llvm10sampleprof12LineLocationESt3mapINS2_10FunctionIdENS2_15FunctionSamplesESt4lessIS6_ESaIS0_IKS6_S7_EEEESG_N9__gnu_cxx5__ops14_Iter_comp_valIZNS2_12SampleSorterIS3_SD_EC1ERKS5_IS3_SD_S8_IS3_ESaISE_EEEUlSG_SG_E_EEET_SU_SU_RKT0_T1_.exit ], [ %109, %_ZSt13__upper_boundIPPKSt4pairIKN4llvm10sampleprof12LineLocationESt3mapINS2_10FunctionIdENS2_15FunctionSamplesESt4lessIS6_ESaIS0_IKS6_S7_EEEESG_N9__gnu_cxx5__ops14_Val_comp_iterIZNS2_12SampleSorterIS3_SD_EC1ERKS5_IS3_SD_S8_IS3_ESaISE_EEEUlSG_SG_E_EEET_SU_SU_RKT0_T1_.exit ]
-  %.066 = phi i64 [ %107, %_ZSt13__lower_boundIPPKSt4pairIKN4llvm10sampleprof12LineLocationESt3mapINS2_10FunctionIdENS2_15FunctionSamplesESt4lessIS6_ESaIS0_IKS6_S7_EEEESG_N9__gnu_cxx5__ops14_Iter_comp_valIZNS2_12SampleSorterIS3_SD_EC1ERKS5_IS3_SD_S8_IS3_ESaISE_EEEUlSG_SG_E_EEET_SU_SU_RKT0_T1_.exit ], [ %108, %_ZSt13__upper_boundIPPKSt4pairIKN4llvm10sampleprof12LineLocationESt3mapINS2_10FunctionIdENS2_15FunctionSamplesESt4lessIS6_ESaIS0_IKS6_S7_EEEESG_N9__gnu_cxx5__ops14_Val_comp_iterIZNS2_12SampleSorterIS3_SD_EC1ERKS5_IS3_SD_S8_IS3_ESaISE_EEEUlSG_SG_E_EEET_SU_SU_RKT0_T1_.exit ]
-  %.0 = phi i64 [ %78, %_ZSt13__lower_boundIPPKSt4pairIKN4llvm10sampleprof12LineLocationESt3mapINS2_10FunctionIdENS2_15FunctionSamplesESt4lessIS6_ESaIS0_IKS6_S7_EEEESG_N9__gnu_cxx5__ops14_Iter_comp_valIZNS2_12SampleSorterIS3_SD_EC1ERKS5_IS3_SD_S8_IS3_ESaISE_EEEUlSG_SG_E_EEET_SU_SU_RKT0_T1_.exit ], [ %139, %_ZSt13__upper_boundIPPKSt4pairIKN4llvm10sampleprof12LineLocationESt3mapINS2_10FunctionIdENS2_15FunctionSamplesESt4lessIS6_ESaIS0_IKS6_S7_EEEESG_N9__gnu_cxx5__ops14_Val_comp_iterIZNS2_12SampleSorterIS3_SD_EC1ERKS5_IS3_SD_S8_IS3_ESaISE_EEEUlSG_SG_E_EEET_SU_SU_RKT0_T1_.exit ]
-  %141 = sub nsw i64 %.tr113130, %.0
-  %142 = icmp sle i64 %141, %.066
+137:                                              ; preds = %_ZSt13__upper_boundIPPKSt4pairIKN4llvm10sampleprof12LineLocationESt3mapINS2_10FunctionIdENS2_15FunctionSamplesESt4lessIS6_ESaIS0_IKS6_S7_EEEESG_N9__gnu_cxx5__ops14_Val_comp_iterIZNS2_12SampleSorterIS3_SD_EC1ERKS5_IS3_SD_S8_IS3_ESaISE_EEEUlSG_SG_E_EEET_SU_SU_RKT0_T1_.exit, %_ZSt13__lower_boundIPPKSt4pairIKN4llvm10sampleprof12LineLocationESt3mapINS2_10FunctionIdENS2_15FunctionSamplesESt4lessIS6_ESaIS0_IKS6_S7_EEEESG_N9__gnu_cxx5__ops14_Iter_comp_valIZNS2_12SampleSorterIS3_SD_EC1ERKS5_IS3_SD_S8_IS3_ESaISE_EEEUlSG_SG_E_EEET_SU_SU_RKT0_T1_.exit
+  %.0107 = phi ptr [ %76, %_ZSt13__lower_boundIPPKSt4pairIKN4llvm10sampleprof12LineLocationESt3mapINS2_10FunctionIdENS2_15FunctionSamplesESt4lessIS6_ESaIS0_IKS6_S7_EEEESG_N9__gnu_cxx5__ops14_Iter_comp_valIZNS2_12SampleSorterIS3_SD_EC1ERKS5_IS3_SD_S8_IS3_ESaISE_EEEUlSG_SG_E_EEET_SU_SU_RKT0_T1_.exit ], [ %.0.lcssa.i85, %_ZSt13__upper_boundIPPKSt4pairIKN4llvm10sampleprof12LineLocationESt3mapINS2_10FunctionIdENS2_15FunctionSamplesESt4lessIS6_ESaIS0_IKS6_S7_EEEESG_N9__gnu_cxx5__ops14_Val_comp_iterIZNS2_12SampleSorterIS3_SD_EC1ERKS5_IS3_SD_S8_IS3_ESaISE_EEEUlSG_SG_E_EEET_SU_SU_RKT0_T1_.exit ]
+  %.0106 = phi ptr [ %.0.lcssa.i78, %_ZSt13__lower_boundIPPKSt4pairIKN4llvm10sampleprof12LineLocationESt3mapINS2_10FunctionIdENS2_15FunctionSamplesESt4lessIS6_ESaIS0_IKS6_S7_EEEESG_N9__gnu_cxx5__ops14_Iter_comp_valIZNS2_12SampleSorterIS3_SD_EC1ERKS5_IS3_SD_S8_IS3_ESaISE_EEEUlSG_SG_E_EEET_SU_SU_RKT0_T1_.exit ], [ %106, %_ZSt13__upper_boundIPPKSt4pairIKN4llvm10sampleprof12LineLocationESt3mapINS2_10FunctionIdENS2_15FunctionSamplesESt4lessIS6_ESaIS0_IKS6_S7_EEEESG_N9__gnu_cxx5__ops14_Val_comp_iterIZNS2_12SampleSorterIS3_SD_EC1ERKS5_IS3_SD_S8_IS3_ESaISE_EEEUlSG_SG_E_EEET_SU_SU_RKT0_T1_.exit ]
+  %.066 = phi i64 [ %104, %_ZSt13__lower_boundIPPKSt4pairIKN4llvm10sampleprof12LineLocationESt3mapINS2_10FunctionIdENS2_15FunctionSamplesESt4lessIS6_ESaIS0_IKS6_S7_EEEESG_N9__gnu_cxx5__ops14_Iter_comp_valIZNS2_12SampleSorterIS3_SD_EC1ERKS5_IS3_SD_S8_IS3_ESaISE_EEEUlSG_SG_E_EEET_SU_SU_RKT0_T1_.exit ], [ %105, %_ZSt13__upper_boundIPPKSt4pairIKN4llvm10sampleprof12LineLocationESt3mapINS2_10FunctionIdENS2_15FunctionSamplesESt4lessIS6_ESaIS0_IKS6_S7_EEEESG_N9__gnu_cxx5__ops14_Val_comp_iterIZNS2_12SampleSorterIS3_SD_EC1ERKS5_IS3_SD_S8_IS3_ESaISE_EEEUlSG_SG_E_EEET_SU_SU_RKT0_T1_.exit ]
+  %.0 = phi i64 [ %75, %_ZSt13__lower_boundIPPKSt4pairIKN4llvm10sampleprof12LineLocationESt3mapINS2_10FunctionIdENS2_15FunctionSamplesESt4lessIS6_ESaIS0_IKS6_S7_EEEESG_N9__gnu_cxx5__ops14_Iter_comp_valIZNS2_12SampleSorterIS3_SD_EC1ERKS5_IS3_SD_S8_IS3_ESaISE_EEEUlSG_SG_E_EEET_SU_SU_RKT0_T1_.exit ], [ %136, %_ZSt13__upper_boundIPPKSt4pairIKN4llvm10sampleprof12LineLocationESt3mapINS2_10FunctionIdENS2_15FunctionSamplesESt4lessIS6_ESaIS0_IKS6_S7_EEEESG_N9__gnu_cxx5__ops14_Val_comp_iterIZNS2_12SampleSorterIS3_SD_EC1ERKS5_IS3_SD_S8_IS3_ESaISE_EEEUlSG_SG_E_EEET_SU_SU_RKT0_T1_.exit ]
+  %138 = sub nsw i64 %.tr112129, %.0
+  %139 = icmp sle i64 %138, %.066
   %.not.i = icmp sgt i64 %.066, %6
-  %or.cond.i = or i1 %.not.i, %142
-  br i1 %or.cond.i, label %156, label %143
+  %or.cond.i = or i1 %.not.i, %139
+  br i1 %or.cond.i, label %153, label %140
 
-143:                                              ; preds = %140
+140:                                              ; preds = %137
   %.not35.i = icmp eq i64 %.066, 0
-  br i1 %.not35.i, label %_ZSt17__rotate_adaptiveIPPKSt4pairIKN4llvm10sampleprof12LineLocationESt3mapINS2_10FunctionIdENS2_15FunctionSamplesESt4lessIS6_ESaIS0_IKS6_S7_EEEESH_lET_SI_SI_SI_T1_SJ_T0_SJ_.exit, label %144
+  br i1 %.not35.i, label %_ZSt17__rotate_adaptiveIPPKSt4pairIKN4llvm10sampleprof12LineLocationESt3mapINS2_10FunctionIdENS2_15FunctionSamplesESt4lessIS6_ESaIS0_IKS6_S7_EEEESH_lET_SI_SI_SI_T1_SJ_T0_SJ_.exit, label %141
 
-144:                                              ; preds = %143
-  %145 = ptrtoint ptr %.0107 to i64
-  %146 = ptrtoint ptr %.tr111128 to i64
-  %147 = sub i64 %145, %146
-  %.not.i.i.i.i.i.i94 = icmp eq ptr %.0107, %.tr111128
-  br i1 %.not.i.i.i.i.i.i94, label %_ZSt4moveIPPKSt4pairIKN4llvm10sampleprof12LineLocationESt3mapINS2_10FunctionIdENS2_15FunctionSamplesESt4lessIS6_ESaIS0_IKS6_S7_EEEESH_ET0_T_SJ_SI_.exit.i95, label %148
+141:                                              ; preds = %140
+  %142 = ptrtoint ptr %.0106 to i64
+  %143 = ptrtoint ptr %.tr110127 to i64
+  %144 = sub i64 %142, %143
+  %.not.i.i.i.i.i.i94 = icmp eq ptr %.0106, %.tr110127
+  br i1 %.not.i.i.i.i.i.i94, label %_ZSt4moveIPPKSt4pairIKN4llvm10sampleprof12LineLocationESt3mapINS2_10FunctionIdENS2_15FunctionSamplesESt4lessIS6_ESaIS0_IKS6_S7_EEEESH_ET0_T_SJ_SI_.exit.i95, label %145
 
-148:                                              ; preds = %144
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %5, ptr align 8 %.tr111128, i64 %147, i1 false)
+145:                                              ; preds = %141
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %5, ptr align 8 %.tr110127, i64 %144, i1 false)
   br label %_ZSt4moveIPPKSt4pairIKN4llvm10sampleprof12LineLocationESt3mapINS2_10FunctionIdENS2_15FunctionSamplesESt4lessIS6_ESaIS0_IKS6_S7_EEEESH_ET0_T_SJ_SI_.exit.i95
 
-_ZSt4moveIPPKSt4pairIKN4llvm10sampleprof12LineLocationESt3mapINS2_10FunctionIdENS2_15FunctionSamplesESt4lessIS6_ESaIS0_IKS6_S7_EEEESH_ET0_T_SJ_SI_.exit.i95: ; preds = %148, %144
-  %.not.i.i.i.i.i36.i = icmp eq ptr %.tr111128, %.0108
-  br i1 %.not.i.i.i.i.i36.i, label %_ZSt13move_backwardIPPKSt4pairIKN4llvm10sampleprof12LineLocationESt3mapINS2_10FunctionIdENS2_15FunctionSamplesESt4lessIS6_ESaIS0_IKS6_S7_EEEESH_ET0_T_SJ_SI_.exit.i, label %149
+_ZSt4moveIPPKSt4pairIKN4llvm10sampleprof12LineLocationESt3mapINS2_10FunctionIdENS2_15FunctionSamplesESt4lessIS6_ESaIS0_IKS6_S7_EEEESH_ET0_T_SJ_SI_.exit.i95: ; preds = %145, %141
+  %.not.i.i.i.i.i36.i = icmp eq ptr %.tr110127, %.0107
+  br i1 %.not.i.i.i.i.i36.i, label %_ZSt13move_backwardIPPKSt4pairIKN4llvm10sampleprof12LineLocationESt3mapINS2_10FunctionIdENS2_15FunctionSamplesESt4lessIS6_ESaIS0_IKS6_S7_EEEESH_ET0_T_SJ_SI_.exit.i, label %146
 
-149:                                              ; preds = %_ZSt4moveIPPKSt4pairIKN4llvm10sampleprof12LineLocationESt3mapINS2_10FunctionIdENS2_15FunctionSamplesESt4lessIS6_ESaIS0_IKS6_S7_EEEESH_ET0_T_SJ_SI_.exit.i95
-  %150 = ptrtoint ptr %.0108 to i64
-  %151 = sub i64 %146, %150
-  %152 = ashr exact i64 %151, 3
-  %.pre.i.i.i.i.i.i96 = sub nsw i64 0, %152
-  %153 = getelementptr inbounds ptr, ptr %.0107, i64 %.pre.i.i.i.i.i.i96
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %153, ptr align 8 %.0108, i64 %151, i1 false)
+146:                                              ; preds = %_ZSt4moveIPPKSt4pairIKN4llvm10sampleprof12LineLocationESt3mapINS2_10FunctionIdENS2_15FunctionSamplesESt4lessIS6_ESaIS0_IKS6_S7_EEEESH_ET0_T_SJ_SI_.exit.i95
+  %147 = ptrtoint ptr %.0107 to i64
+  %148 = sub i64 %143, %147
+  %149 = ashr exact i64 %148, 3
+  %.pre.i.i.i.i.i.i = sub nsw i64 0, %149
+  %150 = getelementptr inbounds ptr, ptr %.0106, i64 %.pre.i.i.i.i.i.i
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %150, ptr align 8 %.0107, i64 %148, i1 false)
   br label %_ZSt13move_backwardIPPKSt4pairIKN4llvm10sampleprof12LineLocationESt3mapINS2_10FunctionIdENS2_15FunctionSamplesESt4lessIS6_ESaIS0_IKS6_S7_EEEESH_ET0_T_SJ_SI_.exit.i
 
-_ZSt13move_backwardIPPKSt4pairIKN4llvm10sampleprof12LineLocationESt3mapINS2_10FunctionIdENS2_15FunctionSamplesESt4lessIS6_ESaIS0_IKS6_S7_EEEESH_ET0_T_SJ_SI_.exit.i: ; preds = %149, %_ZSt4moveIPPKSt4pairIKN4llvm10sampleprof12LineLocationESt3mapINS2_10FunctionIdENS2_15FunctionSamplesESt4lessIS6_ESaIS0_IKS6_S7_EEEESH_ET0_T_SJ_SI_.exit.i95
-  br i1 %.not.i.i.i.i.i.i94, label %_ZSt4moveIPPKSt4pairIKN4llvm10sampleprof12LineLocationESt3mapINS2_10FunctionIdENS2_15FunctionSamplesESt4lessIS6_ESaIS0_IKS6_S7_EEEESH_ET0_T_SJ_SI_.exit38.i, label %154
+_ZSt13move_backwardIPPKSt4pairIKN4llvm10sampleprof12LineLocationESt3mapINS2_10FunctionIdENS2_15FunctionSamplesESt4lessIS6_ESaIS0_IKS6_S7_EEEESH_ET0_T_SJ_SI_.exit.i: ; preds = %146, %_ZSt4moveIPPKSt4pairIKN4llvm10sampleprof12LineLocationESt3mapINS2_10FunctionIdENS2_15FunctionSamplesESt4lessIS6_ESaIS0_IKS6_S7_EEEESH_ET0_T_SJ_SI_.exit.i95
+  br i1 %.not.i.i.i.i.i.i94, label %_ZSt4moveIPPKSt4pairIKN4llvm10sampleprof12LineLocationESt3mapINS2_10FunctionIdENS2_15FunctionSamplesESt4lessIS6_ESaIS0_IKS6_S7_EEEESH_ET0_T_SJ_SI_.exit38.i, label %151
 
-154:                                              ; preds = %_ZSt13move_backwardIPPKSt4pairIKN4llvm10sampleprof12LineLocationESt3mapINS2_10FunctionIdENS2_15FunctionSamplesESt4lessIS6_ESaIS0_IKS6_S7_EEEESH_ET0_T_SJ_SI_.exit.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %.0108, ptr align 8 %5, i64 %147, i1 false)
+151:                                              ; preds = %_ZSt13move_backwardIPPKSt4pairIKN4llvm10sampleprof12LineLocationESt3mapINS2_10FunctionIdENS2_15FunctionSamplesESt4lessIS6_ESaIS0_IKS6_S7_EEEESH_ET0_T_SJ_SI_.exit.i
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %.0107, ptr align 8 %5, i64 %144, i1 false)
   br label %_ZSt4moveIPPKSt4pairIKN4llvm10sampleprof12LineLocationESt3mapINS2_10FunctionIdENS2_15FunctionSamplesESt4lessIS6_ESaIS0_IKS6_S7_EEEESH_ET0_T_SJ_SI_.exit38.i
 
-_ZSt4moveIPPKSt4pairIKN4llvm10sampleprof12LineLocationESt3mapINS2_10FunctionIdENS2_15FunctionSamplesESt4lessIS6_ESaIS0_IKS6_S7_EEEESH_ET0_T_SJ_SI_.exit38.i: ; preds = %154, %_ZSt13move_backwardIPPKSt4pairIKN4llvm10sampleprof12LineLocationESt3mapINS2_10FunctionIdENS2_15FunctionSamplesESt4lessIS6_ESaIS0_IKS6_S7_EEEESH_ET0_T_SJ_SI_.exit.i
-  %155 = getelementptr inbounds i8, ptr %.0108, i64 %147
+_ZSt4moveIPPKSt4pairIKN4llvm10sampleprof12LineLocationESt3mapINS2_10FunctionIdENS2_15FunctionSamplesESt4lessIS6_ESaIS0_IKS6_S7_EEEESH_ET0_T_SJ_SI_.exit38.i: ; preds = %151, %_ZSt13move_backwardIPPKSt4pairIKN4llvm10sampleprof12LineLocationESt3mapINS2_10FunctionIdENS2_15FunctionSamplesESt4lessIS6_ESaIS0_IKS6_S7_EEEESH_ET0_T_SJ_SI_.exit.i
+  %152 = getelementptr inbounds i8, ptr %.0107, i64 %144
   br label %_ZSt17__rotate_adaptiveIPPKSt4pairIKN4llvm10sampleprof12LineLocationESt3mapINS2_10FunctionIdENS2_15FunctionSamplesESt4lessIS6_ESaIS0_IKS6_S7_EEEESH_lET_SI_SI_SI_T1_SJ_T0_SJ_.exit
 
-156:                                              ; preds = %140
-  %.not33.i = icmp sgt i64 %141, %6
-  br i1 %.not33.i, label %170, label %157
+153:                                              ; preds = %137
+  %.not33.i = icmp sgt i64 %138, %6
+  br i1 %.not33.i, label %167, label %154
 
-157:                                              ; preds = %156
-  %.not34.i = icmp eq i64 %.tr113130, %.0
-  br i1 %.not34.i, label %_ZSt17__rotate_adaptiveIPPKSt4pairIKN4llvm10sampleprof12LineLocationESt3mapINS2_10FunctionIdENS2_15FunctionSamplesESt4lessIS6_ESaIS0_IKS6_S7_EEEESH_lET_SI_SI_SI_T1_SJ_T0_SJ_.exit, label %158
+154:                                              ; preds = %153
+  %.not34.i = icmp eq i64 %.tr112129, %.0
+  br i1 %.not34.i, label %_ZSt17__rotate_adaptiveIPPKSt4pairIKN4llvm10sampleprof12LineLocationESt3mapINS2_10FunctionIdENS2_15FunctionSamplesESt4lessIS6_ESaIS0_IKS6_S7_EEEESH_lET_SI_SI_SI_T1_SJ_T0_SJ_.exit, label %155
 
-158:                                              ; preds = %157
-  %159 = ptrtoint ptr %.tr111128 to i64
-  %160 = ptrtoint ptr %.0108 to i64
-  %161 = sub i64 %159, %160
-  %.not.i.i.i.i.i39.i = icmp eq ptr %.tr111128, %.0108
-  br i1 %.not.i.i.i.i.i39.i, label %_ZSt4moveIPPKSt4pairIKN4llvm10sampleprof12LineLocationESt3mapINS2_10FunctionIdENS2_15FunctionSamplesESt4lessIS6_ESaIS0_IKS6_S7_EEEESH_ET0_T_SJ_SI_.exit40.i, label %162
+155:                                              ; preds = %154
+  %156 = ptrtoint ptr %.tr110127 to i64
+  %157 = ptrtoint ptr %.0107 to i64
+  %158 = sub i64 %156, %157
+  %.not.i.i.i.i.i39.i = icmp eq ptr %.tr110127, %.0107
+  br i1 %.not.i.i.i.i.i39.i, label %_ZSt4moveIPPKSt4pairIKN4llvm10sampleprof12LineLocationESt3mapINS2_10FunctionIdENS2_15FunctionSamplesESt4lessIS6_ESaIS0_IKS6_S7_EEEESH_ET0_T_SJ_SI_.exit40.i, label %159
 
-162:                                              ; preds = %158
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %5, ptr align 8 %.0108, i64 %161, i1 false)
+159:                                              ; preds = %155
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %5, ptr align 8 %.0107, i64 %158, i1 false)
   br label %_ZSt4moveIPPKSt4pairIKN4llvm10sampleprof12LineLocationESt3mapINS2_10FunctionIdENS2_15FunctionSamplesESt4lessIS6_ESaIS0_IKS6_S7_EEEESH_ET0_T_SJ_SI_.exit40.i
 
-_ZSt4moveIPPKSt4pairIKN4llvm10sampleprof12LineLocationESt3mapINS2_10FunctionIdENS2_15FunctionSamplesESt4lessIS6_ESaIS0_IKS6_S7_EEEESH_ET0_T_SJ_SI_.exit40.i: ; preds = %162, %158
-  %.not.i.i.i.i.i41.i = icmp eq ptr %.0107, %.tr111128
-  br i1 %.not.i.i.i.i.i41.i, label %_ZSt4moveIPPKSt4pairIKN4llvm10sampleprof12LineLocationESt3mapINS2_10FunctionIdENS2_15FunctionSamplesESt4lessIS6_ESaIS0_IKS6_S7_EEEESH_ET0_T_SJ_SI_.exit42.i, label %163
+_ZSt4moveIPPKSt4pairIKN4llvm10sampleprof12LineLocationESt3mapINS2_10FunctionIdENS2_15FunctionSamplesESt4lessIS6_ESaIS0_IKS6_S7_EEEESH_ET0_T_SJ_SI_.exit40.i: ; preds = %159, %155
+  %.not.i.i.i.i.i41.i = icmp eq ptr %.0106, %.tr110127
+  br i1 %.not.i.i.i.i.i41.i, label %_ZSt4moveIPPKSt4pairIKN4llvm10sampleprof12LineLocationESt3mapINS2_10FunctionIdENS2_15FunctionSamplesESt4lessIS6_ESaIS0_IKS6_S7_EEEESH_ET0_T_SJ_SI_.exit42.i, label %160
 
-163:                                              ; preds = %_ZSt4moveIPPKSt4pairIKN4llvm10sampleprof12LineLocationESt3mapINS2_10FunctionIdENS2_15FunctionSamplesESt4lessIS6_ESaIS0_IKS6_S7_EEEESH_ET0_T_SJ_SI_.exit40.i
-  %164 = ptrtoint ptr %.0107 to i64
-  %165 = sub i64 %164, %159
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %.0108, ptr align 8 %.tr111128, i64 %165, i1 false)
+160:                                              ; preds = %_ZSt4moveIPPKSt4pairIKN4llvm10sampleprof12LineLocationESt3mapINS2_10FunctionIdENS2_15FunctionSamplesESt4lessIS6_ESaIS0_IKS6_S7_EEEESH_ET0_T_SJ_SI_.exit40.i
+  %161 = ptrtoint ptr %.0106 to i64
+  %162 = sub i64 %161, %156
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %.0107, ptr align 8 %.tr110127, i64 %162, i1 false)
   br label %_ZSt4moveIPPKSt4pairIKN4llvm10sampleprof12LineLocationESt3mapINS2_10FunctionIdENS2_15FunctionSamplesESt4lessIS6_ESaIS0_IKS6_S7_EEEESH_ET0_T_SJ_SI_.exit42.i
 
-_ZSt4moveIPPKSt4pairIKN4llvm10sampleprof12LineLocationESt3mapINS2_10FunctionIdENS2_15FunctionSamplesESt4lessIS6_ESaIS0_IKS6_S7_EEEESH_ET0_T_SJ_SI_.exit42.i: ; preds = %163, %_ZSt4moveIPPKSt4pairIKN4llvm10sampleprof12LineLocationESt3mapINS2_10FunctionIdENS2_15FunctionSamplesESt4lessIS6_ESaIS0_IKS6_S7_EEEESH_ET0_T_SJ_SI_.exit40.i
-  %166 = ashr exact i64 %161, 3
-  %.pre.i.i.i.i.i44.i = sub nsw i64 0, %166
-  br i1 %.not.i.i.i.i.i39.i, label %_ZSt13move_backwardIPPKSt4pairIKN4llvm10sampleprof12LineLocationESt3mapINS2_10FunctionIdENS2_15FunctionSamplesESt4lessIS6_ESaIS0_IKS6_S7_EEEESH_ET0_T_SJ_SI_.exit45.i, label %167
+_ZSt4moveIPPKSt4pairIKN4llvm10sampleprof12LineLocationESt3mapINS2_10FunctionIdENS2_15FunctionSamplesESt4lessIS6_ESaIS0_IKS6_S7_EEEESH_ET0_T_SJ_SI_.exit42.i: ; preds = %160, %_ZSt4moveIPPKSt4pairIKN4llvm10sampleprof12LineLocationESt3mapINS2_10FunctionIdENS2_15FunctionSamplesESt4lessIS6_ESaIS0_IKS6_S7_EEEESH_ET0_T_SJ_SI_.exit40.i
+  %163 = ashr exact i64 %158, 3
+  %.pre.i.i.i.i.i44.i = sub nsw i64 0, %163
+  br i1 %.not.i.i.i.i.i39.i, label %_ZSt13move_backwardIPPKSt4pairIKN4llvm10sampleprof12LineLocationESt3mapINS2_10FunctionIdENS2_15FunctionSamplesESt4lessIS6_ESaIS0_IKS6_S7_EEEESH_ET0_T_SJ_SI_.exit45.i, label %164
 
-167:                                              ; preds = %_ZSt4moveIPPKSt4pairIKN4llvm10sampleprof12LineLocationESt3mapINS2_10FunctionIdENS2_15FunctionSamplesESt4lessIS6_ESaIS0_IKS6_S7_EEEESH_ET0_T_SJ_SI_.exit42.i
-  %168 = getelementptr inbounds ptr, ptr %.0107, i64 %.pre.i.i.i.i.i44.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %168, ptr align 8 %5, i64 %161, i1 false)
+164:                                              ; preds = %_ZSt4moveIPPKSt4pairIKN4llvm10sampleprof12LineLocationESt3mapINS2_10FunctionIdENS2_15FunctionSamplesESt4lessIS6_ESaIS0_IKS6_S7_EEEESH_ET0_T_SJ_SI_.exit42.i
+  %165 = getelementptr inbounds ptr, ptr %.0106, i64 %.pre.i.i.i.i.i44.i
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %165, ptr align 8 %5, i64 %158, i1 false)
   br label %_ZSt13move_backwardIPPKSt4pairIKN4llvm10sampleprof12LineLocationESt3mapINS2_10FunctionIdENS2_15FunctionSamplesESt4lessIS6_ESaIS0_IKS6_S7_EEEESH_ET0_T_SJ_SI_.exit45.i
 
-_ZSt13move_backwardIPPKSt4pairIKN4llvm10sampleprof12LineLocationESt3mapINS2_10FunctionIdENS2_15FunctionSamplesESt4lessIS6_ESaIS0_IKS6_S7_EEEESH_ET0_T_SJ_SI_.exit45.i: ; preds = %167, %_ZSt4moveIPPKSt4pairIKN4llvm10sampleprof12LineLocationESt3mapINS2_10FunctionIdENS2_15FunctionSamplesESt4lessIS6_ESaIS0_IKS6_S7_EEEESH_ET0_T_SJ_SI_.exit42.i
-  %169 = getelementptr inbounds ptr, ptr %.0107, i64 %.pre.i.i.i.i.i44.i
+_ZSt13move_backwardIPPKSt4pairIKN4llvm10sampleprof12LineLocationESt3mapINS2_10FunctionIdENS2_15FunctionSamplesESt4lessIS6_ESaIS0_IKS6_S7_EEEESH_ET0_T_SJ_SI_.exit45.i: ; preds = %164, %_ZSt4moveIPPKSt4pairIKN4llvm10sampleprof12LineLocationESt3mapINS2_10FunctionIdENS2_15FunctionSamplesESt4lessIS6_ESaIS0_IKS6_S7_EEEESH_ET0_T_SJ_SI_.exit42.i
+  %166 = getelementptr inbounds ptr, ptr %.0106, i64 %.pre.i.i.i.i.i44.i
   br label %_ZSt17__rotate_adaptiveIPPKSt4pairIKN4llvm10sampleprof12LineLocationESt3mapINS2_10FunctionIdENS2_15FunctionSamplesESt4lessIS6_ESaIS0_IKS6_S7_EEEESH_lET_SI_SI_SI_T1_SJ_T0_SJ_.exit
 
-170:                                              ; preds = %156
-  %171 = tail call noundef ptr @_ZNSt3_V28__rotateIPPKSt4pairIKN4llvm10sampleprof12LineLocationESt3mapINS3_10FunctionIdENS3_15FunctionSamplesESt4lessIS7_ESaIS1_IKS7_S8_EEEEEET_SJ_SJ_SJ_St26random_access_iterator_tag(ptr noundef %.0108, ptr noundef %.tr111128, ptr noundef %.0107)
+167:                                              ; preds = %153
+  %168 = tail call noundef ptr @_ZNSt3_V28__rotateIPPKSt4pairIKN4llvm10sampleprof12LineLocationESt3mapINS3_10FunctionIdENS3_15FunctionSamplesESt4lessIS7_ESaIS1_IKS7_S8_EEEEEET_SJ_SJ_SJ_St26random_access_iterator_tag(ptr noundef %.0107, ptr noundef %.tr110127, ptr noundef %.0106)
   br label %_ZSt17__rotate_adaptiveIPPKSt4pairIKN4llvm10sampleprof12LineLocationESt3mapINS2_10FunctionIdENS2_15FunctionSamplesESt4lessIS6_ESaIS0_IKS6_S7_EEEESH_lET_SI_SI_SI_T1_SJ_T0_SJ_.exit
 
-_ZSt17__rotate_adaptiveIPPKSt4pairIKN4llvm10sampleprof12LineLocationESt3mapINS2_10FunctionIdENS2_15FunctionSamplesESt4lessIS6_ESaIS0_IKS6_S7_EEEESH_lET_SI_SI_SI_T1_SJ_T0_SJ_.exit: ; preds = %143, %_ZSt4moveIPPKSt4pairIKN4llvm10sampleprof12LineLocationESt3mapINS2_10FunctionIdENS2_15FunctionSamplesESt4lessIS6_ESaIS0_IKS6_S7_EEEESH_ET0_T_SJ_SI_.exit38.i, %157, %_ZSt13move_backwardIPPKSt4pairIKN4llvm10sampleprof12LineLocationESt3mapINS2_10FunctionIdENS2_15FunctionSamplesESt4lessIS6_ESaIS0_IKS6_S7_EEEESH_ET0_T_SJ_SI_.exit45.i, %170
-  %.0.i97 = phi ptr [ %155, %_ZSt4moveIPPKSt4pairIKN4llvm10sampleprof12LineLocationESt3mapINS2_10FunctionIdENS2_15FunctionSamplesESt4lessIS6_ESaIS0_IKS6_S7_EEEESH_ET0_T_SJ_SI_.exit38.i ], [ %169, %_ZSt13move_backwardIPPKSt4pairIKN4llvm10sampleprof12LineLocationESt3mapINS2_10FunctionIdENS2_15FunctionSamplesESt4lessIS6_ESaIS0_IKS6_S7_EEEESH_ET0_T_SJ_SI_.exit45.i ], [ %171, %170 ], [ %.0108, %143 ], [ %.0107, %157 ]
-  tail call void @_ZSt16__merge_adaptiveIPPKSt4pairIKN4llvm10sampleprof12LineLocationESt3mapINS2_10FunctionIdENS2_15FunctionSamplesESt4lessIS6_ESaIS0_IKS6_S7_EEEElSH_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS2_12SampleSorterIS3_SD_EC1ERKS5_IS3_SD_S8_IS3_ESaISE_EEEUlSG_SG_E_EEEvT_SU_SU_T0_SV_T1_SV_T2_(ptr noundef %.tr127, ptr noundef %.0108, ptr noundef %.0.i97, i64 noundef %.0, i64 noundef %.066, ptr noundef %5, i64 noundef %6)
-  %172 = sub nsw i64 %.tr114131, %.066
-  %.not = icmp sgt i64 %141, %172
-  %.not70 = icmp sgt i64 %141, %6
+_ZSt17__rotate_adaptiveIPPKSt4pairIKN4llvm10sampleprof12LineLocationESt3mapINS2_10FunctionIdENS2_15FunctionSamplesESt4lessIS6_ESaIS0_IKS6_S7_EEEESH_lET_SI_SI_SI_T1_SJ_T0_SJ_.exit: ; preds = %140, %_ZSt4moveIPPKSt4pairIKN4llvm10sampleprof12LineLocationESt3mapINS2_10FunctionIdENS2_15FunctionSamplesESt4lessIS6_ESaIS0_IKS6_S7_EEEESH_ET0_T_SJ_SI_.exit38.i, %154, %_ZSt13move_backwardIPPKSt4pairIKN4llvm10sampleprof12LineLocationESt3mapINS2_10FunctionIdENS2_15FunctionSamplesESt4lessIS6_ESaIS0_IKS6_S7_EEEESH_ET0_T_SJ_SI_.exit45.i, %167
+  %.0.i96 = phi ptr [ %152, %_ZSt4moveIPPKSt4pairIKN4llvm10sampleprof12LineLocationESt3mapINS2_10FunctionIdENS2_15FunctionSamplesESt4lessIS6_ESaIS0_IKS6_S7_EEEESH_ET0_T_SJ_SI_.exit38.i ], [ %166, %_ZSt13move_backwardIPPKSt4pairIKN4llvm10sampleprof12LineLocationESt3mapINS2_10FunctionIdENS2_15FunctionSamplesESt4lessIS6_ESaIS0_IKS6_S7_EEEESH_ET0_T_SJ_SI_.exit45.i ], [ %168, %167 ], [ %.0107, %140 ], [ %.0106, %154 ]
+  tail call void @_ZSt16__merge_adaptiveIPPKSt4pairIKN4llvm10sampleprof12LineLocationESt3mapINS2_10FunctionIdENS2_15FunctionSamplesESt4lessIS6_ESaIS0_IKS6_S7_EEEElSH_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS2_12SampleSorterIS3_SD_EC1ERKS5_IS3_SD_S8_IS3_ESaISE_EEEUlSG_SG_E_EEEvT_SU_SU_T0_SV_T1_SV_T2_(ptr noundef %.tr126, ptr noundef %.0107, ptr noundef %.0.i96, i64 noundef %.0, i64 noundef %.066, ptr noundef %5, i64 noundef %6)
+  %169 = sub nsw i64 %.tr113130, %.066
+  %.not = icmp sgt i64 %138, %169
+  %.not70 = icmp sgt i64 %138, %6
   %or.cond = or i1 %.not70, %.not
   br i1 %or.cond, label %39, label %tailrecurse._crit_edge
 
-_ZSt21__move_merge_adaptiveIPPKSt4pairIKN4llvm10sampleprof12LineLocationESt3mapINS2_10FunctionIdENS2_15FunctionSamplesESt4lessIS6_ESaIS0_IKS6_S7_EEEESH_SH_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS2_12SampleSorterIS3_SD_EC1ERKS5_IS3_SD_S8_IS3_ESaISE_EEEUlSG_SG_E_EEEvT_SU_T0_SV_T1_T2_.exit: ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm10sampleprof12SampleSorterINS3_12LineLocationESt3mapINS3_10FunctionIdENS3_15FunctionSamplesESt4lessIS7_ESaISt4pairIKS7_S8_EEEEC1ERKS6_IS5_SF_S9_IS5_ESaISB_IKS5_SF_EEEEUlPKSJ_SP_E_EclIPSP_ST_EEbT_T0_.exit.thread35.i, %41, %67, %65, %44, %_ZSt4moveIPPKSt4pairIKN4llvm10sampleprof12LineLocationESt3mapINS2_10FunctionIdENS2_15FunctionSamplesESt4lessIS6_ESaIS0_IKS6_S7_EEEESH_ET0_T_SJ_SI_.exit.i, %._crit_edge.i
+_ZSt21__move_merge_adaptiveIPPKSt4pairIKN4llvm10sampleprof12LineLocationESt3mapINS2_10FunctionIdENS2_15FunctionSamplesESt4lessIS6_ESaIS0_IKS6_S7_EEEESH_SH_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS2_12SampleSorterIS3_SD_EC1ERKS5_IS3_SD_S8_IS3_ESaISE_EEEUlSG_SG_E_EEEvT_SU_T0_SV_T1_T2_.exit: ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm10sampleprof12SampleSorterINS3_12LineLocationESt3mapINS3_10FunctionIdENS3_15FunctionSamplesESt4lessIS7_ESaISt4pairIKS7_S8_EEEEC1ERKS6_IS5_SF_S9_IS5_ESaISB_IKS5_SF_EEEEUlPKSJ_SP_E_EclIPSP_ST_EEbT_T0_.exit.thread35.i, %40, %_ZSt13move_backwardIPPKSt4pairIKN4llvm10sampleprof12LineLocationESt3mapINS2_10FunctionIdENS2_15FunctionSamplesESt4lessIS6_ESaIS0_IKS6_S7_EEEESH_ET0_T_SJ_SI_.exit.sink.split.i, %62, %_ZSt4moveIPPKSt4pairIKN4llvm10sampleprof12LineLocationESt3mapINS2_10FunctionIdENS2_15FunctionSamplesESt4lessIS6_ESaIS0_IKS6_S7_EEEESH_ET0_T_SJ_SI_.exit.i, %._crit_edge.i
   ret void
 }
 

@@ -1113,8 +1113,7 @@ define range(i32 -47, 1) i32 @pmix_ptl_base_parse_uri(ptr noundef %0, ptr nocapt
 7:                                                ; preds = %4
   %8 = tail call ptr @PMIx_Error_string(i32 noundef -27) #20
   tail call void (i32, ptr, ...) @pmix_output(i32 noundef 0, ptr noundef nonnull @.str.33, ptr noundef %8, ptr noundef nonnull @.str.34, i32 noundef 262) #20
-  tail call void @PMIx_Argv_free(ptr noundef %5) #20
-  br label %26
+  br label %25
 
 9:                                                ; preds = %4
   %10 = load ptr, ptr %5, align 8
@@ -1125,8 +1124,7 @@ define range(i32 -47, 1) i32 @pmix_ptl_base_parse_uri(ptr noundef %0, ptr nocapt
 13:                                               ; preds = %9
   %14 = tail call ptr @PMIx_Error_string(i32 noundef -27) #20
   tail call void (i32, ptr, ...) @pmix_output(i32 noundef 0, ptr noundef nonnull @.str.33, ptr noundef %14, ptr noundef nonnull @.str.34, i32 noundef 272) #20
-  tail call void @PMIx_Argv_free(ptr noundef nonnull %5) #20
-  br label %26
+  br label %25
 
 15:                                               ; preds = %9
   store i8 0, ptr %11, align 1
@@ -1147,12 +1145,9 @@ define range(i32 -47, 1) i32 @pmix_ptl_base_parse_uri(ptr noundef %0, ptr nocapt
   store ptr %24, ptr %3, align 8
   br label %25
 
-25:                                               ; preds = %21, %15
-  tail call void @PMIx_Argv_free(ptr noundef nonnull %5) #20
-  br label %26
-
-26:                                               ; preds = %25, %13, %7
-  %.0 = phi i32 [ -47, %7 ], [ -47, %13 ], [ 0, %25 ]
+25:                                               ; preds = %15, %21, %13, %7
+  %.0 = phi i32 [ -47, %7 ], [ -47, %13 ], [ 0, %21 ], [ 0, %15 ]
+  tail call void @PMIx_Argv_free(ptr noundef %5) #20
   ret i32 %.0
 }
 

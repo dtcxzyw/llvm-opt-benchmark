@@ -618,7 +618,7 @@ define internal fastcc range(i32 0, 2) i32 @check(ptr noundef nonnull %ctx, ptr 
 entry:
   %call = tail call ptr @load_cert_pass(ptr noundef %file, i32 noundef 0, i32 noundef 1, ptr noundef null, ptr noundef nonnull @.str.113) #2
   %cmp = icmp eq ptr %call, null
-  br i1 %cmp, label %if.then90, label %if.end
+  br i1 %cmp, label %return.sink.split, label %if.end
 
 if.end:                                           ; preds = %entry
   %cmp1.not = icmp eq ptr %opts, null
@@ -639,10 +639,7 @@ for.body:                                         ; preds = %for.cond.preheader,
 if.then10:                                        ; preds = %for.body
   %0 = load ptr, ptr @bio_err, align 8
   %call11 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %0, ptr noundef nonnull @.str.114, ptr noundef %call7) #2
-  %1 = load ptr, ptr @bio_err, align 8
-  tail call void @ERR_print_errors(ptr noundef %1) #2
-  tail call void @X509_free(ptr noundef nonnull %call) #2
-  br label %return
+  br label %return.sink.split
 
 for.inc:                                          ; preds = %for.body
   %inc = add nuw nsw i32 %i.246, 1
@@ -657,10 +654,10 @@ if.end13:                                         ; preds = %for.inc, %for.cond.
   br i1 %cmp15, label %if.then16, label %if.end19
 
 if.then16:                                        ; preds = %if.end13
-  %2 = load ptr, ptr @bio_err, align 8
+  %1 = load ptr, ptr @bio_err, align 8
   %cmp17 = icmp eq ptr %file, null
   %cond = select i1 %cmp17, ptr @.str.116, ptr %file
-  %call18 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %2, ptr noundef nonnull @.str.115, ptr noundef nonnull %cond) #2
+  %call18 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %1, ptr noundef nonnull @.str.115, ptr noundef nonnull %cond) #2
   br label %end
 
 if.end19:                                         ; preds = %if.end13
@@ -671,10 +668,10 @@ if.end19:                                         ; preds = %if.end13
 
 if.then22:                                        ; preds = %if.end19
   tail call void @X509_STORE_CTX_free(ptr noundef nonnull %call14) #2
-  %3 = load ptr, ptr @bio_err, align 8
+  %2 = load ptr, ptr @bio_err, align 8
   %cmp23 = icmp eq ptr %file, null
   %cond28 = select i1 %cmp23, ptr @.str.116, ptr %file
-  %call29 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %3, ptr noundef nonnull @.str.117, ptr noundef nonnull %cond28) #2
+  %call29 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %2, ptr noundef nonnull @.str.117, ptr noundef nonnull %cond28) #2
   br label %end
 
 if.end30:                                         ; preds = %if.end19
@@ -704,18 +701,18 @@ land.lhs.true:                                    ; preds = %if.end38
   br i1 %cmp43, label %if.then45, label %if.else
 
 if.then45:                                        ; preds = %land.lhs.true
-  %4 = load ptr, ptr @bio_out, align 8
+  %3 = load ptr, ptr @bio_out, align 8
   %cmp46 = icmp eq ptr %file, null
   %cond51 = select i1 %cmp46, ptr @.str.116, ptr %file
-  %call52 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %4, ptr noundef nonnull @.str.118, ptr noundef nonnull %cond51) #2
+  %call52 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %3, ptr noundef nonnull @.str.118, ptr noundef nonnull %cond51) #2
   %tobool53.not = icmp eq i32 %show_chain, 0
   br i1 %tobool53.not, label %if.end87, label %if.then54
 
 if.then54:                                        ; preds = %if.then45
   %call55 = tail call ptr @X509_STORE_CTX_get1_chain(ptr noundef nonnull %call14) #2
   %call56 = tail call i32 @X509_STORE_CTX_get_num_untrusted(ptr noundef nonnull %call14) #2
-  %5 = load ptr, ptr @bio_out, align 8
-  %call57 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %5, ptr noundef nonnull @.str.119) #2
+  %4 = load ptr, ptr @bio_out, align 8
+  %call57 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %4, ptr noundef nonnull @.str.119) #2
   %call6047 = tail call i32 @OPENSSL_sk_num(ptr noundef %call55) #2
   %cmp6148 = icmp sgt i32 %call6047, 0
   br i1 %cmp6148, label %for.body63, label %for.end78
@@ -723,23 +720,23 @@ if.then54:                                        ; preds = %if.then45
 for.body63:                                       ; preds = %if.then54, %if.end74
   %j.049 = phi i32 [ %inc77, %if.end74 ], [ 0, %if.then54 ]
   %call65 = tail call ptr @OPENSSL_sk_value(ptr noundef %call55, i32 noundef %j.049) #2
-  %6 = load ptr, ptr @bio_out, align 8
-  %call66 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %6, ptr noundef nonnull @.str.120, i32 noundef %j.049) #2
-  %7 = load ptr, ptr @stdout, align 8
+  %5 = load ptr, ptr @bio_out, align 8
+  %call66 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %5, ptr noundef nonnull @.str.120, i32 noundef %j.049) #2
+  %6 = load ptr, ptr @stdout, align 8
   %call67 = tail call ptr @X509_get_subject_name(ptr noundef %call65) #2
   %call68 = tail call i64 @get_nameopt() #2
-  %call69 = tail call i32 @X509_NAME_print_ex_fp(ptr noundef %7, ptr noundef %call67, i32 noundef 0, i64 noundef %call68) #2
+  %call69 = tail call i32 @X509_NAME_print_ex_fp(ptr noundef %6, ptr noundef %call67, i32 noundef 0, i64 noundef %call68) #2
   %cmp70 = icmp slt i32 %j.049, %call56
   br i1 %cmp70, label %if.then72, label %if.end74
 
 if.then72:                                        ; preds = %for.body63
-  %8 = load ptr, ptr @bio_out, align 8
-  %call73 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %8, ptr noundef nonnull @.str.121) #2
+  %7 = load ptr, ptr @bio_out, align 8
+  %call73 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %7, ptr noundef nonnull @.str.121) #2
   br label %if.end74
 
 if.end74:                                         ; preds = %if.then72, %for.body63
-  %9 = load ptr, ptr @bio_out, align 8
-  %call75 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %9, ptr noundef nonnull @.str.122) #2
+  %8 = load ptr, ptr @bio_out, align 8
+  %call75 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %8, ptr noundef nonnull @.str.122) #2
   %inc77 = add nuw nsw i32 %j.049, 1
   %call60 = tail call i32 @OPENSSL_sk_num(ptr noundef %call55) #2
   %cmp61 = icmp slt i32 %inc77, %call60
@@ -750,10 +747,10 @@ for.end78:                                        ; preds = %if.end74, %if.then5
   br label %if.end87
 
 if.else:                                          ; preds = %land.lhs.true, %if.end38
-  %10 = load ptr, ptr @bio_err, align 8
+  %9 = load ptr, ptr @bio_err, align 8
   %cmp80 = icmp eq ptr %file, null
   %cond85 = select i1 %cmp80, ptr @.str.116, ptr %file
-  %call86 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %10, ptr noundef nonnull @.str.123, ptr noundef nonnull %cond85) #2
+  %call86 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %9, ptr noundef nonnull @.str.123, ptr noundef nonnull %cond85) #2
   br label %if.end87
 
 if.end87:                                         ; preds = %if.then45, %for.end78, %if.else
@@ -765,21 +762,17 @@ end:                                              ; preds = %if.end87, %if.then2
   %ret.0 = phi i32 [ 0, %if.then16 ], [ %ret.1, %if.end87 ], [ 0, %if.then22 ]
   %i.0 = phi i32 [ %i.1, %if.then16 ], [ %call39, %if.end87 ], [ %i.1, %if.then22 ]
   %cmp88 = icmp slt i32 %i.0, 1
-  br i1 %cmp88, label %if.then90, label %if.end91
+  br i1 %cmp88, label %return.sink.split, label %return
 
-if.then90:                                        ; preds = %entry, %end
-  %ret.042 = phi i32 [ %ret.0, %end ], [ 0, %entry ]
-  %11 = load ptr, ptr @bio_err, align 8
-  tail call void @ERR_print_errors(ptr noundef %11) #2
-  br label %if.end91
-
-if.end91:                                         ; preds = %if.then90, %end
-  %ret.041 = phi i32 [ %ret.042, %if.then90 ], [ %ret.0, %end ]
-  tail call void @X509_free(ptr noundef %call) #2
+return.sink.split:                                ; preds = %end, %entry, %if.then10
+  %retval.0.ph = phi i32 [ 0, %if.then10 ], [ %ret.0, %end ], [ 0, %entry ]
+  %10 = load ptr, ptr @bio_err, align 8
+  tail call void @ERR_print_errors(ptr noundef %10) #2
   br label %return
 
-return:                                           ; preds = %if.end91, %if.then10
-  %retval.0 = phi i32 [ %ret.041, %if.end91 ], [ 0, %if.then10 ]
+return:                                           ; preds = %return.sink.split, %end
+  %retval.0 = phi i32 [ %ret.0, %end ], [ %retval.0.ph, %return.sink.split ]
+  tail call void @X509_free(ptr noundef %call) #2
   ret i32 %retval.0
 }
 

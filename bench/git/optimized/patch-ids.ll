@@ -95,31 +95,21 @@ if.then.i.i:                                      ; preds = %entry
   %1 = load ptr, ptr @the_repository, align 8
   %hash_algo.i.i = getelementptr inbounds i8, ptr %1, i64 256
   %2 = load ptr, ptr %hash_algo.i.i, align 8
-  br label %if.end.i.i
+  br label %is_null_oid.exit
 
 if.else.i.i:                                      ; preds = %entry
   %idxprom.i.i = sext i32 %0 to i64
   %arrayidx.i.i = getelementptr inbounds [3 x %struct.git_hash_algo], ptr @hash_algos, i64 0, i64 %idxprom.i.i
-  br label %if.end.i.i
+  br label %is_null_oid.exit
 
-if.end.i.i:                                       ; preds = %if.else.i.i, %if.then.i.i
+is_null_oid.exit:                                 ; preds = %if.then.i.i, %if.else.i.i
   %algop.0.i.i = phi ptr [ %arrayidx.i.i, %if.else.i.i ], [ %2, %if.then.i.i ]
   %3 = getelementptr i8, ptr %algop.0.i.i, i64 16
   %algop.0.val.i.i = load i64, ptr %3, align 8
   %cmp.i.i.i = icmp eq i64 %algop.0.val.i.i, 32
-  br i1 %cmp.i.i.i, label %if.then.i.i.i, label %if.end.i.i.i
-
-if.then.i.i.i:                                    ; preds = %if.end.i.i
-  %bcmp3.i.i.i = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(32) %patch_id, ptr noundef nonnull readonly dereferenceable(32) %call.i, i64 32)
-  br label %is_null_oid.exit
-
-if.end.i.i.i:                                     ; preds = %if.end.i.i
-  %bcmp.i.i.i = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(20) %patch_id, ptr noundef nonnull readonly dereferenceable(20) %call.i, i64 20)
-  br label %is_null_oid.exit
-
-is_null_oid.exit:                                 ; preds = %if.then.i.i.i, %if.end.i.i.i
-  %retval.0.in.in.i.i.i = phi i32 [ %bcmp3.i.i.i, %if.then.i.i.i ], [ %bcmp.i.i.i, %if.end.i.i.i ]
-  %retval.0.in.i.i.i.not = icmp eq i32 %retval.0.in.in.i.i.i, 0
+  %..i.i.i = select i1 %cmp.i.i.i, i64 32, i64 20
+  %bcmp.i.i.i = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(20) %patch_id, ptr noundef nonnull readonly dereferenceable(20) %call.i, i64 %..i.i.i)
+  %retval.0.in.i.i.i.not = icmp eq i32 %bcmp.i.i.i, 0
   br i1 %retval.0.in.i.i.i.not, label %land.lhs.true, label %if.end
 
 land.lhs.true:                                    ; preds = %is_null_oid.exit
@@ -171,116 +161,96 @@ if.end:                                           ; preds = %commit_patch_id.exi
   %algo.i.i12 = getelementptr inbounds i8, ptr %entry_or_key, i64 48
   %9 = load i32, ptr %algo.i.i12, align 4
   %tobool.not.i.i13 = icmp eq i32 %9, 0
-  br i1 %tobool.not.i.i13, label %if.then.i.i28, label %if.else.i.i14
+  br i1 %tobool.not.i.i13, label %if.then.i.i24, label %if.else.i.i14
 
-if.then.i.i28:                                    ; preds = %if.end
+if.then.i.i24:                                    ; preds = %if.end
   %10 = load ptr, ptr @the_repository, align 8
-  %hash_algo.i.i29 = getelementptr inbounds i8, ptr %10, i64 256
-  %11 = load ptr, ptr %hash_algo.i.i29, align 8
-  br label %if.end.i.i17
+  %hash_algo.i.i25 = getelementptr inbounds i8, ptr %10, i64 256
+  %11 = load ptr, ptr %hash_algo.i.i25, align 8
+  br label %is_null_oid.exit26
 
 if.else.i.i14:                                    ; preds = %if.end
   %idxprom.i.i15 = sext i32 %9 to i64
   %arrayidx.i.i16 = getelementptr inbounds [3 x %struct.git_hash_algo], ptr @hash_algos, i64 0, i64 %idxprom.i.i15
-  br label %if.end.i.i17
+  br label %is_null_oid.exit26
 
-if.end.i.i17:                                     ; preds = %if.else.i.i14, %if.then.i.i28
-  %algop.0.i.i18 = phi ptr [ %arrayidx.i.i16, %if.else.i.i14 ], [ %11, %if.then.i.i28 ]
-  %12 = getelementptr i8, ptr %algop.0.i.i18, i64 16
-  %algop.0.val.i.i19 = load i64, ptr %12, align 8
-  %cmp.i.i.i20 = icmp eq i64 %algop.0.val.i.i19, 32
-  br i1 %cmp.i.i.i20, label %if.then.i.i.i26, label %if.end.i.i.i21
+is_null_oid.exit26:                               ; preds = %if.then.i.i24, %if.else.i.i14
+  %algop.0.i.i17 = phi ptr [ %arrayidx.i.i16, %if.else.i.i14 ], [ %11, %if.then.i.i24 ]
+  %12 = getelementptr i8, ptr %algop.0.i.i17, i64 16
+  %algop.0.val.i.i18 = load i64, ptr %12, align 8
+  %cmp.i.i.i19 = icmp eq i64 %algop.0.val.i.i18, 32
+  %..i.i.i20 = select i1 %cmp.i.i.i19, i64 32, i64 20
+  %bcmp.i.i.i21 = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(20) %patch_id9, ptr noundef nonnull readonly dereferenceable(20) %call.i11, i64 %..i.i.i20)
+  %retval.0.in.i.i.i22.not = icmp eq i32 %bcmp.i.i.i21, 0
+  br i1 %retval.0.in.i.i.i22.not, label %land.lhs.true12, label %if.end24
 
-if.then.i.i.i26:                                  ; preds = %if.end.i.i17
-  %bcmp3.i.i.i27 = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(32) %patch_id9, ptr noundef nonnull readonly dereferenceable(32) %call.i11, i64 32)
-  br label %is_null_oid.exit30
-
-if.end.i.i.i21:                                   ; preds = %if.end.i.i17
-  %bcmp.i.i.i22 = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(20) %patch_id9, ptr noundef nonnull readonly dereferenceable(20) %call.i11, i64 20)
-  br label %is_null_oid.exit30
-
-is_null_oid.exit30:                               ; preds = %if.then.i.i.i26, %if.end.i.i.i21
-  %retval.0.in.in.i.i.i23 = phi i32 [ %bcmp3.i.i.i27, %if.then.i.i.i26 ], [ %bcmp.i.i.i22, %if.end.i.i.i21 ]
-  %retval.0.in.i.i.i24.not = icmp eq i32 %retval.0.in.in.i.i.i23, 0
-  br i1 %retval.0.in.i.i.i24.not, label %land.lhs.true12, label %if.end24
-
-land.lhs.true12:                                  ; preds = %is_null_oid.exit30
+land.lhs.true12:                                  ; preds = %is_null_oid.exit26
   %commit13 = getelementptr inbounds i8, ptr %entry_or_key, i64 56
   %13 = load ptr, ptr %commit13, align 8
   %14 = getelementptr i8, ptr %13, i64 48
-  %commit.val.i31 = load ptr, ptr %14, align 8
-  %tobool.not.i.i32 = icmp eq ptr %commit.val.i31, null
-  br i1 %tobool.not.i.i32, label %if.else.i42, label %patch_id_defined.exit.i33
+  %commit.val.i27 = load ptr, ptr %14, align 8
+  %tobool.not.i.i28 = icmp eq ptr %commit.val.i27, null
+  br i1 %tobool.not.i.i28, label %if.else.i38, label %patch_id_defined.exit.i29
 
-patch_id_defined.exit.i33:                        ; preds = %land.lhs.true12
-  %next.i.i34 = getelementptr inbounds i8, ptr %commit.val.i31, i64 8
-  %15 = load ptr, ptr %next.i.i34, align 8
-  %tobool2.not.i.not.i35 = icmp eq ptr %15, null
-  br i1 %tobool2.not.i.not.i35, label %if.then2.i37, label %if.then17
+patch_id_defined.exit.i29:                        ; preds = %land.lhs.true12
+  %next.i.i30 = getelementptr inbounds i8, ptr %commit.val.i27, i64 8
+  %15 = load ptr, ptr %next.i.i30, align 8
+  %tobool2.not.i.not.i31 = icmp eq ptr %15, null
+  br i1 %tobool2.not.i.not.i31, label %if.then2.i33, label %if.then17
 
-if.then2.i37:                                     ; preds = %patch_id_defined.exit.i33
-  %16 = load ptr, ptr %commit.val.i31, align 8
-  %oid4.i38 = getelementptr inbounds i8, ptr %16, i64 4
-  %oid6.i39 = getelementptr inbounds i8, ptr %13, i64 4
-  tail call void @diff_tree_oid(ptr noundef nonnull %oid4.i38, ptr noundef nonnull %oid6.i39, ptr noundef nonnull @.str, ptr noundef %cmpfn_data) #6
-  br label %commit_patch_id.exit44
+if.then2.i33:                                     ; preds = %patch_id_defined.exit.i29
+  %16 = load ptr, ptr %commit.val.i27, align 8
+  %oid4.i34 = getelementptr inbounds i8, ptr %16, i64 4
+  %oid6.i35 = getelementptr inbounds i8, ptr %13, i64 4
+  tail call void @diff_tree_oid(ptr noundef nonnull %oid4.i34, ptr noundef nonnull %oid6.i35, ptr noundef nonnull @.str, ptr noundef %cmpfn_data) #6
+  br label %commit_patch_id.exit40
 
-if.else.i42:                                      ; preds = %land.lhs.true12
-  %oid8.i43 = getelementptr inbounds i8, ptr %13, i64 4
-  tail call void @diff_root_tree_oid(ptr noundef nonnull %oid8.i43, ptr noundef nonnull @.str, ptr noundef %cmpfn_data) #6
-  br label %commit_patch_id.exit44
+if.else.i38:                                      ; preds = %land.lhs.true12
+  %oid8.i39 = getelementptr inbounds i8, ptr %13, i64 4
+  tail call void @diff_root_tree_oid(ptr noundef nonnull %oid8.i39, ptr noundef nonnull @.str, ptr noundef %cmpfn_data) #6
+  br label %commit_patch_id.exit40
 
-commit_patch_id.exit44:                           ; preds = %if.then2.i37, %if.else.i42
+commit_patch_id.exit40:                           ; preds = %if.then2.i33, %if.else.i38
   tail call void @diffcore_std(ptr noundef %cmpfn_data) #6
-  %call10.i41 = tail call i32 @diff_flush_patch_id(ptr noundef %cmpfn_data, ptr noundef nonnull %patch_id9, i32 noundef 0) #6
-  %tobool16.not = icmp eq i32 %call10.i41, 0
-  br i1 %tobool16.not, label %if.end24, label %commit_patch_id.exit44.if.then17_crit_edge
+  %call10.i37 = tail call i32 @diff_flush_patch_id(ptr noundef %cmpfn_data, ptr noundef nonnull %patch_id9, i32 noundef 0) #6
+  %tobool16.not = icmp eq i32 %call10.i37, 0
+  br i1 %tobool16.not, label %if.end24, label %commit_patch_id.exit40.if.then17_crit_edge
 
-commit_patch_id.exit44.if.then17_crit_edge:       ; preds = %commit_patch_id.exit44
-  %.pre52 = load ptr, ptr %commit13, align 8
+commit_patch_id.exit40.if.then17_crit_edge:       ; preds = %commit_patch_id.exit40
+  %.pre46 = load ptr, ptr %commit13, align 8
   br label %if.then17
 
-if.then17:                                        ; preds = %commit_patch_id.exit44.if.then17_crit_edge, %patch_id_defined.exit.i33
-  %17 = phi ptr [ %.pre52, %commit_patch_id.exit44.if.then17_crit_edge ], [ %13, %patch_id_defined.exit.i33 ]
+if.then17:                                        ; preds = %commit_patch_id.exit40.if.then17_crit_edge, %patch_id_defined.exit.i29
+  %17 = phi ptr [ %.pre46, %commit_patch_id.exit40.if.then17_crit_edge ], [ %13, %patch_id_defined.exit.i29 ]
   %oid20 = getelementptr inbounds i8, ptr %17, i64 4
   %call21 = tail call ptr @oid_to_hex(ptr noundef nonnull %oid20) #6
   %call22 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.1, ptr noundef %call21) #6
   br label %return
 
-if.end24:                                         ; preds = %commit_patch_id.exit44, %is_null_oid.exit30
+if.end24:                                         ; preds = %commit_patch_id.exit40, %is_null_oid.exit26
   %18 = load i32, ptr %algo.i.i, align 4
   %tobool.not.i = icmp eq i32 %18, 0
-  br i1 %tobool.not.i, label %if.then.i, label %if.else.i45
+  br i1 %tobool.not.i, label %if.then.i, label %if.else.i41
 
 if.then.i:                                        ; preds = %if.end24
   %19 = load ptr, ptr @the_repository, align 8
   %hash_algo.i = getelementptr inbounds i8, ptr %19, i64 256
   %20 = load ptr, ptr %hash_algo.i, align 8
-  br label %if.end.i
+  br label %oideq.exit
 
-if.else.i45:                                      ; preds = %if.end24
+if.else.i41:                                      ; preds = %if.end24
   %idxprom.i = sext i32 %18 to i64
   %arrayidx.i = getelementptr inbounds [3 x %struct.git_hash_algo], ptr @hash_algos, i64 0, i64 %idxprom.i
-  br label %if.end.i
+  br label %oideq.exit
 
-if.end.i:                                         ; preds = %if.else.i45, %if.then.i
-  %algop.0.i = phi ptr [ %arrayidx.i, %if.else.i45 ], [ %20, %if.then.i ]
+oideq.exit:                                       ; preds = %if.then.i, %if.else.i41
+  %algop.0.i = phi ptr [ %arrayidx.i, %if.else.i41 ], [ %20, %if.then.i ]
   %21 = getelementptr i8, ptr %algop.0.i, i64 16
   %algop.0.val.i = load i64, ptr %21, align 8
   %cmp.i.i = icmp eq i64 %algop.0.val.i, 32
-  br i1 %cmp.i.i, label %if.then.i.i47, label %if.end.i.i46
-
-if.then.i.i47:                                    ; preds = %if.end.i
-  %bcmp3.i.i = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(32) %patch_id, ptr noundef nonnull readonly dereferenceable(32) %patch_id9, i64 32)
-  br label %oideq.exit
-
-if.end.i.i46:                                     ; preds = %if.end.i
-  %bcmp.i.i = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(20) %patch_id, ptr noundef nonnull readonly dereferenceable(20) %patch_id9, i64 20)
-  br label %oideq.exit
-
-oideq.exit:                                       ; preds = %if.then.i.i47, %if.end.i.i46
-  %retval.0.in.in.i.i = phi i32 [ %bcmp3.i.i, %if.then.i.i47 ], [ %bcmp.i.i, %if.end.i.i46 ]
-  %retval.0.in.i.i = icmp ne i32 %retval.0.in.in.i.i, 0
+  %..i.i = select i1 %cmp.i.i, i64 32, i64 20
+  %bcmp.i.i = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(20) %patch_id, ptr noundef nonnull readonly dereferenceable(20) %patch_id9, i64 %..i.i)
+  %retval.0.in.i.i = icmp ne i32 %bcmp.i.i, 0
   %lnot.ext = zext i1 %retval.0.in.i.i to i32
   br label %return
 

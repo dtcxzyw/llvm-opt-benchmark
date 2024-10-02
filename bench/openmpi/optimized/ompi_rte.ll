@@ -2865,17 +2865,12 @@ define void @ompi_rte_wait_for_debugger() local_unnamed_addr #0 {
 2:                                                ; preds = %0
   %3 = tail call ptr @getenv(ptr noundef nonnull @.str.56) #19
   %4 = icmp eq ptr %3, null
-  br i1 %4, label %5, label %6
+  %spec.select = select i1 %4, ptr null, ptr @.str.62
+  br label %5
 
 5:                                                ; preds = %2, %0
-  tail call void @ompi_rte_breakpoint(ptr noundef null)
-  br label %7
-
-6:                                                ; preds = %2
-  tail call void @ompi_rte_breakpoint(ptr noundef nonnull @.str.62)
-  br label %7
-
-7:                                                ; preds = %6, %5
+  %.str.62.sink = phi ptr [ null, %0 ], [ %spec.select, %2 ]
+  tail call void @ompi_rte_breakpoint(ptr noundef %.str.62.sink)
   ret void
 }
 

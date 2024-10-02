@@ -2065,26 +2065,24 @@ if.end:                                           ; preds = %_ZN4node4heap13JSGr
   %call21 = call noundef ptr %2(ptr noundef nonnull align 8 dereferenceable(184) %this, ptr noundef nonnull %agg.tmp19) #22
   %3 = load ptr, ptr %agg.tmp19, align 8
   %cmp.not.i = icmp eq ptr %3, null
-  br i1 %cmp.not.i, label %_ZNSt10unique_ptrIN4node4heap13JSGraphJSNodeESt14default_deleteIS2_EED2Ev.exit, label %_ZNKSt14default_deleteIN2v813EmbedderGraph4NodeEEclEPS2_.exit.i
-
-_ZNKSt14default_deleteIN2v813EmbedderGraph4NodeEEclEPS2_.exit.i: ; preds = %if.end
-  %vtable.i.i = load ptr, ptr %3, align 8
-  %vfn.i.i = getelementptr inbounds i8, ptr %vtable.i.i, i64 8
-  %4 = load ptr, ptr %vfn.i.i, align 8
-  call void %4(ptr noundef nonnull align 8 dereferenceable(8) %3) #22
-  br label %_ZNSt10unique_ptrIN4node4heap13JSGraphJSNodeESt14default_deleteIS2_EED2Ev.exit
+  br i1 %cmp.not.i, label %_ZNSt10unique_ptrIN4node4heap13JSGraphJSNodeESt14default_deleteIS2_EED2Ev.exit, label %_ZNSt10unique_ptrIN4node4heap13JSGraphJSNodeESt14default_deleteIS2_EED2Ev.exit.sink.split
 
 _ZNKSt14default_deleteIN4node4heap13JSGraphJSNodeEEclEPS2_.exit.i: ; preds = %_ZN4node4heap13JSGraphJSNodeC2EPN2v87IsolateENS2_5LocalINS2_5ValueEEE.exit
   %add.ptr.i = getelementptr inbounds i8, ptr %call.i, i64 8
-  %5 = load ptr, ptr %add.ptr.i, align 8
-  %vtable.i.i2 = load ptr, ptr %call, align 8
-  %vfn.i.i3 = getelementptr inbounds i8, ptr %vtable.i.i2, i64 8
-  %6 = load ptr, ptr %vfn.i.i3, align 8
-  call void %6(ptr noundef nonnull align 8 dereferenceable(16) %call) #22
+  %4 = load ptr, ptr %add.ptr.i, align 8
+  br label %_ZNSt10unique_ptrIN4node4heap13JSGraphJSNodeESt14default_deleteIS2_EED2Ev.exit.sink.split
+
+_ZNSt10unique_ptrIN4node4heap13JSGraphJSNodeESt14default_deleteIS2_EED2Ev.exit.sink.split: ; preds = %if.end, %_ZNKSt14default_deleteIN4node4heap13JSGraphJSNodeEEclEPS2_.exit.i
+  %.sink13 = phi ptr [ %call, %_ZNKSt14default_deleteIN4node4heap13JSGraphJSNodeEEclEPS2_.exit.i ], [ %3, %if.end ]
+  %retval.011.ph = phi ptr [ %4, %_ZNKSt14default_deleteIN4node4heap13JSGraphJSNodeEEclEPS2_.exit.i ], [ %call21, %if.end ]
+  %vtable.i.i = load ptr, ptr %.sink13, align 8
+  %vfn.i.i = getelementptr inbounds i8, ptr %vtable.i.i, i64 8
+  %5 = load ptr, ptr %vfn.i.i, align 8
+  call void %5(ptr noundef nonnull align 8 dereferenceable(8) %.sink13) #22
   br label %_ZNSt10unique_ptrIN4node4heap13JSGraphJSNodeESt14default_deleteIS2_EED2Ev.exit
 
-_ZNSt10unique_ptrIN4node4heap13JSGraphJSNodeESt14default_deleteIS2_EED2Ev.exit: ; preds = %if.end, %_ZNKSt14default_deleteIN2v813EmbedderGraph4NodeEEclEPS2_.exit.i, %_ZNKSt14default_deleteIN4node4heap13JSGraphJSNodeEEclEPS2_.exit.i
-  %retval.011 = phi ptr [ %5, %_ZNKSt14default_deleteIN4node4heap13JSGraphJSNodeEEclEPS2_.exit.i ], [ %call21, %_ZNKSt14default_deleteIN2v813EmbedderGraph4NodeEEclEPS2_.exit.i ], [ %call21, %if.end ]
+_ZNSt10unique_ptrIN4node4heap13JSGraphJSNodeESt14default_deleteIS2_EED2Ev.exit: ; preds = %_ZNSt10unique_ptrIN4node4heap13JSGraphJSNodeESt14default_deleteIS2_EED2Ev.exit.sink.split, %if.end
+  %retval.011 = phi ptr [ %call21, %if.end ], [ %retval.011.ph, %_ZNSt10unique_ptrIN4node4heap13JSGraphJSNodeESt14default_deleteIS2_EED2Ev.exit.sink.split ]
   ret ptr %retval.011
 }
 

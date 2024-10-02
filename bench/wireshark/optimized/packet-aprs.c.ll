@@ -399,389 +399,339 @@ define internal i32 @dissect_aprs(ptr noundef %0, ptr nocapture noundef readonly
   %13 = zext i8 %8 to i32
   %14 = tail call ptr @val_to_str_ext_const(i32 noundef %13, ptr noundef nonnull @aprs_description_ext, ptr noundef nonnull @.str.204) #6
   tail call void @wmem_strbuf_append(ptr noundef %11, ptr noundef %14) #6
-  switch i8 %8, label %59 [
-    i8 64, label %48
-    i8 61, label %28
-    i8 47, label %37
+  switch i8 %8, label %28 [
+    i8 64, label %.sink.split.sink.split.sink.split
+    i8 61, label %.sink.split.sink.split
+    i8 47, label %.sink.split.sink.split.sink.split
   ]
 
 15:                                               ; preds = %4
   %16 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 1) #6
   %17 = icmp eq i8 %16, 33
-  br i1 %17, label %18, label %19
+  br i1 %17, label %.sink.split, label %.sink.split.sink.split
 
-18:                                               ; preds = %15
-  tail call void @wmem_strbuf_append(ptr noundef %11, ptr noundef nonnull @.str.205) #6
-  br label %59
+.sink.split.sink.split.sink.split:                ; preds = %12, %12
+  tail call void @wmem_strbuf_append(ptr noundef %11, ptr noundef nonnull @.str.208) #6
+  %18 = load ptr, ptr %9, align 8
+  %19 = tail call ptr @tvb_format_text(ptr noundef %18, ptr noundef %0, i32 noundef 1, i32 noundef 7) #6
+  tail call void @wmem_strbuf_append(ptr noundef %11, ptr noundef %19) #6
+  br label %.sink.split.sink.split
 
-19:                                               ; preds = %15
-  tail call void @wmem_strbuf_append(ptr noundef %11, ptr noundef nonnull @.str.206) #6
+.sink.split.sink.split:                           ; preds = %.sink.split.sink.split.sink.split, %12, %15
+  %.str.208.sink = phi ptr [ @.str.206, %15 ], [ @.str.208, %12 ], [ @.str.207, %.sink.split.sink.split.sink.split ]
+  %.sink265 = phi i32 [ 1, %15 ], [ 1, %12 ], [ 9, %.sink.split.sink.split.sink.split ]
+  %.sink263 = phi i32 [ 10, %15 ], [ 10, %12 ], [ 17, %.sink.split.sink.split.sink.split ]
+  %.sink261 = phi i32 [ 9, %15 ], [ 9, %12 ], [ 8, %.sink.split.sink.split.sink.split ]
+  %.sink259 = phi i32 [ 19, %15 ], [ 19, %12 ], [ 18, %.sink.split.sink.split.sink.split ]
+  tail call void @wmem_strbuf_append(ptr noundef %11, ptr noundef nonnull %.str.208.sink) #6
   %20 = load ptr, ptr %9, align 8
-  %21 = tail call ptr @tvb_format_text(ptr noundef %20, ptr noundef %0, i32 noundef 1, i32 noundef 8) #6
+  %21 = tail call ptr @tvb_format_text(ptr noundef %20, ptr noundef %0, i32 noundef %.sink265, i32 noundef 8) #6
   tail call void @wmem_strbuf_append(ptr noundef %11, ptr noundef %21) #6
   tail call void @wmem_strbuf_append(ptr noundef %11, ptr noundef nonnull @.str.207) #6
   %22 = load ptr, ptr %9, align 8
-  %23 = tail call ptr @tvb_format_text(ptr noundef %22, ptr noundef %0, i32 noundef 10, i32 noundef 9) #6
+  %23 = tail call ptr @tvb_format_text(ptr noundef %22, ptr noundef %0, i32 noundef %.sink263, i32 noundef 9) #6
   tail call void @wmem_strbuf_append(ptr noundef %11, ptr noundef %23) #6
   tail call void @wmem_strbuf_append(ptr noundef %11, ptr noundef nonnull @.str.207) #6
   %24 = load ptr, ptr %9, align 8
-  %25 = tail call ptr @tvb_format_text(ptr noundef %24, ptr noundef %0, i32 noundef 9, i32 noundef 1) #6
+  %25 = tail call ptr @tvb_format_text(ptr noundef %24, ptr noundef %0, i32 noundef %.sink261, i32 noundef 1) #6
   tail call void @wmem_strbuf_append(ptr noundef %11, ptr noundef %25) #6
   %26 = load ptr, ptr %9, align 8
-  %27 = tail call ptr @tvb_format_text(ptr noundef %26, ptr noundef %0, i32 noundef 19, i32 noundef 1) #6
-  tail call void @wmem_strbuf_append(ptr noundef %11, ptr noundef %27) #6
-  br label %59
+  %27 = tail call ptr @tvb_format_text(ptr noundef %26, ptr noundef %0, i32 noundef %.sink259, i32 noundef 1) #6
+  br label %.sink.split
 
-28:                                               ; preds = %12
-  tail call void @wmem_strbuf_append(ptr noundef %11, ptr noundef nonnull @.str.208) #6
-  %29 = load ptr, ptr %9, align 8
-  %30 = tail call ptr @tvb_format_text(ptr noundef %29, ptr noundef %0, i32 noundef 1, i32 noundef 8) #6
-  tail call void @wmem_strbuf_append(ptr noundef %11, ptr noundef %30) #6
-  tail call void @wmem_strbuf_append(ptr noundef %11, ptr noundef nonnull @.str.207) #6
-  %31 = load ptr, ptr %9, align 8
-  %32 = tail call ptr @tvb_format_text(ptr noundef %31, ptr noundef %0, i32 noundef 10, i32 noundef 9) #6
-  tail call void @wmem_strbuf_append(ptr noundef %11, ptr noundef %32) #6
-  tail call void @wmem_strbuf_append(ptr noundef %11, ptr noundef nonnull @.str.207) #6
-  %33 = load ptr, ptr %9, align 8
-  %34 = tail call ptr @tvb_format_text(ptr noundef %33, ptr noundef %0, i32 noundef 9, i32 noundef 1) #6
-  tail call void @wmem_strbuf_append(ptr noundef %11, ptr noundef %34) #6
-  %35 = load ptr, ptr %9, align 8
-  %36 = tail call ptr @tvb_format_text(ptr noundef %35, ptr noundef %0, i32 noundef 19, i32 noundef 1) #6
-  tail call void @wmem_strbuf_append(ptr noundef %11, ptr noundef %36) #6
-  br label %59
+.sink.split:                                      ; preds = %.sink.split.sink.split, %15
+  %.str.205.sink = phi ptr [ @.str.205, %15 ], [ %27, %.sink.split.sink.split ]
+  tail call void @wmem_strbuf_append(ptr noundef %11, ptr noundef %.str.205.sink) #6
+  br label %28
 
-37:                                               ; preds = %12
-  tail call void @wmem_strbuf_append(ptr noundef %11, ptr noundef nonnull @.str.208) #6
-  %38 = load ptr, ptr %9, align 8
-  %39 = tail call ptr @tvb_format_text(ptr noundef %38, ptr noundef %0, i32 noundef 1, i32 noundef 7) #6
-  tail call void @wmem_strbuf_append(ptr noundef %11, ptr noundef %39) #6
-  tail call void @wmem_strbuf_append(ptr noundef %11, ptr noundef nonnull @.str.207) #6
-  %40 = load ptr, ptr %9, align 8
-  %41 = tail call ptr @tvb_format_text(ptr noundef %40, ptr noundef %0, i32 noundef 9, i32 noundef 8) #6
-  tail call void @wmem_strbuf_append(ptr noundef %11, ptr noundef %41) #6
-  tail call void @wmem_strbuf_append(ptr noundef %11, ptr noundef nonnull @.str.207) #6
-  %42 = load ptr, ptr %9, align 8
-  %43 = tail call ptr @tvb_format_text(ptr noundef %42, ptr noundef %0, i32 noundef 17, i32 noundef 9) #6
-  tail call void @wmem_strbuf_append(ptr noundef %11, ptr noundef %43) #6
-  tail call void @wmem_strbuf_append(ptr noundef %11, ptr noundef nonnull @.str.207) #6
-  %44 = load ptr, ptr %9, align 8
-  %45 = tail call ptr @tvb_format_text(ptr noundef %44, ptr noundef %0, i32 noundef 8, i32 noundef 1) #6
-  tail call void @wmem_strbuf_append(ptr noundef %11, ptr noundef %45) #6
-  %46 = load ptr, ptr %9, align 8
-  %47 = tail call ptr @tvb_format_text(ptr noundef %46, ptr noundef %0, i32 noundef 18, i32 noundef 1) #6
-  tail call void @wmem_strbuf_append(ptr noundef %11, ptr noundef %47) #6
-  br label %59
-
-48:                                               ; preds = %12
-  tail call void @wmem_strbuf_append(ptr noundef %11, ptr noundef nonnull @.str.208) #6
-  %49 = load ptr, ptr %9, align 8
-  %50 = tail call ptr @tvb_format_text(ptr noundef %49, ptr noundef %0, i32 noundef 1, i32 noundef 7) #6
-  tail call void @wmem_strbuf_append(ptr noundef %11, ptr noundef %50) #6
-  tail call void @wmem_strbuf_append(ptr noundef %11, ptr noundef nonnull @.str.207) #6
-  %51 = load ptr, ptr %9, align 8
-  %52 = tail call ptr @tvb_format_text(ptr noundef %51, ptr noundef %0, i32 noundef 9, i32 noundef 8) #6
-  tail call void @wmem_strbuf_append(ptr noundef %11, ptr noundef %52) #6
-  tail call void @wmem_strbuf_append(ptr noundef %11, ptr noundef nonnull @.str.207) #6
-  %53 = load ptr, ptr %9, align 8
-  %54 = tail call ptr @tvb_format_text(ptr noundef %53, ptr noundef %0, i32 noundef 17, i32 noundef 9) #6
-  tail call void @wmem_strbuf_append(ptr noundef %11, ptr noundef %54) #6
-  tail call void @wmem_strbuf_append(ptr noundef %11, ptr noundef nonnull @.str.207) #6
-  %55 = load ptr, ptr %9, align 8
-  %56 = tail call ptr @tvb_format_text(ptr noundef %55, ptr noundef %0, i32 noundef 8, i32 noundef 1) #6
-  tail call void @wmem_strbuf_append(ptr noundef %11, ptr noundef %56) #6
-  %57 = load ptr, ptr %9, align 8
-  %58 = tail call ptr @tvb_format_text(ptr noundef %57, ptr noundef %0, i32 noundef 18, i32 noundef 1) #6
-  tail call void @wmem_strbuf_append(ptr noundef %11, ptr noundef %58) #6
-  br label %59
-
-59:                                               ; preds = %18, %19, %48, %37, %28, %12
-  %60 = load ptr, ptr %5, align 8
-  %61 = tail call ptr @wmem_strbuf_get_str(ptr noundef %11) #6
-  tail call void @col_add_str(ptr noundef %60, i32 noundef 25, ptr noundef %61) #6
-  %62 = load i32, ptr @proto_aprs, align 4
-  %63 = tail call ptr @wmem_strbuf_get_str(ptr noundef %11) #6
-  %64 = tail call ptr (ptr, i32, ptr, i32, i32, ptr, ...) @proto_tree_add_protocol_format(ptr noundef %2, i32 noundef %62, ptr noundef %0, i32 noundef 0, i32 noundef -1, ptr noundef nonnull @.str.209, ptr noundef %63) #6
-  %65 = load i32, ptr @ett_aprs, align 4
-  %66 = tail call ptr @proto_item_add_subtree(ptr noundef %64, i32 noundef %65) #6
-  %67 = load i32, ptr @hf_aprs_dti, align 4
-  %68 = tail call ptr @proto_tree_add_item(ptr noundef %66, i32 noundef %67, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef 0) #6
-  switch i8 %8, label %235 [
-    i8 60, label %69
-    i8 62, label %74
-    i8 63, label %89
-    i8 36, label %94
-    i8 37, label %103
-    i8 84, label %108
-    i8 91, label %113
-    i8 95, label %118
-    i8 44, label %121
-    i8 123, label %126
-    i8 125, label %131
-    i8 58, label %136
-    i8 28, label %141
-    i8 29, label %144
-    i8 39, label %147
-    i8 96, label %150
-    i8 35, label %153
-    i8 42, label %158
-    i8 38, label %163
-    i8 43, label %168
-    i8 46, label %173
-    i8 41, label %178
-    i8 59, label %196
-    i8 33, label %205
-    i8 61, label %215
-    i8 47, label %221
-    i8 64, label %228
+28:                                               ; preds = %.sink.split, %12
+  %29 = load ptr, ptr %5, align 8
+  %30 = tail call ptr @wmem_strbuf_get_str(ptr noundef %11) #6
+  tail call void @col_add_str(ptr noundef %29, i32 noundef 25, ptr noundef %30) #6
+  %31 = load i32, ptr @proto_aprs, align 4
+  %32 = tail call ptr @wmem_strbuf_get_str(ptr noundef %11) #6
+  %33 = tail call ptr (ptr, i32, ptr, i32, i32, ptr, ...) @proto_tree_add_protocol_format(ptr noundef %2, i32 noundef %31, ptr noundef %0, i32 noundef 0, i32 noundef -1, ptr noundef nonnull @.str.209, ptr noundef %32) #6
+  %34 = load i32, ptr @ett_aprs, align 4
+  %35 = tail call ptr @proto_item_add_subtree(ptr noundef %33, i32 noundef %34) #6
+  %36 = load i32, ptr @hf_aprs_dti, align 4
+  %37 = tail call ptr @proto_tree_add_item(ptr noundef %35, i32 noundef %36, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef 0) #6
+  switch i8 %8, label %204 [
+    i8 60, label %38
+    i8 62, label %43
+    i8 63, label %58
+    i8 36, label %63
+    i8 37, label %72
+    i8 84, label %77
+    i8 91, label %82
+    i8 95, label %87
+    i8 44, label %90
+    i8 123, label %95
+    i8 125, label %100
+    i8 58, label %105
+    i8 28, label %110
+    i8 29, label %113
+    i8 39, label %116
+    i8 96, label %119
+    i8 35, label %122
+    i8 42, label %127
+    i8 38, label %132
+    i8 43, label %137
+    i8 46, label %142
+    i8 41, label %147
+    i8 59, label %165
+    i8 33, label %174
+    i8 61, label %184
+    i8 47, label %190
+    i8 64, label %197
   ]
 
-69:                                               ; preds = %59
-  %70 = load i32, ptr @hf_aprs_station, align 4
-  %71 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef 1) #6
-  %72 = tail call ptr @proto_tree_add_item(ptr noundef %66, i32 noundef %70, ptr noundef %0, i32 noundef 1, i32 noundef %71, i32 noundef 0) #6
-  %73 = add i32 %71, 1
-  br label %235
+38:                                               ; preds = %28
+  %39 = load i32, ptr @hf_aprs_station, align 4
+  %40 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef 1) #6
+  %41 = tail call ptr @proto_tree_add_item(ptr noundef %35, i32 noundef %39, ptr noundef %0, i32 noundef 1, i32 noundef %40, i32 noundef 0) #6
+  %42 = add i32 %40, 1
+  br label %204
 
-74:                                               ; preds = %59
-  %75 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef 1) #6
-  %76 = icmp sgt i32 %75, 7
-  br i1 %76, label %77, label %aprs_status.exit
+43:                                               ; preds = %28
+  %44 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef 1) #6
+  %45 = icmp sgt i32 %44, 7
+  br i1 %45, label %46, label %aprs_status.exit
 
-77:                                               ; preds = %74
-  %78 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 7) #6
-  %79 = icmp eq i8 %78, 122
-  br i1 %79, label %80, label %aprs_status.exit
+46:                                               ; preds = %43
+  %47 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 7) #6
+  %48 = icmp eq i8 %47, 122
+  br i1 %48, label %49, label %aprs_status.exit
 
-80:                                               ; preds = %77
-  %81 = load i32, ptr @hf_aprs_dhm, align 4
-  %82 = tail call ptr @proto_tree_add_item(ptr noundef %66, i32 noundef %81, ptr noundef %0, i32 noundef 1, i32 noundef 6, i32 noundef 0) #6
-  %83 = load i32, ptr @hf_aprs_tz, align 4
-  %84 = tail call ptr @proto_tree_add_string(ptr noundef %66, i32 noundef %83, ptr noundef %0, i32 noundef 7, i32 noundef 1, ptr noundef nonnull @.str.222) #6
-  %85 = add nsw i32 %75, -7
+49:                                               ; preds = %46
+  %50 = load i32, ptr @hf_aprs_dhm, align 4
+  %51 = tail call ptr @proto_tree_add_item(ptr noundef %35, i32 noundef %50, ptr noundef %0, i32 noundef 1, i32 noundef 6, i32 noundef 0) #6
+  %52 = load i32, ptr @hf_aprs_tz, align 4
+  %53 = tail call ptr @proto_tree_add_string(ptr noundef %35, i32 noundef %52, ptr noundef %0, i32 noundef 7, i32 noundef 1, ptr noundef nonnull @.str.222) #6
+  %54 = add nsw i32 %44, -7
   br label %aprs_status.exit
 
-aprs_status.exit:                                 ; preds = %74, %77, %80
-  %.020.i = phi i32 [ 8, %80 ], [ 1, %77 ], [ 1, %74 ]
-  %.0.i = phi i32 [ %85, %80 ], [ %75, %77 ], [ %75, %74 ]
-  %86 = load i32, ptr @hf_aprs_status, align 4
-  %87 = tail call ptr @proto_tree_add_item(ptr noundef %66, i32 noundef %86, ptr noundef %0, i32 noundef %.020.i, i32 noundef %.0.i, i32 noundef 0) #6
-  %88 = add i32 %.0.i, %.020.i
-  br label %235
+aprs_status.exit:                                 ; preds = %43, %46, %49
+  %.020.i = phi i32 [ 8, %49 ], [ 1, %46 ], [ 1, %43 ]
+  %.0.i = phi i32 [ %54, %49 ], [ %44, %46 ], [ %44, %43 ]
+  %55 = load i32, ptr @hf_aprs_status, align 4
+  %56 = tail call ptr @proto_tree_add_item(ptr noundef %35, i32 noundef %55, ptr noundef %0, i32 noundef %.020.i, i32 noundef %.0.i, i32 noundef 0) #6
+  %57 = add i32 %.0.i, %.020.i
+  br label %204
 
-89:                                               ; preds = %59
-  %90 = load i32, ptr @hf_aprs_query, align 4
-  %91 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef 1) #6
-  %92 = tail call ptr @proto_tree_add_item(ptr noundef %66, i32 noundef %90, ptr noundef %0, i32 noundef 1, i32 noundef %91, i32 noundef 0) #6
-  %93 = add i32 %91, 1
-  br label %235
+58:                                               ; preds = %28
+  %59 = load i32, ptr @hf_aprs_query, align 4
+  %60 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef 1) #6
+  %61 = tail call ptr @proto_tree_add_item(ptr noundef %35, i32 noundef %59, ptr noundef %0, i32 noundef 1, i32 noundef %60, i32 noundef 0) #6
+  %62 = add i32 %60, 1
+  br label %204
 
-94:                                               ; preds = %59
-  %95 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 1) #6
-  %96 = icmp eq i8 %95, 85
-  br i1 %96, label %97, label %100
+63:                                               ; preds = %28
+  %64 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 1) #6
+  %65 = icmp eq i8 %64, 85
+  br i1 %65, label %66, label %69
 
-97:                                               ; preds = %94
-  %98 = load i32, ptr @hf_ultimeter_2000, align 4
-  %99 = tail call fastcc i32 @aprs_default_string(ptr noundef %66, ptr noundef %0, i32 noundef 1, i32 noundef -1, i32 noundef %98)
-  br label %235
+66:                                               ; preds = %63
+  %67 = load i32, ptr @hf_ultimeter_2000, align 4
+  %68 = tail call fastcc i32 @aprs_default_string(ptr noundef %35, ptr noundef %0, i32 noundef 1, i32 noundef -1, i32 noundef %67)
+  br label %204
 
-100:                                              ; preds = %94
-  %101 = load i32, ptr @hf_aprs_raw, align 4
-  %102 = tail call fastcc i32 @aprs_default_string(ptr noundef %66, ptr noundef %0, i32 noundef 1, i32 noundef -1, i32 noundef %101)
-  br label %235
+69:                                               ; preds = %63
+  %70 = load i32, ptr @hf_aprs_raw, align 4
+  %71 = tail call fastcc i32 @aprs_default_string(ptr noundef %35, ptr noundef %0, i32 noundef 1, i32 noundef -1, i32 noundef %70)
+  br label %204
 
-103:                                              ; preds = %59
-  %104 = load i32, ptr @hf_aprs_agrelo, align 4
-  %105 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef 1) #6
-  %106 = tail call ptr @proto_tree_add_item(ptr noundef %66, i32 noundef %104, ptr noundef %0, i32 noundef 1, i32 noundef %105, i32 noundef 0) #6
-  %107 = add i32 %105, 1
-  br label %235
+72:                                               ; preds = %28
+  %73 = load i32, ptr @hf_aprs_agrelo, align 4
+  %74 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef 1) #6
+  %75 = tail call ptr @proto_tree_add_item(ptr noundef %35, i32 noundef %73, ptr noundef %0, i32 noundef 1, i32 noundef %74, i32 noundef 0) #6
+  %76 = add i32 %74, 1
+  br label %204
 
-108:                                              ; preds = %59
-  %109 = load i32, ptr @hf_aprs_telemetry, align 4
-  %110 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef 1) #6
-  %111 = tail call ptr @proto_tree_add_item(ptr noundef %66, i32 noundef %109, ptr noundef %0, i32 noundef 1, i32 noundef %110, i32 noundef 0) #6
-  %112 = add i32 %110, 1
-  br label %235
+77:                                               ; preds = %28
+  %78 = load i32, ptr @hf_aprs_telemetry, align 4
+  %79 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef 1) #6
+  %80 = tail call ptr @proto_tree_add_item(ptr noundef %35, i32 noundef %78, ptr noundef %0, i32 noundef 1, i32 noundef %79, i32 noundef 0) #6
+  %81 = add i32 %79, 1
+  br label %204
 
-113:                                              ; preds = %59
-  %114 = load i32, ptr @hf_aprs_maidenhead, align 4
-  %115 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef 1) #6
-  %116 = tail call ptr @proto_tree_add_item(ptr noundef %66, i32 noundef %114, ptr noundef %0, i32 noundef 1, i32 noundef %115, i32 noundef 0) #6
-  %117 = add i32 %115, 1
-  br label %235
+82:                                               ; preds = %28
+  %83 = load i32, ptr @hf_aprs_maidenhead, align 4
+  %84 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef 1) #6
+  %85 = tail call ptr @proto_tree_add_item(ptr noundef %35, i32 noundef %83, ptr noundef %0, i32 noundef 1, i32 noundef %84, i32 noundef 0) #6
+  %86 = add i32 %84, 1
+  br label %204
 
-118:                                              ; preds = %59
-  %119 = tail call fastcc i32 @aprs_timestamp(ptr noundef %66, ptr noundef %0, i32 noundef 1)
-  %120 = tail call fastcc i32 @dissect_aprs_weather(ptr noundef %0, i32 noundef %119, ptr noundef %66)
-  br label %235
+87:                                               ; preds = %28
+  %88 = tail call fastcc i32 @aprs_timestamp(ptr noundef %35, ptr noundef %0, i32 noundef 1)
+  %89 = tail call fastcc i32 @dissect_aprs_weather(ptr noundef %0, i32 noundef %88, ptr noundef %35)
+  br label %204
 
-121:                                              ; preds = %59
-  %122 = load i32, ptr @hf_aprs_invalid_test, align 4
-  %123 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef 1) #6
-  %124 = tail call ptr @proto_tree_add_item(ptr noundef %66, i32 noundef %122, ptr noundef %0, i32 noundef 1, i32 noundef %123, i32 noundef 0) #6
-  %125 = add i32 %123, 1
-  br label %235
+90:                                               ; preds = %28
+  %91 = load i32, ptr @hf_aprs_invalid_test, align 4
+  %92 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef 1) #6
+  %93 = tail call ptr @proto_tree_add_item(ptr noundef %35, i32 noundef %91, ptr noundef %0, i32 noundef 1, i32 noundef %92, i32 noundef 0) #6
+  %94 = add i32 %92, 1
+  br label %204
 
-126:                                              ; preds = %59
-  %127 = load i32, ptr @hf_aprs_user_defined, align 4
-  %128 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef 1) #6
-  %129 = tail call ptr @proto_tree_add_item(ptr noundef %66, i32 noundef %127, ptr noundef %0, i32 noundef 1, i32 noundef %128, i32 noundef 0) #6
-  %130 = add i32 %128, 1
-  br label %235
+95:                                               ; preds = %28
+  %96 = load i32, ptr @hf_aprs_user_defined, align 4
+  %97 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef 1) #6
+  %98 = tail call ptr @proto_tree_add_item(ptr noundef %35, i32 noundef %96, ptr noundef %0, i32 noundef 1, i32 noundef %97, i32 noundef 0) #6
+  %99 = add i32 %97, 1
+  br label %204
 
-131:                                              ; preds = %59
-  %132 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef 1) #6
-  %133 = load i32, ptr @hf_aprs_third_party, align 4
-  %134 = tail call ptr @proto_tree_add_item(ptr noundef %66, i32 noundef %133, ptr noundef %0, i32 noundef 1, i32 noundef %132, i32 noundef 0) #6
-  %135 = add i32 %132, 1
-  br label %235
+100:                                              ; preds = %28
+  %101 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef 1) #6
+  %102 = load i32, ptr @hf_aprs_third_party, align 4
+  %103 = tail call ptr @proto_tree_add_item(ptr noundef %35, i32 noundef %102, ptr noundef %0, i32 noundef 1, i32 noundef %101, i32 noundef 0) #6
+  %104 = add i32 %101, 1
+  br label %204
 
-136:                                              ; preds = %59
-  %137 = load i32, ptr @hf_aprs_message, align 4
-  %138 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef 1) #6
-  %139 = tail call ptr @proto_tree_add_item(ptr noundef %66, i32 noundef %137, ptr noundef %0, i32 noundef 1, i32 noundef %138, i32 noundef 0) #6
-  %140 = add i32 %138, 1
-  br label %235
+105:                                              ; preds = %28
+  %106 = load i32, ptr @hf_aprs_message, align 4
+  %107 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef 1) #6
+  %108 = tail call ptr @proto_tree_add_item(ptr noundef %35, i32 noundef %106, ptr noundef %0, i32 noundef 1, i32 noundef %107, i32 noundef 0) #6
+  %109 = add i32 %107, 1
+  br label %204
 
-141:                                              ; preds = %59
-  %142 = load i32, ptr @hf_aprs_mic_e_0_current, align 4
-  %143 = tail call fastcc i32 @dissect_mic_e(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %66, i32 noundef %142)
-  br label %235
+110:                                              ; preds = %28
+  %111 = load i32, ptr @hf_aprs_mic_e_0_current, align 4
+  %112 = tail call fastcc i32 @dissect_mic_e(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %35, i32 noundef %111)
+  br label %204
 
-144:                                              ; preds = %59
-  %145 = load i32, ptr @hf_aprs_mic_e_0_old, align 4
-  %146 = tail call fastcc i32 @dissect_mic_e(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %66, i32 noundef %145)
-  br label %235
+113:                                              ; preds = %28
+  %114 = load i32, ptr @hf_aprs_mic_e_0_old, align 4
+  %115 = tail call fastcc i32 @dissect_mic_e(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %35, i32 noundef %114)
+  br label %204
 
-147:                                              ; preds = %59
-  %148 = load i32, ptr @hf_aprs_mic_e_old, align 4
-  %149 = tail call fastcc i32 @dissect_mic_e(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %66, i32 noundef %148)
-  br label %235
+116:                                              ; preds = %28
+  %117 = load i32, ptr @hf_aprs_mic_e_old, align 4
+  %118 = tail call fastcc i32 @dissect_mic_e(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %35, i32 noundef %117)
+  br label %204
 
-150:                                              ; preds = %59
-  %151 = load i32, ptr @hf_aprs_mic_e_current, align 4
-  %152 = tail call fastcc i32 @dissect_mic_e(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %66, i32 noundef %151)
-  br label %235
+119:                                              ; preds = %28
+  %120 = load i32, ptr @hf_aprs_mic_e_current, align 4
+  %121 = tail call fastcc i32 @dissect_mic_e(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %35, i32 noundef %120)
+  br label %204
 
-153:                                              ; preds = %59
-  %154 = load i32, ptr @hf_aprs_peet_1, align 4
-  %155 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef 1) #6
-  %156 = tail call ptr @proto_tree_add_item(ptr noundef %66, i32 noundef %154, ptr noundef %0, i32 noundef 1, i32 noundef %155, i32 noundef 0) #6
-  %157 = add i32 %155, 1
-  br label %235
+122:                                              ; preds = %28
+  %123 = load i32, ptr @hf_aprs_peet_1, align 4
+  %124 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef 1) #6
+  %125 = tail call ptr @proto_tree_add_item(ptr noundef %35, i32 noundef %123, ptr noundef %0, i32 noundef 1, i32 noundef %124, i32 noundef 0) #6
+  %126 = add i32 %124, 1
+  br label %204
 
-158:                                              ; preds = %59
-  %159 = load i32, ptr @hf_aprs_peet_2, align 4
-  %160 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef 1) #6
-  %161 = tail call ptr @proto_tree_add_item(ptr noundef %66, i32 noundef %159, ptr noundef %0, i32 noundef 1, i32 noundef %160, i32 noundef 0) #6
-  %162 = add i32 %160, 1
-  br label %235
+127:                                              ; preds = %28
+  %128 = load i32, ptr @hf_aprs_peet_2, align 4
+  %129 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef 1) #6
+  %130 = tail call ptr @proto_tree_add_item(ptr noundef %35, i32 noundef %128, ptr noundef %0, i32 noundef 1, i32 noundef %129, i32 noundef 0) #6
+  %131 = add i32 %129, 1
+  br label %204
 
-163:                                              ; preds = %59
-  %164 = load i32, ptr @hf_aprs_map_feature, align 4
-  %165 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef 1) #6
-  %166 = tail call ptr @proto_tree_add_item(ptr noundef %66, i32 noundef %164, ptr noundef %0, i32 noundef 1, i32 noundef %165, i32 noundef 0) #6
-  %167 = add i32 %165, 1
-  br label %235
+132:                                              ; preds = %28
+  %133 = load i32, ptr @hf_aprs_map_feature, align 4
+  %134 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef 1) #6
+  %135 = tail call ptr @proto_tree_add_item(ptr noundef %35, i32 noundef %133, ptr noundef %0, i32 noundef 1, i32 noundef %134, i32 noundef 0) #6
+  %136 = add i32 %134, 1
+  br label %204
 
-168:                                              ; preds = %59
-  %169 = load i32, ptr @hf_aprs_shelter_data, align 4
-  %170 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef 1) #6
-  %171 = tail call ptr @proto_tree_add_item(ptr noundef %66, i32 noundef %169, ptr noundef %0, i32 noundef 1, i32 noundef %170, i32 noundef 0) #6
-  %172 = add i32 %170, 1
-  br label %235
+137:                                              ; preds = %28
+  %138 = load i32, ptr @hf_aprs_shelter_data, align 4
+  %139 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef 1) #6
+  %140 = tail call ptr @proto_tree_add_item(ptr noundef %35, i32 noundef %138, ptr noundef %0, i32 noundef 1, i32 noundef %139, i32 noundef 0) #6
+  %141 = add i32 %139, 1
+  br label %204
 
-173:                                              ; preds = %59
-  %174 = load i32, ptr @hf_aprs_space_weather, align 4
-  %175 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef 1) #6
-  %176 = tail call ptr @proto_tree_add_item(ptr noundef %66, i32 noundef %174, ptr noundef %0, i32 noundef 1, i32 noundef %175, i32 noundef 0) #6
-  %177 = add i32 %175, 1
-  br label %235
+142:                                              ; preds = %28
+  %143 = load i32, ptr @hf_aprs_space_weather, align 4
+  %144 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef 1) #6
+  %145 = tail call ptr @proto_tree_add_item(ptr noundef %35, i32 noundef %143, ptr noundef %0, i32 noundef 1, i32 noundef %144, i32 noundef 0) #6
+  %146 = add i32 %144, 1
+  br label %204
 
-178:                                              ; preds = %59
-  %179 = load ptr, ptr %9, align 8
-  %180 = tail call ptr @tvb_get_string_enc(ptr noundef %179, ptr noundef %0, i32 noundef 1, i32 noundef 10, i32 noundef 0) #6
-  %181 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %180, i32 noundef 33) #7
-  %.not.i = icmp eq ptr %181, null
-  br i1 %.not.i, label %aprs_item.exit, label %182
+147:                                              ; preds = %28
+  %148 = load ptr, ptr %9, align 8
+  %149 = tail call ptr @tvb_get_string_enc(ptr noundef %148, ptr noundef %0, i32 noundef 1, i32 noundef 10, i32 noundef 0) #6
+  %150 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %149, i32 noundef 33) #7
+  %.not.i = icmp eq ptr %150, null
+  br i1 %.not.i, label %aprs_item.exit, label %151
 
-182:                                              ; preds = %178
-  %183 = ptrtoint ptr %181 to i64
-  %184 = ptrtoint ptr %180 to i64
-  %185 = sub i64 %183, %184
-  %186 = trunc i64 %185 to i32
-  %187 = add i32 %186, 1
-  store i8 0, ptr %181, align 1
+151:                                              ; preds = %147
+  %152 = ptrtoint ptr %150 to i64
+  %153 = ptrtoint ptr %149 to i64
+  %154 = sub i64 %152, %153
+  %155 = trunc i64 %154 to i32
+  %156 = add i32 %155, 1
+  store i8 0, ptr %150, align 1
   br label %aprs_item.exit
 
-aprs_item.exit:                                   ; preds = %178, %182
-  %.0.i252 = phi i32 [ %187, %182 ], [ 10, %178 ]
-  %188 = load i32, ptr @hf_aprs_item, align 4
-  %189 = tail call ptr @proto_tree_add_string(ptr noundef %66, i32 noundef %188, ptr noundef %0, i32 noundef 1, i32 noundef %.0.i252, ptr noundef %180) #6
-  %190 = add i32 %.0.i252, 1
-  %191 = tail call fastcc i32 @aprs_position(ptr noundef nonnull %1, ptr noundef %66, ptr noundef %0, i32 noundef %190, i32 noundef 1)
-  %192 = load i32, ptr @hf_aprs_comment, align 4
-  %193 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %191) #6
-  %194 = tail call ptr @proto_tree_add_item(ptr noundef %66, i32 noundef %192, ptr noundef %0, i32 noundef %191, i32 noundef %193, i32 noundef 0) #6
-  %195 = add i32 %193, %191
-  br label %235
+aprs_item.exit:                                   ; preds = %147, %151
+  %.0.i252 = phi i32 [ %156, %151 ], [ 10, %147 ]
+  %157 = load i32, ptr @hf_aprs_item, align 4
+  %158 = tail call ptr @proto_tree_add_string(ptr noundef %35, i32 noundef %157, ptr noundef %0, i32 noundef 1, i32 noundef %.0.i252, ptr noundef %149) #6
+  %159 = add i32 %.0.i252, 1
+  %160 = tail call fastcc i32 @aprs_position(ptr noundef nonnull %1, ptr noundef %35, ptr noundef %0, i32 noundef %159, i32 noundef 1)
+  %161 = load i32, ptr @hf_aprs_comment, align 4
+  %162 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %160) #6
+  %163 = tail call ptr @proto_tree_add_item(ptr noundef %35, i32 noundef %161, ptr noundef %0, i32 noundef %160, i32 noundef %162, i32 noundef 0) #6
+  %164 = add i32 %162, %160
+  br label %204
 
-196:                                              ; preds = %59
-  %197 = load i32, ptr @hf_aprs_object, align 4
-  %198 = tail call ptr @proto_tree_add_item(ptr noundef %66, i32 noundef %197, ptr noundef %0, i32 noundef 1, i32 noundef 10, i32 noundef 0) #6
-  %199 = tail call fastcc i32 @aprs_timestamp(ptr noundef %66, ptr noundef %0, i32 noundef 11)
-  %200 = tail call fastcc i32 @aprs_position(ptr noundef nonnull %1, ptr noundef %66, ptr noundef %0, i32 noundef %199, i32 noundef 1)
-  %201 = load i32, ptr @hf_aprs_comment, align 4
-  %202 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %200) #6
-  %203 = tail call ptr @proto_tree_add_item(ptr noundef %66, i32 noundef %201, ptr noundef %0, i32 noundef %200, i32 noundef %202, i32 noundef 0) #6
-  %204 = add i32 %202, %200
-  br label %235
+165:                                              ; preds = %28
+  %166 = load i32, ptr @hf_aprs_object, align 4
+  %167 = tail call ptr @proto_tree_add_item(ptr noundef %35, i32 noundef %166, ptr noundef %0, i32 noundef 1, i32 noundef 10, i32 noundef 0) #6
+  %168 = tail call fastcc i32 @aprs_timestamp(ptr noundef %35, ptr noundef %0, i32 noundef 11)
+  %169 = tail call fastcc i32 @aprs_position(ptr noundef nonnull %1, ptr noundef %35, ptr noundef %0, i32 noundef %168, i32 noundef 1)
+  %170 = load i32, ptr @hf_aprs_comment, align 4
+  %171 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %169) #6
+  %172 = tail call ptr @proto_tree_add_item(ptr noundef %35, i32 noundef %170, ptr noundef %0, i32 noundef %169, i32 noundef %171, i32 noundef 0) #6
+  %173 = add i32 %171, %169
+  br label %204
 
-205:                                              ; preds = %59
-  %206 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 1) #6
-  %207 = icmp eq i8 %206, 33
-  br i1 %207, label %208, label %211
+174:                                              ; preds = %28
+  %175 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 1) #6
+  %176 = icmp eq i8 %175, 33
+  br i1 %176, label %177, label %180
 
-208:                                              ; preds = %205
-  %209 = load i32, ptr @hf_ultimeter_2000, align 4
-  %210 = tail call fastcc i32 @aprs_default_string(ptr noundef %66, ptr noundef %0, i32 noundef 1, i32 noundef -1, i32 noundef %209)
-  br label %235
+177:                                              ; preds = %174
+  %178 = load i32, ptr @hf_ultimeter_2000, align 4
+  %179 = tail call fastcc i32 @aprs_default_string(ptr noundef %35, ptr noundef %0, i32 noundef 1, i32 noundef -1, i32 noundef %178)
+  br label %204
 
-211:                                              ; preds = %205
-  %212 = tail call fastcc i32 @aprs_position(ptr noundef nonnull %1, ptr noundef %66, ptr noundef %0, i32 noundef 1, i32 noundef 0)
-  %213 = load i32, ptr @hf_aprs_comment, align 4
-  %214 = tail call fastcc i32 @aprs_default_string(ptr noundef %66, ptr noundef %0, i32 noundef %212, i32 noundef -1, i32 noundef %213)
-  br label %235
+180:                                              ; preds = %174
+  %181 = tail call fastcc i32 @aprs_position(ptr noundef nonnull %1, ptr noundef %35, ptr noundef %0, i32 noundef 1, i32 noundef 0)
+  %182 = load i32, ptr @hf_aprs_comment, align 4
+  %183 = tail call fastcc i32 @aprs_default_string(ptr noundef %35, ptr noundef %0, i32 noundef %181, i32 noundef -1, i32 noundef %182)
+  br label %204
 
-215:                                              ; preds = %59
-  %216 = tail call fastcc i32 @aprs_position(ptr noundef nonnull %1, ptr noundef %66, ptr noundef %0, i32 noundef 1, i32 noundef 1)
-  %217 = load i32, ptr @hf_aprs_comment, align 4
-  %218 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %216) #6
-  %219 = tail call ptr @proto_tree_add_item(ptr noundef %66, i32 noundef %217, ptr noundef %0, i32 noundef %216, i32 noundef %218, i32 noundef 0) #6
-  %220 = add i32 %218, %216
-  br label %235
+184:                                              ; preds = %28
+  %185 = tail call fastcc i32 @aprs_position(ptr noundef nonnull %1, ptr noundef %35, ptr noundef %0, i32 noundef 1, i32 noundef 1)
+  %186 = load i32, ptr @hf_aprs_comment, align 4
+  %187 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %185) #6
+  %188 = tail call ptr @proto_tree_add_item(ptr noundef %35, i32 noundef %186, ptr noundef %0, i32 noundef %185, i32 noundef %187, i32 noundef 0) #6
+  %189 = add i32 %187, %185
+  br label %204
 
-221:                                              ; preds = %59
-  %222 = tail call fastcc i32 @aprs_timestamp(ptr noundef %66, ptr noundef %0, i32 noundef 1)
-  %223 = tail call fastcc i32 @aprs_position(ptr noundef nonnull %1, ptr noundef %66, ptr noundef %0, i32 noundef %222, i32 noundef 0)
-  %224 = load i32, ptr @hf_aprs_comment, align 4
-  %225 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %223) #6
-  %226 = tail call ptr @proto_tree_add_item(ptr noundef %66, i32 noundef %224, ptr noundef %0, i32 noundef %223, i32 noundef %225, i32 noundef 0) #6
-  %227 = add i32 %225, %223
-  br label %235
+190:                                              ; preds = %28
+  %191 = tail call fastcc i32 @aprs_timestamp(ptr noundef %35, ptr noundef %0, i32 noundef 1)
+  %192 = tail call fastcc i32 @aprs_position(ptr noundef nonnull %1, ptr noundef %35, ptr noundef %0, i32 noundef %191, i32 noundef 0)
+  %193 = load i32, ptr @hf_aprs_comment, align 4
+  %194 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %192) #6
+  %195 = tail call ptr @proto_tree_add_item(ptr noundef %35, i32 noundef %193, ptr noundef %0, i32 noundef %192, i32 noundef %194, i32 noundef 0) #6
+  %196 = add i32 %194, %192
+  br label %204
 
-228:                                              ; preds = %59
-  %229 = tail call fastcc i32 @aprs_timestamp(ptr noundef %66, ptr noundef %0, i32 noundef 1)
-  %230 = tail call fastcc i32 @aprs_position(ptr noundef nonnull %1, ptr noundef %66, ptr noundef %0, i32 noundef %229, i32 noundef 1)
-  %231 = load i32, ptr @hf_aprs_comment, align 4
-  %232 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %230) #6
-  %233 = tail call ptr @proto_tree_add_item(ptr noundef %66, i32 noundef %231, ptr noundef %0, i32 noundef %230, i32 noundef %232, i32 noundef 0) #6
-  %234 = add i32 %232, %230
-  br label %235
+197:                                              ; preds = %28
+  %198 = tail call fastcc i32 @aprs_timestamp(ptr noundef %35, ptr noundef %0, i32 noundef 1)
+  %199 = tail call fastcc i32 @aprs_position(ptr noundef nonnull %1, ptr noundef %35, ptr noundef %0, i32 noundef %198, i32 noundef 1)
+  %200 = load i32, ptr @hf_aprs_comment, align 4
+  %201 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %199) #6
+  %202 = tail call ptr @proto_tree_add_item(ptr noundef %35, i32 noundef %200, ptr noundef %0, i32 noundef %199, i32 noundef %201, i32 noundef 0) #6
+  %203 = add i32 %201, %199
+  br label %204
 
-235:                                              ; preds = %59, %208, %211, %97, %100, %228, %221, %215, %196, %aprs_item.exit, %173, %168, %163, %158, %153, %150, %147, %144, %141, %136, %131, %126, %121, %118, %113, %108, %103, %89, %aprs_status.exit, %69
-  %.0 = phi i32 [ 1, %59 ], [ %234, %228 ], [ %227, %221 ], [ %220, %215 ], [ %210, %208 ], [ %214, %211 ], [ %204, %196 ], [ %195, %aprs_item.exit ], [ %177, %173 ], [ %172, %168 ], [ %167, %163 ], [ %162, %158 ], [ %157, %153 ], [ %152, %150 ], [ %149, %147 ], [ %146, %144 ], [ %143, %141 ], [ %140, %136 ], [ %135, %131 ], [ %130, %126 ], [ %125, %121 ], [ %120, %118 ], [ %117, %113 ], [ %112, %108 ], [ %107, %103 ], [ %99, %97 ], [ %102, %100 ], [ %93, %89 ], [ %88, %aprs_status.exit ], [ %73, %69 ]
+204:                                              ; preds = %28, %177, %180, %66, %69, %197, %190, %184, %165, %aprs_item.exit, %142, %137, %132, %127, %122, %119, %116, %113, %110, %105, %100, %95, %90, %87, %82, %77, %72, %58, %aprs_status.exit, %38
+  %.0 = phi i32 [ 1, %28 ], [ %203, %197 ], [ %196, %190 ], [ %189, %184 ], [ %179, %177 ], [ %183, %180 ], [ %173, %165 ], [ %164, %aprs_item.exit ], [ %146, %142 ], [ %141, %137 ], [ %136, %132 ], [ %131, %127 ], [ %126, %122 ], [ %121, %119 ], [ %118, %116 ], [ %115, %113 ], [ %112, %110 ], [ %109, %105 ], [ %104, %100 ], [ %99, %95 ], [ %94, %90 ], [ %89, %87 ], [ %86, %82 ], [ %81, %77 ], [ %76, %72 ], [ %68, %66 ], [ %71, %69 ], [ %62, %58 ], [ %57, %aprs_status.exit ], [ %42, %38 ]
   ret i32 %.0
 }
 

@@ -1585,8 +1585,7 @@ if.then.i.i:                                      ; preds = %if.then2
   %sub.i.i = sub nuw i64 %2, %val_size
   %add.ptr.i.i = getelementptr inbounds i8, ptr %0, i64 %val_size
   tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %add.ptr.i.i, i8 %.lobit.i, i64 %sub.i.i, i1 false)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull readonly align 1 dereferenceable(1) %val, i64 %val_size, i1 false)
-  br label %cond.true
+  br label %cond.true.sink.split
 
 if.else.i.i:                                      ; preds = %if.then2
   %sub1.i.i = sub nuw nsw i64 %val_size, %2
@@ -1611,17 +1610,13 @@ lor.lhs.false.i.i:                                ; preds = %for.cond.i.i.i, %if
   %6 = load i8, ptr %arrayidx.i3.i, align 1
   %xor18.i.i = xor i8 %6, %.lobit.i
   %cmp7.not.i.i = icmp sgt i8 %xor18.i.i, -1
-  br i1 %cmp7.not.i.i, label %if.end.i.i, label %if.then9.i.i
+  br i1 %cmp7.not.i.i, label %cond.true.sink.split, label %if.then9.i.i
 
 if.then9.i.i:                                     ; preds = %for.body.i.i.i, %lor.lhs.false.i.i
   tail call void @ERR_new() #13
   tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 155, ptr noundef nonnull @__func__.copy_integer) #13
   tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 15, i32 noundef 126, ptr noundef null) #13
   br label %cond.end
-
-if.end.i.i:                                       ; preds = %lor.lhs.false.i.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %0, ptr nonnull readonly align 1 %val, i64 %2, i1 false)
-  br label %cond.true
 
 if.else10:                                        ; preds = %if.end
   tail call void @ERR_new() #13
@@ -1636,7 +1631,12 @@ if.end12:                                         ; preds = %if.end
   %tobool.not = icmp eq i32 %call9, 0
   br i1 %tobool.not, label %cond.end, label %cond.true
 
-cond.true:                                        ; preds = %if.then.i.i, %if.end.i.i, %if.end12
+cond.true.sink.split:                             ; preds = %lor.lhs.false.i.i, %if.then.i.i
+  %val_size.sink = phi i64 [ %val_size, %if.then.i.i ], [ %2, %lor.lhs.false.i.i ]
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %0, ptr nonnull readonly align 1 %val, i64 %val_size.sink, i1 false)
+  br label %cond.true
+
+cond.true:                                        ; preds = %cond.true.sink.split, %if.end12
   %data_size13 = getelementptr inbounds i8, ptr %p, i64 24
   %8 = load i64, ptr %data_size13, align 8
   br label %cond.end
@@ -1761,14 +1761,7 @@ if.then2:                                         ; preds = %if.end
   %data_size = getelementptr inbounds i8, ptr %p, i64 24
   %2 = load i64, ptr %data_size, align 8
   %cmp.i.i = icmp ult i64 %val_size, %2
-  br i1 %cmp.i.i, label %if.then.i.i, label %if.else.i.i
-
-if.then.i.i:                                      ; preds = %if.then2
-  %sub.i.i = sub nuw i64 %2, %val_size
-  %add.ptr.i.i = getelementptr inbounds i8, ptr %0, i64 %val_size
-  tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %add.ptr.i.i, i8 0, i64 %sub.i.i, i1 false)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull readonly align 1 dereferenceable(1) %val, i64 %val_size, i1 false)
-  br label %cond.true
+  br i1 %cmp.i.i, label %cond.true.sink.split, label %if.else.i.i
 
 if.else.i.i:                                      ; preds = %if.then2
   %sub1.i.i = sub nuw nsw i64 %val_size, %2
@@ -1792,7 +1785,7 @@ lor.lhs.false.i.i:                                ; preds = %for.cond.i.i.i, %if
   %arrayidx.i.i = getelementptr i8, ptr %add.ptr2.i.i, i64 -1
   %4 = load i8, ptr %arrayidx.i.i, align 1
   %cmp7.not.i.i = icmp sgt i8 %4, -1
-  br i1 %cmp7.not.i.i, label %if.end.i.i, label %if.then9.i.i
+  br i1 %cmp7.not.i.i, label %cond.true, label %if.then9.i.i
 
 if.then9.i.i:                                     ; preds = %for.body.i.i.i, %lor.lhs.false.i.i
   tail call void @ERR_new() #13
@@ -1800,33 +1793,22 @@ if.then9.i.i:                                     ; preds = %for.body.i.i.i, %lo
   tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 15, i32 noundef 126, ptr noundef null) #13
   br label %cond.end
 
-if.end.i.i:                                       ; preds = %lor.lhs.false.i.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %0, ptr nonnull readonly align 1 %val, i64 %2, i1 false)
-  br label %cond.true
-
 if.then6:                                         ; preds = %if.end
   %data_size8 = getelementptr inbounds i8, ptr %p, i64 24
   %5 = load i64, ptr %data_size8, align 8
   %cmp.i.i16 = icmp ult i64 %val_size, %5
-  br i1 %cmp.i.i16, label %if.then.i.i31, label %if.else.i.i17
-
-if.then.i.i31:                                    ; preds = %if.then6
-  %sub.i.i32 = sub nuw i64 %5, %val_size
-  %add.ptr.i.i33 = getelementptr inbounds i8, ptr %0, i64 %val_size
-  tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %add.ptr.i.i33, i8 0, i64 %sub.i.i32, i1 false)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull readonly align 1 dereferenceable(1) %val, i64 %val_size, i1 false)
-  br label %cond.true
+  br i1 %cmp.i.i16, label %cond.true.sink.split, label %if.else.i.i17
 
 if.else.i.i17:                                    ; preds = %if.then6
   %sub1.i.i18 = sub nuw nsw i64 %val_size, %5
   %add.ptr2.i.i19 = getelementptr i8, ptr %val, i64 %5
   %cmp3.not.i.i.i20 = icmp eq i64 %val_size, %5
-  br i1 %cmp3.not.i.i.i20, label %lor.lhs.false.i.i30, label %for.body.i.i.i21
+  br i1 %cmp3.not.i.i.i20, label %cond.true, label %for.body.i.i.i21
 
 for.cond.i.i.i27:                                 ; preds = %for.body.i.i.i21
   %inc.i.i.i28 = add nuw i64 %i.04.i.i.i22, 1
   %exitcond.not.i.i.i29 = icmp eq i64 %inc.i.i.i28, %sub1.i.i18
-  br i1 %exitcond.not.i.i.i29, label %lor.lhs.false.i.i30, label %for.body.i.i.i21, !llvm.loop !19
+  br i1 %exitcond.not.i.i.i29, label %cond.true, label %for.body.i.i.i21, !llvm.loop !19
 
 for.body.i.i.i21:                                 ; preds = %if.else.i.i17, %for.cond.i.i.i27
   %i.04.i.i.i22 = phi i64 [ %inc.i.i.i28, %for.cond.i.i.i27 ], [ 0, %if.else.i.i17 ]
@@ -1834,10 +1816,6 @@ for.body.i.i.i21:                                 ; preds = %if.else.i.i17, %for
   %6 = load i8, ptr %arrayidx.i.i.i23, align 1
   %cmp2.not.i.i.i24 = icmp eq i8 %6, 0
   br i1 %cmp2.not.i.i.i24, label %for.cond.i.i.i27, label %if.then9.i.i25
-
-lor.lhs.false.i.i30:                              ; preds = %for.cond.i.i.i27, %if.else.i.i17
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %0, ptr nonnull readonly align 1 %val, i64 %5, i1 false)
-  br label %cond.true
 
 if.then9.i.i25:                                   ; preds = %for.body.i.i.i21
   tail call void @ERR_new() #13
@@ -1851,7 +1829,16 @@ if.else10:                                        ; preds = %if.end
   tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 15, i32 noundef 124, ptr noundef null) #13
   br label %cond.end
 
-cond.true:                                        ; preds = %if.end.i.i, %if.then.i.i, %lor.lhs.false.i.i30, %if.then.i.i31
+cond.true.sink.split:                             ; preds = %if.then6, %if.then2
+  %.sink38 = phi i64 [ %2, %if.then2 ], [ %5, %if.then6 ]
+  %sub.i.i = sub nuw i64 %.sink38, %val_size
+  %add.ptr.i.i = getelementptr inbounds i8, ptr %0, i64 %val_size
+  tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %add.ptr.i.i, i8 0, i64 %sub.i.i, i1 false)
+  br label %cond.true
+
+cond.true:                                        ; preds = %for.cond.i.i.i27, %cond.true.sink.split, %if.else.i.i17, %lor.lhs.false.i.i
+  %.sink = phi i64 [ %2, %lor.lhs.false.i.i ], [ %5, %if.else.i.i17 ], [ %val_size, %cond.true.sink.split ], [ %5, %for.cond.i.i.i27 ]
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %0, ptr nonnull readonly align 1 %val, i64 %.sink, i1 false)
   %data_size13 = getelementptr inbounds i8, ptr %p, i64 24
   %7 = load i64, ptr %data_size13, align 8
   br label %cond.end

@@ -3167,7 +3167,7 @@ define void @ShSetEncryptionMethod(ptr nocapture noundef readnone %0) local_unna
 ; Function Attrs: mustprogress nounwind uwtable
 define noundef ptr @ShGetInfoLog(ptr noundef %0) local_unnamed_addr #3 {
   %2 = icmp eq ptr %0, null
-  br i1 %2, label %34, label %3
+  br i1 %2, label %27, label %3
 
 3:                                                ; preds = %1
   %4 = load ptr, ptr %0, align 8
@@ -3176,46 +3176,41 @@ define noundef ptr @ShGetInfoLog(ptr noundef %0) local_unnamed_addr #3 {
   %7 = tail call noundef ptr %6(ptr noundef nonnull align 8 dereferenceable(16) %0) #24
   %.not = icmp eq ptr %7, null
   %8 = load ptr, ptr %0, align 8
-  br i1 %.not, label %17, label %9
+  br i1 %.not, label %11, label %9
 
 9:                                                ; preds = %3
   %10 = getelementptr inbounds i8, ptr %8, i64 16
-  %11 = load ptr, ptr %10, align 8
-  %12 = tail call noundef ptr %11(ptr noundef nonnull align 8 dereferenceable(16) %0) #24
+  br label %18
+
+11:                                               ; preds = %3
+  %12 = getelementptr inbounds i8, ptr %8, i64 24
   %13 = load ptr, ptr %12, align 8
-  %14 = getelementptr inbounds i8, ptr %13, i64 48
-  %15 = load ptr, ptr %14, align 8
-  %16 = tail call noundef nonnull align 8 dereferenceable(96) ptr %15(ptr noundef nonnull align 8 dereferenceable(29) %12) #24
-  br label %30
+  %14 = tail call noundef ptr %13(ptr noundef nonnull align 8 dereferenceable(16) %0) #24
+  %.not12 = icmp eq ptr %14, null
+  br i1 %.not12, label %27, label %15
 
-17:                                               ; preds = %3
-  %18 = getelementptr inbounds i8, ptr %8, i64 24
-  %19 = load ptr, ptr %18, align 8
-  %20 = tail call noundef ptr %19(ptr noundef nonnull align 8 dereferenceable(16) %0) #24
-  %.not12 = icmp eq ptr %20, null
-  br i1 %.not12, label %34, label %21
+15:                                               ; preds = %11
+  %16 = load ptr, ptr %0, align 8
+  %17 = getelementptr inbounds i8, ptr %16, i64 24
+  br label %18
 
-21:                                               ; preds = %17
-  %22 = load ptr, ptr %0, align 8
-  %23 = getelementptr inbounds i8, ptr %22, i64 24
-  %24 = load ptr, ptr %23, align 8
-  %25 = tail call noundef ptr %24(ptr noundef nonnull align 8 dereferenceable(16) %0) #24
-  %26 = load ptr, ptr %25, align 8
-  %27 = getelementptr inbounds i8, ptr %26, i64 112
-  %28 = load ptr, ptr %27, align 8
-  %29 = tail call noundef nonnull align 8 dereferenceable(96) ptr %28(ptr noundef nonnull align 8 dereferenceable(72) %25) #24
-  br label %30
+18:                                               ; preds = %15, %9
+  %.sink18.in = phi ptr [ %17, %15 ], [ %10, %9 ]
+  %.sink16 = phi i64 [ 112, %15 ], [ 48, %9 ]
+  %.sink18 = load ptr, ptr %.sink18.in, align 8
+  %19 = tail call noundef ptr %.sink18(ptr noundef nonnull align 8 dereferenceable(16) %0) #24
+  %20 = load ptr, ptr %19, align 8
+  %21 = getelementptr inbounds i8, ptr %20, i64 %.sink16
+  %22 = load ptr, ptr %21, align 8
+  %23 = tail call noundef nonnull align 8 dereferenceable(96) ptr %22(ptr noundef nonnull align 8 dereferenceable(29) %19) #24
+  %24 = getelementptr inbounds i8, ptr %23, i64 48
+  %25 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %24) #24
+  tail call void @_ZN7glslang13TInfoSinkBase6appendEPKc(ptr noundef nonnull align 8 dereferenceable(48) %23, ptr noundef %25) #24
+  %26 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %23) #24
+  br label %27
 
-30:                                               ; preds = %21, %9
-  %.0 = phi ptr [ %16, %9 ], [ %29, %21 ]
-  %31 = getelementptr inbounds i8, ptr %.0, i64 48
-  %32 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %31) #24
-  tail call void @_ZN7glslang13TInfoSinkBase6appendEPKc(ptr noundef nonnull align 8 dereferenceable(48) %.0, ptr noundef %32) #24
-  %33 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %.0) #24
-  br label %34
-
-34:                                               ; preds = %17, %1, %30
-  %.010 = phi ptr [ %33, %30 ], [ null, %1 ], [ null, %17 ]
+27:                                               ; preds = %11, %1, %18
+  %.010 = phi ptr [ %26, %18 ], [ null, %1 ], [ null, %11 ]
   ret ptr %.010
 }
 

@@ -703,24 +703,14 @@ if.end:                                           ; preds = %entry
   %12 = getelementptr i8, ptr %11, i64 16
   %.val.i = load i64, ptr %12, align 8
   %cmp.i.i = icmp eq i64 %.val.i, 32
-  br i1 %cmp.i.i, label %if.then.i.i, label %if.end.i.i
-
-if.then.i.i:                                      ; preds = %if.end
-  %bcmp3.i.i = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(32) %got, ptr noundef nonnull readonly dereferenceable(32) %add.ptr, i64 32)
-  br label %hasheq.exit
-
-if.end.i.i:                                       ; preds = %if.end
-  %bcmp.i.i = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(20) %got, ptr noundef nonnull readonly dereferenceable(20) %add.ptr, i64 20)
-  br label %hasheq.exit
-
-hasheq.exit:                                      ; preds = %if.then.i.i, %if.end.i.i
-  %retval.0.in.in.i.i = phi i32 [ %bcmp3.i.i, %if.then.i.i ], [ %bcmp.i.i, %if.end.i.i ]
-  %retval.0.in.i.i = icmp eq i32 %retval.0.in.in.i.i, 0
+  %..i.i = select i1 %cmp.i.i, i64 32, i64 20
+  %bcmp.i.i = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(20) %got, ptr noundef nonnull readonly dereferenceable(20) %add.ptr, i64 %..i.i)
+  %retval.0.in.i.i = icmp eq i32 %bcmp.i.i, 0
   %retval.0.i.i = zext i1 %retval.0.in.i.i to i32
   br label %return
 
-return:                                           ; preds = %entry, %hasheq.exit
-  %retval.0 = phi i32 [ %retval.0.i.i, %hasheq.exit ], [ 0, %entry ]
+return:                                           ; preds = %entry, %if.end
+  %retval.0 = phi i32 [ %retval.0.i.i, %if.end ], [ 0, %entry ]
   ret i32 %retval.0
 }
 

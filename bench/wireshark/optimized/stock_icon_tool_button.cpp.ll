@@ -380,8 +380,7 @@ _ZN17QArrayDataPointerIN5QIcon5StateEE5derefEv.exit.i.i21: ; preds = %30
 
 34:                                               ; preds = %_ZN17QArrayDataPointerIN5QIcon5StateEE5derefEv.exit.i.i21
   %35 = load ptr, ptr %6, align 8
-  call void @_ZN10QArrayData10deallocateEPS_xx(ptr noundef %35, i64 noundef 4, i64 noundef 8) #12
-  br label %_ZN5QListIN5QIcon5StateEED2Ev.exit23
+  br label %_ZN5QListIN5QIcon5StateEED2Ev.exit23.sink.split
 
 36:                                               ; preds = %38
   %37 = landingpad { ptr, i32 }
@@ -502,14 +501,16 @@ _ZN17QArrayDataPointerIN5QIcon5StateEE5derefEv.exit.i.i45: ; preds = %_ZN17QArra
   %.pn.pn.pn70 = phi { ptr, i32 } [ %63, %_ZN9QtPrivate17QForeachContainerI5QListIN5QIcon5StateEEED2Ev.exit39 ], [ %.pn.pn, %59 ], [ %.pn.pn, %_ZN17QArrayDataPointerIN5QIcon5StateEE5derefEv.exit.i.i.i37 ]
   %64 = atomicrmw sub ptr %14, i32 1 seq_cst, align 4
   %.not.i.i46 = icmp eq i32 %64, 1
-  br i1 %.not.i.i46, label %65, label %_ZN5QListIN5QIcon5StateEED2Ev.exit23
+  br i1 %.not.i.i46, label %_ZN5QListIN5QIcon5StateEED2Ev.exit23.sink.split, label %_ZN5QListIN5QIcon5StateEED2Ev.exit23
 
-65:                                               ; preds = %_ZN17QArrayDataPointerIN5QIcon5StateEE5derefEv.exit.i.i45
-  call void @_ZN10QArrayData10deallocateEPS_xx(ptr noundef nonnull %14, i64 noundef 4, i64 noundef 8) #12
+_ZN5QListIN5QIcon5StateEED2Ev.exit23.sink.split:  ; preds = %_ZN17QArrayDataPointerIN5QIcon5StateEE5derefEv.exit.i.i45, %34
+  %.sink = phi ptr [ %35, %34 ], [ %14, %_ZN17QArrayDataPointerIN5QIcon5StateEE5derefEv.exit.i.i45 ]
+  %.pn.pn.pn.pn.ph = phi { ptr, i32 } [ %31, %34 ], [ %.pn.pn.pn70, %_ZN17QArrayDataPointerIN5QIcon5StateEE5derefEv.exit.i.i45 ]
+  call void @_ZN10QArrayData10deallocateEPS_xx(ptr noundef %.sink, i64 noundef 4, i64 noundef 8) #12
   br label %_ZN5QListIN5QIcon5StateEED2Ev.exit23
 
-_ZN5QListIN5QIcon5StateEED2Ev.exit23:             ; preds = %_ZN9QtPrivate17QForeachContainerI5QListI5QSizeEED2Ev.exit35, %65, %_ZN17QArrayDataPointerIN5QIcon5StateEE5derefEv.exit.i.i45, %_ZN9QtPrivate17QForeachContainerI5QListIN5QIcon5StateEEED2Ev.exit39, %34, %_ZN17QArrayDataPointerIN5QIcon5StateEE5derefEv.exit.i.i21, %30
-  %.pn.pn.pn.pn = phi { ptr, i32 } [ %31, %30 ], [ %31, %_ZN17QArrayDataPointerIN5QIcon5StateEE5derefEv.exit.i.i21 ], [ %31, %34 ], [ %63, %_ZN9QtPrivate17QForeachContainerI5QListIN5QIcon5StateEEED2Ev.exit39 ], [ %.pn.pn.pn70, %_ZN17QArrayDataPointerIN5QIcon5StateEE5derefEv.exit.i.i45 ], [ %.pn.pn.pn70, %65 ], [ %.pn.pn, %_ZN9QtPrivate17QForeachContainerI5QListI5QSizeEED2Ev.exit35 ]
+_ZN5QListIN5QIcon5StateEED2Ev.exit23:             ; preds = %_ZN5QListIN5QIcon5StateEED2Ev.exit23.sink.split, %_ZN9QtPrivate17QForeachContainerI5QListI5QSizeEED2Ev.exit35, %_ZN17QArrayDataPointerIN5QIcon5StateEE5derefEv.exit.i.i45, %_ZN9QtPrivate17QForeachContainerI5QListIN5QIcon5StateEEED2Ev.exit39, %_ZN17QArrayDataPointerIN5QIcon5StateEE5derefEv.exit.i.i21, %30
+  %.pn.pn.pn.pn = phi { ptr, i32 } [ %31, %30 ], [ %31, %_ZN17QArrayDataPointerIN5QIcon5StateEE5derefEv.exit.i.i21 ], [ %63, %_ZN9QtPrivate17QForeachContainerI5QListIN5QIcon5StateEEED2Ev.exit39 ], [ %.pn.pn.pn70, %_ZN17QArrayDataPointerIN5QIcon5StateEE5derefEv.exit.i.i45 ], [ %.pn.pn, %_ZN9QtPrivate17QForeachContainerI5QListI5QSizeEED2Ev.exit35 ], [ %.pn.pn.pn.pn.ph, %_ZN5QListIN5QIcon5StateEED2Ev.exit23.sink.split ]
   call void @_ZN5QIconD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #12
   resume { ptr, i32 } %.pn.pn.pn.pn
 }

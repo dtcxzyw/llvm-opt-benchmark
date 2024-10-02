@@ -54,20 +54,20 @@ define internal range(i32 0, 2) i32 @test_bio_enc_aes_128_cbc(i32 noundef %idx) 
 entry:
   %call = tail call ptr @EVP_aes_128_cbc() #4
   switch i32 %idx, label %do_test_bio_cipher.exit [
-    i32 0, label %sw.bb.i
+    i32 0, label %return.sink.split.i
     i32 1, label %sw.bb1.i
   ]
 
-sw.bb.i:                                          ; preds = %entry
-  %call.i = tail call fastcc i32 @do_bio_cipher(ptr noundef %call, ptr noundef null)
-  br label %do_test_bio_cipher.exit
-
 sw.bb1.i:                                         ; preds = %entry
-  %call2.i = tail call fastcc i32 @do_bio_cipher(ptr noundef %call, ptr noundef nonnull @IV)
+  br label %return.sink.split.i
+
+return.sink.split.i:                              ; preds = %sw.bb1.i, %entry
+  %IV.sink.i = phi ptr [ @IV, %sw.bb1.i ], [ null, %entry ]
+  %call2.i = tail call fastcc i32 @do_bio_cipher(ptr noundef %call, ptr noundef %IV.sink.i)
   br label %do_test_bio_cipher.exit
 
-do_test_bio_cipher.exit:                          ; preds = %entry, %sw.bb.i, %sw.bb1.i
-  %retval.0.i = phi i32 [ %call2.i, %sw.bb1.i ], [ %call.i, %sw.bb.i ], [ 0, %entry ]
+do_test_bio_cipher.exit:                          ; preds = %entry, %return.sink.split.i
+  %retval.0.i = phi i32 [ 0, %entry ], [ %call2.i, %return.sink.split.i ]
   ret i32 %retval.0.i
 }
 
@@ -76,20 +76,20 @@ define internal range(i32 0, 2) i32 @test_bio_enc_aes_128_ctr(i32 noundef %idx) 
 entry:
   %call = tail call ptr @EVP_aes_128_ctr() #4
   switch i32 %idx, label %do_test_bio_cipher.exit [
-    i32 0, label %sw.bb.i
+    i32 0, label %return.sink.split.i
     i32 1, label %sw.bb1.i
   ]
 
-sw.bb.i:                                          ; preds = %entry
-  %call.i = tail call fastcc i32 @do_bio_cipher(ptr noundef %call, ptr noundef null)
-  br label %do_test_bio_cipher.exit
-
 sw.bb1.i:                                         ; preds = %entry
-  %call2.i = tail call fastcc i32 @do_bio_cipher(ptr noundef %call, ptr noundef nonnull @IV)
+  br label %return.sink.split.i
+
+return.sink.split.i:                              ; preds = %sw.bb1.i, %entry
+  %IV.sink.i = phi ptr [ @IV, %sw.bb1.i ], [ null, %entry ]
+  %call2.i = tail call fastcc i32 @do_bio_cipher(ptr noundef %call, ptr noundef %IV.sink.i)
   br label %do_test_bio_cipher.exit
 
-do_test_bio_cipher.exit:                          ; preds = %entry, %sw.bb.i, %sw.bb1.i
-  %retval.0.i = phi i32 [ %call2.i, %sw.bb1.i ], [ %call.i, %sw.bb.i ], [ 0, %entry ]
+do_test_bio_cipher.exit:                          ; preds = %entry, %return.sink.split.i
+  %retval.0.i = phi i32 [ 0, %entry ], [ %call2.i, %return.sink.split.i ]
   ret i32 %retval.0.i
 }
 
@@ -98,20 +98,20 @@ define internal range(i32 0, 2) i32 @test_bio_enc_aes_256_cfb(i32 noundef %idx) 
 entry:
   %call = tail call ptr @EVP_aes_256_cfb128() #4
   switch i32 %idx, label %do_test_bio_cipher.exit [
-    i32 0, label %sw.bb.i
+    i32 0, label %return.sink.split.i
     i32 1, label %sw.bb1.i
   ]
 
-sw.bb.i:                                          ; preds = %entry
-  %call.i = tail call fastcc i32 @do_bio_cipher(ptr noundef %call, ptr noundef null)
-  br label %do_test_bio_cipher.exit
-
 sw.bb1.i:                                         ; preds = %entry
-  %call2.i = tail call fastcc i32 @do_bio_cipher(ptr noundef %call, ptr noundef nonnull @IV)
+  br label %return.sink.split.i
+
+return.sink.split.i:                              ; preds = %sw.bb1.i, %entry
+  %IV.sink.i = phi ptr [ @IV, %sw.bb1.i ], [ null, %entry ]
+  %call2.i = tail call fastcc i32 @do_bio_cipher(ptr noundef %call, ptr noundef %IV.sink.i)
   br label %do_test_bio_cipher.exit
 
-do_test_bio_cipher.exit:                          ; preds = %entry, %sw.bb.i, %sw.bb1.i
-  %retval.0.i = phi i32 [ %call2.i, %sw.bb1.i ], [ %call.i, %sw.bb.i ], [ 0, %entry ]
+do_test_bio_cipher.exit:                          ; preds = %entry, %return.sink.split.i
+  %retval.0.i = phi i32 [ 0, %entry ], [ %call2.i, %return.sink.split.i ]
   ret i32 %retval.0.i
 }
 
@@ -120,20 +120,20 @@ define internal range(i32 0, 2) i32 @test_bio_enc_aes_256_ofb(i32 noundef %idx) 
 entry:
   %call = tail call ptr @EVP_aes_256_ofb() #4
   switch i32 %idx, label %do_test_bio_cipher.exit [
-    i32 0, label %sw.bb.i
+    i32 0, label %return.sink.split.i
     i32 1, label %sw.bb1.i
   ]
 
-sw.bb.i:                                          ; preds = %entry
-  %call.i = tail call fastcc i32 @do_bio_cipher(ptr noundef %call, ptr noundef null)
-  br label %do_test_bio_cipher.exit
-
 sw.bb1.i:                                         ; preds = %entry
-  %call2.i = tail call fastcc i32 @do_bio_cipher(ptr noundef %call, ptr noundef nonnull @IV)
+  br label %return.sink.split.i
+
+return.sink.split.i:                              ; preds = %sw.bb1.i, %entry
+  %IV.sink.i = phi ptr [ @IV, %sw.bb1.i ], [ null, %entry ]
+  %call2.i = tail call fastcc i32 @do_bio_cipher(ptr noundef %call, ptr noundef %IV.sink.i)
   br label %do_test_bio_cipher.exit
 
-do_test_bio_cipher.exit:                          ; preds = %entry, %sw.bb.i, %sw.bb1.i
-  %retval.0.i = phi i32 [ %call2.i, %sw.bb1.i ], [ %call.i, %sw.bb.i ], [ 0, %entry ]
+do_test_bio_cipher.exit:                          ; preds = %entry, %return.sink.split.i
+  %retval.0.i = phi i32 [ 0, %entry ], [ %call2.i, %return.sink.split.i ]
   ret i32 %retval.0.i
 }
 
@@ -142,20 +142,20 @@ define internal range(i32 0, 2) i32 @test_bio_enc_chacha20(i32 noundef %idx) #0 
 entry:
   %call = tail call ptr @EVP_chacha20() #4
   switch i32 %idx, label %do_test_bio_cipher.exit [
-    i32 0, label %sw.bb.i
+    i32 0, label %return.sink.split.i
     i32 1, label %sw.bb1.i
   ]
 
-sw.bb.i:                                          ; preds = %entry
-  %call.i = tail call fastcc i32 @do_bio_cipher(ptr noundef %call, ptr noundef null)
-  br label %do_test_bio_cipher.exit
-
 sw.bb1.i:                                         ; preds = %entry
-  %call2.i = tail call fastcc i32 @do_bio_cipher(ptr noundef %call, ptr noundef nonnull @IV)
+  br label %return.sink.split.i
+
+return.sink.split.i:                              ; preds = %sw.bb1.i, %entry
+  %IV.sink.i = phi ptr [ @IV, %sw.bb1.i ], [ null, %entry ]
+  %call2.i = tail call fastcc i32 @do_bio_cipher(ptr noundef %call, ptr noundef %IV.sink.i)
   br label %do_test_bio_cipher.exit
 
-do_test_bio_cipher.exit:                          ; preds = %entry, %sw.bb.i, %sw.bb1.i
-  %retval.0.i = phi i32 [ %call2.i, %sw.bb1.i ], [ %call.i, %sw.bb.i ], [ 0, %entry ]
+do_test_bio_cipher.exit:                          ; preds = %entry, %return.sink.split.i
+  %retval.0.i = phi i32 [ 0, %entry ], [ %call2.i, %return.sink.split.i ]
   ret i32 %retval.0.i
 }
 
@@ -164,20 +164,20 @@ define internal range(i32 0, 2) i32 @test_bio_enc_chacha20_poly1305(i32 noundef 
 entry:
   %call = tail call ptr @EVP_chacha20_poly1305() #4
   switch i32 %idx, label %do_test_bio_cipher.exit [
-    i32 0, label %sw.bb.i
+    i32 0, label %return.sink.split.i
     i32 1, label %sw.bb1.i
   ]
 
-sw.bb.i:                                          ; preds = %entry
-  %call.i = tail call fastcc i32 @do_bio_cipher(ptr noundef %call, ptr noundef null)
-  br label %do_test_bio_cipher.exit
-
 sw.bb1.i:                                         ; preds = %entry
-  %call2.i = tail call fastcc i32 @do_bio_cipher(ptr noundef %call, ptr noundef nonnull @IV)
+  br label %return.sink.split.i
+
+return.sink.split.i:                              ; preds = %sw.bb1.i, %entry
+  %IV.sink.i = phi ptr [ @IV, %sw.bb1.i ], [ null, %entry ]
+  %call2.i = tail call fastcc i32 @do_bio_cipher(ptr noundef %call, ptr noundef %IV.sink.i)
   br label %do_test_bio_cipher.exit
 
-do_test_bio_cipher.exit:                          ; preds = %entry, %sw.bb.i, %sw.bb1.i
-  %retval.0.i = phi i32 [ %call2.i, %sw.bb1.i ], [ %call.i, %sw.bb.i ], [ 0, %entry ]
+do_test_bio_cipher.exit:                          ; preds = %entry, %return.sink.split.i
+  %retval.0.i = phi i32 [ 0, %entry ], [ %call2.i, %return.sink.split.i ]
   ret i32 %retval.0.i
 }
 

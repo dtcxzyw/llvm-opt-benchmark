@@ -7713,7 +7713,6 @@ define internal fastcc range(i32 0, 2) i32 @parse_RMPP(ptr noundef %0, ptr nound
 
 42:                                               ; preds = %5
   call void (ptr, ptr, ...) @proto_item_set_text(ptr noundef %9, ptr noundef nonnull @.str.2254, ptr noundef nonnull @.str.2255, ptr noundef nonnull @.str.2256) #6
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %17, ptr noundef nonnull @.str.2257, ptr noundef nonnull @.str.2255) #6
   br label %49
 
 43:                                               ; preds = %5
@@ -7723,10 +7722,11 @@ define internal fastcc range(i32 0, 2) i32 @parse_RMPP(ptr noundef %0, ptr nound
   %46 = load i8, ptr %20, align 1
   %47 = zext i8 %46 to i32
   %48 = call ptr @val_to_str(i32 noundef %47, ptr noundef nonnull @RMPP_Packet_Types, ptr noundef nonnull @.str.2258) #6
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %17, ptr noundef nonnull @.str.2257, ptr noundef %48) #6
   br label %49
 
 49:                                               ; preds = %43, %42
+  %.sink = phi ptr [ %48, %43 ], [ @.str.2255, %42 ]
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %17, ptr noundef nonnull @.str.2257, ptr noundef %.sink) #6
   %50 = getelementptr inbounds i8, ptr %4, i64 8
   store i32 0, ptr %50, align 4
   %51 = load i8, ptr %20, align 1

@@ -16671,15 +16671,11 @@ define dso_local noundef ptr @skb_vlan_untag(ptr noundef %0) #0 align 16 {
 9:                                                ; preds = %5
   %10 = tail call ptr @skb_clone(ptr noundef %0, i32 noundef 2080)
   %11 = icmp eq ptr %10, null
-  br i1 %11, label %.thread, label %.thread7, !prof !6
+  br i1 %11, label %.sink.split, label %.thread7, !prof !6
 
 .thread7:                                         ; preds = %9
   tail call void @consume_skb(ptr noundef %0)
   br label %14
-
-.thread:                                          ; preds = %9
-  tail call void @kfree_skb_reason(ptr noundef %0, i32 noundef 2)
-  br label %147
 
 12:                                               ; preds = %5
   %13 = icmp eq ptr %0, null
@@ -16819,15 +16815,11 @@ skb_pull_rcsum.exit:                              ; preds = %45, %51, %57, %69
 95:                                               ; preds = %86
   %96 = tail call i32 @pskb_expand_head(ptr noundef nonnull %15, i32 noundef 0, i32 noundef 0, i32 noundef 2080), !range !101
   %97 = icmp slt i32 %96, 0
-  br i1 %97, label %.thread8, label %._crit_edge9
+  br i1 %97, label %.sink.split, label %._crit_edge9
 
 ._crit_edge9:                                     ; preds = %95
   %.pre10 = load ptr, ptr %81, align 8
   br label %98
-
-.thread8:                                         ; preds = %95
-  tail call void @kfree_skb_reason(ptr noundef nonnull %15, i32 noundef 2)
-  br label %147
 
 98:                                               ; preds = %._crit_edge9, %86, %79
   %99 = phi ptr [ %.pre10, %._crit_edge9 ], [ %.pre11, %86 ], [ %.pre11, %79 ]
@@ -16903,8 +16895,13 @@ skb_pull_rcsum.exit:                              ; preds = %45, %51, %57, %69
   store i16 %145, ptr %146, align 8
   br label %149
 
-147:                                              ; preds = %.thread8, %.thread, %24, %22, %12
-  %148 = phi ptr [ null, %12 ], [ %15, %24 ], [ %15, %22 ], [ null, %.thread ], [ null, %.thread8 ]
+.sink.split:                                      ; preds = %95, %9
+  %.sink = phi ptr [ %0, %9 ], [ %15, %95 ]
+  tail call void @kfree_skb_reason(ptr noundef %.sink, i32 noundef 2)
+  br label %147
+
+147:                                              ; preds = %.sink.split, %24, %22, %12
+  %148 = phi ptr [ null, %12 ], [ %15, %24 ], [ %15, %22 ], [ null, %.sink.split ]
   tail call void @kfree_skb_reason(ptr noundef %148, i32 noundef 2)
   br label %149
 

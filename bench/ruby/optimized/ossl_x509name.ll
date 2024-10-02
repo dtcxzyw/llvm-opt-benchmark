@@ -700,8 +700,8 @@ define internal i64 @ossl_x509name_to_a(i64 noundef %0) #0 {
   %.not30 = icmp eq i32 %7, 0
   br i1 %.not30, label %.loopexit, label %.lr.ph
 
-.lr.ph:                                           ; preds = %21, %40
-  %.02129 = phi i32 [ %50, %40 ], [ 0, %21 ]
+.lr.ph:                                           ; preds = %21, %37
+  %.02129 = phi i32 [ %48, %37 ], [ 0, %21 ]
   %24 = call ptr @X509_NAME_get_entry(ptr noundef nonnull %3, i32 noundef %.02129) #9
   %.not27 = icmp eq ptr %24, null
   br i1 %.not27, label %25, label %27
@@ -725,34 +725,30 @@ define internal i64 @ossl_x509name_to_a(i64 noundef %0) #0 {
 32:                                               ; preds = %27
   %33 = call i32 @OBJ_ln2nid(ptr noundef nonnull %2) #9
   %34 = icmp eq i32 %33, 0
-  br i1 %34, label %35, label %37
+  br i1 %34, label %37, label %35
 
 35:                                               ; preds = %32
-  %36 = call i64 @rb_str_new_cstr(ptr noundef nonnull %2) #9
-  br label %40
+  %36 = call ptr @OBJ_nid2sn(i32 noundef %33) #9
+  br label %37
 
-37:                                               ; preds = %32
-  %38 = call ptr @OBJ_nid2sn(i32 noundef %33) #9
-  %39 = call i64 @rb_str_new_cstr(ptr noundef %38) #9
-  br label %40
-
-40:                                               ; preds = %37, %35
-  %.022 = phi i64 [ %36, %35 ], [ %39, %37 ]
-  %41 = call ptr @X509_NAME_ENTRY_get_data(ptr noundef nonnull %24) #9
-  %42 = call i64 @asn1str_to_str(ptr noundef %41) #9
-  %43 = getelementptr inbounds i8, ptr %41, i64 4
-  %44 = load i32, ptr %43, align 4
-  %45 = sext i32 %44 to i64
-  %46 = shl nsw i64 %45, 1
-  %47 = or disjoint i64 %46, 1
-  %48 = call i64 (i64, ...) @rb_ary_new_from_args(i64 noundef 3, i64 noundef %.022, i64 noundef %42, i64 noundef %47) #9
-  %49 = call i64 @rb_ary_push(i64 noundef %23, i64 noundef %48) #9
-  %50 = add nuw nsw i32 %.02129, 1
-  %exitcond.not = icmp eq i32 %50, %7
+37:                                               ; preds = %32, %35
+  %.sink = phi ptr [ %36, %35 ], [ %2, %32 ]
+  %38 = call i64 @rb_str_new_cstr(ptr noundef %.sink) #9
+  %39 = call ptr @X509_NAME_ENTRY_get_data(ptr noundef nonnull %24) #9
+  %40 = call i64 @asn1str_to_str(ptr noundef %39) #9
+  %41 = getelementptr inbounds i8, ptr %39, i64 4
+  %42 = load i32, ptr %41, align 4
+  %43 = sext i32 %42 to i64
+  %44 = shl nsw i64 %43, 1
+  %45 = or disjoint i64 %44, 1
+  %46 = call i64 (i64, ...) @rb_ary_new_from_args(i64 noundef 3, i64 noundef %38, i64 noundef %40, i64 noundef %45) #9
+  %47 = call i64 @rb_ary_push(i64 noundef %23, i64 noundef %46) #9
+  %48 = add nuw nsw i32 %.02129, 1
+  %exitcond.not = icmp eq i32 %48, %7
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !14
 
-.loopexit:                                        ; preds = %40, %21, %19
-  %.0 = phi i64 [ %20, %19 ], [ %23, %21 ], [ %23, %40 ]
+.loopexit:                                        ; preds = %37, %21, %19
+  %.0 = phi i64 [ %20, %19 ], [ %23, %21 ], [ %23, %37 ]
   ret i64 %.0
 }
 

@@ -7547,7 +7547,7 @@ for.cond145.preheader:                            ; preds = %for.cond145.prehead
   %77 = load i64, ptr %columns_.i, align 8
   %invariant.gep630 = getelementptr double, ptr %76, i64 %i.0635
   %arrayidx.i.idx = mul i64 %i.0635, 24
-  %invariant.gep687 = getelementptr i8, ptr %call.i214, i64 %arrayidx.i.idx
+  %invariant.gep688 = getelementptr i8, ptr %call.i214, i64 %arrayidx.i.idx
   br label %for.body148
 
 lpad140:                                          ; preds = %if.then139
@@ -7571,22 +7571,18 @@ for.body148:                                      ; preds = %for.cond145.prehead
   %mul.i.i = mul i64 %77, %j.0629
   %gep633 = getelementptr double, ptr %invariant.gep630, i64 %mul.i.i
   %80 = load double, ptr %gep633, align 8, !tbaa !46
-  br i1 %or.cond, label %cond.true, label %cond.false
+  br i1 %or.cond, label %cond.true, label %cond.end
 
 cond.true:                                        ; preds = %for.body148
   %call.i = call double @log(double noundef %80) #24, !tbaa !59
   %fneg.i = fneg double %call.i
-  %call1.i = call noundef double @sqrt(double noundef %fneg.i) #24, !tbaa !59
   br label %cond.end
 
-cond.false:                                       ; preds = %for.body148
-  %call159 = call double @sqrt(double noundef %80) #24, !tbaa !59
-  br label %cond.end
-
-cond.end:                                         ; preds = %cond.false, %cond.true
-  %cond = phi double [ %call1.i, %cond.true ], [ %call159, %cond.false ]
-  %gep = getelementptr double, ptr %invariant.gep687, i64 %j.0629
-  store double %cond, ptr %gep, align 8, !tbaa !46
+cond.end:                                         ; preds = %for.body148, %cond.true
+  %.sink = phi double [ %fneg.i, %cond.true ], [ %80, %for.body148 ]
+  %call159 = call double @sqrt(double noundef %.sink) #24, !tbaa !59
+  %gep = getelementptr double, ptr %invariant.gep688, i64 %j.0629
+  store double %call159, ptr %gep, align 8, !tbaa !46
   %inc = add nuw i64 %j.0629, 1
   %exitcond653.not = icmp eq i64 %inc, %umax652
   br i1 %exitcond653.not, label %for.cond.cleanup147, label %for.body148, !llvm.loop !158
@@ -7801,8 +7797,8 @@ for.cond.cleanup220:                              ; preds = %invoke.cont245
   br i1 %exitcond658.not, label %invoke.cont258, label %for.cond218.preheader, !llvm.loop !161
 
 cond.true225:                                     ; preds = %for.cond218.preheader, %invoke.cont245
-  %j217.0638686 = phi i64 [ 0, %for.cond218.preheader ], [ %inc249, %invoke.cont245 ]
-  %arrayidx.i257 = getelementptr double, ptr %99, i64 %j217.0638686
+  %j217.0638687 = phi i64 [ 0, %for.cond218.preheader ], [ %inc249, %invoke.cont245 ]
+  %arrayidx.i257 = getelementptr double, ptr %99, i64 %j217.0638687
   %109 = load double, ptr %arrayidx.i257, align 8, !tbaa !46
   %110 = call double @llvm.fabs.f64(double %109)
   %cmp.i = fcmp olt double %110, 1.000000e+01
@@ -7820,10 +7816,10 @@ invoke.cont245:                                   ; preds = %cond.true.i260, %co
   %.sroa.speculated5.i = select i1 %cmp.i.i, double 0x3FEFFFFDE7210BE9, double %cond.i259
   %cmp.i3.i = fcmp olt double %.sroa.speculated5.i, 0x3EB0C6F7A0B5ED8D
   %.sroa.speculated.i = select i1 %cmp.i3.i, double 0x3EB0C6F7A0B5ED8D, double %.sroa.speculated5.i
-  %mul.i.i266 = mul i64 %j217.0638686, %add207
+  %mul.i.i266 = mul i64 %j217.0638687, %add207
   %gep637 = getelementptr double, ptr %invariant.gep636, i64 %mul.i.i266
   store double %.sroa.speculated.i, ptr %gep637, align 8, !tbaa !46
-  %inc249 = add nuw nsw i64 %j217.0638686, 1
+  %inc249 = add nuw nsw i64 %j217.0638687, 1
   %or.cond1.not = icmp eq i64 %inc249, 2
   br i1 %or.cond1.not, label %for.cond.cleanup220, label %cond.true225
 
@@ -8126,23 +8122,19 @@ for.body302:                                      ; preds = %for.cond299.prehead
   %mul.i.i318 = mul i64 %142, %j298.0615
   %gep617 = getelementptr double, ptr %invariant.gep, i64 %mul.i.i318
   %145 = load double, ptr %gep617, align 8, !tbaa !46
-  br i1 %or.cond2, label %cond.true306, label %cond.false313
+  br i1 %or.cond2, label %cond.true306, label %cond.end318
 
 cond.true306:                                     ; preds = %for.body302
   %call.i320 = call double @log(double noundef %145) #24, !tbaa !59
   %fneg.i321 = fneg double %call.i320
-  %call1.i322 = call noundef double @sqrt(double noundef %fneg.i321) #24, !tbaa !59
   br label %cond.end318
 
-cond.false313:                                    ; preds = %for.body302
-  %call317 = call double @sqrt(double noundef %145) #24, !tbaa !59
-  br label %cond.end318
-
-cond.end318:                                      ; preds = %cond.false313, %cond.true306
-  %cond319 = phi double [ %call1.i322, %cond.true306 ], [ %call317, %cond.false313 ]
+cond.end318:                                      ; preds = %for.body302, %cond.true306
+  %.sink685 = phi double [ %fneg.i321, %cond.true306 ], [ %145, %for.body302 ]
+  %call317 = call double @sqrt(double noundef %.sink685) #24, !tbaa !59
   %add321 = add i64 %j298.0615, %mul320
   %arrayidx.i326 = getelementptr inbounds nuw double, ptr %cond.i310, i64 %add321
-  store double %cond319, ptr %arrayidx.i326, align 8, !tbaa !46
+  store double %call317, ptr %arrayidx.i326, align 8, !tbaa !46
   %inc325 = add nuw i64 %j298.0615, 1
   %exitcond.not = icmp eq i64 %inc325, %umax
   br i1 %exitcond.not, label %for.cond.cleanup301, label %for.body302, !llvm.loop !164
@@ -8358,8 +8350,8 @@ for.cond.cleanup380:                              ; preds = %invoke.cont405
   br i1 %exitcond649.not, label %for.cond417.preheader, label %for.cond378.preheader, !llvm.loop !165
 
 cond.true385:                                     ; preds = %for.cond378.preheader, %invoke.cont405
-  %j377.0622685 = phi i64 [ 0, %for.cond378.preheader ], [ %inc409, %invoke.cont405 ]
-  %arrayidx.i385 = getelementptr double, ptr %164, i64 %j377.0622685
+  %j377.0622686 = phi i64 [ 0, %for.cond378.preheader ], [ %inc409, %invoke.cont405 ]
+  %arrayidx.i385 = getelementptr double, ptr %164, i64 %j377.0622686
   %175 = load double, ptr %arrayidx.i385, align 8, !tbaa !46
   %176 = call double @llvm.fabs.f64(double %175)
   %cmp.i386 = fcmp olt double %176, 1.000000e+01
@@ -8377,10 +8369,10 @@ invoke.cont405:                                   ; preds = %cond.true.i393, %co
   %.sroa.speculated5.i390 = select i1 %cmp.i.i389, double 0x3FEFFFFDE7210BE9, double %cond.i388
   %cmp.i3.i391 = fcmp olt double %.sroa.speculated5.i390, 0x3EB0C6F7A0B5ED8D
   %.sroa.speculated.i392 = select i1 %cmp.i3.i391, double 0x3EB0C6F7A0B5ED8D, double %.sroa.speculated5.i390
-  %mul.i.i400 = mul i64 %j377.0622685, %add367
+  %mul.i.i400 = mul i64 %j377.0622686, %add367
   %gep621 = getelementptr double, ptr %invariant.gep620, i64 %mul.i.i400
   store double %.sroa.speculated.i392, ptr %gep621, align 8, !tbaa !46
-  %inc409 = add nuw nsw i64 %j377.0622685, 1
+  %inc409 = add nuw nsw i64 %j377.0622686, 1
   %or.cond3.not = icmp eq i64 %inc409, 2
   br i1 %or.cond3.not, label %for.cond.cleanup380, label %cond.true385
 

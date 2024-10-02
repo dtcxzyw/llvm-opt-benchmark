@@ -637,19 +637,19 @@ define dso_local i32 @cgroup_p_step_create(i32 noundef %0, ptr noundef %1) local
 
 6:                                                ; preds = %2
   %7 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.19) #11
-  br label %64
+  br label %60
 
 8:                                                ; preds = %2
   %9 = getelementptr inbounds [5 x i16], ptr @g_step_active_cnt, i64 0, i64 %3
   %10 = load i16, ptr %9, align 2
   %11 = add i16 %10, 1
   store i16 %11, ptr %9, align 2
-  switch i32 %0, label %55 [
+  switch i32 %0, label %50 [
     i32 0, label %12
     i32 1, label %18
     i32 2, label %20
-    i32 3, label %43
-    i32 4, label %49
+    i32 3, label %38
+    i32 4, label %44
   ]
 
 12:                                               ; preds = %8
@@ -659,12 +659,12 @@ define dso_local i32 @cgroup_p_step_create(i32 noundef %0, ptr noundef %1) local
   %16 = getelementptr inbounds [5 x [4096 x i8]], ptr @g_user_cgpath, i64 0, i64 %3
   %17 = tail call i32 @xcgroup_create_hierarchy(ptr noundef nonnull @__func__.cgroup_p_step_create, ptr noundef %1, ptr noundef nonnull %13, ptr noundef nonnull %4, ptr noundef nonnull %14, ptr noundef nonnull %15, ptr noundef nonnull %16) #11
   %.not62 = icmp eq i32 %17, 0
-  br i1 %.not62, label %58, label %60
+  br i1 %.not62, label %54, label %56
 
 18:                                               ; preds = %8
   %19 = tail call fastcc i32 @_cpuset_create(ptr noundef %1)
   %.not61 = icmp eq i32 %19, 0
-  br i1 %.not61, label %58, label %60
+  br i1 %.not61, label %54, label %56
 
 20:                                               ; preds = %8
   %21 = getelementptr inbounds [5 x %struct.xcgroup_ns_t], ptr @g_cg_ns, i64 0, i64 %3
@@ -673,82 +673,75 @@ define dso_local i32 @cgroup_p_step_create(i32 noundef %0, ptr noundef %1) local
   %24 = getelementptr inbounds [5 x [4096 x i8]], ptr @g_user_cgpath, i64 0, i64 %3
   %25 = tail call i32 @xcgroup_create_hierarchy(ptr noundef nonnull @__func__.cgroup_p_step_create, ptr noundef %1, ptr noundef nonnull %21, ptr noundef nonnull %4, ptr noundef nonnull %22, ptr noundef nonnull %23, ptr noundef nonnull %24) #11
   %.not58 = icmp eq i32 %25, 0
-  br i1 %.not58, label %26, label %60
+  br i1 %.not58, label %26, label %56
 
 26:                                               ; preds = %20
   %27 = getelementptr inbounds i8, ptr %4, i64 80
   %28 = tail call i32 @common_cgroup_set_param(ptr noundef nonnull %27, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.8) #11
   %.not59 = icmp eq i32 %28, 0
-  br i1 %.not59, label %31, label %29
+  br i1 %.not59, label %29, label %.sink.split
 
 29:                                               ; preds = %26
-  %30 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.20, ptr noundef nonnull %24) #11
+  %30 = getelementptr inbounds i8, ptr %4, i64 120
+  %31 = tail call i32 @common_cgroup_set_param(ptr noundef nonnull %30, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.8) #11
+  %.not60 = icmp eq i32 %31, 0
+  br i1 %.not60, label %32, label %.sink.split
+
+32:                                               ; preds = %29
+  %33 = getelementptr inbounds i8, ptr %4, i64 160
+  %34 = tail call i32 @common_cgroup_set_param(ptr noundef nonnull %33, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.8) #11
+  %.not63 = icmp eq i32 %34, 0
+  br i1 %.not63, label %54, label %35
+
+35:                                               ; preds = %32
+  %36 = getelementptr inbounds i8, ptr %4, i64 176
+  %37 = load ptr, ptr %36, align 8
   br label %.sink.split
 
-31:                                               ; preds = %26
-  %32 = getelementptr inbounds i8, ptr %4, i64 120
-  %33 = tail call i32 @common_cgroup_set_param(ptr noundef nonnull %32, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.8) #11
-  %.not60 = icmp eq i32 %33, 0
-  br i1 %.not60, label %36, label %34
+38:                                               ; preds = %8
+  %39 = getelementptr inbounds [5 x %struct.xcgroup_ns_t], ptr @g_cg_ns, i64 0, i64 %3
+  %40 = getelementptr inbounds [5 x [4096 x i8]], ptr @g_job_cgpath, i64 0, i64 %3
+  %41 = getelementptr inbounds [5 x [4096 x i8]], ptr @g_step_cgpath, i64 0, i64 %3
+  %42 = getelementptr inbounds [5 x [4096 x i8]], ptr @g_user_cgpath, i64 0, i64 %3
+  %43 = tail call i32 @xcgroup_create_hierarchy(ptr noundef nonnull @__func__.cgroup_p_step_create, ptr noundef %1, ptr noundef nonnull %39, ptr noundef nonnull %4, ptr noundef nonnull %40, ptr noundef nonnull %41, ptr noundef nonnull %42) #11
+  %.not57 = icmp eq i32 %43, 0
+  br i1 %.not57, label %54, label %56
 
-34:                                               ; preds = %31
-  %35 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.20, ptr noundef nonnull %22) #11
-  br label %.sink.split
+44:                                               ; preds = %8
+  %45 = getelementptr inbounds [5 x %struct.xcgroup_ns_t], ptr @g_cg_ns, i64 0, i64 %3
+  %46 = getelementptr inbounds [5 x [4096 x i8]], ptr @g_job_cgpath, i64 0, i64 %3
+  %47 = getelementptr inbounds [5 x [4096 x i8]], ptr @g_step_cgpath, i64 0, i64 %3
+  %48 = getelementptr inbounds [5 x [4096 x i8]], ptr @g_user_cgpath, i64 0, i64 %3
+  %49 = tail call i32 @xcgroup_create_hierarchy(ptr noundef nonnull @__func__.cgroup_p_step_create, ptr noundef %1, ptr noundef nonnull %45, ptr noundef nonnull %4, ptr noundef nonnull %46, ptr noundef nonnull %47, ptr noundef nonnull %48) #11
+  %.not56 = icmp eq i32 %49, 0
+  br i1 %.not56, label %54, label %56
 
-36:                                               ; preds = %31
-  %37 = getelementptr inbounds i8, ptr %4, i64 160
-  %38 = tail call i32 @common_cgroup_set_param(ptr noundef nonnull %37, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.8) #11
-  %.not63 = icmp eq i32 %38, 0
-  br i1 %.not63, label %58, label %39
+50:                                               ; preds = %8
+  %51 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.9, i32 noundef %0) #11
+  br label %56
 
-39:                                               ; preds = %36
-  %40 = getelementptr inbounds i8, ptr %4, i64 176
-  %41 = load ptr, ptr %40, align 8
-  %42 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.20, ptr noundef %41) #11
-  br label %.sink.split
+.sink.split:                                      ; preds = %29, %26, %35
+  %.sink = phi ptr [ %37, %35 ], [ %24, %26 ], [ %22, %29 ]
+  %.1.ph = phi i32 [ 1, %35 ], [ %28, %26 ], [ %31, %29 ]
+  %52 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.20, ptr noundef %.sink) #11
+  %53 = tail call fastcc i32 @_step_destroy_internal(i32 noundef 2, i1 noundef zeroext true)
+  br label %54
 
-43:                                               ; preds = %8
-  %44 = getelementptr inbounds [5 x %struct.xcgroup_ns_t], ptr @g_cg_ns, i64 0, i64 %3
-  %45 = getelementptr inbounds [5 x [4096 x i8]], ptr @g_job_cgpath, i64 0, i64 %3
-  %46 = getelementptr inbounds [5 x [4096 x i8]], ptr @g_step_cgpath, i64 0, i64 %3
-  %47 = getelementptr inbounds [5 x [4096 x i8]], ptr @g_user_cgpath, i64 0, i64 %3
-  %48 = tail call i32 @xcgroup_create_hierarchy(ptr noundef nonnull @__func__.cgroup_p_step_create, ptr noundef %1, ptr noundef nonnull %44, ptr noundef nonnull %4, ptr noundef nonnull %45, ptr noundef nonnull %46, ptr noundef nonnull %47) #11
-  %.not57 = icmp eq i32 %48, 0
-  br i1 %.not57, label %58, label %60
-
-49:                                               ; preds = %8
-  %50 = getelementptr inbounds [5 x %struct.xcgroup_ns_t], ptr @g_cg_ns, i64 0, i64 %3
-  %51 = getelementptr inbounds [5 x [4096 x i8]], ptr @g_job_cgpath, i64 0, i64 %3
-  %52 = getelementptr inbounds [5 x [4096 x i8]], ptr @g_step_cgpath, i64 0, i64 %3
-  %53 = getelementptr inbounds [5 x [4096 x i8]], ptr @g_user_cgpath, i64 0, i64 %3
-  %54 = tail call i32 @xcgroup_create_hierarchy(ptr noundef nonnull @__func__.cgroup_p_step_create, ptr noundef %1, ptr noundef nonnull %50, ptr noundef nonnull %4, ptr noundef nonnull %51, ptr noundef nonnull %52, ptr noundef nonnull %53) #11
-  %.not56 = icmp eq i32 %54, 0
-  br i1 %.not56, label %58, label %60
-
-55:                                               ; preds = %8
-  %56 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.9, i32 noundef %0) #11
+54:                                               ; preds = %.sink.split, %44, %38, %32, %18, %12
+  %.1 = phi i32 [ 0, %44 ], [ 0, %38 ], [ 0, %32 ], [ 0, %18 ], [ 0, %12 ], [ %.1.ph, %.sink.split ]
+  %55 = tail call i32 @common_cgroup_unlock(ptr noundef nonnull %4) #11
   br label %60
 
-.sink.split:                                      ; preds = %29, %34, %39
-  %.1.ph = phi i32 [ 1, %39 ], [ %33, %34 ], [ %28, %29 ]
-  %57 = tail call fastcc i32 @_step_destroy_internal(i32 noundef 2, i1 noundef zeroext true)
-  br label %58
+56:                                               ; preds = %44, %38, %20, %18, %12, %50
+  %.0 = phi i32 [ -1, %50 ], [ %49, %44 ], [ %43, %38 ], [ %25, %20 ], [ %19, %18 ], [ %17, %12 ]
+  %57 = tail call i32 @common_cgroup_unlock(ptr noundef nonnull %4) #11
+  %58 = load i16, ptr %9, align 2
+  %59 = add i16 %58, -1
+  store i16 %59, ptr %9, align 2
+  br label %60
 
-58:                                               ; preds = %.sink.split, %49, %43, %36, %18, %12
-  %.1 = phi i32 [ 0, %49 ], [ 0, %43 ], [ 0, %36 ], [ 0, %18 ], [ 0, %12 ], [ %.1.ph, %.sink.split ]
-  %59 = tail call i32 @common_cgroup_unlock(ptr noundef nonnull %4) #11
-  br label %64
-
-60:                                               ; preds = %49, %43, %20, %18, %12, %55
-  %.0 = phi i32 [ -1, %55 ], [ %54, %49 ], [ %48, %43 ], [ %25, %20 ], [ %19, %18 ], [ %17, %12 ]
-  %61 = tail call i32 @common_cgroup_unlock(ptr noundef nonnull %4) #11
-  %62 = load i16, ptr %9, align 2
-  %63 = add i16 %62, -1
-  store i16 %63, ptr %9, align 2
-  br label %64
-
-64:                                               ; preds = %60, %58, %6
-  %.043 = phi i32 [ -1, %6 ], [ %.0, %60 ], [ %.1, %58 ]
+60:                                               ; preds = %56, %54, %6
+  %.043 = phi i32 [ -1, %6 ], [ %.0, %56 ], [ %.1, %54 ]
   ret i32 %.043
 }
 

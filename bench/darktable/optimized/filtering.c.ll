@@ -1919,8 +1919,7 @@ define internal fastcc void @_history_save(i32 noundef range(i32 0, 2) %0) unnam
 
 26:                                               ; preds = %.preheader
   %27 = add nsw i32 %20, 1
-  call void @dt_conf_set_string(ptr noundef nonnull %3, ptr noundef nonnull @.str.13) #21
-  br label %33
+  br label %.sink.split
 
 28:                                               ; preds = %.preheader
   %29 = icmp sgt i32 %20, 0
@@ -1930,11 +1929,16 @@ define internal fastcc void @_history_save(i32 noundef range(i32 0, 2) %0) unnam
   call void @dt_conf_set_string(ptr noundef nonnull %3, ptr noundef nonnull @.str.13) #21
   %31 = sub nsw i32 %21, %20
   %32 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %3, i64 noundef 200, ptr noundef nonnull @.str.108, ptr noundef nonnull %9, i32 noundef %31) #21
-  call void @dt_conf_set_string(ptr noundef nonnull %3, ptr noundef %23) #21
+  br label %.sink.split
+
+.sink.split:                                      ; preds = %26, %30
+  %.sink = phi ptr [ %23, %30 ], [ @.str.13, %26 ]
+  %.ph = phi i32 [ %20, %30 ], [ %27, %26 ]
+  call void @dt_conf_set_string(ptr noundef nonnull %3, ptr noundef %.sink) #21
   br label %33
 
-33:                                               ; preds = %30, %28, %26
-  %34 = phi i32 [ %20, %30 ], [ %20, %28 ], [ %27, %26 ]
+33:                                               ; preds = %.sink.split, %28
+  %34 = phi i32 [ %20, %28 ], [ %.ph, %.sink.split ]
   call void @g_free(ptr noundef %23) #21
   %35 = add nuw nsw i32 %21, 1
   %36 = icmp eq i32 %35, %16
@@ -7201,17 +7205,17 @@ define internal noundef range(i32 0, 2) i32 @_date_update(ptr noundef %0) #1 {
   %87 = add nsw i32 %86, -1
   store i32 %87, ptr %24, align 8, !tbaa !121
   call void @dtgtk_range_select_redraw(ptr noundef %15) #21
-  call void @dtgtk_range_select_redraw(ptr noundef nonnull %23) #21
   br label %91
 
 88:                                               ; preds = %.loopexit
   %89 = load i32, ptr %24, align 8, !tbaa !121
   %90 = add nsw i32 %89, -1
   store i32 %90, ptr %24, align 8, !tbaa !121
-  call void @dtgtk_range_select_redraw(ptr noundef %15) #21
   br label %91
 
 91:                                               ; preds = %88, %85
+  %.sink = phi ptr [ %15, %88 ], [ %23, %85 ]
+  call void @dtgtk_range_select_redraw(ptr noundef %.sink) #21
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #21
   call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %2) #21
   br label %92
@@ -7493,17 +7497,17 @@ define internal noundef range(i32 0, 2) i32 @_ratio_update(ptr noundef %0) #1 {
   %119 = add nsw i32 %118, -1
   store i32 %119, ptr %24, align 8, !tbaa !121
   call void @dtgtk_range_select_redraw(ptr noundef %15) #21
-  call void @dtgtk_range_select_redraw(ptr noundef nonnull %23) #21
   br label %123
 
 120:                                              ; preds = %.loopexit
   %121 = load i32, ptr %24, align 8, !tbaa !121
   %122 = add nsw i32 %121, -1
   store i32 %122, ptr %24, align 8, !tbaa !121
-  call void @dtgtk_range_select_redraw(ptr noundef %15) #21
   br label %123
 
 123:                                              ; preds = %120, %113
+  %.sink = phi ptr [ %15, %120 ], [ %23, %113 ]
+  call void @dtgtk_range_select_redraw(ptr noundef %.sink) #21
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #21
   call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %2) #21
   br label %124
@@ -7967,17 +7971,17 @@ define internal noundef range(i32 0, 2) i32 @_aperture_update(ptr noundef %0) #1
   %74 = add nsw i32 %73, -1
   store i32 %74, ptr %24, align 8, !tbaa !121
   call void @dtgtk_range_select_redraw(ptr noundef %15) #21
-  call void @dtgtk_range_select_redraw(ptr noundef nonnull %23) #21
   br label %78
 
 75:                                               ; preds = %.loopexit
   %76 = load i32, ptr %24, align 8, !tbaa !121
   %77 = add nsw i32 %76, -1
   store i32 %77, ptr %24, align 8, !tbaa !121
-  call void @dtgtk_range_select_redraw(ptr noundef %15) #21
   br label %78
 
 78:                                               ; preds = %75, %72
+  %.sink = phi ptr [ %15, %75 ], [ %23, %72 ]
+  call void @dtgtk_range_select_redraw(ptr noundef %.sink) #21
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #21
   call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %2) #21
   br label %79
@@ -8189,17 +8193,17 @@ define internal noundef range(i32 0, 2) i32 @_focal_update(ptr noundef %0) #1 {
   %74 = add nsw i32 %73, -1
   store i32 %74, ptr %24, align 8, !tbaa !121
   call void @dtgtk_range_select_redraw(ptr noundef %15) #21
-  call void @dtgtk_range_select_redraw(ptr noundef nonnull %23) #21
   br label %78
 
 75:                                               ; preds = %.loopexit
   %76 = load i32, ptr %24, align 8, !tbaa !121
   %77 = add nsw i32 %76, -1
   store i32 %77, ptr %24, align 8, !tbaa !121
-  call void @dtgtk_range_select_redraw(ptr noundef %15) #21
   br label %78
 
 78:                                               ; preds = %75, %72
+  %.sink = phi ptr [ %15, %75 ], [ %23, %72 ]
+  call void @dtgtk_range_select_redraw(ptr noundef %.sink) #21
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #21
   call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %2) #21
   br label %79
@@ -8410,17 +8414,17 @@ define internal noundef range(i32 0, 2) i32 @_iso_update(ptr noundef %0) #1 {
   %74 = add nsw i32 %73, -1
   store i32 %74, ptr %24, align 8, !tbaa !121
   call void @dtgtk_range_select_redraw(ptr noundef %15) #21
-  call void @dtgtk_range_select_redraw(ptr noundef nonnull %23) #21
   br label %78
 
 75:                                               ; preds = %.loopexit
   %76 = load i32, ptr %24, align 8, !tbaa !121
   %77 = add nsw i32 %76, -1
   store i32 %77, ptr %24, align 8, !tbaa !121
-  call void @dtgtk_range_select_redraw(ptr noundef %15) #21
   br label %78
 
 78:                                               ; preds = %75, %72
+  %.sink = phi ptr [ %15, %75 ], [ %23, %72 ]
+  call void @dtgtk_range_select_redraw(ptr noundef %.sink) #21
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #21
   call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %2) #21
   br label %79
@@ -8644,17 +8648,17 @@ define internal noundef range(i32 0, 2) i32 @_exposure_update(ptr noundef %0) #1
   %74 = add nsw i32 %73, -1
   store i32 %74, ptr %24, align 8, !tbaa !121
   call void @dtgtk_range_select_redraw(ptr noundef %15) #21
-  call void @dtgtk_range_select_redraw(ptr noundef nonnull %23) #21
   br label %78
 
 75:                                               ; preds = %.loopexit
   %76 = load i32, ptr %24, align 8, !tbaa !121
   %77 = add nsw i32 %76, -1
   store i32 %77, ptr %24, align 8, !tbaa !121
-  call void @dtgtk_range_select_redraw(ptr noundef %15) #21
   br label %78
 
 78:                                               ; preds = %75, %72
+  %.sink = phi ptr [ %15, %75 ], [ %23, %72 ]
+  call void @dtgtk_range_select_redraw(ptr noundef %.sink) #21
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #21
   call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %2) #21
   br label %79

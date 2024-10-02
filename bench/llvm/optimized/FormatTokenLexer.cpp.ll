@@ -4556,7 +4556,7 @@ define dso_local void @_ZN5clang6format16FormatTokenLexer22tryParseJSRegexLitera
   %9 = load i16, ptr %8, align 8
   %.off = add i16 %9, -43
   %switch = icmp ult i16 %.off, 2
-  br i1 %switch, label %10, label %69
+  br i1 %switch, label %10, label %68
 
 10:                                               ; preds = %1
   %11 = load ptr, ptr %2, align 8, !noalias !32
@@ -4594,99 +4594,99 @@ _ZNK5clang6format11FormatToken7isOneOfINS_3tok9TokenKindES4_JS4_EEEbT_T0_DpT1_.e
   %27 = getelementptr ptr, ptr %26, i64 %25
   %28 = getelementptr i8, ptr %27, i64 -24
   %29 = load ptr, ptr %28, align 8
-  %30 = tail call noundef zeroext i1 @_ZN5clang6format16FormatTokenLexer15precedesOperandEPNS0_11FormatTokenE(ptr noundef nonnull align 8 dereferenceable(3648) %0, ptr noundef %29)
-  br i1 %30, label %_ZN5clang6format16FormatTokenLexer22canPrecedeRegexLiteralEPNS0_11FormatTokenE.exit.thread, label %69
+  br label %_ZN5clang6format16FormatTokenLexer22canPrecedeRegexLiteralEPNS0_11FormatTokenE.exit
 
-_ZN5clang6format16FormatTokenLexer22canPrecedeRegexLiteralEPNS0_11FormatTokenE.exit: ; preds = %17
-  %31 = tail call noundef zeroext i1 @_ZN5clang6format16FormatTokenLexer15precedesOperandEPNS0_11FormatTokenE(ptr noundef nonnull align 8 dereferenceable(3648) %0, ptr noundef nonnull readonly %19)
-  br i1 %31, label %_ZN5clang6format16FormatTokenLexer22canPrecedeRegexLiteralEPNS0_11FormatTokenE.exit.thread, label %69
+_ZN5clang6format16FormatTokenLexer22canPrecedeRegexLiteralEPNS0_11FormatTokenE.exit: ; preds = %17, %24
+  %.sink.i = phi ptr [ %29, %24 ], [ %19, %17 ]
+  %30 = tail call noundef zeroext i1 @_ZN5clang6format16FormatTokenLexer15precedesOperandEPNS0_11FormatTokenE(ptr noundef nonnull align 8 dereferenceable(3648) %0, ptr noundef %.sink.i)
+  br i1 %30, label %_ZN5clang6format16FormatTokenLexer22canPrecedeRegexLiteralEPNS0_11FormatTokenE.exit.thread, label %68
 
-_ZN5clang6format16FormatTokenLexer22canPrecedeRegexLiteralEPNS0_11FormatTokenE.exit.thread: ; preds = %16, %_ZNK5clang6format11FormatToken7isOneOfINS_3tok9TokenKindES4_JS4_EEEbT_T0_DpT1_.exit.thread.i, %24, %_ZN5clang6format16FormatTokenLexer22canPrecedeRegexLiteralEPNS0_11FormatTokenE.exit
-  %32 = getelementptr inbounds nuw i8, ptr %0, i64 104
-  %33 = load ptr, ptr %32, align 8
-  %34 = getelementptr inbounds nuw i8, ptr %33, i64 152
-  %35 = load ptr, ptr %34, align 8
-  %36 = getelementptr inbounds nuw i8, ptr %7, i64 24
-  %37 = getelementptr inbounds nuw i8, ptr %7, i64 32
-  %38 = load i64, ptr %37, align 8
-  %39 = sub i64 0, %38
-  %40 = getelementptr inbounds i8, ptr %35, i64 %39
-  %41 = getelementptr inbounds nuw i8, ptr %33, i64 120
-  %42 = load ptr, ptr %41, align 8
-  %.not43 = icmp eq ptr %35, %42
+_ZN5clang6format16FormatTokenLexer22canPrecedeRegexLiteralEPNS0_11FormatTokenE.exit.thread: ; preds = %16, %_ZNK5clang6format11FormatToken7isOneOfINS_3tok9TokenKindES4_JS4_EEEbT_T0_DpT1_.exit.thread.i, %_ZN5clang6format16FormatTokenLexer22canPrecedeRegexLiteralEPNS0_11FormatTokenE.exit
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 104
+  %32 = load ptr, ptr %31, align 8
+  %33 = getelementptr inbounds nuw i8, ptr %32, i64 152
+  %34 = load ptr, ptr %33, align 8
+  %35 = getelementptr inbounds nuw i8, ptr %7, i64 24
+  %36 = getelementptr inbounds nuw i8, ptr %7, i64 32
+  %37 = load i64, ptr %36, align 8
+  %38 = sub i64 0, %37
+  %39 = getelementptr inbounds i8, ptr %34, i64 %38
+  %40 = getelementptr inbounds nuw i8, ptr %32, i64 120
+  %41 = load ptr, ptr %40, align 8
+  %.not43 = icmp eq ptr %34, %41
   br i1 %.not43, label %.critedge, label %.lr.ph
 
-.lr.ph:                                           ; preds = %_ZN5clang6format16FormatTokenLexer22canPrecedeRegexLiteralEPNS0_11FormatTokenE.exit.thread, %49
-  %.02445 = phi i1 [ %.125, %49 ], [ false, %_ZN5clang6format16FormatTokenLexer22canPrecedeRegexLiteralEPNS0_11FormatTokenE.exit.thread ]
-  %.02644 = phi ptr [ %50, %49 ], [ %35, %_ZN5clang6format16FormatTokenLexer22canPrecedeRegexLiteralEPNS0_11FormatTokenE.exit.thread ]
-  %43 = load i8, ptr %.02644, align 1
-  switch i8 %43, label %49 [
-    i8 92, label %44
-    i8 91, label %46
-    i8 93, label %47
-    i8 47, label %48
+.lr.ph:                                           ; preds = %_ZN5clang6format16FormatTokenLexer22canPrecedeRegexLiteralEPNS0_11FormatTokenE.exit.thread, %48
+  %.02445 = phi i1 [ %.125, %48 ], [ false, %_ZN5clang6format16FormatTokenLexer22canPrecedeRegexLiteralEPNS0_11FormatTokenE.exit.thread ]
+  %.02644 = phi ptr [ %49, %48 ], [ %34, %_ZN5clang6format16FormatTokenLexer22canPrecedeRegexLiteralEPNS0_11FormatTokenE.exit.thread ]
+  %42 = load i8, ptr %.02644, align 1
+  switch i8 %42, label %48 [
+    i8 92, label %43
+    i8 91, label %45
+    i8 93, label %46
+    i8 47, label %47
   ]
 
-44:                                               ; preds = %.lr.ph
-  %45 = getelementptr inbounds i8, ptr %.02644, i64 1
-  br label %49
+43:                                               ; preds = %.lr.ph
+  %44 = getelementptr inbounds i8, ptr %.02644, i64 1
+  br label %48
+
+45:                                               ; preds = %.lr.ph
+  br label %48
 
 46:                                               ; preds = %.lr.ph
-  br label %49
+  br label %48
 
 47:                                               ; preds = %.lr.ph
-  br label %49
-
-48:                                               ; preds = %.lr.ph
   %not..02445 = xor i1 %.02445, true
-  br label %49
+  br label %48
 
-49:                                               ; preds = %48, %.lr.ph, %44, %46, %47
-  %.127 = phi ptr [ %.02644, %.lr.ph ], [ %.02644, %47 ], [ %.02644, %46 ], [ %45, %44 ], [ %.02644, %48 ]
-  %.125 = phi i1 [ %.02445, %.lr.ph ], [ false, %47 ], [ true, %46 ], [ %.02445, %44 ], [ %.02445, %48 ]
-  %.1 = phi i1 [ false, %.lr.ph ], [ false, %47 ], [ false, %46 ], [ false, %44 ], [ %not..02445, %48 ]
-  %50 = getelementptr inbounds i8, ptr %.127, i64 1
-  %.not = icmp eq ptr %50, %42
+48:                                               ; preds = %47, %.lr.ph, %43, %45, %46
+  %.127 = phi ptr [ %.02644, %.lr.ph ], [ %.02644, %46 ], [ %.02644, %45 ], [ %44, %43 ], [ %.02644, %47 ]
+  %.125 = phi i1 [ %.02445, %.lr.ph ], [ false, %46 ], [ true, %45 ], [ %.02445, %43 ], [ %.02445, %47 ]
+  %.1 = phi i1 [ false, %.lr.ph ], [ false, %46 ], [ false, %45 ], [ false, %43 ], [ %not..02445, %47 ]
+  %49 = getelementptr inbounds i8, ptr %.127, i64 1
+  %.not = icmp eq ptr %49, %41
   %or.cond = select i1 %.1, i1 true, i1 %.not
   br i1 %or.cond, label %.critedge, label %.lr.ph, !llvm.loop !52
 
-.critedge:                                        ; preds = %49, %_ZN5clang6format16FormatTokenLexer22canPrecedeRegexLiteralEPNS0_11FormatTokenE.exit.thread
-  %.026.lcssa = phi ptr [ %35, %_ZN5clang6format16FormatTokenLexer22canPrecedeRegexLiteralEPNS0_11FormatTokenE.exit.thread ], [ %50, %49 ]
-  %51 = getelementptr inbounds nuw i8, ptr %7, i64 256
-  %52 = getelementptr inbounds nuw i8, ptr %7, i64 296
-  %53 = load i8, ptr %52, align 8
-  %54 = trunc i8 %53 to i1
-  %55 = load i32, ptr %51, align 8
-  %56 = icmp eq i32 %55, 1
-  %or.cond.i = select i1 %54, i1 %56, i1 false
-  br i1 %or.cond.i, label %_ZN5clang6format11FormatToken7setTypeENS0_9TokenTypeE.exit, label %57
+.critedge:                                        ; preds = %48, %_ZN5clang6format16FormatTokenLexer22canPrecedeRegexLiteralEPNS0_11FormatTokenE.exit.thread
+  %.026.lcssa = phi ptr [ %34, %_ZN5clang6format16FormatTokenLexer22canPrecedeRegexLiteralEPNS0_11FormatTokenE.exit.thread ], [ %49, %48 ]
+  %50 = getelementptr inbounds nuw i8, ptr %7, i64 256
+  %51 = getelementptr inbounds nuw i8, ptr %7, i64 296
+  %52 = load i8, ptr %51, align 8
+  %53 = trunc i8 %52 to i1
+  %54 = load i32, ptr %50, align 8
+  %55 = icmp eq i32 %54, 1
+  %or.cond.i = select i1 %53, i1 %55, i1 false
+  br i1 %or.cond.i, label %_ZN5clang6format11FormatToken7setTypeENS0_9TokenTypeE.exit, label %56
 
-57:                                               ; preds = %.critedge
-  %58 = getelementptr inbounds nuw i8, ptr %7, i64 67
-  store i8 102, ptr %58, align 1
+56:                                               ; preds = %.critedge
+  %57 = getelementptr inbounds nuw i8, ptr %7, i64 67
+  store i8 102, ptr %57, align 1
   br label %_ZN5clang6format11FormatToken7setTypeENS0_9TokenTypeE.exit
 
-_ZN5clang6format11FormatToken7setTypeENS0_9TokenTypeE.exit: ; preds = %.critedge, %57
+_ZN5clang6format11FormatToken7setTypeENS0_9TokenTypeE.exit: ; preds = %.critedge, %56
   store i16 14, ptr %8, align 8
-  %59 = ptrtoint ptr %.026.lcssa to i64
-  %60 = ptrtoint ptr %40 to i64
-  %61 = sub i64 %59, %60
-  store ptr %40, ptr %36, align 8
-  store i64 %61, ptr %37, align 8
-  %62 = trunc i64 %61 to i32
-  %63 = getelementptr inbounds nuw i8, ptr %7, i64 84
-  store i32 %62, ptr %63, align 4
-  %64 = getelementptr inbounds nuw i8, ptr %0, i64 960
-  %65 = load ptr, ptr %64, align 8
-  %66 = load ptr, ptr %32, align 8
-  %67 = tail call i32 @_ZNK5clang5Lexer17getSourceLocationEPKcj(ptr noundef nonnull align 8 dereferenceable(204) %66, ptr noundef %.026.lcssa, i32 noundef 1) #19
-  %68 = tail call i64 @_ZNK5clang13SourceManager16getDecomposedLocENS_14SourceLocationE(ptr noundef nonnull align 8 dereferenceable(696) %65, i32 %67)
-  %.sroa.1.0.extract.shift.i = lshr i64 %68, 32
+  %58 = ptrtoint ptr %.026.lcssa to i64
+  %59 = ptrtoint ptr %39 to i64
+  %60 = sub i64 %58, %59
+  store ptr %39, ptr %35, align 8
+  store i64 %60, ptr %36, align 8
+  %61 = trunc i64 %60 to i32
+  %62 = getelementptr inbounds nuw i8, ptr %7, i64 84
+  store i32 %61, ptr %62, align 4
+  %63 = getelementptr inbounds nuw i8, ptr %0, i64 960
+  %64 = load ptr, ptr %63, align 8
+  %65 = load ptr, ptr %31, align 8
+  %66 = tail call i32 @_ZNK5clang5Lexer17getSourceLocationEPKcj(ptr noundef nonnull align 8 dereferenceable(204) %65, ptr noundef %.026.lcssa, i32 noundef 1) #19
+  %67 = tail call i64 @_ZNK5clang13SourceManager16getDecomposedLocENS_14SourceLocationE(ptr noundef nonnull align 8 dereferenceable(696) %64, i32 %66)
+  %.sroa.1.0.extract.shift.i = lshr i64 %67, 32
   %.sroa.1.0.extract.trunc.i = trunc nuw i64 %.sroa.1.0.extract.shift.i to i32
   tail call void @_ZN5clang6format16FormatTokenLexer10resetLexerEj(ptr noundef nonnull align 8 dereferenceable(3648) %0, i32 noundef %.sroa.1.0.extract.trunc.i)
-  br label %69
+  br label %68
 
-69:                                               ; preds = %1, %24, %_ZN5clang6format16FormatTokenLexer22canPrecedeRegexLiteralEPNS0_11FormatTokenE.exit, %_ZN5clang6format11FormatToken7setTypeENS0_9TokenTypeE.exit
+68:                                               ; preds = %1, %_ZN5clang6format16FormatTokenLexer22canPrecedeRegexLiteralEPNS0_11FormatTokenE.exit, %_ZN5clang6format11FormatToken7setTypeENS0_9TokenTypeE.exit
   ret void
 }
 
@@ -8679,12 +8679,12 @@ _ZNK5clang6format11FormatToken7isOneOfINS_3tok9TokenKindES4_JS4_S4_S4_S4_S4_S4_S
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local noundef zeroext i1 @_ZN5clang6format16FormatTokenLexer22canPrecedeRegexLiteralEPNS0_11FormatTokenE(ptr noundef nonnull align 8 dereferenceable(3648) %0, ptr noundef readonly %1) local_unnamed_addr #0 align 2 {
   %.not = icmp eq ptr %1, null
-  br i1 %.not, label %18, label %3
+  br i1 %.not, label %16, label %3
 
 3:                                                ; preds = %2
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %5 = load i16, ptr %4, align 8
-  switch i16 %5, label %16 [
+  switch i16 %5, label %.sink.split [
     i16 34, label %_ZNK5clang6format11FormatToken7isOneOfINS_3tok9TokenKindES4_JS4_EEEbT_T0_DpT1_.exit.thread
     i16 41, label %_ZNK5clang6format11FormatToken7isOneOfINS_3tok9TokenKindES4_JS4_EEEbT_T0_DpT1_.exit.thread
     i16 38, label %_ZNK5clang6format11FormatToken7isOneOfINS_3tok9TokenKindES4_JS4_EEEbT_T0_DpT1_.exit.thread
@@ -8694,7 +8694,7 @@ _ZNK5clang6format11FormatToken7isOneOfINS_3tok9TokenKindES4_JS4_EEEbT_T0_DpT1_.e
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 3088
   %7 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %6) #19
   %8 = icmp ult i64 %7, 3
-  br i1 %8, label %18, label %9
+  br i1 %8, label %16, label %9
 
 9:                                                ; preds = %_ZNK5clang6format11FormatToken7isOneOfINS_3tok9TokenKindES4_JS4_EEEbT_T0_DpT1_.exit.thread
   %10 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %6) #19
@@ -8702,15 +8702,15 @@ _ZNK5clang6format11FormatToken7isOneOfINS_3tok9TokenKindES4_JS4_EEEbT_T0_DpT1_.e
   %12 = getelementptr ptr, ptr %11, i64 %10
   %13 = getelementptr i8, ptr %12, i64 -24
   %14 = load ptr, ptr %13, align 8
-  %15 = tail call noundef zeroext i1 @_ZN5clang6format16FormatTokenLexer15precedesOperandEPNS0_11FormatTokenE(ptr noundef nonnull align 8 dereferenceable(3648) %0, ptr noundef %14)
-  br label %18
+  br label %.sink.split
 
-16:                                               ; preds = %3
-  %17 = tail call noundef zeroext i1 @_ZN5clang6format16FormatTokenLexer15precedesOperandEPNS0_11FormatTokenE(ptr noundef nonnull align 8 dereferenceable(3648) %0, ptr noundef nonnull %1)
-  br label %18
+.sink.split:                                      ; preds = %3, %9
+  %.sink = phi ptr [ %14, %9 ], [ %1, %3 ]
+  %15 = tail call noundef zeroext i1 @_ZN5clang6format16FormatTokenLexer15precedesOperandEPNS0_11FormatTokenE(ptr noundef nonnull align 8 dereferenceable(3648) %0, ptr noundef %.sink)
+  br label %16
 
-18:                                               ; preds = %16, %_ZNK5clang6format11FormatToken7isOneOfINS_3tok9TokenKindES4_JS4_EEEbT_T0_DpT1_.exit.thread, %9, %2
-  %.0 = phi i1 [ true, %2 ], [ true, %_ZNK5clang6format11FormatToken7isOneOfINS_3tok9TokenKindES4_JS4_EEEbT_T0_DpT1_.exit.thread ], [ %15, %9 ], [ %17, %16 ]
+16:                                               ; preds = %.sink.split, %_ZNK5clang6format11FormatToken7isOneOfINS_3tok9TokenKindES4_JS4_EEEbT_T0_DpT1_.exit.thread, %2
+  %.0 = phi i1 [ true, %2 ], [ true, %_ZNK5clang6format11FormatToken7isOneOfINS_3tok9TokenKindES4_JS4_EEEbT_T0_DpT1_.exit.thread ], [ %15, %.sink.split ]
   ret i1 %.0
 }
 

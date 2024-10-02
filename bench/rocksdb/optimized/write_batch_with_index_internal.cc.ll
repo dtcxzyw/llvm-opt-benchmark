@@ -300,10 +300,8 @@ cond.true:                                        ; preds = %entry
   %current_at_base_ = getelementptr inbounds i8, ptr %this, i64 41
   %1 = load i8, ptr %current_at_base_, align 1
   %tobool = trunc i8 %1 to i1
-  br i1 %tobool, label %cond.true2, label %cond.false
-
-cond.true2:                                       ; preds = %cond.true
-  %base_iterator_.i = getelementptr inbounds i8, ptr %this, i64 72
+  %. = select i1 %tobool, i64 72, i64 80
+  %base_iterator_.i = getelementptr inbounds i8, ptr %this, i64 %.
   %2 = load ptr, ptr %base_iterator_.i, align 8
   %vtable.i = load ptr, ptr %2, align 8
   %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 16
@@ -311,17 +309,8 @@ cond.true2:                                       ; preds = %cond.true
   %call2.i = tail call noundef zeroext i1 %3(ptr noundef nonnull align 8 dereferenceable(40) %2)
   br label %cond.end6
 
-cond.false:                                       ; preds = %cond.true
-  %delta_iterator_.i = getelementptr inbounds i8, ptr %this, i64 80
-  %4 = load ptr, ptr %delta_iterator_.i, align 8
-  %vtable.i1 = load ptr, ptr %4, align 8
-  %vfn.i2 = getelementptr inbounds i8, ptr %vtable.i1, i64 16
-  %5 = load ptr, ptr %vfn.i2, align 8
-  %call2.i3 = tail call noundef zeroext i1 %5(ptr noundef nonnull align 8 dereferenceable(65) %4)
-  br label %cond.end6
-
-cond.end6:                                        ; preds = %entry, %cond.true2, %cond.false
-  %cond7 = phi i1 [ %call2.i, %cond.true2 ], [ %call2.i3, %cond.false ], [ false, %entry ]
+cond.end6:                                        ; preds = %cond.true, %entry
+  %cond7 = phi i1 [ false, %entry ], [ %call2.i, %cond.true ]
   ret i1 %cond7
 }
 

@@ -464,7 +464,7 @@ define dso_local ptr @PageGetTempPageCopySpecial(ptr nocapture noundef readonly 
   %9 = icmp eq i64 %8, 0
   %10 = icmp ult i16 %3, 1025
   %or.cond = and i1 %10, %9
-  br i1 %or.cond, label %11, label %20
+  br i1 %or.cond, label %11, label %PageInit.exit.sink.split
 
 11:                                               ; preds = %1
   %12 = getelementptr i8, ptr %5, i64 %4
@@ -479,40 +479,40 @@ define dso_local ptr @PageGetTempPageCopySpecial(ptr nocapture noundef readonly 
   %17 = add i64 %umax.i, %16
   %18 = and i64 %17, -8
   %19 = add i64 %18, 8
-  tail call void @llvm.memset.p0.i64(ptr align 8 %5, i8 0, i64 %19, i1 false)
+  br label %PageInit.exit.sink.split
+
+PageInit.exit.sink.split:                         ; preds = %1, %.lr.ph.preheader.i
+  %.sink = phi i64 [ %19, %.lr.ph.preheader.i ], [ %4, %1 ]
+  tail call void @llvm.memset.p0.i64(ptr align 1 %5, i8 0, i64 %.sink, i1 false)
   br label %PageInit.exit
 
-20:                                               ; preds = %1
-  tail call void @llvm.memset.p0.i64(ptr align 1 %5, i8 0, i64 %4, i1 false)
-  br label %PageInit.exit
-
-PageInit.exit:                                    ; preds = %11, %.lr.ph.preheader.i, %20
-  %21 = and i16 %.val9, -256
-  %reass.sub = sub i16 %21, %.val8
-  %22 = add i16 %reass.sub, 7
-  %23 = and i16 %22, -8
-  %24 = getelementptr inbounds i8, ptr %5, i64 10
-  store i16 0, ptr %24, align 2
-  %25 = getelementptr inbounds i8, ptr %5, i64 12
-  store i16 24, ptr %25, align 4
-  %26 = sub i16 %3, %23
-  %27 = getelementptr inbounds i8, ptr %5, i64 14
-  store i16 %26, ptr %27, align 2
-  %28 = getelementptr inbounds i8, ptr %5, i64 16
-  store i16 %26, ptr %28, align 4
-  %29 = or disjoint i16 %3, 4
-  %30 = getelementptr inbounds i8, ptr %5, i64 18
-  store i16 %29, ptr %30, align 2
-  %31 = zext i16 %26 to i64
-  %32 = getelementptr i8, ptr %5, i64 %31
-  %33 = load i16, ptr %6, align 4
-  %34 = zext i16 %33 to i64
-  %35 = getelementptr i8, ptr %0, i64 %34
+PageInit.exit:                                    ; preds = %PageInit.exit.sink.split, %11
+  %20 = and i16 %.val9, -256
+  %reass.sub = sub i16 %20, %.val8
+  %21 = add i16 %reass.sub, 7
+  %22 = and i16 %21, -8
+  %23 = getelementptr inbounds i8, ptr %5, i64 10
+  store i16 0, ptr %23, align 2
+  %24 = getelementptr inbounds i8, ptr %5, i64 12
+  store i16 24, ptr %24, align 4
+  %25 = sub i16 %3, %22
+  %26 = getelementptr inbounds i8, ptr %5, i64 14
+  store i16 %25, ptr %26, align 2
+  %27 = getelementptr inbounds i8, ptr %5, i64 16
+  store i16 %25, ptr %27, align 4
+  %28 = or disjoint i16 %3, 4
+  %29 = getelementptr inbounds i8, ptr %5, i64 18
+  store i16 %28, ptr %29, align 2
+  %30 = zext i16 %25 to i64
+  %31 = getelementptr i8, ptr %5, i64 %30
+  %32 = load i16, ptr %6, align 4
+  %33 = zext i16 %32 to i64
+  %34 = getelementptr i8, ptr %0, i64 %33
   %.val11 = load i16, ptr %2, align 2
-  %36 = and i16 %.val11, -256
-  %37 = sub i16 %36, %33
-  %38 = zext i16 %37 to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %32, ptr align 1 %35, i64 %38, i1 false)
+  %35 = and i16 %.val11, -256
+  %36 = sub i16 %35, %32
+  %37 = zext i16 %36 to i64
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %31, ptr align 1 %34, i64 %37, i1 false)
   ret ptr %5
 }
 

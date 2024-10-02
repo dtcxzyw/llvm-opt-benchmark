@@ -6561,29 +6561,29 @@ define internal zeroext i1 @cost_qual_eval_walker(ptr noundef %0, ptr noundef %1
   br i1 %10, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %2, %tailrecurse
-  %.tr127 = phi ptr [ %177, %tailrecurse ], [ %0, %2 ]
+  %.tr127 = phi ptr [ %175, %tailrecurse ], [ %0, %2 ]
   %11 = load i32, ptr %.tr127, align 4
   switch i32 %11, label %.thread [
     i32 302, label %12
-    i32 13, label %47
-    i32 15, label %52
-    i32 16, label %52
-    i32 17, label %52
-    i32 18, label %57
+    i32 13, label %45
+    i32 15, label %50
+    i32 16, label %50
+    i32 17, label %50
+    i32 18, label %55
     i32 9, label %.loopexit
     i32 11, label %.loopexit
-    i32 10, label %99
-    i32 26, label %104
-    i32 27, label %115
-    i32 35, label %134
-    i32 37, label %150
-    i32 38, label %150
-    i32 39, label %150
-    i32 48, label %150
-    i32 52, label %150
-    i32 51, label %155
-    i32 20, label %160
-    i32 21, label %163
+    i32 10, label %97
+    i32 26, label %102
+    i32 27, label %113
+    i32 35, label %132
+    i32 37, label %148
+    i32 38, label %148
+    i32 39, label %148
+    i32 48, label %148
+    i32 52, label %148
+    i32 51, label %153
+    i32 20, label %158
+    i32 21, label %161
     i32 22, label %tailrecurse
     i32 303, label %.loopexit
   ]
@@ -6592,7 +6592,7 @@ define internal zeroext i1 @cost_qual_eval_walker(ptr noundef %0, ptr noundef %1
   %13 = getelementptr inbounds i8, ptr %.tr127, i64 112
   %14 = load double, ptr %13, align 8
   %15 = fcmp olt double %14, 0.000000e+00
-  br i1 %15, label %16, label %37
+  br i1 %15, label %16, label %35
 
 16:                                               ; preds = %12
   %17 = load ptr, ptr %1, align 8
@@ -6603,264 +6603,261 @@ define internal zeroext i1 @cost_qual_eval_walker(ptr noundef %0, ptr noundef %1
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %18, i8 0, i64 16, i1 false)
   %21 = load ptr, ptr %20, align 8
   %.not107 = icmp eq ptr %21, null
-  br i1 %.not107, label %24, label %22
+  br i1 %.not107, label %22, label %25
 
 22:                                               ; preds = %16
-  %23 = call zeroext i1 @cost_qual_eval_walker(ptr noundef nonnull %21, ptr noundef nonnull %4)
-  br label %28
+  %23 = getelementptr inbounds i8, ptr %.tr127, i64 8
+  %24 = load ptr, ptr %23, align 8
+  br label %25
 
-24:                                               ; preds = %16
-  %25 = getelementptr inbounds i8, ptr %.tr127, i64 8
-  %26 = load ptr, ptr %25, align 8
-  %27 = call zeroext i1 @cost_qual_eval_walker(ptr noundef %26, ptr noundef nonnull %4)
-  br label %28
+25:                                               ; preds = %16, %22
+  %.sink = phi ptr [ %24, %22 ], [ %21, %16 ]
+  %26 = call zeroext i1 @cost_qual_eval_walker(ptr noundef %.sink, ptr noundef nonnull %4)
+  %27 = getelementptr inbounds i8, ptr %.tr127, i64 18
+  %28 = load i8, ptr %27, align 2
+  %29 = trunc i8 %28 to i1
+  br i1 %29, label %30, label %34
 
-28:                                               ; preds = %24, %22
-  %29 = getelementptr inbounds i8, ptr %.tr127, i64 18
-  %30 = load i8, ptr %29, align 2
-  %31 = trunc i8 %30 to i1
-  br i1 %31, label %32, label %36
-
-32:                                               ; preds = %28
-  %33 = load double, ptr %19, align 8
-  %34 = load double, ptr %18, align 8
-  %35 = fadd double %33, %34
-  store double %35, ptr %18, align 8
+30:                                               ; preds = %25
+  %31 = load double, ptr %19, align 8
+  %32 = load double, ptr %18, align 8
+  %33 = fadd double %31, %32
+  store double %33, ptr %18, align 8
   store double 0.000000e+00, ptr %19, align 8
-  br label %36
+  br label %34
 
-36:                                               ; preds = %32, %28
+34:                                               ; preds = %30, %25
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %13, ptr noundef nonnull align 8 dereferenceable(16) %18, i64 16, i1 false)
   %.pre = load double, ptr %13, align 8
-  br label %37
+  br label %35
 
-37:                                               ; preds = %36, %12
-  %38 = phi double [ %.pre, %36 ], [ %14, %12 ]
-  %39 = getelementptr inbounds i8, ptr %1, i64 8
-  %40 = load double, ptr %39, align 8
-  %41 = fadd double %38, %40
-  store double %41, ptr %39, align 8
-  %42 = getelementptr inbounds i8, ptr %.tr127, i64 120
+35:                                               ; preds = %34, %12
+  %36 = phi double [ %.pre, %34 ], [ %14, %12 ]
+  %37 = getelementptr inbounds i8, ptr %1, i64 8
+  %38 = load double, ptr %37, align 8
+  %39 = fadd double %36, %38
+  store double %39, ptr %37, align 8
+  %40 = getelementptr inbounds i8, ptr %.tr127, i64 120
+  %41 = load double, ptr %40, align 8
+  %42 = getelementptr inbounds i8, ptr %1, i64 16
   %43 = load double, ptr %42, align 8
-  %44 = getelementptr inbounds i8, ptr %1, i64 16
-  %45 = load double, ptr %44, align 8
-  %46 = fadd double %43, %45
-  store double %46, ptr %44, align 8
+  %44 = fadd double %41, %43
+  store double %44, ptr %42, align 8
   br label %.loopexit
 
-47:                                               ; preds = %.lr.ph
-  %48 = load ptr, ptr %1, align 8
-  %49 = getelementptr inbounds i8, ptr %.tr127, i64 4
-  %50 = load i32, ptr %49, align 4
-  %51 = getelementptr inbounds i8, ptr %1, i64 8
-  tail call void @add_function_cost(ptr noundef %48, i32 noundef %50, ptr noundef nonnull %.tr127, ptr noundef nonnull %51) #17
+45:                                               ; preds = %.lr.ph
+  %46 = load ptr, ptr %1, align 8
+  %47 = getelementptr inbounds i8, ptr %.tr127, i64 4
+  %48 = load i32, ptr %47, align 4
+  %49 = getelementptr inbounds i8, ptr %1, i64 8
+  tail call void @add_function_cost(ptr noundef %46, i32 noundef %48, ptr noundef nonnull %.tr127, ptr noundef nonnull %49) #17
   br label %.thread
 
-52:                                               ; preds = %.lr.ph, %.lr.ph, %.lr.ph
+50:                                               ; preds = %.lr.ph, %.lr.ph, %.lr.ph
   tail call void @set_opfuncid(ptr noundef nonnull %.tr127) #17
-  %53 = load ptr, ptr %1, align 8
-  %54 = getelementptr inbounds i8, ptr %.tr127, i64 8
-  %55 = load i32, ptr %54, align 8
-  %56 = getelementptr inbounds i8, ptr %1, i64 8
-  tail call void @add_function_cost(ptr noundef %53, i32 noundef %55, ptr noundef nonnull %.tr127, ptr noundef nonnull %56) #17
+  %51 = load ptr, ptr %1, align 8
+  %52 = getelementptr inbounds i8, ptr %.tr127, i64 8
+  %53 = load i32, ptr %52, align 8
+  %54 = getelementptr inbounds i8, ptr %1, i64 8
+  tail call void @add_function_cost(ptr noundef %51, i32 noundef %53, ptr noundef nonnull %.tr127, ptr noundef nonnull %54) #17
   br label %.thread
 
-57:                                               ; preds = %.lr.ph
-  %58 = getelementptr inbounds i8, ptr %.tr127, i64 32
-  %59 = load ptr, ptr %58, align 8
-  %60 = getelementptr i8, ptr %59, i64 16
-  %.val108 = load ptr, ptr %60, align 8
-  %61 = getelementptr i8, ptr %.val108, i64 8
-  %62 = load ptr, ptr %61, align 8
-  %63 = load ptr, ptr %1, align 8
-  %64 = tail call double @estimate_array_length(ptr noundef %63, ptr noundef %62) #17
+55:                                               ; preds = %.lr.ph
+  %56 = getelementptr inbounds i8, ptr %.tr127, i64 32
+  %57 = load ptr, ptr %56, align 8
+  %58 = getelementptr i8, ptr %57, i64 16
+  %.val108 = load ptr, ptr %58, align 8
+  %59 = getelementptr i8, ptr %.val108, i64 8
+  %60 = load ptr, ptr %59, align 8
+  %61 = load ptr, ptr %1, align 8
+  %62 = tail call double @estimate_array_length(ptr noundef %61, ptr noundef %60) #17
   tail call void @set_sa_opfuncid(ptr noundef nonnull %.tr127) #17
-  %65 = getelementptr inbounds i8, ptr %5, i64 8
+  %63 = getelementptr inbounds i8, ptr %5, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %5, i8 0, i64 16, i1 false)
-  %66 = load ptr, ptr %1, align 8
-  %67 = getelementptr inbounds i8, ptr %.tr127, i64 8
-  %68 = load i32, ptr %67, align 8
-  call void @add_function_cost(ptr noundef %66, i32 noundef %68, ptr noundef null, ptr noundef nonnull %5) #17
-  %69 = getelementptr inbounds i8, ptr %.tr127, i64 12
-  %70 = load i32, ptr %69, align 4
-  %.not106 = icmp eq i32 %70, 0
-  br i1 %.not106, label %87, label %71
+  %64 = load ptr, ptr %1, align 8
+  %65 = getelementptr inbounds i8, ptr %.tr127, i64 8
+  %66 = load i32, ptr %65, align 8
+  call void @add_function_cost(ptr noundef %64, i32 noundef %66, ptr noundef null, ptr noundef nonnull %5) #17
+  %67 = getelementptr inbounds i8, ptr %.tr127, i64 12
+  %68 = load i32, ptr %67, align 4
+  %.not106 = icmp eq i32 %68, 0
+  br i1 %.not106, label %85, label %69
 
-71:                                               ; preds = %57
-  %72 = getelementptr inbounds i8, ptr %6, i64 8
+69:                                               ; preds = %55
+  %70 = getelementptr inbounds i8, ptr %6, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %6, i8 0, i64 16, i1 false)
-  %73 = load ptr, ptr %1, align 8
-  call void @add_function_cost(ptr noundef %73, i32 noundef %70, ptr noundef null, ptr noundef nonnull %6) #17
-  %74 = load double, ptr %5, align 8
-  %75 = load double, ptr %6, align 8
-  %76 = fadd double %74, %75
-  %77 = getelementptr inbounds i8, ptr %1, i64 8
-  %78 = load double, ptr %77, align 8
-  %79 = fadd double %78, %76
-  %80 = load double, ptr %72, align 8
-  %81 = call double @llvm.fmuladd.f64(double %64, double %80, double %79)
-  store double %81, ptr %77, align 8
-  %82 = load double, ptr %65, align 8
-  %83 = fadd double %80, %82
-  %84 = getelementptr inbounds i8, ptr %1, i64 16
-  %85 = load double, ptr %84, align 8
-  %86 = fadd double %85, %83
-  store double %86, ptr %84, align 8
+  %71 = load ptr, ptr %1, align 8
+  call void @add_function_cost(ptr noundef %71, i32 noundef %68, ptr noundef null, ptr noundef nonnull %6) #17
+  %72 = load double, ptr %5, align 8
+  %73 = load double, ptr %6, align 8
+  %74 = fadd double %72, %73
+  %75 = getelementptr inbounds i8, ptr %1, i64 8
+  %76 = load double, ptr %75, align 8
+  %77 = fadd double %76, %74
+  %78 = load double, ptr %70, align 8
+  %79 = call double @llvm.fmuladd.f64(double %62, double %78, double %77)
+  store double %79, ptr %75, align 8
+  %80 = load double, ptr %63, align 8
+  %81 = fadd double %78, %80
+  %82 = getelementptr inbounds i8, ptr %1, i64 16
+  %83 = load double, ptr %82, align 8
+  %84 = fadd double %83, %81
+  store double %84, ptr %82, align 8
   br label %.thread
 
-87:                                               ; preds = %57
-  %88 = load double, ptr %5, align 8
-  %89 = getelementptr inbounds i8, ptr %1, i64 8
-  %90 = load double, ptr %89, align 8
-  %91 = fadd double %88, %90
-  store double %91, ptr %89, align 8
-  %92 = load double, ptr %65, align 8
-  %93 = load ptr, ptr %1, align 8
-  %94 = call double @estimate_array_length(ptr noundef %93, ptr noundef %62) #17
-  %95 = fmul double %92, %94
-  %96 = getelementptr inbounds i8, ptr %1, i64 16
-  %97 = load double, ptr %96, align 8
-  %98 = call double @llvm.fmuladd.f64(double %95, double 5.000000e-01, double %97)
-  store double %98, ptr %96, align 8
+85:                                               ; preds = %55
+  %86 = load double, ptr %5, align 8
+  %87 = getelementptr inbounds i8, ptr %1, i64 8
+  %88 = load double, ptr %87, align 8
+  %89 = fadd double %86, %88
+  store double %89, ptr %87, align 8
+  %90 = load double, ptr %63, align 8
+  %91 = load ptr, ptr %1, align 8
+  %92 = call double @estimate_array_length(ptr noundef %91, ptr noundef %60) #17
+  %93 = fmul double %90, %92
+  %94 = getelementptr inbounds i8, ptr %1, i64 16
+  %95 = load double, ptr %94, align 8
+  %96 = call double @llvm.fmuladd.f64(double %93, double 5.000000e-01, double %95)
+  store double %96, ptr %94, align 8
   br label %.thread
 
-99:                                               ; preds = %.lr.ph
-  %100 = load double, ptr @cpu_operator_cost, align 8
-  %101 = getelementptr inbounds i8, ptr %1, i64 16
-  %102 = load double, ptr %101, align 8
-  %103 = fadd double %100, %102
-  store double %103, ptr %101, align 8
+97:                                               ; preds = %.lr.ph
+  %98 = load double, ptr @cpu_operator_cost, align 8
+  %99 = getelementptr inbounds i8, ptr %1, i64 16
+  %100 = load double, ptr %99, align 8
+  %101 = fadd double %98, %100
+  store double %101, ptr %99, align 8
   br label %.loopexit
 
-104:                                              ; preds = %.lr.ph
-  %105 = getelementptr inbounds i8, ptr %.tr127, i64 16
-  %106 = load i32, ptr %105, align 8
-  call void @getTypeInputInfo(i32 noundef %106, ptr noundef nonnull %7, ptr noundef nonnull %8) #17
-  %107 = load ptr, ptr %1, align 8
-  %108 = load i32, ptr %7, align 4
-  %109 = getelementptr inbounds i8, ptr %1, i64 8
-  call void @add_function_cost(ptr noundef %107, i32 noundef %108, ptr noundef null, ptr noundef nonnull %109) #17
-  %110 = getelementptr inbounds i8, ptr %.tr127, i64 8
-  %111 = load ptr, ptr %110, align 8
-  %112 = call i32 @exprType(ptr noundef %111) #17
-  call void @getTypeOutputInfo(i32 noundef %112, ptr noundef nonnull %7, ptr noundef nonnull %9) #17
-  %113 = load ptr, ptr %1, align 8
-  %114 = load i32, ptr %7, align 4
-  call void @add_function_cost(ptr noundef %113, i32 noundef %114, ptr noundef null, ptr noundef nonnull %109) #17
+102:                                              ; preds = %.lr.ph
+  %103 = getelementptr inbounds i8, ptr %.tr127, i64 16
+  %104 = load i32, ptr %103, align 8
+  call void @getTypeInputInfo(i32 noundef %104, ptr noundef nonnull %7, ptr noundef nonnull %8) #17
+  %105 = load ptr, ptr %1, align 8
+  %106 = load i32, ptr %7, align 4
+  %107 = getelementptr inbounds i8, ptr %1, i64 8
+  call void @add_function_cost(ptr noundef %105, i32 noundef %106, ptr noundef null, ptr noundef nonnull %107) #17
+  %108 = getelementptr inbounds i8, ptr %.tr127, i64 8
+  %109 = load ptr, ptr %108, align 8
+  %110 = call i32 @exprType(ptr noundef %109) #17
+  call void @getTypeOutputInfo(i32 noundef %110, ptr noundef nonnull %7, ptr noundef nonnull %9) #17
+  %111 = load ptr, ptr %1, align 8
+  %112 = load i32, ptr %7, align 4
+  call void @add_function_cost(ptr noundef %111, i32 noundef %112, ptr noundef null, ptr noundef nonnull %107) #17
   br label %.thread
 
-115:                                              ; preds = %.lr.ph
-  %116 = getelementptr inbounds i8, ptr %.tr127, i64 16
-  %117 = load ptr, ptr %116, align 8
-  %118 = load ptr, ptr %1, align 8
+113:                                              ; preds = %.lr.ph
+  %114 = getelementptr inbounds i8, ptr %.tr127, i64 16
+  %115 = load ptr, ptr %114, align 8
+  %116 = load ptr, ptr %1, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3)
-  store ptr %118, ptr %3, align 8
-  %119 = getelementptr inbounds i8, ptr %3, i64 8
-  %120 = getelementptr inbounds i8, ptr %3, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %119, i8 0, i64 16, i1 false)
-  %121 = call zeroext i1 @cost_qual_eval_walker(ptr noundef %117, ptr noundef nonnull %3)
-  %.sroa.0.0.copyload = load double, ptr %119, align 8
-  %.sroa.2.0.copyload = load double, ptr %120, align 8
+  store ptr %116, ptr %3, align 8
+  %117 = getelementptr inbounds i8, ptr %3, i64 8
+  %118 = getelementptr inbounds i8, ptr %3, i64 16
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %117, i8 0, i64 16, i1 false)
+  %119 = call zeroext i1 @cost_qual_eval_walker(ptr noundef %115, ptr noundef nonnull %3)
+  %.sroa.0.0.copyload = load double, ptr %117, align 8
+  %.sroa.2.0.copyload = load double, ptr %118, align 8
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3)
-  %122 = getelementptr inbounds i8, ptr %1, i64 8
-  %123 = load double, ptr %122, align 8
-  %124 = fadd double %.sroa.0.0.copyload, %123
-  store double %124, ptr %122, align 8
-  %125 = fcmp ogt double %.sroa.2.0.copyload, 0.000000e+00
-  br i1 %125, label %126, label %.thread
+  %120 = getelementptr inbounds i8, ptr %1, i64 8
+  %121 = load double, ptr %120, align 8
+  %122 = fadd double %.sroa.0.0.copyload, %121
+  store double %122, ptr %120, align 8
+  %123 = fcmp ogt double %.sroa.2.0.copyload, 0.000000e+00
+  br i1 %123, label %124, label %.thread
 
-126:                                              ; preds = %115
-  %127 = load ptr, ptr %1, align 8
-  %128 = getelementptr inbounds i8, ptr %.tr127, i64 8
-  %129 = load ptr, ptr %128, align 8
-  %130 = call double @estimate_array_length(ptr noundef %127, ptr noundef %129) #17
-  %131 = getelementptr inbounds i8, ptr %1, i64 16
-  %132 = load double, ptr %131, align 8
-  %133 = call double @llvm.fmuladd.f64(double %.sroa.2.0.copyload, double %130, double %132)
-  store double %133, ptr %131, align 8
+124:                                              ; preds = %113
+  %125 = load ptr, ptr %1, align 8
+  %126 = getelementptr inbounds i8, ptr %.tr127, i64 8
+  %127 = load ptr, ptr %126, align 8
+  %128 = call double @estimate_array_length(ptr noundef %125, ptr noundef %127) #17
+  %129 = getelementptr inbounds i8, ptr %1, i64 16
+  %130 = load double, ptr %129, align 8
+  %131 = call double @llvm.fmuladd.f64(double %.sroa.2.0.copyload, double %128, double %130)
+  store double %131, ptr %129, align 8
   br label %.thread
 
-134:                                              ; preds = %.lr.ph
-  %135 = getelementptr inbounds i8, ptr %.tr127, i64 8
-  %136 = load ptr, ptr %135, align 8
-  %137 = getelementptr inbounds i8, ptr %136, i64 4
-  %.not = icmp eq ptr %136, null
+132:                                              ; preds = %.lr.ph
+  %133 = getelementptr inbounds i8, ptr %.tr127, i64 8
+  %134 = load ptr, ptr %133, align 8
+  %135 = getelementptr inbounds i8, ptr %134, i64 4
+  %.not = icmp eq ptr %134, null
   br i1 %.not, label %.thread, label %.lr.ph131
 
-.lr.ph131:                                        ; preds = %134
-  %138 = getelementptr inbounds i8, ptr %136, i64 16
-  %139 = getelementptr inbounds i8, ptr %1, i64 8
-  %140 = load i32, ptr %137, align 4
-  %141 = icmp sgt i32 %140, 0
-  br i1 %141, label %.lr.ph134, label %.thread
+.lr.ph131:                                        ; preds = %132
+  %136 = getelementptr inbounds i8, ptr %134, i64 16
+  %137 = getelementptr inbounds i8, ptr %1, i64 8
+  %138 = load i32, ptr %135, align 4
+  %139 = icmp sgt i32 %138, 0
+  br i1 %139, label %.lr.ph134, label %.thread
 
 .lr.ph134:                                        ; preds = %.lr.ph131, %.lr.ph134
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph134 ], [ 0, %.lr.ph131 ]
-  %142 = load ptr, ptr %138, align 8
-  %143 = getelementptr %union.ListCell, ptr %142, i64 %indvars.iv
-  %144 = load i32, ptr %143, align 8
-  %145 = load ptr, ptr %1, align 8
-  %146 = tail call i32 @get_opcode(i32 noundef %144) #17
-  tail call void @add_function_cost(ptr noundef %145, i32 noundef %146, ptr noundef null, ptr noundef nonnull %139) #17
+  %140 = load ptr, ptr %136, align 8
+  %141 = getelementptr %union.ListCell, ptr %140, i64 %indvars.iv
+  %142 = load i32, ptr %141, align 8
+  %143 = load ptr, ptr %1, align 8
+  %144 = tail call i32 @get_opcode(i32 noundef %142) #17
+  tail call void @add_function_cost(ptr noundef %143, i32 noundef %144, ptr noundef null, ptr noundef nonnull %137) #17
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %147 = load i32, ptr %137, align 4
-  %148 = sext i32 %147 to i64
-  %149 = icmp slt i64 %indvars.iv.next, %148
-  br i1 %149, label %.lr.ph134, label %.thread
+  %145 = load i32, ptr %135, align 4
+  %146 = sext i32 %145 to i64
+  %147 = icmp slt i64 %indvars.iv.next, %146
+  br i1 %147, label %.lr.ph134, label %.thread
 
-150:                                              ; preds = %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph
-  %151 = load double, ptr @cpu_operator_cost, align 8
-  %152 = getelementptr inbounds i8, ptr %1, i64 16
-  %153 = load double, ptr %152, align 8
-  %154 = fadd double %151, %153
-  store double %154, ptr %152, align 8
+148:                                              ; preds = %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph
+  %149 = load double, ptr @cpu_operator_cost, align 8
+  %150 = getelementptr inbounds i8, ptr %1, i64 16
+  %151 = load double, ptr %150, align 8
+  %152 = fadd double %149, %151
+  store double %152, ptr %150, align 8
   br label %.thread
 
-155:                                              ; preds = %.lr.ph
-  %156 = load double, ptr @disable_cost, align 8
-  %157 = getelementptr inbounds i8, ptr %1, i64 8
-  %158 = load double, ptr %157, align 8
-  %159 = fadd double %156, %158
-  store double %159, ptr %157, align 8
+153:                                              ; preds = %.lr.ph
+  %154 = load double, ptr @disable_cost, align 8
+  %155 = getelementptr inbounds i8, ptr %1, i64 8
+  %156 = load double, ptr %155, align 8
+  %157 = fadd double %154, %156
+  store double %157, ptr %155, align 8
   br label %.thread
 
-160:                                              ; preds = %.lr.ph
-  %161 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #18
-  tail call void @llvm.assume(i1 %161)
-  %162 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.3) #17
+158:                                              ; preds = %.lr.ph
+  %159 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #18
+  tail call void @llvm.assume(i1 %159)
+  %160 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.3) #17
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 4895, ptr noundef nonnull @__func__.cost_qual_eval_walker) #17
   unreachable
 
-163:                                              ; preds = %.lr.ph
-  %164 = getelementptr inbounds i8, ptr %.tr127, i64 80
+161:                                              ; preds = %.lr.ph
+  %162 = getelementptr inbounds i8, ptr %.tr127, i64 80
+  %163 = load double, ptr %162, align 8
+  %164 = getelementptr inbounds i8, ptr %1, i64 8
   %165 = load double, ptr %164, align 8
-  %166 = getelementptr inbounds i8, ptr %1, i64 8
-  %167 = load double, ptr %166, align 8
-  %168 = fadd double %165, %167
-  store double %168, ptr %166, align 8
-  %169 = getelementptr inbounds i8, ptr %.tr127, i64 88
+  %166 = fadd double %163, %165
+  store double %166, ptr %164, align 8
+  %167 = getelementptr inbounds i8, ptr %.tr127, i64 88
+  %168 = load double, ptr %167, align 8
+  %169 = getelementptr inbounds i8, ptr %1, i64 16
   %170 = load double, ptr %169, align 8
-  %171 = getelementptr inbounds i8, ptr %1, i64 16
-  %172 = load double, ptr %171, align 8
-  %173 = fadd double %170, %172
-  store double %173, ptr %171, align 8
+  %171 = fadd double %168, %170
+  store double %171, ptr %169, align 8
   br label %.loopexit
 
 tailrecurse:                                      ; preds = %.lr.ph
-  %174 = getelementptr inbounds i8, ptr %.tr127, i64 8
-  %175 = load ptr, ptr %174, align 8
-  %176 = getelementptr i8, ptr %175, i64 16
-  %.val = load ptr, ptr %176, align 8
-  %177 = load ptr, ptr %.val, align 8
-  %178 = icmp eq ptr %177, null
-  br i1 %178, label %.loopexit, label %.lr.ph
+  %172 = getelementptr inbounds i8, ptr %.tr127, i64 8
+  %173 = load ptr, ptr %172, align 8
+  %174 = getelementptr i8, ptr %173, i64 16
+  %.val = load ptr, ptr %174, align 8
+  %175 = load ptr, ptr %.val, align 8
+  %176 = icmp eq ptr %175, null
+  br i1 %176, label %.loopexit, label %.lr.ph
 
-.thread:                                          ; preds = %.lr.ph, %.lr.ph134, %134, %.lr.ph131, %52, %104, %155, %150, %115, %126, %71, %87, %47
-  %179 = call zeroext i1 @expression_tree_walker_impl(ptr noundef nonnull %.tr127, ptr noundef nonnull @cost_qual_eval_walker, ptr noundef %1) #17
+.thread:                                          ; preds = %.lr.ph, %.lr.ph134, %132, %.lr.ph131, %50, %102, %153, %148, %113, %124, %69, %85, %45
+  %177 = call zeroext i1 @expression_tree_walker_impl(ptr noundef nonnull %.tr127, ptr noundef nonnull @cost_qual_eval_walker, ptr noundef %1) #17
   br label %.loopexit
 
-.loopexit:                                        ; preds = %tailrecurse, %.lr.ph, %.lr.ph, %.lr.ph, %2, %.thread, %163, %99, %37
-  %.0 = phi i1 [ false, %37 ], [ %179, %.thread ], [ false, %99 ], [ false, %163 ], [ false, %2 ], [ false, %.lr.ph ], [ false, %.lr.ph ], [ false, %.lr.ph ], [ false, %tailrecurse ]
+.loopexit:                                        ; preds = %tailrecurse, %.lr.ph, %.lr.ph, %.lr.ph, %2, %.thread, %161, %97, %35
+  %.0 = phi i1 [ false, %35 ], [ %177, %.thread ], [ false, %97 ], [ false, %161 ], [ false, %2 ], [ false, %.lr.ph ], [ false, %.lr.ph ], [ false, %.lr.ph ], [ false, %tailrecurse ]
   ret i1 %.0
 }
 

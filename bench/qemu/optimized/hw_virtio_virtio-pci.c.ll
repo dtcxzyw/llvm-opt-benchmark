@@ -2403,22 +2403,18 @@ if.end9:                                          ; preds = %lor.lhs.false6
 
 if.then10:                                        ; preds = %if.end9
   %call12 = tail call zeroext i1 %4(ptr noundef %cond.i, i32 noundef %queue_no.052) #14
-  br i1 %call12, label %if.then13, label %for.inc
-
-if.then13:                                        ; preds = %if.then10
-  tail call void @msix_set_pending(ptr noundef %dev, i32 noundef %vector.1.ph) #14
-  br label %for.inc
+  br i1 %call12, label %for.inc.sink.split, label %for.inc
 
 if.else:                                          ; preds = %if.end9
   %call15 = tail call i32 @event_notifier_test_and_clear(ptr noundef %call7.i) #14
   %tobool16.not = icmp eq i32 %call15, 0
-  br i1 %tobool16.not, label %for.inc, label %if.then17
+  br i1 %tobool16.not, label %for.inc, label %for.inc.sink.split
 
-if.then17:                                        ; preds = %if.else
-  tail call void @msix_set_pending(ptr noundef nonnull %dev, i32 noundef %vector.1.ph) #14
+for.inc.sink.split:                               ; preds = %if.else, %if.then10
+  tail call void @msix_set_pending(ptr noundef %dev, i32 noundef %vector.1.ph) #14
   br label %for.inc
 
-for.inc:                                          ; preds = %if.then13, %if.then10, %if.then17, %if.else, %if.end, %lor.lhs.false6
+for.inc:                                          ; preds = %for.inc.sink.split, %if.then10, %if.else, %if.end, %lor.lhs.false6
   %inc = add nuw nsw i32 %queue_no.052, 1
   %5 = load i32, ptr %nvqs_with_notifiers, align 8
   %cmp = icmp slt i32 %inc, %5

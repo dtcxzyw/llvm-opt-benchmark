@@ -1386,22 +1386,22 @@ _ZSt17__merge_sort_loopIPN4llvm28ASanStackVariableDescriptionES2_lN9__gnu_cxx5__
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZSt16__merge_adaptiveIPN4llvm28ASanStackVariableDescriptionElS2_N9__gnu_cxx5__ops15_Iter_comp_iterIPFbRKS1_S7_EEEEvT_SB_SB_T0_SC_T1_SC_T2_(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, i64 noundef %4, ptr noundef %5, i64 noundef %6, i64 %7) local_unnamed_addr #0 comdat {
   %9 = inttoptr i64 %7 to ptr
-  %.not120 = icmp sgt i64 %3, %4
-  %.not67121 = icmp sgt i64 %3, %6
-  %or.cond122 = or i1 %.not67121, %.not120
-  br i1 %or.cond122, label %.lr.ph, label %tailrecurse._crit_edge
+  %.not119 = icmp sgt i64 %3, %4
+  %.not67120 = icmp sgt i64 %3, %6
+  %or.cond121 = or i1 %.not67120, %.not119
+  br i1 %or.cond121, label %.lr.ph, label %tailrecurse._crit_edge
 
 .lr.ph:                                           ; preds = %8
   %10 = ptrtoint ptr %2 to i64
   br label %32
 
 tailrecurse._crit_edge:                           ; preds = %_ZSt17__rotate_adaptiveIPN4llvm28ASanStackVariableDescriptionES2_lET_S3_S3_S3_T1_S4_T0_S4_.exit, %8
-  %.tr.lcssa = phi ptr [ %0, %8 ], [ %.0.i92, %_ZSt17__rotate_adaptiveIPN4llvm28ASanStackVariableDescriptionES2_lET_S3_S3_S3_T1_S4_T0_S4_.exit ]
-  %.tr106.lcssa = phi ptr [ %1, %8 ], [ %.0102, %_ZSt17__rotate_adaptiveIPN4llvm28ASanStackVariableDescriptionES2_lET_S3_S3_S3_T1_S4_T0_S4_.exit ]
-  %11 = ptrtoint ptr %.tr106.lcssa to i64
+  %.tr.lcssa = phi ptr [ %0, %8 ], [ %.0.i91, %_ZSt17__rotate_adaptiveIPN4llvm28ASanStackVariableDescriptionES2_lET_S3_S3_S3_T1_S4_T0_S4_.exit ]
+  %.tr105.lcssa = phi ptr [ %1, %8 ], [ %.0101, %_ZSt17__rotate_adaptiveIPN4llvm28ASanStackVariableDescriptionES2_lET_S3_S3_S3_T1_S4_T0_S4_.exit ]
+  %11 = ptrtoint ptr %.tr105.lcssa to i64
   %12 = ptrtoint ptr %.tr.lcssa to i64
   %13 = sub i64 %11, %12
-  %.not.i.i.i.i.i = icmp eq ptr %.tr106.lcssa, %.tr.lcssa
+  %.not.i.i.i.i.i = icmp eq ptr %.tr105.lcssa, %.tr.lcssa
   br i1 %.not.i.i.i.i.i, label %_ZSt4moveIPN4llvm28ASanStackVariableDescriptionES2_ET0_T_S4_S3_.exit, label %14
 
 14:                                               ; preds = %tailrecurse._crit_edge
@@ -1410,15 +1410,15 @@ tailrecurse._crit_edge:                           ; preds = %_ZSt17__rotate_adap
 
 _ZSt4moveIPN4llvm28ASanStackVariableDescriptionES2_ET0_T_S4_S3_.exit: ; preds = %tailrecurse._crit_edge, %14
   %15 = getelementptr inbounds i8, ptr %5, i64 %13
-  %16 = icmp ne ptr %.tr106.lcssa, %.tr.lcssa
-  %17 = icmp ne ptr %.tr106.lcssa, %2
+  %16 = icmp ne ptr %.tr105.lcssa, %.tr.lcssa
+  %17 = icmp ne ptr %.tr105.lcssa, %2
   %18 = and i1 %16, %17
   br i1 %18, label %.lr.ph.i, label %._crit_edge.i
 
 .lr.ph.i:                                         ; preds = %_ZSt4moveIPN4llvm28ASanStackVariableDescriptionES2_ET0_T_S4_S3_.exit, %24
   %.024.i = phi ptr [ %25, %24 ], [ %.tr.lcssa, %_ZSt4moveIPN4llvm28ASanStackVariableDescriptionES2_ET0_T_S4_S3_.exit ]
   %.01823.i = phi ptr [ %.1.i, %24 ], [ %5, %_ZSt4moveIPN4llvm28ASanStackVariableDescriptionES2_ET0_T_S4_S3_.exit ]
-  %.01922.i = phi ptr [ %.120.i, %24 ], [ %.tr106.lcssa, %_ZSt4moveIPN4llvm28ASanStackVariableDescriptionES2_ET0_T_S4_S3_.exit ]
+  %.01922.i = phi ptr [ %.120.i, %24 ], [ %.tr105.lcssa, %_ZSt4moveIPN4llvm28ASanStackVariableDescriptionES2_ET0_T_S4_S3_.exit ]
   %19 = tail call noundef zeroext i1 %9(ptr noundef nonnull align 8 dereferenceable(56) %.01922.i, ptr noundef nonnull align 8 dereferenceable(56) %.01823.i) #13
   br i1 %19, label %20, label %22
 
@@ -1455,259 +1455,256 @@ _ZSt4moveIPN4llvm28ASanStackVariableDescriptionES2_ET0_T_S4_S3_.exit.i: ; preds 
   br label %_ZSt21__move_merge_adaptiveIPN4llvm28ASanStackVariableDescriptionES2_S2_N9__gnu_cxx5__ops15_Iter_comp_iterIPFbRKS1_S7_EEEEvT_SB_T0_SC_T1_T2_.exit
 
 32:                                               ; preds = %.lr.ph, %_ZSt17__rotate_adaptiveIPN4llvm28ASanStackVariableDescriptionES2_lET_S3_S3_S3_T1_S4_T0_S4_.exit
-  %.not128 = phi i1 [ %.not120, %.lr.ph ], [ %.not, %_ZSt17__rotate_adaptiveIPN4llvm28ASanStackVariableDescriptionES2_lET_S3_S3_S3_T1_S4_T0_S4_.exit ]
-  %.tr109127 = phi i64 [ %4, %.lr.ph ], [ %118, %_ZSt17__rotate_adaptiveIPN4llvm28ASanStackVariableDescriptionES2_lET_S3_S3_S3_T1_S4_T0_S4_.exit ]
-  %.tr108126 = phi i64 [ %3, %.lr.ph ], [ %89, %_ZSt17__rotate_adaptiveIPN4llvm28ASanStackVariableDescriptionES2_lET_S3_S3_S3_T1_S4_T0_S4_.exit ]
-  %.tr106124 = phi ptr [ %1, %.lr.ph ], [ %.0102, %_ZSt17__rotate_adaptiveIPN4llvm28ASanStackVariableDescriptionES2_lET_S3_S3_S3_T1_S4_T0_S4_.exit ]
-  %.tr123 = phi ptr [ %0, %.lr.ph ], [ %.0.i92, %_ZSt17__rotate_adaptiveIPN4llvm28ASanStackVariableDescriptionES2_lET_S3_S3_S3_T1_S4_T0_S4_.exit ]
-  %.not68 = icmp sgt i64 %.tr109127, %6
-  %33 = ptrtoint ptr %.tr106124 to i64
-  br i1 %.not68, label %58, label %34
+  %.not127 = phi i1 [ %.not119, %.lr.ph ], [ %.not, %_ZSt17__rotate_adaptiveIPN4llvm28ASanStackVariableDescriptionES2_lET_S3_S3_S3_T1_S4_T0_S4_.exit ]
+  %.tr108126 = phi i64 [ %4, %.lr.ph ], [ %116, %_ZSt17__rotate_adaptiveIPN4llvm28ASanStackVariableDescriptionES2_lET_S3_S3_S3_T1_S4_T0_S4_.exit ]
+  %.tr107125 = phi i64 [ %3, %.lr.ph ], [ %87, %_ZSt17__rotate_adaptiveIPN4llvm28ASanStackVariableDescriptionES2_lET_S3_S3_S3_T1_S4_T0_S4_.exit ]
+  %.tr105123 = phi ptr [ %1, %.lr.ph ], [ %.0101, %_ZSt17__rotate_adaptiveIPN4llvm28ASanStackVariableDescriptionES2_lET_S3_S3_S3_T1_S4_T0_S4_.exit ]
+  %.tr122 = phi ptr [ %0, %.lr.ph ], [ %.0.i91, %_ZSt17__rotate_adaptiveIPN4llvm28ASanStackVariableDescriptionES2_lET_S3_S3_S3_T1_S4_T0_S4_.exit ]
+  %.not68 = icmp sgt i64 %.tr108126, %6
+  br i1 %.not68, label %55, label %33
 
-34:                                               ; preds = %32
-  %35 = sub i64 %10, %33
-  %.not.i.i.i.i.i69 = icmp eq ptr %2, %.tr106124
+33:                                               ; preds = %32
+  %.not.i.i.i.i.i69 = icmp eq ptr %2, %.tr105123
   br i1 %.not.i.i.i.i.i69, label %_ZSt21__move_merge_adaptiveIPN4llvm28ASanStackVariableDescriptionES2_S2_N9__gnu_cxx5__ops15_Iter_comp_iterIPFbRKS1_S7_EEEEvT_SB_T0_SC_T1_T2_.exit, label %_ZSt4moveIPN4llvm28ASanStackVariableDescriptionES2_ET0_T_S4_S3_.exit70.thread
 
-_ZSt4moveIPN4llvm28ASanStackVariableDescriptionES2_ET0_T_S4_S3_.exit70.thread: ; preds = %34
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %5, ptr align 8 %.tr106124, i64 %35, i1 false)
-  %36 = icmp eq ptr %.tr123, %.tr106124
-  br i1 %36, label %37, label %39
+_ZSt4moveIPN4llvm28ASanStackVariableDescriptionES2_ET0_T_S4_S3_.exit70.thread: ; preds = %33
+  %34 = ptrtoint ptr %.tr105123 to i64
+  %35 = sub i64 %10, %34
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %5, ptr align 8 %.tr105123, i64 %35, i1 false)
+  %36 = getelementptr inbounds i8, ptr %5, i64 %35
+  %37 = icmp eq ptr %.tr122, %.tr105123
+  br i1 %37, label %_ZSt13move_backwardIPN4llvm28ASanStackVariableDescriptionES2_ET0_T_S4_S3_.exit.sink.split.i, label %38
 
-37:                                               ; preds = %_ZSt4moveIPN4llvm28ASanStackVariableDescriptionES2_ET0_T_S4_S3_.exit70.thread
-  %.neg.i.i.i.i.i.i = sdiv exact i64 %35, -56
-  %38 = getelementptr inbounds %"struct.llvm::ASanStackVariableDescription", ptr %2, i64 %.neg.i.i.i.i.i.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %38, ptr align 8 %5, i64 %35, i1 false)
-  br label %_ZSt21__move_merge_adaptiveIPN4llvm28ASanStackVariableDescriptionES2_S2_N9__gnu_cxx5__ops15_Iter_comp_iterIPFbRKS1_S7_EEEEvT_SB_T0_SC_T1_T2_.exit
-
-39:                                               ; preds = %_ZSt4moveIPN4llvm28ASanStackVariableDescriptionES2_ET0_T_S4_S3_.exit70.thread
-  %40 = getelementptr inbounds i8, ptr %5, i64 %35
-  %41 = getelementptr inbounds i8, ptr %40, i64 -56
+38:                                               ; preds = %_ZSt4moveIPN4llvm28ASanStackVariableDescriptionES2_ET0_T_S4_S3_.exit70.thread
+  %39 = getelementptr inbounds i8, ptr %36, i64 -56
   br label %.outer
 
-.outer:                                           ; preds = %45, %39
-  %.026.i.ph.pn = phi ptr [ %.tr106124, %39 ], [ %.026.i.ph, %45 ]
-  %.024.i71.ph = phi ptr [ %41, %39 ], [ %.024.i71, %45 ]
-  %.0.i.ph = phi ptr [ %2, %39 ], [ %44, %45 ]
+.outer:                                           ; preds = %43, %38
+  %.026.i.ph.pn = phi ptr [ %.tr105123, %38 ], [ %.026.i.ph, %43 ]
+  %.024.i71.ph = phi ptr [ %39, %38 ], [ %.024.i71, %43 ]
+  %.0.i.ph = phi ptr [ %2, %38 ], [ %42, %43 ]
   %.026.i.ph = getelementptr inbounds i8, ptr %.026.i.ph.pn, i64 -56
-  br label %42
+  br label %40
 
-42:                                               ; preds = %.outer, %56
-  %.024.i71 = phi ptr [ %57, %56 ], [ %.024.i71.ph, %.outer ]
-  %.0.i = phi ptr [ %44, %56 ], [ %.0.i.ph, %.outer ]
-  %43 = tail call noundef zeroext i1 %9(ptr noundef nonnull align 8 dereferenceable(56) %.024.i71, ptr noundef nonnull align 8 dereferenceable(56) %.026.i.ph) #13
-  %44 = getelementptr inbounds i8, ptr %.0.i, i64 -56
-  br i1 %43, label %45, label %54
+40:                                               ; preds = %.outer, %49
+  %.024.i71 = phi ptr [ %50, %49 ], [ %.024.i71.ph, %.outer ]
+  %.0.i = phi ptr [ %42, %49 ], [ %.0.i.ph, %.outer ]
+  %41 = tail call noundef zeroext i1 %9(ptr noundef nonnull align 8 dereferenceable(56) %.024.i71, ptr noundef nonnull align 8 dereferenceable(56) %.026.i.ph) #13
+  %42 = getelementptr inbounds i8, ptr %.0.i, i64 -56
+  br i1 %41, label %43, label %47
 
-45:                                               ; preds = %42
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %44, ptr noundef nonnull align 8 dereferenceable(56) %.026.i.ph, i64 56, i1 false)
-  %46 = icmp eq ptr %.tr123, %.026.i.ph
-  br i1 %46, label %47, label %.outer, !llvm.loop !23
+43:                                               ; preds = %40
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %42, ptr noundef nonnull align 8 dereferenceable(56) %.026.i.ph, i64 56, i1 false)
+  %44 = icmp eq ptr %.tr122, %.026.i.ph
+  br i1 %44, label %45, label %.outer, !llvm.loop !23
 
-47:                                               ; preds = %45
-  %48 = getelementptr inbounds i8, ptr %.024.i71, i64 56
-  %.not.i.i.i.i.i33.i = icmp eq ptr %48, %5
-  br i1 %.not.i.i.i.i.i33.i, label %_ZSt21__move_merge_adaptiveIPN4llvm28ASanStackVariableDescriptionES2_S2_N9__gnu_cxx5__ops15_Iter_comp_iterIPFbRKS1_S7_EEEEvT_SB_T0_SC_T1_T2_.exit, label %49
+45:                                               ; preds = %43
+  %46 = getelementptr inbounds i8, ptr %.024.i71, i64 56
+  %.not.i.i.i.i.i33.i = icmp eq ptr %46, %5
+  br i1 %.not.i.i.i.i.i33.i, label %_ZSt21__move_merge_adaptiveIPN4llvm28ASanStackVariableDescriptionES2_S2_N9__gnu_cxx5__ops15_Iter_comp_iterIPFbRKS1_S7_EEEEvT_SB_T0_SC_T1_T2_.exit, label %_ZSt13move_backwardIPN4llvm28ASanStackVariableDescriptionES2_ET0_T_S4_S3_.exit.sink.split.i
+
+47:                                               ; preds = %40
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %42, ptr noundef nonnull align 8 dereferenceable(56) %.024.i71, i64 56, i1 false)
+  %48 = icmp eq ptr %5, %.024.i71
+  br i1 %48, label %_ZSt21__move_merge_adaptiveIPN4llvm28ASanStackVariableDescriptionES2_S2_N9__gnu_cxx5__ops15_Iter_comp_iterIPFbRKS1_S7_EEEEvT_SB_T0_SC_T1_T2_.exit, label %49
 
 49:                                               ; preds = %47
-  %50 = ptrtoint ptr %48 to i64
-  %51 = ptrtoint ptr %5 to i64
-  %52 = sub i64 %50, %51
-  %.neg.i.i.i.i.i32.i = sdiv exact i64 %52, -56
-  %53 = getelementptr inbounds %"struct.llvm::ASanStackVariableDescription", ptr %44, i64 %.neg.i.i.i.i.i32.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %53, ptr align 8 %5, i64 %52, i1 false)
+  %50 = getelementptr inbounds i8, ptr %.024.i71, i64 -56
+  br label %40, !llvm.loop !23
+
+_ZSt13move_backwardIPN4llvm28ASanStackVariableDescriptionES2_ET0_T_S4_S3_.exit.sink.split.i: ; preds = %_ZSt4moveIPN4llvm28ASanStackVariableDescriptionES2_ET0_T_S4_S3_.exit70.thread, %45
+  %.sink.i = phi ptr [ %46, %45 ], [ %36, %_ZSt4moveIPN4llvm28ASanStackVariableDescriptionES2_ET0_T_S4_S3_.exit70.thread ]
+  %.lcssa.sink.i = phi ptr [ %42, %45 ], [ %2, %_ZSt4moveIPN4llvm28ASanStackVariableDescriptionES2_ET0_T_S4_S3_.exit70.thread ]
+  %51 = ptrtoint ptr %.sink.i to i64
+  %52 = ptrtoint ptr %5 to i64
+  %53 = sub i64 %51, %52
+  %.neg.i.i.i.i.i32.i = sdiv exact i64 %53, -56
+  %54 = getelementptr inbounds %"struct.llvm::ASanStackVariableDescription", ptr %.lcssa.sink.i, i64 %.neg.i.i.i.i.i32.i
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %54, ptr align 8 %5, i64 %53, i1 false)
   br label %_ZSt21__move_merge_adaptiveIPN4llvm28ASanStackVariableDescriptionES2_S2_N9__gnu_cxx5__ops15_Iter_comp_iterIPFbRKS1_S7_EEEEvT_SB_T0_SC_T1_T2_.exit
 
-54:                                               ; preds = %42
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %44, ptr noundef nonnull align 8 dereferenceable(56) %.024.i71, i64 56, i1 false)
-  %55 = icmp eq ptr %5, %.024.i71
-  br i1 %55, label %_ZSt21__move_merge_adaptiveIPN4llvm28ASanStackVariableDescriptionES2_S2_N9__gnu_cxx5__ops15_Iter_comp_iterIPFbRKS1_S7_EEEEvT_SB_T0_SC_T1_T2_.exit, label %56
+55:                                               ; preds = %32
+  %56 = ptrtoint ptr %.tr105123 to i64
+  br i1 %.not127, label %_ZSt7advanceIPN4llvm28ASanStackVariableDescriptionElEvRT_T0_.exit, label %_ZSt7advanceIPN4llvm28ASanStackVariableDescriptionElEvRT_T0_.exit78
 
-56:                                               ; preds = %54
-  %57 = getelementptr inbounds i8, ptr %.024.i71, i64 -56
-  br label %42, !llvm.loop !23
-
-58:                                               ; preds = %32
-  br i1 %.not128, label %_ZSt7advanceIPN4llvm28ASanStackVariableDescriptionElEvRT_T0_.exit, label %_ZSt7advanceIPN4llvm28ASanStackVariableDescriptionElEvRT_T0_.exit78
-
-_ZSt7advanceIPN4llvm28ASanStackVariableDescriptionElEvRT_T0_.exit: ; preds = %58
-  %59 = sdiv i64 %.tr108126, 2
-  %60 = getelementptr inbounds %"struct.llvm::ASanStackVariableDescription", ptr %.tr123, i64 %59
-  %61 = sub i64 %10, %33
-  %62 = icmp sgt i64 %61, 0
-  br i1 %62, label %_ZSt7advanceIPN4llvm28ASanStackVariableDescriptionElEvRT_T0_.exit.preheader.i, label %_ZSt13__lower_boundIPN4llvm28ASanStackVariableDescriptionES1_N9__gnu_cxx5__ops14_Iter_comp_valIPFbRKS1_S7_EEEET_SB_SB_RKT0_T1_.exit
+_ZSt7advanceIPN4llvm28ASanStackVariableDescriptionElEvRT_T0_.exit: ; preds = %55
+  %57 = sdiv i64 %.tr107125, 2
+  %58 = getelementptr inbounds %"struct.llvm::ASanStackVariableDescription", ptr %.tr122, i64 %57
+  %59 = sub i64 %10, %56
+  %60 = icmp sgt i64 %59, 0
+  br i1 %60, label %_ZSt7advanceIPN4llvm28ASanStackVariableDescriptionElEvRT_T0_.exit.preheader.i, label %_ZSt13__lower_boundIPN4llvm28ASanStackVariableDescriptionES1_N9__gnu_cxx5__ops14_Iter_comp_valIPFbRKS1_S7_EEEET_SB_SB_RKT0_T1_.exit
 
 _ZSt7advanceIPN4llvm28ASanStackVariableDescriptionElEvRT_T0_.exit.preheader.i: ; preds = %_ZSt7advanceIPN4llvm28ASanStackVariableDescriptionElEvRT_T0_.exit
-  %63 = udiv exact i64 %61, 56
+  %61 = udiv exact i64 %59, 56
   br label %_ZSt7advanceIPN4llvm28ASanStackVariableDescriptionElEvRT_T0_.exit.i
 
 _ZSt7advanceIPN4llvm28ASanStackVariableDescriptionElEvRT_T0_.exit.i: ; preds = %_ZSt7advanceIPN4llvm28ASanStackVariableDescriptionElEvRT_T0_.exit.i, %_ZSt7advanceIPN4llvm28ASanStackVariableDescriptionElEvRT_T0_.exit.preheader.i
-  %.017.i = phi ptr [ %.1.i74, %_ZSt7advanceIPN4llvm28ASanStackVariableDescriptionElEvRT_T0_.exit.i ], [ %.tr106124, %_ZSt7advanceIPN4llvm28ASanStackVariableDescriptionElEvRT_T0_.exit.preheader.i ]
-  %.01116.i = phi i64 [ %.112.i, %_ZSt7advanceIPN4llvm28ASanStackVariableDescriptionElEvRT_T0_.exit.i ], [ %63, %_ZSt7advanceIPN4llvm28ASanStackVariableDescriptionElEvRT_T0_.exit.preheader.i ]
-  %64 = lshr i64 %.01116.i, 1
-  %65 = getelementptr inbounds %"struct.llvm::ASanStackVariableDescription", ptr %.017.i, i64 %64
-  %66 = tail call noundef zeroext i1 %9(ptr noundef nonnull align 8 dereferenceable(56) %65, ptr noundef nonnull align 8 dereferenceable(56) %60) #13
-  %67 = getelementptr inbounds i8, ptr %65, i64 56
-  %68 = xor i64 %64, -1
-  %69 = add nsw i64 %.01116.i, %68
-  %.112.i = select i1 %66, i64 %69, i64 %64
-  %.1.i74 = select i1 %66, ptr %67, ptr %.017.i
-  %70 = icmp sgt i64 %.112.i, 0
-  br i1 %70, label %_ZSt7advanceIPN4llvm28ASanStackVariableDescriptionElEvRT_T0_.exit.i, label %_ZSt13__lower_boundIPN4llvm28ASanStackVariableDescriptionES1_N9__gnu_cxx5__ops14_Iter_comp_valIPFbRKS1_S7_EEEET_SB_SB_RKT0_T1_.exit.loopexit, !llvm.loop !13
+  %.017.i = phi ptr [ %.1.i74, %_ZSt7advanceIPN4llvm28ASanStackVariableDescriptionElEvRT_T0_.exit.i ], [ %.tr105123, %_ZSt7advanceIPN4llvm28ASanStackVariableDescriptionElEvRT_T0_.exit.preheader.i ]
+  %.01116.i = phi i64 [ %.112.i, %_ZSt7advanceIPN4llvm28ASanStackVariableDescriptionElEvRT_T0_.exit.i ], [ %61, %_ZSt7advanceIPN4llvm28ASanStackVariableDescriptionElEvRT_T0_.exit.preheader.i ]
+  %62 = lshr i64 %.01116.i, 1
+  %63 = getelementptr inbounds %"struct.llvm::ASanStackVariableDescription", ptr %.017.i, i64 %62
+  %64 = tail call noundef zeroext i1 %9(ptr noundef nonnull align 8 dereferenceable(56) %63, ptr noundef nonnull align 8 dereferenceable(56) %58) #13
+  %65 = getelementptr inbounds i8, ptr %63, i64 56
+  %66 = xor i64 %62, -1
+  %67 = add nsw i64 %.01116.i, %66
+  %.112.i = select i1 %64, i64 %67, i64 %62
+  %.1.i74 = select i1 %64, ptr %65, ptr %.017.i
+  %68 = icmp sgt i64 %.112.i, 0
+  br i1 %68, label %_ZSt7advanceIPN4llvm28ASanStackVariableDescriptionElEvRT_T0_.exit.i, label %_ZSt13__lower_boundIPN4llvm28ASanStackVariableDescriptionES1_N9__gnu_cxx5__ops14_Iter_comp_valIPFbRKS1_S7_EEEET_SB_SB_RKT0_T1_.exit.loopexit, !llvm.loop !13
 
 _ZSt13__lower_boundIPN4llvm28ASanStackVariableDescriptionES1_N9__gnu_cxx5__ops14_Iter_comp_valIPFbRKS1_S7_EEEET_SB_SB_RKT0_T1_.exit.loopexit: ; preds = %_ZSt7advanceIPN4llvm28ASanStackVariableDescriptionElEvRT_T0_.exit.i
   %.pre = ptrtoint ptr %.1.i74 to i64
   br label %_ZSt13__lower_boundIPN4llvm28ASanStackVariableDescriptionES1_N9__gnu_cxx5__ops14_Iter_comp_valIPFbRKS1_S7_EEEET_SB_SB_RKT0_T1_.exit
 
 _ZSt13__lower_boundIPN4llvm28ASanStackVariableDescriptionES1_N9__gnu_cxx5__ops14_Iter_comp_valIPFbRKS1_S7_EEEET_SB_SB_RKT0_T1_.exit: ; preds = %_ZSt13__lower_boundIPN4llvm28ASanStackVariableDescriptionES1_N9__gnu_cxx5__ops14_Iter_comp_valIPFbRKS1_S7_EEEET_SB_SB_RKT0_T1_.exit.loopexit, %_ZSt7advanceIPN4llvm28ASanStackVariableDescriptionElEvRT_T0_.exit
-  %.pre-phi = phi i64 [ %.pre, %_ZSt13__lower_boundIPN4llvm28ASanStackVariableDescriptionES1_N9__gnu_cxx5__ops14_Iter_comp_valIPFbRKS1_S7_EEEET_SB_SB_RKT0_T1_.exit.loopexit ], [ %33, %_ZSt7advanceIPN4llvm28ASanStackVariableDescriptionElEvRT_T0_.exit ]
-  %.0.lcssa.i73 = phi ptr [ %.1.i74, %_ZSt13__lower_boundIPN4llvm28ASanStackVariableDescriptionES1_N9__gnu_cxx5__ops14_Iter_comp_valIPFbRKS1_S7_EEEET_SB_SB_RKT0_T1_.exit.loopexit ], [ %.tr106124, %_ZSt7advanceIPN4llvm28ASanStackVariableDescriptionElEvRT_T0_.exit ]
-  %71 = sub i64 %.pre-phi, %33
-  %72 = sdiv exact i64 %71, 56
-  br label %88
+  %.pre-phi = phi i64 [ %.pre, %_ZSt13__lower_boundIPN4llvm28ASanStackVariableDescriptionES1_N9__gnu_cxx5__ops14_Iter_comp_valIPFbRKS1_S7_EEEET_SB_SB_RKT0_T1_.exit.loopexit ], [ %56, %_ZSt7advanceIPN4llvm28ASanStackVariableDescriptionElEvRT_T0_.exit ]
+  %.0.lcssa.i73 = phi ptr [ %.1.i74, %_ZSt13__lower_boundIPN4llvm28ASanStackVariableDescriptionES1_N9__gnu_cxx5__ops14_Iter_comp_valIPFbRKS1_S7_EEEET_SB_SB_RKT0_T1_.exit.loopexit ], [ %.tr105123, %_ZSt7advanceIPN4llvm28ASanStackVariableDescriptionElEvRT_T0_.exit ]
+  %69 = sub i64 %.pre-phi, %56
+  %70 = sdiv exact i64 %69, 56
+  br label %86
 
-_ZSt7advanceIPN4llvm28ASanStackVariableDescriptionElEvRT_T0_.exit78: ; preds = %58
-  %73 = sdiv i64 %.tr109127, 2
-  %74 = getelementptr inbounds %"struct.llvm::ASanStackVariableDescription", ptr %.tr106124, i64 %73
-  %75 = ptrtoint ptr %.tr123 to i64
-  %76 = sub i64 %33, %75
-  %77 = icmp sgt i64 %76, 0
-  br i1 %77, label %_ZSt7advanceIPN4llvm28ASanStackVariableDescriptionElEvRT_T0_.exit.preheader.i81, label %_ZSt13__upper_boundIPN4llvm28ASanStackVariableDescriptionES1_N9__gnu_cxx5__ops14_Val_comp_iterIPFbRKS1_S7_EEEET_SB_SB_RKT0_T1_.exit
+_ZSt7advanceIPN4llvm28ASanStackVariableDescriptionElEvRT_T0_.exit78: ; preds = %55
+  %71 = sdiv i64 %.tr108126, 2
+  %72 = getelementptr inbounds %"struct.llvm::ASanStackVariableDescription", ptr %.tr105123, i64 %71
+  %73 = ptrtoint ptr %.tr122 to i64
+  %74 = sub i64 %56, %73
+  %75 = icmp sgt i64 %74, 0
+  br i1 %75, label %_ZSt7advanceIPN4llvm28ASanStackVariableDescriptionElEvRT_T0_.exit.preheader.i81, label %_ZSt13__upper_boundIPN4llvm28ASanStackVariableDescriptionES1_N9__gnu_cxx5__ops14_Val_comp_iterIPFbRKS1_S7_EEEET_SB_SB_RKT0_T1_.exit
 
 _ZSt7advanceIPN4llvm28ASanStackVariableDescriptionElEvRT_T0_.exit.preheader.i81: ; preds = %_ZSt7advanceIPN4llvm28ASanStackVariableDescriptionElEvRT_T0_.exit78
-  %78 = udiv exact i64 %76, 56
+  %76 = udiv exact i64 %74, 56
   br label %_ZSt7advanceIPN4llvm28ASanStackVariableDescriptionElEvRT_T0_.exit.i82
 
 _ZSt7advanceIPN4llvm28ASanStackVariableDescriptionElEvRT_T0_.exit.i82: ; preds = %_ZSt7advanceIPN4llvm28ASanStackVariableDescriptionElEvRT_T0_.exit.i82, %_ZSt7advanceIPN4llvm28ASanStackVariableDescriptionElEvRT_T0_.exit.preheader.i81
-  %.017.i83 = phi ptr [ %.1.i88, %_ZSt7advanceIPN4llvm28ASanStackVariableDescriptionElEvRT_T0_.exit.i82 ], [ %.tr123, %_ZSt7advanceIPN4llvm28ASanStackVariableDescriptionElEvRT_T0_.exit.preheader.i81 ]
-  %.01116.i84 = phi i64 [ %.112.i87, %_ZSt7advanceIPN4llvm28ASanStackVariableDescriptionElEvRT_T0_.exit.i82 ], [ %78, %_ZSt7advanceIPN4llvm28ASanStackVariableDescriptionElEvRT_T0_.exit.preheader.i81 ]
-  %79 = lshr i64 %.01116.i84, 1
-  %80 = getelementptr inbounds %"struct.llvm::ASanStackVariableDescription", ptr %.017.i83, i64 %79
-  %81 = tail call noundef zeroext i1 %9(ptr noundef nonnull align 8 dereferenceable(56) %74, ptr noundef nonnull align 8 dereferenceable(56) %80) #13
-  %82 = getelementptr inbounds i8, ptr %80, i64 56
-  %83 = xor i64 %79, -1
-  %84 = add nsw i64 %.01116.i84, %83
-  %.112.i87 = select i1 %81, i64 %79, i64 %84
-  %.1.i88 = select i1 %81, ptr %.017.i83, ptr %82
-  %85 = icmp sgt i64 %.112.i87, 0
-  br i1 %85, label %_ZSt7advanceIPN4llvm28ASanStackVariableDescriptionElEvRT_T0_.exit.i82, label %_ZSt13__upper_boundIPN4llvm28ASanStackVariableDescriptionES1_N9__gnu_cxx5__ops14_Val_comp_iterIPFbRKS1_S7_EEEET_SB_SB_RKT0_T1_.exit.loopexit, !llvm.loop !14
+  %.017.i83 = phi ptr [ %.1.i88, %_ZSt7advanceIPN4llvm28ASanStackVariableDescriptionElEvRT_T0_.exit.i82 ], [ %.tr122, %_ZSt7advanceIPN4llvm28ASanStackVariableDescriptionElEvRT_T0_.exit.preheader.i81 ]
+  %.01116.i84 = phi i64 [ %.112.i87, %_ZSt7advanceIPN4llvm28ASanStackVariableDescriptionElEvRT_T0_.exit.i82 ], [ %76, %_ZSt7advanceIPN4llvm28ASanStackVariableDescriptionElEvRT_T0_.exit.preheader.i81 ]
+  %77 = lshr i64 %.01116.i84, 1
+  %78 = getelementptr inbounds %"struct.llvm::ASanStackVariableDescription", ptr %.017.i83, i64 %77
+  %79 = tail call noundef zeroext i1 %9(ptr noundef nonnull align 8 dereferenceable(56) %72, ptr noundef nonnull align 8 dereferenceable(56) %78) #13
+  %80 = getelementptr inbounds i8, ptr %78, i64 56
+  %81 = xor i64 %77, -1
+  %82 = add nsw i64 %.01116.i84, %81
+  %.112.i87 = select i1 %79, i64 %77, i64 %82
+  %.1.i88 = select i1 %79, ptr %.017.i83, ptr %80
+  %83 = icmp sgt i64 %.112.i87, 0
+  br i1 %83, label %_ZSt7advanceIPN4llvm28ASanStackVariableDescriptionElEvRT_T0_.exit.i82, label %_ZSt13__upper_boundIPN4llvm28ASanStackVariableDescriptionES1_N9__gnu_cxx5__ops14_Val_comp_iterIPFbRKS1_S7_EEEET_SB_SB_RKT0_T1_.exit.loopexit, !llvm.loop !14
 
 _ZSt13__upper_boundIPN4llvm28ASanStackVariableDescriptionES1_N9__gnu_cxx5__ops14_Val_comp_iterIPFbRKS1_S7_EEEET_SB_SB_RKT0_T1_.exit.loopexit: ; preds = %_ZSt7advanceIPN4llvm28ASanStackVariableDescriptionElEvRT_T0_.exit.i82
-  %.pre137 = ptrtoint ptr %.1.i88 to i64
+  %.pre136 = ptrtoint ptr %.1.i88 to i64
   br label %_ZSt13__upper_boundIPN4llvm28ASanStackVariableDescriptionES1_N9__gnu_cxx5__ops14_Val_comp_iterIPFbRKS1_S7_EEEET_SB_SB_RKT0_T1_.exit
 
 _ZSt13__upper_boundIPN4llvm28ASanStackVariableDescriptionES1_N9__gnu_cxx5__ops14_Val_comp_iterIPFbRKS1_S7_EEEET_SB_SB_RKT0_T1_.exit: ; preds = %_ZSt13__upper_boundIPN4llvm28ASanStackVariableDescriptionES1_N9__gnu_cxx5__ops14_Val_comp_iterIPFbRKS1_S7_EEEET_SB_SB_RKT0_T1_.exit.loopexit, %_ZSt7advanceIPN4llvm28ASanStackVariableDescriptionElEvRT_T0_.exit78
-  %.pre-phi138 = phi i64 [ %.pre137, %_ZSt13__upper_boundIPN4llvm28ASanStackVariableDescriptionES1_N9__gnu_cxx5__ops14_Val_comp_iterIPFbRKS1_S7_EEEET_SB_SB_RKT0_T1_.exit.loopexit ], [ %75, %_ZSt7advanceIPN4llvm28ASanStackVariableDescriptionElEvRT_T0_.exit78 ]
-  %.0.lcssa.i80 = phi ptr [ %.1.i88, %_ZSt13__upper_boundIPN4llvm28ASanStackVariableDescriptionES1_N9__gnu_cxx5__ops14_Val_comp_iterIPFbRKS1_S7_EEEET_SB_SB_RKT0_T1_.exit.loopexit ], [ %.tr123, %_ZSt7advanceIPN4llvm28ASanStackVariableDescriptionElEvRT_T0_.exit78 ]
-  %86 = sub i64 %.pre-phi138, %75
-  %87 = sdiv exact i64 %86, 56
-  br label %88
+  %.pre-phi137 = phi i64 [ %.pre136, %_ZSt13__upper_boundIPN4llvm28ASanStackVariableDescriptionES1_N9__gnu_cxx5__ops14_Val_comp_iterIPFbRKS1_S7_EEEET_SB_SB_RKT0_T1_.exit.loopexit ], [ %73, %_ZSt7advanceIPN4llvm28ASanStackVariableDescriptionElEvRT_T0_.exit78 ]
+  %.0.lcssa.i80 = phi ptr [ %.1.i88, %_ZSt13__upper_boundIPN4llvm28ASanStackVariableDescriptionES1_N9__gnu_cxx5__ops14_Val_comp_iterIPFbRKS1_S7_EEEET_SB_SB_RKT0_T1_.exit.loopexit ], [ %.tr122, %_ZSt7advanceIPN4llvm28ASanStackVariableDescriptionElEvRT_T0_.exit78 ]
+  %84 = sub i64 %.pre-phi137, %73
+  %85 = sdiv exact i64 %84, 56
+  br label %86
 
-88:                                               ; preds = %_ZSt13__upper_boundIPN4llvm28ASanStackVariableDescriptionES1_N9__gnu_cxx5__ops14_Val_comp_iterIPFbRKS1_S7_EEEET_SB_SB_RKT0_T1_.exit, %_ZSt13__lower_boundIPN4llvm28ASanStackVariableDescriptionES1_N9__gnu_cxx5__ops14_Iter_comp_valIPFbRKS1_S7_EEEET_SB_SB_RKT0_T1_.exit
-  %.0103 = phi ptr [ %60, %_ZSt13__lower_boundIPN4llvm28ASanStackVariableDescriptionES1_N9__gnu_cxx5__ops14_Iter_comp_valIPFbRKS1_S7_EEEET_SB_SB_RKT0_T1_.exit ], [ %.0.lcssa.i80, %_ZSt13__upper_boundIPN4llvm28ASanStackVariableDescriptionES1_N9__gnu_cxx5__ops14_Val_comp_iterIPFbRKS1_S7_EEEET_SB_SB_RKT0_T1_.exit ]
-  %.0102 = phi ptr [ %.0.lcssa.i73, %_ZSt13__lower_boundIPN4llvm28ASanStackVariableDescriptionES1_N9__gnu_cxx5__ops14_Iter_comp_valIPFbRKS1_S7_EEEET_SB_SB_RKT0_T1_.exit ], [ %74, %_ZSt13__upper_boundIPN4llvm28ASanStackVariableDescriptionES1_N9__gnu_cxx5__ops14_Val_comp_iterIPFbRKS1_S7_EEEET_SB_SB_RKT0_T1_.exit ]
-  %.063 = phi i64 [ %72, %_ZSt13__lower_boundIPN4llvm28ASanStackVariableDescriptionES1_N9__gnu_cxx5__ops14_Iter_comp_valIPFbRKS1_S7_EEEET_SB_SB_RKT0_T1_.exit ], [ %73, %_ZSt13__upper_boundIPN4llvm28ASanStackVariableDescriptionES1_N9__gnu_cxx5__ops14_Val_comp_iterIPFbRKS1_S7_EEEET_SB_SB_RKT0_T1_.exit ]
-  %.0 = phi i64 [ %59, %_ZSt13__lower_boundIPN4llvm28ASanStackVariableDescriptionES1_N9__gnu_cxx5__ops14_Iter_comp_valIPFbRKS1_S7_EEEET_SB_SB_RKT0_T1_.exit ], [ %87, %_ZSt13__upper_boundIPN4llvm28ASanStackVariableDescriptionES1_N9__gnu_cxx5__ops14_Val_comp_iterIPFbRKS1_S7_EEEET_SB_SB_RKT0_T1_.exit ]
-  %89 = sub nsw i64 %.tr108126, %.0
-  %90 = icmp sle i64 %89, %.063
+86:                                               ; preds = %_ZSt13__upper_boundIPN4llvm28ASanStackVariableDescriptionES1_N9__gnu_cxx5__ops14_Val_comp_iterIPFbRKS1_S7_EEEET_SB_SB_RKT0_T1_.exit, %_ZSt13__lower_boundIPN4llvm28ASanStackVariableDescriptionES1_N9__gnu_cxx5__ops14_Iter_comp_valIPFbRKS1_S7_EEEET_SB_SB_RKT0_T1_.exit
+  %.0102 = phi ptr [ %58, %_ZSt13__lower_boundIPN4llvm28ASanStackVariableDescriptionES1_N9__gnu_cxx5__ops14_Iter_comp_valIPFbRKS1_S7_EEEET_SB_SB_RKT0_T1_.exit ], [ %.0.lcssa.i80, %_ZSt13__upper_boundIPN4llvm28ASanStackVariableDescriptionES1_N9__gnu_cxx5__ops14_Val_comp_iterIPFbRKS1_S7_EEEET_SB_SB_RKT0_T1_.exit ]
+  %.0101 = phi ptr [ %.0.lcssa.i73, %_ZSt13__lower_boundIPN4llvm28ASanStackVariableDescriptionES1_N9__gnu_cxx5__ops14_Iter_comp_valIPFbRKS1_S7_EEEET_SB_SB_RKT0_T1_.exit ], [ %72, %_ZSt13__upper_boundIPN4llvm28ASanStackVariableDescriptionES1_N9__gnu_cxx5__ops14_Val_comp_iterIPFbRKS1_S7_EEEET_SB_SB_RKT0_T1_.exit ]
+  %.063 = phi i64 [ %70, %_ZSt13__lower_boundIPN4llvm28ASanStackVariableDescriptionES1_N9__gnu_cxx5__ops14_Iter_comp_valIPFbRKS1_S7_EEEET_SB_SB_RKT0_T1_.exit ], [ %71, %_ZSt13__upper_boundIPN4llvm28ASanStackVariableDescriptionES1_N9__gnu_cxx5__ops14_Val_comp_iterIPFbRKS1_S7_EEEET_SB_SB_RKT0_T1_.exit ]
+  %.0 = phi i64 [ %57, %_ZSt13__lower_boundIPN4llvm28ASanStackVariableDescriptionES1_N9__gnu_cxx5__ops14_Iter_comp_valIPFbRKS1_S7_EEEET_SB_SB_RKT0_T1_.exit ], [ %85, %_ZSt13__upper_boundIPN4llvm28ASanStackVariableDescriptionES1_N9__gnu_cxx5__ops14_Val_comp_iterIPFbRKS1_S7_EEEET_SB_SB_RKT0_T1_.exit ]
+  %87 = sub nsw i64 %.tr107125, %.0
+  %88 = icmp sle i64 %87, %.063
   %.not.i = icmp sgt i64 %.063, %6
-  %or.cond.i = or i1 %.not.i, %90
-  br i1 %or.cond.i, label %103, label %91
+  %or.cond.i = or i1 %.not.i, %88
+  br i1 %or.cond.i, label %101, label %89
 
-91:                                               ; preds = %88
+89:                                               ; preds = %86
   %.not35.i = icmp eq i64 %.063, 0
-  br i1 %.not35.i, label %_ZSt17__rotate_adaptiveIPN4llvm28ASanStackVariableDescriptionES2_lET_S3_S3_S3_T1_S4_T0_S4_.exit, label %92
+  br i1 %.not35.i, label %_ZSt17__rotate_adaptiveIPN4llvm28ASanStackVariableDescriptionES2_lET_S3_S3_S3_T1_S4_T0_S4_.exit, label %90
 
-92:                                               ; preds = %91
-  %93 = ptrtoint ptr %.0102 to i64
-  %94 = ptrtoint ptr %.tr106124 to i64
-  %95 = sub i64 %93, %94
-  %.not.i.i.i.i.i.i89 = icmp eq ptr %.0102, %.tr106124
-  br i1 %.not.i.i.i.i.i.i89, label %_ZSt4moveIPN4llvm28ASanStackVariableDescriptionES2_ET0_T_S4_S3_.exit.i90, label %96
+90:                                               ; preds = %89
+  %91 = ptrtoint ptr %.0101 to i64
+  %92 = ptrtoint ptr %.tr105123 to i64
+  %93 = sub i64 %91, %92
+  %.not.i.i.i.i.i.i89 = icmp eq ptr %.0101, %.tr105123
+  br i1 %.not.i.i.i.i.i.i89, label %_ZSt4moveIPN4llvm28ASanStackVariableDescriptionES2_ET0_T_S4_S3_.exit.i90, label %94
 
-96:                                               ; preds = %92
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %5, ptr align 8 %.tr106124, i64 %95, i1 false)
+94:                                               ; preds = %90
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %5, ptr align 8 %.tr105123, i64 %93, i1 false)
   br label %_ZSt4moveIPN4llvm28ASanStackVariableDescriptionES2_ET0_T_S4_S3_.exit.i90
 
-_ZSt4moveIPN4llvm28ASanStackVariableDescriptionES2_ET0_T_S4_S3_.exit.i90: ; preds = %96, %92
-  %.not.i.i.i.i.i36.i = icmp eq ptr %.tr106124, %.0103
-  br i1 %.not.i.i.i.i.i36.i, label %_ZSt13move_backwardIPN4llvm28ASanStackVariableDescriptionES2_ET0_T_S4_S3_.exit.i, label %97
+_ZSt4moveIPN4llvm28ASanStackVariableDescriptionES2_ET0_T_S4_S3_.exit.i90: ; preds = %94, %90
+  %.not.i.i.i.i.i36.i = icmp eq ptr %.tr105123, %.0102
+  br i1 %.not.i.i.i.i.i36.i, label %_ZSt13move_backwardIPN4llvm28ASanStackVariableDescriptionES2_ET0_T_S4_S3_.exit.i, label %95
 
-97:                                               ; preds = %_ZSt4moveIPN4llvm28ASanStackVariableDescriptionES2_ET0_T_S4_S3_.exit.i90
-  %98 = ptrtoint ptr %.0103 to i64
-  %99 = sub i64 %94, %98
-  %.neg.i.i.i.i.i.i91 = sdiv exact i64 %99, -56
-  %100 = getelementptr inbounds %"struct.llvm::ASanStackVariableDescription", ptr %.0102, i64 %.neg.i.i.i.i.i.i91
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %100, ptr align 8 %.0103, i64 %99, i1 false)
+95:                                               ; preds = %_ZSt4moveIPN4llvm28ASanStackVariableDescriptionES2_ET0_T_S4_S3_.exit.i90
+  %96 = ptrtoint ptr %.0102 to i64
+  %97 = sub i64 %92, %96
+  %.neg.i.i.i.i.i.i = sdiv exact i64 %97, -56
+  %98 = getelementptr inbounds %"struct.llvm::ASanStackVariableDescription", ptr %.0101, i64 %.neg.i.i.i.i.i.i
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %98, ptr align 8 %.0102, i64 %97, i1 false)
   br label %_ZSt13move_backwardIPN4llvm28ASanStackVariableDescriptionES2_ET0_T_S4_S3_.exit.i
 
-_ZSt13move_backwardIPN4llvm28ASanStackVariableDescriptionES2_ET0_T_S4_S3_.exit.i: ; preds = %97, %_ZSt4moveIPN4llvm28ASanStackVariableDescriptionES2_ET0_T_S4_S3_.exit.i90
-  br i1 %.not.i.i.i.i.i.i89, label %_ZSt4moveIPN4llvm28ASanStackVariableDescriptionES2_ET0_T_S4_S3_.exit38.i, label %101
+_ZSt13move_backwardIPN4llvm28ASanStackVariableDescriptionES2_ET0_T_S4_S3_.exit.i: ; preds = %95, %_ZSt4moveIPN4llvm28ASanStackVariableDescriptionES2_ET0_T_S4_S3_.exit.i90
+  br i1 %.not.i.i.i.i.i.i89, label %_ZSt4moveIPN4llvm28ASanStackVariableDescriptionES2_ET0_T_S4_S3_.exit38.i, label %99
 
-101:                                              ; preds = %_ZSt13move_backwardIPN4llvm28ASanStackVariableDescriptionES2_ET0_T_S4_S3_.exit.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %.0103, ptr align 8 %5, i64 %95, i1 false)
+99:                                               ; preds = %_ZSt13move_backwardIPN4llvm28ASanStackVariableDescriptionES2_ET0_T_S4_S3_.exit.i
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %.0102, ptr align 8 %5, i64 %93, i1 false)
   br label %_ZSt4moveIPN4llvm28ASanStackVariableDescriptionES2_ET0_T_S4_S3_.exit38.i
 
-_ZSt4moveIPN4llvm28ASanStackVariableDescriptionES2_ET0_T_S4_S3_.exit38.i: ; preds = %101, %_ZSt13move_backwardIPN4llvm28ASanStackVariableDescriptionES2_ET0_T_S4_S3_.exit.i
-  %102 = getelementptr inbounds i8, ptr %.0103, i64 %95
+_ZSt4moveIPN4llvm28ASanStackVariableDescriptionES2_ET0_T_S4_S3_.exit38.i: ; preds = %99, %_ZSt13move_backwardIPN4llvm28ASanStackVariableDescriptionES2_ET0_T_S4_S3_.exit.i
+  %100 = getelementptr inbounds i8, ptr %.0102, i64 %93
   br label %_ZSt17__rotate_adaptiveIPN4llvm28ASanStackVariableDescriptionES2_lET_S3_S3_S3_T1_S4_T0_S4_.exit
 
-103:                                              ; preds = %88
-  %.not33.i = icmp sgt i64 %89, %6
-  br i1 %.not33.i, label %116, label %104
+101:                                              ; preds = %86
+  %.not33.i = icmp sgt i64 %87, %6
+  br i1 %.not33.i, label %114, label %102
 
-104:                                              ; preds = %103
-  %.not34.i = icmp eq i64 %.tr108126, %.0
-  br i1 %.not34.i, label %_ZSt17__rotate_adaptiveIPN4llvm28ASanStackVariableDescriptionES2_lET_S3_S3_S3_T1_S4_T0_S4_.exit, label %105
+102:                                              ; preds = %101
+  %.not34.i = icmp eq i64 %.tr107125, %.0
+  br i1 %.not34.i, label %_ZSt17__rotate_adaptiveIPN4llvm28ASanStackVariableDescriptionES2_lET_S3_S3_S3_T1_S4_T0_S4_.exit, label %103
 
-105:                                              ; preds = %104
-  %106 = ptrtoint ptr %.tr106124 to i64
-  %107 = ptrtoint ptr %.0103 to i64
-  %108 = sub i64 %106, %107
-  %.not.i.i.i.i.i39.i = icmp eq ptr %.tr106124, %.0103
-  br i1 %.not.i.i.i.i.i39.i, label %_ZSt4moveIPN4llvm28ASanStackVariableDescriptionES2_ET0_T_S4_S3_.exit40.i, label %109
+103:                                              ; preds = %102
+  %104 = ptrtoint ptr %.tr105123 to i64
+  %105 = ptrtoint ptr %.0102 to i64
+  %106 = sub i64 %104, %105
+  %.not.i.i.i.i.i39.i = icmp eq ptr %.tr105123, %.0102
+  br i1 %.not.i.i.i.i.i39.i, label %_ZSt4moveIPN4llvm28ASanStackVariableDescriptionES2_ET0_T_S4_S3_.exit40.i, label %107
 
-109:                                              ; preds = %105
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %5, ptr align 8 %.0103, i64 %108, i1 false)
+107:                                              ; preds = %103
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %5, ptr align 8 %.0102, i64 %106, i1 false)
   br label %_ZSt4moveIPN4llvm28ASanStackVariableDescriptionES2_ET0_T_S4_S3_.exit40.i
 
-_ZSt4moveIPN4llvm28ASanStackVariableDescriptionES2_ET0_T_S4_S3_.exit40.i: ; preds = %109, %105
-  %.not.i.i.i.i.i41.i = icmp eq ptr %.0102, %.tr106124
-  br i1 %.not.i.i.i.i.i41.i, label %_ZSt4moveIPN4llvm28ASanStackVariableDescriptionES2_ET0_T_S4_S3_.exit42.i, label %110
+_ZSt4moveIPN4llvm28ASanStackVariableDescriptionES2_ET0_T_S4_S3_.exit40.i: ; preds = %107, %103
+  %.not.i.i.i.i.i41.i = icmp eq ptr %.0101, %.tr105123
+  br i1 %.not.i.i.i.i.i41.i, label %_ZSt4moveIPN4llvm28ASanStackVariableDescriptionES2_ET0_T_S4_S3_.exit42.i, label %108
 
-110:                                              ; preds = %_ZSt4moveIPN4llvm28ASanStackVariableDescriptionES2_ET0_T_S4_S3_.exit40.i
-  %111 = ptrtoint ptr %.0102 to i64
-  %112 = sub i64 %111, %106
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %.0103, ptr align 8 %.tr106124, i64 %112, i1 false)
+108:                                              ; preds = %_ZSt4moveIPN4llvm28ASanStackVariableDescriptionES2_ET0_T_S4_S3_.exit40.i
+  %109 = ptrtoint ptr %.0101 to i64
+  %110 = sub i64 %109, %104
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %.0102, ptr align 8 %.tr105123, i64 %110, i1 false)
   br label %_ZSt4moveIPN4llvm28ASanStackVariableDescriptionES2_ET0_T_S4_S3_.exit42.i
 
-_ZSt4moveIPN4llvm28ASanStackVariableDescriptionES2_ET0_T_S4_S3_.exit42.i: ; preds = %110, %_ZSt4moveIPN4llvm28ASanStackVariableDescriptionES2_ET0_T_S4_S3_.exit40.i
-  %.neg.i.i.i.i.i43.i = sdiv exact i64 %108, -56
-  br i1 %.not.i.i.i.i.i39.i, label %_ZSt13move_backwardIPN4llvm28ASanStackVariableDescriptionES2_ET0_T_S4_S3_.exit45.i, label %113
+_ZSt4moveIPN4llvm28ASanStackVariableDescriptionES2_ET0_T_S4_S3_.exit42.i: ; preds = %108, %_ZSt4moveIPN4llvm28ASanStackVariableDescriptionES2_ET0_T_S4_S3_.exit40.i
+  %.neg.i.i.i.i.i43.i = sdiv exact i64 %106, -56
+  br i1 %.not.i.i.i.i.i39.i, label %_ZSt13move_backwardIPN4llvm28ASanStackVariableDescriptionES2_ET0_T_S4_S3_.exit45.i, label %111
 
-113:                                              ; preds = %_ZSt4moveIPN4llvm28ASanStackVariableDescriptionES2_ET0_T_S4_S3_.exit42.i
-  %114 = getelementptr inbounds %"struct.llvm::ASanStackVariableDescription", ptr %.0102, i64 %.neg.i.i.i.i.i43.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %114, ptr align 8 %5, i64 %108, i1 false)
+111:                                              ; preds = %_ZSt4moveIPN4llvm28ASanStackVariableDescriptionES2_ET0_T_S4_S3_.exit42.i
+  %112 = getelementptr inbounds %"struct.llvm::ASanStackVariableDescription", ptr %.0101, i64 %.neg.i.i.i.i.i43.i
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %112, ptr align 8 %5, i64 %106, i1 false)
   br label %_ZSt13move_backwardIPN4llvm28ASanStackVariableDescriptionES2_ET0_T_S4_S3_.exit45.i
 
-_ZSt13move_backwardIPN4llvm28ASanStackVariableDescriptionES2_ET0_T_S4_S3_.exit45.i: ; preds = %113, %_ZSt4moveIPN4llvm28ASanStackVariableDescriptionES2_ET0_T_S4_S3_.exit42.i
-  %115 = getelementptr inbounds %"struct.llvm::ASanStackVariableDescription", ptr %.0102, i64 %.neg.i.i.i.i.i43.i
+_ZSt13move_backwardIPN4llvm28ASanStackVariableDescriptionES2_ET0_T_S4_S3_.exit45.i: ; preds = %111, %_ZSt4moveIPN4llvm28ASanStackVariableDescriptionES2_ET0_T_S4_S3_.exit42.i
+  %113 = getelementptr inbounds %"struct.llvm::ASanStackVariableDescription", ptr %.0101, i64 %.neg.i.i.i.i.i43.i
   br label %_ZSt17__rotate_adaptiveIPN4llvm28ASanStackVariableDescriptionES2_lET_S3_S3_S3_T1_S4_T0_S4_.exit
 
-116:                                              ; preds = %103
-  %117 = tail call noundef ptr @_ZNSt3_V28__rotateIPN4llvm28ASanStackVariableDescriptionEEET_S4_S4_S4_St26random_access_iterator_tag(ptr noundef %.0103, ptr noundef %.tr106124, ptr noundef %.0102)
+114:                                              ; preds = %101
+  %115 = tail call noundef ptr @_ZNSt3_V28__rotateIPN4llvm28ASanStackVariableDescriptionEEET_S4_S4_S4_St26random_access_iterator_tag(ptr noundef %.0102, ptr noundef %.tr105123, ptr noundef %.0101)
   br label %_ZSt17__rotate_adaptiveIPN4llvm28ASanStackVariableDescriptionES2_lET_S3_S3_S3_T1_S4_T0_S4_.exit
 
-_ZSt17__rotate_adaptiveIPN4llvm28ASanStackVariableDescriptionES2_lET_S3_S3_S3_T1_S4_T0_S4_.exit: ; preds = %91, %_ZSt4moveIPN4llvm28ASanStackVariableDescriptionES2_ET0_T_S4_S3_.exit38.i, %104, %_ZSt13move_backwardIPN4llvm28ASanStackVariableDescriptionES2_ET0_T_S4_S3_.exit45.i, %116
-  %.0.i92 = phi ptr [ %102, %_ZSt4moveIPN4llvm28ASanStackVariableDescriptionES2_ET0_T_S4_S3_.exit38.i ], [ %115, %_ZSt13move_backwardIPN4llvm28ASanStackVariableDescriptionES2_ET0_T_S4_S3_.exit45.i ], [ %117, %116 ], [ %.0103, %91 ], [ %.0102, %104 ]
-  tail call void @_ZSt16__merge_adaptiveIPN4llvm28ASanStackVariableDescriptionElS2_N9__gnu_cxx5__ops15_Iter_comp_iterIPFbRKS1_S7_EEEEvT_SB_SB_T0_SC_T1_SC_T2_(ptr noundef %.tr123, ptr noundef %.0103, ptr noundef %.0.i92, i64 noundef %.0, i64 noundef %.063, ptr noundef %5, i64 noundef %6, i64 %7)
-  %118 = sub nsw i64 %.tr109127, %.063
-  %.not = icmp sgt i64 %89, %118
-  %.not67 = icmp sgt i64 %89, %6
+_ZSt17__rotate_adaptiveIPN4llvm28ASanStackVariableDescriptionES2_lET_S3_S3_S3_T1_S4_T0_S4_.exit: ; preds = %89, %_ZSt4moveIPN4llvm28ASanStackVariableDescriptionES2_ET0_T_S4_S3_.exit38.i, %102, %_ZSt13move_backwardIPN4llvm28ASanStackVariableDescriptionES2_ET0_T_S4_S3_.exit45.i, %114
+  %.0.i91 = phi ptr [ %100, %_ZSt4moveIPN4llvm28ASanStackVariableDescriptionES2_ET0_T_S4_S3_.exit38.i ], [ %113, %_ZSt13move_backwardIPN4llvm28ASanStackVariableDescriptionES2_ET0_T_S4_S3_.exit45.i ], [ %115, %114 ], [ %.0102, %89 ], [ %.0101, %102 ]
+  tail call void @_ZSt16__merge_adaptiveIPN4llvm28ASanStackVariableDescriptionElS2_N9__gnu_cxx5__ops15_Iter_comp_iterIPFbRKS1_S7_EEEEvT_SB_SB_T0_SC_T1_SC_T2_(ptr noundef %.tr122, ptr noundef %.0102, ptr noundef %.0.i91, i64 noundef %.0, i64 noundef %.063, ptr noundef %5, i64 noundef %6, i64 %7)
+  %116 = sub nsw i64 %.tr108126, %.063
+  %.not = icmp sgt i64 %87, %116
+  %.not67 = icmp sgt i64 %87, %6
   %or.cond = or i1 %.not67, %.not
   br i1 %or.cond, label %32, label %tailrecurse._crit_edge
 
-_ZSt21__move_merge_adaptiveIPN4llvm28ASanStackVariableDescriptionES2_S2_N9__gnu_cxx5__ops15_Iter_comp_iterIPFbRKS1_S7_EEEEvT_SB_T0_SC_T1_T2_.exit: ; preds = %54, %34, %49, %47, %37, %_ZSt4moveIPN4llvm28ASanStackVariableDescriptionES2_ET0_T_S4_S3_.exit.i, %._crit_edge.i
+_ZSt21__move_merge_adaptiveIPN4llvm28ASanStackVariableDescriptionES2_S2_N9__gnu_cxx5__ops15_Iter_comp_iterIPFbRKS1_S7_EEEEvT_SB_T0_SC_T1_T2_.exit: ; preds = %47, %33, %_ZSt13move_backwardIPN4llvm28ASanStackVariableDescriptionES2_ET0_T_S4_S3_.exit.sink.split.i, %45, %_ZSt4moveIPN4llvm28ASanStackVariableDescriptionES2_ET0_T_S4_S3_.exit.i, %._crit_edge.i
   ret void
 }
 

@@ -1034,7 +1034,7 @@ define internal i32 @nf_log_proc_dostring(ptr nocapture noundef readonly %0, i32
 46:                                               ; preds = %.thread, %22, %15
   %47 = phi i32 [ %17, %15 ], [ 0, %22 ], [ %45, %.thread ]
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %7) #16
-  br label %63
+  br label %61
 
 48:                                               ; preds = %5
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %8) #16
@@ -1048,27 +1048,24 @@ define internal i32 @nf_log_proc_dostring(ptr nocapture noundef readonly %0, i32
   %53 = getelementptr [11 x ptr], ptr %50, i64 0, i64 %52
   %54 = load ptr, ptr %53, align 8
   %55 = icmp eq ptr %54, null
-  br i1 %55, label %56, label %58
+  br i1 %55, label %58, label %56
 
 56:                                               ; preds = %48
-  %57 = call i64 @strscpy(ptr noundef nonnull %6, ptr noundef nonnull @.str.12, i64 noundef 64) #16
-  br label %61
+  %57 = load ptr, ptr %54, align 8
+  br label %58
 
-58:                                               ; preds = %48
-  %59 = load ptr, ptr %54, align 8
-  %60 = call i64 @strscpy(ptr noundef nonnull %6, ptr noundef %59, i64 noundef 64) #16
-  br label %61
-
-61:                                               ; preds = %58, %56
+58:                                               ; preds = %48, %56
+  %.sink = phi ptr [ %57, %56 ], [ @.str.12, %48 ]
+  %59 = call i64 @strscpy(ptr noundef nonnull %6, ptr noundef %.sink, i64 noundef 64) #16
   call void @mutex_unlock(ptr noundef nonnull @nf_log_mutex) #16
-  %62 = call i32 @proc_dostring(ptr noundef nonnull %8, i32 noundef 0, ptr noundef %2, ptr noundef %3, ptr noundef %4) #16
+  %60 = call i32 @proc_dostring(ptr noundef nonnull %8, i32 noundef 0, ptr noundef %2, ptr noundef %3, ptr noundef %4) #16
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %8) #16
-  br label %63
+  br label %61
 
-63:                                               ; preds = %61, %46
-  %64 = phi i32 [ %62, %61 ], [ %47, %46 ]
+61:                                               ; preds = %58, %46
+  %62 = phi i32 [ %60, %58 ], [ %47, %46 ]
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %6) #16
-  ret i32 %64
+  ret i32 %62
 }
 
 ; Function Attrs: null_pointer_is_valid

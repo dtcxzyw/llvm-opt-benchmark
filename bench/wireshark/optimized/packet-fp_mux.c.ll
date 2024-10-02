@@ -371,70 +371,69 @@ define internal range(i32 0, 2) i32 @heur_dissect_fp_mux(ptr noundef %0, ptr nou
   %19 = getelementptr inbounds i8, ptr %1, i64 288
   %20 = load i32, ptr %19, align 8
   %21 = icmp eq i32 %18, %20
-  br i1 %21, label %22, label %.loopexit
+  br i1 %21, label %.loopexit.sink.split, label %.loopexit
 
-22:                                               ; preds = %16
-  %23 = tail call i32 @dissect_fp_mux(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, ptr poison)
+.preheader:                                       ; preds = %7, %39
+  %.04455 = phi i32 [ %43, %39 ], [ 0, %7 ]
+  %.04554 = phi i32 [ %42, %39 ], [ 0, %7 ]
+  %22 = add i32 %.04554, 2
+  %23 = icmp ult i32 %5, %22
+  br i1 %23, label %.loopexit, label %24
+
+24:                                               ; preds = %.preheader
+  %25 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %22) #3
+  %.not51 = icmp sgt i8 %25, -1
+  %26 = select i1 %.not51, i32 3, i32 4
+  %27 = add i32 %26, %.04554
+  %28 = icmp ult i32 %5, %27
+  br i1 %28, label %.loopexit, label %29
+
+29:                                               ; preds = %24
+  br i1 %.not51, label %33, label %30
+
+30:                                               ; preds = %29
+  %31 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %22) #3
+  %32 = and i16 %31, 32767
+  br label %37
+
+33:                                               ; preds = %29
+  %34 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %22) #3
+  %35 = and i8 %34, 127
+  %36 = zext nneg i8 %35 to i16
+  br label %37
+
+37:                                               ; preds = %33, %30
+  %.046 = phi i16 [ %32, %30 ], [ %36, %33 ]
+  %.043 = phi i32 [ 2, %30 ], [ 1, %33 ]
+  %38 = icmp ult i16 %.046, 3
+  br i1 %38, label %.loopexit, label %39
+
+39:                                               ; preds = %37
+  %40 = zext nneg i16 %.046 to i32
+  %41 = add i32 %.043, %22
+  %42 = add i32 %41, %40
+  %43 = add i32 %.04455, 1
+  %44 = icmp ult i32 %42, %5
+  br i1 %44, label %.preheader, label %45, !llvm.loop !6
+
+45:                                               ; preds = %39
+  %46 = icmp ugt i32 %42, %5
+  %47 = icmp eq i32 %.04455, 0
+  %or.cond = select i1 %46, i1 true, i1 %47
+  br i1 %or.cond, label %.loopexit, label %48
+
+48:                                               ; preds = %45
+  %49 = tail call nonnull ptr @find_or_create_conversation(ptr noundef %1) #3
+  %50 = load ptr, ptr @fp_mux_handle, align 8
+  tail call void @conversation_set_dissector(ptr noundef nonnull %49, ptr noundef %50) #3
+  br label %.loopexit.sink.split
+
+.loopexit.sink.split:                             ; preds = %16, %48
+  %51 = tail call i32 @dissect_fp_mux(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr poison)
   br label %.loopexit
 
-.preheader:                                       ; preds = %7, %41
-  %.04455 = phi i32 [ %45, %41 ], [ 0, %7 ]
-  %.04554 = phi i32 [ %44, %41 ], [ 0, %7 ]
-  %24 = add i32 %.04554, 2
-  %25 = icmp ult i32 %5, %24
-  br i1 %25, label %.loopexit, label %26
-
-26:                                               ; preds = %.preheader
-  %27 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %24) #3
-  %.not51 = icmp sgt i8 %27, -1
-  %28 = select i1 %.not51, i32 3, i32 4
-  %29 = add i32 %28, %.04554
-  %30 = icmp ult i32 %5, %29
-  br i1 %30, label %.loopexit, label %31
-
-31:                                               ; preds = %26
-  br i1 %.not51, label %35, label %32
-
-32:                                               ; preds = %31
-  %33 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %24) #3
-  %34 = and i16 %33, 32767
-  br label %39
-
-35:                                               ; preds = %31
-  %36 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %24) #3
-  %37 = and i8 %36, 127
-  %38 = zext nneg i8 %37 to i16
-  br label %39
-
-39:                                               ; preds = %35, %32
-  %.046 = phi i16 [ %34, %32 ], [ %38, %35 ]
-  %.043 = phi i32 [ 2, %32 ], [ 1, %35 ]
-  %40 = icmp ult i16 %.046, 3
-  br i1 %40, label %.loopexit, label %41
-
-41:                                               ; preds = %39
-  %42 = zext nneg i16 %.046 to i32
-  %43 = add i32 %.043, %24
-  %44 = add i32 %43, %42
-  %45 = add i32 %.04455, 1
-  %46 = icmp ult i32 %44, %5
-  br i1 %46, label %.preheader, label %47, !llvm.loop !6
-
-47:                                               ; preds = %41
-  %48 = icmp ugt i32 %44, %5
-  %49 = icmp eq i32 %.04455, 0
-  %or.cond = select i1 %48, i1 true, i1 %49
-  br i1 %or.cond, label %.loopexit, label %50
-
-50:                                               ; preds = %47
-  %51 = tail call nonnull ptr @find_or_create_conversation(ptr noundef %1) #3
-  %52 = load ptr, ptr @fp_mux_handle, align 8
-  tail call void @conversation_set_dissector(ptr noundef nonnull %51, ptr noundef %52) #3
-  %53 = tail call i32 @dissect_fp_mux(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr poison)
-  br label %.loopexit
-
-.loopexit:                                        ; preds = %39, %26, %.preheader, %47, %11, %16, %4, %50, %22
-  %.0 = phi i32 [ 1, %22 ], [ 1, %50 ], [ 0, %4 ], [ 0, %16 ], [ 0, %11 ], [ 0, %47 ], [ 0, %.preheader ], [ 0, %26 ], [ 0, %39 ]
+.loopexit:                                        ; preds = %37, %24, %.preheader, %.loopexit.sink.split, %45, %11, %16, %4
+  %.0 = phi i32 [ 0, %4 ], [ 0, %16 ], [ 0, %11 ], [ 0, %45 ], [ 1, %.loopexit.sink.split ], [ 0, %.preheader ], [ 0, %24 ], [ 0, %37 ]
   ret i32 %.0
 }
 

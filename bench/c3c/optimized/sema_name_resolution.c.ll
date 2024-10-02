@@ -481,7 +481,7 @@ sema_find_decl_in_module.exit.thread.us:          ; preds = %sema_find_decl_in_m
   %21 = getelementptr inbounds i8, ptr %15, i64 8
   %22 = load ptr, ptr %21, align 8
   %23 = icmp eq ptr %20, %22
-  br i1 %23, label %matches_subpath.exit.thread13.i, label %24
+  br i1 %23, label %sema_find_decl_in_module.exit, label %24
 
 24:                                               ; preds = %19
   %25 = zext i32 %17 to i64
@@ -506,20 +506,20 @@ sema_find_decl_in_module.exit.thread.us:          ; preds = %sema_find_decl_in_m
 matches_subpath.exit.i:                           ; preds = %33
   %bcmp.i.i = tail call i32 @bcmp(ptr %30, ptr %20, i64 %26)
   %36 = icmp eq i32 %bcmp.i.i, 0
-  br i1 %36, label %matches_subpath.exit.thread13.i, label %sema_find_decl_in_module.exit.thread
+  br i1 %36, label %sema_find_decl_in_module.exit, label %sema_find_decl_in_module.exit.thread
 
-matches_subpath.exit.thread13.i:                  ; preds = %matches_subpath.exit.i, %19
+sema_find_decl_in_module.exit:                    ; preds = %matches_subpath.exit.i, %19
   %37 = tail call ptr @module_find_symbol(ptr noundef nonnull %13, ptr noundef %2) #10
   %.not19 = icmp eq ptr %37, null
   br i1 %.not19, label %sema_find_decl_in_module.exit.thread, label %._crit_edge
 
-sema_find_decl_in_module.exit.thread:             ; preds = %29, %33, %24, %matches_subpath.exit.i, %.lr.ph.split, %matches_subpath.exit.thread13.i
+sema_find_decl_in_module.exit.thread:             ; preds = %29, %33, %24, %matches_subpath.exit.i, %.lr.ph.split, %sema_find_decl_in_module.exit
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count32
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !16
 
-._crit_edge:                                      ; preds = %matches_subpath.exit.thread13.i, %sema_find_decl_in_module.exit.thread, %sema_find_decl_in_module.exit.us, %sema_find_decl_in_module.exit.thread.us, %3, %4
-  %.015 = phi ptr [ null, %4 ], [ null, %3 ], [ null, %sema_find_decl_in_module.exit.thread.us ], [ %11, %sema_find_decl_in_module.exit.us ], [ null, %sema_find_decl_in_module.exit.thread ], [ %37, %matches_subpath.exit.thread13.i ]
+._crit_edge:                                      ; preds = %sema_find_decl_in_module.exit, %sema_find_decl_in_module.exit.thread, %sema_find_decl_in_module.exit.us, %sema_find_decl_in_module.exit.thread.us, %3, %4
+  %.015 = phi ptr [ null, %4 ], [ null, %3 ], [ null, %sema_find_decl_in_module.exit.thread.us ], [ %11, %sema_find_decl_in_module.exit.us ], [ null, %sema_find_decl_in_module.exit.thread ], [ %37, %sema_find_decl_in_module.exit ]
   ret ptr %.015
 }
 

@@ -2212,8 +2212,7 @@ if.then:                                          ; preds = %land.lhs.true
   %2 = load ptr, ptr %option, align 8
   tail call void @g_free(ptr noundef %2) #20
   %3 = load ptr, ptr %value, align 8
-  tail call void @g_free(ptr noundef %3) #20
-  br label %return
+  br label %return.sink.split
 
 if.end:                                           ; preds = %land.lhs.true, %for.body
   %4 = load ptr, ptr %option, align 8
@@ -2325,11 +2324,15 @@ qemu_opt_del.exit:                                ; preds = %if.then10, %if.else
   tail call void @g_free(ptr noundef %24) #20
   %25 = load ptr, ptr %str.i58, align 8
   tail call void @g_free(ptr noundef %25) #20
-  tail call void @g_free(ptr noundef nonnull %call.i) #20
+  br label %return.sink.split
+
+return.sink.split:                                ; preds = %if.then, %qemu_opt_del.exit
+  %call.i60.sink = phi ptr [ %call.i, %qemu_opt_del.exit ], [ %3, %if.then ]
+  tail call void @g_free(ptr noundef %call.i60.sink) #20
   br label %return
 
-return:                                           ; preds = %for.cond.backedge, %entry, %qemu_opt_del.exit, %if.then
-  %tobool.not14 = phi i1 [ false, %qemu_opt_del.exit ], [ false, %if.then ], [ true, %entry ], [ true, %for.cond.backedge ]
+return:                                           ; preds = %for.cond.backedge, %return.sink.split, %entry
+  %tobool.not14 = phi i1 [ true, %entry ], [ false, %return.sink.split ], [ true, %for.cond.backedge ]
   ret i1 %tobool.not14
 }
 

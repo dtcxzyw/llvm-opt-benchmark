@@ -116,20 +116,16 @@ if.then:                                          ; preds = %sw.bb
   %call = tail call ptr @X509_get_default_cert_dir_env() #7
   %call1 = tail call ptr @ossl_safe_getenv(ptr noundef %call) #7
   %tobool.not = icmp eq ptr %call1, null
-  br i1 %tobool.not, label %if.else, label %if.then2
-
-if.then2:                                         ; preds = %if.then
-  %call3 = tail call fastcc i32 @add_cert_dir(ptr noundef %0, ptr noundef nonnull %call1, i32 noundef 1)
-  br label %if.end
+  br i1 %tobool.not, label %if.else, label %if.end
 
 if.else:                                          ; preds = %if.then
   %call4 = tail call ptr @X509_get_default_cert_dir() #7
-  %call5 = tail call fastcc i32 @add_cert_dir(ptr noundef %0, ptr noundef %call4, i32 noundef 1)
   br label %if.end
 
-if.end:                                           ; preds = %if.else, %if.then2
-  %ret.1 = phi i32 [ %call3, %if.then2 ], [ %call5, %if.else ]
-  %tobool6.not = icmp eq i32 %ret.1, 0
+if.end:                                           ; preds = %if.then, %if.else
+  %call4.sink = phi ptr [ %call4, %if.else ], [ %call1, %if.then ]
+  %call5 = tail call fastcc i32 @add_cert_dir(ptr noundef %0, ptr noundef %call4.sink, i32 noundef 1)
+  %tobool6.not = icmp eq i32 %call5, 0
   br i1 %tobool6.not, label %if.then7, label %sw.epilog
 
 if.then7:                                         ; preds = %if.end

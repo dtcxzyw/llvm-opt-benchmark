@@ -7318,11 +7318,7 @@ _ZN4absl18debugging_internalL11MaybeAppendEPNS0_5StateEPKc.exit: ; preds = %if.e
           to label %invoke.cont2 unwind label %lpad
 
 invoke.cont2:                                     ; preds = %_ZN4absl18debugging_internalL11MaybeAppendEPNS0_5StateEPKc.exit
-  br i1 %call3, label %land.lhs.true4, label %if.end10
-
-land.lhs.true4:                                   ; preds = %invoke.cont2
-  tail call fastcc void @_ZN4absl18debugging_internalL18ParseDiscriminatorEPNS0_5StateE(ptr noundef nonnull %state)
-  br label %cleanup
+  br i1 %call3, label %cleanup.sink.split, label %if.end10
 
 lpad:                                             ; preds = %_ZN4absl18debugging_internalL11MaybeAppendEPNS0_5StateEPKc.exit
   %2 = landingpad { ptr, i32 }
@@ -7368,22 +7364,26 @@ if.end.i:                                         ; preds = %if.end13
   %arrayidx.i.i = getelementptr inbounds i8, ptr %state.val.i, i64 %idxprom.i.i
   %11 = load i8, ptr %arrayidx.i.i, align 1
   %cmp.i15 = icmp eq i8 %11, 115
-  br i1 %cmp.i15, label %land.rhs, label %_ZN4absl18debugging_internalL17ParseOneCharTokenEPNS0_5StateEc.exit.thread
+  br i1 %cmp.i15, label %_ZN4absl18debugging_internalL17ParseOneCharTokenEPNS0_5StateEc.exit, label %_ZN4absl18debugging_internalL17ParseOneCharTokenEPNS0_5StateEc.exit.thread
 
 _ZN4absl18debugging_internalL17ParseOneCharTokenEPNS0_5StateEc.exit.thread: ; preds = %if.end.i, %if.end13
   store i32 %8, ptr %recursion_depth.i, align 4
   br label %cleanup
 
-land.rhs:                                         ; preds = %if.end.i
+_ZN4absl18debugging_internalL17ParseOneCharTokenEPNS0_5StateEc.exit: ; preds = %if.end.i
   %inc.i16 = add nsw i32 %state.val4.i, 1
   store i32 %inc.i16, ptr %10, align 4
   store i32 %8, ptr %recursion_depth.i, align 4
+  br label %cleanup.sink.split
+
+cleanup.sink.split:                               ; preds = %_ZN4absl18debugging_internalL17ParseOneCharTokenEPNS0_5StateEc.exit, %invoke.cont2
   tail call fastcc void @_ZN4absl18debugging_internalL18ParseDiscriminatorEPNS0_5StateE(ptr noundef nonnull %state)
+  %.pre = load i32, ptr %recursion_depth.i, align 4
   br label %cleanup
 
-cleanup:                                          ; preds = %entry, %_ZN4absl18debugging_internalL17ParseOneCharTokenEPNS0_5StateEc.exit.thread, %land.lhs.true4, %land.rhs
-  %retval.0 = phi i1 [ true, %land.lhs.true4 ], [ true, %land.rhs ], [ false, %_ZN4absl18debugging_internalL17ParseOneCharTokenEPNS0_5StateEc.exit.thread ], [ false, %entry ]
-  %12 = load i32, ptr %recursion_depth.i, align 4
+cleanup:                                          ; preds = %entry, %_ZN4absl18debugging_internalL17ParseOneCharTokenEPNS0_5StateEc.exit.thread, %cleanup.sink.split
+  %12 = phi i32 [ %.pre, %cleanup.sink.split ], [ %8, %_ZN4absl18debugging_internalL17ParseOneCharTokenEPNS0_5StateEc.exit.thread ], [ %inc.i, %entry ]
+  %retval.0 = phi i1 [ true, %cleanup.sink.split ], [ false, %_ZN4absl18debugging_internalL17ParseOneCharTokenEPNS0_5StateEc.exit.thread ], [ false, %entry ]
   %dec.i18 = add nsw i32 %12, -1
   store i32 %dec.i18, ptr %recursion_depth.i, align 4
   ret i1 %retval.0

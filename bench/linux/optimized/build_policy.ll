@@ -3611,7 +3611,7 @@ define internal void @update_curr_rt(ptr noundef %0) #2 align 16 {
   %4 = getelementptr inbounds i8, ptr %3, i64 688
   %5 = load ptr, ptr %4, align 16
   %6 = icmp eq ptr %5, @rt_sched_class
-  br i1 %6, label %7, label %78
+  br i1 %6, label %7, label %76
 
 7:                                                ; preds = %1
   %8 = getelementptr inbounds i8, ptr %3, i64 384
@@ -3622,7 +3622,7 @@ define internal void @update_curr_rt(ptr noundef %0) #2 align 16 {
   %13 = select i1 %10, i1 true, i1 %12
   %14 = icmp eq ptr %8, null
   %15 = select i1 %13, i1 true, i1 %14
-  br i1 %15, label %78, label %16, !prof !133
+  br i1 %15, label %76, label %16, !prof !133
 
 16:                                               ; preds = %7
   %17 = getelementptr i8, ptr %3, i64 20
@@ -3635,7 +3635,7 @@ define internal void @update_curr_rt(ptr noundef %0) #2 align 16 {
   %24 = getelementptr inbounds i8, ptr %23, i64 2184
   %25 = load i64, ptr %24, align 8
   %26 = icmp eq i64 %25, -1
-  br i1 %26, label %78, label %27
+  br i1 %26, label %76, label %27
 
 27:                                               ; preds = %16
   %28 = getelementptr inbounds i8, ptr %23, i64 2192
@@ -3655,7 +3655,7 @@ define internal void @update_curr_rt(ptr noundef %0) #2 align 16 {
   %38 = icmp ult i64 %36, %37
   %39 = icmp ugt i64 %31, %36
   %40 = select i1 %38, i1 %39, i1 false
-  br i1 %40, label %41, label %77
+  br i1 %40, label %41, label %.sink.split
 
 41:                                               ; preds = %35
   %42 = load i64, ptr getelementptr inbounds (i8, ptr @def_rt_bandwidth, i64 16), align 8
@@ -3669,14 +3669,14 @@ define internal void @update_curr_rt(ptr noundef %0) #2 align 16 {
 
 .thread3:                                         ; preds = %41
   store i64 0, ptr %29, align 8
-  br label %77
+  br label %.sink.split
 
 46:                                               ; preds = %44
   store i1 true, ptr @sched_rt_runtime_exceeded.__already_done, align 1
   %47 = tail call i32 (ptr, ...) @_printk_deferred(ptr noundef nonnull @.str.12) #32
   %.pr.pre = load i32, ptr %32, align 4
   %48 = icmp eq i32 %.pr.pre, 0
-  br i1 %48, label %77, label %.thread
+  br i1 %48, label %.sink.split, label %.thread
 
 .thread:                                          ; preds = %44, %46
   %49 = getelementptr inbounds i8, ptr %23, i64 2128
@@ -3718,7 +3718,7 @@ define internal void @update_curr_rt(ptr noundef %0) #2 align 16 {
   tail call void @_raw_spin_lock(ptr noundef nonnull @def_rt_bandwidth) #29
   %65 = load i32, ptr getelementptr inbounds (i8, ptr @def_rt_bandwidth, i64 88), align 8
   %66 = icmp eq i32 %65, 0
-  br i1 %66, label %67, label %76
+  br i1 %66, label %67, label %.sink.split
 
 67:                                               ; preds = %64
   store i32 1, ptr getelementptr inbounds (i8, ptr @def_rt_bandwidth, i64 88), align 8
@@ -3731,17 +3731,14 @@ define internal void @update_curr_rt(ptr noundef %0) #2 align 16 {
   %74 = load i64, ptr getelementptr inbounds (i8, ptr @def_rt_bandwidth, i64 48), align 8
   %75 = sub i64 %74, %73
   tail call void @hrtimer_start_range_ns(ptr noundef nonnull getelementptr inbounds (i8, ptr @def_rt_bandwidth, i64 24), i64 noundef %73, i64 noundef %75, i32 noundef 10) #29
+  br label %.sink.split
+
+.sink.split:                                      ; preds = %35, %46, %.thread3, %64, %67
+  %.sink = phi ptr [ @def_rt_bandwidth, %67 ], [ @def_rt_bandwidth, %64 ], [ %28, %.thread3 ], [ %28, %46 ], [ %28, %35 ]
+  tail call void @_raw_spin_unlock(ptr noundef %.sink) #29
   br label %76
 
-76:                                               ; preds = %67, %64
-  tail call void @_raw_spin_unlock(ptr noundef nonnull @def_rt_bandwidth) #29
-  br label %78
-
-77:                                               ; preds = %.thread3, %46, %35
-  tail call void @_raw_spin_unlock(ptr noundef %28) #29
-  br label %78
-
-78:                                               ; preds = %77, %76, %16, %7, %1
+76:                                               ; preds = %.sink.split, %16, %7, %1
   ret void
 }
 

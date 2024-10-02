@@ -211,19 +211,16 @@ define noundef i32 @_Z26gmx_parallel_3dfft_executeP18gmx_parallel_3dfft17gmx_fft
 16:                                               ; preds = %4
   %17 = and i32 %1, -3
   %or.cond = icmp eq i32 %17, 0
-  br i1 %or.cond, label %18, label %19
+  br i1 %or.cond, label %21, label %18
 
 18:                                               ; preds = %16
-  tail call void @_Z13fft5d_executeP12fft5d_plan_tiP13gmx_wallcycle(ptr noundef nonnull %6, i32 noundef %2, ptr noundef %3)
-  br label %22
+  %19 = getelementptr inbounds i8, ptr %0, i64 8
+  %20 = load ptr, ptr %19, align 8
+  br label %21
 
-19:                                               ; preds = %16
-  %20 = getelementptr inbounds i8, ptr %0, i64 8
-  %21 = load ptr, ptr %20, align 8
-  tail call void @_Z13fft5d_executeP12fft5d_plan_tiP13gmx_wallcycle(ptr noundef %21, i32 noundef %2, ptr noundef %3)
-  br label %22
-
-22:                                               ; preds = %19, %18
+21:                                               ; preds = %16, %18
+  %.sink = phi ptr [ %20, %18 ], [ %6, %16 ]
+  tail call void @_Z13fft5d_executeP12fft5d_plan_tiP13gmx_wallcycle(ptr noundef %.sink, i32 noundef %2, ptr noundef %3)
   ret i32 0
 }
 

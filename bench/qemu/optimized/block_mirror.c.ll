@@ -4568,11 +4568,7 @@ if.then23:                                        ; preds = %bdrv_cow_bs.exit
   %call24 = call i32 @bdrv_set_backing_hd(ptr noundef %call20, ptr noundef %cond, ptr noundef nonnull %local_err) #12
   %14 = load ptr, ptr %local_err, align 8
   %tobool25.not = icmp eq ptr %14, null
-  br i1 %tobool25.not, label %if.end46, label %if.then26
-
-if.then26:                                        ; preds = %if.then23
-  call void @error_report_err(ptr noundef nonnull %14) #12
-  br label %if.end46.sink.split
+  br i1 %tobool25.not, label %if.end46, label %if.end46.sink.split
 
 if.then34:                                        ; preds = %land.lhs.true
   %call35 = tail call ptr @bdrv_backing_chain_next(ptr noundef %call7) #12
@@ -4591,11 +4587,12 @@ if.end39:                                         ; preds = %if.then34
 
 if.then43:                                        ; preds = %if.end39
   %15 = load ptr, ptr %local_err, align 8
-  call void @error_report_err(ptr noundef %15) #12
   br label %if.end46.sink.split
 
-if.end46.sink.split:                              ; preds = %if.then26, %if.then43
-  %ret1.0.ph = phi i32 [ -1, %if.then26 ], [ %call41, %if.then43 ]
+if.end46.sink.split:                              ; preds = %if.then23, %if.then43
+  %.sink = phi ptr [ %15, %if.then43 ], [ %14, %if.then23 ]
+  %ret1.0.ph = phi i32 [ %call41, %if.then43 ], [ -1, %if.then23 ]
+  call void @error_report_err(ptr noundef %.sink) #12
   store ptr null, ptr %local_err, align 8
   br label %if.end46
 

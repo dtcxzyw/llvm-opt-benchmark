@@ -1315,16 +1315,16 @@ hwloc_get_obj_by_type.exit:                       ; preds = %8, %6, %4
 define range(i32 -13, 1) i32 @prte_hwloc_base_cpu_list_parse(ptr noundef %0, ptr noundef %1, i1 noundef zeroext %2, ptr noundef %3) local_unnamed_addr #0 {
   %5 = load ptr, ptr @prte_hwloc_topology, align 8
   %6 = icmp eq ptr %5, null
-  br i1 %6, label %200, label %7
+  br i1 %6, label %196, label %7
 
 7:                                                ; preds = %4
   %8 = icmp eq ptr %0, null
-  br i1 %8, label %200, label %9
+  br i1 %8, label %196, label %9
 
 9:                                                ; preds = %7
   %char0 = load i8, ptr %0, align 1
   %10 = icmp eq i8 %char0, 0
-  br i1 %10, label %200, label %11
+  br i1 %10, label %196, label %11
 
 11:                                               ; preds = %9
   %12 = load i32, ptr @prte_hwloc_base_output, align 4
@@ -1354,9 +1354,9 @@ define range(i32 -13, 1) i32 @prte_hwloc_base_cpu_list_parse(ptr noundef %0, ptr
   %23 = icmp ne ptr %1, null
   br label %24
 
-24:                                               ; preds = %.lr.ph172, %197
-  %indvars.iv195 = phi i64 [ 0, %.lr.ph172 ], [ %indvars.iv.next196, %197 ]
-  %25 = phi ptr [ %21, %.lr.ph172 ], [ %199, %197 ]
+24:                                               ; preds = %.lr.ph172, %193
+  %indvars.iv195 = phi i64 [ 0, %.lr.ph172 ], [ %indvars.iv.next196, %193 ]
+  %25 = phi ptr [ %21, %.lr.ph172 ], [ %195, %193 ]
   %26 = getelementptr inbounds ptr, ptr %20, i64 %indvars.iv195
   %27 = load i32, ptr @prte_hwloc_base_output, align 4
   %or.cond3 = icmp ult i32 %27, 64
@@ -1387,12 +1387,12 @@ define range(i32 -13, 1) i32 @prte_hwloc_base_cpu_list_parse(ptr noundef %0, ptr
 37:                                               ; preds = %34
   %38 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %35, i32 noundef 58) #17
   %.not120 = icmp eq ptr %38, null
-  br i1 %.not120, label %159, label %39
+  br i1 %.not120, label %157, label %39
 
 39:                                               ; preds = %34, %34, %34, %34, %37
   %40 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %35, i32 noundef 58) #17
   %41 = icmp eq ptr %40, null
-  br i1 %41, label %42, label %80
+  br i1 %41, label %42, label %79
 
 42:                                               ; preds = %39
   %43 = getelementptr inbounds i8, ptr %35, i64 1
@@ -1401,9 +1401,9 @@ define range(i32 -13, 1) i32 @prte_hwloc_base_cpu_list_parse(ptr noundef %0, ptr
   %.not125153 = icmp eq ptr %45, null
   br i1 %.not125153, label %.sink.split, label %.lr.ph
 
-.lr.ph:                                           ; preds = %42, %77
-  %indvars.iv = phi i64 [ %indvars.iv.next, %77 ], [ 0, %42 ]
-  %46 = phi ptr [ %79, %77 ], [ %45, %42 ]
+.lr.ph:                                           ; preds = %42, %76
+  %indvars.iv = phi i64 [ %indvars.iv.next, %76 ], [ 0, %42 ]
+  %46 = phi ptr [ %78, %76 ], [ %45, %42 ]
   %47 = load i8, ptr %46, align 1
   %48 = icmp eq i8 %47, 42
   br i1 %48, label %49, label %54
@@ -1413,12 +1413,12 @@ define range(i32 -13, 1) i32 @prte_hwloc_base_cpu_list_parse(ptr noundef %0, ptr
   %51 = getelementptr inbounds i8, ptr %50, i64 184
   %52 = load ptr, ptr %51, align 8
   %53 = tail call i32 @hwloc_bitmap_or(ptr noundef %3, ptr noundef %3, ptr noundef %52) #16
-  br label %77
+  br label %76
 
 54:                                               ; preds = %.lr.ph
   %55 = tail call ptr @PMIx_Argv_split(ptr noundef nonnull %46, i32 noundef 45) #16
   %56 = tail call i32 @PMIx_Argv_count(ptr noundef %55) #16
-  switch i32 %56, label %76 [
+  switch i32 %56, label %.sink.split212.sink.split.sink.split [
     i32 1, label %prte_hwloc_base_get_obj_by_type.exit.i
     i32 2, label %64
   ]
@@ -1464,321 +1464,312 @@ prte_hwloc_base_get_obj_by_type.exit30.i:         ; preds = %prte_hwloc_base_get
 
 .loopexit.i:                                      ; preds = %prte_hwloc_base_get_obj_by_type.exit30.i, %64, %prte_hwloc_base_get_obj_by_type.exit.i
   tail call void @PMIx_Argv_free(ptr noundef %55) #16
-  br label %77
+  br label %76
 
-76:                                               ; preds = %54
-  tail call void @PMIx_Argv_free(ptr noundef %55) #16
-  br label %.sink.split212.sink.split
-
-77:                                               ; preds = %49, %.loopexit.i
+76:                                               ; preds = %49, %.loopexit.i
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %78 = getelementptr inbounds ptr, ptr %44, i64 %indvars.iv.next
-  %79 = load ptr, ptr %78, align 8
-  %.not125 = icmp eq ptr %79, null
+  %77 = getelementptr inbounds ptr, ptr %44, i64 %indvars.iv.next
+  %78 = load ptr, ptr %77, align 8
+  %.not125 = icmp eq ptr %78, null
   br i1 %.not125, label %.sink.split, label %.lr.ph, !llvm.loop !15
 
-80:                                               ; preds = %39
-  switch i8 %36, label %83 [
-    i8 80, label %81
-    i8 112, label %81
-    i8 83, label %81
-    i8 115, label %81
+79:                                               ; preds = %39
+  switch i8 %36, label %82 [
+    i8 80, label %80
+    i8 112, label %80
+    i8 83, label %80
+    i8 115, label %80
   ]
 
-81:                                               ; preds = %80, %80, %80, %80
-  %82 = getelementptr inbounds i8, ptr %35, i64 1
-  br label %83
+80:                                               ; preds = %79, %79, %79, %79
+  %81 = getelementptr inbounds i8, ptr %35, i64 1
+  br label %82
 
-83:                                               ; preds = %80, %81
-  %.0103 = phi ptr [ %82, %81 ], [ %35, %80 ]
-  %84 = tail call ptr @PMIx_Argv_split(ptr noundef nonnull %.0103, i32 noundef 58) #16
-  %85 = load ptr, ptr %84, align 8
-  %86 = tail call i32 @atoi(ptr nocapture noundef %85) #17
-  br i1 %22, label %.sink.split212.sink.split, label %87
+82:                                               ; preds = %79, %80
+  %.0103 = phi ptr [ %81, %80 ], [ %35, %79 ]
+  %83 = tail call ptr @PMIx_Argv_split(ptr noundef nonnull %.0103, i32 noundef 58) #16
+  %84 = load ptr, ptr %83, align 8
+  %85 = tail call i32 @atoi(ptr nocapture noundef %84) #17
+  br i1 %22, label %.sink.split212.sink.split, label %86
 
-87:                                               ; preds = %83
-  %88 = tail call i32 @hwloc_get_type_depth(ptr noundef nonnull %1, i32 noundef 1) #16
-  %switch.i.i.i127 = icmp ugt i32 %88, -3
+86:                                               ; preds = %82
+  %87 = tail call i32 @hwloc_get_type_depth(ptr noundef nonnull %1, i32 noundef 1) #16
+  %switch.i.i.i127 = icmp ugt i32 %87, -3
   br i1 %switch.i.i.i127, label %.sink.split212.sink.split, label %prte_hwloc_base_get_obj_by_type.exit.i128
 
-prte_hwloc_base_get_obj_by_type.exit.i128:        ; preds = %87
-  %89 = tail call ptr @hwloc_get_obj_by_depth(ptr noundef nonnull %1, i32 noundef %88, i32 noundef %86) #17
-  %90 = icmp eq ptr %89, null
-  br i1 %90, label %.sink.split212.sink.split, label %91
+prte_hwloc_base_get_obj_by_type.exit.i128:        ; preds = %86
+  %88 = tail call ptr @hwloc_get_obj_by_depth(ptr noundef nonnull %1, i32 noundef %87, i32 noundef %85) #17
+  %89 = icmp eq ptr %88, null
+  br i1 %89, label %.sink.split212.sink.split, label %90
 
-91:                                               ; preds = %prte_hwloc_base_get_obj_by_type.exit.i128
-  %92 = tail call i32 @hwloc_get_type_depth(ptr noundef nonnull %1, i32 noundef 2) #16
-  %switch.i.i = icmp ugt i32 %92, -3
+90:                                               ; preds = %prte_hwloc_base_get_obj_by_type.exit.i128
+  %91 = tail call i32 @hwloc_get_type_depth(ptr noundef nonnull %1, i32 noundef 2) #16
+  %switch.i.i = icmp ugt i32 %91, -3
   br i1 %switch.i.i, label %hwloc_get_obj_by_type.exit.thread.i, label %hwloc_get_obj_by_type.exit.i
 
-hwloc_get_obj_by_type.exit.i:                     ; preds = %91
-  %93 = tail call ptr @hwloc_get_obj_by_depth(ptr noundef nonnull %1, i32 noundef %92, i32 noundef 0) #17
-  %94 = icmp eq ptr %93, null
-  %spec.select121.i = select i1 %94, i32 3, i32 2
+hwloc_get_obj_by_type.exit.i:                     ; preds = %90
+  %92 = tail call ptr @hwloc_get_obj_by_depth(ptr noundef nonnull %1, i32 noundef %91, i32 noundef 0) #17
+  %93 = icmp eq ptr %92, null
+  %spec.select121.i = select i1 %93, i32 3, i32 2
   br label %hwloc_get_obj_by_type.exit.thread.i
 
-hwloc_get_obj_by_type.exit.thread.i:              ; preds = %hwloc_get_obj_by_type.exit.i, %91
-  %.0.i84118.i = phi i1 [ true, %91 ], [ %94, %hwloc_get_obj_by_type.exit.i ]
-  %95 = phi i32 [ 3, %91 ], [ %spec.select121.i, %hwloc_get_obj_by_type.exit.i ]
-  %96 = tail call i32 @prte_hwloc_base_get_npus(ptr noundef nonnull %1, i1 noundef zeroext %.0.i84118.i, ptr noundef null, ptr noundef nonnull %89)
-  %97 = mul i32 %96, %86
-  %98 = getelementptr inbounds i8, ptr %84, i64 8
-  %99 = load ptr, ptr %98, align 8
-  %.not108.i = icmp eq ptr %99, null
+hwloc_get_obj_by_type.exit.thread.i:              ; preds = %hwloc_get_obj_by_type.exit.i, %90
+  %.0.i84118.i = phi i1 [ true, %90 ], [ %93, %hwloc_get_obj_by_type.exit.i ]
+  %94 = phi i32 [ 3, %90 ], [ %spec.select121.i, %hwloc_get_obj_by_type.exit.i ]
+  %95 = tail call i32 @prte_hwloc_base_get_npus(ptr noundef nonnull %1, i1 noundef zeroext %.0.i84118.i, ptr noundef null, ptr noundef nonnull %88)
+  %96 = mul i32 %95, %85
+  %97 = getelementptr inbounds i8, ptr %83, i64 8
+  %98 = load ptr, ptr %97, align 8
+  %.not108.i = icmp eq ptr %98, null
   br i1 %.not108.i, label %.sink.split, label %.lr.ph111.i
 
 .lr.ph111.i:                                      ; preds = %hwloc_get_obj_by_type.exit.thread.i, %prte_hwloc_base_get_obj_by_type.exit90.thread.i
   %indvars.iv114.i = phi i64 [ %indvars.iv.next115.i, %prte_hwloc_base_get_obj_by_type.exit90.thread.i ], [ 1, %hwloc_get_obj_by_type.exit.thread.i ]
-  %100 = phi ptr [ %158, %prte_hwloc_base_get_obj_by_type.exit90.thread.i ], [ %99, %hwloc_get_obj_by_type.exit.thread.i ]
+  %99 = phi ptr [ %156, %prte_hwloc_base_get_obj_by_type.exit90.thread.i ], [ %98, %hwloc_get_obj_by_type.exit.thread.i ]
   %.070110.i = phi i32 [ %.3.i, %prte_hwloc_base_get_obj_by_type.exit90.thread.i ], [ 0, %hwloc_get_obj_by_type.exit.thread.i ]
-  %101 = load i8, ptr %100, align 1
-  switch i8 %101, label %104 [
-    i8 67, label %102
-    i8 99, label %102
+  %100 = load i8, ptr %99, align 1
+  switch i8 %100, label %103 [
+    i8 67, label %101
+    i8 99, label %101
   ]
 
-102:                                              ; preds = %.lr.ph111.i, %.lr.ph111.i
-  %103 = getelementptr inbounds i8, ptr %100, i64 1
-  %.pr.i = load i8, ptr %103, align 1
-  br label %104
+101:                                              ; preds = %.lr.ph111.i, %.lr.ph111.i
+  %102 = getelementptr inbounds i8, ptr %99, i64 1
+  %.pr.i = load i8, ptr %102, align 1
+  br label %103
 
-104:                                              ; preds = %102, %.lr.ph111.i
-  %105 = phi i8 [ %101, %.lr.ph111.i ], [ %.pr.i, %102 ]
-  %.074.i = phi ptr [ %100, %.lr.ph111.i ], [ %103, %102 ]
-  %106 = icmp eq i8 %105, 42
-  br i1 %106, label %107, label %111
+103:                                              ; preds = %101, %.lr.ph111.i
+  %104 = phi i8 [ %100, %.lr.ph111.i ], [ %.pr.i, %101 ]
+  %.074.i = phi ptr [ %99, %.lr.ph111.i ], [ %102, %101 ]
+  %105 = icmp eq i8 %104, 42
+  br i1 %105, label %106, label %110
 
-107:                                              ; preds = %104
-  %108 = getelementptr inbounds i8, ptr %89, i64 184
-  %109 = load ptr, ptr %108, align 8
-  %110 = tail call i32 @hwloc_bitmap_or(ptr noundef %3, ptr noundef %3, ptr noundef %109) #16
+106:                                              ; preds = %103
+  %107 = getelementptr inbounds i8, ptr %88, i64 184
+  %108 = load ptr, ptr %107, align 8
+  %109 = tail call i32 @hwloc_bitmap_or(ptr noundef %3, ptr noundef %3, ptr noundef %108) #16
   br label %.sink.split
 
-111:                                              ; preds = %104
-  %112 = tail call ptr @PMIx_Argv_split(ptr noundef nonnull %.074.i, i32 noundef 45) #16
-  %113 = tail call i32 @PMIx_Argv_count(ptr noundef %112) #16
-  switch i32 %113, label %156 [
-    i32 1, label %114
-    i32 2, label %130
+110:                                              ; preds = %103
+  %111 = tail call ptr @PMIx_Argv_split(ptr noundef nonnull %.074.i, i32 noundef 45) #16
+  %112 = tail call i32 @PMIx_Argv_count(ptr noundef %111) #16
+  switch i32 %112, label %.sink.split212.sink.split.sink.split [
+    i32 1, label %113
+    i32 2, label %129
   ]
 
-114:                                              ; preds = %111
-  %115 = load ptr, ptr %112, align 8
-  %116 = tail call ptr @PMIx_Argv_split(ptr noundef %115, i32 noundef 44) #16
-  %117 = load ptr, ptr %116, align 8
-  %.not83101.i = icmp eq ptr %117, null
+113:                                              ; preds = %110
+  %114 = load ptr, ptr %111, align 8
+  %115 = tail call ptr @PMIx_Argv_split(ptr noundef %114, i32 noundef 44) #16
+  %116 = load ptr, ptr %115, align 8
+  %.not83101.i = icmp eq ptr %116, null
   br i1 %.not83101.i, label %prte_hwloc_base_get_obj_by_type.exit87.thread.i, label %.lr.ph103.i
 
-.lr.ph103.i:                                      ; preds = %114, %124
-  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %124 ], [ 0, %114 ]
-  %118 = phi ptr [ %129, %124 ], [ %117, %114 ]
-  %119 = tail call i32 @atoi(ptr nocapture noundef nonnull %118) #17
-  %120 = tail call i32 @hwloc_get_type_depth(ptr noundef nonnull %1, i32 noundef %95) #16
-  %switch.i.i85.i = icmp ugt i32 %120, -3
+.lr.ph103.i:                                      ; preds = %113, %123
+  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %123 ], [ 0, %113 ]
+  %117 = phi ptr [ %128, %123 ], [ %116, %113 ]
+  %118 = tail call i32 @atoi(ptr nocapture noundef nonnull %117) #17
+  %119 = tail call i32 @hwloc_get_type_depth(ptr noundef nonnull %1, i32 noundef %94) #16
+  %switch.i.i85.i = icmp ugt i32 %119, -3
   br i1 %switch.i.i85.i, label %prte_hwloc_base_get_obj_by_type.exit87.thread.i, label %prte_hwloc_base_get_obj_by_type.exit87.i
 
 prte_hwloc_base_get_obj_by_type.exit87.i:         ; preds = %.lr.ph103.i
-  %121 = add i32 %119, %97
-  %122 = tail call ptr @hwloc_get_obj_by_depth(ptr noundef nonnull %1, i32 noundef %120, i32 noundef %121) #17
-  %123 = icmp eq ptr %122, null
-  br i1 %123, label %prte_hwloc_base_get_obj_by_type.exit87.thread.i, label %124
+  %120 = add i32 %118, %96
+  %121 = tail call ptr @hwloc_get_obj_by_depth(ptr noundef nonnull %1, i32 noundef %119, i32 noundef %120) #17
+  %122 = icmp eq ptr %121, null
+  br i1 %122, label %prte_hwloc_base_get_obj_by_type.exit87.thread.i, label %123
 
-124:                                              ; preds = %prte_hwloc_base_get_obj_by_type.exit87.i
-  %125 = getelementptr inbounds i8, ptr %122, i64 184
-  %126 = load ptr, ptr %125, align 8
-  %127 = tail call i32 @hwloc_bitmap_or(ptr noundef %3, ptr noundef %3, ptr noundef %126) #16
+123:                                              ; preds = %prte_hwloc_base_get_obj_by_type.exit87.i
+  %124 = getelementptr inbounds i8, ptr %121, i64 184
+  %125 = load ptr, ptr %124, align 8
+  %126 = tail call i32 @hwloc_bitmap_or(ptr noundef %3, ptr noundef %3, ptr noundef %125) #16
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %128 = getelementptr inbounds ptr, ptr %116, i64 %indvars.iv.next.i
-  %129 = load ptr, ptr %128, align 8
-  %.not83.i = icmp eq ptr %129, null
+  %127 = getelementptr inbounds ptr, ptr %115, i64 %indvars.iv.next.i
+  %128 = load ptr, ptr %127, align 8
+  %.not83.i = icmp eq ptr %128, null
   br i1 %.not83.i, label %prte_hwloc_base_get_obj_by_type.exit87.thread.i, label %.lr.ph103.i, !llvm.loop !16
 
-prte_hwloc_base_get_obj_by_type.exit87.thread.i:  ; preds = %124, %prte_hwloc_base_get_obj_by_type.exit87.i, %.lr.ph103.i, %114
-  %.2.i = phi i32 [ %.070110.i, %114 ], [ %.070110.i, %124 ], [ -13, %prte_hwloc_base_get_obj_by_type.exit87.i ], [ -13, %.lr.ph103.i ]
-  tail call void @PMIx_Argv_free(ptr noundef nonnull %116) #16
+prte_hwloc_base_get_obj_by_type.exit87.thread.i:  ; preds = %123, %prte_hwloc_base_get_obj_by_type.exit87.i, %.lr.ph103.i, %113
+  %.2.i = phi i32 [ %.070110.i, %113 ], [ %.070110.i, %123 ], [ -13, %prte_hwloc_base_get_obj_by_type.exit87.i ], [ -13, %.lr.ph103.i ]
+  tail call void @PMIx_Argv_free(ptr noundef nonnull %115) #16
   br label %prte_hwloc_base_get_obj_by_type.exit90.thread.i
 
-130:                                              ; preds = %111
-  %131 = load i32, ptr @prte_hwloc_base_output, align 4
-  %or.cond.i = icmp ult i32 %131, 64
-  br i1 %or.cond.i, label %132, label %141
+129:                                              ; preds = %110
+  %130 = load i32, ptr @prte_hwloc_base_output, align 4
+  %or.cond.i = icmp ult i32 %130, 64
+  br i1 %or.cond.i, label %131, label %140
 
-132:                                              ; preds = %130
-  %133 = zext nneg i32 %131 to i64
-  %134 = getelementptr inbounds [0 x %struct.pmix_output_desc_t], ptr @pmix_output_info, i64 0, i64 %133, i32 2
-  %135 = load i32, ptr %134, align 4
-  %136 = icmp sgt i32 %135, 4
-  br i1 %136, label %137, label %141
+131:                                              ; preds = %129
+  %132 = zext nneg i32 %130 to i64
+  %133 = getelementptr inbounds [0 x %struct.pmix_output_desc_t], ptr @pmix_output_info, i64 0, i64 %132, i32 2
+  %134 = load i32, ptr %133, align 4
+  %135 = icmp sgt i32 %134, 4
+  br i1 %135, label %136, label %140
 
-137:                                              ; preds = %132
-  %138 = load ptr, ptr %112, align 8
-  %139 = getelementptr inbounds i8, ptr %112, i64 8
-  %140 = load ptr, ptr %139, align 8
-  tail call void (i32, ptr, ...) @pmix_output(i32 noundef %131, ptr noundef nonnull @.str.78, ptr noundef %138, ptr noundef %140) #16
-  br label %141
+136:                                              ; preds = %131
+  %137 = load ptr, ptr %111, align 8
+  %138 = getelementptr inbounds i8, ptr %111, i64 8
+  %139 = load ptr, ptr %138, align 8
+  tail call void (i32, ptr, ...) @pmix_output(i32 noundef %130, ptr noundef nonnull @.str.78, ptr noundef %137, ptr noundef %139) #16
+  br label %140
 
-141:                                              ; preds = %137, %132, %130
-  %142 = load ptr, ptr %112, align 8
-  %143 = tail call i32 @atoi(ptr nocapture noundef %142) #17
-  %144 = getelementptr inbounds i8, ptr %112, i64 8
-  %145 = load ptr, ptr %144, align 8
-  %146 = tail call i32 @atoi(ptr nocapture noundef %145) #17
-  %.not8296.i = icmp sgt i32 %143, %146
+140:                                              ; preds = %136, %131, %129
+  %141 = load ptr, ptr %111, align 8
+  %142 = tail call i32 @atoi(ptr nocapture noundef %141) #17
+  %143 = getelementptr inbounds i8, ptr %111, i64 8
+  %144 = load ptr, ptr %143, align 8
+  %145 = tail call i32 @atoi(ptr nocapture noundef %144) #17
+  %.not8296.i = icmp sgt i32 %142, %145
   br i1 %.not8296.i, label %prte_hwloc_base_get_obj_by_type.exit90.thread.i, label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %141, %151
-  %.17397.i = phi i32 [ %155, %151 ], [ %143, %141 ]
-  %147 = tail call i32 @hwloc_get_type_depth(ptr noundef nonnull %1, i32 noundef %95) #16
-  %switch.i.i88.i = icmp ugt i32 %147, -3
+.lr.ph.i:                                         ; preds = %140, %150
+  %.17397.i = phi i32 [ %154, %150 ], [ %142, %140 ]
+  %146 = tail call i32 @hwloc_get_type_depth(ptr noundef nonnull %1, i32 noundef %94) #16
+  %switch.i.i88.i = icmp ugt i32 %146, -3
   br i1 %switch.i.i88.i, label %prte_hwloc_base_get_obj_by_type.exit90.thread.i, label %prte_hwloc_base_get_obj_by_type.exit90.i
 
 prte_hwloc_base_get_obj_by_type.exit90.i:         ; preds = %.lr.ph.i
-  %148 = add i32 %.17397.i, %97
-  %149 = tail call ptr @hwloc_get_obj_by_depth(ptr noundef nonnull %1, i32 noundef %147, i32 noundef %148) #17
-  %150 = icmp eq ptr %149, null
-  br i1 %150, label %prte_hwloc_base_get_obj_by_type.exit90.thread.i, label %151
+  %147 = add i32 %.17397.i, %96
+  %148 = tail call ptr @hwloc_get_obj_by_depth(ptr noundef nonnull %1, i32 noundef %146, i32 noundef %147) #17
+  %149 = icmp eq ptr %148, null
+  br i1 %149, label %prte_hwloc_base_get_obj_by_type.exit90.thread.i, label %150
 
-151:                                              ; preds = %prte_hwloc_base_get_obj_by_type.exit90.i
-  %152 = getelementptr inbounds i8, ptr %149, i64 184
-  %153 = load ptr, ptr %152, align 8
-  %154 = tail call i32 @hwloc_bitmap_or(ptr noundef %3, ptr noundef %3, ptr noundef %153) #16
-  %155 = add i32 %.17397.i, 1
-  %exitcond.not.i129 = icmp eq i32 %.17397.i, %146
+150:                                              ; preds = %prte_hwloc_base_get_obj_by_type.exit90.i
+  %151 = getelementptr inbounds i8, ptr %148, i64 184
+  %152 = load ptr, ptr %151, align 8
+  %153 = tail call i32 @hwloc_bitmap_or(ptr noundef %3, ptr noundef %3, ptr noundef %152) #16
+  %154 = add i32 %.17397.i, 1
+  %exitcond.not.i129 = icmp eq i32 %.17397.i, %145
   br i1 %exitcond.not.i129, label %prte_hwloc_base_get_obj_by_type.exit90.thread.i, label %.lr.ph.i, !llvm.loop !17
 
-156:                                              ; preds = %111
-  tail call void @PMIx_Argv_free(ptr noundef %112) #16
-  br label %.sink.split212.sink.split
-
-prte_hwloc_base_get_obj_by_type.exit90.thread.i:  ; preds = %151, %prte_hwloc_base_get_obj_by_type.exit90.i, %.lr.ph.i, %141, %prte_hwloc_base_get_obj_by_type.exit87.thread.i
-  %.3.i = phi i32 [ %.2.i, %prte_hwloc_base_get_obj_by_type.exit87.thread.i ], [ %.070110.i, %141 ], [ -13, %.lr.ph.i ], [ -13, %prte_hwloc_base_get_obj_by_type.exit90.i ], [ %.070110.i, %151 ]
-  tail call void @PMIx_Argv_free(ptr noundef %112) #16
+prte_hwloc_base_get_obj_by_type.exit90.thread.i:  ; preds = %150, %prte_hwloc_base_get_obj_by_type.exit90.i, %.lr.ph.i, %140, %prte_hwloc_base_get_obj_by_type.exit87.thread.i
+  %.3.i = phi i32 [ %.2.i, %prte_hwloc_base_get_obj_by_type.exit87.thread.i ], [ %.070110.i, %140 ], [ -13, %.lr.ph.i ], [ -13, %prte_hwloc_base_get_obj_by_type.exit90.i ], [ %.070110.i, %150 ]
+  tail call void @PMIx_Argv_free(ptr noundef %111) #16
   %indvars.iv.next115.i = add nuw nsw i64 %indvars.iv114.i, 1
-  %157 = getelementptr inbounds ptr, ptr %84, i64 %indvars.iv.next115.i
-  %158 = load ptr, ptr %157, align 8
-  %.not.i = icmp eq ptr %158, null
+  %155 = getelementptr inbounds ptr, ptr %83, i64 %indvars.iv.next115.i
+  %156 = load ptr, ptr %155, align 8
+  %.not.i = icmp eq ptr %156, null
   br i1 %.not.i, label %package_core_to_cpu_set.exit, label %.lr.ph111.i, !llvm.loop !18
 
 package_core_to_cpu_set.exit:                     ; preds = %prte_hwloc_base_get_obj_by_type.exit90.thread.i
-  tail call void @PMIx_Argv_free(ptr noundef nonnull %84) #16
+  tail call void @PMIx_Argv_free(ptr noundef nonnull %83) #16
   %.not124 = icmp eq i32 %.3.i, 0
-  br i1 %.not124, label %197, label %.sink.split212
+  br i1 %.not124, label %193, label %.sink.split212
 
-159:                                              ; preds = %37
-  %160 = tail call ptr @PMIx_Argv_split(ptr noundef nonnull %35, i32 noundef 44) #16
-  %161 = load ptr, ptr %160, align 8
-  %.not121164 = icmp eq ptr %161, null
+157:                                              ; preds = %37
+  %158 = tail call ptr @PMIx_Argv_split(ptr noundef nonnull %35, i32 noundef 44) #16
+  %159 = load ptr, ptr %158, align 8
+  %.not121164 = icmp eq ptr %159, null
   br i1 %.not121164, label %.sink.split, label %.lr.ph167
 
-.lr.ph167:                                        ; preds = %159, %.loopexit
-  %indvars.iv192 = phi i64 [ %indvars.iv.next193, %.loopexit ], [ 0, %159 ]
-  %162 = phi ptr [ %196, %.loopexit ], [ %161, %159 ]
-  %163 = tail call ptr @PMIx_Argv_split(ptr noundef nonnull %162, i32 noundef 45) #16
-  %164 = tail call i32 @PMIx_Argv_count(ptr noundef %163) #16
-  switch i32 %164, label %194 [
-    i32 1, label %165
-    i32 2, label %180
+.lr.ph167:                                        ; preds = %157, %.loopexit
+  %indvars.iv192 = phi i64 [ %indvars.iv.next193, %.loopexit ], [ 0, %157 ]
+  %160 = phi ptr [ %192, %.loopexit ], [ %159, %157 ]
+  %161 = tail call ptr @PMIx_Argv_split(ptr noundef nonnull %160, i32 noundef 45) #16
+  %162 = tail call i32 @PMIx_Argv_count(ptr noundef %161) #16
+  switch i32 %162, label %.sink.split212.sink.split.sink.split [
+    i32 1, label %163
+    i32 2, label %178
   ]
 
-165:                                              ; preds = %.lr.ph167
-  %166 = load ptr, ptr %163, align 8
-  %167 = tail call ptr @PMIx_Argv_split(ptr noundef %166, i32 noundef 44) #16
-  %168 = load ptr, ptr %167, align 8
-  %.not123159 = icmp eq ptr %168, null
+163:                                              ; preds = %.lr.ph167
+  %164 = load ptr, ptr %161, align 8
+  %165 = tail call ptr @PMIx_Argv_split(ptr noundef %164, i32 noundef 44) #16
+  %166 = load ptr, ptr %165, align 8
+  %.not123159 = icmp eq ptr %166, null
   br i1 %.not123159, label %._crit_edge163, label %.lr.ph162
 
-.lr.ph162:                                        ; preds = %165, %174
-  %indvars.iv189 = phi i64 [ %indvars.iv.next190, %174 ], [ 0, %165 ]
-  %169 = phi ptr [ %179, %174 ], [ %168, %165 ]
-  %170 = tail call i32 @atoi(ptr nocapture noundef nonnull %169) #17
-  %171 = tail call ptr @prte_hwloc_base_get_pu(ptr noundef %1, i1 noundef zeroext %2, i32 noundef %170)
-  %172 = icmp eq ptr %171, null
-  br i1 %172, label %173, label %174
+.lr.ph162:                                        ; preds = %163, %172
+  %indvars.iv189 = phi i64 [ %indvars.iv.next190, %172 ], [ 0, %163 ]
+  %167 = phi ptr [ %177, %172 ], [ %166, %163 ]
+  %168 = tail call i32 @atoi(ptr nocapture noundef nonnull %167) #17
+  %169 = tail call ptr @prte_hwloc_base_get_pu(ptr noundef %1, i1 noundef zeroext %2, i32 noundef %168)
+  %170 = icmp eq ptr %169, null
+  br i1 %170, label %171, label %172
 
-173:                                              ; preds = %.lr.ph162
-  tail call void @PMIx_Argv_free(ptr noundef nonnull %163) #16
-  tail call void @PMIx_Argv_free(ptr noundef nonnull %20) #16
-  br label %.sink.split212.sink.split
+171:                                              ; preds = %.lr.ph162
+  tail call void @PMIx_Argv_free(ptr noundef nonnull %161) #16
+  br label %.sink.split212.sink.split.sink.split
 
-174:                                              ; preds = %.lr.ph162
-  %175 = getelementptr inbounds i8, ptr %171, i64 184
-  %176 = load ptr, ptr %175, align 8
-  %177 = tail call i32 @hwloc_bitmap_or(ptr noundef %3, ptr noundef %3, ptr noundef %176) #16
+172:                                              ; preds = %.lr.ph162
+  %173 = getelementptr inbounds i8, ptr %169, i64 184
+  %174 = load ptr, ptr %173, align 8
+  %175 = tail call i32 @hwloc_bitmap_or(ptr noundef %3, ptr noundef %3, ptr noundef %174) #16
   %indvars.iv.next190 = add nuw nsw i64 %indvars.iv189, 1
-  %178 = getelementptr inbounds ptr, ptr %167, i64 %indvars.iv.next190
-  %179 = load ptr, ptr %178, align 8
-  %.not123 = icmp eq ptr %179, null
+  %176 = getelementptr inbounds ptr, ptr %165, i64 %indvars.iv.next190
+  %177 = load ptr, ptr %176, align 8
+  %.not123 = icmp eq ptr %177, null
   br i1 %.not123, label %._crit_edge163, label %.lr.ph162, !llvm.loop !19
 
-._crit_edge163:                                   ; preds = %174, %165
-  tail call void @PMIx_Argv_free(ptr noundef nonnull %167) #16
+._crit_edge163:                                   ; preds = %172, %163
+  tail call void @PMIx_Argv_free(ptr noundef nonnull %165) #16
   br label %.loopexit
 
-180:                                              ; preds = %.lr.ph167
-  %181 = load ptr, ptr %163, align 8
-  %182 = tail call i32 @atoi(ptr nocapture noundef %181) #17
-  %183 = getelementptr inbounds i8, ptr %163, i64 8
-  %184 = load ptr, ptr %183, align 8
-  %185 = tail call i32 @atoi(ptr nocapture noundef %184) #17
-  %.not122155 = icmp sgt i32 %182, %185
+178:                                              ; preds = %.lr.ph167
+  %179 = load ptr, ptr %161, align 8
+  %180 = tail call i32 @atoi(ptr nocapture noundef %179) #17
+  %181 = getelementptr inbounds i8, ptr %161, i64 8
+  %182 = load ptr, ptr %181, align 8
+  %183 = tail call i32 @atoi(ptr nocapture noundef %182) #17
+  %.not122155 = icmp sgt i32 %180, %183
   br i1 %.not122155, label %.loopexit, label %.lr.ph158
 
-.lr.ph158:                                        ; preds = %180, %189
-  %.0102156 = phi i32 [ %193, %189 ], [ %182, %180 ]
-  %186 = tail call ptr @prte_hwloc_base_get_pu(ptr noundef %1, i1 noundef zeroext %2, i32 noundef %.0102156)
-  %187 = icmp eq ptr %186, null
-  br i1 %187, label %188, label %189
+.lr.ph158:                                        ; preds = %178, %186
+  %.0102156 = phi i32 [ %190, %186 ], [ %180, %178 ]
+  %184 = tail call ptr @prte_hwloc_base_get_pu(ptr noundef %1, i1 noundef zeroext %2, i32 noundef %.0102156)
+  %185 = icmp eq ptr %184, null
+  br i1 %185, label %.sink.split212.sink.split.sink.split, label %186
 
-188:                                              ; preds = %.lr.ph158
-  tail call void @PMIx_Argv_free(ptr noundef nonnull %163) #16
-  br label %.sink.split212.sink.split
-
-189:                                              ; preds = %.lr.ph158
-  %190 = getelementptr inbounds i8, ptr %186, i64 184
-  %191 = load ptr, ptr %190, align 8
-  %192 = tail call i32 @hwloc_bitmap_or(ptr noundef %3, ptr noundef %3, ptr noundef %191) #16
-  %193 = add i32 %.0102156, 1
-  %exitcond.not = icmp eq i32 %.0102156, %185
+186:                                              ; preds = %.lr.ph158
+  %187 = getelementptr inbounds i8, ptr %184, i64 184
+  %188 = load ptr, ptr %187, align 8
+  %189 = tail call i32 @hwloc_bitmap_or(ptr noundef %3, ptr noundef %3, ptr noundef %188) #16
+  %190 = add i32 %.0102156, 1
+  %exitcond.not = icmp eq i32 %.0102156, %183
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph158, !llvm.loop !20
 
-194:                                              ; preds = %.lr.ph167
-  tail call void @PMIx_Argv_free(ptr noundef %163) #16
-  br label %.sink.split212.sink.split
-
-.loopexit:                                        ; preds = %189, %180, %._crit_edge163
-  tail call void @PMIx_Argv_free(ptr noundef %163) #16
+.loopexit:                                        ; preds = %186, %178, %._crit_edge163
+  tail call void @PMIx_Argv_free(ptr noundef %161) #16
   %indvars.iv.next193 = add nuw nsw i64 %indvars.iv192, 1
-  %195 = getelementptr inbounds ptr, ptr %160, i64 %indvars.iv.next193
-  %196 = load ptr, ptr %195, align 8
-  %.not121 = icmp eq ptr %196, null
+  %191 = getelementptr inbounds ptr, ptr %158, i64 %indvars.iv.next193
+  %192 = load ptr, ptr %191, align 8
+  %.not121 = icmp eq ptr %192, null
   br i1 %.not121, label %.sink.split, label %.lr.ph167, !llvm.loop !21
 
-.sink.split:                                      ; preds = %77, %.loopexit, %159, %hwloc_get_obj_by_type.exit.thread.i, %107, %42
-  %.sink = phi ptr [ %44, %42 ], [ %84, %107 ], [ %84, %hwloc_get_obj_by_type.exit.thread.i ], [ %160, %159 ], [ %160, %.loopexit ], [ %44, %77 ]
+.sink.split:                                      ; preds = %76, %.loopexit, %157, %hwloc_get_obj_by_type.exit.thread.i, %106, %42
+  %.sink = phi ptr [ %44, %42 ], [ %83, %106 ], [ %83, %hwloc_get_obj_by_type.exit.thread.i ], [ %158, %157 ], [ %158, %.loopexit ], [ %44, %76 ]
   tail call void @PMIx_Argv_free(ptr noundef nonnull %.sink) #16
-  br label %197
+  br label %193
 
-197:                                              ; preds = %.sink.split, %package_core_to_cpu_set.exit
+193:                                              ; preds = %.sink.split, %package_core_to_cpu_set.exit
   %indvars.iv.next196 = add nuw nsw i64 %indvars.iv195, 1
-  %198 = getelementptr inbounds ptr, ptr %20, i64 %indvars.iv.next196
-  %199 = load ptr, ptr %198, align 8
-  %.not = icmp eq ptr %199, null
+  %194 = getelementptr inbounds ptr, ptr %20, i64 %indvars.iv.next196
+  %195 = load ptr, ptr %194, align 8
+  %.not = icmp eq ptr %195, null
   br i1 %.not, label %.sink.split212, label %24, !llvm.loop !22
 
-.sink.split212.sink.split:                        ; preds = %prte_hwloc_base_get_obj_by_type.exit.i128, %83, %87, %156, %194, %188, %173, %76
-  %.sink214 = phi ptr [ %44, %76 ], [ %160, %173 ], [ %20, %188 ], [ %20, %194 ], [ %84, %156 ], [ %84, %87 ], [ %84, %83 ], [ %84, %prte_hwloc_base_get_obj_by_type.exit.i128 ]
-  %.sink213.ph = phi ptr [ %20, %76 ], [ %167, %173 ], [ %160, %188 ], [ %160, %194 ], [ %20, %156 ], [ %20, %87 ], [ %20, %83 ], [ %20, %prte_hwloc_base_get_obj_by_type.exit.i128 ]
-  %.0.ph.ph = phi i32 [ -1, %76 ], [ -13, %173 ], [ -13, %188 ], [ -1, %194 ], [ -1, %156 ], [ -13, %87 ], [ -13, %83 ], [ -13, %prte_hwloc_base_get_obj_by_type.exit.i128 ]
+.sink.split212.sink.split.sink.split:             ; preds = %110, %54, %.lr.ph167, %.lr.ph158, %171
+  %.lcssa.sink = phi ptr [ %20, %171 ], [ %161, %.lr.ph158 ], [ %161, %.lr.ph167 ], [ %55, %54 ], [ %111, %110 ]
+  %.sink214.ph = phi ptr [ %158, %171 ], [ %20, %.lr.ph158 ], [ %20, %.lr.ph167 ], [ %44, %54 ], [ %83, %110 ]
+  %.sink213.ph.ph = phi ptr [ %165, %171 ], [ %158, %.lr.ph158 ], [ %158, %.lr.ph167 ], [ %20, %54 ], [ %20, %110 ]
+  %.0.ph.ph.ph = phi i32 [ -13, %171 ], [ -13, %.lr.ph158 ], [ -1, %.lr.ph167 ], [ -1, %54 ], [ -1, %110 ]
+  tail call void @PMIx_Argv_free(ptr noundef %.lcssa.sink) #16
+  br label %.sink.split212.sink.split
+
+.sink.split212.sink.split:                        ; preds = %prte_hwloc_base_get_obj_by_type.exit.i128, %82, %86, %.sink.split212.sink.split.sink.split
+  %.sink214 = phi ptr [ %.sink214.ph, %.sink.split212.sink.split.sink.split ], [ %83, %86 ], [ %83, %82 ], [ %83, %prte_hwloc_base_get_obj_by_type.exit.i128 ]
+  %.sink213.ph = phi ptr [ %.sink213.ph.ph, %.sink.split212.sink.split.sink.split ], [ %20, %86 ], [ %20, %82 ], [ %20, %prte_hwloc_base_get_obj_by_type.exit.i128 ]
+  %.0.ph.ph = phi i32 [ %.0.ph.ph.ph, %.sink.split212.sink.split.sink.split ], [ -13, %86 ], [ -13, %82 ], [ -13, %prte_hwloc_base_get_obj_by_type.exit.i128 ]
   tail call void @PMIx_Argv_free(ptr noundef nonnull %.sink214) #16
   br label %.sink.split212
 
-.sink.split212:                                   ; preds = %197, %package_core_to_cpu_set.exit, %.sink.split212.sink.split, %19
-  %.sink213 = phi ptr [ %20, %19 ], [ %.sink213.ph, %.sink.split212.sink.split ], [ %20, %package_core_to_cpu_set.exit ], [ %20, %197 ]
-  %.0.ph = phi i32 [ 0, %19 ], [ %.0.ph.ph, %.sink.split212.sink.split ], [ 0, %197 ], [ %.3.i, %package_core_to_cpu_set.exit ]
+.sink.split212:                                   ; preds = %193, %package_core_to_cpu_set.exit, %.sink.split212.sink.split, %19
+  %.sink213 = phi ptr [ %20, %19 ], [ %.sink213.ph, %.sink.split212.sink.split ], [ %20, %package_core_to_cpu_set.exit ], [ %20, %193 ]
+  %.0.ph = phi i32 [ 0, %19 ], [ %.0.ph.ph, %.sink.split212.sink.split ], [ 0, %193 ], [ %.3.i, %package_core_to_cpu_set.exit ]
   tail call void @PMIx_Argv_free(ptr noundef nonnull %.sink213) #16
-  br label %200
+  br label %196
 
-200:                                              ; preds = %.sink.split212, %7, %9, %4
+196:                                              ; preds = %.sink.split212, %7, %9, %4
   %.0 = phi i32 [ -8, %4 ], [ -5, %9 ], [ -5, %7 ], [ %.0.ph, %.sink.split212 ]
   ret i32 %.0
 }
@@ -3121,48 +3112,41 @@ prte_hwloc_base_get_nbobjs_by_type.exit64:        ; preds = %6, %17, %.thread77,
 87:                                               ; preds = %85, %.loopexit
   %88 = call i32 @hwloc_bitmap_isequal(ptr noundef %78, ptr noundef %79) #17
   %.not33 = icmp eq i32 %88, 0
-  br i1 %.not33, label %91, label %89
+  br i1 %.not33, label %89, label %.sink.split
 
 89:                                               ; preds = %87
-  %90 = call noalias dereferenceable_or_null(1) ptr @strdup(ptr noundef nonnull @.str.60) #16
-  br label %.sink.split
-
-91:                                               ; preds = %87
   store ptr null, ptr %4, align 8
-  %92 = call i32 @hwloc_bitmap_list_asprintf(ptr noundef nonnull %4, ptr noundef %78) #16
-  %93 = icmp slt i32 %92, 1
+  %90 = call i32 @hwloc_bitmap_list_asprintf(ptr noundef nonnull %4, ptr noundef %78) #16
+  %91 = icmp slt i32 %90, 1
   %.pre = load ptr, ptr %4, align 8
-  br i1 %93, label %94, label %98
+  br i1 %91, label %92, label %95
 
-94:                                               ; preds = %91
+92:                                               ; preds = %89
   %.not34 = icmp eq ptr %.pre, null
-  br i1 %.not34, label %96, label %95
+  br i1 %.not34, label %.sink.split, label %93
 
-95:                                               ; preds = %94
+93:                                               ; preds = %92
   call void @free(ptr noundef nonnull %.pre) #16
-  br label %96
-
-96:                                               ; preds = %95, %94
-  %97 = call noalias dereferenceable_or_null(8) ptr @strdup(ptr noundef nonnull @.str.58) #16
   br label %.sink.split
 
-.sink.split:                                      ; preds = %89, %96
-  %.sink = phi ptr [ %97, %96 ], [ %90, %89 ]
-  store ptr %.sink, ptr %4, align 8
-  br label %98
+.sink.split:                                      ; preds = %92, %93, %87
+  %.str.58.sink = phi ptr [ @.str.60, %87 ], [ @.str.58, %93 ], [ @.str.58, %92 ]
+  %94 = call noalias dereferenceable_or_null(1) ptr @strdup(ptr noundef nonnull %.str.58.sink) #16
+  store ptr %94, ptr %4, align 8
+  br label %95
 
-98:                                               ; preds = %.sink.split, %91
-  %99 = phi ptr [ %.pre, %91 ], [ %.sink, %.sink.split ]
-  %100 = icmp eq ptr %.0, null
-  %spec.store.select = select i1 %100, ptr @.str.58, ptr %.0
-  %101 = load ptr, ptr %3, align 8
-  %102 = call i32 (ptr, ptr, ...) @pmix_asprintf(ptr noundef nonnull %2, ptr noundef nonnull @.str.61, i32 noundef %.0.i66718498118138, i32 noundef %.0.i367382100116140, i32 noundef %.0.i418696120136, i32 noundef %.0.i46102114142, i32 noundef %.0.i51122134, i32 noundef %.0.i56144, i32 noundef %.0.i61, ptr noundef %101, ptr noundef %99, ptr noundef nonnull %spec.store.select, ptr noundef nonnull @.str.59) #16
-  %103 = load ptr, ptr %3, align 8
-  call void @free(ptr noundef %103) #16
-  %104 = load ptr, ptr %4, align 8
-  call void @free(ptr noundef %104) #16
-  %105 = load ptr, ptr %2, align 8
-  ret ptr %105
+95:                                               ; preds = %.sink.split, %89
+  %96 = phi ptr [ %.pre, %89 ], [ %94, %.sink.split ]
+  %97 = icmp eq ptr %.0, null
+  %spec.store.select = select i1 %97, ptr @.str.58, ptr %.0
+  %98 = load ptr, ptr %3, align 8
+  %99 = call i32 (ptr, ptr, ...) @pmix_asprintf(ptr noundef nonnull %2, ptr noundef nonnull @.str.61, i32 noundef %.0.i66718498118138, i32 noundef %.0.i367382100116140, i32 noundef %.0.i418696120136, i32 noundef %.0.i46102114142, i32 noundef %.0.i51122134, i32 noundef %.0.i56144, i32 noundef %.0.i61, ptr noundef %98, ptr noundef %96, ptr noundef nonnull %spec.store.select, ptr noundef nonnull @.str.59) #16
+  %100 = load ptr, ptr %3, align 8
+  call void @free(ptr noundef %100) #16
+  %101 = load ptr, ptr %4, align 8
+  call void @free(ptr noundef %101) #16
+  %102 = load ptr, ptr %2, align 8
+  ret ptr %102
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)

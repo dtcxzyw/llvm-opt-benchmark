@@ -43847,6284 +43847,4888 @@ _ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit10343: ; preds = %if.then.
   %89 = load ptr, ptr %isolate_, align 8
   %call2178 = call ptr @_ZN2v86String14NewFromOneByteEPNS_7IsolateEPKhNS_13NewStringTypeEi(ptr noundef %89, ptr noundef nonnull @.str.616, i32 noundef 1, i32 noundef 3) #24
   %cmp.i.i11389 = icmp eq ptr %call2178, null
-  br i1 %cmp.i.i11389, label %if.then.i10335, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit10343.split
-
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit10343.split: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit10343
-  %call8.i87 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %89, ptr noundef nonnull %call2178) #24
-  br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit10336
+  br i1 %cmp.i.i11389, label %if.then.i10335, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit10336
 
 if.then.i10335:                                   ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit10343
   call void @_ZN2v812api_internal12ToLocalEmptyEv() #24
-  %call8.i88 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %89, ptr noundef null) #24
   br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit10336
 
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit10336: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit10343.split, %if.then.i10335
-  %storemerge = phi ptr [ %call8.i87, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit10343.split ], [ %call8.i88, %if.then.i10335 ]
-  store ptr %storemerge, ptr %ack_string_, align 8
+_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit10336: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit10343, %if.then.i10335
+  %call2178.sink = phi ptr [ null, %if.then.i10335 ], [ %call2178, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit10343 ]
+  %call8.i87 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %89, ptr noundef %call2178.sink) #24
+  store ptr %call8.i87, ptr %ack_string_, align 8
   %address_string_ = getelementptr inbounds i8, ptr %this, i64 296
   %90 = load ptr, ptr %isolate_, align 8
   %call2194 = call ptr @_ZN2v86String14NewFromOneByteEPNS_7IsolateEPKhNS_13NewStringTypeEi(ptr noundef %90, ptr noundef nonnull @.str.617, i32 noundef 1, i32 noundef 7) #24
   %cmp.i.i11394 = icmp eq ptr %call2194, null
-  br i1 %cmp.i.i11394, label %if.then.i10328, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit10336.split
-
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit10336.split: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit10336
-  %call8.i89 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %90, ptr noundef nonnull %call2194) #24
-  br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit10329
+  br i1 %cmp.i.i11394, label %if.then.i10328, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit10329
 
 if.then.i10328:                                   ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit10336
   call void @_ZN2v812api_internal12ToLocalEmptyEv() #24
-  %call8.i90 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %90, ptr noundef null) #24
   br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit10329
 
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit10329: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit10336.split, %if.then.i10328
-  %storemerge848 = phi ptr [ %call8.i89, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit10336.split ], [ %call8.i90, %if.then.i10328 ]
-  store ptr %storemerge848, ptr %address_string_, align 8
+_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit10329: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit10336, %if.then.i10328
+  %call2194.sink = phi ptr [ null, %if.then.i10328 ], [ %call2194, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit10336 ]
+  %call8.i89 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %90, ptr noundef %call2194.sink) #24
+  store ptr %call8.i89, ptr %address_string_, align 8
   %aliases_string_ = getelementptr inbounds i8, ptr %this, i64 304
   %91 = load ptr, ptr %isolate_, align 8
   %call2210 = call ptr @_ZN2v86String14NewFromOneByteEPNS_7IsolateEPKhNS_13NewStringTypeEi(ptr noundef %91, ptr noundef nonnull @.str.618, i32 noundef 1, i32 noundef 7) #24
   %cmp.i.i11399 = icmp eq ptr %call2210, null
-  br i1 %cmp.i.i11399, label %if.then.i10321, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit10329.split
-
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit10329.split: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit10329
-  %call8.i91 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %91, ptr noundef nonnull %call2210) #24
-  br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit10322
+  br i1 %cmp.i.i11399, label %if.then.i10321, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit10322
 
 if.then.i10321:                                   ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit10329
   call void @_ZN2v812api_internal12ToLocalEmptyEv() #24
-  %call8.i92 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %91, ptr noundef null) #24
   br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit10322
 
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit10322: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit10329.split, %if.then.i10321
-  %storemerge849 = phi ptr [ %call8.i91, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit10329.split ], [ %call8.i92, %if.then.i10321 ]
-  store ptr %storemerge849, ptr %aliases_string_, align 8
+_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit10322: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit10329, %if.then.i10321
+  %call2210.sink = phi ptr [ null, %if.then.i10321 ], [ %call2210, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit10329 ]
+  %call8.i91 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %91, ptr noundef %call2210.sink) #24
+  store ptr %call8.i91, ptr %aliases_string_, align 8
   %alpn_callback_string_ = getelementptr inbounds i8, ptr %this, i64 312
   %92 = load ptr, ptr %isolate_, align 8
   %call2226 = call ptr @_ZN2v86String14NewFromOneByteEPNS_7IsolateEPKhNS_13NewStringTypeEi(ptr noundef %92, ptr noundef nonnull @.str.619, i32 noundef 1, i32 noundef 12) #24
   %cmp.i.i11404 = icmp eq ptr %call2226, null
-  br i1 %cmp.i.i11404, label %if.then.i10314, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit10322.split
-
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit10322.split: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit10322
-  %call8.i93 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %92, ptr noundef nonnull %call2226) #24
-  br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit10315
+  br i1 %cmp.i.i11404, label %if.then.i10314, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit10315
 
 if.then.i10314:                                   ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit10322
   call void @_ZN2v812api_internal12ToLocalEmptyEv() #24
-  %call8.i94 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %92, ptr noundef null) #24
   br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit10315
 
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit10315: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit10322.split, %if.then.i10314
-  %storemerge850 = phi ptr [ %call8.i93, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit10322.split ], [ %call8.i94, %if.then.i10314 ]
-  store ptr %storemerge850, ptr %alpn_callback_string_, align 8
+_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit10315: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit10322, %if.then.i10314
+  %call2226.sink = phi ptr [ null, %if.then.i10314 ], [ %call2226, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit10322 ]
+  %call8.i93 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %92, ptr noundef %call2226.sink) #24
+  store ptr %call8.i93, ptr %alpn_callback_string_, align 8
   %args_string_ = getelementptr inbounds i8, ptr %this, i64 320
   %93 = load ptr, ptr %isolate_, align 8
   %call2242 = call ptr @_ZN2v86String14NewFromOneByteEPNS_7IsolateEPKhNS_13NewStringTypeEi(ptr noundef %93, ptr noundef nonnull @.str.620, i32 noundef 1, i32 noundef 4) #24
   %cmp.i.i11409 = icmp eq ptr %call2242, null
-  br i1 %cmp.i.i11409, label %if.then.i10307, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit10315.split
-
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit10315.split: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit10315
-  %call8.i95 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %93, ptr noundef nonnull %call2242) #24
-  br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit10308
+  br i1 %cmp.i.i11409, label %if.then.i10307, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit10308
 
 if.then.i10307:                                   ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit10315
   call void @_ZN2v812api_internal12ToLocalEmptyEv() #24
-  %call8.i96 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %93, ptr noundef null) #24
   br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit10308
 
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit10308: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit10315.split, %if.then.i10307
-  %storemerge851 = phi ptr [ %call8.i95, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit10315.split ], [ %call8.i96, %if.then.i10307 ]
-  store ptr %storemerge851, ptr %args_string_, align 8
+_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit10308: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit10315, %if.then.i10307
+  %call2242.sink = phi ptr [ null, %if.then.i10307 ], [ %call2242, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit10315 ]
+  %call8.i95 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %93, ptr noundef %call2242.sink) #24
+  store ptr %call8.i95, ptr %args_string_, align 8
   %asn1curve_string_ = getelementptr inbounds i8, ptr %this, i64 328
   %94 = load ptr, ptr %isolate_, align 8
   %call2258 = call ptr @_ZN2v86String14NewFromOneByteEPNS_7IsolateEPKhNS_13NewStringTypeEi(ptr noundef %94, ptr noundef nonnull @.str.621, i32 noundef 1, i32 noundef 9) #24
   %cmp.i.i11414 = icmp eq ptr %call2258, null
-  br i1 %cmp.i.i11414, label %if.then.i10300, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit10308.split
-
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit10308.split: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit10308
-  %call8.i97 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %94, ptr noundef nonnull %call2258) #24
-  br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit10301
+  br i1 %cmp.i.i11414, label %if.then.i10300, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit10301
 
 if.then.i10300:                                   ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit10308
   call void @_ZN2v812api_internal12ToLocalEmptyEv() #24
-  %call8.i98 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %94, ptr noundef null) #24
   br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit10301
 
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit10301: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit10308.split, %if.then.i10300
-  %storemerge852 = phi ptr [ %call8.i97, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit10308.split ], [ %call8.i98, %if.then.i10300 ]
-  store ptr %storemerge852, ptr %asn1curve_string_, align 8
+_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit10301: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit10308, %if.then.i10300
+  %call2258.sink = phi ptr [ null, %if.then.i10300 ], [ %call2258, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit10308 ]
+  %call8.i97 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %94, ptr noundef %call2258.sink) #24
+  store ptr %call8.i97, ptr %asn1curve_string_, align 8
   %async_ids_stack_string_ = getelementptr inbounds i8, ptr %this, i64 336
   %95 = load ptr, ptr %isolate_, align 8
   %call2274 = call ptr @_ZN2v86String14NewFromOneByteEPNS_7IsolateEPKhNS_13NewStringTypeEi(ptr noundef %95, ptr noundef nonnull @.str.622, i32 noundef 1, i32 noundef 15) #24
   %cmp.i.i11419 = icmp eq ptr %call2274, null
-  br i1 %cmp.i.i11419, label %if.then.i10293, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit10301.split
-
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit10301.split: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit10301
-  %call8.i99 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %95, ptr noundef nonnull %call2274) #24
-  br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit10294
+  br i1 %cmp.i.i11419, label %if.then.i10293, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit10294
 
 if.then.i10293:                                   ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit10301
   call void @_ZN2v812api_internal12ToLocalEmptyEv() #24
-  %call8.i100 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %95, ptr noundef null) #24
   br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit10294
 
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit10294: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit10301.split, %if.then.i10293
-  %storemerge853 = phi ptr [ %call8.i99, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit10301.split ], [ %call8.i100, %if.then.i10293 ]
-  store ptr %storemerge853, ptr %async_ids_stack_string_, align 8
+_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit10294: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit10301, %if.then.i10293
+  %call2274.sink = phi ptr [ null, %if.then.i10293 ], [ %call2274, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit10301 ]
+  %call8.i99 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %95, ptr noundef %call2274.sink) #24
+  store ptr %call8.i99, ptr %async_ids_stack_string_, align 8
   %base_string_ = getelementptr inbounds i8, ptr %this, i64 344
   %96 = load ptr, ptr %isolate_, align 8
   %call2290 = call ptr @_ZN2v86String14NewFromOneByteEPNS_7IsolateEPKhNS_13NewStringTypeEi(ptr noundef %96, ptr noundef nonnull @.str.623, i32 noundef 1, i32 noundef 4) #24
   %cmp.i.i11424 = icmp eq ptr %call2290, null
-  br i1 %cmp.i.i11424, label %if.then.i10286, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit10294.split
-
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit10294.split: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit10294
-  %call8.i101 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %96, ptr noundef nonnull %call2290) #24
-  br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit10287
+  br i1 %cmp.i.i11424, label %if.then.i10286, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit10287
 
 if.then.i10286:                                   ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit10294
   call void @_ZN2v812api_internal12ToLocalEmptyEv() #24
-  %call8.i102 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %96, ptr noundef null) #24
   br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit10287
 
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit10287: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit10294.split, %if.then.i10286
-  %storemerge854 = phi ptr [ %call8.i101, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit10294.split ], [ %call8.i102, %if.then.i10286 ]
-  store ptr %storemerge854, ptr %base_string_, align 8
+_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit10287: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit10294, %if.then.i10286
+  %call2290.sink = phi ptr [ null, %if.then.i10286 ], [ %call2290, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit10294 ]
+  %call8.i101 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %96, ptr noundef %call2290.sink) #24
+  store ptr %call8.i101, ptr %base_string_, align 8
   %bits_string_ = getelementptr inbounds i8, ptr %this, i64 352
   %97 = load ptr, ptr %isolate_, align 8
   %call2306 = call ptr @_ZN2v86String14NewFromOneByteEPNS_7IsolateEPKhNS_13NewStringTypeEi(ptr noundef %97, ptr noundef nonnull @.str.624, i32 noundef 1, i32 noundef 4) #24
   %cmp.i.i11429 = icmp eq ptr %call2306, null
-  br i1 %cmp.i.i11429, label %if.then.i10279, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit10287.split
-
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit10287.split: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit10287
-  %call8.i103 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %97, ptr noundef nonnull %call2306) #24
-  br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit10280
+  br i1 %cmp.i.i11429, label %if.then.i10279, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit10280
 
 if.then.i10279:                                   ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit10287
   call void @_ZN2v812api_internal12ToLocalEmptyEv() #24
-  %call8.i104 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %97, ptr noundef null) #24
   br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit10280
 
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit10280: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit10287.split, %if.then.i10279
-  %storemerge855 = phi ptr [ %call8.i103, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit10287.split ], [ %call8.i104, %if.then.i10279 ]
-  store ptr %storemerge855, ptr %bits_string_, align 8
+_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit10280: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit10287, %if.then.i10279
+  %call2306.sink = phi ptr [ null, %if.then.i10279 ], [ %call2306, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit10287 ]
+  %call8.i103 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %97, ptr noundef %call2306.sink) #24
+  store ptr %call8.i103, ptr %bits_string_, align 8
   %block_list_string_ = getelementptr inbounds i8, ptr %this, i64 360
   %98 = load ptr, ptr %isolate_, align 8
   %call2322 = call ptr @_ZN2v86String14NewFromOneByteEPNS_7IsolateEPKhNS_13NewStringTypeEi(ptr noundef %98, ptr noundef nonnull @.str.625, i32 noundef 1, i32 noundef 9) #24
   %cmp.i.i11434 = icmp eq ptr %call2322, null
-  br i1 %cmp.i.i11434, label %if.then.i10272, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit10280.split
-
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit10280.split: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit10280
-  %call8.i105 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %98, ptr noundef nonnull %call2322) #24
-  br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit10273
+  br i1 %cmp.i.i11434, label %if.then.i10272, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit10273
 
 if.then.i10272:                                   ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit10280
   call void @_ZN2v812api_internal12ToLocalEmptyEv() #24
-  %call8.i106 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %98, ptr noundef null) #24
   br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit10273
 
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit10273: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit10280.split, %if.then.i10272
-  %storemerge856 = phi ptr [ %call8.i105, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit10280.split ], [ %call8.i106, %if.then.i10272 ]
-  store ptr %storemerge856, ptr %block_list_string_, align 8
+_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit10273: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit10280, %if.then.i10272
+  %call2322.sink = phi ptr [ null, %if.then.i10272 ], [ %call2322, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit10280 ]
+  %call8.i105 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %98, ptr noundef %call2322.sink) #24
+  store ptr %call8.i105, ptr %block_list_string_, align 8
   %buffer_string_ = getelementptr inbounds i8, ptr %this, i64 368
   %99 = load ptr, ptr %isolate_, align 8
   %call2338 = call ptr @_ZN2v86String14NewFromOneByteEPNS_7IsolateEPKhNS_13NewStringTypeEi(ptr noundef %99, ptr noundef nonnull @.str.626, i32 noundef 1, i32 noundef 6) #24
   %cmp.i.i11439 = icmp eq ptr %call2338, null
-  br i1 %cmp.i.i11439, label %if.then.i10265, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit10273.split
-
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit10273.split: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit10273
-  %call8.i107 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %99, ptr noundef nonnull %call2338) #24
-  br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit10266
+  br i1 %cmp.i.i11439, label %if.then.i10265, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit10266
 
 if.then.i10265:                                   ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit10273
   call void @_ZN2v812api_internal12ToLocalEmptyEv() #24
-  %call8.i108 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %99, ptr noundef null) #24
   br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit10266
 
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit10266: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit10273.split, %if.then.i10265
-  %storemerge857 = phi ptr [ %call8.i107, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit10273.split ], [ %call8.i108, %if.then.i10265 ]
-  store ptr %storemerge857, ptr %buffer_string_, align 8
+_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit10266: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit10273, %if.then.i10265
+  %call2338.sink = phi ptr [ null, %if.then.i10265 ], [ %call2338, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit10273 ]
+  %call8.i107 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %99, ptr noundef %call2338.sink) #24
+  store ptr %call8.i107, ptr %buffer_string_, align 8
   %bytes_parsed_string_ = getelementptr inbounds i8, ptr %this, i64 376
   %100 = load ptr, ptr %isolate_, align 8
   %call2354 = call ptr @_ZN2v86String14NewFromOneByteEPNS_7IsolateEPKhNS_13NewStringTypeEi(ptr noundef %100, ptr noundef nonnull @.str.627, i32 noundef 1, i32 noundef 11) #24
   %cmp.i.i11444 = icmp eq ptr %call2354, null
-  br i1 %cmp.i.i11444, label %if.then.i10258, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit10266.split
-
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit10266.split: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit10266
-  %call8.i109 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %100, ptr noundef nonnull %call2354) #24
-  br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit10259
+  br i1 %cmp.i.i11444, label %if.then.i10258, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit10259
 
 if.then.i10258:                                   ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit10266
   call void @_ZN2v812api_internal12ToLocalEmptyEv() #24
-  %call8.i110 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %100, ptr noundef null) #24
   br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit10259
 
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit10259: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit10266.split, %if.then.i10258
-  %storemerge858 = phi ptr [ %call8.i109, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit10266.split ], [ %call8.i110, %if.then.i10258 ]
-  store ptr %storemerge858, ptr %bytes_parsed_string_, align 8
+_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit10259: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit10266, %if.then.i10258
+  %call2354.sink = phi ptr [ null, %if.then.i10258 ], [ %call2354, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit10266 ]
+  %call8.i109 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %100, ptr noundef %call2354.sink) #24
+  store ptr %call8.i109, ptr %bytes_parsed_string_, align 8
   %bytes_read_string_ = getelementptr inbounds i8, ptr %this, i64 384
   %101 = load ptr, ptr %isolate_, align 8
   %call2370 = call ptr @_ZN2v86String14NewFromOneByteEPNS_7IsolateEPKhNS_13NewStringTypeEi(ptr noundef %101, ptr noundef nonnull @.str.628, i32 noundef 1, i32 noundef 9) #24
   %cmp.i.i11449 = icmp eq ptr %call2370, null
-  br i1 %cmp.i.i11449, label %if.then.i10251, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit10259.split
-
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit10259.split: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit10259
-  %call8.i111 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %101, ptr noundef nonnull %call2370) #24
-  br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit10252
+  br i1 %cmp.i.i11449, label %if.then.i10251, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit10252
 
 if.then.i10251:                                   ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit10259
   call void @_ZN2v812api_internal12ToLocalEmptyEv() #24
-  %call8.i112 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %101, ptr noundef null) #24
   br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit10252
 
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit10252: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit10259.split, %if.then.i10251
-  %storemerge859 = phi ptr [ %call8.i111, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit10259.split ], [ %call8.i112, %if.then.i10251 ]
-  store ptr %storemerge859, ptr %bytes_read_string_, align 8
+_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit10252: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit10259, %if.then.i10251
+  %call2370.sink = phi ptr [ null, %if.then.i10251 ], [ %call2370, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit10259 ]
+  %call8.i111 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %101, ptr noundef %call2370.sink) #24
+  store ptr %call8.i111, ptr %bytes_read_string_, align 8
   %bytes_written_string_ = getelementptr inbounds i8, ptr %this, i64 392
   %102 = load ptr, ptr %isolate_, align 8
   %call2386 = call ptr @_ZN2v86String14NewFromOneByteEPNS_7IsolateEPKhNS_13NewStringTypeEi(ptr noundef %102, ptr noundef nonnull @.str.629, i32 noundef 1, i32 noundef 12) #24
   %cmp.i.i11454 = icmp eq ptr %call2386, null
-  br i1 %cmp.i.i11454, label %if.then.i10244, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit10252.split
-
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit10252.split: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit10252
-  %call8.i113 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %102, ptr noundef nonnull %call2386) #24
-  br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit10245
+  br i1 %cmp.i.i11454, label %if.then.i10244, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit10245
 
 if.then.i10244:                                   ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit10252
   call void @_ZN2v812api_internal12ToLocalEmptyEv() #24
-  %call8.i114 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %102, ptr noundef null) #24
   br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit10245
 
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit10245: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit10252.split, %if.then.i10244
-  %storemerge860 = phi ptr [ %call8.i113, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit10252.split ], [ %call8.i114, %if.then.i10244 ]
-  store ptr %storemerge860, ptr %bytes_written_string_, align 8
+_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit10245: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit10252, %if.then.i10244
+  %call2386.sink = phi ptr [ null, %if.then.i10244 ], [ %call2386, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit10252 ]
+  %call8.i113 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %102, ptr noundef %call2386.sink) #24
+  store ptr %call8.i113, ptr %bytes_written_string_, align 8
   %ca_string_ = getelementptr inbounds i8, ptr %this, i64 400
   %103 = load ptr, ptr %isolate_, align 8
   %call2402 = call ptr @_ZN2v86String14NewFromOneByteEPNS_7IsolateEPKhNS_13NewStringTypeEi(ptr noundef %103, ptr noundef nonnull @.str.630, i32 noundef 1, i32 noundef 2) #24
   %cmp.i.i11459 = icmp eq ptr %call2402, null
-  br i1 %cmp.i.i11459, label %if.then.i10237, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit10245.split
-
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit10245.split: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit10245
-  %call8.i115 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %103, ptr noundef nonnull %call2402) #24
-  br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit10238
+  br i1 %cmp.i.i11459, label %if.then.i10237, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit10238
 
 if.then.i10237:                                   ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit10245
   call void @_ZN2v812api_internal12ToLocalEmptyEv() #24
-  %call8.i116 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %103, ptr noundef null) #24
   br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit10238
 
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit10238: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit10245.split, %if.then.i10237
-  %storemerge861 = phi ptr [ %call8.i115, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit10245.split ], [ %call8.i116, %if.then.i10237 ]
-  store ptr %storemerge861, ptr %ca_string_, align 8
+_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit10238: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit10245, %if.then.i10237
+  %call2402.sink = phi ptr [ null, %if.then.i10237 ], [ %call2402, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit10245 ]
+  %call8.i115 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %103, ptr noundef %call2402.sink) #24
+  store ptr %call8.i115, ptr %ca_string_, align 8
   %cached_data_produced_string_ = getelementptr inbounds i8, ptr %this, i64 408
   %104 = load ptr, ptr %isolate_, align 8
   %call2418 = call ptr @_ZN2v86String14NewFromOneByteEPNS_7IsolateEPKhNS_13NewStringTypeEi(ptr noundef %104, ptr noundef nonnull @.str.631, i32 noundef 1, i32 noundef 18) #24
   %cmp.i.i11464 = icmp eq ptr %call2418, null
-  br i1 %cmp.i.i11464, label %if.then.i10230, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit10238.split
-
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit10238.split: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit10238
-  %call8.i117 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %104, ptr noundef nonnull %call2418) #24
-  br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit10231
+  br i1 %cmp.i.i11464, label %if.then.i10230, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit10231
 
 if.then.i10230:                                   ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit10238
   call void @_ZN2v812api_internal12ToLocalEmptyEv() #24
-  %call8.i118 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %104, ptr noundef null) #24
   br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit10231
 
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit10231: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit10238.split, %if.then.i10230
-  %storemerge862 = phi ptr [ %call8.i117, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit10238.split ], [ %call8.i118, %if.then.i10230 ]
-  store ptr %storemerge862, ptr %cached_data_produced_string_, align 8
+_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit10231: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit10238, %if.then.i10230
+  %call2418.sink = phi ptr [ null, %if.then.i10230 ], [ %call2418, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit10238 ]
+  %call8.i117 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %104, ptr noundef %call2418.sink) #24
+  store ptr %call8.i117, ptr %cached_data_produced_string_, align 8
   %cached_data_rejected_string_ = getelementptr inbounds i8, ptr %this, i64 416
   %105 = load ptr, ptr %isolate_, align 8
   %call2434 = call ptr @_ZN2v86String14NewFromOneByteEPNS_7IsolateEPKhNS_13NewStringTypeEi(ptr noundef %105, ptr noundef nonnull @.str.632, i32 noundef 1, i32 noundef 18) #24
   %cmp.i.i11469 = icmp eq ptr %call2434, null
-  br i1 %cmp.i.i11469, label %if.then.i10223, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit10231.split
-
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit10231.split: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit10231
-  %call8.i119 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %105, ptr noundef nonnull %call2434) #24
-  br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit10224
+  br i1 %cmp.i.i11469, label %if.then.i10223, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit10224
 
 if.then.i10223:                                   ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit10231
   call void @_ZN2v812api_internal12ToLocalEmptyEv() #24
-  %call8.i120 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %105, ptr noundef null) #24
   br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit10224
 
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit10224: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit10231.split, %if.then.i10223
-  %storemerge863 = phi ptr [ %call8.i119, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit10231.split ], [ %call8.i120, %if.then.i10223 ]
-  store ptr %storemerge863, ptr %cached_data_rejected_string_, align 8
+_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit10224: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit10231, %if.then.i10223
+  %call2434.sink = phi ptr [ null, %if.then.i10223 ], [ %call2434, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit10231 ]
+  %call8.i119 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %105, ptr noundef %call2434.sink) #24
+  store ptr %call8.i119, ptr %cached_data_rejected_string_, align 8
   %cached_data_string_ = getelementptr inbounds i8, ptr %this, i64 424
   %106 = load ptr, ptr %isolate_, align 8
   %call2450 = call ptr @_ZN2v86String14NewFromOneByteEPNS_7IsolateEPKhNS_13NewStringTypeEi(ptr noundef %106, ptr noundef nonnull @.str.633, i32 noundef 1, i32 noundef 10) #24
   %cmp.i.i11474 = icmp eq ptr %call2450, null
-  br i1 %cmp.i.i11474, label %if.then.i10216, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit10224.split
-
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit10224.split: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit10224
-  %call8.i121 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %106, ptr noundef nonnull %call2450) #24
-  br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit10217
+  br i1 %cmp.i.i11474, label %if.then.i10216, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit10217
 
 if.then.i10216:                                   ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit10224
   call void @_ZN2v812api_internal12ToLocalEmptyEv() #24
-  %call8.i122 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %106, ptr noundef null) #24
   br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit10217
 
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit10217: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit10224.split, %if.then.i10216
-  %storemerge864 = phi ptr [ %call8.i121, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit10224.split ], [ %call8.i122, %if.then.i10216 ]
-  store ptr %storemerge864, ptr %cached_data_string_, align 8
+_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit10217: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit10224, %if.then.i10216
+  %call2450.sink = phi ptr [ null, %if.then.i10216 ], [ %call2450, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit10224 ]
+  %call8.i121 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %106, ptr noundef %call2450.sink) #24
+  store ptr %call8.i121, ptr %cached_data_string_, align 8
   %cache_key_string_ = getelementptr inbounds i8, ptr %this, i64 432
   %107 = load ptr, ptr %isolate_, align 8
   %call2466 = call ptr @_ZN2v86String14NewFromOneByteEPNS_7IsolateEPKhNS_13NewStringTypeEi(ptr noundef %107, ptr noundef nonnull @.str.634, i32 noundef 1, i32 noundef 8) #24
   %cmp.i.i11479 = icmp eq ptr %call2466, null
-  br i1 %cmp.i.i11479, label %if.then.i10209, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit10217.split
-
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit10217.split: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit10217
-  %call8.i123 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %107, ptr noundef nonnull %call2466) #24
-  br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit10210
+  br i1 %cmp.i.i11479, label %if.then.i10209, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit10210
 
 if.then.i10209:                                   ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit10217
   call void @_ZN2v812api_internal12ToLocalEmptyEv() #24
-  %call8.i124 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %107, ptr noundef null) #24
   br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit10210
 
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit10210: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit10217.split, %if.then.i10209
-  %storemerge865 = phi ptr [ %call8.i123, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit10217.split ], [ %call8.i124, %if.then.i10209 ]
-  store ptr %storemerge865, ptr %cache_key_string_, align 8
+_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit10210: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit10217, %if.then.i10209
+  %call2466.sink = phi ptr [ null, %if.then.i10209 ], [ %call2466, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit10217 ]
+  %call8.i123 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %107, ptr noundef %call2466.sink) #24
+  store ptr %call8.i123, ptr %cache_key_string_, align 8
   %change_string_ = getelementptr inbounds i8, ptr %this, i64 440
   %108 = load ptr, ptr %isolate_, align 8
   %call2482 = call ptr @_ZN2v86String14NewFromOneByteEPNS_7IsolateEPKhNS_13NewStringTypeEi(ptr noundef %108, ptr noundef nonnull @.str.635, i32 noundef 1, i32 noundef 6) #24
   %cmp.i.i11484 = icmp eq ptr %call2482, null
-  br i1 %cmp.i.i11484, label %if.then.i10202, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit10210.split
-
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit10210.split: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit10210
-  %call8.i125 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %108, ptr noundef nonnull %call2482) #24
-  br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit10203
+  br i1 %cmp.i.i11484, label %if.then.i10202, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit10203
 
 if.then.i10202:                                   ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit10210
   call void @_ZN2v812api_internal12ToLocalEmptyEv() #24
-  %call8.i126 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %108, ptr noundef null) #24
   br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit10203
 
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit10203: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit10210.split, %if.then.i10202
-  %storemerge866 = phi ptr [ %call8.i125, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit10210.split ], [ %call8.i126, %if.then.i10202 ]
-  store ptr %storemerge866, ptr %change_string_, align 8
+_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit10203: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit10210, %if.then.i10202
+  %call2482.sink = phi ptr [ null, %if.then.i10202 ], [ %call2482, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit10210 ]
+  %call8.i125 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %108, ptr noundef %call2482.sink) #24
+  store ptr %call8.i125, ptr %change_string_, align 8
   %channel_string_ = getelementptr inbounds i8, ptr %this, i64 448
   %109 = load ptr, ptr %isolate_, align 8
   %call2498 = call ptr @_ZN2v86String14NewFromOneByteEPNS_7IsolateEPKhNS_13NewStringTypeEi(ptr noundef %109, ptr noundef nonnull @.str.636, i32 noundef 1, i32 noundef 7) #24
   %cmp.i.i11489 = icmp eq ptr %call2498, null
-  br i1 %cmp.i.i11489, label %if.then.i10195, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit10203.split
-
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit10203.split: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit10203
-  %call8.i127 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %109, ptr noundef nonnull %call2498) #24
-  br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit10196
+  br i1 %cmp.i.i11489, label %if.then.i10195, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit10196
 
 if.then.i10195:                                   ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit10203
   call void @_ZN2v812api_internal12ToLocalEmptyEv() #24
-  %call8.i128 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %109, ptr noundef null) #24
   br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit10196
 
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit10196: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit10203.split, %if.then.i10195
-  %storemerge867 = phi ptr [ %call8.i127, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit10203.split ], [ %call8.i128, %if.then.i10195 ]
-  store ptr %storemerge867, ptr %channel_string_, align 8
+_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit10196: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit10203, %if.then.i10195
+  %call2498.sink = phi ptr [ null, %if.then.i10195 ], [ %call2498, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit10203 ]
+  %call8.i127 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %109, ptr noundef %call2498.sink) #24
+  store ptr %call8.i127, ptr %channel_string_, align 8
   %chunks_sent_since_last_write_string_ = getelementptr inbounds i8, ptr %this, i64 456
   %110 = load ptr, ptr %isolate_, align 8
   %call2514 = call ptr @_ZN2v86String14NewFromOneByteEPNS_7IsolateEPKhNS_13NewStringTypeEi(ptr noundef %110, ptr noundef nonnull @.str.637, i32 noundef 1, i32 noundef 24) #24
   %cmp.i.i11494 = icmp eq ptr %call2514, null
-  br i1 %cmp.i.i11494, label %if.then.i10188, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit10196.split
-
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit10196.split: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit10196
-  %call8.i129 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %110, ptr noundef nonnull %call2514) #24
-  br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit10189
+  br i1 %cmp.i.i11494, label %if.then.i10188, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit10189
 
 if.then.i10188:                                   ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit10196
   call void @_ZN2v812api_internal12ToLocalEmptyEv() #24
-  %call8.i130 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %110, ptr noundef null) #24
   br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit10189
 
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit10189: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit10196.split, %if.then.i10188
-  %storemerge868 = phi ptr [ %call8.i129, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit10196.split ], [ %call8.i130, %if.then.i10188 ]
-  store ptr %storemerge868, ptr %chunks_sent_since_last_write_string_, align 8
+_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit10189: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit10196, %if.then.i10188
+  %call2514.sink = phi ptr [ null, %if.then.i10188 ], [ %call2514, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit10196 ]
+  %call8.i129 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %110, ptr noundef %call2514.sink) #24
+  store ptr %call8.i129, ptr %chunks_sent_since_last_write_string_, align 8
   %clone_unsupported_type_str_ = getelementptr inbounds i8, ptr %this, i64 464
   %111 = load ptr, ptr %isolate_, align 8
   %call2530 = call ptr @_ZN2v86String14NewFromOneByteEPNS_7IsolateEPKhNS_13NewStringTypeEi(ptr noundef %111, ptr noundef nonnull @.str.638, i32 noundef 1, i32 noundef 40) #24
   %cmp.i.i11499 = icmp eq ptr %call2530, null
-  br i1 %cmp.i.i11499, label %if.then.i10181, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit10189.split
-
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit10189.split: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit10189
-  %call8.i131 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %111, ptr noundef nonnull %call2530) #24
-  br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit10182
+  br i1 %cmp.i.i11499, label %if.then.i10181, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit10182
 
 if.then.i10181:                                   ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit10189
   call void @_ZN2v812api_internal12ToLocalEmptyEv() #24
-  %call8.i132 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %111, ptr noundef null) #24
   br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit10182
 
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit10182: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit10189.split, %if.then.i10181
-  %storemerge869 = phi ptr [ %call8.i131, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit10189.split ], [ %call8.i132, %if.then.i10181 ]
-  store ptr %storemerge869, ptr %clone_unsupported_type_str_, align 8
+_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit10182: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit10189, %if.then.i10181
+  %call2530.sink = phi ptr [ null, %if.then.i10181 ], [ %call2530, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit10189 ]
+  %call8.i131 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %111, ptr noundef %call2530.sink) #24
+  store ptr %call8.i131, ptr %clone_unsupported_type_str_, align 8
   %clone_transfer_needed_str_ = getelementptr inbounds i8, ptr %this, i64 472
   %112 = load ptr, ptr %isolate_, align 8
   %call2546 = call ptr @_ZN2v86String14NewFromOneByteEPNS_7IsolateEPKhNS_13NewStringTypeEi(ptr noundef %112, ptr noundef nonnull @.str.639, i32 noundef 1, i32 noundef 78) #24
   %cmp.i.i11504 = icmp eq ptr %call2546, null
-  br i1 %cmp.i.i11504, label %if.then.i10174, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit10182.split
-
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit10182.split: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit10182
-  %call8.i133 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %112, ptr noundef nonnull %call2546) #24
-  br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit10175
+  br i1 %cmp.i.i11504, label %if.then.i10174, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit10175
 
 if.then.i10174:                                   ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit10182
   call void @_ZN2v812api_internal12ToLocalEmptyEv() #24
-  %call8.i134 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %112, ptr noundef null) #24
   br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit10175
 
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit10175: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit10182.split, %if.then.i10174
-  %storemerge870 = phi ptr [ %call8.i133, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit10182.split ], [ %call8.i134, %if.then.i10174 ]
-  store ptr %storemerge870, ptr %clone_transfer_needed_str_, align 8
+_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit10175: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit10182, %if.then.i10174
+  %call2546.sink = phi ptr [ null, %if.then.i10174 ], [ %call2546, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit10182 ]
+  %call8.i133 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %112, ptr noundef %call2546.sink) #24
+  store ptr %call8.i133, ptr %clone_transfer_needed_str_, align 8
   %clone_untransferable_str_ = getelementptr inbounds i8, ptr %this, i64 480
   %113 = load ptr, ptr %isolate_, align 8
   %call2562 = call ptr @_ZN2v86String14NewFromOneByteEPNS_7IsolateEPKhNS_13NewStringTypeEi(ptr noundef %113, ptr noundef nonnull @.str.640, i32 noundef 1, i32 noundef 36) #24
   %cmp.i.i11509 = icmp eq ptr %call2562, null
-  br i1 %cmp.i.i11509, label %if.then.i10167, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit10175.split
-
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit10175.split: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit10175
-  %call8.i135 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %113, ptr noundef nonnull %call2562) #24
-  br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit10168
+  br i1 %cmp.i.i11509, label %if.then.i10167, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit10168
 
 if.then.i10167:                                   ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit10175
   call void @_ZN2v812api_internal12ToLocalEmptyEv() #24
-  %call8.i136 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %113, ptr noundef null) #24
   br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit10168
 
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit10168: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit10175.split, %if.then.i10167
-  %storemerge871 = phi ptr [ %call8.i135, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit10175.split ], [ %call8.i136, %if.then.i10167 ]
-  store ptr %storemerge871, ptr %clone_untransferable_str_, align 8
+_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit10168: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit10175, %if.then.i10167
+  %call2562.sink = phi ptr [ null, %if.then.i10167 ], [ %call2562, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit10175 ]
+  %call8.i135 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %113, ptr noundef %call2562.sink) #24
+  store ptr %call8.i135, ptr %clone_untransferable_str_, align 8
   %code_string_ = getelementptr inbounds i8, ptr %this, i64 488
   %114 = load ptr, ptr %isolate_, align 8
   %call2578 = call ptr @_ZN2v86String14NewFromOneByteEPNS_7IsolateEPKhNS_13NewStringTypeEi(ptr noundef %114, ptr noundef nonnull @.str.641, i32 noundef 1, i32 noundef 4) #24
   %cmp.i.i11514 = icmp eq ptr %call2578, null
-  br i1 %cmp.i.i11514, label %if.then.i10160, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit10168.split
-
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit10168.split: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit10168
-  %call8.i137 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %114, ptr noundef nonnull %call2578) #24
-  br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit10161
+  br i1 %cmp.i.i11514, label %if.then.i10160, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit10161
 
 if.then.i10160:                                   ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit10168
   call void @_ZN2v812api_internal12ToLocalEmptyEv() #24
-  %call8.i138 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %114, ptr noundef null) #24
   br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit10161
 
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit10161: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit10168.split, %if.then.i10160
-  %storemerge872 = phi ptr [ %call8.i137, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit10168.split ], [ %call8.i138, %if.then.i10160 ]
-  store ptr %storemerge872, ptr %code_string_, align 8
+_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit10161: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit10168, %if.then.i10160
+  %call2578.sink = phi ptr [ null, %if.then.i10160 ], [ %call2578, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit10168 ]
+  %call8.i137 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %114, ptr noundef %call2578.sink) #24
+  store ptr %call8.i137, ptr %code_string_, align 8
   %commonjs_string_ = getelementptr inbounds i8, ptr %this, i64 496
   %115 = load ptr, ptr %isolate_, align 8
   %call2594 = call ptr @_ZN2v86String14NewFromOneByteEPNS_7IsolateEPKhNS_13NewStringTypeEi(ptr noundef %115, ptr noundef nonnull @.str.642, i32 noundef 1, i32 noundef 8) #24
   %cmp.i.i11519 = icmp eq ptr %call2594, null
-  br i1 %cmp.i.i11519, label %if.then.i10153, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit10161.split
-
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit10161.split: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit10161
-  %call8.i139 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %115, ptr noundef nonnull %call2594) #24
-  br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit10154
+  br i1 %cmp.i.i11519, label %if.then.i10153, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit10154
 
 if.then.i10153:                                   ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit10161
   call void @_ZN2v812api_internal12ToLocalEmptyEv() #24
-  %call8.i140 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %115, ptr noundef null) #24
   br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit10154
 
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit10154: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit10161.split, %if.then.i10153
-  %storemerge873 = phi ptr [ %call8.i139, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit10161.split ], [ %call8.i140, %if.then.i10153 ]
-  store ptr %storemerge873, ptr %commonjs_string_, align 8
+_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit10154: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit10161, %if.then.i10153
+  %call2594.sink = phi ptr [ null, %if.then.i10153 ], [ %call2594, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit10161 ]
+  %call8.i139 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %115, ptr noundef %call2594.sink) #24
+  store ptr %call8.i139, ptr %commonjs_string_, align 8
   %config_string_ = getelementptr inbounds i8, ptr %this, i64 504
   %116 = load ptr, ptr %isolate_, align 8
   %call2610 = call ptr @_ZN2v86String14NewFromOneByteEPNS_7IsolateEPKhNS_13NewStringTypeEi(ptr noundef %116, ptr noundef nonnull @.str.643, i32 noundef 1, i32 noundef 6) #24
   %cmp.i.i11524 = icmp eq ptr %call2610, null
-  br i1 %cmp.i.i11524, label %if.then.i10146, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit10154.split
-
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit10154.split: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit10154
-  %call8.i141 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %116, ptr noundef nonnull %call2610) #24
-  br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit10147
+  br i1 %cmp.i.i11524, label %if.then.i10146, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit10147
 
 if.then.i10146:                                   ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit10154
   call void @_ZN2v812api_internal12ToLocalEmptyEv() #24
-  %call8.i142 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %116, ptr noundef null) #24
   br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit10147
 
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit10147: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit10154.split, %if.then.i10146
-  %storemerge874 = phi ptr [ %call8.i141, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit10154.split ], [ %call8.i142, %if.then.i10146 ]
-  store ptr %storemerge874, ptr %config_string_, align 8
+_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit10147: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit10154, %if.then.i10146
+  %call2610.sink = phi ptr [ null, %if.then.i10146 ], [ %call2610, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit10154 ]
+  %call8.i141 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %116, ptr noundef %call2610.sink) #24
+  store ptr %call8.i141, ptr %config_string_, align 8
   %constants_string_ = getelementptr inbounds i8, ptr %this, i64 512
   %117 = load ptr, ptr %isolate_, align 8
   %call2626 = call ptr @_ZN2v86String14NewFromOneByteEPNS_7IsolateEPKhNS_13NewStringTypeEi(ptr noundef %117, ptr noundef nonnull @.str.644, i32 noundef 1, i32 noundef 9) #24
   %cmp.i.i11529 = icmp eq ptr %call2626, null
-  br i1 %cmp.i.i11529, label %if.then.i10139, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit10147.split
-
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit10147.split: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit10147
-  %call8.i143 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %117, ptr noundef nonnull %call2626) #24
-  br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit10140
+  br i1 %cmp.i.i11529, label %if.then.i10139, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit10140
 
 if.then.i10139:                                   ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit10147
   call void @_ZN2v812api_internal12ToLocalEmptyEv() #24
-  %call8.i144 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %117, ptr noundef null) #24
   br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit10140
 
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit10140: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit10147.split, %if.then.i10139
-  %storemerge875 = phi ptr [ %call8.i143, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit10147.split ], [ %call8.i144, %if.then.i10139 ]
-  store ptr %storemerge875, ptr %constants_string_, align 8
+_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit10140: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit10147, %if.then.i10139
+  %call2626.sink = phi ptr [ null, %if.then.i10139 ], [ %call2626, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit10147 ]
+  %call8.i143 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %117, ptr noundef %call2626.sink) #24
+  store ptr %call8.i143, ptr %constants_string_, align 8
   %crypto_dh_string_ = getelementptr inbounds i8, ptr %this, i64 520
   %118 = load ptr, ptr %isolate_, align 8
   %call2642 = call ptr @_ZN2v86String14NewFromOneByteEPNS_7IsolateEPKhNS_13NewStringTypeEi(ptr noundef %118, ptr noundef nonnull @.str.645, i32 noundef 1, i32 noundef 2) #24
   %cmp.i.i11534 = icmp eq ptr %call2642, null
-  br i1 %cmp.i.i11534, label %if.then.i10132, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit10140.split
-
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit10140.split: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit10140
-  %call8.i145 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %118, ptr noundef nonnull %call2642) #24
-  br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit10133
+  br i1 %cmp.i.i11534, label %if.then.i10132, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit10133
 
 if.then.i10132:                                   ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit10140
   call void @_ZN2v812api_internal12ToLocalEmptyEv() #24
-  %call8.i146 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %118, ptr noundef null) #24
   br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit10133
 
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit10133: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit10140.split, %if.then.i10132
-  %storemerge876 = phi ptr [ %call8.i145, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit10140.split ], [ %call8.i146, %if.then.i10132 ]
-  store ptr %storemerge876, ptr %crypto_dh_string_, align 8
+_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit10133: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit10140, %if.then.i10132
+  %call2642.sink = phi ptr [ null, %if.then.i10132 ], [ %call2642, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit10140 ]
+  %call8.i145 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %118, ptr noundef %call2642.sink) #24
+  store ptr %call8.i145, ptr %crypto_dh_string_, align 8
   %crypto_dsa_string_ = getelementptr inbounds i8, ptr %this, i64 528
   %119 = load ptr, ptr %isolate_, align 8
   %call2658 = call ptr @_ZN2v86String14NewFromOneByteEPNS_7IsolateEPKhNS_13NewStringTypeEi(ptr noundef %119, ptr noundef nonnull @.str.646, i32 noundef 1, i32 noundef 3) #24
   %cmp.i.i11539 = icmp eq ptr %call2658, null
-  br i1 %cmp.i.i11539, label %if.then.i10125, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit10133.split
-
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit10133.split: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit10133
-  %call8.i147 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %119, ptr noundef nonnull %call2658) #24
-  br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit10126
+  br i1 %cmp.i.i11539, label %if.then.i10125, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit10126
 
 if.then.i10125:                                   ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit10133
   call void @_ZN2v812api_internal12ToLocalEmptyEv() #24
-  %call8.i148 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %119, ptr noundef null) #24
   br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit10126
 
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit10126: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit10133.split, %if.then.i10125
-  %storemerge877 = phi ptr [ %call8.i147, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit10133.split ], [ %call8.i148, %if.then.i10125 ]
-  store ptr %storemerge877, ptr %crypto_dsa_string_, align 8
+_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit10126: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit10133, %if.then.i10125
+  %call2658.sink = phi ptr [ null, %if.then.i10125 ], [ %call2658, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit10133 ]
+  %call8.i147 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %119, ptr noundef %call2658.sink) #24
+  store ptr %call8.i147, ptr %crypto_dsa_string_, align 8
   %crypto_ec_string_ = getelementptr inbounds i8, ptr %this, i64 536
   %120 = load ptr, ptr %isolate_, align 8
   %call2674 = call ptr @_ZN2v86String14NewFromOneByteEPNS_7IsolateEPKhNS_13NewStringTypeEi(ptr noundef %120, ptr noundef nonnull @.str.647, i32 noundef 1, i32 noundef 2) #24
   %cmp.i.i11544 = icmp eq ptr %call2674, null
-  br i1 %cmp.i.i11544, label %if.then.i10118, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit10126.split
-
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit10126.split: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit10126
-  %call8.i149 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %120, ptr noundef nonnull %call2674) #24
-  br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit10119
+  br i1 %cmp.i.i11544, label %if.then.i10118, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit10119
 
 if.then.i10118:                                   ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit10126
   call void @_ZN2v812api_internal12ToLocalEmptyEv() #24
-  %call8.i150 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %120, ptr noundef null) #24
   br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit10119
 
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit10119: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit10126.split, %if.then.i10118
-  %storemerge878 = phi ptr [ %call8.i149, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit10126.split ], [ %call8.i150, %if.then.i10118 ]
-  store ptr %storemerge878, ptr %crypto_ec_string_, align 8
+_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit10119: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit10126, %if.then.i10118
+  %call2674.sink = phi ptr [ null, %if.then.i10118 ], [ %call2674, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit10126 ]
+  %call8.i149 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %120, ptr noundef %call2674.sink) #24
+  store ptr %call8.i149, ptr %crypto_ec_string_, align 8
   %crypto_ed25519_string_ = getelementptr inbounds i8, ptr %this, i64 544
   %121 = load ptr, ptr %isolate_, align 8
   %call2690 = call ptr @_ZN2v86String14NewFromOneByteEPNS_7IsolateEPKhNS_13NewStringTypeEi(ptr noundef %121, ptr noundef nonnull @.str.648, i32 noundef 1, i32 noundef 7) #24
   %cmp.i.i11549 = icmp eq ptr %call2690, null
-  br i1 %cmp.i.i11549, label %if.then.i10111, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit10119.split
-
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit10119.split: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit10119
-  %call8.i151 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %121, ptr noundef nonnull %call2690) #24
-  br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit10112
+  br i1 %cmp.i.i11549, label %if.then.i10111, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit10112
 
 if.then.i10111:                                   ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit10119
   call void @_ZN2v812api_internal12ToLocalEmptyEv() #24
-  %call8.i152 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %121, ptr noundef null) #24
   br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit10112
 
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit10112: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit10119.split, %if.then.i10111
-  %storemerge879 = phi ptr [ %call8.i151, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit10119.split ], [ %call8.i152, %if.then.i10111 ]
-  store ptr %storemerge879, ptr %crypto_ed25519_string_, align 8
+_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit10112: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit10119, %if.then.i10111
+  %call2690.sink = phi ptr [ null, %if.then.i10111 ], [ %call2690, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit10119 ]
+  %call8.i151 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %121, ptr noundef %call2690.sink) #24
+  store ptr %call8.i151, ptr %crypto_ed25519_string_, align 8
   %crypto_ed448_string_ = getelementptr inbounds i8, ptr %this, i64 552
   %122 = load ptr, ptr %isolate_, align 8
   %call2706 = call ptr @_ZN2v86String14NewFromOneByteEPNS_7IsolateEPKhNS_13NewStringTypeEi(ptr noundef %122, ptr noundef nonnull @.str.649, i32 noundef 1, i32 noundef 5) #24
   %cmp.i.i11554 = icmp eq ptr %call2706, null
-  br i1 %cmp.i.i11554, label %if.then.i10104, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit10112.split
-
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit10112.split: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit10112
-  %call8.i153 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %122, ptr noundef nonnull %call2706) #24
-  br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit10105
+  br i1 %cmp.i.i11554, label %if.then.i10104, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit10105
 
 if.then.i10104:                                   ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit10112
   call void @_ZN2v812api_internal12ToLocalEmptyEv() #24
-  %call8.i154 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %122, ptr noundef null) #24
   br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit10105
 
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit10105: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit10112.split, %if.then.i10104
-  %storemerge880 = phi ptr [ %call8.i153, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit10112.split ], [ %call8.i154, %if.then.i10104 ]
-  store ptr %storemerge880, ptr %crypto_ed448_string_, align 8
+_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit10105: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit10112, %if.then.i10104
+  %call2706.sink = phi ptr [ null, %if.then.i10104 ], [ %call2706, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit10112 ]
+  %call8.i153 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %122, ptr noundef %call2706.sink) #24
+  store ptr %call8.i153, ptr %crypto_ed448_string_, align 8
   %crypto_x25519_string_ = getelementptr inbounds i8, ptr %this, i64 560
   %123 = load ptr, ptr %isolate_, align 8
   %call2722 = call ptr @_ZN2v86String14NewFromOneByteEPNS_7IsolateEPKhNS_13NewStringTypeEi(ptr noundef %123, ptr noundef nonnull @.str.650, i32 noundef 1, i32 noundef 6) #24
   %cmp.i.i11559 = icmp eq ptr %call2722, null
-  br i1 %cmp.i.i11559, label %if.then.i10097, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit10105.split
-
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit10105.split: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit10105
-  %call8.i155 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %123, ptr noundef nonnull %call2722) #24
-  br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit10098
+  br i1 %cmp.i.i11559, label %if.then.i10097, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit10098
 
 if.then.i10097:                                   ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit10105
   call void @_ZN2v812api_internal12ToLocalEmptyEv() #24
-  %call8.i156 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %123, ptr noundef null) #24
   br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit10098
 
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit10098: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit10105.split, %if.then.i10097
-  %storemerge881 = phi ptr [ %call8.i155, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit10105.split ], [ %call8.i156, %if.then.i10097 ]
-  store ptr %storemerge881, ptr %crypto_x25519_string_, align 8
+_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit10098: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit10105, %if.then.i10097
+  %call2722.sink = phi ptr [ null, %if.then.i10097 ], [ %call2722, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit10105 ]
+  %call8.i155 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %123, ptr noundef %call2722.sink) #24
+  store ptr %call8.i155, ptr %crypto_x25519_string_, align 8
   %crypto_x448_string_ = getelementptr inbounds i8, ptr %this, i64 568
   %124 = load ptr, ptr %isolate_, align 8
   %call2738 = call ptr @_ZN2v86String14NewFromOneByteEPNS_7IsolateEPKhNS_13NewStringTypeEi(ptr noundef %124, ptr noundef nonnull @.str.651, i32 noundef 1, i32 noundef 4) #24
   %cmp.i.i11564 = icmp eq ptr %call2738, null
-  br i1 %cmp.i.i11564, label %if.then.i10090, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit10098.split
-
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit10098.split: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit10098
-  %call8.i157 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %124, ptr noundef nonnull %call2738) #24
-  br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit10091
+  br i1 %cmp.i.i11564, label %if.then.i10090, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit10091
 
 if.then.i10090:                                   ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit10098
   call void @_ZN2v812api_internal12ToLocalEmptyEv() #24
-  %call8.i158 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %124, ptr noundef null) #24
   br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit10091
 
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit10091: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit10098.split, %if.then.i10090
-  %storemerge882 = phi ptr [ %call8.i157, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit10098.split ], [ %call8.i158, %if.then.i10090 ]
-  store ptr %storemerge882, ptr %crypto_x448_string_, align 8
+_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit10091: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit10098, %if.then.i10090
+  %call2738.sink = phi ptr [ null, %if.then.i10090 ], [ %call2738, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit10098 ]
+  %call8.i157 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %124, ptr noundef %call2738.sink) #24
+  store ptr %call8.i157, ptr %crypto_x448_string_, align 8
   %crypto_rsa_string_ = getelementptr inbounds i8, ptr %this, i64 576
   %125 = load ptr, ptr %isolate_, align 8
   %call2754 = call ptr @_ZN2v86String14NewFromOneByteEPNS_7IsolateEPKhNS_13NewStringTypeEi(ptr noundef %125, ptr noundef nonnull @.str.652, i32 noundef 1, i32 noundef 3) #24
   %cmp.i.i11569 = icmp eq ptr %call2754, null
-  br i1 %cmp.i.i11569, label %if.then.i10083, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit10091.split
-
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit10091.split: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit10091
-  %call8.i159 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %125, ptr noundef nonnull %call2754) #24
-  br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit10084
+  br i1 %cmp.i.i11569, label %if.then.i10083, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit10084
 
 if.then.i10083:                                   ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit10091
   call void @_ZN2v812api_internal12ToLocalEmptyEv() #24
-  %call8.i160 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %125, ptr noundef null) #24
   br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit10084
 
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit10084: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit10091.split, %if.then.i10083
-  %storemerge883 = phi ptr [ %call8.i159, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit10091.split ], [ %call8.i160, %if.then.i10083 ]
-  store ptr %storemerge883, ptr %crypto_rsa_string_, align 8
+_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit10084: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit10091, %if.then.i10083
+  %call2754.sink = phi ptr [ null, %if.then.i10083 ], [ %call2754, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit10091 ]
+  %call8.i159 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %125, ptr noundef %call2754.sink) #24
+  store ptr %call8.i159, ptr %crypto_rsa_string_, align 8
   %crypto_rsa_pss_string_ = getelementptr inbounds i8, ptr %this, i64 584
   %126 = load ptr, ptr %isolate_, align 8
   %call2770 = call ptr @_ZN2v86String14NewFromOneByteEPNS_7IsolateEPKhNS_13NewStringTypeEi(ptr noundef %126, ptr noundef nonnull @.str.653, i32 noundef 1, i32 noundef 7) #24
   %cmp.i.i11574 = icmp eq ptr %call2770, null
-  br i1 %cmp.i.i11574, label %if.then.i10076, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit10084.split
-
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit10084.split: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit10084
-  %call8.i161 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %126, ptr noundef nonnull %call2770) #24
-  br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit10077
+  br i1 %cmp.i.i11574, label %if.then.i10076, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit10077
 
 if.then.i10076:                                   ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit10084
   call void @_ZN2v812api_internal12ToLocalEmptyEv() #24
-  %call8.i162 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %126, ptr noundef null) #24
   br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit10077
 
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit10077: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit10084.split, %if.then.i10076
-  %storemerge884 = phi ptr [ %call8.i161, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit10084.split ], [ %call8.i162, %if.then.i10076 ]
-  store ptr %storemerge884, ptr %crypto_rsa_pss_string_, align 8
+_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit10077: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit10084, %if.then.i10076
+  %call2770.sink = phi ptr [ null, %if.then.i10076 ], [ %call2770, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit10084 ]
+  %call8.i161 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %126, ptr noundef %call2770.sink) #24
+  store ptr %call8.i161, ptr %crypto_rsa_pss_string_, align 8
   %cwd_string_ = getelementptr inbounds i8, ptr %this, i64 592
   %127 = load ptr, ptr %isolate_, align 8
   %call2786 = call ptr @_ZN2v86String14NewFromOneByteEPNS_7IsolateEPKhNS_13NewStringTypeEi(ptr noundef %127, ptr noundef nonnull @.str.654, i32 noundef 1, i32 noundef 3) #24
   %cmp.i.i11579 = icmp eq ptr %call2786, null
-  br i1 %cmp.i.i11579, label %if.then.i10069, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit10077.split
-
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit10077.split: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit10077
-  %call8.i163 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %127, ptr noundef nonnull %call2786) #24
-  br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit10070
+  br i1 %cmp.i.i11579, label %if.then.i10069, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit10070
 
 if.then.i10069:                                   ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit10077
   call void @_ZN2v812api_internal12ToLocalEmptyEv() #24
-  %call8.i164 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %127, ptr noundef null) #24
   br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit10070
 
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit10070: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit10077.split, %if.then.i10069
-  %storemerge885 = phi ptr [ %call8.i163, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit10077.split ], [ %call8.i164, %if.then.i10069 ]
-  store ptr %storemerge885, ptr %cwd_string_, align 8
+_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit10070: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit10077, %if.then.i10069
+  %call2786.sink = phi ptr [ null, %if.then.i10069 ], [ %call2786, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit10077 ]
+  %call8.i163 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %127, ptr noundef %call2786.sink) #24
+  store ptr %call8.i163, ptr %cwd_string_, align 8
   %data_string_ = getelementptr inbounds i8, ptr %this, i64 600
   %128 = load ptr, ptr %isolate_, align 8
   %call2802 = call ptr @_ZN2v86String14NewFromOneByteEPNS_7IsolateEPKhNS_13NewStringTypeEi(ptr noundef %128, ptr noundef nonnull @.str.655, i32 noundef 1, i32 noundef 4) #24
   %cmp.i.i11584 = icmp eq ptr %call2802, null
-  br i1 %cmp.i.i11584, label %if.then.i10062, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit10070.split
-
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit10070.split: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit10070
-  %call8.i165 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %128, ptr noundef nonnull %call2802) #24
-  br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit10063
+  br i1 %cmp.i.i11584, label %if.then.i10062, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit10063
 
 if.then.i10062:                                   ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit10070
   call void @_ZN2v812api_internal12ToLocalEmptyEv() #24
-  %call8.i166 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %128, ptr noundef null) #24
   br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit10063
 
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit10063: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit10070.split, %if.then.i10062
-  %storemerge886 = phi ptr [ %call8.i165, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit10070.split ], [ %call8.i166, %if.then.i10062 ]
-  store ptr %storemerge886, ptr %data_string_, align 8
+_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit10063: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit10070, %if.then.i10062
+  %call2802.sink = phi ptr [ null, %if.then.i10062 ], [ %call2802, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit10070 ]
+  %call8.i165 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %128, ptr noundef %call2802.sink) #24
+  store ptr %call8.i165, ptr %data_string_, align 8
   %default_is_true_string_ = getelementptr inbounds i8, ptr %this, i64 608
   %129 = load ptr, ptr %isolate_, align 8
   %call2818 = call ptr @_ZN2v86String14NewFromOneByteEPNS_7IsolateEPKhNS_13NewStringTypeEi(ptr noundef %129, ptr noundef nonnull @.str.656, i32 noundef 1, i32 noundef 13) #24
   %cmp.i.i11589 = icmp eq ptr %call2818, null
-  br i1 %cmp.i.i11589, label %if.then.i10055, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit10063.split
-
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit10063.split: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit10063
-  %call8.i167 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %129, ptr noundef nonnull %call2818) #24
-  br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit10056
+  br i1 %cmp.i.i11589, label %if.then.i10055, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit10056
 
 if.then.i10055:                                   ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit10063
   call void @_ZN2v812api_internal12ToLocalEmptyEv() #24
-  %call8.i168 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %129, ptr noundef null) #24
   br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit10056
 
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit10056: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit10063.split, %if.then.i10055
-  %storemerge887 = phi ptr [ %call8.i167, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit10063.split ], [ %call8.i168, %if.then.i10055 ]
-  store ptr %storemerge887, ptr %default_is_true_string_, align 8
+_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit10056: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit10063, %if.then.i10055
+  %call2818.sink = phi ptr [ null, %if.then.i10055 ], [ %call2818, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit10063 ]
+  %call8.i167 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %129, ptr noundef %call2818.sink) #24
+  store ptr %call8.i167, ptr %default_is_true_string_, align 8
   %deserialize_info_string_ = getelementptr inbounds i8, ptr %this, i64 616
   %130 = load ptr, ptr %isolate_, align 8
   %call2834 = call ptr @_ZN2v86String14NewFromOneByteEPNS_7IsolateEPKhNS_13NewStringTypeEi(ptr noundef %130, ptr noundef nonnull @.str.657, i32 noundef 1, i32 noundef 15) #24
   %cmp.i.i11594 = icmp eq ptr %call2834, null
-  br i1 %cmp.i.i11594, label %if.then.i10048, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit10056.split
-
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit10056.split: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit10056
-  %call8.i169 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %130, ptr noundef nonnull %call2834) #24
-  br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit10049
+  br i1 %cmp.i.i11594, label %if.then.i10048, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit10049
 
 if.then.i10048:                                   ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit10056
   call void @_ZN2v812api_internal12ToLocalEmptyEv() #24
-  %call8.i170 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %130, ptr noundef null) #24
   br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit10049
 
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit10049: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit10056.split, %if.then.i10048
-  %storemerge888 = phi ptr [ %call8.i169, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit10056.split ], [ %call8.i170, %if.then.i10048 ]
-  store ptr %storemerge888, ptr %deserialize_info_string_, align 8
+_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit10049: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit10056, %if.then.i10048
+  %call2834.sink = phi ptr [ null, %if.then.i10048 ], [ %call2834, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit10056 ]
+  %call8.i169 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %130, ptr noundef %call2834.sink) #24
+  store ptr %call8.i169, ptr %deserialize_info_string_, align 8
   %dest_string_ = getelementptr inbounds i8, ptr %this, i64 624
   %131 = load ptr, ptr %isolate_, align 8
   %call2850 = call ptr @_ZN2v86String14NewFromOneByteEPNS_7IsolateEPKhNS_13NewStringTypeEi(ptr noundef %131, ptr noundef nonnull @.str.658, i32 noundef 1, i32 noundef 4) #24
   %cmp.i.i11599 = icmp eq ptr %call2850, null
-  br i1 %cmp.i.i11599, label %if.then.i10041, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit10049.split
-
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit10049.split: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit10049
-  %call8.i171 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %131, ptr noundef nonnull %call2850) #24
-  br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit10042
+  br i1 %cmp.i.i11599, label %if.then.i10041, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit10042
 
 if.then.i10041:                                   ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit10049
   call void @_ZN2v812api_internal12ToLocalEmptyEv() #24
-  %call8.i172 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %131, ptr noundef null) #24
   br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit10042
 
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit10042: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit10049.split, %if.then.i10041
-  %storemerge889 = phi ptr [ %call8.i171, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit10049.split ], [ %call8.i172, %if.then.i10041 ]
-  store ptr %storemerge889, ptr %dest_string_, align 8
+_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit10042: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit10049, %if.then.i10041
+  %call2850.sink = phi ptr [ null, %if.then.i10041 ], [ %call2850, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit10049 ]
+  %call8.i171 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %131, ptr noundef %call2850.sink) #24
+  store ptr %call8.i171, ptr %dest_string_, align 8
   %destroyed_string_ = getelementptr inbounds i8, ptr %this, i64 632
   %132 = load ptr, ptr %isolate_, align 8
   %call2866 = call ptr @_ZN2v86String14NewFromOneByteEPNS_7IsolateEPKhNS_13NewStringTypeEi(ptr noundef %132, ptr noundef nonnull @.str.659, i32 noundef 1, i32 noundef 9) #24
   %cmp.i.i11604 = icmp eq ptr %call2866, null
-  br i1 %cmp.i.i11604, label %if.then.i10034, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit10042.split
-
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit10042.split: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit10042
-  %call8.i173 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %132, ptr noundef nonnull %call2866) #24
-  br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit10035
+  br i1 %cmp.i.i11604, label %if.then.i10034, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit10035
 
 if.then.i10034:                                   ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit10042
   call void @_ZN2v812api_internal12ToLocalEmptyEv() #24
-  %call8.i174 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %132, ptr noundef null) #24
   br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit10035
 
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit10035: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit10042.split, %if.then.i10034
-  %storemerge890 = phi ptr [ %call8.i173, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit10042.split ], [ %call8.i174, %if.then.i10034 ]
-  store ptr %storemerge890, ptr %destroyed_string_, align 8
+_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit10035: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit10042, %if.then.i10034
+  %call2866.sink = phi ptr [ null, %if.then.i10034 ], [ %call2866, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit10042 ]
+  %call8.i173 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %132, ptr noundef %call2866.sink) #24
+  store ptr %call8.i173, ptr %destroyed_string_, align 8
   %detached_string_ = getelementptr inbounds i8, ptr %this, i64 640
   %133 = load ptr, ptr %isolate_, align 8
   %call2882 = call ptr @_ZN2v86String14NewFromOneByteEPNS_7IsolateEPKhNS_13NewStringTypeEi(ptr noundef %133, ptr noundef nonnull @.str.660, i32 noundef 1, i32 noundef 8) #24
   %cmp.i.i11609 = icmp eq ptr %call2882, null
-  br i1 %cmp.i.i11609, label %if.then.i10027, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit10035.split
-
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit10035.split: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit10035
-  %call8.i175 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %133, ptr noundef nonnull %call2882) #24
-  br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit10028
+  br i1 %cmp.i.i11609, label %if.then.i10027, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit10028
 
 if.then.i10027:                                   ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit10035
   call void @_ZN2v812api_internal12ToLocalEmptyEv() #24
-  %call8.i176 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %133, ptr noundef null) #24
   br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit10028
 
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit10028: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit10035.split, %if.then.i10027
-  %storemerge891 = phi ptr [ %call8.i175, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit10035.split ], [ %call8.i176, %if.then.i10027 ]
-  store ptr %storemerge891, ptr %detached_string_, align 8
+_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit10028: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit10035, %if.then.i10027
+  %call2882.sink = phi ptr [ null, %if.then.i10027 ], [ %call2882, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit10035 ]
+  %call8.i175 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %133, ptr noundef %call2882.sink) #24
+  store ptr %call8.i175, ptr %detached_string_, align 8
   %dh_string_ = getelementptr inbounds i8, ptr %this, i64 648
   %134 = load ptr, ptr %isolate_, align 8
   %call2898 = call ptr @_ZN2v86String14NewFromOneByteEPNS_7IsolateEPKhNS_13NewStringTypeEi(ptr noundef %134, ptr noundef nonnull @.str.661, i32 noundef 1, i32 noundef 2) #24
   %cmp.i.i11614 = icmp eq ptr %call2898, null
-  br i1 %cmp.i.i11614, label %if.then.i10020, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit10028.split
-
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit10028.split: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit10028
-  %call8.i177 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %134, ptr noundef nonnull %call2898) #24
-  br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit10021
+  br i1 %cmp.i.i11614, label %if.then.i10020, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit10021
 
 if.then.i10020:                                   ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit10028
   call void @_ZN2v812api_internal12ToLocalEmptyEv() #24
-  %call8.i178 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %134, ptr noundef null) #24
   br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit10021
 
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit10021: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit10028.split, %if.then.i10020
-  %storemerge892 = phi ptr [ %call8.i177, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit10028.split ], [ %call8.i178, %if.then.i10020 ]
-  store ptr %storemerge892, ptr %dh_string_, align 8
+_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit10021: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit10028, %if.then.i10020
+  %call2898.sink = phi ptr [ null, %if.then.i10020 ], [ %call2898, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit10028 ]
+  %call8.i177 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %134, ptr noundef %call2898.sink) #24
+  store ptr %call8.i177, ptr %dh_string_, align 8
   %divisor_length_string_ = getelementptr inbounds i8, ptr %this, i64 656
   %135 = load ptr, ptr %isolate_, align 8
   %call2914 = call ptr @_ZN2v86String14NewFromOneByteEPNS_7IsolateEPKhNS_13NewStringTypeEi(ptr noundef %135, ptr noundef nonnull @.str.662, i32 noundef 1, i32 noundef 13) #24
   %cmp.i.i11619 = icmp eq ptr %call2914, null
-  br i1 %cmp.i.i11619, label %if.then.i10013, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit10021.split
-
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit10021.split: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit10021
-  %call8.i179 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %135, ptr noundef nonnull %call2914) #24
-  br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit10014
+  br i1 %cmp.i.i11619, label %if.then.i10013, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit10014
 
 if.then.i10013:                                   ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit10021
   call void @_ZN2v812api_internal12ToLocalEmptyEv() #24
-  %call8.i180 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %135, ptr noundef null) #24
   br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit10014
 
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit10014: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit10021.split, %if.then.i10013
-  %storemerge893 = phi ptr [ %call8.i179, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit10021.split ], [ %call8.i180, %if.then.i10013 ]
-  store ptr %storemerge893, ptr %divisor_length_string_, align 8
+_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit10014: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit10021, %if.then.i10013
+  %call2914.sink = phi ptr [ null, %if.then.i10013 ], [ %call2914, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit10021 ]
+  %call8.i179 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %135, ptr noundef %call2914.sink) #24
+  store ptr %call8.i179, ptr %divisor_length_string_, align 8
   %dns_a_string_ = getelementptr inbounds i8, ptr %this, i64 664
   %136 = load ptr, ptr %isolate_, align 8
   %call2930 = call ptr @_ZN2v86String14NewFromOneByteEPNS_7IsolateEPKhNS_13NewStringTypeEi(ptr noundef %136, ptr noundef nonnull @.str.663, i32 noundef 1, i32 noundef 1) #24
   %cmp.i.i11624 = icmp eq ptr %call2930, null
-  br i1 %cmp.i.i11624, label %if.then.i10006, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit10014.split
-
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit10014.split: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit10014
-  %call8.i181 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %136, ptr noundef nonnull %call2930) #24
-  br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit10007
+  br i1 %cmp.i.i11624, label %if.then.i10006, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit10007
 
 if.then.i10006:                                   ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit10014
   call void @_ZN2v812api_internal12ToLocalEmptyEv() #24
-  %call8.i182 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %136, ptr noundef null) #24
   br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit10007
 
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit10007: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit10014.split, %if.then.i10006
-  %storemerge894 = phi ptr [ %call8.i181, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit10014.split ], [ %call8.i182, %if.then.i10006 ]
-  store ptr %storemerge894, ptr %dns_a_string_, align 8
+_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit10007: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit10014, %if.then.i10006
+  %call2930.sink = phi ptr [ null, %if.then.i10006 ], [ %call2930, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit10014 ]
+  %call8.i181 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %136, ptr noundef %call2930.sink) #24
+  store ptr %call8.i181, ptr %dns_a_string_, align 8
   %dns_aaaa_string_ = getelementptr inbounds i8, ptr %this, i64 672
   %137 = load ptr, ptr %isolate_, align 8
   %call2946 = call ptr @_ZN2v86String14NewFromOneByteEPNS_7IsolateEPKhNS_13NewStringTypeEi(ptr noundef %137, ptr noundef nonnull @.str.664, i32 noundef 1, i32 noundef 4) #24
   %cmp.i.i11629 = icmp eq ptr %call2946, null
-  br i1 %cmp.i.i11629, label %if.then.i9999, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit10007.split
-
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit10007.split: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit10007
-  %call8.i183 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %137, ptr noundef nonnull %call2946) #24
-  br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit10000
+  br i1 %cmp.i.i11629, label %if.then.i9999, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit10000
 
 if.then.i9999:                                    ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit10007
   call void @_ZN2v812api_internal12ToLocalEmptyEv() #24
-  %call8.i184 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %137, ptr noundef null) #24
   br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit10000
 
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit10000: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit10007.split, %if.then.i9999
-  %storemerge895 = phi ptr [ %call8.i183, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit10007.split ], [ %call8.i184, %if.then.i9999 ]
-  store ptr %storemerge895, ptr %dns_aaaa_string_, align 8
+_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit10000: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit10007, %if.then.i9999
+  %call2946.sink = phi ptr [ null, %if.then.i9999 ], [ %call2946, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit10007 ]
+  %call8.i183 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %137, ptr noundef %call2946.sink) #24
+  store ptr %call8.i183, ptr %dns_aaaa_string_, align 8
   %dns_caa_string_ = getelementptr inbounds i8, ptr %this, i64 680
   %138 = load ptr, ptr %isolate_, align 8
   %call2962 = call ptr @_ZN2v86String14NewFromOneByteEPNS_7IsolateEPKhNS_13NewStringTypeEi(ptr noundef %138, ptr noundef nonnull @.str.665, i32 noundef 1, i32 noundef 3) #24
   %cmp.i.i11634 = icmp eq ptr %call2962, null
-  br i1 %cmp.i.i11634, label %if.then.i9992, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit10000.split
-
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit10000.split: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit10000
-  %call8.i185 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %138, ptr noundef nonnull %call2962) #24
-  br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9993
+  br i1 %cmp.i.i11634, label %if.then.i9992, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9993
 
 if.then.i9992:                                    ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit10000
   call void @_ZN2v812api_internal12ToLocalEmptyEv() #24
-  %call8.i186 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %138, ptr noundef null) #24
   br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9993
 
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9993: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit10000.split, %if.then.i9992
-  %storemerge896 = phi ptr [ %call8.i185, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit10000.split ], [ %call8.i186, %if.then.i9992 ]
-  store ptr %storemerge896, ptr %dns_caa_string_, align 8
+_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9993: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit10000, %if.then.i9992
+  %call2962.sink = phi ptr [ null, %if.then.i9992 ], [ %call2962, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit10000 ]
+  %call8.i185 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %138, ptr noundef %call2962.sink) #24
+  store ptr %call8.i185, ptr %dns_caa_string_, align 8
   %dns_critical_string_ = getelementptr inbounds i8, ptr %this, i64 688
   %139 = load ptr, ptr %isolate_, align 8
   %call2978 = call ptr @_ZN2v86String14NewFromOneByteEPNS_7IsolateEPKhNS_13NewStringTypeEi(ptr noundef %139, ptr noundef nonnull @.str.666, i32 noundef 1, i32 noundef 8) #24
   %cmp.i.i11639 = icmp eq ptr %call2978, null
-  br i1 %cmp.i.i11639, label %if.then.i9985, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9993.split
-
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9993.split: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9993
-  %call8.i187 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %139, ptr noundef nonnull %call2978) #24
-  br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9986
+  br i1 %cmp.i.i11639, label %if.then.i9985, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9986
 
 if.then.i9985:                                    ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9993
   call void @_ZN2v812api_internal12ToLocalEmptyEv() #24
-  %call8.i188 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %139, ptr noundef null) #24
   br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9986
 
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9986: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9993.split, %if.then.i9985
-  %storemerge897 = phi ptr [ %call8.i187, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9993.split ], [ %call8.i188, %if.then.i9985 ]
-  store ptr %storemerge897, ptr %dns_critical_string_, align 8
+_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9986: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9993, %if.then.i9985
+  %call2978.sink = phi ptr [ null, %if.then.i9985 ], [ %call2978, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9993 ]
+  %call8.i187 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %139, ptr noundef %call2978.sink) #24
+  store ptr %call8.i187, ptr %dns_critical_string_, align 8
   %dns_cname_string_ = getelementptr inbounds i8, ptr %this, i64 696
   %140 = load ptr, ptr %isolate_, align 8
   %call2994 = call ptr @_ZN2v86String14NewFromOneByteEPNS_7IsolateEPKhNS_13NewStringTypeEi(ptr noundef %140, ptr noundef nonnull @.str.667, i32 noundef 1, i32 noundef 5) #24
   %cmp.i.i11644 = icmp eq ptr %call2994, null
-  br i1 %cmp.i.i11644, label %if.then.i9978, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9986.split
-
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9986.split: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9986
-  %call8.i189 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %140, ptr noundef nonnull %call2994) #24
-  br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9979
+  br i1 %cmp.i.i11644, label %if.then.i9978, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9979
 
 if.then.i9978:                                    ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9986
   call void @_ZN2v812api_internal12ToLocalEmptyEv() #24
-  %call8.i190 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %140, ptr noundef null) #24
   br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9979
 
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9979: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9986.split, %if.then.i9978
-  %storemerge898 = phi ptr [ %call8.i189, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9986.split ], [ %call8.i190, %if.then.i9978 ]
-  store ptr %storemerge898, ptr %dns_cname_string_, align 8
+_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9979: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9986, %if.then.i9978
+  %call2994.sink = phi ptr [ null, %if.then.i9978 ], [ %call2994, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9986 ]
+  %call8.i189 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %140, ptr noundef %call2994.sink) #24
+  store ptr %call8.i189, ptr %dns_cname_string_, align 8
   %dns_mx_string_ = getelementptr inbounds i8, ptr %this, i64 704
   %141 = load ptr, ptr %isolate_, align 8
   %call3010 = call ptr @_ZN2v86String14NewFromOneByteEPNS_7IsolateEPKhNS_13NewStringTypeEi(ptr noundef %141, ptr noundef nonnull @.str.668, i32 noundef 1, i32 noundef 2) #24
   %cmp.i.i11649 = icmp eq ptr %call3010, null
-  br i1 %cmp.i.i11649, label %if.then.i9971, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9979.split
-
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9979.split: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9979
-  %call8.i191 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %141, ptr noundef nonnull %call3010) #24
-  br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9972
+  br i1 %cmp.i.i11649, label %if.then.i9971, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9972
 
 if.then.i9971:                                    ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9979
   call void @_ZN2v812api_internal12ToLocalEmptyEv() #24
-  %call8.i192 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %141, ptr noundef null) #24
   br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9972
 
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9972: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9979.split, %if.then.i9971
-  %storemerge899 = phi ptr [ %call8.i191, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9979.split ], [ %call8.i192, %if.then.i9971 ]
-  store ptr %storemerge899, ptr %dns_mx_string_, align 8
+_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9972: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9979, %if.then.i9971
+  %call3010.sink = phi ptr [ null, %if.then.i9971 ], [ %call3010, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9979 ]
+  %call8.i191 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %141, ptr noundef %call3010.sink) #24
+  store ptr %call8.i191, ptr %dns_mx_string_, align 8
   %dns_naptr_string_ = getelementptr inbounds i8, ptr %this, i64 712
   %142 = load ptr, ptr %isolate_, align 8
   %call3026 = call ptr @_ZN2v86String14NewFromOneByteEPNS_7IsolateEPKhNS_13NewStringTypeEi(ptr noundef %142, ptr noundef nonnull @.str.669, i32 noundef 1, i32 noundef 5) #24
   %cmp.i.i11654 = icmp eq ptr %call3026, null
-  br i1 %cmp.i.i11654, label %if.then.i9964, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9972.split
-
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9972.split: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9972
-  %call8.i193 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %142, ptr noundef nonnull %call3026) #24
-  br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9965
+  br i1 %cmp.i.i11654, label %if.then.i9964, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9965
 
 if.then.i9964:                                    ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9972
   call void @_ZN2v812api_internal12ToLocalEmptyEv() #24
-  %call8.i194 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %142, ptr noundef null) #24
   br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9965
 
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9965: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9972.split, %if.then.i9964
-  %storemerge900 = phi ptr [ %call8.i193, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9972.split ], [ %call8.i194, %if.then.i9964 ]
-  store ptr %storemerge900, ptr %dns_naptr_string_, align 8
+_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9965: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9972, %if.then.i9964
+  %call3026.sink = phi ptr [ null, %if.then.i9964 ], [ %call3026, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9972 ]
+  %call8.i193 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %142, ptr noundef %call3026.sink) #24
+  store ptr %call8.i193, ptr %dns_naptr_string_, align 8
   %dns_ns_string_ = getelementptr inbounds i8, ptr %this, i64 720
   %143 = load ptr, ptr %isolate_, align 8
   %call3042 = call ptr @_ZN2v86String14NewFromOneByteEPNS_7IsolateEPKhNS_13NewStringTypeEi(ptr noundef %143, ptr noundef nonnull @.str.670, i32 noundef 1, i32 noundef 2) #24
   %cmp.i.i11659 = icmp eq ptr %call3042, null
-  br i1 %cmp.i.i11659, label %if.then.i9957, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9965.split
-
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9965.split: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9965
-  %call8.i195 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %143, ptr noundef nonnull %call3042) #24
-  br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9958
+  br i1 %cmp.i.i11659, label %if.then.i9957, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9958
 
 if.then.i9957:                                    ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9965
   call void @_ZN2v812api_internal12ToLocalEmptyEv() #24
-  %call8.i196 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %143, ptr noundef null) #24
   br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9958
 
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9958: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9965.split, %if.then.i9957
-  %storemerge901 = phi ptr [ %call8.i195, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9965.split ], [ %call8.i196, %if.then.i9957 ]
-  store ptr %storemerge901, ptr %dns_ns_string_, align 8
+_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9958: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9965, %if.then.i9957
+  %call3042.sink = phi ptr [ null, %if.then.i9957 ], [ %call3042, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9965 ]
+  %call8.i195 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %143, ptr noundef %call3042.sink) #24
+  store ptr %call8.i195, ptr %dns_ns_string_, align 8
   %dns_ptr_string_ = getelementptr inbounds i8, ptr %this, i64 728
   %144 = load ptr, ptr %isolate_, align 8
   %call3058 = call ptr @_ZN2v86String14NewFromOneByteEPNS_7IsolateEPKhNS_13NewStringTypeEi(ptr noundef %144, ptr noundef nonnull @.str.671, i32 noundef 1, i32 noundef 3) #24
   %cmp.i.i11664 = icmp eq ptr %call3058, null
-  br i1 %cmp.i.i11664, label %if.then.i9950, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9958.split
-
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9958.split: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9958
-  %call8.i197 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %144, ptr noundef nonnull %call3058) #24
-  br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9951
+  br i1 %cmp.i.i11664, label %if.then.i9950, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9951
 
 if.then.i9950:                                    ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9958
   call void @_ZN2v812api_internal12ToLocalEmptyEv() #24
-  %call8.i198 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %144, ptr noundef null) #24
   br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9951
 
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9951: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9958.split, %if.then.i9950
-  %storemerge902 = phi ptr [ %call8.i197, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9958.split ], [ %call8.i198, %if.then.i9950 ]
-  store ptr %storemerge902, ptr %dns_ptr_string_, align 8
+_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9951: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9958, %if.then.i9950
+  %call3058.sink = phi ptr [ null, %if.then.i9950 ], [ %call3058, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9958 ]
+  %call8.i197 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %144, ptr noundef %call3058.sink) #24
+  store ptr %call8.i197, ptr %dns_ptr_string_, align 8
   %dns_soa_string_ = getelementptr inbounds i8, ptr %this, i64 736
   %145 = load ptr, ptr %isolate_, align 8
   %call3074 = call ptr @_ZN2v86String14NewFromOneByteEPNS_7IsolateEPKhNS_13NewStringTypeEi(ptr noundef %145, ptr noundef nonnull @.str.672, i32 noundef 1, i32 noundef 3) #24
   %cmp.i.i11669 = icmp eq ptr %call3074, null
-  br i1 %cmp.i.i11669, label %if.then.i9943, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9951.split
-
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9951.split: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9951
-  %call8.i199 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %145, ptr noundef nonnull %call3074) #24
-  br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9944
+  br i1 %cmp.i.i11669, label %if.then.i9943, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9944
 
 if.then.i9943:                                    ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9951
   call void @_ZN2v812api_internal12ToLocalEmptyEv() #24
-  %call8.i200 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %145, ptr noundef null) #24
   br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9944
 
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9944: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9951.split, %if.then.i9943
-  %storemerge903 = phi ptr [ %call8.i199, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9951.split ], [ %call8.i200, %if.then.i9943 ]
-  store ptr %storemerge903, ptr %dns_soa_string_, align 8
+_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9944: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9951, %if.then.i9943
+  %call3074.sink = phi ptr [ null, %if.then.i9943 ], [ %call3074, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9951 ]
+  %call8.i199 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %145, ptr noundef %call3074.sink) #24
+  store ptr %call8.i199, ptr %dns_soa_string_, align 8
   %dns_srv_string_ = getelementptr inbounds i8, ptr %this, i64 744
   %146 = load ptr, ptr %isolate_, align 8
   %call3090 = call ptr @_ZN2v86String14NewFromOneByteEPNS_7IsolateEPKhNS_13NewStringTypeEi(ptr noundef %146, ptr noundef nonnull @.str.673, i32 noundef 1, i32 noundef 3) #24
   %cmp.i.i11674 = icmp eq ptr %call3090, null
-  br i1 %cmp.i.i11674, label %if.then.i9936, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9944.split
-
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9944.split: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9944
-  %call8.i201 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %146, ptr noundef nonnull %call3090) #24
-  br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9937
+  br i1 %cmp.i.i11674, label %if.then.i9936, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9937
 
 if.then.i9936:                                    ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9944
   call void @_ZN2v812api_internal12ToLocalEmptyEv() #24
-  %call8.i202 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %146, ptr noundef null) #24
   br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9937
 
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9937: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9944.split, %if.then.i9936
-  %storemerge904 = phi ptr [ %call8.i201, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9944.split ], [ %call8.i202, %if.then.i9936 ]
-  store ptr %storemerge904, ptr %dns_srv_string_, align 8
+_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9937: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9944, %if.then.i9936
+  %call3090.sink = phi ptr [ null, %if.then.i9936 ], [ %call3090, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9944 ]
+  %call8.i201 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %146, ptr noundef %call3090.sink) #24
+  store ptr %call8.i201, ptr %dns_srv_string_, align 8
   %dns_txt_string_ = getelementptr inbounds i8, ptr %this, i64 752
   %147 = load ptr, ptr %isolate_, align 8
   %call3106 = call ptr @_ZN2v86String14NewFromOneByteEPNS_7IsolateEPKhNS_13NewStringTypeEi(ptr noundef %147, ptr noundef nonnull @.str.674, i32 noundef 1, i32 noundef 3) #24
   %cmp.i.i11679 = icmp eq ptr %call3106, null
-  br i1 %cmp.i.i11679, label %if.then.i9929, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9937.split
-
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9937.split: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9937
-  %call8.i203 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %147, ptr noundef nonnull %call3106) #24
-  br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9930
+  br i1 %cmp.i.i11679, label %if.then.i9929, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9930
 
 if.then.i9929:                                    ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9937
   call void @_ZN2v812api_internal12ToLocalEmptyEv() #24
-  %call8.i204 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %147, ptr noundef null) #24
   br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9930
 
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9930: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9937.split, %if.then.i9929
-  %storemerge905 = phi ptr [ %call8.i203, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9937.split ], [ %call8.i204, %if.then.i9929 ]
-  store ptr %storemerge905, ptr %dns_txt_string_, align 8
+_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9930: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9937, %if.then.i9929
+  %call3106.sink = phi ptr [ null, %if.then.i9929 ], [ %call3106, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9937 ]
+  %call8.i203 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %147, ptr noundef %call3106.sink) #24
+  store ptr %call8.i203, ptr %dns_txt_string_, align 8
   %done_string_ = getelementptr inbounds i8, ptr %this, i64 760
   %148 = load ptr, ptr %isolate_, align 8
   %call3122 = call ptr @_ZN2v86String14NewFromOneByteEPNS_7IsolateEPKhNS_13NewStringTypeEi(ptr noundef %148, ptr noundef nonnull @.str.675, i32 noundef 1, i32 noundef 4) #24
   %cmp.i.i11684 = icmp eq ptr %call3122, null
-  br i1 %cmp.i.i11684, label %if.then.i9922, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9930.split
-
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9930.split: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9930
-  %call8.i205 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %148, ptr noundef nonnull %call3122) #24
-  br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9923
+  br i1 %cmp.i.i11684, label %if.then.i9922, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9923
 
 if.then.i9922:                                    ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9930
   call void @_ZN2v812api_internal12ToLocalEmptyEv() #24
-  %call8.i206 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %148, ptr noundef null) #24
   br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9923
 
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9923: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9930.split, %if.then.i9922
-  %storemerge906 = phi ptr [ %call8.i205, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9930.split ], [ %call8.i206, %if.then.i9922 ]
-  store ptr %storemerge906, ptr %done_string_, align 8
+_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9923: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9930, %if.then.i9922
+  %call3122.sink = phi ptr [ null, %if.then.i9922 ], [ %call3122, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9930 ]
+  %call8.i205 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %148, ptr noundef %call3122.sink) #24
+  store ptr %call8.i205, ptr %done_string_, align 8
   %duration_string_ = getelementptr inbounds i8, ptr %this, i64 768
   %149 = load ptr, ptr %isolate_, align 8
   %call3138 = call ptr @_ZN2v86String14NewFromOneByteEPNS_7IsolateEPKhNS_13NewStringTypeEi(ptr noundef %149, ptr noundef nonnull @.str.676, i32 noundef 1, i32 noundef 8) #24
   %cmp.i.i11689 = icmp eq ptr %call3138, null
-  br i1 %cmp.i.i11689, label %if.then.i9915, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9923.split
-
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9923.split: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9923
-  %call8.i207 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %149, ptr noundef nonnull %call3138) #24
-  br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9916
+  br i1 %cmp.i.i11689, label %if.then.i9915, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9916
 
 if.then.i9915:                                    ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9923
   call void @_ZN2v812api_internal12ToLocalEmptyEv() #24
-  %call8.i208 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %149, ptr noundef null) #24
   br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9916
 
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9916: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9923.split, %if.then.i9915
-  %storemerge907 = phi ptr [ %call8.i207, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9923.split ], [ %call8.i208, %if.then.i9915 ]
-  store ptr %storemerge907, ptr %duration_string_, align 8
+_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9916: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9923, %if.then.i9915
+  %call3138.sink = phi ptr [ null, %if.then.i9915 ], [ %call3138, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9923 ]
+  %call8.i207 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %149, ptr noundef %call3138.sink) #24
+  store ptr %call8.i207, ptr %duration_string_, align 8
   %ecdh_string_ = getelementptr inbounds i8, ptr %this, i64 776
   %150 = load ptr, ptr %isolate_, align 8
   %call3154 = call ptr @_ZN2v86String14NewFromOneByteEPNS_7IsolateEPKhNS_13NewStringTypeEi(ptr noundef %150, ptr noundef nonnull @.str.677, i32 noundef 1, i32 noundef 4) #24
   %cmp.i.i11694 = icmp eq ptr %call3154, null
-  br i1 %cmp.i.i11694, label %if.then.i9908, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9916.split
-
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9916.split: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9916
-  %call8.i209 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %150, ptr noundef nonnull %call3154) #24
-  br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9909
+  br i1 %cmp.i.i11694, label %if.then.i9908, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9909
 
 if.then.i9908:                                    ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9916
   call void @_ZN2v812api_internal12ToLocalEmptyEv() #24
-  %call8.i210 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %150, ptr noundef null) #24
   br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9909
 
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9909: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9916.split, %if.then.i9908
-  %storemerge908 = phi ptr [ %call8.i209, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9916.split ], [ %call8.i210, %if.then.i9908 ]
-  store ptr %storemerge908, ptr %ecdh_string_, align 8
+_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9909: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9916, %if.then.i9908
+  %call3154.sink = phi ptr [ null, %if.then.i9908 ], [ %call3154, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9916 ]
+  %call8.i209 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %150, ptr noundef %call3154.sink) #24
+  store ptr %call8.i209, ptr %ecdh_string_, align 8
   %emit_string_ = getelementptr inbounds i8, ptr %this, i64 784
   %151 = load ptr, ptr %isolate_, align 8
   %call3170 = call ptr @_ZN2v86String14NewFromOneByteEPNS_7IsolateEPKhNS_13NewStringTypeEi(ptr noundef %151, ptr noundef nonnull @.str.678, i32 noundef 1, i32 noundef 4) #24
   %cmp.i.i11699 = icmp eq ptr %call3170, null
-  br i1 %cmp.i.i11699, label %if.then.i9901, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9909.split
-
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9909.split: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9909
-  %call8.i211 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %151, ptr noundef nonnull %call3170) #24
-  br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9902
+  br i1 %cmp.i.i11699, label %if.then.i9901, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9902
 
 if.then.i9901:                                    ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9909
   call void @_ZN2v812api_internal12ToLocalEmptyEv() #24
-  %call8.i212 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %151, ptr noundef null) #24
   br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9902
 
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9902: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9909.split, %if.then.i9901
-  %storemerge909 = phi ptr [ %call8.i211, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9909.split ], [ %call8.i212, %if.then.i9901 ]
-  store ptr %storemerge909, ptr %emit_string_, align 8
+_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9902: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9909, %if.then.i9901
+  %call3170.sink = phi ptr [ null, %if.then.i9901 ], [ %call3170, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9909 ]
+  %call8.i211 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %151, ptr noundef %call3170.sink) #24
+  store ptr %call8.i211, ptr %emit_string_, align 8
   %emit_warning_string_ = getelementptr inbounds i8, ptr %this, i64 792
   %152 = load ptr, ptr %isolate_, align 8
   %call3186 = call ptr @_ZN2v86String14NewFromOneByteEPNS_7IsolateEPKhNS_13NewStringTypeEi(ptr noundef %152, ptr noundef nonnull @.str.679, i32 noundef 1, i32 noundef 11) #24
   %cmp.i.i11704 = icmp eq ptr %call3186, null
-  br i1 %cmp.i.i11704, label %if.then.i9894, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9902.split
-
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9902.split: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9902
-  %call8.i213 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %152, ptr noundef nonnull %call3186) #24
-  br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9895
+  br i1 %cmp.i.i11704, label %if.then.i9894, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9895
 
 if.then.i9894:                                    ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9902
   call void @_ZN2v812api_internal12ToLocalEmptyEv() #24
-  %call8.i214 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %152, ptr noundef null) #24
   br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9895
 
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9895: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9902.split, %if.then.i9894
-  %storemerge910 = phi ptr [ %call8.i213, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9902.split ], [ %call8.i214, %if.then.i9894 ]
-  store ptr %storemerge910, ptr %emit_warning_string_, align 8
+_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9895: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9902, %if.then.i9894
+  %call3186.sink = phi ptr [ null, %if.then.i9894 ], [ %call3186, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9902 ]
+  %call8.i213 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %152, ptr noundef %call3186.sink) #24
+  store ptr %call8.i213, ptr %emit_warning_string_, align 8
   %empty_object_string_ = getelementptr inbounds i8, ptr %this, i64 800
   %153 = load ptr, ptr %isolate_, align 8
   %call3202 = call ptr @_ZN2v86String14NewFromOneByteEPNS_7IsolateEPKhNS_13NewStringTypeEi(ptr noundef %153, ptr noundef nonnull @.str.680, i32 noundef 1, i32 noundef 2) #24
   %cmp.i.i11709 = icmp eq ptr %call3202, null
-  br i1 %cmp.i.i11709, label %if.then.i9887, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9895.split
-
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9895.split: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9895
-  %call8.i215 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %153, ptr noundef nonnull %call3202) #24
-  br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9888
+  br i1 %cmp.i.i11709, label %if.then.i9887, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9888
 
 if.then.i9887:                                    ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9895
   call void @_ZN2v812api_internal12ToLocalEmptyEv() #24
-  %call8.i216 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %153, ptr noundef null) #24
   br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9888
 
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9888: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9895.split, %if.then.i9887
-  %storemerge911 = phi ptr [ %call8.i215, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9895.split ], [ %call8.i216, %if.then.i9887 ]
-  store ptr %storemerge911, ptr %empty_object_string_, align 8
+_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9888: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9895, %if.then.i9887
+  %call3202.sink = phi ptr [ null, %if.then.i9887 ], [ %call3202, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9895 ]
+  %call8.i215 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %153, ptr noundef %call3202.sink) #24
+  store ptr %call8.i215, ptr %empty_object_string_, align 8
   %encoding_string_ = getelementptr inbounds i8, ptr %this, i64 808
   %154 = load ptr, ptr %isolate_, align 8
   %call3218 = call ptr @_ZN2v86String14NewFromOneByteEPNS_7IsolateEPKhNS_13NewStringTypeEi(ptr noundef %154, ptr noundef nonnull @.str.681, i32 noundef 1, i32 noundef 8) #24
   %cmp.i.i11714 = icmp eq ptr %call3218, null
-  br i1 %cmp.i.i11714, label %if.then.i9880, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9888.split
-
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9888.split: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9888
-  %call8.i217 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %154, ptr noundef nonnull %call3218) #24
-  br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9881
+  br i1 %cmp.i.i11714, label %if.then.i9880, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9881
 
 if.then.i9880:                                    ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9888
   call void @_ZN2v812api_internal12ToLocalEmptyEv() #24
-  %call8.i218 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %154, ptr noundef null) #24
   br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9881
 
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9881: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9888.split, %if.then.i9880
-  %storemerge912 = phi ptr [ %call8.i217, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9888.split ], [ %call8.i218, %if.then.i9880 ]
-  store ptr %storemerge912, ptr %encoding_string_, align 8
+_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9881: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9888, %if.then.i9880
+  %call3218.sink = phi ptr [ null, %if.then.i9880 ], [ %call3218, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9888 ]
+  %call8.i217 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %154, ptr noundef %call3218.sink) #24
+  store ptr %call8.i217, ptr %encoding_string_, align 8
   %entries_string_ = getelementptr inbounds i8, ptr %this, i64 816
   %155 = load ptr, ptr %isolate_, align 8
   %call3234 = call ptr @_ZN2v86String14NewFromOneByteEPNS_7IsolateEPKhNS_13NewStringTypeEi(ptr noundef %155, ptr noundef nonnull @.str.682, i32 noundef 1, i32 noundef 7) #24
   %cmp.i.i11719 = icmp eq ptr %call3234, null
-  br i1 %cmp.i.i11719, label %if.then.i9873, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9881.split
-
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9881.split: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9881
-  %call8.i219 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %155, ptr noundef nonnull %call3234) #24
-  br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9874
+  br i1 %cmp.i.i11719, label %if.then.i9873, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9874
 
 if.then.i9873:                                    ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9881
   call void @_ZN2v812api_internal12ToLocalEmptyEv() #24
-  %call8.i220 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %155, ptr noundef null) #24
   br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9874
 
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9874: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9881.split, %if.then.i9873
-  %storemerge913 = phi ptr [ %call8.i219, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9881.split ], [ %call8.i220, %if.then.i9873 ]
-  store ptr %storemerge913, ptr %entries_string_, align 8
+_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9874: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9881, %if.then.i9873
+  %call3234.sink = phi ptr [ null, %if.then.i9873 ], [ %call3234, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9881 ]
+  %call8.i219 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %155, ptr noundef %call3234.sink) #24
+  store ptr %call8.i219, ptr %entries_string_, align 8
   %entry_type_string_ = getelementptr inbounds i8, ptr %this, i64 824
   %156 = load ptr, ptr %isolate_, align 8
   %call3250 = call ptr @_ZN2v86String14NewFromOneByteEPNS_7IsolateEPKhNS_13NewStringTypeEi(ptr noundef %156, ptr noundef nonnull @.str.683, i32 noundef 1, i32 noundef 9) #24
   %cmp.i.i11724 = icmp eq ptr %call3250, null
-  br i1 %cmp.i.i11724, label %if.then.i9866, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9874.split
-
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9874.split: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9874
-  %call8.i221 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %156, ptr noundef nonnull %call3250) #24
-  br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9867
+  br i1 %cmp.i.i11724, label %if.then.i9866, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9867
 
 if.then.i9866:                                    ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9874
   call void @_ZN2v812api_internal12ToLocalEmptyEv() #24
-  %call8.i222 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %156, ptr noundef null) #24
   br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9867
 
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9867: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9874.split, %if.then.i9866
-  %storemerge914 = phi ptr [ %call8.i221, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9874.split ], [ %call8.i222, %if.then.i9866 ]
-  store ptr %storemerge914, ptr %entry_type_string_, align 8
+_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9867: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9874, %if.then.i9866
+  %call3250.sink = phi ptr [ null, %if.then.i9866 ], [ %call3250, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9874 ]
+  %call8.i221 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %156, ptr noundef %call3250.sink) #24
+  store ptr %call8.i221, ptr %entry_type_string_, align 8
   %env_pairs_string_ = getelementptr inbounds i8, ptr %this, i64 832
   %157 = load ptr, ptr %isolate_, align 8
   %call3266 = call ptr @_ZN2v86String14NewFromOneByteEPNS_7IsolateEPKhNS_13NewStringTypeEi(ptr noundef %157, ptr noundef nonnull @.str.684, i32 noundef 1, i32 noundef 8) #24
   %cmp.i.i11729 = icmp eq ptr %call3266, null
-  br i1 %cmp.i.i11729, label %if.then.i9859, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9867.split
-
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9867.split: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9867
-  %call8.i223 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %157, ptr noundef nonnull %call3266) #24
-  br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9860
+  br i1 %cmp.i.i11729, label %if.then.i9859, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9860
 
 if.then.i9859:                                    ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9867
   call void @_ZN2v812api_internal12ToLocalEmptyEv() #24
-  %call8.i224 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %157, ptr noundef null) #24
   br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9860
 
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9860: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9867.split, %if.then.i9859
-  %storemerge915 = phi ptr [ %call8.i223, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9867.split ], [ %call8.i224, %if.then.i9859 ]
-  store ptr %storemerge915, ptr %env_pairs_string_, align 8
+_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9860: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9867, %if.then.i9859
+  %call3266.sink = phi ptr [ null, %if.then.i9859 ], [ %call3266, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9867 ]
+  %call8.i223 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %157, ptr noundef %call3266.sink) #24
+  store ptr %call8.i223, ptr %env_pairs_string_, align 8
   %env_var_settings_string_ = getelementptr inbounds i8, ptr %this, i64 840
   %158 = load ptr, ptr %isolate_, align 8
   %call3282 = call ptr @_ZN2v86String14NewFromOneByteEPNS_7IsolateEPKhNS_13NewStringTypeEi(ptr noundef %158, ptr noundef nonnull @.str.685, i32 noundef 1, i32 noundef 14) #24
   %cmp.i.i11734 = icmp eq ptr %call3282, null
-  br i1 %cmp.i.i11734, label %if.then.i9852, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9860.split
-
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9860.split: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9860
-  %call8.i225 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %158, ptr noundef nonnull %call3282) #24
-  br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9853
+  br i1 %cmp.i.i11734, label %if.then.i9852, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9853
 
 if.then.i9852:                                    ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9860
   call void @_ZN2v812api_internal12ToLocalEmptyEv() #24
-  %call8.i226 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %158, ptr noundef null) #24
   br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9853
 
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9853: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9860.split, %if.then.i9852
-  %storemerge916 = phi ptr [ %call8.i225, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9860.split ], [ %call8.i226, %if.then.i9852 ]
-  store ptr %storemerge916, ptr %env_var_settings_string_, align 8
+_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9853: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9860, %if.then.i9852
+  %call3282.sink = phi ptr [ null, %if.then.i9852 ], [ %call3282, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9860 ]
+  %call8.i225 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %158, ptr noundef %call3282.sink) #24
+  store ptr %call8.i225, ptr %env_var_settings_string_, align 8
   %errno_string_ = getelementptr inbounds i8, ptr %this, i64 848
   %159 = load ptr, ptr %isolate_, align 8
   %call3298 = call ptr @_ZN2v86String14NewFromOneByteEPNS_7IsolateEPKhNS_13NewStringTypeEi(ptr noundef %159, ptr noundef nonnull @.str.686, i32 noundef 1, i32 noundef 5) #24
   %cmp.i.i11739 = icmp eq ptr %call3298, null
-  br i1 %cmp.i.i11739, label %if.then.i9845, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9853.split
-
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9853.split: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9853
-  %call8.i227 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %159, ptr noundef nonnull %call3298) #24
-  br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9846
+  br i1 %cmp.i.i11739, label %if.then.i9845, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9846
 
 if.then.i9845:                                    ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9853
   call void @_ZN2v812api_internal12ToLocalEmptyEv() #24
-  %call8.i228 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %159, ptr noundef null) #24
   br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9846
 
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9846: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9853.split, %if.then.i9845
-  %storemerge917 = phi ptr [ %call8.i227, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9853.split ], [ %call8.i228, %if.then.i9845 ]
-  store ptr %storemerge917, ptr %errno_string_, align 8
+_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9846: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9853, %if.then.i9845
+  %call3298.sink = phi ptr [ null, %if.then.i9845 ], [ %call3298, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9853 ]
+  %call8.i227 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %159, ptr noundef %call3298.sink) #24
+  store ptr %call8.i227, ptr %errno_string_, align 8
   %error_string_ = getelementptr inbounds i8, ptr %this, i64 856
   %160 = load ptr, ptr %isolate_, align 8
   %call3314 = call ptr @_ZN2v86String14NewFromOneByteEPNS_7IsolateEPKhNS_13NewStringTypeEi(ptr noundef %160, ptr noundef nonnull @.str.687, i32 noundef 1, i32 noundef 5) #24
   %cmp.i.i11744 = icmp eq ptr %call3314, null
-  br i1 %cmp.i.i11744, label %if.then.i9838, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9846.split
-
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9846.split: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9846
-  %call8.i229 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %160, ptr noundef nonnull %call3314) #24
-  br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9839
+  br i1 %cmp.i.i11744, label %if.then.i9838, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9839
 
 if.then.i9838:                                    ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9846
   call void @_ZN2v812api_internal12ToLocalEmptyEv() #24
-  %call8.i230 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %160, ptr noundef null) #24
   br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9839
 
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9839: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9846.split, %if.then.i9838
-  %storemerge918 = phi ptr [ %call8.i229, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9846.split ], [ %call8.i230, %if.then.i9838 ]
-  store ptr %storemerge918, ptr %error_string_, align 8
+_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9839: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9846, %if.then.i9838
+  %call3314.sink = phi ptr [ null, %if.then.i9838 ], [ %call3314, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9846 ]
+  %call8.i229 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %160, ptr noundef %call3314.sink) #24
+  store ptr %call8.i229, ptr %error_string_, align 8
   %exchange_string_ = getelementptr inbounds i8, ptr %this, i64 864
   %161 = load ptr, ptr %isolate_, align 8
   %call3330 = call ptr @_ZN2v86String14NewFromOneByteEPNS_7IsolateEPKhNS_13NewStringTypeEi(ptr noundef %161, ptr noundef nonnull @.str.688, i32 noundef 1, i32 noundef 8) #24
   %cmp.i.i11749 = icmp eq ptr %call3330, null
-  br i1 %cmp.i.i11749, label %if.then.i9831, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9839.split
-
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9839.split: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9839
-  %call8.i231 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %161, ptr noundef nonnull %call3330) #24
-  br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9832
+  br i1 %cmp.i.i11749, label %if.then.i9831, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9832
 
 if.then.i9831:                                    ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9839
   call void @_ZN2v812api_internal12ToLocalEmptyEv() #24
-  %call8.i232 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %161, ptr noundef null) #24
   br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9832
 
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9832: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9839.split, %if.then.i9831
-  %storemerge919 = phi ptr [ %call8.i231, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9839.split ], [ %call8.i232, %if.then.i9831 ]
-  store ptr %storemerge919, ptr %exchange_string_, align 8
+_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9832: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9839, %if.then.i9831
+  %call3330.sink = phi ptr [ null, %if.then.i9831 ], [ %call3330, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9839 ]
+  %call8.i231 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %161, ptr noundef %call3330.sink) #24
+  store ptr %call8.i231, ptr %exchange_string_, align 8
   %expire_string_ = getelementptr inbounds i8, ptr %this, i64 872
   %162 = load ptr, ptr %isolate_, align 8
   %call3346 = call ptr @_ZN2v86String14NewFromOneByteEPNS_7IsolateEPKhNS_13NewStringTypeEi(ptr noundef %162, ptr noundef nonnull @.str.689, i32 noundef 1, i32 noundef 6) #24
   %cmp.i.i11754 = icmp eq ptr %call3346, null
-  br i1 %cmp.i.i11754, label %if.then.i9824, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9832.split
-
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9832.split: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9832
-  %call8.i233 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %162, ptr noundef nonnull %call3346) #24
-  br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9825
+  br i1 %cmp.i.i11754, label %if.then.i9824, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9825
 
 if.then.i9824:                                    ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9832
   call void @_ZN2v812api_internal12ToLocalEmptyEv() #24
-  %call8.i234 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %162, ptr noundef null) #24
   br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9825
 
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9825: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9832.split, %if.then.i9824
-  %storemerge920 = phi ptr [ %call8.i233, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9832.split ], [ %call8.i234, %if.then.i9824 ]
-  store ptr %storemerge920, ptr %expire_string_, align 8
+_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9825: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9832, %if.then.i9824
+  %call3346.sink = phi ptr [ null, %if.then.i9824 ], [ %call3346, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9832 ]
+  %call8.i233 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %162, ptr noundef %call3346.sink) #24
+  store ptr %call8.i233, ptr %expire_string_, align 8
   %exponent_string_ = getelementptr inbounds i8, ptr %this, i64 880
   %163 = load ptr, ptr %isolate_, align 8
   %call3362 = call ptr @_ZN2v86String14NewFromOneByteEPNS_7IsolateEPKhNS_13NewStringTypeEi(ptr noundef %163, ptr noundef nonnull @.str.690, i32 noundef 1, i32 noundef 8) #24
   %cmp.i.i11759 = icmp eq ptr %call3362, null
-  br i1 %cmp.i.i11759, label %if.then.i9817, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9825.split
-
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9825.split: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9825
-  %call8.i235 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %163, ptr noundef nonnull %call3362) #24
-  br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9818
+  br i1 %cmp.i.i11759, label %if.then.i9817, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9818
 
 if.then.i9817:                                    ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9825
   call void @_ZN2v812api_internal12ToLocalEmptyEv() #24
-  %call8.i236 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %163, ptr noundef null) #24
   br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9818
 
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9818: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9825.split, %if.then.i9817
-  %storemerge921 = phi ptr [ %call8.i235, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9825.split ], [ %call8.i236, %if.then.i9817 ]
-  store ptr %storemerge921, ptr %exponent_string_, align 8
+_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9818: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9825, %if.then.i9817
+  %call3362.sink = phi ptr [ null, %if.then.i9817 ], [ %call3362, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9825 ]
+  %call8.i235 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %163, ptr noundef %call3362.sink) #24
+  store ptr %call8.i235, ptr %exponent_string_, align 8
   %exports_string_ = getelementptr inbounds i8, ptr %this, i64 888
   %164 = load ptr, ptr %isolate_, align 8
   %call3378 = call ptr @_ZN2v86String14NewFromOneByteEPNS_7IsolateEPKhNS_13NewStringTypeEi(ptr noundef %164, ptr noundef nonnull @.str.691, i32 noundef 1, i32 noundef 7) #24
   %cmp.i.i11764 = icmp eq ptr %call3378, null
-  br i1 %cmp.i.i11764, label %if.then.i9810, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9818.split
-
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9818.split: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9818
-  %call8.i237 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %164, ptr noundef nonnull %call3378) #24
-  br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9811
+  br i1 %cmp.i.i11764, label %if.then.i9810, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9811
 
 if.then.i9810:                                    ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9818
   call void @_ZN2v812api_internal12ToLocalEmptyEv() #24
-  %call8.i238 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %164, ptr noundef null) #24
   br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9811
 
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9811: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9818.split, %if.then.i9810
-  %storemerge922 = phi ptr [ %call8.i237, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9818.split ], [ %call8.i238, %if.then.i9810 ]
-  store ptr %storemerge922, ptr %exports_string_, align 8
+_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9811: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9818, %if.then.i9810
+  %call3378.sink = phi ptr [ null, %if.then.i9810 ], [ %call3378, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9818 ]
+  %call8.i237 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %164, ptr noundef %call3378.sink) #24
+  store ptr %call8.i237, ptr %exports_string_, align 8
   %ext_key_usage_string_ = getelementptr inbounds i8, ptr %this, i64 896
   %165 = load ptr, ptr %isolate_, align 8
   %call3394 = call ptr @_ZN2v86String14NewFromOneByteEPNS_7IsolateEPKhNS_13NewStringTypeEi(ptr noundef %165, ptr noundef nonnull @.str.692, i32 noundef 1, i32 noundef 13) #24
   %cmp.i.i11769 = icmp eq ptr %call3394, null
-  br i1 %cmp.i.i11769, label %if.then.i9803, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9811.split
-
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9811.split: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9811
-  %call8.i239 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %165, ptr noundef nonnull %call3394) #24
-  br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9804
+  br i1 %cmp.i.i11769, label %if.then.i9803, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9804
 
 if.then.i9803:                                    ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9811
   call void @_ZN2v812api_internal12ToLocalEmptyEv() #24
-  %call8.i240 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %165, ptr noundef null) #24
   br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9804
 
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9804: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9811.split, %if.then.i9803
-  %storemerge923 = phi ptr [ %call8.i239, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9811.split ], [ %call8.i240, %if.then.i9803 ]
-  store ptr %storemerge923, ptr %ext_key_usage_string_, align 8
+_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9804: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9811, %if.then.i9803
+  %call3394.sink = phi ptr [ null, %if.then.i9803 ], [ %call3394, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9811 ]
+  %call8.i239 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %165, ptr noundef %call3394.sink) #24
+  store ptr %call8.i239, ptr %ext_key_usage_string_, align 8
   %external_stream_string_ = getelementptr inbounds i8, ptr %this, i64 904
   %166 = load ptr, ptr %isolate_, align 8
   %call3410 = call ptr @_ZN2v86String14NewFromOneByteEPNS_7IsolateEPKhNS_13NewStringTypeEi(ptr noundef %166, ptr noundef nonnull @.str.693, i32 noundef 1, i32 noundef 15) #24
   %cmp.i.i11774 = icmp eq ptr %call3410, null
-  br i1 %cmp.i.i11774, label %if.then.i9796, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9804.split
-
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9804.split: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9804
-  %call8.i241 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %166, ptr noundef nonnull %call3410) #24
-  br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9797
+  br i1 %cmp.i.i11774, label %if.then.i9796, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9797
 
 if.then.i9796:                                    ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9804
   call void @_ZN2v812api_internal12ToLocalEmptyEv() #24
-  %call8.i242 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %166, ptr noundef null) #24
   br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9797
 
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9797: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9804.split, %if.then.i9796
-  %storemerge924 = phi ptr [ %call8.i241, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9804.split ], [ %call8.i242, %if.then.i9796 ]
-  store ptr %storemerge924, ptr %external_stream_string_, align 8
+_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9797: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9804, %if.then.i9796
+  %call3410.sink = phi ptr [ null, %if.then.i9796 ], [ %call3410, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9804 ]
+  %call8.i241 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %166, ptr noundef %call3410.sink) #24
+  store ptr %call8.i241, ptr %external_stream_string_, align 8
   %family_string_ = getelementptr inbounds i8, ptr %this, i64 912
   %167 = load ptr, ptr %isolate_, align 8
   %call3426 = call ptr @_ZN2v86String14NewFromOneByteEPNS_7IsolateEPKhNS_13NewStringTypeEi(ptr noundef %167, ptr noundef nonnull @.str.694, i32 noundef 1, i32 noundef 6) #24
   %cmp.i.i11779 = icmp eq ptr %call3426, null
-  br i1 %cmp.i.i11779, label %if.then.i9789, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9797.split
-
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9797.split: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9797
-  %call8.i243 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %167, ptr noundef nonnull %call3426) #24
-  br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9790
+  br i1 %cmp.i.i11779, label %if.then.i9789, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9790
 
 if.then.i9789:                                    ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9797
   call void @_ZN2v812api_internal12ToLocalEmptyEv() #24
-  %call8.i244 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %167, ptr noundef null) #24
   br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9790
 
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9790: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9797.split, %if.then.i9789
-  %storemerge925 = phi ptr [ %call8.i243, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9797.split ], [ %call8.i244, %if.then.i9789 ]
-  store ptr %storemerge925, ptr %family_string_, align 8
+_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9790: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9797, %if.then.i9789
+  %call3426.sink = phi ptr [ null, %if.then.i9789 ], [ %call3426, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9797 ]
+  %call8.i243 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %167, ptr noundef %call3426.sink) #24
+  store ptr %call8.i243, ptr %family_string_, align 8
   %fatal_exception_string_ = getelementptr inbounds i8, ptr %this, i64 920
   %168 = load ptr, ptr %isolate_, align 8
   %call3442 = call ptr @_ZN2v86String14NewFromOneByteEPNS_7IsolateEPKhNS_13NewStringTypeEi(ptr noundef %168, ptr noundef nonnull @.str.695, i32 noundef 1, i32 noundef 15) #24
   %cmp.i.i11784 = icmp eq ptr %call3442, null
-  br i1 %cmp.i.i11784, label %if.then.i9782, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9790.split
-
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9790.split: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9790
-  %call8.i245 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %168, ptr noundef nonnull %call3442) #24
-  br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9783
+  br i1 %cmp.i.i11784, label %if.then.i9782, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9783
 
 if.then.i9782:                                    ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9790
   call void @_ZN2v812api_internal12ToLocalEmptyEv() #24
-  %call8.i246 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %168, ptr noundef null) #24
   br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9783
 
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9783: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9790.split, %if.then.i9782
-  %storemerge926 = phi ptr [ %call8.i245, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9790.split ], [ %call8.i246, %if.then.i9782 ]
-  store ptr %storemerge926, ptr %fatal_exception_string_, align 8
+_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9783: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9790, %if.then.i9782
+  %call3442.sink = phi ptr [ null, %if.then.i9782 ], [ %call3442, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9790 ]
+  %call8.i245 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %168, ptr noundef %call3442.sink) #24
+  store ptr %call8.i245, ptr %fatal_exception_string_, align 8
   %fd_string_ = getelementptr inbounds i8, ptr %this, i64 928
   %169 = load ptr, ptr %isolate_, align 8
   %call3458 = call ptr @_ZN2v86String14NewFromOneByteEPNS_7IsolateEPKhNS_13NewStringTypeEi(ptr noundef %169, ptr noundef nonnull @.str.696, i32 noundef 1, i32 noundef 2) #24
   %cmp.i.i11789 = icmp eq ptr %call3458, null
-  br i1 %cmp.i.i11789, label %if.then.i9775, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9783.split
-
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9783.split: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9783
-  %call8.i247 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %169, ptr noundef nonnull %call3458) #24
-  br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9776
+  br i1 %cmp.i.i11789, label %if.then.i9775, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9776
 
 if.then.i9775:                                    ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9783
   call void @_ZN2v812api_internal12ToLocalEmptyEv() #24
-  %call8.i248 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %169, ptr noundef null) #24
   br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9776
 
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9776: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9783.split, %if.then.i9775
-  %storemerge927 = phi ptr [ %call8.i247, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9783.split ], [ %call8.i248, %if.then.i9775 ]
-  store ptr %storemerge927, ptr %fd_string_, align 8
+_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9776: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9783, %if.then.i9775
+  %call3458.sink = phi ptr [ null, %if.then.i9775 ], [ %call3458, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9783 ]
+  %call8.i247 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %169, ptr noundef %call3458.sink) #24
+  store ptr %call8.i247, ptr %fd_string_, align 8
   %fields_string_ = getelementptr inbounds i8, ptr %this, i64 936
   %170 = load ptr, ptr %isolate_, align 8
   %call3474 = call ptr @_ZN2v86String14NewFromOneByteEPNS_7IsolateEPKhNS_13NewStringTypeEi(ptr noundef %170, ptr noundef nonnull @.str.697, i32 noundef 1, i32 noundef 6) #24
   %cmp.i.i11794 = icmp eq ptr %call3474, null
-  br i1 %cmp.i.i11794, label %if.then.i9768, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9776.split
-
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9776.split: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9776
-  %call8.i249 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %170, ptr noundef nonnull %call3474) #24
-  br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9769
+  br i1 %cmp.i.i11794, label %if.then.i9768, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9769
 
 if.then.i9768:                                    ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9776
   call void @_ZN2v812api_internal12ToLocalEmptyEv() #24
-  %call8.i250 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %170, ptr noundef null) #24
   br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9769
 
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9769: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9776.split, %if.then.i9768
-  %storemerge928 = phi ptr [ %call8.i249, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9776.split ], [ %call8.i250, %if.then.i9768 ]
-  store ptr %storemerge928, ptr %fields_string_, align 8
+_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9769: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9776, %if.then.i9768
+  %call3474.sink = phi ptr [ null, %if.then.i9768 ], [ %call3474, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9776 ]
+  %call8.i249 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %170, ptr noundef %call3474.sink) #24
+  store ptr %call8.i249, ptr %fields_string_, align 8
   %file_string_ = getelementptr inbounds i8, ptr %this, i64 944
   %171 = load ptr, ptr %isolate_, align 8
   %call3490 = call ptr @_ZN2v86String14NewFromOneByteEPNS_7IsolateEPKhNS_13NewStringTypeEi(ptr noundef %171, ptr noundef nonnull @.str.698, i32 noundef 1, i32 noundef 4) #24
   %cmp.i.i11799 = icmp eq ptr %call3490, null
-  br i1 %cmp.i.i11799, label %if.then.i9761, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9769.split
-
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9769.split: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9769
-  %call8.i251 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %171, ptr noundef nonnull %call3490) #24
-  br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9762
+  br i1 %cmp.i.i11799, label %if.then.i9761, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9762
 
 if.then.i9761:                                    ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9769
   call void @_ZN2v812api_internal12ToLocalEmptyEv() #24
-  %call8.i252 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %171, ptr noundef null) #24
   br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9762
 
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9762: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9769.split, %if.then.i9761
-  %storemerge929 = phi ptr [ %call8.i251, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9769.split ], [ %call8.i252, %if.then.i9761 ]
-  store ptr %storemerge929, ptr %file_string_, align 8
+_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9762: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9769, %if.then.i9761
+  %call3490.sink = phi ptr [ null, %if.then.i9761 ], [ %call3490, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9769 ]
+  %call8.i251 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %171, ptr noundef %call3490.sink) #24
+  store ptr %call8.i251, ptr %file_string_, align 8
   %filename_string_ = getelementptr inbounds i8, ptr %this, i64 952
   %172 = load ptr, ptr %isolate_, align 8
   %call3506 = call ptr @_ZN2v86String14NewFromOneByteEPNS_7IsolateEPKhNS_13NewStringTypeEi(ptr noundef %172, ptr noundef nonnull @.str.699, i32 noundef 1, i32 noundef 8) #24
   %cmp.i.i11804 = icmp eq ptr %call3506, null
-  br i1 %cmp.i.i11804, label %if.then.i9754, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9762.split
-
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9762.split: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9762
-  %call8.i253 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %172, ptr noundef nonnull %call3506) #24
-  br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9755
+  br i1 %cmp.i.i11804, label %if.then.i9754, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9755
 
 if.then.i9754:                                    ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9762
   call void @_ZN2v812api_internal12ToLocalEmptyEv() #24
-  %call8.i254 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %172, ptr noundef null) #24
   br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9755
 
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9755: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9762.split, %if.then.i9754
-  %storemerge930 = phi ptr [ %call8.i253, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9762.split ], [ %call8.i254, %if.then.i9754 ]
-  store ptr %storemerge930, ptr %filename_string_, align 8
+_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9755: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9762, %if.then.i9754
+  %call3506.sink = phi ptr [ null, %if.then.i9754 ], [ %call3506, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9762 ]
+  %call8.i253 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %172, ptr noundef %call3506.sink) #24
+  store ptr %call8.i253, ptr %filename_string_, align 8
   %fingerprint256_string_ = getelementptr inbounds i8, ptr %this, i64 960
   %173 = load ptr, ptr %isolate_, align 8
   %call3522 = call ptr @_ZN2v86String14NewFromOneByteEPNS_7IsolateEPKhNS_13NewStringTypeEi(ptr noundef %173, ptr noundef nonnull @.str.700, i32 noundef 1, i32 noundef 14) #24
   %cmp.i.i11809 = icmp eq ptr %call3522, null
-  br i1 %cmp.i.i11809, label %if.then.i9747, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9755.split
-
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9755.split: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9755
-  %call8.i255 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %173, ptr noundef nonnull %call3522) #24
-  br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9748
+  br i1 %cmp.i.i11809, label %if.then.i9747, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9748
 
 if.then.i9747:                                    ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9755
   call void @_ZN2v812api_internal12ToLocalEmptyEv() #24
-  %call8.i256 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %173, ptr noundef null) #24
   br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9748
 
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9748: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9755.split, %if.then.i9747
-  %storemerge931 = phi ptr [ %call8.i255, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9755.split ], [ %call8.i256, %if.then.i9747 ]
-  store ptr %storemerge931, ptr %fingerprint256_string_, align 8
+_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9748: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9755, %if.then.i9747
+  %call3522.sink = phi ptr [ null, %if.then.i9747 ], [ %call3522, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9755 ]
+  %call8.i255 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %173, ptr noundef %call3522.sink) #24
+  store ptr %call8.i255, ptr %fingerprint256_string_, align 8
   %fingerprint512_string_ = getelementptr inbounds i8, ptr %this, i64 968
   %174 = load ptr, ptr %isolate_, align 8
   %call3538 = call ptr @_ZN2v86String14NewFromOneByteEPNS_7IsolateEPKhNS_13NewStringTypeEi(ptr noundef %174, ptr noundef nonnull @.str.701, i32 noundef 1, i32 noundef 14) #24
   %cmp.i.i11814 = icmp eq ptr %call3538, null
-  br i1 %cmp.i.i11814, label %if.then.i9740, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9748.split
-
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9748.split: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9748
-  %call8.i257 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %174, ptr noundef nonnull %call3538) #24
-  br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9741
+  br i1 %cmp.i.i11814, label %if.then.i9740, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9741
 
 if.then.i9740:                                    ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9748
   call void @_ZN2v812api_internal12ToLocalEmptyEv() #24
-  %call8.i258 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %174, ptr noundef null) #24
   br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9741
 
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9741: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9748.split, %if.then.i9740
-  %storemerge932 = phi ptr [ %call8.i257, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9748.split ], [ %call8.i258, %if.then.i9740 ]
-  store ptr %storemerge932, ptr %fingerprint512_string_, align 8
+_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9741: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9748, %if.then.i9740
+  %call3538.sink = phi ptr [ null, %if.then.i9740 ], [ %call3538, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9748 ]
+  %call8.i257 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %174, ptr noundef %call3538.sink) #24
+  store ptr %call8.i257, ptr %fingerprint512_string_, align 8
   %fingerprint_string_ = getelementptr inbounds i8, ptr %this, i64 976
   %175 = load ptr, ptr %isolate_, align 8
   %call3554 = call ptr @_ZN2v86String14NewFromOneByteEPNS_7IsolateEPKhNS_13NewStringTypeEi(ptr noundef %175, ptr noundef nonnull @.str.702, i32 noundef 1, i32 noundef 11) #24
   %cmp.i.i11819 = icmp eq ptr %call3554, null
-  br i1 %cmp.i.i11819, label %if.then.i9733, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9741.split
-
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9741.split: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9741
-  %call8.i259 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %175, ptr noundef nonnull %call3554) #24
-  br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9734
+  br i1 %cmp.i.i11819, label %if.then.i9733, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9734
 
 if.then.i9733:                                    ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9741
   call void @_ZN2v812api_internal12ToLocalEmptyEv() #24
-  %call8.i260 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %175, ptr noundef null) #24
   br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9734
 
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9734: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9741.split, %if.then.i9733
-  %storemerge933 = phi ptr [ %call8.i259, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9741.split ], [ %call8.i260, %if.then.i9733 ]
-  store ptr %storemerge933, ptr %fingerprint_string_, align 8
+_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9734: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9741, %if.then.i9733
+  %call3554.sink = phi ptr [ null, %if.then.i9733 ], [ %call3554, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9741 ]
+  %call8.i259 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %175, ptr noundef %call3554.sink) #24
+  store ptr %call8.i259, ptr %fingerprint_string_, align 8
   %flags_string_ = getelementptr inbounds i8, ptr %this, i64 984
   %176 = load ptr, ptr %isolate_, align 8
   %call3570 = call ptr @_ZN2v86String14NewFromOneByteEPNS_7IsolateEPKhNS_13NewStringTypeEi(ptr noundef %176, ptr noundef nonnull @.str.703, i32 noundef 1, i32 noundef 5) #24
   %cmp.i.i11824 = icmp eq ptr %call3570, null
-  br i1 %cmp.i.i11824, label %if.then.i9726, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9734.split
-
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9734.split: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9734
-  %call8.i261 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %176, ptr noundef nonnull %call3570) #24
-  br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9727
+  br i1 %cmp.i.i11824, label %if.then.i9726, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9727
 
 if.then.i9726:                                    ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9734
   call void @_ZN2v812api_internal12ToLocalEmptyEv() #24
-  %call8.i262 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %176, ptr noundef null) #24
   br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9727
 
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9727: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9734.split, %if.then.i9726
-  %storemerge934 = phi ptr [ %call8.i261, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9734.split ], [ %call8.i262, %if.then.i9726 ]
-  store ptr %storemerge934, ptr %flags_string_, align 8
+_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9727: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9734, %if.then.i9726
+  %call3570.sink = phi ptr [ null, %if.then.i9726 ], [ %call3570, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9734 ]
+  %call8.i261 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %176, ptr noundef %call3570.sink) #24
+  store ptr %call8.i261, ptr %flags_string_, align 8
   %flowlabel_string_ = getelementptr inbounds i8, ptr %this, i64 992
   %177 = load ptr, ptr %isolate_, align 8
   %call3586 = call ptr @_ZN2v86String14NewFromOneByteEPNS_7IsolateEPKhNS_13NewStringTypeEi(ptr noundef %177, ptr noundef nonnull @.str.704, i32 noundef 1, i32 noundef 9) #24
   %cmp.i.i11829 = icmp eq ptr %call3586, null
-  br i1 %cmp.i.i11829, label %if.then.i9719, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9727.split
-
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9727.split: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9727
-  %call8.i263 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %177, ptr noundef nonnull %call3586) #24
-  br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9720
+  br i1 %cmp.i.i11829, label %if.then.i9719, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9720
 
 if.then.i9719:                                    ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9727
   call void @_ZN2v812api_internal12ToLocalEmptyEv() #24
-  %call8.i264 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %177, ptr noundef null) #24
   br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9720
 
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9720: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9727.split, %if.then.i9719
-  %storemerge935 = phi ptr [ %call8.i263, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9727.split ], [ %call8.i264, %if.then.i9719 ]
-  store ptr %storemerge935, ptr %flowlabel_string_, align 8
+_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9720: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9727, %if.then.i9719
+  %call3586.sink = phi ptr [ null, %if.then.i9719 ], [ %call3586, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9727 ]
+  %call8.i263 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %177, ptr noundef %call3586.sink) #24
+  store ptr %call8.i263, ptr %flowlabel_string_, align 8
   %fragment_string_ = getelementptr inbounds i8, ptr %this, i64 1000
   %178 = load ptr, ptr %isolate_, align 8
   %call3602 = call ptr @_ZN2v86String14NewFromOneByteEPNS_7IsolateEPKhNS_13NewStringTypeEi(ptr noundef %178, ptr noundef nonnull @.str.705, i32 noundef 1, i32 noundef 8) #24
   %cmp.i.i11834 = icmp eq ptr %call3602, null
-  br i1 %cmp.i.i11834, label %if.then.i9712, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9720.split
-
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9720.split: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9720
-  %call8.i265 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %178, ptr noundef nonnull %call3602) #24
-  br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9713
+  br i1 %cmp.i.i11834, label %if.then.i9712, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9713
 
 if.then.i9712:                                    ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9720
   call void @_ZN2v812api_internal12ToLocalEmptyEv() #24
-  %call8.i266 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %178, ptr noundef null) #24
   br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9713
 
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9713: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9720.split, %if.then.i9712
-  %storemerge936 = phi ptr [ %call8.i265, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9720.split ], [ %call8.i266, %if.then.i9712 ]
-  store ptr %storemerge936, ptr %fragment_string_, align 8
+_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9713: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9720, %if.then.i9712
+  %call3602.sink = phi ptr [ null, %if.then.i9712 ], [ %call3602, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9720 ]
+  %call8.i265 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %178, ptr noundef %call3602.sink) #24
+  store ptr %call8.i265, ptr %fragment_string_, align 8
   %frames_received_string_ = getelementptr inbounds i8, ptr %this, i64 1008
   %179 = load ptr, ptr %isolate_, align 8
   %call3618 = call ptr @_ZN2v86String14NewFromOneByteEPNS_7IsolateEPKhNS_13NewStringTypeEi(ptr noundef %179, ptr noundef nonnull @.str.706, i32 noundef 1, i32 noundef 14) #24
   %cmp.i.i11839 = icmp eq ptr %call3618, null
-  br i1 %cmp.i.i11839, label %if.then.i9705, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9713.split
-
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9713.split: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9713
-  %call8.i267 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %179, ptr noundef nonnull %call3618) #24
-  br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9706
+  br i1 %cmp.i.i11839, label %if.then.i9705, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9706
 
 if.then.i9705:                                    ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9713
   call void @_ZN2v812api_internal12ToLocalEmptyEv() #24
-  %call8.i268 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %179, ptr noundef null) #24
   br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9706
 
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9706: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9713.split, %if.then.i9705
-  %storemerge937 = phi ptr [ %call8.i267, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9713.split ], [ %call8.i268, %if.then.i9705 ]
-  store ptr %storemerge937, ptr %frames_received_string_, align 8
+_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9706: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9713, %if.then.i9705
+  %call3618.sink = phi ptr [ null, %if.then.i9705 ], [ %call3618, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9713 ]
+  %call8.i267 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %179, ptr noundef %call3618.sink) #24
+  store ptr %call8.i267, ptr %frames_received_string_, align 8
   %frames_sent_string_ = getelementptr inbounds i8, ptr %this, i64 1016
   %180 = load ptr, ptr %isolate_, align 8
   %call3634 = call ptr @_ZN2v86String14NewFromOneByteEPNS_7IsolateEPKhNS_13NewStringTypeEi(ptr noundef %180, ptr noundef nonnull @.str.707, i32 noundef 1, i32 noundef 10) #24
   %cmp.i.i11844 = icmp eq ptr %call3634, null
-  br i1 %cmp.i.i11844, label %if.then.i9698, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9706.split
-
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9706.split: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9706
-  %call8.i269 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %180, ptr noundef nonnull %call3634) #24
-  br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9699
+  br i1 %cmp.i.i11844, label %if.then.i9698, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9699
 
 if.then.i9698:                                    ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9706
   call void @_ZN2v812api_internal12ToLocalEmptyEv() #24
-  %call8.i270 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %180, ptr noundef null) #24
   br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9699
 
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9699: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9706.split, %if.then.i9698
-  %storemerge938 = phi ptr [ %call8.i269, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9706.split ], [ %call8.i270, %if.then.i9698 ]
-  store ptr %storemerge938, ptr %frames_sent_string_, align 8
+_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9699: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9706, %if.then.i9698
+  %call3634.sink = phi ptr [ null, %if.then.i9698 ], [ %call3634, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9706 ]
+  %call8.i269 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %180, ptr noundef %call3634.sink) #24
+  store ptr %call8.i269, ptr %frames_sent_string_, align 8
   %function_string_ = getelementptr inbounds i8, ptr %this, i64 1024
   %181 = load ptr, ptr %isolate_, align 8
   %call3650 = call ptr @_ZN2v86String14NewFromOneByteEPNS_7IsolateEPKhNS_13NewStringTypeEi(ptr noundef %181, ptr noundef nonnull @.str.708, i32 noundef 1, i32 noundef 8) #24
   %cmp.i.i11849 = icmp eq ptr %call3650, null
-  br i1 %cmp.i.i11849, label %if.then.i9691, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9699.split
-
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9699.split: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9699
-  %call8.i271 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %181, ptr noundef nonnull %call3650) #24
-  br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9692
+  br i1 %cmp.i.i11849, label %if.then.i9691, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9692
 
 if.then.i9691:                                    ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9699
   call void @_ZN2v812api_internal12ToLocalEmptyEv() #24
-  %call8.i272 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %181, ptr noundef null) #24
   br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9692
 
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9692: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9699.split, %if.then.i9691
-  %storemerge939 = phi ptr [ %call8.i271, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9699.split ], [ %call8.i272, %if.then.i9691 ]
-  store ptr %storemerge939, ptr %function_string_, align 8
+_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9692: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9699, %if.then.i9691
+  %call3650.sink = phi ptr [ null, %if.then.i9691 ], [ %call3650, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9699 ]
+  %call8.i271 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %181, ptr noundef %call3650.sink) #24
+  store ptr %call8.i271, ptr %function_string_, align 8
   %get_string_ = getelementptr inbounds i8, ptr %this, i64 1032
   %182 = load ptr, ptr %isolate_, align 8
   %call3666 = call ptr @_ZN2v86String14NewFromOneByteEPNS_7IsolateEPKhNS_13NewStringTypeEi(ptr noundef %182, ptr noundef nonnull @.str.709, i32 noundef 1, i32 noundef 3) #24
   %cmp.i.i11854 = icmp eq ptr %call3666, null
-  br i1 %cmp.i.i11854, label %if.then.i9684, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9692.split
-
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9692.split: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9692
-  %call8.i273 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %182, ptr noundef nonnull %call3666) #24
-  br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9685
+  br i1 %cmp.i.i11854, label %if.then.i9684, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9685
 
 if.then.i9684:                                    ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9692
   call void @_ZN2v812api_internal12ToLocalEmptyEv() #24
-  %call8.i274 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %182, ptr noundef null) #24
   br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9685
 
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9685: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9692.split, %if.then.i9684
-  %storemerge940 = phi ptr [ %call8.i273, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9692.split ], [ %call8.i274, %if.then.i9684 ]
-  store ptr %storemerge940, ptr %get_string_, align 8
+_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9685: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9692, %if.then.i9684
+  %call3666.sink = phi ptr [ null, %if.then.i9684 ], [ %call3666, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9692 ]
+  %call8.i273 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %182, ptr noundef %call3666.sink) #24
+  store ptr %call8.i273, ptr %get_string_, align 8
   %get_data_clone_error_string_ = getelementptr inbounds i8, ptr %this, i64 1040
   %183 = load ptr, ptr %isolate_, align 8
   %call3682 = call ptr @_ZN2v86String14NewFromOneByteEPNS_7IsolateEPKhNS_13NewStringTypeEi(ptr noundef %183, ptr noundef nonnull @.str.710, i32 noundef 1, i32 noundef 18) #24
   %cmp.i.i11859 = icmp eq ptr %call3682, null
-  br i1 %cmp.i.i11859, label %if.then.i9677, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9685.split
-
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9685.split: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9685
-  %call8.i275 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %183, ptr noundef nonnull %call3682) #24
-  br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9678
+  br i1 %cmp.i.i11859, label %if.then.i9677, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9678
 
 if.then.i9677:                                    ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9685
   call void @_ZN2v812api_internal12ToLocalEmptyEv() #24
-  %call8.i276 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %183, ptr noundef null) #24
   br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9678
 
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9678: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9685.split, %if.then.i9677
-  %storemerge941 = phi ptr [ %call8.i275, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9685.split ], [ %call8.i276, %if.then.i9677 ]
-  store ptr %storemerge941, ptr %get_data_clone_error_string_, align 8
+_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9678: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9685, %if.then.i9677
+  %call3682.sink = phi ptr [ null, %if.then.i9677 ], [ %call3682, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9685 ]
+  %call8.i275 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %183, ptr noundef %call3682.sink) #24
+  store ptr %call8.i275, ptr %get_data_clone_error_string_, align 8
   %get_shared_array_buffer_id_string_ = getelementptr inbounds i8, ptr %this, i64 1048
   %184 = load ptr, ptr %isolate_, align 8
   %call3698 = call ptr @_ZN2v86String14NewFromOneByteEPNS_7IsolateEPKhNS_13NewStringTypeEi(ptr noundef %184, ptr noundef nonnull @.str.711, i32 noundef 1, i32 noundef 23) #24
   %cmp.i.i11864 = icmp eq ptr %call3698, null
-  br i1 %cmp.i.i11864, label %if.then.i9670, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9678.split
-
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9678.split: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9678
-  %call8.i277 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %184, ptr noundef nonnull %call3698) #24
-  br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9671
+  br i1 %cmp.i.i11864, label %if.then.i9670, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9671
 
 if.then.i9670:                                    ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9678
   call void @_ZN2v812api_internal12ToLocalEmptyEv() #24
-  %call8.i278 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %184, ptr noundef null) #24
   br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9671
 
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9671: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9678.split, %if.then.i9670
-  %storemerge942 = phi ptr [ %call8.i277, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9678.split ], [ %call8.i278, %if.then.i9670 ]
-  store ptr %storemerge942, ptr %get_shared_array_buffer_id_string_, align 8
+_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9671: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9678, %if.then.i9670
+  %call3698.sink = phi ptr [ null, %if.then.i9670 ], [ %call3698, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9678 ]
+  %call8.i277 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %184, ptr noundef %call3698.sink) #24
+  store ptr %call8.i277, ptr %get_shared_array_buffer_id_string_, align 8
   %gid_string_ = getelementptr inbounds i8, ptr %this, i64 1056
   %185 = load ptr, ptr %isolate_, align 8
   %call3714 = call ptr @_ZN2v86String14NewFromOneByteEPNS_7IsolateEPKhNS_13NewStringTypeEi(ptr noundef %185, ptr noundef nonnull @.str.712, i32 noundef 1, i32 noundef 3) #24
   %cmp.i.i11869 = icmp eq ptr %call3714, null
-  br i1 %cmp.i.i11869, label %if.then.i9663, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9671.split
-
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9671.split: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9671
-  %call8.i279 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %185, ptr noundef nonnull %call3714) #24
-  br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9664
+  br i1 %cmp.i.i11869, label %if.then.i9663, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9664
 
 if.then.i9663:                                    ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9671
   call void @_ZN2v812api_internal12ToLocalEmptyEv() #24
-  %call8.i280 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %185, ptr noundef null) #24
   br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9664
 
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9664: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9671.split, %if.then.i9663
-  %storemerge943 = phi ptr [ %call8.i279, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9671.split ], [ %call8.i280, %if.then.i9663 ]
-  store ptr %storemerge943, ptr %gid_string_, align 8
+_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9664: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9671, %if.then.i9663
+  %call3714.sink = phi ptr [ null, %if.then.i9663 ], [ %call3714, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9671 ]
+  %call8.i279 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %185, ptr noundef %call3714.sink) #24
+  store ptr %call8.i279, ptr %gid_string_, align 8
   %h2_string_ = getelementptr inbounds i8, ptr %this, i64 1064
   %186 = load ptr, ptr %isolate_, align 8
   %call3730 = call ptr @_ZN2v86String14NewFromOneByteEPNS_7IsolateEPKhNS_13NewStringTypeEi(ptr noundef %186, ptr noundef nonnull @.str.713, i32 noundef 1, i32 noundef 2) #24
   %cmp.i.i11874 = icmp eq ptr %call3730, null
-  br i1 %cmp.i.i11874, label %if.then.i9656, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9664.split
-
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9664.split: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9664
-  %call8.i281 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %186, ptr noundef nonnull %call3730) #24
-  br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9657
+  br i1 %cmp.i.i11874, label %if.then.i9656, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9657
 
 if.then.i9656:                                    ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9664
   call void @_ZN2v812api_internal12ToLocalEmptyEv() #24
-  %call8.i282 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %186, ptr noundef null) #24
   br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9657
 
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9657: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9664.split, %if.then.i9656
-  %storemerge944 = phi ptr [ %call8.i281, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9664.split ], [ %call8.i282, %if.then.i9656 ]
-  store ptr %storemerge944, ptr %h2_string_, align 8
+_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9657: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9664, %if.then.i9656
+  %call3730.sink = phi ptr [ null, %if.then.i9656 ], [ %call3730, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9664 ]
+  %call8.i281 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %186, ptr noundef %call3730.sink) #24
+  store ptr %call8.i281, ptr %h2_string_, align 8
   %handle_string_ = getelementptr inbounds i8, ptr %this, i64 1072
   %187 = load ptr, ptr %isolate_, align 8
   %call3746 = call ptr @_ZN2v86String14NewFromOneByteEPNS_7IsolateEPKhNS_13NewStringTypeEi(ptr noundef %187, ptr noundef nonnull @.str.714, i32 noundef 1, i32 noundef 6) #24
   %cmp.i.i11879 = icmp eq ptr %call3746, null
-  br i1 %cmp.i.i11879, label %if.then.i9649, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9657.split
-
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9657.split: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9657
-  %call8.i283 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %187, ptr noundef nonnull %call3746) #24
-  br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9650
+  br i1 %cmp.i.i11879, label %if.then.i9649, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9650
 
 if.then.i9649:                                    ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9657
   call void @_ZN2v812api_internal12ToLocalEmptyEv() #24
-  %call8.i284 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %187, ptr noundef null) #24
   br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9650
 
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9650: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9657.split, %if.then.i9649
-  %storemerge945 = phi ptr [ %call8.i283, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9657.split ], [ %call8.i284, %if.then.i9649 ]
-  store ptr %storemerge945, ptr %handle_string_, align 8
+_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9650: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9657, %if.then.i9649
+  %call3746.sink = phi ptr [ null, %if.then.i9649 ], [ %call3746, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9657 ]
+  %call8.i283 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %187, ptr noundef %call3746.sink) #24
+  store ptr %call8.i283, ptr %handle_string_, align 8
   %hash_algorithm_string_ = getelementptr inbounds i8, ptr %this, i64 1080
   %188 = load ptr, ptr %isolate_, align 8
   %call3762 = call ptr @_ZN2v86String14NewFromOneByteEPNS_7IsolateEPKhNS_13NewStringTypeEi(ptr noundef %188, ptr noundef nonnull @.str.715, i32 noundef 1, i32 noundef 13) #24
   %cmp.i.i11884 = icmp eq ptr %call3762, null
-  br i1 %cmp.i.i11884, label %if.then.i9642, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9650.split
-
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9650.split: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9650
-  %call8.i285 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %188, ptr noundef nonnull %call3762) #24
-  br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9643
+  br i1 %cmp.i.i11884, label %if.then.i9642, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9643
 
 if.then.i9642:                                    ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9650
   call void @_ZN2v812api_internal12ToLocalEmptyEv() #24
-  %call8.i286 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %188, ptr noundef null) #24
   br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9643
 
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9643: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9650.split, %if.then.i9642
-  %storemerge946 = phi ptr [ %call8.i285, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9650.split ], [ %call8.i286, %if.then.i9642 ]
-  store ptr %storemerge946, ptr %hash_algorithm_string_, align 8
+_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9643: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9650, %if.then.i9642
+  %call3762.sink = phi ptr [ null, %if.then.i9642 ], [ %call3762, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9650 ]
+  %call8.i285 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %188, ptr noundef %call3762.sink) #24
+  store ptr %call8.i285, ptr %hash_algorithm_string_, align 8
   %help_text_string_ = getelementptr inbounds i8, ptr %this, i64 1088
   %189 = load ptr, ptr %isolate_, align 8
   %call3778 = call ptr @_ZN2v86String14NewFromOneByteEPNS_7IsolateEPKhNS_13NewStringTypeEi(ptr noundef %189, ptr noundef nonnull @.str.716, i32 noundef 1, i32 noundef 8) #24
   %cmp.i.i11889 = icmp eq ptr %call3778, null
-  br i1 %cmp.i.i11889, label %if.then.i9635, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9643.split
-
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9643.split: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9643
-  %call8.i287 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %189, ptr noundef nonnull %call3778) #24
-  br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9636
+  br i1 %cmp.i.i11889, label %if.then.i9635, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9636
 
 if.then.i9635:                                    ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9643
   call void @_ZN2v812api_internal12ToLocalEmptyEv() #24
-  %call8.i288 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %189, ptr noundef null) #24
   br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9636
 
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9636: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9643.split, %if.then.i9635
-  %storemerge947 = phi ptr [ %call8.i287, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9643.split ], [ %call8.i288, %if.then.i9635 ]
-  store ptr %storemerge947, ptr %help_text_string_, align 8
+_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9636: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9643, %if.then.i9635
+  %call3778.sink = phi ptr [ null, %if.then.i9635 ], [ %call3778, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9643 ]
+  %call8.i287 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %189, ptr noundef %call3778.sink) #24
+  store ptr %call8.i287, ptr %help_text_string_, align 8
   %homedir_string_ = getelementptr inbounds i8, ptr %this, i64 1096
   %190 = load ptr, ptr %isolate_, align 8
   %call3794 = call ptr @_ZN2v86String14NewFromOneByteEPNS_7IsolateEPKhNS_13NewStringTypeEi(ptr noundef %190, ptr noundef nonnull @.str.717, i32 noundef 1, i32 noundef 7) #24
   %cmp.i.i11894 = icmp eq ptr %call3794, null
-  br i1 %cmp.i.i11894, label %if.then.i9628, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9636.split
-
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9636.split: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9636
-  %call8.i289 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %190, ptr noundef nonnull %call3794) #24
-  br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9629
+  br i1 %cmp.i.i11894, label %if.then.i9628, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9629
 
 if.then.i9628:                                    ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9636
   call void @_ZN2v812api_internal12ToLocalEmptyEv() #24
-  %call8.i290 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %190, ptr noundef null) #24
   br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9629
 
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9629: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9636.split, %if.then.i9628
-  %storemerge948 = phi ptr [ %call8.i289, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9636.split ], [ %call8.i290, %if.then.i9628 ]
-  store ptr %storemerge948, ptr %homedir_string_, align 8
+_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9629: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9636, %if.then.i9628
+  %call3794.sink = phi ptr [ null, %if.then.i9628 ], [ %call3794, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9636 ]
+  %call8.i289 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %190, ptr noundef %call3794.sink) #24
+  store ptr %call8.i289, ptr %homedir_string_, align 8
   %host_string_ = getelementptr inbounds i8, ptr %this, i64 1104
   %191 = load ptr, ptr %isolate_, align 8
   %call3810 = call ptr @_ZN2v86String14NewFromOneByteEPNS_7IsolateEPKhNS_13NewStringTypeEi(ptr noundef %191, ptr noundef nonnull @.str.718, i32 noundef 1, i32 noundef 4) #24
   %cmp.i.i11899 = icmp eq ptr %call3810, null
-  br i1 %cmp.i.i11899, label %if.then.i9621, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9629.split
-
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9629.split: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9629
-  %call8.i291 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %191, ptr noundef nonnull %call3810) #24
-  br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9622
+  br i1 %cmp.i.i11899, label %if.then.i9621, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9622
 
 if.then.i9621:                                    ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9629
   call void @_ZN2v812api_internal12ToLocalEmptyEv() #24
-  %call8.i292 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %191, ptr noundef null) #24
   br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9622
 
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9622: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9629.split, %if.then.i9621
-  %storemerge949 = phi ptr [ %call8.i291, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9629.split ], [ %call8.i292, %if.then.i9621 ]
-  store ptr %storemerge949, ptr %host_string_, align 8
+_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9622: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9629, %if.then.i9621
+  %call3810.sink = phi ptr [ null, %if.then.i9621 ], [ %call3810, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9629 ]
+  %call8.i291 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %191, ptr noundef %call3810.sink) #24
+  store ptr %call8.i291, ptr %host_string_, align 8
   %hostmaster_string_ = getelementptr inbounds i8, ptr %this, i64 1112
   %192 = load ptr, ptr %isolate_, align 8
   %call3826 = call ptr @_ZN2v86String14NewFromOneByteEPNS_7IsolateEPKhNS_13NewStringTypeEi(ptr noundef %192, ptr noundef nonnull @.str.719, i32 noundef 1, i32 noundef 10) #24
   %cmp.i.i11904 = icmp eq ptr %call3826, null
-  br i1 %cmp.i.i11904, label %if.then.i9614, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9622.split
-
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9622.split: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9622
-  %call8.i293 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %192, ptr noundef nonnull %call3826) #24
-  br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9615
+  br i1 %cmp.i.i11904, label %if.then.i9614, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9615
 
 if.then.i9614:                                    ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9622
   call void @_ZN2v812api_internal12ToLocalEmptyEv() #24
-  %call8.i294 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %192, ptr noundef null) #24
   br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9615
 
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9615: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9622.split, %if.then.i9614
-  %storemerge950 = phi ptr [ %call8.i293, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9622.split ], [ %call8.i294, %if.then.i9614 ]
-  store ptr %storemerge950, ptr %hostmaster_string_, align 8
+_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9615: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9622, %if.then.i9614
+  %call3826.sink = phi ptr [ null, %if.then.i9614 ], [ %call3826, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9622 ]
+  %call8.i293 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %192, ptr noundef %call3826.sink) #24
+  store ptr %call8.i293, ptr %hostmaster_string_, align 8
   %http_1_1_string_ = getelementptr inbounds i8, ptr %this, i64 1120
   %193 = load ptr, ptr %isolate_, align 8
   %call3842 = call ptr @_ZN2v86String14NewFromOneByteEPNS_7IsolateEPKhNS_13NewStringTypeEi(ptr noundef %193, ptr noundef nonnull @.str.720, i32 noundef 1, i32 noundef 8) #24
   %cmp.i.i11909 = icmp eq ptr %call3842, null
-  br i1 %cmp.i.i11909, label %if.then.i9607, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9615.split
-
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9615.split: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9615
-  %call8.i295 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %193, ptr noundef nonnull %call3842) #24
-  br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9608
+  br i1 %cmp.i.i11909, label %if.then.i9607, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9608
 
 if.then.i9607:                                    ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9615
   call void @_ZN2v812api_internal12ToLocalEmptyEv() #24
-  %call8.i296 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %193, ptr noundef null) #24
   br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9608
 
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9608: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9615.split, %if.then.i9607
-  %storemerge951 = phi ptr [ %call8.i295, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9615.split ], [ %call8.i296, %if.then.i9607 ]
-  store ptr %storemerge951, ptr %http_1_1_string_, align 8
+_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9608: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9615, %if.then.i9607
+  %call3842.sink = phi ptr [ null, %if.then.i9607 ], [ %call3842, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9615 ]
+  %call8.i295 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %193, ptr noundef %call3842.sink) #24
+  store ptr %call8.i295, ptr %http_1_1_string_, align 8
   %id_string_ = getelementptr inbounds i8, ptr %this, i64 1128
   %194 = load ptr, ptr %isolate_, align 8
   %call3858 = call ptr @_ZN2v86String14NewFromOneByteEPNS_7IsolateEPKhNS_13NewStringTypeEi(ptr noundef %194, ptr noundef nonnull @.str.721, i32 noundef 1, i32 noundef 2) #24
   %cmp.i.i11914 = icmp eq ptr %call3858, null
-  br i1 %cmp.i.i11914, label %if.then.i9600, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9608.split
-
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9608.split: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9608
-  %call8.i297 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %194, ptr noundef nonnull %call3858) #24
-  br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9601
+  br i1 %cmp.i.i11914, label %if.then.i9600, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9601
 
 if.then.i9600:                                    ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9608
   call void @_ZN2v812api_internal12ToLocalEmptyEv() #24
-  %call8.i298 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %194, ptr noundef null) #24
   br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9601
 
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9601: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9608.split, %if.then.i9600
-  %storemerge952 = phi ptr [ %call8.i297, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9608.split ], [ %call8.i298, %if.then.i9600 ]
-  store ptr %storemerge952, ptr %id_string_, align 8
+_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9601: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9608, %if.then.i9600
+  %call3858.sink = phi ptr [ null, %if.then.i9600 ], [ %call3858, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9608 ]
+  %call8.i297 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %194, ptr noundef %call3858.sink) #24
+  store ptr %call8.i297, ptr %id_string_, align 8
   %identity_string_ = getelementptr inbounds i8, ptr %this, i64 1136
   %195 = load ptr, ptr %isolate_, align 8
   %call3874 = call ptr @_ZN2v86String14NewFromOneByteEPNS_7IsolateEPKhNS_13NewStringTypeEi(ptr noundef %195, ptr noundef nonnull @.str.722, i32 noundef 1, i32 noundef 8) #24
   %cmp.i.i11919 = icmp eq ptr %call3874, null
-  br i1 %cmp.i.i11919, label %if.then.i9593, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9601.split
-
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9601.split: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9601
-  %call8.i299 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %195, ptr noundef nonnull %call3874) #24
-  br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9594
+  br i1 %cmp.i.i11919, label %if.then.i9593, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9594
 
 if.then.i9593:                                    ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9601
   call void @_ZN2v812api_internal12ToLocalEmptyEv() #24
-  %call8.i300 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %195, ptr noundef null) #24
   br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9594
 
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9594: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9601.split, %if.then.i9593
-  %storemerge953 = phi ptr [ %call8.i299, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9601.split ], [ %call8.i300, %if.then.i9593 ]
-  store ptr %storemerge953, ptr %identity_string_, align 8
+_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9594: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9601, %if.then.i9593
+  %call3874.sink = phi ptr [ null, %if.then.i9593 ], [ %call3874, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9601 ]
+  %call8.i299 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %195, ptr noundef %call3874.sink) #24
+  store ptr %call8.i299, ptr %identity_string_, align 8
   %ignore_string_ = getelementptr inbounds i8, ptr %this, i64 1144
   %196 = load ptr, ptr %isolate_, align 8
   %call3890 = call ptr @_ZN2v86String14NewFromOneByteEPNS_7IsolateEPKhNS_13NewStringTypeEi(ptr noundef %196, ptr noundef nonnull @.str.723, i32 noundef 1, i32 noundef 6) #24
   %cmp.i.i11924 = icmp eq ptr %call3890, null
-  br i1 %cmp.i.i11924, label %if.then.i9586, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9594.split
-
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9594.split: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9594
-  %call8.i301 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %196, ptr noundef nonnull %call3890) #24
-  br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9587
+  br i1 %cmp.i.i11924, label %if.then.i9586, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9587
 
 if.then.i9586:                                    ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9594
   call void @_ZN2v812api_internal12ToLocalEmptyEv() #24
-  %call8.i302 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %196, ptr noundef null) #24
   br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9587
 
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9587: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9594.split, %if.then.i9586
-  %storemerge954 = phi ptr [ %call8.i301, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9594.split ], [ %call8.i302, %if.then.i9586 ]
-  store ptr %storemerge954, ptr %ignore_string_, align 8
+_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9587: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9594, %if.then.i9586
+  %call3890.sink = phi ptr [ null, %if.then.i9586 ], [ %call3890, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9594 ]
+  %call8.i301 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %196, ptr noundef %call3890.sink) #24
+  store ptr %call8.i301, ptr %ignore_string_, align 8
   %infoaccess_string_ = getelementptr inbounds i8, ptr %this, i64 1152
   %197 = load ptr, ptr %isolate_, align 8
   %call3906 = call ptr @_ZN2v86String14NewFromOneByteEPNS_7IsolateEPKhNS_13NewStringTypeEi(ptr noundef %197, ptr noundef nonnull @.str.724, i32 noundef 1, i32 noundef 10) #24
   %cmp.i.i11929 = icmp eq ptr %call3906, null
-  br i1 %cmp.i.i11929, label %if.then.i9579, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9587.split
-
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9587.split: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9587
-  %call8.i303 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %197, ptr noundef nonnull %call3906) #24
-  br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9580
+  br i1 %cmp.i.i11929, label %if.then.i9579, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9580
 
 if.then.i9579:                                    ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9587
   call void @_ZN2v812api_internal12ToLocalEmptyEv() #24
-  %call8.i304 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %197, ptr noundef null) #24
   br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9580
 
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9580: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9587.split, %if.then.i9579
-  %storemerge955 = phi ptr [ %call8.i303, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9587.split ], [ %call8.i304, %if.then.i9579 ]
-  store ptr %storemerge955, ptr %infoaccess_string_, align 8
+_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9580: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9587, %if.then.i9579
+  %call3906.sink = phi ptr [ null, %if.then.i9579 ], [ %call3906, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9587 ]
+  %call8.i303 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %197, ptr noundef %call3906.sink) #24
+  store ptr %call8.i303, ptr %infoaccess_string_, align 8
   %inherit_string_ = getelementptr inbounds i8, ptr %this, i64 1160
   %198 = load ptr, ptr %isolate_, align 8
   %call3922 = call ptr @_ZN2v86String14NewFromOneByteEPNS_7IsolateEPKhNS_13NewStringTypeEi(ptr noundef %198, ptr noundef nonnull @.str.725, i32 noundef 1, i32 noundef 7) #24
   %cmp.i.i11934 = icmp eq ptr %call3922, null
-  br i1 %cmp.i.i11934, label %if.then.i9572, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9580.split
-
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9580.split: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9580
-  %call8.i305 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %198, ptr noundef nonnull %call3922) #24
-  br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9573
+  br i1 %cmp.i.i11934, label %if.then.i9572, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9573
 
 if.then.i9572:                                    ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9580
   call void @_ZN2v812api_internal12ToLocalEmptyEv() #24
-  %call8.i306 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %198, ptr noundef null) #24
   br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9573
 
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9573: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9580.split, %if.then.i9572
-  %storemerge956 = phi ptr [ %call8.i305, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9580.split ], [ %call8.i306, %if.then.i9572 ]
-  store ptr %storemerge956, ptr %inherit_string_, align 8
+_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9573: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9580, %if.then.i9572
+  %call3922.sink = phi ptr [ null, %if.then.i9572 ], [ %call3922, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9580 ]
+  %call8.i305 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %198, ptr noundef %call3922.sink) #24
+  store ptr %call8.i305, ptr %inherit_string_, align 8
   %input_string_ = getelementptr inbounds i8, ptr %this, i64 1168
   %199 = load ptr, ptr %isolate_, align 8
   %call3938 = call ptr @_ZN2v86String14NewFromOneByteEPNS_7IsolateEPKhNS_13NewStringTypeEi(ptr noundef %199, ptr noundef nonnull @.str.726, i32 noundef 1, i32 noundef 5) #24
   %cmp.i.i11939 = icmp eq ptr %call3938, null
-  br i1 %cmp.i.i11939, label %if.then.i9565, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9573.split
-
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9573.split: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9573
-  %call8.i307 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %199, ptr noundef nonnull %call3938) #24
-  br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9566
+  br i1 %cmp.i.i11939, label %if.then.i9565, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9566
 
 if.then.i9565:                                    ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9573
   call void @_ZN2v812api_internal12ToLocalEmptyEv() #24
-  %call8.i308 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %199, ptr noundef null) #24
   br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9566
 
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9566: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9573.split, %if.then.i9565
-  %storemerge957 = phi ptr [ %call8.i307, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9573.split ], [ %call8.i308, %if.then.i9565 ]
-  store ptr %storemerge957, ptr %input_string_, align 8
+_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9566: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9573, %if.then.i9565
+  %call3938.sink = phi ptr [ null, %if.then.i9565 ], [ %call3938, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9573 ]
+  %call8.i307 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %199, ptr noundef %call3938.sink) #24
+  store ptr %call8.i307, ptr %input_string_, align 8
   %internal_binding_string_ = getelementptr inbounds i8, ptr %this, i64 1176
   %200 = load ptr, ptr %isolate_, align 8
   %call3954 = call ptr @_ZN2v86String14NewFromOneByteEPNS_7IsolateEPKhNS_13NewStringTypeEi(ptr noundef %200, ptr noundef nonnull @.str.727, i32 noundef 1, i32 noundef 15) #24
   %cmp.i.i11944 = icmp eq ptr %call3954, null
-  br i1 %cmp.i.i11944, label %if.then.i9558, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9566.split
-
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9566.split: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9566
-  %call8.i309 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %200, ptr noundef nonnull %call3954) #24
-  br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9559
+  br i1 %cmp.i.i11944, label %if.then.i9558, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9559
 
 if.then.i9558:                                    ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9566
   call void @_ZN2v812api_internal12ToLocalEmptyEv() #24
-  %call8.i310 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %200, ptr noundef null) #24
   br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9559
 
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9559: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9566.split, %if.then.i9558
-  %storemerge958 = phi ptr [ %call8.i309, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9566.split ], [ %call8.i310, %if.then.i9558 ]
-  store ptr %storemerge958, ptr %internal_binding_string_, align 8
+_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9559: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9566, %if.then.i9558
+  %call3954.sink = phi ptr [ null, %if.then.i9558 ], [ %call3954, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9566 ]
+  %call8.i309 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %200, ptr noundef %call3954.sink) #24
+  store ptr %call8.i309, ptr %internal_binding_string_, align 8
   %internal_string_ = getelementptr inbounds i8, ptr %this, i64 1184
   %201 = load ptr, ptr %isolate_, align 8
   %call3970 = call ptr @_ZN2v86String14NewFromOneByteEPNS_7IsolateEPKhNS_13NewStringTypeEi(ptr noundef %201, ptr noundef nonnull @.str.728, i32 noundef 1, i32 noundef 8) #24
   %cmp.i.i11949 = icmp eq ptr %call3970, null
-  br i1 %cmp.i.i11949, label %if.then.i9551, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9559.split
-
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9559.split: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9559
-  %call8.i311 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %201, ptr noundef nonnull %call3970) #24
-  br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9552
+  br i1 %cmp.i.i11949, label %if.then.i9551, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9552
 
 if.then.i9551:                                    ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9559
   call void @_ZN2v812api_internal12ToLocalEmptyEv() #24
-  %call8.i312 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %201, ptr noundef null) #24
   br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9552
 
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9552: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9559.split, %if.then.i9551
-  %storemerge959 = phi ptr [ %call8.i311, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9559.split ], [ %call8.i312, %if.then.i9551 ]
-  store ptr %storemerge959, ptr %internal_string_, align 8
+_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9552: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9559, %if.then.i9551
+  %call3970.sink = phi ptr [ null, %if.then.i9551 ], [ %call3970, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9559 ]
+  %call8.i311 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %201, ptr noundef %call3970.sink) #24
+  store ptr %call8.i311, ptr %internal_string_, align 8
   %ipv4_string_ = getelementptr inbounds i8, ptr %this, i64 1192
   %202 = load ptr, ptr %isolate_, align 8
   %call3986 = call ptr @_ZN2v86String14NewFromOneByteEPNS_7IsolateEPKhNS_13NewStringTypeEi(ptr noundef %202, ptr noundef nonnull @.str.729, i32 noundef 1, i32 noundef 4) #24
   %cmp.i.i11954 = icmp eq ptr %call3986, null
-  br i1 %cmp.i.i11954, label %if.then.i9544, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9552.split
-
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9552.split: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9552
-  %call8.i313 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %202, ptr noundef nonnull %call3986) #24
-  br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9545
+  br i1 %cmp.i.i11954, label %if.then.i9544, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9545
 
 if.then.i9544:                                    ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9552
   call void @_ZN2v812api_internal12ToLocalEmptyEv() #24
-  %call8.i314 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %202, ptr noundef null) #24
   br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9545
 
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9545: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9552.split, %if.then.i9544
-  %storemerge960 = phi ptr [ %call8.i313, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9552.split ], [ %call8.i314, %if.then.i9544 ]
-  store ptr %storemerge960, ptr %ipv4_string_, align 8
+_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9545: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9552, %if.then.i9544
+  %call3986.sink = phi ptr [ null, %if.then.i9544 ], [ %call3986, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9552 ]
+  %call8.i313 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %202, ptr noundef %call3986.sink) #24
+  store ptr %call8.i313, ptr %ipv4_string_, align 8
   %ipv6_string_ = getelementptr inbounds i8, ptr %this, i64 1200
   %203 = load ptr, ptr %isolate_, align 8
   %call4002 = call ptr @_ZN2v86String14NewFromOneByteEPNS_7IsolateEPKhNS_13NewStringTypeEi(ptr noundef %203, ptr noundef nonnull @.str.730, i32 noundef 1, i32 noundef 4) #24
   %cmp.i.i11959 = icmp eq ptr %call4002, null
-  br i1 %cmp.i.i11959, label %if.then.i9537, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9545.split
-
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9545.split: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9545
-  %call8.i315 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %203, ptr noundef nonnull %call4002) #24
-  br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9538
+  br i1 %cmp.i.i11959, label %if.then.i9537, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9538
 
 if.then.i9537:                                    ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9545
   call void @_ZN2v812api_internal12ToLocalEmptyEv() #24
-  %call8.i316 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %203, ptr noundef null) #24
   br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9538
 
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9538: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9545.split, %if.then.i9537
-  %storemerge961 = phi ptr [ %call8.i315, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9545.split ], [ %call8.i316, %if.then.i9537 ]
-  store ptr %storemerge961, ptr %ipv6_string_, align 8
+_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9538: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9545, %if.then.i9537
+  %call4002.sink = phi ptr [ null, %if.then.i9537 ], [ %call4002, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9545 ]
+  %call8.i315 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %203, ptr noundef %call4002.sink) #24
+  store ptr %call8.i315, ptr %ipv6_string_, align 8
   %isclosing_string_ = getelementptr inbounds i8, ptr %this, i64 1208
   %204 = load ptr, ptr %isolate_, align 8
   %call4018 = call ptr @_ZN2v86String14NewFromOneByteEPNS_7IsolateEPKhNS_13NewStringTypeEi(ptr noundef %204, ptr noundef nonnull @.str.731, i32 noundef 1, i32 noundef 9) #24
   %cmp.i.i11964 = icmp eq ptr %call4018, null
-  br i1 %cmp.i.i11964, label %if.then.i9530, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9538.split
-
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9538.split: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9538
-  %call8.i317 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %204, ptr noundef nonnull %call4018) #24
-  br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9531
+  br i1 %cmp.i.i11964, label %if.then.i9530, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9531
 
 if.then.i9530:                                    ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9538
   call void @_ZN2v812api_internal12ToLocalEmptyEv() #24
-  %call8.i318 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %204, ptr noundef null) #24
   br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9531
 
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9531: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9538.split, %if.then.i9530
-  %storemerge962 = phi ptr [ %call8.i317, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9538.split ], [ %call8.i318, %if.then.i9530 ]
-  store ptr %storemerge962, ptr %isclosing_string_, align 8
+_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9531: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9538, %if.then.i9530
+  %call4018.sink = phi ptr [ null, %if.then.i9530 ], [ %call4018, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9538 ]
+  %call8.i317 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %204, ptr noundef %call4018.sink) #24
+  store ptr %call8.i317, ptr %isclosing_string_, align 8
   %issuer_string_ = getelementptr inbounds i8, ptr %this, i64 1216
   %205 = load ptr, ptr %isolate_, align 8
   %call4034 = call ptr @_ZN2v86String14NewFromOneByteEPNS_7IsolateEPKhNS_13NewStringTypeEi(ptr noundef %205, ptr noundef nonnull @.str.732, i32 noundef 1, i32 noundef 6) #24
   %cmp.i.i11969 = icmp eq ptr %call4034, null
-  br i1 %cmp.i.i11969, label %if.then.i9523, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9531.split
-
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9531.split: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9531
-  %call8.i319 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %205, ptr noundef nonnull %call4034) #24
-  br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9524
+  br i1 %cmp.i.i11969, label %if.then.i9523, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9524
 
 if.then.i9523:                                    ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9531
   call void @_ZN2v812api_internal12ToLocalEmptyEv() #24
-  %call8.i320 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %205, ptr noundef null) #24
   br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9524
 
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9524: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9531.split, %if.then.i9523
-  %storemerge963 = phi ptr [ %call8.i319, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9531.split ], [ %call8.i320, %if.then.i9523 ]
-  store ptr %storemerge963, ptr %issuer_string_, align 8
+_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9524: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9531, %if.then.i9523
+  %call4034.sink = phi ptr [ null, %if.then.i9523 ], [ %call4034, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9531 ]
+  %call8.i319 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %205, ptr noundef %call4034.sink) #24
+  store ptr %call8.i319, ptr %issuer_string_, align 8
   %issuercert_string_ = getelementptr inbounds i8, ptr %this, i64 1224
   %206 = load ptr, ptr %isolate_, align 8
   %call4050 = call ptr @_ZN2v86String14NewFromOneByteEPNS_7IsolateEPKhNS_13NewStringTypeEi(ptr noundef %206, ptr noundef nonnull @.str.733, i32 noundef 1, i32 noundef 17) #24
   %cmp.i.i11974 = icmp eq ptr %call4050, null
-  br i1 %cmp.i.i11974, label %if.then.i9516, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9524.split
-
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9524.split: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9524
-  %call8.i321 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %206, ptr noundef nonnull %call4050) #24
-  br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9517
+  br i1 %cmp.i.i11974, label %if.then.i9516, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9517
 
 if.then.i9516:                                    ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9524
   call void @_ZN2v812api_internal12ToLocalEmptyEv() #24
-  %call8.i322 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %206, ptr noundef null) #24
   br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9517
 
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9517: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9524.split, %if.then.i9516
-  %storemerge964 = phi ptr [ %call8.i321, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9524.split ], [ %call8.i322, %if.then.i9516 ]
-  store ptr %storemerge964, ptr %issuercert_string_, align 8
+_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9517: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9524, %if.then.i9516
+  %call4050.sink = phi ptr [ null, %if.then.i9516 ], [ %call4050, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9524 ]
+  %call8.i321 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %206, ptr noundef %call4050.sink) #24
+  store ptr %call8.i321, ptr %issuercert_string_, align 8
   %jwk_crv_string_ = getelementptr inbounds i8, ptr %this, i64 1232
   %207 = load ptr, ptr %isolate_, align 8
   %call4066 = call ptr @_ZN2v86String14NewFromOneByteEPNS_7IsolateEPKhNS_13NewStringTypeEi(ptr noundef %207, ptr noundef nonnull @.str.734, i32 noundef 1, i32 noundef 3) #24
   %cmp.i.i11979 = icmp eq ptr %call4066, null
-  br i1 %cmp.i.i11979, label %if.then.i9509, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9517.split
-
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9517.split: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9517
-  %call8.i323 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %207, ptr noundef nonnull %call4066) #24
-  br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9510
+  br i1 %cmp.i.i11979, label %if.then.i9509, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9510
 
 if.then.i9509:                                    ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9517
   call void @_ZN2v812api_internal12ToLocalEmptyEv() #24
-  %call8.i324 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %207, ptr noundef null) #24
   br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9510
 
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9510: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9517.split, %if.then.i9509
-  %storemerge965 = phi ptr [ %call8.i323, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9517.split ], [ %call8.i324, %if.then.i9509 ]
-  store ptr %storemerge965, ptr %jwk_crv_string_, align 8
+_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9510: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9517, %if.then.i9509
+  %call4066.sink = phi ptr [ null, %if.then.i9509 ], [ %call4066, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9517 ]
+  %call8.i323 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %207, ptr noundef %call4066.sink) #24
+  store ptr %call8.i323, ptr %jwk_crv_string_, align 8
   %jwk_d_string_ = getelementptr inbounds i8, ptr %this, i64 1240
   %208 = load ptr, ptr %isolate_, align 8
   %call4082 = call ptr @_ZN2v86String14NewFromOneByteEPNS_7IsolateEPKhNS_13NewStringTypeEi(ptr noundef %208, ptr noundef nonnull @.str.735, i32 noundef 1, i32 noundef 1) #24
   %cmp.i.i11984 = icmp eq ptr %call4082, null
-  br i1 %cmp.i.i11984, label %if.then.i9502, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9510.split
-
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9510.split: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9510
-  %call8.i325 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %208, ptr noundef nonnull %call4082) #24
-  br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9503
+  br i1 %cmp.i.i11984, label %if.then.i9502, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9503
 
 if.then.i9502:                                    ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9510
   call void @_ZN2v812api_internal12ToLocalEmptyEv() #24
-  %call8.i326 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %208, ptr noundef null) #24
   br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9503
 
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9503: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9510.split, %if.then.i9502
-  %storemerge966 = phi ptr [ %call8.i325, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9510.split ], [ %call8.i326, %if.then.i9502 ]
-  store ptr %storemerge966, ptr %jwk_d_string_, align 8
+_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9503: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9510, %if.then.i9502
+  %call4082.sink = phi ptr [ null, %if.then.i9502 ], [ %call4082, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9510 ]
+  %call8.i325 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %208, ptr noundef %call4082.sink) #24
+  store ptr %call8.i325, ptr %jwk_d_string_, align 8
   %jwk_dp_string_ = getelementptr inbounds i8, ptr %this, i64 1248
   %209 = load ptr, ptr %isolate_, align 8
   %call4098 = call ptr @_ZN2v86String14NewFromOneByteEPNS_7IsolateEPKhNS_13NewStringTypeEi(ptr noundef %209, ptr noundef nonnull @.str.736, i32 noundef 1, i32 noundef 2) #24
   %cmp.i.i11989 = icmp eq ptr %call4098, null
-  br i1 %cmp.i.i11989, label %if.then.i9495, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9503.split
-
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9503.split: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9503
-  %call8.i327 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %209, ptr noundef nonnull %call4098) #24
-  br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9496
+  br i1 %cmp.i.i11989, label %if.then.i9495, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9496
 
 if.then.i9495:                                    ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9503
   call void @_ZN2v812api_internal12ToLocalEmptyEv() #24
-  %call8.i328 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %209, ptr noundef null) #24
   br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9496
 
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9496: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9503.split, %if.then.i9495
-  %storemerge967 = phi ptr [ %call8.i327, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9503.split ], [ %call8.i328, %if.then.i9495 ]
-  store ptr %storemerge967, ptr %jwk_dp_string_, align 8
+_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9496: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9503, %if.then.i9495
+  %call4098.sink = phi ptr [ null, %if.then.i9495 ], [ %call4098, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9503 ]
+  %call8.i327 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %209, ptr noundef %call4098.sink) #24
+  store ptr %call8.i327, ptr %jwk_dp_string_, align 8
   %jwk_dq_string_ = getelementptr inbounds i8, ptr %this, i64 1256
   %210 = load ptr, ptr %isolate_, align 8
   %call4114 = call ptr @_ZN2v86String14NewFromOneByteEPNS_7IsolateEPKhNS_13NewStringTypeEi(ptr noundef %210, ptr noundef nonnull @.str.737, i32 noundef 1, i32 noundef 2) #24
   %cmp.i.i11994 = icmp eq ptr %call4114, null
-  br i1 %cmp.i.i11994, label %if.then.i9488, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9496.split
-
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9496.split: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9496
-  %call8.i329 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %210, ptr noundef nonnull %call4114) #24
-  br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9489
+  br i1 %cmp.i.i11994, label %if.then.i9488, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9489
 
 if.then.i9488:                                    ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9496
   call void @_ZN2v812api_internal12ToLocalEmptyEv() #24
-  %call8.i330 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %210, ptr noundef null) #24
   br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9489
 
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9489: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9496.split, %if.then.i9488
-  %storemerge968 = phi ptr [ %call8.i329, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9496.split ], [ %call8.i330, %if.then.i9488 ]
-  store ptr %storemerge968, ptr %jwk_dq_string_, align 8
+_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9489: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9496, %if.then.i9488
+  %call4114.sink = phi ptr [ null, %if.then.i9488 ], [ %call4114, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9496 ]
+  %call8.i329 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %210, ptr noundef %call4114.sink) #24
+  store ptr %call8.i329, ptr %jwk_dq_string_, align 8
   %jwk_dsa_string_ = getelementptr inbounds i8, ptr %this, i64 1264
   %211 = load ptr, ptr %isolate_, align 8
   %call4130 = call ptr @_ZN2v86String14NewFromOneByteEPNS_7IsolateEPKhNS_13NewStringTypeEi(ptr noundef %211, ptr noundef nonnull @.str.738, i32 noundef 1, i32 noundef 3) #24
   %cmp.i.i11999 = icmp eq ptr %call4130, null
-  br i1 %cmp.i.i11999, label %if.then.i9481, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9489.split
-
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9489.split: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9489
-  %call8.i331 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %211, ptr noundef nonnull %call4130) #24
-  br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9482
+  br i1 %cmp.i.i11999, label %if.then.i9481, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9482
 
 if.then.i9481:                                    ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9489
   call void @_ZN2v812api_internal12ToLocalEmptyEv() #24
-  %call8.i332 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %211, ptr noundef null) #24
   br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9482
 
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9482: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9489.split, %if.then.i9481
-  %storemerge969 = phi ptr [ %call8.i331, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9489.split ], [ %call8.i332, %if.then.i9481 ]
-  store ptr %storemerge969, ptr %jwk_dsa_string_, align 8
+_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9482: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9489, %if.then.i9481
+  %call4130.sink = phi ptr [ null, %if.then.i9481 ], [ %call4130, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9489 ]
+  %call8.i331 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %211, ptr noundef %call4130.sink) #24
+  store ptr %call8.i331, ptr %jwk_dsa_string_, align 8
   %jwk_e_string_ = getelementptr inbounds i8, ptr %this, i64 1272
   %212 = load ptr, ptr %isolate_, align 8
   %call4146 = call ptr @_ZN2v86String14NewFromOneByteEPNS_7IsolateEPKhNS_13NewStringTypeEi(ptr noundef %212, ptr noundef nonnull @.str.739, i32 noundef 1, i32 noundef 1) #24
   %cmp.i.i12004 = icmp eq ptr %call4146, null
-  br i1 %cmp.i.i12004, label %if.then.i9474, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9482.split
-
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9482.split: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9482
-  %call8.i333 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %212, ptr noundef nonnull %call4146) #24
-  br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9475
+  br i1 %cmp.i.i12004, label %if.then.i9474, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9475
 
 if.then.i9474:                                    ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9482
   call void @_ZN2v812api_internal12ToLocalEmptyEv() #24
-  %call8.i334 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %212, ptr noundef null) #24
   br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9475
 
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9475: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9482.split, %if.then.i9474
-  %storemerge970 = phi ptr [ %call8.i333, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9482.split ], [ %call8.i334, %if.then.i9474 ]
-  store ptr %storemerge970, ptr %jwk_e_string_, align 8
+_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9475: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9482, %if.then.i9474
+  %call4146.sink = phi ptr [ null, %if.then.i9474 ], [ %call4146, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9482 ]
+  %call8.i333 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %212, ptr noundef %call4146.sink) #24
+  store ptr %call8.i333, ptr %jwk_e_string_, align 8
   %jwk_ec_string_ = getelementptr inbounds i8, ptr %this, i64 1280
   %213 = load ptr, ptr %isolate_, align 8
   %call4162 = call ptr @_ZN2v86String14NewFromOneByteEPNS_7IsolateEPKhNS_13NewStringTypeEi(ptr noundef %213, ptr noundef nonnull @.str.740, i32 noundef 1, i32 noundef 2) #24
   %cmp.i.i12009 = icmp eq ptr %call4162, null
-  br i1 %cmp.i.i12009, label %if.then.i9467, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9475.split
-
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9475.split: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9475
-  %call8.i335 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %213, ptr noundef nonnull %call4162) #24
-  br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9468
+  br i1 %cmp.i.i12009, label %if.then.i9467, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9468
 
 if.then.i9467:                                    ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9475
   call void @_ZN2v812api_internal12ToLocalEmptyEv() #24
-  %call8.i336 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %213, ptr noundef null) #24
   br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9468
 
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9468: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9475.split, %if.then.i9467
-  %storemerge971 = phi ptr [ %call8.i335, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9475.split ], [ %call8.i336, %if.then.i9467 ]
-  store ptr %storemerge971, ptr %jwk_ec_string_, align 8
+_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9468: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9475, %if.then.i9467
+  %call4162.sink = phi ptr [ null, %if.then.i9467 ], [ %call4162, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9475 ]
+  %call8.i335 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %213, ptr noundef %call4162.sink) #24
+  store ptr %call8.i335, ptr %jwk_ec_string_, align 8
   %jwk_g_string_ = getelementptr inbounds i8, ptr %this, i64 1288
   %214 = load ptr, ptr %isolate_, align 8
   %call4178 = call ptr @_ZN2v86String14NewFromOneByteEPNS_7IsolateEPKhNS_13NewStringTypeEi(ptr noundef %214, ptr noundef nonnull @.str.741, i32 noundef 1, i32 noundef 1) #24
   %cmp.i.i12014 = icmp eq ptr %call4178, null
-  br i1 %cmp.i.i12014, label %if.then.i9460, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9468.split
-
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9468.split: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9468
-  %call8.i337 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %214, ptr noundef nonnull %call4178) #24
-  br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9461
+  br i1 %cmp.i.i12014, label %if.then.i9460, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9461
 
 if.then.i9460:                                    ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9468
   call void @_ZN2v812api_internal12ToLocalEmptyEv() #24
-  %call8.i338 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %214, ptr noundef null) #24
   br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9461
 
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9461: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9468.split, %if.then.i9460
-  %storemerge972 = phi ptr [ %call8.i337, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9468.split ], [ %call8.i338, %if.then.i9460 ]
-  store ptr %storemerge972, ptr %jwk_g_string_, align 8
+_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9461: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9468, %if.then.i9460
+  %call4178.sink = phi ptr [ null, %if.then.i9460 ], [ %call4178, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9468 ]
+  %call8.i337 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %214, ptr noundef %call4178.sink) #24
+  store ptr %call8.i337, ptr %jwk_g_string_, align 8
   %jwk_k_string_ = getelementptr inbounds i8, ptr %this, i64 1296
   %215 = load ptr, ptr %isolate_, align 8
   %call4194 = call ptr @_ZN2v86String14NewFromOneByteEPNS_7IsolateEPKhNS_13NewStringTypeEi(ptr noundef %215, ptr noundef nonnull @.str.742, i32 noundef 1, i32 noundef 1) #24
   %cmp.i.i12019 = icmp eq ptr %call4194, null
-  br i1 %cmp.i.i12019, label %if.then.i9453, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9461.split
-
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9461.split: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9461
-  %call8.i339 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %215, ptr noundef nonnull %call4194) #24
-  br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9454
+  br i1 %cmp.i.i12019, label %if.then.i9453, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9454
 
 if.then.i9453:                                    ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9461
   call void @_ZN2v812api_internal12ToLocalEmptyEv() #24
-  %call8.i340 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %215, ptr noundef null) #24
   br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9454
 
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9454: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9461.split, %if.then.i9453
-  %storemerge973 = phi ptr [ %call8.i339, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9461.split ], [ %call8.i340, %if.then.i9453 ]
-  store ptr %storemerge973, ptr %jwk_k_string_, align 8
+_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9454: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9461, %if.then.i9453
+  %call4194.sink = phi ptr [ null, %if.then.i9453 ], [ %call4194, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9461 ]
+  %call8.i339 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %215, ptr noundef %call4194.sink) #24
+  store ptr %call8.i339, ptr %jwk_k_string_, align 8
   %jwk_p_string_ = getelementptr inbounds i8, ptr %this, i64 1304
   %216 = load ptr, ptr %isolate_, align 8
   %call4210 = call ptr @_ZN2v86String14NewFromOneByteEPNS_7IsolateEPKhNS_13NewStringTypeEi(ptr noundef %216, ptr noundef nonnull @.str.743, i32 noundef 1, i32 noundef 1) #24
   %cmp.i.i12024 = icmp eq ptr %call4210, null
-  br i1 %cmp.i.i12024, label %if.then.i9446, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9454.split
-
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9454.split: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9454
-  %call8.i341 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %216, ptr noundef nonnull %call4210) #24
-  br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9447
+  br i1 %cmp.i.i12024, label %if.then.i9446, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9447
 
 if.then.i9446:                                    ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9454
   call void @_ZN2v812api_internal12ToLocalEmptyEv() #24
-  %call8.i342 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %216, ptr noundef null) #24
   br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9447
 
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9447: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9454.split, %if.then.i9446
-  %storemerge974 = phi ptr [ %call8.i341, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9454.split ], [ %call8.i342, %if.then.i9446 ]
-  store ptr %storemerge974, ptr %jwk_p_string_, align 8
+_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9447: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9454, %if.then.i9446
+  %call4210.sink = phi ptr [ null, %if.then.i9446 ], [ %call4210, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9454 ]
+  %call8.i341 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %216, ptr noundef %call4210.sink) #24
+  store ptr %call8.i341, ptr %jwk_p_string_, align 8
   %jwk_q_string_ = getelementptr inbounds i8, ptr %this, i64 1312
   %217 = load ptr, ptr %isolate_, align 8
   %call4226 = call ptr @_ZN2v86String14NewFromOneByteEPNS_7IsolateEPKhNS_13NewStringTypeEi(ptr noundef %217, ptr noundef nonnull @.str.744, i32 noundef 1, i32 noundef 1) #24
   %cmp.i.i12029 = icmp eq ptr %call4226, null
-  br i1 %cmp.i.i12029, label %if.then.i9439, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9447.split
-
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9447.split: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9447
-  %call8.i343 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %217, ptr noundef nonnull %call4226) #24
-  br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9440
+  br i1 %cmp.i.i12029, label %if.then.i9439, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9440
 
 if.then.i9439:                                    ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9447
   call void @_ZN2v812api_internal12ToLocalEmptyEv() #24
-  %call8.i344 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %217, ptr noundef null) #24
   br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9440
 
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9440: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9447.split, %if.then.i9439
-  %storemerge975 = phi ptr [ %call8.i343, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9447.split ], [ %call8.i344, %if.then.i9439 ]
-  store ptr %storemerge975, ptr %jwk_q_string_, align 8
+_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9440: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9447, %if.then.i9439
+  %call4226.sink = phi ptr [ null, %if.then.i9439 ], [ %call4226, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9447 ]
+  %call8.i343 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %217, ptr noundef %call4226.sink) #24
+  store ptr %call8.i343, ptr %jwk_q_string_, align 8
   %jwk_qi_string_ = getelementptr inbounds i8, ptr %this, i64 1320
   %218 = load ptr, ptr %isolate_, align 8
   %call4242 = call ptr @_ZN2v86String14NewFromOneByteEPNS_7IsolateEPKhNS_13NewStringTypeEi(ptr noundef %218, ptr noundef nonnull @.str.745, i32 noundef 1, i32 noundef 2) #24
   %cmp.i.i12034 = icmp eq ptr %call4242, null
-  br i1 %cmp.i.i12034, label %if.then.i9432, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9440.split
-
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9440.split: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9440
-  %call8.i345 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %218, ptr noundef nonnull %call4242) #24
-  br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9433
+  br i1 %cmp.i.i12034, label %if.then.i9432, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9433
 
 if.then.i9432:                                    ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9440
   call void @_ZN2v812api_internal12ToLocalEmptyEv() #24
-  %call8.i346 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %218, ptr noundef null) #24
   br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9433
 
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9433: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9440.split, %if.then.i9432
-  %storemerge976 = phi ptr [ %call8.i345, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9440.split ], [ %call8.i346, %if.then.i9432 ]
-  store ptr %storemerge976, ptr %jwk_qi_string_, align 8
+_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9433: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9440, %if.then.i9432
+  %call4242.sink = phi ptr [ null, %if.then.i9432 ], [ %call4242, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9440 ]
+  %call8.i345 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %218, ptr noundef %call4242.sink) #24
+  store ptr %call8.i345, ptr %jwk_qi_string_, align 8
   %jwk_kty_string_ = getelementptr inbounds i8, ptr %this, i64 1328
   %219 = load ptr, ptr %isolate_, align 8
   %call4258 = call ptr @_ZN2v86String14NewFromOneByteEPNS_7IsolateEPKhNS_13NewStringTypeEi(ptr noundef %219, ptr noundef nonnull @.str.746, i32 noundef 1, i32 noundef 3) #24
   %cmp.i.i12039 = icmp eq ptr %call4258, null
-  br i1 %cmp.i.i12039, label %if.then.i9425, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9433.split
-
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9433.split: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9433
-  %call8.i347 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %219, ptr noundef nonnull %call4258) #24
-  br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9426
+  br i1 %cmp.i.i12039, label %if.then.i9425, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9426
 
 if.then.i9425:                                    ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9433
   call void @_ZN2v812api_internal12ToLocalEmptyEv() #24
-  %call8.i348 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %219, ptr noundef null) #24
   br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9426
 
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9426: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9433.split, %if.then.i9425
-  %storemerge977 = phi ptr [ %call8.i347, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9433.split ], [ %call8.i348, %if.then.i9425 ]
-  store ptr %storemerge977, ptr %jwk_kty_string_, align 8
+_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9426: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9433, %if.then.i9425
+  %call4258.sink = phi ptr [ null, %if.then.i9425 ], [ %call4258, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9433 ]
+  %call8.i347 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %219, ptr noundef %call4258.sink) #24
+  store ptr %call8.i347, ptr %jwk_kty_string_, align 8
   %jwk_n_string_ = getelementptr inbounds i8, ptr %this, i64 1336
   %220 = load ptr, ptr %isolate_, align 8
   %call4274 = call ptr @_ZN2v86String14NewFromOneByteEPNS_7IsolateEPKhNS_13NewStringTypeEi(ptr noundef %220, ptr noundef nonnull @.str.747, i32 noundef 1, i32 noundef 1) #24
   %cmp.i.i12044 = icmp eq ptr %call4274, null
-  br i1 %cmp.i.i12044, label %if.then.i9418, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9426.split
-
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9426.split: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9426
-  %call8.i349 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %220, ptr noundef nonnull %call4274) #24
-  br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9419
+  br i1 %cmp.i.i12044, label %if.then.i9418, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9419
 
 if.then.i9418:                                    ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9426
   call void @_ZN2v812api_internal12ToLocalEmptyEv() #24
-  %call8.i350 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %220, ptr noundef null) #24
   br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9419
 
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9419: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9426.split, %if.then.i9418
-  %storemerge978 = phi ptr [ %call8.i349, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9426.split ], [ %call8.i350, %if.then.i9418 ]
-  store ptr %storemerge978, ptr %jwk_n_string_, align 8
+_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9419: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9426, %if.then.i9418
+  %call4274.sink = phi ptr [ null, %if.then.i9418 ], [ %call4274, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9426 ]
+  %call8.i349 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %220, ptr noundef %call4274.sink) #24
+  store ptr %call8.i349, ptr %jwk_n_string_, align 8
   %jwk_oct_string_ = getelementptr inbounds i8, ptr %this, i64 1344
   %221 = load ptr, ptr %isolate_, align 8
   %call4290 = call ptr @_ZN2v86String14NewFromOneByteEPNS_7IsolateEPKhNS_13NewStringTypeEi(ptr noundef %221, ptr noundef nonnull @.str.748, i32 noundef 1, i32 noundef 3) #24
   %cmp.i.i12049 = icmp eq ptr %call4290, null
-  br i1 %cmp.i.i12049, label %if.then.i9411, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9419.split
-
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9419.split: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9419
-  %call8.i351 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %221, ptr noundef nonnull %call4290) #24
-  br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9412
+  br i1 %cmp.i.i12049, label %if.then.i9411, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9412
 
 if.then.i9411:                                    ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9419
   call void @_ZN2v812api_internal12ToLocalEmptyEv() #24
-  %call8.i352 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %221, ptr noundef null) #24
   br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9412
 
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9412: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9419.split, %if.then.i9411
-  %storemerge979 = phi ptr [ %call8.i351, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9419.split ], [ %call8.i352, %if.then.i9411 ]
-  store ptr %storemerge979, ptr %jwk_oct_string_, align 8
+_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9412: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9419, %if.then.i9411
+  %call4290.sink = phi ptr [ null, %if.then.i9411 ], [ %call4290, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9419 ]
+  %call8.i351 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %221, ptr noundef %call4290.sink) #24
+  store ptr %call8.i351, ptr %jwk_oct_string_, align 8
   %jwk_okp_string_ = getelementptr inbounds i8, ptr %this, i64 1352
   %222 = load ptr, ptr %isolate_, align 8
   %call4306 = call ptr @_ZN2v86String14NewFromOneByteEPNS_7IsolateEPKhNS_13NewStringTypeEi(ptr noundef %222, ptr noundef nonnull @.str.749, i32 noundef 1, i32 noundef 3) #24
   %cmp.i.i12054 = icmp eq ptr %call4306, null
-  br i1 %cmp.i.i12054, label %if.then.i9404, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9412.split
-
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9412.split: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9412
-  %call8.i353 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %222, ptr noundef nonnull %call4306) #24
-  br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9405
+  br i1 %cmp.i.i12054, label %if.then.i9404, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9405
 
 if.then.i9404:                                    ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9412
   call void @_ZN2v812api_internal12ToLocalEmptyEv() #24
-  %call8.i354 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %222, ptr noundef null) #24
   br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9405
 
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9405: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9412.split, %if.then.i9404
-  %storemerge980 = phi ptr [ %call8.i353, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9412.split ], [ %call8.i354, %if.then.i9404 ]
-  store ptr %storemerge980, ptr %jwk_okp_string_, align 8
+_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9405: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9412, %if.then.i9404
+  %call4306.sink = phi ptr [ null, %if.then.i9404 ], [ %call4306, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9412 ]
+  %call8.i353 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %222, ptr noundef %call4306.sink) #24
+  store ptr %call8.i353, ptr %jwk_okp_string_, align 8
   %jwk_rsa_string_ = getelementptr inbounds i8, ptr %this, i64 1360
   %223 = load ptr, ptr %isolate_, align 8
   %call4322 = call ptr @_ZN2v86String14NewFromOneByteEPNS_7IsolateEPKhNS_13NewStringTypeEi(ptr noundef %223, ptr noundef nonnull @.str.750, i32 noundef 1, i32 noundef 3) #24
   %cmp.i.i12059 = icmp eq ptr %call4322, null
-  br i1 %cmp.i.i12059, label %if.then.i9397, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9405.split
-
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9405.split: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9405
-  %call8.i355 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %223, ptr noundef nonnull %call4322) #24
-  br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9398
+  br i1 %cmp.i.i12059, label %if.then.i9397, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9398
 
 if.then.i9397:                                    ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9405
   call void @_ZN2v812api_internal12ToLocalEmptyEv() #24
-  %call8.i356 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %223, ptr noundef null) #24
   br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9398
 
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9398: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9405.split, %if.then.i9397
-  %storemerge981 = phi ptr [ %call8.i355, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9405.split ], [ %call8.i356, %if.then.i9397 ]
-  store ptr %storemerge981, ptr %jwk_rsa_string_, align 8
+_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9398: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9405, %if.then.i9397
+  %call4322.sink = phi ptr [ null, %if.then.i9397 ], [ %call4322, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9405 ]
+  %call8.i355 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %223, ptr noundef %call4322.sink) #24
+  store ptr %call8.i355, ptr %jwk_rsa_string_, align 8
   %jwk_x_string_ = getelementptr inbounds i8, ptr %this, i64 1368
   %224 = load ptr, ptr %isolate_, align 8
   %call4338 = call ptr @_ZN2v86String14NewFromOneByteEPNS_7IsolateEPKhNS_13NewStringTypeEi(ptr noundef %224, ptr noundef nonnull @.str.751, i32 noundef 1, i32 noundef 1) #24
   %cmp.i.i12064 = icmp eq ptr %call4338, null
-  br i1 %cmp.i.i12064, label %if.then.i9390, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9398.split
-
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9398.split: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9398
-  %call8.i357 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %224, ptr noundef nonnull %call4338) #24
-  br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9391
+  br i1 %cmp.i.i12064, label %if.then.i9390, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9391
 
 if.then.i9390:                                    ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9398
   call void @_ZN2v812api_internal12ToLocalEmptyEv() #24
-  %call8.i358 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %224, ptr noundef null) #24
   br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9391
 
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9391: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9398.split, %if.then.i9390
-  %storemerge982 = phi ptr [ %call8.i357, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9398.split ], [ %call8.i358, %if.then.i9390 ]
-  store ptr %storemerge982, ptr %jwk_x_string_, align 8
+_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9391: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9398, %if.then.i9390
+  %call4338.sink = phi ptr [ null, %if.then.i9390 ], [ %call4338, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9398 ]
+  %call8.i357 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %224, ptr noundef %call4338.sink) #24
+  store ptr %call8.i357, ptr %jwk_x_string_, align 8
   %jwk_y_string_ = getelementptr inbounds i8, ptr %this, i64 1376
   %225 = load ptr, ptr %isolate_, align 8
   %call4354 = call ptr @_ZN2v86String14NewFromOneByteEPNS_7IsolateEPKhNS_13NewStringTypeEi(ptr noundef %225, ptr noundef nonnull @.str.752, i32 noundef 1, i32 noundef 1) #24
   %cmp.i.i12069 = icmp eq ptr %call4354, null
-  br i1 %cmp.i.i12069, label %if.then.i9383, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9391.split
-
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9391.split: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9391
-  %call8.i359 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %225, ptr noundef nonnull %call4354) #24
-  br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9384
+  br i1 %cmp.i.i12069, label %if.then.i9383, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9384
 
 if.then.i9383:                                    ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9391
   call void @_ZN2v812api_internal12ToLocalEmptyEv() #24
-  %call8.i360 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %225, ptr noundef null) #24
   br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9384
 
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9384: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9391.split, %if.then.i9383
-  %storemerge983 = phi ptr [ %call8.i359, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9391.split ], [ %call8.i360, %if.then.i9383 ]
-  store ptr %storemerge983, ptr %jwk_y_string_, align 8
+_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9384: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9391, %if.then.i9383
+  %call4354.sink = phi ptr [ null, %if.then.i9383 ], [ %call4354, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9391 ]
+  %call8.i359 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %225, ptr noundef %call4354.sink) #24
+  store ptr %call8.i359, ptr %jwk_y_string_, align 8
   %kill_signal_string_ = getelementptr inbounds i8, ptr %this, i64 1384
   %226 = load ptr, ptr %isolate_, align 8
   %call4370 = call ptr @_ZN2v86String14NewFromOneByteEPNS_7IsolateEPKhNS_13NewStringTypeEi(ptr noundef %226, ptr noundef nonnull @.str.753, i32 noundef 1, i32 noundef 10) #24
   %cmp.i.i12074 = icmp eq ptr %call4370, null
-  br i1 %cmp.i.i12074, label %if.then.i9376, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9384.split
-
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9384.split: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9384
-  %call8.i361 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %226, ptr noundef nonnull %call4370) #24
-  br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9377
+  br i1 %cmp.i.i12074, label %if.then.i9376, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9377
 
 if.then.i9376:                                    ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9384
   call void @_ZN2v812api_internal12ToLocalEmptyEv() #24
-  %call8.i362 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %226, ptr noundef null) #24
   br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9377
 
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9377: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9384.split, %if.then.i9376
-  %storemerge984 = phi ptr [ %call8.i361, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9384.split ], [ %call8.i362, %if.then.i9376 ]
-  store ptr %storemerge984, ptr %kill_signal_string_, align 8
+_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9377: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9384, %if.then.i9376
+  %call4370.sink = phi ptr [ null, %if.then.i9376 ], [ %call4370, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9384 ]
+  %call8.i361 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %226, ptr noundef %call4370.sink) #24
+  store ptr %call8.i361, ptr %kill_signal_string_, align 8
   %kind_string_ = getelementptr inbounds i8, ptr %this, i64 1392
   %227 = load ptr, ptr %isolate_, align 8
   %call4386 = call ptr @_ZN2v86String14NewFromOneByteEPNS_7IsolateEPKhNS_13NewStringTypeEi(ptr noundef %227, ptr noundef nonnull @.str.754, i32 noundef 1, i32 noundef 4) #24
   %cmp.i.i12079 = icmp eq ptr %call4386, null
-  br i1 %cmp.i.i12079, label %if.then.i9369, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9377.split
-
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9377.split: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9377
-  %call8.i363 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %227, ptr noundef nonnull %call4386) #24
-  br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9370
+  br i1 %cmp.i.i12079, label %if.then.i9369, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9370
 
 if.then.i9369:                                    ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9377
   call void @_ZN2v812api_internal12ToLocalEmptyEv() #24
-  %call8.i364 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %227, ptr noundef null) #24
   br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9370
 
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9370: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9377.split, %if.then.i9369
-  %storemerge985 = phi ptr [ %call8.i363, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9377.split ], [ %call8.i364, %if.then.i9369 ]
-  store ptr %storemerge985, ptr %kind_string_, align 8
+_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9370: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9377, %if.then.i9369
+  %call4386.sink = phi ptr [ null, %if.then.i9369 ], [ %call4386, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9377 ]
+  %call8.i363 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %227, ptr noundef %call4386.sink) #24
+  store ptr %call8.i363, ptr %kind_string_, align 8
   %length_string_ = getelementptr inbounds i8, ptr %this, i64 1400
   %228 = load ptr, ptr %isolate_, align 8
   %call4402 = call ptr @_ZN2v86String14NewFromOneByteEPNS_7IsolateEPKhNS_13NewStringTypeEi(ptr noundef %228, ptr noundef nonnull @.str.755, i32 noundef 1, i32 noundef 6) #24
   %cmp.i.i12084 = icmp eq ptr %call4402, null
-  br i1 %cmp.i.i12084, label %if.then.i9362, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9370.split
-
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9370.split: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9370
-  %call8.i365 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %228, ptr noundef nonnull %call4402) #24
-  br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9363
+  br i1 %cmp.i.i12084, label %if.then.i9362, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9363
 
 if.then.i9362:                                    ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9370
   call void @_ZN2v812api_internal12ToLocalEmptyEv() #24
-  %call8.i366 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %228, ptr noundef null) #24
   br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9363
 
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9363: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9370.split, %if.then.i9362
-  %storemerge986 = phi ptr [ %call8.i365, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9370.split ], [ %call8.i366, %if.then.i9362 ]
-  store ptr %storemerge986, ptr %length_string_, align 8
+_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9363: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9370, %if.then.i9362
+  %call4402.sink = phi ptr [ null, %if.then.i9362 ], [ %call4402, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9370 ]
+  %call8.i365 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %228, ptr noundef %call4402.sink) #24
+  store ptr %call8.i365, ptr %length_string_, align 8
   %library_string_ = getelementptr inbounds i8, ptr %this, i64 1408
   %229 = load ptr, ptr %isolate_, align 8
   %call4418 = call ptr @_ZN2v86String14NewFromOneByteEPNS_7IsolateEPKhNS_13NewStringTypeEi(ptr noundef %229, ptr noundef nonnull @.str.756, i32 noundef 1, i32 noundef 7) #24
   %cmp.i.i12089 = icmp eq ptr %call4418, null
-  br i1 %cmp.i.i12089, label %if.then.i9355, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9363.split
-
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9363.split: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9363
-  %call8.i367 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %229, ptr noundef nonnull %call4418) #24
-  br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9356
+  br i1 %cmp.i.i12089, label %if.then.i9355, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9356
 
 if.then.i9355:                                    ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9363
   call void @_ZN2v812api_internal12ToLocalEmptyEv() #24
-  %call8.i368 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %229, ptr noundef null) #24
   br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9356
 
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9356: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9363.split, %if.then.i9355
-  %storemerge987 = phi ptr [ %call8.i367, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9363.split ], [ %call8.i368, %if.then.i9355 ]
-  store ptr %storemerge987, ptr %library_string_, align 8
+_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9356: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9363, %if.then.i9355
+  %call4418.sink = phi ptr [ null, %if.then.i9355 ], [ %call4418, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9363 ]
+  %call8.i367 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %229, ptr noundef %call4418.sink) #24
+  store ptr %call8.i367, ptr %library_string_, align 8
   %mac_string_ = getelementptr inbounds i8, ptr %this, i64 1416
   %230 = load ptr, ptr %isolate_, align 8
   %call4434 = call ptr @_ZN2v86String14NewFromOneByteEPNS_7IsolateEPKhNS_13NewStringTypeEi(ptr noundef %230, ptr noundef nonnull @.str.757, i32 noundef 1, i32 noundef 3) #24
   %cmp.i.i12094 = icmp eq ptr %call4434, null
-  br i1 %cmp.i.i12094, label %if.then.i9348, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9356.split
-
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9356.split: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9356
-  %call8.i369 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %230, ptr noundef nonnull %call4434) #24
-  br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9349
+  br i1 %cmp.i.i12094, label %if.then.i9348, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9349
 
 if.then.i9348:                                    ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9356
   call void @_ZN2v812api_internal12ToLocalEmptyEv() #24
-  %call8.i370 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %230, ptr noundef null) #24
   br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9349
 
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9349: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9356.split, %if.then.i9348
-  %storemerge988 = phi ptr [ %call8.i369, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9356.split ], [ %call8.i370, %if.then.i9348 ]
-  store ptr %storemerge988, ptr %mac_string_, align 8
+_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9349: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9356, %if.then.i9348
+  %call4434.sink = phi ptr [ null, %if.then.i9348 ], [ %call4434, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9356 ]
+  %call8.i369 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %230, ptr noundef %call4434.sink) #24
+  store ptr %call8.i369, ptr %mac_string_, align 8
   %max_buffer_string_ = getelementptr inbounds i8, ptr %this, i64 1424
   %231 = load ptr, ptr %isolate_, align 8
   %call4450 = call ptr @_ZN2v86String14NewFromOneByteEPNS_7IsolateEPKhNS_13NewStringTypeEi(ptr noundef %231, ptr noundef nonnull @.str.758, i32 noundef 1, i32 noundef 9) #24
   %cmp.i.i12099 = icmp eq ptr %call4450, null
-  br i1 %cmp.i.i12099, label %if.then.i9341, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9349.split
-
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9349.split: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9349
-  %call8.i371 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %231, ptr noundef nonnull %call4450) #24
-  br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9342
+  br i1 %cmp.i.i12099, label %if.then.i9341, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9342
 
 if.then.i9341:                                    ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9349
   call void @_ZN2v812api_internal12ToLocalEmptyEv() #24
-  %call8.i372 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %231, ptr noundef null) #24
   br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9342
 
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9342: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9349.split, %if.then.i9341
-  %storemerge989 = phi ptr [ %call8.i371, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9349.split ], [ %call8.i372, %if.then.i9341 ]
-  store ptr %storemerge989, ptr %max_buffer_string_, align 8
+_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9342: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9349, %if.then.i9341
+  %call4450.sink = phi ptr [ null, %if.then.i9341 ], [ %call4450, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9349 ]
+  %call8.i371 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %231, ptr noundef %call4450.sink) #24
+  store ptr %call8.i371, ptr %max_buffer_string_, align 8
   %max_concurrent_streams_string_ = getelementptr inbounds i8, ptr %this, i64 1432
   %232 = load ptr, ptr %isolate_, align 8
   %call4466 = call ptr @_ZN2v86String14NewFromOneByteEPNS_7IsolateEPKhNS_13NewStringTypeEi(ptr noundef %232, ptr noundef nonnull @.str.759, i32 noundef 1, i32 noundef 20) #24
   %cmp.i.i12104 = icmp eq ptr %call4466, null
-  br i1 %cmp.i.i12104, label %if.then.i9334, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9342.split
-
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9342.split: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9342
-  %call8.i373 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %232, ptr noundef nonnull %call4466) #24
-  br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9335
+  br i1 %cmp.i.i12104, label %if.then.i9334, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9335
 
 if.then.i9334:                                    ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9342
   call void @_ZN2v812api_internal12ToLocalEmptyEv() #24
-  %call8.i374 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %232, ptr noundef null) #24
   br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9335
 
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9335: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9342.split, %if.then.i9334
-  %storemerge990 = phi ptr [ %call8.i373, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9342.split ], [ %call8.i374, %if.then.i9334 ]
-  store ptr %storemerge990, ptr %max_concurrent_streams_string_, align 8
+_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9335: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9342, %if.then.i9334
+  %call4466.sink = phi ptr [ null, %if.then.i9334 ], [ %call4466, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9342 ]
+  %call8.i373 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %232, ptr noundef %call4466.sink) #24
+  store ptr %call8.i373, ptr %max_concurrent_streams_string_, align 8
   %message_port_constructor_string_ = getelementptr inbounds i8, ptr %this, i64 1440
   %233 = load ptr, ptr %isolate_, align 8
   %call4482 = call ptr @_ZN2v86String14NewFromOneByteEPNS_7IsolateEPKhNS_13NewStringTypeEi(ptr noundef %233, ptr noundef nonnull @.str.760, i32 noundef 1, i32 noundef 11) #24
   %cmp.i.i12109 = icmp eq ptr %call4482, null
-  br i1 %cmp.i.i12109, label %if.then.i9327, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9335.split
-
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9335.split: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9335
-  %call8.i375 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %233, ptr noundef nonnull %call4482) #24
-  br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9328
+  br i1 %cmp.i.i12109, label %if.then.i9327, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9328
 
 if.then.i9327:                                    ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9335
   call void @_ZN2v812api_internal12ToLocalEmptyEv() #24
-  %call8.i376 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %233, ptr noundef null) #24
   br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9328
 
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9328: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9335.split, %if.then.i9327
-  %storemerge991 = phi ptr [ %call8.i375, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9335.split ], [ %call8.i376, %if.then.i9327 ]
-  store ptr %storemerge991, ptr %message_port_constructor_string_, align 8
+_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9328: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9335, %if.then.i9327
+  %call4482.sink = phi ptr [ null, %if.then.i9327 ], [ %call4482, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9335 ]
+  %call8.i375 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %233, ptr noundef %call4482.sink) #24
+  store ptr %call8.i375, ptr %message_port_constructor_string_, align 8
   %message_port_string_ = getelementptr inbounds i8, ptr %this, i64 1448
   %234 = load ptr, ptr %isolate_, align 8
   %call4498 = call ptr @_ZN2v86String14NewFromOneByteEPNS_7IsolateEPKhNS_13NewStringTypeEi(ptr noundef %234, ptr noundef nonnull @.str.761, i32 noundef 1, i32 noundef 11) #24
   %cmp.i.i12114 = icmp eq ptr %call4498, null
-  br i1 %cmp.i.i12114, label %if.then.i9320, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9328.split
-
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9328.split: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9328
-  %call8.i377 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %234, ptr noundef nonnull %call4498) #24
-  br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9321
+  br i1 %cmp.i.i12114, label %if.then.i9320, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9321
 
 if.then.i9320:                                    ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9328
   call void @_ZN2v812api_internal12ToLocalEmptyEv() #24
-  %call8.i378 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %234, ptr noundef null) #24
   br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9321
 
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9321: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9328.split, %if.then.i9320
-  %storemerge992 = phi ptr [ %call8.i377, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9328.split ], [ %call8.i378, %if.then.i9320 ]
-  store ptr %storemerge992, ptr %message_port_string_, align 8
+_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9321: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9328, %if.then.i9320
+  %call4498.sink = phi ptr [ null, %if.then.i9320 ], [ %call4498, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9328 ]
+  %call8.i377 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %234, ptr noundef %call4498.sink) #24
+  store ptr %call8.i377, ptr %message_port_string_, align 8
   %message_string_ = getelementptr inbounds i8, ptr %this, i64 1456
   %235 = load ptr, ptr %isolate_, align 8
   %call4514 = call ptr @_ZN2v86String14NewFromOneByteEPNS_7IsolateEPKhNS_13NewStringTypeEi(ptr noundef %235, ptr noundef nonnull @.str.762, i32 noundef 1, i32 noundef 7) #24
   %cmp.i.i12119 = icmp eq ptr %call4514, null
-  br i1 %cmp.i.i12119, label %if.then.i9313, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9321.split
-
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9321.split: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9321
-  %call8.i379 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %235, ptr noundef nonnull %call4514) #24
-  br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9314
+  br i1 %cmp.i.i12119, label %if.then.i9313, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9314
 
 if.then.i9313:                                    ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9321
   call void @_ZN2v812api_internal12ToLocalEmptyEv() #24
-  %call8.i380 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %235, ptr noundef null) #24
   br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9314
 
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9314: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9321.split, %if.then.i9313
-  %storemerge993 = phi ptr [ %call8.i379, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9321.split ], [ %call8.i380, %if.then.i9313 ]
-  store ptr %storemerge993, ptr %message_string_, align 8
+_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9314: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9321, %if.then.i9313
+  %call4514.sink = phi ptr [ null, %if.then.i9313 ], [ %call4514, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9321 ]
+  %call8.i379 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %235, ptr noundef %call4514.sink) #24
+  store ptr %call8.i379, ptr %message_string_, align 8
   %messageerror_string_ = getelementptr inbounds i8, ptr %this, i64 1464
   %236 = load ptr, ptr %isolate_, align 8
   %call4530 = call ptr @_ZN2v86String14NewFromOneByteEPNS_7IsolateEPKhNS_13NewStringTypeEi(ptr noundef %236, ptr noundef nonnull @.str.763, i32 noundef 1, i32 noundef 12) #24
   %cmp.i.i12124 = icmp eq ptr %call4530, null
-  br i1 %cmp.i.i12124, label %if.then.i9306, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9314.split
-
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9314.split: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9314
-  %call8.i381 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %236, ptr noundef nonnull %call4530) #24
-  br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9307
+  br i1 %cmp.i.i12124, label %if.then.i9306, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9307
 
 if.then.i9306:                                    ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9314
   call void @_ZN2v812api_internal12ToLocalEmptyEv() #24
-  %call8.i382 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %236, ptr noundef null) #24
   br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9307
 
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9307: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9314.split, %if.then.i9306
-  %storemerge994 = phi ptr [ %call8.i381, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9314.split ], [ %call8.i382, %if.then.i9306 ]
-  store ptr %storemerge994, ptr %messageerror_string_, align 8
+_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9307: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9314, %if.then.i9306
+  %call4530.sink = phi ptr [ null, %if.then.i9306 ], [ %call4530, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9314 ]
+  %call8.i381 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %236, ptr noundef %call4530.sink) #24
+  store ptr %call8.i381, ptr %messageerror_string_, align 8
   %mgf1_hash_algorithm_string_ = getelementptr inbounds i8, ptr %this, i64 1472
   %237 = load ptr, ptr %isolate_, align 8
   %call4546 = call ptr @_ZN2v86String14NewFromOneByteEPNS_7IsolateEPKhNS_13NewStringTypeEi(ptr noundef %237, ptr noundef nonnull @.str.764, i32 noundef 1, i32 noundef 17) #24
   %cmp.i.i12129 = icmp eq ptr %call4546, null
-  br i1 %cmp.i.i12129, label %if.then.i9299, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9307.split
-
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9307.split: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9307
-  %call8.i383 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %237, ptr noundef nonnull %call4546) #24
-  br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9300
+  br i1 %cmp.i.i12129, label %if.then.i9299, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9300
 
 if.then.i9299:                                    ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9307
   call void @_ZN2v812api_internal12ToLocalEmptyEv() #24
-  %call8.i384 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %237, ptr noundef null) #24
   br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9300
 
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9300: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9307.split, %if.then.i9299
-  %storemerge995 = phi ptr [ %call8.i383, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9307.split ], [ %call8.i384, %if.then.i9299 ]
-  store ptr %storemerge995, ptr %mgf1_hash_algorithm_string_, align 8
+_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9300: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9307, %if.then.i9299
+  %call4546.sink = phi ptr [ null, %if.then.i9299 ], [ %call4546, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9307 ]
+  %call8.i383 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %237, ptr noundef %call4546.sink) #24
+  store ptr %call8.i383, ptr %mgf1_hash_algorithm_string_, align 8
   %minttl_string_ = getelementptr inbounds i8, ptr %this, i64 1480
   %238 = load ptr, ptr %isolate_, align 8
   %call4562 = call ptr @_ZN2v86String14NewFromOneByteEPNS_7IsolateEPKhNS_13NewStringTypeEi(ptr noundef %238, ptr noundef nonnull @.str.765, i32 noundef 1, i32 noundef 6) #24
   %cmp.i.i12134 = icmp eq ptr %call4562, null
-  br i1 %cmp.i.i12134, label %if.then.i9292, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9300.split
-
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9300.split: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9300
-  %call8.i385 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %238, ptr noundef nonnull %call4562) #24
-  br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9293
+  br i1 %cmp.i.i12134, label %if.then.i9292, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9293
 
 if.then.i9292:                                    ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9300
   call void @_ZN2v812api_internal12ToLocalEmptyEv() #24
-  %call8.i386 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %238, ptr noundef null) #24
   br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9293
 
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9293: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9300.split, %if.then.i9292
-  %storemerge996 = phi ptr [ %call8.i385, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9300.split ], [ %call8.i386, %if.then.i9292 ]
-  store ptr %storemerge996, ptr %minttl_string_, align 8
+_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9293: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9300, %if.then.i9292
+  %call4562.sink = phi ptr [ null, %if.then.i9292 ], [ %call4562, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9300 ]
+  %call8.i385 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %238, ptr noundef %call4562.sink) #24
+  store ptr %call8.i385, ptr %minttl_string_, align 8
   %module_string_ = getelementptr inbounds i8, ptr %this, i64 1488
   %239 = load ptr, ptr %isolate_, align 8
   %call4578 = call ptr @_ZN2v86String14NewFromOneByteEPNS_7IsolateEPKhNS_13NewStringTypeEi(ptr noundef %239, ptr noundef nonnull @.str.766, i32 noundef 1, i32 noundef 6) #24
   %cmp.i.i12139 = icmp eq ptr %call4578, null
-  br i1 %cmp.i.i12139, label %if.then.i9285, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9293.split
-
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9293.split: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9293
-  %call8.i387 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %239, ptr noundef nonnull %call4578) #24
-  br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9286
+  br i1 %cmp.i.i12139, label %if.then.i9285, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9286
 
 if.then.i9285:                                    ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9293
   call void @_ZN2v812api_internal12ToLocalEmptyEv() #24
-  %call8.i388 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %239, ptr noundef null) #24
   br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9286
 
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9286: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9293.split, %if.then.i9285
-  %storemerge997 = phi ptr [ %call8.i387, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9293.split ], [ %call8.i388, %if.then.i9285 ]
-  store ptr %storemerge997, ptr %module_string_, align 8
+_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9286: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9293, %if.then.i9285
+  %call4578.sink = phi ptr [ null, %if.then.i9285 ], [ %call4578, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9293 ]
+  %call8.i387 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %239, ptr noundef %call4578.sink) #24
+  store ptr %call8.i387, ptr %module_string_, align 8
   %modulus_string_ = getelementptr inbounds i8, ptr %this, i64 1496
   %240 = load ptr, ptr %isolate_, align 8
   %call4594 = call ptr @_ZN2v86String14NewFromOneByteEPNS_7IsolateEPKhNS_13NewStringTypeEi(ptr noundef %240, ptr noundef nonnull @.str.767, i32 noundef 1, i32 noundef 7) #24
   %cmp.i.i12144 = icmp eq ptr %call4594, null
-  br i1 %cmp.i.i12144, label %if.then.i9278, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9286.split
-
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9286.split: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9286
-  %call8.i389 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %240, ptr noundef nonnull %call4594) #24
-  br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9279
+  br i1 %cmp.i.i12144, label %if.then.i9278, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9279
 
 if.then.i9278:                                    ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9286
   call void @_ZN2v812api_internal12ToLocalEmptyEv() #24
-  %call8.i390 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %240, ptr noundef null) #24
   br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9279
 
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9279: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9286.split, %if.then.i9278
-  %storemerge998 = phi ptr [ %call8.i389, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9286.split ], [ %call8.i390, %if.then.i9278 ]
-  store ptr %storemerge998, ptr %modulus_string_, align 8
+_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9279: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9286, %if.then.i9278
+  %call4594.sink = phi ptr [ null, %if.then.i9278 ], [ %call4594, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9286 ]
+  %call8.i389 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %240, ptr noundef %call4594.sink) #24
+  store ptr %call8.i389, ptr %modulus_string_, align 8
   %modulus_length_string_ = getelementptr inbounds i8, ptr %this, i64 1504
   %241 = load ptr, ptr %isolate_, align 8
   %call4610 = call ptr @_ZN2v86String14NewFromOneByteEPNS_7IsolateEPKhNS_13NewStringTypeEi(ptr noundef %241, ptr noundef nonnull @.str.768, i32 noundef 1, i32 noundef 13) #24
   %cmp.i.i12149 = icmp eq ptr %call4610, null
-  br i1 %cmp.i.i12149, label %if.then.i9271, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9279.split
-
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9279.split: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9279
-  %call8.i391 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %241, ptr noundef nonnull %call4610) #24
-  br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9272
+  br i1 %cmp.i.i12149, label %if.then.i9271, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9272
 
 if.then.i9271:                                    ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9279
   call void @_ZN2v812api_internal12ToLocalEmptyEv() #24
-  %call8.i392 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %241, ptr noundef null) #24
   br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9272
 
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9272: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9279.split, %if.then.i9271
-  %storemerge999 = phi ptr [ %call8.i391, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9279.split ], [ %call8.i392, %if.then.i9271 ]
-  store ptr %storemerge999, ptr %modulus_length_string_, align 8
+_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9272: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9279, %if.then.i9271
+  %call4610.sink = phi ptr [ null, %if.then.i9271 ], [ %call4610, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9279 ]
+  %call8.i391 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %241, ptr noundef %call4610.sink) #24
+  store ptr %call8.i391, ptr %modulus_length_string_, align 8
   %name_string_ = getelementptr inbounds i8, ptr %this, i64 1512
   %242 = load ptr, ptr %isolate_, align 8
   %call4626 = call ptr @_ZN2v86String14NewFromOneByteEPNS_7IsolateEPKhNS_13NewStringTypeEi(ptr noundef %242, ptr noundef nonnull @.str.769, i32 noundef 1, i32 noundef 4) #24
   %cmp.i.i12154 = icmp eq ptr %call4626, null
-  br i1 %cmp.i.i12154, label %if.then.i9264, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9272.split
-
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9272.split: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9272
-  %call8.i393 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %242, ptr noundef nonnull %call4626) #24
-  br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9265
+  br i1 %cmp.i.i12154, label %if.then.i9264, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9265
 
 if.then.i9264:                                    ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9272
   call void @_ZN2v812api_internal12ToLocalEmptyEv() #24
-  %call8.i394 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %242, ptr noundef null) #24
   br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9265
 
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9265: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9272.split, %if.then.i9264
-  %storemerge1000 = phi ptr [ %call8.i393, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9272.split ], [ %call8.i394, %if.then.i9264 ]
-  store ptr %storemerge1000, ptr %name_string_, align 8
+_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9265: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9272, %if.then.i9264
+  %call4626.sink = phi ptr [ null, %if.then.i9264 ], [ %call4626, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9272 ]
+  %call8.i393 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %242, ptr noundef %call4626.sink) #24
+  store ptr %call8.i393, ptr %name_string_, align 8
   %named_curve_string_ = getelementptr inbounds i8, ptr %this, i64 1520
   %243 = load ptr, ptr %isolate_, align 8
   %call4642 = call ptr @_ZN2v86String14NewFromOneByteEPNS_7IsolateEPKhNS_13NewStringTypeEi(ptr noundef %243, ptr noundef nonnull @.str.770, i32 noundef 1, i32 noundef 10) #24
   %cmp.i.i12159 = icmp eq ptr %call4642, null
-  br i1 %cmp.i.i12159, label %if.then.i9257, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9265.split
-
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9265.split: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9265
-  %call8.i395 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %243, ptr noundef nonnull %call4642) #24
-  br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9258
+  br i1 %cmp.i.i12159, label %if.then.i9257, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9258
 
 if.then.i9257:                                    ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9265
   call void @_ZN2v812api_internal12ToLocalEmptyEv() #24
-  %call8.i396 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %243, ptr noundef null) #24
   br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9258
 
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9258: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9265.split, %if.then.i9257
-  %storemerge1001 = phi ptr [ %call8.i395, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9265.split ], [ %call8.i396, %if.then.i9257 ]
-  store ptr %storemerge1001, ptr %named_curve_string_, align 8
+_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9258: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9265, %if.then.i9257
+  %call4642.sink = phi ptr [ null, %if.then.i9257 ], [ %call4642, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9265 ]
+  %call8.i395 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %243, ptr noundef %call4642.sink) #24
+  store ptr %call8.i395, ptr %named_curve_string_, align 8
   %netmask_string_ = getelementptr inbounds i8, ptr %this, i64 1528
   %244 = load ptr, ptr %isolate_, align 8
   %call4658 = call ptr @_ZN2v86String14NewFromOneByteEPNS_7IsolateEPKhNS_13NewStringTypeEi(ptr noundef %244, ptr noundef nonnull @.str.771, i32 noundef 1, i32 noundef 7) #24
   %cmp.i.i12164 = icmp eq ptr %call4658, null
-  br i1 %cmp.i.i12164, label %if.then.i9250, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9258.split
-
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9258.split: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9258
-  %call8.i397 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %244, ptr noundef nonnull %call4658) #24
-  br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9251
+  br i1 %cmp.i.i12164, label %if.then.i9250, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9251
 
 if.then.i9250:                                    ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9258
   call void @_ZN2v812api_internal12ToLocalEmptyEv() #24
-  %call8.i398 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %244, ptr noundef null) #24
   br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9251
 
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9251: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9258.split, %if.then.i9250
-  %storemerge1002 = phi ptr [ %call8.i397, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9258.split ], [ %call8.i398, %if.then.i9250 ]
-  store ptr %storemerge1002, ptr %netmask_string_, align 8
+_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9251: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9258, %if.then.i9250
+  %call4658.sink = phi ptr [ null, %if.then.i9250 ], [ %call4658, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9258 ]
+  %call8.i397 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %244, ptr noundef %call4658.sink) #24
+  store ptr %call8.i397, ptr %netmask_string_, align 8
   %next_string_ = getelementptr inbounds i8, ptr %this, i64 1536
   %245 = load ptr, ptr %isolate_, align 8
   %call4674 = call ptr @_ZN2v86String14NewFromOneByteEPNS_7IsolateEPKhNS_13NewStringTypeEi(ptr noundef %245, ptr noundef nonnull @.str.772, i32 noundef 1, i32 noundef 4) #24
   %cmp.i.i12169 = icmp eq ptr %call4674, null
-  br i1 %cmp.i.i12169, label %if.then.i9243, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9251.split
-
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9251.split: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9251
-  %call8.i399 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %245, ptr noundef nonnull %call4674) #24
-  br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9244
+  br i1 %cmp.i.i12169, label %if.then.i9243, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9244
 
 if.then.i9243:                                    ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9251
   call void @_ZN2v812api_internal12ToLocalEmptyEv() #24
-  %call8.i400 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %245, ptr noundef null) #24
   br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9244
 
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9244: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9251.split, %if.then.i9243
-  %storemerge1003 = phi ptr [ %call8.i399, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9251.split ], [ %call8.i400, %if.then.i9243 ]
-  store ptr %storemerge1003, ptr %next_string_, align 8
+_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9244: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9251, %if.then.i9243
+  %call4674.sink = phi ptr [ null, %if.then.i9243 ], [ %call4674, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9251 ]
+  %call8.i399 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %245, ptr noundef %call4674.sink) #24
+  store ptr %call8.i399, ptr %next_string_, align 8
   %nistcurve_string_ = getelementptr inbounds i8, ptr %this, i64 1544
   %246 = load ptr, ptr %isolate_, align 8
   %call4690 = call ptr @_ZN2v86String14NewFromOneByteEPNS_7IsolateEPKhNS_13NewStringTypeEi(ptr noundef %246, ptr noundef nonnull @.str.773, i32 noundef 1, i32 noundef 9) #24
   %cmp.i.i12174 = icmp eq ptr %call4690, null
-  br i1 %cmp.i.i12174, label %if.then.i9236, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9244.split
-
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9244.split: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9244
-  %call8.i401 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %246, ptr noundef nonnull %call4690) #24
-  br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9237
+  br i1 %cmp.i.i12174, label %if.then.i9236, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9237
 
 if.then.i9236:                                    ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9244
   call void @_ZN2v812api_internal12ToLocalEmptyEv() #24
-  %call8.i402 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %246, ptr noundef null) #24
   br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9237
 
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9237: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9244.split, %if.then.i9236
-  %storemerge1004 = phi ptr [ %call8.i401, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9244.split ], [ %call8.i402, %if.then.i9236 ]
-  store ptr %storemerge1004, ptr %nistcurve_string_, align 8
+_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9237: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9244, %if.then.i9236
+  %call4690.sink = phi ptr [ null, %if.then.i9236 ], [ %call4690, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9244 ]
+  %call8.i401 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %246, ptr noundef %call4690.sink) #24
+  store ptr %call8.i401, ptr %nistcurve_string_, align 8
   %node_string_ = getelementptr inbounds i8, ptr %this, i64 1552
   %247 = load ptr, ptr %isolate_, align 8
   %call4706 = call ptr @_ZN2v86String14NewFromOneByteEPNS_7IsolateEPKhNS_13NewStringTypeEi(ptr noundef %247, ptr noundef nonnull @.str.774, i32 noundef 1, i32 noundef 4) #24
   %cmp.i.i12179 = icmp eq ptr %call4706, null
-  br i1 %cmp.i.i12179, label %if.then.i9229, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9237.split
-
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9237.split: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9237
-  %call8.i403 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %247, ptr noundef nonnull %call4706) #24
-  br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9230
+  br i1 %cmp.i.i12179, label %if.then.i9229, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9230
 
 if.then.i9229:                                    ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9237
   call void @_ZN2v812api_internal12ToLocalEmptyEv() #24
-  %call8.i404 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %247, ptr noundef null) #24
   br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9230
 
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9230: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9237.split, %if.then.i9229
-  %storemerge1005 = phi ptr [ %call8.i403, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9237.split ], [ %call8.i404, %if.then.i9229 ]
-  store ptr %storemerge1005, ptr %node_string_, align 8
+_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9230: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9237, %if.then.i9229
+  %call4706.sink = phi ptr [ null, %if.then.i9229 ], [ %call4706, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9237 ]
+  %call8.i403 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %247, ptr noundef %call4706.sink) #24
+  store ptr %call8.i403, ptr %node_string_, align 8
   %nsname_string_ = getelementptr inbounds i8, ptr %this, i64 1560
   %248 = load ptr, ptr %isolate_, align 8
   %call4722 = call ptr @_ZN2v86String14NewFromOneByteEPNS_7IsolateEPKhNS_13NewStringTypeEi(ptr noundef %248, ptr noundef nonnull @.str.775, i32 noundef 1, i32 noundef 6) #24
   %cmp.i.i12184 = icmp eq ptr %call4722, null
-  br i1 %cmp.i.i12184, label %if.then.i9222, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9230.split
-
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9230.split: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9230
-  %call8.i405 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %248, ptr noundef nonnull %call4722) #24
-  br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9223
+  br i1 %cmp.i.i12184, label %if.then.i9222, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9223
 
 if.then.i9222:                                    ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9230
   call void @_ZN2v812api_internal12ToLocalEmptyEv() #24
-  %call8.i406 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %248, ptr noundef null) #24
   br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9223
 
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9223: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9230.split, %if.then.i9222
-  %storemerge1006 = phi ptr [ %call8.i405, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9230.split ], [ %call8.i406, %if.then.i9222 ]
-  store ptr %storemerge1006, ptr %nsname_string_, align 8
+_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9223: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9230, %if.then.i9222
+  %call4722.sink = phi ptr [ null, %if.then.i9222 ], [ %call4722, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9230 ]
+  %call8.i405 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %248, ptr noundef %call4722.sink) #24
+  store ptr %call8.i405, ptr %nsname_string_, align 8
   %object_string_ = getelementptr inbounds i8, ptr %this, i64 1568
   %249 = load ptr, ptr %isolate_, align 8
   %call4738 = call ptr @_ZN2v86String14NewFromOneByteEPNS_7IsolateEPKhNS_13NewStringTypeEi(ptr noundef %249, ptr noundef nonnull @.str.776, i32 noundef 1, i32 noundef 6) #24
   %cmp.i.i12189 = icmp eq ptr %call4738, null
-  br i1 %cmp.i.i12189, label %if.then.i9215, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9223.split
-
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9223.split: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9223
-  %call8.i407 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %249, ptr noundef nonnull %call4738) #24
-  br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9216
+  br i1 %cmp.i.i12189, label %if.then.i9215, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9216
 
 if.then.i9215:                                    ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9223
   call void @_ZN2v812api_internal12ToLocalEmptyEv() #24
-  %call8.i408 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %249, ptr noundef null) #24
   br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9216
 
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9216: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9223.split, %if.then.i9215
-  %storemerge1007 = phi ptr [ %call8.i407, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9223.split ], [ %call8.i408, %if.then.i9215 ]
-  store ptr %storemerge1007, ptr %object_string_, align 8
+_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9216: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9223, %if.then.i9215
+  %call4738.sink = phi ptr [ null, %if.then.i9215 ], [ %call4738, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9223 ]
+  %call8.i407 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %249, ptr noundef %call4738.sink) #24
+  store ptr %call8.i407, ptr %object_string_, align 8
   %ocsp_request_string_ = getelementptr inbounds i8, ptr %this, i64 1576
   %250 = load ptr, ptr %isolate_, align 8
   %call4754 = call ptr @_ZN2v86String14NewFromOneByteEPNS_7IsolateEPKhNS_13NewStringTypeEi(ptr noundef %250, ptr noundef nonnull @.str.777, i32 noundef 1, i32 noundef 11) #24
   %cmp.i.i12194 = icmp eq ptr %call4754, null
-  br i1 %cmp.i.i12194, label %if.then.i9208, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9216.split
-
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9216.split: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9216
-  %call8.i409 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %250, ptr noundef nonnull %call4754) #24
-  br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9209
+  br i1 %cmp.i.i12194, label %if.then.i9208, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9209
 
 if.then.i9208:                                    ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9216
   call void @_ZN2v812api_internal12ToLocalEmptyEv() #24
-  %call8.i410 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %250, ptr noundef null) #24
   br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9209
 
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9209: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9216.split, %if.then.i9208
-  %storemerge1008 = phi ptr [ %call8.i409, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9216.split ], [ %call8.i410, %if.then.i9208 ]
-  store ptr %storemerge1008, ptr %ocsp_request_string_, align 8
+_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9209: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9216, %if.then.i9208
+  %call4754.sink = phi ptr [ null, %if.then.i9208 ], [ %call4754, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9216 ]
+  %call8.i409 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %250, ptr noundef %call4754.sink) #24
+  store ptr %call8.i409, ptr %ocsp_request_string_, align 8
   %oncertcb_string_ = getelementptr inbounds i8, ptr %this, i64 1584
   %251 = load ptr, ptr %isolate_, align 8
   %call4770 = call ptr @_ZN2v86String14NewFromOneByteEPNS_7IsolateEPKhNS_13NewStringTypeEi(ptr noundef %251, ptr noundef nonnull @.str.778, i32 noundef 1, i32 noundef 8) #24
   %cmp.i.i12199 = icmp eq ptr %call4770, null
-  br i1 %cmp.i.i12199, label %if.then.i9201, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9209.split
-
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9209.split: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9209
-  %call8.i411 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %251, ptr noundef nonnull %call4770) #24
-  br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9202
+  br i1 %cmp.i.i12199, label %if.then.i9201, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9202
 
 if.then.i9201:                                    ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9209
   call void @_ZN2v812api_internal12ToLocalEmptyEv() #24
-  %call8.i412 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %251, ptr noundef null) #24
   br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9202
 
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9202: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9209.split, %if.then.i9201
-  %storemerge1009 = phi ptr [ %call8.i411, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9209.split ], [ %call8.i412, %if.then.i9201 ]
-  store ptr %storemerge1009, ptr %oncertcb_string_, align 8
+_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9202: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9209, %if.then.i9201
+  %call4770.sink = phi ptr [ null, %if.then.i9201 ], [ %call4770, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9209 ]
+  %call8.i411 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %251, ptr noundef %call4770.sink) #24
+  store ptr %call8.i411, ptr %oncertcb_string_, align 8
   %onchange_string_ = getelementptr inbounds i8, ptr %this, i64 1592
   %252 = load ptr, ptr %isolate_, align 8
   %call4786 = call ptr @_ZN2v86String14NewFromOneByteEPNS_7IsolateEPKhNS_13NewStringTypeEi(ptr noundef %252, ptr noundef nonnull @.str.779, i32 noundef 1, i32 noundef 8) #24
   %cmp.i.i12204 = icmp eq ptr %call4786, null
-  br i1 %cmp.i.i12204, label %if.then.i9194, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9202.split
-
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9202.split: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9202
-  %call8.i413 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %252, ptr noundef nonnull %call4786) #24
-  br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9195
+  br i1 %cmp.i.i12204, label %if.then.i9194, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9195
 
 if.then.i9194:                                    ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9202
   call void @_ZN2v812api_internal12ToLocalEmptyEv() #24
-  %call8.i414 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %252, ptr noundef null) #24
   br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9195
 
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9195: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9202.split, %if.then.i9194
-  %storemerge1010 = phi ptr [ %call8.i413, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9202.split ], [ %call8.i414, %if.then.i9194 ]
-  store ptr %storemerge1010, ptr %onchange_string_, align 8
+_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9195: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9202, %if.then.i9194
+  %call4786.sink = phi ptr [ null, %if.then.i9194 ], [ %call4786, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9202 ]
+  %call8.i413 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %252, ptr noundef %call4786.sink) #24
+  store ptr %call8.i413, ptr %onchange_string_, align 8
   %onclienthello_string_ = getelementptr inbounds i8, ptr %this, i64 1600
   %253 = load ptr, ptr %isolate_, align 8
   %call4802 = call ptr @_ZN2v86String14NewFromOneByteEPNS_7IsolateEPKhNS_13NewStringTypeEi(ptr noundef %253, ptr noundef nonnull @.str.780, i32 noundef 1, i32 noundef 13) #24
   %cmp.i.i12209 = icmp eq ptr %call4802, null
-  br i1 %cmp.i.i12209, label %if.then.i9187, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9195.split
-
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9195.split: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9195
-  %call8.i415 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %253, ptr noundef nonnull %call4802) #24
-  br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9188
+  br i1 %cmp.i.i12209, label %if.then.i9187, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9188
 
 if.then.i9187:                                    ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9195
   call void @_ZN2v812api_internal12ToLocalEmptyEv() #24
-  %call8.i416 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %253, ptr noundef null) #24
   br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9188
 
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9188: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9195.split, %if.then.i9187
-  %storemerge1011 = phi ptr [ %call8.i415, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9195.split ], [ %call8.i416, %if.then.i9187 ]
-  store ptr %storemerge1011, ptr %onclienthello_string_, align 8
+_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9188: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9195, %if.then.i9187
+  %call4802.sink = phi ptr [ null, %if.then.i9187 ], [ %call4802, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9195 ]
+  %call8.i415 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %253, ptr noundef %call4802.sink) #24
+  store ptr %call8.i415, ptr %onclienthello_string_, align 8
   %oncomplete_string_ = getelementptr inbounds i8, ptr %this, i64 1608
   %254 = load ptr, ptr %isolate_, align 8
   %call4818 = call ptr @_ZN2v86String14NewFromOneByteEPNS_7IsolateEPKhNS_13NewStringTypeEi(ptr noundef %254, ptr noundef nonnull @.str.781, i32 noundef 1, i32 noundef 10) #24
   %cmp.i.i12214 = icmp eq ptr %call4818, null
-  br i1 %cmp.i.i12214, label %if.then.i9180, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9188.split
-
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9188.split: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9188
-  %call8.i417 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %254, ptr noundef nonnull %call4818) #24
-  br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9181
+  br i1 %cmp.i.i12214, label %if.then.i9180, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9181
 
 if.then.i9180:                                    ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9188
   call void @_ZN2v812api_internal12ToLocalEmptyEv() #24
-  %call8.i418 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %254, ptr noundef null) #24
   br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9181
 
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9181: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9188.split, %if.then.i9180
-  %storemerge1012 = phi ptr [ %call8.i417, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9188.split ], [ %call8.i418, %if.then.i9180 ]
-  store ptr %storemerge1012, ptr %oncomplete_string_, align 8
+_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9181: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9188, %if.then.i9180
+  %call4818.sink = phi ptr [ null, %if.then.i9180 ], [ %call4818, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9188 ]
+  %call8.i417 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %254, ptr noundef %call4818.sink) #24
+  store ptr %call8.i417, ptr %oncomplete_string_, align 8
   %onconnection_string_ = getelementptr inbounds i8, ptr %this, i64 1616
   %255 = load ptr, ptr %isolate_, align 8
   %call4834 = call ptr @_ZN2v86String14NewFromOneByteEPNS_7IsolateEPKhNS_13NewStringTypeEi(ptr noundef %255, ptr noundef nonnull @.str.782, i32 noundef 1, i32 noundef 12) #24
   %cmp.i.i12219 = icmp eq ptr %call4834, null
-  br i1 %cmp.i.i12219, label %if.then.i9173, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9181.split
-
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9181.split: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9181
-  %call8.i419 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %255, ptr noundef nonnull %call4834) #24
-  br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9174
+  br i1 %cmp.i.i12219, label %if.then.i9173, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9174
 
 if.then.i9173:                                    ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9181
   call void @_ZN2v812api_internal12ToLocalEmptyEv() #24
-  %call8.i420 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %255, ptr noundef null) #24
   br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9174
 
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9174: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9181.split, %if.then.i9173
-  %storemerge1013 = phi ptr [ %call8.i419, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9181.split ], [ %call8.i420, %if.then.i9173 ]
-  store ptr %storemerge1013, ptr %onconnection_string_, align 8
+_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9174: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9181, %if.then.i9173
+  %call4834.sink = phi ptr [ null, %if.then.i9173 ], [ %call4834, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9181 ]
+  %call8.i419 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %255, ptr noundef %call4834.sink) #24
+  store ptr %call8.i419, ptr %onconnection_string_, align 8
   %ondone_string_ = getelementptr inbounds i8, ptr %this, i64 1624
   %256 = load ptr, ptr %isolate_, align 8
   %call4850 = call ptr @_ZN2v86String14NewFromOneByteEPNS_7IsolateEPKhNS_13NewStringTypeEi(ptr noundef %256, ptr noundef nonnull @.str.783, i32 noundef 1, i32 noundef 6) #24
   %cmp.i.i12224 = icmp eq ptr %call4850, null
-  br i1 %cmp.i.i12224, label %if.then.i9166, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9174.split
-
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9174.split: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9174
-  %call8.i421 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %256, ptr noundef nonnull %call4850) #24
-  br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9167
+  br i1 %cmp.i.i12224, label %if.then.i9166, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9167
 
 if.then.i9166:                                    ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9174
   call void @_ZN2v812api_internal12ToLocalEmptyEv() #24
-  %call8.i422 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %256, ptr noundef null) #24
   br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9167
 
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9167: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9174.split, %if.then.i9166
-  %storemerge1014 = phi ptr [ %call8.i421, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9174.split ], [ %call8.i422, %if.then.i9166 ]
-  store ptr %storemerge1014, ptr %ondone_string_, align 8
+_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9167: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9174, %if.then.i9166
+  %call4850.sink = phi ptr [ null, %if.then.i9166 ], [ %call4850, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9174 ]
+  %call8.i421 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %256, ptr noundef %call4850.sink) #24
+  store ptr %call8.i421, ptr %ondone_string_, align 8
   %onerror_string_ = getelementptr inbounds i8, ptr %this, i64 1632
   %257 = load ptr, ptr %isolate_, align 8
   %call4866 = call ptr @_ZN2v86String14NewFromOneByteEPNS_7IsolateEPKhNS_13NewStringTypeEi(ptr noundef %257, ptr noundef nonnull @.str.784, i32 noundef 1, i32 noundef 7) #24
   %cmp.i.i12229 = icmp eq ptr %call4866, null
-  br i1 %cmp.i.i12229, label %if.then.i9159, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9167.split
-
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9167.split: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9167
-  %call8.i423 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %257, ptr noundef nonnull %call4866) #24
-  br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9160
+  br i1 %cmp.i.i12229, label %if.then.i9159, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9160
 
 if.then.i9159:                                    ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9167
   call void @_ZN2v812api_internal12ToLocalEmptyEv() #24
-  %call8.i424 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %257, ptr noundef null) #24
   br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9160
 
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9160: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9167.split, %if.then.i9159
-  %storemerge1015 = phi ptr [ %call8.i423, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9167.split ], [ %call8.i424, %if.then.i9159 ]
-  store ptr %storemerge1015, ptr %onerror_string_, align 8
+_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9160: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9167, %if.then.i9159
+  %call4866.sink = phi ptr [ null, %if.then.i9159 ], [ %call4866, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9167 ]
+  %call8.i423 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %257, ptr noundef %call4866.sink) #24
+  store ptr %call8.i423, ptr %onerror_string_, align 8
   %onexit_string_ = getelementptr inbounds i8, ptr %this, i64 1640
   %258 = load ptr, ptr %isolate_, align 8
   %call4882 = call ptr @_ZN2v86String14NewFromOneByteEPNS_7IsolateEPKhNS_13NewStringTypeEi(ptr noundef %258, ptr noundef nonnull @.str.785, i32 noundef 1, i32 noundef 6) #24
   %cmp.i.i12234 = icmp eq ptr %call4882, null
-  br i1 %cmp.i.i12234, label %if.then.i9152, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9160.split
-
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9160.split: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9160
-  %call8.i425 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %258, ptr noundef nonnull %call4882) #24
-  br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9153
+  br i1 %cmp.i.i12234, label %if.then.i9152, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9153
 
 if.then.i9152:                                    ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9160
   call void @_ZN2v812api_internal12ToLocalEmptyEv() #24
-  %call8.i426 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %258, ptr noundef null) #24
   br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9153
 
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9153: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9160.split, %if.then.i9152
-  %storemerge1016 = phi ptr [ %call8.i425, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9160.split ], [ %call8.i426, %if.then.i9152 ]
-  store ptr %storemerge1016, ptr %onexit_string_, align 8
+_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9153: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9160, %if.then.i9152
+  %call4882.sink = phi ptr [ null, %if.then.i9152 ], [ %call4882, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9160 ]
+  %call8.i425 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %258, ptr noundef %call4882.sink) #24
+  store ptr %call8.i425, ptr %onexit_string_, align 8
   %onhandshakedone_string_ = getelementptr inbounds i8, ptr %this, i64 1648
   %259 = load ptr, ptr %isolate_, align 8
   %call4898 = call ptr @_ZN2v86String14NewFromOneByteEPNS_7IsolateEPKhNS_13NewStringTypeEi(ptr noundef %259, ptr noundef nonnull @.str.786, i32 noundef 1, i32 noundef 15) #24
   %cmp.i.i12239 = icmp eq ptr %call4898, null
-  br i1 %cmp.i.i12239, label %if.then.i9145, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9153.split
-
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9153.split: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9153
-  %call8.i427 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %259, ptr noundef nonnull %call4898) #24
-  br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9146
+  br i1 %cmp.i.i12239, label %if.then.i9145, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9146
 
 if.then.i9145:                                    ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9153
   call void @_ZN2v812api_internal12ToLocalEmptyEv() #24
-  %call8.i428 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %259, ptr noundef null) #24
   br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9146
 
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9146: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9153.split, %if.then.i9145
-  %storemerge1017 = phi ptr [ %call8.i427, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9153.split ], [ %call8.i428, %if.then.i9145 ]
-  store ptr %storemerge1017, ptr %onhandshakedone_string_, align 8
+_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9146: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9153, %if.then.i9145
+  %call4898.sink = phi ptr [ null, %if.then.i9145 ], [ %call4898, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9153 ]
+  %call8.i427 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %259, ptr noundef %call4898.sink) #24
+  store ptr %call8.i427, ptr %onhandshakedone_string_, align 8
   %onhandshakestart_string_ = getelementptr inbounds i8, ptr %this, i64 1656
   %260 = load ptr, ptr %isolate_, align 8
   %call4914 = call ptr @_ZN2v86String14NewFromOneByteEPNS_7IsolateEPKhNS_13NewStringTypeEi(ptr noundef %260, ptr noundef nonnull @.str.787, i32 noundef 1, i32 noundef 16) #24
   %cmp.i.i12244 = icmp eq ptr %call4914, null
-  br i1 %cmp.i.i12244, label %if.then.i9138, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9146.split
-
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9146.split: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9146
-  %call8.i429 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %260, ptr noundef nonnull %call4914) #24
-  br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9139
+  br i1 %cmp.i.i12244, label %if.then.i9138, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9139
 
 if.then.i9138:                                    ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9146
   call void @_ZN2v812api_internal12ToLocalEmptyEv() #24
-  %call8.i430 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %260, ptr noundef null) #24
   br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9139
 
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9139: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9146.split, %if.then.i9138
-  %storemerge1018 = phi ptr [ %call8.i429, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9146.split ], [ %call8.i430, %if.then.i9138 ]
-  store ptr %storemerge1018, ptr %onhandshakestart_string_, align 8
+_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9139: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9146, %if.then.i9138
+  %call4914.sink = phi ptr [ null, %if.then.i9138 ], [ %call4914, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9146 ]
+  %call8.i429 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %260, ptr noundef %call4914.sink) #24
+  store ptr %call8.i429, ptr %onhandshakestart_string_, align 8
   %onkeylog_string_ = getelementptr inbounds i8, ptr %this, i64 1664
   %261 = load ptr, ptr %isolate_, align 8
   %call4930 = call ptr @_ZN2v86String14NewFromOneByteEPNS_7IsolateEPKhNS_13NewStringTypeEi(ptr noundef %261, ptr noundef nonnull @.str.788, i32 noundef 1, i32 noundef 8) #24
   %cmp.i.i12249 = icmp eq ptr %call4930, null
-  br i1 %cmp.i.i12249, label %if.then.i9131, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9139.split
-
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9139.split: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9139
-  %call8.i431 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %261, ptr noundef nonnull %call4930) #24
-  br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9132
+  br i1 %cmp.i.i12249, label %if.then.i9131, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9132
 
 if.then.i9131:                                    ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9139
   call void @_ZN2v812api_internal12ToLocalEmptyEv() #24
-  %call8.i432 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %261, ptr noundef null) #24
   br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9132
 
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9132: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9139.split, %if.then.i9131
-  %storemerge1019 = phi ptr [ %call8.i431, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9139.split ], [ %call8.i432, %if.then.i9131 ]
-  store ptr %storemerge1019, ptr %onkeylog_string_, align 8
+_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9132: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9139, %if.then.i9131
+  %call4930.sink = phi ptr [ null, %if.then.i9131 ], [ %call4930, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9139 ]
+  %call8.i431 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %261, ptr noundef %call4930.sink) #24
+  store ptr %call8.i431, ptr %onkeylog_string_, align 8
   %onmessage_string_ = getelementptr inbounds i8, ptr %this, i64 1672
   %262 = load ptr, ptr %isolate_, align 8
   %call4946 = call ptr @_ZN2v86String14NewFromOneByteEPNS_7IsolateEPKhNS_13NewStringTypeEi(ptr noundef %262, ptr noundef nonnull @.str.789, i32 noundef 1, i32 noundef 9) #24
   %cmp.i.i12254 = icmp eq ptr %call4946, null
-  br i1 %cmp.i.i12254, label %if.then.i9124, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9132.split
-
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9132.split: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9132
-  %call8.i433 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %262, ptr noundef nonnull %call4946) #24
-  br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9125
+  br i1 %cmp.i.i12254, label %if.then.i9124, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9125
 
 if.then.i9124:                                    ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9132
   call void @_ZN2v812api_internal12ToLocalEmptyEv() #24
-  %call8.i434 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %262, ptr noundef null) #24
   br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9125
 
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9125: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9132.split, %if.then.i9124
-  %storemerge1020 = phi ptr [ %call8.i433, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9132.split ], [ %call8.i434, %if.then.i9124 ]
-  store ptr %storemerge1020, ptr %onmessage_string_, align 8
+_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9125: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9132, %if.then.i9124
+  %call4946.sink = phi ptr [ null, %if.then.i9124 ], [ %call4946, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9132 ]
+  %call8.i433 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %262, ptr noundef %call4946.sink) #24
+  store ptr %call8.i433, ptr %onmessage_string_, align 8
   %onnewsession_string_ = getelementptr inbounds i8, ptr %this, i64 1680
   %263 = load ptr, ptr %isolate_, align 8
   %call4962 = call ptr @_ZN2v86String14NewFromOneByteEPNS_7IsolateEPKhNS_13NewStringTypeEi(ptr noundef %263, ptr noundef nonnull @.str.790, i32 noundef 1, i32 noundef 12) #24
   %cmp.i.i12259 = icmp eq ptr %call4962, null
-  br i1 %cmp.i.i12259, label %if.then.i9117, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9125.split
-
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9125.split: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9125
-  %call8.i435 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %263, ptr noundef nonnull %call4962) #24
-  br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9118
+  br i1 %cmp.i.i12259, label %if.then.i9117, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9118
 
 if.then.i9117:                                    ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9125
   call void @_ZN2v812api_internal12ToLocalEmptyEv() #24
-  %call8.i436 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %263, ptr noundef null) #24
   br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9118
 
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9118: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9125.split, %if.then.i9117
-  %storemerge1021 = phi ptr [ %call8.i435, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9125.split ], [ %call8.i436, %if.then.i9117 ]
-  store ptr %storemerge1021, ptr %onnewsession_string_, align 8
+_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9118: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9125, %if.then.i9117
+  %call4962.sink = phi ptr [ null, %if.then.i9117 ], [ %call4962, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9125 ]
+  %call8.i435 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %263, ptr noundef %call4962.sink) #24
+  store ptr %call8.i435, ptr %onnewsession_string_, align 8
   %onocspresponse_string_ = getelementptr inbounds i8, ptr %this, i64 1688
   %264 = load ptr, ptr %isolate_, align 8
   %call4978 = call ptr @_ZN2v86String14NewFromOneByteEPNS_7IsolateEPKhNS_13NewStringTypeEi(ptr noundef %264, ptr noundef nonnull @.str.791, i32 noundef 1, i32 noundef 14) #24
   %cmp.i.i12264 = icmp eq ptr %call4978, null
-  br i1 %cmp.i.i12264, label %if.then.i9110, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9118.split
-
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9118.split: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9118
-  %call8.i437 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %264, ptr noundef nonnull %call4978) #24
-  br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9111
+  br i1 %cmp.i.i12264, label %if.then.i9110, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9111
 
 if.then.i9110:                                    ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9118
   call void @_ZN2v812api_internal12ToLocalEmptyEv() #24
-  %call8.i438 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %264, ptr noundef null) #24
   br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9111
 
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9111: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9118.split, %if.then.i9110
-  %storemerge1022 = phi ptr [ %call8.i437, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9118.split ], [ %call8.i438, %if.then.i9110 ]
-  store ptr %storemerge1022, ptr %onocspresponse_string_, align 8
+_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9111: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9118, %if.then.i9110
+  %call4978.sink = phi ptr [ null, %if.then.i9110 ], [ %call4978, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9118 ]
+  %call8.i437 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %264, ptr noundef %call4978.sink) #24
+  store ptr %call8.i437, ptr %onocspresponse_string_, align 8
   %onreadstart_string_ = getelementptr inbounds i8, ptr %this, i64 1696
   %265 = load ptr, ptr %isolate_, align 8
   %call4994 = call ptr @_ZN2v86String14NewFromOneByteEPNS_7IsolateEPKhNS_13NewStringTypeEi(ptr noundef %265, ptr noundef nonnull @.str.792, i32 noundef 1, i32 noundef 11) #24
   %cmp.i.i12269 = icmp eq ptr %call4994, null
-  br i1 %cmp.i.i12269, label %if.then.i9103, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9111.split
-
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9111.split: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9111
-  %call8.i439 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %265, ptr noundef nonnull %call4994) #24
-  br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9104
+  br i1 %cmp.i.i12269, label %if.then.i9103, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9104
 
 if.then.i9103:                                    ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9111
   call void @_ZN2v812api_internal12ToLocalEmptyEv() #24
-  %call8.i440 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %265, ptr noundef null) #24
   br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9104
 
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9104: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9111.split, %if.then.i9103
-  %storemerge1023 = phi ptr [ %call8.i439, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9111.split ], [ %call8.i440, %if.then.i9103 ]
-  store ptr %storemerge1023, ptr %onreadstart_string_, align 8
+_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9104: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9111, %if.then.i9103
+  %call4994.sink = phi ptr [ null, %if.then.i9103 ], [ %call4994, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9111 ]
+  %call8.i439 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %265, ptr noundef %call4994.sink) #24
+  store ptr %call8.i439, ptr %onreadstart_string_, align 8
   %onreadstop_string_ = getelementptr inbounds i8, ptr %this, i64 1704
   %266 = load ptr, ptr %isolate_, align 8
   %call5010 = call ptr @_ZN2v86String14NewFromOneByteEPNS_7IsolateEPKhNS_13NewStringTypeEi(ptr noundef %266, ptr noundef nonnull @.str.793, i32 noundef 1, i32 noundef 10) #24
   %cmp.i.i12274 = icmp eq ptr %call5010, null
-  br i1 %cmp.i.i12274, label %if.then.i9096, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9104.split
-
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9104.split: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9104
-  %call8.i441 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %266, ptr noundef nonnull %call5010) #24
-  br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9097
+  br i1 %cmp.i.i12274, label %if.then.i9096, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9097
 
 if.then.i9096:                                    ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9104
   call void @_ZN2v812api_internal12ToLocalEmptyEv() #24
-  %call8.i442 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %266, ptr noundef null) #24
   br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9097
 
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9097: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9104.split, %if.then.i9096
-  %storemerge1024 = phi ptr [ %call8.i441, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9104.split ], [ %call8.i442, %if.then.i9096 ]
-  store ptr %storemerge1024, ptr %onreadstop_string_, align 8
+_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9097: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9104, %if.then.i9096
+  %call5010.sink = phi ptr [ null, %if.then.i9096 ], [ %call5010, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9104 ]
+  %call8.i441 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %266, ptr noundef %call5010.sink) #24
+  store ptr %call8.i441, ptr %onreadstop_string_, align 8
   %onshutdown_string_ = getelementptr inbounds i8, ptr %this, i64 1712
   %267 = load ptr, ptr %isolate_, align 8
   %call5026 = call ptr @_ZN2v86String14NewFromOneByteEPNS_7IsolateEPKhNS_13NewStringTypeEi(ptr noundef %267, ptr noundef nonnull @.str.794, i32 noundef 1, i32 noundef 10) #24
   %cmp.i.i12279 = icmp eq ptr %call5026, null
-  br i1 %cmp.i.i12279, label %if.then.i9089, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9097.split
-
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9097.split: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9097
-  %call8.i443 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %267, ptr noundef nonnull %call5026) #24
-  br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9090
+  br i1 %cmp.i.i12279, label %if.then.i9089, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9090
 
 if.then.i9089:                                    ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9097
   call void @_ZN2v812api_internal12ToLocalEmptyEv() #24
-  %call8.i444 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %267, ptr noundef null) #24
   br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9090
 
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9090: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9097.split, %if.then.i9089
-  %storemerge1025 = phi ptr [ %call8.i443, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9097.split ], [ %call8.i444, %if.then.i9089 ]
-  store ptr %storemerge1025, ptr %onshutdown_string_, align 8
+_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9090: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9097, %if.then.i9089
+  %call5026.sink = phi ptr [ null, %if.then.i9089 ], [ %call5026, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9097 ]
+  %call8.i443 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %267, ptr noundef %call5026.sink) #24
+  store ptr %call8.i443, ptr %onshutdown_string_, align 8
   %onsignal_string_ = getelementptr inbounds i8, ptr %this, i64 1720
   %268 = load ptr, ptr %isolate_, align 8
   %call5042 = call ptr @_ZN2v86String14NewFromOneByteEPNS_7IsolateEPKhNS_13NewStringTypeEi(ptr noundef %268, ptr noundef nonnull @.str.795, i32 noundef 1, i32 noundef 8) #24
   %cmp.i.i12284 = icmp eq ptr %call5042, null
-  br i1 %cmp.i.i12284, label %if.then.i9082, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9090.split
-
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9090.split: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9090
-  %call8.i445 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %268, ptr noundef nonnull %call5042) #24
-  br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9083
+  br i1 %cmp.i.i12284, label %if.then.i9082, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9083
 
 if.then.i9082:                                    ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9090
   call void @_ZN2v812api_internal12ToLocalEmptyEv() #24
-  %call8.i446 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %268, ptr noundef null) #24
   br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9083
 
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9083: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9090.split, %if.then.i9082
-  %storemerge1026 = phi ptr [ %call8.i445, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9090.split ], [ %call8.i446, %if.then.i9082 ]
-  store ptr %storemerge1026, ptr %onsignal_string_, align 8
+_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9083: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9090, %if.then.i9082
+  %call5042.sink = phi ptr [ null, %if.then.i9082 ], [ %call5042, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9090 ]
+  %call8.i445 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %268, ptr noundef %call5042.sink) #24
+  store ptr %call8.i445, ptr %onsignal_string_, align 8
   %onunpipe_string_ = getelementptr inbounds i8, ptr %this, i64 1728
   %269 = load ptr, ptr %isolate_, align 8
   %call5058 = call ptr @_ZN2v86String14NewFromOneByteEPNS_7IsolateEPKhNS_13NewStringTypeEi(ptr noundef %269, ptr noundef nonnull @.str.796, i32 noundef 1, i32 noundef 8) #24
   %cmp.i.i12289 = icmp eq ptr %call5058, null
-  br i1 %cmp.i.i12289, label %if.then.i9075, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9083.split
-
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9083.split: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9083
-  %call8.i447 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %269, ptr noundef nonnull %call5058) #24
-  br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9076
+  br i1 %cmp.i.i12289, label %if.then.i9075, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9076
 
 if.then.i9075:                                    ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9083
   call void @_ZN2v812api_internal12ToLocalEmptyEv() #24
-  %call8.i448 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %269, ptr noundef null) #24
   br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9076
 
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9076: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9083.split, %if.then.i9075
-  %storemerge1027 = phi ptr [ %call8.i447, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9083.split ], [ %call8.i448, %if.then.i9075 ]
-  store ptr %storemerge1027, ptr %onunpipe_string_, align 8
+_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9076: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9083, %if.then.i9075
+  %call5058.sink = phi ptr [ null, %if.then.i9075 ], [ %call5058, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9083 ]
+  %call8.i447 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %269, ptr noundef %call5058.sink) #24
+  store ptr %call8.i447, ptr %onunpipe_string_, align 8
   %onwrite_string_ = getelementptr inbounds i8, ptr %this, i64 1736
   %270 = load ptr, ptr %isolate_, align 8
   %call5074 = call ptr @_ZN2v86String14NewFromOneByteEPNS_7IsolateEPKhNS_13NewStringTypeEi(ptr noundef %270, ptr noundef nonnull @.str.797, i32 noundef 1, i32 noundef 7) #24
   %cmp.i.i12294 = icmp eq ptr %call5074, null
-  br i1 %cmp.i.i12294, label %if.then.i9068, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9076.split
-
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9076.split: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9076
-  %call8.i449 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %270, ptr noundef nonnull %call5074) #24
-  br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9069
+  br i1 %cmp.i.i12294, label %if.then.i9068, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9069
 
 if.then.i9068:                                    ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9076
   call void @_ZN2v812api_internal12ToLocalEmptyEv() #24
-  %call8.i450 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %270, ptr noundef null) #24
   br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9069
 
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9069: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9076.split, %if.then.i9068
-  %storemerge1028 = phi ptr [ %call8.i449, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9076.split ], [ %call8.i450, %if.then.i9068 ]
-  store ptr %storemerge1028, ptr %onwrite_string_, align 8
+_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9069: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9076, %if.then.i9068
+  %call5074.sink = phi ptr [ null, %if.then.i9068 ], [ %call5074, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9076 ]
+  %call8.i449 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %270, ptr noundef %call5074.sink) #24
+  store ptr %call8.i449, ptr %onwrite_string_, align 8
   %openssl_error_stack_ = getelementptr inbounds i8, ptr %this, i64 1744
   %271 = load ptr, ptr %isolate_, align 8
   %call5090 = call ptr @_ZN2v86String14NewFromOneByteEPNS_7IsolateEPKhNS_13NewStringTypeEi(ptr noundef %271, ptr noundef nonnull @.str.798, i32 noundef 1, i32 noundef 17) #24
   %cmp.i.i12299 = icmp eq ptr %call5090, null
-  br i1 %cmp.i.i12299, label %if.then.i9061, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9069.split
-
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9069.split: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9069
-  %call8.i451 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %271, ptr noundef nonnull %call5090) #24
-  br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9062
+  br i1 %cmp.i.i12299, label %if.then.i9061, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9062
 
 if.then.i9061:                                    ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9069
   call void @_ZN2v812api_internal12ToLocalEmptyEv() #24
-  %call8.i452 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %271, ptr noundef null) #24
   br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9062
 
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9062: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9069.split, %if.then.i9061
-  %storemerge1029 = phi ptr [ %call8.i451, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9069.split ], [ %call8.i452, %if.then.i9061 ]
-  store ptr %storemerge1029, ptr %openssl_error_stack_, align 8
+_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9062: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9069, %if.then.i9061
+  %call5090.sink = phi ptr [ null, %if.then.i9061 ], [ %call5090, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9069 ]
+  %call8.i451 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %271, ptr noundef %call5090.sink) #24
+  store ptr %call8.i451, ptr %openssl_error_stack_, align 8
   %options_string_ = getelementptr inbounds i8, ptr %this, i64 1752
   %272 = load ptr, ptr %isolate_, align 8
   %call5106 = call ptr @_ZN2v86String14NewFromOneByteEPNS_7IsolateEPKhNS_13NewStringTypeEi(ptr noundef %272, ptr noundef nonnull @.str.799, i32 noundef 1, i32 noundef 7) #24
   %cmp.i.i12304 = icmp eq ptr %call5106, null
-  br i1 %cmp.i.i12304, label %if.then.i9054, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9062.split
-
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9062.split: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9062
-  %call8.i453 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %272, ptr noundef nonnull %call5106) #24
-  br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9055
+  br i1 %cmp.i.i12304, label %if.then.i9054, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9055
 
 if.then.i9054:                                    ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9062
   call void @_ZN2v812api_internal12ToLocalEmptyEv() #24
-  %call8.i454 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %272, ptr noundef null) #24
   br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9055
 
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9055: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9062.split, %if.then.i9054
-  %storemerge1030 = phi ptr [ %call8.i453, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9062.split ], [ %call8.i454, %if.then.i9054 ]
-  store ptr %storemerge1030, ptr %options_string_, align 8
+_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9055: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9062, %if.then.i9054
+  %call5106.sink = phi ptr [ null, %if.then.i9054 ], [ %call5106, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9062 ]
+  %call8.i453 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %272, ptr noundef %call5106.sink) #24
+  store ptr %call8.i453, ptr %options_string_, align 8
   %order_string_ = getelementptr inbounds i8, ptr %this, i64 1760
   %273 = load ptr, ptr %isolate_, align 8
   %call5122 = call ptr @_ZN2v86String14NewFromOneByteEPNS_7IsolateEPKhNS_13NewStringTypeEi(ptr noundef %273, ptr noundef nonnull @.str.800, i32 noundef 1, i32 noundef 5) #24
   %cmp.i.i12309 = icmp eq ptr %call5122, null
-  br i1 %cmp.i.i12309, label %if.then.i9047, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9055.split
-
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9055.split: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9055
-  %call8.i455 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %273, ptr noundef nonnull %call5122) #24
-  br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9048
+  br i1 %cmp.i.i12309, label %if.then.i9047, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9048
 
 if.then.i9047:                                    ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9055
   call void @_ZN2v812api_internal12ToLocalEmptyEv() #24
-  %call8.i456 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %273, ptr noundef null) #24
   br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9048
 
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9048: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9055.split, %if.then.i9047
-  %storemerge1031 = phi ptr [ %call8.i455, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9055.split ], [ %call8.i456, %if.then.i9047 ]
-  store ptr %storemerge1031, ptr %order_string_, align 8
+_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9048: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9055, %if.then.i9047
+  %call5122.sink = phi ptr [ null, %if.then.i9047 ], [ %call5122, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9055 ]
+  %call8.i455 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %273, ptr noundef %call5122.sink) #24
+  store ptr %call8.i455, ptr %order_string_, align 8
   %output_string_ = getelementptr inbounds i8, ptr %this, i64 1768
   %274 = load ptr, ptr %isolate_, align 8
   %call5138 = call ptr @_ZN2v86String14NewFromOneByteEPNS_7IsolateEPKhNS_13NewStringTypeEi(ptr noundef %274, ptr noundef nonnull @.str.801, i32 noundef 1, i32 noundef 6) #24
   %cmp.i.i12314 = icmp eq ptr %call5138, null
-  br i1 %cmp.i.i12314, label %if.then.i9040, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9048.split
-
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9048.split: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9048
-  %call8.i457 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %274, ptr noundef nonnull %call5138) #24
-  br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9041
+  br i1 %cmp.i.i12314, label %if.then.i9040, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9041
 
 if.then.i9040:                                    ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9048
   call void @_ZN2v812api_internal12ToLocalEmptyEv() #24
-  %call8.i458 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %274, ptr noundef null) #24
   br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9041
 
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9041: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9048.split, %if.then.i9040
-  %storemerge1032 = phi ptr [ %call8.i457, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9048.split ], [ %call8.i458, %if.then.i9040 ]
-  store ptr %storemerge1032, ptr %output_string_, align 8
+_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9041: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9048, %if.then.i9040
+  %call5138.sink = phi ptr [ null, %if.then.i9040 ], [ %call5138, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9048 ]
+  %call8.i457 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %274, ptr noundef %call5138.sink) #24
+  store ptr %call8.i457, ptr %output_string_, align 8
   %overlapped_string_ = getelementptr inbounds i8, ptr %this, i64 1776
   %275 = load ptr, ptr %isolate_, align 8
   %call5154 = call ptr @_ZN2v86String14NewFromOneByteEPNS_7IsolateEPKhNS_13NewStringTypeEi(ptr noundef %275, ptr noundef nonnull @.str.802, i32 noundef 1, i32 noundef 10) #24
   %cmp.i.i12319 = icmp eq ptr %call5154, null
-  br i1 %cmp.i.i12319, label %if.then.i9033, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9041.split
-
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9041.split: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9041
-  %call8.i459 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %275, ptr noundef nonnull %call5154) #24
-  br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9034
+  br i1 %cmp.i.i12319, label %if.then.i9033, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9034
 
 if.then.i9033:                                    ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9041
   call void @_ZN2v812api_internal12ToLocalEmptyEv() #24
-  %call8.i460 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %275, ptr noundef null) #24
   br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9034
 
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9034: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9041.split, %if.then.i9033
-  %storemerge1033 = phi ptr [ %call8.i459, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9041.split ], [ %call8.i460, %if.then.i9033 ]
-  store ptr %storemerge1033, ptr %overlapped_string_, align 8
+_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9034: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9041, %if.then.i9033
+  %call5154.sink = phi ptr [ null, %if.then.i9033 ], [ %call5154, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9041 ]
+  %call8.i459 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %275, ptr noundef %call5154.sink) #24
+  store ptr %call8.i459, ptr %overlapped_string_, align 8
   %parse_error_string_ = getelementptr inbounds i8, ptr %this, i64 1784
   %276 = load ptr, ptr %isolate_, align 8
   %call5170 = call ptr @_ZN2v86String14NewFromOneByteEPNS_7IsolateEPKhNS_13NewStringTypeEi(ptr noundef %276, ptr noundef nonnull @.str.803, i32 noundef 1, i32 noundef 11) #24
   %cmp.i.i12324 = icmp eq ptr %call5170, null
-  br i1 %cmp.i.i12324, label %if.then.i9026, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9034.split
-
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9034.split: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9034
-  %call8.i461 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %276, ptr noundef nonnull %call5170) #24
-  br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9027
+  br i1 %cmp.i.i12324, label %if.then.i9026, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9027
 
 if.then.i9026:                                    ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9034
   call void @_ZN2v812api_internal12ToLocalEmptyEv() #24
-  %call8.i462 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %276, ptr noundef null) #24
   br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9027
 
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9027: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9034.split, %if.then.i9026
-  %storemerge1034 = phi ptr [ %call8.i461, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9034.split ], [ %call8.i462, %if.then.i9026 ]
-  store ptr %storemerge1034, ptr %parse_error_string_, align 8
+_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9027: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9034, %if.then.i9026
+  %call5170.sink = phi ptr [ null, %if.then.i9026 ], [ %call5170, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9034 ]
+  %call8.i461 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %276, ptr noundef %call5170.sink) #24
+  store ptr %call8.i461, ptr %parse_error_string_, align 8
   %password_string_ = getelementptr inbounds i8, ptr %this, i64 1792
   %277 = load ptr, ptr %isolate_, align 8
   %call5186 = call ptr @_ZN2v86String14NewFromOneByteEPNS_7IsolateEPKhNS_13NewStringTypeEi(ptr noundef %277, ptr noundef nonnull @.str.804, i32 noundef 1, i32 noundef 8) #24
   %cmp.i.i12329 = icmp eq ptr %call5186, null
-  br i1 %cmp.i.i12329, label %if.then.i9019, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9027.split
-
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9027.split: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9027
-  %call8.i463 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %277, ptr noundef nonnull %call5186) #24
-  br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9020
+  br i1 %cmp.i.i12329, label %if.then.i9019, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9020
 
 if.then.i9019:                                    ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9027
   call void @_ZN2v812api_internal12ToLocalEmptyEv() #24
-  %call8.i464 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %277, ptr noundef null) #24
   br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9020
 
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9020: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9027.split, %if.then.i9019
-  %storemerge1035 = phi ptr [ %call8.i463, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9027.split ], [ %call8.i464, %if.then.i9019 ]
-  store ptr %storemerge1035, ptr %password_string_, align 8
+_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9020: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9027, %if.then.i9019
+  %call5186.sink = phi ptr [ null, %if.then.i9019 ], [ %call5186, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9027 ]
+  %call8.i463 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %277, ptr noundef %call5186.sink) #24
+  store ptr %call8.i463, ptr %password_string_, align 8
   %path_string_ = getelementptr inbounds i8, ptr %this, i64 1800
   %278 = load ptr, ptr %isolate_, align 8
   %call5202 = call ptr @_ZN2v86String14NewFromOneByteEPNS_7IsolateEPKhNS_13NewStringTypeEi(ptr noundef %278, ptr noundef nonnull @.str.805, i32 noundef 1, i32 noundef 4) #24
   %cmp.i.i12334 = icmp eq ptr %call5202, null
-  br i1 %cmp.i.i12334, label %if.then.i9012, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9020.split
-
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9020.split: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9020
-  %call8.i465 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %278, ptr noundef nonnull %call5202) #24
-  br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9013
+  br i1 %cmp.i.i12334, label %if.then.i9012, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9013
 
 if.then.i9012:                                    ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9020
   call void @_ZN2v812api_internal12ToLocalEmptyEv() #24
-  %call8.i466 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %278, ptr noundef null) #24
   br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9013
 
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9013: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9020.split, %if.then.i9012
-  %storemerge1036 = phi ptr [ %call8.i465, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9020.split ], [ %call8.i466, %if.then.i9012 ]
-  store ptr %storemerge1036, ptr %path_string_, align 8
+_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9013: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9020, %if.then.i9012
+  %call5202.sink = phi ptr [ null, %if.then.i9012 ], [ %call5202, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9020 ]
+  %call8.i465 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %278, ptr noundef %call5202.sink) #24
+  store ptr %call8.i465, ptr %path_string_, align 8
   %pending_handle_string_ = getelementptr inbounds i8, ptr %this, i64 1808
   %279 = load ptr, ptr %isolate_, align 8
   %call5218 = call ptr @_ZN2v86String14NewFromOneByteEPNS_7IsolateEPKhNS_13NewStringTypeEi(ptr noundef %279, ptr noundef nonnull @.str.806, i32 noundef 1, i32 noundef 13) #24
   %cmp.i.i12339 = icmp eq ptr %call5218, null
-  br i1 %cmp.i.i12339, label %if.then.i9005, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9013.split
-
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9013.split: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9013
-  %call8.i467 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %279, ptr noundef nonnull %call5218) #24
-  br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9006
+  br i1 %cmp.i.i12339, label %if.then.i9005, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9006
 
 if.then.i9005:                                    ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9013
   call void @_ZN2v812api_internal12ToLocalEmptyEv() #24
-  %call8.i468 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %279, ptr noundef null) #24
   br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9006
 
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9006: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9013.split, %if.then.i9005
-  %storemerge1037 = phi ptr [ %call8.i467, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9013.split ], [ %call8.i468, %if.then.i9005 ]
-  store ptr %storemerge1037, ptr %pending_handle_string_, align 8
+_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9006: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9013, %if.then.i9005
+  %call5218.sink = phi ptr [ null, %if.then.i9005 ], [ %call5218, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9013 ]
+  %call8.i467 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %279, ptr noundef %call5218.sink) #24
+  store ptr %call8.i467, ptr %pending_handle_string_, align 8
   %permission_string_ = getelementptr inbounds i8, ptr %this, i64 1816
   %280 = load ptr, ptr %isolate_, align 8
   %call5234 = call ptr @_ZN2v86String14NewFromOneByteEPNS_7IsolateEPKhNS_13NewStringTypeEi(ptr noundef %280, ptr noundef nonnull @.str.807, i32 noundef 1, i32 noundef 10) #24
   %cmp.i.i12344 = icmp eq ptr %call5234, null
-  br i1 %cmp.i.i12344, label %if.then.i8998, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9006.split
-
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9006.split: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9006
-  %call8.i469 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %280, ptr noundef nonnull %call5234) #24
-  br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8999
+  br i1 %cmp.i.i12344, label %if.then.i8998, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8999
 
 if.then.i8998:                                    ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9006
   call void @_ZN2v812api_internal12ToLocalEmptyEv() #24
-  %call8.i470 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %280, ptr noundef null) #24
   br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8999
 
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8999: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9006.split, %if.then.i8998
-  %storemerge1038 = phi ptr [ %call8.i469, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9006.split ], [ %call8.i470, %if.then.i8998 ]
-  store ptr %storemerge1038, ptr %permission_string_, align 8
+_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8999: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9006, %if.then.i8998
+  %call5234.sink = phi ptr [ null, %if.then.i8998 ], [ %call5234, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit9006 ]
+  %call8.i469 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %280, ptr noundef %call5234.sink) #24
+  store ptr %call8.i469, ptr %permission_string_, align 8
   %pid_string_ = getelementptr inbounds i8, ptr %this, i64 1824
   %281 = load ptr, ptr %isolate_, align 8
   %call5250 = call ptr @_ZN2v86String14NewFromOneByteEPNS_7IsolateEPKhNS_13NewStringTypeEi(ptr noundef %281, ptr noundef nonnull @.str.808, i32 noundef 1, i32 noundef 3) #24
   %cmp.i.i12349 = icmp eq ptr %call5250, null
-  br i1 %cmp.i.i12349, label %if.then.i8991, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8999.split
-
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8999.split: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8999
-  %call8.i471 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %281, ptr noundef nonnull %call5250) #24
-  br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8992
+  br i1 %cmp.i.i12349, label %if.then.i8991, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8992
 
 if.then.i8991:                                    ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8999
   call void @_ZN2v812api_internal12ToLocalEmptyEv() #24
-  %call8.i472 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %281, ptr noundef null) #24
   br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8992
 
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8992: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8999.split, %if.then.i8991
-  %storemerge1039 = phi ptr [ %call8.i471, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8999.split ], [ %call8.i472, %if.then.i8991 ]
-  store ptr %storemerge1039, ptr %pid_string_, align 8
+_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8992: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8999, %if.then.i8991
+  %call5250.sink = phi ptr [ null, %if.then.i8991 ], [ %call5250, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8999 ]
+  %call8.i471 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %281, ptr noundef %call5250.sink) #24
+  store ptr %call8.i471, ptr %pid_string_, align 8
   %ping_rtt_string_ = getelementptr inbounds i8, ptr %this, i64 1832
   %282 = load ptr, ptr %isolate_, align 8
   %call5266 = call ptr @_ZN2v86String14NewFromOneByteEPNS_7IsolateEPKhNS_13NewStringTypeEi(ptr noundef %282, ptr noundef nonnull @.str.809, i32 noundef 1, i32 noundef 7) #24
   %cmp.i.i12354 = icmp eq ptr %call5266, null
-  br i1 %cmp.i.i12354, label %if.then.i8984, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8992.split
-
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8992.split: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8992
-  %call8.i473 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %282, ptr noundef nonnull %call5266) #24
-  br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8985
+  br i1 %cmp.i.i12354, label %if.then.i8984, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8985
 
 if.then.i8984:                                    ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8992
   call void @_ZN2v812api_internal12ToLocalEmptyEv() #24
-  %call8.i474 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %282, ptr noundef null) #24
   br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8985
 
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8985: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8992.split, %if.then.i8984
-  %storemerge1040 = phi ptr [ %call8.i473, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8992.split ], [ %call8.i474, %if.then.i8984 ]
-  store ptr %storemerge1040, ptr %ping_rtt_string_, align 8
+_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8985: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8992, %if.then.i8984
+  %call5266.sink = phi ptr [ null, %if.then.i8984 ], [ %call5266, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8992 ]
+  %call8.i473 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %282, ptr noundef %call5266.sink) #24
+  store ptr %call8.i473, ptr %ping_rtt_string_, align 8
   %pipe_source_string_ = getelementptr inbounds i8, ptr %this, i64 1840
   %283 = load ptr, ptr %isolate_, align 8
   %call5282 = call ptr @_ZN2v86String14NewFromOneByteEPNS_7IsolateEPKhNS_13NewStringTypeEi(ptr noundef %283, ptr noundef nonnull @.str.810, i32 noundef 1, i32 noundef 10) #24
   %cmp.i.i12359 = icmp eq ptr %call5282, null
-  br i1 %cmp.i.i12359, label %if.then.i8977, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8985.split
-
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8985.split: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8985
-  %call8.i475 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %283, ptr noundef nonnull %call5282) #24
-  br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8978
+  br i1 %cmp.i.i12359, label %if.then.i8977, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8978
 
 if.then.i8977:                                    ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8985
   call void @_ZN2v812api_internal12ToLocalEmptyEv() #24
-  %call8.i476 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %283, ptr noundef null) #24
   br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8978
 
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8978: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8985.split, %if.then.i8977
-  %storemerge1041 = phi ptr [ %call8.i475, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8985.split ], [ %call8.i476, %if.then.i8977 ]
-  store ptr %storemerge1041, ptr %pipe_source_string_, align 8
+_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8978: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8985, %if.then.i8977
+  %call5282.sink = phi ptr [ null, %if.then.i8977 ], [ %call5282, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8985 ]
+  %call8.i475 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %283, ptr noundef %call5282.sink) #24
+  store ptr %call8.i475, ptr %pipe_source_string_, align 8
   %pipe_string_ = getelementptr inbounds i8, ptr %this, i64 1848
   %284 = load ptr, ptr %isolate_, align 8
   %call5298 = call ptr @_ZN2v86String14NewFromOneByteEPNS_7IsolateEPKhNS_13NewStringTypeEi(ptr noundef %284, ptr noundef nonnull @.str.811, i32 noundef 1, i32 noundef 4) #24
   %cmp.i.i12364 = icmp eq ptr %call5298, null
-  br i1 %cmp.i.i12364, label %if.then.i8970, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8978.split
-
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8978.split: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8978
-  %call8.i477 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %284, ptr noundef nonnull %call5298) #24
-  br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8971
+  br i1 %cmp.i.i12364, label %if.then.i8970, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8971
 
 if.then.i8970:                                    ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8978
   call void @_ZN2v812api_internal12ToLocalEmptyEv() #24
-  %call8.i478 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %284, ptr noundef null) #24
   br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8971
 
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8971: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8978.split, %if.then.i8970
-  %storemerge1042 = phi ptr [ %call8.i477, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8978.split ], [ %call8.i478, %if.then.i8970 ]
-  store ptr %storemerge1042, ptr %pipe_string_, align 8
+_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8971: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8978, %if.then.i8970
+  %call5298.sink = phi ptr [ null, %if.then.i8970 ], [ %call5298, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8978 ]
+  %call8.i477 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %284, ptr noundef %call5298.sink) #24
+  store ptr %call8.i477, ptr %pipe_string_, align 8
   %pipe_target_string_ = getelementptr inbounds i8, ptr %this, i64 1856
   %285 = load ptr, ptr %isolate_, align 8
   %call5314 = call ptr @_ZN2v86String14NewFromOneByteEPNS_7IsolateEPKhNS_13NewStringTypeEi(ptr noundef %285, ptr noundef nonnull @.str.812, i32 noundef 1, i32 noundef 10) #24
   %cmp.i.i12369 = icmp eq ptr %call5314, null
-  br i1 %cmp.i.i12369, label %if.then.i8963, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8971.split
-
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8971.split: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8971
-  %call8.i479 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %285, ptr noundef nonnull %call5314) #24
-  br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8964
+  br i1 %cmp.i.i12369, label %if.then.i8963, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8964
 
 if.then.i8963:                                    ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8971
   call void @_ZN2v812api_internal12ToLocalEmptyEv() #24
-  %call8.i480 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %285, ptr noundef null) #24
   br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8964
 
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8964: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8971.split, %if.then.i8963
-  %storemerge1043 = phi ptr [ %call8.i479, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8971.split ], [ %call8.i480, %if.then.i8963 ]
-  store ptr %storemerge1043, ptr %pipe_target_string_, align 8
+_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8964: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8971, %if.then.i8963
+  %call5314.sink = phi ptr [ null, %if.then.i8963 ], [ %call5314, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8971 ]
+  %call8.i479 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %285, ptr noundef %call5314.sink) #24
+  store ptr %call8.i479, ptr %pipe_target_string_, align 8
   %port1_string_ = getelementptr inbounds i8, ptr %this, i64 1864
   %286 = load ptr, ptr %isolate_, align 8
   %call5330 = call ptr @_ZN2v86String14NewFromOneByteEPNS_7IsolateEPKhNS_13NewStringTypeEi(ptr noundef %286, ptr noundef nonnull @.str.813, i32 noundef 1, i32 noundef 5) #24
   %cmp.i.i12374 = icmp eq ptr %call5330, null
-  br i1 %cmp.i.i12374, label %if.then.i8956, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8964.split
-
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8964.split: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8964
-  %call8.i481 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %286, ptr noundef nonnull %call5330) #24
-  br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8957
+  br i1 %cmp.i.i12374, label %if.then.i8956, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8957
 
 if.then.i8956:                                    ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8964
   call void @_ZN2v812api_internal12ToLocalEmptyEv() #24
-  %call8.i482 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %286, ptr noundef null) #24
   br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8957
 
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8957: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8964.split, %if.then.i8956
-  %storemerge1044 = phi ptr [ %call8.i481, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8964.split ], [ %call8.i482, %if.then.i8956 ]
-  store ptr %storemerge1044, ptr %port1_string_, align 8
+_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8957: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8964, %if.then.i8956
+  %call5330.sink = phi ptr [ null, %if.then.i8956 ], [ %call5330, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8964 ]
+  %call8.i481 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %286, ptr noundef %call5330.sink) #24
+  store ptr %call8.i481, ptr %port1_string_, align 8
   %port2_string_ = getelementptr inbounds i8, ptr %this, i64 1872
   %287 = load ptr, ptr %isolate_, align 8
   %call5346 = call ptr @_ZN2v86String14NewFromOneByteEPNS_7IsolateEPKhNS_13NewStringTypeEi(ptr noundef %287, ptr noundef nonnull @.str.814, i32 noundef 1, i32 noundef 5) #24
   %cmp.i.i12379 = icmp eq ptr %call5346, null
-  br i1 %cmp.i.i12379, label %if.then.i8949, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8957.split
-
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8957.split: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8957
-  %call8.i483 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %287, ptr noundef nonnull %call5346) #24
-  br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8950
+  br i1 %cmp.i.i12379, label %if.then.i8949, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8950
 
 if.then.i8949:                                    ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8957
   call void @_ZN2v812api_internal12ToLocalEmptyEv() #24
-  %call8.i484 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %287, ptr noundef null) #24
   br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8950
 
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8950: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8957.split, %if.then.i8949
-  %storemerge1045 = phi ptr [ %call8.i483, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8957.split ], [ %call8.i484, %if.then.i8949 ]
-  store ptr %storemerge1045, ptr %port2_string_, align 8
+_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8950: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8957, %if.then.i8949
+  %call5346.sink = phi ptr [ null, %if.then.i8949 ], [ %call5346, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8957 ]
+  %call8.i483 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %287, ptr noundef %call5346.sink) #24
+  store ptr %call8.i483, ptr %port2_string_, align 8
   %port_string_ = getelementptr inbounds i8, ptr %this, i64 1880
   %288 = load ptr, ptr %isolate_, align 8
   %call5362 = call ptr @_ZN2v86String14NewFromOneByteEPNS_7IsolateEPKhNS_13NewStringTypeEi(ptr noundef %288, ptr noundef nonnull @.str.815, i32 noundef 1, i32 noundef 4) #24
   %cmp.i.i12384 = icmp eq ptr %call5362, null
-  br i1 %cmp.i.i12384, label %if.then.i8942, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8950.split
-
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8950.split: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8950
-  %call8.i485 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %288, ptr noundef nonnull %call5362) #24
-  br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8943
+  br i1 %cmp.i.i12384, label %if.then.i8942, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8943
 
 if.then.i8942:                                    ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8950
   call void @_ZN2v812api_internal12ToLocalEmptyEv() #24
-  %call8.i486 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %288, ptr noundef null) #24
   br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8943
 
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8943: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8950.split, %if.then.i8942
-  %storemerge1046 = phi ptr [ %call8.i485, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8950.split ], [ %call8.i486, %if.then.i8942 ]
-  store ptr %storemerge1046, ptr %port_string_, align 8
+_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8943: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8950, %if.then.i8942
+  %call5362.sink = phi ptr [ null, %if.then.i8942 ], [ %call5362, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8950 ]
+  %call8.i485 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %288, ptr noundef %call5362.sink) #24
+  store ptr %call8.i485, ptr %port_string_, align 8
   %preference_string_ = getelementptr inbounds i8, ptr %this, i64 1888
   %289 = load ptr, ptr %isolate_, align 8
   %call5378 = call ptr @_ZN2v86String14NewFromOneByteEPNS_7IsolateEPKhNS_13NewStringTypeEi(ptr noundef %289, ptr noundef nonnull @.str.816, i32 noundef 1, i32 noundef 10) #24
   %cmp.i.i12389 = icmp eq ptr %call5378, null
-  br i1 %cmp.i.i12389, label %if.then.i8935, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8943.split
-
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8943.split: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8943
-  %call8.i487 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %289, ptr noundef nonnull %call5378) #24
-  br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8936
+  br i1 %cmp.i.i12389, label %if.then.i8935, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8936
 
 if.then.i8935:                                    ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8943
   call void @_ZN2v812api_internal12ToLocalEmptyEv() #24
-  %call8.i488 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %289, ptr noundef null) #24
   br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8936
 
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8936: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8943.split, %if.then.i8935
-  %storemerge1047 = phi ptr [ %call8.i487, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8943.split ], [ %call8.i488, %if.then.i8935 ]
-  store ptr %storemerge1047, ptr %preference_string_, align 8
+_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8936: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8943, %if.then.i8935
+  %call5378.sink = phi ptr [ null, %if.then.i8935 ], [ %call5378, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8943 ]
+  %call8.i487 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %289, ptr noundef %call5378.sink) #24
+  store ptr %call8.i487, ptr %preference_string_, align 8
   %primordials_string_ = getelementptr inbounds i8, ptr %this, i64 1896
   %290 = load ptr, ptr %isolate_, align 8
   %call5394 = call ptr @_ZN2v86String14NewFromOneByteEPNS_7IsolateEPKhNS_13NewStringTypeEi(ptr noundef %290, ptr noundef nonnull @.str.817, i32 noundef 1, i32 noundef 11) #24
   %cmp.i.i12394 = icmp eq ptr %call5394, null
-  br i1 %cmp.i.i12394, label %if.then.i8928, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8936.split
-
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8936.split: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8936
-  %call8.i489 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %290, ptr noundef nonnull %call5394) #24
-  br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8929
+  br i1 %cmp.i.i12394, label %if.then.i8928, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8929
 
 if.then.i8928:                                    ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8936
   call void @_ZN2v812api_internal12ToLocalEmptyEv() #24
-  %call8.i490 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %290, ptr noundef null) #24
   br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8929
 
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8929: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8936.split, %if.then.i8928
-  %storemerge1048 = phi ptr [ %call8.i489, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8936.split ], [ %call8.i490, %if.then.i8928 ]
-  store ptr %storemerge1048, ptr %primordials_string_, align 8
+_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8929: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8936, %if.then.i8928
+  %call5394.sink = phi ptr [ null, %if.then.i8928 ], [ %call5394, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8936 ]
+  %call8.i489 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %290, ptr noundef %call5394.sink) #24
+  store ptr %call8.i489, ptr %primordials_string_, align 8
   %priority_string_ = getelementptr inbounds i8, ptr %this, i64 1904
   %291 = load ptr, ptr %isolate_, align 8
   %call5410 = call ptr @_ZN2v86String14NewFromOneByteEPNS_7IsolateEPKhNS_13NewStringTypeEi(ptr noundef %291, ptr noundef nonnull @.str.818, i32 noundef 1, i32 noundef 8) #24
   %cmp.i.i12399 = icmp eq ptr %call5410, null
-  br i1 %cmp.i.i12399, label %if.then.i8921, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8929.split
-
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8929.split: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8929
-  %call8.i491 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %291, ptr noundef nonnull %call5410) #24
-  br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8922
+  br i1 %cmp.i.i12399, label %if.then.i8921, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8922
 
 if.then.i8921:                                    ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8929
   call void @_ZN2v812api_internal12ToLocalEmptyEv() #24
-  %call8.i492 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %291, ptr noundef null) #24
   br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8922
 
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8922: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8929.split, %if.then.i8921
-  %storemerge1049 = phi ptr [ %call8.i491, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8929.split ], [ %call8.i492, %if.then.i8921 ]
-  store ptr %storemerge1049, ptr %priority_string_, align 8
+_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8922: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8929, %if.then.i8921
+  %call5410.sink = phi ptr [ null, %if.then.i8921 ], [ %call5410, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8929 ]
+  %call8.i491 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %291, ptr noundef %call5410.sink) #24
+  store ptr %call8.i491, ptr %priority_string_, align 8
   %process_string_ = getelementptr inbounds i8, ptr %this, i64 1912
   %292 = load ptr, ptr %isolate_, align 8
   %call5426 = call ptr @_ZN2v86String14NewFromOneByteEPNS_7IsolateEPKhNS_13NewStringTypeEi(ptr noundef %292, ptr noundef nonnull @.str.819, i32 noundef 1, i32 noundef 7) #24
   %cmp.i.i12404 = icmp eq ptr %call5426, null
-  br i1 %cmp.i.i12404, label %if.then.i8914, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8922.split
-
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8922.split: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8922
-  %call8.i493 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %292, ptr noundef nonnull %call5426) #24
-  br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8915
+  br i1 %cmp.i.i12404, label %if.then.i8914, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8915
 
 if.then.i8914:                                    ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8922
   call void @_ZN2v812api_internal12ToLocalEmptyEv() #24
-  %call8.i494 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %292, ptr noundef null) #24
   br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8915
 
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8915: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8922.split, %if.then.i8914
-  %storemerge1050 = phi ptr [ %call8.i493, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8922.split ], [ %call8.i494, %if.then.i8914 ]
-  store ptr %storemerge1050, ptr %process_string_, align 8
+_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8915: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8922, %if.then.i8914
+  %call5426.sink = phi ptr [ null, %if.then.i8914 ], [ %call5426, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8922 ]
+  %call8.i493 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %292, ptr noundef %call5426.sink) #24
+  store ptr %call8.i493, ptr %process_string_, align 8
   %promise_string_ = getelementptr inbounds i8, ptr %this, i64 1920
   %293 = load ptr, ptr %isolate_, align 8
   %call5442 = call ptr @_ZN2v86String14NewFromOneByteEPNS_7IsolateEPKhNS_13NewStringTypeEi(ptr noundef %293, ptr noundef nonnull @.str.820, i32 noundef 1, i32 noundef 7) #24
   %cmp.i.i12409 = icmp eq ptr %call5442, null
-  br i1 %cmp.i.i12409, label %if.then.i8907, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8915.split
-
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8915.split: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8915
-  %call8.i495 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %293, ptr noundef nonnull %call5442) #24
-  br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8908
+  br i1 %cmp.i.i12409, label %if.then.i8907, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8908
 
 if.then.i8907:                                    ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8915
   call void @_ZN2v812api_internal12ToLocalEmptyEv() #24
-  %call8.i496 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %293, ptr noundef null) #24
   br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8908
 
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8908: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8915.split, %if.then.i8907
-  %storemerge1051 = phi ptr [ %call8.i495, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8915.split ], [ %call8.i496, %if.then.i8907 ]
-  store ptr %storemerge1051, ptr %promise_string_, align 8
+_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8908: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8915, %if.then.i8907
+  %call5442.sink = phi ptr [ null, %if.then.i8907 ], [ %call5442, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8915 ]
+  %call8.i495 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %293, ptr noundef %call5442.sink) #24
+  store ptr %call8.i495, ptr %promise_string_, align 8
   %psk_string_ = getelementptr inbounds i8, ptr %this, i64 1928
   %294 = load ptr, ptr %isolate_, align 8
   %call5458 = call ptr @_ZN2v86String14NewFromOneByteEPNS_7IsolateEPKhNS_13NewStringTypeEi(ptr noundef %294, ptr noundef nonnull @.str.821, i32 noundef 1, i32 noundef 3) #24
   %cmp.i.i12414 = icmp eq ptr %call5458, null
-  br i1 %cmp.i.i12414, label %if.then.i8900, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8908.split
-
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8908.split: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8908
-  %call8.i497 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %294, ptr noundef nonnull %call5458) #24
-  br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8901
+  br i1 %cmp.i.i12414, label %if.then.i8900, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8901
 
 if.then.i8900:                                    ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8908
   call void @_ZN2v812api_internal12ToLocalEmptyEv() #24
-  %call8.i498 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %294, ptr noundef null) #24
   br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8901
 
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8901: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8908.split, %if.then.i8900
-  %storemerge1052 = phi ptr [ %call8.i497, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8908.split ], [ %call8.i498, %if.then.i8900 ]
-  store ptr %storemerge1052, ptr %psk_string_, align 8
+_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8901: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8908, %if.then.i8900
+  %call5458.sink = phi ptr [ null, %if.then.i8900 ], [ %call5458, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8908 ]
+  %call8.i497 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %294, ptr noundef %call5458.sink) #24
+  store ptr %call8.i497, ptr %psk_string_, align 8
   %pubkey_string_ = getelementptr inbounds i8, ptr %this, i64 1936
   %295 = load ptr, ptr %isolate_, align 8
   %call5474 = call ptr @_ZN2v86String14NewFromOneByteEPNS_7IsolateEPKhNS_13NewStringTypeEi(ptr noundef %295, ptr noundef nonnull @.str.822, i32 noundef 1, i32 noundef 6) #24
   %cmp.i.i12419 = icmp eq ptr %call5474, null
-  br i1 %cmp.i.i12419, label %if.then.i8893, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8901.split
-
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8901.split: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8901
-  %call8.i499 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %295, ptr noundef nonnull %call5474) #24
-  br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8894
+  br i1 %cmp.i.i12419, label %if.then.i8893, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8894
 
 if.then.i8893:                                    ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8901
   call void @_ZN2v812api_internal12ToLocalEmptyEv() #24
-  %call8.i500 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %295, ptr noundef null) #24
   br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8894
 
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8894: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8901.split, %if.then.i8893
-  %storemerge1053 = phi ptr [ %call8.i499, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8901.split ], [ %call8.i500, %if.then.i8893 ]
-  store ptr %storemerge1053, ptr %pubkey_string_, align 8
+_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8894: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8901, %if.then.i8893
+  %call5474.sink = phi ptr [ null, %if.then.i8893 ], [ %call5474, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8901 ]
+  %call8.i499 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %295, ptr noundef %call5474.sink) #24
+  store ptr %call8.i499, ptr %pubkey_string_, align 8
   %public_exponent_string_ = getelementptr inbounds i8, ptr %this, i64 1944
   %296 = load ptr, ptr %isolate_, align 8
   %call5490 = call ptr @_ZN2v86String14NewFromOneByteEPNS_7IsolateEPKhNS_13NewStringTypeEi(ptr noundef %296, ptr noundef nonnull @.str.823, i32 noundef 1, i32 noundef 14) #24
   %cmp.i.i12424 = icmp eq ptr %call5490, null
-  br i1 %cmp.i.i12424, label %if.then.i8886, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8894.split
-
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8894.split: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8894
-  %call8.i501 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %296, ptr noundef nonnull %call5490) #24
-  br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8887
+  br i1 %cmp.i.i12424, label %if.then.i8886, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8887
 
 if.then.i8886:                                    ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8894
   call void @_ZN2v812api_internal12ToLocalEmptyEv() #24
-  %call8.i502 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %296, ptr noundef null) #24
   br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8887
 
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8887: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8894.split, %if.then.i8886
-  %storemerge1054 = phi ptr [ %call8.i501, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8894.split ], [ %call8.i502, %if.then.i8886 ]
-  store ptr %storemerge1054, ptr %public_exponent_string_, align 8
+_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8887: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8894, %if.then.i8886
+  %call5490.sink = phi ptr [ null, %if.then.i8886 ], [ %call5490, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8894 ]
+  %call8.i501 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %296, ptr noundef %call5490.sink) #24
+  store ptr %call8.i501, ptr %public_exponent_string_, align 8
   %query_string_ = getelementptr inbounds i8, ptr %this, i64 1952
   %297 = load ptr, ptr %isolate_, align 8
   %call5506 = call ptr @_ZN2v86String14NewFromOneByteEPNS_7IsolateEPKhNS_13NewStringTypeEi(ptr noundef %297, ptr noundef nonnull @.str.824, i32 noundef 1, i32 noundef 5) #24
   %cmp.i.i12429 = icmp eq ptr %call5506, null
-  br i1 %cmp.i.i12429, label %if.then.i8879, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8887.split
-
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8887.split: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8887
-  %call8.i503 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %297, ptr noundef nonnull %call5506) #24
-  br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8880
+  br i1 %cmp.i.i12429, label %if.then.i8879, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8880
 
 if.then.i8879:                                    ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8887
   call void @_ZN2v812api_internal12ToLocalEmptyEv() #24
-  %call8.i504 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %297, ptr noundef null) #24
   br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8880
 
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8880: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8887.split, %if.then.i8879
-  %storemerge1055 = phi ptr [ %call8.i503, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8887.split ], [ %call8.i504, %if.then.i8879 ]
-  store ptr %storemerge1055, ptr %query_string_, align 8
+_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8880: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8887, %if.then.i8879
+  %call5506.sink = phi ptr [ null, %if.then.i8879 ], [ %call5506, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8887 ]
+  %call8.i503 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %297, ptr noundef %call5506.sink) #24
+  store ptr %call8.i503, ptr %query_string_, align 8
   %rate_string_ = getelementptr inbounds i8, ptr %this, i64 1960
   %298 = load ptr, ptr %isolate_, align 8
   %call5522 = call ptr @_ZN2v86String14NewFromOneByteEPNS_7IsolateEPKhNS_13NewStringTypeEi(ptr noundef %298, ptr noundef nonnull @.str.825, i32 noundef 1, i32 noundef 4) #24
   %cmp.i.i12434 = icmp eq ptr %call5522, null
-  br i1 %cmp.i.i12434, label %if.then.i8872, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8880.split
-
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8880.split: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8880
-  %call8.i505 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %298, ptr noundef nonnull %call5522) #24
-  br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8873
+  br i1 %cmp.i.i12434, label %if.then.i8872, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8873
 
 if.then.i8872:                                    ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8880
   call void @_ZN2v812api_internal12ToLocalEmptyEv() #24
-  %call8.i506 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %298, ptr noundef null) #24
   br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8873
 
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8873: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8880.split, %if.then.i8872
-  %storemerge1056 = phi ptr [ %call8.i505, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8880.split ], [ %call8.i506, %if.then.i8872 ]
-  store ptr %storemerge1056, ptr %rate_string_, align 8
+_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8873: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8880, %if.then.i8872
+  %call5522.sink = phi ptr [ null, %if.then.i8872 ], [ %call5522, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8880 ]
+  %call8.i505 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %298, ptr noundef %call5522.sink) #24
+  store ptr %call8.i505, ptr %rate_string_, align 8
   %raw_string_ = getelementptr inbounds i8, ptr %this, i64 1968
   %299 = load ptr, ptr %isolate_, align 8
   %call5538 = call ptr @_ZN2v86String14NewFromOneByteEPNS_7IsolateEPKhNS_13NewStringTypeEi(ptr noundef %299, ptr noundef nonnull @.str.826, i32 noundef 1, i32 noundef 3) #24
   %cmp.i.i12439 = icmp eq ptr %call5538, null
-  br i1 %cmp.i.i12439, label %if.then.i8865, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8873.split
-
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8873.split: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8873
-  %call8.i507 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %299, ptr noundef nonnull %call5538) #24
-  br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8866
+  br i1 %cmp.i.i12439, label %if.then.i8865, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8866
 
 if.then.i8865:                                    ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8873
   call void @_ZN2v812api_internal12ToLocalEmptyEv() #24
-  %call8.i508 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %299, ptr noundef null) #24
   br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8866
 
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8866: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8873.split, %if.then.i8865
-  %storemerge1057 = phi ptr [ %call8.i507, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8873.split ], [ %call8.i508, %if.then.i8865 ]
-  store ptr %storemerge1057, ptr %raw_string_, align 8
+_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8866: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8873, %if.then.i8865
+  %call5538.sink = phi ptr [ null, %if.then.i8865 ], [ %call5538, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8873 ]
+  %call8.i507 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %299, ptr noundef %call5538.sink) #24
+  store ptr %call8.i507, ptr %raw_string_, align 8
   %read_host_object_string_ = getelementptr inbounds i8, ptr %this, i64 1976
   %300 = load ptr, ptr %isolate_, align 8
   %call5554 = call ptr @_ZN2v86String14NewFromOneByteEPNS_7IsolateEPKhNS_13NewStringTypeEi(ptr noundef %300, ptr noundef nonnull @.str.827, i32 noundef 1, i32 noundef 15) #24
   %cmp.i.i12444 = icmp eq ptr %call5554, null
-  br i1 %cmp.i.i12444, label %if.then.i8858, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8866.split
-
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8866.split: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8866
-  %call8.i509 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %300, ptr noundef nonnull %call5554) #24
-  br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8859
+  br i1 %cmp.i.i12444, label %if.then.i8858, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8859
 
 if.then.i8858:                                    ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8866
   call void @_ZN2v812api_internal12ToLocalEmptyEv() #24
-  %call8.i510 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %300, ptr noundef null) #24
   br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8859
 
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8859: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8866.split, %if.then.i8858
-  %storemerge1058 = phi ptr [ %call8.i509, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8866.split ], [ %call8.i510, %if.then.i8858 ]
-  store ptr %storemerge1058, ptr %read_host_object_string_, align 8
+_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8859: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8866, %if.then.i8858
+  %call5554.sink = phi ptr [ null, %if.then.i8858 ], [ %call5554, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8866 ]
+  %call8.i509 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %300, ptr noundef %call5554.sink) #24
+  store ptr %call8.i509, ptr %read_host_object_string_, align 8
   %readable_string_ = getelementptr inbounds i8, ptr %this, i64 1984
   %301 = load ptr, ptr %isolate_, align 8
   %call5570 = call ptr @_ZN2v86String14NewFromOneByteEPNS_7IsolateEPKhNS_13NewStringTypeEi(ptr noundef %301, ptr noundef nonnull @.str.828, i32 noundef 1, i32 noundef 8) #24
   %cmp.i.i12449 = icmp eq ptr %call5570, null
-  br i1 %cmp.i.i12449, label %if.then.i8851, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8859.split
-
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8859.split: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8859
-  %call8.i511 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %301, ptr noundef nonnull %call5570) #24
-  br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8852
+  br i1 %cmp.i.i12449, label %if.then.i8851, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8852
 
 if.then.i8851:                                    ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8859
   call void @_ZN2v812api_internal12ToLocalEmptyEv() #24
-  %call8.i512 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %301, ptr noundef null) #24
   br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8852
 
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8852: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8859.split, %if.then.i8851
-  %storemerge1059 = phi ptr [ %call8.i511, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8859.split ], [ %call8.i512, %if.then.i8851 ]
-  store ptr %storemerge1059, ptr %readable_string_, align 8
+_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8852: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8859, %if.then.i8851
+  %call5570.sink = phi ptr [ null, %if.then.i8851 ], [ %call5570, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8859 ]
+  %call8.i511 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %301, ptr noundef %call5570.sink) #24
+  store ptr %call8.i511, ptr %readable_string_, align 8
   %reason_string_ = getelementptr inbounds i8, ptr %this, i64 1992
   %302 = load ptr, ptr %isolate_, align 8
   %call5586 = call ptr @_ZN2v86String14NewFromOneByteEPNS_7IsolateEPKhNS_13NewStringTypeEi(ptr noundef %302, ptr noundef nonnull @.str.829, i32 noundef 1, i32 noundef 6) #24
   %cmp.i.i12454 = icmp eq ptr %call5586, null
-  br i1 %cmp.i.i12454, label %if.then.i8844, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8852.split
-
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8852.split: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8852
-  %call8.i513 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %302, ptr noundef nonnull %call5586) #24
-  br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8845
+  br i1 %cmp.i.i12454, label %if.then.i8844, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8845
 
 if.then.i8844:                                    ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8852
   call void @_ZN2v812api_internal12ToLocalEmptyEv() #24
-  %call8.i514 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %302, ptr noundef null) #24
   br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8845
 
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8845: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8852.split, %if.then.i8844
-  %storemerge1060 = phi ptr [ %call8.i513, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8852.split ], [ %call8.i514, %if.then.i8844 ]
-  store ptr %storemerge1060, ptr %reason_string_, align 8
+_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8845: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8852, %if.then.i8844
+  %call5586.sink = phi ptr [ null, %if.then.i8844 ], [ %call5586, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8852 ]
+  %call8.i513 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %302, ptr noundef %call5586.sink) #24
+  store ptr %call8.i513, ptr %reason_string_, align 8
   %refresh_string_ = getelementptr inbounds i8, ptr %this, i64 2000
   %303 = load ptr, ptr %isolate_, align 8
   %call5602 = call ptr @_ZN2v86String14NewFromOneByteEPNS_7IsolateEPKhNS_13NewStringTypeEi(ptr noundef %303, ptr noundef nonnull @.str.830, i32 noundef 1, i32 noundef 7) #24
   %cmp.i.i12459 = icmp eq ptr %call5602, null
-  br i1 %cmp.i.i12459, label %if.then.i8837, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8845.split
-
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8845.split: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8845
-  %call8.i515 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %303, ptr noundef nonnull %call5602) #24
-  br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8838
+  br i1 %cmp.i.i12459, label %if.then.i8837, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8838
 
 if.then.i8837:                                    ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8845
   call void @_ZN2v812api_internal12ToLocalEmptyEv() #24
-  %call8.i516 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %303, ptr noundef null) #24
   br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8838
 
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8838: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8845.split, %if.then.i8837
-  %storemerge1061 = phi ptr [ %call8.i515, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8845.split ], [ %call8.i516, %if.then.i8837 ]
-  store ptr %storemerge1061, ptr %refresh_string_, align 8
+_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8838: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8845, %if.then.i8837
+  %call5602.sink = phi ptr [ null, %if.then.i8837 ], [ %call5602, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8845 ]
+  %call8.i515 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %303, ptr noundef %call5602.sink) #24
+  store ptr %call8.i515, ptr %refresh_string_, align 8
   %regexp_string_ = getelementptr inbounds i8, ptr %this, i64 2008
   %304 = load ptr, ptr %isolate_, align 8
   %call5618 = call ptr @_ZN2v86String14NewFromOneByteEPNS_7IsolateEPKhNS_13NewStringTypeEi(ptr noundef %304, ptr noundef nonnull @.str.831, i32 noundef 1, i32 noundef 6) #24
   %cmp.i.i12464 = icmp eq ptr %call5618, null
-  br i1 %cmp.i.i12464, label %if.then.i8830, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8838.split
-
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8838.split: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8838
-  %call8.i517 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %304, ptr noundef nonnull %call5618) #24
-  br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8831
+  br i1 %cmp.i.i12464, label %if.then.i8830, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8831
 
 if.then.i8830:                                    ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8838
   call void @_ZN2v812api_internal12ToLocalEmptyEv() #24
-  %call8.i518 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %304, ptr noundef null) #24
   br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8831
 
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8831: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8838.split, %if.then.i8830
-  %storemerge1062 = phi ptr [ %call8.i517, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8838.split ], [ %call8.i518, %if.then.i8830 ]
-  store ptr %storemerge1062, ptr %regexp_string_, align 8
+_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8831: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8838, %if.then.i8830
+  %call5618.sink = phi ptr [ null, %if.then.i8830 ], [ %call5618, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8838 ]
+  %call8.i517 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %304, ptr noundef %call5618.sink) #24
+  store ptr %call8.i517, ptr %regexp_string_, align 8
   %rename_string_ = getelementptr inbounds i8, ptr %this, i64 2016
   %305 = load ptr, ptr %isolate_, align 8
   %call5634 = call ptr @_ZN2v86String14NewFromOneByteEPNS_7IsolateEPKhNS_13NewStringTypeEi(ptr noundef %305, ptr noundef nonnull @.str.832, i32 noundef 1, i32 noundef 6) #24
   %cmp.i.i12469 = icmp eq ptr %call5634, null
-  br i1 %cmp.i.i12469, label %if.then.i8823, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8831.split
-
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8831.split: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8831
-  %call8.i519 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %305, ptr noundef nonnull %call5634) #24
-  br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8824
+  br i1 %cmp.i.i12469, label %if.then.i8823, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8824
 
 if.then.i8823:                                    ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8831
   call void @_ZN2v812api_internal12ToLocalEmptyEv() #24
-  %call8.i520 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %305, ptr noundef null) #24
   br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8824
 
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8824: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8831.split, %if.then.i8823
-  %storemerge1063 = phi ptr [ %call8.i519, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8831.split ], [ %call8.i520, %if.then.i8823 ]
-  store ptr %storemerge1063, ptr %rename_string_, align 8
+_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8824: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8831, %if.then.i8823
+  %call5634.sink = phi ptr [ null, %if.then.i8823 ], [ %call5634, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8831 ]
+  %call8.i519 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %305, ptr noundef %call5634.sink) #24
+  store ptr %call8.i519, ptr %rename_string_, align 8
   %replacement_string_ = getelementptr inbounds i8, ptr %this, i64 2024
   %306 = load ptr, ptr %isolate_, align 8
   %call5650 = call ptr @_ZN2v86String14NewFromOneByteEPNS_7IsolateEPKhNS_13NewStringTypeEi(ptr noundef %306, ptr noundef nonnull @.str.833, i32 noundef 1, i32 noundef 11) #24
   %cmp.i.i12474 = icmp eq ptr %call5650, null
-  br i1 %cmp.i.i12474, label %if.then.i8816, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8824.split
-
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8824.split: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8824
-  %call8.i521 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %306, ptr noundef nonnull %call5650) #24
-  br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8817
+  br i1 %cmp.i.i12474, label %if.then.i8816, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8817
 
 if.then.i8816:                                    ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8824
   call void @_ZN2v812api_internal12ToLocalEmptyEv() #24
-  %call8.i522 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %306, ptr noundef null) #24
   br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8817
 
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8817: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8824.split, %if.then.i8816
-  %storemerge1064 = phi ptr [ %call8.i521, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8824.split ], [ %call8.i522, %if.then.i8816 ]
-  store ptr %storemerge1064, ptr %replacement_string_, align 8
+_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8817: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8824, %if.then.i8816
+  %call5650.sink = phi ptr [ null, %if.then.i8816 ], [ %call5650, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8824 ]
+  %call8.i521 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %306, ptr noundef %call5650.sink) #24
+  store ptr %call8.i521, ptr %replacement_string_, align 8
   %require_string_ = getelementptr inbounds i8, ptr %this, i64 2032
   %307 = load ptr, ptr %isolate_, align 8
   %call5666 = call ptr @_ZN2v86String14NewFromOneByteEPNS_7IsolateEPKhNS_13NewStringTypeEi(ptr noundef %307, ptr noundef nonnull @.str.834, i32 noundef 1, i32 noundef 7) #24
   %cmp.i.i12479 = icmp eq ptr %call5666, null
-  br i1 %cmp.i.i12479, label %if.then.i8809, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8817.split
-
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8817.split: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8817
-  %call8.i523 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %307, ptr noundef nonnull %call5666) #24
-  br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8810
+  br i1 %cmp.i.i12479, label %if.then.i8809, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8810
 
 if.then.i8809:                                    ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8817
   call void @_ZN2v812api_internal12ToLocalEmptyEv() #24
-  %call8.i524 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %307, ptr noundef null) #24
   br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8810
 
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8810: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8817.split, %if.then.i8809
-  %storemerge1065 = phi ptr [ %call8.i523, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8817.split ], [ %call8.i524, %if.then.i8809 ]
-  store ptr %storemerge1065, ptr %require_string_, align 8
+_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8810: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8817, %if.then.i8809
+  %call5666.sink = phi ptr [ null, %if.then.i8809 ], [ %call5666, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8817 ]
+  %call8.i523 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %307, ptr noundef %call5666.sink) #24
+  store ptr %call8.i523, ptr %require_string_, align 8
   %resource_string_ = getelementptr inbounds i8, ptr %this, i64 2040
   %308 = load ptr, ptr %isolate_, align 8
   %call5682 = call ptr @_ZN2v86String14NewFromOneByteEPNS_7IsolateEPKhNS_13NewStringTypeEi(ptr noundef %308, ptr noundef nonnull @.str.835, i32 noundef 1, i32 noundef 8) #24
   %cmp.i.i12484 = icmp eq ptr %call5682, null
-  br i1 %cmp.i.i12484, label %if.then.i8802, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8810.split
-
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8810.split: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8810
-  %call8.i525 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %308, ptr noundef nonnull %call5682) #24
-  br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8803
+  br i1 %cmp.i.i12484, label %if.then.i8802, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8803
 
 if.then.i8802:                                    ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8810
   call void @_ZN2v812api_internal12ToLocalEmptyEv() #24
-  %call8.i526 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %308, ptr noundef null) #24
   br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8803
 
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8803: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8810.split, %if.then.i8802
-  %storemerge1066 = phi ptr [ %call8.i525, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8810.split ], [ %call8.i526, %if.then.i8802 ]
-  store ptr %storemerge1066, ptr %resource_string_, align 8
+_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8803: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8810, %if.then.i8802
+  %call5682.sink = phi ptr [ null, %if.then.i8802 ], [ %call5682, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8810 ]
+  %call8.i525 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %308, ptr noundef %call5682.sink) #24
+  store ptr %call8.i525, ptr %resource_string_, align 8
   %retry_string_ = getelementptr inbounds i8, ptr %this, i64 2048
   %309 = load ptr, ptr %isolate_, align 8
   %call5698 = call ptr @_ZN2v86String14NewFromOneByteEPNS_7IsolateEPKhNS_13NewStringTypeEi(ptr noundef %309, ptr noundef nonnull @.str.836, i32 noundef 1, i32 noundef 5) #24
   %cmp.i.i12489 = icmp eq ptr %call5698, null
-  br i1 %cmp.i.i12489, label %if.then.i8795, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8803.split
-
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8803.split: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8803
-  %call8.i527 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %309, ptr noundef nonnull %call5698) #24
-  br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8796
+  br i1 %cmp.i.i12489, label %if.then.i8795, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8796
 
 if.then.i8795:                                    ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8803
   call void @_ZN2v812api_internal12ToLocalEmptyEv() #24
-  %call8.i528 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %309, ptr noundef null) #24
   br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8796
 
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8796: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8803.split, %if.then.i8795
-  %storemerge1067 = phi ptr [ %call8.i527, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8803.split ], [ %call8.i528, %if.then.i8795 ]
-  store ptr %storemerge1067, ptr %retry_string_, align 8
+_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8796: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8803, %if.then.i8795
+  %call5698.sink = phi ptr [ null, %if.then.i8795 ], [ %call5698, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8803 ]
+  %call8.i527 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %309, ptr noundef %call5698.sink) #24
+  store ptr %call8.i527, ptr %retry_string_, align 8
   %salt_length_string_ = getelementptr inbounds i8, ptr %this, i64 2056
   %310 = load ptr, ptr %isolate_, align 8
   %call5714 = call ptr @_ZN2v86String14NewFromOneByteEPNS_7IsolateEPKhNS_13NewStringTypeEi(ptr noundef %310, ptr noundef nonnull @.str.837, i32 noundef 1, i32 noundef 10) #24
   %cmp.i.i12494 = icmp eq ptr %call5714, null
-  br i1 %cmp.i.i12494, label %if.then.i8788, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8796.split
-
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8796.split: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8796
-  %call8.i529 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %310, ptr noundef nonnull %call5714) #24
-  br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8789
+  br i1 %cmp.i.i12494, label %if.then.i8788, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8789
 
 if.then.i8788:                                    ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8796
   call void @_ZN2v812api_internal12ToLocalEmptyEv() #24
-  %call8.i530 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %310, ptr noundef null) #24
   br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8789
 
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8789: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8796.split, %if.then.i8788
-  %storemerge1068 = phi ptr [ %call8.i529, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8796.split ], [ %call8.i530, %if.then.i8788 ]
-  store ptr %storemerge1068, ptr %salt_length_string_, align 8
+_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8789: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8796, %if.then.i8788
+  %call5714.sink = phi ptr [ null, %if.then.i8788 ], [ %call5714, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8796 ]
+  %call8.i529 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %310, ptr noundef %call5714.sink) #24
+  store ptr %call8.i529, ptr %salt_length_string_, align 8
   %scheme_string_ = getelementptr inbounds i8, ptr %this, i64 2064
   %311 = load ptr, ptr %isolate_, align 8
   %call5730 = call ptr @_ZN2v86String14NewFromOneByteEPNS_7IsolateEPKhNS_13NewStringTypeEi(ptr noundef %311, ptr noundef nonnull @.str.838, i32 noundef 1, i32 noundef 6) #24
   %cmp.i.i12499 = icmp eq ptr %call5730, null
-  br i1 %cmp.i.i12499, label %if.then.i8781, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8789.split
-
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8789.split: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8789
-  %call8.i531 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %311, ptr noundef nonnull %call5730) #24
-  br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8782
+  br i1 %cmp.i.i12499, label %if.then.i8781, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8782
 
 if.then.i8781:                                    ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8789
   call void @_ZN2v812api_internal12ToLocalEmptyEv() #24
-  %call8.i532 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %311, ptr noundef null) #24
   br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8782
 
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8782: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8789.split, %if.then.i8781
-  %storemerge1069 = phi ptr [ %call8.i531, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8789.split ], [ %call8.i532, %if.then.i8781 ]
-  store ptr %storemerge1069, ptr %scheme_string_, align 8
+_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8782: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8789, %if.then.i8781
+  %call5730.sink = phi ptr [ null, %if.then.i8781 ], [ %call5730, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8789 ]
+  %call8.i531 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %311, ptr noundef %call5730.sink) #24
+  store ptr %call8.i531, ptr %scheme_string_, align 8
   %scopeid_string_ = getelementptr inbounds i8, ptr %this, i64 2072
   %312 = load ptr, ptr %isolate_, align 8
   %call5746 = call ptr @_ZN2v86String14NewFromOneByteEPNS_7IsolateEPKhNS_13NewStringTypeEi(ptr noundef %312, ptr noundef nonnull @.str.839, i32 noundef 1, i32 noundef 7) #24
   %cmp.i.i12504 = icmp eq ptr %call5746, null
-  br i1 %cmp.i.i12504, label %if.then.i8774, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8782.split
-
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8782.split: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8782
-  %call8.i533 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %312, ptr noundef nonnull %call5746) #24
-  br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8775
+  br i1 %cmp.i.i12504, label %if.then.i8774, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8775
 
 if.then.i8774:                                    ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8782
   call void @_ZN2v812api_internal12ToLocalEmptyEv() #24
-  %call8.i534 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %312, ptr noundef null) #24
   br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8775
 
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8775: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8782.split, %if.then.i8774
-  %storemerge1070 = phi ptr [ %call8.i533, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8782.split ], [ %call8.i534, %if.then.i8774 ]
-  store ptr %storemerge1070, ptr %scopeid_string_, align 8
+_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8775: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8782, %if.then.i8774
+  %call5746.sink = phi ptr [ null, %if.then.i8774 ], [ %call5746, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8782 ]
+  %call8.i533 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %312, ptr noundef %call5746.sink) #24
+  store ptr %call8.i533, ptr %scopeid_string_, align 8
   %serial_number_string_ = getelementptr inbounds i8, ptr %this, i64 2080
   %313 = load ptr, ptr %isolate_, align 8
   %call5762 = call ptr @_ZN2v86String14NewFromOneByteEPNS_7IsolateEPKhNS_13NewStringTypeEi(ptr noundef %313, ptr noundef nonnull @.str.840, i32 noundef 1, i32 noundef 12) #24
   %cmp.i.i12509 = icmp eq ptr %call5762, null
-  br i1 %cmp.i.i12509, label %if.then.i8767, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8775.split
-
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8775.split: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8775
-  %call8.i535 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %313, ptr noundef nonnull %call5762) #24
-  br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8768
+  br i1 %cmp.i.i12509, label %if.then.i8767, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8768
 
 if.then.i8767:                                    ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8775
   call void @_ZN2v812api_internal12ToLocalEmptyEv() #24
-  %call8.i536 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %313, ptr noundef null) #24
   br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8768
 
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8768: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8775.split, %if.then.i8767
-  %storemerge1071 = phi ptr [ %call8.i535, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8775.split ], [ %call8.i536, %if.then.i8767 ]
-  store ptr %storemerge1071, ptr %serial_number_string_, align 8
+_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8768: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8775, %if.then.i8767
+  %call5762.sink = phi ptr [ null, %if.then.i8767 ], [ %call5762, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8775 ]
+  %call8.i535 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %313, ptr noundef %call5762.sink) #24
+  store ptr %call8.i535, ptr %serial_number_string_, align 8
   %serial_string_ = getelementptr inbounds i8, ptr %this, i64 2088
   %314 = load ptr, ptr %isolate_, align 8
   %call5778 = call ptr @_ZN2v86String14NewFromOneByteEPNS_7IsolateEPKhNS_13NewStringTypeEi(ptr noundef %314, ptr noundef nonnull @.str.841, i32 noundef 1, i32 noundef 6) #24
   %cmp.i.i12514 = icmp eq ptr %call5778, null
-  br i1 %cmp.i.i12514, label %if.then.i8760, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8768.split
-
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8768.split: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8768
-  %call8.i537 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %314, ptr noundef nonnull %call5778) #24
-  br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8761
+  br i1 %cmp.i.i12514, label %if.then.i8760, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8761
 
 if.then.i8760:                                    ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8768
   call void @_ZN2v812api_internal12ToLocalEmptyEv() #24
-  %call8.i538 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %314, ptr noundef null) #24
   br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8761
 
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8761: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8768.split, %if.then.i8760
-  %storemerge1072 = phi ptr [ %call8.i537, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8768.split ], [ %call8.i538, %if.then.i8760 ]
-  store ptr %storemerge1072, ptr %serial_string_, align 8
+_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8761: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8768, %if.then.i8760
+  %call5778.sink = phi ptr [ null, %if.then.i8760 ], [ %call5778, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8768 ]
+  %call8.i537 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %314, ptr noundef %call5778.sink) #24
+  store ptr %call8.i537, ptr %serial_string_, align 8
   %servername_string_ = getelementptr inbounds i8, ptr %this, i64 2096
   %315 = load ptr, ptr %isolate_, align 8
   %call5794 = call ptr @_ZN2v86String14NewFromOneByteEPNS_7IsolateEPKhNS_13NewStringTypeEi(ptr noundef %315, ptr noundef nonnull @.str.842, i32 noundef 1, i32 noundef 10) #24
   %cmp.i.i12519 = icmp eq ptr %call5794, null
-  br i1 %cmp.i.i12519, label %if.then.i8753, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8761.split
-
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8761.split: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8761
-  %call8.i539 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %315, ptr noundef nonnull %call5794) #24
-  br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8754
+  br i1 %cmp.i.i12519, label %if.then.i8753, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8754
 
 if.then.i8753:                                    ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8761
   call void @_ZN2v812api_internal12ToLocalEmptyEv() #24
-  %call8.i540 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %315, ptr noundef null) #24
   br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8754
 
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8754: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8761.split, %if.then.i8753
-  %storemerge1073 = phi ptr [ %call8.i539, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8761.split ], [ %call8.i540, %if.then.i8753 ]
-  store ptr %storemerge1073, ptr %servername_string_, align 8
+_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8754: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8761, %if.then.i8753
+  %call5794.sink = phi ptr [ null, %if.then.i8753 ], [ %call5794, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8761 ]
+  %call8.i539 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %315, ptr noundef %call5794.sink) #24
+  store ptr %call8.i539, ptr %servername_string_, align 8
   %service_string_ = getelementptr inbounds i8, ptr %this, i64 2104
   %316 = load ptr, ptr %isolate_, align 8
   %call5810 = call ptr @_ZN2v86String14NewFromOneByteEPNS_7IsolateEPKhNS_13NewStringTypeEi(ptr noundef %316, ptr noundef nonnull @.str.843, i32 noundef 1, i32 noundef 7) #24
   %cmp.i.i12524 = icmp eq ptr %call5810, null
-  br i1 %cmp.i.i12524, label %if.then.i8746, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8754.split
-
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8754.split: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8754
-  %call8.i541 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %316, ptr noundef nonnull %call5810) #24
-  br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8747
+  br i1 %cmp.i.i12524, label %if.then.i8746, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8747
 
 if.then.i8746:                                    ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8754
   call void @_ZN2v812api_internal12ToLocalEmptyEv() #24
-  %call8.i542 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %316, ptr noundef null) #24
   br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8747
 
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8747: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8754.split, %if.then.i8746
-  %storemerge1074 = phi ptr [ %call8.i541, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8754.split ], [ %call8.i542, %if.then.i8746 ]
-  store ptr %storemerge1074, ptr %service_string_, align 8
+_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8747: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8754, %if.then.i8746
+  %call5810.sink = phi ptr [ null, %if.then.i8746 ], [ %call5810, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8754 ]
+  %call8.i541 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %316, ptr noundef %call5810.sink) #24
+  store ptr %call8.i541, ptr %service_string_, align 8
   %session_id_string_ = getelementptr inbounds i8, ptr %this, i64 2112
   %317 = load ptr, ptr %isolate_, align 8
   %call5826 = call ptr @_ZN2v86String14NewFromOneByteEPNS_7IsolateEPKhNS_13NewStringTypeEi(ptr noundef %317, ptr noundef nonnull @.str.844, i32 noundef 1, i32 noundef 9) #24
   %cmp.i.i12529 = icmp eq ptr %call5826, null
-  br i1 %cmp.i.i12529, label %if.then.i8739, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8747.split
-
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8747.split: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8747
-  %call8.i543 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %317, ptr noundef nonnull %call5826) #24
-  br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8740
+  br i1 %cmp.i.i12529, label %if.then.i8739, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8740
 
 if.then.i8739:                                    ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8747
   call void @_ZN2v812api_internal12ToLocalEmptyEv() #24
-  %call8.i544 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %317, ptr noundef null) #24
   br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8740
 
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8740: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8747.split, %if.then.i8739
-  %storemerge1075 = phi ptr [ %call8.i543, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8747.split ], [ %call8.i544, %if.then.i8739 ]
-  store ptr %storemerge1075, ptr %session_id_string_, align 8
+_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8740: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8747, %if.then.i8739
+  %call5826.sink = phi ptr [ null, %if.then.i8739 ], [ %call5826, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8747 ]
+  %call8.i543 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %317, ptr noundef %call5826.sink) #24
+  store ptr %call8.i543, ptr %session_id_string_, align 8
   %set_string_ = getelementptr inbounds i8, ptr %this, i64 2120
   %318 = load ptr, ptr %isolate_, align 8
   %call5842 = call ptr @_ZN2v86String14NewFromOneByteEPNS_7IsolateEPKhNS_13NewStringTypeEi(ptr noundef %318, ptr noundef nonnull @.str.845, i32 noundef 1, i32 noundef 3) #24
   %cmp.i.i12534 = icmp eq ptr %call5842, null
-  br i1 %cmp.i.i12534, label %if.then.i8732, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8740.split
-
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8740.split: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8740
-  %call8.i545 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %318, ptr noundef nonnull %call5842) #24
-  br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8733
+  br i1 %cmp.i.i12534, label %if.then.i8732, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8733
 
 if.then.i8732:                                    ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8740
   call void @_ZN2v812api_internal12ToLocalEmptyEv() #24
-  %call8.i546 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %318, ptr noundef null) #24
   br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8733
 
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8733: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8740.split, %if.then.i8732
-  %storemerge1076 = phi ptr [ %call8.i545, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8740.split ], [ %call8.i546, %if.then.i8732 ]
-  store ptr %storemerge1076, ptr %set_string_, align 8
+_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8733: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8740, %if.then.i8732
+  %call5842.sink = phi ptr [ null, %if.then.i8732 ], [ %call5842, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8740 ]
+  %call8.i545 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %318, ptr noundef %call5842.sink) #24
+  store ptr %call8.i545, ptr %set_string_, align 8
   %shell_string_ = getelementptr inbounds i8, ptr %this, i64 2128
   %319 = load ptr, ptr %isolate_, align 8
   %call5858 = call ptr @_ZN2v86String14NewFromOneByteEPNS_7IsolateEPKhNS_13NewStringTypeEi(ptr noundef %319, ptr noundef nonnull @.str.846, i32 noundef 1, i32 noundef 5) #24
   %cmp.i.i12539 = icmp eq ptr %call5858, null
-  br i1 %cmp.i.i12539, label %if.then.i8725, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8733.split
-
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8733.split: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8733
-  %call8.i547 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %319, ptr noundef nonnull %call5858) #24
-  br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8726
+  br i1 %cmp.i.i12539, label %if.then.i8725, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8726
 
 if.then.i8725:                                    ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8733
   call void @_ZN2v812api_internal12ToLocalEmptyEv() #24
-  %call8.i548 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %319, ptr noundef null) #24
   br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8726
 
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8726: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8733.split, %if.then.i8725
-  %storemerge1077 = phi ptr [ %call8.i547, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8733.split ], [ %call8.i548, %if.then.i8725 ]
-  store ptr %storemerge1077, ptr %shell_string_, align 8
+_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8726: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8733, %if.then.i8725
+  %call5858.sink = phi ptr [ null, %if.then.i8725 ], [ %call5858, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8733 ]
+  %call8.i547 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %319, ptr noundef %call5858.sink) #24
+  store ptr %call8.i547, ptr %shell_string_, align 8
   %signal_string_ = getelementptr inbounds i8, ptr %this, i64 2136
   %320 = load ptr, ptr %isolate_, align 8
   %call5874 = call ptr @_ZN2v86String14NewFromOneByteEPNS_7IsolateEPKhNS_13NewStringTypeEi(ptr noundef %320, ptr noundef nonnull @.str.847, i32 noundef 1, i32 noundef 6) #24
   %cmp.i.i12544 = icmp eq ptr %call5874, null
-  br i1 %cmp.i.i12544, label %if.then.i8718, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8726.split
-
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8726.split: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8726
-  %call8.i549 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %320, ptr noundef nonnull %call5874) #24
-  br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8719
+  br i1 %cmp.i.i12544, label %if.then.i8718, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8719
 
 if.then.i8718:                                    ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8726
   call void @_ZN2v812api_internal12ToLocalEmptyEv() #24
-  %call8.i550 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %320, ptr noundef null) #24
   br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8719
 
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8719: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8726.split, %if.then.i8718
-  %storemerge1078 = phi ptr [ %call8.i549, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8726.split ], [ %call8.i550, %if.then.i8718 ]
-  store ptr %storemerge1078, ptr %signal_string_, align 8
+_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8719: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8726, %if.then.i8718
+  %call5874.sink = phi ptr [ null, %if.then.i8718 ], [ %call5874, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8726 ]
+  %call8.i549 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %320, ptr noundef %call5874.sink) #24
+  store ptr %call8.i549, ptr %signal_string_, align 8
   %sink_string_ = getelementptr inbounds i8, ptr %this, i64 2144
   %321 = load ptr, ptr %isolate_, align 8
   %call5890 = call ptr @_ZN2v86String14NewFromOneByteEPNS_7IsolateEPKhNS_13NewStringTypeEi(ptr noundef %321, ptr noundef nonnull @.str.848, i32 noundef 1, i32 noundef 4) #24
   %cmp.i.i12549 = icmp eq ptr %call5890, null
-  br i1 %cmp.i.i12549, label %if.then.i8711, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8719.split
-
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8719.split: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8719
-  %call8.i551 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %321, ptr noundef nonnull %call5890) #24
-  br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8712
+  br i1 %cmp.i.i12549, label %if.then.i8711, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8712
 
 if.then.i8711:                                    ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8719
   call void @_ZN2v812api_internal12ToLocalEmptyEv() #24
-  %call8.i552 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %321, ptr noundef null) #24
   br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8712
 
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8712: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8719.split, %if.then.i8711
-  %storemerge1079 = phi ptr [ %call8.i551, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8719.split ], [ %call8.i552, %if.then.i8711 ]
-  store ptr %storemerge1079, ptr %sink_string_, align 8
+_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8712: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8719, %if.then.i8711
+  %call5890.sink = phi ptr [ null, %if.then.i8711 ], [ %call5890, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8719 ]
+  %call8.i551 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %321, ptr noundef %call5890.sink) #24
+  store ptr %call8.i551, ptr %sink_string_, align 8
   %size_string_ = getelementptr inbounds i8, ptr %this, i64 2152
   %322 = load ptr, ptr %isolate_, align 8
   %call5906 = call ptr @_ZN2v86String14NewFromOneByteEPNS_7IsolateEPKhNS_13NewStringTypeEi(ptr noundef %322, ptr noundef nonnull @.str.849, i32 noundef 1, i32 noundef 4) #24
   %cmp.i.i12554 = icmp eq ptr %call5906, null
-  br i1 %cmp.i.i12554, label %if.then.i8704, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8712.split
-
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8712.split: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8712
-  %call8.i553 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %322, ptr noundef nonnull %call5906) #24
-  br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8705
+  br i1 %cmp.i.i12554, label %if.then.i8704, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8705
 
 if.then.i8704:                                    ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8712
   call void @_ZN2v812api_internal12ToLocalEmptyEv() #24
-  %call8.i554 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %322, ptr noundef null) #24
   br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8705
 
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8705: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8712.split, %if.then.i8704
-  %storemerge1080 = phi ptr [ %call8.i553, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8712.split ], [ %call8.i554, %if.then.i8704 ]
-  store ptr %storemerge1080, ptr %size_string_, align 8
+_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8705: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8712, %if.then.i8704
+  %call5906.sink = phi ptr [ null, %if.then.i8704 ], [ %call5906, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8712 ]
+  %call8.i553 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %322, ptr noundef %call5906.sink) #24
+  store ptr %call8.i553, ptr %size_string_, align 8
   %sni_context_err_string_ = getelementptr inbounds i8, ptr %this, i64 2160
   %323 = load ptr, ptr %isolate_, align 8
   %call5922 = call ptr @_ZN2v86String14NewFromOneByteEPNS_7IsolateEPKhNS_13NewStringTypeEi(ptr noundef %323, ptr noundef nonnull @.str.850, i32 noundef 1, i32 noundef 19) #24
   %cmp.i.i12559 = icmp eq ptr %call5922, null
-  br i1 %cmp.i.i12559, label %if.then.i8697, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8705.split
-
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8705.split: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8705
-  %call8.i555 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %323, ptr noundef nonnull %call5922) #24
-  br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8698
+  br i1 %cmp.i.i12559, label %if.then.i8697, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8698
 
 if.then.i8697:                                    ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8705
   call void @_ZN2v812api_internal12ToLocalEmptyEv() #24
-  %call8.i556 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %323, ptr noundef null) #24
   br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8698
 
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8698: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8705.split, %if.then.i8697
-  %storemerge1081 = phi ptr [ %call8.i555, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8705.split ], [ %call8.i556, %if.then.i8697 ]
-  store ptr %storemerge1081, ptr %sni_context_err_string_, align 8
+_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8698: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8705, %if.then.i8697
+  %call5922.sink = phi ptr [ null, %if.then.i8697 ], [ %call5922, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8705 ]
+  %call8.i555 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %323, ptr noundef %call5922.sink) #24
+  store ptr %call8.i555, ptr %sni_context_err_string_, align 8
   %sni_context_string_ = getelementptr inbounds i8, ptr %this, i64 2168
   %324 = load ptr, ptr %isolate_, align 8
   %call5938 = call ptr @_ZN2v86String14NewFromOneByteEPNS_7IsolateEPKhNS_13NewStringTypeEi(ptr noundef %324, ptr noundef nonnull @.str.851, i32 noundef 1, i32 noundef 11) #24
   %cmp.i.i12564 = icmp eq ptr %call5938, null
-  br i1 %cmp.i.i12564, label %if.then.i8690, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8698.split
-
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8698.split: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8698
-  %call8.i557 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %324, ptr noundef nonnull %call5938) #24
-  br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8691
+  br i1 %cmp.i.i12564, label %if.then.i8690, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8691
 
 if.then.i8690:                                    ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8698
   call void @_ZN2v812api_internal12ToLocalEmptyEv() #24
-  %call8.i558 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %324, ptr noundef null) #24
   br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8691
 
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8691: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8698.split, %if.then.i8690
-  %storemerge1082 = phi ptr [ %call8.i557, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8698.split ], [ %call8.i558, %if.then.i8690 ]
-  store ptr %storemerge1082, ptr %sni_context_string_, align 8
+_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8691: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8698, %if.then.i8690
+  %call5938.sink = phi ptr [ null, %if.then.i8690 ], [ %call5938, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8698 ]
+  %call8.i557 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %324, ptr noundef %call5938.sink) #24
+  store ptr %call8.i557, ptr %sni_context_string_, align 8
   %source_string_ = getelementptr inbounds i8, ptr %this, i64 2176
   %325 = load ptr, ptr %isolate_, align 8
   %call5954 = call ptr @_ZN2v86String14NewFromOneByteEPNS_7IsolateEPKhNS_13NewStringTypeEi(ptr noundef %325, ptr noundef nonnull @.str.852, i32 noundef 1, i32 noundef 6) #24
   %cmp.i.i12569 = icmp eq ptr %call5954, null
-  br i1 %cmp.i.i12569, label %if.then.i8683, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8691.split
-
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8691.split: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8691
-  %call8.i559 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %325, ptr noundef nonnull %call5954) #24
-  br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8684
+  br i1 %cmp.i.i12569, label %if.then.i8683, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8684
 
 if.then.i8683:                                    ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8691
   call void @_ZN2v812api_internal12ToLocalEmptyEv() #24
-  %call8.i560 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %325, ptr noundef null) #24
   br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8684
 
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8684: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8691.split, %if.then.i8683
-  %storemerge1083 = phi ptr [ %call8.i559, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8691.split ], [ %call8.i560, %if.then.i8683 ]
-  store ptr %storemerge1083, ptr %source_string_, align 8
+_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8684: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8691, %if.then.i8683
+  %call5954.sink = phi ptr [ null, %if.then.i8683 ], [ %call5954, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8691 ]
+  %call8.i559 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %325, ptr noundef %call5954.sink) #24
+  store ptr %call8.i559, ptr %source_string_, align 8
   %source_map_url_string_ = getelementptr inbounds i8, ptr %this, i64 2184
   %326 = load ptr, ptr %isolate_, align 8
   %call5970 = call ptr @_ZN2v86String14NewFromOneByteEPNS_7IsolateEPKhNS_13NewStringTypeEi(ptr noundef %326, ptr noundef nonnull @.str.853, i32 noundef 1, i32 noundef 12) #24
   %cmp.i.i12574 = icmp eq ptr %call5970, null
-  br i1 %cmp.i.i12574, label %if.then.i8676, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8684.split
-
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8684.split: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8684
-  %call8.i561 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %326, ptr noundef nonnull %call5970) #24
-  br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8677
+  br i1 %cmp.i.i12574, label %if.then.i8676, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8677
 
 if.then.i8676:                                    ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8684
   call void @_ZN2v812api_internal12ToLocalEmptyEv() #24
-  %call8.i562 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %326, ptr noundef null) #24
   br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8677
 
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8677: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8684.split, %if.then.i8676
-  %storemerge1084 = phi ptr [ %call8.i561, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8684.split ], [ %call8.i562, %if.then.i8676 ]
-  store ptr %storemerge1084, ptr %source_map_url_string_, align 8
+_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8677: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8684, %if.then.i8676
+  %call5970.sink = phi ptr [ null, %if.then.i8676 ], [ %call5970, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8684 ]
+  %call8.i561 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %326, ptr noundef %call5970.sink) #24
+  store ptr %call8.i561, ptr %source_map_url_string_, align 8
   %stack_string_ = getelementptr inbounds i8, ptr %this, i64 2192
   %327 = load ptr, ptr %isolate_, align 8
   %call5986 = call ptr @_ZN2v86String14NewFromOneByteEPNS_7IsolateEPKhNS_13NewStringTypeEi(ptr noundef %327, ptr noundef nonnull @.str.854, i32 noundef 1, i32 noundef 5) #24
   %cmp.i.i12579 = icmp eq ptr %call5986, null
-  br i1 %cmp.i.i12579, label %if.then.i8669, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8677.split
-
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8677.split: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8677
-  %call8.i563 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %327, ptr noundef nonnull %call5986) #24
-  br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8670
+  br i1 %cmp.i.i12579, label %if.then.i8669, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8670
 
 if.then.i8669:                                    ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8677
   call void @_ZN2v812api_internal12ToLocalEmptyEv() #24
-  %call8.i564 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %327, ptr noundef null) #24
   br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8670
 
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8670: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8677.split, %if.then.i8669
-  %storemerge1085 = phi ptr [ %call8.i563, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8677.split ], [ %call8.i564, %if.then.i8669 ]
-  store ptr %storemerge1085, ptr %stack_string_, align 8
+_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8670: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8677, %if.then.i8669
+  %call5986.sink = phi ptr [ null, %if.then.i8669 ], [ %call5986, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8677 ]
+  %call8.i563 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %327, ptr noundef %call5986.sink) #24
+  store ptr %call8.i563, ptr %stack_string_, align 8
   %standard_name_string_ = getelementptr inbounds i8, ptr %this, i64 2200
   %328 = load ptr, ptr %isolate_, align 8
   %call6002 = call ptr @_ZN2v86String14NewFromOneByteEPNS_7IsolateEPKhNS_13NewStringTypeEi(ptr noundef %328, ptr noundef nonnull @.str.855, i32 noundef 1, i32 noundef 12) #24
   %cmp.i.i12584 = icmp eq ptr %call6002, null
-  br i1 %cmp.i.i12584, label %if.then.i8662, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8670.split
-
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8670.split: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8670
-  %call8.i565 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %328, ptr noundef nonnull %call6002) #24
-  br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8663
+  br i1 %cmp.i.i12584, label %if.then.i8662, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8663
 
 if.then.i8662:                                    ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8670
   call void @_ZN2v812api_internal12ToLocalEmptyEv() #24
-  %call8.i566 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %328, ptr noundef null) #24
   br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8663
 
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8663: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8670.split, %if.then.i8662
-  %storemerge1086 = phi ptr [ %call8.i565, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8670.split ], [ %call8.i566, %if.then.i8662 ]
-  store ptr %storemerge1086, ptr %standard_name_string_, align 8
+_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8663: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8670, %if.then.i8662
+  %call6002.sink = phi ptr [ null, %if.then.i8662 ], [ %call6002, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8670 ]
+  %call8.i565 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %328, ptr noundef %call6002.sink) #24
+  store ptr %call8.i565, ptr %standard_name_string_, align 8
   %start_time_string_ = getelementptr inbounds i8, ptr %this, i64 2208
   %329 = load ptr, ptr %isolate_, align 8
   %call6018 = call ptr @_ZN2v86String14NewFromOneByteEPNS_7IsolateEPKhNS_13NewStringTypeEi(ptr noundef %329, ptr noundef nonnull @.str.856, i32 noundef 1, i32 noundef 9) #24
   %cmp.i.i12589 = icmp eq ptr %call6018, null
-  br i1 %cmp.i.i12589, label %if.then.i8655, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8663.split
-
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8663.split: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8663
-  %call8.i567 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %329, ptr noundef nonnull %call6018) #24
-  br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8656
+  br i1 %cmp.i.i12589, label %if.then.i8655, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8656
 
 if.then.i8655:                                    ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8663
   call void @_ZN2v812api_internal12ToLocalEmptyEv() #24
-  %call8.i568 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %329, ptr noundef null) #24
   br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8656
 
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8656: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8663.split, %if.then.i8655
-  %storemerge1087 = phi ptr [ %call8.i567, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8663.split ], [ %call8.i568, %if.then.i8655 ]
-  store ptr %storemerge1087, ptr %start_time_string_, align 8
+_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8656: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8663, %if.then.i8655
+  %call6018.sink = phi ptr [ null, %if.then.i8655 ], [ %call6018, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8663 ]
+  %call8.i567 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %329, ptr noundef %call6018.sink) #24
+  store ptr %call8.i567, ptr %start_time_string_, align 8
   %state_string_ = getelementptr inbounds i8, ptr %this, i64 2216
   %330 = load ptr, ptr %isolate_, align 8
   %call6034 = call ptr @_ZN2v86String14NewFromOneByteEPNS_7IsolateEPKhNS_13NewStringTypeEi(ptr noundef %330, ptr noundef nonnull @.str.857, i32 noundef 1, i32 noundef 5) #24
   %cmp.i.i12594 = icmp eq ptr %call6034, null
-  br i1 %cmp.i.i12594, label %if.then.i8648, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8656.split
-
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8656.split: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8656
-  %call8.i569 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %330, ptr noundef nonnull %call6034) #24
-  br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8649
+  br i1 %cmp.i.i12594, label %if.then.i8648, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8649
 
 if.then.i8648:                                    ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8656
   call void @_ZN2v812api_internal12ToLocalEmptyEv() #24
-  %call8.i570 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %330, ptr noundef null) #24
   br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8649
 
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8649: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8656.split, %if.then.i8648
-  %storemerge1088 = phi ptr [ %call8.i569, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8656.split ], [ %call8.i570, %if.then.i8648 ]
-  store ptr %storemerge1088, ptr %state_string_, align 8
+_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8649: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8656, %if.then.i8648
+  %call6034.sink = phi ptr [ null, %if.then.i8648 ], [ %call6034, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8656 ]
+  %call8.i569 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %330, ptr noundef %call6034.sink) #24
+  store ptr %call8.i569, ptr %state_string_, align 8
   %stats_string_ = getelementptr inbounds i8, ptr %this, i64 2224
   %331 = load ptr, ptr %isolate_, align 8
   %call6050 = call ptr @_ZN2v86String14NewFromOneByteEPNS_7IsolateEPKhNS_13NewStringTypeEi(ptr noundef %331, ptr noundef nonnull @.str.858, i32 noundef 1, i32 noundef 5) #24
   %cmp.i.i12599 = icmp eq ptr %call6050, null
-  br i1 %cmp.i.i12599, label %if.then.i8641, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8649.split
-
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8649.split: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8649
-  %call8.i571 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %331, ptr noundef nonnull %call6050) #24
-  br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8642
+  br i1 %cmp.i.i12599, label %if.then.i8641, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8642
 
 if.then.i8641:                                    ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8649
   call void @_ZN2v812api_internal12ToLocalEmptyEv() #24
-  %call8.i572 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %331, ptr noundef null) #24
   br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8642
 
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8642: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8649.split, %if.then.i8641
-  %storemerge1089 = phi ptr [ %call8.i571, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8649.split ], [ %call8.i572, %if.then.i8641 ]
-  store ptr %storemerge1089, ptr %stats_string_, align 8
+_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8642: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8649, %if.then.i8641
+  %call6050.sink = phi ptr [ null, %if.then.i8641 ], [ %call6050, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8649 ]
+  %call8.i571 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %331, ptr noundef %call6050.sink) #24
+  store ptr %call8.i571, ptr %stats_string_, align 8
   %status_string_ = getelementptr inbounds i8, ptr %this, i64 2232
   %332 = load ptr, ptr %isolate_, align 8
   %call6066 = call ptr @_ZN2v86String14NewFromOneByteEPNS_7IsolateEPKhNS_13NewStringTypeEi(ptr noundef %332, ptr noundef nonnull @.str.859, i32 noundef 1, i32 noundef 6) #24
   %cmp.i.i12604 = icmp eq ptr %call6066, null
-  br i1 %cmp.i.i12604, label %if.then.i8634, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8642.split
-
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8642.split: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8642
-  %call8.i573 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %332, ptr noundef nonnull %call6066) #24
-  br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8635
+  br i1 %cmp.i.i12604, label %if.then.i8634, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8635
 
 if.then.i8634:                                    ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8642
   call void @_ZN2v812api_internal12ToLocalEmptyEv() #24
-  %call8.i574 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %332, ptr noundef null) #24
   br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8635
 
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8635: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8642.split, %if.then.i8634
-  %storemerge1090 = phi ptr [ %call8.i573, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8642.split ], [ %call8.i574, %if.then.i8634 ]
-  store ptr %storemerge1090, ptr %status_string_, align 8
+_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8635: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8642, %if.then.i8634
+  %call6066.sink = phi ptr [ null, %if.then.i8634 ], [ %call6066, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8642 ]
+  %call8.i573 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %332, ptr noundef %call6066.sink) #24
+  store ptr %call8.i573, ptr %status_string_, align 8
   %stdio_string_ = getelementptr inbounds i8, ptr %this, i64 2240
   %333 = load ptr, ptr %isolate_, align 8
   %call6082 = call ptr @_ZN2v86String14NewFromOneByteEPNS_7IsolateEPKhNS_13NewStringTypeEi(ptr noundef %333, ptr noundef nonnull @.str.860, i32 noundef 1, i32 noundef 5) #24
   %cmp.i.i12609 = icmp eq ptr %call6082, null
-  br i1 %cmp.i.i12609, label %if.then.i8627, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8635.split
-
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8635.split: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8635
-  %call8.i575 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %333, ptr noundef nonnull %call6082) #24
-  br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8628
+  br i1 %cmp.i.i12609, label %if.then.i8627, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8628
 
 if.then.i8627:                                    ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8635
   call void @_ZN2v812api_internal12ToLocalEmptyEv() #24
-  %call8.i576 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %333, ptr noundef null) #24
   br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8628
 
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8628: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8635.split, %if.then.i8627
-  %storemerge1091 = phi ptr [ %call8.i575, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8635.split ], [ %call8.i576, %if.then.i8627 ]
-  store ptr %storemerge1091, ptr %stdio_string_, align 8
+_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8628: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8635, %if.then.i8627
+  %call6082.sink = phi ptr [ null, %if.then.i8627 ], [ %call6082, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8635 ]
+  %call8.i575 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %333, ptr noundef %call6082.sink) #24
+  store ptr %call8.i575, ptr %stdio_string_, align 8
   %stream_average_duration_string_ = getelementptr inbounds i8, ptr %this, i64 2248
   %334 = load ptr, ptr %isolate_, align 8
   %call6098 = call ptr @_ZN2v86String14NewFromOneByteEPNS_7IsolateEPKhNS_13NewStringTypeEi(ptr noundef %334, ptr noundef nonnull @.str.861, i32 noundef 1, i32 noundef 21) #24
   %cmp.i.i12614 = icmp eq ptr %call6098, null
-  br i1 %cmp.i.i12614, label %if.then.i8620, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8628.split
-
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8628.split: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8628
-  %call8.i577 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %334, ptr noundef nonnull %call6098) #24
-  br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8621
+  br i1 %cmp.i.i12614, label %if.then.i8620, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8621
 
 if.then.i8620:                                    ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8628
   call void @_ZN2v812api_internal12ToLocalEmptyEv() #24
-  %call8.i578 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %334, ptr noundef null) #24
   br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8621
 
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8621: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8628.split, %if.then.i8620
-  %storemerge1092 = phi ptr [ %call8.i577, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8628.split ], [ %call8.i578, %if.then.i8620 ]
-  store ptr %storemerge1092, ptr %stream_average_duration_string_, align 8
+_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8621: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8628, %if.then.i8620
+  %call6098.sink = phi ptr [ null, %if.then.i8620 ], [ %call6098, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8628 ]
+  %call8.i577 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %334, ptr noundef %call6098.sink) #24
+  store ptr %call8.i577, ptr %stream_average_duration_string_, align 8
   %stream_count_string_ = getelementptr inbounds i8, ptr %this, i64 2256
   %335 = load ptr, ptr %isolate_, align 8
   %call6114 = call ptr @_ZN2v86String14NewFromOneByteEPNS_7IsolateEPKhNS_13NewStringTypeEi(ptr noundef %335, ptr noundef nonnull @.str.862, i32 noundef 1, i32 noundef 11) #24
   %cmp.i.i12619 = icmp eq ptr %call6114, null
-  br i1 %cmp.i.i12619, label %if.then.i8613, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8621.split
-
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8621.split: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8621
-  %call8.i579 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %335, ptr noundef nonnull %call6114) #24
-  br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8614
+  br i1 %cmp.i.i12619, label %if.then.i8613, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8614
 
 if.then.i8613:                                    ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8621
   call void @_ZN2v812api_internal12ToLocalEmptyEv() #24
-  %call8.i580 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %335, ptr noundef null) #24
   br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8614
 
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8614: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8621.split, %if.then.i8613
-  %storemerge1093 = phi ptr [ %call8.i579, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8621.split ], [ %call8.i580, %if.then.i8613 ]
-  store ptr %storemerge1093, ptr %stream_count_string_, align 8
+_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8614: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8621, %if.then.i8613
+  %call6114.sink = phi ptr [ null, %if.then.i8613 ], [ %call6114, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8621 ]
+  %call8.i579 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %335, ptr noundef %call6114.sink) #24
+  store ptr %call8.i579, ptr %stream_count_string_, align 8
   %subject_string_ = getelementptr inbounds i8, ptr %this, i64 2264
   %336 = load ptr, ptr %isolate_, align 8
   %call6130 = call ptr @_ZN2v86String14NewFromOneByteEPNS_7IsolateEPKhNS_13NewStringTypeEi(ptr noundef %336, ptr noundef nonnull @.str.863, i32 noundef 1, i32 noundef 7) #24
   %cmp.i.i12624 = icmp eq ptr %call6130, null
-  br i1 %cmp.i.i12624, label %if.then.i8606, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8614.split
-
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8614.split: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8614
-  %call8.i581 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %336, ptr noundef nonnull %call6130) #24
-  br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8607
+  br i1 %cmp.i.i12624, label %if.then.i8606, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8607
 
 if.then.i8606:                                    ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8614
   call void @_ZN2v812api_internal12ToLocalEmptyEv() #24
-  %call8.i582 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %336, ptr noundef null) #24
   br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8607
 
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8607: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8614.split, %if.then.i8606
-  %storemerge1094 = phi ptr [ %call8.i581, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8614.split ], [ %call8.i582, %if.then.i8606 ]
-  store ptr %storemerge1094, ptr %subject_string_, align 8
+_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8607: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8614, %if.then.i8606
+  %call6130.sink = phi ptr [ null, %if.then.i8606 ], [ %call6130, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8614 ]
+  %call8.i581 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %336, ptr noundef %call6130.sink) #24
+  store ptr %call8.i581, ptr %subject_string_, align 8
   %subjectaltname_string_ = getelementptr inbounds i8, ptr %this, i64 2272
   %337 = load ptr, ptr %isolate_, align 8
   %call6146 = call ptr @_ZN2v86String14NewFromOneByteEPNS_7IsolateEPKhNS_13NewStringTypeEi(ptr noundef %337, ptr noundef nonnull @.str.864, i32 noundef 1, i32 noundef 14) #24
   %cmp.i.i12629 = icmp eq ptr %call6146, null
-  br i1 %cmp.i.i12629, label %if.then.i8599, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8607.split
-
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8607.split: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8607
-  %call8.i583 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %337, ptr noundef nonnull %call6146) #24
-  br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8600
+  br i1 %cmp.i.i12629, label %if.then.i8599, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8600
 
 if.then.i8599:                                    ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8607
   call void @_ZN2v812api_internal12ToLocalEmptyEv() #24
-  %call8.i584 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %337, ptr noundef null) #24
   br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8600
 
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8600: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8607.split, %if.then.i8599
-  %storemerge1095 = phi ptr [ %call8.i583, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8607.split ], [ %call8.i584, %if.then.i8599 ]
-  store ptr %storemerge1095, ptr %subjectaltname_string_, align 8
+_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8600: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8607, %if.then.i8599
+  %call6146.sink = phi ptr [ null, %if.then.i8599 ], [ %call6146, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8607 ]
+  %call8.i583 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %337, ptr noundef %call6146.sink) #24
+  store ptr %call8.i583, ptr %subjectaltname_string_, align 8
   %syscall_string_ = getelementptr inbounds i8, ptr %this, i64 2280
   %338 = load ptr, ptr %isolate_, align 8
   %call6162 = call ptr @_ZN2v86String14NewFromOneByteEPNS_7IsolateEPKhNS_13NewStringTypeEi(ptr noundef %338, ptr noundef nonnull @.str.865, i32 noundef 1, i32 noundef 7) #24
   %cmp.i.i12634 = icmp eq ptr %call6162, null
-  br i1 %cmp.i.i12634, label %if.then.i8592, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8600.split
-
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8600.split: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8600
-  %call8.i585 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %338, ptr noundef nonnull %call6162) #24
-  br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8593
+  br i1 %cmp.i.i12634, label %if.then.i8592, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8593
 
 if.then.i8592:                                    ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8600
   call void @_ZN2v812api_internal12ToLocalEmptyEv() #24
-  %call8.i586 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %338, ptr noundef null) #24
   br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8593
 
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8593: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8600.split, %if.then.i8592
-  %storemerge1096 = phi ptr [ %call8.i585, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8600.split ], [ %call8.i586, %if.then.i8592 ]
-  store ptr %storemerge1096, ptr %syscall_string_, align 8
+_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8593: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8600, %if.then.i8592
+  %call6162.sink = phi ptr [ null, %if.then.i8592 ], [ %call6162, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8600 ]
+  %call8.i585 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %338, ptr noundef %call6162.sink) #24
+  store ptr %call8.i585, ptr %syscall_string_, align 8
   %target_string_ = getelementptr inbounds i8, ptr %this, i64 2288
   %339 = load ptr, ptr %isolate_, align 8
   %call6178 = call ptr @_ZN2v86String14NewFromOneByteEPNS_7IsolateEPKhNS_13NewStringTypeEi(ptr noundef %339, ptr noundef nonnull @.str.866, i32 noundef 1, i32 noundef 6) #24
   %cmp.i.i12639 = icmp eq ptr %call6178, null
-  br i1 %cmp.i.i12639, label %if.then.i8585, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8593.split
-
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8593.split: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8593
-  %call8.i587 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %339, ptr noundef nonnull %call6178) #24
-  br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8586
+  br i1 %cmp.i.i12639, label %if.then.i8585, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8586
 
 if.then.i8585:                                    ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8593
   call void @_ZN2v812api_internal12ToLocalEmptyEv() #24
-  %call8.i588 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %339, ptr noundef null) #24
   br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8586
 
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8586: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8593.split, %if.then.i8585
-  %storemerge1097 = phi ptr [ %call8.i587, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8593.split ], [ %call8.i588, %if.then.i8585 ]
-  store ptr %storemerge1097, ptr %target_string_, align 8
+_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8586: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8593, %if.then.i8585
+  %call6178.sink = phi ptr [ null, %if.then.i8585 ], [ %call6178, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8593 ]
+  %call8.i587 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %339, ptr noundef %call6178.sink) #24
+  store ptr %call8.i587, ptr %target_string_, align 8
   %thread_id_string_ = getelementptr inbounds i8, ptr %this, i64 2296
   %340 = load ptr, ptr %isolate_, align 8
   %call6194 = call ptr @_ZN2v86String14NewFromOneByteEPNS_7IsolateEPKhNS_13NewStringTypeEi(ptr noundef %340, ptr noundef nonnull @.str.867, i32 noundef 1, i32 noundef 8) #24
   %cmp.i.i12644 = icmp eq ptr %call6194, null
-  br i1 %cmp.i.i12644, label %if.then.i8578, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8586.split
-
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8586.split: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8586
-  %call8.i589 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %340, ptr noundef nonnull %call6194) #24
-  br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8579
+  br i1 %cmp.i.i12644, label %if.then.i8578, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8579
 
 if.then.i8578:                                    ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8586
   call void @_ZN2v812api_internal12ToLocalEmptyEv() #24
-  %call8.i590 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %340, ptr noundef null) #24
   br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8579
 
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8579: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8586.split, %if.then.i8578
-  %storemerge1098 = phi ptr [ %call8.i589, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8586.split ], [ %call8.i590, %if.then.i8578 ]
-  store ptr %storemerge1098, ptr %thread_id_string_, align 8
+_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8579: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8586, %if.then.i8578
+  %call6194.sink = phi ptr [ null, %if.then.i8578 ], [ %call6194, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8586 ]
+  %call8.i589 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %340, ptr noundef %call6194.sink) #24
+  store ptr %call8.i589, ptr %thread_id_string_, align 8
   %ticketkeycallback_string_ = getelementptr inbounds i8, ptr %this, i64 2304
   %341 = load ptr, ptr %isolate_, align 8
   %call6210 = call ptr @_ZN2v86String14NewFromOneByteEPNS_7IsolateEPKhNS_13NewStringTypeEi(ptr noundef %341, ptr noundef nonnull @.str.868, i32 noundef 1, i32 noundef 19) #24
   %cmp.i.i12649 = icmp eq ptr %call6210, null
-  br i1 %cmp.i.i12649, label %if.then.i8571, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8579.split
-
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8579.split: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8579
-  %call8.i591 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %341, ptr noundef nonnull %call6210) #24
-  br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8572
+  br i1 %cmp.i.i12649, label %if.then.i8571, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8572
 
 if.then.i8571:                                    ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8579
   call void @_ZN2v812api_internal12ToLocalEmptyEv() #24
-  %call8.i592 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %341, ptr noundef null) #24
   br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8572
 
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8572: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8579.split, %if.then.i8571
-  %storemerge1099 = phi ptr [ %call8.i591, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8579.split ], [ %call8.i592, %if.then.i8571 ]
-  store ptr %storemerge1099, ptr %ticketkeycallback_string_, align 8
+_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8572: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8579, %if.then.i8571
+  %call6210.sink = phi ptr [ null, %if.then.i8571 ], [ %call6210, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8579 ]
+  %call8.i591 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %341, ptr noundef %call6210.sink) #24
+  store ptr %call8.i591, ptr %ticketkeycallback_string_, align 8
   %timeout_string_ = getelementptr inbounds i8, ptr %this, i64 2312
   %342 = load ptr, ptr %isolate_, align 8
   %call6226 = call ptr @_ZN2v86String14NewFromOneByteEPNS_7IsolateEPKhNS_13NewStringTypeEi(ptr noundef %342, ptr noundef nonnull @.str.869, i32 noundef 1, i32 noundef 7) #24
   %cmp.i.i12654 = icmp eq ptr %call6226, null
-  br i1 %cmp.i.i12654, label %if.then.i8564, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8572.split
-
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8572.split: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8572
-  %call8.i593 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %342, ptr noundef nonnull %call6226) #24
-  br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8565
+  br i1 %cmp.i.i12654, label %if.then.i8564, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8565
 
 if.then.i8564:                                    ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8572
   call void @_ZN2v812api_internal12ToLocalEmptyEv() #24
-  %call8.i594 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %342, ptr noundef null) #24
   br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8565
 
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8565: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8572.split, %if.then.i8564
-  %storemerge1100 = phi ptr [ %call8.i593, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8572.split ], [ %call8.i594, %if.then.i8564 ]
-  store ptr %storemerge1100, ptr %timeout_string_, align 8
+_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8565: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8572, %if.then.i8564
+  %call6226.sink = phi ptr [ null, %if.then.i8564 ], [ %call6226, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8572 ]
+  %call8.i593 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %342, ptr noundef %call6226.sink) #24
+  store ptr %call8.i593, ptr %timeout_string_, align 8
   %time_to_first_byte_string_ = getelementptr inbounds i8, ptr %this, i64 2320
   %343 = load ptr, ptr %isolate_, align 8
   %call6242 = call ptr @_ZN2v86String14NewFromOneByteEPNS_7IsolateEPKhNS_13NewStringTypeEi(ptr noundef %343, ptr noundef nonnull @.str.870, i32 noundef 1, i32 noundef 15) #24
   %cmp.i.i12659 = icmp eq ptr %call6242, null
-  br i1 %cmp.i.i12659, label %if.then.i8557, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8565.split
-
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8565.split: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8565
-  %call8.i595 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %343, ptr noundef nonnull %call6242) #24
-  br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8558
+  br i1 %cmp.i.i12659, label %if.then.i8557, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8558
 
 if.then.i8557:                                    ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8565
   call void @_ZN2v812api_internal12ToLocalEmptyEv() #24
-  %call8.i596 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %343, ptr noundef null) #24
   br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8558
 
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8558: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8565.split, %if.then.i8557
-  %storemerge1101 = phi ptr [ %call8.i595, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8565.split ], [ %call8.i596, %if.then.i8557 ]
-  store ptr %storemerge1101, ptr %time_to_first_byte_string_, align 8
+_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8558: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8565, %if.then.i8557
+  %call6242.sink = phi ptr [ null, %if.then.i8557 ], [ %call6242, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8565 ]
+  %call8.i595 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %343, ptr noundef %call6242.sink) #24
+  store ptr %call8.i595, ptr %time_to_first_byte_string_, align 8
   %time_to_first_byte_sent_string_ = getelementptr inbounds i8, ptr %this, i64 2328
   %344 = load ptr, ptr %isolate_, align 8
   %call6258 = call ptr @_ZN2v86String14NewFromOneByteEPNS_7IsolateEPKhNS_13NewStringTypeEi(ptr noundef %344, ptr noundef nonnull @.str.871, i32 noundef 1, i32 noundef 19) #24
   %cmp.i.i12664 = icmp eq ptr %call6258, null
-  br i1 %cmp.i.i12664, label %if.then.i8550, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8558.split
-
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8558.split: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8558
-  %call8.i597 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %344, ptr noundef nonnull %call6258) #24
-  br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8551
+  br i1 %cmp.i.i12664, label %if.then.i8550, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8551
 
 if.then.i8550:                                    ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8558
   call void @_ZN2v812api_internal12ToLocalEmptyEv() #24
-  %call8.i598 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %344, ptr noundef null) #24
   br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8551
 
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8551: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8558.split, %if.then.i8550
-  %storemerge1102 = phi ptr [ %call8.i597, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8558.split ], [ %call8.i598, %if.then.i8550 ]
-  store ptr %storemerge1102, ptr %time_to_first_byte_sent_string_, align 8
+_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8551: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8558, %if.then.i8550
+  %call6258.sink = phi ptr [ null, %if.then.i8550 ], [ %call6258, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8558 ]
+  %call8.i597 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %344, ptr noundef %call6258.sink) #24
+  store ptr %call8.i597, ptr %time_to_first_byte_sent_string_, align 8
   %time_to_first_header_string_ = getelementptr inbounds i8, ptr %this, i64 2336
   %345 = load ptr, ptr %isolate_, align 8
   %call6274 = call ptr @_ZN2v86String14NewFromOneByteEPNS_7IsolateEPKhNS_13NewStringTypeEi(ptr noundef %345, ptr noundef nonnull @.str.872, i32 noundef 1, i32 noundef 17) #24
   %cmp.i.i12669 = icmp eq ptr %call6274, null
-  br i1 %cmp.i.i12669, label %if.then.i8543, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8551.split
-
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8551.split: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8551
-  %call8.i599 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %345, ptr noundef nonnull %call6274) #24
-  br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8544
+  br i1 %cmp.i.i12669, label %if.then.i8543, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8544
 
 if.then.i8543:                                    ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8551
   call void @_ZN2v812api_internal12ToLocalEmptyEv() #24
-  %call8.i600 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %345, ptr noundef null) #24
   br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8544
 
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8544: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8551.split, %if.then.i8543
-  %storemerge1103 = phi ptr [ %call8.i599, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8551.split ], [ %call8.i600, %if.then.i8543 ]
-  store ptr %storemerge1103, ptr %time_to_first_header_string_, align 8
+_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8544: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8551, %if.then.i8543
+  %call6274.sink = phi ptr [ null, %if.then.i8543 ], [ %call6274, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8551 ]
+  %call8.i599 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %345, ptr noundef %call6274.sink) #24
+  store ptr %call8.i599, ptr %time_to_first_header_string_, align 8
   %tls_ticket_string_ = getelementptr inbounds i8, ptr %this, i64 2344
   %346 = load ptr, ptr %isolate_, align 8
   %call6290 = call ptr @_ZN2v86String14NewFromOneByteEPNS_7IsolateEPKhNS_13NewStringTypeEi(ptr noundef %346, ptr noundef nonnull @.str.873, i32 noundef 1, i32 noundef 9) #24
   %cmp.i.i12674 = icmp eq ptr %call6290, null
-  br i1 %cmp.i.i12674, label %if.then.i8536, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8544.split
-
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8544.split: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8544
-  %call8.i601 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %346, ptr noundef nonnull %call6290) #24
-  br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8537
+  br i1 %cmp.i.i12674, label %if.then.i8536, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8537
 
 if.then.i8536:                                    ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8544
   call void @_ZN2v812api_internal12ToLocalEmptyEv() #24
-  %call8.i602 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %346, ptr noundef null) #24
   br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8537
 
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8537: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8544.split, %if.then.i8536
-  %storemerge1104 = phi ptr [ %call8.i601, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8544.split ], [ %call8.i602, %if.then.i8536 ]
-  store ptr %storemerge1104, ptr %tls_ticket_string_, align 8
+_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8537: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8544, %if.then.i8536
+  %call6290.sink = phi ptr [ null, %if.then.i8536 ], [ %call6290, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8544 ]
+  %call8.i601 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %346, ptr noundef %call6290.sink) #24
+  store ptr %call8.i601, ptr %tls_ticket_string_, align 8
   %transfer_string_ = getelementptr inbounds i8, ptr %this, i64 2352
   %347 = load ptr, ptr %isolate_, align 8
   %call6306 = call ptr @_ZN2v86String14NewFromOneByteEPNS_7IsolateEPKhNS_13NewStringTypeEi(ptr noundef %347, ptr noundef nonnull @.str.874, i32 noundef 1, i32 noundef 8) #24
   %cmp.i.i12679 = icmp eq ptr %call6306, null
-  br i1 %cmp.i.i12679, label %if.then.i8529, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8537.split
-
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8537.split: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8537
-  %call8.i603 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %347, ptr noundef nonnull %call6306) #24
-  br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8530
+  br i1 %cmp.i.i12679, label %if.then.i8529, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8530
 
 if.then.i8529:                                    ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8537
   call void @_ZN2v812api_internal12ToLocalEmptyEv() #24
-  %call8.i604 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %347, ptr noundef null) #24
   br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8530
 
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8530: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8537.split, %if.then.i8529
-  %storemerge1105 = phi ptr [ %call8.i603, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8537.split ], [ %call8.i604, %if.then.i8529 ]
-  store ptr %storemerge1105, ptr %transfer_string_, align 8
+_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8530: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8537, %if.then.i8529
+  %call6306.sink = phi ptr [ null, %if.then.i8529 ], [ %call6306, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8537 ]
+  %call8.i603 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %347, ptr noundef %call6306.sink) #24
+  store ptr %call8.i603, ptr %transfer_string_, align 8
   %transfer_unsupported_type_str_ = getelementptr inbounds i8, ptr %this, i64 2360
   %348 = load ptr, ptr %isolate_, align 8
   %call6322 = call ptr @_ZN2v86String14NewFromOneByteEPNS_7IsolateEPKhNS_13NewStringTypeEi(ptr noundef %348, ptr noundef nonnull @.str.875, i32 noundef 1, i32 noundef 43) #24
   %cmp.i.i12684 = icmp eq ptr %call6322, null
-  br i1 %cmp.i.i12684, label %if.then.i8522, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8530.split
-
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8530.split: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8530
-  %call8.i605 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %348, ptr noundef nonnull %call6322) #24
-  br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8523
+  br i1 %cmp.i.i12684, label %if.then.i8522, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8523
 
 if.then.i8522:                                    ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8530
   call void @_ZN2v812api_internal12ToLocalEmptyEv() #24
-  %call8.i606 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %348, ptr noundef null) #24
   br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8523
 
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8523: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8530.split, %if.then.i8522
-  %storemerge1106 = phi ptr [ %call8.i605, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8530.split ], [ %call8.i606, %if.then.i8522 ]
-  store ptr %storemerge1106, ptr %transfer_unsupported_type_str_, align 8
+_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8523: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8530, %if.then.i8522
+  %call6322.sink = phi ptr [ null, %if.then.i8522 ], [ %call6322, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8530 ]
+  %call8.i605 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %348, ptr noundef %call6322.sink) #24
+  store ptr %call8.i605, ptr %transfer_unsupported_type_str_, align 8
   %ttl_string_ = getelementptr inbounds i8, ptr %this, i64 2368
   %349 = load ptr, ptr %isolate_, align 8
   %call6338 = call ptr @_ZN2v86String14NewFromOneByteEPNS_7IsolateEPKhNS_13NewStringTypeEi(ptr noundef %349, ptr noundef nonnull @.str.876, i32 noundef 1, i32 noundef 3) #24
   %cmp.i.i12689 = icmp eq ptr %call6338, null
-  br i1 %cmp.i.i12689, label %if.then.i8515, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8523.split
-
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8523.split: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8523
-  %call8.i607 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %349, ptr noundef nonnull %call6338) #24
-  br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8516
+  br i1 %cmp.i.i12689, label %if.then.i8515, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8516
 
 if.then.i8515:                                    ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8523
   call void @_ZN2v812api_internal12ToLocalEmptyEv() #24
-  %call8.i608 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %349, ptr noundef null) #24
   br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8516
 
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8516: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8523.split, %if.then.i8515
-  %storemerge1107 = phi ptr [ %call8.i607, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8523.split ], [ %call8.i608, %if.then.i8515 ]
-  store ptr %storemerge1107, ptr %ttl_string_, align 8
+_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8516: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8523, %if.then.i8515
+  %call6338.sink = phi ptr [ null, %if.then.i8515 ], [ %call6338, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8523 ]
+  %call8.i607 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %349, ptr noundef %call6338.sink) #24
+  store ptr %call8.i607, ptr %ttl_string_, align 8
   %type_string_ = getelementptr inbounds i8, ptr %this, i64 2376
   %350 = load ptr, ptr %isolate_, align 8
   %call6354 = call ptr @_ZN2v86String14NewFromOneByteEPNS_7IsolateEPKhNS_13NewStringTypeEi(ptr noundef %350, ptr noundef nonnull @.str.877, i32 noundef 1, i32 noundef 4) #24
   %cmp.i.i12694 = icmp eq ptr %call6354, null
-  br i1 %cmp.i.i12694, label %if.then.i8508, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8516.split
-
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8516.split: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8516
-  %call8.i609 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %350, ptr noundef nonnull %call6354) #24
-  br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8509
+  br i1 %cmp.i.i12694, label %if.then.i8508, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8509
 
 if.then.i8508:                                    ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8516
   call void @_ZN2v812api_internal12ToLocalEmptyEv() #24
-  %call8.i610 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %350, ptr noundef null) #24
   br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8509
 
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8509: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8516.split, %if.then.i8508
-  %storemerge1108 = phi ptr [ %call8.i609, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8516.split ], [ %call8.i610, %if.then.i8508 ]
-  store ptr %storemerge1108, ptr %type_string_, align 8
+_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8509: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8516, %if.then.i8508
+  %call6354.sink = phi ptr [ null, %if.then.i8508 ], [ %call6354, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8516 ]
+  %call8.i609 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %350, ptr noundef %call6354.sink) #24
+  store ptr %call8.i609, ptr %type_string_, align 8
   %uid_string_ = getelementptr inbounds i8, ptr %this, i64 2384
   %351 = load ptr, ptr %isolate_, align 8
   %call6370 = call ptr @_ZN2v86String14NewFromOneByteEPNS_7IsolateEPKhNS_13NewStringTypeEi(ptr noundef %351, ptr noundef nonnull @.str.878, i32 noundef 1, i32 noundef 3) #24
   %cmp.i.i12699 = icmp eq ptr %call6370, null
-  br i1 %cmp.i.i12699, label %if.then.i8501, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8509.split
-
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8509.split: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8509
-  %call8.i611 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %351, ptr noundef nonnull %call6370) #24
-  br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8502
+  br i1 %cmp.i.i12699, label %if.then.i8501, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8502
 
 if.then.i8501:                                    ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8509
   call void @_ZN2v812api_internal12ToLocalEmptyEv() #24
-  %call8.i612 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %351, ptr noundef null) #24
   br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8502
 
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8502: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8509.split, %if.then.i8501
-  %storemerge1109 = phi ptr [ %call8.i611, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8509.split ], [ %call8.i612, %if.then.i8501 ]
-  store ptr %storemerge1109, ptr %uid_string_, align 8
+_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8502: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8509, %if.then.i8501
+  %call6370.sink = phi ptr [ null, %if.then.i8501 ], [ %call6370, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8509 ]
+  %call8.i611 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %351, ptr noundef %call6370.sink) #24
+  store ptr %call8.i611, ptr %uid_string_, align 8
   %unknown_string_ = getelementptr inbounds i8, ptr %this, i64 2392
   %352 = load ptr, ptr %isolate_, align 8
   %call6386 = call ptr @_ZN2v86String14NewFromOneByteEPNS_7IsolateEPKhNS_13NewStringTypeEi(ptr noundef %352, ptr noundef nonnull @.str.879, i32 noundef 1, i32 noundef 9) #24
   %cmp.i.i12704 = icmp eq ptr %call6386, null
-  br i1 %cmp.i.i12704, label %if.then.i8494, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8502.split
-
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8502.split: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8502
-  %call8.i613 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %352, ptr noundef nonnull %call6386) #24
-  br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8495
+  br i1 %cmp.i.i12704, label %if.then.i8494, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8495
 
 if.then.i8494:                                    ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8502
   call void @_ZN2v812api_internal12ToLocalEmptyEv() #24
-  %call8.i614 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %352, ptr noundef null) #24
   br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8495
 
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8495: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8502.split, %if.then.i8494
-  %storemerge1110 = phi ptr [ %call8.i613, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8502.split ], [ %call8.i614, %if.then.i8494 ]
-  store ptr %storemerge1110, ptr %unknown_string_, align 8
+_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8495: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8502, %if.then.i8494
+  %call6386.sink = phi ptr [ null, %if.then.i8494 ], [ %call6386, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8502 ]
+  %call8.i613 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %352, ptr noundef %call6386.sink) #24
+  store ptr %call8.i613, ptr %unknown_string_, align 8
   %url_special_ftp_string_ = getelementptr inbounds i8, ptr %this, i64 2400
   %353 = load ptr, ptr %isolate_, align 8
   %call6402 = call ptr @_ZN2v86String14NewFromOneByteEPNS_7IsolateEPKhNS_13NewStringTypeEi(ptr noundef %353, ptr noundef nonnull @.str.880, i32 noundef 1, i32 noundef 4) #24
   %cmp.i.i12709 = icmp eq ptr %call6402, null
-  br i1 %cmp.i.i12709, label %if.then.i8487, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8495.split
-
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8495.split: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8495
-  %call8.i615 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %353, ptr noundef nonnull %call6402) #24
-  br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8488
+  br i1 %cmp.i.i12709, label %if.then.i8487, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8488
 
 if.then.i8487:                                    ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8495
   call void @_ZN2v812api_internal12ToLocalEmptyEv() #24
-  %call8.i616 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %353, ptr noundef null) #24
   br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8488
 
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8488: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8495.split, %if.then.i8487
-  %storemerge1111 = phi ptr [ %call8.i615, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8495.split ], [ %call8.i616, %if.then.i8487 ]
-  store ptr %storemerge1111, ptr %url_special_ftp_string_, align 8
+_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8488: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8495, %if.then.i8487
+  %call6402.sink = phi ptr [ null, %if.then.i8487 ], [ %call6402, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8495 ]
+  %call8.i615 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %353, ptr noundef %call6402.sink) #24
+  store ptr %call8.i615, ptr %url_special_ftp_string_, align 8
   %url_special_file_string_ = getelementptr inbounds i8, ptr %this, i64 2408
   %354 = load ptr, ptr %isolate_, align 8
   %call6418 = call ptr @_ZN2v86String14NewFromOneByteEPNS_7IsolateEPKhNS_13NewStringTypeEi(ptr noundef %354, ptr noundef nonnull @.str.881, i32 noundef 1, i32 noundef 5) #24
   %cmp.i.i12714 = icmp eq ptr %call6418, null
-  br i1 %cmp.i.i12714, label %if.then.i8480, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8488.split
-
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8488.split: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8488
-  %call8.i617 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %354, ptr noundef nonnull %call6418) #24
-  br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8481
+  br i1 %cmp.i.i12714, label %if.then.i8480, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8481
 
 if.then.i8480:                                    ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8488
   call void @_ZN2v812api_internal12ToLocalEmptyEv() #24
-  %call8.i618 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %354, ptr noundef null) #24
   br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8481
 
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8481: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8488.split, %if.then.i8480
-  %storemerge1112 = phi ptr [ %call8.i617, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8488.split ], [ %call8.i618, %if.then.i8480 ]
-  store ptr %storemerge1112, ptr %url_special_file_string_, align 8
+_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8481: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8488, %if.then.i8480
+  %call6418.sink = phi ptr [ null, %if.then.i8480 ], [ %call6418, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8488 ]
+  %call8.i617 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %354, ptr noundef %call6418.sink) #24
+  store ptr %call8.i617, ptr %url_special_file_string_, align 8
   %url_special_http_string_ = getelementptr inbounds i8, ptr %this, i64 2416
   %355 = load ptr, ptr %isolate_, align 8
   %call6434 = call ptr @_ZN2v86String14NewFromOneByteEPNS_7IsolateEPKhNS_13NewStringTypeEi(ptr noundef %355, ptr noundef nonnull @.str.882, i32 noundef 1, i32 noundef 5) #24
   %cmp.i.i12719 = icmp eq ptr %call6434, null
-  br i1 %cmp.i.i12719, label %if.then.i8473, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8481.split
-
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8481.split: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8481
-  %call8.i619 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %355, ptr noundef nonnull %call6434) #24
-  br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8474
+  br i1 %cmp.i.i12719, label %if.then.i8473, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8474
 
 if.then.i8473:                                    ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8481
   call void @_ZN2v812api_internal12ToLocalEmptyEv() #24
-  %call8.i620 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %355, ptr noundef null) #24
   br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8474
 
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8474: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8481.split, %if.then.i8473
-  %storemerge1113 = phi ptr [ %call8.i619, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8481.split ], [ %call8.i620, %if.then.i8473 ]
-  store ptr %storemerge1113, ptr %url_special_http_string_, align 8
+_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8474: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8481, %if.then.i8473
+  %call6434.sink = phi ptr [ null, %if.then.i8473 ], [ %call6434, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8481 ]
+  %call8.i619 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %355, ptr noundef %call6434.sink) #24
+  store ptr %call8.i619, ptr %url_special_http_string_, align 8
   %url_special_https_string_ = getelementptr inbounds i8, ptr %this, i64 2424
   %356 = load ptr, ptr %isolate_, align 8
   %call6450 = call ptr @_ZN2v86String14NewFromOneByteEPNS_7IsolateEPKhNS_13NewStringTypeEi(ptr noundef %356, ptr noundef nonnull @.str.883, i32 noundef 1, i32 noundef 6) #24
   %cmp.i.i12724 = icmp eq ptr %call6450, null
-  br i1 %cmp.i.i12724, label %if.then.i8466, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8474.split
-
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8474.split: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8474
-  %call8.i621 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %356, ptr noundef nonnull %call6450) #24
-  br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8467
+  br i1 %cmp.i.i12724, label %if.then.i8466, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8467
 
 if.then.i8466:                                    ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8474
   call void @_ZN2v812api_internal12ToLocalEmptyEv() #24
-  %call8.i622 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %356, ptr noundef null) #24
   br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8467
 
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8467: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8474.split, %if.then.i8466
-  %storemerge1114 = phi ptr [ %call8.i621, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8474.split ], [ %call8.i622, %if.then.i8466 ]
-  store ptr %storemerge1114, ptr %url_special_https_string_, align 8
+_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8467: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8474, %if.then.i8466
+  %call6450.sink = phi ptr [ null, %if.then.i8466 ], [ %call6450, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8474 ]
+  %call8.i621 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %356, ptr noundef %call6450.sink) #24
+  store ptr %call8.i621, ptr %url_special_https_string_, align 8
   %url_special_ws_string_ = getelementptr inbounds i8, ptr %this, i64 2432
   %357 = load ptr, ptr %isolate_, align 8
   %call6466 = call ptr @_ZN2v86String14NewFromOneByteEPNS_7IsolateEPKhNS_13NewStringTypeEi(ptr noundef %357, ptr noundef nonnull @.str.884, i32 noundef 1, i32 noundef 3) #24
   %cmp.i.i12729 = icmp eq ptr %call6466, null
-  br i1 %cmp.i.i12729, label %if.then.i8459, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8467.split
-
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8467.split: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8467
-  %call8.i623 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %357, ptr noundef nonnull %call6466) #24
-  br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8460
+  br i1 %cmp.i.i12729, label %if.then.i8459, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8460
 
 if.then.i8459:                                    ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8467
   call void @_ZN2v812api_internal12ToLocalEmptyEv() #24
-  %call8.i624 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %357, ptr noundef null) #24
   br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8460
 
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8460: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8467.split, %if.then.i8459
-  %storemerge1115 = phi ptr [ %call8.i623, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8467.split ], [ %call8.i624, %if.then.i8459 ]
-  store ptr %storemerge1115, ptr %url_special_ws_string_, align 8
+_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8460: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8467, %if.then.i8459
+  %call6466.sink = phi ptr [ null, %if.then.i8459 ], [ %call6466, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8467 ]
+  %call8.i623 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %357, ptr noundef %call6466.sink) #24
+  store ptr %call8.i623, ptr %url_special_ws_string_, align 8
   %url_special_wss_string_ = getelementptr inbounds i8, ptr %this, i64 2440
   %358 = load ptr, ptr %isolate_, align 8
   %call6482 = call ptr @_ZN2v86String14NewFromOneByteEPNS_7IsolateEPKhNS_13NewStringTypeEi(ptr noundef %358, ptr noundef nonnull @.str.885, i32 noundef 1, i32 noundef 4) #24
   %cmp.i.i12734 = icmp eq ptr %call6482, null
-  br i1 %cmp.i.i12734, label %if.then.i8452, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8460.split
-
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8460.split: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8460
-  %call8.i625 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %358, ptr noundef nonnull %call6482) #24
-  br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8453
+  br i1 %cmp.i.i12734, label %if.then.i8452, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8453
 
 if.then.i8452:                                    ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8460
   call void @_ZN2v812api_internal12ToLocalEmptyEv() #24
-  %call8.i626 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %358, ptr noundef null) #24
   br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8453
 
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8453: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8460.split, %if.then.i8452
-  %storemerge1116 = phi ptr [ %call8.i625, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8460.split ], [ %call8.i626, %if.then.i8452 ]
-  store ptr %storemerge1116, ptr %url_special_wss_string_, align 8
+_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8453: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8460, %if.then.i8452
+  %call6482.sink = phi ptr [ null, %if.then.i8452 ], [ %call6482, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8460 ]
+  %call8.i625 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %358, ptr noundef %call6482.sink) #24
+  store ptr %call8.i625, ptr %url_special_wss_string_, align 8
   %url_string_ = getelementptr inbounds i8, ptr %this, i64 2448
   %359 = load ptr, ptr %isolate_, align 8
   %call6498 = call ptr @_ZN2v86String14NewFromOneByteEPNS_7IsolateEPKhNS_13NewStringTypeEi(ptr noundef %359, ptr noundef nonnull @.str.886, i32 noundef 1, i32 noundef 3) #24
   %cmp.i.i12739 = icmp eq ptr %call6498, null
-  br i1 %cmp.i.i12739, label %if.then.i8445, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8453.split
-
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8453.split: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8453
-  %call8.i627 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %359, ptr noundef nonnull %call6498) #24
-  br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8446
+  br i1 %cmp.i.i12739, label %if.then.i8445, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8446
 
 if.then.i8445:                                    ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8453
   call void @_ZN2v812api_internal12ToLocalEmptyEv() #24
-  %call8.i628 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %359, ptr noundef null) #24
   br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8446
 
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8446: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8453.split, %if.then.i8445
-  %storemerge1117 = phi ptr [ %call8.i627, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8453.split ], [ %call8.i628, %if.then.i8445 ]
-  store ptr %storemerge1117, ptr %url_string_, align 8
+_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8446: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8453, %if.then.i8445
+  %call6498.sink = phi ptr [ null, %if.then.i8445 ], [ %call6498, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8453 ]
+  %call8.i627 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %359, ptr noundef %call6498.sink) #24
+  store ptr %call8.i627, ptr %url_string_, align 8
   %username_string_ = getelementptr inbounds i8, ptr %this, i64 2456
   %360 = load ptr, ptr %isolate_, align 8
   %call6514 = call ptr @_ZN2v86String14NewFromOneByteEPNS_7IsolateEPKhNS_13NewStringTypeEi(ptr noundef %360, ptr noundef nonnull @.str.887, i32 noundef 1, i32 noundef 8) #24
   %cmp.i.i12744 = icmp eq ptr %call6514, null
-  br i1 %cmp.i.i12744, label %if.then.i8438, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8446.split
-
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8446.split: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8446
-  %call8.i629 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %360, ptr noundef nonnull %call6514) #24
-  br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8439
+  br i1 %cmp.i.i12744, label %if.then.i8438, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8439
 
 if.then.i8438:                                    ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8446
   call void @_ZN2v812api_internal12ToLocalEmptyEv() #24
-  %call8.i630 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %360, ptr noundef null) #24
   br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8439
 
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8439: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8446.split, %if.then.i8438
-  %storemerge1118 = phi ptr [ %call8.i629, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8446.split ], [ %call8.i630, %if.then.i8438 ]
-  store ptr %storemerge1118, ptr %username_string_, align 8
+_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8439: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8446, %if.then.i8438
+  %call6514.sink = phi ptr [ null, %if.then.i8438 ], [ %call6514, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8446 ]
+  %call8.i629 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %360, ptr noundef %call6514.sink) #24
+  store ptr %call8.i629, ptr %username_string_, align 8
   %valid_from_string_ = getelementptr inbounds i8, ptr %this, i64 2464
   %361 = load ptr, ptr %isolate_, align 8
   %call6530 = call ptr @_ZN2v86String14NewFromOneByteEPNS_7IsolateEPKhNS_13NewStringTypeEi(ptr noundef %361, ptr noundef nonnull @.str.888, i32 noundef 1, i32 noundef 10) #24
   %cmp.i.i12749 = icmp eq ptr %call6530, null
-  br i1 %cmp.i.i12749, label %if.then.i8431, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8439.split
-
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8439.split: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8439
-  %call8.i631 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %361, ptr noundef nonnull %call6530) #24
-  br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8432
+  br i1 %cmp.i.i12749, label %if.then.i8431, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8432
 
 if.then.i8431:                                    ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8439
   call void @_ZN2v812api_internal12ToLocalEmptyEv() #24
-  %call8.i632 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %361, ptr noundef null) #24
   br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8432
 
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8432: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8439.split, %if.then.i8431
-  %storemerge1119 = phi ptr [ %call8.i631, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8439.split ], [ %call8.i632, %if.then.i8431 ]
-  store ptr %storemerge1119, ptr %valid_from_string_, align 8
+_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8432: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8439, %if.then.i8431
+  %call6530.sink = phi ptr [ null, %if.then.i8431 ], [ %call6530, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8439 ]
+  %call8.i631 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %361, ptr noundef %call6530.sink) #24
+  store ptr %call8.i631, ptr %valid_from_string_, align 8
   %valid_to_string_ = getelementptr inbounds i8, ptr %this, i64 2472
   %362 = load ptr, ptr %isolate_, align 8
   %call6546 = call ptr @_ZN2v86String14NewFromOneByteEPNS_7IsolateEPKhNS_13NewStringTypeEi(ptr noundef %362, ptr noundef nonnull @.str.889, i32 noundef 1, i32 noundef 8) #24
   %cmp.i.i12754 = icmp eq ptr %call6546, null
-  br i1 %cmp.i.i12754, label %if.then.i8424, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8432.split
-
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8432.split: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8432
-  %call8.i633 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %362, ptr noundef nonnull %call6546) #24
-  br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8425
+  br i1 %cmp.i.i12754, label %if.then.i8424, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8425
 
 if.then.i8424:                                    ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8432
   call void @_ZN2v812api_internal12ToLocalEmptyEv() #24
-  %call8.i634 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %362, ptr noundef null) #24
   br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8425
 
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8425: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8432.split, %if.then.i8424
-  %storemerge1120 = phi ptr [ %call8.i633, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8432.split ], [ %call8.i634, %if.then.i8424 ]
-  store ptr %storemerge1120, ptr %valid_to_string_, align 8
+_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8425: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8432, %if.then.i8424
+  %call6546.sink = phi ptr [ null, %if.then.i8424 ], [ %call6546, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8432 ]
+  %call8.i633 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %362, ptr noundef %call6546.sink) #24
+  store ptr %call8.i633, ptr %valid_to_string_, align 8
   %value_string_ = getelementptr inbounds i8, ptr %this, i64 2480
   %363 = load ptr, ptr %isolate_, align 8
   %call6562 = call ptr @_ZN2v86String14NewFromOneByteEPNS_7IsolateEPKhNS_13NewStringTypeEi(ptr noundef %363, ptr noundef nonnull @.str.890, i32 noundef 1, i32 noundef 5) #24
   %cmp.i.i12759 = icmp eq ptr %call6562, null
-  br i1 %cmp.i.i12759, label %if.then.i8417, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8425.split
-
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8425.split: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8425
-  %call8.i635 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %363, ptr noundef nonnull %call6562) #24
-  br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8418
+  br i1 %cmp.i.i12759, label %if.then.i8417, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8418
 
 if.then.i8417:                                    ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8425
   call void @_ZN2v812api_internal12ToLocalEmptyEv() #24
-  %call8.i636 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %363, ptr noundef null) #24
   br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8418
 
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8418: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8425.split, %if.then.i8417
-  %storemerge1121 = phi ptr [ %call8.i635, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8425.split ], [ %call8.i636, %if.then.i8417 ]
-  store ptr %storemerge1121, ptr %value_string_, align 8
+_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8418: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8425, %if.then.i8417
+  %call6562.sink = phi ptr [ null, %if.then.i8417 ], [ %call6562, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8425 ]
+  %call8.i635 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %363, ptr noundef %call6562.sink) #24
+  store ptr %call8.i635, ptr %value_string_, align 8
   %verify_error_string_ = getelementptr inbounds i8, ptr %this, i64 2488
   %364 = load ptr, ptr %isolate_, align 8
   %call6578 = call ptr @_ZN2v86String14NewFromOneByteEPNS_7IsolateEPKhNS_13NewStringTypeEi(ptr noundef %364, ptr noundef nonnull @.str.891, i32 noundef 1, i32 noundef 11) #24
   %cmp.i.i12764 = icmp eq ptr %call6578, null
-  br i1 %cmp.i.i12764, label %if.then.i8410, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8418.split
-
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8418.split: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8418
-  %call8.i637 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %364, ptr noundef nonnull %call6578) #24
-  br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8411
+  br i1 %cmp.i.i12764, label %if.then.i8410, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8411
 
 if.then.i8410:                                    ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8418
   call void @_ZN2v812api_internal12ToLocalEmptyEv() #24
-  %call8.i638 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %364, ptr noundef null) #24
   br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8411
 
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8411: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8418.split, %if.then.i8410
-  %storemerge1122 = phi ptr [ %call8.i637, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8418.split ], [ %call8.i638, %if.then.i8410 ]
-  store ptr %storemerge1122, ptr %verify_error_string_, align 8
+_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8411: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8418, %if.then.i8410
+  %call6578.sink = phi ptr [ null, %if.then.i8410 ], [ %call6578, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8418 ]
+  %call8.i637 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %364, ptr noundef %call6578.sink) #24
+  store ptr %call8.i637, ptr %verify_error_string_, align 8
   %version_string_ = getelementptr inbounds i8, ptr %this, i64 2496
   %365 = load ptr, ptr %isolate_, align 8
   %call6594 = call ptr @_ZN2v86String14NewFromOneByteEPNS_7IsolateEPKhNS_13NewStringTypeEi(ptr noundef %365, ptr noundef nonnull @.str.892, i32 noundef 1, i32 noundef 7) #24
   %cmp.i.i12769 = icmp eq ptr %call6594, null
-  br i1 %cmp.i.i12769, label %if.then.i8403, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8411.split
-
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8411.split: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8411
-  %call8.i639 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %365, ptr noundef nonnull %call6594) #24
-  br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8404
+  br i1 %cmp.i.i12769, label %if.then.i8403, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8404
 
 if.then.i8403:                                    ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8411
   call void @_ZN2v812api_internal12ToLocalEmptyEv() #24
-  %call8.i640 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %365, ptr noundef null) #24
   br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8404
 
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8404: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8411.split, %if.then.i8403
-  %storemerge1123 = phi ptr [ %call8.i639, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8411.split ], [ %call8.i640, %if.then.i8403 ]
-  store ptr %storemerge1123, ptr %version_string_, align 8
+_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8404: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8411, %if.then.i8403
+  %call6594.sink = phi ptr [ null, %if.then.i8403 ], [ %call6594, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8411 ]
+  %call8.i639 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %365, ptr noundef %call6594.sink) #24
+  store ptr %call8.i639, ptr %version_string_, align 8
   %weight_string_ = getelementptr inbounds i8, ptr %this, i64 2504
   %366 = load ptr, ptr %isolate_, align 8
   %call6610 = call ptr @_ZN2v86String14NewFromOneByteEPNS_7IsolateEPKhNS_13NewStringTypeEi(ptr noundef %366, ptr noundef nonnull @.str.893, i32 noundef 1, i32 noundef 6) #24
   %cmp.i.i12774 = icmp eq ptr %call6610, null
-  br i1 %cmp.i.i12774, label %if.then.i8396, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8404.split
-
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8404.split: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8404
-  %call8.i641 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %366, ptr noundef nonnull %call6610) #24
-  br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8397
+  br i1 %cmp.i.i12774, label %if.then.i8396, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8397
 
 if.then.i8396:                                    ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8404
   call void @_ZN2v812api_internal12ToLocalEmptyEv() #24
-  %call8.i642 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %366, ptr noundef null) #24
   br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8397
 
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8397: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8404.split, %if.then.i8396
-  %storemerge1124 = phi ptr [ %call8.i641, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8404.split ], [ %call8.i642, %if.then.i8396 ]
-  store ptr %storemerge1124, ptr %weight_string_, align 8
+_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8397: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8404, %if.then.i8396
+  %call6610.sink = phi ptr [ null, %if.then.i8396 ], [ %call6610, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8404 ]
+  %call8.i641 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %366, ptr noundef %call6610.sink) #24
+  store ptr %call8.i641, ptr %weight_string_, align 8
   %windows_hide_string_ = getelementptr inbounds i8, ptr %this, i64 2512
   %367 = load ptr, ptr %isolate_, align 8
   %call6626 = call ptr @_ZN2v86String14NewFromOneByteEPNS_7IsolateEPKhNS_13NewStringTypeEi(ptr noundef %367, ptr noundef nonnull @.str.894, i32 noundef 1, i32 noundef 11) #24
   %cmp.i.i12779 = icmp eq ptr %call6626, null
-  br i1 %cmp.i.i12779, label %if.then.i8389, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8397.split
-
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8397.split: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8397
-  %call8.i643 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %367, ptr noundef nonnull %call6626) #24
-  br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8390
+  br i1 %cmp.i.i12779, label %if.then.i8389, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8390
 
 if.then.i8389:                                    ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8397
   call void @_ZN2v812api_internal12ToLocalEmptyEv() #24
-  %call8.i644 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %367, ptr noundef null) #24
   br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8390
 
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8390: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8397.split, %if.then.i8389
-  %storemerge1125 = phi ptr [ %call8.i643, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8397.split ], [ %call8.i644, %if.then.i8389 ]
-  store ptr %storemerge1125, ptr %windows_hide_string_, align 8
+_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8390: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8397, %if.then.i8389
+  %call6626.sink = phi ptr [ null, %if.then.i8389 ], [ %call6626, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8397 ]
+  %call8.i643 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %367, ptr noundef %call6626.sink) #24
+  store ptr %call8.i643, ptr %windows_hide_string_, align 8
   %windows_verbatim_arguments_string_ = getelementptr inbounds i8, ptr %this, i64 2520
   %368 = load ptr, ptr %isolate_, align 8
   %call6642 = call ptr @_ZN2v86String14NewFromOneByteEPNS_7IsolateEPKhNS_13NewStringTypeEi(ptr noundef %368, ptr noundef nonnull @.str.895, i32 noundef 1, i32 noundef 24) #24
   %cmp.i.i12784 = icmp eq ptr %call6642, null
-  br i1 %cmp.i.i12784, label %if.then.i8382, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8390.split
-
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8390.split: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8390
-  %call8.i645 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %368, ptr noundef nonnull %call6642) #24
-  br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8383
+  br i1 %cmp.i.i12784, label %if.then.i8382, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8383
 
 if.then.i8382:                                    ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8390
   call void @_ZN2v812api_internal12ToLocalEmptyEv() #24
-  %call8.i646 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %368, ptr noundef null) #24
   br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8383
 
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8383: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8390.split, %if.then.i8382
-  %storemerge1126 = phi ptr [ %call8.i645, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8390.split ], [ %call8.i646, %if.then.i8382 ]
-  store ptr %storemerge1126, ptr %windows_verbatim_arguments_string_, align 8
+_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8383: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8390, %if.then.i8382
+  %call6642.sink = phi ptr [ null, %if.then.i8382 ], [ %call6642, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8390 ]
+  %call8.i645 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %368, ptr noundef %call6642.sink) #24
+  store ptr %call8.i645, ptr %windows_verbatim_arguments_string_, align 8
   %wrap_string_ = getelementptr inbounds i8, ptr %this, i64 2528
   %369 = load ptr, ptr %isolate_, align 8
   %call6658 = call ptr @_ZN2v86String14NewFromOneByteEPNS_7IsolateEPKhNS_13NewStringTypeEi(ptr noundef %369, ptr noundef nonnull @.str.896, i32 noundef 1, i32 noundef 4) #24
   %cmp.i.i12789 = icmp eq ptr %call6658, null
-  br i1 %cmp.i.i12789, label %if.then.i8375, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8383.split
-
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8383.split: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8383
-  %call8.i647 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %369, ptr noundef nonnull %call6658) #24
-  br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8376
+  br i1 %cmp.i.i12789, label %if.then.i8375, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8376
 
 if.then.i8375:                                    ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8383
   call void @_ZN2v812api_internal12ToLocalEmptyEv() #24
-  %call8.i648 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %369, ptr noundef null) #24
   br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8376
 
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8376: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8383.split, %if.then.i8375
-  %storemerge1127 = phi ptr [ %call8.i647, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8383.split ], [ %call8.i648, %if.then.i8375 ]
-  store ptr %storemerge1127, ptr %wrap_string_, align 8
+_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8376: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8383, %if.then.i8375
+  %call6658.sink = phi ptr [ null, %if.then.i8375 ], [ %call6658, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8383 ]
+  %call8.i647 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %369, ptr noundef %call6658.sink) #24
+  store ptr %call8.i647, ptr %wrap_string_, align 8
   %writable_string_ = getelementptr inbounds i8, ptr %this, i64 2536
   %370 = load ptr, ptr %isolate_, align 8
   %call6674 = call ptr @_ZN2v86String14NewFromOneByteEPNS_7IsolateEPKhNS_13NewStringTypeEi(ptr noundef %370, ptr noundef nonnull @.str.897, i32 noundef 1, i32 noundef 8) #24
   %cmp.i.i12794 = icmp eq ptr %call6674, null
-  br i1 %cmp.i.i12794, label %if.then.i8368, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8376.split
-
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8376.split: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8376
-  %call8.i649 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %370, ptr noundef nonnull %call6674) #24
-  br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8369
+  br i1 %cmp.i.i12794, label %if.then.i8368, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8369
 
 if.then.i8368:                                    ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8376
   call void @_ZN2v812api_internal12ToLocalEmptyEv() #24
-  %call8.i650 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %370, ptr noundef null) #24
   br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8369
 
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8369: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8376.split, %if.then.i8368
-  %storemerge1128 = phi ptr [ %call8.i649, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8376.split ], [ %call8.i650, %if.then.i8368 ]
-  store ptr %storemerge1128, ptr %writable_string_, align 8
+_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8369: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8376, %if.then.i8368
+  %call6674.sink = phi ptr [ null, %if.then.i8368 ], [ %call6674, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8376 ]
+  %call8.i649 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %370, ptr noundef %call6674.sink) #24
+  store ptr %call8.i649, ptr %writable_string_, align 8
   %write_host_object_string_ = getelementptr inbounds i8, ptr %this, i64 2544
   %371 = load ptr, ptr %isolate_, align 8
   %call6690 = call ptr @_ZN2v86String14NewFromOneByteEPNS_7IsolateEPKhNS_13NewStringTypeEi(ptr noundef %371, ptr noundef nonnull @.str.898, i32 noundef 1, i32 noundef 16) #24
   %cmp.i.i12799 = icmp eq ptr %call6690, null
-  br i1 %cmp.i.i12799, label %if.then.i8361, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8369.split
-
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8369.split: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8369
-  %call8.i651 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %371, ptr noundef nonnull %call6690) #24
-  br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8362
+  br i1 %cmp.i.i12799, label %if.then.i8361, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8362
 
 if.then.i8361:                                    ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8369
   call void @_ZN2v812api_internal12ToLocalEmptyEv() #24
-  %call8.i652 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %371, ptr noundef null) #24
   br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8362
 
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8362: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8369.split, %if.then.i8361
-  %storemerge1129 = phi ptr [ %call8.i651, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8369.split ], [ %call8.i652, %if.then.i8361 ]
-  store ptr %storemerge1129, ptr %write_host_object_string_, align 8
+_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8362: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8369, %if.then.i8361
+  %call6690.sink = phi ptr [ null, %if.then.i8361 ], [ %call6690, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8369 ]
+  %call8.i651 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %371, ptr noundef %call6690.sink) #24
+  store ptr %call8.i651, ptr %write_host_object_string_, align 8
   %write_queue_size_string_ = getelementptr inbounds i8, ptr %this, i64 2552
   %372 = load ptr, ptr %isolate_, align 8
   %call6706 = call ptr @_ZN2v86String14NewFromOneByteEPNS_7IsolateEPKhNS_13NewStringTypeEi(ptr noundef %372, ptr noundef nonnull @.str.899, i32 noundef 1, i32 noundef 14) #24
   %cmp.i.i12804 = icmp eq ptr %call6706, null
-  br i1 %cmp.i.i12804, label %if.then.i8354, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8362.split
-
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8362.split: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8362
-  %call8.i653 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %372, ptr noundef nonnull %call6706) #24
-  br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8355
+  br i1 %cmp.i.i12804, label %if.then.i8354, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8355
 
 if.then.i8354:                                    ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8362
   call void @_ZN2v812api_internal12ToLocalEmptyEv() #24
-  %call8.i654 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %372, ptr noundef null) #24
   br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8355
 
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8355: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8362.split, %if.then.i8354
-  %storemerge1130 = phi ptr [ %call8.i653, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8362.split ], [ %call8.i654, %if.then.i8354 ]
-  store ptr %storemerge1130, ptr %write_queue_size_string_, align 8
+_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8355: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8362, %if.then.i8354
+  %call6706.sink = phi ptr [ null, %if.then.i8354 ], [ %call6706, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8362 ]
+  %call8.i653 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %372, ptr noundef %call6706.sink) #24
+  store ptr %call8.i653, ptr %write_queue_size_string_, align 8
   %x_forwarded_string_ = getelementptr inbounds i8, ptr %this, i64 2560
   %373 = load ptr, ptr %isolate_, align 8
   %call6722 = call ptr @_ZN2v86String14NewFromOneByteEPNS_7IsolateEPKhNS_13NewStringTypeEi(ptr noundef %373, ptr noundef nonnull @.str.900, i32 noundef 1, i32 noundef 15) #24
   %cmp.i.i12809 = icmp eq ptr %call6722, null
-  br i1 %cmp.i.i12809, label %if.then.i8347, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8355.split
-
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8355.split: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8355
-  %call8.i655 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %373, ptr noundef nonnull %call6722) #24
-  br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8348
+  br i1 %cmp.i.i12809, label %if.then.i8347, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8348
 
 if.then.i8347:                                    ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8355
   call void @_ZN2v812api_internal12ToLocalEmptyEv() #24
-  %call8.i656 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %373, ptr noundef null) #24
   br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8348
 
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8348: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8355.split, %if.then.i8347
-  %storemerge1131 = phi ptr [ %call8.i655, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8355.split ], [ %call8.i656, %if.then.i8347 ]
-  store ptr %storemerge1131, ptr %x_forwarded_string_, align 8
+_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8348: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8355, %if.then.i8347
+  %call6722.sink = phi ptr [ null, %if.then.i8347 ], [ %call6722, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8355 ]
+  %call8.i655 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %373, ptr noundef %call6722.sink) #24
+  store ptr %call8.i655, ptr %x_forwarded_string_, align 8
   %async_wrap_providers_ = getelementptr inbounds i8, ptr %this, i64 3544
   %374 = load ptr, ptr %isolate_, align 8
   %call6739 = call ptr @_ZN2v86String14NewFromOneByteEPNS_7IsolateEPKhNS_13NewStringTypeEi(ptr noundef %374, ptr noundef nonnull @.str.901, i32 noundef 1, i32 noundef 4) #24
   %cmp.i.i12814 = icmp eq ptr %call6739, null
-  br i1 %cmp.i.i12814, label %if.then.i8340, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8348.split
-
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8348.split: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8348
-  %call8.i657 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %374, ptr noundef nonnull %call6739) #24
-  br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8341
+  br i1 %cmp.i.i12814, label %if.then.i8340, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8341
 
 if.then.i8340:                                    ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8348
   call void @_ZN2v812api_internal12ToLocalEmptyEv() #24
-  %call8.i658 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %374, ptr noundef null) #24
   br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8341
 
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8341: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8348.split, %if.then.i8340
-  %storemerge1132 = phi ptr [ %call8.i657, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8348.split ], [ %call8.i658, %if.then.i8340 ]
-  store ptr %storemerge1132, ptr %async_wrap_providers_, align 8
+_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8341: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8348, %if.then.i8340
+  %call6739.sink = phi ptr [ null, %if.then.i8340 ], [ %call6739, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8348 ]
+  %call8.i657 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %374, ptr noundef %call6739.sink) #24
+  store ptr %call8.i657, ptr %async_wrap_providers_, align 8
   %arrayidx.i.i = getelementptr inbounds i8, ptr %this, i64 3552
   %375 = load ptr, ptr %isolate_, align 8
   %call6757 = call ptr @_ZN2v86String14NewFromOneByteEPNS_7IsolateEPKhNS_13NewStringTypeEi(ptr noundef %375, ptr noundef nonnull @.str.902, i32 noundef 1, i32 noundef 9) #24
   %cmp.i.i12819 = icmp eq ptr %call6757, null
-  br i1 %cmp.i.i12819, label %if.then.i8333, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8341.split
-
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8341.split: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8341
-  %call8.i659 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %375, ptr noundef nonnull %call6757) #24
-  br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8334
+  br i1 %cmp.i.i12819, label %if.then.i8333, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8334
 
 if.then.i8333:                                    ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8341
   call void @_ZN2v812api_internal12ToLocalEmptyEv() #24
-  %call8.i660 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %375, ptr noundef null) #24
   br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8334
 
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8334: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8341.split, %if.then.i8333
-  %storemerge1133 = phi ptr [ %call8.i659, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8341.split ], [ %call8.i660, %if.then.i8333 ]
-  store ptr %storemerge1133, ptr %arrayidx.i.i, align 8
+_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8334: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8341, %if.then.i8333
+  %call6757.sink = phi ptr [ null, %if.then.i8333 ], [ %call6757, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8341 ]
+  %call8.i659 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %375, ptr noundef %call6757.sink) #24
+  store ptr %call8.i659, ptr %arrayidx.i.i, align 8
   %arrayidx.i.i661 = getelementptr inbounds i8, ptr %this, i64 3560
   %376 = load ptr, ptr %isolate_, align 8
   %call6775 = call ptr @_ZN2v86String14NewFromOneByteEPNS_7IsolateEPKhNS_13NewStringTypeEi(ptr noundef %376, ptr noundef nonnull @.str.903, i32 noundef 1, i32 noundef 10) #24
   %cmp.i.i12824 = icmp eq ptr %call6775, null
-  br i1 %cmp.i.i12824, label %if.then.i8326, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8334.split
-
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8334.split: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8334
-  %call8.i662 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %376, ptr noundef nonnull %call6775) #24
-  br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8327
+  br i1 %cmp.i.i12824, label %if.then.i8326, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8327
 
 if.then.i8326:                                    ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8334
   call void @_ZN2v812api_internal12ToLocalEmptyEv() #24
-  %call8.i663 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %376, ptr noundef null) #24
   br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8327
 
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8327: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8334.split, %if.then.i8326
-  %storemerge1134 = phi ptr [ %call8.i662, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8334.split ], [ %call8.i663, %if.then.i8326 ]
-  store ptr %storemerge1134, ptr %arrayidx.i.i661, align 8
+_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8327: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8334, %if.then.i8326
+  %call6775.sink = phi ptr [ null, %if.then.i8326 ], [ %call6775, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8334 ]
+  %call8.i662 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %376, ptr noundef %call6775.sink) #24
+  store ptr %call8.i662, ptr %arrayidx.i.i661, align 8
   %arrayidx.i.i664 = getelementptr inbounds i8, ptr %this, i64 3568
   %377 = load ptr, ptr %isolate_, align 8
   %call6793 = call ptr @_ZN2v86String14NewFromOneByteEPNS_7IsolateEPKhNS_13NewStringTypeEi(ptr noundef %377, ptr noundef nonnull @.str.904, i32 noundef 1, i32 noundef 12) #24
   %cmp.i.i12829 = icmp eq ptr %call6793, null
-  br i1 %cmp.i.i12829, label %if.then.i8319, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8327.split
-
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8327.split: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8327
-  %call8.i665 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %377, ptr noundef nonnull %call6793) #24
-  br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8320
+  br i1 %cmp.i.i12829, label %if.then.i8319, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8320
 
 if.then.i8319:                                    ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8327
   call void @_ZN2v812api_internal12ToLocalEmptyEv() #24
-  %call8.i666 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %377, ptr noundef null) #24
   br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8320
 
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8320: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8327.split, %if.then.i8319
-  %storemerge1135 = phi ptr [ %call8.i665, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8327.split ], [ %call8.i666, %if.then.i8319 ]
-  store ptr %storemerge1135, ptr %arrayidx.i.i664, align 8
+_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8320: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8327, %if.then.i8319
+  %call6793.sink = phi ptr [ null, %if.then.i8319 ], [ %call6793, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8327 ]
+  %call8.i665 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %377, ptr noundef %call6793.sink) #24
+  store ptr %call8.i665, ptr %arrayidx.i.i664, align 8
   %arrayidx.i.i667 = getelementptr inbounds i8, ptr %this, i64 3576
   %378 = load ptr, ptr %isolate_, align 8
   %call6811 = call ptr @_ZN2v86String14NewFromOneByteEPNS_7IsolateEPKhNS_13NewStringTypeEi(ptr noundef %378, ptr noundef nonnull @.str.905, i32 noundef 1, i32 noundef 10) #24
   %cmp.i.i12834 = icmp eq ptr %call6811, null
-  br i1 %cmp.i.i12834, label %if.then.i8312, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8320.split
-
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8320.split: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8320
-  %call8.i668 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %378, ptr noundef nonnull %call6811) #24
-  br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8313
+  br i1 %cmp.i.i12834, label %if.then.i8312, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8313
 
 if.then.i8312:                                    ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8320
   call void @_ZN2v812api_internal12ToLocalEmptyEv() #24
-  %call8.i669 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %378, ptr noundef null) #24
   br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8313
 
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8313: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8320.split, %if.then.i8312
-  %storemerge1136 = phi ptr [ %call8.i668, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8320.split ], [ %call8.i669, %if.then.i8312 ]
-  store ptr %storemerge1136, ptr %arrayidx.i.i667, align 8
+_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8313: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8320, %if.then.i8312
+  %call6811.sink = phi ptr [ null, %if.then.i8312 ], [ %call6811, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8320 ]
+  %call8.i668 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %378, ptr noundef %call6811.sink) #24
+  store ptr %call8.i668, ptr %arrayidx.i.i667, align 8
   %arrayidx.i.i670 = getelementptr inbounds i8, ptr %this, i64 3584
   %379 = load ptr, ptr %isolate_, align 8
   %call6829 = call ptr @_ZN2v86String14NewFromOneByteEPNS_7IsolateEPKhNS_13NewStringTypeEi(ptr noundef %379, ptr noundef nonnull @.str.906, i32 noundef 1, i32 noundef 18) #24
   %cmp.i.i12839 = icmp eq ptr %call6829, null
-  br i1 %cmp.i.i12839, label %if.then.i8305, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8313.split
-
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8313.split: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8313
-  %call8.i671 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %379, ptr noundef nonnull %call6829) #24
-  br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8306
+  br i1 %cmp.i.i12839, label %if.then.i8305, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8306
 
 if.then.i8305:                                    ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8313
   call void @_ZN2v812api_internal12ToLocalEmptyEv() #24
-  %call8.i672 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %379, ptr noundef null) #24
   br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8306
 
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8306: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8313.split, %if.then.i8305
-  %storemerge1137 = phi ptr [ %call8.i671, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8313.split ], [ %call8.i672, %if.then.i8305 ]
-  store ptr %storemerge1137, ptr %arrayidx.i.i670, align 8
+_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8306: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8313, %if.then.i8305
+  %call6829.sink = phi ptr [ null, %if.then.i8305 ], [ %call6829, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8313 ]
+  %call8.i671 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %379, ptr noundef %call6829.sink) #24
+  store ptr %call8.i671, ptr %arrayidx.i.i670, align 8
   %arrayidx.i.i673 = getelementptr inbounds i8, ptr %this, i64 3592
   %380 = load ptr, ptr %isolate_, align 8
   %call6847 = call ptr @_ZN2v86String14NewFromOneByteEPNS_7IsolateEPKhNS_13NewStringTypeEi(ptr noundef %380, ptr noundef nonnull @.str.907, i32 noundef 1, i32 noundef 10) #24
   %cmp.i.i12844 = icmp eq ptr %call6847, null
-  br i1 %cmp.i.i12844, label %if.then.i8298, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8306.split
-
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8306.split: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8306
-  %call8.i674 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %380, ptr noundef nonnull %call6847) #24
-  br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8299
+  br i1 %cmp.i.i12844, label %if.then.i8298, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8299
 
 if.then.i8298:                                    ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8306
   call void @_ZN2v812api_internal12ToLocalEmptyEv() #24
-  %call8.i675 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %380, ptr noundef null) #24
   br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8299
 
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8299: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8306.split, %if.then.i8298
-  %storemerge1138 = phi ptr [ %call8.i674, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8306.split ], [ %call8.i675, %if.then.i8298 ]
-  store ptr %storemerge1138, ptr %arrayidx.i.i673, align 8
+_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8299: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8306, %if.then.i8298
+  %call6847.sink = phi ptr [ null, %if.then.i8298 ], [ %call6847, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8306 ]
+  %call8.i674 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %380, ptr noundef %call6847.sink) #24
+  store ptr %call8.i674, ptr %arrayidx.i.i673, align 8
   %arrayidx.i.i676 = getelementptr inbounds i8, ptr %this, i64 3600
   %381 = load ptr, ptr %isolate_, align 8
   %call6865 = call ptr @_ZN2v86String14NewFromOneByteEPNS_7IsolateEPKhNS_13NewStringTypeEi(ptr noundef %381, ptr noundef nonnull @.str.908, i32 noundef 1, i32 noundef 11) #24
   %cmp.i.i12849 = icmp eq ptr %call6865, null
-  br i1 %cmp.i.i12849, label %if.then.i8291, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8299.split
-
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8299.split: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8299
-  %call8.i677 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %381, ptr noundef nonnull %call6865) #24
-  br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8292
+  br i1 %cmp.i.i12849, label %if.then.i8291, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8292
 
 if.then.i8291:                                    ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8299
   call void @_ZN2v812api_internal12ToLocalEmptyEv() #24
-  %call8.i678 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %381, ptr noundef null) #24
   br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8292
 
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8292: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8299.split, %if.then.i8291
-  %storemerge1139 = phi ptr [ %call8.i677, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8299.split ], [ %call8.i678, %if.then.i8291 ]
-  store ptr %storemerge1139, ptr %arrayidx.i.i676, align 8
+_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8292: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8299, %if.then.i8291
+  %call6865.sink = phi ptr [ null, %if.then.i8291 ], [ %call6865, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8299 ]
+  %call8.i677 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %381, ptr noundef %call6865.sink) #24
+  store ptr %call8.i677, ptr %arrayidx.i.i676, align 8
   %arrayidx.i.i679 = getelementptr inbounds i8, ptr %this, i64 3608
   %382 = load ptr, ptr %isolate_, align 8
   %call6883 = call ptr @_ZN2v86String14NewFromOneByteEPNS_7IsolateEPKhNS_13NewStringTypeEi(ptr noundef %382, ptr noundef nonnull @.str.909, i32 noundef 1, i32 noundef 13) #24
   %cmp.i.i12854 = icmp eq ptr %call6883, null
-  br i1 %cmp.i.i12854, label %if.then.i8284, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8292.split
-
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8292.split: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8292
-  %call8.i680 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %382, ptr noundef nonnull %call6883) #24
-  br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8285
+  br i1 %cmp.i.i12854, label %if.then.i8284, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8285
 
 if.then.i8284:                                    ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8292
   call void @_ZN2v812api_internal12ToLocalEmptyEv() #24
-  %call8.i681 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %382, ptr noundef null) #24
   br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8285
 
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8285: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8292.split, %if.then.i8284
-  %storemerge1140 = phi ptr [ %call8.i680, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8292.split ], [ %call8.i681, %if.then.i8284 ]
-  store ptr %storemerge1140, ptr %arrayidx.i.i679, align 8
+_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8285: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8292, %if.then.i8284
+  %call6883.sink = phi ptr [ null, %if.then.i8284 ], [ %call6883, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8292 ]
+  %call8.i680 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %382, ptr noundef %call6883.sink) #24
+  store ptr %call8.i680, ptr %arrayidx.i.i679, align 8
   %arrayidx.i.i682 = getelementptr inbounds i8, ptr %this, i64 3616
   %383 = load ptr, ptr %isolate_, align 8
   %call6901 = call ptr @_ZN2v86String14NewFromOneByteEPNS_7IsolateEPKhNS_13NewStringTypeEi(ptr noundef %383, ptr noundef nonnull @.str.910, i32 noundef 1, i32 noundef 12) #24
   %cmp.i.i12859 = icmp eq ptr %call6901, null
-  br i1 %cmp.i.i12859, label %if.then.i8277, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8285.split
-
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8285.split: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8285
-  %call8.i683 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %383, ptr noundef nonnull %call6901) #24
-  br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8278
+  br i1 %cmp.i.i12859, label %if.then.i8277, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8278
 
 if.then.i8277:                                    ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8285
   call void @_ZN2v812api_internal12ToLocalEmptyEv() #24
-  %call8.i684 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %383, ptr noundef null) #24
   br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8278
 
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8278: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8285.split, %if.then.i8277
-  %storemerge1141 = phi ptr [ %call8.i683, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8285.split ], [ %call8.i684, %if.then.i8277 ]
-  store ptr %storemerge1141, ptr %arrayidx.i.i682, align 8
+_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8278: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8285, %if.then.i8277
+  %call6901.sink = phi ptr [ null, %if.then.i8277 ], [ %call6901, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8285 ]
+  %call8.i683 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %383, ptr noundef %call6901.sink) #24
+  store ptr %call8.i683, ptr %arrayidx.i.i682, align 8
   %arrayidx.i.i685 = getelementptr inbounds i8, ptr %this, i64 3624
   %384 = load ptr, ptr %isolate_, align 8
   %call6919 = call ptr @_ZN2v86String14NewFromOneByteEPNS_7IsolateEPKhNS_13NewStringTypeEi(ptr noundef %384, ptr noundef nonnull @.str.911, i32 noundef 1, i32 noundef 18) #24
   %cmp.i.i12864 = icmp eq ptr %call6919, null
-  br i1 %cmp.i.i12864, label %if.then.i8270, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8278.split
-
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8278.split: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8278
-  %call8.i686 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %384, ptr noundef nonnull %call6919) #24
-  br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8271
+  br i1 %cmp.i.i12864, label %if.then.i8270, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8271
 
 if.then.i8270:                                    ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8278
   call void @_ZN2v812api_internal12ToLocalEmptyEv() #24
-  %call8.i687 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %384, ptr noundef null) #24
   br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8271
 
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8271: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8278.split, %if.then.i8270
-  %storemerge1142 = phi ptr [ %call8.i686, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8278.split ], [ %call8.i687, %if.then.i8270 ]
-  store ptr %storemerge1142, ptr %arrayidx.i.i685, align 8
+_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8271: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8278, %if.then.i8270
+  %call6919.sink = phi ptr [ null, %if.then.i8270 ], [ %call6919, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8278 ]
+  %call8.i686 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %384, ptr noundef %call6919.sink) #24
+  store ptr %call8.i686, ptr %arrayidx.i.i685, align 8
   %arrayidx.i.i688 = getelementptr inbounds i8, ptr %this, i64 3632
   %385 = load ptr, ptr %isolate_, align 8
   %call6937 = call ptr @_ZN2v86String14NewFromOneByteEPNS_7IsolateEPKhNS_13NewStringTypeEi(ptr noundef %385, ptr noundef nonnull @.str.912, i32 noundef 1, i32 noundef 18) #24
   %cmp.i.i12869 = icmp eq ptr %call6937, null
-  br i1 %cmp.i.i12869, label %if.then.i8263, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8271.split
-
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8271.split: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8271
-  %call8.i689 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %385, ptr noundef nonnull %call6937) #24
-  br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8264
+  br i1 %cmp.i.i12869, label %if.then.i8263, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8264
 
 if.then.i8263:                                    ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8271
   call void @_ZN2v812api_internal12ToLocalEmptyEv() #24
-  %call8.i690 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %385, ptr noundef null) #24
   br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8264
 
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8264: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8271.split, %if.then.i8263
-  %storemerge1143 = phi ptr [ %call8.i689, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8271.split ], [ %call8.i690, %if.then.i8263 ]
-  store ptr %storemerge1143, ptr %arrayidx.i.i688, align 8
+_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8264: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8271, %if.then.i8263
+  %call6937.sink = phi ptr [ null, %if.then.i8263 ], [ %call6937, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8271 ]
+  %call8.i689 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %385, ptr noundef %call6937.sink) #24
+  store ptr %call8.i689, ptr %arrayidx.i.i688, align 8
   %arrayidx.i.i691 = getelementptr inbounds i8, ptr %this, i64 3640
   %386 = load ptr, ptr %isolate_, align 8
   %call6955 = call ptr @_ZN2v86String14NewFromOneByteEPNS_7IsolateEPKhNS_13NewStringTypeEi(ptr noundef %386, ptr noundef nonnull @.str.913, i32 noundef 1, i32 noundef 12) #24
   %cmp.i.i12874 = icmp eq ptr %call6955, null
-  br i1 %cmp.i.i12874, label %if.then.i8256, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8264.split
-
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8264.split: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8264
-  %call8.i692 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %386, ptr noundef nonnull %call6955) #24
-  br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8257
+  br i1 %cmp.i.i12874, label %if.then.i8256, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8257
 
 if.then.i8256:                                    ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8264
   call void @_ZN2v812api_internal12ToLocalEmptyEv() #24
-  %call8.i693 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %386, ptr noundef null) #24
   br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8257
 
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8257: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8264.split, %if.then.i8256
-  %storemerge1144 = phi ptr [ %call8.i692, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8264.split ], [ %call8.i693, %if.then.i8256 ]
-  store ptr %storemerge1144, ptr %arrayidx.i.i691, align 8
+_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8257: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8264, %if.then.i8256
+  %call6955.sink = phi ptr [ null, %if.then.i8256 ], [ %call6955, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8264 ]
+  %call8.i692 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %386, ptr noundef %call6955.sink) #24
+  store ptr %call8.i692, ptr %arrayidx.i.i691, align 8
   %arrayidx.i.i694 = getelementptr inbounds i8, ptr %this, i64 3648
   %387 = load ptr, ptr %isolate_, align 8
   %call6973 = call ptr @_ZN2v86String14NewFromOneByteEPNS_7IsolateEPKhNS_13NewStringTypeEi(ptr noundef %387, ptr noundef nonnull @.str.914, i32 noundef 1, i32 noundef 12) #24
   %cmp.i.i12879 = icmp eq ptr %call6973, null
-  br i1 %cmp.i.i12879, label %if.then.i8249, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8257.split
-
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8257.split: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8257
-  %call8.i695 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %387, ptr noundef nonnull %call6973) #24
-  br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8250
+  br i1 %cmp.i.i12879, label %if.then.i8249, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8250
 
 if.then.i8249:                                    ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8257
   call void @_ZN2v812api_internal12ToLocalEmptyEv() #24
-  %call8.i696 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %387, ptr noundef null) #24
   br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8250
 
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8250: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8257.split, %if.then.i8249
-  %storemerge1145 = phi ptr [ %call8.i695, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8257.split ], [ %call8.i696, %if.then.i8249 ]
-  store ptr %storemerge1145, ptr %arrayidx.i.i694, align 8
+_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8250: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8257, %if.then.i8249
+  %call6973.sink = phi ptr [ null, %if.then.i8249 ], [ %call6973, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8257 ]
+  %call8.i695 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %387, ptr noundef %call6973.sink) #24
+  store ptr %call8.i695, ptr %arrayidx.i.i694, align 8
   %arrayidx.i.i697 = getelementptr inbounds i8, ptr %this, i64 3656
   %388 = load ptr, ptr %isolate_, align 8
   %call6991 = call ptr @_ZN2v86String14NewFromOneByteEPNS_7IsolateEPKhNS_13NewStringTypeEi(ptr noundef %388, ptr noundef nonnull @.str.915, i32 noundef 1, i32 noundef 11) #24
   %cmp.i.i12884 = icmp eq ptr %call6991, null
-  br i1 %cmp.i.i12884, label %if.then.i8242, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8250.split
-
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8250.split: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8250
-  %call8.i698 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %388, ptr noundef nonnull %call6991) #24
-  br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8243
+  br i1 %cmp.i.i12884, label %if.then.i8242, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8243
 
 if.then.i8242:                                    ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8250
   call void @_ZN2v812api_internal12ToLocalEmptyEv() #24
-  %call8.i699 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %388, ptr noundef null) #24
   br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8243
 
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8243: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8250.split, %if.then.i8242
-  %storemerge1146 = phi ptr [ %call8.i698, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8250.split ], [ %call8.i699, %if.then.i8242 ]
-  store ptr %storemerge1146, ptr %arrayidx.i.i697, align 8
+_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8243: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8250, %if.then.i8242
+  %call6991.sink = phi ptr [ null, %if.then.i8242 ], [ %call6991, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8250 ]
+  %call8.i698 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %388, ptr noundef %call6991.sink) #24
+  store ptr %call8.i698, ptr %arrayidx.i.i697, align 8
   %arrayidx.i.i700 = getelementptr inbounds i8, ptr %this, i64 3664
   %389 = load ptr, ptr %isolate_, align 8
   %call7009 = call ptr @_ZN2v86String14NewFromOneByteEPNS_7IsolateEPKhNS_13NewStringTypeEi(ptr noundef %389, ptr noundef nonnull @.str.916, i32 noundef 1, i32 noundef 9) #24
   %cmp.i.i12889 = icmp eq ptr %call7009, null
-  br i1 %cmp.i.i12889, label %if.then.i8235, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8243.split
-
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8243.split: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8243
-  %call8.i701 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %389, ptr noundef nonnull %call7009) #24
-  br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8236
+  br i1 %cmp.i.i12889, label %if.then.i8235, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8236
 
 if.then.i8235:                                    ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8243
   call void @_ZN2v812api_internal12ToLocalEmptyEv() #24
-  %call8.i702 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %389, ptr noundef null) #24
   br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8236
 
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8236: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8243.split, %if.then.i8235
-  %storemerge1147 = phi ptr [ %call8.i701, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8243.split ], [ %call8.i702, %if.then.i8235 ]
-  store ptr %storemerge1147, ptr %arrayidx.i.i700, align 8
+_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8236: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8243, %if.then.i8235
+  %call7009.sink = phi ptr [ null, %if.then.i8235 ], [ %call7009, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8243 ]
+  %call8.i701 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %389, ptr noundef %call7009.sink) #24
+  store ptr %call8.i701, ptr %arrayidx.i.i700, align 8
   %arrayidx.i.i703 = getelementptr inbounds i8, ptr %this, i64 3672
   %390 = load ptr, ptr %isolate_, align 8
   %call7027 = call ptr @_ZN2v86String14NewFromOneByteEPNS_7IsolateEPKhNS_13NewStringTypeEi(ptr noundef %390, ptr noundef nonnull @.str.917, i32 noundef 1, i32 noundef 13) #24
   %cmp.i.i12894 = icmp eq ptr %call7027, null
-  br i1 %cmp.i.i12894, label %if.then.i8228, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8236.split
-
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8236.split: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8236
-  %call8.i704 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %390, ptr noundef nonnull %call7027) #24
-  br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8229
+  br i1 %cmp.i.i12894, label %if.then.i8228, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8229
 
 if.then.i8228:                                    ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8236
   call void @_ZN2v812api_internal12ToLocalEmptyEv() #24
-  %call8.i705 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %390, ptr noundef null) #24
   br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8229
 
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8229: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8236.split, %if.then.i8228
-  %storemerge1148 = phi ptr [ %call8.i704, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8236.split ], [ %call8.i705, %if.then.i8228 ]
-  store ptr %storemerge1148, ptr %arrayidx.i.i703, align 8
+_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8229: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8236, %if.then.i8228
+  %call7027.sink = phi ptr [ null, %if.then.i8228 ], [ %call7027, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8236 ]
+  %call8.i704 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %390, ptr noundef %call7027.sink) #24
+  store ptr %call8.i704, ptr %arrayidx.i.i703, align 8
   %arrayidx.i.i706 = getelementptr inbounds i8, ptr %this, i64 3680
   %391 = load ptr, ptr %isolate_, align 8
   %call7045 = call ptr @_ZN2v86String14NewFromOneByteEPNS_7IsolateEPKhNS_13NewStringTypeEi(ptr noundef %391, ptr noundef nonnull @.str.918, i32 noundef 1, i32 noundef 19) #24
   %cmp.i.i12899 = icmp eq ptr %call7045, null
-  br i1 %cmp.i.i12899, label %if.then.i8221, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8229.split
-
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8229.split: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8229
-  %call8.i707 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %391, ptr noundef nonnull %call7045) #24
-  br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8222
+  br i1 %cmp.i.i12899, label %if.then.i8221, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8222
 
 if.then.i8221:                                    ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8229
   call void @_ZN2v812api_internal12ToLocalEmptyEv() #24
-  %call8.i708 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %391, ptr noundef null) #24
   br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8222
 
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8222: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8229.split, %if.then.i8221
-  %storemerge1149 = phi ptr [ %call8.i707, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8229.split ], [ %call8.i708, %if.then.i8221 ]
-  store ptr %storemerge1149, ptr %arrayidx.i.i706, align 8
+_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8222: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8229, %if.then.i8221
+  %call7045.sink = phi ptr [ null, %if.then.i8221 ], [ %call7045, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8229 ]
+  %call8.i707 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %391, ptr noundef %call7045.sink) #24
+  store ptr %call8.i707, ptr %arrayidx.i.i706, align 8
   %arrayidx.i.i709 = getelementptr inbounds i8, ptr %this, i64 3688
   %392 = load ptr, ptr %isolate_, align 8
   %call7063 = call ptr @_ZN2v86String14NewFromOneByteEPNS_7IsolateEPKhNS_13NewStringTypeEi(ptr noundef %392, ptr noundef nonnull @.str.919, i32 noundef 1, i32 noundef 17) #24
   %cmp.i.i12904 = icmp eq ptr %call7063, null
-  br i1 %cmp.i.i12904, label %if.then.i8214, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8222.split
-
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8222.split: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8222
-  %call8.i710 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %392, ptr noundef nonnull %call7063) #24
-  br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8215
+  br i1 %cmp.i.i12904, label %if.then.i8214, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8215
 
 if.then.i8214:                                    ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8222
   call void @_ZN2v812api_internal12ToLocalEmptyEv() #24
-  %call8.i711 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %392, ptr noundef null) #24
   br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8215
 
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8215: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8222.split, %if.then.i8214
-  %storemerge1150 = phi ptr [ %call8.i710, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8222.split ], [ %call8.i711, %if.then.i8214 ]
-  store ptr %storemerge1150, ptr %arrayidx.i.i709, align 8
+_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8215: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8222, %if.then.i8214
+  %call7063.sink = phi ptr [ null, %if.then.i8214 ], [ %call7063, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8222 ]
+  %call8.i710 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %392, ptr noundef %call7063.sink) #24
+  store ptr %call8.i710, ptr %arrayidx.i.i709, align 8
   %arrayidx.i.i712 = getelementptr inbounds i8, ptr %this, i64 3696
   %393 = load ptr, ptr %isolate_, align 8
   %call7081 = call ptr @_ZN2v86String14NewFromOneByteEPNS_7IsolateEPKhNS_13NewStringTypeEi(ptr noundef %393, ptr noundef nonnull @.str.920, i32 noundef 1, i32 noundef 8) #24
   %cmp.i.i12909 = icmp eq ptr %call7081, null
-  br i1 %cmp.i.i12909, label %if.then.i8207, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8215.split
-
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8215.split: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8215
-  %call8.i713 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %393, ptr noundef nonnull %call7081) #24
-  br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8208
+  br i1 %cmp.i.i12909, label %if.then.i8207, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8208
 
 if.then.i8207:                                    ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8215
   call void @_ZN2v812api_internal12ToLocalEmptyEv() #24
-  %call8.i714 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %393, ptr noundef null) #24
   br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8208
 
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8208: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8215.split, %if.then.i8207
-  %storemerge1151 = phi ptr [ %call8.i713, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8215.split ], [ %call8.i714, %if.then.i8207 ]
-  store ptr %storemerge1151, ptr %arrayidx.i.i712, align 8
+_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8208: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8215, %if.then.i8207
+  %call7081.sink = phi ptr [ null, %if.then.i8207 ], [ %call7081, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8215 ]
+  %call8.i713 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %393, ptr noundef %call7081.sink) #24
+  store ptr %call8.i713, ptr %arrayidx.i.i712, align 8
   %arrayidx.i.i715 = getelementptr inbounds i8, ptr %this, i64 3704
   %394 = load ptr, ptr %isolate_, align 8
   %call7099 = call ptr @_ZN2v86String14NewFromOneByteEPNS_7IsolateEPKhNS_13NewStringTypeEi(ptr noundef %394, ptr noundef nonnull @.str.921, i32 noundef 1, i32 noundef 9) #24
   %cmp.i.i12914 = icmp eq ptr %call7099, null
-  br i1 %cmp.i.i12914, label %if.then.i8200, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8208.split
-
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8208.split: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8208
-  %call8.i716 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %394, ptr noundef nonnull %call7099) #24
-  br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8201
+  br i1 %cmp.i.i12914, label %if.then.i8200, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8201
 
 if.then.i8200:                                    ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8208
   call void @_ZN2v812api_internal12ToLocalEmptyEv() #24
-  %call8.i717 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %394, ptr noundef null) #24
   br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8201
 
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8201: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8208.split, %if.then.i8200
-  %storemerge1152 = phi ptr [ %call8.i716, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8208.split ], [ %call8.i717, %if.then.i8200 ]
-  store ptr %storemerge1152, ptr %arrayidx.i.i715, align 8
+_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8201: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8208, %if.then.i8200
+  %call7099.sink = phi ptr [ null, %if.then.i8200 ], [ %call7099, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8208 ]
+  %call8.i716 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %394, ptr noundef %call7099.sink) #24
+  store ptr %call8.i716, ptr %arrayidx.i.i715, align 8
   %arrayidx.i.i718 = getelementptr inbounds i8, ptr %this, i64 3712
   %395 = load ptr, ptr %isolate_, align 8
   %call7117 = call ptr @_ZN2v86String14NewFromOneByteEPNS_7IsolateEPKhNS_13NewStringTypeEi(ptr noundef %395, ptr noundef nonnull @.str.922, i32 noundef 1, i32 noundef 11) #24
   %cmp.i.i12919 = icmp eq ptr %call7117, null
-  br i1 %cmp.i.i12919, label %if.then.i8193, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8201.split
-
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8201.split: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8201
-  %call8.i719 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %395, ptr noundef nonnull %call7117) #24
-  br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8194
+  br i1 %cmp.i.i12919, label %if.then.i8193, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8194
 
 if.then.i8193:                                    ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8201
   call void @_ZN2v812api_internal12ToLocalEmptyEv() #24
-  %call8.i720 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %395, ptr noundef null) #24
   br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8194
 
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8194: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8201.split, %if.then.i8193
-  %storemerge1153 = phi ptr [ %call8.i719, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8201.split ], [ %call8.i720, %if.then.i8193 ]
-  store ptr %storemerge1153, ptr %arrayidx.i.i718, align 8
+_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8194: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8201, %if.then.i8193
+  %call7117.sink = phi ptr [ null, %if.then.i8193 ], [ %call7117, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8201 ]
+  %call8.i719 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %395, ptr noundef %call7117.sink) #24
+  store ptr %call8.i719, ptr %arrayidx.i.i718, align 8
   %arrayidx.i.i721 = getelementptr inbounds i8, ptr %this, i64 3720
   %396 = load ptr, ptr %isolate_, align 8
   %call7135 = call ptr @_ZN2v86String14NewFromOneByteEPNS_7IsolateEPKhNS_13NewStringTypeEi(ptr noundef %396, ptr noundef nonnull @.str.923, i32 noundef 1, i32 noundef 15) #24
   %cmp.i.i12924 = icmp eq ptr %call7135, null
-  br i1 %cmp.i.i12924, label %if.then.i8186, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8194.split
-
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8194.split: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8194
-  %call8.i722 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %396, ptr noundef nonnull %call7135) #24
-  br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8187
+  br i1 %cmp.i.i12924, label %if.then.i8186, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8187
 
 if.then.i8186:                                    ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8194
   call void @_ZN2v812api_internal12ToLocalEmptyEv() #24
-  %call8.i723 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %396, ptr noundef null) #24
   br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8187
 
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8187: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8194.split, %if.then.i8186
-  %storemerge1154 = phi ptr [ %call8.i722, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8194.split ], [ %call8.i723, %if.then.i8186 ]
-  store ptr %storemerge1154, ptr %arrayidx.i.i721, align 8
+_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8187: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8194, %if.then.i8186
+  %call7135.sink = phi ptr [ null, %if.then.i8186 ], [ %call7135, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8194 ]
+  %call8.i722 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %396, ptr noundef %call7135.sink) #24
+  store ptr %call8.i722, ptr %arrayidx.i.i721, align 8
   %arrayidx.i.i724 = getelementptr inbounds i8, ptr %this, i64 3728
   %397 = load ptr, ptr %isolate_, align 8
   %call7153 = call ptr @_ZN2v86String14NewFromOneByteEPNS_7IsolateEPKhNS_13NewStringTypeEi(ptr noundef %397, ptr noundef nonnull @.str.924, i32 noundef 1, i32 noundef 14) #24
   %cmp.i.i12929 = icmp eq ptr %call7153, null
-  br i1 %cmp.i.i12929, label %if.then.i8179, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8187.split
-
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8187.split: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8187
-  %call8.i725 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %397, ptr noundef nonnull %call7153) #24
-  br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8180
+  br i1 %cmp.i.i12929, label %if.then.i8179, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8180
 
 if.then.i8179:                                    ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8187
   call void @_ZN2v812api_internal12ToLocalEmptyEv() #24
-  %call8.i726 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %397, ptr noundef null) #24
   br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8180
 
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8180: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8187.split, %if.then.i8179
-  %storemerge1155 = phi ptr [ %call8.i725, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8187.split ], [ %call8.i726, %if.then.i8179 ]
-  store ptr %storemerge1155, ptr %arrayidx.i.i724, align 8
+_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8180: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8187, %if.then.i8179
+  %call7153.sink = phi ptr [ null, %if.then.i8179 ], [ %call7153, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8187 ]
+  %call8.i725 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %397, ptr noundef %call7153.sink) #24
+  store ptr %call8.i725, ptr %arrayidx.i.i724, align 8
   %arrayidx.i.i727 = getelementptr inbounds i8, ptr %this, i64 3736
   %398 = load ptr, ptr %isolate_, align 8
   %call7171 = call ptr @_ZN2v86String14NewFromOneByteEPNS_7IsolateEPKhNS_13NewStringTypeEi(ptr noundef %398, ptr noundef nonnull @.str.925, i32 noundef 1, i32 noundef 8) #24
   %cmp.i.i12934 = icmp eq ptr %call7171, null
-  br i1 %cmp.i.i12934, label %if.then.i8172, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8180.split
-
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8180.split: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8180
-  %call8.i728 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %398, ptr noundef nonnull %call7171) #24
-  br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8173
+  br i1 %cmp.i.i12934, label %if.then.i8172, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8173
 
 if.then.i8172:                                    ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8180
   call void @_ZN2v812api_internal12ToLocalEmptyEv() #24
-  %call8.i729 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %398, ptr noundef null) #24
   br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8173
 
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8173: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8180.split, %if.then.i8172
-  %storemerge1156 = phi ptr [ %call8.i728, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8180.split ], [ %call8.i729, %if.then.i8172 ]
-  store ptr %storemerge1156, ptr %arrayidx.i.i727, align 8
+_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8173: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8180, %if.then.i8172
+  %call7171.sink = phi ptr [ null, %if.then.i8172 ], [ %call7171, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8180 ]
+  %call8.i728 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %398, ptr noundef %call7171.sink) #24
+  store ptr %call8.i728, ptr %arrayidx.i.i727, align 8
   %arrayidx.i.i730 = getelementptr inbounds i8, ptr %this, i64 3744
   %399 = load ptr, ptr %isolate_, align 8
   %call7189 = call ptr @_ZN2v86String14NewFromOneByteEPNS_7IsolateEPKhNS_13NewStringTypeEi(ptr noundef %399, ptr noundef nonnull @.str.926, i32 noundef 1, i32 noundef 11) #24
   %cmp.i.i12939 = icmp eq ptr %call7189, null
-  br i1 %cmp.i.i12939, label %if.then.i8165, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8173.split
-
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8173.split: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8173
-  %call8.i731 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %399, ptr noundef nonnull %call7189) #24
-  br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8166
+  br i1 %cmp.i.i12939, label %if.then.i8165, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8166
 
 if.then.i8165:                                    ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8173
   call void @_ZN2v812api_internal12ToLocalEmptyEv() #24
-  %call8.i732 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %399, ptr noundef null) #24
   br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8166
 
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8166: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8173.split, %if.then.i8165
-  %storemerge1157 = phi ptr [ %call8.i731, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8173.split ], [ %call8.i732, %if.then.i8165 ]
-  store ptr %storemerge1157, ptr %arrayidx.i.i730, align 8
+_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8166: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8173, %if.then.i8165
+  %call7189.sink = phi ptr [ null, %if.then.i8165 ], [ %call7189, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8173 ]
+  %call8.i731 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %399, ptr noundef %call7189.sink) #24
+  store ptr %call8.i731, ptr %arrayidx.i.i730, align 8
   %arrayidx.i.i733 = getelementptr inbounds i8, ptr %this, i64 3752
   %400 = load ptr, ptr %isolate_, align 8
   %call7207 = call ptr @_ZN2v86String14NewFromOneByteEPNS_7IsolateEPKhNS_13NewStringTypeEi(ptr noundef %400, ptr noundef nonnull @.str.927, i32 noundef 1, i32 noundef 7) #24
   %cmp.i.i12944 = icmp eq ptr %call7207, null
-  br i1 %cmp.i.i12944, label %if.then.i8158, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8166.split
-
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8166.split: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8166
-  %call8.i734 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %400, ptr noundef nonnull %call7207) #24
-  br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8159
+  br i1 %cmp.i.i12944, label %if.then.i8158, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8159
 
 if.then.i8158:                                    ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8166
   call void @_ZN2v812api_internal12ToLocalEmptyEv() #24
-  %call8.i735 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %400, ptr noundef null) #24
   br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8159
 
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8159: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8166.split, %if.then.i8158
-  %storemerge1158 = phi ptr [ %call8.i734, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8166.split ], [ %call8.i735, %if.then.i8158 ]
-  store ptr %storemerge1158, ptr %arrayidx.i.i733, align 8
+_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8159: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8166, %if.then.i8158
+  %call7207.sink = phi ptr [ null, %if.then.i8158 ], [ %call7207, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8166 ]
+  %call8.i734 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %400, ptr noundef %call7207.sink) #24
+  store ptr %call8.i734, ptr %arrayidx.i.i733, align 8
   %arrayidx.i.i736 = getelementptr inbounds i8, ptr %this, i64 3760
   %401 = load ptr, ptr %isolate_, align 8
   %call7225 = call ptr @_ZN2v86String14NewFromOneByteEPNS_7IsolateEPKhNS_13NewStringTypeEi(ptr noundef %401, ptr noundef nonnull @.str.928, i32 noundef 1, i32 noundef 9) #24
   %cmp.i.i12949 = icmp eq ptr %call7225, null
-  br i1 %cmp.i.i12949, label %if.then.i8151, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8159.split
-
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8159.split: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8159
-  %call8.i737 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %401, ptr noundef nonnull %call7225) #24
-  br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8152
+  br i1 %cmp.i.i12949, label %if.then.i8151, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8152
 
 if.then.i8151:                                    ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8159
   call void @_ZN2v812api_internal12ToLocalEmptyEv() #24
-  %call8.i738 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %401, ptr noundef null) #24
   br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8152
 
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8152: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8159.split, %if.then.i8151
-  %storemerge1159 = phi ptr [ %call8.i737, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8159.split ], [ %call8.i738, %if.then.i8151 ]
-  store ptr %storemerge1159, ptr %arrayidx.i.i736, align 8
+_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8152: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8159, %if.then.i8151
+  %call7225.sink = phi ptr [ null, %if.then.i8151 ], [ %call7225, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8159 ]
+  %call8.i737 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %401, ptr noundef %call7225.sink) #24
+  store ptr %call8.i737, ptr %arrayidx.i.i736, align 8
   %arrayidx.i.i739 = getelementptr inbounds i8, ptr %this, i64 3768
   %402 = load ptr, ptr %isolate_, align 8
   %call7243 = call ptr @_ZN2v86String14NewFromOneByteEPNS_7IsolateEPKhNS_13NewStringTypeEi(ptr noundef %402, ptr noundef nonnull @.str.929, i32 noundef 1, i32 noundef 13) #24
   %cmp.i.i12954 = icmp eq ptr %call7243, null
-  br i1 %cmp.i.i12954, label %if.then.i8144, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8152.split
-
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8152.split: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8152
-  %call8.i740 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %402, ptr noundef nonnull %call7243) #24
-  br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8145
+  br i1 %cmp.i.i12954, label %if.then.i8144, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8145
 
 if.then.i8144:                                    ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8152
   call void @_ZN2v812api_internal12ToLocalEmptyEv() #24
-  %call8.i741 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %402, ptr noundef null) #24
   br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8145
 
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8145: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8152.split, %if.then.i8144
-  %storemerge1160 = phi ptr [ %call8.i740, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8152.split ], [ %call8.i741, %if.then.i8144 ]
-  store ptr %storemerge1160, ptr %arrayidx.i.i739, align 8
+_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8145: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8152, %if.then.i8144
+  %call7243.sink = phi ptr [ null, %if.then.i8144 ], [ %call7243, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8152 ]
+  %call8.i740 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %402, ptr noundef %call7243.sink) #24
+  store ptr %call8.i740, ptr %arrayidx.i.i739, align 8
   %arrayidx.i.i742 = getelementptr inbounds i8, ptr %this, i64 3776
   %403 = load ptr, ptr %isolate_, align 8
   %call7261 = call ptr @_ZN2v86String14NewFromOneByteEPNS_7IsolateEPKhNS_13NewStringTypeEi(ptr noundef %403, ptr noundef nonnull @.str.930, i32 noundef 1, i32 noundef 14) #24
   %cmp.i.i12959 = icmp eq ptr %call7261, null
-  br i1 %cmp.i.i12959, label %if.then.i8137, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8145.split
-
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8145.split: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8145
-  %call8.i743 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %403, ptr noundef nonnull %call7261) #24
-  br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8138
+  br i1 %cmp.i.i12959, label %if.then.i8137, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8138
 
 if.then.i8137:                                    ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8145
   call void @_ZN2v812api_internal12ToLocalEmptyEv() #24
-  %call8.i744 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %403, ptr noundef null) #24
   br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8138
 
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8138: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8145.split, %if.then.i8137
-  %storemerge1161 = phi ptr [ %call8.i743, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8145.split ], [ %call8.i744, %if.then.i8137 ]
-  store ptr %storemerge1161, ptr %arrayidx.i.i742, align 8
+_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8138: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8145, %if.then.i8137
+  %call7261.sink = phi ptr [ null, %if.then.i8137 ], [ %call7261, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8145 ]
+  %call8.i743 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %403, ptr noundef %call7261.sink) #24
+  store ptr %call8.i743, ptr %arrayidx.i.i742, align 8
   %arrayidx.i.i745 = getelementptr inbounds i8, ptr %this, i64 3784
   %404 = load ptr, ptr %isolate_, align 8
   %call7279 = call ptr @_ZN2v86String14NewFromOneByteEPNS_7IsolateEPKhNS_13NewStringTypeEi(ptr noundef %404, ptr noundef nonnull @.str.931, i32 noundef 1, i32 noundef 11) #24
   %cmp.i.i12964 = icmp eq ptr %call7279, null
-  br i1 %cmp.i.i12964, label %if.then.i8130, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8138.split
-
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8138.split: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8138
-  %call8.i746 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %404, ptr noundef nonnull %call7279) #24
-  br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8131
+  br i1 %cmp.i.i12964, label %if.then.i8130, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8131
 
 if.then.i8130:                                    ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8138
   call void @_ZN2v812api_internal12ToLocalEmptyEv() #24
-  %call8.i747 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %404, ptr noundef null) #24
   br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8131
 
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8131: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8138.split, %if.then.i8130
-  %storemerge1162 = phi ptr [ %call8.i746, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8138.split ], [ %call8.i747, %if.then.i8130 ]
-  store ptr %storemerge1162, ptr %arrayidx.i.i745, align 8
+_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8131: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8138, %if.then.i8130
+  %call7279.sink = phi ptr [ null, %if.then.i8130 ], [ %call7279, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8138 ]
+  %call8.i746 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %404, ptr noundef %call7279.sink) #24
+  store ptr %call8.i746, ptr %arrayidx.i.i745, align 8
   %arrayidx.i.i748 = getelementptr inbounds i8, ptr %this, i64 3792
   %405 = load ptr, ptr %isolate_, align 8
   %call7297 = call ptr @_ZN2v86String14NewFromOneByteEPNS_7IsolateEPKhNS_13NewStringTypeEi(ptr noundef %405, ptr noundef nonnull @.str.932, i32 noundef 1, i32 noundef 12) #24
   %cmp.i.i12969 = icmp eq ptr %call7297, null
-  br i1 %cmp.i.i12969, label %if.then.i8123, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8131.split
-
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8131.split: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8131
-  %call8.i749 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %405, ptr noundef nonnull %call7297) #24
-  br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8124
+  br i1 %cmp.i.i12969, label %if.then.i8123, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8124
 
 if.then.i8123:                                    ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8131
   call void @_ZN2v812api_internal12ToLocalEmptyEv() #24
-  %call8.i750 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %405, ptr noundef null) #24
   br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8124
 
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8124: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8131.split, %if.then.i8123
-  %storemerge1163 = phi ptr [ %call8.i749, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8131.split ], [ %call8.i750, %if.then.i8123 ]
-  store ptr %storemerge1163, ptr %arrayidx.i.i748, align 8
+_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8124: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8131, %if.then.i8123
+  %call7297.sink = phi ptr [ null, %if.then.i8123 ], [ %call7297, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8131 ]
+  %call8.i749 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %405, ptr noundef %call7297.sink) #24
+  store ptr %call8.i749, ptr %arrayidx.i.i748, align 8
   %arrayidx.i.i751 = getelementptr inbounds i8, ptr %this, i64 3800
   %406 = load ptr, ptr %isolate_, align 8
   %call7315 = call ptr @_ZN2v86String14NewFromOneByteEPNS_7IsolateEPKhNS_13NewStringTypeEi(ptr noundef %406, ptr noundef nonnull @.str.933, i32 noundef 1, i32 noundef 11) #24
   %cmp.i.i12974 = icmp eq ptr %call7315, null
-  br i1 %cmp.i.i12974, label %if.then.i8116, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8124.split
-
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8124.split: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8124
-  %call8.i752 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %406, ptr noundef nonnull %call7315) #24
-  br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8117
+  br i1 %cmp.i.i12974, label %if.then.i8116, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8117
 
 if.then.i8116:                                    ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8124
   call void @_ZN2v812api_internal12ToLocalEmptyEv() #24
-  %call8.i753 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %406, ptr noundef null) #24
   br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8117
 
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8117: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8124.split, %if.then.i8116
-  %storemerge1164 = phi ptr [ %call8.i752, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8124.split ], [ %call8.i753, %if.then.i8116 ]
-  store ptr %storemerge1164, ptr %arrayidx.i.i751, align 8
+_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8117: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8124, %if.then.i8116
+  %call7315.sink = phi ptr [ null, %if.then.i8116 ], [ %call7315, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8124 ]
+  %call8.i752 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %406, ptr noundef %call7315.sink) #24
+  store ptr %call8.i752, ptr %arrayidx.i.i751, align 8
   %arrayidx.i.i754 = getelementptr inbounds i8, ptr %this, i64 3808
   %407 = load ptr, ptr %isolate_, align 8
   %call7333 = call ptr @_ZN2v86String14NewFromOneByteEPNS_7IsolateEPKhNS_13NewStringTypeEi(ptr noundef %407, ptr noundef nonnull @.str.934, i32 noundef 1, i32 noundef 8) #24
   %cmp.i.i12979 = icmp eq ptr %call7333, null
-  br i1 %cmp.i.i12979, label %if.then.i8109, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8117.split
-
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8117.split: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8117
-  %call8.i755 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %407, ptr noundef nonnull %call7333) #24
-  br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8110
+  br i1 %cmp.i.i12979, label %if.then.i8109, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8110
 
 if.then.i8109:                                    ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8117
   call void @_ZN2v812api_internal12ToLocalEmptyEv() #24
-  %call8.i756 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %407, ptr noundef null) #24
   br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8110
 
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8110: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8117.split, %if.then.i8109
-  %storemerge1165 = phi ptr [ %call8.i755, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8117.split ], [ %call8.i756, %if.then.i8109 ]
-  store ptr %storemerge1165, ptr %arrayidx.i.i754, align 8
+_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8110: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8117, %if.then.i8109
+  %call7333.sink = phi ptr [ null, %if.then.i8109 ], [ %call7333, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8117 ]
+  %call8.i755 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %407, ptr noundef %call7333.sink) #24
+  store ptr %call8.i755, ptr %arrayidx.i.i754, align 8
   %arrayidx.i.i757 = getelementptr inbounds i8, ptr %this, i64 3816
   %408 = load ptr, ptr %isolate_, align 8
   %call7351 = call ptr @_ZN2v86String14NewFromOneByteEPNS_7IsolateEPKhNS_13NewStringTypeEi(ptr noundef %408, ptr noundef nonnull @.str.935, i32 noundef 1, i32 noundef 12) #24
   %cmp.i.i12984 = icmp eq ptr %call7351, null
-  br i1 %cmp.i.i12984, label %if.then.i8102, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8110.split
-
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8110.split: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8110
-  %call8.i758 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %408, ptr noundef nonnull %call7351) #24
-  br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8103
+  br i1 %cmp.i.i12984, label %if.then.i8102, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8103
 
 if.then.i8102:                                    ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8110
   call void @_ZN2v812api_internal12ToLocalEmptyEv() #24
-  %call8.i759 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %408, ptr noundef null) #24
   br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8103
 
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8103: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8110.split, %if.then.i8102
-  %storemerge1166 = phi ptr [ %call8.i758, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8110.split ], [ %call8.i759, %if.then.i8102 ]
-  store ptr %storemerge1166, ptr %arrayidx.i.i757, align 8
+_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8103: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8110, %if.then.i8102
+  %call7351.sink = phi ptr [ null, %if.then.i8102 ], [ %call7351, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8110 ]
+  %call8.i758 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %408, ptr noundef %call7351.sink) #24
+  store ptr %call8.i758, ptr %arrayidx.i.i757, align 8
   %arrayidx.i.i760 = getelementptr inbounds i8, ptr %this, i64 3824
   %409 = load ptr, ptr %isolate_, align 8
   %call7369 = call ptr @_ZN2v86String14NewFromOneByteEPNS_7IsolateEPKhNS_13NewStringTypeEi(ptr noundef %409, ptr noundef nonnull @.str.936, i32 noundef 1, i32 noundef 10) #24
   %cmp.i.i12989 = icmp eq ptr %call7369, null
-  br i1 %cmp.i.i12989, label %if.then.i8095, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8103.split
-
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8103.split: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8103
-  %call8.i761 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %409, ptr noundef nonnull %call7369) #24
-  br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8096
+  br i1 %cmp.i.i12989, label %if.then.i8095, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8096
 
 if.then.i8095:                                    ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8103
   call void @_ZN2v812api_internal12ToLocalEmptyEv() #24
-  %call8.i762 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %409, ptr noundef null) #24
   br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8096
 
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8096: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8103.split, %if.then.i8095
-  %storemerge1167 = phi ptr [ %call8.i761, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8103.split ], [ %call8.i762, %if.then.i8095 ]
-  store ptr %storemerge1167, ptr %arrayidx.i.i760, align 8
+_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8096: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8103, %if.then.i8095
+  %call7369.sink = phi ptr [ null, %if.then.i8095 ], [ %call7369, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8103 ]
+  %call8.i761 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %409, ptr noundef %call7369.sink) #24
+  store ptr %call8.i761, ptr %arrayidx.i.i760, align 8
   %arrayidx.i.i763 = getelementptr inbounds i8, ptr %this, i64 3832
   %410 = load ptr, ptr %isolate_, align 8
   %call7387 = call ptr @_ZN2v86String14NewFromOneByteEPNS_7IsolateEPKhNS_13NewStringTypeEi(ptr noundef %410, ptr noundef nonnull @.str.937, i32 noundef 1, i32 noundef 11) #24
   %cmp.i.i12994 = icmp eq ptr %call7387, null
-  br i1 %cmp.i.i12994, label %if.then.i8088, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8096.split
-
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8096.split: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8096
-  %call8.i764 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %410, ptr noundef nonnull %call7387) #24
-  br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8089
+  br i1 %cmp.i.i12994, label %if.then.i8088, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8089
 
 if.then.i8088:                                    ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8096
   call void @_ZN2v812api_internal12ToLocalEmptyEv() #24
-  %call8.i765 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %410, ptr noundef null) #24
   br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8089
 
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8089: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8096.split, %if.then.i8088
-  %storemerge1168 = phi ptr [ %call8.i764, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8096.split ], [ %call8.i765, %if.then.i8088 ]
-  store ptr %storemerge1168, ptr %arrayidx.i.i763, align 8
+_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8089: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8096, %if.then.i8088
+  %call7387.sink = phi ptr [ null, %if.then.i8088 ], [ %call7387, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8096 ]
+  %call8.i764 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %410, ptr noundef %call7387.sink) #24
+  store ptr %call8.i764, ptr %arrayidx.i.i763, align 8
   %arrayidx.i.i766 = getelementptr inbounds i8, ptr %this, i64 3840
   %411 = load ptr, ptr %isolate_, align 8
   %call7405 = call ptr @_ZN2v86String14NewFromOneByteEPNS_7IsolateEPKhNS_13NewStringTypeEi(ptr noundef %411, ptr noundef nonnull @.str.938, i32 noundef 1, i32 noundef 10) #24
   %cmp.i.i12999 = icmp eq ptr %call7405, null
-  br i1 %cmp.i.i12999, label %if.then.i8081, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8089.split
-
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8089.split: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8089
-  %call8.i767 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %411, ptr noundef nonnull %call7405) #24
-  br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8082
+  br i1 %cmp.i.i12999, label %if.then.i8081, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8082
 
 if.then.i8081:                                    ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8089
   call void @_ZN2v812api_internal12ToLocalEmptyEv() #24
-  %call8.i768 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %411, ptr noundef null) #24
   br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8082
 
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8082: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8089.split, %if.then.i8081
-  %storemerge1169 = phi ptr [ %call8.i767, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8089.split ], [ %call8.i768, %if.then.i8081 ]
-  store ptr %storemerge1169, ptr %arrayidx.i.i766, align 8
+_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8082: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8089, %if.then.i8081
+  %call7405.sink = phi ptr [ null, %if.then.i8081 ], [ %call7405, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8089 ]
+  %call8.i767 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %411, ptr noundef %call7405.sink) #24
+  store ptr %call8.i767, ptr %arrayidx.i.i766, align 8
   %arrayidx.i.i769 = getelementptr inbounds i8, ptr %this, i64 3848
   %412 = load ptr, ptr %isolate_, align 8
   %call7423 = call ptr @_ZN2v86String14NewFromOneByteEPNS_7IsolateEPKhNS_13NewStringTypeEi(ptr noundef %412, ptr noundef nonnull @.str.939, i32 noundef 1, i32 noundef 14) #24
   %cmp.i.i13004 = icmp eq ptr %call7423, null
-  br i1 %cmp.i.i13004, label %if.then.i8074, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8082.split
-
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8082.split: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8082
-  %call8.i770 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %412, ptr noundef nonnull %call7423) #24
-  br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8075
+  br i1 %cmp.i.i13004, label %if.then.i8074, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8075
 
 if.then.i8074:                                    ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8082
   call void @_ZN2v812api_internal12ToLocalEmptyEv() #24
-  %call8.i771 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %412, ptr noundef null) #24
   br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8075
 
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8075: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8082.split, %if.then.i8074
-  %storemerge1170 = phi ptr [ %call8.i770, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8082.split ], [ %call8.i771, %if.then.i8074 ]
-  store ptr %storemerge1170, ptr %arrayidx.i.i769, align 8
+_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8075: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8082, %if.then.i8074
+  %call7423.sink = phi ptr [ null, %if.then.i8074 ], [ %call7423, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8082 ]
+  %call8.i770 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %412, ptr noundef %call7423.sink) #24
+  store ptr %call8.i770, ptr %arrayidx.i.i769, align 8
   %arrayidx.i.i772 = getelementptr inbounds i8, ptr %this, i64 3856
   %413 = load ptr, ptr %isolate_, align 8
   %call7441 = call ptr @_ZN2v86String14NewFromOneByteEPNS_7IsolateEPKhNS_13NewStringTypeEi(ptr noundef %413, ptr noundef nonnull @.str.940, i32 noundef 1, i32 noundef 13) #24
   %cmp.i.i13009 = icmp eq ptr %call7441, null
-  br i1 %cmp.i.i13009, label %if.then.i8067, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8075.split
-
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8075.split: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8075
-  %call8.i773 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %413, ptr noundef nonnull %call7441) #24
-  br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8068
+  br i1 %cmp.i.i13009, label %if.then.i8067, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8068
 
 if.then.i8067:                                    ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8075
   call void @_ZN2v812api_internal12ToLocalEmptyEv() #24
-  %call8.i774 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %413, ptr noundef null) #24
   br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8068
 
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8068: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8075.split, %if.then.i8067
-  %storemerge1171 = phi ptr [ %call8.i773, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8075.split ], [ %call8.i774, %if.then.i8067 ]
-  store ptr %storemerge1171, ptr %arrayidx.i.i772, align 8
+_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8068: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8075, %if.then.i8067
+  %call7441.sink = phi ptr [ null, %if.then.i8067 ], [ %call7441, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8075 ]
+  %call8.i773 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %413, ptr noundef %call7441.sink) #24
+  store ptr %call8.i773, ptr %arrayidx.i.i772, align 8
   %arrayidx.i.i775 = getelementptr inbounds i8, ptr %this, i64 3864
   %414 = load ptr, ptr %isolate_, align 8
   %call7459 = call ptr @_ZN2v86String14NewFromOneByteEPNS_7IsolateEPKhNS_13NewStringTypeEi(ptr noundef %414, ptr noundef nonnull @.str.941, i32 noundef 1, i32 noundef 7) #24
   %cmp.i.i13014 = icmp eq ptr %call7459, null
-  br i1 %cmp.i.i13014, label %if.then.i8060, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8068.split
-
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8068.split: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8068
-  %call8.i776 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %414, ptr noundef nonnull %call7459) #24
-  br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8061
+  br i1 %cmp.i.i13014, label %if.then.i8060, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8061
 
 if.then.i8060:                                    ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8068
   call void @_ZN2v812api_internal12ToLocalEmptyEv() #24
-  %call8.i777 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %414, ptr noundef null) #24
   br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8061
 
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8061: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8068.split, %if.then.i8060
-  %storemerge1172 = phi ptr [ %call8.i776, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8068.split ], [ %call8.i777, %if.then.i8060 ]
-  store ptr %storemerge1172, ptr %arrayidx.i.i775, align 8
+_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8061: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8068, %if.then.i8060
+  %call7459.sink = phi ptr [ null, %if.then.i8060 ], [ %call7459, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8068 ]
+  %call8.i776 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %414, ptr noundef %call7459.sink) #24
+  store ptr %call8.i776, ptr %arrayidx.i.i775, align 8
   %arrayidx.i.i778 = getelementptr inbounds i8, ptr %this, i64 3872
   %415 = load ptr, ptr %isolate_, align 8
   %call7477 = call ptr @_ZN2v86String14NewFromOneByteEPNS_7IsolateEPKhNS_13NewStringTypeEi(ptr noundef %415, ptr noundef nonnull @.str.942, i32 noundef 1, i32 noundef 7) #24
   %cmp.i.i13019 = icmp eq ptr %call7477, null
-  br i1 %cmp.i.i13019, label %if.then.i8053, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8061.split
-
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8061.split: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8061
-  %call8.i779 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %415, ptr noundef nonnull %call7477) #24
-  br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8054
+  br i1 %cmp.i.i13019, label %if.then.i8053, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8054
 
 if.then.i8053:                                    ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8061
   call void @_ZN2v812api_internal12ToLocalEmptyEv() #24
-  %call8.i780 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %415, ptr noundef null) #24
   br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8054
 
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8054: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8061.split, %if.then.i8053
-  %storemerge1173 = phi ptr [ %call8.i779, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8061.split ], [ %call8.i780, %if.then.i8053 ]
-  store ptr %storemerge1173, ptr %arrayidx.i.i778, align 8
+_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8054: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8061, %if.then.i8053
+  %call7477.sink = phi ptr [ null, %if.then.i8053 ], [ %call7477, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8061 ]
+  %call8.i779 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %415, ptr noundef %call7477.sink) #24
+  store ptr %call8.i779, ptr %arrayidx.i.i778, align 8
   %arrayidx.i.i781 = getelementptr inbounds i8, ptr %this, i64 3880
   %416 = load ptr, ptr %isolate_, align 8
   %call7495 = call ptr @_ZN2v86String14NewFromOneByteEPNS_7IsolateEPKhNS_13NewStringTypeEi(ptr noundef %416, ptr noundef nonnull @.str.943, i32 noundef 1, i32 noundef 11) #24
   %cmp.i.i13024 = icmp eq ptr %call7495, null
-  br i1 %cmp.i.i13024, label %if.then.i8046, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8054.split
-
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8054.split: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8054
-  %call8.i782 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %416, ptr noundef nonnull %call7495) #24
-  br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8047
+  br i1 %cmp.i.i13024, label %if.then.i8046, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8047
 
 if.then.i8046:                                    ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8054
   call void @_ZN2v812api_internal12ToLocalEmptyEv() #24
-  %call8.i783 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %416, ptr noundef null) #24
   br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8047
 
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8047: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8054.split, %if.then.i8046
-  %storemerge1174 = phi ptr [ %call8.i782, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8054.split ], [ %call8.i783, %if.then.i8046 ]
-  store ptr %storemerge1174, ptr %arrayidx.i.i781, align 8
+_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8047: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8054, %if.then.i8046
+  %call7495.sink = phi ptr [ null, %if.then.i8046 ], [ %call7495, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8054 ]
+  %call8.i782 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %416, ptr noundef %call7495.sink) #24
+  store ptr %call8.i782, ptr %arrayidx.i.i781, align 8
   %arrayidx.i.i784 = getelementptr inbounds i8, ptr %this, i64 3888
   %417 = load ptr, ptr %isolate_, align 8
   %call7513 = call ptr @_ZN2v86String14NewFromOneByteEPNS_7IsolateEPKhNS_13NewStringTypeEi(ptr noundef %417, ptr noundef nonnull @.str.944, i32 noundef 1, i32 noundef 7) #24
   %cmp.i.i13029 = icmp eq ptr %call7513, null
-  br i1 %cmp.i.i13029, label %if.then.i8039, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8047.split
-
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8047.split: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8047
-  %call8.i785 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %417, ptr noundef nonnull %call7513) #24
-  br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8040
+  br i1 %cmp.i.i13029, label %if.then.i8039, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8040
 
 if.then.i8039:                                    ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8047
   call void @_ZN2v812api_internal12ToLocalEmptyEv() #24
-  %call8.i786 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %417, ptr noundef null) #24
   br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8040
 
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8040: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8047.split, %if.then.i8039
-  %storemerge1175 = phi ptr [ %call8.i785, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8047.split ], [ %call8.i786, %if.then.i8039 ]
-  store ptr %storemerge1175, ptr %arrayidx.i.i784, align 8
+_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8040: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8047, %if.then.i8039
+  %call7513.sink = phi ptr [ null, %if.then.i8039 ], [ %call7513, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8047 ]
+  %call8.i785 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %417, ptr noundef %call7513.sink) #24
+  store ptr %call8.i785, ptr %arrayidx.i.i784, align 8
   %arrayidx.i.i787 = getelementptr inbounds i8, ptr %this, i64 3896
   %418 = load ptr, ptr %isolate_, align 8
   %call7531 = call ptr @_ZN2v86String14NewFromOneByteEPNS_7IsolateEPKhNS_13NewStringTypeEi(ptr noundef %418, ptr noundef nonnull @.str.945, i32 noundef 1, i32 noundef 14) #24
   %cmp.i.i13034 = icmp eq ptr %call7531, null
-  br i1 %cmp.i.i13034, label %if.then.i8032, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8040.split
-
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8040.split: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8040
-  %call8.i788 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %418, ptr noundef nonnull %call7531) #24
-  br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8033
+  br i1 %cmp.i.i13034, label %if.then.i8032, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8033
 
 if.then.i8032:                                    ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8040
   call void @_ZN2v812api_internal12ToLocalEmptyEv() #24
-  %call8.i789 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %418, ptr noundef null) #24
   br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8033
 
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8033: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8040.split, %if.then.i8032
-  %storemerge1176 = phi ptr [ %call8.i788, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8040.split ], [ %call8.i789, %if.then.i8032 ]
-  store ptr %storemerge1176, ptr %arrayidx.i.i787, align 8
+_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8033: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8040, %if.then.i8032
+  %call7531.sink = phi ptr [ null, %if.then.i8032 ], [ %call7531, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8040 ]
+  %call8.i788 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %418, ptr noundef %call7531.sink) #24
+  store ptr %call8.i788, ptr %arrayidx.i.i787, align 8
   %arrayidx.i.i790 = getelementptr inbounds i8, ptr %this, i64 3904
   %419 = load ptr, ptr %isolate_, align 8
   %call7549 = call ptr @_ZN2v86String14NewFromOneByteEPNS_7IsolateEPKhNS_13NewStringTypeEi(ptr noundef %419, ptr noundef nonnull @.str.946, i32 noundef 1, i32 noundef 6) #24
   %cmp.i.i13039 = icmp eq ptr %call7549, null
-  br i1 %cmp.i.i13039, label %if.then.i8025, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8033.split
-
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8033.split: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8033
-  %call8.i791 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %419, ptr noundef nonnull %call7549) #24
-  br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8026
+  br i1 %cmp.i.i13039, label %if.then.i8025, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8026
 
 if.then.i8025:                                    ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8033
   call void @_ZN2v812api_internal12ToLocalEmptyEv() #24
-  %call8.i792 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %419, ptr noundef null) #24
   br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8026
 
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8026: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8033.split, %if.then.i8025
-  %storemerge1177 = phi ptr [ %call8.i791, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8033.split ], [ %call8.i792, %if.then.i8025 ]
-  store ptr %storemerge1177, ptr %arrayidx.i.i790, align 8
+_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8026: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8033, %if.then.i8025
+  %call7549.sink = phi ptr [ null, %if.then.i8025 ], [ %call7549, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8033 ]
+  %call8.i791 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %419, ptr noundef %call7549.sink) #24
+  store ptr %call8.i791, ptr %arrayidx.i.i790, align 8
   %arrayidx.i.i793 = getelementptr inbounds i8, ptr %this, i64 3912
   %420 = load ptr, ptr %isolate_, align 8
   %call7567 = call ptr @_ZN2v86String14NewFromOneByteEPNS_7IsolateEPKhNS_13NewStringTypeEi(ptr noundef %420, ptr noundef nonnull @.str.947, i32 noundef 1, i32 noundef 18) #24
   %cmp.i.i13044 = icmp eq ptr %call7567, null
-  br i1 %cmp.i.i13044, label %if.then.i8018, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8026.split
-
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8026.split: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8026
-  %call8.i794 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %420, ptr noundef nonnull %call7567) #24
-  br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8019
+  br i1 %cmp.i.i13044, label %if.then.i8018, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8019
 
 if.then.i8018:                                    ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8026
   call void @_ZN2v812api_internal12ToLocalEmptyEv() #24
-  %call8.i795 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %420, ptr noundef null) #24
   br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8019
 
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8019: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8026.split, %if.then.i8018
-  %storemerge1178 = phi ptr [ %call8.i794, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8026.split ], [ %call8.i795, %if.then.i8018 ]
-  store ptr %storemerge1178, ptr %arrayidx.i.i793, align 8
+_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8019: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8026, %if.then.i8018
+  %call7567.sink = phi ptr [ null, %if.then.i8018 ], [ %call7567, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8026 ]
+  %call8.i794 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %420, ptr noundef %call7567.sink) #24
+  store ptr %call8.i794, ptr %arrayidx.i.i793, align 8
   %arrayidx.i.i796 = getelementptr inbounds i8, ptr %this, i64 3920
   %421 = load ptr, ptr %isolate_, align 8
   %call7585 = call ptr @_ZN2v86String14NewFromOneByteEPNS_7IsolateEPKhNS_13NewStringTypeEi(ptr noundef %421, ptr noundef nonnull @.str.948, i32 noundef 1, i32 noundef 9) #24
   %cmp.i.i13049 = icmp eq ptr %call7585, null
-  br i1 %cmp.i.i13049, label %if.then.i8011, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8019.split
-
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8019.split: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8019
-  %call8.i797 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %421, ptr noundef nonnull %call7585) #24
-  br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8012
+  br i1 %cmp.i.i13049, label %if.then.i8011, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8012
 
 if.then.i8011:                                    ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8019
   call void @_ZN2v812api_internal12ToLocalEmptyEv() #24
-  %call8.i798 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %421, ptr noundef null) #24
   br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8012
 
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8012: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8019.split, %if.then.i8011
-  %storemerge1179 = phi ptr [ %call8.i797, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8019.split ], [ %call8.i798, %if.then.i8011 ]
-  store ptr %storemerge1179, ptr %arrayidx.i.i796, align 8
+_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8012: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8019, %if.then.i8011
+  %call7585.sink = phi ptr [ null, %if.then.i8011 ], [ %call7585, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8019 ]
+  %call8.i797 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %421, ptr noundef %call7585.sink) #24
+  store ptr %call8.i797, ptr %arrayidx.i.i796, align 8
   %arrayidx.i.i799 = getelementptr inbounds i8, ptr %this, i64 3928
   %422 = load ptr, ptr %isolate_, align 8
   %call7603 = call ptr @_ZN2v86String14NewFromOneByteEPNS_7IsolateEPKhNS_13NewStringTypeEi(ptr noundef %422, ptr noundef nonnull @.str.949, i32 noundef 1, i32 noundef 4) #24
   %cmp.i.i13054 = icmp eq ptr %call7603, null
-  br i1 %cmp.i.i13054, label %if.then.i8004, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8012.split
-
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8012.split: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8012
-  %call8.i800 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %422, ptr noundef nonnull %call7603) #24
-  br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8005
+  br i1 %cmp.i.i13054, label %if.then.i8004, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8005
 
 if.then.i8004:                                    ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8012
   call void @_ZN2v812api_internal12ToLocalEmptyEv() #24
-  %call8.i801 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %422, ptr noundef null) #24
   br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8005
 
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8005: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8012.split, %if.then.i8004
-  %storemerge1180 = phi ptr [ %call8.i800, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8012.split ], [ %call8.i801, %if.then.i8004 ]
-  store ptr %storemerge1180, ptr %arrayidx.i.i799, align 8
+_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8005: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8012, %if.then.i8004
+  %call7603.sink = phi ptr [ null, %if.then.i8004 ], [ %call7603, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8012 ]
+  %call8.i800 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %422, ptr noundef %call7603.sink) #24
+  store ptr %call8.i800, ptr %arrayidx.i.i799, align 8
   %arrayidx.i.i802 = getelementptr inbounds i8, ptr %this, i64 3936
   %423 = load ptr, ptr %isolate_, align 8
   %call7621 = call ptr @_ZN2v86String14NewFromOneByteEPNS_7IsolateEPKhNS_13NewStringTypeEi(ptr noundef %423, ptr noundef nonnull @.str.950, i32 noundef 1, i32 noundef 17) #24
   %cmp.i.i13059 = icmp eq ptr %call7621, null
-  br i1 %cmp.i.i13059, label %if.then.i7997, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8005.split
-
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8005.split: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8005
-  %call8.i803 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %423, ptr noundef nonnull %call7621) #24
-  br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit7998
+  br i1 %cmp.i.i13059, label %if.then.i7997, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit7998
 
 if.then.i7997:                                    ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8005
   call void @_ZN2v812api_internal12ToLocalEmptyEv() #24
-  %call8.i804 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %423, ptr noundef null) #24
   br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit7998
 
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit7998: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8005.split, %if.then.i7997
-  %storemerge1181 = phi ptr [ %call8.i803, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8005.split ], [ %call8.i804, %if.then.i7997 ]
-  store ptr %storemerge1181, ptr %arrayidx.i.i802, align 8
+_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit7998: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8005, %if.then.i7997
+  %call7621.sink = phi ptr [ null, %if.then.i7997 ], [ %call7621, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit8005 ]
+  %call8.i803 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %423, ptr noundef %call7621.sink) #24
+  store ptr %call8.i803, ptr %arrayidx.i.i802, align 8
   %arrayidx.i.i805 = getelementptr inbounds i8, ptr %this, i64 3944
   %424 = load ptr, ptr %isolate_, align 8
   %call7639 = call ptr @_ZN2v86String14NewFromOneByteEPNS_7IsolateEPKhNS_13NewStringTypeEi(ptr noundef %424, ptr noundef nonnull @.str.951, i32 noundef 1, i32 noundef 13) #24
   %cmp.i.i13064 = icmp eq ptr %call7639, null
-  br i1 %cmp.i.i13064, label %if.then.i7990, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit7998.split
-
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit7998.split: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit7998
-  %call8.i806 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %424, ptr noundef nonnull %call7639) #24
-  br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit7991
+  br i1 %cmp.i.i13064, label %if.then.i7990, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit7991
 
 if.then.i7990:                                    ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit7998
   call void @_ZN2v812api_internal12ToLocalEmptyEv() #24
-  %call8.i807 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %424, ptr noundef null) #24
   br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit7991
 
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit7991: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit7998.split, %if.then.i7990
-  %storemerge1182 = phi ptr [ %call8.i806, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit7998.split ], [ %call8.i807, %if.then.i7990 ]
-  store ptr %storemerge1182, ptr %arrayidx.i.i805, align 8
+_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit7991: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit7998, %if.then.i7990
+  %call7639.sink = phi ptr [ null, %if.then.i7990 ], [ %call7639, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit7998 ]
+  %call8.i806 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %424, ptr noundef %call7639.sink) #24
+  store ptr %call8.i806, ptr %arrayidx.i.i805, align 8
   %arrayidx.i.i808 = getelementptr inbounds i8, ptr %this, i64 3952
   %425 = load ptr, ptr %isolate_, align 8
   %call7657 = call ptr @_ZN2v86String14NewFromOneByteEPNS_7IsolateEPKhNS_13NewStringTypeEi(ptr noundef %425, ptr noundef nonnull @.str.952, i32 noundef 1, i32 noundef 17) #24
   %cmp.i.i13069 = icmp eq ptr %call7657, null
-  br i1 %cmp.i.i13069, label %if.then.i7983, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit7991.split
-
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit7991.split: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit7991
-  %call8.i809 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %425, ptr noundef nonnull %call7657) #24
-  br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit7984
+  br i1 %cmp.i.i13069, label %if.then.i7983, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit7984
 
 if.then.i7983:                                    ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit7991
   call void @_ZN2v812api_internal12ToLocalEmptyEv() #24
-  %call8.i810 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %425, ptr noundef null) #24
   br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit7984
 
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit7984: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit7991.split, %if.then.i7983
-  %storemerge1183 = phi ptr [ %call8.i809, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit7991.split ], [ %call8.i810, %if.then.i7983 ]
-  store ptr %storemerge1183, ptr %arrayidx.i.i808, align 8
+_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit7984: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit7991, %if.then.i7983
+  %call7657.sink = phi ptr [ null, %if.then.i7983 ], [ %call7657, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit7991 ]
+  %call8.i809 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %425, ptr noundef %call7657.sink) #24
+  store ptr %call8.i809, ptr %arrayidx.i.i808, align 8
   %arrayidx.i.i811 = getelementptr inbounds i8, ptr %this, i64 3960
   %426 = load ptr, ptr %isolate_, align 8
   %call7675 = call ptr @_ZN2v86String14NewFromOneByteEPNS_7IsolateEPKhNS_13NewStringTypeEi(ptr noundef %426, ptr noundef nonnull @.str.953, i32 noundef 1, i32 noundef 13) #24
   %cmp.i.i13074 = icmp eq ptr %call7675, null
-  br i1 %cmp.i.i13074, label %if.then.i7976, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit7984.split
-
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit7984.split: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit7984
-  %call8.i812 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %426, ptr noundef nonnull %call7675) #24
-  br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit7977
+  br i1 %cmp.i.i13074, label %if.then.i7976, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit7977
 
 if.then.i7976:                                    ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit7984
   call void @_ZN2v812api_internal12ToLocalEmptyEv() #24
-  %call8.i813 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %426, ptr noundef null) #24
   br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit7977
 
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit7977: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit7984.split, %if.then.i7976
-  %storemerge1184 = phi ptr [ %call8.i812, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit7984.split ], [ %call8.i813, %if.then.i7976 ]
-  store ptr %storemerge1184, ptr %arrayidx.i.i811, align 8
+_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit7977: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit7984, %if.then.i7976
+  %call7675.sink = phi ptr [ null, %if.then.i7976 ], [ %call7675, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit7984 ]
+  %call8.i812 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %426, ptr noundef %call7675.sink) #24
+  store ptr %call8.i812, ptr %arrayidx.i.i811, align 8
   %arrayidx.i.i814 = getelementptr inbounds i8, ptr %this, i64 3968
   %427 = load ptr, ptr %isolate_, align 8
   %call7693 = call ptr @_ZN2v86String14NewFromOneByteEPNS_7IsolateEPKhNS_13NewStringTypeEi(ptr noundef %427, ptr noundef nonnull @.str.954, i32 noundef 1, i32 noundef 16) #24
   %cmp.i.i13079 = icmp eq ptr %call7693, null
-  br i1 %cmp.i.i13079, label %if.then.i7969, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit7977.split
-
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit7977.split: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit7977
-  %call8.i815 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %427, ptr noundef nonnull %call7693) #24
-  br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit7970
+  br i1 %cmp.i.i13079, label %if.then.i7969, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit7970
 
 if.then.i7969:                                    ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit7977
   call void @_ZN2v812api_internal12ToLocalEmptyEv() #24
-  %call8.i816 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %427, ptr noundef null) #24
   br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit7970
 
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit7970: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit7977.split, %if.then.i7969
-  %storemerge1185 = phi ptr [ %call8.i815, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit7977.split ], [ %call8.i816, %if.then.i7969 ]
-  store ptr %storemerge1185, ptr %arrayidx.i.i814, align 8
+_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit7970: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit7977, %if.then.i7969
+  %call7693.sink = phi ptr [ null, %if.then.i7969 ], [ %call7693, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit7977 ]
+  %call8.i815 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %427, ptr noundef %call7693.sink) #24
+  store ptr %call8.i815, ptr %arrayidx.i.i814, align 8
   %arrayidx.i.i817 = getelementptr inbounds i8, ptr %this, i64 3976
   %428 = load ptr, ptr %isolate_, align 8
   %call7711 = call ptr @_ZN2v86String14NewFromOneByteEPNS_7IsolateEPKhNS_13NewStringTypeEi(ptr noundef %428, ptr noundef nonnull @.str.955, i32 noundef 1, i32 noundef 13) #24
   %cmp.i.i13084 = icmp eq ptr %call7711, null
-  br i1 %cmp.i.i13084, label %if.then.i7962, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit7970.split
-
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit7970.split: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit7970
-  %call8.i818 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %428, ptr noundef nonnull %call7711) #24
-  br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit7963
+  br i1 %cmp.i.i13084, label %if.then.i7962, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit7963
 
 if.then.i7962:                                    ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit7970
   call void @_ZN2v812api_internal12ToLocalEmptyEv() #24
-  %call8.i819 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %428, ptr noundef null) #24
   br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit7963
 
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit7963: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit7970.split, %if.then.i7962
-  %storemerge1186 = phi ptr [ %call8.i818, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit7970.split ], [ %call8.i819, %if.then.i7962 ]
-  store ptr %storemerge1186, ptr %arrayidx.i.i817, align 8
+_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit7963: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit7970, %if.then.i7962
+  %call7711.sink = phi ptr [ null, %if.then.i7962 ], [ %call7711, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit7970 ]
+  %call8.i818 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %428, ptr noundef %call7711.sink) #24
+  store ptr %call8.i818, ptr %arrayidx.i.i817, align 8
   %arrayidx.i.i820 = getelementptr inbounds i8, ptr %this, i64 3984
   %429 = load ptr, ptr %isolate_, align 8
   %call7729 = call ptr @_ZN2v86String14NewFromOneByteEPNS_7IsolateEPKhNS_13NewStringTypeEi(ptr noundef %429, ptr noundef nonnull @.str.956, i32 noundef 1, i32 noundef 17) #24
   %cmp.i.i13089 = icmp eq ptr %call7729, null
-  br i1 %cmp.i.i13089, label %if.then.i7955, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit7963.split
-
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit7963.split: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit7963
-  %call8.i821 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %429, ptr noundef nonnull %call7729) #24
-  br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit7956
+  br i1 %cmp.i.i13089, label %if.then.i7955, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit7956
 
 if.then.i7955:                                    ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit7963
   call void @_ZN2v812api_internal12ToLocalEmptyEv() #24
-  %call8.i822 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %429, ptr noundef null) #24
   br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit7956
 
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit7956: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit7963.split, %if.then.i7955
-  %storemerge1187 = phi ptr [ %call8.i821, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit7963.split ], [ %call8.i822, %if.then.i7955 ]
-  store ptr %storemerge1187, ptr %arrayidx.i.i820, align 8
+_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit7956: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit7963, %if.then.i7955
+  %call7729.sink = phi ptr [ null, %if.then.i7955 ], [ %call7729, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit7963 ]
+  %call8.i821 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %429, ptr noundef %call7729.sink) #24
+  store ptr %call8.i821, ptr %arrayidx.i.i820, align 8
   %arrayidx.i.i823 = getelementptr inbounds i8, ptr %this, i64 3992
   %430 = load ptr, ptr %isolate_, align 8
   %call7747 = call ptr @_ZN2v86String14NewFromOneByteEPNS_7IsolateEPKhNS_13NewStringTypeEi(ptr noundef %430, ptr noundef nonnull @.str.957, i32 noundef 1, i32 noundef 11) #24
   %cmp.i.i13094 = icmp eq ptr %call7747, null
-  br i1 %cmp.i.i13094, label %if.then.i7948, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit7956.split
-
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit7956.split: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit7956
-  %call8.i824 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %430, ptr noundef nonnull %call7747) #24
-  br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit7949
+  br i1 %cmp.i.i13094, label %if.then.i7948, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit7949
 
 if.then.i7948:                                    ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit7956
   call void @_ZN2v812api_internal12ToLocalEmptyEv() #24
-  %call8.i825 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %430, ptr noundef null) #24
   br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit7949
 
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit7949: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit7956.split, %if.then.i7948
-  %storemerge1188 = phi ptr [ %call8.i824, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit7956.split ], [ %call8.i825, %if.then.i7948 ]
-  store ptr %storemerge1188, ptr %arrayidx.i.i823, align 8
+_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit7949: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit7956, %if.then.i7948
+  %call7747.sink = phi ptr [ null, %if.then.i7948 ], [ %call7747, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit7956 ]
+  %call8.i824 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %430, ptr noundef %call7747.sink) #24
+  store ptr %call8.i824, ptr %arrayidx.i.i823, align 8
   %arrayidx.i.i826 = getelementptr inbounds i8, ptr %this, i64 4000
   %431 = load ptr, ptr %isolate_, align 8
   %call7765 = call ptr @_ZN2v86String14NewFromOneByteEPNS_7IsolateEPKhNS_13NewStringTypeEi(ptr noundef %431, ptr noundef nonnull @.str.958, i32 noundef 1, i32 noundef 18) #24
   %cmp.i.i13099 = icmp eq ptr %call7765, null
-  br i1 %cmp.i.i13099, label %if.then.i7941, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit7949.split
-
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit7949.split: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit7949
-  %call8.i827 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %431, ptr noundef nonnull %call7765) #24
-  br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit7942
+  br i1 %cmp.i.i13099, label %if.then.i7941, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit7942
 
 if.then.i7941:                                    ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit7949
   call void @_ZN2v812api_internal12ToLocalEmptyEv() #24
-  %call8.i828 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %431, ptr noundef null) #24
   br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit7942
 
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit7942: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit7949.split, %if.then.i7941
-  %storemerge1189 = phi ptr [ %call8.i827, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit7949.split ], [ %call8.i828, %if.then.i7941 ]
-  store ptr %storemerge1189, ptr %arrayidx.i.i826, align 8
+_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit7942: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit7949, %if.then.i7941
+  %call7765.sink = phi ptr [ null, %if.then.i7941 ], [ %call7765, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit7949 ]
+  %call8.i827 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %431, ptr noundef %call7765.sink) #24
+  store ptr %call8.i827, ptr %arrayidx.i.i826, align 8
   %arrayidx.i.i829 = getelementptr inbounds i8, ptr %this, i64 4008
   %432 = load ptr, ptr %isolate_, align 8
   %call7783 = call ptr @_ZN2v86String14NewFromOneByteEPNS_7IsolateEPKhNS_13NewStringTypeEi(ptr noundef %432, ptr noundef nonnull @.str.959, i32 noundef 1, i32 noundef 18) #24
   %cmp.i.i13104 = icmp eq ptr %call7783, null
-  br i1 %cmp.i.i13104, label %if.then.i7934, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit7942.split
-
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit7942.split: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit7942
-  %call8.i830 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %432, ptr noundef nonnull %call7783) #24
-  br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit7935
+  br i1 %cmp.i.i13104, label %if.then.i7934, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit7935
 
 if.then.i7934:                                    ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit7942
   call void @_ZN2v812api_internal12ToLocalEmptyEv() #24
-  %call8.i831 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %432, ptr noundef null) #24
   br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit7935
 
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit7935: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit7942.split, %if.then.i7934
-  %storemerge1190 = phi ptr [ %call8.i830, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit7942.split ], [ %call8.i831, %if.then.i7934 ]
-  store ptr %storemerge1190, ptr %arrayidx.i.i829, align 8
+_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit7935: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit7942, %if.then.i7934
+  %call7783.sink = phi ptr [ null, %if.then.i7934 ], [ %call7783, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit7942 ]
+  %call8.i830 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %432, ptr noundef %call7783.sink) #24
+  store ptr %call8.i830, ptr %arrayidx.i.i829, align 8
   %arrayidx.i.i832 = getelementptr inbounds i8, ptr %this, i64 4016
   %433 = load ptr, ptr %isolate_, align 8
   %call7801 = call ptr @_ZN2v86String14NewFromOneByteEPNS_7IsolateEPKhNS_13NewStringTypeEi(ptr noundef %433, ptr noundef nonnull @.str.960, i32 noundef 1, i32 noundef 13) #24
   %cmp.i.i13109 = icmp eq ptr %call7801, null
-  br i1 %cmp.i.i13109, label %if.then.i7927, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit7935.split
-
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit7935.split: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit7935
-  %call8.i833 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %433, ptr noundef nonnull %call7801) #24
-  br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit7928
+  br i1 %cmp.i.i13109, label %if.then.i7927, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit7928
 
 if.then.i7927:                                    ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit7935
   call void @_ZN2v812api_internal12ToLocalEmptyEv() #24
-  %call8.i834 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %433, ptr noundef null) #24
   br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit7928
 
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit7928: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit7935.split, %if.then.i7927
-  %storemerge1191 = phi ptr [ %call8.i833, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit7935.split ], [ %call8.i834, %if.then.i7927 ]
-  store ptr %storemerge1191, ptr %arrayidx.i.i832, align 8
+_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit7928: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit7935, %if.then.i7927
+  %call7801.sink = phi ptr [ null, %if.then.i7927 ], [ %call7801, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit7935 ]
+  %call8.i833 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %433, ptr noundef %call7801.sink) #24
+  store ptr %call8.i833, ptr %arrayidx.i.i832, align 8
   %arrayidx.i.i835 = getelementptr inbounds i8, ptr %this, i64 4024
   %434 = load ptr, ptr %isolate_, align 8
   %call7819 = call ptr @_ZN2v86String14NewFromOneByteEPNS_7IsolateEPKhNS_13NewStringTypeEi(ptr noundef %434, ptr noundef nonnull @.str.961, i32 noundef 1, i32 noundef 11) #24
   %cmp.i.i13114 = icmp eq ptr %call7819, null
-  br i1 %cmp.i.i13114, label %if.then.i7920, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit7928.split
-
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit7928.split: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit7928
-  %call8.i836 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %434, ptr noundef nonnull %call7819) #24
-  br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit7921
+  br i1 %cmp.i.i13114, label %if.then.i7920, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit7921
 
 if.then.i7920:                                    ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit7928
   call void @_ZN2v812api_internal12ToLocalEmptyEv() #24
-  %call8.i837 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %434, ptr noundef null) #24
   br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit7921
 
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit7921: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit7928.split, %if.then.i7920
-  %storemerge1192 = phi ptr [ %call8.i836, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit7928.split ], [ %call8.i837, %if.then.i7920 ]
-  store ptr %storemerge1192, ptr %arrayidx.i.i835, align 8
+_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit7921: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit7928, %if.then.i7920
+  %call7819.sink = phi ptr [ null, %if.then.i7920 ], [ %call7819, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit7928 ]
+  %call8.i836 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %434, ptr noundef %call7819.sink) #24
+  store ptr %call8.i836, ptr %arrayidx.i.i835, align 8
   %arrayidx.i.i838 = getelementptr inbounds i8, ptr %this, i64 4032
   %435 = load ptr, ptr %isolate_, align 8
   %call7837 = call ptr @_ZN2v86String14NewFromOneByteEPNS_7IsolateEPKhNS_13NewStringTypeEi(ptr noundef %435, ptr noundef nonnull @.str.962, i32 noundef 1, i32 noundef 7) #24
   %cmp.i.i13119 = icmp eq ptr %call7837, null
-  br i1 %cmp.i.i13119, label %if.then.i7913, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit7921.split
-
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit7921.split: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit7921
-  %call8.i839 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %435, ptr noundef nonnull %call7837) #24
-  br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit7914
+  br i1 %cmp.i.i13119, label %if.then.i7913, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit7914
 
 if.then.i7913:                                    ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit7921
   call void @_ZN2v812api_internal12ToLocalEmptyEv() #24
-  %call8.i840 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %435, ptr noundef null) #24
   br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit7914
 
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit7914: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit7921.split, %if.then.i7913
-  %storemerge1193 = phi ptr [ %call8.i839, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit7921.split ], [ %call8.i840, %if.then.i7913 ]
-  store ptr %storemerge1193, ptr %arrayidx.i.i838, align 8
+_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit7914: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit7921, %if.then.i7913
+  %call7837.sink = phi ptr [ null, %if.then.i7913 ], [ %call7837, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit7921 ]
+  %call8.i839 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %435, ptr noundef %call7837.sink) #24
+  store ptr %call8.i839, ptr %arrayidx.i.i838, align 8
   %arrayidx.i.i841 = getelementptr inbounds i8, ptr %this, i64 4040
   %436 = load ptr, ptr %isolate_, align 8
   %call7855 = call ptr @_ZN2v86String14NewFromOneByteEPNS_7IsolateEPKhNS_13NewStringTypeEi(ptr noundef %436, ptr noundef nonnull @.str.963, i32 noundef 1, i32 noundef 13) #24
   %cmp.i.i13124 = icmp eq ptr %call7855, null
-  br i1 %cmp.i.i13124, label %if.then.i7906, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit7914.split
-
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit7914.split: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit7914
-  %call8.i842 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %436, ptr noundef nonnull %call7855) #24
-  br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit7907
+  br i1 %cmp.i.i13124, label %if.then.i7906, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit7907
 
 if.then.i7906:                                    ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit7914
   call void @_ZN2v812api_internal12ToLocalEmptyEv() #24
-  %call8.i843 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %436, ptr noundef null) #24
   br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit7907
 
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit7907: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit7914.split, %if.then.i7906
-  %storemerge1194 = phi ptr [ %call8.i842, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit7914.split ], [ %call8.i843, %if.then.i7906 ]
-  store ptr %storemerge1194, ptr %arrayidx.i.i841, align 8
+_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit7907: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit7914, %if.then.i7906
+  %call7855.sink = phi ptr [ null, %if.then.i7906 ], [ %call7855, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit7914 ]
+  %call8.i842 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %436, ptr noundef %call7855.sink) #24
+  store ptr %call8.i842, ptr %arrayidx.i.i841, align 8
   %437 = load ptr, ptr %isolate_, align 8
   %call7873 = call ptr @_ZN2v86String14NewFromOneByteEPNS_7IsolateEPKhNS_13NewStringTypeEi(ptr noundef %437, ptr noundef nonnull @.str.964, i32 noundef 1, i32 noundef 18) #24
   %cmp.i.i13129 = icmp eq ptr %call7873, null
-  br i1 %cmp.i.i13129, label %if.then.i, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit7907.split
-
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit7907.split: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit7907
-  %call8.i845 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %437, ptr noundef nonnull %call7873) #24
-  br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit
+  br i1 %cmp.i.i13129, label %if.then.i, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit
 
 if.then.i:                                        ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit7907
   call void @_ZN2v812api_internal12ToLocalEmptyEv() #24
-  %call8.i846 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %437, ptr noundef null) #24
   br label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit
 
-_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit7907.split, %if.then.i
-  %storemerge1195 = phi ptr [ %call8.i845, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit7907.split ], [ %call8.i846, %if.then.i ]
+_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit: ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit7907, %if.then.i
+  %call7873.sink = phi ptr [ null, %if.then.i ], [ %call7873, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit7907 ]
+  %call8.i845 = call noundef ptr @_ZN2v812api_internal10EternalizeEPNS_7IsolateEPNS_5ValueE(ptr noundef %437, ptr noundef %call7873.sink) #24
   %arrayidx.i.i844 = getelementptr inbounds i8, ptr %this, i64 4048
-  store ptr %storemerge1195, ptr %arrayidx.i.i844, align 8
+  store ptr %call8.i845, ptr %arrayidx.i.i844, align 8
   %438 = load ptr, ptr %isolate_, align 8
   %call7890 = call ptr @_ZN2v814ObjectTemplate3NewEPNS_7IsolateENS_5LocalINS_16FunctionTemplateEEE(ptr noundef %438, ptr null) #24
   call void @_ZN2v814ObjectTemplate21SetInternalFieldCountEi(ptr noundef nonnull align 1 dereferenceable(1) %call7890, i32 noundef 2) #24

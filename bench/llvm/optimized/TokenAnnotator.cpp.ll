@@ -29458,7 +29458,7 @@ define internal fastcc noundef zeroext i1 @_ZN5clang6format12_GLOBAL__N_116Annot
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 480
   %4 = load ptr, ptr %3, align 8
   %.not121 = icmp eq ptr %4, null
-  br i1 %.not121, label %643, label %5
+  br i1 %.not121, label %641, label %5
 
 5:                                                ; preds = %1
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 208
@@ -30200,7 +30200,7 @@ _ZN5clang6format11FormatToken7setTypeENS0_9TokenTypeE.exit: ; preds = %310, %303
   br label %362
 
 362:                                              ; preds = %.lr.ph, %.backedge
-  %363 = phi ptr [ %354, %.lr.ph ], [ %639, %.backedge ]
+  %363 = phi ptr [ %354, %.lr.ph ], [ %638, %.backedge ]
   %.0104274 = phi i8 [ %311, %.lr.ph ], [ %.2, %.backedge ]
   %.0107273 = phi i8 [ 0, %.lr.ph ], [ %.1108, %.backedge ]
   %364 = getelementptr inbounds nuw i8, ptr %363, i64 16
@@ -30741,7 +30741,7 @@ _ZN5clang6format11FormatToken7setTypeENS0_9TokenTypeE.exit234: ; preds = %627, %
   %630 = getelementptr inbounds nuw i8, ptr %629, i64 422
   %631 = load i8, ptr %630, align 2
   %632 = icmp eq i8 %631, 8
-  br i1 %632, label %633, label %640
+  br i1 %632, label %633, label %639
 
 633:                                              ; preds = %_ZN5clang6format11FormatToken7setTypeENS0_9TokenTypeE.exit234
   %634 = getelementptr inbounds nuw i8, ptr %628, i64 16
@@ -30754,35 +30754,28 @@ _ZN5clang6format11FormatToken7setTypeENS0_9TokenTypeE.exit234: ; preds = %627, %
 
 _ZNK5clang6format11FormatToken7isOneOfINS_3tok9TokenKindES4_JS4_EEEbT_T0_DpT1_.exit.thread: ; preds = %633, %633, %633
   call fastcc void @_ZN5clang6format12_GLOBAL__N_116AnnotatingParser4nextEv(ptr noundef nonnull align 8 dereferenceable(1524) %0)
-  br label %638
+  br label %.backedge
 
 636:                                              ; preds = %633
   %637 = call fastcc noundef zeroext i1 @_ZN5clang6format12_GLOBAL__N_116AnnotatingParser18parseTableGenValueEb(ptr noundef nonnull align 8 dereferenceable(1524) %0, i1 noundef zeroext false)
-  br i1 %637, label %638, label %.loopexit
+  br i1 %637, label %.backedge, label %.loopexit
 
-638:                                              ; preds = %636, %_ZNK5clang6format11FormatToken7isOneOfINS_3tok9TokenKindES4_JS4_EEEbT_T0_DpT1_.exit.thread
-  call fastcc void @_ZN5clang6format12_GLOBAL__N_116AnnotatingParser20updateParameterCountEPNS0_11FormatTokenES4_(ptr noundef nonnull align 8 dereferenceable(1524) %0, ptr noundef nonnull %7, ptr noundef nonnull %628)
-  br label %.backedge
-
-.backedge:                                        ; preds = %638, %642
-  %639 = load ptr, ptr %3, align 8
-  %.not123 = icmp eq ptr %639, null
+.backedge:                                        ; preds = %_ZNK5clang6format11FormatToken7isOneOfINS_3tok9TokenKindES4_JS4_EEEbT_T0_DpT1_.exit.thread, %636, %639
+  call fastcc void @_ZN5clang6format12_GLOBAL__N_116AnnotatingParser20updateParameterCountEPNS0_11FormatTokenES4_(ptr noundef nonnull align 8 dereferenceable(1524) %0, ptr noundef nonnull %7, ptr noundef %628)
+  %638 = load ptr, ptr %3, align 8
+  %.not123 = icmp eq ptr %638, null
   br i1 %.not123, label %.loopexit, label %362, !llvm.loop !108
 
-640:                                              ; preds = %_ZN5clang6format11FormatToken7setTypeENS0_9TokenTypeE.exit234
-  %641 = call fastcc noundef zeroext i1 @_ZN5clang6format12_GLOBAL__N_116AnnotatingParser12consumeTokenEv(ptr noundef nonnull align 8 dereferenceable(1524) %0)
-  br i1 %641, label %642, label %.loopexit
+639:                                              ; preds = %_ZN5clang6format11FormatToken7setTypeENS0_9TokenTypeE.exit234
+  %640 = call fastcc noundef zeroext i1 @_ZN5clang6format12_GLOBAL__N_116AnnotatingParser12consumeTokenEv(ptr noundef nonnull align 8 dereferenceable(1524) %0)
+  br i1 %640, label %.backedge, label %.loopexit
 
-642:                                              ; preds = %640
-  call fastcc void @_ZN5clang6format12_GLOBAL__N_116AnnotatingParser20updateParameterCountEPNS0_11FormatTokenES4_(ptr noundef nonnull align 8 dereferenceable(1524) %0, ptr noundef nonnull %7, ptr noundef %628)
-  br label %.backedge
-
-.loopexit:                                        ; preds = %636, %640, %.backedge, %362, %362, %344, %_ZN5clang6format11FormatToken7setTypeENS0_9TokenTypeE.exit216
-  %.1 = phi i1 [ true, %_ZN5clang6format11FormatToken7setTypeENS0_9TokenTypeE.exit216 ], [ false, %344 ], [ false, %362 ], [ false, %362 ], [ false, %.backedge ], [ false, %640 ], [ false, %636 ]
+.loopexit:                                        ; preds = %636, %639, %.backedge, %362, %362, %344, %_ZN5clang6format11FormatToken7setTypeENS0_9TokenTypeE.exit216
+  %.1 = phi i1 [ true, %_ZN5clang6format11FormatToken7setTypeENS0_9TokenTypeE.exit216 ], [ false, %344 ], [ false, %362 ], [ false, %362 ], [ false, %.backedge ], [ false, %639 ], [ false, %636 ]
   call fastcc void @_ZN5clang6format12_GLOBAL__N_116AnnotatingParser20ScopedContextCreatorD2Ev(ptr nonnull %0) #17
-  br label %643
+  br label %641
 
-643:                                              ; preds = %1, %.loopexit
+641:                                              ; preds = %1, %.loopexit
   %.0 = phi i1 [ %.1, %.loopexit ], [ false, %1 ]
   ret i1 %.0
 }

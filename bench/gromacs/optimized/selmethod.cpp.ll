@@ -1207,39 +1207,35 @@ declare noundef nonnull align 8 dereferenceable(8) ptr @_ZNK3gmx29SelectionParse
 define noundef range(i32 -1, 1) i32 @_Z35gmx_ana_selmethod_register_defaultsPN3gmx26SelectionParserSymbolTableE(ptr noundef %0) local_unnamed_addr #0 {
   br label %2
 
-2:                                                ; preds = %1, %13
-  %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %13 ]
-  %.01214 = phi i8 [ 1, %1 ], [ %spec.select, %13 ]
+2:                                                ; preds = %1, %10
+  %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %10 ]
+  %.01214 = phi i8 [ 1, %1 ], [ %spec.select, %10 ]
   %3 = getelementptr inbounds [40 x %struct.t_register_method], ptr @__const._Z35gmx_ana_selmethod_register_defaultsPN3gmx26SelectionParserSymbolTableE.smtable_def, i64 0, i64 %indvars.iv
   %4 = getelementptr inbounds i8, ptr %3, i64 8
   %5 = load ptr, ptr %4, align 8
   %6 = load ptr, ptr %3, align 16
   %7 = icmp eq ptr %6, null
-  br i1 %7, label %8, label %11
+  br i1 %7, label %8, label %10
 
 8:                                                ; preds = %2
   %9 = load ptr, ptr %5, align 8
-  %10 = tail call noundef i32 @_Z26gmx_ana_selmethod_registerPN3gmx26SelectionParserSymbolTableEPKcP19gmx_ana_selmethod_t(ptr noundef %0, ptr noundef %9, ptr noundef nonnull %5)
-  br label %13
+  br label %10
 
-11:                                               ; preds = %2
-  %12 = tail call noundef i32 @_Z26gmx_ana_selmethod_registerPN3gmx26SelectionParserSymbolTableEPKcP19gmx_ana_selmethod_t(ptr noundef %0, ptr noundef nonnull %6, ptr noundef %5)
-  br label %13
-
-13:                                               ; preds = %11, %8
-  %.0 = phi i32 [ %10, %8 ], [ %12, %11 ]
-  %.not = icmp eq i32 %.0, 0
+10:                                               ; preds = %2, %8
+  %.sink = phi ptr [ %9, %8 ], [ %6, %2 ]
+  %11 = tail call noundef i32 @_Z26gmx_ana_selmethod_registerPN3gmx26SelectionParserSymbolTableEPKcP19gmx_ana_selmethod_t(ptr noundef %0, ptr noundef %.sink, ptr noundef %5)
+  %.not = icmp eq i32 %11, 0
   %spec.select = select i1 %.not, i8 %.01214, i8 0
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 40
-  br i1 %exitcond.not, label %14, label %2, !llvm.loop !11
+  br i1 %exitcond.not, label %12, label %2, !llvm.loop !11
 
-14:                                               ; preds = %13
-  %15 = and i8 %spec.select, 1
-  %16 = xor i8 %15, 1
-  %17 = zext nneg i8 %16 to i32
-  %18 = sub nsw i32 0, %17
-  ret i32 %18
+12:                                               ; preds = %10
+  %13 = and i8 %spec.select, 1
+  %14 = xor i8 %13, 1
+  %15 = zext nneg i8 %14 to i32
+  %16 = sub nsw i32 0, %15
+  ret i32 %16
 }
 
 declare noundef ptr @_Z21gmx_ana_selparam_findPKciP18gmx_ana_selparam_t(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1

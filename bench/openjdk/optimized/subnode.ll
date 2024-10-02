@@ -4621,7 +4621,7 @@ define hidden noundef ptr @_ZNK8CmpPNode3subEPK4TypeS2_(ptr nocapture noundef no
 
 11:                                               ; preds = %7, %3
   %12 = load ptr, ptr @_ZN4Type3TOPE, align 8
-  br label %264
+  br label %249
 
 13:                                               ; preds = %7
   %14 = icmp eq ptr %1, %2
@@ -4636,7 +4636,7 @@ define hidden noundef ptr @_ZNK8CmpPNode3subEPK4TypeS2_(ptr nocapture noundef no
 
 20:                                               ; preds = %15
   %21 = load ptr, ptr @_ZN7TypeInt5CC_EQE, align 8
-  br label %264
+  br label %249
 
 22:                                               ; preds = %15, %13
   %23 = getelementptr inbounds i8, ptr %1, i64 16
@@ -4683,298 +4683,276 @@ define hidden noundef ptr @_ZNK8CmpPNode3subEPK4TypeS2_(ptr nocapture noundef no
 
 52:                                               ; preds = %.critedge
   %53 = load ptr, ptr @_ZN7TypeInt5CC_GTE, align 8
-  br label %264
+  br label %249
 
 54:                                               ; preds = %37
-  br i1 %35, label %.thread, label %59
+  %spec.select = select i1 %35, ptr %26, ptr %32
+  br label %.thread
 
-.thread:                                          ; preds = %.critedge, %54
-  %55 = load ptr, ptr %26, align 8
+.thread:                                          ; preds = %54, %.critedge
+  %.sink105 = phi ptr [ %26, %.critedge ], [ %spec.select, %54 ]
+  %55 = load ptr, ptr %.sink105, align 8
   %56 = getelementptr inbounds i8, ptr %55, i64 272
   %57 = load ptr, ptr %56, align 8
-  %58 = tail call noundef zeroext i1 %57(ptr noundef nonnull align 8 dereferenceable(80) %26) #10
-  br label %64
+  %58 = tail call noundef zeroext i1 %57(ptr noundef nonnull align 8 dereferenceable(64) %.sink105) #10
+  %. = select i1 %36, ptr %30, ptr %34
+  %59 = load ptr, ptr %., align 8
+  %60 = getelementptr inbounds i8, ptr %59, i64 272
+  %61 = load ptr, ptr %60, align 8
+  %62 = tail call noundef zeroext i1 %61(ptr noundef nonnull align 8 dereferenceable(64) %.) #10
+  br i1 %35, label %63, label %68
 
-59:                                               ; preds = %54
-  %60 = load ptr, ptr %32, align 8
-  %61 = getelementptr inbounds i8, ptr %60, i64 272
-  %62 = load ptr, ptr %61, align 8
-  %63 = tail call noundef zeroext i1 %62(ptr noundef nonnull align 8 dereferenceable(64) %32) #10
-  br label %64
+63:                                               ; preds = %.thread
+  %64 = load ptr, ptr %26, align 8
+  %65 = getelementptr inbounds i8, ptr %64, i64 240
+  %66 = load ptr, ptr %65, align 8
+  %67 = tail call noundef zeroext i1 %66(ptr noundef nonnull align 8 dereferenceable(80) %26, ptr noundef %30) #10
+  br i1 %67, label %.critedge96, label %68
 
-64:                                               ; preds = %59, %.thread
-  %65 = phi i1 [ %58, %.thread ], [ %63, %59 ]
-  br i1 %36, label %66, label %71
-
-66:                                               ; preds = %64
-  %67 = load ptr, ptr %30, align 8
-  %68 = getelementptr inbounds i8, ptr %67, i64 272
-  %69 = load ptr, ptr %68, align 8
-  %70 = tail call noundef zeroext i1 %69(ptr noundef nonnull align 8 dereferenceable(80) %30) #10
-  br label %76
-
-71:                                               ; preds = %64
-  %72 = load ptr, ptr %34, align 8
-  %73 = getelementptr inbounds i8, ptr %72, i64 272
-  %74 = load ptr, ptr %73, align 8
-  %75 = tail call noundef zeroext i1 %74(ptr noundef nonnull align 8 dereferenceable(64) %34) #10
-  br label %76
-
-76:                                               ; preds = %71, %66
-  %77 = phi i1 [ %70, %66 ], [ %75, %71 ]
-  br i1 %35, label %78, label %83
-
-78:                                               ; preds = %76
-  %79 = load ptr, ptr %26, align 8
-  %80 = getelementptr inbounds i8, ptr %79, i64 240
-  %81 = load ptr, ptr %80, align 8
-  %82 = tail call noundef zeroext i1 %81(ptr noundef nonnull align 8 dereferenceable(80) %26, ptr noundef %30) #10
-  br i1 %82, label %.critedge96, label %83
-
-83:                                               ; preds = %78, %76
+68:                                               ; preds = %63, %.thread
   %.not = icmp eq ptr %32, null
-  br i1 %.not, label %89, label %84
+  br i1 %.not, label %74, label %69
 
-84:                                               ; preds = %83
-  %85 = load ptr, ptr %32, align 8
-  %86 = getelementptr inbounds i8, ptr %85, i64 248
-  %87 = load ptr, ptr %86, align 8
-  %88 = tail call noundef zeroext i1 %87(ptr noundef nonnull align 8 dereferenceable(64) %32, ptr noundef %34) #10
-  br i1 %88, label %.critedge96, label %89
+69:                                               ; preds = %68
+  %70 = load ptr, ptr %32, align 8
+  %71 = getelementptr inbounds i8, ptr %70, i64 248
+  %72 = load ptr, ptr %71, align 8
+  %73 = tail call noundef zeroext i1 %72(ptr noundef nonnull align 8 dereferenceable(64) %32, ptr noundef %34) #10
+  br i1 %73, label %.critedge96, label %74
 
-89:                                               ; preds = %84, %83
-  br i1 %35, label %90, label %116
+74:                                               ; preds = %69, %68
+  br i1 %35, label %75, label %101
 
-90:                                               ; preds = %89
-  %91 = load ptr, ptr %30, align 8
-  %92 = getelementptr inbounds i8, ptr %91, i64 272
-  %93 = load ptr, ptr %92, align 8
-  %94 = tail call noundef zeroext i1 %93(ptr noundef nonnull align 8 dereferenceable(80) %30) #10
-  %95 = load ptr, ptr %26, align 8
-  %96 = getelementptr inbounds i8, ptr %95, i64 272
-  %97 = load ptr, ptr %96, align 8
-  %98 = tail call noundef zeroext i1 %97(ptr noundef nonnull align 8 dereferenceable(80) %26) #10
-  %99 = load ptr, ptr %30, align 8
-  %100 = getelementptr inbounds i8, ptr %99, i64 256
-  %101 = load ptr, ptr %100, align 8
-  %102 = tail call noundef zeroext i1 %101(ptr noundef nonnull align 8 dereferenceable(80) %30, ptr noundef nonnull %26, i1 noundef zeroext %94, i1 noundef zeroext %98) #10
-  br i1 %102, label %116, label %103
+75:                                               ; preds = %74
+  %76 = load ptr, ptr %30, align 8
+  %77 = getelementptr inbounds i8, ptr %76, i64 272
+  %78 = load ptr, ptr %77, align 8
+  %79 = tail call noundef zeroext i1 %78(ptr noundef nonnull align 8 dereferenceable(80) %30) #10
+  %80 = load ptr, ptr %26, align 8
+  %81 = getelementptr inbounds i8, ptr %80, i64 272
+  %82 = load ptr, ptr %81, align 8
+  %83 = tail call noundef zeroext i1 %82(ptr noundef nonnull align 8 dereferenceable(80) %26) #10
+  %84 = load ptr, ptr %30, align 8
+  %85 = getelementptr inbounds i8, ptr %84, i64 256
+  %86 = load ptr, ptr %85, align 8
+  %87 = tail call noundef zeroext i1 %86(ptr noundef nonnull align 8 dereferenceable(80) %30, ptr noundef nonnull %26, i1 noundef zeroext %79, i1 noundef zeroext %83) #10
+  br i1 %87, label %101, label %88
 
-103:                                              ; preds = %90
-  %104 = load ptr, ptr %26, align 8
-  %105 = getelementptr inbounds i8, ptr %104, i64 272
-  %106 = load ptr, ptr %105, align 8
-  %107 = tail call noundef zeroext i1 %106(ptr noundef nonnull align 8 dereferenceable(80) %26) #10
-  %108 = load ptr, ptr %30, align 8
-  %109 = getelementptr inbounds i8, ptr %108, i64 272
-  %110 = load ptr, ptr %109, align 8
-  %111 = tail call noundef zeroext i1 %110(ptr noundef nonnull align 8 dereferenceable(80) %30) #10
-  %112 = load ptr, ptr %26, align 8
-  %113 = getelementptr inbounds i8, ptr %112, i64 256
-  %114 = load ptr, ptr %113, align 8
-  %115 = tail call noundef zeroext i1 %114(ptr noundef nonnull align 8 dereferenceable(80) %26, ptr noundef nonnull %30, i1 noundef zeroext %107, i1 noundef zeroext %111) #10
-  br i1 %115, label %116, label %.critedge98
+88:                                               ; preds = %75
+  %89 = load ptr, ptr %26, align 8
+  %90 = getelementptr inbounds i8, ptr %89, i64 272
+  %91 = load ptr, ptr %90, align 8
+  %92 = tail call noundef zeroext i1 %91(ptr noundef nonnull align 8 dereferenceable(80) %26) #10
+  %93 = load ptr, ptr %30, align 8
+  %94 = getelementptr inbounds i8, ptr %93, i64 272
+  %95 = load ptr, ptr %94, align 8
+  %96 = tail call noundef zeroext i1 %95(ptr noundef nonnull align 8 dereferenceable(80) %30) #10
+  %97 = load ptr, ptr %26, align 8
+  %98 = getelementptr inbounds i8, ptr %97, i64 256
+  %99 = load ptr, ptr %98, align 8
+  %100 = tail call noundef zeroext i1 %99(ptr noundef nonnull align 8 dereferenceable(80) %26, ptr noundef nonnull %30, i1 noundef zeroext %92, i1 noundef zeroext %96) #10
+  br i1 %100, label %101, label %.critedge98
 
-116:                                              ; preds = %103, %90, %89
-  br i1 %.not, label %143, label %117
+101:                                              ; preds = %88, %75, %74
+  br i1 %.not, label %128, label %102
 
-117:                                              ; preds = %116
-  %118 = load ptr, ptr %34, align 8
-  %119 = getelementptr inbounds i8, ptr %118, i64 272
-  %120 = load ptr, ptr %119, align 8
-  %121 = tail call noundef zeroext i1 %120(ptr noundef nonnull align 8 dereferenceable(64) %34) #10
-  %122 = load ptr, ptr %32, align 8
-  %123 = getelementptr inbounds i8, ptr %122, i64 272
-  %124 = load ptr, ptr %123, align 8
-  %125 = tail call noundef zeroext i1 %124(ptr noundef nonnull align 8 dereferenceable(64) %32) #10
-  %126 = load ptr, ptr %34, align 8
-  %127 = getelementptr inbounds i8, ptr %126, i64 264
-  %128 = load ptr, ptr %127, align 8
-  %129 = tail call noundef zeroext i1 %128(ptr noundef nonnull align 8 dereferenceable(64) %34, ptr noundef nonnull %32, i1 noundef zeroext %121, i1 noundef zeroext %125) #10
-  br i1 %129, label %143, label %130
+102:                                              ; preds = %101
+  %103 = load ptr, ptr %34, align 8
+  %104 = getelementptr inbounds i8, ptr %103, i64 272
+  %105 = load ptr, ptr %104, align 8
+  %106 = tail call noundef zeroext i1 %105(ptr noundef nonnull align 8 dereferenceable(64) %34) #10
+  %107 = load ptr, ptr %32, align 8
+  %108 = getelementptr inbounds i8, ptr %107, i64 272
+  %109 = load ptr, ptr %108, align 8
+  %110 = tail call noundef zeroext i1 %109(ptr noundef nonnull align 8 dereferenceable(64) %32) #10
+  %111 = load ptr, ptr %34, align 8
+  %112 = getelementptr inbounds i8, ptr %111, i64 264
+  %113 = load ptr, ptr %112, align 8
+  %114 = tail call noundef zeroext i1 %113(ptr noundef nonnull align 8 dereferenceable(64) %34, ptr noundef nonnull %32, i1 noundef zeroext %106, i1 noundef zeroext %110) #10
+  br i1 %114, label %128, label %115
 
-130:                                              ; preds = %117
-  %131 = load ptr, ptr %32, align 8
-  %132 = getelementptr inbounds i8, ptr %131, i64 272
-  %133 = load ptr, ptr %132, align 8
-  %134 = tail call noundef zeroext i1 %133(ptr noundef nonnull align 8 dereferenceable(64) %32) #10
-  %135 = load ptr, ptr %34, align 8
-  %136 = getelementptr inbounds i8, ptr %135, i64 272
-  %137 = load ptr, ptr %136, align 8
-  %138 = tail call noundef zeroext i1 %137(ptr noundef nonnull align 8 dereferenceable(64) %34) #10
-  %139 = load ptr, ptr %32, align 8
-  %140 = getelementptr inbounds i8, ptr %139, i64 264
-  %141 = load ptr, ptr %140, align 8
-  %142 = tail call noundef zeroext i1 %141(ptr noundef nonnull align 8 dereferenceable(64) %32, ptr noundef nonnull %34, i1 noundef zeroext %134, i1 noundef zeroext %138) #10
-  br i1 %142, label %143, label %.critedge98
+115:                                              ; preds = %102
+  %116 = load ptr, ptr %32, align 8
+  %117 = getelementptr inbounds i8, ptr %116, i64 272
+  %118 = load ptr, ptr %117, align 8
+  %119 = tail call noundef zeroext i1 %118(ptr noundef nonnull align 8 dereferenceable(64) %32) #10
+  %120 = load ptr, ptr %34, align 8
+  %121 = getelementptr inbounds i8, ptr %120, i64 272
+  %122 = load ptr, ptr %121, align 8
+  %123 = tail call noundef zeroext i1 %122(ptr noundef nonnull align 8 dereferenceable(64) %34) #10
+  %124 = load ptr, ptr %32, align 8
+  %125 = getelementptr inbounds i8, ptr %124, i64 264
+  %126 = load ptr, ptr %125, align 8
+  %127 = tail call noundef zeroext i1 %126(ptr noundef nonnull align 8 dereferenceable(64) %32, ptr noundef nonnull %34, i1 noundef zeroext %119, i1 noundef zeroext %123) #10
+  br i1 %127, label %128, label %.critedge98
 
-143:                                              ; preds = %130, %117, %116
-  br i1 %35, label %144, label %157
+128:                                              ; preds = %115, %102, %101
+  br i1 %35, label %129, label %142
 
-144:                                              ; preds = %143
-  %145 = load ptr, ptr %30, align 8
-  %146 = getelementptr inbounds i8, ptr %145, i64 272
-  %147 = load ptr, ptr %146, align 8
-  %148 = tail call noundef zeroext i1 %147(ptr noundef nonnull align 8 dereferenceable(80) %30) #10
-  %149 = load ptr, ptr %26, align 8
-  %150 = getelementptr inbounds i8, ptr %149, i64 272
-  %151 = load ptr, ptr %150, align 8
-  %152 = tail call noundef zeroext i1 %151(ptr noundef nonnull align 8 dereferenceable(80) %26) #10
-  %153 = load ptr, ptr %30, align 8
-  %154 = getelementptr inbounds i8, ptr %153, i64 256
-  %155 = load ptr, ptr %154, align 8
-  %156 = tail call noundef zeroext i1 %155(ptr noundef nonnull align 8 dereferenceable(80) %30, ptr noundef nonnull %26, i1 noundef zeroext %148, i1 noundef zeroext %152) #10
-  br i1 %156, label %157, label %199
+129:                                              ; preds = %128
+  %130 = load ptr, ptr %30, align 8
+  %131 = getelementptr inbounds i8, ptr %130, i64 272
+  %132 = load ptr, ptr %131, align 8
+  %133 = tail call noundef zeroext i1 %132(ptr noundef nonnull align 8 dereferenceable(80) %30) #10
+  %134 = load ptr, ptr %26, align 8
+  %135 = getelementptr inbounds i8, ptr %134, i64 272
+  %136 = load ptr, ptr %135, align 8
+  %137 = tail call noundef zeroext i1 %136(ptr noundef nonnull align 8 dereferenceable(80) %26) #10
+  %138 = load ptr, ptr %30, align 8
+  %139 = getelementptr inbounds i8, ptr %138, i64 256
+  %140 = load ptr, ptr %139, align 8
+  %141 = tail call noundef zeroext i1 %140(ptr noundef nonnull align 8 dereferenceable(80) %30, ptr noundef nonnull %26, i1 noundef zeroext %133, i1 noundef zeroext %137) #10
+  br i1 %141, label %142, label %184
 
-157:                                              ; preds = %144, %143
-  br i1 %.not, label %171, label %158
+142:                                              ; preds = %129, %128
+  br i1 %.not, label %156, label %143
 
-158:                                              ; preds = %157
-  %159 = load ptr, ptr %34, align 8
-  %160 = getelementptr inbounds i8, ptr %159, i64 272
-  %161 = load ptr, ptr %160, align 8
-  %162 = tail call noundef zeroext i1 %161(ptr noundef nonnull align 8 dereferenceable(64) %34) #10
-  %163 = load ptr, ptr %32, align 8
-  %164 = getelementptr inbounds i8, ptr %163, i64 272
-  %165 = load ptr, ptr %164, align 8
-  %166 = tail call noundef zeroext i1 %165(ptr noundef nonnull align 8 dereferenceable(64) %32) #10
-  %167 = load ptr, ptr %34, align 8
-  %168 = getelementptr inbounds i8, ptr %167, i64 264
-  %169 = load ptr, ptr %168, align 8
-  %170 = tail call noundef zeroext i1 %169(ptr noundef nonnull align 8 dereferenceable(64) %34, ptr noundef nonnull %32, i1 noundef zeroext %162, i1 noundef zeroext %166) #10
-  br i1 %170, label %171, label %199
+143:                                              ; preds = %142
+  %144 = load ptr, ptr %34, align 8
+  %145 = getelementptr inbounds i8, ptr %144, i64 272
+  %146 = load ptr, ptr %145, align 8
+  %147 = tail call noundef zeroext i1 %146(ptr noundef nonnull align 8 dereferenceable(64) %34) #10
+  %148 = load ptr, ptr %32, align 8
+  %149 = getelementptr inbounds i8, ptr %148, i64 272
+  %150 = load ptr, ptr %149, align 8
+  %151 = tail call noundef zeroext i1 %150(ptr noundef nonnull align 8 dereferenceable(64) %32) #10
+  %152 = load ptr, ptr %34, align 8
+  %153 = getelementptr inbounds i8, ptr %152, i64 264
+  %154 = load ptr, ptr %153, align 8
+  %155 = tail call noundef zeroext i1 %154(ptr noundef nonnull align 8 dereferenceable(64) %34, ptr noundef nonnull %32, i1 noundef zeroext %147, i1 noundef zeroext %151) #10
+  br i1 %155, label %156, label %184
 
-171:                                              ; preds = %158, %157
-  br i1 %35, label %172, label %185
+156:                                              ; preds = %143, %142
+  br i1 %35, label %157, label %170
 
-172:                                              ; preds = %171
-  %173 = load ptr, ptr %26, align 8
-  %174 = getelementptr inbounds i8, ptr %173, i64 272
-  %175 = load ptr, ptr %174, align 8
-  %176 = tail call noundef zeroext i1 %175(ptr noundef nonnull align 8 dereferenceable(80) %26) #10
-  %177 = load ptr, ptr %30, align 8
-  %178 = getelementptr inbounds i8, ptr %177, i64 272
-  %179 = load ptr, ptr %178, align 8
-  %180 = tail call noundef zeroext i1 %179(ptr noundef nonnull align 8 dereferenceable(80) %30) #10
-  %181 = load ptr, ptr %26, align 8
-  %182 = getelementptr inbounds i8, ptr %181, i64 256
-  %183 = load ptr, ptr %182, align 8
-  %184 = tail call noundef zeroext i1 %183(ptr noundef nonnull align 8 dereferenceable(80) %26, ptr noundef nonnull %30, i1 noundef zeroext %176, i1 noundef zeroext %180) #10
-  br i1 %184, label %185, label %199
+157:                                              ; preds = %156
+  %158 = load ptr, ptr %26, align 8
+  %159 = getelementptr inbounds i8, ptr %158, i64 272
+  %160 = load ptr, ptr %159, align 8
+  %161 = tail call noundef zeroext i1 %160(ptr noundef nonnull align 8 dereferenceable(80) %26) #10
+  %162 = load ptr, ptr %30, align 8
+  %163 = getelementptr inbounds i8, ptr %162, i64 272
+  %164 = load ptr, ptr %163, align 8
+  %165 = tail call noundef zeroext i1 %164(ptr noundef nonnull align 8 dereferenceable(80) %30) #10
+  %166 = load ptr, ptr %26, align 8
+  %167 = getelementptr inbounds i8, ptr %166, i64 256
+  %168 = load ptr, ptr %167, align 8
+  %169 = tail call noundef zeroext i1 %168(ptr noundef nonnull align 8 dereferenceable(80) %26, ptr noundef nonnull %30, i1 noundef zeroext %161, i1 noundef zeroext %165) #10
+  br i1 %169, label %170, label %184
 
-185:                                              ; preds = %172, %171
-  br i1 %.not, label %.critedge96, label %186
+170:                                              ; preds = %157, %156
+  br i1 %.not, label %.critedge96, label %171
 
-186:                                              ; preds = %185
-  %187 = load ptr, ptr %32, align 8
-  %188 = getelementptr inbounds i8, ptr %187, i64 272
-  %189 = load ptr, ptr %188, align 8
-  %190 = tail call noundef zeroext i1 %189(ptr noundef nonnull align 8 dereferenceable(64) %32) #10
-  %191 = load ptr, ptr %34, align 8
-  %192 = getelementptr inbounds i8, ptr %191, i64 272
-  %193 = load ptr, ptr %192, align 8
-  %194 = tail call noundef zeroext i1 %193(ptr noundef nonnull align 8 dereferenceable(64) %34) #10
-  %195 = load ptr, ptr %32, align 8
-  %196 = getelementptr inbounds i8, ptr %195, i64 264
-  %197 = load ptr, ptr %196, align 8
-  %198 = tail call noundef zeroext i1 %197(ptr noundef nonnull align 8 dereferenceable(64) %32, ptr noundef nonnull %34, i1 noundef zeroext %190, i1 noundef zeroext %194) #10
-  br i1 %198, label %.critedge96, label %199
+171:                                              ; preds = %170
+  %172 = load ptr, ptr %32, align 8
+  %173 = getelementptr inbounds i8, ptr %172, i64 272
+  %174 = load ptr, ptr %173, align 8
+  %175 = tail call noundef zeroext i1 %174(ptr noundef nonnull align 8 dereferenceable(64) %32) #10
+  %176 = load ptr, ptr %34, align 8
+  %177 = getelementptr inbounds i8, ptr %176, i64 272
+  %178 = load ptr, ptr %177, align 8
+  %179 = tail call noundef zeroext i1 %178(ptr noundef nonnull align 8 dereferenceable(64) %34) #10
+  %180 = load ptr, ptr %32, align 8
+  %181 = getelementptr inbounds i8, ptr %180, i64 264
+  %182 = load ptr, ptr %181, align 8
+  %183 = tail call noundef zeroext i1 %182(ptr noundef nonnull align 8 dereferenceable(64) %32, ptr noundef nonnull %34, i1 noundef zeroext %175, i1 noundef zeroext %179) #10
+  br i1 %183, label %.critedge96, label %184
 
-199:                                              ; preds = %172, %186, %144, %158
-  %.087.shrunk = phi i1 [ %77, %158 ], [ %77, %144 ], [ %65, %186 ], [ %65, %172 ]
+184:                                              ; preds = %157, %171, %129, %143
+  %.087.shrunk = phi i1 [ %62, %143 ], [ %62, %129 ], [ %58, %171 ], [ %58, %157 ]
   br i1 %.087.shrunk, label %.critedge98, label %.critedge96
 
-.critedge98:                                      ; preds = %130, %103, %199
-  %200 = load i32, ptr %8, align 8
-  %201 = zext i32 %200 to i64
-  %202 = getelementptr inbounds [6 x i32], ptr @_ZN7TypePtr8ptr_dualE, i64 0, i64 %201
-  %203 = load i32, ptr %202, align 4
-  %204 = zext i32 %203 to i64
-  %205 = load i32, ptr %4, align 8
-  %206 = zext i32 %205 to i64
-  %207 = getelementptr inbounds [6 x i32], ptr @_ZN7TypePtr8ptr_dualE, i64 0, i64 %206
-  %208 = load i32, ptr %207, align 4
-  %209 = zext i32 %208 to i64
-  %210 = getelementptr inbounds [6 x [6 x i32]], ptr @_ZN7TypePtr8ptr_meetE, i64 0, i64 %204, i64 %209
-  %211 = load i32, ptr %210, align 4
-  %212 = zext i32 %211 to i64
-  %213 = getelementptr inbounds [6 x i32], ptr @_ZN7TypePtr8ptr_dualE, i64 0, i64 %212
-  %214 = load i32, ptr %213, align 4
-  switch i32 %214, label %215 [
+.critedge98:                                      ; preds = %115, %88, %184
+  %185 = load i32, ptr %8, align 8
+  %186 = zext i32 %185 to i64
+  %187 = getelementptr inbounds [6 x i32], ptr @_ZN7TypePtr8ptr_dualE, i64 0, i64 %186
+  %188 = load i32, ptr %187, align 4
+  %189 = zext i32 %188 to i64
+  %190 = load i32, ptr %4, align 8
+  %191 = zext i32 %190 to i64
+  %192 = getelementptr inbounds [6 x i32], ptr @_ZN7TypePtr8ptr_dualE, i64 0, i64 %191
+  %193 = load i32, ptr %192, align 4
+  %194 = zext i32 %193 to i64
+  %195 = getelementptr inbounds [6 x [6 x i32]], ptr @_ZN7TypePtr8ptr_meetE, i64 0, i64 %189, i64 %194
+  %196 = load i32, ptr %195, align 4
+  %197 = zext i32 %196 to i64
+  %198 = getelementptr inbounds [6 x i32], ptr @_ZN7TypePtr8ptr_dualE, i64 0, i64 %197
+  %199 = load i32, ptr %198, align 4
+  switch i32 %199, label %200 [
     i32 5, label %.critedge96
     i32 3, label %.critedge96
   ]
 
-215:                                              ; preds = %.critedge98
-  %216 = load ptr, ptr @_ZN7TypeInt5CC_GTE, align 8
-  br label %264
+200:                                              ; preds = %.critedge98
+  %201 = load ptr, ptr @_ZN7TypeInt5CC_GTE, align 8
+  br label %249
 
-.critedge96:                                      ; preds = %78, %84, %186, %185, %.critedge98, %.critedge98, %199, %37
-  %217 = load ptr, ptr %1, align 8
-  %218 = getelementptr inbounds i8, ptr %217, i64 64
-  %219 = load ptr, ptr %218, align 8
-  %220 = tail call noundef zeroext i1 %219(ptr noundef nonnull align 8 dereferenceable(44) %1) #10
-  br i1 %220, label %221, label %246
+.critedge96:                                      ; preds = %63, %69, %171, %170, %.critedge98, %.critedge98, %184, %37
+  %202 = load ptr, ptr %1, align 8
+  %203 = getelementptr inbounds i8, ptr %202, i64 64
+  %204 = load ptr, ptr %203, align 8
+  %205 = tail call noundef zeroext i1 %204(ptr noundef nonnull align 8 dereferenceable(44) %1) #10
+  br i1 %205, label %206, label %231
 
-221:                                              ; preds = %.critedge96
-  %222 = load ptr, ptr %1, align 8
-  %223 = getelementptr inbounds i8, ptr %222, i64 184
-  %224 = load ptr, ptr %223, align 8
-  %225 = tail call noundef i64 %224(ptr noundef nonnull align 8 dereferenceable(44) %1) #10
-  %226 = load ptr, ptr %2, align 8
-  %227 = getelementptr inbounds i8, ptr %226, i64 64
-  %228 = load ptr, ptr %227, align 8
-  %229 = tail call noundef zeroext i1 %228(ptr noundef nonnull align 8 dereferenceable(44) %2) #10
-  br i1 %229, label %230, label %239
+206:                                              ; preds = %.critedge96
+  %207 = load ptr, ptr %1, align 8
+  %208 = getelementptr inbounds i8, ptr %207, i64 184
+  %209 = load ptr, ptr %208, align 8
+  %210 = tail call noundef i64 %209(ptr noundef nonnull align 8 dereferenceable(44) %1) #10
+  %211 = load ptr, ptr %2, align 8
+  %212 = getelementptr inbounds i8, ptr %211, i64 64
+  %213 = load ptr, ptr %212, align 8
+  %214 = tail call noundef zeroext i1 %213(ptr noundef nonnull align 8 dereferenceable(44) %2) #10
+  br i1 %214, label %215, label %224
 
-230:                                              ; preds = %221
-  %231 = load ptr, ptr %2, align 8
-  %232 = getelementptr inbounds i8, ptr %231, i64 184
-  %233 = load ptr, ptr %232, align 8
-  %234 = tail call noundef i64 %233(ptr noundef nonnull align 8 dereferenceable(44) %2) #10
-  %235 = icmp eq i64 %225, %234
-  %236 = load ptr, ptr @_ZN7TypeInt5CC_EQE, align 8
-  %237 = load ptr, ptr @_ZN7TypeInt5CC_GTE, align 8
-  %238 = select i1 %235, ptr %236, ptr %237
-  br label %264
+215:                                              ; preds = %206
+  %216 = load ptr, ptr %2, align 8
+  %217 = getelementptr inbounds i8, ptr %216, i64 184
+  %218 = load ptr, ptr %217, align 8
+  %219 = tail call noundef i64 %218(ptr noundef nonnull align 8 dereferenceable(44) %2) #10
+  %220 = icmp eq i64 %210, %219
+  %221 = load ptr, ptr @_ZN7TypeInt5CC_EQE, align 8
+  %222 = load ptr, ptr @_ZN7TypeInt5CC_GTE, align 8
+  %223 = select i1 %220, ptr %221, ptr %222
+  br label %249
 
-239:                                              ; preds = %221
-  %240 = load i32, ptr %8, align 8
-  %241 = icmp eq i32 %240, 4
-  %242 = icmp eq i64 %225, 0
-  %or.cond9 = and i1 %242, %241
-  %243 = load ptr, ptr @_ZN7TypeInt5CC_GTE, align 8
-  %244 = load ptr, ptr @_ZN7TypeInt2CCE, align 8
-  %245 = select i1 %or.cond9, ptr %243, ptr %244
-  br label %264
+224:                                              ; preds = %206
+  %225 = load i32, ptr %8, align 8
+  %226 = icmp eq i32 %225, 4
+  %227 = icmp eq i64 %210, 0
+  %or.cond9 = and i1 %227, %226
+  %228 = load ptr, ptr @_ZN7TypeInt5CC_GTE, align 8
+  %229 = load ptr, ptr @_ZN7TypeInt2CCE, align 8
+  %230 = select i1 %or.cond9, ptr %228, ptr %229
+  br label %249
 
-246:                                              ; preds = %.critedge96
-  %247 = load ptr, ptr %2, align 8
-  %248 = getelementptr inbounds i8, ptr %247, i64 64
-  %249 = load ptr, ptr %248, align 8
-  %250 = tail call noundef zeroext i1 %249(ptr noundef nonnull align 8 dereferenceable(44) %2) #10
-  br i1 %250, label %251, label %262
+231:                                              ; preds = %.critedge96
+  %232 = load ptr, ptr %2, align 8
+  %233 = getelementptr inbounds i8, ptr %232, i64 64
+  %234 = load ptr, ptr %233, align 8
+  %235 = tail call noundef zeroext i1 %234(ptr noundef nonnull align 8 dereferenceable(44) %2) #10
+  br i1 %235, label %236, label %247
 
-251:                                              ; preds = %246
-  %252 = load ptr, ptr %2, align 8
-  %253 = getelementptr inbounds i8, ptr %252, i64 184
-  %254 = load ptr, ptr %253, align 8
-  %255 = tail call noundef i64 %254(ptr noundef nonnull align 8 dereferenceable(44) %2) #10
-  %256 = load i32, ptr %4, align 8
-  %257 = icmp eq i32 %256, 4
-  %258 = icmp eq i64 %255, 0
-  %or.cond11 = and i1 %258, %257
-  %259 = load ptr, ptr @_ZN7TypeInt5CC_GTE, align 8
-  %260 = load ptr, ptr @_ZN7TypeInt2CCE, align 8
-  %261 = select i1 %or.cond11, ptr %259, ptr %260
-  br label %264
+236:                                              ; preds = %231
+  %237 = load ptr, ptr %2, align 8
+  %238 = getelementptr inbounds i8, ptr %237, i64 184
+  %239 = load ptr, ptr %238, align 8
+  %240 = tail call noundef i64 %239(ptr noundef nonnull align 8 dereferenceable(44) %2) #10
+  %241 = load i32, ptr %4, align 8
+  %242 = icmp eq i32 %241, 4
+  %243 = icmp eq i64 %240, 0
+  %or.cond11 = and i1 %243, %242
+  %244 = load ptr, ptr @_ZN7TypeInt5CC_GTE, align 8
+  %245 = load ptr, ptr @_ZN7TypeInt2CCE, align 8
+  %246 = select i1 %or.cond11, ptr %244, ptr %245
+  br label %249
 
-262:                                              ; preds = %246
-  %263 = load ptr, ptr @_ZN7TypeInt2CCE, align 8
-  br label %264
+247:                                              ; preds = %231
+  %248 = load ptr, ptr @_ZN7TypeInt2CCE, align 8
+  br label %249
 
-264:                                              ; preds = %262, %251, %239, %230, %215, %52, %20, %11
-  %.0 = phi ptr [ %12, %11 ], [ %21, %20 ], [ %53, %52 ], [ %216, %215 ], [ %238, %230 ], [ %245, %239 ], [ %261, %251 ], [ %263, %262 ]
+249:                                              ; preds = %247, %236, %224, %215, %200, %52, %20, %11
+  %.0 = phi ptr [ %12, %11 ], [ %21, %20 ], [ %53, %52 ], [ %201, %200 ], [ %223, %215 ], [ %230, %224 ], [ %246, %236 ], [ %248, %247 ]
   ret ptr %.0
 }
 

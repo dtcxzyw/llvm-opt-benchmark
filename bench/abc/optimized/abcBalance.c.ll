@@ -13,112 +13,107 @@ define noundef ptr @Abc_NtkBalance(ptr noundef %0, i32 noundef %1, i32 noundef %
   %.not = icmp eq i32 %2, 0
   br i1 %.not, label %.split, label %.split22
 
-.split:                                           ; preds = %4
-  %5 = tail call ptr @Abc_NtkStartFrom(ptr noundef %0, i32 noundef 3, i32 noundef 3) #12
-  tail call fastcc void @Abc_NtkBalancePerform(ptr noundef %0, ptr noundef %5, i32 noundef %1, i32 noundef 0, i32 noundef %3)
-  br label %39
-
 .split22:                                         ; preds = %4
   tail call void @Abc_NtkStartReverseLevels(ptr noundef %0, i32 noundef 0) #12
-  %6 = getelementptr inbounds i8, ptr %0, i64 32
-  %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr i8, ptr %7, i64 4
-  %.val18.i = load i32, ptr %8, align 4
-  %9 = icmp sgt i32 %.val18.i, 0
-  br i1 %9, label %.lr.ph.i, label %Abc_NtkMarkCriticalNodes.exit
+  %5 = getelementptr inbounds i8, ptr %0, i64 32
+  %6 = load ptr, ptr %5, align 8
+  %7 = getelementptr i8, ptr %6, i64 4
+  %.val18.i = load i32, ptr %7, align 4
+  %8 = icmp sgt i32 %.val18.i, 0
+  br i1 %8, label %.lr.ph.i, label %Abc_NtkMarkCriticalNodes.exit
 
-.lr.ph.i:                                         ; preds = %.split22, %27
-  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %27 ], [ 0, %.split22 ]
-  %10 = phi ptr [ %28, %27 ], [ %7, %.split22 ]
-  %.020.i = phi i32 [ %.1.i, %27 ], [ 0, %.split22 ]
-  %11 = getelementptr i8, ptr %10, i64 8
-  %.val16.val.i = load ptr, ptr %11, align 8
-  %12 = getelementptr inbounds ptr, ptr %.val16.val.i, i64 %indvars.iv.i
-  %13 = load ptr, ptr %12, align 8
-  %14 = icmp eq ptr %13, null
-  br i1 %14, label %27, label %15
+.lr.ph.i:                                         ; preds = %.split22, %26
+  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %26 ], [ 0, %.split22 ]
+  %9 = phi ptr [ %27, %26 ], [ %6, %.split22 ]
+  %.020.i = phi i32 [ %.1.i, %26 ], [ 0, %.split22 ]
+  %10 = getelementptr i8, ptr %9, i64 8
+  %.val16.val.i = load ptr, ptr %10, align 8
+  %11 = getelementptr inbounds ptr, ptr %.val16.val.i, i64 %indvars.iv.i
+  %12 = load ptr, ptr %11, align 8
+  %13 = icmp eq ptr %12, null
+  br i1 %13, label %26, label %14
 
-15:                                               ; preds = %.lr.ph.i
-  %16 = getelementptr i8, ptr %13, i64 20
-  %.val15.i = load i32, ptr %16, align 4
-  %17 = and i32 %.val15.i, 15
-  %.not.i = icmp eq i32 %17, 7
-  br i1 %.not.i, label %18, label %27
+14:                                               ; preds = %.lr.ph.i
+  %15 = getelementptr i8, ptr %12, i64 20
+  %.val15.i = load i32, ptr %15, align 4
+  %16 = and i32 %.val15.i, 15
+  %.not.i = icmp eq i32 %16, 7
+  br i1 %.not.i, label %17, label %26
 
-18:                                               ; preds = %15
-  %19 = tail call i32 @Abc_ObjRequiredLevel(ptr noundef nonnull %13) #12
-  %20 = load i32, ptr %16, align 4
-  %21 = lshr i32 %20, 12
-  %22 = sub nsw i32 %19, %21
-  %23 = icmp slt i32 %22, 2
-  br i1 %23, label %24, label %27
+17:                                               ; preds = %14
+  %18 = tail call i32 @Abc_ObjRequiredLevel(ptr noundef nonnull %12) #12
+  %19 = load i32, ptr %15, align 4
+  %20 = lshr i32 %19, 12
+  %21 = sub nsw i32 %18, %20
+  %22 = icmp slt i32 %21, 2
+  br i1 %22, label %23, label %26
 
-24:                                               ; preds = %18
-  %25 = or i32 %20, 16
-  store i32 %25, ptr %16, align 4
-  %26 = add nsw i32 %.020.i, 1
-  br label %27
+23:                                               ; preds = %17
+  %24 = or i32 %19, 16
+  store i32 %24, ptr %15, align 4
+  %25 = add nsw i32 %.020.i, 1
+  br label %26
 
-27:                                               ; preds = %24, %18, %15, %.lr.ph.i
-  %.1.i = phi i32 [ %.020.i, %.lr.ph.i ], [ %26, %24 ], [ %.020.i, %18 ], [ %.020.i, %15 ]
+26:                                               ; preds = %23, %17, %14, %.lr.ph.i
+  %.1.i = phi i32 [ %.020.i, %.lr.ph.i ], [ %25, %23 ], [ %.020.i, %17 ], [ %.020.i, %14 ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %28 = load ptr, ptr %6, align 8
-  %29 = getelementptr i8, ptr %28, i64 4
-  %.val.i = load i32, ptr %29, align 4
-  %30 = sext i32 %.val.i to i64
-  %31 = icmp slt i64 %indvars.iv.next.i, %30
-  br i1 %31, label %.lr.ph.i, label %Abc_NtkMarkCriticalNodes.exit, !llvm.loop !4
+  %27 = load ptr, ptr %5, align 8
+  %28 = getelementptr i8, ptr %27, i64 4
+  %.val.i = load i32, ptr %28, align 4
+  %29 = sext i32 %.val.i to i64
+  %30 = icmp slt i64 %indvars.iv.next.i, %29
+  br i1 %30, label %.lr.ph.i, label %Abc_NtkMarkCriticalNodes.exit, !llvm.loop !4
 
-Abc_NtkMarkCriticalNodes.exit:                    ; preds = %27, %.split22
-  %.0.lcssa.i = phi i32 [ 0, %.split22 ], [ %.1.i, %27 ]
-  %32 = sitofp i32 %.0.lcssa.i to double
-  %33 = fmul double %32, 1.000000e+02
-  %34 = getelementptr i8, ptr %0, i64 124
-  %.val17.i = load i32, ptr %34, align 4
-  %35 = sitofp i32 %.val17.i to double
-  %36 = fdiv double %33, %35
-  %37 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.2, i32 noundef %.0.lcssa.i, double noundef %36)
-  %38 = tail call ptr @Abc_NtkStartFrom(ptr noundef nonnull %0, i32 noundef 3, i32 noundef 3) #12
-  tail call fastcc void @Abc_NtkBalancePerform(ptr noundef nonnull %0, ptr noundef %38, i32 noundef %1, i32 noundef %2, i32 noundef %3)
-  br label %39
+Abc_NtkMarkCriticalNodes.exit:                    ; preds = %26, %.split22
+  %.0.lcssa.i = phi i32 [ 0, %.split22 ], [ %.1.i, %26 ]
+  %31 = sitofp i32 %.0.lcssa.i to double
+  %32 = fmul double %31, 1.000000e+02
+  %33 = getelementptr i8, ptr %0, i64 124
+  %.val17.i = load i32, ptr %33, align 4
+  %34 = sitofp i32 %.val17.i to double
+  %35 = fdiv double %32, %34
+  %36 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.2, i32 noundef %.0.lcssa.i, double noundef %35)
+  br label %.split
 
-39:                                               ; preds = %.split, %Abc_NtkMarkCriticalNodes.exit
-  %40 = phi ptr [ %5, %.split ], [ %38, %Abc_NtkMarkCriticalNodes.exit ]
-  tail call void @Abc_NtkFinalize(ptr noundef %0, ptr noundef %40) #12
-  %41 = getelementptr inbounds i8, ptr %40, i64 256
-  %42 = load ptr, ptr %41, align 8
-  %43 = tail call i32 @Abc_AigCleanup(ptr noundef %42) #12
-  br i1 %.not, label %45, label %44
+.split:                                           ; preds = %4, %Abc_NtkMarkCriticalNodes.exit
+  %.sink27 = phi i32 [ %2, %Abc_NtkMarkCriticalNodes.exit ], [ 0, %4 ]
+  %37 = tail call ptr @Abc_NtkStartFrom(ptr noundef %0, i32 noundef 3, i32 noundef 3) #12
+  tail call fastcc void @Abc_NtkBalancePerform(ptr noundef %0, ptr noundef %37, i32 noundef %1, i32 noundef %.sink27, i32 noundef %3)
+  tail call void @Abc_NtkFinalize(ptr noundef %0, ptr noundef %37) #12
+  %38 = getelementptr inbounds i8, ptr %37, i64 256
+  %39 = load ptr, ptr %38, align 8
+  %40 = tail call i32 @Abc_AigCleanup(ptr noundef %39) #12
+  br i1 %.not, label %42, label %41
 
-44:                                               ; preds = %39
+41:                                               ; preds = %.split
   tail call void @Abc_NtkStopReverseLevels(ptr noundef %0) #12
   tail call void @Abc_NtkCleanMarkA(ptr noundef %0) #12
-  br label %45
+  br label %42
 
-45:                                               ; preds = %44, %39
-  %46 = getelementptr inbounds i8, ptr %0, i64 328
-  %47 = load ptr, ptr %46, align 8
-  %.not25 = icmp eq ptr %47, null
-  br i1 %.not25, label %51, label %48
+42:                                               ; preds = %41, %.split
+  %43 = getelementptr inbounds i8, ptr %0, i64 328
+  %44 = load ptr, ptr %43, align 8
+  %.not25 = icmp eq ptr %44, null
+  br i1 %.not25, label %48, label %45
 
-48:                                               ; preds = %45
-  %49 = tail call ptr @Abc_NtkDup(ptr noundef nonnull %47) #12
-  %50 = getelementptr inbounds i8, ptr %40, i64 328
-  store ptr %49, ptr %50, align 8
+45:                                               ; preds = %42
+  %46 = tail call ptr @Abc_NtkDup(ptr noundef nonnull %44) #12
+  %47 = getelementptr inbounds i8, ptr %37, i64 328
+  store ptr %46, ptr %47, align 8
+  br label %48
+
+48:                                               ; preds = %45, %42
+  %49 = tail call i32 @Abc_NtkCheck(ptr noundef nonnull %37) #12
+  %.not26 = icmp eq i32 %49, 0
+  br i1 %.not26, label %50, label %51
+
+50:                                               ; preds = %48
+  %puts = tail call i32 @puts(ptr nonnull dereferenceable(1) @str)
+  tail call void @Abc_NtkDelete(ptr noundef nonnull %37) #12
   br label %51
 
-51:                                               ; preds = %48, %45
-  %52 = tail call i32 @Abc_NtkCheck(ptr noundef nonnull %40) #12
-  %.not26 = icmp eq i32 %52, 0
-  br i1 %.not26, label %53, label %54
-
-53:                                               ; preds = %51
-  %puts = tail call i32 @puts(ptr nonnull dereferenceable(1) @str)
-  tail call void @Abc_NtkDelete(ptr noundef nonnull %40) #12
-  br label %54
-
-54:                                               ; preds = %51, %53
-  %.0 = phi ptr [ null, %53 ], [ %40, %51 ]
+51:                                               ; preds = %48, %50
+  %.0 = phi ptr [ null, %50 ], [ %37, %48 ]
   ret ptr %.0
 }
 

@@ -9010,11 +9010,12 @@ _ZN18tseitin_cnf_tactic3imp9is_sharedEP4expr.exit: ; preds = %_ZNK6vectorIP4expr
 if.then12:                                        ; preds = %land.lhs.true9, %_ZNK6vectorIP4exprLb0EjE3getEjRKS1_.exit.i.i.i.i, %_ZN18tseitin_cnf_tactic3imp9is_sharedEP4expr.exit
   %arrayidx.i46 = getelementptr inbounds i8, ptr %ite.02866, i64 48
   %16 = load ptr, ptr %arrayidx.i46, align 8
-  call void @_ZN18tseitin_cnf_tactic3imp5visitEP4exprRbb(ptr noundef nonnull align 8 dereferenceable(260) %this, ptr noundef %16, ptr noundef nonnull align 1 dereferenceable(1) %visited, i1 noundef zeroext false)
   br label %while.body.backedge
 
-while.body.backedge:                              ; preds = %if.then12, %if.then26
-  %ite.0.be.in = phi ptr [ %arrayidx.i50, %if.then26 ], [ %arrayidx.i, %if.then12 ]
+while.body.backedge:                              ; preds = %_ZN18tseitin_cnf_tactic3imp9is_sharedEP4expr.exit76, %_ZNK6vectorIP4exprLb0EjE3getEjRKS1_.exit.i.i.i.i68, %land.lhs.true23, %if.then12
+  %.sink = phi ptr [ %16, %if.then12 ], [ %7, %land.lhs.true23 ], [ %7, %_ZNK6vectorIP4exprLb0EjE3getEjRKS1_.exit.i.i.i.i68 ], [ %7, %_ZN18tseitin_cnf_tactic3imp9is_sharedEP4expr.exit76 ]
+  %ite.0.be.in = phi ptr [ %arrayidx.i, %if.then12 ], [ %arrayidx.i50, %land.lhs.true23 ], [ %arrayidx.i50, %_ZNK6vectorIP4exprLb0EjE3getEjRKS1_.exit.i.i.i.i68 ], [ %arrayidx.i50, %_ZN18tseitin_cnf_tactic3imp9is_sharedEP4expr.exit76 ]
+  call void @_ZN18tseitin_cnf_tactic3imp5visitEP4exprRbb(ptr noundef nonnull align 8 dereferenceable(260) %this, ptr noundef %.sink, ptr noundef nonnull align 1 dereferenceable(1) %visited, i1 noundef zeroext false)
   %ite.0.be = load ptr, ptr %ite.0.be.in, align 8
   %m_args.i = getelementptr inbounds i8, ptr %ite.0.be, i64 32
   %17 = load ptr, ptr %m_args.i, align 8
@@ -9053,24 +9054,20 @@ land.lhs.true23:                                  ; preds = %_ZNK11ast_manager6i
   %25 = load i32, ptr %19, align 4
   %26 = load ptr, ptr %m_nodes.i.i.i.i, align 8
   %cmp.i.i.i.i.i.i67 = icmp eq ptr %26, null
-  br i1 %cmp.i.i.i.i.i.i67, label %if.then26, label %_ZNK6vectorIP4exprLb0EjE3getEjRKS1_.exit.i.i.i.i68
+  br i1 %cmp.i.i.i.i.i.i67, label %while.body.backedge, label %_ZNK6vectorIP4exprLb0EjE3getEjRKS1_.exit.i.i.i.i68
 
 _ZNK6vectorIP4exprLb0EjE3getEjRKS1_.exit.i.i.i.i68: ; preds = %land.lhs.true23
   %arrayidx.i.i.i.i.i.i69 = getelementptr inbounds i8, ptr %26, i64 -4
   %27 = load i32, ptr %arrayidx.i.i.i.i.i.i69, align 4
   %cmp.not.i.i.i.i.i70 = icmp ult i32 %25, %27
-  br i1 %cmp.not.i.i.i.i.i70, label %_ZN18tseitin_cnf_tactic3imp9is_sharedEP4expr.exit76, label %if.then26
+  br i1 %cmp.not.i.i.i.i.i70, label %_ZN18tseitin_cnf_tactic3imp9is_sharedEP4expr.exit76, label %while.body.backedge
 
 _ZN18tseitin_cnf_tactic3imp9is_sharedEP4expr.exit76: ; preds = %_ZNK6vectorIP4exprLb0EjE3getEjRKS1_.exit.i.i.i.i68
   %idxprom.i.i.i.i.i73 = zext i32 %25 to i64
   %arrayidx.i.i.i.i.i74 = getelementptr inbounds ptr, ptr %26, i64 %idxprom.i.i.i.i.i73
   %.then.val.i.i.i.i75 = load ptr, ptr %arrayidx.i.i.i.i.i74, align 8
   %.not2860 = icmp eq ptr %.then.val.i.i.i.i75, null
-  br i1 %.not2860, label %if.then26, label %if.end30
-
-if.then26:                                        ; preds = %land.lhs.true23, %_ZNK6vectorIP4exprLb0EjE3getEjRKS1_.exit.i.i.i.i68, %_ZN18tseitin_cnf_tactic3imp9is_sharedEP4expr.exit76
-  call void @_ZN18tseitin_cnf_tactic3imp5visitEP4exprRbb(ptr noundef nonnull align 8 dereferenceable(260) %this, ptr noundef nonnull %7, ptr noundef nonnull align 1 dereferenceable(1) %visited, i1 noundef zeroext false)
-  br label %while.body.backedge
+  br i1 %.not2860, label %while.body.backedge, label %if.end30
 
 if.end30:                                         ; preds = %_ZNK11ast_manager6is_iteEPK4expr.exit63, %_ZN18tseitin_cnf_tactic3imp9is_sharedEP4expr.exit76, %while.body.backedge, %land.lhs.true19, %land.rhs.i.i55, %if.then3
   %ite.0.lcssa = phi ptr [ %t, %if.then3 ], [ %ite.02866, %land.rhs.i.i55 ], [ %ite.02866, %land.lhs.true19 ], [ %ite.0.be, %while.body.backedge ], [ %ite.02866, %_ZN18tseitin_cnf_tactic3imp9is_sharedEP4expr.exit76 ], [ %ite.02866, %_ZNK11ast_manager6is_iteEPK4expr.exit63 ]
@@ -10415,13 +10412,13 @@ _ZN6bufferIP4exprLb0ELj16EE6expandEv.exit.i.i662: ; preds = %.noexc671, %for.end
   br label %while.cond.backedge
 
 while.cond.backedge:                              ; preds = %entry.if.end_crit_edge.i.i667, %_ZN6bufferIP4exprLb0ELj16EE6expandEv.exit.i.i662, %entry.if.end_crit_edge.i.i1260, %_ZN6bufferIP4exprLb0ELj16EE6expandEv.exit.i.i1255
-  %.sink2928 = phi i32 [ %345, %entry.if.end_crit_edge.i.i1260 ], [ %.pre1.i.i1256, %_ZN6bufferIP4exprLb0ELj16EE6expandEv.exit.i.i1255 ], [ %194, %entry.if.end_crit_edge.i.i667 ], [ %.pre1.i.i663, %_ZN6bufferIP4exprLb0ELj16EE6expandEv.exit.i.i662 ]
-  %.sink2927 = phi ptr [ %.pre.i.i1261, %entry.if.end_crit_edge.i.i1260 ], [ %call.i.i.i1263, %_ZN6bufferIP4exprLb0ELj16EE6expandEv.exit.i.i1255 ], [ %.pre.i.i668, %entry.if.end_crit_edge.i.i667 ], [ %call.i.i.i670, %_ZN6bufferIP4exprLb0ELj16EE6expandEv.exit.i.i662 ]
-  %.sink = phi ptr [ %343, %entry.if.end_crit_edge.i.i1260 ], [ %343, %_ZN6bufferIP4exprLb0ELj16EE6expandEv.exit.i.i1255 ], [ %192, %entry.if.end_crit_edge.i.i667 ], [ %192, %_ZN6bufferIP4exprLb0ELj16EE6expandEv.exit.i.i662 ]
+  %.sink2929 = phi i32 [ %345, %entry.if.end_crit_edge.i.i1260 ], [ %.pre1.i.i1256, %_ZN6bufferIP4exprLb0ELj16EE6expandEv.exit.i.i1255 ], [ %194, %entry.if.end_crit_edge.i.i667 ], [ %.pre1.i.i663, %_ZN6bufferIP4exprLb0ELj16EE6expandEv.exit.i.i662 ]
+  %.sink2928 = phi ptr [ %.pre.i.i1261, %entry.if.end_crit_edge.i.i1260 ], [ %call.i.i.i1263, %_ZN6bufferIP4exprLb0ELj16EE6expandEv.exit.i.i1255 ], [ %.pre.i.i668, %entry.if.end_crit_edge.i.i667 ], [ %call.i.i.i670, %_ZN6bufferIP4exprLb0ELj16EE6expandEv.exit.i.i662 ]
+  %.sink2927 = phi ptr [ %343, %entry.if.end_crit_edge.i.i1260 ], [ %343, %_ZN6bufferIP4exprLb0ELj16EE6expandEv.exit.i.i1255 ], [ %192, %entry.if.end_crit_edge.i.i667 ], [ %192, %_ZN6bufferIP4exprLb0ELj16EE6expandEv.exit.i.i662 ]
   %ite82.0.be.in = phi ptr [ %arrayidx.i676, %entry.if.end_crit_edge.i.i1260 ], [ %arrayidx.i676, %_ZN6bufferIP4exprLb0ELj16EE6expandEv.exit.i.i1255 ], [ %arrayidx.i124, %entry.if.end_crit_edge.i.i667 ], [ %arrayidx.i124, %_ZN6bufferIP4exprLb0ELj16EE6expandEv.exit.i.i662 ]
-  %idx.ext.i.i664 = zext i32 %.sink2928 to i64
-  %add.ptr.i.i665 = getelementptr inbounds ptr, ptr %.sink2927, i64 %idx.ext.i.i664
-  store ptr %.sink, ptr %add.ptr.i.i665, align 8
+  %idx.ext.i.i664 = zext i32 %.sink2929 to i64
+  %add.ptr.i.i665 = getelementptr inbounds ptr, ptr %.sink2928, i64 %idx.ext.i.i664
+  store ptr %.sink2927, ptr %add.ptr.i.i665, align 8
   %198 = load i32, ptr %m_pos.i.i.i.i, align 8
   %storemerge = add i32 %198, 1
   store i32 %storemerge, ptr %m_pos.i.i.i.i, align 8

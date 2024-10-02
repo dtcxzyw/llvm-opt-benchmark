@@ -128,9 +128,9 @@ entry:
   %1 = load ptr, ptr %alt, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %buf.i)
   %call.i = tail call ptr @hash_to_hex(ptr noundef %hash) #10
-  %pos.062.i = load ptr, ptr @object_queue_head, align 8
-  %cmp.not63.i = icmp eq ptr %pos.062.i, @object_queue_head
-  br i1 %cmp.not63.i, label %if.then5.i, label %for.body.lr.ph.i
+  %pos.057.i = load ptr, ptr @object_queue_head, align 8
+  %cmp.not58.i = icmp eq ptr %pos.057.i, @object_queue_head
+  br i1 %cmp.not58.i, label %if.then5.i, label %for.body.lr.ph.i
 
 for.body.lr.ph.i:                                 ; preds = %entry
   %2 = load ptr, ptr @the_repository, align 8
@@ -139,29 +139,18 @@ for.body.lr.ph.i:                                 ; preds = %entry
   %4 = getelementptr i8, ptr %3, i64 16
   %.val.i.i = load i64, ptr %4, align 8
   %cmp.i.i.i = icmp eq i64 %.val.i.i, 32
-  br i1 %cmp.i.i.i, label %for.body.us.i, label %for.body.i
-
-for.body.us.i:                                    ; preds = %for.body.lr.ph.i, %for.cond.us.i
-  %pos.064.us.i = phi ptr [ %pos.0.us.i, %for.cond.us.i ], [ %pos.062.i, %for.body.lr.ph.i ]
-  %oid.us.i = getelementptr inbounds i8, ptr %pos.064.us.i, i64 -64
-  %bcmp3.i.i.us.i = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(32) %oid.us.i, ptr noundef nonnull readonly dereferenceable(32) %hash, i64 32)
-  %retval.0.in.i.i.not.us.i = icmp eq i32 %bcmp3.i.i.us.i, 0
-  br i1 %retval.0.in.i.i.not.us.i, label %if.end8.i, label %for.cond.us.i, !llvm.loop !7
-
-for.cond.us.i:                                    ; preds = %for.body.us.i
-  %pos.0.us.i = load ptr, ptr %pos.064.us.i, align 8
-  %cmp.not.us.i = icmp eq ptr %pos.0.us.i, @object_queue_head
-  br i1 %cmp.not.us.i, label %if.end8.i, label %for.body.us.i, !llvm.loop !7
+  %..i.i.i = select i1 %cmp.i.i.i, i64 32, i64 20
+  br label %for.body.i
 
 for.cond.i:                                       ; preds = %for.body.i
-  %pos.0.i = load ptr, ptr %pos.064.i, align 8
+  %pos.0.i = load ptr, ptr %pos.059.i, align 8
   %cmp.not.i = icmp eq ptr %pos.0.i, @object_queue_head
   br i1 %cmp.not.i, label %if.end8.i, label %for.body.i, !llvm.loop !7
 
-for.body.i:                                       ; preds = %for.body.lr.ph.i, %for.cond.i
-  %pos.064.i = phi ptr [ %pos.0.i, %for.cond.i ], [ %pos.062.i, %for.body.lr.ph.i ]
-  %oid.i = getelementptr inbounds i8, ptr %pos.064.i, i64 -64
-  %bcmp.i.i.i = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(20) %oid.i, ptr noundef nonnull readonly dereferenceable(20) %hash, i64 20)
+for.body.i:                                       ; preds = %for.cond.i, %for.body.lr.ph.i
+  %pos.059.i = phi ptr [ %pos.057.i, %for.body.lr.ph.i ], [ %pos.0.i, %for.cond.i ]
+  %oid.i = getelementptr inbounds i8, ptr %pos.059.i, i64 -64
+  %bcmp.i.i.i = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(20) %oid.i, ptr noundef nonnull readonly dereferenceable(20) %hash, i64 %..i.i.i)
   %retval.0.in.i.i.not.i = icmp eq i32 %bcmp.i.i.i, 0
   br i1 %retval.0.in.i.i.not.i, label %if.end8.i, label %for.cond.i, !llvm.loop !7
 
@@ -170,22 +159,20 @@ if.then5.i:                                       ; preds = %entry
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %buf.i)
   br label %while.cond.preheader
 
-if.end8.i:                                        ; preds = %for.body.i, %for.cond.i, %for.cond.us.i, %for.body.us.i
-  %pos.064.i.lcssa.sink = phi ptr [ %pos.064.us.i, %for.body.us.i ], [ %pos.064.us.i, %for.cond.us.i ], [ %pos.064.i, %for.cond.i ], [ %pos.064.i, %for.body.i ]
-  %add.ptr.le66.i = getelementptr inbounds i8, ptr %pos.064.i.lcssa.sink, i64 -72
-  %oid9.i = getelementptr inbounds i8, ptr %pos.064.i.lcssa.sink, i64 -64
-  %call10.i = tail call i32 @repo_has_object_file(ptr noundef %2, ptr noundef nonnull %oid9.i) #10
+if.end8.i:                                        ; preds = %for.body.i, %for.cond.i
+  %obj_req.151.i = getelementptr inbounds i8, ptr %pos.059.i, i64 -72
+  %call10.i = tail call i32 @repo_has_object_file(ptr noundef %2, ptr noundef nonnull %oid.i) #10
   %tobool11.not.i = icmp eq i32 %call10.i, 0
   br i1 %tobool11.not.i, label %while.cond.preheader.i, label %if.then12.i
 
 while.cond.preheader.i:                           ; preds = %if.end8.i
-  %state.i = getelementptr inbounds i8, ptr %pos.064.i.lcssa.sink, i64 -16
+  %state.i = getelementptr inbounds i8, ptr %pos.059.i, i64 -16
   %5 = load i32, ptr %state.i, align 8
-  %cmp1970.i = icmp eq i32 %5, 0
-  br i1 %cmp1970.i, label %while.body.i, label %while.cond20.preheader.i
+  %cmp1960.i = icmp eq i32 %5, 0
+  br i1 %cmp1960.i, label %while.body.i, label %while.cond20.preheader.i
 
 if.then12.i:                                      ; preds = %if.end8.i
-  %req13.i = getelementptr inbounds i8, ptr %pos.064.i.lcssa.sink, i64 -8
+  %req13.i = getelementptr inbounds i8, ptr %pos.059.i, i64 -8
   %6 = load ptr, ptr %req13.i, align 8
   %tobool14.not.i = icmp eq ptr %6, null
   br i1 %tobool14.not.i, label %fetch_object.exit.thread, label %if.end17.i
@@ -200,30 +187,30 @@ land.lhs.true.i.i.i:                              ; preds = %if.end17.i
   %localfile.i.i.i = getelementptr inbounds i8, ptr %.pr.i, i64 32
   %7 = load i32, ptr %localfile.i.i.i, align 8
   %cmp2.not.i.i.i = icmp eq i32 %7, -1
-  br i1 %cmp2.not.i.i.i, label %fetch_object.exit.thread, label %if.then.i.i42.i
+  br i1 %cmp2.not.i.i.i, label %fetch_object.exit.thread, label %if.then.i.i.i
 
-if.then.i.i42.i:                                  ; preds = %land.lhs.true.i.i.i
+if.then.i.i.i:                                    ; preds = %land.lhs.true.i.i.i
   %call.i.i.i = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.7, i32 noundef %7) #10
   br label %fetch_object.exit.thread
 
-fetch_object.exit.thread:                         ; preds = %if.then12.i, %if.end17.i, %land.lhs.true.i.i.i, %if.then.i.i42.i
-  %node.val.i.i.i = load ptr, ptr %pos.064.i.lcssa.sink, align 8
-  %8 = getelementptr i8, ptr %pos.064.i.lcssa.sink, i64 8
+fetch_object.exit.thread:                         ; preds = %if.then12.i, %if.end17.i, %land.lhs.true.i.i.i, %if.then.i.i.i
+  %node.val.i.i.i = load ptr, ptr %pos.059.i, align 8
+  %8 = getelementptr i8, ptr %pos.059.i, i64 8
   %node.val6.i.i.i = load ptr, ptr %8, align 8
   %prev1.i.i.i.i.i = getelementptr inbounds i8, ptr %node.val.i.i.i, i64 8
   store ptr %node.val6.i.i.i, ptr %prev1.i.i.i.i.i, align 8
   store ptr %node.val.i.i.i, ptr %node.val6.i.i.i, align 8
-  tail call void @free(ptr noundef nonnull %add.ptr.le66.i) #10
+  tail call void @free(ptr noundef nonnull %obj_req.151.i) #10
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %buf.i)
   br label %return
 
 while.cond20.preheader.i:                         ; preds = %while.body.i, %while.cond.preheader.i
   %.lcssa.i = phi i32 [ %5, %while.cond.preheader.i ], [ %9, %while.body.i ]
-  %cmp2271.i = icmp eq i32 %.lcssa.i, 2
-  br i1 %cmp2271.i, label %while.body23.lr.ph.i, label %while.end25.i
+  %cmp2262.i = icmp eq i32 %.lcssa.i, 2
+  br i1 %cmp2262.i, label %while.body23.lr.ph.i, label %while.end25.i
 
 while.body23.lr.ph.i:                             ; preds = %while.cond20.preheader.i
-  %req24.i = getelementptr inbounds i8, ptr %pos.064.i.lcssa.sink, i64 -8
+  %req24.i = getelementptr inbounds i8, ptr %pos.059.i, i64 -8
   br label %while.body23.i
 
 while.body.i:                                     ; preds = %while.cond.preheader.i, %while.body.i
@@ -237,12 +224,12 @@ while.body23.i:                                   ; preds = %while.body23.i, %wh
   %slot.i = getelementptr inbounds i8, ptr %10, i64 2944
   %11 = load ptr, ptr %slot.i, align 8
   tail call void @run_active_slot(ptr noundef %11) #10
-  %.pr58.i = load i32, ptr %state.i, align 8
-  %cmp22.i = icmp eq i32 %.pr58.i, 2
+  %.pr53.i = load i32, ptr %state.i, align 8
+  %cmp22.i = icmp eq i32 %.pr53.i, 2
   br i1 %cmp22.i, label %while.body23.i, label %while.end25.i, !llvm.loop !9
 
 while.end25.i:                                    ; preds = %while.body23.i, %while.cond20.preheader.i
-  %req26.i = getelementptr inbounds i8, ptr %pos.064.i.lcssa.sink, i64 -8
+  %req26.i = getelementptr inbounds i8, ptr %pos.059.i, i64 -8
   %12 = load ptr, ptr %req26.i, align 8
   %localfile.i = getelementptr inbounds i8, ptr %12, i64 32
   %13 = load i32, ptr %localfile.i, align 8
@@ -316,41 +303,31 @@ if.then60.i:                                      ; preds = %if.else57.i
 
 if.else63.i:                                      ; preds = %if.else57.i
   %real_oid.i = getelementptr inbounds i8, ptr %12, i64 340
-  %algo.i.i = getelementptr inbounds i8, ptr %pos.064.i.lcssa.sink, i64 -32
+  %algo.i.i = getelementptr inbounds i8, ptr %pos.059.i, i64 -32
   %21 = load i32, ptr %algo.i.i, align 4
   %tobool.not.i.i = icmp eq i32 %21, 0
   br i1 %tobool.not.i.i, label %if.then.i.i, label %if.else.i.i
 
 if.then.i.i:                                      ; preds = %if.else63.i
   %22 = load ptr, ptr @the_repository, align 8
-  %hash_algo.i51.i = getelementptr inbounds i8, ptr %22, i64 256
-  %23 = load ptr, ptr %hash_algo.i51.i, align 8
-  br label %if.end.i.i
+  %hash_algo.i47.i = getelementptr inbounds i8, ptr %22, i64 256
+  %23 = load ptr, ptr %hash_algo.i47.i, align 8
+  br label %oideq.exit.i
 
 if.else.i.i:                                      ; preds = %if.else63.i
   %idxprom.i.i = sext i32 %21 to i64
   %arrayidx.i.i = getelementptr inbounds [3 x %struct.git_hash_algo], ptr @hash_algos, i64 0, i64 %idxprom.i.i
-  br label %if.end.i.i
+  br label %oideq.exit.i
 
-if.end.i.i:                                       ; preds = %if.else.i.i, %if.then.i.i
+oideq.exit.i:                                     ; preds = %if.else.i.i, %if.then.i.i
   %algop.0.i.i = phi ptr [ %arrayidx.i.i, %if.else.i.i ], [ %23, %if.then.i.i ]
   %24 = getelementptr i8, ptr %algop.0.i.i, i64 16
   %algop.0.val.i.i = load i64, ptr %24, align 8
-  %cmp.i.i43.i = icmp eq i64 %algop.0.val.i.i, 32
-  br i1 %cmp.i.i43.i, label %if.then.i.i49.i, label %if.end.i.i44.i
-
-if.then.i.i49.i:                                  ; preds = %if.end.i.i
-  %bcmp3.i.i50.i = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(32) %oid9.i, ptr noundef nonnull readonly dereferenceable(32) %real_oid.i, i64 32)
-  br label %oideq.exit.i
-
-if.end.i.i44.i:                                   ; preds = %if.end.i.i
-  %bcmp.i.i45.i = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(20) %oid9.i, ptr noundef nonnull readonly dereferenceable(20) %real_oid.i, i64 20)
-  br label %oideq.exit.i
-
-oideq.exit.i:                                     ; preds = %if.end.i.i44.i, %if.then.i.i49.i
-  %retval.0.in.in.i.i46.i = phi i32 [ %bcmp3.i.i50.i, %if.then.i.i49.i ], [ %bcmp.i.i45.i, %if.end.i.i44.i ]
-  %retval.0.in.i.i47.not.i = icmp eq i32 %retval.0.in.in.i.i46.i, 0
-  br i1 %retval.0.in.i.i47.not.i, label %if.else70.i, label %if.then67.i
+  %cmp.i.i42.i = icmp eq i64 %algop.0.val.i.i, 32
+  %..i.i43.i = select i1 %cmp.i.i42.i, i64 32, i64 20
+  %bcmp.i.i44.i = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(20) %oid.i, ptr noundef nonnull readonly dereferenceable(20) %real_oid.i, i64 %..i.i43.i)
+  %retval.0.in.i.i45.not.i = icmp eq i32 %bcmp.i.i44.i, 0
+  br i1 %retval.0.in.i.i45.not.i, label %if.else70.i, label %if.then67.i
 
 if.then67.i:                                      ; preds = %oideq.exit.i
   %call68.i = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.5, ptr noundef %call.i) #10
@@ -384,53 +361,53 @@ land.lhs.true.i.i:                                ; preds = %if.end83.i
   %localfile.i.i = getelementptr inbounds i8, ptr %29, i64 32
   %30 = load i32, ptr %localfile.i.i, align 8
   %cmp2.not.i.i = icmp eq i32 %30, -1
-  br i1 %cmp2.not.i.i, label %release_object_request.exit.i, label %if.then.i52.i
+  br i1 %cmp2.not.i.i, label %release_object_request.exit.i, label %if.then.i48.i
 
-if.then.i52.i:                                    ; preds = %land.lhs.true.i.i
+if.then.i48.i:                                    ; preds = %land.lhs.true.i.i
   %call.i.i = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.7, i32 noundef %30) #10
   br label %release_object_request.exit.i
 
-release_object_request.exit.i:                    ; preds = %if.then.i52.i, %land.lhs.true.i.i, %if.end83.i
-  %node.val.i.i = load ptr, ptr %pos.064.i.lcssa.sink, align 8
-  %31 = getelementptr i8, ptr %pos.064.i.lcssa.sink, i64 8
+release_object_request.exit.i:                    ; preds = %if.then.i48.i, %land.lhs.true.i.i, %if.end83.i
+  %node.val.i.i = load ptr, ptr %pos.059.i, align 8
+  %31 = getelementptr i8, ptr %pos.059.i, i64 8
   %node.val6.i.i = load ptr, ptr %31, align 8
   %prev1.i.i.i.i = getelementptr inbounds i8, ptr %node.val.i.i, i64 8
   store ptr %node.val6.i.i, ptr %prev1.i.i.i.i, align 8
   store ptr %node.val.i.i, ptr %node.val6.i.i, align 8
-  call void @free(ptr noundef nonnull %add.ptr.le66.i) #10
+  call void @free(ptr noundef nonnull %obj_req.151.i) #10
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %buf.i)
   br i1 %28, label %return, label %while.cond.preheader
 
 while.cond.preheader:                             ; preds = %release_object_request.exit.i, %if.then5.i
-  %tobool2.not26 = icmp eq ptr %1, null
-  br i1 %tobool2.not26, label %while.end, label %while.body.lr.ph
+  %tobool2.not22 = icmp eq ptr %1, null
+  br i1 %tobool2.not22, label %while.end, label %while.body.lr.ph
 
 while.body.lr.ph:                                 ; preds = %while.cond.preheader
   %get_verbosely.i.i = getelementptr inbounds i8, ptr %walker, i64 40
   br label %while.body
 
 while.body:                                       ; preds = %while.body.lr.ph, %if.end6
-  %altbase.027 = phi ptr [ %1, %while.body.lr.ph ], [ %49, %if.end6 ]
+  %altbase.023 = phi ptr [ %1, %while.body.lr.ph ], [ %49, %if.end6 ]
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %results.i)
-  %got_indices.i.i = getelementptr inbounds i8, ptr %altbase.027, i64 8
+  %got_indices.i.i = getelementptr inbounds i8, ptr %altbase.023, i64 8
   %32 = load i32, ptr %got_indices.i.i, align 8
   %tobool.not.i.i10 = icmp eq i32 %32, 0
-  br i1 %tobool.not.i.i10, label %if.end.i.i17, label %if.end.i
+  br i1 %tobool.not.i.i10, label %if.end.i.i, label %if.end.i
 
-if.end.i.i17:                                     ; preds = %while.body
+if.end.i.i:                                       ; preds = %while.body
   %33 = load i32, ptr %get_verbosely.i.i, align 8
   %tobool1.not.i.i = icmp eq i32 %33, 0
   br i1 %tobool1.not.i.i, label %fetch_indices.exit.i, label %if.then2.i.i
 
-if.then2.i.i:                                     ; preds = %if.end.i.i17
+if.then2.i.i:                                     ; preds = %if.end.i.i
   %34 = load ptr, ptr @stderr, align 8
-  %35 = load ptr, ptr %altbase.027, align 8
-  %call.i.i18 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %34, ptr noundef nonnull @.str.12, ptr noundef %35) #12
+  %35 = load ptr, ptr %altbase.023, align 8
+  %call.i.i17 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %34, ptr noundef nonnull @.str.12, ptr noundef %35) #12
   br label %fetch_indices.exit.i
 
-fetch_indices.exit.i:                             ; preds = %if.then2.i.i, %if.end.i.i17
-  %36 = load ptr, ptr %altbase.027, align 8
-  %packs.i.i = getelementptr inbounds i8, ptr %altbase.027, i64 16
+fetch_indices.exit.i:                             ; preds = %if.then2.i.i, %if.end.i.i
+  %36 = load ptr, ptr %altbase.023, align 8
+  %packs.i.i = getelementptr inbounds i8, ptr %altbase.023, i64 16
   %call5.i.i = call i32 @http_get_info_packs(ptr noundef %36, ptr noundef nonnull %packs.i.i) #10
   %switch.i.i = icmp ult i32 %call5.i.i, 2
   %..i.i = zext i1 %switch.i.i to i32
@@ -438,7 +415,7 @@ fetch_indices.exit.i:                             ; preds = %if.then2.i.i, %if.e
   br i1 %switch.i.i, label %if.end.i, label %if.end6
 
 if.end.i:                                         ; preds = %fetch_indices.exit.i, %while.body
-  %packs.i = getelementptr inbounds i8, ptr %altbase.027, i64 16
+  %packs.i = getelementptr inbounds i8, ptr %altbase.023, i64 16
   %37 = load ptr, ptr %packs.i, align 8
   %call1.i = call ptr @find_sha1_pack(ptr noundef %hash, ptr noundef %37) #10
   %tobool2.not.i = icmp eq ptr %call1.i, null
@@ -462,7 +439,7 @@ if.then6.i:                                       ; preds = %if.end4.i
 
 if.end11.i:                                       ; preds = %if.then6.i, %if.end4.i
   %hash12.i = getelementptr inbounds i8, ptr %call1.i, i64 153
-  %41 = load ptr, ptr %altbase.027, align 8
+  %41 = load ptr, ptr %altbase.023, align 8
   %call14.i = call ptr @new_http_pack_request(ptr noundef nonnull %hash12.i, ptr noundef %41) #10
   %tobool15.not.i = icmp eq ptr %call14.i, null
   br i1 %tobool15.not.i, label %if.end6, label %if.end17.i12
@@ -500,7 +477,7 @@ if.end30.i:                                       ; preds = %if.then22.i
   br i1 %tobool32.not.i, label %http_fetch_pack.exit, label %if.end6
 
 http_fetch_pack.exit:                             ; preds = %if.end30.i
-  %packs.i.le = getelementptr inbounds i8, ptr %altbase.027, i64 16
+  %packs.i.le = getelementptr inbounds i8, ptr %altbase.023, i64 16
   call void @http_install_packfile(ptr noundef nonnull %call1.i, ptr noundef nonnull %packs.i.le) #10
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %results.i)
   br label %return
@@ -510,7 +487,7 @@ if.end6:                                          ; preds = %fetch_indices.exit.
   %47 = load ptr, ptr %alt, align 8
   %48 = load ptr, ptr %47, align 8
   call fastcc void @fetch_alternates(ptr noundef nonnull %walker, ptr noundef %48)
-  %next = getelementptr inbounds i8, ptr %altbase.027, i64 24
+  %next = getelementptr inbounds i8, ptr %altbase.023, i64 24
   %49 = load ptr, ptr %next, align 8
   %tobool2.not = icmp eq ptr %49, null
   br i1 %tobool2.not, label %while.end, label %while.body, !llvm.loop !10

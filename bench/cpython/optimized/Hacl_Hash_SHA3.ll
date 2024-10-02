@@ -701,12 +701,6 @@ declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #9
 define hidden noalias noundef ptr @Hacl_Streaming_Keccak_copy(ptr nocapture noundef readonly %s0) local_unnamed_addr #0 {
 entry:
   %scrut0.sroa.0.0.copyload = load i64, ptr %s0, align 8
-  %scrut0.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %s0, i64 8
-  %scrut0.sroa.2.0.copyload = load ptr, ptr %scrut0.sroa.2.0..sroa_idx, align 8
-  %scrut0.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %s0, i64 16
-  %scrut0.sroa.3.0.copyload = load ptr, ptr %scrut0.sroa.3.0..sroa_idx, align 8
-  %scrut0.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %s0, i64 24
-  %scrut0.sroa.4.0.copyload = load i64, ptr %scrut0.sroa.4.0..sroa_idx, align 8
   %block_state0.sroa.0.sroa.0.0.extract.trunc = trunc i64 %scrut0.sroa.0.0.copyload to i8
   %block_state0.sroa.0.sroa.0.0.extract.trunc.off = add i8 %block_state0.sroa.0.sroa.0.0.extract.trunc, -8
   %switch = icmp ult i8 %block_state0.sroa.0.sroa.0.0.extract.trunc.off, 6
@@ -719,46 +713,18 @@ sw.default.i:                                     ; preds = %entry
   unreachable
 
 block_len.exit:                                   ; preds = %entry
-  switch i8 %block_state0.sroa.0.sroa.0.0.extract.trunc, label %default.unreachable [
-    i8 9, label %block_len.exit22.thread
-    i8 8, label %sw.bb1.i28
-    i8 10, label %sw.bb2.i27
-    i8 11, label %sw.bb3.i26
-    i8 12, label %sw.bb4.i25
-    i8 13, label %sw.bb5.i23
-  ]
-
-block_len.exit22.thread:                          ; preds = %block_len.exit
-  %call534 = tail call noalias dereferenceable_or_null(144) ptr @calloc(i64 noundef 144, i64 noundef 1) #16
-  br label %block_len.exit31
-
-default.unreachable:                              ; preds = %block_len.exit
-  unreachable
-
-sw.bb1.i28:                                       ; preds = %block_len.exit
-  %call539 = tail call noalias dereferenceable_or_null(136) ptr @calloc(i64 noundef 136, i64 noundef 1) #16
-  br label %block_len.exit31
-
-sw.bb2.i27:                                       ; preds = %block_len.exit
-  %call544 = tail call noalias dereferenceable_or_null(104) ptr @calloc(i64 noundef 104, i64 noundef 1) #16
-  br label %block_len.exit31
-
-sw.bb3.i26:                                       ; preds = %block_len.exit
-  %call549 = tail call noalias dereferenceable_or_null(72) ptr @calloc(i64 noundef 72, i64 noundef 1) #16
-  br label %block_len.exit31
-
-sw.bb4.i25:                                       ; preds = %block_len.exit
-  %call554 = tail call noalias dereferenceable_or_null(168) ptr @calloc(i64 noundef 168, i64 noundef 1) #16
-  br label %block_len.exit31
-
-sw.bb5.i23:                                       ; preds = %block_len.exit
-  %call5 = tail call noalias dereferenceable_or_null(136) ptr @calloc(i64 noundef 136, i64 noundef 1) #16
-  br label %block_len.exit31
-
-block_len.exit31:                                 ; preds = %block_len.exit22.thread, %sw.bb1.i28, %sw.bb2.i27, %sw.bb3.i26, %sw.bb4.i25, %sw.bb5.i23
-  %call535 = phi ptr [ %call5, %sw.bb5.i23 ], [ %call554, %sw.bb4.i25 ], [ %call549, %sw.bb3.i26 ], [ %call544, %sw.bb2.i27 ], [ %call539, %sw.bb1.i28 ], [ %call534, %block_len.exit22.thread ]
-  %retval.0.i24 = phi i64 [ 136, %sw.bb5.i23 ], [ 168, %sw.bb4.i25 ], [ 72, %sw.bb3.i26 ], [ 104, %sw.bb2.i27 ], [ 136, %sw.bb1.i28 ], [ 144, %block_len.exit22.thread ]
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %call535, ptr noundef nonnull align 1 dereferenceable(1) %scrut0.sroa.3.0.copyload, i64 %retval.0.i24, i1 false)
+  %scrut0.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %s0, i64 24
+  %scrut0.sroa.4.0.copyload = load i64, ptr %scrut0.sroa.4.0..sroa_idx, align 8
+  %scrut0.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %s0, i64 16
+  %scrut0.sroa.3.0.copyload = load ptr, ptr %scrut0.sroa.3.0..sroa_idx, align 8
+  %scrut0.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %s0, i64 8
+  %scrut0.sroa.2.0.copyload = load ptr, ptr %scrut0.sroa.2.0..sroa_idx, align 8
+  %switch.tableidx = add i64 %scrut0.sroa.0.0.copyload, 248
+  %1 = and i64 %switch.tableidx, 255
+  %switch.gep = getelementptr inbounds [6 x i64], ptr @switch.table.finish_, i64 0, i64 %1
+  %switch.load = load i64, ptr %switch.gep, align 8
+  %call534 = tail call noalias dereferenceable_or_null(72) ptr @calloc(i64 noundef %switch.load, i64 noundef 1) #16
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %call534, ptr noundef nonnull align 1 dereferenceable(1) %scrut0.sroa.3.0.copyload, i64 %switch.load, i1 false)
   %call9 = tail call noalias dereferenceable_or_null(200) ptr @calloc(i64 noundef 25, i64 noundef 8) #16
   %block_state0.sroa.0.sroa.0.0.insert.ext = and i64 %scrut0.sroa.0.0.copyload, 255
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(200) %call9, ptr noundef nonnull align 8 dereferenceable(200) %scrut0.sroa.2.0.copyload, i64 200, i1 false)
@@ -767,7 +733,7 @@ block_len.exit31:                                 ; preds = %block_len.exit22.th
   %s.sroa.0.sroa.2.0.arrayidx.sroa_idx = getelementptr inbounds i8, ptr %call21, i64 8
   store ptr %call9, ptr %s.sroa.0.sroa.2.0.arrayidx.sroa_idx, align 8
   %s.sroa.2.0.arrayidx.sroa_idx = getelementptr inbounds i8, ptr %call21, i64 16
-  store ptr %call535, ptr %s.sroa.2.0.arrayidx.sroa_idx, align 8
+  store ptr %call534, ptr %s.sroa.2.0.arrayidx.sroa_idx, align 8
   %s.sroa.3.0.arrayidx.sroa_idx = getelementptr inbounds i8, ptr %call21, i64 24
   store i64 %scrut0.sroa.4.0.copyload, ptr %s.sroa.3.0.arrayidx.sroa_idx, align 8
   ret ptr %call21

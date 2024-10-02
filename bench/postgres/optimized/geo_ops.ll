@@ -20624,7 +20624,7 @@ define internal fastcc zeroext i1 @touched_lseg_inside_poly(ptr nocapture nounde
 
 point_eq_point.exit.thread.thread:                ; preds = %30
   %36 = getelementptr i8, ptr %2, i64 16
-  br label %57
+  br label %55
 
 point_eq_point.exit:                              ; preds = %30
   %37 = fcmp oeq double %12, %17
@@ -20636,7 +20636,7 @@ point_eq_point.exit:                              ; preds = %30
 
 .thread:                                          ; preds = %point_eq_point.exit
   %42 = getelementptr i8, ptr %2, i64 16
-  br label %57
+  br label %55
 
 43:                                               ; preds = %22, %point_eq_point.exit
   %44 = getelementptr i8, ptr %2, i64 16
@@ -20649,126 +20649,115 @@ point_eq_point.exit:                              ; preds = %30
   %51 = tail call double @llvm.fabs.f64(double %50)
   %52 = fcmp ole double %51, 0x3EB0C6F7A0B5ED8D
   %53 = or i1 %49, %52
-  br i1 %53, label %54, label %125
-
-54:                                               ; preds = %43
-  %55 = tail call fastcc zeroext i1 @lseg_inside_poly(ptr noundef nonnull %1, ptr noundef %44, ptr noundef %3, i32 noundef %4)
-  br label %125
+  br i1 %53, label %.sink.split, label %118
 
 point_eq_point.exit.thread:                       ; preds = %.critedge.i, %22
-  %56 = getelementptr i8, ptr %2, i64 16
+  %54 = getelementptr i8, ptr %2, i64 16
   br i1 %9, label %..critedge_crit_edge.i32, label %point_eq_point.exit.thread._crit_edge
 
 point_eq_point.exit.thread._crit_edge:            ; preds = %point_eq_point.exit.thread
   %.phi.trans.insert = getelementptr inbounds i8, ptr %0, i64 8
   %.pre = load double, ptr %.phi.trans.insert, align 8
-  br label %57
+  br label %55
 
 ..critedge_crit_edge.i32:                         ; preds = %point_eq_point.exit.thread
-  %.pre.i33 = load double, ptr %56, align 8
+  %.pre.i33 = load double, ptr %54, align 8
   br label %.critedge.i29
 
-57:                                               ; preds = %point_eq_point.exit.thread._crit_edge, %point_eq_point.exit.thread.thread, %.thread
-  %58 = phi double [ %12, %.thread ], [ %.pre, %point_eq_point.exit.thread._crit_edge ], [ %12, %point_eq_point.exit.thread.thread ]
-  %59 = phi ptr [ %42, %.thread ], [ %56, %point_eq_point.exit.thread._crit_edge ], [ %36, %point_eq_point.exit.thread.thread ]
-  %60 = fcmp uno double %58, 0.000000e+00
-  %.pre14.i26 = load double, ptr %59, align 8
-  %61 = fcmp uno double %.pre14.i26, 0.000000e+00
-  %or.cond.i27 = select i1 %60, i1 true, i1 %61
-  br i1 %or.cond.i27, label %.critedge.i29, label %62
+55:                                               ; preds = %point_eq_point.exit.thread._crit_edge, %point_eq_point.exit.thread.thread, %.thread
+  %56 = phi double [ %12, %.thread ], [ %.pre, %point_eq_point.exit.thread._crit_edge ], [ %12, %point_eq_point.exit.thread.thread ]
+  %57 = phi ptr [ %42, %.thread ], [ %54, %point_eq_point.exit.thread._crit_edge ], [ %36, %point_eq_point.exit.thread.thread ]
+  %58 = fcmp uno double %56, 0.000000e+00
+  %.pre14.i26 = load double, ptr %57, align 8
+  %59 = fcmp uno double %.pre14.i26, 0.000000e+00
+  %or.cond.i27 = select i1 %58, i1 true, i1 %59
+  br i1 %or.cond.i27, label %.critedge.i29, label %60
 
-62:                                               ; preds = %57
-  %63 = getelementptr i8, ptr %2, i64 24
-  %64 = load double, ptr %63, align 8
-  %65 = fcmp uno double %64, 0.000000e+00
-  br i1 %65, label %.critedge.i29, label %78
+60:                                               ; preds = %55
+  %61 = getelementptr i8, ptr %2, i64 24
+  %62 = load double, ptr %61, align 8
+  %63 = fcmp uno double %62, 0.000000e+00
+  br i1 %63, label %.critedge.i29, label %76
 
-.critedge.i29:                                    ; preds = %62, %57, %..critedge_crit_edge.i32
-  %66 = phi ptr [ %56, %..critedge_crit_edge.i32 ], [ %59, %57 ], [ %59, %62 ]
-  %67 = phi double [ %.pre.i33, %..critedge_crit_edge.i32 ], [ %.pre14.i26, %57 ], [ %.pre14.i26, %62 ]
-  %68 = fcmp uno double %67, 0.000000e+00
-  %69 = fcmp oeq double %8, %67
-  %.in.i.i30 = select i1 %9, i1 %68, i1 %69
-  br i1 %.in.i.i30, label %70, label %point_eq_point.exit34.thread
+.critedge.i29:                                    ; preds = %60, %55, %..critedge_crit_edge.i32
+  %64 = phi ptr [ %54, %..critedge_crit_edge.i32 ], [ %57, %55 ], [ %57, %60 ]
+  %65 = phi double [ %.pre.i33, %..critedge_crit_edge.i32 ], [ %.pre14.i26, %55 ], [ %.pre14.i26, %60 ]
+  %66 = fcmp uno double %65, 0.000000e+00
+  %67 = fcmp oeq double %8, %65
+  %.in.i.i30 = select i1 %9, i1 %66, i1 %67
+  br i1 %.in.i.i30, label %68, label %point_eq_point.exit34.thread
 
-70:                                               ; preds = %.critedge.i29
-  %71 = getelementptr inbounds i8, ptr %0, i64 8
+68:                                               ; preds = %.critedge.i29
+  %69 = getelementptr inbounds i8, ptr %0, i64 8
+  %70 = load double, ptr %69, align 8
+  %71 = getelementptr inbounds i8, ptr %64, i64 8
   %72 = load double, ptr %71, align 8
-  %73 = getelementptr inbounds i8, ptr %66, i64 8
-  %74 = load double, ptr %73, align 8
-  %75 = fcmp uno double %72, 0.000000e+00
-  %76 = fcmp uno double %74, 0.000000e+00
-  %77 = fcmp oeq double %72, %74
-  %.in.i13.i31 = select i1 %75, i1 %76, i1 %77
-  br i1 %.in.i13.i31, label %89, label %point_eq_point.exit34.thread
+  %73 = fcmp uno double %70, 0.000000e+00
+  %74 = fcmp uno double %72, 0.000000e+00
+  %75 = fcmp oeq double %70, %72
+  %.in.i13.i31 = select i1 %73, i1 %74, i1 %75
+  br i1 %.in.i13.i31, label %87, label %point_eq_point.exit34.thread
 
-78:                                               ; preds = %62
-  %79 = fcmp oeq double %8, %.pre14.i26
-  %80 = fsub double %8, %.pre14.i26
-  %81 = tail call double @llvm.fabs.f64(double %80)
-  %82 = fcmp ole double %81, 0x3EB0C6F7A0B5ED8D
-  %83 = or i1 %79, %82
-  br i1 %83, label %point_eq_point.exit34, label %point_eq_point.exit34.thread
+76:                                               ; preds = %60
+  %77 = fcmp oeq double %8, %.pre14.i26
+  %78 = fsub double %8, %.pre14.i26
+  %79 = tail call double @llvm.fabs.f64(double %78)
+  %80 = fcmp ole double %79, 0x3EB0C6F7A0B5ED8D
+  %81 = or i1 %77, %80
+  br i1 %81, label %point_eq_point.exit34, label %point_eq_point.exit34.thread
 
-point_eq_point.exit34:                            ; preds = %78
-  %84 = fcmp oeq double %58, %64
-  %85 = fsub double %58, %64
-  %86 = tail call double @llvm.fabs.f64(double %85)
-  %87 = fcmp ole double %86, 0x3EB0C6F7A0B5ED8D
-  %88 = or i1 %84, %87
-  br i1 %88, label %89, label %point_eq_point.exit34.thread
+point_eq_point.exit34:                            ; preds = %76
+  %82 = fcmp oeq double %56, %62
+  %83 = fsub double %56, %62
+  %84 = tail call double @llvm.fabs.f64(double %83)
+  %85 = fcmp ole double %84, 0x3EB0C6F7A0B5ED8D
+  %86 = or i1 %82, %85
+  br i1 %86, label %87, label %point_eq_point.exit34.thread
 
-89:                                               ; preds = %70, %point_eq_point.exit34
-  %90 = call fastcc double @point_dt(ptr noundef nonnull readonly %2, ptr noundef nonnull readonly %6)
-  %91 = call fastcc double @point_dt(ptr noundef nonnull readonly %2, ptr noundef nonnull readonly %7)
-  %92 = fadd double %90, %91
-  %93 = call fastcc double @point_dt(ptr noundef nonnull readonly %6, ptr noundef nonnull readonly %7)
-  %94 = fcmp oeq double %92, %93
-  %95 = fsub double %92, %93
-  %96 = tail call double @llvm.fabs.f64(double %95)
-  %97 = fcmp ole double %96, 0x3EB0C6F7A0B5ED8D
-  %98 = or i1 %94, %97
-  br i1 %98, label %99, label %125
+87:                                               ; preds = %68, %point_eq_point.exit34
+  %88 = call fastcc double @point_dt(ptr noundef nonnull readonly %2, ptr noundef nonnull readonly %6)
+  %89 = call fastcc double @point_dt(ptr noundef nonnull readonly %2, ptr noundef nonnull readonly %7)
+  %90 = fadd double %88, %89
+  %91 = call fastcc double @point_dt(ptr noundef nonnull readonly %6, ptr noundef nonnull readonly %7)
+  %92 = fcmp oeq double %90, %91
+  %93 = fsub double %90, %91
+  %94 = tail call double @llvm.fabs.f64(double %93)
+  %95 = fcmp ole double %94, 0x3EB0C6F7A0B5ED8D
+  %96 = or i1 %92, %95
+  br i1 %96, label %.sink.split, label %118
 
-99:                                               ; preds = %89
-  %100 = tail call fastcc zeroext i1 @lseg_inside_poly(ptr noundef nonnull %1, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %4)
-  br label %125
+point_eq_point.exit34.thread:                     ; preds = %76, %.critedge.i29, %68, %point_eq_point.exit34
+  %97 = phi ptr [ %57, %point_eq_point.exit34 ], [ %64, %68 ], [ %57, %76 ], [ %64, %.critedge.i29 ]
+  %98 = call fastcc double @point_dt(ptr noundef nonnull readonly %2, ptr noundef nonnull readonly %6)
+  %99 = call fastcc double @point_dt(ptr noundef nonnull readonly %2, ptr noundef nonnull readonly %7)
+  %100 = fadd double %98, %99
+  %101 = call fastcc double @point_dt(ptr noundef nonnull readonly %6, ptr noundef nonnull readonly %7)
+  %102 = fcmp oeq double %100, %101
+  %103 = fsub double %100, %101
+  %104 = tail call double @llvm.fabs.f64(double %103)
+  %105 = fcmp ole double %104, 0x3EB0C6F7A0B5ED8D
+  %106 = or i1 %102, %105
+  br i1 %106, label %.sink.split, label %107
 
-point_eq_point.exit34.thread:                     ; preds = %78, %.critedge.i29, %70, %point_eq_point.exit34
-  %101 = phi ptr [ %59, %point_eq_point.exit34 ], [ %66, %70 ], [ %59, %78 ], [ %66, %.critedge.i29 ]
-  %102 = call fastcc double @point_dt(ptr noundef nonnull readonly %2, ptr noundef nonnull readonly %6)
-  %103 = call fastcc double @point_dt(ptr noundef nonnull readonly %2, ptr noundef nonnull readonly %7)
-  %104 = fadd double %102, %103
-  %105 = call fastcc double @point_dt(ptr noundef nonnull readonly %6, ptr noundef nonnull readonly %7)
-  %106 = fcmp oeq double %104, %105
-  %107 = fsub double %104, %105
-  %108 = tail call double @llvm.fabs.f64(double %107)
-  %109 = fcmp ole double %108, 0x3EB0C6F7A0B5ED8D
-  %110 = or i1 %106, %109
-  br i1 %110, label %111, label %113
+107:                                              ; preds = %point_eq_point.exit34.thread
+  %108 = call fastcc double @point_dt(ptr noundef readonly %97, ptr noundef nonnull readonly %6)
+  %109 = call fastcc double @point_dt(ptr noundef readonly %97, ptr noundef nonnull readonly %7)
+  %110 = fadd double %108, %109
+  %111 = call fastcc double @point_dt(ptr noundef nonnull readonly %6, ptr noundef nonnull readonly %7)
+  %112 = fcmp oeq double %110, %111
+  %113 = fsub double %110, %111
+  %114 = tail call double @llvm.fabs.f64(double %113)
+  %115 = fcmp ole double %114, 0x3EB0C6F7A0B5ED8D
+  %116 = or i1 %112, %115
+  br i1 %116, label %.sink.split, label %118
 
-111:                                              ; preds = %point_eq_point.exit34.thread
-  %112 = tail call fastcc zeroext i1 @lseg_inside_poly(ptr noundef nonnull %1, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %4)
-  br label %125
+.sink.split:                                      ; preds = %107, %point_eq_point.exit34.thread, %87, %43
+  %.sink = phi ptr [ %44, %43 ], [ %2, %87 ], [ %2, %point_eq_point.exit34.thread ], [ %97, %107 ]
+  %117 = tail call fastcc zeroext i1 @lseg_inside_poly(ptr noundef nonnull %1, ptr noundef %.sink, ptr noundef %3, i32 noundef %4)
+  br label %118
 
-113:                                              ; preds = %point_eq_point.exit34.thread
-  %114 = call fastcc double @point_dt(ptr noundef readonly %101, ptr noundef nonnull readonly %6)
-  %115 = call fastcc double @point_dt(ptr noundef readonly %101, ptr noundef nonnull readonly %7)
-  %116 = fadd double %114, %115
-  %117 = call fastcc double @point_dt(ptr noundef nonnull readonly %6, ptr noundef nonnull readonly %7)
-  %118 = fcmp oeq double %116, %117
-  %119 = fsub double %116, %117
-  %120 = tail call double @llvm.fabs.f64(double %119)
-  %121 = fcmp ole double %120, 0x3EB0C6F7A0B5ED8D
-  %122 = or i1 %118, %121
-  br i1 %122, label %123, label %125
-
-123:                                              ; preds = %113
-  %124 = tail call fastcc zeroext i1 @lseg_inside_poly(ptr noundef nonnull %1, ptr noundef %101, ptr noundef %3, i32 noundef %4)
-  br label %125
-
-125:                                              ; preds = %43, %113, %89, %123, %111, %99, %54
-  %.0 = phi i1 [ %55, %54 ], [ %100, %99 ], [ %112, %111 ], [ %124, %123 ], [ true, %89 ], [ true, %113 ], [ true, %43 ]
+118:                                              ; preds = %.sink.split, %43, %107, %87
+  %.0 = phi i1 [ true, %87 ], [ true, %107 ], [ true, %43 ], [ %117, %.sink.split ]
   ret i1 %.0
 }
 

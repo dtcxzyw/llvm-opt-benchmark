@@ -4285,16 +4285,16 @@ vnc_flush.exit:                                   ; preds = %if.end.i, %if.end6.
   store ptr @protocol_client_init, ptr %read_handler.i.i, align 8
   %read_handler_expect.i.i = getelementptr inbounds i8, ptr %vs, i64 49488
   store i64 1, ptr %read_handler_expect.i.i, align 8
-  call void @qcrypto_cipher_free(ptr noundef nonnull %call17) #25
   br label %return
 
 reject:                                           ; preds = %trace_vnc_auth_fail.exit88, %trace_vnc_auth_fail.exit73, %trace_vnc_auth_fail.exit58, %trace_vnc_auth_fail.exit43, %trace_vnc_auth_fail.exit
   %cipher.0 = phi ptr [ null, %trace_vnc_auth_fail.exit43 ], [ %call17, %trace_vnc_auth_fail.exit73 ], [ %call17, %trace_vnc_auth_fail.exit88 ], [ null, %trace_vnc_auth_fail.exit58 ], [ null, %trace_vnc_auth_fail.exit ]
   call fastcc void @authentication_failed(ptr noundef nonnull %vs)
-  call void @qcrypto_cipher_free(ptr noundef %cipher.0) #25
   br label %return
 
 return:                                           ; preds = %reject, %vnc_flush.exit
+  %cipher.0.sink = phi ptr [ %cipher.0, %reject ], [ %call17, %vnc_flush.exit ]
+  call void @qcrypto_cipher_free(ptr noundef %cipher.0.sink) #25
   ret i32 0
 }
 
@@ -5104,7 +5104,7 @@ if.end:                                           ; preds = %for.inc.i, %for.con
   store i64 9223372036854775807, ptr %expires, align 8
   %3 = load ptr, ptr @keyboard_layout, align 8
   %tobool.not = icmp eq ptr %3, null
-  br i1 %tobool.not, label %if.else, label %if.then11
+  br i1 %tobool.not, label %if.end15, label %if.then11
 
 if.then11:                                        ; preds = %if.end
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i)
@@ -5142,18 +5142,14 @@ if.else.i.i:                                      ; preds = %if.then.i.i
 trace_vnc_key_map_init.exit:                      ; preds = %if.then11, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i)
   %10 = load ptr, ptr @keyboard_layout, align 8
-  %call12 = tail call ptr @init_keyboard_layout(ptr noundef nonnull @name2keysym, ptr noundef %10, ptr noundef %errp) #25
   br label %if.end15
 
-if.else:                                          ; preds = %if.end
-  %call13 = tail call ptr @init_keyboard_layout(ptr noundef nonnull @name2keysym, ptr noundef nonnull @.str.11, ptr noundef %errp) #25
-  br label %if.end15
-
-if.end15:                                         ; preds = %if.else, %trace_vnc_key_map_init.exit
-  %call13.sink = phi ptr [ %call13, %if.else ], [ %call12, %trace_vnc_key_map_init.exit ]
+if.end15:                                         ; preds = %if.end, %trace_vnc_key_map_init.exit
+  %.str.11.sink = phi ptr [ %10, %trace_vnc_key_map_init.exit ], [ @.str.11, %if.end ]
+  %call13 = tail call ptr @init_keyboard_layout(ptr noundef nonnull @name2keysym, ptr noundef %.str.11.sink, ptr noundef %errp) #25
   %kbd_layout14 = getelementptr inbounds i8, ptr %call1, i64 112
-  store ptr %call13.sink, ptr %kbd_layout14, align 8
-  %tobool17.not = icmp eq ptr %call13.sink, null
+  store ptr %call13, ptr %kbd_layout14, align 8
+  %tobool17.not = icmp eq ptr %call13, null
   br i1 %tobool17.not, label %return, label %if.end19
 
 if.end19:                                         ; preds = %if.end15
@@ -9906,8 +9902,6 @@ if.then3:                                         ; preds = %if.end
   %conv8 = zext i16 %10 to i32
   %mul = shl nuw nsw i32 %conv6, 2
   %mul9 = mul i32 %mul, %conv8
-  %conv10 = sext i32 %mul9 to i64
-  call void @vnc_write(ptr noundef nonnull %vs, ptr noundef nonnull %data, i64 noundef %conv10)
   br label %return.sink.split
 
 if.end11:                                         ; preds = %if.end
@@ -10003,12 +9997,14 @@ if.then14:                                        ; preds = %if.end11
   %21 = load ptr, ptr %cursor_mask, align 8
   %cursor_msize = getelementptr inbounds i8, ptr %20, i64 200
   %22 = load i32, ptr %cursor_msize, align 8
-  %conv32 = sext i32 %22 to i64
-  call void @vnc_write(ptr noundef nonnull %vs, ptr noundef %21, i64 noundef %conv32)
   br label %return.sink.split
 
 return.sink.split:                                ; preds = %if.then3, %if.then14
+  %.sink71 = phi i32 [ %22, %if.then14 ], [ %mul9, %if.then3 ]
+  %.sink = phi ptr [ %21, %if.then14 ], [ %data, %if.then3 ]
   %output_mutex.i41.sink = phi ptr [ %output_mutex.i41, %if.then14 ], [ %output_mutex.i, %if.then3 ]
+  %conv32 = sext i32 %.sink71 to i64
+  call void @vnc_write(ptr noundef nonnull %vs, ptr noundef %.sink, i64 noundef %conv32)
   call void @qemu_mutex_unlock_impl(ptr noundef nonnull %output_mutex.i41.sink, ptr noundef nonnull @.str.68, i32 noundef 65) #25
   br label %return
 

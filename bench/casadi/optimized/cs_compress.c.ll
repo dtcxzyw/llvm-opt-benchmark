@@ -6,13 +6,13 @@ target triple = "x86_64-pc-linux-gnu"
 ; Function Attrs: nounwind uwtable
 define ptr @cs_compress(ptr noundef readonly %0) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
-  br i1 %.not, label %64, label %2
+  br i1 %.not, label %62, label %2
 
 2:                                                ; preds = %1
   %3 = getelementptr inbounds i8, ptr %0, i64 40
   %4 = load i32, ptr %3, align 8
   %5 = icmp sgt i32 %4, -1
-  br i1 %5, label %6, label %64
+  br i1 %5, label %6, label %62
 
 6:                                                ; preds = %2
   %7 = getelementptr inbounds i8, ptr %0, i64 4
@@ -32,96 +32,93 @@ define ptr @cs_compress(ptr noundef readonly %0) local_unnamed_addr #0 {
   %21 = icmp ne ptr %19, null
   %22 = icmp ne ptr %20, null
   %or.cond = select i1 %21, i1 %22, i1 false
-  br i1 %or.cond, label %25, label %23
+  br i1 %or.cond, label %23, label %.sink.split
 
 23:                                               ; preds = %6
-  %24 = tail call ptr @cs_done(ptr noundef %19, ptr noundef %20, ptr noundef null, i32 noundef 0) #3
-  br label %64
-
-25:                                               ; preds = %6
-  %26 = getelementptr inbounds i8, ptr %19, i64 16
+  %24 = getelementptr inbounds i8, ptr %19, i64 16
+  %25 = load ptr, ptr %24, align 8
+  %26 = getelementptr inbounds i8, ptr %19, i64 24
   %27 = load ptr, ptr %26, align 8
-  %28 = getelementptr inbounds i8, ptr %19, i64 24
+  %28 = getelementptr inbounds i8, ptr %19, i64 32
   %29 = load ptr, ptr %28, align 8
-  %30 = getelementptr inbounds i8, ptr %19, i64 32
-  %31 = load ptr, ptr %30, align 8
   %.not58 = icmp eq i32 %4, 0
   br i1 %.not58, label %._crit_edge.thread, label %.lr.ph.preheader
 
-._crit_edge.thread:                               ; preds = %25
-  %32 = tail call double @cs_cumsum(ptr noundef %27, ptr noundef nonnull %20, i32 noundef %10) #3
-  br label %._crit_edge57
+._crit_edge.thread:                               ; preds = %23
+  %30 = tail call double @cs_cumsum(ptr noundef %25, ptr noundef nonnull %20, i32 noundef %10) #3
+  br label %.sink.split
 
-.lr.ph.preheader:                                 ; preds = %25
+.lr.ph.preheader:                                 ; preds = %23
   %wide.trip.count = zext nneg i32 %4 to i64
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %33 = getelementptr inbounds i32, ptr %14, i64 %indvars.iv
-  %34 = load i32, ptr %33, align 4
-  %35 = sext i32 %34 to i64
-  %36 = getelementptr inbounds i32, ptr %20, i64 %35
-  %37 = load i32, ptr %36, align 4
-  %38 = add nsw i32 %37, 1
-  store i32 %38, ptr %36, align 4
+  %31 = getelementptr inbounds i32, ptr %14, i64 %indvars.iv
+  %32 = load i32, ptr %31, align 4
+  %33 = sext i32 %32 to i64
+  %34 = getelementptr inbounds i32, ptr %20, i64 %33
+  %35 = load i32, ptr %34, align 4
+  %36 = add nsw i32 %35, 1
+  store i32 %36, ptr %34, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !4
 
 ._crit_edge:                                      ; preds = %.lr.ph
-  %39 = tail call double @cs_cumsum(ptr noundef %27, ptr noundef nonnull %20, i32 noundef %10) #3
-  %.not52 = icmp eq ptr %31, null
+  %37 = tail call double @cs_cumsum(ptr noundef %25, ptr noundef nonnull %20, i32 noundef %10) #3
+  %.not52 = icmp eq ptr %29, null
   %smax70 = tail call i32 @llvm.smax.i32(i32 %4, i32 1)
   %wide.trip.count71 = zext nneg i32 %smax70 to i64
   br i1 %.not52, label %.lr.ph56.split.us, label %.lr.ph56.split
 
 .lr.ph56.split.us:                                ; preds = %._crit_edge, %.lr.ph56.split.us
   %indvars.iv67 = phi i64 [ %indvars.iv.next68, %.lr.ph56.split.us ], [ 0, %._crit_edge ]
-  %40 = getelementptr inbounds i32, ptr %12, i64 %indvars.iv67
+  %38 = getelementptr inbounds i32, ptr %12, i64 %indvars.iv67
+  %39 = load i32, ptr %38, align 4
+  %40 = getelementptr inbounds i32, ptr %14, i64 %indvars.iv67
   %41 = load i32, ptr %40, align 4
-  %42 = getelementptr inbounds i32, ptr %14, i64 %indvars.iv67
-  %43 = load i32, ptr %42, align 4
-  %44 = sext i32 %43 to i64
-  %45 = getelementptr inbounds i32, ptr %20, i64 %44
-  %46 = load i32, ptr %45, align 4
-  %47 = add nsw i32 %46, 1
-  store i32 %47, ptr %45, align 4
-  %48 = sext i32 %46 to i64
-  %49 = getelementptr inbounds i32, ptr %29, i64 %48
-  store i32 %41, ptr %49, align 4
+  %42 = sext i32 %41 to i64
+  %43 = getelementptr inbounds i32, ptr %20, i64 %42
+  %44 = load i32, ptr %43, align 4
+  %45 = add nsw i32 %44, 1
+  store i32 %45, ptr %43, align 4
+  %46 = sext i32 %44 to i64
+  %47 = getelementptr inbounds i32, ptr %27, i64 %46
+  store i32 %39, ptr %47, align 4
   %indvars.iv.next68 = add nuw nsw i64 %indvars.iv67, 1
   %exitcond72.not = icmp eq i64 %indvars.iv.next68, %wide.trip.count71
-  br i1 %exitcond72.not, label %._crit_edge57, label %.lr.ph56.split.us, !llvm.loop !6
+  br i1 %exitcond72.not, label %.sink.split, label %.lr.ph56.split.us, !llvm.loop !6
 
 .lr.ph56.split:                                   ; preds = %._crit_edge, %.lr.ph56.split
   %indvars.iv62 = phi i64 [ %indvars.iv.next63, %.lr.ph56.split ], [ 0, %._crit_edge ]
-  %50 = getelementptr inbounds i32, ptr %12, i64 %indvars.iv62
+  %48 = getelementptr inbounds i32, ptr %12, i64 %indvars.iv62
+  %49 = load i32, ptr %48, align 4
+  %50 = getelementptr inbounds i32, ptr %14, i64 %indvars.iv62
   %51 = load i32, ptr %50, align 4
-  %52 = getelementptr inbounds i32, ptr %14, i64 %indvars.iv62
-  %53 = load i32, ptr %52, align 4
-  %54 = sext i32 %53 to i64
-  %55 = getelementptr inbounds i32, ptr %20, i64 %54
-  %56 = load i32, ptr %55, align 4
-  %57 = add nsw i32 %56, 1
-  store i32 %57, ptr %55, align 4
-  %58 = sext i32 %56 to i64
-  %59 = getelementptr inbounds i32, ptr %29, i64 %58
-  store i32 %51, ptr %59, align 4
-  %60 = getelementptr inbounds double, ptr %16, i64 %indvars.iv62
-  %61 = load double, ptr %60, align 8
-  %62 = getelementptr inbounds double, ptr %31, i64 %58
-  store double %61, ptr %62, align 8
+  %52 = sext i32 %51 to i64
+  %53 = getelementptr inbounds i32, ptr %20, i64 %52
+  %54 = load i32, ptr %53, align 4
+  %55 = add nsw i32 %54, 1
+  store i32 %55, ptr %53, align 4
+  %56 = sext i32 %54 to i64
+  %57 = getelementptr inbounds i32, ptr %27, i64 %56
+  store i32 %49, ptr %57, align 4
+  %58 = getelementptr inbounds double, ptr %16, i64 %indvars.iv62
+  %59 = load double, ptr %58, align 8
+  %60 = getelementptr inbounds double, ptr %29, i64 %56
+  store double %59, ptr %60, align 8
   %indvars.iv.next63 = add nuw nsw i64 %indvars.iv62, 1
   %exitcond66.not = icmp eq i64 %indvars.iv.next63, %wide.trip.count71
-  br i1 %exitcond66.not, label %._crit_edge57, label %.lr.ph56.split, !llvm.loop !6
+  br i1 %exitcond66.not, label %.sink.split, label %.lr.ph56.split, !llvm.loop !6
 
-._crit_edge57:                                    ; preds = %.lr.ph56.split, %.lr.ph56.split.us, %._crit_edge.thread
-  %63 = tail call ptr @cs_done(ptr noundef nonnull %19, ptr noundef nonnull %20, ptr noundef null, i32 noundef 1) #3
-  br label %64
+.sink.split:                                      ; preds = %.lr.ph56.split, %.lr.ph56.split.us, %._crit_edge.thread, %6
+  %.sink = phi i32 [ 0, %6 ], [ 1, %._crit_edge.thread ], [ 1, %.lr.ph56.split.us ], [ 1, %.lr.ph56.split ]
+  %61 = tail call ptr @cs_done(ptr noundef %19, ptr noundef %20, ptr noundef null, i32 noundef %.sink) #3
+  br label %62
 
-64:                                               ; preds = %1, %2, %._crit_edge57, %23
-  %.0 = phi ptr [ %63, %._crit_edge57 ], [ %24, %23 ], [ null, %2 ], [ null, %1 ]
+62:                                               ; preds = %.sink.split, %1, %2
+  %.0 = phi ptr [ null, %2 ], [ null, %1 ], [ %61, %.sink.split ]
   ret ptr %.0
 }
 

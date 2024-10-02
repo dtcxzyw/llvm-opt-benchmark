@@ -66,33 +66,33 @@ define dso_local noundef zeroext i1 @do_lo_export(ptr nocapture noundef readonly
 20:                                               ; preds = %5
   %21 = load i8, ptr %3, align 1
   %22 = trunc i8 %21 to i1
-  br i1 %22, label %23, label %30
+  br i1 %22, label %23, label %finish_lo_xact.exit.thread
 
 23:                                               ; preds = %20
   %24 = load i8, ptr getelementptr inbounds (i8, ptr @pset, i64 384), align 8
   %25 = trunc i8 %24 to i1
-  br i1 %25, label %26, label %30
+  br i1 %25, label %26, label %finish_lo_xact.exit.thread
 
 26:                                               ; preds = %23
   %27 = tail call ptr @PSQLexec(ptr noundef nonnull @.str.16) #7
-  %.not.i = icmp eq ptr %27, null
-  br i1 %.not.i, label %finish_lo_xact.exit, label %28
+  %.not.i.not = icmp eq ptr %27, null
+  br i1 %.not.i.not, label %finish_lo_xact.exit, label %finish_lo_xact.exit.thread4
 
-28:                                               ; preds = %26
+finish_lo_xact.exit.thread4:                      ; preds = %26
   tail call void @PQclear(ptr noundef nonnull %27) #7
-  br label %30
+  br label %finish_lo_xact.exit.thread
 
 finish_lo_xact.exit:                              ; preds = %26
-  %29 = tail call ptr @PSQLexec(ptr noundef nonnull @.str.15) #7
-  tail call void @PQclear(ptr noundef %29) #7
+  %28 = tail call ptr @PSQLexec(ptr noundef nonnull @.str.15) #7
+  tail call void @PQclear(ptr noundef %28) #7
   br label %fail_lo_xact.exit
 
-30:                                               ; preds = %28, %23, %20
+finish_lo_xact.exit.thread:                       ; preds = %20, %23, %finish_lo_xact.exit.thread4
   tail call void (ptr, ...) @print_lo_result(ptr noundef nonnull @.str.2)
   br label %fail_lo_xact.exit
 
-fail_lo_xact.exit:                                ; preds = %finish_lo_xact.exit, %18, %15, %10, %2, %30
-  %.0 = phi i1 [ true, %30 ], [ false, %2 ], [ false, %finish_lo_xact.exit ], [ false, %10 ], [ false, %15 ], [ false, %18 ]
+fail_lo_xact.exit:                                ; preds = %finish_lo_xact.exit, %18, %15, %10, %2, %finish_lo_xact.exit.thread
+  %.0 = phi i1 [ true, %finish_lo_xact.exit.thread ], [ false, %2 ], [ false, %finish_lo_xact.exit ], [ false, %10 ], [ false, %15 ], [ false, %18 ]
   ret i1 %.0
 }
 
@@ -300,36 +300,36 @@ define dso_local noundef zeroext i1 @do_lo_import(ptr noundef %0, ptr noundef %1
 51:                                               ; preds = %50, %20
   %52 = load i8, ptr %4, align 1
   %53 = trunc i8 %52 to i1
-  br i1 %53, label %54, label %61
+  br i1 %53, label %54, label %finish_lo_xact.exit.thread
 
 54:                                               ; preds = %51
   %55 = load i8, ptr getelementptr inbounds (i8, ptr @pset, i64 384), align 8
   %56 = trunc i8 %55 to i1
-  br i1 %56, label %57, label %61
+  br i1 %56, label %57, label %finish_lo_xact.exit.thread
 
 57:                                               ; preds = %54
   %58 = tail call ptr @PSQLexec(ptr noundef nonnull @.str.16) #7
-  %.not.i = icmp eq ptr %58, null
-  br i1 %.not.i, label %finish_lo_xact.exit, label %59
+  %.not.i.not = icmp eq ptr %58, null
+  br i1 %.not.i.not, label %finish_lo_xact.exit, label %finish_lo_xact.exit.thread30
 
-59:                                               ; preds = %57
+finish_lo_xact.exit.thread30:                     ; preds = %57
   tail call void @PQclear(ptr noundef nonnull %58) #7
-  br label %61
+  br label %finish_lo_xact.exit.thread
 
 finish_lo_xact.exit:                              ; preds = %57
-  %60 = tail call ptr @PSQLexec(ptr noundef nonnull @.str.15) #7
-  tail call void @PQclear(ptr noundef %60) #7
+  %59 = tail call ptr @PSQLexec(ptr noundef nonnull @.str.15) #7
+  tail call void @PQclear(ptr noundef %59) #7
   br label %fail_lo_xact.exit
 
-61:                                               ; preds = %59, %54, %51
+finish_lo_xact.exit.thread:                       ; preds = %51, %54, %finish_lo_xact.exit.thread30
   tail call void (ptr, ...) @print_lo_result(ptr noundef nonnull @.str.6, i32 noundef %8)
-  %62 = call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef nonnull %3, ptr noundef nonnull @.str.7, i32 noundef %8) #7
-  %63 = load ptr, ptr getelementptr inbounds (i8, ptr @pset, i64 368), align 8
-  %64 = call zeroext i1 @SetVariable(ptr noundef %63, ptr noundef nonnull @.str.8, ptr noundef nonnull %3) #7
+  %60 = call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef nonnull %3, ptr noundef nonnull @.str.7, i32 noundef %8) #7
+  %61 = load ptr, ptr getelementptr inbounds (i8, ptr @pset, i64 368), align 8
+  %62 = call zeroext i1 @SetVariable(ptr noundef %61, ptr noundef nonnull @.str.8, ptr noundef nonnull %3) #7
   br label %fail_lo_xact.exit
 
-fail_lo_xact.exit:                                ; preds = %finish_lo_xact.exit, %48, %45, %42, %32, %29, %26, %18, %15, %10, %2, %61
-  %.0 = phi i1 [ true, %61 ], [ false, %2 ], [ false, %finish_lo_xact.exit ], [ false, %10 ], [ false, %15 ], [ false, %18 ], [ false, %26 ], [ false, %29 ], [ false, %32 ], [ false, %42 ], [ false, %45 ], [ false, %48 ]
+fail_lo_xact.exit:                                ; preds = %finish_lo_xact.exit, %48, %45, %42, %32, %29, %26, %18, %15, %10, %2, %finish_lo_xact.exit.thread
+  %.0 = phi i1 [ true, %finish_lo_xact.exit.thread ], [ false, %2 ], [ false, %finish_lo_xact.exit ], [ false, %10 ], [ false, %15 ], [ false, %18 ], [ false, %26 ], [ false, %29 ], [ false, %32 ], [ false, %42 ], [ false, %45 ], [ false, %48 ]
   ret i1 %.0
 }
 
@@ -390,33 +390,33 @@ define dso_local noundef zeroext i1 @do_lo_unlink(ptr nocapture noundef readonly
 20:                                               ; preds = %6
   %21 = load i8, ptr %2, align 1
   %22 = trunc i8 %21 to i1
-  br i1 %22, label %23, label %30
+  br i1 %22, label %23, label %finish_lo_xact.exit.thread
 
 23:                                               ; preds = %20
   %24 = load i8, ptr getelementptr inbounds (i8, ptr @pset, i64 384), align 8
   %25 = trunc i8 %24 to i1
-  br i1 %25, label %26, label %30
+  br i1 %25, label %26, label %finish_lo_xact.exit.thread
 
 26:                                               ; preds = %23
   %27 = tail call ptr @PSQLexec(ptr noundef nonnull @.str.16) #7
-  %.not.i = icmp eq ptr %27, null
-  br i1 %.not.i, label %finish_lo_xact.exit, label %28
+  %.not.i.not = icmp eq ptr %27, null
+  br i1 %.not.i.not, label %finish_lo_xact.exit, label %finish_lo_xact.exit.thread5
 
-28:                                               ; preds = %26
+finish_lo_xact.exit.thread5:                      ; preds = %26
   tail call void @PQclear(ptr noundef nonnull %27) #7
-  br label %30
+  br label %finish_lo_xact.exit.thread
 
 finish_lo_xact.exit:                              ; preds = %26
-  %29 = tail call ptr @PSQLexec(ptr noundef nonnull @.str.15) #7
-  tail call void @PQclear(ptr noundef %29) #7
+  %28 = tail call ptr @PSQLexec(ptr noundef nonnull @.str.15) #7
+  tail call void @PQclear(ptr noundef %28) #7
   br label %fail_lo_xact.exit
 
-30:                                               ; preds = %28, %23, %20
+finish_lo_xact.exit.thread:                       ; preds = %20, %23, %finish_lo_xact.exit.thread5
   tail call void (ptr, ...) @print_lo_result(ptr noundef nonnull @.str.10, i32 noundef %4)
   br label %fail_lo_xact.exit
 
-fail_lo_xact.exit:                                ; preds = %finish_lo_xact.exit, %18, %15, %10, %1, %30
-  %.0 = phi i1 [ true, %30 ], [ false, %1 ], [ false, %finish_lo_xact.exit ], [ false, %10 ], [ false, %15 ], [ false, %18 ]
+fail_lo_xact.exit:                                ; preds = %finish_lo_xact.exit, %18, %15, %10, %1, %finish_lo_xact.exit.thread
+  %.0 = phi i1 [ true, %finish_lo_xact.exit.thread ], [ false, %1 ], [ false, %finish_lo_xact.exit ], [ false, %10 ], [ false, %15 ], [ false, %18 ]
   ret i1 %.0
 }
 

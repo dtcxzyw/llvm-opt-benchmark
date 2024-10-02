@@ -313,51 +313,52 @@ define internal range(i32 -2147483648, 1) i32 @nf_conntrack_pernet_init(ptr noun
   %63 = getelementptr inbounds i8, ptr %8, i64 24
   store ptr %62, ptr %63, align 8
   %64 = icmp eq ptr %62, null
-  br i1 %64, label %65, label %66
+  br i1 %64, label %.thread.sink.split, label %65
 
 65:                                               ; preds = %61
-  tail call void @kfree(ptr noundef nonnull %9) #5
-  br label %.thread
+  %66 = tail call i32 @nf_conntrack_init_net(ptr noundef %0) #5
+  %67 = icmp slt i32 %66, 0
+  br i1 %67, label %75, label %68
 
-66:                                               ; preds = %61
-  %67 = tail call i32 @nf_conntrack_init_net(ptr noundef %0) #5
-  %68 = icmp slt i32 %67, 0
-  br i1 %68, label %76, label %69
+68:                                               ; preds = %65
+  %69 = load i8, ptr @enable_hooks, align 1, !range !5, !noundef !6
+  %70 = icmp eq i8 %69, 0
+  br i1 %70, label %.thread, label %71
 
-69:                                               ; preds = %66
-  %70 = load i8, ptr @enable_hooks, align 1, !range !5, !noundef !6
-  %71 = icmp eq i8 %70, 0
-  br i1 %71, label %.thread, label %72
+71:                                               ; preds = %68
+  %72 = tail call i32 @nf_ct_netns_get(ptr noundef %0, i8 noundef zeroext 1) #5
+  %73 = icmp slt i32 %72, 0
+  br i1 %73, label %74, label %.thread
 
-72:                                               ; preds = %69
-  %73 = tail call i32 @nf_ct_netns_get(ptr noundef %0, i8 noundef zeroext 1) #5
-  %74 = icmp slt i32 %73, 0
-  br i1 %74, label %75, label %.thread
-
-75:                                               ; preds = %72
+74:                                               ; preds = %71
   tail call void @nf_conntrack_cleanup_net(ptr noundef %0) #5
-  br label %76
+  br label %75
 
-76:                                               ; preds = %75, %66
-  %77 = phi i32 [ %67, %66 ], [ %73, %75 ]
-  %78 = load i32, ptr @nf_conntrack_net_id, align 4
+75:                                               ; preds = %74, %65
+  %76 = phi i32 [ %66, %65 ], [ %72, %74 ]
+  %77 = load i32, ptr @nf_conntrack_net_id, align 4
   tail call void @__rcu_read_lock() #5
-  %79 = load volatile ptr, ptr %4, align 8
-  %80 = zext i32 %78 to i64
-  %81 = getelementptr [0 x ptr], ptr %79, i64 0, i64 %80
-  %82 = load ptr, ptr %81, align 8
+  %78 = load volatile ptr, ptr %4, align 8
+  %79 = zext i32 %77 to i64
+  %80 = getelementptr [0 x ptr], ptr %78, i64 0, i64 %79
+  %81 = load ptr, ptr %80, align 8
   tail call void @__rcu_read_unlock() #5
-  %83 = getelementptr inbounds i8, ptr %82, i64 24
-  %84 = load ptr, ptr %83, align 8
-  %85 = getelementptr inbounds i8, ptr %84, i64 32
-  %86 = load ptr, ptr %85, align 8
-  tail call void @unregister_net_sysctl_table(ptr noundef %84) #5
-  tail call void @kfree(ptr noundef %86) #5
+  %82 = getelementptr inbounds i8, ptr %81, i64 24
+  %83 = load ptr, ptr %82, align 8
+  %84 = getelementptr inbounds i8, ptr %83, i64 32
+  %85 = load ptr, ptr %84, align 8
+  tail call void @unregister_net_sysctl_table(ptr noundef %83) #5
+  br label %.thread.sink.split
+
+.thread.sink.split:                               ; preds = %61, %75
+  %.sink = phi ptr [ %85, %75 ], [ %9, %61 ]
+  %.ph = phi i32 [ %76, %75 ], [ -12, %61 ]
+  tail call void @kfree(ptr noundef %.sink) #5
   br label %.thread
 
-.thread:                                          ; preds = %1, %65, %76, %72, %69
-  %87 = phi i32 [ %77, %76 ], [ 0, %72 ], [ 0, %69 ], [ -12, %65 ], [ -12, %1 ]
-  ret i32 %87
+.thread:                                          ; preds = %.thread.sink.split, %1, %71, %68
+  %86 = phi i32 [ 0, %71 ], [ 0, %68 ], [ -12, %1 ], [ %.ph, %.thread.sink.split ]
+  ret i32 %86
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid

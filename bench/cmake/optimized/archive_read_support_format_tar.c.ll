@@ -2917,7 +2917,7 @@ url_decode.exit.i.i.i:                            ; preds = %.preheader.i.i230.i
   %256 = sub i64 %255, %254
   %257 = tail call noalias ptr @malloc(i64 noundef %256) #17
   %258 = icmp eq ptr %257, null
-  br i1 %258, label %base64_decode.exit.thread.i.i.i, label %.preheader52.i.i.i.i
+  br i1 %258, label %url_decode.exit.thread.sink.split.i.i.i, label %.preheader52.i.i.i.i
 
 .preheader52.i.i.i.i:                             ; preds = %.loopexit.i.i.i.i
   %.not51111.i.i.i.i = icmp eq i64 %245, 0
@@ -3025,15 +3025,15 @@ base64_decode.exit.i.i.i:                         ; preds = %291
   %298 = sub i64 %296, %297
   br label %base64_decode.exit.thread20.i.i.i
 
-base64_decode.exit.thread.i.i.i:                  ; preds = %.loopexit.i.i.i.i
-  tail call void @free(ptr noundef %208) #13
-  br label %pax_attribute.exit.i
-
 base64_decode.exit.thread20.i.i.i:                ; preds = %base64_decode.exit.i.i.i, %.preheader52.i.i.i.i
   %299 = phi i64 [ %298, %base64_decode.exit.i.i.i ], [ 0, %.preheader52.i.i.i.i ]
   tail call void @archive_entry_xattr_add_entry(ptr noundef %2, ptr noundef nonnull %208, ptr noundef nonnull %257, i64 noundef %299) #13
   tail call void @free(ptr noundef %208) #13
-  tail call void @free(ptr noundef nonnull %257) #13
+  br label %url_decode.exit.thread.sink.split.i.i.i
+
+url_decode.exit.thread.sink.split.i.i.i:          ; preds = %base64_decode.exit.thread20.i.i.i, %.loopexit.i.i.i.i
+  %.sink.i.i.i = phi ptr [ %257, %base64_decode.exit.thread20.i.i.i ], [ %208, %.loopexit.i.i.i.i ]
+  tail call void @free(ptr noundef %.sink.i.i.i) #13
   br label %pax_attribute.exit.i
 
 300:                                              ; preds = %62
@@ -3796,8 +3796,8 @@ tar_atol10.exit387.i.i:                           ; preds = %.critedge2.i.i385.i
   %603 = tail call ptr @archive_strncat(ptr noundef nonnull %21, ptr noundef nonnull %63, i64 noundef %602) #13
   br label %pax_attribute.exit.i
 
-pax_attribute.exit.i:                             ; preds = %601, %598, %tar_atol10.exit387.i.i, %570, %568, %537, %534, %531, %pax_time.exit323.i.i, %499, %496, %493, %492, %489, %488, %482, %479, %476, %tar_atol10.exit304.i.i, %pax_time.exit272.i.i, %418, %pax_time.exit253.i.i, %386, %385, %380, %377, %376, %370, %363, %357, %351, %346, %340, %334, %328, %322, %318, %313, %303, %300, %base64_decode.exit.thread20.i.i.i, %base64_decode.exit.thread.i.i.i, %204, %203, %200, %198, %154, %151, %129, %62
-  %.0215.i.i = phi i32 [ -20, %129 ], [ 0, %62 ], [ 0, %568 ], [ 0, %570 ], [ 0, %537 ], [ 0, %tar_atol10.exit387.i.i ], [ 0, %601 ], [ 0, %598 ], [ 0, %534 ], [ 0, %531 ], [ 0, %pax_time.exit323.i.i ], [ 0, %499 ], [ 0, %496 ], [ 0, %493 ], [ 0, %488 ], [ 0, %492 ], [ 0, %489 ], [ 0, %482 ], [ 0, %tar_atol10.exit304.i.i ], [ 0, %479 ], [ 0, %476 ], [ 0, %pax_time.exit272.i.i ], [ 0, %pax_time.exit253.i.i ], [ 0, %386 ], [ 0, %322 ], [ 0, %328 ], [ 0, %334 ], [ 0, %340 ], [ 0, %346 ], [ 0, %351 ], [ 0, %357 ], [ 0, %363 ], [ 0, %370 ], [ 0, %376 ], [ %381, %385 ], [ 0, %380 ], [ 0, %377 ], [ 0, %303 ], [ 0, %300 ], [ 0, %198 ], [ 0, %154 ], [ 0, %151 ], [ 0, %418 ], [ 0, %200 ], [ 0, %203 ], [ 0, %204 ], [ 0, %base64_decode.exit.thread.i.i.i ], [ 0, %base64_decode.exit.thread20.i.i.i ], [ %316, %313 ], [ 0, %318 ]
+pax_attribute.exit.i:                             ; preds = %601, %598, %tar_atol10.exit387.i.i, %570, %568, %537, %534, %531, %pax_time.exit323.i.i, %499, %496, %493, %492, %489, %488, %482, %479, %476, %tar_atol10.exit304.i.i, %pax_time.exit272.i.i, %418, %pax_time.exit253.i.i, %386, %385, %380, %377, %376, %370, %363, %357, %351, %346, %340, %334, %328, %322, %318, %313, %303, %300, %url_decode.exit.thread.sink.split.i.i.i, %204, %203, %200, %198, %154, %151, %129, %62
+  %.0215.i.i = phi i32 [ -20, %129 ], [ 0, %62 ], [ 0, %568 ], [ 0, %570 ], [ 0, %537 ], [ 0, %tar_atol10.exit387.i.i ], [ 0, %601 ], [ 0, %598 ], [ 0, %534 ], [ 0, %531 ], [ 0, %pax_time.exit323.i.i ], [ 0, %499 ], [ 0, %496 ], [ 0, %493 ], [ 0, %488 ], [ 0, %492 ], [ 0, %489 ], [ 0, %482 ], [ 0, %tar_atol10.exit304.i.i ], [ 0, %479 ], [ 0, %476 ], [ 0, %pax_time.exit272.i.i ], [ 0, %pax_time.exit253.i.i ], [ 0, %386 ], [ 0, %322 ], [ 0, %328 ], [ 0, %334 ], [ 0, %340 ], [ 0, %346 ], [ 0, %351 ], [ 0, %357 ], [ 0, %363 ], [ 0, %370 ], [ 0, %376 ], [ %381, %385 ], [ 0, %380 ], [ 0, %377 ], [ 0, %303 ], [ 0, %300 ], [ 0, %198 ], [ 0, %154 ], [ 0, %151 ], [ 0, %418 ], [ 0, %200 ], [ 0, %203 ], [ 0, %204 ], [ 0, %url_decode.exit.thread.sink.split.i.i.i ], [ %316, %313 ], [ 0, %318 ]
   %604 = tail call i32 @llvm.smin.i32(i32 %.011891.i, i32 %.0215.i.i)
   %605 = sub i64 %.012190.i, %.012616.i
   %.not.i = icmp eq i64 %605, 0

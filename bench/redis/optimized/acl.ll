@@ -3997,19 +3997,19 @@ entry:
 
 if.end:                                           ; preds = %entry
   %tobool1.not = icmp eq ptr %err, null
-  br i1 %tobool1.not, label %if.then2, label %if.end3
-
-if.then2:                                         ; preds = %if.end
-  tail call void @addReplyError(ptr noundef %c, ptr noundef nonnull @.str.89) #24
-  br label %return
+  br i1 %tobool1.not, label %return.sink.split, label %if.end3
 
 if.end3:                                          ; preds = %if.end
   %ptr = getelementptr inbounds i8, ptr %err, i64 8
   %0 = load ptr, ptr %ptr, align 8
-  tail call void @addReplyError(ptr noundef %c, ptr noundef %0) #24
+  br label %return.sink.split
+
+return.sink.split:                                ; preds = %if.end, %if.end3
+  %.sink = phi ptr [ %0, %if.end3 ], [ @.str.89, %if.end ]
+  tail call void @addReplyError(ptr noundef %c, ptr noundef %.sink) #24
   br label %return
 
-return:                                           ; preds = %entry, %if.end3, %if.then2
+return:                                           ; preds = %return.sink.split, %entry
   ret void
 }
 
@@ -9720,19 +9720,19 @@ if.then15:                                        ; preds = %ACLAuthenticateUser
 
 if.end.i:                                         ; preds = %if.then15
   %tobool1.not.i = icmp eq ptr %12, null
-  br i1 %tobool1.not.i, label %if.then2.i, label %if.end3.i
-
-if.then2.i:                                       ; preds = %if.end.i
-  call void @addReplyError(ptr noundef nonnull %c, ptr noundef nonnull @.str.89) #24
-  br label %if.end17
+  br i1 %tobool1.not.i, label %return.sink.split.i, label %if.end3.i
 
 if.end3.i:                                        ; preds = %if.end.i
   %ptr.i = getelementptr inbounds i8, ptr %12, i64 8
   %13 = load ptr, ptr %ptr.i, align 8
-  call void @addReplyError(ptr noundef nonnull %c, ptr noundef %13) #24
+  br label %return.sink.split.i
+
+return.sink.split.i:                              ; preds = %if.end3.i, %if.end.i
+  %.sink.i = phi ptr [ %13, %if.end3.i ], [ @.str.89, %if.end.i ]
+  call void @addReplyError(ptr noundef nonnull %c, ptr noundef %.sink.i) #24
   br label %if.end17
 
-if.end17:                                         ; preds = %if.end3.i, %if.then2.i, %if.then15, %ACLAuthenticateUser.exit, %if.then12
+if.end17:                                         ; preds = %return.sink.split.i, %if.then15, %ACLAuthenticateUser.exit, %if.then12
   %14 = load ptr, ptr %err, align 8
   %tobool18.not = icmp eq ptr %14, null
   br i1 %tobool18.not, label %if.end20, label %if.then19

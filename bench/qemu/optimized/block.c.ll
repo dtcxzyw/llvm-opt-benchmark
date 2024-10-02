@@ -10176,7 +10176,6 @@ if.end5.split:                                    ; preds = %if.end
   %.compoundliteral.sroa.2.0..sroa_idx.c = getelementptr inbounds i8, ptr %call, i64 8
   store ptr %2, ptr %.compoundliteral.sroa.2.0..sroa_idx.c, align 8
   tail call void @tran_add(ptr noundef %tran, ptr noundef nonnull @bdrv_replace_child_drv, ptr noundef nonnull %call) #31
-  tail call fastcc void @bdrv_replace_child_noperm(ptr noundef nonnull %child, ptr noundef null)
   br label %if.end9
 
 if.then8:                                         ; preds = %lor.lhs.false
@@ -10197,10 +10196,11 @@ bdrv_ref.exit:                                    ; preds = %if.then8
   %4 = load i32, ptr %refcnt.i, align 8
   %inc.i = add i32 %4, 1
   store i32 %inc.i, ptr %refcnt.i, align 8
-  tail call fastcc void @bdrv_replace_child_noperm(ptr noundef nonnull %child, ptr noundef nonnull %new_bs)
   br label %if.end9
 
 if.end9:                                          ; preds = %if.end5.split, %bdrv_ref.exit
+  %.sink = phi ptr [ null, %if.end5.split ], [ %new_bs, %bdrv_ref.exit ]
+  tail call fastcc void @bdrv_replace_child_noperm(ptr noundef nonnull %child, ptr noundef %.sink)
   ret void
 }
 

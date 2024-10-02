@@ -1410,7 +1410,6 @@ if.end12.i:                                       ; preds = %if.then9.i, %if.the
   %resp.i = getelementptr inbounds i8, ptr %c, i64 192
   %4 = load ptr, ptr %resp.i, align 8
   tail call void @resp_add_iov(ptr noundef %4, ptr noundef nonnull @.str.14, i32 noundef 13) #12
-  tail call void @conn_set_state(ptr noundef %c, i32 noundef 9) #12
   br label %return
 
 if.end:                                           ; preds = %entry
@@ -1478,20 +1477,18 @@ if.end18:                                         ; preds = %if.then11, %if.then
 lor.lhs.false.i:                                  ; preds = %if.end18
   %cmd.i = getelementptr inbounds i8, ptr %c, i64 432
   %15 = load i16, ptr %cmd.i, align 8
-  switch i16 %15, label %write_bin_response.exit [
+  switch i16 %15, label %return [
     i16 0, label %if.then.i
     i16 12, label %if.then.i
   ]
 
 if.then.i:                                        ; preds = %lor.lhs.false.i, %lor.lhs.false.i, %if.end18
   tail call fastcc void @add_bin_header(ptr noundef nonnull %c, i16 noundef zeroext 0, i8 noundef zeroext 0, i16 noundef zeroext 0, i32 noundef 0)
-  br label %write_bin_response.exit
-
-write_bin_response.exit:                          ; preds = %lor.lhs.false.i, %if.then.i
-  tail call void @conn_set_state(ptr noundef nonnull %c, i32 noundef 1) #12
   br label %return
 
-return:                                           ; preds = %write_bin_response.exit, %if.end12.i
+return:                                           ; preds = %if.then.i, %lor.lhs.false.i, %if.end12.i
+  %.sink = phi i32 [ 9, %if.end12.i ], [ 1, %lor.lhs.false.i ], [ 1, %if.then.i ]
+  tail call void @conn_set_state(ptr noundef %c, i32 noundef %.sink) #12
   ret void
 }
 

@@ -4375,11 +4375,7 @@ if.end.i54:                                       ; preds = %for.body.i.i, %ehci
   %inc.i55 = add i32 %33, 1
   store i32 %inc.i55, ptr %seen.i, align 8
   %cmp5.i = icmp ugt i32 %inc.i55, 1
-  br i1 %cmp5.i, label %if.then6.i, label %if.end7.i
-
-if.then6.i:                                       ; preds = %if.end.i54
-  call fastcc void @ehci_set_state(ptr noundef %ehci, i32 noundef %async, i32 noundef 1001)
-  br label %ehci_state_fetchqh.exit.thread
+  br i1 %cmp5.i, label %ehci_state_fetchqh.exit.thread.sink.split, label %if.end7.i
 
 if.end7.i:                                        ; preds = %if.end.i54
   %qhaddr.i = getelementptr inbounds i8, ptr %q.0.i, i64 96
@@ -4589,7 +4585,7 @@ if.then46.i:                                      ; preds = %land.lhs.true.i
   %65 = load i32, ptr %usbsts.i, align 4
   %and47.i = and i32 %65, 8192
   %tobool48.not.i = icmp eq i32 %and47.i, 0
-  br i1 %tobool48.not.i, label %if.else.i, label %ehci_clear_usbsts.exit.i
+  br i1 %tobool48.not.i, label %ehci_state_fetchqh.exit.thread.sink.split, label %ehci_clear_usbsts.exit.i
 
 ehci_clear_usbsts.exit.i:                         ; preds = %if.then46.i
   call fastcc void @ehci_trace_usbsts(i32 noundef 8192, i32 noundef 0)
@@ -4597,10 +4593,6 @@ ehci_clear_usbsts.exit.i:                         ; preds = %if.then46.i
   %and2.i.i = and i32 %66, -8193
   store i32 %and2.i.i, ptr %usbsts.i, align 4
   br label %if.end51.i
-
-if.else.i:                                        ; preds = %if.then46.i
-  call fastcc void @ehci_set_state(ptr noundef nonnull %ehci, i32 noundef 1, i32 noundef 1001)
-  br label %ehci_state_fetchqh.exit.thread
 
 if.end51.i:                                       ; preds = %ehci_clear_usbsts.exit.i, %land.lhs.true.i, %if.end41.i
   %token.i = getelementptr inbounds i8, ptr %q.0.i, i64 72
@@ -4628,7 +4620,12 @@ if.then71.i:                                      ; preds = %land.lhs.true61.i
   store i32 %68, ptr %qtdaddr.i, align 4
   br label %if.then
 
-ehci_state_fetchqh.exit.thread:                   ; preds = %if.then6.i, %if.else.i, %if.end7.i
+ehci_state_fetchqh.exit.thread.sink.split:        ; preds = %if.then46.i, %if.end.i54
+  %async.sink = phi i32 [ %async, %if.end.i54 ], [ 1, %if.then46.i ]
+  call fastcc void @ehci_set_state(ptr noundef %ehci, i32 noundef %async.sink, i32 noundef 1001)
+  br label %ehci_state_fetchqh.exit.thread
+
+ehci_state_fetchqh.exit.thread:                   ; preds = %ehci_state_fetchqh.exit.thread.sink.split, %if.end7.i
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %qh.i43)
   br label %sw.epilog
 

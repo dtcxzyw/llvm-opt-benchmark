@@ -4602,11 +4602,7 @@ if.end:                                           ; preds = %if.then, %sw.bb
   tail call void @gguf_add_tensor(ptr noundef %fctx, ptr noundef %12)
   %13 = load ptr, ptr %pf, align 8
   %tobool18.not = icmp eq ptr %13, null
-  br i1 %tobool18.not, label %sw.epilog, label %if.then19
-
-if.then19:                                        ; preds = %if.end
-  tail call void @gguf_add_tensor(ptr noundef %fctx, ptr noundef nonnull %13)
-  br label %sw.epilog
+  br i1 %tobool18.not, label %sw.epilog, label %sw.epilog.sink.split
 
 sw.bb23:                                          ; preds = %entry
   tail call void @gguf_set_val_str(ptr noundef %fctx, ptr noundef nonnull @.str.164, ptr noundef nonnull @.str.172)
@@ -4694,10 +4690,14 @@ if.end76:                                         ; preds = %if.then73, %if.end5
   %39 = load ptr, ptr %lms, align 8
   tail call void @gguf_add_tensor(ptr noundef %fctx, ptr noundef %39)
   %40 = load ptr, ptr %lmy, align 8
-  tail call void @gguf_add_tensor(ptr noundef %fctx, ptr noundef %40)
+  br label %sw.epilog.sink.split
+
+sw.epilog.sink.split:                             ; preds = %if.end, %if.end76
+  %.sink = phi ptr [ %40, %if.end76 ], [ %13, %if.end ]
+  tail call void @gguf_add_tensor(ptr noundef %fctx, ptr noundef %.sink)
   br label %sw.epilog
 
-sw.epilog:                                        ; preds = %if.end, %if.then19, %if.end76, %entry
+sw.epilog:                                        ; preds = %sw.epilog.sink.split, %if.end, %entry
   ret void
 }
 

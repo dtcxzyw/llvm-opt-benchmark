@@ -16726,10 +16726,10 @@ _ZNSt10unique_ptrIN5osgeo4proj22HorizontalShiftGridSetESt14default_deleteIS2_EED
   store ptr %97, ptr %101, align 8, !alias.scope !117
   br label %_ZNSt10unique_ptrIN5osgeo4proj22HorizontalShiftGridSetESt14default_deleteIS2_EED2Ev.exit29.i
 
-_ZNSt10unique_ptrIN5osgeo4proj22HorizontalShiftGridSetESt14default_deleteIS2_EED2Ev.exit29.i: ; preds = %55, %56, %._crit_edge.i
-  %.sink = phi ptr [ %4, %._crit_edge.i ], [ %0, %56 ], [ %0, %55 ]
-  %102 = phi ptr [ null, %._crit_edge.i ], [ %38, %56 ], [ %38, %55 ]
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sink, i8 0, i64 24, i1 false)
+_ZNSt10unique_ptrIN5osgeo4proj22HorizontalShiftGridSetESt14default_deleteIS2_EED2Ev.exit29.i: ; preds = %._crit_edge.i, %56, %55
+  %.sink.i = phi ptr [ %4, %._crit_edge.i ], [ %0, %55 ], [ %0, %56 ]
+  %102 = phi ptr [ null, %._crit_edge.i ], [ %38, %55 ], [ %38, %56 ]
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sink.i, i8 0, i64 24, i1 false)
   %103 = load ptr, ptr %5, align 8, !noalias !117
   %104 = load ptr, ptr %33, align 8, !noalias !117
   %.not4.i.i.i.i.i = icmp eq ptr %103, %104

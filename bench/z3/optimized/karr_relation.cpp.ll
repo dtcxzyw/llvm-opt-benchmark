@@ -10242,26 +10242,20 @@ dynamic_cast.bad_cast.i4:                         ; preds = %_ZN7datalog20karr_r
 
 _ZN7datalog20karr_relation_plugin3getERKNS_13relation_baseE.exit: ; preds = %_ZN7datalog20karr_relation_plugin3getERNS_13relation_baseE.exit
   %tobool.not = icmp eq ptr %_delta, null
-  br i1 %tobool.not, label %if.else, label %if.then
+  br i1 %tobool.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %_ZN7datalog20karr_relation_plugin3getERKNS_13relation_baseE.exit
   %4 = tail call ptr @__dynamic_cast(ptr nonnull readonly %_delta, ptr nonnull @_ZTIN7datalog13relation_baseE, ptr nonnull @_ZTIN7datalog13karr_relationE, i64 0) #18
   %5 = icmp eq ptr %4, null
-  br i1 %5, label %dynamic_cast.bad_cast.i5, label %_ZN7datalog20karr_relation_plugin3getERNS_13relation_baseE.exit6
+  br i1 %5, label %dynamic_cast.bad_cast.i5, label %if.end
 
 dynamic_cast.bad_cast.i5:                         ; preds = %if.then
   tail call void @__cxa_bad_cast() #19
   unreachable
 
-_ZN7datalog20karr_relation_plugin3getERNS_13relation_baseE.exit6: ; preds = %if.then
-  tail call void @_ZN7datalog13karr_relation8mk_unionERKS0_PS0_(ptr noundef nonnull align 8 dereferenceable(145) %0, ptr noundef nonnull align 8 dereferenceable(145) %2, ptr noundef nonnull %4)
-  br label %if.end
-
-if.else:                                          ; preds = %_ZN7datalog20karr_relation_plugin3getERKNS_13relation_baseE.exit
-  tail call void @_ZN7datalog13karr_relation8mk_unionERKS0_PS0_(ptr noundef nonnull align 8 dereferenceable(145) %0, ptr noundef nonnull align 8 dereferenceable(145) %2, ptr noundef null)
-  br label %if.end
-
-if.end:                                           ; preds = %if.else, %_ZN7datalog20karr_relation_plugin3getERNS_13relation_baseE.exit6
+if.end:                                           ; preds = %_ZN7datalog20karr_relation_plugin3getERKNS_13relation_baseE.exit, %if.then
+  %.sink = phi ptr [ %4, %if.then ], [ null, %_ZN7datalog20karr_relation_plugin3getERKNS_13relation_baseE.exit ]
+  tail call void @_ZN7datalog13karr_relation8mk_unionERKS0_PS0_(ptr noundef nonnull align 8 dereferenceable(145) %0, ptr noundef nonnull align 8 dereferenceable(145) %2, ptr noundef %.sink)
   ret void
 }
 

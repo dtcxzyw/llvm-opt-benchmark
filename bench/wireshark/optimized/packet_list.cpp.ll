@@ -12845,48 +12845,39 @@ declare void @_ZNK11QHeaderView9saveStateEv(ptr dead_on_unwind writable sret(%cl
 define void @_ZN10PacketList18preferencesChangedEv(ptr noundef nonnull align 8 dereferenceable(464) %0) local_unnamed_addr #0 align 2 {
   %2 = load i32, ptr getelementptr inbounds (i8, ptr @prefs, i64 508), align 4
   %.not = icmp eq i32 %2, 0
-  br i1 %.not, label %5, label %3
+  %3 = getelementptr inbounds i8, ptr %0, i64 296
+  %.sink = select i1 %.not, ptr null, ptr %3
+  tail call void @_ZN17QAbstractItemView24setItemDelegateForColumnEiP21QAbstractItemDelegate(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef 0, ptr noundef %.sink)
+  %4 = load i32, ptr getelementptr inbounds (i8, ptr @prefs, i64 512), align 8
+  %.not2 = icmp eq i32 %4, 0
+  %5 = getelementptr inbounds i8, ptr %0, i64 232
+  %6 = load i32, ptr %5, align 8
+  %.not3 = icmp eq i32 %6, 0
+  br i1 %.not2, label %10, label %7
 
-3:                                                ; preds = %1
-  %4 = getelementptr inbounds i8, ptr %0, i64 296
-  tail call void @_ZN17QAbstractItemView24setItemDelegateForColumnEiP21QAbstractItemDelegate(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef 0, ptr noundef nonnull %4)
-  br label %6
+7:                                                ; preds = %1
+  br i1 %.not3, label %8, label %switch.lookup
 
-5:                                                ; preds = %1
-  tail call void @_ZN17QAbstractItemView24setItemDelegateForColumnEiP21QAbstractItemDelegate(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef 0, ptr noundef null)
-  br label %6
+8:                                                ; preds = %7
+  %9 = tail call noundef i32 @_ZN7QObject10startTimerEiN2Qt9TimerTypeE(ptr noundef nonnull align 8 dereferenceable(16) %0, i32 noundef 100, i32 noundef 1)
+  br label %.sink.split
 
-6:                                                ; preds = %5, %3
-  %7 = load i32, ptr getelementptr inbounds (i8, ptr @prefs, i64 512), align 8
-  %.not2 = icmp eq i32 %7, 0
-  %8 = getelementptr inbounds i8, ptr %0, i64 232
-  %9 = load i32, ptr %8, align 8
-  %.not3 = icmp eq i32 %9, 0
-  br i1 %.not2, label %13, label %10
-
-10:                                               ; preds = %6
-  br i1 %.not3, label %11, label %switch.lookup
+10:                                               ; preds = %1
+  br i1 %.not3, label %switch.lookup, label %11
 
 11:                                               ; preds = %10
-  %12 = tail call noundef i32 @_ZN7QObject10startTimerEiN2Qt9TimerTypeE(ptr noundef nonnull align 8 dereferenceable(16) %0, i32 noundef 100, i32 noundef 1)
+  tail call void @_ZN7QObject9killTimerEi(ptr noundef nonnull align 8 dereferenceable(16) %0, i32 noundef %6)
   br label %.sink.split
 
-13:                                               ; preds = %6
-  br i1 %.not3, label %switch.lookup, label %14
-
-14:                                               ; preds = %13
-  tail call void @_ZN7QObject9killTimerEi(ptr noundef nonnull align 8 dereferenceable(16) %0, i32 noundef %9)
-  br label %.sink.split
-
-.sink.split:                                      ; preds = %11, %14
-  %.sink = phi i32 [ 0, %14 ], [ %12, %11 ]
-  store i32 %.sink, ptr %8, align 8
+.sink.split:                                      ; preds = %8, %11
+  %.sink4 = phi i32 [ 0, %11 ], [ %9, %8 ]
+  store i32 %.sink4, ptr %5, align 8
   br label %switch.lookup
 
-switch.lookup:                                    ; preds = %.sink.split, %13, %10
-  %15 = load i32, ptr getelementptr inbounds (i8, ptr @prefs, i64 504), align 8
-  %16 = icmp ult i32 %15, 4
-  %spec.select = select i1 %16, i32 %15, i32 1
+switch.lookup:                                    ; preds = %.sink.split, %10, %7
+  %12 = load i32, ptr getelementptr inbounds (i8, ptr @prefs, i64 504), align 8
+  %13 = icmp ult i32 %12, 4
+  %spec.select = select i1 %13, i32 %12, i32 1
   tail call void @_ZN17QAbstractItemView16setTextElideModeEN2Qt13TextElideModeE(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef %spec.select)
   ret void
 }

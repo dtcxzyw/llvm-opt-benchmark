@@ -7203,10 +7203,10 @@ default.unreachable:                              ; preds = %3
           to label %57 unwind label %50
 
 57:                                               ; preds = %56, %52
-  %.sink1 = phi ptr [ %55, %52 ], [ %6, %56 ]
+  %.sink20 = phi ptr [ %55, %52 ], [ %6, %56 ]
   %storemerge = phi i64 [ 1, %52 ], [ 0, %56 ]
   %58 = getelementptr inbounds i8, ptr %0, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %58, ptr noundef nonnull align 8 dereferenceable(24) %.sink1, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %58, ptr noundef nonnull align 8 dereferenceable(24) %.sink20, i64 24, i1 false)
   store i64 %storemerge, ptr %0, align 8
   invoke void @"_ZN4core3ptr37drop_in_place$LT$syn..lit..LitStr$GT$17he8323cf3b8437fc6E"(ptr nonnull align 8 %10)
           to label %65 unwind label %59

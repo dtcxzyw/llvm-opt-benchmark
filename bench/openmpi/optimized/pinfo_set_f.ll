@@ -41,7 +41,7 @@ define void @ompi_info_set_f(ptr nocapture noundef readonly %0, ptr noundef %1, 
 10:                                               ; preds = %6
   %11 = call i32 @ompi_fortran_string_f2c(ptr noundef %2, i32 noundef %5, ptr noundef nonnull %8) #5
   %.not16 = icmp eq i32 %11, 0
-  br i1 %.not16, label %46, label %12
+  br i1 %.not16, label %45, label %12
 
 12:                                               ; preds = %10, %6
   %.0 = phi i32 [ %9, %6 ], [ %11, %10 ]
@@ -117,33 +117,33 @@ ompi_errcode_get_mpi_code.exit:                   ; preds = %16, %12, %.preheade
 43:                                               ; preds = %42, %ompi_errcode_get_mpi_code.exit
   %44 = load ptr, ptr %7, align 8
   %.not19 = icmp eq ptr %44, null
-  br i1 %.not19, label %56, label %45
+  br i1 %.not19, label %55, label %.sink.split
 
-45:                                               ; preds = %43
-  call void @free(ptr noundef nonnull %44) #5
-  br label %56
-
-46:                                               ; preds = %10
-  %47 = load i32, ptr %0, align 4
-  %48 = call ptr @PMPI_Info_f2c(i32 noundef %47) #5
-  %49 = load ptr, ptr %7, align 8
-  %50 = load ptr, ptr %8, align 8
-  %51 = call i32 @PMPI_Info_set(ptr noundef %48, ptr noundef %49, ptr noundef %50) #5
+45:                                               ; preds = %10
+  %46 = load i32, ptr %0, align 4
+  %47 = call ptr @PMPI_Info_f2c(i32 noundef %46) #5
+  %48 = load ptr, ptr %7, align 8
+  %49 = load ptr, ptr %8, align 8
+  %50 = call i32 @PMPI_Info_set(ptr noundef %47, ptr noundef %48, ptr noundef %49) #5
   %.not17 = icmp eq ptr %3, null
-  br i1 %.not17, label %53, label %52
+  br i1 %.not17, label %52, label %51
 
-52:                                               ; preds = %46
-  store i32 %51, ptr %3, align 4
-  br label %53
+51:                                               ; preds = %45
+  store i32 %50, ptr %3, align 4
+  br label %52
 
-53:                                               ; preds = %52, %46
-  %54 = load ptr, ptr %7, align 8
-  call void @free(ptr noundef %54) #5
-  %55 = load ptr, ptr %8, align 8
-  call void @free(ptr noundef %55) #5
-  br label %56
+52:                                               ; preds = %51, %45
+  %53 = load ptr, ptr %7, align 8
+  call void @free(ptr noundef %53) #5
+  %54 = load ptr, ptr %8, align 8
+  br label %.sink.split
 
-56:                                               ; preds = %43, %45, %53
+.sink.split:                                      ; preds = %43, %52
+  %.sink = phi ptr [ %54, %52 ], [ %44, %43 ]
+  call void @free(ptr noundef %.sink) #5
+  br label %55
+
+55:                                               ; preds = %.sink.split, %43
   ret void
 }
 

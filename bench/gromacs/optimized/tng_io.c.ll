@@ -18443,10 +18443,10 @@ tng_block_init.exit:                              ; preds = %20, %23
   %70 = getelementptr inbounds i8, ptr %19, i64 8
   br label %71
 
-71:                                               ; preds = %.lr.ph, %95
-  %.177 = phi i32 [ 0, %.lr.ph ], [ %.2, %95 ]
-  %.04176 = phi i32 [ %65, %.lr.ph ], [ %.142, %95 ]
-  %.14475 = phi i64 [ %64, %.lr.ph ], [ %.245, %95 ]
+71:                                               ; preds = %.lr.ph, %92
+  %.177 = phi i32 [ 0, %.lr.ph ], [ %.2, %92 ]
+  %.04176 = phi i32 [ %65, %.lr.ph ], [ %.142, %92 ]
+  %.14475 = phi i64 [ %64, %.lr.ph ], [ %.245, %92 ]
   %72 = load i64, ptr %31, align 8
   switch i64 %72, label %73 [
     i64 2, label %.critedge.thread
@@ -18455,7 +18455,7 @@ tng_block_init.exit:                              ; preds = %20, %23
 
 73:                                               ; preds = %71
   %74 = icmp eq i64 %72, %2
-  br i1 %74, label %75, label %84
+  br i1 %74, label %75, label %82
 
 75:                                               ; preds = %73
   %76 = tail call i32 @tng_block_read_next(ptr noundef nonnull %0, ptr noundef nonnull %19, i8 noundef signext %1)
@@ -18467,48 +18467,46 @@ tng_block_init.exit:                              ; preds = %20, %23
   %79 = tail call i64 @ftello64(ptr noundef %78)
   %80 = load i64, ptr %66, align 8
   %81 = icmp slt i64 %79, %80
-  br i1 %81, label %82, label %95
+  br i1 %81, label %.sink.split, label %92
 
-82:                                               ; preds = %77
-  %83 = tail call fastcc i32 @tng_block_header_read(ptr noundef nonnull %0, ptr noundef %19)
-  br label %95
+82:                                               ; preds = %73
+  %83 = load i64, ptr %70, align 8
+  %84 = load i64, ptr %19, align 8
+  %85 = add i64 %83, %.14475
+  %86 = add i64 %85, %84
+  %87 = load ptr, ptr %16, align 8
+  %88 = tail call i32 @fseeko64(ptr noundef %87, i64 noundef %83, i32 noundef 1)
+  %89 = load i64, ptr %66, align 8
+  %90 = icmp slt i64 %86, %89
+  br i1 %90, label %.sink.split, label %92
 
-84:                                               ; preds = %73
-  %85 = load i64, ptr %70, align 8
-  %86 = load i64, ptr %19, align 8
-  %87 = add i64 %85, %.14475
-  %88 = add i64 %87, %86
-  %89 = load ptr, ptr %16, align 8
-  %90 = tail call i32 @fseeko64(ptr noundef %89, i64 noundef %85, i32 noundef 1)
-  %91 = load i64, ptr %66, align 8
-  %92 = icmp slt i64 %88, %91
-  br i1 %92, label %93, label %95
+.sink.split:                                      ; preds = %82, %77
+  %.245.ph = phi i64 [ %79, %77 ], [ %86, %82 ]
+  %.2.ph = phi i32 [ 1, %77 ], [ %.177, %82 ]
+  %91 = tail call fastcc i32 @tng_block_header_read(ptr noundef nonnull %0, ptr noundef %19)
+  br label %92
 
-93:                                               ; preds = %84
-  %94 = tail call fastcc i32 @tng_block_header_read(ptr noundef nonnull %0, ptr noundef nonnull %19)
-  br label %95
-
-95:                                               ; preds = %84, %93, %82, %77
-  %.245 = phi i64 [ %79, %82 ], [ %79, %77 ], [ %88, %93 ], [ %88, %84 ]
-  %.142 = phi i32 [ %83, %82 ], [ %76, %77 ], [ %94, %93 ], [ %.04176, %84 ]
-  %.2 = phi i32 [ 1, %82 ], [ 1, %77 ], [ %.177, %93 ], [ %.177, %84 ]
-  %96 = load i64, ptr %66, align 8
-  %97 = icmp slt i64 %.245, %96
-  %98 = icmp ne i32 %.142, 2
-  %or.cond = select i1 %97, i1 %98, i1 false
+92:                                               ; preds = %.sink.split, %82, %77
+  %.245 = phi i64 [ %79, %77 ], [ %86, %82 ], [ %.245.ph, %.sink.split ]
+  %.142 = phi i32 [ %76, %77 ], [ %.04176, %82 ], [ %91, %.sink.split ]
+  %.2 = phi i32 [ 1, %77 ], [ %.177, %82 ], [ %.2.ph, %.sink.split ]
+  %93 = load i64, ptr %66, align 8
+  %94 = icmp slt i64 %.245, %93
+  %95 = icmp ne i32 %.142, 2
+  %or.cond = select i1 %94, i1 %95, i1 false
   br i1 %or.cond, label %71, label %.critedge, !llvm.loop !140
 
-.critedge:                                        ; preds = %95, %62
-  %.144.lcssa = phi i64 [ %64, %62 ], [ %.245, %95 ]
-  %.041.lcssa = phi i32 [ %65, %62 ], [ %.142, %95 ]
-  %.1.lcssa = phi i32 [ 0, %62 ], [ %.2, %95 ]
-  %99 = icmp eq i32 %.041.lcssa, 2
-  br i1 %99, label %.critedge.thread91, label %.critedge.threadthread-pre-split
+.critedge:                                        ; preds = %92, %62
+  %.144.lcssa = phi i64 [ %64, %62 ], [ %.245, %92 ]
+  %.041.lcssa = phi i32 [ %65, %62 ], [ %.142, %92 ]
+  %.1.lcssa = phi i32 [ 0, %62 ], [ %.2, %92 ]
+  %96 = icmp eq i32 %.041.lcssa, 2
+  br i1 %96, label %.critedge.thread91, label %.critedge.threadthread-pre-split
 
 .critedge.thread91:                               ; preds = %75, %.critedge
   %.144.lcssa95 = phi i64 [ %.144.lcssa, %.critedge ], [ %.14475, %75 ]
-  %100 = load ptr, ptr @stderr, align 8
-  %101 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %100, ptr noundef nonnull @.str.14, i64 noundef %.144.lcssa95, ptr noundef nonnull @.str.1, i32 noundef 11283) #27
+  %97 = load ptr, ptr @stderr, align 8
+  %98 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %97, ptr noundef nonnull @.str.14, i64 noundef %.144.lcssa95, ptr noundef nonnull @.str.1, i32 noundef 11283) #27
   call fastcc void @tng_block_destroy(ptr noundef %4)
   br label %tng_block_destroy.exit
 
@@ -18519,48 +18517,48 @@ tng_block_init.exit:                              ; preds = %20, %23
 .critedge.thread:                                 ; preds = %71, %71, %.critedge.threadthread-pre-split
   %.14473 = phi i64 [ %.144.lcssa, %.critedge.threadthread-pre-split ], [ %.14475, %71 ], [ %.14475, %71 ]
   %.170 = phi i32 [ %.1.lcssa, %.critedge.threadthread-pre-split ], [ %.177, %71 ], [ %.177, %71 ]
-  %102 = phi i64 [ %.pr, %.critedge.threadthread-pre-split ], [ %72, %71 ], [ %72, %71 ]
-  %103 = icmp eq i64 %102, 2
-  br i1 %103, label %104, label %107
+  %99 = phi i64 [ %.pr, %.critedge.threadthread-pre-split ], [ %72, %71 ], [ %72, %71 ]
+  %100 = icmp eq i64 %99, 2
+  br i1 %100, label %101, label %104
 
-104:                                              ; preds = %.critedge.thread
-  %105 = load ptr, ptr %16, align 8
-  %106 = tail call i32 @fseeko64(ptr noundef %105, i64 noundef %.14473, i32 noundef 0)
-  br label %107
+101:                                              ; preds = %.critedge.thread
+  %102 = load ptr, ptr %16, align 8
+  %103 = tail call i32 @fseeko64(ptr noundef %102, i64 noundef %.14473, i32 noundef 0)
+  br label %104
 
-107:                                              ; preds = %.critedge.thread, %104
-  %108 = getelementptr inbounds i8, ptr %19, i64 40
-  %109 = load ptr, ptr %108, align 8
-  %.not16.i65 = icmp eq ptr %109, null
-  br i1 %.not16.i65, label %111, label %110
+104:                                              ; preds = %.critedge.thread, %101
+  %105 = getelementptr inbounds i8, ptr %19, i64 40
+  %106 = load ptr, ptr %105, align 8
+  %.not16.i65 = icmp eq ptr %106, null
+  br i1 %.not16.i65, label %108, label %107
 
-110:                                              ; preds = %107
-  tail call void @free(ptr noundef nonnull %109) #24
-  store ptr null, ptr %108, align 8
-  br label %111
+107:                                              ; preds = %104
+  tail call void @free(ptr noundef nonnull %106) #24
+  store ptr null, ptr %105, align 8
+  br label %108
 
-111:                                              ; preds = %110, %107
-  %112 = getelementptr inbounds i8, ptr %19, i64 104
-  %113 = load ptr, ptr %112, align 8
-  %.not17.i66 = icmp eq ptr %113, null
-  br i1 %.not17.i66, label %115, label %114
+108:                                              ; preds = %107, %104
+  %109 = getelementptr inbounds i8, ptr %19, i64 104
+  %110 = load ptr, ptr %109, align 8
+  %.not17.i66 = icmp eq ptr %110, null
+  br i1 %.not17.i66, label %112, label %111
 
-114:                                              ; preds = %111
-  tail call void @free(ptr noundef nonnull %113) #24
-  store ptr null, ptr %112, align 8
-  br label %115
+111:                                              ; preds = %108
+  tail call void @free(ptr noundef nonnull %110) #24
+  store ptr null, ptr %109, align 8
+  br label %112
 
-115:                                              ; preds = %114, %111
-  %116 = getelementptr inbounds i8, ptr %19, i64 112
-  %117 = load ptr, ptr %116, align 8
-  %.not18.i67 = icmp eq ptr %117, null
-  br i1 %.not18.i67, label %tng_block_destroy.exit68, label %118
+112:                                              ; preds = %111, %108
+  %113 = getelementptr inbounds i8, ptr %19, i64 112
+  %114 = load ptr, ptr %113, align 8
+  %.not18.i67 = icmp eq ptr %114, null
+  br i1 %.not18.i67, label %tng_block_destroy.exit68, label %115
 
-118:                                              ; preds = %115
-  tail call void @free(ptr noundef nonnull %117) #24
+115:                                              ; preds = %112
+  tail call void @free(ptr noundef nonnull %114) #24
   br label %tng_block_destroy.exit68
 
-tng_block_destroy.exit68:                         ; preds = %115, %118
+tng_block_destroy.exit68:                         ; preds = %112, %115
   tail call void @free(ptr noundef nonnull %19) #24
   %.not61 = icmp eq i32 %.170, 0
   %. = zext i1 %.not61 to i32
@@ -27285,7 +27283,7 @@ define range(i32 0, 3) i32 @tng_data_get_stride_length(ptr noundef %0, i64 nound
 8:                                                ; preds = %4
   %9 = tail call i32 @tng_frame_set_of_frame_find(ptr noundef nonnull %0, i64 noundef %spec.select)
   %.not = icmp eq i32 %9, 0
-  br i1 %.not, label %thread-pre-split, label %153
+  br i1 %.not, label %thread-pre-split, label %151
 
 thread-pre-split:                                 ; preds = %8
   %.pr = load i64, ptr %5, align 8
@@ -27348,7 +27346,7 @@ thread-pre-split:                                 ; preds = %8
   %38 = getelementptr inbounds %struct.tng_data, ptr %27, i64 %.03446.i
   %39 = load i64, ptr %38, align 8
   %40 = icmp eq i64 %39, %1
-  br i1 %40, label %tng_data_find.exit, label %29
+  br i1 %40, label %.sink.split, label %29
 
 .critedge38.i:                                    ; preds = %.lr.ph49.i
   %41 = add nuw nsw i64 %.148.i, 1
@@ -27360,7 +27358,7 @@ thread-pre-split:                                 ; preds = %8
   %42 = getelementptr inbounds %struct.tng_data, ptr %35, i64 %.148.i
   %43 = load i64, ptr %42, align 8
   %44 = icmp eq i64 %43, %1
-  br i1 %44, label %tng_data_find.exit, label %.critedge38.i
+  br i1 %44, label %.sink.split, label %.critedge38.i
 
 .critedge.i:                                      ; preds = %.lr.ph.i
   %45 = add nuw nsw i64 %.243.i, 1
@@ -27372,7 +27370,7 @@ thread-pre-split:                                 ; preds = %8
   %46 = getelementptr inbounds %struct.tng_data, ptr %21, i64 %.243.i
   %47 = load i64, ptr %46, align 8
   %48 = icmp eq i64 %47, %1
-  br i1 %48, label %tng_data_find.exit, label %.critedge.i
+  br i1 %48, label %.sink.split, label %.critedge.i
 
 .loopexit114:                                     ; preds = %.critedge.i, %.critedge38.i, %.critedge38.preheader.i
   br i1 %12, label %56, label %.thread
@@ -27447,14 +27445,14 @@ thread-pre-split:                                 ; preds = %8
   %78 = getelementptr inbounds i8, ptr %0, i64 16
   %79 = load i64, ptr %78, align 8
   %80 = icmp slt i64 %77, %79
-  br i1 %80, label %.lr.ph200, label %.critedge.thread90
+  br i1 %80, label %.lr.ph202, label %.sink.split
 
-81:                                               ; preds = %.lr.ph200
+81:                                               ; preds = %.lr.ph202
   %82 = load i64, ptr %78, align 8
   %83 = icmp slt i64 %86, %82
-  br i1 %83, label %.lr.ph200, label %.critedge.thread90, !llvm.loop !214
+  br i1 %83, label %.lr.ph202, label %.sink.split, !llvm.loop !214
 
-.lr.ph200:                                        ; preds = %.lr.ph, %81
+.lr.ph202:                                        ; preds = %.lr.ph, %81
   %84 = tail call i32 @tng_frame_set_read_next_only_data_from_block_id(ptr noundef nonnull %0, i8 noundef signext 1, i64 noundef %1)
   %85 = load ptr, ptr %75, align 8
   %86 = tail call i64 @ftello64(ptr noundef %85)
@@ -27463,170 +27461,162 @@ thread-pre-split:                                 ; preds = %8
 
 .critedge:                                        ; preds = %.loopexit110
   %.not49 = icmp eq i32 %72, 0
-  br i1 %.not49, label %.critedge.thread, label %.critedge.thread90
+  br i1 %.not49, label %.critedge.thread, label %.sink.split
 
-.critedge.thread90:                               ; preds = %81, %.lr.ph, %.critedge
-  %.04293 = phi i32 [ %72, %.critedge ], [ %72, %.lr.ph ], [ %84, %81 ]
-  %87 = tail call fastcc i32 @tng_reread_frame_set_at_file_pos(ptr noundef %0, i64 noundef %11)
-  br label %153
+.critedge.thread:                                 ; preds = %.lr.ph202, %74, %.critedge
+  %87 = load i64, ptr %5, align 8
+  %88 = icmp sgt i64 %87, 0
+  br i1 %88, label %99, label %89
 
-.critedge.thread:                                 ; preds = %.lr.ph200, %74, %.critedge
-  %88 = load i64, ptr %5, align 8
-  %89 = icmp sgt i64 %88, 0
-  br i1 %89, label %100, label %90
+89:                                               ; preds = %.critedge.thread
+  %90 = getelementptr inbounds i8, ptr %0, i64 432
+  %91 = load i64, ptr %90, align 8
+  %92 = icmp sgt i64 %91, 0
+  br i1 %92, label %99, label %.critedge.preheader.i58
 
-90:                                               ; preds = %.critedge.thread
-  %91 = getelementptr inbounds i8, ptr %0, i64 432
-  %92 = load i64, ptr %91, align 8
-  %93 = icmp sgt i64 %92, 0
-  br i1 %93, label %100, label %.critedge.preheader.i58
-
-.critedge.preheader.i58:                          ; preds = %90
-  %94 = getelementptr inbounds i8, ptr %0, i64 464
-  %95 = load i32, ptr %94, align 8
-  %96 = icmp sgt i32 %95, 0
-  br i1 %96, label %.lr.ph.i59.preheader, label %.critedge.preheader.i71
+.critedge.preheader.i58:                          ; preds = %89
+  %93 = getelementptr inbounds i8, ptr %0, i64 464
+  %94 = load i32, ptr %93, align 8
+  %95 = icmp sgt i32 %94, 0
+  br i1 %95, label %.lr.ph.i59.preheader, label %.critedge.preheader.i71
 
 .lr.ph.i59.preheader:                             ; preds = %.critedge.preheader.i58
-  %97 = getelementptr inbounds i8, ptr %0, i64 472
-  %98 = load ptr, ptr %97, align 8
-  %99 = zext nneg i32 %95 to i64
+  %96 = getelementptr inbounds i8, ptr %0, i64 472
+  %97 = load ptr, ptr %96, align 8
+  %98 = zext nneg i32 %94 to i64
   br label %.lr.ph.i59
 
-100:                                              ; preds = %90, %.critedge.thread
-  %101 = getelementptr inbounds i8, ptr %0, i64 408
-  %102 = load i32, ptr %101, align 8
-  %.not45.i62 = icmp sgt i32 %102, 0
+99:                                               ; preds = %89, %.critedge.thread
+  %100 = getelementptr inbounds i8, ptr %0, i64 408
+  %101 = load i32, ptr %100, align 8
+  %.not45.i62 = icmp sgt i32 %101, 0
   br i1 %.not45.i62, label %.lr.ph47.i67, label %.critedge38.preheader.i63
 
-.lr.ph47.i67:                                     ; preds = %100
-  %103 = getelementptr inbounds i8, ptr %0, i64 416
-  %104 = load ptr, ptr %103, align 8
-  %105 = zext nneg i32 %102 to i64
-  br label %114
+.lr.ph47.i67:                                     ; preds = %99
+  %102 = getelementptr inbounds i8, ptr %0, i64 416
+  %103 = load ptr, ptr %102, align 8
+  %104 = zext nneg i32 %101 to i64
+  br label %113
 
-106:                                              ; preds = %114
-  %107 = add nuw nsw i64 %.03446.i68, 1
-  %exitcond154.not = icmp eq i64 %107, %105
-  br i1 %exitcond154.not, label %.critedge38.preheader.i63, label %114, !llvm.loop !75
+105:                                              ; preds = %113
+  %106 = add nuw nsw i64 %.03446.i68, 1
+  %exitcond154.not = icmp eq i64 %106, %104
+  br i1 %exitcond154.not, label %.critedge38.preheader.i63, label %113, !llvm.loop !75
 
-.critedge38.preheader.i63:                        ; preds = %106, %100
-  %108 = getelementptr inbounds i8, ptr %0, i64 464
-  %109 = load i32, ptr %108, align 8
-  %110 = icmp sgt i32 %109, 0
-  br i1 %110, label %.lr.ph49.i64.preheader, label %.loopexit105
+.critedge38.preheader.i63:                        ; preds = %105, %99
+  %107 = getelementptr inbounds i8, ptr %0, i64 464
+  %108 = load i32, ptr %107, align 8
+  %109 = icmp sgt i32 %108, 0
+  br i1 %109, label %.lr.ph49.i64.preheader, label %.loopexit105
 
 .lr.ph49.i64.preheader:                           ; preds = %.critedge38.preheader.i63
-  %111 = getelementptr inbounds i8, ptr %0, i64 472
-  %112 = load ptr, ptr %111, align 8
-  %113 = zext nneg i32 %109 to i64
+  %110 = getelementptr inbounds i8, ptr %0, i64 472
+  %111 = load ptr, ptr %110, align 8
+  %112 = zext nneg i32 %108 to i64
   br label %.lr.ph49.i64
 
-114:                                              ; preds = %106, %.lr.ph47.i67
-  %.03446.i68 = phi i64 [ 0, %.lr.ph47.i67 ], [ %107, %106 ]
-  %115 = getelementptr inbounds %struct.tng_data, ptr %104, i64 %.03446.i68
-  %116 = load i64, ptr %115, align 8
-  %117 = icmp eq i64 %116, %1
-  br i1 %117, label %tng_data_find.exit, label %106
+113:                                              ; preds = %105, %.lr.ph47.i67
+  %.03446.i68 = phi i64 [ 0, %.lr.ph47.i67 ], [ %106, %105 ]
+  %114 = getelementptr inbounds %struct.tng_data, ptr %103, i64 %.03446.i68
+  %115 = load i64, ptr %114, align 8
+  %116 = icmp eq i64 %115, %1
+  br i1 %116, label %.sink.split, label %105
 
 .critedge38.i66:                                  ; preds = %.lr.ph49.i64
-  %118 = add nuw nsw i64 %.148.i65, 1
-  %exitcond155.not = icmp eq i64 %118, %113
+  %117 = add nuw nsw i64 %.148.i65, 1
+  %exitcond155.not = icmp eq i64 %117, %112
   br i1 %exitcond155.not, label %.loopexit105, label %.lr.ph49.i64, !llvm.loop !76
 
 .lr.ph49.i64:                                     ; preds = %.lr.ph49.i64.preheader, %.critedge38.i66
-  %.148.i65 = phi i64 [ %118, %.critedge38.i66 ], [ 0, %.lr.ph49.i64.preheader ]
-  %119 = getelementptr inbounds %struct.tng_data, ptr %112, i64 %.148.i65
-  %120 = load i64, ptr %119, align 8
-  %121 = icmp eq i64 %120, %1
-  br i1 %121, label %tng_data_find.exit, label %.critedge38.i66
+  %.148.i65 = phi i64 [ %117, %.critedge38.i66 ], [ 0, %.lr.ph49.i64.preheader ]
+  %118 = getelementptr inbounds %struct.tng_data, ptr %111, i64 %.148.i65
+  %119 = load i64, ptr %118, align 8
+  %120 = icmp eq i64 %119, %1
+  br i1 %120, label %.sink.split, label %.critedge38.i66
 
 .critedge.i61:                                    ; preds = %.lr.ph.i59
-  %122 = add nuw nsw i64 %.243.i60, 1
-  %exitcond153.not = icmp eq i64 %122, %99
+  %121 = add nuw nsw i64 %.243.i60, 1
+  %exitcond153.not = icmp eq i64 %121, %98
   br i1 %exitcond153.not, label %.loopexit105, label %.lr.ph.i59, !llvm.loop !77
 
 .lr.ph.i59:                                       ; preds = %.lr.ph.i59.preheader, %.critedge.i61
-  %.243.i60 = phi i64 [ %122, %.critedge.i61 ], [ 0, %.lr.ph.i59.preheader ]
-  %123 = getelementptr inbounds %struct.tng_data, ptr %98, i64 %.243.i60
-  %124 = load i64, ptr %123, align 8
-  %125 = icmp eq i64 %124, %1
-  br i1 %125, label %tng_data_find.exit, label %.critedge.i61
+  %.243.i60 = phi i64 [ %121, %.critedge.i61 ], [ 0, %.lr.ph.i59.preheader ]
+  %122 = getelementptr inbounds %struct.tng_data, ptr %97, i64 %.243.i60
+  %123 = load i64, ptr %122, align 8
+  %124 = icmp eq i64 %123, %1
+  br i1 %124, label %.sink.split, label %.critedge.i61
 
 .loopexit105:                                     ; preds = %.critedge.i61, %.critedge38.i66, %.critedge38.preheader.i63
-  br i1 %89, label %133, label %.thread97
+  br i1 %88, label %132, label %.thread97
 
 .thread97:                                        ; preds = %.loopexit105
   %.phi.trans.insert158 = getelementptr inbounds i8, ptr %0, i64 432
   %.pre159 = load i64, ptr %.phi.trans.insert158, align 8
-  %126 = icmp sgt i64 %.pre159, 0
-  br i1 %126, label %133, label %.critedge.preheader.i71
+  %125 = icmp sgt i64 %.pre159, 0
+  br i1 %125, label %132, label %.critedge.preheader.i71
 
 .critedge.preheader.i71:                          ; preds = %.critedge.preheader.i58, %.thread97
-  %127 = getelementptr inbounds i8, ptr %0, i64 448
-  %128 = load i32, ptr %127, align 8
-  %129 = icmp sgt i32 %128, 0
-  br i1 %129, label %.lr.ph.i72.preheader, label %.loopexit
+  %126 = getelementptr inbounds i8, ptr %0, i64 448
+  %127 = load i32, ptr %126, align 8
+  %128 = icmp sgt i32 %127, 0
+  br i1 %128, label %.lr.ph.i72.preheader, label %.sink.split
 
 .lr.ph.i72.preheader:                             ; preds = %.critedge.preheader.i71
-  %130 = getelementptr inbounds i8, ptr %0, i64 456
-  %131 = load ptr, ptr %130, align 8
-  %132 = zext nneg i32 %128 to i64
+  %129 = getelementptr inbounds i8, ptr %0, i64 456
+  %130 = load ptr, ptr %129, align 8
+  %131 = zext nneg i32 %127 to i64
   br label %.lr.ph.i72
 
-133:                                              ; preds = %.thread97, %.loopexit105
-  %134 = getelementptr inbounds i8, ptr %0, i64 392
-  %135 = load i32, ptr %134, align 8
-  %136 = icmp sgt i32 %135, 0
-  br i1 %136, label %.lr.ph32.i75.preheader, label %.loopexit
+132:                                              ; preds = %.thread97, %.loopexit105
+  %133 = getelementptr inbounds i8, ptr %0, i64 392
+  %134 = load i32, ptr %133, align 8
+  %135 = icmp sgt i32 %134, 0
+  br i1 %135, label %.lr.ph32.i75.preheader, label %.sink.split
 
-.lr.ph32.i75.preheader:                           ; preds = %133
-  %137 = getelementptr inbounds i8, ptr %0, i64 400
-  %138 = load ptr, ptr %137, align 8
-  %139 = zext nneg i32 %135 to i64
+.lr.ph32.i75.preheader:                           ; preds = %132
+  %136 = getelementptr inbounds i8, ptr %0, i64 400
+  %137 = load ptr, ptr %136, align 8
+  %138 = zext nneg i32 %134 to i64
   br label %.lr.ph32.i75
 
-140:                                              ; preds = %.lr.ph32.i75
-  %141 = add nuw nsw i64 %.02431.i76, 1
-  %exitcond157.not = icmp eq i64 %141, %139
-  br i1 %exitcond157.not, label %.loopexit, label %.lr.ph32.i75, !llvm.loop !73
+139:                                              ; preds = %.lr.ph32.i75
+  %140 = add nuw nsw i64 %.02431.i76, 1
+  %exitcond157.not = icmp eq i64 %140, %138
+  br i1 %exitcond157.not, label %.sink.split, label %.lr.ph32.i75, !llvm.loop !73
 
-.lr.ph32.i75:                                     ; preds = %.lr.ph32.i75.preheader, %140
-  %.02431.i76 = phi i64 [ %141, %140 ], [ 0, %.lr.ph32.i75.preheader ]
-  %142 = getelementptr inbounds %struct.tng_data, ptr %138, i64 %.02431.i76
-  %143 = load i64, ptr %142, align 8
-  %144 = icmp eq i64 %143, %1
-  br i1 %144, label %.critedge54, label %140
+.lr.ph32.i75:                                     ; preds = %.lr.ph32.i75.preheader, %139
+  %.02431.i76 = phi i64 [ %140, %139 ], [ 0, %.lr.ph32.i75.preheader ]
+  %141 = getelementptr inbounds %struct.tng_data, ptr %137, i64 %.02431.i76
+  %142 = load i64, ptr %141, align 8
+  %143 = icmp eq i64 %142, %1
+  br i1 %143, label %.critedge54, label %139
 
 .critedge.i74:                                    ; preds = %.lr.ph.i72
-  %145 = add nuw nsw i64 %.129.i73, 1
-  %exitcond156.not = icmp eq i64 %145, %132
-  br i1 %exitcond156.not, label %.loopexit, label %.lr.ph.i72, !llvm.loop !74
+  %144 = add nuw nsw i64 %.129.i73, 1
+  %exitcond156.not = icmp eq i64 %144, %131
+  br i1 %exitcond156.not, label %.sink.split, label %.lr.ph.i72, !llvm.loop !74
 
 .lr.ph.i72:                                       ; preds = %.lr.ph.i72.preheader, %.critedge.i74
-  %.129.i73 = phi i64 [ %145, %.critedge.i74 ], [ 0, %.lr.ph.i72.preheader ]
-  %146 = getelementptr inbounds %struct.tng_data, ptr %131, i64 %.129.i73
-  %147 = load i64, ptr %146, align 8
-  %148 = icmp eq i64 %147, %1
-  br i1 %148, label %.critedge54, label %.critedge.i74
-
-.loopexit:                                        ; preds = %.critedge.i74, %140, %133, %.critedge.preheader.i71
-  %149 = tail call fastcc i32 @tng_reread_frame_set_at_file_pos(ptr noundef %0, i64 noundef %11)
-  br label %153
+  %.129.i73 = phi i64 [ %144, %.critedge.i74 ], [ 0, %.lr.ph.i72.preheader ]
+  %145 = getelementptr inbounds %struct.tng_data, ptr %130, i64 %.129.i73
+  %146 = load i64, ptr %145, align 8
+  %147 = icmp eq i64 %146, %1
+  br i1 %147, label %.critedge54, label %.critedge.i74
 
 .critedge54:                                      ; preds = %.lr.ph.i56, %.lr.ph32.i, %.lr.ph.i72, %.lr.ph32.i75
-  %.0 = phi ptr [ %142, %.lr.ph32.i75 ], [ %146, %.lr.ph.i72 ], [ %65, %.lr.ph32.i ], [ %69, %.lr.ph.i56 ]
-  %150 = getelementptr inbounds i8, ptr %.0, i64 48
-  %151 = load i64, ptr %150, align 8
-  store i64 %151, ptr %3, align 8
-  br label %tng_data_find.exit
+  %.0 = phi ptr [ %141, %.lr.ph32.i75 ], [ %145, %.lr.ph.i72 ], [ %65, %.lr.ph32.i ], [ %69, %.lr.ph.i56 ]
+  %148 = getelementptr inbounds i8, ptr %.0, i64 48
+  %149 = load i64, ptr %148, align 8
+  store i64 %149, ptr %3, align 8
+  br label %.sink.split
 
-tng_data_find.exit:                               ; preds = %.lr.ph.i, %37, %.lr.ph49.i, %.lr.ph.i59, %114, %.lr.ph49.i64, %.critedge54
-  %152 = tail call fastcc i32 @tng_reread_frame_set_at_file_pos(ptr noundef nonnull %0, i64 noundef %11)
-  br label %153
+.sink.split:                                      ; preds = %.lr.ph.i, %37, %.lr.ph49.i, %81, %.lr.ph.i59, %113, %.lr.ph49.i64, %.critedge.i74, %139, %.lr.ph, %.critedge54, %.critedge.preheader.i71, %132, %.critedge
+  %.041.ph = phi i32 [ %72, %.critedge ], [ 1, %132 ], [ 1, %.critedge.preheader.i71 ], [ 0, %.critedge54 ], [ %72, %.lr.ph ], [ 1, %139 ], [ 1, %.critedge.i74 ], [ 0, %.lr.ph49.i64 ], [ 0, %113 ], [ 0, %.lr.ph.i59 ], [ %84, %81 ], [ 0, %.lr.ph49.i ], [ 0, %37 ], [ 0, %.lr.ph.i ]
+  %150 = tail call fastcc i32 @tng_reread_frame_set_at_file_pos(ptr noundef %0, i64 noundef %11)
+  br label %151
 
-153:                                              ; preds = %8, %tng_data_find.exit, %.loopexit, %.critedge.thread90
-  %.041 = phi i32 [ %.04293, %.critedge.thread90 ], [ 1, %.loopexit ], [ 0, %tng_data_find.exit ], [ %9, %8 ]
+151:                                              ; preds = %.sink.split, %8
+  %.041 = phi i32 [ %9, %8 ], [ %.041.ph, %.sink.split ]
   ret i32 %.041
 }
 

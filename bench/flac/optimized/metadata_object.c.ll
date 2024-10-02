@@ -3584,7 +3584,7 @@ if.end.i.i:                                       ; preds = %if.else.i.i
   store ptr %call.i.i, ptr %indices.i, align 8
   br label %if.end3.i
 
-if.end3.i:                                        ; preds = %entry, %if.end.i.i, %if.then.i
+if.end3.i:                                        ; preds = %if.end.i.i, %if.then.i, %entry
   tail call void @free(ptr noundef %1) #28
   %6 = load i32, ptr @FLAC__STREAM_METADATA_CUESHEET_MEDIA_CATALOG_NUMBER_LEN, align 4
   %7 = load i32, ptr @FLAC__STREAM_METADATA_CUESHEET_LEAD_IN_LEN, align 4

@@ -829,26 +829,22 @@ entry:
 
 lor.lhs.false3:                                   ; preds = %entry
   %tobool.not = icmp eq ptr %delta, null
-  br i1 %tobool.not, label %lor.lhs.false3.split, label %land.lhs.true
-
-lor.lhs.false3.split:                             ; preds = %lor.lhs.false3
-  %call55 = tail call noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef 24)
-  tail call void @_ZN7datalog18check_table_plugin8union_fnC2ERS0_RKNS_10table_baseES5_PS4_(ptr noundef nonnull align 8 dereferenceable(24) %call55, ptr noundef nonnull align 8 dereferenceable(52) %this, ptr noundef nonnull align 8 dereferenceable(36) %tgt, ptr noundef nonnull align 8 dereferenceable(36) %src, ptr noundef null)
-  br label %return
+  br i1 %tobool.not, label %return.sink.split, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %lor.lhs.false3
   %m_plugin.i.i9 = getelementptr inbounds i8, ptr %delta, i64 8
   %2 = load ptr, ptr %m_plugin.i.i9, align 8
   %cmp.i10 = icmp eq ptr %2, %this
-  br i1 %cmp.i10, label %land.lhs.true.split, label %return
+  br i1 %cmp.i10, label %return.sink.split, label %return
 
-land.lhs.true.split:                              ; preds = %land.lhs.true
-  %call56 = tail call noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef 24)
-  tail call void @_ZN7datalog18check_table_plugin8union_fnC2ERS0_RKNS_10table_baseES5_PS4_(ptr noundef nonnull align 8 dereferenceable(24) %call56, ptr noundef nonnull align 8 dereferenceable(52) %this, ptr noundef nonnull align 8 dereferenceable(36) %tgt, ptr noundef nonnull align 8 dereferenceable(36) %src, ptr noundef nonnull %delta)
+return.sink.split:                                ; preds = %land.lhs.true, %lor.lhs.false3
+  %.sink = phi ptr [ null, %lor.lhs.false3 ], [ %delta, %land.lhs.true ]
+  %call55 = tail call noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef 24)
+  tail call void @_ZN7datalog18check_table_plugin8union_fnC2ERS0_RKNS_10table_baseES5_PS4_(ptr noundef nonnull align 8 dereferenceable(24) %call55, ptr noundef nonnull align 8 dereferenceable(52) %this, ptr noundef nonnull align 8 dereferenceable(36) %tgt, ptr noundef nonnull align 8 dereferenceable(36) %src, ptr noundef %.sink)
   br label %return
 
-return:                                           ; preds = %lor.lhs.false3.split, %land.lhs.true.split, %entry, %land.lhs.true
-  %retval.0 = phi ptr [ null, %land.lhs.true ], [ null, %entry ], [ %call55, %lor.lhs.false3.split ], [ %call56, %land.lhs.true.split ]
+return:                                           ; preds = %return.sink.split, %entry, %land.lhs.true
+  %retval.0 = phi ptr [ null, %land.lhs.true ], [ null, %entry ], [ %call55, %return.sink.split ]
   ret ptr %retval.0
 }
 

@@ -7152,10 +7152,6 @@ define internal fastcc i32 @__ButcherSimplifyingAssumptions(ptr nocapture nounde
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %.preheader168, label %.preheader.i
 
-__vp.exit:                                        ; preds = %4
-  tail call void @free(ptr noundef %6) #16
-  br label %92
-
 .preheader168:                                    ; preds = %.preheader.i, %.preheader168
   %indvars.iv.i94 = phi i64 [ %indvars.iv.next.i95, %.preheader168 ], [ 0, %.preheader.i ]
   %14 = phi double [ %19, %.preheader168 ], [ 0.000000e+00, %.preheader.i ]
@@ -7218,7 +7214,7 @@ __vp.exit:                                        ; preds = %4
   %39 = getelementptr inbounds ptr, ptr %0, i64 %indvars.iv
   %40 = load ptr, ptr %39, align 8
   %41 = icmp eq ptr %40, null
-  br i1 %41, label %__dot.exit112, label %.preheader
+  br i1 %41, label %__vp.exit, label %.preheader
 
 .preheader:                                       ; preds = %38, %.preheader
   %indvars.iv.i108.us = phi i64 [ %indvars.iv.next.i109.us, %.preheader ], [ 0, %38 ]
@@ -7247,10 +7243,6 @@ __vp.exit:                                        ; preds = %4
   %57 = add nuw nsw i32 %.075149.us, 1
   %exitcond181.not = icmp eq i32 %56, 999
   br i1 %exitcond181.not, label %.split156, label %.preheader134.us
-
-__dot.exit112:                                    ; preds = %38
-  tail call void @free(ptr noundef nonnull %6) #16
-  br label %92
 
 .split156:                                        ; preds = %..critedge_crit_edge.us, %48
   %.081142 = phi i32 [ %.081148.us, %48 ], [ 999, %..critedge_crit_edge.us ]
@@ -7314,7 +7306,7 @@ __dot.exit112:                                    ; preds = %38
   %.081142195 = phi i32 [ 999, %29 ], [ %.081142, %._crit_edge.us.us ], [ %.081142, %..critedge92_crit_edge.split.us.us ]
   %.080138 = phi i32 [ 999, %29 ], [ %.080157.us, %._crit_edge.us.us ], [ 999, %..critedge92_crit_edge.split.us.us ]
   %.not90161 = icmp eq i32 %.082.lcssa, 0
-  br i1 %.not90161, label %._crit_edge, label %.lr.ph.preheader
+  br i1 %.not90161, label %__vp.exit, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %.loopexit
   %86 = shl nuw i32 %.081142195, 1
@@ -7325,15 +7317,11 @@ __dot.exit112:                                    ; preds = %38
   %umin = tail call i32 @llvm.umin.i32(i32 %89, i32 %90)
   %umin193 = tail call i32 @llvm.umin.i32(i32 %umin, i32 %87)
   %91 = add nuw nsw i32 %umin193, 1
-  br label %._crit_edge
+  br label %__vp.exit
 
-._crit_edge:                                      ; preds = %.lr.ph.preheader, %.loopexit
-  %.074.lcssa = phi i32 [ 0, %.loopexit ], [ %91, %.lr.ph.preheader ]
+__vp.exit:                                        ; preds = %38, %.loopexit, %.lr.ph.preheader, %4
+  %.0 = phi i32 [ 0, %4 ], [ 0, %.loopexit ], [ %91, %.lr.ph.preheader ], [ 0, %38 ]
   tail call void @free(ptr noundef %6) #16
-  br label %92
-
-92:                                               ; preds = %._crit_edge, %__dot.exit112, %__vp.exit
-  %.0 = phi i32 [ 0, %__vp.exit ], [ 0, %__dot.exit112 ], [ %.074.lcssa, %._crit_edge ]
   ret i32 %.0
 }
 

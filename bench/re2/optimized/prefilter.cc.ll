@@ -3251,11 +3251,7 @@ for.body57:                                       ; preds = %for.body57.preheade
   %is_exact_.i65 = getelementptr inbounds i8, ptr %26, i64 48
   %27 = load i8, ptr %is_exact_.i65, align 8
   %tobool.i66 = trunc i8 %27 to i1
-  br i1 %tobool.i66, label %lor.lhs.false, label %for.body57.split
-
-for.body57.split:                                 ; preds = %for.body57
-  %call6740 = tail call noundef ptr @_ZN3re29Prefilter4Info3AndEPS1_S2_(ptr noundef %info.3118, ptr noundef %exact.0116)
-  br label %if.then66
+  br i1 %tobool.i66, label %lor.lhs.false, label %if.then66
 
 lor.lhs.false:                                    ; preds = %for.body57
   %tobool.not = icmp eq ptr %exact.0116, null
@@ -3268,7 +3264,7 @@ land.lhs.true:                                    ; preds = %lor.lhs.false
   %29 = load i64, ptr %_M_node_count.i.i68, align 8
   %mul = mul i64 %29, %28
   %cmp65 = icmp ugt i64 %mul, 16
-  br i1 %cmp65, label %land.lhs.true.split, label %if.end.i70
+  br i1 %cmp65, label %if.then66, label %if.end.i70
 
 if.end.i70:                                       ; preds = %land.lhs.true
   %call.i71 = tail call noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #18
@@ -3291,13 +3287,9 @@ _ZN3re29Prefilter4Info6ConcatEPS1_S2_.exit76:     ; preds = %if.end.i70
   tail call void @_ZdlPv(ptr noundef nonnull %26) #19
   br label %for.inc72
 
-land.lhs.true.split:                              ; preds = %land.lhs.true
-  %call6741 = tail call noundef ptr @_ZN3re29Prefilter4Info3AndEPS1_S2_(ptr noundef %info.3118, ptr noundef nonnull %exact.0116)
-  br label %if.then66
-
-if.then66:                                        ; preds = %land.lhs.true.split, %for.body57.split
-  %phi.call = phi ptr [ %call6740, %for.body57.split ], [ %call6741, %land.lhs.true.split ]
-  %call68 = tail call noundef ptr @_ZN3re29Prefilter4Info3AndEPS1_S2_(ptr noundef %phi.call, ptr noundef nonnull %26)
+if.then66:                                        ; preds = %land.lhs.true, %for.body57
+  %call6741 = tail call noundef ptr @_ZN3re29Prefilter4Info3AndEPS1_S2_(ptr noundef %info.3118, ptr noundef %exact.0116)
+  %call68 = tail call noundef ptr @_ZN3re29Prefilter4Info3AndEPS1_S2_(ptr noundef %call6741, ptr noundef nonnull %26)
   br label %for.inc72
 
 for.inc72:                                        ; preds = %lor.lhs.false, %_ZN3re29Prefilter4Info6ConcatEPS1_S2_.exit76, %if.then66

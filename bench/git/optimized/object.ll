@@ -182,121 +182,73 @@ while.body.lr.ph.split.us:                        ; preds = %while.body.lr.ph
   %8 = getelementptr i8, ptr %7, i64 16
   %algop.0.val.i.us = load i64, ptr %8, align 8
   %cmp.i.i.us = icmp eq i64 %algop.0.val.i.us, 32
-  %oid4.us.us72 = getelementptr inbounds i8, ptr %3, i64 4
-  br i1 %cmp.i.i.us, label %while.body.lr.ph.split.us.split.us, label %while.body.lr.ph.split.us.split
-
-while.body.lr.ph.split.us.split.us:               ; preds = %while.body.lr.ph.split.us
-  %bcmp3.i.i.us.us73 = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(32) %oid, ptr noundef nonnull readonly dereferenceable(32) %oid4.us.us72, i64 32)
-  %retval.0.in.i.i.not.us.us74 = icmp eq i32 %bcmp3.i.i.us.us73, 0
-  br i1 %retval.0.in.i.i.not.us.us74, label %return, label %if.end8.us.us
-
-while.body.us.us:                                 ; preds = %if.end8.us.us
-  %oid4.us.us = getelementptr inbounds i8, ptr %9, i64 4
-  %bcmp3.i.i.us.us = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(32) %oid, ptr noundef nonnull readonly dereferenceable(32) %oid4.us.us, i64 32)
-  %retval.0.in.i.i.not.us.us = icmp eq i32 %bcmp3.i.i.us.us, 0
-  br i1 %retval.0.in.i.i.not.us.us, label %while.end, label %if.end8.us.us, !llvm.loop !7
-
-if.end8.us.us:                                    ; preds = %while.body.lr.ph.split.us.split.us, %while.body.us.us
-  %i.023.us.us75 = phi i32 [ %spec.store.select.us.us, %while.body.us.us ], [ %and.i, %while.body.lr.ph.split.us.split.us ]
-  %inc.us.us = add i32 %i.023.us.us75, 1
-  %cmp11.us.us = icmp eq i32 %inc.us.us, %2
-  %spec.store.select.us.us = select i1 %cmp11.us.us, i32 0, i32 %inc.us.us
-  %idxprom.us.us = zext i32 %spec.store.select.us.us to i64
-  %arrayidx.us.us = getelementptr inbounds ptr, ptr %1, i64 %idxprom.us.us
-  %9 = load ptr, ptr %arrayidx.us.us, align 8
-  %cmp.not.us.us = icmp eq ptr %9, null
-  br i1 %cmp.not.us.us, label %return, label %while.body.us.us, !llvm.loop !7
-
-while.body.lr.ph.split.us.split:                  ; preds = %while.body.lr.ph.split.us
-  %bcmp.i.i.us66 = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(20) %oid, ptr noundef nonnull readonly dereferenceable(20) %oid4.us.us72, i64 20)
-  %retval.0.in.i.i.not.us67 = icmp eq i32 %bcmp.i.i.us66, 0
-  br i1 %retval.0.in.i.i.not.us67, label %return, label %if.end8.us
+  %..i.i.us = select i1 %cmp.i.i.us, i64 32, i64 20
+  %oid4.us33 = getelementptr inbounds i8, ptr %3, i64 4
+  %bcmp.i.i.us34 = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(20) %oid, ptr noundef nonnull readonly dereferenceable(20) %oid4.us33, i64 %..i.i.us)
+  %retval.0.in.i.i.not.us35 = icmp eq i32 %bcmp.i.i.us34, 0
+  br i1 %retval.0.in.i.i.not.us35, label %return, label %if.end8.us
 
 while.body.us:                                    ; preds = %if.end8.us
-  %oid4.us = getelementptr inbounds i8, ptr %10, i64 4
-  %bcmp.i.i.us = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(20) %oid, ptr noundef nonnull readonly dereferenceable(20) %oid4.us, i64 20)
+  %oid4.us = getelementptr inbounds i8, ptr %9, i64 4
+  %bcmp.i.i.us = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(20) %oid, ptr noundef nonnull readonly dereferenceable(20) %oid4.us, i64 %..i.i.us)
   %retval.0.in.i.i.not.us = icmp eq i32 %bcmp.i.i.us, 0
   br i1 %retval.0.in.i.i.not.us, label %while.end, label %if.end8.us, !llvm.loop !7
 
-if.end8.us:                                       ; preds = %while.body.lr.ph.split.us.split, %while.body.us
-  %i.023.us68 = phi i32 [ %spec.store.select.us, %while.body.us ], [ %and.i, %while.body.lr.ph.split.us.split ]
-  %inc.us = add i32 %i.023.us68, 1
+if.end8.us:                                       ; preds = %while.body.lr.ph.split.us, %while.body.us
+  %i.023.us36 = phi i32 [ %spec.store.select.us, %while.body.us ], [ %and.i, %while.body.lr.ph.split.us ]
+  %inc.us = add i32 %i.023.us36, 1
   %cmp11.us = icmp eq i32 %inc.us, %2
   %spec.store.select.us = select i1 %cmp11.us, i32 0, i32 %inc.us
   %idxprom.us = zext i32 %spec.store.select.us to i64
   %arrayidx.us = getelementptr inbounds ptr, ptr %1, i64 %idxprom.us
-  %10 = load ptr, ptr %arrayidx.us, align 8
-  %cmp.not.us = icmp eq ptr %10, null
+  %9 = load ptr, ptr %arrayidx.us, align 8
+  %cmp.not.us = icmp eq ptr %9, null
   br i1 %cmp.not.us, label %return, label %while.body.us, !llvm.loop !7
 
 while.body.lr.ph.split:                           ; preds = %while.body.lr.ph
   %idxprom.i = sext i32 %5 to i64
-  %11 = getelementptr [3 x %struct.git_hash_algo], ptr @hash_algos, i64 0, i64 %idxprom.i, i32 2
-  %algop.0.val.i = load i64, ptr %11, align 8
+  %10 = getelementptr [3 x %struct.git_hash_algo], ptr @hash_algos, i64 0, i64 %idxprom.i, i32 2
+  %algop.0.val.i = load i64, ptr %10, align 8
   %cmp.i.i = icmp eq i64 %algop.0.val.i, 32
-  %oid4.us3055 = getelementptr inbounds i8, ptr %3, i64 4
-  br i1 %cmp.i.i, label %while.body.lr.ph.split.split.us, label %while.body.lr.ph.split.split
-
-while.body.lr.ph.split.split.us:                  ; preds = %while.body.lr.ph.split
-  %bcmp3.i.i.us3256 = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(32) %oid, ptr noundef nonnull readonly dereferenceable(32) %oid4.us3055, i64 32)
-  %retval.0.in.i.i.not.us3557 = icmp eq i32 %bcmp3.i.i.us3256, 0
-  br i1 %retval.0.in.i.i.not.us3557, label %return, label %if.end8.us36
-
-while.body.us27:                                  ; preds = %if.end8.us36
-  %oid4.us30 = getelementptr inbounds i8, ptr %12, i64 4
-  %bcmp3.i.i.us32 = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(32) %oid, ptr noundef nonnull readonly dereferenceable(32) %oid4.us30, i64 32)
-  %retval.0.in.i.i.not.us35 = icmp eq i32 %bcmp3.i.i.us32, 0
-  br i1 %retval.0.in.i.i.not.us35, label %while.end, label %if.end8.us36, !llvm.loop !7
-
-if.end8.us36:                                     ; preds = %while.body.lr.ph.split.split.us, %while.body.us27
-  %i.023.us2958 = phi i32 [ %spec.store.select.us39, %while.body.us27 ], [ %and.i, %while.body.lr.ph.split.split.us ]
-  %inc.us37 = add i32 %i.023.us2958, 1
-  %cmp11.us38 = icmp eq i32 %inc.us37, %2
-  %spec.store.select.us39 = select i1 %cmp11.us38, i32 0, i32 %inc.us37
-  %idxprom.us40 = zext i32 %spec.store.select.us39 to i64
-  %arrayidx.us41 = getelementptr inbounds ptr, ptr %1, i64 %idxprom.us40
-  %12 = load ptr, ptr %arrayidx.us41, align 8
-  %cmp.not.us42 = icmp eq ptr %12, null
-  br i1 %cmp.not.us42, label %return, label %while.body.us27, !llvm.loop !7
-
-while.body.lr.ph.split.split:                     ; preds = %while.body.lr.ph.split
-  %bcmp.i.i50 = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(20) %oid, ptr noundef nonnull readonly dereferenceable(20) %oid4.us3055, i64 20)
-  %retval.0.in.i.i.not51 = icmp eq i32 %bcmp.i.i50, 0
-  br i1 %retval.0.in.i.i.not51, label %return, label %if.end8
+  %..i.i = select i1 %cmp.i.i, i64 32, i64 20
+  %oid427 = getelementptr inbounds i8, ptr %3, i64 4
+  %bcmp.i.i28 = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(20) %oid, ptr noundef nonnull readonly dereferenceable(20) %oid427, i64 %..i.i)
+  %retval.0.in.i.i.not29 = icmp eq i32 %bcmp.i.i28, 0
+  br i1 %retval.0.in.i.i.not29, label %return, label %if.end8
 
 while.body:                                       ; preds = %if.end8
-  %oid4 = getelementptr inbounds i8, ptr %13, i64 4
-  %bcmp.i.i = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(20) %oid, ptr noundef nonnull readonly dereferenceable(20) %oid4, i64 20)
+  %oid4 = getelementptr inbounds i8, ptr %11, i64 4
+  %bcmp.i.i = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(20) %oid, ptr noundef nonnull readonly dereferenceable(20) %oid4, i64 %..i.i)
   %retval.0.in.i.i.not = icmp eq i32 %bcmp.i.i, 0
   br i1 %retval.0.in.i.i.not, label %while.end, label %if.end8, !llvm.loop !7
 
-if.end8:                                          ; preds = %while.body.lr.ph.split.split, %while.body
-  %i.02352 = phi i32 [ %spec.store.select, %while.body ], [ %and.i, %while.body.lr.ph.split.split ]
-  %inc = add i32 %i.02352, 1
+if.end8:                                          ; preds = %while.body.lr.ph.split, %while.body
+  %i.02330 = phi i32 [ %spec.store.select, %while.body ], [ %and.i, %while.body.lr.ph.split ]
+  %inc = add i32 %i.02330, 1
   %cmp11 = icmp eq i32 %inc, %2
   %spec.store.select = select i1 %cmp11, i32 0, i32 %inc
   %idxprom = zext i32 %spec.store.select to i64
   %arrayidx = getelementptr inbounds ptr, ptr %1, i64 %idxprom
-  %13 = load ptr, ptr %arrayidx, align 8
-  %cmp.not = icmp eq ptr %13, null
+  %11 = load ptr, ptr %arrayidx, align 8
+  %cmp.not = icmp eq ptr %11, null
   br i1 %cmp.not, label %return, label %while.body, !llvm.loop !7
 
-while.end:                                        ; preds = %while.body, %while.body.us27, %while.body.us, %while.body.us.us
-  %.lcssa.sink = phi ptr [ %9, %while.body.us.us ], [ %10, %while.body.us ], [ %12, %while.body.us27 ], [ %13, %while.body ]
-  %.us-phi = phi i64 [ %idxprom.us.us, %while.body.us.us ], [ %idxprom.us, %while.body.us ], [ %idxprom.us40, %while.body.us27 ], [ %idxprom, %while.body ]
-  %.us-phi25 = phi i32 [ %spec.store.select.us.us, %while.body.us.us ], [ %spec.store.select.us, %while.body.us ], [ %spec.store.select.us39, %while.body.us27 ], [ %spec.store.select, %while.body ]
+while.end:                                        ; preds = %while.body, %while.body.us
+  %.lcssa.sink = phi ptr [ %9, %while.body.us ], [ %11, %while.body ]
+  %.us-phi = phi i64 [ %idxprom.us, %while.body.us ], [ %idxprom, %while.body ]
+  %.us-phi25 = phi i32 [ %spec.store.select.us, %while.body.us ], [ %spec.store.select, %while.body ]
   %cmp15.not = icmp eq i32 %.us-phi25, %and.i
   br i1 %cmp15.not, label %return, label %do.body
 
 do.body:                                          ; preds = %while.end
-  %14 = ptrtoint ptr %.lcssa.sink to i64
+  %12 = ptrtoint ptr %.lcssa.sink to i64
   %arrayidx.le = getelementptr inbounds ptr, ptr %1, i64 %.us-phi
   store i64 %4, ptr %arrayidx.le, align 1
-  store i64 %14, ptr %arrayidx21, align 1
+  store i64 %12, ptr %arrayidx21, align 1
   br label %return
 
-return:                                           ; preds = %if.end8, %if.end8.us36, %if.end8.us, %if.end8.us.us, %while.body.lr.ph.split.split, %while.body.lr.ph.split.split.us, %while.body.lr.ph.split.us.split, %while.body.lr.ph.split.us.split.us, %if.end, %while.end, %do.body, %entry
-  %retval.0 = phi ptr [ null, %entry ], [ %.lcssa.sink, %do.body ], [ %.lcssa.sink, %while.end ], [ null, %if.end ], [ %3, %while.body.lr.ph.split.us.split.us ], [ %3, %while.body.lr.ph.split.us.split ], [ %3, %while.body.lr.ph.split.split.us ], [ %3, %while.body.lr.ph.split.split ], [ null, %if.end8.us.us ], [ null, %if.end8.us ], [ null, %if.end8.us36 ], [ null, %if.end8 ]
+return:                                           ; preds = %if.end8, %if.end8.us, %while.body.lr.ph.split, %while.body.lr.ph.split.us, %if.end, %while.end, %do.body, %entry
+  %retval.0 = phi ptr [ null, %entry ], [ %.lcssa.sink, %do.body ], [ %.lcssa.sink, %while.end ], [ null, %if.end ], [ %3, %while.body.lr.ph.split.us ], [ %3, %while.body.lr.ph.split ], [ null, %if.end8.us ], [ null, %if.end8 ]
   ret ptr %retval.0
 }
 

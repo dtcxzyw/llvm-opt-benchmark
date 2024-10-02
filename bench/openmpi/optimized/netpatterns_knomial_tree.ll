@@ -935,8 +935,7 @@ define range(i32 -1, 1) i32 @ompi_netpatterns_setup_recursive_knomial_allgather_
   %374 = getelementptr inbounds i8, ptr %4, i64 40
   store i32 %373, ptr %374, align 8
   tail call void @free(ptr noundef %102) #9
-  tail call void @free(ptr noundef %105) #9
-  br label %398
+  br label %.sink.split
 
 .loopexit513:                                     ; preds = %116, %322, %302, %291, %281, %107, %104, %._crit_edge578
   %.0432 = phi ptr [ null, %._crit_edge578 ], [ null, %104 ], [ %105, %107 ], [ %105, %281 ], [ %105, %302 ], [ %105, %291 ], [ %105, %322 ], [ %105, %116 ]
@@ -1000,14 +999,16 @@ define range(i32 -1, 1) i32 @ompi_netpatterns_setup_recursive_knomial_allgather_
 
 396:                                              ; preds = %395, %394
   %.not503 = icmp eq ptr %.0432, null
-  br i1 %.not503, label %398, label %397
+  br i1 %.not503, label %397, label %.sink.split
 
-397:                                              ; preds = %396
-  tail call void @free(ptr noundef nonnull %.0432) #9
-  br label %398
+.sink.split:                                      ; preds = %396, %.loopexit
+  %.0432.sink = phi ptr [ %105, %.loopexit ], [ %.0432, %396 ]
+  %.0440.ph = phi i32 [ 0, %.loopexit ], [ -1, %396 ]
+  tail call void @free(ptr noundef %.0432.sink) #9
+  br label %397
 
-398:                                              ; preds = %397, %396, %.loopexit
-  %.0440 = phi i32 [ 0, %.loopexit ], [ -1, %396 ], [ -1, %397 ]
+397:                                              ; preds = %.sink.split, %396
+  %.0440 = phi i32 [ -1, %396 ], [ %.0440.ph, %.sink.split ]
   tail call void @free(ptr noundef %18) #9
   ret i32 %.0440
 }

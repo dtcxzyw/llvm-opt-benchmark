@@ -1652,7 +1652,7 @@ get_pe_property.exit:                             ; preds = %26, %31, %36
   %135 = call fastcc i32 @cli_hashsect(ptr noundef %134, ptr noundef nonnull readonly %89, ptr noundef %2, ptr noundef %4, ptr noundef %5)
   %136 = load i8, ptr @cli_debug_flag, align 1
   %.not.i2812 = icmp eq i8 %136, 0
-  br i1 %.not.i2812, label %.preheader3258, label %137
+  br i1 %.not.i2812, label %.preheader3261, label %137
 
 137:                                              ; preds = %133
   %138 = load ptr, ptr %2, align 16
@@ -1709,7 +1709,7 @@ get_pe_property.exit:                             ; preds = %26, %31, %36
   %186 = load i8, ptr %185, align 1
   %187 = zext i8 %186 to i32
   call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.340, i32 noundef %140, i32 noundef %142, i32 noundef %145, i32 noundef %148, i32 noundef %151, i32 noundef %154, i32 noundef %157, i32 noundef %160, i32 noundef %163, i32 noundef %166, i32 noundef %169, i32 noundef %172, i32 noundef %175, i32 noundef %178, i32 noundef %181, i32 noundef %184, i32 noundef %187) #20
-  br label %.preheader3258
+  br label %.preheader3261
 
 188:                                              ; preds = %137
   %189 = load i8, ptr @cli_always_gen_section_hash, align 1
@@ -1788,18 +1788,18 @@ get_pe_property.exit:                             ; preds = %26, %31, %36
   %253 = zext i8 %252 to i32
   call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.343, i32 noundef %206, i32 noundef %208, i32 noundef %211, i32 noundef %214, i32 noundef %217, i32 noundef %220, i32 noundef %223, i32 noundef %226, i32 noundef %229, i32 noundef %232, i32 noundef %235, i32 noundef %238, i32 noundef %241, i32 noundef %244, i32 noundef %247, i32 noundef %250, i32 noundef %253) #20
   call void @free(ptr noundef nonnull %201) #20
-  br label %.preheader3258
+  br label %.preheader3261
 
 254:                                              ; preds = %188
   %255 = load i32, ptr %90, align 4
   call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.344, i32 noundef %255) #20
-  br label %.preheader3258
+  br label %.preheader3261
 
-.preheader3258:                                   ; preds = %254, %202, %139, %133
+.preheader3261:                                   ; preds = %254, %202, %139, %133
   br label %256
 
-256:                                              ; preds = %.preheader3258, %281
-  %indvars.iv123.i = phi i64 [ %indvars.iv.next124.i, %281 ], [ 0, %.preheader3258 ]
+256:                                              ; preds = %.preheader3261, %281
+  %indvars.iv123.i = phi i64 [ %indvars.iv.next124.i, %281 ], [ 0, %.preheader3261 ]
   %257 = getelementptr inbounds [3 x i32], ptr %4, i64 0, i64 %indvars.iv123.i
   %258 = load i32, ptr %257, align 4
   %.not99.i = icmp eq i32 %258, 0
@@ -4073,8 +4073,7 @@ fmap_readn.exit:                                  ; preds = %305, %293
 
 1391:                                             ; preds = %1385
   %1392 = load ptr, ptr %8, align 8
-  call void @free(ptr noundef %1392) #20
-  br label %2115
+  br label %.sink.split
 
 1393:                                             ; preds = %1348
   call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.73) #20
@@ -4491,8 +4490,7 @@ cli_rawaddr.exit:                                 ; preds = %1429
 1602:                                             ; preds = %1596
   %1603 = load ptr, ptr %8, align 8
   call void @free(ptr noundef %1603) #20
-  call void @free(ptr noundef nonnull %1505) #20
-  br label %2115
+  br label %.sink.split
 
 1604:                                             ; preds = %1557
   call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.73) #20
@@ -4952,8 +4950,7 @@ cli_rawaddr.exit2823:                             ; preds = %1640
 1850:                                             ; preds = %1844
   %1851 = load ptr, ptr %8, align 8
   call void @free(ptr noundef %1851) #20
-  call void @free(ptr noundef nonnull %1734) #20
-  br label %2115
+  br label %.sink.split
 
 1852:                                             ; preds = %1805
   call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.73) #20
@@ -5388,8 +5385,14 @@ cli_rawaddr.exit2823:                             ; preds = %1640
   call void @free(ptr noundef nonnull %1905) #20
   br label %.critedge109
 
-2115:                                             ; preds = %2113, %1850, %1602, %1391
-  %.42090.ph = phi ptr [ %1331, %1391 ], [ %1534, %1602 ], [ %1774, %1850 ], [ %1905, %2113 ]
+.sink.split:                                      ; preds = %1391, %1602, %1850
+  %.sink = phi ptr [ %1734, %1850 ], [ %1505, %1602 ], [ %1392, %1391 ]
+  %.42090.ph.ph = phi ptr [ %1774, %1850 ], [ %1534, %1602 ], [ %1331, %1391 ]
+  call void @free(ptr noundef %.sink) #20
+  br label %2115
+
+2115:                                             ; preds = %.sink.split, %2113
+  %.42090.ph = phi ptr [ %1905, %2113 ], [ %.42090.ph.ph, %.sink.split ]
   call void @cli_exe_info_destroy(ptr noundef nonnull %13) #20
   %2116 = getelementptr inbounds i8, ptr %0, i64 16
   %2117 = load ptr, ptr %2116, align 8
@@ -6032,7 +6035,7 @@ cli_rawaddr.exit2823:                             ; preds = %1640
 
 2429:                                             ; preds = %2423
   call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.124) #20
-  br label %.sink.split
+  br label %.sink.split3225
 
 2430:                                             ; preds = %2390
   call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.125) #20
@@ -6051,14 +6054,14 @@ cli_rawaddr.exit2823:                             ; preds = %1640
 
 2436:                                             ; preds = %2430
   call void (ptr, ...) @cli_multifree(ptr noundef nonnull %2370, i32 noundef 0)
-  br label %.sink.split
+  br label %.sink.split3225
 
-.sink.split:                                      ; preds = %2436, %2429
+.sink.split3225:                                  ; preds = %2436, %2429
   %2437 = load ptr, ptr %8, align 8
   call void @free(ptr noundef %2437) #20
   br label %2438
 
-2438:                                             ; preds = %.sink.split, %2363, %2356, %2347, %2344, %.thread2889
+2438:                                             ; preds = %.sink.split3225, %2363, %2356, %2347, %2344, %.thread2889
   %2439 = load ptr, ptr %355, align 8
   %2440 = load i32, ptr %2439, align 4
   %2441 = and i32 %2440, 1024
@@ -6735,8 +6738,8 @@ cli_rawaddr.exit2823:                             ; preds = %1640
   br label %.critedge170.sink.split
 
 .critedge170.sink.split:                          ; preds = %2777, %2693
-  %.sink = phi ptr [ %2650, %2693 ], [ %2778, %2777 ]
-  call void @free(ptr noundef %.sink) #20
+  %.sink3227 = phi ptr [ %2650, %2693 ], [ %2778, %2777 ]
+  call void @free(ptr noundef %.sink3227) #20
   br label %.critedge170
 
 .critedge170:                                     ; preds = %.critedge170.sink.split, %2624, %._crit_edge3055, %.thread2908, %2609, %2612, %2622
@@ -7026,8 +7029,8 @@ cli_rawaddr.exit2823:                             ; preds = %1640
   br label %.critedge174.sink.split
 
 .critedge174.sink.split:                          ; preds = %2906, %2852
-  %.sink3225 = phi ptr [ %2817, %2852 ], [ %2907, %2906 ]
-  call void @free(ptr noundef %.sink3225) #20
+  %.sink3228 = phi ptr [ %2817, %2852 ], [ %2907, %2906 ]
+  call void @free(ptr noundef %.sink3228) #20
   br label %.critedge174
 
 .critedge174:                                     ; preds = %.critedge174.sink.split, %2803, %2782, %2800, %._crit_edge3072, %.critedge170

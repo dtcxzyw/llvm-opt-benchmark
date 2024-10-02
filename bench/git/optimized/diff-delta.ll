@@ -45,11 +45,7 @@ if.end16:                                         ; preds = %for.end
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %call, i8 0, i64 %mul, i1 false)
   %call20 = tail call noalias ptr @calloc(i64 noundef %conv11, i64 noundef 4) #11
   %tobool21.not = icmp eq ptr %call20, null
-  br i1 %tobool21.not, label %if.then22, label %if.end23
-
-if.then22:                                        ; preds = %if.end16
-  tail call void @free(ptr noundef nonnull %call) #12
-  br label %return
+  br i1 %tobool21.not, label %return.sink.split, label %if.end23
 
 if.end23:                                         ; preds = %if.end16
   %mul24 = shl i32 %spec.store.select, 4
@@ -197,11 +193,7 @@ for.end102:                                       ; preds = %for.inc100
   %add109 = add nuw nsw i64 %add106, %mul108
   %call110 = tail call noalias ptr @malloc(i64 noundef %add109) #10
   %tobool111.not = icmp eq ptr %call110, null
-  br i1 %tobool111.not, label %if.then112, label %if.end113
-
-if.then112:                                       ; preds = %for.end102
-  tail call void @free(ptr noundef %call) #12
-  br label %return
+  br i1 %tobool111.not, label %return.sink.split, label %if.end113
 
 if.end113:                                        ; preds = %for.end102
   store i64 %add109, ptr %call110, align 8
@@ -244,11 +236,15 @@ for.inc135:                                       ; preds = %for.body129, %for.b
 for.end137:                                       ; preds = %for.inc135
   %arrayidx139 = getelementptr inbounds ptr, ptr %hash115, i64 %conv11
   store ptr %packed_entry.1.lcssa, ptr %arrayidx139, align 8
+  br label %return.sink.split
+
+return.sink.split:                                ; preds = %for.end102, %if.end16, %for.end137
+  %retval.0.ph = phi ptr [ %call110, %for.end137 ], [ null, %if.end16 ], [ null, %for.end102 ]
   tail call void @free(ptr noundef %call) #12
   br label %return
 
-return:                                           ; preds = %for.end, %entry, %for.end137, %if.then112, %if.then22
-  %retval.0 = phi ptr [ %call110, %for.end137 ], [ null, %if.then112 ], [ null, %if.then22 ], [ null, %entry ], [ null, %for.end ]
+return:                                           ; preds = %return.sink.split, %for.end, %entry
+  %retval.0 = phi ptr [ null, %entry ], [ null, %for.end ], [ %retval.0.ph, %return.sink.split ]
   ret ptr %retval.0
 }
 

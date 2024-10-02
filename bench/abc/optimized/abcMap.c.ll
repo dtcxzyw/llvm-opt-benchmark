@@ -63,285 +63,280 @@ Abc_Clock.exit:                                   ; preds = %14, %20
   %24 = call ptr (...) @Abc_FrameReadLibGen() #13
   %25 = call ptr (...) @Abc_FrameReadLibScl() #13
   %.not = icmp eq ptr %25, null
-  br i1 %.not, label %45, label %26
+  br i1 %.not, label %42, label %26
 
 26:                                               ; preds = %Abc_Clock.exit
   %27 = call ptr (...) @Abc_FrameReadLibScl() #13
   %28 = call i32 @Abc_SclHasDelayInfo(ptr noundef %27) #13
   %.not89 = icmp eq i32 %28, 0
-  br i1 %.not89, label %45, label %29
+  br i1 %.not89, label %42, label %29
 
 29:                                               ; preds = %26
   %.not90 = icmp eq ptr %24, null
-  br i1 %.not90, label %35, label %30
+  br i1 %.not90, label %32, label %30
 
 30:                                               ; preds = %29
   %31 = call i32 @Mio_LibraryHasProfile(ptr noundef nonnull %24) #13
   %.not91 = icmp eq i32 %31, 0
-  br i1 %.not91, label %35, label %32
+  br i1 %.not91, label %32, label %33
 
-32:                                               ; preds = %30
-  %33 = call ptr (...) @Abc_FrameReadLibScl() #13
-  %34 = call ptr @Abc_SclDeriveGenlib(ptr noundef %33, ptr noundef nonnull %24, float noundef %5, float noundef %6, i32 noundef %7, i32 noundef %13) #13
-  br label %38
+32:                                               ; preds = %30, %29
+  br label %33
 
-35:                                               ; preds = %30, %29
-  %36 = call ptr (...) @Abc_FrameReadLibScl() #13
-  %37 = call ptr @Abc_SclDeriveGenlib(ptr noundef %36, ptr noundef null, float noundef %5, float noundef %6, i32 noundef %7, i32 noundef %13) #13
-  br label %38
+33:                                               ; preds = %30, %32
+  %.sink112 = phi ptr [ null, %32 ], [ %24, %30 ]
+  %34 = call ptr (...) @Abc_FrameReadLibScl() #13
+  %35 = call ptr @Abc_SclDeriveGenlib(ptr noundef %34, ptr noundef %.sink112, float noundef %5, float noundef %6, i32 noundef %7, i32 noundef %13) #13
+  %36 = call ptr (...) @Abc_FrameReadLibGen() #13
+  %.not92 = icmp eq ptr %36, null
+  br i1 %.not92, label %40, label %37
 
-38:                                               ; preds = %35, %32
-  %.1 = phi ptr [ %34, %32 ], [ %37, %35 ]
+37:                                               ; preds = %33
+  %38 = call ptr (...) @Abc_FrameReadLibGen() #13
+  call void @Mio_LibraryTransferDelays(ptr noundef %38, ptr noundef %35) #13
   %39 = call ptr (...) @Abc_FrameReadLibGen() #13
-  %.not92 = icmp eq ptr %39, null
-  br i1 %.not92, label %43, label %40
+  call void @Mio_LibraryTransferProfile(ptr noundef %35, ptr noundef %39) #13
+  br label %40
 
-40:                                               ; preds = %38
-  %41 = call ptr (...) @Abc_FrameReadLibGen() #13
-  call void @Mio_LibraryTransferDelays(ptr noundef %41, ptr noundef %.1) #13
-  %42 = call ptr (...) @Abc_FrameReadLibGen() #13
-  call void @Mio_LibraryTransferProfile(ptr noundef %.1, ptr noundef %42) #13
-  br label %43
-
-43:                                               ; preds = %40, %38
-  %44 = call ptr (...) @Abc_FrameReadLibSuper() #13
-  call void @Map_SuperLibFree(ptr noundef %44) #13
+40:                                               ; preds = %37, %33
+  %41 = call ptr (...) @Abc_FrameReadLibSuper() #13
+  call void @Map_SuperLibFree(ptr noundef %41) #13
   call void @Abc_FrameSetLibSuper(ptr noundef null) #13
-  br label %45
+  br label %42
 
-45:                                               ; preds = %43, %26, %Abc_Clock.exit
-  %.0 = phi ptr [ %.1, %43 ], [ %24, %26 ], [ %24, %Abc_Clock.exit ]
-  %46 = icmp eq ptr %.0, null
-  br i1 %46, label %47, label %48
+42:                                               ; preds = %40, %26, %Abc_Clock.exit
+  %.0 = phi ptr [ %35, %40 ], [ %24, %26 ], [ %24, %Abc_Clock.exit ]
+  %43 = icmp eq ptr %.0, null
+  br i1 %43, label %44, label %45
 
-47:                                               ; preds = %45
+44:                                               ; preds = %42
   %puts105 = call i32 @puts(ptr nonnull dereferenceable(1) @str.6)
-  br label %140
-
-48:                                               ; preds = %45
-  %49 = fcmp une double %2, 0.000000e+00
-  br i1 %49, label %50, label %52
-
-50:                                               ; preds = %48
-  store i1 true, ptr @Abc_NtkMap.fUseMulti, align 4
-  %51 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.1, double noundef %2)
-  br label %52
-
-52:                                               ; preds = %50, %48
-  %53 = fcmp une double %3, 0.000000e+00
-  br i1 %53, label %54, label %56
-
-54:                                               ; preds = %52
-  store i1 true, ptr @Abc_NtkMap.fUseMulti, align 4
-  %55 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.2, double noundef %3)
-  br label %56
-
-56:                                               ; preds = %54, %52
-  br i1 %49, label %57, label %58
-
-57:                                               ; preds = %56
-  call void @Mio_LibraryMultiArea(ptr noundef nonnull %.0, double noundef %2) #13
-  br label %58
-
-58:                                               ; preds = %57, %56
-  br i1 %53, label %59, label %60
-
-59:                                               ; preds = %58
-  call void @Mio_LibraryMultiDelay(ptr noundef nonnull %.0, double noundef %3) #13
-  br label %60
-
-60:                                               ; preds = %59, %58
-  %.b = load i1, ptr @Abc_NtkMap.fUseMulti, align 4
-  br i1 %.b, label %64, label %61
-
-61:                                               ; preds = %60
-  %62 = call ptr (...) @Abc_FrameReadLibSuper() #13
-  %63 = icmp eq ptr %62, null
-  br i1 %63, label %64, label %75
-
-64:                                               ; preds = %61, %60
-  %.not93 = icmp eq i32 %13, 0
-  br i1 %.not93, label %70, label %65
-
-65:                                               ; preds = %64
-  %66 = call ptr @Mio_LibraryReadName(ptr noundef nonnull %.0) #13
-  %67 = call ptr @Mio_LibraryReadName(ptr noundef nonnull %.0) #13
-  %68 = call ptr @Extra_FileNameGenericAppend(ptr noundef %67, ptr noundef nonnull @.str.4) #13
-  %69 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.3, ptr noundef %66, ptr noundef %68)
-  br label %70
-
-70:                                               ; preds = %65, %64
-  %71 = call i32 @Mio_LibraryHasProfile(ptr noundef nonnull %.0) #13
-  %.not94 = icmp eq i32 %71, 0
-  br i1 %.not94, label %73, label %72
-
-72:                                               ; preds = %70
-  %puts = call i32 @puts(ptr nonnull dereferenceable(1) @str)
-  br label %73
-
-73:                                               ; preds = %72, %70
-  %74 = call i32 @Map_SuperLibDeriveFromGenlib(ptr noundef nonnull %.0, i32 noundef %13) #13
-  br label %75
-
-75:                                               ; preds = %73, %61
-  br i1 %49, label %76, label %79
-
-76:                                               ; preds = %75
-  %77 = call ptr (...) @Abc_FrameReadLibGen() #13
-  %78 = fneg double %2
-  call void @Mio_LibraryMultiArea(ptr noundef %77, double noundef %78) #13
-  br label %79
-
-79:                                               ; preds = %76, %75
-  br i1 %53, label %80, label %83
-
-80:                                               ; preds = %79
-  %81 = call ptr (...) @Abc_FrameReadLibGen() #13
-  %82 = fneg double %3
-  call void @Mio_LibraryMultiDelay(ptr noundef %81, double noundef %82) #13
-  br label %83
-
-83:                                               ; preds = %80, %79
-  %.not95 = icmp eq i32 %13, 0
-  br i1 %.not95, label %87, label %84
-
-84:                                               ; preds = %83
-  %85 = call i32 @Abc_NtkGetChoiceNum(ptr noundef %0) #13
-  %.not96 = icmp eq i32 %85, 0
-  br i1 %.not96, label %87, label %86
-
-86:                                               ; preds = %84
-  %puts97 = call i32 @puts(ptr nonnull dereferenceable(1) @str.4)
-  br label %87
-
-87:                                               ; preds = %83, %84, %86
-  %88 = call ptr @Sim_NtkComputeSwitching(ptr noundef %0, i32 noundef 4096) #13
-  %89 = getelementptr inbounds i8, ptr %88, i64 8
-  %90 = load ptr, ptr %89, align 8
-  %91 = call ptr @Abc_NtkToMap(ptr noundef %0, double noundef %1, i32 noundef %8, ptr noundef %90, i32 noundef %13)
-  %.not98 = icmp eq ptr %90, null
-  br i1 %.not98, label %95, label %92
-
-92:                                               ; preds = %87
-  %93 = load ptr, ptr %89, align 8
-  %.not.i = icmp eq ptr %93, null
-  br i1 %.not.i, label %Vec_IntFree.exit, label %94
-
-94:                                               ; preds = %92
-  call void @free(ptr noundef nonnull %93) #13
-  br label %Vec_IntFree.exit
-
-Vec_IntFree.exit:                                 ; preds = %92, %94
-  call void @free(ptr noundef nonnull %88) #13
-  br label %95
-
-95:                                               ; preds = %Vec_IntFree.exit, %87
-  %96 = icmp eq ptr %91, null
-  br i1 %96, label %140, label %Abc_Clock.exit107
-
-Abc_Clock.exit107:                                ; preds = %95
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %16)
-  %97 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %16) #13
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %16)
-  call void @Map_ManSetSwitching(ptr noundef nonnull %91, i32 noundef %9) #13
-  call void @Map_ManSetSkipFanout(ptr noundef nonnull %91, i32 noundef %10) #13
-  %.not99 = icmp eq i32 %11, 0
-  br i1 %.not99, label %99, label %98
-
-98:                                               ; preds = %Abc_Clock.exit107
-  call void @Map_ManSetUseProfile(ptr noundef nonnull %91) #13
-  br label %99
-
-99:                                               ; preds = %98, %Abc_Clock.exit107
-  %100 = fcmp une float %4, 0.000000e+00
-  br i1 %100, label %101, label %103
-
-101:                                              ; preds = %99
-  %102 = fptosi float %4 to i32
-  call void @Map_ManCreateNodeDelays(ptr noundef nonnull %91, i32 noundef %102) #13
-  br label %103
-
-103:                                              ; preds = %101, %99
-  %104 = call i32 @Map_Mapping(ptr noundef nonnull %91) #13
-  %.not100 = icmp eq i32 %104, 0
-  br i1 %.not100, label %105, label %106
-
-105:                                              ; preds = %103
-  call void @Map_ManFree(ptr noundef nonnull %91) #13
-  br label %140
-
-106:                                              ; preds = %103
-  %107 = icmp ne i32 %12, 0
-  %108 = fcmp oeq double %1, 1.000000e+09
-  %109 = or i1 %108, %107
-  %110 = zext i1 %109 to i32
-  %111 = call ptr @Abc_NtkFromMap(ptr noundef nonnull %91, ptr noundef %0, i32 noundef %110)
-  %112 = call i32 @Mio_LibraryHasProfile(ptr noundef nonnull %.0) #13
-  %.not101 = icmp eq i32 %112, 0
-  br i1 %.not101, label %115, label %113
-
-113:                                              ; preds = %106
-  %114 = call ptr (...) @Abc_FrameReadLibGen() #13
-  call void @Mio_LibraryTransferProfile2(ptr noundef %114, ptr noundef nonnull %.0) #13
-  br label %115
-
-115:                                              ; preds = %113, %106
-  call void @Map_ManFree(ptr noundef nonnull %91) #13
-  %116 = icmp eq ptr %111, null
-  br i1 %116, label %140, label %117
-
-117:                                              ; preds = %115
-  %118 = getelementptr inbounds i8, ptr %0, i64 328
-  %119 = load ptr, ptr %118, align 8
-  %.not102 = icmp eq ptr %119, null
-  br i1 %.not102, label %123, label %120
-
-120:                                              ; preds = %117
-  %121 = call ptr @Abc_NtkDup(ptr noundef nonnull %119) #13
-  %122 = getelementptr inbounds i8, ptr %111, i64 328
-  store ptr %121, ptr %122, align 8
-  br label %123
-
-123:                                              ; preds = %120, %117
-  br i1 %.not95, label %137, label %124
-
-124:                                              ; preds = %123
-  call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.8)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %15)
-  %125 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %15) #13
-  %126 = icmp slt i32 %125, 0
-  br i1 %126, label %Abc_Clock.exit109, label %127
-
-127:                                              ; preds = %124
-  %128 = load i64, ptr %15, align 8
-  %129 = mul nsw i64 %128, 1000000
-  %130 = getelementptr inbounds i8, ptr %15, i64 8
-  %131 = load i64, ptr %130, align 8
-  %132 = sdiv i64 %131, 1000
-  %133 = add nsw i64 %132, %129
-  br label %Abc_Clock.exit109
-
-Abc_Clock.exit109:                                ; preds = %124, %127
-  %.0.i108 = phi i64 [ %133, %127 ], [ -1, %124 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %15)
-  %134 = add i64 %.0.i108, %.0.i.neg
-  %135 = sitofp i64 %134 to double
-  %136 = fdiv double %135, 1.000000e+06
-  call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.9, double noundef %136)
   br label %137
 
-137:                                              ; preds = %Abc_Clock.exit109, %123
-  %138 = call i32 @Abc_NtkCheck(ptr noundef nonnull %111) #13
-  %.not103 = icmp eq i32 %138, 0
-  br i1 %.not103, label %139, label %140
+45:                                               ; preds = %42
+  %46 = fcmp une double %2, 0.000000e+00
+  br i1 %46, label %47, label %49
 
-139:                                              ; preds = %137
+47:                                               ; preds = %45
+  store i1 true, ptr @Abc_NtkMap.fUseMulti, align 4
+  %48 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.1, double noundef %2)
+  br label %49
+
+49:                                               ; preds = %47, %45
+  %50 = fcmp une double %3, 0.000000e+00
+  br i1 %50, label %51, label %53
+
+51:                                               ; preds = %49
+  store i1 true, ptr @Abc_NtkMap.fUseMulti, align 4
+  %52 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.2, double noundef %3)
+  br label %53
+
+53:                                               ; preds = %51, %49
+  br i1 %46, label %54, label %55
+
+54:                                               ; preds = %53
+  call void @Mio_LibraryMultiArea(ptr noundef nonnull %.0, double noundef %2) #13
+  br label %55
+
+55:                                               ; preds = %54, %53
+  br i1 %50, label %56, label %57
+
+56:                                               ; preds = %55
+  call void @Mio_LibraryMultiDelay(ptr noundef nonnull %.0, double noundef %3) #13
+  br label %57
+
+57:                                               ; preds = %56, %55
+  %.b = load i1, ptr @Abc_NtkMap.fUseMulti, align 4
+  br i1 %.b, label %61, label %58
+
+58:                                               ; preds = %57
+  %59 = call ptr (...) @Abc_FrameReadLibSuper() #13
+  %60 = icmp eq ptr %59, null
+  br i1 %60, label %61, label %72
+
+61:                                               ; preds = %58, %57
+  %.not93 = icmp eq i32 %13, 0
+  br i1 %.not93, label %67, label %62
+
+62:                                               ; preds = %61
+  %63 = call ptr @Mio_LibraryReadName(ptr noundef nonnull %.0) #13
+  %64 = call ptr @Mio_LibraryReadName(ptr noundef nonnull %.0) #13
+  %65 = call ptr @Extra_FileNameGenericAppend(ptr noundef %64, ptr noundef nonnull @.str.4) #13
+  %66 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.3, ptr noundef %63, ptr noundef %65)
+  br label %67
+
+67:                                               ; preds = %62, %61
+  %68 = call i32 @Mio_LibraryHasProfile(ptr noundef nonnull %.0) #13
+  %.not94 = icmp eq i32 %68, 0
+  br i1 %.not94, label %70, label %69
+
+69:                                               ; preds = %67
+  %puts = call i32 @puts(ptr nonnull dereferenceable(1) @str)
+  br label %70
+
+70:                                               ; preds = %69, %67
+  %71 = call i32 @Map_SuperLibDeriveFromGenlib(ptr noundef nonnull %.0, i32 noundef %13) #13
+  br label %72
+
+72:                                               ; preds = %70, %58
+  br i1 %46, label %73, label %76
+
+73:                                               ; preds = %72
+  %74 = call ptr (...) @Abc_FrameReadLibGen() #13
+  %75 = fneg double %2
+  call void @Mio_LibraryMultiArea(ptr noundef %74, double noundef %75) #13
+  br label %76
+
+76:                                               ; preds = %73, %72
+  br i1 %50, label %77, label %80
+
+77:                                               ; preds = %76
+  %78 = call ptr (...) @Abc_FrameReadLibGen() #13
+  %79 = fneg double %3
+  call void @Mio_LibraryMultiDelay(ptr noundef %78, double noundef %79) #13
+  br label %80
+
+80:                                               ; preds = %77, %76
+  %.not95 = icmp eq i32 %13, 0
+  br i1 %.not95, label %84, label %81
+
+81:                                               ; preds = %80
+  %82 = call i32 @Abc_NtkGetChoiceNum(ptr noundef %0) #13
+  %.not96 = icmp eq i32 %82, 0
+  br i1 %.not96, label %84, label %83
+
+83:                                               ; preds = %81
+  %puts97 = call i32 @puts(ptr nonnull dereferenceable(1) @str.4)
+  br label %84
+
+84:                                               ; preds = %80, %81, %83
+  %85 = call ptr @Sim_NtkComputeSwitching(ptr noundef %0, i32 noundef 4096) #13
+  %86 = getelementptr inbounds i8, ptr %85, i64 8
+  %87 = load ptr, ptr %86, align 8
+  %88 = call ptr @Abc_NtkToMap(ptr noundef %0, double noundef %1, i32 noundef %8, ptr noundef %87, i32 noundef %13)
+  %.not98 = icmp eq ptr %87, null
+  br i1 %.not98, label %92, label %89
+
+89:                                               ; preds = %84
+  %90 = load ptr, ptr %86, align 8
+  %.not.i = icmp eq ptr %90, null
+  br i1 %.not.i, label %Vec_IntFree.exit, label %91
+
+91:                                               ; preds = %89
+  call void @free(ptr noundef nonnull %90) #13
+  br label %Vec_IntFree.exit
+
+Vec_IntFree.exit:                                 ; preds = %89, %91
+  call void @free(ptr noundef nonnull %85) #13
+  br label %92
+
+92:                                               ; preds = %Vec_IntFree.exit, %84
+  %93 = icmp eq ptr %88, null
+  br i1 %93, label %137, label %Abc_Clock.exit107
+
+Abc_Clock.exit107:                                ; preds = %92
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %16)
+  %94 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %16) #13
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %16)
+  call void @Map_ManSetSwitching(ptr noundef nonnull %88, i32 noundef %9) #13
+  call void @Map_ManSetSkipFanout(ptr noundef nonnull %88, i32 noundef %10) #13
+  %.not99 = icmp eq i32 %11, 0
+  br i1 %.not99, label %96, label %95
+
+95:                                               ; preds = %Abc_Clock.exit107
+  call void @Map_ManSetUseProfile(ptr noundef nonnull %88) #13
+  br label %96
+
+96:                                               ; preds = %95, %Abc_Clock.exit107
+  %97 = fcmp une float %4, 0.000000e+00
+  br i1 %97, label %98, label %100
+
+98:                                               ; preds = %96
+  %99 = fptosi float %4 to i32
+  call void @Map_ManCreateNodeDelays(ptr noundef nonnull %88, i32 noundef %99) #13
+  br label %100
+
+100:                                              ; preds = %98, %96
+  %101 = call i32 @Map_Mapping(ptr noundef nonnull %88) #13
+  %.not100 = icmp eq i32 %101, 0
+  br i1 %.not100, label %102, label %103
+
+102:                                              ; preds = %100
+  call void @Map_ManFree(ptr noundef nonnull %88) #13
+  br label %137
+
+103:                                              ; preds = %100
+  %104 = icmp ne i32 %12, 0
+  %105 = fcmp oeq double %1, 1.000000e+09
+  %106 = or i1 %105, %104
+  %107 = zext i1 %106 to i32
+  %108 = call ptr @Abc_NtkFromMap(ptr noundef nonnull %88, ptr noundef %0, i32 noundef %107)
+  %109 = call i32 @Mio_LibraryHasProfile(ptr noundef nonnull %.0) #13
+  %.not101 = icmp eq i32 %109, 0
+  br i1 %.not101, label %112, label %110
+
+110:                                              ; preds = %103
+  %111 = call ptr (...) @Abc_FrameReadLibGen() #13
+  call void @Mio_LibraryTransferProfile2(ptr noundef %111, ptr noundef nonnull %.0) #13
+  br label %112
+
+112:                                              ; preds = %110, %103
+  call void @Map_ManFree(ptr noundef nonnull %88) #13
+  %113 = icmp eq ptr %108, null
+  br i1 %113, label %137, label %114
+
+114:                                              ; preds = %112
+  %115 = getelementptr inbounds i8, ptr %0, i64 328
+  %116 = load ptr, ptr %115, align 8
+  %.not102 = icmp eq ptr %116, null
+  br i1 %.not102, label %120, label %117
+
+117:                                              ; preds = %114
+  %118 = call ptr @Abc_NtkDup(ptr noundef nonnull %116) #13
+  %119 = getelementptr inbounds i8, ptr %108, i64 328
+  store ptr %118, ptr %119, align 8
+  br label %120
+
+120:                                              ; preds = %117, %114
+  br i1 %.not95, label %134, label %121
+
+121:                                              ; preds = %120
+  call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.8)
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %15)
+  %122 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %15) #13
+  %123 = icmp slt i32 %122, 0
+  br i1 %123, label %Abc_Clock.exit109, label %124
+
+124:                                              ; preds = %121
+  %125 = load i64, ptr %15, align 8
+  %126 = mul nsw i64 %125, 1000000
+  %127 = getelementptr inbounds i8, ptr %15, i64 8
+  %128 = load i64, ptr %127, align 8
+  %129 = sdiv i64 %128, 1000
+  %130 = add nsw i64 %129, %126
+  br label %Abc_Clock.exit109
+
+Abc_Clock.exit109:                                ; preds = %121, %124
+  %.0.i108 = phi i64 [ %130, %124 ], [ -1, %121 ]
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %15)
+  %131 = add i64 %.0.i108, %.0.i.neg
+  %132 = sitofp i64 %131 to double
+  %133 = fdiv double %132, 1.000000e+06
+  call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.9, double noundef %133)
+  br label %134
+
+134:                                              ; preds = %Abc_Clock.exit109, %120
+  %135 = call i32 @Abc_NtkCheck(ptr noundef nonnull %108) #13
+  %.not103 = icmp eq i32 %135, 0
+  br i1 %.not103, label %136, label %137
+
+136:                                              ; preds = %134
   %puts104 = call i32 @puts(ptr nonnull dereferenceable(1) @str.5)
-  call void @Abc_NtkDelete(ptr noundef nonnull %111) #13
-  br label %140
+  call void @Abc_NtkDelete(ptr noundef nonnull %108) #13
+  br label %137
 
-140:                                              ; preds = %137, %115, %95, %139, %105, %47
-  %.076 = phi ptr [ null, %47 ], [ null, %139 ], [ null, %105 ], [ null, %95 ], [ null, %115 ], [ %111, %137 ]
+137:                                              ; preds = %134, %112, %92, %136, %102, %44
+  %.076 = phi ptr [ null, %44 ], [ null, %136 ], [ null, %102 ], [ null, %92 ], [ null, %112 ], [ %108, %134 ]
   ret ptr %.076
 }
 

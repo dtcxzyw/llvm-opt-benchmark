@@ -192,8 +192,6 @@ $_ZN5folly13fbstring_coreIcE10initMediumEPKcm = comdat any
 
 $_ZN5folly13fbstring_coreIcE10RefCounted6createEPm = comdat any
 
-$_ZN5folly13fbstring_coreIcE18destroyMediumLargeEv = comdat any
-
 $_ZN5folly6detail28SimdSplitByCharImplToStringsISt6vectorINS_14basic_fbstringIcSt11char_traitsIcESaIcENS_13fbstring_coreIcEEEESaIS9_EEE9dropEmptyEcNS_5RangeIPKcEERSB_ = comdat any
 
 $_ZN5folly6detail28SimdSplitByCharImplToStringsINS_8fbvectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EEEE9keepEmptyEcNS_5RangeIPKcEERSA_ = comdat any
@@ -21410,11 +21408,24 @@ if.then:                                          ; preds = %lpad
   br i1 %cmp.i.i.i.i, label %invoke.cont21, label %if.end.i.i.i.i
 
 if.end.i.i.i.i:                                   ; preds = %if.then
-  call void @_ZN5folly13fbstring_coreIcE18destroyMediumLargeEv(ptr noundef nonnull align 8 dereferenceable(24) %add.ptr) #26
+  %15 = and i8 %14, -64
+  %cmp.i3 = icmp eq i8 %15, -128
+  %16 = load ptr, ptr %add.ptr, align 8, !tbaa !7
+  br i1 %cmp.i3, label %if.end.sink.split.i, label %if.else.i
+
+if.else.i:                                        ; preds = %if.end.i.i.i.i
+  %add.ptr.i.i.i = getelementptr inbounds i8, ptr %16, i64 -8
+  %17 = atomicrmw sub ptr %add.ptr.i.i.i, i64 1 acq_rel, align 8
+  %cmp.i.i4 = icmp eq i64 %17, 1
+  br i1 %cmp.i.i4, label %if.end.sink.split.i, label %invoke.cont21
+
+if.end.sink.split.i:                              ; preds = %if.else.i, %if.end.i.i.i.i
+  %add.ptr.i.i.sink.i = phi ptr [ %16, %if.end.i.i.i.i ], [ %add.ptr.i.i.i, %if.else.i ]
+  call void @free(ptr noundef %add.ptr.i.i.sink.i) #26
   br label %invoke.cont21
 
 lpad19:                                           ; preds = %invoke.cont21
-  %15 = landingpad { ptr, i32 }
+  %18 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
           to label %invoke.cont22 unwind label %terminate.lpad
@@ -21423,18 +21434,18 @@ if.then.i62:                                      ; preds = %lpad
   call void @_ZdlPv(ptr noundef nonnull %cond.i49) #25
   br label %invoke.cont21
 
-invoke.cont21:                                    ; preds = %if.then.i62, %if.end.i.i.i.i, %if.then
+invoke.cont21:                                    ; preds = %if.end.sink.split.i, %if.else.i, %if.then.i62, %if.then
   invoke void @__cxa_rethrow() #23
           to label %unreachable unwind label %lpad19
 
 invoke.cont22:                                    ; preds = %lpad19
-  resume { ptr, i32 } %15
+  resume { ptr, i32 } %18
 
 terminate.lpad:                                   ; preds = %lpad19
-  %16 = landingpad { ptr, i32 }
+  %19 = landingpad { ptr, i32 }
           catch ptr null
-  %17 = extractvalue { ptr, i32 } %16, 0
-  call void @__clang_call_terminate(ptr %17) #27
+  %20 = extractvalue { ptr, i32 } %19, 0
+  call void @__clang_call_terminate(ptr %20) #27
   unreachable
 
 unreachable:                                      ; preds = %invoke.cont21
@@ -21615,34 +21626,6 @@ _ZN5folly13checkedMallocEm.exit:                  ; preds = %_ZN5folly14goodMall
 ehcleanup:                                        ; preds = %lpad5, %lpad
   %.pn = phi { ptr, i32 } [ %8, %lpad5 ], [ %3, %lpad ]
   resume { ptr, i32 } %.pn
-}
-
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZN5folly13fbstring_coreIcE18destroyMediumLargeEv(ptr noundef nonnull align 8 dereferenceable(24) %this) local_unnamed_addr #12 comdat align 2 personality ptr @__gxx_personality_v0 {
-entry:
-  %arrayidx.i = getelementptr inbounds i8, ptr %this, i64 23
-  %0 = load i8, ptr %arrayidx.i, align 1, !tbaa !7
-  %1 = and i8 %0, -64
-  %cmp = icmp eq i8 %1, -128
-  %2 = load ptr, ptr %this, align 8, !tbaa !7
-  br i1 %cmp, label %if.then, label %if.else
-
-if.then:                                          ; preds = %entry
-  tail call void @free(ptr noundef %2) #26
-  br label %if.end
-
-if.else:                                          ; preds = %entry
-  %add.ptr.i.i = getelementptr inbounds i8, ptr %2, i64 -8
-  %3 = atomicrmw sub ptr %add.ptr.i.i, i64 1 acq_rel, align 8
-  %cmp.i = icmp eq i64 %3, 1
-  br i1 %cmp.i, label %if.then.i, label %if.end
-
-if.then.i:                                        ; preds = %if.else
-  tail call void @free(ptr noundef nonnull %add.ptr.i.i) #26
-  br label %if.end
-
-if.end:                                           ; preds = %if.then.i, %if.else, %if.then
-  ret void
 }
 
 ; Function Attrs: mustprogress uwtable

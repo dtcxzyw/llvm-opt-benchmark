@@ -1216,25 +1216,18 @@ if.end65:                                         ; preds = %if.end61
   %nr_pstreams = getelementptr inbounds i8, ptr %epctx, i64 100
   %47 = load i32, ptr %nr_pstreams, align 4
   %tobool66.not = icmp eq i32 %47, 0
-  br i1 %tobool66.not, label %if.else73, label %if.then67
+  br i1 %tobool66.not, label %if.end75, label %if.then67
 
 if.then67:                                        ; preds = %if.end65
   %call68 = call fastcc ptr @xhci_find_stream(ptr noundef nonnull %epctx, i32 noundef %streamid, ptr noundef %err)
   %cmp69 = icmp eq ptr %call68, null
-  br i1 %cmp69, label %if.end160, label %if.end71
+  br i1 %cmp69, label %if.end160, label %if.end75
 
-if.end71:                                         ; preds = %if.then67
-  tail call fastcc void @xhci_set_ep_state(ptr noundef nonnull %0, ptr noundef nonnull %epctx, ptr noundef nonnull %call68, i32 noundef 1)
-  br label %if.end75
-
-if.else73:                                        ; preds = %if.end65
-  tail call fastcc void @xhci_set_ep_state(ptr noundef nonnull %0, ptr noundef nonnull %epctx, ptr noundef null, i32 noundef 1)
-  br label %if.end75
-
-if.end75:                                         ; preds = %if.else73, %if.end71
-  %call68.pn = phi ptr [ %call68, %if.end71 ], [ %epctx, %if.else73 ]
-  %stctx.0 = phi ptr [ %call68, %if.end71 ], [ null, %if.else73 ]
-  %streamid.addr.0 = phi i32 [ %streamid, %if.end71 ], [ 0, %if.else73 ]
+if.end75:                                         ; preds = %if.end65, %if.then67
+  %.sink = phi ptr [ %call68, %if.then67 ], [ null, %if.end65 ]
+  %call68.pn = phi ptr [ %call68, %if.then67 ], [ %epctx, %if.end65 ]
+  %streamid.addr.0 = phi i32 [ %streamid, %if.then67 ], [ 0, %if.end65 ]
+  tail call fastcc void @xhci_set_ep_state(ptr noundef nonnull %0, ptr noundef nonnull %epctx, ptr noundef %.sink, i32 noundef 1)
   %ring.0 = getelementptr inbounds i8, ptr %call68.pn, i64 16
   %48 = load i64, ptr %ring.0, align 8
   %tobool76.not = icmp eq i64 %48, 0
@@ -1881,7 +1874,7 @@ if.end128:                                        ; preds = %xhci_slot_ok.exit18
   br i1 %tobool130, label %if.then131, label %if.end133
 
 if.then131:                                       ; preds = %if.end128
-  call fastcc void @xhci_set_ep_state(ptr noundef nonnull %0, ptr noundef nonnull %epctx, ptr noundef %stctx.0, i32 noundef %142)
+  call fastcc void @xhci_set_ep_state(ptr noundef nonnull %0, ptr noundef nonnull %epctx, ptr noundef %.sink, i32 noundef %142)
   %143 = load ptr, ptr %next.i130, align 8
   %cmp.not.i191 = icmp eq ptr %143, null
   %144 = load ptr, ptr %tql_prev4.i131, align 8
@@ -2184,6 +2177,9 @@ declare void @usb_handle_packet(ptr noundef, ptr noundef) local_unnamed_addr #3
 ; Function Attrs: nounwind sspstrong uwtable
 define internal fastcc void @xhci_try_complete_packet(ptr noundef %xfer) unnamed_addr #2 {
 entry:
+  %err.i93 = alloca i32, align 4
+  %err.i74 = alloca i32, align 4
+  %err.i = alloca i32, align 4
   %_now.i.i60 = alloca %struct.timeval, align 8
   %_now.i.i46 = alloca %struct.timeval, align 8
   %_now.i.i32 = alloca %struct.timeval, align 8
@@ -2385,30 +2381,156 @@ sw.bb:                                            ; preds = %trace_usb_xhci_xfer
   %status24 = getelementptr inbounds i8, ptr %xfer, i64 216
   store i32 4, ptr %status24, align 8
   tail call fastcc void @xhci_xfer_report(ptr noundef nonnull %xfer)
-  tail call fastcc void @xhci_stall_ep(ptr noundef nonnull %xfer)
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %err.i)
+  %28 = load ptr, ptr %xfer, align 8
+  %29 = load ptr, ptr %28, align 8
+  %type.i = getelementptr inbounds i8, ptr %28, i64 64
+  %30 = load i32, ptr %type.i, align 8
+  switch i32 %30, label %if.end.i [
+    i32 5, label %xhci_stall_ep.exit
+    i32 1, label %xhci_stall_ep.exit
+  ]
+
+if.end.i:                                         ; preds = %sw.bb
+  %nr_pstreams.i = getelementptr inbounds i8, ptr %28, i64 100
+  %31 = load i32, ptr %nr_pstreams.i, align 4
+  %tobool.not.i = icmp eq i32 %31, 0
+  br i1 %tobool.not.i, label %if.end26.sink.split.i, label %if.then5.i
+
+if.then5.i:                                       ; preds = %if.end.i
+  %streamid.i = getelementptr inbounds i8, ptr %xfer, i64 192
+  %32 = load i32, ptr %streamid.i, align 8
+  %call.i = call fastcc ptr @xhci_find_stream(ptr noundef nonnull %28, i32 noundef %32, ptr noundef %err.i)
+  %cmp6.i = icmp eq ptr %call.i, null
+  br i1 %cmp6.i, label %xhci_stall_ep.exit, label %if.end26.sink.split.i
+
+if.end26.sink.split.i:                            ; preds = %if.then5.i, %if.end.i
+  %.sink22.i = phi ptr [ %call.i, %if.then5.i ], [ %28, %if.end.i ]
+  %.sink.i = phi ptr [ %call.i, %if.then5.i ], [ null, %if.end.i ]
+  %trbs14.i = getelementptr inbounds i8, ptr %xfer, i64 208
+  %33 = load ptr, ptr %trbs14.i, align 8
+  %addr16.i = getelementptr inbounds i8, ptr %33, i64 16
+  %34 = load i64, ptr %addr16.i, align 8
+  %ring17.i = getelementptr inbounds i8, ptr %.sink22.i, i64 16
+  store i64 %34, ptr %ring17.i, align 8
+  %35 = load ptr, ptr %trbs14.i, align 8
+  %ccs21.i = getelementptr inbounds i8, ptr %35, i64 24
+  %36 = load i8, ptr %ccs21.i, align 8
+  %ccs24.i = getelementptr inbounds i8, ptr %.sink22.i, i64 24
+  %frombool25.i = and i8 %36, 1
+  store i8 %frombool25.i, ptr %ccs24.i, align 8
+  tail call fastcc void @xhci_set_ep_state(ptr noundef %29, ptr noundef nonnull %28, ptr noundef %.sink.i, i32 noundef 2)
+  br label %xhci_stall_ep.exit
+
+xhci_stall_ep.exit:                               ; preds = %sw.bb, %sw.bb, %if.then5.i, %if.end26.sink.split.i
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %err.i)
   br label %return
 
 sw.bb25:                                          ; preds = %trace_usb_xhci_xfer_error.exit
   %status26 = getelementptr inbounds i8, ptr %xfer, i64 216
   store i32 6, ptr %status26, align 8
   tail call fastcc void @xhci_xfer_report(ptr noundef nonnull %xfer)
-  tail call fastcc void @xhci_stall_ep(ptr noundef nonnull %xfer)
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %err.i74)
+  %37 = load ptr, ptr %xfer, align 8
+  %38 = load ptr, ptr %37, align 8
+  %type.i75 = getelementptr inbounds i8, ptr %37, i64 64
+  %39 = load i32, ptr %type.i75, align 8
+  switch i32 %39, label %if.end.i76 [
+    i32 5, label %xhci_stall_ep.exit92
+    i32 1, label %xhci_stall_ep.exit92
+  ]
+
+if.end.i76:                                       ; preds = %sw.bb25
+  %nr_pstreams.i77 = getelementptr inbounds i8, ptr %37, i64 100
+  %40 = load i32, ptr %nr_pstreams.i77, align 4
+  %tobool.not.i78 = icmp eq i32 %40, 0
+  br i1 %tobool.not.i78, label %if.end26.sink.split.i83, label %if.then5.i79
+
+if.then5.i79:                                     ; preds = %if.end.i76
+  %streamid.i80 = getelementptr inbounds i8, ptr %xfer, i64 192
+  %41 = load i32, ptr %streamid.i80, align 8
+  %call.i81 = call fastcc ptr @xhci_find_stream(ptr noundef nonnull %37, i32 noundef %41, ptr noundef %err.i74)
+  %cmp6.i82 = icmp eq ptr %call.i81, null
+  br i1 %cmp6.i82, label %xhci_stall_ep.exit92, label %if.end26.sink.split.i83
+
+if.end26.sink.split.i83:                          ; preds = %if.then5.i79, %if.end.i76
+  %.sink22.i84 = phi ptr [ %call.i81, %if.then5.i79 ], [ %37, %if.end.i76 ]
+  %.sink.i85 = phi ptr [ %call.i81, %if.then5.i79 ], [ null, %if.end.i76 ]
+  %trbs14.i86 = getelementptr inbounds i8, ptr %xfer, i64 208
+  %42 = load ptr, ptr %trbs14.i86, align 8
+  %addr16.i87 = getelementptr inbounds i8, ptr %42, i64 16
+  %43 = load i64, ptr %addr16.i87, align 8
+  %ring17.i88 = getelementptr inbounds i8, ptr %.sink22.i84, i64 16
+  store i64 %43, ptr %ring17.i88, align 8
+  %44 = load ptr, ptr %trbs14.i86, align 8
+  %ccs21.i89 = getelementptr inbounds i8, ptr %44, i64 24
+  %45 = load i8, ptr %ccs21.i89, align 8
+  %ccs24.i90 = getelementptr inbounds i8, ptr %.sink22.i84, i64 24
+  %frombool25.i91 = and i8 %45, 1
+  store i8 %frombool25.i91, ptr %ccs24.i90, align 8
+  tail call fastcc void @xhci_set_ep_state(ptr noundef %38, ptr noundef nonnull %37, ptr noundef %.sink.i85, i32 noundef 2)
+  br label %xhci_stall_ep.exit92
+
+xhci_stall_ep.exit92:                             ; preds = %sw.bb25, %sw.bb25, %if.then5.i79, %if.end26.sink.split.i83
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %err.i74)
   br label %return
 
 sw.bb27:                                          ; preds = %trace_usb_xhci_xfer_error.exit
   %status28 = getelementptr inbounds i8, ptr %xfer, i64 216
   store i32 3, ptr %status28, align 8
   tail call fastcc void @xhci_xfer_report(ptr noundef nonnull %xfer)
-  tail call fastcc void @xhci_stall_ep(ptr noundef nonnull %xfer)
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %err.i93)
+  %46 = load ptr, ptr %xfer, align 8
+  %47 = load ptr, ptr %46, align 8
+  %type.i94 = getelementptr inbounds i8, ptr %46, i64 64
+  %48 = load i32, ptr %type.i94, align 8
+  switch i32 %48, label %if.end.i95 [
+    i32 5, label %xhci_stall_ep.exit111
+    i32 1, label %xhci_stall_ep.exit111
+  ]
+
+if.end.i95:                                       ; preds = %sw.bb27
+  %nr_pstreams.i96 = getelementptr inbounds i8, ptr %46, i64 100
+  %49 = load i32, ptr %nr_pstreams.i96, align 4
+  %tobool.not.i97 = icmp eq i32 %49, 0
+  br i1 %tobool.not.i97, label %if.end26.sink.split.i102, label %if.then5.i98
+
+if.then5.i98:                                     ; preds = %if.end.i95
+  %streamid.i99 = getelementptr inbounds i8, ptr %xfer, i64 192
+  %50 = load i32, ptr %streamid.i99, align 8
+  %call.i100 = call fastcc ptr @xhci_find_stream(ptr noundef nonnull %46, i32 noundef %50, ptr noundef %err.i93)
+  %cmp6.i101 = icmp eq ptr %call.i100, null
+  br i1 %cmp6.i101, label %xhci_stall_ep.exit111, label %if.end26.sink.split.i102
+
+if.end26.sink.split.i102:                         ; preds = %if.then5.i98, %if.end.i95
+  %.sink22.i103 = phi ptr [ %call.i100, %if.then5.i98 ], [ %46, %if.end.i95 ]
+  %.sink.i104 = phi ptr [ %call.i100, %if.then5.i98 ], [ null, %if.end.i95 ]
+  %trbs14.i105 = getelementptr inbounds i8, ptr %xfer, i64 208
+  %51 = load ptr, ptr %trbs14.i105, align 8
+  %addr16.i106 = getelementptr inbounds i8, ptr %51, i64 16
+  %52 = load i64, ptr %addr16.i106, align 8
+  %ring17.i107 = getelementptr inbounds i8, ptr %.sink22.i103, i64 16
+  store i64 %52, ptr %ring17.i107, align 8
+  %53 = load ptr, ptr %trbs14.i105, align 8
+  %ccs21.i108 = getelementptr inbounds i8, ptr %53, i64 24
+  %54 = load i8, ptr %ccs21.i108, align 8
+  %ccs24.i109 = getelementptr inbounds i8, ptr %.sink22.i103, i64 24
+  %frombool25.i110 = and i8 %54, 1
+  store i8 %frombool25.i110, ptr %ccs24.i109, align 8
+  tail call fastcc void @xhci_set_ep_state(ptr noundef %47, ptr noundef nonnull %46, ptr noundef %.sink.i104, i32 noundef 2)
+  br label %xhci_stall_ep.exit111
+
+xhci_stall_ep.exit111:                            ; preds = %sw.bb27, %sw.bb27, %if.then5.i98, %if.end26.sink.split.i102
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %err.i93)
   br label %return
 
 do.body29:                                        ; preds = %trace_usb_xhci_xfer_error.exit
-  %28 = load ptr, ptr @stderr, align 8
-  %call = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %28, ptr noundef nonnull @.str.32, ptr noundef nonnull @__func__.xhci_try_complete_packet, i32 noundef 1678, ptr noundef nonnull @.str.33) #20
+  %55 = load ptr, ptr @stderr, align 8
+  %call = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %55, ptr noundef nonnull @.str.32, ptr noundef nonnull @__func__.xhci_try_complete_packet, i32 noundef 1678, ptr noundef nonnull @.str.33) #20
   tail call void @abort() #17
   unreachable
 
-return:                                           ; preds = %sw.bb, %sw.bb25, %sw.bb27, %trace_usb_xhci_xfer_success.exit, %trace_usb_xhci_xfer_nak.exit, %trace_usb_xhci_xfer_async.exit
+return:                                           ; preds = %xhci_stall_ep.exit, %xhci_stall_ep.exit92, %xhci_stall_ep.exit111, %trace_usb_xhci_xfer_success.exit, %trace_usb_xhci_xfer_nak.exit, %trace_usb_xhci_xfer_async.exit
   ret void
 }
 
@@ -3364,68 +3486,6 @@ if.end65:                                         ; preds = %if.end56.if.end65_c
   br i1 %cmp, label %for.body, label %for.end, !llvm.loop !15
 
 for.end:                                          ; preds = %if.end65, %if.end56, %entry
-  ret void
-}
-
-; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @xhci_stall_ep(ptr nocapture noundef readonly %xfer) unnamed_addr #2 {
-entry:
-  %err = alloca i32, align 4
-  %0 = load ptr, ptr %xfer, align 8
-  %1 = load ptr, ptr %0, align 8
-  %type = getelementptr inbounds i8, ptr %0, i64 64
-  %2 = load i32, ptr %type, align 8
-  switch i32 %2, label %if.end [
-    i32 5, label %if.end26
-    i32 1, label %if.end26
-  ]
-
-if.end:                                           ; preds = %entry
-  %nr_pstreams = getelementptr inbounds i8, ptr %0, i64 100
-  %3 = load i32, ptr %nr_pstreams, align 4
-  %tobool.not = icmp eq i32 %3, 0
-  br i1 %tobool.not, label %if.else, label %if.then5
-
-if.then5:                                         ; preds = %if.end
-  %streamid = getelementptr inbounds i8, ptr %xfer, i64 192
-  %4 = load i32, ptr %streamid, align 8
-  %call = call fastcc ptr @xhci_find_stream(ptr noundef nonnull %0, i32 noundef %4, ptr noundef %err)
-  %cmp6 = icmp eq ptr %call, null
-  br i1 %cmp6, label %if.end26, label %if.end8
-
-if.end8:                                          ; preds = %if.then5
-  %trbs = getelementptr inbounds i8, ptr %xfer, i64 208
-  %5 = load ptr, ptr %trbs, align 8
-  %addr = getelementptr inbounds i8, ptr %5, i64 16
-  %6 = load i64, ptr %addr, align 8
-  %ring = getelementptr inbounds i8, ptr %call, i64 16
-  store i64 %6, ptr %ring, align 8
-  %7 = load ptr, ptr %trbs, align 8
-  %ccs = getelementptr inbounds i8, ptr %7, i64 24
-  %8 = load i8, ptr %ccs, align 8
-  %ccs13 = getelementptr inbounds i8, ptr %call, i64 24
-  %frombool = and i8 %8, 1
-  store i8 %frombool, ptr %ccs13, align 8
-  tail call fastcc void @xhci_set_ep_state(ptr noundef %1, ptr noundef nonnull %0, ptr noundef nonnull %call, i32 noundef 2)
-  br label %if.end26
-
-if.else:                                          ; preds = %if.end
-  %trbs14 = getelementptr inbounds i8, ptr %xfer, i64 208
-  %9 = load ptr, ptr %trbs14, align 8
-  %addr16 = getelementptr inbounds i8, ptr %9, i64 16
-  %10 = load i64, ptr %addr16, align 8
-  %ring17 = getelementptr inbounds i8, ptr %0, i64 16
-  store i64 %10, ptr %ring17, align 8
-  %11 = load ptr, ptr %trbs14, align 8
-  %ccs21 = getelementptr inbounds i8, ptr %11, i64 24
-  %12 = load i8, ptr %ccs21, align 8
-  %ccs24 = getelementptr inbounds i8, ptr %0, i64 24
-  %frombool25 = and i8 %12, 1
-  store i8 %frombool25, ptr %ccs24, align 8
-  tail call fastcc void @xhci_set_ep_state(ptr noundef %1, ptr noundef nonnull %0, ptr noundef null, i32 noundef 2)
-  br label %if.end26
-
-if.end26:                                         ; preds = %entry, %entry, %if.then5, %if.else, %if.end8
   ret void
 }
 

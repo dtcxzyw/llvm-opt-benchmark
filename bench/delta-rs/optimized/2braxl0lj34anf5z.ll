@@ -81464,7 +81464,7 @@ define hidden void @"_ZN4core4iter8adapters7flatten26FlattenCompat$LT$I$C$U$GT$1
   %.sroa.4.i.i.i.i33 = alloca [176 x i8], align 16
   %5 = alloca { i128, [22 x i64] }, align 16
   %.sroa.4.i.i.i.i = alloca [176 x i8], align 16
-  %.sroa.271 = alloca [22 x i64], align 16
+  %.sroa.272 = alloca [22 x i64], align 16
   %6 = alloca { { ptr, ptr } }, align 8
   store ptr %2, ptr %6, align 8
   %7 = getelementptr inbounds i8, ptr %6, i64 8
@@ -81487,17 +81487,16 @@ define hidden void @"_ZN4core4iter8adapters7flatten26FlattenCompat$LT$I$C$U$GT$1
 10:                                               ; preds = %9
   %11 = load i64, ptr %3, align 8, !range !1974, !alias.scope !21636, !noalias !21639, !noundef !4
   %12 = icmp eq i64 %11, 45
-  br i1 %12, label %"_ZN4core3ptr144drop_in_place$LT$core..option..Option$LT$core..result..Result$LT$core..convert..Infallible$C$deltalake_core..errors..DeltaTableError$GT$$GT$$GT$17h4267d1819e2e0acbE.exit.i.i.i.i", label %13
+  br i1 %12, label %17, label %13
 
 13:                                               ; preds = %10
   invoke void @"_ZN4core3ptr60drop_in_place$LT$deltalake_core..errors..DeltaTableError$GT$17hb6fa9b72dafb274dE.llvm.8022584466853825857"(ptr noalias noundef nonnull align 8 dereferenceable(88) %3)
-          to label %"_ZN4core3ptr144drop_in_place$LT$core..option..Option$LT$core..result..Result$LT$core..convert..Infallible$C$deltalake_core..errors..DeltaTableError$GT$$GT$$GT$17h4267d1819e2e0acbE.exit.i.i.i.i" unwind label %15, !noalias !21639
+          to label %17 unwind label %15, !noalias !21639
 
 14:                                               ; preds = %9
   %.sroa.610.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %1, i64 104
   %.sroa.4.104..sroa_idx.i.i.i.i = getelementptr inbounds i8, ptr %.sroa.4.i.i.i.i, i64 88
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %.sroa.4.104..sroa_idx.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(88) %.sroa.610.0..sroa_idx.i.i, i64 88, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(88) %.sroa.4.i.i.i.i, ptr noundef nonnull align 16 dereferenceable(88) %.sroa.5.0..sroa_idx.i.i, i64 88, i1 false)
   br label %17
 
 common.resume:                                    ; preds = %.body29, %50, %15
@@ -81510,11 +81509,9 @@ common.resume:                                    ; preds = %.body29, %50, %15
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %3, ptr noundef nonnull align 16 dereferenceable(88) %.sroa.5.0..sroa_idx.i.i, i64 88, i1 false), !noalias !21648
   br label %common.resume
 
-"_ZN4core3ptr144drop_in_place$LT$core..option..Option$LT$core..result..Result$LT$core..convert..Infallible$C$deltalake_core..errors..DeltaTableError$GT$$GT$$GT$17h4267d1819e2e0acbE.exit.i.i.i.i": ; preds = %13, %10
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %3, ptr noundef nonnull align 16 dereferenceable(88) %.sroa.5.0..sroa_idx.i.i, i64 88, i1 false), !noalias !21648
-  br label %17
-
-17:                                               ; preds = %"_ZN4core3ptr144drop_in_place$LT$core..option..Option$LT$core..result..Result$LT$core..convert..Infallible$C$deltalake_core..errors..DeltaTableError$GT$$GT$$GT$17h4267d1819e2e0acbE.exit.i.i.i.i", %14
+17:                                               ; preds = %14, %13, %10
+  %.sink.i.i = phi ptr [ %.sroa.4.i.i.i.i, %14 ], [ %3, %13 ], [ %3, %10 ]
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %.sink.i.i, ptr noundef nonnull align 16 dereferenceable(88) %.sroa.5.0..sroa_idx.i.i, i64 88, i1 false)
   store i128 %8, ptr %0, align 16, !alias.scope !21649
   %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(176) %.sroa.2.0..sroa_idx, ptr noundef nonnull align 16 dereferenceable(176) %.sroa.4.i.i.i.i, i64 176, i1 false), !alias.scope !21649
@@ -81538,19 +81535,19 @@ common.resume:                                    ; preds = %.body29, %50, %15
 
 23:                                               ; preds = %20
   call void @llvm.lifetime.end.p0(i64 192, ptr nonnull %5), !noalias !21660
-  %.pre90 = load i128, ptr %1, align 16, !range !9550, !alias.scope !21666
-  %24 = icmp eq i128 %.pre90, 5
+  %.pre91 = load i128, ptr %1, align 16, !range !9550, !alias.scope !21666
+  %24 = icmp eq i128 %.pre91, 5
   br i1 %24, label %"_ZN4core3ptr191drop_in_place$LT$core..option..Option$LT$core..result..IntoIter$LT$core..result..Result$LT$datafusion_common..stats..ColumnStatistics$C$deltalake_core..errors..DeltaTableError$GT$$GT$$GT$$GT$17h0c5fe7215e5575f1E.exit32", label %25
 
 25:                                               ; preds = %23
-  %trunc.i.i.i19 = trunc nuw i128 %.pre90 to i3
+  %trunc.i.i.i19 = trunc nuw i128 %.pre91 to i3
   switch i3 %trunc.i.i.i19, label %26 [
     i3 -4, label %"_ZN4core3ptr191drop_in_place$LT$core..option..Option$LT$core..result..IntoIter$LT$core..result..Result$LT$datafusion_common..stats..ColumnStatistics$C$deltalake_core..errors..DeltaTableError$GT$$GT$$GT$$GT$17h0c5fe7215e5575f1E.exit32"
     i3 3, label %37
   ]
 
 26:                                               ; preds = %25
-  %switch.i.i.i.i.i.i20 = icmp ult i128 %.pre90, 2
+  %switch.i.i.i.i.i.i20 = icmp ult i128 %.pre91, 2
   br i1 %switch.i.i.i.i.i.i20, label %.sink.split.i.i.i.i.i.i24, label %"_ZN4core3ptr102drop_in_place$LT$datafusion_common..stats..Precision$LT$datafusion_common..scalar..ScalarValue$GT$$GT$17hc212d89c0da48254E.llvm.4057250340930679409.exit.i.i.i.i.i21"
 
 .sink.split.i.i.i.i.i.i24:                        ; preds = %26
@@ -81593,11 +81590,11 @@ common.resume:                                    ; preds = %.body29, %50, %15
 
 38:                                               ; preds = %20
   %.sroa.7.0..sroa_idx2.i = getelementptr inbounds i8, ptr %5, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(176) %.sroa.271, ptr noundef nonnull align 16 dereferenceable(176) %.sroa.7.0..sroa_idx2.i, i64 176, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(176) %.sroa.272, ptr noundef nonnull align 16 dereferenceable(176) %.sroa.7.0..sroa_idx2.i, i64 176, i1 false)
   call void @llvm.lifetime.end.p0(i64 192, ptr nonnull %5), !noalias !21660
   store i128 %21, ptr %0, align 16, !alias.scope !21683
-  %.sroa.271.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(176) %.sroa.271.0..sroa_idx, ptr noundef nonnull align 16 dereferenceable(176) %.sroa.271, i64 176, i1 false), !alias.scope !21683
+  %.sroa.272.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(176) %.sroa.272.0..sroa_idx, ptr noundef nonnull align 16 dereferenceable(176) %.sroa.272, i64 176, i1 false), !alias.scope !21683
   br label %53
 
 39:                                               ; preds = %37, %.sink.split.i6.i.i.i.i.i23
@@ -81615,7 +81612,7 @@ common.resume:                                    ; preds = %.body29, %50, %15
   %41 = getelementptr inbounds i8, ptr %1, i64 192
   %42 = load i128, ptr %41, align 16, !range !9550, !noundef !4
   %.not14 = icmp eq i128 %42, 5
-  br i1 %.not14, label %"_ZN4core3ptr191drop_in_place$LT$core..option..Option$LT$core..result..IntoIter$LT$core..result..Result$LT$datafusion_common..stats..ColumnStatistics$C$deltalake_core..errors..DeltaTableError$GT$$GT$$GT$$GT$17h0c5fe7215e5575f1E.exit56", label %43
+  br i1 %.not14, label %"_ZN4core3ptr191drop_in_place$LT$core..option..Option$LT$core..result..IntoIter$LT$core..result..Result$LT$datafusion_common..stats..ColumnStatistics$C$deltalake_core..errors..DeltaTableError$GT$$GT$$GT$$GT$17h0c5fe7215e5575f1E.exit57", label %43
 
 43:                                               ; preds = %"_ZN4core3ptr191drop_in_place$LT$core..option..Option$LT$core..result..IntoIter$LT$core..result..Result$LT$datafusion_common..stats..ColumnStatistics$C$deltalake_core..errors..DeltaTableError$GT$$GT$$GT$$GT$17h0c5fe7215e5575f1E.exit32"
   %.val16 = load ptr, ptr %7, align 8
@@ -81623,9 +81620,9 @@ common.resume:                                    ; preds = %.body29, %50, %15
   call void @llvm.experimental.noalias.scope.decl(metadata !21690)
   %.sroa.5.0..sroa_idx.i.i35 = getelementptr inbounds i8, ptr %1, i64 208
   store i128 4, ptr %41, align 16, !alias.scope !21693, !noalias !21696
-  %trunc89 = trunc nuw i128 %42 to i3
-  switch i3 %trunc89, label %49 [
-    i3 -4, label %"_ZN4core3ptr191drop_in_place$LT$core..option..Option$LT$core..result..IntoIter$LT$core..result..Result$LT$datafusion_common..stats..ColumnStatistics$C$deltalake_core..errors..DeltaTableError$GT$$GT$$GT$$GT$17h0c5fe7215e5575f1E.exit56"
+  %trunc90 = trunc nuw i128 %42 to i3
+  switch i3 %trunc90, label %49 [
+    i3 -4, label %"_ZN4core3ptr191drop_in_place$LT$core..option..Option$LT$core..result..IntoIter$LT$core..result..Result$LT$datafusion_common..stats..ColumnStatistics$C$deltalake_core..errors..DeltaTableError$GT$$GT$$GT$$GT$17h0c5fe7215e5575f1E.exit57"
     i3 3, label %44
   ]
 
@@ -81634,17 +81631,16 @@ common.resume:                                    ; preds = %.body29, %50, %15
   call void @llvm.assume(i1 %45)
   %46 = load i64, ptr %.val16, align 8, !range !1974, !alias.scope !21701, !noalias !21704, !noundef !4
   %47 = icmp eq i64 %46, 45
-  br i1 %47, label %"_ZN4core3ptr144drop_in_place$LT$core..option..Option$LT$core..result..Result$LT$core..convert..Infallible$C$deltalake_core..errors..DeltaTableError$GT$$GT$$GT$17h4267d1819e2e0acbE.exit.i.i.i.i36", label %48
+  br i1 %47, label %52, label %48
 
 48:                                               ; preds = %44
   invoke void @"_ZN4core3ptr60drop_in_place$LT$deltalake_core..errors..DeltaTableError$GT$17hb6fa9b72dafb274dE.llvm.8022584466853825857"(ptr noalias noundef nonnull align 8 dereferenceable(88) %.val16)
-          to label %"_ZN4core3ptr144drop_in_place$LT$core..option..Option$LT$core..result..Result$LT$core..convert..Infallible$C$deltalake_core..errors..DeltaTableError$GT$$GT$$GT$17h4267d1819e2e0acbE.exit.i.i.i.i36" unwind label %50, !noalias !21704
+          to label %52 unwind label %50, !noalias !21704
 
 49:                                               ; preds = %43
-  %.sroa.610.0..sroa_idx.i.i39 = getelementptr inbounds i8, ptr %1, i64 296
-  %.sroa.4.104..sroa_idx.i.i.i.i40 = getelementptr inbounds i8, ptr %.sroa.4.i.i.i.i33, i64 88
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %.sroa.4.104..sroa_idx.i.i.i.i40, ptr noundef nonnull align 8 dereferenceable(88) %.sroa.610.0..sroa_idx.i.i39, i64 88, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(88) %.sroa.4.i.i.i.i33, ptr noundef nonnull align 16 dereferenceable(88) %.sroa.5.0..sroa_idx.i.i35, i64 88, i1 false)
+  %.sroa.610.0..sroa_idx.i.i40 = getelementptr inbounds i8, ptr %1, i64 296
+  %.sroa.4.104..sroa_idx.i.i.i.i41 = getelementptr inbounds i8, ptr %.sroa.4.i.i.i.i33, i64 88
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %.sroa.4.104..sroa_idx.i.i.i.i41, ptr noundef nonnull align 8 dereferenceable(88) %.sroa.610.0..sroa_idx.i.i40, i64 88, i1 false)
   br label %52
 
 50:                                               ; preds = %48
@@ -81653,22 +81649,20 @@ common.resume:                                    ; preds = %.body29, %50, %15
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %.val16, ptr noundef nonnull align 16 dereferenceable(88) %.sroa.5.0..sroa_idx.i.i35, i64 88, i1 false), !noalias !21713
   br label %common.resume
 
-"_ZN4core3ptr144drop_in_place$LT$core..option..Option$LT$core..result..Result$LT$core..convert..Infallible$C$deltalake_core..errors..DeltaTableError$GT$$GT$$GT$17h4267d1819e2e0acbE.exit.i.i.i.i36": ; preds = %48, %44
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %.val16, ptr noundef nonnull align 16 dereferenceable(88) %.sroa.5.0..sroa_idx.i.i35, i64 88, i1 false), !noalias !21713
-  br label %52
-
-52:                                               ; preds = %"_ZN4core3ptr144drop_in_place$LT$core..option..Option$LT$core..result..Result$LT$core..convert..Infallible$C$deltalake_core..errors..DeltaTableError$GT$$GT$$GT$17h4267d1819e2e0acbE.exit.i.i.i.i36", %49
+52:                                               ; preds = %49, %48, %44
+  %.sink.i.i37 = phi ptr [ %.sroa.4.i.i.i.i33, %49 ], [ %.val16, %48 ], [ %.val16, %44 ]
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %.sink.i.i37, ptr noundef nonnull align 16 dereferenceable(88) %.sroa.5.0..sroa_idx.i.i35, i64 88, i1 false)
   store i128 %42, ptr %0, align 16, !alias.scope !21714
-  %.sroa.280.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(176) %.sroa.280.0..sroa_idx, ptr noundef nonnull align 16 dereferenceable(176) %.sroa.4.i.i.i.i33, i64 176, i1 false), !alias.scope !21714
+  %.sroa.281.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(176) %.sroa.281.0..sroa_idx, ptr noundef nonnull align 16 dereferenceable(176) %.sroa.4.i.i.i.i33, i64 176, i1 false), !alias.scope !21714
   br label %53
 
-"_ZN4core3ptr191drop_in_place$LT$core..option..Option$LT$core..result..IntoIter$LT$core..result..Result$LT$datafusion_common..stats..ColumnStatistics$C$deltalake_core..errors..DeltaTableError$GT$$GT$$GT$$GT$17h0c5fe7215e5575f1E.exit56": ; preds = %43, %"_ZN4core3ptr191drop_in_place$LT$core..option..Option$LT$core..result..IntoIter$LT$core..result..Result$LT$datafusion_common..stats..ColumnStatistics$C$deltalake_core..errors..DeltaTableError$GT$$GT$$GT$$GT$17h0c5fe7215e5575f1E.exit32"
+"_ZN4core3ptr191drop_in_place$LT$core..option..Option$LT$core..result..IntoIter$LT$core..result..Result$LT$datafusion_common..stats..ColumnStatistics$C$deltalake_core..errors..DeltaTableError$GT$$GT$$GT$$GT$17h0c5fe7215e5575f1E.exit57": ; preds = %43, %"_ZN4core3ptr191drop_in_place$LT$core..option..Option$LT$core..result..IntoIter$LT$core..result..Result$LT$datafusion_common..stats..ColumnStatistics$C$deltalake_core..errors..DeltaTableError$GT$$GT$$GT$$GT$17h0c5fe7215e5575f1E.exit32"
   store i128 5, ptr %41, align 16
   store i128 4, ptr %0, align 16, !alias.scope !21718
   br label %53
 
-53:                                               ; preds = %"_ZN4core3ptr191drop_in_place$LT$core..option..Option$LT$core..result..IntoIter$LT$core..result..Result$LT$datafusion_common..stats..ColumnStatistics$C$deltalake_core..errors..DeltaTableError$GT$$GT$$GT$$GT$17h0c5fe7215e5575f1E.exit56", %17, %52, %38
+53:                                               ; preds = %"_ZN4core3ptr191drop_in_place$LT$core..option..Option$LT$core..result..IntoIter$LT$core..result..Result$LT$datafusion_common..stats..ColumnStatistics$C$deltalake_core..errors..DeltaTableError$GT$$GT$$GT$$GT$17h0c5fe7215e5575f1E.exit57", %17, %52, %38
   ret void
 }
 

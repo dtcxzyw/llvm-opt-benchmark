@@ -260,36 +260,34 @@ define dso_local void @_ZN4llvm12CallGraphSCC11ReplaceNodeEPNS_13CallGraphNodeES
 
 .split11:                                         ; preds = %11
   store ptr %2, ptr %12, align 8
-  %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %14 = load ptr, ptr %13, align 8
-  tail call void @_ZN4llvm12scc_iteratorIPNS_9CallGraphENS_11GraphTraitsIS2_EEE11ReplaceNodeEPNS_13CallGraphNodeES7_(ptr noundef nonnull align 8 dereferenceable(104) %14, ptr noundef %1, ptr noundef nonnull %2)
-  br label %25
+  br label %21
 
 .split:                                           ; preds = %11
-  %15 = getelementptr inbounds i8, ptr %12, i64 8
-  %16 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %17 = load ptr, ptr %16, align 8
-  %.not.i.i = icmp eq ptr %15, %17
+  %13 = getelementptr inbounds i8, ptr %12, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %15 = load ptr, ptr %14, align 8
+  %.not.i.i = icmp eq ptr %13, %15
   br i1 %.not.i.i, label %_ZNSt6vectorIPN4llvm13CallGraphNodeESaIS2_EE5eraseEN9__gnu_cxx17__normal_iteratorIPKS2_S4_EE.exit, label %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPPN4llvm13CallGraphNodeESt6vectorIS4_SaIS4_EEEES9_ET0_T_SB_SA_.exit.i.i
 
 _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPPN4llvm13CallGraphNodeESt6vectorIS4_SaIS4_EEEES9_ET0_T_SB_SA_.exit.i.i: ; preds = %.split
-  %18 = ptrtoint ptr %17 to i64
-  %19 = ptrtoint ptr %15 to i64
-  %20 = sub i64 %18, %19
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %12, ptr nonnull align 8 %15, i64 %20, i1 false)
-  %.pre.i.i = load ptr, ptr %16, align 8
+  %16 = ptrtoint ptr %15 to i64
+  %17 = ptrtoint ptr %13 to i64
+  %18 = sub i64 %16, %17
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %12, ptr nonnull align 8 %13, i64 %18, i1 false)
+  %.pre.i.i = load ptr, ptr %14, align 8
   br label %_ZNSt6vectorIPN4llvm13CallGraphNodeESaIS2_EE5eraseEN9__gnu_cxx17__normal_iteratorIPKS2_S4_EE.exit
 
 _ZNSt6vectorIPN4llvm13CallGraphNodeESaIS2_EE5eraseEN9__gnu_cxx17__normal_iteratorIPKS2_S4_EE.exit: ; preds = %.split, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPPN4llvm13CallGraphNodeESt6vectorIS4_SaIS4_EEEES9_ET0_T_SB_SA_.exit.i.i
-  %21 = phi ptr [ %.pre.i.i, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPPN4llvm13CallGraphNodeESt6vectorIS4_SaIS4_EEEES9_ET0_T_SB_SA_.exit.i.i ], [ %17, %.split ]
-  %22 = getelementptr inbounds i8, ptr %21, i64 -8
-  store ptr %22, ptr %16, align 8
-  %23 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %24 = load ptr, ptr %23, align 8
-  tail call void @_ZN4llvm12scc_iteratorIPNS_9CallGraphENS_11GraphTraitsIS2_EEE11ReplaceNodeEPNS_13CallGraphNodeES7_(ptr noundef nonnull align 8 dereferenceable(104) %24, ptr noundef %1, ptr noundef null)
-  br label %25
+  %19 = phi ptr [ %.pre.i.i, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPPN4llvm13CallGraphNodeESt6vectorIS4_SaIS4_EEEES9_ET0_T_SB_SA_.exit.i.i ], [ %15, %.split ]
+  %20 = getelementptr inbounds i8, ptr %19, i64 -8
+  store ptr %20, ptr %14, align 8
+  br label %21
 
-25:                                               ; preds = %.split11, %_ZNSt6vectorIPN4llvm13CallGraphNodeESaIS2_EE5eraseEN9__gnu_cxx17__normal_iteratorIPKS2_S4_EE.exit
+21:                                               ; preds = %.split11, %_ZNSt6vectorIPN4llvm13CallGraphNodeESaIS2_EE5eraseEN9__gnu_cxx17__normal_iteratorIPKS2_S4_EE.exit
+  %.sink20 = phi ptr [ %2, %.split11 ], [ null, %_ZNSt6vectorIPN4llvm13CallGraphNodeESaIS2_EE5eraseEN9__gnu_cxx17__normal_iteratorIPKS2_S4_EE.exit ]
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %23 = load ptr, ptr %22, align 8
+  tail call void @_ZN4llvm12scc_iteratorIPNS_9CallGraphENS_11GraphTraitsIS2_EEE11ReplaceNodeEPNS_13CallGraphNodeES7_(ptr noundef nonnull align 8 dereferenceable(104) %23, ptr noundef %1, ptr noundef %.sink20)
   ret void
 }
 

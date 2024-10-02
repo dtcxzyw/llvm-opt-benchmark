@@ -6262,12 +6262,7 @@ _ZNK7openvdb5v11_04tree10LeafBufferINS0_4math4Vec3IfEELj3EE10loadValuesEv.exit.i
 if.then.i.i.i.i.i:                                ; preds = %_ZNK7openvdb5v11_04tree10LeafBufferINS0_4math4Vec3IfEELj3EE10loadValuesEv.exit.i.i.i.i.i
   %idxprom.i.i.i.i.i = zext i32 %23 to i64
   %arrayidx.i.i.i.i.i = getelementptr inbounds %"class.openvdb::v11_0::math::Vec3.62", ptr %25, i64 %idxprom.i.i.i.i.i
-  store float %conv.i4, ptr %arrayidx.i.i.i.i.i, align 4
-  %ref.tmp3.sroa.5.0.arrayidx.i.i.i.i.i.sroa_idx = getelementptr inbounds i8, ptr %arrayidx.i.i.i.i.i, i64 4
-  store float %conv3.i6, ptr %ref.tmp3.sroa.5.0.arrayidx.i.i.i.i.i.sroa_idx, align 4
-  %ref.tmp3.sroa.6.0.arrayidx.i.i.i.i.i.sroa_idx = getelementptr inbounds i8, ptr %arrayidx.i.i.i.i.i, i64 8
-  store float %conv7.i9, ptr %ref.tmp3.sroa.6.0.arrayidx.i.i.i.i.i.sroa_idx, align 4
-  br label %_ZNK7openvdb5v11_04tree21TreeValueIteratorBaseINS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeINS0_4math4Vec3IfEELj3EEELj4EEELj5EEEEEEENSD_9ValueIterISD_St17_Rb_tree_iteratorISt4pairIKNS7_5CoordENSD_10NodeStructEEENSD_12ValueAllPredES9_EEE8setValueERKS9_.exit
+  br label %if.end.sink.split.i.i
 
 if.then.i.i.i:                                    ; preds = %entry
   %mNext.i.i = getelementptr inbounds i8, ptr %it, i64 144
@@ -6276,12 +6271,7 @@ if.then.i.i.i:                                    ; preds = %entry
   %call.i.i.i.i.i = tail call noundef nonnull align 8 dereferenceable(66576) ptr @_ZNK7openvdb5v11_04tree12IteratorBaseINS0_4util15OffMaskIteratorINS3_8NodeMaskILj4EEEEENS1_12InternalNodeINS1_8LeafNodeINS0_4math4Vec3IfEELj3EEELj4EEEE6parentEv(ptr noundef nonnull align 8 dereferenceable(24) %mNext.i.i)
   %idxprom.i.i.i4.i.i = zext i32 %26 to i64
   %arrayidx.i.i.i5.i.i = getelementptr inbounds [4096 x %"class.openvdb::v11_0::tree::NodeUnion"], ptr %call.i.i.i.i.i, i64 0, i64 %idxprom.i.i.i4.i.i
-  store float %conv.i4, ptr %arrayidx.i.i.i5.i.i, align 8
-  %ref.tmp3.sroa.5.0.arrayidx.i.i.i5.i.i.sroa_idx = getelementptr inbounds i8, ptr %arrayidx.i.i.i5.i.i, i64 4
-  store float %conv3.i6, ptr %ref.tmp3.sroa.5.0.arrayidx.i.i.i5.i.i.sroa_idx, align 4
-  %ref.tmp3.sroa.6.0.arrayidx.i.i.i5.i.i.sroa_idx = getelementptr inbounds i8, ptr %arrayidx.i.i.i5.i.i, i64 8
-  store float %conv7.i9, ptr %ref.tmp3.sroa.6.0.arrayidx.i.i.i5.i.i.sroa_idx, align 8
-  br label %_ZNK7openvdb5v11_04tree21TreeValueIteratorBaseINS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeINS0_4math4Vec3IfEELj3EEELj4EEELj5EEEEEEENSD_9ValueIterISD_St17_Rb_tree_iteratorISt4pairIKNS7_5CoordENSD_10NodeStructEEENSD_12ValueAllPredES9_EEE8setValueERKS9_.exit
+  br label %if.end.sink.split.i.i
 
 if.then.i.i.i.i:                                  ; preds = %entry
   %mNext.i.i.i = getelementptr inbounds i8, ptr %it, i64 168
@@ -6290,25 +6280,24 @@ if.then.i.i.i.i:                                  ; preds = %entry
   %call.i.i.i.i.i.i = tail call noundef nonnull align 8 dereferenceable(532496) ptr @_ZNK7openvdb5v11_04tree12IteratorBaseINS0_4util15OffMaskIteratorINS3_8NodeMaskILj5EEEEENS1_12InternalNodeINS8_INS1_8LeafNodeINS0_4math4Vec3IfEELj3EEELj4EEELj5EEEE6parentEv(ptr noundef nonnull align 8 dereferenceable(24) %mNext.i.i.i)
   %idxprom.i.i.i.i.i.i = zext i32 %27 to i64
   %arrayidx.i.i.i.i.i.i = getelementptr inbounds [32768 x %"class.openvdb::v11_0::tree::NodeUnion.71"], ptr %call.i.i.i.i.i.i, i64 0, i64 %idxprom.i.i.i.i.i.i
-  store float %conv.i4, ptr %arrayidx.i.i.i.i.i.i, align 8
-  %ref.tmp3.sroa.5.0.arrayidx.i.i.i.i.i.i.sroa_idx = getelementptr inbounds i8, ptr %arrayidx.i.i.i.i.i.i, i64 4
-  store float %conv3.i6, ptr %ref.tmp3.sroa.5.0.arrayidx.i.i.i.i.i.i.sroa_idx, align 4
-  %ref.tmp3.sroa.6.0.arrayidx.i.i.i.i.i.i.sroa_idx = getelementptr inbounds i8, ptr %arrayidx.i.i.i.i.i.i, i64 8
-  store float %conv7.i9, ptr %ref.tmp3.sroa.6.0.arrayidx.i.i.i.i.i.i.sroa_idx, align 8
-  br label %_ZNK7openvdb5v11_04tree21TreeValueIteratorBaseINS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeINS0_4math4Vec3IfEELj3EEELj4EEELj5EEEEEEENSD_9ValueIterISD_St17_Rb_tree_iteratorISt4pairIKNS7_5CoordENSD_10NodeStructEEENSD_12ValueAllPredES9_EEE8setValueERKS9_.exit
+  br label %if.end.sink.split.i.i
 
 if.then.i.i.i3.i.i:                               ; preds = %entry
   %mIter.i.i.i.i.i.i = getelementptr inbounds i8, ptr %it, i64 200
   %28 = load ptr, ptr %mIter.i.i.i.i.i.i, align 8
   %tile.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %28, i64 56
-  store float %conv.i4, ptr %tile.i.i.i.i.i.i.i, align 4
-  %ref.tmp3.sroa.5.0.tile.i.i.i.i.i.i.i.sroa_idx = getelementptr inbounds i8, ptr %28, i64 60
-  store float %conv3.i6, ptr %ref.tmp3.sroa.5.0.tile.i.i.i.i.i.i.i.sroa_idx, align 4
-  %ref.tmp3.sroa.6.0.tile.i.i.i.i.i.i.i.sroa_idx = getelementptr inbounds i8, ptr %28, i64 64
-  store float %conv7.i9, ptr %ref.tmp3.sroa.6.0.tile.i.i.i.i.i.i.i.sroa_idx, align 4
+  br label %if.end.sink.split.i.i
+
+if.end.sink.split.i.i:                            ; preds = %if.then.i.i.i3.i.i, %if.then.i.i.i.i, %if.then.i.i.i, %if.then.i.i.i.i.i
+  %tile.i.i.i.sink.i.sink.i.sink.i.i = phi ptr [ %arrayidx.i.i.i.i.i, %if.then.i.i.i.i.i ], [ %arrayidx.i.i.i5.i.i, %if.then.i.i.i ], [ %tile.i.i.i.i.i.i.i, %if.then.i.i.i3.i.i ], [ %arrayidx.i.i.i.i.i.i, %if.then.i.i.i.i ]
+  store float %conv.i4, ptr %tile.i.i.i.sink.i.sink.i.sink.i.i, align 4
+  %ref.tmp3.sroa.2.0.tile.i.i.i.sink.i.sink.i.sink.i.i.sroa_idx = getelementptr inbounds i8, ptr %tile.i.i.i.sink.i.sink.i.sink.i.i, i64 4
+  store float %conv3.i6, ptr %ref.tmp3.sroa.2.0.tile.i.i.i.sink.i.sink.i.sink.i.i.sroa_idx, align 4
+  %ref.tmp3.sroa.3.0.tile.i.i.i.sink.i.sink.i.sink.i.i.sroa_idx = getelementptr inbounds i8, ptr %tile.i.i.i.sink.i.sink.i.sink.i.i, i64 8
+  store float %conv7.i9, ptr %ref.tmp3.sroa.3.0.tile.i.i.i.sink.i.sink.i.sink.i.i.sroa_idx, align 4
   br label %_ZNK7openvdb5v11_04tree21TreeValueIteratorBaseINS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeINS0_4math4Vec3IfEELj3EEELj4EEELj5EEEEEEENSD_9ValueIterISD_St17_Rb_tree_iteratorISt4pairIKNS7_5CoordENSD_10NodeStructEEENSD_12ValueAllPredES9_EEE8setValueERKS9_.exit
 
-_ZNK7openvdb5v11_04tree21TreeValueIteratorBaseINS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeINS0_4math4Vec3IfEELj3EEELj4EEELj5EEEEEEENSD_9ValueIterISD_St17_Rb_tree_iteratorISt4pairIKNS7_5CoordENSD_10NodeStructEEENSD_12ValueAllPredES9_EEE8setValueERKS9_.exit: ; preds = %entry, %_ZNK7openvdb5v11_04tree10LeafBufferINS0_4math4Vec3IfEELj3EE10loadValuesEv.exit.i.i.i.i.i, %if.then.i.i.i.i.i, %if.then.i.i.i, %if.then.i.i.i.i, %if.then.i.i.i3.i.i
+_ZNK7openvdb5v11_04tree21TreeValueIteratorBaseINS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeINS0_4math4Vec3IfEELj3EEELj4EEELj5EEEEEEENSD_9ValueIterISD_St17_Rb_tree_iteratorISt4pairIKNS7_5CoordENSD_10NodeStructEEENSD_12ValueAllPredES9_EEE8setValueERKS9_.exit: ; preds = %entry, %_ZNK7openvdb5v11_04tree10LeafBufferINS0_4math4Vec3IfEELj3EE10loadValuesEv.exit.i.i.i.i.i, %if.end.sink.split.i.i
   ret void
 }
 
@@ -9730,12 +9719,7 @@ _ZNK7openvdb5v11_04tree10LeafBufferINS0_4math4Vec3IfEELj3EE10loadValuesEv.exit.i
 if.then.i.i.i.i.i:                                ; preds = %_ZNK7openvdb5v11_04tree10LeafBufferINS0_4math4Vec3IfEELj3EE10loadValuesEv.exit.i.i.i.i.i
   %idxprom.i.i.i.i.i = zext i32 %20 to i64
   %arrayidx.i.i.i.i.i = getelementptr inbounds %"class.openvdb::v11_0::math::Vec3.62", ptr %22, i64 %idxprom.i.i.i.i.i
-  store float %conv.i3, ptr %arrayidx.i.i.i.i.i, align 4
-  %ref.tmp.sroa.5.0.arrayidx.i.i.i.i.i.sroa_idx = getelementptr inbounds i8, ptr %arrayidx.i.i.i.i.i, i64 4
-  store float %conv3.i5, ptr %ref.tmp.sroa.5.0.arrayidx.i.i.i.i.i.sroa_idx, align 4
-  %ref.tmp.sroa.6.0.arrayidx.i.i.i.i.i.sroa_idx = getelementptr inbounds i8, ptr %arrayidx.i.i.i.i.i, i64 8
-  store float %conv7.i8, ptr %ref.tmp.sroa.6.0.arrayidx.i.i.i.i.i.sroa_idx, align 4
-  br label %_ZNK7openvdb5v11_04tree21TreeValueIteratorBaseINS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeINS0_4math4Vec3IfEELj3EEELj4EEELj5EEEEEEENSD_9ValueIterISD_St17_Rb_tree_iteratorISt4pairIKNS7_5CoordENSD_10NodeStructEEENSD_12ValueAllPredES9_EEE8setValueERKS9_.exit
+  br label %if.end.sink.split.i.i
 
 if.then.i.i.i:                                    ; preds = %entry
   %mNext.i.i = getelementptr inbounds i8, ptr %it, i64 144
@@ -9744,12 +9728,7 @@ if.then.i.i.i:                                    ; preds = %entry
   %call.i.i.i.i.i = tail call noundef nonnull align 8 dereferenceable(66576) ptr @_ZNK7openvdb5v11_04tree12IteratorBaseINS0_4util15OffMaskIteratorINS3_8NodeMaskILj4EEEEENS1_12InternalNodeINS1_8LeafNodeINS0_4math4Vec3IfEELj3EEELj4EEEE6parentEv(ptr noundef nonnull align 8 dereferenceable(24) %mNext.i.i)
   %idxprom.i.i.i4.i.i = zext i32 %23 to i64
   %arrayidx.i.i.i5.i.i = getelementptr inbounds [4096 x %"class.openvdb::v11_0::tree::NodeUnion"], ptr %call.i.i.i.i.i, i64 0, i64 %idxprom.i.i.i4.i.i
-  store float %conv.i3, ptr %arrayidx.i.i.i5.i.i, align 8
-  %ref.tmp.sroa.5.0.arrayidx.i.i.i5.i.i.sroa_idx = getelementptr inbounds i8, ptr %arrayidx.i.i.i5.i.i, i64 4
-  store float %conv3.i5, ptr %ref.tmp.sroa.5.0.arrayidx.i.i.i5.i.i.sroa_idx, align 4
-  %ref.tmp.sroa.6.0.arrayidx.i.i.i5.i.i.sroa_idx = getelementptr inbounds i8, ptr %arrayidx.i.i.i5.i.i, i64 8
-  store float %conv7.i8, ptr %ref.tmp.sroa.6.0.arrayidx.i.i.i5.i.i.sroa_idx, align 8
-  br label %_ZNK7openvdb5v11_04tree21TreeValueIteratorBaseINS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeINS0_4math4Vec3IfEELj3EEELj4EEELj5EEEEEEENSD_9ValueIterISD_St17_Rb_tree_iteratorISt4pairIKNS7_5CoordENSD_10NodeStructEEENSD_12ValueAllPredES9_EEE8setValueERKS9_.exit
+  br label %if.end.sink.split.i.i
 
 if.then.i.i.i.i:                                  ; preds = %entry
   %mNext.i.i.i = getelementptr inbounds i8, ptr %it, i64 168
@@ -9758,25 +9737,24 @@ if.then.i.i.i.i:                                  ; preds = %entry
   %call.i.i.i.i.i.i = tail call noundef nonnull align 8 dereferenceable(532496) ptr @_ZNK7openvdb5v11_04tree12IteratorBaseINS0_4util15OffMaskIteratorINS3_8NodeMaskILj5EEEEENS1_12InternalNodeINS8_INS1_8LeafNodeINS0_4math4Vec3IfEELj3EEELj4EEELj5EEEE6parentEv(ptr noundef nonnull align 8 dereferenceable(24) %mNext.i.i.i)
   %idxprom.i.i.i.i.i.i = zext i32 %24 to i64
   %arrayidx.i.i.i.i.i.i = getelementptr inbounds [32768 x %"class.openvdb::v11_0::tree::NodeUnion.71"], ptr %call.i.i.i.i.i.i, i64 0, i64 %idxprom.i.i.i.i.i.i
-  store float %conv.i3, ptr %arrayidx.i.i.i.i.i.i, align 8
-  %ref.tmp.sroa.5.0.arrayidx.i.i.i.i.i.i.sroa_idx = getelementptr inbounds i8, ptr %arrayidx.i.i.i.i.i.i, i64 4
-  store float %conv3.i5, ptr %ref.tmp.sroa.5.0.arrayidx.i.i.i.i.i.i.sroa_idx, align 4
-  %ref.tmp.sroa.6.0.arrayidx.i.i.i.i.i.i.sroa_idx = getelementptr inbounds i8, ptr %arrayidx.i.i.i.i.i.i, i64 8
-  store float %conv7.i8, ptr %ref.tmp.sroa.6.0.arrayidx.i.i.i.i.i.i.sroa_idx, align 8
-  br label %_ZNK7openvdb5v11_04tree21TreeValueIteratorBaseINS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeINS0_4math4Vec3IfEELj3EEELj4EEELj5EEEEEEENSD_9ValueIterISD_St17_Rb_tree_iteratorISt4pairIKNS7_5CoordENSD_10NodeStructEEENSD_12ValueAllPredES9_EEE8setValueERKS9_.exit
+  br label %if.end.sink.split.i.i
 
 if.then.i.i.i3.i.i:                               ; preds = %entry
   %mIter.i.i.i.i.i.i = getelementptr inbounds i8, ptr %it, i64 200
   %25 = load ptr, ptr %mIter.i.i.i.i.i.i, align 8
   %tile.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %25, i64 56
-  store float %conv.i3, ptr %tile.i.i.i.i.i.i.i, align 4
-  %ref.tmp.sroa.5.0.tile.i.i.i.i.i.i.i.sroa_idx = getelementptr inbounds i8, ptr %25, i64 60
-  store float %conv3.i5, ptr %ref.tmp.sroa.5.0.tile.i.i.i.i.i.i.i.sroa_idx, align 4
-  %ref.tmp.sroa.6.0.tile.i.i.i.i.i.i.i.sroa_idx = getelementptr inbounds i8, ptr %25, i64 64
-  store float %conv7.i8, ptr %ref.tmp.sroa.6.0.tile.i.i.i.i.i.i.i.sroa_idx, align 4
+  br label %if.end.sink.split.i.i
+
+if.end.sink.split.i.i:                            ; preds = %if.then.i.i.i3.i.i, %if.then.i.i.i.i, %if.then.i.i.i, %if.then.i.i.i.i.i
+  %tile.i.i.i.sink.i.sink.i.sink.i.i = phi ptr [ %arrayidx.i.i.i.i.i, %if.then.i.i.i.i.i ], [ %arrayidx.i.i.i5.i.i, %if.then.i.i.i ], [ %tile.i.i.i.i.i.i.i, %if.then.i.i.i3.i.i ], [ %arrayidx.i.i.i.i.i.i, %if.then.i.i.i.i ]
+  store float %conv.i3, ptr %tile.i.i.i.sink.i.sink.i.sink.i.i, align 4
+  %ref.tmp.sroa.2.0.tile.i.i.i.sink.i.sink.i.sink.i.i.sroa_idx = getelementptr inbounds i8, ptr %tile.i.i.i.sink.i.sink.i.sink.i.i, i64 4
+  store float %conv3.i5, ptr %ref.tmp.sroa.2.0.tile.i.i.i.sink.i.sink.i.sink.i.i.sroa_idx, align 4
+  %ref.tmp.sroa.3.0.tile.i.i.i.sink.i.sink.i.sink.i.i.sroa_idx = getelementptr inbounds i8, ptr %tile.i.i.i.sink.i.sink.i.sink.i.i, i64 8
+  store float %conv7.i8, ptr %ref.tmp.sroa.3.0.tile.i.i.i.sink.i.sink.i.sink.i.i.sroa_idx, align 4
   br label %_ZNK7openvdb5v11_04tree21TreeValueIteratorBaseINS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeINS0_4math4Vec3IfEELj3EEELj4EEELj5EEEEEEENSD_9ValueIterISD_St17_Rb_tree_iteratorISt4pairIKNS7_5CoordENSD_10NodeStructEEENSD_12ValueAllPredES9_EEE8setValueERKS9_.exit
 
-_ZNK7openvdb5v11_04tree21TreeValueIteratorBaseINS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeINS0_4math4Vec3IfEELj3EEELj4EEELj5EEEEEEENSD_9ValueIterISD_St17_Rb_tree_iteratorISt4pairIKNS7_5CoordENSD_10NodeStructEEENSD_12ValueAllPredES9_EEE8setValueERKS9_.exit: ; preds = %entry, %_ZNK7openvdb5v11_04tree10LeafBufferINS0_4math4Vec3IfEELj3EE10loadValuesEv.exit.i.i.i.i.i, %if.then.i.i.i.i.i, %if.then.i.i.i, %if.then.i.i.i.i, %if.then.i.i.i3.i.i
+_ZNK7openvdb5v11_04tree21TreeValueIteratorBaseINS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeINS0_4math4Vec3IfEELj3EEELj4EEELj5EEEEEEENSD_9ValueIterISD_St17_Rb_tree_iteratorISt4pairIKNS7_5CoordENSD_10NodeStructEEENSD_12ValueAllPredES9_EEE8setValueERKS9_.exit: ; preds = %entry, %_ZNK7openvdb5v11_04tree10LeafBufferINS0_4math4Vec3IfEELj3EE10loadValuesEv.exit.i.i.i.i.i, %if.end.sink.split.i.i
   ret void
 }
 
@@ -11088,12 +11066,7 @@ _ZNK7openvdb5v11_04tree10LeafBufferINS0_4math4Vec3IfEELj3EE10loadValuesEv.exit.i
 if.then.i.i.i.i.i:                                ; preds = %_ZNK7openvdb5v11_04tree10LeafBufferINS0_4math4Vec3IfEELj3EE10loadValuesEv.exit.i.i.i.i.i
   %idxprom.i.i.i.i.i = zext i32 %32 to i64
   %arrayidx.i.i.i.i.i = getelementptr inbounds %"class.openvdb::v11_0::math::Vec3.62", ptr %34, i64 %idxprom.i.i.i.i.i
-  store float %div.sink.i, ptr %arrayidx.i.i.i.i.i, align 4
-  %ref.tmp.sroa.5.0.arrayidx.i.i.i.i.i.sroa_idx = getelementptr inbounds i8, ptr %arrayidx.i.i.i.i.i, i64 4
-  store float %div38.sink.i, ptr %ref.tmp.sroa.5.0.arrayidx.i.i.i.i.i.sroa_idx, align 4
-  %ref.tmp.sroa.6.0.arrayidx.i.i.i.i.i.sroa_idx = getelementptr inbounds i8, ptr %arrayidx.i.i.i.i.i, i64 8
-  store float %div52.sink.i, ptr %ref.tmp.sroa.6.0.arrayidx.i.i.i.i.i.sroa_idx, align 4
-  br label %_ZNK7openvdb5v11_04tree21TreeValueIteratorBaseINS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeINS0_4math4Vec3IfEELj3EEELj4EEELj5EEEEEEENSD_9ValueIterISD_St17_Rb_tree_iteratorISt4pairIKNS7_5CoordENSD_10NodeStructEEENSD_12ValueAllPredES9_EEE8setValueERKS9_.exit
+  br label %if.end.sink.split.i.i
 
 if.then.i.i.i:                                    ; preds = %_ZNK7openvdb5v11_04math4Mat4IdE10transformHIdEENS1_4Vec3IT_EERKS7_.exit
   %mNext.i.i = getelementptr inbounds i8, ptr %it, i64 144
@@ -11102,12 +11075,7 @@ if.then.i.i.i:                                    ; preds = %_ZNK7openvdb5v11_04
   %call.i.i.i.i.i = tail call noundef nonnull align 8 dereferenceable(66576) ptr @_ZNK7openvdb5v11_04tree12IteratorBaseINS0_4util15OffMaskIteratorINS3_8NodeMaskILj4EEEEENS1_12InternalNodeINS1_8LeafNodeINS0_4math4Vec3IfEELj3EEELj4EEEE6parentEv(ptr noundef nonnull align 8 dereferenceable(24) %mNext.i.i)
   %idxprom.i.i.i4.i.i = zext i32 %35 to i64
   %arrayidx.i.i.i5.i.i = getelementptr inbounds [4096 x %"class.openvdb::v11_0::tree::NodeUnion"], ptr %call.i.i.i.i.i, i64 0, i64 %idxprom.i.i.i4.i.i
-  store float %div.sink.i, ptr %arrayidx.i.i.i5.i.i, align 8
-  %ref.tmp.sroa.5.0.arrayidx.i.i.i5.i.i.sroa_idx = getelementptr inbounds i8, ptr %arrayidx.i.i.i5.i.i, i64 4
-  store float %div38.sink.i, ptr %ref.tmp.sroa.5.0.arrayidx.i.i.i5.i.i.sroa_idx, align 4
-  %ref.tmp.sroa.6.0.arrayidx.i.i.i5.i.i.sroa_idx = getelementptr inbounds i8, ptr %arrayidx.i.i.i5.i.i, i64 8
-  store float %div52.sink.i, ptr %ref.tmp.sroa.6.0.arrayidx.i.i.i5.i.i.sroa_idx, align 8
-  br label %_ZNK7openvdb5v11_04tree21TreeValueIteratorBaseINS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeINS0_4math4Vec3IfEELj3EEELj4EEELj5EEEEEEENSD_9ValueIterISD_St17_Rb_tree_iteratorISt4pairIKNS7_5CoordENSD_10NodeStructEEENSD_12ValueAllPredES9_EEE8setValueERKS9_.exit
+  br label %if.end.sink.split.i.i
 
 if.then.i.i.i.i:                                  ; preds = %_ZNK7openvdb5v11_04math4Mat4IdE10transformHIdEENS1_4Vec3IT_EERKS7_.exit
   %mNext.i.i.i = getelementptr inbounds i8, ptr %it, i64 168
@@ -11116,25 +11084,24 @@ if.then.i.i.i.i:                                  ; preds = %_ZNK7openvdb5v11_04
   %call.i.i.i.i.i.i = tail call noundef nonnull align 8 dereferenceable(532496) ptr @_ZNK7openvdb5v11_04tree12IteratorBaseINS0_4util15OffMaskIteratorINS3_8NodeMaskILj5EEEEENS1_12InternalNodeINS8_INS1_8LeafNodeINS0_4math4Vec3IfEELj3EEELj4EEELj5EEEE6parentEv(ptr noundef nonnull align 8 dereferenceable(24) %mNext.i.i.i)
   %idxprom.i.i.i.i.i.i = zext i32 %36 to i64
   %arrayidx.i.i.i.i.i.i = getelementptr inbounds [32768 x %"class.openvdb::v11_0::tree::NodeUnion.71"], ptr %call.i.i.i.i.i.i, i64 0, i64 %idxprom.i.i.i.i.i.i
-  store float %div.sink.i, ptr %arrayidx.i.i.i.i.i.i, align 8
-  %ref.tmp.sroa.5.0.arrayidx.i.i.i.i.i.i.sroa_idx = getelementptr inbounds i8, ptr %arrayidx.i.i.i.i.i.i, i64 4
-  store float %div38.sink.i, ptr %ref.tmp.sroa.5.0.arrayidx.i.i.i.i.i.i.sroa_idx, align 4
-  %ref.tmp.sroa.6.0.arrayidx.i.i.i.i.i.i.sroa_idx = getelementptr inbounds i8, ptr %arrayidx.i.i.i.i.i.i, i64 8
-  store float %div52.sink.i, ptr %ref.tmp.sroa.6.0.arrayidx.i.i.i.i.i.i.sroa_idx, align 8
-  br label %_ZNK7openvdb5v11_04tree21TreeValueIteratorBaseINS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeINS0_4math4Vec3IfEELj3EEELj4EEELj5EEEEEEENSD_9ValueIterISD_St17_Rb_tree_iteratorISt4pairIKNS7_5CoordENSD_10NodeStructEEENSD_12ValueAllPredES9_EEE8setValueERKS9_.exit
+  br label %if.end.sink.split.i.i
 
 if.then.i.i.i3.i.i:                               ; preds = %_ZNK7openvdb5v11_04math4Mat4IdE10transformHIdEENS1_4Vec3IT_EERKS7_.exit
   %mIter.i.i.i.i.i.i = getelementptr inbounds i8, ptr %it, i64 200
   %37 = load ptr, ptr %mIter.i.i.i.i.i.i, align 8
   %tile.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %37, i64 56
-  store float %div.sink.i, ptr %tile.i.i.i.i.i.i.i, align 4
-  %ref.tmp.sroa.5.0.tile.i.i.i.i.i.i.i.sroa_idx = getelementptr inbounds i8, ptr %37, i64 60
-  store float %div38.sink.i, ptr %ref.tmp.sroa.5.0.tile.i.i.i.i.i.i.i.sroa_idx, align 4
-  %ref.tmp.sroa.6.0.tile.i.i.i.i.i.i.i.sroa_idx = getelementptr inbounds i8, ptr %37, i64 64
-  store float %div52.sink.i, ptr %ref.tmp.sroa.6.0.tile.i.i.i.i.i.i.i.sroa_idx, align 4
+  br label %if.end.sink.split.i.i
+
+if.end.sink.split.i.i:                            ; preds = %if.then.i.i.i3.i.i, %if.then.i.i.i.i, %if.then.i.i.i, %if.then.i.i.i.i.i
+  %tile.i.i.i.sink.i.sink.i.sink.i.i = phi ptr [ %arrayidx.i.i.i.i.i, %if.then.i.i.i.i.i ], [ %arrayidx.i.i.i5.i.i, %if.then.i.i.i ], [ %tile.i.i.i.i.i.i.i, %if.then.i.i.i3.i.i ], [ %arrayidx.i.i.i.i.i.i, %if.then.i.i.i.i ]
+  store float %div.sink.i, ptr %tile.i.i.i.sink.i.sink.i.sink.i.i, align 4
+  %ref.tmp.sroa.2.0.tile.i.i.i.sink.i.sink.i.sink.i.i.sroa_idx = getelementptr inbounds i8, ptr %tile.i.i.i.sink.i.sink.i.sink.i.i, i64 4
+  store float %div38.sink.i, ptr %ref.tmp.sroa.2.0.tile.i.i.i.sink.i.sink.i.sink.i.i.sroa_idx, align 4
+  %ref.tmp.sroa.3.0.tile.i.i.i.sink.i.sink.i.sink.i.i.sroa_idx = getelementptr inbounds i8, ptr %tile.i.i.i.sink.i.sink.i.sink.i.i, i64 8
+  store float %div52.sink.i, ptr %ref.tmp.sroa.3.0.tile.i.i.i.sink.i.sink.i.sink.i.i.sroa_idx, align 4
   br label %_ZNK7openvdb5v11_04tree21TreeValueIteratorBaseINS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeINS0_4math4Vec3IfEELj3EEELj4EEELj5EEEEEEENSD_9ValueIterISD_St17_Rb_tree_iteratorISt4pairIKNS7_5CoordENSD_10NodeStructEEENSD_12ValueAllPredES9_EEE8setValueERKS9_.exit
 
-_ZNK7openvdb5v11_04tree21TreeValueIteratorBaseINS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeINS0_4math4Vec3IfEELj3EEELj4EEELj5EEEEEEENSD_9ValueIterISD_St17_Rb_tree_iteratorISt4pairIKNS7_5CoordENSD_10NodeStructEEENSD_12ValueAllPredES9_EEE8setValueERKS9_.exit: ; preds = %_ZNK7openvdb5v11_04math4Mat4IdE10transformHIdEENS1_4Vec3IT_EERKS7_.exit, %_ZNK7openvdb5v11_04tree10LeafBufferINS0_4math4Vec3IfEELj3EE10loadValuesEv.exit.i.i.i.i.i, %if.then.i.i.i.i.i, %if.then.i.i.i, %if.then.i.i.i.i, %if.then.i.i.i3.i.i
+_ZNK7openvdb5v11_04tree21TreeValueIteratorBaseINS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeINS0_4math4Vec3IfEELj3EEELj4EEELj5EEEEEEENSD_9ValueIterISD_St17_Rb_tree_iteratorISt4pairIKNS7_5CoordENSD_10NodeStructEEENSD_12ValueAllPredES9_EEE8setValueERKS9_.exit: ; preds = %_ZNK7openvdb5v11_04math4Mat4IdE10transformHIdEENS1_4Vec3IT_EERKS7_.exit, %_ZNK7openvdb5v11_04tree10LeafBufferINS0_4math4Vec3IfEELj3EE10loadValuesEv.exit.i.i.i.i.i, %if.end.sink.split.i.i
   ret void
 }
 
@@ -22490,12 +22457,7 @@ _ZNK7openvdb5v11_04tree10LeafBufferINS0_4math4Vec3IiEELj3EE10loadValuesEv.exit.i
 if.then.i.i.i.i.i:                                ; preds = %_ZNK7openvdb5v11_04tree10LeafBufferINS0_4math4Vec3IiEELj3EE10loadValuesEv.exit.i.i.i.i.i
   %idxprom.i.i.i.i.i = zext i32 %23 to i64
   %arrayidx.i.i.i.i.i = getelementptr inbounds %"class.openvdb::v11_0::math::Vec3.304", ptr %25, i64 %idxprom.i.i.i.i.i
-  store i32 %conv.i4, ptr %arrayidx.i.i.i.i.i, align 4
-  %ref.tmp3.sroa.5.0.arrayidx.i.i.i.i.i.sroa_idx = getelementptr inbounds i8, ptr %arrayidx.i.i.i.i.i, i64 4
-  store i32 %conv3.i6, ptr %ref.tmp3.sroa.5.0.arrayidx.i.i.i.i.i.sroa_idx, align 4
-  %ref.tmp3.sroa.6.0.arrayidx.i.i.i.i.i.sroa_idx = getelementptr inbounds i8, ptr %arrayidx.i.i.i.i.i, i64 8
-  store i32 %conv7.i9, ptr %ref.tmp3.sroa.6.0.arrayidx.i.i.i.i.i.sroa_idx, align 4
-  br label %_ZNK7openvdb5v11_04tree21TreeValueIteratorBaseINS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeINS0_4math4Vec3IiEELj3EEELj4EEELj5EEEEEEENSD_9ValueIterISD_St17_Rb_tree_iteratorISt4pairIKNS7_5CoordENSD_10NodeStructEEENSD_12ValueAllPredES9_EEE8setValueERKS9_.exit
+  br label %if.end.sink.split.i.i
 
 if.then.i.i.i:                                    ; preds = %entry
   %mNext.i.i = getelementptr inbounds i8, ptr %it, i64 144
@@ -22504,12 +22466,7 @@ if.then.i.i.i:                                    ; preds = %entry
   %call.i.i.i.i.i = tail call noundef nonnull align 8 dereferenceable(66576) ptr @_ZNK7openvdb5v11_04tree12IteratorBaseINS0_4util15OffMaskIteratorINS3_8NodeMaskILj4EEEEENS1_12InternalNodeINS1_8LeafNodeINS0_4math4Vec3IiEELj3EEELj4EEEE6parentEv(ptr noundef nonnull align 8 dereferenceable(24) %mNext.i.i)
   %idxprom.i.i.i4.i.i = zext i32 %26 to i64
   %arrayidx.i.i.i5.i.i = getelementptr inbounds [4096 x %"class.openvdb::v11_0::tree::NodeUnion.316"], ptr %call.i.i.i.i.i, i64 0, i64 %idxprom.i.i.i4.i.i
-  store i32 %conv.i4, ptr %arrayidx.i.i.i5.i.i, align 8
-  %ref.tmp3.sroa.5.0.arrayidx.i.i.i5.i.i.sroa_idx = getelementptr inbounds i8, ptr %arrayidx.i.i.i5.i.i, i64 4
-  store i32 %conv3.i6, ptr %ref.tmp3.sroa.5.0.arrayidx.i.i.i5.i.i.sroa_idx, align 4
-  %ref.tmp3.sroa.6.0.arrayidx.i.i.i5.i.i.sroa_idx = getelementptr inbounds i8, ptr %arrayidx.i.i.i5.i.i, i64 8
-  store i32 %conv7.i9, ptr %ref.tmp3.sroa.6.0.arrayidx.i.i.i5.i.i.sroa_idx, align 8
-  br label %_ZNK7openvdb5v11_04tree21TreeValueIteratorBaseINS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeINS0_4math4Vec3IiEELj3EEELj4EEELj5EEEEEEENSD_9ValueIterISD_St17_Rb_tree_iteratorISt4pairIKNS7_5CoordENSD_10NodeStructEEENSD_12ValueAllPredES9_EEE8setValueERKS9_.exit
+  br label %if.end.sink.split.i.i
 
 if.then.i.i.i.i:                                  ; preds = %entry
   %mNext.i.i.i = getelementptr inbounds i8, ptr %it, i64 168
@@ -22518,25 +22475,24 @@ if.then.i.i.i.i:                                  ; preds = %entry
   %call.i.i.i.i.i.i = tail call noundef nonnull align 8 dereferenceable(532496) ptr @_ZNK7openvdb5v11_04tree12IteratorBaseINS0_4util15OffMaskIteratorINS3_8NodeMaskILj5EEEEENS1_12InternalNodeINS8_INS1_8LeafNodeINS0_4math4Vec3IiEELj3EEELj4EEELj5EEEE6parentEv(ptr noundef nonnull align 8 dereferenceable(24) %mNext.i.i.i)
   %idxprom.i.i.i.i.i.i = zext i32 %27 to i64
   %arrayidx.i.i.i.i.i.i = getelementptr inbounds [32768 x %"class.openvdb::v11_0::tree::NodeUnion.320"], ptr %call.i.i.i.i.i.i, i64 0, i64 %idxprom.i.i.i.i.i.i
-  store i32 %conv.i4, ptr %arrayidx.i.i.i.i.i.i, align 8
-  %ref.tmp3.sroa.5.0.arrayidx.i.i.i.i.i.i.sroa_idx = getelementptr inbounds i8, ptr %arrayidx.i.i.i.i.i.i, i64 4
-  store i32 %conv3.i6, ptr %ref.tmp3.sroa.5.0.arrayidx.i.i.i.i.i.i.sroa_idx, align 4
-  %ref.tmp3.sroa.6.0.arrayidx.i.i.i.i.i.i.sroa_idx = getelementptr inbounds i8, ptr %arrayidx.i.i.i.i.i.i, i64 8
-  store i32 %conv7.i9, ptr %ref.tmp3.sroa.6.0.arrayidx.i.i.i.i.i.i.sroa_idx, align 8
-  br label %_ZNK7openvdb5v11_04tree21TreeValueIteratorBaseINS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeINS0_4math4Vec3IiEELj3EEELj4EEELj5EEEEEEENSD_9ValueIterISD_St17_Rb_tree_iteratorISt4pairIKNS7_5CoordENSD_10NodeStructEEENSD_12ValueAllPredES9_EEE8setValueERKS9_.exit
+  br label %if.end.sink.split.i.i
 
 if.then.i.i.i3.i.i:                               ; preds = %entry
   %mIter.i.i.i.i.i.i = getelementptr inbounds i8, ptr %it, i64 200
   %28 = load ptr, ptr %mIter.i.i.i.i.i.i, align 8
   %tile.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %28, i64 56
-  store i32 %conv.i4, ptr %tile.i.i.i.i.i.i.i, align 4
-  %ref.tmp3.sroa.5.0.tile.i.i.i.i.i.i.i.sroa_idx = getelementptr inbounds i8, ptr %28, i64 60
-  store i32 %conv3.i6, ptr %ref.tmp3.sroa.5.0.tile.i.i.i.i.i.i.i.sroa_idx, align 4
-  %ref.tmp3.sroa.6.0.tile.i.i.i.i.i.i.i.sroa_idx = getelementptr inbounds i8, ptr %28, i64 64
-  store i32 %conv7.i9, ptr %ref.tmp3.sroa.6.0.tile.i.i.i.i.i.i.i.sroa_idx, align 4
+  br label %if.end.sink.split.i.i
+
+if.end.sink.split.i.i:                            ; preds = %if.then.i.i.i3.i.i, %if.then.i.i.i.i, %if.then.i.i.i, %if.then.i.i.i.i.i
+  %tile.i.i.i.sink.i.sink.i.sink.i.i = phi ptr [ %arrayidx.i.i.i.i.i, %if.then.i.i.i.i.i ], [ %arrayidx.i.i.i5.i.i, %if.then.i.i.i ], [ %tile.i.i.i.i.i.i.i, %if.then.i.i.i3.i.i ], [ %arrayidx.i.i.i.i.i.i, %if.then.i.i.i.i ]
+  store i32 %conv.i4, ptr %tile.i.i.i.sink.i.sink.i.sink.i.i, align 4
+  %ref.tmp3.sroa.2.0.tile.i.i.i.sink.i.sink.i.sink.i.i.sroa_idx = getelementptr inbounds i8, ptr %tile.i.i.i.sink.i.sink.i.sink.i.i, i64 4
+  store i32 %conv3.i6, ptr %ref.tmp3.sroa.2.0.tile.i.i.i.sink.i.sink.i.sink.i.i.sroa_idx, align 4
+  %ref.tmp3.sroa.3.0.tile.i.i.i.sink.i.sink.i.sink.i.i.sroa_idx = getelementptr inbounds i8, ptr %tile.i.i.i.sink.i.sink.i.sink.i.i, i64 8
+  store i32 %conv7.i9, ptr %ref.tmp3.sroa.3.0.tile.i.i.i.sink.i.sink.i.sink.i.i.sroa_idx, align 4
   br label %_ZNK7openvdb5v11_04tree21TreeValueIteratorBaseINS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeINS0_4math4Vec3IiEELj3EEELj4EEELj5EEEEEEENSD_9ValueIterISD_St17_Rb_tree_iteratorISt4pairIKNS7_5CoordENSD_10NodeStructEEENSD_12ValueAllPredES9_EEE8setValueERKS9_.exit
 
-_ZNK7openvdb5v11_04tree21TreeValueIteratorBaseINS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeINS0_4math4Vec3IiEELj3EEELj4EEELj5EEEEEEENSD_9ValueIterISD_St17_Rb_tree_iteratorISt4pairIKNS7_5CoordENSD_10NodeStructEEENSD_12ValueAllPredES9_EEE8setValueERKS9_.exit: ; preds = %entry, %_ZNK7openvdb5v11_04tree10LeafBufferINS0_4math4Vec3IiEELj3EE10loadValuesEv.exit.i.i.i.i.i, %if.then.i.i.i.i.i, %if.then.i.i.i, %if.then.i.i.i.i, %if.then.i.i.i3.i.i
+_ZNK7openvdb5v11_04tree21TreeValueIteratorBaseINS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeINS0_4math4Vec3IiEELj3EEELj4EEELj5EEEEEEENSD_9ValueIterISD_St17_Rb_tree_iteratorISt4pairIKNS7_5CoordENSD_10NodeStructEEENSD_12ValueAllPredES9_EEE8setValueERKS9_.exit: ; preds = %entry, %_ZNK7openvdb5v11_04tree10LeafBufferINS0_4math4Vec3IiEELj3EE10loadValuesEv.exit.i.i.i.i.i, %if.end.sink.split.i.i
   ret void
 }
 
@@ -25227,12 +25183,7 @@ _ZNK7openvdb5v11_04tree10LeafBufferINS0_4math4Vec3IiEELj3EE10loadValuesEv.exit.i
 if.then.i.i.i.i.i:                                ; preds = %_ZNK7openvdb5v11_04tree10LeafBufferINS0_4math4Vec3IiEELj3EE10loadValuesEv.exit.i.i.i.i.i
   %idxprom.i.i.i.i.i = zext i32 %20 to i64
   %arrayidx.i.i.i.i.i = getelementptr inbounds %"class.openvdb::v11_0::math::Vec3.304", ptr %22, i64 %idxprom.i.i.i.i.i
-  store i32 %conv.i3, ptr %arrayidx.i.i.i.i.i, align 4
-  %ref.tmp.sroa.5.0.arrayidx.i.i.i.i.i.sroa_idx = getelementptr inbounds i8, ptr %arrayidx.i.i.i.i.i, i64 4
-  store i32 %conv3.i5, ptr %ref.tmp.sroa.5.0.arrayidx.i.i.i.i.i.sroa_idx, align 4
-  %ref.tmp.sroa.6.0.arrayidx.i.i.i.i.i.sroa_idx = getelementptr inbounds i8, ptr %arrayidx.i.i.i.i.i, i64 8
-  store i32 %conv7.i8, ptr %ref.tmp.sroa.6.0.arrayidx.i.i.i.i.i.sroa_idx, align 4
-  br label %_ZNK7openvdb5v11_04tree21TreeValueIteratorBaseINS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeINS0_4math4Vec3IiEELj3EEELj4EEELj5EEEEEEENSD_9ValueIterISD_St17_Rb_tree_iteratorISt4pairIKNS7_5CoordENSD_10NodeStructEEENSD_12ValueAllPredES9_EEE8setValueERKS9_.exit
+  br label %if.end.sink.split.i.i
 
 if.then.i.i.i:                                    ; preds = %entry
   %mNext.i.i = getelementptr inbounds i8, ptr %it, i64 144
@@ -25241,12 +25192,7 @@ if.then.i.i.i:                                    ; preds = %entry
   %call.i.i.i.i.i = tail call noundef nonnull align 8 dereferenceable(66576) ptr @_ZNK7openvdb5v11_04tree12IteratorBaseINS0_4util15OffMaskIteratorINS3_8NodeMaskILj4EEEEENS1_12InternalNodeINS1_8LeafNodeINS0_4math4Vec3IiEELj3EEELj4EEEE6parentEv(ptr noundef nonnull align 8 dereferenceable(24) %mNext.i.i)
   %idxprom.i.i.i4.i.i = zext i32 %23 to i64
   %arrayidx.i.i.i5.i.i = getelementptr inbounds [4096 x %"class.openvdb::v11_0::tree::NodeUnion.316"], ptr %call.i.i.i.i.i, i64 0, i64 %idxprom.i.i.i4.i.i
-  store i32 %conv.i3, ptr %arrayidx.i.i.i5.i.i, align 8
-  %ref.tmp.sroa.5.0.arrayidx.i.i.i5.i.i.sroa_idx = getelementptr inbounds i8, ptr %arrayidx.i.i.i5.i.i, i64 4
-  store i32 %conv3.i5, ptr %ref.tmp.sroa.5.0.arrayidx.i.i.i5.i.i.sroa_idx, align 4
-  %ref.tmp.sroa.6.0.arrayidx.i.i.i5.i.i.sroa_idx = getelementptr inbounds i8, ptr %arrayidx.i.i.i5.i.i, i64 8
-  store i32 %conv7.i8, ptr %ref.tmp.sroa.6.0.arrayidx.i.i.i5.i.i.sroa_idx, align 8
-  br label %_ZNK7openvdb5v11_04tree21TreeValueIteratorBaseINS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeINS0_4math4Vec3IiEELj3EEELj4EEELj5EEEEEEENSD_9ValueIterISD_St17_Rb_tree_iteratorISt4pairIKNS7_5CoordENSD_10NodeStructEEENSD_12ValueAllPredES9_EEE8setValueERKS9_.exit
+  br label %if.end.sink.split.i.i
 
 if.then.i.i.i.i:                                  ; preds = %entry
   %mNext.i.i.i = getelementptr inbounds i8, ptr %it, i64 168
@@ -25255,25 +25201,24 @@ if.then.i.i.i.i:                                  ; preds = %entry
   %call.i.i.i.i.i.i = tail call noundef nonnull align 8 dereferenceable(532496) ptr @_ZNK7openvdb5v11_04tree12IteratorBaseINS0_4util15OffMaskIteratorINS3_8NodeMaskILj5EEEEENS1_12InternalNodeINS8_INS1_8LeafNodeINS0_4math4Vec3IiEELj3EEELj4EEELj5EEEE6parentEv(ptr noundef nonnull align 8 dereferenceable(24) %mNext.i.i.i)
   %idxprom.i.i.i.i.i.i = zext i32 %24 to i64
   %arrayidx.i.i.i.i.i.i = getelementptr inbounds [32768 x %"class.openvdb::v11_0::tree::NodeUnion.320"], ptr %call.i.i.i.i.i.i, i64 0, i64 %idxprom.i.i.i.i.i.i
-  store i32 %conv.i3, ptr %arrayidx.i.i.i.i.i.i, align 8
-  %ref.tmp.sroa.5.0.arrayidx.i.i.i.i.i.i.sroa_idx = getelementptr inbounds i8, ptr %arrayidx.i.i.i.i.i.i, i64 4
-  store i32 %conv3.i5, ptr %ref.tmp.sroa.5.0.arrayidx.i.i.i.i.i.i.sroa_idx, align 4
-  %ref.tmp.sroa.6.0.arrayidx.i.i.i.i.i.i.sroa_idx = getelementptr inbounds i8, ptr %arrayidx.i.i.i.i.i.i, i64 8
-  store i32 %conv7.i8, ptr %ref.tmp.sroa.6.0.arrayidx.i.i.i.i.i.i.sroa_idx, align 8
-  br label %_ZNK7openvdb5v11_04tree21TreeValueIteratorBaseINS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeINS0_4math4Vec3IiEELj3EEELj4EEELj5EEEEEEENSD_9ValueIterISD_St17_Rb_tree_iteratorISt4pairIKNS7_5CoordENSD_10NodeStructEEENSD_12ValueAllPredES9_EEE8setValueERKS9_.exit
+  br label %if.end.sink.split.i.i
 
 if.then.i.i.i3.i.i:                               ; preds = %entry
   %mIter.i.i.i.i.i.i = getelementptr inbounds i8, ptr %it, i64 200
   %25 = load ptr, ptr %mIter.i.i.i.i.i.i, align 8
   %tile.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %25, i64 56
-  store i32 %conv.i3, ptr %tile.i.i.i.i.i.i.i, align 4
-  %ref.tmp.sroa.5.0.tile.i.i.i.i.i.i.i.sroa_idx = getelementptr inbounds i8, ptr %25, i64 60
-  store i32 %conv3.i5, ptr %ref.tmp.sroa.5.0.tile.i.i.i.i.i.i.i.sroa_idx, align 4
-  %ref.tmp.sroa.6.0.tile.i.i.i.i.i.i.i.sroa_idx = getelementptr inbounds i8, ptr %25, i64 64
-  store i32 %conv7.i8, ptr %ref.tmp.sroa.6.0.tile.i.i.i.i.i.i.i.sroa_idx, align 4
+  br label %if.end.sink.split.i.i
+
+if.end.sink.split.i.i:                            ; preds = %if.then.i.i.i3.i.i, %if.then.i.i.i.i, %if.then.i.i.i, %if.then.i.i.i.i.i
+  %tile.i.i.i.sink.i.sink.i.sink.i.i = phi ptr [ %arrayidx.i.i.i.i.i, %if.then.i.i.i.i.i ], [ %arrayidx.i.i.i5.i.i, %if.then.i.i.i ], [ %tile.i.i.i.i.i.i.i, %if.then.i.i.i3.i.i ], [ %arrayidx.i.i.i.i.i.i, %if.then.i.i.i.i ]
+  store i32 %conv.i3, ptr %tile.i.i.i.sink.i.sink.i.sink.i.i, align 4
+  %ref.tmp.sroa.2.0.tile.i.i.i.sink.i.sink.i.sink.i.i.sroa_idx = getelementptr inbounds i8, ptr %tile.i.i.i.sink.i.sink.i.sink.i.i, i64 4
+  store i32 %conv3.i5, ptr %ref.tmp.sroa.2.0.tile.i.i.i.sink.i.sink.i.sink.i.i.sroa_idx, align 4
+  %ref.tmp.sroa.3.0.tile.i.i.i.sink.i.sink.i.sink.i.i.sroa_idx = getelementptr inbounds i8, ptr %tile.i.i.i.sink.i.sink.i.sink.i.i, i64 8
+  store i32 %conv7.i8, ptr %ref.tmp.sroa.3.0.tile.i.i.i.sink.i.sink.i.sink.i.i.sroa_idx, align 4
   br label %_ZNK7openvdb5v11_04tree21TreeValueIteratorBaseINS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeINS0_4math4Vec3IiEELj3EEELj4EEELj5EEEEEEENSD_9ValueIterISD_St17_Rb_tree_iteratorISt4pairIKNS7_5CoordENSD_10NodeStructEEENSD_12ValueAllPredES9_EEE8setValueERKS9_.exit
 
-_ZNK7openvdb5v11_04tree21TreeValueIteratorBaseINS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeINS0_4math4Vec3IiEELj3EEELj4EEELj5EEEEEEENSD_9ValueIterISD_St17_Rb_tree_iteratorISt4pairIKNS7_5CoordENSD_10NodeStructEEENSD_12ValueAllPredES9_EEE8setValueERKS9_.exit: ; preds = %entry, %_ZNK7openvdb5v11_04tree10LeafBufferINS0_4math4Vec3IiEELj3EE10loadValuesEv.exit.i.i.i.i.i, %if.then.i.i.i.i.i, %if.then.i.i.i, %if.then.i.i.i.i, %if.then.i.i.i3.i.i
+_ZNK7openvdb5v11_04tree21TreeValueIteratorBaseINS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeINS0_4math4Vec3IiEELj3EEELj4EEELj5EEEEEEENSD_9ValueIterISD_St17_Rb_tree_iteratorISt4pairIKNS7_5CoordENSD_10NodeStructEEENSD_12ValueAllPredES9_EEE8setValueERKS9_.exit: ; preds = %entry, %_ZNK7openvdb5v11_04tree10LeafBufferINS0_4math4Vec3IiEELj3EE10loadValuesEv.exit.i.i.i.i.i, %if.end.sink.split.i.i
   ret void
 }
 
@@ -26585,12 +26530,7 @@ _ZNK7openvdb5v11_04tree10LeafBufferINS0_4math4Vec3IiEELj3EE10loadValuesEv.exit.i
 if.then.i.i.i.i.i:                                ; preds = %_ZNK7openvdb5v11_04tree10LeafBufferINS0_4math4Vec3IiEELj3EE10loadValuesEv.exit.i.i.i.i.i
   %idxprom.i.i.i.i.i = zext i32 %32 to i64
   %arrayidx.i.i.i.i.i = getelementptr inbounds %"class.openvdb::v11_0::math::Vec3.304", ptr %34, i64 %idxprom.i.i.i.i.i
-  store i32 %div.sink.i, ptr %arrayidx.i.i.i.i.i, align 4
-  %ref.tmp.sroa.5.0.arrayidx.i.i.i.i.i.sroa_idx = getelementptr inbounds i8, ptr %arrayidx.i.i.i.i.i, i64 4
-  store i32 %div38.sink.i, ptr %ref.tmp.sroa.5.0.arrayidx.i.i.i.i.i.sroa_idx, align 4
-  %ref.tmp.sroa.6.0.arrayidx.i.i.i.i.i.sroa_idx = getelementptr inbounds i8, ptr %arrayidx.i.i.i.i.i, i64 8
-  store i32 %div52.sink.i, ptr %ref.tmp.sroa.6.0.arrayidx.i.i.i.i.i.sroa_idx, align 4
-  br label %_ZNK7openvdb5v11_04tree21TreeValueIteratorBaseINS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeINS0_4math4Vec3IiEELj3EEELj4EEELj5EEEEEEENSD_9ValueIterISD_St17_Rb_tree_iteratorISt4pairIKNS7_5CoordENSD_10NodeStructEEENSD_12ValueAllPredES9_EEE8setValueERKS9_.exit
+  br label %if.end.sink.split.i.i
 
 if.then.i.i.i:                                    ; preds = %_ZNK7openvdb5v11_04math4Mat4IdE10transformHIdEENS1_4Vec3IT_EERKS7_.exit
   %mNext.i.i = getelementptr inbounds i8, ptr %it, i64 144
@@ -26599,12 +26539,7 @@ if.then.i.i.i:                                    ; preds = %_ZNK7openvdb5v11_04
   %call.i.i.i.i.i = tail call noundef nonnull align 8 dereferenceable(66576) ptr @_ZNK7openvdb5v11_04tree12IteratorBaseINS0_4util15OffMaskIteratorINS3_8NodeMaskILj4EEEEENS1_12InternalNodeINS1_8LeafNodeINS0_4math4Vec3IiEELj3EEELj4EEEE6parentEv(ptr noundef nonnull align 8 dereferenceable(24) %mNext.i.i)
   %idxprom.i.i.i4.i.i = zext i32 %35 to i64
   %arrayidx.i.i.i5.i.i = getelementptr inbounds [4096 x %"class.openvdb::v11_0::tree::NodeUnion.316"], ptr %call.i.i.i.i.i, i64 0, i64 %idxprom.i.i.i4.i.i
-  store i32 %div.sink.i, ptr %arrayidx.i.i.i5.i.i, align 8
-  %ref.tmp.sroa.5.0.arrayidx.i.i.i5.i.i.sroa_idx = getelementptr inbounds i8, ptr %arrayidx.i.i.i5.i.i, i64 4
-  store i32 %div38.sink.i, ptr %ref.tmp.sroa.5.0.arrayidx.i.i.i5.i.i.sroa_idx, align 4
-  %ref.tmp.sroa.6.0.arrayidx.i.i.i5.i.i.sroa_idx = getelementptr inbounds i8, ptr %arrayidx.i.i.i5.i.i, i64 8
-  store i32 %div52.sink.i, ptr %ref.tmp.sroa.6.0.arrayidx.i.i.i5.i.i.sroa_idx, align 8
-  br label %_ZNK7openvdb5v11_04tree21TreeValueIteratorBaseINS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeINS0_4math4Vec3IiEELj3EEELj4EEELj5EEEEEEENSD_9ValueIterISD_St17_Rb_tree_iteratorISt4pairIKNS7_5CoordENSD_10NodeStructEEENSD_12ValueAllPredES9_EEE8setValueERKS9_.exit
+  br label %if.end.sink.split.i.i
 
 if.then.i.i.i.i:                                  ; preds = %_ZNK7openvdb5v11_04math4Mat4IdE10transformHIdEENS1_4Vec3IT_EERKS7_.exit
   %mNext.i.i.i = getelementptr inbounds i8, ptr %it, i64 168
@@ -26613,25 +26548,24 @@ if.then.i.i.i.i:                                  ; preds = %_ZNK7openvdb5v11_04
   %call.i.i.i.i.i.i = tail call noundef nonnull align 8 dereferenceable(532496) ptr @_ZNK7openvdb5v11_04tree12IteratorBaseINS0_4util15OffMaskIteratorINS3_8NodeMaskILj5EEEEENS1_12InternalNodeINS8_INS1_8LeafNodeINS0_4math4Vec3IiEELj3EEELj4EEELj5EEEE6parentEv(ptr noundef nonnull align 8 dereferenceable(24) %mNext.i.i.i)
   %idxprom.i.i.i.i.i.i = zext i32 %36 to i64
   %arrayidx.i.i.i.i.i.i = getelementptr inbounds [32768 x %"class.openvdb::v11_0::tree::NodeUnion.320"], ptr %call.i.i.i.i.i.i, i64 0, i64 %idxprom.i.i.i.i.i.i
-  store i32 %div.sink.i, ptr %arrayidx.i.i.i.i.i.i, align 8
-  %ref.tmp.sroa.5.0.arrayidx.i.i.i.i.i.i.sroa_idx = getelementptr inbounds i8, ptr %arrayidx.i.i.i.i.i.i, i64 4
-  store i32 %div38.sink.i, ptr %ref.tmp.sroa.5.0.arrayidx.i.i.i.i.i.i.sroa_idx, align 4
-  %ref.tmp.sroa.6.0.arrayidx.i.i.i.i.i.i.sroa_idx = getelementptr inbounds i8, ptr %arrayidx.i.i.i.i.i.i, i64 8
-  store i32 %div52.sink.i, ptr %ref.tmp.sroa.6.0.arrayidx.i.i.i.i.i.i.sroa_idx, align 8
-  br label %_ZNK7openvdb5v11_04tree21TreeValueIteratorBaseINS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeINS0_4math4Vec3IiEELj3EEELj4EEELj5EEEEEEENSD_9ValueIterISD_St17_Rb_tree_iteratorISt4pairIKNS7_5CoordENSD_10NodeStructEEENSD_12ValueAllPredES9_EEE8setValueERKS9_.exit
+  br label %if.end.sink.split.i.i
 
 if.then.i.i.i3.i.i:                               ; preds = %_ZNK7openvdb5v11_04math4Mat4IdE10transformHIdEENS1_4Vec3IT_EERKS7_.exit
   %mIter.i.i.i.i.i.i = getelementptr inbounds i8, ptr %it, i64 200
   %37 = load ptr, ptr %mIter.i.i.i.i.i.i, align 8
   %tile.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %37, i64 56
-  store i32 %div.sink.i, ptr %tile.i.i.i.i.i.i.i, align 4
-  %ref.tmp.sroa.5.0.tile.i.i.i.i.i.i.i.sroa_idx = getelementptr inbounds i8, ptr %37, i64 60
-  store i32 %div38.sink.i, ptr %ref.tmp.sroa.5.0.tile.i.i.i.i.i.i.i.sroa_idx, align 4
-  %ref.tmp.sroa.6.0.tile.i.i.i.i.i.i.i.sroa_idx = getelementptr inbounds i8, ptr %37, i64 64
-  store i32 %div52.sink.i, ptr %ref.tmp.sroa.6.0.tile.i.i.i.i.i.i.i.sroa_idx, align 4
+  br label %if.end.sink.split.i.i
+
+if.end.sink.split.i.i:                            ; preds = %if.then.i.i.i3.i.i, %if.then.i.i.i.i, %if.then.i.i.i, %if.then.i.i.i.i.i
+  %tile.i.i.i.sink.i.sink.i.sink.i.i = phi ptr [ %arrayidx.i.i.i.i.i, %if.then.i.i.i.i.i ], [ %arrayidx.i.i.i5.i.i, %if.then.i.i.i ], [ %tile.i.i.i.i.i.i.i, %if.then.i.i.i3.i.i ], [ %arrayidx.i.i.i.i.i.i, %if.then.i.i.i.i ]
+  store i32 %div.sink.i, ptr %tile.i.i.i.sink.i.sink.i.sink.i.i, align 4
+  %ref.tmp.sroa.2.0.tile.i.i.i.sink.i.sink.i.sink.i.i.sroa_idx = getelementptr inbounds i8, ptr %tile.i.i.i.sink.i.sink.i.sink.i.i, i64 4
+  store i32 %div38.sink.i, ptr %ref.tmp.sroa.2.0.tile.i.i.i.sink.i.sink.i.sink.i.i.sroa_idx, align 4
+  %ref.tmp.sroa.3.0.tile.i.i.i.sink.i.sink.i.sink.i.i.sroa_idx = getelementptr inbounds i8, ptr %tile.i.i.i.sink.i.sink.i.sink.i.i, i64 8
+  store i32 %div52.sink.i, ptr %ref.tmp.sroa.3.0.tile.i.i.i.sink.i.sink.i.sink.i.i.sroa_idx, align 4
   br label %_ZNK7openvdb5v11_04tree21TreeValueIteratorBaseINS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeINS0_4math4Vec3IiEELj3EEELj4EEELj5EEEEEEENSD_9ValueIterISD_St17_Rb_tree_iteratorISt4pairIKNS7_5CoordENSD_10NodeStructEEENSD_12ValueAllPredES9_EEE8setValueERKS9_.exit
 
-_ZNK7openvdb5v11_04tree21TreeValueIteratorBaseINS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeINS0_4math4Vec3IiEELj3EEELj4EEELj5EEEEEEENSD_9ValueIterISD_St17_Rb_tree_iteratorISt4pairIKNS7_5CoordENSD_10NodeStructEEENSD_12ValueAllPredES9_EEE8setValueERKS9_.exit: ; preds = %_ZNK7openvdb5v11_04math4Mat4IdE10transformHIdEENS1_4Vec3IT_EERKS7_.exit, %_ZNK7openvdb5v11_04tree10LeafBufferINS0_4math4Vec3IiEELj3EE10loadValuesEv.exit.i.i.i.i.i, %if.then.i.i.i.i.i, %if.then.i.i.i, %if.then.i.i.i.i, %if.then.i.i.i3.i.i
+_ZNK7openvdb5v11_04tree21TreeValueIteratorBaseINS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeINS0_4math4Vec3IiEELj3EEELj4EEELj5EEEEEEENSD_9ValueIterISD_St17_Rb_tree_iteratorISt4pairIKNS7_5CoordENSD_10NodeStructEEENSD_12ValueAllPredES9_EEE8setValueERKS9_.exit: ; preds = %_ZNK7openvdb5v11_04math4Mat4IdE10transformHIdEENS1_4Vec3IT_EERKS7_.exit, %_ZNK7openvdb5v11_04tree10LeafBufferINS0_4math4Vec3IiEELj3EE10loadValuesEv.exit.i.i.i.i.i, %if.end.sink.split.i.i
   ret void
 }
 

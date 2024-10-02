@@ -4414,7 +4414,11 @@ sub_152:                                          ; preds = %.tail
   %28 = icmp eq i8 %27, 0
   br i1 %28, label %.backedge, label %.tail50.thread
 
-.backedge:                                        ; preds = %.loopexit54.thread, %45, %46, %.tail, %.tail50, %44, %.loopexit54
+.backedge.sink.split:                             ; preds = %.lr.ph62, %40, %45, %44
+  tail call void @free(ptr noundef %30) #13
+  br label %.backedge
+
+.backedge:                                        ; preds = %.backedge.sink.split, %.tail, %.tail50, %.loopexit54
   %29 = tail call ptr @readdir(ptr noundef nonnull %14) #13
   %.not44 = icmp eq ptr %29, null
   br i1 %.not44, label %._crit_edge64, label %sub_0, !llvm.loop !27
@@ -4437,11 +4441,7 @@ sub_152:                                          ; preds = %.tail
   %34 = load ptr, ptr %33, align 8
   %35 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %34, ptr noundef nonnull dereferenceable(1) %30) #18
   %36 = icmp eq i32 %35, 0
-  br i1 %36, label %.loopexit54.thread, label %31
-
-.loopexit54.thread:                               ; preds = %.lr.ph62
-  tail call void @free(ptr noundef %30) #13
-  br label %.backedge
+  br i1 %36, label %.backedge.sink.split, label %31
 
 .loopexit54:                                      ; preds = %31, %.tail50.thread
   %37 = icmp eq ptr %30, null
@@ -4450,88 +4450,82 @@ sub_152:                                          ; preds = %.tail
 38:                                               ; preds = %.loopexit54
   %39 = tail call ptr @opendir(ptr noundef nonnull %30)
   %.not46 = icmp eq ptr %39, null
-  br i1 %.not46, label %46, label %40
+  br i1 %.not46, label %45, label %40
 
 40:                                               ; preds = %38
   %41 = tail call i32 @closedir(ptr noundef nonnull %39)
   %42 = load i8, ptr %17, align 8
   %43 = trunc i8 %42 to i1
-  br i1 %43, label %45, label %44
+  br i1 %43, label %44, label %.backedge.sink.split
 
 44:                                               ; preds = %40
-  tail call void @free(ptr noundef nonnull %30) #13
-  br label %.backedge
-
-45:                                               ; preds = %40
   tail call fastcc void @dirpath_destroy(ptr noundef nonnull %30, ptr noundef nonnull %1, ptr noundef %2)
-  tail call void @free(ptr noundef nonnull %30) #13
-  br label %.backedge
+  br label %.backedge.sink.split
 
-46:                                               ; preds = %38
-  %47 = tail call i32 @unlink(ptr noundef nonnull %30) #13
-  tail call void @free(ptr noundef nonnull %30) #13
-  br label %.backedge
+45:                                               ; preds = %38
+  %46 = tail call i32 @unlink(ptr noundef nonnull %30) #13
+  br label %.backedge.sink.split
 
 ._crit_edge64:                                    ; preds = %.backedge, %.preheader
-  %48 = tail call i32 @closedir(ptr noundef nonnull %14)
-  %49 = getelementptr inbounds i8, ptr %1, i64 144
-  %50 = load ptr, ptr %49, align 8
-  %51 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(1) %50) #18
-  %52 = icmp eq i32 %51, 0
-  br i1 %52, label %53, label %57
+  %47 = tail call i32 @closedir(ptr noundef nonnull %14)
+  %48 = getelementptr inbounds i8, ptr %1, i64 144
+  %49 = load ptr, ptr %48, align 8
+  %50 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(1) %49) #18
+  %51 = icmp eq i32 %50, 0
+  br i1 %51, label %52, label %56
 
-53:                                               ; preds = %._crit_edge64
-  %54 = getelementptr inbounds i8, ptr %1, i64 153
-  %55 = load i8, ptr %54, align 1
-  %56 = trunc i8 %55 to i1
-  br i1 %56, label %dirpath_is_empty.exit.thread, label %57
+52:                                               ; preds = %._crit_edge64
+  %53 = getelementptr inbounds i8, ptr %1, i64 153
+  %54 = load i8, ptr %53, align 1
+  %55 = trunc i8 %54 to i1
+  br i1 %55, label %dirpath_is_empty.exit.thread, label %56
 
-57:                                               ; preds = %53, %._crit_edge64
-  %58 = tail call ptr @opendir(ptr noundef nonnull readonly %0)
-  %.not.i = icmp eq ptr %58, null
+56:                                               ; preds = %52, %._crit_edge64
+  %57 = tail call ptr @opendir(ptr noundef nonnull readonly %0)
+  %.not.i = icmp eq ptr %57, null
   br i1 %.not.i, label %dirpath_is_empty.exit.thread, label %.preheader.i
 
-.preheader.i:                                     ; preds = %57
-  %59 = tail call ptr @readdir(ptr noundef nonnull %58) #13
-  %.not1118.i = icmp eq ptr %59, null
+.preheader.i:                                     ; preds = %56
+  %58 = tail call ptr @readdir(ptr noundef nonnull %57) #13
+  %.not1118.i = icmp eq ptr %58, null
   br i1 %.not1118.i, label %.loopexit, label %sub_0.i
 
-sub_0.i:                                          ; preds = %.preheader.i, %68
-  %60 = phi ptr [ %69, %68 ], [ %59, %.preheader.i ]
-  %61 = getelementptr inbounds i8, ptr %60, i64 19
-  %62 = load i8, ptr %61, align 1
-  %.not19.i = icmp eq i8 %62, 46
+sub_0.i:                                          ; preds = %.preheader.i, %67
+  %59 = phi ptr [ %68, %67 ], [ %58, %.preheader.i ]
+  %60 = getelementptr inbounds i8, ptr %59, i64 19
+  %61 = load i8, ptr %60, align 1
+  %.not19.i = icmp eq i8 %61, 46
   br i1 %.not19.i, label %.tail.i, label %dirpath_is_empty.exit.thread48
 
 .tail.i:                                          ; preds = %sub_0.i
-  %63 = getelementptr inbounds i8, ptr %60, i64 20
-  %64 = load i8, ptr %63, align 1
-  switch i8 %64, label %dirpath_is_empty.exit.thread48 [
-    i8 0, label %68
+  %62 = getelementptr inbounds i8, ptr %59, i64 20
+  %63 = load i8, ptr %62, align 1
+  switch i8 %63, label %dirpath_is_empty.exit.thread48 [
+    i8 0, label %67
     i8 46, label %.tail14.i
   ]
 
 .tail14.i:                                        ; preds = %.tail.i
-  %65 = getelementptr inbounds i8, ptr %60, i64 21
-  %66 = load i8, ptr %65, align 1
-  %67 = icmp eq i8 %66, 0
-  br i1 %67, label %68, label %dirpath_is_empty.exit.thread48
+  %64 = getelementptr inbounds i8, ptr %59, i64 21
+  %65 = load i8, ptr %64, align 1
+  %66 = icmp eq i8 %65, 0
+  br i1 %66, label %67, label %dirpath_is_empty.exit.thread48
 
-68:                                               ; preds = %.tail.i, %.tail14.i
-  %69 = tail call ptr @readdir(ptr noundef nonnull %58) #13
-  %.not11.i = icmp eq ptr %69, null
+67:                                               ; preds = %.tail.i, %.tail14.i
+  %68 = tail call ptr @readdir(ptr noundef nonnull %57) #13
+  %.not11.i = icmp eq ptr %68, null
   br i1 %.not11.i, label %.loopexit, label %sub_0.i, !llvm.loop !29
 
 dirpath_is_empty.exit.thread48:                   ; preds = %.tail.i, %sub_0.i, %.tail14.i
-  %70 = tail call i32 @closedir(ptr noundef nonnull %58)
+  %69 = tail call i32 @closedir(ptr noundef nonnull %57)
   br label %dirpath_is_empty.exit.thread
 
-.loopexit:                                        ; preds = %68, %.preheader.i
-  %71 = tail call i32 @closedir(ptr noundef nonnull %58)
-  %72 = tail call i32 @rmdir(ptr noundef nonnull %0) #13
+.loopexit:                                        ; preds = %67, %.preheader.i
+  %70 = tail call i32 @closedir(ptr noundef nonnull %57)
+  %71 = tail call i32 @rmdir(ptr noundef nonnull %0) #13
   br label %dirpath_is_empty.exit.thread
 
-dirpath_is_empty.exit.thread:                     ; preds = %.lr.ph, %57, %dirpath_is_empty.exit.thread48, %53, %._crit_edge, %3, %.loopexit
+dirpath_is_empty.exit.thread:                     ; preds = %.lr.ph, %56, %dirpath_is_empty.exit.thread48, %52, %._crit_edge, %3, %.loopexit
   ret void
 }
 

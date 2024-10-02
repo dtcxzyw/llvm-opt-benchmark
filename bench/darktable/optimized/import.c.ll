@@ -3210,12 +3210,12 @@ define internal fastcc void @_update_places_list(ptr nocapture %0) unnamed_addr 
   %85 = call ptr @dt_conf_get_string(ptr noundef nonnull @.str.92) #16
   %86 = load i8, ptr %85, align 1, !tbaa !34
   %87 = icmp eq i8 %86, 0
-  br i1 %87, label %123, label %88
+  br i1 %87, label %139, label %88
 
 88:                                               ; preds = %84
   %89 = call i32 @dt_util_str_occurence(ptr noundef nonnull %85, ptr noundef nonnull @.str.105) #16
   %90 = icmp ult i32 %89, 2147483647
-  br i1 %90, label %.preheader12, label %123
+  br i1 %90, label %.preheader12, label %139
 
 .preheader12:                                     ; preds = %88, %116
   %91 = phi ptr [ %118, %116 ], [ null, %88 ]
@@ -3272,45 +3272,42 @@ define internal fastcc void @_update_places_list(ptr nocapture %0) unnamed_addr 
 
 121:                                              ; preds = %116
   %122 = icmp eq ptr %118, null
-  br i1 %122, label %123, label %.preheader
+  br i1 %122, label %139, label %.preheader
 
-123:                                              ; preds = %121, %88, %84
+123:                                              ; preds = %135
   call void @g_free(ptr noundef nonnull %12) #16
-  br label %140
+  %124 = load ptr, ptr %118, align 8, !tbaa !25
+  br label %139
 
-124:                                              ; preds = %136
-  call void @g_free(ptr noundef nonnull %12) #16
-  %125 = load ptr, ptr %118, align 8, !tbaa !25
-  call void @g_free(ptr noundef %125) #16
-  br label %140
+.preheader:                                       ; preds = %121, %135
+  %125 = phi ptr [ %137, %135 ], [ %118, %121 ]
+  %126 = load ptr, ptr %125, align 8, !tbaa !25
+  %127 = call noalias ptr @g_path_get_basename(ptr noundef %126) #16
+  %128 = load ptr, ptr %4, align 8, !tbaa !98
+  %129 = load ptr, ptr %125, align 8, !tbaa !25
+  call void (ptr, ptr, i32, ...) @gtk_list_store_insert_with_values(ptr noundef %128, ptr noundef nonnull %2, i32 noundef -1, i32 noundef 0, ptr noundef %127, i32 noundef 1, ptr noundef %129, i32 noundef 2, i32 noundef 4, i32 noundef -1) #16
+  call void @g_free(ptr noundef %127) #16
+  %130 = load ptr, ptr %125, align 8, !tbaa !25
+  %131 = call i32 @g_strcmp0(ptr noundef %130, ptr noundef nonnull %12) #16
+  %132 = icmp eq i32 %131, 0
+  br i1 %132, label %133, label %135
 
-.preheader:                                       ; preds = %121, %136
-  %126 = phi ptr [ %138, %136 ], [ %118, %121 ]
-  %127 = load ptr, ptr %126, align 8, !tbaa !25
-  %128 = call noalias ptr @g_path_get_basename(ptr noundef %127) #16
-  %129 = load ptr, ptr %4, align 8, !tbaa !98
-  %130 = load ptr, ptr %126, align 8, !tbaa !25
-  call void (ptr, ptr, i32, ...) @gtk_list_store_insert_with_values(ptr noundef %129, ptr noundef nonnull %2, i32 noundef -1, i32 noundef 0, ptr noundef %128, i32 noundef 1, ptr noundef %130, i32 noundef 2, i32 noundef 4, i32 noundef -1) #16
-  call void @g_free(ptr noundef %128) #16
-  %131 = load ptr, ptr %126, align 8, !tbaa !25
-  %132 = call i32 @g_strcmp0(ptr noundef %131, ptr noundef nonnull %12) #16
-  %133 = icmp eq i32 %132, 0
-  br i1 %133, label %134, label %136
+133:                                              ; preds = %.preheader
+  %134 = load ptr, ptr %11, align 8, !tbaa !116
+  call void @gtk_tree_selection_select_iter(ptr noundef %134, ptr noundef nonnull %2) #16
+  br label %135
 
-134:                                              ; preds = %.preheader
-  %135 = load ptr, ptr %11, align 8, !tbaa !116
-  call void @gtk_tree_selection_select_iter(ptr noundef %135, ptr noundef nonnull %2) #16
-  br label %136
+135:                                              ; preds = %133, %.preheader
+  %136 = getelementptr inbounds i8, ptr %125, i64 8
+  %137 = load ptr, ptr %136, align 8, !tbaa !48
+  %138 = icmp eq ptr %137, null
+  br i1 %138, label %123, label %.preheader
 
-136:                                              ; preds = %134, %.preheader
-  %137 = getelementptr inbounds i8, ptr %126, i64 8
-  %138 = load ptr, ptr %137, align 8, !tbaa !48
-  %139 = icmp eq ptr %138, null
-  br i1 %139, label %124, label %.preheader
-
-140:                                              ; preds = %124, %123
-  %141 = phi ptr [ null, %123 ], [ %118, %124 ]
-  call void @g_list_free(ptr noundef %141) #16
+139:                                              ; preds = %84, %88, %121, %123
+  %.sink = phi ptr [ %124, %123 ], [ %12, %121 ], [ %12, %88 ], [ %12, %84 ]
+  %140 = phi ptr [ %118, %123 ], [ null, %121 ], [ null, %88 ], [ null, %84 ]
+  call void @g_free(ptr noundef %.sink) #16
+  call void @g_list_free(ptr noundef %140) #16
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #16
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %2) #16
   ret void

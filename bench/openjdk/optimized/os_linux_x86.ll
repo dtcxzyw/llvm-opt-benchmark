@@ -1346,130 +1346,90 @@ define hidden void @_ZN2os19print_register_infoEP12outputStreamPKvRi(ptr noundef
   %22 = getelementptr inbounds i8, ptr %1, i64 144
   br label %23
 
-23:                                               ; preds = %.lr.ph, %56
-  %.059 = phi i32 [ %4, %.lr.ph ], [ %24, %56 ]
+23:                                               ; preds = %.lr.ph, %40
+  %.059 = phi i32 [ %4, %.lr.ph ], [ %24, %40 ]
   %24 = add i32 %.059, 1
   store i32 %24, ptr %2, align 4
-  switch i32 %.059, label %56 [
-    i32 0, label %25
-    i32 1, label %27
-    i32 2, label %29
-    i32 3, label %31
-    i32 4, label %33
-    i32 5, label %35
-    i32 6, label %37
-    i32 7, label %39
-    i32 8, label %41
-    i32 9, label %43
-    i32 10, label %45
-    i32 11, label %47
-    i32 12, label %49
-    i32 13, label %51
-    i32 14, label %53
+  switch i32 %.059, label %40 [
+    i32 0, label %.sink.split
+    i32 1, label %25
+    i32 2, label %26
+    i32 3, label %27
+    i32 4, label %28
+    i32 5, label %29
+    i32 6, label %30
+    i32 7, label %31
+    i32 8, label %32
+    i32 9, label %33
+    i32 10, label %34
+    i32 11, label %35
+    i32 12, label %36
+    i32 13, label %37
+    i32 14, label %38
     i32 15, label %.thread
   ]
 
 25:                                               ; preds = %23
-  tail call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull @.str.30) #12
-  %26 = load i64, ptr %22, align 8
-  tail call void @_ZN2os14print_locationEP12outputStreamlb(ptr noundef nonnull %0, i64 noundef %26, i1 noundef zeroext false) #12
-  br label %56
+  br label %.sink.split
+
+26:                                               ; preds = %23
+  br label %.sink.split
 
 27:                                               ; preds = %23
-  tail call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull @.str.31) #12
-  %28 = load i64, ptr %21, align 8
-  tail call void @_ZN2os14print_locationEP12outputStreamlb(ptr noundef nonnull %0, i64 noundef %28, i1 noundef zeroext false) #12
-  br label %56
+  br label %.sink.split
+
+28:                                               ; preds = %23
+  br label %.sink.split
 
 29:                                               ; preds = %23
-  tail call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull @.str.32) #12
-  %30 = load i64, ptr %20, align 8
-  tail call void @_ZN2os14print_locationEP12outputStreamlb(ptr noundef nonnull %0, i64 noundef %30, i1 noundef zeroext false) #12
-  br label %56
+  br label %.sink.split
+
+30:                                               ; preds = %23
+  br label %.sink.split
 
 31:                                               ; preds = %23
-  tail call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull @.str.33) #12
-  %32 = load i64, ptr %19, align 8
-  tail call void @_ZN2os14print_locationEP12outputStreamlb(ptr noundef nonnull %0, i64 noundef %32, i1 noundef zeroext false) #12
-  br label %56
+  br label %.sink.split
+
+32:                                               ; preds = %23
+  br label %.sink.split
 
 33:                                               ; preds = %23
-  tail call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull @.str.34) #12
-  %34 = load i64, ptr %18, align 8
-  tail call void @_ZN2os14print_locationEP12outputStreamlb(ptr noundef nonnull %0, i64 noundef %34, i1 noundef zeroext false) #12
-  br label %56
+  br label %.sink.split
+
+34:                                               ; preds = %23
+  br label %.sink.split
 
 35:                                               ; preds = %23
-  tail call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull @.str.35) #12
-  %36 = load i64, ptr %17, align 8
-  tail call void @_ZN2os14print_locationEP12outputStreamlb(ptr noundef nonnull %0, i64 noundef %36, i1 noundef zeroext false) #12
-  br label %56
+  br label %.sink.split
+
+36:                                               ; preds = %23
+  br label %.sink.split
 
 37:                                               ; preds = %23
-  tail call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull @.str.36) #12
-  %38 = load i64, ptr %16, align 8
-  tail call void @_ZN2os14print_locationEP12outputStreamlb(ptr noundef nonnull %0, i64 noundef %38, i1 noundef zeroext false) #12
-  br label %56
+  br label %.sink.split
 
-39:                                               ; preds = %23
-  tail call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull @.str.37) #12
-  %40 = load i64, ptr %15, align 8
-  tail call void @_ZN2os14print_locationEP12outputStreamlb(ptr noundef nonnull %0, i64 noundef %40, i1 noundef zeroext false) #12
-  br label %56
-
-41:                                               ; preds = %23
-  tail call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull @.str.38) #12
-  %42 = load i64, ptr %14, align 8
-  tail call void @_ZN2os14print_locationEP12outputStreamlb(ptr noundef nonnull %0, i64 noundef %42, i1 noundef zeroext false) #12
-  br label %56
-
-43:                                               ; preds = %23
-  tail call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull @.str.39) #12
-  %44 = load i64, ptr %13, align 8
-  tail call void @_ZN2os14print_locationEP12outputStreamlb(ptr noundef nonnull %0, i64 noundef %44, i1 noundef zeroext false) #12
-  br label %56
-
-45:                                               ; preds = %23
-  tail call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull @.str.40) #12
-  %46 = load i64, ptr %12, align 8
-  tail call void @_ZN2os14print_locationEP12outputStreamlb(ptr noundef %0, i64 noundef %46, i1 noundef zeroext false) #12
-  br label %56
-
-47:                                               ; preds = %23
-  tail call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull @.str.41) #12
-  %48 = load i64, ptr %11, align 8
-  tail call void @_ZN2os14print_locationEP12outputStreamlb(ptr noundef %0, i64 noundef %48, i1 noundef zeroext false) #12
-  br label %56
-
-49:                                               ; preds = %23
-  tail call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull @.str.42) #12
-  %50 = load i64, ptr %10, align 8
-  tail call void @_ZN2os14print_locationEP12outputStreamlb(ptr noundef %0, i64 noundef %50, i1 noundef zeroext false) #12
-  br label %56
-
-51:                                               ; preds = %23
-  tail call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull @.str.43) #12
-  %52 = load i64, ptr %9, align 8
-  tail call void @_ZN2os14print_locationEP12outputStreamlb(ptr noundef %0, i64 noundef %52, i1 noundef zeroext false) #12
-  br label %56
-
-53:                                               ; preds = %23
-  tail call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull @.str.44) #12
-  %54 = load i64, ptr %8, align 8
-  tail call void @_ZN2os14print_locationEP12outputStreamlb(ptr noundef %0, i64 noundef %54, i1 noundef zeroext false) #12
-  br label %56
+38:                                               ; preds = %23
+  br label %.sink.split
 
 .thread:                                          ; preds = %23
   tail call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull @.str.45) #12
-  %55 = load i64, ptr %7, align 8
-  tail call void @_ZN2os14print_locationEP12outputStreamlb(ptr noundef %0, i64 noundef %55, i1 noundef zeroext false) #12
+  %39 = load i64, ptr %7, align 8
+  tail call void @_ZN2os14print_locationEP12outputStreamlb(ptr noundef nonnull %0, i64 noundef %39, i1 noundef zeroext false) #12
   br label %.loopexit
 
-56:                                               ; preds = %53, %51, %49, %47, %45, %43, %41, %39, %37, %35, %33, %31, %29, %27, %25, %23
+.sink.split:                                      ; preds = %23, %25, %26, %27, %28, %29, %30, %31, %32, %33, %34, %35, %36, %37, %38
+  %.str.30.sink = phi ptr [ @.str.31, %25 ], [ @.str.32, %26 ], [ @.str.33, %27 ], [ @.str.34, %28 ], [ @.str.35, %29 ], [ @.str.36, %30 ], [ @.str.37, %31 ], [ @.str.38, %32 ], [ @.str.39, %33 ], [ @.str.40, %34 ], [ @.str.41, %35 ], [ @.str.42, %36 ], [ @.str.43, %37 ], [ @.str.44, %38 ], [ @.str.30, %23 ]
+  %.sink.in = phi ptr [ %21, %25 ], [ %20, %26 ], [ %19, %27 ], [ %18, %28 ], [ %17, %29 ], [ %16, %30 ], [ %15, %31 ], [ %14, %32 ], [ %13, %33 ], [ %12, %34 ], [ %11, %35 ], [ %10, %36 ], [ %9, %37 ], [ %8, %38 ], [ %22, %23 ]
+  tail call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull %.str.30.sink) #12
+  %.sink = load i64, ptr %.sink.in, align 8
+  tail call void @_ZN2os14print_locationEP12outputStreamlb(ptr noundef nonnull %0, i64 noundef %.sink, i1 noundef zeroext false) #12
+  br label %40
+
+40:                                               ; preds = %.sink.split, %23
   %exitcond.not = icmp eq i32 %24, 16
   br i1 %exitcond.not, label %.loopexit, label %23, !llvm.loop !15
 
-.loopexit:                                        ; preds = %56, %.thread, %3
+.loopexit:                                        ; preds = %40, %.thread, %3
   ret void
 }
 

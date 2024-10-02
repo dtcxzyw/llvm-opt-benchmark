@@ -106,8 +106,7 @@ _ZL11getluaprotoP8CallInfo.exit:                  ; preds = %25
   %45 = zext nneg i32 %2 to i64
   %46 = getelementptr %struct.lua_TValue, ptr %44, i64 %45
   %47 = getelementptr i8, ptr %46, i64 -16
-  tail call void @_Z15luaA_pushobjectP9lua_StatePK10lua_TValue(ptr noundef nonnull %0, ptr noundef %47)
-  br label %_ZL11getluaprotoP8CallInfo.exit.thread
+  br label %_ZL11getluaprotoP8CallInfo.exit.thread.sink.split
 
 48:                                               ; preds = %33
   %49 = getelementptr inbounds i8, ptr %30, i64 5
@@ -141,11 +140,15 @@ _ZL11getluaprotoP8CallInfo.exit:                  ; preds = %25
 65:                                               ; preds = %63, %59
   %66 = phi ptr [ %.pre, %63 ], [ %.val, %59 ]
   %67 = getelementptr inbounds %struct.lua_TValue, ptr %66, i64 %52
-  tail call void @_Z15luaA_pushobjectP9lua_StatePK10lua_TValue(ptr noundef nonnull %0, ptr noundef nonnull %67)
+  br label %_ZL11getluaprotoP8CallInfo.exit.thread.sink.split
+
+_ZL11getluaprotoP8CallInfo.exit.thread.sink.split: ; preds = %43, %65
+  %.sink = phi ptr [ %67, %65 ], [ %47, %43 ]
+  tail call void @_Z15luaA_pushobjectP9lua_StatePK10lua_TValue(ptr noundef nonnull %0, ptr noundef %.sink)
   br label %_ZL11getluaprotoP8CallInfo.exit.thread
 
-_ZL11getluaprotoP8CallInfo.exit.thread:           ; preds = %20, %25, %_ZL11getluaprotoP8CallInfo.exit, %48, %51, %65, %43, %13, %3
-  %.031 = phi i32 [ 0, %3 ], [ 0, %13 ], [ 1, %43 ], [ 1, %65 ], [ 0, %51 ], [ 0, %48 ], [ 0, %_ZL11getluaprotoP8CallInfo.exit ], [ 0, %25 ], [ 0, %20 ]
+_ZL11getluaprotoP8CallInfo.exit.thread:           ; preds = %_ZL11getluaprotoP8CallInfo.exit.thread.sink.split, %20, %25, %_ZL11getluaprotoP8CallInfo.exit, %48, %51, %13, %3
+  %.031 = phi i32 [ 0, %3 ], [ 0, %13 ], [ 0, %51 ], [ 0, %48 ], [ 0, %_ZL11getluaprotoP8CallInfo.exit ], [ 0, %25 ], [ 0, %20 ], [ 1, %_ZL11getluaprotoP8CallInfo.exit.thread.sink.split ]
   ret i32 %.031
 }
 

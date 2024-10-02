@@ -21903,49 +21903,43 @@ _ZNSt10unique_ptrIN4llvm18GlobalValueSummaryESt14default_deleteIS1_EED2Ev.exit.i
   store ptr null, ptr %22, align 8
   %102 = load ptr, ptr %8, align 8
   %.not.i21.i = icmp eq ptr %102, null
-  br i1 %.not.i21.i, label %"_ZZN4llvm23buildModuleSummaryIndexERKNS_6ModuleESt8functionIFPNS_18BlockFrequencyInfoERKNS_8FunctionEEEPNS_18ProfileSummaryInfoES3_IFPKNS_15StackSafetyInfoES8_EEENK3$_0clENS_9StringRefENS_6object14BasicSymbolRef5FlagsE.exit", label %_ZNKSt14default_deleteIN4llvm15FunctionSummaryEEclEPS1_.exit.i.i
-
-_ZNKSt14default_deleteIN4llvm15FunctionSummaryEEclEPS1_.exit.i.i: ; preds = %_ZNSt10unique_ptrIN4llvm18GlobalValueSummaryESt14default_deleteIS1_EED2Ev.exit.i
-  %103 = load ptr, ptr %102, align 8
-  %104 = getelementptr inbounds i8, ptr %103, i64 8
-  %105 = load ptr, ptr %104, align 8
-  call void %105(ptr noundef nonnull align 8 dereferenceable(136) %102) #21
-  br label %"_ZZN4llvm23buildModuleSummaryIndexERKNS_6ModuleESt8functionIFPNS_18BlockFrequencyInfoERKNS_8FunctionEEEPNS_18ProfileSummaryInfoES3_IFPKNS_15StackSafetyInfoES8_EEENK3$_0clENS_9StringRefENS_6object14BasicSymbolRef5FlagsE.exit"
+  br i1 %.not.i21.i, label %"_ZZN4llvm23buildModuleSummaryIndexERKNS_6ModuleESt8functionIFPNS_18BlockFrequencyInfoERKNS_8FunctionEEEPNS_18ProfileSummaryInfoES3_IFPKNS_15StackSafetyInfoES8_EEENK3$_0clENS_9StringRefENS_6object14BasicSymbolRef5FlagsE.exit", label %_ZNSt10unique_ptrIN4llvm15FunctionSummaryESt14default_deleteIS1_EED2Ev.exit.sink.split.i
 
 _ZSt11make_uniqueIN4llvm16GlobalVarSummaryEJRNS0_18GlobalValueSummary7GVFlagsENS1_9GVarFlagsENS0_8ArrayRefINS0_9ValueInfoEEEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.exit.i: ; preds = %_ZN4llvm6detail12DenseSetImplImNS_8DenseMapImNS0_13DenseSetEmptyENS_12DenseMapInfoImvEENS0_12DenseSetPairImEEEES5_E6insertEOm.exit.i
-  %106 = getelementptr inbounds nuw i8, ptr %30, i64 80
-  %107 = load i8, ptr %106, align 8
-  %108 = trunc i8 %107 to i1
-  %109 = call noalias noundef nonnull dereferenceable(80) ptr @_Znwm(i64 noundef 80) #22, !noalias !363
+  %103 = getelementptr inbounds nuw i8, ptr %30, i64 80
+  %104 = load i8, ptr %103, align 8
+  %105 = trunc i8 %104 to i1
+  %106 = call noalias noundef nonnull dereferenceable(80) ptr @_Znwm(i64 noundef 80) #22, !noalias !363
   %.sroa.01.0.copyload.i.i = load i32, ptr %6, align 4, !noalias !363
-  %.sroa.029.0.insert.ext.i = select i1 %108, i32 4, i32 0
-  %110 = getelementptr inbounds nuw i8, ptr %109, i64 8
-  store i32 2, ptr %110, align 8, !noalias !363
-  %111 = getelementptr inbounds nuw i8, ptr %109, i64 12
-  store i32 %.sroa.01.0.copyload.i.i, ptr %111, align 4, !noalias !363
-  %112 = getelementptr inbounds nuw i8, ptr %109, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %112, i8 0, i64 48, i1 false)
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN4llvm16GlobalVarSummaryE, i64 16), ptr %109, align 8, !noalias !363
-  %113 = getelementptr inbounds nuw i8, ptr %109, i64 64
-  store ptr null, ptr %113, align 8, !noalias !363
-  %114 = getelementptr inbounds nuw i8, ptr %109, i64 72
-  store i32 %.sroa.029.0.insert.ext.i, ptr %114, align 8, !noalias !363
-  %115 = getelementptr inbounds nuw i8, ptr %24, i64 24
-  %116 = load ptr, ptr %115, align 8
-  store ptr %109, ptr %23, align 8
-  call void @_ZN4llvm18ModuleSummaryIndex21addGlobalValueSummaryERKNS_11GlobalValueESt10unique_ptrINS_18GlobalValueSummaryESt14default_deleteIS5_EE(ptr noundef nonnull align 8 dereferenceable(488) %116, ptr noundef nonnull align 8 dereferenceable(48) %30, ptr noundef nonnull %23)
-  %117 = load ptr, ptr %23, align 8
-  %.not.i23.i = icmp eq ptr %117, null
-  br i1 %.not.i23.i, label %"_ZZN4llvm23buildModuleSummaryIndexERKNS_6ModuleESt8functionIFPNS_18BlockFrequencyInfoERKNS_8FunctionEEEPNS_18ProfileSummaryInfoES3_IFPKNS_15StackSafetyInfoES8_EEENK3$_0clENS_9StringRefENS_6object14BasicSymbolRef5FlagsE.exit", label %_ZNKSt14default_deleteIN4llvm18GlobalValueSummaryEEclEPS1_.exit.i24.i
+  %.sroa.029.0.insert.ext.i = select i1 %105, i32 4, i32 0
+  %107 = getelementptr inbounds nuw i8, ptr %106, i64 8
+  store i32 2, ptr %107, align 8, !noalias !363
+  %108 = getelementptr inbounds nuw i8, ptr %106, i64 12
+  store i32 %.sroa.01.0.copyload.i.i, ptr %108, align 4, !noalias !363
+  %109 = getelementptr inbounds nuw i8, ptr %106, i64 16
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %109, i8 0, i64 48, i1 false)
+  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN4llvm16GlobalVarSummaryE, i64 16), ptr %106, align 8, !noalias !363
+  %110 = getelementptr inbounds nuw i8, ptr %106, i64 64
+  store ptr null, ptr %110, align 8, !noalias !363
+  %111 = getelementptr inbounds nuw i8, ptr %106, i64 72
+  store i32 %.sroa.029.0.insert.ext.i, ptr %111, align 8, !noalias !363
+  %112 = getelementptr inbounds nuw i8, ptr %24, i64 24
+  %113 = load ptr, ptr %112, align 8
+  store ptr %106, ptr %23, align 8
+  call void @_ZN4llvm18ModuleSummaryIndex21addGlobalValueSummaryERKNS_11GlobalValueESt10unique_ptrINS_18GlobalValueSummaryESt14default_deleteIS5_EE(ptr noundef nonnull align 8 dereferenceable(488) %113, ptr noundef nonnull align 8 dereferenceable(48) %30, ptr noundef nonnull %23)
+  %114 = load ptr, ptr %23, align 8
+  %.not.i23.i = icmp eq ptr %114, null
+  br i1 %.not.i23.i, label %"_ZZN4llvm23buildModuleSummaryIndexERKNS_6ModuleESt8functionIFPNS_18BlockFrequencyInfoERKNS_8FunctionEEEPNS_18ProfileSummaryInfoES3_IFPKNS_15StackSafetyInfoES8_EEENK3$_0clENS_9StringRefENS_6object14BasicSymbolRef5FlagsE.exit", label %_ZNSt10unique_ptrIN4llvm15FunctionSummaryESt14default_deleteIS1_EED2Ev.exit.sink.split.i
 
-_ZNKSt14default_deleteIN4llvm18GlobalValueSummaryEEclEPS1_.exit.i24.i: ; preds = %_ZSt11make_uniqueIN4llvm16GlobalVarSummaryEJRNS0_18GlobalValueSummary7GVFlagsENS1_9GVarFlagsENS0_8ArrayRefINS0_9ValueInfoEEEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.exit.i
-  %118 = load ptr, ptr %117, align 8
-  %119 = getelementptr inbounds i8, ptr %118, i64 8
-  %120 = load ptr, ptr %119, align 8
-  call void %120(ptr noundef nonnull align 8 dereferenceable(64) %117) #21
+_ZNSt10unique_ptrIN4llvm15FunctionSummaryESt14default_deleteIS1_EED2Ev.exit.sink.split.i: ; preds = %_ZSt11make_uniqueIN4llvm16GlobalVarSummaryEJRNS0_18GlobalValueSummary7GVFlagsENS1_9GVarFlagsENS0_8ArrayRefINS0_9ValueInfoEEEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.exit.i, %_ZNSt10unique_ptrIN4llvm18GlobalValueSummaryESt14default_deleteIS1_EED2Ev.exit.i
+  %.sink46.i = phi ptr [ %102, %_ZNSt10unique_ptrIN4llvm18GlobalValueSummaryESt14default_deleteIS1_EED2Ev.exit.i ], [ %114, %_ZSt11make_uniqueIN4llvm16GlobalVarSummaryEJRNS0_18GlobalValueSummary7GVFlagsENS1_9GVarFlagsENS0_8ArrayRefINS0_9ValueInfoEEEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.exit.i ]
+  %115 = load ptr, ptr %.sink46.i, align 8
+  %116 = getelementptr inbounds i8, ptr %115, i64 8
+  %117 = load ptr, ptr %116, align 8
+  call void %117(ptr noundef nonnull align 8 dereferenceable(64) %.sink46.i) #21
   br label %"_ZZN4llvm23buildModuleSummaryIndexERKNS_6ModuleESt8functionIFPNS_18BlockFrequencyInfoERKNS_8FunctionEEEPNS_18ProfileSummaryInfoES3_IFPKNS_15StackSafetyInfoES8_EEENK3$_0clENS_9StringRefENS_6object14BasicSymbolRef5FlagsE.exit"
 
-"_ZZN4llvm23buildModuleSummaryIndexERKNS_6ModuleESt8functionIFPNS_18BlockFrequencyInfoERKNS_8FunctionEEEPNS_18ProfileSummaryInfoES3_IFPKNS_15StackSafetyInfoES8_EEENK3$_0clENS_9StringRefENS_6object14BasicSymbolRef5FlagsE.exit": ; preds = %4, %26, %_ZNSt10unique_ptrIN4llvm18GlobalValueSummaryESt14default_deleteIS1_EED2Ev.exit.i, %_ZNKSt14default_deleteIN4llvm15FunctionSummaryEEclEPS1_.exit.i.i, %_ZSt11make_uniqueIN4llvm16GlobalVarSummaryEJRNS0_18GlobalValueSummary7GVFlagsENS1_9GVarFlagsENS0_8ArrayRefINS0_9ValueInfoEEEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.exit.i, %_ZNKSt14default_deleteIN4llvm18GlobalValueSummaryEEclEPS1_.exit.i24.i
+"_ZZN4llvm23buildModuleSummaryIndexERKNS_6ModuleESt8functionIFPNS_18BlockFrequencyInfoERKNS_8FunctionEEEPNS_18ProfileSummaryInfoES3_IFPKNS_15StackSafetyInfoES8_EEENK3$_0clENS_9StringRefENS_6object14BasicSymbolRef5FlagsE.exit": ; preds = %4, %26, %_ZNSt10unique_ptrIN4llvm18GlobalValueSummaryESt14default_deleteIS1_EED2Ev.exit.i, %_ZSt11make_uniqueIN4llvm16GlobalVarSummaryEJRNS0_18GlobalValueSummary7GVFlagsENS1_9GVarFlagsENS0_8ArrayRefINS0_9ValueInfoEEEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.exit.i, %_ZNSt10unique_ptrIN4llvm15FunctionSummaryESt14default_deleteIS1_EED2Ev.exit.sink.split.i
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)

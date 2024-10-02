@@ -49631,9 +49631,7 @@ if.else:                                          ; preds = %while.cond
 
 if.then14:                                        ; preds = %if.else
   %storage.i = getelementptr inbounds i8, ptr %rep.addr.0, i64 13
-  %add.ptr = getelementptr inbounds i8, ptr %storage.i, i64 %offset.0
-  %call17 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %s, ptr noundef nonnull %add.ptr, i64 noundef %0)
-  br label %if.end32
+  br label %if.end32.sink.split
 
 if.else18:                                        ; preds = %if.else
   %cmp21 = icmp eq i8 %1, 5
@@ -49642,16 +49640,20 @@ if.else18:                                        ; preds = %if.else
 if.then22:                                        ; preds = %if.else18
   %base = getelementptr inbounds i8, ptr %rep.addr.0, i64 16
   %7 = load ptr, ptr %base, align 8
-  %add.ptr24 = getelementptr inbounds i8, ptr %7, i64 %offset.0
-  %call25 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %s, ptr noundef %add.ptr24, i64 noundef %0)
-  br label %if.end32
+  br label %if.end32.sink.split
 
 do.body:                                          ; preds = %if.else18
   %conv = zext nneg i8 %1 to i32
   tail call void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 3, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.227, i64 121), i32 noundef 154, ptr noundef nonnull @.str.228, i32 noundef %conv)
   unreachable
 
-if.end32:                                         ; preds = %for.body, %if.then, %if.then14, %if.then22
+if.end32.sink.split:                              ; preds = %if.then22, %if.then14
+  %storage.i.sink = phi ptr [ %storage.i, %if.then14 ], [ %7, %if.then22 ]
+  %add.ptr = getelementptr inbounds i8, ptr %storage.i.sink, i64 %offset.0
+  %call17 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %s, ptr noundef %add.ptr, i64 noundef %0)
+  br label %if.end32
+
+if.end32:                                         ; preds = %for.body, %if.end32.sink.split, %if.then
   ret void
 }
 

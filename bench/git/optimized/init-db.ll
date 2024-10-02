@@ -576,23 +576,14 @@ if.then233:                                       ; preds = %if.end231
 
 if.end235:                                        ; preds = %if.then233, %if.end231
   %34 = phi ptr [ %call234, %if.then233 ], [ %33, %if.end231 ]
-  br i1 %tobool19352, label %if.then237, label %if.else238
-
-if.then237:                                       ; preds = %if.end235
-  call void @set_git_work_tree(ptr noundef nonnull %cond.i3950) #13
-  br label %if.end239
-
-if.else238:                                       ; preds = %if.end235
-  call void @set_git_work_tree(ptr noundef %34) #13
-  br label %if.end239
-
-if.end239:                                        ; preds = %if.else238, %if.then237
+  %cond.i3950. = select i1 %tobool19352, ptr %cond.i3950, ptr %34
+  call void @set_git_work_tree(ptr noundef %cond.i3950.) #13
   %call240 = call ptr @get_git_work_tree() #13
   %call241 = call i32 @access(ptr noundef %call240, i32 noundef 1) #13
   %tobool242.not = icmp eq i32 %call241, 0
   br i1 %tobool242.not, label %do.end261, label %if.then243
 
-if.then243:                                       ; preds = %if.end239
+if.then243:                                       ; preds = %if.end235
   %call244 = call fastcc ptr @_(ptr noundef nonnull @.str.34)
   %call245 = call ptr @get_git_work_tree() #13
   call void (ptr, ...) @die_errno(ptr noundef %call244, ptr noundef %call245) #14
@@ -615,7 +606,7 @@ if.then253:                                       ; preds = %if.end251
   call void @set_git_work_tree(ptr noundef nonnull %cond.i3950) #13
   br label %do.end261
 
-do.end261:                                        ; preds = %if.end251, %if.then253, %if.end239
+do.end261:                                        ; preds = %if.end251, %if.then253, %if.end235
   %36 = load i32, ptr %flags, align 4
   %or = or i32 %36, 2
   store i32 %or, ptr %flags, align 4

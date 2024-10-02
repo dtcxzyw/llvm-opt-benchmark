@@ -6151,45 +6151,38 @@ define void @_ZN11CMainWindow7slotRunEP8MdiChild(ptr nocapture noundef nonnull a
   %.not = icmp eq ptr %1, null
   %3 = getelementptr inbounds i8, ptr %0, i64 240
   %4 = load ptr, ptr %3, align 8
-  br i1 %.not, label %7, label %5
+  br i1 %.not, label %5, label %_ZN11CMainWindow14activeMdiChildEv.exit
 
 5:                                                ; preds = %2
-  %6 = tail call noundef i32 @_ZN12CFrmSettings11runSettingsEP8MdiChild(ptr noundef nonnull align 8 dereferenceable(152) %4, ptr noundef nonnull %1)
-  br label %25
+  %6 = getelementptr inbounds i8, ptr %0, i64 40
+  %7 = load ptr, ptr %6, align 8
+  %8 = tail call noundef ptr @_ZNK8QMdiArea15activeSubWindowEv(ptr noundef nonnull align 8 dereferenceable(40) %7)
+  %.not.i = icmp eq ptr %8, null
+  br i1 %.not.i, label %_ZN11CMainWindow14activeMdiChildEv.exit, label %9
 
-7:                                                ; preds = %2
-  %8 = getelementptr inbounds i8, ptr %0, i64 40
-  %9 = load ptr, ptr %8, align 8
-  %10 = tail call noundef ptr @_ZNK8QMdiArea15activeSubWindowEv(ptr noundef nonnull align 8 dereferenceable(40) %9)
-  %.not.i = icmp eq ptr %10, null
-  br i1 %.not.i, label %_ZN11CMainWindow14activeMdiChildEv.exit, label %11
-
-11:                                               ; preds = %7
-  %12 = tail call noundef ptr @_ZNK13QMdiSubWindow6widgetEv(ptr noundef nonnull align 8 dereferenceable(40) %10)
+9:                                                ; preds = %5
+  %10 = tail call noundef ptr @_ZNK13QMdiSubWindow6widgetEv(ptr noundef nonnull align 8 dereferenceable(40) %8)
+  %11 = load ptr, ptr %10, align 8
+  %12 = getelementptr inbounds i8, ptr %11, i64 8
   %13 = load ptr, ptr %12, align 8
-  %14 = getelementptr inbounds i8, ptr %13, i64 8
-  %15 = load ptr, ptr %14, align 8
-  %16 = tail call noundef ptr %15(ptr noundef nonnull align 8 dereferenceable(16) %12, ptr noundef nonnull @.str.43)
-  %.not7.i = icmp eq ptr %16, null
-  %17 = tail call noundef ptr @_ZNK13QMdiSubWindow6widgetEv(ptr noundef nonnull align 8 dereferenceable(40) %10)
-  br i1 %.not7.i, label %20, label %18
+  %14 = tail call noundef ptr %13(ptr noundef nonnull align 8 dereferenceable(16) %10, ptr noundef nonnull @.str.43)
+  %.not7.i = icmp eq ptr %14, null
+  %15 = tail call noundef ptr @_ZNK13QMdiSubWindow6widgetEv(ptr noundef nonnull align 8 dereferenceable(40) %8)
+  br i1 %.not7.i, label %18, label %16
 
-18:                                               ; preds = %11
-  %19 = tail call noundef ptr @_ZNK11QMetaObject4castEPK7QObject(ptr noundef nonnull align 8 dereferenceable(56) @_ZN8MdiChild16staticMetaObjectE, ptr noundef %17)
+16:                                               ; preds = %9
+  %17 = tail call noundef ptr @_ZNK11QMetaObject4castEPK7QObject(ptr noundef nonnull align 8 dereferenceable(56) @_ZN8MdiChild16staticMetaObjectE, ptr noundef %15)
   br label %_ZN11CMainWindow14activeMdiChildEv.exit
 
-20:                                               ; preds = %11
-  %21 = tail call noundef ptr @_ZNK11QMetaObject4castEPK7QObject(ptr noundef nonnull align 8 dereferenceable(56) @_ZN11ImageViewer16staticMetaObjectE, ptr noundef %17)
-  %22 = getelementptr inbounds i8, ptr %21, i64 40
-  %23 = load ptr, ptr %22, align 8
+18:                                               ; preds = %9
+  %19 = tail call noundef ptr @_ZNK11QMetaObject4castEPK7QObject(ptr noundef nonnull align 8 dereferenceable(56) @_ZN11ImageViewer16staticMetaObjectE, ptr noundef %15)
+  %20 = getelementptr inbounds i8, ptr %19, i64 40
+  %21 = load ptr, ptr %20, align 8
   br label %_ZN11CMainWindow14activeMdiChildEv.exit
 
-_ZN11CMainWindow14activeMdiChildEv.exit:          ; preds = %7, %18, %20
-  %.0.i = phi ptr [ %19, %18 ], [ %23, %20 ], [ null, %7 ]
-  %24 = tail call noundef i32 @_ZN12CFrmSettings11runSettingsEP8MdiChild(ptr noundef nonnull align 8 dereferenceable(152) %4, ptr noundef %.0.i)
-  br label %25
-
-25:                                               ; preds = %_ZN11CMainWindow14activeMdiChildEv.exit, %5
+_ZN11CMainWindow14activeMdiChildEv.exit:          ; preds = %18, %16, %5, %2
+  %.0.i.sink = phi ptr [ %1, %2 ], [ %17, %16 ], [ %21, %18 ], [ null, %5 ]
+  %22 = tail call noundef i32 @_ZN12CFrmSettings11runSettingsEP8MdiChild(ptr noundef nonnull align 8 dereferenceable(152) %4, ptr noundef %.0.i.sink)
   ret void
 }
 

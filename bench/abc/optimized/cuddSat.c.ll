@@ -1564,10 +1564,10 @@ define ptr @cuddBddMakePrime(ptr noundef %0, ptr noundef %1, ptr noundef %2) loc
   %15 = getelementptr inbounds i8, ptr %0, i64 344
   br label %16
 
-16:                                               ; preds = %.lr.ph, %35
-  %17 = phi i32 [ %14, %.lr.ph ], [ %39, %35 ]
-  %.03346 = phi ptr [ %1, %.lr.ph ], [ %.1, %35 ]
-  %.03445 = phi ptr [ %1, %.lr.ph ], [ %.135, %35 ]
+16:                                               ; preds = %.lr.ph, %32
+  %17 = phi i32 [ %14, %.lr.ph ], [ %36, %32 ]
+  %.03346 = phi ptr [ %1, %.lr.ph ], [ %.1, %32 ]
+  %.03445 = phi ptr [ %1, %.lr.ph ], [ %.03445., %32 ]
   %18 = load ptr, ptr %15, align 8
   %19 = zext i32 %17 to i64
   %20 = getelementptr inbounds ptr, ptr %18, i64 %19
@@ -1580,58 +1580,49 @@ define ptr @cuddBddMakePrime(ptr noundef %0, ptr noundef %1, ptr noundef %2) loc
   call void @Cudd_Ref(ptr noundef nonnull %22) #10
   %25 = call i32 @Cudd_bddLeq(ptr noundef nonnull %0, ptr noundef nonnull %22, ptr noundef %2) #10
   %.not39 = icmp eq i32 %25, 0
-  br i1 %.not39, label %27, label %26
-
-26:                                               ; preds = %24
-  call void @Cudd_RecursiveDeref(ptr noundef nonnull %0, ptr noundef %.03445) #10
-  br label %28
-
-27:                                               ; preds = %24
-  call void @Cudd_RecursiveDeref(ptr noundef nonnull %0, ptr noundef nonnull %22) #10
-  br label %28
-
-28:                                               ; preds = %27, %26
-  %.135 = phi ptr [ %22, %26 ], [ %.03445, %27 ]
+  %..03445 = select i1 %.not39, ptr %22, ptr %.03445
+  %.03445. = select i1 %.not39, ptr %.03445, ptr %22
+  call void @Cudd_RecursiveDeref(ptr noundef nonnull %0, ptr noundef %..03445) #10
   call void @cuddGetBranches(ptr noundef %.03346, ptr noundef nonnull %4, ptr noundef nonnull %5) #10
-  %29 = load ptr, ptr %4, align 8
-  %30 = icmp eq ptr %29, %10
-  %31 = load ptr, ptr %5, align 8
-  br i1 %30, label %35, label %32
+  %26 = load ptr, ptr %4, align 8
+  %27 = icmp eq ptr %26, %10
+  %28 = load ptr, ptr %5, align 8
+  br i1 %27, label %32, label %29
 
-32:                                               ; preds = %28
-  %33 = icmp eq ptr %31, %10
-  br i1 %33, label %35, label %34
+29:                                               ; preds = %24
+  %30 = icmp eq ptr %28, %10
+  br i1 %30, label %32, label %31
 
-34:                                               ; preds = %32
-  call void @Cudd_RecursiveDeref(ptr noundef nonnull %0, ptr noundef %.135) #10
+31:                                               ; preds = %29
+  call void @Cudd_RecursiveDeref(ptr noundef nonnull %0, ptr noundef %.03445.) #10
   br label %.loopexit
 
-35:                                               ; preds = %28, %32
-  %.1 = phi ptr [ %29, %32 ], [ %31, %28 ]
-  %36 = ptrtoint ptr %.1 to i64
-  %37 = and i64 %36, -2
-  %38 = inttoptr i64 %37 to ptr
-  %39 = load i32, ptr %38, align 8
-  %.not = icmp eq i32 %39, 2147483647
+32:                                               ; preds = %24, %29
+  %.1 = phi ptr [ %26, %29 ], [ %28, %24 ]
+  %33 = ptrtoint ptr %.1 to i64
+  %34 = and i64 %33, -2
+  %35 = inttoptr i64 %34 to ptr
+  %36 = load i32, ptr %35, align 8
+  %.not = icmp eq i32 %36, 2147483647
   br i1 %.not, label %._crit_edge, label %16, !llvm.loop !12
 
-._crit_edge:                                      ; preds = %35, %3
-  %.034.lcssa = phi ptr [ %1, %3 ], [ %.135, %35 ]
-  %.033.lcssa = phi ptr [ %1, %3 ], [ %.1, %35 ]
-  %40 = load ptr, ptr %6, align 8
-  %41 = icmp eq ptr %.033.lcssa, %40
-  br i1 %41, label %42, label %43
+._crit_edge:                                      ; preds = %32, %3
+  %.034.lcssa = phi ptr [ %1, %3 ], [ %.03445., %32 ]
+  %.033.lcssa = phi ptr [ %1, %3 ], [ %.1, %32 ]
+  %37 = load ptr, ptr %6, align 8
+  %38 = icmp eq ptr %.033.lcssa, %37
+  br i1 %38, label %39, label %40
 
-42:                                               ; preds = %._crit_edge
+39:                                               ; preds = %._crit_edge
   call void @Cudd_Deref(ptr noundef %.034.lcssa) #10
   br label %.loopexit
 
-43:                                               ; preds = %._crit_edge
+40:                                               ; preds = %._crit_edge
   call void @Cudd_RecursiveDeref(ptr noundef nonnull %0, ptr noundef %.034.lcssa) #10
   br label %.loopexit
 
-.loopexit:                                        ; preds = %16, %43, %42, %34
-  %.0 = phi ptr [ null, %34 ], [ %.034.lcssa, %42 ], [ null, %43 ], [ null, %16 ]
+.loopexit:                                        ; preds = %16, %40, %39, %31
+  %.0 = phi ptr [ null, %31 ], [ %.034.lcssa, %39 ], [ null, %40 ], [ null, %16 ]
   ret ptr %.0
 }
 

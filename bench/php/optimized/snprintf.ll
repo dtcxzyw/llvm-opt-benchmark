@@ -80,7 +80,6 @@ define noundef ptr @php_conv_fp(i8 noundef signext %0, double noundef %1, i1 nou
   %27 = add i64 %26, 1
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %6, ptr nonnull align 1 %.060, i64 %27, i1 false)
   store i8 0, ptr %5, align 1
-  call void @free(ptr noundef nonnull %.060) #19
   br label %106
 
 28:                                               ; preds = %17
@@ -276,10 +275,10 @@ define noundef ptr @php_conv_fp(i8 noundef signext %0, double noundef %1, i1 nou
   %104 = ptrtoint ptr %6 to i64
   %105 = sub i64 %103, %104
   store i64 %105, ptr %7, align 8
-  call void @free(ptr noundef %.060) #19
   br label %106
 
 106:                                              ; preds = %.loopexit, %25
+  call void @free(ptr noundef %.060) #19
   ret ptr %6
 }
 

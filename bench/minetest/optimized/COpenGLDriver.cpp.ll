@@ -5528,18 +5528,18 @@ if.then52:                                        ; preds = %sw.bb50, %sw.bb50.t
   %Normal = getelementptr inbounds i8, ptr %vertices, i64 12
   tail call void @glNormalPointer(i32 noundef 5126, i32 noundef 36, ptr noundef nonnull %Normal) #24
   %TCoords = getelementptr inbounds i8, ptr %vertices, i64 28
-  tail call void @glTexCoordPointer(i32 noundef 2, i32 noundef 5126, i32 noundef 36, ptr noundef nonnull %TCoords) #24
-  tail call void @glVertexPointer(i32 noundef 3, i32 noundef 5126, i32 noundef 36, ptr noundef nonnull %vertices) #24
   br label %if.end60
 
 if.else56:                                        ; preds = %sw.bb50
   tail call void @glNormalPointer(i32 noundef 5126, i32 noundef 36, ptr noundef nonnull inttoptr (i64 12 to ptr)) #24
   tail call void @glColorPointer(i32 noundef %cond, i32 noundef 5121, i32 noundef 36, ptr noundef nonnull inttoptr (i64 24 to ptr)) #24
-  tail call void @glTexCoordPointer(i32 noundef 2, i32 noundef 5126, i32 noundef 36, ptr noundef nonnull inttoptr (i64 28 to ptr)) #24
-  tail call void @glVertexPointer(i32 noundef 3, i32 noundef 5126, i32 noundef 36, ptr noundef null) #24
   br label %if.end60
 
 if.end60:                                         ; preds = %if.else56, %if.then52
+  %.sink1 = phi ptr [ inttoptr (i64 28 to ptr), %if.else56 ], [ %TCoords, %if.then52 ]
+  %.sink = phi ptr [ null, %if.else56 ], [ %vertices, %if.then52 ]
+  tail call void @glTexCoordPointer(i32 noundef 2, i32 noundef 5126, i32 noundef 36, ptr noundef nonnull %.sink1) #24
+  tail call void @glVertexPointer(i32 noundef 3, i32 noundef 5126, i32 noundef 36, ptr noundef %.sink) #24
   %MaxTextureUnits = getelementptr inbounds i8, ptr %this, i64 1731
   %7 = load i8, ptr %MaxTextureUnits, align 1, !tbaa !151
   %cmp62.not = icmp eq i8 %7, 0
@@ -5574,18 +5574,18 @@ if.then80:                                        ; preds = %sw.bb78, %sw.bb78.t
   %Normal82 = getelementptr inbounds i8, ptr %vertices, i64 12
   tail call void @glNormalPointer(i32 noundef 5126, i32 noundef 44, ptr noundef nonnull %Normal82) #24
   %TCoords84 = getelementptr inbounds i8, ptr %vertices, i64 28
-  tail call void @glTexCoordPointer(i32 noundef 2, i32 noundef 5126, i32 noundef 44, ptr noundef nonnull %TCoords84) #24
-  tail call void @glVertexPointer(i32 noundef 3, i32 noundef 5126, i32 noundef 44, ptr noundef nonnull %vertices) #24
   br label %if.end92
 
 if.else87:                                        ; preds = %sw.bb78
   tail call void @glNormalPointer(i32 noundef 5126, i32 noundef 44, ptr noundef nonnull inttoptr (i64 12 to ptr)) #24
   tail call void @glColorPointer(i32 noundef %cond, i32 noundef 5121, i32 noundef 44, ptr noundef nonnull inttoptr (i64 24 to ptr)) #24
-  tail call void @glTexCoordPointer(i32 noundef 2, i32 noundef 5126, i32 noundef 44, ptr noundef nonnull inttoptr (i64 28 to ptr)) #24
-  tail call void @glVertexPointer(i32 noundef 3, i32 noundef 5126, i32 noundef 44, ptr noundef null) #24
   br label %if.end92
 
 if.end92:                                         ; preds = %if.else87, %if.then80
+  %.sink3 = phi ptr [ inttoptr (i64 28 to ptr), %if.else87 ], [ %TCoords84, %if.then80 ]
+  %.sink2 = phi ptr [ null, %if.else87 ], [ %vertices, %if.then80 ]
+  tail call void @glTexCoordPointer(i32 noundef 2, i32 noundef 5126, i32 noundef 44, ptr noundef nonnull %.sink3) #24
+  tail call void @glVertexPointer(i32 noundef 3, i32 noundef 5126, i32 noundef 44, ptr noundef %.sink2) #24
   %MaxTextureUnits95 = getelementptr inbounds i8, ptr %this, i64 1731
   %10 = load i8, ptr %MaxTextureUnits95, align 1, !tbaa !151
   %cmp97.not = icmp eq i8 %10, 0
@@ -5614,18 +5614,18 @@ if.then109:                                       ; preds = %sw.bb107, %sw.bb107
   %Normal111 = getelementptr inbounds i8, ptr %vertices, i64 12
   tail call void @glNormalPointer(i32 noundef 5126, i32 noundef 60, ptr noundef nonnull %Normal111) #24
   %TCoords113 = getelementptr inbounds i8, ptr %vertices, i64 28
-  tail call void @glTexCoordPointer(i32 noundef 2, i32 noundef 5126, i32 noundef 60, ptr noundef nonnull %TCoords113) #24
-  tail call void @glVertexPointer(i32 noundef 3, i32 noundef 5126, i32 noundef 60, ptr noundef nonnull %vertices) #24
   br label %if.end121
 
 if.else116:                                       ; preds = %sw.bb107
   tail call void @glNormalPointer(i32 noundef 5126, i32 noundef 60, ptr noundef nonnull inttoptr (i64 12 to ptr)) #24
   tail call void @glColorPointer(i32 noundef %cond, i32 noundef 5121, i32 noundef 60, ptr noundef nonnull inttoptr (i64 24 to ptr)) #24
-  tail call void @glTexCoordPointer(i32 noundef 2, i32 noundef 5126, i32 noundef 60, ptr noundef nonnull inttoptr (i64 28 to ptr)) #24
-  tail call void @glVertexPointer(i32 noundef 3, i32 noundef 5126, i32 noundef 60, ptr noundef null) #24
   br label %if.end121
 
 if.end121:                                        ; preds = %if.else116, %if.then109
+  %.sink5 = phi ptr [ inttoptr (i64 28 to ptr), %if.else116 ], [ %TCoords113, %if.then109 ]
+  %.sink4 = phi ptr [ null, %if.else116 ], [ %vertices, %if.then109 ]
+  tail call void @glTexCoordPointer(i32 noundef 2, i32 noundef 5126, i32 noundef 60, ptr noundef nonnull %.sink5) #24
+  tail call void @glVertexPointer(i32 noundef 3, i32 noundef 5126, i32 noundef 60, ptr noundef %.sink4) #24
   %MaxTextureUnits124 = getelementptr inbounds i8, ptr %this, i64 1731
   %12 = load i8, ptr %MaxTextureUnits124, align 1, !tbaa !151
   %cmp126.not = icmp eq i8 %12, 0
@@ -6154,17 +6154,17 @@ sw.bb75:                                          ; preds = %if.end74
 
 if.then77:                                        ; preds = %sw.bb75, %sw.bb75.thread
   %TCoords = getelementptr inbounds i8, ptr %vertices, i64 28
-  tail call void @glTexCoordPointer(i32 noundef 2, i32 noundef 5126, i32 noundef 36, ptr noundef nonnull %TCoords) #24
-  tail call void @glVertexPointer(i32 noundef 2, i32 noundef 5126, i32 noundef 36, ptr noundef nonnull %vertices) #24
   br label %if.end83
 
 if.else80:                                        ; preds = %sw.bb75
   tail call void @glColorPointer(i32 noundef %cond, i32 noundef 5121, i32 noundef 36, ptr noundef nonnull inttoptr (i64 24 to ptr)) #24
-  tail call void @glTexCoordPointer(i32 noundef 2, i32 noundef 5126, i32 noundef 36, ptr noundef nonnull inttoptr (i64 28 to ptr)) #24
-  tail call void @glVertexPointer(i32 noundef 2, i32 noundef 5126, i32 noundef 36, ptr noundef null) #24
   br label %if.end83
 
 if.end83:                                         ; preds = %if.else80, %if.then77
+  %.sink1 = phi ptr [ inttoptr (i64 28 to ptr), %if.else80 ], [ %TCoords, %if.then77 ]
+  %.sink = phi ptr [ null, %if.else80 ], [ %vertices, %if.then77 ]
+  tail call void @glTexCoordPointer(i32 noundef 2, i32 noundef 5126, i32 noundef 36, ptr noundef nonnull %.sink1) #24
+  tail call void @glVertexPointer(i32 noundef 2, i32 noundef 5126, i32 noundef 36, ptr noundef %.sink) #24
   %MaxTextureUnits = getelementptr inbounds i8, ptr %this, i64 1731
   %14 = load i8, ptr %MaxTextureUnits, align 1, !tbaa !151
   %cmp85.not = icmp eq i8 %14, 0
@@ -6196,17 +6196,17 @@ sw.bb101:                                         ; preds = %if.end74
 
 if.then103:                                       ; preds = %sw.bb101, %sw.bb101.thread
   %TCoords105 = getelementptr inbounds i8, ptr %vertices, i64 28
-  tail call void @glTexCoordPointer(i32 noundef 2, i32 noundef 5126, i32 noundef 44, ptr noundef nonnull %TCoords105) #24
-  tail call void @glVertexPointer(i32 noundef 2, i32 noundef 5126, i32 noundef 44, ptr noundef nonnull %vertices) #24
   br label %if.end112
 
 if.else108:                                       ; preds = %sw.bb101
   tail call void @glColorPointer(i32 noundef %cond, i32 noundef 5121, i32 noundef 44, ptr noundef nonnull inttoptr (i64 24 to ptr)) #24
-  tail call void @glTexCoordPointer(i32 noundef 2, i32 noundef 5126, i32 noundef 44, ptr noundef nonnull inttoptr (i64 28 to ptr)) #24
-  tail call void @glVertexPointer(i32 noundef 2, i32 noundef 5126, i32 noundef 44, ptr noundef null) #24
   br label %if.end112
 
 if.end112:                                        ; preds = %if.else108, %if.then103
+  %.sink3 = phi ptr [ inttoptr (i64 28 to ptr), %if.else108 ], [ %TCoords105, %if.then103 ]
+  %.sink2 = phi ptr [ null, %if.else108 ], [ %vertices, %if.then103 ]
+  tail call void @glTexCoordPointer(i32 noundef 2, i32 noundef 5126, i32 noundef 44, ptr noundef nonnull %.sink3) #24
+  tail call void @glVertexPointer(i32 noundef 2, i32 noundef 5126, i32 noundef 44, ptr noundef %.sink2) #24
   %MaxTextureUnits115 = getelementptr inbounds i8, ptr %this, i64 1731
   %17 = load i8, ptr %MaxTextureUnits115, align 1, !tbaa !151
   %cmp117.not = icmp eq i8 %17, 0

@@ -1558,7 +1558,7 @@ rb_vm_lock_leave.exit:                            ; preds = %rb_enc_from_index.e
 ; Function Attrs: nounwind sspstrong uwtable
 define internal fastcc range(i32 0, -2147483648) i32 @enc_replicate_with_index(ptr noundef %0, ptr noundef %1, i32 noundef %2) unnamed_addr #0 {
   %4 = icmp slt i32 %2, 0
-  br i1 %4, label %5, label %12
+  br i1 %4, label %5, label %11
 
 5:                                                ; preds = %3
   %6 = load i32, ptr getelementptr inbounds (i8, ptr @global_enc_table, i64 6144), align 8
@@ -1573,58 +1573,54 @@ define internal fastcc range(i32 0, -2147483648) i32 @enc_replicate_with_index(p
 
 enc_register.exit:                                ; preds = %5
   store i32 %7, ptr getelementptr inbounds (i8, ptr @global_enc_table, i64 6144), align 8
-  %11 = tail call fastcc noundef i32 @enc_register_at(i32 noundef %6, ptr noundef %0, ptr noundef %1)
-  br label %14
+  br label %11
 
-12:                                               ; preds = %3
-  %13 = tail call fastcc i32 @enc_register_at(i32 noundef %2, ptr noundef %0, ptr noundef %1)
-  br label %14
+11:                                               ; preds = %3, %enc_register.exit
+  %.sink = phi i32 [ %6, %enc_register.exit ], [ %2, %3 ]
+  %12 = tail call fastcc i32 @enc_register_at(i32 noundef %.sink, ptr noundef %0, ptr noundef %1)
+  %13 = icmp sgt i32 %12, -1
+  br i1 %13, label %14, label %33
 
-14:                                               ; preds = %12, %enc_register.exit
-  %.0 = phi i32 [ %11, %enc_register.exit ], [ %13, %12 ]
-  %15 = icmp sgt i32 %.0, -1
-  br i1 %15, label %16, label %35
+14:                                               ; preds = %11
+  %15 = zext nneg i32 %12 to i64
+  %16 = getelementptr [256 x %struct.rb_encoding_entry], ptr @global_enc_table, i64 0, i64 %15
+  %17 = getelementptr inbounds i8, ptr %16, i64 8
+  %18 = load ptr, ptr %17, align 8, !nonnull !14, !noundef !14
+  %19 = getelementptr inbounds i8, ptr %16, i64 16
+  store ptr %1, ptr %19, align 8
+  %20 = getelementptr inbounds i8, ptr %1, i64 128
+  %21 = load i32, ptr %20, align 8
+  %22 = and i32 %21, 16777216
+  %.not.i = icmp eq i32 %22, 0
+  br i1 %.not.i, label %set_base_encoding.exit, label %23
 
-16:                                               ; preds = %14
-  %17 = zext nneg i32 %.0 to i64
-  %18 = getelementptr [256 x %struct.rb_encoding_entry], ptr @global_enc_table, i64 0, i64 %17
-  %19 = getelementptr inbounds i8, ptr %18, i64 8
-  %20 = load ptr, ptr %19, align 8, !nonnull !14, !noundef !14
-  %21 = getelementptr inbounds i8, ptr %18, i64 16
-  store ptr %1, ptr %21, align 8
-  %22 = getelementptr inbounds i8, ptr %1, i64 128
-  %23 = load i32, ptr %22, align 8
-  %24 = and i32 %23, 16777216
-  %.not.i = icmp eq i32 %24, 0
-  br i1 %.not.i, label %set_base_encoding.exit, label %25
-
-25:                                               ; preds = %16
-  %26 = getelementptr inbounds i8, ptr %20, i64 128
-  %27 = load i32, ptr %26, align 8
-  %28 = or i32 %27, 16777216
-  store i32 %28, ptr %26, align 8
+23:                                               ; preds = %14
+  %24 = getelementptr inbounds i8, ptr %18, i64 128
+  %25 = load i32, ptr %24, align 8
+  %26 = or i32 %25, 16777216
+  store i32 %26, ptr %24, align 8
   br label %set_base_encoding.exit
 
-set_base_encoding.exit:                           ; preds = %16, %25
-  %29 = load i32, ptr getelementptr inbounds (i8, ptr @global_enc_table, i64 6144), align 8
-  %30 = and i32 %.0, 16777215
-  %.not = icmp sgt i32 %29, %30
-  br i1 %.not, label %31, label %rb_enc_from_index.exit
+set_base_encoding.exit:                           ; preds = %14, %23
+  %27 = load i32, ptr getelementptr inbounds (i8, ptr @global_enc_table, i64 6144), align 8
+  %28 = and i32 %12, 16777215
+  %.not = icmp sgt i32 %27, %28
+  br i1 %.not, label %29, label %rb_enc_from_index.exit
 
-31:                                               ; preds = %set_base_encoding.exit
-  %32 = zext nneg i32 %30 to i64
-  %33 = getelementptr [256 x %struct.rb_encoding_entry], ptr @global_enc_table, i64 0, i64 %32, i32 1
-  %34 = load ptr, ptr %33, align 8
+29:                                               ; preds = %set_base_encoding.exit
+  %30 = zext nneg i32 %28 to i64
+  %31 = getelementptr [256 x %struct.rb_encoding_entry], ptr @global_enc_table, i64 0, i64 %30, i32 1
+  %32 = load ptr, ptr %31, align 8
   br label %rb_enc_from_index.exit
 
-rb_enc_from_index.exit:                           ; preds = %set_base_encoding.exit, %31
-  %.05.i.i = phi ptr [ %34, %31 ], [ null, %set_base_encoding.exit ]
+rb_enc_from_index.exit:                           ; preds = %set_base_encoding.exit, %29
+  %.05.i.i = phi ptr [ %32, %29 ], [ null, %set_base_encoding.exit ]
   tail call fastcc void @set_encoding_const(ptr noundef %0, ptr noundef %.05.i.i)
-  ret i32 %.0
+  ret i32 %12
 
-35:                                               ; preds = %14
-  %36 = load i64, ptr @rb_eArgError, align 8
-  tail call void (i64, ptr, ...) @rb_raise(i64 noundef %36, ptr noundef nonnull @.str.43) #23
+33:                                               ; preds = %11
+  %34 = load i64, ptr @rb_eArgError, align 8
+  tail call void (i64, ptr, ...) @rb_raise(i64 noundef %34, ptr noundef nonnull @.str.43) #23
   unreachable
 }
 

@@ -1036,9 +1036,9 @@ if.end.i:                                         ; preds = %if.end77
   %29 = load i32, ptr @curl_ssl_verify, align 4
   %tobool1.not.i68 = icmp ne i32 %29, 0
   %..i = zext i1 %tobool1.not.i68 to i32
-  %.199.i = select i1 %tobool1.not.i68, i32 2, i32 0
+  %.200.i = select i1 %tobool1.not.i68, i32 2, i32 0
   %call5.i = call i32 (ptr, i32, ...) @curl_easy_setopt(ptr noundef nonnull %call.i66, i32 noundef 64, i32 noundef %..i) #21
-  %call6.i = call i32 (ptr, i32, ...) @curl_easy_setopt(ptr noundef nonnull %call.i66, i32 noundef 81, i32 noundef %.199.i) #21
+  %call6.i = call i32 (ptr, i32, ...) @curl_easy_setopt(ptr noundef nonnull %call.i66, i32 noundef 81, i32 noundef %.200.i) #21
   %30 = load ptr, ptr @curl_http_version, align 8
   %tobool8.not.i = icmp eq ptr %30, null
   br i1 %tobool8.not.i, label %if.end15.i, label %for.body.i.i
@@ -1326,8 +1326,7 @@ land.lhs.true123.i:                               ; preds = %if.end121.i
 
 if.then128.i:                                     ; preds = %land.lhs.true123.i
   %call129.i = call i32 (ptr, i32, ...) @curl_easy_setopt(ptr noundef %call.i66, i32 noundef 10065, ptr noundef null) #21
-  %call130.i = call i32 (ptr, i32, ...) @curl_easy_setopt(ptr noundef %call.i66, i32 noundef 10246, ptr noundef null) #21
-  br label %if.end146.i
+  br label %if.end146.sink.split.i
 
 if.else131.i:                                     ; preds = %land.lhs.true123.i, %if.end121.i
   %64 = load ptr, ptr @ssl_cainfo, align 8
@@ -1348,13 +1347,14 @@ if.then138.i:                                     ; preds = %if.then136.i
 if.end140.i:                                      ; preds = %if.then138.i, %if.then136.i
   %66 = phi ptr [ %.pr166.i, %if.then138.i ], [ %65, %if.then136.i ]
   %tobool141.not.i = icmp eq ptr %66, null
-  br i1 %tobool141.not.i, label %if.end146.i, label %if.then142.i
+  br i1 %tobool141.not.i, label %if.end146.i, label %if.end146.sink.split.i
 
-if.then142.i:                                     ; preds = %if.end140.i
-  %call143.i = call i32 (ptr, i32, ...) @curl_easy_setopt(ptr noundef %call.i66, i32 noundef 10246, ptr noundef nonnull %66) #21
+if.end146.sink.split.i:                           ; preds = %if.end140.i, %if.then128.i
+  %.sink199.i = phi ptr [ null, %if.then128.i ], [ %66, %if.end140.i ]
+  %call143.i = call i32 (ptr, i32, ...) @curl_easy_setopt(ptr noundef %call.i66, i32 noundef 10246, ptr noundef %.sink199.i) #21
   br label %if.end146.i
 
-if.end146.i:                                      ; preds = %if.then142.i, %if.end140.i, %if.else131.i, %if.then128.i
+if.end146.i:                                      ; preds = %if.end146.sink.split.i, %if.end140.i, %if.else131.i
   %67 = load i64, ptr @curl_low_speed_limit, align 8
   %cmp147.i = icmp sgt i64 %67, 0
   %68 = load i64, ptr @curl_low_speed_time, align 8
@@ -4788,31 +4788,21 @@ if.then.i:                                        ; preds = %if.end20
   %15 = load ptr, ptr @the_repository, align 8
   %hash_algo.i = getelementptr inbounds i8, ptr %15, i64 256
   %16 = load ptr, ptr %hash_algo.i, align 8
-  br label %if.end.i20
+  br label %oideq.exit
 
 if.else.i:                                        ; preds = %if.end20
   %idxprom.i = sext i32 %14 to i64
   %arrayidx.i = getelementptr inbounds [3 x %struct.git_hash_algo], ptr @hash_algos, i64 0, i64 %idxprom.i
-  br label %if.end.i20
+  br label %oideq.exit
 
-if.end.i20:                                       ; preds = %if.else.i, %if.then.i
+oideq.exit:                                       ; preds = %if.then.i, %if.else.i
   %algop.0.i = phi ptr [ %arrayidx.i, %if.else.i ], [ %16, %if.then.i ]
   %17 = getelementptr i8, ptr %algop.0.i, i64 16
   %algop.0.val.i = load i64, ptr %17, align 8
   %cmp.i.i = icmp eq i64 %algop.0.val.i, 32
-  br i1 %cmp.i.i, label %if.then.i.i, label %if.end.i.i
-
-if.then.i.i:                                      ; preds = %if.end.i20
-  %bcmp3.i.i = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(32) %oid, ptr noundef nonnull readonly dereferenceable(32) %real_oid, i64 32)
-  br label %oideq.exit
-
-if.end.i.i:                                       ; preds = %if.end.i20
-  %bcmp.i.i = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(20) %oid, ptr noundef nonnull readonly dereferenceable(20) %real_oid, i64 20)
-  br label %oideq.exit
-
-oideq.exit:                                       ; preds = %if.then.i.i, %if.end.i.i
-  %retval.0.in.in.i.i = phi i32 [ %bcmp3.i.i, %if.then.i.i ], [ %bcmp.i.i, %if.end.i.i ]
-  %retval.0.in.i.i.not = icmp eq i32 %retval.0.in.in.i.i, 0
+  %..i.i = select i1 %cmp.i.i, i64 32, i64 20
+  %bcmp.i.i = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(20) %oid, ptr noundef nonnull readonly dereferenceable(20) %real_oid, i64 %..i.i)
+  %retval.0.in.i.i.not = icmp eq i32 %bcmp.i.i, 0
   br i1 %retval.0.in.i.i.not, label %if.end27, label %if.then23
 
 if.then23:                                        ; preds = %oideq.exit

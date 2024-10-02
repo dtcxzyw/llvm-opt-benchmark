@@ -2459,131 +2459,118 @@ define linkonce_odr hidden void @_ZN4llvm15SparseBitVectorILj8EE3setEj(ptr nound
   %3 = lshr i32 %1, 3
   %4 = load ptr, ptr %0, align 8
   %5 = icmp eq ptr %4, %0
-  br i1 %5, label %6, label %10
+  br i1 %5, label %.sink.split, label %6
 
 6:                                                ; preds = %2
-  %7 = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #14
-  %8 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  store i32 %3, ptr %8, align 8
-  %9 = getelementptr inbounds nuw i8, ptr %7, i64 24
-  store i64 0, ptr %9, align 8
-  tail call void @_ZNSt8__detail15_List_node_base7_M_hookEPS0_(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull %0) #13
-  br label %.sink.split
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %8 = load ptr, ptr %7, align 8
+  %9 = icmp eq ptr %8, %0
+  br i1 %9, label %10, label %13
 
-10:                                               ; preds = %2
-  %11 = getelementptr inbounds nuw i8, ptr %0, i64 24
+10:                                               ; preds = %6
+  %11 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %12 = load ptr, ptr %11, align 8
-  %13 = icmp eq ptr %12, %0
-  br i1 %13, label %14, label %17
+  store ptr %12, ptr %7, align 8
+  br label %13
 
-14:                                               ; preds = %10
-  %15 = getelementptr inbounds nuw i8, ptr %12, i64 8
-  %16 = load ptr, ptr %15, align 8
-  store ptr %16, ptr %11, align 8
-  br label %17
+13:                                               ; preds = %10, %6
+  %.in.i.i = phi ptr [ %12, %10 ], [ %8, %6 ]
+  %14 = getelementptr inbounds nuw i8, ptr %.in.i.i, i64 16
+  %15 = load i32, ptr %14, align 8
+  %16 = icmp eq i32 %15, %3
+  br i1 %16, label %_ZN4llvm15SparseBitVectorILj8EE14FindLowerBoundEj.exit, label %17
 
-17:                                               ; preds = %14, %10
-  %.in.i.i = phi ptr [ %16, %14 ], [ %12, %10 ]
-  %18 = getelementptr inbounds nuw i8, ptr %.in.i.i, i64 16
-  %19 = load i32, ptr %18, align 8
-  %20 = icmp eq i32 %19, %3
-  br i1 %20, label %_ZN4llvm15SparseBitVectorILj8EE14FindLowerBoundEj.exit, label %21
+17:                                               ; preds = %13
+  %18 = icmp ugt i32 %15, %3
+  br i1 %18, label %.preheader.i.i, label %.preheader16.i.i
 
-21:                                               ; preds = %17
-  %22 = icmp ugt i32 %19, %3
-  br i1 %22, label %.preheader.i.i, label %.preheader16.i.i
-
-.preheader16.i.i:                                 ; preds = %21
+.preheader16.i.i:                                 ; preds = %17
   %.not18.i.i = icmp eq ptr %0, %.in.i.i
   br i1 %.not18.i.i, label %.sink.split.i.i, label %.lr.ph.i.i
 
-.preheader.i.i:                                   ; preds = %21
+.preheader.i.i:                                   ; preds = %17
   %.not1522.i.i = icmp eq ptr %4, %.in.i.i
   br i1 %.not1522.i.i, label %.sink.split.i.i, label %.lr.ph24.i.i
 
-.lr.ph24.i.i:                                     ; preds = %.preheader.i.i, %26
-  %.sroa.08.123.i.i = phi ptr [ %28, %26 ], [ %.in.i.i, %.preheader.i.i ]
-  %23 = getelementptr inbounds nuw i8, ptr %.sroa.08.123.i.i, i64 16
-  %24 = load i32, ptr %23, align 8
-  %25 = icmp ugt i32 %24, %3
-  br i1 %25, label %26, label %.sink.split.i.i
+.lr.ph24.i.i:                                     ; preds = %.preheader.i.i, %22
+  %.sroa.08.123.i.i = phi ptr [ %24, %22 ], [ %.in.i.i, %.preheader.i.i ]
+  %19 = getelementptr inbounds nuw i8, ptr %.sroa.08.123.i.i, i64 16
+  %20 = load i32, ptr %19, align 8
+  %21 = icmp ugt i32 %20, %3
+  br i1 %21, label %22, label %.sink.split.i.i
 
-26:                                               ; preds = %.lr.ph24.i.i
-  %27 = getelementptr inbounds nuw i8, ptr %.sroa.08.123.i.i, i64 8
-  %28 = load ptr, ptr %27, align 8
-  %.not15.i.i = icmp eq ptr %28, %4
+22:                                               ; preds = %.lr.ph24.i.i
+  %23 = getelementptr inbounds nuw i8, ptr %.sroa.08.123.i.i, i64 8
+  %24 = load ptr, ptr %23, align 8
+  %.not15.i.i = icmp eq ptr %24, %4
   br i1 %.not15.i.i, label %.sink.split.i.i, label %.lr.ph24.i.i, !llvm.loop !7
 
-.lr.ph.i.i:                                       ; preds = %.preheader16.i.i, %32
-  %.sroa.08.219.i.i = phi ptr [ %33, %32 ], [ %.in.i.i, %.preheader16.i.i ]
-  %29 = getelementptr inbounds nuw i8, ptr %.sroa.08.219.i.i, i64 16
-  %30 = load i32, ptr %29, align 8
-  %31 = icmp ult i32 %30, %3
-  br i1 %31, label %32, label %.sink.split.i.i
+.lr.ph.i.i:                                       ; preds = %.preheader16.i.i, %28
+  %.sroa.08.219.i.i = phi ptr [ %29, %28 ], [ %.in.i.i, %.preheader16.i.i ]
+  %25 = getelementptr inbounds nuw i8, ptr %.sroa.08.219.i.i, i64 16
+  %26 = load i32, ptr %25, align 8
+  %27 = icmp ult i32 %26, %3
+  br i1 %27, label %28, label %.sink.split.i.i
 
-32:                                               ; preds = %.lr.ph.i.i
-  %33 = load ptr, ptr %.sroa.08.219.i.i, align 8
-  %.not.i.i = icmp eq ptr %33, %0
+28:                                               ; preds = %.lr.ph.i.i
+  %29 = load ptr, ptr %.sroa.08.219.i.i, align 8
+  %.not.i.i = icmp eq ptr %29, %0
   br i1 %.not.i.i, label %.sink.split.i.i, label %.lr.ph.i.i, !llvm.loop !8
 
-.sink.split.i.i:                                  ; preds = %32, %.lr.ph.i.i, %26, %.lr.ph24.i.i, %.preheader.i.i, %.preheader16.i.i
-  %.sroa.08.3.sink.i.i = phi ptr [ %4, %.preheader.i.i ], [ %0, %.preheader16.i.i ], [ %.sroa.08.123.i.i, %.lr.ph24.i.i ], [ %4, %26 ], [ %.sroa.08.219.i.i, %.lr.ph.i.i ], [ %0, %32 ]
-  %.sroa.08.0.ph.i.i = phi ptr [ %.in.i.i, %.preheader.i.i ], [ %.in.i.i, %.preheader16.i.i ], [ %.sroa.08.123.i.i, %.lr.ph24.i.i ], [ %28, %26 ], [ %.sroa.08.219.i.i, %.lr.ph.i.i ], [ %33, %32 ]
-  %34 = ptrtoint ptr %.sroa.08.3.sink.i.i to i64
-  store i64 %34, ptr %11, align 8
+.sink.split.i.i:                                  ; preds = %28, %.lr.ph.i.i, %22, %.lr.ph24.i.i, %.preheader.i.i, %.preheader16.i.i
+  %.sroa.08.3.sink.i.i = phi ptr [ %4, %.preheader.i.i ], [ %0, %.preheader16.i.i ], [ %.sroa.08.123.i.i, %.lr.ph24.i.i ], [ %4, %22 ], [ %.sroa.08.219.i.i, %.lr.ph.i.i ], [ %0, %28 ]
+  %.sroa.08.0.ph.i.i = phi ptr [ %.in.i.i, %.preheader.i.i ], [ %.in.i.i, %.preheader16.i.i ], [ %.sroa.08.123.i.i, %.lr.ph24.i.i ], [ %24, %22 ], [ %.sroa.08.219.i.i, %.lr.ph.i.i ], [ %29, %28 ]
+  %30 = ptrtoint ptr %.sroa.08.3.sink.i.i to i64
+  store i64 %30, ptr %7, align 8
   br label %_ZN4llvm15SparseBitVectorILj8EE14FindLowerBoundEj.exit
 
-_ZN4llvm15SparseBitVectorILj8EE14FindLowerBoundEj.exit: ; preds = %17, %.sink.split.i.i
-  %.sroa.08.0.i.i = phi ptr [ %.in.i.i, %17 ], [ %.sroa.08.0.ph.i.i, %.sink.split.i.i ]
-  %35 = icmp eq ptr %.sroa.08.0.i.i, %0
-  br i1 %35, label %.critedge2, label %36
+_ZN4llvm15SparseBitVectorILj8EE14FindLowerBoundEj.exit: ; preds = %13, %.sink.split.i.i
+  %.sroa.08.0.i.i = phi ptr [ %.in.i.i, %13 ], [ %.sroa.08.0.ph.i.i, %.sink.split.i.i ]
+  %31 = icmp eq ptr %.sroa.08.0.i.i, %0
+  br i1 %31, label %.sink.split, label %32
 
-36:                                               ; preds = %_ZN4llvm15SparseBitVectorILj8EE14FindLowerBoundEj.exit
-  %37 = getelementptr inbounds nuw i8, ptr %.sroa.08.0.i.i, i64 16
-  %38 = load i32, ptr %37, align 8
-  %.not = icmp eq i32 %38, %3
-  br i1 %.not, label %50, label %.critedge
+32:                                               ; preds = %_ZN4llvm15SparseBitVectorILj8EE14FindLowerBoundEj.exit
+  %33 = getelementptr inbounds nuw i8, ptr %.sroa.08.0.i.i, i64 16
+  %34 = load i32, ptr %33, align 8
+  %.not = icmp eq i32 %34, %3
+  br i1 %.not, label %46, label %.critedge
 
-.critedge:                                        ; preds = %36
-  %39 = getelementptr inbounds nuw i8, ptr %.sroa.08.0.i.i, i64 16
-  %40 = load i32, ptr %39, align 8
-  %41 = icmp ult i32 %40, %3
-  br i1 %41, label %42, label %.critedge2
+.critedge:                                        ; preds = %32
+  %35 = getelementptr inbounds nuw i8, ptr %.sroa.08.0.i.i, i64 16
+  %36 = load i32, ptr %35, align 8
+  %37 = icmp ult i32 %36, %3
+  br i1 %37, label %38, label %.sink.split
 
-42:                                               ; preds = %.critedge
-  %43 = load ptr, ptr %.sroa.08.0.i.i, align 8
-  br label %.critedge2
-
-.critedge2:                                       ; preds = %_ZN4llvm15SparseBitVectorILj8EE14FindLowerBoundEj.exit, %42, %.critedge
-  %.sroa.010.1 = phi ptr [ %43, %42 ], [ %.sroa.08.0.i.i, %.critedge ], [ %.sroa.08.0.i.i, %_ZN4llvm15SparseBitVectorILj8EE14FindLowerBoundEj.exit ]
-  %44 = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #14
-  %45 = getelementptr inbounds nuw i8, ptr %44, i64 16
-  store i32 %3, ptr %45, align 8
-  %46 = getelementptr inbounds nuw i8, ptr %44, i64 24
-  store i64 0, ptr %46, align 8
-  tail call void @_ZNSt8__detail15_List_node_base7_M_hookEPS0_(ptr noundef nonnull align 8 dereferenceable(16) %44, ptr noundef %.sroa.010.1) #13
+38:                                               ; preds = %.critedge
+  %39 = load ptr, ptr %.sroa.08.0.i.i, align 8
   br label %.sink.split
 
-.sink.split:                                      ; preds = %6, %.critedge2
-  %.sroa.010.0.ph = phi ptr [ %44, %.critedge2 ], [ %7, %6 ]
-  %47 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %48 = load i64, ptr %47, align 8
-  %49 = add i64 %48, 1
-  store i64 %49, ptr %47, align 8
-  br label %50
+.sink.split:                                      ; preds = %.critedge, %38, %_ZN4llvm15SparseBitVectorILj8EE14FindLowerBoundEj.exit, %2
+  %.sroa.010.1.sink = phi ptr [ %0, %2 ], [ %39, %38 ], [ %.sroa.08.0.i.i, %.critedge ], [ %.sroa.08.0.i.i, %_ZN4llvm15SparseBitVectorILj8EE14FindLowerBoundEj.exit ]
+  %40 = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #14
+  %41 = getelementptr inbounds nuw i8, ptr %40, i64 16
+  store i32 %3, ptr %41, align 8
+  %42 = getelementptr inbounds nuw i8, ptr %40, i64 24
+  store i64 0, ptr %42, align 8
+  tail call void @_ZNSt8__detail15_List_node_base7_M_hookEPS0_(ptr noundef nonnull align 8 dereferenceable(16) %40, ptr noundef %.sroa.010.1.sink) #13
+  %43 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %44 = load i64, ptr %43, align 8
+  %45 = add i64 %44, 1
+  store i64 %45, ptr %43, align 8
+  br label %46
 
-50:                                               ; preds = %.sink.split, %36
-  %.sroa.010.0 = phi ptr [ %.sroa.08.0.i.i, %36 ], [ %.sroa.010.0.ph, %.sink.split ]
-  %51 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %52 = ptrtoint ptr %.sroa.010.0 to i64
-  store i64 %52, ptr %51, align 8
-  %53 = and i32 %1, 7
-  %54 = zext nneg i32 %53 to i64
-  %55 = shl nuw nsw i64 1, %54
-  %56 = getelementptr inbounds nuw i8, ptr %.sroa.010.0, i64 24
-  %57 = load i64, ptr %56, align 8
-  %58 = or i64 %57, %55
-  store i64 %58, ptr %56, align 8
+46:                                               ; preds = %.sink.split, %32
+  %.sroa.010.0 = phi ptr [ %.sroa.08.0.i.i, %32 ], [ %40, %.sink.split ]
+  %47 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %48 = ptrtoint ptr %.sroa.010.0 to i64
+  store i64 %48, ptr %47, align 8
+  %49 = and i32 %1, 7
+  %50 = zext nneg i32 %49 to i64
+  %51 = shl nuw nsw i64 1, %50
+  %52 = getelementptr inbounds nuw i8, ptr %.sroa.010.0, i64 24
+  %53 = load i64, ptr %52, align 8
+  %54 = or i64 %53, %51
+  store i64 %54, ptr %52, align 8
   ret void
 }
 

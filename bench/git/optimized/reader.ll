@@ -1380,7 +1380,7 @@ if.end:                                           ; preds = %entry
 if.else.i:                                        ; preds = %if.end
   %0 = load ptr, ptr %src, align 8
   %tobool.not.i.i = icmp eq ptr %0, null
-  br i1 %tobool.not.i.i, label %reftable_new_reader.exit.thread, label %if.end.i.i
+  br i1 %tobool.not.i.i, label %reftable_reader_free.exit.sink.split, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %if.else.i
   %close.i.i = getelementptr inbounds i8, ptr %0, i64 24
@@ -1388,12 +1388,7 @@ if.end.i.i:                                       ; preds = %if.else.i
   %arg.i.i = getelementptr inbounds i8, ptr %src, i64 8
   %2 = load ptr, ptr %arg.i.i, align 8
   call void %1(ptr noundef %2) #11
-  store ptr null, ptr %src, align 8
-  br label %reftable_new_reader.exit.thread
-
-reftable_new_reader.exit.thread:                  ; preds = %if.else.i, %if.end.i.i
-  call void @reftable_free(ptr noundef %call.i) #11
-  br label %reftable_reader_free.exit
+  br label %reftable_reader_free.exit.sink.split.sink.split
 
 done:                                             ; preds = %if.end
   store ptr @reader_vtable, ptr %tab, align 8
@@ -1421,12 +1416,21 @@ if.end.i.i.i:                                     ; preds = %if.end.i
 reader_close.exit.i:                              ; preds = %if.end.i.i.i, %if.end.i
   %6 = load ptr, ptr %call.i, align 8
   call void @free(ptr noundef %6) #11
-  store ptr null, ptr %call.i, align 8
-  call void @reftable_free(ptr noundef nonnull %call.i) #11
+  br label %reftable_reader_free.exit.sink.split.sink.split
+
+reftable_reader_free.exit.sink.split.sink.split:  ; preds = %reader_close.exit.i, %if.end.i.i
+  %src.sink = phi ptr [ %src, %if.end.i.i ], [ %call.i, %reader_close.exit.i ]
+  %err.010.ph.ph = phi i32 [ %call1.i, %if.end.i.i ], [ %call5, %reader_close.exit.i ]
+  store ptr null, ptr %src.sink, align 8
+  br label %reftable_reader_free.exit.sink.split
+
+reftable_reader_free.exit.sink.split:             ; preds = %reftable_reader_free.exit.sink.split.sink.split, %if.else.i
+  %err.010.ph = phi i32 [ %call1.i, %if.else.i ], [ %err.010.ph.ph, %reftable_reader_free.exit.sink.split.sink.split ]
+  call void @reftable_free(ptr noundef %call.i) #11
   br label %reftable_reader_free.exit
 
-reftable_reader_free.exit:                        ; preds = %reftable_new_reader.exit.thread, %entry, %done, %reader_close.exit.i
-  %err.010 = phi i32 [ %call5, %done ], [ %call5, %reader_close.exit.i ], [ %call1.i, %reftable_new_reader.exit.thread ], [ %call, %entry ]
+reftable_reader_free.exit:                        ; preds = %reftable_reader_free.exit.sink.split, %entry, %done
+  %err.010 = phi i32 [ %call5, %done ], [ %call, %entry ], [ %err.010.ph, %reftable_reader_free.exit.sink.split ]
   ret i32 %err.010
 }
 

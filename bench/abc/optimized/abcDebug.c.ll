@@ -54,7 +54,6 @@ Abc_Clock.exit:                                   ; preds = %2, %9
 
 17:                                               ; preds = %Abc_Clock.exit
   %puts = call i32 @puts(ptr nonnull dereferenceable(1) @str)
-  call void @Abc_NtkDelete(ptr noundef %13) #10
   br label %159
 
 18:                                               ; preds = %Abc_Clock.exit45, %.preheader
@@ -395,10 +394,11 @@ Abc_Clock.exit47:                                 ; preds = %145, %149
   %157 = sitofp i64 %156 to double
   %158 = fdiv double %157, 1.000000e+06
   call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.6, double noundef %158)
-  call void @Abc_NtkDelete(ptr noundef nonnull %.1) #10
   br label %159
 
 159:                                              ; preds = %Abc_Clock.exit47, %17
+  %.1.lcssa.sink = phi ptr [ %.1, %Abc_Clock.exit47 ], [ %13, %17 ]
+  call void @Abc_NtkDelete(ptr noundef %.1.lcssa.sink) #10
   ret void
 }
 

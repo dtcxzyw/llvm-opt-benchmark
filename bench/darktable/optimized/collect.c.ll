@@ -1359,7 +1359,6 @@ define internal fastcc void @_tree_view(ptr noundef %0) unnamed_addr #1 {
   %147 = call noalias ptr (ptr, ...) @g_strconcat(ptr noundef %146, ptr noundef nonnull @.str.93, ptr noundef null) #17
   %148 = call noalias ptr @g_utf8_collate_key_for_filename(ptr noundef %147, i64 noundef -1) #17
   call void @g_free(ptr noundef %147) #17
-  call void @g_free(ptr noundef %146) #17
   br label %174
 
 149:                                              ; preds = %137, %133
@@ -1405,14 +1404,15 @@ define internal fastcc void @_tree_view(ptr noundef %0) unnamed_addr #1 {
 
 172:                                              ; preds = %166
   %173 = call noalias ptr @g_utf8_collate_key_for_filename(ptr noundef nonnull %154, i64 noundef -1) #17
-  call void @g_free(ptr noundef nonnull %154) #17
   br label %174
 
 174:                                              ; preds = %172, %145
-  %175 = phi i1 [ true, %145 ], [ false, %172 ]
-  %176 = phi i32 [ %144, %145 ], [ %150, %172 ]
-  %177 = phi ptr [ %142, %145 ], [ %151, %172 ]
-  %178 = phi ptr [ %148, %145 ], [ %173, %172 ]
+  %.sink = phi ptr [ %154, %172 ], [ %146, %145 ]
+  %175 = phi i1 [ false, %172 ], [ true, %145 ]
+  %176 = phi i32 [ %150, %172 ], [ %144, %145 ]
+  %177 = phi ptr [ %151, %172 ], [ %142, %145 ]
+  %178 = phi ptr [ %173, %172 ], [ %148, %145 ]
+  call void @g_free(ptr noundef %.sink) #17
   %179 = call noalias dereferenceable_or_null(24) ptr @malloc(i64 noundef 24) #18
   store ptr %177, ptr %179, align 8, !tbaa !62
   %180 = getelementptr inbounds i8, ptr %179, i64 8
@@ -3968,8 +3968,7 @@ define internal noundef range(i32 0, 2) i32 @view_onButtonPressed(ptr noundef %0
   %69 = call ptr @g_type_check_instance_cast(ptr noundef %0, i64 noundef %5) #17
   call fastcc void @row_activated_with_event(ptr noundef %69, ptr noundef nonnull %1, ptr noundef nonnull %2)
   %70 = load ptr, ptr %4, align 8, !tbaa !55
-  call void @gtk_tree_path_free(ptr noundef %70) #17
-  br label %151
+  br label %.sink.split
 
 71:                                               ; preds = %56, %53, %45, %41
   %72 = load ptr, ptr %4, align 8, !tbaa !55
@@ -3991,7 +3990,7 @@ define internal noundef range(i32 0, 2) i32 @view_onButtonPressed(ptr noundef %0
 80:                                               ; preds = %76
   %81 = load i32, ptr %1, align 8, !tbaa !114
   %82 = icmp eq i32 %81, 4
-  br i1 %82, label %83, label %107
+  br i1 %82, label %83, label %106
 
 83:                                               ; preds = %80
   %84 = getelementptr inbounds i8, ptr %1, i64 52
@@ -4024,94 +4023,88 @@ define internal noundef range(i32 0, 2) i32 @view_onButtonPressed(ptr noundef %0
   call fastcc void @view_popup_menu(ptr noundef %0, ptr noundef nonnull %1)
   %104 = load ptr, ptr %4, align 8, !tbaa !55
   %105 = icmp eq ptr %104, null
-  br i1 %105, label %151, label %106
-
-106:                                              ; preds = %102
-  call void @gtk_tree_path_free(ptr noundef nonnull %104) #17
-  br label %151
+  br i1 %105, label %148, label %.sink.split
 
 thread-pre-split:                                 ; preds = %76, %83, %87, %95
   %.pr = load i32, ptr %1, align 8, !tbaa !114
-  br label %107
+  br label %106
 
-107:                                              ; preds = %thread-pre-split, %80
-  %108 = phi i32 [ %.pr, %thread-pre-split ], [ %81, %80 ]
-  %109 = getelementptr inbounds i8, ptr %2, i64 1160
-  %110 = load i32, ptr %109, align 8, !tbaa !89
-  %111 = icmp eq i32 %110, 0
-  br i1 %111, label %112, label %117
+106:                                              ; preds = %thread-pre-split, %80
+  %107 = phi i32 [ %.pr, %thread-pre-split ], [ %81, %80 ]
+  %108 = getelementptr inbounds i8, ptr %2, i64 1160
+  %109 = load i32, ptr %108, align 8, !tbaa !89
+  %110 = icmp eq i32 %109, 0
+  br i1 %110, label %111, label %116
 
-112:                                              ; preds = %107
-  switch i32 %108, label %147 [
-    i32 5, label %113
-    i32 4, label %123
+111:                                              ; preds = %106
+  switch i32 %107, label %145 [
+    i32 5, label %112
+    i32 4, label %122
   ]
 
-113:                                              ; preds = %112
-  %114 = getelementptr inbounds i8, ptr %1, i64 52
-  %115 = load i32, ptr %114, align 4, !tbaa !110
-  %116 = icmp eq i32 %115, 1
-  br i1 %116, label %142, label %147
+112:                                              ; preds = %111
+  %113 = getelementptr inbounds i8, ptr %1, i64 52
+  %114 = load i32, ptr %113, align 4, !tbaa !110
+  %115 = icmp eq i32 %114, 1
+  br i1 %115, label %141, label %145
 
-117:                                              ; preds = %107
-  %118 = icmp eq i32 %108, 4
-  br i1 %118, label %119, label %147
+116:                                              ; preds = %106
+  %117 = icmp eq i32 %107, 4
+  br i1 %117, label %118, label %145
 
-119:                                              ; preds = %117
-  %120 = getelementptr inbounds i8, ptr %1, i64 52
-  %121 = load i32, ptr %120, align 4, !tbaa !110
-  %122 = icmp eq i32 %121, 1
-  br i1 %122, label %142, label %147
+118:                                              ; preds = %116
+  %119 = getelementptr inbounds i8, ptr %1, i64 52
+  %120 = load i32, ptr %119, align 4, !tbaa !110
+  %121 = icmp eq i32 %120, 1
+  br i1 %121, label %141, label %145
 
-123:                                              ; preds = %112
-  %124 = getelementptr inbounds i8, ptr %1, i64 52
-  %125 = load i32, ptr %124, align 4, !tbaa !110
-  %126 = icmp eq i32 %125, 1
-  br i1 %126, label %127, label %147
+122:                                              ; preds = %111
+  %123 = getelementptr inbounds i8, ptr %1, i64 52
+  %124 = load i32, ptr %123, align 4, !tbaa !110
+  %125 = icmp eq i32 %124, 1
+  br i1 %125, label %126, label %145
 
-127:                                              ; preds = %123
-  %128 = getelementptr inbounds i8, ptr %1, i64 48
-  %129 = load i32, ptr %128, align 8, !tbaa !115
-  %130 = call i32 @gtk_accelerator_get_default_mod_mask() #17
-  %131 = load i32, ptr @dt_modifier_shortcuts, align 4, !tbaa !11
-  %132 = or i32 %131, %129
-  %133 = and i32 %132, %130
-  %134 = icmp eq i32 %133, 1
-  br i1 %134, label %142, label %135
+126:                                              ; preds = %122
+  %127 = getelementptr inbounds i8, ptr %1, i64 48
+  %128 = load i32, ptr %127, align 8, !tbaa !115
+  %129 = call i32 @gtk_accelerator_get_default_mod_mask() #17
+  %130 = load i32, ptr @dt_modifier_shortcuts, align 4, !tbaa !11
+  %131 = or i32 %130, %128
+  %132 = and i32 %131, %129
+  %133 = icmp eq i32 %132, 1
+  br i1 %133, label %141, label %134
 
-135:                                              ; preds = %127
-  %136 = load i32, ptr %128, align 8, !tbaa !115
-  %137 = call i32 @gtk_accelerator_get_default_mod_mask() #17
-  %138 = load i32, ptr @dt_modifier_shortcuts, align 4, !tbaa !11
-  %139 = or i32 %138, %136
-  %140 = and i32 %139, %137
-  %141 = icmp eq i32 %140, 4
-  br i1 %141, label %142, label %147
+134:                                              ; preds = %126
+  %135 = load i32, ptr %127, align 8, !tbaa !115
+  %136 = call i32 @gtk_accelerator_get_default_mod_mask() #17
+  %137 = load i32, ptr @dt_modifier_shortcuts, align 4, !tbaa !11
+  %138 = or i32 %137, %135
+  %139 = and i32 %138, %136
+  %140 = icmp eq i32 %139, 4
+  br i1 %140, label %141, label %145
 
-142:                                              ; preds = %135, %127, %119, %113
-  %143 = call ptr @g_type_check_instance_cast(ptr noundef %0, i64 noundef %5) #17
-  call fastcc void @row_activated_with_event(ptr noundef %143, ptr noundef nonnull %1, ptr noundef nonnull %2)
-  %144 = load ptr, ptr %4, align 8, !tbaa !55
-  %145 = icmp eq ptr %144, null
-  br i1 %145, label %151, label %146
+141:                                              ; preds = %134, %126, %118, %112
+  %142 = call ptr @g_type_check_instance_cast(ptr noundef %0, i64 noundef %5) #17
+  call fastcc void @row_activated_with_event(ptr noundef %142, ptr noundef nonnull %1, ptr noundef nonnull %2)
+  %143 = load ptr, ptr %4, align 8, !tbaa !55
+  %144 = icmp eq ptr %143, null
+  br i1 %144, label %148, label %.sink.split
 
-146:                                              ; preds = %142
-  call void @gtk_tree_path_free(ptr noundef nonnull %144) #17
-  br label %151
+145:                                              ; preds = %134, %122, %118, %116, %112, %111
+  %146 = load ptr, ptr %4, align 8, !tbaa !55
+  %147 = icmp eq ptr %146, null
+  br i1 %147, label %148, label %.sink.split
 
-147:                                              ; preds = %135, %123, %119, %117, %113, %112
-  %148 = load ptr, ptr %4, align 8, !tbaa !55
-  %149 = icmp eq ptr %148, null
-  br i1 %149, label %151, label %150
+.sink.split:                                      ; preds = %145, %141, %102, %68
+  %.sink = phi ptr [ %70, %68 ], [ %104, %102 ], [ %143, %141 ], [ %146, %145 ]
+  %.ph = phi i32 [ 1, %68 ], [ 1, %102 ], [ 1, %141 ], [ 0, %145 ]
+  call void @gtk_tree_path_free(ptr noundef %.sink) #17
+  br label %148
 
-150:                                              ; preds = %147
-  call void @gtk_tree_path_free(ptr noundef nonnull %148) #17
-  br label %151
-
-151:                                              ; preds = %150, %147, %146, %142, %106, %102, %68
-  %152 = phi i32 [ 1, %68 ], [ 1, %106 ], [ 1, %102 ], [ 1, %146 ], [ 1, %142 ], [ 0, %150 ], [ 0, %147 ]
+148:                                              ; preds = %.sink.split, %145, %141, %102
+  %149 = phi i32 [ 1, %102 ], [ 1, %141 ], [ 0, %145 ], [ %.ph, %.sink.split ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #17
-  ret i32 %152
+  ret i32 %149
 }
 
 ; Function Attrs: nounwind uwtable

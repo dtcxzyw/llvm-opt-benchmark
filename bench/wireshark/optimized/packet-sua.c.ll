@@ -2672,29 +2672,25 @@ define internal fastcc void @dissect_source_address_parameter(ptr noundef %0, pt
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %.split, label %.split20
 
-.split:                                           ; preds = %4
-  %6 = tail call ptr @tvb_new_subset_remaining(ptr noundef %0, i32 noundef 8) #6
-  tail call fastcc void @dissect_parameters(ptr noundef %6, ptr noundef %1, ptr noundef null, ptr noundef null, ptr noundef %3, ptr noundef null)
-  br label %20
-
 .split20:                                         ; preds = %4
-  %7 = load i32, ptr @hf_sua_source_address_routing_indicator, align 4
-  %8 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %2, i32 noundef %7, ptr noundef %0, i32 noundef 4, i32 noundef 2, i32 noundef 0) #6
-  %9 = load i32, ptr @ett_sua_source_address_indicator, align 4
-  %10 = tail call ptr @proto_tree_add_subtree(ptr noundef nonnull %2, ptr noundef %0, i32 noundef 6, i32 noundef 2, i32 noundef %9, ptr noundef null, ptr noundef nonnull @.str.439) #6
-  %11 = load i32, ptr @hf_sua_source_address_reserved_bits, align 4
-  %12 = tail call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %11, ptr noundef %0, i32 noundef 6, i32 noundef 2, i32 noundef 0) #6
-  %13 = load i32, ptr @hf_sua_source_address_gt_bit, align 4
-  %14 = tail call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %13, ptr noundef %0, i32 noundef 6, i32 noundef 2, i32 noundef 0) #6
-  %15 = load i32, ptr @hf_sua_source_address_pc_bit, align 4
-  %16 = tail call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %15, ptr noundef %0, i32 noundef 6, i32 noundef 2, i32 noundef 0) #6
-  %17 = load i32, ptr @hf_sua_source_address_ssn_bit, align 4
-  %18 = tail call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %17, ptr noundef %0, i32 noundef 6, i32 noundef 2, i32 noundef 0) #6
-  %19 = tail call ptr @tvb_new_subset_remaining(ptr noundef %0, i32 noundef 8) #6
-  tail call fastcc void @dissect_parameters(ptr noundef %19, ptr noundef %1, ptr noundef nonnull %2, ptr noundef null, ptr noundef %3, ptr noundef null)
-  br label %20
+  %6 = load i32, ptr @hf_sua_source_address_routing_indicator, align 4
+  %7 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %2, i32 noundef %6, ptr noundef %0, i32 noundef 4, i32 noundef 2, i32 noundef 0) #6
+  %8 = load i32, ptr @ett_sua_source_address_indicator, align 4
+  %9 = tail call ptr @proto_tree_add_subtree(ptr noundef nonnull %2, ptr noundef %0, i32 noundef 6, i32 noundef 2, i32 noundef %8, ptr noundef null, ptr noundef nonnull @.str.439) #6
+  %10 = load i32, ptr @hf_sua_source_address_reserved_bits, align 4
+  %11 = tail call ptr @proto_tree_add_item(ptr noundef %9, i32 noundef %10, ptr noundef %0, i32 noundef 6, i32 noundef 2, i32 noundef 0) #6
+  %12 = load i32, ptr @hf_sua_source_address_gt_bit, align 4
+  %13 = tail call ptr @proto_tree_add_item(ptr noundef %9, i32 noundef %12, ptr noundef %0, i32 noundef 6, i32 noundef 2, i32 noundef 0) #6
+  %14 = load i32, ptr @hf_sua_source_address_pc_bit, align 4
+  %15 = tail call ptr @proto_tree_add_item(ptr noundef %9, i32 noundef %14, ptr noundef %0, i32 noundef 6, i32 noundef 2, i32 noundef 0) #6
+  %16 = load i32, ptr @hf_sua_source_address_ssn_bit, align 4
+  %17 = tail call ptr @proto_tree_add_item(ptr noundef %9, i32 noundef %16, ptr noundef %0, i32 noundef 6, i32 noundef 2, i32 noundef 0) #6
+  br label %.split
 
-20:                                               ; preds = %.split, %.split20
+.split:                                           ; preds = %4, %.split20
+  %.sink21 = phi ptr [ %2, %.split20 ], [ null, %4 ]
+  %18 = tail call ptr @tvb_new_subset_remaining(ptr noundef %0, i32 noundef 8) #6
+  tail call fastcc void @dissect_parameters(ptr noundef %18, ptr noundef %1, ptr noundef %.sink21, ptr noundef null, ptr noundef %3, ptr noundef null)
   ret void
 }
 
@@ -2705,29 +2701,25 @@ define internal fastcc void @dissect_destination_address_parameter(ptr noundef %
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %.split, label %.split20
 
-.split:                                           ; preds = %4
-  %6 = tail call ptr @tvb_new_subset_remaining(ptr noundef %0, i32 noundef 8) #6
-  tail call fastcc void @dissect_parameters(ptr noundef %6, ptr noundef %1, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef %3)
-  br label %20
-
 .split20:                                         ; preds = %4
-  %7 = load i32, ptr @hf_sua_destination_address_routing_indicator, align 4
-  %8 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %2, i32 noundef %7, ptr noundef %0, i32 noundef 4, i32 noundef 2, i32 noundef 0) #6
-  %9 = load i32, ptr @ett_sua_destination_address_indicator, align 4
-  %10 = tail call ptr @proto_tree_add_subtree(ptr noundef nonnull %2, ptr noundef %0, i32 noundef 6, i32 noundef 2, i32 noundef %9, ptr noundef null, ptr noundef nonnull @.str.439) #6
-  %11 = load i32, ptr @hf_sua_destination_address_reserved_bits, align 4
-  %12 = tail call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %11, ptr noundef %0, i32 noundef 6, i32 noundef 2, i32 noundef 0) #6
-  %13 = load i32, ptr @hf_sua_destination_address_gt_bit, align 4
-  %14 = tail call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %13, ptr noundef %0, i32 noundef 6, i32 noundef 2, i32 noundef 0) #6
-  %15 = load i32, ptr @hf_sua_destination_address_pc_bit, align 4
-  %16 = tail call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %15, ptr noundef %0, i32 noundef 6, i32 noundef 2, i32 noundef 0) #6
-  %17 = load i32, ptr @hf_sua_destination_address_ssn_bit, align 4
-  %18 = tail call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %17, ptr noundef %0, i32 noundef 6, i32 noundef 2, i32 noundef 0) #6
-  %19 = tail call ptr @tvb_new_subset_remaining(ptr noundef %0, i32 noundef 8) #6
-  tail call fastcc void @dissect_parameters(ptr noundef %19, ptr noundef %1, ptr noundef nonnull %2, ptr noundef null, ptr noundef null, ptr noundef %3)
-  br label %20
+  %6 = load i32, ptr @hf_sua_destination_address_routing_indicator, align 4
+  %7 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %2, i32 noundef %6, ptr noundef %0, i32 noundef 4, i32 noundef 2, i32 noundef 0) #6
+  %8 = load i32, ptr @ett_sua_destination_address_indicator, align 4
+  %9 = tail call ptr @proto_tree_add_subtree(ptr noundef nonnull %2, ptr noundef %0, i32 noundef 6, i32 noundef 2, i32 noundef %8, ptr noundef null, ptr noundef nonnull @.str.439) #6
+  %10 = load i32, ptr @hf_sua_destination_address_reserved_bits, align 4
+  %11 = tail call ptr @proto_tree_add_item(ptr noundef %9, i32 noundef %10, ptr noundef %0, i32 noundef 6, i32 noundef 2, i32 noundef 0) #6
+  %12 = load i32, ptr @hf_sua_destination_address_gt_bit, align 4
+  %13 = tail call ptr @proto_tree_add_item(ptr noundef %9, i32 noundef %12, ptr noundef %0, i32 noundef 6, i32 noundef 2, i32 noundef 0) #6
+  %14 = load i32, ptr @hf_sua_destination_address_pc_bit, align 4
+  %15 = tail call ptr @proto_tree_add_item(ptr noundef %9, i32 noundef %14, ptr noundef %0, i32 noundef 6, i32 noundef 2, i32 noundef 0) #6
+  %16 = load i32, ptr @hf_sua_destination_address_ssn_bit, align 4
+  %17 = tail call ptr @proto_tree_add_item(ptr noundef %9, i32 noundef %16, ptr noundef %0, i32 noundef 6, i32 noundef 2, i32 noundef 0) #6
+  br label %.split
 
-20:                                               ; preds = %.split, %.split20
+.split:                                           ; preds = %4, %.split20
+  %.sink21 = phi ptr [ %2, %.split20 ], [ null, %4 ]
+  %18 = tail call ptr @tvb_new_subset_remaining(ptr noundef %0, i32 noundef 8) #6
+  tail call fastcc void @dissect_parameters(ptr noundef %18, ptr noundef %1, ptr noundef %.sink21, ptr noundef null, ptr noundef null, ptr noundef %3)
   ret void
 }
 

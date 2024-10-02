@@ -558,7 +558,7 @@ define internal range(i32 0, 2) i32 @test_lbttcp_packet(ptr noundef %0, ptr noun
 10:                                               ; preds = %7
   %11 = load i32, ptr @lbttcp_use_tag, align 4
   %.not31 = icmp eq i32 %11, 0
-  br i1 %.not31, label %53, label %.preheader.i.i
+  br i1 %.not31, label %51, label %.preheader.i.i
 
 .preheader.i.i:                                   ; preds = %10
   %12 = load i32, ptr @lbttcp_tag_count, align 4
@@ -654,69 +654,65 @@ lbttcp_tag_locate.exit.i:                         ; preds = %46, %42, %36, %32, 
 lbttcp_tag_find.exit:                             ; preds = %lbttcp_tag_locate.exit.i
   %50 = load ptr, ptr %18, align 8
   %.not45 = icmp eq ptr %50, null
-  br i1 %.not45, label %lbttcp_tag_find.exit.thread, label %51
+  br i1 %.not45, label %lbttcp_tag_find.exit.thread, label %lbttcp_tag_find.exit.thread.sink.split
 
-51:                                               ; preds = %lbttcp_tag_find.exit
-  %52 = tail call fastcc i32 @dissect_lbttcp_real(ptr noundef %0, ptr noundef %1, ptr noundef %2)
-  br label %lbttcp_tag_find.exit.thread
-
-53:                                               ; preds = %10
-  %54 = getelementptr inbounds i8, ptr %1, i64 284
-  %55 = load i32, ptr %54, align 4
-  %56 = load i32, ptr @lbttcp_source_port_low, align 4
-  %.not32 = icmp ult i32 %55, %56
-  %57 = load i32, ptr @lbttcp_source_port_high, align 4
-  %.not33 = icmp ugt i32 %55, %57
+51:                                               ; preds = %10
+  %52 = getelementptr inbounds i8, ptr %1, i64 284
+  %53 = load i32, ptr %52, align 4
+  %54 = load i32, ptr @lbttcp_source_port_low, align 4
+  %.not32 = icmp ult i32 %53, %54
+  %55 = load i32, ptr @lbttcp_source_port_high, align 4
+  %.not33 = icmp ugt i32 %53, %55
   %or.cond = select i1 %.not32, i1 true, i1 %.not33
-  br i1 %or.cond, label %58, label %69
+  br i1 %or.cond, label %56, label %67
 
-58:                                               ; preds = %53
-  %59 = getelementptr inbounds i8, ptr %1, i64 288
-  %60 = load i32, ptr %59, align 8
-  %.not34 = icmp ult i32 %60, %56
-  %.not35 = icmp ugt i32 %60, %57
+56:                                               ; preds = %51
+  %57 = getelementptr inbounds i8, ptr %1, i64 288
+  %58 = load i32, ptr %57, align 8
+  %.not34 = icmp ult i32 %58, %54
+  %.not35 = icmp ugt i32 %58, %55
   %or.cond46 = select i1 %.not34, i1 true, i1 %.not35
-  br i1 %or.cond46, label %61, label %69
+  br i1 %or.cond46, label %59, label %67
 
-61:                                               ; preds = %58
-  %62 = load i32, ptr @lbttcp_request_port_low, align 4
-  %.not36 = icmp ult i32 %55, %62
-  %63 = load i32, ptr @lbttcp_request_port_high, align 4
-  %.not37 = icmp ugt i32 %55, %63
+59:                                               ; preds = %56
+  %60 = load i32, ptr @lbttcp_request_port_low, align 4
+  %.not36 = icmp ult i32 %53, %60
+  %61 = load i32, ptr @lbttcp_request_port_high, align 4
+  %.not37 = icmp ugt i32 %53, %61
   %or.cond47 = select i1 %.not36, i1 true, i1 %.not37
-  br i1 %or.cond47, label %64, label %69
+  br i1 %or.cond47, label %62, label %67
 
-64:                                               ; preds = %61
-  %.not38 = icmp ult i32 %60, %62
-  %.not39 = icmp ugt i32 %60, %63
+62:                                               ; preds = %59
+  %.not38 = icmp ult i32 %58, %60
+  %.not39 = icmp ugt i32 %58, %61
   %or.cond48 = select i1 %.not38, i1 true, i1 %.not39
-  br i1 %or.cond48, label %65, label %69
+  br i1 %or.cond48, label %63, label %67
 
-65:                                               ; preds = %64
-  %66 = load i32, ptr @lbttcp_store_port_low, align 4
-  %.not40 = icmp ult i32 %55, %66
-  %67 = load i32, ptr @lbttcp_store_port_high, align 4
-  %.not41 = icmp ugt i32 %55, %67
+63:                                               ; preds = %62
+  %64 = load i32, ptr @lbttcp_store_port_low, align 4
+  %.not40 = icmp ult i32 %53, %64
+  %65 = load i32, ptr @lbttcp_store_port_high, align 4
+  %.not41 = icmp ugt i32 %53, %65
   %or.cond49 = select i1 %.not40, i1 true, i1 %.not41
-  br i1 %or.cond49, label %68, label %69
+  br i1 %or.cond49, label %66, label %67
 
-68:                                               ; preds = %65
-  %.not42 = icmp ult i32 %60, %66
-  %.not43 = icmp ugt i32 %60, %67
+66:                                               ; preds = %63
+  %.not42 = icmp ult i32 %58, %64
+  %.not43 = icmp ugt i32 %58, %65
   %or.cond50 = select i1 %.not42, i1 true, i1 %.not43
-  br i1 %or.cond50, label %lbttcp_tag_find.exit.thread, label %69
+  br i1 %or.cond50, label %lbttcp_tag_find.exit.thread, label %67
 
-69:                                               ; preds = %68, %65, %64, %61, %58, %53
-  %70 = tail call i32 @lbmc_test_lbmc_header(ptr noundef %0, i32 noundef 0) #4
-  %.not44 = icmp eq i32 %70, 0
-  br i1 %.not44, label %lbttcp_tag_find.exit.thread, label %71
+67:                                               ; preds = %66, %63, %62, %59, %56, %51
+  %68 = tail call i32 @lbmc_test_lbmc_header(ptr noundef %0, i32 noundef 0) #4
+  %.not44 = icmp eq i32 %68, 0
+  br i1 %.not44, label %lbttcp_tag_find.exit.thread, label %lbttcp_tag_find.exit.thread.sink.split
 
-71:                                               ; preds = %69
-  %72 = tail call fastcc i32 @dissect_lbttcp_real(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2)
+lbttcp_tag_find.exit.thread.sink.split:           ; preds = %67, %lbttcp_tag_find.exit
+  %69 = tail call fastcc i32 @dissect_lbttcp_real(ptr noundef %0, ptr noundef %1, ptr noundef %2)
   br label %lbttcp_tag_find.exit.thread
 
-lbttcp_tag_find.exit.thread:                      ; preds = %49, %.preheader.i.i, %lbttcp_tag_locate.exit.i, %69, %68, %lbttcp_tag_find.exit, %4, %7, %71, %51
-  %.0 = phi i32 [ 1, %51 ], [ 1, %71 ], [ 0, %7 ], [ 0, %4 ], [ 0, %lbttcp_tag_find.exit ], [ 0, %68 ], [ 0, %69 ], [ 0, %lbttcp_tag_locate.exit.i ], [ 0, %.preheader.i.i ], [ 0, %49 ]
+lbttcp_tag_find.exit.thread:                      ; preds = %49, %lbttcp_tag_find.exit.thread.sink.split, %.preheader.i.i, %lbttcp_tag_locate.exit.i, %67, %66, %lbttcp_tag_find.exit, %4, %7
+  %.0 = phi i32 [ 0, %7 ], [ 0, %4 ], [ 0, %lbttcp_tag_find.exit ], [ 0, %66 ], [ 0, %67 ], [ 0, %lbttcp_tag_locate.exit.i ], [ 0, %.preheader.i.i ], [ 1, %lbttcp_tag_find.exit.thread.sink.split ], [ 0, %49 ]
   ret i32 %.0
 }
 

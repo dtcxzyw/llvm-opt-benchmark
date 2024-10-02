@@ -2575,9 +2575,9 @@ define void @_ZN19pyo3_macros_backend7pyclass14build_py_class17h61d04a95beddccc3
           to label %79 unwind label %61
 
 .sink.split:                                      ; preds = %187, %128, %121, %116, %104
-  %.sink69 = phi ptr [ %107, %104 ], [ %119, %116 ], [ %19, %121 ], [ %18, %128 ], [ %23, %187 ]
+  %.sink65 = phi ptr [ %107, %104 ], [ %119, %116 ], [ %19, %121 ], [ %18, %128 ], [ %23, %187 ]
   %78 = getelementptr inbounds i8, ptr %0, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %78, ptr noundef nonnull align 8 dereferenceable(24) %.sink69, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %78, ptr noundef nonnull align 8 dereferenceable(24) %.sink65, i64 24, i1 false)
   store i64 -9223372036854775807, ptr %0, align 8
   br label %79
 
@@ -2742,9 +2742,9 @@ define void @_ZN19pyo3_macros_backend7pyclass14build_py_class17h61d04a95beddccc3
           to label %158 unwind label %.loopexit.split-lp.loopexit.split-lp
 
 158:                                              ; preds = %157, %181
-  %.sink65 = phi ptr [ %12, %181 ], [ %15, %157 ]
+  %.sink66 = phi ptr [ %12, %181 ], [ %15, %157 ]
   %159 = getelementptr inbounds i8, ptr %0, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %159, ptr noundef nonnull align 8 dereferenceable(24) %.sink65, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %159, ptr noundef nonnull align 8 dereferenceable(24) %.sink66, i64 24, i1 false)
   store i64 -9223372036854775807, ptr %0, align 8
   invoke void @"_ZN4core3ptr121drop_in_place$LT$alloc..vec..Vec$LT$$LP$$RF$syn..data..Field$C$pyo3_macros_backend..pyclass..FieldPyO3Options$RP$$GT$$GT$17h0f9c144e860dd2bbE"(ptr nonnull align 8 %22)
           to label %79 unwind label %61
@@ -3740,9 +3740,9 @@ thread-pre-split.i:                               ; preds = %176
   %.not34.i = icmp eq i32 %178, 2
   br i1 %.not34.i, label %182, label %180
 
-.loopexit:                                        ; preds = %174, %192, %188
-  %.sroa.229.0..sroa_idx.i.sink = phi ptr [ %11, %188 ], [ %.sroa.229.0..sroa_idx.i, %192 ], [ %.sroa.226.0..sroa_idx.i, %174 ]
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.4, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.229.0..sroa_idx.i.sink, i64 24, i1 false)
+.loopexit:                                        ; preds = %192, %174, %188
+  %.sroa.229.0..sroa_idx.sink.i = phi ptr [ %11, %188 ], [ %.sroa.226.0..sroa_idx.i, %174 ], [ %.sroa.229.0..sroa_idx.i, %192 ]
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.4, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.229.0..sroa_idx.sink.i, i64 24, i1 false)
   %179 = load i8, ptr %131, align 8, !noalias !9
   %.not36.i = icmp eq i8 %179, 3
   br i1 %.not36.i, label %168, label %195

@@ -2582,7 +2582,7 @@ define dso_local noundef zeroext i1 @RestoreBlockImage(ptr nocapture noundef %0,
   %22 = trunc nuw i64 %21 to i32
   %23 = trunc i64 %20 to i32
   tail call void (ptr, ptr, ...) @report_invalid_record(ptr noundef nonnull %0, ptr noundef nonnull @.str.18, i32 noundef %22, i32 noundef %23, i32 noundef %6)
-  br label %120
+  br label %119
 
 24:                                               ; preds = %12
   %25 = getelementptr inbounds i8, ptr %15, i64 29
@@ -2597,7 +2597,7 @@ define dso_local noundef zeroext i1 @RestoreBlockImage(ptr nocapture noundef %0,
   %32 = trunc nuw i64 %31 to i32
   %33 = trunc i64 %30 to i32
   tail call void (ptr, ptr, ...) @report_invalid_record(ptr noundef nonnull %0, ptr noundef nonnull @.str.19, i32 noundef %32, i32 noundef %33, i32 noundef %6)
-  br label %120
+  br label %119
 
 34:                                               ; preds = %24
   %35 = getelementptr inbounds i8, ptr %15, i64 32
@@ -2638,7 +2638,7 @@ define dso_local noundef zeroext i1 @RestoreBlockImage(ptr nocapture noundef %0,
   %59 = trunc nuw i64 %58 to i32
   %60 = trunc i64 %57 to i32
   tail call void (ptr, ptr, ...) @report_invalid_record(ptr noundef nonnull %0, ptr noundef nonnull @.str.20, i32 noundef %59, i32 noundef %60, ptr noundef nonnull @.str.21, i32 noundef %6)
-  br label %120
+  br label %119
 
 61:                                               ; preds = %53
   %62 = and i32 %39, 16
@@ -2652,11 +2652,11 @@ define dso_local noundef zeroext i1 @RestoreBlockImage(ptr nocapture noundef %0,
 
 68:                                               ; preds = %61
   tail call void (ptr, ptr, ...) @report_invalid_record(ptr noundef nonnull %0, ptr noundef nonnull @.str.20, i32 noundef %66, i32 noundef %67, ptr noundef nonnull @.str.22, i32 noundef %6)
-  br label %120
+  br label %119
 
 69:                                               ; preds = %61
   tail call void (ptr, ptr, ...) @report_invalid_record(ptr noundef nonnull %0, ptr noundef nonnull @.str.23, i32 noundef %66, i32 noundef %67, i32 noundef %6)
-  br label %120
+  br label %119
 
 70:                                               ; preds = %43
   %71 = getelementptr inbounds i8, ptr %0, i64 40
@@ -2665,7 +2665,7 @@ define dso_local noundef zeroext i1 @RestoreBlockImage(ptr nocapture noundef %0,
   %74 = trunc nuw i64 %73 to i32
   %75 = trunc i64 %72 to i32
   call void (ptr, ptr, ...) @report_invalid_record(ptr noundef nonnull %0, ptr noundef nonnull @.str.24, i32 noundef %74, i32 noundef %75, i32 noundef %6)
-  br label %120
+  br label %119
 
 76:                                               ; preds = %43, %34
   %.074 = phi ptr [ %36, %34 ], [ %5, %43 ]
@@ -2676,7 +2676,7 @@ define dso_local noundef zeroext i1 @RestoreBlockImage(ptr nocapture noundef %0,
 
 80:                                               ; preds = %76
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(8192) %2, ptr noundef nonnull align 1 dereferenceable(8192) %.074, i64 8192, i1 false)
-  br label %120
+  br label %119
 
 81:                                               ; preds = %76
   %82 = getelementptr inbounds i8, ptr %15, i64 40
@@ -2691,14 +2691,14 @@ define dso_local noundef zeroext i1 @RestoreBlockImage(ptr nocapture noundef %0,
   %90 = ptrtoint ptr %87 to i64
   %91 = and i64 %90, 7
   %92 = icmp eq i64 %91, 0
-  br i1 %92, label %93, label %108
+  br i1 %92, label %93, label %.loopexit.sink.split
 
 93:                                               ; preds = %81
   %94 = and i64 %89, 7
   %95 = icmp eq i64 %94, 0
   %96 = icmp ult i16 %88, 1025
   %or.cond3 = select i1 %95, i1 %96, i1 false
-  br i1 %or.cond3, label %97, label %108
+  br i1 %or.cond3, label %97, label %.loopexit.sink.split
 
 97:                                               ; preds = %93
   %98 = getelementptr i8, ptr %87, i64 %89
@@ -2715,29 +2715,29 @@ define dso_local noundef zeroext i1 @RestoreBlockImage(ptr nocapture noundef %0,
   %105 = sub i64 %104, %86
   %106 = and i64 %105, -8
   %107 = add i64 %106, 8
-  call void @llvm.memset.p0.i64(ptr align 8 %87, i8 0, i64 %107, i1 false)
+  br label %.loopexit.sink.split
+
+.loopexit.sink.split:                             ; preds = %81, %93, %.lr.ph.preheader
+  %.sink = phi i64 [ %107, %.lr.ph.preheader ], [ %89, %93 ], [ %89, %81 ]
+  call void @llvm.memset.p0.i64(ptr align 1 %87, i8 0, i64 %.sink, i1 false)
   br label %.loopexit
 
-108:                                              ; preds = %93, %81
-  call void @llvm.memset.p0.i64(ptr align 1 %87, i8 0, i64 %89, i1 false)
-  br label %.loopexit
+.loopexit:                                        ; preds = %.loopexit.sink.split, %97
+  %108 = load i16, ptr %82, align 8
+  %109 = zext i16 %108 to i32
+  %110 = load i16, ptr %77, align 2
+  %111 = zext i16 %110 to i32
+  %112 = add nuw nsw i32 %111, %109
+  %113 = zext nneg i32 %112 to i64
+  %114 = getelementptr i8, ptr %2, i64 %113
+  %115 = zext i16 %108 to i64
+  %116 = getelementptr i8, ptr %.074, i64 %115
+  %117 = sub nsw i32 8192, %112
+  %118 = sext i32 %117 to i64
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %114, ptr align 1 %116, i64 %118, i1 false)
+  br label %119
 
-.loopexit:                                        ; preds = %.lr.ph.preheader, %97, %108
-  %109 = load i16, ptr %82, align 8
-  %110 = zext i16 %109 to i32
-  %111 = load i16, ptr %77, align 2
-  %112 = zext i16 %111 to i32
-  %113 = add nuw nsw i32 %112, %110
-  %114 = zext nneg i32 %113 to i64
-  %115 = getelementptr i8, ptr %2, i64 %114
-  %116 = zext i16 %109 to i64
-  %117 = getelementptr i8, ptr %.074, i64 %116
-  %118 = sub nsw i32 8192, %113
-  %119 = sext i32 %118 to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %115, ptr align 1 %117, i64 %119, i1 false)
-  br label %120
-
-120:                                              ; preds = %80, %.loopexit, %70, %69, %68, %55, %28, %18
+119:                                              ; preds = %80, %.loopexit, %70, %69, %68, %55, %28, %18
   %.0 = phi i1 [ false, %18 ], [ false, %70 ], [ false, %55 ], [ false, %68 ], [ false, %69 ], [ false, %28 ], [ true, %.loopexit ], [ true, %80 ]
   ret i1 %.0
 }

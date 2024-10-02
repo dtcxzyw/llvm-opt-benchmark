@@ -5253,7 +5253,7 @@ dictkeys_incref.exit:                             ; preds = %_PyDict_NotifyEvent
   store i64 0, ptr %ma_used, align 8
   store i64 %retval.0.i, ptr %ma_version_tag.i, align 8
   %cmp8.not = icmp eq ptr %4, null
-  br i1 %cmp8.not, label %if.else, label %if.then9
+  br i1 %cmp8.not, label %if.end14.sink.split, label %if.then9
 
 if.then9:                                         ; preds = %dictkeys_incref.exit
   %dk_nentries = getelementptr inbounds i8, ptr %3, i64 24
@@ -5297,14 +5297,13 @@ for.end:                                          ; preds = %for.inc, %if.then9
   %idx.neg.i = sub nsw i64 0, %idx.ext.i
   %add.ptr.i = getelementptr i8, ptr %4, i64 %idx.neg.i
   tail call void @PyMem_Free(ptr noundef %add.ptr.i) #18
+  br label %if.end14.sink.split
+
+if.end14.sink.split:                              ; preds = %dictkeys_incref.exit, %for.end
   tail call fastcc void @dictkeys_decref(ptr noundef %7, ptr noundef %3)
   br label %if.end14
 
-if.else:                                          ; preds = %dictkeys_incref.exit
-  tail call fastcc void @dictkeys_decref(ptr noundef nonnull %7, ptr noundef %3)
-  br label %if.end14
-
-if.end14:                                         ; preds = %if.end, %entry, %if.else, %for.end
+if.end14:                                         ; preds = %if.end14.sink.split, %if.end, %entry
   ret void
 }
 
@@ -10346,18 +10345,17 @@ for.end:                                          ; preds = %Py_XDECREF.exit, %i
   %idx.neg.i = sub nsw i64 0, %idx.ext.i
   %add.ptr.i = getelementptr i8, ptr %12, i64 %idx.neg.i
   tail call void @PyMem_Free(ptr noundef %add.ptr.i) #18
-  tail call fastcc void @dictkeys_decref(ptr noundef %2, ptr noundef %13)
-  br label %if.end20
+  br label %if.end20.sink.split
 
 if.else:                                          ; preds = %if.end11
   %cmp17.not = icmp eq ptr %13, null
-  br i1 %cmp17.not, label %if.end20, label %if.then18
+  br i1 %cmp17.not, label %if.end20, label %if.end20.sink.split
 
-if.then18:                                        ; preds = %if.else
-  tail call fastcc void @dictkeys_decref(ptr noundef nonnull %2, ptr noundef nonnull %13)
+if.end20.sink.split:                              ; preds = %if.else, %for.end
+  tail call fastcc void @dictkeys_decref(ptr noundef %2, ptr noundef %13)
   br label %if.end20
 
-if.end20:                                         ; preds = %if.else, %if.then18, %for.end
+if.end20:                                         ; preds = %if.end20.sink.split, %if.else
   %numfree = getelementptr inbounds i8, ptr %2, i64 305200
   %20 = load i32, ptr %numfree, align 8
   %cmp22 = icmp slt i32 %20, 80

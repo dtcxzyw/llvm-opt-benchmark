@@ -387,7 +387,7 @@ define noundef ptr @prte_plm_ssh_search(ptr noundef %0, ptr noundef %1) local_un
   %5 = load ptr, ptr getelementptr inbounds (i8, ptr @prte_mca_plm_ssh_component, i64 264), align 8
   %6 = icmp eq ptr %5, null
   %or.cond = select i1 %4, i1 %6, i1 false
-  br i1 %or.cond, label %66, label %7
+  br i1 %or.cond, label %62, label %7
 
 7:                                                ; preds = %2
   %8 = icmp eq ptr %1, null
@@ -402,86 +402,76 @@ define noundef ptr @prte_plm_ssh_search(ptr noundef %0, ptr noundef %1) local_un
   br label %12
 
 12:                                               ; preds = %11, %9
-  br i1 %4, label %13, label %16
-
-13:                                               ; preds = %12
-  %14 = load ptr, ptr getelementptr inbounds (i8, ptr @prte_mca_plm_ssh_component, i64 264), align 8
-  %15 = call ptr @PMIx_Argv_split(ptr noundef %14, i32 noundef 58) #12
-  br label %18
-
-16:                                               ; preds = %12
-  %17 = call ptr @PMIx_Argv_split(ptr noundef nonnull %0, i32 noundef 58) #12
-  br label %18
-
-18:                                               ; preds = %16, %13
-  %.036 = phi ptr [ %15, %13 ], [ %17, %16 ]
-  %19 = load ptr, ptr %.036, align 8
-  %.not57 = icmp eq ptr %19, null
+  %13 = load ptr, ptr getelementptr inbounds (i8, ptr @prte_mca_plm_ssh_component, i64 264), align 8
+  %.sink = select i1 %4, ptr %13, ptr %0
+  %14 = call ptr @PMIx_Argv_split(ptr noundef %.sink, i32 noundef 58) #12
+  %15 = load ptr, ptr %14, align 8
+  %.not57 = icmp eq ptr %15, null
   br i1 %.not57, label %.sink.split, label %.preheader
 
-.preheader:                                       ; preds = %18, %63
-  %indvars.iv61 = phi i64 [ %indvars.iv.next62, %63 ], [ 0, %18 ]
-  %20 = phi ptr [ %65, %63 ], [ %19, %18 ]
-  %21 = load i8, ptr %20, align 1
-  %.not4450 = icmp eq i8 %21, 0
+.preheader:                                       ; preds = %12, %59
+  %indvars.iv61 = phi i64 [ %indvars.iv.next62, %59 ], [ 0, %12 ]
+  %16 = phi ptr [ %61, %59 ], [ %15, %12 ]
+  %17 = load i8, ptr %16, align 1
+  %.not4450 = icmp eq i8 %17, 0
   br i1 %.not4450, label %.critedge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader
-  %22 = tail call ptr @__ctype_b_loc() #14
-  %23 = load ptr, ptr %22, align 8
-  br label %24
+  %18 = tail call ptr @__ctype_b_loc() #14
+  %19 = load ptr, ptr %18, align 8
+  br label %20
 
-24:                                               ; preds = %.lr.ph, %30
-  %25 = phi i8 [ %21, %.lr.ph ], [ %32, %30 ]
-  %.03751 = phi ptr [ %20, %.lr.ph ], [ %31, %30 ]
-  %26 = sext i8 %25 to i64
-  %27 = getelementptr inbounds i16, ptr %23, i64 %26
-  %28 = load i16, ptr %27, align 2
-  %29 = and i16 %28, 8192
-  %.not45 = icmp eq i16 %29, 0
-  br i1 %.not45, label %.critedge, label %30
+20:                                               ; preds = %.lr.ph, %26
+  %21 = phi i8 [ %17, %.lr.ph ], [ %28, %26 ]
+  %.03751 = phi ptr [ %16, %.lr.ph ], [ %27, %26 ]
+  %22 = sext i8 %21 to i64
+  %23 = getelementptr inbounds i16, ptr %19, i64 %22
+  %24 = load i16, ptr %23, align 2
+  %25 = and i16 %24, 8192
+  %.not45 = icmp eq i16 %25, 0
+  br i1 %.not45, label %.critedge, label %26
 
-30:                                               ; preds = %24
-  %31 = getelementptr inbounds i8, ptr %.03751, i64 1
-  %32 = load i8, ptr %31, align 1
-  %.not44 = icmp eq i8 %32, 0
-  br i1 %.not44, label %.critedge, label %24, !llvm.loop !4
+26:                                               ; preds = %20
+  %27 = getelementptr inbounds i8, ptr %.03751, i64 1
+  %28 = load i8, ptr %27, align 1
+  %.not44 = icmp eq i8 %28, 0
+  br i1 %.not44, label %.critedge, label %20, !llvm.loop !4
 
-.critedge:                                        ; preds = %24, %30, %.preheader
-  %char066 = phi i8 [ 0, %.preheader ], [ 0, %30 ], [ %25, %24 ]
-  %.037.lcssa = phi ptr [ %20, %.preheader ], [ %31, %30 ], [ %.03751, %24 ]
-  %33 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.037.lcssa) #13
-  %34 = trunc i64 %33 to i32
-  %35 = add i32 %34, -2
-  %36 = icmp sgt i32 %35, 0
-  br i1 %36, label %.lr.ph55, label %.critedge2
+.critedge:                                        ; preds = %20, %26, %.preheader
+  %char066 = phi i8 [ 0, %.preheader ], [ 0, %26 ], [ %21, %20 ]
+  %.037.lcssa = phi ptr [ %16, %.preheader ], [ %27, %26 ], [ %.03751, %20 ]
+  %29 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.037.lcssa) #13
+  %30 = trunc i64 %29 to i32
+  %31 = add i32 %30, -2
+  %32 = icmp sgt i32 %31, 0
+  br i1 %32, label %.lr.ph55, label %.critedge2
 
 .lr.ph55:                                         ; preds = %.critedge
-  %37 = tail call ptr @__ctype_b_loc() #14
-  %38 = zext nneg i32 %35 to i64
-  %39 = load ptr, ptr %37, align 8
-  %40 = getelementptr inbounds i8, ptr %.037.lcssa, i64 %38
-  %41 = load i8, ptr %40, align 1
-  %42 = sext i8 %41 to i64
-  %43 = getelementptr inbounds i16, ptr %39, i64 %42
-  %44 = load i16, ptr %43, align 2
-  %45 = and i16 %44, 8192
-  %.not4669 = icmp eq i16 %45, 0
+  %33 = tail call ptr @__ctype_b_loc() #14
+  %34 = zext nneg i32 %31 to i64
+  %35 = load ptr, ptr %33, align 8
+  %36 = getelementptr inbounds i8, ptr %.037.lcssa, i64 %34
+  %37 = load i8, ptr %36, align 1
+  %38 = sext i8 %37 to i64
+  %39 = getelementptr inbounds i16, ptr %35, i64 %38
+  %40 = load i16, ptr %39, align 2
+  %41 = and i16 %40, 8192
+  %.not4669 = icmp eq i16 %41, 0
   br i1 %.not4669, label %.critedge2.loopexit, label %.lr.ph71
 
 .lr.ph71:                                         ; preds = %.lr.ph55, %.lr.ph71
-  %46 = phi ptr [ %48, %.lr.ph71 ], [ %40, %.lr.ph55 ]
-  %indvars.iv70 = phi i64 [ %indvars.iv.next, %.lr.ph71 ], [ %38, %.lr.ph55 ]
-  store i8 0, ptr %46, align 1
+  %42 = phi ptr [ %44, %.lr.ph71 ], [ %36, %.lr.ph55 ]
+  %indvars.iv70 = phi i64 [ %indvars.iv.next, %.lr.ph71 ], [ %34, %.lr.ph55 ]
+  store i8 0, ptr %42, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv70, 1
-  %47 = load ptr, ptr %37, align 8
-  %48 = getelementptr inbounds i8, ptr %.037.lcssa, i64 %indvars.iv.next
-  %49 = load i8, ptr %48, align 1
-  %50 = sext i8 %49 to i64
-  %51 = getelementptr inbounds i16, ptr %47, i64 %50
-  %52 = load i16, ptr %51, align 2
-  %53 = and i16 %52, 8192
-  %.not46 = icmp eq i16 %53, 0
+  %43 = load ptr, ptr %33, align 8
+  %44 = getelementptr inbounds i8, ptr %.037.lcssa, i64 %indvars.iv.next
+  %45 = load i8, ptr %44, align 1
+  %46 = sext i8 %45 to i64
+  %47 = getelementptr inbounds i16, ptr %43, i64 %46
+  %48 = load i16, ptr %47, align 2
+  %49 = and i16 %48, 8192
+  %.not46 = icmp eq i16 %49, 0
   br i1 %.not46, label %.critedge2.loopexit, label %.lr.ph71
 
 .critedge2.loopexit:                              ; preds = %.lr.ph71, %.lr.ph55
@@ -490,40 +480,40 @@ define noundef ptr @prte_plm_ssh_search(ptr noundef %0, ptr noundef %1) local_un
 
 .critedge2:                                       ; preds = %.critedge2.loopexit, %.critedge
   %char0 = phi i8 [ %char0.pre, %.critedge2.loopexit ], [ %char066, %.critedge ]
-  %54 = icmp eq i8 %char0, 0
-  br i1 %54, label %63, label %55
+  %50 = icmp eq i8 %char0, 0
+  br i1 %50, label %59, label %51
 
-55:                                               ; preds = %.critedge2
-  %56 = call ptr @PMIx_Argv_split(ptr noundef nonnull %.037.lcssa, i32 noundef 32) #12
-  %57 = load ptr, ptr %56, align 8
-  %58 = load ptr, ptr @environ, align 8
-  %59 = call noalias ptr @pmix_path_findv(ptr noundef %57, i32 noundef 1, ptr noundef %58, ptr noundef nonnull %3) #12
-  %.not47 = icmp eq ptr %59, null
-  br i1 %.not47, label %62, label %60
+51:                                               ; preds = %.critedge2
+  %52 = call ptr @PMIx_Argv_split(ptr noundef nonnull %.037.lcssa, i32 noundef 32) #12
+  %53 = load ptr, ptr %52, align 8
+  %54 = load ptr, ptr @environ, align 8
+  %55 = call noalias ptr @pmix_path_findv(ptr noundef %53, i32 noundef 1, ptr noundef %54, ptr noundef nonnull %3) #12
+  %.not47 = icmp eq ptr %55, null
+  br i1 %.not47, label %58, label %56
 
-60:                                               ; preds = %55
-  %61 = load ptr, ptr %56, align 8
-  call void @free(ptr noundef %61) #12
-  store ptr %59, ptr %56, align 8
+56:                                               ; preds = %51
+  %57 = load ptr, ptr %52, align 8
+  call void @free(ptr noundef %57) #12
+  store ptr %55, ptr %52, align 8
   br label %.sink.split
 
-62:                                               ; preds = %55
-  call void @PMIx_Argv_free(ptr noundef nonnull %56) #12
-  br label %63
+58:                                               ; preds = %51
+  call void @PMIx_Argv_free(ptr noundef nonnull %52) #12
+  br label %59
 
-63:                                               ; preds = %.critedge2, %62
+59:                                               ; preds = %.critedge2, %58
   %indvars.iv.next62 = add nuw nsw i64 %indvars.iv61, 1
-  %64 = getelementptr inbounds ptr, ptr %.036, i64 %indvars.iv.next62
-  %65 = load ptr, ptr %64, align 8
-  %.not = icmp eq ptr %65, null
+  %60 = getelementptr inbounds ptr, ptr %14, i64 %indvars.iv.next62
+  %61 = load ptr, ptr %60, align 8
+  %.not = icmp eq ptr %61, null
   br i1 %.not, label %.sink.split, label %.preheader, !llvm.loop !6
 
-.sink.split:                                      ; preds = %63, %18, %60
-  %.0.ph = phi ptr [ %56, %60 ], [ null, %18 ], [ null, %63 ]
-  call void @PMIx_Argv_free(ptr noundef nonnull %.036) #12
-  br label %66
+.sink.split:                                      ; preds = %59, %12, %56
+  %.0.ph = phi ptr [ %52, %56 ], [ null, %12 ], [ null, %59 ]
+  call void @PMIx_Argv_free(ptr noundef nonnull %14) #12
+  br label %62
 
-66:                                               ; preds = %.sink.split, %2
+62:                                               ; preds = %.sink.split, %2
   %.0 = phi ptr [ null, %2 ], [ %.0.ph, %.sink.split ]
   ret ptr %.0
 }

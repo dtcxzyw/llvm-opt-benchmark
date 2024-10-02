@@ -1789,8 +1789,8 @@ define dso_local ptr @batch_stepd_step_rec_create(ptr nocapture noundef %0) loca
   br i1 %or.cond147, label %169, label %.sink.split
 
 .sink.split:                                      ; preds = %166, %153
-  %.sink150 = phi i64 [ %164, %153 ], [ %167, %166 ]
-  %168 = tail call i32 @jobacct_gather_set_mem_limit(ptr noundef nonnull %36, i64 noundef %.sink150) #9
+  %.sink151 = phi i64 [ %164, %153 ], [ %167, %166 ]
+  %168 = tail call i32 @jobacct_gather_set_mem_limit(ptr noundef nonnull %36, i64 noundef %.sink151) #9
   br label %169
 
 169:                                              ; preds = %.sink.split, %166
@@ -1871,25 +1871,25 @@ define dso_local ptr @batch_stepd_step_rec_create(ptr nocapture noundef %0) loca
 214:                                              ; preds = %210
   %215 = load i32, ptr %44, align 8
   %216 = icmp eq i32 %215, -2
-  %.str.13..str.14 = select i1 %216, ptr @.str.13, ptr @.str.14
+  %.str.13..str.14.i = select i1 %216, ptr @.str.13, ptr @.str.14
   br label %_batchfilename.exit
 
 _batchfilename.exit:                              ; preds = %210, %214
-  %.str.13.sink = phi ptr [ %.str.13..str.14, %214 ], [ %212, %210 ]
-  %217 = tail call ptr @fname_create(ptr noundef nonnull %12, ptr noundef nonnull %.str.13.sink, i32 noundef 0) #9
+  %.sink.i = phi ptr [ %.str.13..str.14.i, %214 ], [ %212, %210 ]
+  %217 = tail call ptr @fname_create(ptr noundef nonnull %12, ptr noundef nonnull %.sink.i, i32 noundef 0) #9
   %218 = load ptr, ptr %195, align 8
   %219 = icmp eq ptr %218, null
-  br i1 %219, label %220, label %_batchfilename.exit149
+  br i1 %219, label %220, label %_batchfilename.exit150
 
 220:                                              ; preds = %_batchfilename.exit
   %221 = load i32, ptr %44, align 8
   %222 = icmp eq i32 %221, -2
-  %.str.13..str.14152 = select i1 %222, ptr @.str.13, ptr @.str.14
-  br label %_batchfilename.exit149
+  %.str.13..str.14.i149 = select i1 %222, ptr @.str.13, ptr @.str.14
+  br label %_batchfilename.exit150
 
-_batchfilename.exit149:                           ; preds = %_batchfilename.exit, %220
-  %.str.13.sink151 = phi ptr [ %.str.13..str.14152, %220 ], [ %218, %_batchfilename.exit ]
-  %223 = tail call ptr @fname_create(ptr noundef nonnull %12, ptr noundef nonnull %.str.13.sink151, i32 noundef 0) #9
+_batchfilename.exit150:                           ; preds = %_batchfilename.exit, %220
+  %.sink.i148 = phi ptr [ %.str.13..str.14.i149, %220 ], [ %218, %_batchfilename.exit ]
+  %223 = tail call ptr @fname_create(ptr noundef nonnull %12, ptr noundef nonnull %.sink.i148, i32 noundef 0) #9
   %224 = tail call fastcc ptr @_task_info_create(i32 noundef 0, i32 noundef 0, ptr noundef %.0126, ptr noundef %217, ptr noundef %223)
   %225 = load ptr, ptr %194, align 8
   store ptr %224, ptr %225, align 8
@@ -1906,8 +1906,8 @@ _batchfilename.exit149:                           ; preds = %_batchfilename.exit
   store ptr %231, ptr %234, align 8
   br label %235
 
-235:                                              ; preds = %5, %_batchfilename.exit149, %63
-  %.0 = phi ptr [ %12, %_batchfilename.exit149 ], [ null, %63 ], [ null, %5 ]
+235:                                              ; preds = %5, %_batchfilename.exit150, %63
+  %.0 = phi ptr [ %12, %_batchfilename.exit150 ], [ null, %63 ], [ null, %5 ]
   ret ptr %.0
 }
 

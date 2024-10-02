@@ -1919,8 +1919,6 @@ removelastinstruction.exit:                       ; preds = %if.then.i.i, %if.el
   %lnot.ext = shl nuw nsw i32 %cond, 15
   %or.i.i = or disjoint i32 %shl1.i.i, %lnot.ext
   %or7.i.i = xor i32 %or.i.i, 32834
-  %call.i.i = tail call range(i32 -2147483648, 2147483647) i32 @luaK_code(ptr noundef nonnull %fs, i32 noundef %or7.i.i)
-  %call.i.i.i = tail call range(i32 -2147483648, 2147483647) i32 @luaK_code(ptr noundef nonnull %fs, i32 noundef 2147483448)
   br label %return
 
 if.then.i:                                        ; preds = %entry.if.then.i_crit_edge, %if.then
@@ -1980,13 +1978,13 @@ freeexp.exit:                                     ; preds = %discharge2anyreg.ex
   %shl6.i.i17 = shl nuw nsw i32 %cond, 15
   %or3.i.i = or disjoint i32 %shl2.i.i, %shl6.i.i17
   %or7.i.i18 = or disjoint i32 %or3.i.i, 32707
-  %call.i.i19 = tail call range(i32 -2147483648, 2147483647) i32 @luaK_code(ptr noundef %fs, i32 noundef %or7.i.i18)
-  %call.i.i.i20 = tail call range(i32 -2147483648, 2147483647) i32 @luaK_code(ptr noundef %fs, i32 noundef 2147483448)
   br label %return
 
 return:                                           ; preds = %freeexp.exit, %removelastinstruction.exit
-  %retval.0 = phi i32 [ %call.i.i.i, %removelastinstruction.exit ], [ %call.i.i.i20, %freeexp.exit ]
-  ret i32 %retval.0
+  %or7.i.i18.sink = phi i32 [ %or7.i.i18, %freeexp.exit ], [ %or7.i.i, %removelastinstruction.exit ]
+  %call.i.i19 = tail call range(i32 -2147483648, 2147483647) i32 @luaK_code(ptr noundef %fs, i32 noundef %or7.i.i18.sink)
+  %call.i.i.i20 = tail call range(i32 -2147483648, 2147483647) i32 @luaK_code(ptr noundef %fs, i32 noundef 2147483448)
+  ret i32 %call.i.i.i20
 }
 
 ; Function Attrs: nounwind uwtable

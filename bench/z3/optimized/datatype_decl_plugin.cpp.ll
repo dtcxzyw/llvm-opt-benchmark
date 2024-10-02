@@ -6752,18 +6752,17 @@ land.lhs.true.i.i:                                ; preds = %invoke.cont52
   %25 = and i16 %bf.load.i.i.i, 506
   %26 = icmp ne i16 %25, 0
   %or.cond.not.i = or i1 %26, %bf.cast.i.i.i
-  br i1 %or.cond.not.i, label %if.else.i, label %if.then.i40
-
-if.then.i40:                                      ; preds = %land.lhs.true.i.i
-  %call2.i4142 = invoke noundef ptr @_ZN11ast_manager12mk_func_declERK6symboljPKP4sortS4_P14func_decl_info(ptr noundef nonnull align 8 dereferenceable(976) %0, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp50, i32 noundef 2, ptr noundef nonnull %domain, ptr noundef %16, ptr noundef null)
-          to label %invoke.cont53 unwind label %lpad51
+  br i1 %or.cond.not.i, label %if.else.i, label %return.i
 
 if.else.i:                                        ; preds = %land.lhs.true.i.i, %invoke.cont52
-  %call3.i43 = invoke noundef ptr @_ZN11ast_manager12mk_func_declERK6symboljPKP4sortS4_P14func_decl_info(ptr noundef nonnull align 8 dereferenceable(976) %0, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp50, i32 noundef 2, ptr noundef nonnull %domain, ptr noundef %16, ptr noundef nonnull %info)
+  br label %return.i
+
+return.i:                                         ; preds = %if.else.i, %land.lhs.true.i.i
+  %info.sink.i = phi ptr [ %info, %if.else.i ], [ null, %land.lhs.true.i.i ]
+  %call3.i40 = invoke noundef ptr @_ZN11ast_manager12mk_func_declERK6symboljPKP4sortS4_P14func_decl_info(ptr noundef nonnull align 8 dereferenceable(976) %0, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp50, i32 noundef 2, ptr noundef nonnull %domain, ptr noundef %16, ptr noundef %info.sink.i)
           to label %invoke.cont53 unwind label %lpad51
 
-invoke.cont53:                                    ; preds = %if.then.i40, %if.else.i
-  %retval.0.i = phi ptr [ %call2.i4142, %if.then.i40 ], [ %call3.i43, %if.else.i ]
+invoke.cont53:                                    ; preds = %return.i
   %m_parameters.i.i = getelementptr inbounds i8, ptr %info, i64 8
   %27 = load ptr, ptr %m_parameters.i.i, align 8
   %tobool.not.i.i.i.i = icmp eq ptr %27, null
@@ -6802,9 +6801,9 @@ terminate.lpad.i.i.i:                             ; preds = %_ZN6vectorI9paramet
   unreachable
 
 _ZN14func_decl_infoD2Ev.exit:                     ; preds = %invoke.cont53, %_ZN6vectorI9parameterLb1EjE16destroy_elementsEv.exit.i.i.i.i
-  ret ptr %retval.0.i
+  ret ptr %call3.i40
 
-lpad51:                                           ; preds = %if.else.i, %if.then.i40, %if.end48
+lpad51:                                           ; preds = %return.i, %if.end48
   %32 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN14func_decl_infoD2Ev(ptr noundef nonnull align 8 dereferenceable(19) %info) #24
@@ -7000,18 +6999,17 @@ land.lhs.true.i.i:                                ; preds = %_ZNK9parameter10get
   %17 = and i16 %bf.load.i.i.i, 506
   %18 = icmp ne i16 %17, 0
   %or.cond.not.i = or i1 %18, %bf.cast.i.i.i
-  br i1 %or.cond.not.i, label %if.else.i, label %if.then.i9
-
-if.then.i9:                                       ; preds = %land.lhs.true.i.i
-  %call2.i1011 = invoke noundef ptr @_ZN11ast_manager12mk_func_declERK6symboljPKP4sortS4_P14func_decl_info(ptr noundef nonnull align 8 dereferenceable(976) %0, ptr noundef nonnull align 8 dereferenceable(8) %name, i32 noundef %arity, ptr noundef %domain, ptr noundef nonnull %range, ptr noundef null)
-          to label %invoke.cont unwind label %lpad
+  br i1 %or.cond.not.i, label %if.else.i, label %return.i
 
 if.else.i:                                        ; preds = %land.lhs.true.i.i, %_ZNK9parameter10get_symbolEv.exit
-  %call3.i12 = invoke noundef ptr @_ZN11ast_manager12mk_func_declERK6symboljPKP4sortS4_P14func_decl_info(ptr noundef nonnull align 8 dereferenceable(976) %0, ptr noundef nonnull align 8 dereferenceable(8) %name, i32 noundef %arity, ptr noundef %domain, ptr noundef nonnull %range, ptr noundef nonnull %info)
+  br label %return.i
+
+return.i:                                         ; preds = %if.else.i, %land.lhs.true.i.i
+  %info.sink.i = phi ptr [ %info, %if.else.i ], [ null, %land.lhs.true.i.i ]
+  %call3.i9 = invoke noundef ptr @_ZN11ast_manager12mk_func_declERK6symboljPKP4sortS4_P14func_decl_info(ptr noundef nonnull align 8 dereferenceable(976) %0, ptr noundef nonnull align 8 dereferenceable(8) %name, i32 noundef %arity, ptr noundef %domain, ptr noundef nonnull %range, ptr noundef %info.sink.i)
           to label %invoke.cont unwind label %lpad
 
-invoke.cont:                                      ; preds = %if.then.i9, %if.else.i
-  %retval.0.i = phi ptr [ %call2.i1011, %if.then.i9 ], [ %call3.i12, %if.else.i ]
+invoke.cont:                                      ; preds = %return.i
   %m_parameters.i.i = getelementptr inbounds i8, ptr %info, i64 8
   %19 = load ptr, ptr %m_parameters.i.i, align 8
   %tobool.not.i.i.i.i = icmp eq ptr %19, null
@@ -7050,9 +7048,9 @@ terminate.lpad.i.i.i:                             ; preds = %_ZN6vectorI9paramet
   unreachable
 
 _ZN14func_decl_infoD2Ev.exit:                     ; preds = %invoke.cont, %_ZN6vectorI9parameterLb1EjE16destroy_elementsEv.exit.i.i.i.i
-  ret ptr %retval.0.i
+  ret ptr %call3.i9
 
-lpad:                                             ; preds = %if.else.i, %if.then.i9
+lpad:                                             ; preds = %return.i
   %24 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN14func_decl_infoD2Ev(ptr noundef nonnull align 8 dereferenceable(19) %info) #24
@@ -7692,18 +7690,17 @@ land.lhs.true.i.i:                                ; preds = %invoke.cont
   %27 = and i16 %bf.load.i.i.i, 506
   %28 = icmp ne i16 %27, 0
   %or.cond.not.i = or i1 %28, %bf.cast.i.i.i
-  br i1 %or.cond.not.i, label %if.else.i, label %if.then.i27
-
-if.then.i27:                                      ; preds = %land.lhs.true.i.i
-  %call2.i2829 = invoke noundef ptr @_ZN11ast_manager12mk_func_declERK6symboljPKP4sortS4_P14func_decl_info(ptr noundef nonnull align 8 dereferenceable(976) %1, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp, i32 noundef 1, ptr noundef nonnull %domain, ptr noundef %23, ptr noundef null)
-          to label %invoke.cont33 unwind label %lpad
+  br i1 %or.cond.not.i, label %if.else.i, label %return.i
 
 if.else.i:                                        ; preds = %land.lhs.true.i.i, %invoke.cont
-  %call3.i30 = invoke noundef ptr @_ZN11ast_manager12mk_func_declERK6symboljPKP4sortS4_P14func_decl_info(ptr noundef nonnull align 8 dereferenceable(976) %1, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp, i32 noundef 1, ptr noundef nonnull %domain, ptr noundef %23, ptr noundef nonnull %info)
+  br label %return.i
+
+return.i:                                         ; preds = %if.else.i, %land.lhs.true.i.i
+  %info.sink.i = phi ptr [ %info, %if.else.i ], [ null, %land.lhs.true.i.i ]
+  %call3.i27 = invoke noundef ptr @_ZN11ast_manager12mk_func_declERK6symboljPKP4sortS4_P14func_decl_info(ptr noundef nonnull align 8 dereferenceable(976) %1, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp, i32 noundef 1, ptr noundef nonnull %domain, ptr noundef %23, ptr noundef %info.sink.i)
           to label %invoke.cont33 unwind label %lpad
 
-invoke.cont33:                                    ; preds = %if.then.i27, %if.else.i
-  %retval.0.i = phi ptr [ %call2.i2829, %if.then.i27 ], [ %call3.i30, %if.else.i ]
+invoke.cont33:                                    ; preds = %return.i
   %m_parameters.i.i = getelementptr inbounds i8, ptr %info, i64 8
   %29 = load ptr, ptr %m_parameters.i.i, align 8
   %tobool.not.i.i.i.i = icmp eq ptr %29, null
@@ -7742,9 +7739,9 @@ terminate.lpad.i.i.i:                             ; preds = %_ZN6vectorI9paramet
   unreachable
 
 _ZN14func_decl_infoD2Ev.exit:                     ; preds = %invoke.cont33, %_ZN6vectorI9parameterLb1EjE16destroy_elementsEv.exit.i.i.i.i
-  ret ptr %retval.0.i
+  ret ptr %call3.i27
 
-lpad:                                             ; preds = %if.else.i, %if.then.i27, %if.then.i.i.i23
+lpad:                                             ; preds = %return.i, %if.then.i.i.i23
   %34 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN14func_decl_infoD2Ev(ptr noundef nonnull align 8 dereferenceable(19) %info) #24
@@ -7981,18 +7978,17 @@ land.lhs.true.i.i:                                ; preds = %invoke.cont
   %40 = and i16 %bf.load.i.i.i, 506
   %41 = icmp ne i16 %40, 0
   %or.cond.not.i = or i1 %41, %bf.cast.i.i.i
-  br i1 %or.cond.not.i, label %if.else.i, label %if.then.i44
-
-if.then.i44:                                      ; preds = %land.lhs.true.i.i
-  %call2.i4546 = invoke noundef ptr @_ZN11ast_manager12mk_func_declERK6symboljPKP4sortS4_P14func_decl_info(ptr noundef nonnull align 8 dereferenceable(976) %1, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp, i32 noundef 1, ptr noundef nonnull %domain, ptr noundef %37, ptr noundef null)
-          to label %invoke.cont34 unwind label %lpad
+  br i1 %or.cond.not.i, label %if.else.i, label %return.i
 
 if.else.i:                                        ; preds = %land.lhs.true.i.i, %invoke.cont
-  %call3.i47 = invoke noundef ptr @_ZN11ast_manager12mk_func_declERK6symboljPKP4sortS4_P14func_decl_info(ptr noundef nonnull align 8 dereferenceable(976) %1, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp, i32 noundef 1, ptr noundef nonnull %domain, ptr noundef %37, ptr noundef nonnull %info)
+  br label %return.i
+
+return.i:                                         ; preds = %if.else.i, %land.lhs.true.i.i
+  %info.sink.i = phi ptr [ %info, %if.else.i ], [ null, %land.lhs.true.i.i ]
+  %call3.i44 = invoke noundef ptr @_ZN11ast_manager12mk_func_declERK6symboljPKP4sortS4_P14func_decl_info(ptr noundef nonnull align 8 dereferenceable(976) %1, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp, i32 noundef 1, ptr noundef nonnull %domain, ptr noundef %37, ptr noundef %info.sink.i)
           to label %invoke.cont34 unwind label %lpad
 
-invoke.cont34:                                    ; preds = %if.then.i44, %if.else.i
-  %retval.0.i = phi ptr [ %call2.i4546, %if.then.i44 ], [ %call3.i47, %if.else.i ]
+invoke.cont34:                                    ; preds = %return.i
   %m_parameters.i.i = getelementptr inbounds i8, ptr %info, i64 8
   %42 = load ptr, ptr %m_parameters.i.i, align 8
   %tobool.not.i.i.i.i = icmp eq ptr %42, null
@@ -8031,9 +8027,9 @@ terminate.lpad.i.i.i:                             ; preds = %_ZN6vectorI9paramet
   unreachable
 
 _ZN14func_decl_infoD2Ev.exit:                     ; preds = %invoke.cont34, %_ZN6vectorI9parameterLb1EjE16destroy_elementsEv.exit.i.i.i.i
-  ret ptr %retval.0.i
+  ret ptr %call3.i44
 
-lpad:                                             ; preds = %if.else.i, %if.then.i44, %if.end31
+lpad:                                             ; preds = %return.i, %if.end31
   %47 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN14func_decl_infoD2Ev(ptr noundef nonnull align 8 dereferenceable(19) %info) #24
@@ -8172,18 +8168,17 @@ land.lhs.true.i.i:                                ; preds = %invoke.cont
   %19 = and i16 %bf.load.i.i.i, 506
   %20 = icmp ne i16 %19, 0
   %or.cond.not.i = or i1 %20, %bf.cast.i.i.i
-  br i1 %or.cond.not.i, label %if.else.i, label %if.then.i12
-
-if.then.i12:                                      ; preds = %land.lhs.true.i.i
-  %call2.i1314 = invoke noundef ptr @_ZN11ast_manager12mk_func_declERK6symboljPKP4sortS4_P14func_decl_info(ptr noundef nonnull align 8 dereferenceable(976) %0, ptr noundef nonnull align 8 dereferenceable(8) %name, i32 noundef 1, ptr noundef nonnull %domain, ptr noundef %range, ptr noundef null)
-          to label %invoke.cont16 unwind label %lpad
+  br i1 %or.cond.not.i, label %if.else.i, label %return.i
 
 if.else.i:                                        ; preds = %land.lhs.true.i.i, %invoke.cont
-  %call3.i15 = invoke noundef ptr @_ZN11ast_manager12mk_func_declERK6symboljPKP4sortS4_P14func_decl_info(ptr noundef nonnull align 8 dereferenceable(976) %0, ptr noundef nonnull align 8 dereferenceable(8) %name, i32 noundef 1, ptr noundef nonnull %domain, ptr noundef %range, ptr noundef nonnull %info)
+  br label %return.i
+
+return.i:                                         ; preds = %if.else.i, %land.lhs.true.i.i
+  %info.sink.i = phi ptr [ %info, %if.else.i ], [ null, %land.lhs.true.i.i ]
+  %call3.i12 = invoke noundef ptr @_ZN11ast_manager12mk_func_declERK6symboljPKP4sortS4_P14func_decl_info(ptr noundef nonnull align 8 dereferenceable(976) %0, ptr noundef nonnull align 8 dereferenceable(8) %name, i32 noundef 1, ptr noundef nonnull %domain, ptr noundef %range, ptr noundef %info.sink.i)
           to label %invoke.cont16 unwind label %lpad
 
-invoke.cont16:                                    ; preds = %if.then.i12, %if.else.i
-  %retval.0.i = phi ptr [ %call2.i1314, %if.then.i12 ], [ %call3.i15, %if.else.i ]
+invoke.cont16:                                    ; preds = %return.i
   %m_parameters.i.i = getelementptr inbounds i8, ptr %info, i64 8
   %21 = load ptr, ptr %m_parameters.i.i, align 8
   %tobool.not.i.i.i.i = icmp eq ptr %21, null
@@ -8222,9 +8217,9 @@ terminate.lpad.i.i.i:                             ; preds = %_ZN6vectorI9paramet
   unreachable
 
 _ZN14func_decl_infoD2Ev.exit:                     ; preds = %invoke.cont16, %_ZN6vectorI9parameterLb1EjE16destroy_elementsEv.exit.i.i.i.i
-  ret ptr %retval.0.i
+  ret ptr %call3.i12
 
-lpad:                                             ; preds = %if.else.i, %if.then.i12, %if.then.i.i.i
+lpad:                                             ; preds = %return.i, %if.then.i.i.i
   %26 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN14func_decl_infoD2Ev(ptr noundef nonnull align 8 dereferenceable(19) %info) #24

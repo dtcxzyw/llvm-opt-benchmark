@@ -12633,7 +12633,7 @@ define internal noalias noundef ptr @_origin_dep_update_thread(ptr nocapture rea
   br i1 %.not243537.i, label %.outer._crit_edge.thread.i, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %33, %.outer.i
-  %36 = phi ptr [ %76, %.outer.i ], [ %35, %33 ]
+  %36 = phi ptr [ %75, %.outer.i ], [ %35, %33 ]
   %.0.ph38.i = phi ptr [ %.1.i, %.outer.i ], [ null, %33 ]
   br label %37
 
@@ -12706,44 +12706,44 @@ define internal noalias noundef ptr @_origin_dep_update_thread(ptr nocapture rea
 
 69:                                               ; preds = %68
   %70 = call ptr @list_create(ptr noundef null) #17
-  call void @list_append(ptr noundef %70, ptr noundef nonnull %41) #17
-  br label %.outer.i
+  br label %.outer.sink.split.i
 
 71:                                               ; preds = %68
   %72 = getelementptr inbounds i8, ptr %41, i64 392
   %73 = call ptr @list_find_first(ptr noundef nonnull %.0.ph38.i, ptr noundef nonnull @_find_job_by_id, ptr noundef nonnull %72) #17
   %.not32.i = icmp eq ptr %73, null
-  br i1 %.not32.i, label %74, label %.outer.i
+  br i1 %.not32.i, label %.outer.sink.split.i, label %.outer.i
 
-74:                                               ; preds = %71
-  call void @list_append(ptr noundef nonnull %.0.ph38.i, ptr noundef nonnull %41) #17
+.outer.sink.split.i:                              ; preds = %71, %69
+  %.sink.i = phi ptr [ %70, %69 ], [ %.0.ph38.i, %71 ]
+  call void @list_append(ptr noundef %.sink.i, ptr noundef nonnull %41) #17
   br label %.outer.i
 
-.outer.i:                                         ; preds = %74, %71, %69, %65
-  %.1.i = phi ptr [ %.0.ph38.i, %71 ], [ %.0.ph38.i, %74 ], [ %70, %69 ], [ %.0.ph38.i, %65 ]
+.outer.i:                                         ; preds = %.outer.sink.split.i, %71, %65
+  %.1.i = phi ptr [ %.0.ph38.i, %71 ], [ %.0.ph38.i, %65 ], [ %.sink.i, %.outer.sink.split.i ]
   call void @slurm_free_dep_update_origin_msg(ptr noundef nonnull %38) #17
-  %75 = load ptr, ptr @origin_dep_update_list, align 8
-  %76 = call ptr @list_pop(ptr noundef %75) #17
-  %.not2435.i = icmp eq ptr %76, null
+  %74 = load ptr, ptr @origin_dep_update_list, align 8
+  %75 = call ptr @list_pop(ptr noundef %74) #17
+  %.not2435.i = icmp eq ptr %75, null
   br i1 %.not2435.i, label %.outer._crit_edge.i, label %.lr.ph.i, !llvm.loop !56
 
 .outer._crit_edge.i:                              ; preds = %.outer.i, %.backedge.i
   %.0.ph.lcssa.i = phi ptr [ %.0.ph38.i, %.backedge.i ], [ %.1.i, %.outer.i ]
   %.not25.i = icmp eq ptr %.0.ph.lcssa.i, null
-  br i1 %.not25.i, label %.outer._crit_edge.thread.i, label %77
+  br i1 %.not25.i, label %.outer._crit_edge.thread.i, label %76
 
-77:                                               ; preds = %.outer._crit_edge.i
-  %78 = call i32 @list_for_each(ptr noundef nonnull %.0.ph.lcssa.i, ptr noundef nonnull @handle_job_dependency_updates, ptr noundef null) #17
+76:                                               ; preds = %.outer._crit_edge.i
+  %77 = call i32 @list_for_each(ptr noundef nonnull %.0.ph.lcssa.i, ptr noundef nonnull @handle_job_dependency_updates, ptr noundef null) #17
   call void @list_destroy(ptr noundef nonnull %.0.ph.lcssa.i) #17
   br label %.outer._crit_edge.thread.i
 
-.outer._crit_edge.thread.i:                       ; preds = %77, %.outer._crit_edge.i, %33
+.outer._crit_edge.thread.i:                       ; preds = %76, %.outer._crit_edge.i, %33
   call void @unlock_slurmctld(ptr noundef nonnull byval(%struct.slurmctld_lock_t) align 8 @__const._handle_dep_update_origin_msgs.job_write_lock) #17
   br label %.backedge
 
 .backedge:                                        ; preds = %.outer._crit_edge.thread.i, %30, %25
-  %79 = load i64, ptr getelementptr inbounds (i8, ptr @slurmctld_config, i64 328), align 8
-  %.not = icmp eq i64 %79, 0
+  %78 = load i64, ptr getelementptr inbounds (i8, ptr @slurmctld_config, i64 328), align 8
+  %.not = icmp eq i64 %78, 0
   br i1 %.not, label %.lr.ph, label %._crit_edge, !llvm.loop !57
 
 ._crit_edge:                                      ; preds = %.backedge, %23, %7

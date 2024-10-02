@@ -159,7 +159,7 @@ define range(i32 -2147483648, 1) i32 @prte_register_params() local_unnamed_addr 
   %3 = alloca ptr, align 8
   store ptr null, ptr %2, align 8
   %.b39 = load i1, ptr @passed_thru, align 1
-  br i1 %.b39, label %155, label %4
+  br i1 %.b39, label %151, label %4
 
 4:                                                ; preds = %0
   store i1 true, ptr @passed_thru, align 1
@@ -199,7 +199,7 @@ define range(i32 -2147483648, 1) i32 @prte_register_params() local_unnamed_addr 
   %20 = load ptr, ptr %2, align 8
   call void @free(ptr noundef %20) #7
   %21 = icmp slt i32 %19, 0
-  br i1 %21, label %155, label %22
+  br i1 %21, label %151, label %22
 
 22:                                               ; preds = %17
   %23 = call noalias dereferenceable_or_null(7) ptr @strdup(ptr noundef nonnull @.str.5) #7
@@ -209,13 +209,13 @@ define range(i32 -2147483648, 1) i32 @prte_register_params() local_unnamed_addr 
   %25 = load ptr, ptr %2, align 8
   call void @free(ptr noundef %25) #7
   %26 = icmp slt i32 %24, 0
-  br i1 %26, label %155, label %27
+  br i1 %26, label %151, label %27
 
 27:                                               ; preds = %22
   store ptr @.str.8, ptr @prte_net_private_ipv4, align 8
   %28 = call i32 @pmix_mca_base_var_register(ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.10, ptr noundef nonnull @.str.11, i32 noundef 5, ptr noundef nonnull @prte_net_private_ipv4) #7
   %29 = icmp slt i32 %28, 0
-  br i1 %29, label %155, label %30
+  br i1 %29, label %151, label %30
 
 30:                                               ; preds = %27
   store ptr null, ptr @prte_if_include, align 8
@@ -235,13 +235,13 @@ define range(i32 -2147483648, 1) i32 @prte_register_params() local_unnamed_addr 
 
 41:                                               ; preds = %30
   %42 = call i32 (ptr, ptr, i32, ...) @pmix_show_help(ptr noundef nonnull @.str.20, ptr noundef nonnull @.str.21, i32 noundef 1, ptr noundef nonnull %37, ptr noundef nonnull %39) #7
-  br label %155
+  br label %151
 
 43:                                               ; preds = %30
   store ptr null, ptr @prte_set_max_sys_limits, align 8
   %44 = call i32 @pmix_mca_base_var_register(ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.2, ptr noundef null, ptr noundef nonnull @.str.22, ptr noundef nonnull @.str.23, i32 noundef 5, ptr noundef nonnull @prte_set_max_sys_limits) #7
   %45 = icmp slt i32 %44, 0
-  br i1 %45, label %155, label %46
+  br i1 %45, label %151, label %46
 
 46:                                               ; preds = %43
   %47 = load i32, ptr @pmix_class_init_epoch, align 4
@@ -354,9 +354,9 @@ pmix_obj_run_destructors.exit:                    ; preds = %.lr.ph.i48, %pmix_o
   br i1 %.not43, label %.sink.split, label %.sink.split.sink.split
 
 .sink.split.sink.split:                           ; preds = %95, %88, %79
-  %.sink55 = phi ptr [ %80, %79 ], [ %89, %88 ], [ %96, %95 ]
+  %.sink56 = phi ptr [ %80, %79 ], [ %89, %88 ], [ %96, %95 ]
   %prte_remote_tmpdir_base.sink = phi ptr [ @prte_tmpdir_base, %79 ], [ @prte_local_tmpdir_base, %88 ], [ @prte_remote_tmpdir_base, %95 ]
-  call void @free(ptr noundef nonnull %.sink55) #7
+  call void @free(ptr noundef nonnull %.sink56) #7
   %.pre52 = load ptr, ptr %prte_remote_tmpdir_base.sink, align 8
   br label %.sink.split
 
@@ -456,36 +456,26 @@ pmix_obj_run_destructors.exit:                    ; preds = %.lr.ph.i48, %pmix_o
   %139 = call i32 @pmix_mca_base_var_register(ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.2, ptr noundef null, ptr noundef nonnull @.str.70, ptr noundef nonnull @.str.71, i32 noundef 5, ptr noundef nonnull @local_setup_slots) #7
   %140 = load ptr, ptr @local_setup_slots, align 8
   %141 = icmp eq ptr %140, null
-  br i1 %141, label %142, label %144
-
-142:                                              ; preds = %130
-  %143 = call noalias dereferenceable_or_null(5) ptr @strdup(ptr noundef nonnull @.str.72) #7
-  br label %146
-
-144:                                              ; preds = %130
-  %145 = call noalias ptr @strdup(ptr noundef nonnull %140) #7
-  br label %146
-
-146:                                              ; preds = %144, %142
-  %storemerge = phi ptr [ %145, %144 ], [ %143, %142 ]
-  store ptr %storemerge, ptr @prte_set_slots, align 8
+  %.str.72. = select i1 %141, ptr @.str.72, ptr %140
+  %142 = call noalias ptr @strdup(ptr noundef nonnull %.str.72.) #7
+  store ptr %142, ptr @prte_set_slots, align 8
   store i8 0, ptr @prte_set_slots_override, align 1
-  %147 = call i32 @pmix_mca_base_var_register(ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.2, ptr noundef null, ptr noundef nonnull @.str.73, ptr noundef nonnull @.str.74, i32 noundef 7, ptr noundef nonnull @prte_set_slots_override) #7
+  %143 = call i32 @pmix_mca_base_var_register(ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.2, ptr noundef null, ptr noundef nonnull @.str.73, ptr noundef nonnull @.str.74, i32 noundef 7, ptr noundef nonnull @prte_set_slots_override) #7
   store ptr null, ptr @prte_daemon_cores, align 8
-  %148 = call i32 @pmix_mca_base_var_register(ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.2, ptr noundef null, ptr noundef nonnull @.str.75, ptr noundef nonnull @.str.76, i32 noundef 5, ptr noundef nonnull @prte_daemon_cores) #7
+  %144 = call i32 @pmix_mca_base_var_register(ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.2, ptr noundef null, ptr noundef nonnull @.str.75, ptr noundef nonnull @.str.76, i32 noundef 5, ptr noundef nonnull @prte_daemon_cores) #7
   store i32 30, ptr @prte_stack_trace_wait_timeout, align 4
-  %149 = call i32 @pmix_mca_base_var_register(ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.2, ptr noundef null, ptr noundef nonnull @.str.77, ptr noundef nonnull @.str.78, i32 noundef 0, ptr noundef nonnull @prte_stack_trace_wait_timeout) #7
+  %145 = call i32 @pmix_mca_base_var_register(ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.2, ptr noundef null, ptr noundef nonnull @.str.77, ptr noundef nonnull @.str.78, i32 noundef 0, ptr noundef nonnull @prte_stack_trace_wait_timeout) #7
   store ptr null, ptr @prte_data_server_uri, align 8
-  %150 = call i32 @pmix_mca_base_var_register(ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.79, ptr noundef null, ptr noundef nonnull @.str.80, ptr noundef nonnull @.str.81, i32 noundef 5, ptr noundef nonnull @prte_data_server_uri) #7
-  %151 = call i32 @pmix_mca_base_var_register(ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.2, ptr noundef null, ptr noundef nonnull @.str.82, ptr noundef nonnull @.str.83, i32 noundef 0, ptr noundef nonnull @prte_pmix_verbose_output) #7
-  %152 = call i32 @pmix_mca_base_var_register(ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.2, ptr noundef null, ptr noundef nonnull @.str.84, ptr noundef nonnull @.str.85, i32 noundef 5, ptr noundef nonnull @prte_progress_thread_cpus) #7
-  %153 = call i32 @pmix_mca_base_var_register(ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.2, ptr noundef null, ptr noundef nonnull @.str.86, ptr noundef nonnull @.str.87, i32 noundef 7, ptr noundef nonnull @prte_bind_progress_thread_reqd) #7
-  %154 = call i32 @pmix_mca_base_var_register(ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.2, ptr noundef null, ptr noundef nonnull @.str.88, ptr noundef nonnull @.str.89, i32 noundef 7, ptr noundef nonnull @prte_silence_shared_fs) #7
+  %146 = call i32 @pmix_mca_base_var_register(ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.79, ptr noundef null, ptr noundef nonnull @.str.80, ptr noundef nonnull @.str.81, i32 noundef 5, ptr noundef nonnull @prte_data_server_uri) #7
+  %147 = call i32 @pmix_mca_base_var_register(ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.2, ptr noundef null, ptr noundef nonnull @.str.82, ptr noundef nonnull @.str.83, i32 noundef 0, ptr noundef nonnull @prte_pmix_verbose_output) #7
+  %148 = call i32 @pmix_mca_base_var_register(ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.2, ptr noundef null, ptr noundef nonnull @.str.84, ptr noundef nonnull @.str.85, i32 noundef 5, ptr noundef nonnull @prte_progress_thread_cpus) #7
+  %149 = call i32 @pmix_mca_base_var_register(ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.2, ptr noundef null, ptr noundef nonnull @.str.86, ptr noundef nonnull @.str.87, i32 noundef 7, ptr noundef nonnull @prte_bind_progress_thread_reqd) #7
+  %150 = call i32 @pmix_mca_base_var_register(ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.2, ptr noundef null, ptr noundef nonnull @.str.88, ptr noundef nonnull @.str.89, i32 noundef 7, ptr noundef nonnull @prte_silence_shared_fs) #7
   call void @prte_rml_register() #7
-  br label %155
+  br label %151
 
-155:                                              ; preds = %43, %27, %22, %17, %0, %146, %41
-  %.025 = phi i32 [ -16, %41 ], [ 0, %146 ], [ 0, %0 ], [ %19, %17 ], [ %24, %22 ], [ %28, %27 ], [ %44, %43 ]
+151:                                              ; preds = %43, %27, %22, %17, %0, %130, %41
+  %.025 = phi i32 [ -16, %41 ], [ 0, %130 ], [ 0, %0 ], [ %19, %17 ], [ %24, %22 ], [ %28, %27 ], [ %44, %43 ]
   ret i32 %.025
 }
 

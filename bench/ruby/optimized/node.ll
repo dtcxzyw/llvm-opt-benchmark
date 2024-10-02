@@ -458,8 +458,7 @@ define dso_local void @rb_ast_free(ptr nocapture noundef %0) local_unnamed_addr 
   %21 = getelementptr inbounds i8, ptr %19, i64 24
   %22 = load ptr, ptr %21, align 8
   tail call void @ruby_xfree(ptr noundef %22) #12
-  tail call void @ruby_xfree(ptr noundef nonnull %19) #12
-  br label %free_ast_value.exit.i
+  br label %parser_string_free.exit.sink.split.i.i
 
 23:                                               ; preds = %9
   %24 = getelementptr inbounds i8, ptr %12, i64 32
@@ -471,8 +470,7 @@ define dso_local void @rb_ast_free(ptr nocapture noundef %0) local_unnamed_addr 
   %27 = getelementptr inbounds i8, ptr %25, i64 24
   %28 = load ptr, ptr %27, align 8
   tail call void @ruby_xfree(ptr noundef %28) #12
-  tail call void @ruby_xfree(ptr noundef nonnull %25) #12
-  br label %free_ast_value.exit.i
+  br label %parser_string_free.exit.sink.split.i.i
 
 29:                                               ; preds = %9
   %30 = getelementptr inbounds i8, ptr %12, i64 32
@@ -484,8 +482,7 @@ define dso_local void @rb_ast_free(ptr nocapture noundef %0) local_unnamed_addr 
   %33 = getelementptr inbounds i8, ptr %31, i64 24
   %34 = load ptr, ptr %33, align 8
   tail call void @ruby_xfree(ptr noundef %34) #12
-  tail call void @ruby_xfree(ptr noundef nonnull %31) #12
-  br label %free_ast_value.exit.i
+  br label %parser_string_free.exit.sink.split.i.i
 
 35:                                               ; preds = %9
   %36 = getelementptr inbounds i8, ptr %12, i64 32
@@ -497,8 +494,7 @@ define dso_local void @rb_ast_free(ptr nocapture noundef %0) local_unnamed_addr 
   %39 = getelementptr inbounds i8, ptr %37, i64 24
   %40 = load ptr, ptr %39, align 8
   tail call void @ruby_xfree(ptr noundef %40) #12
-  tail call void @ruby_xfree(ptr noundef nonnull %37) #12
-  br label %free_ast_value.exit.i
+  br label %parser_string_free.exit.sink.split.i.i
 
 41:                                               ; preds = %9
   %42 = getelementptr inbounds i8, ptr %12, i64 32
@@ -510,8 +506,7 @@ define dso_local void @rb_ast_free(ptr nocapture noundef %0) local_unnamed_addr 
   %45 = getelementptr inbounds i8, ptr %43, i64 24
   %46 = load ptr, ptr %45, align 8
   tail call void @ruby_xfree(ptr noundef %46) #12
-  tail call void @ruby_xfree(ptr noundef nonnull %43) #12
-  br label %free_ast_value.exit.i
+  br label %parser_string_free.exit.sink.split.i.i
 
 47:                                               ; preds = %9, %9
   %48 = getelementptr inbounds i8, ptr %12, i64 32
@@ -523,8 +518,7 @@ define dso_local void @rb_ast_free(ptr nocapture noundef %0) local_unnamed_addr 
   %51 = getelementptr inbounds i8, ptr %49, i64 24
   %52 = load ptr, ptr %51, align 8
   tail call void @ruby_xfree(ptr noundef %52) #12
-  tail call void @ruby_xfree(ptr noundef nonnull %49) #12
-  br label %free_ast_value.exit.i
+  br label %parser_string_free.exit.sink.split.i.i
 
 53:                                               ; preds = %9
   %54 = getelementptr inbounds i8, ptr %12, i64 32
@@ -536,8 +530,7 @@ define dso_local void @rb_ast_free(ptr nocapture noundef %0) local_unnamed_addr 
   %57 = getelementptr inbounds i8, ptr %55, i64 24
   %58 = load ptr, ptr %57, align 8
   tail call void @ruby_xfree(ptr noundef %58) #12
-  tail call void @ruby_xfree(ptr noundef nonnull %55) #12
-  br label %free_ast_value.exit.i
+  br label %parser_string_free.exit.sink.split.i.i
 
 59:                                               ; preds = %9
   %60 = getelementptr inbounds i8, ptr %12, i64 32
@@ -549,8 +542,7 @@ define dso_local void @rb_ast_free(ptr nocapture noundef %0) local_unnamed_addr 
   %63 = getelementptr inbounds i8, ptr %61, i64 24
   %64 = load ptr, ptr %63, align 8
   tail call void @ruby_xfree(ptr noundef %64) #12
-  tail call void @ruby_xfree(ptr noundef nonnull %61) #12
-  br label %free_ast_value.exit.i
+  br label %parser_string_free.exit.sink.split.i.i
 
 65:                                               ; preds = %9
   %66 = getelementptr inbounds i8, ptr %12, i64 32
@@ -562,34 +554,34 @@ define dso_local void @rb_ast_free(ptr nocapture noundef %0) local_unnamed_addr 
   %69 = getelementptr inbounds i8, ptr %67, i64 24
   %70 = load ptr, ptr %69, align 8
   tail call void @ruby_xfree(ptr noundef %70) #12
-  tail call void @ruby_xfree(ptr noundef nonnull %67) #12
-  br label %free_ast_value.exit.i
+  br label %parser_string_free.exit.sink.split.i.i
 
 71:                                               ; preds = %9
   %72 = getelementptr inbounds i8, ptr %12, i64 32
   %73 = load ptr, ptr %72, align 8
-  tail call void @ruby_xfree(ptr noundef %73) #12
-  br label %free_ast_value.exit.i
+  br label %parser_string_free.exit.sink.split.i.i
 
 74:                                               ; preds = %9
   %75 = getelementptr inbounds i8, ptr %12, i64 32
   %76 = load ptr, ptr %75, align 8
-  tail call void @ruby_xfree(ptr noundef %76) #12
-  br label %free_ast_value.exit.i
+  br label %parser_string_free.exit.sink.split.i.i
 
 77:                                               ; preds = %9
   %78 = getelementptr inbounds i8, ptr %12, i64 32
   %79 = load ptr, ptr %78, align 8
-  tail call void @ruby_xfree(ptr noundef %79) #12
-  br label %free_ast_value.exit.i
+  br label %parser_string_free.exit.sink.split.i.i
 
 80:                                               ; preds = %9
   %81 = getelementptr inbounds i8, ptr %12, i64 32
   %82 = load ptr, ptr %81, align 8
-  tail call void @ruby_xfree(ptr noundef %82) #12
+  br label %parser_string_free.exit.sink.split.i.i
+
+parser_string_free.exit.sink.split.i.i:           ; preds = %80, %77, %74, %71, %68, %62, %56, %50, %44, %38, %32, %26, %20
+  %.sink.i.i = phi ptr [ %67, %68 ], [ %61, %62 ], [ %55, %56 ], [ %49, %50 ], [ %43, %44 ], [ %37, %38 ], [ %31, %32 ], [ %25, %26 ], [ %19, %20 ], [ %82, %80 ], [ %79, %77 ], [ %76, %74 ], [ %73, %71 ]
+  tail call void @ruby_xfree(ptr noundef %.sink.i.i) #12
   br label %free_ast_value.exit.i
 
-free_ast_value.exit.i:                            ; preds = %80, %77, %74, %71, %68, %65, %62, %59, %56, %53, %50, %47, %44, %41, %38, %35, %32, %29, %26, %23, %20, %17, %9
+free_ast_value.exit.i:                            ; preds = %parser_string_free.exit.sink.split.i.i, %65, %59, %53, %47, %41, %35, %29, %23, %17, %9
   %83 = add nuw nsw i64 %.01.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %83, %6
   br i1 %exitcond.not.i.i.i, label %iterate_buffer_elements.exit.i.i, label %9, !llvm.loop !7

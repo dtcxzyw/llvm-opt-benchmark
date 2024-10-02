@@ -9078,49 +9078,43 @@ define internal fastcc void @"_ZN4core3ptr51drop_in_place$LT$sqlparser..ast..Fet
   %2 = load i64, ptr %0, align 8, !range !690, !noundef !4
   switch i64 %2, label %"_ZN4core3ptr77drop_in_place$LT$core..option..Option$LT$sqlparser..ast..value..Value$GT$$GT$17h3393e5e341acd2eaE.exit" [
     i64 0, label %3
-    i64 10, label %14
+    i64 10, label %13
     i64 8, label %9
     i64 6, label %7
     i64 5, label %5
   ]
 
-"_ZN4core3ptr77drop_in_place$LT$core..option..Option$LT$sqlparser..ast..value..Value$GT$$GT$17h3393e5e341acd2eaE.exit": ; preds = %18, %14, %13, %9, %7, %5, %3, %1
+"_ZN4core3ptr77drop_in_place$LT$core..option..Option$LT$sqlparser..ast..value..Value$GT$$GT$17h3393e5e341acd2eaE.exit.sink.split": ; preds = %13, %9, %3, %5, %7
+  %.sink = phi ptr [ %8, %7 ], [ %6, %5 ], [ %4, %3 ], [ %10, %9 ], [ %14, %13 ]
+  tail call void @"_ZN4core3ptr49drop_in_place$LT$sqlparser..ast..value..Value$GT$17h2bad372aeaffabadE.llvm.11705908289436625823"(ptr noalias noundef nonnull align 8 dereferenceable(48) %.sink)
+  br label %"_ZN4core3ptr77drop_in_place$LT$core..option..Option$LT$sqlparser..ast..value..Value$GT$$GT$17h3393e5e341acd2eaE.exit"
+
+"_ZN4core3ptr77drop_in_place$LT$core..option..Option$LT$sqlparser..ast..value..Value$GT$$GT$17h3393e5e341acd2eaE.exit": ; preds = %"_ZN4core3ptr77drop_in_place$LT$core..option..Option$LT$sqlparser..ast..value..Value$GT$$GT$17h3393e5e341acd2eaE.exit.sink.split", %13, %9, %1
   ret void
 
 3:                                                ; preds = %1
   %4 = getelementptr inbounds i8, ptr %0, i64 8
-  tail call void @"_ZN4core3ptr49drop_in_place$LT$sqlparser..ast..value..Value$GT$17h2bad372aeaffabadE.llvm.11705908289436625823"(ptr noalias noundef nonnull align 8 dereferenceable(48) %4)
-  br label %"_ZN4core3ptr77drop_in_place$LT$core..option..Option$LT$sqlparser..ast..value..Value$GT$$GT$17h3393e5e341acd2eaE.exit"
+  br label %"_ZN4core3ptr77drop_in_place$LT$core..option..Option$LT$sqlparser..ast..value..Value$GT$$GT$17h3393e5e341acd2eaE.exit.sink.split"
 
 5:                                                ; preds = %1
   %6 = getelementptr inbounds i8, ptr %0, i64 8
-  tail call void @"_ZN4core3ptr49drop_in_place$LT$sqlparser..ast..value..Value$GT$17h2bad372aeaffabadE.llvm.11705908289436625823"(ptr noalias noundef nonnull align 8 dereferenceable(48) %6)
-  br label %"_ZN4core3ptr77drop_in_place$LT$core..option..Option$LT$sqlparser..ast..value..Value$GT$$GT$17h3393e5e341acd2eaE.exit"
+  br label %"_ZN4core3ptr77drop_in_place$LT$core..option..Option$LT$sqlparser..ast..value..Value$GT$$GT$17h3393e5e341acd2eaE.exit.sink.split"
 
 7:                                                ; preds = %1
   %8 = getelementptr inbounds i8, ptr %0, i64 8
-  tail call void @"_ZN4core3ptr49drop_in_place$LT$sqlparser..ast..value..Value$GT$17h2bad372aeaffabadE.llvm.11705908289436625823"(ptr noalias noundef nonnull align 8 dereferenceable(48) %8)
-  br label %"_ZN4core3ptr77drop_in_place$LT$core..option..Option$LT$sqlparser..ast..value..Value$GT$$GT$17h3393e5e341acd2eaE.exit"
+  br label %"_ZN4core3ptr77drop_in_place$LT$core..option..Option$LT$sqlparser..ast..value..Value$GT$$GT$17h3393e5e341acd2eaE.exit.sink.split"
 
 9:                                                ; preds = %1
   %10 = getelementptr inbounds i8, ptr %0, i64 8
   %11 = load i64, ptr %10, align 8, !range !1724, !alias.scope !4645, !noundef !4
   %12 = icmp eq i64 %11, -9223372036854775794
-  br i1 %12, label %"_ZN4core3ptr77drop_in_place$LT$core..option..Option$LT$sqlparser..ast..value..Value$GT$$GT$17h3393e5e341acd2eaE.exit", label %13
+  br i1 %12, label %"_ZN4core3ptr77drop_in_place$LT$core..option..Option$LT$sqlparser..ast..value..Value$GT$$GT$17h3393e5e341acd2eaE.exit", label %"_ZN4core3ptr77drop_in_place$LT$core..option..Option$LT$sqlparser..ast..value..Value$GT$$GT$17h3393e5e341acd2eaE.exit.sink.split"
 
-13:                                               ; preds = %9
-  tail call void @"_ZN4core3ptr49drop_in_place$LT$sqlparser..ast..value..Value$GT$17h2bad372aeaffabadE.llvm.11705908289436625823"(ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %10)
-  br label %"_ZN4core3ptr77drop_in_place$LT$core..option..Option$LT$sqlparser..ast..value..Value$GT$$GT$17h3393e5e341acd2eaE.exit"
-
-14:                                               ; preds = %1
-  %15 = getelementptr inbounds i8, ptr %0, i64 8
-  %16 = load i64, ptr %15, align 8, !range !1724, !alias.scope !4648, !noundef !4
-  %17 = icmp eq i64 %16, -9223372036854775794
-  br i1 %17, label %"_ZN4core3ptr77drop_in_place$LT$core..option..Option$LT$sqlparser..ast..value..Value$GT$$GT$17h3393e5e341acd2eaE.exit", label %18
-
-18:                                               ; preds = %14
-  tail call void @"_ZN4core3ptr49drop_in_place$LT$sqlparser..ast..value..Value$GT$17h2bad372aeaffabadE.llvm.11705908289436625823"(ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %15)
-  br label %"_ZN4core3ptr77drop_in_place$LT$core..option..Option$LT$sqlparser..ast..value..Value$GT$$GT$17h3393e5e341acd2eaE.exit"
+13:                                               ; preds = %1
+  %14 = getelementptr inbounds i8, ptr %0, i64 8
+  %15 = load i64, ptr %14, align 8, !range !1724, !alias.scope !4648, !noundef !4
+  %16 = icmp eq i64 %15, -9223372036854775794
+  br i1 %16, label %"_ZN4core3ptr77drop_in_place$LT$core..option..Option$LT$sqlparser..ast..value..Value$GT$$GT$17h3393e5e341acd2eaE.exit", label %"_ZN4core3ptr77drop_in_place$LT$core..option..Option$LT$sqlparser..ast..value..Value$GT$$GT$17h3393e5e341acd2eaE.exit.sink.split"
 }
 
 ; Function Attrs: nonlazybind uwtable

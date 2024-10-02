@@ -4114,12 +4114,7 @@ entry:
   %call = tail call ptr @PyThreadState_Get() #15
   %call1 = tail call ptr @PyGILState_GetThisThreadState() #15
   %cmp.not = icmp eq ptr %call, %call1
-  br i1 %cmp.not, label %if.end, label %if.then
-
-if.then:                                          ; preds = %entry
-  %0 = load ptr, ptr @PyExc_RuntimeError, align 8
-  tail call void @PyErr_SetString(ptr noundef %0, ptr noundef nonnull @.str.297) #15
-  br label %return
+  br i1 %cmp.not, label %if.end, label %return.sink.split
 
 if.end:                                           ; preds = %entry
   %call2 = tail call ptr @PyThreadState_Swap(ptr noundef null) #15
@@ -4139,15 +4134,16 @@ finally:                                          ; preds = %if.end7, %if.end
   %err.0 = phi ptr [ @.str.298, %if.end ], [ %spec.select5, %if.end7 ]
   tail call void @Py_EndInterpreter(ptr noundef %call3) #15
   %call12 = tail call ptr @PyThreadState_Swap(ptr noundef %call) #15
-  br i1 %cmp13.not, label %return, label %if.then14
+  br i1 %cmp13.not, label %return, label %return.sink.split
 
-if.then14:                                        ; preds = %finally
-  %1 = load ptr, ptr @PyExc_RuntimeError, align 8
-  tail call void @PyErr_SetString(ptr noundef %1, ptr noundef %err.0) #15
+return.sink.split:                                ; preds = %finally, %entry
+  %err.0.sink = phi ptr [ @.str.297, %entry ], [ %err.0, %finally ]
+  %0 = load ptr, ptr @PyExc_RuntimeError, align 8
+  tail call void @PyErr_SetString(ptr noundef %0, ptr noundef %err.0.sink) #15
   br label %return
 
-return:                                           ; preds = %finally, %if.then14, %if.then
-  %retval.0 = phi ptr [ null, %if.then ], [ null, %if.then14 ], [ @_Py_NoneStruct, %finally ]
+return:                                           ; preds = %return.sink.split, %finally
+  %retval.0 = phi ptr [ @_Py_NoneStruct, %finally ], [ null, %return.sink.split ]
   ret ptr %retval.0
 }
 

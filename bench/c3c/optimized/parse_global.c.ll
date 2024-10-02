@@ -2479,95 +2479,88 @@ extend_span_with_token.exit299:                   ; preds = %261, %262
 define dso_local ptr @parse_optional_type(ptr noundef %0) local_unnamed_addr #0 {
   %2 = tail call fastcc ptr @parse_base_type(ptr noundef %0)
   %.not = icmp eq ptr %2, null
-  br i1 %.not, label %.split23, label %4
+  br i1 %.not, label %.critedge, label %3
 
-.split23:                                         ; preds = %1
-  %3 = tail call ptr @parse_type_with_base(ptr noundef %0, ptr noundef null)
-  br label %.critedge
+3:                                                ; preds = %1
+  %4 = load i16, ptr %2, align 8
+  %5 = and i16 %4, 504
+  %.not25 = icmp eq i16 %5, 0
+  br i1 %.not25, label %6, label %.critedge
 
-4:                                                ; preds = %1
-  %5 = load i16, ptr %2, align 8
-  %6 = and i16 %5, 504
-  %.not25 = icmp eq i16 %6, 0
-  br i1 %.not25, label %8, label %.split
+6:                                                ; preds = %3
+  %7 = load ptr, ptr @poisoned_type_info, align 8
+  br label %39
 
-.split:                                           ; preds = %4
-  %7 = tail call ptr @parse_type_with_base(ptr noundef %0, ptr noundef nonnull %2)
-  br label %.critedge
+.critedge:                                        ; preds = %3, %1
+  %.sink = phi ptr [ null, %1 ], [ %2, %3 ]
+  %8 = tail call ptr @parse_type_with_base(ptr noundef %0, ptr noundef %.sink)
+  %.not26 = icmp eq ptr %8, null
+  br i1 %.not26, label %.critedge2, label %9
 
-8:                                                ; preds = %4
-  %9 = load ptr, ptr @poisoned_type_info, align 8
-  br label %40
+9:                                                ; preds = %.critedge
+  %10 = load i16, ptr %8, align 8
+  %11 = and i16 %10, 504
+  %.not27 = icmp eq i16 %11, 0
+  br i1 %.not27, label %12, label %.critedge2
 
-.critedge:                                        ; preds = %.split23, %.split
-  %phi.call = phi ptr [ %7, %.split ], [ %3, %.split23 ]
-  %.not26 = icmp eq ptr %phi.call, null
-  br i1 %.not26, label %.critedge2, label %10
+12:                                               ; preds = %9
+  %13 = load ptr, ptr @poisoned_type_info, align 8
+  br label %39
 
-10:                                               ; preds = %.critedge
-  %11 = load i16, ptr %phi.call, align 8
-  %12 = and i16 %11, 504
-  %.not27 = icmp eq i16 %12, 0
-  br i1 %.not27, label %13, label %.critedge2
+.critedge2:                                       ; preds = %.critedge, %9
+  %14 = tail call zeroext i1 @try_consume(ptr noundef %0, i32 noundef 3) #8
+  br i1 %14, label %15, label %39
 
-13:                                               ; preds = %10
-  %14 = load ptr, ptr @poisoned_type_info, align 8
-  br label %40
+15:                                               ; preds = %.critedge2
+  %16 = load i16, ptr %8, align 8
+  %17 = or i16 %16, 512
+  store i16 %17, ptr %8, align 8
+  %18 = and i16 %16, 7
+  %19 = icmp eq i16 %18, 2
+  br i1 %19, label %20, label %24
 
-.critedge2:                                       ; preds = %.critedge, %10
-  %15 = tail call zeroext i1 @try_consume(ptr noundef %0, i32 noundef 3) #8
-  br i1 %15, label %16, label %40
+20:                                               ; preds = %15
+  %21 = getelementptr inbounds i8, ptr %8, i64 8
+  %22 = load ptr, ptr %21, align 8
+  %23 = tail call ptr @type_get_optional(ptr noundef %22) #8
+  store ptr %23, ptr %21, align 8
+  br label %24
 
-16:                                               ; preds = %.critedge2
-  %17 = load i16, ptr %phi.call, align 8
-  %18 = or i16 %17, 512
-  store i16 %18, ptr %phi.call, align 8
-  %19 = and i16 %17, 7
-  %20 = icmp eq i16 %19, 2
-  br i1 %20, label %21, label %25
-
-21:                                               ; preds = %16
-  %22 = getelementptr inbounds i8, ptr %phi.call, i64 8
-  %23 = load ptr, ptr %22, align 8
-  %24 = tail call ptr @type_get_optional(ptr noundef %23) #8
-  store ptr %24, ptr %22, align 8
-  br label %25
-
-25:                                               ; preds = %16, %21
-  %26 = getelementptr inbounds i8, ptr %phi.call, i64 16
-  %27 = getelementptr inbounds i8, ptr %0, i64 56
+24:                                               ; preds = %15, %20
+  %25 = getelementptr inbounds i8, ptr %8, i64 16
+  %26 = getelementptr inbounds i8, ptr %0, i64 56
+  %27 = load i64, ptr %25, align 8
   %28 = load i64, ptr %26, align 8
-  %29 = load i64, ptr %27, align 8
-  %.not.unshifted.i = xor i64 %29, %28
+  %.not.unshifted.i = xor i64 %28, %27
   %.not.i = icmp ult i64 %.not.unshifted.i, 4294967296
-  br i1 %.not.i, label %31, label %30
+  br i1 %.not.i, label %30, label %29
 
-30:                                               ; preds = %25
-  %.sroa.33.0.extract.shift.i = lshr i64 %28, 16
+29:                                               ; preds = %24
+  %.sroa.33.0.extract.shift.i = lshr i64 %27, 16
   br label %extend_span_with_token.exit
 
-31:                                               ; preds = %25
-  %.sroa.4.0.extract.shift.i = lshr i64 %28, 24
-  %32 = trunc i64 %29 to i32
-  %33 = lshr i32 %32, 24
-  %34 = lshr i32 %32, 16
-  %35 = trunc i64 %.sroa.4.0.extract.shift.i to i32
-  %36 = sub i32 %34, %35
-  %37 = add i32 %36, %33
-  %38 = zext i32 %37 to i64
+30:                                               ; preds = %24
+  %.sroa.4.0.extract.shift.i = lshr i64 %27, 24
+  %31 = trunc i64 %28 to i32
+  %32 = lshr i32 %31, 24
+  %33 = lshr i32 %31, 16
+  %34 = trunc i64 %.sroa.4.0.extract.shift.i to i32
+  %35 = sub i32 %33, %34
+  %36 = add i32 %35, %32
+  %37 = zext i32 %36 to i64
   br label %extend_span_with_token.exit
 
-extend_span_with_token.exit:                      ; preds = %30, %31
-  %.sroa.311.0.i = phi i64 [ %.sroa.33.0.extract.shift.i, %30 ], [ %38, %31 ]
+extend_span_with_token.exit:                      ; preds = %29, %30
+  %.sroa.311.0.i = phi i64 [ %.sroa.33.0.extract.shift.i, %29 ], [ %37, %30 ]
   %.sroa.311.0.insert.ext.i = shl nuw i64 %.sroa.311.0.i, 16
   %.sroa.311.0.insert.shift.i = and i64 %.sroa.311.0.insert.ext.i, 16711680
-  %39 = and i64 %28, -16711681
-  %.sroa.010.0.insert.insert.i = or disjoint i64 %.sroa.311.0.insert.shift.i, %39
-  store i64 %.sroa.010.0.insert.insert.i, ptr %26, align 8
-  br label %40
+  %38 = and i64 %27, -16711681
+  %.sroa.010.0.insert.insert.i = or disjoint i64 %.sroa.311.0.insert.shift.i, %38
+  store i64 %.sroa.010.0.insert.insert.i, ptr %25, align 8
+  br label %39
 
-40:                                               ; preds = %.critedge2, %extend_span_with_token.exit, %13, %8
-  %.0 = phi ptr [ %14, %13 ], [ %9, %8 ], [ %phi.call, %extend_span_with_token.exit ], [ %phi.call, %.critedge2 ]
+39:                                               ; preds = %.critedge2, %extend_span_with_token.exit, %12, %6
+  %.0 = phi ptr [ %13, %12 ], [ %7, %6 ], [ %8, %extend_span_with_token.exit ], [ %8, %.critedge2 ]
   ret ptr %.0
 }
 

@@ -10726,8 +10726,7 @@ _ZN17QArrayDataPointerIiE5derefEv.exit.i.i38:     ; preds = %133
 
 136:                                              ; preds = %_ZN17QArrayDataPointerIiE5derefEv.exit.i.i38
   %137 = load ptr, ptr %8, align 8
-  call void @_ZN10QArrayData10deallocateEPS_xx(ptr noundef %137, i64 noundef 4, i64 noundef 8) #23
-  br label %.body
+  br label %.body.sink.split
 
 _ZN5QListIiED2Ev.exit:                            ; preds = %.noexc.i.i, %63
   %.pr = load ptr, ptr %8, align 8, !noalias !151
@@ -10775,7 +10774,7 @@ _ZN7QStringD2Ev.exit:                             ; preds = %_ZN9QtPrivate17QFor
   %.not = icmp eq ptr %146, %.sroa.01.0.copyload
   br i1 %.not, label %._crit_edge73.loopexit, label %50, !llvm.loop !154
 
-147:                                              ; preds = %.noexc31, %216, %172, %.lr.ph
+147:                                              ; preds = %.noexc31, %215, %171, %.lr.ph
   %148 = landingpad { ptr, i32 }
           cleanup
   %.not.i.i.i.i23 = icmp eq ptr %.pr, null
@@ -10784,182 +10783,178 @@ _ZN7QStringD2Ev.exit:                             ; preds = %_ZN9QtPrivate17QFor
 _ZN17QArrayDataPointerIiE5derefEv.exit.i.i.i24:   ; preds = %147
   %149 = atomicrmw sub ptr %.pr, i32 1 seq_cst, align 4
   %.not.i.i.i25 = icmp eq i32 %149, 1
-  br i1 %.not.i.i.i25, label %150, label %.body
-
-150:                                              ; preds = %_ZN17QArrayDataPointerIiE5derefEv.exit.i.i.i24
-  call void @_ZN10QArrayData10deallocateEPS_xx(ptr noundef nonnull %.pr, i64 noundef 4, i64 noundef 8) #23
-  br label %.body
+  br i1 %.not.i.i.i25, label %.body.sink.split, label %.body
 
 .lr.ph:                                           ; preds = %_ZN5QListIiED2Ev.exit, %_ZN4QMapIiP16FunnelTextDialogE6removeERKi.exit
-  %.sroa.7.069 = phi ptr [ %242, %_ZN4QMapIiP16FunnelTextDialogE6removeERKi.exit ], [ %.pre86, %_ZN5QListIiED2Ev.exit ]
-  %151 = load i32, ptr %.sroa.7.069, align 4
-  store i32 %151, ptr %9, align 4
-  %152 = invoke noundef nonnull align 8 dereferenceable(64) ptr @_ZN4QMapI7QString16interface_valuesEixERKS0_(ptr noundef nonnull align 8 dereferenceable(8) %12, ptr noundef nonnull align 8 dereferenceable(24) %7)
-          to label %153 unwind label %147
+  %.sroa.7.069 = phi ptr [ %241, %_ZN4QMapIiP16FunnelTextDialogE6removeERKi.exit ], [ %.pre86, %_ZN5QListIiED2Ev.exit ]
+  %150 = load i32, ptr %.sroa.7.069, align 4
+  store i32 %150, ptr %9, align 4
+  %151 = invoke noundef nonnull align 8 dereferenceable(64) ptr @_ZN4QMapI7QString16interface_valuesEixERKS0_(ptr noundef nonnull align 8 dereferenceable(8) %12, ptr noundef nonnull align 8 dereferenceable(24) %7)
+          to label %152 unwind label %147
 
-153:                                              ; preds = %.lr.ph
-  %154 = getelementptr inbounds i8, ptr %152, i64 40
+152:                                              ; preds = %.lr.ph
+  %153 = getelementptr inbounds i8, ptr %151, i64 40
   store ptr null, ptr %10, align 8
-  %155 = load ptr, ptr %154, align 8
-  %.not.i27 = icmp eq ptr %155, null
-  br i1 %.not.i27, label %170, label %156
+  %154 = load ptr, ptr %153, align 8
+  %.not.i27 = icmp eq ptr %154, null
+  br i1 %.not.i27, label %169, label %155
 
-156:                                              ; preds = %153
-  %157 = getelementptr inbounds i8, ptr %155, i64 24
-  %158 = load ptr, ptr %157, align 8
-  %159 = getelementptr inbounds i8, ptr %155, i64 16
-  %.not10.i.i.i.i = icmp eq ptr %158, null
-  br i1 %.not10.i.i.i.i, label %170, label %.lr.ph.i.i.i.i
+155:                                              ; preds = %152
+  %156 = getelementptr inbounds i8, ptr %154, i64 24
+  %157 = load ptr, ptr %156, align 8
+  %158 = getelementptr inbounds i8, ptr %154, i64 16
+  %.not10.i.i.i.i = icmp eq ptr %157, null
+  br i1 %.not10.i.i.i.i, label %169, label %.lr.ph.i.i.i.i
 
-.lr.ph.i.i.i.i:                                   ; preds = %156
-  %160 = load i32, ptr %9, align 4
-  br label %161
+.lr.ph.i.i.i.i:                                   ; preds = %155
+  %159 = load i32, ptr %9, align 4
+  br label %160
 
-161:                                              ; preds = %161, %.lr.ph.i.i.i.i
-  %.012.i.i.i.i = phi ptr [ %158, %.lr.ph.i.i.i.i ], [ %.1.i.i.i.i, %161 ]
-  %.0811.i.i.i.i = phi ptr [ %159, %.lr.ph.i.i.i.i ], [ %.19.i.i.i.i, %161 ]
-  %162 = getelementptr inbounds i8, ptr %.012.i.i.i.i, i64 32
-  %163 = load i32, ptr %162, align 4
-  %164 = icmp slt i32 %163, %160
-  %.19.i.i.i.i = select i1 %164, ptr %.0811.i.i.i.i, ptr %.012.i.i.i.i
-  %.1.in.v.i.i.i.i = select i1 %164, i64 24, i64 16
+160:                                              ; preds = %160, %.lr.ph.i.i.i.i
+  %.012.i.i.i.i = phi ptr [ %157, %.lr.ph.i.i.i.i ], [ %.1.i.i.i.i, %160 ]
+  %.0811.i.i.i.i = phi ptr [ %158, %.lr.ph.i.i.i.i ], [ %.19.i.i.i.i, %160 ]
+  %161 = getelementptr inbounds i8, ptr %.012.i.i.i.i, i64 32
+  %162 = load i32, ptr %161, align 4
+  %163 = icmp slt i32 %162, %159
+  %.19.i.i.i.i = select i1 %163, ptr %.0811.i.i.i.i, ptr %.012.i.i.i.i
+  %.1.in.v.i.i.i.i = select i1 %163, i64 24, i64 16
   %.1.in.i.i.i.i = getelementptr inbounds i8, ptr %.012.i.i.i.i, i64 %.1.in.v.i.i.i.i
   %.1.i.i.i.i = load ptr, ptr %.1.in.i.i.i.i, align 8
   %.not.i.i.i.i28 = icmp eq ptr %.1.i.i.i.i, null
-  br i1 %.not.i.i.i.i28, label %_ZNKSt8_Rb_treeIiSt4pairIKiP16FunnelTextDialogESt10_Select1stIS4_ESt4lessIiESaIS4_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS4_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i.i, label %161, !llvm.loop !55
+  br i1 %.not.i.i.i.i28, label %_ZNKSt8_Rb_treeIiSt4pairIKiP16FunnelTextDialogESt10_Select1stIS4_ESt4lessIiESaIS4_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS4_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i.i, label %160, !llvm.loop !55
 
-_ZNKSt8_Rb_treeIiSt4pairIKiP16FunnelTextDialogESt10_Select1stIS4_ESt4lessIiESaIS4_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS4_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i.i: ; preds = %161
-  %165 = icmp eq ptr %.19.i.i.i.i, %159
-  br i1 %165, label %170, label %_ZNKSt3mapIiP16FunnelTextDialogSt4lessIiESaISt4pairIKiS1_EEE4findERS5_.exit.i
+_ZNKSt8_Rb_treeIiSt4pairIKiP16FunnelTextDialogESt10_Select1stIS4_ESt4lessIiESaIS4_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS4_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i.i: ; preds = %160
+  %164 = icmp eq ptr %.19.i.i.i.i, %158
+  br i1 %164, label %169, label %_ZNKSt3mapIiP16FunnelTextDialogSt4lessIiESaISt4pairIKiS1_EEE4findERS5_.exit.i
 
 _ZNKSt3mapIiP16FunnelTextDialogSt4lessIiESaISt4pairIKiS1_EEE4findERS5_.exit.i: ; preds = %_ZNKSt8_Rb_treeIiSt4pairIKiP16FunnelTextDialogESt10_Select1stIS4_ESt4lessIiESaIS4_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS4_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i.i
-  %166 = getelementptr inbounds i8, ptr %.19.i.i.i.i, i64 32
-  %167 = load i32, ptr %166, align 4
-  %168 = icmp slt i32 %160, %167
-  %169 = getelementptr inbounds i8, ptr %.19.i.i.i.i, i64 40
-  %spec.select.i = select i1 %168, ptr %10, ptr %169
+  %165 = getelementptr inbounds i8, ptr %.19.i.i.i.i, i64 32
+  %166 = load i32, ptr %165, align 4
+  %167 = icmp slt i32 %159, %166
+  %168 = getelementptr inbounds i8, ptr %.19.i.i.i.i, i64 40
+  %spec.select.i = select i1 %167, ptr %10, ptr %168
   %.0.i.pre = load ptr, ptr %spec.select.i, align 8
-  br label %170
+  br label %169
 
-170:                                              ; preds = %_ZNKSt3mapIiP16FunnelTextDialogSt4lessIiESaISt4pairIKiS1_EEE4findERS5_.exit.i, %_ZNKSt8_Rb_treeIiSt4pairIKiP16FunnelTextDialogESt10_Select1stIS4_ESt4lessIiESaIS4_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS4_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i.i, %156, %153
-  %.0.i = phi ptr [ null, %153 ], [ null, %_ZNKSt8_Rb_treeIiSt4pairIKiP16FunnelTextDialogESt10_Select1stIS4_ESt4lessIiESaIS4_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS4_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i.i ], [ null, %156 ], [ %.0.i.pre, %_ZNKSt3mapIiP16FunnelTextDialogSt4lessIiESaISt4pairIKiS1_EEE4findERS5_.exit.i ]
-  %171 = icmp eq ptr %.0.i, %11
-  br i1 %171, label %172, label %_ZN4QMapIiP16FunnelTextDialogE6removeERKi.exit
+169:                                              ; preds = %_ZNKSt3mapIiP16FunnelTextDialogSt4lessIiESaISt4pairIKiS1_EEE4findERS5_.exit.i, %_ZNKSt8_Rb_treeIiSt4pairIKiP16FunnelTextDialogESt10_Select1stIS4_ESt4lessIiESaIS4_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS4_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i.i, %155, %152
+  %.0.i = phi ptr [ null, %152 ], [ null, %_ZNKSt8_Rb_treeIiSt4pairIKiP16FunnelTextDialogESt10_Select1stIS4_ESt4lessIiESaIS4_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS4_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i.i ], [ null, %155 ], [ %.0.i.pre, %_ZNKSt3mapIiP16FunnelTextDialogSt4lessIiESaISt4pairIKiS1_EEE4findERS5_.exit.i ]
+  %170 = icmp eq ptr %.0.i, %11
+  br i1 %170, label %171, label %_ZN4QMapIiP16FunnelTextDialogE6removeERKi.exit
 
-172:                                              ; preds = %170
-  %173 = invoke noundef nonnull align 8 dereferenceable(64) ptr @_ZN4QMapI7QString16interface_valuesEixERKS0_(ptr noundef nonnull align 8 dereferenceable(8) %12, ptr noundef nonnull align 8 dereferenceable(24) %7)
-          to label %174 unwind label %147
+171:                                              ; preds = %169
+  %172 = invoke noundef nonnull align 8 dereferenceable(64) ptr @_ZN4QMapI7QString16interface_valuesEixERKS0_(ptr noundef nonnull align 8 dereferenceable(8) %12, ptr noundef nonnull align 8 dereferenceable(24) %7)
+          to label %173 unwind label %147
 
-174:                                              ; preds = %172
-  %175 = getelementptr inbounds i8, ptr %173, i64 40
-  %176 = load ptr, ptr %175, align 8
-  %.not.i29 = icmp eq ptr %176, null
+173:                                              ; preds = %171
+  %174 = getelementptr inbounds i8, ptr %172, i64 40
+  %175 = load ptr, ptr %174, align 8
+  %.not.i29 = icmp eq ptr %175, null
   br i1 %.not.i29, label %_ZN4QMapIiP16FunnelTextDialogE6removeERKi.exit, label %_ZNK9QtPrivate30QExplicitlySharedDataPointerV2I8QMapDataISt3mapIiP16FunnelTextDialogSt4lessIiESaISt4pairIKiS4_EEEEE8isSharedEv.exit.i
 
-_ZNK9QtPrivate30QExplicitlySharedDataPointerV2I8QMapDataISt3mapIiP16FunnelTextDialogSt4lessIiESaISt4pairIKiS4_EEEEE8isSharedEv.exit.i: ; preds = %174
-  %177 = load atomic i32, ptr %176 monotonic, align 4
-  %.not7.i = icmp eq i32 %177, 1
-  br i1 %.not7.i, label %178, label %216
+_ZNK9QtPrivate30QExplicitlySharedDataPointerV2I8QMapDataISt3mapIiP16FunnelTextDialogSt4lessIiESaISt4pairIKiS4_EEEEE8isSharedEv.exit.i: ; preds = %173
+  %176 = load atomic i32, ptr %175 monotonic, align 4
+  %.not7.i = icmp eq i32 %176, 1
+  br i1 %.not7.i, label %177, label %215
 
-178:                                              ; preds = %_ZNK9QtPrivate30QExplicitlySharedDataPointerV2I8QMapDataISt3mapIiP16FunnelTextDialogSt4lessIiESaISt4pairIKiS4_EEEEE8isSharedEv.exit.i
-  %179 = getelementptr inbounds i8, ptr %176, i64 8
-  %180 = getelementptr inbounds i8, ptr %176, i64 24
-  %181 = getelementptr inbounds i8, ptr %176, i64 16
-  %.041.i.i = load ptr, ptr %180, align 8
+177:                                              ; preds = %_ZNK9QtPrivate30QExplicitlySharedDataPointerV2I8QMapDataISt3mapIiP16FunnelTextDialogSt4lessIiESaISt4pairIKiS4_EEEEE8isSharedEv.exit.i
+  %178 = getelementptr inbounds i8, ptr %175, i64 8
+  %179 = getelementptr inbounds i8, ptr %175, i64 24
+  %180 = getelementptr inbounds i8, ptr %175, i64 16
+  %.041.i.i = load ptr, ptr %179, align 8
   %.not42.i.i = icmp eq ptr %.041.i.i, null
   br i1 %.not42.i.i, label %_ZNSt8_Rb_treeIiSt4pairIKiP16FunnelTextDialogESt10_Select1stIS4_ESt4lessIiESaIS4_EE11equal_rangeERS1_.exit.i, label %.lr.ph.i.i
 
-.lr.ph.i.i:                                       ; preds = %178
-  %182 = load i32, ptr %9, align 4
-  br label %183
+.lr.ph.i.i:                                       ; preds = %177
+  %181 = load i32, ptr %9, align 4
+  br label %182
 
-183:                                              ; preds = %200, %.lr.ph.i.i
-  %.044.i.i = phi ptr [ %.041.i.i, %.lr.ph.i.i ], [ %.0.i.i, %200 ]
-  %.02243.i.i = phi ptr [ %181, %.lr.ph.i.i ], [ %.123.i.i, %200 ]
-  %184 = getelementptr inbounds i8, ptr %.044.i.i, i64 32
-  %185 = load i32, ptr %184, align 4
-  %186 = icmp slt i32 %185, %182
-  br i1 %186, label %200, label %187
+182:                                              ; preds = %199, %.lr.ph.i.i
+  %.044.i.i = phi ptr [ %.041.i.i, %.lr.ph.i.i ], [ %.0.i.i, %199 ]
+  %.02243.i.i = phi ptr [ %180, %.lr.ph.i.i ], [ %.123.i.i, %199 ]
+  %183 = getelementptr inbounds i8, ptr %.044.i.i, i64 32
+  %184 = load i32, ptr %183, align 4
+  %185 = icmp slt i32 %184, %181
+  br i1 %185, label %199, label %186
 
-187:                                              ; preds = %183
-  %188 = icmp slt i32 %182, %185
-  br i1 %188, label %200, label %189
+186:                                              ; preds = %182
+  %187 = icmp slt i32 %181, %184
+  br i1 %187, label %199, label %188
 
-189:                                              ; preds = %187
-  %190 = getelementptr inbounds i8, ptr %.044.i.i, i64 16
-  %191 = load ptr, ptr %190, align 8
-  %192 = getelementptr inbounds i8, ptr %.044.i.i, i64 24
-  %193 = load ptr, ptr %192, align 8
-  %.not10.i.i.i = icmp eq ptr %191, null
+188:                                              ; preds = %186
+  %189 = getelementptr inbounds i8, ptr %.044.i.i, i64 16
+  %190 = load ptr, ptr %189, align 8
+  %191 = getelementptr inbounds i8, ptr %.044.i.i, i64 24
+  %192 = load ptr, ptr %191, align 8
+  %.not10.i.i.i = icmp eq ptr %190, null
   br i1 %.not10.i.i.i, label %_ZNSt8_Rb_treeIiSt4pairIKiP16FunnelTextDialogESt10_Select1stIS4_ESt4lessIiESaIS4_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS4_EPSt18_Rb_tree_node_baseRS1_.exit.i.i, label %.lr.ph.i.i.i44
 
-.lr.ph.i.i.i44:                                   ; preds = %189, %.lr.ph.i.i.i44
-  %.012.i.i.i = phi ptr [ %.1.i.i.i, %.lr.ph.i.i.i44 ], [ %191, %189 ]
-  %.0811.i.i.i = phi ptr [ %.19.i.i.i, %.lr.ph.i.i.i44 ], [ %.044.i.i, %189 ]
-  %194 = getelementptr inbounds i8, ptr %.012.i.i.i, i64 32
-  %195 = load i32, ptr %194, align 4
-  %196 = icmp slt i32 %195, %182
-  %.19.i.i.i = select i1 %196, ptr %.0811.i.i.i, ptr %.012.i.i.i
-  %.1.in.v.i.i.i = select i1 %196, i64 24, i64 16
+.lr.ph.i.i.i44:                                   ; preds = %188, %.lr.ph.i.i.i44
+  %.012.i.i.i = phi ptr [ %.1.i.i.i, %.lr.ph.i.i.i44 ], [ %190, %188 ]
+  %.0811.i.i.i = phi ptr [ %.19.i.i.i, %.lr.ph.i.i.i44 ], [ %.044.i.i, %188 ]
+  %193 = getelementptr inbounds i8, ptr %.012.i.i.i, i64 32
+  %194 = load i32, ptr %193, align 4
+  %195 = icmp slt i32 %194, %181
+  %.19.i.i.i = select i1 %195, ptr %.0811.i.i.i, ptr %.012.i.i.i
+  %.1.in.v.i.i.i = select i1 %195, i64 24, i64 16
   %.1.in.i.i.i = getelementptr inbounds i8, ptr %.012.i.i.i, i64 %.1.in.v.i.i.i
   %.1.i.i.i = load ptr, ptr %.1.in.i.i.i, align 8
   %.not.i.i.i45 = icmp eq ptr %.1.i.i.i, null
   br i1 %.not.i.i.i45, label %_ZNSt8_Rb_treeIiSt4pairIKiP16FunnelTextDialogESt10_Select1stIS4_ESt4lessIiESaIS4_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS4_EPSt18_Rb_tree_node_baseRS1_.exit.i.i, label %.lr.ph.i.i.i44, !llvm.loop !58
 
-_ZNSt8_Rb_treeIiSt4pairIKiP16FunnelTextDialogESt10_Select1stIS4_ESt4lessIiESaIS4_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS4_EPSt18_Rb_tree_node_baseRS1_.exit.i.i: ; preds = %.lr.ph.i.i.i44, %189
-  %.08.lcssa.i.i.i = phi ptr [ %.044.i.i, %189 ], [ %.19.i.i.i, %.lr.ph.i.i.i44 ]
-  %.not10.i24.i.i = icmp eq ptr %193, null
+_ZNSt8_Rb_treeIiSt4pairIKiP16FunnelTextDialogESt10_Select1stIS4_ESt4lessIiESaIS4_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS4_EPSt18_Rb_tree_node_baseRS1_.exit.i.i: ; preds = %.lr.ph.i.i.i44, %188
+  %.08.lcssa.i.i.i = phi ptr [ %.044.i.i, %188 ], [ %.19.i.i.i, %.lr.ph.i.i.i44 ]
+  %.not10.i24.i.i = icmp eq ptr %192, null
   br i1 %.not10.i24.i.i, label %_ZNSt8_Rb_treeIiSt4pairIKiP16FunnelTextDialogESt10_Select1stIS4_ESt4lessIiESaIS4_EE11equal_rangeERS1_.exit.i, label %.lr.ph.i25.i.i
 
 .lr.ph.i25.i.i:                                   ; preds = %_ZNSt8_Rb_treeIiSt4pairIKiP16FunnelTextDialogESt10_Select1stIS4_ESt4lessIiESaIS4_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS4_EPSt18_Rb_tree_node_baseRS1_.exit.i.i, %.lr.ph.i25.i.i
-  %.012.i26.i.i = phi ptr [ %.1.i31.i.i, %.lr.ph.i25.i.i ], [ %193, %_ZNSt8_Rb_treeIiSt4pairIKiP16FunnelTextDialogESt10_Select1stIS4_ESt4lessIiESaIS4_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS4_EPSt18_Rb_tree_node_baseRS1_.exit.i.i ]
+  %.012.i26.i.i = phi ptr [ %.1.i31.i.i, %.lr.ph.i25.i.i ], [ %192, %_ZNSt8_Rb_treeIiSt4pairIKiP16FunnelTextDialogESt10_Select1stIS4_ESt4lessIiESaIS4_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS4_EPSt18_Rb_tree_node_baseRS1_.exit.i.i ]
   %.0811.i27.i.i = phi ptr [ %.19.i28.i.i, %.lr.ph.i25.i.i ], [ %.02243.i.i, %_ZNSt8_Rb_treeIiSt4pairIKiP16FunnelTextDialogESt10_Select1stIS4_ESt4lessIiESaIS4_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS4_EPSt18_Rb_tree_node_baseRS1_.exit.i.i ]
-  %197 = getelementptr inbounds i8, ptr %.012.i26.i.i, i64 32
-  %198 = load i32, ptr %197, align 4
-  %199 = icmp slt i32 %182, %198
-  %.19.i28.i.i = select i1 %199, ptr %.012.i26.i.i, ptr %.0811.i27.i.i
-  %.1.in.v.i29.i.i = select i1 %199, i64 16, i64 24
+  %196 = getelementptr inbounds i8, ptr %.012.i26.i.i, i64 32
+  %197 = load i32, ptr %196, align 4
+  %198 = icmp slt i32 %181, %197
+  %.19.i28.i.i = select i1 %198, ptr %.012.i26.i.i, ptr %.0811.i27.i.i
+  %.1.in.v.i29.i.i = select i1 %198, i64 16, i64 24
   %.1.in.i30.i.i = getelementptr inbounds i8, ptr %.012.i26.i.i, i64 %.1.in.v.i29.i.i
   %.1.i31.i.i = load ptr, ptr %.1.in.i30.i.i, align 8
   %.not.i32.i.i = icmp eq ptr %.1.i31.i.i, null
   br i1 %.not.i32.i.i, label %_ZNSt8_Rb_treeIiSt4pairIKiP16FunnelTextDialogESt10_Select1stIS4_ESt4lessIiESaIS4_EE11equal_rangeERS1_.exit.i, label %.lr.ph.i25.i.i, !llvm.loop !155
 
-200:                                              ; preds = %187, %183
-  %.sink.i.i = phi i64 [ 24, %183 ], [ 16, %187 ]
-  %.123.i.i = phi ptr [ %.02243.i.i, %183 ], [ %.044.i.i, %187 ]
-  %201 = getelementptr inbounds i8, ptr %.044.i.i, i64 %.sink.i.i
-  %.0.i.i = load ptr, ptr %201, align 8
+199:                                              ; preds = %186, %182
+  %.sink.i.i = phi i64 [ 24, %182 ], [ 16, %186 ]
+  %.123.i.i = phi ptr [ %.02243.i.i, %182 ], [ %.044.i.i, %186 ]
+  %200 = getelementptr inbounds i8, ptr %.044.i.i, i64 %.sink.i.i
+  %.0.i.i = load ptr, ptr %200, align 8
   %.not.i.i47 = icmp eq ptr %.0.i.i, null
-  br i1 %.not.i.i47, label %_ZNSt8_Rb_treeIiSt4pairIKiP16FunnelTextDialogESt10_Select1stIS4_ESt4lessIiESaIS4_EE11equal_rangeERS1_.exit.i, label %183, !llvm.loop !156
+  br i1 %.not.i.i47, label %_ZNSt8_Rb_treeIiSt4pairIKiP16FunnelTextDialogESt10_Select1stIS4_ESt4lessIiESaIS4_EE11equal_rangeERS1_.exit.i, label %182, !llvm.loop !156
 
-_ZNSt8_Rb_treeIiSt4pairIKiP16FunnelTextDialogESt10_Select1stIS4_ESt4lessIiESaIS4_EE11equal_rangeERS1_.exit.i: ; preds = %200, %.lr.ph.i25.i.i, %_ZNSt8_Rb_treeIiSt4pairIKiP16FunnelTextDialogESt10_Select1stIS4_ESt4lessIiESaIS4_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS4_EPSt18_Rb_tree_node_baseRS1_.exit.i.i, %178
-  %.sroa.037.0.i.i = phi ptr [ %.08.lcssa.i.i.i, %_ZNSt8_Rb_treeIiSt4pairIKiP16FunnelTextDialogESt10_Select1stIS4_ESt4lessIiESaIS4_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS4_EPSt18_Rb_tree_node_baseRS1_.exit.i.i ], [ %181, %178 ], [ %.08.lcssa.i.i.i, %.lr.ph.i25.i.i ], [ %.123.i.i, %200 ]
-  %.sroa.3.0.i.i = phi ptr [ %.02243.i.i, %_ZNSt8_Rb_treeIiSt4pairIKiP16FunnelTextDialogESt10_Select1stIS4_ESt4lessIiESaIS4_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS4_EPSt18_Rb_tree_node_baseRS1_.exit.i.i ], [ %181, %178 ], [ %.19.i28.i.i, %.lr.ph.i25.i.i ], [ %.123.i.i, %200 ]
-  %202 = getelementptr inbounds i8, ptr %176, i64 48
-  %203 = getelementptr inbounds i8, ptr %176, i64 32
-  %204 = load ptr, ptr %203, align 8
-  %205 = icmp eq ptr %.sroa.037.0.i.i, %204
-  %206 = icmp eq ptr %.sroa.3.0.i.i, %181
-  %or.cond.i46 = select i1 %205, i1 %206, i1 false
-  br i1 %or.cond.i46, label %207, label %.critedge.i.i
+_ZNSt8_Rb_treeIiSt4pairIKiP16FunnelTextDialogESt10_Select1stIS4_ESt4lessIiESaIS4_EE11equal_rangeERS1_.exit.i: ; preds = %199, %.lr.ph.i25.i.i, %_ZNSt8_Rb_treeIiSt4pairIKiP16FunnelTextDialogESt10_Select1stIS4_ESt4lessIiESaIS4_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS4_EPSt18_Rb_tree_node_baseRS1_.exit.i.i, %177
+  %.sroa.037.0.i.i = phi ptr [ %.08.lcssa.i.i.i, %_ZNSt8_Rb_treeIiSt4pairIKiP16FunnelTextDialogESt10_Select1stIS4_ESt4lessIiESaIS4_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS4_EPSt18_Rb_tree_node_baseRS1_.exit.i.i ], [ %180, %177 ], [ %.08.lcssa.i.i.i, %.lr.ph.i25.i.i ], [ %.123.i.i, %199 ]
+  %.sroa.3.0.i.i = phi ptr [ %.02243.i.i, %_ZNSt8_Rb_treeIiSt4pairIKiP16FunnelTextDialogESt10_Select1stIS4_ESt4lessIiESaIS4_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS4_EPSt18_Rb_tree_node_baseRS1_.exit.i.i ], [ %180, %177 ], [ %.19.i28.i.i, %.lr.ph.i25.i.i ], [ %.123.i.i, %199 ]
+  %201 = getelementptr inbounds i8, ptr %175, i64 48
+  %202 = getelementptr inbounds i8, ptr %175, i64 32
+  %203 = load ptr, ptr %202, align 8
+  %204 = icmp eq ptr %.sroa.037.0.i.i, %203
+  %205 = icmp eq ptr %.sroa.3.0.i.i, %180
+  %or.cond.i46 = select i1 %204, i1 %205, i1 false
+  br i1 %or.cond.i46, label %206, label %.critedge.i.i
 
-207:                                              ; preds = %_ZNSt8_Rb_treeIiSt4pairIKiP16FunnelTextDialogESt10_Select1stIS4_ESt4lessIiESaIS4_EE11equal_rangeERS1_.exit.i
-  invoke void @_ZNSt8_Rb_treeIiSt4pairIKiP16FunnelTextDialogESt10_Select1stIS4_ESt4lessIiESaIS4_EE8_M_eraseEPSt13_Rb_tree_nodeIS4_E(ptr noundef nonnull align 8 dereferenceable(48) %179, ptr noundef %.041.i.i)
-          to label %_ZNSt8_Rb_treeIiSt4pairIKiP16FunnelTextDialogESt10_Select1stIS4_ESt4lessIiESaIS4_EE5clearEv.exit.i.i unwind label %208
+206:                                              ; preds = %_ZNSt8_Rb_treeIiSt4pairIKiP16FunnelTextDialogESt10_Select1stIS4_ESt4lessIiESaIS4_EE11equal_rangeERS1_.exit.i
+  invoke void @_ZNSt8_Rb_treeIiSt4pairIKiP16FunnelTextDialogESt10_Select1stIS4_ESt4lessIiESaIS4_EE8_M_eraseEPSt13_Rb_tree_nodeIS4_E(ptr noundef nonnull align 8 dereferenceable(48) %178, ptr noundef %.041.i.i)
+          to label %_ZNSt8_Rb_treeIiSt4pairIKiP16FunnelTextDialogESt10_Select1stIS4_ESt4lessIiESaIS4_EE5clearEv.exit.i.i unwind label %207
 
-208:                                              ; preds = %207
-  %209 = landingpad { ptr, i32 }
+207:                                              ; preds = %206
+  %208 = landingpad { ptr, i32 }
           catch ptr null
-  %210 = extractvalue { ptr, i32 } %209, 0
-  call void @__clang_call_terminate(ptr %210) #26
+  %209 = extractvalue { ptr, i32 } %208, 0
+  call void @__clang_call_terminate(ptr %209) #26
   unreachable
 
-_ZNSt8_Rb_treeIiSt4pairIKiP16FunnelTextDialogESt10_Select1stIS4_ESt4lessIiESaIS4_EE5clearEv.exit.i.i: ; preds = %207
-  store ptr null, ptr %180, align 8
-  store ptr %181, ptr %203, align 8
-  %211 = getelementptr inbounds i8, ptr %176, i64 40
-  store ptr %181, ptr %211, align 8
-  store i64 0, ptr %202, align 8
+_ZNSt8_Rb_treeIiSt4pairIKiP16FunnelTextDialogESt10_Select1stIS4_ESt4lessIiESaIS4_EE5clearEv.exit.i.i: ; preds = %206
+  store ptr null, ptr %179, align 8
+  store ptr %180, ptr %202, align 8
+  %210 = getelementptr inbounds i8, ptr %175, i64 40
+  store ptr %180, ptr %210, align 8
+  store i64 0, ptr %201, align 8
   br label %_ZN4QMapIiP16FunnelTextDialogE6removeERKi.exit
 
 .critedge.i.i:                                    ; preds = %_ZNSt8_Rb_treeIiSt4pairIKiP16FunnelTextDialogESt10_Select1stIS4_ESt4lessIiESaIS4_EE11equal_rangeERS1_.exit.i
@@ -10967,109 +10962,115 @@ _ZNSt8_Rb_treeIiSt4pairIKiP16FunnelTextDialogESt10_Select1stIS4_ESt4lessIiESaIS4
   br i1 %.not8.i.i, label %_ZN4QMapIiP16FunnelTextDialogE6removeERKi.exit, label %.lr.ph.i2.i
 
 .lr.ph.i2.i:                                      ; preds = %.critedge.i.i, %.lr.ph.i2.i
-  %.sroa.06.09.i.i = phi ptr [ %212, %.lr.ph.i2.i ], [ %.sroa.037.0.i.i, %.critedge.i.i ]
-  %212 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %.sroa.06.09.i.i) #25
-  %213 = call noundef nonnull ptr @_ZSt28_Rb_tree_rebalance_for_erasePSt18_Rb_tree_node_baseRS_(ptr noundef %.sroa.06.09.i.i, ptr noundef nonnull align 8 dereferenceable(32) %181) #23
-  call void @_ZdlPv(ptr noundef nonnull %213) #24
-  %214 = load i64, ptr %202, align 8
-  %215 = add i64 %214, -1
-  store i64 %215, ptr %202, align 8
-  %.not.i3.i = icmp eq ptr %212, %.sroa.3.0.i.i
+  %.sroa.06.09.i.i = phi ptr [ %211, %.lr.ph.i2.i ], [ %.sroa.037.0.i.i, %.critedge.i.i ]
+  %211 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %.sroa.06.09.i.i) #25
+  %212 = call noundef nonnull ptr @_ZSt28_Rb_tree_rebalance_for_erasePSt18_Rb_tree_node_baseRS_(ptr noundef %.sroa.06.09.i.i, ptr noundef nonnull align 8 dereferenceable(32) %180) #23
+  call void @_ZdlPv(ptr noundef nonnull %212) #24
+  %213 = load i64, ptr %201, align 8
+  %214 = add i64 %213, -1
+  store i64 %214, ptr %201, align 8
+  %.not.i3.i = icmp eq ptr %211, %.sroa.3.0.i.i
   br i1 %.not.i3.i, label %_ZN4QMapIiP16FunnelTextDialogE6removeERKi.exit, label %.lr.ph.i2.i, !llvm.loop !157
 
-216:                                              ; preds = %_ZNK9QtPrivate30QExplicitlySharedDataPointerV2I8QMapDataISt3mapIiP16FunnelTextDialogSt4lessIiESaISt4pairIKiS4_EEEEE8isSharedEv.exit.i
-  %217 = invoke noalias noundef nonnull dereferenceable(56) ptr @_Znwm(i64 noundef 56) #22
+215:                                              ; preds = %_ZNK9QtPrivate30QExplicitlySharedDataPointerV2I8QMapDataISt3mapIiP16FunnelTextDialogSt4lessIiESaISt4pairIKiS4_EEEEE8isSharedEv.exit.i
+  %216 = invoke noalias noundef nonnull dereferenceable(56) ptr @_Znwm(i64 noundef 56) #22
           to label %.noexc31 unwind label %147
 
-.noexc31:                                         ; preds = %216
-  store i32 0, ptr %217, align 4
-  %218 = getelementptr inbounds i8, ptr %217, i64 16
-  store i32 0, ptr %218, align 8
-  %219 = getelementptr inbounds i8, ptr %217, i64 24
-  store ptr null, ptr %219, align 8
-  %220 = getelementptr inbounds i8, ptr %217, i64 32
-  store ptr %218, ptr %220, align 8
-  %221 = getelementptr inbounds i8, ptr %217, i64 40
-  store ptr %218, ptr %221, align 8
-  %222 = getelementptr inbounds i8, ptr %217, i64 48
-  store i64 0, ptr %222, align 8
+.noexc31:                                         ; preds = %215
+  store i32 0, ptr %216, align 4
+  %217 = getelementptr inbounds i8, ptr %216, i64 16
+  store i32 0, ptr %217, align 8
+  %218 = getelementptr inbounds i8, ptr %216, i64 24
+  store ptr null, ptr %218, align 8
+  %219 = getelementptr inbounds i8, ptr %216, i64 32
+  store ptr %217, ptr %219, align 8
+  %220 = getelementptr inbounds i8, ptr %216, i64 40
+  store ptr %217, ptr %220, align 8
+  %221 = getelementptr inbounds i8, ptr %216, i64 48
+  store i64 0, ptr %221, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4)
   store i64 0, ptr %3, align 8
-  %223 = getelementptr inbounds i8, ptr %176, i64 32
-  %224 = load ptr, ptr %223, align 8
-  %225 = getelementptr inbounds i8, ptr %176, i64 16
-  %226 = getelementptr inbounds i8, ptr %217, i64 8
+  %222 = getelementptr inbounds i8, ptr %175, i64 32
+  %223 = load ptr, ptr %222, align 8
+  %224 = getelementptr inbounds i8, ptr %175, i64 16
+  %225 = getelementptr inbounds i8, ptr %216, i64 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2)
   store ptr %3, ptr %2, align 8
   store ptr %9, ptr %.sroa.2.0..sroa_idx.i.i, align 8
   store ptr %4, ptr %.sroa.3.0..sroa_idx12.i.i, align 8
-  %227 = invoke { ptr, ptr } @_ZSt16__remove_copy_ifISt23_Rb_tree_const_iteratorISt4pairIKiP16FunnelTextDialogEESt15insert_iteratorISt3mapIiS4_St4lessIiESaIS5_EEEN9__gnu_cxx5__ops10_Iter_predIZN8QMapDataISC_E21copyIfNotEquivalentToERKSC_RS2_EUlRKT_E_EEET0_SM_SM_SR_T1_(ptr %224, ptr nonnull %225, ptr nonnull %226, ptr nonnull %218, ptr noundef nonnull byval(%"struct.__gnu_cxx::__ops::_Iter_pred.182") align 8 %2)
+  %226 = invoke { ptr, ptr } @_ZSt16__remove_copy_ifISt23_Rb_tree_const_iteratorISt4pairIKiP16FunnelTextDialogEESt15insert_iteratorISt3mapIiS4_St4lessIiESaIS5_EEEN9__gnu_cxx5__ops10_Iter_predIZN8QMapDataISC_E21copyIfNotEquivalentToERKSC_RS2_EUlRKT_E_EEET0_SM_SM_SR_T1_(ptr %223, ptr nonnull %224, ptr nonnull %225, ptr nonnull %217, ptr noundef nonnull byval(%"struct.__gnu_cxx::__ops::_Iter_pred.182") align 8 %2)
           to label %.noexc32 unwind label %147
 
 .noexc32:                                         ; preds = %.noexc31
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4)
-  %228 = load ptr, ptr %175, align 8
-  %.not.i6.i = icmp eq ptr %228, null
-  br i1 %.not.i6.i, label %_ZN9QtPrivate30QExplicitlySharedDataPointerV2I8QMapDataISt3mapIiP16FunnelTextDialogSt4lessIiESaISt4pairIKiS4_EEEEE5resetEPSC_.exit.i, label %229
+  %227 = load ptr, ptr %174, align 8
+  %.not.i6.i = icmp eq ptr %227, null
+  br i1 %.not.i6.i, label %_ZN9QtPrivate30QExplicitlySharedDataPointerV2I8QMapDataISt3mapIiP16FunnelTextDialogSt4lessIiESaISt4pairIKiS4_EEEEE5resetEPSC_.exit.i, label %228
 
-229:                                              ; preds = %.noexc32
-  %230 = atomicrmw sub ptr %228, i32 1 seq_cst, align 4
-  %.not5.i.i = icmp eq i32 %230, 1
-  br i1 %.not5.i.i, label %231, label %_ZN9QtPrivate30QExplicitlySharedDataPointerV2I8QMapDataISt3mapIiP16FunnelTextDialogSt4lessIiESaISt4pairIKiS4_EEEEE5resetEPSC_.exit.i
+228:                                              ; preds = %.noexc32
+  %229 = atomicrmw sub ptr %227, i32 1 seq_cst, align 4
+  %.not5.i.i = icmp eq i32 %229, 1
+  br i1 %.not5.i.i, label %230, label %_ZN9QtPrivate30QExplicitlySharedDataPointerV2I8QMapDataISt3mapIiP16FunnelTextDialogSt4lessIiESaISt4pairIKiS4_EEEEE5resetEPSC_.exit.i
 
-231:                                              ; preds = %229
-  %232 = load ptr, ptr %175, align 8
-  %233 = icmp eq ptr %232, null
-  br i1 %233, label %_ZN9QtPrivate30QExplicitlySharedDataPointerV2I8QMapDataISt3mapIiP16FunnelTextDialogSt4lessIiESaISt4pairIKiS4_EEEEE5resetEPSC_.exit.i, label %234
+230:                                              ; preds = %228
+  %231 = load ptr, ptr %174, align 8
+  %232 = icmp eq ptr %231, null
+  br i1 %232, label %_ZN9QtPrivate30QExplicitlySharedDataPointerV2I8QMapDataISt3mapIiP16FunnelTextDialogSt4lessIiESaISt4pairIKiS4_EEEEE5resetEPSC_.exit.i, label %233
 
-234:                                              ; preds = %231
-  %235 = getelementptr inbounds i8, ptr %232, i64 8
-  %236 = getelementptr inbounds i8, ptr %232, i64 24
-  %237 = load ptr, ptr %236, align 8
-  invoke void @_ZNSt8_Rb_treeIiSt4pairIKiP16FunnelTextDialogESt10_Select1stIS4_ESt4lessIiESaIS4_EE8_M_eraseEPSt13_Rb_tree_nodeIS4_E(ptr noundef nonnull align 8 dereferenceable(48) %235, ptr noundef %237)
-          to label %_ZN8QMapDataISt3mapIiP16FunnelTextDialogSt4lessIiESaISt4pairIKiS2_EEEED2Ev.exit.i.i unwind label %238
+233:                                              ; preds = %230
+  %234 = getelementptr inbounds i8, ptr %231, i64 8
+  %235 = getelementptr inbounds i8, ptr %231, i64 24
+  %236 = load ptr, ptr %235, align 8
+  invoke void @_ZNSt8_Rb_treeIiSt4pairIKiP16FunnelTextDialogESt10_Select1stIS4_ESt4lessIiESaIS4_EE8_M_eraseEPSt13_Rb_tree_nodeIS4_E(ptr noundef nonnull align 8 dereferenceable(48) %234, ptr noundef %236)
+          to label %_ZN8QMapDataISt3mapIiP16FunnelTextDialogSt4lessIiESaISt4pairIKiS2_EEEED2Ev.exit.i.i unwind label %237
 
-238:                                              ; preds = %234
-  %239 = landingpad { ptr, i32 }
+237:                                              ; preds = %233
+  %238 = landingpad { ptr, i32 }
           catch ptr null
-  %240 = extractvalue { ptr, i32 } %239, 0
-  call void @__clang_call_terminate(ptr %240) #26
+  %239 = extractvalue { ptr, i32 } %238, 0
+  call void @__clang_call_terminate(ptr %239) #26
   unreachable
 
-_ZN8QMapDataISt3mapIiP16FunnelTextDialogSt4lessIiESaISt4pairIKiS2_EEEED2Ev.exit.i.i: ; preds = %234
-  call void @_ZdlPv(ptr noundef nonnull %232) #24
+_ZN8QMapDataISt3mapIiP16FunnelTextDialogSt4lessIiESaISt4pairIKiS2_EEEED2Ev.exit.i.i: ; preds = %233
+  call void @_ZdlPv(ptr noundef nonnull %231) #24
   br label %_ZN9QtPrivate30QExplicitlySharedDataPointerV2I8QMapDataISt3mapIiP16FunnelTextDialogSt4lessIiESaISt4pairIKiS4_EEEEE5resetEPSC_.exit.i
 
-_ZN9QtPrivate30QExplicitlySharedDataPointerV2I8QMapDataISt3mapIiP16FunnelTextDialogSt4lessIiESaISt4pairIKiS4_EEEEE5resetEPSC_.exit.i: ; preds = %_ZN8QMapDataISt3mapIiP16FunnelTextDialogSt4lessIiESaISt4pairIKiS2_EEEED2Ev.exit.i.i, %231, %229, %.noexc32
-  store ptr %217, ptr %175, align 8
-  %241 = atomicrmw add ptr %217, i32 1 seq_cst, align 4
+_ZN9QtPrivate30QExplicitlySharedDataPointerV2I8QMapDataISt3mapIiP16FunnelTextDialogSt4lessIiESaISt4pairIKiS4_EEEEE5resetEPSC_.exit.i: ; preds = %_ZN8QMapDataISt3mapIiP16FunnelTextDialogSt4lessIiESaISt4pairIKiS2_EEEED2Ev.exit.i.i, %230, %228, %.noexc32
+  store ptr %216, ptr %174, align 8
+  %240 = atomicrmw add ptr %216, i32 1 seq_cst, align 4
   br label %_ZN4QMapIiP16FunnelTextDialogE6removeERKi.exit
 
-_ZN4QMapIiP16FunnelTextDialogE6removeERKi.exit:   ; preds = %.lr.ph.i2.i, %_ZN9QtPrivate30QExplicitlySharedDataPointerV2I8QMapDataISt3mapIiP16FunnelTextDialogSt4lessIiESaISt4pairIKiS4_EEEEE5resetEPSC_.exit.i, %174, %.critedge.i.i, %_ZNSt8_Rb_treeIiSt4pairIKiP16FunnelTextDialogESt10_Select1stIS4_ESt4lessIiESaIS4_EE5clearEv.exit.i.i, %170
-  %242 = getelementptr i8, ptr %.sroa.7.069, i64 4
-  %.not61 = icmp eq ptr %242, %138
+_ZN4QMapIiP16FunnelTextDialogE6removeERKi.exit:   ; preds = %.lr.ph.i2.i, %_ZN9QtPrivate30QExplicitlySharedDataPointerV2I8QMapDataISt3mapIiP16FunnelTextDialogSt4lessIiESaISt4pairIKiS4_EEEEE5resetEPSC_.exit.i, %173, %.critedge.i.i, %_ZNSt8_Rb_treeIiSt4pairIKiP16FunnelTextDialogESt10_Select1stIS4_ESt4lessIiESaIS4_EE5clearEv.exit.i.i, %169
+  %241 = getelementptr i8, ptr %.sroa.7.069, i64 4
+  %.not61 = icmp eq ptr %241, %138
   br i1 %.not61, label %._crit_edge, label %.lr.ph, !llvm.loop !158
 
-.body:                                            ; preds = %150, %_ZN17QArrayDataPointerIiE5derefEv.exit.i.i.i24, %147, %133, %_ZN17QArrayDataPointerIiE5derefEv.exit.i.i38, %136
-  %.pn = phi { ptr, i32 } [ %lpad.phi.i.i, %133 ], [ %lpad.phi.i.i, %_ZN17QArrayDataPointerIiE5derefEv.exit.i.i38 ], [ %lpad.phi.i.i, %136 ], [ %148, %147 ], [ %148, %_ZN17QArrayDataPointerIiE5derefEv.exit.i.i.i24 ], [ %148, %150 ]
-  %243 = load ptr, ptr %7, align 8
-  %.not.i.i.i33 = icmp eq ptr %243, null
+.body.sink.split:                                 ; preds = %_ZN17QArrayDataPointerIiE5derefEv.exit.i.i.i24, %136
+  %.pr.lcssa.sink = phi ptr [ %137, %136 ], [ %.pr, %_ZN17QArrayDataPointerIiE5derefEv.exit.i.i.i24 ]
+  %.pn.ph = phi { ptr, i32 } [ %lpad.phi.i.i, %136 ], [ %148, %_ZN17QArrayDataPointerIiE5derefEv.exit.i.i.i24 ]
+  call void @_ZN10QArrayData10deallocateEPS_xx(ptr noundef %.pr.lcssa.sink, i64 noundef 4, i64 noundef 8) #23
+  br label %.body
+
+.body:                                            ; preds = %.body.sink.split, %_ZN17QArrayDataPointerIiE5derefEv.exit.i.i.i24, %147, %133, %_ZN17QArrayDataPointerIiE5derefEv.exit.i.i38
+  %.pn = phi { ptr, i32 } [ %lpad.phi.i.i, %133 ], [ %lpad.phi.i.i, %_ZN17QArrayDataPointerIiE5derefEv.exit.i.i38 ], [ %148, %147 ], [ %148, %_ZN17QArrayDataPointerIiE5derefEv.exit.i.i.i24 ], [ %.pn.ph, %.body.sink.split ]
+  %242 = load ptr, ptr %7, align 8
+  %.not.i.i.i33 = icmp eq ptr %242, null
   br i1 %.not.i.i.i33, label %_ZN7QStringD2Ev.exit36, label %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i34
 
 _ZN17QArrayDataPointerIDsE5derefEv.exit.i.i34:    ; preds = %.body
-  %244 = atomicrmw sub ptr %243, i32 1 seq_cst, align 4
-  %.not.i.i35 = icmp eq i32 %244, 1
-  br i1 %.not.i.i35, label %245, label %_ZN7QStringD2Ev.exit36
+  %243 = atomicrmw sub ptr %242, i32 1 seq_cst, align 4
+  %.not.i.i35 = icmp eq i32 %243, 1
+  br i1 %.not.i.i35, label %244, label %_ZN7QStringD2Ev.exit36
 
-245:                                              ; preds = %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i34
-  %246 = load ptr, ptr %7, align 8
-  call void @_ZN10QArrayData10deallocateEPS_xx(ptr noundef %246, i64 noundef 2, i64 noundef 8) #23
+244:                                              ; preds = %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i34
+  %245 = load ptr, ptr %7, align 8
+  call void @_ZN10QArrayData10deallocateEPS_xx(ptr noundef %245, i64 noundef 2, i64 noundef 8) #23
   br label %_ZN7QStringD2Ev.exit36
 
-_ZN7QStringD2Ev.exit36:                           ; preds = %.body, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i34, %245
+_ZN7QStringD2Ev.exit36:                           ; preds = %.body, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i34, %244
   call void @_ZN9QtPrivate17QForeachContainerI5QListI7QStringEED2Ev(ptr noundef nonnull align 8 dereferenceable(44) %5) #23
   br label %common.resume
 }
@@ -11765,11 +11766,16 @@ _ZN17QArrayDataPointerIiE5derefEv.exit.i.i35:     ; preds = %24
 
 27:                                               ; preds = %_ZN17QArrayDataPointerIiE5derefEv.exit.i.i35
   %28 = load ptr, ptr %4, align 8
-  call void @_ZN10QArrayData10deallocateEPS_xx(ptr noundef %28, i64 noundef 4, i64 noundef 8) #23
+  br label %common.resume.sink.split
+
+common.resume.sink.split:                         ; preds = %_ZN17QArrayDataPointerIiE5derefEv.exit.i.i.i31, %27
+  %.sink = phi ptr [ %28, %27 ], [ %.pr, %_ZN17QArrayDataPointerIiE5derefEv.exit.i.i.i31 ]
+  %common.resume.op.ph = phi { ptr, i32 } [ %lpad.phi.i.i, %27 ], [ %.pn14, %_ZN17QArrayDataPointerIiE5derefEv.exit.i.i.i31 ]
+  call void @_ZN10QArrayData10deallocateEPS_xx(ptr noundef %.sink, i64 noundef 4, i64 noundef 8) #23
   br label %common.resume
 
-common.resume:                                    ; preds = %_ZN7QStringD2Ev.exit29, %_ZN17QArrayDataPointerIiE5derefEv.exit.i.i.i31, %90, %27, %_ZN17QArrayDataPointerIiE5derefEv.exit.i.i35, %24
-  %common.resume.op = phi { ptr, i32 } [ %lpad.phi.i.i, %24 ], [ %lpad.phi.i.i, %_ZN17QArrayDataPointerIiE5derefEv.exit.i.i35 ], [ %lpad.phi.i.i, %27 ], [ %.pn14, %90 ], [ %.pn14, %_ZN17QArrayDataPointerIiE5derefEv.exit.i.i.i31 ], [ %.pn14, %_ZN7QStringD2Ev.exit29 ]
+common.resume:                                    ; preds = %common.resume.sink.split, %_ZN7QStringD2Ev.exit29, %_ZN17QArrayDataPointerIiE5derefEv.exit.i.i.i31, %_ZN17QArrayDataPointerIiE5derefEv.exit.i.i35, %24
+  %common.resume.op = phi { ptr, i32 } [ %lpad.phi.i.i, %24 ], [ %lpad.phi.i.i, %_ZN17QArrayDataPointerIiE5derefEv.exit.i.i35 ], [ %.pn14, %_ZN17QArrayDataPointerIiE5derefEv.exit.i.i.i31 ], [ %.pn14, %_ZN7QStringD2Ev.exit29 ], [ %common.resume.op.ph, %common.resume.sink.split ]
   resume { ptr, i32 } %common.resume.op
 
 _ZN5QListIiED2Ev.exit:                            ; preds = %.noexc.i.i, %14
@@ -11954,11 +11960,7 @@ _ZN7QStringD2Ev.exit29:                           ; preds = %86, %_ZN17QArrayDat
 _ZN17QArrayDataPointerIiE5derefEv.exit.i.i.i31:   ; preds = %_ZN7QStringD2Ev.exit29
   %89 = atomicrmw sub ptr %.pr, i32 1 seq_cst, align 4
   %.not.i.i.i32 = icmp eq i32 %89, 1
-  br i1 %.not.i.i.i32, label %90, label %common.resume
-
-90:                                               ; preds = %_ZN17QArrayDataPointerIiE5derefEv.exit.i.i.i31
-  call void @_ZN10QArrayData10deallocateEPS_xx(ptr noundef nonnull %.pr, i64 noundef 4, i64 noundef 8) #23
-  br label %common.resume
+  br i1 %.not.i.i.i32, label %common.resume.sink.split, label %common.resume
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -13798,8 +13800,7 @@ _ZN17QArrayDataPointerIiE5derefEv.exit.i.i94:     ; preds = %33
 
 36:                                               ; preds = %_ZN17QArrayDataPointerIiE5derefEv.exit.i.i94
   %37 = load ptr, ptr %7, align 8
-  call void @_ZN10QArrayData10deallocateEPS_xx(ptr noundef %37, i64 noundef 4, i64 noundef 8) #23
-  br label %.body
+  br label %.body.sink.split
 
 _ZN5QListIiED2Ev.exit:                            ; preds = %.noexc.i.i, %23
   %.pr = load ptr, ptr %7, align 8, !noalias !201
@@ -14814,29 +14815,31 @@ _ZN10QByteArrayD2Ev.exit35:                       ; preds = %372, %_ZN17QArrayDa
 _ZN17QArrayDataPointerIiE5derefEv.exit.i.i.i86:   ; preds = %_ZN10QByteArrayD2Ev.exit35
   %411 = atomicrmw sub ptr %.pr, i32 1 seq_cst, align 4
   %.not.i.i.i87 = icmp eq i32 %411, 1
-  br i1 %.not.i.i.i87, label %412, label %.body
+  br i1 %.not.i.i.i87, label %.body.sink.split, label %.body
 
-412:                                              ; preds = %_ZN17QArrayDataPointerIiE5derefEv.exit.i.i.i86
-  call void @_ZN10QArrayData10deallocateEPS_xx(ptr noundef nonnull %.pr, i64 noundef 4, i64 noundef 8) #23
+.body.sink.split:                                 ; preds = %_ZN17QArrayDataPointerIiE5derefEv.exit.i.i.i86, %36
+  %.sink = phi ptr [ %37, %36 ], [ %.pr, %_ZN17QArrayDataPointerIiE5derefEv.exit.i.i.i86 ]
+  %.pn.pn.pn.ph = phi { ptr, i32 } [ %lpad.phi.i.i, %36 ], [ %.pn.pn, %_ZN17QArrayDataPointerIiE5derefEv.exit.i.i.i86 ]
+  call void @_ZN10QArrayData10deallocateEPS_xx(ptr noundef %.sink, i64 noundef 4, i64 noundef 8) #23
   br label %.body
 
-.body:                                            ; preds = %412, %_ZN17QArrayDataPointerIiE5derefEv.exit.i.i.i86, %_ZN10QByteArrayD2Ev.exit35, %33, %_ZN17QArrayDataPointerIiE5derefEv.exit.i.i94, %36
-  %.pn.pn.pn = phi { ptr, i32 } [ %lpad.phi.i.i, %33 ], [ %lpad.phi.i.i, %_ZN17QArrayDataPointerIiE5derefEv.exit.i.i94 ], [ %lpad.phi.i.i, %36 ], [ %.pn.pn, %_ZN10QByteArrayD2Ev.exit35 ], [ %.pn.pn, %_ZN17QArrayDataPointerIiE5derefEv.exit.i.i.i86 ], [ %.pn.pn, %412 ]
-  %413 = load ptr, ptr %6, align 8
-  %.not.i.i.i89 = icmp eq ptr %413, null
+.body:                                            ; preds = %.body.sink.split, %_ZN17QArrayDataPointerIiE5derefEv.exit.i.i.i86, %_ZN10QByteArrayD2Ev.exit35, %33, %_ZN17QArrayDataPointerIiE5derefEv.exit.i.i94
+  %.pn.pn.pn = phi { ptr, i32 } [ %lpad.phi.i.i, %33 ], [ %lpad.phi.i.i, %_ZN17QArrayDataPointerIiE5derefEv.exit.i.i94 ], [ %.pn.pn, %_ZN10QByteArrayD2Ev.exit35 ], [ %.pn.pn, %_ZN17QArrayDataPointerIiE5derefEv.exit.i.i.i86 ], [ %.pn.pn.pn.ph, %.body.sink.split ]
+  %412 = load ptr, ptr %6, align 8
+  %.not.i.i.i89 = icmp eq ptr %412, null
   br i1 %.not.i.i.i89, label %_ZN7QStringD2Ev.exit92, label %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i90
 
 _ZN17QArrayDataPointerIDsE5derefEv.exit.i.i90:    ; preds = %.body
-  %414 = atomicrmw sub ptr %413, i32 1 seq_cst, align 4
-  %.not.i.i91 = icmp eq i32 %414, 1
-  br i1 %.not.i.i91, label %415, label %_ZN7QStringD2Ev.exit92
+  %413 = atomicrmw sub ptr %412, i32 1 seq_cst, align 4
+  %.not.i.i91 = icmp eq i32 %413, 1
+  br i1 %.not.i.i91, label %414, label %_ZN7QStringD2Ev.exit92
 
-415:                                              ; preds = %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i90
-  %416 = load ptr, ptr %6, align 8
-  call void @_ZN10QArrayData10deallocateEPS_xx(ptr noundef %416, i64 noundef 2, i64 noundef 8) #23
+414:                                              ; preds = %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i90
+  %415 = load ptr, ptr %6, align 8
+  call void @_ZN10QArrayData10deallocateEPS_xx(ptr noundef %415, i64 noundef 2, i64 noundef 8) #23
   br label %_ZN7QStringD2Ev.exit92
 
-_ZN7QStringD2Ev.exit92:                           ; preds = %.body, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i90, %415
+_ZN7QStringD2Ev.exit92:                           ; preds = %.body, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i90, %414
   resume { ptr, i32 } %.pn.pn.pn
 }
 
@@ -14984,11 +14987,16 @@ _ZN17QArrayDataPointerIiE5derefEv.exit.i.i62:     ; preds = %26
 
 29:                                               ; preds = %_ZN17QArrayDataPointerIiE5derefEv.exit.i.i62
   %30 = load ptr, ptr %4, align 8
-  call void @_ZN10QArrayData10deallocateEPS_xx(ptr noundef %30, i64 noundef 4, i64 noundef 8) #23
+  br label %common.resume.sink.split
+
+common.resume.sink.split:                         ; preds = %_ZN17QArrayDataPointerIiE5derefEv.exit.i.i.i58, %29
+  %.pr.sink = phi ptr [ %30, %29 ], [ %.pr, %_ZN17QArrayDataPointerIiE5derefEv.exit.i.i.i58 ]
+  %common.resume.op.ph = phi { ptr, i32 } [ %lpad.phi.i.i, %29 ], [ %.pn, %_ZN17QArrayDataPointerIiE5derefEv.exit.i.i.i58 ]
+  call void @_ZN10QArrayData10deallocateEPS_xx(ptr noundef %.pr.sink, i64 noundef 4, i64 noundef 8) #23
   br label %common.resume
 
-common.resume:                                    ; preds = %_ZN10QByteArrayD2Ev.exit27, %_ZN17QArrayDataPointerIiE5derefEv.exit.i.i.i58, %156, %29, %_ZN17QArrayDataPointerIiE5derefEv.exit.i.i62, %26
-  %common.resume.op = phi { ptr, i32 } [ %lpad.phi.i.i, %26 ], [ %lpad.phi.i.i, %_ZN17QArrayDataPointerIiE5derefEv.exit.i.i62 ], [ %lpad.phi.i.i, %29 ], [ %.pn, %156 ], [ %.pn, %_ZN17QArrayDataPointerIiE5derefEv.exit.i.i.i58 ], [ %.pn, %_ZN10QByteArrayD2Ev.exit27 ]
+common.resume:                                    ; preds = %common.resume.sink.split, %_ZN10QByteArrayD2Ev.exit27, %_ZN17QArrayDataPointerIiE5derefEv.exit.i.i.i58, %_ZN17QArrayDataPointerIiE5derefEv.exit.i.i62, %26
+  %common.resume.op = phi { ptr, i32 } [ %lpad.phi.i.i, %26 ], [ %lpad.phi.i.i, %_ZN17QArrayDataPointerIiE5derefEv.exit.i.i62 ], [ %.pn, %_ZN17QArrayDataPointerIiE5derefEv.exit.i.i.i58 ], [ %.pn, %_ZN10QByteArrayD2Ev.exit27 ], [ %common.resume.op.ph, %common.resume.sink.split ]
   resume { ptr, i32 } %common.resume.op
 
 _ZN5QListIiED2Ev.exit:                            ; preds = %.noexc.i.i, %16
@@ -15370,11 +15378,7 @@ _ZN10QByteArrayD2Ev.exit27:                       ; preds = %152, %_ZN17QArrayDa
 _ZN17QArrayDataPointerIiE5derefEv.exit.i.i.i58:   ; preds = %_ZN10QByteArrayD2Ev.exit27
   %155 = atomicrmw sub ptr %.pr, i32 1 seq_cst, align 4
   %.not.i.i.i59 = icmp eq i32 %155, 1
-  br i1 %.not.i.i.i59, label %156, label %common.resume
-
-156:                                              ; preds = %_ZN17QArrayDataPointerIiE5derefEv.exit.i.i.i58
-  call void @_ZN10QArrayData10deallocateEPS_xx(ptr noundef nonnull %.pr, i64 noundef 4, i64 noundef 8) #23
-  br label %common.resume
+  br i1 %.not.i.i.i59, label %common.resume.sink.split, label %common.resume
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)

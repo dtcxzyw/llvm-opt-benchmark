@@ -572,7 +572,6 @@ if.end:                                           ; preds = %entry
 if.then2:                                         ; preds = %if.end
   %call.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %arg) #13
   tail call void @strbuf_add(ptr noundef nonnull %filter_options, ptr noundef %arg, i64 noundef %call.i) #14
-  %call = call i32 @gently_parse_list_objects_filter(ptr noundef nonnull %filter_options, ptr noundef %arg, ptr noundef nonnull %errbuf)
   br label %if.end37
 
 if.end.i:                                         ; preds = %if.end
@@ -723,12 +722,12 @@ do.end:                                           ; preds = %do.body8.do.end_cri
   %24 = load ptr, ptr %sub29, align 8
   %arrayidx = getelementptr inbounds %struct.list_objects_filter_options, ptr %24, i64 %18
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %arrayidx, ptr noundef nonnull align 8 dereferenceable(88) @__const.list_objects_filter_init.blank, i64 88, i1 false)
-  %call36 = call i32 @gently_parse_list_objects_filter(ptr noundef %arrayidx, ptr noundef %arg, ptr noundef nonnull %errbuf)
   br label %if.end37
 
 if.end37:                                         ; preds = %do.end, %if.then2
-  %parse_error.0 = phi i32 [ %call36, %do.end ], [ %call, %if.then2 ]
-  %tobool38.not = icmp eq i32 %parse_error.0, 0
+  %arrayidx.sink = phi ptr [ %arrayidx, %do.end ], [ %filter_options, %if.then2 ]
+  %call36 = call i32 @gently_parse_list_objects_filter(ptr noundef %arrayidx.sink, ptr noundef %arg, ptr noundef nonnull %errbuf)
+  %tobool38.not = icmp eq i32 %call36, 0
   br i1 %tobool38.not, label %if.end41, label %if.then39
 
 if.then39:                                        ; preds = %if.end37

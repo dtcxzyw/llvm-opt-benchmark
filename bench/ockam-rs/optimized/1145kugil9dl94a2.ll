@@ -41237,7 +41237,7 @@ define hidden void @"_ZN116_$LT$core..iter..adapters..flatten..FlattenCompat$LT$
   %27 = load ptr, ptr %26, align 8, !alias.scope !10692, !noalias !10696
   %28 = getelementptr inbounds i8, ptr %20, i64 104
   %29 = load i8, ptr %28, align 8, !range !830, !alias.scope !10692, !noalias !10696, !noundef !7
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %15)
+  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %15), !noalias !10697
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %15, ptr noundef nonnull align 8 dereferenceable(56) %19, i64 56, i1 false), !noalias !10698
   %.not.not.i.i = icmp eq i8 %29, 2
   br i1 %.not.not.i.i, label %"_ZN100_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h0cffbc046ab4b1e2E.exit.i", label %30
@@ -41385,10 +41385,10 @@ define hidden void @"_ZN116_$LT$core..iter..adapters..flatten..FlattenCompat$LT$
           cleanup
   br label %.body.thread.i
 
-"_ZN100_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h0cffbc046ab4b1e2E.exit.i": ; preds = %25, %.noexc.i
-  %.sink = phi ptr [ %15, %.noexc.i ], [ %19, %25 ]
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %16, ptr noundef nonnull align 8 dereferenceable(56) %.sink, i64 56, i1 false), !noalias !10698
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %15)
+"_ZN100_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h0cffbc046ab4b1e2E.exit.i": ; preds = %.noexc.i, %25
+  %.sink.i = phi ptr [ %15, %.noexc.i ], [ %19, %25 ]
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %16, ptr noundef nonnull align 8 dereferenceable(56) %.sink.i, i64 56, i1 false), !noalias !10698
+  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %15), !noalias !10697
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %19, ptr noundef nonnull align 8 dereferenceable(56) %16, i64 56, i1 false), !noalias !10698
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %16)
   %61 = getelementptr inbounds i8, ptr %20, i64 48

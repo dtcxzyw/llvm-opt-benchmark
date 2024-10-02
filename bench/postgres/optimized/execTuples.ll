@@ -3262,7 +3262,7 @@ ExecInitExtraTupleSlot.exit:                      ; preds = %15, %24, %37
   %55 = icmp eq i64 %54, 0
   %56 = icmp ult i64 %52, 1025
   %or.cond.i = select i1 %55, i1 %56, i1 false
-  br i1 %or.cond.i, label %57, label %66
+  br i1 %or.cond.i, label %57, label %ExecStoreAllNullTuple.exit.sink.split
 
 57:                                               ; preds = %ExecInitExtraTupleSlot.exit
   %58 = getelementptr i8, ptr %48, i64 %52
@@ -3277,27 +3277,27 @@ ExecInitExtraTupleSlot.exit:                      ; preds = %15, %24, %37
   %63 = add i64 %umax.i, %62
   %64 = and i64 %63, -8
   %65 = add i64 %64, 8
-  tail call void @llvm.memset.p0.i64(ptr align 8 %48, i8 0, i64 %65, i1 false)
+  br label %ExecStoreAllNullTuple.exit.sink.split
+
+ExecStoreAllNullTuple.exit.sink.split:            ; preds = %ExecInitExtraTupleSlot.exit, %.lr.ph.preheader.i
+  %.sink = phi i64 [ %65, %.lr.ph.preheader.i ], [ %52, %ExecInitExtraTupleSlot.exit ]
+  tail call void @llvm.memset.p0.i64(ptr align 1 %48, i8 0, i64 %.sink, i1 false)
   br label %ExecStoreAllNullTuple.exit
 
-66:                                               ; preds = %ExecInitExtraTupleSlot.exit
-  tail call void @llvm.memset.p0.i64(ptr align 1 %48, i8 0, i64 %52, i1 false)
-  br label %ExecStoreAllNullTuple.exit
-
-ExecStoreAllNullTuple.exit:                       ; preds = %57, %.lr.ph.preheader.i, %66
-  %67 = getelementptr inbounds i8, ptr %16, i64 32
-  %68 = load ptr, ptr %67, align 8
-  %69 = load ptr, ptr %20, align 8
-  %70 = load i32, ptr %69, align 8
-  %71 = sext i32 %70 to i64
-  tail call void @llvm.memset.p0.i64(ptr align 1 %68, i8 1, i64 %71, i1 false)
-  %72 = load i16, ptr %18, align 4
-  %73 = and i16 %72, -3
-  store i16 %73, ptr %18, align 4
-  %74 = load ptr, ptr %20, align 8
-  %75 = load i32, ptr %74, align 8
-  %76 = trunc i32 %75 to i16
-  store i16 %76, ptr %23, align 2
+ExecStoreAllNullTuple.exit:                       ; preds = %ExecStoreAllNullTuple.exit.sink.split, %57
+  %66 = getelementptr inbounds i8, ptr %16, i64 32
+  %67 = load ptr, ptr %66, align 8
+  %68 = load ptr, ptr %20, align 8
+  %69 = load i32, ptr %68, align 8
+  %70 = sext i32 %69 to i64
+  tail call void @llvm.memset.p0.i64(ptr align 1 %67, i8 1, i64 %70, i1 false)
+  %71 = load i16, ptr %18, align 4
+  %72 = and i16 %71, -3
+  store i16 %72, ptr %18, align 4
+  %73 = load ptr, ptr %20, align 8
+  %74 = load i32, ptr %73, align 8
+  %75 = trunc i32 %74 to i16
+  store i16 %75, ptr %23, align 2
   ret ptr %16
 }
 

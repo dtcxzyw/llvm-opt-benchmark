@@ -976,26 +976,15 @@ entry:
   %cond = zext i1 %tobool.not to i32
   %call = call i32 @anetResolve(ptr noundef null, ptr noundef %hostname, ptr noundef nonnull %ip, i64 noundef 46, i32 noundef %cond) #29
   %cmp = icmp eq i32 %call, -1
-  br i1 %cmp, label %if.then, label %if.end
-
-if.then:                                          ; preds = %entry
   %1 = load i32, ptr getelementptr inbounds (i8, ptr @sentinel, i64 144), align 8
   %tobool1.not = icmp eq i32 %1, 0
   %cond4.in.idx = select i1 %tobool1.not, i64 8, i64 0
-  %cond4.in = getelementptr inbounds i8, ptr %a, i64 %cond4.in.idx
-  %cond4 = load ptr, ptr %cond4.in, align 8
-  %call5 = call i32 @strcasecmp(ptr noundef %cond4, ptr noundef %hostname) #33
-  br label %return
-
-if.end:                                           ; preds = %entry
-  %ip7 = getelementptr inbounds i8, ptr %a, i64 8
+  %.sink = select i1 %cmp, i64 %cond4.in.idx, i64 8
+  %ip.sink = select i1 %cmp, ptr %hostname, ptr %ip
+  %ip7 = getelementptr inbounds i8, ptr %a, i64 %.sink
   %2 = load ptr, ptr %ip7, align 8
-  %call9 = call i32 @strcasecmp(ptr noundef %2, ptr noundef nonnull %ip) #33
-  br label %return
-
-return:                                           ; preds = %if.end, %if.then
-  %retval.0.in.in = phi i32 [ %call5, %if.then ], [ %call9, %if.end ]
-  %retval.0.in = icmp eq i32 %retval.0.in.in, 0
+  %call9 = call i32 @strcasecmp(ptr noundef %2, ptr noundef %ip.sink) #33
+  %retval.0.in = icmp eq i32 %call9, 0
   %retval.0 = zext i1 %retval.0.in to i32
   ret i32 %retval.0
 }
@@ -5876,7 +5865,7 @@ land.end:                                         ; preds = %land.rhs, %land.lhs
 ; Function Attrs: nounwind uwtable
 define dso_local void @sentinelRefreshInstanceInfo(ptr noundef %ri, ptr noundef %info) local_unnamed_addr #0 {
 entry:
-  %ip.i420 = alloca [46 x i8], align 16
+  %ip.i419 = alloca [46 x i8], align 16
   %ip.i = alloca [46 x i8], align 16
   %fromport.i = alloca [32 x i8], align 16
   %toport.i = alloca [32 x i8], align 16
@@ -5891,8 +5880,8 @@ entry:
   %call3 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %info) #33
   %call4 = call ptr @sdssplitlen(ptr noundef %info, i64 noundef %call3, ptr noundef nonnull @.str.160, i32 noundef 2, ptr noundef nonnull %numlines) #29
   %1 = load i32, ptr %numlines, align 4
-  %cmp478 = icmp sgt i32 %1, 0
-  br i1 %cmp478, label %for.body.lr.ph, label %for.end
+  %cmp472 = icmp sgt i32 %1, 0
+  br i1 %cmp472, label %for.body.lr.ph, label %for.end
 
 for.body.lr.ph:                                   ; preds = %entry
   %runid = getelementptr inbounds i8, ptr %ri, i64 16
@@ -5910,7 +5899,7 @@ for.body.lr.ph:                                   ; preds = %entry
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
   %indvars.iv = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next, %for.inc ]
-  %role.0479 = phi i32 [ 0, %for.body.lr.ph ], [ %role.1, %for.inc ]
+  %role.0473 = phi i32 [ 0, %for.body.lr.ph ], [ %role.1, %for.inc ]
   %arrayidx = getelementptr inbounds ptr, ptr %call4, i64 %indvars.iv
   %2 = load ptr, ptr %arrayidx, align 8
   %arrayidx.i = getelementptr inbounds i8, ptr %2, i64 -1
@@ -6306,15 +6295,15 @@ sdslen.exit252:                                   ; preds = %sw.bb.i249, %sw.bb3
 land.lhs.true121:                                 ; preds = %sdslen.exit252
   %bcmp169 = call i32 @bcmp(ptr noundef nonnull dereferenceable(10) %2, ptr noundef nonnull dereferenceable(10) @.str.167, i64 10)
   %tobool123.not = icmp eq i32 %bcmp169, 0
-  %cmp127 = icmp eq i32 %role.0479, 2
-  %or.cond477 = select i1 %tobool123.not, i1 true, i1 %cmp127
-  br i1 %or.cond477, label %if.then129, label %for.inc
+  %cmp127 = icmp eq i32 %role.0473, 2
+  %or.cond471 = select i1 %tobool123.not, i1 true, i1 %cmp127
+  br i1 %or.cond471, label %if.then129, label %for.inc
 
 default.unreachable:                              ; preds = %if.else117
   unreachable
 
 if.end126:                                        ; preds = %if.end109, %sdslen.exit252
-  %cmp127.old = icmp eq i32 %role.0479, 2
+  %cmp127.old = icmp eq i32 %role.0473, 2
   br i1 %cmp127.old, label %if.then129, label %for.inc
 
 if.then129:                                       ; preds = %land.lhs.true121, %if.end126
@@ -6382,12 +6371,12 @@ if.then143:                                       ; preds = %lor.lhs.false, %if.
   store ptr %call146, ptr %slave_master_host, align 8
   %call148 = call i64 @mstime() #29
   store i64 %call148, ptr %slave_conf_change_time, align 8
-  %.pre482 = load i8, ptr %arrayidx.i, align 1
-  %.pre489 = zext i8 %.pre482 to i32
+  %.pre476 = load i8, ptr %arrayidx.i, align 1
+  %.pre483 = zext i8 %.pre476 to i32
   br label %if.end150
 
 if.end150:                                        ; preds = %if.then129, %lor.lhs.false, %if.then143, %land.lhs.true133, %sdslen.exit271
-  %conv.i273.pre-phi = phi i32 [ %conv.i216, %if.then129 ], [ %conv.i216, %lor.lhs.false ], [ %.pre489, %if.then143 ], [ %conv.i216, %land.lhs.true133 ], [ %conv.i216, %sdslen.exit271 ]
+  %conv.i273.pre-phi = phi i32 [ %conv.i216, %if.then129 ], [ %conv.i216, %lor.lhs.false ], [ %.pre483, %if.then143 ], [ %conv.i216, %land.lhs.true133 ], [ %conv.i216, %sdslen.exit271 ]
   %and.i274 = and i32 %conv.i273.pre-phi, 7
   switch i32 %and.i274, label %if.end168 [
     i32 0, label %sw.bb.i287
@@ -6446,12 +6435,12 @@ if.then163:                                       ; preds = %if.then157
   store i32 %call159, ptr %slave_master_port160, align 8
   %call165 = call i64 @mstime() #29
   store i64 %call165, ptr %slave_conf_change_time, align 8
-  %.pre483 = load i8, ptr %arrayidx.i, align 1
-  %.pre490 = zext i8 %.pre483 to i32
+  %.pre477 = load i8, ptr %arrayidx.i, align 1
+  %.pre484 = zext i8 %.pre477 to i32
   br label %if.end168
 
 if.end168:                                        ; preds = %if.end150, %if.then157, %if.then163, %land.lhs.true154, %sdslen.exit290
-  %conv.i292.pre-phi = phi i32 [ %conv.i273.pre-phi, %if.end150 ], [ %conv.i273.pre-phi, %if.then157 ], [ %.pre490, %if.then163 ], [ %conv.i273.pre-phi, %land.lhs.true154 ], [ %conv.i273.pre-phi, %sdslen.exit290 ]
+  %conv.i292.pre-phi = phi i32 [ %conv.i273.pre-phi, %if.end150 ], [ %conv.i273.pre-phi, %if.then157 ], [ %.pre484, %if.then163 ], [ %conv.i273.pre-phi, %land.lhs.true154 ], [ %conv.i273.pre-phi, %sdslen.exit290 ]
   %and.i293 = and i32 %conv.i292.pre-phi, 7
   switch i32 %and.i293, label %if.end180 [
     i32 0, label %sw.bb.i306
@@ -6505,12 +6494,12 @@ if.then175:                                       ; preds = %land.lhs.true172
   %cmp178 = icmp ne i32 %call177, 0
   %cond = zext i1 %cmp178 to i32
   store i32 %cond, ptr %slave_master_link_status, align 4
-  %.pre484 = load i8, ptr %arrayidx.i, align 1
-  %.pre491 = zext i8 %.pre484 to i32
+  %.pre478 = load i8, ptr %arrayidx.i, align 1
+  %.pre485 = zext i8 %.pre478 to i32
   br label %if.end180
 
 if.end180:                                        ; preds = %if.end168, %if.then175, %land.lhs.true172, %sdslen.exit309
-  %conv.i311.pre-phi = phi i32 [ %conv.i292.pre-phi, %if.end168 ], [ %.pre491, %if.then175 ], [ %conv.i292.pre-phi, %land.lhs.true172 ], [ %conv.i292.pre-phi, %sdslen.exit309 ]
+  %conv.i311.pre-phi = phi i32 [ %conv.i292.pre-phi, %if.end168 ], [ %.pre485, %if.then175 ], [ %conv.i292.pre-phi, %land.lhs.true172 ], [ %conv.i292.pre-phi, %sdslen.exit309 ]
   %and.i312 = and i32 %conv.i311.pre-phi, 7
   switch i32 %and.i312, label %if.end190 [
     i32 0, label %sw.bb.i325
@@ -6562,12 +6551,12 @@ if.then187:                                       ; preds = %land.lhs.true184
   %add.ptr188 = getelementptr inbounds i8, ptr %2, i64 15
   %call189 = call i32 @atoi(ptr nocapture noundef nonnull %add.ptr188) #33
   store i32 %call189, ptr %slave_priority, align 8
-  %.pre485 = load i8, ptr %arrayidx.i, align 1
-  %.pre492 = zext i8 %.pre485 to i32
+  %.pre479 = load i8, ptr %arrayidx.i, align 1
+  %.pre486 = zext i8 %.pre479 to i32
   br label %if.end190
 
 if.end190:                                        ; preds = %if.end180, %if.then187, %land.lhs.true184, %sdslen.exit328
-  %conv.i330.pre-phi = phi i32 [ %conv.i311.pre-phi, %if.end180 ], [ %.pre492, %if.then187 ], [ %conv.i311.pre-phi, %land.lhs.true184 ], [ %conv.i311.pre-phi, %sdslen.exit328 ]
+  %conv.i330.pre-phi = phi i32 [ %conv.i311.pre-phi, %if.end180 ], [ %.pre486, %if.then187 ], [ %conv.i311.pre-phi, %land.lhs.true184 ], [ %conv.i311.pre-phi, %sdslen.exit328 ]
   %and.i331 = and i32 %conv.i330.pre-phi, 7
   switch i32 %and.i331, label %if.end200 [
     i32 0, label %sw.bb.i344
@@ -6619,12 +6608,12 @@ if.then197:                                       ; preds = %land.lhs.true194
   %add.ptr198 = getelementptr inbounds i8, ptr %2, i64 18
   %call199 = call i64 @strtoull(ptr nocapture noundef nonnull %add.ptr198, ptr noundef null, i32 noundef 10) #29
   store i64 %call199, ptr %slave_repl_offset, align 8
-  %.pre486 = load i8, ptr %arrayidx.i, align 1
-  %.pre493 = zext i8 %.pre486 to i32
+  %.pre480 = load i8, ptr %arrayidx.i, align 1
+  %.pre487 = zext i8 %.pre480 to i32
   br label %if.end200
 
 if.end200:                                        ; preds = %if.end190, %if.then197, %land.lhs.true194, %sdslen.exit347
-  %conv.i349.pre-phi = phi i32 [ %conv.i330.pre-phi, %if.end190 ], [ %.pre493, %if.then197 ], [ %conv.i330.pre-phi, %land.lhs.true194 ], [ %conv.i330.pre-phi, %sdslen.exit347 ]
+  %conv.i349.pre-phi = phi i32 [ %conv.i330.pre-phi, %if.end190 ], [ %.pre487, %if.then197 ], [ %conv.i330.pre-phi, %land.lhs.true194 ], [ %conv.i330.pre-phi, %sdslen.exit347 ]
   %and.i350 = and i32 %conv.i349.pre-phi, 7
   switch i32 %and.i350, label %for.inc [
     i32 0, label %sw.bb.i363
@@ -6679,7 +6668,7 @@ if.then207:                                       ; preds = %land.lhs.true204
   br label %for.inc
 
 for.inc:                                          ; preds = %land.lhs.true121, %if.end200, %land.lhs.true113, %if.end126, %if.then207, %land.lhs.true204, %sdslen.exit366, %if.end69, %if.end59, %if.end55, %if.then51
-  %role.1 = phi i32 [ 2, %land.lhs.true204 ], [ 2, %if.then207 ], [ 2, %sdslen.exit366 ], [ %role.0479, %if.end126 ], [ %role.0479, %if.end59 ], [ %role.0479, %if.end55 ], [ %role.0479, %if.then51 ], [ %role.0479, %if.end69 ], [ 1, %land.lhs.true113 ], [ 2, %if.end200 ], [ %role.0479, %land.lhs.true121 ]
+  %role.1 = phi i32 [ 2, %land.lhs.true204 ], [ 2, %if.then207 ], [ 2, %sdslen.exit366 ], [ %role.0473, %if.end126 ], [ %role.0473, %if.end59 ], [ %role.0473, %if.end55 ], [ %role.0473, %if.then51 ], [ %role.0473, %if.end69 ], [ 1, %land.lhs.true113 ], [ 2, %if.end200 ], [ %role.0473, %land.lhs.true121 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %69 = load i32, ptr %numlines, align 4
   %70 = sext i32 %69 to i64
@@ -6841,11 +6830,11 @@ if.end.i380:                                      ; preds = %if.end273
   %cond.in.i7.i = getelementptr inbounds i8, ptr %90, i64 %cond.in.idx.i.i
   %cond.i8.i = load ptr, ptr %cond.in.i7.i, align 8
   call void (ptr, ...) @sentinelScheduleScriptExecution(ptr noundef %94, ptr noundef %95, ptr noundef nonnull @.str.39, ptr noundef nonnull @.str.180, ptr noundef %cond.i.i, ptr noundef nonnull %fromport.i, ptr noundef %cond.i8.i, ptr noundef nonnull %toport.i, ptr noundef null)
-  %.pre488 = load ptr, ptr %master, align 8
+  %.pre482 = load ptr, ptr %master, align 8
   br label %sentinelCallClientReconfScript.exit
 
 sentinelCallClientReconfScript.exit:              ; preds = %if.end273, %if.end.i380
-  %97 = phi ptr [ %88, %if.end273 ], [ %.pre488, %if.end.i380 ]
+  %97 = phi ptr [ %88, %if.end273 ], [ %.pre482, %if.end.i380 ]
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %fromport.i)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %toport.i)
   %call279 = call i32 @sentinelForceHelloUpdateForMaster(ptr noundef %97)
@@ -6940,77 +6929,66 @@ lor.lhs.false321:                                 ; preds = %land.lhs.true314
   %cond.i = zext i1 %tobool.not.i389 to i32
   %call.i390 = call i32 @anetResolve(ptr noundef null, ptr noundef %113, ptr noundef nonnull %ip.i, i64 noundef 46, i32 noundef %cond.i) #29
   %cmp.i391 = icmp eq i32 %call.i390, -1
-  br i1 %cmp.i391, label %if.then.i, label %if.end.i392
-
-if.then.i:                                        ; preds = %lor.lhs.false321
   %115 = load i32, ptr getelementptr inbounds (i8, ptr @sentinel, i64 144), align 8
   %tobool1.not.i = icmp eq i32 %115, 0
   %cond4.in.idx.i = select i1 %tobool1.not.i, i64 8, i64 0
-  %cond4.in.i = getelementptr inbounds i8, ptr %111, i64 %cond4.in.idx.i
-  %cond4.i = load ptr, ptr %cond4.in.i, align 8
-  %call5.i = call i32 @strcasecmp(ptr noundef %cond4.i, ptr noundef %113) #33
-  br label %sentinelAddrEqualsHostname.exit
-
-if.end.i392:                                      ; preds = %lor.lhs.false321
-  %ip7.i = getelementptr inbounds i8, ptr %111, i64 8
+  %.sink.i = select i1 %cmp.i391, i64 %cond4.in.idx.i, i64 8
+  %ip.sink.i = select i1 %cmp.i391, ptr %113, ptr %ip.i
+  %ip7.i = getelementptr inbounds i8, ptr %111, i64 %.sink.i
   %116 = load ptr, ptr %ip7.i, align 8
-  %call9.i = call i32 @strcasecmp(ptr noundef %116, ptr noundef nonnull %ip.i) #33
-  br label %sentinelAddrEqualsHostname.exit
-
-sentinelAddrEqualsHostname.exit:                  ; preds = %if.then.i, %if.end.i392
-  %retval.0.in.in.i = phi i32 [ %call5.i, %if.then.i ], [ %call9.i, %if.end.i392 ]
-  %retval.0.in.i.not = icmp eq i32 %retval.0.in.in.i, 0
+  %call9.i = call i32 @strcasecmp(ptr noundef %116, ptr noundef %ip.sink.i) #33
+  %retval.0.in.i.not = icmp eq i32 %call9.i, 0
   call void @llvm.lifetime.end.p0(i64 46, ptr nonnull %ip.i)
-  br i1 %retval.0.in.i.not, label %if.end352, label %sentinelAddrEqualsHostname.exit.if.then327_crit_edge
+  br i1 %retval.0.in.i.not, label %if.end352, label %lor.lhs.false321.if.then327_crit_edge
 
-sentinelAddrEqualsHostname.exit.if.then327_crit_edge: ; preds = %sentinelAddrEqualsHostname.exit
-  %.pre487 = load ptr, ptr %master316, align 8
+lor.lhs.false321.if.then327_crit_edge:            ; preds = %lor.lhs.false321
+  %.pre481 = load ptr, ptr %master316, align 8
   br label %if.then327
 
-if.then327:                                       ; preds = %sentinelAddrEqualsHostname.exit.if.then327_crit_edge, %land.lhs.true314
-  %117 = phi ptr [ %.pre487, %sentinelAddrEqualsHostname.exit.if.then327_crit_edge ], [ %110, %land.lhs.true314 ]
+if.then327:                                       ; preds = %lor.lhs.false321.if.then327_crit_edge, %land.lhs.true314
+  %117 = phi ptr [ %.pre481, %lor.lhs.false321.if.then327_crit_edge ], [ %110, %land.lhs.true314 ]
   %failover_timeout = getelementptr inbounds i8, ptr %117, i64 296
   %118 = load i64, ptr %failover_timeout, align 8
   %119 = load i32, ptr %117, align 8
-  %and.i394 = and i32 %119, 1
-  %tobool.not.i395 = icmp eq i32 %and.i394, 0
-  br i1 %tobool.not.i395, label %if.end352, label %land.lhs.true.i396
+  %and.i393 = and i32 %119, 1
+  %tobool.not.i394 = icmp eq i32 %and.i393, 0
+  br i1 %tobool.not.i394, label %if.end352, label %land.lhs.true.i395
 
-land.lhs.true.i396:                               ; preds = %if.then327
-  %role_reported.i397 = getelementptr inbounds i8, ptr %117, i64 128
-  %120 = load i32, ptr %role_reported.i397, align 8
-  %cmp.i398 = icmp eq i32 %120, 1
-  %and3.i399 = and i32 %119, 24
-  %cmp4.i400 = icmp eq i32 %and3.i399, 0
-  %or.cond.i401 = and i1 %cmp4.i400, %cmp.i398
-  br i1 %or.cond.i401, label %sentinelMasterLooksSane.exit409, label %if.end352
+land.lhs.true.i395:                               ; preds = %if.then327
+  %role_reported.i396 = getelementptr inbounds i8, ptr %117, i64 128
+  %120 = load i32, ptr %role_reported.i396, align 8
+  %cmp.i397 = icmp eq i32 %120, 1
+  %and3.i398 = and i32 %119, 24
+  %cmp4.i399 = icmp eq i32 %and3.i398, 0
+  %or.cond.i400 = and i1 %cmp4.i399, %cmp.i397
+  br i1 %or.cond.i400, label %sentinelMasterLooksSane.exit408, label %if.end352
 
-sentinelMasterLooksSane.exit409:                  ; preds = %land.lhs.true.i396
-  %call.i404 = call i64 @mstime() #29
-  %info_refresh.i405 = getelementptr inbounds i8, ptr %117, i64 112
-  %121 = load i64, ptr %info_refresh.i405, align 8
-  %sub.i406 = sub nsw i64 %call.i404, %121
+sentinelMasterLooksSane.exit408:                  ; preds = %land.lhs.true.i395
+  %call.i403 = call i64 @mstime() #29
+  %info_refresh.i404 = getelementptr inbounds i8, ptr %117, i64 112
+  %121 = load i64, ptr %info_refresh.i404, align 8
+  %sub.i405 = sub nsw i64 %call.i403, %121
   %122 = load i64, ptr @sentinel_info_period, align 8
-  %mul.i407 = shl nuw nsw i64 %122, 1
-  %cmp5.i408.not = icmp slt i64 %sub.i406, %mul.i407
-  br i1 %cmp5.i408.not, label %land.lhs.true333, label %if.end352
+  %mul.i406 = shl nuw nsw i64 %122, 1
+  %cmp5.i407.not = icmp slt i64 %sub.i405, %mul.i406
+  br i1 %cmp5.i407.not, label %land.lhs.true333, label %if.end352
 
-land.lhs.true333:                                 ; preds = %sentinelMasterLooksSane.exit409
-  %s_down_since_time.i410 = getelementptr inbounds i8, ptr %ri, i64 72
-  %123 = load i64, ptr %s_down_since_time.i410, align 8
-  %o_down_since_time.i411 = getelementptr inbounds i8, ptr %ri, i64 80
-  %124 = load i64, ptr %o_down_since_time.i411, align 8
-  %spec.select.i412 = call i64 @llvm.smax.i64(i64 %124, i64 %123)
-  %cmp2.i413 = icmp eq i64 %spec.select.i412, 0
-  br i1 %cmp2.i413, label %land.lhs.true336, label %sentinelRedisInstanceNoDownFor.exit419
+land.lhs.true333:                                 ; preds = %sentinelMasterLooksSane.exit408
+  %s_down_since_time.i409 = getelementptr inbounds i8, ptr %ri, i64 72
+  %123 = load i64, ptr %s_down_since_time.i409, align 8
+  %o_down_since_time.i410 = getelementptr inbounds i8, ptr %ri, i64 80
+  %124 = load i64, ptr %o_down_since_time.i410, align 8
+  %spec.select.i411 = call i64 @llvm.smax.i64(i64 %124, i64 %123)
+  %cmp2.i412 = icmp eq i64 %spec.select.i411, 0
+  br i1 %cmp2.i412, label %land.lhs.true336, label %sentinelRedisInstanceNoDownFor.exit418
 
-sentinelRedisInstanceNoDownFor.exit419:           ; preds = %land.lhs.true333
-  %call.i415 = call i64 @mstime() #29
-  %sub.i416 = sub nsw i64 %call.i415, %spec.select.i412
-  %cmp3.i417.not = icmp sgt i64 %sub.i416, %118
-  br i1 %cmp3.i417.not, label %land.lhs.true336, label %if.end352
+sentinelRedisInstanceNoDownFor.exit418:           ; preds = %land.lhs.true333
+  %call.i414 = call i64 @mstime() #29
+  %sub.i415 = sub nsw i64 %call.i414, %spec.select.i411
+  %cmp3.i416.not = icmp sgt i64 %sub.i415, %118
+  br i1 %cmp3.i416.not, label %land.lhs.true336, label %if.end352
 
-land.lhs.true336:                                 ; preds = %land.lhs.true333, %sentinelRedisInstanceNoDownFor.exit419
+land.lhs.true336:                                 ; preds = %land.lhs.true333, %sentinelRedisInstanceNoDownFor.exit418
   %call337 = call i64 @mstime() #29
   %slave_conf_change_time338 = getelementptr inbounds i8, ptr %ri, i64 144
   %125 = load i64, ptr %slave_conf_change_time338, align 8
@@ -7030,7 +7008,7 @@ if.then349:                                       ; preds = %if.then342
   call void (i32, ptr, ptr, ptr, ...) @sentinelEvent(i32 noundef 2, ptr noundef nonnull @.str.182, ptr noundef nonnull %ri, ptr noundef nonnull @.str.54)
   br label %if.end352
 
-if.end352:                                        ; preds = %if.then327, %land.lhs.true.i396, %land.lhs.true285, %land.lhs.true.i, %land.lhs.true254, %land.lhs.true258, %sentinelMasterLooksSane.exit, %sentinelRedisInstanceNoDownFor.exit, %land.lhs.true292, %if.then303, %if.then297, %sentinelCallClientReconfScript.exit, %sentinelMasterLooksSane.exit409, %sentinelRedisInstanceNoDownFor.exit419, %land.lhs.true336, %if.then349, %if.then342, %sentinelAddrEqualsHostname.exit, %if.end307
+if.end352:                                        ; preds = %if.then327, %land.lhs.true.i395, %land.lhs.true285, %land.lhs.true.i, %land.lhs.true254, %land.lhs.true258, %sentinelMasterLooksSane.exit, %sentinelRedisInstanceNoDownFor.exit, %land.lhs.true292, %if.then303, %if.then297, %sentinelCallClientReconfScript.exit, %sentinelMasterLooksSane.exit408, %sentinelRedisInstanceNoDownFor.exit418, %land.lhs.true336, %if.then349, %if.then342, %lor.lhs.false321, %if.end307
   %128 = load i32, ptr %ri, align 8
   %and354 = and i32 %128, 2
   %tobool355 = icmp ne i32 %and354, 0
@@ -7058,59 +7036,59 @@ land.lhs.true370:                                 ; preds = %land.lhs.true367
   %131 = load ptr, ptr %promoted_slave, align 8
   %addr372 = getelementptr inbounds i8, ptr %131, i64 32
   %132 = load ptr, ptr %addr372, align 8
-  call void @llvm.lifetime.start.p0(i64 46, ptr nonnull %ip.i420)
+  call void @llvm.lifetime.start.p0(i64 46, ptr nonnull %ip.i419)
   %133 = load i32, ptr getelementptr inbounds (i8, ptr @sentinel, i64 144), align 8
-  %tobool.not.i421 = icmp eq i32 %133, 0
-  %cond.i422 = zext i1 %tobool.not.i421 to i32
-  %call.i423 = call i32 @anetResolve(ptr noundef null, ptr noundef nonnull %129, ptr noundef nonnull %ip.i420, i64 noundef 46, i32 noundef %cond.i422) #29
-  %cmp.i424 = icmp eq i32 %call.i423, -1
+  %tobool.not.i420 = icmp eq i32 %133, 0
+  %cond.i421 = zext i1 %tobool.not.i420 to i32
+  %call.i422 = call i32 @anetResolve(ptr noundef null, ptr noundef nonnull %129, ptr noundef nonnull %ip.i419, i64 noundef 46, i32 noundef %cond.i421) #29
+  %cmp.i423 = icmp eq i32 %call.i422, -1
   %134 = load i32, ptr getelementptr inbounds (i8, ptr @sentinel, i64 144), align 8
-  %tobool1.not.i432 = icmp eq i32 %134, 0
-  %cond4.in.idx.i433 = select i1 %tobool1.not.i432, i64 8, i64 0
-  %cond4.in.idx.i433.sink = select i1 %cmp.i424, i64 %cond4.in.idx.i433, i64 8
-  %.sink = select i1 %cmp.i424, ptr %129, ptr %ip.i420
-  %cond4.in.i434 = getelementptr inbounds i8, ptr %132, i64 %cond4.in.idx.i433.sink
-  %cond4.i435 = load ptr, ptr %cond4.in.i434, align 8
-  %call5.i436 = call i32 @strcasecmp(ptr noundef %cond4.i435, ptr noundef nonnull %.sink) #33
-  %retval.0.in.i429.not = icmp eq i32 %call5.i436, 0
-  call void @llvm.lifetime.end.p0(i64 46, ptr nonnull %ip.i420)
-  br i1 %retval.0.in.i429.not, label %land.lhs.true376, label %if.end389
+  %tobool1.not.i424 = icmp eq i32 %134, 0
+  %cond4.in.idx.i425 = select i1 %tobool1.not.i424, i64 8, i64 0
+  %.sink.i426 = select i1 %cmp.i423, i64 %cond4.in.idx.i425, i64 8
+  %ip.sink.i427 = select i1 %cmp.i423, ptr %129, ptr %ip.i419
+  %ip7.i428 = getelementptr inbounds i8, ptr %132, i64 %.sink.i426
+  %135 = load ptr, ptr %ip7.i428, align 8
+  %call9.i429 = call i32 @strcasecmp(ptr noundef %135, ptr noundef nonnull %ip.sink.i427) #33
+  %retval.0.in.i430.not = icmp eq i32 %call9.i429, 0
+  call void @llvm.lifetime.end.p0(i64 46, ptr nonnull %ip.i419)
+  br i1 %retval.0.in.i430.not, label %land.lhs.true376, label %if.end389
 
 land.lhs.true376:                                 ; preds = %land.lhs.true370
   %slave_master_port377 = getelementptr inbounds i8, ptr %ri, i64 232
-  %135 = load i32, ptr %slave_master_port377, align 8
-  %136 = load ptr, ptr %master371, align 8
-  %promoted_slave379 = getelementptr inbounds i8, ptr %136, i64 312
-  %137 = load ptr, ptr %promoted_slave379, align 8
-  %addr380 = getelementptr inbounds i8, ptr %137, i64 32
-  %138 = load ptr, ptr %addr380, align 8
-  %port381 = getelementptr inbounds i8, ptr %138, i64 16
-  %139 = load i32, ptr %port381, align 8
-  %cmp382 = icmp eq i32 %135, %139
+  %136 = load i32, ptr %slave_master_port377, align 8
+  %137 = load ptr, ptr %master371, align 8
+  %promoted_slave379 = getelementptr inbounds i8, ptr %137, i64 312
+  %138 = load ptr, ptr %promoted_slave379, align 8
+  %addr380 = getelementptr inbounds i8, ptr %138, i64 32
+  %139 = load ptr, ptr %addr380, align 8
+  %port381 = getelementptr inbounds i8, ptr %139, i64 16
+  %140 = load i32, ptr %port381, align 8
+  %cmp382 = icmp eq i32 %136, %140
   br i1 %cmp382, label %if.then384, label %if.end389
 
 if.then384:                                       ; preds = %land.lhs.true376
-  %140 = load i32, ptr %ri, align 8
-  %and386 = and i32 %140, -769
+  %141 = load i32, ptr %ri, align 8
+  %and386 = and i32 %141, -769
   %or388 = or disjoint i32 %and386, 512
   store i32 %or388, ptr %ri, align 8
   call void (i32, ptr, ptr, ptr, ...) @sentinelEvent(i32 noundef 2, ptr noundef nonnull @.str.183, ptr noundef nonnull %ri, ptr noundef nonnull @.str.54)
   br label %if.end389
 
 if.end389:                                        ; preds = %if.then384, %land.lhs.true376, %land.lhs.true370, %land.lhs.true367, %if.then363
-  %141 = load i32, ptr %ri, align 8
-  %and391 = and i32 %141, 512
+  %142 = load i32, ptr %ri, align 8
+  %and391 = and i32 %142, 512
   %tobool392.not = icmp eq i32 %and391, 0
   br i1 %tobool392.not, label %if.end403, label %land.lhs.true393
 
 land.lhs.true393:                                 ; preds = %if.end389
   %slave_master_link_status394 = getelementptr inbounds i8, ptr %ri, i64 236
-  %142 = load i32, ptr %slave_master_link_status394, align 4
-  %cmp395 = icmp eq i32 %142, 0
+  %143 = load i32, ptr %slave_master_link_status394, align 4
+  %cmp395 = icmp eq i32 %143, 0
   br i1 %cmp395, label %if.then397, label %if.end403
 
 if.then397:                                       ; preds = %land.lhs.true393
-  %and399 = and i32 %141, -1537
+  %and399 = and i32 %142, -1537
   %or401 = or disjoint i32 %and399, 1024
   store i32 %or401, ptr %ri, align 8
   call void (i32, ptr, ptr, ptr, ...) @sentinelEvent(i32 noundef 2, ptr noundef nonnull @.str.184, ptr noundef nonnull %ri, ptr noundef nonnull @.str.54)
@@ -7634,13 +7612,13 @@ if.then27:                                        ; preds = %if.else
   %call28 = call ptr @sdsnew(ptr noundef %15) #29
   %16 = load ptr, ptr getelementptr inbounds (i8, ptr @sentinel, i64 56), align 8
   %call29 = call ptr @dictGetIterator(ptr noundef %16) #29
-  %call3089 = call ptr @dictNext(ptr noundef %call29) #29
-  %cmp31.not90 = icmp eq ptr %call3089, null
-  br i1 %cmp31.not90, label %while.end, label %while.body
+  %call3088 = call ptr @dictNext(ptr noundef %call29) #29
+  %cmp31.not89 = icmp eq ptr %call3088, null
+  br i1 %cmp31.not89, label %while.end, label %while.body
 
 while.body:                                       ; preds = %if.then27, %while.body
-  %call3091 = phi ptr [ %call30, %while.body ], [ %call3089, %if.then27 ]
-  %call34 = call ptr @dictGetVal(ptr noundef nonnull %call3091) #29
+  %call3090 = phi ptr [ %call30, %while.body ], [ %call3088, %if.then27 ]
+  %call34 = call ptr @dictGetVal(ptr noundef nonnull %call3090) #29
   %call35 = call i32 @removeMatchingSentinelFromMaster(ptr noundef %call34, ptr noundef %call28)
   %call30 = call ptr @dictNext(ptr noundef %call29) #29
   %cmp31.not = icmp eq ptr %call30, null
@@ -7779,57 +7757,46 @@ lor.lhs.false:                                    ; preds = %if.then65
   %cond.i = zext i1 %tobool.not.i to i32
   %call.i73 = call i32 @anetResolve(ptr noundef null, ptr noundef %35, ptr noundef nonnull %ip.i, i64 noundef 46, i32 noundef %cond.i) #29
   %cmp.i74 = icmp eq i32 %call.i73, -1
-  br i1 %cmp.i74, label %if.then.i, label %if.end.i75
-
-if.then.i:                                        ; preds = %lor.lhs.false
   %37 = load i32, ptr getelementptr inbounds (i8, ptr @sentinel, i64 144), align 8
   %tobool1.not.i = icmp eq i32 %37, 0
   %cond4.in.idx.i = select i1 %tobool1.not.i, i64 8, i64 0
-  %cond4.in.i = getelementptr inbounds i8, ptr %33, i64 %cond4.in.idx.i
-  %cond4.i = load ptr, ptr %cond4.in.i, align 8
-  %call5.i = call i32 @strcasecmp(ptr noundef %cond4.i, ptr noundef %35) #33
-  br label %sentinelAddrEqualsHostname.exit
-
-if.end.i75:                                       ; preds = %lor.lhs.false
-  %ip7.i = getelementptr inbounds i8, ptr %33, i64 8
+  %.sink.i = select i1 %cmp.i74, i64 %cond4.in.idx.i, i64 8
+  %ip.sink.i = select i1 %cmp.i74, ptr %35, ptr %ip.i
+  %ip7.i = getelementptr inbounds i8, ptr %33, i64 %.sink.i
   %38 = load ptr, ptr %ip7.i, align 8
-  %call9.i = call i32 @strcasecmp(ptr noundef %38, ptr noundef nonnull %ip.i) #33
-  br label %sentinelAddrEqualsHostname.exit
-
-sentinelAddrEqualsHostname.exit:                  ; preds = %if.then.i, %if.end.i75
-  %retval.0.in.in.i = phi i32 [ %call5.i, %if.then.i ], [ %call9.i, %if.end.i75 ]
-  %retval.0.in.i.not = icmp eq i32 %retval.0.in.in.i, 0
+  %call9.i = call i32 @strcasecmp(ptr noundef %38, ptr noundef %ip.sink.i) #33
+  %retval.0.in.i.not = icmp eq i32 %call9.i, 0
   call void @llvm.lifetime.end.p0(i64 46, ptr nonnull %ip.i)
   br i1 %retval.0.in.i.not, label %if.then88, label %if.then74
 
-if.then74:                                        ; preds = %sentinelAddrEqualsHostname.exit, %if.then65
+if.then74:                                        ; preds = %lor.lhs.false, %if.then65
   call void (i32, ptr, ptr, ptr, ...) @sentinelEvent(i32 noundef 3, ptr noundef nonnull @.str.198, ptr noundef nonnull %si.0, ptr noundef nonnull @.str.54)
   %name = getelementptr inbounds i8, ptr %call1.i, i64 8
   %39 = load ptr, ptr %name, align 8
   %40 = load ptr, ptr %addr, align 8
   %41 = load i32, ptr getelementptr inbounds (i8, ptr @sentinel, i64 148), align 4
-  %tobool.not.i77 = icmp eq i32 %41, 0
-  %cond.in.idx.i = select i1 %tobool.not.i77, i64 8, i64 0
+  %tobool.not.i76 = icmp eq i32 %41, 0
+  %cond.in.idx.i = select i1 %tobool.not.i76, i64 8, i64 0
   %cond.in.i = getelementptr inbounds i8, ptr %40, i64 %cond.in.idx.i
-  %cond.i78 = load ptr, ptr %cond.in.i, align 8
+  %cond.i77 = load ptr, ptr %cond.in.i, align 8
   %port78 = getelementptr inbounds i8, ptr %40, i64 16
   %42 = load i32, ptr %port78, align 8
   %arrayidx79 = getelementptr inbounds i8, ptr %call, i64 40
   %43 = load ptr, ptr %arrayidx79, align 8
-  call void (i32, ptr, ptr, ptr, ...) @sentinelEvent(i32 noundef 3, ptr noundef nonnull @.str.199, ptr noundef nonnull %call1.i, ptr noundef nonnull @.str.200, ptr noundef %39, ptr noundef %cond.i78, i32 noundef %42, ptr noundef %43, i32 noundef %call7)
+  call void (i32, ptr, ptr, ptr, ...) @sentinelEvent(i32 noundef 3, ptr noundef nonnull @.str.199, ptr noundef nonnull %call1.i, ptr noundef nonnull @.str.200, ptr noundef %39, ptr noundef %cond.i77, i32 noundef %42, ptr noundef %43, i32 noundef %call7)
   %44 = load ptr, ptr %addr, align 8
-  %call.i79 = call noalias dereferenceable_or_null(24) ptr @zmalloc(i64 noundef 24) #32
+  %call.i78 = call noalias dereferenceable_or_null(24) ptr @zmalloc(i64 noundef 24) #32
   %45 = load ptr, ptr %44, align 8
-  %call1.i80 = call ptr @sdsnew(ptr noundef %45) #29
-  store ptr %call1.i80, ptr %call.i79, align 8
-  %ip.i81 = getelementptr inbounds i8, ptr %44, i64 8
-  %46 = load ptr, ptr %ip.i81, align 8
-  %call3.i82 = call ptr @sdsnew(ptr noundef %46) #29
-  %ip4.i = getelementptr inbounds i8, ptr %call.i79, i64 8
-  store ptr %call3.i82, ptr %ip4.i, align 8
+  %call1.i79 = call ptr @sdsnew(ptr noundef %45) #29
+  store ptr %call1.i79, ptr %call.i78, align 8
+  %ip.i80 = getelementptr inbounds i8, ptr %44, i64 8
+  %46 = load ptr, ptr %ip.i80, align 8
+  %call3.i81 = call ptr @sdsnew(ptr noundef %46) #29
+  %ip4.i = getelementptr inbounds i8, ptr %call.i78, i64 8
+  store ptr %call3.i81, ptr %ip4.i, align 8
   %port.i = getelementptr inbounds i8, ptr %44, i64 16
   %47 = load i32, ptr %port.i, align 8
-  %port5.i = getelementptr inbounds i8, ptr %call.i79, i64 16
+  %port5.i = getelementptr inbounds i8, ptr %call.i78, i64 16
   store i32 %47, ptr %port5.i, align 8
   %48 = load ptr, ptr %arrayidx79, align 8
   %call83 = call i32 @sentinelResetMasterAndChangeAddress(ptr noundef nonnull %call1.i, ptr noundef %48, i32 noundef %call7)
@@ -7838,37 +7805,37 @@ if.then74:                                        ; preds = %sentinelAddrEqualsH
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %toport.i)
   %client_reconfig_script.i = getelementptr inbounds i8, ptr %call1.i, i64 328
   %50 = load ptr, ptr %client_reconfig_script.i, align 8
-  %cmp.i83 = icmp eq ptr %50, null
-  br i1 %cmp.i83, label %sentinelCallClientReconfScript.exit, label %if.end.i84
+  %cmp.i82 = icmp eq ptr %50, null
+  br i1 %cmp.i82, label %sentinelCallClientReconfScript.exit, label %if.end.i83
 
-if.end.i84:                                       ; preds = %if.then74
+if.end.i83:                                       ; preds = %if.then74
   %conv.i = sext i32 %47 to i64
-  %call.i86 = call i32 @ll2string(ptr noundef nonnull %fromport.i, i64 noundef 32, i64 noundef %conv.i) #29
+  %call.i85 = call i32 @ll2string(ptr noundef nonnull %fromport.i, i64 noundef 32, i64 noundef %conv.i) #29
   %port2.i = getelementptr inbounds i8, ptr %49, i64 16
   %51 = load i32, ptr %port2.i, align 8
   %conv3.i = sext i32 %51 to i64
-  %call4.i87 = call i32 @ll2string(ptr noundef nonnull %toport.i, i64 noundef 32, i64 noundef %conv3.i) #29
+  %call4.i86 = call i32 @ll2string(ptr noundef nonnull %toport.i, i64 noundef 32, i64 noundef %conv3.i) #29
   %52 = load ptr, ptr %client_reconfig_script.i, align 8
   %53 = load ptr, ptr %name, align 8
   %54 = load i32, ptr getelementptr inbounds (i8, ptr @sentinel, i64 148), align 4
   %tobool.not.i.i = icmp eq i32 %54, 0
   %cond.in.idx.i.i = select i1 %tobool.not.i.i, i64 8, i64 0
-  %cond.in.i.i = getelementptr inbounds i8, ptr %call.i79, i64 %cond.in.idx.i.i
+  %cond.in.i.i = getelementptr inbounds i8, ptr %call.i78, i64 %cond.in.idx.i.i
   %cond.i.i = load ptr, ptr %cond.in.i.i, align 8
   %cond.in.i7.i = getelementptr inbounds i8, ptr %49, i64 %cond.in.idx.i.i
   %cond.i8.i = load ptr, ptr %cond.in.i7.i, align 8
   call void (ptr, ...) @sentinelScheduleScriptExecution(ptr noundef %52, ptr noundef %53, ptr noundef nonnull @.str.40, ptr noundef nonnull @.str.180, ptr noundef %cond.i.i, ptr noundef nonnull %fromport.i, ptr noundef %cond.i8.i, ptr noundef nonnull %toport.i, ptr noundef null)
   br label %sentinelCallClientReconfScript.exit
 
-sentinelCallClientReconfScript.exit:              ; preds = %if.then74, %if.end.i84
+sentinelCallClientReconfScript.exit:              ; preds = %if.then74, %if.end.i83
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %fromport.i)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %toport.i)
-  call void @sdsfree(ptr noundef %call1.i80) #29
-  call void @sdsfree(ptr noundef %call3.i82) #29
-  call void @zfree(ptr noundef nonnull %call.i79) #29
+  call void @sdsfree(ptr noundef %call1.i79) #29
+  call void @sdsfree(ptr noundef %call3.i81) #29
+  call void @zfree(ptr noundef nonnull %call.i78) #29
   br label %if.then88
 
-if.then88:                                        ; preds = %land.lhs.true, %sentinelCallClientReconfScript.exit, %sentinelAddrEqualsHostname.exit
+if.then88:                                        ; preds = %land.lhs.true, %sentinelCallClientReconfScript.exit, %lor.lhs.false
   %call89 = call i64 @mstime() #29
   %last_hello_time = getelementptr inbounds i8, ptr %si.0, i64 56
   store i64 %call89, ptr %last_hello_time, align 8

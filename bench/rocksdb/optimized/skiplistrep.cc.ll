@@ -3647,20 +3647,17 @@ _ZN7rocksdb14InlineSkipListIRKNS_11MemTableRep13KeyComparatorEE8Iterator4PrevEv.
 define internal void @_ZN7rocksdb12_GLOBAL__N_111SkipListRep8Iterator11SeekForPrevERKNS_5SliceEPKc(ptr noundef nonnull align 8 dereferenceable(56) %this, ptr noundef nonnull align 8 dereferenceable(16) %user_key, ptr noundef %memtable_key) unnamed_addr #3 align 2 {
 entry:
   %cmp.not = icmp eq ptr %memtable_key, null
-  %iter_2 = getelementptr inbounds i8, ptr %this, i64 8
-  br i1 %cmp.not, label %if.else, label %if.then
-
-if.then:                                          ; preds = %entry
-  tail call void @_ZN7rocksdb14InlineSkipListIRKNS_11MemTableRep13KeyComparatorEE8Iterator11SeekForPrevEPKc(ptr noundef nonnull align 8 dereferenceable(16) %iter_2, ptr noundef nonnull %memtable_key)
-  br label %if.end
+  br i1 %cmp.not, label %if.else, label %if.end
 
 if.else:                                          ; preds = %entry
   %tmp_ = getelementptr inbounds i8, ptr %this, i64 24
   %call = tail call noundef ptr @_ZN7rocksdb9EncodeKeyEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_5SliceE(ptr noundef nonnull %tmp_, ptr noundef nonnull align 8 dereferenceable(16) %user_key)
-  tail call void @_ZN7rocksdb14InlineSkipListIRKNS_11MemTableRep13KeyComparatorEE8Iterator11SeekForPrevEPKc(ptr noundef nonnull align 8 dereferenceable(16) %iter_2, ptr noundef %call)
   br label %if.end
 
-if.end:                                           ; preds = %if.else, %if.then
+if.end:                                           ; preds = %entry, %if.else
+  %call.sink = phi ptr [ %call, %if.else ], [ %memtable_key, %entry ]
+  %iter_2 = getelementptr inbounds i8, ptr %this, i64 8
+  tail call void @_ZN7rocksdb14InlineSkipListIRKNS_11MemTableRep13KeyComparatorEE8Iterator11SeekForPrevEPKc(ptr noundef nonnull align 8 dereferenceable(16) %iter_2, ptr noundef %call.sink)
   ret void
 }
 

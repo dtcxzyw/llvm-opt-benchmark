@@ -85,7 +85,7 @@ define dso_local void @ProcSignalShmemInit() local_unnamed_addr #0 {
   %24 = ptrtoint ptr %23 to i64
   %25 = and i64 %24, 7
   %26 = icmp eq i64 %25, 0
-  br i1 %26, label %27, label %36
+  br i1 %26, label %27, label %.loopexit.sink.split
 
 27:                                               ; preds = %.lr.ph28
   %28 = getelementptr i8, ptr %22, i64 60
@@ -100,26 +100,26 @@ define dso_local void @ProcSignalShmemInit() local_unnamed_addr #0 {
   %33 = sub i64 %32, %20
   %34 = and i64 %33, -8
   %35 = add i64 %34, 8
-  call void @llvm.memset.p0.i64(ptr nonnull align 8 %23, i8 0, i64 %35, i1 false)
+  br label %.loopexit.sink.split
+
+.loopexit.sink.split:                             ; preds = %.lr.ph28, %.lr.ph.preheader
+  %.sink = phi i64 [ %35, %.lr.ph.preheader ], [ 56, %.lr.ph28 ]
+  call void @llvm.memset.p0.i64(ptr nonnull align 1 %23, i8 0, i64 %.sink, i1 false)
   br label %.loopexit
 
-36:                                               ; preds = %.lr.ph28
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(56) %23, i8 0, i64 56, i1 false)
-  br label %.loopexit
-
-.loopexit:                                        ; preds = %.lr.ph.preheader, %27, %36
-  %37 = getelementptr inbounds i8, ptr %22, i64 64
-  store volatile i64 -1, ptr %37, align 8
-  %38 = getelementptr inbounds i8, ptr %22, i64 72
-  store volatile i32 0, ptr %38, align 4
-  %39 = getelementptr inbounds i8, ptr %22, i64 76
-  call void @ConditionVariableInit(ptr noundef nonnull %39) #11
+.loopexit:                                        ; preds = %.loopexit.sink.split, %27
+  %36 = getelementptr inbounds i8, ptr %22, i64 64
+  store volatile i64 -1, ptr %36, align 8
+  %37 = getelementptr inbounds i8, ptr %22, i64 72
+  store volatile i32 0, ptr %37, align 4
+  %38 = getelementptr inbounds i8, ptr %22, i64 76
+  call void @ConditionVariableInit(ptr noundef nonnull %38) #11
   %indvar.next = add nuw nsw i64 %indvar, 1
-  %40 = load i32, ptr @MaxBackends, align 4
-  %41 = add i32 %40, 6
-  %42 = sext i32 %41 to i64
-  %43 = icmp slt i64 %indvar.next, %42
-  br i1 %43, label %.lr.ph28, label %.loopexit25, !llvm.loop !5
+  %39 = load i32, ptr @MaxBackends, align 4
+  %40 = add i32 %39, 6
+  %41 = sext i32 %40 to i64
+  %42 = icmp slt i64 %indvar.next, %41
+  br i1 %42, label %.lr.ph28, label %.loopexit25, !llvm.loop !5
 
 .loopexit25:                                      ; preds = %.loopexit, %10, %0
   ret void

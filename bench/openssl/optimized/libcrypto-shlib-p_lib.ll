@@ -1416,11 +1416,7 @@ if.then24:                                        ; preds = %if.end20
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %params, ptr noundef nonnull align 8 dereferenceable(40) %tmp, i64 40, i1 false)
   %call27 = call i32 @EVP_PKEY_fromdata(ptr noundef nonnull %call17, ptr noundef nonnull %pkey, i32 noundef 135, ptr noundef nonnull %params) #12
   %cmp28.not = icmp eq i32 %call27, 1
-  br i1 %cmp28.not, label %if.end30, label %if.then78
-
-if.end30:                                         ; preds = %if.then24
-  call void @EVP_PKEY_CTX_free(ptr noundef nonnull %call17) #12
-  br label %return
+  br i1 %cmp28.not, label %return, label %if.then78
 
 if.end31:                                         ; preds = %if.end20
   %call32 = call i32 @ERR_pop_to_mark() #12
@@ -1463,7 +1459,7 @@ if.then52:                                        ; preds = %if.end50
 if.end57:                                         ; preds = %if.then52
   %call60 = call i32 %5(ptr noundef nonnull %call34, ptr noundef %key, i64 noundef %len) #12
   %tobool61.not = icmp eq i32 %call60, 0
-  br i1 %tobool61.not, label %if.end.i.sink.split, label %if.end79
+  br i1 %tobool61.not, label %if.end.i.sink.split, label %return
 
 if.else64:                                        ; preds = %if.end50
   %set_pub_key = getelementptr inbounds i8, ptr %4, i64 256
@@ -1474,7 +1470,7 @@ if.else64:                                        ; preds = %if.end50
 if.end69:                                         ; preds = %if.else64
   %call72 = call i32 %6(ptr noundef nonnull %call34, ptr noundef %key, i64 noundef %len) #12
   %tobool73.not = icmp eq i32 %call72, 0
-  br i1 %tobool73.not, label %if.end.i.sink.split, label %if.end79
+  br i1 %tobool73.not, label %if.end.i.sink.split, label %return
 
 if.then78:                                        ; preds = %if.then24
   call void @ERR_new() #12
@@ -1524,14 +1520,11 @@ if.end3.i:                                        ; preds = %CRYPTO_DOWN_REF.exi
 EVP_PKEY_free.exit:                               ; preds = %if.then36, %cond.end, %if.then78, %CRYPTO_DOWN_REF.exit.i, %if.end3.i
   %ctx.1.ph29 = phi ptr [ %call17, %if.then78 ], [ %ctx.1.ph28, %CRYPTO_DOWN_REF.exit.i ], [ %ctx.1.ph28, %if.end3.i ], [ %ctx.0, %if.then36 ], [ null, %cond.end ]
   store ptr null, ptr %pkey, align 8
-  br label %if.end79
-
-if.end79:                                         ; preds = %if.end69, %if.end57, %EVP_PKEY_free.exit
-  %ctx.123 = phi ptr [ %ctx.1.ph29, %EVP_PKEY_free.exit ], [ %ctx.0, %if.end69 ], [ %ctx.0, %if.end57 ]
-  call void @EVP_PKEY_CTX_free(ptr noundef %ctx.123) #12
   br label %return
 
-return:                                           ; preds = %if.end79, %if.end30
+return:                                           ; preds = %EVP_PKEY_free.exit, %if.end57, %if.end69, %if.then24
+  %ctx.123.sink = phi ptr [ %call17, %if.then24 ], [ %ctx.1.ph29, %EVP_PKEY_free.exit ], [ %ctx.0, %if.end69 ], [ %ctx.0, %if.end57 ]
+  call void @EVP_PKEY_CTX_free(ptr noundef %ctx.123.sink) #12
   %retval.0 = load ptr, ptr %pkey, align 8
   ret ptr %retval.0
 }

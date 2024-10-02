@@ -5749,12 +5749,10 @@ define void @_ZN9actix_web4http6header15accept_language14AcceptLanguage10prefere
   br label %12
 
 ._crit_edge:                                      ; preds = %.critedge
+  %.sroa.510.0..sroa_idx = getelementptr inbounds i8, ptr %5, i64 8
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %.sroa.453)
   %.not = icmp eq i64 %20, -9223372036854775807
-  %.sroa.510.0..sroa_idx = getelementptr inbounds i8, ptr %5, i64 8
-  %spec.select = select i1 %.not, ptr %.sroa.453, ptr %.sroa.510.0..sroa_idx
-  %spec.select58 = select i1 %.not, i64 -9223372036854775808, i64 %20
-  br label %.thread44
+  br i1 %.not, label %.thread44, label %"_ZN4core3ptr102drop_in_place$LT$actix_web..http..header..preference..Preference$LT$language_tags..LanguageTag$GT$$GT$17h520b62a337950646E.exit"
 
 12:                                               ; preds = %.lr.ph, %.critedge
   %13 = phi i64 [ -9223372036854775807, %.lr.ph ], [ %20, %.critedge ]
@@ -5772,9 +5770,12 @@ define void @_ZN9actix_web4http6header15accept_language14AcceptLanguage10prefere
   %or.cond = icmp ugt i16 %16, %.052
   br i1 %or.cond, label %17, label %.critedge
 
-.thread44:                                        ; preds = %._crit_edge, %._crit_edge.thread
-  %.sroa.453.sink = phi ptr [ %.sroa.453, %._crit_edge.thread ], [ %spec.select, %._crit_edge ]
-  %.sroa.08.0.copyload.sink = phi i64 [ -9223372036854775808, %._crit_edge.thread ], [ %spec.select58, %._crit_edge ]
+.thread44:                                        ; preds = %._crit_edge.thread, %._crit_edge
+  br label %"_ZN4core3ptr102drop_in_place$LT$actix_web..http..header..preference..Preference$LT$language_tags..LanguageTag$GT$$GT$17h520b62a337950646E.exit"
+
+"_ZN4core3ptr102drop_in_place$LT$actix_web..http..header..preference..Preference$LT$language_tags..LanguageTag$GT$$GT$17h520b62a337950646E.exit": ; preds = %._crit_edge, %.thread44
+  %.sroa.453.sink = phi ptr [ %.sroa.453, %.thread44 ], [ %.sroa.510.0..sroa_idx, %._crit_edge ]
+  %.sroa.08.0.copyload.sink = phi i64 [ -9223372036854775808, %.thread44 ], [ %20, %._crit_edge ]
   %.sroa.453.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %.sroa.453.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(64) %.sroa.453.sink, i64 64, i1 false)
   store i64 %.sroa.08.0.copyload.sink, ptr %0, align 8

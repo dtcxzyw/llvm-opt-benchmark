@@ -13745,7 +13745,7 @@ _ZN12QMutexLockerI6QMutexEC2EPS0_.exit:           ; preds = %3, %7
 12:                                               ; preds = %10
   br i1 %11, label %_ZN9QtPrivate15ResultStoreBase9addResultIP15QTreeWidgetItemEEiiPKT_.exit.thread, label %18
 
-13:                                               ; preds = %.invoke, %_ZN12QMutexLockerI6QMutexEC2EPS0_.exit, %10, %18, %20, %33, %36, %22, %26, %28, %.noexc15
+13:                                               ; preds = %.invoke, %_ZN12QMutexLockerI6QMutexEC2EPS0_.exit, %10, %18, %20, %31, %34, %22, %26, %.sink.split.i
   %14 = landingpad { ptr, i32 }
           cleanup
   %15 = cmpxchg ptr %4, i64 1, i64 0 release monotonic, align 8
@@ -13776,59 +13776,58 @@ _ZN12QMutexLockerI6QMutexED2Ev.exit:              ; preds = %13, %17
 
 24:                                               ; preds = %.noexc
   %25 = icmp eq ptr %1, null
-  br i1 %25, label %26, label %28
+  br i1 %25, label %.sink.split.i, label %26
 
 26:                                               ; preds = %24
-  %27 = invoke noundef i32 @_ZN9QtPrivate15ResultStoreBase9addResultEiPKv(ptr noundef nonnull align 8 dereferenceable(44) %19, i32 noundef %2, ptr noundef null)
+  %27 = invoke noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #21
+          to label %.noexc14 unwind label %13
+
+.noexc14:                                         ; preds = %26
+  %28 = load ptr, ptr %1, align 8
+  store ptr %28, ptr %27, align 8
+  br label %.sink.split.i
+
+.sink.split.i:                                    ; preds = %.noexc14, %24
+  %.sink.i = phi ptr [ %27, %.noexc14 ], [ null, %24 ]
+  %29 = invoke noundef i32 @_ZN9QtPrivate15ResultStoreBase9addResultEiPKv(ptr noundef nonnull align 8 dereferenceable(44) %19, i32 noundef %2, ptr noundef %.sink.i)
           to label %_ZN9QtPrivate15ResultStoreBase9addResultIP15QTreeWidgetItemEEiiPKT_.exit unwind label %13
 
-28:                                               ; preds = %24
-  %29 = invoke noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #21
-          to label %.noexc15 unwind label %13
+_ZN9QtPrivate15ResultStoreBase9addResultIP15QTreeWidgetItemEEiiPKT_.exit: ; preds = %.sink.split.i
+  %30 = icmp eq i32 %29, -1
+  br i1 %30, label %_ZN9QtPrivate15ResultStoreBase9addResultIP15QTreeWidgetItemEEiiPKT_.exit.thread, label %31
 
-.noexc15:                                         ; preds = %28
-  %30 = load ptr, ptr %1, align 8
-  store ptr %30, ptr %29, align 8
-  %31 = invoke noundef i32 @_ZN9QtPrivate15ResultStoreBase9addResultEiPKv(ptr noundef nonnull align 8 dereferenceable(44) %19, i32 noundef %2, ptr noundef nonnull %29)
-          to label %_ZN9QtPrivate15ResultStoreBase9addResultIP15QTreeWidgetItemEEiiPKT_.exit unwind label %13
+31:                                               ; preds = %_ZN9QtPrivate15ResultStoreBase9addResultIP15QTreeWidgetItemEEiiPKT_.exit
+  %32 = invoke noundef zeroext i1 @_ZNK9QtPrivate15ResultStoreBase10filterModeEv(ptr noundef nonnull align 8 dereferenceable(44) %19)
+          to label %33 unwind label %13
 
-_ZN9QtPrivate15ResultStoreBase9addResultIP15QTreeWidgetItemEEiiPKT_.exit: ; preds = %26, %.noexc15
-  %.0.i = phi i32 [ %27, %26 ], [ %31, %.noexc15 ]
-  %32 = icmp eq i32 %.0.i, -1
-  br i1 %32, label %_ZN9QtPrivate15ResultStoreBase9addResultIP15QTreeWidgetItemEEiiPKT_.exit.thread, label %33
+33:                                               ; preds = %31
+  br i1 %32, label %34, label %38
 
-33:                                               ; preds = %_ZN9QtPrivate15ResultStoreBase9addResultIP15QTreeWidgetItemEEiiPKT_.exit
-  %34 = invoke noundef zeroext i1 @_ZNK9QtPrivate15ResultStoreBase10filterModeEv(ptr noundef nonnull align 8 dereferenceable(44) %19)
-          to label %35 unwind label %13
-
-35:                                               ; preds = %33
-  br i1 %34, label %36, label %40
-
-36:                                               ; preds = %35
-  %37 = invoke noundef i32 @_ZNK9QtPrivate15ResultStoreBase5countEv(ptr noundef nonnull align 8 dereferenceable(44) %19)
+34:                                               ; preds = %33
+  %35 = invoke noundef i32 @_ZNK9QtPrivate15ResultStoreBase5countEv(ptr noundef nonnull align 8 dereferenceable(44) %19)
           to label %.invoke unwind label %13
 
-.invoke:                                          ; preds = %36, %40
-  %38 = phi i32 [ %.0.i, %40 ], [ %21, %36 ]
-  %39 = phi i32 [ %41, %40 ], [ %37, %36 ]
-  invoke void @_ZN20QFutureInterfaceBase18reportResultsReadyEii(ptr noundef nonnull align 8 dereferenceable(16) %0, i32 noundef %38, i32 noundef %39)
+.invoke:                                          ; preds = %34, %38
+  %36 = phi i32 [ %29, %38 ], [ %21, %34 ]
+  %37 = phi i32 [ %39, %38 ], [ %35, %34 ]
+  invoke void @_ZN20QFutureInterfaceBase18reportResultsReadyEii(ptr noundef nonnull align 8 dereferenceable(16) %0, i32 noundef %36, i32 noundef %37)
           to label %_ZN9QtPrivate15ResultStoreBase9addResultIP15QTreeWidgetItemEEiiPKT_.exit.thread unwind label %13
 
-40:                                               ; preds = %35
-  %41 = add nuw i32 %.0.i, 1
+38:                                               ; preds = %33
+  %39 = add nuw i32 %29, 1
   br label %.invoke
 
 _ZN9QtPrivate15ResultStoreBase9addResultIP15QTreeWidgetItemEEiiPKT_.exit.thread: ; preds = %.invoke, %.noexc, %12, %9, %_ZN9QtPrivate15ResultStoreBase9addResultIP15QTreeWidgetItemEEiiPKT_.exit
   %.0 = phi i1 [ false, %12 ], [ false, %9 ], [ false, %_ZN9QtPrivate15ResultStoreBase9addResultIP15QTreeWidgetItemEEiiPKT_.exit ], [ false, %.noexc ], [ true, %.invoke ]
-  %42 = cmpxchg ptr %4, i64 1, i64 0 release monotonic, align 8
-  %43 = extractvalue { i64, i1 } %42, 1
-  br i1 %43, label %_ZN12QMutexLockerI6QMutexED2Ev.exit18, label %44
+  %40 = cmpxchg ptr %4, i64 1, i64 0 release monotonic, align 8
+  %41 = extractvalue { i64, i1 } %40, 1
+  br i1 %41, label %_ZN12QMutexLockerI6QMutexED2Ev.exit17, label %42
 
-44:                                               ; preds = %_ZN9QtPrivate15ResultStoreBase9addResultIP15QTreeWidgetItemEEiiPKT_.exit.thread
+42:                                               ; preds = %_ZN9QtPrivate15ResultStoreBase9addResultIP15QTreeWidgetItemEEiiPKT_.exit.thread
   tail call void @_ZN11QBasicMutex14unlockInternalEv(ptr noundef nonnull align 8 dereferenceable(8) %4) #22
-  br label %_ZN12QMutexLockerI6QMutexED2Ev.exit18
+  br label %_ZN12QMutexLockerI6QMutexED2Ev.exit17
 
-_ZN12QMutexLockerI6QMutexED2Ev.exit18:            ; preds = %_ZN9QtPrivate15ResultStoreBase9addResultIP15QTreeWidgetItemEEiiPKT_.exit.thread, %44
+_ZN12QMutexLockerI6QMutexED2Ev.exit17:            ; preds = %_ZN9QtPrivate15ResultStoreBase9addResultIP15QTreeWidgetItemEEiiPKT_.exit.thread, %42
   ret i1 %.0
 }
 

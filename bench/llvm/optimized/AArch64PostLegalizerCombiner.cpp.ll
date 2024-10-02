@@ -735,8 +735,8 @@ _ZN4llvm42initializeAArch64PostLegalizerCombinerPassERNS_12PassRegistryE.exit: ;
   %28 = getelementptr inbounds nuw i8, ptr %3, i64 8
   br label %29
 
-29:                                               ; preds = %104, %.lr.ph.i
-  %.sroa.012.028.i = phi ptr [ %23, %.lr.ph.i ], [ %105, %104 ]
+29:                                               ; preds = %100, %.lr.ph.i
+  %.sroa.012.028.i = phi ptr [ %23, %.lr.ph.i ], [ %101, %100 ]
   %30 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.012.028.i) #22
   %31 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.012.028.i) #22
   %.not.i.i.i1 = icmp eq i64 %31, 0
@@ -768,7 +768,7 @@ _ZN12_GLOBAL__N_142AArch64PostLegalizerCombinerImplRuleConfig14setRuleEnabledEN4
 
 _ZN12_GLOBAL__N_142AArch64PostLegalizerCombinerImplRuleConfig14setRuleEnabledEN4llvm9StringRefE.exit.thread.i: ; preds = %38
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4)
-  br label %104
+  br label %100
 
 .lr.ph.i.i:                                       ; preds = %38, %.lr.ph.i.i
   %.07.i.i = phi i64 [ %43, %.lr.ph.i.i ], [ %39, %38 ]
@@ -780,7 +780,7 @@ _ZN12_GLOBAL__N_142AArch64PostLegalizerCombinerImplRuleConfig14setRuleEnabledEN4
 
 _ZN12_GLOBAL__N_142AArch64PostLegalizerCombinerImplRuleConfig14setRuleEnabledEN4llvm9StringRefE.exit.i: ; preds = %.lr.ph.i.i
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4)
-  br label %104
+  br label %100
 
 .critedge.i:                                      ; preds = %_ZNK4llvm9StringRef11starts_withES0_.exit.i.i, %29
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3)
@@ -801,154 +801,141 @@ _ZN12_GLOBAL__N_142AArch64PostLegalizerCombinerImplRuleConfig15setRuleDisabledEN
 
 _ZN12_GLOBAL__N_142AArch64PostLegalizerCombinerImplRuleConfig15setRuleDisabledEN4llvm9StringRefE.exit.thread.i: ; preds = %46
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3)
-  br label %104
+  br label %100
 
 .lr.ph.i5.i:                                      ; preds = %46, %_ZN4llvm15SparseBitVectorILj128EE3setEj.exit.i
-  %.07.i6.i = phi i64 [ %103, %_ZN4llvm15SparseBitVectorILj128EE3setEj.exit.i ], [ %47, %46 ]
+  %.07.i6.i = phi i64 [ %99, %_ZN4llvm15SparseBitVectorILj128EE3setEj.exit.i ], [ %47, %46 ]
   %50 = trunc i64 %.07.i6.i to i32
   %51 = lshr i32 %50, 7
   %52 = load ptr, ptr %13, align 8
   %53 = icmp eq ptr %52, %13
-  br i1 %53, label %54, label %58
+  br i1 %53, label %.sink.split.i.i, label %54
 
 54:                                               ; preds = %.lr.ph.i5.i
-  %55 = call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #25
-  %56 = getelementptr inbounds nuw i8, ptr %55, i64 16
-  store i32 %51, ptr %56, align 8
-  %57 = getelementptr inbounds nuw i8, ptr %55, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %57, i8 0, i64 16, i1 false)
-  call void @_ZNSt8__detail15_List_node_base7_M_hookEPS0_(ptr noundef nonnull align 8 dereferenceable(16) %55, ptr noundef nonnull %13) #22
-  br label %.sink.split.i.i
+  %55 = load ptr, ptr %16, align 8
+  %56 = icmp eq ptr %55, %13
+  br i1 %56, label %57, label %60
 
-58:                                               ; preds = %.lr.ph.i5.i
-  %59 = load ptr, ptr %16, align 8
-  %60 = icmp eq ptr %59, %13
-  br i1 %60, label %61, label %64
+57:                                               ; preds = %54
+  %58 = getelementptr inbounds nuw i8, ptr %55, i64 8
+  %59 = load ptr, ptr %58, align 8
+  store ptr %59, ptr %16, align 8
+  br label %60
 
-61:                                               ; preds = %58
-  %62 = getelementptr inbounds nuw i8, ptr %59, i64 8
-  %63 = load ptr, ptr %62, align 8
-  store ptr %63, ptr %16, align 8
-  br label %64
+60:                                               ; preds = %57, %54
+  %.in.i.i.i.i = phi ptr [ %59, %57 ], [ %55, %54 ]
+  %61 = getelementptr inbounds nuw i8, ptr %.in.i.i.i.i, i64 16
+  %62 = load i32, ptr %61, align 8
+  %63 = icmp eq i32 %62, %51
+  br i1 %63, label %_ZN4llvm15SparseBitVectorILj128EE14FindLowerBoundEj.exit.i.i, label %64
 
-64:                                               ; preds = %61, %58
-  %.in.i.i.i.i = phi ptr [ %63, %61 ], [ %59, %58 ]
-  %65 = getelementptr inbounds nuw i8, ptr %.in.i.i.i.i, i64 16
-  %66 = load i32, ptr %65, align 8
-  %67 = icmp eq i32 %66, %51
-  br i1 %67, label %_ZN4llvm15SparseBitVectorILj128EE14FindLowerBoundEj.exit.i.i, label %68
+64:                                               ; preds = %60
+  %65 = icmp ugt i32 %62, %51
+  br i1 %65, label %.preheader.i.i.i.i, label %.preheader16.i.i.i.i
 
-68:                                               ; preds = %64
-  %69 = icmp ugt i32 %66, %51
-  br i1 %69, label %.preheader.i.i.i.i, label %.preheader16.i.i.i.i
-
-.preheader16.i.i.i.i:                             ; preds = %68
+.preheader16.i.i.i.i:                             ; preds = %64
   %.not18.i.i.i.i = icmp eq ptr %13, %.in.i.i.i.i
   br i1 %.not18.i.i.i.i, label %.sink.split.i.i.i.i, label %.lr.ph.i.i.i.i
 
-.preheader.i.i.i.i:                               ; preds = %68
+.preheader.i.i.i.i:                               ; preds = %64
   %.not1522.i.i.i.i = icmp eq ptr %52, %.in.i.i.i.i
   br i1 %.not1522.i.i.i.i, label %.sink.split.i.i.i.i, label %.lr.ph24.i.i.i.i
 
-.lr.ph24.i.i.i.i:                                 ; preds = %.preheader.i.i.i.i, %73
-  %.sroa.08.123.i.i.i.i = phi ptr [ %75, %73 ], [ %.in.i.i.i.i, %.preheader.i.i.i.i ]
-  %70 = getelementptr inbounds nuw i8, ptr %.sroa.08.123.i.i.i.i, i64 16
-  %71 = load i32, ptr %70, align 8
-  %72 = icmp ugt i32 %71, %51
-  br i1 %72, label %73, label %.sink.split.i.i.i.i
+.lr.ph24.i.i.i.i:                                 ; preds = %.preheader.i.i.i.i, %69
+  %.sroa.08.123.i.i.i.i = phi ptr [ %71, %69 ], [ %.in.i.i.i.i, %.preheader.i.i.i.i ]
+  %66 = getelementptr inbounds nuw i8, ptr %.sroa.08.123.i.i.i.i, i64 16
+  %67 = load i32, ptr %66, align 8
+  %68 = icmp ugt i32 %67, %51
+  br i1 %68, label %69, label %.sink.split.i.i.i.i
 
-73:                                               ; preds = %.lr.ph24.i.i.i.i
-  %74 = getelementptr inbounds nuw i8, ptr %.sroa.08.123.i.i.i.i, i64 8
-  %75 = load ptr, ptr %74, align 8
-  %.not15.i.i.i.i = icmp eq ptr %75, %52
+69:                                               ; preds = %.lr.ph24.i.i.i.i
+  %70 = getelementptr inbounds nuw i8, ptr %.sroa.08.123.i.i.i.i, i64 8
+  %71 = load ptr, ptr %70, align 8
+  %.not15.i.i.i.i = icmp eq ptr %71, %52
   br i1 %.not15.i.i.i.i, label %.sink.split.i.i.i.i, label %.lr.ph24.i.i.i.i, !llvm.loop !8
 
-.lr.ph.i.i.i.i:                                   ; preds = %.preheader16.i.i.i.i, %79
-  %.sroa.08.219.i.i.i.i = phi ptr [ %80, %79 ], [ %.in.i.i.i.i, %.preheader16.i.i.i.i ]
-  %76 = getelementptr inbounds nuw i8, ptr %.sroa.08.219.i.i.i.i, i64 16
-  %77 = load i32, ptr %76, align 8
-  %78 = icmp ult i32 %77, %51
-  br i1 %78, label %79, label %.sink.split.i.i.i.i
+.lr.ph.i.i.i.i:                                   ; preds = %.preheader16.i.i.i.i, %75
+  %.sroa.08.219.i.i.i.i = phi ptr [ %76, %75 ], [ %.in.i.i.i.i, %.preheader16.i.i.i.i ]
+  %72 = getelementptr inbounds nuw i8, ptr %.sroa.08.219.i.i.i.i, i64 16
+  %73 = load i32, ptr %72, align 8
+  %74 = icmp ult i32 %73, %51
+  br i1 %74, label %75, label %.sink.split.i.i.i.i
 
-79:                                               ; preds = %.lr.ph.i.i.i.i
-  %80 = load ptr, ptr %.sroa.08.219.i.i.i.i, align 8
-  %.not.i.i.i.i = icmp eq ptr %80, %13
+75:                                               ; preds = %.lr.ph.i.i.i.i
+  %76 = load ptr, ptr %.sroa.08.219.i.i.i.i, align 8
+  %.not.i.i.i.i = icmp eq ptr %76, %13
   br i1 %.not.i.i.i.i, label %.sink.split.i.i.i.i, label %.lr.ph.i.i.i.i, !llvm.loop !9
 
-.sink.split.i.i.i.i:                              ; preds = %79, %.lr.ph.i.i.i.i, %73, %.lr.ph24.i.i.i.i, %.preheader.i.i.i.i, %.preheader16.i.i.i.i
-  %.sroa.08.3.sink.i.i.i.i = phi ptr [ %52, %.preheader.i.i.i.i ], [ %13, %.preheader16.i.i.i.i ], [ %.sroa.08.123.i.i.i.i, %.lr.ph24.i.i.i.i ], [ %52, %73 ], [ %.sroa.08.219.i.i.i.i, %.lr.ph.i.i.i.i ], [ %13, %79 ]
-  %.sroa.08.0.ph.i.i.i.i = phi ptr [ %.in.i.i.i.i, %.preheader.i.i.i.i ], [ %.in.i.i.i.i, %.preheader16.i.i.i.i ], [ %.sroa.08.123.i.i.i.i, %.lr.ph24.i.i.i.i ], [ %75, %73 ], [ %.sroa.08.219.i.i.i.i, %.lr.ph.i.i.i.i ], [ %80, %79 ]
-  %81 = ptrtoint ptr %.sroa.08.3.sink.i.i.i.i to i64
-  store i64 %81, ptr %16, align 8
+.sink.split.i.i.i.i:                              ; preds = %75, %.lr.ph.i.i.i.i, %69, %.lr.ph24.i.i.i.i, %.preheader.i.i.i.i, %.preheader16.i.i.i.i
+  %.sroa.08.3.sink.i.i.i.i = phi ptr [ %52, %.preheader.i.i.i.i ], [ %13, %.preheader16.i.i.i.i ], [ %.sroa.08.123.i.i.i.i, %.lr.ph24.i.i.i.i ], [ %52, %69 ], [ %.sroa.08.219.i.i.i.i, %.lr.ph.i.i.i.i ], [ %13, %75 ]
+  %.sroa.08.0.ph.i.i.i.i = phi ptr [ %.in.i.i.i.i, %.preheader.i.i.i.i ], [ %.in.i.i.i.i, %.preheader16.i.i.i.i ], [ %.sroa.08.123.i.i.i.i, %.lr.ph24.i.i.i.i ], [ %71, %69 ], [ %.sroa.08.219.i.i.i.i, %.lr.ph.i.i.i.i ], [ %76, %75 ]
+  %77 = ptrtoint ptr %.sroa.08.3.sink.i.i.i.i to i64
+  store i64 %77, ptr %16, align 8
   br label %_ZN4llvm15SparseBitVectorILj128EE14FindLowerBoundEj.exit.i.i
 
-_ZN4llvm15SparseBitVectorILj128EE14FindLowerBoundEj.exit.i.i: ; preds = %.sink.split.i.i.i.i, %64
-  %.sroa.08.0.i.i.i.i = phi ptr [ %.in.i.i.i.i, %64 ], [ %.sroa.08.0.ph.i.i.i.i, %.sink.split.i.i.i.i ]
-  %82 = icmp eq ptr %.sroa.08.0.i.i.i.i, %13
-  br i1 %82, label %.critedge2.i.i, label %83
+_ZN4llvm15SparseBitVectorILj128EE14FindLowerBoundEj.exit.i.i: ; preds = %.sink.split.i.i.i.i, %60
+  %.sroa.08.0.i.i.i.i = phi ptr [ %.in.i.i.i.i, %60 ], [ %.sroa.08.0.ph.i.i.i.i, %.sink.split.i.i.i.i ]
+  %78 = icmp eq ptr %.sroa.08.0.i.i.i.i, %13
+  br i1 %78, label %.sink.split.i.i, label %79
 
-83:                                               ; preds = %_ZN4llvm15SparseBitVectorILj128EE14FindLowerBoundEj.exit.i.i
-  %84 = getelementptr inbounds nuw i8, ptr %.sroa.08.0.i.i.i.i, i64 16
-  %85 = load i32, ptr %84, align 8
-  %.not.i.i = icmp eq i32 %85, %51
+79:                                               ; preds = %_ZN4llvm15SparseBitVectorILj128EE14FindLowerBoundEj.exit.i.i
+  %80 = getelementptr inbounds nuw i8, ptr %.sroa.08.0.i.i.i.i, i64 16
+  %81 = load i32, ptr %80, align 8
+  %.not.i.i = icmp eq i32 %81, %51
   br i1 %.not.i.i, label %_ZN4llvm15SparseBitVectorILj128EE3setEj.exit.i, label %.critedge.i.i
 
-.critedge.i.i:                                    ; preds = %83
-  %86 = icmp ult i32 %85, %51
-  br i1 %86, label %87, label %.critedge2.i.i
+.critedge.i.i:                                    ; preds = %79
+  %82 = icmp ult i32 %81, %51
+  br i1 %82, label %83, label %.sink.split.i.i
 
-87:                                               ; preds = %.critedge.i.i
-  %88 = load ptr, ptr %.sroa.08.0.i.i.i.i, align 8
-  br label %.critedge2.i.i
-
-.critedge2.i.i:                                   ; preds = %87, %.critedge.i.i, %_ZN4llvm15SparseBitVectorILj128EE14FindLowerBoundEj.exit.i.i
-  %.sroa.010.1.i.i = phi ptr [ %88, %87 ], [ %.sroa.08.0.i.i.i.i, %.critedge.i.i ], [ %.sroa.08.0.i.i.i.i, %_ZN4llvm15SparseBitVectorILj128EE14FindLowerBoundEj.exit.i.i ]
-  %89 = call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #25
-  %90 = getelementptr inbounds nuw i8, ptr %89, i64 16
-  store i32 %51, ptr %90, align 8
-  %91 = getelementptr inbounds nuw i8, ptr %89, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %91, i8 0, i64 16, i1 false)
-  call void @_ZNSt8__detail15_List_node_base7_M_hookEPS0_(ptr noundef nonnull align 8 dereferenceable(16) %89, ptr noundef %.sroa.010.1.i.i) #22
+83:                                               ; preds = %.critedge.i.i
+  %84 = load ptr, ptr %.sroa.08.0.i.i.i.i, align 8
   br label %.sink.split.i.i
 
-.sink.split.i.i:                                  ; preds = %.critedge2.i.i, %54
-  %.sroa.010.0.ph.i.i = phi ptr [ %89, %.critedge2.i.i ], [ %55, %54 ]
-  %92 = load i64, ptr %15, align 8
-  %93 = add i64 %92, 1
-  store i64 %93, ptr %15, align 8
+.sink.split.i.i:                                  ; preds = %83, %.critedge.i.i, %_ZN4llvm15SparseBitVectorILj128EE14FindLowerBoundEj.exit.i.i, %.lr.ph.i5.i
+  %.sroa.010.1.sink.i.i = phi ptr [ %13, %.lr.ph.i5.i ], [ %84, %83 ], [ %.sroa.08.0.i.i.i.i, %.critedge.i.i ], [ %.sroa.08.0.i.i.i.i, %_ZN4llvm15SparseBitVectorILj128EE14FindLowerBoundEj.exit.i.i ]
+  %85 = call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #25
+  %86 = getelementptr inbounds nuw i8, ptr %85, i64 16
+  store i32 %51, ptr %86, align 8
+  %87 = getelementptr inbounds nuw i8, ptr %85, i64 24
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %87, i8 0, i64 16, i1 false)
+  call void @_ZNSt8__detail15_List_node_base7_M_hookEPS0_(ptr noundef nonnull align 8 dereferenceable(16) %85, ptr noundef %.sroa.010.1.sink.i.i) #22
+  %88 = load i64, ptr %15, align 8
+  %89 = add i64 %88, 1
+  store i64 %89, ptr %15, align 8
   br label %_ZN4llvm15SparseBitVectorILj128EE3setEj.exit.i
 
-_ZN4llvm15SparseBitVectorILj128EE3setEj.exit.i:   ; preds = %.sink.split.i.i, %83
-  %.sroa.010.0.i.i = phi ptr [ %.sroa.08.0.i.i.i.i, %83 ], [ %.sroa.010.0.ph.i.i, %.sink.split.i.i ]
-  %94 = ptrtoint ptr %.sroa.010.0.i.i to i64
-  store i64 %94, ptr %16, align 8
-  %95 = and i64 %.07.i6.i, 63
-  %96 = shl nuw i64 1, %95
-  %97 = getelementptr inbounds nuw i8, ptr %.sroa.010.0.i.i, i64 24
-  %98 = lshr i64 %.07.i6.i, 6
-  %99 = and i64 %98, 1
-  %100 = getelementptr inbounds [2 x i64], ptr %97, i64 0, i64 %99
-  %101 = load i64, ptr %100, align 8
-  %102 = or i64 %101, %96
-  store i64 %102, ptr %100, align 8
-  %103 = add i64 %.07.i6.i, 1
-  %exitcond.not.i7.i = icmp eq i64 %103, %48
+_ZN4llvm15SparseBitVectorILj128EE3setEj.exit.i:   ; preds = %.sink.split.i.i, %79
+  %.sroa.010.0.i.i = phi ptr [ %.sroa.08.0.i.i.i.i, %79 ], [ %85, %.sink.split.i.i ]
+  %90 = ptrtoint ptr %.sroa.010.0.i.i to i64
+  store i64 %90, ptr %16, align 8
+  %91 = and i64 %.07.i6.i, 63
+  %92 = shl nuw i64 1, %91
+  %93 = getelementptr inbounds nuw i8, ptr %.sroa.010.0.i.i, i64 24
+  %94 = lshr i64 %.07.i6.i, 6
+  %95 = and i64 %94, 1
+  %96 = getelementptr inbounds [2 x i64], ptr %93, i64 0, i64 %95
+  %97 = load i64, ptr %96, align 8
+  %98 = or i64 %97, %92
+  store i64 %98, ptr %96, align 8
+  %99 = add i64 %.07.i6.i, 1
+  %exitcond.not.i7.i = icmp eq i64 %99, %48
   br i1 %exitcond.not.i7.i, label %_ZN12_GLOBAL__N_142AArch64PostLegalizerCombinerImplRuleConfig15setRuleDisabledEN4llvm9StringRefE.exit.i, label %.lr.ph.i5.i, !llvm.loop !10
 
 _ZN12_GLOBAL__N_142AArch64PostLegalizerCombinerImplRuleConfig15setRuleDisabledEN4llvm9StringRefE.exit.i: ; preds = %_ZN4llvm15SparseBitVectorILj128EE3setEj.exit.i
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3)
-  br label %104
+  br label %100
 
-104:                                              ; preds = %_ZN12_GLOBAL__N_142AArch64PostLegalizerCombinerImplRuleConfig15setRuleDisabledEN4llvm9StringRefE.exit.i, %_ZN12_GLOBAL__N_142AArch64PostLegalizerCombinerImplRuleConfig15setRuleDisabledEN4llvm9StringRefE.exit.thread.i, %_ZN12_GLOBAL__N_142AArch64PostLegalizerCombinerImplRuleConfig14setRuleEnabledEN4llvm9StringRefE.exit.i, %_ZN12_GLOBAL__N_142AArch64PostLegalizerCombinerImplRuleConfig14setRuleEnabledEN4llvm9StringRefE.exit.thread.i
-  %105 = getelementptr inbounds i8, ptr %.sroa.012.028.i, i64 32
-  %.not.i = icmp eq ptr %105, %24
+100:                                              ; preds = %_ZN12_GLOBAL__N_142AArch64PostLegalizerCombinerImplRuleConfig15setRuleDisabledEN4llvm9StringRefE.exit.i, %_ZN12_GLOBAL__N_142AArch64PostLegalizerCombinerImplRuleConfig15setRuleDisabledEN4llvm9StringRefE.exit.thread.i, %_ZN12_GLOBAL__N_142AArch64PostLegalizerCombinerImplRuleConfig14setRuleEnabledEN4llvm9StringRefE.exit.i, %_ZN12_GLOBAL__N_142AArch64PostLegalizerCombinerImplRuleConfig14setRuleEnabledEN4llvm9StringRefE.exit.thread.i
+  %101 = getelementptr inbounds i8, ptr %.sroa.012.028.i, i64 32
+  %.not.i = icmp eq ptr %101, %24
   br i1 %.not.i, label %.loopexit, label %29
 
 _ZN12_GLOBAL__N_142AArch64PostLegalizerCombinerImplRuleConfig22parseCommandLineOptionEv.exit: ; preds = %_ZN12_GLOBAL__N_142AArch64PostLegalizerCombinerImplRuleConfig15setRuleDisabledEN4llvm9StringRefE.exit.thread20.i, %_ZN12_GLOBAL__N_142AArch64PostLegalizerCombinerImplRuleConfig14setRuleEnabledEN4llvm9StringRefE.exit.thread19.i
   call void @_ZN4llvm18report_fatal_errorEPKcb(ptr noundef nonnull @.str.12, i1 noundef zeroext true) #24
   unreachable
 
-.loopexit:                                        ; preds = %104, %_ZN4llvm42initializeAArch64PostLegalizerCombinerPassERNS_12PassRegistryE.exit
+.loopexit:                                        ; preds = %100, %_ZN4llvm42initializeAArch64PostLegalizerCombinerPassERNS_12PassRegistryE.exit
   ret void
 }
 

@@ -735,7 +735,7 @@ Abc_Clock.exit317:                                ; preds = %Abc_Clock.exit, %27
   %46 = phi ptr [ %.pre463, %41 ], [ %34, %38 ]
   %47 = getelementptr inbounds i8, ptr %46, i64 104
   store i32 -1, ptr %47, align 8
-  br label %524
+  br label %523
 
 48:                                               ; preds = %Abc_Clock.exit317
   %49 = getelementptr inbounds i8, ptr %0, i64 24
@@ -765,7 +765,7 @@ Abc_Clock.exit317:                                ; preds = %Abc_Clock.exit, %27
   %69 = getelementptr inbounds i8, ptr %64, i64 96
   %70 = load i64, ptr %69, align 8
   %71 = call ptr @Llb_BddComputeBad(ptr noundef %67, ptr noundef %68, i64 noundef %70) #14
-  br i1 %.not278, label %120, label %72
+  br i1 %.not278, label %119, label %72
 
 72:                                               ; preds = %48
   %73 = icmp eq ptr %71, null
@@ -789,7 +789,7 @@ Abc_Clock.exit317:                                ; preds = %Abc_Clock.exit, %27
   %83 = phi ptr [ %.pre445, %78 ], [ %75, %74 ]
   %84 = getelementptr inbounds i8, ptr %83, i64 104
   store i32 -1, ptr %84, align 8
-  br label %524
+  br label %523
 
 85:                                               ; preds = %72
   call void @Cudd_Ref(ptr noundef nonnull %71) #14
@@ -820,7 +820,7 @@ Abc_Clock.exit317:                                ; preds = %Abc_Clock.exit, %27
   %104 = load ptr, ptr %49, align 8
   %105 = call ptr @Extra_TransferPermute(ptr noundef %103, ptr noundef %104, ptr noundef %101, ptr noundef %13) #14
   %106 = icmp eq ptr %105, null
-  br i1 %106, label %107, label %119
+  br i1 %106, label %107, label %145
 
 107:                                              ; preds = %85
   %108 = load ptr, ptr %55, align 8
@@ -842,736 +842,733 @@ Abc_Clock.exit317:                                ; preds = %Abc_Clock.exit, %27
   %117 = phi ptr [ %.pre, %112 ], [ %109, %107 ]
   %118 = getelementptr inbounds i8, ptr %117, i64 104
   store i32 -1, ptr %118, align 8
-  br label %524
+  br label %523
 
-119:                                              ; preds = %85
-  call void @Cudd_Ref(ptr noundef nonnull %105) #14
-  br label %146
+119:                                              ; preds = %48
+  %120 = load ptr, ptr %61, align 8
+  %121 = getelementptr inbounds i8, ptr %120, i64 736
+  store ptr %71, ptr %121, align 8
+  %122 = load ptr, ptr %61, align 8
+  %123 = getelementptr inbounds i8, ptr %122, i64 736
+  %124 = load ptr, ptr %123, align 8
+  %125 = icmp eq ptr %124, null
+  br i1 %125, label %126, label %137
 
-120:                                              ; preds = %48
-  %121 = load ptr, ptr %61, align 8
-  %122 = getelementptr inbounds i8, ptr %121, i64 736
-  store ptr %71, ptr %122, align 8
-  %123 = load ptr, ptr %61, align 8
-  %124 = getelementptr inbounds i8, ptr %123, i64 736
-  %125 = load ptr, ptr %124, align 8
-  %126 = icmp eq ptr %125, null
-  br i1 %126, label %127, label %138
+126:                                              ; preds = %119
+  %127 = load ptr, ptr %9, align 8
+  %128 = getelementptr inbounds i8, ptr %127, i64 72
+  %129 = load i32, ptr %128, align 8
+  %.not279 = icmp eq i32 %129, 0
+  br i1 %.not279, label %130, label %134
 
-127:                                              ; preds = %120
-  %128 = load ptr, ptr %9, align 8
-  %129 = getelementptr inbounds i8, ptr %128, i64 72
-  %130 = load i32, ptr %129, align 8
-  %.not279 = icmp eq i32 %130, 0
-  br i1 %.not279, label %131, label %135
-
-131:                                              ; preds = %127
-  %132 = getelementptr inbounds i8, ptr %128, i64 84
-  %133 = load i32, ptr %132, align 4
-  %134 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.1, i32 noundef %133)
+130:                                              ; preds = %126
+  %131 = getelementptr inbounds i8, ptr %127, i64 84
+  %132 = load i32, ptr %131, align 4
+  %133 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.1, i32 noundef %132)
   %.pre462 = load ptr, ptr %9, align 8
-  br label %135
+  br label %134
 
-135:                                              ; preds = %131, %127
-  %136 = phi ptr [ %.pre462, %131 ], [ %128, %127 ]
-  %137 = getelementptr inbounds i8, ptr %136, i64 104
-  store i32 -1, ptr %137, align 8
-  br label %524
+134:                                              ; preds = %130, %126
+  %135 = phi ptr [ %.pre462, %130 ], [ %127, %126 ]
+  %136 = getelementptr inbounds i8, ptr %135, i64 104
+  store i32 -1, ptr %136, align 8
+  br label %523
 
-138:                                              ; preds = %120
-  call void @Cudd_Ref(ptr noundef nonnull %125) #14
-  %139 = load ptr, ptr %49, align 8
-  %140 = getelementptr inbounds i8, ptr %0, i64 72
-  %141 = load ptr, ptr %140, align 8
-  %142 = call ptr @Llb_CoreComputeCube(ptr noundef %139, ptr noundef %141, i32 noundef 1, ptr noundef null)
-  call void @Cudd_Ref(ptr noundef %142) #14
-  %143 = load ptr, ptr %55, align 8
-  %144 = load ptr, ptr %140, align 8
-  %145 = call ptr @Llb_CoreComputeCube(ptr noundef %143, ptr noundef %144, i32 noundef 0, ptr noundef null)
-  call void @Cudd_Ref(ptr noundef %145) #14
-  br label %146
+137:                                              ; preds = %119
+  call void @Cudd_Ref(ptr noundef nonnull %124) #14
+  %138 = load ptr, ptr %49, align 8
+  %139 = getelementptr inbounds i8, ptr %0, i64 72
+  %140 = load ptr, ptr %139, align 8
+  %141 = call ptr @Llb_CoreComputeCube(ptr noundef %138, ptr noundef %140, i32 noundef 1, ptr noundef null)
+  call void @Cudd_Ref(ptr noundef %141) #14
+  %142 = load ptr, ptr %55, align 8
+  %143 = load ptr, ptr %139, align 8
+  %144 = call ptr @Llb_CoreComputeCube(ptr noundef %142, ptr noundef %143, i32 noundef 0, ptr noundef null)
+  br label %145
 
-146:                                              ; preds = %138, %119
-  %.0264 = phi ptr [ %101, %119 ], [ %145, %138 ]
-  %.0263 = phi ptr [ %105, %119 ], [ %142, %138 ]
-  %147 = load ptr, ptr %9, align 8
-  %148 = getelementptr inbounds i8, ptr %147, i64 4
-  %149 = load i32, ptr %148, align 4
-  %150 = icmp sgt i32 %149, 0
-  br i1 %150, label %.lr.ph, label %._crit_edge
+145:                                              ; preds = %85, %137
+  %.sink = phi ptr [ %144, %137 ], [ %105, %85 ]
+  %.0264 = phi ptr [ %144, %137 ], [ %101, %85 ]
+  %.0263 = phi ptr [ %141, %137 ], [ %105, %85 ]
+  call void @Cudd_Ref(ptr noundef %.sink) #14
+  %146 = load ptr, ptr %9, align 8
+  %147 = getelementptr inbounds i8, ptr %146, i64 4
+  %148 = load i32, ptr %147, align 4
+  %149 = icmp sgt i32 %148, 0
+  br i1 %149, label %.lr.ph, label %._crit_edge
 
-.lr.ph:                                           ; preds = %146
-  %151 = getelementptr inbounds i8, ptr %6, i64 8
-  %152 = getelementptr inbounds i8, ptr %5, i64 8
-  %153 = getelementptr inbounds i8, ptr %0, i64 56
-  %154 = getelementptr inbounds i8, ptr %0, i64 8
-  %155 = getelementptr inbounds i8, ptr %0, i64 48
-  %156 = getelementptr inbounds i8, ptr %0, i64 64
-  %157 = getelementptr inbounds i8, ptr %4, i64 8
-  br label %158
+.lr.ph:                                           ; preds = %145
+  %150 = getelementptr inbounds i8, ptr %6, i64 8
+  %151 = getelementptr inbounds i8, ptr %5, i64 8
+  %152 = getelementptr inbounds i8, ptr %0, i64 56
+  %153 = getelementptr inbounds i8, ptr %0, i64 8
+  %154 = getelementptr inbounds i8, ptr %0, i64 48
+  %155 = getelementptr inbounds i8, ptr %0, i64 64
+  %156 = getelementptr inbounds i8, ptr %4, i64 8
+  br label %157
 
-158:                                              ; preds = %.lr.ph, %454
-  %.1388 = phi ptr [ %.0263, %.lr.ph ], [ %365, %454 ]
-  %.1265387 = phi ptr [ %.0264, %.lr.ph ], [ %384, %454 ]
-  %.0266386 = phi i32 [ 0, %.lr.ph ], [ %455, %454 ]
+157:                                              ; preds = %.lr.ph, %453
+  %.1388 = phi ptr [ %.0263, %.lr.ph ], [ %364, %453 ]
+  %.1265387 = phi ptr [ %.0264, %.lr.ph ], [ %383, %453 ]
+  %.0266386 = phi i32 [ 0, %.lr.ph ], [ %454, %453 ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6)
-  %159 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %6) #14
-  %160 = icmp slt i32 %159, 0
-  br i1 %160, label %Abc_Clock.exit319, label %161
+  %158 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %6) #14
+  %159 = icmp slt i32 %158, 0
+  br i1 %159, label %Abc_Clock.exit319, label %160
 
-161:                                              ; preds = %158
-  %162 = load i64, ptr %6, align 8
-  %.neg335 = mul i64 %162, -1000000
-  %163 = load i64, ptr %151, align 8
-  %.neg = sdiv i64 %163, -1000
+160:                                              ; preds = %157
+  %161 = load i64, ptr %6, align 8
+  %.neg335 = mul i64 %161, -1000000
+  %162 = load i64, ptr %150, align 8
+  %.neg = sdiv i64 %162, -1000
   %.neg336 = add i64 %.neg, %.neg335
   br label %Abc_Clock.exit319
 
-Abc_Clock.exit319:                                ; preds = %158, %161
-  %.0.i318.neg = phi i64 [ %.neg336, %161 ], [ 1, %158 ]
+Abc_Clock.exit319:                                ; preds = %157, %160
+  %.0.i318.neg = phi i64 [ %.neg336, %160 ], [ 1, %157 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6)
-  %164 = load ptr, ptr %9, align 8
-  %165 = getelementptr inbounds i8, ptr %164, i64 84
-  %166 = load i32, ptr %165, align 4
-  %.not280 = icmp eq i32 %166, 0
-  br i1 %.not280, label %193, label %167
+  %163 = load ptr, ptr %9, align 8
+  %164 = getelementptr inbounds i8, ptr %163, i64 84
+  %165 = load i32, ptr %164, align 4
+  %.not280 = icmp eq i32 %165, 0
+  br i1 %.not280, label %192, label %166
 
-167:                                              ; preds = %Abc_Clock.exit319
+166:                                              ; preds = %Abc_Clock.exit319
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
-  %168 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %5) #14
-  %169 = icmp slt i32 %168, 0
-  br i1 %169, label %Abc_Clock.exit321, label %170
+  %167 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %5) #14
+  %168 = icmp slt i32 %167, 0
+  br i1 %168, label %Abc_Clock.exit321, label %169
 
-170:                                              ; preds = %167
-  %171 = load i64, ptr %5, align 8
-  %172 = mul nsw i64 %171, 1000000
-  %173 = load i64, ptr %152, align 8
-  %174 = sdiv i64 %173, 1000
-  %175 = add nsw i64 %174, %172
+169:                                              ; preds = %166
+  %170 = load i64, ptr %5, align 8
+  %171 = mul nsw i64 %170, 1000000
+  %172 = load i64, ptr %151, align 8
+  %173 = sdiv i64 %172, 1000
+  %174 = add nsw i64 %173, %171
   br label %Abc_Clock.exit321
 
-Abc_Clock.exit321:                                ; preds = %167, %170
-  %.0.i320 = phi i64 [ %175, %170 ], [ -1, %167 ]
+Abc_Clock.exit321:                                ; preds = %166, %169
+  %.0.i320 = phi i64 [ %174, %169 ], [ -1, %166 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
-  %176 = load ptr, ptr %9, align 8
-  %177 = getelementptr inbounds i8, ptr %176, i64 96
-  %178 = load i64, ptr %177, align 8
-  %179 = icmp sgt i64 %.0.i320, %178
-  br i1 %179, label %180, label %193
+  %175 = load ptr, ptr %9, align 8
+  %176 = getelementptr inbounds i8, ptr %175, i64 96
+  %177 = load i64, ptr %176, align 8
+  %178 = icmp sgt i64 %.0.i320, %177
+  br i1 %178, label %179, label %192
 
-180:                                              ; preds = %Abc_Clock.exit321
-  %181 = getelementptr inbounds i8, ptr %176, i64 72
-  %182 = load i32, ptr %181, align 8
-  %.not303 = icmp eq i32 %182, 0
-  br i1 %.not303, label %183, label %187
+179:                                              ; preds = %Abc_Clock.exit321
+  %180 = getelementptr inbounds i8, ptr %175, i64 72
+  %181 = load i32, ptr %180, align 8
+  %.not303 = icmp eq i32 %181, 0
+  br i1 %.not303, label %182, label %186
 
-183:                                              ; preds = %180
-  %184 = getelementptr inbounds i8, ptr %176, i64 84
-  %185 = load i32, ptr %184, align 4
-  %186 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.3, i32 noundef %185)
+182:                                              ; preds = %179
+  %183 = getelementptr inbounds i8, ptr %175, i64 84
+  %184 = load i32, ptr %183, align 4
+  %185 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.3, i32 noundef %184)
   %.pre446 = load ptr, ptr %9, align 8
-  br label %187
+  br label %186
 
-187:                                              ; preds = %183, %180
-  %188 = phi ptr [ %.pre446, %183 ], [ %176, %180 ]
-  %189 = add nsw i32 %.0266386, -1
-  %190 = getelementptr inbounds i8, ptr %188, i64 104
-  store i32 %189, ptr %190, align 8
-  %191 = load ptr, ptr %49, align 8
-  call void @Cudd_RecursiveDeref(ptr noundef %191, ptr noundef %.1388) #14
-  %192 = load ptr, ptr %55, align 8
-  call void @Cudd_RecursiveDeref(ptr noundef %192, ptr noundef %.1265387) #14
-  br label %524
+186:                                              ; preds = %182, %179
+  %187 = phi ptr [ %.pre446, %182 ], [ %175, %179 ]
+  %188 = add nsw i32 %.0266386, -1
+  %189 = getelementptr inbounds i8, ptr %187, i64 104
+  store i32 %188, ptr %189, align 8
+  %190 = load ptr, ptr %49, align 8
+  call void @Cudd_RecursiveDeref(ptr noundef %190, ptr noundef %.1388) #14
+  %191 = load ptr, ptr %55, align 8
+  call void @Cudd_RecursiveDeref(ptr noundef %191, ptr noundef %.1265387) #14
+  br label %523
 
-193:                                              ; preds = %Abc_Clock.exit321, %Abc_Clock.exit319
-  %194 = load ptr, ptr %49, align 8
-  %195 = load ptr, ptr %61, align 8
-  %196 = call ptr @Extra_TransferPermute(ptr noundef %194, ptr noundef %195, ptr noundef %.1388, ptr noundef %15) #14
-  %197 = icmp eq ptr %196, null
-  br i1 %197, label %198, label %212
+192:                                              ; preds = %Abc_Clock.exit321, %Abc_Clock.exit319
+  %193 = load ptr, ptr %49, align 8
+  %194 = load ptr, ptr %61, align 8
+  %195 = call ptr @Extra_TransferPermute(ptr noundef %193, ptr noundef %194, ptr noundef %.1388, ptr noundef %15) #14
+  %196 = icmp eq ptr %195, null
+  br i1 %196, label %197, label %211
 
-198:                                              ; preds = %193
-  %199 = load ptr, ptr %9, align 8
-  %200 = getelementptr inbounds i8, ptr %199, i64 72
-  %201 = load i32, ptr %200, align 8
-  %.not302 = icmp eq i32 %201, 0
-  br i1 %.not302, label %202, label %206
+197:                                              ; preds = %192
+  %198 = load ptr, ptr %9, align 8
+  %199 = getelementptr inbounds i8, ptr %198, i64 72
+  %200 = load i32, ptr %199, align 8
+  %.not302 = icmp eq i32 %200, 0
+  br i1 %.not302, label %201, label %205
 
-202:                                              ; preds = %198
-  %203 = getelementptr inbounds i8, ptr %199, i64 84
-  %204 = load i32, ptr %203, align 4
-  %205 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.3, i32 noundef %204)
+201:                                              ; preds = %197
+  %202 = getelementptr inbounds i8, ptr %198, i64 84
+  %203 = load i32, ptr %202, align 4
+  %204 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.3, i32 noundef %203)
   %.pre461 = load ptr, ptr %9, align 8
-  br label %206
+  br label %205
 
-206:                                              ; preds = %202, %198
-  %207 = phi ptr [ %.pre461, %202 ], [ %199, %198 ]
-  %208 = add nsw i32 %.0266386, -1
-  %209 = getelementptr inbounds i8, ptr %207, i64 104
-  store i32 %208, ptr %209, align 8
-  %210 = load ptr, ptr %49, align 8
-  call void @Cudd_RecursiveDeref(ptr noundef %210, ptr noundef %.1388) #14
-  %211 = load ptr, ptr %55, align 8
-  call void @Cudd_RecursiveDeref(ptr noundef %211, ptr noundef %.1265387) #14
-  br label %524
+205:                                              ; preds = %201, %197
+  %206 = phi ptr [ %.pre461, %201 ], [ %198, %197 ]
+  %207 = add nsw i32 %.0266386, -1
+  %208 = getelementptr inbounds i8, ptr %206, i64 104
+  store i32 %207, ptr %208, align 8
+  %209 = load ptr, ptr %49, align 8
+  call void @Cudd_RecursiveDeref(ptr noundef %209, ptr noundef %.1388) #14
+  %210 = load ptr, ptr %55, align 8
+  call void @Cudd_RecursiveDeref(ptr noundef %210, ptr noundef %.1265387) #14
+  br label %523
 
-212:                                              ; preds = %193
-  call void @Cudd_Ref(ptr noundef nonnull %196) #14
-  %213 = load ptr, ptr %153, align 8
-  %214 = getelementptr inbounds i8, ptr %213, i64 4
-  %215 = load i32, ptr %214, align 4
-  %216 = load i32, ptr %213, align 8
-  %217 = icmp eq i32 %215, %216
-  br i1 %217, label %218, label %.Vec_PtrGrow.exit11_crit_edge.i
+211:                                              ; preds = %192
+  call void @Cudd_Ref(ptr noundef nonnull %195) #14
+  %212 = load ptr, ptr %152, align 8
+  %213 = getelementptr inbounds i8, ptr %212, i64 4
+  %214 = load i32, ptr %213, align 4
+  %215 = load i32, ptr %212, align 8
+  %216 = icmp eq i32 %214, %215
+  br i1 %216, label %217, label %.Vec_PtrGrow.exit11_crit_edge.i
 
-.Vec_PtrGrow.exit11_crit_edge.i:                  ; preds = %212
-  %.phi.trans.insert.i = getelementptr inbounds i8, ptr %213, i64 8
+.Vec_PtrGrow.exit11_crit_edge.i:                  ; preds = %211
+  %.phi.trans.insert.i = getelementptr inbounds i8, ptr %212, i64 8
   %.pre.i = load ptr, ptr %.phi.trans.insert.i, align 8
   br label %Vec_PtrPush.exit
 
-218:                                              ; preds = %212
-  %219 = icmp slt i32 %215, 16
-  br i1 %219, label %220, label %228
+217:                                              ; preds = %211
+  %218 = icmp slt i32 %214, 16
+  br i1 %218, label %219, label %227
 
-220:                                              ; preds = %218
-  %221 = getelementptr inbounds i8, ptr %213, i64 8
-  %222 = load ptr, ptr %221, align 8
-  %.not9.i.i = icmp eq ptr %222, null
-  br i1 %.not9.i.i, label %225, label %223
+219:                                              ; preds = %217
+  %220 = getelementptr inbounds i8, ptr %212, i64 8
+  %221 = load ptr, ptr %220, align 8
+  %.not9.i.i = icmp eq ptr %221, null
+  br i1 %.not9.i.i, label %224, label %222
 
-223:                                              ; preds = %220
-  %224 = call dereferenceable_or_null(128) ptr @realloc(ptr noundef nonnull %222, i64 noundef 128) #16
+222:                                              ; preds = %219
+  %223 = call dereferenceable_or_null(128) ptr @realloc(ptr noundef nonnull %221, i64 noundef 128) #16
   br label %Vec_PtrGrow.exit.i
 
-225:                                              ; preds = %220
-  %226 = call noalias dereferenceable_or_null(128) ptr @malloc(i64 noundef 128) #15
+224:                                              ; preds = %219
+  %225 = call noalias dereferenceable_or_null(128) ptr @malloc(i64 noundef 128) #15
   br label %Vec_PtrGrow.exit.i
 
-Vec_PtrGrow.exit.i:                               ; preds = %225, %223
-  %227 = phi ptr [ %224, %223 ], [ %226, %225 ]
-  store ptr %227, ptr %221, align 8
-  store i32 16, ptr %213, align 8
+Vec_PtrGrow.exit.i:                               ; preds = %224, %222
+  %226 = phi ptr [ %223, %222 ], [ %225, %224 ]
+  store ptr %226, ptr %220, align 8
+  store i32 16, ptr %212, align 8
   br label %Vec_PtrPush.exit
 
-228:                                              ; preds = %218
-  %229 = shl nuw nsw i32 %215, 1
-  %230 = getelementptr inbounds i8, ptr %213, i64 8
-  %231 = load ptr, ptr %230, align 8
-  %.not9.i10.i = icmp eq ptr %231, null
-  %232 = zext nneg i32 %229 to i64
-  %233 = shl nuw nsw i64 %232, 3
-  br i1 %.not9.i10.i, label %236, label %234
+227:                                              ; preds = %217
+  %228 = shl nuw nsw i32 %214, 1
+  %229 = getelementptr inbounds i8, ptr %212, i64 8
+  %230 = load ptr, ptr %229, align 8
+  %.not9.i10.i = icmp eq ptr %230, null
+  %231 = zext nneg i32 %228 to i64
+  %232 = shl nuw nsw i64 %231, 3
+  br i1 %.not9.i10.i, label %235, label %233
 
-234:                                              ; preds = %228
-  %235 = call ptr @realloc(ptr noundef nonnull %231, i64 noundef %233) #16
-  br label %238
+233:                                              ; preds = %227
+  %234 = call ptr @realloc(ptr noundef nonnull %230, i64 noundef %232) #16
+  br label %237
 
-236:                                              ; preds = %228
-  %237 = call noalias ptr @malloc(i64 noundef %233) #15
-  br label %238
+235:                                              ; preds = %227
+  %236 = call noalias ptr @malloc(i64 noundef %232) #15
+  br label %237
 
-238:                                              ; preds = %236, %234
-  %239 = phi ptr [ %235, %234 ], [ %237, %236 ]
-  store ptr %239, ptr %230, align 8
-  store i32 %229, ptr %213, align 8
+237:                                              ; preds = %235, %233
+  %238 = phi ptr [ %234, %233 ], [ %236, %235 ]
+  store ptr %238, ptr %229, align 8
+  store i32 %228, ptr %212, align 8
   br label %Vec_PtrPush.exit
 
-Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11_crit_edge.i, %Vec_PtrGrow.exit.i, %238
-  %240 = phi ptr [ %.pre.i, %.Vec_PtrGrow.exit11_crit_edge.i ], [ %239, %238 ], [ %227, %Vec_PtrGrow.exit.i ]
-  %241 = load i32, ptr %214, align 4
-  %242 = add nsw i32 %241, 1
-  store i32 %242, ptr %214, align 4
-  %243 = sext i32 %241 to i64
-  %244 = getelementptr inbounds ptr, ptr %240, i64 %243
-  store ptr %196, ptr %244, align 8
-  %245 = load ptr, ptr %9, align 8
-  %246 = getelementptr inbounds i8, ptr %245, i64 80
-  %247 = load i32, ptr %246, align 8
-  %.not281 = icmp eq i32 %247, 0
-  br i1 %.not281, label %248, label %286
+Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11_crit_edge.i, %Vec_PtrGrow.exit.i, %237
+  %239 = phi ptr [ %.pre.i, %.Vec_PtrGrow.exit11_crit_edge.i ], [ %238, %237 ], [ %226, %Vec_PtrGrow.exit.i ]
+  %240 = load i32, ptr %213, align 4
+  %241 = add nsw i32 %240, 1
+  store i32 %241, ptr %213, align 4
+  %242 = sext i32 %240 to i64
+  %243 = getelementptr inbounds ptr, ptr %239, i64 %242
+  store ptr %195, ptr %243, align 8
+  %244 = load ptr, ptr %9, align 8
+  %245 = getelementptr inbounds i8, ptr %244, i64 80
+  %246 = load i32, ptr %245, align 8
+  %.not281 = icmp eq i32 %246, 0
+  br i1 %.not281, label %247, label %285
 
-248:                                              ; preds = %Vec_PtrPush.exit
-  %249 = load ptr, ptr %61, align 8
-  %250 = getelementptr inbounds i8, ptr %249, i64 736
-  %251 = load ptr, ptr %250, align 8
-  %252 = ptrtoint ptr %251 to i64
-  %253 = xor i64 %252, 1
-  %254 = inttoptr i64 %253 to ptr
-  %255 = call i32 @Cudd_bddLeq(ptr noundef %249, ptr noundef nonnull %196, ptr noundef %254) #14
-  %.not282 = icmp eq i32 %255, 0
+247:                                              ; preds = %Vec_PtrPush.exit
+  %248 = load ptr, ptr %61, align 8
+  %249 = getelementptr inbounds i8, ptr %248, i64 736
+  %250 = load ptr, ptr %249, align 8
+  %251 = ptrtoint ptr %250 to i64
+  %252 = xor i64 %251, 1
+  %253 = inttoptr i64 %252 to ptr
+  %254 = call i32 @Cudd_bddLeq(ptr noundef %248, ptr noundef nonnull %195, ptr noundef %253) #14
+  %.not282 = icmp eq i32 %254, 0
   %.pre447 = load ptr, ptr %9, align 8
-  br i1 %.not282, label %256, label %286
+  br i1 %.not282, label %255, label %285
 
-256:                                              ; preds = %248
-  %257 = getelementptr inbounds i8, ptr %.pre447, i64 36
-  %258 = load i32, ptr %257, align 4
-  %.not283 = icmp eq i32 %258, 0
-  br i1 %.not283, label %259, label %263
+255:                                              ; preds = %247
+  %256 = getelementptr inbounds i8, ptr %.pre447, i64 36
+  %257 = load i32, ptr %256, align 4
+  %.not283 = icmp eq i32 %257, 0
+  br i1 %.not283, label %258, label %262
 
-259:                                              ; preds = %256
-  %260 = call ptr @Llb_CoreDeriveCex(ptr noundef nonnull %0)
-  %261 = load ptr, ptr %0, align 8
-  %262 = getelementptr inbounds i8, ptr %261, i64 408
-  store ptr %260, ptr %262, align 8
-  br label %263
+258:                                              ; preds = %255
+  %259 = call ptr @Llb_CoreDeriveCex(ptr noundef nonnull %0)
+  %260 = load ptr, ptr %0, align 8
+  %261 = getelementptr inbounds i8, ptr %260, i64 408
+  store ptr %259, ptr %261, align 8
+  br label %262
 
-263:                                              ; preds = %259, %256
-  %264 = load ptr, ptr %49, align 8
-  call void @Cudd_RecursiveDeref(ptr noundef %264, ptr noundef %.1388) #14
-  %265 = load ptr, ptr %55, align 8
-  call void @Cudd_RecursiveDeref(ptr noundef %265, ptr noundef %.1265387) #14
-  %266 = load ptr, ptr %9, align 8
-  %267 = getelementptr inbounds i8, ptr %266, i64 72
-  %268 = load i32, ptr %267, align 8
-  %.not284 = icmp eq i32 %268, 0
-  br i1 %.not284, label %269, label %282
+262:                                              ; preds = %258, %255
+  %263 = load ptr, ptr %49, align 8
+  call void @Cudd_RecursiveDeref(ptr noundef %263, ptr noundef %.1388) #14
+  %264 = load ptr, ptr %55, align 8
+  call void @Cudd_RecursiveDeref(ptr noundef %264, ptr noundef %.1265387) #14
+  %265 = load ptr, ptr %9, align 8
+  %266 = getelementptr inbounds i8, ptr %265, i64 72
+  %267 = load i32, ptr %266, align 8
+  %.not284 = icmp eq i32 %267, 0
+  br i1 %.not284, label %268, label %281
 
-269:                                              ; preds = %263
-  %270 = getelementptr inbounds i8, ptr %266, i64 36
-  %271 = load i32, ptr %270, align 4
-  %.not285 = icmp eq i32 %271, 0
-  br i1 %.not285, label %272, label %278
+268:                                              ; preds = %262
+  %269 = getelementptr inbounds i8, ptr %265, i64 36
+  %270 = load i32, ptr %269, align 4
+  %.not285 = icmp eq i32 %270, 0
+  br i1 %.not285, label %271, label %277
 
-272:                                              ; preds = %269
-  %273 = load ptr, ptr %0, align 8
-  %274 = getelementptr inbounds i8, ptr %273, i64 408
-  %275 = load ptr, ptr %274, align 8
-  %276 = load i32, ptr %275, align 4
-  %277 = load ptr, ptr %273, align 8
-  call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.4, i32 noundef %276, ptr noundef %277, i32 noundef %.0266386)
-  br label %279
+271:                                              ; preds = %268
+  %272 = load ptr, ptr %0, align 8
+  %273 = getelementptr inbounds i8, ptr %272, i64 408
+  %274 = load ptr, ptr %273, align 8
+  %275 = load i32, ptr %274, align 4
+  %276 = load ptr, ptr %272, align 8
+  call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.4, i32 noundef %275, ptr noundef %276, i32 noundef %.0266386)
+  br label %278
 
-278:                                              ; preds = %269
+277:                                              ; preds = %268
   call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.5, i32 noundef %.0266386)
-  br label %279
+  br label %278
 
-279:                                              ; preds = %278, %272
-  %280 = call fastcc i64 @Abc_Clock()
-  %281 = sub nsw i64 %280, %.0.i
-  call fastcc void @Abc_PrintTime(ptr noundef nonnull @.str.6, i64 noundef %281)
+278:                                              ; preds = %277, %271
+  %279 = call fastcc i64 @Abc_Clock()
+  %280 = sub nsw i64 %279, %.0.i
+  call fastcc void @Abc_PrintTime(ptr noundef nonnull @.str.6, i64 noundef %280)
   %.pre460 = load ptr, ptr %9, align 8
-  br label %282
+  br label %281
 
-282:                                              ; preds = %279, %263
-  %283 = phi ptr [ %.pre460, %279 ], [ %266, %263 ]
-  %284 = add nsw i32 %.0266386, -1
-  %285 = getelementptr inbounds i8, ptr %283, i64 104
-  store i32 %284, ptr %285, align 8
-  br label %524
+281:                                              ; preds = %278, %262
+  %282 = phi ptr [ %.pre460, %278 ], [ %265, %262 ]
+  %283 = add nsw i32 %.0266386, -1
+  %284 = getelementptr inbounds i8, ptr %282, i64 104
+  store i32 %283, ptr %284, align 8
+  br label %523
 
-286:                                              ; preds = %248, %Vec_PtrPush.exit
-  %287 = phi ptr [ %.pre447, %248 ], [ %245, %Vec_PtrPush.exit ]
+285:                                              ; preds = %247, %Vec_PtrPush.exit
+  %286 = phi ptr [ %.pre447, %247 ], [ %244, %Vec_PtrPush.exit ]
+  %287 = load ptr, ptr %153, align 8
   %288 = load ptr, ptr %154, align 8
-  %289 = load ptr, ptr %155, align 8
-  %290 = load ptr, ptr %49, align 8
-  %291 = load ptr, ptr %156, align 8
-  %292 = getelementptr inbounds i8, ptr %287, i64 96
-  %293 = load i64, ptr %292, align 8
-  %294 = getelementptr inbounds i8, ptr %287, i64 36
-  %295 = load i32, ptr %294, align 4
-  %296 = getelementptr inbounds i8, ptr %287, i64 40
-  %297 = load i32, ptr %296, align 8
-  %298 = getelementptr inbounds i8, ptr %287, i64 68
-  %299 = load i32, ptr %298, align 4
-  %300 = call ptr @Llb_ImgComputeImage(ptr noundef %288, ptr noundef %289, ptr noundef %290, ptr noundef %.1388, ptr noundef %1, ptr noundef %2, ptr noundef %291, i64 noundef %293, i32 noundef %295, i32 noundef %297, i32 noundef %299) #14
-  %301 = icmp eq ptr %300, null
-  br i1 %301, label %302, label %316
+  %289 = load ptr, ptr %49, align 8
+  %290 = load ptr, ptr %155, align 8
+  %291 = getelementptr inbounds i8, ptr %286, i64 96
+  %292 = load i64, ptr %291, align 8
+  %293 = getelementptr inbounds i8, ptr %286, i64 36
+  %294 = load i32, ptr %293, align 4
+  %295 = getelementptr inbounds i8, ptr %286, i64 40
+  %296 = load i32, ptr %295, align 8
+  %297 = getelementptr inbounds i8, ptr %286, i64 68
+  %298 = load i32, ptr %297, align 4
+  %299 = call ptr @Llb_ImgComputeImage(ptr noundef %287, ptr noundef %288, ptr noundef %289, ptr noundef %.1388, ptr noundef %1, ptr noundef %2, ptr noundef %290, i64 noundef %292, i32 noundef %294, i32 noundef %296, i32 noundef %298) #14
+  %300 = icmp eq ptr %299, null
+  br i1 %300, label %301, label %315
 
-302:                                              ; preds = %286
-  %303 = load ptr, ptr %9, align 8
-  %304 = getelementptr inbounds i8, ptr %303, i64 72
-  %305 = load i32, ptr %304, align 8
-  %.not301 = icmp eq i32 %305, 0
-  br i1 %.not301, label %306, label %310
+301:                                              ; preds = %285
+  %302 = load ptr, ptr %9, align 8
+  %303 = getelementptr inbounds i8, ptr %302, i64 72
+  %304 = load i32, ptr %303, align 8
+  %.not301 = icmp eq i32 %304, 0
+  br i1 %.not301, label %305, label %309
 
-306:                                              ; preds = %302
-  %307 = getelementptr inbounds i8, ptr %303, i64 84
-  %308 = load i32, ptr %307, align 4
-  %309 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.3, i32 noundef %308)
+305:                                              ; preds = %301
+  %306 = getelementptr inbounds i8, ptr %302, i64 84
+  %307 = load i32, ptr %306, align 4
+  %308 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.3, i32 noundef %307)
   %.pre459 = load ptr, ptr %9, align 8
-  br label %310
+  br label %309
 
-310:                                              ; preds = %306, %302
-  %311 = phi ptr [ %.pre459, %306 ], [ %303, %302 ]
-  %312 = add nsw i32 %.0266386, -1
-  %313 = getelementptr inbounds i8, ptr %311, i64 104
-  store i32 %312, ptr %313, align 8
-  %314 = load ptr, ptr %49, align 8
-  call void @Cudd_RecursiveDeref(ptr noundef %314, ptr noundef %.1388) #14
-  %315 = load ptr, ptr %55, align 8
-  call void @Cudd_RecursiveDeref(ptr noundef %315, ptr noundef %.1265387) #14
-  br label %524
+309:                                              ; preds = %305, %301
+  %310 = phi ptr [ %.pre459, %305 ], [ %302, %301 ]
+  %311 = add nsw i32 %.0266386, -1
+  %312 = getelementptr inbounds i8, ptr %310, i64 104
+  store i32 %311, ptr %312, align 8
+  %313 = load ptr, ptr %49, align 8
+  call void @Cudd_RecursiveDeref(ptr noundef %313, ptr noundef %.1388) #14
+  %314 = load ptr, ptr %55, align 8
+  call void @Cudd_RecursiveDeref(ptr noundef %314, ptr noundef %.1265387) #14
+  br label %523
 
-316:                                              ; preds = %286
-  call void @Cudd_Ref(ptr noundef nonnull %300) #14
+315:                                              ; preds = %285
+  call void @Cudd_Ref(ptr noundef nonnull %299) #14
+  %316 = load ptr, ptr %49, align 8
+  call void @Cudd_RecursiveDeref(ptr noundef %316, ptr noundef %.1388) #14
   %317 = load ptr, ptr %49, align 8
-  call void @Cudd_RecursiveDeref(ptr noundef %317, ptr noundef %.1388) #14
-  %318 = load ptr, ptr %49, align 8
-  %319 = load ptr, ptr %55, align 8
-  %320 = call ptr @Extra_TransferPermute(ptr noundef %318, ptr noundef %319, ptr noundef nonnull %300, ptr noundef %14) #14
-  %321 = icmp eq ptr %320, null
-  br i1 %321, label %322, label %336
+  %318 = load ptr, ptr %55, align 8
+  %319 = call ptr @Extra_TransferPermute(ptr noundef %317, ptr noundef %318, ptr noundef nonnull %299, ptr noundef %14) #14
+  %320 = icmp eq ptr %319, null
+  br i1 %320, label %321, label %335
 
-322:                                              ; preds = %316
-  %323 = load ptr, ptr %9, align 8
-  %324 = getelementptr inbounds i8, ptr %323, i64 72
-  %325 = load i32, ptr %324, align 8
-  %.not300 = icmp eq i32 %325, 0
-  br i1 %.not300, label %326, label %330
+321:                                              ; preds = %315
+  %322 = load ptr, ptr %9, align 8
+  %323 = getelementptr inbounds i8, ptr %322, i64 72
+  %324 = load i32, ptr %323, align 8
+  %.not300 = icmp eq i32 %324, 0
+  br i1 %.not300, label %325, label %329
 
-326:                                              ; preds = %322
-  %327 = getelementptr inbounds i8, ptr %323, i64 84
-  %328 = load i32, ptr %327, align 4
-  %329 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.7, i32 noundef %328)
+325:                                              ; preds = %321
+  %326 = getelementptr inbounds i8, ptr %322, i64 84
+  %327 = load i32, ptr %326, align 4
+  %328 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.7, i32 noundef %327)
   %.pre458 = load ptr, ptr %9, align 8
-  br label %330
+  br label %329
 
-330:                                              ; preds = %326, %322
-  %331 = phi ptr [ %.pre458, %326 ], [ %323, %322 ]
-  %332 = add nsw i32 %.0266386, -1
-  %333 = getelementptr inbounds i8, ptr %331, i64 104
-  store i32 %332, ptr %333, align 8
-  %334 = load ptr, ptr %49, align 8
-  call void @Cudd_RecursiveDeref(ptr noundef %334, ptr noundef nonnull %300) #14
-  %335 = load ptr, ptr %55, align 8
-  call void @Cudd_RecursiveDeref(ptr noundef %335, ptr noundef %.1265387) #14
-  br label %524
+329:                                              ; preds = %325, %321
+  %330 = phi ptr [ %.pre458, %325 ], [ %322, %321 ]
+  %331 = add nsw i32 %.0266386, -1
+  %332 = getelementptr inbounds i8, ptr %330, i64 104
+  store i32 %331, ptr %332, align 8
+  %333 = load ptr, ptr %49, align 8
+  call void @Cudd_RecursiveDeref(ptr noundef %333, ptr noundef nonnull %299) #14
+  %334 = load ptr, ptr %55, align 8
+  call void @Cudd_RecursiveDeref(ptr noundef %334, ptr noundef %.1265387) #14
+  br label %523
 
-336:                                              ; preds = %316
-  call void @Cudd_Ref(ptr noundef nonnull %320) #14
-  %337 = load ptr, ptr %49, align 8
-  call void @Cudd_RecursiveDeref(ptr noundef %337, ptr noundef nonnull %300) #14
-  %338 = call i32 @Cudd_DagSize(ptr noundef nonnull %320) #14
-  %339 = load ptr, ptr %55, align 8
-  %340 = call i32 @Cudd_bddLeq(ptr noundef %339, ptr noundef nonnull %320, ptr noundef %.1265387) #14
-  %.not286 = icmp eq i32 %340, 0
-  %341 = load ptr, ptr %55, align 8
-  br i1 %.not286, label %342, label %.thread325
+335:                                              ; preds = %315
+  call void @Cudd_Ref(ptr noundef nonnull %319) #14
+  %336 = load ptr, ptr %49, align 8
+  call void @Cudd_RecursiveDeref(ptr noundef %336, ptr noundef nonnull %299) #14
+  %337 = call i32 @Cudd_DagSize(ptr noundef nonnull %319) #14
+  %338 = load ptr, ptr %55, align 8
+  %339 = call i32 @Cudd_bddLeq(ptr noundef %338, ptr noundef nonnull %319, ptr noundef %.1265387) #14
+  %.not286 = icmp eq i32 %339, 0
+  %340 = load ptr, ptr %55, align 8
+  br i1 %.not286, label %341, label %.thread325
 
-342:                                              ; preds = %336
-  %343 = ptrtoint ptr %.1265387 to i64
-  %344 = xor i64 %343, 1
-  %345 = inttoptr i64 %344 to ptr
-  %346 = call ptr @Cudd_bddAnd(ptr noundef %341, ptr noundef nonnull %320, ptr noundef %345) #14
-  %347 = icmp eq ptr %346, null
-  br i1 %347, label %348, label %362
+341:                                              ; preds = %335
+  %342 = ptrtoint ptr %.1265387 to i64
+  %343 = xor i64 %342, 1
+  %344 = inttoptr i64 %343 to ptr
+  %345 = call ptr @Cudd_bddAnd(ptr noundef %340, ptr noundef nonnull %319, ptr noundef %344) #14
+  %346 = icmp eq ptr %345, null
+  br i1 %346, label %347, label %361
 
-348:                                              ; preds = %342
-  %349 = load ptr, ptr %9, align 8
-  %350 = getelementptr inbounds i8, ptr %349, i64 72
-  %351 = load i32, ptr %350, align 8
-  %.not291 = icmp eq i32 %351, 0
-  br i1 %.not291, label %352, label %356
+347:                                              ; preds = %341
+  %348 = load ptr, ptr %9, align 8
+  %349 = getelementptr inbounds i8, ptr %348, i64 72
+  %350 = load i32, ptr %349, align 8
+  %.not291 = icmp eq i32 %350, 0
+  br i1 %.not291, label %351, label %355
 
-352:                                              ; preds = %348
-  %353 = getelementptr inbounds i8, ptr %349, i64 84
-  %354 = load i32, ptr %353, align 4
-  %355 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.8, i32 noundef %354)
+351:                                              ; preds = %347
+  %352 = getelementptr inbounds i8, ptr %348, i64 84
+  %353 = load i32, ptr %352, align 4
+  %354 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.8, i32 noundef %353)
   %.pre457 = load ptr, ptr %9, align 8
-  br label %356
+  br label %355
 
-356:                                              ; preds = %352, %348
-  %357 = phi ptr [ %.pre457, %352 ], [ %349, %348 ]
-  %358 = add nsw i32 %.0266386, -1
-  %359 = getelementptr inbounds i8, ptr %357, i64 104
-  store i32 %358, ptr %359, align 8
+355:                                              ; preds = %351, %347
+  %356 = phi ptr [ %.pre457, %351 ], [ %348, %347 ]
+  %357 = add nsw i32 %.0266386, -1
+  %358 = getelementptr inbounds i8, ptr %356, i64 104
+  store i32 %357, ptr %358, align 8
+  %359 = load ptr, ptr %55, align 8
+  call void @Cudd_RecursiveDeref(ptr noundef %359, ptr noundef nonnull %319) #14
   %360 = load ptr, ptr %55, align 8
-  call void @Cudd_RecursiveDeref(ptr noundef %360, ptr noundef nonnull %320) #14
-  %361 = load ptr, ptr %55, align 8
-  call void @Cudd_RecursiveDeref(ptr noundef %361, ptr noundef %.1265387) #14
-  br label %524
+  call void @Cudd_RecursiveDeref(ptr noundef %360, ptr noundef %.1265387) #14
+  br label %523
 
-362:                                              ; preds = %342
-  call void @Cudd_Ref(ptr noundef nonnull %346) #14
-  %363 = load ptr, ptr %55, align 8
-  %364 = load ptr, ptr %49, align 8
-  %365 = call ptr @Extra_TransferPermute(ptr noundef %363, ptr noundef %364, ptr noundef nonnull %346, ptr noundef %13) #14
-  %366 = icmp eq ptr %365, null
-  br i1 %366, label %367, label %381
+361:                                              ; preds = %341
+  call void @Cudd_Ref(ptr noundef nonnull %345) #14
+  %362 = load ptr, ptr %55, align 8
+  %363 = load ptr, ptr %49, align 8
+  %364 = call ptr @Extra_TransferPermute(ptr noundef %362, ptr noundef %363, ptr noundef nonnull %345, ptr noundef %13) #14
+  %365 = icmp eq ptr %364, null
+  br i1 %365, label %366, label %380
 
-367:                                              ; preds = %362
-  %368 = load ptr, ptr %9, align 8
-  %369 = getelementptr inbounds i8, ptr %368, i64 72
-  %370 = load i32, ptr %369, align 8
-  %.not290 = icmp eq i32 %370, 0
-  br i1 %.not290, label %371, label %375
+366:                                              ; preds = %361
+  %367 = load ptr, ptr %9, align 8
+  %368 = getelementptr inbounds i8, ptr %367, i64 72
+  %369 = load i32, ptr %368, align 8
+  %.not290 = icmp eq i32 %369, 0
+  br i1 %.not290, label %370, label %374
 
-371:                                              ; preds = %367
-  %372 = getelementptr inbounds i8, ptr %368, i64 84
-  %373 = load i32, ptr %372, align 4
-  %374 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.8, i32 noundef %373)
+370:                                              ; preds = %366
+  %371 = getelementptr inbounds i8, ptr %367, i64 84
+  %372 = load i32, ptr %371, align 4
+  %373 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.8, i32 noundef %372)
   %.pre456 = load ptr, ptr %9, align 8
-  br label %375
+  br label %374
 
-375:                                              ; preds = %371, %367
-  %376 = phi ptr [ %.pre456, %371 ], [ %368, %367 ]
-  %377 = add nsw i32 %.0266386, -1
-  %378 = getelementptr inbounds i8, ptr %376, i64 104
-  store i32 %377, ptr %378, align 8
+374:                                              ; preds = %370, %366
+  %375 = phi ptr [ %.pre456, %370 ], [ %367, %366 ]
+  %376 = add nsw i32 %.0266386, -1
+  %377 = getelementptr inbounds i8, ptr %375, i64 104
+  store i32 %376, ptr %377, align 8
+  %378 = load ptr, ptr %55, align 8
+  call void @Cudd_RecursiveDeref(ptr noundef %378, ptr noundef nonnull %345) #14
   %379 = load ptr, ptr %55, align 8
-  call void @Cudd_RecursiveDeref(ptr noundef %379, ptr noundef nonnull %346) #14
-  %380 = load ptr, ptr %55, align 8
-  call void @Cudd_RecursiveDeref(ptr noundef %380, ptr noundef %.1265387) #14
-  br label %524
+  call void @Cudd_RecursiveDeref(ptr noundef %379, ptr noundef %.1265387) #14
+  br label %523
 
-381:                                              ; preds = %362
-  call void @Cudd_Ref(ptr noundef nonnull %365) #14
+380:                                              ; preds = %361
+  call void @Cudd_Ref(ptr noundef nonnull %364) #14
+  %381 = load ptr, ptr %55, align 8
+  call void @Cudd_RecursiveDeref(ptr noundef %381, ptr noundef nonnull %345) #14
   %382 = load ptr, ptr %55, align 8
-  call void @Cudd_RecursiveDeref(ptr noundef %382, ptr noundef nonnull %346) #14
-  %383 = load ptr, ptr %55, align 8
-  %384 = call ptr @Cudd_bddOr(ptr noundef %383, ptr noundef %.1265387, ptr noundef nonnull %320) #14
-  call void @Cudd_Ref(ptr noundef %384) #14
+  %383 = call ptr @Cudd_bddOr(ptr noundef %382, ptr noundef %.1265387, ptr noundef nonnull %319) #14
+  call void @Cudd_Ref(ptr noundef %383) #14
+  %384 = load ptr, ptr %55, align 8
+  call void @Cudd_RecursiveDeref(ptr noundef %384, ptr noundef %.1265387) #14
   %385 = load ptr, ptr %55, align 8
-  call void @Cudd_RecursiveDeref(ptr noundef %385, ptr noundef %.1265387) #14
-  %386 = load ptr, ptr %55, align 8
-  call void @Cudd_RecursiveDeref(ptr noundef %386, ptr noundef nonnull %320) #14
-  %387 = load ptr, ptr %9, align 8
-  %388 = getelementptr inbounds i8, ptr %387, i64 68
-  %389 = load i32, ptr %388, align 4
-  %.not287 = icmp eq i32 %389, 0
-  br i1 %.not287, label %403, label %390
+  call void @Cudd_RecursiveDeref(ptr noundef %385, ptr noundef nonnull %319) #14
+  %386 = load ptr, ptr %9, align 8
+  %387 = getelementptr inbounds i8, ptr %386, i64 68
+  %388 = load i32, ptr %387, align 4
+  %.not287 = icmp eq i32 %388, 0
+  br i1 %.not287, label %402, label %389
 
-390:                                              ; preds = %381
-  %391 = load ptr, ptr %55, align 8
-  %392 = load ptr, ptr %154, align 8
-  %393 = getelementptr i8, ptr %392, i64 104
-  %.val309 = load i32, ptr %393, align 8
-  %394 = call double @Cudd_CountMinterm(ptr noundef %391, ptr noundef %384, i32 noundef %.val309) #14
-  %395 = load ptr, ptr @stdout, align 8
-  %396 = fmul double %394, 1.000000e+02
-  %397 = load ptr, ptr %154, align 8
-  %398 = getelementptr i8, ptr %397, i64 104
-  %.val308 = load i32, ptr %398, align 8
+389:                                              ; preds = %380
+  %390 = load ptr, ptr %55, align 8
+  %391 = load ptr, ptr %153, align 8
+  %392 = getelementptr i8, ptr %391, i64 104
+  %.val309 = load i32, ptr %392, align 8
+  %393 = call double @Cudd_CountMinterm(ptr noundef %390, ptr noundef %383, i32 noundef %.val309) #14
+  %394 = load ptr, ptr @stdout, align 8
+  %395 = fmul double %393, 1.000000e+02
+  %396 = load ptr, ptr %153, align 8
+  %397 = getelementptr i8, ptr %396, i64 104
+  %.val308 = load i32, ptr %397, align 8
   %ldexp = call double @ldexp(double 1.000000e+00, i32 %.val308) #14
-  %399 = fdiv double %396, %ldexp
-  %400 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %395, ptr noundef nonnull @.str.9, double noundef %394, double noundef %399) #14
-  %401 = load ptr, ptr @stdout, align 8
-  %402 = call i32 @fflush(ptr noundef %401)
+  %398 = fdiv double %395, %ldexp
+  %399 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %394, ptr noundef nonnull @.str.9, double noundef %393, double noundef %398) #14
+  %400 = load ptr, ptr @stdout, align 8
+  %401 = call i32 @fflush(ptr noundef %400)
   %.pre448 = load ptr, ptr %9, align 8
-  br label %403
+  br label %402
 
-403:                                              ; preds = %390, %381
-  %404 = phi ptr [ %.pre448, %390 ], [ %387, %381 ]
-  %405 = getelementptr inbounds i8, ptr %404, i64 64
-  %406 = load i32, ptr %405, align 8
-  %.not288 = icmp eq i32 %406, 0
-  br i1 %.not288, label %438, label %407
+402:                                              ; preds = %389, %380
+  %403 = phi ptr [ %.pre448, %389 ], [ %386, %380 ]
+  %404 = getelementptr inbounds i8, ptr %403, i64 64
+  %405 = load i32, ptr %404, align 8
+  %.not288 = icmp eq i32 %405, 0
+  br i1 %.not288, label %437, label %406
 
-407:                                              ; preds = %403
-  %408 = load ptr, ptr @stdout, align 8
-  %409 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %408, ptr noundef nonnull @.str.10, i32 noundef %.0266386) #14
-  %410 = load ptr, ptr @stdout, align 8
-  %411 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %410, ptr noundef nonnull @.str.11, i32 noundef %338) #14
-  %412 = load ptr, ptr @stdout, align 8
-  %413 = load ptr, ptr %49, align 8
-  %414 = call i32 @Cudd_ReadReorderings(ptr noundef %413) #14
-  %415 = load ptr, ptr %49, align 8
-  %416 = call i32 @Cudd_ReadGarbageCollections(ptr noundef %415) #14
-  %417 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %412, ptr noundef nonnull @.str.12, i32 noundef %414, i32 noundef %416) #14
-  %418 = load ptr, ptr @stdout, align 8
-  %419 = call i32 @Cudd_DagSize(ptr noundef %384) #14
-  %420 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %418, ptr noundef nonnull @.str.13, i32 noundef %419) #14
-  %421 = load ptr, ptr @stdout, align 8
-  %422 = load ptr, ptr %55, align 8
-  %423 = call i32 @Cudd_ReadReorderings(ptr noundef %422) #14
-  %424 = load ptr, ptr %55, align 8
-  %425 = call i32 @Cudd_ReadGarbageCollections(ptr noundef %424) #14
-  %426 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %421, ptr noundef nonnull @.str.12, i32 noundef %423, i32 noundef %425) #14
+406:                                              ; preds = %402
+  %407 = load ptr, ptr @stdout, align 8
+  %408 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %407, ptr noundef nonnull @.str.10, i32 noundef %.0266386) #14
+  %409 = load ptr, ptr @stdout, align 8
+  %410 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %409, ptr noundef nonnull @.str.11, i32 noundef %337) #14
+  %411 = load ptr, ptr @stdout, align 8
+  %412 = load ptr, ptr %49, align 8
+  %413 = call i32 @Cudd_ReadReorderings(ptr noundef %412) #14
+  %414 = load ptr, ptr %49, align 8
+  %415 = call i32 @Cudd_ReadGarbageCollections(ptr noundef %414) #14
+  %416 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %411, ptr noundef nonnull @.str.12, i32 noundef %413, i32 noundef %415) #14
+  %417 = load ptr, ptr @stdout, align 8
+  %418 = call i32 @Cudd_DagSize(ptr noundef %383) #14
+  %419 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %417, ptr noundef nonnull @.str.13, i32 noundef %418) #14
+  %420 = load ptr, ptr @stdout, align 8
+  %421 = load ptr, ptr %55, align 8
+  %422 = call i32 @Cudd_ReadReorderings(ptr noundef %421) #14
+  %423 = load ptr, ptr %55, align 8
+  %424 = call i32 @Cudd_ReadGarbageCollections(ptr noundef %423) #14
+  %425 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %420, ptr noundef nonnull @.str.12, i32 noundef %422, i32 noundef %424) #14
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
-  %427 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %4) #14
-  %428 = icmp slt i32 %427, 0
-  br i1 %428, label %Abc_Clock.exit323, label %429
+  %426 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %4) #14
+  %427 = icmp slt i32 %426, 0
+  br i1 %427, label %Abc_Clock.exit323, label %428
 
-429:                                              ; preds = %407
-  %430 = load i64, ptr %4, align 8
-  %431 = mul nsw i64 %430, 1000000
-  %432 = load i64, ptr %157, align 8
-  %433 = sdiv i64 %432, 1000
-  %434 = add nsw i64 %433, %431
+428:                                              ; preds = %406
+  %429 = load i64, ptr %4, align 8
+  %430 = mul nsw i64 %429, 1000000
+  %431 = load i64, ptr %156, align 8
+  %432 = sdiv i64 %431, 1000
+  %433 = add nsw i64 %432, %430
   br label %Abc_Clock.exit323
 
-Abc_Clock.exit323:                                ; preds = %407, %429
-  %.0.i322 = phi i64 [ %434, %429 ], [ -1, %407 ]
+Abc_Clock.exit323:                                ; preds = %406, %428
+  %.0.i322 = phi i64 [ %433, %428 ], [ -1, %406 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
-  %435 = add i64 %.0.i322, %.0.i318.neg
+  %434 = add i64 %.0.i322, %.0.i318.neg
   call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.27, ptr noundef nonnull @.str.6)
-  %436 = sitofp i64 %435 to double
-  %437 = fdiv double %436, 1.000000e+06
-  call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.28, double noundef %437)
+  %435 = sitofp i64 %434 to double
+  %436 = fdiv double %435, 1.000000e+06
+  call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.28, double noundef %436)
   %.pre449 = load ptr, ptr %9, align 8
-  br label %438
+  br label %437
 
-438:                                              ; preds = %Abc_Clock.exit323, %403
-  %439 = phi ptr [ %.pre449, %Abc_Clock.exit323 ], [ %404, %403 ]
-  %440 = getelementptr inbounds i8, ptr %439, i64 4
-  %441 = load i32, ptr %440, align 4
-  %442 = add nsw i32 %441, -1
-  %443 = icmp eq i32 %.0266386, %442
-  br i1 %443, label %444, label %454
+437:                                              ; preds = %Abc_Clock.exit323, %402
+  %438 = phi ptr [ %.pre449, %Abc_Clock.exit323 ], [ %403, %402 ]
+  %439 = getelementptr inbounds i8, ptr %438, i64 4
+  %440 = load i32, ptr %439, align 4
+  %441 = add nsw i32 %440, -1
+  %442 = icmp eq i32 %.0266386, %441
+  br i1 %442, label %443, label %453
 
-444:                                              ; preds = %438
-  %445 = getelementptr inbounds i8, ptr %439, i64 72
-  %446 = load i32, ptr %445, align 8
-  %.not289 = icmp eq i32 %446, 0
-  br i1 %.not289, label %447, label %449
+443:                                              ; preds = %437
+  %444 = getelementptr inbounds i8, ptr %438, i64 72
+  %445 = load i32, ptr %444, align 8
+  %.not289 = icmp eq i32 %445, 0
+  br i1 %.not289, label %446, label %448
 
-447:                                              ; preds = %444
-  %448 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.14, i32 noundef %441)
+446:                                              ; preds = %443
+  %447 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.14, i32 noundef %440)
   %.pre455 = load ptr, ptr %9, align 8
-  br label %449
+  br label %448
 
-449:                                              ; preds = %447, %444
-  %450 = phi ptr [ %.pre455, %447 ], [ %439, %444 ]
-  %451 = getelementptr inbounds i8, ptr %450, i64 104
-  store i32 %.0266386, ptr %451, align 8
-  %452 = load ptr, ptr %49, align 8
-  call void @Cudd_RecursiveDeref(ptr noundef %452, ptr noundef nonnull %365) #14
-  %453 = load ptr, ptr %55, align 8
-  call void @Cudd_RecursiveDeref(ptr noundef %453, ptr noundef %384) #14
-  br label %524
+448:                                              ; preds = %446, %443
+  %449 = phi ptr [ %.pre455, %446 ], [ %438, %443 ]
+  %450 = getelementptr inbounds i8, ptr %449, i64 104
+  store i32 %.0266386, ptr %450, align 8
+  %451 = load ptr, ptr %49, align 8
+  call void @Cudd_RecursiveDeref(ptr noundef %451, ptr noundef nonnull %364) #14
+  %452 = load ptr, ptr %55, align 8
+  call void @Cudd_RecursiveDeref(ptr noundef %452, ptr noundef %383) #14
+  br label %523
 
-454:                                              ; preds = %438
-  %455 = add nuw nsw i32 %.0266386, 1
-  %456 = icmp slt i32 %455, %441
-  br i1 %456, label %158, label %._crit_edge, !llvm.loop !11
+453:                                              ; preds = %437
+  %454 = add nuw nsw i32 %.0266386, 1
+  %455 = icmp slt i32 %454, %440
+  br i1 %455, label %157, label %._crit_edge, !llvm.loop !11
 
-._crit_edge:                                      ; preds = %454, %146
-  %457 = phi ptr [ %147, %146 ], [ %439, %454 ]
-  %.0266.lcssa = phi i32 [ 0, %146 ], [ %455, %454 ]
-  %.1265.lcssa = phi ptr [ %.0264, %146 ], [ %384, %454 ]
-  %.1.lcssa = phi ptr [ %.0263, %146 ], [ %365, %454 ]
-  %458 = icmp eq ptr %.1265.lcssa, null
-  br i1 %458, label %.thread325._crit_edge, label %463
+._crit_edge:                                      ; preds = %453, %145
+  %456 = phi ptr [ %146, %145 ], [ %438, %453 ]
+  %.0266.lcssa = phi i32 [ 0, %145 ], [ %454, %453 ]
+  %.1265.lcssa = phi ptr [ %.0264, %145 ], [ %383, %453 ]
+  %.1.lcssa = phi ptr [ %.0263, %145 ], [ %364, %453 ]
+  %457 = icmp eq ptr %.1265.lcssa, null
+  br i1 %457, label %.thread325._crit_edge, label %462
 
-.thread325:                                       ; preds = %336
-  call void @Cudd_RecursiveDeref(ptr noundef %341, ptr noundef nonnull %320) #14
-  %459 = icmp eq ptr %.1265387, null
+.thread325:                                       ; preds = %335
+  call void @Cudd_RecursiveDeref(ptr noundef %340, ptr noundef nonnull %319) #14
+  %458 = icmp eq ptr %.1265387, null
   %.pre465 = load ptr, ptr %9, align 8
-  br i1 %459, label %.thread325._crit_edge, label %.thread328
+  br i1 %458, label %.thread325._crit_edge, label %.thread328
 
 .thread325._crit_edge:                            ; preds = %.thread325, %._crit_edge
-  %460 = phi ptr [ %457, %._crit_edge ], [ %.pre465, %.thread325 ]
+  %459 = phi ptr [ %456, %._crit_edge ], [ %.pre465, %.thread325 ]
   %.0266365 = phi i32 [ %.0266.lcssa, %._crit_edge ], [ %.0266386, %.thread325 ]
-  %461 = add nsw i32 %.0266365, -1
-  %462 = getelementptr inbounds i8, ptr %460, i64 104
-  store i32 %461, ptr %462, align 8
-  br label %524
+  %460 = add nsw i32 %.0266365, -1
+  %461 = getelementptr inbounds i8, ptr %459, i64 104
+  store i32 %460, ptr %461, align 8
+  br label %523
 
-463:                                              ; preds = %._crit_edge
+462:                                              ; preds = %._crit_edge
   %.not292 = icmp eq ptr %.1.lcssa, null
-  br i1 %.not292, label %.thread328, label %464
+  br i1 %.not292, label %.thread328, label %463
 
-464:                                              ; preds = %463
-  %465 = load ptr, ptr %49, align 8
-  call void @Cudd_RecursiveDeref(ptr noundef %465, ptr noundef nonnull %.1.lcssa) #14
+463:                                              ; preds = %462
+  %464 = load ptr, ptr %49, align 8
+  call void @Cudd_RecursiveDeref(ptr noundef %464, ptr noundef nonnull %.1.lcssa) #14
   %.pre464 = load ptr, ptr %9, align 8
   br label %.thread328
 
-.thread328:                                       ; preds = %.thread325, %464, %463
-  %466 = phi ptr [ %.pre465, %.thread325 ], [ %.pre464, %464 ], [ %457, %463 ]
-  %.0266366 = phi i32 [ %.0266386, %.thread325 ], [ %.0266.lcssa, %464 ], [ %.0266.lcssa, %463 ]
-  %.1265355 = phi ptr [ %.1265387, %.thread325 ], [ %.1265.lcssa, %464 ], [ %.1265.lcssa, %463 ]
-  %467 = getelementptr inbounds i8, ptr %466, i64 64
-  %468 = load i32, ptr %467, align 8
-  %.not293 = icmp eq i32 %468, 0
-  br i1 %.not293, label %488, label %469
+.thread328:                                       ; preds = %.thread325, %463, %462
+  %465 = phi ptr [ %.pre465, %.thread325 ], [ %.pre464, %463 ], [ %456, %462 ]
+  %.0266366 = phi i32 [ %.0266386, %.thread325 ], [ %.0266.lcssa, %463 ], [ %.0266.lcssa, %462 ]
+  %.1265355 = phi ptr [ %.1265387, %.thread325 ], [ %.1265.lcssa, %463 ], [ %.1265.lcssa, %462 ]
+  %466 = getelementptr inbounds i8, ptr %465, i64 64
+  %467 = load i32, ptr %466, align 8
+  %.not293 = icmp eq i32 %467, 0
+  br i1 %.not293, label %487, label %468
 
-469:                                              ; preds = %.thread328
-  %470 = load ptr, ptr %55, align 8
-  %471 = getelementptr inbounds i8, ptr %0, i64 8
-  %472 = load ptr, ptr %471, align 8
-  %473 = getelementptr i8, ptr %472, i64 104
-  %.val307 = load i32, ptr %473, align 8
-  %474 = call double @Cudd_CountMinterm(ptr noundef %470, ptr noundef nonnull %.1265355, i32 noundef %.val307) #14
-  %475 = load ptr, ptr %9, align 8
-  %476 = getelementptr inbounds i8, ptr %475, i64 4
-  %477 = load i32, ptr %476, align 4
-  %.not294 = icmp slt i32 %.0266366, %477
-  %478 = load ptr, ptr @stdout, align 8
+468:                                              ; preds = %.thread328
+  %469 = load ptr, ptr %55, align 8
+  %470 = getelementptr inbounds i8, ptr %0, i64 8
+  %471 = load ptr, ptr %470, align 8
+  %472 = getelementptr i8, ptr %471, i64 104
+  %.val307 = load i32, ptr %472, align 8
+  %473 = call double @Cudd_CountMinterm(ptr noundef %469, ptr noundef nonnull %.1265355, i32 noundef %.val307) #14
+  %474 = load ptr, ptr %9, align 8
+  %475 = getelementptr inbounds i8, ptr %474, i64 4
+  %476 = load i32, ptr %475, align 4
+  %.not294 = icmp slt i32 %.0266366, %476
+  %477 = load ptr, ptr @stdout, align 8
   %.str.16..str.15 = select i1 %.not294, ptr @.str.16, ptr @.str.15
-  %479 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %478, ptr noundef nonnull %.str.16..str.15, i32 noundef %.0266366) #14
-  %480 = load ptr, ptr @stdout, align 8
-  %481 = fmul double %474, 1.000000e+02
-  %482 = load ptr, ptr %471, align 8
-  %483 = getelementptr i8, ptr %482, i64 104
-  %.val = load i32, ptr %483, align 8
+  %478 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %477, ptr noundef nonnull %.str.16..str.15, i32 noundef %.0266366) #14
+  %479 = load ptr, ptr @stdout, align 8
+  %480 = fmul double %473, 1.000000e+02
+  %481 = load ptr, ptr %470, align 8
+  %482 = getelementptr i8, ptr %481, i64 104
+  %.val = load i32, ptr %482, align 8
   %ldexp295 = call double @ldexp(double 1.000000e+00, i32 %.val) #14
-  %484 = fdiv double %481, %ldexp295
-  %485 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %480, ptr noundef nonnull @.str.17, double noundef %474, double noundef %484) #14
-  %486 = load ptr, ptr @stdout, align 8
-  %487 = call i32 @fflush(ptr noundef %486)
+  %483 = fdiv double %480, %ldexp295
+  %484 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %479, ptr noundef nonnull @.str.17, double noundef %473, double noundef %483) #14
+  %485 = load ptr, ptr @stdout, align 8
+  %486 = call i32 @fflush(ptr noundef %485)
   %.pre450 = load ptr, ptr %9, align 8
-  br label %488
+  br label %487
 
-488:                                              ; preds = %469, %.thread328
-  %489 = phi ptr [ %.pre450, %469 ], [ %466, %.thread328 ]
-  %490 = getelementptr inbounds i8, ptr %489, i64 60
-  %491 = load i32, ptr %490, align 4
-  %.not296 = icmp eq i32 %491, 0
-  br i1 %.not296, label %499, label %492
+487:                                              ; preds = %468, %.thread328
+  %488 = phi ptr [ %.pre450, %468 ], [ %465, %.thread328 ]
+  %489 = getelementptr inbounds i8, ptr %488, i64 60
+  %490 = load i32, ptr %489, align 4
+  %.not296 = icmp eq i32 %490, 0
+  br i1 %.not296, label %498, label %491
 
-492:                                              ; preds = %488
-  %493 = load ptr, ptr %55, align 8
-  %494 = getelementptr inbounds i8, ptr %0, i64 8
+491:                                              ; preds = %487
+  %492 = load ptr, ptr %55, align 8
+  %493 = getelementptr inbounds i8, ptr %0, i64 8
+  %494 = load ptr, ptr %493, align 8
   %495 = load ptr, ptr %494, align 8
-  %496 = load ptr, ptr %495, align 8
-  call void @Llb_ManDumpReached(ptr noundef %493, ptr noundef nonnull %.1265355, ptr noundef %496, ptr noundef nonnull @.str.18) #14
-  %497 = call i32 @Cudd_DagSize(ptr noundef nonnull %.1265355) #14
-  %498 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.19, i32 noundef %497)
-  br label %499
+  call void @Llb_ManDumpReached(ptr noundef %492, ptr noundef nonnull %.1265355, ptr noundef %495, ptr noundef nonnull @.str.18) #14
+  %496 = call i32 @Cudd_DagSize(ptr noundef nonnull %.1265355) #14
+  %497 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.19, i32 noundef %496)
+  br label %498
 
-499:                                              ; preds = %492, %488
-  %500 = load ptr, ptr %55, align 8
-  call void @Cudd_RecursiveDeref(ptr noundef %500, ptr noundef nonnull %.1265355) #14
-  %501 = load ptr, ptr %9, align 8
-  %502 = getelementptr inbounds i8, ptr %501, i64 4
-  %503 = load i32, ptr %502, align 4
-  %.not297 = icmp slt i32 %.0266366, %503
-  %504 = getelementptr inbounds i8, ptr %501, i64 72
-  %505 = load i32, ptr %504, align 8
-  %.not298 = icmp eq i32 %505, 0
-  br i1 %.not297, label %515, label %506
+498:                                              ; preds = %491, %487
+  %499 = load ptr, ptr %55, align 8
+  call void @Cudd_RecursiveDeref(ptr noundef %499, ptr noundef nonnull %.1265355) #14
+  %500 = load ptr, ptr %9, align 8
+  %501 = getelementptr inbounds i8, ptr %500, i64 4
+  %502 = load i32, ptr %501, align 4
+  %.not297 = icmp slt i32 %.0266366, %502
+  %503 = getelementptr inbounds i8, ptr %500, i64 72
+  %504 = load i32, ptr %503, align 8
+  %.not298 = icmp eq i32 %504, 0
+  br i1 %.not297, label %514, label %505
 
-506:                                              ; preds = %499
-  br i1 %.not298, label %507, label %511
+505:                                              ; preds = %498
+  br i1 %.not298, label %506, label %510
 
-507:                                              ; preds = %506
-  %508 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.20, i32 noundef %.0266366)
-  %509 = call fastcc i64 @Abc_Clock()
-  %510 = sub nsw i64 %509, %.0.i
-  call fastcc void @Abc_PrintTime(ptr noundef nonnull @.str.6, i64 noundef %510)
+506:                                              ; preds = %505
+  %507 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.20, i32 noundef %.0266366)
+  %508 = call fastcc i64 @Abc_Clock()
+  %509 = sub nsw i64 %508, %.0.i
+  call fastcc void @Abc_PrintTime(ptr noundef nonnull @.str.6, i64 noundef %509)
   %.pre451 = load ptr, ptr %9, align 8
   %.phi.trans.insert = getelementptr inbounds i8, ptr %.pre451, i64 4
   %.pre452 = load i32, ptr %.phi.trans.insert, align 4
-  br label %511
+  br label %510
 
-511:                                              ; preds = %507, %506
-  %512 = phi i32 [ %.pre452, %507 ], [ %503, %506 ]
-  %513 = phi ptr [ %.pre451, %507 ], [ %501, %506 ]
-  %514 = getelementptr inbounds i8, ptr %513, i64 104
-  store i32 %512, ptr %514, align 8
-  br label %524
+510:                                              ; preds = %506, %505
+  %511 = phi i32 [ %.pre452, %506 ], [ %502, %505 ]
+  %512 = phi ptr [ %.pre451, %506 ], [ %500, %505 ]
+  %513 = getelementptr inbounds i8, ptr %512, i64 104
+  store i32 %511, ptr %513, align 8
+  br label %523
 
-515:                                              ; preds = %499
-  br i1 %.not298, label %516, label %520
+514:                                              ; preds = %498
+  br i1 %.not298, label %515, label %519
 
-516:                                              ; preds = %515
-  %517 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.21, i32 noundef %.0266366)
-  %518 = call fastcc i64 @Abc_Clock()
-  %519 = sub nsw i64 %518, %.0.i
-  call fastcc void @Abc_PrintTime(ptr noundef nonnull @.str.6, i64 noundef %519)
+515:                                              ; preds = %514
+  %516 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.21, i32 noundef %.0266366)
+  %517 = call fastcc i64 @Abc_Clock()
+  %518 = sub nsw i64 %517, %.0.i
+  call fastcc void @Abc_PrintTime(ptr noundef nonnull @.str.6, i64 noundef %518)
   %.pre453 = load ptr, ptr %9, align 8
-  br label %520
+  br label %519
 
-520:                                              ; preds = %516, %515
-  %521 = phi ptr [ %.pre453, %516 ], [ %501, %515 ]
-  %522 = add nsw i32 %.0266366, -1
-  %523 = getelementptr inbounds i8, ptr %521, i64 104
-  store i32 %522, ptr %523, align 8
-  br label %524
+519:                                              ; preds = %515, %514
+  %520 = phi ptr [ %.pre453, %515 ], [ %500, %514 ]
+  %521 = add nsw i32 %.0266366, -1
+  %522 = getelementptr inbounds i8, ptr %520, i64 104
+  store i32 %521, ptr %522, align 8
+  br label %523
 
-524:                                              ; preds = %520, %511, %.thread325._crit_edge, %449, %375, %356, %330, %310, %282, %206, %187, %135, %116, %82, %45
-  %.0 = phi i32 [ -1, %45 ], [ -1, %82 ], [ -1, %116 ], [ -1, %187 ], [ -1, %206 ], [ -1, %310 ], [ -1, %330 ], [ 0, %.thread325._crit_edge ], [ -1, %511 ], [ 1, %520 ], [ -1, %356 ], [ -1, %375 ], [ -1, %449 ], [ 0, %282 ], [ -1, %135 ]
+523:                                              ; preds = %519, %510, %.thread325._crit_edge, %448, %374, %355, %329, %309, %281, %205, %186, %134, %116, %82, %45
+  %.0 = phi i32 [ -1, %45 ], [ -1, %82 ], [ -1, %116 ], [ -1, %186 ], [ -1, %205 ], [ -1, %309 ], [ -1, %329 ], [ 0, %.thread325._crit_edge ], [ -1, %510 ], [ 1, %519 ], [ -1, %355 ], [ -1, %374 ], [ -1, %448 ], [ 0, %281 ], [ -1, %134 ]
   ret i32 %.0
 }
 

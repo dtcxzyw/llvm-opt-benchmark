@@ -579,11 +579,6 @@ define hidden void @phpdbg_do_help_cmd(ptr noundef readonly %0) local_unnamed_ad
   %.not.i = icmp eq ptr %9, null
   br i1 %.not.i, label %get_help.exit, label %.preheader
 
-get_help.exit:                                    ; preds = %7, %4
-  %.06.i = phi ptr [ %6, %4 ], [ @.str.12, %7 ]
-  tail call fastcc void @pretty_print(ptr noundef %.06.i)
-  br label %28
-
 .preheader20:                                     ; preds = %1, %12
   %10 = phi ptr [ %14, %12 ], [ @.str.11, %1 ]
   %.010.i7 = phi ptr [ %13, %12 ], [ @phpdbg_help_text, %1 ]
@@ -607,7 +602,7 @@ get_help.exit11.thread:                           ; preds = %12, %get_help.exit1
   %.06.i1019 = phi ptr [ %16, %get_help.exit11 ], [ @.str.12, %12 ]
   %lhsc = load i8, ptr %.06.i1019, align 1
   %17 = icmp eq i8 %lhsc, 0
-  br i1 %17, label %.preheader34, label %27
+  br i1 %17, label %.preheader34, label %get_help.exit
 
 .preheader34:                                     ; preds = %get_help.exit11.thread, %get_help.exit11
   br label %18
@@ -633,14 +628,11 @@ get_help.exit11.thread:                           ; preds = %12, %get_help.exit1
 get_help.exit16:                                  ; preds = %24, %21
   %.06.i15 = phi ptr [ %23, %21 ], [ @.str.12, %24 ]
   tail call fastcc void @pretty_print(ptr noundef %.06.i15)
-  tail call fastcc void @pretty_print(ptr noundef nonnull @.str.13)
-  br label %28
+  br label %get_help.exit
 
-27:                                               ; preds = %get_help.exit11.thread
-  tail call fastcc void @pretty_print(ptr noundef nonnull %.06.i1019)
-  br label %28
-
-28:                                               ; preds = %27, %get_help.exit16, %get_help.exit
+get_help.exit:                                    ; preds = %7, %get_help.exit11.thread, %4, %get_help.exit16
+  %.06.i1019.sink = phi ptr [ @.str.13, %get_help.exit16 ], [ %6, %4 ], [ %.06.i1019, %get_help.exit11.thread ], [ @.str.12, %7 ]
+  tail call fastcc void @pretty_print(ptr noundef %.06.i1019.sink)
   ret void
 }
 

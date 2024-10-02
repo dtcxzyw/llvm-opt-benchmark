@@ -162,7 +162,7 @@ opal_obj_run_constructors.exit12:                 ; preds = %.lr.ph.i9, %15
 opal_obj_run_constructors.exit17:                 ; preds = %.lr.ph.i14, %24
   %30 = tail call i32 @mca_base_framework_components_open(ptr noundef nonnull @ompi_pml_base_framework, i32 noundef %0) #6
   %.not7 = icmp eq i32 %30, 0
-  br i1 %.not7, label %31, label %49
+  br i1 %.not7, label %31, label %47
 
 31:                                               ; preds = %opal_obj_run_constructors.exit17
   store ptr null, ptr getelementptr inbounds (i8, ptr @mca_pml_base_selected_component, i64 272), align 8
@@ -180,7 +180,7 @@ opal_obj_run_constructors.exit17:                 ; preds = %.lr.ph.i14, %24
 
 39:                                               ; preds = %36
   %char0 = load i8, ptr %37, align 1
-  switch i8 %char0, label %46 [
+  switch i8 %char0, label %.sink.split [
     i8 0, label %40
     i8 94, label %40
   ]
@@ -190,19 +190,15 @@ opal_obj_run_constructors.exit17:                 ; preds = %.lr.ph.i14, %24
   %42 = call i32 @opal_pointer_array_add(ptr noundef nonnull @mca_pml_base_pml, ptr noundef %41) #6
   %43 = call noalias dereferenceable_or_null(4) ptr @strdup(ptr noundef nonnull @.str.11) #6
   %44 = call i32 @opal_pointer_array_add(ptr noundef nonnull @mca_pml_base_pml, ptr noundef %43) #6
-  %45 = call noalias dereferenceable_or_null(3) ptr @strdup(ptr noundef nonnull @.str.12) #6
   br label %.sink.split
 
-46:                                               ; preds = %39
-  %47 = call noalias ptr @strdup(ptr noundef nonnull %37) #6
-  br label %.sink.split
+.sink.split:                                      ; preds = %39, %40
+  %.str.12.sink = phi ptr [ @.str.12, %40 ], [ %37, %39 ]
+  %45 = call noalias ptr @strdup(ptr noundef nonnull %.str.12.sink) #6
+  %46 = call i32 @opal_pointer_array_add(ptr noundef nonnull @mca_pml_base_pml, ptr noundef %45) #6
+  br label %47
 
-.sink.split:                                      ; preds = %46, %40
-  %.sink = phi ptr [ %45, %40 ], [ %47, %46 ]
-  %48 = call i32 @opal_pointer_array_add(ptr noundef nonnull @mca_pml_base_pml, ptr noundef %.sink) #6
-  br label %49
-
-49:                                               ; preds = %.sink.split, %opal_obj_run_constructors.exit17
+47:                                               ; preds = %.sink.split, %opal_obj_run_constructors.exit17
   %.0 = phi i32 [ -1, %opal_obj_run_constructors.exit17 ], [ 0, %.sink.split ]
   ret i32 %.0
 }

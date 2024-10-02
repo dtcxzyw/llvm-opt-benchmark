@@ -507,7 +507,7 @@ define noalias noundef ptr @Acb_VerilogSimpleLex(ptr noundef %0, ptr noundef %1)
   %9 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %8) #32
   %10 = getelementptr inbounds i8, ptr %8, i64 %9
   %11 = icmp eq ptr %8, null
-  br i1 %11, label %122, label %.preheader67
+  br i1 %11, label %119, label %.preheader67
 
 .preheader67:                                     ; preds = %2, %.critedge.i
   %.0.i = phi ptr [ %20, %.critedge.i ], [ %8, %2 ]
@@ -550,7 +550,7 @@ Acb_VerilogRemoveComments.exit:                   ; preds = %.preheader67
 .lr.ph76:                                         ; preds = %Acb_VerilogRemoveComments.exit, %.outer.backedge
   %.0.ph96 = phi i32 [ %.0.ph.be, %.outer.backedge ], [ -1, %Acb_VerilogRemoveComments.exit ]
   %.042.ph95 = phi i32 [ %.042.ph.be, %.outer.backedge ], [ -1, %Acb_VerilogRemoveComments.exit ]
-  %.048.ph94 = phi ptr [ %.048.ph.be, %.outer.backedge ], [ %21, %Acb_VerilogRemoveComments.exit ]
+  %.048.ph94 = phi ptr [ %44, %.outer.backedge ], [ %21, %Acb_VerilogRemoveComments.exit ]
   %.0.ph96.fr = freeze i32 %.0.ph96
   %.042.ph95.fr = freeze i32 %.042.ph95
   %.not54 = icmp eq i32 %.042.ph95.fr, -1
@@ -626,14 +626,14 @@ Acb_VerilogRemoveComments.exit:                   ; preds = %.preheader67
   %strchr = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %.us-phi, i32 58)
   %42 = getelementptr inbounds i8, ptr %strchr, i64 1
   %43 = call i32 @atoi(ptr nocapture noundef nonnull %42) #32
-  %44 = call ptr @strtok(ptr noundef null, ptr noundef nonnull @.str.3) #31
   br label %.outer.backedge
 
-.outer.backedge:                                  ; preds = %.split.us, %118, %120
-  %.048.ph.be = phi ptr [ %121, %120 ], [ %119, %118 ], [ %44, %.split.us ]
-  %.042.ph.be = phi i32 [ -1, %120 ], [ -1, %118 ], [ %41, %.split.us ]
-  %.0.ph.be = phi i32 [ %.us-phi80, %120 ], [ %.us-phi80, %118 ], [ %43, %.split.us ]
-  %.not74 = icmp eq ptr %.048.ph.be, null
+.outer.backedge:                                  ; preds = %.critedge, %.split.us, %118
+  %.sink = phi ptr [ null, %.split.us ], [ null, %118 ], [ %.04771, %.critedge ]
+  %.042.ph.be = phi i32 [ %41, %.split.us ], [ -1, %118 ], [ -1, %.critedge ]
+  %.0.ph.be = phi i32 [ %43, %.split.us ], [ %.us-phi80, %118 ], [ %.us-phi80, %.critedge ]
+  %44 = call ptr @strtok(ptr noundef %.sink, ptr noundef nonnull @.str.3) #31
+  %.not74 = icmp eq ptr %44, null
   br i1 %.not74, label %.outer._crit_edge, label %.lr.ph76, !llvm.loop !9
 
 45:                                               ; preds = %.lr.ph76.split.split
@@ -792,7 +792,7 @@ Vec_IntPush.exit63:                               ; preds = %.Vec_IntGrow.exit10
   store i32 %.us-phi79, ptr %109, align 4
   %110 = add i32 %.us-phi79, -6
   %or.cond = icmp ult i32 %110, 10
-  br i1 %or.cond, label %.preheader, label %120
+  br i1 %or.cond, label %.preheader, label %118
 
 .preheader:                                       ; preds = %Vec_IntPush.exit63
   %111 = icmp ult ptr %.us-phi78, %10
@@ -820,21 +820,16 @@ Vec_IntPush.exit63:                               ; preds = %.Vec_IntGrow.exit10
   %.04771 = phi ptr [ %.047.lcssa, %.critedgethread-pre-split ], [ %.04792, %.lr.ph ], [ %.04792, %.lr.ph ]
   %116 = phi i8 [ %.pr, %.critedgethread-pre-split ], [ %112, %.lr.ph ], [ %112, %.lr.ph ]
   %117 = icmp eq i8 %116, 40
-  br i1 %117, label %118, label %120
+  br i1 %117, label %.outer.backedge, label %118
 
-118:                                              ; preds = %.critedge
-  %119 = call ptr @strtok(ptr noundef nonnull %.04771, ptr noundef nonnull @.str.3) #31
-  br label %.outer.backedge
-
-120:                                              ; preds = %.critedge, %Vec_IntPush.exit63
-  %121 = call ptr @strtok(ptr noundef null, ptr noundef nonnull @.str.3) #31
+118:                                              ; preds = %.critedge, %Vec_IntPush.exit63
   br label %.outer.backedge
 
 .outer._crit_edge:                                ; preds = %.outer.backedge, %._crit_edge, %.preheader66.us, %Acb_VerilogRemoveComments.exit
   call void @free(ptr noundef %8) #31
-  br label %122
+  br label %119
 
-122:                                              ; preds = %2, %.outer._crit_edge
+119:                                              ; preds = %2, %.outer._crit_edge
   %.046 = phi ptr [ %4, %.outer._crit_edge ], [ null, %2 ]
   ret ptr %.046
 }

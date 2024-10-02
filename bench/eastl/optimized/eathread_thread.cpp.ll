@@ -1113,23 +1113,19 @@ if.end14:                                         ; preds = %if.then12, %if.end8
   %mpBeginThreadUserWrapper = getelementptr inbounds i8, ptr %pContext, i64 48
   %7 = load ptr, ptr %mpBeginThreadUserWrapper, align 8
   %tobool15.not = icmp eq ptr %7, null
-  br i1 %tobool15.not, label %if.else19, label %if.then16
-
-if.then16:                                        ; preds = %if.end14
-  %call18 = call noundef i64 %7(ptr noundef %0, ptr noundef %1)
-  br label %if.end22
+  br i1 %tobool15.not, label %if.else19, label %if.end22
 
 if.else19:                                        ; preds = %if.end14
   %vtable = load ptr, ptr %0, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 16
   %8 = load ptr, ptr %vfn, align 8
-  %call20 = call noundef i64 %8(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1)
   br label %if.end22
 
-if.end22:                                         ; preds = %if.else19, %if.then16
-  %call18.sink = phi i64 [ %call20, %if.else19 ], [ %call18, %if.then16 ]
+if.end22:                                         ; preds = %if.end14, %if.else19
+  %.sink = phi ptr [ %8, %if.else19 ], [ %7, %if.end14 ]
+  %call20 = call noundef i64 %.sink(ptr noundef %0, ptr noundef %1)
   %9 = getelementptr inbounds i8, ptr %pContext, i64 24
-  store i64 %call18.sink, ptr %9, align 8
+  store i64 %call20, ptr %9, align 8
   store volatile i32 2, ptr %mnStatus, align 4
   %call26 = call noundef i32 @_ZN2EA6Thread5Mutex6UnlockEv(ptr noundef nonnull align 8 dereferenceable(48) %mRunMutex)
   %mnRefCount.i = getelementptr inbounds i8, ptr %pContext, i64 64
@@ -1142,7 +1138,7 @@ if.then.i:                                        ; preds = %if.end22
   br label %_ZN19EAThreadDynamicData7ReleaseEv.exit
 
 _ZN19EAThreadDynamicData7ReleaseEv.exit:          ; preds = %if.end22, %if.then.i
-  %11 = inttoptr i64 %call18.sink to ptr
+  %11 = inttoptr i64 %call20 to ptr
   ret ptr %11
 }
 

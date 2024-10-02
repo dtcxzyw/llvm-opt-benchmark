@@ -5218,12 +5218,12 @@ define dso_local i64 @_ZNK5clang31ClassTemplateSpecializationDecl14getSourceRang
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 180
   %3 = load i8, ptr %2, align 4
   %4 = and i8 %3, 7
-  switch i8 %4, label %53 [
+  switch i8 %4, label %48 [
     i8 0, label %5
     i8 1, label %5
-    i8 2, label %24
-    i8 3, label %39
-    i8 4, label %39
+    i8 2, label %19
+    i8 3, label %34
+    i8 4, label %34
   ]
 
 5:                                                ; preds = %1, %1
@@ -5240,120 +5240,105 @@ define dso_local i64 @_ZNK5clang31ClassTemplateSpecializationDecl14getSourceRang
   %10 = inttoptr i64 %8 to ptr
   %11 = load ptr, ptr %10, align 8
   %12 = ptrtoint ptr %11 to i64
-  %13 = or i64 %12, 4
+  %13 = and i64 %12, -8
   br label %_ZNK5clang31ClassTemplateSpecializationDecl31getSpecializedTemplateOrPartialEv.exit
 
 _ZNK5clang31ClassTemplateSpecializationDecl31getSpecializedTemplateOrPartialEv.exit: ; preds = %5, %9
   %.sroa.0.0.i = phi i64 [ %13, %9 ], [ %8, %5 ]
-  %14 = and i64 %.sroa.0.0.i, 4
-  %.not.i.i.i.i = icmp eq i64 %14, 0
-  %15 = and i64 %.sroa.0.0.i, -8
-  %16 = inttoptr i64 %15 to ptr
-  %.not58 = icmp eq i64 %15, 0
-  %.not = or i1 %.not.i.i.i.i, %.not58
+  %14 = inttoptr i64 %.sroa.0.0.i to ptr
+  %15 = load ptr, ptr %14, align 8
+  %16 = getelementptr inbounds i8, ptr %15, i64 16
   %17 = load ptr, ptr %16, align 8
-  %18 = getelementptr inbounds i8, ptr %17, i64 16
-  %19 = load ptr, ptr %18, align 8
-  br i1 %.not, label %22, label %20
-
-20:                                               ; preds = %_ZNK5clang31ClassTemplateSpecializationDecl31getSpecializedTemplateOrPartialEv.exit
-  %21 = tail call i64 %19(ptr noundef nonnull align 8 dereferenceable(200) %16) #22
-  %.sroa.040.0.extract.trunc = trunc i64 %21 to i32
-  %.sroa.7.0.extract.shift = lshr i64 %21, 32
-  %.sroa.7.0.extract.trunc = trunc nuw i64 %.sroa.7.0.extract.shift to i32
-  br label %54
-
-22:                                               ; preds = %_ZNK5clang31ClassTemplateSpecializationDecl31getSpecializedTemplateOrPartialEv.exit
-  %23 = tail call i64 %19(ptr noundef nonnull align 8 dereferenceable(64) %16) #22
-  %.sroa.040.0.extract.trunc41 = trunc i64 %23 to i32
-  %.sroa.7.0.extract.shift44 = lshr i64 %23, 32
+  %18 = tail call i64 %17(ptr noundef nonnull align 8 dereferenceable(64) %14) #22
+  %.sroa.040.0.extract.trunc41 = trunc i64 %18 to i32
+  %.sroa.7.0.extract.shift44 = lshr i64 %18, 32
   %.sroa.7.0.extract.trunc45 = trunc nuw i64 %.sroa.7.0.extract.shift44 to i32
-  br label %54
-
-24:                                               ; preds = %1
-  %25 = tail call i64 @_ZNK5clang7TagDecl14getSourceRangeEv(ptr noundef nonnull align 8 dereferenceable(128) %0) #22
-  %.sroa.040.0.extract.trunc42 = trunc i64 %25 to i32
-  %.sroa.7.0.extract.shift46 = lshr i64 %25, 32
-  %.sroa.7.0.extract.trunc47 = trunc nuw i64 %.sroa.7.0.extract.shift46 to i32
-  %26 = getelementptr inbounds nuw i8, ptr %0, i64 160
-  %.sroa.0.0.copyload.i.i.i.i.i15 = load i64, ptr %26, align 8
-  %27 = and i64 %.sroa.0.0.copyload.i.i.i.i.i15, 4
-  %.not.i.i.i.i.i16 = icmp eq i64 %27, 0
-  %28 = and i64 %.sroa.0.0.copyload.i.i.i.i.i15, -8
-  %29 = inttoptr i64 %28 to ptr
-  %.not5.i = icmp eq i64 %28, 0
-  %.not.i17 = or i1 %.not.i.i.i.i.i16, %.not5.i
-  br i1 %.not.i17, label %_ZNK5clang31ClassTemplateSpecializationDecl24getTemplateArgsAsWrittenEv.exit, label %30
-
-30:                                               ; preds = %24
-  %31 = load ptr, ptr %29, align 8
-  br label %_ZNK5clang31ClassTemplateSpecializationDecl24getTemplateArgsAsWrittenEv.exit
-
-_ZNK5clang31ClassTemplateSpecializationDecl24getTemplateArgsAsWrittenEv.exit: ; preds = %24, %30
-  %.0.i = phi ptr [ %31, %30 ], [ %29, %24 ]
-  %32 = getelementptr inbounds i8, ptr %0, i64 74
-  %33 = load i8, ptr %32, align 2
-  %34 = and i8 %33, 1
-  %35 = icmp ne i8 %34, 0
-  %36 = icmp eq ptr %.0.i, null
-  %or.cond.not = or i1 %36, %35
-  br i1 %or.cond.not, label %54, label %37
-
-37:                                               ; preds = %_ZNK5clang31ClassTemplateSpecializationDecl24getTemplateArgsAsWrittenEv.exit
-  %38 = getelementptr inbounds nuw i8, ptr %.0.i, i64 4
-  %.sroa.0.0.copyload.i = load i32, ptr %38, align 4
-  br label %54
-
-39:                                               ; preds = %1, %1
-  %40 = tail call i64 @_ZNK5clang7TagDecl14getSourceRangeEv(ptr noundef nonnull align 8 dereferenceable(128) %0) #22
-  %.sroa.040.0.extract.trunc43 = trunc i64 %40 to i32
-  %.sroa.7.0.extract.shift48 = lshr i64 %40, 32
-  %.sroa.7.0.extract.trunc49 = trunc nuw i64 %.sroa.7.0.extract.shift48 to i32
-  %41 = getelementptr inbounds nuw i8, ptr %0, i64 160
-  %.sroa.0.0.copyload.i.i.i.i.i18 = load i64, ptr %41, align 8
-  %42 = and i64 %.sroa.0.0.copyload.i.i.i.i.i18, 4
-  %.not.i.i.i.i.i19 = icmp eq i64 %42, 0
-  %43 = and i64 %.sroa.0.0.copyload.i.i.i.i.i18, -8
-  %.not3.i20 = icmp eq i64 %43, 0
-  %.not.i21 = or i1 %.not.i.i.i.i.i19, %.not3.i20
-  %44 = inttoptr i64 %43 to ptr
-  br i1 %.not.i21, label %_ZNK5clang31ClassTemplateSpecializationDecl24getTemplateArgsAsWrittenEv.exit33, label %_ZNK5clang31ClassTemplateSpecializationDecl19getExternKeywordLocEv.exit
-
-_ZNK5clang31ClassTemplateSpecializationDecl19getExternKeywordLocEv.exit: ; preds = %39
-  %45 = getelementptr inbounds nuw i8, ptr %44, i64 8
-  %46 = load i32, ptr %45, align 8
-  %.not56 = icmp eq i32 %46, 0
-  br i1 %.not56, label %_ZNK5clang31ClassTemplateSpecializationDecl21getTemplateKeywordLocEv.exit, label %49
-
-_ZNK5clang31ClassTemplateSpecializationDecl21getTemplateKeywordLocEv.exit: ; preds = %_ZNK5clang31ClassTemplateSpecializationDecl19getExternKeywordLocEv.exit
-  %47 = getelementptr inbounds nuw i8, ptr %44, i64 12
-  %48 = load i32, ptr %47, align 4
-  %.not57 = icmp eq i32 %48, 0
-  %spec.select = select i1 %.not57, i32 %.sroa.040.0.extract.trunc43, i32 %48
   br label %49
 
-49:                                               ; preds = %_ZNK5clang31ClassTemplateSpecializationDecl21getTemplateKeywordLocEv.exit, %_ZNK5clang31ClassTemplateSpecializationDecl19getExternKeywordLocEv.exit
-  %.sroa.040.1.ph = phi i32 [ %46, %_ZNK5clang31ClassTemplateSpecializationDecl19getExternKeywordLocEv.exit ], [ %spec.select, %_ZNK5clang31ClassTemplateSpecializationDecl21getTemplateKeywordLocEv.exit ]
-  %50 = load ptr, ptr %44, align 8
+19:                                               ; preds = %1
+  %20 = tail call i64 @_ZNK5clang7TagDecl14getSourceRangeEv(ptr noundef nonnull align 8 dereferenceable(128) %0) #22
+  %.sroa.040.0.extract.trunc42 = trunc i64 %20 to i32
+  %.sroa.7.0.extract.shift46 = lshr i64 %20, 32
+  %.sroa.7.0.extract.trunc47 = trunc nuw i64 %.sroa.7.0.extract.shift46 to i32
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 160
+  %.sroa.0.0.copyload.i.i.i.i.i15 = load i64, ptr %21, align 8
+  %22 = and i64 %.sroa.0.0.copyload.i.i.i.i.i15, 4
+  %.not.i.i.i.i.i16 = icmp eq i64 %22, 0
+  %23 = and i64 %.sroa.0.0.copyload.i.i.i.i.i15, -8
+  %24 = inttoptr i64 %23 to ptr
+  %.not5.i = icmp eq i64 %23, 0
+  %.not.i17 = or i1 %.not.i.i.i.i.i16, %.not5.i
+  br i1 %.not.i17, label %_ZNK5clang31ClassTemplateSpecializationDecl24getTemplateArgsAsWrittenEv.exit, label %25
+
+25:                                               ; preds = %19
+  %26 = load ptr, ptr %24, align 8
+  br label %_ZNK5clang31ClassTemplateSpecializationDecl24getTemplateArgsAsWrittenEv.exit
+
+_ZNK5clang31ClassTemplateSpecializationDecl24getTemplateArgsAsWrittenEv.exit: ; preds = %19, %25
+  %.0.i = phi ptr [ %26, %25 ], [ %24, %19 ]
+  %27 = getelementptr inbounds i8, ptr %0, i64 74
+  %28 = load i8, ptr %27, align 2
+  %29 = and i8 %28, 1
+  %30 = icmp ne i8 %29, 0
+  %31 = icmp eq ptr %.0.i, null
+  %or.cond.not = or i1 %31, %30
+  br i1 %or.cond.not, label %49, label %32
+
+32:                                               ; preds = %_ZNK5clang31ClassTemplateSpecializationDecl24getTemplateArgsAsWrittenEv.exit
+  %33 = getelementptr inbounds nuw i8, ptr %.0.i, i64 4
+  %.sroa.0.0.copyload.i = load i32, ptr %33, align 4
+  br label %49
+
+34:                                               ; preds = %1, %1
+  %35 = tail call i64 @_ZNK5clang7TagDecl14getSourceRangeEv(ptr noundef nonnull align 8 dereferenceable(128) %0) #22
+  %.sroa.040.0.extract.trunc43 = trunc i64 %35 to i32
+  %.sroa.7.0.extract.shift48 = lshr i64 %35, 32
+  %.sroa.7.0.extract.trunc49 = trunc nuw i64 %.sroa.7.0.extract.shift48 to i32
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 160
+  %.sroa.0.0.copyload.i.i.i.i.i18 = load i64, ptr %36, align 8
+  %37 = and i64 %.sroa.0.0.copyload.i.i.i.i.i18, 4
+  %.not.i.i.i.i.i19 = icmp eq i64 %37, 0
+  %38 = and i64 %.sroa.0.0.copyload.i.i.i.i.i18, -8
+  %.not3.i20 = icmp eq i64 %38, 0
+  %.not.i21 = or i1 %.not.i.i.i.i.i19, %.not3.i20
+  %39 = inttoptr i64 %38 to ptr
+  br i1 %.not.i21, label %_ZNK5clang31ClassTemplateSpecializationDecl24getTemplateArgsAsWrittenEv.exit33, label %_ZNK5clang31ClassTemplateSpecializationDecl19getExternKeywordLocEv.exit
+
+_ZNK5clang31ClassTemplateSpecializationDecl19getExternKeywordLocEv.exit: ; preds = %34
+  %40 = getelementptr inbounds nuw i8, ptr %39, i64 8
+  %41 = load i32, ptr %40, align 8
+  %.not56 = icmp eq i32 %41, 0
+  br i1 %.not56, label %_ZNK5clang31ClassTemplateSpecializationDecl21getTemplateKeywordLocEv.exit, label %44
+
+_ZNK5clang31ClassTemplateSpecializationDecl21getTemplateKeywordLocEv.exit: ; preds = %_ZNK5clang31ClassTemplateSpecializationDecl19getExternKeywordLocEv.exit
+  %42 = getelementptr inbounds nuw i8, ptr %39, i64 12
+  %43 = load i32, ptr %42, align 4
+  %.not57 = icmp eq i32 %43, 0
+  %spec.select = select i1 %.not57, i32 %.sroa.040.0.extract.trunc43, i32 %43
+  br label %44
+
+44:                                               ; preds = %_ZNK5clang31ClassTemplateSpecializationDecl21getTemplateKeywordLocEv.exit, %_ZNK5clang31ClassTemplateSpecializationDecl19getExternKeywordLocEv.exit
+  %.sroa.040.1.ph = phi i32 [ %41, %_ZNK5clang31ClassTemplateSpecializationDecl19getExternKeywordLocEv.exit ], [ %spec.select, %_ZNK5clang31ClassTemplateSpecializationDecl21getTemplateKeywordLocEv.exit ]
+  %45 = load ptr, ptr %39, align 8
   br label %_ZNK5clang31ClassTemplateSpecializationDecl24getTemplateArgsAsWrittenEv.exit33
 
-_ZNK5clang31ClassTemplateSpecializationDecl24getTemplateArgsAsWrittenEv.exit33: ; preds = %39, %49
-  %.sroa.040.155 = phi i32 [ %.sroa.040.1.ph, %49 ], [ %.sroa.040.0.extract.trunc43, %39 ]
-  %.0.i32 = phi ptr [ %50, %49 ], [ %44, %39 ]
+_ZNK5clang31ClassTemplateSpecializationDecl24getTemplateArgsAsWrittenEv.exit33: ; preds = %34, %44
+  %.sroa.040.155 = phi i32 [ %.sroa.040.1.ph, %44 ], [ %.sroa.040.0.extract.trunc43, %34 ]
+  %.0.i32 = phi ptr [ %45, %44 ], [ %39, %34 ]
   %.not13 = icmp eq ptr %.0.i32, null
-  br i1 %.not13, label %54, label %51
+  br i1 %.not13, label %49, label %46
 
-51:                                               ; preds = %_ZNK5clang31ClassTemplateSpecializationDecl24getTemplateArgsAsWrittenEv.exit33
-  %52 = getelementptr inbounds nuw i8, ptr %.0.i32, i64 4
-  %.sroa.0.0.copyload.i34 = load i32, ptr %52, align 4
-  br label %54
+46:                                               ; preds = %_ZNK5clang31ClassTemplateSpecializationDecl24getTemplateArgsAsWrittenEv.exit33
+  %47 = getelementptr inbounds nuw i8, ptr %.0.i32, i64 4
+  %.sroa.0.0.copyload.i34 = load i32, ptr %47, align 4
+  br label %49
 
-53:                                               ; preds = %1
+48:                                               ; preds = %1
   unreachable
 
-54:                                               ; preds = %_ZNK5clang31ClassTemplateSpecializationDecl24getTemplateArgsAsWrittenEv.exit33, %51, %_ZNK5clang31ClassTemplateSpecializationDecl24getTemplateArgsAsWrittenEv.exit, %37, %22, %20
-  %.sroa.040.0 = phi i32 [ %.sroa.040.155, %_ZNK5clang31ClassTemplateSpecializationDecl24getTemplateArgsAsWrittenEv.exit33 ], [ %.sroa.040.155, %51 ], [ %.sroa.040.0.extract.trunc42, %_ZNK5clang31ClassTemplateSpecializationDecl24getTemplateArgsAsWrittenEv.exit ], [ %.sroa.040.0.extract.trunc42, %37 ], [ %.sroa.040.0.extract.trunc41, %22 ], [ %.sroa.040.0.extract.trunc, %20 ]
-  %.sroa.7.0 = phi i32 [ %.sroa.7.0.extract.trunc49, %_ZNK5clang31ClassTemplateSpecializationDecl24getTemplateArgsAsWrittenEv.exit33 ], [ %.sroa.0.0.copyload.i34, %51 ], [ %.sroa.7.0.extract.trunc47, %_ZNK5clang31ClassTemplateSpecializationDecl24getTemplateArgsAsWrittenEv.exit ], [ %.sroa.0.0.copyload.i, %37 ], [ %.sroa.7.0.extract.trunc45, %22 ], [ %.sroa.7.0.extract.trunc, %20 ]
+49:                                               ; preds = %_ZNK5clang31ClassTemplateSpecializationDecl31getSpecializedTemplateOrPartialEv.exit, %_ZNK5clang31ClassTemplateSpecializationDecl24getTemplateArgsAsWrittenEv.exit33, %46, %_ZNK5clang31ClassTemplateSpecializationDecl24getTemplateArgsAsWrittenEv.exit, %32
+  %.sroa.040.0 = phi i32 [ %.sroa.040.155, %_ZNK5clang31ClassTemplateSpecializationDecl24getTemplateArgsAsWrittenEv.exit33 ], [ %.sroa.040.155, %46 ], [ %.sroa.040.0.extract.trunc42, %_ZNK5clang31ClassTemplateSpecializationDecl24getTemplateArgsAsWrittenEv.exit ], [ %.sroa.040.0.extract.trunc42, %32 ], [ %.sroa.040.0.extract.trunc41, %_ZNK5clang31ClassTemplateSpecializationDecl31getSpecializedTemplateOrPartialEv.exit ]
+  %.sroa.7.0 = phi i32 [ %.sroa.7.0.extract.trunc49, %_ZNK5clang31ClassTemplateSpecializationDecl24getTemplateArgsAsWrittenEv.exit33 ], [ %.sroa.0.0.copyload.i34, %46 ], [ %.sroa.7.0.extract.trunc47, %_ZNK5clang31ClassTemplateSpecializationDecl24getTemplateArgsAsWrittenEv.exit ], [ %.sroa.0.0.copyload.i, %32 ], [ %.sroa.7.0.extract.trunc45, %_ZNK5clang31ClassTemplateSpecializationDecl31getSpecializedTemplateOrPartialEv.exit ]
   %.sroa.7.0.insert.ext = zext i32 %.sroa.7.0 to i64
   %.sroa.7.0.insert.shift = shl nuw i64 %.sroa.7.0.insert.ext, 32
   %.sroa.040.0.insert.ext = zext i32 %.sroa.040.0 to i64

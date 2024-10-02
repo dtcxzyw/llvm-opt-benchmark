@@ -2691,27 +2691,20 @@ if.end:                                           ; preds = %if.then, %land.lhs.
   %6 = load i32, ptr %compat_flags, align 8
   %and = and i32 %6, 8
   %tobool3.not = icmp eq i32 %and, 0
-  br i1 %tobool3.not, label %lor.lhs.false, label %if.then5
+  br i1 %tobool3.not, label %lor.lhs.false, label %if.end8
 
 lor.lhs.false:                                    ; preds = %if.end
   %use_tso_for_migration = getelementptr inbounds i8, ptr %opaque, i64 208557
   %7 = load i8, ptr %use_tso_for_migration, align 1
   %tobool4 = trunc i8 %7 to i1
-  br i1 %tobool4, label %if.else, label %if.then5
-
-if.then5:                                         ; preds = %lor.lhs.false, %if.end
-  %mig_props = getelementptr inbounds i8, ptr %opaque, i64 208560
-  %props = getelementptr inbounds i8, ptr %opaque, i64 208456
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(20) %mig_props, ptr noundef nonnull align 8 dereferenceable(20) %props, i64 20, i1 false)
+  %spec.select = select i1 %tobool4, i64 208476, i64 208456
   br label %if.end8
 
-if.else:                                          ; preds = %lor.lhs.false
+if.end8:                                          ; preds = %lor.lhs.false, %if.end
+  %.sink = phi i64 [ 208456, %if.end ], [ %spec.select, %lor.lhs.false ]
   %mig_props6 = getelementptr inbounds i8, ptr %opaque, i64 208560
-  %tso_props = getelementptr inbounds i8, ptr %opaque, i64 208476
+  %tso_props = getelementptr inbounds i8, ptr %opaque, i64 %.sink
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(20) %mig_props6, ptr noundef nonnull align 4 dereferenceable(20) %tso_props, i64 20, i1 false)
-  br label %if.end8
-
-if.end8:                                          ; preds = %if.else, %if.then5
   ret i32 0
 }
 

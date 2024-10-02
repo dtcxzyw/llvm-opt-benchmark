@@ -40,7 +40,6 @@ define hidden void @do_export_pdu(ptr noundef %0, ptr noundef %1, ptr noundef %2
 
 10:                                               ; preds = %3
   %11 = call ptr (i32, i32, ptr, ...) @simple_dialog(i32 noundef 3, i32 noundef 1, ptr noundef nonnull @.str, ptr noundef nonnull %9) #2
-  call void @g_free(ptr noundef nonnull %9) #2
   br label %48
 
 12:                                               ; preds = %3
@@ -57,7 +56,6 @@ define hidden void @do_export_pdu(ptr noundef %0, ptr noundef %1, ptr noundef %2
   %19 = load ptr, ptr %8, align 8
   call void @g_error_free(ptr noundef %19) #2
   %20 = load ptr, ptr %5, align 8
-  call void @g_free(ptr noundef %20) #2
   br label %48
 
 21:                                               ; preds = %12
@@ -78,7 +76,6 @@ define hidden void @do_export_pdu(ptr noundef %0, ptr noundef %1, ptr noundef %2
   %31 = load ptr, ptr %7, align 8
   call void @cfile_dump_open_failure_alert_box(ptr noundef nonnull %29, i32 noundef %30, ptr noundef %31, i32 noundef %22) #2
   %32 = load ptr, ptr %5, align 8
-  call void @g_free(ptr noundef %32) #2
   br label %48
 
 33:                                               ; preds = %21
@@ -102,16 +99,16 @@ define hidden void @do_export_pdu(ptr noundef %0, ptr noundef %1, ptr noundef %2
 
 43:                                               ; preds = %40
   %44 = load ptr, ptr %5, align 8
-  call void @g_free(ptr noundef %44) #2
   br label %48
 
 45:                                               ; preds = %40
   %46 = call i32 @cf_read(ptr noundef nonnull @cfile, i32 noundef 0) #2
   %47 = load ptr, ptr %5, align 8
-  call void @g_free(ptr noundef %47) #2
   br label %48
 
 48:                                               ; preds = %45, %43, %27, %15, %10
+  %.sink = phi ptr [ %47, %45 ], [ %44, %43 ], [ %32, %27 ], [ %20, %15 ], [ %9, %10 ]
+  call void @g_free(ptr noundef %.sink) #2
   ret void
 }
 

@@ -12963,29 +12963,28 @@ land.lhs.true.i.i:                                ; preds = %invoke.cont25
   %6 = and i16 %bf.load.i.i.i, 506
   %7 = icmp ne i16 %6, 0
   %or.cond.not.i = or i1 %7, %bf.cast.i.i.i
-  br i1 %or.cond.not.i, label %if.else.i, label %if.then.i
-
-if.then.i:                                        ; preds = %land.lhs.true.i.i
-  %call2.i20 = invoke noundef ptr @_ZN11ast_manager12mk_func_declERK6symboljPKP4sortS4_P14func_decl_info(ptr noundef nonnull align 8 dereferenceable(976) %2, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp23, i32 noundef %n, ptr noundef %domain, ptr noundef %range, ptr noundef null)
-          to label %invoke.cont32 unwind label %lpad24
+  br i1 %or.cond.not.i, label %if.else.i, label %return.i
 
 if.else.i:                                        ; preds = %land.lhs.true.i.i, %invoke.cont25
-  %call3.i21 = invoke noundef ptr @_ZN11ast_manager12mk_func_declERK6symboljPKP4sortS4_P14func_decl_info(ptr noundef nonnull align 8 dereferenceable(976) %2, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp23, i32 noundef %n, ptr noundef %domain, ptr noundef %range, ptr noundef nonnull %info)
+  br label %return.i
+
+return.i:                                         ; preds = %if.else.i, %land.lhs.true.i.i
+  %info.sink.i = phi ptr [ %info, %if.else.i ], [ null, %land.lhs.true.i.i ]
+  %call3.i20 = invoke noundef ptr @_ZN11ast_manager12mk_func_declERK6symboljPKP4sortS4_P14func_decl_info(ptr noundef nonnull align 8 dereferenceable(976) %2, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp23, i32 noundef %n, ptr noundef %domain, ptr noundef %range, ptr noundef %info.sink.i)
           to label %invoke.cont32 unwind label %lpad24
 
-invoke.cont32:                                    ; preds = %if.then.i, %if.else.i
-  %retval.0.i = phi ptr [ %call2.i20, %if.then.i ], [ %call3.i21, %if.else.i ]
-  invoke void @_ZN3api7context14save_ast_trailEP3ast(ptr noundef nonnull align 8 dereferenceable(3048) %c, ptr noundef %retval.0.i)
+invoke.cont32:                                    ; preds = %return.i
+  invoke void @_ZN3api7context14save_ast_trailEP3ast(ptr noundef nonnull align 8 dereferenceable(3048) %c, ptr noundef %call3.i20)
           to label %do.body unwind label %lpad24
 
 do.body:                                          ; preds = %invoke.cont32
   br i1 %tobool.i, label %if.then41, label %if.end43
 
 if.then41:                                        ; preds = %do.body
-  invoke void @_Z4SetRPv(ptr noundef %retval.0.i)
+  invoke void @_Z4SetRPv(ptr noundef %call3.i20)
           to label %if.end43 unwind label %lpad24
 
-lpad24:                                           ; preds = %if.else.i, %if.then.i, %if.then41, %invoke.cont32
+lpad24:                                           ; preds = %return.i, %if.then41, %invoke.cont32
   %8 = landingpad { ptr, i32 }
           cleanup
           catch ptr @_ZTI12z3_exception
@@ -13031,27 +13030,27 @@ terminate.lpad.i.i.i:                             ; preds = %_ZN6vectorI9paramet
   unreachable
 
 _ZN14func_decl_infoD2Ev.exit:                     ; preds = %if.end43, %_ZN6vectorI9parameterLb1EjE16destroy_elementsEv.exit.i.i.i.i
-  br i1 %tobool.i, label %if.then.i24, label %return
+  br i1 %tobool.i, label %if.then.i, label %return
 
-if.then.i24:                                      ; preds = %_ZN14func_decl_infoD2Ev.exit
+if.then.i:                                        ; preds = %_ZN14func_decl_infoD2Ev.exit
   store atomic i8 1, ptr @g_z3_log_enabled seq_cst, align 1
   br label %return
 
 ehcleanup:                                        ; preds = %lpad24, %lpad1
   %.pn = phi { ptr, i32 } [ %8, %lpad24 ], [ %1, %lpad1 ]
   %ehselector.slot.0 = extractvalue { ptr, i32 } %.pn, 1
-  br i1 %tobool.i, label %if.then.i26, label %_ZN10z3_log_ctxD2Ev.exit27
+  br i1 %tobool.i, label %if.then.i24, label %_ZN10z3_log_ctxD2Ev.exit25
 
-if.then.i26:                                      ; preds = %ehcleanup
+if.then.i24:                                      ; preds = %ehcleanup
   store atomic i8 1, ptr @g_z3_log_enabled seq_cst, align 1
-  br label %_ZN10z3_log_ctxD2Ev.exit27
+  br label %_ZN10z3_log_ctxD2Ev.exit25
 
-_ZN10z3_log_ctxD2Ev.exit27:                       ; preds = %ehcleanup, %if.then.i26
+_ZN10z3_log_ctxD2Ev.exit25:                       ; preds = %ehcleanup, %if.then.i24
   %14 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTI12z3_exception) #20
   %matches = icmp eq i32 %ehselector.slot.0, %14
   br i1 %matches, label %catch, label %eh.resume
 
-catch:                                            ; preds = %_ZN10z3_log_ctxD2Ev.exit27
+catch:                                            ; preds = %_ZN10z3_log_ctxD2Ev.exit25
   %exn.slot.0 = extractvalue { ptr, i32 } %.pn, 0
   %15 = call ptr @__cxa_begin_catch(ptr %exn.slot.0) #20
   invoke void @_ZN3api7context16handle_exceptionER12z3_exception(ptr noundef nonnull align 8 dereferenceable(3048) %c, ptr noundef nonnull align 8 dereferenceable(8) %15)
@@ -13067,12 +13066,12 @@ lpad45:                                           ; preds = %catch
   invoke void @__cxa_end_catch()
           to label %eh.resume unwind label %terminate.lpad
 
-return:                                           ; preds = %if.then.i24, %_ZN14func_decl_infoD2Ev.exit, %invoke.cont48
-  %retval.0 = phi ptr [ null, %invoke.cont48 ], [ %retval.0.i, %_ZN14func_decl_infoD2Ev.exit ], [ %retval.0.i, %if.then.i24 ]
+return:                                           ; preds = %if.then.i, %_ZN14func_decl_infoD2Ev.exit, %invoke.cont48
+  %retval.0 = phi ptr [ null, %invoke.cont48 ], [ %call3.i20, %_ZN14func_decl_infoD2Ev.exit ], [ %call3.i20, %if.then.i ]
   ret ptr %retval.0
 
-eh.resume:                                        ; preds = %lpad45, %_ZN10z3_log_ctxD2Ev.exit27
-  %lpad.val54.merged = phi { ptr, i32 } [ %16, %lpad45 ], [ %.pn, %_ZN10z3_log_ctxD2Ev.exit27 ]
+eh.resume:                                        ; preds = %lpad45, %_ZN10z3_log_ctxD2Ev.exit25
+  %lpad.val54.merged = phi { ptr, i32 } [ %16, %lpad45 ], [ %.pn, %_ZN10z3_log_ctxD2Ev.exit25 ]
   resume { ptr, i32 } %lpad.val54.merged
 
 terminate.lpad:                                   ; preds = %lpad45

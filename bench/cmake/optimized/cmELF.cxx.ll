@@ -266,7 +266,7 @@ define dso_local void @_ZN5cmELFC2EPKc(ptr noundef nonnull align 8 dereferenceab
           cleanup
   br label %.body
 
-23:                                               ; preds = %.invoke, %76, %66, %40, %38, %31, %29, %14
+23:                                               ; preds = %.invoke, %73, %66, %40, %38, %31, %29, %14
   %24 = landingpad { ptr, i32 }
           cleanup
   %25 = load ptr, ptr %3, align 8
@@ -349,7 +349,7 @@ _ZNSt10unique_ptrISt14basic_ifstreamIcSt11char_traitsIcEESt14default_deleteIS3_E
   %65 = load i8, ptr %64, align 4
   switch i8 %65, label %.invoke [
     i8 1, label %66
-    i8 2, label %76
+    i8 2, label %73
   ]
 
 66:                                               ; preds = %63
@@ -372,81 +372,76 @@ _ZNSt10unique_ptrI13cmELFInternalSt14default_deleteIS0_EEaSI17cmELFInternalImplI
   call void %72(ptr noundef nonnull align 8 dereferenceable(88) %69) #18
   %.pr = load ptr, ptr %6, align 8
   %.not.i17 = icmp eq ptr %.pr, null
-  br i1 %.not.i17, label %.sink.split, label %_ZNKSt14default_deleteI17cmELFInternalImplI12cmELFTypes32EEclEPS2_.exit.i
+  br i1 %.not.i17, label %.sink.split, label %.sink.split.sink.split
 
-_ZNKSt14default_deleteI17cmELFInternalImplI12cmELFTypes32EEclEPS2_.exit.i: ; preds = %_ZNSt10unique_ptrI13cmELFInternalSt14default_deleteIS0_EEaSI17cmELFInternalImplI12cmELFTypes32ES1_IS7_EEENSt9enable_ifIXsr6__and_ISt6__and_IJSt14is_convertibleINS_IT_T0_E7pointerEPS0_ESt6__not_ISt8is_arrayISC_EEEESt13is_assignableIRS2_OSD_EEE5valueERS3_E4typeEOSE_.exit
-  %73 = load ptr, ptr %.pr, align 8
-  %74 = getelementptr inbounds i8, ptr %73, i64 8
-  %75 = load ptr, ptr %74, align 8
-  call void %75(ptr noundef nonnull align 8 dereferenceable(192) %.pr) #18
-  br label %.sink.split
-
-76:                                               ; preds = %63
+73:                                               ; preds = %63
   store ptr %0, ptr %9, align 8
   invoke void @_ZSt11make_uniqueI17cmELFInternalImplI12cmELFTypes64EJP5cmELFSt10unique_ptrISt14basic_ifstreamIcSt11char_traitsIcEESt14default_deleteIS9_EERN13cmELFInternal13ByteOrderTypeEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_(ptr dead_on_unwind nonnull writable sret(%"class.std::unique_ptr.19") align 8 %8, ptr noundef nonnull align 8 dereferenceable(8) %9, ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 4 dereferenceable(4) %5)
-          to label %77 unwind label %23
+          to label %74 unwind label %23
 
-77:                                               ; preds = %76
-  %78 = load ptr, ptr %8, align 8
+74:                                               ; preds = %73
+  %75 = load ptr, ptr %8, align 8
   store ptr null, ptr %8, align 8
-  %79 = load ptr, ptr %0, align 8
-  store ptr %78, ptr %0, align 8
-  %.not.i.i.i18 = icmp eq ptr %79, null
+  %76 = load ptr, ptr %0, align 8
+  store ptr %75, ptr %0, align 8
+  %.not.i.i.i18 = icmp eq ptr %76, null
   br i1 %.not.i.i.i18, label %.sink.split, label %_ZNSt10unique_ptrI13cmELFInternalSt14default_deleteIS0_EEaSI17cmELFInternalImplI12cmELFTypes64ES1_IS7_EEENSt9enable_ifIXsr6__and_ISt6__and_IJSt14is_convertibleINS_IT_T0_E7pointerEPS0_ESt6__not_ISt8is_arrayISC_EEEESt13is_assignableIRS2_OSD_EEE5valueERS3_E4typeEOSE_.exit
 
-_ZNSt10unique_ptrI13cmELFInternalSt14default_deleteIS0_EEaSI17cmELFInternalImplI12cmELFTypes64ES1_IS7_EEENSt9enable_ifIXsr6__and_ISt6__and_IJSt14is_convertibleINS_IT_T0_E7pointerEPS0_ESt6__not_ISt8is_arrayISC_EEEESt13is_assignableIRS2_OSD_EEE5valueERS3_E4typeEOSE_.exit: ; preds = %77
-  %80 = load ptr, ptr %79, align 8
-  %81 = getelementptr inbounds i8, ptr %80, i64 8
-  %82 = load ptr, ptr %81, align 8
-  call void %82(ptr noundef nonnull align 8 dereferenceable(88) %79) #18
+_ZNSt10unique_ptrI13cmELFInternalSt14default_deleteIS0_EEaSI17cmELFInternalImplI12cmELFTypes64ES1_IS7_EEENSt9enable_ifIXsr6__and_ISt6__and_IJSt14is_convertibleINS_IT_T0_E7pointerEPS0_ESt6__not_ISt8is_arrayISC_EEEESt13is_assignableIRS2_OSD_EEE5valueERS3_E4typeEOSE_.exit: ; preds = %74
+  %77 = load ptr, ptr %76, align 8
+  %78 = getelementptr inbounds i8, ptr %77, i64 8
+  %79 = load ptr, ptr %78, align 8
+  call void %79(ptr noundef nonnull align 8 dereferenceable(88) %76) #18
   %.pr26 = load ptr, ptr %8, align 8
   %.not.i20 = icmp eq ptr %.pr26, null
-  br i1 %.not.i20, label %.sink.split, label %_ZNKSt14default_deleteI17cmELFInternalImplI12cmELFTypes64EEclEPS2_.exit.i
-
-_ZNKSt14default_deleteI17cmELFInternalImplI12cmELFTypes64EEclEPS2_.exit.i: ; preds = %_ZNSt10unique_ptrI13cmELFInternalSt14default_deleteIS0_EEaSI17cmELFInternalImplI12cmELFTypes64ES1_IS7_EEENSt9enable_ifIXsr6__and_ISt6__and_IJSt14is_convertibleINS_IT_T0_E7pointerEPS0_ESt6__not_ISt8is_arrayISC_EEEESt13is_assignableIRS2_OSD_EEE5valueERS3_E4typeEOSE_.exit
-  %83 = load ptr, ptr %.pr26, align 8
-  %84 = getelementptr inbounds i8, ptr %83, i64 8
-  %85 = load ptr, ptr %84, align 8
-  call void %85(ptr noundef nonnull align 8 dereferenceable(200) %.pr26) #18
-  br label %.sink.split
+  br i1 %.not.i20, label %.sink.split, label %.sink.split.sink.split
 
 .invoke:                                          ; preds = %20, %63, %59, %47, %46, %37
-  %86 = phi ptr [ @.str.1, %37 ], [ @.str.2, %46 ], [ @.str.3, %47 ], [ @.str.4, %59 ], [ @.str.5, %63 ], [ @.str, %20 ]
-  %87 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc(ptr noundef nonnull align 8 dereferenceable(32) %10, ptr noundef nonnull %86)
-          to label %88 unwind label %23
+  %80 = phi ptr [ @.str.1, %37 ], [ @.str.2, %46 ], [ @.str.3, %47 ], [ @.str.4, %59 ], [ @.str.5, %63 ], [ @.str, %20 ]
+  %81 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc(ptr noundef nonnull align 8 dereferenceable(32) %10, ptr noundef nonnull %80)
+          to label %85 unwind label %23
 
-.sink.split:                                      ; preds = %_ZNKSt14default_deleteI17cmELFInternalImplI12cmELFTypes64EEclEPS2_.exit.i, %_ZNSt10unique_ptrI13cmELFInternalSt14default_deleteIS0_EEaSI17cmELFInternalImplI12cmELFTypes64ES1_IS7_EEENSt9enable_ifIXsr6__and_ISt6__and_IJSt14is_convertibleINS_IT_T0_E7pointerEPS0_ESt6__not_ISt8is_arrayISC_EEEESt13is_assignableIRS2_OSD_EEE5valueERS3_E4typeEOSE_.exit, %77, %_ZNKSt14default_deleteI17cmELFInternalImplI12cmELFTypes32EEclEPS2_.exit.i, %_ZNSt10unique_ptrI13cmELFInternalSt14default_deleteIS0_EEaSI17cmELFInternalImplI12cmELFTypes32ES1_IS7_EEENSt9enable_ifIXsr6__and_ISt6__and_IJSt14is_convertibleINS_IT_T0_E7pointerEPS0_ESt6__not_ISt8is_arrayISC_EEEESt13is_assignableIRS2_OSD_EEE5valueERS3_E4typeEOSE_.exit, %67
-  %.sink = phi ptr [ %6, %67 ], [ %6, %_ZNSt10unique_ptrI13cmELFInternalSt14default_deleteIS0_EEaSI17cmELFInternalImplI12cmELFTypes32ES1_IS7_EEENSt9enable_ifIXsr6__and_ISt6__and_IJSt14is_convertibleINS_IT_T0_E7pointerEPS0_ESt6__not_ISt8is_arrayISC_EEEESt13is_assignableIRS2_OSD_EEE5valueERS3_E4typeEOSE_.exit ], [ %6, %_ZNKSt14default_deleteI17cmELFInternalImplI12cmELFTypes32EEclEPS2_.exit.i ], [ %8, %77 ], [ %8, %_ZNSt10unique_ptrI13cmELFInternalSt14default_deleteIS0_EEaSI17cmELFInternalImplI12cmELFTypes64ES1_IS7_EEENSt9enable_ifIXsr6__and_ISt6__and_IJSt14is_convertibleINS_IT_T0_E7pointerEPS0_ESt6__not_ISt8is_arrayISC_EEEESt13is_assignableIRS2_OSD_EEE5valueERS3_E4typeEOSE_.exit ], [ %8, %_ZNKSt14default_deleteI17cmELFInternalImplI12cmELFTypes64EEclEPS2_.exit.i ]
+.sink.split.sink.split:                           ; preds = %_ZNSt10unique_ptrI13cmELFInternalSt14default_deleteIS0_EEaSI17cmELFInternalImplI12cmELFTypes64ES1_IS7_EEENSt9enable_ifIXsr6__and_ISt6__and_IJSt14is_convertibleINS_IT_T0_E7pointerEPS0_ESt6__not_ISt8is_arrayISC_EEEESt13is_assignableIRS2_OSD_EEE5valueERS3_E4typeEOSE_.exit, %_ZNSt10unique_ptrI13cmELFInternalSt14default_deleteIS0_EEaSI17cmELFInternalImplI12cmELFTypes32ES1_IS7_EEENSt9enable_ifIXsr6__and_ISt6__and_IJSt14is_convertibleINS_IT_T0_E7pointerEPS0_ESt6__not_ISt8is_arrayISC_EEEESt13is_assignableIRS2_OSD_EEE5valueERS3_E4typeEOSE_.exit
+  %.pr26.sink31 = phi ptr [ %.pr, %_ZNSt10unique_ptrI13cmELFInternalSt14default_deleteIS0_EEaSI17cmELFInternalImplI12cmELFTypes32ES1_IS7_EEENSt9enable_ifIXsr6__and_ISt6__and_IJSt14is_convertibleINS_IT_T0_E7pointerEPS0_ESt6__not_ISt8is_arrayISC_EEEESt13is_assignableIRS2_OSD_EEE5valueERS3_E4typeEOSE_.exit ], [ %.pr26, %_ZNSt10unique_ptrI13cmELFInternalSt14default_deleteIS0_EEaSI17cmELFInternalImplI12cmELFTypes64ES1_IS7_EEENSt9enable_ifIXsr6__and_ISt6__and_IJSt14is_convertibleINS_IT_T0_E7pointerEPS0_ESt6__not_ISt8is_arrayISC_EEEESt13is_assignableIRS2_OSD_EEE5valueERS3_E4typeEOSE_.exit ]
+  %.sink.ph = phi ptr [ %6, %_ZNSt10unique_ptrI13cmELFInternalSt14default_deleteIS0_EEaSI17cmELFInternalImplI12cmELFTypes32ES1_IS7_EEENSt9enable_ifIXsr6__and_ISt6__and_IJSt14is_convertibleINS_IT_T0_E7pointerEPS0_ESt6__not_ISt8is_arrayISC_EEEESt13is_assignableIRS2_OSD_EEE5valueERS3_E4typeEOSE_.exit ], [ %8, %_ZNSt10unique_ptrI13cmELFInternalSt14default_deleteIS0_EEaSI17cmELFInternalImplI12cmELFTypes64ES1_IS7_EEENSt9enable_ifIXsr6__and_ISt6__and_IJSt14is_convertibleINS_IT_T0_E7pointerEPS0_ESt6__not_ISt8is_arrayISC_EEEESt13is_assignableIRS2_OSD_EEE5valueERS3_E4typeEOSE_.exit ]
+  %82 = load ptr, ptr %.pr26.sink31, align 8
+  %83 = getelementptr inbounds i8, ptr %82, i64 8
+  %84 = load ptr, ptr %83, align 8
+  call void %84(ptr noundef nonnull align 8 dereferenceable(192) %.pr26.sink31) #18
+  br label %.sink.split
+
+.sink.split:                                      ; preds = %.sink.split.sink.split, %_ZNSt10unique_ptrI13cmELFInternalSt14default_deleteIS0_EEaSI17cmELFInternalImplI12cmELFTypes64ES1_IS7_EEENSt9enable_ifIXsr6__and_ISt6__and_IJSt14is_convertibleINS_IT_T0_E7pointerEPS0_ESt6__not_ISt8is_arrayISC_EEEESt13is_assignableIRS2_OSD_EEE5valueERS3_E4typeEOSE_.exit, %74, %_ZNSt10unique_ptrI13cmELFInternalSt14default_deleteIS0_EEaSI17cmELFInternalImplI12cmELFTypes32ES1_IS7_EEENSt9enable_ifIXsr6__and_ISt6__and_IJSt14is_convertibleINS_IT_T0_E7pointerEPS0_ESt6__not_ISt8is_arrayISC_EEEESt13is_assignableIRS2_OSD_EEE5valueERS3_E4typeEOSE_.exit, %67
+  %.sink = phi ptr [ %6, %67 ], [ %6, %_ZNSt10unique_ptrI13cmELFInternalSt14default_deleteIS0_EEaSI17cmELFInternalImplI12cmELFTypes32ES1_IS7_EEENSt9enable_ifIXsr6__and_ISt6__and_IJSt14is_convertibleINS_IT_T0_E7pointerEPS0_ESt6__not_ISt8is_arrayISC_EEEESt13is_assignableIRS2_OSD_EEE5valueERS3_E4typeEOSE_.exit ], [ %8, %74 ], [ %8, %_ZNSt10unique_ptrI13cmELFInternalSt14default_deleteIS0_EEaSI17cmELFInternalImplI12cmELFTypes64ES1_IS7_EEENSt9enable_ifIXsr6__and_ISt6__and_IJSt14is_convertibleINS_IT_T0_E7pointerEPS0_ESt6__not_ISt8is_arrayISC_EEEESt13is_assignableIRS2_OSD_EEE5valueERS3_E4typeEOSE_.exit ], [ %.sink.ph, %.sink.split.sink.split ]
   store ptr null, ptr %.sink, align 8
-  br label %88
+  br label %85
 
-88:                                               ; preds = %.sink.split, %.invoke
-  %89 = load ptr, ptr %3, align 8
-  %.not.i21 = icmp eq ptr %89, null
+85:                                               ; preds = %.sink.split, %.invoke
+  %86 = load ptr, ptr %3, align 8
+  %.not.i21 = icmp eq ptr %86, null
   br i1 %.not.i21, label %_ZNSt10unique_ptrISt14basic_ifstreamIcSt11char_traitsIcEESt14default_deleteIS3_EED2Ev.exit23, label %_ZNKSt14default_deleteISt14basic_ifstreamIcSt11char_traitsIcEEEclEPS3_.exit.i22
 
-_ZNKSt14default_deleteISt14basic_ifstreamIcSt11char_traitsIcEEEclEPS3_.exit.i22: ; preds = %88
-  %90 = load ptr, ptr %89, align 8
-  %91 = getelementptr inbounds i8, ptr %90, i64 8
-  %92 = load ptr, ptr %91, align 8
-  call void %92(ptr noundef nonnull align 8 dereferenceable(256) %89) #18
+_ZNKSt14default_deleteISt14basic_ifstreamIcSt11char_traitsIcEEEclEPS3_.exit.i22: ; preds = %85
+  %87 = load ptr, ptr %86, align 8
+  %88 = getelementptr inbounds i8, ptr %87, i64 8
+  %89 = load ptr, ptr %88, align 8
+  call void %89(ptr noundef nonnull align 8 dereferenceable(256) %86) #18
   br label %_ZNSt10unique_ptrISt14basic_ifstreamIcSt11char_traitsIcEESt14default_deleteIS3_EED2Ev.exit23
 
-_ZNSt10unique_ptrISt14basic_ifstreamIcSt11char_traitsIcEESt14default_deleteIS3_EED2Ev.exit23: ; preds = %88, %_ZNKSt14default_deleteISt14basic_ifstreamIcSt11char_traitsIcEEEclEPS3_.exit.i22
+_ZNSt10unique_ptrISt14basic_ifstreamIcSt11char_traitsIcEESt14default_deleteIS3_EED2Ev.exit23: ; preds = %85, %_ZNKSt14default_deleteISt14basic_ifstreamIcSt11char_traitsIcEEEclEPS3_.exit.i22
   ret void
 
 .body:                                            ; preds = %21, %12, %_ZNSt10unique_ptrISt14basic_ifstreamIcSt11char_traitsIcEESt14default_deleteIS3_EED2Ev.exit
   %.pn = phi { ptr, i32 } [ %24, %_ZNSt10unique_ptrISt14basic_ifstreamIcSt11char_traitsIcEESt14default_deleteIS3_EED2Ev.exit ], [ %22, %21 ], [ %13, %12 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %10) #18
-  %93 = load ptr, ptr %0, align 8
-  %.not.i24 = icmp eq ptr %93, null
+  %90 = load ptr, ptr %0, align 8
+  %.not.i24 = icmp eq ptr %90, null
   br i1 %.not.i24, label %_ZNSt10unique_ptrI13cmELFInternalSt14default_deleteIS0_EED2Ev.exit, label %_ZNKSt14default_deleteI13cmELFInternalEclEPS0_.exit.i
 
 _ZNKSt14default_deleteI13cmELFInternalEclEPS0_.exit.i: ; preds = %.body
-  %94 = load ptr, ptr %93, align 8
-  %95 = getelementptr inbounds i8, ptr %94, i64 8
-  %96 = load ptr, ptr %95, align 8
-  call void %96(ptr noundef nonnull align 8 dereferenceable(88) %93) #18
+  %91 = load ptr, ptr %90, align 8
+  %92 = getelementptr inbounds i8, ptr %91, i64 8
+  %93 = load ptr, ptr %92, align 8
+  call void %93(ptr noundef nonnull align 8 dereferenceable(88) %90) #18
   br label %_ZNSt10unique_ptrI13cmELFInternalSt14default_deleteIS0_EED2Ev.exit
 
 _ZNSt10unique_ptrI13cmELFInternalSt14default_deleteIS0_EED2Ev.exit: ; preds = %.body, %_ZNKSt14default_deleteI13cmELFInternalEclEPS0_.exit.i

@@ -2500,82 +2500,83 @@ define dso_local ptr @transformGroupClause(ptr noundef %0, ptr noundef %1, ptr n
   %22 = icmp sgt i32 %21, 0
   br i1 %22, label %.lr.ph68, label %._crit_edge
 
-.lr.ph68:                                         ; preds = %.lr.ph, %49
-  %.0405267 = phi ptr [ %.141, %49 ], [ null, %.lr.ph ]
-  %.0385366 = phi ptr [ %.1, %49 ], [ null, %.lr.ph ]
-  %.sroa.0.05465 = phi ptr [ %.sroa.0.1, %49 ], [ undef, %.lr.ph ]
-  %indvars.iv64 = phi i64 [ %indvars.iv.next, %49 ], [ 0, %.lr.ph ]
+.lr.ph68:                                         ; preds = %.lr.ph, %46
+  %.0405267 = phi ptr [ %.141, %46 ], [ null, %.lr.ph ]
+  %.0385366 = phi ptr [ %.1, %46 ], [ null, %.lr.ph ]
+  %.sroa.0.05465 = phi ptr [ %.sroa.0.1, %46 ], [ undef, %.lr.ph ]
+  %indvars.iv64 = phi i64 [ %indvars.iv.next, %46 ], [ 0, %.lr.ph ]
   %23 = load ptr, ptr %20, align 8
   %24 = getelementptr %union.ListCell, ptr %23, i64 %indvars.iv64
   %25 = load ptr, ptr %24, align 8
   %26 = load i32, ptr %25, align 4
   %27 = icmp eq i32 %26, 99
-  br i1 %27, label %28, label %36
+  br i1 %27, label %28, label %33
 
 28:                                               ; preds = %.lr.ph68
   %29 = getelementptr inbounds i8, ptr %25, i64 4
   %30 = load i32, ptr %29, align 4
-  switch i32 %30, label %49 [
-    i32 0, label %31
-    i32 2, label %33
-    i32 4, label %33
-    i32 3, label %33
+  switch i32 %30, label %46 [
+    i32 0, label %.sink.split
+    i32 2, label %31
+    i32 4, label %31
+    i32 3, label %31
   ]
 
-31:                                               ; preds = %28
-  %32 = call ptr @lappend(ptr noundef %.0385366, ptr noundef nonnull %25) #9
-  br label %49
+31:                                               ; preds = %28, %28, %28
+  %32 = call fastcc ptr @transformGroupingSet(ptr noundef %8, ptr noundef %0, ptr noundef nonnull %25, ptr noundef %3, ptr noundef %4, i32 noundef %5, i1 noundef zeroext %6)
+  br label %.sink.split
 
-33:                                               ; preds = %28, %28, %28
-  %34 = call fastcc ptr @transformGroupingSet(ptr noundef %8, ptr noundef %0, ptr noundef nonnull %25, ptr noundef %3, ptr noundef %4, i32 noundef %5, i1 noundef zeroext %6)
-  %35 = call ptr @lappend(ptr noundef %.0385366, ptr noundef %34) #9
-  br label %49
+33:                                               ; preds = %.lr.ph68
+  %34 = call fastcc i32 @transformGroupClauseExpr(ptr noundef %8, ptr noundef %.0405267, ptr noundef %0, ptr noundef nonnull %25, ptr noundef %3, ptr noundef %4, i32 noundef %5, i1 noundef zeroext %6, i1 noundef zeroext true)
+  %.not48 = icmp eq i32 %34, 0
+  br i1 %.not48, label %46, label %35
 
-36:                                               ; preds = %.lr.ph68
-  %37 = call fastcc i32 @transformGroupClauseExpr(ptr noundef %8, ptr noundef %.0405267, ptr noundef %0, ptr noundef nonnull %25, ptr noundef %3, ptr noundef %4, i32 noundef %5, i1 noundef zeroext %6, i1 noundef zeroext true)
-  %.not48 = icmp eq i32 %37, 0
-  br i1 %.not48, label %49, label %38
+35:                                               ; preds = %33
+  %36 = call ptr @bms_add_member(ptr noundef %.0405267, i32 noundef %34) #9
+  %37 = load i8, ptr %9, align 1
+  %38 = trunc i8 %37 to i1
+  br i1 %38, label %39, label %46
 
-38:                                               ; preds = %36
-  %39 = call ptr @bms_add_member(ptr noundef %.0405267, i32 noundef %37) #9
-  %40 = load i8, ptr %9, align 1
-  %41 = trunc i8 %40 to i1
-  br i1 %41, label %42, label %49
-
-42:                                               ; preds = %38
-  %43 = ptrtoint ptr %.sroa.0.05465 to i64
-  %.sroa.0.0.insert.ext = zext i32 %37 to i64
-  %.sroa.0.0.insert.mask = and i64 %43, -4294967296
+39:                                               ; preds = %35
+  %40 = ptrtoint ptr %.sroa.0.05465 to i64
+  %.sroa.0.0.insert.ext = zext i32 %34 to i64
+  %.sroa.0.0.insert.mask = and i64 %40, -4294967296
   %.sroa.0.0.insert.insert = or disjoint i64 %.sroa.0.0.insert.mask, %.sroa.0.0.insert.ext
-  %44 = inttoptr i64 %.sroa.0.0.insert.insert to ptr
-  %45 = call ptr @list_make1_impl(i32 noundef 454, ptr nonnull %44) #9
-  %46 = call i32 @exprLocation(ptr noundef nonnull %25) #9
-  %47 = call ptr @makeGroupingSet(i32 noundef 1, ptr noundef %45, i32 noundef %46) #9
-  %48 = call ptr @lappend(ptr noundef %.0385366, ptr noundef %47) #9
-  br label %49
+  %41 = inttoptr i64 %.sroa.0.0.insert.insert to ptr
+  %42 = call ptr @list_make1_impl(i32 noundef 454, ptr nonnull %41) #9
+  %43 = call i32 @exprLocation(ptr noundef nonnull %25) #9
+  %44 = call ptr @makeGroupingSet(i32 noundef 1, ptr noundef %42, i32 noundef %43) #9
+  br label %.sink.split
 
-49:                                               ; preds = %33, %31, %28, %38, %42, %36
-  %.141 = phi ptr [ %.0405267, %28 ], [ %.0405267, %33 ], [ %.0405267, %31 ], [ %39, %42 ], [ %39, %38 ], [ %.0405267, %36 ]
-  %.1 = phi ptr [ %.0385366, %28 ], [ %35, %33 ], [ %32, %31 ], [ %48, %42 ], [ %.0385366, %38 ], [ %.0385366, %36 ]
-  %.sroa.0.1 = phi ptr [ %.sroa.0.05465, %28 ], [ %.sroa.0.05465, %33 ], [ %.sroa.0.05465, %31 ], [ %44, %42 ], [ %.sroa.0.05465, %38 ], [ %.sroa.0.05465, %36 ]
+.sink.split:                                      ; preds = %28, %39, %31
+  %.sink = phi ptr [ %32, %31 ], [ %44, %39 ], [ %25, %28 ]
+  %.141.ph = phi ptr [ %.0405267, %31 ], [ %36, %39 ], [ %.0405267, %28 ]
+  %.sroa.0.1.ph = phi ptr [ %.sroa.0.05465, %31 ], [ %41, %39 ], [ %.sroa.0.05465, %28 ]
+  %45 = call ptr @lappend(ptr noundef %.0385366, ptr noundef %.sink) #9
+  br label %46
+
+46:                                               ; preds = %.sink.split, %28, %35, %33
+  %.141 = phi ptr [ %.0405267, %28 ], [ %36, %35 ], [ %.0405267, %33 ], [ %.141.ph, %.sink.split ]
+  %.1 = phi ptr [ %.0385366, %28 ], [ %.0385366, %35 ], [ %.0385366, %33 ], [ %45, %.sink.split ]
+  %.sroa.0.1 = phi ptr [ %.sroa.0.05465, %28 ], [ %.sroa.0.05465, %35 ], [ %.sroa.0.05465, %33 ], [ %.sroa.0.1.ph, %.sink.split ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv64, 1
-  %50 = load i32, ptr %19, align 4
-  %51 = sext i32 %50 to i64
-  %52 = icmp slt i64 %indvars.iv.next, %51
-  br i1 %52, label %.lr.ph68, label %._crit_edge
+  %47 = load i32, ptr %19, align 4
+  %48 = sext i32 %47 to i64
+  %49 = icmp slt i64 %indvars.iv.next, %48
+  br i1 %49, label %.lr.ph68, label %._crit_edge
 
-._crit_edge:                                      ; preds = %49, %.lr.ph, %12, %15
-  %.038.lcssa = phi ptr [ null, %15 ], [ null, %12 ], [ null, %.lr.ph ], [ %.1, %49 ]
+._crit_edge:                                      ; preds = %46, %.lr.ph, %12, %15
+  %.038.lcssa = phi ptr [ null, %15 ], [ null, %12 ], [ null, %.lr.ph ], [ %.1, %46 ]
   %.not47 = icmp eq ptr %2, null
-  br i1 %.not47, label %54, label %53
+  br i1 %.not47, label %51, label %50
 
-53:                                               ; preds = %._crit_edge
+50:                                               ; preds = %._crit_edge
   store ptr %.038.lcssa, ptr %2, align 8
-  br label %54
+  br label %51
 
-54:                                               ; preds = %53, %._crit_edge
-  %55 = load ptr, ptr %8, align 8
-  ret ptr %55
+51:                                               ; preds = %50, %._crit_edge
+  %52 = load ptr, ptr %8, align 8
+  ret ptr %52
 }
 
 ; Function Attrs: nounwind uwtable

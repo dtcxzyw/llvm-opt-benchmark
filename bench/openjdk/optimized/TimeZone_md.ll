@@ -326,72 +326,56 @@ define hidden noalias ptr @getGMTOffsetID() local_unnamed_addr #0 {
   store i64 %6, ptr %4, align 8
   %7 = call ptr @localtime_r(ptr noundef nonnull %4, ptr noundef nonnull %3) #14
   %8 = icmp eq ptr %7, null
-  br i1 %8, label %9, label %11
+  br i1 %8, label %42, label %9
 
 9:                                                ; preds = %0
-  %10 = call noalias dereferenceable_or_null(4) ptr @strdup(ptr noundef nonnull @.str.2) #14
-  br label %51
+  %10 = call ptr @gmtime_r(ptr noundef nonnull %4, ptr noundef nonnull %5) #14
+  %11 = icmp eq ptr %10, null
+  br i1 %11, label %42, label %12
 
-11:                                               ; preds = %0
-  %12 = call ptr @gmtime_r(ptr noundef nonnull %4, ptr noundef nonnull %5) #14
-  %13 = icmp eq ptr %12, null
-  br i1 %13, label %14, label %16
+12:                                               ; preds = %9
+  %13 = getelementptr inbounds i8, ptr %3, i64 8
+  %14 = load i32, ptr %13, align 8
+  %15 = getelementptr inbounds i8, ptr %5, i64 8
+  %16 = load i32, ptr %15, align 8
+  %17 = icmp eq i32 %14, %16
+  br i1 %17, label %18, label %24
 
-14:                                               ; preds = %11
-  %15 = call noalias dereferenceable_or_null(4) ptr @strdup(ptr noundef nonnull @.str.2) #14
-  br label %51
+18:                                               ; preds = %12
+  %19 = getelementptr inbounds i8, ptr %3, i64 4
+  %20 = load i32, ptr %19, align 4
+  %21 = getelementptr inbounds i8, ptr %5, i64 4
+  %22 = load i32, ptr %21, align 4
+  %23 = icmp eq i32 %20, %22
+  br i1 %23, label %42, label %24
 
-16:                                               ; preds = %11
-  %17 = getelementptr inbounds i8, ptr %3, i64 8
-  %18 = load i32, ptr %17, align 8
-  %19 = getelementptr inbounds i8, ptr %5, i64 8
-  %20 = load i32, ptr %19, align 8
-  %21 = icmp eq i32 %18, %20
-  br i1 %21, label %22, label %30
+24:                                               ; preds = %18, %12
+  %25 = call i64 @strftime(ptr noundef nonnull %2, i64 noundef 6, ptr noundef nonnull @.str.3, ptr noundef nonnull %3) #14
+  %.not = icmp eq i64 %25, 5
+  br i1 %.not, label %26, label %42
 
-22:                                               ; preds = %16
-  %23 = getelementptr inbounds i8, ptr %3, i64 4
-  %24 = load i32, ptr %23, align 4
-  %25 = getelementptr inbounds i8, ptr %5, i64 4
-  %26 = load i32, ptr %25, align 4
-  %27 = icmp eq i32 %24, %26
-  br i1 %27, label %28, label %30
+26:                                               ; preds = %24
+  %27 = load i8, ptr %2, align 1
+  %28 = sext i8 %27 to i32
+  %29 = getelementptr inbounds i8, ptr %2, i64 1
+  %30 = load i8, ptr %29, align 1
+  %31 = sext i8 %30 to i32
+  %32 = getelementptr inbounds i8, ptr %2, i64 2
+  %33 = load i8, ptr %32, align 1
+  %34 = sext i8 %33 to i32
+  %35 = getelementptr inbounds i8, ptr %2, i64 3
+  %36 = load i8, ptr %35, align 1
+  %37 = sext i8 %36 to i32
+  %38 = getelementptr inbounds i8, ptr %2, i64 4
+  %39 = load i8, ptr %38, align 1
+  %40 = sext i8 %39 to i32
+  %41 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %1, i64 noundef 32, ptr noundef nonnull @.str.4, i32 noundef %28, i32 noundef %31, i32 noundef %34, i32 noundef %37, i32 noundef %40) #14
+  br label %42
 
-28:                                               ; preds = %22
-  %29 = call noalias dereferenceable_or_null(4) ptr @strdup(ptr noundef nonnull @.str.2) #14
-  br label %51
-
-30:                                               ; preds = %22, %16
-  %31 = call i64 @strftime(ptr noundef nonnull %2, i64 noundef 6, ptr noundef nonnull @.str.3, ptr noundef nonnull %3) #14
-  %.not = icmp eq i64 %31, 5
-  br i1 %.not, label %34, label %32
-
-32:                                               ; preds = %30
-  %33 = call noalias dereferenceable_or_null(4) ptr @strdup(ptr noundef nonnull @.str.2) #14
-  br label %51
-
-34:                                               ; preds = %30
-  %35 = load i8, ptr %2, align 1
-  %36 = sext i8 %35 to i32
-  %37 = getelementptr inbounds i8, ptr %2, i64 1
-  %38 = load i8, ptr %37, align 1
-  %39 = sext i8 %38 to i32
-  %40 = getelementptr inbounds i8, ptr %2, i64 2
-  %41 = load i8, ptr %40, align 1
-  %42 = sext i8 %41 to i32
-  %43 = getelementptr inbounds i8, ptr %2, i64 3
-  %44 = load i8, ptr %43, align 1
-  %45 = sext i8 %44 to i32
-  %46 = getelementptr inbounds i8, ptr %2, i64 4
-  %47 = load i8, ptr %46, align 1
-  %48 = sext i8 %47 to i32
-  %49 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %1, i64 noundef 32, ptr noundef nonnull @.str.4, i32 noundef %36, i32 noundef %39, i32 noundef %42, i32 noundef %45, i32 noundef %48) #14
-  %50 = call noalias ptr @strdup(ptr noundef nonnull %1) #14
-  br label %51
-
-51:                                               ; preds = %34, %32, %28, %14, %9
-  %.0 = phi ptr [ %10, %9 ], [ %15, %14 ], [ %29, %28 ], [ %33, %32 ], [ %50, %34 ]
-  ret ptr %.0
+42:                                               ; preds = %24, %18, %9, %0, %26
+  %.sink = phi ptr [ %1, %26 ], [ @.str.2, %0 ], [ @.str.2, %9 ], [ @.str.2, %18 ], [ @.str.2, %24 ]
+  %43 = call noalias ptr @strdup(ptr noundef nonnull %.sink) #14
+  ret ptr %43
 }
 
 ; Function Attrs: nounwind

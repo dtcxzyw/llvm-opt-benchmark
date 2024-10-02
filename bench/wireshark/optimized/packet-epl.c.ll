@@ -2468,8 +2468,8 @@ define internal void @nodeid_profile_parse_uat() #2 {
   %.not36 = icmp eq i32 %8, 0
   br i1 %.not36, label %._crit_edge, label %.lr.ph
 
-.lr.ph:                                           ; preds = %7, %66
-  %indvars.iv = phi i64 [ %indvars.iv.next, %66 ], [ 0, %7 ]
+.lr.ph:                                           ; preds = %7, %62
+  %indvars.iv = phi i64 [ %indvars.iv.next, %62 ], [ 0, %7 ]
   %9 = load ptr, ptr @nodeid_profile_list_uats, align 8
   %10 = getelementptr %struct.nodeid_profile_uat_assoc, ptr %9, i64 %indvars.iv
   %11 = getelementptr inbounds i8, ptr %10, i64 8
@@ -2502,14 +2502,14 @@ define internal void @nodeid_profile_parse_uat() #2 {
   %28 = load ptr, ptr %10, align 8
   %29 = tail call fastcc ptr @profile_load(ptr noundef %27, ptr noundef %28)
   %.not30 = icmp eq ptr %29, null
-  br i1 %.not30, label %66, label %.thread
+  br i1 %.not30, label %62, label %.thread
 
 .thread:                                          ; preds = %24, %26
   %.02534 = phi ptr [ %29, %26 ], [ %25, %24 ]
   %30 = load i8, ptr %11, align 8
   %31 = and i8 %30, 1
   %.not31 = icmp eq i8 %31, 0
-  br i1 %.not31, label %41, label %32
+  br i1 %.not31, label %38, label %32
 
 32:                                               ; preds = %.thread
   %33 = getelementptr inbounds i8, ptr %10, i64 16
@@ -2518,63 +2518,57 @@ define internal void @nodeid_profile_parse_uat() #2 {
   store i8 %34, ptr %35, align 2
   %36 = zext i8 %34 to i64
   %37 = inttoptr i64 %36 to ptr
-  %38 = getelementptr inbounds i8, ptr %.02534, i64 88
-  store ptr %37, ptr %38, align 8
-  %39 = load ptr, ptr @epl_profiles_by_nodeid, align 8
-  %40 = tail call ptr @wmem_map_insert(ptr noundef %39, ptr noundef %37, ptr noundef nonnull %.02534) #18
-  br label %61
-
-41:                                               ; preds = %.thread
-  %42 = getelementptr inbounds i8, ptr %.02534, i64 48
-  %43 = load ptr, ptr %42, align 8
-  %44 = getelementptr inbounds i8, ptr %.02534, i64 8
-  %45 = getelementptr inbounds i8, ptr %10, i64 16
-  %46 = load i32, ptr %45, align 8
-  %47 = getelementptr inbounds i8, ptr %10, i64 20
-  %48 = load i32, ptr %47, align 4
-  %49 = getelementptr inbounds i8, ptr %10, i64 24
-  %50 = load ptr, ptr %49, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %44, i8 0, i64 24, i1 false)
-  store i32 %46, ptr %44, align 8
-  %51 = icmp eq i32 %48, 0
-  br i1 %51, label %copy_address_wmem.exit, label %52
-
-52:                                               ; preds = %41
-  %53 = sext i32 %48 to i64
-  %54 = tail call noalias ptr @wmem_memdup(ptr noundef %43, ptr noundef %50, i64 noundef %53) #18
-  %55 = getelementptr inbounds i8, ptr %.02534, i64 24
-  store ptr %54, ptr %55, align 8
-  %56 = getelementptr inbounds i8, ptr %.02534, i64 16
-  store ptr %54, ptr %56, align 8
-  %57 = getelementptr inbounds i8, ptr %.02534, i64 12
-  store i32 %48, ptr %57, align 4
   br label %copy_address_wmem.exit
 
-copy_address_wmem.exit:                           ; preds = %41, %52
-  %58 = getelementptr inbounds i8, ptr %.02534, i64 88
-  store ptr %44, ptr %58, align 8
-  %59 = load ptr, ptr @epl_profiles_by_address, align 8
-  %60 = tail call ptr @wmem_map_insert(ptr noundef %59, ptr noundef nonnull %44, ptr noundef nonnull %.02534) #18
-  br label %61
+38:                                               ; preds = %.thread
+  %39 = getelementptr inbounds i8, ptr %.02534, i64 48
+  %40 = load ptr, ptr %39, align 8
+  %41 = getelementptr inbounds i8, ptr %.02534, i64 8
+  %42 = getelementptr inbounds i8, ptr %10, i64 16
+  %43 = load i32, ptr %42, align 8
+  %44 = getelementptr inbounds i8, ptr %10, i64 20
+  %45 = load i32, ptr %44, align 4
+  %46 = getelementptr inbounds i8, ptr %10, i64 24
+  %47 = load ptr, ptr %46, align 8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %41, i8 0, i64 24, i1 false)
+  store i32 %43, ptr %41, align 8
+  %48 = icmp eq i32 %45, 0
+  br i1 %48, label %copy_address_wmem.exit, label %49
 
-61:                                               ; preds = %copy_address_wmem.exit, %32
-  %epl_profiles_by_address.sink = phi ptr [ @epl_profiles_by_address, %copy_address_wmem.exit ], [ @epl_profiles_by_nodeid, %32 ]
-  %62 = load ptr, ptr %epl_profiles_by_address.sink, align 8
-  %63 = getelementptr inbounds i8, ptr %.02534, i64 64
-  store ptr %62, ptr %63, align 8
-  %64 = getelementptr inbounds i8, ptr %.02534, i64 80
-  %65 = load ptr, ptr %64, align 8
-  tail call void (ptr, i32, ptr, ...) @ws_log(ptr noundef null, i32 noundef 3, ptr noundef nonnull @.str.1117, ptr noundef %65) #18
-  br label %66
+49:                                               ; preds = %38
+  %50 = sext i32 %45 to i64
+  %51 = tail call noalias ptr @wmem_memdup(ptr noundef %40, ptr noundef %47, i64 noundef %50) #18
+  %52 = getelementptr inbounds i8, ptr %.02534, i64 24
+  store ptr %51, ptr %52, align 8
+  %53 = getelementptr inbounds i8, ptr %.02534, i64 16
+  store ptr %51, ptr %53, align 8
+  %54 = getelementptr inbounds i8, ptr %.02534, i64 12
+  store i32 %45, ptr %54, align 4
+  br label %copy_address_wmem.exit
 
-66:                                               ; preds = %26, %61
+copy_address_wmem.exit:                           ; preds = %49, %38, %32
+  %.sink = phi ptr [ %37, %32 ], [ %41, %38 ], [ %41, %49 ]
+  %epl_profiles_by_address.sink40 = phi ptr [ @epl_profiles_by_nodeid, %32 ], [ @epl_profiles_by_address, %38 ], [ @epl_profiles_by_address, %49 ]
+  %55 = getelementptr inbounds i8, ptr %.02534, i64 88
+  store ptr %.sink, ptr %55, align 8
+  %56 = load ptr, ptr %epl_profiles_by_address.sink40, align 8
+  %57 = tail call ptr @wmem_map_insert(ptr noundef %56, ptr noundef %.sink, ptr noundef nonnull %.02534) #18
+  %58 = load ptr, ptr %epl_profiles_by_address.sink40, align 8
+  %59 = getelementptr inbounds i8, ptr %.02534, i64 64
+  store ptr %58, ptr %59, align 8
+  %60 = getelementptr inbounds i8, ptr %.02534, i64 80
+  %61 = load ptr, ptr %60, align 8
+  tail call void (ptr, i32, ptr, ...) @ws_log(ptr noundef null, i32 noundef 3, ptr noundef nonnull @.str.1117, ptr noundef %61) #18
+  br label %62
+
+62:                                               ; preds = %26, %copy_address_wmem.exit
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %67 = load i32, ptr @nnodeid_profile_uat, align 4
-  %68 = zext i32 %67 to i64
-  %69 = icmp ult i64 %indvars.iv.next, %68
-  br i1 %69, label %.lr.ph, label %._crit_edge, !llvm.loop !11
+  %63 = load i32, ptr @nnodeid_profile_uat, align 4
+  %64 = zext i32 %63 to i64
+  %65 = icmp ult i64 %indvars.iv.next, %64
+  br i1 %65, label %.lr.ph, label %._crit_edge, !llvm.loop !11
 
-._crit_edge:                                      ; preds = %66, %7
+._crit_edge:                                      ; preds = %62, %7
   ret void
 }
 

@@ -825,20 +825,20 @@ define ptr @Cudd_zddDiffConst(ptr noundef %0, ptr noundef %1, ptr noundef %2) lo
   %4 = getelementptr inbounds i8, ptr %0, i64 48
   %5 = load ptr, ptr %4, align 8
   %6 = icmp eq ptr %1, %5
-  br i1 %6, label %52, label %7
+  br i1 %6, label %48, label %7
 
 7:                                                ; preds = %3
   %8 = icmp eq ptr %2, %5
-  br i1 %8, label %52, label %9
+  br i1 %8, label %48, label %9
 
 9:                                                ; preds = %7
   %10 = icmp eq ptr %1, %2
-  br i1 %10, label %52, label %11
+  br i1 %10, label %48, label %11
 
 11:                                               ; preds = %9
   %12 = tail call ptr @cuddCacheLookup2Zdd(ptr noundef nonnull %0, ptr noundef nonnull @cuddZddDiff, ptr noundef %1, ptr noundef %2) #3
   %.not = icmp eq ptr %12, null
-  br i1 %.not, label %13, label %52
+  br i1 %.not, label %13, label %48
 
 13:                                               ; preds = %11
   %14 = load i32, ptr %1, align 8
@@ -870,42 +870,40 @@ define ptr @Cudd_zddDiffConst(ptr noundef %0, ptr noundef %1, ptr noundef %2) lo
 31:                                               ; preds = %22, %25
   %.046 = phi i32 [ %30, %25 ], [ 2147483647, %22 ]
   %32 = icmp slt i32 %.045, %.046
-  br i1 %32, label %51, label %33
+  br i1 %32, label %47, label %33
 
 33:                                               ; preds = %31
   %34 = icmp sgt i32 %.045, %.046
-  br i1 %34, label %35, label %39
+  br i1 %34, label %.sink.split, label %35
 
 35:                                               ; preds = %33
-  %36 = getelementptr inbounds i8, ptr %2, i64 24
+  %36 = getelementptr inbounds i8, ptr %1, i64 16
   %37 = load ptr, ptr %36, align 8
-  %38 = tail call ptr @Cudd_zddDiffConst(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef %37)
-  br label %51
+  %38 = getelementptr inbounds i8, ptr %2, i64 16
+  %39 = load ptr, ptr %38, align 8
+  %40 = tail call ptr @Cudd_zddDiffConst(ptr noundef nonnull %0, ptr noundef %37, ptr noundef %39)
+  %.not55 = icmp eq ptr %40, %5
+  br i1 %.not55, label %41, label %47
 
-39:                                               ; preds = %33
-  %40 = getelementptr inbounds i8, ptr %1, i64 16
-  %41 = load ptr, ptr %40, align 8
-  %42 = getelementptr inbounds i8, ptr %2, i64 16
+41:                                               ; preds = %35
+  %42 = getelementptr inbounds i8, ptr %1, i64 24
   %43 = load ptr, ptr %42, align 8
-  %44 = tail call ptr @Cudd_zddDiffConst(ptr noundef nonnull %0, ptr noundef %41, ptr noundef %43)
-  %.not55 = icmp eq ptr %44, %5
-  br i1 %.not55, label %45, label %51
+  br label %.sink.split
 
-45:                                               ; preds = %39
-  %46 = getelementptr inbounds i8, ptr %1, i64 24
-  %47 = load ptr, ptr %46, align 8
-  %48 = getelementptr inbounds i8, ptr %2, i64 24
-  %49 = load ptr, ptr %48, align 8
-  %50 = tail call ptr @Cudd_zddDiffConst(ptr noundef nonnull %0, ptr noundef %47, ptr noundef %49)
-  br label %51
+.sink.split:                                      ; preds = %33, %41
+  %.sink = phi ptr [ %43, %41 ], [ %1, %33 ]
+  %44 = getelementptr inbounds i8, ptr %2, i64 24
+  %45 = load ptr, ptr %44, align 8
+  %46 = tail call ptr @Cudd_zddDiffConst(ptr noundef nonnull %0, ptr noundef %.sink, ptr noundef %45)
+  br label %47
 
-51:                                               ; preds = %39, %31, %35, %45
-  %.044 = phi ptr [ %38, %35 ], [ %50, %45 ], [ inttoptr (i64 1 to ptr), %31 ], [ inttoptr (i64 1 to ptr), %39 ]
+47:                                               ; preds = %.sink.split, %35, %31
+  %.044 = phi ptr [ inttoptr (i64 1 to ptr), %31 ], [ inttoptr (i64 1 to ptr), %35 ], [ %46, %.sink.split ]
   tail call void @cuddCacheInsert2(ptr noundef nonnull %0, ptr noundef nonnull @cuddZddDiff, ptr noundef nonnull %1, ptr noundef nonnull %2, ptr noundef %.044) #3
-  br label %52
+  br label %48
 
-52:                                               ; preds = %11, %9, %7, %3, %51
-  %.0 = phi ptr [ %.044, %51 ], [ %5, %3 ], [ %1, %7 ], [ %5, %9 ], [ %12, %11 ]
+48:                                               ; preds = %11, %9, %7, %3, %47
+  %.0 = phi ptr [ %.044, %47 ], [ %5, %3 ], [ %1, %7 ], [ %5, %9 ], [ %12, %11 ]
   ret ptr %.0
 }
 

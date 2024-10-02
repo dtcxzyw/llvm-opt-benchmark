@@ -3567,8 +3567,7 @@ define internal fastcc i32 @cli_loadyara(ptr noundef %0, ptr nocapture noundef %
 
 114:                                              ; preds = %111
   call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.165, ptr noundef nonnull %106) #21
-  call void @free(ptr noundef nonnull %106) #21
-  br label %load_oneyara.exit.thread147
+  br label %load_oneyara.exit.thread147.sink.split
 
 115:                                              ; preds = %111, %108
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %6, i8 0, i64 16, i1 false)
@@ -4167,15 +4166,11 @@ thread-pre-split:                                 ; preds = %.loopexit.thread.i
   %355 = add i32 %354, 1
   store i32 %355, ptr @yara_malform, align 4
   %.not.i = icmp eq ptr %.val333.i, null
-  br i1 %.not.i, label %ytable_delete.exit, label %.preheader.i72
+  br i1 %.not.i, label %load_oneyara.exit.thread147.sink.split, label %.preheader.i72
 
 .preheader.i72:                                   ; preds = %.loopexit.thread.i.thread
   call void @free(ptr noundef nonnull %.val333.i) #21
-  br label %ytable_delete.exit
-
-ytable_delete.exit:                               ; preds = %.loopexit.thread.i.thread, %.preheader.i72
-  call void @free(ptr noundef %106) #21
-  br label %load_oneyara.exit.thread147
+  br label %load_oneyara.exit.thread147.sink.split
 
 356:                                              ; preds = %.loopexit.thread.i
   %357 = icmp sgt i32 %.pre, 64
@@ -4188,8 +4183,7 @@ ytable_delete.exit:                               ; preds = %.loopexit.thread.i.
   store i32 %360, ptr @yara_malform, align 4
   %.val335.i = load ptr, ptr %6, align 8
   call fastcc void @ytable_delete(ptr %.val335.i, i32 %.pre)
-  call void @free(ptr noundef %106) #21
-  br label %load_oneyara.exit.thread147
+  br label %load_oneyara.exit.thread147.sink.split
 
 361:                                              ; preds = %356
   %362 = call ptr @cli_safer_strdup(ptr noundef nonnull @.str.201) #21
@@ -4599,9 +4593,8 @@ ytable_delete.exit:                               ; preds = %.loopexit.thread.i.
   %553 = load i32, ptr @yara_loaded, align 4
   %554 = add i32 %553, 1
   store i32 %554, ptr @yara_loaded, align 4
-  call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.209, ptr noundef %106) #21
-  call void @free(ptr noundef %106) #21
-  br label %load_oneyara.exit.thread147
+  call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.209, ptr noundef nonnull %106) #21
+  br label %load_oneyara.exit.thread147.sink.split
 
 load_oneyara.exit.thread:                         ; preds = %457, %544, %490, %431, %394, %220, %231, %209, %204, %189, %107, %364
   %.1.ph = phi i32 [ %89, %204 ], [ %89, %231 ], [ %89, %220 ], [ %89, %209 ], [ %89, %189 ], [ %.081, %364 ], [ %89, %544 ], [ %89, %490 ], [ %89, %457 ], [ %89, %431 ], [ %89, %394 ], [ %89, %107 ]
@@ -4611,8 +4604,13 @@ load_oneyara.exit.thread:                         ; preds = %457, %544, %490, %4
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
   br label %555
 
-load_oneyara.exit.thread147:                      ; preds = %ytable_delete.exit, %358, %548, %114, %99, %93, %364
-  %.1.ph146 = phi i32 [ %.081, %364 ], [ %89, %93 ], [ %89, %99 ], [ %.081, %114 ], [ %89, %548 ], [ %.081, %358 ], [ %.081, %ytable_delete.exit ]
+load_oneyara.exit.thread147.sink.split:           ; preds = %.preheader.i72, %.loopexit.thread.i.thread, %114, %548, %358
+  %.1.ph146.ph = phi i32 [ %.081, %358 ], [ %89, %548 ], [ %.081, %114 ], [ %.081, %.loopexit.thread.i.thread ], [ %.081, %.preheader.i72 ]
+  call void @free(ptr noundef %106) #21
+  br label %load_oneyara.exit.thread147
+
+load_oneyara.exit.thread147:                      ; preds = %load_oneyara.exit.thread147.sink.split, %99, %93, %364
+  %.1.ph146 = phi i32 [ %.081, %364 ], [ %89, %93 ], [ %89, %99 ], [ %.1.ph146.ph, %load_oneyara.exit.thread147.sink.split ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(i64 136, ptr nonnull %7)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)

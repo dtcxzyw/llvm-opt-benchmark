@@ -2432,38 +2432,34 @@ rb_obj_is_iseq.exit:                              ; preds = %11
   %16 = load i64, ptr %.pre, align 8
   %17 = and i64 %16, 61471
   %.not10 = icmp eq i64 %17, 28698
-  br i1 %.not10, label %18, label %rb_obj_is_iseq.exit.thread
-
-18:                                               ; preds = %rb_obj_is_iseq.exit
-  %19 = tail call i64 @rb_iseqw_new(ptr noundef nonnull %.pre) #4
-  br label %31
+  br i1 %.not10, label %28, label %rb_obj_is_iseq.exit.thread
 
 rb_obj_is_iseq.exit.thread:                       ; preds = %11, %rb_obj_is_iseq.exit
-  %20 = load i64, ptr %.pre, align 8
-  %21 = and i64 %20, 8192
-  %.not.i.i = icmp eq i64 %21, 0
-  br i1 %.not.i.i, label %24, label %22
+  %18 = load i64, ptr %.pre, align 8
+  %19 = and i64 %18, 8192
+  %.not.i.i = icmp eq i64 %19, 0
+  br i1 %.not.i.i, label %22, label %20
+
+20:                                               ; preds = %rb_obj_is_iseq.exit.thread
+  %21 = getelementptr inbounds i8, ptr %.pre, i64 16
+  br label %RARRAY_AREF.exit
 
 22:                                               ; preds = %rb_obj_is_iseq.exit.thread
-  %23 = getelementptr inbounds i8, ptr %.pre, i64 16
+  %23 = getelementptr inbounds i8, ptr %.pre, i64 32
+  %24 = load ptr, ptr %23, align 8
   br label %RARRAY_AREF.exit
 
-24:                                               ; preds = %rb_obj_is_iseq.exit.thread
-  %25 = getelementptr inbounds i8, ptr %.pre, i64 32
-  %26 = load ptr, ptr %25, align 8
-  br label %RARRAY_AREF.exit
+RARRAY_AREF.exit:                                 ; preds = %20, %22
+  %.0.i.i7 = phi ptr [ %21, %20 ], [ %24, %22 ]
+  %25 = getelementptr i8, ptr %.0.i.i7, i64 8
+  %26 = load i64, ptr %25, align 8
+  %27 = inttoptr i64 %26 to ptr
+  br label %28
 
-RARRAY_AREF.exit:                                 ; preds = %22, %24
-  %.0.i.i7 = phi ptr [ %23, %22 ], [ %26, %24 ]
-  %27 = getelementptr i8, ptr %.0.i.i7, i64 8
-  %28 = load i64, ptr %27, align 8
-  %29 = inttoptr i64 %28 to ptr
-  %30 = tail call i64 @rb_iseqw_new(ptr noundef %29) #4
-  br label %31
-
-31:                                               ; preds = %RARRAY_AREF.exit, %18
-  %.0 = phi i64 [ %19, %18 ], [ %30, %RARRAY_AREF.exit ]
-  ret i64 %.0
+28:                                               ; preds = %rb_obj_is_iseq.exit, %RARRAY_AREF.exit
+  %.sink = phi ptr [ %27, %RARRAY_AREF.exit ], [ %.pre, %rb_obj_is_iseq.exit ]
+  %29 = tail call i64 @rb_iseqw_new(ptr noundef %.sink) #4
+  ret i64 %29
 }
 
 declare i64 @rb_iseqw_new(ptr noundef) local_unnamed_addr #1
@@ -4887,37 +4883,33 @@ get_trace_arg.exit:                               ; preds = %2
   %23 = and i64 %.pre, 61471
   %.not10.i = icmp eq i64 %23, 28698
   %or.cond = select i1 %.not3, i1 %.not10.i, i1 false
-  br i1 %or.cond, label %24, label %rb_obj_is_iseq.exit.thread.i
-
-24:                                               ; preds = %19
-  %25 = tail call i64 @rb_iseqw_new(ptr noundef nonnull %.pre.i) #4
-  br label %rb_tracearg_instruction_sequence.exit
+  br i1 %or.cond, label %rb_tracearg_instruction_sequence.exit, label %rb_obj_is_iseq.exit.thread.i
 
 rb_obj_is_iseq.exit.thread.i:                     ; preds = %19
-  %26 = and i64 %.pre, 8192
-  %.not.i.i.i = icmp eq i64 %26, 0
-  br i1 %.not.i.i.i, label %29, label %27
+  %24 = and i64 %.pre, 8192
+  %.not.i.i.i = icmp eq i64 %24, 0
+  br i1 %.not.i.i.i, label %27, label %25
+
+25:                                               ; preds = %rb_obj_is_iseq.exit.thread.i
+  %26 = getelementptr inbounds i8, ptr %.pre.i, i64 16
+  br label %RARRAY_AREF.exit.i
 
 27:                                               ; preds = %rb_obj_is_iseq.exit.thread.i
-  %28 = getelementptr inbounds i8, ptr %.pre.i, i64 16
+  %28 = getelementptr inbounds i8, ptr %.pre.i, i64 32
+  %29 = load ptr, ptr %28, align 8
   br label %RARRAY_AREF.exit.i
 
-29:                                               ; preds = %rb_obj_is_iseq.exit.thread.i
-  %30 = getelementptr inbounds i8, ptr %.pre.i, i64 32
-  %31 = load ptr, ptr %30, align 8
-  br label %RARRAY_AREF.exit.i
-
-RARRAY_AREF.exit.i:                               ; preds = %29, %27
-  %.0.i.i7.i = phi ptr [ %28, %27 ], [ %31, %29 ]
-  %32 = getelementptr i8, ptr %.0.i.i7.i, i64 8
-  %33 = load i64, ptr %32, align 8
-  %34 = inttoptr i64 %33 to ptr
-  %35 = tail call i64 @rb_iseqw_new(ptr noundef %34) #4
+RARRAY_AREF.exit.i:                               ; preds = %27, %25
+  %.0.i.i7.i = phi ptr [ %26, %25 ], [ %29, %27 ]
+  %30 = getelementptr i8, ptr %.0.i.i7.i, i64 8
+  %31 = load i64, ptr %30, align 8
+  %32 = inttoptr i64 %31 to ptr
   br label %rb_tracearg_instruction_sequence.exit
 
-rb_tracearg_instruction_sequence.exit:            ; preds = %24, %RARRAY_AREF.exit.i
-  %.0.i = phi i64 [ %25, %24 ], [ %35, %RARRAY_AREF.exit.i ]
-  ret i64 %.0.i
+rb_tracearg_instruction_sequence.exit:            ; preds = %19, %RARRAY_AREF.exit.i
+  %.sink.i = phi ptr [ %32, %RARRAY_AREF.exit.i ], [ %.pre.i, %19 ]
+  %33 = tail call i64 @rb_iseqw_new(ptr noundef %.sink.i) #4
+  ret i64 %33
 }
 
 declare void @rb_load_with_builtin_functions(ptr noundef, ptr noundef) local_unnamed_addr #1

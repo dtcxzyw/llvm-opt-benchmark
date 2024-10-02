@@ -11184,25 +11184,21 @@ connAddrPeerName.exit:                            ; preds = %land.lhs.true.i.i
 do.body:                                          ; preds = %land.lhs.true.i.i, %connAddrPeerName.exit
   %6 = load i32, ptr getelementptr inbounds (i8, ptr @server, i64 3696), align 8
   %cmp18 = icmp sgt i32 %6, 3
-  br i1 %cmp18, label %if.end29, label %if.end
+  br i1 %cmp18, label %return.sink.split, label %if.end
 
 if.end:                                           ; preds = %do.body
   call void (i32, ptr, ...) @_serverLog(i32 noundef 3, ptr noundef nonnull @.str.106) #33
-  br label %if.end29
+  br label %return.sink.split
 
 do.body22:                                        ; preds = %connAddrPeerName.exit
   %7 = load i32, ptr getelementptr inbounds (i8, ptr @server, i64 3696), align 8
   %cmp23 = icmp sgt i32 %7, 3
-  br i1 %cmp23, label %if.end29, label %if.end26
+  br i1 %cmp23, label %return.sink.split, label %if.end26
 
 if.end26:                                         ; preds = %do.body22
   %8 = load i32, ptr %port, align 4
   call void (i32, ptr, ...) @_serverLog(i32 noundef 3, ptr noundef nonnull @.str.107, ptr noundef nonnull %ip, i32 noundef %8) #33
-  br label %if.end29
-
-if.end29:                                         ; preds = %if.end26, %do.body22, %if.end, %do.body
-  call void @freeClusterLink(ptr noundef nonnull %conn.val48)
-  br label %return
+  br label %return.sink.split
 
 if.end31:                                         ; preds = %if.else.if.end31_crit_edge, %lor.lhs.false
   %call33.pre-phi = phi i32 [ %.pre62, %if.else.if.end31_crit_edge ], [ %call8, %lor.lhs.false ]
@@ -11234,12 +11230,12 @@ if.end51:                                         ; preds = %if.end40
 do.body55:                                        ; preds = %if.end51
   %12 = load i32, ptr getelementptr inbounds (i8, ptr @server, i64 3696), align 8
   %cmp56 = icmp sgt i32 %12, 0
-  br i1 %cmp56, label %do.end63, label %if.end59
+  br i1 %cmp56, label %return.sink.split, label %if.end59
 
 do.body55.thread:                                 ; preds = %land.lhs.true
   %13 = load i32, ptr getelementptr inbounds (i8, ptr @server, i64 3696), align 8
   %cmp5653 = icmp sgt i32 %13, 0
-  br i1 %cmp5653, label %do.end63, label %cond.false
+  br i1 %cmp5653, label %return.sink.split, label %cond.false
 
 if.end59:                                         ; preds = %do.body55
   %cmp60 = icmp eq i32 %call.i, 0
@@ -11255,11 +11251,7 @@ cond.false:                                       ; preds = %do.body55.thread, %
 cond.end:                                         ; preds = %if.end59, %cond.false
   %cond = phi ptr [ %call.i49, %cond.false ], [ @.str.109, %if.end59 ]
   call void (i32, ptr, ...) @_serverLog(i32 noundef 0, ptr noundef nonnull @.str.108, ptr noundef %cond) #33
-  br label %do.end63
-
-do.end63:                                         ; preds = %do.body55.thread, %do.body55, %cond.end
-  call void @freeClusterLink(ptr noundef %conn.val48)
-  br label %return
+  br label %return.sink.split
 
 if.else64:                                        ; preds = %if.end51
   %16 = load i64, ptr %rcvbuf_alloc, align 8
@@ -11337,7 +11329,11 @@ while.body.backedge:                              ; preds = %if.end121, %land.lh
   %.be = phi i64 [ 0, %if.end121 ], [ %add92, %land.lhs.true100 ], [ %add92, %if.end87 ]
   br label %while.body
 
-return:                                           ; preds = %if.then105, %land.lhs.true, %do.end63, %if.end29
+return.sink.split:                                ; preds = %cond.end, %do.body55, %do.body55.thread, %do.body, %if.end, %do.body22, %if.end26
+  call void @freeClusterLink(ptr noundef %conn.val48)
+  br label %return
+
+return:                                           ; preds = %if.then105, %return.sink.split, %land.lhs.true
   ret void
 }
 

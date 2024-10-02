@@ -854,7 +854,7 @@ define i32 @WebPMuxGetFrame(ptr noundef %0, i32 noundef %1, ptr noundef writeonl
   %10 = load ptr, ptr %4, align 8
   %11 = load ptr, ptr %10, align 8
   %12 = icmp eq ptr %11, null
-  br i1 %12, label %13, label %25
+  br i1 %12, label %13, label %20
 
 13:                                               ; preds = %9
   %14 = getelementptr inbounds i8, ptr %2, i64 16
@@ -868,84 +868,82 @@ define i32 @WebPMuxGetFrame(ptr noundef %0, i32 noundef %1, ptr noundef writeonl
   %18 = getelementptr inbounds i8, ptr %2, i64 36
   store i32 0, ptr %18, align 4
   %19 = getelementptr inbounds i8, ptr %10, i64 16
-  %20 = load ptr, ptr %19, align 8
-  %21 = load i32, ptr %20, align 8
-  %22 = call i32 @ChunkGetIdFromTag(i32 noundef %21) #6
-  %23 = getelementptr inbounds i8, ptr %2, i64 28
-  store i32 %22, ptr %23, align 4
-  %24 = call fastcc range(i32 -3, 2) i32 @SynthesizeBitstream(ptr noundef nonnull readonly %10, ptr noundef %2)
+  br label %MuxGetFrameInternal.exit.sink.split
+
+20:                                               ; preds = %9
+  %21 = load i32, ptr %11, align 8
+  %22 = load i32, ptr getelementptr inbounds (i8, ptr @kChunks, i64 36), align 4
+  %23 = icmp eq i32 %21, %22
+  br i1 %23, label %24, label %MuxGetFrameInternal.exit
+
+24:                                               ; preds = %20
+  %25 = getelementptr inbounds i8, ptr %11, i64 16
+  %26 = load i64, ptr %25, align 8
+  %27 = load i32, ptr getelementptr inbounds (i8, ptr @kChunks, i64 44), align 4
+  %28 = zext i32 %27 to i64
+  %29 = icmp ult i64 %26, %28
+  br i1 %29, label %MuxGetFrameInternal.exit, label %30
+
+30:                                               ; preds = %24
+  %31 = getelementptr inbounds i8, ptr %11, i64 8
+  %32 = load ptr, ptr %31, align 8
+  %.val.i.i = load i16, ptr %32, align 1
+  %33 = zext i16 %.val.i.i to i32
+  %34 = getelementptr inbounds i8, ptr %32, i64 2
+  %35 = load i8, ptr %34, align 1
+  %36 = zext i8 %35 to i32
+  %37 = shl nuw nsw i32 %36, 17
+  %38 = shl nuw nsw i32 %33, 1
+  %39 = or disjoint i32 %37, %38
+  %40 = getelementptr inbounds i8, ptr %2, i64 16
+  store i32 %39, ptr %40, align 8
+  %41 = load ptr, ptr %31, align 8
+  %42 = getelementptr inbounds i8, ptr %41, i64 3
+  %.val.i19.i = load i16, ptr %42, align 1
+  %43 = zext i16 %.val.i19.i to i32
+  %44 = getelementptr inbounds i8, ptr %41, i64 5
+  %45 = load i8, ptr %44, align 1
+  %46 = zext i8 %45 to i32
+  %47 = shl nuw nsw i32 %46, 17
+  %48 = shl nuw nsw i32 %43, 1
+  %49 = or disjoint i32 %47, %48
+  %50 = getelementptr inbounds i8, ptr %2, i64 20
+  store i32 %49, ptr %50, align 4
+  %51 = load ptr, ptr %31, align 8
+  %52 = getelementptr inbounds i8, ptr %51, i64 15
+  %53 = load i8, ptr %52, align 1
+  %54 = getelementptr inbounds i8, ptr %51, i64 12
+  %.val.i20.i = load i16, ptr %54, align 1
+  %55 = zext i16 %.val.i20.i to i32
+  %56 = getelementptr inbounds i8, ptr %51, i64 14
+  %57 = load i8, ptr %56, align 1
+  %58 = zext i8 %57 to i32
+  %59 = shl nuw nsw i32 %58, 16
+  %60 = or disjoint i32 %59, %55
+  %61 = getelementptr inbounds i8, ptr %2, i64 24
+  store i32 %60, ptr %61, align 8
+  %62 = zext i8 %53 to i32
+  %63 = and i32 %62, 1
+  %64 = getelementptr inbounds i8, ptr %2, i64 32
+  store i32 %63, ptr %64, align 8
+  %65 = lshr i32 %62, 1
+  %.lobit.i = and i32 %65, 1
+  %66 = getelementptr inbounds i8, ptr %2, i64 36
+  store i32 %.lobit.i, ptr %66, align 4
+  br label %MuxGetFrameInternal.exit.sink.split
+
+MuxGetFrameInternal.exit.sink.split:              ; preds = %13, %30
+  %.sink.in = phi ptr [ %10, %30 ], [ %19, %13 ]
+  %.sink = load ptr, ptr %.sink.in, align 8
+  %67 = load i32, ptr %.sink, align 8
+  %68 = call i32 @ChunkGetIdFromTag(i32 noundef %67) #6
+  %69 = getelementptr inbounds i8, ptr %2, i64 28
+  store i32 %68, ptr %69, align 4
+  %70 = call fastcc i32 @SynthesizeBitstream(ptr noundef nonnull readonly %10, ptr noundef %2)
   br label %MuxGetFrameInternal.exit
 
-25:                                               ; preds = %9
-  %26 = load i32, ptr %11, align 8
-  %27 = load i32, ptr getelementptr inbounds (i8, ptr @kChunks, i64 36), align 4
-  %28 = icmp eq i32 %26, %27
-  br i1 %28, label %29, label %MuxGetFrameInternal.exit
-
-29:                                               ; preds = %25
-  %30 = getelementptr inbounds i8, ptr %11, i64 16
-  %31 = load i64, ptr %30, align 8
-  %32 = load i32, ptr getelementptr inbounds (i8, ptr @kChunks, i64 44), align 4
-  %33 = zext i32 %32 to i64
-  %34 = icmp ult i64 %31, %33
-  br i1 %34, label %MuxGetFrameInternal.exit, label %35
-
-35:                                               ; preds = %29
-  %36 = getelementptr inbounds i8, ptr %11, i64 8
-  %37 = load ptr, ptr %36, align 8
-  %.val.i.i = load i16, ptr %37, align 1
-  %38 = zext i16 %.val.i.i to i32
-  %39 = getelementptr inbounds i8, ptr %37, i64 2
-  %40 = load i8, ptr %39, align 1
-  %41 = zext i8 %40 to i32
-  %42 = shl nuw nsw i32 %41, 17
-  %43 = shl nuw nsw i32 %38, 1
-  %44 = or disjoint i32 %42, %43
-  %45 = getelementptr inbounds i8, ptr %2, i64 16
-  store i32 %44, ptr %45, align 8
-  %46 = load ptr, ptr %36, align 8
-  %47 = getelementptr inbounds i8, ptr %46, i64 3
-  %.val.i19.i = load i16, ptr %47, align 1
-  %48 = zext i16 %.val.i19.i to i32
-  %49 = getelementptr inbounds i8, ptr %46, i64 5
-  %50 = load i8, ptr %49, align 1
-  %51 = zext i8 %50 to i32
-  %52 = shl nuw nsw i32 %51, 17
-  %53 = shl nuw nsw i32 %48, 1
-  %54 = or disjoint i32 %52, %53
-  %55 = getelementptr inbounds i8, ptr %2, i64 20
-  store i32 %54, ptr %55, align 4
-  %56 = load ptr, ptr %36, align 8
-  %57 = getelementptr inbounds i8, ptr %56, i64 15
-  %58 = load i8, ptr %57, align 1
-  %59 = getelementptr inbounds i8, ptr %56, i64 12
-  %.val.i20.i = load i16, ptr %59, align 1
-  %60 = zext i16 %.val.i20.i to i32
-  %61 = getelementptr inbounds i8, ptr %56, i64 14
-  %62 = load i8, ptr %61, align 1
-  %63 = zext i8 %62 to i32
-  %64 = shl nuw nsw i32 %63, 16
-  %65 = or disjoint i32 %64, %60
-  %66 = getelementptr inbounds i8, ptr %2, i64 24
-  store i32 %65, ptr %66, align 8
-  %67 = zext i8 %58 to i32
-  %68 = and i32 %67, 1
-  %69 = getelementptr inbounds i8, ptr %2, i64 32
-  store i32 %68, ptr %69, align 8
-  %70 = lshr i32 %67, 1
-  %.lobit.i = and i32 %70, 1
-  %71 = getelementptr inbounds i8, ptr %2, i64 36
-  store i32 %.lobit.i, ptr %71, align 4
-  %72 = load ptr, ptr %10, align 8
-  %73 = load i32, ptr %72, align 8
-  %74 = call i32 @ChunkGetIdFromTag(i32 noundef %73) #6
-  %75 = getelementptr inbounds i8, ptr %2, i64 28
-  store i32 %74, ptr %75, align 4
-  %76 = call fastcc i32 @SynthesizeBitstream(ptr noundef nonnull readonly %10, ptr noundef %2)
-  br label %MuxGetFrameInternal.exit
-
-MuxGetFrameInternal.exit:                         ; preds = %35, %29, %25, %7, %3, %13
-  %.0 = phi i32 [ %24, %13 ], [ -1, %3 ], [ %8, %7 ], [ %76, %35 ], [ -1, %25 ], [ -2, %29 ]
+MuxGetFrameInternal.exit:                         ; preds = %MuxGetFrameInternal.exit.sink.split, %24, %20, %7, %3
+  %.0 = phi i32 [ -1, %3 ], [ %8, %7 ], [ -1, %20 ], [ -2, %24 ], [ %70, %MuxGetFrameInternal.exit.sink.split ]
   ret i32 %.0
 }
 

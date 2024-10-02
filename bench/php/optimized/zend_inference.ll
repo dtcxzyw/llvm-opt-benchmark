@@ -38952,8 +38952,7 @@ zend_fetch_prop_type.exit10358:                   ; preds = %1547, %1549
   %1749 = or disjoint i8 %1748, %1747
   store i8 %1749, ptr %1745, align 4
   %1750 = load i32, ptr %1668, align 4
-  call fastcc void @add_usages(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %1750)
-  br label %1909
+  br label %.sink.split11680
 
 1751:                                             ; preds = %1720, %1717, %1712, %1709
   %1752 = load i32, ptr %1668, align 4
@@ -38985,8 +38984,7 @@ zend_fetch_prop_type.exit10358:                   ; preds = %1547, %1549
   %1769 = and i8 %1768, -3
   store i8 %1769, ptr %1767, align 4
   %1770 = load i32, ptr %1668, align 4
-  call fastcc void @add_usages(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %1770)
-  br label %1909
+  br label %.sink.split11680
 
 1771:                                             ; preds = %1617
   %1772 = load i8, ptr %375, align 1
@@ -39121,8 +39119,7 @@ zend_fetch_prop_type.exit10358:                   ; preds = %1547, %1549
   %1847 = or disjoint i8 %1846, %1845
   store i8 %1847, ptr %1843, align 4
   %1848 = load i32, ptr %1777, align 4
-  call fastcc void @add_usages(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %1848)
-  br label %1909
+  br label %.sink.split11680
 
 1849:                                             ; preds = %1818, %1815, %1810, %1807
   %1850 = load i32, ptr %1777, align 4
@@ -39154,8 +39151,7 @@ zend_fetch_prop_type.exit10358:                   ; preds = %1547, %1549
   %1867 = and i8 %1866, -3
   store i8 %1867, ptr %1865, align 4
   %1868 = load i32, ptr %1777, align 4
-  call fastcc void @add_usages(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %1868)
-  br label %1909
+  br label %.sink.split11680
 
 1869:                                             ; preds = %._crit_edge11309, %.thread10515
   %1870 = phi i32 [ %.pre11311, %._crit_edge11309 ], [ %1606, %.thread10515 ]
@@ -39230,11 +39226,16 @@ zend_fetch_prop_type.exit10358:                   ; preds = %1547, %1549
 
 1908:                                             ; preds = %1900
   store i32 %.27828, ptr %1898, align 8
-  call fastcc void @add_usages(ptr noundef nonnull %0, ptr noundef %2, ptr noundef %3, i32 noundef %1870)
+  br label %.sink.split11680
+
+.sink.split11680:                                 ; preds = %1741, %1763, %1908, %1861, %1839
+  %.sink = phi i32 [ %1848, %1839 ], [ %1868, %1861 ], [ %1870, %1908 ], [ %1770, %1763 ], [ %1750, %1741 ]
+  %.18.ph = phi i32 [ %.17, %1839 ], [ %.17, %1861 ], [ %.19, %1908 ], [ %.17, %1763 ], [ %.17, %1741 ]
+  call fastcc void @add_usages(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %.sink)
   br label %1909
 
-1909:                                             ; preds = %1617, %1835, %1839, %1824, %1857, %1861, %1849, %1771, %1869, %1908, %1897, %1623, %1751, %1763, %1759, %1726, %1741, %1737
-  %.18 = phi i32 [ %.17, %1763 ], [ %.17, %1759 ], [ %.17, %1751 ], [ %.17, %1741 ], [ %.17, %1737 ], [ %.17, %1726 ], [ %.17, %1623 ], [ %.17, %1861 ], [ %.17, %1857 ], [ %.17, %1849 ], [ %.17, %1839 ], [ %.17, %1835 ], [ %.17, %1824 ], [ %.17, %1771 ], [ %.19, %1908 ], [ %.19, %1897 ], [ %.19, %1869 ], [ %.17, %1617 ]
+1909:                                             ; preds = %.sink.split11680, %1617, %1835, %1824, %1857, %1849, %1771, %1869, %1897, %1623, %1751, %1759, %1726, %1737
+  %.18 = phi i32 [ %.17, %1759 ], [ %.17, %1751 ], [ %.17, %1737 ], [ %.17, %1726 ], [ %.17, %1623 ], [ %.17, %1857 ], [ %.17, %1849 ], [ %.17, %1835 ], [ %.17, %1824 ], [ %.17, %1771 ], [ %.19, %1897 ], [ %.19, %1869 ], [ %.17, %1617 ], [ %.18.ph, %.sink.split11680 ]
   %1910 = getelementptr inbounds i8, ptr %.07655, i64 20
   %1911 = load i32, ptr %1910, align 4
   %1912 = icmp sgt i32 %1911, -1
@@ -40193,7 +40194,7 @@ zend_fetch_prop_type.exit10367:                   ; preds = %1947
   %2432 = and i8 %2430, -3
   %2433 = or disjoint i8 %2432, %2431
   store i8 %2433, ptr %2429, align 4
-  br label %.sink.split11680
+  br label %.sink.split11681
 
 2434:                                             ; preds = %2404, %2401, %2396, %2393
   %2435 = load i32, ptr %2353, align 4
@@ -40224,14 +40225,14 @@ zend_fetch_prop_type.exit10367:                   ; preds = %1947
   %2451 = load i8, ptr %2450, align 4
   %2452 = and i8 %2451, -3
   store i8 %2452, ptr %2450, align 4
-  br label %.sink.split11680
+  br label %.sink.split11681
 
-.sink.split11680:                                 ; preds = %2446, %2425
+.sink.split11681:                                 ; preds = %2446, %2425
   %2453 = load i32, ptr %2353, align 4
   call fastcc void @add_usages(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %2453)
   br label %2454
 
-2454:                                             ; preds = %.sink.split11680, %2421, %2410, %2442, %2434, %2308
+2454:                                             ; preds = %.sink.split11681, %2421, %2410, %2442, %2434, %2308
   %2455 = getelementptr inbounds i8, ptr %.07655, i64 20
   %2456 = load i32, ptr %2455, align 4
   %2457 = icmp sgt i32 %2456, -1
@@ -40787,7 +40788,7 @@ zend_fetch_prop_type.exit10367:                   ; preds = %1947
   %2761 = and i8 %2759, -3
   %2762 = or disjoint i8 %2761, %2760
   store i8 %2762, ptr %2758, align 4
-  br label %.sink.split11681
+  br label %.sink.split11683
 
 2763:                                             ; preds = %2733, %2730, %2725, %2722
   %2764 = load i32, ptr %2682, align 4
@@ -40818,14 +40819,14 @@ zend_fetch_prop_type.exit10367:                   ; preds = %1947
   %2780 = load i8, ptr %2779, align 4
   %2781 = and i8 %2780, -3
   store i8 %2781, ptr %2779, align 4
-  br label %.sink.split11681
+  br label %.sink.split11683
 
-.sink.split11681:                                 ; preds = %2775, %2754
+.sink.split11683:                                 ; preds = %2775, %2754
   %2782 = load i32, ptr %2682, align 4
   call fastcc void @add_usages(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %2782)
   br label %2783
 
-2783:                                             ; preds = %.sink.split11681, %2750, %2739, %2771, %2763, %2654
+2783:                                             ; preds = %.sink.split11683, %2750, %2739, %2771, %2763, %2654
   %2784 = getelementptr inbounds i8, ptr %.07655, i64 20
   %2785 = load i32, ptr %2784, align 4
   %2786 = icmp sgt i32 %2785, -1
@@ -41464,7 +41465,7 @@ zend_fetch_prop_type.exit10379:                   ; preds = %2789, %2790
   %3137 = and i8 %3135, -3
   %3138 = or disjoint i8 %3137, %3136
   store i8 %3138, ptr %3134, align 4
-  br label %.sink.split11682
+  br label %.sink.split11685
 
 3139:                                             ; preds = %3109, %3106, %3101, %3098
   %3140 = load i32, ptr %3068, align 4
@@ -41495,14 +41496,14 @@ zend_fetch_prop_type.exit10379:                   ; preds = %2789, %2790
   %3156 = load i8, ptr %3155, align 4
   %3157 = and i8 %3156, -3
   store i8 %3157, ptr %3155, align 4
-  br label %.sink.split11682
+  br label %.sink.split11685
 
-.sink.split11682:                                 ; preds = %3151, %3130
+.sink.split11685:                                 ; preds = %3151, %3130
   %3158 = load i32, ptr %3068, align 4
   call fastcc void @add_usages(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %3158)
   br label %3159
 
-3159:                                             ; preds = %.sink.split11682, %3126, %3115, %3147, %3139, %3063
+3159:                                             ; preds = %.sink.split11685, %3126, %3115, %3147, %3139, %3063
   %3160 = getelementptr inbounds i8, ptr %.07655, i64 20
   %3161 = load i32, ptr %3160, align 4
   %3162 = icmp sgt i32 %3161, -1
@@ -41828,7 +41829,7 @@ zend_fetch_prop_type.exit10379:                   ; preds = %2789, %2790
   %3334 = and i8 %3332, -3
   %3335 = or disjoint i8 %3334, %3333
   store i8 %3335, ptr %3331, align 4
-  br label %.sink.split11683
+  br label %.sink.split11687
 
 3336:                                             ; preds = %3306, %3303, %3298, %3294
   %3337 = load i32, ptr %3249, align 4
@@ -41859,15 +41860,15 @@ zend_fetch_prop_type.exit10379:                   ; preds = %2789, %2790
   %3353 = load i8, ptr %3352, align 4
   %3354 = and i8 %3353, -3
   store i8 %3354, ptr %3352, align 4
-  br label %.sink.split11683
+  br label %.sink.split11687
 
-.sink.split11683:                                 ; preds = %3348, %3327
+.sink.split11687:                                 ; preds = %3348, %3327
   %3355 = load i32, ptr %3249, align 4
   call fastcc void @add_usages(ptr noundef nonnull %0, ptr noundef %2, ptr noundef %3, i32 noundef %3355)
   br label %3356
 
-3356:                                             ; preds = %.sink.split11683, %3323, %3312, %3344, %3336, %3244
-  %.55 = phi i32 [ %.56, %3344 ], [ %.56, %3336 ], [ %.56, %3323 ], [ %.56, %3312 ], [ %.54, %3244 ], [ %.56, %.sink.split11683 ]
+3356:                                             ; preds = %.sink.split11687, %3323, %3312, %3344, %3336, %3244
+  %.55 = phi i32 [ %.56, %3344 ], [ %.56, %3336 ], [ %.56, %3323 ], [ %.56, %3312 ], [ %.54, %3244 ], [ %.56, %.sink.split11687 ]
   %3357 = getelementptr inbounds i8, ptr %.07655, i64 20
   %3358 = load i32, ptr %3357, align 4
   %3359 = icmp sgt i32 %3358, -1
@@ -42406,7 +42407,7 @@ zend_fetch_prop_type.exit10379:                   ; preds = %2789, %2790
   %3657 = and i8 %3655, -3
   %3658 = or disjoint i8 %3657, %3656
   store i8 %3658, ptr %3654, align 4
-  br label %.sink.split11685
+  br label %.sink.split11691
 
 3659:                                             ; preds = %3629, %3626, %3621, %3618
   %3660 = load i32, ptr %3576, align 4
@@ -42437,14 +42438,14 @@ zend_fetch_prop_type.exit10379:                   ; preds = %2789, %2790
   %3676 = load i8, ptr %3675, align 4
   %3677 = and i8 %3676, -3
   store i8 %3677, ptr %3675, align 4
-  br label %.sink.split11685
+  br label %.sink.split11691
 
-.sink.split11685:                                 ; preds = %3671, %3650
+.sink.split11691:                                 ; preds = %3671, %3650
   %3678 = load i32, ptr %3576, align 4
   call fastcc void @add_usages(ptr noundef nonnull %0, ptr noundef %2, ptr noundef %3, i32 noundef %3678)
   br label %3679
 
-3679:                                             ; preds = %.sink.split11685, %3646, %3635, %3667, %3659, %3575, %3573
+3679:                                             ; preds = %.sink.split11691, %3646, %3635, %3667, %3659, %3575, %3573
   %3680 = getelementptr inbounds i8, ptr %.07654, i64 32
   %3681 = getelementptr inbounds i8, ptr %.07655, i64 36
   %3682 = getelementptr inbounds i8, ptr %.07654, i64 61
@@ -43463,7 +43464,7 @@ zend_fetch_prop_type.exit10379:                   ; preds = %2789, %2790
   %4249 = and i8 %4247, -3
   %4250 = or disjoint i8 %4249, %4248
   store i8 %4250, ptr %4246, align 4
-  br label %.sink.split11687
+  br label %.sink.split11695
 
 4251:                                             ; preds = %4221, %4218, %4213, %4210
   %4252 = load i32, ptr %4162, align 4
@@ -43494,14 +43495,14 @@ zend_fetch_prop_type.exit10379:                   ; preds = %2789, %2790
   %4268 = load i8, ptr %4267, align 4
   %4269 = and i8 %4268, -3
   store i8 %4269, ptr %4267, align 4
-  br label %.sink.split11687
+  br label %.sink.split11695
 
-.sink.split11687:                                 ; preds = %4263, %4242
+.sink.split11695:                                 ; preds = %4263, %4242
   %4270 = load i32, ptr %4162, align 4
   call fastcc void @add_usages(ptr noundef nonnull %0, ptr noundef %2, ptr noundef %3, i32 noundef %4270)
   br label %4271
 
-4271:                                             ; preds = %.sink.split11687, %4238, %4227, %4259, %4251, %4161
+4271:                                             ; preds = %.sink.split11695, %4238, %4227, %4259, %4251, %4161
   %4272 = getelementptr inbounds i8, ptr %.07655, i64 20
   %4273 = load i32, ptr %4272, align 4
   %4274 = icmp sgt i32 %4273, -1
@@ -44809,15 +44810,15 @@ zend_fetch_prop_type.exit10379:                   ; preds = %2789, %2790
   br label %thread-pre-split10557.sink.split
 
 thread-pre-split10557.sink.split:                 ; preds = %5016, %4951
-  %.sink12029.in = phi ptr [ %5004, %5016 ], [ %4939, %4951 ]
-  %.sink12029 = load i32, ptr %.sink12029.in, align 4
-  %5018 = sext i32 %.sink12029 to i64
+  %.sink12039.in = phi ptr [ %5004, %5016 ], [ %4939, %4951 ]
+  %.sink12039 = load i32, ptr %.sink12039.in, align 4
+  %5018 = sext i32 %.sink12039 to i64
   %5019 = getelementptr inbounds %struct._zend_ssa_var_info, ptr %371, i64 %5018, i32 1
   %5020 = load i8, ptr %5019, align 4
   %5021 = and i8 %5020, -3
   store i8 %5021, ptr %5019, align 4
-  %.sink = load i32, ptr %.sink12029.in, align 4
-  call fastcc void @add_usages(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %.sink)
+  %.sink11697 = load i32, ptr %.sink12039.in, align 4
+  call fastcc void @add_usages(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %.sink11697)
   br label %thread-pre-split10557
 
 thread-pre-split10557:                            ; preds = %thread-pre-split10557.sink.split, %4947, %4938, %5003, %5012, %4992
@@ -45863,7 +45864,7 @@ thread-pre-split10557:                            ; preds = %thread-pre-split105
   %5600 = and i8 %5598, -3
   %5601 = or disjoint i8 %5600, %5599
   store i8 %5601, ptr %5597, align 4
-  br label %.sink.split11688
+  br label %.sink.split11698
 
 5602:                                             ; preds = %5572, %5569, %5564, %5561
   %5603 = load i32, ptr %5518, align 4
@@ -45894,14 +45895,14 @@ thread-pre-split10557:                            ; preds = %thread-pre-split105
   %5619 = load i8, ptr %5618, align 4
   %5620 = and i8 %5619, -3
   store i8 %5620, ptr %5618, align 4
-  br label %.sink.split11688
+  br label %.sink.split11698
 
-.sink.split11688:                                 ; preds = %5614, %5593
+.sink.split11698:                                 ; preds = %5614, %5593
   %5621 = load i32, ptr %5518, align 4
   call fastcc void @add_usages(ptr noundef nonnull %0, ptr noundef %2, ptr noundef %3, i32 noundef %5621)
   br label %5622
 
-5622:                                             ; preds = %.sink.split11688, %5589, %5578, %5610, %5602, %5517
+5622:                                             ; preds = %.sink.split11698, %5589, %5578, %5610, %5602, %5517
   %5623 = getelementptr inbounds i8, ptr %.07655, i64 20
   %5624 = load i32, ptr %5623, align 4
   %5625 = icmp sgt i32 %5624, -1
@@ -46832,7 +46833,7 @@ thread-pre-split10557:                            ; preds = %thread-pre-split105
   %6091 = and i8 %6089, -3
   %6092 = or disjoint i8 %6091, %6090
   store i8 %6092, ptr %6088, align 4
-  br label %.sink.split11690
+  br label %.sink.split11700
 
 6093:                                             ; preds = %6063, %6060, %6055, %6052
   %6094 = load i32, ptr %5891, align 4
@@ -46863,14 +46864,14 @@ thread-pre-split10557:                            ; preds = %thread-pre-split105
   %6110 = load i8, ptr %6109, align 4
   %6111 = and i8 %6110, -3
   store i8 %6111, ptr %6109, align 4
-  br label %.sink.split11690
+  br label %.sink.split11700
 
-.sink.split11690:                                 ; preds = %6105, %6084
+.sink.split11700:                                 ; preds = %6105, %6084
   %6112 = load i32, ptr %5891, align 4
   call fastcc void @add_usages(ptr noundef nonnull %0, ptr noundef %2, ptr noundef %3, i32 noundef %6112)
   br label %6113
 
-6113:                                             ; preds = %.sink.split11690, %6080, %6069, %6101, %6093, %5890
+6113:                                             ; preds = %.sink.split11700, %6080, %6069, %6101, %6093, %5890
   %6114 = load i8, ptr %634, align 4
   %6115 = icmp ne i8 %6114, 98
   %6116 = and i32 %.0760810484, -67

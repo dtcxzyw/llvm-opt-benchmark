@@ -1183,7 +1183,7 @@ rtp_dyn_payload_ref.exit:                         ; preds = %rtp_dyn_payload_fre
 93:                                               ; preds = %92
   %94 = call i32 @wmem_array_get_count(ptr noundef nonnull %.07298) #11
   %.not.i93 = icmp eq i32 %94, 0
-  br i1 %.not.i93, label %._crit_edge.i, label %.lr.ph.i
+  br i1 %.not.i93, label %rtp_add_setup_info_if_no_duplicate.exit.sink.split, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %93
   %95 = getelementptr inbounds i8, ptr %10, i64 4
@@ -1229,20 +1229,20 @@ rtp_dyn_payload_ref.exit:                         ; preds = %rtp_dyn_payload_fre
   %118 = add nuw i32 %.014.i, 1
   %119 = call i32 @wmem_array_get_count(ptr noundef nonnull %.07298) #11
   %120 = icmp ult i32 %118, %119
-  br i1 %120, label %97, label %._crit_edge.i, !llvm.loop !6
-
-._crit_edge.i:                                    ; preds = %.thread.i94, %93
-  call void @wmem_array_append(ptr noundef nonnull %.07298, ptr noundef nonnull %10, i32 noundef 1) #11
-  br label %rtp_add_setup_info_if_no_duplicate.exit
+  br i1 %120, label %97, label %rtp_add_setup_info_if_no_duplicate.exit.sink.split, !llvm.loop !6
 
 121:                                              ; preds = %92
   %122 = call ptr @wmem_file_scope() #11
   %123 = call noalias ptr @wmem_array_new(ptr noundef %122, i64 noundef 24) #11
   store ptr %123, ptr %91, align 8
-  call void @wmem_array_append(ptr noundef %123, ptr noundef nonnull %10, i32 noundef 1) #11
+  br label %rtp_add_setup_info_if_no_duplicate.exit.sink.split
+
+rtp_add_setup_info_if_no_duplicate.exit.sink.split: ; preds = %.thread.i94, %93, %121
+  %.07298.sink = phi ptr [ %123, %121 ], [ %.07298, %93 ], [ %.07298, %.thread.i94 ]
+  call void @wmem_array_append(ptr noundef %.07298.sink, ptr noundef nonnull %10, i32 noundef 1) #11
   br label %rtp_add_setup_info_if_no_duplicate.exit
 
-rtp_add_setup_info_if_no_duplicate.exit:          ; preds = %113, %104, %._crit_edge.i, %121, %85
+rtp_add_setup_info_if_no_duplicate.exit:          ; preds = %113, %104, %rtp_add_setup_info_if_no_duplicate.exit.sink.split, %85
   %124 = call nonnull ptr @find_or_create_conversation(ptr noundef %0) #11
   %125 = load ptr, ptr %91, align 8
   %.not91 = icmp eq ptr %125, null
@@ -1497,25 +1497,21 @@ define internal i32 @dissect_pkt_ccc(ptr noundef %0, ptr noundef %1, ptr noundef
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %.split, label %.split13
 
-.split:                                           ; preds = %4
-  %5 = tail call i32 @dissect_rtp(ptr noundef %0, ptr noundef %1, ptr noundef null, ptr poison)
-  br label %15
-
 .split13:                                         ; preds = %4
-  %6 = load i32, ptr @proto_pkt_ccc, align 4
-  %7 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %2, i32 noundef %6, ptr noundef %0, i32 noundef 0, i32 noundef 12, i32 noundef 0) #11
-  %8 = load i32, ptr @ett_pkt_ccc, align 4
-  %9 = tail call ptr @proto_item_add_subtree(ptr noundef %7, i32 noundef %8) #11
-  %10 = load i32, ptr @hf_pkt_ccc_id, align 4
-  %11 = tail call ptr @proto_tree_add_item(ptr noundef %9, i32 noundef %10, ptr noundef %0, i32 noundef 0, i32 noundef 4, i32 noundef 0) #11
-  %12 = load i32, ptr @hf_pkt_ccc_ts, align 4
-  %13 = tail call ptr @proto_tree_add_item(ptr noundef %9, i32 noundef %12, ptr noundef %0, i32 noundef 4, i32 noundef 8, i32 noundef 2) #11
-  %14 = tail call i32 @dissect_rtp(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %2, ptr poison)
-  br label %15
+  %5 = load i32, ptr @proto_pkt_ccc, align 4
+  %6 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %2, i32 noundef %5, ptr noundef %0, i32 noundef 0, i32 noundef 12, i32 noundef 0) #11
+  %7 = load i32, ptr @ett_pkt_ccc, align 4
+  %8 = tail call ptr @proto_item_add_subtree(ptr noundef %6, i32 noundef %7) #11
+  %9 = load i32, ptr @hf_pkt_ccc_id, align 4
+  %10 = tail call ptr @proto_tree_add_item(ptr noundef %8, i32 noundef %9, ptr noundef %0, i32 noundef 0, i32 noundef 4, i32 noundef 0) #11
+  %11 = load i32, ptr @hf_pkt_ccc_ts, align 4
+  %12 = tail call ptr @proto_tree_add_item(ptr noundef %8, i32 noundef %11, ptr noundef %0, i32 noundef 4, i32 noundef 8, i32 noundef 2) #11
+  br label %.split
 
-15:                                               ; preds = %.split, %.split13
-  %phi.call = phi i32 [ %5, %.split ], [ %14, %.split13 ]
-  ret i32 %phi.call
+.split:                                           ; preds = %4, %.split13
+  %.sink = phi ptr [ %2, %.split13 ], [ null, %4 ]
+  %13 = tail call i32 @dissect_rtp(ptr noundef %0, ptr noundef %1, ptr noundef %.sink, ptr poison)
+  ret i32 %13
 }
 
 ; Function Attrs: nounwind uwtable

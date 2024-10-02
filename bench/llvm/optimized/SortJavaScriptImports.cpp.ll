@@ -8192,7 +8192,7 @@ define linkonce_odr hidden void @_ZSt16__merge_adaptiveIPN5clang6format16JsImpor
   br label %31
 
 tailrecurse._crit_edge:                           ; preds = %tailrecurse, %7
-  %.tr.lcssa = phi ptr [ %0, %7 ], [ %91, %tailrecurse ]
+  %.tr.lcssa = phi ptr [ %0, %7 ], [ %89, %tailrecurse ]
   %.tr113.lcssa = phi ptr [ %1, %7 ], [ %.0109, %tailrecurse ]
   %9 = ptrtoint ptr %.tr113.lcssa to i64
   %10 = ptrtoint ptr %.tr.lcssa to i64
@@ -8256,180 +8256,177 @@ _ZSt4moveIPN5clang6format16JsImportedSymbolES3_ET0_T_S5_S4_.exit.i: ; preds = %.
 
 31:                                               ; preds = %.lr.ph, %tailrecurse
   %.not131 = phi i1 [ %.not124, %.lr.ph ], [ %.not, %tailrecurse ]
-  %.tr116130 = phi i64 [ %4, %.lr.ph ], [ %92, %tailrecurse ]
-  %.tr115129 = phi i64 [ %3, %.lr.ph ], [ %90, %tailrecurse ]
+  %.tr116130 = phi i64 [ %4, %.lr.ph ], [ %90, %tailrecurse ]
+  %.tr115129 = phi i64 [ %3, %.lr.ph ], [ %88, %tailrecurse ]
   %.tr113128 = phi ptr [ %1, %.lr.ph ], [ %.0109, %tailrecurse ]
-  %.tr127 = phi ptr [ %0, %.lr.ph ], [ %91, %tailrecurse ]
+  %.tr127 = phi ptr [ %0, %.lr.ph ], [ %89, %tailrecurse ]
   %.not71 = icmp sgt i64 %.tr116130, %6
-  %32 = ptrtoint ptr %.tr113128 to i64
-  br i1 %.not71, label %58, label %33
+  br i1 %.not71, label %55, label %32
 
-33:                                               ; preds = %31
-  %34 = sub i64 %8, %32
+32:                                               ; preds = %31
   %.not.i.i.i.i.i72 = icmp eq ptr %2, %.tr113128
   br i1 %.not.i.i.i.i.i72, label %_ZSt21__move_merge_adaptiveIPN5clang6format16JsImportedSymbolES3_S3_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS1_22JavaScriptImportSorter15appendReferenceERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERNS1_17JsModuleReferenceEEUlRKS2_SI_E_EEEvT_SL_T0_SM_T1_T2_.exit, label %_ZSt4moveIPN5clang6format16JsImportedSymbolES3_ET0_T_S5_S4_.exit73.thread
 
-_ZSt4moveIPN5clang6format16JsImportedSymbolES3_ET0_T_S5_S4_.exit73.thread: ; preds = %33
+_ZSt4moveIPN5clang6format16JsImportedSymbolES3_ET0_T_S5_S4_.exit73.thread: ; preds = %32
+  %33 = ptrtoint ptr %.tr113128 to i64
+  %34 = sub i64 %8, %33
   tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %5, ptr align 8 %.tr113128, i64 %34, i1 false)
-  %35 = icmp eq ptr %.tr127, %.tr113128
-  br i1 %35, label %36, label %38
+  %35 = getelementptr inbounds i8, ptr %5, i64 %34
+  %36 = icmp eq ptr %.tr127, %.tr113128
+  br i1 %36, label %_ZSt13move_backwardIPN5clang6format16JsImportedSymbolES3_ET0_T_S5_S4_.exit.sink.split.i, label %37
 
-36:                                               ; preds = %_ZSt4moveIPN5clang6format16JsImportedSymbolES3_ET0_T_S5_S4_.exit73.thread
-  %.neg.i.i.i.i.i.i = sdiv exact i64 %34, -40
-  %37 = getelementptr inbounds %"struct.clang::format::JsImportedSymbol", ptr %2, i64 %.neg.i.i.i.i.i.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %37, ptr align 8 %5, i64 %34, i1 false)
-  br label %_ZSt21__move_merge_adaptiveIPN5clang6format16JsImportedSymbolES3_S3_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS1_22JavaScriptImportSorter15appendReferenceERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERNS1_17JsModuleReferenceEEUlRKS2_SI_E_EEEvT_SL_T0_SM_T1_T2_.exit
-
-38:                                               ; preds = %_ZSt4moveIPN5clang6format16JsImportedSymbolES3_ET0_T_S5_S4_.exit73.thread
-  %39 = getelementptr inbounds i8, ptr %5, i64 %34
-  %40 = getelementptr inbounds i8, ptr %39, i64 -40
+37:                                               ; preds = %_ZSt4moveIPN5clang6format16JsImportedSymbolES3_ET0_T_S5_S4_.exit73.thread
+  %38 = getelementptr inbounds i8, ptr %35, i64 -40
   br label %.outer
 
-.outer:                                           ; preds = %45, %38
-  %.026.i.ph.pn = phi ptr [ %.tr113128, %38 ], [ %.026.i.ph, %45 ]
-  %.024.i74.ph = phi ptr [ %40, %38 ], [ %.024.i74, %45 ]
-  %.0.i.ph = phi ptr [ %2, %38 ], [ %44, %45 ]
+.outer:                                           ; preds = %43, %37
+  %.026.i.ph.pn = phi ptr [ %.tr113128, %37 ], [ %.026.i.ph, %43 ]
+  %.024.i74.ph = phi ptr [ %38, %37 ], [ %.024.i74, %43 ]
+  %.0.i.ph = phi ptr [ %2, %37 ], [ %42, %43 ]
   %.026.i.ph = getelementptr inbounds i8, ptr %.026.i.ph.pn, i64 -40
   %.sroa.2.0..sroa_idx.i.i.i76 = getelementptr inbounds i8, ptr %.026.i.ph.pn, i64 -32
-  br label %41
+  br label %39
 
-41:                                               ; preds = %.outer, %56
-  %.024.i74 = phi ptr [ %57, %56 ], [ %.024.i74.ph, %.outer ]
-  %.0.i = phi ptr [ %44, %56 ], [ %.0.i.ph, %.outer ]
+39:                                               ; preds = %.outer, %49
+  %.024.i74 = phi ptr [ %50, %49 ], [ %.024.i74.ph, %.outer ]
+  %.0.i = phi ptr [ %42, %49 ], [ %.0.i.ph, %.outer ]
   %.sroa.0.0.copyload.i.i.i75 = load ptr, ptr %.026.i.ph, align 8
   %.sroa.2.0.copyload.i.i.i77 = load i64, ptr %.sroa.2.0..sroa_idx.i.i.i76, align 8
-  %42 = tail call noundef i32 @_ZNK4llvm9StringRef19compare_insensitiveES0_(ptr noundef nonnull align 8 dereferenceable(16) %.024.i74, ptr %.sroa.0.0.copyload.i.i.i75, i64 %.sroa.2.0.copyload.i.i.i77) #14
-  %43 = icmp slt i32 %42, 0
-  %44 = getelementptr inbounds i8, ptr %.0.i, i64 -40
-  br i1 %43, label %45, label %54
+  %40 = tail call noundef i32 @_ZNK4llvm9StringRef19compare_insensitiveES0_(ptr noundef nonnull align 8 dereferenceable(16) %.024.i74, ptr %.sroa.0.0.copyload.i.i.i75, i64 %.sroa.2.0.copyload.i.i.i77) #14
+  %41 = icmp slt i32 %40, 0
+  %42 = getelementptr inbounds i8, ptr %.0.i, i64 -40
+  br i1 %41, label %43, label %47
 
-45:                                               ; preds = %41
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %44, ptr noundef nonnull align 8 dereferenceable(40) %.026.i.ph, i64 40, i1 false)
-  %46 = icmp eq ptr %.tr127, %.026.i.ph
-  br i1 %46, label %47, label %.outer, !llvm.loop !63
+43:                                               ; preds = %39
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %42, ptr noundef nonnull align 8 dereferenceable(40) %.026.i.ph, i64 40, i1 false)
+  %44 = icmp eq ptr %.tr127, %.026.i.ph
+  br i1 %44, label %45, label %.outer, !llvm.loop !63
 
-47:                                               ; preds = %45
-  %48 = getelementptr inbounds i8, ptr %.024.i74, i64 40
-  %.not.i.i.i.i.i33.i = icmp eq ptr %48, %5
-  br i1 %.not.i.i.i.i.i33.i, label %_ZSt21__move_merge_adaptiveIPN5clang6format16JsImportedSymbolES3_S3_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS1_22JavaScriptImportSorter15appendReferenceERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERNS1_17JsModuleReferenceEEUlRKS2_SI_E_EEEvT_SL_T0_SM_T1_T2_.exit, label %49
+45:                                               ; preds = %43
+  %46 = getelementptr inbounds i8, ptr %.024.i74, i64 40
+  %.not.i.i.i.i.i33.i = icmp eq ptr %46, %5
+  br i1 %.not.i.i.i.i.i33.i, label %_ZSt21__move_merge_adaptiveIPN5clang6format16JsImportedSymbolES3_S3_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS1_22JavaScriptImportSorter15appendReferenceERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERNS1_17JsModuleReferenceEEUlRKS2_SI_E_EEEvT_SL_T0_SM_T1_T2_.exit, label %_ZSt13move_backwardIPN5clang6format16JsImportedSymbolES3_ET0_T_S5_S4_.exit.sink.split.i
+
+47:                                               ; preds = %39
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %42, ptr noundef nonnull align 8 dereferenceable(40) %.024.i74, i64 40, i1 false)
+  %48 = icmp eq ptr %5, %.024.i74
+  br i1 %48, label %_ZSt21__move_merge_adaptiveIPN5clang6format16JsImportedSymbolES3_S3_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS1_22JavaScriptImportSorter15appendReferenceERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERNS1_17JsModuleReferenceEEUlRKS2_SI_E_EEEvT_SL_T0_SM_T1_T2_.exit, label %49
 
 49:                                               ; preds = %47
-  %50 = ptrtoint ptr %48 to i64
-  %51 = ptrtoint ptr %5 to i64
-  %52 = sub i64 %50, %51
-  %.neg.i.i.i.i.i32.i = sdiv exact i64 %52, -40
-  %53 = getelementptr inbounds %"struct.clang::format::JsImportedSymbol", ptr %44, i64 %.neg.i.i.i.i.i32.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %53, ptr align 8 %5, i64 %52, i1 false)
+  %50 = getelementptr inbounds i8, ptr %.024.i74, i64 -40
+  br label %39, !llvm.loop !63
+
+_ZSt13move_backwardIPN5clang6format16JsImportedSymbolES3_ET0_T_S5_S4_.exit.sink.split.i: ; preds = %_ZSt4moveIPN5clang6format16JsImportedSymbolES3_ET0_T_S5_S4_.exit73.thread, %45
+  %.sink.i = phi ptr [ %46, %45 ], [ %35, %_ZSt4moveIPN5clang6format16JsImportedSymbolES3_ET0_T_S5_S4_.exit73.thread ]
+  %.lcssa.sink.i = phi ptr [ %42, %45 ], [ %2, %_ZSt4moveIPN5clang6format16JsImportedSymbolES3_ET0_T_S5_S4_.exit73.thread ]
+  %51 = ptrtoint ptr %.sink.i to i64
+  %52 = ptrtoint ptr %5 to i64
+  %53 = sub i64 %51, %52
+  %.neg.i.i.i.i.i32.i = sdiv exact i64 %53, -40
+  %54 = getelementptr inbounds %"struct.clang::format::JsImportedSymbol", ptr %.lcssa.sink.i, i64 %.neg.i.i.i.i.i32.i
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %54, ptr align 8 %5, i64 %53, i1 false)
   br label %_ZSt21__move_merge_adaptiveIPN5clang6format16JsImportedSymbolES3_S3_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS1_22JavaScriptImportSorter15appendReferenceERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERNS1_17JsModuleReferenceEEUlRKS2_SI_E_EEEvT_SL_T0_SM_T1_T2_.exit
 
-54:                                               ; preds = %41
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %44, ptr noundef nonnull align 8 dereferenceable(40) %.024.i74, i64 40, i1 false)
-  %55 = icmp eq ptr %5, %.024.i74
-  br i1 %55, label %_ZSt21__move_merge_adaptiveIPN5clang6format16JsImportedSymbolES3_S3_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS1_22JavaScriptImportSorter15appendReferenceERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERNS1_17JsModuleReferenceEEUlRKS2_SI_E_EEEvT_SL_T0_SM_T1_T2_.exit, label %56
-
-56:                                               ; preds = %54
-  %57 = getelementptr inbounds i8, ptr %.024.i74, i64 -40
-  br label %41, !llvm.loop !63
-
-58:                                               ; preds = %31
+55:                                               ; preds = %31
+  %56 = ptrtoint ptr %.tr113128 to i64
   br i1 %.not131, label %_ZSt7advanceIPN5clang6format16JsImportedSymbolElEvRT_T0_.exit, label %_ZSt7advanceIPN5clang6format16JsImportedSymbolElEvRT_T0_.exit87
 
-_ZSt7advanceIPN5clang6format16JsImportedSymbolElEvRT_T0_.exit: ; preds = %58
-  %59 = sdiv i64 %.tr115129, 2
-  %60 = getelementptr inbounds %"struct.clang::format::JsImportedSymbol", ptr %.tr127, i64 %59
-  %61 = sub i64 %8, %32
-  %62 = icmp sgt i64 %61, 0
-  br i1 %62, label %_ZSt7advanceIPN5clang6format16JsImportedSymbolElEvRT_T0_.exit.lr.ph.i, label %_ZSt13__lower_boundIPN5clang6format16JsImportedSymbolES2_N9__gnu_cxx5__ops14_Iter_comp_valIZNS1_22JavaScriptImportSorter15appendReferenceERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERNS1_17JsModuleReferenceEEUlRKS2_SI_E_EEET_SL_SL_RKT0_T1_.exit
+_ZSt7advanceIPN5clang6format16JsImportedSymbolElEvRT_T0_.exit: ; preds = %55
+  %57 = sdiv i64 %.tr115129, 2
+  %58 = getelementptr inbounds %"struct.clang::format::JsImportedSymbol", ptr %.tr127, i64 %57
+  %59 = sub i64 %8, %56
+  %60 = icmp sgt i64 %59, 0
+  br i1 %60, label %_ZSt7advanceIPN5clang6format16JsImportedSymbolElEvRT_T0_.exit.lr.ph.i, label %_ZSt13__lower_boundIPN5clang6format16JsImportedSymbolES2_N9__gnu_cxx5__ops14_Iter_comp_valIZNS1_22JavaScriptImportSorter15appendReferenceERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERNS1_17JsModuleReferenceEEUlRKS2_SI_E_EEET_SL_SL_RKT0_T1_.exit
 
 _ZSt7advanceIPN5clang6format16JsImportedSymbolElEvRT_T0_.exit.lr.ph.i: ; preds = %_ZSt7advanceIPN5clang6format16JsImportedSymbolElEvRT_T0_.exit
-  %63 = udiv exact i64 %61, 40
-  %.sroa.2.0..sroa_idx.i.i.i80 = getelementptr inbounds i8, ptr %60, i64 8
+  %61 = udiv exact i64 %59, 40
+  %.sroa.2.0..sroa_idx.i.i.i80 = getelementptr inbounds i8, ptr %58, i64 8
   br label %_ZSt7advanceIPN5clang6format16JsImportedSymbolElEvRT_T0_.exit.i
 
 _ZSt7advanceIPN5clang6format16JsImportedSymbolElEvRT_T0_.exit.i: ; preds = %_ZSt7advanceIPN5clang6format16JsImportedSymbolElEvRT_T0_.exit.i, %_ZSt7advanceIPN5clang6format16JsImportedSymbolElEvRT_T0_.exit.lr.ph.i
   %.017.i = phi ptr [ %.tr113128, %_ZSt7advanceIPN5clang6format16JsImportedSymbolElEvRT_T0_.exit.lr.ph.i ], [ %.1.i83, %_ZSt7advanceIPN5clang6format16JsImportedSymbolElEvRT_T0_.exit.i ]
-  %.01116.i = phi i64 [ %63, %_ZSt7advanceIPN5clang6format16JsImportedSymbolElEvRT_T0_.exit.lr.ph.i ], [ %.112.i, %_ZSt7advanceIPN5clang6format16JsImportedSymbolElEvRT_T0_.exit.i ]
-  %64 = lshr i64 %.01116.i, 1
-  %65 = getelementptr inbounds %"struct.clang::format::JsImportedSymbol", ptr %.017.i, i64 %64
-  %.sroa.0.0.copyload.i.i.i81 = load ptr, ptr %60, align 8
+  %.01116.i = phi i64 [ %61, %_ZSt7advanceIPN5clang6format16JsImportedSymbolElEvRT_T0_.exit.lr.ph.i ], [ %.112.i, %_ZSt7advanceIPN5clang6format16JsImportedSymbolElEvRT_T0_.exit.i ]
+  %62 = lshr i64 %.01116.i, 1
+  %63 = getelementptr inbounds %"struct.clang::format::JsImportedSymbol", ptr %.017.i, i64 %62
+  %.sroa.0.0.copyload.i.i.i81 = load ptr, ptr %58, align 8
   %.sroa.2.0.copyload.i.i.i82 = load i64, ptr %.sroa.2.0..sroa_idx.i.i.i80, align 8
-  %66 = tail call noundef i32 @_ZNK4llvm9StringRef19compare_insensitiveES0_(ptr noundef nonnull align 8 dereferenceable(16) %65, ptr %.sroa.0.0.copyload.i.i.i81, i64 %.sroa.2.0.copyload.i.i.i82) #14
-  %67 = icmp slt i32 %66, 0
-  %68 = getelementptr inbounds i8, ptr %65, i64 40
-  %69 = xor i64 %64, -1
-  %70 = add nsw i64 %.01116.i, %69
-  %.112.i = select i1 %67, i64 %70, i64 %64
-  %.1.i83 = select i1 %67, ptr %68, ptr %.017.i
-  %71 = icmp sgt i64 %.112.i, 0
-  br i1 %71, label %_ZSt7advanceIPN5clang6format16JsImportedSymbolElEvRT_T0_.exit.i, label %_ZSt13__lower_boundIPN5clang6format16JsImportedSymbolES2_N9__gnu_cxx5__ops14_Iter_comp_valIZNS1_22JavaScriptImportSorter15appendReferenceERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERNS1_17JsModuleReferenceEEUlRKS2_SI_E_EEET_SL_SL_RKT0_T1_.exit.loopexit, !llvm.loop !56
+  %64 = tail call noundef i32 @_ZNK4llvm9StringRef19compare_insensitiveES0_(ptr noundef nonnull align 8 dereferenceable(16) %63, ptr %.sroa.0.0.copyload.i.i.i81, i64 %.sroa.2.0.copyload.i.i.i82) #14
+  %65 = icmp slt i32 %64, 0
+  %66 = getelementptr inbounds i8, ptr %63, i64 40
+  %67 = xor i64 %62, -1
+  %68 = add nsw i64 %.01116.i, %67
+  %.112.i = select i1 %65, i64 %68, i64 %62
+  %.1.i83 = select i1 %65, ptr %66, ptr %.017.i
+  %69 = icmp sgt i64 %.112.i, 0
+  br i1 %69, label %_ZSt7advanceIPN5clang6format16JsImportedSymbolElEvRT_T0_.exit.i, label %_ZSt13__lower_boundIPN5clang6format16JsImportedSymbolES2_N9__gnu_cxx5__ops14_Iter_comp_valIZNS1_22JavaScriptImportSorter15appendReferenceERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERNS1_17JsModuleReferenceEEUlRKS2_SI_E_EEET_SL_SL_RKT0_T1_.exit.loopexit, !llvm.loop !56
 
 _ZSt13__lower_boundIPN5clang6format16JsImportedSymbolES2_N9__gnu_cxx5__ops14_Iter_comp_valIZNS1_22JavaScriptImportSorter15appendReferenceERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERNS1_17JsModuleReferenceEEUlRKS2_SI_E_EEET_SL_SL_RKT0_T1_.exit.loopexit: ; preds = %_ZSt7advanceIPN5clang6format16JsImportedSymbolElEvRT_T0_.exit.i
   %.pre = ptrtoint ptr %.1.i83 to i64
   br label %_ZSt13__lower_boundIPN5clang6format16JsImportedSymbolES2_N9__gnu_cxx5__ops14_Iter_comp_valIZNS1_22JavaScriptImportSorter15appendReferenceERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERNS1_17JsModuleReferenceEEUlRKS2_SI_E_EEET_SL_SL_RKT0_T1_.exit
 
 _ZSt13__lower_boundIPN5clang6format16JsImportedSymbolES2_N9__gnu_cxx5__ops14_Iter_comp_valIZNS1_22JavaScriptImportSorter15appendReferenceERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERNS1_17JsModuleReferenceEEUlRKS2_SI_E_EEET_SL_SL_RKT0_T1_.exit: ; preds = %_ZSt13__lower_boundIPN5clang6format16JsImportedSymbolES2_N9__gnu_cxx5__ops14_Iter_comp_valIZNS1_22JavaScriptImportSorter15appendReferenceERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERNS1_17JsModuleReferenceEEUlRKS2_SI_E_EEET_SL_SL_RKT0_T1_.exit.loopexit, %_ZSt7advanceIPN5clang6format16JsImportedSymbolElEvRT_T0_.exit
-  %.pre-phi = phi i64 [ %.pre, %_ZSt13__lower_boundIPN5clang6format16JsImportedSymbolES2_N9__gnu_cxx5__ops14_Iter_comp_valIZNS1_22JavaScriptImportSorter15appendReferenceERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERNS1_17JsModuleReferenceEEUlRKS2_SI_E_EEET_SL_SL_RKT0_T1_.exit.loopexit ], [ %32, %_ZSt7advanceIPN5clang6format16JsImportedSymbolElEvRT_T0_.exit ]
+  %.pre-phi = phi i64 [ %.pre, %_ZSt13__lower_boundIPN5clang6format16JsImportedSymbolES2_N9__gnu_cxx5__ops14_Iter_comp_valIZNS1_22JavaScriptImportSorter15appendReferenceERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERNS1_17JsModuleReferenceEEUlRKS2_SI_E_EEET_SL_SL_RKT0_T1_.exit.loopexit ], [ %56, %_ZSt7advanceIPN5clang6format16JsImportedSymbolElEvRT_T0_.exit ]
   %.0.lcssa.i79 = phi ptr [ %.1.i83, %_ZSt13__lower_boundIPN5clang6format16JsImportedSymbolES2_N9__gnu_cxx5__ops14_Iter_comp_valIZNS1_22JavaScriptImportSorter15appendReferenceERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERNS1_17JsModuleReferenceEEUlRKS2_SI_E_EEET_SL_SL_RKT0_T1_.exit.loopexit ], [ %.tr113128, %_ZSt7advanceIPN5clang6format16JsImportedSymbolElEvRT_T0_.exit ]
-  %72 = sub i64 %.pre-phi, %32
-  %73 = sdiv exact i64 %72, 40
+  %70 = sub i64 %.pre-phi, %56
+  %71 = sdiv exact i64 %70, 40
   br label %tailrecurse
 
-_ZSt7advanceIPN5clang6format16JsImportedSymbolElEvRT_T0_.exit87: ; preds = %58
-  %74 = sdiv i64 %.tr116130, 2
-  %75 = getelementptr inbounds %"struct.clang::format::JsImportedSymbol", ptr %.tr113128, i64 %74
-  %76 = ptrtoint ptr %.tr127 to i64
-  %77 = sub i64 %32, %76
-  %78 = icmp sgt i64 %77, 0
-  br i1 %78, label %_ZSt7advanceIPN5clang6format16JsImportedSymbolElEvRT_T0_.exit.preheader.i, label %_ZSt13__upper_boundIPN5clang6format16JsImportedSymbolES2_N9__gnu_cxx5__ops14_Val_comp_iterIZNS1_22JavaScriptImportSorter15appendReferenceERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERNS1_17JsModuleReferenceEEUlRKS2_SI_E_EEET_SL_SL_RKT0_T1_.exit
+_ZSt7advanceIPN5clang6format16JsImportedSymbolElEvRT_T0_.exit87: ; preds = %55
+  %72 = sdiv i64 %.tr116130, 2
+  %73 = getelementptr inbounds %"struct.clang::format::JsImportedSymbol", ptr %.tr113128, i64 %72
+  %74 = ptrtoint ptr %.tr127 to i64
+  %75 = sub i64 %56, %74
+  %76 = icmp sgt i64 %75, 0
+  br i1 %76, label %_ZSt7advanceIPN5clang6format16JsImportedSymbolElEvRT_T0_.exit.preheader.i, label %_ZSt13__upper_boundIPN5clang6format16JsImportedSymbolES2_N9__gnu_cxx5__ops14_Val_comp_iterIZNS1_22JavaScriptImportSorter15appendReferenceERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERNS1_17JsModuleReferenceEEUlRKS2_SI_E_EEET_SL_SL_RKT0_T1_.exit
 
 _ZSt7advanceIPN5clang6format16JsImportedSymbolElEvRT_T0_.exit.preheader.i: ; preds = %_ZSt7advanceIPN5clang6format16JsImportedSymbolElEvRT_T0_.exit87
-  %79 = udiv exact i64 %77, 40
+  %77 = udiv exact i64 %75, 40
   br label %_ZSt7advanceIPN5clang6format16JsImportedSymbolElEvRT_T0_.exit.i90
 
 _ZSt7advanceIPN5clang6format16JsImportedSymbolElEvRT_T0_.exit.i90: ; preds = %_ZSt7advanceIPN5clang6format16JsImportedSymbolElEvRT_T0_.exit.i90, %_ZSt7advanceIPN5clang6format16JsImportedSymbolElEvRT_T0_.exit.preheader.i
   %.017.i91 = phi ptr [ %.1.i99, %_ZSt7advanceIPN5clang6format16JsImportedSymbolElEvRT_T0_.exit.i90 ], [ %.tr127, %_ZSt7advanceIPN5clang6format16JsImportedSymbolElEvRT_T0_.exit.preheader.i ]
-  %.01116.i92 = phi i64 [ %.112.i98, %_ZSt7advanceIPN5clang6format16JsImportedSymbolElEvRT_T0_.exit.i90 ], [ %79, %_ZSt7advanceIPN5clang6format16JsImportedSymbolElEvRT_T0_.exit.preheader.i ]
-  %80 = lshr i64 %.01116.i92, 1
-  %81 = getelementptr inbounds %"struct.clang::format::JsImportedSymbol", ptr %.017.i91, i64 %80
-  %.sroa.0.0.copyload.i.i.i95 = load ptr, ptr %81, align 8
-  %.sroa.2.0..sroa_idx.i.i.i96 = getelementptr inbounds i8, ptr %81, i64 8
+  %.01116.i92 = phi i64 [ %.112.i98, %_ZSt7advanceIPN5clang6format16JsImportedSymbolElEvRT_T0_.exit.i90 ], [ %77, %_ZSt7advanceIPN5clang6format16JsImportedSymbolElEvRT_T0_.exit.preheader.i ]
+  %78 = lshr i64 %.01116.i92, 1
+  %79 = getelementptr inbounds %"struct.clang::format::JsImportedSymbol", ptr %.017.i91, i64 %78
+  %.sroa.0.0.copyload.i.i.i95 = load ptr, ptr %79, align 8
+  %.sroa.2.0..sroa_idx.i.i.i96 = getelementptr inbounds i8, ptr %79, i64 8
   %.sroa.2.0.copyload.i.i.i97 = load i64, ptr %.sroa.2.0..sroa_idx.i.i.i96, align 8
-  %82 = tail call noundef i32 @_ZNK4llvm9StringRef19compare_insensitiveES0_(ptr noundef nonnull align 8 dereferenceable(16) %75, ptr %.sroa.0.0.copyload.i.i.i95, i64 %.sroa.2.0.copyload.i.i.i97) #14
-  %83 = icmp slt i32 %82, 0
-  %84 = getelementptr inbounds i8, ptr %81, i64 40
-  %85 = xor i64 %80, -1
-  %86 = add nsw i64 %.01116.i92, %85
-  %.112.i98 = select i1 %83, i64 %80, i64 %86
-  %.1.i99 = select i1 %83, ptr %.017.i91, ptr %84
-  %87 = icmp sgt i64 %.112.i98, 0
-  br i1 %87, label %_ZSt7advanceIPN5clang6format16JsImportedSymbolElEvRT_T0_.exit.i90, label %_ZSt13__upper_boundIPN5clang6format16JsImportedSymbolES2_N9__gnu_cxx5__ops14_Val_comp_iterIZNS1_22JavaScriptImportSorter15appendReferenceERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERNS1_17JsModuleReferenceEEUlRKS2_SI_E_EEET_SL_SL_RKT0_T1_.exit.loopexit, !llvm.loop !57
+  %80 = tail call noundef i32 @_ZNK4llvm9StringRef19compare_insensitiveES0_(ptr noundef nonnull align 8 dereferenceable(16) %73, ptr %.sroa.0.0.copyload.i.i.i95, i64 %.sroa.2.0.copyload.i.i.i97) #14
+  %81 = icmp slt i32 %80, 0
+  %82 = getelementptr inbounds i8, ptr %79, i64 40
+  %83 = xor i64 %78, -1
+  %84 = add nsw i64 %.01116.i92, %83
+  %.112.i98 = select i1 %81, i64 %78, i64 %84
+  %.1.i99 = select i1 %81, ptr %.017.i91, ptr %82
+  %85 = icmp sgt i64 %.112.i98, 0
+  br i1 %85, label %_ZSt7advanceIPN5clang6format16JsImportedSymbolElEvRT_T0_.exit.i90, label %_ZSt13__upper_boundIPN5clang6format16JsImportedSymbolES2_N9__gnu_cxx5__ops14_Val_comp_iterIZNS1_22JavaScriptImportSorter15appendReferenceERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERNS1_17JsModuleReferenceEEUlRKS2_SI_E_EEET_SL_SL_RKT0_T1_.exit.loopexit, !llvm.loop !57
 
 _ZSt13__upper_boundIPN5clang6format16JsImportedSymbolES2_N9__gnu_cxx5__ops14_Val_comp_iterIZNS1_22JavaScriptImportSorter15appendReferenceERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERNS1_17JsModuleReferenceEEUlRKS2_SI_E_EEET_SL_SL_RKT0_T1_.exit.loopexit: ; preds = %_ZSt7advanceIPN5clang6format16JsImportedSymbolElEvRT_T0_.exit.i90
   %.pre140 = ptrtoint ptr %.1.i99 to i64
   br label %_ZSt13__upper_boundIPN5clang6format16JsImportedSymbolES2_N9__gnu_cxx5__ops14_Val_comp_iterIZNS1_22JavaScriptImportSorter15appendReferenceERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERNS1_17JsModuleReferenceEEUlRKS2_SI_E_EEET_SL_SL_RKT0_T1_.exit
 
 _ZSt13__upper_boundIPN5clang6format16JsImportedSymbolES2_N9__gnu_cxx5__ops14_Val_comp_iterIZNS1_22JavaScriptImportSorter15appendReferenceERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERNS1_17JsModuleReferenceEEUlRKS2_SI_E_EEET_SL_SL_RKT0_T1_.exit: ; preds = %_ZSt13__upper_boundIPN5clang6format16JsImportedSymbolES2_N9__gnu_cxx5__ops14_Val_comp_iterIZNS1_22JavaScriptImportSorter15appendReferenceERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERNS1_17JsModuleReferenceEEUlRKS2_SI_E_EEET_SL_SL_RKT0_T1_.exit.loopexit, %_ZSt7advanceIPN5clang6format16JsImportedSymbolElEvRT_T0_.exit87
-  %.pre-phi141 = phi i64 [ %.pre140, %_ZSt13__upper_boundIPN5clang6format16JsImportedSymbolES2_N9__gnu_cxx5__ops14_Val_comp_iterIZNS1_22JavaScriptImportSorter15appendReferenceERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERNS1_17JsModuleReferenceEEUlRKS2_SI_E_EEET_SL_SL_RKT0_T1_.exit.loopexit ], [ %76, %_ZSt7advanceIPN5clang6format16JsImportedSymbolElEvRT_T0_.exit87 ]
+  %.pre-phi141 = phi i64 [ %.pre140, %_ZSt13__upper_boundIPN5clang6format16JsImportedSymbolES2_N9__gnu_cxx5__ops14_Val_comp_iterIZNS1_22JavaScriptImportSorter15appendReferenceERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERNS1_17JsModuleReferenceEEUlRKS2_SI_E_EEET_SL_SL_RKT0_T1_.exit.loopexit ], [ %74, %_ZSt7advanceIPN5clang6format16JsImportedSymbolElEvRT_T0_.exit87 ]
   %.0.lcssa.i89 = phi ptr [ %.1.i99, %_ZSt13__upper_boundIPN5clang6format16JsImportedSymbolES2_N9__gnu_cxx5__ops14_Val_comp_iterIZNS1_22JavaScriptImportSorter15appendReferenceERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERNS1_17JsModuleReferenceEEUlRKS2_SI_E_EEET_SL_SL_RKT0_T1_.exit.loopexit ], [ %.tr127, %_ZSt7advanceIPN5clang6format16JsImportedSymbolElEvRT_T0_.exit87 ]
-  %88 = sub i64 %.pre-phi141, %76
-  %89 = sdiv exact i64 %88, 40
+  %86 = sub i64 %.pre-phi141, %74
+  %87 = sdiv exact i64 %86, 40
   br label %tailrecurse
 
 tailrecurse:                                      ; preds = %_ZSt13__upper_boundIPN5clang6format16JsImportedSymbolES2_N9__gnu_cxx5__ops14_Val_comp_iterIZNS1_22JavaScriptImportSorter15appendReferenceERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERNS1_17JsModuleReferenceEEUlRKS2_SI_E_EEET_SL_SL_RKT0_T1_.exit, %_ZSt13__lower_boundIPN5clang6format16JsImportedSymbolES2_N9__gnu_cxx5__ops14_Iter_comp_valIZNS1_22JavaScriptImportSorter15appendReferenceERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERNS1_17JsModuleReferenceEEUlRKS2_SI_E_EEET_SL_SL_RKT0_T1_.exit
-  %.0110 = phi ptr [ %60, %_ZSt13__lower_boundIPN5clang6format16JsImportedSymbolES2_N9__gnu_cxx5__ops14_Iter_comp_valIZNS1_22JavaScriptImportSorter15appendReferenceERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERNS1_17JsModuleReferenceEEUlRKS2_SI_E_EEET_SL_SL_RKT0_T1_.exit ], [ %.0.lcssa.i89, %_ZSt13__upper_boundIPN5clang6format16JsImportedSymbolES2_N9__gnu_cxx5__ops14_Val_comp_iterIZNS1_22JavaScriptImportSorter15appendReferenceERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERNS1_17JsModuleReferenceEEUlRKS2_SI_E_EEET_SL_SL_RKT0_T1_.exit ]
-  %.0109 = phi ptr [ %.0.lcssa.i79, %_ZSt13__lower_boundIPN5clang6format16JsImportedSymbolES2_N9__gnu_cxx5__ops14_Iter_comp_valIZNS1_22JavaScriptImportSorter15appendReferenceERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERNS1_17JsModuleReferenceEEUlRKS2_SI_E_EEET_SL_SL_RKT0_T1_.exit ], [ %75, %_ZSt13__upper_boundIPN5clang6format16JsImportedSymbolES2_N9__gnu_cxx5__ops14_Val_comp_iterIZNS1_22JavaScriptImportSorter15appendReferenceERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERNS1_17JsModuleReferenceEEUlRKS2_SI_E_EEET_SL_SL_RKT0_T1_.exit ]
-  %.066 = phi i64 [ %73, %_ZSt13__lower_boundIPN5clang6format16JsImportedSymbolES2_N9__gnu_cxx5__ops14_Iter_comp_valIZNS1_22JavaScriptImportSorter15appendReferenceERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERNS1_17JsModuleReferenceEEUlRKS2_SI_E_EEET_SL_SL_RKT0_T1_.exit ], [ %74, %_ZSt13__upper_boundIPN5clang6format16JsImportedSymbolES2_N9__gnu_cxx5__ops14_Val_comp_iterIZNS1_22JavaScriptImportSorter15appendReferenceERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERNS1_17JsModuleReferenceEEUlRKS2_SI_E_EEET_SL_SL_RKT0_T1_.exit ]
-  %.0 = phi i64 [ %59, %_ZSt13__lower_boundIPN5clang6format16JsImportedSymbolES2_N9__gnu_cxx5__ops14_Iter_comp_valIZNS1_22JavaScriptImportSorter15appendReferenceERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERNS1_17JsModuleReferenceEEUlRKS2_SI_E_EEET_SL_SL_RKT0_T1_.exit ], [ %89, %_ZSt13__upper_boundIPN5clang6format16JsImportedSymbolES2_N9__gnu_cxx5__ops14_Val_comp_iterIZNS1_22JavaScriptImportSorter15appendReferenceERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERNS1_17JsModuleReferenceEEUlRKS2_SI_E_EEET_SL_SL_RKT0_T1_.exit ]
-  %90 = sub nsw i64 %.tr115129, %.0
-  %91 = tail call noundef ptr @_ZSt17__rotate_adaptiveIPN5clang6format16JsImportedSymbolES3_lET_S4_S4_S4_T1_S5_T0_S5_(ptr noundef %.0110, ptr noundef %.tr113128, ptr noundef %.0109, i64 noundef %90, i64 noundef %.066, ptr noundef %5, i64 noundef %6)
-  tail call void @_ZSt16__merge_adaptiveIPN5clang6format16JsImportedSymbolElS3_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS1_22JavaScriptImportSorter15appendReferenceERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERNS1_17JsModuleReferenceEEUlRKS2_SI_E_EEEvT_SL_SL_T0_SM_T1_SM_T2_(ptr noundef %.tr127, ptr noundef %.0110, ptr noundef %91, i64 noundef %.0, i64 noundef %.066, ptr noundef %5, i64 noundef %6)
-  %92 = sub nsw i64 %.tr116130, %.066
-  %.not = icmp sgt i64 %90, %92
-  %.not70 = icmp sgt i64 %90, %6
+  %.0110 = phi ptr [ %58, %_ZSt13__lower_boundIPN5clang6format16JsImportedSymbolES2_N9__gnu_cxx5__ops14_Iter_comp_valIZNS1_22JavaScriptImportSorter15appendReferenceERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERNS1_17JsModuleReferenceEEUlRKS2_SI_E_EEET_SL_SL_RKT0_T1_.exit ], [ %.0.lcssa.i89, %_ZSt13__upper_boundIPN5clang6format16JsImportedSymbolES2_N9__gnu_cxx5__ops14_Val_comp_iterIZNS1_22JavaScriptImportSorter15appendReferenceERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERNS1_17JsModuleReferenceEEUlRKS2_SI_E_EEET_SL_SL_RKT0_T1_.exit ]
+  %.0109 = phi ptr [ %.0.lcssa.i79, %_ZSt13__lower_boundIPN5clang6format16JsImportedSymbolES2_N9__gnu_cxx5__ops14_Iter_comp_valIZNS1_22JavaScriptImportSorter15appendReferenceERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERNS1_17JsModuleReferenceEEUlRKS2_SI_E_EEET_SL_SL_RKT0_T1_.exit ], [ %73, %_ZSt13__upper_boundIPN5clang6format16JsImportedSymbolES2_N9__gnu_cxx5__ops14_Val_comp_iterIZNS1_22JavaScriptImportSorter15appendReferenceERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERNS1_17JsModuleReferenceEEUlRKS2_SI_E_EEET_SL_SL_RKT0_T1_.exit ]
+  %.066 = phi i64 [ %71, %_ZSt13__lower_boundIPN5clang6format16JsImportedSymbolES2_N9__gnu_cxx5__ops14_Iter_comp_valIZNS1_22JavaScriptImportSorter15appendReferenceERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERNS1_17JsModuleReferenceEEUlRKS2_SI_E_EEET_SL_SL_RKT0_T1_.exit ], [ %72, %_ZSt13__upper_boundIPN5clang6format16JsImportedSymbolES2_N9__gnu_cxx5__ops14_Val_comp_iterIZNS1_22JavaScriptImportSorter15appendReferenceERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERNS1_17JsModuleReferenceEEUlRKS2_SI_E_EEET_SL_SL_RKT0_T1_.exit ]
+  %.0 = phi i64 [ %57, %_ZSt13__lower_boundIPN5clang6format16JsImportedSymbolES2_N9__gnu_cxx5__ops14_Iter_comp_valIZNS1_22JavaScriptImportSorter15appendReferenceERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERNS1_17JsModuleReferenceEEUlRKS2_SI_E_EEET_SL_SL_RKT0_T1_.exit ], [ %87, %_ZSt13__upper_boundIPN5clang6format16JsImportedSymbolES2_N9__gnu_cxx5__ops14_Val_comp_iterIZNS1_22JavaScriptImportSorter15appendReferenceERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERNS1_17JsModuleReferenceEEUlRKS2_SI_E_EEET_SL_SL_RKT0_T1_.exit ]
+  %88 = sub nsw i64 %.tr115129, %.0
+  %89 = tail call noundef ptr @_ZSt17__rotate_adaptiveIPN5clang6format16JsImportedSymbolES3_lET_S4_S4_S4_T1_S5_T0_S5_(ptr noundef %.0110, ptr noundef %.tr113128, ptr noundef %.0109, i64 noundef %88, i64 noundef %.066, ptr noundef %5, i64 noundef %6)
+  tail call void @_ZSt16__merge_adaptiveIPN5clang6format16JsImportedSymbolElS3_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS1_22JavaScriptImportSorter15appendReferenceERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERNS1_17JsModuleReferenceEEUlRKS2_SI_E_EEEvT_SL_SL_T0_SM_T1_SM_T2_(ptr noundef %.tr127, ptr noundef %.0110, ptr noundef %89, i64 noundef %.0, i64 noundef %.066, ptr noundef %5, i64 noundef %6)
+  %90 = sub nsw i64 %.tr116130, %.066
+  %.not = icmp sgt i64 %88, %90
+  %.not70 = icmp sgt i64 %88, %6
   %or.cond = or i1 %.not70, %.not
   br i1 %or.cond, label %31, label %tailrecurse._crit_edge
 
-_ZSt21__move_merge_adaptiveIPN5clang6format16JsImportedSymbolES3_S3_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS1_22JavaScriptImportSorter15appendReferenceERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERNS1_17JsModuleReferenceEEUlRKS2_SI_E_EEEvT_SL_T0_SM_T1_T2_.exit: ; preds = %54, %33, %49, %47, %36, %_ZSt4moveIPN5clang6format16JsImportedSymbolES3_ET0_T_S5_S4_.exit.i, %._crit_edge.i
+_ZSt21__move_merge_adaptiveIPN5clang6format16JsImportedSymbolES3_S3_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS1_22JavaScriptImportSorter15appendReferenceERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERNS1_17JsModuleReferenceEEUlRKS2_SI_E_EEEvT_SL_T0_SM_T1_T2_.exit: ; preds = %47, %32, %_ZSt13move_backwardIPN5clang6format16JsImportedSymbolES3_ET0_T_S5_S4_.exit.sink.split.i, %45, %_ZSt4moveIPN5clang6format16JsImportedSymbolES3_ET0_T_S5_S4_.exit.i, %._crit_edge.i
   ret void
 }
 

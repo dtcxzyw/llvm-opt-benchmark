@@ -1368,7 +1368,7 @@ define noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__16Hio_OpenEXRIma
           cleanup
   br label %_ZNSt6vectorIfSaIfEED2Ev.exit
 
-.loopexit.split-lp:                               ; preds = %102, %106, %123
+.loopexit.split-lp:                               ; preds = %102, %106, %112
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %_ZNSt6vectorIfSaIfEED2Ev.exit
@@ -1391,142 +1391,133 @@ define noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__16Hio_OpenEXRIma
   %116 = load ptr, ptr %10, align 8
   %117 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %118 = load i64, ptr %117, align 8
-  br i1 %115, label %119, label %121
-
-119:                                              ; preds = %112
-  %120 = load ptr, ptr %8, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 2 %120, ptr align 1 %116, i64 %118, i1 false)
-  br label %123
-
-121:                                              ; preds = %112
-  %122 = load ptr, ptr %9, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %122, ptr align 1 %116, i64 %118, i1 false)
-  br label %123
-
-123:                                              ; preds = %121, %119
+  %.val = load ptr, ptr %8, align 8
+  %.val244 = load ptr, ptr %9, align 8
+  %119 = select i1 %115, ptr %.val, ptr %.val244
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 2 %119, ptr align 1 %116, i64 %118, i1 false)
   invoke void @nanoexr_release_image_data(ptr noundef nonnull %10)
-          to label %124 unwind label %.loopexit.split-lp
+          to label %120 unwind label %.loopexit.split-lp
 
-124:                                              ; preds = %123
-  %125 = getelementptr inbounds nuw i8, ptr %10, i64 20
-  %126 = load i32, ptr %125, align 4
-  br i1 %36, label %127, label %132
+120:                                              ; preds = %112
+  %121 = getelementptr inbounds nuw i8, ptr %10, i64 20
+  %122 = load i32, ptr %121, align 4
+  br i1 %36, label %123, label %128
 
-127:                                              ; preds = %124
-  %128 = load ptr, ptr %8, align 8
-  call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114ImageProcessorINS_8pxr_half4halfEE9CropImageEPS3_iiiiiii(ptr noundef %128, i32 noundef %23, i32 noundef %25, i32 noundef %126, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4)
-  br i1 %74, label %129, label %137
+123:                                              ; preds = %120
+  %124 = load ptr, ptr %8, align 8
+  call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114ImageProcessorINS_8pxr_half4halfEE9CropImageEPS3_iiiiiii(ptr noundef %124, i32 noundef %23, i32 noundef %25, i32 noundef %122, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4)
+  br i1 %74, label %125, label %133
 
-129:                                              ; preds = %127
-  %130 = load ptr, ptr %8, align 8
-  %131 = load i32, ptr %125, align 4
-  call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114ImageProcessorINS_8pxr_half4halfEE9FlipImageEPS3_iii(ptr noundef %130, i32 noundef %56, i32 noundef %58, i32 noundef %131)
-  br label %137
+125:                                              ; preds = %123
+  %126 = load ptr, ptr %8, align 8
+  %127 = load i32, ptr %121, align 4
+  call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114ImageProcessorINS_8pxr_half4halfEE9FlipImageEPS3_iii(ptr noundef %126, i32 noundef %56, i32 noundef %58, i32 noundef %127)
+  br label %133
 
-132:                                              ; preds = %124
-  %133 = load ptr, ptr %9, align 8
-  call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114ImageProcessorIfE9CropImageEPfiiiiiii(ptr noundef %133, i32 noundef %23, i32 noundef %25, i32 noundef %126, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4)
-  br i1 %74, label %134, label %137
+128:                                              ; preds = %120
+  %129 = load ptr, ptr %9, align 8
+  call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114ImageProcessorIfE9CropImageEPfiiiiiii(ptr noundef %129, i32 noundef %23, i32 noundef %25, i32 noundef %122, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4)
+  br i1 %74, label %130, label %133
 
-134:                                              ; preds = %132
-  %135 = load ptr, ptr %9, align 8
-  %136 = load i32, ptr %125, align 4
-  call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114ImageProcessorIfE9FlipImageEPfiii(ptr noundef %135, i32 noundef %56, i32 noundef %58, i32 noundef %136)
-  br label %137
+130:                                              ; preds = %128
+  %131 = load ptr, ptr %9, align 8
+  %132 = load i32, ptr %121, align 4
+  call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114ImageProcessorIfE9FlipImageEPfiii(ptr noundef %131, i32 noundef %56, i32 noundef %58, i32 noundef %132)
+  br label %133
 
-137:                                              ; preds = %129, %134, %132, %127
-  br i1 %70, label %172, label %138
+133:                                              ; preds = %125, %130, %128, %123
+  br i1 %70, label %168, label %134
 
-138:                                              ; preds = %137
-  %139 = mul i32 %32, %30
-  %140 = mul nsw i32 %54, %139
-  %141 = mul i32 %35, %139
+134:                                              ; preds = %133
+  %135 = mul i32 %32, %30
+  %136 = mul nsw i32 %54, %135
+  %137 = mul i32 %35, %135
   %brmerge191.demorgan = and i1 %36, %44
-  br i1 %brmerge191.demorgan, label %142, label %147
+  br i1 %brmerge191.demorgan, label %138, label %143
 
-142:                                              ; preds = %138
-  %143 = getelementptr inbounds nuw i8, ptr %5, i64 24
-  %144 = load ptr, ptr %143, align 8
-  %145 = load ptr, ptr %8, align 8
-  %146 = zext i32 %140 to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %144, ptr align 2 %145, i64 %146, i1 false)
+138:                                              ; preds = %134
+  %139 = getelementptr inbounds nuw i8, ptr %5, i64 24
+  %140 = load ptr, ptr %139, align 8
+  %141 = load ptr, ptr %8, align 8
+  %142 = zext i32 %136 to i64
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %140, ptr align 2 %141, i64 %142, i1 false)
   br label %_ZNSt6vectorIfSaIfEED2Ev.exit199thread-pre-split
 
-147:                                              ; preds = %138
+143:                                              ; preds = %134
   %brmerge194.demorgan = and i1 %37, %41
-  %148 = getelementptr inbounds nuw i8, ptr %5, i64 24
-  %149 = load ptr, ptr %148, align 8
-  br i1 %brmerge194.demorgan, label %150, label %153
+  %144 = getelementptr inbounds nuw i8, ptr %5, i64 24
+  %145 = load ptr, ptr %144, align 8
+  br i1 %brmerge194.demorgan, label %146, label %149
 
-150:                                              ; preds = %147
-  %151 = load ptr, ptr %9, align 8
-  %152 = zext i32 %140 to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %149, ptr align 4 %151, i64 %152, i1 false)
+146:                                              ; preds = %143
+  %147 = load ptr, ptr %9, align 8
+  %148 = zext i32 %136 to i64
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %145, ptr align 4 %147, i64 %148, i1 false)
   br label %_ZNSt6vectorIfSaIfEED2Ev.exit199thread-pre-split
 
-153:                                              ; preds = %147
-  %154 = zext i32 %141 to i64
-  %.not238 = icmp eq i32 %141, 0
-  br i1 %41, label %155, label %164
+149:                                              ; preds = %143
+  %150 = zext i32 %137 to i64
+  %.not238 = icmp eq i32 %137, 0
+  br i1 %41, label %151, label %160
 
-155:                                              ; preds = %153
-  %156 = load ptr, ptr %8, align 8
+151:                                              ; preds = %149
+  %152 = load ptr, ptr %8, align 8
   br i1 %.not238, label %_ZNSt6vectorIfSaIfEED2Ev.exit199thread-pre-split, label %.lr.ph236
 
-.lr.ph236:                                        ; preds = %155, %.lr.ph236
-  %.0163235 = phi i64 [ %163, %.lr.ph236 ], [ 0, %155 ]
-  %157 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::pxr_half::half", ptr %156, i64 %.0163235
-  %158 = load i16, ptr %157, align 2
-  %159 = zext i16 %158 to i64
-  %160 = getelementptr inbounds [65536 x %"union.pxrInternal_v0_24__pxrReserved__::pxr_half::half::uif"], ptr @_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4half8_toFloatE, i64 0, i64 %159
-  %161 = load float, ptr %160, align 4
-  %162 = getelementptr inbounds float, ptr %149, i64 %.0163235
-  store float %161, ptr %162, align 4
-  %163 = add nuw nsw i64 %.0163235, 1
-  %exitcond240.not = icmp eq i64 %163, %154
+.lr.ph236:                                        ; preds = %151, %.lr.ph236
+  %.0163235 = phi i64 [ %159, %.lr.ph236 ], [ 0, %151 ]
+  %153 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::pxr_half::half", ptr %152, i64 %.0163235
+  %154 = load i16, ptr %153, align 2
+  %155 = zext i16 %154 to i64
+  %156 = getelementptr inbounds [65536 x %"union.pxrInternal_v0_24__pxrReserved__::pxr_half::half::uif"], ptr @_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4half8_toFloatE, i64 0, i64 %155
+  %157 = load float, ptr %156, align 4
+  %158 = getelementptr inbounds float, ptr %145, i64 %.0163235
+  store float %157, ptr %158, align 4
+  %159 = add nuw nsw i64 %.0163235, 1
+  %exitcond240.not = icmp eq i64 %159, %150
   br i1 %exitcond240.not, label %_ZNSt6vectorIfSaIfEED2Ev.exit199thread-pre-split, label %.lr.ph236, !llvm.loop !4
 
-164:                                              ; preds = %153
-  %165 = load ptr, ptr %9, align 8
+160:                                              ; preds = %149
+  %161 = load ptr, ptr %9, align 8
   br i1 %.not238, label %_ZNSt6vectorIfSaIfEED2Ev.exit199, label %.lr.ph
 
-.lr.ph:                                           ; preds = %164, %170
-  %.0234 = phi i64 [ %171, %170 ], [ 0, %164 ]
-  %166 = getelementptr inbounds float, ptr %165, i64 %.0234
-  %167 = load float, ptr %166, align 4
-  %168 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::pxr_half::half", ptr %149, i64 %.0234
-  %169 = invoke noundef nonnull align 2 dereferenceable(2) ptr @_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4halfaSEf(ptr noundef nonnull align 2 dereferenceable(2) %168, float noundef %167)
-          to label %170 unwind label %.loopexit
+.lr.ph:                                           ; preds = %160, %166
+  %.0234 = phi i64 [ %167, %166 ], [ 0, %160 ]
+  %162 = getelementptr inbounds float, ptr %161, i64 %.0234
+  %163 = load float, ptr %162, align 4
+  %164 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::pxr_half::half", ptr %145, i64 %.0234
+  %165 = invoke noundef nonnull align 2 dereferenceable(2) ptr @_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4halfaSEf(ptr noundef nonnull align 2 dereferenceable(2) %164, float noundef %163)
+          to label %166 unwind label %.loopexit
 
-170:                                              ; preds = %.lr.ph
-  %171 = add nuw nsw i64 %.0234, 1
-  %exitcond.not = icmp eq i64 %171, %154
+166:                                              ; preds = %.lr.ph
+  %167 = add nuw nsw i64 %.0234, 1
+  %exitcond.not = icmp eq i64 %167, %150
   br i1 %exitcond.not, label %_ZNSt6vectorIfSaIfEED2Ev.exit199thread-pre-split, label %.lr.ph, !llvm.loop !6
 
-172:                                              ; preds = %137
+168:                                              ; preds = %133
   %.pre241 = load ptr, ptr %9, align 8
-  br i1 %36, label %173, label %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114ImageProcessorItE11HalfToFloatEPNS_8pxr_half4halfEPfiii.exit
+  br i1 %36, label %169, label %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114ImageProcessorItE11HalfToFloatEPNS_8pxr_half4halfEPfiii.exit
 
-173:                                              ; preds = %172
-  %174 = load ptr, ptr %8, align 8
-  %175 = mul nsw i32 %25, %23
-  %176 = mul nsw i32 %175, %27
-  %177 = icmp sgt i32 %176, 0
-  br i1 %177, label %.lr.ph.preheader.i, label %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114ImageProcessorItE11HalfToFloatEPNS_8pxr_half4halfEPfiii.exit
+169:                                              ; preds = %168
+  %170 = load ptr, ptr %8, align 8
+  %171 = mul nsw i32 %25, %23
+  %172 = mul nsw i32 %171, %27
+  %173 = icmp sgt i32 %172, 0
+  br i1 %173, label %.lr.ph.preheader.i, label %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114ImageProcessorItE11HalfToFloatEPNS_8pxr_half4halfEPfiii.exit
 
-.lr.ph.preheader.i:                               ; preds = %173
-  %wide.trip.count.i = zext nneg i32 %176 to i64
+.lr.ph.preheader.i:                               ; preds = %169
+  %wide.trip.count.i = zext nneg i32 %172 to i64
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %.lr.ph.i ]
-  %178 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::pxr_half::half", ptr %174, i64 %indvars.iv.i
-  %179 = load i16, ptr %178, align 2
-  %180 = zext i16 %179 to i64
-  %181 = getelementptr inbounds [65536 x %"union.pxrInternal_v0_24__pxrReserved__::pxr_half::half::uif"], ptr @_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4half8_toFloatE, i64 0, i64 %180
-  %182 = load float, ptr %181, align 4
-  %183 = getelementptr inbounds float, ptr %.pre241, i64 %indvars.iv.i
-  store float %182, ptr %183, align 4
+  %174 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::pxr_half::half", ptr %170, i64 %indvars.iv.i
+  %175 = load i16, ptr %174, align 2
+  %176 = zext i16 %175 to i64
+  %177 = getelementptr inbounds [65536 x %"union.pxrInternal_v0_24__pxrReserved__::pxr_half::half::uif"], ptr @_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4half8_toFloatE, i64 0, i64 %176
+  %178 = load float, ptr %177, align 4
+  %179 = getelementptr inbounds float, ptr %.pre241, i64 %indvars.iv.i
+  store float %178, ptr %179, align 4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114ImageProcessorItE11HalfToFloatEPNS_8pxr_half4halfEPfiii.exit.loopexit, label %.lr.ph.i, !llvm.loop !7
@@ -1535,188 +1526,188 @@ _ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114ImageProcessorItE11HalfToFl
   %.pre = load ptr, ptr %9, align 8
   br label %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114ImageProcessorItE11HalfToFloatEPNS_8pxr_half4halfEPfiii.exit
 
-_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114ImageProcessorItE11HalfToFloatEPNS_8pxr_half4halfEPfiii.exit: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114ImageProcessorItE11HalfToFloatEPNS_8pxr_half4halfEPfiii.exit.loopexit, %173, %172
-  %184 = phi ptr [ %.pre, %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114ImageProcessorItE11HalfToFloatEPNS_8pxr_half4halfEPfiii.exit.loopexit ], [ %.pre241, %173 ], [ %.pre241, %172 ]
+_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114ImageProcessorItE11HalfToFloatEPNS_8pxr_half4halfEPfiii.exit: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114ImageProcessorItE11HalfToFloatEPNS_8pxr_half4halfEPfiii.exit.loopexit, %169, %168
+  %180 = phi ptr [ %.pre, %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114ImageProcessorItE11HalfToFloatEPNS_8pxr_half4halfEPfiii.exit.loopexit ], [ %.pre241, %169 ], [ %.pre241, %168 ]
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %11, i8 0, i64 24, i1 false)
-  %185 = getelementptr inbounds i8, ptr %12, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %185, i8 0, i64 32, i1 false)
-  store ptr %184, ptr %12, align 8
-  %186 = getelementptr inbounds nuw i8, ptr %12, i64 20
-  store i32 %27, ptr %186, align 4
-  %187 = invoke noundef i32 @_ZNK32pxrInternal_v0_24__pxrReserved__16Hio_OpenEXRImage16GetBytesPerPixelEv(ptr noundef nonnull align 8 dereferenceable(152) %0)
-          to label %188 unwind label %207
+  %181 = getelementptr inbounds i8, ptr %12, i64 8
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %181, i8 0, i64 32, i1 false)
+  store ptr %180, ptr %12, align 8
+  %182 = getelementptr inbounds nuw i8, ptr %12, i64 20
+  store i32 %27, ptr %182, align 4
+  %183 = invoke noundef i32 @_ZNK32pxrInternal_v0_24__pxrReserved__16Hio_OpenEXRImage16GetBytesPerPixelEv(ptr noundef nonnull align 8 dereferenceable(152) %0)
+          to label %184 unwind label %203
 
-188:                                              ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114ImageProcessorItE11HalfToFloatEPNS_8pxr_half4halfEPfiii.exit
-  %189 = mul nuw nsw i32 %58, %56
-  %190 = mul nsw i32 %189, %187
-  %191 = sext i32 %190 to i64
-  %192 = getelementptr inbounds nuw i8, ptr %12, i64 8
-  store i64 %191, ptr %192, align 8
-  %193 = getelementptr inbounds nuw i8, ptr %12, i64 16
-  store i32 2, ptr %193, align 8
-  %194 = getelementptr inbounds nuw i8, ptr %12, i64 24
-  store i32 %56, ptr %194, align 8
-  %195 = getelementptr inbounds nuw i8, ptr %12, i64 28
-  store i32 %58, ptr %195, align 4
+184:                                              ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114ImageProcessorItE11HalfToFloatEPNS_8pxr_half4halfEPfiii.exit
+  %185 = mul nuw nsw i32 %58, %56
+  %186 = mul nsw i32 %185, %183
+  %187 = sext i32 %186 to i64
+  %188 = getelementptr inbounds nuw i8, ptr %12, i64 8
+  store i64 %187, ptr %188, align 8
+  %189 = getelementptr inbounds nuw i8, ptr %12, i64 16
+  store i32 2, ptr %189, align 8
+  %190 = getelementptr inbounds nuw i8, ptr %12, i64 24
+  store i32 %56, ptr %190, align 8
+  %191 = getelementptr inbounds nuw i8, ptr %12, i64 28
+  store i32 %58, ptr %191, align 4
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %13, i8 0, i64 40, i1 false)
-  %196 = getelementptr inbounds nuw i8, ptr %13, i64 20
-  store i32 %35, ptr %196, align 4
-  %197 = mul nsw i32 %32, %30
-  %198 = mul nsw i32 %35, %197
-  %199 = sext i32 %198 to i64
-  %200 = shl nsw i64 %199, 2
-  %201 = getelementptr inbounds nuw i8, ptr %13, i64 8
-  store i64 %200, ptr %201, align 8
-  %202 = getelementptr inbounds nuw i8, ptr %13, i64 16
-  store i32 2, ptr %202, align 8
-  %203 = getelementptr inbounds nuw i8, ptr %13, i64 24
-  store i32 %30, ptr %203, align 8
-  %204 = getelementptr inbounds nuw i8, ptr %13, i64 28
-  store i32 %32, ptr %204, align 4
-  br i1 %41, label %205, label %216
+  %192 = getelementptr inbounds nuw i8, ptr %13, i64 20
+  store i32 %35, ptr %192, align 4
+  %193 = mul nsw i32 %32, %30
+  %194 = mul nsw i32 %35, %193
+  %195 = sext i32 %194 to i64
+  %196 = shl nsw i64 %195, 2
+  %197 = getelementptr inbounds nuw i8, ptr %13, i64 8
+  store i64 %196, ptr %197, align 8
+  %198 = getelementptr inbounds nuw i8, ptr %13, i64 16
+  store i32 2, ptr %198, align 8
+  %199 = getelementptr inbounds nuw i8, ptr %13, i64 24
+  store i32 %30, ptr %199, align 8
+  %200 = getelementptr inbounds nuw i8, ptr %13, i64 28
+  store i32 %32, ptr %200, align 4
+  br i1 %41, label %201, label %212
 
-205:                                              ; preds = %188
-  %206 = getelementptr inbounds nuw i8, ptr %5, i64 24
-  br label %217
+201:                                              ; preds = %184
+  %202 = getelementptr inbounds nuw i8, ptr %5, i64 24
+  br label %213
 
-207:                                              ; preds = %228, %225, %217, %216, %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114ImageProcessorItE11HalfToFloatEPNS_8pxr_half4halfEPfiii.exit
-  %208 = landingpad { ptr, i32 }
+203:                                              ; preds = %224, %221, %213, %212, %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114ImageProcessorItE11HalfToFloatEPNS_8pxr_half4halfEPfiii.exit
+  %204 = landingpad { ptr, i32 }
           cleanup
-  %209 = load ptr, ptr %11, align 8
-  %.not.i.i.i = icmp eq ptr %209, null
-  br i1 %.not.i.i.i, label %_ZNSt6vectorIfSaIfEED2Ev.exit, label %210
+  %205 = load ptr, ptr %11, align 8
+  %.not.i.i.i = icmp eq ptr %205, null
+  br i1 %.not.i.i.i, label %_ZNSt6vectorIfSaIfEED2Ev.exit, label %206
 
-210:                                              ; preds = %207
-  %211 = getelementptr inbounds nuw i8, ptr %11, i64 16
-  %212 = load ptr, ptr %211, align 8
-  %213 = ptrtoint ptr %212 to i64
-  %214 = ptrtoint ptr %209 to i64
-  %215 = sub i64 %213, %214
-  call void @_ZdlPvm(ptr noundef nonnull %209, i64 noundef %215) #26
+206:                                              ; preds = %203
+  %207 = getelementptr inbounds nuw i8, ptr %11, i64 16
+  %208 = load ptr, ptr %207, align 8
+  %209 = ptrtoint ptr %208 to i64
+  %210 = ptrtoint ptr %205 to i64
+  %211 = sub i64 %209, %210
+  call void @_ZdlPvm(ptr noundef nonnull %205, i64 noundef %211) #26
   br label %_ZNSt6vectorIfSaIfEED2Ev.exit
 
-216:                                              ; preds = %188
-  invoke void @_ZNSt6vectorIfSaIfEE6resizeEm(ptr noundef nonnull align 8 dereferenceable(24) %11, i64 noundef %199)
-          to label %217 unwind label %207
+212:                                              ; preds = %184
+  invoke void @_ZNSt6vectorIfSaIfEE6resizeEm(ptr noundef nonnull align 8 dereferenceable(24) %11, i64 noundef %195)
+          to label %213 unwind label %203
 
-217:                                              ; preds = %216, %205
-  %storemerge.in = phi ptr [ %206, %205 ], [ %11, %216 ]
+213:                                              ; preds = %212, %201
+  %storemerge.in = phi ptr [ %202, %201 ], [ %11, %212 ]
   %storemerge = load ptr, ptr %storemerge.in, align 8
   store ptr %storemerge, ptr %13, align 8
-  %218 = invoke zeroext i1 @nanoexr_Gaussian_resample(ptr noundef nonnull %12, ptr noundef nonnull %13)
-          to label %219 unwind label %207
+  %214 = invoke zeroext i1 @nanoexr_Gaussian_resample(ptr noundef nonnull %12, ptr noundef nonnull %13)
+          to label %215 unwind label %203
 
-219:                                              ; preds = %217
-  br i1 %41, label %220, label %225
+215:                                              ; preds = %213
+  br i1 %41, label %216, label %221
 
-220:                                              ; preds = %219
-  %221 = getelementptr inbounds nuw i8, ptr %5, i64 24
-  %222 = load ptr, ptr %221, align 8
+216:                                              ; preds = %215
+  %217 = getelementptr inbounds nuw i8, ptr %5, i64 24
+  %218 = load ptr, ptr %217, align 8
+  %219 = load ptr, ptr %13, align 8
+  %220 = load i64, ptr %197, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %218, ptr align 1 %219, i64 %220, i1 false)
+  br label %232
+
+221:                                              ; preds = %215
+  %222 = load ptr, ptr %11, align 8
   %223 = load ptr, ptr %13, align 8
-  %224 = load i64, ptr %201, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %222, ptr align 1 %223, i64 %224, i1 false)
-  br label %236
+  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114ImageProcessorIfE11FloatToHalfEPfPNS_8pxr_half4halfEiii(ptr noundef %222, ptr noundef %223, i32 noundef %30, i32 noundef %32, i32 noundef %35)
+          to label %224 unwind label %203
 
-225:                                              ; preds = %219
-  %226 = load ptr, ptr %11, align 8
-  %227 = load ptr, ptr %13, align 8
-  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114ImageProcessorIfE11FloatToHalfEPfPNS_8pxr_half4halfEiii(ptr noundef %226, ptr noundef %227, i32 noundef %30, i32 noundef %32, i32 noundef %35)
-          to label %228 unwind label %207
+224:                                              ; preds = %221
+  %225 = getelementptr inbounds nuw i8, ptr %5, i64 24
+  %226 = load ptr, ptr %225, align 8
+  %227 = load ptr, ptr %11, align 8
+  %228 = invoke noundef i32 @_ZNK32pxrInternal_v0_24__pxrReserved__16Hio_OpenEXRImage16GetBytesPerPixelEv(ptr noundef nonnull align 8 dereferenceable(152) %0)
+          to label %229 unwind label %203
 
-228:                                              ; preds = %225
-  %229 = getelementptr inbounds nuw i8, ptr %5, i64 24
-  %230 = load ptr, ptr %229, align 8
-  %231 = load ptr, ptr %11, align 8
-  %232 = invoke noundef i32 @_ZNK32pxrInternal_v0_24__pxrReserved__16Hio_OpenEXRImage16GetBytesPerPixelEv(ptr noundef nonnull align 8 dereferenceable(152) %0)
-          to label %233 unwind label %207
+229:                                              ; preds = %224
+  %230 = mul nsw i32 %228, %193
+  %231 = sext i32 %230 to i64
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %226, ptr nonnull align 4 %227, i64 %231, i1 false)
+  br label %232
 
-233:                                              ; preds = %228
-  %234 = mul nsw i32 %232, %197
-  %235 = sext i32 %234 to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %230, ptr nonnull align 4 %231, i64 %235, i1 false)
-  br label %236
+232:                                              ; preds = %229, %216
+  %233 = load ptr, ptr %11, align 8
+  %.not.i.i.i198 = icmp eq ptr %233, null
+  br i1 %.not.i.i.i198, label %_ZNSt6vectorIfSaIfEED2Ev.exit199thread-pre-split, label %234
 
-236:                                              ; preds = %233, %220
-  %237 = load ptr, ptr %11, align 8
-  %.not.i.i.i198 = icmp eq ptr %237, null
-  br i1 %.not.i.i.i198, label %_ZNSt6vectorIfSaIfEED2Ev.exit199thread-pre-split, label %238
-
-238:                                              ; preds = %236
-  %239 = getelementptr inbounds nuw i8, ptr %11, i64 16
-  %240 = load ptr, ptr %239, align 8
-  %241 = ptrtoint ptr %240 to i64
-  %242 = ptrtoint ptr %237 to i64
-  %243 = sub i64 %241, %242
-  call void @_ZdlPvm(ptr noundef nonnull %237, i64 noundef %243) #26
+234:                                              ; preds = %232
+  %235 = getelementptr inbounds nuw i8, ptr %11, i64 16
+  %236 = load ptr, ptr %235, align 8
+  %237 = ptrtoint ptr %236 to i64
+  %238 = ptrtoint ptr %233 to i64
+  %239 = sub i64 %237, %238
+  call void @_ZdlPvm(ptr noundef nonnull %233, i64 noundef %239) #26
   br label %_ZNSt6vectorIfSaIfEED2Ev.exit199thread-pre-split
 
-_ZNSt6vectorIfSaIfEED2Ev.exit199thread-pre-split: ; preds = %170, %.lr.ph236, %111, %150, %142, %236, %238, %155
+_ZNSt6vectorIfSaIfEED2Ev.exit199thread-pre-split: ; preds = %166, %.lr.ph236, %111, %146, %138, %232, %234, %151
   %.pr = load ptr, ptr %9, align 8
   br label %_ZNSt6vectorIfSaIfEED2Ev.exit199
 
-_ZNSt6vectorIfSaIfEED2Ev.exit199:                 ; preds = %_ZNSt6vectorIfSaIfEED2Ev.exit199thread-pre-split, %164
-  %244 = phi ptr [ %.pr, %_ZNSt6vectorIfSaIfEED2Ev.exit199thread-pre-split ], [ %165, %164 ]
-  %.not.i.i.i200 = icmp eq ptr %244, null
-  br i1 %.not.i.i.i200, label %_ZNSt6vectorIfSaIfEED2Ev.exit201, label %245
+_ZNSt6vectorIfSaIfEED2Ev.exit199:                 ; preds = %_ZNSt6vectorIfSaIfEED2Ev.exit199thread-pre-split, %160
+  %240 = phi ptr [ %.pr, %_ZNSt6vectorIfSaIfEED2Ev.exit199thread-pre-split ], [ %161, %160 ]
+  %.not.i.i.i200 = icmp eq ptr %240, null
+  br i1 %.not.i.i.i200, label %_ZNSt6vectorIfSaIfEED2Ev.exit201, label %241
 
-245:                                              ; preds = %_ZNSt6vectorIfSaIfEED2Ev.exit199
-  %246 = getelementptr inbounds nuw i8, ptr %9, i64 16
-  %247 = load ptr, ptr %246, align 8
-  %248 = ptrtoint ptr %247 to i64
-  %249 = ptrtoint ptr %244 to i64
-  %250 = sub i64 %248, %249
-  call void @_ZdlPvm(ptr noundef nonnull %244, i64 noundef %250) #26
+241:                                              ; preds = %_ZNSt6vectorIfSaIfEED2Ev.exit199
+  %242 = getelementptr inbounds nuw i8, ptr %9, i64 16
+  %243 = load ptr, ptr %242, align 8
+  %244 = ptrtoint ptr %243 to i64
+  %245 = ptrtoint ptr %240 to i64
+  %246 = sub i64 %244, %245
+  call void @_ZdlPvm(ptr noundef nonnull %240, i64 noundef %246) #26
   br label %_ZNSt6vectorIfSaIfEED2Ev.exit201
 
-_ZNSt6vectorIfSaIfEED2Ev.exit201:                 ; preds = %_ZNSt6vectorIfSaIfEED2Ev.exit199, %245
-  %251 = load ptr, ptr %8, align 8
-  %.not.i.i.i202 = icmp eq ptr %251, null
-  br i1 %.not.i.i.i202, label %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__8pxr_half4halfESaIS2_EED2Ev.exit, label %252
+_ZNSt6vectorIfSaIfEED2Ev.exit201:                 ; preds = %_ZNSt6vectorIfSaIfEED2Ev.exit199, %241
+  %247 = load ptr, ptr %8, align 8
+  %.not.i.i.i202 = icmp eq ptr %247, null
+  br i1 %.not.i.i.i202, label %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__8pxr_half4halfESaIS2_EED2Ev.exit, label %248
 
-252:                                              ; preds = %_ZNSt6vectorIfSaIfEED2Ev.exit201
-  %253 = getelementptr inbounds nuw i8, ptr %8, i64 16
-  %254 = load ptr, ptr %253, align 8
-  %255 = ptrtoint ptr %254 to i64
-  %256 = ptrtoint ptr %251 to i64
-  %257 = sub i64 %255, %256
-  call void @_ZdlPvm(ptr noundef nonnull %251, i64 noundef %257) #26
+248:                                              ; preds = %_ZNSt6vectorIfSaIfEED2Ev.exit201
+  %249 = getelementptr inbounds nuw i8, ptr %8, i64 16
+  %250 = load ptr, ptr %249, align 8
+  %251 = ptrtoint ptr %250 to i64
+  %252 = ptrtoint ptr %247 to i64
+  %253 = sub i64 %251, %252
+  call void @_ZdlPvm(ptr noundef nonnull %247, i64 noundef %253) #26
   br label %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__8pxr_half4halfESaIS2_EED2Ev.exit
 
-_ZNSt6vectorIfSaIfEED2Ev.exit:                    ; preds = %.loopexit, %.loopexit.split-lp, %210, %207
-  %.pn = phi { ptr, i32 } [ %208, %207 ], [ %208, %210 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
-  %258 = load ptr, ptr %9, align 8
-  %.not.i.i.i203 = icmp eq ptr %258, null
-  br i1 %.not.i.i.i203, label %_ZNSt6vectorIfSaIfEED2Ev.exit204, label %259
+_ZNSt6vectorIfSaIfEED2Ev.exit:                    ; preds = %.loopexit, %.loopexit.split-lp, %206, %203
+  %.pn = phi { ptr, i32 } [ %204, %203 ], [ %204, %206 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
+  %254 = load ptr, ptr %9, align 8
+  %.not.i.i.i203 = icmp eq ptr %254, null
+  br i1 %.not.i.i.i203, label %_ZNSt6vectorIfSaIfEED2Ev.exit204, label %255
 
-259:                                              ; preds = %_ZNSt6vectorIfSaIfEED2Ev.exit
-  %260 = getelementptr inbounds nuw i8, ptr %9, i64 16
-  %261 = load ptr, ptr %260, align 8
-  %262 = ptrtoint ptr %261 to i64
-  %263 = ptrtoint ptr %258 to i64
-  %264 = sub i64 %262, %263
-  call void @_ZdlPvm(ptr noundef nonnull %258, i64 noundef %264) #26
+255:                                              ; preds = %_ZNSt6vectorIfSaIfEED2Ev.exit
+  %256 = getelementptr inbounds nuw i8, ptr %9, i64 16
+  %257 = load ptr, ptr %256, align 8
+  %258 = ptrtoint ptr %257 to i64
+  %259 = ptrtoint ptr %254 to i64
+  %260 = sub i64 %258, %259
+  call void @_ZdlPvm(ptr noundef nonnull %254, i64 noundef %260) #26
   br label %_ZNSt6vectorIfSaIfEED2Ev.exit204
 
-_ZNSt6vectorIfSaIfEED2Ev.exit204:                 ; preds = %259, %_ZNSt6vectorIfSaIfEED2Ev.exit, %99
-  %.pn.pn = phi { ptr, i32 } [ %100, %99 ], [ %.pn, %_ZNSt6vectorIfSaIfEED2Ev.exit ], [ %.pn, %259 ]
-  %265 = load ptr, ptr %8, align 8
-  %.not.i.i.i205 = icmp eq ptr %265, null
-  br i1 %.not.i.i.i205, label %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__8pxr_half4halfESaIS2_EED2Ev.exit206, label %266
+_ZNSt6vectorIfSaIfEED2Ev.exit204:                 ; preds = %255, %_ZNSt6vectorIfSaIfEED2Ev.exit, %99
+  %.pn.pn = phi { ptr, i32 } [ %100, %99 ], [ %.pn, %_ZNSt6vectorIfSaIfEED2Ev.exit ], [ %.pn, %255 ]
+  %261 = load ptr, ptr %8, align 8
+  %.not.i.i.i205 = icmp eq ptr %261, null
+  br i1 %.not.i.i.i205, label %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__8pxr_half4halfESaIS2_EED2Ev.exit206, label %262
 
-266:                                              ; preds = %_ZNSt6vectorIfSaIfEED2Ev.exit204
-  %267 = getelementptr inbounds nuw i8, ptr %8, i64 16
-  %268 = load ptr, ptr %267, align 8
-  %269 = ptrtoint ptr %268 to i64
-  %270 = ptrtoint ptr %265 to i64
-  %271 = sub i64 %269, %270
-  call void @_ZdlPvm(ptr noundef nonnull %265, i64 noundef %271) #26
+262:                                              ; preds = %_ZNSt6vectorIfSaIfEED2Ev.exit204
+  %263 = getelementptr inbounds nuw i8, ptr %8, i64 16
+  %264 = load ptr, ptr %263, align 8
+  %265 = ptrtoint ptr %264 to i64
+  %266 = ptrtoint ptr %261 to i64
+  %267 = sub i64 %265, %266
+  call void @_ZdlPvm(ptr noundef nonnull %261, i64 noundef %267) #26
   br label %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__8pxr_half4halfESaIS2_EED2Ev.exit206
 
-_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__8pxr_half4halfESaIS2_EED2Ev.exit206: ; preds = %_ZNSt6vectorIfSaIfEED2Ev.exit204, %266
+_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__8pxr_half4halfESaIS2_EED2Ev.exit206: ; preds = %_ZNSt6vectorIfSaIfEED2Ev.exit204, %262
   resume { ptr, i32 } %.pn.pn
 
-_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__8pxr_half4halfESaIS2_EED2Ev.exit: ; preds = %252, %_ZNSt6vectorIfSaIfEED2Ev.exit201, %48, %75, %67, %20, %16, %6, %87, %61
-  %.0162 = phi i1 [ true, %61 ], [ true, %87 ], [ false, %6 ], [ false, %16 ], [ false, %20 ], [ false, %67 ], [ false, %75 ], [ false, %48 ], [ %.not, %_ZNSt6vectorIfSaIfEED2Ev.exit201 ], [ %.not, %252 ]
+_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__8pxr_half4halfESaIS2_EED2Ev.exit: ; preds = %248, %_ZNSt6vectorIfSaIfEED2Ev.exit201, %48, %75, %67, %20, %16, %6, %87, %61
+  %.0162 = phi i1 [ true, %61 ], [ true, %87 ], [ false, %6 ], [ false, %16 ], [ false, %20 ], [ false, %67 ], [ false, %75 ], [ false, %48 ], [ %.not, %_ZNSt6vectorIfSaIfEED2Ev.exit201 ], [ %.not, %248 ]
   ret i1 %.0162
 }
 

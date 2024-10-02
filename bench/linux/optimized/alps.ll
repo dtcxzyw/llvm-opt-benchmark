@@ -1193,7 +1193,7 @@ declare dso_local void @psmouse_queue_work(ptr noundef, ptr noundef, i64 noundef
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal fastcc void @alps_report_buttons(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef range(i32 0, 8) %4) unnamed_addr #0 align 16 {
   %6 = icmp eq ptr %1, null
-  br i1 %6, label %.thread5, label %13
+  br i1 %6, label %.thread5, label %.thread2
 
 .thread5:                                         ; preds = %5
   %7 = icmp ne i32 %2, 0
@@ -1205,62 +1205,35 @@ define internal fastcc void @alps_report_buttons(ptr noundef %0, ptr noundef %1,
   %11 = icmp ne i32 %4, 0
   %12 = zext i1 %11 to i32
   tail call void @input_event(ptr noundef %0, i32 noundef 1, i32 noundef 274, i32 noundef %12) #14
-  br label %36
+  br label %29
 
-13:                                               ; preds = %5
-  %14 = getelementptr i8, ptr %1, i64 368
-  %15 = load volatile i64, ptr %14, align 8
-  %16 = and i64 %15, 65536
-  %17 = icmp eq i64 %16, 0
-  %18 = icmp ne i32 %2, 0
-  %19 = zext i1 %18 to i32
-  br i1 %17, label %20, label %.thread
-
-.thread:                                          ; preds = %13
-  tail call void @input_event(ptr noundef nonnull %1, i32 noundef 1, i32 noundef 272, i32 noundef %19) #14
-  br label %21
-
-20:                                               ; preds = %13
-  tail call void @input_event(ptr noundef %0, i32 noundef 1, i32 noundef 272, i32 noundef %19) #14
-  br label %21
-
-21:                                               ; preds = %20, %.thread
-  %22 = load volatile i64, ptr %14, align 8
-  %23 = and i64 %22, 131072
-  %24 = icmp eq i64 %23, 0
-  %25 = icmp ne i32 %3, 0
-  %26 = zext i1 %25 to i32
-  br i1 %24, label %27, label %.thread2
-
-.thread2:                                         ; preds = %21
-  tail call void @input_event(ptr noundef nonnull %1, i32 noundef 1, i32 noundef 273, i32 noundef %26) #14
-  br label %28
-
-27:                                               ; preds = %21
-  tail call void @input_event(ptr noundef %0, i32 noundef 1, i32 noundef 273, i32 noundef %26) #14
-  br label %28
-
-28:                                               ; preds = %27, %.thread2
-  %29 = load volatile i64, ptr %14, align 8
-  %30 = and i64 %29, 262144
-  %31 = icmp eq i64 %30, 0
-  %32 = icmp ne i32 %4, 0
-  %33 = zext i1 %32 to i32
-  br i1 %31, label %34, label %.thread4
-
-.thread4:                                         ; preds = %28
-  tail call void @input_event(ptr noundef nonnull %1, i32 noundef 1, i32 noundef 274, i32 noundef %33) #14
-  br label %35
-
-34:                                               ; preds = %28
-  tail call void @input_event(ptr noundef %0, i32 noundef 1, i32 noundef 274, i32 noundef %33) #14
-  br label %35
-
-35:                                               ; preds = %34, %.thread4
+.thread2:                                         ; preds = %5
+  %13 = getelementptr i8, ptr %1, i64 368
+  %14 = load volatile i64, ptr %13, align 8
+  %15 = and i64 %14, 65536
+  %16 = icmp eq i64 %15, 0
+  %17 = icmp ne i32 %2, 0
+  %18 = zext i1 %17 to i32
+  %. = select i1 %16, ptr %0, ptr %1
+  tail call void @input_event(ptr noundef %., i32 noundef 1, i32 noundef 272, i32 noundef %18) #14
+  %19 = load volatile i64, ptr %13, align 8
+  %20 = and i64 %19, 131072
+  %21 = icmp eq i64 %20, 0
+  %.sink6 = select i1 %21, ptr %0, ptr %1
+  %22 = icmp ne i32 %3, 0
+  %23 = zext i1 %22 to i32
+  tail call void @input_event(ptr noundef %.sink6, i32 noundef 1, i32 noundef 273, i32 noundef %23) #14
+  %24 = load volatile i64, ptr %13, align 8
+  %25 = and i64 %24, 262144
+  %26 = icmp eq i64 %25, 0
+  %.sink9 = select i1 %26, ptr %0, ptr %1
+  %27 = icmp ne i32 %4, 0
+  %28 = zext i1 %27 to i32
+  tail call void @input_event(ptr noundef %.sink9, i32 noundef 1, i32 noundef 274, i32 noundef %28) #14
   tail call void @input_event(ptr noundef nonnull %1, i32 noundef 0, i32 noundef 0, i32 noundef 0) #14
-  br label %36
+  br label %29
 
-36:                                               ; preds = %.thread5, %35
+29:                                               ; preds = %.thread5, %.thread2
   ret void
 }
 

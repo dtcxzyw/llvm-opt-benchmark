@@ -19404,7 +19404,7 @@ define internal fastcc void @"_ZSt16__merge_adaptiveIPN4llvm11reassociate6Factor
   br label %32
 
 tailrecurse._crit_edge:                           ; preds = %tailrecurse, %7
-  %.tr.lcssa = phi ptr [ %0, %7 ], [ %97, %tailrecurse ]
+  %.tr.lcssa = phi ptr [ %0, %7 ], [ %94, %tailrecurse ]
   %.tr105.lcssa = phi ptr [ %1, %7 ], [ %.0101, %tailrecurse ]
   %9 = ptrtoint ptr %.tr105.lcssa to i64
   %10 = ptrtoint ptr %.tr.lcssa to i64
@@ -19468,176 +19468,172 @@ _ZSt4moveIPN4llvm11reassociate6FactorES3_ET0_T_S5_S4_.exit.i: ; preds = %._crit_
 
 32:                                               ; preds = %.lr.ph, %tailrecurse
   %.not125 = phi i1 [ %.not116, %.lr.ph ], [ %.not, %tailrecurse ]
-  %.tr108124 = phi i64 [ %4, %.lr.ph ], [ %98, %tailrecurse ]
-  %.tr107123 = phi i64 [ %3, %.lr.ph ], [ %96, %tailrecurse ]
+  %.tr108124 = phi i64 [ %4, %.lr.ph ], [ %95, %tailrecurse ]
+  %.tr107123 = phi i64 [ %3, %.lr.ph ], [ %93, %tailrecurse ]
   %.tr105121 = phi ptr [ %1, %.lr.ph ], [ %.0101, %tailrecurse ]
-  %.tr119 = phi ptr [ %0, %.lr.ph ], [ %97, %tailrecurse ]
+  %.tr119 = phi ptr [ %0, %.lr.ph ], [ %94, %tailrecurse ]
   %.not71 = icmp sgt i64 %.tr108124, %6
-  %33 = ptrtoint ptr %.tr105121 to i64
-  br i1 %.not71, label %62, label %34
+  br i1 %.not71, label %58, label %33
 
-34:                                               ; preds = %32
-  %35 = sub i64 %8, %33
+33:                                               ; preds = %32
   %.not.i.i.i.i.i73 = icmp eq ptr %2, %.tr105121
   br i1 %.not.i.i.i.i.i73, label %"_ZSt21__move_merge_adaptiveIPN4llvm11reassociate6FactorES3_S3_N9__gnu_cxx5__ops15_Iter_comp_iterIZL22collectMultiplyFactorsRNS0_15SmallVectorImplINS1_10ValueEntryEEERNS7_IS2_EEE3$_0EEEvT_SF_T0_SG_T1_T2_.exit", label %_ZSt4moveIPN4llvm11reassociate6FactorES3_ET0_T_S5_S4_.exit74.thread
 
-_ZSt4moveIPN4llvm11reassociate6FactorES3_ET0_T_S5_S4_.exit74.thread: ; preds = %34
+_ZSt4moveIPN4llvm11reassociate6FactorES3_ET0_T_S5_S4_.exit74.thread: ; preds = %33
+  %34 = ptrtoint ptr %.tr105121 to i64
+  %35 = sub i64 %8, %34
   tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %5, ptr align 8 %.tr105121, i64 %35, i1 false)
-  %36 = icmp eq ptr %.tr119, %.tr105121
-  br i1 %36, label %37, label %40
+  %36 = getelementptr inbounds i8, ptr %5, i64 %35
+  %37 = icmp eq ptr %.tr119, %.tr105121
+  br i1 %37, label %_ZSt13move_backwardIPN4llvm11reassociate6FactorES3_ET0_T_S5_S4_.exit.sink.split.i, label %38
 
-37:                                               ; preds = %_ZSt4moveIPN4llvm11reassociate6FactorES3_ET0_T_S5_S4_.exit74.thread
-  %38 = ashr exact i64 %35, 4
-  %.pre.i.i.i.i.i.i = sub nsw i64 0, %38
-  %39 = getelementptr inbounds %"struct.llvm::reassociate::Factor", ptr %2, i64 %.pre.i.i.i.i.i.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %39, ptr align 8 %5, i64 %35, i1 false)
-  br label %"_ZSt21__move_merge_adaptiveIPN4llvm11reassociate6FactorES3_S3_N9__gnu_cxx5__ops15_Iter_comp_iterIZL22collectMultiplyFactorsRNS0_15SmallVectorImplINS1_10ValueEntryEEERNS7_IS2_EEE3$_0EEEvT_SF_T0_SG_T1_T2_.exit"
-
-40:                                               ; preds = %_ZSt4moveIPN4llvm11reassociate6FactorES3_ET0_T_S5_S4_.exit74.thread
-  %41 = getelementptr inbounds i8, ptr %5, i64 %35
-  %42 = getelementptr inbounds i8, ptr %41, i64 -16
+38:                                               ; preds = %_ZSt4moveIPN4llvm11reassociate6FactorES3_ET0_T_S5_S4_.exit74.thread
+  %39 = getelementptr inbounds i8, ptr %36, i64 -16
   br label %.outer
 
-.outer:                                           ; preds = %48, %40
-  %.026.i.ph.pn = phi ptr [ %.tr105121, %40 ], [ %.026.i.ph, %48 ]
-  %.024.i75.ph = phi ptr [ %42, %40 ], [ %.024.i75, %48 ]
-  %.0.i.ph = phi ptr [ %2, %40 ], [ %47, %48 ]
+.outer:                                           ; preds = %45, %38
+  %.026.i.ph.pn = phi ptr [ %.tr105121, %38 ], [ %.026.i.ph, %45 ]
+  %.024.i75.ph = phi ptr [ %39, %38 ], [ %.024.i75, %45 ]
+  %.0.i.ph = phi ptr [ %2, %38 ], [ %44, %45 ]
   %.026.i.ph = getelementptr inbounds i8, ptr %.026.i.ph.pn, i64 -16
-  %43 = getelementptr i8, ptr %.026.i.ph.pn, i64 -8
-  br label %44
+  %40 = getelementptr i8, ptr %.026.i.ph.pn, i64 -8
+  br label %41
 
-44:                                               ; preds = %.outer, %60
-  %.024.i75 = phi ptr [ %61, %60 ], [ %.024.i75.ph, %.outer ]
-  %.0.i = phi ptr [ %47, %60 ], [ %.0.i.ph, %.outer ]
-  %45 = getelementptr i8, ptr %.024.i75, i64 8
-  %.024.val.i = load i32, ptr %45, align 8
-  %.026.val.i = load i32, ptr %43, align 8
-  %46 = icmp ugt i32 %.024.val.i, %.026.val.i
-  %47 = getelementptr inbounds i8, ptr %.0.i, i64 -16
-  br i1 %46, label %48, label %58
+41:                                               ; preds = %.outer, %51
+  %.024.i75 = phi ptr [ %52, %51 ], [ %.024.i75.ph, %.outer ]
+  %.0.i = phi ptr [ %44, %51 ], [ %.0.i.ph, %.outer ]
+  %42 = getelementptr i8, ptr %.024.i75, i64 8
+  %.024.val.i = load i32, ptr %42, align 8
+  %.026.val.i = load i32, ptr %40, align 8
+  %43 = icmp ugt i32 %.024.val.i, %.026.val.i
+  %44 = getelementptr inbounds i8, ptr %.0.i, i64 -16
+  br i1 %43, label %45, label %49
 
-48:                                               ; preds = %44
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %47, ptr noundef nonnull align 8 dereferenceable(12) %.026.i.ph, i64 12, i1 false)
-  %49 = icmp eq ptr %.tr119, %.026.i.ph
-  br i1 %49, label %50, label %.outer, !llvm.loop !349
+45:                                               ; preds = %41
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %44, ptr noundef nonnull align 8 dereferenceable(12) %.026.i.ph, i64 12, i1 false)
+  %46 = icmp eq ptr %.tr119, %.026.i.ph
+  br i1 %46, label %47, label %.outer, !llvm.loop !349
 
-50:                                               ; preds = %48
-  %51 = getelementptr inbounds i8, ptr %.024.i75, i64 16
-  %.not.i.i.i.i.i32.i = icmp eq ptr %51, %5
-  br i1 %.not.i.i.i.i.i32.i, label %"_ZSt21__move_merge_adaptiveIPN4llvm11reassociate6FactorES3_S3_N9__gnu_cxx5__ops15_Iter_comp_iterIZL22collectMultiplyFactorsRNS0_15SmallVectorImplINS1_10ValueEntryEEERNS7_IS2_EEE3$_0EEEvT_SF_T0_SG_T1_T2_.exit", label %52
+47:                                               ; preds = %45
+  %48 = getelementptr inbounds i8, ptr %.024.i75, i64 16
+  %.not.i.i.i.i.i32.i = icmp eq ptr %48, %5
+  br i1 %.not.i.i.i.i.i32.i, label %"_ZSt21__move_merge_adaptiveIPN4llvm11reassociate6FactorES3_S3_N9__gnu_cxx5__ops15_Iter_comp_iterIZL22collectMultiplyFactorsRNS0_15SmallVectorImplINS1_10ValueEntryEEERNS7_IS2_EEE3$_0EEEvT_SF_T0_SG_T1_T2_.exit", label %_ZSt13move_backwardIPN4llvm11reassociate6FactorES3_ET0_T_S5_S4_.exit.sink.split.i
 
-52:                                               ; preds = %50
-  %53 = ptrtoint ptr %51 to i64
+49:                                               ; preds = %41
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %44, ptr noundef nonnull align 8 dereferenceable(12) %.024.i75, i64 12, i1 false)
+  %50 = icmp eq ptr %5, %.024.i75
+  br i1 %50, label %"_ZSt21__move_merge_adaptiveIPN4llvm11reassociate6FactorES3_S3_N9__gnu_cxx5__ops15_Iter_comp_iterIZL22collectMultiplyFactorsRNS0_15SmallVectorImplINS1_10ValueEntryEEERNS7_IS2_EEE3$_0EEEvT_SF_T0_SG_T1_T2_.exit", label %51
+
+51:                                               ; preds = %49
+  %52 = getelementptr inbounds i8, ptr %.024.i75, i64 -16
+  br label %41, !llvm.loop !349
+
+_ZSt13move_backwardIPN4llvm11reassociate6FactorES3_ET0_T_S5_S4_.exit.sink.split.i: ; preds = %_ZSt4moveIPN4llvm11reassociate6FactorES3_ET0_T_S5_S4_.exit74.thread, %47
+  %.sink41.i = phi ptr [ %48, %47 ], [ %36, %_ZSt4moveIPN4llvm11reassociate6FactorES3_ET0_T_S5_S4_.exit74.thread ]
+  %.lcssa.sink.i = phi ptr [ %44, %47 ], [ %2, %_ZSt4moveIPN4llvm11reassociate6FactorES3_ET0_T_S5_S4_.exit74.thread ]
+  %53 = ptrtoint ptr %.sink41.i to i64
   %54 = ptrtoint ptr %5 to i64
   %55 = sub i64 %53, %54
   %56 = ashr exact i64 %55, 4
   %.pre.i.i.i.i.i33.i = sub nsw i64 0, %56
-  %57 = getelementptr inbounds %"struct.llvm::reassociate::Factor", ptr %47, i64 %.pre.i.i.i.i.i33.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %57, ptr align 8 %5, i64 %55, i1 false)
+  %57 = getelementptr inbounds %"struct.llvm::reassociate::Factor", ptr %.lcssa.sink.i, i64 %.pre.i.i.i.i.i33.i
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %57, ptr align 8 %5, i64 %55, i1 false)
   br label %"_ZSt21__move_merge_adaptiveIPN4llvm11reassociate6FactorES3_S3_N9__gnu_cxx5__ops15_Iter_comp_iterIZL22collectMultiplyFactorsRNS0_15SmallVectorImplINS1_10ValueEntryEEERNS7_IS2_EEE3$_0EEEvT_SF_T0_SG_T1_T2_.exit"
 
-58:                                               ; preds = %44
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %47, ptr noundef nonnull align 8 dereferenceable(12) %.024.i75, i64 12, i1 false)
-  %59 = icmp eq ptr %5, %.024.i75
-  br i1 %59, label %"_ZSt21__move_merge_adaptiveIPN4llvm11reassociate6FactorES3_S3_N9__gnu_cxx5__ops15_Iter_comp_iterIZL22collectMultiplyFactorsRNS0_15SmallVectorImplINS1_10ValueEntryEEERNS7_IS2_EEE3$_0EEEvT_SF_T0_SG_T1_T2_.exit", label %60
-
-60:                                               ; preds = %58
-  %61 = getelementptr inbounds i8, ptr %.024.i75, i64 -16
-  br label %44, !llvm.loop !349
-
-62:                                               ; preds = %32
+58:                                               ; preds = %32
+  %59 = ptrtoint ptr %.tr105121 to i64
   br i1 %.not125, label %_ZSt7advanceIPN4llvm11reassociate6FactorElEvRT_T0_.exit, label %_ZSt7advanceIPN4llvm11reassociate6FactorElEvRT_T0_.exit82
 
-_ZSt7advanceIPN4llvm11reassociate6FactorElEvRT_T0_.exit: ; preds = %62
-  %63 = sdiv i64 %.tr107123, 2
-  %64 = getelementptr inbounds %"struct.llvm::reassociate::Factor", ptr %.tr119, i64 %63
-  %65 = getelementptr i8, ptr %64, i64 8
-  %.val = load i32, ptr %65, align 8
-  %66 = sub i64 %8, %33
-  %67 = ashr exact i64 %66, 4
-  %68 = icmp sgt i64 %67, 0
-  br i1 %68, label %_ZSt7advanceIPN4llvm11reassociate6FactorElEvRT_T0_.exit.i, label %"_ZSt13__lower_boundIPN4llvm11reassociate6FactorES2_N9__gnu_cxx5__ops14_Iter_comp_valIZL22collectMultiplyFactorsRNS0_15SmallVectorImplINS1_10ValueEntryEEERNS7_IS2_EEE3$_0EEET_SF_SF_RKT0_T1_.exit"
+_ZSt7advanceIPN4llvm11reassociate6FactorElEvRT_T0_.exit: ; preds = %58
+  %60 = sdiv i64 %.tr107123, 2
+  %61 = getelementptr inbounds %"struct.llvm::reassociate::Factor", ptr %.tr119, i64 %60
+  %62 = getelementptr i8, ptr %61, i64 8
+  %.val = load i32, ptr %62, align 8
+  %63 = sub i64 %8, %59
+  %64 = ashr exact i64 %63, 4
+  %65 = icmp sgt i64 %64, 0
+  br i1 %65, label %_ZSt7advanceIPN4llvm11reassociate6FactorElEvRT_T0_.exit.i, label %"_ZSt13__lower_boundIPN4llvm11reassociate6FactorES2_N9__gnu_cxx5__ops14_Iter_comp_valIZL22collectMultiplyFactorsRNS0_15SmallVectorImplINS1_10ValueEntryEEERNS7_IS2_EEE3$_0EEET_SF_SF_RKT0_T1_.exit"
 
 _ZSt7advanceIPN4llvm11reassociate6FactorElEvRT_T0_.exit.i: ; preds = %_ZSt7advanceIPN4llvm11reassociate6FactorElEvRT_T0_.exit, %_ZSt7advanceIPN4llvm11reassociate6FactorElEvRT_T0_.exit.i
   %.05.i = phi ptr [ %.1.i78, %_ZSt7advanceIPN4llvm11reassociate6FactorElEvRT_T0_.exit.i ], [ %.tr105121, %_ZSt7advanceIPN4llvm11reassociate6FactorElEvRT_T0_.exit ]
-  %.0114.i = phi i64 [ %.112.i, %_ZSt7advanceIPN4llvm11reassociate6FactorElEvRT_T0_.exit.i ], [ %67, %_ZSt7advanceIPN4llvm11reassociate6FactorElEvRT_T0_.exit ]
-  %69 = lshr i64 %.0114.i, 1
-  %70 = getelementptr inbounds %"struct.llvm::reassociate::Factor", ptr %.05.i, i64 %69
-  %71 = getelementptr i8, ptr %70, i64 8
-  %.val.i = load i32, ptr %71, align 8
-  %72 = icmp ugt i32 %.val.i, %.val
-  %73 = getelementptr inbounds i8, ptr %70, i64 16
-  %74 = xor i64 %69, -1
-  %75 = add nsw i64 %.0114.i, %74
-  %.112.i = select i1 %72, i64 %75, i64 %69
-  %.1.i78 = select i1 %72, ptr %73, ptr %.05.i
-  %76 = icmp sgt i64 %.112.i, 0
-  br i1 %76, label %_ZSt7advanceIPN4llvm11reassociate6FactorElEvRT_T0_.exit.i, label %"_ZSt13__lower_boundIPN4llvm11reassociate6FactorES2_N9__gnu_cxx5__ops14_Iter_comp_valIZL22collectMultiplyFactorsRNS0_15SmallVectorImplINS1_10ValueEntryEEERNS7_IS2_EEE3$_0EEET_SF_SF_RKT0_T1_.exit.loopexit", !llvm.loop !338
+  %.0114.i = phi i64 [ %.112.i, %_ZSt7advanceIPN4llvm11reassociate6FactorElEvRT_T0_.exit.i ], [ %64, %_ZSt7advanceIPN4llvm11reassociate6FactorElEvRT_T0_.exit ]
+  %66 = lshr i64 %.0114.i, 1
+  %67 = getelementptr inbounds %"struct.llvm::reassociate::Factor", ptr %.05.i, i64 %66
+  %68 = getelementptr i8, ptr %67, i64 8
+  %.val.i = load i32, ptr %68, align 8
+  %69 = icmp ugt i32 %.val.i, %.val
+  %70 = getelementptr inbounds i8, ptr %67, i64 16
+  %71 = xor i64 %66, -1
+  %72 = add nsw i64 %.0114.i, %71
+  %.112.i = select i1 %69, i64 %72, i64 %66
+  %.1.i78 = select i1 %69, ptr %70, ptr %.05.i
+  %73 = icmp sgt i64 %.112.i, 0
+  br i1 %73, label %_ZSt7advanceIPN4llvm11reassociate6FactorElEvRT_T0_.exit.i, label %"_ZSt13__lower_boundIPN4llvm11reassociate6FactorES2_N9__gnu_cxx5__ops14_Iter_comp_valIZL22collectMultiplyFactorsRNS0_15SmallVectorImplINS1_10ValueEntryEEERNS7_IS2_EEE3$_0EEET_SF_SF_RKT0_T1_.exit.loopexit", !llvm.loop !338
 
 "_ZSt13__lower_boundIPN4llvm11reassociate6FactorES2_N9__gnu_cxx5__ops14_Iter_comp_valIZL22collectMultiplyFactorsRNS0_15SmallVectorImplINS1_10ValueEntryEEERNS7_IS2_EEE3$_0EEET_SF_SF_RKT0_T1_.exit.loopexit": ; preds = %_ZSt7advanceIPN4llvm11reassociate6FactorElEvRT_T0_.exit.i
   %.pre = ptrtoint ptr %.1.i78 to i64
   br label %"_ZSt13__lower_boundIPN4llvm11reassociate6FactorES2_N9__gnu_cxx5__ops14_Iter_comp_valIZL22collectMultiplyFactorsRNS0_15SmallVectorImplINS1_10ValueEntryEEERNS7_IS2_EEE3$_0EEET_SF_SF_RKT0_T1_.exit"
 
 "_ZSt13__lower_boundIPN4llvm11reassociate6FactorES2_N9__gnu_cxx5__ops14_Iter_comp_valIZL22collectMultiplyFactorsRNS0_15SmallVectorImplINS1_10ValueEntryEEERNS7_IS2_EEE3$_0EEET_SF_SF_RKT0_T1_.exit": ; preds = %"_ZSt13__lower_boundIPN4llvm11reassociate6FactorES2_N9__gnu_cxx5__ops14_Iter_comp_valIZL22collectMultiplyFactorsRNS0_15SmallVectorImplINS1_10ValueEntryEEERNS7_IS2_EEE3$_0EEET_SF_SF_RKT0_T1_.exit.loopexit", %_ZSt7advanceIPN4llvm11reassociate6FactorElEvRT_T0_.exit
-  %.pre-phi = phi i64 [ %.pre, %"_ZSt13__lower_boundIPN4llvm11reassociate6FactorES2_N9__gnu_cxx5__ops14_Iter_comp_valIZL22collectMultiplyFactorsRNS0_15SmallVectorImplINS1_10ValueEntryEEERNS7_IS2_EEE3$_0EEET_SF_SF_RKT0_T1_.exit.loopexit" ], [ %33, %_ZSt7advanceIPN4llvm11reassociate6FactorElEvRT_T0_.exit ]
+  %.pre-phi = phi i64 [ %.pre, %"_ZSt13__lower_boundIPN4llvm11reassociate6FactorES2_N9__gnu_cxx5__ops14_Iter_comp_valIZL22collectMultiplyFactorsRNS0_15SmallVectorImplINS1_10ValueEntryEEERNS7_IS2_EEE3$_0EEET_SF_SF_RKT0_T1_.exit.loopexit" ], [ %59, %_ZSt7advanceIPN4llvm11reassociate6FactorElEvRT_T0_.exit ]
   %.0.lcssa.i77 = phi ptr [ %.1.i78, %"_ZSt13__lower_boundIPN4llvm11reassociate6FactorES2_N9__gnu_cxx5__ops14_Iter_comp_valIZL22collectMultiplyFactorsRNS0_15SmallVectorImplINS1_10ValueEntryEEERNS7_IS2_EEE3$_0EEET_SF_SF_RKT0_T1_.exit.loopexit" ], [ %.tr105121, %_ZSt7advanceIPN4llvm11reassociate6FactorElEvRT_T0_.exit ]
-  %77 = sub i64 %.pre-phi, %33
-  %78 = ashr exact i64 %77, 4
+  %74 = sub i64 %.pre-phi, %59
+  %75 = ashr exact i64 %74, 4
   br label %tailrecurse
 
-_ZSt7advanceIPN4llvm11reassociate6FactorElEvRT_T0_.exit82: ; preds = %62
-  %79 = sdiv i64 %.tr108124, 2
-  %80 = getelementptr inbounds %"struct.llvm::reassociate::Factor", ptr %.tr105121, i64 %79
-  %81 = getelementptr i8, ptr %80, i64 8
-  %.val72 = load i32, ptr %81, align 8
-  %82 = ptrtoint ptr %.tr119 to i64
-  %83 = sub i64 %33, %82
-  %84 = ashr exact i64 %83, 4
-  %85 = icmp sgt i64 %84, 0
-  br i1 %85, label %_ZSt7advanceIPN4llvm11reassociate6FactorElEvRT_T0_.exit.i85, label %"_ZSt13__upper_boundIPN4llvm11reassociate6FactorES2_N9__gnu_cxx5__ops14_Val_comp_iterIZL22collectMultiplyFactorsRNS0_15SmallVectorImplINS1_10ValueEntryEEERNS7_IS2_EEE3$_0EEET_SF_SF_RKT0_T1_.exit"
+_ZSt7advanceIPN4llvm11reassociate6FactorElEvRT_T0_.exit82: ; preds = %58
+  %76 = sdiv i64 %.tr108124, 2
+  %77 = getelementptr inbounds %"struct.llvm::reassociate::Factor", ptr %.tr105121, i64 %76
+  %78 = getelementptr i8, ptr %77, i64 8
+  %.val72 = load i32, ptr %78, align 8
+  %79 = ptrtoint ptr %.tr119 to i64
+  %80 = sub i64 %59, %79
+  %81 = ashr exact i64 %80, 4
+  %82 = icmp sgt i64 %81, 0
+  br i1 %82, label %_ZSt7advanceIPN4llvm11reassociate6FactorElEvRT_T0_.exit.i85, label %"_ZSt13__upper_boundIPN4llvm11reassociate6FactorES2_N9__gnu_cxx5__ops14_Val_comp_iterIZL22collectMultiplyFactorsRNS0_15SmallVectorImplINS1_10ValueEntryEEERNS7_IS2_EEE3$_0EEET_SF_SF_RKT0_T1_.exit"
 
 _ZSt7advanceIPN4llvm11reassociate6FactorElEvRT_T0_.exit.i85: ; preds = %_ZSt7advanceIPN4llvm11reassociate6FactorElEvRT_T0_.exit82, %_ZSt7advanceIPN4llvm11reassociate6FactorElEvRT_T0_.exit.i85
   %.05.i86 = phi ptr [ %.1.i91, %_ZSt7advanceIPN4llvm11reassociate6FactorElEvRT_T0_.exit.i85 ], [ %.tr119, %_ZSt7advanceIPN4llvm11reassociate6FactorElEvRT_T0_.exit82 ]
-  %.0114.i87 = phi i64 [ %.112.i90, %_ZSt7advanceIPN4llvm11reassociate6FactorElEvRT_T0_.exit.i85 ], [ %84, %_ZSt7advanceIPN4llvm11reassociate6FactorElEvRT_T0_.exit82 ]
-  %86 = lshr i64 %.0114.i87, 1
-  %87 = getelementptr inbounds %"struct.llvm::reassociate::Factor", ptr %.05.i86, i64 %86
-  %88 = getelementptr i8, ptr %87, i64 8
-  %.val13.i = load i32, ptr %88, align 8
-  %89 = icmp ugt i32 %.val72, %.val13.i
-  %90 = getelementptr inbounds i8, ptr %87, i64 16
-  %91 = xor i64 %86, -1
-  %92 = add nsw i64 %.0114.i87, %91
-  %.112.i90 = select i1 %89, i64 %86, i64 %92
-  %.1.i91 = select i1 %89, ptr %.05.i86, ptr %90
-  %93 = icmp sgt i64 %.112.i90, 0
-  br i1 %93, label %_ZSt7advanceIPN4llvm11reassociate6FactorElEvRT_T0_.exit.i85, label %"_ZSt13__upper_boundIPN4llvm11reassociate6FactorES2_N9__gnu_cxx5__ops14_Val_comp_iterIZL22collectMultiplyFactorsRNS0_15SmallVectorImplINS1_10ValueEntryEEERNS7_IS2_EEE3$_0EEET_SF_SF_RKT0_T1_.exit.loopexit", !llvm.loop !339
+  %.0114.i87 = phi i64 [ %.112.i90, %_ZSt7advanceIPN4llvm11reassociate6FactorElEvRT_T0_.exit.i85 ], [ %81, %_ZSt7advanceIPN4llvm11reassociate6FactorElEvRT_T0_.exit82 ]
+  %83 = lshr i64 %.0114.i87, 1
+  %84 = getelementptr inbounds %"struct.llvm::reassociate::Factor", ptr %.05.i86, i64 %83
+  %85 = getelementptr i8, ptr %84, i64 8
+  %.val13.i = load i32, ptr %85, align 8
+  %86 = icmp ugt i32 %.val72, %.val13.i
+  %87 = getelementptr inbounds i8, ptr %84, i64 16
+  %88 = xor i64 %83, -1
+  %89 = add nsw i64 %.0114.i87, %88
+  %.112.i90 = select i1 %86, i64 %83, i64 %89
+  %.1.i91 = select i1 %86, ptr %.05.i86, ptr %87
+  %90 = icmp sgt i64 %.112.i90, 0
+  br i1 %90, label %_ZSt7advanceIPN4llvm11reassociate6FactorElEvRT_T0_.exit.i85, label %"_ZSt13__upper_boundIPN4llvm11reassociate6FactorES2_N9__gnu_cxx5__ops14_Val_comp_iterIZL22collectMultiplyFactorsRNS0_15SmallVectorImplINS1_10ValueEntryEEERNS7_IS2_EEE3$_0EEET_SF_SF_RKT0_T1_.exit.loopexit", !llvm.loop !339
 
 "_ZSt13__upper_boundIPN4llvm11reassociate6FactorES2_N9__gnu_cxx5__ops14_Val_comp_iterIZL22collectMultiplyFactorsRNS0_15SmallVectorImplINS1_10ValueEntryEEERNS7_IS2_EEE3$_0EEET_SF_SF_RKT0_T1_.exit.loopexit": ; preds = %_ZSt7advanceIPN4llvm11reassociate6FactorElEvRT_T0_.exit.i85
   %.pre134 = ptrtoint ptr %.1.i91 to i64
   br label %"_ZSt13__upper_boundIPN4llvm11reassociate6FactorES2_N9__gnu_cxx5__ops14_Val_comp_iterIZL22collectMultiplyFactorsRNS0_15SmallVectorImplINS1_10ValueEntryEEERNS7_IS2_EEE3$_0EEET_SF_SF_RKT0_T1_.exit"
 
 "_ZSt13__upper_boundIPN4llvm11reassociate6FactorES2_N9__gnu_cxx5__ops14_Val_comp_iterIZL22collectMultiplyFactorsRNS0_15SmallVectorImplINS1_10ValueEntryEEERNS7_IS2_EEE3$_0EEET_SF_SF_RKT0_T1_.exit": ; preds = %"_ZSt13__upper_boundIPN4llvm11reassociate6FactorES2_N9__gnu_cxx5__ops14_Val_comp_iterIZL22collectMultiplyFactorsRNS0_15SmallVectorImplINS1_10ValueEntryEEERNS7_IS2_EEE3$_0EEET_SF_SF_RKT0_T1_.exit.loopexit", %_ZSt7advanceIPN4llvm11reassociate6FactorElEvRT_T0_.exit82
-  %.pre-phi135 = phi i64 [ %.pre134, %"_ZSt13__upper_boundIPN4llvm11reassociate6FactorES2_N9__gnu_cxx5__ops14_Val_comp_iterIZL22collectMultiplyFactorsRNS0_15SmallVectorImplINS1_10ValueEntryEEERNS7_IS2_EEE3$_0EEET_SF_SF_RKT0_T1_.exit.loopexit" ], [ %82, %_ZSt7advanceIPN4llvm11reassociate6FactorElEvRT_T0_.exit82 ]
+  %.pre-phi135 = phi i64 [ %.pre134, %"_ZSt13__upper_boundIPN4llvm11reassociate6FactorES2_N9__gnu_cxx5__ops14_Val_comp_iterIZL22collectMultiplyFactorsRNS0_15SmallVectorImplINS1_10ValueEntryEEERNS7_IS2_EEE3$_0EEET_SF_SF_RKT0_T1_.exit.loopexit" ], [ %79, %_ZSt7advanceIPN4llvm11reassociate6FactorElEvRT_T0_.exit82 ]
   %.0.lcssa.i84 = phi ptr [ %.1.i91, %"_ZSt13__upper_boundIPN4llvm11reassociate6FactorES2_N9__gnu_cxx5__ops14_Val_comp_iterIZL22collectMultiplyFactorsRNS0_15SmallVectorImplINS1_10ValueEntryEEERNS7_IS2_EEE3$_0EEET_SF_SF_RKT0_T1_.exit.loopexit" ], [ %.tr119, %_ZSt7advanceIPN4llvm11reassociate6FactorElEvRT_T0_.exit82 ]
-  %94 = sub i64 %.pre-phi135, %82
-  %95 = ashr exact i64 %94, 4
+  %91 = sub i64 %.pre-phi135, %79
+  %92 = ashr exact i64 %91, 4
   br label %tailrecurse
 
 tailrecurse:                                      ; preds = %"_ZSt13__upper_boundIPN4llvm11reassociate6FactorES2_N9__gnu_cxx5__ops14_Val_comp_iterIZL22collectMultiplyFactorsRNS0_15SmallVectorImplINS1_10ValueEntryEEERNS7_IS2_EEE3$_0EEET_SF_SF_RKT0_T1_.exit", %"_ZSt13__lower_boundIPN4llvm11reassociate6FactorES2_N9__gnu_cxx5__ops14_Iter_comp_valIZL22collectMultiplyFactorsRNS0_15SmallVectorImplINS1_10ValueEntryEEERNS7_IS2_EEE3$_0EEET_SF_SF_RKT0_T1_.exit"
-  %.0102 = phi ptr [ %64, %"_ZSt13__lower_boundIPN4llvm11reassociate6FactorES2_N9__gnu_cxx5__ops14_Iter_comp_valIZL22collectMultiplyFactorsRNS0_15SmallVectorImplINS1_10ValueEntryEEERNS7_IS2_EEE3$_0EEET_SF_SF_RKT0_T1_.exit" ], [ %.0.lcssa.i84, %"_ZSt13__upper_boundIPN4llvm11reassociate6FactorES2_N9__gnu_cxx5__ops14_Val_comp_iterIZL22collectMultiplyFactorsRNS0_15SmallVectorImplINS1_10ValueEntryEEERNS7_IS2_EEE3$_0EEET_SF_SF_RKT0_T1_.exit" ]
-  %.0101 = phi ptr [ %.0.lcssa.i77, %"_ZSt13__lower_boundIPN4llvm11reassociate6FactorES2_N9__gnu_cxx5__ops14_Iter_comp_valIZL22collectMultiplyFactorsRNS0_15SmallVectorImplINS1_10ValueEntryEEERNS7_IS2_EEE3$_0EEET_SF_SF_RKT0_T1_.exit" ], [ %80, %"_ZSt13__upper_boundIPN4llvm11reassociate6FactorES2_N9__gnu_cxx5__ops14_Val_comp_iterIZL22collectMultiplyFactorsRNS0_15SmallVectorImplINS1_10ValueEntryEEERNS7_IS2_EEE3$_0EEET_SF_SF_RKT0_T1_.exit" ]
-  %.066 = phi i64 [ %78, %"_ZSt13__lower_boundIPN4llvm11reassociate6FactorES2_N9__gnu_cxx5__ops14_Iter_comp_valIZL22collectMultiplyFactorsRNS0_15SmallVectorImplINS1_10ValueEntryEEERNS7_IS2_EEE3$_0EEET_SF_SF_RKT0_T1_.exit" ], [ %79, %"_ZSt13__upper_boundIPN4llvm11reassociate6FactorES2_N9__gnu_cxx5__ops14_Val_comp_iterIZL22collectMultiplyFactorsRNS0_15SmallVectorImplINS1_10ValueEntryEEERNS7_IS2_EEE3$_0EEET_SF_SF_RKT0_T1_.exit" ]
-  %.0 = phi i64 [ %63, %"_ZSt13__lower_boundIPN4llvm11reassociate6FactorES2_N9__gnu_cxx5__ops14_Iter_comp_valIZL22collectMultiplyFactorsRNS0_15SmallVectorImplINS1_10ValueEntryEEERNS7_IS2_EEE3$_0EEET_SF_SF_RKT0_T1_.exit" ], [ %95, %"_ZSt13__upper_boundIPN4llvm11reassociate6FactorES2_N9__gnu_cxx5__ops14_Val_comp_iterIZL22collectMultiplyFactorsRNS0_15SmallVectorImplINS1_10ValueEntryEEERNS7_IS2_EEE3$_0EEET_SF_SF_RKT0_T1_.exit" ]
-  %96 = sub nsw i64 %.tr107123, %.0
-  %97 = tail call noundef ptr @_ZSt17__rotate_adaptiveIPN4llvm11reassociate6FactorES3_lET_S4_S4_S4_T1_S5_T0_S5_(ptr noundef %.0102, ptr noundef %.tr105121, ptr noundef %.0101, i64 noundef %96, i64 noundef %.066, ptr noundef %5, i64 noundef %6)
-  tail call fastcc void @"_ZSt16__merge_adaptiveIPN4llvm11reassociate6FactorElS3_N9__gnu_cxx5__ops15_Iter_comp_iterIZL22collectMultiplyFactorsRNS0_15SmallVectorImplINS1_10ValueEntryEEERNS7_IS2_EEE3$_0EEEvT_SF_SF_T0_SG_T1_SG_T2_"(ptr noundef %.tr119, ptr noundef %.0102, ptr noundef %97, i64 noundef %.0, i64 noundef %.066, ptr noundef %5, i64 noundef %6)
-  %98 = sub nsw i64 %.tr108124, %.066
-  %.not = icmp sgt i64 %96, %98
-  %.not70 = icmp sgt i64 %96, %6
+  %.0102 = phi ptr [ %61, %"_ZSt13__lower_boundIPN4llvm11reassociate6FactorES2_N9__gnu_cxx5__ops14_Iter_comp_valIZL22collectMultiplyFactorsRNS0_15SmallVectorImplINS1_10ValueEntryEEERNS7_IS2_EEE3$_0EEET_SF_SF_RKT0_T1_.exit" ], [ %.0.lcssa.i84, %"_ZSt13__upper_boundIPN4llvm11reassociate6FactorES2_N9__gnu_cxx5__ops14_Val_comp_iterIZL22collectMultiplyFactorsRNS0_15SmallVectorImplINS1_10ValueEntryEEERNS7_IS2_EEE3$_0EEET_SF_SF_RKT0_T1_.exit" ]
+  %.0101 = phi ptr [ %.0.lcssa.i77, %"_ZSt13__lower_boundIPN4llvm11reassociate6FactorES2_N9__gnu_cxx5__ops14_Iter_comp_valIZL22collectMultiplyFactorsRNS0_15SmallVectorImplINS1_10ValueEntryEEERNS7_IS2_EEE3$_0EEET_SF_SF_RKT0_T1_.exit" ], [ %77, %"_ZSt13__upper_boundIPN4llvm11reassociate6FactorES2_N9__gnu_cxx5__ops14_Val_comp_iterIZL22collectMultiplyFactorsRNS0_15SmallVectorImplINS1_10ValueEntryEEERNS7_IS2_EEE3$_0EEET_SF_SF_RKT0_T1_.exit" ]
+  %.066 = phi i64 [ %75, %"_ZSt13__lower_boundIPN4llvm11reassociate6FactorES2_N9__gnu_cxx5__ops14_Iter_comp_valIZL22collectMultiplyFactorsRNS0_15SmallVectorImplINS1_10ValueEntryEEERNS7_IS2_EEE3$_0EEET_SF_SF_RKT0_T1_.exit" ], [ %76, %"_ZSt13__upper_boundIPN4llvm11reassociate6FactorES2_N9__gnu_cxx5__ops14_Val_comp_iterIZL22collectMultiplyFactorsRNS0_15SmallVectorImplINS1_10ValueEntryEEERNS7_IS2_EEE3$_0EEET_SF_SF_RKT0_T1_.exit" ]
+  %.0 = phi i64 [ %60, %"_ZSt13__lower_boundIPN4llvm11reassociate6FactorES2_N9__gnu_cxx5__ops14_Iter_comp_valIZL22collectMultiplyFactorsRNS0_15SmallVectorImplINS1_10ValueEntryEEERNS7_IS2_EEE3$_0EEET_SF_SF_RKT0_T1_.exit" ], [ %92, %"_ZSt13__upper_boundIPN4llvm11reassociate6FactorES2_N9__gnu_cxx5__ops14_Val_comp_iterIZL22collectMultiplyFactorsRNS0_15SmallVectorImplINS1_10ValueEntryEEERNS7_IS2_EEE3$_0EEET_SF_SF_RKT0_T1_.exit" ]
+  %93 = sub nsw i64 %.tr107123, %.0
+  %94 = tail call noundef ptr @_ZSt17__rotate_adaptiveIPN4llvm11reassociate6FactorES3_lET_S4_S4_S4_T1_S5_T0_S5_(ptr noundef %.0102, ptr noundef %.tr105121, ptr noundef %.0101, i64 noundef %93, i64 noundef %.066, ptr noundef %5, i64 noundef %6)
+  tail call fastcc void @"_ZSt16__merge_adaptiveIPN4llvm11reassociate6FactorElS3_N9__gnu_cxx5__ops15_Iter_comp_iterIZL22collectMultiplyFactorsRNS0_15SmallVectorImplINS1_10ValueEntryEEERNS7_IS2_EEE3$_0EEEvT_SF_SF_T0_SG_T1_SG_T2_"(ptr noundef %.tr119, ptr noundef %.0102, ptr noundef %94, i64 noundef %.0, i64 noundef %.066, ptr noundef %5, i64 noundef %6)
+  %95 = sub nsw i64 %.tr108124, %.066
+  %.not = icmp sgt i64 %93, %95
+  %.not70 = icmp sgt i64 %93, %6
   %or.cond = or i1 %.not70, %.not
   br i1 %or.cond, label %32, label %tailrecurse._crit_edge
 
-"_ZSt21__move_merge_adaptiveIPN4llvm11reassociate6FactorES3_S3_N9__gnu_cxx5__ops15_Iter_comp_iterIZL22collectMultiplyFactorsRNS0_15SmallVectorImplINS1_10ValueEntryEEERNS7_IS2_EEE3$_0EEEvT_SF_T0_SG_T1_T2_.exit": ; preds = %58, %34, %52, %50, %37, %_ZSt4moveIPN4llvm11reassociate6FactorES3_ET0_T_S5_S4_.exit.i, %._crit_edge.i
+"_ZSt21__move_merge_adaptiveIPN4llvm11reassociate6FactorES3_S3_N9__gnu_cxx5__ops15_Iter_comp_iterIZL22collectMultiplyFactorsRNS0_15SmallVectorImplINS1_10ValueEntryEEERNS7_IS2_EEE3$_0EEEvT_SF_T0_SG_T1_T2_.exit": ; preds = %49, %33, %_ZSt13move_backwardIPN4llvm11reassociate6FactorES3_ET0_T_S5_S4_.exit.sink.split.i, %47, %_ZSt4moveIPN4llvm11reassociate6FactorES3_ET0_T_S5_S4_.exit.i, %._crit_edge.i
   ret void
 }
 
@@ -24380,22 +24376,22 @@ _ZSt4moveIPPN4llvm11reassociate7XorOpndES4_ET0_T_S6_S5_.exit.i28.i61: ; preds = 
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal fastcc void @"_ZSt16__merge_adaptiveIPPN4llvm11reassociate7XorOpndElS4_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_15ReassociatePass11OptimizeXorEPNS0_11InstructionERNS0_15SmallVectorImplINS1_10ValueEntryEEEE3$_0EEEvT_SH_SH_T0_SI_T1_SI_T2_"(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, i64 noundef %4, ptr noundef %5, i64 noundef %6) unnamed_addr #0 {
-  %.not123 = icmp sgt i64 %3, %4
-  %.not70124 = icmp sgt i64 %3, %6
-  %or.cond125 = or i1 %.not70124, %.not123
-  br i1 %or.cond125, label %.lr.ph, label %tailrecurse._crit_edge
+  %.not122 = icmp sgt i64 %3, %4
+  %.not70123 = icmp sgt i64 %3, %6
+  %or.cond124 = or i1 %.not70123, %.not122
+  br i1 %or.cond124, label %.lr.ph, label %tailrecurse._crit_edge
 
 .lr.ph:                                           ; preds = %7
   %8 = ptrtoint ptr %2 to i64
   br label %27
 
 tailrecurse._crit_edge:                           ; preds = %_ZSt17__rotate_adaptiveIPPN4llvm11reassociate7XorOpndES4_lET_S5_S5_S5_T1_S6_T0_S6_.exit, %7
-  %.tr.lcssa = phi ptr [ %0, %7 ], [ %.0.i98, %_ZSt17__rotate_adaptiveIPPN4llvm11reassociate7XorOpndES4_lET_S5_S5_S5_T1_S6_T0_S6_.exit ]
-  %.tr112.lcssa = phi ptr [ %1, %7 ], [ %.0108, %_ZSt17__rotate_adaptiveIPPN4llvm11reassociate7XorOpndES4_lET_S5_S5_S5_T1_S6_T0_S6_.exit ]
-  %9 = ptrtoint ptr %.tr112.lcssa to i64
+  %.tr.lcssa = phi ptr [ %0, %7 ], [ %.0.i97, %_ZSt17__rotate_adaptiveIPPN4llvm11reassociate7XorOpndES4_lET_S5_S5_S5_T1_S6_T0_S6_.exit ]
+  %.tr111.lcssa = phi ptr [ %1, %7 ], [ %.0107, %_ZSt17__rotate_adaptiveIPPN4llvm11reassociate7XorOpndES4_lET_S5_S5_S5_T1_S6_T0_S6_.exit ]
+  %9 = ptrtoint ptr %.tr111.lcssa to i64
   %10 = ptrtoint ptr %.tr.lcssa to i64
   %11 = sub i64 %9, %10
-  %.not.i.i.i.i.i = icmp eq ptr %.tr112.lcssa, %.tr.lcssa
+  %.not.i.i.i.i.i = icmp eq ptr %.tr111.lcssa, %.tr.lcssa
   br i1 %.not.i.i.i.i.i, label %_ZSt4moveIPPN4llvm11reassociate7XorOpndES4_ET0_T_S6_S5_.exit, label %12
 
 12:                                               ; preds = %tailrecurse._crit_edge
@@ -24404,15 +24400,15 @@ tailrecurse._crit_edge:                           ; preds = %_ZSt17__rotate_adap
 
 _ZSt4moveIPPN4llvm11reassociate7XorOpndES4_ET0_T_S6_S5_.exit: ; preds = %tailrecurse._crit_edge, %12
   %13 = getelementptr inbounds i8, ptr %5, i64 %11
-  %14 = icmp ne ptr %.tr112.lcssa, %.tr.lcssa
-  %15 = icmp ne ptr %.tr112.lcssa, %2
+  %14 = icmp ne ptr %.tr111.lcssa, %.tr.lcssa
+  %15 = icmp ne ptr %.tr111.lcssa, %2
   %16 = and i1 %14, %15
   br i1 %16, label %.lr.ph.i, label %._crit_edge.i
 
 .lr.ph.i:                                         ; preds = %_ZSt4moveIPPN4llvm11reassociate7XorOpndES4_ET0_T_S6_S5_.exit, %.lr.ph.i
   %.024.i = phi ptr [ %20, %.lr.ph.i ], [ %.tr.lcssa, %_ZSt4moveIPPN4llvm11reassociate7XorOpndES4_ET0_T_S6_S5_.exit ]
   %.01823.i = phi ptr [ %.1.i, %.lr.ph.i ], [ %5, %_ZSt4moveIPPN4llvm11reassociate7XorOpndES4_ET0_T_S6_S5_.exit ]
-  %.01922.i = phi ptr [ %.120.i, %.lr.ph.i ], [ %.tr112.lcssa, %_ZSt4moveIPPN4llvm11reassociate7XorOpndES4_ET0_T_S6_S5_.exit ]
+  %.01922.i = phi ptr [ %.120.i, %.lr.ph.i ], [ %.tr111.lcssa, %_ZSt4moveIPPN4llvm11reassociate7XorOpndES4_ET0_T_S6_S5_.exit ]
   %.019.val.i = load ptr, ptr %.01922.i, align 8
   %.018.val.i = load ptr, ptr %.01823.i, align 8
   %17 = getelementptr i8, ptr %.019.val.i, i64 32
@@ -24446,281 +24442,277 @@ _ZSt4moveIPPN4llvm11reassociate7XorOpndES4_ET0_T_S6_S5_.exit.i: ; preds = %._cri
   br label %"_ZSt21__move_merge_adaptiveIPPN4llvm11reassociate7XorOpndES4_S4_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_15ReassociatePass11OptimizeXorEPNS0_11InstructionERNS0_15SmallVectorImplINS1_10ValueEntryEEEE3$_0EEEvT_SH_T0_SI_T1_T2_.exit"
 
 27:                                               ; preds = %.lr.ph, %_ZSt17__rotate_adaptiveIPPN4llvm11reassociate7XorOpndES4_lET_S5_S5_S5_T1_S6_T0_S6_.exit
-  %.not131 = phi i1 [ %.not123, %.lr.ph ], [ %.not, %_ZSt17__rotate_adaptiveIPPN4llvm11reassociate7XorOpndES4_lET_S5_S5_S5_T1_S6_T0_S6_.exit ]
-  %.tr115130 = phi i64 [ %4, %.lr.ph ], [ %123, %_ZSt17__rotate_adaptiveIPPN4llvm11reassociate7XorOpndES4_lET_S5_S5_S5_T1_S6_T0_S6_.exit ]
-  %.tr114129 = phi i64 [ %3, %.lr.ph ], [ %92, %_ZSt17__rotate_adaptiveIPPN4llvm11reassociate7XorOpndES4_lET_S5_S5_S5_T1_S6_T0_S6_.exit ]
-  %.tr112127 = phi ptr [ %1, %.lr.ph ], [ %.0108, %_ZSt17__rotate_adaptiveIPPN4llvm11reassociate7XorOpndES4_lET_S5_S5_S5_T1_S6_T0_S6_.exit ]
-  %.tr126 = phi ptr [ %0, %.lr.ph ], [ %.0.i98, %_ZSt17__rotate_adaptiveIPPN4llvm11reassociate7XorOpndES4_lET_S5_S5_S5_T1_S6_T0_S6_.exit ]
-  %.not71 = icmp sgt i64 %.tr115130, %6
-  %28 = ptrtoint ptr %.tr112127 to i64
-  br i1 %.not71, label %57, label %29
+  %.not130 = phi i1 [ %.not122, %.lr.ph ], [ %.not, %_ZSt17__rotate_adaptiveIPPN4llvm11reassociate7XorOpndES4_lET_S5_S5_S5_T1_S6_T0_S6_.exit ]
+  %.tr114129 = phi i64 [ %4, %.lr.ph ], [ %120, %_ZSt17__rotate_adaptiveIPPN4llvm11reassociate7XorOpndES4_lET_S5_S5_S5_T1_S6_T0_S6_.exit ]
+  %.tr113128 = phi i64 [ %3, %.lr.ph ], [ %89, %_ZSt17__rotate_adaptiveIPPN4llvm11reassociate7XorOpndES4_lET_S5_S5_S5_T1_S6_T0_S6_.exit ]
+  %.tr111126 = phi ptr [ %1, %.lr.ph ], [ %.0107, %_ZSt17__rotate_adaptiveIPPN4llvm11reassociate7XorOpndES4_lET_S5_S5_S5_T1_S6_T0_S6_.exit ]
+  %.tr125 = phi ptr [ %0, %.lr.ph ], [ %.0.i97, %_ZSt17__rotate_adaptiveIPPN4llvm11reassociate7XorOpndES4_lET_S5_S5_S5_T1_S6_T0_S6_.exit ]
+  %.not71 = icmp sgt i64 %.tr114129, %6
+  br i1 %.not71, label %53, label %28
 
-29:                                               ; preds = %27
-  %30 = sub i64 %8, %28
-  %.not.i.i.i.i.i73 = icmp eq ptr %2, %.tr112127
+28:                                               ; preds = %27
+  %.not.i.i.i.i.i73 = icmp eq ptr %2, %.tr111126
   br i1 %.not.i.i.i.i.i73, label %"_ZSt21__move_merge_adaptiveIPPN4llvm11reassociate7XorOpndES4_S4_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_15ReassociatePass11OptimizeXorEPNS0_11InstructionERNS0_15SmallVectorImplINS1_10ValueEntryEEEE3$_0EEEvT_SH_T0_SI_T1_T2_.exit", label %_ZSt4moveIPPN4llvm11reassociate7XorOpndES4_ET0_T_S6_S5_.exit74.thread
 
-_ZSt4moveIPPN4llvm11reassociate7XorOpndES4_ET0_T_S6_S5_.exit74.thread: ; preds = %29
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %5, ptr align 8 %.tr112127, i64 %30, i1 false)
-  %31 = icmp eq ptr %.tr126, %.tr112127
-  br i1 %31, label %32, label %35
+_ZSt4moveIPPN4llvm11reassociate7XorOpndES4_ET0_T_S6_S5_.exit74.thread: ; preds = %28
+  %29 = ptrtoint ptr %.tr111126 to i64
+  %30 = sub i64 %8, %29
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %5, ptr align 8 %.tr111126, i64 %30, i1 false)
+  %31 = getelementptr inbounds i8, ptr %5, i64 %30
+  %32 = icmp eq ptr %.tr125, %.tr111126
+  br i1 %32, label %_ZSt13move_backwardIPPN4llvm11reassociate7XorOpndES4_ET0_T_S6_S5_.exit.sink.split.i, label %33
 
-32:                                               ; preds = %_ZSt4moveIPPN4llvm11reassociate7XorOpndES4_ET0_T_S6_S5_.exit74.thread
-  %33 = ashr exact i64 %30, 3
-  %.pre.i.i.i.i.i.i = sub nsw i64 0, %33
-  %34 = getelementptr inbounds ptr, ptr %2, i64 %.pre.i.i.i.i.i.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %34, ptr align 8 %5, i64 %30, i1 false)
-  br label %"_ZSt21__move_merge_adaptiveIPPN4llvm11reassociate7XorOpndES4_S4_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_15ReassociatePass11OptimizeXorEPNS0_11InstructionERNS0_15SmallVectorImplINS1_10ValueEntryEEEE3$_0EEEvT_SH_T0_SI_T1_T2_.exit"
-
-35:                                               ; preds = %_ZSt4moveIPPN4llvm11reassociate7XorOpndES4_ET0_T_S6_S5_.exit74.thread
-  %36 = getelementptr inbounds i8, ptr %5, i64 %30
-  %37 = getelementptr inbounds i8, ptr %36, i64 -8
+33:                                               ; preds = %_ZSt4moveIPPN4llvm11reassociate7XorOpndES4_ET0_T_S6_S5_.exit74.thread
+  %34 = getelementptr inbounds i8, ptr %31, i64 -8
   br label %.outer
 
-.outer:                                           ; preds = %43, %35
-  %.026.i.ph.pn = phi ptr [ %.tr112127, %35 ], [ %.026.i.ph, %43 ]
-  %.024.i75.ph = phi ptr [ %37, %35 ], [ %.024.i75, %43 ]
-  %.0.i.ph = phi ptr [ %2, %35 ], [ %42, %43 ]
+.outer:                                           ; preds = %40, %33
+  %.026.i.ph.pn = phi ptr [ %.tr111126, %33 ], [ %.026.i.ph, %40 ]
+  %.024.i75.ph = phi ptr [ %34, %33 ], [ %.024.i75, %40 ]
+  %.0.i.ph = phi ptr [ %2, %33 ], [ %39, %40 ]
   %.026.i.ph = getelementptr inbounds i8, ptr %.026.i.ph.pn, i64 -8
-  br label %38
+  br label %35
 
-38:                                               ; preds = %.outer, %55
-  %.024.i75 = phi ptr [ %56, %55 ], [ %.024.i75.ph, %.outer ]
-  %.0.i = phi ptr [ %42, %55 ], [ %.0.i.ph, %.outer ]
+35:                                               ; preds = %.outer, %46
+  %.024.i75 = phi ptr [ %47, %46 ], [ %.024.i75.ph, %.outer ]
+  %.0.i = phi ptr [ %39, %46 ], [ %.0.i.ph, %.outer ]
   %.024.val.i = load ptr, ptr %.024.i75, align 8
   %.026.val.i = load ptr, ptr %.026.i.ph, align 8
-  %39 = getelementptr i8, ptr %.024.val.i, i64 32
-  %.024.val.val.i = load i32, ptr %39, align 8
-  %40 = getelementptr i8, ptr %.026.val.i, i64 32
-  %.026.val.val.i = load i32, ptr %40, align 8
-  %41 = icmp ult i32 %.024.val.val.i, %.026.val.val.i
-  %42 = getelementptr inbounds i8, ptr %.0.i, i64 -8
-  br i1 %41, label %43, label %53
+  %36 = getelementptr i8, ptr %.024.val.i, i64 32
+  %.024.val.val.i = load i32, ptr %36, align 8
+  %37 = getelementptr i8, ptr %.026.val.i, i64 32
+  %.026.val.val.i = load i32, ptr %37, align 8
+  %38 = icmp ult i32 %.024.val.val.i, %.026.val.val.i
+  %39 = getelementptr inbounds i8, ptr %.0.i, i64 -8
+  br i1 %38, label %40, label %44
 
-43:                                               ; preds = %38
-  store ptr %.026.val.i, ptr %42, align 8
-  %44 = icmp eq ptr %.tr126, %.026.i.ph
-  br i1 %44, label %45, label %.outer, !llvm.loop !414
+40:                                               ; preds = %35
+  store ptr %.026.val.i, ptr %39, align 8
+  %41 = icmp eq ptr %.tr125, %.026.i.ph
+  br i1 %41, label %42, label %.outer, !llvm.loop !414
 
-45:                                               ; preds = %43
-  %46 = getelementptr inbounds i8, ptr %.024.i75, i64 8
-  %.not.i.i.i.i.i32.i = icmp eq ptr %46, %5
-  br i1 %.not.i.i.i.i.i32.i, label %"_ZSt21__move_merge_adaptiveIPPN4llvm11reassociate7XorOpndES4_S4_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_15ReassociatePass11OptimizeXorEPNS0_11InstructionERNS0_15SmallVectorImplINS1_10ValueEntryEEEE3$_0EEEvT_SH_T0_SI_T1_T2_.exit", label %47
+42:                                               ; preds = %40
+  %43 = getelementptr inbounds i8, ptr %.024.i75, i64 8
+  %.not.i.i.i.i.i32.i = icmp eq ptr %43, %5
+  br i1 %.not.i.i.i.i.i32.i, label %"_ZSt21__move_merge_adaptiveIPPN4llvm11reassociate7XorOpndES4_S4_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_15ReassociatePass11OptimizeXorEPNS0_11InstructionERNS0_15SmallVectorImplINS1_10ValueEntryEEEE3$_0EEEvT_SH_T0_SI_T1_T2_.exit", label %_ZSt13move_backwardIPPN4llvm11reassociate7XorOpndES4_ET0_T_S6_S5_.exit.sink.split.i
 
-47:                                               ; preds = %45
-  %48 = ptrtoint ptr %46 to i64
+44:                                               ; preds = %35
+  store ptr %.024.val.i, ptr %39, align 8
+  %45 = icmp eq ptr %5, %.024.i75
+  br i1 %45, label %"_ZSt21__move_merge_adaptiveIPPN4llvm11reassociate7XorOpndES4_S4_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_15ReassociatePass11OptimizeXorEPNS0_11InstructionERNS0_15SmallVectorImplINS1_10ValueEntryEEEE3$_0EEEvT_SH_T0_SI_T1_T2_.exit", label %46
+
+46:                                               ; preds = %44
+  %47 = getelementptr inbounds i8, ptr %.024.i75, i64 -8
+  br label %35, !llvm.loop !414
+
+_ZSt13move_backwardIPPN4llvm11reassociate7XorOpndES4_ET0_T_S6_S5_.exit.sink.split.i: ; preds = %_ZSt4moveIPPN4llvm11reassociate7XorOpndES4_ET0_T_S6_S5_.exit74.thread, %42
+  %.sink41.i = phi ptr [ %43, %42 ], [ %31, %_ZSt4moveIPPN4llvm11reassociate7XorOpndES4_ET0_T_S6_S5_.exit74.thread ]
+  %.lcssa.sink.i = phi ptr [ %39, %42 ], [ %2, %_ZSt4moveIPPN4llvm11reassociate7XorOpndES4_ET0_T_S6_S5_.exit74.thread ]
+  %48 = ptrtoint ptr %.sink41.i to i64
   %49 = ptrtoint ptr %5 to i64
   %50 = sub i64 %48, %49
   %51 = ashr exact i64 %50, 3
   %.pre.i.i.i.i.i33.i = sub nsw i64 0, %51
-  %52 = getelementptr inbounds ptr, ptr %42, i64 %.pre.i.i.i.i.i33.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %52, ptr align 8 %5, i64 %50, i1 false)
+  %52 = getelementptr inbounds ptr, ptr %.lcssa.sink.i, i64 %.pre.i.i.i.i.i33.i
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %52, ptr align 8 %5, i64 %50, i1 false)
   br label %"_ZSt21__move_merge_adaptiveIPPN4llvm11reassociate7XorOpndES4_S4_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_15ReassociatePass11OptimizeXorEPNS0_11InstructionERNS0_15SmallVectorImplINS1_10ValueEntryEEEE3$_0EEEvT_SH_T0_SI_T1_T2_.exit"
 
-53:                                               ; preds = %38
-  store ptr %.024.val.i, ptr %42, align 8
-  %54 = icmp eq ptr %5, %.024.i75
-  br i1 %54, label %"_ZSt21__move_merge_adaptiveIPPN4llvm11reassociate7XorOpndES4_S4_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_15ReassociatePass11OptimizeXorEPNS0_11InstructionERNS0_15SmallVectorImplINS1_10ValueEntryEEEE3$_0EEEvT_SH_T0_SI_T1_T2_.exit", label %55
+53:                                               ; preds = %27
+  %54 = ptrtoint ptr %.tr111126 to i64
+  br i1 %.not130, label %_ZSt7advanceIPPN4llvm11reassociate7XorOpndElEvRT_T0_.exit, label %_ZSt7advanceIPPN4llvm11reassociate7XorOpndElEvRT_T0_.exit82
 
-55:                                               ; preds = %53
-  %56 = getelementptr inbounds i8, ptr %.024.i75, i64 -8
-  br label %38, !llvm.loop !414
-
-57:                                               ; preds = %27
-  br i1 %.not131, label %_ZSt7advanceIPPN4llvm11reassociate7XorOpndElEvRT_T0_.exit, label %_ZSt7advanceIPPN4llvm11reassociate7XorOpndElEvRT_T0_.exit82
-
-_ZSt7advanceIPPN4llvm11reassociate7XorOpndElEvRT_T0_.exit: ; preds = %57
-  %58 = sdiv i64 %.tr114129, 2
-  %59 = getelementptr inbounds ptr, ptr %.tr126, i64 %58
-  %60 = sub i64 %8, %28
-  %61 = ashr exact i64 %60, 3
-  %62 = icmp sgt i64 %61, 0
-  br i1 %62, label %_ZSt7advanceIPPN4llvm11reassociate7XorOpndElEvRT_T0_.exit.lr.ph.i, label %"_ZSt13__lower_boundIPPN4llvm11reassociate7XorOpndES3_N9__gnu_cxx5__ops14_Iter_comp_valIZNS0_15ReassociatePass11OptimizeXorEPNS0_11InstructionERNS0_15SmallVectorImplINS1_10ValueEntryEEEE3$_0EEET_SH_SH_RKT0_T1_.exit"
+_ZSt7advanceIPPN4llvm11reassociate7XorOpndElEvRT_T0_.exit: ; preds = %53
+  %55 = sdiv i64 %.tr113128, 2
+  %56 = getelementptr inbounds ptr, ptr %.tr125, i64 %55
+  %57 = sub i64 %8, %54
+  %58 = ashr exact i64 %57, 3
+  %59 = icmp sgt i64 %58, 0
+  br i1 %59, label %_ZSt7advanceIPPN4llvm11reassociate7XorOpndElEvRT_T0_.exit.lr.ph.i, label %"_ZSt13__lower_boundIPPN4llvm11reassociate7XorOpndES3_N9__gnu_cxx5__ops14_Iter_comp_valIZNS0_15ReassociatePass11OptimizeXorEPNS0_11InstructionERNS0_15SmallVectorImplINS1_10ValueEntryEEEE3$_0EEET_SH_SH_RKT0_T1_.exit"
 
 _ZSt7advanceIPPN4llvm11reassociate7XorOpndElEvRT_T0_.exit.lr.ph.i: ; preds = %_ZSt7advanceIPPN4llvm11reassociate7XorOpndElEvRT_T0_.exit
-  %.val = load ptr, ptr %59, align 8
-  %63 = getelementptr i8, ptr %.val, i64 32
-  %.val13.val.i = load i32, ptr %63, align 8
+  %.val = load ptr, ptr %56, align 8
+  %60 = getelementptr i8, ptr %.val, i64 32
+  %.val13.val.i = load i32, ptr %60, align 8
   br label %_ZSt7advanceIPPN4llvm11reassociate7XorOpndElEvRT_T0_.exit.i
 
 _ZSt7advanceIPPN4llvm11reassociate7XorOpndElEvRT_T0_.exit.i: ; preds = %_ZSt7advanceIPPN4llvm11reassociate7XorOpndElEvRT_T0_.exit.i, %_ZSt7advanceIPPN4llvm11reassociate7XorOpndElEvRT_T0_.exit.lr.ph.i
-  %.05.i = phi ptr [ %.tr112127, %_ZSt7advanceIPPN4llvm11reassociate7XorOpndElEvRT_T0_.exit.lr.ph.i ], [ %.1.i78, %_ZSt7advanceIPPN4llvm11reassociate7XorOpndElEvRT_T0_.exit.i ]
-  %.0114.i = phi i64 [ %61, %_ZSt7advanceIPPN4llvm11reassociate7XorOpndElEvRT_T0_.exit.lr.ph.i ], [ %.112.i, %_ZSt7advanceIPPN4llvm11reassociate7XorOpndElEvRT_T0_.exit.i ]
-  %64 = lshr i64 %.0114.i, 1
-  %65 = getelementptr inbounds ptr, ptr %.05.i, i64 %64
-  %.val.i = load ptr, ptr %65, align 8
-  %66 = getelementptr i8, ptr %.val.i, i64 32
-  %.val.val.i = load i32, ptr %66, align 8
-  %67 = icmp ult i32 %.val.val.i, %.val13.val.i
-  %68 = getelementptr inbounds i8, ptr %65, i64 8
-  %69 = xor i64 %64, -1
-  %70 = add nsw i64 %.0114.i, %69
-  %.112.i = select i1 %67, i64 %70, i64 %64
-  %.1.i78 = select i1 %67, ptr %68, ptr %.05.i
-  %71 = icmp sgt i64 %.112.i, 0
-  br i1 %71, label %_ZSt7advanceIPPN4llvm11reassociate7XorOpndElEvRT_T0_.exit.i, label %"_ZSt13__lower_boundIPPN4llvm11reassociate7XorOpndES3_N9__gnu_cxx5__ops14_Iter_comp_valIZNS0_15ReassociatePass11OptimizeXorEPNS0_11InstructionERNS0_15SmallVectorImplINS1_10ValueEntryEEEE3$_0EEET_SH_SH_RKT0_T1_.exit.loopexit", !llvm.loop !403
+  %.05.i = phi ptr [ %.tr111126, %_ZSt7advanceIPPN4llvm11reassociate7XorOpndElEvRT_T0_.exit.lr.ph.i ], [ %.1.i78, %_ZSt7advanceIPPN4llvm11reassociate7XorOpndElEvRT_T0_.exit.i ]
+  %.0114.i = phi i64 [ %58, %_ZSt7advanceIPPN4llvm11reassociate7XorOpndElEvRT_T0_.exit.lr.ph.i ], [ %.112.i, %_ZSt7advanceIPPN4llvm11reassociate7XorOpndElEvRT_T0_.exit.i ]
+  %61 = lshr i64 %.0114.i, 1
+  %62 = getelementptr inbounds ptr, ptr %.05.i, i64 %61
+  %.val.i = load ptr, ptr %62, align 8
+  %63 = getelementptr i8, ptr %.val.i, i64 32
+  %.val.val.i = load i32, ptr %63, align 8
+  %64 = icmp ult i32 %.val.val.i, %.val13.val.i
+  %65 = getelementptr inbounds i8, ptr %62, i64 8
+  %66 = xor i64 %61, -1
+  %67 = add nsw i64 %.0114.i, %66
+  %.112.i = select i1 %64, i64 %67, i64 %61
+  %.1.i78 = select i1 %64, ptr %65, ptr %.05.i
+  %68 = icmp sgt i64 %.112.i, 0
+  br i1 %68, label %_ZSt7advanceIPPN4llvm11reassociate7XorOpndElEvRT_T0_.exit.i, label %"_ZSt13__lower_boundIPPN4llvm11reassociate7XorOpndES3_N9__gnu_cxx5__ops14_Iter_comp_valIZNS0_15ReassociatePass11OptimizeXorEPNS0_11InstructionERNS0_15SmallVectorImplINS1_10ValueEntryEEEE3$_0EEET_SH_SH_RKT0_T1_.exit.loopexit", !llvm.loop !403
 
 "_ZSt13__lower_boundIPPN4llvm11reassociate7XorOpndES3_N9__gnu_cxx5__ops14_Iter_comp_valIZNS0_15ReassociatePass11OptimizeXorEPNS0_11InstructionERNS0_15SmallVectorImplINS1_10ValueEntryEEEE3$_0EEET_SH_SH_RKT0_T1_.exit.loopexit": ; preds = %_ZSt7advanceIPPN4llvm11reassociate7XorOpndElEvRT_T0_.exit.i
   %.pre = ptrtoint ptr %.1.i78 to i64
   br label %"_ZSt13__lower_boundIPPN4llvm11reassociate7XorOpndES3_N9__gnu_cxx5__ops14_Iter_comp_valIZNS0_15ReassociatePass11OptimizeXorEPNS0_11InstructionERNS0_15SmallVectorImplINS1_10ValueEntryEEEE3$_0EEET_SH_SH_RKT0_T1_.exit"
 
 "_ZSt13__lower_boundIPPN4llvm11reassociate7XorOpndES3_N9__gnu_cxx5__ops14_Iter_comp_valIZNS0_15ReassociatePass11OptimizeXorEPNS0_11InstructionERNS0_15SmallVectorImplINS1_10ValueEntryEEEE3$_0EEET_SH_SH_RKT0_T1_.exit": ; preds = %"_ZSt13__lower_boundIPPN4llvm11reassociate7XorOpndES3_N9__gnu_cxx5__ops14_Iter_comp_valIZNS0_15ReassociatePass11OptimizeXorEPNS0_11InstructionERNS0_15SmallVectorImplINS1_10ValueEntryEEEE3$_0EEET_SH_SH_RKT0_T1_.exit.loopexit", %_ZSt7advanceIPPN4llvm11reassociate7XorOpndElEvRT_T0_.exit
-  %.pre-phi = phi i64 [ %.pre, %"_ZSt13__lower_boundIPPN4llvm11reassociate7XorOpndES3_N9__gnu_cxx5__ops14_Iter_comp_valIZNS0_15ReassociatePass11OptimizeXorEPNS0_11InstructionERNS0_15SmallVectorImplINS1_10ValueEntryEEEE3$_0EEET_SH_SH_RKT0_T1_.exit.loopexit" ], [ %28, %_ZSt7advanceIPPN4llvm11reassociate7XorOpndElEvRT_T0_.exit ]
-  %.0.lcssa.i77 = phi ptr [ %.1.i78, %"_ZSt13__lower_boundIPPN4llvm11reassociate7XorOpndES3_N9__gnu_cxx5__ops14_Iter_comp_valIZNS0_15ReassociatePass11OptimizeXorEPNS0_11InstructionERNS0_15SmallVectorImplINS1_10ValueEntryEEEE3$_0EEET_SH_SH_RKT0_T1_.exit.loopexit" ], [ %.tr112127, %_ZSt7advanceIPPN4llvm11reassociate7XorOpndElEvRT_T0_.exit ]
-  %72 = sub i64 %.pre-phi, %28
-  %73 = ashr exact i64 %72, 3
-  br label %91
+  %.pre-phi = phi i64 [ %.pre, %"_ZSt13__lower_boundIPPN4llvm11reassociate7XorOpndES3_N9__gnu_cxx5__ops14_Iter_comp_valIZNS0_15ReassociatePass11OptimizeXorEPNS0_11InstructionERNS0_15SmallVectorImplINS1_10ValueEntryEEEE3$_0EEET_SH_SH_RKT0_T1_.exit.loopexit" ], [ %54, %_ZSt7advanceIPPN4llvm11reassociate7XorOpndElEvRT_T0_.exit ]
+  %.0.lcssa.i77 = phi ptr [ %.1.i78, %"_ZSt13__lower_boundIPPN4llvm11reassociate7XorOpndES3_N9__gnu_cxx5__ops14_Iter_comp_valIZNS0_15ReassociatePass11OptimizeXorEPNS0_11InstructionERNS0_15SmallVectorImplINS1_10ValueEntryEEEE3$_0EEET_SH_SH_RKT0_T1_.exit.loopexit" ], [ %.tr111126, %_ZSt7advanceIPPN4llvm11reassociate7XorOpndElEvRT_T0_.exit ]
+  %69 = sub i64 %.pre-phi, %54
+  %70 = ashr exact i64 %69, 3
+  br label %88
 
-_ZSt7advanceIPPN4llvm11reassociate7XorOpndElEvRT_T0_.exit82: ; preds = %57
-  %74 = sdiv i64 %.tr115130, 2
-  %75 = getelementptr inbounds ptr, ptr %.tr112127, i64 %74
-  %76 = ptrtoint ptr %.tr126 to i64
-  %77 = sub i64 %28, %76
-  %78 = ashr exact i64 %77, 3
-  %79 = icmp sgt i64 %78, 0
-  br i1 %79, label %_ZSt7advanceIPPN4llvm11reassociate7XorOpndElEvRT_T0_.exit.lr.ph.i85, label %"_ZSt13__upper_boundIPPN4llvm11reassociate7XorOpndES3_N9__gnu_cxx5__ops14_Val_comp_iterIZNS0_15ReassociatePass11OptimizeXorEPNS0_11InstructionERNS0_15SmallVectorImplINS1_10ValueEntryEEEE3$_0EEET_SH_SH_RKT0_T1_.exit"
+_ZSt7advanceIPPN4llvm11reassociate7XorOpndElEvRT_T0_.exit82: ; preds = %53
+  %71 = sdiv i64 %.tr114129, 2
+  %72 = getelementptr inbounds ptr, ptr %.tr111126, i64 %71
+  %73 = ptrtoint ptr %.tr125 to i64
+  %74 = sub i64 %54, %73
+  %75 = ashr exact i64 %74, 3
+  %76 = icmp sgt i64 %75, 0
+  br i1 %76, label %_ZSt7advanceIPPN4llvm11reassociate7XorOpndElEvRT_T0_.exit.lr.ph.i85, label %"_ZSt13__upper_boundIPPN4llvm11reassociate7XorOpndES3_N9__gnu_cxx5__ops14_Val_comp_iterIZNS0_15ReassociatePass11OptimizeXorEPNS0_11InstructionERNS0_15SmallVectorImplINS1_10ValueEntryEEEE3$_0EEET_SH_SH_RKT0_T1_.exit"
 
 _ZSt7advanceIPPN4llvm11reassociate7XorOpndElEvRT_T0_.exit.lr.ph.i85: ; preds = %_ZSt7advanceIPPN4llvm11reassociate7XorOpndElEvRT_T0_.exit82
-  %.val72 = load ptr, ptr %75, align 8
-  %80 = getelementptr i8, ptr %.val72, i64 32
-  %.val.val.i86 = load i32, ptr %80, align 8
+  %.val72 = load ptr, ptr %72, align 8
+  %77 = getelementptr i8, ptr %.val72, i64 32
+  %.val.val.i86 = load i32, ptr %77, align 8
   br label %_ZSt7advanceIPPN4llvm11reassociate7XorOpndElEvRT_T0_.exit.i87
 
 _ZSt7advanceIPPN4llvm11reassociate7XorOpndElEvRT_T0_.exit.i87: ; preds = %_ZSt7advanceIPPN4llvm11reassociate7XorOpndElEvRT_T0_.exit.i87, %_ZSt7advanceIPPN4llvm11reassociate7XorOpndElEvRT_T0_.exit.lr.ph.i85
-  %.05.i88 = phi ptr [ %.tr126, %_ZSt7advanceIPPN4llvm11reassociate7XorOpndElEvRT_T0_.exit.lr.ph.i85 ], [ %.1.i94, %_ZSt7advanceIPPN4llvm11reassociate7XorOpndElEvRT_T0_.exit.i87 ]
-  %.0114.i89 = phi i64 [ %78, %_ZSt7advanceIPPN4llvm11reassociate7XorOpndElEvRT_T0_.exit.lr.ph.i85 ], [ %.112.i93, %_ZSt7advanceIPPN4llvm11reassociate7XorOpndElEvRT_T0_.exit.i87 ]
-  %81 = lshr i64 %.0114.i89, 1
-  %82 = getelementptr inbounds ptr, ptr %.05.i88, i64 %81
-  %.val13.i = load ptr, ptr %82, align 8
-  %83 = getelementptr i8, ptr %.val13.i, i64 32
-  %.val13.val.i92 = load i32, ptr %83, align 8
-  %84 = icmp ult i32 %.val.val.i86, %.val13.val.i92
-  %85 = getelementptr inbounds i8, ptr %82, i64 8
-  %86 = xor i64 %81, -1
-  %87 = add nsw i64 %.0114.i89, %86
-  %.112.i93 = select i1 %84, i64 %81, i64 %87
-  %.1.i94 = select i1 %84, ptr %.05.i88, ptr %85
-  %88 = icmp sgt i64 %.112.i93, 0
-  br i1 %88, label %_ZSt7advanceIPPN4llvm11reassociate7XorOpndElEvRT_T0_.exit.i87, label %"_ZSt13__upper_boundIPPN4llvm11reassociate7XorOpndES3_N9__gnu_cxx5__ops14_Val_comp_iterIZNS0_15ReassociatePass11OptimizeXorEPNS0_11InstructionERNS0_15SmallVectorImplINS1_10ValueEntryEEEE3$_0EEET_SH_SH_RKT0_T1_.exit.loopexit", !llvm.loop !404
+  %.05.i88 = phi ptr [ %.tr125, %_ZSt7advanceIPPN4llvm11reassociate7XorOpndElEvRT_T0_.exit.lr.ph.i85 ], [ %.1.i94, %_ZSt7advanceIPPN4llvm11reassociate7XorOpndElEvRT_T0_.exit.i87 ]
+  %.0114.i89 = phi i64 [ %75, %_ZSt7advanceIPPN4llvm11reassociate7XorOpndElEvRT_T0_.exit.lr.ph.i85 ], [ %.112.i93, %_ZSt7advanceIPPN4llvm11reassociate7XorOpndElEvRT_T0_.exit.i87 ]
+  %78 = lshr i64 %.0114.i89, 1
+  %79 = getelementptr inbounds ptr, ptr %.05.i88, i64 %78
+  %.val13.i = load ptr, ptr %79, align 8
+  %80 = getelementptr i8, ptr %.val13.i, i64 32
+  %.val13.val.i92 = load i32, ptr %80, align 8
+  %81 = icmp ult i32 %.val.val.i86, %.val13.val.i92
+  %82 = getelementptr inbounds i8, ptr %79, i64 8
+  %83 = xor i64 %78, -1
+  %84 = add nsw i64 %.0114.i89, %83
+  %.112.i93 = select i1 %81, i64 %78, i64 %84
+  %.1.i94 = select i1 %81, ptr %.05.i88, ptr %82
+  %85 = icmp sgt i64 %.112.i93, 0
+  br i1 %85, label %_ZSt7advanceIPPN4llvm11reassociate7XorOpndElEvRT_T0_.exit.i87, label %"_ZSt13__upper_boundIPPN4llvm11reassociate7XorOpndES3_N9__gnu_cxx5__ops14_Val_comp_iterIZNS0_15ReassociatePass11OptimizeXorEPNS0_11InstructionERNS0_15SmallVectorImplINS1_10ValueEntryEEEE3$_0EEET_SH_SH_RKT0_T1_.exit.loopexit", !llvm.loop !404
 
 "_ZSt13__upper_boundIPPN4llvm11reassociate7XorOpndES3_N9__gnu_cxx5__ops14_Val_comp_iterIZNS0_15ReassociatePass11OptimizeXorEPNS0_11InstructionERNS0_15SmallVectorImplINS1_10ValueEntryEEEE3$_0EEET_SH_SH_RKT0_T1_.exit.loopexit": ; preds = %_ZSt7advanceIPPN4llvm11reassociate7XorOpndElEvRT_T0_.exit.i87
-  %.pre139 = ptrtoint ptr %.1.i94 to i64
+  %.pre138 = ptrtoint ptr %.1.i94 to i64
   br label %"_ZSt13__upper_boundIPPN4llvm11reassociate7XorOpndES3_N9__gnu_cxx5__ops14_Val_comp_iterIZNS0_15ReassociatePass11OptimizeXorEPNS0_11InstructionERNS0_15SmallVectorImplINS1_10ValueEntryEEEE3$_0EEET_SH_SH_RKT0_T1_.exit"
 
 "_ZSt13__upper_boundIPPN4llvm11reassociate7XorOpndES3_N9__gnu_cxx5__ops14_Val_comp_iterIZNS0_15ReassociatePass11OptimizeXorEPNS0_11InstructionERNS0_15SmallVectorImplINS1_10ValueEntryEEEE3$_0EEET_SH_SH_RKT0_T1_.exit": ; preds = %"_ZSt13__upper_boundIPPN4llvm11reassociate7XorOpndES3_N9__gnu_cxx5__ops14_Val_comp_iterIZNS0_15ReassociatePass11OptimizeXorEPNS0_11InstructionERNS0_15SmallVectorImplINS1_10ValueEntryEEEE3$_0EEET_SH_SH_RKT0_T1_.exit.loopexit", %_ZSt7advanceIPPN4llvm11reassociate7XorOpndElEvRT_T0_.exit82
-  %.pre-phi140 = phi i64 [ %.pre139, %"_ZSt13__upper_boundIPPN4llvm11reassociate7XorOpndES3_N9__gnu_cxx5__ops14_Val_comp_iterIZNS0_15ReassociatePass11OptimizeXorEPNS0_11InstructionERNS0_15SmallVectorImplINS1_10ValueEntryEEEE3$_0EEET_SH_SH_RKT0_T1_.exit.loopexit" ], [ %76, %_ZSt7advanceIPPN4llvm11reassociate7XorOpndElEvRT_T0_.exit82 ]
-  %.0.lcssa.i84 = phi ptr [ %.1.i94, %"_ZSt13__upper_boundIPPN4llvm11reassociate7XorOpndES3_N9__gnu_cxx5__ops14_Val_comp_iterIZNS0_15ReassociatePass11OptimizeXorEPNS0_11InstructionERNS0_15SmallVectorImplINS1_10ValueEntryEEEE3$_0EEET_SH_SH_RKT0_T1_.exit.loopexit" ], [ %.tr126, %_ZSt7advanceIPPN4llvm11reassociate7XorOpndElEvRT_T0_.exit82 ]
-  %89 = sub i64 %.pre-phi140, %76
-  %90 = ashr exact i64 %89, 3
-  br label %91
+  %.pre-phi139 = phi i64 [ %.pre138, %"_ZSt13__upper_boundIPPN4llvm11reassociate7XorOpndES3_N9__gnu_cxx5__ops14_Val_comp_iterIZNS0_15ReassociatePass11OptimizeXorEPNS0_11InstructionERNS0_15SmallVectorImplINS1_10ValueEntryEEEE3$_0EEET_SH_SH_RKT0_T1_.exit.loopexit" ], [ %73, %_ZSt7advanceIPPN4llvm11reassociate7XorOpndElEvRT_T0_.exit82 ]
+  %.0.lcssa.i84 = phi ptr [ %.1.i94, %"_ZSt13__upper_boundIPPN4llvm11reassociate7XorOpndES3_N9__gnu_cxx5__ops14_Val_comp_iterIZNS0_15ReassociatePass11OptimizeXorEPNS0_11InstructionERNS0_15SmallVectorImplINS1_10ValueEntryEEEE3$_0EEET_SH_SH_RKT0_T1_.exit.loopexit" ], [ %.tr125, %_ZSt7advanceIPPN4llvm11reassociate7XorOpndElEvRT_T0_.exit82 ]
+  %86 = sub i64 %.pre-phi139, %73
+  %87 = ashr exact i64 %86, 3
+  br label %88
 
-91:                                               ; preds = %"_ZSt13__upper_boundIPPN4llvm11reassociate7XorOpndES3_N9__gnu_cxx5__ops14_Val_comp_iterIZNS0_15ReassociatePass11OptimizeXorEPNS0_11InstructionERNS0_15SmallVectorImplINS1_10ValueEntryEEEE3$_0EEET_SH_SH_RKT0_T1_.exit", %"_ZSt13__lower_boundIPPN4llvm11reassociate7XorOpndES3_N9__gnu_cxx5__ops14_Iter_comp_valIZNS0_15ReassociatePass11OptimizeXorEPNS0_11InstructionERNS0_15SmallVectorImplINS1_10ValueEntryEEEE3$_0EEET_SH_SH_RKT0_T1_.exit"
-  %.0109 = phi ptr [ %59, %"_ZSt13__lower_boundIPPN4llvm11reassociate7XorOpndES3_N9__gnu_cxx5__ops14_Iter_comp_valIZNS0_15ReassociatePass11OptimizeXorEPNS0_11InstructionERNS0_15SmallVectorImplINS1_10ValueEntryEEEE3$_0EEET_SH_SH_RKT0_T1_.exit" ], [ %.0.lcssa.i84, %"_ZSt13__upper_boundIPPN4llvm11reassociate7XorOpndES3_N9__gnu_cxx5__ops14_Val_comp_iterIZNS0_15ReassociatePass11OptimizeXorEPNS0_11InstructionERNS0_15SmallVectorImplINS1_10ValueEntryEEEE3$_0EEET_SH_SH_RKT0_T1_.exit" ]
-  %.0108 = phi ptr [ %.0.lcssa.i77, %"_ZSt13__lower_boundIPPN4llvm11reassociate7XorOpndES3_N9__gnu_cxx5__ops14_Iter_comp_valIZNS0_15ReassociatePass11OptimizeXorEPNS0_11InstructionERNS0_15SmallVectorImplINS1_10ValueEntryEEEE3$_0EEET_SH_SH_RKT0_T1_.exit" ], [ %75, %"_ZSt13__upper_boundIPPN4llvm11reassociate7XorOpndES3_N9__gnu_cxx5__ops14_Val_comp_iterIZNS0_15ReassociatePass11OptimizeXorEPNS0_11InstructionERNS0_15SmallVectorImplINS1_10ValueEntryEEEE3$_0EEET_SH_SH_RKT0_T1_.exit" ]
-  %.066 = phi i64 [ %73, %"_ZSt13__lower_boundIPPN4llvm11reassociate7XorOpndES3_N9__gnu_cxx5__ops14_Iter_comp_valIZNS0_15ReassociatePass11OptimizeXorEPNS0_11InstructionERNS0_15SmallVectorImplINS1_10ValueEntryEEEE3$_0EEET_SH_SH_RKT0_T1_.exit" ], [ %74, %"_ZSt13__upper_boundIPPN4llvm11reassociate7XorOpndES3_N9__gnu_cxx5__ops14_Val_comp_iterIZNS0_15ReassociatePass11OptimizeXorEPNS0_11InstructionERNS0_15SmallVectorImplINS1_10ValueEntryEEEE3$_0EEET_SH_SH_RKT0_T1_.exit" ]
-  %.0 = phi i64 [ %58, %"_ZSt13__lower_boundIPPN4llvm11reassociate7XorOpndES3_N9__gnu_cxx5__ops14_Iter_comp_valIZNS0_15ReassociatePass11OptimizeXorEPNS0_11InstructionERNS0_15SmallVectorImplINS1_10ValueEntryEEEE3$_0EEET_SH_SH_RKT0_T1_.exit" ], [ %90, %"_ZSt13__upper_boundIPPN4llvm11reassociate7XorOpndES3_N9__gnu_cxx5__ops14_Val_comp_iterIZNS0_15ReassociatePass11OptimizeXorEPNS0_11InstructionERNS0_15SmallVectorImplINS1_10ValueEntryEEEE3$_0EEET_SH_SH_RKT0_T1_.exit" ]
-  %92 = sub nsw i64 %.tr114129, %.0
-  %93 = icmp sle i64 %92, %.066
+88:                                               ; preds = %"_ZSt13__upper_boundIPPN4llvm11reassociate7XorOpndES3_N9__gnu_cxx5__ops14_Val_comp_iterIZNS0_15ReassociatePass11OptimizeXorEPNS0_11InstructionERNS0_15SmallVectorImplINS1_10ValueEntryEEEE3$_0EEET_SH_SH_RKT0_T1_.exit", %"_ZSt13__lower_boundIPPN4llvm11reassociate7XorOpndES3_N9__gnu_cxx5__ops14_Iter_comp_valIZNS0_15ReassociatePass11OptimizeXorEPNS0_11InstructionERNS0_15SmallVectorImplINS1_10ValueEntryEEEE3$_0EEET_SH_SH_RKT0_T1_.exit"
+  %.0108 = phi ptr [ %56, %"_ZSt13__lower_boundIPPN4llvm11reassociate7XorOpndES3_N9__gnu_cxx5__ops14_Iter_comp_valIZNS0_15ReassociatePass11OptimizeXorEPNS0_11InstructionERNS0_15SmallVectorImplINS1_10ValueEntryEEEE3$_0EEET_SH_SH_RKT0_T1_.exit" ], [ %.0.lcssa.i84, %"_ZSt13__upper_boundIPPN4llvm11reassociate7XorOpndES3_N9__gnu_cxx5__ops14_Val_comp_iterIZNS0_15ReassociatePass11OptimizeXorEPNS0_11InstructionERNS0_15SmallVectorImplINS1_10ValueEntryEEEE3$_0EEET_SH_SH_RKT0_T1_.exit" ]
+  %.0107 = phi ptr [ %.0.lcssa.i77, %"_ZSt13__lower_boundIPPN4llvm11reassociate7XorOpndES3_N9__gnu_cxx5__ops14_Iter_comp_valIZNS0_15ReassociatePass11OptimizeXorEPNS0_11InstructionERNS0_15SmallVectorImplINS1_10ValueEntryEEEE3$_0EEET_SH_SH_RKT0_T1_.exit" ], [ %72, %"_ZSt13__upper_boundIPPN4llvm11reassociate7XorOpndES3_N9__gnu_cxx5__ops14_Val_comp_iterIZNS0_15ReassociatePass11OptimizeXorEPNS0_11InstructionERNS0_15SmallVectorImplINS1_10ValueEntryEEEE3$_0EEET_SH_SH_RKT0_T1_.exit" ]
+  %.066 = phi i64 [ %70, %"_ZSt13__lower_boundIPPN4llvm11reassociate7XorOpndES3_N9__gnu_cxx5__ops14_Iter_comp_valIZNS0_15ReassociatePass11OptimizeXorEPNS0_11InstructionERNS0_15SmallVectorImplINS1_10ValueEntryEEEE3$_0EEET_SH_SH_RKT0_T1_.exit" ], [ %71, %"_ZSt13__upper_boundIPPN4llvm11reassociate7XorOpndES3_N9__gnu_cxx5__ops14_Val_comp_iterIZNS0_15ReassociatePass11OptimizeXorEPNS0_11InstructionERNS0_15SmallVectorImplINS1_10ValueEntryEEEE3$_0EEET_SH_SH_RKT0_T1_.exit" ]
+  %.0 = phi i64 [ %55, %"_ZSt13__lower_boundIPPN4llvm11reassociate7XorOpndES3_N9__gnu_cxx5__ops14_Iter_comp_valIZNS0_15ReassociatePass11OptimizeXorEPNS0_11InstructionERNS0_15SmallVectorImplINS1_10ValueEntryEEEE3$_0EEET_SH_SH_RKT0_T1_.exit" ], [ %87, %"_ZSt13__upper_boundIPPN4llvm11reassociate7XorOpndES3_N9__gnu_cxx5__ops14_Val_comp_iterIZNS0_15ReassociatePass11OptimizeXorEPNS0_11InstructionERNS0_15SmallVectorImplINS1_10ValueEntryEEEE3$_0EEET_SH_SH_RKT0_T1_.exit" ]
+  %89 = sub nsw i64 %.tr113128, %.0
+  %90 = icmp sle i64 %89, %.066
   %.not.i = icmp sgt i64 %.066, %6
-  %or.cond.i = or i1 %.not.i, %93
-  br i1 %or.cond.i, label %107, label %94
+  %or.cond.i = or i1 %.not.i, %90
+  br i1 %or.cond.i, label %104, label %91
 
-94:                                               ; preds = %91
+91:                                               ; preds = %88
   %.not35.i = icmp eq i64 %.066, 0
-  br i1 %.not35.i, label %_ZSt17__rotate_adaptiveIPPN4llvm11reassociate7XorOpndES4_lET_S5_S5_S5_T1_S6_T0_S6_.exit, label %95
+  br i1 %.not35.i, label %_ZSt17__rotate_adaptiveIPPN4llvm11reassociate7XorOpndES4_lET_S5_S5_S5_T1_S6_T0_S6_.exit, label %92
 
-95:                                               ; preds = %94
-  %96 = ptrtoint ptr %.0108 to i64
-  %97 = ptrtoint ptr %.tr112127 to i64
-  %98 = sub i64 %96, %97
-  %.not.i.i.i.i.i.i95 = icmp eq ptr %.0108, %.tr112127
-  br i1 %.not.i.i.i.i.i.i95, label %_ZSt4moveIPPN4llvm11reassociate7XorOpndES4_ET0_T_S6_S5_.exit.i96, label %99
+92:                                               ; preds = %91
+  %93 = ptrtoint ptr %.0107 to i64
+  %94 = ptrtoint ptr %.tr111126 to i64
+  %95 = sub i64 %93, %94
+  %.not.i.i.i.i.i.i95 = icmp eq ptr %.0107, %.tr111126
+  br i1 %.not.i.i.i.i.i.i95, label %_ZSt4moveIPPN4llvm11reassociate7XorOpndES4_ET0_T_S6_S5_.exit.i96, label %96
 
-99:                                               ; preds = %95
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %5, ptr align 8 %.tr112127, i64 %98, i1 false)
+96:                                               ; preds = %92
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %5, ptr align 8 %.tr111126, i64 %95, i1 false)
   br label %_ZSt4moveIPPN4llvm11reassociate7XorOpndES4_ET0_T_S6_S5_.exit.i96
 
-_ZSt4moveIPPN4llvm11reassociate7XorOpndES4_ET0_T_S6_S5_.exit.i96: ; preds = %99, %95
-  %.not.i.i.i.i.i36.i = icmp eq ptr %.tr112127, %.0109
-  br i1 %.not.i.i.i.i.i36.i, label %_ZSt13move_backwardIPPN4llvm11reassociate7XorOpndES4_ET0_T_S6_S5_.exit.i, label %100
+_ZSt4moveIPPN4llvm11reassociate7XorOpndES4_ET0_T_S6_S5_.exit.i96: ; preds = %96, %92
+  %.not.i.i.i.i.i36.i = icmp eq ptr %.tr111126, %.0108
+  br i1 %.not.i.i.i.i.i36.i, label %_ZSt13move_backwardIPPN4llvm11reassociate7XorOpndES4_ET0_T_S6_S5_.exit.i, label %97
 
-100:                                              ; preds = %_ZSt4moveIPPN4llvm11reassociate7XorOpndES4_ET0_T_S6_S5_.exit.i96
-  %101 = ptrtoint ptr %.0109 to i64
-  %102 = sub i64 %97, %101
-  %103 = ashr exact i64 %102, 3
-  %.pre.i.i.i.i.i.i97 = sub nsw i64 0, %103
-  %104 = getelementptr inbounds ptr, ptr %.0108, i64 %.pre.i.i.i.i.i.i97
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %104, ptr align 8 %.0109, i64 %102, i1 false)
+97:                                               ; preds = %_ZSt4moveIPPN4llvm11reassociate7XorOpndES4_ET0_T_S6_S5_.exit.i96
+  %98 = ptrtoint ptr %.0108 to i64
+  %99 = sub i64 %94, %98
+  %100 = ashr exact i64 %99, 3
+  %.pre.i.i.i.i.i.i = sub nsw i64 0, %100
+  %101 = getelementptr inbounds ptr, ptr %.0107, i64 %.pre.i.i.i.i.i.i
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %101, ptr align 8 %.0108, i64 %99, i1 false)
   br label %_ZSt13move_backwardIPPN4llvm11reassociate7XorOpndES4_ET0_T_S6_S5_.exit.i
 
-_ZSt13move_backwardIPPN4llvm11reassociate7XorOpndES4_ET0_T_S6_S5_.exit.i: ; preds = %100, %_ZSt4moveIPPN4llvm11reassociate7XorOpndES4_ET0_T_S6_S5_.exit.i96
-  br i1 %.not.i.i.i.i.i.i95, label %_ZSt4moveIPPN4llvm11reassociate7XorOpndES4_ET0_T_S6_S5_.exit38.i, label %105
+_ZSt13move_backwardIPPN4llvm11reassociate7XorOpndES4_ET0_T_S6_S5_.exit.i: ; preds = %97, %_ZSt4moveIPPN4llvm11reassociate7XorOpndES4_ET0_T_S6_S5_.exit.i96
+  br i1 %.not.i.i.i.i.i.i95, label %_ZSt4moveIPPN4llvm11reassociate7XorOpndES4_ET0_T_S6_S5_.exit38.i, label %102
 
-105:                                              ; preds = %_ZSt13move_backwardIPPN4llvm11reassociate7XorOpndES4_ET0_T_S6_S5_.exit.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %.0109, ptr align 8 %5, i64 %98, i1 false)
+102:                                              ; preds = %_ZSt13move_backwardIPPN4llvm11reassociate7XorOpndES4_ET0_T_S6_S5_.exit.i
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %.0108, ptr align 8 %5, i64 %95, i1 false)
   br label %_ZSt4moveIPPN4llvm11reassociate7XorOpndES4_ET0_T_S6_S5_.exit38.i
 
-_ZSt4moveIPPN4llvm11reassociate7XorOpndES4_ET0_T_S6_S5_.exit38.i: ; preds = %105, %_ZSt13move_backwardIPPN4llvm11reassociate7XorOpndES4_ET0_T_S6_S5_.exit.i
-  %106 = getelementptr inbounds i8, ptr %.0109, i64 %98
+_ZSt4moveIPPN4llvm11reassociate7XorOpndES4_ET0_T_S6_S5_.exit38.i: ; preds = %102, %_ZSt13move_backwardIPPN4llvm11reassociate7XorOpndES4_ET0_T_S6_S5_.exit.i
+  %103 = getelementptr inbounds i8, ptr %.0108, i64 %95
   br label %_ZSt17__rotate_adaptiveIPPN4llvm11reassociate7XorOpndES4_lET_S5_S5_S5_T1_S6_T0_S6_.exit
 
-107:                                              ; preds = %91
-  %.not33.i = icmp sgt i64 %92, %6
-  br i1 %.not33.i, label %121, label %108
+104:                                              ; preds = %88
+  %.not33.i = icmp sgt i64 %89, %6
+  br i1 %.not33.i, label %118, label %105
 
-108:                                              ; preds = %107
-  %.not34.i = icmp eq i64 %.tr114129, %.0
-  br i1 %.not34.i, label %_ZSt17__rotate_adaptiveIPPN4llvm11reassociate7XorOpndES4_lET_S5_S5_S5_T1_S6_T0_S6_.exit, label %109
+105:                                              ; preds = %104
+  %.not34.i = icmp eq i64 %.tr113128, %.0
+  br i1 %.not34.i, label %_ZSt17__rotate_adaptiveIPPN4llvm11reassociate7XorOpndES4_lET_S5_S5_S5_T1_S6_T0_S6_.exit, label %106
 
-109:                                              ; preds = %108
-  %110 = ptrtoint ptr %.tr112127 to i64
-  %111 = ptrtoint ptr %.0109 to i64
-  %112 = sub i64 %110, %111
-  %.not.i.i.i.i.i39.i = icmp eq ptr %.tr112127, %.0109
-  br i1 %.not.i.i.i.i.i39.i, label %_ZSt4moveIPPN4llvm11reassociate7XorOpndES4_ET0_T_S6_S5_.exit40.i, label %113
+106:                                              ; preds = %105
+  %107 = ptrtoint ptr %.tr111126 to i64
+  %108 = ptrtoint ptr %.0108 to i64
+  %109 = sub i64 %107, %108
+  %.not.i.i.i.i.i39.i = icmp eq ptr %.tr111126, %.0108
+  br i1 %.not.i.i.i.i.i39.i, label %_ZSt4moveIPPN4llvm11reassociate7XorOpndES4_ET0_T_S6_S5_.exit40.i, label %110
 
-113:                                              ; preds = %109
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %5, ptr align 8 %.0109, i64 %112, i1 false)
+110:                                              ; preds = %106
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %5, ptr align 8 %.0108, i64 %109, i1 false)
   br label %_ZSt4moveIPPN4llvm11reassociate7XorOpndES4_ET0_T_S6_S5_.exit40.i
 
-_ZSt4moveIPPN4llvm11reassociate7XorOpndES4_ET0_T_S6_S5_.exit40.i: ; preds = %113, %109
-  %.not.i.i.i.i.i41.i = icmp eq ptr %.0108, %.tr112127
-  br i1 %.not.i.i.i.i.i41.i, label %_ZSt4moveIPPN4llvm11reassociate7XorOpndES4_ET0_T_S6_S5_.exit42.i, label %114
+_ZSt4moveIPPN4llvm11reassociate7XorOpndES4_ET0_T_S6_S5_.exit40.i: ; preds = %110, %106
+  %.not.i.i.i.i.i41.i = icmp eq ptr %.0107, %.tr111126
+  br i1 %.not.i.i.i.i.i41.i, label %_ZSt4moveIPPN4llvm11reassociate7XorOpndES4_ET0_T_S6_S5_.exit42.i, label %111
 
-114:                                              ; preds = %_ZSt4moveIPPN4llvm11reassociate7XorOpndES4_ET0_T_S6_S5_.exit40.i
-  %115 = ptrtoint ptr %.0108 to i64
-  %116 = sub i64 %115, %110
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %.0109, ptr align 8 %.tr112127, i64 %116, i1 false)
+111:                                              ; preds = %_ZSt4moveIPPN4llvm11reassociate7XorOpndES4_ET0_T_S6_S5_.exit40.i
+  %112 = ptrtoint ptr %.0107 to i64
+  %113 = sub i64 %112, %107
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %.0108, ptr align 8 %.tr111126, i64 %113, i1 false)
   br label %_ZSt4moveIPPN4llvm11reassociate7XorOpndES4_ET0_T_S6_S5_.exit42.i
 
-_ZSt4moveIPPN4llvm11reassociate7XorOpndES4_ET0_T_S6_S5_.exit42.i: ; preds = %114, %_ZSt4moveIPPN4llvm11reassociate7XorOpndES4_ET0_T_S6_S5_.exit40.i
-  %117 = ashr exact i64 %112, 3
-  %.pre.i.i.i.i.i44.i = sub nsw i64 0, %117
-  br i1 %.not.i.i.i.i.i39.i, label %_ZSt13move_backwardIPPN4llvm11reassociate7XorOpndES4_ET0_T_S6_S5_.exit45.i, label %118
+_ZSt4moveIPPN4llvm11reassociate7XorOpndES4_ET0_T_S6_S5_.exit42.i: ; preds = %111, %_ZSt4moveIPPN4llvm11reassociate7XorOpndES4_ET0_T_S6_S5_.exit40.i
+  %114 = ashr exact i64 %109, 3
+  %.pre.i.i.i.i.i44.i = sub nsw i64 0, %114
+  br i1 %.not.i.i.i.i.i39.i, label %_ZSt13move_backwardIPPN4llvm11reassociate7XorOpndES4_ET0_T_S6_S5_.exit45.i, label %115
 
-118:                                              ; preds = %_ZSt4moveIPPN4llvm11reassociate7XorOpndES4_ET0_T_S6_S5_.exit42.i
-  %119 = getelementptr inbounds ptr, ptr %.0108, i64 %.pre.i.i.i.i.i44.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %119, ptr align 8 %5, i64 %112, i1 false)
+115:                                              ; preds = %_ZSt4moveIPPN4llvm11reassociate7XorOpndES4_ET0_T_S6_S5_.exit42.i
+  %116 = getelementptr inbounds ptr, ptr %.0107, i64 %.pre.i.i.i.i.i44.i
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %116, ptr align 8 %5, i64 %109, i1 false)
   br label %_ZSt13move_backwardIPPN4llvm11reassociate7XorOpndES4_ET0_T_S6_S5_.exit45.i
 
-_ZSt13move_backwardIPPN4llvm11reassociate7XorOpndES4_ET0_T_S6_S5_.exit45.i: ; preds = %118, %_ZSt4moveIPPN4llvm11reassociate7XorOpndES4_ET0_T_S6_S5_.exit42.i
-  %120 = getelementptr inbounds ptr, ptr %.0108, i64 %.pre.i.i.i.i.i44.i
+_ZSt13move_backwardIPPN4llvm11reassociate7XorOpndES4_ET0_T_S6_S5_.exit45.i: ; preds = %115, %_ZSt4moveIPPN4llvm11reassociate7XorOpndES4_ET0_T_S6_S5_.exit42.i
+  %117 = getelementptr inbounds ptr, ptr %.0107, i64 %.pre.i.i.i.i.i44.i
   br label %_ZSt17__rotate_adaptiveIPPN4llvm11reassociate7XorOpndES4_lET_S5_S5_S5_T1_S6_T0_S6_.exit
 
-121:                                              ; preds = %107
-  %122 = tail call noundef ptr @_ZNSt3_V28__rotateIPPN4llvm11reassociate7XorOpndEEET_S6_S6_S6_St26random_access_iterator_tag(ptr noundef %.0109, ptr noundef %.tr112127, ptr noundef %.0108)
+118:                                              ; preds = %104
+  %119 = tail call noundef ptr @_ZNSt3_V28__rotateIPPN4llvm11reassociate7XorOpndEEET_S6_S6_S6_St26random_access_iterator_tag(ptr noundef %.0108, ptr noundef %.tr111126, ptr noundef %.0107)
   br label %_ZSt17__rotate_adaptiveIPPN4llvm11reassociate7XorOpndES4_lET_S5_S5_S5_T1_S6_T0_S6_.exit
 
-_ZSt17__rotate_adaptiveIPPN4llvm11reassociate7XorOpndES4_lET_S5_S5_S5_T1_S6_T0_S6_.exit: ; preds = %94, %_ZSt4moveIPPN4llvm11reassociate7XorOpndES4_ET0_T_S6_S5_.exit38.i, %108, %_ZSt13move_backwardIPPN4llvm11reassociate7XorOpndES4_ET0_T_S6_S5_.exit45.i, %121
-  %.0.i98 = phi ptr [ %106, %_ZSt4moveIPPN4llvm11reassociate7XorOpndES4_ET0_T_S6_S5_.exit38.i ], [ %120, %_ZSt13move_backwardIPPN4llvm11reassociate7XorOpndES4_ET0_T_S6_S5_.exit45.i ], [ %122, %121 ], [ %.0109, %94 ], [ %.0108, %108 ]
-  tail call fastcc void @"_ZSt16__merge_adaptiveIPPN4llvm11reassociate7XorOpndElS4_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_15ReassociatePass11OptimizeXorEPNS0_11InstructionERNS0_15SmallVectorImplINS1_10ValueEntryEEEE3$_0EEEvT_SH_SH_T0_SI_T1_SI_T2_"(ptr noundef %.tr126, ptr noundef %.0109, ptr noundef %.0.i98, i64 noundef %.0, i64 noundef %.066, ptr noundef %5, i64 noundef %6)
-  %123 = sub nsw i64 %.tr115130, %.066
-  %.not = icmp sgt i64 %92, %123
-  %.not70 = icmp sgt i64 %92, %6
+_ZSt17__rotate_adaptiveIPPN4llvm11reassociate7XorOpndES4_lET_S5_S5_S5_T1_S6_T0_S6_.exit: ; preds = %91, %_ZSt4moveIPPN4llvm11reassociate7XorOpndES4_ET0_T_S6_S5_.exit38.i, %105, %_ZSt13move_backwardIPPN4llvm11reassociate7XorOpndES4_ET0_T_S6_S5_.exit45.i, %118
+  %.0.i97 = phi ptr [ %103, %_ZSt4moveIPPN4llvm11reassociate7XorOpndES4_ET0_T_S6_S5_.exit38.i ], [ %117, %_ZSt13move_backwardIPPN4llvm11reassociate7XorOpndES4_ET0_T_S6_S5_.exit45.i ], [ %119, %118 ], [ %.0108, %91 ], [ %.0107, %105 ]
+  tail call fastcc void @"_ZSt16__merge_adaptiveIPPN4llvm11reassociate7XorOpndElS4_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_15ReassociatePass11OptimizeXorEPNS0_11InstructionERNS0_15SmallVectorImplINS1_10ValueEntryEEEE3$_0EEEvT_SH_SH_T0_SI_T1_SI_T2_"(ptr noundef %.tr125, ptr noundef %.0108, ptr noundef %.0.i97, i64 noundef %.0, i64 noundef %.066, ptr noundef %5, i64 noundef %6)
+  %120 = sub nsw i64 %.tr114129, %.066
+  %.not = icmp sgt i64 %89, %120
+  %.not70 = icmp sgt i64 %89, %6
   %or.cond = or i1 %.not70, %.not
   br i1 %or.cond, label %27, label %tailrecurse._crit_edge
 
-"_ZSt21__move_merge_adaptiveIPPN4llvm11reassociate7XorOpndES4_S4_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_15ReassociatePass11OptimizeXorEPNS0_11InstructionERNS0_15SmallVectorImplINS1_10ValueEntryEEEE3$_0EEEvT_SH_T0_SI_T1_T2_.exit": ; preds = %53, %29, %47, %45, %32, %_ZSt4moveIPPN4llvm11reassociate7XorOpndES4_ET0_T_S6_S5_.exit.i, %._crit_edge.i
+"_ZSt21__move_merge_adaptiveIPPN4llvm11reassociate7XorOpndES4_S4_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_15ReassociatePass11OptimizeXorEPNS0_11InstructionERNS0_15SmallVectorImplINS1_10ValueEntryEEEE3$_0EEEvT_SH_T0_SI_T1_T2_.exit": ; preds = %44, %28, %_ZSt13move_backwardIPPN4llvm11reassociate7XorOpndES4_ET0_T_S6_S5_.exit.sink.split.i, %42, %_ZSt4moveIPPN4llvm11reassociate7XorOpndES4_ET0_T_S6_S5_.exit.i, %._crit_edge.i
   ret void
 }
 
@@ -27980,7 +27972,7 @@ define linkonce_odr void @_ZSt16__merge_adaptiveIPN4llvm11reassociate10ValueEntr
   br label %32
 
 tailrecurse._crit_edge:                           ; preds = %tailrecurse, %7
-  %.tr.lcssa = phi ptr [ %0, %7 ], [ %97, %tailrecurse ]
+  %.tr.lcssa = phi ptr [ %0, %7 ], [ %94, %tailrecurse ]
   %.tr94.lcssa = phi ptr [ %1, %7 ], [ %.090, %tailrecurse ]
   %9 = ptrtoint ptr %.tr94.lcssa to i64
   %10 = ptrtoint ptr %.tr.lcssa to i64
@@ -28042,176 +28034,172 @@ _ZSt4moveIPN4llvm11reassociate10ValueEntryES3_ET0_T_S5_S4_.exit.i: ; preds = %._
 
 32:                                               ; preds = %.lr.ph, %tailrecurse
   %.not112 = phi i1 [ %.not105, %.lr.ph ], [ %.not, %tailrecurse ]
-  %.tr97111 = phi i64 [ %4, %.lr.ph ], [ %98, %tailrecurse ]
-  %.tr96110 = phi i64 [ %3, %.lr.ph ], [ %96, %tailrecurse ]
+  %.tr97111 = phi i64 [ %4, %.lr.ph ], [ %95, %tailrecurse ]
+  %.tr96110 = phi i64 [ %3, %.lr.ph ], [ %93, %tailrecurse ]
   %.tr94109 = phi ptr [ %1, %.lr.ph ], [ %.090, %tailrecurse ]
-  %.tr108 = phi ptr [ %0, %.lr.ph ], [ %97, %tailrecurse ]
+  %.tr108 = phi ptr [ %0, %.lr.ph ], [ %94, %tailrecurse ]
   %.not60 = icmp sgt i64 %.tr97111, %6
-  %33 = ptrtoint ptr %.tr94109 to i64
-  br i1 %.not60, label %62, label %34
+  br i1 %.not60, label %58, label %33
 
-34:                                               ; preds = %32
-  %35 = sub i64 %8, %33
+33:                                               ; preds = %32
   %.not.i.i.i.i.i61 = icmp eq ptr %2, %.tr94109
   br i1 %.not.i.i.i.i.i61, label %_ZSt21__move_merge_adaptiveIPN4llvm11reassociate10ValueEntryES3_S3_N9__gnu_cxx5__ops15_Iter_less_iterEEvT_S7_T0_S8_T1_T2_.exit, label %_ZSt4moveIPN4llvm11reassociate10ValueEntryES3_ET0_T_S5_S4_.exit62.thread
 
-_ZSt4moveIPN4llvm11reassociate10ValueEntryES3_ET0_T_S5_S4_.exit62.thread: ; preds = %34
+_ZSt4moveIPN4llvm11reassociate10ValueEntryES3_ET0_T_S5_S4_.exit62.thread: ; preds = %33
+  %34 = ptrtoint ptr %.tr94109 to i64
+  %35 = sub i64 %8, %34
   tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %5, ptr align 8 %.tr94109, i64 %35, i1 false)
-  %36 = icmp eq ptr %.tr108, %.tr94109
-  br i1 %36, label %37, label %40
+  %36 = getelementptr inbounds i8, ptr %5, i64 %35
+  %37 = icmp eq ptr %.tr108, %.tr94109
+  br i1 %37, label %_ZSt13move_backwardIPN4llvm11reassociate10ValueEntryES3_ET0_T_S5_S4_.exit.sink.split.i, label %38
 
-37:                                               ; preds = %_ZSt4moveIPN4llvm11reassociate10ValueEntryES3_ET0_T_S5_S4_.exit62.thread
-  %38 = ashr exact i64 %35, 4
-  %.pre.i.i.i.i.i.i = sub nsw i64 0, %38
-  %39 = getelementptr inbounds %"struct.llvm::reassociate::ValueEntry", ptr %2, i64 %.pre.i.i.i.i.i.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %39, ptr align 8 %5, i64 %35, i1 false)
-  br label %_ZSt21__move_merge_adaptiveIPN4llvm11reassociate10ValueEntryES3_S3_N9__gnu_cxx5__ops15_Iter_less_iterEEvT_S7_T0_S8_T1_T2_.exit
-
-40:                                               ; preds = %_ZSt4moveIPN4llvm11reassociate10ValueEntryES3_ET0_T_S5_S4_.exit62.thread
-  %41 = getelementptr inbounds i8, ptr %5, i64 %35
-  %42 = getelementptr inbounds i8, ptr %41, i64 -16
+38:                                               ; preds = %_ZSt4moveIPN4llvm11reassociate10ValueEntryES3_ET0_T_S5_S4_.exit62.thread
+  %39 = getelementptr inbounds i8, ptr %36, i64 -16
   br label %.outer
 
-.outer:                                           ; preds = %48, %40
-  %.026.i.ph.pn = phi ptr [ %.tr94109, %40 ], [ %.026.i.ph, %48 ]
-  %.024.i63.ph = phi ptr [ %42, %40 ], [ %.024.i63, %48 ]
-  %.0.i.ph = phi ptr [ %2, %40 ], [ %47, %48 ]
+.outer:                                           ; preds = %45, %38
+  %.026.i.ph.pn = phi ptr [ %.tr94109, %38 ], [ %.026.i.ph, %45 ]
+  %.024.i63.ph = phi ptr [ %39, %38 ], [ %.024.i63, %45 ]
+  %.0.i.ph = phi ptr [ %2, %38 ], [ %44, %45 ]
   %.026.i.ph = getelementptr inbounds i8, ptr %.026.i.ph.pn, i64 -16
-  br label %43
+  br label %40
 
-43:                                               ; preds = %.outer, %60
-  %.024.i63 = phi ptr [ %61, %60 ], [ %.024.i63.ph, %.outer ]
-  %.0.i = phi ptr [ %47, %60 ], [ %.0.i.ph, %.outer ]
-  %44 = load i32, ptr %.024.i63, align 8
-  %45 = load i32, ptr %.026.i.ph, align 8
-  %46 = icmp ugt i32 %44, %45
-  %47 = getelementptr inbounds i8, ptr %.0.i, i64 -16
-  br i1 %46, label %48, label %58
+40:                                               ; preds = %.outer, %51
+  %.024.i63 = phi ptr [ %52, %51 ], [ %.024.i63.ph, %.outer ]
+  %.0.i = phi ptr [ %44, %51 ], [ %.0.i.ph, %.outer ]
+  %41 = load i32, ptr %.024.i63, align 8
+  %42 = load i32, ptr %.026.i.ph, align 8
+  %43 = icmp ugt i32 %41, %42
+  %44 = getelementptr inbounds i8, ptr %.0.i, i64 -16
+  br i1 %43, label %45, label %49
 
-48:                                               ; preds = %43
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %47, ptr noundef nonnull align 8 dereferenceable(16) %.026.i.ph, i64 16, i1 false)
-  %49 = icmp eq ptr %.tr108, %.026.i.ph
-  br i1 %49, label %50, label %.outer, !llvm.loop !494
+45:                                               ; preds = %40
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %44, ptr noundef nonnull align 8 dereferenceable(16) %.026.i.ph, i64 16, i1 false)
+  %46 = icmp eq ptr %.tr108, %.026.i.ph
+  br i1 %46, label %47, label %.outer, !llvm.loop !494
 
-50:                                               ; preds = %48
-  %51 = getelementptr inbounds i8, ptr %.024.i63, i64 16
-  %.not.i.i.i.i.i32.i = icmp eq ptr %51, %5
-  br i1 %.not.i.i.i.i.i32.i, label %_ZSt21__move_merge_adaptiveIPN4llvm11reassociate10ValueEntryES3_S3_N9__gnu_cxx5__ops15_Iter_less_iterEEvT_S7_T0_S8_T1_T2_.exit, label %52
+47:                                               ; preds = %45
+  %48 = getelementptr inbounds i8, ptr %.024.i63, i64 16
+  %.not.i.i.i.i.i32.i = icmp eq ptr %48, %5
+  br i1 %.not.i.i.i.i.i32.i, label %_ZSt21__move_merge_adaptiveIPN4llvm11reassociate10ValueEntryES3_S3_N9__gnu_cxx5__ops15_Iter_less_iterEEvT_S7_T0_S8_T1_T2_.exit, label %_ZSt13move_backwardIPN4llvm11reassociate10ValueEntryES3_ET0_T_S5_S4_.exit.sink.split.i
 
-52:                                               ; preds = %50
-  %53 = ptrtoint ptr %51 to i64
+49:                                               ; preds = %40
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %44, ptr noundef nonnull align 8 dereferenceable(16) %.024.i63, i64 16, i1 false)
+  %50 = icmp eq ptr %5, %.024.i63
+  br i1 %50, label %_ZSt21__move_merge_adaptiveIPN4llvm11reassociate10ValueEntryES3_S3_N9__gnu_cxx5__ops15_Iter_less_iterEEvT_S7_T0_S8_T1_T2_.exit, label %51
+
+51:                                               ; preds = %49
+  %52 = getelementptr inbounds i8, ptr %.024.i63, i64 -16
+  br label %40, !llvm.loop !494
+
+_ZSt13move_backwardIPN4llvm11reassociate10ValueEntryES3_ET0_T_S5_S4_.exit.sink.split.i: ; preds = %_ZSt4moveIPN4llvm11reassociate10ValueEntryES3_ET0_T_S5_S4_.exit62.thread, %47
+  %.sink41.i = phi ptr [ %48, %47 ], [ %36, %_ZSt4moveIPN4llvm11reassociate10ValueEntryES3_ET0_T_S5_S4_.exit62.thread ]
+  %.lcssa.sink.i = phi ptr [ %44, %47 ], [ %2, %_ZSt4moveIPN4llvm11reassociate10ValueEntryES3_ET0_T_S5_S4_.exit62.thread ]
+  %53 = ptrtoint ptr %.sink41.i to i64
   %54 = ptrtoint ptr %5 to i64
   %55 = sub i64 %53, %54
   %56 = ashr exact i64 %55, 4
   %.pre.i.i.i.i.i33.i = sub nsw i64 0, %56
-  %57 = getelementptr inbounds %"struct.llvm::reassociate::ValueEntry", ptr %47, i64 %.pre.i.i.i.i.i33.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %57, ptr align 8 %5, i64 %55, i1 false)
+  %57 = getelementptr inbounds %"struct.llvm::reassociate::ValueEntry", ptr %.lcssa.sink.i, i64 %.pre.i.i.i.i.i33.i
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %57, ptr align 8 %5, i64 %55, i1 false)
   br label %_ZSt21__move_merge_adaptiveIPN4llvm11reassociate10ValueEntryES3_S3_N9__gnu_cxx5__ops15_Iter_less_iterEEvT_S7_T0_S8_T1_T2_.exit
 
-58:                                               ; preds = %43
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %47, ptr noundef nonnull align 8 dereferenceable(16) %.024.i63, i64 16, i1 false)
-  %59 = icmp eq ptr %5, %.024.i63
-  br i1 %59, label %_ZSt21__move_merge_adaptiveIPN4llvm11reassociate10ValueEntryES3_S3_N9__gnu_cxx5__ops15_Iter_less_iterEEvT_S7_T0_S8_T1_T2_.exit, label %60
-
-60:                                               ; preds = %58
-  %61 = getelementptr inbounds i8, ptr %.024.i63, i64 -16
-  br label %43, !llvm.loop !494
-
-62:                                               ; preds = %32
+58:                                               ; preds = %32
+  %59 = ptrtoint ptr %.tr94109 to i64
   br i1 %.not112, label %_ZSt7advanceIPN4llvm11reassociate10ValueEntryElEvRT_T0_.exit, label %_ZSt7advanceIPN4llvm11reassociate10ValueEntryElEvRT_T0_.exit70
 
-_ZSt7advanceIPN4llvm11reassociate10ValueEntryElEvRT_T0_.exit: ; preds = %62
-  %63 = sdiv i64 %.tr96110, 2
-  %64 = getelementptr inbounds %"struct.llvm::reassociate::ValueEntry", ptr %.tr108, i64 %63
-  %65 = sub i64 %8, %33
-  %66 = ashr exact i64 %65, 4
-  %67 = icmp sgt i64 %66, 0
-  br i1 %67, label %_ZSt7advanceIPN4llvm11reassociate10ValueEntryElEvRT_T0_.exit.lr.ph.i, label %_ZSt13__lower_boundIPN4llvm11reassociate10ValueEntryES2_N9__gnu_cxx5__ops14_Iter_less_valEET_S7_S7_RKT0_T1_.exit
+_ZSt7advanceIPN4llvm11reassociate10ValueEntryElEvRT_T0_.exit: ; preds = %58
+  %60 = sdiv i64 %.tr96110, 2
+  %61 = getelementptr inbounds %"struct.llvm::reassociate::ValueEntry", ptr %.tr108, i64 %60
+  %62 = sub i64 %8, %59
+  %63 = ashr exact i64 %62, 4
+  %64 = icmp sgt i64 %63, 0
+  br i1 %64, label %_ZSt7advanceIPN4llvm11reassociate10ValueEntryElEvRT_T0_.exit.lr.ph.i, label %_ZSt13__lower_boundIPN4llvm11reassociate10ValueEntryES2_N9__gnu_cxx5__ops14_Iter_less_valEET_S7_S7_RKT0_T1_.exit
 
 _ZSt7advanceIPN4llvm11reassociate10ValueEntryElEvRT_T0_.exit.lr.ph.i: ; preds = %_ZSt7advanceIPN4llvm11reassociate10ValueEntryElEvRT_T0_.exit
-  %68 = load i32, ptr %64, align 8
+  %65 = load i32, ptr %61, align 8
   br label %_ZSt7advanceIPN4llvm11reassociate10ValueEntryElEvRT_T0_.exit.i
 
 _ZSt7advanceIPN4llvm11reassociate10ValueEntryElEvRT_T0_.exit.i: ; preds = %_ZSt7advanceIPN4llvm11reassociate10ValueEntryElEvRT_T0_.exit.i, %_ZSt7advanceIPN4llvm11reassociate10ValueEntryElEvRT_T0_.exit.lr.ph.i
   %.017.i = phi ptr [ %.tr94109, %_ZSt7advanceIPN4llvm11reassociate10ValueEntryElEvRT_T0_.exit.lr.ph.i ], [ %.1.i66, %_ZSt7advanceIPN4llvm11reassociate10ValueEntryElEvRT_T0_.exit.i ]
-  %.01116.i = phi i64 [ %66, %_ZSt7advanceIPN4llvm11reassociate10ValueEntryElEvRT_T0_.exit.lr.ph.i ], [ %.112.i, %_ZSt7advanceIPN4llvm11reassociate10ValueEntryElEvRT_T0_.exit.i ]
-  %69 = lshr i64 %.01116.i, 1
-  %70 = getelementptr inbounds %"struct.llvm::reassociate::ValueEntry", ptr %.017.i, i64 %69
-  %71 = load i32, ptr %70, align 8
-  %72 = icmp ugt i32 %71, %68
-  %73 = getelementptr inbounds i8, ptr %70, i64 16
-  %74 = xor i64 %69, -1
-  %75 = add nsw i64 %.01116.i, %74
-  %.112.i = select i1 %72, i64 %75, i64 %69
-  %.1.i66 = select i1 %72, ptr %73, ptr %.017.i
-  %76 = icmp sgt i64 %.112.i, 0
-  br i1 %76, label %_ZSt7advanceIPN4llvm11reassociate10ValueEntryElEvRT_T0_.exit.i, label %_ZSt13__lower_boundIPN4llvm11reassociate10ValueEntryES2_N9__gnu_cxx5__ops14_Iter_less_valEET_S7_S7_RKT0_T1_.exit.loopexit, !llvm.loop !156
+  %.01116.i = phi i64 [ %63, %_ZSt7advanceIPN4llvm11reassociate10ValueEntryElEvRT_T0_.exit.lr.ph.i ], [ %.112.i, %_ZSt7advanceIPN4llvm11reassociate10ValueEntryElEvRT_T0_.exit.i ]
+  %66 = lshr i64 %.01116.i, 1
+  %67 = getelementptr inbounds %"struct.llvm::reassociate::ValueEntry", ptr %.017.i, i64 %66
+  %68 = load i32, ptr %67, align 8
+  %69 = icmp ugt i32 %68, %65
+  %70 = getelementptr inbounds i8, ptr %67, i64 16
+  %71 = xor i64 %66, -1
+  %72 = add nsw i64 %.01116.i, %71
+  %.112.i = select i1 %69, i64 %72, i64 %66
+  %.1.i66 = select i1 %69, ptr %70, ptr %.017.i
+  %73 = icmp sgt i64 %.112.i, 0
+  br i1 %73, label %_ZSt7advanceIPN4llvm11reassociate10ValueEntryElEvRT_T0_.exit.i, label %_ZSt13__lower_boundIPN4llvm11reassociate10ValueEntryES2_N9__gnu_cxx5__ops14_Iter_less_valEET_S7_S7_RKT0_T1_.exit.loopexit, !llvm.loop !156
 
 _ZSt13__lower_boundIPN4llvm11reassociate10ValueEntryES2_N9__gnu_cxx5__ops14_Iter_less_valEET_S7_S7_RKT0_T1_.exit.loopexit: ; preds = %_ZSt7advanceIPN4llvm11reassociate10ValueEntryElEvRT_T0_.exit.i
   %.pre = ptrtoint ptr %.1.i66 to i64
   br label %_ZSt13__lower_boundIPN4llvm11reassociate10ValueEntryES2_N9__gnu_cxx5__ops14_Iter_less_valEET_S7_S7_RKT0_T1_.exit
 
 _ZSt13__lower_boundIPN4llvm11reassociate10ValueEntryES2_N9__gnu_cxx5__ops14_Iter_less_valEET_S7_S7_RKT0_T1_.exit: ; preds = %_ZSt13__lower_boundIPN4llvm11reassociate10ValueEntryES2_N9__gnu_cxx5__ops14_Iter_less_valEET_S7_S7_RKT0_T1_.exit.loopexit, %_ZSt7advanceIPN4llvm11reassociate10ValueEntryElEvRT_T0_.exit
-  %.pre-phi = phi i64 [ %.pre, %_ZSt13__lower_boundIPN4llvm11reassociate10ValueEntryES2_N9__gnu_cxx5__ops14_Iter_less_valEET_S7_S7_RKT0_T1_.exit.loopexit ], [ %33, %_ZSt7advanceIPN4llvm11reassociate10ValueEntryElEvRT_T0_.exit ]
+  %.pre-phi = phi i64 [ %.pre, %_ZSt13__lower_boundIPN4llvm11reassociate10ValueEntryES2_N9__gnu_cxx5__ops14_Iter_less_valEET_S7_S7_RKT0_T1_.exit.loopexit ], [ %59, %_ZSt7advanceIPN4llvm11reassociate10ValueEntryElEvRT_T0_.exit ]
   %.0.lcssa.i65 = phi ptr [ %.1.i66, %_ZSt13__lower_boundIPN4llvm11reassociate10ValueEntryES2_N9__gnu_cxx5__ops14_Iter_less_valEET_S7_S7_RKT0_T1_.exit.loopexit ], [ %.tr94109, %_ZSt7advanceIPN4llvm11reassociate10ValueEntryElEvRT_T0_.exit ]
-  %77 = sub i64 %.pre-phi, %33
-  %78 = ashr exact i64 %77, 4
+  %74 = sub i64 %.pre-phi, %59
+  %75 = ashr exact i64 %74, 4
   br label %tailrecurse
 
-_ZSt7advanceIPN4llvm11reassociate10ValueEntryElEvRT_T0_.exit70: ; preds = %62
-  %79 = sdiv i64 %.tr97111, 2
-  %80 = getelementptr inbounds %"struct.llvm::reassociate::ValueEntry", ptr %.tr94109, i64 %79
-  %81 = ptrtoint ptr %.tr108 to i64
-  %82 = sub i64 %33, %81
-  %83 = ashr exact i64 %82, 4
-  %84 = icmp sgt i64 %83, 0
-  br i1 %84, label %_ZSt7advanceIPN4llvm11reassociate10ValueEntryElEvRT_T0_.exit.lr.ph.i73, label %_ZSt13__upper_boundIPN4llvm11reassociate10ValueEntryES2_N9__gnu_cxx5__ops14_Val_less_iterEET_S7_S7_RKT0_T1_.exit
+_ZSt7advanceIPN4llvm11reassociate10ValueEntryElEvRT_T0_.exit70: ; preds = %58
+  %76 = sdiv i64 %.tr97111, 2
+  %77 = getelementptr inbounds %"struct.llvm::reassociate::ValueEntry", ptr %.tr94109, i64 %76
+  %78 = ptrtoint ptr %.tr108 to i64
+  %79 = sub i64 %59, %78
+  %80 = ashr exact i64 %79, 4
+  %81 = icmp sgt i64 %80, 0
+  br i1 %81, label %_ZSt7advanceIPN4llvm11reassociate10ValueEntryElEvRT_T0_.exit.lr.ph.i73, label %_ZSt13__upper_boundIPN4llvm11reassociate10ValueEntryES2_N9__gnu_cxx5__ops14_Val_less_iterEET_S7_S7_RKT0_T1_.exit
 
 _ZSt7advanceIPN4llvm11reassociate10ValueEntryElEvRT_T0_.exit.lr.ph.i73: ; preds = %_ZSt7advanceIPN4llvm11reassociate10ValueEntryElEvRT_T0_.exit70
-  %85 = load i32, ptr %80, align 8
+  %82 = load i32, ptr %77, align 8
   br label %_ZSt7advanceIPN4llvm11reassociate10ValueEntryElEvRT_T0_.exit.i74
 
 _ZSt7advanceIPN4llvm11reassociate10ValueEntryElEvRT_T0_.exit.i74: ; preds = %_ZSt7advanceIPN4llvm11reassociate10ValueEntryElEvRT_T0_.exit.i74, %_ZSt7advanceIPN4llvm11reassociate10ValueEntryElEvRT_T0_.exit.lr.ph.i73
   %.017.i75 = phi ptr [ %.tr108, %_ZSt7advanceIPN4llvm11reassociate10ValueEntryElEvRT_T0_.exit.lr.ph.i73 ], [ %.1.i80, %_ZSt7advanceIPN4llvm11reassociate10ValueEntryElEvRT_T0_.exit.i74 ]
-  %.01116.i76 = phi i64 [ %83, %_ZSt7advanceIPN4llvm11reassociate10ValueEntryElEvRT_T0_.exit.lr.ph.i73 ], [ %.112.i79, %_ZSt7advanceIPN4llvm11reassociate10ValueEntryElEvRT_T0_.exit.i74 ]
-  %86 = lshr i64 %.01116.i76, 1
-  %87 = getelementptr inbounds %"struct.llvm::reassociate::ValueEntry", ptr %.017.i75, i64 %86
-  %88 = load i32, ptr %87, align 8
-  %89 = icmp ugt i32 %85, %88
-  %90 = getelementptr inbounds i8, ptr %87, i64 16
-  %91 = xor i64 %86, -1
-  %92 = add nsw i64 %.01116.i76, %91
-  %.112.i79 = select i1 %89, i64 %86, i64 %92
-  %.1.i80 = select i1 %89, ptr %.017.i75, ptr %90
-  %93 = icmp sgt i64 %.112.i79, 0
-  br i1 %93, label %_ZSt7advanceIPN4llvm11reassociate10ValueEntryElEvRT_T0_.exit.i74, label %_ZSt13__upper_boundIPN4llvm11reassociate10ValueEntryES2_N9__gnu_cxx5__ops14_Val_less_iterEET_S7_S7_RKT0_T1_.exit.loopexit, !llvm.loop !485
+  %.01116.i76 = phi i64 [ %80, %_ZSt7advanceIPN4llvm11reassociate10ValueEntryElEvRT_T0_.exit.lr.ph.i73 ], [ %.112.i79, %_ZSt7advanceIPN4llvm11reassociate10ValueEntryElEvRT_T0_.exit.i74 ]
+  %83 = lshr i64 %.01116.i76, 1
+  %84 = getelementptr inbounds %"struct.llvm::reassociate::ValueEntry", ptr %.017.i75, i64 %83
+  %85 = load i32, ptr %84, align 8
+  %86 = icmp ugt i32 %82, %85
+  %87 = getelementptr inbounds i8, ptr %84, i64 16
+  %88 = xor i64 %83, -1
+  %89 = add nsw i64 %.01116.i76, %88
+  %.112.i79 = select i1 %86, i64 %83, i64 %89
+  %.1.i80 = select i1 %86, ptr %.017.i75, ptr %87
+  %90 = icmp sgt i64 %.112.i79, 0
+  br i1 %90, label %_ZSt7advanceIPN4llvm11reassociate10ValueEntryElEvRT_T0_.exit.i74, label %_ZSt13__upper_boundIPN4llvm11reassociate10ValueEntryES2_N9__gnu_cxx5__ops14_Val_less_iterEET_S7_S7_RKT0_T1_.exit.loopexit, !llvm.loop !485
 
 _ZSt13__upper_boundIPN4llvm11reassociate10ValueEntryES2_N9__gnu_cxx5__ops14_Val_less_iterEET_S7_S7_RKT0_T1_.exit.loopexit: ; preds = %_ZSt7advanceIPN4llvm11reassociate10ValueEntryElEvRT_T0_.exit.i74
   %.pre121 = ptrtoint ptr %.1.i80 to i64
   br label %_ZSt13__upper_boundIPN4llvm11reassociate10ValueEntryES2_N9__gnu_cxx5__ops14_Val_less_iterEET_S7_S7_RKT0_T1_.exit
 
 _ZSt13__upper_boundIPN4llvm11reassociate10ValueEntryES2_N9__gnu_cxx5__ops14_Val_less_iterEET_S7_S7_RKT0_T1_.exit: ; preds = %_ZSt13__upper_boundIPN4llvm11reassociate10ValueEntryES2_N9__gnu_cxx5__ops14_Val_less_iterEET_S7_S7_RKT0_T1_.exit.loopexit, %_ZSt7advanceIPN4llvm11reassociate10ValueEntryElEvRT_T0_.exit70
-  %.pre-phi122 = phi i64 [ %.pre121, %_ZSt13__upper_boundIPN4llvm11reassociate10ValueEntryES2_N9__gnu_cxx5__ops14_Val_less_iterEET_S7_S7_RKT0_T1_.exit.loopexit ], [ %81, %_ZSt7advanceIPN4llvm11reassociate10ValueEntryElEvRT_T0_.exit70 ]
+  %.pre-phi122 = phi i64 [ %.pre121, %_ZSt13__upper_boundIPN4llvm11reassociate10ValueEntryES2_N9__gnu_cxx5__ops14_Val_less_iterEET_S7_S7_RKT0_T1_.exit.loopexit ], [ %78, %_ZSt7advanceIPN4llvm11reassociate10ValueEntryElEvRT_T0_.exit70 ]
   %.0.lcssa.i72 = phi ptr [ %.1.i80, %_ZSt13__upper_boundIPN4llvm11reassociate10ValueEntryES2_N9__gnu_cxx5__ops14_Val_less_iterEET_S7_S7_RKT0_T1_.exit.loopexit ], [ %.tr108, %_ZSt7advanceIPN4llvm11reassociate10ValueEntryElEvRT_T0_.exit70 ]
-  %94 = sub i64 %.pre-phi122, %81
-  %95 = ashr exact i64 %94, 4
+  %91 = sub i64 %.pre-phi122, %78
+  %92 = ashr exact i64 %91, 4
   br label %tailrecurse
 
 tailrecurse:                                      ; preds = %_ZSt13__upper_boundIPN4llvm11reassociate10ValueEntryES2_N9__gnu_cxx5__ops14_Val_less_iterEET_S7_S7_RKT0_T1_.exit, %_ZSt13__lower_boundIPN4llvm11reassociate10ValueEntryES2_N9__gnu_cxx5__ops14_Iter_less_valEET_S7_S7_RKT0_T1_.exit
-  %.091 = phi ptr [ %64, %_ZSt13__lower_boundIPN4llvm11reassociate10ValueEntryES2_N9__gnu_cxx5__ops14_Iter_less_valEET_S7_S7_RKT0_T1_.exit ], [ %.0.lcssa.i72, %_ZSt13__upper_boundIPN4llvm11reassociate10ValueEntryES2_N9__gnu_cxx5__ops14_Val_less_iterEET_S7_S7_RKT0_T1_.exit ]
-  %.090 = phi ptr [ %.0.lcssa.i65, %_ZSt13__lower_boundIPN4llvm11reassociate10ValueEntryES2_N9__gnu_cxx5__ops14_Iter_less_valEET_S7_S7_RKT0_T1_.exit ], [ %80, %_ZSt13__upper_boundIPN4llvm11reassociate10ValueEntryES2_N9__gnu_cxx5__ops14_Val_less_iterEET_S7_S7_RKT0_T1_.exit ]
-  %.055 = phi i64 [ %78, %_ZSt13__lower_boundIPN4llvm11reassociate10ValueEntryES2_N9__gnu_cxx5__ops14_Iter_less_valEET_S7_S7_RKT0_T1_.exit ], [ %79, %_ZSt13__upper_boundIPN4llvm11reassociate10ValueEntryES2_N9__gnu_cxx5__ops14_Val_less_iterEET_S7_S7_RKT0_T1_.exit ]
-  %.0 = phi i64 [ %63, %_ZSt13__lower_boundIPN4llvm11reassociate10ValueEntryES2_N9__gnu_cxx5__ops14_Iter_less_valEET_S7_S7_RKT0_T1_.exit ], [ %95, %_ZSt13__upper_boundIPN4llvm11reassociate10ValueEntryES2_N9__gnu_cxx5__ops14_Val_less_iterEET_S7_S7_RKT0_T1_.exit ]
-  %96 = sub nsw i64 %.tr96110, %.0
-  %97 = tail call noundef ptr @_ZSt17__rotate_adaptiveIPN4llvm11reassociate10ValueEntryES3_lET_S4_S4_S4_T1_S5_T0_S5_(ptr noundef %.091, ptr noundef %.tr94109, ptr noundef %.090, i64 noundef %96, i64 noundef %.055, ptr noundef %5, i64 noundef %6)
-  tail call void @_ZSt16__merge_adaptiveIPN4llvm11reassociate10ValueEntryElS3_N9__gnu_cxx5__ops15_Iter_less_iterEEvT_S7_S7_T0_S8_T1_S8_T2_(ptr noundef %.tr108, ptr noundef %.091, ptr noundef %97, i64 noundef %.0, i64 noundef %.055, ptr noundef %5, i64 noundef %6)
-  %98 = sub nsw i64 %.tr97111, %.055
-  %.not = icmp sgt i64 %96, %98
-  %.not59 = icmp sgt i64 %96, %6
+  %.091 = phi ptr [ %61, %_ZSt13__lower_boundIPN4llvm11reassociate10ValueEntryES2_N9__gnu_cxx5__ops14_Iter_less_valEET_S7_S7_RKT0_T1_.exit ], [ %.0.lcssa.i72, %_ZSt13__upper_boundIPN4llvm11reassociate10ValueEntryES2_N9__gnu_cxx5__ops14_Val_less_iterEET_S7_S7_RKT0_T1_.exit ]
+  %.090 = phi ptr [ %.0.lcssa.i65, %_ZSt13__lower_boundIPN4llvm11reassociate10ValueEntryES2_N9__gnu_cxx5__ops14_Iter_less_valEET_S7_S7_RKT0_T1_.exit ], [ %77, %_ZSt13__upper_boundIPN4llvm11reassociate10ValueEntryES2_N9__gnu_cxx5__ops14_Val_less_iterEET_S7_S7_RKT0_T1_.exit ]
+  %.055 = phi i64 [ %75, %_ZSt13__lower_boundIPN4llvm11reassociate10ValueEntryES2_N9__gnu_cxx5__ops14_Iter_less_valEET_S7_S7_RKT0_T1_.exit ], [ %76, %_ZSt13__upper_boundIPN4llvm11reassociate10ValueEntryES2_N9__gnu_cxx5__ops14_Val_less_iterEET_S7_S7_RKT0_T1_.exit ]
+  %.0 = phi i64 [ %60, %_ZSt13__lower_boundIPN4llvm11reassociate10ValueEntryES2_N9__gnu_cxx5__ops14_Iter_less_valEET_S7_S7_RKT0_T1_.exit ], [ %92, %_ZSt13__upper_boundIPN4llvm11reassociate10ValueEntryES2_N9__gnu_cxx5__ops14_Val_less_iterEET_S7_S7_RKT0_T1_.exit ]
+  %93 = sub nsw i64 %.tr96110, %.0
+  %94 = tail call noundef ptr @_ZSt17__rotate_adaptiveIPN4llvm11reassociate10ValueEntryES3_lET_S4_S4_S4_T1_S5_T0_S5_(ptr noundef %.091, ptr noundef %.tr94109, ptr noundef %.090, i64 noundef %93, i64 noundef %.055, ptr noundef %5, i64 noundef %6)
+  tail call void @_ZSt16__merge_adaptiveIPN4llvm11reassociate10ValueEntryElS3_N9__gnu_cxx5__ops15_Iter_less_iterEEvT_S7_S7_T0_S8_T1_S8_T2_(ptr noundef %.tr108, ptr noundef %.091, ptr noundef %94, i64 noundef %.0, i64 noundef %.055, ptr noundef %5, i64 noundef %6)
+  %95 = sub nsw i64 %.tr97111, %.055
+  %.not = icmp sgt i64 %93, %95
+  %.not59 = icmp sgt i64 %93, %6
   %or.cond = or i1 %.not59, %.not
   br i1 %or.cond, label %32, label %tailrecurse._crit_edge
 
-_ZSt21__move_merge_adaptiveIPN4llvm11reassociate10ValueEntryES3_S3_N9__gnu_cxx5__ops15_Iter_less_iterEEvT_S7_T0_S8_T1_T2_.exit: ; preds = %58, %34, %52, %50, %37, %_ZSt4moveIPN4llvm11reassociate10ValueEntryES3_ET0_T_S5_S4_.exit.i, %._crit_edge.i
+_ZSt21__move_merge_adaptiveIPN4llvm11reassociate10ValueEntryES3_S3_N9__gnu_cxx5__ops15_Iter_less_iterEEvT_S7_T0_S8_T1_T2_.exit: ; preds = %49, %33, %_ZSt13move_backwardIPN4llvm11reassociate10ValueEntryES3_ET0_T_S5_S4_.exit.sink.split.i, %47, %_ZSt4moveIPN4llvm11reassociate10ValueEntryES3_ET0_T_S5_S4_.exit.i, %._crit_edge.i
   ret void
 }
 

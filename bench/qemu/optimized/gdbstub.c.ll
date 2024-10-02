@@ -2904,22 +2904,14 @@ entry:
   %len = getelementptr inbounds i8, ptr %params, i64 8
   %0 = load i32, ptr %len, align 8
   %cmp.not = icmp eq i32 %0, 2
-  br i1 %cmp.not, label %if.end, label %if.then
-
-if.then:                                          ; preds = %entry
-  %call = tail call i32 @gdb_put_packet(ptr noundef nonnull @.str.81)
-  br label %return
+  br i1 %cmp.not, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
   %1 = load ptr, ptr %params, align 8
   %arrayidx = getelementptr i8, ptr %1, i64 16
   %2 = load i64, ptr %arrayidx, align 8
   %cmp1 = icmp ugt i64 %2, 2048
-  br i1 %cmp1, label %if.then2, label %if.end4
-
-if.then2:                                         ; preds = %if.end
-  %call3 = tail call i32 @gdb_put_packet(ptr noundef nonnull @.str.81)
-  br label %return
+  br i1 %cmp1, label %return, label %if.end4
 
 if.end4:                                          ; preds = %if.end
   %3 = load ptr, ptr getelementptr inbounds (i8, ptr @gdbserver_state, i64 4184), align 8
@@ -2934,11 +2926,7 @@ if.end4:                                          ; preds = %if.end
   %9 = load i32, ptr %len11, align 8
   %call12 = tail call i32 @gdb_target_memory_rw_debug(ptr noundef %4, i64 noundef %6, ptr noundef %8, i32 noundef %9, i1 noundef zeroext false) #18
   %tobool.not = icmp eq i32 %call12, 0
-  br i1 %tobool.not, label %if.end15, label %if.then13
-
-if.then13:                                        ; preds = %if.end4
-  %call14 = tail call i32 @gdb_put_packet(ptr noundef nonnull @.str.82)
-  br label %return
+  br i1 %tobool.not, label %if.end15, label %return
 
 if.end15:                                         ; preds = %if.end4
   %10 = load ptr, ptr getelementptr inbounds (i8, ptr @gdbserver_state, i64 4176), align 8
@@ -2949,10 +2937,11 @@ if.end15:                                         ; preds = %if.end4
   tail call void @gdb_memtohex(ptr noundef %10, ptr noundef %12, i32 noundef %13)
   %14 = load ptr, ptr getelementptr inbounds (i8, ptr @gdbserver_state, i64 4176), align 8
   %15 = load ptr, ptr %14, align 8
-  %call.i = tail call i32 @gdb_put_packet(ptr noundef %15)
   br label %return
 
-return:                                           ; preds = %if.end15, %if.then13, %if.then2, %if.then
+return:                                           ; preds = %if.end4, %if.end, %entry, %if.end15
+  %.sink = phi ptr [ %15, %if.end15 ], [ @.str.81, %entry ], [ @.str.81, %if.end ], [ @.str.82, %if.end4 ]
+  %call.i = tail call i32 @gdb_put_packet(ptr noundef %.sink)
   ret void
 }
 
@@ -3089,11 +3078,7 @@ entry:
   %len = getelementptr inbounds i8, ptr %params, i64 8
   %0 = load i32, ptr %len, align 8
   %tobool.not = icmp eq i32 %0, 0
-  br i1 %tobool.not, label %if.then, label %if.end
-
-if.then:                                          ; preds = %entry
-  %call = tail call i32 @gdb_put_packet(ptr noundef nonnull @.str.82)
-  br label %return
+  br i1 %tobool.not, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
   %1 = load ptr, ptr getelementptr inbounds (i8, ptr @gdbserver_state, i64 16), align 8
@@ -3119,13 +3104,13 @@ if.end.i:                                         ; preds = %if.end
   %gdb_regs.i = getelementptr inbounds i8, ptr %1, i64 552
   %7 = load ptr, ptr %gdb_regs.i, align 8
   %tobool.not.i = icmp eq ptr %7, null
-  br i1 %tobool.not.i, label %if.then3, label %for.cond.preheader.i
+  br i1 %tobool.not.i, label %return, label %for.cond.preheader.i
 
 for.cond.preheader.i:                             ; preds = %if.end.i
   %len.i = getelementptr inbounds i8, ptr %7, i64 8
   %8 = load i32, ptr %len.i, align 8
   %cmp518.not.i = icmp eq i32 %8, 0
-  br i1 %cmp518.not.i, label %if.then3, label %for.body.lr.ph.i
+  br i1 %cmp518.not.i, label %return, label %for.body.lr.ph.i
 
 for.body.lr.ph.i:                                 ; preds = %for.cond.preheader.i
   %9 = load ptr, ptr %7, align 8
@@ -3156,16 +3141,12 @@ if.then10.i:                                      ; preds = %land.lhs.true.i
 for.inc.i:                                        ; preds = %land.lhs.true.i, %for.body.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %if.then3, label %for.body.i, !llvm.loop !26
+  br i1 %exitcond.not.i, label %return, label %for.body.i, !llvm.loop !26
 
 gdb_read_register.exit:                           ; preds = %if.then.i, %if.then10.i
   %retval.0.i = phi i32 [ %call2.i, %if.then.i ], [ %call12.i, %if.then10.i ]
   %tobool2.not = icmp eq i32 %retval.0.i, 0
-  br i1 %tobool2.not, label %if.then3, label %if.else
-
-if.then3:                                         ; preds = %for.inc.i, %for.cond.preheader.i, %if.end.i, %gdb_read_register.exit
-  %call4 = tail call i32 @gdb_put_packet(ptr noundef nonnull @.str.82)
-  br label %return
+  br i1 %tobool2.not, label %return, label %if.else
 
 if.else:                                          ; preds = %gdb_read_register.exit
   %13 = load ptr, ptr getelementptr inbounds (i8, ptr @gdbserver_state, i64 4184), align 8
@@ -3176,10 +3157,11 @@ if.else:                                          ; preds = %gdb_read_register.e
   tail call void @gdb_memtohex(ptr noundef %14, ptr noundef %16, i32 noundef %retval.0.i)
   %17 = load ptr, ptr getelementptr inbounds (i8, ptr @gdbserver_state, i64 4176), align 8
   %18 = load ptr, ptr %17, align 8
-  %call.i = tail call i32 @gdb_put_packet(ptr noundef %18)
   br label %return
 
-return:                                           ; preds = %if.else, %if.then3, %if.then
+return:                                           ; preds = %for.inc.i, %gdb_read_register.exit, %if.end.i, %for.cond.preheader.i, %entry, %if.else
+  %.sink = phi ptr [ %18, %if.else ], [ @.str.82, %entry ], [ @.str.82, %for.cond.preheader.i ], [ @.str.82, %if.end.i ], [ @.str.82, %gdb_read_register.exit ], [ @.str.82, %for.inc.i ]
+  %call.i = tail call i32 @gdb_put_packet(ptr noundef %.sink)
   ret void
 }
 

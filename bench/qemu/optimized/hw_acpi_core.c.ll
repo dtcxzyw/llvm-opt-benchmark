@@ -1287,28 +1287,28 @@ acpi_pm1_evt_write_sts.exit:                      ; preds = %acpi_pm1_evt_get_st
   %not.i = xor i16 %conv, -1
   %and5.i = and i16 %5, %not.i
   store i16 %and5.i, ptr %sts5.phi.trans.insert.i.i, align 16
-  %update_sci = getelementptr inbounds i8, ptr %opaque, i64 616
-  %6 = load ptr, ptr %update_sci, align 8
-  tail call void %6(ptr noundef nonnull %opaque) #21
-  br label %sw.epilog
+  br label %sw.epilog.sink.split
 
 sw.bb1:                                           ; preds = %entry
   %conv2 = trunc i64 %val to i16
   %en.i = getelementptr inbounds i8, ptr %opaque, i64 610
   store i16 %conv2, ptr %en.i, align 2
-  %7 = trunc i64 %val to i32
-  %and.i = and i32 %7, 1024
+  %6 = trunc i64 %val to i32
+  %and.i = and i32 %6, 1024
   %tobool.i = icmp ne i32 %and.i, 0
   tail call void @qemu_system_wakeup_enable(i32 noundef 1, i1 noundef zeroext %tobool.i) #21
-  %and2.i = and i32 %7, 1
+  %and2.i = and i32 %6, 1
   %tobool3.i = icmp ne i32 %and2.i, 0
   tail call void @qemu_system_wakeup_enable(i32 noundef 2, i1 noundef zeroext %tobool3.i) #21
+  br label %sw.epilog.sink.split
+
+sw.epilog.sink.split:                             ; preds = %acpi_pm1_evt_write_sts.exit, %sw.bb1
   %update_sci5 = getelementptr inbounds i8, ptr %opaque, i64 616
-  %8 = load ptr, ptr %update_sci5, align 8
-  tail call void %8(ptr noundef %opaque) #21
+  %7 = load ptr, ptr %update_sci5, align 8
+  tail call void %7(ptr noundef %opaque) #21
   br label %sw.epilog
 
-sw.epilog:                                        ; preds = %sw.bb1, %acpi_pm1_evt_write_sts.exit, %entry
+sw.epilog:                                        ; preds = %sw.epilog.sink.split, %entry
   ret void
 }
 

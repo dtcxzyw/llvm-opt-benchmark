@@ -4846,13 +4846,11 @@ _ZN8PhaseCFG17map_node_to_blockEPK4NodeP5Block.exit: ; preds = %250, %253
 
 305:                                              ; preds = %297
   %306 = tail call noundef ptr @_ZN10C2Compiler24retry_no_subsuming_loadsEv() #14
-  tail call void @_ZN7Compile14record_failureEPKc(ptr noundef nonnull align 8 dereferenceable(2316) %291, ptr noundef %306) #14
-  br label %.loopexit
+  br label %.loopexit.sink.split
 
 ._crit_edge102:                                   ; preds = %290, %297
   tail call void @_ZN5ciEnv28record_method_not_compilableEPKcb(ptr noundef nonnull align 8 dereferenceable(1265) %296, ptr noundef nonnull @.str.7, i1 noundef zeroext false) #14
-  tail call void @_ZN7Compile14record_failureEPKc(ptr noundef nonnull align 8 dereferenceable(2316) %291, ptr noundef nonnull @.str.7) #14
-  br label %.loopexit
+  br label %.loopexit.sink.split
 
 307:                                              ; preds = %284
   %308 = load i32, ptr %69, align 4
@@ -4923,7 +4921,12 @@ _ZNK4Node16is_memory_writerEv.exit73.thread:      ; preds = %.lr.ph88, %.prehead
   tail call void @_ZN8PhaseCFG24schedule_node_into_blockEP4NodeP5Block(ptr noundef nonnull align 8 dereferenceable(160) %0, ptr noundef nonnull %24, ptr noundef %.0)
   br label %.backedge
 
-.loopexit:                                        ; preds = %.backedge, %_ZN22Node_Backward_IteratorC2EP4NodeR9VectorSetR10Node_StackR8PhaseCFG.exit, %305, %._crit_edge102
+.loopexit.sink.split:                             ; preds = %._crit_edge102, %305
+  %.sink = phi ptr [ %306, %305 ], [ @.str.7, %._crit_edge102 ]
+  tail call void @_ZN7Compile14record_failureEPKc(ptr noundef nonnull align 8 dereferenceable(2316) %291, ptr noundef %.sink) #14
+  br label %.loopexit
+
+.loopexit:                                        ; preds = %.backedge, %.loopexit.sink.split, %_ZN22Node_Backward_IteratorC2EP4NodeR9VectorSetR10Node_StackR8PhaseCFG.exit
   ret void
 }
 

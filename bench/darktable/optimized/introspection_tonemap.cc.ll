@@ -2251,69 +2251,63 @@ define linkonce_odr hidden void @_ZN22HashTablePermutohedralILi3ELi2EE7setSizeEm
   store i64 %1, ptr %10, align 8, !tbaa !62
   %11 = getelementptr inbounds i8, ptr %0, i64 32
   store i64 0, ptr %11, align 8, !tbaa !61
-  br label %28
+  br label %27
 
 12:                                               ; preds = %2
   %13 = getelementptr inbounds i8, ptr %0, i64 40
   store i64 16384, ptr %13, align 8, !tbaa !62
   %14 = getelementptr inbounds i8, ptr %0, i64 32
   store i64 0, ptr %14, align 8, !tbaa !61
-  %15 = tail call noalias noundef nonnull dereferenceable(131072) ptr @_Znam(i64 noundef 131072) #26
-  br label %32
+  br label %27
 
 .preheader:                                       ; preds = %6, %.preheader
-  %16 = phi i64 [ %18, %.preheader ], [ 32768, %6 ]
-  %17 = phi i64 [ %20, %.preheader ], [ 32767, %6 ]
+  %15 = phi i64 [ %17, %.preheader ], [ 32768, %6 ]
+  %16 = phi i64 [ %19, %.preheader ], [ 32767, %6 ]
+  %17 = shl i64 %15, 1
   %18 = shl i64 %16, 1
-  %19 = shl i64 %17, 1
-  %20 = or disjoint i64 %19, 1
-  %21 = icmp ult i64 %18, %7
-  br i1 %21, label %.preheader, label %22, !llvm.loop !122
+  %19 = or disjoint i64 %18, 1
+  %20 = icmp ult i64 %17, %7
+  br i1 %20, label %.preheader, label %21, !llvm.loop !122
 
-22:                                               ; preds = %.preheader
-  store i64 %18, ptr %3, align 8, !tbaa !49
-  store i64 %20, ptr %4, align 8, !tbaa !50
-  %23 = getelementptr inbounds i8, ptr %0, i64 40
-  store i64 %1, ptr %23, align 8, !tbaa !62
-  %24 = getelementptr inbounds i8, ptr %0, i64 32
-  store i64 0, ptr %24, align 8, !tbaa !61
-  %25 = icmp ugt i64 %18, 4611686018427387903
-  %26 = shl i64 %16, 3
-  %27 = select i1 %25, i64 -1, i64 %26
-  br label %28
+21:                                               ; preds = %.preheader
+  store i64 %17, ptr %3, align 8, !tbaa !49
+  store i64 %19, ptr %4, align 8, !tbaa !50
+  %22 = getelementptr inbounds i8, ptr %0, i64 40
+  store i64 %1, ptr %22, align 8, !tbaa !62
+  %23 = getelementptr inbounds i8, ptr %0, i64 32
+  store i64 0, ptr %23, align 8, !tbaa !61
+  %24 = icmp ugt i64 %17, 4611686018427387903
+  %25 = shl i64 %15, 3
+  %26 = select i1 %24, i64 -1, i64 %25
+  br label %27
 
-28:                                               ; preds = %22, %9
-  %29 = phi i64 [ 131072, %9 ], [ %26, %22 ]
-  %30 = phi i64 [ 131072, %9 ], [ %27, %22 ]
-  %31 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %30) #26
-  br label %32
-
-32:                                               ; preds = %28, %12
-  %33 = phi ptr [ %15, %12 ], [ %31, %28 ]
-  %34 = phi i64 [ 16384, %12 ], [ %1, %28 ]
-  %35 = phi i64 [ 131072, %12 ], [ %29, %28 ]
-  tail call void @llvm.memset.p0.i64(ptr nonnull align 4 %33, i8 -1, i64 %35, i1 false), !tbaa !66
-  %36 = getelementptr inbounds i8, ptr %0, i64 16
-  store ptr %33, ptr %36, align 8, !tbaa !59
-  %37 = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %34, i64 12)
-  %38 = extractvalue { i64, i1 } %37, 1
-  %39 = extractvalue { i64, i1 } %37, 0
-  %40 = select i1 %38, i64 -1, i64 %39
-  %41 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %40) #26
-  store ptr %41, ptr %0, align 8, !tbaa !60
-  %42 = icmp ugt i64 %34, 2305843009213693951
-  %43 = shl i64 %34, 3
-  %spec.select = select i1 %42, i64 -1, i64 %43
-  %44 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %spec.select) #26
-  tail call void @llvm.memset.p0.i64(ptr nonnull align 4 %44, i8 0, i64 %43, i1 false)
-  %45 = getelementptr inbounds i8, ptr %0, i64 8
-  store ptr %44, ptr %45, align 8, !tbaa !36
-  %46 = add i64 %43, %35
-  %47 = add i64 %46, %39
-  %48 = getelementptr inbounds i8, ptr %0, i64 64
-  store i64 %47, ptr %48, align 8, !tbaa !71
-  %49 = getelementptr inbounds i8, ptr %0, i64 56
-  store i64 %47, ptr %49, align 8, !tbaa !70
+27:                                               ; preds = %9, %21, %12
+  %.sink = phi i64 [ 131072, %12 ], [ 131072, %9 ], [ %26, %21 ]
+  %28 = phi i64 [ 16384, %12 ], [ %1, %9 ], [ %1, %21 ]
+  %29 = phi i64 [ 131072, %12 ], [ 131072, %9 ], [ %25, %21 ]
+  %30 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %.sink) #26
+  tail call void @llvm.memset.p0.i64(ptr nonnull align 4 %30, i8 -1, i64 %29, i1 false), !tbaa !66
+  %31 = getelementptr inbounds i8, ptr %0, i64 16
+  store ptr %30, ptr %31, align 8, !tbaa !59
+  %32 = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %28, i64 12)
+  %33 = extractvalue { i64, i1 } %32, 1
+  %34 = extractvalue { i64, i1 } %32, 0
+  %35 = select i1 %33, i64 -1, i64 %34
+  %36 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %35) #26
+  store ptr %36, ptr %0, align 8, !tbaa !60
+  %37 = icmp ugt i64 %28, 2305843009213693951
+  %38 = shl i64 %28, 3
+  %39 = select i1 %37, i64 -1, i64 %38
+  %40 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %39) #26
+  tail call void @llvm.memset.p0.i64(ptr nonnull align 4 %40, i8 0, i64 %38, i1 false)
+  %41 = getelementptr inbounds i8, ptr %0, i64 8
+  store ptr %40, ptr %41, align 8, !tbaa !36
+  %42 = add i64 %38, %29
+  %43 = add i64 %42, %34
+  %44 = getelementptr inbounds i8, ptr %0, i64 64
+  store i64 %43, ptr %44, align 8, !tbaa !71
+  %45 = getelementptr inbounds i8, ptr %0, i64 56
+  store i64 %43, ptr %45, align 8, !tbaa !70
   ret void
 }
 

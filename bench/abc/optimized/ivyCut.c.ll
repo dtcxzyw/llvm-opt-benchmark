@@ -957,21 +957,20 @@ define range(i32 0, 2) i32 @Ivy_ManFindBoolCut_rec(ptr noundef %0, ptr noundef %
 
 7:                                                ; preds = %5
   tail call fastcc void @Vec_PtrPushUnique(ptr noundef %2, ptr noundef %1)
-  tail call fastcc void @Vec_PtrPushUnique(ptr noundef %3, ptr noundef %1)
-  br label %51
+  br label %.sink.split
 
 8:                                                ; preds = %5
   %9 = getelementptr inbounds i8, ptr %1, i64 8
   %10 = load i32, ptr %9, align 8
   %11 = and i32 %10, 16
   %.not = icmp eq i32 %11, 0
-  br i1 %.not, label %12, label %51
+  br i1 %.not, label %12, label %49
 
 12:                                               ; preds = %8
   %13 = and i32 %10, 15
-  switch i32 %13, label %21 [
-    i32 4, label %51
-    i32 1, label %51
+  switch i32 %13, label %20 [
+    i32 4, label %49
+    i32 1, label %49
     i32 7, label %14
   ]
 
@@ -983,68 +982,64 @@ define range(i32 0, 2) i32 @Ivy_ManFindBoolCut_rec(ptr noundef %0, ptr noundef %
   %18 = inttoptr i64 %17 to ptr
   %19 = tail call i32 @Ivy_ManFindBoolCut_rec(ptr noundef %0, ptr noundef %18, ptr noundef %2, ptr noundef %3, ptr noundef %4)
   %.not46 = icmp eq i32 %19, 0
-  br i1 %.not46, label %51, label %20
+  br i1 %.not46, label %49, label %.sink.split
 
-20:                                               ; preds = %14
-  tail call fastcc void @Vec_PtrPushUnique(ptr noundef %3, ptr noundef nonnull %1)
-  br label %51
+20:                                               ; preds = %12
+  %21 = getelementptr i8, ptr %1, i64 16
+  %.val49 = load ptr, ptr %21, align 8
+  %22 = ptrtoint ptr %.val49 to i64
+  %23 = and i64 %22, -2
+  %24 = inttoptr i64 %23 to ptr
+  %25 = tail call i32 @Ivy_ManFindBoolCut_rec(ptr noundef %0, ptr noundef %24, ptr noundef %2, ptr noundef %3, ptr noundef %4)
+  %26 = getelementptr i8, ptr %1, i64 24
+  %.val52 = load ptr, ptr %26, align 8
+  %27 = ptrtoint ptr %.val52 to i64
+  %28 = and i64 %27, -2
+  %29 = inttoptr i64 %28 to ptr
+  %30 = tail call i32 @Ivy_ManFindBoolCut_rec(ptr noundef %0, ptr noundef %29, ptr noundef %2, ptr noundef %3, ptr noundef %4)
+  %31 = icmp ne i32 %25, 0
+  %32 = icmp ne i32 %30, 0
+  %or.cond = select i1 %31, i1 true, i1 %32
+  br i1 %or.cond, label %33, label %49
 
-21:                                               ; preds = %12
-  %22 = getelementptr i8, ptr %1, i64 16
-  %.val49 = load ptr, ptr %22, align 8
-  %23 = ptrtoint ptr %.val49 to i64
-  %24 = and i64 %23, -2
-  %25 = inttoptr i64 %24 to ptr
-  %26 = tail call i32 @Ivy_ManFindBoolCut_rec(ptr noundef %0, ptr noundef %25, ptr noundef %2, ptr noundef %3, ptr noundef %4)
-  %27 = getelementptr i8, ptr %1, i64 24
-  %.val52 = load ptr, ptr %27, align 8
-  %28 = ptrtoint ptr %.val52 to i64
-  %29 = and i64 %28, -2
-  %30 = inttoptr i64 %29 to ptr
-  %31 = tail call i32 @Ivy_ManFindBoolCut_rec(ptr noundef %0, ptr noundef %30, ptr noundef %2, ptr noundef %3, ptr noundef %4)
-  %32 = icmp ne i32 %26, 0
-  %33 = icmp ne i32 %31, 0
-  %or.cond = select i1 %32, i1 true, i1 %33
-  br i1 %or.cond, label %34, label %51
+33:                                               ; preds = %20
+  br i1 %31, label %41, label %34
 
-34:                                               ; preds = %21
-  br i1 %32, label %42, label %35
+34:                                               ; preds = %33
+  %.val50 = load ptr, ptr %21, align 8
+  %35 = ptrtoint ptr %.val50 to i64
+  %36 = and i64 %35, -2
+  %37 = inttoptr i64 %36 to ptr
+  tail call fastcc void @Vec_PtrPushUnique(ptr noundef %2, ptr noundef %37)
+  %.val51 = load ptr, ptr %21, align 8
+  %38 = ptrtoint ptr %.val51 to i64
+  %39 = and i64 %38, -2
+  %40 = inttoptr i64 %39 to ptr
+  tail call fastcc void @Vec_PtrPushUnique(ptr noundef %3, ptr noundef %40)
+  br label %41
 
-35:                                               ; preds = %34
-  %.val50 = load ptr, ptr %22, align 8
-  %36 = ptrtoint ptr %.val50 to i64
-  %37 = and i64 %36, -2
-  %38 = inttoptr i64 %37 to ptr
-  tail call fastcc void @Vec_PtrPushUnique(ptr noundef %2, ptr noundef %38)
-  %.val51 = load ptr, ptr %22, align 8
-  %39 = ptrtoint ptr %.val51 to i64
-  %40 = and i64 %39, -2
-  %41 = inttoptr i64 %40 to ptr
-  tail call fastcc void @Vec_PtrPushUnique(ptr noundef %3, ptr noundef %41)
-  br label %42
+41:                                               ; preds = %34, %33
+  br i1 %32, label %.sink.split, label %42
 
-42:                                               ; preds = %35, %34
-  br i1 %33, label %50, label %43
+42:                                               ; preds = %41
+  %.val53 = load ptr, ptr %26, align 8
+  %43 = ptrtoint ptr %.val53 to i64
+  %44 = and i64 %43, -2
+  %45 = inttoptr i64 %44 to ptr
+  tail call fastcc void @Vec_PtrPushUnique(ptr noundef %2, ptr noundef %45)
+  %.val54 = load ptr, ptr %26, align 8
+  %46 = ptrtoint ptr %.val54 to i64
+  %47 = and i64 %46, -2
+  %48 = inttoptr i64 %47 to ptr
+  tail call fastcc void @Vec_PtrPushUnique(ptr noundef %3, ptr noundef %48)
+  br label %.sink.split
 
-43:                                               ; preds = %42
-  %.val53 = load ptr, ptr %27, align 8
-  %44 = ptrtoint ptr %.val53 to i64
-  %45 = and i64 %44, -2
-  %46 = inttoptr i64 %45 to ptr
-  tail call fastcc void @Vec_PtrPushUnique(ptr noundef %2, ptr noundef %46)
-  %.val54 = load ptr, ptr %27, align 8
-  %47 = ptrtoint ptr %.val54 to i64
-  %48 = and i64 %47, -2
-  %49 = inttoptr i64 %48 to ptr
-  tail call fastcc void @Vec_PtrPushUnique(ptr noundef %3, ptr noundef %49)
-  br label %50
+.sink.split:                                      ; preds = %41, %42, %14, %7
+  tail call fastcc void @Vec_PtrPushUnique(ptr noundef %3, ptr noundef %1)
+  br label %49
 
-50:                                               ; preds = %43, %42
-  tail call fastcc void @Vec_PtrPushUnique(ptr noundef %3, ptr noundef nonnull %1)
-  br label %51
-
-51:                                               ; preds = %12, %12, %21, %14, %8, %50, %20, %7
-  %.0 = phi i32 [ 1, %7 ], [ 1, %20 ], [ 1, %50 ], [ 0, %8 ], [ 0, %12 ], [ 0, %14 ], [ 0, %21 ], [ 0, %12 ]
+49:                                               ; preds = %.sink.split, %12, %12, %20, %14, %8
+  %.0 = phi i32 [ 0, %8 ], [ 0, %12 ], [ 0, %14 ], [ 0, %20 ], [ 0, %12 ], [ 1, %.sink.split ]
   ret i32 %.0
 }
 

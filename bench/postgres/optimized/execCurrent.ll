@@ -258,8 +258,7 @@ fetch_cursor_param_value.exit:                    ; preds = %34
 
 120:                                              ; preds = %118
   %121 = getelementptr inbounds i8, ptr %.1, i64 38
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(6) %3, ptr noundef nonnull align 2 dereferenceable(6) %121, i64 6, i1 false)
-  br label %162
+  br label %.sink.split
 
 122:                                              ; preds = %80
   store i8 0, ptr %6, align 1
@@ -324,16 +323,19 @@ fetch_cursor_param_value.exit:                    ; preds = %34
   %157 = getelementptr inbounds i8, ptr %125, i64 296
   %158 = load ptr, ptr %157, align 8
   %159 = getelementptr inbounds i8, ptr %158, i64 96
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(6) %3, ptr noundef nonnull align 8 dereferenceable(6) %159, i64 6, i1 false)
-  br label %162
+  br label %.sink.split
 
 160:                                              ; preds = %153
   %161 = getelementptr inbounds i8, ptr %144, i64 48
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(6) %3, ptr noundef nonnull align 2 dereferenceable(6) %161, i64 6, i1 false)
+  br label %.sink.split
+
+.sink.split:                                      ; preds = %120, %160, %156
+  %.sink = phi ptr [ %159, %156 ], [ %161, %160 ], [ %121, %120 ]
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(6) %3, ptr noundef nonnull align 2 dereferenceable(6) %.sink, i64 6, i1 false)
   br label %162
 
-162:                                              ; preds = %156, %160, %142, %146, %150, %118, %120
-  %.0 = phi i1 [ true, %120 ], [ false, %118 ], [ false, %150 ], [ false, %146 ], [ false, %142 ], [ true, %160 ], [ true, %156 ]
+162:                                              ; preds = %.sink.split, %142, %146, %150, %118
+  %.0 = phi i1 [ false, %118 ], [ false, %150 ], [ false, %146 ], [ false, %142 ], [ true, %.sink.split ]
   ret i1 %.0
 }
 

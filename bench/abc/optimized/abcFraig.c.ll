@@ -1877,14 +1877,14 @@ define ptr @Abc_NtkFraigRestore(i32 noundef %0, i32 noundef %1, i32 noundef %2) 
 
 8:                                                ; preds = %3
   %puts = tail call i32 @puts(ptr nonnull dereferenceable(1) @str.8)
-  br label %64
+  br label %61
 
 9:                                                ; preds = %3
   %10 = getelementptr i8, ptr %5, i64 8
   %.val25 = load ptr, ptr %10, align 8
   %11 = load ptr, ptr %.val25, align 8
   %12 = icmp sgt i32 %.val23, 1
-  br i1 %12, label %13, label %34
+  br i1 %12, label %13, label %31
 
 13:                                               ; preds = %9
   %14 = add nsw i32 %.val23, -1
@@ -1895,109 +1895,99 @@ define ptr @Abc_NtkFraigRestore(i32 noundef %0, i32 noundef %1, i32 noundef %2) 
   %18 = load ptr, ptr %.val25, align 8
   %19 = load i32, ptr %5, align 8
   %20 = icmp eq i32 %14, %19
-  br i1 %20, label %21, label %Vec_PtrPush.exit
+  br i1 %20, label %Vec_PtrPush.exit.sink.split, label %Vec_PtrPush.exit
 
-21:                                               ; preds = %13
-  %22 = icmp ult i32 %.val23, 17
-  br i1 %22, label %Vec_PtrGrow.exit.i, label %24
-
-Vec_PtrGrow.exit.i:                               ; preds = %21
-  %23 = tail call dereferenceable_or_null(128) ptr @realloc(ptr noundef nonnull %.val25, i64 noundef 128) #14
-  br label %Vec_PtrPush.exit.sink.split
-
-24:                                               ; preds = %21
-  %25 = shl nuw nsw i32 %14, 1
-  %26 = zext nneg i32 %25 to i64
-  %27 = shl nuw nsw i64 %26, 3
-  %28 = tail call ptr @realloc(ptr noundef nonnull %.val25, i64 noundef %27) #14
-  br label %Vec_PtrPush.exit.sink.split
-
-Vec_PtrPush.exit.sink.split:                      ; preds = %24, %Vec_PtrGrow.exit.i
-  %.sink28 = phi ptr [ %23, %Vec_PtrGrow.exit.i ], [ %28, %24 ]
-  %.sink = phi i32 [ 16, %Vec_PtrGrow.exit.i ], [ %25, %24 ]
-  store ptr %.sink28, ptr %10, align 8
+Vec_PtrPush.exit.sink.split:                      ; preds = %13
+  %21 = icmp ult i32 %.val23, 17
+  %22 = shl nuw nsw i32 %14, 1
+  %23 = zext nneg i32 %22 to i64
+  %24 = shl nuw nsw i64 %23, 3
+  %.sink29 = select i1 %21, i64 128, i64 %24
+  %.sink = select i1 %21, i32 16, i32 %22
+  %25 = tail call ptr @realloc(ptr noundef nonnull %.val25, i64 noundef %.sink29) #14
+  store ptr %25, ptr %10, align 8
   store i32 %.sink, ptr %5, align 8
   br label %Vec_PtrPush.exit
 
 Vec_PtrPush.exit:                                 ; preds = %Vec_PtrPush.exit.sink.split, %13
-  %29 = phi ptr [ %.val25, %13 ], [ %.sink28, %Vec_PtrPush.exit.sink.split ]
-  %30 = load i32, ptr %6, align 4
-  %31 = add nsw i32 %30, 1
-  store i32 %31, ptr %6, align 4
-  %32 = sext i32 %30 to i64
-  %33 = getelementptr inbounds ptr, ptr %29, i64 %32
-  store ptr %18, ptr %33, align 8
+  %26 = phi ptr [ %.val25, %13 ], [ %25, %Vec_PtrPush.exit.sink.split ]
+  %27 = load i32, ptr %6, align 4
+  %28 = add nsw i32 %27, 1
+  store i32 %28, ptr %6, align 4
+  %29 = sext i32 %27 to i64
+  %30 = getelementptr inbounds ptr, ptr %26, i64 %29
+  store ptr %18, ptr %30, align 8
   %.val26 = load ptr, ptr %10, align 8
   store ptr %17, ptr %.val26, align 8
-  br label %34
+  br label %31
 
-34:                                               ; preds = %Vec_PtrPush.exit, %9
+31:                                               ; preds = %Vec_PtrPush.exit, %9
   %.021 = phi ptr [ %17, %Vec_PtrPush.exit ], [ %11, %9 ]
-  %35 = getelementptr i8, ptr %.021, i64 124
-  %.021.val27 = load i32, ptr %35, align 4
-  %36 = getelementptr i8, ptr %.021, i64 56
-  %.021.val = load ptr, ptr %36, align 8
-  %37 = getelementptr i8, ptr %.021.val, i64 4
-  %.021.val.val = load i32, ptr %37, align 4
-  %38 = add nsw i32 %.021.val.val, %.021.val27
-  %39 = sdiv i32 134217728, %38
-  %40 = tail call range(i32 -134217728, 33) i32 @llvm.smin.i32(i32 %39, i32 32)
+  %32 = getelementptr i8, ptr %.021, i64 124
+  %.021.val27 = load i32, ptr %32, align 4
+  %33 = getelementptr i8, ptr %.021, i64 56
+  %.021.val = load ptr, ptr %33, align 8
+  %34 = getelementptr i8, ptr %.021.val, i64 4
+  %.021.val.val = load i32, ptr %34, align 4
+  %35 = add nsw i32 %.021.val.val, %.021.val27
+  %36 = sdiv i32 134217728, %35
+  %37 = tail call range(i32 -134217728, 33) i32 @llvm.smin.i32(i32 %36, i32 32)
   call void @Fraig_ParamsSetDefault(ptr noundef nonnull %4) #11
   %.not = icmp eq i32 %0, 0
-  %41 = shl nsw i32 %40, 5
-  %42 = select i1 %.not, i32 %41, i32 %0
-  store i32 %42, ptr %4, align 8
+  %38 = shl nsw i32 %37, 5
+  %39 = select i1 %.not, i32 %38, i32 %0
+  store i32 %39, ptr %4, align 8
   %.not22 = icmp eq i32 %1, 0
-  %43 = select i1 %.not22, i32 %41, i32 %1
-  %44 = getelementptr inbounds i8, ptr %4, i64 4
-  store i32 %43, ptr %44, align 4
-  %45 = getelementptr inbounds i8, ptr %4, i64 8
-  store i32 %2, ptr %45, align 8
-  %46 = getelementptr inbounds i8, ptr %4, i64 16
-  store i32 1, ptr %46, align 8
-  %47 = getelementptr inbounds i8, ptr %4, i64 20
-  store i32 1, ptr %47, align 4
-  %48 = getelementptr inbounds i8, ptr %4, i64 24
-  store i32 1, ptr %48, align 8
-  %49 = getelementptr inbounds i8, ptr %4, i64 28
-  store i32 1, ptr %49, align 4
-  %50 = getelementptr inbounds i8, ptr %4, i64 32
-  store i32 1, ptr %50, align 8
-  %51 = getelementptr inbounds i8, ptr %4, i64 36
-  store i32 0, ptr %51, align 4
-  %52 = getelementptr inbounds i8, ptr %4, i64 48
-  store i32 1, ptr %52, align 8
-  %53 = getelementptr inbounds i8, ptr %4, i64 40
-  store i32 0, ptr %53, align 8
-  %54 = call ptr @Abc_NtkFraigPartitioned(ptr noundef nonnull %5, ptr noundef nonnull %4) #11
-  %55 = call ptr (...) @Abc_FrameReadStore() #11
-  %56 = getelementptr i8, ptr %55, i64 4
-  %.val7.i = load i32, ptr %56, align 4
-  %57 = icmp sgt i32 %.val7.i, 0
-  br i1 %57, label %.lr.ph.i, label %Abc_NtkFraigStoreClean.exit
+  %40 = select i1 %.not22, i32 %38, i32 %1
+  %41 = getelementptr inbounds i8, ptr %4, i64 4
+  store i32 %40, ptr %41, align 4
+  %42 = getelementptr inbounds i8, ptr %4, i64 8
+  store i32 %2, ptr %42, align 8
+  %43 = getelementptr inbounds i8, ptr %4, i64 16
+  store i32 1, ptr %43, align 8
+  %44 = getelementptr inbounds i8, ptr %4, i64 20
+  store i32 1, ptr %44, align 4
+  %45 = getelementptr inbounds i8, ptr %4, i64 24
+  store i32 1, ptr %45, align 8
+  %46 = getelementptr inbounds i8, ptr %4, i64 28
+  store i32 1, ptr %46, align 4
+  %47 = getelementptr inbounds i8, ptr %4, i64 32
+  store i32 1, ptr %47, align 8
+  %48 = getelementptr inbounds i8, ptr %4, i64 36
+  store i32 0, ptr %48, align 4
+  %49 = getelementptr inbounds i8, ptr %4, i64 48
+  store i32 1, ptr %49, align 8
+  %50 = getelementptr inbounds i8, ptr %4, i64 40
+  store i32 0, ptr %50, align 8
+  %51 = call ptr @Abc_NtkFraigPartitioned(ptr noundef nonnull %5, ptr noundef nonnull %4) #11
+  %52 = call ptr (...) @Abc_FrameReadStore() #11
+  %53 = getelementptr i8, ptr %52, i64 4
+  %.val7.i = load i32, ptr %53, align 4
+  %54 = icmp sgt i32 %.val7.i, 0
+  br i1 %54, label %.lr.ph.i, label %Abc_NtkFraigStoreClean.exit
 
-.lr.ph.i:                                         ; preds = %34
-  %58 = getelementptr i8, ptr %55, i64 8
-  br label %59
+.lr.ph.i:                                         ; preds = %31
+  %55 = getelementptr i8, ptr %52, i64 8
+  br label %56
 
-59:                                               ; preds = %59, %.lr.ph.i
-  %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %59 ]
-  %.val6.i = load ptr, ptr %58, align 8
-  %60 = getelementptr inbounds ptr, ptr %.val6.i, i64 %indvars.iv.i
-  %61 = load ptr, ptr %60, align 8
-  call void @Abc_NtkDelete(ptr noundef %61) #11
+56:                                               ; preds = %56, %.lr.ph.i
+  %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %56 ]
+  %.val6.i = load ptr, ptr %55, align 8
+  %57 = getelementptr inbounds ptr, ptr %.val6.i, i64 %indvars.iv.i
+  %58 = load ptr, ptr %57, align 8
+  call void @Abc_NtkDelete(ptr noundef %58) #11
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %.val.i = load i32, ptr %56, align 4
-  %62 = sext i32 %.val.i to i64
-  %63 = icmp slt i64 %indvars.iv.next.i, %62
-  br i1 %63, label %59, label %Abc_NtkFraigStoreClean.exit, !llvm.loop !30
+  %.val.i = load i32, ptr %53, align 4
+  %59 = sext i32 %.val.i to i64
+  %60 = icmp slt i64 %indvars.iv.next.i, %59
+  br i1 %60, label %56, label %Abc_NtkFraigStoreClean.exit, !llvm.loop !30
 
-Abc_NtkFraigStoreClean.exit:                      ; preds = %59, %34
-  store i32 0, ptr %56, align 4
-  br label %64
+Abc_NtkFraigStoreClean.exit:                      ; preds = %56, %31
+  store i32 0, ptr %53, align 4
+  br label %61
 
-64:                                               ; preds = %Abc_NtkFraigStoreClean.exit, %8
-  %.0 = phi ptr [ null, %8 ], [ %54, %Abc_NtkFraigStoreClean.exit ]
+61:                                               ; preds = %Abc_NtkFraigStoreClean.exit, %8
+  %.0 = phi ptr [ null, %8 ], [ %51, %Abc_NtkFraigStoreClean.exit ]
   ret ptr %.0
 }
 

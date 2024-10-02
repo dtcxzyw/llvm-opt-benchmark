@@ -786,27 +786,27 @@ define internal void @_GLOBAL__sub_I_utilities.cc() #21 section ".text.startup" 
   %13 = load ptr, ptr %2, align 8
   %14 = icmp ne ptr %13, null
   %or.cond.i.i.i = select i1 %12, i1 %14, i1 false
-  br i1 %or.cond.i.i.i, label %15, label %18
+  br i1 %or.cond.i.i.i, label %15, label %17
 
 15:                                               ; preds = %9
   %16 = load ptr, ptr %1, align 8
-  %17 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc(ptr noundef nonnull align 8 dereferenceable(32) @_ZN6google24glog_internal_namespace_L14g_my_user_nameB5cxx11E, ptr noundef %16)
-  br label %21
+  br label %19
 
-18:                                               ; preds = %9
-  %19 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %3, i64 noundef 1024, ptr noundef nonnull @.str.9, i32 noundef %10) #23
-  %20 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc(ptr noundef nonnull align 8 dereferenceable(32) @_ZN6google24glog_internal_namespace_L14g_my_user_nameB5cxx11E, ptr noundef nonnull %3)
-  br label %21
+17:                                               ; preds = %9
+  %18 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %3, i64 noundef 1024, ptr noundef nonnull @.str.9, i32 noundef %10) #23
+  br label %19
 
-21:                                               ; preds = %18, %15
-  %22 = call noundef zeroext i1 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5emptyEv(ptr noundef nonnull align 8 dereferenceable(32) @_ZN6google24glog_internal_namespace_L14g_my_user_nameB5cxx11E) #23
-  br i1 %22, label %23, label %__cxx_global_var_init.2.exit
+19:                                               ; preds = %17, %15
+  %.sink.i.i.i = phi ptr [ %3, %17 ], [ %16, %15 ]
+  %20 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc(ptr noundef nonnull align 8 dereferenceable(32) @_ZN6google24glog_internal_namespace_L14g_my_user_nameB5cxx11E, ptr noundef %.sink.i.i.i)
+  %21 = call noundef zeroext i1 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5emptyEv(ptr noundef nonnull align 8 dereferenceable(32) @_ZN6google24glog_internal_namespace_L14g_my_user_nameB5cxx11E) #23
+  br i1 %21, label %22, label %__cxx_global_var_init.2.exit
 
-23:                                               ; preds = %21
-  %24 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc(ptr noundef nonnull align 8 dereferenceable(32) @_ZN6google24glog_internal_namespace_L14g_my_user_nameB5cxx11E, ptr noundef nonnull @.str.10)
+22:                                               ; preds = %19
+  %23 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc(ptr noundef nonnull align 8 dereferenceable(32) @_ZN6google24glog_internal_namespace_L14g_my_user_nameB5cxx11E, ptr noundef nonnull @.str.10)
   br label %__cxx_global_var_init.2.exit
 
-__cxx_global_var_init.2.exit:                     ; preds = %7, %21, %23
+__cxx_global_var_init.2.exit:                     ; preds = %7, %19, %22
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %1)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2)
   call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %3)

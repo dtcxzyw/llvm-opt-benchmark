@@ -31375,7 +31375,7 @@ define internal fastcc void @"_ZSt16__merge_adaptiveIPN4llvm10AsmPrinter8Structo
   br label %30
 
 tailrecurse._crit_edge:                           ; preds = %tailrecurse, %7
-  %.tr.lcssa = phi ptr [ %0, %7 ], [ %87, %tailrecurse ]
+  %.tr.lcssa = phi ptr [ %0, %7 ], [ %85, %tailrecurse ]
   %.tr106.lcssa = phi ptr [ %1, %7 ], [ %.0102, %tailrecurse ]
   %9 = ptrtoint ptr %.tr106.lcssa to i64
   %10 = ptrtoint ptr %.tr.lcssa to i64
@@ -31437,174 +31437,171 @@ _ZSt4moveIPN4llvm10AsmPrinter8StructorES3_ET0_T_S5_S4_.exit.i: ; preds = %._crit
 
 30:                                               ; preds = %.lr.ph, %tailrecurse
   %.not124 = phi i1 [ %.not117, %.lr.ph ], [ %.not, %tailrecurse ]
-  %.tr109123 = phi i64 [ %4, %.lr.ph ], [ %88, %tailrecurse ]
-  %.tr108122 = phi i64 [ %3, %.lr.ph ], [ %86, %tailrecurse ]
+  %.tr109123 = phi i64 [ %4, %.lr.ph ], [ %86, %tailrecurse ]
+  %.tr108122 = phi i64 [ %3, %.lr.ph ], [ %84, %tailrecurse ]
   %.tr106121 = phi ptr [ %1, %.lr.ph ], [ %.0102, %tailrecurse ]
-  %.tr120 = phi ptr [ %0, %.lr.ph ], [ %87, %tailrecurse ]
+  %.tr120 = phi ptr [ %0, %.lr.ph ], [ %85, %tailrecurse ]
   %.not71 = icmp sgt i64 %.tr109123, %6
-  %31 = ptrtoint ptr %.tr106121 to i64
-  br i1 %.not71, label %56, label %32
+  br i1 %.not71, label %53, label %31
 
-32:                                               ; preds = %30
-  %33 = sub i64 %8, %31
+31:                                               ; preds = %30
   %.not.i.i.i.i.i73 = icmp eq ptr %2, %.tr106121
   br i1 %.not.i.i.i.i.i73, label %"_ZSt21__move_merge_adaptiveIPN4llvm10AsmPrinter8StructorES3_S3_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS1_24preprocessXXStructorListERKNS0_10DataLayoutEPKNS0_8ConstantERNS0_11SmallVectorIS2_Lj8EEEE3$_0EEEvT_SI_T0_SJ_T1_T2_.exit", label %_ZSt4moveIPN4llvm10AsmPrinter8StructorES3_ET0_T_S5_S4_.exit74.thread
 
-_ZSt4moveIPN4llvm10AsmPrinter8StructorES3_ET0_T_S5_S4_.exit74.thread: ; preds = %32
+_ZSt4moveIPN4llvm10AsmPrinter8StructorES3_ET0_T_S5_S4_.exit74.thread: ; preds = %31
+  %32 = ptrtoint ptr %.tr106121 to i64
+  %33 = sub i64 %8, %32
   tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %5, ptr align 8 %.tr106121, i64 %33, i1 false)
-  %34 = icmp eq ptr %.tr120, %.tr106121
-  br i1 %34, label %35, label %37
+  %34 = getelementptr inbounds i8, ptr %5, i64 %33
+  %35 = icmp eq ptr %.tr120, %.tr106121
+  br i1 %35, label %_ZSt13move_backwardIPN4llvm10AsmPrinter8StructorES3_ET0_T_S5_S4_.exit.sink.split.i, label %36
 
-35:                                               ; preds = %_ZSt4moveIPN4llvm10AsmPrinter8StructorES3_ET0_T_S5_S4_.exit74.thread
-  %.neg.i.i.i.i.i.i = sdiv exact i64 %33, -24
-  %36 = getelementptr inbounds %"struct.llvm::AsmPrinter::Structor", ptr %2, i64 %.neg.i.i.i.i.i.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %36, ptr align 8 %5, i64 %33, i1 false)
-  br label %"_ZSt21__move_merge_adaptiveIPN4llvm10AsmPrinter8StructorES3_S3_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS1_24preprocessXXStructorListERKNS0_10DataLayoutEPKNS0_8ConstantERNS0_11SmallVectorIS2_Lj8EEEE3$_0EEEvT_SI_T0_SJ_T1_T2_.exit"
-
-37:                                               ; preds = %_ZSt4moveIPN4llvm10AsmPrinter8StructorES3_ET0_T_S5_S4_.exit74.thread
-  %38 = getelementptr inbounds i8, ptr %5, i64 %33
-  %39 = getelementptr inbounds i8, ptr %38, i64 -24
+36:                                               ; preds = %_ZSt4moveIPN4llvm10AsmPrinter8StructorES3_ET0_T_S5_S4_.exit74.thread
+  %37 = getelementptr inbounds i8, ptr %34, i64 -24
   br label %.outer
 
-.outer:                                           ; preds = %43, %37
-  %.026.i.ph.pn = phi ptr [ %.tr106121, %37 ], [ %.026.i.ph, %43 ]
-  %.024.i75.ph = phi ptr [ %39, %37 ], [ %.024.i75, %43 ]
-  %.0.i.ph = phi ptr [ %2, %37 ], [ %42, %43 ]
+.outer:                                           ; preds = %41, %36
+  %.026.i.ph.pn = phi ptr [ %.tr106121, %36 ], [ %.026.i.ph, %41 ]
+  %.024.i75.ph = phi ptr [ %37, %36 ], [ %.024.i75, %41 ]
+  %.0.i.ph = phi ptr [ %2, %36 ], [ %40, %41 ]
   %.026.i.ph = getelementptr inbounds i8, ptr %.026.i.ph.pn, i64 -24
-  br label %40
+  br label %38
 
-40:                                               ; preds = %.outer, %54
-  %.024.i75 = phi ptr [ %55, %54 ], [ %.024.i75.ph, %.outer ]
-  %.0.i = phi ptr [ %42, %54 ], [ %.0.i.ph, %.outer ]
+38:                                               ; preds = %.outer, %47
+  %.024.i75 = phi ptr [ %48, %47 ], [ %.024.i75.ph, %.outer ]
+  %.0.i = phi ptr [ %40, %47 ], [ %.0.i.ph, %.outer ]
   %.024.val.i = load i32, ptr %.024.i75, align 8
   %.026.val.i = load i32, ptr %.026.i.ph, align 8
-  %41 = icmp slt i32 %.024.val.i, %.026.val.i
-  %42 = getelementptr inbounds i8, ptr %.0.i, i64 -24
-  br i1 %41, label %43, label %52
+  %39 = icmp slt i32 %.024.val.i, %.026.val.i
+  %40 = getelementptr inbounds i8, ptr %.0.i, i64 -24
+  br i1 %39, label %41, label %45
 
-43:                                               ; preds = %40
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %42, ptr noundef nonnull align 8 dereferenceable(24) %.026.i.ph, i64 24, i1 false)
-  %44 = icmp eq ptr %.tr120, %.026.i.ph
-  br i1 %44, label %45, label %.outer, !llvm.loop !405
+41:                                               ; preds = %38
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %40, ptr noundef nonnull align 8 dereferenceable(24) %.026.i.ph, i64 24, i1 false)
+  %42 = icmp eq ptr %.tr120, %.026.i.ph
+  br i1 %42, label %43, label %.outer, !llvm.loop !405
 
-45:                                               ; preds = %43
-  %46 = getelementptr inbounds i8, ptr %.024.i75, i64 24
-  %.not.i.i.i.i.i33.i = icmp eq ptr %46, %5
-  br i1 %.not.i.i.i.i.i33.i, label %"_ZSt21__move_merge_adaptiveIPN4llvm10AsmPrinter8StructorES3_S3_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS1_24preprocessXXStructorListERKNS0_10DataLayoutEPKNS0_8ConstantERNS0_11SmallVectorIS2_Lj8EEEE3$_0EEEvT_SI_T0_SJ_T1_T2_.exit", label %47
+43:                                               ; preds = %41
+  %44 = getelementptr inbounds i8, ptr %.024.i75, i64 24
+  %.not.i.i.i.i.i33.i = icmp eq ptr %44, %5
+  br i1 %.not.i.i.i.i.i33.i, label %"_ZSt21__move_merge_adaptiveIPN4llvm10AsmPrinter8StructorES3_S3_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS1_24preprocessXXStructorListERKNS0_10DataLayoutEPKNS0_8ConstantERNS0_11SmallVectorIS2_Lj8EEEE3$_0EEEvT_SI_T0_SJ_T1_T2_.exit", label %_ZSt13move_backwardIPN4llvm10AsmPrinter8StructorES3_ET0_T_S5_S4_.exit.sink.split.i
+
+45:                                               ; preds = %38
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %40, ptr noundef nonnull align 8 dereferenceable(24) %.024.i75, i64 24, i1 false)
+  %46 = icmp eq ptr %5, %.024.i75
+  br i1 %46, label %"_ZSt21__move_merge_adaptiveIPN4llvm10AsmPrinter8StructorES3_S3_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS1_24preprocessXXStructorListERKNS0_10DataLayoutEPKNS0_8ConstantERNS0_11SmallVectorIS2_Lj8EEEE3$_0EEEvT_SI_T0_SJ_T1_T2_.exit", label %47
 
 47:                                               ; preds = %45
-  %48 = ptrtoint ptr %46 to i64
-  %49 = ptrtoint ptr %5 to i64
-  %50 = sub i64 %48, %49
-  %.neg.i.i.i.i.i32.i = sdiv exact i64 %50, -24
-  %51 = getelementptr inbounds %"struct.llvm::AsmPrinter::Structor", ptr %42, i64 %.neg.i.i.i.i.i32.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %51, ptr align 8 %5, i64 %50, i1 false)
+  %48 = getelementptr inbounds i8, ptr %.024.i75, i64 -24
+  br label %38, !llvm.loop !405
+
+_ZSt13move_backwardIPN4llvm10AsmPrinter8StructorES3_ET0_T_S5_S4_.exit.sink.split.i: ; preds = %_ZSt4moveIPN4llvm10AsmPrinter8StructorES3_ET0_T_S5_S4_.exit74.thread, %43
+  %.sink.i = phi ptr [ %44, %43 ], [ %34, %_ZSt4moveIPN4llvm10AsmPrinter8StructorES3_ET0_T_S5_S4_.exit74.thread ]
+  %.lcssa.sink.i = phi ptr [ %40, %43 ], [ %2, %_ZSt4moveIPN4llvm10AsmPrinter8StructorES3_ET0_T_S5_S4_.exit74.thread ]
+  %49 = ptrtoint ptr %.sink.i to i64
+  %50 = ptrtoint ptr %5 to i64
+  %51 = sub i64 %49, %50
+  %.neg.i.i.i.i.i32.i = sdiv exact i64 %51, -24
+  %52 = getelementptr inbounds %"struct.llvm::AsmPrinter::Structor", ptr %.lcssa.sink.i, i64 %.neg.i.i.i.i.i32.i
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %52, ptr align 8 %5, i64 %51, i1 false)
   br label %"_ZSt21__move_merge_adaptiveIPN4llvm10AsmPrinter8StructorES3_S3_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS1_24preprocessXXStructorListERKNS0_10DataLayoutEPKNS0_8ConstantERNS0_11SmallVectorIS2_Lj8EEEE3$_0EEEvT_SI_T0_SJ_T1_T2_.exit"
 
-52:                                               ; preds = %40
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %42, ptr noundef nonnull align 8 dereferenceable(24) %.024.i75, i64 24, i1 false)
-  %53 = icmp eq ptr %5, %.024.i75
-  br i1 %53, label %"_ZSt21__move_merge_adaptiveIPN4llvm10AsmPrinter8StructorES3_S3_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS1_24preprocessXXStructorListERKNS0_10DataLayoutEPKNS0_8ConstantERNS0_11SmallVectorIS2_Lj8EEEE3$_0EEEvT_SI_T0_SJ_T1_T2_.exit", label %54
-
-54:                                               ; preds = %52
-  %55 = getelementptr inbounds i8, ptr %.024.i75, i64 -24
-  br label %40, !llvm.loop !405
-
-56:                                               ; preds = %30
+53:                                               ; preds = %30
+  %54 = ptrtoint ptr %.tr106121 to i64
   br i1 %.not124, label %_ZSt7advanceIPN4llvm10AsmPrinter8StructorElEvRT_T0_.exit, label %_ZSt7advanceIPN4llvm10AsmPrinter8StructorElEvRT_T0_.exit82
 
-_ZSt7advanceIPN4llvm10AsmPrinter8StructorElEvRT_T0_.exit: ; preds = %56
-  %57 = sdiv i64 %.tr108122, 2
-  %58 = getelementptr inbounds %"struct.llvm::AsmPrinter::Structor", ptr %.tr120, i64 %57
-  %.val = load i32, ptr %58, align 8
-  %59 = sub i64 %8, %31
-  %60 = icmp sgt i64 %59, 0
-  br i1 %60, label %_ZSt7advanceIPN4llvm10AsmPrinter8StructorElEvRT_T0_.exit.preheader.i, label %"_ZSt13__lower_boundIPN4llvm10AsmPrinter8StructorES2_N9__gnu_cxx5__ops14_Iter_comp_valIZNS1_24preprocessXXStructorListERKNS0_10DataLayoutEPKNS0_8ConstantERNS0_11SmallVectorIS2_Lj8EEEE3$_0EEET_SI_SI_RKT0_T1_.exit"
+_ZSt7advanceIPN4llvm10AsmPrinter8StructorElEvRT_T0_.exit: ; preds = %53
+  %55 = sdiv i64 %.tr108122, 2
+  %56 = getelementptr inbounds %"struct.llvm::AsmPrinter::Structor", ptr %.tr120, i64 %55
+  %.val = load i32, ptr %56, align 8
+  %57 = sub i64 %8, %54
+  %58 = icmp sgt i64 %57, 0
+  br i1 %58, label %_ZSt7advanceIPN4llvm10AsmPrinter8StructorElEvRT_T0_.exit.preheader.i, label %"_ZSt13__lower_boundIPN4llvm10AsmPrinter8StructorES2_N9__gnu_cxx5__ops14_Iter_comp_valIZNS1_24preprocessXXStructorListERKNS0_10DataLayoutEPKNS0_8ConstantERNS0_11SmallVectorIS2_Lj8EEEE3$_0EEET_SI_SI_RKT0_T1_.exit"
 
 _ZSt7advanceIPN4llvm10AsmPrinter8StructorElEvRT_T0_.exit.preheader.i: ; preds = %_ZSt7advanceIPN4llvm10AsmPrinter8StructorElEvRT_T0_.exit
-  %61 = udiv exact i64 %59, 24
+  %59 = udiv exact i64 %57, 24
   br label %_ZSt7advanceIPN4llvm10AsmPrinter8StructorElEvRT_T0_.exit.i
 
 _ZSt7advanceIPN4llvm10AsmPrinter8StructorElEvRT_T0_.exit.i: ; preds = %_ZSt7advanceIPN4llvm10AsmPrinter8StructorElEvRT_T0_.exit.i, %_ZSt7advanceIPN4llvm10AsmPrinter8StructorElEvRT_T0_.exit.preheader.i
   %.05.i = phi ptr [ %.1.i78, %_ZSt7advanceIPN4llvm10AsmPrinter8StructorElEvRT_T0_.exit.i ], [ %.tr106121, %_ZSt7advanceIPN4llvm10AsmPrinter8StructorElEvRT_T0_.exit.preheader.i ]
-  %.0114.i = phi i64 [ %.112.i, %_ZSt7advanceIPN4llvm10AsmPrinter8StructorElEvRT_T0_.exit.i ], [ %61, %_ZSt7advanceIPN4llvm10AsmPrinter8StructorElEvRT_T0_.exit.preheader.i ]
-  %62 = lshr i64 %.0114.i, 1
-  %63 = getelementptr inbounds %"struct.llvm::AsmPrinter::Structor", ptr %.05.i, i64 %62
-  %.val.i = load i32, ptr %63, align 8
-  %64 = icmp slt i32 %.val.i, %.val
-  %65 = getelementptr inbounds i8, ptr %63, i64 24
-  %66 = xor i64 %62, -1
-  %67 = add nsw i64 %.0114.i, %66
-  %.112.i = select i1 %64, i64 %67, i64 %62
-  %.1.i78 = select i1 %64, ptr %65, ptr %.05.i
-  %68 = icmp sgt i64 %.112.i, 0
-  br i1 %68, label %_ZSt7advanceIPN4llvm10AsmPrinter8StructorElEvRT_T0_.exit.i, label %"_ZSt13__lower_boundIPN4llvm10AsmPrinter8StructorES2_N9__gnu_cxx5__ops14_Iter_comp_valIZNS1_24preprocessXXStructorListERKNS0_10DataLayoutEPKNS0_8ConstantERNS0_11SmallVectorIS2_Lj8EEEE3$_0EEET_SI_SI_RKT0_T1_.exit.loopexit", !llvm.loop !394
+  %.0114.i = phi i64 [ %.112.i, %_ZSt7advanceIPN4llvm10AsmPrinter8StructorElEvRT_T0_.exit.i ], [ %59, %_ZSt7advanceIPN4llvm10AsmPrinter8StructorElEvRT_T0_.exit.preheader.i ]
+  %60 = lshr i64 %.0114.i, 1
+  %61 = getelementptr inbounds %"struct.llvm::AsmPrinter::Structor", ptr %.05.i, i64 %60
+  %.val.i = load i32, ptr %61, align 8
+  %62 = icmp slt i32 %.val.i, %.val
+  %63 = getelementptr inbounds i8, ptr %61, i64 24
+  %64 = xor i64 %60, -1
+  %65 = add nsw i64 %.0114.i, %64
+  %.112.i = select i1 %62, i64 %65, i64 %60
+  %.1.i78 = select i1 %62, ptr %63, ptr %.05.i
+  %66 = icmp sgt i64 %.112.i, 0
+  br i1 %66, label %_ZSt7advanceIPN4llvm10AsmPrinter8StructorElEvRT_T0_.exit.i, label %"_ZSt13__lower_boundIPN4llvm10AsmPrinter8StructorES2_N9__gnu_cxx5__ops14_Iter_comp_valIZNS1_24preprocessXXStructorListERKNS0_10DataLayoutEPKNS0_8ConstantERNS0_11SmallVectorIS2_Lj8EEEE3$_0EEET_SI_SI_RKT0_T1_.exit.loopexit", !llvm.loop !394
 
 "_ZSt13__lower_boundIPN4llvm10AsmPrinter8StructorES2_N9__gnu_cxx5__ops14_Iter_comp_valIZNS1_24preprocessXXStructorListERKNS0_10DataLayoutEPKNS0_8ConstantERNS0_11SmallVectorIS2_Lj8EEEE3$_0EEET_SI_SI_RKT0_T1_.exit.loopexit": ; preds = %_ZSt7advanceIPN4llvm10AsmPrinter8StructorElEvRT_T0_.exit.i
   %.pre = ptrtoint ptr %.1.i78 to i64
   br label %"_ZSt13__lower_boundIPN4llvm10AsmPrinter8StructorES2_N9__gnu_cxx5__ops14_Iter_comp_valIZNS1_24preprocessXXStructorListERKNS0_10DataLayoutEPKNS0_8ConstantERNS0_11SmallVectorIS2_Lj8EEEE3$_0EEET_SI_SI_RKT0_T1_.exit"
 
 "_ZSt13__lower_boundIPN4llvm10AsmPrinter8StructorES2_N9__gnu_cxx5__ops14_Iter_comp_valIZNS1_24preprocessXXStructorListERKNS0_10DataLayoutEPKNS0_8ConstantERNS0_11SmallVectorIS2_Lj8EEEE3$_0EEET_SI_SI_RKT0_T1_.exit": ; preds = %"_ZSt13__lower_boundIPN4llvm10AsmPrinter8StructorES2_N9__gnu_cxx5__ops14_Iter_comp_valIZNS1_24preprocessXXStructorListERKNS0_10DataLayoutEPKNS0_8ConstantERNS0_11SmallVectorIS2_Lj8EEEE3$_0EEET_SI_SI_RKT0_T1_.exit.loopexit", %_ZSt7advanceIPN4llvm10AsmPrinter8StructorElEvRT_T0_.exit
-  %.pre-phi = phi i64 [ %.pre, %"_ZSt13__lower_boundIPN4llvm10AsmPrinter8StructorES2_N9__gnu_cxx5__ops14_Iter_comp_valIZNS1_24preprocessXXStructorListERKNS0_10DataLayoutEPKNS0_8ConstantERNS0_11SmallVectorIS2_Lj8EEEE3$_0EEET_SI_SI_RKT0_T1_.exit.loopexit" ], [ %31, %_ZSt7advanceIPN4llvm10AsmPrinter8StructorElEvRT_T0_.exit ]
+  %.pre-phi = phi i64 [ %.pre, %"_ZSt13__lower_boundIPN4llvm10AsmPrinter8StructorES2_N9__gnu_cxx5__ops14_Iter_comp_valIZNS1_24preprocessXXStructorListERKNS0_10DataLayoutEPKNS0_8ConstantERNS0_11SmallVectorIS2_Lj8EEEE3$_0EEET_SI_SI_RKT0_T1_.exit.loopexit" ], [ %54, %_ZSt7advanceIPN4llvm10AsmPrinter8StructorElEvRT_T0_.exit ]
   %.0.lcssa.i77 = phi ptr [ %.1.i78, %"_ZSt13__lower_boundIPN4llvm10AsmPrinter8StructorES2_N9__gnu_cxx5__ops14_Iter_comp_valIZNS1_24preprocessXXStructorListERKNS0_10DataLayoutEPKNS0_8ConstantERNS0_11SmallVectorIS2_Lj8EEEE3$_0EEET_SI_SI_RKT0_T1_.exit.loopexit" ], [ %.tr106121, %_ZSt7advanceIPN4llvm10AsmPrinter8StructorElEvRT_T0_.exit ]
-  %69 = sub i64 %.pre-phi, %31
-  %70 = sdiv exact i64 %69, 24
+  %67 = sub i64 %.pre-phi, %54
+  %68 = sdiv exact i64 %67, 24
   br label %tailrecurse
 
-_ZSt7advanceIPN4llvm10AsmPrinter8StructorElEvRT_T0_.exit82: ; preds = %56
-  %71 = sdiv i64 %.tr109123, 2
-  %72 = getelementptr inbounds %"struct.llvm::AsmPrinter::Structor", ptr %.tr106121, i64 %71
-  %.val72 = load i32, ptr %72, align 8
-  %73 = ptrtoint ptr %.tr120 to i64
-  %74 = sub i64 %31, %73
-  %75 = icmp sgt i64 %74, 0
-  br i1 %75, label %_ZSt7advanceIPN4llvm10AsmPrinter8StructorElEvRT_T0_.exit.preheader.i85, label %"_ZSt13__upper_boundIPN4llvm10AsmPrinter8StructorES2_N9__gnu_cxx5__ops14_Val_comp_iterIZNS1_24preprocessXXStructorListERKNS0_10DataLayoutEPKNS0_8ConstantERNS0_11SmallVectorIS2_Lj8EEEE3$_0EEET_SI_SI_RKT0_T1_.exit"
+_ZSt7advanceIPN4llvm10AsmPrinter8StructorElEvRT_T0_.exit82: ; preds = %53
+  %69 = sdiv i64 %.tr109123, 2
+  %70 = getelementptr inbounds %"struct.llvm::AsmPrinter::Structor", ptr %.tr106121, i64 %69
+  %.val72 = load i32, ptr %70, align 8
+  %71 = ptrtoint ptr %.tr120 to i64
+  %72 = sub i64 %54, %71
+  %73 = icmp sgt i64 %72, 0
+  br i1 %73, label %_ZSt7advanceIPN4llvm10AsmPrinter8StructorElEvRT_T0_.exit.preheader.i85, label %"_ZSt13__upper_boundIPN4llvm10AsmPrinter8StructorES2_N9__gnu_cxx5__ops14_Val_comp_iterIZNS1_24preprocessXXStructorListERKNS0_10DataLayoutEPKNS0_8ConstantERNS0_11SmallVectorIS2_Lj8EEEE3$_0EEET_SI_SI_RKT0_T1_.exit"
 
 _ZSt7advanceIPN4llvm10AsmPrinter8StructorElEvRT_T0_.exit.preheader.i85: ; preds = %_ZSt7advanceIPN4llvm10AsmPrinter8StructorElEvRT_T0_.exit82
-  %76 = udiv exact i64 %74, 24
+  %74 = udiv exact i64 %72, 24
   br label %_ZSt7advanceIPN4llvm10AsmPrinter8StructorElEvRT_T0_.exit.i86
 
 _ZSt7advanceIPN4llvm10AsmPrinter8StructorElEvRT_T0_.exit.i86: ; preds = %_ZSt7advanceIPN4llvm10AsmPrinter8StructorElEvRT_T0_.exit.i86, %_ZSt7advanceIPN4llvm10AsmPrinter8StructorElEvRT_T0_.exit.preheader.i85
   %.05.i87 = phi ptr [ %.1.i92, %_ZSt7advanceIPN4llvm10AsmPrinter8StructorElEvRT_T0_.exit.i86 ], [ %.tr120, %_ZSt7advanceIPN4llvm10AsmPrinter8StructorElEvRT_T0_.exit.preheader.i85 ]
-  %.0114.i88 = phi i64 [ %.112.i91, %_ZSt7advanceIPN4llvm10AsmPrinter8StructorElEvRT_T0_.exit.i86 ], [ %76, %_ZSt7advanceIPN4llvm10AsmPrinter8StructorElEvRT_T0_.exit.preheader.i85 ]
-  %77 = lshr i64 %.0114.i88, 1
-  %78 = getelementptr inbounds %"struct.llvm::AsmPrinter::Structor", ptr %.05.i87, i64 %77
-  %.val13.i = load i32, ptr %78, align 8
-  %79 = icmp slt i32 %.val72, %.val13.i
-  %80 = getelementptr inbounds i8, ptr %78, i64 24
-  %81 = xor i64 %77, -1
-  %82 = add nsw i64 %.0114.i88, %81
-  %.112.i91 = select i1 %79, i64 %77, i64 %82
-  %.1.i92 = select i1 %79, ptr %.05.i87, ptr %80
-  %83 = icmp sgt i64 %.112.i91, 0
-  br i1 %83, label %_ZSt7advanceIPN4llvm10AsmPrinter8StructorElEvRT_T0_.exit.i86, label %"_ZSt13__upper_boundIPN4llvm10AsmPrinter8StructorES2_N9__gnu_cxx5__ops14_Val_comp_iterIZNS1_24preprocessXXStructorListERKNS0_10DataLayoutEPKNS0_8ConstantERNS0_11SmallVectorIS2_Lj8EEEE3$_0EEET_SI_SI_RKT0_T1_.exit.loopexit", !llvm.loop !395
+  %.0114.i88 = phi i64 [ %.112.i91, %_ZSt7advanceIPN4llvm10AsmPrinter8StructorElEvRT_T0_.exit.i86 ], [ %74, %_ZSt7advanceIPN4llvm10AsmPrinter8StructorElEvRT_T0_.exit.preheader.i85 ]
+  %75 = lshr i64 %.0114.i88, 1
+  %76 = getelementptr inbounds %"struct.llvm::AsmPrinter::Structor", ptr %.05.i87, i64 %75
+  %.val13.i = load i32, ptr %76, align 8
+  %77 = icmp slt i32 %.val72, %.val13.i
+  %78 = getelementptr inbounds i8, ptr %76, i64 24
+  %79 = xor i64 %75, -1
+  %80 = add nsw i64 %.0114.i88, %79
+  %.112.i91 = select i1 %77, i64 %75, i64 %80
+  %.1.i92 = select i1 %77, ptr %.05.i87, ptr %78
+  %81 = icmp sgt i64 %.112.i91, 0
+  br i1 %81, label %_ZSt7advanceIPN4llvm10AsmPrinter8StructorElEvRT_T0_.exit.i86, label %"_ZSt13__upper_boundIPN4llvm10AsmPrinter8StructorES2_N9__gnu_cxx5__ops14_Val_comp_iterIZNS1_24preprocessXXStructorListERKNS0_10DataLayoutEPKNS0_8ConstantERNS0_11SmallVectorIS2_Lj8EEEE3$_0EEET_SI_SI_RKT0_T1_.exit.loopexit", !llvm.loop !395
 
 "_ZSt13__upper_boundIPN4llvm10AsmPrinter8StructorES2_N9__gnu_cxx5__ops14_Val_comp_iterIZNS1_24preprocessXXStructorListERKNS0_10DataLayoutEPKNS0_8ConstantERNS0_11SmallVectorIS2_Lj8EEEE3$_0EEET_SI_SI_RKT0_T1_.exit.loopexit": ; preds = %_ZSt7advanceIPN4llvm10AsmPrinter8StructorElEvRT_T0_.exit.i86
   %.pre133 = ptrtoint ptr %.1.i92 to i64
   br label %"_ZSt13__upper_boundIPN4llvm10AsmPrinter8StructorES2_N9__gnu_cxx5__ops14_Val_comp_iterIZNS1_24preprocessXXStructorListERKNS0_10DataLayoutEPKNS0_8ConstantERNS0_11SmallVectorIS2_Lj8EEEE3$_0EEET_SI_SI_RKT0_T1_.exit"
 
 "_ZSt13__upper_boundIPN4llvm10AsmPrinter8StructorES2_N9__gnu_cxx5__ops14_Val_comp_iterIZNS1_24preprocessXXStructorListERKNS0_10DataLayoutEPKNS0_8ConstantERNS0_11SmallVectorIS2_Lj8EEEE3$_0EEET_SI_SI_RKT0_T1_.exit": ; preds = %"_ZSt13__upper_boundIPN4llvm10AsmPrinter8StructorES2_N9__gnu_cxx5__ops14_Val_comp_iterIZNS1_24preprocessXXStructorListERKNS0_10DataLayoutEPKNS0_8ConstantERNS0_11SmallVectorIS2_Lj8EEEE3$_0EEET_SI_SI_RKT0_T1_.exit.loopexit", %_ZSt7advanceIPN4llvm10AsmPrinter8StructorElEvRT_T0_.exit82
-  %.pre-phi134 = phi i64 [ %.pre133, %"_ZSt13__upper_boundIPN4llvm10AsmPrinter8StructorES2_N9__gnu_cxx5__ops14_Val_comp_iterIZNS1_24preprocessXXStructorListERKNS0_10DataLayoutEPKNS0_8ConstantERNS0_11SmallVectorIS2_Lj8EEEE3$_0EEET_SI_SI_RKT0_T1_.exit.loopexit" ], [ %73, %_ZSt7advanceIPN4llvm10AsmPrinter8StructorElEvRT_T0_.exit82 ]
+  %.pre-phi134 = phi i64 [ %.pre133, %"_ZSt13__upper_boundIPN4llvm10AsmPrinter8StructorES2_N9__gnu_cxx5__ops14_Val_comp_iterIZNS1_24preprocessXXStructorListERKNS0_10DataLayoutEPKNS0_8ConstantERNS0_11SmallVectorIS2_Lj8EEEE3$_0EEET_SI_SI_RKT0_T1_.exit.loopexit" ], [ %71, %_ZSt7advanceIPN4llvm10AsmPrinter8StructorElEvRT_T0_.exit82 ]
   %.0.lcssa.i84 = phi ptr [ %.1.i92, %"_ZSt13__upper_boundIPN4llvm10AsmPrinter8StructorES2_N9__gnu_cxx5__ops14_Val_comp_iterIZNS1_24preprocessXXStructorListERKNS0_10DataLayoutEPKNS0_8ConstantERNS0_11SmallVectorIS2_Lj8EEEE3$_0EEET_SI_SI_RKT0_T1_.exit.loopexit" ], [ %.tr120, %_ZSt7advanceIPN4llvm10AsmPrinter8StructorElEvRT_T0_.exit82 ]
-  %84 = sub i64 %.pre-phi134, %73
-  %85 = sdiv exact i64 %84, 24
+  %82 = sub i64 %.pre-phi134, %71
+  %83 = sdiv exact i64 %82, 24
   br label %tailrecurse
 
 tailrecurse:                                      ; preds = %"_ZSt13__upper_boundIPN4llvm10AsmPrinter8StructorES2_N9__gnu_cxx5__ops14_Val_comp_iterIZNS1_24preprocessXXStructorListERKNS0_10DataLayoutEPKNS0_8ConstantERNS0_11SmallVectorIS2_Lj8EEEE3$_0EEET_SI_SI_RKT0_T1_.exit", %"_ZSt13__lower_boundIPN4llvm10AsmPrinter8StructorES2_N9__gnu_cxx5__ops14_Iter_comp_valIZNS1_24preprocessXXStructorListERKNS0_10DataLayoutEPKNS0_8ConstantERNS0_11SmallVectorIS2_Lj8EEEE3$_0EEET_SI_SI_RKT0_T1_.exit"
-  %.0103 = phi ptr [ %58, %"_ZSt13__lower_boundIPN4llvm10AsmPrinter8StructorES2_N9__gnu_cxx5__ops14_Iter_comp_valIZNS1_24preprocessXXStructorListERKNS0_10DataLayoutEPKNS0_8ConstantERNS0_11SmallVectorIS2_Lj8EEEE3$_0EEET_SI_SI_RKT0_T1_.exit" ], [ %.0.lcssa.i84, %"_ZSt13__upper_boundIPN4llvm10AsmPrinter8StructorES2_N9__gnu_cxx5__ops14_Val_comp_iterIZNS1_24preprocessXXStructorListERKNS0_10DataLayoutEPKNS0_8ConstantERNS0_11SmallVectorIS2_Lj8EEEE3$_0EEET_SI_SI_RKT0_T1_.exit" ]
-  %.0102 = phi ptr [ %.0.lcssa.i77, %"_ZSt13__lower_boundIPN4llvm10AsmPrinter8StructorES2_N9__gnu_cxx5__ops14_Iter_comp_valIZNS1_24preprocessXXStructorListERKNS0_10DataLayoutEPKNS0_8ConstantERNS0_11SmallVectorIS2_Lj8EEEE3$_0EEET_SI_SI_RKT0_T1_.exit" ], [ %72, %"_ZSt13__upper_boundIPN4llvm10AsmPrinter8StructorES2_N9__gnu_cxx5__ops14_Val_comp_iterIZNS1_24preprocessXXStructorListERKNS0_10DataLayoutEPKNS0_8ConstantERNS0_11SmallVectorIS2_Lj8EEEE3$_0EEET_SI_SI_RKT0_T1_.exit" ]
-  %.066 = phi i64 [ %70, %"_ZSt13__lower_boundIPN4llvm10AsmPrinter8StructorES2_N9__gnu_cxx5__ops14_Iter_comp_valIZNS1_24preprocessXXStructorListERKNS0_10DataLayoutEPKNS0_8ConstantERNS0_11SmallVectorIS2_Lj8EEEE3$_0EEET_SI_SI_RKT0_T1_.exit" ], [ %71, %"_ZSt13__upper_boundIPN4llvm10AsmPrinter8StructorES2_N9__gnu_cxx5__ops14_Val_comp_iterIZNS1_24preprocessXXStructorListERKNS0_10DataLayoutEPKNS0_8ConstantERNS0_11SmallVectorIS2_Lj8EEEE3$_0EEET_SI_SI_RKT0_T1_.exit" ]
-  %.0 = phi i64 [ %57, %"_ZSt13__lower_boundIPN4llvm10AsmPrinter8StructorES2_N9__gnu_cxx5__ops14_Iter_comp_valIZNS1_24preprocessXXStructorListERKNS0_10DataLayoutEPKNS0_8ConstantERNS0_11SmallVectorIS2_Lj8EEEE3$_0EEET_SI_SI_RKT0_T1_.exit" ], [ %85, %"_ZSt13__upper_boundIPN4llvm10AsmPrinter8StructorES2_N9__gnu_cxx5__ops14_Val_comp_iterIZNS1_24preprocessXXStructorListERKNS0_10DataLayoutEPKNS0_8ConstantERNS0_11SmallVectorIS2_Lj8EEEE3$_0EEET_SI_SI_RKT0_T1_.exit" ]
-  %86 = sub nsw i64 %.tr108122, %.0
-  %87 = tail call noundef ptr @_ZSt17__rotate_adaptiveIPN4llvm10AsmPrinter8StructorES3_lET_S4_S4_S4_T1_S5_T0_S5_(ptr noundef %.0103, ptr noundef %.tr106121, ptr noundef %.0102, i64 noundef %86, i64 noundef %.066, ptr noundef %5, i64 noundef %6)
-  tail call fastcc void @"_ZSt16__merge_adaptiveIPN4llvm10AsmPrinter8StructorElS3_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS1_24preprocessXXStructorListERKNS0_10DataLayoutEPKNS0_8ConstantERNS0_11SmallVectorIS2_Lj8EEEE3$_0EEEvT_SI_SI_T0_SJ_T1_SJ_T2_"(ptr noundef %.tr120, ptr noundef %.0103, ptr noundef %87, i64 noundef %.0, i64 noundef %.066, ptr noundef %5, i64 noundef %6)
-  %88 = sub nsw i64 %.tr109123, %.066
-  %.not = icmp sgt i64 %86, %88
-  %.not70 = icmp sgt i64 %86, %6
+  %.0103 = phi ptr [ %56, %"_ZSt13__lower_boundIPN4llvm10AsmPrinter8StructorES2_N9__gnu_cxx5__ops14_Iter_comp_valIZNS1_24preprocessXXStructorListERKNS0_10DataLayoutEPKNS0_8ConstantERNS0_11SmallVectorIS2_Lj8EEEE3$_0EEET_SI_SI_RKT0_T1_.exit" ], [ %.0.lcssa.i84, %"_ZSt13__upper_boundIPN4llvm10AsmPrinter8StructorES2_N9__gnu_cxx5__ops14_Val_comp_iterIZNS1_24preprocessXXStructorListERKNS0_10DataLayoutEPKNS0_8ConstantERNS0_11SmallVectorIS2_Lj8EEEE3$_0EEET_SI_SI_RKT0_T1_.exit" ]
+  %.0102 = phi ptr [ %.0.lcssa.i77, %"_ZSt13__lower_boundIPN4llvm10AsmPrinter8StructorES2_N9__gnu_cxx5__ops14_Iter_comp_valIZNS1_24preprocessXXStructorListERKNS0_10DataLayoutEPKNS0_8ConstantERNS0_11SmallVectorIS2_Lj8EEEE3$_0EEET_SI_SI_RKT0_T1_.exit" ], [ %70, %"_ZSt13__upper_boundIPN4llvm10AsmPrinter8StructorES2_N9__gnu_cxx5__ops14_Val_comp_iterIZNS1_24preprocessXXStructorListERKNS0_10DataLayoutEPKNS0_8ConstantERNS0_11SmallVectorIS2_Lj8EEEE3$_0EEET_SI_SI_RKT0_T1_.exit" ]
+  %.066 = phi i64 [ %68, %"_ZSt13__lower_boundIPN4llvm10AsmPrinter8StructorES2_N9__gnu_cxx5__ops14_Iter_comp_valIZNS1_24preprocessXXStructorListERKNS0_10DataLayoutEPKNS0_8ConstantERNS0_11SmallVectorIS2_Lj8EEEE3$_0EEET_SI_SI_RKT0_T1_.exit" ], [ %69, %"_ZSt13__upper_boundIPN4llvm10AsmPrinter8StructorES2_N9__gnu_cxx5__ops14_Val_comp_iterIZNS1_24preprocessXXStructorListERKNS0_10DataLayoutEPKNS0_8ConstantERNS0_11SmallVectorIS2_Lj8EEEE3$_0EEET_SI_SI_RKT0_T1_.exit" ]
+  %.0 = phi i64 [ %55, %"_ZSt13__lower_boundIPN4llvm10AsmPrinter8StructorES2_N9__gnu_cxx5__ops14_Iter_comp_valIZNS1_24preprocessXXStructorListERKNS0_10DataLayoutEPKNS0_8ConstantERNS0_11SmallVectorIS2_Lj8EEEE3$_0EEET_SI_SI_RKT0_T1_.exit" ], [ %83, %"_ZSt13__upper_boundIPN4llvm10AsmPrinter8StructorES2_N9__gnu_cxx5__ops14_Val_comp_iterIZNS1_24preprocessXXStructorListERKNS0_10DataLayoutEPKNS0_8ConstantERNS0_11SmallVectorIS2_Lj8EEEE3$_0EEET_SI_SI_RKT0_T1_.exit" ]
+  %84 = sub nsw i64 %.tr108122, %.0
+  %85 = tail call noundef ptr @_ZSt17__rotate_adaptiveIPN4llvm10AsmPrinter8StructorES3_lET_S4_S4_S4_T1_S5_T0_S5_(ptr noundef %.0103, ptr noundef %.tr106121, ptr noundef %.0102, i64 noundef %84, i64 noundef %.066, ptr noundef %5, i64 noundef %6)
+  tail call fastcc void @"_ZSt16__merge_adaptiveIPN4llvm10AsmPrinter8StructorElS3_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS1_24preprocessXXStructorListERKNS0_10DataLayoutEPKNS0_8ConstantERNS0_11SmallVectorIS2_Lj8EEEE3$_0EEEvT_SI_SI_T0_SJ_T1_SJ_T2_"(ptr noundef %.tr120, ptr noundef %.0103, ptr noundef %85, i64 noundef %.0, i64 noundef %.066, ptr noundef %5, i64 noundef %6)
+  %86 = sub nsw i64 %.tr109123, %.066
+  %.not = icmp sgt i64 %84, %86
+  %.not70 = icmp sgt i64 %84, %6
   %or.cond = or i1 %.not70, %.not
   br i1 %or.cond, label %30, label %tailrecurse._crit_edge
 
-"_ZSt21__move_merge_adaptiveIPN4llvm10AsmPrinter8StructorES3_S3_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS1_24preprocessXXStructorListERKNS0_10DataLayoutEPKNS0_8ConstantERNS0_11SmallVectorIS2_Lj8EEEE3$_0EEEvT_SI_T0_SJ_T1_T2_.exit": ; preds = %52, %32, %47, %45, %35, %_ZSt4moveIPN4llvm10AsmPrinter8StructorES3_ET0_T_S5_S4_.exit.i, %._crit_edge.i
+"_ZSt21__move_merge_adaptiveIPN4llvm10AsmPrinter8StructorES3_S3_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS1_24preprocessXXStructorListERKNS0_10DataLayoutEPKNS0_8ConstantERNS0_11SmallVectorIS2_Lj8EEEE3$_0EEEvT_SI_T0_SJ_T1_T2_.exit": ; preds = %45, %31, %_ZSt13move_backwardIPN4llvm10AsmPrinter8StructorES3_ET0_T_S5_S4_.exit.sink.split.i, %43, %_ZSt4moveIPN4llvm10AsmPrinter8StructorES3_ET0_T_S5_S4_.exit.i, %._crit_edge.i
   ret void
 }
 

@@ -10265,30 +10265,17 @@ return:                                           ; preds = %if.else, %_ZN3eufls
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZNK3euf6solver18display_constraintERSom(ptr noundef nonnull align 8 dereferenceable(9136) %this, ptr noundef nonnull align 8 dereferenceable(8) %out, i64 noundef %idx) unnamed_addr #3 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZNK3euf6solver18display_constraintERSom(ptr noundef nonnull readnone align 8 dereferenceable(9136) %this, ptr noundef nonnull align 8 dereferenceable(8) %out, i64 noundef %idx) unnamed_addr #3 align 2 {
 entry:
   %0 = inttoptr i64 %idx to ptr
   %1 = load ptr, ptr %0, align 8
   %cmp.not = icmp eq ptr %1, %this
-  br i1 %cmp.not, label %if.end, label %if.then
-
-if.then:                                          ; preds = %entry
-  %vtable = load ptr, ptr %1, align 8
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 240
-  %2 = load ptr, ptr %vfn, align 8
-  %call2 = tail call noundef nonnull align 8 dereferenceable(8) ptr %2(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(8) %out, i64 noundef %idx)
-  br label %return
-
-if.end:                                           ; preds = %entry
-  %vtable3 = load ptr, ptr %this, align 8
-  %vfn4 = getelementptr inbounds i8, ptr %vtable3, i64 232
-  %3 = load ptr, ptr %vfn4, align 8
-  %call5 = tail call noundef nonnull align 8 dereferenceable(8) ptr %3(ptr noundef nonnull align 8 dereferenceable(9136) %this, ptr noundef nonnull align 8 dereferenceable(8) %out, i64 noundef %idx)
-  br label %return
-
-return:                                           ; preds = %if.end, %if.then
-  %retval.0 = phi ptr [ %call2, %if.then ], [ %call5, %if.end ]
-  ret ptr %retval.0
+  %. = select i1 %cmp.not, i64 232, i64 240
+  %vtable3 = load ptr, ptr %1, align 8
+  %vfn4 = getelementptr inbounds i8, ptr %vtable3, i64 %.
+  %2 = load ptr, ptr %vfn4, align 8
+  %call5 = tail call noundef nonnull align 8 dereferenceable(8) ptr %2(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(8) %out, i64 noundef %idx)
+  ret ptr %call5
 }
 
 ; Function Attrs: mustprogress uwtable

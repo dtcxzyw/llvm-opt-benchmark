@@ -932,96 +932,92 @@ define range(i32 -1, 1) i32 @ompi_datatype_get_pack_description(ptr noundef %0, 
   %9 = load volatile i64, ptr %8, align 8
   %10 = inttoptr i64 %9 to ptr
   %11 = icmp eq i64 %9, 0
-  br i1 %11, label %12, label %38
+  br i1 %11, label %12, label %36
 
 12:                                               ; preds = %2
   %13 = cmpxchg volatile ptr %8, i64 0, i64 1 acquire monotonic, align 8
   %14 = extractvalue { i64, i1 } %13, 1
-  br i1 %14, label %15, label %35
+  br i1 %14, label %15, label %33
 
 15:                                               ; preds = %12
   %16 = getelementptr i8, ptr %0, i64 16
   %.val24 = load i16, ptr %16, align 8
   %17 = and i16 %.val24, 512
   %.not = icmp eq i16 %17, 0
-  br i1 %.not, label %20, label %18
+  br i1 %.not, label %18, label %23
 
 18:                                               ; preds = %15
-  %19 = tail call noalias dereferenceable_or_null(8) ptr @malloc(i64 noundef 8) #13
-  br label %26
+  %19 = icmp eq ptr %7, null
+  br i1 %19, label %47, label %20
 
-20:                                               ; preds = %15
-  %21 = icmp eq ptr %7, null
-  br i1 %21, label %49, label %22
+20:                                               ; preds = %18
+  %21 = getelementptr inbounds i8, ptr %7, i64 8
+  %22 = load i64, ptr %21, align 8
+  br label %23
 
-22:                                               ; preds = %20
-  %23 = getelementptr inbounds i8, ptr %7, i64 8
-  %24 = load i64, ptr %23, align 8
-  %25 = tail call noalias ptr @malloc(i64 noundef %24) #13
-  br label %26
-
-26:                                               ; preds = %22, %18
-  %.1 = phi ptr [ %19, %18 ], [ %25, %22 ]
-  store ptr %.1, ptr %4, align 8
+23:                                               ; preds = %15, %20
+  %.sink = phi i64 [ %22, %20 ], [ 8, %15 ]
+  %24 = tail call noalias ptr @malloc(i64 noundef %.sink) #13
+  store ptr %24, ptr %4, align 8
   call fastcc void @__ompi_datatype_pack_description(ptr noundef nonnull %0, ptr noundef %4, ptr noundef %3)
   %.val = load i16, ptr %16, align 8
-  %27 = and i16 %.val, 512
-  %.not23 = icmp eq i16 %27, 0
-  br i1 %.not23, label %28, label %._crit_edge25
+  %25 = and i16 %.val, 512
+  %.not23 = icmp eq i16 %25, 0
+  br i1 %.not23, label %26, label %._crit_edge25
 
-._crit_edge25:                                    ; preds = %26
-  %.pre = ptrtoint ptr %.1 to i64
-  br label %34
+._crit_edge25:                                    ; preds = %23
+  %.pre = ptrtoint ptr %24 to i64
+  br label %32
 
-28:                                               ; preds = %26
-  %29 = load ptr, ptr %4, align 8
-  %30 = ptrtoint ptr %29 to i64
-  %31 = ptrtoint ptr %.1 to i64
-  %32 = sub i64 %30, %31
-  %33 = getelementptr inbounds i8, ptr %7, i64 8
-  store i64 %32, ptr %33, align 8
-  br label %34
+26:                                               ; preds = %23
+  %27 = load ptr, ptr %4, align 8
+  %28 = ptrtoint ptr %27 to i64
+  %29 = ptrtoint ptr %24 to i64
+  %30 = sub i64 %28, %29
+  %31 = getelementptr inbounds i8, ptr %7, i64 8
+  store i64 %30, ptr %31, align 8
+  br label %32
 
-34:                                               ; preds = %._crit_edge25, %28
-  %.pre-phi = phi i64 [ %.pre, %._crit_edge25 ], [ %31, %28 ]
+32:                                               ; preds = %._crit_edge25, %26
+  %.pre-phi = phi i64 [ %.pre, %._crit_edge25 ], [ %29, %26 ]
   fence release
   store volatile i64 %.pre-phi, ptr %8, align 8
-  br label %38
+  br label %36
 
-35:                                               ; preds = %12
-  %36 = load volatile i64, ptr %8, align 8
-  %37 = inttoptr i64 %36 to ptr
-  br label %38
+33:                                               ; preds = %12
+  %34 = load volatile i64, ptr %8, align 8
+  %35 = inttoptr i64 %34 to ptr
+  br label %36
 
-38:                                               ; preds = %34, %35, %2
-  %.0 = phi ptr [ %.1, %34 ], [ %37, %35 ], [ %10, %2 ]
-  %39 = icmp eq ptr %.0, inttoptr (i64 1 to ptr)
-  br i1 %39, label %40, label %48
+36:                                               ; preds = %32, %33, %2
+  %.0 = phi ptr [ %24, %32 ], [ %35, %33 ], [ %10, %2 ]
+  %37 = icmp eq ptr %.0, inttoptr (i64 1 to ptr)
+  br i1 %37, label %38, label %46
 
-40:                                               ; preds = %38
+38:                                               ; preds = %36
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(16) @__const.ompi_datatype_get_pack_description.interval, i64 16, i1 false)
-  %41 = load volatile i64, ptr %8, align 8
-  %42 = icmp eq i64 %41, 1
-  br i1 %42, label %.lr.ph, label %._crit_edge
+  %39 = load volatile i64, ptr %8, align 8
+  %40 = icmp eq i64 %39, 1
+  br i1 %40, label %.lr.ph, label %._crit_edge
 
-.lr.ph:                                           ; preds = %40, %.lr.ph
-  %43 = call i32 @nanosleep(ptr noundef nonnull %5, ptr noundef null) #14
+.lr.ph:                                           ; preds = %38, %.lr.ph
+  %41 = call i32 @nanosleep(ptr noundef nonnull %5, ptr noundef null) #14
+  %42 = load volatile i64, ptr %8, align 8
+  %43 = icmp eq i64 %42, 1
+  br i1 %43, label %.lr.ph, label %._crit_edge, !llvm.loop !11
+
+._crit_edge:                                      ; preds = %.lr.ph, %38
   %44 = load volatile i64, ptr %8, align 8
-  %45 = icmp eq i64 %44, 1
-  br i1 %45, label %.lr.ph, label %._crit_edge, !llvm.loop !11
+  %45 = inttoptr i64 %44 to ptr
+  br label %46
 
-._crit_edge:                                      ; preds = %.lr.ph, %40
-  %46 = load volatile i64, ptr %8, align 8
-  %47 = inttoptr i64 %46 to ptr
-  br label %48
-
-48:                                               ; preds = %._crit_edge, %38
-  %.2 = phi ptr [ %47, %._crit_edge ], [ %.0, %38 ]
+46:                                               ; preds = %._crit_edge, %36
+  %.2 = phi ptr [ %45, %._crit_edge ], [ %.0, %36 ]
   store ptr %.2, ptr %1, align 8
-  br label %49
+  br label %47
 
-49:                                               ; preds = %20, %48
-  %.020 = phi i32 [ 0, %48 ], [ -1, %20 ]
+47:                                               ; preds = %18, %46
+  %.020 = phi i32 [ 0, %46 ], [ -1, %18 ]
   ret i32 %.020
 }
 

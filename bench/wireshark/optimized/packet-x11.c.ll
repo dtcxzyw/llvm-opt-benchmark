@@ -31311,14 +31311,14 @@ define internal fastcc void @dissect_x11_request(ptr noundef %0, ptr noundef %1,
 11:                                               ; preds = %6
   %12 = tail call i32 @tvb_get_guint32(ptr noundef %0, i32 noundef 4, i32 noundef %5) #10
   %13 = icmp sgt i32 %12, 536870911
-  br i1 %13, label %1643, label %14
+  br i1 %13, label %1635, label %14
 
 14:                                               ; preds = %11, %6
   %.02784.in = phi i32 [ %9, %6 ], [ %12, %11 ]
   %.0 = phi i32 [ 4, %6 ], [ 8, %11 ]
   %.02784 = shl i32 %.02784.in, 2
   %15 = icmp slt i32 %.02784, 4
-  br i1 %15, label %1643, label %16
+  br i1 %15, label %1635, label %16
 
 16:                                               ; preds = %14
   %17 = load i32, ptr @proto_x11, align 4
@@ -31353,7 +31353,7 @@ define internal fastcc void @dissect_x11_request(ptr noundef %0, ptr noundef %1,
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %36, i32 noundef 25, ptr noundef nonnull @.str.14663, ptr noundef %3, ptr noundef %38) #10
   %39 = tail call ptr @val_to_str(i32 noundef %32, ptr noundef nonnull %37, ptr noundef nonnull @.str.14669) #10
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %18, ptr noundef nonnull @.str.14702, i32 noundef %32, ptr noundef %39) #10
-  switch i8 %31, label %80 [
+  switch i8 %31, label %72 [
     i8 98, label %40
     i8 84, label %.loopexit
     i8 86, label %.loopexit
@@ -31404,7 +31404,7 @@ define internal fastcc void @dissect_x11_request(ptr noundef %0, ptr noundef %1,
   %45 = tail call ptr @tvb_get_string_enc(ptr noundef %43, ptr noundef %0, i32 noundef %42, i32 noundef %44, i32 noundef 0) #10
   br label %47
 
-46:                                               ; preds = %61
+46:                                               ; preds = %54
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 256
   br i1 %exitcond.not, label %.loopexit, label %47, !llvm.loop !39
@@ -31415,2348 +31415,2341 @@ define internal fastcc void @dissect_x11_request(ptr noundef %0, ptr noundef %1,
   %49 = getelementptr inbounds i8, ptr %48, i64 8
   %50 = load ptr, ptr %49, align 8
   %51 = icmp eq ptr %50, null
-  br i1 %51, label %52, label %61
+  br i1 %51, label %52, label %54
 
 52:                                               ; preds = %47
   %53 = getelementptr inbounds i8, ptr %48, i64 8
   store ptr %45, ptr %53, align 8
   store i32 -1, ptr %48, align 8
-  %54 = getelementptr inbounds i8, ptr %4, i64 8
-  %55 = load ptr, ptr %54, align 8
-  %56 = getelementptr inbounds i8, ptr %4, i64 10320
-  %57 = load i32, ptr %56, align 8
-  %58 = sext i32 %57 to i64
-  %59 = inttoptr i64 %58 to ptr
-  %60 = tail call ptr @wmem_map_insert(ptr noundef %55, ptr noundef %59, ptr noundef nonnull %48) #10
+  br label %.loopexit.sink.split
+
+54:                                               ; preds = %47
+  %55 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %50, ptr noundef nonnull dereferenceable(1) %45) #13
+  %56 = icmp eq i32 %55, 0
+  br i1 %56, label %.loopexit.sink.split, label %46
+
+.loopexit.sink.split:                             ; preds = %54, %52
+  %57 = getelementptr inbounds i8, ptr %4, i64 8
+  %58 = load ptr, ptr %57, align 8
+  %59 = getelementptr inbounds i8, ptr %4, i64 10320
+  %60 = load i32, ptr %59, align 8
+  %61 = sext i32 %60 to i64
+  %62 = inttoptr i64 %61 to ptr
+  %63 = tail call ptr @wmem_map_insert(ptr noundef %58, ptr noundef %62, ptr noundef %48) #10
   br label %.loopexit
 
-61:                                               ; preds = %47
-  %62 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %50, ptr noundef nonnull dereferenceable(1) %45) #13
-  %63 = icmp eq i32 %62, 0
-  br i1 %63, label %64, label %46
-
-64:                                               ; preds = %61
-  %65 = getelementptr inbounds i8, ptr %4, i64 8
-  %66 = load ptr, ptr %65, align 8
-  %67 = getelementptr inbounds i8, ptr %4, i64 10320
-  %68 = load i32, ptr %67, align 8
-  %69 = sext i32 %68 to i64
+.loopexit:                                        ; preds = %46, %.loopexit.sink.split, %30, %30, %30, %30, %30, %30, %30, %30, %30, %30, %30, %30, %30, %30, %30, %30, %30, %30, %30, %30, %30, %30, %30, %30, %30, %30, %30, %30, %30, %30, %30, %30, %30, %30, %30, %30, %30, %30, %30
+  %64 = load ptr, ptr %4, align 8
+  %65 = getelementptr inbounds i8, ptr %4, i64 10320
+  %66 = load i32, ptr %65, align 8
+  %67 = sext i32 %66 to i64
+  %68 = inttoptr i64 %67 to ptr
+  %69 = zext i8 %31 to i64
   %70 = inttoptr i64 %69 to ptr
-  %71 = tail call ptr @wmem_map_insert(ptr noundef %66, ptr noundef %70, ptr noundef %48) #10
-  br label %.loopexit
+  %71 = tail call ptr @wmem_map_insert(ptr noundef %64, ptr noundef %68, ptr noundef %70) #10
+  br label %87
 
-.loopexit:                                        ; preds = %46, %52, %64, %30, %30, %30, %30, %30, %30, %30, %30, %30, %30, %30, %30, %30, %30, %30, %30, %30, %30, %30, %30, %30, %30, %30, %30, %30, %30, %30, %30, %30, %30, %30, %30, %30, %30, %30, %30, %30, %30, %30
-  %72 = load ptr, ptr %4, align 8
-  %73 = getelementptr inbounds i8, ptr %4, i64 10320
-  %74 = load i32, ptr %73, align 8
-  %75 = sext i32 %74 to i64
-  %76 = inttoptr i64 %75 to ptr
-  %77 = zext i8 %31 to i64
-  %78 = inttoptr i64 %77 to ptr
-  %79 = tail call ptr @wmem_map_insert(ptr noundef %72, ptr noundef %76, ptr noundef %78) #10
-  br label %95
+72:                                               ; preds = %30
+  %73 = icmp slt i8 %31, 0
+  br i1 %73, label %74, label %87
 
-80:                                               ; preds = %30
-  %81 = icmp slt i8 %31, 0
-  br i1 %81, label %82, label %95
+74:                                               ; preds = %72
+  %75 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 1) #10
+  %76 = zext i8 %75 to i32
+  %77 = load ptr, ptr %4, align 8
+  %78 = getelementptr inbounds i8, ptr %4, i64 10320
+  %79 = load i32, ptr %78, align 8
+  %80 = sext i32 %79 to i64
+  %81 = inttoptr i64 %80 to ptr
+  %82 = shl nuw nsw i32 %76, 8
+  %83 = or disjoint i32 %82, %32
+  %84 = zext nneg i32 %83 to i64
+  %85 = inttoptr i64 %84 to ptr
+  %86 = tail call ptr @wmem_map_insert(ptr noundef %77, ptr noundef %81, ptr noundef nonnull %85) #10
+  br label %87
 
-82:                                               ; preds = %80
-  %83 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 1) #10
-  %84 = zext i8 %83 to i32
-  %85 = load ptr, ptr %4, align 8
-  %86 = getelementptr inbounds i8, ptr %4, i64 10320
-  %87 = load i32, ptr %86, align 8
-  %88 = sext i32 %87 to i64
-  %89 = inttoptr i64 %88 to ptr
-  %90 = shl nuw nsw i32 %84, 8
-  %91 = or disjoint i32 %90, %32
-  %92 = zext nneg i32 %91 to i64
-  %93 = inttoptr i64 %92 to ptr
-  %94 = tail call ptr @wmem_map_insert(ptr noundef %85, ptr noundef %89, ptr noundef nonnull %93) #10
-  br label %95
+87:                                               ; preds = %72, %74, %.loopexit
+  %88 = icmp eq ptr %2, null
+  br i1 %88, label %1635, label %89
 
-95:                                               ; preds = %80, %82, %.loopexit
-  %96 = icmp eq ptr %2, null
-  br i1 %96, label %1643, label %97
-
-97:                                               ; preds = %95
-  switch i8 %31, label %1634 [
-    i8 1, label %98
-    i8 2, label %124
-    i8 3, label %130
-    i8 4, label %130
-    i8 5, label %130
-    i8 6, label %136
-    i8 7, label %142
-    i8 8, label %154
-    i8 9, label %154
-    i8 10, label %154
-    i8 11, label %154
-    i8 12, label %160
-    i8 13, label %249
-    i8 14, label %255
-    i8 15, label %255
-    i8 16, label %261
-    i8 17, label %280
-    i8 18, label %285
-    i8 19, label %327
-    i8 20, label %334
-    i8 21, label %346
-    i8 22, label %352
-    i8 23, label %360
-    i8 24, label %365
-    i8 25, label %375
-    i8 26, label %396
-    i8 27, label %416
-    i8 28, label %421
-    i8 29, label %446
-    i8 30, label %456
-    i8 31, label %471
-    i8 32, label %486
-    i8 33, label %491
-    i8 34, label %507
-    i8 35, label %517
-    i8 36, label %522
-    i8 37, label %526
-    i8 38, label %530
-    i8 39, label %536
-    i8 40, label %544
-    i8 41, label %556
-    i8 42, label %576
-    i8 43, label %583
-    i8 44, label %587
-    i8 45, label %591
-    i8 46, label %612
-    i8 47, label %618
-    i8 48, label %624
-    i8 49, label %643
-    i8 50, label %661
-    i8 51, label %679
-    i8 52, label %698
-    i8 53, label %702
-    i8 54, label %714
-    i8 55, label %720
-    i8 56, label %728
-    i8 57, label %734
-    i8 58, label %747
-    i8 59, label %768
-    i8 60, label %782
-    i8 61, label %788
-    i8 62, label %802
-    i8 63, label %824
-    i8 64, label %848
-    i8 65, label %860
-    i8 66, label %872
-    i8 67, label %884
-    i8 68, label %896
-    i8 69, label %908
-    i8 70, label %928
-    i8 71, label %940
-    i8 72, label %952
-    i8 73, label %987
-    i8 74, label %1003
-    i8 75, label %1023
-    i8 76, label %1043
-    i8 77, label %1065
-    i8 78, label %1086
-    i8 79, label %1100
-    i8 80, label %1106
-    i8 81, label %1114
-    i8 82, label %1120
-    i8 83, label %1126
-    i8 84, label %1132
-    i8 85, label %1148
-    i8 86, label %1169
-    i8 87, label %1179
-    i8 88, label %1193
-    i8 89, label %1206
-    i8 90, label %1216
-    i8 91, label %1237
-    i8 92, label %1248
-    i8 93, label %1269
-    i8 94, label %1295
-    i8 95, label %1321
-    i8 96, label %1327
-    i8 97, label %1345
-    i8 98, label %1355
-    i8 99, label %1374
-    i8 100, label %1378
-    i8 101, label %1393
-    i8 102, label %1406
-    i8 103, label %1494
-    i8 104, label %1498
-    i8 105, label %1502
-    i8 106, label %1516
-    i8 107, label %1520
-    i8 108, label %1536
-    i8 109, label %1540
-    i8 110, label %1565
-    i8 111, label %1569
-    i8 112, label %1573
-    i8 113, label %1577
-    i8 114, label %1583
-    i8 115, label %1597
-    i8 116, label %1601
-    i8 117, label %1616
-    i8 118, label %1620
-    i8 119, label %1626
-    i8 127, label %1630
+89:                                               ; preds = %87
+  switch i8 %31, label %1626 [
+    i8 1, label %90
+    i8 2, label %116
+    i8 3, label %122
+    i8 4, label %122
+    i8 5, label %122
+    i8 6, label %128
+    i8 7, label %134
+    i8 8, label %146
+    i8 9, label %146
+    i8 10, label %146
+    i8 11, label %146
+    i8 12, label %152
+    i8 13, label %241
+    i8 14, label %247
+    i8 15, label %247
+    i8 16, label %253
+    i8 17, label %272
+    i8 18, label %277
+    i8 19, label %319
+    i8 20, label %326
+    i8 21, label %338
+    i8 22, label %344
+    i8 23, label %352
+    i8 24, label %357
+    i8 25, label %367
+    i8 26, label %388
+    i8 27, label %408
+    i8 28, label %413
+    i8 29, label %438
+    i8 30, label %448
+    i8 31, label %463
+    i8 32, label %478
+    i8 33, label %483
+    i8 34, label %499
+    i8 35, label %509
+    i8 36, label %514
+    i8 37, label %518
+    i8 38, label %522
+    i8 39, label %528
+    i8 40, label %536
+    i8 41, label %548
+    i8 42, label %568
+    i8 43, label %575
+    i8 44, label %579
+    i8 45, label %583
+    i8 46, label %604
+    i8 47, label %610
+    i8 48, label %616
+    i8 49, label %635
+    i8 50, label %653
+    i8 51, label %671
+    i8 52, label %690
+    i8 53, label %694
+    i8 54, label %706
+    i8 55, label %712
+    i8 56, label %720
+    i8 57, label %726
+    i8 58, label %739
+    i8 59, label %760
+    i8 60, label %774
+    i8 61, label %780
+    i8 62, label %794
+    i8 63, label %816
+    i8 64, label %840
+    i8 65, label %852
+    i8 66, label %864
+    i8 67, label %876
+    i8 68, label %888
+    i8 69, label %900
+    i8 70, label %920
+    i8 71, label %932
+    i8 72, label %944
+    i8 73, label %979
+    i8 74, label %995
+    i8 75, label %1015
+    i8 76, label %1035
+    i8 77, label %1057
+    i8 78, label %1078
+    i8 79, label %1092
+    i8 80, label %1098
+    i8 81, label %1106
+    i8 82, label %1112
+    i8 83, label %1118
+    i8 84, label %1124
+    i8 85, label %1140
+    i8 86, label %1161
+    i8 87, label %1171
+    i8 88, label %1185
+    i8 89, label %1198
+    i8 90, label %1208
+    i8 91, label %1229
+    i8 92, label %1240
+    i8 93, label %1261
+    i8 94, label %1287
+    i8 95, label %1313
+    i8 96, label %1319
+    i8 97, label %1337
+    i8 98, label %1347
+    i8 99, label %1366
+    i8 100, label %1370
+    i8 101, label %1385
+    i8 102, label %1398
+    i8 103, label %1486
+    i8 104, label %1490
+    i8 105, label %1494
+    i8 106, label %1508
+    i8 107, label %1512
+    i8 108, label %1528
+    i8 109, label %1532
+    i8 110, label %1557
+    i8 111, label %1561
+    i8 112, label %1565
+    i8 113, label %1569
+    i8 114, label %1575
+    i8 115, label %1589
+    i8 116, label %1593
+    i8 117, label %1608
+    i8 118, label %1612
+    i8 119, label %1618
+    i8 127, label %1622
   ]
 
-98:                                               ; preds = %97
-  %99 = load i32, ptr @hf_x11_depth, align 4
-  %100 = call fastcc i32 @field8(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %99, i32 noundef %5)
-  %101 = call fastcc i32 @requestLength(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %5)
-  %102 = load i32, ptr @hf_x11_wid, align 4
-  %103 = call fastcc i32 @field32(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %102, i32 noundef %5)
-  %104 = load i32, ptr @hf_x11_parent, align 4
-  %105 = call fastcc i32 @field32(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %104, i32 noundef %5)
-  %106 = load i32, ptr @hf_x11_x, align 4
+90:                                               ; preds = %89
+  %91 = load i32, ptr @hf_x11_depth, align 4
+  %92 = call fastcc i32 @field8(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %91, i32 noundef %5)
+  %93 = call fastcc i32 @requestLength(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %5)
+  %94 = load i32, ptr @hf_x11_wid, align 4
+  %95 = call fastcc i32 @field32(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %94, i32 noundef %5)
+  %96 = load i32, ptr @hf_x11_parent, align 4
+  %97 = call fastcc i32 @field32(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %96, i32 noundef %5)
+  %98 = load i32, ptr @hf_x11_x, align 4
+  %99 = call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %98, i32 noundef %5)
+  %100 = load i32, ptr @hf_x11_y, align 4
+  %101 = call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %100, i32 noundef %5)
+  %102 = load i32, ptr @hf_x11_width, align 4
+  %103 = call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %102, i32 noundef %5)
+  %104 = load i32, ptr @hf_x11_height, align 4
+  %105 = call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %104, i32 noundef %5)
+  %106 = load i32, ptr @hf_x11_border_width, align 4
   %107 = call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %106, i32 noundef %5)
-  %108 = load i32, ptr @hf_x11_y, align 4
+  %108 = load i32, ptr @hf_x11_window_class, align 4
   %109 = call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %108, i32 noundef %5)
-  %110 = load i32, ptr @hf_x11_width, align 4
-  %111 = call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %110, i32 noundef %5)
-  %112 = load i32, ptr @hf_x11_height, align 4
-  %113 = call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %112, i32 noundef %5)
-  %114 = load i32, ptr @hf_x11_border_width, align 4
-  %115 = call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %114, i32 noundef %5)
-  %116 = load i32, ptr @hf_x11_window_class, align 4
-  %117 = call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %116, i32 noundef %5)
-  %118 = load i32, ptr %7, align 4
-  %119 = tail call i32 @tvb_get_guint32(ptr noundef %0, i32 noundef %118, i32 noundef %5) #10
-  %120 = load i32, ptr @hf_x11_visual, align 4
-  %.not2832 = icmp eq i32 %119, 0
-  %121 = select i1 %.not2832, ptr @.str.14704, ptr @.str.14689
-  %122 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %20, i32 noundef %120, ptr noundef %0, i32 noundef %118, i32 noundef 4, i32 noundef %119, ptr noundef nonnull @.str.14703, i32 noundef %119, ptr noundef nonnull %121) #10
-  %123 = add i32 %118, 4
-  store i32 %123, ptr %7, align 4
+  %110 = load i32, ptr %7, align 4
+  %111 = tail call i32 @tvb_get_guint32(ptr noundef %0, i32 noundef %110, i32 noundef %5) #10
+  %112 = load i32, ptr @hf_x11_visual, align 4
+  %.not2832 = icmp eq i32 %111, 0
+  %113 = select i1 %.not2832, ptr @.str.14704, ptr @.str.14689
+  %114 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %20, i32 noundef %112, ptr noundef %0, i32 noundef %110, i32 noundef 4, i32 noundef %111, ptr noundef nonnull @.str.14703, i32 noundef %111, ptr noundef nonnull %113) #10
+  %115 = add i32 %110, 4
+  store i32 %115, ptr %7, align 4
   call fastcc void @windowAttributes(ptr noundef %0, ptr noundef %7, ptr noundef %20, i32 noundef %5)
-  br label %1635
+  br label %1627
 
-124:                                              ; preds = %97
-  %125 = load i32, ptr @hf_x11_unused, align 4
-  %126 = tail call ptr @proto_tree_add_item(ptr noundef %20, i32 noundef %125, ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef 0) #10
+116:                                              ; preds = %89
+  %117 = load i32, ptr @hf_x11_unused, align 4
+  %118 = tail call ptr @proto_tree_add_item(ptr noundef %20, i32 noundef %117, ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef 0) #10
   store i32 2, ptr %7, align 4
-  %127 = call fastcc i32 @requestLength(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %5)
-  %128 = load i32, ptr @hf_x11_window, align 4
-  %129 = call fastcc i32 @field32(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %128, i32 noundef %5)
+  %119 = call fastcc i32 @requestLength(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %5)
+  %120 = load i32, ptr @hf_x11_window, align 4
+  %121 = call fastcc i32 @field32(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %120, i32 noundef %5)
   call fastcc void @windowAttributes(ptr noundef %0, ptr noundef %7, ptr noundef %20, i32 noundef %5)
-  br label %1635
+  br label %1627
 
-130:                                              ; preds = %97, %97, %97
-  %131 = load i32, ptr @hf_x11_unused, align 4
-  %132 = tail call ptr @proto_tree_add_item(ptr noundef %20, i32 noundef %131, ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef 0) #10
+122:                                              ; preds = %89, %89, %89
+  %123 = load i32, ptr @hf_x11_unused, align 4
+  %124 = tail call ptr @proto_tree_add_item(ptr noundef %20, i32 noundef %123, ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef 0) #10
   store i32 2, ptr %7, align 4
-  %133 = call fastcc i32 @requestLength(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %5)
-  %134 = load i32, ptr @hf_x11_window, align 4
-  %135 = call fastcc i32 @field32(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %134, i32 noundef %5)
-  br label %1635
+  %125 = call fastcc i32 @requestLength(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %5)
+  %126 = load i32, ptr @hf_x11_window, align 4
+  %127 = call fastcc i32 @field32(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %126, i32 noundef %5)
+  br label %1627
 
-136:                                              ; preds = %97
-  %137 = load i32, ptr @hf_x11_save_set_mode, align 4
-  %138 = call fastcc i32 @field8(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %137, i32 noundef %5)
-  %139 = call fastcc i32 @requestLength(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %5)
-  %140 = load i32, ptr @hf_x11_window, align 4
+128:                                              ; preds = %89
+  %129 = load i32, ptr @hf_x11_save_set_mode, align 4
+  %130 = call fastcc i32 @field8(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %129, i32 noundef %5)
+  %131 = call fastcc i32 @requestLength(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %5)
+  %132 = load i32, ptr @hf_x11_window, align 4
+  %133 = call fastcc i32 @field32(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %132, i32 noundef %5)
+  br label %1627
+
+134:                                              ; preds = %89
+  %135 = load i32, ptr @hf_x11_unused, align 4
+  %136 = tail call ptr @proto_tree_add_item(ptr noundef %20, i32 noundef %135, ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef 0) #10
+  store i32 2, ptr %7, align 4
+  %137 = call fastcc i32 @requestLength(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %5)
+  %138 = load i32, ptr @hf_x11_window, align 4
+  %139 = call fastcc i32 @field32(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %138, i32 noundef %5)
+  %140 = load i32, ptr @hf_x11_parent, align 4
   %141 = call fastcc i32 @field32(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %140, i32 noundef %5)
-  br label %1635
+  %142 = load i32, ptr @hf_x11_x, align 4
+  %143 = call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %142, i32 noundef %5)
+  %144 = load i32, ptr @hf_x11_y, align 4
+  %145 = call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %144, i32 noundef %5)
+  br label %1627
 
-142:                                              ; preds = %97
-  %143 = load i32, ptr @hf_x11_unused, align 4
-  %144 = tail call ptr @proto_tree_add_item(ptr noundef %20, i32 noundef %143, ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef 0) #10
+146:                                              ; preds = %89, %89, %89, %89
+  %147 = load i32, ptr @hf_x11_unused, align 4
+  %148 = tail call ptr @proto_tree_add_item(ptr noundef %20, i32 noundef %147, ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef 0) #10
   store i32 2, ptr %7, align 4
-  %145 = call fastcc i32 @requestLength(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %5)
-  %146 = load i32, ptr @hf_x11_window, align 4
-  %147 = call fastcc i32 @field32(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %146, i32 noundef %5)
-  %148 = load i32, ptr @hf_x11_parent, align 4
-  %149 = call fastcc i32 @field32(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %148, i32 noundef %5)
-  %150 = load i32, ptr @hf_x11_x, align 4
-  %151 = call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %150, i32 noundef %5)
-  %152 = load i32, ptr @hf_x11_y, align 4
-  %153 = call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %152, i32 noundef %5)
-  br label %1635
+  %149 = call fastcc i32 @requestLength(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %5)
+  %150 = load i32, ptr @hf_x11_window, align 4
+  %151 = call fastcc i32 @field32(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %150, i32 noundef %5)
+  br label %1627
 
-154:                                              ; preds = %97, %97, %97, %97
-  %155 = load i32, ptr @hf_x11_unused, align 4
-  %156 = tail call ptr @proto_tree_add_item(ptr noundef %20, i32 noundef %155, ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef 0) #10
+152:                                              ; preds = %89
+  %153 = load i32, ptr @hf_x11_unused, align 4
+  %154 = tail call ptr @proto_tree_add_item(ptr noundef %20, i32 noundef %153, ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef 0) #10
   store i32 2, ptr %7, align 4
-  %157 = call fastcc i32 @requestLength(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %5)
-  %158 = load i32, ptr @hf_x11_window, align 4
-  %159 = call fastcc i32 @field32(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %158, i32 noundef %5)
-  br label %1635
+  %155 = call fastcc i32 @requestLength(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %5)
+  %156 = load i32, ptr @hf_x11_window, align 4
+  %157 = load i32, ptr %7, align 4
+  %158 = tail call ptr @proto_tree_add_item(ptr noundef %20, i32 noundef %156, ptr noundef %0, i32 noundef %157, i32 noundef 4, i32 noundef %5) #10
+  %159 = add i32 %157, 4
+  %160 = tail call zeroext i16 @tvb_get_guint16(ptr noundef %0, i32 noundef %159, i32 noundef %5) #10
+  %161 = load i32, ptr @hf_x11_configure_window_mask, align 4
+  %162 = load i32, ptr @ett_x11_configure_window_mask, align 4
+  %163 = tail call ptr @proto_tree_add_bitmask(ptr noundef %20, ptr noundef %0, i32 noundef %159, i32 noundef %161, i32 noundef %162, ptr noundef nonnull @dissect_x11_request.configure_window_mask_flags, i32 noundef %5) #10
+  %164 = add i32 %157, 6
+  %165 = load i32, ptr @hf_x11_unused, align 4
+  %166 = tail call ptr @proto_tree_add_item(ptr noundef %20, i32 noundef %165, ptr noundef %0, i32 noundef %164, i32 noundef 2, i32 noundef 0) #10
+  %167 = add i32 %157, 8
+  store i32 %167, ptr %7, align 4
+  %168 = zext i16 %160 to i32
+  %169 = and i32 %168, 1
+  %.not2825 = icmp eq i32 %169, 0
+  br i1 %.not2825, label %177, label %170
 
-160:                                              ; preds = %97
-  %161 = load i32, ptr @hf_x11_unused, align 4
-  %162 = tail call ptr @proto_tree_add_item(ptr noundef %20, i32 noundef %161, ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef 0) #10
-  store i32 2, ptr %7, align 4
-  %163 = call fastcc i32 @requestLength(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %5)
-  %164 = load i32, ptr @hf_x11_window, align 4
-  %165 = load i32, ptr %7, align 4
-  %166 = tail call ptr @proto_tree_add_item(ptr noundef %20, i32 noundef %164, ptr noundef %0, i32 noundef %165, i32 noundef 4, i32 noundef %5) #10
-  %167 = add i32 %165, 4
-  %168 = tail call zeroext i16 @tvb_get_guint16(ptr noundef %0, i32 noundef %167, i32 noundef %5) #10
-  %169 = load i32, ptr @hf_x11_configure_window_mask, align 4
-  %170 = load i32, ptr @ett_x11_configure_window_mask, align 4
-  %171 = tail call ptr @proto_tree_add_bitmask(ptr noundef %20, ptr noundef %0, i32 noundef %167, i32 noundef %169, i32 noundef %170, ptr noundef nonnull @dissect_x11_request.configure_window_mask_flags, i32 noundef %5) #10
-  %172 = add i32 %165, 6
-  %173 = load i32, ptr @hf_x11_unused, align 4
-  %174 = tail call ptr @proto_tree_add_item(ptr noundef %20, i32 noundef %173, ptr noundef %0, i32 noundef %172, i32 noundef 2, i32 noundef 0) #10
-  %175 = add i32 %165, 8
-  store i32 %175, ptr %7, align 4
-  %176 = zext i16 %168 to i32
-  %177 = and i32 %176, 1
-  %.not2825 = icmp eq i32 %177, 0
-  br i1 %.not2825, label %185, label %178
+170:                                              ; preds = %152
+  %171 = load i32, ptr @hf_x11_x, align 4
+  %172 = tail call ptr @proto_tree_add_item(ptr noundef %20, i32 noundef %171, ptr noundef %0, i32 noundef %167, i32 noundef 2, i32 noundef %5) #10
+  %173 = add i32 %157, 10
+  %174 = load i32, ptr @hf_x11_unused, align 4
+  %175 = tail call ptr @proto_tree_add_item(ptr noundef %20, i32 noundef %174, ptr noundef %0, i32 noundef %173, i32 noundef 2, i32 noundef 0) #10
+  %176 = add i32 %157, 12
+  store i32 %176, ptr %7, align 4
+  br label %177
 
-178:                                              ; preds = %160
-  %179 = load i32, ptr @hf_x11_x, align 4
-  %180 = tail call ptr @proto_tree_add_item(ptr noundef %20, i32 noundef %179, ptr noundef %0, i32 noundef %175, i32 noundef 2, i32 noundef %5) #10
-  %181 = add i32 %165, 10
-  %182 = load i32, ptr @hf_x11_unused, align 4
-  %183 = tail call ptr @proto_tree_add_item(ptr noundef %20, i32 noundef %182, ptr noundef %0, i32 noundef %181, i32 noundef 2, i32 noundef 0) #10
-  %184 = add i32 %165, 12
-  store i32 %184, ptr %7, align 4
-  br label %185
+177:                                              ; preds = %170, %152
+  %178 = phi i32 [ %176, %170 ], [ %167, %152 ]
+  %179 = and i32 %168, 2
+  %.not2826 = icmp eq i32 %179, 0
+  br i1 %.not2826, label %187, label %180
 
-185:                                              ; preds = %178, %160
-  %186 = phi i32 [ %184, %178 ], [ %175, %160 ]
-  %187 = and i32 %176, 2
-  %.not2826 = icmp eq i32 %187, 0
-  br i1 %.not2826, label %195, label %188
+180:                                              ; preds = %177
+  %181 = load i32, ptr @hf_x11_y, align 4
+  %182 = tail call ptr @proto_tree_add_item(ptr noundef %20, i32 noundef %181, ptr noundef %0, i32 noundef %178, i32 noundef 2, i32 noundef %5) #10
+  %183 = add i32 %178, 2
+  %184 = load i32, ptr @hf_x11_unused, align 4
+  %185 = tail call ptr @proto_tree_add_item(ptr noundef %20, i32 noundef %184, ptr noundef %0, i32 noundef %183, i32 noundef 2, i32 noundef 0) #10
+  %186 = add i32 %178, 4
+  store i32 %186, ptr %7, align 4
+  br label %187
 
-188:                                              ; preds = %185
-  %189 = load i32, ptr @hf_x11_y, align 4
-  %190 = tail call ptr @proto_tree_add_item(ptr noundef %20, i32 noundef %189, ptr noundef %0, i32 noundef %186, i32 noundef 2, i32 noundef %5) #10
-  %191 = add i32 %186, 2
-  %192 = load i32, ptr @hf_x11_unused, align 4
-  %193 = tail call ptr @proto_tree_add_item(ptr noundef %20, i32 noundef %192, ptr noundef %0, i32 noundef %191, i32 noundef 2, i32 noundef 0) #10
-  %194 = add i32 %186, 4
-  store i32 %194, ptr %7, align 4
-  br label %195
+187:                                              ; preds = %180, %177
+  %188 = phi i32 [ %186, %180 ], [ %178, %177 ]
+  %189 = and i32 %168, 4
+  %.not2827 = icmp eq i32 %189, 0
+  br i1 %.not2827, label %197, label %190
 
-195:                                              ; preds = %188, %185
-  %196 = phi i32 [ %194, %188 ], [ %186, %185 ]
-  %197 = and i32 %176, 4
-  %.not2827 = icmp eq i32 %197, 0
-  br i1 %.not2827, label %205, label %198
+190:                                              ; preds = %187
+  %191 = load i32, ptr @hf_x11_width, align 4
+  %192 = tail call ptr @proto_tree_add_item(ptr noundef %20, i32 noundef %191, ptr noundef %0, i32 noundef %188, i32 noundef 2, i32 noundef %5) #10
+  %193 = add i32 %188, 2
+  %194 = load i32, ptr @hf_x11_unused, align 4
+  %195 = tail call ptr @proto_tree_add_item(ptr noundef %20, i32 noundef %194, ptr noundef %0, i32 noundef %193, i32 noundef 2, i32 noundef 0) #10
+  %196 = add i32 %188, 4
+  store i32 %196, ptr %7, align 4
+  br label %197
 
-198:                                              ; preds = %195
-  %199 = load i32, ptr @hf_x11_width, align 4
-  %200 = tail call ptr @proto_tree_add_item(ptr noundef %20, i32 noundef %199, ptr noundef %0, i32 noundef %196, i32 noundef 2, i32 noundef %5) #10
-  %201 = add i32 %196, 2
-  %202 = load i32, ptr @hf_x11_unused, align 4
-  %203 = tail call ptr @proto_tree_add_item(ptr noundef %20, i32 noundef %202, ptr noundef %0, i32 noundef %201, i32 noundef 2, i32 noundef 0) #10
-  %204 = add i32 %196, 4
-  store i32 %204, ptr %7, align 4
-  br label %205
+197:                                              ; preds = %190, %187
+  %198 = phi i32 [ %196, %190 ], [ %188, %187 ]
+  %199 = and i32 %168, 8
+  %.not2828 = icmp eq i32 %199, 0
+  br i1 %.not2828, label %207, label %200
 
-205:                                              ; preds = %198, %195
-  %206 = phi i32 [ %204, %198 ], [ %196, %195 ]
-  %207 = and i32 %176, 8
-  %.not2828 = icmp eq i32 %207, 0
-  br i1 %.not2828, label %215, label %208
+200:                                              ; preds = %197
+  %201 = load i32, ptr @hf_x11_height, align 4
+  %202 = tail call ptr @proto_tree_add_item(ptr noundef %20, i32 noundef %201, ptr noundef %0, i32 noundef %198, i32 noundef 2, i32 noundef %5) #10
+  %203 = add i32 %198, 2
+  %204 = load i32, ptr @hf_x11_unused, align 4
+  %205 = tail call ptr @proto_tree_add_item(ptr noundef %20, i32 noundef %204, ptr noundef %0, i32 noundef %203, i32 noundef 2, i32 noundef 0) #10
+  %206 = add i32 %198, 4
+  store i32 %206, ptr %7, align 4
+  br label %207
 
-208:                                              ; preds = %205
-  %209 = load i32, ptr @hf_x11_height, align 4
-  %210 = tail call ptr @proto_tree_add_item(ptr noundef %20, i32 noundef %209, ptr noundef %0, i32 noundef %206, i32 noundef 2, i32 noundef %5) #10
-  %211 = add i32 %206, 2
-  %212 = load i32, ptr @hf_x11_unused, align 4
-  %213 = tail call ptr @proto_tree_add_item(ptr noundef %20, i32 noundef %212, ptr noundef %0, i32 noundef %211, i32 noundef 2, i32 noundef 0) #10
-  %214 = add i32 %206, 4
-  store i32 %214, ptr %7, align 4
-  br label %215
+207:                                              ; preds = %200, %197
+  %208 = phi i32 [ %206, %200 ], [ %198, %197 ]
+  %209 = and i32 %168, 16
+  %.not2829 = icmp eq i32 %209, 0
+  br i1 %.not2829, label %217, label %210
 
-215:                                              ; preds = %208, %205
-  %216 = phi i32 [ %214, %208 ], [ %206, %205 ]
-  %217 = and i32 %176, 16
-  %.not2829 = icmp eq i32 %217, 0
-  br i1 %.not2829, label %225, label %218
+210:                                              ; preds = %207
+  %211 = load i32, ptr @hf_x11_border_width, align 4
+  %212 = tail call ptr @proto_tree_add_item(ptr noundef %20, i32 noundef %211, ptr noundef %0, i32 noundef %208, i32 noundef 2, i32 noundef %5) #10
+  %213 = add i32 %208, 2
+  %214 = load i32, ptr @hf_x11_unused, align 4
+  %215 = tail call ptr @proto_tree_add_item(ptr noundef %20, i32 noundef %214, ptr noundef %0, i32 noundef %213, i32 noundef 2, i32 noundef 0) #10
+  %216 = add i32 %208, 4
+  store i32 %216, ptr %7, align 4
+  br label %217
 
-218:                                              ; preds = %215
-  %219 = load i32, ptr @hf_x11_border_width, align 4
-  %220 = tail call ptr @proto_tree_add_item(ptr noundef %20, i32 noundef %219, ptr noundef %0, i32 noundef %216, i32 noundef 2, i32 noundef %5) #10
-  %221 = add i32 %216, 2
-  %222 = load i32, ptr @hf_x11_unused, align 4
-  %223 = tail call ptr @proto_tree_add_item(ptr noundef %20, i32 noundef %222, ptr noundef %0, i32 noundef %221, i32 noundef 2, i32 noundef 0) #10
-  %224 = add i32 %216, 4
-  store i32 %224, ptr %7, align 4
-  br label %225
+217:                                              ; preds = %210, %207
+  %218 = phi i32 [ %216, %210 ], [ %208, %207 ]
+  %219 = and i32 %168, 32
+  %.not2830 = icmp eq i32 %219, 0
+  br i1 %.not2830, label %224, label %220
 
-225:                                              ; preds = %218, %215
-  %226 = phi i32 [ %224, %218 ], [ %216, %215 ]
-  %227 = and i32 %176, 32
-  %.not2830 = icmp eq i32 %227, 0
-  br i1 %.not2830, label %232, label %228
+220:                                              ; preds = %217
+  %221 = load i32, ptr @hf_x11_sibling, align 4
+  %222 = tail call ptr @proto_tree_add_item(ptr noundef %20, i32 noundef %221, ptr noundef %0, i32 noundef %218, i32 noundef 4, i32 noundef %5) #10
+  %223 = add i32 %218, 4
+  store i32 %223, ptr %7, align 4
+  br label %224
 
-228:                                              ; preds = %225
-  %229 = load i32, ptr @hf_x11_sibling, align 4
-  %230 = tail call ptr @proto_tree_add_item(ptr noundef %20, i32 noundef %229, ptr noundef %0, i32 noundef %226, i32 noundef 4, i32 noundef %5) #10
-  %231 = add i32 %226, 4
-  store i32 %231, ptr %7, align 4
-  br label %232
+224:                                              ; preds = %220, %217
+  %225 = phi i32 [ %223, %220 ], [ %218, %217 ]
+  %226 = and i32 %168, 64
+  %.not2831 = icmp eq i32 %226, 0
+  br i1 %.not2831, label %234, label %227
 
-232:                                              ; preds = %228, %225
-  %233 = phi i32 [ %231, %228 ], [ %226, %225 ]
-  %234 = and i32 %176, 64
-  %.not2831 = icmp eq i32 %234, 0
-  br i1 %.not2831, label %242, label %235
+227:                                              ; preds = %224
+  %228 = load i32, ptr @hf_x11_stack_mode, align 4
+  %229 = tail call ptr @proto_tree_add_item(ptr noundef %20, i32 noundef %228, ptr noundef %0, i32 noundef %225, i32 noundef 1, i32 noundef %5) #10
+  %230 = add i32 %225, 1
+  %231 = load i32, ptr @hf_x11_unused, align 4
+  %232 = tail call ptr @proto_tree_add_item(ptr noundef %20, i32 noundef %231, ptr noundef %0, i32 noundef %230, i32 noundef 3, i32 noundef 0) #10
+  %233 = add i32 %225, 4
+  store i32 %233, ptr %7, align 4
+  br label %234
 
-235:                                              ; preds = %232
-  %236 = load i32, ptr @hf_x11_stack_mode, align 4
-  %237 = tail call ptr @proto_tree_add_item(ptr noundef %20, i32 noundef %236, ptr noundef %0, i32 noundef %233, i32 noundef 1, i32 noundef %5) #10
-  %238 = add i32 %233, 1
+234:                                              ; preds = %227, %224
+  %235 = phi i32 [ %233, %227 ], [ %225, %224 ]
+  %236 = sub i32 %.02784, %235
+  %237 = icmp sgt i32 %236, 0
+  br i1 %237, label %238, label %1627
+
+238:                                              ; preds = %234
   %239 = load i32, ptr @hf_x11_unused, align 4
-  %240 = tail call ptr @proto_tree_add_item(ptr noundef %20, i32 noundef %239, ptr noundef %0, i32 noundef %238, i32 noundef 3, i32 noundef 0) #10
-  %241 = add i32 %233, 4
-  store i32 %241, ptr %7, align 4
-  br label %242
-
-242:                                              ; preds = %235, %232
-  %243 = phi i32 [ %241, %235 ], [ %233, %232 ]
-  %244 = sub i32 %.02784, %243
-  %245 = icmp sgt i32 %244, 0
-  br i1 %245, label %246, label %1635
-
-246:                                              ; preds = %242
-  %247 = load i32, ptr @hf_x11_unused, align 4
-  %248 = tail call ptr @proto_tree_add_item(ptr noundef %20, i32 noundef %247, ptr noundef %0, i32 noundef %243, i32 noundef %244, i32 noundef 0) #10
+  %240 = tail call ptr @proto_tree_add_item(ptr noundef %20, i32 noundef %239, ptr noundef %0, i32 noundef %235, i32 noundef %236, i32 noundef 0) #10
   store i32 %.02784, ptr %7, align 4
-  br label %1635
+  br label %1627
 
-249:                                              ; preds = %97
-  %250 = load i32, ptr @hf_x11_direction, align 4
-  %251 = call fastcc i32 @field8(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %250, i32 noundef %5)
-  %252 = call fastcc i32 @requestLength(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %5)
-  %253 = load i32, ptr @hf_x11_window, align 4
-  %254 = call fastcc i32 @field32(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %253, i32 noundef %5)
-  br label %1635
+241:                                              ; preds = %89
+  %242 = load i32, ptr @hf_x11_direction, align 4
+  %243 = call fastcc i32 @field8(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %242, i32 noundef %5)
+  %244 = call fastcc i32 @requestLength(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %5)
+  %245 = load i32, ptr @hf_x11_window, align 4
+  %246 = call fastcc i32 @field32(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %245, i32 noundef %5)
+  br label %1627
 
-255:                                              ; preds = %97, %97
-  %256 = load i32, ptr @hf_x11_unused, align 4
-  %257 = tail call ptr @proto_tree_add_item(ptr noundef %20, i32 noundef %256, ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef 0) #10
+247:                                              ; preds = %89, %89
+  %248 = load i32, ptr @hf_x11_unused, align 4
+  %249 = tail call ptr @proto_tree_add_item(ptr noundef %20, i32 noundef %248, ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef 0) #10
   store i32 2, ptr %7, align 4
-  %258 = call fastcc i32 @requestLength(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %5)
-  %259 = load i32, ptr @hf_x11_drawable, align 4
-  %260 = call fastcc i32 @field32(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %259, i32 noundef %5)
-  br label %1635
+  %250 = call fastcc i32 @requestLength(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %5)
+  %251 = load i32, ptr @hf_x11_drawable, align 4
+  %252 = call fastcc i32 @field32(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %251, i32 noundef %5)
+  br label %1627
 
-261:                                              ; preds = %97
-  %262 = load i32, ptr @hf_x11_only_if_exists, align 4
-  %263 = call fastcc i32 @add_boolean(ptr noundef %0, ptr noundef %7, ptr noundef %20, i32 noundef %262)
-  %264 = call fastcc i32 @requestLength(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %5)
-  %265 = load i32, ptr @hf_x11_name_length, align 4
-  %266 = call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %265, i32 noundef %5)
-  %267 = load i32, ptr @hf_x11_unused, align 4
-  %268 = load i32, ptr %7, align 4
-  %269 = tail call ptr @proto_tree_add_item(ptr noundef %20, i32 noundef %267, ptr noundef %0, i32 noundef %268, i32 noundef 2, i32 noundef 0) #10
-  %270 = add i32 %268, 2
-  %271 = load i32, ptr @hf_x11_name, align 4
-  %272 = tail call ptr @proto_tree_add_item(ptr noundef %20, i32 noundef %271, ptr noundef %0, i32 noundef %270, i32 noundef %266, i32 noundef 0) #10
-  %273 = add i32 %270, %266
-  %274 = sub i32 %.02784, %273
-  %275 = icmp sgt i32 %274, 0
-  br i1 %275, label %276, label %279
+253:                                              ; preds = %89
+  %254 = load i32, ptr @hf_x11_only_if_exists, align 4
+  %255 = call fastcc i32 @add_boolean(ptr noundef %0, ptr noundef %7, ptr noundef %20, i32 noundef %254)
+  %256 = call fastcc i32 @requestLength(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %5)
+  %257 = load i32, ptr @hf_x11_name_length, align 4
+  %258 = call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %257, i32 noundef %5)
+  %259 = load i32, ptr @hf_x11_unused, align 4
+  %260 = load i32, ptr %7, align 4
+  %261 = tail call ptr @proto_tree_add_item(ptr noundef %20, i32 noundef %259, ptr noundef %0, i32 noundef %260, i32 noundef 2, i32 noundef 0) #10
+  %262 = add i32 %260, 2
+  %263 = load i32, ptr @hf_x11_name, align 4
+  %264 = tail call ptr @proto_tree_add_item(ptr noundef %20, i32 noundef %263, ptr noundef %0, i32 noundef %262, i32 noundef %258, i32 noundef 0) #10
+  %265 = add i32 %262, %258
+  %266 = sub i32 %.02784, %265
+  %267 = icmp sgt i32 %266, 0
+  br i1 %267, label %268, label %271
 
-276:                                              ; preds = %261
-  %277 = load i32, ptr @hf_x11_unused, align 4
-  %278 = tail call ptr @proto_tree_add_item(ptr noundef %20, i32 noundef %277, ptr noundef %0, i32 noundef %273, i32 noundef %274, i32 noundef 0) #10
-  br label %279
+268:                                              ; preds = %253
+  %269 = load i32, ptr @hf_x11_unused, align 4
+  %270 = tail call ptr @proto_tree_add_item(ptr noundef %20, i32 noundef %269, ptr noundef %0, i32 noundef %265, i32 noundef %266, i32 noundef 0) #10
+  br label %271
 
-279:                                              ; preds = %276, %261
+271:                                              ; preds = %268, %253
   store i32 %.02784, ptr %7, align 4
-  br label %1635
+  br label %1627
 
-280:                                              ; preds = %97
-  %281 = load i32, ptr @hf_x11_unused, align 4
-  %282 = tail call ptr @proto_tree_add_item(ptr noundef %20, i32 noundef %281, ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef 0) #10
+272:                                              ; preds = %89
+  %273 = load i32, ptr @hf_x11_unused, align 4
+  %274 = tail call ptr @proto_tree_add_item(ptr noundef %20, i32 noundef %273, ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef 0) #10
   store i32 2, ptr %7, align 4
-  %283 = call fastcc i32 @requestLength(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %5)
-  %284 = load i32, ptr @hf_x11_atom, align 4
+  %275 = call fastcc i32 @requestLength(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %5)
+  %276 = load i32, ptr @hf_x11_atom, align 4
+  call fastcc void @atom(ptr noundef %0, ptr noundef %7, ptr noundef %20, i32 noundef %276, i32 noundef %5)
+  br label %1627
+
+277:                                              ; preds = %89
+  %278 = load i32, ptr @hf_x11_mode, align 4
+  %279 = call fastcc i32 @field8(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %278, i32 noundef %5)
+  %280 = call fastcc i32 @requestLength(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %5)
+  %281 = load i32, ptr @hf_x11_window, align 4
+  %282 = call fastcc i32 @field32(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %281, i32 noundef %5)
+  %283 = load i32, ptr @hf_x11_property, align 4
+  call fastcc void @atom(ptr noundef %0, ptr noundef %7, ptr noundef %20, i32 noundef %283, i32 noundef %5)
+  %284 = load i32, ptr @hf_x11_type, align 4
   call fastcc void @atom(ptr noundef %0, ptr noundef %7, ptr noundef %20, i32 noundef %284, i32 noundef %5)
-  br label %1635
-
-285:                                              ; preds = %97
-  %286 = load i32, ptr @hf_x11_mode, align 4
-  %287 = call fastcc i32 @field8(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %286, i32 noundef %5)
-  %288 = call fastcc i32 @requestLength(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %5)
-  %289 = load i32, ptr @hf_x11_window, align 4
-  %290 = call fastcc i32 @field32(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %289, i32 noundef %5)
-  %291 = load i32, ptr @hf_x11_property, align 4
-  call fastcc void @atom(ptr noundef %0, ptr noundef %7, ptr noundef %20, i32 noundef %291, i32 noundef %5)
-  %292 = load i32, ptr @hf_x11_type, align 4
-  call fastcc void @atom(ptr noundef %0, ptr noundef %7, ptr noundef %20, i32 noundef %292, i32 noundef %5)
-  %293 = load i32, ptr @hf_x11_format, align 4
-  %294 = call fastcc i32 @field8(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %293, i32 noundef %5)
-  %295 = load i32, ptr @hf_x11_unused, align 4
-  %296 = load i32, ptr %7, align 4
-  %297 = tail call ptr @proto_tree_add_item(ptr noundef %20, i32 noundef %295, ptr noundef %0, i32 noundef %296, i32 noundef 3, i32 noundef 0) #10
-  %298 = add i32 %296, 3
-  store i32 %298, ptr %7, align 4
-  %299 = load i32, ptr @hf_x11_data_length, align 4
-  %300 = call fastcc i32 @field32(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %299, i32 noundef %5)
-  %trunc = trunc nuw i32 %294 to i8
-  switch i8 %trunc, label %317 [
-    i8 8, label %301
-    i8 16, label %307
-    i8 32, label %312
+  %285 = load i32, ptr @hf_x11_format, align 4
+  %286 = call fastcc i32 @field8(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %285, i32 noundef %5)
+  %287 = load i32, ptr @hf_x11_unused, align 4
+  %288 = load i32, ptr %7, align 4
+  %289 = tail call ptr @proto_tree_add_item(ptr noundef %20, i32 noundef %287, ptr noundef %0, i32 noundef %288, i32 noundef 3, i32 noundef 0) #10
+  %290 = add i32 %288, 3
+  store i32 %290, ptr %7, align 4
+  %291 = load i32, ptr @hf_x11_data_length, align 4
+  %292 = call fastcc i32 @field32(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %291, i32 noundef %5)
+  %trunc = trunc nuw i32 %286 to i8
+  switch i8 %trunc, label %309 [
+    i8 8, label %293
+    i8 16, label %299
+    i8 32, label %304
   ]
 
-301:                                              ; preds = %285
-  %.not2824 = icmp eq i32 %300, 0
-  br i1 %.not2824, label %319, label %302
+293:                                              ; preds = %277
+  %.not2824 = icmp eq i32 %292, 0
+  br i1 %.not2824, label %311, label %294
 
-302:                                              ; preds = %301
-  %303 = load i32, ptr @hf_x11_data, align 4
-  %spec.store.select.i = tail call i32 @llvm.smax.i32(i32 %300, i32 1)
-  %304 = load i32, ptr %7, align 4
-  %305 = tail call ptr @proto_tree_add_item(ptr noundef %20, i32 noundef %303, ptr noundef %0, i32 noundef %304, i32 noundef %spec.store.select.i, i32 noundef %5) #10
-  %306 = add i32 %304, %spec.store.select.i
-  store i32 %306, ptr %7, align 4
-  br label %319
+294:                                              ; preds = %293
+  %295 = load i32, ptr @hf_x11_data, align 4
+  %spec.store.select.i = tail call i32 @llvm.smax.i32(i32 %292, i32 1)
+  %296 = load i32, ptr %7, align 4
+  %297 = tail call ptr @proto_tree_add_item(ptr noundef %20, i32 noundef %295, ptr noundef %0, i32 noundef %296, i32 noundef %spec.store.select.i, i32 noundef %5) #10
+  %298 = add i32 %296, %spec.store.select.i
+  store i32 %298, ptr %7, align 4
+  br label %311
 
-307:                                              ; preds = %285
-  %.not2823 = icmp eq i32 %300, 0
-  br i1 %.not2823, label %319, label %308
+299:                                              ; preds = %277
+  %.not2823 = icmp eq i32 %292, 0
+  br i1 %.not2823, label %311, label %300
 
-308:                                              ; preds = %307
-  %309 = load i32, ptr @hf_x11_data16, align 4
-  %310 = load i32, ptr @hf_x11_data16_item, align 4
-  %311 = and i32 %300, 2147483647
-  call fastcc void @listOfCard16(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %309, i32 noundef %310, i32 noundef %311, i32 noundef %5)
-  br label %319
+300:                                              ; preds = %299
+  %301 = load i32, ptr @hf_x11_data16, align 4
+  %302 = load i32, ptr @hf_x11_data16_item, align 4
+  %303 = and i32 %292, 2147483647
+  call fastcc void @listOfCard16(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %301, i32 noundef %302, i32 noundef %303, i32 noundef %5)
+  br label %311
 
-312:                                              ; preds = %285
-  %.not2822 = icmp eq i32 %300, 0
-  br i1 %.not2822, label %319, label %313
+304:                                              ; preds = %277
+  %.not2822 = icmp eq i32 %292, 0
+  br i1 %.not2822, label %311, label %305
 
-313:                                              ; preds = %312
-  %314 = load i32, ptr @hf_x11_data32, align 4
-  %315 = load i32, ptr @hf_x11_data32_item, align 4
-  %316 = and i32 %300, 1073741823
-  call fastcc void @listOfCard32(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %314, i32 noundef %315, i32 noundef %316, i32 noundef %5)
-  br label %319
+305:                                              ; preds = %304
+  %306 = load i32, ptr @hf_x11_data32, align 4
+  %307 = load i32, ptr @hf_x11_data32_item, align 4
+  %308 = and i32 %292, 1073741823
+  call fastcc void @listOfCard32(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %306, i32 noundef %307, i32 noundef %308, i32 noundef %5)
+  br label %311
 
-317:                                              ; preds = %285
-  %318 = tail call ptr @expert_add_info(ptr noundef %1, ptr noundef %18, ptr noundef nonnull @ei_x11_invalid_format) #10
-  br label %319
+309:                                              ; preds = %277
+  %310 = tail call ptr @expert_add_info(ptr noundef %1, ptr noundef %18, ptr noundef nonnull @ei_x11_invalid_format) #10
+  br label %311
 
-319:                                              ; preds = %312, %313, %307, %308, %301, %302, %317
-  %320 = load i32, ptr %7, align 4
-  %321 = sub i32 %.02784, %320
-  %322 = icmp sgt i32 %321, 0
-  br i1 %322, label %323, label %326
+311:                                              ; preds = %304, %305, %299, %300, %293, %294, %309
+  %312 = load i32, ptr %7, align 4
+  %313 = sub i32 %.02784, %312
+  %314 = icmp sgt i32 %313, 0
+  br i1 %314, label %315, label %318
 
-323:                                              ; preds = %319
-  %324 = load i32, ptr @hf_x11_unused, align 4
-  %325 = tail call ptr @proto_tree_add_item(ptr noundef %20, i32 noundef %324, ptr noundef %0, i32 noundef %320, i32 noundef %321, i32 noundef 0) #10
-  br label %326
+315:                                              ; preds = %311
+  %316 = load i32, ptr @hf_x11_unused, align 4
+  %317 = tail call ptr @proto_tree_add_item(ptr noundef %20, i32 noundef %316, ptr noundef %0, i32 noundef %312, i32 noundef %313, i32 noundef 0) #10
+  br label %318
 
-326:                                              ; preds = %323, %319
+318:                                              ; preds = %315, %311
   store i32 %.02784, ptr %7, align 4
-  br label %1635
+  br label %1627
 
-327:                                              ; preds = %97
-  %328 = load i32, ptr @hf_x11_unused, align 4
-  %329 = tail call ptr @proto_tree_add_item(ptr noundef %20, i32 noundef %328, ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef 0) #10
+319:                                              ; preds = %89
+  %320 = load i32, ptr @hf_x11_unused, align 4
+  %321 = tail call ptr @proto_tree_add_item(ptr noundef %20, i32 noundef %320, ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef 0) #10
   store i32 2, ptr %7, align 4
-  %330 = call fastcc i32 @requestLength(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %5)
-  %331 = load i32, ptr @hf_x11_window, align 4
-  %332 = call fastcc i32 @field32(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %331, i32 noundef %5)
-  %333 = load i32, ptr @hf_x11_property, align 4
+  %322 = call fastcc i32 @requestLength(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %5)
+  %323 = load i32, ptr @hf_x11_window, align 4
+  %324 = call fastcc i32 @field32(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %323, i32 noundef %5)
+  %325 = load i32, ptr @hf_x11_property, align 4
+  call fastcc void @atom(ptr noundef %0, ptr noundef %7, ptr noundef %20, i32 noundef %325, i32 noundef %5)
+  br label %1627
+
+326:                                              ; preds = %89
+  %327 = load i32, ptr @hf_x11_delete, align 4
+  %328 = call fastcc i32 @add_boolean(ptr noundef %0, ptr noundef %7, ptr noundef %20, i32 noundef %327)
+  %329 = call fastcc i32 @requestLength(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %5)
+  %330 = load i32, ptr @hf_x11_window, align 4
+  %331 = call fastcc i32 @field32(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %330, i32 noundef %5)
+  %332 = load i32, ptr @hf_x11_property, align 4
+  call fastcc void @atom(ptr noundef %0, ptr noundef %7, ptr noundef %20, i32 noundef %332, i32 noundef %5)
+  %333 = load i32, ptr @hf_x11_get_property_type, align 4
   call fastcc void @atom(ptr noundef %0, ptr noundef %7, ptr noundef %20, i32 noundef %333, i32 noundef %5)
-  br label %1635
+  %334 = load i32, ptr @hf_x11_long_offset, align 4
+  %335 = call fastcc i32 @field32(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %334, i32 noundef %5)
+  %336 = load i32, ptr @hf_x11_long_length, align 4
+  %337 = call fastcc i32 @field32(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %336, i32 noundef %5)
+  br label %1627
 
-334:                                              ; preds = %97
-  %335 = load i32, ptr @hf_x11_delete, align 4
-  %336 = call fastcc i32 @add_boolean(ptr noundef %0, ptr noundef %7, ptr noundef %20, i32 noundef %335)
-  %337 = call fastcc i32 @requestLength(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %5)
-  %338 = load i32, ptr @hf_x11_window, align 4
-  %339 = call fastcc i32 @field32(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %338, i32 noundef %5)
-  %340 = load i32, ptr @hf_x11_property, align 4
-  call fastcc void @atom(ptr noundef %0, ptr noundef %7, ptr noundef %20, i32 noundef %340, i32 noundef %5)
-  %341 = load i32, ptr @hf_x11_get_property_type, align 4
-  call fastcc void @atom(ptr noundef %0, ptr noundef %7, ptr noundef %20, i32 noundef %341, i32 noundef %5)
-  %342 = load i32, ptr @hf_x11_long_offset, align 4
-  %343 = call fastcc i32 @field32(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %342, i32 noundef %5)
-  %344 = load i32, ptr @hf_x11_long_length, align 4
-  %345 = call fastcc i32 @field32(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %344, i32 noundef %5)
-  br label %1635
-
-346:                                              ; preds = %97
-  %347 = load i32, ptr @hf_x11_unused, align 4
-  %348 = tail call ptr @proto_tree_add_item(ptr noundef %20, i32 noundef %347, ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef 0) #10
+338:                                              ; preds = %89
+  %339 = load i32, ptr @hf_x11_unused, align 4
+  %340 = tail call ptr @proto_tree_add_item(ptr noundef %20, i32 noundef %339, ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef 0) #10
   store i32 2, ptr %7, align 4
-  %349 = call fastcc i32 @requestLength(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %5)
-  %350 = load i32, ptr @hf_x11_window, align 4
-  %351 = call fastcc i32 @field32(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %350, i32 noundef %5)
-  br label %1635
+  %341 = call fastcc i32 @requestLength(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %5)
+  %342 = load i32, ptr @hf_x11_window, align 4
+  %343 = call fastcc i32 @field32(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %342, i32 noundef %5)
+  br label %1627
 
-352:                                              ; preds = %97
+344:                                              ; preds = %89
+  %345 = load i32, ptr @hf_x11_unused, align 4
+  %346 = tail call ptr @proto_tree_add_item(ptr noundef %20, i32 noundef %345, ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef 0) #10
+  store i32 2, ptr %7, align 4
+  %347 = call fastcc i32 @requestLength(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %5)
+  %348 = load i32, ptr @hf_x11_owner, align 4
+  %349 = call fastcc i32 @field32(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %348, i32 noundef %5)
+  %350 = load i32, ptr @hf_x11_selection, align 4
+  call fastcc void @atom(ptr noundef %0, ptr noundef %7, ptr noundef %20, i32 noundef %350, i32 noundef %5)
+  %351 = load i32, ptr @hf_x11_time, align 4
+  call fastcc void @timestamp(ptr noundef %0, ptr noundef %7, ptr noundef %20, i32 noundef %351, i32 noundef %5)
+  br label %1627
+
+352:                                              ; preds = %89
   %353 = load i32, ptr @hf_x11_unused, align 4
   %354 = tail call ptr @proto_tree_add_item(ptr noundef %20, i32 noundef %353, ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef 0) #10
   store i32 2, ptr %7, align 4
   %355 = call fastcc i32 @requestLength(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %5)
-  %356 = load i32, ptr @hf_x11_owner, align 4
-  %357 = call fastcc i32 @field32(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %356, i32 noundef %5)
-  %358 = load i32, ptr @hf_x11_selection, align 4
-  call fastcc void @atom(ptr noundef %0, ptr noundef %7, ptr noundef %20, i32 noundef %358, i32 noundef %5)
-  %359 = load i32, ptr @hf_x11_time, align 4
-  call fastcc void @timestamp(ptr noundef %0, ptr noundef %7, ptr noundef %20, i32 noundef %359, i32 noundef %5)
-  br label %1635
+  %356 = load i32, ptr @hf_x11_selection, align 4
+  call fastcc void @atom(ptr noundef %0, ptr noundef %7, ptr noundef %20, i32 noundef %356, i32 noundef %5)
+  br label %1627
 
-360:                                              ; preds = %97
-  %361 = load i32, ptr @hf_x11_unused, align 4
-  %362 = tail call ptr @proto_tree_add_item(ptr noundef %20, i32 noundef %361, ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef 0) #10
+357:                                              ; preds = %89
+  %358 = load i32, ptr @hf_x11_unused, align 4
+  %359 = tail call ptr @proto_tree_add_item(ptr noundef %20, i32 noundef %358, ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef 0) #10
   store i32 2, ptr %7, align 4
-  %363 = call fastcc i32 @requestLength(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %5)
-  %364 = load i32, ptr @hf_x11_selection, align 4
+  %360 = call fastcc i32 @requestLength(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %5)
+  %361 = load i32, ptr @hf_x11_requestor, align 4
+  %362 = call fastcc i32 @field32(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %361, i32 noundef %5)
+  %363 = load i32, ptr @hf_x11_selection, align 4
+  call fastcc void @atom(ptr noundef %0, ptr noundef %7, ptr noundef %20, i32 noundef %363, i32 noundef %5)
+  %364 = load i32, ptr @hf_x11_target, align 4
   call fastcc void @atom(ptr noundef %0, ptr noundef %7, ptr noundef %20, i32 noundef %364, i32 noundef %5)
-  br label %1635
+  %365 = load i32, ptr @hf_x11_property, align 4
+  call fastcc void @atom(ptr noundef %0, ptr noundef %7, ptr noundef %20, i32 noundef %365, i32 noundef %5)
+  %366 = load i32, ptr @hf_x11_time, align 4
+  call fastcc void @timestamp(ptr noundef %0, ptr noundef %7, ptr noundef %20, i32 noundef %366, i32 noundef %5)
+  br label %1627
 
-365:                                              ; preds = %97
-  %366 = load i32, ptr @hf_x11_unused, align 4
-  %367 = tail call ptr @proto_tree_add_item(ptr noundef %20, i32 noundef %366, ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef 0) #10
-  store i32 2, ptr %7, align 4
-  %368 = call fastcc i32 @requestLength(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %5)
-  %369 = load i32, ptr @hf_x11_requestor, align 4
-  %370 = call fastcc i32 @field32(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %369, i32 noundef %5)
-  %371 = load i32, ptr @hf_x11_selection, align 4
-  call fastcc void @atom(ptr noundef %0, ptr noundef %7, ptr noundef %20, i32 noundef %371, i32 noundef %5)
-  %372 = load i32, ptr @hf_x11_target, align 4
-  call fastcc void @atom(ptr noundef %0, ptr noundef %7, ptr noundef %20, i32 noundef %372, i32 noundef %5)
-  %373 = load i32, ptr @hf_x11_property, align 4
-  call fastcc void @atom(ptr noundef %0, ptr noundef %7, ptr noundef %20, i32 noundef %373, i32 noundef %5)
-  %374 = load i32, ptr @hf_x11_time, align 4
-  call fastcc void @timestamp(ptr noundef %0, ptr noundef %7, ptr noundef %20, i32 noundef %374, i32 noundef %5)
-  br label %1635
-
-375:                                              ; preds = %97
-  %376 = load i32, ptr @hf_x11_propagate, align 4
-  %377 = call fastcc i32 @add_boolean(ptr noundef %0, ptr noundef %7, ptr noundef %20, i32 noundef %376)
-  %378 = call fastcc i32 @requestLength(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %5)
-  %379 = load i32, ptr @hf_x11_destination, align 4
-  %380 = call fastcc i32 @field32(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %379, i32 noundef %5)
-  %381 = load i32, ptr %7, align 4
-  %382 = load i32, ptr @hf_x11_event_mask, align 4
-  %383 = load i32, ptr @ett_x11_event_mask, align 4
-  %384 = tail call ptr @proto_tree_add_bitmask(ptr noundef %20, ptr noundef %0, i32 noundef %381, i32 noundef %382, i32 noundef %383, ptr noundef nonnull @setOfEvent.events, i32 noundef %5) #10
-  %385 = add i32 %381, 4
-  %386 = sub i32 %.02784, %385
-  %387 = tail call ptr @tvb_new_subset_length_caplen(ptr noundef %0, i32 noundef %385, i32 noundef %386, i32 noundef %386) #10
-  %388 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %387, i32 noundef 0) #10
-  %389 = zext i8 %388 to i32
-  %.not2821 = icmp sgt i8 %388, -1
-  %390 = select i1 %.not2821, ptr @.str.14689, ptr @.str.14688
-  %391 = load i32, ptr @ett_x11_event, align 4
-  %392 = and i32 %389, 127
-  %393 = getelementptr inbounds i8, ptr %4, i64 8240
-  %394 = tail call ptr @val_to_str(i32 noundef %392, ptr noundef nonnull %393, ptr noundef nonnull @.str.14691) #10
-  %395 = tail call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %20, ptr noundef %387, i32 noundef 0, i32 noundef -1, i32 noundef %391, ptr noundef null, ptr noundef nonnull @.str.14705, i32 noundef %389, ptr noundef %394) #10
-  tail call fastcc void @decode_x11_event(ptr noundef %387, i8 noundef zeroext %388, ptr noundef nonnull %390, ptr noundef %395, ptr noundef %4, i32 noundef %5)
+367:                                              ; preds = %89
+  %368 = load i32, ptr @hf_x11_propagate, align 4
+  %369 = call fastcc i32 @add_boolean(ptr noundef %0, ptr noundef %7, ptr noundef %20, i32 noundef %368)
+  %370 = call fastcc i32 @requestLength(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %5)
+  %371 = load i32, ptr @hf_x11_destination, align 4
+  %372 = call fastcc i32 @field32(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %371, i32 noundef %5)
+  %373 = load i32, ptr %7, align 4
+  %374 = load i32, ptr @hf_x11_event_mask, align 4
+  %375 = load i32, ptr @ett_x11_event_mask, align 4
+  %376 = tail call ptr @proto_tree_add_bitmask(ptr noundef %20, ptr noundef %0, i32 noundef %373, i32 noundef %374, i32 noundef %375, ptr noundef nonnull @setOfEvent.events, i32 noundef %5) #10
+  %377 = add i32 %373, 4
+  %378 = sub i32 %.02784, %377
+  %379 = tail call ptr @tvb_new_subset_length_caplen(ptr noundef %0, i32 noundef %377, i32 noundef %378, i32 noundef %378) #10
+  %380 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %379, i32 noundef 0) #10
+  %381 = zext i8 %380 to i32
+  %.not2821 = icmp sgt i8 %380, -1
+  %382 = select i1 %.not2821, ptr @.str.14689, ptr @.str.14688
+  %383 = load i32, ptr @ett_x11_event, align 4
+  %384 = and i32 %381, 127
+  %385 = getelementptr inbounds i8, ptr %4, i64 8240
+  %386 = tail call ptr @val_to_str(i32 noundef %384, ptr noundef nonnull %385, ptr noundef nonnull @.str.14691) #10
+  %387 = tail call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %20, ptr noundef %379, i32 noundef 0, i32 noundef -1, i32 noundef %383, ptr noundef null, ptr noundef nonnull @.str.14705, i32 noundef %381, ptr noundef %386) #10
+  tail call fastcc void @decode_x11_event(ptr noundef %379, i8 noundef zeroext %380, ptr noundef nonnull %382, ptr noundef %387, ptr noundef %4, i32 noundef %5)
   store i32 %.02784, ptr %7, align 4
-  br label %1635
+  br label %1627
 
-396:                                              ; preds = %97
-  %397 = load i32, ptr @hf_x11_owner_events, align 4
-  %398 = call fastcc i32 @add_boolean(ptr noundef %0, ptr noundef %7, ptr noundef %20, i32 noundef %397)
-  %399 = call fastcc i32 @requestLength(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %5)
-  %400 = load i32, ptr @hf_x11_grab_window, align 4
-  %401 = call fastcc i32 @field32(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %400, i32 noundef %5)
-  %402 = load i32, ptr %7, align 4
-  %403 = load i32, ptr @hf_x11_pointer_event_mask, align 4
-  %404 = load i32, ptr @ett_x11_pointer_event_mask, align 4
-  %405 = tail call ptr @proto_tree_add_bitmask(ptr noundef %20, ptr noundef %0, i32 noundef %402, i32 noundef %403, i32 noundef %404, ptr noundef nonnull @setOfPointerEvent.pointer_events, i32 noundef %5) #10
-  %406 = add i32 %402, 2
-  store i32 %406, ptr %7, align 4
-  %407 = load i32, ptr @hf_x11_pointer_mode, align 4
-  %408 = call fastcc i32 @field8(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %407, i32 noundef %5)
-  %409 = load i32, ptr @hf_x11_keyboard_mode, align 4
-  %410 = call fastcc i32 @field8(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %409, i32 noundef %5)
-  %411 = load i32, ptr @hf_x11_confine_to, align 4
-  %412 = call fastcc i32 @field32(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %411, i32 noundef %5)
-  %413 = load i32, ptr @hf_x11_cursor, align 4
-  %414 = call fastcc i32 @field32(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %413, i32 noundef %5)
-  %415 = load i32, ptr @hf_x11_time, align 4
-  call fastcc void @timestamp(ptr noundef %0, ptr noundef %7, ptr noundef %20, i32 noundef %415, i32 noundef %5)
-  br label %1635
+388:                                              ; preds = %89
+  %389 = load i32, ptr @hf_x11_owner_events, align 4
+  %390 = call fastcc i32 @add_boolean(ptr noundef %0, ptr noundef %7, ptr noundef %20, i32 noundef %389)
+  %391 = call fastcc i32 @requestLength(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %5)
+  %392 = load i32, ptr @hf_x11_grab_window, align 4
+  %393 = call fastcc i32 @field32(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %392, i32 noundef %5)
+  %394 = load i32, ptr %7, align 4
+  %395 = load i32, ptr @hf_x11_pointer_event_mask, align 4
+  %396 = load i32, ptr @ett_x11_pointer_event_mask, align 4
+  %397 = tail call ptr @proto_tree_add_bitmask(ptr noundef %20, ptr noundef %0, i32 noundef %394, i32 noundef %395, i32 noundef %396, ptr noundef nonnull @setOfPointerEvent.pointer_events, i32 noundef %5) #10
+  %398 = add i32 %394, 2
+  store i32 %398, ptr %7, align 4
+  %399 = load i32, ptr @hf_x11_pointer_mode, align 4
+  %400 = call fastcc i32 @field8(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %399, i32 noundef %5)
+  %401 = load i32, ptr @hf_x11_keyboard_mode, align 4
+  %402 = call fastcc i32 @field8(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %401, i32 noundef %5)
+  %403 = load i32, ptr @hf_x11_confine_to, align 4
+  %404 = call fastcc i32 @field32(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %403, i32 noundef %5)
+  %405 = load i32, ptr @hf_x11_cursor, align 4
+  %406 = call fastcc i32 @field32(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %405, i32 noundef %5)
+  %407 = load i32, ptr @hf_x11_time, align 4
+  call fastcc void @timestamp(ptr noundef %0, ptr noundef %7, ptr noundef %20, i32 noundef %407, i32 noundef %5)
+  br label %1627
 
-416:                                              ; preds = %97
-  %417 = load i32, ptr @hf_x11_unused, align 4
-  %418 = tail call ptr @proto_tree_add_item(ptr noundef %20, i32 noundef %417, ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef 0) #10
+408:                                              ; preds = %89
+  %409 = load i32, ptr @hf_x11_unused, align 4
+  %410 = tail call ptr @proto_tree_add_item(ptr noundef %20, i32 noundef %409, ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef 0) #10
   store i32 2, ptr %7, align 4
-  %419 = call fastcc i32 @requestLength(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %5)
-  %420 = load i32, ptr @hf_x11_time, align 4
-  call fastcc void @timestamp(ptr noundef %0, ptr noundef %7, ptr noundef %20, i32 noundef %420, i32 noundef %5)
-  br label %1635
+  %411 = call fastcc i32 @requestLength(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %5)
+  %412 = load i32, ptr @hf_x11_time, align 4
+  call fastcc void @timestamp(ptr noundef %0, ptr noundef %7, ptr noundef %20, i32 noundef %412, i32 noundef %5)
+  br label %1627
 
-421:                                              ; preds = %97
-  %422 = load i32, ptr @hf_x11_owner_events, align 4
-  %423 = call fastcc i32 @add_boolean(ptr noundef %0, ptr noundef %7, ptr noundef %20, i32 noundef %422)
-  %424 = call fastcc i32 @requestLength(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %5)
-  %425 = load i32, ptr @hf_x11_grab_window, align 4
-  %426 = call fastcc i32 @field32(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %425, i32 noundef %5)
-  %427 = load i32, ptr %7, align 4
-  %428 = load i32, ptr @hf_x11_pointer_event_mask, align 4
-  %429 = load i32, ptr @ett_x11_pointer_event_mask, align 4
-  %430 = tail call ptr @proto_tree_add_bitmask(ptr noundef %20, ptr noundef %0, i32 noundef %427, i32 noundef %428, i32 noundef %429, ptr noundef nonnull @setOfPointerEvent.pointer_events, i32 noundef %5) #10
-  %431 = add i32 %427, 2
-  store i32 %431, ptr %7, align 4
-  %432 = load i32, ptr @hf_x11_pointer_mode, align 4
+413:                                              ; preds = %89
+  %414 = load i32, ptr @hf_x11_owner_events, align 4
+  %415 = call fastcc i32 @add_boolean(ptr noundef %0, ptr noundef %7, ptr noundef %20, i32 noundef %414)
+  %416 = call fastcc i32 @requestLength(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %5)
+  %417 = load i32, ptr @hf_x11_grab_window, align 4
+  %418 = call fastcc i32 @field32(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %417, i32 noundef %5)
+  %419 = load i32, ptr %7, align 4
+  %420 = load i32, ptr @hf_x11_pointer_event_mask, align 4
+  %421 = load i32, ptr @ett_x11_pointer_event_mask, align 4
+  %422 = tail call ptr @proto_tree_add_bitmask(ptr noundef %20, ptr noundef %0, i32 noundef %419, i32 noundef %420, i32 noundef %421, ptr noundef nonnull @setOfPointerEvent.pointer_events, i32 noundef %5) #10
+  %423 = add i32 %419, 2
+  store i32 %423, ptr %7, align 4
+  %424 = load i32, ptr @hf_x11_pointer_mode, align 4
+  %425 = call fastcc i32 @field8(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %424, i32 noundef %5)
+  %426 = load i32, ptr @hf_x11_keyboard_mode, align 4
+  %427 = call fastcc i32 @field8(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %426, i32 noundef %5)
+  %428 = load i32, ptr @hf_x11_confine_to, align 4
+  %429 = call fastcc i32 @field32(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %428, i32 noundef %5)
+  %430 = load i32, ptr @hf_x11_cursor, align 4
+  %431 = call fastcc i32 @field32(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %430, i32 noundef %5)
+  %432 = load i32, ptr @hf_x11_button, align 4
   %433 = call fastcc i32 @field8(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %432, i32 noundef %5)
-  %434 = load i32, ptr @hf_x11_keyboard_mode, align 4
-  %435 = call fastcc i32 @field8(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %434, i32 noundef %5)
-  %436 = load i32, ptr @hf_x11_confine_to, align 4
-  %437 = call fastcc i32 @field32(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %436, i32 noundef %5)
-  %438 = load i32, ptr @hf_x11_cursor, align 4
-  %439 = call fastcc i32 @field32(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %438, i32 noundef %5)
-  %440 = load i32, ptr @hf_x11_button, align 4
-  %441 = call fastcc i32 @field8(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %440, i32 noundef %5)
-  %442 = load i32, ptr @hf_x11_unused, align 4
-  %443 = load i32, ptr %7, align 4
-  %444 = tail call ptr @proto_tree_add_item(ptr noundef %20, i32 noundef %442, ptr noundef %0, i32 noundef %443, i32 noundef 1, i32 noundef 0) #10
-  %445 = add i32 %443, 1
-  store i32 %445, ptr %7, align 4
+  %434 = load i32, ptr @hf_x11_unused, align 4
+  %435 = load i32, ptr %7, align 4
+  %436 = tail call ptr @proto_tree_add_item(ptr noundef %20, i32 noundef %434, ptr noundef %0, i32 noundef %435, i32 noundef 1, i32 noundef 0) #10
+  %437 = add i32 %435, 1
+  store i32 %437, ptr %7, align 4
   call fastcc void @setOfKeyButMask(ptr noundef %0, ptr noundef %7, ptr noundef %20, i32 noundef %5, i32 noundef 0)
-  br label %1635
+  br label %1627
 
-446:                                              ; preds = %97
-  %447 = load i32, ptr @hf_x11_button, align 4
-  %448 = call fastcc i32 @field8(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %447, i32 noundef %5)
-  %449 = call fastcc i32 @requestLength(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %5)
-  %450 = load i32, ptr @hf_x11_grab_window, align 4
-  %451 = call fastcc i32 @field32(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %450, i32 noundef %5)
+438:                                              ; preds = %89
+  %439 = load i32, ptr @hf_x11_button, align 4
+  %440 = call fastcc i32 @field8(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %439, i32 noundef %5)
+  %441 = call fastcc i32 @requestLength(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %5)
+  %442 = load i32, ptr @hf_x11_grab_window, align 4
+  %443 = call fastcc i32 @field32(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %442, i32 noundef %5)
   call fastcc void @setOfKeyButMask(ptr noundef %0, ptr noundef %7, ptr noundef %20, i32 noundef %5, i32 noundef 0)
-  %452 = load i32, ptr @hf_x11_unused, align 4
-  %453 = load i32, ptr %7, align 4
-  %454 = tail call ptr @proto_tree_add_item(ptr noundef %20, i32 noundef %452, ptr noundef %0, i32 noundef %453, i32 noundef 2, i32 noundef 0) #10
-  %455 = add i32 %453, 2
-  store i32 %455, ptr %7, align 4
-  br label %1635
+  %444 = load i32, ptr @hf_x11_unused, align 4
+  %445 = load i32, ptr %7, align 4
+  %446 = tail call ptr @proto_tree_add_item(ptr noundef %20, i32 noundef %444, ptr noundef %0, i32 noundef %445, i32 noundef 2, i32 noundef 0) #10
+  %447 = add i32 %445, 2
+  store i32 %447, ptr %7, align 4
+  br label %1627
 
-456:                                              ; preds = %97
-  %457 = load i32, ptr @hf_x11_unused, align 4
-  %458 = tail call ptr @proto_tree_add_item(ptr noundef %20, i32 noundef %457, ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef 0) #10
+448:                                              ; preds = %89
+  %449 = load i32, ptr @hf_x11_unused, align 4
+  %450 = tail call ptr @proto_tree_add_item(ptr noundef %20, i32 noundef %449, ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef 0) #10
   store i32 2, ptr %7, align 4
-  %459 = call fastcc i32 @requestLength(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %5)
-  %460 = load i32, ptr @hf_x11_cursor, align 4
-  %461 = call fastcc i32 @field32(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %460, i32 noundef %5)
-  %462 = load i32, ptr @hf_x11_time, align 4
-  call fastcc void @timestamp(ptr noundef %0, ptr noundef %7, ptr noundef %20, i32 noundef %462, i32 noundef %5)
-  %463 = load i32, ptr %7, align 4
-  %464 = load i32, ptr @hf_x11_pointer_event_mask, align 4
-  %465 = load i32, ptr @ett_x11_pointer_event_mask, align 4
-  %466 = tail call ptr @proto_tree_add_bitmask(ptr noundef %20, ptr noundef %0, i32 noundef %463, i32 noundef %464, i32 noundef %465, ptr noundef nonnull @setOfPointerEvent.pointer_events, i32 noundef %5) #10
-  %467 = add i32 %463, 2
-  %468 = load i32, ptr @hf_x11_unused, align 4
-  %469 = tail call ptr @proto_tree_add_item(ptr noundef %20, i32 noundef %468, ptr noundef %0, i32 noundef %467, i32 noundef 2, i32 noundef 0) #10
-  %470 = add i32 %463, 4
-  store i32 %470, ptr %7, align 4
-  br label %1635
+  %451 = call fastcc i32 @requestLength(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %5)
+  %452 = load i32, ptr @hf_x11_cursor, align 4
+  %453 = call fastcc i32 @field32(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %452, i32 noundef %5)
+  %454 = load i32, ptr @hf_x11_time, align 4
+  call fastcc void @timestamp(ptr noundef %0, ptr noundef %7, ptr noundef %20, i32 noundef %454, i32 noundef %5)
+  %455 = load i32, ptr %7, align 4
+  %456 = load i32, ptr @hf_x11_pointer_event_mask, align 4
+  %457 = load i32, ptr @ett_x11_pointer_event_mask, align 4
+  %458 = tail call ptr @proto_tree_add_bitmask(ptr noundef %20, ptr noundef %0, i32 noundef %455, i32 noundef %456, i32 noundef %457, ptr noundef nonnull @setOfPointerEvent.pointer_events, i32 noundef %5) #10
+  %459 = add i32 %455, 2
+  %460 = load i32, ptr @hf_x11_unused, align 4
+  %461 = tail call ptr @proto_tree_add_item(ptr noundef %20, i32 noundef %460, ptr noundef %0, i32 noundef %459, i32 noundef 2, i32 noundef 0) #10
+  %462 = add i32 %455, 4
+  store i32 %462, ptr %7, align 4
+  br label %1627
 
-471:                                              ; preds = %97
-  %472 = load i32, ptr @hf_x11_owner_events, align 4
-  %473 = call fastcc i32 @add_boolean(ptr noundef %0, ptr noundef %7, ptr noundef %20, i32 noundef %472)
-  %474 = call fastcc i32 @requestLength(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %5)
-  %475 = load i32, ptr @hf_x11_grab_window, align 4
-  %476 = call fastcc i32 @field32(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %475, i32 noundef %5)
-  %477 = load i32, ptr @hf_x11_time, align 4
-  call fastcc void @timestamp(ptr noundef %0, ptr noundef %7, ptr noundef %20, i32 noundef %477, i32 noundef %5)
-  %478 = load i32, ptr @hf_x11_pointer_mode, align 4
-  %479 = call fastcc i32 @field8(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %478, i32 noundef %5)
-  %480 = load i32, ptr @hf_x11_keyboard_mode, align 4
-  %481 = call fastcc i32 @field8(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %480, i32 noundef %5)
-  %482 = load i32, ptr @hf_x11_unused, align 4
-  %483 = load i32, ptr %7, align 4
-  %484 = tail call ptr @proto_tree_add_item(ptr noundef %20, i32 noundef %482, ptr noundef %0, i32 noundef %483, i32 noundef 2, i32 noundef 0) #10
-  %485 = add i32 %483, 2
-  store i32 %485, ptr %7, align 4
-  br label %1635
+463:                                              ; preds = %89
+  %464 = load i32, ptr @hf_x11_owner_events, align 4
+  %465 = call fastcc i32 @add_boolean(ptr noundef %0, ptr noundef %7, ptr noundef %20, i32 noundef %464)
+  %466 = call fastcc i32 @requestLength(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %5)
+  %467 = load i32, ptr @hf_x11_grab_window, align 4
+  %468 = call fastcc i32 @field32(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %467, i32 noundef %5)
+  %469 = load i32, ptr @hf_x11_time, align 4
+  call fastcc void @timestamp(ptr noundef %0, ptr noundef %7, ptr noundef %20, i32 noundef %469, i32 noundef %5)
+  %470 = load i32, ptr @hf_x11_pointer_mode, align 4
+  %471 = call fastcc i32 @field8(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %470, i32 noundef %5)
+  %472 = load i32, ptr @hf_x11_keyboard_mode, align 4
+  %473 = call fastcc i32 @field8(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %472, i32 noundef %5)
+  %474 = load i32, ptr @hf_x11_unused, align 4
+  %475 = load i32, ptr %7, align 4
+  %476 = tail call ptr @proto_tree_add_item(ptr noundef %20, i32 noundef %474, ptr noundef %0, i32 noundef %475, i32 noundef 2, i32 noundef 0) #10
+  %477 = add i32 %475, 2
+  store i32 %477, ptr %7, align 4
+  br label %1627
 
-486:                                              ; preds = %97
-  %487 = load i32, ptr @hf_x11_unused, align 4
-  %488 = tail call ptr @proto_tree_add_item(ptr noundef %20, i32 noundef %487, ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef 0) #10
+478:                                              ; preds = %89
+  %479 = load i32, ptr @hf_x11_unused, align 4
+  %480 = tail call ptr @proto_tree_add_item(ptr noundef %20, i32 noundef %479, ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef 0) #10
   store i32 2, ptr %7, align 4
-  %489 = call fastcc i32 @requestLength(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %5)
-  %490 = load i32, ptr @hf_x11_time, align 4
-  call fastcc void @timestamp(ptr noundef %0, ptr noundef %7, ptr noundef %20, i32 noundef %490, i32 noundef %5)
-  br label %1635
+  %481 = call fastcc i32 @requestLength(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %5)
+  %482 = load i32, ptr @hf_x11_time, align 4
+  call fastcc void @timestamp(ptr noundef %0, ptr noundef %7, ptr noundef %20, i32 noundef %482, i32 noundef %5)
+  br label %1627
 
-491:                                              ; preds = %97
-  %492 = load i32, ptr @hf_x11_owner_events, align 4
-  %493 = call fastcc i32 @add_boolean(ptr noundef %0, ptr noundef %7, ptr noundef %20, i32 noundef %492)
-  %494 = call fastcc i32 @requestLength(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %5)
-  %495 = load i32, ptr @hf_x11_grab_window, align 4
-  %496 = call fastcc i32 @field32(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %495, i32 noundef %5)
+483:                                              ; preds = %89
+  %484 = load i32, ptr @hf_x11_owner_events, align 4
+  %485 = call fastcc i32 @add_boolean(ptr noundef %0, ptr noundef %7, ptr noundef %20, i32 noundef %484)
+  %486 = call fastcc i32 @requestLength(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %5)
+  %487 = load i32, ptr @hf_x11_grab_window, align 4
+  %488 = call fastcc i32 @field32(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %487, i32 noundef %5)
   call fastcc void @setOfKeyButMask(ptr noundef %0, ptr noundef %7, ptr noundef %20, i32 noundef %5, i32 noundef 0)
-  %497 = load i32, ptr @hf_x11_key, align 4
-  %498 = call fastcc i32 @field8(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %497, i32 noundef %5)
-  %499 = load i32, ptr @hf_x11_pointer_mode, align 4
-  %500 = call fastcc i32 @field8(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %499, i32 noundef %5)
-  %501 = load i32, ptr @hf_x11_keyboard_mode, align 4
-  %502 = call fastcc i32 @field8(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %501, i32 noundef %5)
-  %503 = load i32, ptr @hf_x11_unused, align 4
-  %504 = load i32, ptr %7, align 4
-  %505 = tail call ptr @proto_tree_add_item(ptr noundef %20, i32 noundef %503, ptr noundef %0, i32 noundef %504, i32 noundef 3, i32 noundef 0) #10
-  %506 = add i32 %504, 3
-  store i32 %506, ptr %7, align 4
-  br label %1635
+  %489 = load i32, ptr @hf_x11_key, align 4
+  %490 = call fastcc i32 @field8(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %489, i32 noundef %5)
+  %491 = load i32, ptr @hf_x11_pointer_mode, align 4
+  %492 = call fastcc i32 @field8(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %491, i32 noundef %5)
+  %493 = load i32, ptr @hf_x11_keyboard_mode, align 4
+  %494 = call fastcc i32 @field8(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %493, i32 noundef %5)
+  %495 = load i32, ptr @hf_x11_unused, align 4
+  %496 = load i32, ptr %7, align 4
+  %497 = tail call ptr @proto_tree_add_item(ptr noundef %20, i32 noundef %495, ptr noundef %0, i32 noundef %496, i32 noundef 3, i32 noundef 0) #10
+  %498 = add i32 %496, 3
+  store i32 %498, ptr %7, align 4
+  br label %1627
 
-507:                                              ; preds = %97
-  %508 = load i32, ptr @hf_x11_key, align 4
-  %509 = call fastcc i32 @field8(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %508, i32 noundef %5)
-  %510 = call fastcc i32 @requestLength(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %5)
-  %511 = load i32, ptr @hf_x11_grab_window, align 4
-  %512 = call fastcc i32 @field32(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %511, i32 noundef %5)
+499:                                              ; preds = %89
+  %500 = load i32, ptr @hf_x11_key, align 4
+  %501 = call fastcc i32 @field8(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %500, i32 noundef %5)
+  %502 = call fastcc i32 @requestLength(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %5)
+  %503 = load i32, ptr @hf_x11_grab_window, align 4
+  %504 = call fastcc i32 @field32(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %503, i32 noundef %5)
   call fastcc void @setOfKeyButMask(ptr noundef %0, ptr noundef %7, ptr noundef %20, i32 noundef %5, i32 noundef 0)
-  %513 = load i32, ptr @hf_x11_unused, align 4
-  %514 = load i32, ptr %7, align 4
-  %515 = tail call ptr @proto_tree_add_item(ptr noundef %20, i32 noundef %513, ptr noundef %0, i32 noundef %514, i32 noundef 2, i32 noundef 0) #10
-  %516 = add i32 %514, 2
-  store i32 %516, ptr %7, align 4
-  br label %1635
+  %505 = load i32, ptr @hf_x11_unused, align 4
+  %506 = load i32, ptr %7, align 4
+  %507 = tail call ptr @proto_tree_add_item(ptr noundef %20, i32 noundef %505, ptr noundef %0, i32 noundef %506, i32 noundef 2, i32 noundef 0) #10
+  %508 = add i32 %506, 2
+  store i32 %508, ptr %7, align 4
+  br label %1627
 
-517:                                              ; preds = %97
-  %518 = load i32, ptr @hf_x11_allow_events_mode, align 4
-  %519 = call fastcc i32 @field8(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %518, i32 noundef %5)
-  %520 = call fastcc i32 @requestLength(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %5)
-  %521 = load i32, ptr @hf_x11_time, align 4
-  call fastcc void @timestamp(ptr noundef %0, ptr noundef %7, ptr noundef %20, i32 noundef %521, i32 noundef %5)
-  br label %1635
+509:                                              ; preds = %89
+  %510 = load i32, ptr @hf_x11_allow_events_mode, align 4
+  %511 = call fastcc i32 @field8(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %510, i32 noundef %5)
+  %512 = call fastcc i32 @requestLength(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %5)
+  %513 = load i32, ptr @hf_x11_time, align 4
+  call fastcc void @timestamp(ptr noundef %0, ptr noundef %7, ptr noundef %20, i32 noundef %513, i32 noundef %5)
+  br label %1627
 
-522:                                              ; preds = %97
+514:                                              ; preds = %89
+  %515 = load i32, ptr @hf_x11_unused, align 4
+  %516 = tail call ptr @proto_tree_add_item(ptr noundef %20, i32 noundef %515, ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef 0) #10
+  store i32 2, ptr %7, align 4
+  %517 = call fastcc i32 @requestLength(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %5)
+  br label %1627
+
+518:                                              ; preds = %89
+  %519 = load i32, ptr @hf_x11_unused, align 4
+  %520 = tail call ptr @proto_tree_add_item(ptr noundef %20, i32 noundef %519, ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef 0) #10
+  store i32 2, ptr %7, align 4
+  %521 = call fastcc i32 @requestLength(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %5)
+  br label %1627
+
+522:                                              ; preds = %89
   %523 = load i32, ptr @hf_x11_unused, align 4
   %524 = tail call ptr @proto_tree_add_item(ptr noundef %20, i32 noundef %523, ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef 0) #10
   store i32 2, ptr %7, align 4
   %525 = call fastcc i32 @requestLength(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %5)
-  br label %1635
+  %526 = load i32, ptr @hf_x11_window, align 4
+  %527 = call fastcc i32 @field32(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %526, i32 noundef %5)
+  br label %1627
 
-526:                                              ; preds = %97
-  %527 = load i32, ptr @hf_x11_unused, align 4
-  %528 = tail call ptr @proto_tree_add_item(ptr noundef %20, i32 noundef %527, ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef 0) #10
+528:                                              ; preds = %89
+  %529 = load i32, ptr @hf_x11_unused, align 4
+  %530 = tail call ptr @proto_tree_add_item(ptr noundef %20, i32 noundef %529, ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef 0) #10
   store i32 2, ptr %7, align 4
-  %529 = call fastcc i32 @requestLength(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %5)
-  br label %1635
+  %531 = call fastcc i32 @requestLength(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %5)
+  %532 = load i32, ptr @hf_x11_window, align 4
+  %533 = call fastcc i32 @field32(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %532, i32 noundef %5)
+  %534 = load i32, ptr @hf_x11_start, align 4
+  call fastcc void @timestamp(ptr noundef %0, ptr noundef %7, ptr noundef %20, i32 noundef %534, i32 noundef %5)
+  %535 = load i32, ptr @hf_x11_stop, align 4
+  call fastcc void @timestamp(ptr noundef %0, ptr noundef %7, ptr noundef %20, i32 noundef %535, i32 noundef %5)
+  br label %1627
 
-530:                                              ; preds = %97
-  %531 = load i32, ptr @hf_x11_unused, align 4
-  %532 = tail call ptr @proto_tree_add_item(ptr noundef %20, i32 noundef %531, ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef 0) #10
-  store i32 2, ptr %7, align 4
-  %533 = call fastcc i32 @requestLength(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %5)
-  %534 = load i32, ptr @hf_x11_window, align 4
-  %535 = call fastcc i32 @field32(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %534, i32 noundef %5)
-  br label %1635
-
-536:                                              ; preds = %97
+536:                                              ; preds = %89
   %537 = load i32, ptr @hf_x11_unused, align 4
   %538 = tail call ptr @proto_tree_add_item(ptr noundef %20, i32 noundef %537, ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef 0) #10
   store i32 2, ptr %7, align 4
   %539 = call fastcc i32 @requestLength(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %5)
-  %540 = load i32, ptr @hf_x11_window, align 4
+  %540 = load i32, ptr @hf_x11_src_window, align 4
   %541 = call fastcc i32 @field32(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %540, i32 noundef %5)
-  %542 = load i32, ptr @hf_x11_start, align 4
-  call fastcc void @timestamp(ptr noundef %0, ptr noundef %7, ptr noundef %20, i32 noundef %542, i32 noundef %5)
-  %543 = load i32, ptr @hf_x11_stop, align 4
-  call fastcc void @timestamp(ptr noundef %0, ptr noundef %7, ptr noundef %20, i32 noundef %543, i32 noundef %5)
-  br label %1635
+  %542 = load i32, ptr @hf_x11_dst_window, align 4
+  %543 = call fastcc i32 @field32(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %542, i32 noundef %5)
+  %544 = load i32, ptr @hf_x11_src_x, align 4
+  %545 = call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %544, i32 noundef %5)
+  %546 = load i32, ptr @hf_x11_src_y, align 4
+  %547 = call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %546, i32 noundef %5)
+  br label %1627
 
-544:                                              ; preds = %97
-  %545 = load i32, ptr @hf_x11_unused, align 4
-  %546 = tail call ptr @proto_tree_add_item(ptr noundef %20, i32 noundef %545, ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef 0) #10
+548:                                              ; preds = %89
+  %549 = load i32, ptr @hf_x11_unused, align 4
+  %550 = tail call ptr @proto_tree_add_item(ptr noundef %20, i32 noundef %549, ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef 0) #10
   store i32 2, ptr %7, align 4
-  %547 = call fastcc i32 @requestLength(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %5)
-  %548 = load i32, ptr @hf_x11_src_window, align 4
-  %549 = call fastcc i32 @field32(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %548, i32 noundef %5)
-  %550 = load i32, ptr @hf_x11_dst_window, align 4
-  %551 = call fastcc i32 @field32(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %550, i32 noundef %5)
-  %552 = load i32, ptr @hf_x11_src_x, align 4
-  %553 = call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %552, i32 noundef %5)
-  %554 = load i32, ptr @hf_x11_src_y, align 4
-  %555 = call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %554, i32 noundef %5)
-  br label %1635
-
-556:                                              ; preds = %97
-  %557 = load i32, ptr @hf_x11_unused, align 4
-  %558 = tail call ptr @proto_tree_add_item(ptr noundef %20, i32 noundef %557, ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef 0) #10
-  store i32 2, ptr %7, align 4
-  %559 = call fastcc i32 @requestLength(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %5)
-  %560 = load i32, ptr @hf_x11_warp_pointer_src_window, align 4
-  %561 = call fastcc i32 @field32(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %560, i32 noundef %5)
-  %562 = load i32, ptr @hf_x11_warp_pointer_dst_window, align 4
-  %563 = call fastcc i32 @field32(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %562, i32 noundef %5)
-  %564 = load i32, ptr @hf_x11_src_x, align 4
+  %551 = call fastcc i32 @requestLength(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %5)
+  %552 = load i32, ptr @hf_x11_warp_pointer_src_window, align 4
+  %553 = call fastcc i32 @field32(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %552, i32 noundef %5)
+  %554 = load i32, ptr @hf_x11_warp_pointer_dst_window, align 4
+  %555 = call fastcc i32 @field32(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %554, i32 noundef %5)
+  %556 = load i32, ptr @hf_x11_src_x, align 4
+  %557 = call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %556, i32 noundef %5)
+  %558 = load i32, ptr @hf_x11_src_y, align 4
+  %559 = call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %558, i32 noundef %5)
+  %560 = load i32, ptr @hf_x11_src_width, align 4
+  %561 = call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %560, i32 noundef %5)
+  %562 = load i32, ptr @hf_x11_src_height, align 4
+  %563 = call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %562, i32 noundef %5)
+  %564 = load i32, ptr @hf_x11_dst_x, align 4
   %565 = call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %564, i32 noundef %5)
-  %566 = load i32, ptr @hf_x11_src_y, align 4
+  %566 = load i32, ptr @hf_x11_dst_y, align 4
   %567 = call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %566, i32 noundef %5)
-  %568 = load i32, ptr @hf_x11_src_width, align 4
-  %569 = call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %568, i32 noundef %5)
-  %570 = load i32, ptr @hf_x11_src_height, align 4
-  %571 = call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %570, i32 noundef %5)
-  %572 = load i32, ptr @hf_x11_dst_x, align 4
-  %573 = call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %572, i32 noundef %5)
-  %574 = load i32, ptr @hf_x11_dst_y, align 4
-  %575 = call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %574, i32 noundef %5)
-  br label %1635
+  br label %1627
 
-576:                                              ; preds = %97
-  %577 = load i32, ptr @hf_x11_revert_to, align 4
-  %578 = call fastcc i32 @field8(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %577, i32 noundef %5)
-  %579 = call fastcc i32 @requestLength(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %5)
-  %580 = load i32, ptr @hf_x11_focus, align 4
-  %581 = call fastcc i32 @field32(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %580, i32 noundef %5)
-  %582 = load i32, ptr @hf_x11_time, align 4
-  call fastcc void @timestamp(ptr noundef %0, ptr noundef %7, ptr noundef %20, i32 noundef %582, i32 noundef %5)
-  br label %1635
+568:                                              ; preds = %89
+  %569 = load i32, ptr @hf_x11_revert_to, align 4
+  %570 = call fastcc i32 @field8(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %569, i32 noundef %5)
+  %571 = call fastcc i32 @requestLength(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %5)
+  %572 = load i32, ptr @hf_x11_focus, align 4
+  %573 = call fastcc i32 @field32(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %572, i32 noundef %5)
+  %574 = load i32, ptr @hf_x11_time, align 4
+  call fastcc void @timestamp(ptr noundef %0, ptr noundef %7, ptr noundef %20, i32 noundef %574, i32 noundef %5)
+  br label %1627
 
-583:                                              ; preds = %97
+575:                                              ; preds = %89
+  %576 = load i32, ptr @hf_x11_unused, align 4
+  %577 = tail call ptr @proto_tree_add_item(ptr noundef %20, i32 noundef %576, ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef 0) #10
+  store i32 2, ptr %7, align 4
+  %578 = call fastcc i32 @requestLength(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %5)
+  br label %1627
+
+579:                                              ; preds = %89
+  %580 = load i32, ptr @hf_x11_unused, align 4
+  %581 = tail call ptr @proto_tree_add_item(ptr noundef %20, i32 noundef %580, ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef 0) #10
+  store i32 2, ptr %7, align 4
+  %582 = call fastcc i32 @requestLength(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %5)
+  br label %1627
+
+583:                                              ; preds = %89
   %584 = load i32, ptr @hf_x11_unused, align 4
   %585 = tail call ptr @proto_tree_add_item(ptr noundef %20, i32 noundef %584, ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef 0) #10
   store i32 2, ptr %7, align 4
   %586 = call fastcc i32 @requestLength(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %5)
-  br label %1635
+  %587 = load i32, ptr @hf_x11_fid, align 4
+  %588 = call fastcc i32 @field32(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %587, i32 noundef %5)
+  %589 = load i32, ptr @hf_x11_name_length, align 4
+  %590 = call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %589, i32 noundef %5)
+  %591 = load i32, ptr @hf_x11_unused, align 4
+  %592 = load i32, ptr %7, align 4
+  %593 = tail call ptr @proto_tree_add_item(ptr noundef %20, i32 noundef %591, ptr noundef %0, i32 noundef %592, i32 noundef 2, i32 noundef 0) #10
+  %594 = add i32 %592, 2
+  %595 = load i32, ptr @hf_x11_name, align 4
+  %596 = tail call ptr @proto_tree_add_item(ptr noundef %20, i32 noundef %595, ptr noundef %0, i32 noundef %594, i32 noundef %590, i32 noundef 0) #10
+  %597 = add i32 %594, %590
+  %598 = sub i32 %.02784, %597
+  %599 = icmp sgt i32 %598, 0
+  br i1 %599, label %600, label %603
 
-587:                                              ; preds = %97
-  %588 = load i32, ptr @hf_x11_unused, align 4
-  %589 = tail call ptr @proto_tree_add_item(ptr noundef %20, i32 noundef %588, ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef 0) #10
-  store i32 2, ptr %7, align 4
-  %590 = call fastcc i32 @requestLength(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %5)
-  br label %1635
+600:                                              ; preds = %583
+  %601 = load i32, ptr @hf_x11_unused, align 4
+  %602 = tail call ptr @proto_tree_add_item(ptr noundef %20, i32 noundef %601, ptr noundef %0, i32 noundef %597, i32 noundef %598, i32 noundef 0) #10
+  br label %603
 
-591:                                              ; preds = %97
-  %592 = load i32, ptr @hf_x11_unused, align 4
-  %593 = tail call ptr @proto_tree_add_item(ptr noundef %20, i32 noundef %592, ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef 0) #10
-  store i32 2, ptr %7, align 4
-  %594 = call fastcc i32 @requestLength(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %5)
-  %595 = load i32, ptr @hf_x11_fid, align 4
-  %596 = call fastcc i32 @field32(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %595, i32 noundef %5)
-  %597 = load i32, ptr @hf_x11_name_length, align 4
-  %598 = call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %597, i32 noundef %5)
-  %599 = load i32, ptr @hf_x11_unused, align 4
-  %600 = load i32, ptr %7, align 4
-  %601 = tail call ptr @proto_tree_add_item(ptr noundef %20, i32 noundef %599, ptr noundef %0, i32 noundef %600, i32 noundef 2, i32 noundef 0) #10
-  %602 = add i32 %600, 2
-  %603 = load i32, ptr @hf_x11_name, align 4
-  %604 = tail call ptr @proto_tree_add_item(ptr noundef %20, i32 noundef %603, ptr noundef %0, i32 noundef %602, i32 noundef %598, i32 noundef 0) #10
-  %605 = add i32 %602, %598
-  %606 = sub i32 %.02784, %605
-  %607 = icmp sgt i32 %606, 0
-  br i1 %607, label %608, label %611
-
-608:                                              ; preds = %591
-  %609 = load i32, ptr @hf_x11_unused, align 4
-  %610 = tail call ptr @proto_tree_add_item(ptr noundef %20, i32 noundef %609, ptr noundef %0, i32 noundef %605, i32 noundef %606, i32 noundef 0) #10
-  br label %611
-
-611:                                              ; preds = %608, %591
+603:                                              ; preds = %600, %583
   store i32 %.02784, ptr %7, align 4
-  br label %1635
+  br label %1627
 
-612:                                              ; preds = %97
-  %613 = load i32, ptr @hf_x11_unused, align 4
-  %614 = tail call ptr @proto_tree_add_item(ptr noundef %20, i32 noundef %613, ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef 0) #10
+604:                                              ; preds = %89
+  %605 = load i32, ptr @hf_x11_unused, align 4
+  %606 = tail call ptr @proto_tree_add_item(ptr noundef %20, i32 noundef %605, ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef 0) #10
   store i32 2, ptr %7, align 4
-  %615 = call fastcc i32 @requestLength(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %5)
-  %616 = load i32, ptr @hf_x11_font, align 4
-  %617 = call fastcc i32 @field32(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %616, i32 noundef %5)
-  br label %1635
+  %607 = call fastcc i32 @requestLength(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %5)
+  %608 = load i32, ptr @hf_x11_font, align 4
+  %609 = call fastcc i32 @field32(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %608, i32 noundef %5)
+  br label %1627
 
-618:                                              ; preds = %97
-  %619 = load i32, ptr @hf_x11_unused, align 4
-  %620 = tail call ptr @proto_tree_add_item(ptr noundef %20, i32 noundef %619, ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef 0) #10
+610:                                              ; preds = %89
+  %611 = load i32, ptr @hf_x11_unused, align 4
+  %612 = tail call ptr @proto_tree_add_item(ptr noundef %20, i32 noundef %611, ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef 0) #10
   store i32 2, ptr %7, align 4
-  %621 = call fastcc i32 @requestLength(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %5)
-  %622 = load i32, ptr @hf_x11_font, align 4
-  %623 = call fastcc i32 @field32(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %622, i32 noundef %5)
-  br label %1635
+  %613 = call fastcc i32 @requestLength(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %5)
+  %614 = load i32, ptr @hf_x11_font, align 4
+  %615 = call fastcc i32 @field32(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %614, i32 noundef %5)
+  br label %1627
 
-624:                                              ; preds = %97
-  %625 = load i32, ptr @hf_x11_odd_length, align 4
-  %626 = call fastcc i32 @add_boolean(ptr noundef %0, ptr noundef %7, ptr noundef %20, i32 noundef %625)
-  %627 = call fastcc i32 @requestLength(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %5)
-  %628 = load i32, ptr @hf_x11_font, align 4
-  %629 = call fastcc i32 @field32(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %628, i32 noundef %5)
-  %630 = load i32, ptr @hf_x11_string16, align 4
-  %631 = load i32, ptr @hf_x11_string16_bytes, align 4
-  %632 = load i32, ptr %7, align 4
-  %.not2820 = icmp eq i32 %626, 0
+616:                                              ; preds = %89
+  %617 = load i32, ptr @hf_x11_odd_length, align 4
+  %618 = call fastcc i32 @add_boolean(ptr noundef %0, ptr noundef %7, ptr noundef %20, i32 noundef %617)
+  %619 = call fastcc i32 @requestLength(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %5)
+  %620 = load i32, ptr @hf_x11_font, align 4
+  %621 = call fastcc i32 @field32(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %620, i32 noundef %5)
+  %622 = load i32, ptr @hf_x11_string16, align 4
+  %623 = load i32, ptr @hf_x11_string16_bytes, align 4
+  %624 = load i32, ptr %7, align 4
+  %.not2820 = icmp eq i32 %618, 0
   %.neg = select i1 %.not2820, i32 0, i32 -2
-  %633 = add nsw i32 %.neg, %.02784
-  %634 = sub i32 %633, %632
-  %635 = sdiv i32 %634, 2
-  call fastcc void @string16(ptr noundef %0, ptr noundef %7, ptr noundef %20, i32 noundef %630, i32 noundef %631, i32 noundef %635, i32 noundef %5)
-  %636 = load i32, ptr %7, align 4
-  %637 = sub i32 %.02784, %636
-  %638 = icmp sgt i32 %637, 0
-  br i1 %638, label %639, label %642
+  %625 = add nsw i32 %.neg, %.02784
+  %626 = sub i32 %625, %624
+  %627 = sdiv i32 %626, 2
+  call fastcc void @string16(ptr noundef %0, ptr noundef %7, ptr noundef %20, i32 noundef %622, i32 noundef %623, i32 noundef %627, i32 noundef %5)
+  %628 = load i32, ptr %7, align 4
+  %629 = sub i32 %.02784, %628
+  %630 = icmp sgt i32 %629, 0
+  br i1 %630, label %631, label %634
 
-639:                                              ; preds = %624
-  %640 = load i32, ptr @hf_x11_unused, align 4
-  %641 = tail call ptr @proto_tree_add_item(ptr noundef %20, i32 noundef %640, ptr noundef %0, i32 noundef %636, i32 noundef %637, i32 noundef 0) #10
-  br label %642
+631:                                              ; preds = %616
+  %632 = load i32, ptr @hf_x11_unused, align 4
+  %633 = tail call ptr @proto_tree_add_item(ptr noundef %20, i32 noundef %632, ptr noundef %0, i32 noundef %628, i32 noundef %629, i32 noundef 0) #10
+  br label %634
 
-642:                                              ; preds = %639, %624
+634:                                              ; preds = %631, %616
   store i32 %.02784, ptr %7, align 4
-  br label %1635
+  br label %1627
 
-643:                                              ; preds = %97
-  %644 = load i32, ptr @hf_x11_unused, align 4
-  %645 = tail call ptr @proto_tree_add_item(ptr noundef %20, i32 noundef %644, ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef 0) #10
+635:                                              ; preds = %89
+  %636 = load i32, ptr @hf_x11_unused, align 4
+  %637 = tail call ptr @proto_tree_add_item(ptr noundef %20, i32 noundef %636, ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef 0) #10
   store i32 2, ptr %7, align 4
-  %646 = call fastcc i32 @requestLength(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %5)
-  %647 = load i32, ptr @hf_x11_max_names, align 4
-  %648 = call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %647, i32 noundef %5)
-  %649 = load i32, ptr @hf_x11_pattern_length, align 4
-  %650 = call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %649, i32 noundef %5)
-  %651 = load i32, ptr @hf_x11_pattern, align 4
-  %652 = load i32, ptr %7, align 4
-  %653 = tail call ptr @proto_tree_add_item(ptr noundef %20, i32 noundef %651, ptr noundef %0, i32 noundef %652, i32 noundef %650, i32 noundef 0) #10
-  %654 = add i32 %652, %650
-  %655 = sub i32 %.02784, %654
-  %656 = icmp sgt i32 %655, 0
-  br i1 %656, label %657, label %660
+  %638 = call fastcc i32 @requestLength(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %5)
+  %639 = load i32, ptr @hf_x11_max_names, align 4
+  %640 = call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %639, i32 noundef %5)
+  %641 = load i32, ptr @hf_x11_pattern_length, align 4
+  %642 = call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %641, i32 noundef %5)
+  %643 = load i32, ptr @hf_x11_pattern, align 4
+  %644 = load i32, ptr %7, align 4
+  %645 = tail call ptr @proto_tree_add_item(ptr noundef %20, i32 noundef %643, ptr noundef %0, i32 noundef %644, i32 noundef %642, i32 noundef 0) #10
+  %646 = add i32 %644, %642
+  %647 = sub i32 %.02784, %646
+  %648 = icmp sgt i32 %647, 0
+  br i1 %648, label %649, label %652
 
-657:                                              ; preds = %643
-  %658 = load i32, ptr @hf_x11_unused, align 4
-  %659 = tail call ptr @proto_tree_add_item(ptr noundef %20, i32 noundef %658, ptr noundef %0, i32 noundef %654, i32 noundef %655, i32 noundef 0) #10
-  br label %660
+649:                                              ; preds = %635
+  %650 = load i32, ptr @hf_x11_unused, align 4
+  %651 = tail call ptr @proto_tree_add_item(ptr noundef %20, i32 noundef %650, ptr noundef %0, i32 noundef %646, i32 noundef %647, i32 noundef 0) #10
+  br label %652
 
-660:                                              ; preds = %657, %643
+652:                                              ; preds = %649, %635
   store i32 %.02784, ptr %7, align 4
-  br label %1635
+  br label %1627
 
-661:                                              ; preds = %97
-  %662 = load i32, ptr @hf_x11_unused, align 4
-  %663 = tail call ptr @proto_tree_add_item(ptr noundef %20, i32 noundef %662, ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef 0) #10
+653:                                              ; preds = %89
+  %654 = load i32, ptr @hf_x11_unused, align 4
+  %655 = tail call ptr @proto_tree_add_item(ptr noundef %20, i32 noundef %654, ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef 0) #10
   store i32 2, ptr %7, align 4
-  %664 = call fastcc i32 @requestLength(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %5)
-  %665 = load i32, ptr @hf_x11_max_names, align 4
-  %666 = call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %665, i32 noundef %5)
-  %667 = load i32, ptr @hf_x11_pattern_length, align 4
-  %668 = call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %667, i32 noundef %5)
-  %669 = load i32, ptr @hf_x11_pattern, align 4
-  %670 = load i32, ptr %7, align 4
-  %671 = tail call ptr @proto_tree_add_item(ptr noundef %20, i32 noundef %669, ptr noundef %0, i32 noundef %670, i32 noundef %668, i32 noundef 0) #10
-  %672 = add i32 %670, %668
-  %673 = sub i32 %.02784, %672
-  %674 = icmp sgt i32 %673, 0
-  br i1 %674, label %675, label %678
+  %656 = call fastcc i32 @requestLength(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %5)
+  %657 = load i32, ptr @hf_x11_max_names, align 4
+  %658 = call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %657, i32 noundef %5)
+  %659 = load i32, ptr @hf_x11_pattern_length, align 4
+  %660 = call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %659, i32 noundef %5)
+  %661 = load i32, ptr @hf_x11_pattern, align 4
+  %662 = load i32, ptr %7, align 4
+  %663 = tail call ptr @proto_tree_add_item(ptr noundef %20, i32 noundef %661, ptr noundef %0, i32 noundef %662, i32 noundef %660, i32 noundef 0) #10
+  %664 = add i32 %662, %660
+  %665 = sub i32 %.02784, %664
+  %666 = icmp sgt i32 %665, 0
+  br i1 %666, label %667, label %670
 
-675:                                              ; preds = %661
-  %676 = load i32, ptr @hf_x11_unused, align 4
-  %677 = tail call ptr @proto_tree_add_item(ptr noundef %20, i32 noundef %676, ptr noundef %0, i32 noundef %672, i32 noundef %673, i32 noundef 0) #10
-  br label %678
+667:                                              ; preds = %653
+  %668 = load i32, ptr @hf_x11_unused, align 4
+  %669 = tail call ptr @proto_tree_add_item(ptr noundef %20, i32 noundef %668, ptr noundef %0, i32 noundef %664, i32 noundef %665, i32 noundef 0) #10
+  br label %670
 
-678:                                              ; preds = %675, %661
+670:                                              ; preds = %667, %653
   store i32 %.02784, ptr %7, align 4
-  br label %1635
+  br label %1627
 
-679:                                              ; preds = %97
-  %680 = load i32, ptr @hf_x11_unused, align 4
-  %681 = tail call ptr @proto_tree_add_item(ptr noundef %20, i32 noundef %680, ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef 0) #10
+671:                                              ; preds = %89
+  %672 = load i32, ptr @hf_x11_unused, align 4
+  %673 = tail call ptr @proto_tree_add_item(ptr noundef %20, i32 noundef %672, ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef 0) #10
   store i32 2, ptr %7, align 4
-  %682 = call fastcc i32 @requestLength(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %5)
-  %683 = load i32, ptr @hf_x11_str_number_in_path, align 4
-  %684 = call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %683, i32 noundef %5)
-  %685 = load i32, ptr @hf_x11_unused, align 4
-  %686 = load i32, ptr %7, align 4
-  %687 = tail call ptr @proto_tree_add_item(ptr noundef %20, i32 noundef %685, ptr noundef %0, i32 noundef %686, i32 noundef 2, i32 noundef 0) #10
-  %688 = add i32 %686, 2
-  store i32 %688, ptr %7, align 4
-  %689 = load i32, ptr @hf_x11_path, align 4
-  %690 = load i32, ptr @hf_x11_path_string, align 4
-  call fastcc void @listOfString8(ptr noundef %0, ptr noundef %7, ptr noundef %20, i32 noundef %689, i32 noundef %690, i32 noundef %684, i32 noundef %5)
-  %691 = load i32, ptr %7, align 4
-  %692 = sub i32 %.02784, %691
-  %693 = icmp sgt i32 %692, 0
-  br i1 %693, label %694, label %697
+  %674 = call fastcc i32 @requestLength(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %5)
+  %675 = load i32, ptr @hf_x11_str_number_in_path, align 4
+  %676 = call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %675, i32 noundef %5)
+  %677 = load i32, ptr @hf_x11_unused, align 4
+  %678 = load i32, ptr %7, align 4
+  %679 = tail call ptr @proto_tree_add_item(ptr noundef %20, i32 noundef %677, ptr noundef %0, i32 noundef %678, i32 noundef 2, i32 noundef 0) #10
+  %680 = add i32 %678, 2
+  store i32 %680, ptr %7, align 4
+  %681 = load i32, ptr @hf_x11_path, align 4
+  %682 = load i32, ptr @hf_x11_path_string, align 4
+  call fastcc void @listOfString8(ptr noundef %0, ptr noundef %7, ptr noundef %20, i32 noundef %681, i32 noundef %682, i32 noundef %676, i32 noundef %5)
+  %683 = load i32, ptr %7, align 4
+  %684 = sub i32 %.02784, %683
+  %685 = icmp sgt i32 %684, 0
+  br i1 %685, label %686, label %689
 
-694:                                              ; preds = %679
-  %695 = load i32, ptr @hf_x11_unused, align 4
-  %696 = tail call ptr @proto_tree_add_item(ptr noundef %20, i32 noundef %695, ptr noundef %0, i32 noundef %691, i32 noundef %692, i32 noundef 0) #10
-  br label %697
+686:                                              ; preds = %671
+  %687 = load i32, ptr @hf_x11_unused, align 4
+  %688 = tail call ptr @proto_tree_add_item(ptr noundef %20, i32 noundef %687, ptr noundef %0, i32 noundef %683, i32 noundef %684, i32 noundef 0) #10
+  br label %689
 
-697:                                              ; preds = %694, %679
+689:                                              ; preds = %686, %671
   store i32 %.02784, ptr %7, align 4
-  br label %1635
+  br label %1627
 
-698:                                              ; preds = %97
-  %699 = load i32, ptr @hf_x11_unused, align 4
-  %700 = tail call ptr @proto_tree_add_item(ptr noundef %20, i32 noundef %699, ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef 0) #10
+690:                                              ; preds = %89
+  %691 = load i32, ptr @hf_x11_unused, align 4
+  %692 = tail call ptr @proto_tree_add_item(ptr noundef %20, i32 noundef %691, ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef 0) #10
   store i32 2, ptr %7, align 4
-  %701 = call fastcc i32 @requestLength(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %5)
-  br label %1635
+  %693 = call fastcc i32 @requestLength(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %5)
+  br label %1627
 
-702:                                              ; preds = %97
-  %703 = load i32, ptr @hf_x11_depth, align 4
-  %704 = call fastcc i32 @field8(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %703, i32 noundef %5)
-  %705 = call fastcc i32 @requestLength(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %5)
-  %706 = load i32, ptr @hf_x11_pid, align 4
-  %707 = call fastcc i32 @field32(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %706, i32 noundef %5)
-  %708 = load i32, ptr @hf_x11_drawable, align 4
-  %709 = call fastcc i32 @field32(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %708, i32 noundef %5)
-  %710 = load i32, ptr @hf_x11_width, align 4
-  %711 = call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %710, i32 noundef %5)
-  %712 = load i32, ptr @hf_x11_height, align 4
-  %713 = call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %712, i32 noundef %5)
-  br label %1635
+694:                                              ; preds = %89
+  %695 = load i32, ptr @hf_x11_depth, align 4
+  %696 = call fastcc i32 @field8(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %695, i32 noundef %5)
+  %697 = call fastcc i32 @requestLength(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %5)
+  %698 = load i32, ptr @hf_x11_pid, align 4
+  %699 = call fastcc i32 @field32(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %698, i32 noundef %5)
+  %700 = load i32, ptr @hf_x11_drawable, align 4
+  %701 = call fastcc i32 @field32(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %700, i32 noundef %5)
+  %702 = load i32, ptr @hf_x11_width, align 4
+  %703 = call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %702, i32 noundef %5)
+  %704 = load i32, ptr @hf_x11_height, align 4
+  %705 = call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %704, i32 noundef %5)
+  br label %1627
 
-714:                                              ; preds = %97
-  %715 = load i32, ptr @hf_x11_unused, align 4
-  %716 = tail call ptr @proto_tree_add_item(ptr noundef %20, i32 noundef %715, ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef 0) #10
+706:                                              ; preds = %89
+  %707 = load i32, ptr @hf_x11_unused, align 4
+  %708 = tail call ptr @proto_tree_add_item(ptr noundef %20, i32 noundef %707, ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef 0) #10
   store i32 2, ptr %7, align 4
-  %717 = call fastcc i32 @requestLength(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %5)
-  %718 = load i32, ptr @hf_x11_pixmap, align 4
+  %709 = call fastcc i32 @requestLength(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %5)
+  %710 = load i32, ptr @hf_x11_pixmap, align 4
+  %711 = call fastcc i32 @field32(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %710, i32 noundef %5)
+  br label %1627
+
+712:                                              ; preds = %89
+  %713 = load i32, ptr @hf_x11_unused, align 4
+  %714 = tail call ptr @proto_tree_add_item(ptr noundef %20, i32 noundef %713, ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef 0) #10
+  store i32 2, ptr %7, align 4
+  %715 = call fastcc i32 @requestLength(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %5)
+  %716 = load i32, ptr @hf_x11_cid, align 4
+  %717 = call fastcc i32 @field32(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %716, i32 noundef %5)
+  %718 = load i32, ptr @hf_x11_drawable, align 4
   %719 = call fastcc i32 @field32(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %718, i32 noundef %5)
-  br label %1635
+  call fastcc void @gcAttributes(ptr noundef %0, ptr noundef %7, ptr noundef %20, i32 noundef %5)
+  br label %1627
 
-720:                                              ; preds = %97
+720:                                              ; preds = %89
   %721 = load i32, ptr @hf_x11_unused, align 4
   %722 = tail call ptr @proto_tree_add_item(ptr noundef %20, i32 noundef %721, ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef 0) #10
   store i32 2, ptr %7, align 4
   %723 = call fastcc i32 @requestLength(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %5)
-  %724 = load i32, ptr @hf_x11_cid, align 4
+  %724 = load i32, ptr @hf_x11_gc, align 4
   %725 = call fastcc i32 @field32(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %724, i32 noundef %5)
-  %726 = load i32, ptr @hf_x11_drawable, align 4
-  %727 = call fastcc i32 @field32(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %726, i32 noundef %5)
   call fastcc void @gcAttributes(ptr noundef %0, ptr noundef %7, ptr noundef %20, i32 noundef %5)
-  br label %1635
+  br label %1627
 
-728:                                              ; preds = %97
-  %729 = load i32, ptr @hf_x11_unused, align 4
-  %730 = tail call ptr @proto_tree_add_item(ptr noundef %20, i32 noundef %729, ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef 0) #10
+726:                                              ; preds = %89
+  %727 = load i32, ptr @hf_x11_unused, align 4
+  %728 = tail call ptr @proto_tree_add_item(ptr noundef %20, i32 noundef %727, ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef 0) #10
   store i32 2, ptr %7, align 4
-  %731 = call fastcc i32 @requestLength(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %5)
-  %732 = load i32, ptr @hf_x11_gc, align 4
+  %729 = call fastcc i32 @requestLength(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %5)
+  %730 = load i32, ptr @hf_x11_src_gc, align 4
+  %731 = call fastcc i32 @field32(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %730, i32 noundef %5)
+  %732 = load i32, ptr @hf_x11_dst_gc, align 4
   %733 = call fastcc i32 @field32(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %732, i32 noundef %5)
-  call fastcc void @gcAttributes(ptr noundef %0, ptr noundef %7, ptr noundef %20, i32 noundef %5)
-  br label %1635
+  %734 = load i32, ptr %7, align 4
+  %735 = load i32, ptr @hf_x11_gc_value_mask, align 4
+  %736 = load i32, ptr @ett_x11_gc_value_mask, align 4
+  %737 = tail call ptr @proto_tree_add_bitmask(ptr noundef %20, ptr noundef %0, i32 noundef %734, i32 noundef %735, i32 noundef %736, ptr noundef nonnull @gc_mask_attributes, i32 noundef %5) #10
+  %738 = add i32 %734, 4
+  store i32 %738, ptr %7, align 4
+  br label %1627
 
-734:                                              ; preds = %97
-  %735 = load i32, ptr @hf_x11_unused, align 4
-  %736 = tail call ptr @proto_tree_add_item(ptr noundef %20, i32 noundef %735, ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef 0) #10
+739:                                              ; preds = %89
+  %740 = load i32, ptr @hf_x11_unused, align 4
+  %741 = tail call ptr @proto_tree_add_item(ptr noundef %20, i32 noundef %740, ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef 0) #10
   store i32 2, ptr %7, align 4
-  %737 = call fastcc i32 @requestLength(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %5)
-  %738 = load i32, ptr @hf_x11_src_gc, align 4
-  %739 = call fastcc i32 @field32(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %738, i32 noundef %5)
-  %740 = load i32, ptr @hf_x11_dst_gc, align 4
-  %741 = call fastcc i32 @field32(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %740, i32 noundef %5)
-  %742 = load i32, ptr %7, align 4
-  %743 = load i32, ptr @hf_x11_gc_value_mask, align 4
-  %744 = load i32, ptr @ett_x11_gc_value_mask, align 4
-  %745 = tail call ptr @proto_tree_add_bitmask(ptr noundef %20, ptr noundef %0, i32 noundef %742, i32 noundef %743, i32 noundef %744, ptr noundef nonnull @gc_mask_attributes, i32 noundef %5) #10
-  %746 = add i32 %742, 4
-  store i32 %746, ptr %7, align 4
-  br label %1635
+  %742 = call fastcc i32 @requestLength(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %5)
+  %743 = load i32, ptr @hf_x11_gc, align 4
+  %744 = call fastcc i32 @field32(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %743, i32 noundef %5)
+  %745 = load i32, ptr @hf_x11_dash_offset, align 4
+  %746 = call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %745, i32 noundef %5)
+  %747 = load i32, ptr @hf_x11_dashes_length, align 4
+  %748 = call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %747, i32 noundef %5)
+  %749 = load i32, ptr @hf_x11_dashes, align 4
+  %750 = tail call i32 @llvm.umax.i32(i32 %748, i32 1)
+  %751 = load i32, ptr %7, align 4
+  %752 = tail call ptr @proto_tree_add_item(ptr noundef %20, i32 noundef %749, ptr noundef %0, i32 noundef %751, i32 noundef %750, i32 noundef %5) #10
+  %753 = add i32 %751, %750
+  %754 = sub i32 %.02784, %753
+  %755 = icmp sgt i32 %754, 0
+  br i1 %755, label %756, label %759
 
-747:                                              ; preds = %97
-  %748 = load i32, ptr @hf_x11_unused, align 4
-  %749 = tail call ptr @proto_tree_add_item(ptr noundef %20, i32 noundef %748, ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef 0) #10
-  store i32 2, ptr %7, align 4
-  %750 = call fastcc i32 @requestLength(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %5)
-  %751 = load i32, ptr @hf_x11_gc, align 4
-  %752 = call fastcc i32 @field32(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %751, i32 noundef %5)
-  %753 = load i32, ptr @hf_x11_dash_offset, align 4
-  %754 = call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %753, i32 noundef %5)
-  %755 = load i32, ptr @hf_x11_dashes_length, align 4
-  %756 = call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %755, i32 noundef %5)
-  %757 = load i32, ptr @hf_x11_dashes, align 4
-  %758 = tail call i32 @llvm.umax.i32(i32 %756, i32 1)
-  %759 = load i32, ptr %7, align 4
-  %760 = tail call ptr @proto_tree_add_item(ptr noundef %20, i32 noundef %757, ptr noundef %0, i32 noundef %759, i32 noundef %758, i32 noundef %5) #10
-  %761 = add i32 %759, %758
-  %762 = sub i32 %.02784, %761
-  %763 = icmp sgt i32 %762, 0
-  br i1 %763, label %764, label %767
+756:                                              ; preds = %739
+  %757 = load i32, ptr @hf_x11_unused, align 4
+  %758 = tail call ptr @proto_tree_add_item(ptr noundef %20, i32 noundef %757, ptr noundef %0, i32 noundef %753, i32 noundef %754, i32 noundef 0) #10
+  br label %759
 
-764:                                              ; preds = %747
-  %765 = load i32, ptr @hf_x11_unused, align 4
-  %766 = tail call ptr @proto_tree_add_item(ptr noundef %20, i32 noundef %765, ptr noundef %0, i32 noundef %761, i32 noundef %762, i32 noundef 0) #10
-  br label %767
-
-767:                                              ; preds = %764, %747
+759:                                              ; preds = %756, %739
   store i32 %.02784, ptr %7, align 4
-  br label %1635
+  br label %1627
 
-768:                                              ; preds = %97
-  %769 = load i32, ptr @hf_x11_ordering, align 4
-  %770 = call fastcc i32 @field8(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %769, i32 noundef %5)
-  %771 = call fastcc i32 @requestLength(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %5)
-  %772 = load i32, ptr @hf_x11_gc, align 4
-  %773 = call fastcc i32 @field32(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %772, i32 noundef %5)
-  %774 = load i32, ptr @hf_x11_clip_x_origin, align 4
-  %775 = call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %774, i32 noundef %5)
-  %776 = load i32, ptr @hf_x11_clip_y_origin, align 4
-  %777 = call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %776, i32 noundef %5)
-  %778 = load i32, ptr @hf_x11_rectangles, align 4
-  %779 = load i32, ptr %7, align 4
-  %780 = sub i32 %.02784, %779
-  %781 = sdiv i32 %780, 8
-  call fastcc void @listOfRectangle(ptr noundef %0, ptr noundef %7, ptr noundef %20, i32 noundef %778, i32 noundef %781, i32 noundef %5)
-  br label %1635
+760:                                              ; preds = %89
+  %761 = load i32, ptr @hf_x11_ordering, align 4
+  %762 = call fastcc i32 @field8(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %761, i32 noundef %5)
+  %763 = call fastcc i32 @requestLength(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %5)
+  %764 = load i32, ptr @hf_x11_gc, align 4
+  %765 = call fastcc i32 @field32(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %764, i32 noundef %5)
+  %766 = load i32, ptr @hf_x11_clip_x_origin, align 4
+  %767 = call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %766, i32 noundef %5)
+  %768 = load i32, ptr @hf_x11_clip_y_origin, align 4
+  %769 = call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %768, i32 noundef %5)
+  %770 = load i32, ptr @hf_x11_rectangles, align 4
+  %771 = load i32, ptr %7, align 4
+  %772 = sub i32 %.02784, %771
+  %773 = sdiv i32 %772, 8
+  call fastcc void @listOfRectangle(ptr noundef %0, ptr noundef %7, ptr noundef %20, i32 noundef %770, i32 noundef %773, i32 noundef %5)
+  br label %1627
 
-782:                                              ; preds = %97
-  %783 = load i32, ptr @hf_x11_unused, align 4
-  %784 = tail call ptr @proto_tree_add_item(ptr noundef %20, i32 noundef %783, ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef 0) #10
+774:                                              ; preds = %89
+  %775 = load i32, ptr @hf_x11_unused, align 4
+  %776 = tail call ptr @proto_tree_add_item(ptr noundef %20, i32 noundef %775, ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef 0) #10
   store i32 2, ptr %7, align 4
-  %785 = call fastcc i32 @requestLength(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %5)
-  %786 = load i32, ptr @hf_x11_gc, align 4
-  %787 = call fastcc i32 @field32(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %786, i32 noundef %5)
-  br label %1635
+  %777 = call fastcc i32 @requestLength(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %5)
+  %778 = load i32, ptr @hf_x11_gc, align 4
+  %779 = call fastcc i32 @field32(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %778, i32 noundef %5)
+  br label %1627
 
-788:                                              ; preds = %97
-  %789 = load i32, ptr @hf_x11_exposures, align 4
-  %790 = call fastcc i32 @add_boolean(ptr noundef %0, ptr noundef %7, ptr noundef %20, i32 noundef %789)
-  %791 = call fastcc i32 @requestLength(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %5)
-  %792 = load i32, ptr @hf_x11_window, align 4
-  %793 = call fastcc i32 @field32(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %792, i32 noundef %5)
-  %794 = load i32, ptr @hf_x11_x, align 4
-  %795 = call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %794, i32 noundef %5)
-  %796 = load i32, ptr @hf_x11_y, align 4
-  %797 = call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %796, i32 noundef %5)
-  %798 = load i32, ptr @hf_x11_width, align 4
-  %799 = call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %798, i32 noundef %5)
-  %800 = load i32, ptr @hf_x11_height, align 4
-  %801 = call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %800, i32 noundef %5)
-  br label %1635
+780:                                              ; preds = %89
+  %781 = load i32, ptr @hf_x11_exposures, align 4
+  %782 = call fastcc i32 @add_boolean(ptr noundef %0, ptr noundef %7, ptr noundef %20, i32 noundef %781)
+  %783 = call fastcc i32 @requestLength(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %5)
+  %784 = load i32, ptr @hf_x11_window, align 4
+  %785 = call fastcc i32 @field32(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %784, i32 noundef %5)
+  %786 = load i32, ptr @hf_x11_x, align 4
+  %787 = call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %786, i32 noundef %5)
+  %788 = load i32, ptr @hf_x11_y, align 4
+  %789 = call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %788, i32 noundef %5)
+  %790 = load i32, ptr @hf_x11_width, align 4
+  %791 = call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %790, i32 noundef %5)
+  %792 = load i32, ptr @hf_x11_height, align 4
+  %793 = call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %792, i32 noundef %5)
+  br label %1627
 
-802:                                              ; preds = %97
-  %803 = load i32, ptr @hf_x11_unused, align 4
-  %804 = tail call ptr @proto_tree_add_item(ptr noundef %20, i32 noundef %803, ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef 0) #10
+794:                                              ; preds = %89
+  %795 = load i32, ptr @hf_x11_unused, align 4
+  %796 = tail call ptr @proto_tree_add_item(ptr noundef %20, i32 noundef %795, ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef 0) #10
   store i32 2, ptr %7, align 4
-  %805 = call fastcc i32 @requestLength(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %5)
-  %806 = load i32, ptr @hf_x11_src_drawable, align 4
-  %807 = call fastcc i32 @field32(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %806, i32 noundef %5)
-  %808 = load i32, ptr @hf_x11_dst_drawable, align 4
-  %809 = call fastcc i32 @field32(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %808, i32 noundef %5)
-  %810 = load i32, ptr @hf_x11_gc, align 4
-  %811 = call fastcc i32 @field32(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %810, i32 noundef %5)
-  %812 = load i32, ptr @hf_x11_src_x, align 4
+  %797 = call fastcc i32 @requestLength(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %5)
+  %798 = load i32, ptr @hf_x11_src_drawable, align 4
+  %799 = call fastcc i32 @field32(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %798, i32 noundef %5)
+  %800 = load i32, ptr @hf_x11_dst_drawable, align 4
+  %801 = call fastcc i32 @field32(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %800, i32 noundef %5)
+  %802 = load i32, ptr @hf_x11_gc, align 4
+  %803 = call fastcc i32 @field32(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %802, i32 noundef %5)
+  %804 = load i32, ptr @hf_x11_src_x, align 4
+  %805 = call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %804, i32 noundef %5)
+  %806 = load i32, ptr @hf_x11_src_y, align 4
+  %807 = call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %806, i32 noundef %5)
+  %808 = load i32, ptr @hf_x11_dst_x, align 4
+  %809 = call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %808, i32 noundef %5)
+  %810 = load i32, ptr @hf_x11_dst_y, align 4
+  %811 = call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %810, i32 noundef %5)
+  %812 = load i32, ptr @hf_x11_width, align 4
   %813 = call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %812, i32 noundef %5)
-  %814 = load i32, ptr @hf_x11_src_y, align 4
+  %814 = load i32, ptr @hf_x11_height, align 4
   %815 = call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %814, i32 noundef %5)
-  %816 = load i32, ptr @hf_x11_dst_x, align 4
-  %817 = call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %816, i32 noundef %5)
-  %818 = load i32, ptr @hf_x11_dst_y, align 4
-  %819 = call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %818, i32 noundef %5)
-  %820 = load i32, ptr @hf_x11_width, align 4
-  %821 = call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %820, i32 noundef %5)
-  %822 = load i32, ptr @hf_x11_height, align 4
-  %823 = call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %822, i32 noundef %5)
-  br label %1635
+  br label %1627
 
-824:                                              ; preds = %97
-  %825 = load i32, ptr @hf_x11_unused, align 4
-  %826 = tail call ptr @proto_tree_add_item(ptr noundef %20, i32 noundef %825, ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef 0) #10
+816:                                              ; preds = %89
+  %817 = load i32, ptr @hf_x11_unused, align 4
+  %818 = tail call ptr @proto_tree_add_item(ptr noundef %20, i32 noundef %817, ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef 0) #10
   store i32 2, ptr %7, align 4
-  %827 = call fastcc i32 @requestLength(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %5)
-  %828 = load i32, ptr @hf_x11_src_drawable, align 4
-  %829 = call fastcc i32 @field32(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %828, i32 noundef %5)
-  %830 = load i32, ptr @hf_x11_dst_drawable, align 4
-  %831 = call fastcc i32 @field32(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %830, i32 noundef %5)
-  %832 = load i32, ptr @hf_x11_gc, align 4
-  %833 = call fastcc i32 @field32(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %832, i32 noundef %5)
-  %834 = load i32, ptr @hf_x11_src_x, align 4
+  %819 = call fastcc i32 @requestLength(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %5)
+  %820 = load i32, ptr @hf_x11_src_drawable, align 4
+  %821 = call fastcc i32 @field32(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %820, i32 noundef %5)
+  %822 = load i32, ptr @hf_x11_dst_drawable, align 4
+  %823 = call fastcc i32 @field32(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %822, i32 noundef %5)
+  %824 = load i32, ptr @hf_x11_gc, align 4
+  %825 = call fastcc i32 @field32(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %824, i32 noundef %5)
+  %826 = load i32, ptr @hf_x11_src_x, align 4
+  %827 = call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %826, i32 noundef %5)
+  %828 = load i32, ptr @hf_x11_src_y, align 4
+  %829 = call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %828, i32 noundef %5)
+  %830 = load i32, ptr @hf_x11_dst_x, align 4
+  %831 = call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %830, i32 noundef %5)
+  %832 = load i32, ptr @hf_x11_dst_y, align 4
+  %833 = call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %832, i32 noundef %5)
+  %834 = load i32, ptr @hf_x11_width, align 4
   %835 = call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %834, i32 noundef %5)
-  %836 = load i32, ptr @hf_x11_src_y, align 4
+  %836 = load i32, ptr @hf_x11_height, align 4
   %837 = call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %836, i32 noundef %5)
-  %838 = load i32, ptr @hf_x11_dst_x, align 4
-  %839 = call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %838, i32 noundef %5)
-  %840 = load i32, ptr @hf_x11_dst_y, align 4
-  %841 = call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %840, i32 noundef %5)
-  %842 = load i32, ptr @hf_x11_width, align 4
-  %843 = call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %842, i32 noundef %5)
-  %844 = load i32, ptr @hf_x11_height, align 4
-  %845 = call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %844, i32 noundef %5)
-  %846 = load i32, ptr @hf_x11_bit_plane, align 4
+  %838 = load i32, ptr @hf_x11_bit_plane, align 4
+  %839 = call fastcc i32 @field32(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %838, i32 noundef %5)
+  br label %1627
+
+840:                                              ; preds = %89
+  %841 = load i32, ptr @hf_x11_coordinate_mode, align 4
+  %842 = call fastcc i32 @field8(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %841, i32 noundef %5)
+  %843 = call fastcc i32 @requestLength(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %5)
+  %844 = load i32, ptr @hf_x11_drawable, align 4
+  %845 = call fastcc i32 @field32(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %844, i32 noundef %5)
+  %846 = load i32, ptr @hf_x11_gc, align 4
   %847 = call fastcc i32 @field32(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %846, i32 noundef %5)
-  br label %1635
+  %848 = load i32, ptr @hf_x11_points, align 4
+  %849 = and i32 %843, 65535
+  %850 = add nsw i32 %849, -12
+  %851 = sdiv i32 %850, 4
+  call fastcc void @listOfPoint(ptr noundef %0, ptr noundef %7, ptr noundef %20, i32 noundef %848, i32 noundef %851, i32 noundef %5)
+  br label %1627
 
-848:                                              ; preds = %97
-  %849 = load i32, ptr @hf_x11_coordinate_mode, align 4
-  %850 = call fastcc i32 @field8(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %849, i32 noundef %5)
-  %851 = call fastcc i32 @requestLength(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %5)
-  %852 = load i32, ptr @hf_x11_drawable, align 4
-  %853 = call fastcc i32 @field32(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %852, i32 noundef %5)
-  %854 = load i32, ptr @hf_x11_gc, align 4
-  %855 = call fastcc i32 @field32(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %854, i32 noundef %5)
-  %856 = load i32, ptr @hf_x11_points, align 4
-  %857 = and i32 %851, 65535
-  %858 = add nsw i32 %857, -12
-  %859 = sdiv i32 %858, 4
-  call fastcc void @listOfPoint(ptr noundef %0, ptr noundef %7, ptr noundef %20, i32 noundef %856, i32 noundef %859, i32 noundef %5)
-  br label %1635
+852:                                              ; preds = %89
+  %853 = load i32, ptr @hf_x11_coordinate_mode, align 4
+  %854 = call fastcc i32 @field8(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %853, i32 noundef %5)
+  %855 = call fastcc i32 @requestLength(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %5)
+  %856 = load i32, ptr @hf_x11_drawable, align 4
+  %857 = call fastcc i32 @field32(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %856, i32 noundef %5)
+  %858 = load i32, ptr @hf_x11_gc, align 4
+  %859 = call fastcc i32 @field32(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %858, i32 noundef %5)
+  %860 = load i32, ptr @hf_x11_points, align 4
+  %861 = and i32 %855, 65535
+  %862 = add nsw i32 %861, -12
+  %863 = sdiv i32 %862, 4
+  call fastcc void @listOfPoint(ptr noundef %0, ptr noundef %7, ptr noundef %20, i32 noundef %860, i32 noundef %863, i32 noundef %5)
+  br label %1627
 
-860:                                              ; preds = %97
-  %861 = load i32, ptr @hf_x11_coordinate_mode, align 4
-  %862 = call fastcc i32 @field8(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %861, i32 noundef %5)
-  %863 = call fastcc i32 @requestLength(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %5)
-  %864 = load i32, ptr @hf_x11_drawable, align 4
-  %865 = call fastcc i32 @field32(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %864, i32 noundef %5)
-  %866 = load i32, ptr @hf_x11_gc, align 4
-  %867 = call fastcc i32 @field32(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %866, i32 noundef %5)
-  %868 = load i32, ptr @hf_x11_points, align 4
-  %869 = and i32 %863, 65535
-  %870 = add nsw i32 %869, -12
-  %871 = sdiv i32 %870, 4
-  call fastcc void @listOfPoint(ptr noundef %0, ptr noundef %7, ptr noundef %20, i32 noundef %868, i32 noundef %871, i32 noundef %5)
-  br label %1635
-
-872:                                              ; preds = %97
-  %873 = load i32, ptr @hf_x11_unused, align 4
-  %874 = tail call ptr @proto_tree_add_item(ptr noundef %20, i32 noundef %873, ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef 0) #10
+864:                                              ; preds = %89
+  %865 = load i32, ptr @hf_x11_unused, align 4
+  %866 = tail call ptr @proto_tree_add_item(ptr noundef %20, i32 noundef %865, ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef 0) #10
   store i32 2, ptr %7, align 4
-  %875 = call fastcc i32 @requestLength(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %5)
-  %876 = load i32, ptr @hf_x11_drawable, align 4
-  %877 = call fastcc i32 @field32(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %876, i32 noundef %5)
-  %878 = load i32, ptr @hf_x11_gc, align 4
-  %879 = call fastcc i32 @field32(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %878, i32 noundef %5)
-  %880 = load i32, ptr @hf_x11_segments, align 4
-  %881 = load i32, ptr %7, align 4
-  %882 = sub i32 %.02784, %881
-  %883 = sdiv i32 %882, 8
-  call fastcc void @listOfSegment(ptr noundef %0, ptr noundef %7, ptr noundef %20, i32 noundef %880, i32 noundef %883, i32 noundef %5)
-  br label %1635
+  %867 = call fastcc i32 @requestLength(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %5)
+  %868 = load i32, ptr @hf_x11_drawable, align 4
+  %869 = call fastcc i32 @field32(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %868, i32 noundef %5)
+  %870 = load i32, ptr @hf_x11_gc, align 4
+  %871 = call fastcc i32 @field32(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %870, i32 noundef %5)
+  %872 = load i32, ptr @hf_x11_segments, align 4
+  %873 = load i32, ptr %7, align 4
+  %874 = sub i32 %.02784, %873
+  %875 = sdiv i32 %874, 8
+  call fastcc void @listOfSegment(ptr noundef %0, ptr noundef %7, ptr noundef %20, i32 noundef %872, i32 noundef %875, i32 noundef %5)
+  br label %1627
 
-884:                                              ; preds = %97
-  %885 = load i32, ptr @hf_x11_unused, align 4
-  %886 = tail call ptr @proto_tree_add_item(ptr noundef %20, i32 noundef %885, ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef 0) #10
+876:                                              ; preds = %89
+  %877 = load i32, ptr @hf_x11_unused, align 4
+  %878 = tail call ptr @proto_tree_add_item(ptr noundef %20, i32 noundef %877, ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef 0) #10
   store i32 2, ptr %7, align 4
-  %887 = call fastcc i32 @requestLength(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %5)
-  %888 = load i32, ptr @hf_x11_drawable, align 4
-  %889 = call fastcc i32 @field32(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %888, i32 noundef %5)
-  %890 = load i32, ptr @hf_x11_gc, align 4
-  %891 = call fastcc i32 @field32(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %890, i32 noundef %5)
-  %892 = load i32, ptr @hf_x11_rectangles, align 4
-  %893 = load i32, ptr %7, align 4
-  %894 = sub i32 %.02784, %893
-  %895 = sdiv i32 %894, 8
-  call fastcc void @listOfRectangle(ptr noundef %0, ptr noundef %7, ptr noundef %20, i32 noundef %892, i32 noundef %895, i32 noundef %5)
-  br label %1635
+  %879 = call fastcc i32 @requestLength(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %5)
+  %880 = load i32, ptr @hf_x11_drawable, align 4
+  %881 = call fastcc i32 @field32(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %880, i32 noundef %5)
+  %882 = load i32, ptr @hf_x11_gc, align 4
+  %883 = call fastcc i32 @field32(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %882, i32 noundef %5)
+  %884 = load i32, ptr @hf_x11_rectangles, align 4
+  %885 = load i32, ptr %7, align 4
+  %886 = sub i32 %.02784, %885
+  %887 = sdiv i32 %886, 8
+  call fastcc void @listOfRectangle(ptr noundef %0, ptr noundef %7, ptr noundef %20, i32 noundef %884, i32 noundef %887, i32 noundef %5)
+  br label %1627
 
-896:                                              ; preds = %97
-  %897 = load i32, ptr @hf_x11_unused, align 4
-  %898 = tail call ptr @proto_tree_add_item(ptr noundef %20, i32 noundef %897, ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef 0) #10
+888:                                              ; preds = %89
+  %889 = load i32, ptr @hf_x11_unused, align 4
+  %890 = tail call ptr @proto_tree_add_item(ptr noundef %20, i32 noundef %889, ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef 0) #10
   store i32 2, ptr %7, align 4
-  %899 = call fastcc i32 @requestLength(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %5)
-  %900 = load i32, ptr @hf_x11_drawable, align 4
-  %901 = call fastcc i32 @field32(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %900, i32 noundef %5)
-  %902 = load i32, ptr @hf_x11_gc, align 4
-  %903 = call fastcc i32 @field32(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %902, i32 noundef %5)
-  %904 = load i32, ptr @hf_x11_arcs, align 4
-  %905 = load i32, ptr %7, align 4
-  %906 = sub i32 %.02784, %905
-  %907 = sdiv i32 %906, 12
-  call fastcc void @listOfArc(ptr noundef %0, ptr noundef %7, ptr noundef %20, i32 noundef %904, i32 noundef %907, i32 noundef %5)
-  br label %1635
+  %891 = call fastcc i32 @requestLength(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %5)
+  %892 = load i32, ptr @hf_x11_drawable, align 4
+  %893 = call fastcc i32 @field32(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %892, i32 noundef %5)
+  %894 = load i32, ptr @hf_x11_gc, align 4
+  %895 = call fastcc i32 @field32(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %894, i32 noundef %5)
+  %896 = load i32, ptr @hf_x11_arcs, align 4
+  %897 = load i32, ptr %7, align 4
+  %898 = sub i32 %.02784, %897
+  %899 = sdiv i32 %898, 12
+  call fastcc void @listOfArc(ptr noundef %0, ptr noundef %7, ptr noundef %20, i32 noundef %896, i32 noundef %899, i32 noundef %5)
+  br label %1627
 
-908:                                              ; preds = %97
-  %909 = load i32, ptr @hf_x11_unused, align 4
-  %910 = tail call ptr @proto_tree_add_item(ptr noundef %20, i32 noundef %909, ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef 0) #10
+900:                                              ; preds = %89
+  %901 = load i32, ptr @hf_x11_unused, align 4
+  %902 = tail call ptr @proto_tree_add_item(ptr noundef %20, i32 noundef %901, ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef 0) #10
   store i32 2, ptr %7, align 4
-  %911 = call fastcc i32 @requestLength(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %5)
-  %912 = load i32, ptr @hf_x11_drawable, align 4
-  %913 = call fastcc i32 @field32(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %912, i32 noundef %5)
-  %914 = load i32, ptr @hf_x11_gc, align 4
-  %915 = call fastcc i32 @field32(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %914, i32 noundef %5)
-  %916 = load i32, ptr @hf_x11_shape, align 4
-  %917 = call fastcc i32 @field8(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %916, i32 noundef %5)
-  %918 = load i32, ptr @hf_x11_coordinate_mode, align 4
-  %919 = call fastcc i32 @field8(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %918, i32 noundef %5)
-  %920 = load i32, ptr @hf_x11_unused, align 4
-  %921 = load i32, ptr %7, align 4
-  %922 = tail call ptr @proto_tree_add_item(ptr noundef %20, i32 noundef %920, ptr noundef %0, i32 noundef %921, i32 noundef 2, i32 noundef 0) #10
-  %923 = add i32 %921, 2
-  store i32 %923, ptr %7, align 4
-  %924 = load i32, ptr @hf_x11_points, align 4
-  %925 = and i32 %911, 65535
-  %926 = add nsw i32 %925, -16
-  %927 = sdiv i32 %926, 4
-  call fastcc void @listOfPoint(ptr noundef %0, ptr noundef %7, ptr noundef %20, i32 noundef %924, i32 noundef %927, i32 noundef %5)
-  br label %1635
+  %903 = call fastcc i32 @requestLength(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %5)
+  %904 = load i32, ptr @hf_x11_drawable, align 4
+  %905 = call fastcc i32 @field32(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %904, i32 noundef %5)
+  %906 = load i32, ptr @hf_x11_gc, align 4
+  %907 = call fastcc i32 @field32(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %906, i32 noundef %5)
+  %908 = load i32, ptr @hf_x11_shape, align 4
+  %909 = call fastcc i32 @field8(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %908, i32 noundef %5)
+  %910 = load i32, ptr @hf_x11_coordinate_mode, align 4
+  %911 = call fastcc i32 @field8(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %910, i32 noundef %5)
+  %912 = load i32, ptr @hf_x11_unused, align 4
+  %913 = load i32, ptr %7, align 4
+  %914 = tail call ptr @proto_tree_add_item(ptr noundef %20, i32 noundef %912, ptr noundef %0, i32 noundef %913, i32 noundef 2, i32 noundef 0) #10
+  %915 = add i32 %913, 2
+  store i32 %915, ptr %7, align 4
+  %916 = load i32, ptr @hf_x11_points, align 4
+  %917 = and i32 %903, 65535
+  %918 = add nsw i32 %917, -16
+  %919 = sdiv i32 %918, 4
+  call fastcc void @listOfPoint(ptr noundef %0, ptr noundef %7, ptr noundef %20, i32 noundef %916, i32 noundef %919, i32 noundef %5)
+  br label %1627
 
-928:                                              ; preds = %97
-  %929 = load i32, ptr @hf_x11_unused, align 4
-  %930 = tail call ptr @proto_tree_add_item(ptr noundef %20, i32 noundef %929, ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef 0) #10
+920:                                              ; preds = %89
+  %921 = load i32, ptr @hf_x11_unused, align 4
+  %922 = tail call ptr @proto_tree_add_item(ptr noundef %20, i32 noundef %921, ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef 0) #10
   store i32 2, ptr %7, align 4
-  %931 = call fastcc i32 @requestLength(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %5)
-  %932 = load i32, ptr @hf_x11_drawable, align 4
-  %933 = call fastcc i32 @field32(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %932, i32 noundef %5)
-  %934 = load i32, ptr @hf_x11_gc, align 4
-  %935 = call fastcc i32 @field32(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %934, i32 noundef %5)
-  %936 = load i32, ptr @hf_x11_rectangles, align 4
-  %937 = load i32, ptr %7, align 4
-  %938 = sub i32 %.02784, %937
-  %939 = sdiv i32 %938, 8
-  call fastcc void @listOfRectangle(ptr noundef %0, ptr noundef %7, ptr noundef %20, i32 noundef %936, i32 noundef %939, i32 noundef %5)
-  br label %1635
+  %923 = call fastcc i32 @requestLength(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %5)
+  %924 = load i32, ptr @hf_x11_drawable, align 4
+  %925 = call fastcc i32 @field32(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %924, i32 noundef %5)
+  %926 = load i32, ptr @hf_x11_gc, align 4
+  %927 = call fastcc i32 @field32(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %926, i32 noundef %5)
+  %928 = load i32, ptr @hf_x11_rectangles, align 4
+  %929 = load i32, ptr %7, align 4
+  %930 = sub i32 %.02784, %929
+  %931 = sdiv i32 %930, 8
+  call fastcc void @listOfRectangle(ptr noundef %0, ptr noundef %7, ptr noundef %20, i32 noundef %928, i32 noundef %931, i32 noundef %5)
+  br label %1627
 
-940:                                              ; preds = %97
-  %941 = load i32, ptr @hf_x11_unused, align 4
-  %942 = tail call ptr @proto_tree_add_item(ptr noundef %20, i32 noundef %941, ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef 0) #10
+932:                                              ; preds = %89
+  %933 = load i32, ptr @hf_x11_unused, align 4
+  %934 = tail call ptr @proto_tree_add_item(ptr noundef %20, i32 noundef %933, ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef 0) #10
   store i32 2, ptr %7, align 4
-  %943 = call fastcc i32 @requestLength(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %5)
-  %944 = load i32, ptr @hf_x11_drawable, align 4
-  %945 = call fastcc i32 @field32(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %944, i32 noundef %5)
-  %946 = load i32, ptr @hf_x11_gc, align 4
-  %947 = call fastcc i32 @field32(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %946, i32 noundef %5)
-  %948 = load i32, ptr @hf_x11_arcs, align 4
-  %949 = load i32, ptr %7, align 4
-  %950 = sub i32 %.02784, %949
-  %951 = sdiv i32 %950, 12
-  call fastcc void @listOfArc(ptr noundef %0, ptr noundef %7, ptr noundef %20, i32 noundef %948, i32 noundef %951, i32 noundef %5)
-  br label %1635
+  %935 = call fastcc i32 @requestLength(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %5)
+  %936 = load i32, ptr @hf_x11_drawable, align 4
+  %937 = call fastcc i32 @field32(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %936, i32 noundef %5)
+  %938 = load i32, ptr @hf_x11_gc, align 4
+  %939 = call fastcc i32 @field32(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %938, i32 noundef %5)
+  %940 = load i32, ptr @hf_x11_arcs, align 4
+  %941 = load i32, ptr %7, align 4
+  %942 = sub i32 %.02784, %941
+  %943 = sdiv i32 %942, 12
+  call fastcc void @listOfArc(ptr noundef %0, ptr noundef %7, ptr noundef %20, i32 noundef %940, i32 noundef %943, i32 noundef %5)
+  br label %1627
 
-952:                                              ; preds = %97
-  %953 = load i32, ptr @hf_x11_image_format, align 4
-  %954 = call fastcc i32 @field8(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %953, i32 noundef %5)
-  %955 = call fastcc i32 @requestLength(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %5)
-  %956 = load i32, ptr @hf_x11_drawable, align 4
-  %957 = call fastcc i32 @field32(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %956, i32 noundef %5)
-  %958 = load i32, ptr @hf_x11_gc, align 4
-  %959 = call fastcc i32 @field32(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %958, i32 noundef %5)
-  %960 = load i32, ptr @hf_x11_width, align 4
-  %961 = call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %960, i32 noundef %5)
-  %962 = load i32, ptr @hf_x11_height, align 4
-  %963 = call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %962, i32 noundef %5)
-  %964 = load i32, ptr @hf_x11_dst_x, align 4
-  %965 = call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %964, i32 noundef %5)
-  %966 = load i32, ptr @hf_x11_dst_y, align 4
-  %967 = call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %966, i32 noundef %5)
-  %968 = load i32, ptr @hf_x11_left_pad, align 4
-  %969 = call fastcc i32 @field8(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %968, i32 noundef %5)
-  %970 = load i32, ptr @hf_x11_depth, align 4
-  %971 = call fastcc i32 @field8(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %970, i32 noundef %5)
-  %972 = load i32, ptr @hf_x11_unused, align 4
-  %973 = load i32, ptr %7, align 4
-  %974 = tail call ptr @proto_tree_add_item(ptr noundef %20, i32 noundef %972, ptr noundef %0, i32 noundef %973, i32 noundef 2, i32 noundef 0) #10
-  %975 = add i32 %973, 2
-  %976 = load i32, ptr @hf_x11_data, align 4
-  %977 = and i32 %955, 65535
-  %978 = tail call i32 @llvm.umax.i32(i32 %977, i32 25)
-  %spec.store.select.i2834 = add nsw i32 %978, -24
-  %979 = tail call ptr @proto_tree_add_item(ptr noundef %20, i32 noundef %976, ptr noundef %0, i32 noundef %975, i32 noundef %spec.store.select.i2834, i32 noundef %5) #10
-  %980 = add i32 %975, %spec.store.select.i2834
-  %981 = sub i32 %.02784, %980
-  %982 = icmp sgt i32 %981, 0
-  br i1 %982, label %983, label %986
+944:                                              ; preds = %89
+  %945 = load i32, ptr @hf_x11_image_format, align 4
+  %946 = call fastcc i32 @field8(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %945, i32 noundef %5)
+  %947 = call fastcc i32 @requestLength(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %5)
+  %948 = load i32, ptr @hf_x11_drawable, align 4
+  %949 = call fastcc i32 @field32(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %948, i32 noundef %5)
+  %950 = load i32, ptr @hf_x11_gc, align 4
+  %951 = call fastcc i32 @field32(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %950, i32 noundef %5)
+  %952 = load i32, ptr @hf_x11_width, align 4
+  %953 = call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %952, i32 noundef %5)
+  %954 = load i32, ptr @hf_x11_height, align 4
+  %955 = call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %954, i32 noundef %5)
+  %956 = load i32, ptr @hf_x11_dst_x, align 4
+  %957 = call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %956, i32 noundef %5)
+  %958 = load i32, ptr @hf_x11_dst_y, align 4
+  %959 = call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %958, i32 noundef %5)
+  %960 = load i32, ptr @hf_x11_left_pad, align 4
+  %961 = call fastcc i32 @field8(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %960, i32 noundef %5)
+  %962 = load i32, ptr @hf_x11_depth, align 4
+  %963 = call fastcc i32 @field8(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %962, i32 noundef %5)
+  %964 = load i32, ptr @hf_x11_unused, align 4
+  %965 = load i32, ptr %7, align 4
+  %966 = tail call ptr @proto_tree_add_item(ptr noundef %20, i32 noundef %964, ptr noundef %0, i32 noundef %965, i32 noundef 2, i32 noundef 0) #10
+  %967 = add i32 %965, 2
+  %968 = load i32, ptr @hf_x11_data, align 4
+  %969 = and i32 %947, 65535
+  %970 = tail call i32 @llvm.umax.i32(i32 %969, i32 25)
+  %spec.store.select.i2834 = add nsw i32 %970, -24
+  %971 = tail call ptr @proto_tree_add_item(ptr noundef %20, i32 noundef %968, ptr noundef %0, i32 noundef %967, i32 noundef %spec.store.select.i2834, i32 noundef %5) #10
+  %972 = add i32 %967, %spec.store.select.i2834
+  %973 = sub i32 %.02784, %972
+  %974 = icmp sgt i32 %973, 0
+  br i1 %974, label %975, label %978
 
-983:                                              ; preds = %952
-  %984 = load i32, ptr @hf_x11_unused, align 4
-  %985 = tail call ptr @proto_tree_add_item(ptr noundef %20, i32 noundef %984, ptr noundef %0, i32 noundef %980, i32 noundef %981, i32 noundef 0) #10
-  br label %986
+975:                                              ; preds = %944
+  %976 = load i32, ptr @hf_x11_unused, align 4
+  %977 = tail call ptr @proto_tree_add_item(ptr noundef %20, i32 noundef %976, ptr noundef %0, i32 noundef %972, i32 noundef %973, i32 noundef 0) #10
+  br label %978
 
-986:                                              ; preds = %983, %952
+978:                                              ; preds = %975, %944
   store i32 %.02784, ptr %7, align 4
-  br label %1635
+  br label %1627
 
-987:                                              ; preds = %97
-  %988 = load i32, ptr @hf_x11_image_pixmap_format, align 4
-  %989 = call fastcc i32 @field8(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %988, i32 noundef %5)
-  %990 = call fastcc i32 @requestLength(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %5)
-  %991 = load i32, ptr @hf_x11_drawable, align 4
-  %992 = call fastcc i32 @field32(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %991, i32 noundef %5)
-  %993 = load i32, ptr @hf_x11_x, align 4
-  %994 = call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %993, i32 noundef %5)
-  %995 = load i32, ptr @hf_x11_y, align 4
-  %996 = call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %995, i32 noundef %5)
-  %997 = load i32, ptr @hf_x11_width, align 4
-  %998 = call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %997, i32 noundef %5)
-  %999 = load i32, ptr @hf_x11_height, align 4
-  %1000 = call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %999, i32 noundef %5)
-  %1001 = load i32, ptr @hf_x11_plane_mask, align 4
+979:                                              ; preds = %89
+  %980 = load i32, ptr @hf_x11_image_pixmap_format, align 4
+  %981 = call fastcc i32 @field8(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %980, i32 noundef %5)
+  %982 = call fastcc i32 @requestLength(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %5)
+  %983 = load i32, ptr @hf_x11_drawable, align 4
+  %984 = call fastcc i32 @field32(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %983, i32 noundef %5)
+  %985 = load i32, ptr @hf_x11_x, align 4
+  %986 = call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %985, i32 noundef %5)
+  %987 = load i32, ptr @hf_x11_y, align 4
+  %988 = call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %987, i32 noundef %5)
+  %989 = load i32, ptr @hf_x11_width, align 4
+  %990 = call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %989, i32 noundef %5)
+  %991 = load i32, ptr @hf_x11_height, align 4
+  %992 = call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %991, i32 noundef %5)
+  %993 = load i32, ptr @hf_x11_plane_mask, align 4
+  %994 = call fastcc i32 @field32(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %993, i32 noundef %5)
+  br label %1627
+
+995:                                              ; preds = %89
+  %996 = load i32, ptr @hf_x11_unused, align 4
+  %997 = tail call ptr @proto_tree_add_item(ptr noundef %20, i32 noundef %996, ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef 0) #10
+  store i32 2, ptr %7, align 4
+  %998 = call fastcc i32 @requestLength(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %5)
+  %999 = load i32, ptr @hf_x11_drawable, align 4
+  %1000 = call fastcc i32 @field32(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %999, i32 noundef %5)
+  %1001 = load i32, ptr @hf_x11_gc, align 4
   %1002 = call fastcc i32 @field32(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %1001, i32 noundef %5)
-  br label %1635
+  %1003 = load i32, ptr @hf_x11_x, align 4
+  %1004 = call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %1003, i32 noundef %5)
+  %1005 = load i32, ptr @hf_x11_y, align 4
+  %1006 = call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %1005, i32 noundef %5)
+  %1007 = load i32, ptr @hf_x11_items, align 4
+  call fastcc void @listOfTextItem(ptr noundef %0, ptr noundef %7, ptr noundef %20, i32 noundef %1007, i32 noundef 0, i32 noundef %.02784, i32 noundef %5)
+  %1008 = load i32, ptr %7, align 4
+  %1009 = sub i32 %.02784, %1008
+  %1010 = icmp sgt i32 %1009, 0
+  br i1 %1010, label %1011, label %1014
 
-1003:                                             ; preds = %97
-  %1004 = load i32, ptr @hf_x11_unused, align 4
-  %1005 = tail call ptr @proto_tree_add_item(ptr noundef %20, i32 noundef %1004, ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef 0) #10
+1011:                                             ; preds = %995
+  %1012 = load i32, ptr @hf_x11_unused, align 4
+  %1013 = tail call ptr @proto_tree_add_item(ptr noundef %20, i32 noundef %1012, ptr noundef %0, i32 noundef %1008, i32 noundef %1009, i32 noundef 0) #10
+  br label %1014
+
+1014:                                             ; preds = %1011, %995
+  store i32 %.02784, ptr %7, align 4
+  br label %1627
+
+1015:                                             ; preds = %89
+  %1016 = load i32, ptr @hf_x11_unused, align 4
+  %1017 = tail call ptr @proto_tree_add_item(ptr noundef %20, i32 noundef %1016, ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef 0) #10
   store i32 2, ptr %7, align 4
-  %1006 = call fastcc i32 @requestLength(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %5)
-  %1007 = load i32, ptr @hf_x11_drawable, align 4
-  %1008 = call fastcc i32 @field32(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %1007, i32 noundef %5)
-  %1009 = load i32, ptr @hf_x11_gc, align 4
-  %1010 = call fastcc i32 @field32(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %1009, i32 noundef %5)
-  %1011 = load i32, ptr @hf_x11_x, align 4
-  %1012 = call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %1011, i32 noundef %5)
-  %1013 = load i32, ptr @hf_x11_y, align 4
-  %1014 = call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %1013, i32 noundef %5)
-  %1015 = load i32, ptr @hf_x11_items, align 4
-  call fastcc void @listOfTextItem(ptr noundef %0, ptr noundef %7, ptr noundef %20, i32 noundef %1015, i32 noundef 0, i32 noundef %.02784, i32 noundef %5)
-  %1016 = load i32, ptr %7, align 4
-  %1017 = sub i32 %.02784, %1016
-  %1018 = icmp sgt i32 %1017, 0
-  br i1 %1018, label %1019, label %1022
+  %1018 = call fastcc i32 @requestLength(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %5)
+  %1019 = load i32, ptr @hf_x11_drawable, align 4
+  %1020 = call fastcc i32 @field32(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %1019, i32 noundef %5)
+  %1021 = load i32, ptr @hf_x11_gc, align 4
+  %1022 = call fastcc i32 @field32(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %1021, i32 noundef %5)
+  %1023 = load i32, ptr @hf_x11_x, align 4
+  %1024 = call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %1023, i32 noundef %5)
+  %1025 = load i32, ptr @hf_x11_y, align 4
+  %1026 = call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %1025, i32 noundef %5)
+  %1027 = load i32, ptr @hf_x11_items, align 4
+  call fastcc void @listOfTextItem(ptr noundef %0, ptr noundef %7, ptr noundef %20, i32 noundef %1027, i32 noundef 1, i32 noundef %.02784, i32 noundef %5)
+  %1028 = load i32, ptr %7, align 4
+  %1029 = sub i32 %.02784, %1028
+  %1030 = icmp sgt i32 %1029, 0
+  br i1 %1030, label %1031, label %1034
 
-1019:                                             ; preds = %1003
-  %1020 = load i32, ptr @hf_x11_unused, align 4
-  %1021 = tail call ptr @proto_tree_add_item(ptr noundef %20, i32 noundef %1020, ptr noundef %0, i32 noundef %1016, i32 noundef %1017, i32 noundef 0) #10
-  br label %1022
+1031:                                             ; preds = %1015
+  %1032 = load i32, ptr @hf_x11_unused, align 4
+  %1033 = tail call ptr @proto_tree_add_item(ptr noundef %20, i32 noundef %1032, ptr noundef %0, i32 noundef %1028, i32 noundef %1029, i32 noundef 0) #10
+  br label %1034
 
-1022:                                             ; preds = %1019, %1003
+1034:                                             ; preds = %1031, %1015
   store i32 %.02784, ptr %7, align 4
-  br label %1635
+  br label %1627
 
-1023:                                             ; preds = %97
-  %1024 = load i32, ptr @hf_x11_unused, align 4
-  %1025 = tail call ptr @proto_tree_add_item(ptr noundef %20, i32 noundef %1024, ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef 0) #10
+1035:                                             ; preds = %89
+  %1036 = load i32, ptr @hf_x11_string_length, align 4
+  %1037 = call fastcc i32 @field8(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %1036, i32 noundef %5)
+  %1038 = call fastcc i32 @requestLength(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %5)
+  %1039 = load i32, ptr @hf_x11_drawable, align 4
+  %1040 = call fastcc i32 @field32(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %1039, i32 noundef %5)
+  %1041 = load i32, ptr @hf_x11_gc, align 4
+  %1042 = call fastcc i32 @field32(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %1041, i32 noundef %5)
+  %1043 = load i32, ptr @hf_x11_x, align 4
+  %1044 = call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %1043, i32 noundef %5)
+  %1045 = load i32, ptr @hf_x11_y, align 4
+  %1046 = call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %1045, i32 noundef %5)
+  %1047 = load i32, ptr @hf_x11_string, align 4
+  %1048 = load i32, ptr %7, align 4
+  %1049 = tail call ptr @proto_tree_add_item(ptr noundef %20, i32 noundef %1047, ptr noundef %0, i32 noundef %1048, i32 noundef %1037, i32 noundef 0) #10
+  %1050 = add i32 %1048, %1037
+  %1051 = sub i32 %.02784, %1050
+  %1052 = icmp sgt i32 %1051, 0
+  br i1 %1052, label %1053, label %1056
+
+1053:                                             ; preds = %1035
+  %1054 = load i32, ptr @hf_x11_unused, align 4
+  %1055 = tail call ptr @proto_tree_add_item(ptr noundef %20, i32 noundef %1054, ptr noundef %0, i32 noundef %1050, i32 noundef %1051, i32 noundef 0) #10
+  br label %1056
+
+1056:                                             ; preds = %1053, %1035
+  store i32 %.02784, ptr %7, align 4
+  br label %1627
+
+1057:                                             ; preds = %89
+  %1058 = load i32, ptr @hf_x11_string_length, align 4
+  %1059 = call fastcc i32 @field8(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %1058, i32 noundef %5)
+  %1060 = call fastcc i32 @requestLength(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %5)
+  %1061 = load i32, ptr @hf_x11_drawable, align 4
+  %1062 = call fastcc i32 @field32(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %1061, i32 noundef %5)
+  %1063 = load i32, ptr @hf_x11_gc, align 4
+  %1064 = call fastcc i32 @field32(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %1063, i32 noundef %5)
+  %1065 = load i32, ptr @hf_x11_x, align 4
+  %1066 = call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %1065, i32 noundef %5)
+  %1067 = load i32, ptr @hf_x11_y, align 4
+  %1068 = call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %1067, i32 noundef %5)
+  %1069 = load i32, ptr @hf_x11_string16, align 4
+  %1070 = load i32, ptr @hf_x11_string16_bytes, align 4
+  call fastcc void @string16(ptr noundef %0, ptr noundef %7, ptr noundef %20, i32 noundef %1069, i32 noundef %1070, i32 noundef %1059, i32 noundef %5)
+  %1071 = load i32, ptr %7, align 4
+  %1072 = sub i32 %.02784, %1071
+  %1073 = icmp sgt i32 %1072, 0
+  br i1 %1073, label %1074, label %1077
+
+1074:                                             ; preds = %1057
+  %1075 = load i32, ptr @hf_x11_unused, align 4
+  %1076 = tail call ptr @proto_tree_add_item(ptr noundef %20, i32 noundef %1075, ptr noundef %0, i32 noundef %1071, i32 noundef %1072, i32 noundef 0) #10
+  br label %1077
+
+1077:                                             ; preds = %1074, %1057
+  store i32 %.02784, ptr %7, align 4
+  br label %1627
+
+1078:                                             ; preds = %89
+  %1079 = load i32, ptr @hf_x11_alloc, align 4
+  %1080 = call fastcc i32 @field8(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %1079, i32 noundef %5)
+  %1081 = call fastcc i32 @requestLength(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %5)
+  %1082 = load i32, ptr @hf_x11_mid, align 4
+  %1083 = call fastcc i32 @field32(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %1082, i32 noundef %5)
+  %1084 = load i32, ptr @hf_x11_window, align 4
+  %1085 = call fastcc i32 @field32(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %1084, i32 noundef %5)
+  %1086 = load i32, ptr %7, align 4
+  %1087 = tail call i32 @tvb_get_guint32(ptr noundef %0, i32 noundef %1086, i32 noundef %5) #10
+  %1088 = load i32, ptr @hf_x11_visual, align 4
+  %.not2819 = icmp eq i32 %1087, 0
+  %1089 = select i1 %.not2819, ptr @.str.14704, ptr @.str.14689
+  %1090 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %20, i32 noundef %1088, ptr noundef %0, i32 noundef %1086, i32 noundef 4, i32 noundef %1087, ptr noundef nonnull @.str.14703, i32 noundef %1087, ptr noundef nonnull %1089) #10
+  %1091 = add i32 %1086, 4
+  store i32 %1091, ptr %7, align 4
+  br label %1627
+
+1092:                                             ; preds = %89
+  %1093 = load i32, ptr @hf_x11_unused, align 4
+  %1094 = tail call ptr @proto_tree_add_item(ptr noundef %20, i32 noundef %1093, ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef 0) #10
   store i32 2, ptr %7, align 4
-  %1026 = call fastcc i32 @requestLength(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %5)
-  %1027 = load i32, ptr @hf_x11_drawable, align 4
-  %1028 = call fastcc i32 @field32(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %1027, i32 noundef %5)
-  %1029 = load i32, ptr @hf_x11_gc, align 4
-  %1030 = call fastcc i32 @field32(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %1029, i32 noundef %5)
-  %1031 = load i32, ptr @hf_x11_x, align 4
-  %1032 = call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %1031, i32 noundef %5)
-  %1033 = load i32, ptr @hf_x11_y, align 4
-  %1034 = call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %1033, i32 noundef %5)
-  %1035 = load i32, ptr @hf_x11_items, align 4
-  call fastcc void @listOfTextItem(ptr noundef %0, ptr noundef %7, ptr noundef %20, i32 noundef %1035, i32 noundef 1, i32 noundef %.02784, i32 noundef %5)
-  %1036 = load i32, ptr %7, align 4
-  %1037 = sub i32 %.02784, %1036
-  %1038 = icmp sgt i32 %1037, 0
-  br i1 %1038, label %1039, label %1042
+  %1095 = call fastcc i32 @requestLength(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %5)
+  %1096 = load i32, ptr @hf_x11_cmap, align 4
+  %1097 = call fastcc i32 @field32(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %1096, i32 noundef %5)
+  br label %1627
 
-1039:                                             ; preds = %1023
-  %1040 = load i32, ptr @hf_x11_unused, align 4
-  %1041 = tail call ptr @proto_tree_add_item(ptr noundef %20, i32 noundef %1040, ptr noundef %0, i32 noundef %1036, i32 noundef %1037, i32 noundef 0) #10
-  br label %1042
-
-1042:                                             ; preds = %1039, %1023
-  store i32 %.02784, ptr %7, align 4
-  br label %1635
-
-1043:                                             ; preds = %97
-  %1044 = load i32, ptr @hf_x11_string_length, align 4
-  %1045 = call fastcc i32 @field8(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %1044, i32 noundef %5)
-  %1046 = call fastcc i32 @requestLength(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %5)
-  %1047 = load i32, ptr @hf_x11_drawable, align 4
-  %1048 = call fastcc i32 @field32(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %1047, i32 noundef %5)
-  %1049 = load i32, ptr @hf_x11_gc, align 4
-  %1050 = call fastcc i32 @field32(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %1049, i32 noundef %5)
-  %1051 = load i32, ptr @hf_x11_x, align 4
-  %1052 = call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %1051, i32 noundef %5)
-  %1053 = load i32, ptr @hf_x11_y, align 4
-  %1054 = call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %1053, i32 noundef %5)
-  %1055 = load i32, ptr @hf_x11_string, align 4
-  %1056 = load i32, ptr %7, align 4
-  %1057 = tail call ptr @proto_tree_add_item(ptr noundef %20, i32 noundef %1055, ptr noundef %0, i32 noundef %1056, i32 noundef %1045, i32 noundef 0) #10
-  %1058 = add i32 %1056, %1045
-  %1059 = sub i32 %.02784, %1058
-  %1060 = icmp sgt i32 %1059, 0
-  br i1 %1060, label %1061, label %1064
-
-1061:                                             ; preds = %1043
-  %1062 = load i32, ptr @hf_x11_unused, align 4
-  %1063 = tail call ptr @proto_tree_add_item(ptr noundef %20, i32 noundef %1062, ptr noundef %0, i32 noundef %1058, i32 noundef %1059, i32 noundef 0) #10
-  br label %1064
-
-1064:                                             ; preds = %1061, %1043
-  store i32 %.02784, ptr %7, align 4
-  br label %1635
-
-1065:                                             ; preds = %97
-  %1066 = load i32, ptr @hf_x11_string_length, align 4
-  %1067 = call fastcc i32 @field8(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %1066, i32 noundef %5)
-  %1068 = call fastcc i32 @requestLength(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %5)
-  %1069 = load i32, ptr @hf_x11_drawable, align 4
-  %1070 = call fastcc i32 @field32(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %1069, i32 noundef %5)
-  %1071 = load i32, ptr @hf_x11_gc, align 4
-  %1072 = call fastcc i32 @field32(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %1071, i32 noundef %5)
-  %1073 = load i32, ptr @hf_x11_x, align 4
-  %1074 = call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %1073, i32 noundef %5)
-  %1075 = load i32, ptr @hf_x11_y, align 4
-  %1076 = call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %1075, i32 noundef %5)
-  %1077 = load i32, ptr @hf_x11_string16, align 4
-  %1078 = load i32, ptr @hf_x11_string16_bytes, align 4
-  call fastcc void @string16(ptr noundef %0, ptr noundef %7, ptr noundef %20, i32 noundef %1077, i32 noundef %1078, i32 noundef %1067, i32 noundef %5)
-  %1079 = load i32, ptr %7, align 4
-  %1080 = sub i32 %.02784, %1079
-  %1081 = icmp sgt i32 %1080, 0
-  br i1 %1081, label %1082, label %1085
-
-1082:                                             ; preds = %1065
-  %1083 = load i32, ptr @hf_x11_unused, align 4
-  %1084 = tail call ptr @proto_tree_add_item(ptr noundef %20, i32 noundef %1083, ptr noundef %0, i32 noundef %1079, i32 noundef %1080, i32 noundef 0) #10
-  br label %1085
-
-1085:                                             ; preds = %1082, %1065
-  store i32 %.02784, ptr %7, align 4
-  br label %1635
-
-1086:                                             ; preds = %97
-  %1087 = load i32, ptr @hf_x11_alloc, align 4
-  %1088 = call fastcc i32 @field8(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %1087, i32 noundef %5)
-  %1089 = call fastcc i32 @requestLength(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %5)
-  %1090 = load i32, ptr @hf_x11_mid, align 4
-  %1091 = call fastcc i32 @field32(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %1090, i32 noundef %5)
-  %1092 = load i32, ptr @hf_x11_window, align 4
-  %1093 = call fastcc i32 @field32(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %1092, i32 noundef %5)
-  %1094 = load i32, ptr %7, align 4
-  %1095 = tail call i32 @tvb_get_guint32(ptr noundef %0, i32 noundef %1094, i32 noundef %5) #10
-  %1096 = load i32, ptr @hf_x11_visual, align 4
-  %.not2819 = icmp eq i32 %1095, 0
-  %1097 = select i1 %.not2819, ptr @.str.14704, ptr @.str.14689
-  %1098 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %20, i32 noundef %1096, ptr noundef %0, i32 noundef %1094, i32 noundef 4, i32 noundef %1095, ptr noundef nonnull @.str.14703, i32 noundef %1095, ptr noundef nonnull %1097) #10
-  %1099 = add i32 %1094, 4
-  store i32 %1099, ptr %7, align 4
-  br label %1635
-
-1100:                                             ; preds = %97
-  %1101 = load i32, ptr @hf_x11_unused, align 4
-  %1102 = tail call ptr @proto_tree_add_item(ptr noundef %20, i32 noundef %1101, ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef 0) #10
+1098:                                             ; preds = %89
+  %1099 = load i32, ptr @hf_x11_unused, align 4
+  %1100 = tail call ptr @proto_tree_add_item(ptr noundef %20, i32 noundef %1099, ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef 0) #10
   store i32 2, ptr %7, align 4
-  %1103 = call fastcc i32 @requestLength(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %5)
-  %1104 = load i32, ptr @hf_x11_cmap, align 4
+  %1101 = call fastcc i32 @requestLength(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %5)
+  %1102 = load i32, ptr @hf_x11_mid, align 4
+  %1103 = call fastcc i32 @field32(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %1102, i32 noundef %5)
+  %1104 = load i32, ptr @hf_x11_src_cmap, align 4
   %1105 = call fastcc i32 @field32(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %1104, i32 noundef %5)
-  br label %1635
+  br label %1627
 
-1106:                                             ; preds = %97
+1106:                                             ; preds = %89
   %1107 = load i32, ptr @hf_x11_unused, align 4
   %1108 = tail call ptr @proto_tree_add_item(ptr noundef %20, i32 noundef %1107, ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef 0) #10
   store i32 2, ptr %7, align 4
   %1109 = call fastcc i32 @requestLength(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %5)
-  %1110 = load i32, ptr @hf_x11_mid, align 4
+  %1110 = load i32, ptr @hf_x11_cmap, align 4
   %1111 = call fastcc i32 @field32(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %1110, i32 noundef %5)
-  %1112 = load i32, ptr @hf_x11_src_cmap, align 4
-  %1113 = call fastcc i32 @field32(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %1112, i32 noundef %5)
-  br label %1635
+  br label %1627
 
-1114:                                             ; preds = %97
-  %1115 = load i32, ptr @hf_x11_unused, align 4
-  %1116 = tail call ptr @proto_tree_add_item(ptr noundef %20, i32 noundef %1115, ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef 0) #10
+1112:                                             ; preds = %89
+  %1113 = load i32, ptr @hf_x11_unused, align 4
+  %1114 = tail call ptr @proto_tree_add_item(ptr noundef %20, i32 noundef %1113, ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef 0) #10
   store i32 2, ptr %7, align 4
-  %1117 = call fastcc i32 @requestLength(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %5)
-  %1118 = load i32, ptr @hf_x11_cmap, align 4
-  %1119 = call fastcc i32 @field32(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %1118, i32 noundef %5)
-  br label %1635
+  %1115 = call fastcc i32 @requestLength(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %5)
+  %1116 = load i32, ptr @hf_x11_cmap, align 4
+  %1117 = call fastcc i32 @field32(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %1116, i32 noundef %5)
+  br label %1627
 
-1120:                                             ; preds = %97
-  %1121 = load i32, ptr @hf_x11_unused, align 4
-  %1122 = tail call ptr @proto_tree_add_item(ptr noundef %20, i32 noundef %1121, ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef 0) #10
+1118:                                             ; preds = %89
+  %1119 = load i32, ptr @hf_x11_unused, align 4
+  %1120 = tail call ptr @proto_tree_add_item(ptr noundef %20, i32 noundef %1119, ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef 0) #10
   store i32 2, ptr %7, align 4
-  %1123 = call fastcc i32 @requestLength(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %5)
-  %1124 = load i32, ptr @hf_x11_cmap, align 4
-  %1125 = call fastcc i32 @field32(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %1124, i32 noundef %5)
-  br label %1635
+  %1121 = call fastcc i32 @requestLength(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %5)
+  %1122 = load i32, ptr @hf_x11_window, align 4
+  %1123 = call fastcc i32 @field32(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %1122, i32 noundef %5)
+  br label %1627
 
-1126:                                             ; preds = %97
-  %1127 = load i32, ptr @hf_x11_unused, align 4
-  %1128 = tail call ptr @proto_tree_add_item(ptr noundef %20, i32 noundef %1127, ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef 0) #10
+1124:                                             ; preds = %89
+  %1125 = load i32, ptr @hf_x11_unused, align 4
+  %1126 = tail call ptr @proto_tree_add_item(ptr noundef %20, i32 noundef %1125, ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef 0) #10
   store i32 2, ptr %7, align 4
-  %1129 = call fastcc i32 @requestLength(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %5)
-  %1130 = load i32, ptr @hf_x11_window, align 4
-  %1131 = call fastcc i32 @field32(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %1130, i32 noundef %5)
-  br label %1635
+  %1127 = call fastcc i32 @requestLength(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %5)
+  %1128 = load i32, ptr @hf_x11_cmap, align 4
+  %1129 = call fastcc i32 @field32(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %1128, i32 noundef %5)
+  %1130 = load i32, ptr @hf_x11_red, align 4
+  %1131 = call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %1130, i32 noundef %5)
+  %1132 = load i32, ptr @hf_x11_green, align 4
+  %1133 = call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %1132, i32 noundef %5)
+  %1134 = load i32, ptr @hf_x11_blue, align 4
+  %1135 = call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %1134, i32 noundef %5)
+  %1136 = load i32, ptr @hf_x11_unused, align 4
+  %1137 = load i32, ptr %7, align 4
+  %1138 = tail call ptr @proto_tree_add_item(ptr noundef %20, i32 noundef %1136, ptr noundef %0, i32 noundef %1137, i32 noundef 2, i32 noundef 0) #10
+  %1139 = add i32 %1137, 2
+  store i32 %1139, ptr %7, align 4
+  br label %1627
 
-1132:                                             ; preds = %97
-  %1133 = load i32, ptr @hf_x11_unused, align 4
-  %1134 = tail call ptr @proto_tree_add_item(ptr noundef %20, i32 noundef %1133, ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef 0) #10
+1140:                                             ; preds = %89
+  %1141 = load i32, ptr @hf_x11_unused, align 4
+  %1142 = tail call ptr @proto_tree_add_item(ptr noundef %20, i32 noundef %1141, ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef 0) #10
   store i32 2, ptr %7, align 4
-  %1135 = call fastcc i32 @requestLength(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %5)
-  %1136 = load i32, ptr @hf_x11_cmap, align 4
-  %1137 = call fastcc i32 @field32(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %1136, i32 noundef %5)
-  %1138 = load i32, ptr @hf_x11_red, align 4
-  %1139 = call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %1138, i32 noundef %5)
-  %1140 = load i32, ptr @hf_x11_green, align 4
-  %1141 = call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %1140, i32 noundef %5)
-  %1142 = load i32, ptr @hf_x11_blue, align 4
-  %1143 = call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %1142, i32 noundef %5)
-  %1144 = load i32, ptr @hf_x11_unused, align 4
-  %1145 = load i32, ptr %7, align 4
-  %1146 = tail call ptr @proto_tree_add_item(ptr noundef %20, i32 noundef %1144, ptr noundef %0, i32 noundef %1145, i32 noundef 2, i32 noundef 0) #10
-  %1147 = add i32 %1145, 2
-  store i32 %1147, ptr %7, align 4
-  br label %1635
+  %1143 = call fastcc i32 @requestLength(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %5)
+  %1144 = load i32, ptr @hf_x11_cmap, align 4
+  %1145 = call fastcc i32 @field32(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %1144, i32 noundef %5)
+  %1146 = load i32, ptr @hf_x11_name_length, align 4
+  %1147 = call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %1146, i32 noundef %5)
+  %1148 = load i32, ptr @hf_x11_unused, align 4
+  %1149 = load i32, ptr %7, align 4
+  %1150 = tail call ptr @proto_tree_add_item(ptr noundef %20, i32 noundef %1148, ptr noundef %0, i32 noundef %1149, i32 noundef 2, i32 noundef 0) #10
+  %1151 = add i32 %1149, 2
+  %1152 = load i32, ptr @hf_x11_name, align 4
+  %1153 = tail call ptr @proto_tree_add_item(ptr noundef %20, i32 noundef %1152, ptr noundef %0, i32 noundef %1151, i32 noundef %1147, i32 noundef 0) #10
+  %1154 = add i32 %1151, %1147
+  %1155 = sub i32 %.02784, %1154
+  %1156 = icmp sgt i32 %1155, 0
+  br i1 %1156, label %1157, label %1160
 
-1148:                                             ; preds = %97
-  %1149 = load i32, ptr @hf_x11_unused, align 4
-  %1150 = tail call ptr @proto_tree_add_item(ptr noundef %20, i32 noundef %1149, ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef 0) #10
-  store i32 2, ptr %7, align 4
-  %1151 = call fastcc i32 @requestLength(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %5)
-  %1152 = load i32, ptr @hf_x11_cmap, align 4
-  %1153 = call fastcc i32 @field32(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %1152, i32 noundef %5)
-  %1154 = load i32, ptr @hf_x11_name_length, align 4
-  %1155 = call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %1154, i32 noundef %5)
-  %1156 = load i32, ptr @hf_x11_unused, align 4
-  %1157 = load i32, ptr %7, align 4
-  %1158 = tail call ptr @proto_tree_add_item(ptr noundef %20, i32 noundef %1156, ptr noundef %0, i32 noundef %1157, i32 noundef 2, i32 noundef 0) #10
-  %1159 = add i32 %1157, 2
-  %1160 = load i32, ptr @hf_x11_name, align 4
-  %1161 = tail call ptr @proto_tree_add_item(ptr noundef %20, i32 noundef %1160, ptr noundef %0, i32 noundef %1159, i32 noundef %1155, i32 noundef 0) #10
-  %1162 = add i32 %1159, %1155
-  %1163 = sub i32 %.02784, %1162
-  %1164 = icmp sgt i32 %1163, 0
-  br i1 %1164, label %1165, label %1168
+1157:                                             ; preds = %1140
+  %1158 = load i32, ptr @hf_x11_unused, align 4
+  %1159 = tail call ptr @proto_tree_add_item(ptr noundef %20, i32 noundef %1158, ptr noundef %0, i32 noundef %1154, i32 noundef %1155, i32 noundef 0) #10
+  br label %1160
 
-1165:                                             ; preds = %1148
-  %1166 = load i32, ptr @hf_x11_unused, align 4
-  %1167 = tail call ptr @proto_tree_add_item(ptr noundef %20, i32 noundef %1166, ptr noundef %0, i32 noundef %1162, i32 noundef %1163, i32 noundef 0) #10
-  br label %1168
-
-1168:                                             ; preds = %1165, %1148
+1160:                                             ; preds = %1157, %1140
   store i32 %.02784, ptr %7, align 4
-  br label %1635
+  br label %1627
 
-1169:                                             ; preds = %97
-  %1170 = load i32, ptr @hf_x11_contiguous, align 4
-  %1171 = call fastcc i32 @add_boolean(ptr noundef %0, ptr noundef %7, ptr noundef %20, i32 noundef %1170)
-  %1172 = call fastcc i32 @requestLength(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %5)
-  %1173 = load i32, ptr @hf_x11_cmap, align 4
-  %1174 = call fastcc i32 @field32(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %1173, i32 noundef %5)
-  %1175 = load i32, ptr @hf_x11_colors, align 4
-  %1176 = call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %1175, i32 noundef %5)
-  %1177 = load i32, ptr @hf_x11_planes, align 4
+1161:                                             ; preds = %89
+  %1162 = load i32, ptr @hf_x11_contiguous, align 4
+  %1163 = call fastcc i32 @add_boolean(ptr noundef %0, ptr noundef %7, ptr noundef %20, i32 noundef %1162)
+  %1164 = call fastcc i32 @requestLength(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %5)
+  %1165 = load i32, ptr @hf_x11_cmap, align 4
+  %1166 = call fastcc i32 @field32(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %1165, i32 noundef %5)
+  %1167 = load i32, ptr @hf_x11_colors, align 4
+  %1168 = call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %1167, i32 noundef %5)
+  %1169 = load i32, ptr @hf_x11_planes, align 4
+  %1170 = call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %1169, i32 noundef %5)
+  br label %1627
+
+1171:                                             ; preds = %89
+  %1172 = load i32, ptr @hf_x11_contiguous, align 4
+  %1173 = call fastcc i32 @add_boolean(ptr noundef %0, ptr noundef %7, ptr noundef %20, i32 noundef %1172)
+  %1174 = call fastcc i32 @requestLength(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %5)
+  %1175 = load i32, ptr @hf_x11_cmap, align 4
+  %1176 = call fastcc i32 @field32(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %1175, i32 noundef %5)
+  %1177 = load i32, ptr @hf_x11_colors, align 4
   %1178 = call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %1177, i32 noundef %5)
-  br label %1635
+  %1179 = load i32, ptr @hf_x11_reds, align 4
+  %1180 = call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %1179, i32 noundef %5)
+  %1181 = load i32, ptr @hf_x11_greens, align 4
+  %1182 = call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %1181, i32 noundef %5)
+  %1183 = load i32, ptr @hf_x11_blues, align 4
+  %1184 = call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %1183, i32 noundef %5)
+  br label %1627
 
-1179:                                             ; preds = %97
-  %1180 = load i32, ptr @hf_x11_contiguous, align 4
-  %1181 = call fastcc i32 @add_boolean(ptr noundef %0, ptr noundef %7, ptr noundef %20, i32 noundef %1180)
-  %1182 = call fastcc i32 @requestLength(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %5)
-  %1183 = load i32, ptr @hf_x11_cmap, align 4
-  %1184 = call fastcc i32 @field32(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %1183, i32 noundef %5)
-  %1185 = load i32, ptr @hf_x11_colors, align 4
-  %1186 = call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %1185, i32 noundef %5)
-  %1187 = load i32, ptr @hf_x11_reds, align 4
-  %1188 = call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %1187, i32 noundef %5)
-  %1189 = load i32, ptr @hf_x11_greens, align 4
-  %1190 = call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %1189, i32 noundef %5)
-  %1191 = load i32, ptr @hf_x11_blues, align 4
-  %1192 = call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %1191, i32 noundef %5)
-  br label %1635
-
-1193:                                             ; preds = %97
-  %1194 = load i32, ptr @hf_x11_unused, align 4
-  %1195 = tail call ptr @proto_tree_add_item(ptr noundef %20, i32 noundef %1194, ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef 0) #10
+1185:                                             ; preds = %89
+  %1186 = load i32, ptr @hf_x11_unused, align 4
+  %1187 = tail call ptr @proto_tree_add_item(ptr noundef %20, i32 noundef %1186, ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef 0) #10
   store i32 2, ptr %7, align 4
-  %1196 = call fastcc i32 @requestLength(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %5)
-  %1197 = load i32, ptr @hf_x11_cmap, align 4
-  %1198 = call fastcc i32 @field32(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %1197, i32 noundef %5)
-  %1199 = load i32, ptr @hf_x11_plane_mask, align 4
-  %1200 = call fastcc i32 @field32(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %1199, i32 noundef %5)
-  %1201 = load i32, ptr @hf_x11_pixels, align 4
-  %1202 = load i32, ptr @hf_x11_pixels_item, align 4
-  %1203 = and i32 %1196, 65535
-  %1204 = add nsw i32 %1203, -12
-  %1205 = sdiv i32 %1204, 4
-  call fastcc void @listOfCard32(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %1201, i32 noundef %1202, i32 noundef %1205, i32 noundef %5)
-  br label %1635
+  %1188 = call fastcc i32 @requestLength(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %5)
+  %1189 = load i32, ptr @hf_x11_cmap, align 4
+  %1190 = call fastcc i32 @field32(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %1189, i32 noundef %5)
+  %1191 = load i32, ptr @hf_x11_plane_mask, align 4
+  %1192 = call fastcc i32 @field32(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %1191, i32 noundef %5)
+  %1193 = load i32, ptr @hf_x11_pixels, align 4
+  %1194 = load i32, ptr @hf_x11_pixels_item, align 4
+  %1195 = and i32 %1188, 65535
+  %1196 = add nsw i32 %1195, -12
+  %1197 = sdiv i32 %1196, 4
+  call fastcc void @listOfCard32(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %1193, i32 noundef %1194, i32 noundef %1197, i32 noundef %5)
+  br label %1627
 
-1206:                                             ; preds = %97
-  %1207 = load i32, ptr @hf_x11_unused, align 4
-  %1208 = tail call ptr @proto_tree_add_item(ptr noundef %20, i32 noundef %1207, ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef 0) #10
+1198:                                             ; preds = %89
+  %1199 = load i32, ptr @hf_x11_unused, align 4
+  %1200 = tail call ptr @proto_tree_add_item(ptr noundef %20, i32 noundef %1199, ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef 0) #10
   store i32 2, ptr %7, align 4
+  %1201 = call fastcc i32 @requestLength(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %5)
+  %1202 = load i32, ptr @hf_x11_cmap, align 4
+  %1203 = call fastcc i32 @field32(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %1202, i32 noundef %5)
+  %1204 = load i32, ptr @hf_x11_color_items, align 4
+  %1205 = and i32 %1201, 65535
+  %1206 = add nsw i32 %1205, -8
+  %1207 = sdiv i32 %1206, 12
+  call fastcc void @listOfColorItem(ptr noundef %0, ptr noundef %7, ptr noundef %20, i32 noundef %1204, i32 noundef %1207, i32 noundef %5)
+  br label %1627
+
+1208:                                             ; preds = %89
+  call fastcc void @colorFlags(ptr noundef %0, ptr noundef %7, ptr noundef %20)
   %1209 = call fastcc i32 @requestLength(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %5)
   %1210 = load i32, ptr @hf_x11_cmap, align 4
   %1211 = call fastcc i32 @field32(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %1210, i32 noundef %5)
-  %1212 = load i32, ptr @hf_x11_color_items, align 4
-  %1213 = and i32 %1209, 65535
-  %1214 = add nsw i32 %1213, -8
-  %1215 = sdiv i32 %1214, 12
-  call fastcc void @listOfColorItem(ptr noundef %0, ptr noundef %7, ptr noundef %20, i32 noundef %1212, i32 noundef %1215, i32 noundef %5)
-  br label %1635
+  %1212 = load i32, ptr @hf_x11_pixel, align 4
+  %1213 = call fastcc i32 @field32(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %1212, i32 noundef %5)
+  %1214 = load i32, ptr @hf_x11_name_length, align 4
+  %1215 = call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %1214, i32 noundef %5)
+  %1216 = load i32, ptr @hf_x11_unused, align 4
+  %1217 = load i32, ptr %7, align 4
+  %1218 = tail call ptr @proto_tree_add_item(ptr noundef %20, i32 noundef %1216, ptr noundef %0, i32 noundef %1217, i32 noundef 2, i32 noundef 0) #10
+  %1219 = add i32 %1217, 2
+  %1220 = load i32, ptr @hf_x11_name, align 4
+  %1221 = tail call ptr @proto_tree_add_item(ptr noundef %20, i32 noundef %1220, ptr noundef %0, i32 noundef %1219, i32 noundef %1215, i32 noundef 0) #10
+  %1222 = add i32 %1219, %1215
+  %1223 = sub i32 %.02784, %1222
+  %1224 = icmp sgt i32 %1223, 0
+  br i1 %1224, label %1225, label %1228
 
-1216:                                             ; preds = %97
-  call fastcc void @colorFlags(ptr noundef %0, ptr noundef %7, ptr noundef %20)
-  %1217 = call fastcc i32 @requestLength(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %5)
-  %1218 = load i32, ptr @hf_x11_cmap, align 4
-  %1219 = call fastcc i32 @field32(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %1218, i32 noundef %5)
-  %1220 = load i32, ptr @hf_x11_pixel, align 4
-  %1221 = call fastcc i32 @field32(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %1220, i32 noundef %5)
-  %1222 = load i32, ptr @hf_x11_name_length, align 4
-  %1223 = call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %1222, i32 noundef %5)
-  %1224 = load i32, ptr @hf_x11_unused, align 4
-  %1225 = load i32, ptr %7, align 4
-  %1226 = tail call ptr @proto_tree_add_item(ptr noundef %20, i32 noundef %1224, ptr noundef %0, i32 noundef %1225, i32 noundef 2, i32 noundef 0) #10
-  %1227 = add i32 %1225, 2
-  %1228 = load i32, ptr @hf_x11_name, align 4
-  %1229 = tail call ptr @proto_tree_add_item(ptr noundef %20, i32 noundef %1228, ptr noundef %0, i32 noundef %1227, i32 noundef %1223, i32 noundef 0) #10
-  %1230 = add i32 %1227, %1223
-  %1231 = sub i32 %.02784, %1230
-  %1232 = icmp sgt i32 %1231, 0
-  br i1 %1232, label %1233, label %1236
+1225:                                             ; preds = %1208
+  %1226 = load i32, ptr @hf_x11_unused, align 4
+  %1227 = tail call ptr @proto_tree_add_item(ptr noundef %20, i32 noundef %1226, ptr noundef %0, i32 noundef %1222, i32 noundef %1223, i32 noundef 0) #10
+  br label %1228
 
-1233:                                             ; preds = %1216
-  %1234 = load i32, ptr @hf_x11_unused, align 4
-  %1235 = tail call ptr @proto_tree_add_item(ptr noundef %20, i32 noundef %1234, ptr noundef %0, i32 noundef %1230, i32 noundef %1231, i32 noundef 0) #10
-  br label %1236
-
-1236:                                             ; preds = %1233, %1216
+1228:                                             ; preds = %1225, %1208
   store i32 %.02784, ptr %7, align 4
-  br label %1635
+  br label %1627
 
-1237:                                             ; preds = %97
-  %1238 = load i32, ptr @hf_x11_unused, align 4
-  %1239 = tail call ptr @proto_tree_add_item(ptr noundef %20, i32 noundef %1238, ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef 0) #10
+1229:                                             ; preds = %89
+  %1230 = load i32, ptr @hf_x11_unused, align 4
+  %1231 = tail call ptr @proto_tree_add_item(ptr noundef %20, i32 noundef %1230, ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef 0) #10
   store i32 2, ptr %7, align 4
-  %1240 = call fastcc i32 @requestLength(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %5)
-  %1241 = load i32, ptr @hf_x11_cmap, align 4
-  %1242 = call fastcc i32 @field32(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %1241, i32 noundef %5)
-  %1243 = load i32, ptr @hf_x11_pixels, align 4
-  %1244 = load i32, ptr @hf_x11_pixels_item, align 4
-  %1245 = and i32 %1240, 65535
-  %1246 = add nsw i32 %1245, -8
-  %1247 = sdiv i32 %1246, 4
-  call fastcc void @listOfCard32(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %1243, i32 noundef %1244, i32 noundef %1247, i32 noundef %5)
-  br label %1635
+  %1232 = call fastcc i32 @requestLength(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %5)
+  %1233 = load i32, ptr @hf_x11_cmap, align 4
+  %1234 = call fastcc i32 @field32(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %1233, i32 noundef %5)
+  %1235 = load i32, ptr @hf_x11_pixels, align 4
+  %1236 = load i32, ptr @hf_x11_pixels_item, align 4
+  %1237 = and i32 %1232, 65535
+  %1238 = add nsw i32 %1237, -8
+  %1239 = sdiv i32 %1238, 4
+  call fastcc void @listOfCard32(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %1235, i32 noundef %1236, i32 noundef %1239, i32 noundef %5)
+  br label %1627
 
-1248:                                             ; preds = %97
-  %1249 = load i32, ptr @hf_x11_unused, align 4
-  %1250 = tail call ptr @proto_tree_add_item(ptr noundef %20, i32 noundef %1249, ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef 0) #10
+1240:                                             ; preds = %89
+  %1241 = load i32, ptr @hf_x11_unused, align 4
+  %1242 = tail call ptr @proto_tree_add_item(ptr noundef %20, i32 noundef %1241, ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef 0) #10
   store i32 2, ptr %7, align 4
-  %1251 = call fastcc i32 @requestLength(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %5)
-  %1252 = load i32, ptr @hf_x11_cmap, align 4
-  %1253 = call fastcc i32 @field32(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %1252, i32 noundef %5)
-  %1254 = load i32, ptr @hf_x11_name_length, align 4
-  %1255 = call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %1254, i32 noundef %5)
-  %1256 = load i32, ptr @hf_x11_unused, align 4
-  %1257 = load i32, ptr %7, align 4
-  %1258 = tail call ptr @proto_tree_add_item(ptr noundef %20, i32 noundef %1256, ptr noundef %0, i32 noundef %1257, i32 noundef 2, i32 noundef 0) #10
-  %1259 = add i32 %1257, 2
-  %1260 = load i32, ptr @hf_x11_name, align 4
-  %1261 = tail call ptr @proto_tree_add_item(ptr noundef %20, i32 noundef %1260, ptr noundef %0, i32 noundef %1259, i32 noundef %1255, i32 noundef 0) #10
-  %1262 = add i32 %1259, %1255
-  %1263 = sub i32 %.02784, %1262
-  %1264 = icmp sgt i32 %1263, 0
-  br i1 %1264, label %1265, label %1268
+  %1243 = call fastcc i32 @requestLength(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %5)
+  %1244 = load i32, ptr @hf_x11_cmap, align 4
+  %1245 = call fastcc i32 @field32(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %1244, i32 noundef %5)
+  %1246 = load i32, ptr @hf_x11_name_length, align 4
+  %1247 = call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %1246, i32 noundef %5)
+  %1248 = load i32, ptr @hf_x11_unused, align 4
+  %1249 = load i32, ptr %7, align 4
+  %1250 = tail call ptr @proto_tree_add_item(ptr noundef %20, i32 noundef %1248, ptr noundef %0, i32 noundef %1249, i32 noundef 2, i32 noundef 0) #10
+  %1251 = add i32 %1249, 2
+  %1252 = load i32, ptr @hf_x11_name, align 4
+  %1253 = tail call ptr @proto_tree_add_item(ptr noundef %20, i32 noundef %1252, ptr noundef %0, i32 noundef %1251, i32 noundef %1247, i32 noundef 0) #10
+  %1254 = add i32 %1251, %1247
+  %1255 = sub i32 %.02784, %1254
+  %1256 = icmp sgt i32 %1255, 0
+  br i1 %1256, label %1257, label %1260
 
-1265:                                             ; preds = %1248
-  %1266 = load i32, ptr @hf_x11_unused, align 4
-  %1267 = tail call ptr @proto_tree_add_item(ptr noundef %20, i32 noundef %1266, ptr noundef %0, i32 noundef %1262, i32 noundef %1263, i32 noundef 0) #10
-  br label %1268
+1257:                                             ; preds = %1240
+  %1258 = load i32, ptr @hf_x11_unused, align 4
+  %1259 = tail call ptr @proto_tree_add_item(ptr noundef %20, i32 noundef %1258, ptr noundef %0, i32 noundef %1254, i32 noundef %1255, i32 noundef 0) #10
+  br label %1260
 
-1268:                                             ; preds = %1265, %1248
+1260:                                             ; preds = %1257, %1240
   store i32 %.02784, ptr %7, align 4
-  br label %1635
+  br label %1627
 
-1269:                                             ; preds = %97
-  %1270 = load i32, ptr @hf_x11_unused, align 4
-  %1271 = tail call ptr @proto_tree_add_item(ptr noundef %20, i32 noundef %1270, ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef 0) #10
+1261:                                             ; preds = %89
+  %1262 = load i32, ptr @hf_x11_unused, align 4
+  %1263 = tail call ptr @proto_tree_add_item(ptr noundef %20, i32 noundef %1262, ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef 0) #10
   store i32 2, ptr %7, align 4
-  %1272 = call fastcc i32 @requestLength(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %5)
-  %1273 = load i32, ptr @hf_x11_cid, align 4
-  %1274 = call fastcc i32 @field32(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %1273, i32 noundef %5)
-  %1275 = load i32, ptr @hf_x11_source_pixmap, align 4
-  %1276 = call fastcc i32 @field32(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %1275, i32 noundef %5)
-  %1277 = load i32, ptr @hf_x11_mask, align 4
-  %1278 = call fastcc i32 @field32(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %1277, i32 noundef %5)
-  %1279 = load i32, ptr @hf_x11_fore_red, align 4
+  %1264 = call fastcc i32 @requestLength(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %5)
+  %1265 = load i32, ptr @hf_x11_cid, align 4
+  %1266 = call fastcc i32 @field32(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %1265, i32 noundef %5)
+  %1267 = load i32, ptr @hf_x11_source_pixmap, align 4
+  %1268 = call fastcc i32 @field32(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %1267, i32 noundef %5)
+  %1269 = load i32, ptr @hf_x11_mask, align 4
+  %1270 = call fastcc i32 @field32(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %1269, i32 noundef %5)
+  %1271 = load i32, ptr @hf_x11_fore_red, align 4
+  %1272 = call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %1271, i32 noundef %5)
+  %1273 = load i32, ptr @hf_x11_fore_green, align 4
+  %1274 = call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %1273, i32 noundef %5)
+  %1275 = load i32, ptr @hf_x11_fore_blue, align 4
+  %1276 = call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %1275, i32 noundef %5)
+  %1277 = load i32, ptr @hf_x11_back_red, align 4
+  %1278 = call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %1277, i32 noundef %5)
+  %1279 = load i32, ptr @hf_x11_back_green, align 4
   %1280 = call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %1279, i32 noundef %5)
-  %1281 = load i32, ptr @hf_x11_fore_green, align 4
+  %1281 = load i32, ptr @hf_x11_back_blue, align 4
   %1282 = call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %1281, i32 noundef %5)
-  %1283 = load i32, ptr @hf_x11_fore_blue, align 4
+  %1283 = load i32, ptr @hf_x11_x, align 4
   %1284 = call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %1283, i32 noundef %5)
-  %1285 = load i32, ptr @hf_x11_back_red, align 4
+  %1285 = load i32, ptr @hf_x11_y, align 4
   %1286 = call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %1285, i32 noundef %5)
-  %1287 = load i32, ptr @hf_x11_back_green, align 4
-  %1288 = call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %1287, i32 noundef %5)
-  %1289 = load i32, ptr @hf_x11_back_blue, align 4
-  %1290 = call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %1289, i32 noundef %5)
-  %1291 = load i32, ptr @hf_x11_x, align 4
-  %1292 = call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %1291, i32 noundef %5)
-  %1293 = load i32, ptr @hf_x11_y, align 4
-  %1294 = call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %1293, i32 noundef %5)
-  br label %1635
+  br label %1627
 
-1295:                                             ; preds = %97
-  %1296 = load i32, ptr @hf_x11_unused, align 4
-  %1297 = tail call ptr @proto_tree_add_item(ptr noundef %20, i32 noundef %1296, ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef 0) #10
+1287:                                             ; preds = %89
+  %1288 = load i32, ptr @hf_x11_unused, align 4
+  %1289 = tail call ptr @proto_tree_add_item(ptr noundef %20, i32 noundef %1288, ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef 0) #10
   store i32 2, ptr %7, align 4
-  %1298 = call fastcc i32 @requestLength(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %5)
-  %1299 = load i32, ptr @hf_x11_cid, align 4
-  %1300 = call fastcc i32 @field32(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %1299, i32 noundef %5)
-  %1301 = load i32, ptr @hf_x11_source_font, align 4
-  %1302 = call fastcc i32 @field32(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %1301, i32 noundef %5)
-  %1303 = load i32, ptr @hf_x11_mask_font, align 4
-  %1304 = call fastcc i32 @field32(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %1303, i32 noundef %5)
-  %1305 = load i32, ptr @hf_x11_source_char, align 4
+  %1290 = call fastcc i32 @requestLength(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %5)
+  %1291 = load i32, ptr @hf_x11_cid, align 4
+  %1292 = call fastcc i32 @field32(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %1291, i32 noundef %5)
+  %1293 = load i32, ptr @hf_x11_source_font, align 4
+  %1294 = call fastcc i32 @field32(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %1293, i32 noundef %5)
+  %1295 = load i32, ptr @hf_x11_mask_font, align 4
+  %1296 = call fastcc i32 @field32(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %1295, i32 noundef %5)
+  %1297 = load i32, ptr @hf_x11_source_char, align 4
+  %1298 = call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %1297, i32 noundef %5)
+  %1299 = load i32, ptr @hf_x11_mask_char, align 4
+  %1300 = call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %1299, i32 noundef %5)
+  %1301 = load i32, ptr @hf_x11_fore_red, align 4
+  %1302 = call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %1301, i32 noundef %5)
+  %1303 = load i32, ptr @hf_x11_fore_green, align 4
+  %1304 = call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %1303, i32 noundef %5)
+  %1305 = load i32, ptr @hf_x11_fore_blue, align 4
   %1306 = call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %1305, i32 noundef %5)
-  %1307 = load i32, ptr @hf_x11_mask_char, align 4
+  %1307 = load i32, ptr @hf_x11_back_red, align 4
   %1308 = call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %1307, i32 noundef %5)
-  %1309 = load i32, ptr @hf_x11_fore_red, align 4
+  %1309 = load i32, ptr @hf_x11_back_green, align 4
   %1310 = call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %1309, i32 noundef %5)
-  %1311 = load i32, ptr @hf_x11_fore_green, align 4
+  %1311 = load i32, ptr @hf_x11_back_blue, align 4
   %1312 = call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %1311, i32 noundef %5)
-  %1313 = load i32, ptr @hf_x11_fore_blue, align 4
-  %1314 = call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %1313, i32 noundef %5)
-  %1315 = load i32, ptr @hf_x11_back_red, align 4
-  %1316 = call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %1315, i32 noundef %5)
-  %1317 = load i32, ptr @hf_x11_back_green, align 4
-  %1318 = call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %1317, i32 noundef %5)
-  %1319 = load i32, ptr @hf_x11_back_blue, align 4
-  %1320 = call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %1319, i32 noundef %5)
-  br label %1635
+  br label %1627
 
-1321:                                             ; preds = %97
-  %1322 = load i32, ptr @hf_x11_unused, align 4
-  %1323 = tail call ptr @proto_tree_add_item(ptr noundef %20, i32 noundef %1322, ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef 0) #10
+1313:                                             ; preds = %89
+  %1314 = load i32, ptr @hf_x11_unused, align 4
+  %1315 = tail call ptr @proto_tree_add_item(ptr noundef %20, i32 noundef %1314, ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef 0) #10
   store i32 2, ptr %7, align 4
-  %1324 = call fastcc i32 @requestLength(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %5)
-  %1325 = load i32, ptr @hf_x11_cursor, align 4
-  %1326 = call fastcc i32 @field32(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %1325, i32 noundef %5)
-  br label %1635
+  %1316 = call fastcc i32 @requestLength(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %5)
+  %1317 = load i32, ptr @hf_x11_cursor, align 4
+  %1318 = call fastcc i32 @field32(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %1317, i32 noundef %5)
+  br label %1627
 
-1327:                                             ; preds = %97
-  %1328 = load i32, ptr @hf_x11_unused, align 4
-  %1329 = tail call ptr @proto_tree_add_item(ptr noundef %20, i32 noundef %1328, ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef 0) #10
+1319:                                             ; preds = %89
+  %1320 = load i32, ptr @hf_x11_unused, align 4
+  %1321 = tail call ptr @proto_tree_add_item(ptr noundef %20, i32 noundef %1320, ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef 0) #10
   store i32 2, ptr %7, align 4
-  %1330 = call fastcc i32 @requestLength(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %5)
-  %1331 = load i32, ptr @hf_x11_cursor, align 4
-  %1332 = call fastcc i32 @field32(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %1331, i32 noundef %5)
-  %1333 = load i32, ptr @hf_x11_fore_red, align 4
+  %1322 = call fastcc i32 @requestLength(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %5)
+  %1323 = load i32, ptr @hf_x11_cursor, align 4
+  %1324 = call fastcc i32 @field32(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %1323, i32 noundef %5)
+  %1325 = load i32, ptr @hf_x11_fore_red, align 4
+  %1326 = call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %1325, i32 noundef %5)
+  %1327 = load i32, ptr @hf_x11_fore_green, align 4
+  %1328 = call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %1327, i32 noundef %5)
+  %1329 = load i32, ptr @hf_x11_fore_blue, align 4
+  %1330 = call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %1329, i32 noundef %5)
+  %1331 = load i32, ptr @hf_x11_back_red, align 4
+  %1332 = call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %1331, i32 noundef %5)
+  %1333 = load i32, ptr @hf_x11_back_green, align 4
   %1334 = call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %1333, i32 noundef %5)
-  %1335 = load i32, ptr @hf_x11_fore_green, align 4
+  %1335 = load i32, ptr @hf_x11_back_blue, align 4
   %1336 = call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %1335, i32 noundef %5)
-  %1337 = load i32, ptr @hf_x11_fore_blue, align 4
-  %1338 = call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %1337, i32 noundef %5)
-  %1339 = load i32, ptr @hf_x11_back_red, align 4
-  %1340 = call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %1339, i32 noundef %5)
-  %1341 = load i32, ptr @hf_x11_back_green, align 4
-  %1342 = call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %1341, i32 noundef %5)
-  %1343 = load i32, ptr @hf_x11_back_blue, align 4
+  br label %1627
+
+1337:                                             ; preds = %89
+  %1338 = load i32, ptr @hf_x11_class, align 4
+  %1339 = call fastcc i32 @field8(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %1338, i32 noundef %5)
+  %1340 = call fastcc i32 @requestLength(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %5)
+  %1341 = load i32, ptr @hf_x11_drawable, align 4
+  %1342 = call fastcc i32 @field32(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %1341, i32 noundef %5)
+  %1343 = load i32, ptr @hf_x11_width, align 4
   %1344 = call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %1343, i32 noundef %5)
-  br label %1635
+  %1345 = load i32, ptr @hf_x11_height, align 4
+  %1346 = call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %1345, i32 noundef %5)
+  br label %1627
 
-1345:                                             ; preds = %97
-  %1346 = load i32, ptr @hf_x11_class, align 4
-  %1347 = call fastcc i32 @field8(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %1346, i32 noundef %5)
-  %1348 = call fastcc i32 @requestLength(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %5)
-  %1349 = load i32, ptr @hf_x11_drawable, align 4
-  %1350 = call fastcc i32 @field32(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %1349, i32 noundef %5)
-  %1351 = load i32, ptr @hf_x11_width, align 4
+1347:                                             ; preds = %89
+  %1348 = load i32, ptr @hf_x11_unused, align 4
+  %1349 = tail call ptr @proto_tree_add_item(ptr noundef %20, i32 noundef %1348, ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef 0) #10
+  store i32 2, ptr %7, align 4
+  %1350 = call fastcc i32 @requestLength(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %5)
+  %1351 = load i32, ptr @hf_x11_name_length, align 4
   %1352 = call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %1351, i32 noundef %5)
-  %1353 = load i32, ptr @hf_x11_height, align 4
-  %1354 = call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %1353, i32 noundef %5)
-  br label %1635
+  %1353 = load i32, ptr @hf_x11_unused, align 4
+  %1354 = load i32, ptr %7, align 4
+  %1355 = tail call ptr @proto_tree_add_item(ptr noundef %20, i32 noundef %1353, ptr noundef %0, i32 noundef %1354, i32 noundef 2, i32 noundef 0) #10
+  %1356 = add i32 %1354, 2
+  %1357 = load i32, ptr @hf_x11_name, align 4
+  %1358 = tail call ptr @proto_tree_add_item(ptr noundef %20, i32 noundef %1357, ptr noundef %0, i32 noundef %1356, i32 noundef %1352, i32 noundef 0) #10
+  %1359 = add i32 %1356, %1352
+  %1360 = sub i32 %.02784, %1359
+  %1361 = icmp sgt i32 %1360, 0
+  br i1 %1361, label %1362, label %1365
 
-1355:                                             ; preds = %97
-  %1356 = load i32, ptr @hf_x11_unused, align 4
-  %1357 = tail call ptr @proto_tree_add_item(ptr noundef %20, i32 noundef %1356, ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef 0) #10
-  store i32 2, ptr %7, align 4
-  %1358 = call fastcc i32 @requestLength(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %5)
-  %1359 = load i32, ptr @hf_x11_name_length, align 4
-  %1360 = call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %1359, i32 noundef %5)
-  %1361 = load i32, ptr @hf_x11_unused, align 4
-  %1362 = load i32, ptr %7, align 4
-  %1363 = tail call ptr @proto_tree_add_item(ptr noundef %20, i32 noundef %1361, ptr noundef %0, i32 noundef %1362, i32 noundef 2, i32 noundef 0) #10
-  %1364 = add i32 %1362, 2
-  %1365 = load i32, ptr @hf_x11_name, align 4
-  %1366 = tail call ptr @proto_tree_add_item(ptr noundef %20, i32 noundef %1365, ptr noundef %0, i32 noundef %1364, i32 noundef %1360, i32 noundef 0) #10
-  %1367 = add i32 %1364, %1360
-  %1368 = sub i32 %.02784, %1367
-  %1369 = icmp sgt i32 %1368, 0
-  br i1 %1369, label %1370, label %1373
+1362:                                             ; preds = %1347
+  %1363 = load i32, ptr @hf_x11_unused, align 4
+  %1364 = tail call ptr @proto_tree_add_item(ptr noundef %20, i32 noundef %1363, ptr noundef %0, i32 noundef %1359, i32 noundef %1360, i32 noundef 0) #10
+  br label %1365
 
-1370:                                             ; preds = %1355
-  %1371 = load i32, ptr @hf_x11_unused, align 4
-  %1372 = tail call ptr @proto_tree_add_item(ptr noundef %20, i32 noundef %1371, ptr noundef %0, i32 noundef %1367, i32 noundef %1368, i32 noundef 0) #10
-  br label %1373
-
-1373:                                             ; preds = %1370, %1355
+1365:                                             ; preds = %1362, %1347
   store i32 %.02784, ptr %7, align 4
-  br label %1635
+  br label %1627
 
-1374:                                             ; preds = %97
-  %1375 = load i32, ptr @hf_x11_unused, align 4
-  %1376 = tail call ptr @proto_tree_add_item(ptr noundef %20, i32 noundef %1375, ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef 0) #10
+1366:                                             ; preds = %89
+  %1367 = load i32, ptr @hf_x11_unused, align 4
+  %1368 = tail call ptr @proto_tree_add_item(ptr noundef %20, i32 noundef %1367, ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef 0) #10
   store i32 2, ptr %7, align 4
-  %1377 = call fastcc i32 @requestLength(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %5)
-  br label %1635
+  %1369 = call fastcc i32 @requestLength(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %5)
+  br label %1627
 
-1378:                                             ; preds = %97
-  %1379 = load i32, ptr @hf_x11_keycode_count, align 4
-  %1380 = call fastcc i32 @field8(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %1379, i32 noundef %5)
-  %1381 = call fastcc i32 @requestLength(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %5)
-  %1382 = load i32, ptr @hf_x11_first_keycode, align 4
-  %1383 = call fastcc i32 @field8(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %1382, i32 noundef %5)
-  %1384 = load i32, ptr @hf_x11_keysyms_per_keycode, align 4
-  %1385 = call fastcc i32 @field8(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %1384, i32 noundef %5)
+1370:                                             ; preds = %89
+  %1371 = load i32, ptr @hf_x11_keycode_count, align 4
+  %1372 = call fastcc i32 @field8(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %1371, i32 noundef %5)
+  %1373 = call fastcc i32 @requestLength(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %5)
+  %1374 = load i32, ptr @hf_x11_first_keycode, align 4
+  %1375 = call fastcc i32 @field8(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %1374, i32 noundef %5)
+  %1376 = load i32, ptr @hf_x11_keysyms_per_keycode, align 4
+  %1377 = call fastcc i32 @field8(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %1376, i32 noundef %5)
+  %1378 = load i32, ptr @hf_x11_unused, align 4
+  %1379 = load i32, ptr %7, align 4
+  %1380 = tail call ptr @proto_tree_add_item(ptr noundef %20, i32 noundef %1378, ptr noundef %0, i32 noundef %1379, i32 noundef 2, i32 noundef 0) #10
+  %1381 = add i32 %1379, 2
+  store i32 %1381, ptr %7, align 4
+  %1382 = load i32, ptr @hf_x11_keysyms, align 4
+  %1383 = load i32, ptr @hf_x11_keysyms_item, align 4
+  %1384 = getelementptr inbounds i8, ptr %4, i64 10344
+  call fastcc void @listOfKeysyms(ptr noundef %0, ptr noundef %1, ptr noundef %7, ptr noundef %20, i32 noundef %1382, i32 noundef %1383, ptr noundef nonnull %1384, i32 noundef %1375, i32 noundef %1372, i32 noundef %1377, i32 noundef %5)
+  br label %1627
+
+1385:                                             ; preds = %89
   %1386 = load i32, ptr @hf_x11_unused, align 4
-  %1387 = load i32, ptr %7, align 4
-  %1388 = tail call ptr @proto_tree_add_item(ptr noundef %20, i32 noundef %1386, ptr noundef %0, i32 noundef %1387, i32 noundef 2, i32 noundef 0) #10
-  %1389 = add i32 %1387, 2
-  store i32 %1389, ptr %7, align 4
-  %1390 = load i32, ptr @hf_x11_keysyms, align 4
-  %1391 = load i32, ptr @hf_x11_keysyms_item, align 4
-  %1392 = getelementptr inbounds i8, ptr %4, i64 10344
-  call fastcc void @listOfKeysyms(ptr noundef %0, ptr noundef %1, ptr noundef %7, ptr noundef %20, i32 noundef %1390, i32 noundef %1391, ptr noundef nonnull %1392, i32 noundef %1383, i32 noundef %1380, i32 noundef %1385, i32 noundef %5)
-  br label %1635
-
-1393:                                             ; preds = %97
+  %1387 = tail call ptr @proto_tree_add_item(ptr noundef %20, i32 noundef %1386, ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef 0) #10
+  store i32 2, ptr %7, align 4
+  %1388 = call fastcc i32 @requestLength(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %5)
+  %1389 = load i32, ptr @hf_x11_first_keycode, align 4
+  %1390 = call fastcc i32 @field8(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %1389, i32 noundef %5)
+  %1391 = getelementptr inbounds i8, ptr %4, i64 12468
+  store i32 %1390, ptr %1391, align 4
+  %1392 = load i32, ptr @hf_x11_count, align 4
+  %1393 = call fastcc i32 @field8(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %1392, i32 noundef %5)
   %1394 = load i32, ptr @hf_x11_unused, align 4
-  %1395 = tail call ptr @proto_tree_add_item(ptr noundef %20, i32 noundef %1394, ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef 0) #10
-  store i32 2, ptr %7, align 4
-  %1396 = call fastcc i32 @requestLength(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %5)
-  %1397 = load i32, ptr @hf_x11_first_keycode, align 4
-  %1398 = call fastcc i32 @field8(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %1397, i32 noundef %5)
-  %1399 = getelementptr inbounds i8, ptr %4, i64 12468
-  store i32 %1398, ptr %1399, align 4
-  %1400 = load i32, ptr @hf_x11_count, align 4
-  %1401 = call fastcc i32 @field8(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %1400, i32 noundef %5)
-  %1402 = load i32, ptr @hf_x11_unused, align 4
-  %1403 = load i32, ptr %7, align 4
-  %1404 = tail call ptr @proto_tree_add_item(ptr noundef %20, i32 noundef %1402, ptr noundef %0, i32 noundef %1403, i32 noundef 2, i32 noundef 0) #10
-  %1405 = add i32 %1403, 2
-  store i32 %1405, ptr %7, align 4
-  br label %1635
+  %1395 = load i32, ptr %7, align 4
+  %1396 = tail call ptr @proto_tree_add_item(ptr noundef %20, i32 noundef %1394, ptr noundef %0, i32 noundef %1395, i32 noundef 2, i32 noundef 0) #10
+  %1397 = add i32 %1395, 2
+  store i32 %1397, ptr %7, align 4
+  br label %1627
 
-1406:                                             ; preds = %97
-  %1407 = load i32, ptr @hf_x11_unused, align 4
-  %1408 = tail call ptr @proto_tree_add_item(ptr noundef %20, i32 noundef %1407, ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef 0) #10
+1398:                                             ; preds = %89
+  %1399 = load i32, ptr @hf_x11_unused, align 4
+  %1400 = tail call ptr @proto_tree_add_item(ptr noundef %20, i32 noundef %1399, ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef 0) #10
   store i32 2, ptr %7, align 4
-  %1409 = call fastcc i32 @requestLength(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %5)
-  %1410 = load i32, ptr %7, align 4
-  %1411 = tail call i32 @tvb_get_guint32(ptr noundef %0, i32 noundef %1410, i32 noundef %5) #10
-  %1412 = load i32, ptr @hf_x11_keyboard_value_mask, align 4
-  %1413 = load i32, ptr @ett_x11_keyboard_value_mask, align 4
-  %1414 = tail call ptr @proto_tree_add_bitmask(ptr noundef %20, ptr noundef %0, i32 noundef %1410, i32 noundef %1412, i32 noundef %1413, ptr noundef nonnull @dissect_x11_request.keyboard_value_flags, i32 noundef %5) #10
-  %1415 = add i32 %1410, 4
+  %1401 = call fastcc i32 @requestLength(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %5)
+  %1402 = load i32, ptr %7, align 4
+  %1403 = tail call i32 @tvb_get_guint32(ptr noundef %0, i32 noundef %1402, i32 noundef %5) #10
+  %1404 = load i32, ptr @hf_x11_keyboard_value_mask, align 4
+  %1405 = load i32, ptr @ett_x11_keyboard_value_mask, align 4
+  %1406 = tail call ptr @proto_tree_add_bitmask(ptr noundef %20, ptr noundef %0, i32 noundef %1402, i32 noundef %1404, i32 noundef %1405, ptr noundef nonnull @dissect_x11_request.keyboard_value_flags, i32 noundef %5) #10
+  %1407 = add i32 %1402, 4
+  store i32 %1407, ptr %7, align 4
+  %1408 = and i32 %1403, 1
+  %.not2811 = icmp eq i32 %1408, 0
+  br i1 %.not2811, label %1416, label %1409
+
+1409:                                             ; preds = %1398
+  %1410 = load i32, ptr @hf_x11_key_click_percent, align 4
+  %1411 = tail call ptr @proto_tree_add_item(ptr noundef %20, i32 noundef %1410, ptr noundef %0, i32 noundef %1407, i32 noundef 1, i32 noundef %5) #10
+  %1412 = add i32 %1402, 5
+  %1413 = load i32, ptr @hf_x11_unused, align 4
+  %1414 = tail call ptr @proto_tree_add_item(ptr noundef %20, i32 noundef %1413, ptr noundef %0, i32 noundef %1412, i32 noundef 3, i32 noundef 0) #10
+  %1415 = add i32 %1402, 8
   store i32 %1415, ptr %7, align 4
-  %1416 = and i32 %1411, 1
-  %.not2811 = icmp eq i32 %1416, 0
-  br i1 %.not2811, label %1424, label %1417
+  br label %1416
 
-1417:                                             ; preds = %1406
-  %1418 = load i32, ptr @hf_x11_key_click_percent, align 4
-  %1419 = tail call ptr @proto_tree_add_item(ptr noundef %20, i32 noundef %1418, ptr noundef %0, i32 noundef %1415, i32 noundef 1, i32 noundef %5) #10
-  %1420 = add i32 %1410, 5
-  %1421 = load i32, ptr @hf_x11_unused, align 4
-  %1422 = tail call ptr @proto_tree_add_item(ptr noundef %20, i32 noundef %1421, ptr noundef %0, i32 noundef %1420, i32 noundef 3, i32 noundef 0) #10
-  %1423 = add i32 %1410, 8
-  store i32 %1423, ptr %7, align 4
-  br label %1424
+1416:                                             ; preds = %1409, %1398
+  %1417 = phi i32 [ %1415, %1409 ], [ %1407, %1398 ]
+  %1418 = and i32 %1403, 2
+  %.not2812 = icmp eq i32 %1418, 0
+  br i1 %.not2812, label %1426, label %1419
 
-1424:                                             ; preds = %1417, %1406
-  %1425 = phi i32 [ %1423, %1417 ], [ %1415, %1406 ]
-  %1426 = and i32 %1411, 2
-  %.not2812 = icmp eq i32 %1426, 0
-  br i1 %.not2812, label %1434, label %1427
+1419:                                             ; preds = %1416
+  %1420 = load i32, ptr @hf_x11_bell_percent, align 4
+  %1421 = tail call ptr @proto_tree_add_item(ptr noundef %20, i32 noundef %1420, ptr noundef %0, i32 noundef %1417, i32 noundef 1, i32 noundef %5) #10
+  %1422 = add i32 %1417, 1
+  %1423 = load i32, ptr @hf_x11_unused, align 4
+  %1424 = tail call ptr @proto_tree_add_item(ptr noundef %20, i32 noundef %1423, ptr noundef %0, i32 noundef %1422, i32 noundef 3, i32 noundef 0) #10
+  %1425 = add i32 %1417, 4
+  store i32 %1425, ptr %7, align 4
+  br label %1426
 
-1427:                                             ; preds = %1424
-  %1428 = load i32, ptr @hf_x11_bell_percent, align 4
-  %1429 = tail call ptr @proto_tree_add_item(ptr noundef %20, i32 noundef %1428, ptr noundef %0, i32 noundef %1425, i32 noundef 1, i32 noundef %5) #10
-  %1430 = add i32 %1425, 1
-  %1431 = load i32, ptr @hf_x11_unused, align 4
-  %1432 = tail call ptr @proto_tree_add_item(ptr noundef %20, i32 noundef %1431, ptr noundef %0, i32 noundef %1430, i32 noundef 3, i32 noundef 0) #10
-  %1433 = add i32 %1425, 4
-  store i32 %1433, ptr %7, align 4
-  br label %1434
+1426:                                             ; preds = %1419, %1416
+  %1427 = phi i32 [ %1425, %1419 ], [ %1417, %1416 ]
+  %1428 = and i32 %1403, 4
+  %.not2813 = icmp eq i32 %1428, 0
+  br i1 %.not2813, label %1436, label %1429
 
-1434:                                             ; preds = %1427, %1424
-  %1435 = phi i32 [ %1433, %1427 ], [ %1425, %1424 ]
-  %1436 = and i32 %1411, 4
-  %.not2813 = icmp eq i32 %1436, 0
-  br i1 %.not2813, label %1444, label %1437
+1429:                                             ; preds = %1426
+  %1430 = load i32, ptr @hf_x11_bell_pitch, align 4
+  %1431 = tail call ptr @proto_tree_add_item(ptr noundef %20, i32 noundef %1430, ptr noundef %0, i32 noundef %1427, i32 noundef 2, i32 noundef %5) #10
+  %1432 = add i32 %1427, 2
+  %1433 = load i32, ptr @hf_x11_unused, align 4
+  %1434 = tail call ptr @proto_tree_add_item(ptr noundef %20, i32 noundef %1433, ptr noundef %0, i32 noundef %1432, i32 noundef 2, i32 noundef 0) #10
+  %1435 = add i32 %1427, 4
+  store i32 %1435, ptr %7, align 4
+  br label %1436
 
-1437:                                             ; preds = %1434
-  %1438 = load i32, ptr @hf_x11_bell_pitch, align 4
-  %1439 = tail call ptr @proto_tree_add_item(ptr noundef %20, i32 noundef %1438, ptr noundef %0, i32 noundef %1435, i32 noundef 2, i32 noundef %5) #10
-  %1440 = add i32 %1435, 2
-  %1441 = load i32, ptr @hf_x11_unused, align 4
-  %1442 = tail call ptr @proto_tree_add_item(ptr noundef %20, i32 noundef %1441, ptr noundef %0, i32 noundef %1440, i32 noundef 2, i32 noundef 0) #10
-  %1443 = add i32 %1435, 4
-  store i32 %1443, ptr %7, align 4
-  br label %1444
+1436:                                             ; preds = %1429, %1426
+  %1437 = phi i32 [ %1435, %1429 ], [ %1427, %1426 ]
+  %1438 = and i32 %1403, 8
+  %.not2814 = icmp eq i32 %1438, 0
+  br i1 %.not2814, label %1446, label %1439
 
-1444:                                             ; preds = %1437, %1434
-  %1445 = phi i32 [ %1443, %1437 ], [ %1435, %1434 ]
-  %1446 = and i32 %1411, 8
-  %.not2814 = icmp eq i32 %1446, 0
-  br i1 %.not2814, label %1454, label %1447
+1439:                                             ; preds = %1436
+  %1440 = load i32, ptr @hf_x11_bell_duration, align 4
+  %1441 = tail call ptr @proto_tree_add_item(ptr noundef %20, i32 noundef %1440, ptr noundef %0, i32 noundef %1437, i32 noundef 2, i32 noundef %5) #10
+  %1442 = add i32 %1437, 2
+  %1443 = load i32, ptr @hf_x11_unused, align 4
+  %1444 = tail call ptr @proto_tree_add_item(ptr noundef %20, i32 noundef %1443, ptr noundef %0, i32 noundef %1442, i32 noundef 2, i32 noundef 0) #10
+  %1445 = add i32 %1437, 4
+  store i32 %1445, ptr %7, align 4
+  br label %1446
 
-1447:                                             ; preds = %1444
-  %1448 = load i32, ptr @hf_x11_bell_duration, align 4
-  %1449 = tail call ptr @proto_tree_add_item(ptr noundef %20, i32 noundef %1448, ptr noundef %0, i32 noundef %1445, i32 noundef 2, i32 noundef %5) #10
-  %1450 = add i32 %1445, 2
-  %1451 = load i32, ptr @hf_x11_unused, align 4
-  %1452 = tail call ptr @proto_tree_add_item(ptr noundef %20, i32 noundef %1451, ptr noundef %0, i32 noundef %1450, i32 noundef 2, i32 noundef 0) #10
-  %1453 = add i32 %1445, 4
-  store i32 %1453, ptr %7, align 4
-  br label %1454
+1446:                                             ; preds = %1439, %1436
+  %1447 = phi i32 [ %1445, %1439 ], [ %1437, %1436 ]
+  %1448 = and i32 %1403, 16
+  %.not2815 = icmp eq i32 %1448, 0
+  br i1 %.not2815, label %1456, label %1449
 
-1454:                                             ; preds = %1447, %1444
-  %1455 = phi i32 [ %1453, %1447 ], [ %1445, %1444 ]
-  %1456 = and i32 %1411, 16
-  %.not2815 = icmp eq i32 %1456, 0
-  br i1 %.not2815, label %1464, label %1457
+1449:                                             ; preds = %1446
+  %1450 = load i32, ptr @hf_x11_led, align 4
+  %1451 = tail call ptr @proto_tree_add_item(ptr noundef %20, i32 noundef %1450, ptr noundef %0, i32 noundef %1447, i32 noundef 2, i32 noundef %5) #10
+  %1452 = add i32 %1447, 2
+  %1453 = load i32, ptr @hf_x11_unused, align 4
+  %1454 = tail call ptr @proto_tree_add_item(ptr noundef %20, i32 noundef %1453, ptr noundef %0, i32 noundef %1452, i32 noundef 2, i32 noundef 0) #10
+  %1455 = add i32 %1447, 4
+  store i32 %1455, ptr %7, align 4
+  br label %1456
 
-1457:                                             ; preds = %1454
-  %1458 = load i32, ptr @hf_x11_led, align 4
-  %1459 = tail call ptr @proto_tree_add_item(ptr noundef %20, i32 noundef %1458, ptr noundef %0, i32 noundef %1455, i32 noundef 2, i32 noundef %5) #10
-  %1460 = add i32 %1455, 2
-  %1461 = load i32, ptr @hf_x11_unused, align 4
-  %1462 = tail call ptr @proto_tree_add_item(ptr noundef %20, i32 noundef %1461, ptr noundef %0, i32 noundef %1460, i32 noundef 2, i32 noundef 0) #10
-  %1463 = add i32 %1455, 4
-  store i32 %1463, ptr %7, align 4
-  br label %1464
+1456:                                             ; preds = %1449, %1446
+  %1457 = phi i32 [ %1455, %1449 ], [ %1447, %1446 ]
+  %1458 = and i32 %1403, 32
+  %.not2816 = icmp eq i32 %1458, 0
+  br i1 %.not2816, label %1466, label %1459
 
-1464:                                             ; preds = %1457, %1454
-  %1465 = phi i32 [ %1463, %1457 ], [ %1455, %1454 ]
-  %1466 = and i32 %1411, 32
-  %.not2816 = icmp eq i32 %1466, 0
-  br i1 %.not2816, label %1474, label %1467
+1459:                                             ; preds = %1456
+  %1460 = load i32, ptr @hf_x11_led_mode, align 4
+  %1461 = tail call ptr @proto_tree_add_item(ptr noundef %20, i32 noundef %1460, ptr noundef %0, i32 noundef %1457, i32 noundef 1, i32 noundef %5) #10
+  %1462 = add i32 %1457, 1
+  %1463 = load i32, ptr @hf_x11_unused, align 4
+  %1464 = tail call ptr @proto_tree_add_item(ptr noundef %20, i32 noundef %1463, ptr noundef %0, i32 noundef %1462, i32 noundef 3, i32 noundef 0) #10
+  %1465 = add i32 %1457, 4
+  store i32 %1465, ptr %7, align 4
+  br label %1466
 
-1467:                                             ; preds = %1464
-  %1468 = load i32, ptr @hf_x11_led_mode, align 4
-  %1469 = tail call ptr @proto_tree_add_item(ptr noundef %20, i32 noundef %1468, ptr noundef %0, i32 noundef %1465, i32 noundef 1, i32 noundef %5) #10
-  %1470 = add i32 %1465, 1
-  %1471 = load i32, ptr @hf_x11_unused, align 4
-  %1472 = tail call ptr @proto_tree_add_item(ptr noundef %20, i32 noundef %1471, ptr noundef %0, i32 noundef %1470, i32 noundef 3, i32 noundef 0) #10
-  %1473 = add i32 %1465, 4
-  store i32 %1473, ptr %7, align 4
-  br label %1474
+1466:                                             ; preds = %1459, %1456
+  %1467 = phi i32 [ %1465, %1459 ], [ %1457, %1456 ]
+  %1468 = and i32 %1403, 64
+  %.not2817 = icmp eq i32 %1468, 0
+  br i1 %.not2817, label %1476, label %1469
 
-1474:                                             ; preds = %1467, %1464
-  %1475 = phi i32 [ %1473, %1467 ], [ %1465, %1464 ]
-  %1476 = and i32 %1411, 64
-  %.not2817 = icmp eq i32 %1476, 0
-  br i1 %.not2817, label %1484, label %1477
+1469:                                             ; preds = %1466
+  %1470 = load i32, ptr @hf_x11_keyboard_key, align 4
+  %1471 = tail call ptr @proto_tree_add_item(ptr noundef %20, i32 noundef %1470, ptr noundef %0, i32 noundef %1467, i32 noundef 1, i32 noundef %5) #10
+  %1472 = add i32 %1467, 1
+  %1473 = load i32, ptr @hf_x11_unused, align 4
+  %1474 = tail call ptr @proto_tree_add_item(ptr noundef %20, i32 noundef %1473, ptr noundef %0, i32 noundef %1472, i32 noundef 3, i32 noundef 0) #10
+  %1475 = add i32 %1467, 4
+  store i32 %1475, ptr %7, align 4
+  br label %1476
 
-1477:                                             ; preds = %1474
-  %1478 = load i32, ptr @hf_x11_keyboard_key, align 4
-  %1479 = tail call ptr @proto_tree_add_item(ptr noundef %20, i32 noundef %1478, ptr noundef %0, i32 noundef %1475, i32 noundef 1, i32 noundef %5) #10
-  %1480 = add i32 %1475, 1
-  %1481 = load i32, ptr @hf_x11_unused, align 4
-  %1482 = tail call ptr @proto_tree_add_item(ptr noundef %20, i32 noundef %1481, ptr noundef %0, i32 noundef %1480, i32 noundef 3, i32 noundef 0) #10
-  %1483 = add i32 %1475, 4
-  store i32 %1483, ptr %7, align 4
-  br label %1484
+1476:                                             ; preds = %1469, %1466
+  %1477 = phi i32 [ %1475, %1469 ], [ %1467, %1466 ]
+  %1478 = and i32 %1403, 128
+  %.not2818 = icmp eq i32 %1478, 0
+  br i1 %.not2818, label %1627, label %1479
 
-1484:                                             ; preds = %1477, %1474
-  %1485 = phi i32 [ %1483, %1477 ], [ %1475, %1474 ]
-  %1486 = and i32 %1411, 128
-  %.not2818 = icmp eq i32 %1486, 0
-  br i1 %.not2818, label %1635, label %1487
+1479:                                             ; preds = %1476
+  %1480 = load i32, ptr @hf_x11_auto_repeat_mode, align 4
+  %1481 = tail call ptr @proto_tree_add_item(ptr noundef %20, i32 noundef %1480, ptr noundef %0, i32 noundef %1477, i32 noundef 1, i32 noundef %5) #10
+  %1482 = add i32 %1477, 1
+  %1483 = load i32, ptr @hf_x11_unused, align 4
+  %1484 = tail call ptr @proto_tree_add_item(ptr noundef %20, i32 noundef %1483, ptr noundef %0, i32 noundef %1482, i32 noundef 3, i32 noundef 0) #10
+  %1485 = add i32 %1477, 4
+  store i32 %1485, ptr %7, align 4
+  br label %1627
 
-1487:                                             ; preds = %1484
-  %1488 = load i32, ptr @hf_x11_auto_repeat_mode, align 4
-  %1489 = tail call ptr @proto_tree_add_item(ptr noundef %20, i32 noundef %1488, ptr noundef %0, i32 noundef %1485, i32 noundef 1, i32 noundef %5) #10
-  %1490 = add i32 %1485, 1
-  %1491 = load i32, ptr @hf_x11_unused, align 4
-  %1492 = tail call ptr @proto_tree_add_item(ptr noundef %20, i32 noundef %1491, ptr noundef %0, i32 noundef %1490, i32 noundef 3, i32 noundef 0) #10
-  %1493 = add i32 %1485, 4
-  store i32 %1493, ptr %7, align 4
-  br label %1635
+1486:                                             ; preds = %89
+  %1487 = load i32, ptr @hf_x11_unused, align 4
+  %1488 = tail call ptr @proto_tree_add_item(ptr noundef %20, i32 noundef %1487, ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef 0) #10
+  store i32 2, ptr %7, align 4
+  %1489 = call fastcc i32 @requestLength(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %5)
+  br label %1627
 
-1494:                                             ; preds = %97
+1490:                                             ; preds = %89
+  %1491 = load i32, ptr @hf_x11_percent, align 4
+  %1492 = call fastcc i32 @field8(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %1491, i32 noundef %5)
+  %1493 = call fastcc i32 @requestLength(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %5)
+  br label %1627
+
+1494:                                             ; preds = %89
   %1495 = load i32, ptr @hf_x11_unused, align 4
   %1496 = tail call ptr @proto_tree_add_item(ptr noundef %20, i32 noundef %1495, ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef 0) #10
   store i32 2, ptr %7, align 4
   %1497 = call fastcc i32 @requestLength(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %5)
-  br label %1635
+  %1498 = load i32, ptr @hf_x11_acceleration_numerator, align 4
+  %1499 = call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %1498, i32 noundef %5)
+  %1500 = load i32, ptr @hf_x11_acceleration_denominator, align 4
+  %1501 = call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %1500, i32 noundef %5)
+  %1502 = load i32, ptr @hf_x11_threshold, align 4
+  %1503 = call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %1502, i32 noundef %5)
+  %1504 = load i32, ptr @hf_x11_do_acceleration, align 4
+  %1505 = call fastcc i32 @add_boolean(ptr noundef %0, ptr noundef %7, ptr noundef %20, i32 noundef %1504)
+  %1506 = load i32, ptr @hf_x11_do_threshold, align 4
+  %1507 = call fastcc i32 @add_boolean(ptr noundef %0, ptr noundef %7, ptr noundef %20, i32 noundef %1506)
+  br label %1627
 
-1498:                                             ; preds = %97
-  %1499 = load i32, ptr @hf_x11_percent, align 4
-  %1500 = call fastcc i32 @field8(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %1499, i32 noundef %5)
-  %1501 = call fastcc i32 @requestLength(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %5)
-  br label %1635
-
-1502:                                             ; preds = %97
-  %1503 = load i32, ptr @hf_x11_unused, align 4
-  %1504 = tail call ptr @proto_tree_add_item(ptr noundef %20, i32 noundef %1503, ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef 0) #10
+1508:                                             ; preds = %89
+  %1509 = load i32, ptr @hf_x11_unused, align 4
+  %1510 = tail call ptr @proto_tree_add_item(ptr noundef %20, i32 noundef %1509, ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef 0) #10
   store i32 2, ptr %7, align 4
-  %1505 = call fastcc i32 @requestLength(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %5)
-  %1506 = load i32, ptr @hf_x11_acceleration_numerator, align 4
-  %1507 = call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %1506, i32 noundef %5)
-  %1508 = load i32, ptr @hf_x11_acceleration_denominator, align 4
-  %1509 = call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %1508, i32 noundef %5)
-  %1510 = load i32, ptr @hf_x11_threshold, align 4
-  %1511 = call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %1510, i32 noundef %5)
-  %1512 = load i32, ptr @hf_x11_do_acceleration, align 4
-  %1513 = call fastcc i32 @add_boolean(ptr noundef %0, ptr noundef %7, ptr noundef %20, i32 noundef %1512)
-  %1514 = load i32, ptr @hf_x11_do_threshold, align 4
-  %1515 = call fastcc i32 @add_boolean(ptr noundef %0, ptr noundef %7, ptr noundef %20, i32 noundef %1514)
-  br label %1635
+  %1511 = call fastcc i32 @requestLength(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %5)
+  br label %1627
 
-1516:                                             ; preds = %97
-  %1517 = load i32, ptr @hf_x11_unused, align 4
-  %1518 = tail call ptr @proto_tree_add_item(ptr noundef %20, i32 noundef %1517, ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef 0) #10
+1512:                                             ; preds = %89
+  %1513 = load i32, ptr @hf_x11_unused, align 4
+  %1514 = tail call ptr @proto_tree_add_item(ptr noundef %20, i32 noundef %1513, ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef 0) #10
   store i32 2, ptr %7, align 4
-  %1519 = call fastcc i32 @requestLength(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %5)
-  br label %1635
+  %1515 = call fastcc i32 @requestLength(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %5)
+  %1516 = load i32, ptr @hf_x11_timeout, align 4
+  %1517 = call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %1516, i32 noundef %5)
+  %1518 = load i32, ptr @hf_x11_interval, align 4
+  %1519 = call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %1518, i32 noundef %5)
+  %1520 = load i32, ptr @hf_x11_prefer_blanking, align 4
+  %1521 = call fastcc i32 @field8(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %1520, i32 noundef %5)
+  %1522 = load i32, ptr @hf_x11_allow_exposures, align 4
+  %1523 = call fastcc i32 @field8(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %1522, i32 noundef %5)
+  %1524 = load i32, ptr @hf_x11_unused, align 4
+  %1525 = load i32, ptr %7, align 4
+  %1526 = tail call ptr @proto_tree_add_item(ptr noundef %20, i32 noundef %1524, ptr noundef %0, i32 noundef %1525, i32 noundef 2, i32 noundef 0) #10
+  %1527 = add i32 %1525, 2
+  store i32 %1527, ptr %7, align 4
+  br label %1627
 
-1520:                                             ; preds = %97
-  %1521 = load i32, ptr @hf_x11_unused, align 4
-  %1522 = tail call ptr @proto_tree_add_item(ptr noundef %20, i32 noundef %1521, ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef 0) #10
+1528:                                             ; preds = %89
+  %1529 = load i32, ptr @hf_x11_unused, align 4
+  %1530 = tail call ptr @proto_tree_add_item(ptr noundef %20, i32 noundef %1529, ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef 0) #10
   store i32 2, ptr %7, align 4
-  %1523 = call fastcc i32 @requestLength(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %5)
-  %1524 = load i32, ptr @hf_x11_timeout, align 4
-  %1525 = call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %1524, i32 noundef %5)
-  %1526 = load i32, ptr @hf_x11_interval, align 4
-  %1527 = call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %1526, i32 noundef %5)
-  %1528 = load i32, ptr @hf_x11_prefer_blanking, align 4
-  %1529 = call fastcc i32 @field8(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %1528, i32 noundef %5)
-  %1530 = load i32, ptr @hf_x11_allow_exposures, align 4
-  %1531 = call fastcc i32 @field8(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %1530, i32 noundef %5)
-  %1532 = load i32, ptr @hf_x11_unused, align 4
-  %1533 = load i32, ptr %7, align 4
-  %1534 = tail call ptr @proto_tree_add_item(ptr noundef %20, i32 noundef %1532, ptr noundef %0, i32 noundef %1533, i32 noundef 2, i32 noundef 0) #10
-  %1535 = add i32 %1533, 2
-  store i32 %1535, ptr %7, align 4
-  br label %1635
+  %1531 = call fastcc i32 @requestLength(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %5)
+  br label %1627
 
-1536:                                             ; preds = %97
-  %1537 = load i32, ptr @hf_x11_unused, align 4
-  %1538 = tail call ptr @proto_tree_add_item(ptr noundef %20, i32 noundef %1537, ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef 0) #10
+1532:                                             ; preds = %89
+  %1533 = load i32, ptr @hf_x11_change_host_mode, align 4
+  %1534 = call fastcc i32 @field8(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %1533, i32 noundef %5)
+  %1535 = call fastcc i32 @requestLength(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %5)
+  %1536 = load i32, ptr @hf_x11_family, align 4
+  %1537 = call fastcc i32 @field8(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %1536, i32 noundef %5)
+  %1538 = load i32, ptr @hf_x11_unused, align 4
+  %1539 = load i32, ptr %7, align 4
+  %1540 = tail call ptr @proto_tree_add_item(ptr noundef %20, i32 noundef %1538, ptr noundef %0, i32 noundef %1539, i32 noundef 1, i32 noundef 0) #10
+  %1541 = add i32 %1539, 1
+  store i32 %1541, ptr %7, align 4
+  %1542 = load i32, ptr @hf_x11_address_length, align 4
+  %1543 = call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %1542, i32 noundef %5)
+  %1544 = icmp eq i32 %1537, 0
+  %1545 = icmp eq i32 %1543, 4
+  %or.cond4 = select i1 %1544, i1 %1545, i1 false
+  br i1 %or.cond4, label %1546, label %1551
+
+1546:                                             ; preds = %1532
+  %1547 = load i32, ptr @hf_x11_ip_address, align 4
+  %1548 = load i32, ptr %7, align 4
+  %1549 = tail call ptr @proto_tree_add_item(ptr noundef %20, i32 noundef %1547, ptr noundef %0, i32 noundef %1548, i32 noundef 4, i32 noundef 0) #10
+  %1550 = add i32 %1548, 4
+  store i32 %1550, ptr %7, align 4
+  br label %1627
+
+1551:                                             ; preds = %1532
+  %1552 = load i32, ptr @hf_x11_address, align 4
+  %1553 = tail call i32 @llvm.umax.i32(i32 %1543, i32 1)
+  %1554 = load i32, ptr %7, align 4
+  %1555 = tail call ptr @proto_tree_add_item(ptr noundef %20, i32 noundef %1552, ptr noundef %0, i32 noundef %1554, i32 noundef %1553, i32 noundef %5) #10
+  %1556 = add i32 %1554, %1553
+  store i32 %1556, ptr %7, align 4
+  br label %1627
+
+1557:                                             ; preds = %89
+  %1558 = load i32, ptr @hf_x11_unused, align 4
+  %1559 = tail call ptr @proto_tree_add_item(ptr noundef %20, i32 noundef %1558, ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef 0) #10
   store i32 2, ptr %7, align 4
-  %1539 = call fastcc i32 @requestLength(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %5)
-  br label %1635
+  %1560 = call fastcc i32 @requestLength(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %5)
+  br label %1627
 
-1540:                                             ; preds = %97
-  %1541 = load i32, ptr @hf_x11_change_host_mode, align 4
-  %1542 = call fastcc i32 @field8(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %1541, i32 noundef %5)
-  %1543 = call fastcc i32 @requestLength(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %5)
-  %1544 = load i32, ptr @hf_x11_family, align 4
-  %1545 = call fastcc i32 @field8(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %1544, i32 noundef %5)
-  %1546 = load i32, ptr @hf_x11_unused, align 4
-  %1547 = load i32, ptr %7, align 4
-  %1548 = tail call ptr @proto_tree_add_item(ptr noundef %20, i32 noundef %1546, ptr noundef %0, i32 noundef %1547, i32 noundef 1, i32 noundef 0) #10
-  %1549 = add i32 %1547, 1
-  store i32 %1549, ptr %7, align 4
-  %1550 = load i32, ptr @hf_x11_address_length, align 4
-  %1551 = call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %1550, i32 noundef %5)
-  %1552 = icmp eq i32 %1545, 0
-  %1553 = icmp eq i32 %1551, 4
-  %or.cond4 = select i1 %1552, i1 %1553, i1 false
-  br i1 %or.cond4, label %1554, label %1559
+1561:                                             ; preds = %89
+  %1562 = load i32, ptr @hf_x11_access_mode, align 4
+  %1563 = call fastcc i32 @field8(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %1562, i32 noundef %5)
+  %1564 = call fastcc i32 @requestLength(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %5)
+  br label %1627
 
-1554:                                             ; preds = %1540
-  %1555 = load i32, ptr @hf_x11_ip_address, align 4
-  %1556 = load i32, ptr %7, align 4
-  %1557 = tail call ptr @proto_tree_add_item(ptr noundef %20, i32 noundef %1555, ptr noundef %0, i32 noundef %1556, i32 noundef 4, i32 noundef 0) #10
-  %1558 = add i32 %1556, 4
-  store i32 %1558, ptr %7, align 4
-  br label %1635
-
-1559:                                             ; preds = %1540
-  %1560 = load i32, ptr @hf_x11_address, align 4
-  %1561 = tail call i32 @llvm.umax.i32(i32 %1551, i32 1)
-  %1562 = load i32, ptr %7, align 4
-  %1563 = tail call ptr @proto_tree_add_item(ptr noundef %20, i32 noundef %1560, ptr noundef %0, i32 noundef %1562, i32 noundef %1561, i32 noundef %5) #10
-  %1564 = add i32 %1562, %1561
-  store i32 %1564, ptr %7, align 4
-  br label %1635
-
-1565:                                             ; preds = %97
-  %1566 = load i32, ptr @hf_x11_unused, align 4
-  %1567 = tail call ptr @proto_tree_add_item(ptr noundef %20, i32 noundef %1566, ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef 0) #10
-  store i32 2, ptr %7, align 4
+1565:                                             ; preds = %89
+  %1566 = load i32, ptr @hf_x11_close_down_mode, align 4
+  %1567 = call fastcc i32 @field8(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %1566, i32 noundef %5)
   %1568 = call fastcc i32 @requestLength(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %5)
-  br label %1635
+  br label %1627
 
-1569:                                             ; preds = %97
-  %1570 = load i32, ptr @hf_x11_access_mode, align 4
-  %1571 = call fastcc i32 @field8(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %1570, i32 noundef %5)
+1569:                                             ; preds = %89
+  %1570 = load i32, ptr @hf_x11_unused, align 4
+  %1571 = tail call ptr @proto_tree_add_item(ptr noundef %20, i32 noundef %1570, ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef 0) #10
+  store i32 2, ptr %7, align 4
   %1572 = call fastcc i32 @requestLength(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %5)
-  br label %1635
+  %1573 = load i32, ptr @hf_x11_resource, align 4
+  %1574 = call fastcc i32 @field32(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %1573, i32 noundef %5)
+  br label %1627
 
-1573:                                             ; preds = %97
-  %1574 = load i32, ptr @hf_x11_close_down_mode, align 4
-  %1575 = call fastcc i32 @field8(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %1574, i32 noundef %5)
-  %1576 = call fastcc i32 @requestLength(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %5)
-  br label %1635
-
-1577:                                             ; preds = %97
-  %1578 = load i32, ptr @hf_x11_unused, align 4
-  %1579 = tail call ptr @proto_tree_add_item(ptr noundef %20, i32 noundef %1578, ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef 0) #10
+1575:                                             ; preds = %89
+  %1576 = load i32, ptr @hf_x11_unused, align 4
+  %1577 = tail call ptr @proto_tree_add_item(ptr noundef %20, i32 noundef %1576, ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef 0) #10
   store i32 2, ptr %7, align 4
-  %1580 = call fastcc i32 @requestLength(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %5)
-  %1581 = load i32, ptr @hf_x11_resource, align 4
-  %1582 = call fastcc i32 @field32(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %1581, i32 noundef %5)
-  br label %1635
+  %1578 = call fastcc i32 @requestLength(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %5)
+  %1579 = load i32, ptr @hf_x11_window, align 4
+  %1580 = call fastcc i32 @field32(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %1579, i32 noundef %5)
+  %1581 = load i32, ptr @hf_x11_property_number, align 4
+  %1582 = call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %1581, i32 noundef %5)
+  %1583 = load i32, ptr @hf_x11_delta, align 4
+  %1584 = call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %1583, i32 noundef %5)
+  %1585 = load i32, ptr @hf_x11_properties, align 4
+  %1586 = and i32 %1578, 65535
+  %1587 = add nsw i32 %1586, -12
+  %1588 = sdiv i32 %1587, 4
+  call fastcc void @listOfAtom(ptr noundef %0, ptr noundef %7, ptr noundef %20, i32 noundef %1585, i32 noundef %1588, i32 noundef %5)
+  br label %1627
 
-1583:                                             ; preds = %97
-  %1584 = load i32, ptr @hf_x11_unused, align 4
-  %1585 = tail call ptr @proto_tree_add_item(ptr noundef %20, i32 noundef %1584, ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef 0) #10
-  store i32 2, ptr %7, align 4
-  %1586 = call fastcc i32 @requestLength(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %5)
-  %1587 = load i32, ptr @hf_x11_window, align 4
-  %1588 = call fastcc i32 @field32(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %1587, i32 noundef %5)
-  %1589 = load i32, ptr @hf_x11_property_number, align 4
-  %1590 = call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %1589, i32 noundef %5)
-  %1591 = load i32, ptr @hf_x11_delta, align 4
-  %1592 = call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %1591, i32 noundef %5)
-  %1593 = load i32, ptr @hf_x11_properties, align 4
-  %1594 = and i32 %1586, 65535
-  %1595 = add nsw i32 %1594, -12
-  %1596 = sdiv i32 %1595, 4
-  call fastcc void @listOfAtom(ptr noundef %0, ptr noundef %7, ptr noundef %20, i32 noundef %1593, i32 noundef %1596, i32 noundef %5)
-  br label %1635
+1589:                                             ; preds = %89
+  %1590 = load i32, ptr @hf_x11_screen_saver_mode, align 4
+  %1591 = call fastcc i32 @field8(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %1590, i32 noundef %5)
+  %1592 = call fastcc i32 @requestLength(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %5)
+  br label %1627
 
-1597:                                             ; preds = %97
-  %1598 = load i32, ptr @hf_x11_screen_saver_mode, align 4
-  %1599 = call fastcc i32 @field8(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %1598, i32 noundef %5)
-  %1600 = call fastcc i32 @requestLength(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %5)
-  br label %1635
+1593:                                             ; preds = %89
+  %1594 = load i32, ptr @hf_x11_map_length, align 4
+  %1595 = call fastcc i32 @field8(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %1594, i32 noundef %5)
+  %1596 = call fastcc i32 @requestLength(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %5)
+  %1597 = load i32, ptr @hf_x11_map, align 4
+  %1598 = tail call i32 @llvm.umax.i32(i32 %1595, i32 1)
+  %1599 = load i32, ptr %7, align 4
+  %1600 = tail call ptr @proto_tree_add_item(ptr noundef %20, i32 noundef %1597, ptr noundef %0, i32 noundef %1599, i32 noundef %1598, i32 noundef %5) #10
+  %1601 = add i32 %1599, %1598
+  %1602 = sub i32 %.02784, %1601
+  %1603 = icmp sgt i32 %1602, 0
+  br i1 %1603, label %1604, label %1607
 
-1601:                                             ; preds = %97
-  %1602 = load i32, ptr @hf_x11_map_length, align 4
-  %1603 = call fastcc i32 @field8(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %1602, i32 noundef %5)
-  %1604 = call fastcc i32 @requestLength(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %5)
-  %1605 = load i32, ptr @hf_x11_map, align 4
-  %1606 = tail call i32 @llvm.umax.i32(i32 %1603, i32 1)
-  %1607 = load i32, ptr %7, align 4
-  %1608 = tail call ptr @proto_tree_add_item(ptr noundef %20, i32 noundef %1605, ptr noundef %0, i32 noundef %1607, i32 noundef %1606, i32 noundef %5) #10
-  %1609 = add i32 %1607, %1606
-  %1610 = sub i32 %.02784, %1609
-  %1611 = icmp sgt i32 %1610, 0
-  br i1 %1611, label %1612, label %1615
+1604:                                             ; preds = %1593
+  %1605 = load i32, ptr @hf_x11_unused, align 4
+  %1606 = tail call ptr @proto_tree_add_item(ptr noundef %20, i32 noundef %1605, ptr noundef %0, i32 noundef %1601, i32 noundef %1602, i32 noundef 0) #10
+  br label %1607
 
-1612:                                             ; preds = %1601
-  %1613 = load i32, ptr @hf_x11_unused, align 4
-  %1614 = tail call ptr @proto_tree_add_item(ptr noundef %20, i32 noundef %1613, ptr noundef %0, i32 noundef %1609, i32 noundef %1610, i32 noundef 0) #10
-  br label %1615
-
-1615:                                             ; preds = %1612, %1601
+1607:                                             ; preds = %1604, %1593
   store i32 %.02784, ptr %7, align 4
-  br label %1635
+  br label %1627
 
-1616:                                             ; preds = %97
-  %1617 = load i32, ptr @hf_x11_unused, align 4
-  %1618 = tail call ptr @proto_tree_add_item(ptr noundef %20, i32 noundef %1617, ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef 0) #10
+1608:                                             ; preds = %89
+  %1609 = load i32, ptr @hf_x11_unused, align 4
+  %1610 = tail call ptr @proto_tree_add_item(ptr noundef %20, i32 noundef %1609, ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef 0) #10
   store i32 2, ptr %7, align 4
-  %1619 = call fastcc i32 @requestLength(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %5)
-  br label %1635
+  %1611 = call fastcc i32 @requestLength(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %5)
+  br label %1627
 
-1620:                                             ; preds = %97
-  %1621 = load i32, ptr @hf_x11_keycodes_per_modifier, align 4
-  %1622 = call fastcc i32 @field8(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %1621, i32 noundef %5)
-  %1623 = call fastcc i32 @requestLength(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %5)
-  %1624 = load i32, ptr @hf_x11_keycodes, align 4
-  %1625 = getelementptr inbounds i8, ptr %4, i64 12400
-  call fastcc void @listOfKeycode(ptr noundef %0, ptr noundef %7, ptr noundef %20, i32 noundef %1624, ptr noundef nonnull %1625, i32 noundef %1622)
-  br label %1635
+1612:                                             ; preds = %89
+  %1613 = load i32, ptr @hf_x11_keycodes_per_modifier, align 4
+  %1614 = call fastcc i32 @field8(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %1613, i32 noundef %5)
+  %1615 = call fastcc i32 @requestLength(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %5)
+  %1616 = load i32, ptr @hf_x11_keycodes, align 4
+  %1617 = getelementptr inbounds i8, ptr %4, i64 12400
+  call fastcc void @listOfKeycode(ptr noundef %0, ptr noundef %7, ptr noundef %20, i32 noundef %1616, ptr noundef nonnull %1617, i32 noundef %1614)
+  br label %1627
 
-1626:                                             ; preds = %97
-  %1627 = load i32, ptr @hf_x11_unused, align 4
-  %1628 = tail call ptr @proto_tree_add_item(ptr noundef %20, i32 noundef %1627, ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef 0) #10
+1618:                                             ; preds = %89
+  %1619 = load i32, ptr @hf_x11_unused, align 4
+  %1620 = tail call ptr @proto_tree_add_item(ptr noundef %20, i32 noundef %1619, ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef 0) #10
   store i32 2, ptr %7, align 4
-  %1629 = call fastcc i32 @requestLength(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %5)
-  br label %1635
+  %1621 = call fastcc i32 @requestLength(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %5)
+  br label %1627
 
-1630:                                             ; preds = %97
-  %1631 = load i32, ptr @hf_x11_unused, align 4
-  %1632 = tail call ptr @proto_tree_add_item(ptr noundef %20, i32 noundef %1631, ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef 0) #10
+1622:                                             ; preds = %89
+  %1623 = load i32, ptr @hf_x11_unused, align 4
+  %1624 = tail call ptr @proto_tree_add_item(ptr noundef %20, i32 noundef %1623, ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef 0) #10
   store i32 2, ptr %7, align 4
-  %1633 = call fastcc i32 @requestLength(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %5)
-  br label %1635
+  %1625 = call fastcc i32 @requestLength(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %5)
+  br label %1627
 
-1634:                                             ; preds = %97
+1626:                                             ; preds = %89
   call fastcc void @tryExtension(i32 noundef %32, ptr noundef %0, ptr noundef %1, ptr noundef %7, ptr noundef %20, ptr noundef %4, i32 noundef %5)
+  br label %1627
+
+1627:                                             ; preds = %1546, %1551, %1476, %1479, %234, %238, %1626, %1622, %1618, %1612, %1608, %1607, %1589, %1575, %1569, %1565, %1561, %1557, %1528, %1512, %1508, %1494, %1490, %1486, %1385, %1370, %1366, %1365, %1337, %1319, %1313, %1287, %1261, %1260, %1229, %1228, %1198, %1185, %1171, %1161, %1160, %1124, %1118, %1112, %1106, %1098, %1092, %1078, %1077, %1056, %1034, %1014, %979, %978, %932, %920, %900, %888, %876, %864, %852, %840, %816, %794, %780, %774, %760, %759, %726, %720, %712, %706, %694, %690, %689, %670, %652, %634, %610, %604, %603, %579, %575, %568, %548, %536, %528, %522, %518, %514, %509, %499, %483, %478, %463, %448, %438, %413, %408, %388, %367, %357, %352, %344, %338, %326, %319, %318, %272, %271, %247, %241, %146, %134, %128, %122, %116, %90
+  %1628 = load i32, ptr %7, align 4
+  %1629 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %1628) #10
+  %1630 = icmp sgt i32 %1629, 0
+  br i1 %1630, label %1631, label %1635
+
+1631:                                             ; preds = %1627
+  %1632 = load i32, ptr @hf_x11_undecoded, align 4
+  %1633 = load i32, ptr %7, align 4
+  %1634 = call ptr @proto_tree_add_item(ptr noundef %20, i32 noundef %1632, ptr noundef %0, i32 noundef %1633, i32 noundef %1629, i32 noundef 0) #10
   br label %1635
 
-1635:                                             ; preds = %1554, %1559, %1484, %1487, %242, %246, %1634, %1630, %1626, %1620, %1616, %1615, %1597, %1583, %1577, %1573, %1569, %1565, %1536, %1520, %1516, %1502, %1498, %1494, %1393, %1378, %1374, %1373, %1345, %1327, %1321, %1295, %1269, %1268, %1237, %1236, %1206, %1193, %1179, %1169, %1168, %1132, %1126, %1120, %1114, %1106, %1100, %1086, %1085, %1064, %1042, %1022, %987, %986, %940, %928, %908, %896, %884, %872, %860, %848, %824, %802, %788, %782, %768, %767, %734, %728, %720, %714, %702, %698, %697, %678, %660, %642, %618, %612, %611, %587, %583, %576, %556, %544, %536, %530, %526, %522, %517, %507, %491, %486, %471, %456, %446, %421, %416, %396, %375, %365, %360, %352, %346, %334, %327, %326, %280, %279, %255, %249, %154, %142, %136, %130, %124, %98
-  %1636 = load i32, ptr %7, align 4
-  %1637 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %1636) #10
-  %1638 = icmp sgt i32 %1637, 0
-  br i1 %1638, label %1639, label %1643
-
-1639:                                             ; preds = %1635
-  %1640 = load i32, ptr @hf_x11_undecoded, align 4
-  %1641 = load i32, ptr %7, align 4
-  %1642 = call ptr @proto_tree_add_item(ptr noundef %20, i32 noundef %1640, ptr noundef %0, i32 noundef %1641, i32 noundef %1637, i32 noundef 0) #10
-  br label %1643
-
-1643:                                             ; preds = %95, %14, %11, %1639, %1635
+1635:                                             ; preds = %87, %14, %11, %1631, %1627
   ret void
 }
 

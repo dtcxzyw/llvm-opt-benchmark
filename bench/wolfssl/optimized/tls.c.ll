@@ -2232,15 +2232,11 @@ if.end:                                           ; preds = %land.rhs.i
   %call1 = call fastcc i32 @TLSX_PopulateSupportedGroups(ptr noundef %ssl, ptr noundef nonnull %priority)
   %cmp2.not = icmp eq i32 %call1, 1
   %3 = load ptr, ptr %priority, align 8
-  br i1 %cmp2.not, label %if.end4, label %if.then3
-
-if.then3:                                         ; preds = %if.end
-  call void @TLSX_FreeAll(ptr noundef %3, ptr poison)
-  br label %return
+  br i1 %cmp2.not, label %if.end4, label %return.sink.split
 
 if.end4:                                          ; preds = %if.end
   %tobool.not4.i18 = icmp eq ptr %3, null
-  br i1 %tobool.not4.i18, label %do.end, label %land.rhs.i19
+  br i1 %tobool.not4.i18, label %return.sink.split, label %land.rhs.i19
 
 land.rhs.i19:                                     ; preds = %if.end4, %while.body.i22
   %extension.05.i20 = phi ptr [ %5, %while.body.i22 ], [ %3, %if.end4 ]
@@ -2252,11 +2248,7 @@ while.body.i22:                                   ; preds = %land.rhs.i19
   %next.i23 = getelementptr inbounds i8, ptr %extension.05.i20, i64 24
   %5 = load ptr, ptr %next.i23, align 8
   %tobool.not.i24 = icmp eq ptr %5, null
-  br i1 %tobool.not.i24, label %do.end, label %land.rhs.i19, !llvm.loop !16
-
-do.end:                                           ; preds = %while.body.i22, %if.end4
-  call void @TLSX_FreeAll(ptr noundef %3, ptr poison)
-  br label %return
+  br i1 %tobool.not.i24, label %return.sink.split, label %land.rhs.i19, !llvm.loop !16
 
 if.end9:                                          ; preds = %land.rhs.i19
   %data = getelementptr inbounds i8, ptr %extension.05.i20, i64 8
@@ -2277,7 +2269,7 @@ while.body:                                       ; preds = %if.end9, %while.con
   %curve.035 = phi ptr [ %curve.0, %while.cond ], [ %curve.033, %if.end9 ]
   %8 = load i16, ptr %curve.035, align 8
   %cmp15 = icmp eq i16 %8, %7
-  br i1 %cmp15, label %if.end26, label %while.cond
+  br i1 %cmp15, label %return.sink.split, label %while.cond
 
 if.then21:                                        ; preds = %while.cond, %if.end9
   %resp = getelementptr inbounds i8, ptr %extension.05.i, i64 20
@@ -2285,14 +2277,15 @@ if.then21:                                        ; preds = %while.cond, %if.end
   %9 = load ptr, ptr %data, align 8
   store ptr %9, ptr %data11, align 8
   store ptr %curve.033, ptr %data, align 8
-  br label %if.end26
+  br label %return.sink.split
 
-if.end26:                                         ; preds = %while.body, %if.then21
-  call void @TLSX_FreeAll(ptr noundef nonnull %3, ptr poison)
+return.sink.split:                                ; preds = %while.body.i22, %while.body, %if.then21, %if.end4, %if.end
+  %retval.0.ph = phi i32 [ %call1, %if.end ], [ 0, %if.end4 ], [ 0, %if.then21 ], [ 0, %while.body ], [ 0, %while.body.i22 ]
+  call void @TLSX_FreeAll(ptr noundef %3, ptr poison)
   br label %return
 
-return:                                           ; preds = %while.body.i, %entry, %if.end26, %do.end, %if.then3
-  %retval.0 = phi i32 [ %call1, %if.then3 ], [ 0, %do.end ], [ 0, %if.end26 ], [ 0, %entry ], [ 0, %while.body.i ]
+return:                                           ; preds = %while.body.i, %return.sink.split, %entry
+  %retval.0 = phi i32 [ 0, %entry ], [ %retval.0.ph, %return.sink.split ], [ 0, %while.body.i ]
   ret i32 %retval.0
 }
 

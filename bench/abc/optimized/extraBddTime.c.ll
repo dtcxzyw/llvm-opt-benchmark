@@ -826,7 +826,7 @@ define internal fastcc ptr @extraTransferPermuteRecurTime(ptr noundef %0, ptr no
   %17 = ptrtoint ptr %9 to i64
   %18 = xor i64 %15, %17
   %19 = inttoptr i64 %18 to ptr
-  br label %102
+  br label %95
 
 20:                                               ; preds = %5
   %21 = call i32 @st__lookup(ptr noundef nonnull %2, ptr noundef nonnull %12, ptr noundef nonnull %7) #5
@@ -838,7 +838,7 @@ define internal fastcc ptr @extraTransferPermuteRecurTime(ptr noundef %0, ptr no
   %24 = ptrtoint ptr %23 to i64
   %25 = xor i64 %15, %24
   %26 = inttoptr i64 %25 to ptr
-  br label %102
+  br label %95
 
 27:                                               ; preds = %20
   %.not70 = icmp eq i32 %4, 0
@@ -864,7 +864,7 @@ Abc_Clock.exit:                                   ; preds = %28, %31
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6)
   %38 = sext i32 %4 to i64
   %39 = icmp sgt i64 %.0.i, %38
-  br i1 %39, label %102, label %40
+  br i1 %39, label %95, label %40
 
 40:                                               ; preds = %Abc_Clock.exit, %27
   %.not71 = icmp eq ptr %3, null
@@ -875,104 +875,95 @@ Abc_Clock.exit:                                   ; preds = %28, %31
   %42 = zext i32 %41 to i64
   %43 = getelementptr inbounds i32, ptr %3, i64 %42
   %44 = load i32, ptr %43, align 4
+  br label %.split64
+
+.split64:                                         ; preds = %40, %.split
+  %.sink1 = phi ptr [ %3, %.split ], [ null, %40 ]
+  %.0 = phi i32 [ %44, %.split ], [ %41, %40 ]
   %45 = getelementptr inbounds i8, ptr %12, i64 16
   %46 = load ptr, ptr %45, align 8
   %47 = getelementptr inbounds i8, ptr %12, i64 24
   %48 = load ptr, ptr %47, align 8
-  %49 = call fastcc ptr @extraTransferPermuteRecurTime(ptr noundef nonnull %0, ptr noundef %46, ptr noundef %2, ptr noundef nonnull %3, i32 noundef %4)
-  br label %55
+  %49 = call fastcc ptr @extraTransferPermuteRecurTime(ptr noundef nonnull %0, ptr noundef %46, ptr noundef %2, ptr noundef %.sink1, i32 noundef %4)
+  %50 = icmp eq ptr %49, null
+  br i1 %50, label %95, label %51
 
-.split64:                                         ; preds = %40
-  %50 = getelementptr inbounds i8, ptr %12, i64 16
-  %51 = load ptr, ptr %50, align 8
-  %52 = getelementptr inbounds i8, ptr %12, i64 24
-  %53 = load ptr, ptr %52, align 8
-  %54 = call fastcc ptr @extraTransferPermuteRecurTime(ptr noundef nonnull %0, ptr noundef %51, ptr noundef %2, ptr noundef null, i32 noundef %4)
-  br label %55
+51:                                               ; preds = %.split64
+  %52 = ptrtoint ptr %49 to i64
+  %53 = and i64 %52, -2
+  %54 = inttoptr i64 %53 to ptr
+  %55 = getelementptr inbounds i8, ptr %54, i64 4
+  %56 = load i32, ptr %55, align 4
+  %57 = add i32 %56, 1
+  store i32 %57, ptr %55, align 4
+  %58 = call fastcc ptr @extraTransferPermuteRecurTime(ptr noundef nonnull %0, ptr noundef %48, ptr noundef %2, ptr noundef %3, i32 noundef %4)
+  %59 = icmp eq ptr %58, null
+  br i1 %59, label %60, label %61
 
-55:                                               ; preds = %.split64, %.split
-  %56 = phi ptr [ %48, %.split ], [ %53, %.split64 ]
-  %phi.call = phi ptr [ %49, %.split ], [ %54, %.split64 ]
-  %.0 = phi i32 [ %44, %.split ], [ %41, %.split64 ]
-  %57 = icmp eq ptr %phi.call, null
-  br i1 %57, label %102, label %58
+60:                                               ; preds = %51
+  call void @Cudd_RecursiveDeref(ptr noundef nonnull %0, ptr noundef nonnull %49) #5
+  br label %95
 
-58:                                               ; preds = %55
-  %59 = ptrtoint ptr %phi.call to i64
-  %60 = and i64 %59, -2
-  %61 = inttoptr i64 %60 to ptr
-  %62 = getelementptr inbounds i8, ptr %61, i64 4
-  %63 = load i32, ptr %62, align 4
-  %64 = add i32 %63, 1
-  store i32 %64, ptr %62, align 4
-  %65 = call fastcc ptr @extraTransferPermuteRecurTime(ptr noundef nonnull %0, ptr noundef %56, ptr noundef %2, ptr noundef %3, i32 noundef %4)
-  %66 = icmp eq ptr %65, null
-  br i1 %66, label %67, label %68
-
-67:                                               ; preds = %58
-  call void @Cudd_RecursiveDeref(ptr noundef nonnull %0, ptr noundef nonnull %phi.call) #5
-  br label %102
-
-68:                                               ; preds = %58
-  %69 = ptrtoint ptr %65 to i64
-  %70 = and i64 %69, -2
+61:                                               ; preds = %51
+  %62 = ptrtoint ptr %58 to i64
+  %63 = and i64 %62, -2
+  %64 = inttoptr i64 %63 to ptr
+  %65 = getelementptr inbounds i8, ptr %64, i64 4
+  %66 = load i32, ptr %65, align 4
+  %67 = add i32 %66, 1
+  store i32 %67, ptr %65, align 4
+  %68 = load ptr, ptr %8, align 8
+  %69 = ptrtoint ptr %68 to i64
+  %70 = xor i64 %69, 1
   %71 = inttoptr i64 %70 to ptr
-  %72 = getelementptr inbounds i8, ptr %71, i64 4
-  %73 = load i32, ptr %72, align 4
-  %74 = add i32 %73, 1
-  store i32 %74, ptr %72, align 4
-  %75 = load ptr, ptr %8, align 8
-  %76 = ptrtoint ptr %75 to i64
-  %77 = xor i64 %76, 1
-  %78 = inttoptr i64 %77 to ptr
-  %79 = call ptr @cuddUniqueInter(ptr noundef nonnull %0, i32 noundef %.0, ptr noundef %9, ptr noundef %78) #5
-  %80 = icmp eq ptr %79, null
-  br i1 %80, label %81, label %82
+  %72 = call ptr @cuddUniqueInter(ptr noundef nonnull %0, i32 noundef %.0, ptr noundef %9, ptr noundef %71) #5
+  %73 = icmp eq ptr %72, null
+  br i1 %73, label %74, label %75
 
-81:                                               ; preds = %68
-  call void @Cudd_RecursiveDeref(ptr noundef nonnull %0, ptr noundef nonnull %phi.call) #5
-  call void @Cudd_RecursiveDeref(ptr noundef nonnull %0, ptr noundef nonnull %65) #5
-  br label %102
+74:                                               ; preds = %61
+  call void @Cudd_RecursiveDeref(ptr noundef nonnull %0, ptr noundef nonnull %49) #5
+  call void @Cudd_RecursiveDeref(ptr noundef nonnull %0, ptr noundef nonnull %58) #5
+  br label %95
 
-82:                                               ; preds = %68
-  %83 = call ptr @cuddBddIteRecur(ptr noundef nonnull %0, ptr noundef nonnull %79, ptr noundef nonnull %phi.call, ptr noundef nonnull %65) #5
-  store ptr %83, ptr %7, align 8
-  %84 = icmp eq ptr %83, null
-  br i1 %84, label %85, label %86
+75:                                               ; preds = %61
+  %76 = call ptr @cuddBddIteRecur(ptr noundef nonnull %0, ptr noundef nonnull %72, ptr noundef nonnull %49, ptr noundef nonnull %58) #5
+  store ptr %76, ptr %7, align 8
+  %77 = icmp eq ptr %76, null
+  br i1 %77, label %78, label %79
 
-85:                                               ; preds = %82
-  call void @Cudd_RecursiveDeref(ptr noundef nonnull %0, ptr noundef nonnull %phi.call) #5
-  call void @Cudd_RecursiveDeref(ptr noundef nonnull %0, ptr noundef nonnull %65) #5
-  br label %102
+78:                                               ; preds = %75
+  call void @Cudd_RecursiveDeref(ptr noundef nonnull %0, ptr noundef nonnull %49) #5
+  call void @Cudd_RecursiveDeref(ptr noundef nonnull %0, ptr noundef nonnull %58) #5
+  br label %95
 
-86:                                               ; preds = %82
-  %87 = ptrtoint ptr %83 to i64
-  %88 = and i64 %87, -2
-  %89 = inttoptr i64 %88 to ptr
-  %90 = getelementptr inbounds i8, ptr %89, i64 4
-  %91 = load i32, ptr %90, align 4
-  %92 = add i32 %91, 1
-  store i32 %92, ptr %90, align 4
-  call void @Cudd_RecursiveDeref(ptr noundef nonnull %0, ptr noundef nonnull %phi.call) #5
-  call void @Cudd_RecursiveDeref(ptr noundef nonnull %0, ptr noundef nonnull %65) #5
-  %93 = load ptr, ptr %7, align 8
-  %94 = call i32 @st__add_direct(ptr noundef nonnull %2, ptr noundef nonnull %12, ptr noundef %93) #5
-  %95 = icmp eq i32 %94, -10000
-  %96 = load ptr, ptr %7, align 8
-  br i1 %95, label %97, label %98
+79:                                               ; preds = %75
+  %80 = ptrtoint ptr %76 to i64
+  %81 = and i64 %80, -2
+  %82 = inttoptr i64 %81 to ptr
+  %83 = getelementptr inbounds i8, ptr %82, i64 4
+  %84 = load i32, ptr %83, align 4
+  %85 = add i32 %84, 1
+  store i32 %85, ptr %83, align 4
+  call void @Cudd_RecursiveDeref(ptr noundef nonnull %0, ptr noundef nonnull %49) #5
+  call void @Cudd_RecursiveDeref(ptr noundef nonnull %0, ptr noundef nonnull %58) #5
+  %86 = load ptr, ptr %7, align 8
+  %87 = call i32 @st__add_direct(ptr noundef nonnull %2, ptr noundef nonnull %12, ptr noundef %86) #5
+  %88 = icmp eq i32 %87, -10000
+  %89 = load ptr, ptr %7, align 8
+  br i1 %88, label %90, label %91
 
-97:                                               ; preds = %86
-  call void @Cudd_RecursiveDeref(ptr noundef nonnull %0, ptr noundef %96) #5
-  br label %102
+90:                                               ; preds = %79
+  call void @Cudd_RecursiveDeref(ptr noundef nonnull %0, ptr noundef %89) #5
+  br label %95
 
-98:                                               ; preds = %86
-  %99 = ptrtoint ptr %96 to i64
-  %100 = xor i64 %15, %99
-  %101 = inttoptr i64 %100 to ptr
-  br label %102
+91:                                               ; preds = %79
+  %92 = ptrtoint ptr %89 to i64
+  %93 = xor i64 %15, %92
+  %94 = inttoptr i64 %93 to ptr
+  br label %95
 
-102:                                              ; preds = %55, %Abc_Clock.exit, %98, %97, %85, %81, %67, %22, %16
-  %.062 = phi ptr [ %19, %16 ], [ %26, %22 ], [ null, %67 ], [ null, %81 ], [ null, %85 ], [ null, %97 ], [ %101, %98 ], [ null, %Abc_Clock.exit ], [ null, %55 ]
+95:                                               ; preds = %.split64, %Abc_Clock.exit, %91, %90, %78, %74, %60, %22, %16
+  %.062 = phi ptr [ %19, %16 ], [ %26, %22 ], [ null, %60 ], [ null, %74 ], [ null, %78 ], [ null, %90 ], [ %94, %91 ], [ null, %Abc_Clock.exit ], [ null, %.split64 ]
   ret ptr %.062
 }
 

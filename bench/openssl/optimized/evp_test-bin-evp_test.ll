@@ -5469,12 +5469,7 @@ entry:
   %0 = load ptr, ptr %data, align 8
   %call = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %keyword, ptr noundef nonnull dereferenceable(6) @.str.193) #12
   %cmp = icmp eq i32 %call, 0
-  br i1 %cmp, label %if.then, label %if.end
-
-if.then:                                          ; preds = %entry
-  %input_len = getelementptr inbounds i8, ptr %0, i64 8
-  %call1 = tail call fastcc i32 @parse_bin(ptr noundef %value, ptr noundef %0, ptr noundef nonnull %input_len)
-  br label %return
+  br i1 %cmp, label %return.sink.split, label %if.end
 
 if.end:                                           ; preds = %entry
   %call2 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %keyword, ptr noundef nonnull dereferenceable(7) @.str.194) #12
@@ -5483,12 +5478,17 @@ if.end:                                           ; preds = %entry
 
 if.then4:                                         ; preds = %if.end
   %output = getelementptr inbounds i8, ptr %0, i64 16
-  %output_len = getelementptr inbounds i8, ptr %0, i64 24
-  %call5 = tail call fastcc i32 @parse_bin(ptr noundef %value, ptr noundef nonnull %output, ptr noundef nonnull %output_len)
+  br label %return.sink.split
+
+return.sink.split:                                ; preds = %entry, %if.then4
+  %.sink = phi i64 [ 24, %if.then4 ], [ 8, %entry ]
+  %output.sink = phi ptr [ %output, %if.then4 ], [ %0, %entry ]
+  %output_len = getelementptr inbounds i8, ptr %0, i64 %.sink
+  %call5 = tail call fastcc i32 @parse_bin(ptr noundef %value, ptr noundef %output.sink, ptr noundef nonnull %output_len)
   br label %return
 
-return:                                           ; preds = %if.end, %if.then4, %if.then
-  %retval.0 = phi i32 [ %call1, %if.then ], [ %call5, %if.then4 ], [ 0, %if.end ]
+return:                                           ; preds = %return.sink.split, %if.end
+  %retval.0 = phi i32 [ 0, %if.end ], [ %call5, %return.sink.split ]
   ret i32 %retval.0
 }
 

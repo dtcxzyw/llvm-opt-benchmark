@@ -563,116 +563,100 @@ define internal noundef zeroext i1 @oscore_context_update_cb(ptr nocapture nound
   %5 = load ptr, ptr %4, align 8
   %6 = tail call i32 @hex_str_to_bytes(ptr noundef %5, ptr noundef %3, i32 noundef 0) #9
   %7 = icmp eq i32 %6, 0
-  br i1 %7, label %8, label %11
+  br i1 %7, label %8, label %10
 
 8:                                                ; preds = %2
   %9 = tail call noalias ptr @g_strdup(ptr noundef nonnull @.str.150) #9
-  store ptr %9, ptr %1, align 8
-  %10 = tail call ptr @g_byte_array_free(ptr noundef %3, i32 noundef 1) #9
-  br label %69
+  br label %.sink.split
 
-11:                                               ; preds = %2
-  %12 = getelementptr inbounds i8, ptr %3, i64 8
-  %13 = load i32, ptr %12, align 8
-  %14 = icmp ugt i32 %13, 7
-  br i1 %14, label %15, label %18
+10:                                               ; preds = %2
+  %11 = getelementptr inbounds i8, ptr %3, i64 8
+  %12 = load i32, ptr %11, align 8
+  %13 = icmp ugt i32 %12, 7
+  br i1 %13, label %14, label %16
 
-15:                                               ; preds = %11
-  %16 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.151, i32 noundef 7) #9
-  store ptr %16, ptr %1, align 8
-  %17 = tail call ptr @g_byte_array_free(ptr noundef nonnull %3, i32 noundef 1) #9
-  br label %69
+14:                                               ; preds = %10
+  %15 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.151, i32 noundef 7) #9
+  br label %.sink.split
 
-18:                                               ; preds = %11
-  %19 = getelementptr inbounds i8, ptr %0, i64 32
-  %20 = load ptr, ptr %19, align 8
-  %21 = tail call i32 @hex_str_to_bytes(ptr noundef %20, ptr noundef nonnull %3, i32 noundef 0) #9
-  %22 = icmp eq i32 %21, 0
-  br i1 %22, label %23, label %26
+16:                                               ; preds = %10
+  %17 = getelementptr inbounds i8, ptr %0, i64 32
+  %18 = load ptr, ptr %17, align 8
+  %19 = tail call i32 @hex_str_to_bytes(ptr noundef %18, ptr noundef nonnull %3, i32 noundef 0) #9
+  %20 = icmp eq i32 %19, 0
+  br i1 %20, label %21, label %23
 
-23:                                               ; preds = %18
-  %24 = tail call noalias ptr @g_strdup(ptr noundef nonnull @.str.152) #9
-  store ptr %24, ptr %1, align 8
-  %25 = tail call ptr @g_byte_array_free(ptr noundef nonnull %3, i32 noundef 1) #9
-  br label %69
+21:                                               ; preds = %16
+  %22 = tail call noalias ptr @g_strdup(ptr noundef nonnull @.str.152) #9
+  br label %.sink.split
 
-26:                                               ; preds = %18
-  %27 = load i32, ptr %12, align 8
-  %28 = icmp ugt i32 %27, 7
-  br i1 %28, label %29, label %32
+23:                                               ; preds = %16
+  %24 = load i32, ptr %11, align 8
+  %25 = icmp ugt i32 %24, 7
+  br i1 %25, label %26, label %28
 
-29:                                               ; preds = %26
-  %30 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.151, i32 noundef 7) #9
-  store ptr %30, ptr %1, align 8
-  %31 = tail call ptr @g_byte_array_free(ptr noundef nonnull %3, i32 noundef 1) #9
-  br label %69
+26:                                               ; preds = %23
+  %27 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.151, i32 noundef 7) #9
+  br label %.sink.split
 
-32:                                               ; preds = %26
-  %33 = getelementptr inbounds i8, ptr %0, i64 16
-  %34 = load ptr, ptr %33, align 8
-  %35 = tail call i32 @hex_str_to_bytes(ptr noundef %34, ptr noundef nonnull %3, i32 noundef 0) #9
-  %36 = icmp eq i32 %35, 0
-  br i1 %36, label %37, label %40
+28:                                               ; preds = %23
+  %29 = getelementptr inbounds i8, ptr %0, i64 16
+  %30 = load ptr, ptr %29, align 8
+  %31 = tail call i32 @hex_str_to_bytes(ptr noundef %30, ptr noundef nonnull %3, i32 noundef 0) #9
+  %32 = icmp eq i32 %31, 0
+  br i1 %32, label %33, label %35
 
-37:                                               ; preds = %32
-  %38 = tail call noalias ptr @g_strdup(ptr noundef nonnull @.str.153) #9
-  store ptr %38, ptr %1, align 8
-  %39 = tail call ptr @g_byte_array_free(ptr noundef nonnull %3, i32 noundef 1) #9
-  br label %69
+33:                                               ; preds = %28
+  %34 = tail call noalias ptr @g_strdup(ptr noundef nonnull @.str.153) #9
+  br label %.sink.split
 
-40:                                               ; preds = %32
-  %41 = load i32, ptr %12, align 8
-  %42 = icmp ugt i32 %41, 64
-  br i1 %42, label %43, label %46
+35:                                               ; preds = %28
+  %36 = load i32, ptr %11, align 8
+  %37 = icmp ugt i32 %36, 64
+  br i1 %37, label %38, label %40
 
-43:                                               ; preds = %40
-  %44 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.151, i32 noundef 64) #9
-  store ptr %44, ptr %1, align 8
-  %45 = tail call ptr @g_byte_array_free(ptr noundef nonnull %3, i32 noundef 1) #9
-  br label %69
+38:                                               ; preds = %35
+  %39 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.151, i32 noundef 64) #9
+  br label %.sink.split
+
+40:                                               ; preds = %35
+  %41 = load ptr, ptr %0, align 8
+  %42 = tail call i32 @hex_str_to_bytes(ptr noundef %41, ptr noundef nonnull %3, i32 noundef 0) #9
+  %43 = icmp eq i32 %42, 0
+  br i1 %43, label %44, label %46
+
+44:                                               ; preds = %40
+  %45 = tail call noalias ptr @g_strdup(ptr noundef nonnull @.str.154) #9
+  br label %.sink.split
 
 46:                                               ; preds = %40
-  %47 = load ptr, ptr %0, align 8
-  %48 = tail call i32 @hex_str_to_bytes(ptr noundef %47, ptr noundef nonnull %3, i32 noundef 0) #9
-  %49 = icmp eq i32 %48, 0
-  br i1 %49, label %50, label %53
+  %47 = load i32, ptr %11, align 8
+  %48 = icmp eq i32 %47, 0
+  br i1 %48, label %49, label %51
 
-50:                                               ; preds = %46
-  %51 = tail call noalias ptr @g_strdup(ptr noundef nonnull @.str.154) #9
-  store ptr %51, ptr %1, align 8
-  %52 = tail call ptr @g_byte_array_free(ptr noundef nonnull %3, i32 noundef 1) #9
-  br label %69
+49:                                               ; preds = %46
+  %50 = tail call noalias ptr @g_strdup(ptr noundef nonnull @.str.155) #9
+  br label %.sink.split
 
-53:                                               ; preds = %46
-  %54 = load i32, ptr %12, align 8
+51:                                               ; preds = %46
+  %52 = getelementptr inbounds i8, ptr %0, i64 8
+  %53 = load ptr, ptr %52, align 8
+  %54 = tail call i32 @hex_str_to_bytes(ptr noundef %53, ptr noundef nonnull %3, i32 noundef 0) #9
   %55 = icmp eq i32 %54, 0
-  br i1 %55, label %56, label %59
+  br i1 %55, label %56, label %58
 
-56:                                               ; preds = %53
-  %57 = tail call noalias ptr @g_strdup(ptr noundef nonnull @.str.155) #9
-  store ptr %57, ptr %1, align 8
-  %58 = tail call ptr @g_byte_array_free(ptr noundef nonnull %3, i32 noundef 1) #9
-  br label %69
+56:                                               ; preds = %51
+  %57 = tail call noalias ptr @g_strdup(ptr noundef nonnull @.str.156) #9
+  br label %.sink.split
 
-59:                                               ; preds = %53
-  %60 = getelementptr inbounds i8, ptr %0, i64 8
-  %61 = load ptr, ptr %60, align 8
-  %62 = tail call i32 @hex_str_to_bytes(ptr noundef %61, ptr noundef nonnull %3, i32 noundef 0) #9
-  %63 = icmp eq i32 %62, 0
-  br i1 %63, label %64, label %67
+.sink.split:                                      ; preds = %8, %14, %21, %26, %33, %38, %44, %49, %56
+  %.sink = phi ptr [ %57, %56 ], [ %50, %49 ], [ %45, %44 ], [ %39, %38 ], [ %34, %33 ], [ %27, %26 ], [ %22, %21 ], [ %15, %14 ], [ %9, %8 ]
+  store ptr %.sink, ptr %1, align 8
+  br label %58
 
-64:                                               ; preds = %59
-  %65 = tail call noalias ptr @g_strdup(ptr noundef nonnull @.str.156) #9
-  store ptr %65, ptr %1, align 8
-  %66 = tail call ptr @g_byte_array_free(ptr noundef nonnull %3, i32 noundef 1) #9
-  br label %69
-
-67:                                               ; preds = %59
-  %68 = tail call ptr @g_byte_array_free(ptr noundef nonnull %3, i32 noundef 1) #9
-  br label %69
-
-69:                                               ; preds = %67, %64, %56, %50, %43, %37, %29, %23, %15, %8
-  %.0 = phi i1 [ false, %8 ], [ false, %15 ], [ false, %23 ], [ false, %29 ], [ false, %37 ], [ false, %43 ], [ false, %50 ], [ false, %56 ], [ false, %64 ], [ true, %67 ]
+58:                                               ; preds = %.sink.split, %51
+  %.0 = phi i1 [ true, %51 ], [ false, %.sink.split ]
+  %59 = tail call ptr @g_byte_array_free(ptr noundef %3, i32 noundef 1) #9
   ret i1 %.0
 }
 

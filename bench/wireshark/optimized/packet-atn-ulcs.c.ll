@@ -915,52 +915,49 @@ declare void @heur_dissector_add(ptr noundef, ptr noundef, ptr noundef, ptr noun
 define internal range(i32 0, 2) i32 @dissect_atn_ulcs_heur(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
   %5 = tail call i32 @tvb_captured_length(ptr noundef %0) #5
   %6 = icmp ult i32 %5, 2
-  br i1 %6, label %17, label %7
+  br i1 %6, label %14, label %7
 
 7:                                                ; preds = %4
   %8 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef 0) #5
   %9 = and i16 %8, -1793
-  switch i16 %9, label %12 [
-    i16 -6142, label %10
-    i16 -2046, label %10
-    i16 -4094, label %10
-    i16 -10238, label %10
-    i16 -8190, label %10
-    i16 -8174, label %10
-    i16 -8158, label %10
-    i16 -8142, label %10
-    i16 -8126, label %10
-    i16 -8110, label %10
-    i16 -8094, label %10
-    i16 -8078, label %10
-    i16 -24574, label %10
-    i16 -24558, label %10
-    i16 -24542, label %10
-    i16 -24526, label %10
-    i16 -24510, label %10
-    i16 -24494, label %10
-    i16 -24478, label %10
-    i16 -24462, label %10
+  switch i16 %9, label %10 [
+    i16 -6142, label %.sink.split
+    i16 -2046, label %.sink.split
+    i16 -4094, label %.sink.split
+    i16 -10238, label %.sink.split
+    i16 -8190, label %.sink.split
+    i16 -8174, label %.sink.split
+    i16 -8158, label %.sink.split
+    i16 -8142, label %.sink.split
+    i16 -8126, label %.sink.split
+    i16 -8110, label %.sink.split
+    i16 -8094, label %.sink.split
+    i16 -8078, label %.sink.split
+    i16 -24574, label %.sink.split
+    i16 -24558, label %.sink.split
+    i16 -24542, label %.sink.split
+    i16 -24526, label %.sink.split
+    i16 -24510, label %.sink.split
+    i16 -24494, label %.sink.split
+    i16 -24478, label %.sink.split
+    i16 -24462, label %.sink.split
   ]
 
-10:                                               ; preds = %7, %7, %7, %7, %7, %7, %7, %7, %7, %7, %7, %7, %7, %7, %7, %7, %7, %7, %7, %7
-  %11 = tail call i32 @dissect_atn_ulcs(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull inttoptr (i64 1 to ptr))
-  br label %17
-
-12:                                               ; preds = %7
-  %13 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef 0) #5
-  %14 = and i16 %13, -16
-  switch i16 %14, label %17 [
-    i16 32, label %15
-    i16 160, label %15
+10:                                               ; preds = %7
+  %11 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef 0) #5
+  %12 = and i16 %11, -16
+  switch i16 %12, label %14 [
+    i16 32, label %.sink.split
+    i16 160, label %.sink.split
   ]
 
-15:                                               ; preds = %12, %12
-  %16 = tail call i32 @dissect_atn_ulcs(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef null)
-  br label %17
+.sink.split:                                      ; preds = %10, %10, %7, %7, %7, %7, %7, %7, %7, %7, %7, %7, %7, %7, %7, %7, %7, %7, %7, %7, %7, %7
+  %.sink = phi ptr [ inttoptr (i64 1 to ptr), %7 ], [ inttoptr (i64 1 to ptr), %7 ], [ inttoptr (i64 1 to ptr), %7 ], [ inttoptr (i64 1 to ptr), %7 ], [ inttoptr (i64 1 to ptr), %7 ], [ inttoptr (i64 1 to ptr), %7 ], [ inttoptr (i64 1 to ptr), %7 ], [ inttoptr (i64 1 to ptr), %7 ], [ inttoptr (i64 1 to ptr), %7 ], [ inttoptr (i64 1 to ptr), %7 ], [ inttoptr (i64 1 to ptr), %7 ], [ inttoptr (i64 1 to ptr), %7 ], [ inttoptr (i64 1 to ptr), %7 ], [ inttoptr (i64 1 to ptr), %7 ], [ inttoptr (i64 1 to ptr), %7 ], [ inttoptr (i64 1 to ptr), %7 ], [ inttoptr (i64 1 to ptr), %7 ], [ inttoptr (i64 1 to ptr), %7 ], [ inttoptr (i64 1 to ptr), %7 ], [ inttoptr (i64 1 to ptr), %7 ], [ null, %10 ], [ null, %10 ]
+  %13 = tail call i32 @dissect_atn_ulcs(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %.sink)
+  br label %14
 
-17:                                               ; preds = %12, %4, %15, %10
-  %.0 = phi i32 [ 1, %15 ], [ 1, %10 ], [ 0, %4 ], [ 0, %12 ]
+14:                                               ; preds = %.sink.split, %10, %4
+  %.0 = phi i32 [ 0, %4 ], [ 0, %10 ], [ 1, %.sink.split ]
   ret i32 %.0
 }
 

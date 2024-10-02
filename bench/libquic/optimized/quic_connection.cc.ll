@@ -3603,29 +3603,25 @@ entry:
 if.then:                                          ; preds = %entry
   %visitor_ = getelementptr inbounds i8, ptr %this, i64 2392
   %2 = load ptr, ptr %visitor_, align 8
-  %vtable2 = load ptr, ptr %2, align 8
-  %vfn3 = getelementptr inbounds i8, ptr %vtable2, i64 64
-  %3 = load ptr, ptr %vfn3, align 8
-  tail call void %3(ptr noundef nonnull align 8 dereferenceable(8) %2)
   br label %cleanup.cont
 
 if.end:                                           ; preds = %entry
   %packet_generator_ = getelementptr inbounds i8, ptr %this, i64 2408
   %supported_versions_.i = getelementptr inbounds i8, ptr %this, i64 304
   %call5 = tail call noundef ptr @_ZN3net19QuicPacketGenerator33SerializeVersionNegotiationPacketERKSt6vectorINS_11QuicVersionESaIS2_EE(ptr noundef nonnull align 8 dereferenceable(472) %packet_generator_, ptr noundef nonnull align 8 dereferenceable(24) %supported_versions_.i)
-  %4 = load ptr, ptr %writer_, align 8
+  %3 = load ptr, ptr %writer_, align 8
   %buffer_.i = getelementptr inbounds i8, ptr %call5, i64 8
-  %5 = load ptr, ptr %buffer_.i, align 8
+  %4 = load ptr, ptr %buffer_.i, align 8
   %length_.i = getelementptr inbounds i8, ptr %call5, i64 16
-  %6 = load i64, ptr %length_.i, align 8
+  %5 = load i64, ptr %length_.i, align 8
   %self_address_.i = getelementptr inbounds i8, ptr %this, i64 504
   %peer_address_.i = getelementptr inbounds i8, ptr %this, i64 536
   %per_packet_options_ = getelementptr inbounds i8, ptr %this, i64 456
-  %7 = load ptr, ptr %per_packet_options_, align 8
-  %vtable18 = load ptr, ptr %4, align 8
+  %6 = load ptr, ptr %per_packet_options_, align 8
+  %vtable18 = load ptr, ptr %3, align 8
   %vfn19 = getelementptr inbounds i8, ptr %vtable18, i64 16
-  %8 = load ptr, ptr %vfn19, align 8
-  %call21 = invoke i64 %8(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef %5, i64 noundef %6, ptr noundef nonnull align 8 dereferenceable(24) %self_address_.i, ptr noundef nonnull align 8 dereferenceable(26) %peer_address_.i, ptr noundef %7)
+  %7 = load ptr, ptr %vfn19, align 8
+  %call21 = invoke i64 %7(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef %4, i64 noundef %5, ptr noundef nonnull align 8 dereferenceable(24) %self_address_.i, ptr noundef nonnull align 8 dereferenceable(26) %peer_address_.i, ptr noundef %6)
           to label %invoke.cont20 unwind label %_ZNSt10unique_ptrIN3net19QuicEncryptedPacketESt14default_deleteIS1_EED2Ev.exit
 
 invoke.cont20:                                    ; preds = %if.end
@@ -3639,49 +3635,48 @@ if.then22:                                        ; preds = %invoke.cont20
   %result.sroa.3.0.extract.shift = lshr i64 %call21, 32
   %result.sroa.3.0.extract.trunc = trunc nuw i64 %result.sroa.3.0.extract.shift to i32
   invoke void @_ZN3net14QuicConnection12OnWriteErrorEi(ptr noundef nonnull align 8 dereferenceable(3372) %this, i32 noundef %result.sroa.3.0.extract.trunc)
-          to label %_ZNSt10unique_ptrIN3net19QuicEncryptedPacketESt14default_deleteIS1_EED2Ev.exit6 unwind label %_ZNSt10unique_ptrIN3net19QuicEncryptedPacketESt14default_deleteIS1_EED2Ev.exit
+          to label %cleanup.cont unwind label %_ZNSt10unique_ptrIN3net19QuicEncryptedPacketESt14default_deleteIS1_EED2Ev.exit
 
 _ZNSt10unique_ptrIN3net19QuicEncryptedPacketESt14default_deleteIS1_EED2Ev.exit: ; preds = %invoke.cont31, %if.then27, %if.then22, %if.end
-  %9 = landingpad { ptr, i32 }
+  %8 = landingpad { ptr, i32 }
           cleanup
   %vtable.i.i = load ptr, ptr %call5, align 8
   %vfn.i.i = getelementptr inbounds i8, ptr %vtable.i.i, i64 8
-  %10 = load ptr, ptr %vfn.i.i, align 8
-  tail call void %10(ptr noundef nonnull align 8 dereferenceable(25) %call5) #23
-  resume { ptr, i32 } %9
+  %9 = load ptr, ptr %vfn.i.i, align 8
+  tail call void %9(ptr noundef nonnull align 8 dereferenceable(25) %call5) #23
+  resume { ptr, i32 } %8
 
 if.then27:                                        ; preds = %invoke.cont20
   %visitor_28 = getelementptr inbounds i8, ptr %this, i64 2392
-  %11 = load ptr, ptr %visitor_28, align 8
-  %vtable29 = load ptr, ptr %11, align 8
+  %10 = load ptr, ptr %visitor_28, align 8
+  %vtable29 = load ptr, ptr %10, align 8
   %vfn30 = getelementptr inbounds i8, ptr %vtable29, i64 64
-  %12 = load ptr, ptr %vfn30, align 8
-  invoke void %12(ptr noundef nonnull align 8 dereferenceable(8) %11)
+  %11 = load ptr, ptr %vfn30, align 8
+  invoke void %11(ptr noundef nonnull align 8 dereferenceable(8) %10)
           to label %invoke.cont31 unwind label %_ZNSt10unique_ptrIN3net19QuicEncryptedPacketESt14default_deleteIS1_EED2Ev.exit
 
 invoke.cont31:                                    ; preds = %if.then27
-  %13 = load ptr, ptr %writer_, align 8
-  %vtable33 = load ptr, ptr %13, align 8
+  %12 = load ptr, ptr %writer_, align 8
+  %vtable33 = load ptr, ptr %12, align 8
   %vfn34 = getelementptr inbounds i8, ptr %vtable33, i64 24
-  %14 = load ptr, ptr %vfn34, align 8
-  %call36 = invoke noundef zeroext i1 %14(ptr noundef nonnull align 8 dereferenceable(8) %13)
+  %13 = load ptr, ptr %vfn34, align 8
+  %call36 = invoke noundef zeroext i1 %13(ptr noundef nonnull align 8 dereferenceable(8) %12)
           to label %invoke.cont35 unwind label %_ZNSt10unique_ptrIN3net19QuicEncryptedPacketESt14default_deleteIS1_EED2Ev.exit
 
 invoke.cont35:                                    ; preds = %invoke.cont31
-  br i1 %call36, label %_ZNSt10unique_ptrIN3net19QuicEncryptedPacketESt14default_deleteIS1_EED2Ev.exit6.sink.split, label %_ZNSt10unique_ptrIN3net19QuicEncryptedPacketESt14default_deleteIS1_EED2Ev.exit6
+  br i1 %call36, label %_ZNSt10unique_ptrIN3net19QuicEncryptedPacketESt14default_deleteIS1_EED2Ev.exit6.sink.split, label %cleanup.cont
 
 _ZNSt10unique_ptrIN3net19QuicEncryptedPacketESt14default_deleteIS1_EED2Ev.exit6.sink.split: ; preds = %invoke.cont20, %invoke.cont35
   store i8 0, ptr %pending_version_negotiation_packet_, align 8
-  br label %_ZNSt10unique_ptrIN3net19QuicEncryptedPacketESt14default_deleteIS1_EED2Ev.exit6
-
-_ZNSt10unique_ptrIN3net19QuicEncryptedPacketESt14default_deleteIS1_EED2Ev.exit6: ; preds = %_ZNSt10unique_ptrIN3net19QuicEncryptedPacketESt14default_deleteIS1_EED2Ev.exit6.sink.split, %invoke.cont35, %if.then22
-  %vtable.i.i4 = load ptr, ptr %call5, align 8
-  %vfn.i.i5 = getelementptr inbounds i8, ptr %vtable.i.i4, i64 8
-  %15 = load ptr, ptr %vfn.i.i5, align 8
-  tail call void %15(ptr noundef nonnull align 8 dereferenceable(25) %call5) #23
   br label %cleanup.cont
 
-cleanup.cont:                                     ; preds = %_ZNSt10unique_ptrIN3net19QuicEncryptedPacketESt14default_deleteIS1_EED2Ev.exit6, %if.then
+cleanup.cont:                                     ; preds = %if.then22, %invoke.cont35, %_ZNSt10unique_ptrIN3net19QuicEncryptedPacketESt14default_deleteIS1_EED2Ev.exit6.sink.split, %if.then
+  %call5.sink10 = phi ptr [ %2, %if.then ], [ %call5, %_ZNSt10unique_ptrIN3net19QuicEncryptedPacketESt14default_deleteIS1_EED2Ev.exit6.sink.split ], [ %call5, %invoke.cont35 ], [ %call5, %if.then22 ]
+  %.sink = phi i64 [ 64, %if.then ], [ 8, %_ZNSt10unique_ptrIN3net19QuicEncryptedPacketESt14default_deleteIS1_EED2Ev.exit6.sink.split ], [ 8, %invoke.cont35 ], [ 8, %if.then22 ]
+  %vtable.i.i4 = load ptr, ptr %call5.sink10, align 8
+  %vfn.i.i5 = getelementptr inbounds i8, ptr %vtable.i.i4, i64 %.sink
+  %14 = load ptr, ptr %vfn.i.i5, align 8
+  tail call void %14(ptr noundef nonnull align 8 dereferenceable(8) %call5.sink10)
   ret void
 }
 

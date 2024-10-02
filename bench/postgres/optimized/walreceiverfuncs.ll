@@ -31,21 +31,21 @@ define dso_local void @WalRcvShmemInit() local_unnamed_addr #0 {
   store ptr %3, ptr @WalRcv, align 8
   %4 = load i8, ptr %1, align 1
   %5 = trunc i8 %4 to i1
-  br i1 %5, label %33, label %6
+  br i1 %5, label %32, label %6
 
 6:                                                ; preds = %0
   %7 = call i64 @add_size(i64 noundef 0, i64 noundef 2264) #7
   %8 = ptrtoint ptr %3 to i64
   %9 = and i64 %8, 7
   %10 = icmp eq i64 %9, 0
-  br i1 %10, label %11, label %24
+  br i1 %10, label %11, label %.loopexit.sink.split
 
 11:                                               ; preds = %6
   %12 = and i64 %7, 7
   %13 = icmp eq i64 %12, 0
   %14 = icmp ult i64 %7, 1025
   %or.cond3 = and i1 %14, %13
-  br i1 %or.cond3, label %15, label %24
+  br i1 %or.cond3, label %15, label %.loopexit.sink.split
 
 15:                                               ; preds = %11
   %16 = getelementptr i8, ptr %3, i64 %7
@@ -60,31 +60,31 @@ define dso_local void @WalRcvShmemInit() local_unnamed_addr #0 {
   %21 = add i64 %umax, %20
   %22 = and i64 %21, -8
   %23 = add i64 %22, 8
-  call void @llvm.memset.p0.i64(ptr align 8 %3, i8 0, i64 %23, i1 false)
+  br label %.loopexit.sink.split
+
+.loopexit.sink.split:                             ; preds = %6, %11, %.lr.ph.preheader
+  %.sink = phi i64 [ %23, %.lr.ph.preheader ], [ %7, %11 ], [ %7, %6 ]
+  call void @llvm.memset.p0.i64(ptr align 1 %3, i8 0, i64 %.sink, i1 false)
   br label %.loopexit
 
-24:                                               ; preds = %11, %6
-  call void @llvm.memset.p0.i64(ptr align 1 %3, i8 0, i64 %7, i1 false)
-  br label %.loopexit
-
-.loopexit:                                        ; preds = %.lr.ph.preheader, %15, %24
-  %25 = load ptr, ptr @WalRcv, align 8
-  %26 = getelementptr inbounds i8, ptr %25, i64 4
-  store i32 0, ptr %26, align 4
-  %27 = load ptr, ptr @WalRcv, align 8
-  %28 = getelementptr inbounds i8, ptr %27, i64 8
-  call void @ConditionVariableInit(ptr noundef nonnull %28) #7
+.loopexit:                                        ; preds = %.loopexit.sink.split, %15
+  %24 = load ptr, ptr @WalRcv, align 8
+  %25 = getelementptr inbounds i8, ptr %24, i64 4
+  store i32 0, ptr %25, align 4
+  %26 = load ptr, ptr @WalRcv, align 8
+  %27 = getelementptr inbounds i8, ptr %26, i64 8
+  call void @ConditionVariableInit(ptr noundef nonnull %27) #7
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #7, !srcloc !5
-  %29 = load ptr, ptr @WalRcv, align 8
-  %30 = getelementptr inbounds i8, ptr %29, i64 2240
-  store i8 0, ptr %30, align 8
-  %31 = getelementptr inbounds i8, ptr %29, i64 2248
-  store volatile i64 0, ptr %31, align 8
-  %32 = getelementptr inbounds i8, ptr %29, i64 2232
-  store ptr null, ptr %32, align 8
-  br label %33
+  %28 = load ptr, ptr @WalRcv, align 8
+  %29 = getelementptr inbounds i8, ptr %28, i64 2240
+  store i8 0, ptr %29, align 8
+  %30 = getelementptr inbounds i8, ptr %28, i64 2248
+  store volatile i64 0, ptr %30, align 8
+  %31 = getelementptr inbounds i8, ptr %28, i64 2232
+  store ptr null, ptr %31, align 8
+  br label %32
 
-33:                                               ; preds = %.loopexit, %0
+32:                                               ; preds = %.loopexit, %0
   ret void
 }
 

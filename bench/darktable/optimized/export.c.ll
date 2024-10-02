@@ -2018,25 +2018,22 @@ define internal void @_style_changed(ptr nocapture readnone %0, ptr nocapture no
   %4 = load ptr, ptr %3, align 8, !tbaa !53
   %5 = tail call i32 @dt_bauhaus_combobox_get(ptr noundef %4) #18
   %6 = icmp eq i32 %5, 0
-  br i1 %6, label %7, label %8
+  br i1 %6, label %10, label %7
 
 7:                                                ; preds = %2
-  tail call void @dt_conf_set_string(ptr noundef nonnull @.str.16, ptr noundef nonnull @.str.52) #18
-  br label %11
+  %8 = load ptr, ptr %3, align 8, !tbaa !53
+  %9 = tail call ptr @dt_bauhaus_combobox_get_text(ptr noundef %8) #18
+  br label %10
 
-8:                                                ; preds = %2
-  %9 = load ptr, ptr %3, align 8, !tbaa !53
-  %10 = tail call ptr @dt_bauhaus_combobox_get_text(ptr noundef %9) #18
-  tail call void @dt_conf_set_string(ptr noundef nonnull @.str.16, ptr noundef %10) #18
-  br label %11
-
-11:                                               ; preds = %8, %7
-  %12 = phi i32 [ 1, %8 ], [ 0, %7 ]
-  %13 = getelementptr inbounds i8, ptr %1, i64 656
-  %14 = load ptr, ptr %13, align 8, !tbaa !54
-  %15 = tail call i64 @gtk_widget_get_type() #19
-  %16 = tail call ptr @g_type_check_instance_cast(ptr noundef %14, i64 noundef %15) #18
-  tail call void @gtk_widget_set_visible(ptr noundef %16, i32 noundef %12) #18
+10:                                               ; preds = %2, %7
+  %.sink = phi ptr [ %9, %7 ], [ @.str.52, %2 ]
+  %11 = phi i32 [ 1, %7 ], [ 0, %2 ]
+  tail call void @dt_conf_set_string(ptr noundef nonnull @.str.16, ptr noundef %.sink) #18
+  %12 = getelementptr inbounds i8, ptr %1, i64 656
+  %13 = load ptr, ptr %12, align 8, !tbaa !54
+  %14 = tail call i64 @gtk_widget_get_type() #19
+  %15 = tail call ptr @g_type_check_instance_cast(ptr noundef %13, i64 noundef %14) #18
+  tail call void @gtk_widget_set_visible(ptr noundef %15, i32 noundef %11) #18
   ret void
 }
 
@@ -2073,7 +2070,7 @@ define internal void @_export_button_clicked(ptr nocapture readnone %0, ptr noca
 20:                                               ; preds = %12
   %21 = tail call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.122, i32 noundef 5) #18
   tail call void (ptr, ...) @dt_control_log(ptr noundef %21) #18
-  br label %139
+  br label %131
 
 22:                                               ; preds = %12
   %23 = icmp eq i32 %18, -1
@@ -2082,7 +2079,7 @@ define internal void @_export_button_clicked(ptr nocapture readnone %0, ptr noca
 24:                                               ; preds = %22
   %25 = tail call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.123, i32 noundef 5) #18
   tail call void (ptr, ...) @dt_control_log(ptr noundef %25) #18
-  br label %139
+  br label %131
 
 26:                                               ; preds = %22
   %27 = tail call ptr (...) @dt_imageio_get_storage() #18
@@ -2101,7 +2098,7 @@ define internal void @_export_button_clicked(ptr nocapture readnone %0, ptr noca
   %36 = tail call i32 (ptr, ptr, ...) @dt_gui_show_yes_no_dialog(ptr noundef %35, ptr noundef nonnull @.str.125, ptr noundef nonnull %32) #18
   tail call void @g_free(ptr noundef nonnull %32) #18
   %37 = icmp eq i32 %36, 0
-  br i1 %37, label %139, label %38
+  br i1 %37, label %131, label %38
 
 38:                                               ; preds = %34, %31, %26
   %39 = tail call i32 @dt_conf_get_int(ptr noundef nonnull @.str.5) #18
@@ -2166,7 +2163,7 @@ define internal void @_export_button_clicked(ptr nocapture readnone %0, ptr noca
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %6) #18
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %6, i8 0, i64 64, i1 false)
   %78 = icmp eq ptr %77, null
-  br i1 %78, label %79, label %91
+  br i1 %78, label %79, label %88
 
 79:                                               ; preds = %66
   %80 = load double, ptr %3, align 8
@@ -2175,95 +2172,85 @@ define internal void @_export_button_clicked(ptr nocapture readnone %0, ptr noca
   %83 = fcmp reassoc nsz arcp contract afn oeq double %80, %82
   %84 = fcmp reassoc nsz arcp contract afn ogt double %80, 0.000000e+00
   %85 = and i1 %84, %83
-  br i1 %85, label %86, label %89
+  br i1 %85, label %86, label %124
 
 86:                                               ; preds = %79
   %87 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %5, ptr noundef nonnull dereferenceable(1) @.str.114, i32 noundef %81) #18
-  %88 = call i64 @g_strlcat(ptr noundef nonnull %6, ptr noundef nonnull %5, i64 noundef 64) #18
-  br label %133
+  br label %124
 
-89:                                               ; preds = %79
-  %90 = call i64 @g_strlcat(ptr noundef nonnull %6, ptr noundef %76, i64 noundef 64) #18
-  br label %133
+88:                                               ; preds = %66
+  %89 = icmp eq ptr %77, %76
+  br i1 %89, label %90, label %102
 
-91:                                               ; preds = %66
-  %92 = icmp eq ptr %77, %76
-  br i1 %92, label %93, label %107
+90:                                               ; preds = %88
+  %91 = load double, ptr %4, align 8
+  %92 = fptosi double %91 to i32
+  %93 = sitofp i32 %92 to double
+  %94 = fcmp reassoc nsz arcp contract afn oeq double %91, %93
+  %95 = fcmp reassoc nsz arcp contract afn ogt double %91, 0.000000e+00
+  %96 = and i1 %95, %94
+  br i1 %96, label %97, label %99
 
-93:                                               ; preds = %91
-  %94 = load double, ptr %4, align 8
-  %95 = fptosi double %94 to i32
-  %96 = sitofp i32 %95 to double
-  %97 = fcmp reassoc nsz arcp contract afn oeq double %94, %96
-  %98 = fcmp reassoc nsz arcp contract afn ogt double %94, 0.000000e+00
-  %99 = and i1 %98, %97
-  br i1 %99, label %100, label %103
+97:                                               ; preds = %90
+  %98 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %5, ptr noundef nonnull dereferenceable(1) @.str.114, i32 noundef %92) #18
+  br label %124
 
-100:                                              ; preds = %93
-  %101 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %5, ptr noundef nonnull dereferenceable(1) @.str.114, i32 noundef %95) #18
-  %102 = call i64 @g_strlcat(ptr noundef nonnull %6, ptr noundef nonnull %5, i64 noundef 64) #18
-  br label %133
+99:                                               ; preds = %90
+  %100 = call i64 @g_strlcat(ptr noundef nonnull %6, ptr noundef nonnull @.str.126, i64 noundef 64) #18
+  %101 = getelementptr inbounds i8, ptr %76, i64 1
+  br label %124
 
-103:                                              ; preds = %93
-  %104 = call i64 @g_strlcat(ptr noundef nonnull %6, ptr noundef nonnull @.str.126, i64 noundef 64) #18
-  %105 = getelementptr inbounds i8, ptr %76, i64 1
-  %106 = call i64 @g_strlcat(ptr noundef nonnull %6, ptr noundef nonnull %105, i64 noundef 64) #18
-  br label %133
+102:                                              ; preds = %88
+  %103 = load double, ptr %3, align 8
+  %104 = fptosi double %103 to i32
+  %105 = sitofp i32 %104 to double
+  %106 = fcmp reassoc nsz arcp contract afn oeq double %103, %105
+  %107 = fcmp reassoc nsz arcp contract afn ogt double %103, 0.000000e+00
+  %108 = and i1 %107, %106
+  br i1 %108, label %109, label %111
 
-107:                                              ; preds = %91
-  %108 = load double, ptr %3, align 8
-  %109 = fptosi double %108 to i32
-  %110 = sitofp i32 %109 to double
-  %111 = fcmp reassoc nsz arcp contract afn oeq double %108, %110
-  %112 = fcmp reassoc nsz arcp contract afn ogt double %108, 0.000000e+00
-  %113 = and i1 %112, %111
-  br i1 %113, label %114, label %117
+109:                                              ; preds = %102
+  %110 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %5, ptr noundef nonnull dereferenceable(1) @.str.114, i32 noundef %104) #18
+  br label %111
 
-114:                                              ; preds = %107
-  %115 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %5, ptr noundef nonnull dereferenceable(1) @.str.114, i32 noundef %109) #18
-  %116 = call i64 @g_strlcat(ptr noundef nonnull %6, ptr noundef nonnull %5, i64 noundef 64) #18
-  br label %119
+111:                                              ; preds = %102, %109
+  %.sink = phi ptr [ %5, %109 ], [ %76, %102 ]
+  %112 = call i64 @g_strlcat(ptr noundef nonnull %6, ptr noundef %.sink, i64 noundef 64) #18
+  %113 = call i64 @g_strlcat(ptr noundef nonnull %6, ptr noundef nonnull @.str.127, i64 noundef 64) #18
+  %114 = load double, ptr %4, align 8
+  %115 = fptosi double %114 to i32
+  %116 = sitofp i32 %115 to double
+  %117 = fcmp reassoc nsz arcp contract afn oeq double %114, %116
+  %118 = fcmp reassoc nsz arcp contract afn ogt double %114, 0.000000e+00
+  %119 = and i1 %118, %117
+  br i1 %119, label %120, label %122
 
-117:                                              ; preds = %107
-  %118 = call i64 @g_strlcat(ptr noundef nonnull %6, ptr noundef %76, i64 noundef 64) #18
-  br label %119
+120:                                              ; preds = %111
+  %121 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %5, ptr noundef nonnull dereferenceable(1) @.str.114, i32 noundef %115) #18
+  br label %124
 
-119:                                              ; preds = %117, %114
-  %120 = call i64 @g_strlcat(ptr noundef nonnull %6, ptr noundef nonnull @.str.127, i64 noundef 64) #18
-  %121 = load double, ptr %4, align 8
-  %122 = fptosi double %121 to i32
-  %123 = sitofp i32 %122 to double
-  %124 = fcmp reassoc nsz arcp contract afn oeq double %121, %123
-  %125 = fcmp reassoc nsz arcp contract afn ogt double %121, 0.000000e+00
-  %126 = and i1 %125, %124
-  br i1 %126, label %127, label %130
+122:                                              ; preds = %111
+  %123 = getelementptr inbounds i8, ptr %77, i64 1
+  br label %124
 
-127:                                              ; preds = %119
-  %128 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %5, ptr noundef nonnull dereferenceable(1) @.str.114, i32 noundef %122) #18
-  %129 = call i64 @g_strlcat(ptr noundef nonnull %6, ptr noundef nonnull %5, i64 noundef 64) #18
-  br label %133
-
-130:                                              ; preds = %119
-  %131 = getelementptr inbounds i8, ptr %77, i64 1
-  %132 = call i64 @g_strlcat(ptr noundef nonnull %6, ptr noundef nonnull %131, i64 noundef 64) #18
-  br label %133
-
-133:                                              ; preds = %130, %127, %103, %100, %89, %86
+124:                                              ; preds = %79, %122, %120, %99, %97, %86
+  %.sink8 = phi ptr [ %123, %122 ], [ %5, %120 ], [ %101, %99 ], [ %5, %97 ], [ %5, %86 ], [ %76, %79 ]
+  %125 = call i64 @g_strlcat(ptr noundef nonnull %6, ptr noundef %.sink8, i64 noundef 64) #18
   call void @dt_conf_set_string(ptr noundef nonnull @.str.51, ptr noundef nonnull %6) #18
   call void @free(ptr noundef %76) #18
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %6) #18
   call void @llvm.lifetime.end.p0(i64 6, ptr nonnull %5) #18
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #18
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #18
-  %134 = getelementptr inbounds i8, ptr %1, i64 72
-  %135 = load ptr, ptr %134, align 8, !tbaa !38
-  %136 = tail call i64 @gtk_entry_get_type() #19
-  %137 = call ptr @g_type_check_instance_cast(ptr noundef %135, i64 noundef %136) #18
-  %138 = call ptr @dt_conf_get_string_const(ptr noundef nonnull @.str.51) #18
-  call void @gtk_entry_set_text(ptr noundef %137, ptr noundef %138) #18
-  br label %139
+  %126 = getelementptr inbounds i8, ptr %1, i64 72
+  %127 = load ptr, ptr %126, align 8, !tbaa !38
+  %128 = tail call i64 @gtk_entry_get_type() #19
+  %129 = call ptr @g_type_check_instance_cast(ptr noundef %127, i64 noundef %128) #18
+  %130 = call ptr @dt_conf_get_string_const(ptr noundef nonnull @.str.51) #18
+  call void @gtk_entry_set_text(ptr noundef %129, ptr noundef %130) #18
+  br label %131
 
-139:                                              ; preds = %133, %34, %24, %20
+131:                                              ; preds = %124, %34, %24, %20
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %7) #18
   ret void
 }

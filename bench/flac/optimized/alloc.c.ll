@@ -9,11 +9,7 @@ entry:
   %tobool = icmp ne i64 %size1, 0
   %tobool1 = icmp ne i64 %size2, 0
   %or.cond = and i1 %tobool, %tobool1
-  br i1 %or.cond, label %if.end, label %if.then
-
-if.then:                                          ; preds = %entry
-  %call = tail call noalias dereferenceable_or_null(1) ptr @malloc(i64 noundef 1) #3
-  br label %return
+  br i1 %or.cond, label %if.end, label %return.sink.split
 
 if.end:                                           ; preds = %entry
   %mul5 = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %size2, i64 %size1)
@@ -22,11 +18,15 @@ if.end:                                           ; preds = %entry
 
 if.end3:                                          ; preds = %if.end
   %mul = mul i64 %size2, %size1
-  %call4 = tail call noalias ptr @malloc(i64 noundef %mul) #3
+  br label %return.sink.split
+
+return.sink.split:                                ; preds = %entry, %if.end3
+  %mul.sink = phi i64 [ %mul, %if.end3 ], [ 1, %entry ]
+  %call4 = tail call noalias ptr @malloc(i64 noundef %mul.sink) #3
   br label %return
 
-return:                                           ; preds = %if.end, %if.end3, %if.then
-  %retval.0 = phi ptr [ %call4, %if.end3 ], [ %call, %if.then ], [ null, %if.end ]
+return:                                           ; preds = %return.sink.split, %if.end
+  %retval.0 = phi ptr [ null, %if.end ], [ %call4, %return.sink.split ]
   ret ptr %retval.0
 }
 

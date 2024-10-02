@@ -6,7 +6,7 @@ target triple = "x86_64-pc-linux-gnu"
 ; Function Attrs: nounwind uwtable
 define ptr @cs_add(ptr noundef %0, ptr noundef %1, double noundef %2, double noundef %3) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
-  br i1 %.not, label %82, label %5
+  br i1 %.not, label %80, label %5
 
 5:                                                ; preds = %4
   %6 = getelementptr inbounds i8, ptr %0, i64 40
@@ -14,13 +14,13 @@ define ptr @cs_add(ptr noundef %0, ptr noundef %1, double noundef %2, double nou
   %8 = icmp eq i32 %7, -1
   %9 = icmp ne ptr %1, null
   %or.cond = and i1 %9, %8
-  br i1 %or.cond, label %10, label %82
+  br i1 %or.cond, label %10, label %80
 
 10:                                               ; preds = %5
   %11 = getelementptr inbounds i8, ptr %1, i64 40
   %12 = load i32, ptr %11, align 8
   %13 = icmp eq i32 %12, -1
-  br i1 %13, label %14, label %82
+  br i1 %13, label %14, label %80
 
 14:                                               ; preds = %10
   %15 = getelementptr inbounds i8, ptr %0, i64 4
@@ -28,7 +28,7 @@ define ptr @cs_add(ptr noundef %0, ptr noundef %1, double noundef %2, double nou
   %17 = getelementptr inbounds i8, ptr %1, i64 4
   %18 = load i32, ptr %17, align 4
   %.not91 = icmp eq i32 %16, %18
-  br i1 %.not91, label %19, label %82
+  br i1 %.not91, label %19, label %80
 
 19:                                               ; preds = %14
   %20 = getelementptr inbounds i8, ptr %0, i64 8
@@ -36,7 +36,7 @@ define ptr @cs_add(ptr noundef %0, ptr noundef %1, double noundef %2, double nou
   %22 = getelementptr inbounds i8, ptr %1, i64 8
   %23 = load i32, ptr %22, align 8
   %.not92 = icmp eq i32 %21, %23
-  br i1 %.not92, label %24, label %82
+  br i1 %.not92, label %24, label %80
 
 24:                                               ; preds = %19
   %25 = getelementptr inbounds i8, ptr %0, i64 16
@@ -73,54 +73,50 @@ define ptr @cs_add(ptr noundef %0, ptr noundef %1, double noundef %2, double nou
   %51 = icmp eq ptr %46, null
   %or.cond5.not = select i1 %41, i1 %51, i1 false
   %or.cond94 = select i1 %or.cond3.not97, i1 true, i1 %or.cond5.not
-  br i1 %or.cond94, label %52, label %54
+  br i1 %or.cond94, label %.sink.split, label %52
 
 52:                                               ; preds = %45
-  %53 = tail call ptr @cs_done(ptr noundef %48, ptr noundef %36, ptr noundef %46, i32 noundef 0) #2
-  br label %82
-
-54:                                               ; preds = %45
-  %55 = getelementptr inbounds i8, ptr %48, i64 16
+  %53 = getelementptr inbounds i8, ptr %48, i64 16
+  %54 = load ptr, ptr %53, align 8
+  %55 = getelementptr inbounds i8, ptr %48, i64 24
   %56 = load ptr, ptr %55, align 8
-  %57 = getelementptr inbounds i8, ptr %48, i64 24
+  %57 = getelementptr inbounds i8, ptr %48, i64 32
   %58 = load ptr, ptr %57, align 8
-  %59 = getelementptr inbounds i8, ptr %48, i64 32
-  %60 = load ptr, ptr %59, align 8
-  %61 = icmp sgt i32 %21, 0
-  br i1 %61, label %.lr.ph101, label %._crit_edge
+  %59 = icmp sgt i32 %21, 0
+  br i1 %59, label %.lr.ph101, label %._crit_edge
 
-.lr.ph101:                                        ; preds = %54
+.lr.ph101:                                        ; preds = %52
   %wide.trip.count115 = zext nneg i32 %21 to i64
   br i1 %41, label %.lr.ph101.split.us, label %.lr.ph101.split
 
 .lr.ph101.split.us:                               ; preds = %.lr.ph101, %.loopexit.us
   %indvars.iv111 = phi i64 [ %indvars.iv.next112, %.loopexit.us ], [ 0, %.lr.ph101 ]
-  %.08399.us = phi i32 [ %65, %.loopexit.us ], [ 0, %.lr.ph101 ]
-  %62 = getelementptr inbounds i32, ptr %56, i64 %indvars.iv111
-  store i32 %.08399.us, ptr %62, align 4
+  %.08399.us = phi i32 [ %63, %.loopexit.us ], [ 0, %.lr.ph101 ]
+  %60 = getelementptr inbounds i32, ptr %54, i64 %indvars.iv111
+  store i32 %.08399.us, ptr %60, align 4
   %indvars.iv.next112 = add nuw nsw i64 %indvars.iv111, 1
   %indvars113 = trunc i64 %indvars.iv.next112 to i32
-  %63 = trunc nuw nsw i64 %indvars.iv111 to i32
-  %64 = tail call i32 @cs_scatter(ptr noundef nonnull %0, i32 noundef %63, double noundef %2, ptr noundef nonnull %36, ptr noundef %46, i32 noundef %indvars113, ptr noundef nonnull %48, i32 noundef %.08399.us) #2
-  %65 = tail call i32 @cs_scatter(ptr noundef nonnull %1, i32 noundef %63, double noundef %3, ptr noundef nonnull %36, ptr noundef %46, i32 noundef %indvars113, ptr noundef nonnull %48, i32 noundef %64) #2
-  %66 = load i32, ptr %62, align 4
-  %67 = icmp slt i32 %66, %65
-  br i1 %67, label %.lr.ph.us.preheader, label %.loopexit.us
+  %61 = trunc nuw nsw i64 %indvars.iv111 to i32
+  %62 = tail call i32 @cs_scatter(ptr noundef nonnull %0, i32 noundef %61, double noundef %2, ptr noundef nonnull %36, ptr noundef %46, i32 noundef %indvars113, ptr noundef nonnull %48, i32 noundef %.08399.us) #2
+  %63 = tail call i32 @cs_scatter(ptr noundef nonnull %1, i32 noundef %61, double noundef %3, ptr noundef nonnull %36, ptr noundef %46, i32 noundef %indvars113, ptr noundef nonnull %48, i32 noundef %62) #2
+  %64 = load i32, ptr %60, align 4
+  %65 = icmp slt i32 %64, %63
+  br i1 %65, label %.lr.ph.us.preheader, label %.loopexit.us
 
 .lr.ph.us.preheader:                              ; preds = %.lr.ph101.split.us
-  %68 = sext i32 %66 to i64
-  %wide.trip.count109 = sext i32 %65 to i64
+  %66 = sext i32 %64 to i64
+  %wide.trip.count109 = sext i32 %63 to i64
   br label %.lr.ph.us
 
 .lr.ph.us:                                        ; preds = %.lr.ph.us.preheader, %.lr.ph.us
-  %indvars.iv105 = phi i64 [ %68, %.lr.ph.us.preheader ], [ %indvars.iv.next106, %.lr.ph.us ]
-  %69 = getelementptr inbounds i32, ptr %58, i64 %indvars.iv105
-  %70 = load i32, ptr %69, align 4
-  %71 = sext i32 %70 to i64
-  %72 = getelementptr inbounds double, ptr %46, i64 %71
-  %73 = load double, ptr %72, align 8
-  %74 = getelementptr inbounds double, ptr %60, i64 %indvars.iv105
-  store double %73, ptr %74, align 8
+  %indvars.iv105 = phi i64 [ %66, %.lr.ph.us.preheader ], [ %indvars.iv.next106, %.lr.ph.us ]
+  %67 = getelementptr inbounds i32, ptr %56, i64 %indvars.iv105
+  %68 = load i32, ptr %67, align 4
+  %69 = sext i32 %68 to i64
+  %70 = getelementptr inbounds double, ptr %46, i64 %69
+  %71 = load double, ptr %70, align 8
+  %72 = getelementptr inbounds double, ptr %58, i64 %indvars.iv105
+  store double %71, ptr %72, align 8
   %indvars.iv.next106 = add nsw i64 %indvars.iv105, 1
   %exitcond110.not = icmp eq i64 %indvars.iv.next106, %wide.trip.count109
   br i1 %exitcond110.not, label %.loopexit.us, label %.lr.ph.us, !llvm.loop !4
@@ -131,27 +127,31 @@ define ptr @cs_add(ptr noundef %0, ptr noundef %1, double noundef %2, double nou
 
 .lr.ph101.split:                                  ; preds = %.lr.ph101, %.lr.ph101.split
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph101.split ], [ 0, %.lr.ph101 ]
-  %.08399 = phi i32 [ %78, %.lr.ph101.split ], [ 0, %.lr.ph101 ]
-  %75 = getelementptr inbounds i32, ptr %56, i64 %indvars.iv
-  store i32 %.08399, ptr %75, align 4
+  %.08399 = phi i32 [ %76, %.lr.ph101.split ], [ 0, %.lr.ph101 ]
+  %73 = getelementptr inbounds i32, ptr %54, i64 %indvars.iv
+  store i32 %.08399, ptr %73, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %indvars = trunc i64 %indvars.iv.next to i32
-  %76 = trunc nuw nsw i64 %indvars.iv to i32
-  %77 = tail call i32 @cs_scatter(ptr noundef nonnull %0, i32 noundef %76, double noundef %2, ptr noundef nonnull %36, ptr noundef %46, i32 noundef %indvars, ptr noundef nonnull %48, i32 noundef %.08399) #2
-  %78 = tail call i32 @cs_scatter(ptr noundef nonnull %1, i32 noundef %76, double noundef %3, ptr noundef nonnull %36, ptr noundef %46, i32 noundef %indvars, ptr noundef nonnull %48, i32 noundef %77) #2
+  %74 = trunc nuw nsw i64 %indvars.iv to i32
+  %75 = tail call i32 @cs_scatter(ptr noundef nonnull %0, i32 noundef %74, double noundef %2, ptr noundef nonnull %36, ptr noundef %46, i32 noundef %indvars, ptr noundef nonnull %48, i32 noundef %.08399) #2
+  %76 = tail call i32 @cs_scatter(ptr noundef nonnull %1, i32 noundef %74, double noundef %3, ptr noundef nonnull %36, ptr noundef %46, i32 noundef %indvars, ptr noundef nonnull %48, i32 noundef %75) #2
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count115
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph101.split, !llvm.loop !6
 
-._crit_edge:                                      ; preds = %.lr.ph101.split, %.loopexit.us, %54
-  %.083.lcssa = phi i32 [ 0, %54 ], [ %65, %.loopexit.us ], [ %78, %.lr.ph101.split ]
-  %79 = getelementptr inbounds i32, ptr %56, i64 %27
-  store i32 %.083.lcssa, ptr %79, align 4
-  %80 = tail call i32 @cs_sprealloc(ptr noundef nonnull %48, i32 noundef 0) #2
-  %81 = tail call ptr @cs_done(ptr noundef nonnull %48, ptr noundef nonnull %36, ptr noundef %46, i32 noundef 1) #2
-  br label %82
+._crit_edge:                                      ; preds = %.lr.ph101.split, %.loopexit.us, %52
+  %.083.lcssa = phi i32 [ 0, %52 ], [ %63, %.loopexit.us ], [ %76, %.lr.ph101.split ]
+  %77 = getelementptr inbounds i32, ptr %54, i64 %27
+  store i32 %.083.lcssa, ptr %77, align 4
+  %78 = tail call i32 @cs_sprealloc(ptr noundef nonnull %48, i32 noundef 0) #2
+  br label %.sink.split
 
-82:                                               ; preds = %14, %19, %4, %5, %10, %._crit_edge, %52
-  %.0 = phi ptr [ %81, %._crit_edge ], [ %53, %52 ], [ null, %10 ], [ null, %5 ], [ null, %4 ], [ null, %19 ], [ null, %14 ]
+.sink.split:                                      ; preds = %45, %._crit_edge
+  %.sink = phi i32 [ 1, %._crit_edge ], [ 0, %45 ]
+  %79 = tail call ptr @cs_done(ptr noundef %48, ptr noundef %36, ptr noundef %46, i32 noundef %.sink) #2
+  br label %80
+
+80:                                               ; preds = %.sink.split, %14, %19, %4, %5, %10
+  %.0 = phi ptr [ null, %10 ], [ null, %5 ], [ null, %4 ], [ null, %19 ], [ null, %14 ], [ %79, %.sink.split ]
   ret ptr %.0
 }
 

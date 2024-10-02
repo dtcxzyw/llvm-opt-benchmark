@@ -3446,11 +3446,7 @@ if.then.i:                                        ; preds = %if.end16
   %6 = load ptr, ptr %buf3.i, align 8
   %call.i = call ptr @strvec_push(ptr noundef nonnull %cp.i, ptr noundef %6) #16
   %tobool4.not.i = icmp eq ptr %arg.0, null
-  br i1 %tobool4.not.i, label %if.end18.i, label %if.then5.i
-
-if.then5.i:                                       ; preds = %if.then.i
-  %call7.i = call ptr @strvec_push(ptr noundef nonnull %cp.i, ptr noundef nonnull %arg.0) #16
-  br label %if.end18.i
+  br i1 %tobool4.not.i, label %if.end18.i, label %if.end18.sink.split.i
 
 if.else.i:                                        ; preds = %if.end16
   %7 = load ptr, ptr %command, align 8
@@ -3481,10 +3477,14 @@ if.then.i.i:                                      ; preds = %if.then12.i
 if.end13.i:                                       ; preds = %if.then.i.i, %if.then12.i, %if.then9.i
   %buf15.i = getelementptr inbounds i8, ptr %cmd.i, i64 16
   %9 = load ptr, ptr %buf15.i, align 8
-  %call16.i = call ptr @strvec_push(ptr noundef nonnull %cp.i, ptr noundef %9) #16
+  br label %if.end18.sink.split.i
+
+if.end18.sink.split.i:                            ; preds = %if.end13.i, %if.then.i
+  %.sink.i = phi ptr [ %9, %if.end13.i ], [ %arg.0, %if.then.i ]
+  %call16.i = call ptr @strvec_push(ptr noundef nonnull %cp.i, ptr noundef %.sink.i) #16
   br label %if.end18.i
 
-if.end18.i:                                       ; preds = %if.end13.i, %if.else.i, %if.then5.i, %if.then.i
+if.end18.i:                                       ; preds = %if.end18.sink.split.i, %if.else.i, %if.then.i
   %env.i = getelementptr inbounds i8, ptr %cp.i, i64 24
   call void @strvec_pushv(ptr noundef nonnull %env.i, ptr noundef nonnull @local_repo_env) #16
   %no_stdin.i = getelementptr inbounds i8, ptr %cp.i, i64 104

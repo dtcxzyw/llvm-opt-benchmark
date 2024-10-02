@@ -4981,12 +4981,12 @@ define internal ptr @Type_UcrBg_Read(ptr nocapture noundef readonly %0, ptr noun
   %10 = icmp eq ptr %9, null
   %11 = icmp slt i32 %3, 4
   %or.cond74 = or i1 %11, %10
-  br i1 %or.cond74, label %85, label %12
+  br i1 %or.cond74, label %83, label %12
 
 12:                                               ; preds = %4
   %13 = call i32 @_cmsReadUInt32Number(ptr noundef %1, ptr noundef nonnull %5) #13
   %.not = icmp eq i32 %13, 0
-  br i1 %.not, label %85, label %14
+  br i1 %.not, label %83, label %14
 
 14:                                               ; preds = %12
   %15 = add nsw i32 %3, -4
@@ -5001,26 +5001,26 @@ define internal ptr @Type_UcrBg_Read(ptr nocapture noundef readonly %0, ptr noun
   %21 = load i32, ptr %5, align 4
   %22 = shl i32 %21, 1
   %23 = icmp slt i32 %15, %22
-  br i1 %23, label %74, label %24
+  br i1 %23, label %73, label %24
 
 24:                                               ; preds = %20
   %25 = getelementptr inbounds i8, ptr %18, i64 48
   %26 = load ptr, ptr %25, align 8
   %27 = call i32 @_cmsReadUInt16Array(ptr noundef %1, i32 noundef %21, ptr noundef %26) #13
   %.not67 = icmp eq i32 %27, 0
-  br i1 %.not67, label %74, label %28
+  br i1 %.not67, label %73, label %28
 
 28:                                               ; preds = %24
   %29 = load i32, ptr %5, align 4
   %30 = shl i32 %29, 1
   %31 = sub i32 %15, %30
   %32 = icmp slt i32 %31, 4
-  br i1 %32, label %74, label %33
+  br i1 %32, label %73, label %33
 
 33:                                               ; preds = %28
   %34 = call i32 @_cmsReadUInt32Number(ptr noundef %1, ptr noundef nonnull %6) #13
   %.not68 = icmp eq i32 %34, 0
-  br i1 %.not68, label %74, label %35
+  br i1 %.not68, label %73, label %35
 
 35:                                               ; preds = %33
   %36 = add nsw i32 %31, -4
@@ -5030,27 +5030,27 @@ define internal ptr @Type_UcrBg_Read(ptr nocapture noundef readonly %0, ptr noun
   %40 = getelementptr inbounds i8, ptr %9, i64 8
   store ptr %39, ptr %40, align 8
   %41 = icmp eq ptr %39, null
-  br i1 %41, label %74, label %42
+  br i1 %41, label %73, label %42
 
 42:                                               ; preds = %35
   %43 = load i32, ptr %6, align 4
   %44 = shl i32 %43, 1
   %45 = icmp slt i32 %36, %44
-  br i1 %45, label %74, label %46
+  br i1 %45, label %73, label %46
 
 46:                                               ; preds = %42
   %47 = getelementptr inbounds i8, ptr %39, i64 48
   %48 = load ptr, ptr %47, align 8
   %49 = call i32 @_cmsReadUInt16Array(ptr noundef %1, i32 noundef %43, ptr noundef %48) #13
   %.not69 = icmp eq i32 %49, 0
-  br i1 %.not69, label %74, label %50
+  br i1 %.not69, label %73, label %50
 
 50:                                               ; preds = %46
   %51 = load i32, ptr %6, align 4
   %52 = shl i32 %51, 1
   %53 = sub i32 %36, %52
   %or.cond = icmp ugt i32 %53, 32000
-  br i1 %or.cond, label %74, label %54
+  br i1 %or.cond, label %73, label %54
 
 54:                                               ; preds = %50
   %55 = load ptr, ptr %7, align 8
@@ -5058,7 +5058,7 @@ define internal ptr @Type_UcrBg_Read(ptr nocapture noundef readonly %0, ptr noun
   %57 = getelementptr inbounds i8, ptr %9, i64 16
   store ptr %56, ptr %57, align 8
   %58 = icmp eq ptr %56, null
-  br i1 %58, label %74, label %59
+  br i1 %58, label %73, label %59
 
 59:                                               ; preds = %54
   %60 = load ptr, ptr %7, align 8
@@ -5073,7 +5073,7 @@ define internal ptr @Type_UcrBg_Read(ptr nocapture noundef readonly %0, ptr noun
 66:                                               ; preds = %59
   %67 = load ptr, ptr %7, align 8
   call void @_cmsFree(ptr noundef %67, ptr noundef %62) #13
-  br label %74
+  br label %73
 
 68:                                               ; preds = %59
   %69 = zext nneg i32 %53 to i64
@@ -5081,51 +5081,47 @@ define internal ptr @Type_UcrBg_Read(ptr nocapture noundef readonly %0, ptr noun
   store i8 0, ptr %70, align 1
   %71 = load ptr, ptr %57, align 8
   %72 = call i32 @cmsMLUsetASCII(ptr noundef %71, ptr noundef nonnull @.str, ptr noundef nonnull @.str, ptr noundef %62) #13
-  %73 = load ptr, ptr %7, align 8
-  call void @_cmsFree(ptr noundef %73, ptr noundef %62) #13
   br label %.sink.split
 
-74:                                               ; preds = %54, %50, %46, %42, %35, %33, %28, %24, %20, %66
+73:                                               ; preds = %54, %50, %46, %42, %35, %33, %28, %24, %20, %66
   %.pr = load ptr, ptr %9, align 8
   %.not71 = icmp eq ptr %.pr, null
-  br i1 %.not71, label %.thread, label %75
+  br i1 %.not71, label %.thread, label %74
 
-75:                                               ; preds = %74
+74:                                               ; preds = %73
   call void @cmsFreeToneCurve(ptr noundef nonnull %.pr) #13
   br label %.thread
 
-.thread:                                          ; preds = %14, %75, %74
-  %76 = getelementptr inbounds i8, ptr %9, i64 8
-  %77 = load ptr, ptr %76, align 8
-  %.not72 = icmp eq ptr %77, null
-  br i1 %.not72, label %79, label %78
+.thread:                                          ; preds = %14, %74, %73
+  %75 = getelementptr inbounds i8, ptr %9, i64 8
+  %76 = load ptr, ptr %75, align 8
+  %.not72 = icmp eq ptr %76, null
+  br i1 %.not72, label %78, label %77
 
-78:                                               ; preds = %.thread
-  call void @cmsFreeToneCurve(ptr noundef nonnull %77) #13
-  br label %79
+77:                                               ; preds = %.thread
+  call void @cmsFreeToneCurve(ptr noundef nonnull %76) #13
+  br label %78
 
-79:                                               ; preds = %78, %.thread
-  %80 = getelementptr inbounds i8, ptr %9, i64 16
-  %81 = load ptr, ptr %80, align 8
-  %.not73 = icmp eq ptr %81, null
-  br i1 %.not73, label %83, label %82
+78:                                               ; preds = %77, %.thread
+  %79 = getelementptr inbounds i8, ptr %9, i64 16
+  %80 = load ptr, ptr %79, align 8
+  %.not73 = icmp eq ptr %80, null
+  br i1 %.not73, label %.sink.split, label %81
 
-82:                                               ; preds = %79
-  call void @cmsMLUfree(ptr noundef nonnull %81) #13
-  br label %83
-
-83:                                               ; preds = %82, %79
-  %84 = load ptr, ptr %7, align 8
-  call void @_cmsFree(ptr noundef %84, ptr noundef nonnull %9) #13
+81:                                               ; preds = %78
+  call void @cmsMLUfree(ptr noundef nonnull %80) #13
   br label %.sink.split
 
-.sink.split:                                      ; preds = %68, %83
-  %.sink = phi i32 [ 0, %83 ], [ 1, %68 ]
-  %.0.ph = phi ptr [ null, %83 ], [ %9, %68 ]
+.sink.split:                                      ; preds = %78, %81, %68
+  %.sink77 = phi ptr [ %62, %68 ], [ %9, %81 ], [ %9, %78 ]
+  %.sink = phi i32 [ 1, %68 ], [ 0, %81 ], [ 0, %78 ]
+  %.0.ph = phi ptr [ %9, %68 ], [ null, %81 ], [ null, %78 ]
+  %82 = load ptr, ptr %7, align 8
+  call void @_cmsFree(ptr noundef %82, ptr noundef %.sink77) #13
   store i32 %.sink, ptr %2, align 4
-  br label %85
+  br label %83
 
-85:                                               ; preds = %.sink.split, %12, %4
+83:                                               ; preds = %.sink.split, %12, %4
   %.0 = phi ptr [ null, %4 ], [ null, %12 ], [ %.0.ph, %.sink.split ]
   ret ptr %.0
 }

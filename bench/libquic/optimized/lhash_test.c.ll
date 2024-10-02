@@ -109,7 +109,7 @@ for.body.i23:                                     ; preds = %rand_string.exit, %
 dummy_lh_retrieve.exit:                           ; preds = %for.cond.i, %for.body.i23, %rand_string.exit
   %retval.0.i = phi ptr [ null, %rand_string.exit ], [ %4, %for.body.i23 ], [ null, %for.cond.i ]
   %cmp12.not = icmp eq ptr %call10, null
-  br i1 %cmp12.not, label %if.end18, label %land.lhs.true
+  br i1 %cmp12.not, label %for.inc.sink.split, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %dummy_lh_retrieve.exit
   %cmp13 = icmp eq ptr %retval.0.i, null
@@ -118,17 +118,13 @@ land.lhs.true:                                    ; preds = %dummy_lh_retrieve.e
 lor.lhs.false:                                    ; preds = %land.lhs.true
   %call14 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %call10, ptr noundef nonnull dereferenceable(1) %retval.0.i) #12
   %cmp15.not = icmp eq i32 %call14, 0
-  br i1 %cmp15.not, label %if.end18, label %if.then16
+  br i1 %cmp15.not, label %for.inc.sink.split, label %if.then16
 
 if.then16:                                        ; preds = %lor.lhs.false, %land.lhs.true
   %5 = load ptr, ptr @stderr, align 8
   %6 = call i64 @fwrite(ptr nonnull @.str.1, i64 20, i64 1, ptr %5) #10
   call void @abort() #13
   unreachable
-
-if.end18:                                         ; preds = %lor.lhs.false, %dummy_lh_retrieve.exit
-  call void @free(ptr noundef %call2.i) #9
-  br label %for.inc
 
 sw.bb19:                                          ; preds = %if.end7
   %call.i29 = call i32 @rand() #9
@@ -200,7 +196,7 @@ land.lhs.true25:                                  ; preds = %dummy_lh_insert.exi
 lor.lhs.false27:                                  ; preds = %land.lhs.true25
   %call28 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %10, ptr noundef nonnull dereferenceable(1) %9) #12
   %cmp29.not = icmp eq i32 %call28, 0
-  br i1 %cmp29.not, label %if.end34.thread, label %if.then30
+  br i1 %cmp29.not, label %for.inc.sink.split.sink.split, label %if.then30
 
 if.then30:                                        ; preds = %dummy_lh_insert.exit.thread, %lor.lhs.false27, %land.lhs.true25
   %12 = load ptr, ptr @stderr, align 8
@@ -208,16 +204,8 @@ if.then30:                                        ; preds = %dummy_lh_insert.exi
   call void @abort() #13
   unreachable
 
-if.end34.thread:                                  ; preds = %lor.lhs.false27
-  call void @free(ptr noundef nonnull %10) #9
-  br label %if.then36
-
 if.end34:                                         ; preds = %dummy_lh_insert.exit
-  br i1 %tobool35.not, label %for.inc, label %if.then36
-
-if.then36:                                        ; preds = %if.end34.thread, %if.end34
-  call void @free(ptr noundef nonnull %9) #9
-  br label %for.inc
+  br i1 %tobool35.not, label %for.inc, label %for.inc.sink.split
 
 sw.bb38:                                          ; preds = %if.end7
   %call.i55 = call i32 @rand() #9
@@ -291,11 +279,11 @@ dummy_lh_delete.exit:                             ; preds = %dummy_lh_delete.exi
 
 dummy_lh_delete.exit.thread144:                   ; preds = %if.end.i
   %cmp42.not147 = icmp eq ptr %call40, null
-  br i1 %cmp42.not147, label %if.end56, label %if.then48
+  br i1 %cmp42.not147, label %for.inc.sink.split, label %if.then48
 
 dummy_lh_delete.exit.thread:                      ; preds = %rand_string.exit75
   %cmp42.not108 = icmp eq ptr %call40, null
-  br i1 %cmp42.not108, label %if.end56, label %if.then48
+  br i1 %cmp42.not108, label %for.inc.sink.split, label %if.then48
 
 land.lhs.true43:                                  ; preds = %dummy_lh_delete.exit
   br i1 %tobool54.not, label %if.then48, label %lor.lhs.false45
@@ -313,24 +301,27 @@ if.then48:                                        ; preds = %dummy_lh_delete.exi
 
 if.end53.thread:                                  ; preds = %lor.lhs.false45
   call void @free(ptr noundef nonnull %.pr.pre) #9
-  br label %if.then55
+  br label %for.inc.sink.split.sink.split
 
 if.end53:                                         ; preds = %dummy_lh_delete.exit
-  br i1 %tobool54.not, label %if.end56, label %if.then55
-
-if.then55:                                        ; preds = %if.end53.thread, %if.end53
-  call void @free(ptr noundef nonnull %.lcssa) #9
-  br label %if.end56
-
-if.end56:                                         ; preds = %dummy_lh_delete.exit.thread144, %dummy_lh_delete.exit.thread, %if.then55, %if.end53
-  call void @free(ptr noundef %call2.i60) #9
-  br label %for.inc
+  br i1 %tobool54.not, label %for.inc.sink.split, label %for.inc.sink.split.sink.split
 
 sw.default:                                       ; preds = %if.end7
   call void @abort() #13
   unreachable
 
-for.inc:                                          ; preds = %dummy_lh_insert.exit.thread, %if.end18, %if.end56, %if.then36, %if.end34
+for.inc.sink.split.sink.split:                    ; preds = %if.end53, %if.end53.thread, %lor.lhs.false27
+  %retval.0.i81.ph151.sink = phi ptr [ %10, %lor.lhs.false27 ], [ %.lcssa, %if.end53.thread ], [ %.lcssa, %if.end53 ]
+  %call2.i.sink.ph = phi ptr [ %9, %lor.lhs.false27 ], [ %call2.i60, %if.end53.thread ], [ %call2.i60, %if.end53 ]
+  call void @free(ptr noundef nonnull %retval.0.i81.ph151.sink) #9
+  br label %for.inc.sink.split
+
+for.inc.sink.split:                               ; preds = %for.inc.sink.split.sink.split, %if.end53, %dummy_lh_delete.exit.thread, %dummy_lh_delete.exit.thread144, %if.end34, %dummy_lh_retrieve.exit, %lor.lhs.false
+  %call2.i.sink = phi ptr [ %call2.i, %lor.lhs.false ], [ %call2.i, %dummy_lh_retrieve.exit ], [ %9, %if.end34 ], [ %call2.i60, %dummy_lh_delete.exit.thread144 ], [ %call2.i60, %dummy_lh_delete.exit.thread ], [ %call2.i60, %if.end53 ], [ %call2.i.sink.ph, %for.inc.sink.split.sink.split ]
+  call void @free(ptr noundef %call2.i.sink) #9
+  br label %for.inc
+
+for.inc:                                          ; preds = %for.inc.sink.split, %dummy_lh_insert.exit.thread, %if.end34
   %inc = add nuw nsw i32 %i.0136, 1
   %exitcond.not = icmp eq i32 %inc, 100000
   br i1 %exitcond.not, label %for.end, label %for.bodythread-pre-split, !llvm.loop !13

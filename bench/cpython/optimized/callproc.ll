@@ -1216,19 +1216,16 @@ if.else:                                          ; preds = %if.end
 if.end11:                                         ; preds = %if.then6, %if.else
   %call12 = call ptr @PyObject_Str(ptr noundef nonnull %call3) #10
   %tobool13.not = icmp eq ptr %call12, null
-  br i1 %tobool13.not, label %if.else15, label %if.then14
-
-if.then14:                                        ; preds = %if.end11
-  call void @PyUnicode_AppendAndDel(ptr noundef nonnull %s, ptr noundef nonnull %call12) #10
-  br label %if.end17
+  br i1 %tobool13.not, label %if.else15, label %if.end17
 
 if.else15:                                        ; preds = %if.end11
   call void @PyErr_Clear() #10
   %call16 = call ptr @PyUnicode_FromString(ptr noundef nonnull @.str.6) #10
-  call void @PyUnicode_AppendAndDel(ptr noundef nonnull %s, ptr noundef %call16) #10
   br label %if.end17
 
-if.end17:                                         ; preds = %if.else15, %if.then14
+if.end17:                                         ; preds = %if.end11, %if.else15
+  %call16.sink = phi ptr [ %call16, %if.else15 ], [ %call12, %if.end11 ]
+  call void @PyUnicode_AppendAndDel(ptr noundef nonnull %s, ptr noundef %call16.sink) #10
   %2 = load ptr, ptr %s, align 8
   %cmp18 = icmp eq ptr %2, null
   br i1 %cmp18, label %if.then.i, label %if.end20

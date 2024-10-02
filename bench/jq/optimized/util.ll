@@ -158,23 +158,20 @@ define { i64, ptr } @jq_realpath(i64 %0, ptr %1) local_unnamed_addr #0 {
   %11 = tail call ptr @jv_string_value(i64 %0, ptr %1) #12
   %12 = tail call ptr @realpath(ptr noundef %11, ptr noundef %.0) #12
   %13 = icmp eq ptr %12, null
-  br i1 %13, label %14, label %15
+  br i1 %13, label %18, label %14
 
 14:                                               ; preds = %10
-  tail call void @free(ptr noundef %.0) #12
-  br label %19
-
-15:                                               ; preds = %10
   tail call void @jv_free(i64 %0, ptr %1) #12
-  %16 = tail call { i64, ptr } @jv_string(ptr noundef nonnull %12) #12
-  %17 = extractvalue { i64, ptr } %16, 0
-  %18 = extractvalue { i64, ptr } %16, 1
-  tail call void @free(ptr noundef nonnull %12) #12
-  br label %19
+  %15 = tail call { i64, ptr } @jv_string(ptr noundef nonnull %12) #12
+  %16 = extractvalue { i64, ptr } %15, 0
+  %17 = extractvalue { i64, ptr } %15, 1
+  br label %18
 
-19:                                               ; preds = %15, %14
-  %.sroa.014.0 = phi i64 [ %0, %14 ], [ %17, %15 ]
-  %.sroa.3.0 = phi ptr [ %1, %14 ], [ %18, %15 ]
+18:                                               ; preds = %10, %14
+  %.sink = phi ptr [ %12, %14 ], [ %.0, %10 ]
+  %.sroa.014.0 = phi i64 [ %16, %14 ], [ %0, %10 ]
+  %.sroa.3.0 = phi ptr [ %17, %14 ], [ %1, %10 ]
+  tail call void @free(ptr noundef %.sink) #12
   %.fca.0.insert = insertvalue { i64, ptr } poison, i64 %.sroa.014.0, 0
   %.fca.1.insert = insertvalue { i64, ptr } %.fca.0.insert, ptr %.sroa.3.0, 1
   ret { i64, ptr } %.fca.1.insert

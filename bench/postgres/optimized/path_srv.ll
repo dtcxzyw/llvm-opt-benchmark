@@ -1005,16 +1005,12 @@ trim_trailing_separator.exit:                     ; preds = %.lr.ph.i50, %81, %7
   %91 = tail call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef %87, i64 noundef %88, ptr noundef nonnull @.str, ptr noundef nonnull %90, ptr noundef nonnull %83) #20
   br label %join_path_components.exit
 
-join_path_components.exit:                        ; preds = %trim_trailing_separator.exit, %85
-  tail call void @canonicalize_path(ptr noundef nonnull %0)
-  br label %93
-
 dir_strcmp.exit.thread:                           ; preds = %.lr.ph.i, %3, %trim_directory.exit, %49, %dir_strcmp.exit, %.critedge
   %92 = tail call i64 @strlcpy(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(1) %1, i64 noundef 1024) #20
-  tail call void @canonicalize_path(ptr noundef %0)
-  br label %93
+  br label %join_path_components.exit
 
-93:                                               ; preds = %dir_strcmp.exit.thread, %join_path_components.exit
+join_path_components.exit:                        ; preds = %85, %trim_trailing_separator.exit, %dir_strcmp.exit.thread
+  tail call void @canonicalize_path(ptr noundef %0)
   ret void
 }
 

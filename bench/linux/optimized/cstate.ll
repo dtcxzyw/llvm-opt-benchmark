@@ -298,105 +298,95 @@ define internal fastcc i32 @cstate_init() unnamed_addr #0 section ".init.text" a
 18:                                               ; preds = %17, %14
   %19 = load i8, ptr @has_cstate_module, align 1, !range !6, !noundef !7
   %20 = icmp eq i8 %19, 0
-  br i1 %20, label %68, label %66
+  br i1 %20, label %63, label %61
 
 21:                                               ; preds = %5, %0
   %22 = load i8, ptr @has_cstate_pkg, align 1, !range !6, !noundef !7
   %23 = icmp eq i8 %22, 0
-  br i1 %23, label %47, label %24
+  br i1 %23, label %42, label %24
 
 24:                                               ; preds = %21
   %25 = load i32, ptr @__max_die_per_package, align 4
   %26 = icmp sgt i32 %25, 1
-  br i1 %26, label %27, label %29
+  %27 = load ptr, ptr getelementptr inbounds (i8, ptr @cstate_pkg_pmu, i64 56), align 8
+  %.sink = select i1 %26, ptr @.str.19, ptr %27
+  %28 = tail call i32 @perf_pmu_register(ptr noundef nonnull @cstate_pkg_pmu, ptr noundef %.sink, i32 noundef -1) #7
+  %29 = icmp eq i32 %28, 0
+  br i1 %29, label %42, label %30
 
-27:                                               ; preds = %24
-  %28 = tail call i32 @perf_pmu_register(ptr noundef nonnull @cstate_pkg_pmu, ptr noundef nonnull @.str.19, i32 noundef -1) #7
-  br label %32
-
-29:                                               ; preds = %24
-  %30 = load ptr, ptr getelementptr inbounds (i8, ptr @cstate_pkg_pmu, i64 56), align 8
-  %31 = tail call i32 @perf_pmu_register(ptr noundef nonnull @cstate_pkg_pmu, ptr noundef %30, i32 noundef -1) #7
-  br label %32
-
-32:                                               ; preds = %29, %27
-  %33 = phi i32 [ %28, %27 ], [ %31, %29 ]
-  %34 = icmp eq i32 %33, 0
-  br i1 %34, label %47, label %35
-
-35:                                               ; preds = %32
+30:                                               ; preds = %24
   store i8 0, ptr @has_cstate_pkg, align 1
-  %36 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.20) #9
+  %31 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.20) #9
   tail call void @__cpuhp_remove_state(i32 noundef 158, i1 noundef zeroext false) #7
   tail call void @__cpuhp_remove_state(i32 noundef 106, i1 noundef zeroext false) #7
-  %37 = load i8, ptr @has_cstate_core, align 1, !range !6, !noundef !7
-  %38 = icmp eq i8 %37, 0
-  br i1 %38, label %40, label %39
+  %32 = load i8, ptr @has_cstate_core, align 1, !range !6, !noundef !7
+  %33 = icmp eq i8 %32, 0
+  br i1 %33, label %35, label %34
 
-39:                                               ; preds = %35
+34:                                               ; preds = %30
   tail call void @perf_pmu_unregister(ptr noundef nonnull @cstate_core_pmu) #7
-  br label %40
+  br label %35
 
-40:                                               ; preds = %39, %35
-  %41 = load i8, ptr @has_cstate_pkg, align 1, !range !6, !noundef !7
-  %42 = icmp eq i8 %41, 0
-  br i1 %42, label %44, label %43
+35:                                               ; preds = %34, %30
+  %36 = load i8, ptr @has_cstate_pkg, align 1, !range !6, !noundef !7
+  %37 = icmp eq i8 %36, 0
+  br i1 %37, label %39, label %38
 
-43:                                               ; preds = %40
+38:                                               ; preds = %35
   tail call void @perf_pmu_unregister(ptr noundef nonnull @cstate_pkg_pmu) #7
-  br label %44
+  br label %39
 
-44:                                               ; preds = %43, %40
-  %45 = load i8, ptr @has_cstate_module, align 1, !range !6, !noundef !7
-  %46 = icmp eq i8 %45, 0
-  br i1 %46, label %68, label %66
+39:                                               ; preds = %38, %35
+  %40 = load i8, ptr @has_cstate_module, align 1, !range !6, !noundef !7
+  %41 = icmp eq i8 %40, 0
+  br i1 %41, label %63, label %61
 
-47:                                               ; preds = %32, %21
-  %48 = load i8, ptr @has_cstate_module, align 1, !range !6, !noundef !7
-  %49 = icmp eq i8 %48, 0
-  br i1 %49, label %68, label %50
+42:                                               ; preds = %24, %21
+  %43 = load i8, ptr @has_cstate_module, align 1, !range !6, !noundef !7
+  %44 = icmp eq i8 %43, 0
+  br i1 %44, label %63, label %45
 
-50:                                               ; preds = %47
-  %51 = load ptr, ptr getelementptr inbounds (i8, ptr @cstate_module_pmu, i64 56), align 8
-  %52 = tail call i32 @perf_pmu_register(ptr noundef nonnull @cstate_module_pmu, ptr noundef %51, i32 noundef -1) #7
-  %53 = icmp eq i32 %52, 0
-  br i1 %53, label %68, label %54
+45:                                               ; preds = %42
+  %46 = load ptr, ptr getelementptr inbounds (i8, ptr @cstate_module_pmu, i64 56), align 8
+  %47 = tail call i32 @perf_pmu_register(ptr noundef nonnull @cstate_module_pmu, ptr noundef %46, i32 noundef -1) #7
+  %48 = icmp eq i32 %47, 0
+  br i1 %48, label %63, label %49
 
-54:                                               ; preds = %50
+49:                                               ; preds = %45
   store i8 0, ptr @has_cstate_module, align 1
-  %55 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.21) #9
+  %50 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.21) #9
   tail call void @__cpuhp_remove_state(i32 noundef 158, i1 noundef zeroext false) #7
   tail call void @__cpuhp_remove_state(i32 noundef 106, i1 noundef zeroext false) #7
-  %56 = load i8, ptr @has_cstate_core, align 1, !range !6, !noundef !7
-  %57 = icmp eq i8 %56, 0
-  br i1 %57, label %59, label %58
+  %51 = load i8, ptr @has_cstate_core, align 1, !range !6, !noundef !7
+  %52 = icmp eq i8 %51, 0
+  br i1 %52, label %54, label %53
 
-58:                                               ; preds = %54
+53:                                               ; preds = %49
   tail call void @perf_pmu_unregister(ptr noundef nonnull @cstate_core_pmu) #7
-  br label %59
+  br label %54
 
-59:                                               ; preds = %58, %54
-  %60 = load i8, ptr @has_cstate_pkg, align 1, !range !6, !noundef !7
-  %61 = icmp eq i8 %60, 0
-  br i1 %61, label %63, label %62
+54:                                               ; preds = %53, %49
+  %55 = load i8, ptr @has_cstate_pkg, align 1, !range !6, !noundef !7
+  %56 = icmp eq i8 %55, 0
+  br i1 %56, label %58, label %57
 
-62:                                               ; preds = %59
+57:                                               ; preds = %54
   tail call void @perf_pmu_unregister(ptr noundef nonnull @cstate_pkg_pmu) #7
+  br label %58
+
+58:                                               ; preds = %57, %54
+  %59 = load i8, ptr @has_cstate_module, align 1, !range !6, !noundef !7
+  %60 = icmp eq i8 %59, 0
+  br i1 %60, label %63, label %61
+
+61:                                               ; preds = %58, %39, %18
+  %62 = phi i32 [ %7, %18 ], [ %28, %39 ], [ %47, %58 ]
+  tail call void @perf_pmu_unregister(ptr noundef nonnull @cstate_module_pmu) #7
   br label %63
 
-63:                                               ; preds = %62, %59
-  %64 = load i8, ptr @has_cstate_module, align 1, !range !6, !noundef !7
-  %65 = icmp eq i8 %64, 0
-  br i1 %65, label %68, label %66
-
-66:                                               ; preds = %63, %44, %18
-  %67 = phi i32 [ %7, %18 ], [ %33, %44 ], [ %52, %63 ]
-  tail call void @perf_pmu_unregister(ptr noundef nonnull @cstate_module_pmu) #7
-  br label %68
-
-68:                                               ; preds = %66, %63, %50, %47, %44, %18
-  %69 = phi i32 [ 0, %50 ], [ 0, %47 ], [ %7, %18 ], [ %33, %44 ], [ %52, %63 ], [ %67, %66 ]
-  ret i32 %69
+63:                                               ; preds = %61, %58, %45, %42, %39, %18
+  %64 = phi i32 [ 0, %45 ], [ 0, %42 ], [ %7, %18 ], [ %28, %39 ], [ %47, %58 ], [ %62, %61 ]
+  ret i32 %64
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)

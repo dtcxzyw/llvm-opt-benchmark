@@ -29464,8 +29464,7 @@ define dso_local noundef ptr @_ZN4llvm18findAllocaForValueEPNS_5ValueEb(ptr noun
 26:                                               ; preds = %21
   %27 = getelementptr inbounds i8, ptr %16, i64 -32
   %28 = load ptr, ptr %27, align 8
-  call fastcc void @"_ZZN4llvm18findAllocaForValueEPNS_5ValueEbENK3$_0clES1_"(ptr nonnull %3, ptr nonnull %4, ptr noundef %28)
-  br label %.loopexit
+  br label %.loopexit.sink.split
 
 29:                                               ; preds = %21
   switch i8 %19, label %62 [
@@ -29516,8 +29515,7 @@ _ZN4llvm7PHINode15incoming_valuesEv.exit:         ; preds = %34, %37
   call fastcc void @"_ZZN4llvm18findAllocaForValueEPNS_5ValueEbENK3$_0clES1_"(ptr nonnull %3, ptr nonnull %4, ptr noundef %48)
   %49 = getelementptr inbounds i8, ptr %16, i64 -32
   %50 = load ptr, ptr %49, align 8
-  call fastcc void @"_ZZN4llvm18findAllocaForValueEPNS_5ValueEbENK3$_0clES1_"(ptr nonnull %3, ptr nonnull %4, ptr noundef %50)
-  br label %.loopexit
+  br label %.loopexit.sink.split
 
 51:                                               ; preds = %29
   br i1 %1, label %52, label %54
@@ -29534,8 +29532,7 @@ _ZN4llvm7PHINode15incoming_valuesEv.exit:         ; preds = %34, %37
   %59 = sub nsw i64 0, %58
   %60 = getelementptr inbounds %"class.llvm::Use", ptr %16, i64 %59
   %61 = load ptr, ptr %60, align 8
-  call fastcc void @"_ZZN4llvm18findAllocaForValueEPNS_5ValueEbENK3$_0clES1_"(ptr nonnull %3, ptr nonnull %4, ptr noundef %61)
-  br label %.loopexit
+  br label %.loopexit.sink.split
 
 62:                                               ; preds = %29
   br i1 %22, label %_ZN4llvm8dyn_castINS_8CallBaseENS_5ValueEEEDcPT0_.exit.thread, label %63
@@ -29550,39 +29547,40 @@ _ZN4llvm7PHINode15incoming_valuesEv.exit:         ; preds = %34, %37
 _ZN4llvm8dyn_castINS_8CallBaseENS_5ValueEEEDcPT0_.exit: ; preds = %63, %63, %63
   %64 = call noundef ptr @_ZNK4llvm8CallBase26getArgOperandWithAttributeENS_9Attribute8AttrKindE(ptr noundef nonnull align 8 dereferenceable(88) %16, i32 noundef 50) #24
   %.not49 = icmp eq ptr %64, null
-  br i1 %.not49, label %_ZN4llvm8dyn_castINS_8CallBaseENS_5ValueEEEDcPT0_.exit.thread, label %65
+  br i1 %.not49, label %_ZN4llvm8dyn_castINS_8CallBaseENS_5ValueEEEDcPT0_.exit.thread, label %.loopexit.sink.split
 
-65:                                               ; preds = %_ZN4llvm8dyn_castINS_8CallBaseENS_5ValueEEEDcPT0_.exit
-  call fastcc void @"_ZZN4llvm18findAllocaForValueEPNS_5ValueEbENK3$_0clES1_"(ptr nonnull %3, ptr nonnull %4, ptr noundef nonnull %64)
+.loopexit.sink.split:                             ; preds = %_ZN4llvm8dyn_castINS_8CallBaseENS_5ValueEEEDcPT0_.exit, %26, %46, %54
+  %.sink = phi ptr [ %61, %54 ], [ %50, %46 ], [ %28, %26 ], [ %64, %_ZN4llvm8dyn_castINS_8CallBaseENS_5ValueEEEDcPT0_.exit ]
+  call fastcc void @"_ZZN4llvm18findAllocaForValueEPNS_5ValueEbENK3$_0clES1_"(ptr nonnull %3, ptr nonnull %4, ptr noundef %.sink)
   br label %.loopexit
 
-.loopexit:                                        ; preds = %.lr.ph, %_ZN4llvm7PHINode15incoming_valuesEv.exit, %20, %54, %65, %46, %26
-  %.1 = phi ptr [ %.035, %26 ], [ %.035, %46 ], [ %.035, %54 ], [ %.035, %65 ], [ %16, %20 ], [ %.035, %_ZN4llvm7PHINode15incoming_valuesEv.exit ], [ %.035, %.lr.ph ]
-  %66 = call noundef zeroext i1 @_ZNK4llvm15SmallVectorBaseIjE5emptyEv(ptr noundef nonnull align 8 dereferenceable(16) %4) #24
-  br i1 %66, label %_ZN4llvm8dyn_castINS_8CallBaseENS_5ValueEEEDcPT0_.exit.thread, label %11, !llvm.loop !410
+.loopexit:                                        ; preds = %.lr.ph, %.loopexit.sink.split, %_ZN4llvm7PHINode15incoming_valuesEv.exit, %20
+  %.1 = phi ptr [ %16, %20 ], [ %.035, %_ZN4llvm7PHINode15incoming_valuesEv.exit ], [ %.035, %.loopexit.sink.split ], [ %.035, %.lr.ph ]
+  %65 = call noundef zeroext i1 @_ZNK4llvm15SmallVectorBaseIjE5emptyEv(ptr noundef nonnull align 8 dereferenceable(16) %4) #24
+  br i1 %65, label %_ZN4llvm8dyn_castINS_8CallBaseENS_5ValueEEEDcPT0_.exit.thread, label %11, !llvm.loop !410
 
 _ZN4llvm8dyn_castINS_8CallBaseENS_5ValueEEEDcPT0_.exit.thread: ; preds = %63, %62, %.loopexit, %_ZN4llvm8dyn_castINS_8CallBaseENS_5ValueEEEDcPT0_.exit, %52, %20
   %.0 = phi ptr [ null, %20 ], [ null, %52 ], [ null, %_ZN4llvm8dyn_castINS_8CallBaseENS_5ValueEEEDcPT0_.exit ], [ %.1, %.loopexit ], [ null, %62 ], [ null, %63 ]
-  %67 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %4) #24
-  %68 = load ptr, ptr %4, align 8
-  %69 = icmp eq ptr %68, %10
-  br i1 %69, label %_ZN4llvm11SmallVectorIPNS_5ValueELj4EED2Ev.exit, label %70
+  %66 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %4) #24
+  %67 = load ptr, ptr %4, align 8
+  %68 = icmp eq ptr %67, %10
+  br i1 %68, label %_ZN4llvm11SmallVectorIPNS_5ValueELj4EED2Ev.exit, label %69
 
-70:                                               ; preds = %_ZN4llvm8dyn_castINS_8CallBaseENS_5ValueEEEDcPT0_.exit.thread
-  call void @free(ptr noundef %68) #24
+69:                                               ; preds = %_ZN4llvm8dyn_castINS_8CallBaseENS_5ValueEEEDcPT0_.exit.thread
+  call void @free(ptr noundef %67) #24
   br label %_ZN4llvm11SmallVectorIPNS_5ValueELj4EED2Ev.exit
 
-_ZN4llvm11SmallVectorIPNS_5ValueELj4EED2Ev.exit:  ; preds = %_ZN4llvm8dyn_castINS_8CallBaseENS_5ValueEEEDcPT0_.exit.thread, %70
-  %71 = load ptr, ptr %6, align 8
-  %72 = load ptr, ptr %3, align 8
-  %73 = icmp eq ptr %71, %72
-  br i1 %73, label %_ZN4llvm11SmallPtrSetIPNS_5ValueELj4EED2Ev.exit, label %74
+_ZN4llvm11SmallVectorIPNS_5ValueELj4EED2Ev.exit:  ; preds = %_ZN4llvm8dyn_castINS_8CallBaseENS_5ValueEEEDcPT0_.exit.thread, %69
+  %70 = load ptr, ptr %6, align 8
+  %71 = load ptr, ptr %3, align 8
+  %72 = icmp eq ptr %70, %71
+  br i1 %72, label %_ZN4llvm11SmallPtrSetIPNS_5ValueELj4EED2Ev.exit, label %73
 
-74:                                               ; preds = %_ZN4llvm11SmallVectorIPNS_5ValueELj4EED2Ev.exit
-  call void @free(ptr noundef %71) #24
+73:                                               ; preds = %_ZN4llvm11SmallVectorIPNS_5ValueELj4EED2Ev.exit
+  call void @free(ptr noundef %70) #24
   br label %_ZN4llvm11SmallPtrSetIPNS_5ValueELj4EED2Ev.exit
 
-_ZN4llvm11SmallPtrSetIPNS_5ValueELj4EED2Ev.exit:  ; preds = %_ZN4llvm11SmallVectorIPNS_5ValueELj4EED2Ev.exit, %74
+_ZN4llvm11SmallPtrSetIPNS_5ValueELj4EED2Ev.exit:  ; preds = %_ZN4llvm11SmallVectorIPNS_5ValueELj4EED2Ev.exit, %73
   ret ptr %.0
 }
 

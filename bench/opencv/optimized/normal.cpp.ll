@@ -427,38 +427,19 @@ declare void @_ZN2cv9AlgorithmD2Ev(ptr noundef nonnull align 8 dereferenceable(8
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN2cv4rgbd19delete_normals_implEPvii(ptr noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #5 {
-  %4 = icmp eq ptr %0, null
-  br i1 %4, label %18, label %5
+  %4 = icmp ne ptr %0, null
+  %switch = icmp ult i32 %1, 3
+  %or.cond = and i1 %4, %switch
+  br i1 %or.cond, label %.sink.split, label %8
 
-5:                                                ; preds = %3
-  switch i32 %1, label %18 [
-    i32 1, label %6
-    i32 2, label %10
-    i32 0, label %14
-  ]
+.sink.split:                                      ; preds = %3
+  %5 = load ptr, ptr %0, align 8
+  %6 = getelementptr inbounds i8, ptr %5, i64 8
+  %7 = load ptr, ptr %6, align 8
+  tail call void %7(ptr noundef nonnull align 8 dereferenceable(224) %0) #19
+  br label %8
 
-6:                                                ; preds = %5
-  %7 = load ptr, ptr %0, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 8
-  %9 = load ptr, ptr %8, align 8
-  tail call void %9(ptr noundef nonnull align 8 dereferenceable(224) %0) #19
-  br label %18
-
-10:                                               ; preds = %5
-  %11 = load ptr, ptr %0, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 8
-  %13 = load ptr, ptr %12, align 8
-  tail call void %13(ptr noundef nonnull align 8 dereferenceable(1288) %0) #19
-  br label %18
-
-14:                                               ; preds = %5
-  %15 = load ptr, ptr %0, align 8
-  %16 = getelementptr inbounds i8, ptr %15, i64 8
-  %17 = load ptr, ptr %16, align 8
-  tail call void %17(ptr noundef nonnull align 8 dereferenceable(416) %0) #19
-  br label %18
-
-18:                                               ; preds = %14, %10, %6, %3, %5
+8:                                                ; preds = %.sink.split, %3
   ret void
 }
 
@@ -467,42 +448,23 @@ define void @_ZN2cv4rgbd11RgbdNormalsD2Ev(ptr noundef nonnull align 8 dereferenc
   store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN2cv4rgbd11RgbdNormalsE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 128
   %3 = load ptr, ptr %2, align 8
-  %4 = icmp eq ptr %3, null
-  br i1 %4, label %_ZN2cv4rgbd19delete_normals_implEPvii.exit, label %5
+  %4 = getelementptr inbounds i8, ptr %0, i64 124
+  %5 = load i32, ptr %4, align 4
+  %6 = icmp ne ptr %3, null
+  %switch.i = icmp ult i32 %5, 3
+  %or.cond.i = and i1 %6, %switch.i
+  br i1 %or.cond.i, label %.sink.split.i, label %_ZN2cv4rgbd19delete_normals_implEPvii.exit
 
-5:                                                ; preds = %1
-  %6 = getelementptr inbounds i8, ptr %0, i64 124
-  %7 = load i32, ptr %6, align 4
-  switch i32 %7, label %_ZN2cv4rgbd19delete_normals_implEPvii.exit [
-    i32 1, label %8
-    i32 2, label %12
-    i32 0, label %16
-  ]
-
-8:                                                ; preds = %5
-  %9 = load ptr, ptr %3, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 8
-  %11 = load ptr, ptr %10, align 8
-  tail call void %11(ptr noundef nonnull align 8 dereferenceable(224) %3) #19
+.sink.split.i:                                    ; preds = %1
+  %7 = load ptr, ptr %3, align 8
+  %8 = getelementptr inbounds i8, ptr %7, i64 8
+  %9 = load ptr, ptr %8, align 8
+  tail call void %9(ptr noundef nonnull align 8 dereferenceable(224) %3) #19
   br label %_ZN2cv4rgbd19delete_normals_implEPvii.exit
 
-12:                                               ; preds = %5
-  %13 = load ptr, ptr %3, align 8
-  %14 = getelementptr inbounds i8, ptr %13, i64 8
-  %15 = load ptr, ptr %14, align 8
-  tail call void %15(ptr noundef nonnull align 8 dereferenceable(1288) %3) #19
-  br label %_ZN2cv4rgbd19delete_normals_implEPvii.exit
-
-16:                                               ; preds = %5
-  %17 = load ptr, ptr %3, align 8
-  %18 = getelementptr inbounds i8, ptr %17, i64 8
-  %19 = load ptr, ptr %18, align 8
-  tail call void %19(ptr noundef nonnull align 8 dereferenceable(416) %3) #19
-  br label %_ZN2cv4rgbd19delete_normals_implEPvii.exit
-
-_ZN2cv4rgbd19delete_normals_implEPvii.exit:       ; preds = %1, %5, %8, %12, %16
-  %20 = getelementptr inbounds i8, ptr %0, i64 24
-  tail call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %20) #19
+_ZN2cv4rgbd19delete_normals_implEPvii.exit:       ; preds = %1, %.sink.split.i
+  %10 = getelementptr inbounds i8, ptr %0, i64 24
+  tail call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %10) #19
   tail call void @_ZN2cv9AlgorithmD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #19
   ret void
 }
@@ -929,56 +891,38 @@ define void @_ZNK2cv4rgbd11RgbdNormals10initializeEv(ptr noundef nonnull align 8
 
 16:                                               ; preds = %1
   tail call void @_ZNK2cv4rgbd11RgbdNormals23initialize_normals_implEiiiRKNS_3MatEii(ptr noundef nonnull align 8 dereferenceable(136) %0, i32 noundef %6, i32 noundef %8, i32 noundef %10, ptr noundef nonnull align 8 dereferenceable(96) %11, i32 noundef %13, i32 noundef %15)
-  br label %41
+  br label %31
 
 17:                                               ; preds = %1
   %18 = tail call noundef zeroext i1 @_ZNK2cv4rgbd15RgbdNormalsImpl8validateEiiiRKNS_3MatEii(ptr noundef nonnull align 8 dereferenceable(224) %3, i32 noundef %6, i32 noundef %8, i32 noundef %10, ptr noundef nonnull align 8 dereferenceable(96) %11, i32 noundef %13, i32 noundef %15)
-  br i1 %18, label %41, label %19
+  br i1 %18, label %31, label %19
 
 19:                                               ; preds = %17
   %20 = load ptr, ptr %2, align 8
-  %21 = icmp eq ptr %20, null
-  br i1 %21, label %_ZN2cv4rgbd19delete_normals_implEPvii.exit, label %22
+  %21 = load i32, ptr %14, align 4
+  %22 = icmp ne ptr %20, null
+  %switch.i = icmp ult i32 %21, 3
+  %or.cond.i = and i1 %22, %switch.i
+  br i1 %or.cond.i, label %.sink.split.i, label %_ZN2cv4rgbd19delete_normals_implEPvii.exit
 
-22:                                               ; preds = %19
-  %23 = load i32, ptr %14, align 4
-  switch i32 %23, label %_ZN2cv4rgbd19delete_normals_implEPvii.exit [
-    i32 1, label %24
-    i32 2, label %28
-    i32 0, label %32
-  ]
-
-24:                                               ; preds = %22
-  %25 = load ptr, ptr %20, align 8
-  %26 = getelementptr inbounds i8, ptr %25, i64 8
-  %27 = load ptr, ptr %26, align 8
-  tail call void %27(ptr noundef nonnull align 8 dereferenceable(224) %20) #19
+.sink.split.i:                                    ; preds = %19
+  %23 = load ptr, ptr %20, align 8
+  %24 = getelementptr inbounds i8, ptr %23, i64 8
+  %25 = load ptr, ptr %24, align 8
+  tail call void %25(ptr noundef nonnull align 8 dereferenceable(224) %20) #19
+  %.pre = load i32, ptr %14, align 4
   br label %_ZN2cv4rgbd19delete_normals_implEPvii.exit
 
-28:                                               ; preds = %22
-  %29 = load ptr, ptr %20, align 8
-  %30 = getelementptr inbounds i8, ptr %29, i64 8
-  %31 = load ptr, ptr %30, align 8
-  tail call void %31(ptr noundef nonnull align 8 dereferenceable(1288) %20) #19
-  br label %_ZN2cv4rgbd19delete_normals_implEPvii.exit
+_ZN2cv4rgbd19delete_normals_implEPvii.exit:       ; preds = %19, %.sink.split.i
+  %26 = phi i32 [ %21, %19 ], [ %.pre, %.sink.split.i ]
+  %27 = load i32, ptr %5, align 8
+  %28 = load i32, ptr %7, align 4
+  %29 = load i32, ptr %9, align 8
+  %30 = load i32, ptr %12, align 8
+  tail call void @_ZNK2cv4rgbd11RgbdNormals23initialize_normals_implEiiiRKNS_3MatEii(ptr noundef nonnull align 8 dereferenceable(136) %0, i32 noundef %27, i32 noundef %28, i32 noundef %29, ptr noundef nonnull align 8 dereferenceable(96) %11, i32 noundef %30, i32 noundef %26)
+  br label %31
 
-32:                                               ; preds = %22
-  %33 = load ptr, ptr %20, align 8
-  %34 = getelementptr inbounds i8, ptr %33, i64 8
-  %35 = load ptr, ptr %34, align 8
-  tail call void %35(ptr noundef nonnull align 8 dereferenceable(416) %20) #19
-  br label %_ZN2cv4rgbd19delete_normals_implEPvii.exit
-
-_ZN2cv4rgbd19delete_normals_implEPvii.exit:       ; preds = %19, %22, %24, %28, %32
-  %36 = load i32, ptr %5, align 8
-  %37 = load i32, ptr %7, align 4
-  %38 = load i32, ptr %9, align 8
-  %39 = load i32, ptr %12, align 8
-  %40 = load i32, ptr %14, align 4
-  tail call void @_ZNK2cv4rgbd11RgbdNormals23initialize_normals_implEiiiRKNS_3MatEii(ptr noundef nonnull align 8 dereferenceable(136) %0, i32 noundef %36, i32 noundef %37, i32 noundef %38, ptr noundef nonnull align 8 dereferenceable(96) %11, i32 noundef %39, i32 noundef %40)
-  br label %41
-
-41:                                               ; preds = %17, %_ZN2cv4rgbd19delete_normals_implEPvii.exit, %16
+31:                                               ; preds = %17, %_ZN2cv4rgbd19delete_normals_implEPvii.exit, %16
   ret void
 }
 

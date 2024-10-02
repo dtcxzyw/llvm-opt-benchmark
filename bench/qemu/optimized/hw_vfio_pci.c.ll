@@ -2713,31 +2713,21 @@ if.then40.i:                                      ; preds = %if.then36.i
 if.else42.i:                                      ; preds = %if.then33.i
   store ptr null, ptr %err.i, align 8
   %26 = load i32, ptr %virq10.i, align 8
-  %cmp44.i = icmp sgt i32 %26, -1
-  br i1 %cmp44.i, label %if.then45.i, label %if.else47.i
-
-if.then45.i:                                      ; preds = %if.else42.i
-  %kvm_interrupt.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 12
-  %call46.i = tail call i32 @event_notifier_get_fd(ptr noundef nonnull %kvm_interrupt.i) #23
-  br label %if.end50.i
-
-if.else47.i:                                      ; preds = %if.else42.i
-  %call49.i = tail call i32 @event_notifier_get_fd(ptr noundef %arrayidx.i) #23
-  br label %if.end50.i
-
-if.end50.i:                                       ; preds = %if.else47.i, %if.then45.i
-  %fd.0.i = phi i32 [ %call46.i, %if.then45.i ], [ %call49.i, %if.else47.i ]
-  %call52.i = call i32 @vfio_set_irq_signaling(ptr noundef nonnull %vbasedev.i, i32 noundef 2, i32 noundef %nr, i32 noundef 32, i32 noundef %fd.0.i, ptr noundef nonnull %err.i) #23
+  %cmp4411.i = icmp slt i32 %26, 0
+  %arrayidx.sink.idx.i = select i1 %cmp4411.i, i64 0, i64 12
+  %arrayidx.sink.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 %arrayidx.sink.idx.i
+  %call49.i = tail call i32 @event_notifier_get_fd(ptr noundef %arrayidx.sink.i) #23
+  %call52.i = call i32 @vfio_set_irq_signaling(ptr noundef nonnull %vbasedev.i, i32 noundef 2, i32 noundef %nr, i32 noundef 32, i32 noundef %call49.i, ptr noundef nonnull %err.i) #23
   %tobool53.not.i = icmp eq i32 %call52.i, 0
   br i1 %tobool53.not.i, label %if.end59.i, label %if.then54.i
 
-if.then54.i:                                      ; preds = %if.end50.i
+if.then54.i:                                      ; preds = %if.else42.i
   %27 = load ptr, ptr %err.i, align 8
   %28 = load ptr, ptr %name.i, align 8
   call void (ptr, ptr, ...) @error_reportf_err(ptr noundef %27, ptr noundef nonnull @.str.42, ptr noundef %28) #23
   br label %if.end59.i
 
-if.end59.i:                                       ; preds = %if.then54.i, %if.end50.i, %if.then40.i, %if.then36.i, %if.end30.i
+if.end59.i:                                       ; preds = %if.then54.i, %if.else42.i, %if.then40.i, %if.then36.i, %if.end30.i
   %msix60.i = getelementptr inbounds i8, ptr %call.i.i, i64 2872
   %29 = load ptr, ptr %msix60.i, align 8
   %pending.i = getelementptr inbounds i8, ptr %29, i64 16

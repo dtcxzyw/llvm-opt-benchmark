@@ -207,19 +207,16 @@ if.end:                                           ; preds = %if.then, %entry
   %3 = load ptr, ptr %to_pack, align 8
   %call2 = tail call ptr @prepare_bitmap_git(ptr noundef %3) #18
   %tobool3.not = icmp eq ptr %call2, null
-  br i1 %tobool3.not, label %if.else.split, label %if.then4
+  br i1 %tobool3.not, label %if.end6, label %if.then4
 
 if.then4:                                         ; preds = %if.end
   %call5 = tail call ptr @create_bitmap_mapping(ptr noundef nonnull %call2, ptr noundef nonnull %to_pack) #18
-  call fastcc void @bitmap_builder_init(ptr noundef %bb, ptr noundef nonnull %call2)
   br label %if.end6
 
-if.else.split:                                    ; preds = %if.end
-  call fastcc void @bitmap_builder_init(ptr noundef %bb, ptr noundef null)
-  br label %if.end6
-
-if.end6:                                          ; preds = %if.else.split, %if.then4
-  %mapping.0 = phi ptr [ %call5, %if.then4 ], [ null, %if.else.split ]
+if.end6:                                          ; preds = %if.end, %if.then4
+  %.sink = phi ptr [ %call2, %if.then4 ], [ null, %if.end ]
+  %mapping.0 = phi ptr [ %call5, %if.then4 ], [ null, %if.end ]
+  call fastcc void @bitmap_builder_init(ptr noundef %bb, ptr noundef %.sink)
   %commits_nr = getelementptr inbounds i8, ptr %bb, i64 32
   %4 = load i64, ptr %commits_nr, align 8
   %cmp.not.not125.not = icmp eq i64 %4, 0
@@ -746,31 +743,21 @@ lor.rhs.i.i:                                      ; preds = %land.rhs.i.i
 
 if.then.i.i.i.i:                                  ; preds = %lor.rhs.i.i
   %94 = load ptr, ptr %hash_algo.i.i.i.i, align 8
-  br label %if.end.i.i.i.i
+  br label %oideq_by_value.exit.i.i
 
 if.else.i.i.i.i:                                  ; preds = %lor.rhs.i.i
   %idxprom.i.i.i.i = sext i32 %93 to i64
   %arrayidx.i.i.i.i = getelementptr inbounds [3 x %struct.git_hash_algo], ptr @hash_algos, i64 0, i64 %idxprom.i.i.i.i
-  br label %if.end.i.i.i.i
+  br label %oideq_by_value.exit.i.i
 
-if.end.i.i.i.i:                                   ; preds = %if.else.i.i.i.i, %if.then.i.i.i.i
+oideq_by_value.exit.i.i:                          ; preds = %if.else.i.i.i.i, %if.then.i.i.i.i
   %algop.0.i.i.i.i = phi ptr [ %arrayidx.i.i.i.i, %if.else.i.i.i.i ], [ %94, %if.then.i.i.i.i ]
   %95 = getelementptr i8, ptr %algop.0.i.i.i.i, i64 16
   %algop.0.val.i.i.i.i = load i64, ptr %95, align 8
   %cmp.i.i.i.i.i = icmp eq i64 %algop.0.val.i.i.i.i, 32
-  br i1 %cmp.i.i.i.i.i, label %if.then.i.i.i.i.i, label %if.end.i.i.i.i.i
-
-if.then.i.i.i.i.i:                                ; preds = %if.end.i.i.i.i
-  %bcmp3.i.i.i.i.i = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(32) %byval-temp.i.i, ptr noundef nonnull readonly dereferenceable(32) %byval-temp4.i, i64 32)
-  br label %oideq_by_value.exit.i.i
-
-if.end.i.i.i.i.i:                                 ; preds = %if.end.i.i.i.i
-  %bcmp.i.i.i.i.i = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(20) %byval-temp.i.i, ptr noundef nonnull readonly dereferenceable(20) %byval-temp4.i, i64 20)
-  br label %oideq_by_value.exit.i.i
-
-oideq_by_value.exit.i.i:                          ; preds = %if.end.i.i.i.i.i, %if.then.i.i.i.i.i
-  %retval.0.in.in.i.i.i.i.i = phi i32 [ %bcmp3.i.i.i.i.i, %if.then.i.i.i.i.i ], [ %bcmp.i.i.i.i.i, %if.end.i.i.i.i.i ]
-  %retval.0.in.i.i.i.not.i.i = icmp eq i32 %retval.0.in.in.i.i.i.i.i, 0
+  %..i.i.i.i.i = select i1 %cmp.i.i.i.i.i, i64 32, i64 20
+  %bcmp.i.i.i.i.i = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(20) %byval-temp.i.i, ptr noundef nonnull readonly dereferenceable(20) %byval-temp4.i, i64 %..i.i.i.i.i)
+  %retval.0.in.i.i.i.not.i.i = icmp eq i32 %bcmp.i.i.i.i.i, 0
   br i1 %retval.0.in.i.i.i.not.i.i, label %if.then55.loopexit.i.i, label %while.body.i.i
 
 while.body.i.i:                                   ; preds = %oideq_by_value.exit.i.i, %land.rhs.i.i

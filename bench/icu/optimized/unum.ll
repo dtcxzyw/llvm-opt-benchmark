@@ -477,27 +477,20 @@ if.end:                                           ; preds = %entry
 dynamic_cast.end:                                 ; preds = %if.end
   %2 = tail call ptr @__dynamic_cast(ptr nonnull %fmt, ptr nonnull @_ZTIN6icu_7512NumberFormatE, ptr nonnull @_ZTIN6icu_7513DecimalFormatE, i64 0) #10
   %cmp.not = icmp eq ptr %2, null
-  br i1 %cmp.not, label %if.else, label %if.then1
-
-if.then1:                                         ; preds = %dynamic_cast.end
-  %vtable = load ptr, ptr %2, align 8
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 32
-  %3 = load ptr, ptr %vfn, align 8
-  %call2 = tail call noundef ptr %3(ptr noundef nonnull align 8 dereferenceable(368) %2)
-  br label %if.end9
+  br i1 %cmp.not, label %if.else, label %if.end9
 
 if.else:                                          ; preds = %if.end, %dynamic_cast.end
   tail call void @llvm.assume(i1 %1)
-  %4 = tail call ptr @__dynamic_cast(ptr nonnull %fmt, ptr nonnull @_ZTIN6icu_7512NumberFormatE, ptr nonnull @_ZTIN6icu_7521RuleBasedNumberFormatE, i64 0) #10
-  %vtable6 = load ptr, ptr %4, align 8
-  %vfn7 = getelementptr inbounds i8, ptr %vtable6, i64 32
-  %5 = load ptr, ptr %vfn7, align 8
-  %call8 = tail call noundef ptr %5(ptr noundef nonnull align 8 dereferenceable(752) %4)
+  %3 = tail call ptr @__dynamic_cast(ptr nonnull %fmt, ptr nonnull @_ZTIN6icu_7512NumberFormatE, ptr nonnull @_ZTIN6icu_7521RuleBasedNumberFormatE, i64 0) #10
   br label %if.end9
 
-if.end9:                                          ; preds = %if.else, %if.then1
-  %res.0 = phi ptr [ %call2, %if.then1 ], [ %call8, %if.else ]
-  %cmp10 = icmp eq ptr %res.0, null
+if.end9:                                          ; preds = %dynamic_cast.end, %if.else
+  %.sink7 = phi ptr [ %3, %if.else ], [ %2, %dynamic_cast.end ]
+  %vtable6 = load ptr, ptr %.sink7, align 8
+  %vfn7 = getelementptr inbounds i8, ptr %vtable6, i64 32
+  %4 = load ptr, ptr %vfn7, align 8
+  %call8 = tail call noundef ptr %4(ptr noundef nonnull align 8 dereferenceable(368) %.sink7)
+  %cmp10 = icmp eq ptr %call8, null
   br i1 %cmp10, label %if.then11, label %return
 
 if.then11:                                        ; preds = %if.end9
@@ -505,7 +498,7 @@ if.then11:                                        ; preds = %if.end9
   br label %return
 
 return:                                           ; preds = %if.end9, %entry, %if.then11
-  %retval.0 = phi ptr [ null, %if.then11 ], [ null, %entry ], [ %res.0, %if.end9 ]
+  %retval.0 = phi ptr [ null, %if.then11 ], [ null, %entry ], [ %call8, %if.end9 ]
   ret ptr %retval.0
 }
 

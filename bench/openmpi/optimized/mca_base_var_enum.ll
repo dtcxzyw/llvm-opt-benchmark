@@ -420,34 +420,18 @@ define internal range(i32 -18, 1) i32 @mca_base_var_enum_auto_bool_vfs(ptr nocap
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: write, inaccessiblemem: readwrite) uwtable
 define internal noundef i32 @mca_base_var_enum_auto_bool_sfv(ptr nocapture readnone %0, i32 noundef %1, ptr noundef writeonly %2) #3 {
   %.not = icmp eq ptr %2, null
-  br i1 %.not, label %13, label %4
+  br i1 %.not, label %6, label %.sink.split
 
-4:                                                ; preds = %3
-  %5 = icmp slt i32 %1, 0
-  br i1 %5, label %6, label %8
-
-6:                                                ; preds = %4
-  %7 = tail call noalias dereferenceable_or_null(5) ptr @strdup(ptr noundef nonnull @.str.18) #16
-  br label %.sink.split
-
-8:                                                ; preds = %4
+.sink.split:                                      ; preds = %3
+  %4 = icmp slt i32 %1, 0
   %.not6 = icmp eq i32 %1, 0
-  br i1 %.not6, label %11, label %9
+  %.str.5..str.4 = select i1 %.not6, ptr @.str.5, ptr @.str.4
+  %.str.18.sink = select i1 %4, ptr @.str.18, ptr %.str.5..str.4
+  %5 = tail call noalias dereferenceable_or_null(5) ptr @strdup(ptr noundef nonnull %.str.18.sink) #16
+  store ptr %5, ptr %2, align 8
+  br label %6
 
-9:                                                ; preds = %8
-  %10 = tail call noalias dereferenceable_or_null(5) ptr @strdup(ptr noundef nonnull @.str.4) #16
-  br label %.sink.split
-
-11:                                               ; preds = %8
-  %12 = tail call noalias dereferenceable_or_null(6) ptr @strdup(ptr noundef nonnull @.str.5) #16
-  br label %.sink.split
-
-.sink.split:                                      ; preds = %9, %11, %6
-  %.sink = phi ptr [ %7, %6 ], [ %12, %11 ], [ %10, %9 ]
-  store ptr %.sink, ptr %2, align 8
-  br label %13
-
-13:                                               ; preds = %.sink.split, %3
+6:                                                ; preds = %.sink.split, %3
   ret i32 0
 }
 

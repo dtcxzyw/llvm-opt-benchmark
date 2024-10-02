@@ -21805,7 +21805,7 @@ define internal fastcc noundef zeroext i1 @_ZL22ShouldRemoveFromUnusedPN5clang4S
   %14 = and i32 %13, 127
   %15 = add nsw i32 %14, -37
   %16 = icmp ult i32 %15, -6
-  br i1 %16, label %52, label %17
+  br i1 %16, label %47, label %17
 
 17:                                               ; preds = %11
   %18 = tail call noundef ptr @_ZNK5clang12FunctionDecl28getDescribedFunctionTemplateEv(ptr noundef nonnull align 8 dereferenceable(168) %1) #23
@@ -21845,107 +21845,96 @@ define internal fastcc noundef zeroext i1 @_ZL22ShouldRemoveFromUnusedPN5clang4S
 
 .loopexit71:                                      ; preds = %28, %19, %17
   %39 = call noundef zeroext i1 @_ZNK5clang12FunctionDecl7hasBodyERPKS0_(ptr noundef nonnull align 8 dereferenceable(168) %1, ptr noundef nonnull align 8 dereferenceable(8) %3) #23
-  br i1 %39, label %40, label %44
+  br i1 %39, label %40, label %42
 
 40:                                               ; preds = %.loopexit71
   %41 = load ptr, ptr %3, align 8
-  %42 = call noundef zeroext i1 @_ZNK5clang4Sema32ShouldWarnIfUnusedFileScopedDeclEPKNS_14DeclaratorDeclE(ptr noundef nonnull align 8 dereferenceable(17560) %0, ptr noundef %41) #23
-  %43 = xor i1 %42, true
-  br label %.loopexit70
+  br label %.loopexit70.sink.split
 
-44:                                               ; preds = %.loopexit71
-  %45 = getelementptr inbounds i8, ptr %1, i64 112
-  %46 = load ptr, ptr %45, align 8
-  %47 = getelementptr inbounds i8, ptr %46, i64 104
-  %48 = call noundef ptr @_ZNK5clang12RedeclarableINS_12FunctionDeclEE8DeclLink11getPreviousEPKS1_(ptr noundef nonnull align 8 dereferenceable(8) %47, ptr noundef nonnull %46)
-  store ptr %48, ptr %3, align 8
-  %.not46 = icmp eq ptr %48, %1
-  br i1 %.not46, label %._crit_edge, label %49
+42:                                               ; preds = %.loopexit71
+  %43 = getelementptr inbounds i8, ptr %1, i64 112
+  %44 = load ptr, ptr %43, align 8
+  %45 = getelementptr inbounds i8, ptr %44, i64 104
+  %46 = call noundef ptr @_ZNK5clang12RedeclarableINS_12FunctionDeclEE8DeclLink11getPreviousEPKS1_(ptr noundef nonnull align 8 dereferenceable(8) %45, ptr noundef nonnull %44)
+  store ptr %46, ptr %3, align 8
+  %.not46 = icmp eq ptr %46, %1
+  br i1 %.not46, label %._crit_edge, label %.loopexit70.sink.split
 
-._crit_edge:                                      ; preds = %44
+._crit_edge:                                      ; preds = %42
   %.pre = load i32, ptr %12, align 4
   %.pre79 = and i32 %.pre, 127
-  br label %52
+  br label %47
 
-49:                                               ; preds = %44
-  %50 = call noundef zeroext i1 @_ZNK5clang4Sema32ShouldWarnIfUnusedFileScopedDeclEPKNS_14DeclaratorDeclE(ptr noundef nonnull align 8 dereferenceable(17560) %0, ptr noundef %48) #23
-  %51 = xor i1 %50, true
-  br label %.loopexit70
-
-52:                                               ; preds = %._crit_edge, %11
+47:                                               ; preds = %._crit_edge, %11
   %.pre-phi = phi i32 [ %.pre79, %._crit_edge ], [ %14, %11 ]
-  %53 = add nsw i32 %.pre-phi, -44
-  %54 = icmp ult i32 %53, -7
-  br i1 %54, label %.loopexit70, label %55
+  %48 = add nsw i32 %.pre-phi, -44
+  %49 = icmp ult i32 %48, -7
+  br i1 %49, label %.loopexit70, label %50
 
-55:                                               ; preds = %52
-  %56 = call noundef zeroext i1 @_ZNK5clang4Decl12isReferencedEv(ptr noundef nonnull align 8 dereferenceable(33) %1) #23
-  br i1 %56, label %57, label %61
+50:                                               ; preds = %47
+  %51 = call noundef zeroext i1 @_ZNK5clang4Decl12isReferencedEv(ptr noundef nonnull align 8 dereferenceable(33) %1) #23
+  br i1 %51, label %52, label %56
 
-57:                                               ; preds = %55
-  %58 = getelementptr inbounds nuw i8, ptr %0, i64 256
-  %59 = load ptr, ptr %58, align 8
-  %60 = call noundef zeroext i1 @_ZNK5clang7VarDecl34mightBeUsableInConstantExpressionsERKNS_10ASTContextE(ptr noundef nonnull align 8 dereferenceable(100) %1, ptr noundef nonnull align 8 dereferenceable(23096) %59) #23
-  br i1 %60, label %.loopexit70, label %61
+52:                                               ; preds = %50
+  %53 = getelementptr inbounds nuw i8, ptr %0, i64 256
+  %54 = load ptr, ptr %53, align 8
+  %55 = call noundef zeroext i1 @_ZNK5clang7VarDecl34mightBeUsableInConstantExpressionsERKNS_10ASTContextE(ptr noundef nonnull align 8 dereferenceable(100) %1, ptr noundef nonnull align 8 dereferenceable(23096) %54) #23
+  br i1 %55, label %.loopexit70, label %56
 
-61:                                               ; preds = %57, %55
-  %62 = call noundef ptr @_ZNK5clang7VarDecl23getDescribedVarTemplateEv(ptr noundef nonnull align 8 dereferenceable(100) %1) #23
-  %.not48 = icmp eq ptr %62, null
-  br i1 %.not48, label %.loopexit, label %63
+56:                                               ; preds = %52, %50
+  %57 = call noundef ptr @_ZNK5clang7VarDecl23getDescribedVarTemplateEv(ptr noundef nonnull align 8 dereferenceable(100) %1) #23
+  %.not48 = icmp eq ptr %57, null
+  br i1 %.not48, label %.loopexit, label %58
 
-63:                                               ; preds = %61
-  %64 = call noundef nonnull align 8 dereferenceable(96) ptr @_ZNK5clang15VarTemplateDecl18getSpecializationsEv(ptr noundef nonnull align 8 dereferenceable(88) %62) #23
-  %65 = getelementptr inbounds nuw i8, ptr %64, i64 16
-  %66 = load ptr, ptr %65, align 8
-  %67 = call noundef nonnull align 8 dereferenceable(96) ptr @_ZNK5clang15VarTemplateDecl18getSpecializationsEv(ptr noundef nonnull align 8 dereferenceable(88) %62) #23
-  %68 = getelementptr inbounds nuw i8, ptr %67, i64 16
-  %69 = load ptr, ptr %68, align 8
-  %70 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %68) #23
-  %71 = getelementptr inbounds ptr, ptr %69, i64 %70
-  %.not6975 = icmp eq ptr %66, %71
+58:                                               ; preds = %56
+  %59 = call noundef nonnull align 8 dereferenceable(96) ptr @_ZNK5clang15VarTemplateDecl18getSpecializationsEv(ptr noundef nonnull align 8 dereferenceable(88) %57) #23
+  %60 = getelementptr inbounds nuw i8, ptr %59, i64 16
+  %61 = load ptr, ptr %60, align 8
+  %62 = call noundef nonnull align 8 dereferenceable(96) ptr @_ZNK5clang15VarTemplateDecl18getSpecializationsEv(ptr noundef nonnull align 8 dereferenceable(88) %57) #23
+  %63 = getelementptr inbounds nuw i8, ptr %62, i64 16
+  %64 = load ptr, ptr %63, align 8
+  %65 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %63) #23
+  %66 = getelementptr inbounds ptr, ptr %64, i64 %65
+  %.not6975 = icmp eq ptr %61, %66
   br i1 %.not6975, label %.loopexit, label %.lr.ph77
 
-72:                                               ; preds = %.lr.ph77
-  %73 = getelementptr inbounds i8, ptr %.sroa.057.076, i64 8
-  %.not69 = icmp eq ptr %73, %71
+67:                                               ; preds = %.lr.ph77
+  %68 = getelementptr inbounds i8, ptr %.sroa.057.076, i64 8
+  %.not69 = icmp eq ptr %68, %66
   br i1 %.not69, label %.loopexit, label %.lr.ph77
 
-.lr.ph77:                                         ; preds = %63, %72
-  %.sroa.057.076 = phi ptr [ %73, %72 ], [ %66, %63 ]
-  %74 = load ptr, ptr %.sroa.057.076, align 8
-  %75 = getelementptr inbounds i8, ptr %74, i64 80
-  %76 = load ptr, ptr %75, align 8
-  %77 = getelementptr inbounds i8, ptr %76, i64 72
-  %78 = call noundef ptr @_ZNK5clang12RedeclarableINS_7VarDeclEE8DeclLink11getPreviousEPKS1_(ptr noundef nonnull align 8 dereferenceable(8) %77, ptr noundef nonnull %76)
-  %79 = call fastcc noundef zeroext i1 @_ZL22ShouldRemoveFromUnusedPN5clang4SemaEPKNS_14DeclaratorDeclE(ptr noundef %0, ptr noundef %78)
-  br i1 %79, label %.loopexit70, label %72
+.lr.ph77:                                         ; preds = %58, %67
+  %.sroa.057.076 = phi ptr [ %68, %67 ], [ %61, %58 ]
+  %69 = load ptr, ptr %.sroa.057.076, align 8
+  %70 = getelementptr inbounds i8, ptr %69, i64 80
+  %71 = load ptr, ptr %70, align 8
+  %72 = getelementptr inbounds i8, ptr %71, i64 72
+  %73 = call noundef ptr @_ZNK5clang12RedeclarableINS_7VarDeclEE8DeclLink11getPreviousEPKS1_(ptr noundef nonnull align 8 dereferenceable(8) %72, ptr noundef nonnull %71)
+  %74 = call fastcc noundef zeroext i1 @_ZL22ShouldRemoveFromUnusedPN5clang4SemaEPKNS_14DeclaratorDeclE(ptr noundef %0, ptr noundef %73)
+  br i1 %74, label %.loopexit70, label %67
 
-.loopexit:                                        ; preds = %72, %63, %61
-  %80 = call noundef nonnull align 8 dereferenceable(23096) ptr @_ZNK5clang4Decl13getASTContextEv(ptr noundef nonnull align 8 dereferenceable(33) %1) #27
-  %81 = call noundef ptr @_ZN5clang7VarDecl13getDefinitionERNS_10ASTContextE(ptr noundef nonnull align 8 dereferenceable(100) %1, ptr noundef nonnull align 8 dereferenceable(23096) %80) #23
-  %.not49 = icmp eq ptr %81, null
-  br i1 %.not49, label %85, label %82
+.loopexit:                                        ; preds = %67, %58, %56
+  %75 = call noundef nonnull align 8 dereferenceable(23096) ptr @_ZNK5clang4Decl13getASTContextEv(ptr noundef nonnull align 8 dereferenceable(33) %1) #27
+  %76 = call noundef ptr @_ZN5clang7VarDecl13getDefinitionERNS_10ASTContextE(ptr noundef nonnull align 8 dereferenceable(100) %1, ptr noundef nonnull align 8 dereferenceable(23096) %75) #23
+  %.not49 = icmp eq ptr %76, null
+  br i1 %.not49, label %77, label %.loopexit70.sink.split
 
-82:                                               ; preds = %.loopexit
-  %83 = call noundef zeroext i1 @_ZNK5clang4Sema32ShouldWarnIfUnusedFileScopedDeclEPKNS_14DeclaratorDeclE(ptr noundef nonnull align 8 dereferenceable(17560) %0, ptr noundef nonnull %81) #23
-  %84 = xor i1 %83, true
+77:                                               ; preds = %.loopexit
+  %78 = getelementptr inbounds i8, ptr %1, i64 80
+  %79 = load ptr, ptr %78, align 8
+  %80 = getelementptr inbounds i8, ptr %79, i64 72
+  %81 = call noundef ptr @_ZNK5clang12RedeclarableINS_7VarDeclEE8DeclLink11getPreviousEPKS1_(ptr noundef nonnull align 8 dereferenceable(8) %80, ptr noundef nonnull %79)
+  %.not50 = icmp eq ptr %81, %1
+  br i1 %.not50, label %.loopexit70, label %.loopexit70.sink.split
+
+.loopexit70.sink.split:                           ; preds = %77, %.loopexit, %42, %40
+  %.sink81 = phi ptr [ %41, %40 ], [ %46, %42 ], [ %76, %.loopexit ], [ %81, %77 ]
+  %82 = call noundef zeroext i1 @_ZNK5clang4Sema32ShouldWarnIfUnusedFileScopedDeclEPKNS_14DeclaratorDeclE(ptr noundef nonnull align 8 dereferenceable(17560) %0, ptr noundef %.sink81) #23
+  %83 = xor i1 %82, true
   br label %.loopexit70
 
-85:                                               ; preds = %.loopexit
-  %86 = getelementptr inbounds i8, ptr %1, i64 80
-  %87 = load ptr, ptr %86, align 8
-  %88 = getelementptr inbounds i8, ptr %87, i64 72
-  %89 = call noundef ptr @_ZNK5clang12RedeclarableINS_7VarDeclEE8DeclLink11getPreviousEPKS1_(ptr noundef nonnull align 8 dereferenceable(8) %88, ptr noundef nonnull %87)
-  %.not50 = icmp eq ptr %89, %1
-  br i1 %.not50, label %.loopexit70, label %90
-
-90:                                               ; preds = %85
-  %91 = call noundef zeroext i1 @_ZNK5clang4Sema32ShouldWarnIfUnusedFileScopedDeclEPKNS_14DeclaratorDeclE(ptr noundef nonnull align 8 dereferenceable(17560) %0, ptr noundef %89) #23
-  %92 = xor i1 %91, true
-  br label %.loopexit70
-
-.loopexit70:                                      ; preds = %.lr.ph, %.lr.ph77, %52, %85, %57, %9, %2, %90, %82, %49, %40
-  %.0 = phi i1 [ %43, %40 ], [ %51, %49 ], [ %84, %82 ], [ %92, %90 ], [ true, %2 ], [ true, %9 ], [ true, %57 ], [ false, %85 ], [ false, %52 ], [ true, %.lr.ph77 ], [ true, %.lr.ph ]
+.loopexit70:                                      ; preds = %.lr.ph, %.lr.ph77, %.loopexit70.sink.split, %47, %77, %52, %9, %2
+  %.0 = phi i1 [ true, %2 ], [ true, %9 ], [ true, %52 ], [ false, %77 ], [ false, %47 ], [ %83, %.loopexit70.sink.split ], [ true, %.lr.ph77 ], [ true, %.lr.ph ]
   ret i1 %.0
 }
 

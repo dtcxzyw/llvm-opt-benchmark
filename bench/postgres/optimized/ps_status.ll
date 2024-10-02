@@ -235,7 +235,7 @@ define dso_local void @init_ps_display(ptr noundef %0) local_unnamed_addr #0 {
   %10 = load ptr, ptr @ps_buffer, align 8
   %11 = icmp ne ptr %10, null
   %or.cond3 = select i1 %or.cond, i1 %11, i1 false
-  br i1 %or.cond3, label %.preheader, label %69
+  br i1 %or.cond3, label %.preheader, label %68
 
 .preheader:                                       ; preds = %5
   %12 = load i32, ptr @save_argc, align 4
@@ -319,14 +319,14 @@ define dso_local void @init_ps_display(ptr noundef %0) local_unnamed_addr #0 {
   %50 = ptrtoint ptr %48 to i64
   %51 = and i64 %50, 7
   %52 = icmp eq i64 %51, 0
-  br i1 %52, label %53, label %68
+  br i1 %52, label %53, label %flush_ps_display.exit.sink.split.i.i
 
 53:                                               ; preds = %46
   %54 = and i64 %49, 7
   %55 = icmp eq i64 %54, 0
   %56 = icmp ult i64 %49, 1025
   %or.cond3.i.i.i = and i1 %56, %55
-  br i1 %or.cond3.i.i.i, label %57, label %68
+  br i1 %or.cond3.i.i.i, label %57, label %flush_ps_display.exit.sink.split.i.i
 
 57:                                               ; preds = %53
   %58 = getelementptr i8, ptr %27, i64 %44
@@ -343,22 +343,22 @@ define dso_local void @init_ps_display(ptr noundef %0) local_unnamed_addr #0 {
   %65 = add i64 %64, %umax.i.i.i
   %66 = and i64 %65, -8
   %67 = add i64 %66, 8
-  tail call void @llvm.memset.p0.i64(ptr align 8 %48, i8 0, i64 %67, i1 false)
+  br label %flush_ps_display.exit.sink.split.i.i
+
+flush_ps_display.exit.sink.split.i.i:             ; preds = %.lr.ph.preheader.i.i.i, %53, %46
+  %.sink.i.i = phi i64 [ %67, %.lr.ph.preheader.i.i.i ], [ %49, %53 ], [ %49, %46 ]
+  tail call void @llvm.memset.p0.i64(ptr align 1 %48, i8 0, i64 %.sink.i.i, i1 false)
   br label %flush_ps_display.exit.i.i
 
-68:                                               ; preds = %53, %46
-  tail call void @llvm.memset.p0.i64(ptr align 1 %48, i8 0, i64 %49, i1 false)
-  br label %flush_ps_display.exit.i.i
-
-flush_ps_display.exit.i.i:                        ; preds = %68, %.lr.ph.preheader.i.i.i, %57, %43
+flush_ps_display.exit.i.i:                        ; preds = %flush_ps_display.exit.sink.split.i.i, %57, %43
   store i64 %storemerge.i.i, ptr @last_status_len, align 8
   br label %set_ps_display.exit
 
 set_ps_display.exit:                              ; preds = %26, %flush_ps_display.exit.i.i
   store i8 %30, ptr @update_process_title, align 1
-  br label %69
+  br label %68
 
-69:                                               ; preds = %5, %set_ps_display.exit
+68:                                               ; preds = %5, %set_ps_display.exit
   ret void
 }
 
@@ -446,14 +446,14 @@ define dso_local void @set_ps_display_suffix(ptr nocapture noundef readonly %0) 
   %40 = ptrtoint ptr %38 to i64
   %41 = and i64 %40, 7
   %42 = icmp eq i64 %41, 0
-  br i1 %42, label %43, label %58
+  br i1 %42, label %43, label %flush_ps_display.exit.sink.split
 
 43:                                               ; preds = %36
   %44 = and i64 %39, 7
   %45 = icmp eq i64 %44, 0
   %46 = icmp ult i64 %39, 1025
   %or.cond3.i = and i1 %46, %45
-  br i1 %or.cond3.i, label %47, label %58
+  br i1 %or.cond3.i, label %47, label %flush_ps_display.exit.sink.split
 
 47:                                               ; preds = %43
   %48 = getelementptr i8, ptr %7, i64 %34
@@ -470,14 +470,14 @@ define dso_local void @set_ps_display_suffix(ptr nocapture noundef readonly %0) 
   %55 = add i64 %54, %umax.i
   %56 = and i64 %55, -8
   %57 = add i64 %56, 8
-  tail call void @llvm.memset.p0.i64(ptr align 8 %38, i8 0, i64 %57, i1 false)
+  br label %flush_ps_display.exit.sink.split
+
+flush_ps_display.exit.sink.split:                 ; preds = %36, %43, %.lr.ph.preheader.i
+  %.sink11 = phi i64 [ %57, %.lr.ph.preheader.i ], [ %39, %43 ], [ %39, %36 ]
+  tail call void @llvm.memset.p0.i64(ptr align 1 %38, i8 0, i64 %.sink11, i1 false)
   br label %flush_ps_display.exit
 
-58:                                               ; preds = %43, %36
-  tail call void @llvm.memset.p0.i64(ptr align 1 %38, i8 0, i64 %39, i1 false)
-  br label %flush_ps_display.exit
-
-flush_ps_display.exit:                            ; preds = %32, %47, %.lr.ph.preheader.i, %58
+flush_ps_display.exit:                            ; preds = %flush_ps_display.exit.sink.split, %32, %47
   store i64 %33, ptr @last_status_len, align 8
   br label %update_ps_display_precheck.exit.thread
 
@@ -522,14 +522,14 @@ update_ps_display_precheck.exit:                  ; preds = %3
   %16 = ptrtoint ptr %10 to i64
   %17 = and i64 %16, 7
   %18 = icmp eq i64 %17, 0
-  br i1 %18, label %19, label %34
+  br i1 %18, label %19, label %flush_ps_display.exit.sink.split
 
 19:                                               ; preds = %13
   %20 = and i64 %15, 7
   %21 = icmp eq i64 %20, 0
   %22 = icmp ult i64 %15, 1025
   %or.cond3.i = and i1 %22, %21
-  br i1 %or.cond3.i, label %23, label %34
+  br i1 %or.cond3.i, label %23, label %flush_ps_display.exit.sink.split
 
 23:                                               ; preds = %19
   %24 = getelementptr i8, ptr %6, i64 %11
@@ -546,14 +546,14 @@ update_ps_display_precheck.exit:                  ; preds = %3
   %31 = add i64 %30, %umax.i
   %32 = and i64 %31, -8
   %33 = add i64 %32, 8
-  tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %10, i8 0, i64 %33, i1 false)
+  br label %flush_ps_display.exit.sink.split
+
+flush_ps_display.exit.sink.split:                 ; preds = %13, %19, %.lr.ph.preheader.i
+  %.sink = phi i64 [ %33, %.lr.ph.preheader.i ], [ %15, %19 ], [ %15, %13 ]
+  tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %10, i8 0, i64 %.sink, i1 false)
   br label %flush_ps_display.exit
 
-34:                                               ; preds = %19, %13
-  tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %10, i8 0, i64 %15, i1 false)
-  br label %flush_ps_display.exit
-
-flush_ps_display.exit:                            ; preds = %9, %23, %.lr.ph.preheader.i, %34
+flush_ps_display.exit:                            ; preds = %flush_ps_display.exit.sink.split, %9, %23
   store i64 %7, ptr @last_status_len, align 8
   br label %update_ps_display_precheck.exit.thread
 
@@ -613,14 +613,14 @@ define dso_local void @set_ps_display_with_len(ptr nocapture noundef readonly %0
   %29 = ptrtoint ptr %27 to i64
   %30 = and i64 %29, 7
   %31 = icmp eq i64 %30, 0
-  br i1 %31, label %32, label %47
+  br i1 %31, label %32, label %flush_ps_display.exit.sink.split
 
 32:                                               ; preds = %25
   %33 = and i64 %28, 7
   %34 = icmp eq i64 %33, 0
   %35 = icmp ult i64 %28, 1025
   %or.cond3.i = and i1 %35, %34
-  br i1 %or.cond3.i, label %36, label %47
+  br i1 %or.cond3.i, label %36, label %flush_ps_display.exit.sink.split
 
 36:                                               ; preds = %32
   %37 = getelementptr i8, ptr %8, i64 %23
@@ -637,14 +637,14 @@ define dso_local void @set_ps_display_with_len(ptr nocapture noundef readonly %0
   %44 = add i64 %43, %umax.i
   %45 = and i64 %44, -8
   %46 = add i64 %45, 8
-  tail call void @llvm.memset.p0.i64(ptr align 8 %27, i8 0, i64 %46, i1 false)
+  br label %flush_ps_display.exit.sink.split
+
+flush_ps_display.exit.sink.split:                 ; preds = %25, %32, %.lr.ph.preheader.i
+  %.sink = phi i64 [ %46, %.lr.ph.preheader.i ], [ %28, %32 ], [ %28, %25 ]
+  tail call void @llvm.memset.p0.i64(ptr align 1 %27, i8 0, i64 %.sink, i1 false)
   br label %flush_ps_display.exit
 
-47:                                               ; preds = %32, %25
-  tail call void @llvm.memset.p0.i64(ptr align 1 %27, i8 0, i64 %28, i1 false)
-  br label %flush_ps_display.exit
-
-flush_ps_display.exit:                            ; preds = %22, %36, %.lr.ph.preheader.i, %47
+flush_ps_display.exit:                            ; preds = %flush_ps_display.exit.sink.split, %22, %36
   store i64 %storemerge, ptr @last_status_len, align 8
   br label %update_ps_display_precheck.exit.thread
 

@@ -2155,21 +2155,17 @@ for.body:                                         ; preds = %if.end51, %for.inc
   %kind_.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__begin2.sroa.0.0154, i64 16
   %63 = load i32, ptr %kind_.i.i.i.i.i.i, align 8
   %cmp.i.i.i.i.i = icmp eq i32 %63, 195
-  br i1 %cmp.i.i.i.i.i, label %if.then59, label %if.end61
+  br i1 %cmp.i.i.i.i.i, label %if.then59, label %for.inc
 
 if.then59:                                        ; preds = %for.body
   %_local = getelementptr inbounds i8, ptr %__begin2.sroa.0.0154, i64 56
   %64 = load ptr, ptr %_local, align 8
+  br label %for.inc
+
+for.inc:                                          ; preds = %for.body, %if.then59
+  %__begin2.sroa.0.0154.sink = phi ptr [ %64, %if.then59 ], [ %__begin2.sroa.0.0154, %for.body ]
   %65 = load ptr, ptr %semInfo.i, align 8
-  call void @_ZN6hermes3sem17SemanticValidator24validateDeclarationNamesENS_18JavaScriptDeclKindEPNS_6ESTree4NodeEPN4llvh11SmallVectorINS0_12FunctionInfo7VarDeclELj4EEESB_(ptr noundef nonnull align 8 dereferenceable(168) %this, i8 noundef zeroext 2, ptr noundef %64, ptr noundef %65, ptr noundef null)
-  br label %for.inc
-
-if.end61:                                         ; preds = %for.body
-  %66 = load ptr, ptr %semInfo.i, align 8
-  call void @_ZN6hermes3sem17SemanticValidator24validateDeclarationNamesENS_18JavaScriptDeclKindEPNS_6ESTree4NodeEPN4llvh11SmallVectorINS0_12FunctionInfo7VarDeclELj4EEESB_(ptr noundef nonnull align 8 dereferenceable(168) %this, i8 noundef zeroext 2, ptr noundef nonnull %__begin2.sroa.0.0154, ptr noundef %66, ptr noundef null)
-  br label %for.inc
-
-for.inc:                                          ; preds = %if.end61, %if.then59
+  call void @_ZN6hermes3sem17SemanticValidator24validateDeclarationNamesENS_18JavaScriptDeclKindEPNS_6ESTree4NodeEPN4llvh11SmallVectorINS0_12FunctionInfo7VarDeclELj4EEESB_(ptr noundef nonnull align 8 dereferenceable(168) %this, i8 noundef zeroext 2, ptr noundef %__begin2.sroa.0.0154.sink, ptr noundef %65, ptr noundef null)
   %__begin2.sroa.0.0.in = getelementptr inbounds i8, ptr %__begin2.sroa.0.0154, i64 8
   %__begin2.sroa.0.0 = load ptr, ptr %__begin2.sroa.0.0.in, align 8
   %cmp.i100.not = icmp eq ptr %__begin2.sroa.0.0, %params
@@ -2183,7 +2179,7 @@ for.end:                                          ; preds = %for.inc, %if.end51
 
 if.then69:                                        ; preds = %for.end
   %sm_70 = getelementptr inbounds i8, ptr %this, i64 8
-  %67 = load ptr, ptr %sm_70, align 8
+  %66 = load ptr, ptr %sm_70, align 8
   %sourceRange_.i104 = getelementptr inbounds i8, ptr %useStrictNode.0, i64 24
   %retval.sroa.0.0.copyload.i105 = load ptr, ptr %sourceRange_.i104, align 8
   %retval.sroa.2.0.sourceRange_.sroa_idx.i106 = getelementptr inbounds i8, ptr %useStrictNode.0, i64 32
@@ -2193,23 +2189,23 @@ if.then69:                                        ; preds = %for.end
   store i8 1, ptr %RHSKind.i111, align 1
   store ptr @.str.57, ptr %ref.tmp73, align 8
   store i8 3, ptr %LHSKind.i110, align 8
-  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh7SMRangeERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %67, i32 noundef 0, ptr %retval.sroa.0.0.copyload.i105, ptr %retval.sroa.2.0.copyload.i107, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp73, i32 noundef 0) #21
+  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh7SMRangeERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %66, i32 noundef 0, ptr %retval.sroa.0.0.copyload.i105, ptr %retval.sroa.2.0.copyload.i107, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp73, i32 noundef 0) #21
   br label %if.end74
 
 if.end74:                                         ; preds = %if.then69, %for.end
   br i1 %call65, label %lor.lhs.false, label %if.then81
 
 lor.lhs.false:                                    ; preds = %if.end74
-  %68 = load ptr, ptr %funcCtx_.i, align 8
-  %strictMode77 = getelementptr inbounds i8, ptr %68, i64 80
-  %69 = load i8, ptr %strictMode77, align 8
-  %tobool78 = trunc i8 %69 to i1
+  %67 = load ptr, ptr %funcCtx_.i, align 8
+  %strictMode77 = getelementptr inbounds i8, ptr %67, i64 80
+  %68 = load i8, ptr %strictMode77, align 8
+  %tobool78 = trunc i8 %68 to i1
   br i1 %tobool78, label %if.then81, label %lor.lhs.false79
 
 lor.lhs.false79:                                  ; preds = %lor.lhs.false
   %kind_.i.i.i.i.i.i.i115 = getelementptr inbounds i8, ptr %node, i64 16
-  %70 = load i32, ptr %kind_.i.i.i.i.i.i.i115, align 8
-  %cmp.i.i.i.i.i.i116 = icmp eq i32 %70, 5
+  %69 = load i32, ptr %kind_.i.i.i.i.i.i.i115, align 8
+  %cmp.i.i.i.i.i.i116 = icmp eq i32 %69, 5
   br i1 %cmp.i.i.i.i.i.i116, label %if.then81, label %if.end106
 
 if.then81:                                        ; preds = %lor.lhs.false79, %lor.lhs.false, %if.end74
@@ -2223,13 +2219,13 @@ if.then81:                                        ; preds = %lor.lhs.false79, %l
   store i32 0, ptr %NumNonEmpty.i.i.i.i, align 4
   %NumTombstones.i.i.i.i = getelementptr inbounds i8, ptr %paramNameSet, i64 24
   store i32 0, ptr %NumTombstones.i.i.i.i, align 8
-  %71 = load ptr, ptr %semInfo.i, align 8
-  %72 = load ptr, ptr %71, align 8
-  %Size.i = getelementptr inbounds i8, ptr %71, i64 8
-  %73 = load i32, ptr %Size.i, align 8
-  %conv.i = zext i32 %73 to i64
-  %add.ptr.i = getelementptr inbounds %"struct.hermes::sem::FunctionInfo::VarDecl", ptr %72, i64 %conv.i
-  %cmp87.not155 = icmp eq i32 %73, 0
+  %70 = load ptr, ptr %semInfo.i, align 8
+  %71 = load ptr, ptr %70, align 8
+  %Size.i = getelementptr inbounds i8, ptr %70, i64 8
+  %72 = load i32, ptr %Size.i, align 8
+  %conv.i = zext i32 %72 to i64
+  %add.ptr.i = getelementptr inbounds %"struct.hermes::sem::FunctionInfo::VarDecl", ptr %71, i64 %conv.i
+  %cmp87.not155 = icmp eq i32 %72, 0
   br i1 %cmp87.not155, label %if.end106, label %for.body88.lr.ph
 
 for.body88.lr.ph:                                 ; preds = %if.then81
@@ -2243,32 +2239,32 @@ for.body88.lr.ph:                                 ; preds = %if.then81
   br label %for.body88
 
 for.body88:                                       ; preds = %for.body88.lr.ph, %for.inc104
-  %__begin3.0156 = phi ptr [ %72, %for.body88.lr.ph ], [ %incdec.ptr, %for.inc104 ]
+  %__begin3.0156 = phi ptr [ %71, %for.body88.lr.ph ], [ %incdec.ptr, %for.inc104 ]
   %identifier = getelementptr inbounds i8, ptr %__begin3.0156, i64 8
-  %74 = load ptr, ptr %identifier, align 8
-  %_name89 = getelementptr inbounds i8, ptr %74, i64 48
-  %75 = load ptr, ptr %_name89, align 8
-  %76 = load ptr, ptr %CurArray.i.i.i.i, align 8, !noalias !35
-  %77 = load ptr, ptr %paramNameSet, align 8, !noalias !35
-  %cmp.i.i.i = icmp eq ptr %76, %77
+  %73 = load ptr, ptr %identifier, align 8
+  %_name89 = getelementptr inbounds i8, ptr %73, i64 48
+  %74 = load ptr, ptr %_name89, align 8
+  %75 = load ptr, ptr %CurArray.i.i.i.i, align 8, !noalias !35
+  %76 = load ptr, ptr %paramNameSet, align 8, !noalias !35
+  %cmp.i.i.i = icmp eq ptr %75, %76
   br i1 %cmp.i.i.i, label %if.then.i.i117, label %if.end31.i.i
 
 if.then.i.i117:                                   ; preds = %for.body88
-  %78 = load i32, ptr %NumNonEmpty.i.i.i.i, align 4, !noalias !35
-  %idx.ext.i.i = zext i32 %78 to i64
-  %add.ptr.i.i = getelementptr inbounds ptr, ptr %77, i64 %idx.ext.i.i
-  %cmp.not26.i.i = icmp eq i32 %78, 0
+  %77 = load i32, ptr %NumNonEmpty.i.i.i.i, align 4, !noalias !35
+  %idx.ext.i.i = zext i32 %77 to i64
+  %add.ptr.i.i = getelementptr inbounds ptr, ptr %76, i64 %idx.ext.i.i
+  %cmp.not26.i.i = icmp eq i32 %77, 0
   br i1 %cmp.not26.i.i, label %if.end16.i.i, label %for.body.i.i
 
 for.body.i.i:                                     ; preds = %if.then.i.i117, %if.end.i.i
   %LastTombstone.028.i.i = phi ptr [ %spec.select.i.i, %if.end.i.i ], [ null, %if.then.i.i117 ]
-  %APtr.027.i.i = phi ptr [ %incdec.ptr.i.i, %if.end.i.i ], [ %77, %if.then.i.i117 ]
-  %79 = load ptr, ptr %APtr.027.i.i, align 8, !noalias !35
-  %cmp3.i.i = icmp eq ptr %79, %75
+  %APtr.027.i.i = phi ptr [ %incdec.ptr.i.i, %if.end.i.i ], [ %76, %if.then.i.i117 ]
+  %78 = load ptr, ptr %APtr.027.i.i, align 8, !noalias !35
+  %cmp3.i.i = icmp eq ptr %78, %74
   br i1 %cmp3.i.i, label %_ZN4llvhplERKNS_5TwineES2_.exit, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %for.body.i.i
-  %cmp8.i.i = icmp eq ptr %79, inttoptr (i64 -2 to ptr)
+  %cmp8.i.i = icmp eq ptr %78, inttoptr (i64 -2 to ptr)
   %spec.select.i.i = select i1 %cmp8.i.i, ptr %APtr.027.i.i, ptr %LastTombstone.028.i.i
   %incdec.ptr.i.i = getelementptr inbounds i8, ptr %APtr.027.i.i, i64 8
   %cmp.not.i.i = icmp eq ptr %incdec.ptr.i.i, %add.ptr.i.i
@@ -2279,48 +2275,48 @@ for.end.i.i:                                      ; preds = %if.end.i.i
   br i1 %cmp11.not.i.i, label %if.end16.i.i, label %if.then12.i.i
 
 if.then12.i.i:                                    ; preds = %for.end.i.i
-  store ptr %75, ptr %spec.select.i.i, align 8, !noalias !35
-  %80 = load i32, ptr %NumTombstones.i.i.i.i, align 8, !noalias !35
-  %dec.i.i = add i32 %80, -1
+  store ptr %74, ptr %spec.select.i.i, align 8, !noalias !35
+  %79 = load i32, ptr %NumTombstones.i.i.i.i, align 8, !noalias !35
+  %dec.i.i = add i32 %79, -1
   store i32 %dec.i.i, ptr %NumTombstones.i.i.i.i, align 8, !noalias !35
   br label %for.inc104
 
 if.end16.i.i:                                     ; preds = %for.end.i.i, %if.then.i.i117
-  %81 = load i32, ptr %CurArraySize.i.i.i.i, align 8, !noalias !35
-  %cmp18.i.i = icmp ult i32 %78, %81
+  %80 = load i32, ptr %CurArraySize.i.i.i.i, align 8, !noalias !35
+  %cmp18.i.i = icmp ult i32 %77, %80
   br i1 %cmp18.i.i, label %if.then19.i.i, label %if.end31.i.i
 
 if.then19.i.i:                                    ; preds = %if.end16.i.i
-  %inc.i.i = add nuw i32 %78, 1
+  %inc.i.i = add nuw i32 %77, 1
   store i32 %inc.i.i, ptr %NumNonEmpty.i.i.i.i, align 4, !noalias !35
-  store ptr %75, ptr %add.ptr.i.i, align 8, !noalias !35
+  store ptr %74, ptr %add.ptr.i.i, align 8, !noalias !35
   br label %for.inc104
 
 if.end31.i.i:                                     ; preds = %if.end16.i.i, %for.body88
-  %call32.i.i = call { ptr, i8 } @_ZN4llvh19SmallPtrSetImplBase14insert_imp_bigEPKv(ptr noundef nonnull align 8 dereferenceable(28) %paramNameSet, ptr noundef %75) #21, !noalias !35
-  %82 = extractvalue { ptr, i8 } %call32.i.i, 1
-  %83 = and i8 %82, 1
-  %84 = icmp eq i8 %83, 0
-  br i1 %84, label %_ZN4llvhplERKNS_5TwineES2_.exit, label %for.inc104
+  %call32.i.i = call { ptr, i8 } @_ZN4llvh19SmallPtrSetImplBase14insert_imp_bigEPKv(ptr noundef nonnull align 8 dereferenceable(28) %paramNameSet, ptr noundef %74) #21, !noalias !35
+  %81 = extractvalue { ptr, i8 } %call32.i.i, 1
+  %82 = and i8 %81, 1
+  %83 = icmp eq i8 %82, 0
+  br i1 %83, label %_ZN4llvhplERKNS_5TwineES2_.exit, label %for.inc104
 
 _ZN4llvhplERKNS_5TwineES2_.exit:                  ; preds = %for.body.i.i, %if.end31.i.i
-  %85 = load ptr, ptr %sm_93, align 8
-  %86 = load ptr, ptr %identifier, align 8
-  %sourceRange_.i118 = getelementptr inbounds i8, ptr %86, i64 24
+  %84 = load ptr, ptr %sm_93, align 8
+  %85 = load ptr, ptr %identifier, align 8
+  %sourceRange_.i118 = getelementptr inbounds i8, ptr %85, i64 24
   %retval.sroa.0.0.copyload.i119 = load ptr, ptr %sourceRange_.i118, align 8
-  %retval.sroa.2.0.sourceRange_.sroa_idx.i120 = getelementptr inbounds i8, ptr %86, i64 32
+  %retval.sroa.2.0.sourceRange_.sroa_idx.i120 = getelementptr inbounds i8, ptr %85, i64 32
   %retval.sroa.2.0.copyload.i121 = load ptr, ptr %retval.sroa.2.0.sourceRange_.sroa_idx.i120, align 8
-  %_name100 = getelementptr inbounds i8, ptr %86, i64 48
-  %87 = load ptr, ptr %_name100, align 8
+  %_name100 = getelementptr inbounds i8, ptr %85, i64 48
+  %86 = load ptr, ptr %_name100, align 8
   store i8 3, ptr %LHSKind.i.i, align 8, !alias.scope !40
   store i8 5, ptr %RHSKind.i.i, align 1, !alias.scope !40
   store ptr @.str.58, ptr %ref.tmp98, align 8, !alias.scope !40
-  store ptr %87, ptr %RHS5.i.i, align 8, !alias.scope !40
+  store ptr %86, ptr %RHS5.i.i, align 8, !alias.scope !40
   store ptr %ref.tmp98, ptr %ref.tmp97, align 8, !alias.scope !43
   store ptr @.str.59, ptr %RHS4.i.i.i, align 8, !alias.scope !43
   store i8 2, ptr %LHSKind5.i.i.i, align 8, !alias.scope !43
   store i8 3, ptr %RHSKind6.i.i.i, align 1, !alias.scope !43
-  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh7SMRangeERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %85, i32 noundef 0, ptr %retval.sroa.0.0.copyload.i119, ptr %retval.sroa.2.0.copyload.i121, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp97, i32 noundef 0) #21
+  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh7SMRangeERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %84, i32 noundef 0, ptr %retval.sroa.0.0.copyload.i119, ptr %retval.sroa.2.0.copyload.i121, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp97, i32 noundef 0) #21
   br label %for.inc104
 
 for.inc104:                                       ; preds = %if.then19.i.i, %if.then12.i.i, %if.end31.i.i, %_ZN4llvhplERKNS_5TwineES2_.exit

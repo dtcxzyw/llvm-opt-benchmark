@@ -519,52 +519,49 @@ define dso_local i64 @btgetbitmap(ptr noundef %0, ptr noundef %1) #0 {
   %14 = getelementptr inbounds i8, ptr %4, i64 140
   br label %15
 
-15:                                               ; preds = %30, %10
-  %.0 = phi i64 [ 0, %10 ], [ %.2, %30 ]
+15:                                               ; preds = %28, %10
+  %.0 = phi i64 [ 0, %10 ], [ %.2, %28 ]
   %16 = tail call zeroext i1 @_bt_first(ptr noundef %0, i32 noundef 1) #8
-  br i1 %16, label %17, label %.loopexit
+  br i1 %16, label %.preheader, label %.loopexit
 
-17:                                               ; preds = %15
-  tail call void @tbm_add_tuples(ptr noundef %1, ptr noundef nonnull %11, i32 noundef 1, i1 noundef zeroext false) #8
-  br label %18
-
-18:                                               ; preds = %25, %17
-  %.1.in = phi i64 [ %.0, %17 ], [ %.1, %25 ]
+.preheader:                                       ; preds = %15, %23
+  %.sink = phi ptr [ %26, %23 ], [ %11, %15 ]
+  %.1.in = phi i64 [ %.1, %23 ], [ %.0, %15 ]
+  tail call void @tbm_add_tuples(ptr noundef %1, ptr noundef %.sink, i32 noundef 1, i1 noundef zeroext false) #8
   %.1 = add i64 %.1.in, 1
-  %19 = load i32, ptr %12, align 8
-  %20 = add i32 %19, 1
-  store i32 %20, ptr %12, align 8
-  %21 = load i32, ptr %13, align 4
-  %22 = icmp sgt i32 %20, %21
-  br i1 %22, label %23, label %25
+  %17 = load i32, ptr %12, align 8
+  %18 = add i32 %17, 1
+  store i32 %18, ptr %12, align 8
+  %19 = load i32, ptr %13, align 4
+  %20 = icmp sgt i32 %18, %19
+  br i1 %20, label %21, label %23
 
-23:                                               ; preds = %18
-  %24 = tail call zeroext i1 @_bt_next(ptr noundef %0, i32 noundef 1) #8
-  br i1 %24, label %._crit_edge, label %.loopexit
+21:                                               ; preds = %.preheader
+  %22 = tail call zeroext i1 @_bt_next(ptr noundef %0, i32 noundef 1) #8
+  br i1 %22, label %._crit_edge, label %.loopexit
 
-._crit_edge:                                      ; preds = %23
+._crit_edge:                                      ; preds = %21
   %.pre = load i32, ptr %12, align 8
-  br label %25
+  br label %23
 
-25:                                               ; preds = %._crit_edge, %18
-  %26 = phi i32 [ %.pre, %._crit_edge ], [ %20, %18 ]
-  %27 = sext i32 %26 to i64
-  %28 = getelementptr [1358 x %struct.BTScanPosItem], ptr %14, i64 0, i64 %27
-  tail call void @tbm_add_tuples(ptr noundef %1, ptr noundef %28, i32 noundef 1, i1 noundef zeroext false) #8
-  br label %18
+23:                                               ; preds = %._crit_edge, %.preheader
+  %24 = phi i32 [ %.pre, %._crit_edge ], [ %18, %.preheader ]
+  %25 = sext i32 %24 to i64
+  %26 = getelementptr [1358 x %struct.BTScanPosItem], ptr %14, i64 0, i64 %25
+  br label %.preheader
 
-.loopexit:                                        ; preds = %23, %15
-  %.2 = phi i64 [ %.0, %15 ], [ %.1, %23 ]
-  %29 = load i32, ptr %5, align 4
-  %.not23 = icmp eq i32 %29, 0
-  br i1 %.not23, label %.critedge, label %30
+.loopexit:                                        ; preds = %21, %15
+  %.2 = phi i64 [ %.0, %15 ], [ %.1, %21 ]
+  %27 = load i32, ptr %5, align 4
+  %.not23 = icmp eq i32 %27, 0
+  br i1 %.not23, label %.critedge, label %28
 
-30:                                               ; preds = %.loopexit
-  %31 = tail call zeroext i1 @_bt_advance_array_keys(ptr noundef %0, i32 noundef 1) #8
-  br i1 %31, label %15, label %.critedge, !llvm.loop !7
+28:                                               ; preds = %.loopexit
+  %29 = tail call zeroext i1 @_bt_advance_array_keys(ptr noundef %0, i32 noundef 1) #8
+  br i1 %29, label %15, label %.critedge, !llvm.loop !7
 
-.critedge:                                        ; preds = %30, %.loopexit, %7
-  %.021 = phi i64 [ 0, %7 ], [ %.2, %.loopexit ], [ %.2, %30 ]
+.critedge:                                        ; preds = %28, %.loopexit, %7
+  %.021 = phi i64 [ 0, %7 ], [ %.2, %.loopexit ], [ %.2, %28 ]
   ret i64 %.021
 }
 

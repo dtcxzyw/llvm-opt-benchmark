@@ -2356,24 +2356,24 @@ declare void @proj_log_func(ptr noundef, ptr noundef, ptr noundef) local_unnamed
 define internal void @_ZL6loggerPviPKc(ptr nocapture noundef %0, i32 noundef %1, ptr noundef %2) #15 {
   %4 = tail call i32 @proj_log_level(ptr noundef null, i32 noundef 4)
   %5 = icmp eq i32 %1, 0
-  br i1 %5, label %6, label %8
+  br i1 %5, label %.sink.split, label %6
 
 6:                                                ; preds = %3
-  %7 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.59, ptr noundef %2) #25
-  br label %14
+  %7 = icmp sle i32 %1, %4
+  %8 = icmp eq i32 %1, 1
+  %or.cond = or i1 %8, %7
+  br i1 %or.cond, label %9, label %12
 
-8:                                                ; preds = %3
-  %9 = icmp sle i32 %1, %4
-  %10 = icmp eq i32 %1, 1
-  %or.cond = or i1 %10, %9
-  br i1 %or.cond, label %11, label %14
+9:                                                ; preds = %6
+  %10 = load ptr, ptr @stderr, align 8
+  br label %.sink.split
 
-11:                                               ; preds = %8
-  %12 = load ptr, ptr @stderr, align 8
-  %13 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %12, ptr noundef nonnull @.str.59, ptr noundef %2) #28
-  br label %14
+.sink.split:                                      ; preds = %3, %9
+  %.sink = phi ptr [ %10, %9 ], [ %0, %3 ]
+  %11 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.sink, ptr noundef nonnull @.str.59, ptr noundef %2) #25
+  br label %12
 
-14:                                               ; preds = %8, %11, %6
+12:                                               ; preds = %.sink.split, %6
   ret void
 }
 
@@ -2387,36 +2387,36 @@ define internal void @_ZL5print12PJ_LOG_LEVELPKcz(i32 noundef range(i32 0, 4) %0
 
 6:                                                ; preds = %2
   call void @llvm.va_end.p0(ptr nonnull %3)
-  br label %20
+  br label %18
 
 7:                                                ; preds = %2
   %8 = call i32 @vsnprintf(ptr noundef nonnull %4, i64 noundef 100000, ptr noundef %1, ptr noundef nonnull %3) #25
   %9 = load ptr, ptr @fout, align 8
   %10 = call i32 @proj_log_level(ptr noundef null, i32 noundef 4)
   %11 = icmp eq i32 %0, 0
-  br i1 %11, label %12, label %14
+  br i1 %11, label %.sink.split.i, label %12
 
 12:                                               ; preds = %7
-  %13 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %9, ptr noundef nonnull @.str.59, ptr noundef nonnull %4) #25
+  %13 = icmp sle i32 %0, %10
+  %14 = icmp eq i32 %0, 1
+  %or.cond.i = or i1 %14, %13
+  br i1 %or.cond.i, label %15, label %_ZL6loggerPviPKc.exit
+
+15:                                               ; preds = %12
+  %16 = load ptr, ptr @stderr, align 8
+  br label %.sink.split.i
+
+.sink.split.i:                                    ; preds = %15, %7
+  %.sink.i = phi ptr [ %16, %15 ], [ %9, %7 ]
+  %17 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.sink.i, ptr noundef nonnull @.str.59, ptr noundef nonnull %4) #25
   br label %_ZL6loggerPviPKc.exit
 
-14:                                               ; preds = %7
-  %15 = icmp sle i32 %0, %10
-  %16 = icmp eq i32 %0, 1
-  %or.cond.i = or i1 %16, %15
-  br i1 %or.cond.i, label %17, label %_ZL6loggerPviPKc.exit
-
-17:                                               ; preds = %14
-  %18 = load ptr, ptr @stderr, align 8
-  %19 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %18, ptr noundef nonnull @.str.59, ptr noundef nonnull %4) #28
-  br label %_ZL6loggerPviPKc.exit
-
-_ZL6loggerPviPKc.exit:                            ; preds = %12, %14, %17
+_ZL6loggerPviPKc.exit:                            ; preds = %12, %.sink.split.i
   call void @llvm.va_end.p0(ptr nonnull %3)
   call void @free(ptr noundef nonnull %4) #25
-  br label %20
+  br label %18
 
-20:                                               ; preds = %_ZL6loggerPviPKc.exit, %6
+18:                                               ; preds = %_ZL6loggerPviPKc.exit, %6
   ret void
 }
 

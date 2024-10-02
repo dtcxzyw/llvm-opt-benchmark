@@ -294,12 +294,12 @@ eval_cost2.exit.i.i:                              ; preds = %.loopexit.i.i.i, %.
   br label %build_p_vector.exit
 
 build_p_vector.exit:                              ; preds = %eval_cost2.exit.i.i, %._crit_edge.i
-  %.pre-phi88 = phi i64 [ %.pre, %._crit_edge.i ], [ %22, %eval_cost2.exit.i.i ]
+  %.pre-phi93 = phi i64 [ %.pre, %._crit_edge.i ], [ %22, %eval_cost2.exit.i.i ]
   %.pre-phi = phi i64 [ %87, %._crit_edge.i ], [ %15, %eval_cost2.exit.i.i ]
   %.0.i = phi ptr [ %92, %._crit_edge.i ], [ %..094.i.i, %eval_cost2.exit.i.i ]
   %116 = tail call noalias ptr @calloc(i64 noundef %.pre-phi, i64 noundef 72) #10
-  %117 = tail call noalias ptr @calloc(i64 noundef %.pre-phi88, i64 noundef 72) #10
-  %118 = shl nsw i64 %.pre-phi88, 3
+  %117 = tail call noalias ptr @calloc(i64 noundef %.pre-phi93, i64 noundef 72) #10
+  %118 = shl nsw i64 %.pre-phi93, 3
   %119 = tail call noalias ptr @malloc(i64 noundef %118) #9
   %120 = icmp sgt i32 %9, 0
   br i1 %120, label %.lr.ph.preheader.i23, label %memory_allocation.exit
@@ -448,229 +448,236 @@ memory_allocation.exit:                           ; preds = %.lr.ph.i25, %build_
   br i1 %exitcond120.not.i, label %initialization.exit, label %.lr.ph83.i, !llvm.loop !23
 
 initialization.exit:                              ; preds = %.lr.ph83.i, %.preheader.i29
-  %wide.trip.count.i40 = zext nneg i32 %9 to i64
-  br label %166
+  %166 = call double @PQ_findMaxKey(ptr noundef nonnull %8) #11
+  %167 = fcmp ogt double %166, 0.000000e+00
+  br i1 %167, label %.lr.ph, label %._crit_edge.thread
 
-166:                                              ; preds = %algo.exit, %initialization.exit
-  %.076 = phi i32 [ 0, %initialization.exit ], [ %.1, %algo.exit ]
-  %.0 = phi i32 [ 0, %initialization.exit ], [ %194, %algo.exit ]
-  %167 = icmp eq i32 %.076, %.0
-  br i1 %167, label %nextGain.exit, label %nextGain.exit.thread
+._crit_edge.thread:                               ; preds = %initialization.exit
+  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %7)
+  br label %balancing.exit
 
-nextGain.exit:                                    ; preds = %166
-  %168 = call double @PQ_findMaxKey(ptr noundef nonnull %8) #11
-  %169 = fcmp ogt double %168, 0.000000e+00
-  br i1 %169, label %174, label %251
+.lr.ph:                                           ; preds = %initialization.exit
+  %wide.trip.count.i39 = zext nneg i32 %9 to i64
+  br label %168
 
-nextGain.exit.thread:                             ; preds = %166
-  %170 = sext i32 %.0 to i64
-  %171 = getelementptr inbounds %struct.PriorityQueue_, ptr %116, i64 %170
-  %172 = call double @PQ_findMaxKey(ptr noundef %171) #11
-  %173 = fcmp ogt double %172, 0.000000e+00
-  br i1 %173, label %.thread, label %252
+168:                                              ; preds = %.lr.ph, %algo.exit
+  %169 = phi ptr [ %116, %.lr.ph ], [ %251, %algo.exit ]
+  %170 = phi i1 [ true, %.lr.ph ], [ %249, %algo.exit ]
+  %.07583 = phi i32 [ 0, %.lr.ph ], [ %.1, %algo.exit ]
+  br i1 %170, label %171, label %179
 
-174:                                              ; preds = %nextGain.exit
-  %175 = call i32 @PQ_deleteMax(ptr noundef nonnull %8) #11
+171:                                              ; preds = %168
+  %172 = call i32 @PQ_deleteMax(ptr noundef nonnull %8) #11
+  %173 = sext i32 %172 to i64
+  %174 = getelementptr inbounds %struct.PriorityQueue_, ptr %116, i64 %173
+  %175 = call i32 @PQ_deleteMax(ptr noundef %174) #11
   %176 = sext i32 %175 to i64
-  %177 = getelementptr inbounds %struct.PriorityQueue_, ptr %116, i64 %176
-  %178 = call i32 @PQ_deleteMax(ptr noundef %177) #11
-  %179 = sext i32 %178 to i64
-  %180 = getelementptr inbounds i32, ptr %.0.i, i64 %179
-  %181 = load i32, ptr %180, align 4
-  br label %186
+  %177 = getelementptr inbounds i32, ptr %.0.i, i64 %176
+  %178 = load i32, ptr %177, align 4
+  br label %184
 
-.thread:                                          ; preds = %nextGain.exit.thread
-  %182 = call i32 @PQ_deleteMax(ptr noundef %171) #11
-  %183 = sext i32 %182 to i64
-  %184 = getelementptr inbounds i32, ptr %.0.i, i64 %183
-  %185 = load i32, ptr %184, align 4
-  call void @PQ_delete(ptr noundef nonnull %8, i32 noundef %185) #11
-  %.pre.i = load i32, ptr %184, align 4
-  br label %186
+179:                                              ; preds = %168
+  %180 = call i32 @PQ_deleteMax(ptr noundef %169) #11
+  %181 = sext i32 %180 to i64
+  %182 = getelementptr inbounds i32, ptr %.0.i, i64 %181
+  %183 = load i32, ptr %182, align 4
+  call void @PQ_delete(ptr noundef nonnull %8, i32 noundef %183) #11
+  %.pre.i = load i32, ptr %182, align 4
+  br label %184
 
-186:                                              ; preds = %.thread, %174
-  %.1 = phi i32 [ %181, %174 ], [ %.076, %.thread ]
-  %187 = phi i32 [ %181, %174 ], [ %.pre.i, %.thread ]
-  %.pre-phi.i = phi i64 [ %179, %174 ], [ %183, %.thread ]
-  %.098.i = phi i32 [ %178, %174 ], [ %182, %.thread ]
-  %188 = getelementptr inbounds i32, ptr %.0.i, i64 %.pre-phi.i
-  %189 = sext i32 %187 to i64
-  %190 = getelementptr inbounds %struct.PriorityQueue_, ptr %116, i64 %189
-  %191 = call double @PQ_findMaxKey(ptr noundef %190) #11
-  %192 = load i32, ptr %188, align 4
-  call void @PQ_insert(ptr noundef nonnull %8, i32 noundef %192, double noundef %191) #11
-  %193 = getelementptr inbounds %struct.PriorityQueue_, ptr %117, i64 %.pre-phi.i
-  %194 = call i32 @PQ_deleteMax(ptr noundef %193) #11
-  %195 = icmp slt i32 %194, 0
-  br i1 %195, label %196, label %202
+184:                                              ; preds = %179, %171
+  %.1 = phi i32 [ %178, %171 ], [ %.07583, %179 ]
+  %185 = phi i32 [ %178, %171 ], [ %.pre.i, %179 ]
+  %.pre-phi.i = phi i64 [ %176, %171 ], [ %181, %179 ]
+  %.098.i = phi i32 [ %175, %171 ], [ %180, %179 ]
+  %186 = getelementptr inbounds i32, ptr %.0.i, i64 %.pre-phi.i
+  %187 = sext i32 %185 to i64
+  %188 = getelementptr inbounds %struct.PriorityQueue_, ptr %116, i64 %187
+  %189 = call double @PQ_findMaxKey(ptr noundef %188) #11
+  %190 = load i32, ptr %186, align 4
+  call void @PQ_insert(ptr noundef nonnull %8, i32 noundef %190, double noundef %189) #11
+  %191 = getelementptr inbounds %struct.PriorityQueue_, ptr %117, i64 %.pre-phi.i
+  %192 = call i32 @PQ_deleteMax(ptr noundef %191) #11
+  %193 = icmp slt i32 %192, 0
+  br i1 %193, label %194, label %200
 
-196:                                              ; preds = %186
-  %197 = call i32 @tm_get_verbose_level() #11
-  %.not101.i = icmp eq i32 %197, 0
-  br i1 %.not101.i, label %201, label %198
+194:                                              ; preds = %184
+  %195 = call i32 @tm_get_verbose_level() #11
+  %.not101.i = icmp eq i32 %195, 0
+  br i1 %.not101.i, label %199, label %196
 
-198:                                              ; preds = %196
-  %199 = load ptr, ptr @stderr, align 8
-  %200 = call i64 @fwrite(ptr nonnull @.str, i64 46, i64 1, ptr %199) #12
-  br label %201
+196:                                              ; preds = %194
+  %197 = load ptr, ptr @stderr, align 8
+  %198 = call i64 @fwrite(ptr nonnull @.str, i64 46, i64 1, ptr %197) #12
+  br label %199
 
-201:                                              ; preds = %198, %196
+199:                                              ; preds = %196, %194
   call void @exit(i32 noundef -1) #13
   unreachable
 
-202:                                              ; preds = %186
-  br i1 %120, label %.lr.ph.i39, label %._crit_edge.i38
+200:                                              ; preds = %184
+  br i1 %120, label %.lr.ph.i38, label %._crit_edge.i37
 
-.lr.ph.i39:                                       ; preds = %202
-  %203 = getelementptr inbounds ptr, ptr %0, i64 %.pre-phi.i
-  %204 = zext nneg i32 %194 to i64
-  br label %205
+.lr.ph.i38:                                       ; preds = %200
+  %201 = getelementptr inbounds ptr, ptr %0, i64 %.pre-phi.i
+  %202 = zext nneg i32 %192 to i64
+  br label %203
 
-205:                                              ; preds = %205, %.lr.ph.i39
-  %indvars.iv.i41 = phi i64 [ 0, %.lr.ph.i39 ], [ %indvars.iv.next.i42, %205 ]
-  %206 = load i32, ptr %188, align 4
-  %207 = getelementptr inbounds ptr, ptr %119, i64 %indvars.iv.i41
-  %208 = load ptr, ptr %207, align 8
-  %209 = sext i32 %206 to i64
-  %210 = getelementptr inbounds double, ptr %208, i64 %209
-  %211 = load double, ptr %210, align 8
-  %212 = load ptr, ptr %203, align 8
-  %213 = getelementptr inbounds double, ptr %212, i64 %indvars.iv.i41
-  %214 = load double, ptr %213, align 8
-  %215 = fsub double %211, %214
-  store double %215, ptr %210, align 8
-  %216 = getelementptr inbounds %struct.PriorityQueue_, ptr %117, i64 %indvars.iv.i41
-  call void @PQ_adjustKey(ptr noundef %216, i32 noundef %206, double noundef %215) #11
-  %217 = getelementptr inbounds double, ptr %208, i64 %204
-  %218 = load double, ptr %217, align 8
-  %219 = load ptr, ptr %203, align 8
-  %220 = getelementptr inbounds double, ptr %219, i64 %indvars.iv.i41
-  %221 = load double, ptr %220, align 8
-  %222 = fadd double %218, %221
-  store double %222, ptr %217, align 8
-  call void @PQ_adjustKey(ptr noundef %216, i32 noundef %194, double noundef %222) #11
-  %223 = call double @PQ_findMaxKey(ptr noundef %216) #11
-  %224 = getelementptr inbounds i32, ptr %.0.i, i64 %indvars.iv.i41
-  %225 = load i32, ptr %224, align 4
-  %226 = sext i32 %225 to i64
-  %227 = getelementptr inbounds double, ptr %208, i64 %226
-  %228 = load double, ptr %227, align 8
-  %229 = fsub double %223, %228
-  %230 = getelementptr inbounds %struct.PriorityQueue_, ptr %116, i64 %226
-  %231 = trunc nuw nsw i64 %indvars.iv.i41 to i32
-  call void @PQ_adjustKey(ptr noundef %230, i32 noundef %231, double noundef %229) #11
-  %232 = load i32, ptr %224, align 4
-  %233 = sext i32 %232 to i64
-  %234 = getelementptr inbounds %struct.PriorityQueue_, ptr %116, i64 %233
-  %235 = call double @PQ_findMaxKey(ptr noundef %234) #11
-  %236 = load i32, ptr %224, align 4
-  call void @PQ_adjustKey(ptr noundef nonnull %8, i32 noundef %236, double noundef %235) #11
-  %indvars.iv.next.i42 = add nuw nsw i64 %indvars.iv.i41, 1
-  %exitcond.not.i43 = icmp eq i64 %indvars.iv.next.i42, %wide.trip.count.i40
-  br i1 %exitcond.not.i43, label %._crit_edge.i38, label %205, !llvm.loop !24
+203:                                              ; preds = %203, %.lr.ph.i38
+  %indvars.iv.i40 = phi i64 [ 0, %.lr.ph.i38 ], [ %indvars.iv.next.i41, %203 ]
+  %204 = load i32, ptr %186, align 4
+  %205 = getelementptr inbounds ptr, ptr %119, i64 %indvars.iv.i40
+  %206 = load ptr, ptr %205, align 8
+  %207 = sext i32 %204 to i64
+  %208 = getelementptr inbounds double, ptr %206, i64 %207
+  %209 = load double, ptr %208, align 8
+  %210 = load ptr, ptr %201, align 8
+  %211 = getelementptr inbounds double, ptr %210, i64 %indvars.iv.i40
+  %212 = load double, ptr %211, align 8
+  %213 = fsub double %209, %212
+  store double %213, ptr %208, align 8
+  %214 = getelementptr inbounds %struct.PriorityQueue_, ptr %117, i64 %indvars.iv.i40
+  call void @PQ_adjustKey(ptr noundef %214, i32 noundef %204, double noundef %213) #11
+  %215 = getelementptr inbounds double, ptr %206, i64 %202
+  %216 = load double, ptr %215, align 8
+  %217 = load ptr, ptr %201, align 8
+  %218 = getelementptr inbounds double, ptr %217, i64 %indvars.iv.i40
+  %219 = load double, ptr %218, align 8
+  %220 = fadd double %216, %219
+  store double %220, ptr %215, align 8
+  call void @PQ_adjustKey(ptr noundef %214, i32 noundef %192, double noundef %220) #11
+  %221 = call double @PQ_findMaxKey(ptr noundef %214) #11
+  %222 = getelementptr inbounds i32, ptr %.0.i, i64 %indvars.iv.i40
+  %223 = load i32, ptr %222, align 4
+  %224 = sext i32 %223 to i64
+  %225 = getelementptr inbounds double, ptr %206, i64 %224
+  %226 = load double, ptr %225, align 8
+  %227 = fsub double %221, %226
+  %228 = getelementptr inbounds %struct.PriorityQueue_, ptr %116, i64 %224
+  %229 = trunc nuw nsw i64 %indvars.iv.i40 to i32
+  call void @PQ_adjustKey(ptr noundef %228, i32 noundef %229, double noundef %227) #11
+  %230 = load i32, ptr %222, align 4
+  %231 = sext i32 %230 to i64
+  %232 = getelementptr inbounds %struct.PriorityQueue_, ptr %116, i64 %231
+  %233 = call double @PQ_findMaxKey(ptr noundef %232) #11
+  %234 = load i32, ptr %222, align 4
+  call void @PQ_adjustKey(ptr noundef nonnull %8, i32 noundef %234, double noundef %233) #11
+  %indvars.iv.next.i41 = add nuw nsw i64 %indvars.iv.i40, 1
+  %exitcond.not.i42 = icmp eq i64 %indvars.iv.next.i41, %wide.trip.count.i39
+  br i1 %exitcond.not.i42, label %._crit_edge.i37, label %203, !llvm.loop !24
 
-._crit_edge.i38:                                  ; preds = %205, %202
-  store i32 %194, ptr %188, align 4
-  %237 = call double @PQ_findMaxKey(ptr noundef %193) #11
-  %238 = getelementptr inbounds ptr, ptr %119, i64 %.pre-phi.i
-  %239 = load ptr, ptr %238, align 8
-  %240 = load i32, ptr %188, align 4
-  %241 = sext i32 %240 to i64
-  %242 = getelementptr inbounds double, ptr %239, i64 %241
-  %243 = load double, ptr %242, align 8
-  %244 = fsub double %237, %243
-  %245 = call i32 @PQ_isEmpty(ptr noundef %193) #11
-  %.not.i = icmp eq i32 %245, 0
-  br i1 %.not.i, label %246, label %algo.exit
+._crit_edge.i37:                                  ; preds = %203, %200
+  store i32 %192, ptr %186, align 4
+  %235 = call double @PQ_findMaxKey(ptr noundef %191) #11
+  %236 = getelementptr inbounds ptr, ptr %119, i64 %.pre-phi.i
+  %237 = load ptr, ptr %236, align 8
+  %238 = load i32, ptr %186, align 4
+  %239 = sext i32 %238 to i64
+  %240 = getelementptr inbounds double, ptr %237, i64 %239
+  %241 = load double, ptr %240, align 8
+  %242 = fsub double %235, %241
+  %243 = call i32 @PQ_isEmpty(ptr noundef %191) #11
+  %.not.i = icmp eq i32 %243, 0
+  br i1 %.not.i, label %244, label %algo.exit
 
-246:                                              ; preds = %._crit_edge.i38
-  %247 = load i32, ptr %188, align 4
-  %248 = sext i32 %247 to i64
-  %249 = getelementptr inbounds %struct.PriorityQueue_, ptr %116, i64 %248
-  call void @PQ_insert(ptr noundef %249, i32 noundef %.098.i, double noundef %244) #11
+244:                                              ; preds = %._crit_edge.i37
+  %245 = load i32, ptr %186, align 4
+  %246 = sext i32 %245 to i64
+  %247 = getelementptr inbounds %struct.PriorityQueue_, ptr %116, i64 %246
+  call void @PQ_insert(ptr noundef %247, i32 noundef %.098.i, double noundef %242) #11
   br label %algo.exit
 
-algo.exit:                                        ; preds = %._crit_edge.i38, %246
-  %250 = load i32, ptr %188, align 4
-  call void @PQ_adjustKey(ptr noundef nonnull %8, i32 noundef %250, double noundef %244) #11
-  br label %166, !llvm.loop !25
+algo.exit:                                        ; preds = %._crit_edge.i37, %244
+  %248 = load i32, ptr %186, align 4
+  call void @PQ_adjustKey(ptr noundef nonnull %8, i32 noundef %248, double noundef %242) #11
+  %249 = icmp eq i32 %.1, %192
+  %250 = zext nneg i32 %192 to i64
+  %251 = getelementptr inbounds %struct.PriorityQueue_, ptr %116, i64 %250
+  %.sink.i = select i1 %249, ptr %8, ptr %251
+  %252 = call double @PQ_findMaxKey(ptr noundef %.sink.i) #11
+  %253 = fcmp ogt double %252, 0.000000e+00
+  br i1 %253, label %168, label %._crit_edge, !llvm.loop !25
 
-251:                                              ; preds = %nextGain.exit
+._crit_edge:                                      ; preds = %algo.exit
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %7)
-  br label %balancing.exit
+  br i1 %249, label %balancing.exit, label %254
 
-252:                                              ; preds = %nextGain.exit.thread
-  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %7)
-  %253 = call i32 @PQ_init(ptr noundef nonnull %7, i32 noundef %9) #11
-  br i1 %120, label %.lr.ph.i46, label %._crit_edge.i45
+254:                                              ; preds = %._crit_edge
+  %255 = call i32 @PQ_init(ptr noundef nonnull %7, i32 noundef %9) #11
+  br i1 %120, label %.lr.ph.i45, label %._crit_edge.i44
 
-.lr.ph.i46:                                       ; preds = %252
-  %254 = sext i32 %.076 to i64
-  br label %255
+.lr.ph.i45:                                       ; preds = %254
+  %256 = sext i32 %.1 to i64
+  %wide.trip.count.i46 = zext nneg i32 %9 to i64
+  br label %257
 
-255:                                              ; preds = %268, %.lr.ph.i46
-  %indvars.iv.i48 = phi i64 [ 0, %.lr.ph.i46 ], [ %indvars.iv.next.i49, %268 ]
-  %256 = getelementptr inbounds i32, ptr %.0.i, i64 %indvars.iv.i48
-  %257 = load i32, ptr %256, align 4
-  %258 = icmp eq i32 %257, %.0
-  br i1 %258, label %259, label %268
+257:                                              ; preds = %270, %.lr.ph.i45
+  %indvars.iv.i47 = phi i64 [ 0, %.lr.ph.i45 ], [ %indvars.iv.next.i48, %270 ]
+  %258 = getelementptr inbounds i32, ptr %.0.i, i64 %indvars.iv.i47
+  %259 = load i32, ptr %258, align 4
+  %260 = icmp eq i32 %259, %192
+  br i1 %260, label %261, label %270
 
-259:                                              ; preds = %255
-  %260 = getelementptr inbounds ptr, ptr %119, i64 %indvars.iv.i48
-  %261 = load ptr, ptr %260, align 8
-  %262 = getelementptr inbounds double, ptr %261, i64 %254
-  %263 = load double, ptr %262, align 8
-  %264 = getelementptr inbounds double, ptr %261, i64 %170
+261:                                              ; preds = %257
+  %262 = getelementptr inbounds ptr, ptr %119, i64 %indvars.iv.i47
+  %263 = load ptr, ptr %262, align 8
+  %264 = getelementptr inbounds double, ptr %263, i64 %256
   %265 = load double, ptr %264, align 8
-  %266 = fsub double %263, %265
-  %267 = trunc nuw nsw i64 %indvars.iv.i48 to i32
-  call void @PQ_insert(ptr noundef nonnull %7, i32 noundef %267, double noundef %266) #11
-  br label %268
+  %266 = getelementptr inbounds double, ptr %263, i64 %250
+  %267 = load double, ptr %266, align 8
+  %268 = fsub double %265, %267
+  %269 = trunc nuw nsw i64 %indvars.iv.i47 to i32
+  call void @PQ_insert(ptr noundef nonnull %7, i32 noundef %269, double noundef %268) #11
+  br label %270
 
-268:                                              ; preds = %259, %255
-  %indvars.iv.next.i49 = add nuw nsw i64 %indvars.iv.i48, 1
-  %exitcond.not.i50 = icmp eq i64 %indvars.iv.next.i49, %wide.trip.count.i40
-  br i1 %exitcond.not.i50, label %._crit_edge.i45, label %255, !llvm.loop !26
+270:                                              ; preds = %261, %257
+  %indvars.iv.next.i48 = add nuw nsw i64 %indvars.iv.i47, 1
+  %exitcond.not.i49 = icmp eq i64 %indvars.iv.next.i48, %wide.trip.count.i46
+  br i1 %exitcond.not.i49, label %._crit_edge.i44, label %257, !llvm.loop !26
 
-._crit_edge.i45:                                  ; preds = %268, %252
-  %269 = call i32 @PQ_deleteMax(ptr noundef nonnull %7) #11
-  %270 = sext i32 %269 to i64
-  %271 = getelementptr inbounds i32, ptr %.0.i, i64 %270
-  store i32 %.076, ptr %271, align 4
+._crit_edge.i44:                                  ; preds = %270, %254
+  %271 = call i32 @PQ_deleteMax(ptr noundef nonnull %7) #11
+  %272 = sext i32 %271 to i64
+  %273 = getelementptr inbounds i32, ptr %.0.i, i64 %272
+  store i32 %.1, ptr %273, align 4
   call void @PQ_exit(ptr noundef nonnull %7) #11
   br label %balancing.exit
 
-balancing.exit:                                   ; preds = %251, %._crit_edge.i45
+balancing.exit:                                   ; preds = %._crit_edge.thread, %._crit_edge, %._crit_edge.i44
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %7)
   call void @PQ_exit(ptr noundef nonnull %8) #11
-  br i1 %124, label %.lr.ph.preheader.i52, label %._crit_edge.i51
+  br i1 %124, label %.lr.ph.preheader.i51, label %._crit_edge.i50
 
-.lr.ph.preheader.i52:                             ; preds = %balancing.exit
-  %wide.trip.count.i53 = zext nneg i32 %2 to i64
-  br label %.lr.ph.i54
+.lr.ph.preheader.i51:                             ; preds = %balancing.exit
+  %wide.trip.count.i52 = zext nneg i32 %2 to i64
+  br label %.lr.ph.i53
 
-.lr.ph.i54:                                       ; preds = %.lr.ph.i54, %.lr.ph.preheader.i52
-  %indvars.iv.i55 = phi i64 [ 0, %.lr.ph.preheader.i52 ], [ %indvars.iv.next.i56, %.lr.ph.i54 ]
-  %272 = getelementptr inbounds %struct.PriorityQueue_, ptr %116, i64 %indvars.iv.i55
-  call void @PQ_exit(ptr noundef %272) #11
-  %indvars.iv.next.i56 = add nuw nsw i64 %indvars.iv.i55, 1
-  %exitcond.not.i57 = icmp eq i64 %indvars.iv.next.i56, %wide.trip.count.i53
-  br i1 %exitcond.not.i57, label %._crit_edge.i51, label %.lr.ph.i54, !llvm.loop !27
+.lr.ph.i53:                                       ; preds = %.lr.ph.i53, %.lr.ph.preheader.i51
+  %indvars.iv.i54 = phi i64 [ 0, %.lr.ph.preheader.i51 ], [ %indvars.iv.next.i55, %.lr.ph.i53 ]
+  %274 = getelementptr inbounds %struct.PriorityQueue_, ptr %116, i64 %indvars.iv.i54
+  call void @PQ_exit(ptr noundef %274) #11
+  %indvars.iv.next.i55 = add nuw nsw i64 %indvars.iv.i54, 1
+  %exitcond.not.i56 = icmp eq i64 %indvars.iv.next.i55, %wide.trip.count.i52
+  br i1 %exitcond.not.i56, label %._crit_edge.i50, label %.lr.ph.i53, !llvm.loop !27
 
-._crit_edge.i51:                                  ; preds = %.lr.ph.i54, %balancing.exit
+._crit_edge.i50:                                  ; preds = %.lr.ph.i53, %balancing.exit
   call void @free(ptr noundef %116) #11
-  br i1 %120, label %.lr.ph22.i, label %._crit_edge23.thread.i
+  br i1 %120, label %.lr.ph22.preheader.i, label %._crit_edge23.thread.i
 
-._crit_edge23.thread.i:                           ; preds = %._crit_edge.i51
+._crit_edge23.thread.i:                           ; preds = %._crit_edge.i50
   call void @free(ptr noundef %117) #11
   br label %destruction.exit
 
-.lr.ph22.i:                                       ; preds = %._crit_edge.i51, %.lr.ph22.i
-  %indvars.iv29.i = phi i64 [ %indvars.iv.next30.i, %.lr.ph22.i ], [ 0, %._crit_edge.i51 ]
-  %273 = getelementptr inbounds %struct.PriorityQueue_, ptr %117, i64 %indvars.iv29.i
-  call void @PQ_exit(ptr noundef %273) #11
+.lr.ph22.preheader.i:                             ; preds = %._crit_edge.i50
+  %wide.trip.count32.i = zext nneg i32 %9 to i64
+  br label %.lr.ph22.i
+
+.lr.ph22.i:                                       ; preds = %.lr.ph22.i, %.lr.ph22.preheader.i
+  %indvars.iv29.i = phi i64 [ 0, %.lr.ph22.preheader.i ], [ %indvars.iv.next30.i, %.lr.ph22.i ]
+  %275 = getelementptr inbounds %struct.PriorityQueue_, ptr %117, i64 %indvars.iv29.i
+  call void @PQ_exit(ptr noundef %275) #11
   %indvars.iv.next30.i = add nuw nsw i64 %indvars.iv29.i, 1
-  %exitcond33.not.i = icmp eq i64 %indvars.iv.next30.i, %wide.trip.count.i40
+  %exitcond33.not.i = icmp eq i64 %indvars.iv.next30.i, %wide.trip.count32.i
   br i1 %exitcond33.not.i, label %._crit_edge23.i, label %.lr.ph22.i, !llvm.loop !28
 
 ._crit_edge23.i:                                  ; preds = %.lr.ph22.i
@@ -679,11 +686,11 @@ balancing.exit:                                   ; preds = %251, %._crit_edge.i
 
 .lr.ph26.i:                                       ; preds = %.lr.ph26.i, %._crit_edge23.i
   %indvars.iv34.i = phi i64 [ 0, %._crit_edge23.i ], [ %indvars.iv.next35.i, %.lr.ph26.i ]
-  %274 = getelementptr inbounds ptr, ptr %119, i64 %indvars.iv34.i
-  %275 = load ptr, ptr %274, align 8
-  call void @free(ptr noundef %275) #11
+  %276 = getelementptr inbounds ptr, ptr %119, i64 %indvars.iv34.i
+  %277 = load ptr, ptr %276, align 8
+  call void @free(ptr noundef %277) #11
   %indvars.iv.next35.i = add nuw nsw i64 %indvars.iv34.i, 1
-  %exitcond38.not.i = icmp eq i64 %indvars.iv.next35.i, %wide.trip.count.i40
+  %exitcond38.not.i = icmp eq i64 %indvars.iv.next35.i, %wide.trip.count32.i
   br i1 %exitcond38.not.i, label %destruction.exit, label %.lr.ph26.i, !llvm.loop !29
 
 destruction.exit:                                 ; preds = %.lr.ph26.i, %._crit_edge23.thread.i

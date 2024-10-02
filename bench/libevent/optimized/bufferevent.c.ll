@@ -3320,7 +3320,7 @@ lor.lhs.false:                                    ; preds = %if.then
 
 bufferevent_add_event_.exit:                      ; preds = %if.then, %lor.lhs.false
   %call2.i = tail call i32 @event_add(ptr noundef nonnull %ev_read, ptr noundef nonnull %timeout_read) #7
-  %retval.0.i.lobit = ashr i32 %call2.i, 31
+  %call2.i.lobit = ashr i32 %call2.i, 31
   br label %if.end12
 
 if.else:                                          ; preds = %lor.lhs.false
@@ -3328,7 +3328,7 @@ if.else:                                          ; preds = %lor.lhs.false
   br label %if.end12
 
 if.end12:                                         ; preds = %bufferevent_add_event_.exit, %if.else, %entry
-  %r.0 = phi i32 [ 0, %if.else ], [ 0, %entry ], [ %retval.0.i.lobit, %bufferevent_add_event_.exit ]
+  %r.0 = phi i32 [ 0, %if.else ], [ 0, %entry ], [ %call2.i.lobit, %bufferevent_add_event_.exit ]
   %ev_write = getelementptr inbounds i8, ptr %bev, i64 136
   %call13 = tail call i32 @event_pending(ptr noundef nonnull %ev_write, i16 noundef signext 4, ptr noundef null) #7
   %tobool14.not = icmp eq i32 %call13, 0
@@ -3338,17 +3338,17 @@ if.then15:                                        ; preds = %if.end12
   %timeout_write = getelementptr inbounds i8, ptr %bev, i64 352
   %2 = load i64, ptr %timeout_write, align 8
   %tobool17.not = icmp eq i64 %2, 0
-  br i1 %tobool17.not, label %lor.lhs.false18, label %bufferevent_add_event_.exit22
+  br i1 %tobool17.not, label %lor.lhs.false18, label %bufferevent_add_event_.exit20
 
 lor.lhs.false18:                                  ; preds = %if.then15
   %tv_usec20 = getelementptr inbounds i8, ptr %bev, i64 360
   %3 = load i64, ptr %tv_usec20, align 8
   %tobool21.not = icmp eq i64 %3, 0
-  br i1 %tobool21.not, label %if.else29, label %bufferevent_add_event_.exit22
+  br i1 %tobool21.not, label %if.else29, label %bufferevent_add_event_.exit20
 
-bufferevent_add_event_.exit22:                    ; preds = %if.then15, %lor.lhs.false18
-  %call2.i15 = tail call i32 @event_add(ptr noundef nonnull %ev_write, ptr noundef nonnull %timeout_write) #7
-  %cmp26.inv = icmp sgt i32 %call2.i15, -1
+bufferevent_add_event_.exit20:                    ; preds = %if.then15, %lor.lhs.false18
+  %call2.i16 = tail call i32 @event_add(ptr noundef nonnull %ev_write, ptr noundef nonnull %timeout_write) #7
+  %cmp26.inv = icmp sgt i32 %call2.i16, -1
   %spec.select12 = select i1 %cmp26.inv, i32 %r.0, i32 -1
   br label %if.end33
 
@@ -3356,8 +3356,8 @@ if.else29:                                        ; preds = %lor.lhs.false18
   %call31 = tail call i32 @event_remove_timer(ptr noundef nonnull %ev_write) #7
   br label %if.end33
 
-if.end33:                                         ; preds = %bufferevent_add_event_.exit22, %if.else29, %if.end12
-  %r.1 = phi i32 [ %r.0, %if.else29 ], [ %r.0, %if.end12 ], [ %spec.select12, %bufferevent_add_event_.exit22 ]
+if.end33:                                         ; preds = %bufferevent_add_event_.exit20, %if.else29, %if.end12
+  %r.1 = phi i32 [ %r.0, %if.else29 ], [ %r.0, %if.end12 ], [ %spec.select12, %bufferevent_add_event_.exit20 ]
   ret i32 %r.1
 }
 
@@ -3374,19 +3374,15 @@ lor.lhs.false:                                    ; preds = %entry
   %tv_usec = getelementptr inbounds i8, ptr %tv, i64 8
   %1 = load i64, ptr %tv_usec, align 8
   %tobool1.not = icmp eq i64 %1, 0
-  br i1 %tobool1.not, label %if.then, label %if.else
-
-if.then:                                          ; preds = %lor.lhs.false
-  %call = tail call i32 @event_add(ptr noundef %ev, ptr noundef null) #7
-  br label %return
+  br i1 %tobool1.not, label %return, label %if.else
 
 if.else:                                          ; preds = %lor.lhs.false, %entry
-  %call2 = tail call i32 @event_add(ptr noundef %ev, ptr noundef nonnull %tv) #7
   br label %return
 
-return:                                           ; preds = %if.else, %if.then
-  %retval.0 = phi i32 [ %call2, %if.else ], [ %call, %if.then ]
-  ret i32 %retval.0
+return:                                           ; preds = %lor.lhs.false, %if.else
+  %tv.sink = phi ptr [ %tv, %if.else ], [ null, %lor.lhs.false ]
+  %call2 = tail call i32 @event_add(ptr noundef %ev, ptr noundef %tv.sink) #7
+  ret i32 %call2
 }
 
 declare i32 @event_remove_timer(ptr noundef) local_unnamed_addr #1

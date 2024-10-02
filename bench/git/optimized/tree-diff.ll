@@ -393,30 +393,20 @@ for.body133:                                      ; preds = %for.body133.lr.ph, 
   br i1 %tobool139.not, label %if.end141, label %for.inc160
 
 if.end141:                                        ; preds = %for.body133
-  br i1 %tobool.not.i144, label %if.then.i146, label %if.end.i
+  br i1 %tobool.not.i144, label %if.then.i146, label %oideq.exit
 
 if.then.i146:                                     ; preds = %if.end141
   %48 = load ptr, ptr %hash_algo.i, align 8
-  br label %if.end.i
+  br label %oideq.exit
 
-if.end.i:                                         ; preds = %if.end141, %if.then.i146
+oideq.exit:                                       ; preds = %if.end141, %if.then.i146
   %algop.0.i = phi ptr [ %48, %if.then.i146 ], [ %arrayidx.i, %if.end141 ]
   %49 = getelementptr i8, ptr %algop.0.i, i64 16
   %algop.0.val.i = load i64, ptr %49, align 8
   %cmp.i.i = icmp eq i64 %algop.0.val.i, 32
-  br i1 %cmp.i.i, label %if.then.i.i, label %if.end.i.i
-
-if.then.i.i:                                      ; preds = %if.end.i
-  %bcmp3.i.i = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(32) %entry1.i, ptr noundef nonnull readonly dereferenceable(32) %entry136, i64 32)
-  br label %oideq.exit
-
-if.end.i.i:                                       ; preds = %if.end.i
-  %bcmp.i.i = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(20) %entry1.i, ptr noundef nonnull readonly dereferenceable(20) %entry136, i64 20)
-  br label %oideq.exit
-
-oideq.exit:                                       ; preds = %if.then.i.i, %if.end.i.i
-  %retval.0.in.in.i.i = phi i32 [ %bcmp3.i.i, %if.then.i.i ], [ %bcmp.i.i, %if.end.i.i ]
-  %retval.0.in.i.i = icmp eq i32 %retval.0.in.in.i.i, 0
+  %..i.i = select i1 %cmp.i.i, i64 32, i64 20
+  %bcmp.i.i = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(20) %entry1.i, ptr noundef nonnull readonly dereferenceable(20) %entry136, i64 %..i.i)
+  %retval.0.in.i.i = icmp eq i32 %bcmp.i.i, 0
   %cmp156.not = icmp eq i32 %46, %47
   %or.cond180 = select i1 %retval.0.in.i.i, i1 %cmp156.not, i1 false
   br i1 %or.cond180, label %skip_emit_t_tp, label %for.inc160

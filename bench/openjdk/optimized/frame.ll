@@ -4995,7 +4995,7 @@ define linkonce_odr hidden void @_ZN23InterpreterFrameClosure9offset_doEi(ptr no
   %5 = icmp slt i32 %1, %4
   %6 = getelementptr inbounds i8, ptr %0, i64 8
   %7 = load ptr, ptr %6, align 8
-  br i1 %5, label %8, label %21
+  br i1 %5, label %8, label %17
 
 8:                                                ; preds = %2
   %.neg.i.i = mul i32 %1, -8
@@ -5007,42 +5007,38 @@ define linkonce_odr hidden void @_ZN23InterpreterFrameClosure9offset_doEi(ptr no
   %14 = getelementptr inbounds i64, ptr %11, i64 %13
   %15 = sext i32 %9 to i64
   %16 = getelementptr inbounds i64, ptr %14, i64 %15
-  %17 = getelementptr inbounds i8, ptr %0, i64 16
-  %18 = load ptr, ptr %17, align 8
-  %19 = load ptr, ptr %18, align 8
-  %20 = load ptr, ptr %19, align 8
-  tail call void %20(ptr noundef nonnull align 8 dereferenceable(8) %18, ptr noundef %16) #21
-  br label %40
+  br label %.sink.split
 
-21:                                               ; preds = %2
+17:                                               ; preds = %2
   %.neg = sub nsw i32 %4, %1
-  %22 = tail call noundef ptr @_ZNK5frame29interpreter_frame_monitor_endEv(ptr noundef nonnull align 8 dereferenceable(56) %7) #21
-  %23 = getelementptr inbounds i8, ptr %22, i64 -8
-  %24 = sext i32 %.neg to i64
-  %25 = getelementptr inbounds i64, ptr %23, i64 %24
-  %26 = load ptr, ptr %6, align 8
-  %27 = getelementptr inbounds i8, ptr %26, i64 40
-  %28 = load ptr, ptr %27, align 8
-  %29 = getelementptr inbounds i8, ptr %28, i64 -16
-  %30 = load i64, ptr %29, align 8
-  %.not.i.i10 = icmp eq i64 %30, 0
-  %31 = getelementptr inbounds i64, ptr %28, i64 %30
-  %32 = icmp eq ptr %28, null
-  %33 = or i1 %32, %.not.i.i10
-  %34 = load ptr, ptr %26, align 8
-  %spec.select.i11 = select i1 %33, ptr %34, ptr %31
-  %.not = icmp ult ptr %25, %spec.select.i11
-  br i1 %.not, label %40, label %35
+  %18 = tail call noundef ptr @_ZNK5frame29interpreter_frame_monitor_endEv(ptr noundef nonnull align 8 dereferenceable(56) %7) #21
+  %19 = getelementptr inbounds i8, ptr %18, i64 -8
+  %20 = sext i32 %.neg to i64
+  %21 = getelementptr inbounds i64, ptr %19, i64 %20
+  %22 = load ptr, ptr %6, align 8
+  %23 = getelementptr inbounds i8, ptr %22, i64 40
+  %24 = load ptr, ptr %23, align 8
+  %25 = getelementptr inbounds i8, ptr %24, i64 -16
+  %26 = load i64, ptr %25, align 8
+  %.not.i.i10 = icmp eq i64 %26, 0
+  %27 = getelementptr inbounds i64, ptr %24, i64 %26
+  %28 = icmp eq ptr %24, null
+  %29 = or i1 %28, %.not.i.i10
+  %30 = load ptr, ptr %22, align 8
+  %spec.select.i11 = select i1 %29, ptr %30, ptr %27
+  %.not = icmp ult ptr %21, %spec.select.i11
+  br i1 %.not, label %35, label %.sink.split
 
-35:                                               ; preds = %21
-  %36 = getelementptr inbounds i8, ptr %0, i64 16
-  %37 = load ptr, ptr %36, align 8
-  %38 = load ptr, ptr %37, align 8
-  %39 = load ptr, ptr %38, align 8
-  tail call void %39(ptr noundef nonnull align 8 dereferenceable(8) %37, ptr noundef nonnull %25) #21
-  br label %40
+.sink.split:                                      ; preds = %17, %8
+  %.sink12 = phi ptr [ %16, %8 ], [ %21, %17 ]
+  %31 = getelementptr inbounds i8, ptr %0, i64 16
+  %32 = load ptr, ptr %31, align 8
+  %33 = load ptr, ptr %32, align 8
+  %34 = load ptr, ptr %33, align 8
+  tail call void %34(ptr noundef nonnull align 8 dereferenceable(8) %32, ptr noundef %.sink12) #21
+  br label %35
 
-40:                                               ; preds = %21, %35, %8
+35:                                               ; preds = %.sink.split, %17
   ret void
 }
 

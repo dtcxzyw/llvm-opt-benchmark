@@ -115,7 +115,7 @@ define dso_local i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed_addr #0
   %14 = load ptr, ptr @stderr, align 8
   %15 = load ptr, ptr %1, align 8
   %16 = call i32 (ptr, ptr, ...) @pg_fprintf(ptr noundef %14, ptr noundef nonnull @.str.2, ptr noundef %15) #11
-  br label %402
+  br label %401
 
 17:                                               ; preds = %2
   %18 = icmp sgt i32 %0, 1
@@ -269,7 +269,7 @@ add_include_path.exit:                            ; preds = %add_include_path.ex
   %75 = load ptr, ptr @stderr, align 8
   %76 = load ptr, ptr %1, align 8
   %77 = call i32 (ptr, ptr, ...) @pg_fprintf(ptr noundef %75, ptr noundef nonnull @.str.14, ptr noundef %76) #11
-  br label %402
+  br label %401
 
 78:                                               ; preds = %add_include_path.exit
   %79 = load ptr, ptr @stderr, align 8
@@ -430,7 +430,7 @@ sub_0179:                                         ; preds = %add_include_path.ex
   %146 = load ptr, ptr @stderr, align 8
   %147 = load ptr, ptr %1, align 8
   %148 = call i32 (ptr, ptr, ...) @pg_fprintf(ptr noundef %146, ptr noundef nonnull @.str.14, ptr noundef %147) #11
-  br label %402
+  br label %401
 
 149:                                              ; preds = %add_include_path.exit
   store i8 1, ptr @autocommit, align 1
@@ -444,7 +444,7 @@ sub_0179:                                         ; preds = %add_include_path.ex
   %152 = load ptr, ptr @stderr, align 8
   %153 = load ptr, ptr %1, align 8
   %154 = call i32 (ptr, ptr, ...) @pg_fprintf(ptr noundef %152, ptr noundef nonnull @.str.14, ptr noundef %153) #11
-  br label %402
+  br label %401
 
 155:                                              ; preds = %add_include_path.exit
   %156 = load ptr, ptr @include_paths, align 8
@@ -574,7 +574,7 @@ add_include_path.exit170:                         ; preds = %187, %190
 ._crit_edge246:                                   ; preds = %.lr.ph245, %192
   %201 = load ptr, ptr @stderr, align 8
   %202 = call i32 (ptr, ptr, ...) @pg_fprintf(ptr noundef %201, ptr noundef nonnull @.str.28) #11
-  br label %402
+  br label %401
 
 203:                                              ; preds = %add_include_path.exit170
   %204 = load i32, ptr @optind, align 4
@@ -596,10 +596,10 @@ add_include_path.exit170:                         ; preds = %187, %190
   %213 = load ptr, ptr @stderr, align 8
   %214 = load ptr, ptr %1, align 8
   %215 = call i32 (ptr, ptr, ...) @pg_fprintf(ptr noundef %213, ptr noundef nonnull @.str.14, ptr noundef %214) #11
-  br label %402
+  br label %401
 
-sub_0183:                                         ; preds = %.preheader190, %398
-  %indvars.iv = phi i64 [ %209, %.preheader190 ], [ %indvars.iv.next, %398 ]
+sub_0183:                                         ; preds = %.preheader190, %397
+  %indvars.iv = phi i64 [ %209, %.preheader190 ], [ %indvars.iv.next, %397 ]
   %216 = getelementptr ptr, ptr %1, i64 %indvars.iv
   %217 = load ptr, ptr %216, align 8
   %218 = load i8, ptr %217, align 1
@@ -714,7 +714,6 @@ sub_0183:                                         ; preds = %.preheader190, %398
   %275 = call ptr @pg_strerror(i32 noundef %274) #11
   %276 = call i32 (ptr, ptr, ...) @pg_fprintf(ptr noundef %271, ptr noundef nonnull @.str.18, ptr noundef %9, ptr noundef %272, ptr noundef %275) #11
   %277 = load ptr, ptr @output_filename, align 8
-  call void @free(ptr noundef %277) #11
   br label %.sink.split
 
 thread-pre-split:                                 ; preds = %255, %.thread-pre-split_crit_edge, %250
@@ -1007,29 +1006,27 @@ sub_0187:                                         ; preds = %382
   %395 = load ptr, ptr @output_filename, align 8
   %396 = icmp ne ptr %395, null
   %or.cond3 = and i1 %207, %396
-  br i1 %or.cond3, label %397, label %398
+  br i1 %or.cond3, label %.sink.split, label %397
 
-397:                                              ; preds = %394
-  call void @free(ptr noundef nonnull %395) #11
-  br label %.sink.split
-
-.sink.split:                                      ; preds = %270, %397
+.sink.split:                                      ; preds = %394, %270
+  %.sink = phi ptr [ %277, %270 ], [ %395, %394 ]
+  call void @free(ptr noundef %.sink) #11
   store ptr null, ptr @output_filename, align 8
-  br label %398
+  br label %397
 
-398:                                              ; preds = %.sink.split, %394
-  %399 = load ptr, ptr @input_filename, align 8
-  call void @free(ptr noundef %399) #11
+397:                                              ; preds = %.sink.split, %394
+  %398 = load ptr, ptr @input_filename, align 8
+  call void @free(ptr noundef %398) #11
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %400, label %sub_0183, !llvm.loop !18
+  br i1 %exitcond.not, label %399, label %sub_0183, !llvm.loop !18
 
-400:                                              ; preds = %398
-  %401 = load i32, ptr @ret_value, align 4
-  br label %402
+399:                                              ; preds = %397
+  %400 = load i32, ptr @ret_value, align 4
+  br label %401
 
-402:                                              ; preds = %400, %210, %._crit_edge246, %151, %145, %74, %13
-  %.0 = phi i32 [ 1, %13 ], [ 1, %151 ], [ 1, %145 ], [ 1, %74 ], [ 0, %._crit_edge246 ], [ 1, %210 ], [ %401, %400 ]
+401:                                              ; preds = %399, %210, %._crit_edge246, %151, %145, %74, %13
+  %.0 = phi i32 [ 1, %13 ], [ 1, %151 ], [ 1, %145 ], [ 1, %74 ], [ 0, %._crit_edge246 ], [ 1, %210 ], [ %400, %399 ]
   ret i32 %.0
 }
 

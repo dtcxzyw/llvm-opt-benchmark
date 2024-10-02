@@ -751,23 +751,20 @@ land.lhs.true:                                    ; preds = %entry
   %0 = load i32, ptr %call, align 4
   %cmp1.not = icmp eq i32 %0, 0
   tail call void @lua_pushnil(ptr noundef %L) #19
-  br i1 %cmp1.not, label %if.end, label %if.then
+  br i1 %cmp1.not, label %return, label %if.then
 
 if.then:                                          ; preds = %land.lhs.true
   %call6.i = tail call ptr @strerror(i32 noundef %0) #19
-  %call7.i = tail call ptr @lua_pushstring(ptr noundef %L, ptr noundef %call6.i) #19
   br label %return
 
 if.then8:                                         ; preds = %entry
   tail call void @lua_pushboolean(ptr noundef %L, i32 noundef 1) #19
-  br label %if.end
-
-if.end:                                           ; preds = %land.lhs.true, %if.then8
-  %call10 = tail call ptr @lua_pushstring(ptr noundef %L, ptr noundef nonnull @.str.19) #19
   br label %return
 
-return:                                           ; preds = %if.end, %if.then
-  %stat.sink = phi i32 [ %stat, %if.end ], [ %0, %if.then ]
+return:                                           ; preds = %if.then8, %land.lhs.true, %if.then
+  %.str.19.sink = phi ptr [ %call6.i, %if.then ], [ @.str.19, %land.lhs.true ], [ @.str.19, %if.then8 ]
+  %stat.sink = phi i32 [ %0, %if.then ], [ %stat, %land.lhs.true ], [ %stat, %if.then8 ]
+  %call10 = tail call ptr @lua_pushstring(ptr noundef %L, ptr noundef %.str.19.sink) #19
   %conv11 = sext i32 %stat.sink to i64
   tail call void @lua_pushinteger(ptr noundef %L, i64 noundef %conv11) #19
   ret i32 3

@@ -2973,19 +2973,18 @@ if.end4.i.i:                                      ; preds = %if.then.i.i, %if.th
 parseClusterNodeAddress.exit.i:                   ; preds = %if.end4.i.i
   store i8 0, ptr %call5.i.i, align 1
   %incdec.ptr.i.i = getelementptr inbounds i8, ptr %call5.i.i, i64 1
-  %call8.i.i = tail call i32 @atoi(ptr nocapture noundef nonnull %incdec.ptr.i.i) #33
   br label %if.end5.i
 
 if.else.i:                                        ; preds = %entry
   %arrayidx3.i = getelementptr inbounds i8, ptr %argv, i64 8
   %1 = load ptr, ptr %arrayidx3.i, align 8
-  %call4.i = tail call i32 @atoi(ptr nocapture noundef %1) #33
   br label %if.end5.i
 
 if.end5.i:                                        ; preds = %if.else.i, %parseClusterNodeAddress.exit.i
-  %port.0.i = phi i32 [ %call8.i.i, %parseClusterNodeAddress.exit.i ], [ %call4.i, %if.else.i ]
+  %incdec.ptr.i.sink.i = phi ptr [ %incdec.ptr.i.i, %parseClusterNodeAddress.exit.i ], [ %1, %if.else.i ]
+  %call8.i.i = tail call i32 @atoi(ptr nocapture noundef %incdec.ptr.i.sink.i) #33
   %tobool6.i = icmp ne ptr %0, null
-  %tobool7.i = icmp ne i32 %port.0.i, 0
+  %tobool7.i = icmp ne i32 %call8.i.i, 0
   %or.cond.i = select i1 %tobool6.i, i1 %tobool7.i, i1 false
   br i1 %or.cond.i, label %if.end, label %invalid_args
 
@@ -2995,8 +2994,8 @@ if.end:                                           ; preds = %if.end5.i
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %call.i, i8 0, i64 16, i1 false)
   store ptr %0, ptr %ip1.i, align 8
   %port2.i = getelementptr inbounds i8, ptr %call.i, i64 24
-  store i32 %port.0.i, ptr %port2.i, align 8
-  %add.i = add nsw i32 %port.0.i, 10000
+  store i32 %call8.i.i, ptr %port2.i, align 8
+  %add.i = add nsw i32 %call8.i.i, 10000
   %bus_port3.i = getelementptr inbounds i8, ptr %call.i, i64 28
   store i32 %add.i, ptr %bus_port3.i, align 4
   %current_epoch.i = getelementptr inbounds i8, ptr %call.i, i64 32
@@ -3056,19 +3055,18 @@ if.end4.i.i:                                      ; preds = %if.then.i.i, %if.th
 parseClusterNodeAddress.exit.i:                   ; preds = %if.end4.i.i
   store i8 0, ptr %call5.i.i, align 1
   %incdec.ptr.i.i = getelementptr inbounds i8, ptr %call5.i.i, i64 1
-  %call8.i.i = tail call i32 @atoi(ptr nocapture noundef nonnull %incdec.ptr.i.i) #33
   br label %if.end5.i
 
 if.else.i:                                        ; preds = %entry
   %arrayidx3.i = getelementptr inbounds i8, ptr %argv, i64 8
   %1 = load ptr, ptr %arrayidx3.i, align 8
-  %call4.i = tail call i32 @atoi(ptr nocapture noundef %1) #33
   br label %if.end5.i
 
 if.end5.i:                                        ; preds = %if.else.i, %parseClusterNodeAddress.exit.i
-  %port.0.i = phi i32 [ %call8.i.i, %parseClusterNodeAddress.exit.i ], [ %call4.i, %if.else.i ]
+  %incdec.ptr.i.sink.i = phi ptr [ %incdec.ptr.i.i, %parseClusterNodeAddress.exit.i ], [ %1, %if.else.i ]
+  %call8.i.i = tail call i32 @atoi(ptr nocapture noundef %incdec.ptr.i.sink.i) #33
   %tobool6.i = icmp ne ptr %0, null
-  %tobool7.i = icmp ne i32 %port.0.i, 0
+  %tobool7.i = icmp ne i32 %call8.i.i, 0
   %or.cond.i = select i1 %tobool6.i, i1 %tobool7.i, i1 false
   br i1 %or.cond.i, label %if.end, label %invalid_args
 
@@ -3078,8 +3076,8 @@ if.end:                                           ; preds = %if.end5.i
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %call.i, i8 0, i64 16, i1 false)
   store ptr %0, ptr %ip1.i, align 8
   %port2.i = getelementptr inbounds i8, ptr %call.i, i64 24
-  store i32 %port.0.i, ptr %port2.i, align 8
-  %add.i = add nsw i32 %port.0.i, 10000
+  store i32 %call8.i.i, ptr %port2.i, align 8
+  %add.i = add nsw i32 %call8.i.i, 10000
   %bus_port3.i = getelementptr inbounds i8, ptr %call.i, i64 28
   store i32 %add.i, ptr %bus_port3.i, align 4
   %current_epoch.i = getelementptr inbounds i8, ptr %call.i, i64 32
@@ -3127,7 +3125,7 @@ entry:
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 2) i32 @clusterManagerCommandReshard(i32 noundef %argc, ptr nocapture noundef readonly %argv) #2 {
 entry:
-  %li.i116 = alloca %struct.listIter, align 8
+  %li.i115 = alloca %struct.listIter, align 8
   %li.i = alloca %struct.listIter, align 8
   %buf = alloca [6 x i8], align 1
   %buf42 = alloca [255 x i8], align 16
@@ -3155,19 +3153,18 @@ if.end4.i.i:                                      ; preds = %if.then.i.i, %if.th
 parseClusterNodeAddress.exit.i:                   ; preds = %if.end4.i.i
   store i8 0, ptr %call5.i.i, align 1
   %incdec.ptr.i.i = getelementptr inbounds i8, ptr %call5.i.i, i64 1
-  %call8.i.i = tail call i32 @atoi(ptr nocapture noundef nonnull %incdec.ptr.i.i) #33
   br label %if.end5.i
 
 if.else.i:                                        ; preds = %entry
   %arrayidx3.i = getelementptr inbounds i8, ptr %argv, i64 8
   %1 = load ptr, ptr %arrayidx3.i, align 8
-  %call4.i = tail call i32 @atoi(ptr nocapture noundef %1) #33
   br label %if.end5.i
 
 if.end5.i:                                        ; preds = %if.else.i, %parseClusterNodeAddress.exit.i
-  %port.0.i = phi i32 [ %call8.i.i, %parseClusterNodeAddress.exit.i ], [ %call4.i, %if.else.i ]
+  %incdec.ptr.i.sink.i = phi ptr [ %incdec.ptr.i.i, %parseClusterNodeAddress.exit.i ], [ %1, %if.else.i ]
+  %call8.i.i = tail call i32 @atoi(ptr nocapture noundef %incdec.ptr.i.sink.i) #33
   %tobool6.i = icmp ne ptr %0, null
-  %tobool7.i = icmp ne i32 %port.0.i, 0
+  %tobool7.i = icmp ne i32 %call8.i.i, 0
   %or.cond.i = select i1 %tobool6.i, i1 %tobool7.i, i1 false
   br i1 %or.cond.i, label %if.end, label %invalid_args
 
@@ -3177,8 +3174,8 @@ if.end:                                           ; preds = %if.end5.i
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %call.i, i8 0, i64 16, i1 false)
   store ptr %0, ptr %ip1.i, align 8
   %port2.i = getelementptr inbounds i8, ptr %call.i, i64 24
-  store i32 %port.0.i, ptr %port2.i, align 8
-  %add.i = add nsw i32 %port.0.i, 10000
+  store i32 %call8.i.i, ptr %port2.i, align 8
+  %add.i = add nsw i32 %call8.i.i, 10000
   %bus_port3.i = getelementptr inbounds i8, ptr %call.i, i64 28
   store i32 %add.i, ptr %bus_port3.i, align 4
   %current_epoch.i = getelementptr inbounds i8, ptr %call.i, i64 32
@@ -3263,8 +3260,8 @@ if.end41:                                         ; preds = %if.end35, %if.end11
   %slots.0 = phi i32 [ %7, %if.end11 ], [ %call39, %if.end35 ]
   %13 = load ptr, ptr getelementptr inbounds (i8, ptr @config, i64 536), align 8
   %14 = load ptr, ptr getelementptr inbounds (i8, ptr @config, i64 528), align 8
-  %cmp44156 = icmp eq ptr %13, null
-  br i1 %cmp44156, label %while.body46, label %while.end87
+  %cmp44155 = icmp eq ptr %13, null
+  br i1 %cmp44155, label %while.body46, label %while.end87
 
 while.body46:                                     ; preds = %if.end41, %while.body46.backedge
   %call47 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.363)
@@ -3324,12 +3321,12 @@ if.end92:                                         ; preds = %lor.lhs.false.i
   br i1 %cmp94, label %if.then96, label %while.cond160.preheader
 
 while.cond160.preheader:                          ; preds = %if.end92
-  %call161157 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %14, i32 noundef 44) #33
-  %cmp162.not158 = icmp eq ptr %call161157, null
-  br i1 %cmp162.not158, label %land.lhs.true183, label %while.body164.lr.ph
+  %call161156 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %14, i32 noundef 44) #33
+  %cmp162.not157 = icmp eq ptr %call161156, null
+  br i1 %cmp162.not157, label %land.lhs.true183, label %while.body164.lr.ph
 
 while.body164.lr.ph:                              ; preds = %while.cond160.preheader
-  %name3.i90 = getelementptr inbounds i8, ptr %call.i63, i64 8
+  %name3.i89 = getelementptr inbounds i8, ptr %call.i63, i64 8
   br label %while.body164
 
 if.then96:                                        ; preds = %if.end92
@@ -3395,8 +3392,8 @@ if.then2.i:                                       ; preds = %lor.lhs.false.i69
   %name.i = getelementptr inbounds i8, ptr %call.i67, i64 8
   %24 = load ptr, ptr %name.i, align 8
   %25 = load ptr, ptr %name3.i, align 8
-  %call4.i76 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %24, ptr noundef nonnull dereferenceable(1) %25) #33
-  %tobool5.not.i = icmp eq i32 %call4.i76, 0
+  %call4.i = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %24, ptr noundef nonnull dereferenceable(1) %25) #33
+  %tobool5.not.i = icmp eq i32 %call4.i, 0
   br i1 %tobool5.not.i, label %if.else151.thread, label %if.then149
 
 if.else151.thread:                                ; preds = %if.then2.i
@@ -3415,47 +3412,47 @@ if.else151:                                       ; preds = %if.else144, %lor.lh
   br label %cleanup.thread
 
 while.body164:                                    ; preds = %while.body164.lr.ph, %if.end180
-  %call161160 = phi ptr [ %call161157, %while.body164.lr.ph ], [ %call161, %if.end180 ]
-  %from.0159 = phi ptr [ %14, %while.body164.lr.ph ], [ %add.ptr, %if.end180 ]
-  store i8 0, ptr %call161160, align 1
-  %call165 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %from.0159, ptr noundef nonnull dereferenceable(4) @.str.369) #33
+  %call161159 = phi ptr [ %call161156, %while.body164.lr.ph ], [ %call161, %if.end180 ]
+  %from.0158 = phi ptr [ %14, %while.body164.lr.ph ], [ %add.ptr, %if.end180 ]
+  store i8 0, ptr %call161159, align 1
+  %call165 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %from.0158, ptr noundef nonnull dereferenceable(4) @.str.369) #33
   %tobool166.not = icmp eq i32 %call165, 0
   br i1 %tobool166.not, label %if.then209, label %if.else168
 
 if.else168:                                       ; preds = %while.body164
-  %call.i78 = call fastcc ptr @clusterManagerNodeByName(ptr noundef nonnull %from.0159)
-  %tobool.not.i79 = icmp eq ptr %call.i78, null
-  br i1 %tobool.not.i79, label %if.else175, label %lor.lhs.false.i80
+  %call.i77 = call fastcc ptr @clusterManagerNodeByName(ptr noundef nonnull %from.0158)
+  %tobool.not.i78 = icmp eq ptr %call.i77, null
+  br i1 %tobool.not.i78, label %if.else175, label %lor.lhs.false.i79
 
-lor.lhs.false.i80:                                ; preds = %if.else168
-  %flags.i81 = getelementptr inbounds i8, ptr %call.i78, i64 56
-  %26 = load i32, ptr %flags.i81, align 8
-  %and.i82 = and i32 %26, 2
-  %tobool1.not.i83 = icmp eq i32 %and.i82, 0
-  br i1 %tobool1.not.i83, label %if.then2.i88, label %if.else175
+lor.lhs.false.i79:                                ; preds = %if.else168
+  %flags.i80 = getelementptr inbounds i8, ptr %call.i77, i64 56
+  %26 = load i32, ptr %flags.i80, align 8
+  %and.i81 = and i32 %26, 2
+  %tobool1.not.i82 = icmp eq i32 %and.i81, 0
+  br i1 %tobool1.not.i82, label %if.then2.i87, label %if.else175
 
-if.then2.i88:                                     ; preds = %lor.lhs.false.i80
-  %name.i89 = getelementptr inbounds i8, ptr %call.i78, i64 8
-  %27 = load ptr, ptr %name.i89, align 8
-  %28 = load ptr, ptr %name3.i90, align 8
-  %call4.i91 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %27, ptr noundef nonnull dereferenceable(1) %28) #33
-  %tobool5.not.i92 = icmp eq i32 %call4.i91, 0
-  br i1 %tobool5.not.i92, label %if.else175.thread, label %if.then173
+if.then2.i87:                                     ; preds = %lor.lhs.false.i79
+  %name.i88 = getelementptr inbounds i8, ptr %call.i77, i64 8
+  %27 = load ptr, ptr %name.i88, align 8
+  %28 = load ptr, ptr %name3.i89, align 8
+  %call4.i90 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %27, ptr noundef nonnull dereferenceable(1) %28) #33
+  %tobool5.not.i91 = icmp eq i32 %call4.i90, 0
+  br i1 %tobool5.not.i91, label %if.else175.thread, label %if.then173
 
-if.else175.thread:                                ; preds = %if.then2.i88
+if.else175.thread:                                ; preds = %if.then2.i87
   call void (i32, ptr, ...) @clusterManagerLog(i32 noundef 3, ptr noundef nonnull @.str.378)
   br label %if.end180
 
-if.then173:                                       ; preds = %if.then2.i88
-  %call174 = call ptr @listAddNodeTail(ptr noundef %call93, ptr noundef nonnull %call.i78) #34
+if.then173:                                       ; preds = %if.then2.i87
+  %call174 = call ptr @listAddNodeTail(ptr noundef %call93, ptr noundef nonnull %call.i77) #34
   br label %if.end180
 
-if.else175:                                       ; preds = %if.else168, %lor.lhs.false.i80
-  call void (i32, ptr, ...) @clusterManagerLog(i32 noundef 3, ptr noundef nonnull @.str.377, ptr noundef nonnull %from.0159)
+if.else175:                                       ; preds = %if.else168, %lor.lhs.false.i79
+  call void (i32, ptr, ...) @clusterManagerLog(i32 noundef 3, ptr noundef nonnull @.str.377, ptr noundef nonnull %from.0158)
   br label %cleanup.thread
 
 if.end180:                                        ; preds = %if.else175.thread, %if.then173
-  %add.ptr = getelementptr inbounds i8, ptr %call161160, i64 1
+  %add.ptr = getelementptr inbounds i8, ptr %call161159, i64 1
   %call161 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %add.ptr, i32 noundef 44) #33
   %cmp162.not = icmp eq ptr %call161, null
   br i1 %cmp162.not, label %land.lhs.true183, label %while.body164, !llvm.loop !37
@@ -3472,35 +3469,35 @@ if.then187:                                       ; preds = %land.lhs.true183
   br i1 %tobool189.not.not, label %if.then209, label %if.then193
 
 if.then193:                                       ; preds = %if.then187
-  %call.i95 = call fastcc ptr @clusterManagerNodeByName(ptr noundef nonnull %from.0.lcssa)
-  %tobool.not.i96 = icmp eq ptr %call.i95, null
-  br i1 %tobool.not.i96, label %if.else200, label %lor.lhs.false.i97
+  %call.i94 = call fastcc ptr @clusterManagerNodeByName(ptr noundef nonnull %from.0.lcssa)
+  %tobool.not.i95 = icmp eq ptr %call.i94, null
+  br i1 %tobool.not.i95, label %if.else200, label %lor.lhs.false.i96
 
-lor.lhs.false.i97:                                ; preds = %if.then193
-  %flags.i98 = getelementptr inbounds i8, ptr %call.i95, i64 56
-  %29 = load i32, ptr %flags.i98, align 8
-  %and.i99 = and i32 %29, 2
-  %tobool1.not.i100 = icmp eq i32 %and.i99, 0
-  br i1 %tobool1.not.i100, label %if.then2.i105, label %if.else200
+lor.lhs.false.i96:                                ; preds = %if.then193
+  %flags.i97 = getelementptr inbounds i8, ptr %call.i94, i64 56
+  %29 = load i32, ptr %flags.i97, align 8
+  %and.i98 = and i32 %29, 2
+  %tobool1.not.i99 = icmp eq i32 %and.i98, 0
+  br i1 %tobool1.not.i99, label %if.then2.i104, label %if.else200
 
-if.then2.i105:                                    ; preds = %lor.lhs.false.i97
-  %name.i106 = getelementptr inbounds i8, ptr %call.i95, i64 8
-  %30 = load ptr, ptr %name.i106, align 8
-  %name3.i107 = getelementptr inbounds i8, ptr %call.i63, i64 8
-  %31 = load ptr, ptr %name3.i107, align 8
-  %call4.i108 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %30, ptr noundef nonnull dereferenceable(1) %31) #33
-  %tobool5.not.i109 = icmp eq i32 %call4.i108, 0
-  br i1 %tobool5.not.i109, label %if.else200.thread, label %if.then198
+if.then2.i104:                                    ; preds = %lor.lhs.false.i96
+  %name.i105 = getelementptr inbounds i8, ptr %call.i94, i64 8
+  %30 = load ptr, ptr %name.i105, align 8
+  %name3.i106 = getelementptr inbounds i8, ptr %call.i63, i64 8
+  %31 = load ptr, ptr %name3.i106, align 8
+  %call4.i107 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %30, ptr noundef nonnull dereferenceable(1) %31) #33
+  %tobool5.not.i108 = icmp eq i32 %call4.i107, 0
+  br i1 %tobool5.not.i108, label %if.else200.thread, label %if.then198
 
-if.else200.thread:                                ; preds = %if.then2.i105
+if.else200.thread:                                ; preds = %if.then2.i104
   call void (i32, ptr, ...) @clusterManagerLog(i32 noundef 3, ptr noundef nonnull @.str.378)
   br label %if.end226
 
-if.then198:                                       ; preds = %if.then2.i105
-  %call199 = call ptr @listAddNodeTail(ptr noundef %call93, ptr noundef nonnull %call.i95) #34
+if.then198:                                       ; preds = %if.then2.i104
+  %call199 = call ptr @listAddNodeTail(ptr noundef %call93, ptr noundef nonnull %call.i94) #34
   br label %if.end226
 
-if.else200:                                       ; preds = %if.then193, %lor.lhs.false.i97
+if.else200:                                       ; preds = %if.then193, %lor.lhs.false.i96
   call void (i32, ptr, ...) @clusterManagerLog(i32 noundef 3, ptr noundef nonnull @.str.377, ptr noundef nonnull %from.0.lcssa)
   br label %cleanup.thread
 
@@ -3508,17 +3505,17 @@ if.then209:                                       ; preds = %while.body164, %if.
   call void @listEmpty(ptr noundef %call93) #34
   %32 = load ptr, ptr @cluster_manager.0, align 8
   call void @listRewind(ptr noundef %32, ptr noundef nonnull %li) #34
-  %call211162 = call ptr @listNext(ptr noundef nonnull %li) #34
-  %cmp212.not163 = icmp eq ptr %call211162, null
-  br i1 %cmp212.not163, label %if.end226, label %while.body214.lr.ph
+  %call211161 = call ptr @listNext(ptr noundef nonnull %li) #34
+  %cmp212.not162 = icmp eq ptr %call211161, null
+  br i1 %cmp212.not162, label %if.end226, label %while.body214.lr.ph
 
 while.body214.lr.ph:                              ; preds = %if.then209
   %name219 = getelementptr inbounds i8, ptr %call.i63, i64 8
   br label %while.body214
 
 while.body214:                                    ; preds = %while.body214.lr.ph, %while.cond210.backedge
-  %call211164 = phi ptr [ %call211162, %while.body214.lr.ph ], [ %call211, %while.cond210.backedge ]
-  %value = getelementptr inbounds i8, ptr %call211164, i64 16
+  %call211163 = phi ptr [ %call211161, %while.body214.lr.ph ], [ %call211, %while.cond210.backedge ]
+  %value = getelementptr inbounds i8, ptr %call211163, i64 16
   %33 = load ptr, ptr %value, align 8
   %flags = getelementptr inbounds i8, ptr %33, i64 56
   %34 = load i32, ptr %flags, align 8
@@ -3564,13 +3561,13 @@ if.end232:                                        ; preds = %if.end226
   %call233 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.371, i32 noundef %slots.0)
   %puts56 = call i32 @puts(ptr nonnull dereferenceable(1) @str.4)
   call void @listRewind(ptr noundef nonnull %call93, ptr noundef nonnull %li) #34
-  %call236165 = call ptr @listNext(ptr noundef nonnull %li) #34
-  %cmp237.not166 = icmp eq ptr %call236165, null
-  br i1 %cmp237.not166, label %while.end244, label %while.body239
+  %call236164 = call ptr @listNext(ptr noundef nonnull %li) #34
+  %cmp237.not165 = icmp eq ptr %call236164, null
+  br i1 %cmp237.not165, label %while.end244, label %while.body239
 
 while.body239:                                    ; preds = %if.end232, %while.body239
-  %call236167 = phi ptr [ %call236, %while.body239 ], [ %call236165, %if.end232 ]
-  %value241 = getelementptr inbounds i8, ptr %call236167, i64 16
+  %call236166 = phi ptr [ %call236, %while.body239 ], [ %call236164, %if.end232 ]
+  %value241 = getelementptr inbounds i8, ptr %call236166, i64 16
   %41 = load ptr, ptr %value241, align 8
   %call242 = call fastcc ptr @clusterManagerNodeInfo(ptr noundef %41, i32 noundef 4)
   %puts61 = call i32 @puts(ptr nonnull dereferenceable(1) %call242)
@@ -3593,18 +3590,18 @@ while.end244:                                     ; preds = %while.body239, %if.
   br i1 %cmp.not3.i, label %clusterManagerShowReshardTable.exit, label %while.body.i
 
 while.body.i:                                     ; preds = %while.end244, %while.body.i
-  %call4.i112 = phi ptr [ %call.i114, %while.body.i ], [ %call2.i, %while.end244 ]
-  %value.i = getelementptr inbounds i8, ptr %call4.i112, i64 16
+  %call4.i111 = phi ptr [ %call.i113, %while.body.i ], [ %call2.i, %while.end244 ]
+  %value.i = getelementptr inbounds i8, ptr %call4.i111, i64 16
   %42 = load ptr, ptr %value.i, align 8
   %43 = load ptr, ptr %42, align 8
   %slot.i = getelementptr inbounds i8, ptr %42, i64 8
   %44 = load i32, ptr %slot.i, align 8
-  %name.i113 = getelementptr inbounds i8, ptr %43, i64 8
-  %45 = load ptr, ptr %name.i113, align 8
+  %name.i112 = getelementptr inbounds i8, ptr %43, i64 8
+  %45 = load ptr, ptr %name.i112, align 8
   %call1.i = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.379, i32 noundef %44, ptr noundef %45)
-  %call.i114 = call ptr @listNext(ptr noundef nonnull %li.i) #34
-  %cmp.not.i115 = icmp eq ptr %call.i114, null
-  br i1 %cmp.not.i115, label %clusterManagerShowReshardTable.exit, label %while.body.i, !llvm.loop !40
+  %call.i113 = call ptr @listNext(ptr noundef nonnull %li.i) #34
+  %cmp.not.i114 = icmp eq ptr %call.i113, null
+  br i1 %cmp.not.i114, label %clusterManagerShowReshardTable.exit, label %while.body.i, !llvm.loop !40
 
 clusterManagerShowReshardTable.exit:              ; preds = %while.body.i, %while.end244
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %li.i)
@@ -3664,38 +3661,38 @@ if.then284:                                       ; preds = %if.then281
 
 cleanup.thread:                                   ; preds = %if.then230, %if.else151, %if.else175, %if.else200
   call void @listRelease(ptr noundef %call93) #34
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %li.i116)
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %li.i115)
   br label %clusterManagerReleaseReshardTable.exit
 
 cleanup:                                          ; preds = %while.cond273, %if.then253, %lor.lhs.false265, %if.then281, %if.then284
   %result.0 = phi i32 [ 0, %if.then284 ], [ 0, %if.then281 ], [ 0, %lor.lhs.false265 ], [ 0, %if.then253 ], [ 1, %while.cond273 ]
   call void @listRelease(ptr noundef %call93) #34
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %li.i116)
-  %cmp.not.i117 = icmp eq ptr %call249, null
-  br i1 %cmp.not.i117, label %clusterManagerReleaseReshardTable.exit, label %if.then.i118
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %li.i115)
+  %cmp.not.i116 = icmp eq ptr %call249, null
+  br i1 %cmp.not.i116, label %clusterManagerReleaseReshardTable.exit, label %if.then.i117
 
-if.then.i118:                                     ; preds = %cleanup
-  call void @listRewind(ptr noundef nonnull %call249, ptr noundef nonnull %li.i116) #34
-  %call3.i = call ptr @listNext(ptr noundef nonnull %li.i116) #34
+if.then.i117:                                     ; preds = %cleanup
+  call void @listRewind(ptr noundef nonnull %call249, ptr noundef nonnull %li.i115) #34
+  %call3.i = call ptr @listNext(ptr noundef nonnull %li.i115) #34
   %cmp1.not4.i = icmp eq ptr %call3.i, null
-  br i1 %cmp1.not4.i, label %while.end.i, label %while.body.i119
+  br i1 %cmp1.not4.i, label %while.end.i, label %while.body.i118
 
-while.body.i119:                                  ; preds = %if.then.i118, %while.body.i119
-  %call5.i = phi ptr [ %call.i121, %while.body.i119 ], [ %call3.i, %if.then.i118 ]
-  %value.i120 = getelementptr inbounds i8, ptr %call5.i, i64 16
-  %54 = load ptr, ptr %value.i120, align 8
+while.body.i118:                                  ; preds = %if.then.i117, %while.body.i118
+  %call5.i = phi ptr [ %call.i120, %while.body.i118 ], [ %call3.i, %if.then.i117 ]
+  %value.i119 = getelementptr inbounds i8, ptr %call5.i, i64 16
+  %54 = load ptr, ptr %value.i119, align 8
   call void @zfree(ptr noundef %54) #34
-  %call.i121 = call ptr @listNext(ptr noundef nonnull %li.i116) #34
-  %cmp1.not.i = icmp eq ptr %call.i121, null
-  br i1 %cmp1.not.i, label %while.end.i, label %while.body.i119, !llvm.loop !42
+  %call.i120 = call ptr @listNext(ptr noundef nonnull %li.i115) #34
+  %cmp1.not.i = icmp eq ptr %call.i120, null
+  br i1 %cmp1.not.i, label %while.end.i, label %while.body.i118, !llvm.loop !42
 
-while.end.i:                                      ; preds = %while.body.i119, %if.then.i118
+while.end.i:                                      ; preds = %while.body.i118, %if.then.i117
   call void @listRelease(ptr noundef nonnull %call249) #34
   br label %clusterManagerReleaseReshardTable.exit
 
 clusterManagerReleaseReshardTable.exit:           ; preds = %cleanup.thread, %cleanup, %while.end.i
-  %result.0151 = phi i32 [ 0, %cleanup.thread ], [ %result.0, %cleanup ], [ %result.0, %while.end.i ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %li.i116)
+  %result.0150 = phi i32 [ 0, %cleanup.thread ], [ %result.0, %cleanup ], [ %result.0, %while.end.i ]
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %li.i115)
   br label %return
 
 invalid_args:                                     ; preds = %if.end5.i, %if.end4.i.i
@@ -3704,7 +3701,7 @@ invalid_args:                                     ; preds = %if.end5.i, %if.end4
   br label %return
 
 return:                                           ; preds = %clusterNodeForResharding.exit.thread, %if.end, %invalid_args, %clusterManagerReleaseReshardTable.exit, %if.then8
-  %retval.0 = phi i32 [ 0, %if.then8 ], [ %result.0151, %clusterManagerReleaseReshardTable.exit ], [ 0, %invalid_args ], [ 0, %if.end ], [ 0, %clusterNodeForResharding.exit.thread ]
+  %retval.0 = phi i32 [ 0, %if.then8 ], [ %result.0150, %clusterManagerReleaseReshardTable.exit ], [ 0, %invalid_args ], [ 0, %if.end ], [ 0, %clusterNodeForResharding.exit.thread ]
   ret i32 %retval.0
 }
 
@@ -3737,19 +3734,18 @@ if.end4.i.i:                                      ; preds = %if.then.i.i, %if.th
 parseClusterNodeAddress.exit.i:                   ; preds = %if.end4.i.i
   store i8 0, ptr %call5.i.i, align 1
   %incdec.ptr.i.i = getelementptr inbounds i8, ptr %call5.i.i, i64 1
-  %call8.i.i = tail call i32 @atoi(ptr nocapture noundef nonnull %incdec.ptr.i.i) #33
   br label %if.end5.i
 
 if.else.i:                                        ; preds = %entry
   %arrayidx3.i = getelementptr inbounds i8, ptr %argv, i64 8
   %1 = load ptr, ptr %arrayidx3.i, align 8
-  %call4.i = tail call i32 @atoi(ptr nocapture noundef %1) #33
   br label %if.end5.i
 
 if.end5.i:                                        ; preds = %if.else.i, %parseClusterNodeAddress.exit.i
-  %port.0.i = phi i32 [ %call8.i.i, %parseClusterNodeAddress.exit.i ], [ %call4.i, %if.else.i ]
+  %incdec.ptr.i.sink.i = phi ptr [ %incdec.ptr.i.i, %parseClusterNodeAddress.exit.i ], [ %1, %if.else.i ]
+  %call8.i.i = tail call i32 @atoi(ptr nocapture noundef %incdec.ptr.i.sink.i) #33
   %tobool6.i = icmp ne ptr %0, null
-  %tobool7.i = icmp ne i32 %port.0.i, 0
+  %tobool7.i = icmp ne i32 %call8.i.i, 0
   %or.cond.i = select i1 %tobool6.i, i1 %tobool7.i, i1 false
   br i1 %or.cond.i, label %if.end, label %invalid_args
 
@@ -3759,8 +3755,8 @@ if.end:                                           ; preds = %if.end5.i
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %call.i, i8 0, i64 16, i1 false)
   store ptr %0, ptr %ip1.i, align 8
   %port2.i = getelementptr inbounds i8, ptr %call.i, i64 24
-  store i32 %port.0.i, ptr %port2.i, align 8
-  %add.i = add nsw i32 %port.0.i, 10000
+  store i32 %call8.i.i, ptr %port2.i, align 8
+  %add.i = add nsw i32 %call8.i.i, 10000
   %bus_port3.i = getelementptr inbounds i8, ptr %call.i, i64 28
   store i32 %add.i, ptr %bus_port3.i, align 4
   %current_epoch.i = getelementptr inbounds i8, ptr %call.i, i64 32
@@ -4344,19 +4340,18 @@ if.end4.i.i:                                      ; preds = %if.then.i.i, %if.th
 parseClusterNodeAddress.exit.i:                   ; preds = %if.end4.i.i
   store i8 0, ptr %call5.i.i, align 1
   %incdec.ptr.i.i = getelementptr inbounds i8, ptr %call5.i.i, i64 1
-  %call8.i.i = tail call i32 @atoi(ptr nocapture noundef nonnull %incdec.ptr.i.i) #33
   br label %if.end5.i
 
 if.else.i:                                        ; preds = %entry
   %arrayidx3.i = getelementptr inbounds i8, ptr %argv, i64 16
   %1 = load ptr, ptr %arrayidx3.i, align 8
-  %call4.i = tail call i32 @atoi(ptr nocapture noundef %1) #33
   br label %if.end5.i
 
 if.end5.i:                                        ; preds = %if.else.i, %parseClusterNodeAddress.exit.i
-  %port.0.i = phi i32 [ %call8.i.i, %parseClusterNodeAddress.exit.i ], [ %call4.i, %if.else.i ]
+  %incdec.ptr.i.sink.i = phi ptr [ %incdec.ptr.i.i, %parseClusterNodeAddress.exit.i ], [ %1, %if.else.i ]
+  %call8.i.i = tail call i32 @atoi(ptr nocapture noundef %incdec.ptr.i.sink.i) #33
   %tobool6.i = icmp ne ptr %0, null
-  %tobool7.i = icmp ne i32 %port.0.i, 0
+  %tobool7.i = icmp ne i32 %call8.i.i, 0
   %or.cond.i = select i1 %tobool6.i, i1 %tobool7.i, i1 false
   br i1 %or.cond.i, label %if.end, label %invalid_args
 
@@ -4378,21 +4373,21 @@ if.end4.i.i68:                                    ; preds = %if.then.i.i67, %if.
 parseClusterNodeAddress.exit.i71:                 ; preds = %if.end4.i.i68
   store i8 0, ptr %call5.i.i69, align 1
   %incdec.ptr.i.i72 = getelementptr inbounds i8, ptr %call5.i.i69, i64 1
-  %call8.i.i73 = tail call i32 @atoi(ptr nocapture noundef nonnull %incdec.ptr.i.i72) #33
+  %call8.i.i75 = tail call i32 @atoi(ptr nocapture noundef nonnull %incdec.ptr.i.i72) #33
   %tobool6.i76 = icmp ne ptr %2, null
-  %tobool7.i77 = icmp ne i32 %call8.i.i73, 0
+  %tobool7.i77 = icmp ne i32 %call8.i.i75, 0
   %or.cond.i78 = select i1 %tobool6.i76, i1 %tobool7.i77, i1 false
   br i1 %or.cond.i78, label %if.end4, label %invalid_args
 
 if.end4:                                          ; preds = %parseClusterNodeAddress.exit.i71
-  tail call void (i32, ptr, ...) @clusterManagerLog(i32 noundef 1, ptr noundef nonnull @.str.327, ptr noundef nonnull %2, i32 noundef %call8.i.i73, ptr noundef nonnull %0, i32 noundef %port.0.i)
+  tail call void (i32, ptr, ...) @clusterManagerLog(i32 noundef 1, ptr noundef nonnull @.str.327, ptr noundef nonnull %2, i32 noundef %call8.i.i75, ptr noundef nonnull %0, i32 noundef %call8.i.i)
   %call.i = tail call noalias dereferenceable_or_null(16520) ptr @zmalloc(i64 noundef 16520) #36
   %ip1.i = getelementptr inbounds i8, ptr %call.i, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %call.i, i8 0, i64 16, i1 false)
   store ptr %0, ptr %ip1.i, align 8
   %port2.i = getelementptr inbounds i8, ptr %call.i, i64 24
-  store i32 %port.0.i, ptr %port2.i, align 8
-  %add.i = add nsw i32 %port.0.i, 10000
+  store i32 %call8.i.i, ptr %port2.i, align 8
+  %add.i = add nsw i32 %call8.i.i, 10000
   %bus_port3.i = getelementptr inbounds i8, ptr %call.i, i64 28
   store i32 %add.i, ptr %bus_port3.i, align 4
   %current_epoch.i = getelementptr inbounds i8, ptr %call.i, i64 32
@@ -4490,8 +4485,8 @@ if.end26:                                         ; preds = %clusterManagerNodeW
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %call.i83, i8 0, i64 16, i1 false)
   store ptr %2, ptr %ip1.i84, align 8
   %port2.i85 = getelementptr inbounds i8, ptr %call.i83, i64 24
-  store i32 %call8.i.i73, ptr %port2.i85, align 8
-  %add.i86 = add nsw i32 %call8.i.i73, 10000
+  store i32 %call8.i.i75, ptr %port2.i85, align 8
+  %add.i86 = add nsw i32 %call8.i.i75, 10000
   %bus_port3.i87 = getelementptr inbounds i8, ptr %call.i83, i64 28
   store i32 %add.i86, ptr %bus_port3.i87, align 4
   %current_epoch.i88 = getelementptr inbounds i8, ptr %call.i83, i64 32
@@ -4513,7 +4508,7 @@ if.end26:                                         ; preds = %clusterManagerNodeW
   br i1 %tobool29.not, label %if.then30, label %if.end31
 
 if.then30:                                        ; preds = %if.end26
-  call void (i32, ptr, ...) @clusterManagerLog(i32 noundef 3, ptr noundef nonnull @.str.330, ptr noundef nonnull %2, i32 noundef %call8.i.i73)
+  call void (i32, ptr, ...) @clusterManagerLog(i32 noundef 3, ptr noundef nonnull @.str.330, ptr noundef nonnull %2, i32 noundef %call8.i.i75)
   br label %if.then144
 
 if.end31:                                         ; preds = %if.end26
@@ -4636,7 +4631,7 @@ if.then64:                                        ; preds = %if.then61
   br label %if.end99
 
 if.else66:                                        ; preds = %if.then57
-  call void (i32, ptr, ...) @clusterManagerLog(i32 noundef 1, ptr noundef nonnull @.str.335, ptr noundef nonnull %2, i32 noundef %call8.i.i73)
+  call void (i32, ptr, ...) @clusterManagerLog(i32 noundef 1, ptr noundef nonnull @.str.335, ptr noundef nonnull %2, i32 noundef %call8.i.i75)
   %31 = load ptr, ptr %call.i83, align 8
   %call68 = call ptr (ptr, ptr, ...) @redisCommand(ptr noundef %31, ptr noundef nonnull @.str.336) #34
   %call69 = call fastcc i32 @clusterManagerCheckRedisReply(ptr noundef nonnull %call.i83, ptr noundef %call68, ptr noundef nonnull %err)
@@ -4667,7 +4662,7 @@ if.then82:                                        ; preds = %if.end80
   br label %if.end145
 
 if.end83:                                         ; preds = %if.end80
-  call void (i32, ptr, ...) @clusterManagerLog(i32 noundef 1, ptr noundef nonnull @.str.339, ptr noundef nonnull %2, i32 noundef %call8.i.i73)
+  call void (i32, ptr, ...) @clusterManagerLog(i32 noundef 1, ptr noundef nonnull @.str.339, ptr noundef nonnull %2, i32 noundef %call8.i.i75)
   %35 = load ptr, ptr %call.i83, align 8
   %str = getelementptr inbounds i8, ptr %call58, i64 32
   %36 = load ptr, ptr %str, align 8
@@ -4705,7 +4700,7 @@ if.end102:                                        ; preds = %if.end54, %if.then1
   %reply.1136 = phi ptr [ %call58, %if.then101 ], [ null, %if.end99 ], [ null, %if.end54 ]
   %function_restore_reply.1135 = phi ptr [ %function_restore_reply.1143, %if.then101 ], [ null, %if.end99 ], [ null, %if.end54 ]
   %function_list_reply.1134 = phi ptr [ %function_list_reply.1142, %if.then101 ], [ null, %if.end99 ], [ null, %if.end54 ]
-  call void (i32, ptr, ...) @clusterManagerLog(i32 noundef 1, ptr noundef nonnull @.str.342, ptr noundef nonnull %2, i32 noundef %call8.i.i73)
+  call void (i32, ptr, ...) @clusterManagerLog(i32 noundef 1, ptr noundef nonnull @.str.342, ptr noundef nonnull %2, i32 noundef %call8.i.i75)
   %ip103 = getelementptr inbounds i8, ptr %27, i64 16
   %40 = load ptr, ptr %ip103, align 8
   %call104 = call i32 @anetResolve(ptr noundef null, ptr noundef %40, ptr noundef nonnull %first_ip, i64 noundef 46, i32 noundef 0) #34
@@ -5464,19 +5459,18 @@ if.end4.i.i:                                      ; preds = %if.then.i.i, %if.th
 parseClusterNodeAddress.exit.i:                   ; preds = %if.end4.i.i
   store i8 0, ptr %call5.i.i, align 1
   %incdec.ptr.i.i = getelementptr inbounds i8, ptr %call5.i.i, i64 1
-  %call8.i.i = tail call i32 @atoi(ptr nocapture noundef nonnull %incdec.ptr.i.i) #33
   br label %if.end5.i
 
 if.else.i:                                        ; preds = %entry
   %arrayidx3.i = getelementptr inbounds i8, ptr %argv, i64 8
   %1 = load ptr, ptr %arrayidx3.i, align 8
-  %call4.i = tail call i32 @atoi(ptr nocapture noundef %1) #33
   br label %if.end5.i
 
 if.end5.i:                                        ; preds = %if.else.i, %parseClusterNodeAddress.exit.i
-  %port.0.i = phi i32 [ %call8.i.i, %parseClusterNodeAddress.exit.i ], [ %call4.i, %if.else.i ]
+  %incdec.ptr.i.sink.i = phi ptr [ %incdec.ptr.i.i, %parseClusterNodeAddress.exit.i ], [ %1, %if.else.i ]
+  %call8.i.i = tail call i32 @atoi(ptr nocapture noundef %incdec.ptr.i.sink.i) #33
   %tobool6.i = icmp ne ptr %0, null
-  %tobool7.i = icmp ne i32 %port.0.i, 0
+  %tobool7.i = icmp ne i32 %call8.i.i, 0
   %or.cond.i = select i1 %tobool6.i, i1 %tobool7.i, i1 false
   br i1 %or.cond.i, label %if.end, label %invalid_args
 
@@ -5502,19 +5496,19 @@ if.end4.i.i78:                                    ; preds = %if.then.i.i77, %if.
 parseClusterNodeAddress.exit.i81:                 ; preds = %if.end4.i.i78
   store i8 0, ptr %call5.i.i79, align 1
   %incdec.ptr.i.i82 = getelementptr inbounds i8, ptr %call5.i.i79, i64 1
-  %call8.i.i83 = tail call i32 @atoi(ptr nocapture noundef nonnull %incdec.ptr.i.i82) #33
-  %tobool7.i87.not = icmp eq i32 %call8.i.i83, 0
+  %call8.i.i85 = tail call i32 @atoi(ptr nocapture noundef nonnull %incdec.ptr.i.i82) #33
+  %tobool7.i87.not = icmp eq i32 %call8.i.i85, 0
   br i1 %tobool7.i87.not, label %invalid_args, label %if.end6
 
 if.end6:                                          ; preds = %parseClusterNodeAddress.exit.i81
-  tail call void (i32, ptr, ...) @clusterManagerLog(i32 noundef 1, ptr noundef nonnull @.str.402, ptr noundef nonnull %2, i32 noundef %call8.i.i83, ptr noundef nonnull %0, i32 noundef %port.0.i)
+  tail call void (i32, ptr, ...) @clusterManagerLog(i32 noundef 1, ptr noundef nonnull @.str.402, ptr noundef nonnull %2, i32 noundef %call8.i.i85, ptr noundef nonnull %0, i32 noundef %call8.i.i)
   %call.i = tail call noalias dereferenceable_or_null(16520) ptr @zmalloc(i64 noundef 16520) #36
   %ip1.i = getelementptr inbounds i8, ptr %call.i, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %call.i, i8 0, i64 16, i1 false)
   store ptr %0, ptr %ip1.i, align 8
   %port2.i = getelementptr inbounds i8, ptr %call.i, i64 24
-  store i32 %port.0.i, ptr %port2.i, align 8
-  %add.i = add nsw i32 %port.0.i, 10000
+  store i32 %call8.i.i, ptr %port2.i, align 8
+  %add.i = add nsw i32 %call8.i.i, 10000
   %bus_port3.i = getelementptr inbounds i8, ptr %call.i, i64 28
   store i32 %add.i, ptr %bus_port3.i, align 4
   %current_epoch.i = getelementptr inbounds i8, ptr %call.i, i64 32
@@ -5541,7 +5535,7 @@ if.end11:                                         ; preds = %if.end6
   br i1 %tobool13.not, label %return, label %if.end15
 
 if.end15:                                         ; preds = %if.end11
-  %call16 = tail call ptr @redisConnect(ptr noundef nonnull %2, i32 noundef %call8.i.i83) #34
+  %call16 = tail call ptr @redisConnect(ptr noundef nonnull %2, i32 noundef %call8.i.i85) #34
   %err = getelementptr inbounds i8, ptr %call16, i64 8
   %3 = load i32, ptr %err, align 8
   %tobool17.not = icmp eq i32 %3, 0
@@ -5550,7 +5544,7 @@ if.end15:                                         ; preds = %if.end11
 if.then18:                                        ; preds = %if.end15
   %4 = load ptr, ptr @stderr, align 8
   %errstr = getelementptr inbounds i8, ptr %call16, i64 12
-  %call20 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %4, ptr noundef nonnull @.str.403, ptr noundef nonnull %2, i32 noundef %call8.i.i83, ptr noundef nonnull %errstr) #38
+  %call20 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %4, ptr noundef nonnull @.str.403, ptr noundef nonnull %2, i32 noundef %call8.i.i85, ptr noundef nonnull %errstr) #38
   br label %if.end190.thread
 
 if.end21:                                         ; preds = %if.end15
@@ -5890,7 +5884,7 @@ land.lhs.true168:                                 ; preds = %clusterManagerKeyHa
   br i1 %tobool170.not, label %if.end174, label %if.then171
 
 if.then171:                                       ; preds = %land.lhs.true168
-  call void (i32, ptr, ...) @clusterManagerLog(i32 noundef 3, ptr noundef nonnull @.str.413, ptr noundef nonnull %2, i32 noundef %call8.i.i83, ptr noundef nonnull %53)
+  call void (i32, ptr, ...) @clusterManagerLog(i32 noundef 3, ptr noundef nonnull @.str.413, ptr noundef nonnull %2, i32 noundef %call8.i.i85, ptr noundef nonnull %53)
   br label %if.end174
 
 if.end174:                                        ; preds = %land.lhs.true168, %if.then171
@@ -5913,7 +5907,7 @@ cleanup:                                          ; preds = %if.end25, %land.lhs
   br i1 %tobool182.not, label %if.end184, label %if.then183
 
 if.then183:                                       ; preds = %cleanup
-  call void (i32, ptr, ...) @clusterManagerLog(i32 noundef 3, ptr noundef nonnull @.str.413, ptr noundef nonnull %2, i32 noundef %call8.i.i83, ptr noundef nonnull %reply_err.0)
+  call void (i32, ptr, ...) @clusterManagerLog(i32 noundef 3, ptr noundef nonnull @.str.413, ptr noundef nonnull %2, i32 noundef %call8.i.i85, ptr noundef nonnull %reply_err.0)
   br label %if.end184
 
 if.end184:                                        ; preds = %while.cond92.loopexit, %if.end174, %if.then183, %cleanup
@@ -17276,15 +17270,14 @@ if.then7.i:                                       ; preds = %if.end3.i
   %3 = load i64, ptr %len.i, align 8
   %add10.i = add i64 %3, 1
   %call11.i = tail call i64 @redis_strlcpy(ptr noundef %call8.i, ptr noundef %2, i64 noundef %add10.i) #34
-  tail call void @freeReplyObject(ptr noundef nonnull %call.i) #34
-  br label %return
+  br label %return.sink.split
 
 if.end:                                           ; preds = %if.end3.i
   %str = getelementptr inbounds i8, ptr %call.i, i64 32
   %4 = load ptr, ptr %str, align 8
   %call1 = tail call ptr @strstr(ptr noundef nonnull dereferenceable(1) %4, ptr noundef nonnull dereferenceable(1) @.str.204) #33
   %cmp2.not = icmp eq ptr %call1, null
-  br i1 %cmp2.not, label %if.end4, label %result
+  br i1 %cmp2.not, label %if.end4, label %return.sink.split
 
 if.end4:                                          ; preds = %if.end
   tail call void @freeReplyObject(ptr noundef nonnull %call.i) #34
@@ -17292,7 +17285,7 @@ if.end4:                                          ; preds = %if.end
   %call5 = tail call ptr (ptr, ptr, ...) @redisCommand(ptr noundef %5, ptr noundef nonnull @.str.205) #34
   store ptr null, ptr %err, align 8
   %tobool.not.i = icmp eq ptr %call5, null
-  br i1 %tobool.not.i, label %result, label %lor.lhs.false.i
+  br i1 %tobool.not.i, label %return.sink.split, label %lor.lhs.false.i
 
 lor.lhs.false.i:                                  ; preds = %if.end4
   %6 = load i32, ptr %call5, align 8
@@ -17310,7 +17303,7 @@ if.then2.i:                                       ; preds = %lor.lhs.false.i
   %9 = load i64, ptr %len.i14, align 8
   %add7.i = add i64 %9, 1
   %call8.i18 = tail call i64 @redis_strlcpy(ptr noundef %call.i16, ptr noundef %8, i64 noundef %add7.i) #34
-  br label %result
+  br label %return.sink.split
 
 if.end11:                                         ; preds = %lor.lhs.false.i
   %str12 = getelementptr inbounds i8, ptr %call5, i64 32
@@ -17318,16 +17311,16 @@ if.end11:                                         ; preds = %lor.lhs.false.i
   %call13 = tail call fastcc i64 @getLongInfoField(ptr noundef %10, ptr noundef nonnull @.str.206)
   %cmp14 = icmp eq i64 %call13, 1
   %conv = zext i1 %cmp14 to i32
-  br label %result
+  br label %return.sink.split
 
-result:                                           ; preds = %if.end4, %if.then2.i, %if.end, %if.end11
-  %info.0 = phi ptr [ %call5, %if.end11 ], [ %call.i, %if.end ], [ %call5, %if.then2.i ], [ null, %if.end4 ]
-  %is_empty.0 = phi i32 [ %conv, %if.end11 ], [ 0, %if.end ], [ 0, %if.then2.i ], [ 0, %if.end4 ]
-  tail call void @freeReplyObject(ptr noundef %info.0) #34
+return.sink.split:                                ; preds = %if.end11, %if.end, %if.then2.i, %if.end4, %if.then7.i
+  %call.i.sink = phi ptr [ %call.i, %if.then7.i ], [ %call5, %if.end11 ], [ %call.i, %if.end ], [ %call5, %if.then2.i ], [ null, %if.end4 ]
+  %retval.0.ph = phi i32 [ 0, %if.then7.i ], [ %conv, %if.end11 ], [ 0, %if.end ], [ 0, %if.then2.i ], [ 0, %if.end4 ]
+  tail call void @freeReplyObject(ptr noundef %call.i.sink) #34
   br label %return
 
-return:                                           ; preds = %entry, %if.then7.i, %result
-  %retval.0 = phi i32 [ %is_empty.0, %result ], [ 0, %if.then7.i ], [ 0, %entry ]
+return:                                           ; preds = %return.sink.split, %entry
+  %retval.0 = phi i32 [ 0, %entry ], [ %retval.0.ph, %return.sink.split ]
   ret i32 %retval.0
 }
 

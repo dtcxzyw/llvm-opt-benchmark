@@ -297,7 +297,7 @@ define internal range(i32 0, 2) i32 @test_lbmpdm_tcp_packet(ptr noundef %0, ptr 
 17:                                               ; preds = %15
   %18 = load i32, ptr @lbmpdm_tcp_use_tag, align 4
   %.not22 = icmp eq i32 %18, 0
-  br i1 %.not22, label %40, label %.preheader.i.i
+  br i1 %.not22, label %38, label %.preheader.i.i
 
 .preheader.i.i:                                   ; preds = %17
   %19 = load i32, ptr @lbmpdm_tcp_tag_count, align 4
@@ -349,36 +349,32 @@ lbmpdm_tcp_tag_locate.exit.i:                     ; preds = %33, %28
 lbmpdm_tcp_tag_find.exit:                         ; preds = %lbmpdm_tcp_tag_locate.exit.i
   %37 = load ptr, ptr %25, align 8
   %.not27 = icmp eq ptr %37, null
-  br i1 %.not27, label %lbmpdm_tcp_tag_find.exit.thread, label %38
+  br i1 %.not27, label %lbmpdm_tcp_tag_find.exit.thread, label %lbmpdm_tcp_tag_find.exit.thread.sink.split
 
-38:                                               ; preds = %lbmpdm_tcp_tag_find.exit
-  %39 = call i32 @dissect_lbmpdm_tcp(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr poison)
-  br label %lbmpdm_tcp_tag_find.exit.thread
-
-40:                                               ; preds = %17
-  %41 = getelementptr inbounds i8, ptr %1, i64 284
-  %42 = load i32, ptr %41, align 4
-  %43 = load i32, ptr @lbmpdm_tcp_port_low, align 4
-  %.not23 = icmp ult i32 %42, %43
-  %44 = load i32, ptr @lbmpdm_tcp_port_high, align 4
-  %.not24 = icmp ugt i32 %42, %44
+38:                                               ; preds = %17
+  %39 = getelementptr inbounds i8, ptr %1, i64 284
+  %40 = load i32, ptr %39, align 4
+  %41 = load i32, ptr @lbmpdm_tcp_port_low, align 4
+  %.not23 = icmp ult i32 %40, %41
+  %42 = load i32, ptr @lbmpdm_tcp_port_high, align 4
+  %.not24 = icmp ugt i32 %40, %42
   %or.cond = select i1 %.not23, i1 true, i1 %.not24
-  br i1 %or.cond, label %45, label %48
+  br i1 %or.cond, label %43, label %lbmpdm_tcp_tag_find.exit.thread.sink.split
 
-45:                                               ; preds = %40
-  %46 = getelementptr inbounds i8, ptr %1, i64 288
-  %47 = load i32, ptr %46, align 8
-  %.not25 = icmp ult i32 %47, %43
-  %.not26 = icmp ugt i32 %47, %44
+43:                                               ; preds = %38
+  %44 = getelementptr inbounds i8, ptr %1, i64 288
+  %45 = load i32, ptr %44, align 8
+  %.not25 = icmp ult i32 %45, %41
+  %.not26 = icmp ugt i32 %45, %42
   %or.cond28 = select i1 %.not25, i1 true, i1 %.not26
-  br i1 %or.cond28, label %lbmpdm_tcp_tag_find.exit.thread, label %48
+  br i1 %or.cond28, label %lbmpdm_tcp_tag_find.exit.thread, label %lbmpdm_tcp_tag_find.exit.thread.sink.split
 
-48:                                               ; preds = %45, %40
-  %49 = call i32 @dissect_lbmpdm_tcp(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, ptr poison)
+lbmpdm_tcp_tag_find.exit.thread.sink.split:       ; preds = %38, %43, %lbmpdm_tcp_tag_find.exit
+  %46 = call i32 @dissect_lbmpdm_tcp(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr poison)
   br label %lbmpdm_tcp_tag_find.exit.thread
 
-lbmpdm_tcp_tag_find.exit.thread:                  ; preds = %36, %.preheader.i.i, %lbmpdm_tcp_tag_locate.exit.i, %45, %lbmpdm_tcp_tag_find.exit, %15, %9, %12, %4, %48, %38
-  %.0 = phi i32 [ 1, %38 ], [ 1, %48 ], [ 0, %4 ], [ 0, %12 ], [ 0, %9 ], [ 0, %15 ], [ 0, %lbmpdm_tcp_tag_find.exit ], [ 0, %45 ], [ 0, %lbmpdm_tcp_tag_locate.exit.i ], [ 0, %.preheader.i.i ], [ 0, %36 ]
+lbmpdm_tcp_tag_find.exit.thread:                  ; preds = %36, %lbmpdm_tcp_tag_find.exit.thread.sink.split, %.preheader.i.i, %lbmpdm_tcp_tag_locate.exit.i, %43, %lbmpdm_tcp_tag_find.exit, %15, %9, %12, %4
+  %.0 = phi i32 [ 0, %4 ], [ 0, %12 ], [ 0, %9 ], [ 0, %15 ], [ 0, %lbmpdm_tcp_tag_find.exit ], [ 0, %43 ], [ 0, %lbmpdm_tcp_tag_locate.exit.i ], [ 0, %.preheader.i.i ], [ 1, %lbmpdm_tcp_tag_find.exit.thread.sink.split ], [ 0, %36 ]
   ret i32 %.0
 }
 

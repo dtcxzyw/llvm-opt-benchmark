@@ -930,7 +930,7 @@ _ZNK4llvm15CatchSwitchInst13getUnwindDestEv.exit: ; preds = %13
   %24 = tail call noundef ptr @_ZNK4llvm10BasicBlock14getFirstNonPHIEv(ptr noundef nonnull align 8 dereferenceable(80) %22) #16
   %25 = load i8, ptr %24, align 8
   %.not36 = icmp eq i8 %25, 39
-  br i1 %.not36, label %26, label %33
+  br i1 %.not36, label %26, label %_ZNK4llvm10BasicBlock7isEHPadEv.exit.sink.split
 
 26:                                               ; preds = %23
   %27 = getelementptr inbounds i8, ptr %24, i64 -8
@@ -942,16 +942,16 @@ _ZNK4llvm15CatchSwitchInst13getUnwindDestEv.exit: ; preds = %13
   %spec.select.v.i.i = select i1 %.not.i.i, i64 32, i64 64
   %spec.select.i.i23 = getelementptr inbounds i8, ptr %28, i64 %spec.select.v.i.i
   %32 = load ptr, ptr %spec.select.i.i23, align 8
-  tail call void @_ZN4llvm14WasmEHFuncInfo13setUnwindDestEPKNS_10BasicBlockES3_(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull %7, ptr noundef %32)
+  br label %_ZNK4llvm10BasicBlock7isEHPadEv.exit.sink.split
+
+_ZNK4llvm10BasicBlock7isEHPadEv.exit.sink.split:  ; preds = %23, %26
+  %.sink = phi ptr [ %32, %26 ], [ %22, %23 ]
+  tail call void @_ZN4llvm14WasmEHFuncInfo13setUnwindDestEPKNS_10BasicBlockES3_(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull %7, ptr noundef %.sink)
   br label %_ZNK4llvm10BasicBlock7isEHPadEv.exit
 
-33:                                               ; preds = %23
-  tail call void @_ZN4llvm14WasmEHFuncInfo13setUnwindDestEPKNS_10BasicBlockES3_(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull %7, ptr noundef nonnull %22)
-  br label %_ZNK4llvm10BasicBlock7isEHPadEv.exit
-
-_ZNK4llvm10BasicBlock7isEHPadEv.exit:             ; preds = %13, %.lr.ph, %10, %33, %26, %_ZNK4llvm15CatchSwitchInst13getUnwindDestEv.exit
-  %34 = getelementptr inbounds nuw i8, ptr %.sroa.027.039, i64 8
-  %.sroa.027.0 = load ptr, ptr %34, align 8
+_ZNK4llvm10BasicBlock7isEHPadEv.exit:             ; preds = %_ZNK4llvm10BasicBlock7isEHPadEv.exit.sink.split, %13, %.lr.ph, %10, %_ZNK4llvm15CatchSwitchInst13getUnwindDestEv.exit
+  %33 = getelementptr inbounds nuw i8, ptr %.sroa.027.039, i64 8
+  %.sroa.027.0 = load ptr, ptr %33, align 8
   %.not33 = icmp eq ptr %.sroa.027.0, %4
   br i1 %.not33, label %._crit_edge, label %.lr.ph
 

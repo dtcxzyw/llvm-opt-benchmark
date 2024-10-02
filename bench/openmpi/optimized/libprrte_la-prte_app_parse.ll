@@ -74,31 +74,31 @@ sub_0.lr.ph:                                      ; preds = %5
   %15 = getelementptr inbounds i8, ptr %1, i64 264
   br label %sub_0
 
-sub_0:                                            ; preds = %sub_0.lr.ph, %44
-  %indvars.iv = phi i64 [ 1, %sub_0.lr.ph ], [ %indvars.iv.next, %44 ]
-  %16 = phi ptr [ %12, %sub_0.lr.ph ], [ %46, %44 ]
+sub_0:                                            ; preds = %sub_0.lr.ph, %43
+  %indvars.iv = phi i64 [ 1, %sub_0.lr.ph ], [ %indvars.iv.next, %43 ]
+  %16 = phi ptr [ %12, %sub_0.lr.ph ], [ %45, %43 ]
   %17 = load i8, ptr %16, align 1
   %.not37 = icmp eq i8 %17, 58
-  br i1 %.not37, label %.tail, label %.tail.thread
+  br i1 %.not37, label %.tail, label %.sink.split
 
 .tail:                                            ; preds = %sub_0
   %18 = getelementptr inbounds i8, ptr %16, i64 1
   %19 = load i8, ptr %18, align 1
   %20 = icmp eq i8 %19, 0
-  br i1 %20, label %21, label %.tail.thread
+  br i1 %20, label %21, label %.sink.split
 
 21:                                               ; preds = %.tail
   %22 = load ptr, ptr %6, align 8
   %23 = call i32 @PMIx_Argv_count(ptr noundef %22) #13
   %24 = icmp sgt i32 %23, 1
-  br i1 %24, label %25, label %44
+  br i1 %24, label %25, label %43
 
 25:                                               ; preds = %21
   store ptr null, ptr %7, align 8
   %26 = load ptr, ptr %6, align 8
   %27 = call fastcc i32 @create_app(ptr noundef %0, ptr noundef %26, ptr noundef %7, ptr noundef %8, ptr noundef %3, ptr noundef %4)
   %.not32 = icmp eq i32 %27, 0
-  br i1 %.not32, label %28, label %.sink.split
+  br i1 %.not32, label %28, label %.sink.split39
 
 28:                                               ; preds = %25
   %29 = load i8, ptr %8, align 1
@@ -125,64 +125,64 @@ sub_0:                                            ; preds = %sub_0.lr.ph, %44
   call void @PMIx_Argv_free(ptr noundef %40) #13
   store ptr null, ptr %6, align 8
   %41 = load ptr, ptr %2, align 8
-  %42 = call i32 @PMIx_Argv_append_nosize(ptr noundef nonnull %6, ptr noundef %41) #13
-  br label %44
-
-.tail.thread:                                     ; preds = %sub_0, %.tail
-  %43 = call i32 @PMIx_Argv_append_nosize(ptr noundef nonnull %6, ptr noundef nonnull %16) #13
-  br label %44
-
-44:                                               ; preds = %.tail.thread, %39, %21
-  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %45 = getelementptr inbounds ptr, ptr %2, i64 %indvars.iv.next
-  %46 = load ptr, ptr %45, align 8
-  %.not = icmp eq ptr %46, null
-  br i1 %.not, label %._crit_edge, label %sub_0, !llvm.loop !4
-
-._crit_edge:                                      ; preds = %44, %5
-  %47 = load ptr, ptr %6, align 8
-  %48 = call i32 @PMIx_Argv_count(ptr noundef %47) #13
-  %49 = icmp sgt i32 %48, 1
-  br i1 %49, label %50, label %.sink.split
-
-50:                                               ; preds = %._crit_edge
-  store ptr null, ptr %7, align 8
-  %51 = load ptr, ptr %6, align 8
-  %52 = call fastcc i32 @create_app(ptr noundef %0, ptr noundef %51, ptr noundef %7, ptr noundef %8, ptr noundef %3, ptr noundef %4)
-  %.not29 = icmp eq i32 %52, 0
-  br i1 %.not29, label %53, label %68
-
-53:                                               ; preds = %50
-  %54 = load i8, ptr %8, align 1
-  %55 = trunc i8 %54 to i1
-  br i1 %55, label %56, label %.sink.split
-
-56:                                               ; preds = %53
-  %57 = load ptr, ptr %7, align 8
-  %58 = getelementptr inbounds i8, ptr %1, i64 120
-  %59 = getelementptr inbounds i8, ptr %1, i64 248
-  %60 = load ptr, ptr %59, align 8
-  %61 = getelementptr inbounds i8, ptr %57, i64 128
-  store ptr %60, ptr %61, align 8
-  %62 = getelementptr inbounds i8, ptr %60, i64 120
-  store volatile ptr %57, ptr %62, align 8
-  %63 = getelementptr inbounds i8, ptr %57, i64 120
-  store ptr %58, ptr %63, align 8
-  store ptr %57, ptr %59, align 8
-  %64 = getelementptr inbounds i8, ptr %1, i64 264
-  %65 = load volatile i64, ptr %64, align 8
-  %66 = add i64 %65, 1
-  store volatile i64 %66, ptr %64, align 8
   br label %.sink.split
 
-.sink.split:                                      ; preds = %25, %53, %56, %._crit_edge
-  %.023.ph = phi i32 [ 0, %._crit_edge ], [ 0, %56 ], [ 0, %53 ], [ %27, %25 ]
-  %67 = load ptr, ptr %6, align 8
-  call void @PMIx_Argv_free(ptr noundef %67) #13
-  br label %68
+.sink.split:                                      ; preds = %.tail, %sub_0, %39
+  %.sink = phi ptr [ %41, %39 ], [ %16, %sub_0 ], [ %16, %.tail ]
+  %42 = call i32 @PMIx_Argv_append_nosize(ptr noundef nonnull %6, ptr noundef %.sink) #13
+  br label %43
 
-68:                                               ; preds = %.sink.split, %50
-  %.023 = phi i32 [ %52, %50 ], [ %.023.ph, %.sink.split ]
+43:                                               ; preds = %.sink.split, %21
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
+  %44 = getelementptr inbounds ptr, ptr %2, i64 %indvars.iv.next
+  %45 = load ptr, ptr %44, align 8
+  %.not = icmp eq ptr %45, null
+  br i1 %.not, label %._crit_edge, label %sub_0, !llvm.loop !4
+
+._crit_edge:                                      ; preds = %43, %5
+  %46 = load ptr, ptr %6, align 8
+  %47 = call i32 @PMIx_Argv_count(ptr noundef %46) #13
+  %48 = icmp sgt i32 %47, 1
+  br i1 %48, label %49, label %.sink.split39
+
+49:                                               ; preds = %._crit_edge
+  store ptr null, ptr %7, align 8
+  %50 = load ptr, ptr %6, align 8
+  %51 = call fastcc i32 @create_app(ptr noundef %0, ptr noundef %50, ptr noundef %7, ptr noundef %8, ptr noundef %3, ptr noundef %4)
+  %.not29 = icmp eq i32 %51, 0
+  br i1 %.not29, label %52, label %67
+
+52:                                               ; preds = %49
+  %53 = load i8, ptr %8, align 1
+  %54 = trunc i8 %53 to i1
+  br i1 %54, label %55, label %.sink.split39
+
+55:                                               ; preds = %52
+  %56 = load ptr, ptr %7, align 8
+  %57 = getelementptr inbounds i8, ptr %1, i64 120
+  %58 = getelementptr inbounds i8, ptr %1, i64 248
+  %59 = load ptr, ptr %58, align 8
+  %60 = getelementptr inbounds i8, ptr %56, i64 128
+  store ptr %59, ptr %60, align 8
+  %61 = getelementptr inbounds i8, ptr %59, i64 120
+  store volatile ptr %56, ptr %61, align 8
+  %62 = getelementptr inbounds i8, ptr %56, i64 120
+  store ptr %57, ptr %62, align 8
+  store ptr %56, ptr %58, align 8
+  %63 = getelementptr inbounds i8, ptr %1, i64 264
+  %64 = load volatile i64, ptr %63, align 8
+  %65 = add i64 %64, 1
+  store volatile i64 %65, ptr %63, align 8
+  br label %.sink.split39
+
+.sink.split39:                                    ; preds = %25, %52, %55, %._crit_edge
+  %.023.ph = phi i32 [ 0, %._crit_edge ], [ 0, %55 ], [ 0, %52 ], [ %27, %25 ]
+  %66 = load ptr, ptr %6, align 8
+  call void @PMIx_Argv_free(ptr noundef %66) #13
+  br label %67
+
+67:                                               ; preds = %.sink.split39, %49
+  %.023 = phi i32 [ %51, %49 ], [ %.023.ph, %.sink.split39 ]
   ret i32 %.023
 }
 

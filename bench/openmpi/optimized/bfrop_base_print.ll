@@ -2898,7 +2898,7 @@ define range(i32 -29, 1) i32 @pmix_bfrops_base_print_geometry(ptr nocapture noun
   %16 = select i1 %15, ptr @.str.47, ptr %14
   %17 = call i32 (ptr, ptr, ...) @asprintf(ptr noundef nonnull %5, ptr noundef nonnull @.str.93, ptr noundef nonnull %8, i64 noundef %9, ptr noundef nonnull %spec.select, ptr noundef nonnull %16) #8
   %18 = icmp slt i32 %17, 0
-  br i1 %18, label %49, label %19
+  br i1 %18, label %48, label %19
 
 19:                                               ; preds = %4
   %20 = load ptr, ptr %5, align 8
@@ -2914,8 +2914,8 @@ define range(i32 -29, 1) i32 @pmix_bfrops_base_print_geometry(ptr nocapture noun
   %25 = getelementptr inbounds i8, ptr %2, i64 24
   br label %26
 
-26:                                               ; preds = %.lr.ph, %39
-  %.023 = phi i64 [ 0, %.lr.ph ], [ %43, %39 ]
+26:                                               ; preds = %.lr.ph, %38
+  %.023 = phi i64 [ 0, %.lr.ph ], [ %42, %38 ]
   %27 = load ptr, ptr %25, align 8
   %28 = getelementptr inbounds %struct.pmix_coord, ptr %27, i64 %.023
   %29 = load i8, ptr %28, align 8
@@ -2934,37 +2934,38 @@ pmix_bfrops_base_print_coord.exit:                ; preds = %26, %switch.lookup
   %33 = load i64, ptr %32, align 8
   %34 = call i32 (ptr, ptr, ...) @asprintf(ptr noundef nonnull %5, ptr noundef nonnull @.str.87, ptr noundef nonnull %8, ptr noundef nonnull %.0.i, i64 noundef %33) #8
   %35 = icmp sgt i32 %34, -1
-  br i1 %35, label %39, label %36
+  br i1 %35, label %38, label %36
 
 36:                                               ; preds = %pmix_bfrops_base_print_coord.exit
   %37 = load ptr, ptr %6, align 8
   %.not22 = icmp eq ptr %37, null
-  br i1 %.not22, label %49, label %38
+  br i1 %.not22, label %48, label %.sink.split
 
-38:                                               ; preds = %36
-  call void @PMIx_Argv_free(ptr noundef nonnull %37) #8
-  br label %49
+38:                                               ; preds = %pmix_bfrops_base_print_coord.exit
+  %39 = load ptr, ptr %5, align 8
+  %40 = call i32 @PMIx_Argv_append_nosize(ptr noundef nonnull %6, ptr noundef %39) #8
+  %41 = load ptr, ptr %5, align 8
+  call void @free(ptr noundef %41) #8
+  %42 = add nuw i64 %.023, 1
+  %43 = load i64, ptr %23, align 8
+  %44 = icmp ult i64 %42, %43
+  br i1 %44, label %26, label %._crit_edge, !llvm.loop !6
 
-39:                                               ; preds = %pmix_bfrops_base_print_coord.exit
-  %40 = load ptr, ptr %5, align 8
-  %41 = call i32 @PMIx_Argv_append_nosize(ptr noundef nonnull %6, ptr noundef %40) #8
-  %42 = load ptr, ptr %5, align 8
-  call void @free(ptr noundef %42) #8
-  %43 = add nuw i64 %.023, 1
-  %44 = load i64, ptr %23, align 8
-  %45 = icmp ult i64 %43, %44
-  br i1 %45, label %26, label %._crit_edge, !llvm.loop !6
+._crit_edge:                                      ; preds = %38, %19
+  %45 = load ptr, ptr %6, align 8
+  %46 = call ptr @PMIx_Argv_join(ptr noundef %45, i32 noundef 10) #8
+  store ptr %46, ptr %0, align 8
+  %47 = load ptr, ptr %6, align 8
+  br label %.sink.split
 
-._crit_edge:                                      ; preds = %39, %19
-  %46 = load ptr, ptr %6, align 8
-  %47 = call ptr @PMIx_Argv_join(ptr noundef %46, i32 noundef 10) #8
-  store ptr %47, ptr %0, align 8
-  %48 = load ptr, ptr %6, align 8
-  call void @PMIx_Argv_free(ptr noundef %48) #8
-  br label %49
+.sink.split:                                      ; preds = %36, %._crit_edge
+  %.sink = phi ptr [ %47, %._crit_edge ], [ %37, %36 ]
+  %.017.ph = phi i32 [ 0, %._crit_edge ], [ -29, %36 ]
+  call void @PMIx_Argv_free(ptr noundef %.sink) #8
+  br label %48
 
-49:                                               ; preds = %36, %38, %4, %._crit_edge
-  %.017 = phi i32 [ 0, %._crit_edge ], [ -29, %4 ], [ -29, %38 ], [ -29, %36 ]
+48:                                               ; preds = %.sink.split, %36, %4
+  %.017 = phi i32 [ -29, %4 ], [ -29, %36 ], [ %.017.ph, %.sink.split ]
   ret i32 %.017
 }
 

@@ -110,7 +110,7 @@ define dso_local void @prte_info_out(ptr noundef %0, ptr noundef %1, ptr noundef
   %60 = trunc i8 %59 to i1
   %61 = icmp ne ptr %0, null
   %or.cond = and i1 %61, %60
-  br i1 %or.cond, label %62, label %114
+  br i1 %or.cond, label %62, label %110
 
 62:                                               ; preds = %58
   %63 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #9
@@ -157,94 +157,86 @@ define dso_local void @prte_info_out(ptr noundef %0, ptr noundef %1, ptr noundef
   %86 = icmp ult i64 %85, %78
   br i1 %86, label %._crit_edge, label %.lr.ph
 
-._crit_edge:                                      ; preds = %100, %83
-  %.161.lcssa = phi ptr [ %.058, %83 ], [ %.2, %100 ]
-  %87 = load ptr, ptr %5, align 8
-  %88 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.5, ptr noundef %87, ptr noundef %.161.lcssa)
-  br label %108
+.lr.ph:                                           ; preds = %83, %95
+  %.16184 = phi ptr [ %.2, %95 ], [ %.058, %83 ]
+  %87 = call i32 (ptr, ptr, ...) @pmix_asprintf(ptr noundef nonnull %4, ptr noundef nonnull @.str, i32 noundef 26, ptr noundef nonnull @.str.1) #8
+  %88 = getelementptr inbounds i8, ptr %.16184, i64 %78
+  %89 = load i8, ptr %88, align 1
+  store i8 0, ptr %88, align 1
+  %90 = call ptr @strrchr(ptr noundef nonnull dereferenceable(1) %.16184, i32 noundef 32) #9
+  store i8 %89, ptr %88, align 1
+  %91 = icmp eq ptr %90, null
+  br i1 %91, label %92, label %95
 
-.lr.ph:                                           ; preds = %83, %100
-  %.16184 = phi ptr [ %.2, %100 ], [ %.058, %83 ]
-  %89 = call i32 (ptr, ptr, ...) @pmix_asprintf(ptr noundef nonnull %4, ptr noundef nonnull @.str, i32 noundef 26, ptr noundef nonnull @.str.1) #8
-  %90 = getelementptr inbounds i8, ptr %.16184, i64 %78
-  %91 = load i8, ptr %90, align 1
-  store i8 0, ptr %90, align 1
-  %92 = call ptr @strrchr(ptr noundef nonnull dereferenceable(1) %.16184, i32 noundef 32) #9
-  store i8 %91, ptr %90, align 1
-  %93 = icmp eq ptr %92, null
-  br i1 %93, label %94, label %100
+92:                                               ; preds = %.lr.ph
+  %93 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %88, i32 noundef 32) #9
+  %94 = icmp eq ptr %93, null
+  br i1 %94, label %._crit_edge, label %95
 
-94:                                               ; preds = %.lr.ph
-  %95 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %90, i32 noundef 32) #9
-  %96 = icmp eq ptr %95, null
-  br i1 %96, label %97, label %100
-
-97:                                               ; preds = %94
-  %98 = load ptr, ptr %5, align 8
-  %99 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.5, ptr noundef %98, ptr noundef nonnull %.16184)
-  br label %108
-
-100:                                              ; preds = %.lr.ph, %94
-  %.sink = phi ptr [ %95, %94 ], [ %92, %.lr.ph ]
+95:                                               ; preds = %.lr.ph, %92
+  %.sink = phi ptr [ %93, %92 ], [ %90, %.lr.ph ]
   store i8 0, ptr %.sink, align 1
-  %101 = load ptr, ptr %5, align 8
-  %102 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.5, ptr noundef %101, ptr noundef nonnull %.16184)
+  %96 = load ptr, ptr %5, align 8
+  %97 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.5, ptr noundef %96, ptr noundef nonnull %.16184)
   %.2 = getelementptr inbounds i8, ptr %.sink, i64 1
-  %103 = load ptr, ptr %5, align 8
-  call void @free(ptr noundef %103) #8
-  %104 = load ptr, ptr %4, align 8
-  %105 = call noalias ptr @strdup(ptr noundef %104) #8
-  store ptr %105, ptr %5, align 8
-  call void @free(ptr noundef %104) #8
+  %98 = load ptr, ptr %5, align 8
+  call void @free(ptr noundef %98) #8
+  %99 = load ptr, ptr %4, align 8
+  %100 = call noalias ptr @strdup(ptr noundef %99) #8
+  store ptr %100, ptr %5, align 8
+  call void @free(ptr noundef %99) #8
   store ptr null, ptr %4, align 8
-  %106 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.2) #9
-  %107 = icmp ult i64 %106, %78
-  br i1 %107, label %._crit_edge, label %.lr.ph
+  %101 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.2) #9
+  %102 = icmp ult i64 %101, %78
+  br i1 %102, label %._crit_edge, label %.lr.ph
 
-108:                                              ; preds = %97, %._crit_edge
-  %109 = load ptr, ptr %5, align 8
-  %.not76 = icmp eq ptr %109, null
-  br i1 %.not76, label %111, label %110
+._crit_edge:                                      ; preds = %92, %95, %83
+  %.16184.lcssa.sink = phi ptr [ %.058, %83 ], [ %.2, %95 ], [ %.16184, %92 ]
+  %103 = load ptr, ptr %5, align 8
+  %104 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.5, ptr noundef %103, ptr noundef %.16184.lcssa.sink)
+  %105 = load ptr, ptr %5, align 8
+  %.not76 = icmp eq ptr %105, null
+  br i1 %.not76, label %107, label %106
 
-110:                                              ; preds = %108
-  call void @free(ptr noundef nonnull %109) #8
-  br label %111
+106:                                              ; preds = %._crit_edge
+  call void @free(ptr noundef nonnull %105) #8
+  br label %107
 
-111:                                              ; preds = %110, %108
-  %112 = load ptr, ptr %4, align 8
-  %.not77 = icmp eq ptr %112, null
-  br i1 %.not77, label %120, label %113
+107:                                              ; preds = %106, %._crit_edge
+  %108 = load ptr, ptr %4, align 8
+  %.not77 = icmp eq ptr %108, null
+  br i1 %.not77, label %116, label %109
 
-113:                                              ; preds = %111
-  call void @free(ptr noundef nonnull %112) #8
-  br label %120
+109:                                              ; preds = %107
+  call void @free(ptr noundef nonnull %108) #8
+  br label %116
 
-114:                                              ; preds = %58
+110:                                              ; preds = %58
   %.not73 = icmp eq ptr %1, null
-  br i1 %.not73, label %118, label %115
+  br i1 %.not73, label %114, label %111
 
-115:                                              ; preds = %114
+111:                                              ; preds = %110
   %char0 = load i8, ptr %1, align 1
   %.not74 = icmp eq i8 %char0, 0
-  br i1 %.not74, label %118, label %116
+  br i1 %.not74, label %114, label %112
 
-116:                                              ; preds = %115
-  %117 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.6, ptr noundef nonnull %1, ptr noundef %2)
-  br label %120
+112:                                              ; preds = %111
+  %113 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.6, ptr noundef nonnull %1, ptr noundef %2)
+  br label %116
 
-118:                                              ; preds = %115, %114
-  %119 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.7, ptr noundef %2)
-  br label %120
+114:                                              ; preds = %111, %110
+  %115 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.7, ptr noundef %2)
+  br label %116
 
-120:                                              ; preds = %116, %118, %111, %113
+116:                                              ; preds = %112, %114, %107, %109
   %.not78 = icmp eq ptr %.058, null
-  br i1 %.not78, label %122, label %121
+  br i1 %.not78, label %118, label %117
 
-121:                                              ; preds = %120
+117:                                              ; preds = %116
   call void @free(ptr noundef nonnull %.058) #8
-  br label %122
+  br label %118
 
-122:                                              ; preds = %121, %120
+118:                                              ; preds = %117, %116
   ret void
 }
 

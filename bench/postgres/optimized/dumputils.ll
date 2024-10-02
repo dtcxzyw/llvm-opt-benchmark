@@ -82,12 +82,12 @@ define dso_local noundef zeroext i1 @buildACLCommands(ptr noundef %0, ptr nounde
   store i32 0, ptr %13, align 4
   store i32 0, ptr %14, align 4
   %15 = icmp eq ptr %4, null
-  br i1 %15, label %199, label %16
+  br i1 %15, label %198, label %16
 
 16:                                               ; preds = %10
   %17 = load i8, ptr %4, align 1
   %18 = icmp eq i8 %17, 0
-  br i1 %18, label %199, label %19
+  br i1 %18, label %198, label %19
 
 19:                                               ; preds = %16
   %.not = icmp eq ptr %6, null
@@ -343,8 +343,8 @@ define dso_local noundef zeroext i1 @buildACLCommands(ptr noundef %0, ptr nounde
   %wide.trip.count257 = zext nneg i32 %.0150.lcssa to i64
   br label %120
 
-120:                                              ; preds = %.lr.ph209, %194
-  %indvars.iv254 = phi i64 [ 0, %.lr.ph209 ], [ %indvars.iv.next255, %194 ]
+120:                                              ; preds = %.lr.ph209, %193
+  %indvars.iv254 = phi i64 [ 0, %.lr.ph209 ], [ %indvars.iv.next255, %193 ]
   %121 = getelementptr ptr, ptr %36, i64 %indvars.iv254
   %122 = load ptr, ptr %121, align 8
   %123 = call fastcc zeroext i1 @parseAclItem(ptr noundef %122, ptr noundef %3, ptr noundef %1, ptr noundef %81, ptr noundef %82, ptr noundef %83, ptr noundef %84)
@@ -358,7 +358,7 @@ define dso_local noundef zeroext i1 @buildACLCommands(ptr noundef %0, ptr nounde
 126:                                              ; preds = %124
   %127 = load i64, ptr %116, align 8
   %.not166 = icmp eq i64 %127, 0
-  br i1 %.not166, label %194, label %128
+  br i1 %.not166, label %193, label %128
 
 128:                                              ; preds = %126, %124
   %129 = load i64, ptr %117, align 8
@@ -459,7 +459,7 @@ define dso_local noundef zeroext i1 @buildACLCommands(ptr noundef %0, ptr nounde
 167:                                              ; preds = %163, %164, %148
   %168 = load i64, ptr %116, align 8
   %.not174 = icmp eq i64 %168, 0
-  br i1 %.not174, label %187, label %169
+  br i1 %.not174, label %186, label %169
 
 169:                                              ; preds = %167
   %170 = load ptr, ptr %84, align 8
@@ -492,70 +492,67 @@ define dso_local noundef zeroext i1 @buildACLCommands(ptr noundef %0, ptr nounde
   call void @appendPQExpBufferStr(ptr noundef %.0, ptr noundef nonnull @.str.9) #7
   %180 = load i64, ptr %119, align 8
   %181 = icmp eq i64 %180, 0
-  br i1 %181, label %182, label %183
+  br i1 %181, label %185, label %182
 
 182:                                              ; preds = %179
-  call void @appendPQExpBufferStr(ptr noundef %.0, ptr noundef nonnull @.str.10) #7
-  br label %186
+  %183 = load ptr, ptr %81, align 8
+  %184 = call ptr @fmtId(ptr noundef %183) #7
+  br label %185
 
-183:                                              ; preds = %179
-  %184 = load ptr, ptr %81, align 8
-  %185 = call ptr @fmtId(ptr noundef %184) #7
-  call void @appendPQExpBufferStr(ptr noundef %.0, ptr noundef %185) #7
-  br label %186
-
-186:                                              ; preds = %183, %182
+185:                                              ; preds = %179, %182
+  %.sink = phi ptr [ %184, %182 ], [ @.str.10, %179 ]
+  call void @appendPQExpBufferStr(ptr noundef %.0, ptr noundef %.sink) #7
   call void @appendPQExpBufferStr(ptr noundef %.0, ptr noundef nonnull @.str.11) #7
-  br label %187
+  br label %186
 
-187:                                              ; preds = %186, %167
-  %188 = load i64, ptr %117, align 8
-  %.not179 = icmp eq i64 %188, 0
-  br i1 %.not179, label %194, label %189
+186:                                              ; preds = %185, %167
+  %187 = load i64, ptr %117, align 8
+  %.not179 = icmp eq i64 %187, 0
+  br i1 %.not179, label %193, label %188
 
-189:                                              ; preds = %187
-  br i1 %118, label %190, label %193
+188:                                              ; preds = %186
+  br i1 %118, label %189, label %192
 
-190:                                              ; preds = %189
-  %191 = load ptr, ptr %82, align 8
-  %192 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.0148, ptr noundef nonnull dereferenceable(1) %191) #8
-  %.not180 = icmp eq i32 %192, 0
-  br i1 %.not180, label %194, label %193
+189:                                              ; preds = %188
+  %190 = load ptr, ptr %82, align 8
+  %191 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.0148, ptr noundef nonnull dereferenceable(1) %190) #8
+  %.not180 = icmp eq i32 %191, 0
+  br i1 %.not180, label %193, label %192
 
-193:                                              ; preds = %190, %189
+192:                                              ; preds = %189, %188
   call void @appendPQExpBufferStr(ptr noundef %.0, ptr noundef nonnull @.str.12) #7
-  br label %194
+  br label %193
 
-194:                                              ; preds = %187, %190, %193, %126
+193:                                              ; preds = %186, %189, %192, %126
   %indvars.iv.next255 = add nuw nsw i64 %indvars.iv254, 1
   %exitcond258.not = icmp eq i64 %indvars.iv.next255, %wide.trip.count257
   br i1 %exitcond258.not, label %._crit_edge210, label %120, !llvm.loop !11
 
-._crit_edge210:                                   ; preds = %194, %120, %._crit_edge203
-  %.1 = phi i1 [ %.lcssa, %._crit_edge203 ], [ false, %120 ], [ %.lcssa, %194 ]
+._crit_edge210:                                   ; preds = %193, %120, %._crit_edge203
+  %.1 = phi i1 [ %.lcssa, %._crit_edge203 ], [ false, %120 ], [ %.lcssa, %193 ]
   call void @destroyPQExpBuffer(ptr noundef %81) #7
   call void @destroyPQExpBuffer(ptr noundef %82) #7
   call void @destroyPQExpBuffer(ptr noundef %83) #7
   call void @destroyPQExpBuffer(ptr noundef %84) #7
-  %195 = load ptr, ptr %85, align 8
-  %196 = load ptr, ptr %86, align 8
-  call void (ptr, ptr, ...) @appendPQExpBuffer(ptr noundef %9, ptr noundef nonnull @.str.13, ptr noundef %195, ptr noundef %196) #7
+  %194 = load ptr, ptr %85, align 8
+  %195 = load ptr, ptr %86, align 8
+  call void (ptr, ptr, ...) @appendPQExpBuffer(ptr noundef %9, ptr noundef nonnull @.str.13, ptr noundef %194, ptr noundef %195) #7
   call void @destroyPQExpBuffer(ptr noundef nonnull %85) #7
   call void @destroyPQExpBuffer(ptr noundef nonnull %86) #7
-  %197 = load ptr, ptr %11, align 8
+  %196 = load ptr, ptr %11, align 8
+  call void @free(ptr noundef %196) #7
+  %197 = load ptr, ptr %12, align 8
   call void @free(ptr noundef %197) #7
-  %198 = load ptr, ptr %12, align 8
-  call void @free(ptr noundef %198) #7
   call void @free(ptr noundef %36) #7
   br label %.sink.split
 
 .sink.split:                                      ; preds = %25, %29, %._crit_edge210
-  %.sink = phi ptr [ %59, %._crit_edge210 ], [ %31, %29 ], [ %26, %25 ]
+  %.sink262 = phi ptr [ %59, %._crit_edge210 ], [ %31, %29 ], [ %26, %25 ]
   %.0147.ph = phi i1 [ %.1, %._crit_edge210 ], [ false, %29 ], [ false, %25 ]
-  call void @free(ptr noundef %.sink) #7
-  br label %199
+  call void @free(ptr noundef %.sink262) #7
+  br label %198
 
-199:                                              ; preds = %.sink.split, %10, %16
+198:                                              ; preds = %.sink.split, %10, %16
   %.0147 = phi i1 [ true, %16 ], [ true, %10 ], [ %.0147.ph, %.sink.split ]
   ret i1 %.0147
 }
@@ -686,7 +683,7 @@ dequoteAclUserName.exit367.thread:                ; preds = %.loopexit.i363, %.p
 38:                                               ; preds = %35
   %39 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(10) @.str.34) #8
   %40 = icmp eq i32 %39, 0
-  br i1 %40, label %41, label %138
+  br i1 %40, label %41, label %126
 
 41:                                               ; preds = %dequoteAclUserName.exit367.thread, %32, %35, %38
   %42 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %18, i32 noundef 114) #8
@@ -752,7 +749,7 @@ AddAcl.exit:                                      ; preds = %AddAcl.exit.sink.sp
 63:                                               ; preds = %AddAcl.exit, %60
   %64 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %18, i32 noundef 85) #8
   %.not354 = icmp eq ptr %64, null
-  br i1 %.not354, label %119, label %65
+  br i1 %.not354, label %107, label %65
 
 65:                                               ; preds = %63
   %66 = getelementptr i8, ptr %64, i64 1
@@ -764,607 +761,569 @@ AddAcl.exit:                                      ; preds = %AddAcl.exit.sink.sp
 
 70:                                               ; preds = %65
   tail call fastcc void @AddAcl(ptr noundef nonnull %6, ptr noundef nonnull @.str.36, ptr noundef %2)
-  br label %119
+  br label %107
 
 71:                                               ; preds = %65
   tail call fastcc void @AddAcl(ptr noundef %5, ptr noundef nonnull @.str.36, ptr noundef %2)
-  br label %119
+  br label %107
 
 72:                                               ; preds = %60
   %73 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %18, i32 noundef 97) #8
   %.not349 = icmp eq ptr %73, null
-  br i1 %.not349, label %81, label %74
+  br i1 %.not349, label %78, label %.sink.split
 
-74:                                               ; preds = %72
-  %75 = getelementptr i8, ptr %73, i64 1
-  %76 = load i8, ptr %75, align 1
-  %77 = icmp eq i8 %76, 42
-  %78 = icmp ne ptr %6, null
-  %or.cond5 = and i1 %78, %77
-  br i1 %or.cond5, label %79, label %80
+.sink.split:                                      ; preds = %72
+  %74 = getelementptr i8, ptr %73, i64 1
+  %75 = load i8, ptr %74, align 1
+  %76 = icmp eq i8 %75, 42
+  %77 = icmp ne ptr %6, null
+  %or.cond5 = and i1 %77, %76
+  %. = select i1 %or.cond5, ptr %6, ptr %5
+  %.0276. = and i1 %or.cond5, %.0276
+  %not.or.cond5 = xor i1 %or.cond5, true
+  %..0275 = and i1 %.0275, %not.or.cond5
+  tail call fastcc void @AddAcl(ptr noundef %., ptr noundef nonnull @.str.37, ptr noundef %2)
+  br label %78
 
-79:                                               ; preds = %74
-  tail call fastcc void @AddAcl(ptr noundef nonnull %6, ptr noundef nonnull @.str.37, ptr noundef %2)
-  br label %81
+78:                                               ; preds = %.sink.split, %72
+  %.1277 = phi i1 [ false, %72 ], [ %.0276., %.sink.split ]
+  %.1 = phi i1 [ false, %72 ], [ %..0275, %.sink.split ]
+  %79 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %18, i32 noundef 120) #8
+  %.not350 = icmp eq ptr %79, null
+  br i1 %.not350, label %84, label %.sink.split34
 
-80:                                               ; preds = %74
-  tail call fastcc void @AddAcl(ptr noundef %5, ptr noundef nonnull @.str.37, ptr noundef %2)
-  br label %81
+.sink.split34:                                    ; preds = %78
+  %80 = getelementptr i8, ptr %79, i64 1
+  %81 = load i8, ptr %80, align 1
+  %82 = icmp eq i8 %81, 42
+  %83 = icmp ne ptr %6, null
+  %or.cond7 = and i1 %83, %82
+  %.51 = select i1 %or.cond7, ptr %6, ptr %5
+  %.1277. = and i1 %or.cond7, %.1277
+  %not.or.cond7 = xor i1 %or.cond7, true
+  %..1 = and i1 %.1, %not.or.cond7
+  tail call fastcc void @AddAcl(ptr noundef %.51, ptr noundef nonnull @.str.38, ptr noundef %2)
+  br label %84
 
-81:                                               ; preds = %72, %79, %80
-  %.1277 = phi i1 [ %.0276, %79 ], [ false, %80 ], [ false, %72 ]
-  %.1 = phi i1 [ false, %79 ], [ %.0275, %80 ], [ false, %72 ]
-  %82 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %18, i32 noundef 120) #8
-  %.not350 = icmp eq ptr %82, null
-  br i1 %.not350, label %90, label %83
+84:                                               ; preds = %.sink.split34, %78
+  %.2278 = phi i1 [ false, %78 ], [ %.1277., %.sink.split34 ]
+  %.2 = phi i1 [ false, %78 ], [ %..1, %.sink.split34 ]
+  %85 = icmp eq ptr %2, null
+  br i1 %85, label %86, label %107
 
-83:                                               ; preds = %81
-  %84 = getelementptr i8, ptr %82, i64 1
-  %85 = load i8, ptr %84, align 1
-  %86 = icmp eq i8 %85, 42
-  %87 = icmp ne ptr %6, null
-  %or.cond7 = and i1 %87, %86
-  br i1 %or.cond7, label %88, label %89
+86:                                               ; preds = %84
+  %87 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %18, i32 noundef 100) #8
+  %.not351 = icmp eq ptr %87, null
+  br i1 %.not351, label %92, label %.sink.split36
 
-88:                                               ; preds = %83
-  tail call fastcc void @AddAcl(ptr noundef nonnull %6, ptr noundef nonnull @.str.38, ptr noundef %2)
-  br label %90
+.sink.split36:                                    ; preds = %86
+  %88 = getelementptr i8, ptr %87, i64 1
+  %89 = load i8, ptr %88, align 1
+  %90 = icmp eq i8 %89, 42
+  %91 = icmp ne ptr %6, null
+  %or.cond9 = and i1 %91, %90
+  %.52 = select i1 %or.cond9, ptr %6, ptr %5
+  %.2278. = and i1 %or.cond9, %.2278
+  %not.or.cond9 = xor i1 %or.cond9, true
+  %..2 = and i1 %.2, %not.or.cond9
+  tail call fastcc void @AddAcl(ptr noundef %.52, ptr noundef nonnull @.str.39, ptr noundef null)
+  br label %92
 
-89:                                               ; preds = %83
-  tail call fastcc void @AddAcl(ptr noundef %5, ptr noundef nonnull @.str.38, ptr noundef %2)
-  br label %90
+92:                                               ; preds = %.sink.split36, %86
+  %.3279 = phi i1 [ false, %86 ], [ %.2278., %.sink.split36 ]
+  %.3 = phi i1 [ false, %86 ], [ %..2, %.sink.split36 ]
+  %93 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %18, i32 noundef 116) #8
+  %.not352 = icmp eq ptr %93, null
+  br i1 %.not352, label %98, label %.sink.split38
 
-90:                                               ; preds = %81, %89, %88
-  %.2278 = phi i1 [ %.1277, %88 ], [ false, %89 ], [ false, %81 ]
-  %.2 = phi i1 [ false, %88 ], [ %.1, %89 ], [ false, %81 ]
-  %91 = icmp eq ptr %2, null
-  br i1 %91, label %92, label %119
+.sink.split38:                                    ; preds = %92
+  %94 = getelementptr i8, ptr %93, i64 1
+  %95 = load i8, ptr %94, align 1
+  %96 = icmp eq i8 %95, 42
+  %97 = icmp ne ptr %6, null
+  %or.cond11 = and i1 %97, %96
+  %.53 = select i1 %or.cond11, ptr %6, ptr %5
+  %.3279. = and i1 %or.cond11, %.3279
+  %not.or.cond11 = xor i1 %or.cond11, true
+  %..3 = select i1 %not.or.cond11, i1 %.3, i1 false
+  tail call fastcc void @AddAcl(ptr noundef %.53, ptr noundef nonnull @.str.40, ptr noundef null)
+  br label %98
 
-92:                                               ; preds = %90
-  %93 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %18, i32 noundef 100) #8
-  %.not351 = icmp eq ptr %93, null
-  br i1 %.not351, label %101, label %94
+98:                                               ; preds = %.sink.split38, %92
+  %.4280 = phi i1 [ false, %92 ], [ %.3279., %.sink.split38 ]
+  %.4 = phi i1 [ false, %92 ], [ %..3, %.sink.split38 ]
+  %99 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %18, i32 noundef 68) #8
+  %.not353 = icmp eq ptr %99, null
+  br i1 %.not353, label %107, label %100
 
-94:                                               ; preds = %92
-  %95 = getelementptr i8, ptr %93, i64 1
-  %96 = load i8, ptr %95, align 1
-  %97 = icmp eq i8 %96, 42
-  %98 = icmp ne ptr %6, null
-  %or.cond9 = and i1 %98, %97
-  br i1 %or.cond9, label %99, label %100
+100:                                              ; preds = %98
+  %101 = getelementptr i8, ptr %99, i64 1
+  %102 = load i8, ptr %101, align 1
+  %103 = icmp eq i8 %102, 42
+  %104 = icmp ne ptr %6, null
+  %or.cond13 = and i1 %104, %103
+  br i1 %or.cond13, label %105, label %106
 
-99:                                               ; preds = %94
-  tail call fastcc void @AddAcl(ptr noundef nonnull %6, ptr noundef nonnull @.str.39, ptr noundef null)
-  br label %101
-
-100:                                              ; preds = %94
-  tail call fastcc void @AddAcl(ptr noundef %5, ptr noundef nonnull @.str.39, ptr noundef null)
-  br label %101
-
-101:                                              ; preds = %92, %99, %100
-  %.3279 = phi i1 [ %.2278, %99 ], [ false, %100 ], [ false, %92 ]
-  %.3 = phi i1 [ false, %99 ], [ %.2, %100 ], [ false, %92 ]
-  %102 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %18, i32 noundef 116) #8
-  %.not352 = icmp eq ptr %102, null
-  br i1 %.not352, label %110, label %103
-
-103:                                              ; preds = %101
-  %104 = getelementptr i8, ptr %102, i64 1
-  %105 = load i8, ptr %104, align 1
-  %106 = icmp eq i8 %105, 42
-  %107 = icmp ne ptr %6, null
-  %or.cond11 = and i1 %107, %106
-  br i1 %or.cond11, label %108, label %109
-
-108:                                              ; preds = %103
-  tail call fastcc void @AddAcl(ptr noundef nonnull %6, ptr noundef nonnull @.str.40, ptr noundef null)
-  br label %110
-
-109:                                              ; preds = %103
-  tail call fastcc void @AddAcl(ptr noundef %5, ptr noundef nonnull @.str.40, ptr noundef null)
-  br label %110
-
-110:                                              ; preds = %101, %108, %109
-  %.4280 = phi i1 [ %.3279, %108 ], [ false, %109 ], [ false, %101 ]
-  %.4 = phi i1 [ false, %108 ], [ %.3, %109 ], [ false, %101 ]
-  %111 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %18, i32 noundef 68) #8
-  %.not353 = icmp eq ptr %111, null
-  br i1 %.not353, label %119, label %112
-
-112:                                              ; preds = %110
-  %113 = getelementptr i8, ptr %111, i64 1
-  %114 = load i8, ptr %113, align 1
-  %115 = icmp eq i8 %114, 42
-  %116 = icmp ne ptr %6, null
-  %or.cond13 = and i1 %116, %115
-  br i1 %or.cond13, label %117, label %118
-
-117:                                              ; preds = %112
+105:                                              ; preds = %100
   tail call fastcc void @AddAcl(ptr noundef nonnull %6, ptr noundef nonnull @.str.41, ptr noundef null)
-  br label %119
+  br label %107
 
-118:                                              ; preds = %112
+106:                                              ; preds = %100
   tail call fastcc void @AddAcl(ptr noundef %5, ptr noundef nonnull @.str.41, ptr noundef null)
-  br label %119
+  br label %107
 
-119:                                              ; preds = %110, %63, %71, %70, %117, %118, %90
-  %.5281 = phi i1 [ %.0276, %70 ], [ false, %71 ], [ %.4280, %117 ], [ false, %118 ], [ %.2278, %90 ], [ false, %63 ], [ false, %110 ]
-  %.5 = phi i1 [ false, %70 ], [ %.0275, %71 ], [ false, %117 ], [ %.4, %118 ], [ %.2, %90 ], [ false, %63 ], [ false, %110 ]
-  %120 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %18, i32 noundef 119) #8
-  %.not355 = icmp eq ptr %120, null
-  br i1 %.not355, label %dequoteAclUserName.exit.thread, label %121
+107:                                              ; preds = %98, %63, %71, %70, %105, %106, %84
+  %.5281 = phi i1 [ %.0276, %70 ], [ false, %71 ], [ %.4280, %105 ], [ false, %106 ], [ %.2278, %84 ], [ false, %63 ], [ false, %98 ]
+  %.5 = phi i1 [ false, %70 ], [ %.0275, %71 ], [ false, %105 ], [ %.4, %106 ], [ %.2, %84 ], [ false, %63 ], [ false, %98 ]
+  %108 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %18, i32 noundef 119) #8
+  %.not355 = icmp eq ptr %108, null
+  br i1 %.not355, label %dequoteAclUserName.exit.thread, label %109
 
-121:                                              ; preds = %119
-  %122 = getelementptr i8, ptr %120, i64 1
-  %123 = load i8, ptr %122, align 1
-  %124 = icmp eq i8 %123, 42
-  %125 = icmp ne ptr %6, null
-  %or.cond15 = and i1 %125, %124
-  br i1 %or.cond15, label %126, label %132
+109:                                              ; preds = %107
+  %110 = getelementptr i8, ptr %108, i64 1
+  %111 = load i8, ptr %110, align 1
+  %112 = icmp eq i8 %111, 42
+  %113 = icmp ne ptr %6, null
+  %or.cond15 = and i1 %113, %112
+  br i1 %or.cond15, label %114, label %120
 
-126:                                              ; preds = %121
-  %127 = getelementptr inbounds i8, ptr %6, i64 8
-  %128 = load i64, ptr %127, align 8
-  %.not.i371 = icmp eq i64 %128, 0
-  br i1 %.not.i371, label %130, label %129
+114:                                              ; preds = %109
+  %115 = getelementptr inbounds i8, ptr %6, i64 8
+  %116 = load i64, ptr %115, align 8
+  %.not.i371 = icmp eq i64 %116, 0
+  br i1 %.not.i371, label %118, label %117
 
-129:                                              ; preds = %126
+117:                                              ; preds = %114
   tail call void @appendPQExpBufferChar(ptr noundef nonnull %6, i8 noundef signext 44) #7
-  br label %130
+  br label %118
 
-130:                                              ; preds = %129, %126
+118:                                              ; preds = %117, %114
   tail call void @appendPQExpBufferStr(ptr noundef nonnull %6, ptr noundef nonnull @.str.42) #7
   %.not7.i372 = icmp eq ptr %2, null
-  br i1 %.not7.i372, label %AddAcl.exit373, label %131
+  br i1 %.not7.i372, label %AddAcl.exit373, label %119
 
-131:                                              ; preds = %130
+119:                                              ; preds = %118
   tail call void (ptr, ptr, ...) @appendPQExpBuffer(ptr noundef nonnull %6, ptr noundef nonnull @.str.66, ptr noundef nonnull %2) #7
   br i1 %.5281, label %AddAcl.exit373.thread9, label %dequoteAclUserName.exit.thread
 
-132:                                              ; preds = %121
-  %133 = getelementptr inbounds i8, ptr %5, i64 8
-  %134 = load i64, ptr %133, align 8
-  %.not.i374 = icmp eq i64 %134, 0
-  br i1 %.not.i374, label %136, label %135
+120:                                              ; preds = %109
+  %121 = getelementptr inbounds i8, ptr %5, i64 8
+  %122 = load i64, ptr %121, align 8
+  %.not.i374 = icmp eq i64 %122, 0
+  br i1 %.not.i374, label %124, label %123
 
-135:                                              ; preds = %132
+123:                                              ; preds = %120
   tail call void @appendPQExpBufferChar(ptr noundef nonnull %5, i8 noundef signext 44) #7
-  br label %136
+  br label %124
 
-136:                                              ; preds = %135, %132
+124:                                              ; preds = %123, %120
   tail call void @appendPQExpBufferStr(ptr noundef nonnull %5, ptr noundef nonnull @.str.42) #7
   %.not7.i375 = icmp eq ptr %2, null
-  br i1 %.not7.i375, label %325, label %137
+  br i1 %.not7.i375, label %297, label %125
 
-137:                                              ; preds = %136
+125:                                              ; preds = %124
   tail call void (ptr, ptr, ...) @appendPQExpBuffer(ptr noundef nonnull %5, ptr noundef nonnull @.str.66, ptr noundef nonnull %2) #7
   br i1 %.5, label %.thread16, label %dequoteAclUserName.exit.thread
 
-138:                                              ; preds = %38
-  %139 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(9) @.str.43) #8
-  %140 = icmp eq i32 %139, 0
-  br i1 %140, label %144, label %141
+126:                                              ; preds = %38
+  %127 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(9) @.str.43) #8
+  %128 = icmp eq i32 %127, 0
+  br i1 %128, label %132, label %129
 
-141:                                              ; preds = %138
-  %142 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(10) @.str.44) #8
-  %143 = icmp eq i32 %142, 0
-  br i1 %143, label %144, label %151
+129:                                              ; preds = %126
+  %130 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(10) @.str.44) #8
+  %131 = icmp eq i32 %130, 0
+  br i1 %131, label %132, label %139
 
-144:                                              ; preds = %138, %141
-  %145 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %18, i32 noundef 88) #8
-  %.not347 = icmp eq ptr %145, null
-  br i1 %.not347, label %dequoteAclUserName.exit.thread, label %146
+132:                                              ; preds = %126, %129
+  %133 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %18, i32 noundef 88) #8
+  %.not347 = icmp eq ptr %133, null
+  br i1 %.not347, label %dequoteAclUserName.exit.thread, label %134
 
-146:                                              ; preds = %144
-  %147 = getelementptr i8, ptr %145, i64 1
-  %148 = load i8, ptr %147, align 1
-  %149 = icmp eq i8 %148, 42
-  %150 = icmp ne ptr %6, null
-  %or.cond17 = and i1 %150, %149
+134:                                              ; preds = %132
+  %135 = getelementptr i8, ptr %133, i64 1
+  %136 = load i8, ptr %135, align 1
+  %137 = icmp eq i8 %136, 42
+  %138 = icmp ne ptr %6, null
+  %or.cond17 = and i1 %138, %137
   br i1 %or.cond17, label %AddAcl.exit373.thread9.sink.split, label %.thread16.sink.split
 
-151:                                              ; preds = %141
-  %152 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(10) @.str.46) #8
-  %153 = icmp eq i32 %152, 0
-  br i1 %153, label %157, label %154
+139:                                              ; preds = %129
+  %140 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(10) @.str.46) #8
+  %141 = icmp eq i32 %140, 0
+  br i1 %141, label %145, label %142
 
-154:                                              ; preds = %151
-  %155 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(11) @.str.47) #8
-  %156 = icmp eq i32 %155, 0
-  br i1 %156, label %157, label %164
+142:                                              ; preds = %139
+  %143 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(11) @.str.47) #8
+  %144 = icmp eq i32 %143, 0
+  br i1 %144, label %145, label %152
 
-157:                                              ; preds = %151, %154
-  %158 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %18, i32 noundef 88) #8
-  %.not346 = icmp eq ptr %158, null
-  br i1 %.not346, label %dequoteAclUserName.exit.thread, label %159
+145:                                              ; preds = %139, %142
+  %146 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %18, i32 noundef 88) #8
+  %.not346 = icmp eq ptr %146, null
+  br i1 %.not346, label %dequoteAclUserName.exit.thread, label %147
 
-159:                                              ; preds = %157
-  %160 = getelementptr i8, ptr %158, i64 1
-  %161 = load i8, ptr %160, align 1
-  %162 = icmp eq i8 %161, 42
-  %163 = icmp ne ptr %6, null
-  %or.cond19 = and i1 %163, %162
+147:                                              ; preds = %145
+  %148 = getelementptr i8, ptr %146, i64 1
+  %149 = load i8, ptr %148, align 1
+  %150 = icmp eq i8 %149, 42
+  %151 = icmp ne ptr %6, null
+  %or.cond19 = and i1 %151, %150
   br i1 %or.cond19, label %AddAcl.exit373.thread9.sink.split, label %.thread16.sink.split
 
-164:                                              ; preds = %154
-  %165 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(9) @.str.48) #8
-  %166 = icmp eq i32 %165, 0
-  br i1 %166, label %167, label %174
+152:                                              ; preds = %142
+  %153 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(9) @.str.48) #8
+  %154 = icmp eq i32 %153, 0
+  br i1 %154, label %155, label %162
 
-167:                                              ; preds = %164
-  %168 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %18, i32 noundef 85) #8
-  %.not345 = icmp eq ptr %168, null
-  br i1 %.not345, label %dequoteAclUserName.exit.thread, label %169
+155:                                              ; preds = %152
+  %156 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %18, i32 noundef 85) #8
+  %.not345 = icmp eq ptr %156, null
+  br i1 %.not345, label %dequoteAclUserName.exit.thread, label %157
 
-169:                                              ; preds = %167
-  %170 = getelementptr i8, ptr %168, i64 1
+157:                                              ; preds = %155
+  %158 = getelementptr i8, ptr %156, i64 1
+  %159 = load i8, ptr %158, align 1
+  %160 = icmp eq i8 %159, 42
+  %161 = icmp ne ptr %6, null
+  %or.cond21 = and i1 %161, %160
+  br i1 %or.cond21, label %AddAcl.exit373.thread9.sink.split, label %.thread16.sink.split
+
+162:                                              ; preds = %152
+  %163 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(7) @.str.49) #8
+  %164 = icmp eq i32 %163, 0
+  br i1 %164, label %168, label %165
+
+165:                                              ; preds = %162
+  %166 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(8) @.str.50) #8
+  %167 = icmp eq i32 %166, 0
+  br i1 %167, label %168, label %183
+
+168:                                              ; preds = %162, %165
+  %169 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %18, i32 noundef 67) #8
+  %.not343 = icmp eq ptr %169, null
+  br i1 %.not343, label %174, label %.sink.split40
+
+.sink.split40:                                    ; preds = %168
+  %170 = getelementptr i8, ptr %169, i64 1
   %171 = load i8, ptr %170, align 1
   %172 = icmp eq i8 %171, 42
   %173 = icmp ne ptr %6, null
-  %or.cond21 = and i1 %173, %172
-  br i1 %or.cond21, label %AddAcl.exit373.thread9.sink.split, label %.thread16.sink.split
+  %or.cond23 = and i1 %173, %172
+  %.54 = select i1 %or.cond23, ptr %6, ptr %5
+  %not.or.cond23 = xor i1 %or.cond23, true
+  tail call fastcc void @AddAcl(ptr noundef %.54, ptr noundef nonnull @.str.51, ptr noundef %2)
+  br label %174
 
-174:                                              ; preds = %164
-  %175 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(7) @.str.49) #8
-  %176 = icmp eq i32 %175, 0
-  br i1 %176, label %180, label %177
+174:                                              ; preds = %.sink.split40, %168
+  %.7283 = phi i1 [ false, %168 ], [ %or.cond23, %.sink.split40 ]
+  %.7 = phi i1 [ false, %168 ], [ %not.or.cond23, %.sink.split40 ]
+  %175 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %18, i32 noundef 85) #8
+  %.not344 = icmp eq ptr %175, null
+  br i1 %.not344, label %dequoteAclUserName.exit.thread, label %176
 
-177:                                              ; preds = %174
-  %178 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(8) @.str.50) #8
-  %179 = icmp eq i32 %178, 0
-  br i1 %179, label %180, label %198
+176:                                              ; preds = %174
+  %177 = getelementptr i8, ptr %175, i64 1
+  %178 = load i8, ptr %177, align 1
+  %179 = icmp eq i8 %178, 42
+  %180 = icmp ne ptr %6, null
+  %or.cond25 = and i1 %180, %179
+  br i1 %or.cond25, label %181, label %182
 
-180:                                              ; preds = %174, %177
-  %181 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %18, i32 noundef 67) #8
-  %.not343 = icmp eq ptr %181, null
-  br i1 %.not343, label %189, label %182
-
-182:                                              ; preds = %180
-  %183 = getelementptr i8, ptr %181, i64 1
-  %184 = load i8, ptr %183, align 1
-  %185 = icmp eq i8 %184, 42
-  %186 = icmp ne ptr %6, null
-  %or.cond23 = and i1 %186, %185
-  br i1 %or.cond23, label %187, label %188
-
-187:                                              ; preds = %182
-  tail call fastcc void @AddAcl(ptr noundef nonnull %6, ptr noundef nonnull @.str.51, ptr noundef %2)
-  br label %189
-
-188:                                              ; preds = %182
-  tail call fastcc void @AddAcl(ptr noundef %5, ptr noundef nonnull @.str.51, ptr noundef %2)
-  br label %189
-
-189:                                              ; preds = %180, %187, %188
-  %.7283 = phi i1 [ true, %187 ], [ false, %188 ], [ false, %180 ]
-  %.7 = phi i1 [ false, %187 ], [ true, %188 ], [ false, %180 ]
-  %190 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %18, i32 noundef 85) #8
-  %.not344 = icmp eq ptr %190, null
-  br i1 %.not344, label %dequoteAclUserName.exit.thread, label %191
-
-191:                                              ; preds = %189
-  %192 = getelementptr i8, ptr %190, i64 1
-  %193 = load i8, ptr %192, align 1
-  %194 = icmp eq i8 %193, 42
-  %195 = icmp ne ptr %6, null
-  %or.cond25 = and i1 %195, %194
-  br i1 %or.cond25, label %196, label %197
-
-196:                                              ; preds = %191
+181:                                              ; preds = %176
   tail call fastcc void @AddAcl(ptr noundef nonnull %6, ptr noundef nonnull @.str.36, ptr noundef %2)
   br i1 %.7283, label %AddAcl.exit373.thread9, label %dequoteAclUserName.exit.thread
 
-197:                                              ; preds = %191
+182:                                              ; preds = %176
   tail call fastcc void @AddAcl(ptr noundef %5, ptr noundef nonnull @.str.36, ptr noundef %2)
   br i1 %.7, label %.thread16, label %dequoteAclUserName.exit.thread
 
-198:                                              ; preds = %177
-  %199 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(9) @.str.52) #8
-  %200 = icmp eq i32 %199, 0
-  br i1 %200, label %201, label %228
+183:                                              ; preds = %165
+  %184 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(9) @.str.52) #8
+  %185 = icmp eq i32 %184, 0
+  br i1 %185, label %186, label %207
 
-201:                                              ; preds = %198
-  %202 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %18, i32 noundef 67) #8
-  %.not340 = icmp eq ptr %202, null
-  br i1 %.not340, label %210, label %203
+186:                                              ; preds = %183
+  %187 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %18, i32 noundef 67) #8
+  %.not340 = icmp eq ptr %187, null
+  br i1 %.not340, label %192, label %.sink.split42
 
-203:                                              ; preds = %201
-  %204 = getelementptr i8, ptr %202, i64 1
-  %205 = load i8, ptr %204, align 1
-  %206 = icmp eq i8 %205, 42
-  %207 = icmp ne ptr %6, null
-  %or.cond27 = and i1 %207, %206
-  br i1 %or.cond27, label %208, label %209
+.sink.split42:                                    ; preds = %186
+  %188 = getelementptr i8, ptr %187, i64 1
+  %189 = load i8, ptr %188, align 1
+  %190 = icmp eq i8 %189, 42
+  %191 = icmp ne ptr %6, null
+  %or.cond27 = and i1 %191, %190
+  %.57 = select i1 %or.cond27, ptr %6, ptr %5
+  %not.or.cond27 = xor i1 %or.cond27, true
+  tail call fastcc void @AddAcl(ptr noundef %.57, ptr noundef nonnull @.str.51, ptr noundef %2)
+  br label %192
 
-208:                                              ; preds = %203
-  tail call fastcc void @AddAcl(ptr noundef nonnull %6, ptr noundef nonnull @.str.51, ptr noundef %2)
-  br label %210
+192:                                              ; preds = %.sink.split42, %186
+  %.8284 = phi i1 [ false, %186 ], [ %or.cond27, %.sink.split42 ]
+  %.8 = phi i1 [ false, %186 ], [ %not.or.cond27, %.sink.split42 ]
+  %193 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %18, i32 noundef 99) #8
+  %.not341 = icmp eq ptr %193, null
+  br i1 %.not341, label %198, label %.sink.split44
 
-209:                                              ; preds = %203
-  tail call fastcc void @AddAcl(ptr noundef %5, ptr noundef nonnull @.str.51, ptr noundef %2)
-  br label %210
+.sink.split44:                                    ; preds = %192
+  %194 = getelementptr i8, ptr %193, i64 1
+  %195 = load i8, ptr %194, align 1
+  %196 = icmp eq i8 %195, 42
+  %197 = icmp ne ptr %6, null
+  %or.cond29 = and i1 %197, %196
+  %.60 = select i1 %or.cond29, ptr %6, ptr %5
+  %.8284. = and i1 %or.cond29, %.8284
+  %not.or.cond29 = xor i1 %or.cond29, true
+  %..8 = and i1 %.8, %not.or.cond29
+  tail call fastcc void @AddAcl(ptr noundef %.60, ptr noundef nonnull @.str.53, ptr noundef %2)
+  br label %198
 
-210:                                              ; preds = %201, %208, %209
-  %.8284 = phi i1 [ true, %208 ], [ false, %209 ], [ false, %201 ]
-  %.8 = phi i1 [ false, %208 ], [ true, %209 ], [ false, %201 ]
-  %211 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %18, i32 noundef 99) #8
-  %.not341 = icmp eq ptr %211, null
-  br i1 %.not341, label %219, label %212
+198:                                              ; preds = %.sink.split44, %192
+  %.9285 = phi i1 [ false, %192 ], [ %.8284., %.sink.split44 ]
+  %.9 = phi i1 [ false, %192 ], [ %..8, %.sink.split44 ]
+  %199 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %18, i32 noundef 84) #8
+  %.not342 = icmp eq ptr %199, null
+  br i1 %.not342, label %dequoteAclUserName.exit.thread, label %200
+
+200:                                              ; preds = %198
+  %201 = getelementptr i8, ptr %199, i64 1
+  %202 = load i8, ptr %201, align 1
+  %203 = icmp eq i8 %202, 42
+  %204 = icmp ne ptr %6, null
+  %or.cond31 = and i1 %204, %203
+  br i1 %or.cond31, label %205, label %206
+
+205:                                              ; preds = %200
+  tail call fastcc void @AddAcl(ptr noundef nonnull %6, ptr noundef nonnull @.str.54, ptr noundef %2)
+  br i1 %.9285, label %AddAcl.exit373.thread9, label %dequoteAclUserName.exit.thread
+
+206:                                              ; preds = %200
+  tail call fastcc void @AddAcl(ptr noundef %5, ptr noundef nonnull @.str.54, ptr noundef %2)
+  br i1 %.9, label %.thread16, label %dequoteAclUserName.exit.thread
+
+207:                                              ; preds = %183
+  %208 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(11) @.str.55) #8
+  %209 = icmp eq i32 %208, 0
+  br i1 %209, label %210, label %217
+
+210:                                              ; preds = %207
+  %211 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %18, i32 noundef 67) #8
+  %.not339 = icmp eq ptr %211, null
+  br i1 %.not339, label %dequoteAclUserName.exit.thread, label %212
 
 212:                                              ; preds = %210
   %213 = getelementptr i8, ptr %211, i64 1
   %214 = load i8, ptr %213, align 1
   %215 = icmp eq i8 %214, 42
   %216 = icmp ne ptr %6, null
-  %or.cond29 = and i1 %216, %215
-  br i1 %or.cond29, label %217, label %218
-
-217:                                              ; preds = %212
-  tail call fastcc void @AddAcl(ptr noundef nonnull %6, ptr noundef nonnull @.str.53, ptr noundef %2)
-  br label %219
-
-218:                                              ; preds = %212
-  tail call fastcc void @AddAcl(ptr noundef %5, ptr noundef nonnull @.str.53, ptr noundef %2)
-  br label %219
-
-219:                                              ; preds = %210, %217, %218
-  %.9285 = phi i1 [ %.8284, %217 ], [ false, %218 ], [ false, %210 ]
-  %.9 = phi i1 [ false, %217 ], [ %.8, %218 ], [ false, %210 ]
-  %220 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %18, i32 noundef 84) #8
-  %.not342 = icmp eq ptr %220, null
-  br i1 %.not342, label %dequoteAclUserName.exit.thread, label %221
-
-221:                                              ; preds = %219
-  %222 = getelementptr i8, ptr %220, i64 1
-  %223 = load i8, ptr %222, align 1
-  %224 = icmp eq i8 %223, 42
-  %225 = icmp ne ptr %6, null
-  %or.cond31 = and i1 %225, %224
-  br i1 %or.cond31, label %226, label %227
-
-226:                                              ; preds = %221
-  tail call fastcc void @AddAcl(ptr noundef nonnull %6, ptr noundef nonnull @.str.54, ptr noundef %2)
-  br i1 %.9285, label %AddAcl.exit373.thread9, label %dequoteAclUserName.exit.thread
-
-227:                                              ; preds = %221
-  tail call fastcc void @AddAcl(ptr noundef %5, ptr noundef nonnull @.str.54, ptr noundef %2)
-  br i1 %.9, label %.thread16, label %dequoteAclUserName.exit.thread
-
-228:                                              ; preds = %198
-  %229 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(11) @.str.55) #8
-  %230 = icmp eq i32 %229, 0
-  br i1 %230, label %231, label %238
-
-231:                                              ; preds = %228
-  %232 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %18, i32 noundef 67) #8
-  %.not339 = icmp eq ptr %232, null
-  br i1 %.not339, label %dequoteAclUserName.exit.thread, label %233
-
-233:                                              ; preds = %231
-  %234 = getelementptr i8, ptr %232, i64 1
-  %235 = load i8, ptr %234, align 1
-  %236 = icmp eq i8 %235, 42
-  %237 = icmp ne ptr %6, null
-  %or.cond33 = and i1 %237, %236
+  %or.cond33 = and i1 %216, %215
   br i1 %or.cond33, label %AddAcl.exit373.thread9.sink.split, label %.thread16.sink.split
 
-238:                                              ; preds = %228
-  %239 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(5) @.str.56) #8
-  %240 = icmp eq i32 %239, 0
-  br i1 %240, label %244, label %241
+217:                                              ; preds = %207
+  %218 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(5) @.str.56) #8
+  %219 = icmp eq i32 %218, 0
+  br i1 %219, label %223, label %220
 
-241:                                              ; preds = %238
-  %242 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(6) @.str.57) #8
-  %243 = icmp eq i32 %242, 0
-  br i1 %243, label %244, label %251
+220:                                              ; preds = %217
+  %221 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(6) @.str.57) #8
+  %222 = icmp eq i32 %221, 0
+  br i1 %222, label %223, label %230
 
-244:                                              ; preds = %238, %241
-  %245 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %18, i32 noundef 85) #8
-  %.not338 = icmp eq ptr %245, null
-  br i1 %.not338, label %dequoteAclUserName.exit.thread, label %246
+223:                                              ; preds = %217, %220
+  %224 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %18, i32 noundef 85) #8
+  %.not338 = icmp eq ptr %224, null
+  br i1 %.not338, label %dequoteAclUserName.exit.thread, label %225
 
-246:                                              ; preds = %244
-  %247 = getelementptr i8, ptr %245, i64 1
-  %248 = load i8, ptr %247, align 1
-  %249 = icmp eq i8 %248, 42
-  %250 = icmp ne ptr %6, null
-  %or.cond35 = and i1 %250, %249
+225:                                              ; preds = %223
+  %226 = getelementptr i8, ptr %224, i64 1
+  %227 = load i8, ptr %226, align 1
+  %228 = icmp eq i8 %227, 42
+  %229 = icmp ne ptr %6, null
+  %or.cond35 = and i1 %229, %228
   br i1 %or.cond35, label %AddAcl.exit373.thread9.sink.split, label %.thread16.sink.split
 
-251:                                              ; preds = %241
-  %252 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(21) @.str.58) #8
-  %253 = icmp eq i32 %252, 0
-  br i1 %253, label %254, label %261
+230:                                              ; preds = %220
+  %231 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(21) @.str.58) #8
+  %232 = icmp eq i32 %231, 0
+  br i1 %232, label %233, label %240
 
-254:                                              ; preds = %251
-  %255 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %18, i32 noundef 85) #8
-  %.not337 = icmp eq ptr %255, null
-  br i1 %.not337, label %dequoteAclUserName.exit.thread, label %256
+233:                                              ; preds = %230
+  %234 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %18, i32 noundef 85) #8
+  %.not337 = icmp eq ptr %234, null
+  br i1 %.not337, label %dequoteAclUserName.exit.thread, label %235
 
-256:                                              ; preds = %254
-  %257 = getelementptr i8, ptr %255, i64 1
-  %258 = load i8, ptr %257, align 1
-  %259 = icmp eq i8 %258, 42
-  %260 = icmp ne ptr %6, null
-  %or.cond37 = and i1 %260, %259
+235:                                              ; preds = %233
+  %236 = getelementptr i8, ptr %234, i64 1
+  %237 = load i8, ptr %236, align 1
+  %238 = icmp eq i8 %237, 42
+  %239 = icmp ne ptr %6, null
+  %or.cond37 = and i1 %239, %238
   br i1 %or.cond37, label %AddAcl.exit373.thread9.sink.split, label %.thread16.sink.split
 
-261:                                              ; preds = %251
-  %262 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(15) @.str.59) #8
-  %263 = icmp eq i32 %262, 0
-  br i1 %263, label %264, label %271
+240:                                              ; preds = %230
+  %241 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(15) @.str.59) #8
+  %242 = icmp eq i32 %241, 0
+  br i1 %242, label %243, label %250
 
-264:                                              ; preds = %261
-  %265 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %18, i32 noundef 85) #8
-  %.not336 = icmp eq ptr %265, null
-  br i1 %.not336, label %dequoteAclUserName.exit.thread, label %266
+243:                                              ; preds = %240
+  %244 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %18, i32 noundef 85) #8
+  %.not336 = icmp eq ptr %244, null
+  br i1 %.not336, label %dequoteAclUserName.exit.thread, label %245
 
-266:                                              ; preds = %264
-  %267 = getelementptr i8, ptr %265, i64 1
-  %268 = load i8, ptr %267, align 1
-  %269 = icmp eq i8 %268, 42
-  %270 = icmp ne ptr %6, null
-  %or.cond39 = and i1 %270, %269
+245:                                              ; preds = %243
+  %246 = getelementptr i8, ptr %244, i64 1
+  %247 = load i8, ptr %246, align 1
+  %248 = icmp eq i8 %247, 42
+  %249 = icmp ne ptr %6, null
+  %or.cond39 = and i1 %249, %248
   br i1 %or.cond39, label %AddAcl.exit373.thread9.sink.split, label %.thread16.sink.split
 
-271:                                              ; preds = %261
-  %272 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(14) @.str.60) #8
-  %273 = icmp eq i32 %272, 0
-  br i1 %273, label %274, label %281
+250:                                              ; preds = %240
+  %251 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(14) @.str.60) #8
+  %252 = icmp eq i32 %251, 0
+  br i1 %252, label %253, label %260
 
-274:                                              ; preds = %271
-  %275 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %18, i32 noundef 114) #8
-  %.not335 = icmp eq ptr %275, null
-  br i1 %.not335, label %dequoteAclUserName.exit.thread, label %276
+253:                                              ; preds = %250
+  %254 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %18, i32 noundef 114) #8
+  %.not335 = icmp eq ptr %254, null
+  br i1 %.not335, label %dequoteAclUserName.exit.thread, label %255
 
-276:                                              ; preds = %274
-  %277 = getelementptr i8, ptr %275, i64 1
-  %278 = load i8, ptr %277, align 1
-  %279 = icmp eq i8 %278, 42
-  %280 = icmp ne ptr %6, null
-  %or.cond41 = and i1 %280, %279
+255:                                              ; preds = %253
+  %256 = getelementptr i8, ptr %254, i64 1
+  %257 = load i8, ptr %256, align 1
+  %258 = icmp eq i8 %257, 42
+  %259 = icmp ne ptr %6, null
+  %or.cond41 = and i1 %259, %258
   br i1 %or.cond41, label %AddAcl.exit373.thread9.sink.split, label %.thread16.sink.split
 
-281:                                              ; preds = %271
-  %282 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(10) @.str.61) #8
-  %283 = icmp eq i32 %282, 0
-  br i1 %283, label %284, label %302
+260:                                              ; preds = %250
+  %261 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(10) @.str.61) #8
+  %262 = icmp eq i32 %261, 0
+  br i1 %262, label %263, label %278
 
-284:                                              ; preds = %281
-  %285 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %18, i32 noundef 115) #8
-  %.not333 = icmp eq ptr %285, null
-  br i1 %.not333, label %293, label %286
+263:                                              ; preds = %260
+  %264 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %18, i32 noundef 115) #8
+  %.not333 = icmp eq ptr %264, null
+  br i1 %.not333, label %269, label %.sink.split46
 
-286:                                              ; preds = %284
-  %287 = getelementptr i8, ptr %285, i64 1
-  %288 = load i8, ptr %287, align 1
-  %289 = icmp eq i8 %288, 42
-  %290 = icmp ne ptr %6, null
-  %or.cond43 = and i1 %290, %289
-  br i1 %or.cond43, label %291, label %292
+.sink.split46:                                    ; preds = %263
+  %265 = getelementptr i8, ptr %264, i64 1
+  %266 = load i8, ptr %265, align 1
+  %267 = icmp eq i8 %266, 42
+  %268 = icmp ne ptr %6, null
+  %or.cond43 = and i1 %268, %267
+  %.61 = select i1 %or.cond43, ptr %6, ptr %5
+  %not.or.cond43 = xor i1 %or.cond43, true
+  tail call fastcc void @AddAcl(ptr noundef %.61, ptr noundef nonnull @.str.62, ptr noundef %2)
+  br label %269
 
-291:                                              ; preds = %286
-  tail call fastcc void @AddAcl(ptr noundef nonnull %6, ptr noundef nonnull @.str.62, ptr noundef %2)
-  br label %293
+269:                                              ; preds = %.sink.split46, %263
+  %.10286 = phi i1 [ false, %263 ], [ %or.cond43, %.sink.split46 ]
+  %.10 = phi i1 [ false, %263 ], [ %not.or.cond43, %.sink.split46 ]
+  %270 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %18, i32 noundef 65) #8
+  %.not334 = icmp eq ptr %270, null
+  br i1 %.not334, label %dequoteAclUserName.exit.thread, label %271
 
-292:                                              ; preds = %286
-  tail call fastcc void @AddAcl(ptr noundef %5, ptr noundef nonnull @.str.62, ptr noundef %2)
-  br label %293
+271:                                              ; preds = %269
+  %272 = getelementptr i8, ptr %270, i64 1
+  %273 = load i8, ptr %272, align 1
+  %274 = icmp eq i8 %273, 42
+  %275 = icmp ne ptr %6, null
+  %or.cond45 = and i1 %275, %274
+  br i1 %or.cond45, label %276, label %277
 
-293:                                              ; preds = %284, %291, %292
-  %.10286 = phi i1 [ true, %291 ], [ false, %292 ], [ false, %284 ]
-  %.10 = phi i1 [ false, %291 ], [ true, %292 ], [ false, %284 ]
-  %294 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %18, i32 noundef 65) #8
-  %.not334 = icmp eq ptr %294, null
-  br i1 %.not334, label %dequoteAclUserName.exit.thread, label %295
-
-295:                                              ; preds = %293
-  %296 = getelementptr i8, ptr %294, i64 1
-  %297 = load i8, ptr %296, align 1
-  %298 = icmp eq i8 %297, 42
-  %299 = icmp ne ptr %6, null
-  %or.cond45 = and i1 %299, %298
-  br i1 %or.cond45, label %300, label %301
-
-300:                                              ; preds = %295
+276:                                              ; preds = %271
   tail call fastcc void @AddAcl(ptr noundef nonnull %6, ptr noundef nonnull @.str.63, ptr noundef %2)
   br i1 %.10286, label %AddAcl.exit373.thread9, label %dequoteAclUserName.exit.thread
 
-301:                                              ; preds = %295
+277:                                              ; preds = %271
   tail call fastcc void @AddAcl(ptr noundef %5, ptr noundef nonnull @.str.63, ptr noundef %2)
   br i1 %.10, label %.thread16, label %dequoteAclUserName.exit.thread
 
-302:                                              ; preds = %281
-  %303 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(13) @.str.64) #8
-  %304 = icmp eq i32 %303, 0
-  br i1 %304, label %305, label %323
+278:                                              ; preds = %260
+  %279 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(13) @.str.64) #8
+  %280 = icmp eq i32 %279, 0
+  br i1 %280, label %281, label %296
 
-305:                                              ; preds = %302
-  %306 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %18, i32 noundef 114) #8
-  %.not331 = icmp eq ptr %306, null
-  br i1 %.not331, label %314, label %307
+281:                                              ; preds = %278
+  %282 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %18, i32 noundef 114) #8
+  %.not331 = icmp eq ptr %282, null
+  br i1 %.not331, label %287, label %.sink.split48
 
-307:                                              ; preds = %305
-  %308 = getelementptr i8, ptr %306, i64 1
-  %309 = load i8, ptr %308, align 1
-  %310 = icmp eq i8 %309, 42
-  %311 = icmp ne ptr %6, null
-  %or.cond47 = and i1 %311, %310
-  br i1 %or.cond47, label %312, label %313
+.sink.split48:                                    ; preds = %281
+  %283 = getelementptr i8, ptr %282, i64 1
+  %284 = load i8, ptr %283, align 1
+  %285 = icmp eq i8 %284, 42
+  %286 = icmp ne ptr %6, null
+  %or.cond47 = and i1 %286, %285
+  %.64 = select i1 %or.cond47, ptr %6, ptr %5
+  %not.or.cond47 = xor i1 %or.cond47, true
+  tail call fastcc void @AddAcl(ptr noundef %.64, ptr noundef nonnull @.str.35, ptr noundef %2)
+  br label %287
 
-312:                                              ; preds = %307
-  tail call fastcc void @AddAcl(ptr noundef nonnull %6, ptr noundef nonnull @.str.35, ptr noundef %2)
-  br label %314
+287:                                              ; preds = %.sink.split48, %281
+  %.11287 = phi i1 [ false, %281 ], [ %or.cond47, %.sink.split48 ]
+  %.11 = phi i1 [ false, %281 ], [ %not.or.cond47, %.sink.split48 ]
+  %288 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %18, i32 noundef 119) #8
+  %.not332 = icmp eq ptr %288, null
+  br i1 %.not332, label %dequoteAclUserName.exit.thread, label %289
 
-313:                                              ; preds = %307
-  tail call fastcc void @AddAcl(ptr noundef %5, ptr noundef nonnull @.str.35, ptr noundef %2)
-  br label %314
+289:                                              ; preds = %287
+  %290 = getelementptr i8, ptr %288, i64 1
+  %291 = load i8, ptr %290, align 1
+  %292 = icmp eq i8 %291, 42
+  %293 = icmp ne ptr %6, null
+  %or.cond49 = and i1 %293, %292
+  br i1 %or.cond49, label %294, label %295
 
-314:                                              ; preds = %305, %312, %313
-  %.11287 = phi i1 [ true, %312 ], [ false, %313 ], [ false, %305 ]
-  %.11 = phi i1 [ false, %312 ], [ true, %313 ], [ false, %305 ]
-  %315 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %18, i32 noundef 119) #8
-  %.not332 = icmp eq ptr %315, null
-  br i1 %.not332, label %dequoteAclUserName.exit.thread, label %316
-
-316:                                              ; preds = %314
-  %317 = getelementptr i8, ptr %315, i64 1
-  %318 = load i8, ptr %317, align 1
-  %319 = icmp eq i8 %318, 42
-  %320 = icmp ne ptr %6, null
-  %or.cond49 = and i1 %320, %319
-  br i1 %or.cond49, label %321, label %322
-
-321:                                              ; preds = %316
+294:                                              ; preds = %289
   tail call fastcc void @AddAcl(ptr noundef nonnull %6, ptr noundef nonnull @.str.42, ptr noundef %2)
   br i1 %.11287, label %AddAcl.exit373.thread9, label %dequoteAclUserName.exit.thread
 
-322:                                              ; preds = %316
+295:                                              ; preds = %289
   tail call fastcc void @AddAcl(ptr noundef %5, ptr noundef nonnull @.str.42, ptr noundef %2)
   br i1 %.11, label %.thread16, label %dequoteAclUserName.exit.thread
 
-323:                                              ; preds = %302
+296:                                              ; preds = %278
   tail call void @abort() #9
   unreachable
 
-AddAcl.exit373:                                   ; preds = %130
+AddAcl.exit373:                                   ; preds = %118
   br i1 %.5281, label %AddAcl.exit373.thread9, label %dequoteAclUserName.exit.thread
 
-AddAcl.exit373.thread9.sink.split:                ; preds = %276, %266, %256, %246, %233, %169, %159, %146
-  %.str.35.sink = phi ptr [ @.str.45, %146 ], [ @.str.45, %159 ], [ @.str.36, %169 ], [ @.str.51, %233 ], [ @.str.36, %246 ], [ @.str.36, %256 ], [ @.str.36, %266 ], [ @.str.35, %276 ]
+AddAcl.exit373.thread9.sink.split:                ; preds = %255, %245, %235, %225, %212, %157, %147, %134
+  %.str.35.sink = phi ptr [ @.str.45, %134 ], [ @.str.45, %147 ], [ @.str.36, %157 ], [ @.str.51, %212 ], [ @.str.36, %225 ], [ @.str.36, %235 ], [ @.str.36, %245 ], [ @.str.35, %255 ]
   tail call fastcc void @AddAcl(ptr noundef nonnull %6, ptr noundef nonnull %.str.35.sink, ptr noundef %2)
   br label %AddAcl.exit373.thread9
 
-AddAcl.exit373.thread9:                           ; preds = %AddAcl.exit373.thread9.sink.split, %131, %321, %300, %226, %196, %AddAcl.exit373
+AddAcl.exit373.thread9:                           ; preds = %AddAcl.exit373.thread9.sink.split, %119, %294, %276, %205, %181, %AddAcl.exit373
   tail call void @resetPQExpBuffer(ptr noundef %5) #7
   tail call void (ptr, ptr, ...) @printfPQExpBuffer(ptr noundef nonnull %6, ptr noundef nonnull @.str.65) #7
   %.not357 = icmp eq ptr %2, null
-  br i1 %.not357, label %dequoteAclUserName.exit.thread, label %324
+  br i1 %.not357, label %dequoteAclUserName.exit.thread, label %.thread.sink.split
 
-324:                                              ; preds = %AddAcl.exit373.thread9
-  tail call void (ptr, ptr, ...) @appendPQExpBuffer(ptr noundef nonnull %6, ptr noundef nonnull @.str.66, ptr noundef nonnull %2) #7
-  br label %dequoteAclUserName.exit.thread
-
-325:                                              ; preds = %136
+297:                                              ; preds = %124
   br i1 %.5, label %.thread16, label %dequoteAclUserName.exit.thread
 
-.thread16.sink.split:                             ; preds = %276, %266, %256, %246, %233, %169, %159, %146
-  %.str.45.sink = phi ptr [ @.str.45, %146 ], [ @.str.45, %159 ], [ @.str.36, %169 ], [ @.str.51, %233 ], [ @.str.36, %246 ], [ @.str.36, %256 ], [ @.str.36, %266 ], [ @.str.35, %276 ]
+.thread16.sink.split:                             ; preds = %255, %245, %235, %225, %212, %157, %147, %134
+  %.str.45.sink = phi ptr [ @.str.45, %134 ], [ @.str.45, %147 ], [ @.str.36, %157 ], [ @.str.51, %212 ], [ @.str.36, %225 ], [ @.str.36, %235 ], [ @.str.36, %245 ], [ @.str.35, %255 ]
   tail call fastcc void @AddAcl(ptr noundef %5, ptr noundef nonnull %.str.45.sink, ptr noundef %2)
   br label %.thread16
 
-.thread16:                                        ; preds = %.thread16.sink.split, %197, %227, %301, %322, %137, %325
+.thread16:                                        ; preds = %.thread16.sink.split, %182, %206, %277, %295, %125, %297
   tail call void @resetPQExpBuffer(ptr noundef %6) #7
   tail call void (ptr, ptr, ...) @printfPQExpBuffer(ptr noundef %5, ptr noundef nonnull @.str.65) #7
   %.not356 = icmp eq ptr %2, null
-  br i1 %.not356, label %dequoteAclUserName.exit.thread, label %326
+  br i1 %.not356, label %dequoteAclUserName.exit.thread, label %.thread.sink.split
 
-326:                                              ; preds = %.thread16
-  tail call void (ptr, ptr, ...) @appendPQExpBuffer(ptr noundef %5, ptr noundef nonnull @.str.66, ptr noundef nonnull %2) #7
+.thread.sink.split:                               ; preds = %.thread16, %AddAcl.exit373.thread9
+  %.sink50 = phi ptr [ %6, %AddAcl.exit373.thread9 ], [ %5, %.thread16 ]
+  tail call void (ptr, ptr, ...) @appendPQExpBuffer(ptr noundef %.sink50, ptr noundef nonnull @.str.66, ptr noundef nonnull %2) #7
   br label %dequoteAclUserName.exit.thread
 
-dequoteAclUserName.exit.thread:                   ; preds = %.loopexit.i, %.preheader.i, %.loopexit.i363, %324, %AddAcl.exit373.thread9, %.thread16, %326, %325, %AddAcl.exit373, %314, %293, %274, %264, %254, %244, %231, %219, %189, %167, %157, %144, %119, %196, %226, %300, %321, %131, %137, %322, %301, %227, %197, %17
-  %.0 = phi i1 [ false, %17 ], [ true, %197 ], [ true, %227 ], [ true, %301 ], [ true, %322 ], [ true, %137 ], [ true, %131 ], [ true, %321 ], [ true, %300 ], [ true, %226 ], [ true, %196 ], [ true, %119 ], [ true, %144 ], [ true, %157 ], [ true, %167 ], [ true, %189 ], [ true, %219 ], [ true, %231 ], [ true, %244 ], [ true, %254 ], [ true, %264 ], [ true, %274 ], [ true, %293 ], [ true, %314 ], [ true, %AddAcl.exit373 ], [ true, %325 ], [ true, %326 ], [ true, %.thread16 ], [ true, %AddAcl.exit373.thread9 ], [ true, %324 ], [ false, %.loopexit.i363 ], [ false, %.preheader.i ], [ false, %.loopexit.i ]
+dequoteAclUserName.exit.thread:                   ; preds = %.loopexit.i, %.preheader.i, %.loopexit.i363, %AddAcl.exit373.thread9, %.thread16, %297, %AddAcl.exit373, %287, %269, %253, %243, %233, %223, %210, %198, %174, %155, %145, %132, %107, %181, %205, %276, %294, %119, %125, %295, %277, %206, %182, %.thread.sink.split, %17
+  %.0 = phi i1 [ false, %17 ], [ true, %.thread.sink.split ], [ true, %182 ], [ true, %206 ], [ true, %277 ], [ true, %295 ], [ true, %125 ], [ true, %119 ], [ true, %294 ], [ true, %276 ], [ true, %205 ], [ true, %181 ], [ true, %107 ], [ true, %132 ], [ true, %145 ], [ true, %155 ], [ true, %174 ], [ true, %198 ], [ true, %210 ], [ true, %223 ], [ true, %233 ], [ true, %243 ], [ true, %253 ], [ true, %269 ], [ true, %287 ], [ true, %AddAcl.exit373 ], [ true, %297 ], [ true, %.thread16 ], [ true, %AddAcl.exit373.thread9 ], [ false, %.loopexit.i363 ], [ false, %.preheader.i ], [ false, %.loopexit.i ]
   tail call void @pg_free(ptr noundef %8) #7
   ret i1 %.0
 }

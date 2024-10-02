@@ -1450,18 +1450,20 @@ if.end29.i:                                       ; preds = %strbuf_addch.exit.i
 
 if.then32.i:                                      ; preds = %if.end29.i
   %name.i = getelementptr inbounds i8, ptr %26, i64 176
-  %call.i32.i = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %name.i) #20
-  call void @strbuf_add(ptr noundef nonnull %buf.i, ptr noundef nonnull %name.i, i64 noundef %call.i32.i) #18
-  br label %if.end37.i
+  br label %if.end37.sink.split.i
 
 if.else34.i:                                      ; preds = %if.end29.i
   %new_oid.i = getelementptr inbounds i8, ptr %ref.089.i, i64 44
   %call35.i = call ptr @oid_to_hex(ptr noundef nonnull %new_oid.i) #18
-  %call.i33.i = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %call35.i) #20
-  call void @strbuf_add(ptr noundef nonnull %buf.i, ptr noundef %call35.i, i64 noundef %call.i33.i) #18
+  br label %if.end37.sink.split.i
+
+if.end37.sink.split.i:                            ; preds = %if.else34.i, %if.then32.i
+  %name.sink94.i = phi ptr [ %name.i, %if.then32.i ], [ %call35.i, %if.else34.i ]
+  %call.i32.i = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %name.sink94.i) #20
+  call void @strbuf_add(ptr noundef nonnull %buf.i, ptr noundef %name.sink94.i, i64 noundef %call.i32.i) #18
   br label %if.end37.i
 
-if.end37.i:                                       ; preds = %if.else34.i, %if.then32.i, %if.end16.i
+if.end37.i:                                       ; preds = %if.end37.sink.split.i, %if.end16.i
   %27 = load i64, ptr %buf.i, align 8
   %tobool.not.i.i34.i = icmp eq i64 %27, 0
   br i1 %tobool.not.i.i34.i, label %if.then.i45.i, label %strbuf_avail.exit.i35.i
@@ -1555,14 +1557,14 @@ if.end53.i:                                       ; preds = %for.end.i
 land.rhs.lr.ph.i:                                 ; preds = %if.end53.i
   %nr.i = getelementptr inbounds i8, ptr %cas_options.i, i64 8
   %43 = load i64, ptr %nr.i, align 8
-  %cmp57.i46 = icmp sgt i64 %43, 0
-  br i1 %cmp57.i46, label %for.body58.i, label %for.end61.i
+  %cmp57.i45 = icmp sgt i64 %43, 0
+  br i1 %cmp57.i45, label %for.body58.i, label %for.end61.i
 
 for.body58.i:                                     ; preds = %land.rhs.lr.ph.i, %for.body58.i
-  %cas_option.091.i47 = phi ptr [ %incdec.ptr.i, %for.body58.i ], [ %42, %land.rhs.lr.ph.i ]
-  %44 = load ptr, ptr %cas_option.091.i47, align 8
+  %cas_option.091.i46 = phi ptr [ %incdec.ptr.i, %for.body58.i ], [ %42, %land.rhs.lr.ph.i ]
+  %44 = load ptr, ptr %cas_option.091.i46, align 8
   %call59.i = call i32 @set_helper_option(ptr noundef readonly %transport, ptr noundef nonnull @.str.102, ptr noundef %44)
-  %incdec.ptr.i = getelementptr inbounds i8, ptr %cas_option.091.i47, i64 16
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %cas_option.091.i46, i64 16
   %45 = load ptr, ptr %cas_options.i, align 8
   %46 = load i64, ptr %nr.i, align 8
   %add.ptr.i = getelementptr inbounds %struct.string_list_item, ptr %45, i64 %46
@@ -1660,8 +1662,8 @@ if.then17:                                        ; preds = %if.end11
   br i1 %tobool.not.i21, label %if.then.i, label %if.end.i
 
 if.then.i:                                        ; preds = %if.then17
-  %call.i43 = tail call fastcc ptr @_(ptr noundef nonnull @.str.136)
-  tail call void (ptr, ...) @die(ptr noundef %call.i43) #19
+  %call.i42 = tail call fastcc ptr @_(ptr noundef nonnull @.str.136)
+  tail call void (ptr, ...) @die(ptr noundef %call.i42) #19
   unreachable
 
 if.end.i:                                         ; preds = %if.then17
@@ -1700,7 +1702,7 @@ if.end9.i:                                        ; preds = %_.exit.i, %if.then3
 
 if.then.i.i41:                                    ; preds = %if.end9.i
   %68 = load ptr, ptr @stderr, align 8
-  %call.i33.i42 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %68, ptr noundef nonnull @.str.37, ptr noundef nonnull @.str.139) #21
+  %call.i33.i = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %68, ptr noundef nonnull @.str.37, ptr noundef nonnull @.str.139) #21
   br label %if.end.i.i25
 
 if.end.i.i25:                                     ; preds = %if.then.i.i41, %if.end9.i

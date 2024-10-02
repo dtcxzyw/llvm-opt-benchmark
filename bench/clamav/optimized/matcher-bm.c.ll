@@ -600,7 +600,7 @@ define void @cli_bm_free(ptr nocapture noundef readonly %0) local_unnamed_addr #
   %14 = getelementptr inbounds i8, ptr %0, i64 16
   %15 = load ptr, ptr %14, align 8
   %.not32 = icmp eq ptr %15, null
-  br i1 %.not32, label %39, label %.preheader
+  br i1 %.not32, label %38, label %.preheader
 
 .preheader:                                       ; preds = %13
   %16 = getelementptr inbounds i8, ptr %0, i64 408
@@ -614,54 +614,51 @@ define void @cli_bm_free(ptr nocapture noundef readonly %0) local_unnamed_addr #
   %.not3336 = icmp eq ptr %20, null
   br i1 %.not3336, label %._crit_edge, label %.lr.ph
 
-.lr.ph:                                           ; preds = %17, %34
-  %.037 = phi ptr [ %22, %34 ], [ %20, %17 ]
+.lr.ph:                                           ; preds = %17, %33
+  %.037 = phi ptr [ %22, %33 ], [ %20, %17 ]
   %21 = getelementptr inbounds i8, ptr %.037, i64 48
   %22 = load ptr, ptr %21, align 8
   %23 = getelementptr inbounds i8, ptr %.037, i64 8
   %24 = load ptr, ptr %23, align 8
   %.not34 = icmp eq ptr %24, null
   %25 = load ptr, ptr %16, align 8
-  br i1 %.not34, label %27, label %26
+  br i1 %.not34, label %26, label %28
 
 26:                                               ; preds = %.lr.ph
-  tail call void @mpool_free(ptr noundef %25, ptr noundef nonnull %24) #7
-  br label %29
+  %27 = load ptr, ptr %.037, align 8
+  br label %28
 
-27:                                               ; preds = %.lr.ph
-  %28 = load ptr, ptr %.037, align 8
-  tail call void @mpool_free(ptr noundef %25, ptr noundef %28) #7
-  br label %29
+28:                                               ; preds = %.lr.ph, %26
+  %.sink = phi ptr [ %27, %26 ], [ %24, %.lr.ph ]
+  tail call void @mpool_free(ptr noundef %25, ptr noundef %.sink) #7
+  %29 = getelementptr inbounds i8, ptr %.037, i64 16
+  %30 = load ptr, ptr %29, align 8
+  %.not35 = icmp eq ptr %30, null
+  br i1 %.not35, label %33, label %31
 
-29:                                               ; preds = %27, %26
-  %30 = getelementptr inbounds i8, ptr %.037, i64 16
-  %31 = load ptr, ptr %30, align 8
-  %.not35 = icmp eq ptr %31, null
-  br i1 %.not35, label %34, label %32
+31:                                               ; preds = %28
+  %32 = load ptr, ptr %16, align 8
+  tail call void @mpool_free(ptr noundef %32, ptr noundef nonnull %30) #7
+  br label %33
 
-32:                                               ; preds = %29
-  %33 = load ptr, ptr %16, align 8
-  tail call void @mpool_free(ptr noundef %33, ptr noundef nonnull %31) #7
-  br label %34
-
-34:                                               ; preds = %32, %29
-  %35 = load ptr, ptr %16, align 8
-  tail call void @mpool_free(ptr noundef %35, ptr noundef nonnull %.037) #7
+33:                                               ; preds = %31, %28
+  %34 = load ptr, ptr %16, align 8
+  tail call void @mpool_free(ptr noundef %34, ptr noundef nonnull %.037) #7
   %.not33 = icmp eq ptr %22, null
   br i1 %.not33, label %._crit_edge, label %.lr.ph
 
-._crit_edge:                                      ; preds = %34, %17
+._crit_edge:                                      ; preds = %33, %17
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 63496
-  br i1 %exitcond.not, label %36, label %17
+  br i1 %exitcond.not, label %35, label %17
 
-36:                                               ; preds = %._crit_edge
-  %37 = load ptr, ptr %16, align 8
-  %38 = load ptr, ptr %14, align 8
-  tail call void @mpool_free(ptr noundef %37, ptr noundef %38) #7
-  br label %39
+35:                                               ; preds = %._crit_edge
+  %36 = load ptr, ptr %16, align 8
+  %37 = load ptr, ptr %14, align 8
+  tail call void @mpool_free(ptr noundef %36, ptr noundef %37) #7
+  br label %38
 
-39:                                               ; preds = %36, %13
+38:                                               ; preds = %35, %13
   ret void
 }
 

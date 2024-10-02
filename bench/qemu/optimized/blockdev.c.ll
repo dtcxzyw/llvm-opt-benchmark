@@ -1858,11 +1858,7 @@ if.end94:                                         ; preds = %if.end90
   %21 = getelementptr i8, ptr %20, i64 16
   %.val = load ptr, ptr %21, align 8
   %call99 = call fastcc zeroext i1 @parse_stats_intervals(ptr noundef %call98, ptr %.val, ptr noundef %errp)
-  br i1 %call99, label %if.end102, label %if.then100
-
-if.then100:                                       ; preds = %if.end94
-  call void @blk_unref(ptr noundef nonnull %call91) #15
-  br label %err_no_bs_opts
+  br i1 %call99, label %if.end102, label %err_no_bs_opts.sink.split
 
 if.end102:                                        ; preds = %if.end94, %if.then63
   %blk.0 = phi ptr [ %call91, %if.end94 ], [ %call65, %if.then63 ]
@@ -1880,14 +1876,15 @@ if.end108:                                        ; preds = %if.then104, %if.end
   call void @blk_set_enable_write_cache(ptr noundef %blk.0, i1 noundef zeroext %call11) #15
   call void @blk_set_on_error(ptr noundef %blk.0, i32 noundef %on_read_error.0, i32 noundef %on_write_error.0) #15
   %call111 = call zeroext i1 @monitor_add_blk(ptr noundef %blk.0, ptr noundef %call12, ptr noundef %errp) #15
-  br i1 %call111, label %err_no_bs_opts, label %if.then112
+  br i1 %call111, label %err_no_bs_opts, label %err_no_bs_opts.sink.split
 
-if.then112:                                       ; preds = %if.end108
-  call void @blk_unref(ptr noundef %blk.0) #15
+err_no_bs_opts.sink.split:                        ; preds = %if.end108, %if.end94
+  %blk.0.sink = phi ptr [ %call91, %if.end94 ], [ %blk.0, %if.end108 ]
+  call void @blk_unref(ptr noundef %blk.0.sink) #15
   br label %err_no_bs_opts
 
-err_no_bs_opts:                                   ; preds = %if.end108, %if.end90, %if.then112, %if.then100
-  %blk.1 = phi ptr [ %blk.0, %if.end108 ], [ null, %if.then112 ], [ null, %if.then100 ], [ null, %if.end90 ]
+err_no_bs_opts:                                   ; preds = %err_no_bs_opts.sink.split, %if.end108, %if.end90
+  %blk.1 = phi ptr [ %blk.0, %if.end108 ], [ null, %if.end90 ], [ null, %err_no_bs_opts.sink.split ]
   call void @qemu_opts_del(ptr noundef nonnull %call1) #15
   %22 = load ptr, ptr %interval_dict, align 8
   call fastcc void @qobject_unref_impl(ptr noundef %22)

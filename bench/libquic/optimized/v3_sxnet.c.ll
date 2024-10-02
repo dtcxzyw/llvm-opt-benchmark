@@ -460,7 +460,6 @@ lor.lhs.false:                                    ; preds = %entry
 
 if.then:                                          ; preds = %lor.lhs.false, %entry
   tail call void @ERR_put_error(i32 noundef 20, i32 noundef 0, i32 noundef 65, ptr noundef nonnull @.str.2, i32 noundef 253) #4
-  tail call void @ASN1_STRING_free(ptr noundef %call) #4
   br label %return
 
 if.end:                                           ; preds = %lor.lhs.false
@@ -468,14 +467,14 @@ if.end:                                           ; preds = %lor.lhs.false
   %0 = load ptr, ptr %ids.i, align 8
   %call5.i = tail call i64 @sk_num(ptr noundef %0) #4
   %cmp6.not.i = icmp eq i64 %call5.i, 0
-  br i1 %cmp6.not.i, label %SXNET_get_id_INTEGER.exit, label %for.body.i
+  br i1 %cmp6.not.i, label %return, label %for.body.i
 
 for.cond.i:                                       ; preds = %for.body.i
   %inc.i = add nuw i64 %i.07.i, 1
   %1 = load ptr, ptr %ids.i, align 8
   %call.i = tail call i64 @sk_num(ptr noundef %1) #4
   %cmp.i = icmp ult i64 %inc.i, %call.i
-  br i1 %cmp.i, label %for.body.i, label %SXNET_get_id_INTEGER.exit, !llvm.loop !10
+  br i1 %cmp.i, label %for.body.i, label %return, !llvm.loop !10
 
 for.body.i:                                       ; preds = %if.end, %for.cond.i
   %i.07.i = phi i64 [ %inc.i, %for.cond.i ], [ 0, %if.end ]
@@ -489,15 +488,11 @@ for.body.i:                                       ; preds = %if.end, %for.cond.i
 if.then.i:                                        ; preds = %for.body.i
   %user.i = getelementptr inbounds i8, ptr %call2.i, i64 8
   %4 = load ptr, ptr %user.i, align 8
-  br label %SXNET_get_id_INTEGER.exit
-
-SXNET_get_id_INTEGER.exit:                        ; preds = %for.cond.i, %if.end, %if.then.i
-  %retval.0.i = phi ptr [ %4, %if.then.i ], [ null, %if.end ], [ null, %for.cond.i ]
-  tail call void @ASN1_STRING_free(ptr noundef nonnull %call) #4
   br label %return
 
-return:                                           ; preds = %SXNET_get_id_INTEGER.exit, %if.then
-  %retval.0 = phi ptr [ %retval.0.i, %SXNET_get_id_INTEGER.exit ], [ null, %if.then ]
+return:                                           ; preds = %for.cond.i, %if.then.i, %if.end, %if.then
+  %retval.0 = phi ptr [ null, %if.then ], [ %4, %if.then.i ], [ null, %if.end ], [ null, %for.cond.i ]
+  tail call void @ASN1_STRING_free(ptr noundef %call) #4
   ret ptr %retval.0
 }
 

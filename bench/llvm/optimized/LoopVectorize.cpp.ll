@@ -105251,10 +105251,10 @@ _ZSt11swap_rangesIPPN4llvm20VPReductionPHIRecipeES3_ET0_T_S5_S4_.exit: ; preds =
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal fastcc void @"_ZSt16__merge_adaptiveIPPN4llvm20VPReductionPHIRecipeElS3_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_24LoopVectorizationPlanner26adjustRecipesForReductionsERSt10unique_ptrINS0_5VPlanESt14default_deleteIS9_EERNS0_15VPRecipeBuilderENS0_12ElementCountEE3$_1EEEvT_SJ_SJ_T0_SK_T1_SK_T2_"(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, i64 noundef %4, ptr noundef %5, i64 noundef %6, ptr nocapture noundef readonly byval(%"struct.__gnu_cxx::__ops::_Iter_comp_iter.1969") align 8 %7) unnamed_addr #0 {
-  %.not139 = icmp sgt i64 %3, %4
-  %.not65140 = icmp sgt i64 %3, %6
-  %or.cond141 = or i1 %.not65140, %.not139
-  br i1 %or.cond141, label %.lr.ph, label %tailrecurse._crit_edge
+  %.not138 = icmp sgt i64 %3, %4
+  %.not65139 = icmp sgt i64 %3, %6
+  %or.cond140 = or i1 %.not65139, %.not138
+  br i1 %or.cond140, label %.lr.ph, label %tailrecurse._crit_edge
 
 .lr.ph:                                           ; preds = %8
   %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %7, i64 8
@@ -105262,12 +105262,12 @@ define internal fastcc void @"_ZSt16__merge_adaptiveIPPN4llvm20VPReductionPHIRec
   br label %46
 
 tailrecurse._crit_edge:                           ; preds = %_ZSt17__rotate_adaptiveIPPN4llvm20VPReductionPHIRecipeES3_lET_S4_S4_S4_T1_S5_T0_S5_.exit, %8
-  %.tr.lcssa = phi ptr [ %0, %8 ], [ %.0.i106, %_ZSt17__rotate_adaptiveIPPN4llvm20VPReductionPHIRecipeES3_lET_S4_S4_S4_T1_S5_T0_S5_.exit ]
-  %.tr125.lcssa = phi ptr [ %1, %8 ], [ %.0121, %_ZSt17__rotate_adaptiveIPPN4llvm20VPReductionPHIRecipeES3_lET_S4_S4_S4_T1_S5_T0_S5_.exit ]
-  %10 = ptrtoint ptr %.tr125.lcssa to i64
+  %.tr.lcssa = phi ptr [ %0, %8 ], [ %.0.i105, %_ZSt17__rotate_adaptiveIPPN4llvm20VPReductionPHIRecipeES3_lET_S4_S4_S4_T1_S5_T0_S5_.exit ]
+  %.tr124.lcssa = phi ptr [ %1, %8 ], [ %.0120, %_ZSt17__rotate_adaptiveIPPN4llvm20VPReductionPHIRecipeES3_lET_S4_S4_S4_T1_S5_T0_S5_.exit ]
+  %10 = ptrtoint ptr %.tr124.lcssa to i64
   %11 = ptrtoint ptr %.tr.lcssa to i64
   %12 = sub i64 %10, %11
-  %.not.i.i.i.i.i = icmp eq ptr %.tr125.lcssa, %.tr.lcssa
+  %.not.i.i.i.i.i = icmp eq ptr %.tr124.lcssa, %.tr.lcssa
   br i1 %.not.i.i.i.i.i, label %_ZSt4moveIPPN4llvm20VPReductionPHIRecipeES3_ET0_T_S5_S4_.exit, label %13
 
 13:                                               ; preds = %tailrecurse._crit_edge
@@ -105276,22 +105276,22 @@ tailrecurse._crit_edge:                           ; preds = %_ZSt17__rotate_adap
 
 _ZSt4moveIPPN4llvm20VPReductionPHIRecipeES3_ET0_T_S5_S4_.exit: ; preds = %tailrecurse._crit_edge, %13
   %14 = getelementptr inbounds i8, ptr %5, i64 %12
-  %.sroa.2120.0..sroa_idx = getelementptr inbounds i8, ptr %7, i64 8
-  %.sroa.2120.0.copyload = load ptr, ptr %.sroa.2120.0..sroa_idx, align 8
-  %15 = icmp ne ptr %.tr125.lcssa, %.tr.lcssa
-  %16 = icmp ne ptr %.tr125.lcssa, %2
+  %.sroa.2119.0..sroa_idx = getelementptr inbounds i8, ptr %7, i64 8
+  %.sroa.2119.0.copyload = load ptr, ptr %.sroa.2119.0..sroa_idx, align 8
+  %15 = icmp ne ptr %.tr124.lcssa, %.tr.lcssa
+  %16 = icmp ne ptr %.tr124.lcssa, %2
   %17 = and i1 %15, %16
   br i1 %17, label %.lr.ph.i, label %._crit_edge.i
 
 .lr.ph.i:                                         ; preds = %_ZSt4moveIPPN4llvm20VPReductionPHIRecipeES3_ET0_T_S5_S4_.exit
-  %.sroa.0119.0.copyload = load ptr, ptr %7, align 8
-  %18 = getelementptr inbounds nuw i8, ptr %.sroa.0119.0.copyload, i64 16
+  %.sroa.0118.0.copyload = load ptr, ptr %7, align 8
+  %18 = getelementptr inbounds nuw i8, ptr %.sroa.0118.0.copyload, i64 16
   br label %19
 
 19:                                               ; preds = %38, %.lr.ph.i
   %.06.i = phi ptr [ %.tr.lcssa, %.lr.ph.i ], [ %39, %38 ]
   %.0185.i = phi ptr [ %5, %.lr.ph.i ], [ %.1.i, %38 ]
-  %.0194.i = phi ptr [ %.tr125.lcssa, %.lr.ph.i ], [ %.120.i, %38 ]
+  %.0194.i = phi ptr [ %.tr124.lcssa, %.lr.ph.i ], [ %.120.i, %38 ]
   %.019.val.i = load ptr, ptr %.0194.i, align 8
   %.018.val.i = load ptr, ptr %.0185.i, align 8
   %20 = getelementptr i8, ptr %.019.val.i, i64 160
@@ -105303,11 +105303,11 @@ _ZSt4moveIPPN4llvm20VPReductionPHIRecipeES3_ET0_T_S5_S4_.exit: ; preds = %tailre
   %22 = icmp ne ptr %.019.val.val.val.i, null
   %23 = icmp ne ptr %.018.val.val.val.i, null
   %24 = select i1 %22, i1 true, i1 %23
-  %25 = load i8, ptr %.sroa.2120.0.copyload, align 1
+  %25 = load i8, ptr %.sroa.2119.0.copyload, align 1
   %26 = and i8 %25, 1
   %27 = zext i1 %24 to i8
   %28 = or i8 %26, %27
-  store i8 %28, ptr %.sroa.2120.0.copyload, align 1
+  store i8 %28, ptr %.sroa.2119.0.copyload, align 1
   br i1 %24, label %29, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm24LoopVectorizationPlanner26adjustRecipesForReductionsERSt10unique_ptrINS2_5VPlanESt14default_deleteIS5_EERNS2_15VPRecipeBuilderENS2_12ElementCountEE3$_1EclIPPNS2_20VPReductionPHIRecipeESI_EEbT_T0_.exit.thread.i"
 
 29:                                               ; preds = %19
@@ -105359,384 +105359,379 @@ _ZSt4moveIPPN4llvm20VPReductionPHIRecipeES3_ET0_T_S5_S4_.exit.i: ; preds = %._cr
   br label %"_ZSt21__move_merge_adaptiveIPPN4llvm20VPReductionPHIRecipeES3_S3_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_24LoopVectorizationPlanner26adjustRecipesForReductionsERSt10unique_ptrINS0_5VPlanESt14default_deleteIS9_EERNS0_15VPRecipeBuilderENS0_12ElementCountEE3$_1EEEvT_SJ_T0_SK_T1_T2_.exit"
 
 46:                                               ; preds = %.lr.ph, %_ZSt17__rotate_adaptiveIPPN4llvm20VPReductionPHIRecipeES3_lET_S4_S4_S4_T1_S5_T0_S5_.exit
-  %.not147 = phi i1 [ %.not139, %.lr.ph ], [ %.not, %_ZSt17__rotate_adaptiveIPPN4llvm20VPReductionPHIRecipeES3_lET_S4_S4_S4_T1_S5_T0_S5_.exit ]
-  %.tr128146 = phi i64 [ %4, %.lr.ph ], [ %190, %_ZSt17__rotate_adaptiveIPPN4llvm20VPReductionPHIRecipeES3_lET_S4_S4_S4_T1_S5_T0_S5_.exit ]
-  %.tr127145 = phi i64 [ %3, %.lr.ph ], [ %159, %_ZSt17__rotate_adaptiveIPPN4llvm20VPReductionPHIRecipeES3_lET_S4_S4_S4_T1_S5_T0_S5_.exit ]
-  %.tr125143 = phi ptr [ %1, %.lr.ph ], [ %.0121, %_ZSt17__rotate_adaptiveIPPN4llvm20VPReductionPHIRecipeES3_lET_S4_S4_S4_T1_S5_T0_S5_.exit ]
-  %.tr142 = phi ptr [ %0, %.lr.ph ], [ %.0.i106, %_ZSt17__rotate_adaptiveIPPN4llvm20VPReductionPHIRecipeES3_lET_S4_S4_S4_T1_S5_T0_S5_.exit ]
-  %.not66 = icmp sgt i64 %.tr128146, %6
-  br i1 %.not66, label %89, label %47
+  %.not146 = phi i1 [ %.not138, %.lr.ph ], [ %.not, %_ZSt17__rotate_adaptiveIPPN4llvm20VPReductionPHIRecipeES3_lET_S4_S4_S4_T1_S5_T0_S5_.exit ]
+  %.tr127145 = phi i64 [ %4, %.lr.ph ], [ %186, %_ZSt17__rotate_adaptiveIPPN4llvm20VPReductionPHIRecipeES3_lET_S4_S4_S4_T1_S5_T0_S5_.exit ]
+  %.tr126144 = phi i64 [ %3, %.lr.ph ], [ %155, %_ZSt17__rotate_adaptiveIPPN4llvm20VPReductionPHIRecipeES3_lET_S4_S4_S4_T1_S5_T0_S5_.exit ]
+  %.tr124142 = phi ptr [ %1, %.lr.ph ], [ %.0120, %_ZSt17__rotate_adaptiveIPPN4llvm20VPReductionPHIRecipeES3_lET_S4_S4_S4_T1_S5_T0_S5_.exit ]
+  %.tr141 = phi ptr [ %0, %.lr.ph ], [ %.0.i105, %_ZSt17__rotate_adaptiveIPPN4llvm20VPReductionPHIRecipeES3_lET_S4_S4_S4_T1_S5_T0_S5_.exit ]
+  %.not66 = icmp sgt i64 %.tr127145, %6
+  br i1 %.not66, label %85, label %47
 
 47:                                               ; preds = %46
-  %48 = ptrtoint ptr %.tr125143 to i64
-  %49 = sub i64 %9, %48
-  %.not.i.i.i.i.i70 = icmp eq ptr %2, %.tr125143
+  %.not.i.i.i.i.i70 = icmp eq ptr %2, %.tr124142
   br i1 %.not.i.i.i.i.i70, label %"_ZSt21__move_merge_adaptiveIPPN4llvm20VPReductionPHIRecipeES3_S3_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_24LoopVectorizationPlanner26adjustRecipesForReductionsERSt10unique_ptrINS0_5VPlanESt14default_deleteIS9_EERNS0_15VPRecipeBuilderENS0_12ElementCountEE3$_1EEEvT_SJ_T0_SK_T1_T2_.exit", label %_ZSt4moveIPPN4llvm20VPReductionPHIRecipeES3_ET0_T_S5_S4_.exit71.thread
 
 _ZSt4moveIPPN4llvm20VPReductionPHIRecipeES3_ET0_T_S5_S4_.exit71.thread: ; preds = %47
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %5, ptr align 8 %.tr125143, i64 %49, i1 false)
-  %.sroa.2.0.copyload118160 = load ptr, ptr %.sroa.2.0..sroa_idx, align 8
-  %50 = icmp eq ptr %.tr142, %.tr125143
-  br i1 %50, label %51, label %54
+  %48 = ptrtoint ptr %.tr124142 to i64
+  %49 = sub i64 %9, %48
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %5, ptr align 8 %.tr124142, i64 %49, i1 false)
+  %50 = getelementptr inbounds i8, ptr %5, i64 %49
+  %.sroa.2.0.copyload117159 = load ptr, ptr %.sroa.2.0..sroa_idx, align 8
+  %51 = icmp eq ptr %.tr141, %.tr124142
+  br i1 %51, label %_ZSt13move_backwardIPPN4llvm20VPReductionPHIRecipeES3_ET0_T_S5_S4_.exit.sink.split.i, label %52
 
-51:                                               ; preds = %_ZSt4moveIPPN4llvm20VPReductionPHIRecipeES3_ET0_T_S5_S4_.exit71.thread
-  %52 = ashr exact i64 %49, 3
-  %.pre.i.i.i.i.i.i = sub nsw i64 0, %52
-  %53 = getelementptr inbounds ptr, ptr %2, i64 %.pre.i.i.i.i.i.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %53, ptr align 8 %5, i64 %49, i1 false)
-  br label %"_ZSt21__move_merge_adaptiveIPPN4llvm20VPReductionPHIRecipeES3_S3_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_24LoopVectorizationPlanner26adjustRecipesForReductionsERSt10unique_ptrINS0_5VPlanESt14default_deleteIS9_EERNS0_15VPRecipeBuilderENS0_12ElementCountEE3$_1EEEvT_SJ_T0_SK_T1_T2_.exit"
-
-54:                                               ; preds = %_ZSt4moveIPPN4llvm20VPReductionPHIRecipeES3_ET0_T_S5_S4_.exit71.thread
-  %.sroa.0.0.copyload116159 = load ptr, ptr %7, align 8
-  %55 = getelementptr inbounds i8, ptr %5, i64 %49
-  %56 = getelementptr inbounds i8, ptr %55, i64 -8
-  %57 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload116159, i64 16
+52:                                               ; preds = %_ZSt4moveIPPN4llvm20VPReductionPHIRecipeES3_ET0_T_S5_S4_.exit71.thread
+  %.sroa.0.0.copyload115158 = load ptr, ptr %7, align 8
+  %53 = getelementptr inbounds i8, ptr %50, i64 -8
+  %54 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload115158, i64 16
   br label %.outer
 
-.outer:                                           ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm24LoopVectorizationPlanner26adjustRecipesForReductionsERSt10unique_ptrINS2_5VPlanESt14default_deleteIS5_EERNS2_15VPRecipeBuilderENS2_12ElementCountEE3$_1EclIPPNS2_20VPReductionPHIRecipeESI_EEbT_T0_.exit.thread2.i75", %54
-  %.026.i.ph.pn = phi ptr [ %.tr125143, %54 ], [ %.026.i.ph, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm24LoopVectorizationPlanner26adjustRecipesForReductionsERSt10unique_ptrINS2_5VPlanESt14default_deleteIS5_EERNS2_15VPRecipeBuilderENS2_12ElementCountEE3$_1EclIPPNS2_20VPReductionPHIRecipeESI_EEbT_T0_.exit.thread2.i75" ]
-  %.024.i.ph = phi ptr [ %56, %54 ], [ %.024.i, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm24LoopVectorizationPlanner26adjustRecipesForReductionsERSt10unique_ptrINS2_5VPlanESt14default_deleteIS5_EERNS2_15VPRecipeBuilderENS2_12ElementCountEE3$_1EclIPPNS2_20VPReductionPHIRecipeESI_EEbT_T0_.exit.thread2.i75" ]
-  %.0.i.ph = phi ptr [ %2, %54 ], [ %74, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm24LoopVectorizationPlanner26adjustRecipesForReductionsERSt10unique_ptrINS2_5VPlanESt14default_deleteIS5_EERNS2_15VPRecipeBuilderENS2_12ElementCountEE3$_1EclIPPNS2_20VPReductionPHIRecipeESI_EEbT_T0_.exit.thread2.i75" ]
+.outer:                                           ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm24LoopVectorizationPlanner26adjustRecipesForReductionsERSt10unique_ptrINS2_5VPlanESt14default_deleteIS5_EERNS2_15VPRecipeBuilderENS2_12ElementCountEE3$_1EclIPPNS2_20VPReductionPHIRecipeESI_EEbT_T0_.exit.thread2.i75", %52
+  %.026.i.ph.pn = phi ptr [ %.tr124142, %52 ], [ %.026.i.ph, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm24LoopVectorizationPlanner26adjustRecipesForReductionsERSt10unique_ptrINS2_5VPlanESt14default_deleteIS5_EERNS2_15VPRecipeBuilderENS2_12ElementCountEE3$_1EclIPPNS2_20VPReductionPHIRecipeESI_EEbT_T0_.exit.thread2.i75" ]
+  %.024.i.ph = phi ptr [ %53, %52 ], [ %.024.i, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm24LoopVectorizationPlanner26adjustRecipesForReductionsERSt10unique_ptrINS2_5VPlanESt14default_deleteIS5_EERNS2_15VPRecipeBuilderENS2_12ElementCountEE3$_1EclIPPNS2_20VPReductionPHIRecipeESI_EEbT_T0_.exit.thread2.i75" ]
+  %.0.i.ph = phi ptr [ %2, %52 ], [ %71, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm24LoopVectorizationPlanner26adjustRecipesForReductionsERSt10unique_ptrINS2_5VPlanESt14default_deleteIS5_EERNS2_15VPRecipeBuilderENS2_12ElementCountEE3$_1EclIPPNS2_20VPReductionPHIRecipeESI_EEbT_T0_.exit.thread2.i75" ]
   %.026.i.ph = getelementptr inbounds i8, ptr %.026.i.ph.pn, i64 -8
-  br label %58
+  br label %55
 
-58:                                               ; preds = %.outer, %87
-  %.024.i = phi ptr [ %88, %87 ], [ %.024.i.ph, %.outer ]
-  %.0.i = phi ptr [ %85, %87 ], [ %.0.i.ph, %.outer ]
+55:                                               ; preds = %.outer, %78
+  %.024.i = phi ptr [ %79, %78 ], [ %.024.i.ph, %.outer ]
+  %.0.i = phi ptr [ %76, %78 ], [ %.0.i.ph, %.outer ]
   %.024.val.i = load ptr, ptr %.024.i, align 8
   %.026.val.i = load ptr, ptr %.026.i.ph, align 8
-  %59 = getelementptr i8, ptr %.024.val.i, i64 160
-  %.024.val.val.i = load ptr, ptr %59, align 8
-  %60 = getelementptr i8, ptr %.026.val.i, i64 160
-  %.026.val.val.i = load ptr, ptr %60, align 8
+  %56 = getelementptr i8, ptr %.024.val.i, i64 160
+  %.024.val.val.i = load ptr, ptr %56, align 8
+  %57 = getelementptr i8, ptr %.026.val.i, i64 160
+  %.026.val.val.i = load ptr, ptr %57, align 8
   %.024.val.val.val.i = load ptr, ptr %.024.val.val.i, align 8
   %.026.val.val.val.i = load ptr, ptr %.026.val.val.i, align 8
-  %61 = icmp ne ptr %.024.val.val.val.i, null
-  %62 = icmp ne ptr %.026.val.val.val.i, null
-  %63 = select i1 %61, i1 true, i1 %62
-  %64 = load i8, ptr %.sroa.2.0.copyload118160, align 1
-  %65 = and i8 %64, 1
-  %66 = zext i1 %63 to i8
-  %67 = or i8 %65, %66
-  store i8 %67, ptr %.sroa.2.0.copyload118160, align 1
-  br i1 %63, label %68, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm24LoopVectorizationPlanner26adjustRecipesForReductionsERSt10unique_ptrINS2_5VPlanESt14default_deleteIS5_EERNS2_15VPRecipeBuilderENS2_12ElementCountEE3$_1EclIPPNS2_20VPReductionPHIRecipeESI_EEbT_T0_.exit.thread.i72"
+  %58 = icmp ne ptr %.024.val.val.val.i, null
+  %59 = icmp ne ptr %.026.val.val.val.i, null
+  %60 = select i1 %58, i1 true, i1 %59
+  %61 = load i8, ptr %.sroa.2.0.copyload117159, align 1
+  %62 = and i8 %61, 1
+  %63 = zext i1 %60 to i8
+  %64 = or i8 %62, %63
+  store i8 %64, ptr %.sroa.2.0.copyload117159, align 1
+  br i1 %60, label %65, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm24LoopVectorizationPlanner26adjustRecipesForReductionsERSt10unique_ptrINS2_5VPlanESt14default_deleteIS5_EERNS2_15VPRecipeBuilderENS2_12ElementCountEE3$_1EclIPPNS2_20VPReductionPHIRecipeESI_EEbT_T0_.exit.thread.i72"
 
-68:                                               ; preds = %58
-  %69 = icmp eq ptr %.024.val.val.val.i, null
-  %or.cond3.i.i.i74 = select i1 %69, i1 true, i1 %62
-  br i1 %or.cond3.i.i.i74, label %70, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm24LoopVectorizationPlanner26adjustRecipesForReductionsERSt10unique_ptrINS2_5VPlanESt14default_deleteIS5_EERNS2_15VPRecipeBuilderENS2_12ElementCountEE3$_1EclIPPNS2_20VPReductionPHIRecipeESI_EEbT_T0_.exit.thread2.i75"
+65:                                               ; preds = %55
+  %66 = icmp eq ptr %.024.val.val.val.i, null
+  %or.cond3.i.i.i74 = select i1 %66, i1 true, i1 %59
+  br i1 %or.cond3.i.i.i74, label %67, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm24LoopVectorizationPlanner26adjustRecipesForReductionsERSt10unique_ptrINS2_5VPlanESt14default_deleteIS5_EERNS2_15VPRecipeBuilderENS2_12ElementCountEE3$_1EclIPPNS2_20VPReductionPHIRecipeESI_EEbT_T0_.exit.thread2.i75"
 
-70:                                               ; preds = %68
-  %or.cond5.i.i.i76 = select i1 %69, i1 %62, i1 false
+67:                                               ; preds = %65
+  %or.cond5.i.i.i76 = select i1 %66, i1 %59, i1 false
   br i1 %or.cond5.i.i.i76, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm24LoopVectorizationPlanner26adjustRecipesForReductionsERSt10unique_ptrINS2_5VPlanESt14default_deleteIS5_EERNS2_15VPRecipeBuilderENS2_12ElementCountEE3$_1EclIPPNS2_20VPReductionPHIRecipeESI_EEbT_T0_.exit.thread.i72", label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm24LoopVectorizationPlanner26adjustRecipesForReductionsERSt10unique_ptrINS2_5VPlanESt14default_deleteIS5_EERNS2_15VPRecipeBuilderENS2_12ElementCountEE3$_1EclIPPNS2_20VPReductionPHIRecipeESI_EEbT_T0_.exit.i77"
 
-"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm24LoopVectorizationPlanner26adjustRecipesForReductionsERSt10unique_ptrINS2_5VPlanESt14default_deleteIS5_EERNS2_15VPRecipeBuilderENS2_12ElementCountEE3$_1EclIPPNS2_20VPReductionPHIRecipeESI_EEbT_T0_.exit.i77": ; preds = %70
-  %71 = load ptr, ptr %57, align 8
-  %72 = tail call noundef zeroext i1 @_ZNK4llvm13DominatorTree9dominatesEPKNS_5ValueEPKNS_11InstructionE(ptr noundef nonnull align 8 dereferenceable(124) %71, ptr noundef %.026.val.val.val.i, ptr noundef %.024.val.val.val.i) #28
-  br i1 %72, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm24LoopVectorizationPlanner26adjustRecipesForReductionsERSt10unique_ptrINS2_5VPlanESt14default_deleteIS5_EERNS2_15VPRecipeBuilderENS2_12ElementCountEE3$_1EclIPPNS2_20VPReductionPHIRecipeESI_EEbT_T0_.exit.thread2.i75", label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm24LoopVectorizationPlanner26adjustRecipesForReductionsERSt10unique_ptrINS2_5VPlanESt14default_deleteIS5_EERNS2_15VPRecipeBuilderENS2_12ElementCountEE3$_1EclIPPNS2_20VPReductionPHIRecipeESI_EEbT_T0_.exit.thread.i72"
+"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm24LoopVectorizationPlanner26adjustRecipesForReductionsERSt10unique_ptrINS2_5VPlanESt14default_deleteIS5_EERNS2_15VPRecipeBuilderENS2_12ElementCountEE3$_1EclIPPNS2_20VPReductionPHIRecipeESI_EEbT_T0_.exit.i77": ; preds = %67
+  %68 = load ptr, ptr %54, align 8
+  %69 = tail call noundef zeroext i1 @_ZNK4llvm13DominatorTree9dominatesEPKNS_5ValueEPKNS_11InstructionE(ptr noundef nonnull align 8 dereferenceable(124) %68, ptr noundef %.026.val.val.val.i, ptr noundef %.024.val.val.val.i) #28
+  br i1 %69, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm24LoopVectorizationPlanner26adjustRecipesForReductionsERSt10unique_ptrINS2_5VPlanESt14default_deleteIS5_EERNS2_15VPRecipeBuilderENS2_12ElementCountEE3$_1EclIPPNS2_20VPReductionPHIRecipeESI_EEbT_T0_.exit.thread2.i75", label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm24LoopVectorizationPlanner26adjustRecipesForReductionsERSt10unique_ptrINS2_5VPlanESt14default_deleteIS5_EERNS2_15VPRecipeBuilderENS2_12ElementCountEE3$_1EclIPPNS2_20VPReductionPHIRecipeESI_EEbT_T0_.exit.thread.i72"
 
-"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm24LoopVectorizationPlanner26adjustRecipesForReductionsERSt10unique_ptrINS2_5VPlanESt14default_deleteIS5_EERNS2_15VPRecipeBuilderENS2_12ElementCountEE3$_1EclIPPNS2_20VPReductionPHIRecipeESI_EEbT_T0_.exit.thread2.i75": ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm24LoopVectorizationPlanner26adjustRecipesForReductionsERSt10unique_ptrINS2_5VPlanESt14default_deleteIS5_EERNS2_15VPRecipeBuilderENS2_12ElementCountEE3$_1EclIPPNS2_20VPReductionPHIRecipeESI_EEbT_T0_.exit.i77", %68
-  %73 = load ptr, ptr %.026.i.ph, align 8
-  %74 = getelementptr inbounds i8, ptr %.0.i, i64 -8
-  store ptr %73, ptr %74, align 8
-  %75 = icmp eq ptr %.tr142, %.026.i.ph
-  br i1 %75, label %76, label %.outer, !llvm.loop !1228
+"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm24LoopVectorizationPlanner26adjustRecipesForReductionsERSt10unique_ptrINS2_5VPlanESt14default_deleteIS5_EERNS2_15VPRecipeBuilderENS2_12ElementCountEE3$_1EclIPPNS2_20VPReductionPHIRecipeESI_EEbT_T0_.exit.thread2.i75": ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm24LoopVectorizationPlanner26adjustRecipesForReductionsERSt10unique_ptrINS2_5VPlanESt14default_deleteIS5_EERNS2_15VPRecipeBuilderENS2_12ElementCountEE3$_1EclIPPNS2_20VPReductionPHIRecipeESI_EEbT_T0_.exit.i77", %65
+  %70 = load ptr, ptr %.026.i.ph, align 8
+  %71 = getelementptr inbounds i8, ptr %.0.i, i64 -8
+  store ptr %70, ptr %71, align 8
+  %72 = icmp eq ptr %.tr141, %.026.i.ph
+  br i1 %72, label %73, label %.outer, !llvm.loop !1228
 
-76:                                               ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm24LoopVectorizationPlanner26adjustRecipesForReductionsERSt10unique_ptrINS2_5VPlanESt14default_deleteIS5_EERNS2_15VPRecipeBuilderENS2_12ElementCountEE3$_1EclIPPNS2_20VPReductionPHIRecipeESI_EEbT_T0_.exit.thread2.i75"
-  %77 = getelementptr inbounds i8, ptr %.024.i, i64 8
-  %.not.i.i.i.i.i33.i = icmp eq ptr %77, %5
-  br i1 %.not.i.i.i.i.i33.i, label %"_ZSt21__move_merge_adaptiveIPPN4llvm20VPReductionPHIRecipeES3_S3_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_24LoopVectorizationPlanner26adjustRecipesForReductionsERSt10unique_ptrINS0_5VPlanESt14default_deleteIS9_EERNS0_15VPRecipeBuilderENS0_12ElementCountEE3$_1EEEvT_SJ_T0_SK_T1_T2_.exit", label %78
+73:                                               ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm24LoopVectorizationPlanner26adjustRecipesForReductionsERSt10unique_ptrINS2_5VPlanESt14default_deleteIS5_EERNS2_15VPRecipeBuilderENS2_12ElementCountEE3$_1EclIPPNS2_20VPReductionPHIRecipeESI_EEbT_T0_.exit.thread2.i75"
+  %74 = getelementptr inbounds i8, ptr %.024.i, i64 8
+  %.not.i.i.i.i.i33.i = icmp eq ptr %74, %5
+  br i1 %.not.i.i.i.i.i33.i, label %"_ZSt21__move_merge_adaptiveIPPN4llvm20VPReductionPHIRecipeES3_S3_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_24LoopVectorizationPlanner26adjustRecipesForReductionsERSt10unique_ptrINS0_5VPlanESt14default_deleteIS9_EERNS0_15VPRecipeBuilderENS0_12ElementCountEE3$_1EEEvT_SJ_T0_SK_T1_T2_.exit", label %_ZSt13move_backwardIPPN4llvm20VPReductionPHIRecipeES3_ET0_T_S5_S4_.exit.sink.split.i
 
-78:                                               ; preds = %76
-  %79 = ptrtoint ptr %77 to i64
-  %80 = ptrtoint ptr %5 to i64
-  %81 = sub i64 %79, %80
-  %82 = ashr exact i64 %81, 3
-  %.pre.i.i.i.i.i34.i = sub nsw i64 0, %82
-  %83 = getelementptr inbounds ptr, ptr %74, i64 %.pre.i.i.i.i.i34.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %83, ptr align 8 %5, i64 %81, i1 false)
+"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm24LoopVectorizationPlanner26adjustRecipesForReductionsERSt10unique_ptrINS2_5VPlanESt14default_deleteIS5_EERNS2_15VPRecipeBuilderENS2_12ElementCountEE3$_1EclIPPNS2_20VPReductionPHIRecipeESI_EEbT_T0_.exit.thread.i72": ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm24LoopVectorizationPlanner26adjustRecipesForReductionsERSt10unique_ptrINS2_5VPlanESt14default_deleteIS5_EERNS2_15VPRecipeBuilderENS2_12ElementCountEE3$_1EclIPPNS2_20VPReductionPHIRecipeESI_EEbT_T0_.exit.i77", %67, %55
+  %75 = load ptr, ptr %.024.i, align 8
+  %76 = getelementptr inbounds i8, ptr %.0.i, i64 -8
+  store ptr %75, ptr %76, align 8
+  %77 = icmp eq ptr %5, %.024.i
+  br i1 %77, label %"_ZSt21__move_merge_adaptiveIPPN4llvm20VPReductionPHIRecipeES3_S3_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_24LoopVectorizationPlanner26adjustRecipesForReductionsERSt10unique_ptrINS0_5VPlanESt14default_deleteIS9_EERNS0_15VPRecipeBuilderENS0_12ElementCountEE3$_1EEEvT_SJ_T0_SK_T1_T2_.exit", label %78
+
+78:                                               ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm24LoopVectorizationPlanner26adjustRecipesForReductionsERSt10unique_ptrINS2_5VPlanESt14default_deleteIS5_EERNS2_15VPRecipeBuilderENS2_12ElementCountEE3$_1EclIPPNS2_20VPReductionPHIRecipeESI_EEbT_T0_.exit.thread.i72"
+  %79 = getelementptr inbounds i8, ptr %.024.i, i64 -8
+  br label %55, !llvm.loop !1228
+
+_ZSt13move_backwardIPPN4llvm20VPReductionPHIRecipeES3_ET0_T_S5_S4_.exit.sink.split.i: ; preds = %_ZSt4moveIPPN4llvm20VPReductionPHIRecipeES3_ET0_T_S5_S4_.exit71.thread, %73
+  %.sink10.i = phi ptr [ %74, %73 ], [ %50, %_ZSt4moveIPPN4llvm20VPReductionPHIRecipeES3_ET0_T_S5_S4_.exit71.thread ]
+  %.lcssa.sink.i = phi ptr [ %71, %73 ], [ %2, %_ZSt4moveIPPN4llvm20VPReductionPHIRecipeES3_ET0_T_S5_S4_.exit71.thread ]
+  %80 = ptrtoint ptr %.sink10.i to i64
+  %81 = ptrtoint ptr %5 to i64
+  %82 = sub i64 %80, %81
+  %83 = ashr exact i64 %82, 3
+  %.pre.i.i.i.i.i34.i = sub nsw i64 0, %83
+  %84 = getelementptr inbounds ptr, ptr %.lcssa.sink.i, i64 %.pre.i.i.i.i.i34.i
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %84, ptr align 8 %5, i64 %82, i1 false)
   br label %"_ZSt21__move_merge_adaptiveIPPN4llvm20VPReductionPHIRecipeES3_S3_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_24LoopVectorizationPlanner26adjustRecipesForReductionsERSt10unique_ptrINS0_5VPlanESt14default_deleteIS9_EERNS0_15VPRecipeBuilderENS0_12ElementCountEE3$_1EEEvT_SJ_T0_SK_T1_T2_.exit"
 
-"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm24LoopVectorizationPlanner26adjustRecipesForReductionsERSt10unique_ptrINS2_5VPlanESt14default_deleteIS5_EERNS2_15VPRecipeBuilderENS2_12ElementCountEE3$_1EclIPPNS2_20VPReductionPHIRecipeESI_EEbT_T0_.exit.thread.i72": ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm24LoopVectorizationPlanner26adjustRecipesForReductionsERSt10unique_ptrINS2_5VPlanESt14default_deleteIS5_EERNS2_15VPRecipeBuilderENS2_12ElementCountEE3$_1EclIPPNS2_20VPReductionPHIRecipeESI_EEbT_T0_.exit.i77", %70, %58
-  %84 = load ptr, ptr %.024.i, align 8
-  %85 = getelementptr inbounds i8, ptr %.0.i, i64 -8
-  store ptr %84, ptr %85, align 8
-  %86 = icmp eq ptr %5, %.024.i
-  br i1 %86, label %"_ZSt21__move_merge_adaptiveIPPN4llvm20VPReductionPHIRecipeES3_S3_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_24LoopVectorizationPlanner26adjustRecipesForReductionsERSt10unique_ptrINS0_5VPlanESt14default_deleteIS9_EERNS0_15VPRecipeBuilderENS0_12ElementCountEE3$_1EEEvT_SJ_T0_SK_T1_T2_.exit", label %87
-
-87:                                               ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm24LoopVectorizationPlanner26adjustRecipesForReductionsERSt10unique_ptrINS2_5VPlanESt14default_deleteIS5_EERNS2_15VPRecipeBuilderENS2_12ElementCountEE3$_1EclIPPNS2_20VPReductionPHIRecipeESI_EEbT_T0_.exit.thread.i72"
-  %88 = getelementptr inbounds i8, ptr %.024.i, i64 -8
-  br label %58, !llvm.loop !1228
-
-89:                                               ; preds = %46
+85:                                               ; preds = %46
   %.sroa.25.0.copyload = load ptr, ptr %.sroa.2.0..sroa_idx, align 8
-  %90 = ptrtoint ptr %.tr125143 to i64
-  br i1 %.not147, label %_ZSt7advanceIPPN4llvm20VPReductionPHIRecipeElEvRT_T0_.exit, label %_ZSt7advanceIPPN4llvm20VPReductionPHIRecipeElEvRT_T0_.exit85
+  %86 = ptrtoint ptr %.tr124142 to i64
+  br i1 %.not146, label %_ZSt7advanceIPPN4llvm20VPReductionPHIRecipeElEvRT_T0_.exit, label %_ZSt7advanceIPPN4llvm20VPReductionPHIRecipeElEvRT_T0_.exit85
 
-_ZSt7advanceIPPN4llvm20VPReductionPHIRecipeElEvRT_T0_.exit: ; preds = %89
-  %91 = sdiv i64 %.tr127145, 2
-  %92 = getelementptr inbounds ptr, ptr %.tr142, i64 %91
-  %93 = sub i64 %9, %90
-  %94 = ashr exact i64 %93, 3
-  %95 = icmp sgt i64 %94, 0
-  br i1 %95, label %_ZSt7advanceIPPN4llvm20VPReductionPHIRecipeElEvRT_T0_.exit.lr.ph.i, label %"_ZSt13__lower_boundIPPN4llvm20VPReductionPHIRecipeES2_N9__gnu_cxx5__ops14_Iter_comp_valIZNS0_24LoopVectorizationPlanner26adjustRecipesForReductionsERSt10unique_ptrINS0_5VPlanESt14default_deleteIS9_EERNS0_15VPRecipeBuilderENS0_12ElementCountEE3$_1EEET_SJ_SJ_RKT0_T1_.exit"
+_ZSt7advanceIPPN4llvm20VPReductionPHIRecipeElEvRT_T0_.exit: ; preds = %85
+  %87 = sdiv i64 %.tr126144, 2
+  %88 = getelementptr inbounds ptr, ptr %.tr141, i64 %87
+  %89 = sub i64 %9, %86
+  %90 = ashr exact i64 %89, 3
+  %91 = icmp sgt i64 %90, 0
+  br i1 %91, label %_ZSt7advanceIPPN4llvm20VPReductionPHIRecipeElEvRT_T0_.exit.lr.ph.i, label %"_ZSt13__lower_boundIPPN4llvm20VPReductionPHIRecipeES2_N9__gnu_cxx5__ops14_Iter_comp_valIZNS0_24LoopVectorizationPlanner26adjustRecipesForReductionsERSt10unique_ptrINS0_5VPlanESt14default_deleteIS9_EERNS0_15VPRecipeBuilderENS0_12ElementCountEE3$_1EEET_SJ_SJ_RKT0_T1_.exit"
 
 _ZSt7advanceIPPN4llvm20VPReductionPHIRecipeElEvRT_T0_.exit.lr.ph.i: ; preds = %_ZSt7advanceIPPN4llvm20VPReductionPHIRecipeElEvRT_T0_.exit
   %.sroa.04.0.copyload = load ptr, ptr %7, align 8
-  %96 = getelementptr inbounds nuw i8, ptr %.sroa.04.0.copyload, i64 16
+  %92 = getelementptr inbounds nuw i8, ptr %.sroa.04.0.copyload, i64 16
   br label %_ZSt7advanceIPPN4llvm20VPReductionPHIRecipeElEvRT_T0_.exit.i
 
 _ZSt7advanceIPPN4llvm20VPReductionPHIRecipeElEvRT_T0_.exit.i: ; preds = %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm24LoopVectorizationPlanner26adjustRecipesForReductionsERSt10unique_ptrINS2_5VPlanESt14default_deleteIS5_EERNS2_15VPRecipeBuilderENS2_12ElementCountEE3$_1EclIPPNS2_20VPReductionPHIRecipeEKSH_EEbT_RT0_.exit.thread.i", %_ZSt7advanceIPPN4llvm20VPReductionPHIRecipeElEvRT_T0_.exit.lr.ph.i
-  %.028.i = phi ptr [ %.tr125143, %_ZSt7advanceIPPN4llvm20VPReductionPHIRecipeElEvRT_T0_.exit.lr.ph.i ], [ %120, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm24LoopVectorizationPlanner26adjustRecipesForReductionsERSt10unique_ptrINS2_5VPlanESt14default_deleteIS5_EERNS2_15VPRecipeBuilderENS2_12ElementCountEE3$_1EclIPPNS2_20VPReductionPHIRecipeEKSH_EEbT_RT0_.exit.thread.i" ]
-  %.01127.i = phi i64 [ %94, %_ZSt7advanceIPPN4llvm20VPReductionPHIRecipeElEvRT_T0_.exit.lr.ph.i ], [ %119, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm24LoopVectorizationPlanner26adjustRecipesForReductionsERSt10unique_ptrINS2_5VPlanESt14default_deleteIS5_EERNS2_15VPRecipeBuilderENS2_12ElementCountEE3$_1EclIPPNS2_20VPReductionPHIRecipeEKSH_EEbT_RT0_.exit.thread.i" ]
-  %97 = lshr i64 %.01127.i, 1
-  %98 = getelementptr inbounds ptr, ptr %.028.i, i64 %97
-  %.val14.i = load ptr, ptr %98, align 8
-  %.val15.i = load ptr, ptr %92, align 8
-  %99 = getelementptr i8, ptr %.val14.i, i64 160
-  %.val14.val.i = load ptr, ptr %99, align 8
-  %100 = getelementptr i8, ptr %.val15.i, i64 160
-  %.val15.val.i = load ptr, ptr %100, align 8
+  %.028.i = phi ptr [ %.tr124142, %_ZSt7advanceIPPN4llvm20VPReductionPHIRecipeElEvRT_T0_.exit.lr.ph.i ], [ %116, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm24LoopVectorizationPlanner26adjustRecipesForReductionsERSt10unique_ptrINS2_5VPlanESt14default_deleteIS5_EERNS2_15VPRecipeBuilderENS2_12ElementCountEE3$_1EclIPPNS2_20VPReductionPHIRecipeEKSH_EEbT_RT0_.exit.thread.i" ]
+  %.01127.i = phi i64 [ %90, %_ZSt7advanceIPPN4llvm20VPReductionPHIRecipeElEvRT_T0_.exit.lr.ph.i ], [ %115, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm24LoopVectorizationPlanner26adjustRecipesForReductionsERSt10unique_ptrINS2_5VPlanESt14default_deleteIS5_EERNS2_15VPRecipeBuilderENS2_12ElementCountEE3$_1EclIPPNS2_20VPReductionPHIRecipeEKSH_EEbT_RT0_.exit.thread.i" ]
+  %93 = lshr i64 %.01127.i, 1
+  %94 = getelementptr inbounds ptr, ptr %.028.i, i64 %93
+  %.val14.i = load ptr, ptr %94, align 8
+  %.val15.i = load ptr, ptr %88, align 8
+  %95 = getelementptr i8, ptr %.val14.i, i64 160
+  %.val14.val.i = load ptr, ptr %95, align 8
+  %96 = getelementptr i8, ptr %.val15.i, i64 160
+  %.val15.val.i = load ptr, ptr %96, align 8
   %.val14.val.val.i = load ptr, ptr %.val14.val.i, align 8
   %.val15.val.val.i = load ptr, ptr %.val15.val.i, align 8
-  %101 = icmp ne ptr %.val14.val.val.i, null
-  %102 = icmp ne ptr %.val15.val.val.i, null
-  %103 = select i1 %101, i1 true, i1 %102
-  %104 = load i8, ptr %.sroa.25.0.copyload, align 1
-  %105 = and i8 %104, 1
-  %106 = zext i1 %103 to i8
-  %107 = or i8 %105, %106
-  store i8 %107, ptr %.sroa.25.0.copyload, align 1
-  br i1 %103, label %108, label %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm24LoopVectorizationPlanner26adjustRecipesForReductionsERSt10unique_ptrINS2_5VPlanESt14default_deleteIS5_EERNS2_15VPRecipeBuilderENS2_12ElementCountEE3$_1EclIPPNS2_20VPReductionPHIRecipeEKSH_EEbT_RT0_.exit.thread.i"
+  %97 = icmp ne ptr %.val14.val.val.i, null
+  %98 = icmp ne ptr %.val15.val.val.i, null
+  %99 = select i1 %97, i1 true, i1 %98
+  %100 = load i8, ptr %.sroa.25.0.copyload, align 1
+  %101 = and i8 %100, 1
+  %102 = zext i1 %99 to i8
+  %103 = or i8 %101, %102
+  store i8 %103, ptr %.sroa.25.0.copyload, align 1
+  br i1 %99, label %104, label %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm24LoopVectorizationPlanner26adjustRecipesForReductionsERSt10unique_ptrINS2_5VPlanESt14default_deleteIS5_EERNS2_15VPRecipeBuilderENS2_12ElementCountEE3$_1EclIPPNS2_20VPReductionPHIRecipeEKSH_EEbT_RT0_.exit.thread.i"
 
-108:                                              ; preds = %_ZSt7advanceIPPN4llvm20VPReductionPHIRecipeElEvRT_T0_.exit.i
-  %109 = icmp eq ptr %.val14.val.val.i, null
-  %or.cond3.i.i.i80 = select i1 %109, i1 true, i1 %102
-  br i1 %or.cond3.i.i.i80, label %113, label %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm24LoopVectorizationPlanner26adjustRecipesForReductionsERSt10unique_ptrINS2_5VPlanESt14default_deleteIS5_EERNS2_15VPRecipeBuilderENS2_12ElementCountEE3$_1EclIPPNS2_20VPReductionPHIRecipeEKSH_EEbT_RT0_.exit.thread21.i"
+104:                                              ; preds = %_ZSt7advanceIPPN4llvm20VPReductionPHIRecipeElEvRT_T0_.exit.i
+  %105 = icmp eq ptr %.val14.val.val.i, null
+  %or.cond3.i.i.i80 = select i1 %105, i1 true, i1 %98
+  br i1 %or.cond3.i.i.i80, label %109, label %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm24LoopVectorizationPlanner26adjustRecipesForReductionsERSt10unique_ptrINS2_5VPlanESt14default_deleteIS5_EERNS2_15VPRecipeBuilderENS2_12ElementCountEE3$_1EclIPPNS2_20VPReductionPHIRecipeEKSH_EEbT_RT0_.exit.thread21.i"
 
-"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm24LoopVectorizationPlanner26adjustRecipesForReductionsERSt10unique_ptrINS2_5VPlanESt14default_deleteIS5_EERNS2_15VPRecipeBuilderENS2_12ElementCountEE3$_1EclIPPNS2_20VPReductionPHIRecipeEKSH_EEbT_RT0_.exit.thread21.i": ; preds = %108
-  %110 = getelementptr inbounds i8, ptr %98, i64 8
-  %111 = xor i64 %97, -1
-  %112 = add nsw i64 %.01127.i, %111
+"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm24LoopVectorizationPlanner26adjustRecipesForReductionsERSt10unique_ptrINS2_5VPlanESt14default_deleteIS5_EERNS2_15VPRecipeBuilderENS2_12ElementCountEE3$_1EclIPPNS2_20VPReductionPHIRecipeEKSH_EEbT_RT0_.exit.thread21.i": ; preds = %104
+  %106 = getelementptr inbounds i8, ptr %94, i64 8
+  %107 = xor i64 %93, -1
+  %108 = add nsw i64 %.01127.i, %107
   br label %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm24LoopVectorizationPlanner26adjustRecipesForReductionsERSt10unique_ptrINS2_5VPlanESt14default_deleteIS5_EERNS2_15VPRecipeBuilderENS2_12ElementCountEE3$_1EclIPPNS2_20VPReductionPHIRecipeEKSH_EEbT_RT0_.exit.thread.i"
 
-113:                                              ; preds = %108
-  %or.cond5.i.i.i81 = select i1 %109, i1 %102, i1 false
+109:                                              ; preds = %104
+  %or.cond5.i.i.i81 = select i1 %105, i1 %98, i1 false
   br i1 %or.cond5.i.i.i81, label %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm24LoopVectorizationPlanner26adjustRecipesForReductionsERSt10unique_ptrINS2_5VPlanESt14default_deleteIS5_EERNS2_15VPRecipeBuilderENS2_12ElementCountEE3$_1EclIPPNS2_20VPReductionPHIRecipeEKSH_EEbT_RT0_.exit.thread.i", label %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm24LoopVectorizationPlanner26adjustRecipesForReductionsERSt10unique_ptrINS2_5VPlanESt14default_deleteIS5_EERNS2_15VPRecipeBuilderENS2_12ElementCountEE3$_1EclIPPNS2_20VPReductionPHIRecipeEKSH_EEbT_RT0_.exit.i"
 
-"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm24LoopVectorizationPlanner26adjustRecipesForReductionsERSt10unique_ptrINS2_5VPlanESt14default_deleteIS5_EERNS2_15VPRecipeBuilderENS2_12ElementCountEE3$_1EclIPPNS2_20VPReductionPHIRecipeEKSH_EEbT_RT0_.exit.i": ; preds = %113
-  %114 = load ptr, ptr %96, align 8
-  %115 = tail call noundef zeroext i1 @_ZNK4llvm13DominatorTree9dominatesEPKNS_5ValueEPKNS_11InstructionE(ptr noundef nonnull align 8 dereferenceable(124) %114, ptr noundef %.val15.val.val.i, ptr noundef %.val14.val.val.i) #28
-  %116 = getelementptr inbounds i8, ptr %98, i64 8
-  %117 = xor i64 %97, -1
-  %118 = add nsw i64 %.01127.i, %117
-  %spec.select.i = select i1 %115, i64 %118, i64 %97
-  %spec.select26.i = select i1 %115, ptr %116, ptr %.028.i
+"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm24LoopVectorizationPlanner26adjustRecipesForReductionsERSt10unique_ptrINS2_5VPlanESt14default_deleteIS5_EERNS2_15VPRecipeBuilderENS2_12ElementCountEE3$_1EclIPPNS2_20VPReductionPHIRecipeEKSH_EEbT_RT0_.exit.i": ; preds = %109
+  %110 = load ptr, ptr %92, align 8
+  %111 = tail call noundef zeroext i1 @_ZNK4llvm13DominatorTree9dominatesEPKNS_5ValueEPKNS_11InstructionE(ptr noundef nonnull align 8 dereferenceable(124) %110, ptr noundef %.val15.val.val.i, ptr noundef %.val14.val.val.i) #28
+  %112 = getelementptr inbounds i8, ptr %94, i64 8
+  %113 = xor i64 %93, -1
+  %114 = add nsw i64 %.01127.i, %113
+  %spec.select.i = select i1 %111, i64 %114, i64 %93
+  %spec.select26.i = select i1 %111, ptr %112, ptr %.028.i
   br label %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm24LoopVectorizationPlanner26adjustRecipesForReductionsERSt10unique_ptrINS2_5VPlanESt14default_deleteIS5_EERNS2_15VPRecipeBuilderENS2_12ElementCountEE3$_1EclIPPNS2_20VPReductionPHIRecipeEKSH_EEbT_RT0_.exit.thread.i"
 
-"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm24LoopVectorizationPlanner26adjustRecipesForReductionsERSt10unique_ptrINS2_5VPlanESt14default_deleteIS5_EERNS2_15VPRecipeBuilderENS2_12ElementCountEE3$_1EclIPPNS2_20VPReductionPHIRecipeEKSH_EEbT_RT0_.exit.thread.i": ; preds = %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm24LoopVectorizationPlanner26adjustRecipesForReductionsERSt10unique_ptrINS2_5VPlanESt14default_deleteIS5_EERNS2_15VPRecipeBuilderENS2_12ElementCountEE3$_1EclIPPNS2_20VPReductionPHIRecipeEKSH_EEbT_RT0_.exit.i", %113, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm24LoopVectorizationPlanner26adjustRecipesForReductionsERSt10unique_ptrINS2_5VPlanESt14default_deleteIS5_EERNS2_15VPRecipeBuilderENS2_12ElementCountEE3$_1EclIPPNS2_20VPReductionPHIRecipeEKSH_EEbT_RT0_.exit.thread21.i", %_ZSt7advanceIPPN4llvm20VPReductionPHIRecipeElEvRT_T0_.exit.i
-  %119 = phi i64 [ %112, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm24LoopVectorizationPlanner26adjustRecipesForReductionsERSt10unique_ptrINS2_5VPlanESt14default_deleteIS5_EERNS2_15VPRecipeBuilderENS2_12ElementCountEE3$_1EclIPPNS2_20VPReductionPHIRecipeEKSH_EEbT_RT0_.exit.thread21.i" ], [ %spec.select.i, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm24LoopVectorizationPlanner26adjustRecipesForReductionsERSt10unique_ptrINS2_5VPlanESt14default_deleteIS5_EERNS2_15VPRecipeBuilderENS2_12ElementCountEE3$_1EclIPPNS2_20VPReductionPHIRecipeEKSH_EEbT_RT0_.exit.i" ], [ %97, %_ZSt7advanceIPPN4llvm20VPReductionPHIRecipeElEvRT_T0_.exit.i ], [ %97, %113 ]
-  %120 = phi ptr [ %110, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm24LoopVectorizationPlanner26adjustRecipesForReductionsERSt10unique_ptrINS2_5VPlanESt14default_deleteIS5_EERNS2_15VPRecipeBuilderENS2_12ElementCountEE3$_1EclIPPNS2_20VPReductionPHIRecipeEKSH_EEbT_RT0_.exit.thread21.i" ], [ %spec.select26.i, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm24LoopVectorizationPlanner26adjustRecipesForReductionsERSt10unique_ptrINS2_5VPlanESt14default_deleteIS5_EERNS2_15VPRecipeBuilderENS2_12ElementCountEE3$_1EclIPPNS2_20VPReductionPHIRecipeEKSH_EEbT_RT0_.exit.i" ], [ %.028.i, %_ZSt7advanceIPPN4llvm20VPReductionPHIRecipeElEvRT_T0_.exit.i ], [ %.028.i, %113 ]
-  %121 = icmp sgt i64 %119, 0
-  br i1 %121, label %_ZSt7advanceIPPN4llvm20VPReductionPHIRecipeElEvRT_T0_.exit.i, label %"_ZSt13__lower_boundIPPN4llvm20VPReductionPHIRecipeES2_N9__gnu_cxx5__ops14_Iter_comp_valIZNS0_24LoopVectorizationPlanner26adjustRecipesForReductionsERSt10unique_ptrINS0_5VPlanESt14default_deleteIS9_EERNS0_15VPRecipeBuilderENS0_12ElementCountEE3$_1EEET_SJ_SJ_RKT0_T1_.exit.loopexit", !llvm.loop !1221
+"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm24LoopVectorizationPlanner26adjustRecipesForReductionsERSt10unique_ptrINS2_5VPlanESt14default_deleteIS5_EERNS2_15VPRecipeBuilderENS2_12ElementCountEE3$_1EclIPPNS2_20VPReductionPHIRecipeEKSH_EEbT_RT0_.exit.thread.i": ; preds = %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm24LoopVectorizationPlanner26adjustRecipesForReductionsERSt10unique_ptrINS2_5VPlanESt14default_deleteIS5_EERNS2_15VPRecipeBuilderENS2_12ElementCountEE3$_1EclIPPNS2_20VPReductionPHIRecipeEKSH_EEbT_RT0_.exit.i", %109, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm24LoopVectorizationPlanner26adjustRecipesForReductionsERSt10unique_ptrINS2_5VPlanESt14default_deleteIS5_EERNS2_15VPRecipeBuilderENS2_12ElementCountEE3$_1EclIPPNS2_20VPReductionPHIRecipeEKSH_EEbT_RT0_.exit.thread21.i", %_ZSt7advanceIPPN4llvm20VPReductionPHIRecipeElEvRT_T0_.exit.i
+  %115 = phi i64 [ %108, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm24LoopVectorizationPlanner26adjustRecipesForReductionsERSt10unique_ptrINS2_5VPlanESt14default_deleteIS5_EERNS2_15VPRecipeBuilderENS2_12ElementCountEE3$_1EclIPPNS2_20VPReductionPHIRecipeEKSH_EEbT_RT0_.exit.thread21.i" ], [ %spec.select.i, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm24LoopVectorizationPlanner26adjustRecipesForReductionsERSt10unique_ptrINS2_5VPlanESt14default_deleteIS5_EERNS2_15VPRecipeBuilderENS2_12ElementCountEE3$_1EclIPPNS2_20VPReductionPHIRecipeEKSH_EEbT_RT0_.exit.i" ], [ %93, %_ZSt7advanceIPPN4llvm20VPReductionPHIRecipeElEvRT_T0_.exit.i ], [ %93, %109 ]
+  %116 = phi ptr [ %106, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm24LoopVectorizationPlanner26adjustRecipesForReductionsERSt10unique_ptrINS2_5VPlanESt14default_deleteIS5_EERNS2_15VPRecipeBuilderENS2_12ElementCountEE3$_1EclIPPNS2_20VPReductionPHIRecipeEKSH_EEbT_RT0_.exit.thread21.i" ], [ %spec.select26.i, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm24LoopVectorizationPlanner26adjustRecipesForReductionsERSt10unique_ptrINS2_5VPlanESt14default_deleteIS5_EERNS2_15VPRecipeBuilderENS2_12ElementCountEE3$_1EclIPPNS2_20VPReductionPHIRecipeEKSH_EEbT_RT0_.exit.i" ], [ %.028.i, %_ZSt7advanceIPPN4llvm20VPReductionPHIRecipeElEvRT_T0_.exit.i ], [ %.028.i, %109 ]
+  %117 = icmp sgt i64 %115, 0
+  br i1 %117, label %_ZSt7advanceIPPN4llvm20VPReductionPHIRecipeElEvRT_T0_.exit.i, label %"_ZSt13__lower_boundIPPN4llvm20VPReductionPHIRecipeES2_N9__gnu_cxx5__ops14_Iter_comp_valIZNS0_24LoopVectorizationPlanner26adjustRecipesForReductionsERSt10unique_ptrINS0_5VPlanESt14default_deleteIS9_EERNS0_15VPRecipeBuilderENS0_12ElementCountEE3$_1EEET_SJ_SJ_RKT0_T1_.exit.loopexit", !llvm.loop !1221
 
 "_ZSt13__lower_boundIPPN4llvm20VPReductionPHIRecipeES2_N9__gnu_cxx5__ops14_Iter_comp_valIZNS0_24LoopVectorizationPlanner26adjustRecipesForReductionsERSt10unique_ptrINS0_5VPlanESt14default_deleteIS9_EERNS0_15VPRecipeBuilderENS0_12ElementCountEE3$_1EEET_SJ_SJ_RKT0_T1_.exit.loopexit": ; preds = %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm24LoopVectorizationPlanner26adjustRecipesForReductionsERSt10unique_ptrINS2_5VPlanESt14default_deleteIS5_EERNS2_15VPRecipeBuilderENS2_12ElementCountEE3$_1EclIPPNS2_20VPReductionPHIRecipeEKSH_EEbT_RT0_.exit.thread.i"
-  %.pre = ptrtoint ptr %120 to i64
+  %.pre = ptrtoint ptr %116 to i64
   br label %"_ZSt13__lower_boundIPPN4llvm20VPReductionPHIRecipeES2_N9__gnu_cxx5__ops14_Iter_comp_valIZNS0_24LoopVectorizationPlanner26adjustRecipesForReductionsERSt10unique_ptrINS0_5VPlanESt14default_deleteIS9_EERNS0_15VPRecipeBuilderENS0_12ElementCountEE3$_1EEET_SJ_SJ_RKT0_T1_.exit"
 
 "_ZSt13__lower_boundIPPN4llvm20VPReductionPHIRecipeES2_N9__gnu_cxx5__ops14_Iter_comp_valIZNS0_24LoopVectorizationPlanner26adjustRecipesForReductionsERSt10unique_ptrINS0_5VPlanESt14default_deleteIS9_EERNS0_15VPRecipeBuilderENS0_12ElementCountEE3$_1EEET_SJ_SJ_RKT0_T1_.exit": ; preds = %"_ZSt13__lower_boundIPPN4llvm20VPReductionPHIRecipeES2_N9__gnu_cxx5__ops14_Iter_comp_valIZNS0_24LoopVectorizationPlanner26adjustRecipesForReductionsERSt10unique_ptrINS0_5VPlanESt14default_deleteIS9_EERNS0_15VPRecipeBuilderENS0_12ElementCountEE3$_1EEET_SJ_SJ_RKT0_T1_.exit.loopexit", %_ZSt7advanceIPPN4llvm20VPReductionPHIRecipeElEvRT_T0_.exit
-  %.pre-phi = phi i64 [ %.pre, %"_ZSt13__lower_boundIPPN4llvm20VPReductionPHIRecipeES2_N9__gnu_cxx5__ops14_Iter_comp_valIZNS0_24LoopVectorizationPlanner26adjustRecipesForReductionsERSt10unique_ptrINS0_5VPlanESt14default_deleteIS9_EERNS0_15VPRecipeBuilderENS0_12ElementCountEE3$_1EEET_SJ_SJ_RKT0_T1_.exit.loopexit" ], [ %90, %_ZSt7advanceIPPN4llvm20VPReductionPHIRecipeElEvRT_T0_.exit ]
-  %.0.lcssa.i79 = phi ptr [ %120, %"_ZSt13__lower_boundIPPN4llvm20VPReductionPHIRecipeES2_N9__gnu_cxx5__ops14_Iter_comp_valIZNS0_24LoopVectorizationPlanner26adjustRecipesForReductionsERSt10unique_ptrINS0_5VPlanESt14default_deleteIS9_EERNS0_15VPRecipeBuilderENS0_12ElementCountEE3$_1EEET_SJ_SJ_RKT0_T1_.exit.loopexit" ], [ %.tr125143, %_ZSt7advanceIPPN4llvm20VPReductionPHIRecipeElEvRT_T0_.exit ]
-  %122 = sub i64 %.pre-phi, %90
-  %123 = ashr exact i64 %122, 3
-  br label %158
+  %.pre-phi = phi i64 [ %.pre, %"_ZSt13__lower_boundIPPN4llvm20VPReductionPHIRecipeES2_N9__gnu_cxx5__ops14_Iter_comp_valIZNS0_24LoopVectorizationPlanner26adjustRecipesForReductionsERSt10unique_ptrINS0_5VPlanESt14default_deleteIS9_EERNS0_15VPRecipeBuilderENS0_12ElementCountEE3$_1EEET_SJ_SJ_RKT0_T1_.exit.loopexit" ], [ %86, %_ZSt7advanceIPPN4llvm20VPReductionPHIRecipeElEvRT_T0_.exit ]
+  %.0.lcssa.i79 = phi ptr [ %116, %"_ZSt13__lower_boundIPPN4llvm20VPReductionPHIRecipeES2_N9__gnu_cxx5__ops14_Iter_comp_valIZNS0_24LoopVectorizationPlanner26adjustRecipesForReductionsERSt10unique_ptrINS0_5VPlanESt14default_deleteIS9_EERNS0_15VPRecipeBuilderENS0_12ElementCountEE3$_1EEET_SJ_SJ_RKT0_T1_.exit.loopexit" ], [ %.tr124142, %_ZSt7advanceIPPN4llvm20VPReductionPHIRecipeElEvRT_T0_.exit ]
+  %118 = sub i64 %.pre-phi, %86
+  %119 = ashr exact i64 %118, 3
+  br label %154
 
-_ZSt7advanceIPPN4llvm20VPReductionPHIRecipeElEvRT_T0_.exit85: ; preds = %89
-  %124 = sdiv i64 %.tr128146, 2
-  %125 = getelementptr inbounds ptr, ptr %.tr125143, i64 %124
-  %126 = ptrtoint ptr %.tr142 to i64
-  %127 = sub i64 %90, %126
-  %128 = ashr exact i64 %127, 3
-  %129 = icmp sgt i64 %128, 0
-  br i1 %129, label %_ZSt7advanceIPPN4llvm20VPReductionPHIRecipeElEvRT_T0_.exit.lr.ph.i90, label %"_ZSt13__upper_boundIPPN4llvm20VPReductionPHIRecipeES2_N9__gnu_cxx5__ops14_Val_comp_iterIZNS0_24LoopVectorizationPlanner26adjustRecipesForReductionsERSt10unique_ptrINS0_5VPlanESt14default_deleteIS9_EERNS0_15VPRecipeBuilderENS0_12ElementCountEE3$_1EEET_SJ_SJ_RKT0_T1_.exit"
+_ZSt7advanceIPPN4llvm20VPReductionPHIRecipeElEvRT_T0_.exit85: ; preds = %85
+  %120 = sdiv i64 %.tr127145, 2
+  %121 = getelementptr inbounds ptr, ptr %.tr124142, i64 %120
+  %122 = ptrtoint ptr %.tr141 to i64
+  %123 = sub i64 %86, %122
+  %124 = ashr exact i64 %123, 3
+  %125 = icmp sgt i64 %124, 0
+  br i1 %125, label %_ZSt7advanceIPPN4llvm20VPReductionPHIRecipeElEvRT_T0_.exit.lr.ph.i90, label %"_ZSt13__upper_boundIPPN4llvm20VPReductionPHIRecipeES2_N9__gnu_cxx5__ops14_Val_comp_iterIZNS0_24LoopVectorizationPlanner26adjustRecipesForReductionsERSt10unique_ptrINS0_5VPlanESt14default_deleteIS9_EERNS0_15VPRecipeBuilderENS0_12ElementCountEE3$_1EEET_SJ_SJ_RKT0_T1_.exit"
 
 _ZSt7advanceIPPN4llvm20VPReductionPHIRecipeElEvRT_T0_.exit.lr.ph.i90: ; preds = %_ZSt7advanceIPPN4llvm20VPReductionPHIRecipeElEvRT_T0_.exit85
   %.sroa.0.0.copyload = load ptr, ptr %7, align 8
-  %130 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload, i64 16
+  %126 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload, i64 16
   br label %_ZSt7advanceIPPN4llvm20VPReductionPHIRecipeElEvRT_T0_.exit.i91
 
 _ZSt7advanceIPPN4llvm20VPReductionPHIRecipeElEvRT_T0_.exit.i91: ; preds = %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN4llvm24LoopVectorizationPlanner26adjustRecipesForReductionsERSt10unique_ptrINS2_5VPlanESt14default_deleteIS5_EERNS2_15VPRecipeBuilderENS2_12ElementCountEE3$_1EclIKPNS2_20VPReductionPHIRecipeEPSH_EEbRT_T0_.exit.thread21.i", %_ZSt7advanceIPPN4llvm20VPReductionPHIRecipeElEvRT_T0_.exit.lr.ph.i90
-  %.027.i = phi ptr [ %.tr142, %_ZSt7advanceIPPN4llvm20VPReductionPHIRecipeElEvRT_T0_.exit.lr.ph.i90 ], [ %154, %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN4llvm24LoopVectorizationPlanner26adjustRecipesForReductionsERSt10unique_ptrINS2_5VPlanESt14default_deleteIS5_EERNS2_15VPRecipeBuilderENS2_12ElementCountEE3$_1EclIKPNS2_20VPReductionPHIRecipeEPSH_EEbRT_T0_.exit.thread21.i" ]
-  %.01126.i = phi i64 [ %128, %_ZSt7advanceIPPN4llvm20VPReductionPHIRecipeElEvRT_T0_.exit.lr.ph.i90 ], [ %153, %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN4llvm24LoopVectorizationPlanner26adjustRecipesForReductionsERSt10unique_ptrINS2_5VPlanESt14default_deleteIS5_EERNS2_15VPRecipeBuilderENS2_12ElementCountEE3$_1EclIKPNS2_20VPReductionPHIRecipeEPSH_EEbRT_T0_.exit.thread21.i" ]
-  %131 = lshr i64 %.01126.i, 1
-  %132 = getelementptr inbounds ptr, ptr %.027.i, i64 %131
-  %.val14.i94 = load ptr, ptr %125, align 8
-  %.val15.i95 = load ptr, ptr %132, align 8
-  %133 = getelementptr i8, ptr %.val14.i94, i64 160
-  %.val14.val.i96 = load ptr, ptr %133, align 8
-  %134 = getelementptr i8, ptr %.val15.i95, i64 160
-  %.val15.val.i97 = load ptr, ptr %134, align 8
+  %.027.i = phi ptr [ %.tr141, %_ZSt7advanceIPPN4llvm20VPReductionPHIRecipeElEvRT_T0_.exit.lr.ph.i90 ], [ %150, %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN4llvm24LoopVectorizationPlanner26adjustRecipesForReductionsERSt10unique_ptrINS2_5VPlanESt14default_deleteIS5_EERNS2_15VPRecipeBuilderENS2_12ElementCountEE3$_1EclIKPNS2_20VPReductionPHIRecipeEPSH_EEbRT_T0_.exit.thread21.i" ]
+  %.01126.i = phi i64 [ %124, %_ZSt7advanceIPPN4llvm20VPReductionPHIRecipeElEvRT_T0_.exit.lr.ph.i90 ], [ %149, %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN4llvm24LoopVectorizationPlanner26adjustRecipesForReductionsERSt10unique_ptrINS2_5VPlanESt14default_deleteIS5_EERNS2_15VPRecipeBuilderENS2_12ElementCountEE3$_1EclIKPNS2_20VPReductionPHIRecipeEPSH_EEbRT_T0_.exit.thread21.i" ]
+  %127 = lshr i64 %.01126.i, 1
+  %128 = getelementptr inbounds ptr, ptr %.027.i, i64 %127
+  %.val14.i94 = load ptr, ptr %121, align 8
+  %.val15.i95 = load ptr, ptr %128, align 8
+  %129 = getelementptr i8, ptr %.val14.i94, i64 160
+  %.val14.val.i96 = load ptr, ptr %129, align 8
+  %130 = getelementptr i8, ptr %.val15.i95, i64 160
+  %.val15.val.i97 = load ptr, ptr %130, align 8
   %.val14.val.val.i98 = load ptr, ptr %.val14.val.i96, align 8
   %.val15.val.val.i99 = load ptr, ptr %.val15.val.i97, align 8
-  %135 = icmp ne ptr %.val14.val.val.i98, null
-  %136 = icmp ne ptr %.val15.val.val.i99, null
-  %137 = select i1 %135, i1 true, i1 %136
-  %138 = load i8, ptr %.sroa.25.0.copyload, align 1
-  %139 = and i8 %138, 1
-  %140 = zext i1 %137 to i8
-  %141 = or i8 %139, %140
-  store i8 %141, ptr %.sroa.25.0.copyload, align 1
-  br i1 %137, label %142, label %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN4llvm24LoopVectorizationPlanner26adjustRecipesForReductionsERSt10unique_ptrINS2_5VPlanESt14default_deleteIS5_EERNS2_15VPRecipeBuilderENS2_12ElementCountEE3$_1EclIKPNS2_20VPReductionPHIRecipeEPSH_EEbRT_T0_.exit.thread.i"
+  %131 = icmp ne ptr %.val14.val.val.i98, null
+  %132 = icmp ne ptr %.val15.val.val.i99, null
+  %133 = select i1 %131, i1 true, i1 %132
+  %134 = load i8, ptr %.sroa.25.0.copyload, align 1
+  %135 = and i8 %134, 1
+  %136 = zext i1 %133 to i8
+  %137 = or i8 %135, %136
+  store i8 %137, ptr %.sroa.25.0.copyload, align 1
+  br i1 %133, label %138, label %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN4llvm24LoopVectorizationPlanner26adjustRecipesForReductionsERSt10unique_ptrINS2_5VPlanESt14default_deleteIS5_EERNS2_15VPRecipeBuilderENS2_12ElementCountEE3$_1EclIKPNS2_20VPReductionPHIRecipeEPSH_EEbRT_T0_.exit.thread.i"
 
-142:                                              ; preds = %_ZSt7advanceIPPN4llvm20VPReductionPHIRecipeElEvRT_T0_.exit.i91
-  %143 = icmp eq ptr %.val14.val.val.i98, null
-  %or.cond3.i.i.i100 = select i1 %143, i1 true, i1 %136
-  br i1 %or.cond3.i.i.i100, label %144, label %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN4llvm24LoopVectorizationPlanner26adjustRecipesForReductionsERSt10unique_ptrINS2_5VPlanESt14default_deleteIS5_EERNS2_15VPRecipeBuilderENS2_12ElementCountEE3$_1EclIKPNS2_20VPReductionPHIRecipeEPSH_EEbRT_T0_.exit.thread21.i"
+138:                                              ; preds = %_ZSt7advanceIPPN4llvm20VPReductionPHIRecipeElEvRT_T0_.exit.i91
+  %139 = icmp eq ptr %.val14.val.val.i98, null
+  %or.cond3.i.i.i100 = select i1 %139, i1 true, i1 %132
+  br i1 %or.cond3.i.i.i100, label %140, label %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN4llvm24LoopVectorizationPlanner26adjustRecipesForReductionsERSt10unique_ptrINS2_5VPlanESt14default_deleteIS5_EERNS2_15VPRecipeBuilderENS2_12ElementCountEE3$_1EclIKPNS2_20VPReductionPHIRecipeEPSH_EEbRT_T0_.exit.thread21.i"
 
-144:                                              ; preds = %142
-  %or.cond5.i.i.i101 = select i1 %143, i1 %136, i1 false
+140:                                              ; preds = %138
+  %or.cond5.i.i.i101 = select i1 %139, i1 %132, i1 false
   br i1 %or.cond5.i.i.i101, label %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN4llvm24LoopVectorizationPlanner26adjustRecipesForReductionsERSt10unique_ptrINS2_5VPlanESt14default_deleteIS5_EERNS2_15VPRecipeBuilderENS2_12ElementCountEE3$_1EclIKPNS2_20VPReductionPHIRecipeEPSH_EEbRT_T0_.exit.thread.i", label %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN4llvm24LoopVectorizationPlanner26adjustRecipesForReductionsERSt10unique_ptrINS2_5VPlanESt14default_deleteIS5_EERNS2_15VPRecipeBuilderENS2_12ElementCountEE3$_1EclIKPNS2_20VPReductionPHIRecipeEPSH_EEbRT_T0_.exit.i"
 
-"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN4llvm24LoopVectorizationPlanner26adjustRecipesForReductionsERSt10unique_ptrINS2_5VPlanESt14default_deleteIS5_EERNS2_15VPRecipeBuilderENS2_12ElementCountEE3$_1EclIKPNS2_20VPReductionPHIRecipeEPSH_EEbRT_T0_.exit.thread.i": ; preds = %144, %_ZSt7advanceIPPN4llvm20VPReductionPHIRecipeElEvRT_T0_.exit.i91
-  %145 = getelementptr inbounds i8, ptr %132, i64 8
-  %146 = xor i64 %131, -1
-  %147 = add nsw i64 %.01126.i, %146
+"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN4llvm24LoopVectorizationPlanner26adjustRecipesForReductionsERSt10unique_ptrINS2_5VPlanESt14default_deleteIS5_EERNS2_15VPRecipeBuilderENS2_12ElementCountEE3$_1EclIKPNS2_20VPReductionPHIRecipeEPSH_EEbRT_T0_.exit.thread.i": ; preds = %140, %_ZSt7advanceIPPN4llvm20VPReductionPHIRecipeElEvRT_T0_.exit.i91
+  %141 = getelementptr inbounds i8, ptr %128, i64 8
+  %142 = xor i64 %127, -1
+  %143 = add nsw i64 %.01126.i, %142
   br label %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN4llvm24LoopVectorizationPlanner26adjustRecipesForReductionsERSt10unique_ptrINS2_5VPlanESt14default_deleteIS5_EERNS2_15VPRecipeBuilderENS2_12ElementCountEE3$_1EclIKPNS2_20VPReductionPHIRecipeEPSH_EEbRT_T0_.exit.thread21.i"
 
-"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN4llvm24LoopVectorizationPlanner26adjustRecipesForReductionsERSt10unique_ptrINS2_5VPlanESt14default_deleteIS5_EERNS2_15VPRecipeBuilderENS2_12ElementCountEE3$_1EclIKPNS2_20VPReductionPHIRecipeEPSH_EEbRT_T0_.exit.i": ; preds = %144
-  %148 = load ptr, ptr %130, align 8
-  %149 = tail call noundef zeroext i1 @_ZNK4llvm13DominatorTree9dominatesEPKNS_5ValueEPKNS_11InstructionE(ptr noundef nonnull align 8 dereferenceable(124) %148, ptr noundef %.val15.val.val.i99, ptr noundef %.val14.val.val.i98) #28
-  %150 = getelementptr inbounds i8, ptr %132, i64 8
-  %151 = xor i64 %131, -1
-  %152 = add nsw i64 %.01126.i, %151
-  %spec.select.i102 = select i1 %149, i64 %131, i64 %152
-  %spec.select25.i = select i1 %149, ptr %.027.i, ptr %150
+"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN4llvm24LoopVectorizationPlanner26adjustRecipesForReductionsERSt10unique_ptrINS2_5VPlanESt14default_deleteIS5_EERNS2_15VPRecipeBuilderENS2_12ElementCountEE3$_1EclIKPNS2_20VPReductionPHIRecipeEPSH_EEbRT_T0_.exit.i": ; preds = %140
+  %144 = load ptr, ptr %126, align 8
+  %145 = tail call noundef zeroext i1 @_ZNK4llvm13DominatorTree9dominatesEPKNS_5ValueEPKNS_11InstructionE(ptr noundef nonnull align 8 dereferenceable(124) %144, ptr noundef %.val15.val.val.i99, ptr noundef %.val14.val.val.i98) #28
+  %146 = getelementptr inbounds i8, ptr %128, i64 8
+  %147 = xor i64 %127, -1
+  %148 = add nsw i64 %.01126.i, %147
+  %spec.select.i102 = select i1 %145, i64 %127, i64 %148
+  %spec.select25.i = select i1 %145, ptr %.027.i, ptr %146
   br label %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN4llvm24LoopVectorizationPlanner26adjustRecipesForReductionsERSt10unique_ptrINS2_5VPlanESt14default_deleteIS5_EERNS2_15VPRecipeBuilderENS2_12ElementCountEE3$_1EclIKPNS2_20VPReductionPHIRecipeEPSH_EEbRT_T0_.exit.thread21.i"
 
-"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN4llvm24LoopVectorizationPlanner26adjustRecipesForReductionsERSt10unique_ptrINS2_5VPlanESt14default_deleteIS5_EERNS2_15VPRecipeBuilderENS2_12ElementCountEE3$_1EclIKPNS2_20VPReductionPHIRecipeEPSH_EEbRT_T0_.exit.thread21.i": ; preds = %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN4llvm24LoopVectorizationPlanner26adjustRecipesForReductionsERSt10unique_ptrINS2_5VPlanESt14default_deleteIS5_EERNS2_15VPRecipeBuilderENS2_12ElementCountEE3$_1EclIKPNS2_20VPReductionPHIRecipeEPSH_EEbRT_T0_.exit.i", %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN4llvm24LoopVectorizationPlanner26adjustRecipesForReductionsERSt10unique_ptrINS2_5VPlanESt14default_deleteIS5_EERNS2_15VPRecipeBuilderENS2_12ElementCountEE3$_1EclIKPNS2_20VPReductionPHIRecipeEPSH_EEbRT_T0_.exit.thread.i", %142
-  %153 = phi i64 [ %147, %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN4llvm24LoopVectorizationPlanner26adjustRecipesForReductionsERSt10unique_ptrINS2_5VPlanESt14default_deleteIS5_EERNS2_15VPRecipeBuilderENS2_12ElementCountEE3$_1EclIKPNS2_20VPReductionPHIRecipeEPSH_EEbRT_T0_.exit.thread.i" ], [ %131, %142 ], [ %spec.select.i102, %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN4llvm24LoopVectorizationPlanner26adjustRecipesForReductionsERSt10unique_ptrINS2_5VPlanESt14default_deleteIS5_EERNS2_15VPRecipeBuilderENS2_12ElementCountEE3$_1EclIKPNS2_20VPReductionPHIRecipeEPSH_EEbRT_T0_.exit.i" ]
-  %154 = phi ptr [ %145, %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN4llvm24LoopVectorizationPlanner26adjustRecipesForReductionsERSt10unique_ptrINS2_5VPlanESt14default_deleteIS5_EERNS2_15VPRecipeBuilderENS2_12ElementCountEE3$_1EclIKPNS2_20VPReductionPHIRecipeEPSH_EEbRT_T0_.exit.thread.i" ], [ %.027.i, %142 ], [ %spec.select25.i, %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN4llvm24LoopVectorizationPlanner26adjustRecipesForReductionsERSt10unique_ptrINS2_5VPlanESt14default_deleteIS5_EERNS2_15VPRecipeBuilderENS2_12ElementCountEE3$_1EclIKPNS2_20VPReductionPHIRecipeEPSH_EEbRT_T0_.exit.i" ]
-  %155 = icmp sgt i64 %153, 0
-  br i1 %155, label %_ZSt7advanceIPPN4llvm20VPReductionPHIRecipeElEvRT_T0_.exit.i91, label %"_ZSt13__upper_boundIPPN4llvm20VPReductionPHIRecipeES2_N9__gnu_cxx5__ops14_Val_comp_iterIZNS0_24LoopVectorizationPlanner26adjustRecipesForReductionsERSt10unique_ptrINS0_5VPlanESt14default_deleteIS9_EERNS0_15VPRecipeBuilderENS0_12ElementCountEE3$_1EEET_SJ_SJ_RKT0_T1_.exit.loopexit", !llvm.loop !1222
+"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN4llvm24LoopVectorizationPlanner26adjustRecipesForReductionsERSt10unique_ptrINS2_5VPlanESt14default_deleteIS5_EERNS2_15VPRecipeBuilderENS2_12ElementCountEE3$_1EclIKPNS2_20VPReductionPHIRecipeEPSH_EEbRT_T0_.exit.thread21.i": ; preds = %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN4llvm24LoopVectorizationPlanner26adjustRecipesForReductionsERSt10unique_ptrINS2_5VPlanESt14default_deleteIS5_EERNS2_15VPRecipeBuilderENS2_12ElementCountEE3$_1EclIKPNS2_20VPReductionPHIRecipeEPSH_EEbRT_T0_.exit.i", %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN4llvm24LoopVectorizationPlanner26adjustRecipesForReductionsERSt10unique_ptrINS2_5VPlanESt14default_deleteIS5_EERNS2_15VPRecipeBuilderENS2_12ElementCountEE3$_1EclIKPNS2_20VPReductionPHIRecipeEPSH_EEbRT_T0_.exit.thread.i", %138
+  %149 = phi i64 [ %143, %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN4llvm24LoopVectorizationPlanner26adjustRecipesForReductionsERSt10unique_ptrINS2_5VPlanESt14default_deleteIS5_EERNS2_15VPRecipeBuilderENS2_12ElementCountEE3$_1EclIKPNS2_20VPReductionPHIRecipeEPSH_EEbRT_T0_.exit.thread.i" ], [ %127, %138 ], [ %spec.select.i102, %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN4llvm24LoopVectorizationPlanner26adjustRecipesForReductionsERSt10unique_ptrINS2_5VPlanESt14default_deleteIS5_EERNS2_15VPRecipeBuilderENS2_12ElementCountEE3$_1EclIKPNS2_20VPReductionPHIRecipeEPSH_EEbRT_T0_.exit.i" ]
+  %150 = phi ptr [ %141, %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN4llvm24LoopVectorizationPlanner26adjustRecipesForReductionsERSt10unique_ptrINS2_5VPlanESt14default_deleteIS5_EERNS2_15VPRecipeBuilderENS2_12ElementCountEE3$_1EclIKPNS2_20VPReductionPHIRecipeEPSH_EEbRT_T0_.exit.thread.i" ], [ %.027.i, %138 ], [ %spec.select25.i, %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN4llvm24LoopVectorizationPlanner26adjustRecipesForReductionsERSt10unique_ptrINS2_5VPlanESt14default_deleteIS5_EERNS2_15VPRecipeBuilderENS2_12ElementCountEE3$_1EclIKPNS2_20VPReductionPHIRecipeEPSH_EEbRT_T0_.exit.i" ]
+  %151 = icmp sgt i64 %149, 0
+  br i1 %151, label %_ZSt7advanceIPPN4llvm20VPReductionPHIRecipeElEvRT_T0_.exit.i91, label %"_ZSt13__upper_boundIPPN4llvm20VPReductionPHIRecipeES2_N9__gnu_cxx5__ops14_Val_comp_iterIZNS0_24LoopVectorizationPlanner26adjustRecipesForReductionsERSt10unique_ptrINS0_5VPlanESt14default_deleteIS9_EERNS0_15VPRecipeBuilderENS0_12ElementCountEE3$_1EEET_SJ_SJ_RKT0_T1_.exit.loopexit", !llvm.loop !1222
 
 "_ZSt13__upper_boundIPPN4llvm20VPReductionPHIRecipeES2_N9__gnu_cxx5__ops14_Val_comp_iterIZNS0_24LoopVectorizationPlanner26adjustRecipesForReductionsERSt10unique_ptrINS0_5VPlanESt14default_deleteIS9_EERNS0_15VPRecipeBuilderENS0_12ElementCountEE3$_1EEET_SJ_SJ_RKT0_T1_.exit.loopexit": ; preds = %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN4llvm24LoopVectorizationPlanner26adjustRecipesForReductionsERSt10unique_ptrINS2_5VPlanESt14default_deleteIS5_EERNS2_15VPRecipeBuilderENS2_12ElementCountEE3$_1EclIKPNS2_20VPReductionPHIRecipeEPSH_EEbRT_T0_.exit.thread21.i"
-  %.pre157 = ptrtoint ptr %154 to i64
+  %.pre156 = ptrtoint ptr %150 to i64
   br label %"_ZSt13__upper_boundIPPN4llvm20VPReductionPHIRecipeES2_N9__gnu_cxx5__ops14_Val_comp_iterIZNS0_24LoopVectorizationPlanner26adjustRecipesForReductionsERSt10unique_ptrINS0_5VPlanESt14default_deleteIS9_EERNS0_15VPRecipeBuilderENS0_12ElementCountEE3$_1EEET_SJ_SJ_RKT0_T1_.exit"
 
 "_ZSt13__upper_boundIPPN4llvm20VPReductionPHIRecipeES2_N9__gnu_cxx5__ops14_Val_comp_iterIZNS0_24LoopVectorizationPlanner26adjustRecipesForReductionsERSt10unique_ptrINS0_5VPlanESt14default_deleteIS9_EERNS0_15VPRecipeBuilderENS0_12ElementCountEE3$_1EEET_SJ_SJ_RKT0_T1_.exit": ; preds = %"_ZSt13__upper_boundIPPN4llvm20VPReductionPHIRecipeES2_N9__gnu_cxx5__ops14_Val_comp_iterIZNS0_24LoopVectorizationPlanner26adjustRecipesForReductionsERSt10unique_ptrINS0_5VPlanESt14default_deleteIS9_EERNS0_15VPRecipeBuilderENS0_12ElementCountEE3$_1EEET_SJ_SJ_RKT0_T1_.exit.loopexit", %_ZSt7advanceIPPN4llvm20VPReductionPHIRecipeElEvRT_T0_.exit85
-  %.pre-phi158 = phi i64 [ %.pre157, %"_ZSt13__upper_boundIPPN4llvm20VPReductionPHIRecipeES2_N9__gnu_cxx5__ops14_Val_comp_iterIZNS0_24LoopVectorizationPlanner26adjustRecipesForReductionsERSt10unique_ptrINS0_5VPlanESt14default_deleteIS9_EERNS0_15VPRecipeBuilderENS0_12ElementCountEE3$_1EEET_SJ_SJ_RKT0_T1_.exit.loopexit" ], [ %126, %_ZSt7advanceIPPN4llvm20VPReductionPHIRecipeElEvRT_T0_.exit85 ]
-  %.0.lcssa.i89 = phi ptr [ %154, %"_ZSt13__upper_boundIPPN4llvm20VPReductionPHIRecipeES2_N9__gnu_cxx5__ops14_Val_comp_iterIZNS0_24LoopVectorizationPlanner26adjustRecipesForReductionsERSt10unique_ptrINS0_5VPlanESt14default_deleteIS9_EERNS0_15VPRecipeBuilderENS0_12ElementCountEE3$_1EEET_SJ_SJ_RKT0_T1_.exit.loopexit" ], [ %.tr142, %_ZSt7advanceIPPN4llvm20VPReductionPHIRecipeElEvRT_T0_.exit85 ]
-  %156 = sub i64 %.pre-phi158, %126
-  %157 = ashr exact i64 %156, 3
-  br label %158
+  %.pre-phi157 = phi i64 [ %.pre156, %"_ZSt13__upper_boundIPPN4llvm20VPReductionPHIRecipeES2_N9__gnu_cxx5__ops14_Val_comp_iterIZNS0_24LoopVectorizationPlanner26adjustRecipesForReductionsERSt10unique_ptrINS0_5VPlanESt14default_deleteIS9_EERNS0_15VPRecipeBuilderENS0_12ElementCountEE3$_1EEET_SJ_SJ_RKT0_T1_.exit.loopexit" ], [ %122, %_ZSt7advanceIPPN4llvm20VPReductionPHIRecipeElEvRT_T0_.exit85 ]
+  %.0.lcssa.i89 = phi ptr [ %150, %"_ZSt13__upper_boundIPPN4llvm20VPReductionPHIRecipeES2_N9__gnu_cxx5__ops14_Val_comp_iterIZNS0_24LoopVectorizationPlanner26adjustRecipesForReductionsERSt10unique_ptrINS0_5VPlanESt14default_deleteIS9_EERNS0_15VPRecipeBuilderENS0_12ElementCountEE3$_1EEET_SJ_SJ_RKT0_T1_.exit.loopexit" ], [ %.tr141, %_ZSt7advanceIPPN4llvm20VPReductionPHIRecipeElEvRT_T0_.exit85 ]
+  %152 = sub i64 %.pre-phi157, %122
+  %153 = ashr exact i64 %152, 3
+  br label %154
 
-158:                                              ; preds = %"_ZSt13__upper_boundIPPN4llvm20VPReductionPHIRecipeES2_N9__gnu_cxx5__ops14_Val_comp_iterIZNS0_24LoopVectorizationPlanner26adjustRecipesForReductionsERSt10unique_ptrINS0_5VPlanESt14default_deleteIS9_EERNS0_15VPRecipeBuilderENS0_12ElementCountEE3$_1EEET_SJ_SJ_RKT0_T1_.exit", %"_ZSt13__lower_boundIPPN4llvm20VPReductionPHIRecipeES2_N9__gnu_cxx5__ops14_Iter_comp_valIZNS0_24LoopVectorizationPlanner26adjustRecipesForReductionsERSt10unique_ptrINS0_5VPlanESt14default_deleteIS9_EERNS0_15VPRecipeBuilderENS0_12ElementCountEE3$_1EEET_SJ_SJ_RKT0_T1_.exit"
-  %.0122 = phi ptr [ %92, %"_ZSt13__lower_boundIPPN4llvm20VPReductionPHIRecipeES2_N9__gnu_cxx5__ops14_Iter_comp_valIZNS0_24LoopVectorizationPlanner26adjustRecipesForReductionsERSt10unique_ptrINS0_5VPlanESt14default_deleteIS9_EERNS0_15VPRecipeBuilderENS0_12ElementCountEE3$_1EEET_SJ_SJ_RKT0_T1_.exit" ], [ %.0.lcssa.i89, %"_ZSt13__upper_boundIPPN4llvm20VPReductionPHIRecipeES2_N9__gnu_cxx5__ops14_Val_comp_iterIZNS0_24LoopVectorizationPlanner26adjustRecipesForReductionsERSt10unique_ptrINS0_5VPlanESt14default_deleteIS9_EERNS0_15VPRecipeBuilderENS0_12ElementCountEE3$_1EEET_SJ_SJ_RKT0_T1_.exit" ]
-  %.0121 = phi ptr [ %.0.lcssa.i79, %"_ZSt13__lower_boundIPPN4llvm20VPReductionPHIRecipeES2_N9__gnu_cxx5__ops14_Iter_comp_valIZNS0_24LoopVectorizationPlanner26adjustRecipesForReductionsERSt10unique_ptrINS0_5VPlanESt14default_deleteIS9_EERNS0_15VPRecipeBuilderENS0_12ElementCountEE3$_1EEET_SJ_SJ_RKT0_T1_.exit" ], [ %125, %"_ZSt13__upper_boundIPPN4llvm20VPReductionPHIRecipeES2_N9__gnu_cxx5__ops14_Val_comp_iterIZNS0_24LoopVectorizationPlanner26adjustRecipesForReductionsERSt10unique_ptrINS0_5VPlanESt14default_deleteIS9_EERNS0_15VPRecipeBuilderENS0_12ElementCountEE3$_1EEET_SJ_SJ_RKT0_T1_.exit" ]
-  %.061 = phi i64 [ %123, %"_ZSt13__lower_boundIPPN4llvm20VPReductionPHIRecipeES2_N9__gnu_cxx5__ops14_Iter_comp_valIZNS0_24LoopVectorizationPlanner26adjustRecipesForReductionsERSt10unique_ptrINS0_5VPlanESt14default_deleteIS9_EERNS0_15VPRecipeBuilderENS0_12ElementCountEE3$_1EEET_SJ_SJ_RKT0_T1_.exit" ], [ %124, %"_ZSt13__upper_boundIPPN4llvm20VPReductionPHIRecipeES2_N9__gnu_cxx5__ops14_Val_comp_iterIZNS0_24LoopVectorizationPlanner26adjustRecipesForReductionsERSt10unique_ptrINS0_5VPlanESt14default_deleteIS9_EERNS0_15VPRecipeBuilderENS0_12ElementCountEE3$_1EEET_SJ_SJ_RKT0_T1_.exit" ]
-  %.0 = phi i64 [ %91, %"_ZSt13__lower_boundIPPN4llvm20VPReductionPHIRecipeES2_N9__gnu_cxx5__ops14_Iter_comp_valIZNS0_24LoopVectorizationPlanner26adjustRecipesForReductionsERSt10unique_ptrINS0_5VPlanESt14default_deleteIS9_EERNS0_15VPRecipeBuilderENS0_12ElementCountEE3$_1EEET_SJ_SJ_RKT0_T1_.exit" ], [ %157, %"_ZSt13__upper_boundIPPN4llvm20VPReductionPHIRecipeES2_N9__gnu_cxx5__ops14_Val_comp_iterIZNS0_24LoopVectorizationPlanner26adjustRecipesForReductionsERSt10unique_ptrINS0_5VPlanESt14default_deleteIS9_EERNS0_15VPRecipeBuilderENS0_12ElementCountEE3$_1EEET_SJ_SJ_RKT0_T1_.exit" ]
-  %159 = sub nsw i64 %.tr127145, %.0
-  %160 = icmp sle i64 %159, %.061
+154:                                              ; preds = %"_ZSt13__upper_boundIPPN4llvm20VPReductionPHIRecipeES2_N9__gnu_cxx5__ops14_Val_comp_iterIZNS0_24LoopVectorizationPlanner26adjustRecipesForReductionsERSt10unique_ptrINS0_5VPlanESt14default_deleteIS9_EERNS0_15VPRecipeBuilderENS0_12ElementCountEE3$_1EEET_SJ_SJ_RKT0_T1_.exit", %"_ZSt13__lower_boundIPPN4llvm20VPReductionPHIRecipeES2_N9__gnu_cxx5__ops14_Iter_comp_valIZNS0_24LoopVectorizationPlanner26adjustRecipesForReductionsERSt10unique_ptrINS0_5VPlanESt14default_deleteIS9_EERNS0_15VPRecipeBuilderENS0_12ElementCountEE3$_1EEET_SJ_SJ_RKT0_T1_.exit"
+  %.0121 = phi ptr [ %88, %"_ZSt13__lower_boundIPPN4llvm20VPReductionPHIRecipeES2_N9__gnu_cxx5__ops14_Iter_comp_valIZNS0_24LoopVectorizationPlanner26adjustRecipesForReductionsERSt10unique_ptrINS0_5VPlanESt14default_deleteIS9_EERNS0_15VPRecipeBuilderENS0_12ElementCountEE3$_1EEET_SJ_SJ_RKT0_T1_.exit" ], [ %.0.lcssa.i89, %"_ZSt13__upper_boundIPPN4llvm20VPReductionPHIRecipeES2_N9__gnu_cxx5__ops14_Val_comp_iterIZNS0_24LoopVectorizationPlanner26adjustRecipesForReductionsERSt10unique_ptrINS0_5VPlanESt14default_deleteIS9_EERNS0_15VPRecipeBuilderENS0_12ElementCountEE3$_1EEET_SJ_SJ_RKT0_T1_.exit" ]
+  %.0120 = phi ptr [ %.0.lcssa.i79, %"_ZSt13__lower_boundIPPN4llvm20VPReductionPHIRecipeES2_N9__gnu_cxx5__ops14_Iter_comp_valIZNS0_24LoopVectorizationPlanner26adjustRecipesForReductionsERSt10unique_ptrINS0_5VPlanESt14default_deleteIS9_EERNS0_15VPRecipeBuilderENS0_12ElementCountEE3$_1EEET_SJ_SJ_RKT0_T1_.exit" ], [ %121, %"_ZSt13__upper_boundIPPN4llvm20VPReductionPHIRecipeES2_N9__gnu_cxx5__ops14_Val_comp_iterIZNS0_24LoopVectorizationPlanner26adjustRecipesForReductionsERSt10unique_ptrINS0_5VPlanESt14default_deleteIS9_EERNS0_15VPRecipeBuilderENS0_12ElementCountEE3$_1EEET_SJ_SJ_RKT0_T1_.exit" ]
+  %.061 = phi i64 [ %119, %"_ZSt13__lower_boundIPPN4llvm20VPReductionPHIRecipeES2_N9__gnu_cxx5__ops14_Iter_comp_valIZNS0_24LoopVectorizationPlanner26adjustRecipesForReductionsERSt10unique_ptrINS0_5VPlanESt14default_deleteIS9_EERNS0_15VPRecipeBuilderENS0_12ElementCountEE3$_1EEET_SJ_SJ_RKT0_T1_.exit" ], [ %120, %"_ZSt13__upper_boundIPPN4llvm20VPReductionPHIRecipeES2_N9__gnu_cxx5__ops14_Val_comp_iterIZNS0_24LoopVectorizationPlanner26adjustRecipesForReductionsERSt10unique_ptrINS0_5VPlanESt14default_deleteIS9_EERNS0_15VPRecipeBuilderENS0_12ElementCountEE3$_1EEET_SJ_SJ_RKT0_T1_.exit" ]
+  %.0 = phi i64 [ %87, %"_ZSt13__lower_boundIPPN4llvm20VPReductionPHIRecipeES2_N9__gnu_cxx5__ops14_Iter_comp_valIZNS0_24LoopVectorizationPlanner26adjustRecipesForReductionsERSt10unique_ptrINS0_5VPlanESt14default_deleteIS9_EERNS0_15VPRecipeBuilderENS0_12ElementCountEE3$_1EEET_SJ_SJ_RKT0_T1_.exit" ], [ %153, %"_ZSt13__upper_boundIPPN4llvm20VPReductionPHIRecipeES2_N9__gnu_cxx5__ops14_Val_comp_iterIZNS0_24LoopVectorizationPlanner26adjustRecipesForReductionsERSt10unique_ptrINS0_5VPlanESt14default_deleteIS9_EERNS0_15VPRecipeBuilderENS0_12ElementCountEE3$_1EEET_SJ_SJ_RKT0_T1_.exit" ]
+  %155 = sub nsw i64 %.tr126144, %.0
+  %156 = icmp sle i64 %155, %.061
   %.not.i = icmp sgt i64 %.061, %6
-  %or.cond.i = or i1 %.not.i, %160
-  br i1 %or.cond.i, label %174, label %161
+  %or.cond.i = or i1 %.not.i, %156
+  br i1 %or.cond.i, label %170, label %157
 
-161:                                              ; preds = %158
+157:                                              ; preds = %154
   %.not35.i = icmp eq i64 %.061, 0
-  br i1 %.not35.i, label %_ZSt17__rotate_adaptiveIPPN4llvm20VPReductionPHIRecipeES3_lET_S4_S4_S4_T1_S5_T0_S5_.exit, label %162
+  br i1 %.not35.i, label %_ZSt17__rotate_adaptiveIPPN4llvm20VPReductionPHIRecipeES3_lET_S4_S4_S4_T1_S5_T0_S5_.exit, label %158
 
-162:                                              ; preds = %161
-  %163 = ptrtoint ptr %.0121 to i64
-  %164 = ptrtoint ptr %.tr125143 to i64
-  %165 = sub i64 %163, %164
-  %.not.i.i.i.i.i.i103 = icmp eq ptr %.0121, %.tr125143
-  br i1 %.not.i.i.i.i.i.i103, label %_ZSt4moveIPPN4llvm20VPReductionPHIRecipeES3_ET0_T_S5_S4_.exit.i104, label %166
+158:                                              ; preds = %157
+  %159 = ptrtoint ptr %.0120 to i64
+  %160 = ptrtoint ptr %.tr124142 to i64
+  %161 = sub i64 %159, %160
+  %.not.i.i.i.i.i.i103 = icmp eq ptr %.0120, %.tr124142
+  br i1 %.not.i.i.i.i.i.i103, label %_ZSt4moveIPPN4llvm20VPReductionPHIRecipeES3_ET0_T_S5_S4_.exit.i104, label %162
 
-166:                                              ; preds = %162
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %5, ptr align 8 %.tr125143, i64 %165, i1 false)
+162:                                              ; preds = %158
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %5, ptr align 8 %.tr124142, i64 %161, i1 false)
   br label %_ZSt4moveIPPN4llvm20VPReductionPHIRecipeES3_ET0_T_S5_S4_.exit.i104
 
-_ZSt4moveIPPN4llvm20VPReductionPHIRecipeES3_ET0_T_S5_S4_.exit.i104: ; preds = %166, %162
-  %.not.i.i.i.i.i36.i = icmp eq ptr %.tr125143, %.0122
-  br i1 %.not.i.i.i.i.i36.i, label %_ZSt13move_backwardIPPN4llvm20VPReductionPHIRecipeES3_ET0_T_S5_S4_.exit.i, label %167
+_ZSt4moveIPPN4llvm20VPReductionPHIRecipeES3_ET0_T_S5_S4_.exit.i104: ; preds = %162, %158
+  %.not.i.i.i.i.i36.i = icmp eq ptr %.tr124142, %.0121
+  br i1 %.not.i.i.i.i.i36.i, label %_ZSt13move_backwardIPPN4llvm20VPReductionPHIRecipeES3_ET0_T_S5_S4_.exit.i, label %163
 
-167:                                              ; preds = %_ZSt4moveIPPN4llvm20VPReductionPHIRecipeES3_ET0_T_S5_S4_.exit.i104
-  %168 = ptrtoint ptr %.0122 to i64
-  %169 = sub i64 %164, %168
-  %170 = ashr exact i64 %169, 3
-  %.pre.i.i.i.i.i.i105 = sub nsw i64 0, %170
-  %171 = getelementptr inbounds ptr, ptr %.0121, i64 %.pre.i.i.i.i.i.i105
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %171, ptr align 8 %.0122, i64 %169, i1 false)
+163:                                              ; preds = %_ZSt4moveIPPN4llvm20VPReductionPHIRecipeES3_ET0_T_S5_S4_.exit.i104
+  %164 = ptrtoint ptr %.0121 to i64
+  %165 = sub i64 %160, %164
+  %166 = ashr exact i64 %165, 3
+  %.pre.i.i.i.i.i.i = sub nsw i64 0, %166
+  %167 = getelementptr inbounds ptr, ptr %.0120, i64 %.pre.i.i.i.i.i.i
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %167, ptr align 8 %.0121, i64 %165, i1 false)
   br label %_ZSt13move_backwardIPPN4llvm20VPReductionPHIRecipeES3_ET0_T_S5_S4_.exit.i
 
-_ZSt13move_backwardIPPN4llvm20VPReductionPHIRecipeES3_ET0_T_S5_S4_.exit.i: ; preds = %167, %_ZSt4moveIPPN4llvm20VPReductionPHIRecipeES3_ET0_T_S5_S4_.exit.i104
-  br i1 %.not.i.i.i.i.i.i103, label %_ZSt4moveIPPN4llvm20VPReductionPHIRecipeES3_ET0_T_S5_S4_.exit38.i, label %172
+_ZSt13move_backwardIPPN4llvm20VPReductionPHIRecipeES3_ET0_T_S5_S4_.exit.i: ; preds = %163, %_ZSt4moveIPPN4llvm20VPReductionPHIRecipeES3_ET0_T_S5_S4_.exit.i104
+  br i1 %.not.i.i.i.i.i.i103, label %_ZSt4moveIPPN4llvm20VPReductionPHIRecipeES3_ET0_T_S5_S4_.exit38.i, label %168
 
-172:                                              ; preds = %_ZSt13move_backwardIPPN4llvm20VPReductionPHIRecipeES3_ET0_T_S5_S4_.exit.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %.0122, ptr align 8 %5, i64 %165, i1 false)
+168:                                              ; preds = %_ZSt13move_backwardIPPN4llvm20VPReductionPHIRecipeES3_ET0_T_S5_S4_.exit.i
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %.0121, ptr align 8 %5, i64 %161, i1 false)
   br label %_ZSt4moveIPPN4llvm20VPReductionPHIRecipeES3_ET0_T_S5_S4_.exit38.i
 
-_ZSt4moveIPPN4llvm20VPReductionPHIRecipeES3_ET0_T_S5_S4_.exit38.i: ; preds = %172, %_ZSt13move_backwardIPPN4llvm20VPReductionPHIRecipeES3_ET0_T_S5_S4_.exit.i
-  %173 = getelementptr inbounds i8, ptr %.0122, i64 %165
+_ZSt4moveIPPN4llvm20VPReductionPHIRecipeES3_ET0_T_S5_S4_.exit38.i: ; preds = %168, %_ZSt13move_backwardIPPN4llvm20VPReductionPHIRecipeES3_ET0_T_S5_S4_.exit.i
+  %169 = getelementptr inbounds i8, ptr %.0121, i64 %161
   br label %_ZSt17__rotate_adaptiveIPPN4llvm20VPReductionPHIRecipeES3_lET_S4_S4_S4_T1_S5_T0_S5_.exit
 
-174:                                              ; preds = %158
-  %.not33.i = icmp sgt i64 %159, %6
-  br i1 %.not33.i, label %188, label %175
+170:                                              ; preds = %154
+  %.not33.i = icmp sgt i64 %155, %6
+  br i1 %.not33.i, label %184, label %171
 
-175:                                              ; preds = %174
-  %.not34.i = icmp eq i64 %.tr127145, %.0
-  br i1 %.not34.i, label %_ZSt17__rotate_adaptiveIPPN4llvm20VPReductionPHIRecipeES3_lET_S4_S4_S4_T1_S5_T0_S5_.exit, label %176
+171:                                              ; preds = %170
+  %.not34.i = icmp eq i64 %.tr126144, %.0
+  br i1 %.not34.i, label %_ZSt17__rotate_adaptiveIPPN4llvm20VPReductionPHIRecipeES3_lET_S4_S4_S4_T1_S5_T0_S5_.exit, label %172
 
-176:                                              ; preds = %175
-  %177 = ptrtoint ptr %.tr125143 to i64
-  %178 = ptrtoint ptr %.0122 to i64
-  %179 = sub i64 %177, %178
-  %.not.i.i.i.i.i39.i = icmp eq ptr %.tr125143, %.0122
-  br i1 %.not.i.i.i.i.i39.i, label %_ZSt4moveIPPN4llvm20VPReductionPHIRecipeES3_ET0_T_S5_S4_.exit40.i, label %180
+172:                                              ; preds = %171
+  %173 = ptrtoint ptr %.tr124142 to i64
+  %174 = ptrtoint ptr %.0121 to i64
+  %175 = sub i64 %173, %174
+  %.not.i.i.i.i.i39.i = icmp eq ptr %.tr124142, %.0121
+  br i1 %.not.i.i.i.i.i39.i, label %_ZSt4moveIPPN4llvm20VPReductionPHIRecipeES3_ET0_T_S5_S4_.exit40.i, label %176
 
-180:                                              ; preds = %176
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %5, ptr align 8 %.0122, i64 %179, i1 false)
+176:                                              ; preds = %172
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %5, ptr align 8 %.0121, i64 %175, i1 false)
   br label %_ZSt4moveIPPN4llvm20VPReductionPHIRecipeES3_ET0_T_S5_S4_.exit40.i
 
-_ZSt4moveIPPN4llvm20VPReductionPHIRecipeES3_ET0_T_S5_S4_.exit40.i: ; preds = %180, %176
-  %.not.i.i.i.i.i41.i = icmp eq ptr %.0121, %.tr125143
-  br i1 %.not.i.i.i.i.i41.i, label %_ZSt4moveIPPN4llvm20VPReductionPHIRecipeES3_ET0_T_S5_S4_.exit42.i, label %181
+_ZSt4moveIPPN4llvm20VPReductionPHIRecipeES3_ET0_T_S5_S4_.exit40.i: ; preds = %176, %172
+  %.not.i.i.i.i.i41.i = icmp eq ptr %.0120, %.tr124142
+  br i1 %.not.i.i.i.i.i41.i, label %_ZSt4moveIPPN4llvm20VPReductionPHIRecipeES3_ET0_T_S5_S4_.exit42.i, label %177
 
-181:                                              ; preds = %_ZSt4moveIPPN4llvm20VPReductionPHIRecipeES3_ET0_T_S5_S4_.exit40.i
-  %182 = ptrtoint ptr %.0121 to i64
-  %183 = sub i64 %182, %177
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %.0122, ptr align 8 %.tr125143, i64 %183, i1 false)
+177:                                              ; preds = %_ZSt4moveIPPN4llvm20VPReductionPHIRecipeES3_ET0_T_S5_S4_.exit40.i
+  %178 = ptrtoint ptr %.0120 to i64
+  %179 = sub i64 %178, %173
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %.0121, ptr align 8 %.tr124142, i64 %179, i1 false)
   br label %_ZSt4moveIPPN4llvm20VPReductionPHIRecipeES3_ET0_T_S5_S4_.exit42.i
 
-_ZSt4moveIPPN4llvm20VPReductionPHIRecipeES3_ET0_T_S5_S4_.exit42.i: ; preds = %181, %_ZSt4moveIPPN4llvm20VPReductionPHIRecipeES3_ET0_T_S5_S4_.exit40.i
-  %184 = ashr exact i64 %179, 3
-  %.pre.i.i.i.i.i44.i = sub nsw i64 0, %184
-  br i1 %.not.i.i.i.i.i39.i, label %_ZSt13move_backwardIPPN4llvm20VPReductionPHIRecipeES3_ET0_T_S5_S4_.exit45.i, label %185
+_ZSt4moveIPPN4llvm20VPReductionPHIRecipeES3_ET0_T_S5_S4_.exit42.i: ; preds = %177, %_ZSt4moveIPPN4llvm20VPReductionPHIRecipeES3_ET0_T_S5_S4_.exit40.i
+  %180 = ashr exact i64 %175, 3
+  %.pre.i.i.i.i.i44.i = sub nsw i64 0, %180
+  br i1 %.not.i.i.i.i.i39.i, label %_ZSt13move_backwardIPPN4llvm20VPReductionPHIRecipeES3_ET0_T_S5_S4_.exit45.i, label %181
 
-185:                                              ; preds = %_ZSt4moveIPPN4llvm20VPReductionPHIRecipeES3_ET0_T_S5_S4_.exit42.i
-  %186 = getelementptr inbounds ptr, ptr %.0121, i64 %.pre.i.i.i.i.i44.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %186, ptr align 8 %5, i64 %179, i1 false)
+181:                                              ; preds = %_ZSt4moveIPPN4llvm20VPReductionPHIRecipeES3_ET0_T_S5_S4_.exit42.i
+  %182 = getelementptr inbounds ptr, ptr %.0120, i64 %.pre.i.i.i.i.i44.i
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %182, ptr align 8 %5, i64 %175, i1 false)
   br label %_ZSt13move_backwardIPPN4llvm20VPReductionPHIRecipeES3_ET0_T_S5_S4_.exit45.i
 
-_ZSt13move_backwardIPPN4llvm20VPReductionPHIRecipeES3_ET0_T_S5_S4_.exit45.i: ; preds = %185, %_ZSt4moveIPPN4llvm20VPReductionPHIRecipeES3_ET0_T_S5_S4_.exit42.i
-  %187 = getelementptr inbounds ptr, ptr %.0121, i64 %.pre.i.i.i.i.i44.i
+_ZSt13move_backwardIPPN4llvm20VPReductionPHIRecipeES3_ET0_T_S5_S4_.exit45.i: ; preds = %181, %_ZSt4moveIPPN4llvm20VPReductionPHIRecipeES3_ET0_T_S5_S4_.exit42.i
+  %183 = getelementptr inbounds ptr, ptr %.0120, i64 %.pre.i.i.i.i.i44.i
   br label %_ZSt17__rotate_adaptiveIPPN4llvm20VPReductionPHIRecipeES3_lET_S4_S4_S4_T1_S5_T0_S5_.exit
 
-188:                                              ; preds = %174
-  %189 = tail call noundef ptr @_ZNSt3_V28__rotateIPPN4llvm20VPReductionPHIRecipeEEET_S5_S5_S5_St26random_access_iterator_tag(ptr noundef %.0122, ptr noundef %.tr125143, ptr noundef %.0121)
+184:                                              ; preds = %170
+  %185 = tail call noundef ptr @_ZNSt3_V28__rotateIPPN4llvm20VPReductionPHIRecipeEEET_S5_S5_S5_St26random_access_iterator_tag(ptr noundef %.0121, ptr noundef %.tr124142, ptr noundef %.0120)
   br label %_ZSt17__rotate_adaptiveIPPN4llvm20VPReductionPHIRecipeES3_lET_S4_S4_S4_T1_S5_T0_S5_.exit
 
-_ZSt17__rotate_adaptiveIPPN4llvm20VPReductionPHIRecipeES3_lET_S4_S4_S4_T1_S5_T0_S5_.exit: ; preds = %161, %_ZSt4moveIPPN4llvm20VPReductionPHIRecipeES3_ET0_T_S5_S4_.exit38.i, %175, %_ZSt13move_backwardIPPN4llvm20VPReductionPHIRecipeES3_ET0_T_S5_S4_.exit45.i, %188
-  %.0.i106 = phi ptr [ %173, %_ZSt4moveIPPN4llvm20VPReductionPHIRecipeES3_ET0_T_S5_S4_.exit38.i ], [ %187, %_ZSt13move_backwardIPPN4llvm20VPReductionPHIRecipeES3_ET0_T_S5_S4_.exit45.i ], [ %189, %188 ], [ %.0122, %161 ], [ %.0121, %175 ]
-  tail call fastcc void @"_ZSt16__merge_adaptiveIPPN4llvm20VPReductionPHIRecipeElS3_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_24LoopVectorizationPlanner26adjustRecipesForReductionsERSt10unique_ptrINS0_5VPlanESt14default_deleteIS9_EERNS0_15VPRecipeBuilderENS0_12ElementCountEE3$_1EEEvT_SJ_SJ_T0_SK_T1_SK_T2_"(ptr noundef %.tr142, ptr noundef %.0122, ptr noundef %.0.i106, i64 noundef %.0, i64 noundef %.061, ptr noundef %5, i64 noundef %6, ptr noundef nonnull byval(%"struct.__gnu_cxx::__ops::_Iter_comp_iter.1969") align 8 %7)
-  %190 = sub nsw i64 %.tr128146, %.061
-  %.not = icmp sgt i64 %159, %190
-  %.not65 = icmp sgt i64 %159, %6
+_ZSt17__rotate_adaptiveIPPN4llvm20VPReductionPHIRecipeES3_lET_S4_S4_S4_T1_S5_T0_S5_.exit: ; preds = %157, %_ZSt4moveIPPN4llvm20VPReductionPHIRecipeES3_ET0_T_S5_S4_.exit38.i, %171, %_ZSt13move_backwardIPPN4llvm20VPReductionPHIRecipeES3_ET0_T_S5_S4_.exit45.i, %184
+  %.0.i105 = phi ptr [ %169, %_ZSt4moveIPPN4llvm20VPReductionPHIRecipeES3_ET0_T_S5_S4_.exit38.i ], [ %183, %_ZSt13move_backwardIPPN4llvm20VPReductionPHIRecipeES3_ET0_T_S5_S4_.exit45.i ], [ %185, %184 ], [ %.0121, %157 ], [ %.0120, %171 ]
+  tail call fastcc void @"_ZSt16__merge_adaptiveIPPN4llvm20VPReductionPHIRecipeElS3_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_24LoopVectorizationPlanner26adjustRecipesForReductionsERSt10unique_ptrINS0_5VPlanESt14default_deleteIS9_EERNS0_15VPRecipeBuilderENS0_12ElementCountEE3$_1EEEvT_SJ_SJ_T0_SK_T1_SK_T2_"(ptr noundef %.tr141, ptr noundef %.0121, ptr noundef %.0.i105, i64 noundef %.0, i64 noundef %.061, ptr noundef %5, i64 noundef %6, ptr noundef nonnull byval(%"struct.__gnu_cxx::__ops::_Iter_comp_iter.1969") align 8 %7)
+  %186 = sub nsw i64 %.tr127145, %.061
+  %.not = icmp sgt i64 %155, %186
+  %.not65 = icmp sgt i64 %155, %6
   %or.cond = or i1 %.not65, %.not
   br i1 %or.cond, label %46, label %tailrecurse._crit_edge
 
-"_ZSt21__move_merge_adaptiveIPPN4llvm20VPReductionPHIRecipeES3_S3_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_24LoopVectorizationPlanner26adjustRecipesForReductionsERSt10unique_ptrINS0_5VPlanESt14default_deleteIS9_EERNS0_15VPRecipeBuilderENS0_12ElementCountEE3$_1EEEvT_SJ_T0_SK_T1_T2_.exit": ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm24LoopVectorizationPlanner26adjustRecipesForReductionsERSt10unique_ptrINS2_5VPlanESt14default_deleteIS5_EERNS2_15VPRecipeBuilderENS2_12ElementCountEE3$_1EclIPPNS2_20VPReductionPHIRecipeESI_EEbT_T0_.exit.thread.i72", %47, %78, %76, %51, %_ZSt4moveIPPN4llvm20VPReductionPHIRecipeES3_ET0_T_S5_S4_.exit.i, %._crit_edge.i
+"_ZSt21__move_merge_adaptiveIPPN4llvm20VPReductionPHIRecipeES3_S3_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_24LoopVectorizationPlanner26adjustRecipesForReductionsERSt10unique_ptrINS0_5VPlanESt14default_deleteIS9_EERNS0_15VPRecipeBuilderENS0_12ElementCountEE3$_1EEEvT_SJ_T0_SK_T1_T2_.exit": ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm24LoopVectorizationPlanner26adjustRecipesForReductionsERSt10unique_ptrINS2_5VPlanESt14default_deleteIS5_EERNS2_15VPRecipeBuilderENS2_12ElementCountEE3$_1EclIPPNS2_20VPReductionPHIRecipeESI_EEbT_T0_.exit.thread.i72", %47, %_ZSt13move_backwardIPPN4llvm20VPReductionPHIRecipeES3_ET0_T_S5_S4_.exit.sink.split.i, %73, %_ZSt4moveIPPN4llvm20VPReductionPHIRecipeES3_ET0_T_S5_S4_.exit.i, %._crit_edge.i
   ret void
 }
 

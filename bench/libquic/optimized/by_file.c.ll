@@ -370,20 +370,16 @@ if.then:                                          ; preds = %sw.bb
   %call = tail call ptr @X509_get_default_cert_file_env() #4
   %call1 = tail call ptr @getenv(ptr noundef %call) #4
   %tobool.not = icmp eq ptr %call1, null
-  br i1 %tobool.not, label %if.else, label %if.then2
-
-if.then2:                                         ; preds = %if.then
-  %call3 = tail call i32 @X509_load_cert_crl_file(ptr noundef %ctx, ptr noundef nonnull %call1, i32 noundef 1)
-  br label %if.end
+  br i1 %tobool.not, label %if.else, label %if.end
 
 if.else:                                          ; preds = %if.then
   %call5 = tail call ptr @X509_get_default_cert_file() #4
-  %call6 = tail call i32 @X509_load_cert_crl_file(ptr noundef %ctx, ptr noundef %call5, i32 noundef 1)
   br label %if.end
 
-if.end:                                           ; preds = %if.else, %if.then2
-  %ok.1.in.in = phi i32 [ %call3, %if.then2 ], [ %call6, %if.else ]
-  %ok.1.in.not = icmp eq i32 %ok.1.in.in, 0
+if.end:                                           ; preds = %if.then, %if.else
+  %call5.sink = phi ptr [ %call5, %if.else ], [ %call1, %if.then ]
+  %call6 = tail call i32 @X509_load_cert_crl_file(ptr noundef %ctx, ptr noundef %call5.sink, i32 noundef 1)
+  %ok.1.in.not = icmp eq i32 %call6, 0
   br i1 %ok.1.in.not, label %if.then10, label %sw.epilog
 
 if.then10:                                        ; preds = %if.end

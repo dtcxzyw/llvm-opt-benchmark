@@ -11972,7 +11972,7 @@ define linkonce_odr void @_ZSt16__merge_adaptiveIPN6marisa8grimoire4trie13Weight
   br label %34
 
 tailrecurse._crit_edge:                           ; preds = %tailrecurse, %7
-  %.tr.lcssa = phi ptr [ %0, %7 ], [ %105, %tailrecurse ]
+  %.tr.lcssa = phi ptr [ %0, %7 ], [ %102, %tailrecurse ]
   %.tr105.lcssa = phi ptr [ %1, %7 ], [ %.0101, %tailrecurse ]
   %9 = ptrtoint ptr %.tr105.lcssa to i64
   %10 = ptrtoint ptr %.tr.lcssa to i64
@@ -12036,182 +12036,178 @@ _ZSt4moveIPN6marisa8grimoire4trie13WeightedRangeES4_ET0_T_S6_S5_.exit.i: ; preds
 
 34:                                               ; preds = %.lr.ph, %tailrecurse
   %.not123 = phi i1 [ %.not116, %.lr.ph ], [ %.not, %tailrecurse ]
-  %.tr108122 = phi i64 [ %4, %.lr.ph ], [ %106, %tailrecurse ]
-  %.tr107121 = phi i64 [ %3, %.lr.ph ], [ %104, %tailrecurse ]
+  %.tr108122 = phi i64 [ %4, %.lr.ph ], [ %103, %tailrecurse ]
+  %.tr107121 = phi i64 [ %3, %.lr.ph ], [ %101, %tailrecurse ]
   %.tr105120 = phi ptr [ %1, %.lr.ph ], [ %.0101, %tailrecurse ]
-  %.tr119 = phi ptr [ %0, %.lr.ph ], [ %105, %tailrecurse ]
+  %.tr119 = phi ptr [ %0, %.lr.ph ], [ %102, %tailrecurse ]
   %.not71 = icmp sgt i64 %.tr108122, %6
-  %35 = ptrtoint ptr %.tr105120 to i64
-  br i1 %.not71, label %66, label %36
+  br i1 %.not71, label %62, label %35
 
-36:                                               ; preds = %34
-  %37 = sub i64 %8, %35
+35:                                               ; preds = %34
   %.not.i.i.i.i.i72 = icmp eq ptr %2, %.tr105120
   br i1 %.not.i.i.i.i.i72, label %_ZSt21__move_merge_adaptiveIPN6marisa8grimoire4trie13WeightedRangeES4_S4_N9__gnu_cxx5__ops15_Iter_comp_iterISt7greaterIS3_EEEEvT_SB_T0_SC_T1_T2_.exit, label %_ZSt4moveIPN6marisa8grimoire4trie13WeightedRangeES4_ET0_T_S6_S5_.exit73.thread
 
-_ZSt4moveIPN6marisa8grimoire4trie13WeightedRangeES4_ET0_T_S6_S5_.exit73.thread: ; preds = %36
+_ZSt4moveIPN6marisa8grimoire4trie13WeightedRangeES4_ET0_T_S6_S5_.exit73.thread: ; preds = %35
+  %36 = ptrtoint ptr %.tr105120 to i64
+  %37 = sub i64 %8, %36
   tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %5, ptr align 4 %.tr105120, i64 %37, i1 false)
-  %38 = icmp eq ptr %.tr119, %.tr105120
-  br i1 %38, label %39, label %42
+  %38 = getelementptr inbounds i8, ptr %5, i64 %37
+  %39 = icmp eq ptr %.tr119, %.tr105120
+  br i1 %39, label %_ZSt13move_backwardIPN6marisa8grimoire4trie13WeightedRangeES4_ET0_T_S6_S5_.exit.sink.split.i, label %40
 
-39:                                               ; preds = %_ZSt4moveIPN6marisa8grimoire4trie13WeightedRangeES4_ET0_T_S6_S5_.exit73.thread
-  %40 = ashr exact i64 %37, 4
-  %.pre.i.i.i.i.i.i = sub nsw i64 0, %40
-  %41 = getelementptr inbounds %"class.marisa::grimoire::trie::WeightedRange", ptr %2, i64 %.pre.i.i.i.i.i.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %41, ptr align 4 %5, i64 %37, i1 false)
-  br label %_ZSt21__move_merge_adaptiveIPN6marisa8grimoire4trie13WeightedRangeES4_S4_N9__gnu_cxx5__ops15_Iter_comp_iterISt7greaterIS3_EEEEvT_SB_T0_SC_T1_T2_.exit
-
-42:                                               ; preds = %_ZSt4moveIPN6marisa8grimoire4trie13WeightedRangeES4_ET0_T_S6_S5_.exit73.thread
-  %43 = getelementptr inbounds i8, ptr %5, i64 %37
-  %44 = getelementptr inbounds i8, ptr %43, i64 -16
+40:                                               ; preds = %_ZSt4moveIPN6marisa8grimoire4trie13WeightedRangeES4_ET0_T_S6_S5_.exit73.thread
+  %41 = getelementptr inbounds i8, ptr %38, i64 -16
   br label %.outer
 
-.outer:                                           ; preds = %52, %42
-  %.026.i.ph.pn = phi ptr [ %.tr105120, %42 ], [ %.026.i.ph, %52 ]
-  %.024.i74.ph = phi ptr [ %44, %42 ], [ %.024.i74, %52 ]
-  %.0.i.ph = phi ptr [ %2, %42 ], [ %51, %52 ]
+.outer:                                           ; preds = %49, %40
+  %.026.i.ph.pn = phi ptr [ %.tr105120, %40 ], [ %.026.i.ph, %49 ]
+  %.024.i74.ph = phi ptr [ %41, %40 ], [ %.024.i74, %49 ]
+  %.0.i.ph = phi ptr [ %2, %40 ], [ %48, %49 ]
   %.026.i.ph = getelementptr inbounds i8, ptr %.026.i.ph.pn, i64 -16
-  %45 = getelementptr inbounds i8, ptr %.026.i.ph.pn, i64 -4
-  br label %46
+  %42 = getelementptr inbounds i8, ptr %.026.i.ph.pn, i64 -4
+  br label %43
 
-46:                                               ; preds = %.outer, %64
-  %.024.i74 = phi ptr [ %65, %64 ], [ %.024.i74.ph, %.outer ]
-  %.0.i = phi ptr [ %51, %64 ], [ %.0.i.ph, %.outer ]
-  %47 = getelementptr inbounds i8, ptr %.024.i74, i64 12
-  %48 = load float, ptr %47, align 4
-  %49 = load float, ptr %45, align 4
-  %50 = fcmp ogt float %48, %49
-  %51 = getelementptr inbounds i8, ptr %.0.i, i64 -16
-  br i1 %50, label %52, label %62
+43:                                               ; preds = %.outer, %55
+  %.024.i74 = phi ptr [ %56, %55 ], [ %.024.i74.ph, %.outer ]
+  %.0.i = phi ptr [ %48, %55 ], [ %.0.i.ph, %.outer ]
+  %44 = getelementptr inbounds i8, ptr %.024.i74, i64 12
+  %45 = load float, ptr %44, align 4
+  %46 = load float, ptr %42, align 4
+  %47 = fcmp ogt float %45, %46
+  %48 = getelementptr inbounds i8, ptr %.0.i, i64 -16
+  br i1 %47, label %49, label %53
 
-52:                                               ; preds = %46
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %51, ptr noundef nonnull align 4 dereferenceable(16) %.026.i.ph, i64 16, i1 false)
-  %53 = icmp eq ptr %.tr119, %.026.i.ph
-  br i1 %53, label %54, label %.outer, !llvm.loop !78
+49:                                               ; preds = %43
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %48, ptr noundef nonnull align 4 dereferenceable(16) %.026.i.ph, i64 16, i1 false)
+  %50 = icmp eq ptr %.tr119, %.026.i.ph
+  br i1 %50, label %51, label %.outer, !llvm.loop !78
 
-54:                                               ; preds = %52
-  %55 = getelementptr inbounds i8, ptr %.024.i74, i64 16
-  %.not.i.i.i.i.i32.i = icmp eq ptr %55, %5
-  br i1 %.not.i.i.i.i.i32.i, label %_ZSt21__move_merge_adaptiveIPN6marisa8grimoire4trie13WeightedRangeES4_S4_N9__gnu_cxx5__ops15_Iter_comp_iterISt7greaterIS3_EEEEvT_SB_T0_SC_T1_T2_.exit, label %56
+51:                                               ; preds = %49
+  %52 = getelementptr inbounds i8, ptr %.024.i74, i64 16
+  %.not.i.i.i.i.i32.i = icmp eq ptr %52, %5
+  br i1 %.not.i.i.i.i.i32.i, label %_ZSt21__move_merge_adaptiveIPN6marisa8grimoire4trie13WeightedRangeES4_S4_N9__gnu_cxx5__ops15_Iter_comp_iterISt7greaterIS3_EEEEvT_SB_T0_SC_T1_T2_.exit, label %_ZSt13move_backwardIPN6marisa8grimoire4trie13WeightedRangeES4_ET0_T_S6_S5_.exit.sink.split.i
 
-56:                                               ; preds = %54
-  %57 = ptrtoint ptr %55 to i64
+53:                                               ; preds = %43
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %48, ptr noundef nonnull align 4 dereferenceable(16) %.024.i74, i64 16, i1 false)
+  %54 = icmp eq ptr %5, %.024.i74
+  br i1 %54, label %_ZSt21__move_merge_adaptiveIPN6marisa8grimoire4trie13WeightedRangeES4_S4_N9__gnu_cxx5__ops15_Iter_comp_iterISt7greaterIS3_EEEEvT_SB_T0_SC_T1_T2_.exit, label %55
+
+55:                                               ; preds = %53
+  %56 = getelementptr inbounds i8, ptr %.024.i74, i64 -16
+  br label %43, !llvm.loop !78
+
+_ZSt13move_backwardIPN6marisa8grimoire4trie13WeightedRangeES4_ET0_T_S6_S5_.exit.sink.split.i: ; preds = %_ZSt4moveIPN6marisa8grimoire4trie13WeightedRangeES4_ET0_T_S6_S5_.exit73.thread, %51
+  %.sink41.i = phi ptr [ %52, %51 ], [ %38, %_ZSt4moveIPN6marisa8grimoire4trie13WeightedRangeES4_ET0_T_S6_S5_.exit73.thread ]
+  %.lcssa.sink.i = phi ptr [ %48, %51 ], [ %2, %_ZSt4moveIPN6marisa8grimoire4trie13WeightedRangeES4_ET0_T_S6_S5_.exit73.thread ]
+  %57 = ptrtoint ptr %.sink41.i to i64
   %58 = ptrtoint ptr %5 to i64
   %59 = sub i64 %57, %58
   %60 = ashr exact i64 %59, 4
   %.pre.i.i.i.i.i33.i = sub nsw i64 0, %60
-  %61 = getelementptr inbounds %"class.marisa::grimoire::trie::WeightedRange", ptr %51, i64 %.pre.i.i.i.i.i33.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 4 %61, ptr align 4 %5, i64 %59, i1 false)
+  %61 = getelementptr inbounds %"class.marisa::grimoire::trie::WeightedRange", ptr %.lcssa.sink.i, i64 %.pre.i.i.i.i.i33.i
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %61, ptr align 4 %5, i64 %59, i1 false)
   br label %_ZSt21__move_merge_adaptiveIPN6marisa8grimoire4trie13WeightedRangeES4_S4_N9__gnu_cxx5__ops15_Iter_comp_iterISt7greaterIS3_EEEEvT_SB_T0_SC_T1_T2_.exit
 
-62:                                               ; preds = %46
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %51, ptr noundef nonnull align 4 dereferenceable(16) %.024.i74, i64 16, i1 false)
-  %63 = icmp eq ptr %5, %.024.i74
-  br i1 %63, label %_ZSt21__move_merge_adaptiveIPN6marisa8grimoire4trie13WeightedRangeES4_S4_N9__gnu_cxx5__ops15_Iter_comp_iterISt7greaterIS3_EEEEvT_SB_T0_SC_T1_T2_.exit, label %64
-
-64:                                               ; preds = %62
-  %65 = getelementptr inbounds i8, ptr %.024.i74, i64 -16
-  br label %46, !llvm.loop !78
-
-66:                                               ; preds = %34
+62:                                               ; preds = %34
+  %63 = ptrtoint ptr %.tr105120 to i64
   br i1 %.not123, label %_ZSt7advanceIPN6marisa8grimoire4trie13WeightedRangeElEvRT_T0_.exit, label %_ZSt7advanceIPN6marisa8grimoire4trie13WeightedRangeElEvRT_T0_.exit81
 
-_ZSt7advanceIPN6marisa8grimoire4trie13WeightedRangeElEvRT_T0_.exit: ; preds = %66
-  %67 = sdiv i64 %.tr107121, 2
-  %68 = getelementptr inbounds %"class.marisa::grimoire::trie::WeightedRange", ptr %.tr119, i64 %67
-  %69 = sub i64 %8, %35
-  %70 = ashr exact i64 %69, 4
-  %71 = icmp sgt i64 %70, 0
-  br i1 %71, label %_ZSt7advanceIPN6marisa8grimoire4trie13WeightedRangeElEvRT_T0_.exit.lr.ph.i, label %_ZSt13__lower_boundIPN6marisa8grimoire4trie13WeightedRangeES3_N9__gnu_cxx5__ops14_Iter_comp_valISt7greaterIS3_EEEET_SB_SB_RKT0_T1_.exit
+_ZSt7advanceIPN6marisa8grimoire4trie13WeightedRangeElEvRT_T0_.exit: ; preds = %62
+  %64 = sdiv i64 %.tr107121, 2
+  %65 = getelementptr inbounds %"class.marisa::grimoire::trie::WeightedRange", ptr %.tr119, i64 %64
+  %66 = sub i64 %8, %63
+  %67 = ashr exact i64 %66, 4
+  %68 = icmp sgt i64 %67, 0
+  br i1 %68, label %_ZSt7advanceIPN6marisa8grimoire4trie13WeightedRangeElEvRT_T0_.exit.lr.ph.i, label %_ZSt13__lower_boundIPN6marisa8grimoire4trie13WeightedRangeES3_N9__gnu_cxx5__ops14_Iter_comp_valISt7greaterIS3_EEEET_SB_SB_RKT0_T1_.exit
 
 _ZSt7advanceIPN6marisa8grimoire4trie13WeightedRangeElEvRT_T0_.exit.lr.ph.i: ; preds = %_ZSt7advanceIPN6marisa8grimoire4trie13WeightedRangeElEvRT_T0_.exit
-  %72 = getelementptr inbounds i8, ptr %68, i64 12
-  %73 = load float, ptr %72, align 4
+  %69 = getelementptr inbounds i8, ptr %65, i64 12
+  %70 = load float, ptr %69, align 4
   br label %_ZSt7advanceIPN6marisa8grimoire4trie13WeightedRangeElEvRT_T0_.exit.i
 
 _ZSt7advanceIPN6marisa8grimoire4trie13WeightedRangeElEvRT_T0_.exit.i: ; preds = %_ZSt7advanceIPN6marisa8grimoire4trie13WeightedRangeElEvRT_T0_.exit.i, %_ZSt7advanceIPN6marisa8grimoire4trie13WeightedRangeElEvRT_T0_.exit.lr.ph.i
   %.017.i = phi ptr [ %.tr105120, %_ZSt7advanceIPN6marisa8grimoire4trie13WeightedRangeElEvRT_T0_.exit.lr.ph.i ], [ %.1.i77, %_ZSt7advanceIPN6marisa8grimoire4trie13WeightedRangeElEvRT_T0_.exit.i ]
-  %.01116.i = phi i64 [ %70, %_ZSt7advanceIPN6marisa8grimoire4trie13WeightedRangeElEvRT_T0_.exit.lr.ph.i ], [ %.112.i, %_ZSt7advanceIPN6marisa8grimoire4trie13WeightedRangeElEvRT_T0_.exit.i ]
-  %74 = lshr i64 %.01116.i, 1
-  %75 = getelementptr inbounds %"class.marisa::grimoire::trie::WeightedRange", ptr %.017.i, i64 %74
-  %76 = getelementptr inbounds i8, ptr %75, i64 12
-  %77 = load float, ptr %76, align 4
-  %78 = fcmp ogt float %77, %73
-  %79 = getelementptr inbounds i8, ptr %75, i64 16
-  %80 = xor i64 %74, -1
-  %81 = add nsw i64 %.01116.i, %80
-  %.112.i = select i1 %78, i64 %81, i64 %74
-  %.1.i77 = select i1 %78, ptr %79, ptr %.017.i
-  %82 = icmp sgt i64 %.112.i, 0
-  br i1 %82, label %_ZSt7advanceIPN6marisa8grimoire4trie13WeightedRangeElEvRT_T0_.exit.i, label %_ZSt13__lower_boundIPN6marisa8grimoire4trie13WeightedRangeES3_N9__gnu_cxx5__ops14_Iter_comp_valISt7greaterIS3_EEEET_SB_SB_RKT0_T1_.exit.loopexit, !llvm.loop !68
+  %.01116.i = phi i64 [ %67, %_ZSt7advanceIPN6marisa8grimoire4trie13WeightedRangeElEvRT_T0_.exit.lr.ph.i ], [ %.112.i, %_ZSt7advanceIPN6marisa8grimoire4trie13WeightedRangeElEvRT_T0_.exit.i ]
+  %71 = lshr i64 %.01116.i, 1
+  %72 = getelementptr inbounds %"class.marisa::grimoire::trie::WeightedRange", ptr %.017.i, i64 %71
+  %73 = getelementptr inbounds i8, ptr %72, i64 12
+  %74 = load float, ptr %73, align 4
+  %75 = fcmp ogt float %74, %70
+  %76 = getelementptr inbounds i8, ptr %72, i64 16
+  %77 = xor i64 %71, -1
+  %78 = add nsw i64 %.01116.i, %77
+  %.112.i = select i1 %75, i64 %78, i64 %71
+  %.1.i77 = select i1 %75, ptr %76, ptr %.017.i
+  %79 = icmp sgt i64 %.112.i, 0
+  br i1 %79, label %_ZSt7advanceIPN6marisa8grimoire4trie13WeightedRangeElEvRT_T0_.exit.i, label %_ZSt13__lower_boundIPN6marisa8grimoire4trie13WeightedRangeES3_N9__gnu_cxx5__ops14_Iter_comp_valISt7greaterIS3_EEEET_SB_SB_RKT0_T1_.exit.loopexit, !llvm.loop !68
 
 _ZSt13__lower_boundIPN6marisa8grimoire4trie13WeightedRangeES3_N9__gnu_cxx5__ops14_Iter_comp_valISt7greaterIS3_EEEET_SB_SB_RKT0_T1_.exit.loopexit: ; preds = %_ZSt7advanceIPN6marisa8grimoire4trie13WeightedRangeElEvRT_T0_.exit.i
   %.pre = ptrtoint ptr %.1.i77 to i64
   br label %_ZSt13__lower_boundIPN6marisa8grimoire4trie13WeightedRangeES3_N9__gnu_cxx5__ops14_Iter_comp_valISt7greaterIS3_EEEET_SB_SB_RKT0_T1_.exit
 
 _ZSt13__lower_boundIPN6marisa8grimoire4trie13WeightedRangeES3_N9__gnu_cxx5__ops14_Iter_comp_valISt7greaterIS3_EEEET_SB_SB_RKT0_T1_.exit: ; preds = %_ZSt13__lower_boundIPN6marisa8grimoire4trie13WeightedRangeES3_N9__gnu_cxx5__ops14_Iter_comp_valISt7greaterIS3_EEEET_SB_SB_RKT0_T1_.exit.loopexit, %_ZSt7advanceIPN6marisa8grimoire4trie13WeightedRangeElEvRT_T0_.exit
-  %.pre-phi = phi i64 [ %.pre, %_ZSt13__lower_boundIPN6marisa8grimoire4trie13WeightedRangeES3_N9__gnu_cxx5__ops14_Iter_comp_valISt7greaterIS3_EEEET_SB_SB_RKT0_T1_.exit.loopexit ], [ %35, %_ZSt7advanceIPN6marisa8grimoire4trie13WeightedRangeElEvRT_T0_.exit ]
+  %.pre-phi = phi i64 [ %.pre, %_ZSt13__lower_boundIPN6marisa8grimoire4trie13WeightedRangeES3_N9__gnu_cxx5__ops14_Iter_comp_valISt7greaterIS3_EEEET_SB_SB_RKT0_T1_.exit.loopexit ], [ %63, %_ZSt7advanceIPN6marisa8grimoire4trie13WeightedRangeElEvRT_T0_.exit ]
   %.0.lcssa.i76 = phi ptr [ %.1.i77, %_ZSt13__lower_boundIPN6marisa8grimoire4trie13WeightedRangeES3_N9__gnu_cxx5__ops14_Iter_comp_valISt7greaterIS3_EEEET_SB_SB_RKT0_T1_.exit.loopexit ], [ %.tr105120, %_ZSt7advanceIPN6marisa8grimoire4trie13WeightedRangeElEvRT_T0_.exit ]
-  %83 = sub i64 %.pre-phi, %35
-  %84 = ashr exact i64 %83, 4
+  %80 = sub i64 %.pre-phi, %63
+  %81 = ashr exact i64 %80, 4
   br label %tailrecurse
 
-_ZSt7advanceIPN6marisa8grimoire4trie13WeightedRangeElEvRT_T0_.exit81: ; preds = %66
-  %85 = sdiv i64 %.tr108122, 2
-  %86 = getelementptr inbounds %"class.marisa::grimoire::trie::WeightedRange", ptr %.tr105120, i64 %85
-  %87 = ptrtoint ptr %.tr119 to i64
-  %88 = sub i64 %35, %87
-  %89 = ashr exact i64 %88, 4
-  %90 = icmp sgt i64 %89, 0
-  br i1 %90, label %_ZSt7advanceIPN6marisa8grimoire4trie13WeightedRangeElEvRT_T0_.exit.lr.ph.i84, label %_ZSt13__upper_boundIPN6marisa8grimoire4trie13WeightedRangeES3_N9__gnu_cxx5__ops14_Val_comp_iterISt7greaterIS3_EEEET_SB_SB_RKT0_T1_.exit
+_ZSt7advanceIPN6marisa8grimoire4trie13WeightedRangeElEvRT_T0_.exit81: ; preds = %62
+  %82 = sdiv i64 %.tr108122, 2
+  %83 = getelementptr inbounds %"class.marisa::grimoire::trie::WeightedRange", ptr %.tr105120, i64 %82
+  %84 = ptrtoint ptr %.tr119 to i64
+  %85 = sub i64 %63, %84
+  %86 = ashr exact i64 %85, 4
+  %87 = icmp sgt i64 %86, 0
+  br i1 %87, label %_ZSt7advanceIPN6marisa8grimoire4trie13WeightedRangeElEvRT_T0_.exit.lr.ph.i84, label %_ZSt13__upper_boundIPN6marisa8grimoire4trie13WeightedRangeES3_N9__gnu_cxx5__ops14_Val_comp_iterISt7greaterIS3_EEEET_SB_SB_RKT0_T1_.exit
 
 _ZSt7advanceIPN6marisa8grimoire4trie13WeightedRangeElEvRT_T0_.exit.lr.ph.i84: ; preds = %_ZSt7advanceIPN6marisa8grimoire4trie13WeightedRangeElEvRT_T0_.exit81
-  %91 = getelementptr inbounds i8, ptr %86, i64 12
-  %92 = load float, ptr %91, align 4
+  %88 = getelementptr inbounds i8, ptr %83, i64 12
+  %89 = load float, ptr %88, align 4
   br label %_ZSt7advanceIPN6marisa8grimoire4trie13WeightedRangeElEvRT_T0_.exit.i85
 
 _ZSt7advanceIPN6marisa8grimoire4trie13WeightedRangeElEvRT_T0_.exit.i85: ; preds = %_ZSt7advanceIPN6marisa8grimoire4trie13WeightedRangeElEvRT_T0_.exit.i85, %_ZSt7advanceIPN6marisa8grimoire4trie13WeightedRangeElEvRT_T0_.exit.lr.ph.i84
   %.017.i86 = phi ptr [ %.tr119, %_ZSt7advanceIPN6marisa8grimoire4trie13WeightedRangeElEvRT_T0_.exit.lr.ph.i84 ], [ %.1.i91, %_ZSt7advanceIPN6marisa8grimoire4trie13WeightedRangeElEvRT_T0_.exit.i85 ]
-  %.01116.i87 = phi i64 [ %89, %_ZSt7advanceIPN6marisa8grimoire4trie13WeightedRangeElEvRT_T0_.exit.lr.ph.i84 ], [ %.112.i90, %_ZSt7advanceIPN6marisa8grimoire4trie13WeightedRangeElEvRT_T0_.exit.i85 ]
-  %93 = lshr i64 %.01116.i87, 1
-  %94 = getelementptr inbounds %"class.marisa::grimoire::trie::WeightedRange", ptr %.017.i86, i64 %93
-  %95 = getelementptr inbounds i8, ptr %94, i64 12
-  %96 = load float, ptr %95, align 4
-  %97 = fcmp ogt float %92, %96
-  %98 = getelementptr inbounds i8, ptr %94, i64 16
-  %99 = xor i64 %93, -1
-  %100 = add nsw i64 %.01116.i87, %99
-  %.112.i90 = select i1 %97, i64 %93, i64 %100
-  %.1.i91 = select i1 %97, ptr %.017.i86, ptr %98
-  %101 = icmp sgt i64 %.112.i90, 0
-  br i1 %101, label %_ZSt7advanceIPN6marisa8grimoire4trie13WeightedRangeElEvRT_T0_.exit.i85, label %_ZSt13__upper_boundIPN6marisa8grimoire4trie13WeightedRangeES3_N9__gnu_cxx5__ops14_Val_comp_iterISt7greaterIS3_EEEET_SB_SB_RKT0_T1_.exit.loopexit, !llvm.loop !69
+  %.01116.i87 = phi i64 [ %86, %_ZSt7advanceIPN6marisa8grimoire4trie13WeightedRangeElEvRT_T0_.exit.lr.ph.i84 ], [ %.112.i90, %_ZSt7advanceIPN6marisa8grimoire4trie13WeightedRangeElEvRT_T0_.exit.i85 ]
+  %90 = lshr i64 %.01116.i87, 1
+  %91 = getelementptr inbounds %"class.marisa::grimoire::trie::WeightedRange", ptr %.017.i86, i64 %90
+  %92 = getelementptr inbounds i8, ptr %91, i64 12
+  %93 = load float, ptr %92, align 4
+  %94 = fcmp ogt float %89, %93
+  %95 = getelementptr inbounds i8, ptr %91, i64 16
+  %96 = xor i64 %90, -1
+  %97 = add nsw i64 %.01116.i87, %96
+  %.112.i90 = select i1 %94, i64 %90, i64 %97
+  %.1.i91 = select i1 %94, ptr %.017.i86, ptr %95
+  %98 = icmp sgt i64 %.112.i90, 0
+  br i1 %98, label %_ZSt7advanceIPN6marisa8grimoire4trie13WeightedRangeElEvRT_T0_.exit.i85, label %_ZSt13__upper_boundIPN6marisa8grimoire4trie13WeightedRangeES3_N9__gnu_cxx5__ops14_Val_comp_iterISt7greaterIS3_EEEET_SB_SB_RKT0_T1_.exit.loopexit, !llvm.loop !69
 
 _ZSt13__upper_boundIPN6marisa8grimoire4trie13WeightedRangeES3_N9__gnu_cxx5__ops14_Val_comp_iterISt7greaterIS3_EEEET_SB_SB_RKT0_T1_.exit.loopexit: ; preds = %_ZSt7advanceIPN6marisa8grimoire4trie13WeightedRangeElEvRT_T0_.exit.i85
   %.pre132 = ptrtoint ptr %.1.i91 to i64
   br label %_ZSt13__upper_boundIPN6marisa8grimoire4trie13WeightedRangeES3_N9__gnu_cxx5__ops14_Val_comp_iterISt7greaterIS3_EEEET_SB_SB_RKT0_T1_.exit
 
 _ZSt13__upper_boundIPN6marisa8grimoire4trie13WeightedRangeES3_N9__gnu_cxx5__ops14_Val_comp_iterISt7greaterIS3_EEEET_SB_SB_RKT0_T1_.exit: ; preds = %_ZSt13__upper_boundIPN6marisa8grimoire4trie13WeightedRangeES3_N9__gnu_cxx5__ops14_Val_comp_iterISt7greaterIS3_EEEET_SB_SB_RKT0_T1_.exit.loopexit, %_ZSt7advanceIPN6marisa8grimoire4trie13WeightedRangeElEvRT_T0_.exit81
-  %.pre-phi133 = phi i64 [ %.pre132, %_ZSt13__upper_boundIPN6marisa8grimoire4trie13WeightedRangeES3_N9__gnu_cxx5__ops14_Val_comp_iterISt7greaterIS3_EEEET_SB_SB_RKT0_T1_.exit.loopexit ], [ %87, %_ZSt7advanceIPN6marisa8grimoire4trie13WeightedRangeElEvRT_T0_.exit81 ]
+  %.pre-phi133 = phi i64 [ %.pre132, %_ZSt13__upper_boundIPN6marisa8grimoire4trie13WeightedRangeES3_N9__gnu_cxx5__ops14_Val_comp_iterISt7greaterIS3_EEEET_SB_SB_RKT0_T1_.exit.loopexit ], [ %84, %_ZSt7advanceIPN6marisa8grimoire4trie13WeightedRangeElEvRT_T0_.exit81 ]
   %.0.lcssa.i83 = phi ptr [ %.1.i91, %_ZSt13__upper_boundIPN6marisa8grimoire4trie13WeightedRangeES3_N9__gnu_cxx5__ops14_Val_comp_iterISt7greaterIS3_EEEET_SB_SB_RKT0_T1_.exit.loopexit ], [ %.tr119, %_ZSt7advanceIPN6marisa8grimoire4trie13WeightedRangeElEvRT_T0_.exit81 ]
-  %102 = sub i64 %.pre-phi133, %87
-  %103 = ashr exact i64 %102, 4
+  %99 = sub i64 %.pre-phi133, %84
+  %100 = ashr exact i64 %99, 4
   br label %tailrecurse
 
 tailrecurse:                                      ; preds = %_ZSt13__upper_boundIPN6marisa8grimoire4trie13WeightedRangeES3_N9__gnu_cxx5__ops14_Val_comp_iterISt7greaterIS3_EEEET_SB_SB_RKT0_T1_.exit, %_ZSt13__lower_boundIPN6marisa8grimoire4trie13WeightedRangeES3_N9__gnu_cxx5__ops14_Iter_comp_valISt7greaterIS3_EEEET_SB_SB_RKT0_T1_.exit
-  %.0102 = phi ptr [ %68, %_ZSt13__lower_boundIPN6marisa8grimoire4trie13WeightedRangeES3_N9__gnu_cxx5__ops14_Iter_comp_valISt7greaterIS3_EEEET_SB_SB_RKT0_T1_.exit ], [ %.0.lcssa.i83, %_ZSt13__upper_boundIPN6marisa8grimoire4trie13WeightedRangeES3_N9__gnu_cxx5__ops14_Val_comp_iterISt7greaterIS3_EEEET_SB_SB_RKT0_T1_.exit ]
-  %.0101 = phi ptr [ %.0.lcssa.i76, %_ZSt13__lower_boundIPN6marisa8grimoire4trie13WeightedRangeES3_N9__gnu_cxx5__ops14_Iter_comp_valISt7greaterIS3_EEEET_SB_SB_RKT0_T1_.exit ], [ %86, %_ZSt13__upper_boundIPN6marisa8grimoire4trie13WeightedRangeES3_N9__gnu_cxx5__ops14_Val_comp_iterISt7greaterIS3_EEEET_SB_SB_RKT0_T1_.exit ]
-  %.066 = phi i64 [ %84, %_ZSt13__lower_boundIPN6marisa8grimoire4trie13WeightedRangeES3_N9__gnu_cxx5__ops14_Iter_comp_valISt7greaterIS3_EEEET_SB_SB_RKT0_T1_.exit ], [ %85, %_ZSt13__upper_boundIPN6marisa8grimoire4trie13WeightedRangeES3_N9__gnu_cxx5__ops14_Val_comp_iterISt7greaterIS3_EEEET_SB_SB_RKT0_T1_.exit ]
-  %.0 = phi i64 [ %67, %_ZSt13__lower_boundIPN6marisa8grimoire4trie13WeightedRangeES3_N9__gnu_cxx5__ops14_Iter_comp_valISt7greaterIS3_EEEET_SB_SB_RKT0_T1_.exit ], [ %103, %_ZSt13__upper_boundIPN6marisa8grimoire4trie13WeightedRangeES3_N9__gnu_cxx5__ops14_Val_comp_iterISt7greaterIS3_EEEET_SB_SB_RKT0_T1_.exit ]
-  %104 = sub nsw i64 %.tr107121, %.0
-  %105 = tail call noundef ptr @_ZSt17__rotate_adaptiveIPN6marisa8grimoire4trie13WeightedRangeES4_lET_S5_S5_S5_T1_S6_T0_S6_(ptr noundef %.0102, ptr noundef %.tr105120, ptr noundef %.0101, i64 noundef %104, i64 noundef %.066, ptr noundef %5, i64 noundef %6)
-  tail call void @_ZSt16__merge_adaptiveIPN6marisa8grimoire4trie13WeightedRangeElS4_N9__gnu_cxx5__ops15_Iter_comp_iterISt7greaterIS3_EEEEvT_SB_SB_T0_SC_T1_SC_T2_(ptr noundef %.tr119, ptr noundef %.0102, ptr noundef %105, i64 noundef %.0, i64 noundef %.066, ptr noundef %5, i64 noundef %6)
-  %106 = sub nsw i64 %.tr108122, %.066
-  %.not = icmp sgt i64 %104, %106
-  %.not70 = icmp sgt i64 %104, %6
+  %.0102 = phi ptr [ %65, %_ZSt13__lower_boundIPN6marisa8grimoire4trie13WeightedRangeES3_N9__gnu_cxx5__ops14_Iter_comp_valISt7greaterIS3_EEEET_SB_SB_RKT0_T1_.exit ], [ %.0.lcssa.i83, %_ZSt13__upper_boundIPN6marisa8grimoire4trie13WeightedRangeES3_N9__gnu_cxx5__ops14_Val_comp_iterISt7greaterIS3_EEEET_SB_SB_RKT0_T1_.exit ]
+  %.0101 = phi ptr [ %.0.lcssa.i76, %_ZSt13__lower_boundIPN6marisa8grimoire4trie13WeightedRangeES3_N9__gnu_cxx5__ops14_Iter_comp_valISt7greaterIS3_EEEET_SB_SB_RKT0_T1_.exit ], [ %83, %_ZSt13__upper_boundIPN6marisa8grimoire4trie13WeightedRangeES3_N9__gnu_cxx5__ops14_Val_comp_iterISt7greaterIS3_EEEET_SB_SB_RKT0_T1_.exit ]
+  %.066 = phi i64 [ %81, %_ZSt13__lower_boundIPN6marisa8grimoire4trie13WeightedRangeES3_N9__gnu_cxx5__ops14_Iter_comp_valISt7greaterIS3_EEEET_SB_SB_RKT0_T1_.exit ], [ %82, %_ZSt13__upper_boundIPN6marisa8grimoire4trie13WeightedRangeES3_N9__gnu_cxx5__ops14_Val_comp_iterISt7greaterIS3_EEEET_SB_SB_RKT0_T1_.exit ]
+  %.0 = phi i64 [ %64, %_ZSt13__lower_boundIPN6marisa8grimoire4trie13WeightedRangeES3_N9__gnu_cxx5__ops14_Iter_comp_valISt7greaterIS3_EEEET_SB_SB_RKT0_T1_.exit ], [ %100, %_ZSt13__upper_boundIPN6marisa8grimoire4trie13WeightedRangeES3_N9__gnu_cxx5__ops14_Val_comp_iterISt7greaterIS3_EEEET_SB_SB_RKT0_T1_.exit ]
+  %101 = sub nsw i64 %.tr107121, %.0
+  %102 = tail call noundef ptr @_ZSt17__rotate_adaptiveIPN6marisa8grimoire4trie13WeightedRangeES4_lET_S5_S5_S5_T1_S6_T0_S6_(ptr noundef %.0102, ptr noundef %.tr105120, ptr noundef %.0101, i64 noundef %101, i64 noundef %.066, ptr noundef %5, i64 noundef %6)
+  tail call void @_ZSt16__merge_adaptiveIPN6marisa8grimoire4trie13WeightedRangeElS4_N9__gnu_cxx5__ops15_Iter_comp_iterISt7greaterIS3_EEEEvT_SB_SB_T0_SC_T1_SC_T2_(ptr noundef %.tr119, ptr noundef %.0102, ptr noundef %102, i64 noundef %.0, i64 noundef %.066, ptr noundef %5, i64 noundef %6)
+  %103 = sub nsw i64 %.tr108122, %.066
+  %.not = icmp sgt i64 %101, %103
+  %.not70 = icmp sgt i64 %101, %6
   %or.cond = or i1 %.not70, %.not
   br i1 %or.cond, label %34, label %tailrecurse._crit_edge
 
-_ZSt21__move_merge_adaptiveIPN6marisa8grimoire4trie13WeightedRangeES4_S4_N9__gnu_cxx5__ops15_Iter_comp_iterISt7greaterIS3_EEEEvT_SB_T0_SC_T1_T2_.exit: ; preds = %62, %36, %56, %54, %39, %_ZSt4moveIPN6marisa8grimoire4trie13WeightedRangeES4_ET0_T_S6_S5_.exit.i, %._crit_edge.i
+_ZSt21__move_merge_adaptiveIPN6marisa8grimoire4trie13WeightedRangeES4_S4_N9__gnu_cxx5__ops15_Iter_comp_iterISt7greaterIS3_EEEEvT_SB_T0_SC_T1_T2_.exit: ; preds = %53, %35, %_ZSt13move_backwardIPN6marisa8grimoire4trie13WeightedRangeES4_ET0_T_S6_S5_.exit.sink.split.i, %51, %_ZSt4moveIPN6marisa8grimoire4trie13WeightedRangeES4_ET0_T_S6_S5_.exit.i, %._crit_edge.i
   ret void
 }
 

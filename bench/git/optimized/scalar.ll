@@ -513,7 +513,6 @@ if.then:                                          ; preds = %entry
   %0 = load ptr, ptr %argv, align 8
   %arrayidx54 = getelementptr inbounds i8, ptr %argv, i64 8
   %1 = load ptr, ptr %arrayidx54, align 8
-  %call55 = call ptr @xstrdup(ptr noundef %1) #17
   br label %if.end78
 
 if.then57:                                        ; preds = %entry
@@ -616,7 +615,6 @@ if.then70:                                        ; preds = %strbuf_strip_suffix
 
 if.end:                                           ; preds = %strbuf_strip_suffix.exit
   %add.ptr = getelementptr inbounds i8, ptr %call.i28, i64 1
-  %call72 = call ptr @xstrdup(ptr noundef nonnull %add.ptr) #17
   br label %if.end78
 
 if.else73:                                        ; preds = %entry
@@ -625,15 +623,16 @@ if.else73:                                        ; preds = %entry
   unreachable
 
 if.end78:                                         ; preds = %if.end, %if.then
-  %url.0 = phi ptr [ %0, %if.then ], [ %2, %if.end ]
-  %enlistment.0 = phi ptr [ %call55, %if.then ], [ %call72, %if.end ]
-  %call79 = call i32 @is_directory(ptr noundef %enlistment.0) #17
+  %add.ptr.sink = phi ptr [ %add.ptr, %if.end ], [ %1, %if.then ]
+  %url.0 = phi ptr [ %2, %if.end ], [ %0, %if.then ]
+  %call72 = call ptr @xstrdup(ptr noundef %add.ptr.sink) #17
+  %call79 = call i32 @is_directory(ptr noundef %call72) #17
   %tobool80.not = icmp eq i32 %call79, 0
   br i1 %tobool80.not, label %if.end83, label %if.then81
 
 if.then81:                                        ; preds = %if.end78
   %call82 = call fastcc ptr @_(ptr noundef nonnull @.str.32)
-  call void (ptr, ...) @die(ptr noundef %call82, ptr noundef %enlistment.0) #16
+  call void (ptr, ...) @die(ptr noundef %call82, ptr noundef %call72) #16
   unreachable
 
 if.end83:                                         ; preds = %if.end78
@@ -642,11 +641,11 @@ if.end83:                                         ; preds = %if.end78
   br i1 %tobool84.not, label %if.else87, label %if.then85
 
 if.then85:                                        ; preds = %if.end83
-  %call86 = call ptr (ptr, ...) @xstrfmt(ptr noundef nonnull @.str.33, ptr noundef %enlistment.0) #17
+  %call86 = call ptr (ptr, ...) @xstrfmt(ptr noundef nonnull @.str.33, ptr noundef %call72) #17
   br label %if.end89
 
 if.else87:                                        ; preds = %if.end83
-  %call88 = call ptr @xstrdup(ptr noundef %enlistment.0) #17
+  %call88 = call ptr @xstrdup(ptr noundef %call72) #17
   br label %if.end89
 
 if.end89:                                         ; preds = %if.else87, %if.then85
@@ -1047,7 +1046,7 @@ if.end186:                                        ; preds = %strbuf_setlen.exit9
 
 cleanup:                                          ; preds = %strbuf_setlen.exit95, %if.end177, %if.end173, %if.end166, %land.lhs.true139, %if.end94, %if.end186, %_.exit85, %_.exit67, %_.exit61, %_.exit
   %res.0 = phi i32 [ %call96, %if.end94 ], [ -1, %_.exit ], [ -1, %_.exit67 ], [ -1, %_.exit85 ], [ %call169, %if.end166 ], [ %call174, %if.end173 ], [ %call178, %if.end177 ], [ %call183, %strbuf_setlen.exit95 ], [ %call187, %if.end186 ], [ %call140, %land.lhs.true139 ], [ -1, %_.exit61 ]
-  call void @free(ptr noundef %enlistment.0) #17
+  call void @free(ptr noundef %call72) #17
   call void @free(ptr noundef %dir.0) #17
   call void @strbuf_release(ptr noundef nonnull %buf) #17
   br label %return
@@ -1098,11 +1097,7 @@ entry:
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %usage, ptr noundef nonnull align 16 dereferenceable(16) @__const.cmd_unregister.usage, i64 16, i1 false)
   %call = call i32 @parse_options(i32 noundef %argc, ptr noundef %argv, ptr noundef null, ptr noundef nonnull %options, ptr noundef nonnull %usage, i32 noundef 0) #17
   %cmp = icmp eq i32 %call, 1
-  br i1 %cmp, label %if.then, label %entry.split
-
-entry.split:                                      ; preds = %entry
-  call fastcc void @setup_enlistment_directory(i32 noundef %call, ptr noundef %argv, ptr noundef %usage, ptr noundef %options, ptr noundef null)
-  br label %if.end19
+  br i1 %cmp, label %if.then, label %if.end19
 
 if.then:                                          ; preds = %entry
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %src_path, ptr noundef nonnull align 8 dereferenceable(24) @__const.cmd_diagnose.diagnostics_root, i64 24, i1 false)
@@ -1220,10 +1215,11 @@ strbuf_strip_suffix.exit26:                       ; preds = %strbuf_strip_suffix
 if.end:                                           ; preds = %land.lhs.true, %if.then
   call void @strbuf_release(ptr noundef nonnull %src_path) #17
   call void @strbuf_release(ptr noundef nonnull %workdir_path) #17
-  call fastcc void @setup_enlistment_directory(i32 noundef 1, ptr noundef nonnull %argv, ptr noundef %usage, ptr noundef %options, ptr noundef null)
   br label %if.end19
 
-if.end19:                                         ; preds = %entry.split, %if.end
+if.end19:                                         ; preds = %entry, %if.end
+  %call.sink = phi i32 [ 1, %if.end ], [ %call, %entry ]
+  call fastcc void @setup_enlistment_directory(i32 noundef %call.sink, ptr noundef %argv, ptr noundef %usage, ptr noundef %options, ptr noundef null)
   %call22 = call fastcc i32 @unregister_dir()
   br label %return
 

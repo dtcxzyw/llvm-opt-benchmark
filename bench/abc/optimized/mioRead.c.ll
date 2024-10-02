@@ -38,113 +38,111 @@ target triple = "x86_64-pc-linux-gnu"
 ; Function Attrs: nounwind uwtable
 define noundef ptr @Mio_LibraryRead(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #0 {
   %.not = icmp eq ptr %2, null
-  br i1 %.not, label %13, label %5
+  br i1 %.not, label %12, label %5
 
 5:                                                ; preds = %4
   %6 = tail call ptr @st__init_table(ptr noundef nonnull @strcmp, ptr noundef nonnull @st__strhash) #17
   %7 = tail call i32 @Mio_LibraryReadExclude(ptr noundef nonnull %2, ptr noundef %6)
   %8 = icmp eq i32 %7, -1
-  br i1 %8, label %9, label %10
+  br i1 %8, label %.sink.split, label %9
 
 9:                                                ; preds = %5
-  tail call void @st__free_table(ptr noundef %6) #17
-  br label %48
+  %10 = load ptr, ptr @stdout, align 8
+  %11 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %10, ptr noundef nonnull @.str, i32 noundef %7) #17
+  br label %12
 
-10:                                               ; preds = %5
-  %11 = load ptr, ptr @stdout, align 8
-  %12 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %11, ptr noundef nonnull @.str, i32 noundef %7) #17
-  br label %13
-
-13:                                               ; preds = %10, %4
-  %.0 = phi ptr [ %6, %10 ], [ null, %4 ]
+12:                                               ; preds = %9, %4
+  %.0 = phi ptr [ %6, %9 ], [ null, %4 ]
   %.not.i = icmp eq ptr %1, null
-  br i1 %.not.i, label %28, label %14
+  br i1 %.not.i, label %27, label %13
 
-14:                                               ; preds = %13
-  %15 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %1) #18
-  %16 = add i64 %15, 1
-  %17 = tail call noalias ptr @malloc(i64 noundef %16) #19
-  %18 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %17, ptr noundef nonnull readonly dereferenceable(1) %1) #17
-  %19 = tail call ptr @Mio_LibraryReadBuffer(ptr noundef nonnull %1, i32 noundef 0, ptr noundef %.0, i32 poison)
-  %.not43 = icmp eq ptr %19, null
-  br i1 %.not43, label %31, label %20
+13:                                               ; preds = %12
+  %14 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %1) #18
+  %15 = add i64 %14, 1
+  %16 = tail call noalias ptr @malloc(i64 noundef %15) #19
+  %17 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %16, ptr noundef nonnull readonly dereferenceable(1) %1) #17
+  %18 = tail call ptr @Mio_LibraryReadBuffer(ptr noundef nonnull %1, i32 noundef 0, ptr noundef %.0, i32 poison)
+  %.not43 = icmp eq ptr %18, null
+  br i1 %.not43, label %30, label %19
 
-20:                                               ; preds = %14
-  %21 = tail call ptr @Extra_FileNameGenericAppend(ptr noundef %0, ptr noundef nonnull @.str.1) #17
-  %.not.i48 = icmp eq ptr %21, null
-  br i1 %.not.i48, label %.thread53, label %22
+19:                                               ; preds = %13
+  %20 = tail call ptr @Extra_FileNameGenericAppend(ptr noundef %0, ptr noundef nonnull @.str.1) #17
+  %.not.i48 = icmp eq ptr %20, null
+  br i1 %.not.i48, label %.thread53, label %21
 
-22:                                               ; preds = %20
-  %23 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %21) #18
-  %24 = add i64 %23, 1
-  %25 = tail call noalias ptr @malloc(i64 noundef %24) #19
-  %26 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %25, ptr noundef nonnull readonly dereferenceable(1) %21) #17
+21:                                               ; preds = %19
+  %22 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %20) #18
+  %23 = add i64 %22, 1
+  %24 = tail call noalias ptr @malloc(i64 noundef %23) #19
+  %25 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %24, ptr noundef nonnull readonly dereferenceable(1) %20) #17
   br label %.thread53
 
-.thread53:                                        ; preds = %22, %20
-  %27 = phi ptr [ %25, %22 ], [ null, %20 ]
-  store ptr %27, ptr %19, align 8
+.thread53:                                        ; preds = %21, %19
+  %26 = phi ptr [ %24, %21 ], [ null, %19 ]
+  store ptr %26, ptr %18, align 8
   br label %.thread56
 
-28:                                               ; preds = %13
-  %29 = tail call fastcc ptr @Mio_LibraryReadOne(ptr noundef %0, i32 noundef 0, ptr noundef %.0, i32 noundef %3)
-  %30 = icmp eq ptr %29, null
-  br i1 %30, label %41, label %.thread63
+27:                                               ; preds = %12
+  %28 = tail call fastcc ptr @Mio_LibraryReadOne(ptr noundef %0, i32 noundef 0, ptr noundef %.0, i32 noundef %3)
+  %29 = icmp eq ptr %28, null
+  br i1 %29, label %40, label %.thread63
 
-31:                                               ; preds = %14
-  %32 = tail call ptr @Mio_LibraryReadBuffer(ptr noundef %17, i32 noundef 1, ptr noundef %.0, i32 poison)
-  %.not44 = icmp eq ptr %32, null
-  br i1 %.not44, label %.thread56, label %33
+30:                                               ; preds = %13
+  %31 = tail call ptr @Mio_LibraryReadBuffer(ptr noundef %16, i32 noundef 1, ptr noundef %.0, i32 poison)
+  %.not44 = icmp eq ptr %31, null
+  br i1 %.not44, label %.thread56, label %32
 
-33:                                               ; preds = %31
-  %34 = tail call ptr @Extra_FileNameGenericAppend(ptr noundef %0, ptr noundef nonnull @.str.1) #17
-  %.not.i50 = icmp eq ptr %34, null
-  br i1 %.not.i50, label %.thread59, label %35
+32:                                               ; preds = %30
+  %33 = tail call ptr @Extra_FileNameGenericAppend(ptr noundef %0, ptr noundef nonnull @.str.1) #17
+  %.not.i50 = icmp eq ptr %33, null
+  br i1 %.not.i50, label %.thread59, label %34
 
-35:                                               ; preds = %33
-  %36 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %34) #18
-  %37 = add i64 %36, 1
-  %38 = tail call noalias ptr @malloc(i64 noundef %37) #19
-  %39 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %38, ptr noundef nonnull readonly dereferenceable(1) %34) #17
+34:                                               ; preds = %32
+  %35 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %33) #18
+  %36 = add i64 %35, 1
+  %37 = tail call noalias ptr @malloc(i64 noundef %36) #19
+  %38 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %37, ptr noundef nonnull readonly dereferenceable(1) %33) #17
   br label %.thread59
 
-.thread59:                                        ; preds = %35, %33
-  %40 = phi ptr [ %38, %35 ], [ null, %33 ]
-  store ptr %40, ptr %32, align 8
-  br label %43
+.thread59:                                        ; preds = %34, %32
+  %39 = phi ptr [ %37, %34 ], [ null, %32 ]
+  store ptr %39, ptr %31, align 8
+  br label %42
 
-41:                                               ; preds = %28
-  %42 = tail call fastcc ptr @Mio_LibraryReadOne(ptr noundef %0, i32 noundef 1, ptr noundef %.0, i32 noundef %3)
-  %.not45 = icmp eq ptr %42, null
-  br i1 %.not45, label %.thread63, label %43
+40:                                               ; preds = %27
+  %41 = tail call fastcc ptr @Mio_LibraryReadOne(ptr noundef %0, i32 noundef 1, ptr noundef %.0, i32 noundef %3)
+  %.not45 = icmp eq ptr %41, null
+  br i1 %.not45, label %.thread63, label %42
 
-43:                                               ; preds = %.thread59, %41
-  %.262 = phi ptr [ %32, %.thread59 ], [ %42, %41 ]
-  %44 = phi ptr [ %17, %.thread59 ], [ null, %41 ]
+42:                                               ; preds = %.thread59, %40
+  %.262 = phi ptr [ %31, %.thread59 ], [ %41, %40 ]
+  %43 = phi ptr [ %16, %.thread59 ], [ null, %40 ]
   %puts = tail call i32 @puts(ptr nonnull dereferenceable(1) @str)
   br label %.thread56
 
-.thread56:                                        ; preds = %31, %.thread53, %43
-  %45 = phi ptr [ %44, %43 ], [ %17, %.thread53 ], [ %17, %31 ]
-  %.1 = phi ptr [ %.262, %43 ], [ %19, %.thread53 ], [ null, %31 ]
-  %.not46 = icmp eq ptr %45, null
-  br i1 %.not46, label %.thread63, label %46
+.thread56:                                        ; preds = %30, %.thread53, %42
+  %44 = phi ptr [ %43, %42 ], [ %16, %.thread53 ], [ %16, %30 ]
+  %.1 = phi ptr [ %.262, %42 ], [ %18, %.thread53 ], [ null, %30 ]
+  %.not46 = icmp eq ptr %44, null
+  br i1 %.not46, label %.thread63, label %45
 
-46:                                               ; preds = %.thread56
-  tail call void @free(ptr noundef nonnull %45) #17
+45:                                               ; preds = %.thread56
+  tail call void @free(ptr noundef nonnull %44) #17
   br label %.thread63
 
-.thread63:                                        ; preds = %28, %41, %.thread56, %46
-  %.166 = phi ptr [ %.1, %.thread56 ], [ %.1, %46 ], [ %29, %28 ], [ null, %41 ]
+.thread63:                                        ; preds = %27, %40, %.thread56, %45
+  %.166 = phi ptr [ %.1, %.thread56 ], [ %.1, %45 ], [ %28, %27 ], [ null, %40 ]
   %.not47 = icmp eq ptr %.0, null
-  br i1 %.not47, label %48, label %47
+  br i1 %.not47, label %46, label %.sink.split
 
-47:                                               ; preds = %.thread63
-  tail call void @st__free_table(ptr noundef nonnull %.0) #17
-  br label %48
+.sink.split:                                      ; preds = %.thread63, %5
+  %.0.sink = phi ptr [ %6, %5 ], [ %.0, %.thread63 ]
+  %.033.ph = phi ptr [ null, %5 ], [ %.166, %.thread63 ]
+  tail call void @st__free_table(ptr noundef %.0.sink) #17
+  br label %46
 
-48:                                               ; preds = %.thread63, %47, %9
-  %.033 = phi ptr [ null, %9 ], [ %.166, %47 ], [ %.166, %.thread63 ]
+46:                                               ; preds = %.sink.split, %.thread63
+  %.033 = phi ptr [ %.166, %.thread63 ], [ %.033.ph, %.sink.split ]
   ret ptr %.033
 }
 

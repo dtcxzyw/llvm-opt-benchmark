@@ -2087,8 +2087,8 @@ if.end.i.i.i:                                     ; preds = %if.then.i.i
   br label %Py_XINCREF.exit.i
 
 Py_XINCREF.exit.i:                                ; preds = %if.end.i.i.i, %if.then.i.i, %Py_INCREF.exit29.i
-  %call921.i = call fastcc ptr @_PyEvalFramePushAndInit(ptr noundef %1, ptr noundef nonnull %call6, ptr noundef %spec.select, ptr noundef null, i64 noundef 0, ptr noundef null)
-  %cmp10.i = icmp eq ptr %call921.i, null
+  %call922.i = call fastcc ptr @_PyEvalFramePushAndInit(ptr noundef %1, ptr noundef nonnull %call6, ptr noundef %spec.select, ptr noundef null, i64 noundef 0, ptr noundef null)
+  %cmp10.i = icmp eq ptr %call922.i, null
   br i1 %cmp10.i, label %_PyEval_Vector.exit, label %if.end12.i
 
 if.end12.i:                                       ; preds = %Py_XINCREF.exit.i
@@ -2100,11 +2100,11 @@ if.end12.i:                                       ; preds = %Py_XINCREF.exit.i
   br i1 %cmp.i24.i, label %if.then.i26.i, label %if.end.i25.i
 
 if.then.i26.i:                                    ; preds = %if.end12.i
-  %call.i.i = call ptr @_PyEval_EvalFrameDefault(ptr noundef nonnull %1, ptr noundef nonnull %call921.i, i32 noundef 0)
+  %call.i.i = call ptr @_PyEval_EvalFrameDefault(ptr noundef nonnull %1, ptr noundef nonnull %call922.i, i32 noundef 0)
   br label %_PyEval_Vector.exit
 
 if.end.i25.i:                                     ; preds = %if.end12.i
-  %call3.i.i = call ptr %6(ptr noundef nonnull %1, ptr noundef nonnull %call921.i, i32 noundef 0) #15
+  %call3.i.i = call ptr %6(ptr noundef nonnull %1, ptr noundef nonnull %call922.i, i32 noundef 0) #15
   br label %_PyEval_Vector.exit
 
 _PyEval_Vector.exit:                              ; preds = %Py_XINCREF.exit.i, %if.then.i26.i, %if.end.i25.i
@@ -2187,22 +2187,14 @@ for.inc:                                          ; preds = %if.end.i19, %for.bo
 
 for.end:                                          ; preds = %for.inc, %Py_XINCREF.exit
   %tobool.not = icmp eq ptr %kwnames, null
-  br i1 %tobool.not, label %for.end.split, label %if.then
-
-for.end.split:                                    ; preds = %for.end
-  %call921 = tail call fastcc ptr @_PyEvalFramePushAndInit(ptr noundef %tstate, ptr noundef nonnull %func, ptr noundef %locals, ptr noundef %args, i64 noundef %argcount, ptr noundef null)
-  br label %if.end
+  br i1 %tobool.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %for.end
   %4 = getelementptr i8, ptr %kwnames, i64 16
   %kwnames.val = load i64, ptr %4, align 8
   %invariant.gep = getelementptr ptr, ptr %args, i64 %argcount
   %cmp329 = icmp sgt i64 %kwnames.val, 0
-  br i1 %cmp329, label %for.body4, label %for.cond2.split
-
-for.cond2.split:                                  ; preds = %for.inc6, %if.then
-  %call922 = tail call fastcc ptr @_PyEvalFramePushAndInit(ptr noundef %tstate, ptr noundef nonnull %func, ptr noundef %locals, ptr noundef %args, i64 noundef %argcount, ptr noundef nonnull %kwnames)
-  br label %if.end
+  br i1 %cmp329, label %for.body4, label %if.end
 
 for.body4:                                        ; preds = %if.then, %for.inc6
   %i1.030 = phi i64 [ %inc7, %for.inc6 ], [ 0, %if.then ]
@@ -2220,11 +2212,12 @@ if.end.i:                                         ; preds = %for.body4
 for.inc6:                                         ; preds = %if.end.i, %for.body4
   %inc7 = add nuw nsw i64 %i1.030, 1
   %exitcond31.not = icmp eq i64 %inc7, %kwnames.val
-  br i1 %exitcond31.not, label %for.cond2.split, label %for.body4, !llvm.loop !11
+  br i1 %exitcond31.not, label %if.end, label %for.body4, !llvm.loop !11
 
-if.end:                                           ; preds = %for.cond2.split, %for.end.split
-  %phi.call = phi ptr [ %call921, %for.end.split ], [ %call922, %for.cond2.split ]
-  %cmp10 = icmp eq ptr %phi.call, null
+if.end:                                           ; preds = %for.inc6, %if.then, %for.end
+  %kwnames.sink = phi ptr [ null, %for.end ], [ %kwnames, %if.then ], [ %kwnames, %for.inc6 ]
+  %call922 = tail call fastcc ptr @_PyEvalFramePushAndInit(ptr noundef %tstate, ptr noundef nonnull %func, ptr noundef %locals, ptr noundef %args, i64 noundef %argcount, ptr noundef %kwnames.sink)
+  %cmp10 = icmp eq ptr %call922, null
   br i1 %cmp10, label %return, label %if.end12
 
 if.end12:                                         ; preds = %if.end
@@ -2236,11 +2229,11 @@ if.end12:                                         ; preds = %if.end
   br i1 %cmp.i24, label %if.then.i26, label %if.end.i25
 
 if.then.i26:                                      ; preds = %if.end12
-  %call.i = tail call ptr @_PyEval_EvalFrameDefault(ptr noundef nonnull %tstate, ptr noundef nonnull %phi.call, i32 noundef 0)
+  %call.i = tail call ptr @_PyEval_EvalFrameDefault(ptr noundef nonnull %tstate, ptr noundef nonnull %call922, i32 noundef 0)
   br label %return
 
 if.end.i25:                                       ; preds = %if.end12
-  %call3.i = tail call ptr %8(ptr noundef nonnull %tstate, ptr noundef nonnull %phi.call, i32 noundef 0) #15
+  %call3.i = tail call ptr %8(ptr noundef nonnull %tstate, ptr noundef nonnull %call922, i32 noundef 0) #15
   br label %return
 
 return:                                           ; preds = %if.end.i25, %if.then.i26, %if.end

@@ -121,7 +121,7 @@ define dso_local void @pipe_double_lock(ptr noundef %0, ptr noundef %1) local_un
 
 5:                                                ; preds = %2
   %6 = icmp ult ptr %0, %1
-  br i1 %6, label %7, label %17
+  br i1 %6, label %7, label %16
 
 7:                                                ; preds = %5
   %8 = getelementptr inbounds i8, ptr %0, i64 108
@@ -137,33 +137,30 @@ define dso_local void @pipe_double_lock(ptr noundef %0, ptr noundef %1) local_un
   %13 = getelementptr inbounds i8, ptr %1, i64 108
   %14 = load i32, ptr %13, align 4
   %15 = icmp eq i32 %14, 0
-  br i1 %15, label %27, label %16
+  br i1 %15, label %25, label %.sink.split
 
-16:                                               ; preds = %12
-  tail call void @mutex_lock(ptr noundef nonnull %1) #15
-  br label %27
+16:                                               ; preds = %5
+  %17 = getelementptr inbounds i8, ptr %1, i64 108
+  %18 = load i32, ptr %17, align 4
+  %19 = icmp eq i32 %18, 0
+  br i1 %19, label %21, label %20
 
-17:                                               ; preds = %5
-  %18 = getelementptr inbounds i8, ptr %1, i64 108
-  %19 = load i32, ptr %18, align 4
-  %20 = icmp eq i32 %19, 0
-  br i1 %20, label %22, label %21
-
-21:                                               ; preds = %17
+20:                                               ; preds = %16
   tail call void @mutex_lock(ptr noundef %1) #15
-  br label %22
+  br label %21
 
-22:                                               ; preds = %21, %17
-  %23 = getelementptr inbounds i8, ptr %0, i64 108
-  %24 = load i32, ptr %23, align 4
-  %25 = icmp eq i32 %24, 0
-  br i1 %25, label %27, label %26
+21:                                               ; preds = %20, %16
+  %22 = getelementptr inbounds i8, ptr %0, i64 108
+  %23 = load i32, ptr %22, align 4
+  %24 = icmp eq i32 %23, 0
+  br i1 %24, label %25, label %.sink.split
 
-26:                                               ; preds = %22
-  tail call void @mutex_lock(ptr noundef %0) #15
-  br label %27
+.sink.split:                                      ; preds = %21, %12
+  %.sink = phi ptr [ %1, %12 ], [ %0, %21 ]
+  tail call void @mutex_lock(ptr noundef %.sink) #15
+  br label %25
 
-27:                                               ; preds = %26, %22, %16, %12
+25:                                               ; preds = %.sink.split, %21, %12
   ret void
 }
 

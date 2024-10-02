@@ -532,22 +532,21 @@ lor.lhs.false3.i:                                 ; preds = %entry
 
 if.then.i:                                        ; preds = %lor.lhs.false3.i, %entry
   tail call void @RSA_free(ptr noundef %call.i) #8
-  tail call void @EVP_PKEY_free(ptr noundef %call1.i) #8
-  br label %get_test_pkey.exit
+  br label %return.sink.split.i
 
 if.end.i:                                         ; preds = %lor.lhs.false3.i
   %call5.i = tail call ptr @BN_bin2bn(ptr noundef nonnull @get_test_pkey.n, i32 noundef 65, ptr noundef null) #8
   %call6.i = tail call ptr @BN_bin2bn(ptr noundef nonnull @get_test_pkey.e, i32 noundef 1, ptr noundef null) #8
   %call7.i = tail call i32 @RSA_set0_key(ptr noundef nonnull %call.i, ptr noundef %call5.i, ptr noundef %call6.i, ptr noundef null) #8
   %tobool8.not.i = icmp eq i32 %call7.i, 0
-  br i1 %tobool8.not.i, label %if.then9.i, label %get_test_pkey.exit
+  br i1 %tobool8.not.i, label %return.sink.split.i, label %get_test_pkey.exit
 
-if.then9.i:                                       ; preds = %if.end.i
-  tail call void @EVP_PKEY_free(ptr noundef nonnull %call1.i) #8
+return.sink.split.i:                              ; preds = %if.end.i, %if.then.i
+  tail call void @EVP_PKEY_free(ptr noundef %call1.i) #8
   br label %get_test_pkey.exit
 
-get_test_pkey.exit:                               ; preds = %if.then.i, %if.end.i, %if.then9.i
-  %retval.0.i = phi ptr [ null, %if.then.i ], [ null, %if.then9.i ], [ %call1.i, %if.end.i ]
+get_test_pkey.exit:                               ; preds = %if.end.i, %return.sink.split.i
+  %retval.0.i = phi ptr [ %call1.i, %if.end.i ], [ null, %return.sink.split.i ]
   %call1 = tail call i32 @test_ptr(ptr noundef nonnull @.str.14, i32 noundef 262, ptr noundef nonnull @.str.60, ptr noundef %retval.0.i) #8
   %tobool.not = icmp eq i32 %call1, 0
   br i1 %tobool.not, label %err, label %if.end

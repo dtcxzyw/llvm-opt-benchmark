@@ -12214,7 +12214,7 @@ define dso_local noundef ptr @_ZNK4llvm12ConstantExpr15getWithOperandsENS_8Array
 11:                                               ; preds = %6
   %12 = getelementptr inbounds ptr, ptr %1, i64 %2
   %.not9.i.i.i.i = icmp eq i64 %2, 0
-  br i1 %.not9.i.i.i.i, label %_ZNSt8optionalIN4llvm13ConstantRangeEED2Ev.exit, label %.lr.ph.i.i.i.i.preheader
+  br i1 %.not9.i.i.i.i, label %_ZN4llvm12ConstantExpr7getCastEjPNS_8ConstantEPNS_4TypeEb.exit, label %.lr.ph.i.i.i.i.preheader
 
 .lr.ph.i.i.i.i.preheader:                         ; preds = %11
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 4
@@ -12237,14 +12237,14 @@ define dso_local noundef ptr @_ZNK4llvm12ConstantExpr15getWithOperandsENS_8Array
   %23 = getelementptr inbounds i8, ptr %.0810.i.i.i.i, i64 8
   %24 = getelementptr inbounds i8, ptr %.011.i.i.i.i, i64 32
   %.not.i.i.i.i = icmp eq ptr %23, %12
-  br i1 %.not.i.i.i.i, label %_ZNSt8optionalIN4llvm13ConstantRangeEED2Ev.exit, label %.lr.ph.i.i.i.i, !llvm.loop !141
+  br i1 %.not.i.i.i.i, label %_ZN4llvm12ConstantExpr7getCastEjPNS_8ConstantEPNS_4TypeEb.exit, label %.lr.ph.i.i.i.i, !llvm.loop !141
 
 _ZSt5equalIPKPN4llvm8ConstantEPKNS0_3UseEEbT_S8_T0_.exit: ; preds = %.lr.ph.i.i.i.i, %6
   %25 = select i1 %4, ptr %3, ptr null
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 2
   %27 = load i16, ptr %26, align 2
   %28 = zext i16 %27 to i32
-  switch i16 %27, label %84 [
+  switch i16 %27, label %88 [
     i16 38, label %29
     i16 39, label %29
     i16 40, label %29
@@ -12258,156 +12258,142 @@ _ZSt5equalIPKPN4llvm8ConstantEPKNS0_3UseEEbT_S8_T0_.exit: ; preds = %.lr.ph.i.i.
     i16 48, label %29
     i16 49, label %29
     i16 50, label %29
-    i16 62, label %32
-    i16 61, label %39
-    i16 63, label %44
-    i16 34, label %52
+    i16 62, label %36
+    i16 61, label %43
+    i16 63, label %48
+    i16 34, label %56
   ]
 
 29:                                               ; preds = %_ZSt5equalIPKPN4llvm8ConstantEPKNS0_3UseEEbT_S8_T0_.exit, %_ZSt5equalIPKPN4llvm8ConstantEPKNS0_3UseEEbT_S8_T0_.exit, %_ZSt5equalIPKPN4llvm8ConstantEPKNS0_3UseEEbT_S8_T0_.exit, %_ZSt5equalIPKPN4llvm8ConstantEPKNS0_3UseEEbT_S8_T0_.exit, %_ZSt5equalIPKPN4llvm8ConstantEPKNS0_3UseEEbT_S8_T0_.exit, %_ZSt5equalIPKPN4llvm8ConstantEPKNS0_3UseEEbT_S8_T0_.exit, %_ZSt5equalIPKPN4llvm8ConstantEPKNS0_3UseEEbT_S8_T0_.exit, %_ZSt5equalIPKPN4llvm8ConstantEPKNS0_3UseEEbT_S8_T0_.exit, %_ZSt5equalIPKPN4llvm8ConstantEPKNS0_3UseEEbT_S8_T0_.exit, %_ZSt5equalIPKPN4llvm8ConstantEPKNS0_3UseEEbT_S8_T0_.exit, %_ZSt5equalIPKPN4llvm8ConstantEPKNS0_3UseEEbT_S8_T0_.exit, %_ZSt5equalIPKPN4llvm8ConstantEPKNS0_3UseEEbT_S8_T0_.exit, %_ZSt5equalIPKPN4llvm8ConstantEPKNS0_3UseEEbT_S8_T0_.exit
   %30 = load ptr, ptr %1, align 8
-  %31 = tail call noundef ptr @_ZN4llvm12ConstantExpr7getCastEjPNS_8ConstantEPNS_4TypeEb(i32 noundef %28, ptr noundef %30, ptr noundef %3, i1 noundef zeroext %4)
-  br label %_ZNSt8optionalIN4llvm13ConstantRangeEED2Ev.exit
+  %switch = icmp eq i16 %27, 49
+  br i1 %switch, label %31, label %_ZN4llvm12ConstantExpr10getBitCastEPNS_8ConstantEPNS_4TypeEb.exit.sink.split.i
 
-32:                                               ; preds = %_ZSt5equalIPKPN4llvm8ConstantEPKNS0_3UseEEbT_S8_T0_.exit
-  %33 = load ptr, ptr %1, align 8
-  %34 = getelementptr inbounds i8, ptr %1, i64 8
-  %35 = load ptr, ptr %34, align 8
-  %36 = getelementptr inbounds i8, ptr %1, i64 16
-  %37 = load ptr, ptr %36, align 8
-  %38 = tail call noundef ptr @_ZN4llvm12ConstantExpr16getInsertElementEPNS_8ConstantES2_S2_PNS_4TypeE(ptr noundef %33, ptr noundef %35, ptr noundef %37, ptr noundef %25)
-  br label %_ZNSt8optionalIN4llvm13ConstantRangeEED2Ev.exit
+31:                                               ; preds = %29
+  %32 = getelementptr inbounds nuw i8, ptr %30, i64 8
+  %33 = load ptr, ptr %32, align 8
+  %34 = icmp eq ptr %33, %3
+  br i1 %34, label %_ZN4llvm12ConstantExpr7getCastEjPNS_8ConstantEPNS_4TypeEb.exit, label %_ZN4llvm12ConstantExpr10getBitCastEPNS_8ConstantEPNS_4TypeEb.exit.sink.split.i
 
-39:                                               ; preds = %_ZSt5equalIPKPN4llvm8ConstantEPKNS0_3UseEEbT_S8_T0_.exit
-  %40 = load ptr, ptr %1, align 8
-  %41 = getelementptr inbounds i8, ptr %1, i64 8
-  %42 = load ptr, ptr %41, align 8
-  %43 = tail call noundef ptr @_ZN4llvm12ConstantExpr17getExtractElementEPNS_8ConstantES2_PNS_4TypeE(ptr noundef %40, ptr noundef %42, ptr noundef %25)
-  br label %_ZNSt8optionalIN4llvm13ConstantRangeEED2Ev.exit
+_ZN4llvm12ConstantExpr10getBitCastEPNS_8ConstantEPNS_4TypeEb.exit.sink.split.i: ; preds = %29, %31
+  %35 = tail call fastcc noundef ptr @_ZL13getFoldedCastN4llvm11Instruction7CastOpsEPNS_8ConstantEPNS_4TypeEb(i32 noundef %28, ptr noundef %30, ptr noundef %3, i1 noundef zeroext %4)
+  br label %_ZN4llvm12ConstantExpr7getCastEjPNS_8ConstantEPNS_4TypeEb.exit
 
-44:                                               ; preds = %_ZSt5equalIPKPN4llvm8ConstantEPKNS0_3UseEEbT_S8_T0_.exit
-  %45 = load ptr, ptr %1, align 8
-  %46 = getelementptr inbounds i8, ptr %1, i64 8
-  %47 = load ptr, ptr %46, align 8
-  %48 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %49 = load ptr, ptr %48, align 8
-  %50 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %48) #28
-  %51 = tail call noundef ptr @_ZN4llvm12ConstantExpr16getShuffleVectorEPNS_8ConstantES2_NS_8ArrayRefIiEEPNS_4TypeE(ptr noundef %45, ptr noundef %47, ptr %49, i64 %50, ptr noundef %25)
-  br label %_ZNSt8optionalIN4llvm13ConstantRangeEED2Ev.exit
+36:                                               ; preds = %_ZSt5equalIPKPN4llvm8ConstantEPKNS0_3UseEEbT_S8_T0_.exit
+  %37 = load ptr, ptr %1, align 8
+  %38 = getelementptr inbounds i8, ptr %1, i64 8
+  %39 = load ptr, ptr %38, align 8
+  %40 = getelementptr inbounds i8, ptr %1, i64 16
+  %41 = load ptr, ptr %40, align 8
+  %42 = tail call noundef ptr @_ZN4llvm12ConstantExpr16getInsertElementEPNS_8ConstantES2_S2_PNS_4TypeE(ptr noundef %37, ptr noundef %39, ptr noundef %41, ptr noundef %25)
+  br label %_ZN4llvm12ConstantExpr7getCastEjPNS_8ConstantEPNS_4TypeEb.exit
 
-52:                                               ; preds = %_ZSt5equalIPKPN4llvm8ConstantEPKNS0_3UseEEbT_S8_T0_.exit
+43:                                               ; preds = %_ZSt5equalIPKPN4llvm8ConstantEPKNS0_3UseEEbT_S8_T0_.exit
+  %44 = load ptr, ptr %1, align 8
+  %45 = getelementptr inbounds i8, ptr %1, i64 8
+  %46 = load ptr, ptr %45, align 8
+  %47 = tail call noundef ptr @_ZN4llvm12ConstantExpr17getExtractElementEPNS_8ConstantES2_PNS_4TypeE(ptr noundef %44, ptr noundef %46, ptr noundef %25)
+  br label %_ZN4llvm12ConstantExpr7getCastEjPNS_8ConstantEPNS_4TypeEb.exit
+
+48:                                               ; preds = %_ZSt5equalIPKPN4llvm8ConstantEPKNS0_3UseEEbT_S8_T0_.exit
+  %49 = load ptr, ptr %1, align 8
+  %50 = getelementptr inbounds i8, ptr %1, i64 8
+  %51 = load ptr, ptr %50, align 8
+  %52 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %53 = load ptr, ptr %52, align 8
+  %54 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %52) #28
+  %55 = tail call noundef ptr @_ZN4llvm12ConstantExpr16getShuffleVectorEPNS_8ConstantES2_NS_8ArrayRefIiEEPNS_4TypeE(ptr noundef %49, ptr noundef %51, ptr %53, i64 %54, ptr noundef %25)
+  br label %_ZN4llvm12ConstantExpr7getCastEjPNS_8ConstantEPNS_4TypeEb.exit
+
+56:                                               ; preds = %_ZSt5equalIPKPN4llvm8ConstantEPKNS0_3UseEEbT_S8_T0_.exit
   %.not = icmp eq ptr %5, null
-  br i1 %.not, label %53, label %55
+  br i1 %.not, label %57, label %59
 
-53:                                               ; preds = %52
-  %54 = tail call noundef ptr @_ZNK4llvm11GEPOperator20getSourceElementTypeEv(ptr noundef nonnull align 8 dereferenceable(24) %0) #28
-  br label %55
+57:                                               ; preds = %56
+  %58 = tail call noundef ptr @_ZNK4llvm11GEPOperator20getSourceElementTypeEv(ptr noundef nonnull align 8 dereferenceable(24) %0) #28
+  br label %59
 
-55:                                               ; preds = %52, %53
-  %56 = phi ptr [ %54, %53 ], [ %5, %52 ]
-  %57 = load ptr, ptr %1, align 8
-  %58 = add i64 %2, -1
-  %59 = getelementptr inbounds i8, ptr %1, i64 8
-  %60 = getelementptr inbounds nuw i8, ptr %0, i64 1
-  %61 = load i8, ptr %60, align 1
-  %62 = lshr i8 %61, 1
-  %63 = zext nneg i8 %62 to i32
+59:                                               ; preds = %56, %57
+  %60 = phi ptr [ %58, %57 ], [ %5, %56 ]
+  %61 = load ptr, ptr %1, align 8
+  %62 = add i64 %2, -1
+  %63 = getelementptr inbounds i8, ptr %1, i64 8
+  %64 = getelementptr inbounds nuw i8, ptr %0, i64 1
+  %65 = load i8, ptr %64, align 1
+  %66 = lshr i8 %65, 1
+  %67 = zext nneg i8 %66 to i32
   call void @_ZNK4llvm11GEPOperator10getInRangeEv(ptr dead_on_unwind nonnull writable sret(%"class.std::optional") align 8 %7, ptr noundef nonnull align 8 dereferenceable(24) %0) #28
-  %64 = call noundef ptr @_ZN4llvm12ConstantExpr16getGetElementPtrEPNS_4TypeEPNS_8ConstantENS_8ArrayRefIS4_EENS_14GEPNoWrapFlagsESt8optionalINS_13ConstantRangeEES2_(ptr noundef %56, ptr noundef %57, ptr nonnull %59, i64 %58, i32 %63, ptr noundef nonnull %7, ptr noundef %25)
-  %65 = getelementptr inbounds nuw i8, ptr %7, i64 32
-  %66 = load i8, ptr %65, align 8
-  %67 = trunc i8 %66 to i1
-  br i1 %67, label %68, label %_ZNSt8optionalIN4llvm13ConstantRangeEED2Ev.exit
+  %68 = call noundef ptr @_ZN4llvm12ConstantExpr16getGetElementPtrEPNS_4TypeEPNS_8ConstantENS_8ArrayRefIS4_EENS_14GEPNoWrapFlagsESt8optionalINS_13ConstantRangeEES2_(ptr noundef %60, ptr noundef %61, ptr nonnull %63, i64 %62, i32 %67, ptr noundef nonnull %7, ptr noundef %25)
+  %69 = getelementptr inbounds nuw i8, ptr %7, i64 32
+  %70 = load i8, ptr %69, align 8
+  %71 = trunc i8 %70 to i1
+  br i1 %71, label %72, label %_ZN4llvm12ConstantExpr7getCastEjPNS_8ConstantEPNS_4TypeEb.exit
 
-68:                                               ; preds = %55
-  store i8 0, ptr %65, align 8
-  %69 = getelementptr inbounds nuw i8, ptr %7, i64 24
-  %70 = load i32, ptr %69, align 8
-  %71 = icmp ugt i32 %70, 64
-  br i1 %71, label %72, label %_ZN4llvm5APIntD2Ev.exit.i.i.i.i.i.i
-
-72:                                               ; preds = %68
-  %73 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  %74 = load ptr, ptr %73, align 8
-  %75 = icmp eq ptr %74, null
-  br i1 %75, label %_ZN4llvm5APIntD2Ev.exit.i.i.i.i.i.i, label %76
+72:                                               ; preds = %59
+  store i8 0, ptr %69, align 8
+  %73 = getelementptr inbounds nuw i8, ptr %7, i64 24
+  %74 = load i32, ptr %73, align 8
+  %75 = icmp ugt i32 %74, 64
+  br i1 %75, label %76, label %_ZN4llvm5APIntD2Ev.exit.i.i.i.i.i.i
 
 76:                                               ; preds = %72
-  call void @_ZdaPv(ptr noundef nonnull %74) #31
+  %77 = getelementptr inbounds nuw i8, ptr %7, i64 16
+  %78 = load ptr, ptr %77, align 8
+  %79 = icmp eq ptr %78, null
+  br i1 %79, label %_ZN4llvm5APIntD2Ev.exit.i.i.i.i.i.i, label %80
+
+80:                                               ; preds = %76
+  call void @_ZdaPv(ptr noundef nonnull %78) #31
   br label %_ZN4llvm5APIntD2Ev.exit.i.i.i.i.i.i
 
-_ZN4llvm5APIntD2Ev.exit.i.i.i.i.i.i:              ; preds = %76, %72, %68
-  %77 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  %78 = load i32, ptr %77, align 8
-  %79 = icmp ugt i32 %78, 64
-  br i1 %79, label %80, label %_ZNSt8optionalIN4llvm13ConstantRangeEED2Ev.exit
+_ZN4llvm5APIntD2Ev.exit.i.i.i.i.i.i:              ; preds = %80, %76, %72
+  %81 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  %82 = load i32, ptr %81, align 8
+  %83 = icmp ugt i32 %82, 64
+  br i1 %83, label %84, label %_ZN4llvm12ConstantExpr7getCastEjPNS_8ConstantEPNS_4TypeEb.exit
 
-80:                                               ; preds = %_ZN4llvm5APIntD2Ev.exit.i.i.i.i.i.i
-  %81 = load ptr, ptr %7, align 8
-  %82 = icmp eq ptr %81, null
-  br i1 %82, label %_ZNSt8optionalIN4llvm13ConstantRangeEED2Ev.exit, label %83
+84:                                               ; preds = %_ZN4llvm5APIntD2Ev.exit.i.i.i.i.i.i
+  %85 = load ptr, ptr %7, align 8
+  %86 = icmp eq ptr %85, null
+  br i1 %86, label %_ZN4llvm12ConstantExpr7getCastEjPNS_8ConstantEPNS_4TypeEb.exit, label %87
 
-83:                                               ; preds = %80
-  call void @_ZdaPv(ptr noundef nonnull %81) #31
-  br label %_ZNSt8optionalIN4llvm13ConstantRangeEED2Ev.exit
+87:                                               ; preds = %84
+  call void @_ZdaPv(ptr noundef nonnull %85) #31
+  br label %_ZN4llvm12ConstantExpr7getCastEjPNS_8ConstantEPNS_4TypeEb.exit
 
-84:                                               ; preds = %_ZSt5equalIPKPN4llvm8ConstantEPKNS0_3UseEEbT_S8_T0_.exit
-  %85 = load ptr, ptr %1, align 8
-  %86 = getelementptr inbounds i8, ptr %1, i64 8
-  %87 = load ptr, ptr %86, align 8
-  %88 = getelementptr inbounds nuw i8, ptr %0, i64 1
-  %89 = load i8, ptr %88, align 1
-  %90 = lshr i8 %89, 1
-  %91 = zext nneg i8 %90 to i32
-  %92 = tail call noundef ptr @_ZN4llvm12ConstantExpr3getEjPNS_8ConstantES2_jPNS_4TypeE(i32 noundef %28, ptr noundef %85, ptr noundef %87, i32 noundef %91, ptr noundef %25)
-  br label %_ZNSt8optionalIN4llvm13ConstantRangeEED2Ev.exit
+88:                                               ; preds = %_ZSt5equalIPKPN4llvm8ConstantEPKNS0_3UseEEbT_S8_T0_.exit
+  %89 = load ptr, ptr %1, align 8
+  %90 = getelementptr inbounds i8, ptr %1, i64 8
+  %91 = load ptr, ptr %90, align 8
+  %92 = getelementptr inbounds nuw i8, ptr %0, i64 1
+  %93 = load i8, ptr %92, align 1
+  %94 = lshr i8 %93, 1
+  %95 = zext nneg i8 %94 to i32
+  %96 = tail call noundef ptr @_ZN4llvm12ConstantExpr3getEjPNS_8ConstantES2_jPNS_4TypeE(i32 noundef %28, ptr noundef %89, ptr noundef %91, i32 noundef %95, ptr noundef %25)
+  br label %_ZN4llvm12ConstantExpr7getCastEjPNS_8ConstantEPNS_4TypeEb.exit
 
-_ZNSt8optionalIN4llvm13ConstantRangeEED2Ev.exit:  ; preds = %22, %11, %83, %80, %_ZN4llvm5APIntD2Ev.exit.i.i.i.i.i.i, %55, %84, %44, %39, %32, %29
-  %.0 = phi ptr [ %92, %84 ], [ %51, %44 ], [ %43, %39 ], [ %38, %32 ], [ %31, %29 ], [ %64, %55 ], [ %64, %_ZN4llvm5APIntD2Ev.exit.i.i.i.i.i.i ], [ %64, %80 ], [ %64, %83 ], [ %0, %11 ], [ %0, %22 ]
+_ZN4llvm12ConstantExpr7getCastEjPNS_8ConstantEPNS_4TypeEb.exit: ; preds = %22, %11, %87, %84, %_ZN4llvm5APIntD2Ev.exit.i.i.i.i.i.i, %59, %_ZN4llvm12ConstantExpr10getBitCastEPNS_8ConstantEPNS_4TypeEb.exit.sink.split.i, %31, %88, %48, %43, %36
+  %.0 = phi ptr [ %96, %88 ], [ %55, %48 ], [ %47, %43 ], [ %42, %36 ], [ %30, %31 ], [ %35, %_ZN4llvm12ConstantExpr10getBitCastEPNS_8ConstantEPNS_4TypeEb.exit.sink.split.i ], [ %68, %59 ], [ %68, %_ZN4llvm5APIntD2Ev.exit.i.i.i.i.i.i ], [ %68, %84 ], [ %68, %87 ], [ %0, %11 ], [ %0, %22 ]
   ret ptr %.0
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local noundef ptr @_ZN4llvm12ConstantExpr7getCastEjPNS_8ConstantEPNS_4TypeEb(i32 noundef %0, ptr noundef %1, ptr noundef %2, i1 noundef zeroext %3) local_unnamed_addr #0 align 2 {
-  switch i32 %0, label %5 [
-    i32 38, label %6
-    i32 47, label %8
-    i32 48, label %10
-    i32 49, label %12
-    i32 50, label %18
-  ]
+  %switch = icmp eq i32 %0, 49
+  br i1 %switch, label %5, label %_ZN4llvm12ConstantExpr10getBitCastEPNS_8ConstantEPNS_4TypeEb.exit.sink.split
 
 5:                                                ; preds = %4
-  unreachable
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %7 = load ptr, ptr %6, align 8
+  %8 = icmp eq ptr %7, %2
+  br i1 %8, label %_ZN4llvm12ConstantExpr10getBitCastEPNS_8ConstantEPNS_4TypeEb.exit, label %_ZN4llvm12ConstantExpr10getBitCastEPNS_8ConstantEPNS_4TypeEb.exit.sink.split
 
-6:                                                ; preds = %4
-  %7 = tail call fastcc noundef ptr @_ZL13getFoldedCastN4llvm11Instruction7CastOpsEPNS_8ConstantEPNS_4TypeEb(i32 noundef 38, ptr noundef %1, ptr noundef %2, i1 noundef zeroext %3)
+_ZN4llvm12ConstantExpr10getBitCastEPNS_8ConstantEPNS_4TypeEb.exit.sink.split: ; preds = %4, %5
+  %9 = tail call fastcc noundef ptr @_ZL13getFoldedCastN4llvm11Instruction7CastOpsEPNS_8ConstantEPNS_4TypeEb(i32 noundef %0, ptr noundef %1, ptr noundef %2, i1 noundef zeroext %3)
   br label %_ZN4llvm12ConstantExpr10getBitCastEPNS_8ConstantEPNS_4TypeEb.exit
 
-8:                                                ; preds = %4
-  %9 = tail call fastcc noundef ptr @_ZL13getFoldedCastN4llvm11Instruction7CastOpsEPNS_8ConstantEPNS_4TypeEb(i32 noundef 47, ptr noundef nonnull %1, ptr noundef %2, i1 noundef zeroext %3)
-  br label %_ZN4llvm12ConstantExpr10getBitCastEPNS_8ConstantEPNS_4TypeEb.exit
-
-10:                                               ; preds = %4
-  %11 = tail call fastcc noundef ptr @_ZL13getFoldedCastN4llvm11Instruction7CastOpsEPNS_8ConstantEPNS_4TypeEb(i32 noundef 48, ptr noundef nonnull %1, ptr noundef %2, i1 noundef zeroext %3)
-  br label %_ZN4llvm12ConstantExpr10getBitCastEPNS_8ConstantEPNS_4TypeEb.exit
-
-12:                                               ; preds = %4
-  %13 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %14 = load ptr, ptr %13, align 8
-  %15 = icmp eq ptr %14, %2
-  br i1 %15, label %_ZN4llvm12ConstantExpr10getBitCastEPNS_8ConstantEPNS_4TypeEb.exit, label %16
-
-16:                                               ; preds = %12
-  %17 = tail call fastcc noundef ptr @_ZL13getFoldedCastN4llvm11Instruction7CastOpsEPNS_8ConstantEPNS_4TypeEb(i32 noundef 49, ptr noundef nonnull %1, ptr noundef %2, i1 noundef zeroext %3)
-  br label %_ZN4llvm12ConstantExpr10getBitCastEPNS_8ConstantEPNS_4TypeEb.exit
-
-18:                                               ; preds = %4
-  %19 = tail call fastcc noundef ptr @_ZL13getFoldedCastN4llvm11Instruction7CastOpsEPNS_8ConstantEPNS_4TypeEb(i32 noundef 50, ptr noundef %1, ptr noundef %2, i1 noundef zeroext %3)
-  br label %_ZN4llvm12ConstantExpr10getBitCastEPNS_8ConstantEPNS_4TypeEb.exit
-
-_ZN4llvm12ConstantExpr10getBitCastEPNS_8ConstantEPNS_4TypeEb.exit: ; preds = %16, %12, %18, %10, %8, %6
-  %.0 = phi ptr [ %19, %18 ], [ %11, %10 ], [ %9, %8 ], [ %7, %6 ], [ %17, %16 ], [ %1, %12 ]
+_ZN4llvm12ConstantExpr10getBitCastEPNS_8ConstantEPNS_4TypeEb.exit: ; preds = %_ZN4llvm12ConstantExpr10getBitCastEPNS_8ConstantEPNS_4TypeEb.exit.sink.split, %5
+  %.0 = phi ptr [ %1, %5 ], [ %9, %_ZN4llvm12ConstantExpr10getBitCastEPNS_8ConstantEPNS_4TypeEb.exit.sink.split ]
   ret ptr %.0
 }
 

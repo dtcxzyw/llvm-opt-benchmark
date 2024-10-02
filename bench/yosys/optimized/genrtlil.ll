@@ -3269,25 +3269,22 @@ define void @_ZN5Yosys3AST7AstNode15detectSignWidthERiRbPb(ptr noundef nonnull a
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %.split, label %.split11
 
-.split:                                           ; preds = %4
-  tail call void @_ZN5Yosys3AST7AstNode21detectSignWidthWorkerERiRbPb(ptr noundef nonnull align 8 dereferenceable(284) %0, ptr noundef nonnull align 4 dereferenceable(4) %1, ptr noundef nonnull align 1 dereferenceable(1) %2, ptr noundef null)
-  br label %5
-
 .split11:                                         ; preds = %4
   store i8 0, ptr %3, align 1
-  tail call void @_ZN5Yosys3AST7AstNode21detectSignWidthWorkerERiRbPb(ptr noundef nonnull align 8 dereferenceable(284) %0, ptr noundef nonnull align 4 dereferenceable(4) %1, ptr noundef nonnull align 1 dereferenceable(1) %2, ptr noundef nonnull %3)
-  br label %5
+  br label %.split
 
-5:                                                ; preds = %.split, %.split11
-  %6 = load i32, ptr %1, align 4
-  %7 = icmp sgt i32 %6, 16777215
-  br i1 %7, label %8, label %9
+.split:                                           ; preds = %4, %.split11
+  %.sink = phi ptr [ %3, %.split11 ], [ null, %4 ]
+  tail call void @_ZN5Yosys3AST7AstNode21detectSignWidthWorkerERiRbPb(ptr noundef nonnull align 8 dereferenceable(284) %0, ptr noundef nonnull align 4 dereferenceable(4) %1, ptr noundef nonnull align 1 dereferenceable(1) %2, ptr noundef %.sink)
+  %5 = load i32, ptr %1, align 4
+  %6 = icmp sgt i32 %5, 16777215
+  br i1 %6, label %7, label %8
 
-8:                                                ; preds = %5
-  tail call void (ptr, ptr, ...) @_ZNK5Yosys3AST7AstNode11input_errorEPKcz(ptr noundef nonnull align 8 dereferenceable(284) %0, ptr noundef nonnull @.str.26, i32 noundef %6, i32 noundef 16777216) #30
+7:                                                ; preds = %.split
+  tail call void (ptr, ptr, ...) @_ZNK5Yosys3AST7AstNode11input_errorEPKcz(ptr noundef nonnull align 8 dereferenceable(284) %0, ptr noundef nonnull @.str.26, i32 noundef %5, i32 noundef 16777216) #30
   unreachable
 
-9:                                                ; preds = %5
+8:                                                ; preds = %.split
   ret void
 }
 

@@ -1464,7 +1464,7 @@ define dso_local noundef i32 @job_mgr_dump_job_state(ptr noundef %0, ptr noundef
   %4 = getelementptr inbounds i8, ptr %0, i64 392
   %5 = load i32, ptr %4, align 8
   %6 = icmp eq i32 %5, -2
-  br i1 %6, label %799, label %7
+  br i1 %6, label %797, label %7
 
 7:                                                ; preds = %2
   %8 = getelementptr inbounds i8, ptr %0, i64 48
@@ -1674,8 +1674,8 @@ build_array_str.exit:                             ; preds = %14, %17, %20, %22, 
   br label %118
 
 118:                                              ; preds = %97, %115
-  %.sink561 = phi i32 [ %117, %115 ], [ %114, %97 ]
-  tail call void @pack32(i32 noundef %.sink561, ptr noundef %1) #28
+  %.sink560 = phi i32 [ %117, %115 ], [ %114, %97 ]
+  tail call void @pack32(i32 noundef %.sink560, ptr noundef %1) #28
   %119 = getelementptr inbounds i8, ptr %0, i64 168
   %120 = load i32, ptr %119, align 8
   tail call void @pack32(i32 noundef %120, ptr noundef %1) #28
@@ -1890,1076 +1890,1072 @@ build_array_str.exit:                             ; preds = %14, %17, %20, %22, 
   %247 = getelementptr inbounds i8, ptr %0, i64 592
   %248 = load ptr, ptr %247, align 8
   %.not20.i = icmp eq ptr %248, null
-  br i1 %.not20.i, label %251, label %249
+  br i1 %.not20.i, label %249, label %.sink.split2.i
 
 249:                                              ; preds = %246
-  %250 = tail call ptr @bitmap2node_name(ptr noundef nonnull %248) #28
+  %250 = load ptr, ptr %235, align 8
   br label %.sink.split2.i
 
-251:                                              ; preds = %246
-  %252 = load ptr, ptr %235, align 8
-  %253 = tail call ptr @bitmap2node_name(ptr noundef %252) #28
-  br label %.sink.split2.i
-
-.sink.split2.i:                                   ; preds = %251, %249
-  %.sink.i = phi ptr [ %253, %251 ], [ %250, %249 ]
-  store ptr %.sink.i, ptr %234, align 8
+.sink.split2.i:                                   ; preds = %249, %246
+  %.sink3.i = phi ptr [ %250, %249 ], [ %248, %246 ]
+  %251 = tail call ptr @bitmap2node_name(ptr noundef %.sink3.i) #28
+  store ptr %251, ptr %234, align 8
   br label %_update_job_nodes_str.exit
 
 _update_job_nodes_str.exit:                       ; preds = %222, %243, %.sink.split2.i
-  %254 = load i32, ptr %178, align 8
-  %255 = and i32 %254, 32768
-  %.not512 = icmp eq i32 %255, 0
-  br i1 %.not512, label %263, label %256
+  %252 = load i32, ptr %178, align 8
+  %253 = and i32 %252, 32768
+  %.not512 = icmp eq i32 %253, 0
+  br i1 %.not512, label %261, label %254
 
-256:                                              ; preds = %_update_job_nodes_str.exit
-  %257 = load ptr, ptr %233, align 8
-  %.not513 = icmp eq ptr %257, null
-  br i1 %.not513, label %262, label %258
+254:                                              ; preds = %_update_job_nodes_str.exit
+  %255 = load ptr, ptr %233, align 8
+  %.not513 = icmp eq ptr %255, null
+  br i1 %.not513, label %260, label %256
 
-258:                                              ; preds = %256
-  %259 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %257) #31
-  %260 = trunc i64 %259 to i32
-  %261 = add i32 %260, 1
-  br label %262
+256:                                              ; preds = %254
+  %257 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %255) #31
+  %258 = trunc i64 %257 to i32
+  %259 = add i32 %258, 1
+  br label %260
 
-262:                                              ; preds = %258, %256
-  %.0441 = phi i32 [ %261, %258 ], [ 0, %256 ]
-  tail call void @packmem(ptr noundef %257, i32 noundef %.0441, ptr noundef %1) #28
-  br label %263
+260:                                              ; preds = %256, %254
+  %.0441 = phi i32 [ %259, %256 ], [ 0, %254 ]
+  tail call void @packmem(ptr noundef %255, i32 noundef %.0441, ptr noundef %1) #28
+  br label %261
 
-263:                                              ; preds = %262, %_update_job_nodes_str.exit
-  %264 = load i32, ptr %186, align 8
-  %265 = icmp eq i32 %264, 36
-  br i1 %265, label %266, label %273
+261:                                              ; preds = %260, %_update_job_nodes_str.exit
+  %262 = load i32, ptr %186, align 8
+  %263 = icmp eq i32 %262, 36
+  br i1 %263, label %264, label %271
 
-266:                                              ; preds = %263
-  %267 = load ptr, ptr %234, align 8
-  %.not514 = icmp eq ptr %267, null
-  br i1 %.not514, label %272, label %268
+264:                                              ; preds = %261
+  %265 = load ptr, ptr %234, align 8
+  %.not514 = icmp eq ptr %265, null
+  br i1 %.not514, label %270, label %266
 
-268:                                              ; preds = %266
-  %269 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %267) #31
-  %270 = trunc i64 %269 to i32
-  %271 = add i32 %270, 1
-  br label %272
+266:                                              ; preds = %264
+  %267 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %265) #31
+  %268 = trunc i64 %267 to i32
+  %269 = add i32 %268, 1
+  br label %270
 
-272:                                              ; preds = %268, %266
-  %.0440 = phi i32 [ %271, %268 ], [ 0, %266 ]
-  tail call void @packmem(ptr noundef %267, i32 noundef %.0440, ptr noundef %1) #28
-  br label %273
+270:                                              ; preds = %266, %264
+  %.0440 = phi i32 [ %269, %266 ], [ 0, %264 ]
+  tail call void @packmem(ptr noundef %265, i32 noundef %.0440, ptr noundef %1) #28
+  br label %271
 
-273:                                              ; preds = %263, %272
-  %274 = getelementptr inbounds i8, ptr %0, i64 560
-  %275 = load ptr, ptr %274, align 8
-  %.not515 = icmp eq ptr %275, null
-  br i1 %.not515, label %280, label %276
+271:                                              ; preds = %261, %270
+  %272 = getelementptr inbounds i8, ptr %0, i64 560
+  %273 = load ptr, ptr %272, align 8
+  %.not515 = icmp eq ptr %273, null
+  br i1 %.not515, label %278, label %274
 
-276:                                              ; preds = %273
-  %277 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %275) #31
-  %278 = trunc i64 %277 to i32
-  %279 = add i32 %278, 1
-  br label %280
+274:                                              ; preds = %271
+  %275 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %273) #31
+  %276 = trunc i64 %275 to i32
+  %277 = add i32 %276, 1
+  br label %278
 
-280:                                              ; preds = %276, %273
-  %.0439 = phi i32 [ %279, %276 ], [ 0, %273 ]
-  tail call void @packmem(ptr noundef %275, i32 noundef %.0439, ptr noundef %1) #28
-  %281 = getelementptr inbounds i8, ptr %0, i64 640
-  %282 = load ptr, ptr %281, align 8
-  %.not516 = icmp eq ptr %282, null
-  br i1 %.not516, label %287, label %283
+278:                                              ; preds = %274, %271
+  %.0439 = phi i32 [ %277, %274 ], [ 0, %271 ]
+  tail call void @packmem(ptr noundef %273, i32 noundef %.0439, ptr noundef %1) #28
+  %279 = getelementptr inbounds i8, ptr %0, i64 640
+  %280 = load ptr, ptr %279, align 8
+  %.not516 = icmp eq ptr %280, null
+  br i1 %.not516, label %285, label %281
 
-283:                                              ; preds = %280
-  %284 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %282) #31
-  %285 = trunc i64 %284 to i32
-  %286 = add i32 %285, 1
-  br label %287
+281:                                              ; preds = %278
+  %282 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %280) #31
+  %283 = trunc i64 %282 to i32
+  %284 = add i32 %283, 1
+  br label %285
 
-287:                                              ; preds = %283, %280
-  %.0438 = phi i32 [ %286, %283 ], [ 0, %280 ]
-  tail call void @packmem(ptr noundef %282, i32 noundef %.0438, ptr noundef %1) #28
-  %288 = getelementptr inbounds i8, ptr %0, i64 536
-  %289 = load ptr, ptr %288, align 8
-  %.not517 = icmp eq ptr %289, null
-  br i1 %.not517, label %294, label %290
+285:                                              ; preds = %281, %278
+  %.0438 = phi i32 [ %284, %281 ], [ 0, %278 ]
+  tail call void @packmem(ptr noundef %280, i32 noundef %.0438, ptr noundef %1) #28
+  %286 = getelementptr inbounds i8, ptr %0, i64 536
+  %287 = load ptr, ptr %286, align 8
+  %.not517 = icmp eq ptr %287, null
+  br i1 %.not517, label %292, label %288
 
-290:                                              ; preds = %287
-  %291 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %289) #31
-  %292 = trunc i64 %291 to i32
-  %293 = add i32 %292, 1
-  br label %294
+288:                                              ; preds = %285
+  %289 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %287) #31
+  %290 = trunc i64 %289 to i32
+  %291 = add i32 %290, 1
+  br label %292
 
-294:                                              ; preds = %290, %287
-  %.0437 = phi i32 [ %293, %290 ], [ 0, %287 ]
-  tail call void @packmem(ptr noundef %289, i32 noundef %.0437, ptr noundef %1) #28
-  %295 = getelementptr inbounds i8, ptr %0, i64 1072
-  %296 = load ptr, ptr %295, align 8
-  %.not518 = icmp eq ptr %296, null
-  br i1 %.not518, label %301, label %297
+292:                                              ; preds = %288, %285
+  %.0437 = phi i32 [ %291, %288 ], [ 0, %285 ]
+  tail call void @packmem(ptr noundef %287, i32 noundef %.0437, ptr noundef %1) #28
+  %293 = getelementptr inbounds i8, ptr %0, i64 1072
+  %294 = load ptr, ptr %293, align 8
+  %.not518 = icmp eq ptr %294, null
+  br i1 %.not518, label %299, label %295
 
-297:                                              ; preds = %294
-  %298 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %296) #31
-  %299 = trunc i64 %298 to i32
-  %300 = add i32 %299, 1
-  br label %301
+295:                                              ; preds = %292
+  %296 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %294) #31
+  %297 = trunc i64 %296 to i32
+  %298 = add i32 %297, 1
+  br label %299
 
-301:                                              ; preds = %297, %294
-  %.0436 = phi i32 [ %300, %297 ], [ 0, %294 ]
-  tail call void @packmem(ptr noundef %296, i32 noundef %.0436, ptr noundef %1) #28
-  %302 = getelementptr inbounds i8, ptr %0, i64 1088
-  %303 = load ptr, ptr %302, align 8
-  %.not519 = icmp eq ptr %303, null
-  br i1 %.not519, label %308, label %304
+299:                                              ; preds = %295, %292
+  %.0436 = phi i32 [ %298, %295 ], [ 0, %292 ]
+  tail call void @packmem(ptr noundef %294, i32 noundef %.0436, ptr noundef %1) #28
+  %300 = getelementptr inbounds i8, ptr %0, i64 1088
+  %301 = load ptr, ptr %300, align 8
+  %.not519 = icmp eq ptr %301, null
+  br i1 %.not519, label %306, label %302
 
-304:                                              ; preds = %301
-  %305 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %303) #31
-  %306 = trunc i64 %305 to i32
-  %307 = add i32 %306, 1
-  br label %308
+302:                                              ; preds = %299
+  %303 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %301) #31
+  %304 = trunc i64 %303 to i32
+  %305 = add i32 %304, 1
+  br label %306
 
-308:                                              ; preds = %304, %301
-  %.0435 = phi i32 [ %307, %304 ], [ 0, %301 ]
-  tail call void @packmem(ptr noundef %303, i32 noundef %.0435, ptr noundef %1) #28
-  %309 = getelementptr inbounds i8, ptr %0, i64 32
-  %310 = load ptr, ptr %309, align 8
-  %.not520 = icmp eq ptr %310, null
-  br i1 %.not520, label %315, label %311
+306:                                              ; preds = %302, %299
+  %.0435 = phi i32 [ %305, %302 ], [ 0, %299 ]
+  tail call void @packmem(ptr noundef %301, i32 noundef %.0435, ptr noundef %1) #28
+  %307 = getelementptr inbounds i8, ptr %0, i64 32
+  %308 = load ptr, ptr %307, align 8
+  %.not520 = icmp eq ptr %308, null
+  br i1 %.not520, label %313, label %309
 
-311:                                              ; preds = %308
-  %312 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %310) #31
-  %313 = trunc i64 %312 to i32
-  %314 = add i32 %313, 1
-  br label %315
+309:                                              ; preds = %306
+  %310 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %308) #31
+  %311 = trunc i64 %310 to i32
+  %312 = add i32 %311, 1
+  br label %313
 
-315:                                              ; preds = %311, %308
-  %.0434 = phi i32 [ %314, %311 ], [ 0, %308 ]
-  tail call void @packmem(ptr noundef %310, i32 noundef %.0434, ptr noundef %1) #28
-  %316 = getelementptr inbounds i8, ptr %0, i64 8
-  %317 = load ptr, ptr %316, align 8
-  %.not521 = icmp eq ptr %317, null
-  br i1 %.not521, label %322, label %318
+313:                                              ; preds = %309, %306
+  %.0434 = phi i32 [ %312, %309 ], [ 0, %306 ]
+  tail call void @packmem(ptr noundef %308, i32 noundef %.0434, ptr noundef %1) #28
+  %314 = getelementptr inbounds i8, ptr %0, i64 8
+  %315 = load ptr, ptr %314, align 8
+  %.not521 = icmp eq ptr %315, null
+  br i1 %.not521, label %320, label %316
 
-318:                                              ; preds = %315
-  %319 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %317) #31
-  %320 = trunc i64 %319 to i32
-  %321 = add i32 %320, 1
-  br label %322
+316:                                              ; preds = %313
+  %317 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %315) #31
+  %318 = trunc i64 %317 to i32
+  %319 = add i32 %318, 1
+  br label %320
 
-322:                                              ; preds = %318, %315
-  %.0433 = phi i32 [ %321, %318 ], [ 0, %315 ]
-  tail call void @packmem(ptr noundef %317, i32 noundef %.0433, ptr noundef %1) #28
-  %323 = getelementptr inbounds i8, ptr %0, i64 16
-  %324 = load ptr, ptr %323, align 8
-  %.not522 = icmp eq ptr %324, null
-  br i1 %.not522, label %329, label %325
+320:                                              ; preds = %316, %313
+  %.0433 = phi i32 [ %319, %316 ], [ 0, %313 ]
+  tail call void @packmem(ptr noundef %315, i32 noundef %.0433, ptr noundef %1) #28
+  %321 = getelementptr inbounds i8, ptr %0, i64 16
+  %322 = load ptr, ptr %321, align 8
+  %.not522 = icmp eq ptr %322, null
+  br i1 %.not522, label %327, label %323
 
-325:                                              ; preds = %322
-  %326 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %324) #31
-  %327 = trunc i64 %326 to i32
-  %328 = add i32 %327, 1
-  br label %329
+323:                                              ; preds = %320
+  %324 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %322) #31
+  %325 = trunc i64 %324 to i32
+  %326 = add i32 %325, 1
+  br label %327
 
-329:                                              ; preds = %325, %322
-  %.0432 = phi i32 [ %328, %325 ], [ 0, %322 ]
-  tail call void @packmem(ptr noundef %324, i32 noundef %.0432, ptr noundef %1) #28
-  %330 = getelementptr inbounds i8, ptr %0, i64 144
-  %331 = load ptr, ptr %330, align 8
-  %.not523 = icmp eq ptr %331, null
-  br i1 %.not523, label %336, label %332
+327:                                              ; preds = %323, %320
+  %.0432 = phi i32 [ %326, %323 ], [ 0, %320 ]
+  tail call void @packmem(ptr noundef %322, i32 noundef %.0432, ptr noundef %1) #28
+  %328 = getelementptr inbounds i8, ptr %0, i64 144
+  %329 = load ptr, ptr %328, align 8
+  %.not523 = icmp eq ptr %329, null
+  br i1 %.not523, label %334, label %330
 
-332:                                              ; preds = %329
-  %333 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %331) #31
-  %334 = trunc i64 %333 to i32
-  %335 = add i32 %334, 1
-  br label %336
+330:                                              ; preds = %327
+  %331 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %329) #31
+  %332 = trunc i64 %331 to i32
+  %333 = add i32 %332, 1
+  br label %334
 
-336:                                              ; preds = %332, %329
-  %.0431 = phi i32 [ %335, %332 ], [ 0, %329 ]
-  tail call void @packmem(ptr noundef %331, i32 noundef %.0431, ptr noundef %1) #28
-  %337 = getelementptr inbounds i8, ptr %0, i64 256
-  %338 = load ptr, ptr %337, align 8
-  %.not524 = icmp eq ptr %338, null
-  br i1 %.not524, label %343, label %339
+334:                                              ; preds = %330, %327
+  %.0431 = phi i32 [ %333, %330 ], [ 0, %327 ]
+  tail call void @packmem(ptr noundef %329, i32 noundef %.0431, ptr noundef %1) #28
+  %335 = getelementptr inbounds i8, ptr %0, i64 256
+  %336 = load ptr, ptr %335, align 8
+  %.not524 = icmp eq ptr %336, null
+  br i1 %.not524, label %341, label %337
 
-339:                                              ; preds = %336
-  %340 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %338) #31
-  %341 = trunc i64 %340 to i32
-  %342 = add i32 %341, 1
-  br label %343
+337:                                              ; preds = %334
+  %338 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %336) #31
+  %339 = trunc i64 %338 to i32
+  %340 = add i32 %339, 1
+  br label %341
 
-343:                                              ; preds = %339, %336
-  %.0430 = phi i32 [ %342, %339 ], [ 0, %336 ]
-  tail call void @packmem(ptr noundef %338, i32 noundef %.0430, ptr noundef %1) #28
-  %344 = getelementptr inbounds i8, ptr %0, i64 336
-  %345 = load ptr, ptr %344, align 8
-  %.not525 = icmp eq ptr %345, null
-  br i1 %.not525, label %350, label %346
+341:                                              ; preds = %337, %334
+  %.0430 = phi i32 [ %340, %337 ], [ 0, %334 ]
+  tail call void @packmem(ptr noundef %336, i32 noundef %.0430, ptr noundef %1) #28
+  %342 = getelementptr inbounds i8, ptr %0, i64 336
+  %343 = load ptr, ptr %342, align 8
+  %.not525 = icmp eq ptr %343, null
+  br i1 %.not525, label %348, label %344
 
-346:                                              ; preds = %343
-  %347 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %345) #31
-  %348 = trunc i64 %347 to i32
-  %349 = add i32 %348, 1
-  br label %350
+344:                                              ; preds = %341
+  %345 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %343) #31
+  %346 = trunc i64 %345 to i32
+  %347 = add i32 %346, 1
+  br label %348
 
-350:                                              ; preds = %346, %343
-  %.0429 = phi i32 [ %349, %346 ], [ 0, %343 ]
-  tail call void @packmem(ptr noundef %345, i32 noundef %.0429, ptr noundef %1) #28
-  %351 = getelementptr inbounds i8, ptr %0, i64 544
-  %352 = load ptr, ptr %351, align 8
-  %.not526 = icmp eq ptr %352, null
-  br i1 %.not526, label %357, label %353
+348:                                              ; preds = %344, %341
+  %.0429 = phi i32 [ %347, %344 ], [ 0, %341 ]
+  tail call void @packmem(ptr noundef %343, i32 noundef %.0429, ptr noundef %1) #28
+  %349 = getelementptr inbounds i8, ptr %0, i64 544
+  %350 = load ptr, ptr %349, align 8
+  %.not526 = icmp eq ptr %350, null
+  br i1 %.not526, label %355, label %351
 
-353:                                              ; preds = %350
-  %354 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %352) #31
-  %355 = trunc i64 %354 to i32
-  %356 = add i32 %355, 1
-  br label %357
+351:                                              ; preds = %348
+  %352 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %350) #31
+  %353 = trunc i64 %352 to i32
+  %354 = add i32 %353, 1
+  br label %355
 
-357:                                              ; preds = %353, %350
-  %.0428 = phi i32 [ %356, %353 ], [ 0, %350 ]
-  tail call void @packmem(ptr noundef %352, i32 noundef %.0428, ptr noundef %1) #28
-  %358 = getelementptr inbounds i8, ptr %0, i64 464
-  %359 = load ptr, ptr %358, align 8
-  %.not527 = icmp eq ptr %359, null
-  br i1 %.not527, label %364, label %360
+355:                                              ; preds = %351, %348
+  %.0428 = phi i32 [ %354, %351 ], [ 0, %348 ]
+  tail call void @packmem(ptr noundef %350, i32 noundef %.0428, ptr noundef %1) #28
+  %356 = getelementptr inbounds i8, ptr %0, i64 464
+  %357 = load ptr, ptr %356, align 8
+  %.not527 = icmp eq ptr %357, null
+  br i1 %.not527, label %362, label %358
 
-360:                                              ; preds = %357
-  %361 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %359) #31
-  %362 = trunc i64 %361 to i32
-  %363 = add i32 %362, 1
-  br label %364
+358:                                              ; preds = %355
+  %359 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %357) #31
+  %360 = trunc i64 %359 to i32
+  %361 = add i32 %360, 1
+  br label %362
 
-364:                                              ; preds = %360, %357
-  %.0427 = phi i32 [ %363, %360 ], [ 0, %357 ]
-  tail call void @packmem(ptr noundef %359, i32 noundef %.0427, ptr noundef %1) #28
-  %365 = getelementptr inbounds i8, ptr %0, i64 480
-  %366 = load ptr, ptr %365, align 8
-  %.not528 = icmp eq ptr %366, null
-  br i1 %.not528, label %371, label %367
+362:                                              ; preds = %358, %355
+  %.0427 = phi i32 [ %361, %358 ], [ 0, %355 ]
+  tail call void @packmem(ptr noundef %357, i32 noundef %.0427, ptr noundef %1) #28
+  %363 = getelementptr inbounds i8, ptr %0, i64 480
+  %364 = load ptr, ptr %363, align 8
+  %.not528 = icmp eq ptr %364, null
+  br i1 %.not528, label %369, label %365
 
-367:                                              ; preds = %364
-  %368 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %366) #31
-  %369 = trunc i64 %368 to i32
-  %370 = add i32 %369, 1
-  br label %371
+365:                                              ; preds = %362
+  %366 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %364) #31
+  %367 = trunc i64 %366 to i32
+  %368 = add i32 %367, 1
+  br label %369
 
-371:                                              ; preds = %367, %364
-  %.0426 = phi i32 [ %370, %367 ], [ 0, %364 ]
-  tail call void @packmem(ptr noundef %366, i32 noundef %.0426, ptr noundef %1) #28
-  %372 = getelementptr inbounds i8, ptr %0, i64 512
-  %373 = load ptr, ptr %372, align 8
-  %.not529 = icmp eq ptr %373, null
-  br i1 %.not529, label %378, label %374
+369:                                              ; preds = %365, %362
+  %.0426 = phi i32 [ %368, %365 ], [ 0, %362 ]
+  tail call void @packmem(ptr noundef %364, i32 noundef %.0426, ptr noundef %1) #28
+  %370 = getelementptr inbounds i8, ptr %0, i64 512
+  %371 = load ptr, ptr %370, align 8
+  %.not529 = icmp eq ptr %371, null
+  br i1 %.not529, label %376, label %372
 
-374:                                              ; preds = %371
-  %375 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %373) #31
-  %376 = trunc i64 %375 to i32
-  %377 = add i32 %376, 1
-  br label %378
+372:                                              ; preds = %369
+  %373 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %371) #31
+  %374 = trunc i64 %373 to i32
+  %375 = add i32 %374, 1
+  br label %376
 
-378:                                              ; preds = %374, %371
-  %.0425 = phi i32 [ %377, %374 ], [ 0, %371 ]
-  tail call void @packmem(ptr noundef %373, i32 noundef %.0425, ptr noundef %1) #28
-  %379 = getelementptr inbounds i8, ptr %0, i64 528
-  %380 = load ptr, ptr %379, align 8
-  %.not530 = icmp eq ptr %380, null
-  br i1 %.not530, label %385, label %381
+376:                                              ; preds = %372, %369
+  %.0425 = phi i32 [ %375, %372 ], [ 0, %369 ]
+  tail call void @packmem(ptr noundef %371, i32 noundef %.0425, ptr noundef %1) #28
+  %377 = getelementptr inbounds i8, ptr %0, i64 528
+  %378 = load ptr, ptr %377, align 8
+  %.not530 = icmp eq ptr %378, null
+  br i1 %.not530, label %383, label %379
 
-381:                                              ; preds = %378
-  %382 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %380) #31
-  %383 = trunc i64 %382 to i32
-  %384 = add i32 %383, 1
-  br label %385
+379:                                              ; preds = %376
+  %380 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %378) #31
+  %381 = trunc i64 %380 to i32
+  %382 = add i32 %381, 1
+  br label %383
 
-385:                                              ; preds = %381, %378
-  %.0424 = phi i32 [ %384, %381 ], [ 0, %378 ]
-  tail call void @packmem(ptr noundef %380, i32 noundef %.0424, ptr noundef %1) #28
-  %386 = getelementptr inbounds i8, ptr %0, i64 808
-  %387 = load ptr, ptr %386, align 8
-  %.not531 = icmp eq ptr %387, null
-  br i1 %.not531, label %392, label %388
+383:                                              ; preds = %379, %376
+  %.0424 = phi i32 [ %382, %379 ], [ 0, %376 ]
+  tail call void @packmem(ptr noundef %378, i32 noundef %.0424, ptr noundef %1) #28
+  %384 = getelementptr inbounds i8, ptr %0, i64 808
+  %385 = load ptr, ptr %384, align 8
+  %.not531 = icmp eq ptr %385, null
+  br i1 %.not531, label %390, label %386
 
-388:                                              ; preds = %385
-  %389 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %387) #31
-  %390 = trunc i64 %389 to i32
-  %391 = add i32 %390, 1
-  br label %392
+386:                                              ; preds = %383
+  %387 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %385) #31
+  %388 = trunc i64 %387 to i32
+  %389 = add i32 %388, 1
+  br label %390
 
-392:                                              ; preds = %388, %385
-  %.0423 = phi i32 [ %391, %388 ], [ 0, %385 ]
-  tail call void @packmem(ptr noundef %387, i32 noundef %.0423, ptr noundef %1) #28
-  %393 = getelementptr inbounds i8, ptr %0, i64 96
-  %394 = load ptr, ptr %393, align 8
-  %.not532 = icmp eq ptr %394, null
-  br i1 %.not532, label %399, label %395
+390:                                              ; preds = %386, %383
+  %.0423 = phi i32 [ %389, %386 ], [ 0, %383 ]
+  tail call void @packmem(ptr noundef %385, i32 noundef %.0423, ptr noundef %1) #28
+  %391 = getelementptr inbounds i8, ptr %0, i64 96
+  %392 = load ptr, ptr %391, align 8
+  %.not532 = icmp eq ptr %392, null
+  br i1 %.not532, label %397, label %393
 
-395:                                              ; preds = %392
-  %396 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %394) #31
-  %397 = trunc i64 %396 to i32
-  %398 = add i32 %397, 1
-  br label %399
+393:                                              ; preds = %390
+  %394 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %392) #31
+  %395 = trunc i64 %394 to i32
+  %396 = add i32 %395, 1
+  br label %397
 
-399:                                              ; preds = %395, %392
-  %.0422 = phi i32 [ %398, %395 ], [ 0, %392 ]
-  tail call void @packmem(ptr noundef %394, i32 noundef %.0422, ptr noundef %1) #28
-  %400 = getelementptr inbounds i8, ptr %0, i64 120
-  %401 = load ptr, ptr %400, align 8
-  %.not533 = icmp eq ptr %401, null
-  br i1 %.not533, label %406, label %402
+397:                                              ; preds = %393, %390
+  %.0422 = phi i32 [ %396, %393 ], [ 0, %390 ]
+  tail call void @packmem(ptr noundef %392, i32 noundef %.0422, ptr noundef %1) #28
+  %398 = getelementptr inbounds i8, ptr %0, i64 120
+  %399 = load ptr, ptr %398, align 8
+  %.not533 = icmp eq ptr %399, null
+  br i1 %.not533, label %404, label %400
 
-402:                                              ; preds = %399
-  %403 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %401) #31
-  %404 = trunc i64 %403 to i32
-  %405 = add i32 %404, 1
-  br label %406
+400:                                              ; preds = %397
+  %401 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %399) #31
+  %402 = trunc i64 %401 to i32
+  %403 = add i32 %402, 1
+  br label %404
 
-406:                                              ; preds = %402, %399
-  %.0421 = phi i32 [ %405, %402 ], [ 0, %399 ]
-  tail call void @packmem(ptr noundef %401, i32 noundef %.0421, ptr noundef %1) #28
-  %407 = getelementptr inbounds i8, ptr %0, i64 128
-  %408 = load ptr, ptr %407, align 8
-  %.not534 = icmp eq ptr %408, null
-  br i1 %.not534, label %413, label %409
+404:                                              ; preds = %400, %397
+  %.0421 = phi i32 [ %403, %400 ], [ 0, %397 ]
+  tail call void @packmem(ptr noundef %399, i32 noundef %.0421, ptr noundef %1) #28
+  %405 = getelementptr inbounds i8, ptr %0, i64 128
+  %406 = load ptr, ptr %405, align 8
+  %.not534 = icmp eq ptr %406, null
+  br i1 %.not534, label %411, label %407
 
-409:                                              ; preds = %406
-  %410 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %408) #31
-  %411 = trunc i64 %410 to i32
-  %412 = add i32 %411, 1
-  br label %413
+407:                                              ; preds = %404
+  %408 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %406) #31
+  %409 = trunc i64 %408 to i32
+  %410 = add i32 %409, 1
+  br label %411
 
-413:                                              ; preds = %409, %406
-  %.0420 = phi i32 [ %412, %409 ], [ 0, %406 ]
-  tail call void @packmem(ptr noundef %408, i32 noundef %.0420, ptr noundef %1) #28
-  %414 = getelementptr inbounds i8, ptr %0, i64 928
-  %415 = load ptr, ptr %414, align 8
-  %.not535 = icmp eq ptr %415, null
-  br i1 %.not535, label %420, label %416
+411:                                              ; preds = %407, %404
+  %.0420 = phi i32 [ %410, %407 ], [ 0, %404 ]
+  tail call void @packmem(ptr noundef %406, i32 noundef %.0420, ptr noundef %1) #28
+  %412 = getelementptr inbounds i8, ptr %0, i64 928
+  %413 = load ptr, ptr %412, align 8
+  %.not535 = icmp eq ptr %413, null
+  br i1 %.not535, label %418, label %414
 
-416:                                              ; preds = %413
-  %417 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %415) #31
-  %418 = trunc i64 %417 to i32
-  %419 = add i32 %418, 1
-  br label %420
+414:                                              ; preds = %411
+  %415 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %413) #31
+  %416 = trunc i64 %415 to i32
+  %417 = add i32 %416, 1
+  br label %418
 
-420:                                              ; preds = %416, %413
-  %.0419 = phi i32 [ %419, %416 ], [ 0, %413 ]
-  tail call void @packmem(ptr noundef %415, i32 noundef %.0419, ptr noundef %1) #28
-  %421 = getelementptr inbounds i8, ptr %0, i64 848
-  %422 = load ptr, ptr %421, align 8
-  %423 = tail call i32 @select_g_select_jobinfo_pack(ptr noundef %422, ptr noundef %1, i16 noundef zeroext 10496) #28
-  %424 = getelementptr inbounds i8, ptr %0, i64 440
+418:                                              ; preds = %414, %411
+  %.0419 = phi i32 [ %417, %414 ], [ 0, %411 ]
+  tail call void @packmem(ptr noundef %413, i32 noundef %.0419, ptr noundef %1) #28
+  %419 = getelementptr inbounds i8, ptr %0, i64 848
+  %420 = load ptr, ptr %419, align 8
+  %421 = tail call i32 @select_g_select_jobinfo_pack(ptr noundef %420, ptr noundef %1, i16 noundef zeroext 10496) #28
+  %422 = getelementptr inbounds i8, ptr %0, i64 440
+  %423 = load ptr, ptr %422, align 8
+  tail call void @pack_job_resources(ptr noundef %423, ptr noundef %1, i16 noundef zeroext 10496) #28
+  %424 = getelementptr inbounds i8, ptr %0, i64 872
   %425 = load ptr, ptr %424, align 8
-  tail call void @pack_job_resources(ptr noundef %425, ptr noundef %1, i16 noundef zeroext 10496) #28
-  %426 = getelementptr inbounds i8, ptr %0, i64 872
-  %427 = load ptr, ptr %426, align 8
-  %428 = getelementptr inbounds i8, ptr %0, i64 880
-  %429 = load i32, ptr %428, align 8
-  tail call void @packstr_array(ptr noundef %427, i32 noundef %429, ptr noundef %1) #28
-  %430 = getelementptr inbounds i8, ptr %0, i64 296
-  %431 = load ptr, ptr %430, align 8
-  %432 = load i32, ptr %4, align 8
-  %433 = tail call i32 @gres_job_state_pack(ptr noundef %431, ptr noundef %1, i32 noundef %432, i1 noundef zeroext true, i16 noundef zeroext 10496) #28
-  %434 = getelementptr inbounds i8, ptr %0, i64 312
-  %435 = load ptr, ptr %434, align 8
-  %436 = load i32, ptr %4, align 8
-  %437 = tail call i32 @gres_job_state_pack(ptr noundef %435, ptr noundef %1, i32 noundef %436, i1 noundef zeroext true, i16 noundef zeroext 10496) #28
-  %438 = getelementptr inbounds i8, ptr %0, i64 216
-  %439 = load ptr, ptr %438, align 8
-  %.not536 = icmp eq ptr %439, null
-  br i1 %.not536, label %652, label %440
+  %426 = getelementptr inbounds i8, ptr %0, i64 880
+  %427 = load i32, ptr %426, align 8
+  tail call void @packstr_array(ptr noundef %425, i32 noundef %427, ptr noundef %1) #28
+  %428 = getelementptr inbounds i8, ptr %0, i64 296
+  %429 = load ptr, ptr %428, align 8
+  %430 = load i32, ptr %4, align 8
+  %431 = tail call i32 @gres_job_state_pack(ptr noundef %429, ptr noundef %1, i32 noundef %430, i1 noundef zeroext true, i16 noundef zeroext 10496) #28
+  %432 = getelementptr inbounds i8, ptr %0, i64 312
+  %433 = load ptr, ptr %432, align 8
+  %434 = load i32, ptr %4, align 8
+  %435 = tail call i32 @gres_job_state_pack(ptr noundef %433, ptr noundef %1, i32 noundef %434, i1 noundef zeroext true, i16 noundef zeroext 10496) #28
+  %436 = getelementptr inbounds i8, ptr %0, i64 216
+  %437 = load ptr, ptr %436, align 8
+  %.not536 = icmp eq ptr %437, null
+  br i1 %.not536, label %650, label %438
 
-440:                                              ; preds = %420
+438:                                              ; preds = %418
   tail call void @pack16(i16 noundef zeroext -8739, ptr noundef %1) #28
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
-  %441 = getelementptr inbounds i8, ptr %439, i64 272
-  %442 = load i32, ptr %441, align 8
+  %439 = getelementptr inbounds i8, ptr %437, i64 272
+  %440 = load i32, ptr %439, align 8
+  tail call void @pack32(i32 noundef %440, ptr noundef %1) #28
+  %441 = getelementptr inbounds i8, ptr %437, i64 236
+  %442 = load i32, ptr %441, align 4
   tail call void @pack32(i32 noundef %442, ptr noundef %1) #28
-  %443 = getelementptr inbounds i8, ptr %439, i64 236
+  %443 = getelementptr inbounds i8, ptr %437, i64 284
   %444 = load i32, ptr %443, align 4
   tail call void @pack32(i32 noundef %444, ptr noundef %1) #28
-  %445 = getelementptr inbounds i8, ptr %439, i64 284
-  %446 = load i32, ptr %445, align 4
+  %445 = getelementptr inbounds i8, ptr %437, i64 240
+  %446 = load i32, ptr %445, align 8
   tail call void @pack32(i32 noundef %446, ptr noundef %1) #28
-  %447 = getelementptr inbounds i8, ptr %439, i64 240
+  %447 = getelementptr inbounds i8, ptr %437, i64 296
   %448 = load i32, ptr %447, align 8
   tail call void @pack32(i32 noundef %448, ptr noundef %1) #28
-  %449 = getelementptr inbounds i8, ptr %439, i64 296
-  %450 = load i32, ptr %449, align 8
-  tail call void @pack32(i32 noundef %450, ptr noundef %1) #28
-  %451 = getelementptr inbounds i8, ptr %439, i64 8
-  %452 = load ptr, ptr %451, align 8
-  %.not.i554 = icmp eq ptr %452, null
-  br i1 %.not.i554, label %457, label %453
+  %449 = getelementptr inbounds i8, ptr %437, i64 8
+  %450 = load ptr, ptr %449, align 8
+  %.not.i554 = icmp eq ptr %450, null
+  br i1 %.not.i554, label %455, label %451
 
-453:                                              ; preds = %440
-  %454 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %452) #31
-  %455 = trunc i64 %454 to i32
-  %456 = add i32 %455, 1
-  br label %457
+451:                                              ; preds = %438
+  %452 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %450) #31
+  %453 = trunc i64 %452 to i32
+  %454 = add i32 %453, 1
+  br label %455
 
-457:                                              ; preds = %453, %440
-  %.0177.i = phi i32 [ %456, %453 ], [ 0, %440 ]
-  tail call void @packmem(ptr noundef %452, i32 noundef %.0177.i, ptr noundef %1) #28
-  %458 = getelementptr inbounds i8, ptr %439, i64 64
-  %459 = load i16, ptr %458, align 8
+455:                                              ; preds = %451, %438
+  %.0177.i = phi i32 [ %454, %451 ], [ 0, %438 ]
+  tail call void @packmem(ptr noundef %450, i32 noundef %.0177.i, ptr noundef %1) #28
+  %456 = getelementptr inbounds i8, ptr %437, i64 64
+  %457 = load i16, ptr %456, align 8
+  tail call void @pack16(i16 noundef zeroext %457, ptr noundef %1) #28
+  %458 = getelementptr inbounds i8, ptr %437, i64 66
+  %459 = load i16, ptr %458, align 2
   tail call void @pack16(i16 noundef zeroext %459, ptr noundef %1) #28
-  %460 = getelementptr inbounds i8, ptr %439, i64 66
-  %461 = load i16, ptr %460, align 2
+  %460 = getelementptr inbounds i8, ptr %437, i64 112
+  %461 = load i16, ptr %460, align 8
   tail call void @pack16(i16 noundef zeroext %461, ptr noundef %1) #28
-  %462 = getelementptr inbounds i8, ptr %439, i64 112
-  %463 = load i16, ptr %462, align 8
-  tail call void @pack16(i16 noundef zeroext %463, ptr noundef %1) #28
-  %464 = getelementptr inbounds i8, ptr %439, i64 288
-  %465 = load i32, ptr %464, align 8
-  tail call void @pack32(i32 noundef %465, ptr noundef %1) #28
-  %466 = getelementptr inbounds i8, ptr %439, i64 292
-  %467 = load i16, ptr %466, align 4
+  %462 = getelementptr inbounds i8, ptr %437, i64 288
+  %463 = load i32, ptr %462, align 8
+  tail call void @pack32(i32 noundef %463, ptr noundef %1) #28
+  %464 = getelementptr inbounds i8, ptr %437, i64 292
+  %465 = load i16, ptr %464, align 4
+  tail call void @pack16(i16 noundef zeroext %465, ptr noundef %1) #28
+  %466 = getelementptr inbounds i8, ptr %437, i64 392
+  %467 = load i16, ptr %466, align 8
   tail call void @pack16(i16 noundef zeroext %467, ptr noundef %1) #28
-  %468 = getelementptr inbounds i8, ptr %439, i64 392
-  %469 = load i16, ptr %468, align 8
-  tail call void @pack16(i16 noundef zeroext %469, ptr noundef %1) #28
-  %470 = getelementptr inbounds i8, ptr %439, i64 456
-  %471 = load i32, ptr %470, align 8
-  tail call void @pack32(i32 noundef %471, ptr noundef %1) #28
-  %472 = getelementptr inbounds i8, ptr %439, i64 394
-  %473 = load i8, ptr %472, align 2
+  %468 = getelementptr inbounds i8, ptr %437, i64 456
+  %469 = load i32, ptr %468, align 8
+  tail call void @pack32(i32 noundef %469, ptr noundef %1) #28
+  %470 = getelementptr inbounds i8, ptr %437, i64 394
+  %471 = load i8, ptr %470, align 2
+  tail call void @pack8(i8 noundef zeroext %471, ptr noundef %1) #28
+  %472 = getelementptr inbounds i8, ptr %437, i64 464
+  %473 = load i8, ptr %472, align 8
   tail call void @pack8(i8 noundef zeroext %473, ptr noundef %1) #28
-  %474 = getelementptr inbounds i8, ptr %439, i64 464
-  %475 = load i8, ptr %474, align 8
-  tail call void @pack8(i8 noundef zeroext %475, ptr noundef %1) #28
-  %476 = getelementptr inbounds i8, ptr %439, i64 72
-  %477 = load ptr, ptr %476, align 8
-  %.not204.i = icmp eq ptr %477, null
-  br i1 %.not204.i, label %482, label %478
+  %474 = getelementptr inbounds i8, ptr %437, i64 72
+  %475 = load ptr, ptr %474, align 8
+  %.not204.i = icmp eq ptr %475, null
+  br i1 %.not204.i, label %480, label %476
 
-478:                                              ; preds = %457
-  %479 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %477) #31
-  %480 = trunc i64 %479 to i32
-  %481 = add i32 %480, 1
-  br label %482
+476:                                              ; preds = %455
+  %477 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %475) #31
+  %478 = trunc i64 %477 to i32
+  %479 = add i32 %478, 1
+  br label %480
 
-482:                                              ; preds = %478, %457
-  %.0184.i = phi i32 [ %481, %478 ], [ 0, %457 ]
-  tail call void @packmem(ptr noundef %477, i32 noundef %.0184.i, ptr noundef %1) #28
-  %483 = getelementptr inbounds i8, ptr %439, i64 80
-  %484 = load i16, ptr %483, align 8
-  tail call void @pack16(i16 noundef zeroext %484, ptr noundef %1) #28
-  %485 = getelementptr inbounds i8, ptr %439, i64 256
-  %486 = load ptr, ptr %485, align 8
-  %.not205.i = icmp eq ptr %486, null
-  br i1 %.not205.i, label %491, label %487
+480:                                              ; preds = %476, %455
+  %.0184.i = phi i32 [ %479, %476 ], [ 0, %455 ]
+  tail call void @packmem(ptr noundef %475, i32 noundef %.0184.i, ptr noundef %1) #28
+  %481 = getelementptr inbounds i8, ptr %437, i64 80
+  %482 = load i16, ptr %481, align 8
+  tail call void @pack16(i16 noundef zeroext %482, ptr noundef %1) #28
+  %483 = getelementptr inbounds i8, ptr %437, i64 256
+  %484 = load ptr, ptr %483, align 8
+  %.not205.i = icmp eq ptr %484, null
+  br i1 %.not205.i, label %489, label %485
 
-487:                                              ; preds = %482
-  %488 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %486) #31
-  %489 = trunc i64 %488 to i32
-  %490 = add i32 %489, 1
-  br label %491
+485:                                              ; preds = %480
+  %486 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %484) #31
+  %487 = trunc i64 %486 to i32
+  %488 = add i32 %487, 1
+  br label %489
 
-491:                                              ; preds = %487, %482
-  %.0183.i = phi i32 [ %490, %487 ], [ 0, %482 ]
-  tail call void @packmem(ptr noundef %486, i32 noundef %.0183.i, ptr noundef %1) #28
-  %492 = getelementptr inbounds i8, ptr %439, i64 264
-  %493 = load i16, ptr %492, align 8
+489:                                              ; preds = %485, %480
+  %.0183.i = phi i32 [ %488, %485 ], [ 0, %480 ]
+  tail call void @packmem(ptr noundef %484, i32 noundef %.0183.i, ptr noundef %1) #28
+  %490 = getelementptr inbounds i8, ptr %437, i64 264
+  %491 = load i16, ptr %490, align 8
+  tail call void @pack16(i16 noundef zeroext %491, ptr noundef %1) #28
+  %492 = getelementptr inbounds i8, ptr %437, i64 302
+  %493 = load i16, ptr %492, align 2
   tail call void @pack16(i16 noundef zeroext %493, ptr noundef %1) #28
-  %494 = getelementptr inbounds i8, ptr %439, i64 302
-  %495 = load i16, ptr %494, align 2
-  tail call void @pack16(i16 noundef zeroext %495, ptr noundef %1) #28
-  %496 = getelementptr inbounds i8, ptr %439, i64 300
-  %497 = load i8, ptr %496, align 4
+  %494 = getelementptr inbounds i8, ptr %437, i64 300
+  %495 = load i8, ptr %494, align 4
+  tail call void @pack8(i8 noundef zeroext %495, ptr noundef %1) #28
+  %496 = getelementptr inbounds i8, ptr %437, i64 301
+  %497 = load i8, ptr %496, align 1
   tail call void @pack8(i8 noundef zeroext %497, ptr noundef %1) #28
-  %498 = getelementptr inbounds i8, ptr %439, i64 301
-  %499 = load i8, ptr %498, align 1
+  %498 = getelementptr inbounds i8, ptr %437, i64 352
+  %499 = load i8, ptr %498, align 8
   tail call void @pack8(i8 noundef zeroext %499, ptr noundef %1) #28
-  %500 = getelementptr inbounds i8, ptr %439, i64 352
-  %501 = load i8, ptr %500, align 8
-  tail call void @pack8(i8 noundef zeroext %501, ptr noundef %1) #28
-  %502 = getelementptr inbounds i8, ptr %439, i64 308
-  %503 = load i32, ptr %502, align 4
-  tail call void @pack32(i32 noundef %503, ptr noundef %1) #28
-  %504 = getelementptr inbounds i8, ptr %439, i64 320
-  %505 = load i64, ptr %504, align 8
-  tail call void @pack64(i64 noundef %505, ptr noundef %1) #28
-  %506 = getelementptr inbounds i8, ptr %439, i64 328
-  %507 = load i32, ptr %506, align 8
+  %500 = getelementptr inbounds i8, ptr %437, i64 308
+  %501 = load i32, ptr %500, align 4
+  tail call void @pack32(i32 noundef %501, ptr noundef %1) #28
+  %502 = getelementptr inbounds i8, ptr %437, i64 320
+  %503 = load i64, ptr %502, align 8
+  tail call void @pack64(i64 noundef %503, ptr noundef %1) #28
+  %504 = getelementptr inbounds i8, ptr %437, i64 328
+  %505 = load i32, ptr %504, align 8
+  tail call void @pack32(i32 noundef %505, ptr noundef %1) #28
+  %506 = getelementptr inbounds i8, ptr %437, i64 84
+  %507 = load i32, ptr %506, align 4
   tail call void @pack32(i32 noundef %507, ptr noundef %1) #28
-  %508 = getelementptr inbounds i8, ptr %439, i64 84
-  %509 = load i32, ptr %508, align 4
+  %508 = getelementptr inbounds i8, ptr %437, i64 88
+  %509 = load i32, ptr %508, align 8
   tail call void @pack32(i32 noundef %509, ptr noundef %1) #28
-  %510 = getelementptr inbounds i8, ptr %439, i64 88
-  %511 = load i32, ptr %510, align 8
+  %510 = getelementptr inbounds i8, ptr %437, i64 92
+  %511 = load i32, ptr %510, align 4
   tail call void @pack32(i32 noundef %511, ptr noundef %1) #28
-  %512 = getelementptr inbounds i8, ptr %439, i64 92
-  %513 = load i32, ptr %512, align 4
-  tail call void @pack32(i32 noundef %513, ptr noundef %1) #28
-  %514 = getelementptr inbounds i8, ptr %439, i64 48
+  %512 = getelementptr inbounds i8, ptr %437, i64 48
+  %513 = load i64, ptr %512, align 8
+  tail call void @pack_time(i64 noundef %513, ptr noundef %1) #28
+  %514 = getelementptr inbounds i8, ptr %437, i64 16
   %515 = load i64, ptr %514, align 8
   tail call void @pack_time(i64 noundef %515, ptr noundef %1) #28
-  %516 = getelementptr inbounds i8, ptr %439, i64 16
+  %516 = getelementptr inbounds i8, ptr %437, i64 448
   %517 = load i64, ptr %516, align 8
   tail call void @pack_time(i64 noundef %517, ptr noundef %1) #28
-  %518 = getelementptr inbounds i8, ptr %439, i64 448
-  %519 = load i64, ptr %518, align 8
-  tail call void @pack_time(i64 noundef %519, ptr noundef %1) #28
-  %520 = getelementptr inbounds i8, ptr %439, i64 384
-  %521 = load ptr, ptr %520, align 8
-  %.not206.i = icmp eq ptr %521, null
-  br i1 %.not206.i, label %526, label %522
+  %518 = getelementptr inbounds i8, ptr %437, i64 384
+  %519 = load ptr, ptr %518, align 8
+  %.not206.i = icmp eq ptr %519, null
+  br i1 %.not206.i, label %524, label %520
 
-522:                                              ; preds = %491
-  %523 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %521) #31
-  %524 = trunc i64 %523 to i32
-  %525 = add i32 %524, 1
-  br label %526
+520:                                              ; preds = %489
+  %521 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %519) #31
+  %522 = trunc i64 %521 to i32
+  %523 = add i32 %522, 1
+  br label %524
 
-526:                                              ; preds = %522, %491
-  %.0182.i = phi i32 [ %525, %522 ], [ 0, %491 ]
-  tail call void @packmem(ptr noundef %521, i32 noundef %.0182.i, ptr noundef %1) #28
-  %527 = getelementptr inbounds i8, ptr %439, i64 176
-  %528 = load ptr, ptr %527, align 8
-  %.not207.i = icmp eq ptr %528, null
-  br i1 %.not207.i, label %533, label %529
+524:                                              ; preds = %520, %489
+  %.0182.i = phi i32 [ %523, %520 ], [ 0, %489 ]
+  tail call void @packmem(ptr noundef %519, i32 noundef %.0182.i, ptr noundef %1) #28
+  %525 = getelementptr inbounds i8, ptr %437, i64 176
+  %526 = load ptr, ptr %525, align 8
+  %.not207.i = icmp eq ptr %526, null
+  br i1 %.not207.i, label %531, label %527
 
-529:                                              ; preds = %526
-  %530 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %528) #31
-  %531 = trunc i64 %530 to i32
-  %532 = add i32 %531, 1
-  br label %533
+527:                                              ; preds = %524
+  %528 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %526) #31
+  %529 = trunc i64 %528 to i32
+  %530 = add i32 %529, 1
+  br label %531
 
-533:                                              ; preds = %529, %526
-  %.0181.i = phi i32 [ %532, %529 ], [ 0, %526 ]
-  tail call void @packmem(ptr noundef %528, i32 noundef %.0181.i, ptr noundef %1) #28
-  %534 = getelementptr inbounds i8, ptr %439, i64 208
-  %535 = load ptr, ptr %534, align 8
-  %.not208.i = icmp eq ptr %535, null
-  br i1 %.not208.i, label %540, label %536
+531:                                              ; preds = %527, %524
+  %.0181.i = phi i32 [ %530, %527 ], [ 0, %524 ]
+  tail call void @packmem(ptr noundef %526, i32 noundef %.0181.i, ptr noundef %1) #28
+  %532 = getelementptr inbounds i8, ptr %437, i64 208
+  %533 = load ptr, ptr %532, align 8
+  %.not208.i = icmp eq ptr %533, null
+  br i1 %.not208.i, label %538, label %534
 
-536:                                              ; preds = %533
-  %537 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %535) #31
-  %538 = trunc i64 %537 to i32
-  %539 = add i32 %538, 1
-  br label %540
+534:                                              ; preds = %531
+  %535 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %533) #31
+  %536 = trunc i64 %535 to i32
+  %537 = add i32 %536, 1
+  br label %538
 
-540:                                              ; preds = %536, %533
-  %.0180.i = phi i32 [ %539, %536 ], [ 0, %533 ]
-  tail call void @packmem(ptr noundef %535, i32 noundef %.0180.i, ptr noundef %1) #28
-  %541 = getelementptr inbounds i8, ptr %439, i64 56
-  %542 = load ptr, ptr %541, align 8
-  %.not209.i = icmp eq ptr %542, null
-  br i1 %.not209.i, label %547, label %543
+538:                                              ; preds = %534, %531
+  %.0180.i = phi i32 [ %537, %534 ], [ 0, %531 ]
+  tail call void @packmem(ptr noundef %533, i32 noundef %.0180.i, ptr noundef %1) #28
+  %539 = getelementptr inbounds i8, ptr %437, i64 56
+  %540 = load ptr, ptr %539, align 8
+  %.not209.i = icmp eq ptr %540, null
+  br i1 %.not209.i, label %545, label %541
 
-543:                                              ; preds = %540
-  %544 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %542) #31
-  %545 = trunc i64 %544 to i32
-  %546 = add i32 %545, 1
-  br label %547
+541:                                              ; preds = %538
+  %542 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %540) #31
+  %543 = trunc i64 %542 to i32
+  %544 = add i32 %543, 1
+  br label %545
 
-547:                                              ; preds = %543, %540
-  %.0179.i = phi i32 [ %546, %543 ], [ 0, %540 ]
-  tail call void @packmem(ptr noundef %542, i32 noundef %.0179.i, ptr noundef %1) #28
-  %548 = getelementptr inbounds i8, ptr %439, i64 344
-  %549 = load ptr, ptr %548, align 8
-  %.not210.i = icmp eq ptr %549, null
-  br i1 %.not210.i, label %554, label %550
+545:                                              ; preds = %541, %538
+  %.0179.i = phi i32 [ %544, %541 ], [ 0, %538 ]
+  tail call void @packmem(ptr noundef %540, i32 noundef %.0179.i, ptr noundef %1) #28
+  %546 = getelementptr inbounds i8, ptr %437, i64 344
+  %547 = load ptr, ptr %546, align 8
+  %.not210.i = icmp eq ptr %547, null
+  br i1 %.not210.i, label %552, label %548
 
-550:                                              ; preds = %547
-  %551 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %549) #31
-  %552 = trunc i64 %551 to i32
-  %553 = add i32 %552, 1
-  br label %554
+548:                                              ; preds = %545
+  %549 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %547) #31
+  %550 = trunc i64 %549 to i32
+  %551 = add i32 %550, 1
+  br label %552
 
-554:                                              ; preds = %550, %547
-  %.0178.i = phi i32 [ %553, %550 ], [ 0, %547 ]
-  tail call void @packmem(ptr noundef %549, i32 noundef %.0178.i, ptr noundef %1) #28
-  %555 = getelementptr inbounds i8, ptr %439, i64 216
-  %556 = load ptr, ptr %555, align 8
-  %557 = load ptr, ptr %534, align 8
-  %558 = icmp eq ptr %556, %557
-  br i1 %558, label %562, label %559
+552:                                              ; preds = %548, %545
+  %.0178.i = phi i32 [ %551, %548 ], [ 0, %545 ]
+  tail call void @packmem(ptr noundef %547, i32 noundef %.0178.i, ptr noundef %1) #28
+  %553 = getelementptr inbounds i8, ptr %437, i64 216
+  %554 = load ptr, ptr %553, align 8
+  %555 = load ptr, ptr %532, align 8
+  %556 = icmp eq ptr %554, %555
+  br i1 %556, label %560, label %557
 
-559:                                              ; preds = %554
-  %560 = load ptr, ptr %548, align 8
-  %561 = icmp eq ptr %556, %560
-  %..i555 = select i1 %561, i8 2, i8 0
-  br label %562
+557:                                              ; preds = %552
+  %558 = load ptr, ptr %546, align 8
+  %559 = icmp eq ptr %554, %558
+  %..i555 = select i1 %559, i8 2, i8 0
+  br label %560
 
-562:                                              ; preds = %559, %554
-  %.sink.i556 = phi i8 [ 1, %554 ], [ %..i555, %559 ]
-  tail call void @pack8(i8 noundef zeroext %.sink.i556, ptr noundef %1) #28
-  %563 = getelementptr inbounds i8, ptr %439, i64 224
-  %564 = load ptr, ptr %563, align 8
-  %.not211.i = icmp eq ptr %564, null
-  br i1 %.not211.i, label %573, label %565
+560:                                              ; preds = %557, %552
+  %.sink.i = phi i8 [ 1, %552 ], [ %..i555, %557 ]
+  tail call void @pack8(i8 noundef zeroext %.sink.i, ptr noundef %1) #28
+  %561 = getelementptr inbounds i8, ptr %437, i64 224
+  %562 = load ptr, ptr %561, align 8
+  %.not211.i = icmp eq ptr %562, null
+  br i1 %.not211.i, label %571, label %563
 
-565:                                              ; preds = %562
-  %566 = tail call ptr @bit_fmt_hexmask(ptr noundef nonnull %564) #28
-  store ptr %566, ptr %3, align 8
-  %567 = load ptr, ptr %563, align 8
-  %568 = tail call i64 @bit_size(ptr noundef %567) #28
+563:                                              ; preds = %560
+  %564 = tail call ptr @bit_fmt_hexmask(ptr noundef nonnull %562) #28
+  store ptr %564, ptr %3, align 8
+  %565 = load ptr, ptr %561, align 8
+  %566 = tail call i64 @bit_size(ptr noundef %565) #28
+  %567 = trunc i64 %566 to i32
+  tail call void @pack32(i32 noundef %567, ptr noundef %1) #28
+  %568 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %564) #31
   %569 = trunc i64 %568 to i32
-  tail call void @pack32(i32 noundef %569, ptr noundef %1) #28
-  %570 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %566) #31
-  %571 = trunc i64 %570 to i32
-  %572 = add i32 %571, 1
-  tail call void @packmem(ptr noundef %566, i32 noundef %572, ptr noundef %1) #28
+  %570 = add i32 %569, 1
+  tail call void @packmem(ptr noundef %564, i32 noundef %570, ptr noundef %1) #28
   call void @slurm_xfree(ptr noundef nonnull %3) #28
-  br label %574
+  br label %572
 
-573:                                              ; preds = %562
+571:                                              ; preds = %560
   tail call void @pack32(i32 noundef -2, ptr noundef %1) #28
-  br label %574
+  br label %572
 
-574:                                              ; preds = %573, %565
-  %575 = getelementptr inbounds i8, ptr %439, i64 120
+572:                                              ; preds = %571, %563
+  %573 = getelementptr inbounds i8, ptr %437, i64 120
+  %574 = load ptr, ptr %573, align 8
+  call void @pack_dep_list(ptr noundef %574, ptr noundef %1, i16 noundef zeroext 10496) #28
+  %575 = getelementptr inbounds i8, ptr %437, i64 128
   %576 = load ptr, ptr %575, align 8
-  call void @pack_dep_list(ptr noundef %576, ptr noundef %1, i16 noundef zeroext 10496) #28
-  %577 = getelementptr inbounds i8, ptr %439, i64 128
-  %578 = load ptr, ptr %577, align 8
-  %.not212.i = icmp eq ptr %578, null
-  br i1 %.not212.i, label %583, label %579
+  %.not212.i = icmp eq ptr %576, null
+  br i1 %.not212.i, label %581, label %577
 
-579:                                              ; preds = %574
-  %580 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %578) #31
-  %581 = trunc i64 %580 to i32
-  %582 = add i32 %581, 1
-  br label %583
+577:                                              ; preds = %572
+  %578 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %576) #31
+  %579 = trunc i64 %578 to i32
+  %580 = add i32 %579, 1
+  br label %581
 
-583:                                              ; preds = %579, %574
-  %.0176.i = phi i32 [ %582, %579 ], [ 0, %574 ]
-  call void @packmem(ptr noundef %578, i32 noundef %.0176.i, ptr noundef %1) #28
-  %584 = getelementptr inbounds i8, ptr %439, i64 136
-  %585 = load ptr, ptr %584, align 8
-  %.not213.i = icmp eq ptr %585, null
-  br i1 %.not213.i, label %590, label %586
+581:                                              ; preds = %577, %572
+  %.0176.i = phi i32 [ %580, %577 ], [ 0, %572 ]
+  call void @packmem(ptr noundef %576, i32 noundef %.0176.i, ptr noundef %1) #28
+  %582 = getelementptr inbounds i8, ptr %437, i64 136
+  %583 = load ptr, ptr %582, align 8
+  %.not213.i = icmp eq ptr %583, null
+  br i1 %.not213.i, label %588, label %584
 
-586:                                              ; preds = %583
-  %587 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %585) #31
-  %588 = trunc i64 %587 to i32
-  %589 = add i32 %588, 1
-  br label %590
+584:                                              ; preds = %581
+  %585 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %583) #31
+  %586 = trunc i64 %585 to i32
+  %587 = add i32 %586, 1
+  br label %588
 
-590:                                              ; preds = %586, %583
-  %.0175.i = phi i32 [ %589, %586 ], [ 0, %583 ]
-  call void @packmem(ptr noundef %585, i32 noundef %.0175.i, ptr noundef %1) #28
-  %591 = getelementptr inbounds i8, ptr %439, i64 416
-  %592 = load ptr, ptr %591, align 8
-  %.not214.i = icmp eq ptr %592, null
-  br i1 %.not214.i, label %597, label %593
+588:                                              ; preds = %584, %581
+  %.0175.i = phi i32 [ %587, %584 ], [ 0, %581 ]
+  call void @packmem(ptr noundef %583, i32 noundef %.0175.i, ptr noundef %1) #28
+  %589 = getelementptr inbounds i8, ptr %437, i64 416
+  %590 = load ptr, ptr %589, align 8
+  %.not214.i = icmp eq ptr %590, null
+  br i1 %.not214.i, label %595, label %591
 
-593:                                              ; preds = %590
-  %594 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %592) #31
-  %595 = trunc i64 %594 to i32
-  %596 = add i32 %595, 1
-  br label %597
+591:                                              ; preds = %588
+  %592 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %590) #31
+  %593 = trunc i64 %592 to i32
+  %594 = add i32 %593, 1
+  br label %595
 
-597:                                              ; preds = %593, %590
-  %.0174.i = phi i32 [ %596, %593 ], [ 0, %590 ]
-  call void @packmem(ptr noundef %592, i32 noundef %.0174.i, ptr noundef %1) #28
-  %598 = getelementptr inbounds i8, ptr %439, i64 424
-  %599 = load ptr, ptr %598, align 8
-  %.not215.i = icmp eq ptr %599, null
-  br i1 %.not215.i, label %604, label %600
+595:                                              ; preds = %591, %588
+  %.0174.i = phi i32 [ %594, %591 ], [ 0, %588 ]
+  call void @packmem(ptr noundef %590, i32 noundef %.0174.i, ptr noundef %1) #28
+  %596 = getelementptr inbounds i8, ptr %437, i64 424
+  %597 = load ptr, ptr %596, align 8
+  %.not215.i = icmp eq ptr %597, null
+  br i1 %.not215.i, label %602, label %598
 
-600:                                              ; preds = %597
-  %601 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %599) #31
-  %602 = trunc i64 %601 to i32
-  %603 = add i32 %602, 1
-  br label %604
+598:                                              ; preds = %595
+  %599 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %597) #31
+  %600 = trunc i64 %599 to i32
+  %601 = add i32 %600, 1
+  br label %602
 
-604:                                              ; preds = %600, %597
-  %.0173.i = phi i32 [ %603, %600 ], [ 0, %597 ]
-  call void @packmem(ptr noundef %599, i32 noundef %.0173.i, ptr noundef %1) #28
-  %605 = getelementptr inbounds i8, ptr %439, i64 432
-  %606 = load ptr, ptr %605, align 8
-  %.not216.i = icmp eq ptr %606, null
-  br i1 %.not216.i, label %611, label %607
+602:                                              ; preds = %598, %595
+  %.0173.i = phi i32 [ %601, %598 ], [ 0, %595 ]
+  call void @packmem(ptr noundef %597, i32 noundef %.0173.i, ptr noundef %1) #28
+  %603 = getelementptr inbounds i8, ptr %437, i64 432
+  %604 = load ptr, ptr %603, align 8
+  %.not216.i = icmp eq ptr %604, null
+  br i1 %.not216.i, label %609, label %605
 
-607:                                              ; preds = %604
-  %608 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %606) #31
-  %609 = trunc i64 %608 to i32
-  %610 = add i32 %609, 1
-  br label %611
+605:                                              ; preds = %602
+  %606 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %604) #31
+  %607 = trunc i64 %606 to i32
+  %608 = add i32 %607, 1
+  br label %609
 
-611:                                              ; preds = %607, %604
-  %.0172.i = phi i32 [ %610, %607 ], [ 0, %604 ]
-  call void @packmem(ptr noundef %606, i32 noundef %.0172.i, ptr noundef %1) #28
-  %612 = getelementptr inbounds i8, ptr %439, i64 440
-  %613 = load ptr, ptr %612, align 8
-  %.not217.i = icmp eq ptr %613, null
-  br i1 %.not217.i, label %618, label %614
+609:                                              ; preds = %605, %602
+  %.0172.i = phi i32 [ %608, %605 ], [ 0, %602 ]
+  call void @packmem(ptr noundef %604, i32 noundef %.0172.i, ptr noundef %1) #28
+  %610 = getelementptr inbounds i8, ptr %437, i64 440
+  %611 = load ptr, ptr %610, align 8
+  %.not217.i = icmp eq ptr %611, null
+  br i1 %.not217.i, label %616, label %612
 
-614:                                              ; preds = %611
-  %615 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %613) #31
-  %616 = trunc i64 %615 to i32
-  %617 = add i32 %616, 1
-  br label %618
+612:                                              ; preds = %609
+  %613 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %611) #31
+  %614 = trunc i64 %613 to i32
+  %615 = add i32 %614, 1
+  br label %616
 
-618:                                              ; preds = %614, %611
-  %.0171.i = phi i32 [ %617, %614 ], [ 0, %611 ]
-  call void @packmem(ptr noundef %613, i32 noundef %.0171.i, ptr noundef %1) #28
-  %619 = getelementptr inbounds i8, ptr %439, i64 472
-  %620 = load ptr, ptr %619, align 8
-  %.not218.i = icmp eq ptr %620, null
-  br i1 %.not218.i, label %625, label %621
+616:                                              ; preds = %612, %609
+  %.0171.i = phi i32 [ %615, %612 ], [ 0, %609 ]
+  call void @packmem(ptr noundef %611, i32 noundef %.0171.i, ptr noundef %1) #28
+  %617 = getelementptr inbounds i8, ptr %437, i64 472
+  %618 = load ptr, ptr %617, align 8
+  %.not218.i = icmp eq ptr %618, null
+  br i1 %.not218.i, label %623, label %619
 
-621:                                              ; preds = %618
-  %622 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %620) #31
-  %623 = trunc i64 %622 to i32
-  %624 = add i32 %623, 1
-  br label %625
+619:                                              ; preds = %616
+  %620 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %618) #31
+  %621 = trunc i64 %620 to i32
+  %622 = add i32 %621, 1
+  br label %623
 
-625:                                              ; preds = %621, %618
-  %.0170.i = phi i32 [ %624, %621 ], [ 0, %618 ]
-  call void @packmem(ptr noundef %620, i32 noundef %.0170.i, ptr noundef %1) #28
-  %626 = getelementptr inbounds i8, ptr %439, i64 248
+623:                                              ; preds = %619, %616
+  %.0170.i = phi i32 [ %622, %619 ], [ 0, %616 ]
+  call void @packmem(ptr noundef %618, i32 noundef %.0170.i, ptr noundef %1) #28
+  %624 = getelementptr inbounds i8, ptr %437, i64 248
+  %625 = load ptr, ptr %624, align 8
+  call void @pack_multi_core_data(ptr noundef %625, ptr noundef %1, i16 noundef zeroext 10496) #28
+  %626 = getelementptr inbounds i8, ptr %437, i64 40
   %627 = load ptr, ptr %626, align 8
-  call void @pack_multi_core_data(ptr noundef %627, ptr noundef %1, i16 noundef zeroext 10496) #28
-  %628 = getelementptr inbounds i8, ptr %439, i64 40
-  %629 = load ptr, ptr %628, align 8
-  %630 = getelementptr inbounds i8, ptr %439, i64 32
-  %631 = load i32, ptr %630, align 8
-  call void @packstr_array(ptr noundef %629, i32 noundef %631, ptr noundef %1) #28
-  %632 = getelementptr inbounds i8, ptr %439, i64 160
-  %633 = load ptr, ptr %632, align 8
-  %634 = getelementptr inbounds i8, ptr %439, i64 144
-  %635 = load i16, ptr %634, align 8
-  %636 = zext i16 %635 to i32
-  call void @packstr_array(ptr noundef %633, i32 noundef %636, ptr noundef %1) #28
-  %637 = getelementptr inbounds i8, ptr %439, i64 104
+  %628 = getelementptr inbounds i8, ptr %437, i64 32
+  %629 = load i32, ptr %628, align 8
+  call void @packstr_array(ptr noundef %627, i32 noundef %629, ptr noundef %1) #28
+  %630 = getelementptr inbounds i8, ptr %437, i64 160
+  %631 = load ptr, ptr %630, align 8
+  %632 = getelementptr inbounds i8, ptr %437, i64 144
+  %633 = load i16, ptr %632, align 8
+  %634 = zext i16 %633 to i32
+  call void @packstr_array(ptr noundef %631, i32 noundef %634, ptr noundef %1) #28
+  %635 = getelementptr inbounds i8, ptr %437, i64 104
+  %636 = load ptr, ptr %635, align 8
+  call void @pack_cron_entry(ptr noundef %636, i16 noundef zeroext 10496, ptr noundef %1) #28
+  %637 = getelementptr inbounds i8, ptr %437, i64 152
   %638 = load ptr, ptr %637, align 8
-  call void @pack_cron_entry(ptr noundef %638, i16 noundef zeroext 10496, ptr noundef %1) #28
-  %639 = getelementptr inbounds i8, ptr %439, i64 152
-  %640 = load ptr, ptr %639, align 8
-  %.not219.i = icmp eq ptr %640, null
-  br i1 %.not219.i, label %645, label %641
+  %.not219.i = icmp eq ptr %638, null
+  br i1 %.not219.i, label %643, label %639
 
-641:                                              ; preds = %625
-  %642 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %640) #31
-  %643 = trunc i64 %642 to i32
-  %644 = add i32 %643, 1
-  br label %645
+639:                                              ; preds = %623
+  %640 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %638) #31
+  %641 = trunc i64 %640 to i32
+  %642 = add i32 %641, 1
+  br label %643
 
-645:                                              ; preds = %641, %625
-  %.0169.i = phi i32 [ %644, %641 ], [ 0, %625 ]
-  call void @packmem(ptr noundef %640, i32 noundef %.0169.i, ptr noundef %1) #28
-  %646 = getelementptr inbounds i8, ptr %439, i64 408
-  %647 = load ptr, ptr %646, align 8
-  %.not220.i = icmp eq ptr %647, null
-  br i1 %.not220.i, label %_dump_job_details.exit, label %648
+643:                                              ; preds = %639, %623
+  %.0169.i = phi i32 [ %642, %639 ], [ 0, %623 ]
+  call void @packmem(ptr noundef %638, i32 noundef %.0169.i, ptr noundef %1) #28
+  %644 = getelementptr inbounds i8, ptr %437, i64 408
+  %645 = load ptr, ptr %644, align 8
+  %.not220.i = icmp eq ptr %645, null
+  br i1 %.not220.i, label %_dump_job_details.exit, label %646
 
-648:                                              ; preds = %645
-  %649 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %647) #31
-  %650 = trunc i64 %649 to i32
-  %651 = add i32 %650, 1
+646:                                              ; preds = %643
+  %647 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %645) #31
+  %648 = trunc i64 %647 to i32
+  %649 = add i32 %648, 1
   br label %_dump_job_details.exit
 
-_dump_job_details.exit:                           ; preds = %645, %648
-  %.0.i = phi i32 [ %651, %648 ], [ 0, %645 ]
-  call void @packmem(ptr noundef %647, i32 noundef %.0.i, ptr noundef %1) #28
+_dump_job_details.exit:                           ; preds = %643, %646
+  %.0.i = phi i32 [ %649, %646 ], [ 0, %643 ]
+  call void @packmem(ptr noundef %645, i32 noundef %.0.i, ptr noundef %1) #28
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
-  br label %653
+  br label %651
 
-652:                                              ; preds = %420
+650:                                              ; preds = %418
   tail call void @pack16(i16 noundef zeroext 0, ptr noundef %1) #28
-  br label %653
+  br label %651
 
-653:                                              ; preds = %652, %_dump_job_details.exit
-  %654 = getelementptr inbounds i8, ptr %0, i64 912
-  %655 = load ptr, ptr %654, align 8
-  %656 = call i32 @list_for_each_ro(ptr noundef %655, ptr noundef nonnull @dump_job_step_state, ptr noundef %1) #28
+651:                                              ; preds = %650, %_dump_job_details.exit
+  %652 = getelementptr inbounds i8, ptr %0, i64 912
+  %653 = load ptr, ptr %652, align 8
+  %654 = call i32 @list_for_each_ro(ptr noundef %653, ptr noundef nonnull @dump_job_step_state, ptr noundef %1) #28
   call void @pack16(i16 noundef zeroext 0, ptr noundef %1) #28
-  %657 = getelementptr inbounds i8, ptr %0, i64 112
-  %658 = load i64, ptr %657, align 8
-  call void @pack64(i64 noundef %658, ptr noundef %1) #28
-  %659 = getelementptr inbounds i8, ptr %0, i64 1048
-  %660 = load ptr, ptr %659, align 8
-  %.not537 = icmp eq ptr %660, null
-  br i1 %.not537, label %665, label %661
+  %655 = getelementptr inbounds i8, ptr %0, i64 112
+  %656 = load i64, ptr %655, align 8
+  call void @pack64(i64 noundef %656, ptr noundef %1) #28
+  %657 = getelementptr inbounds i8, ptr %0, i64 1048
+  %658 = load ptr, ptr %657, align 8
+  %.not537 = icmp eq ptr %658, null
+  br i1 %.not537, label %663, label %659
 
-661:                                              ; preds = %653
-  %662 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %660) #31
-  %663 = trunc i64 %662 to i32
-  %664 = add i32 %663, 1
-  br label %665
+659:                                              ; preds = %651
+  %660 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %658) #31
+  %661 = trunc i64 %660 to i32
+  %662 = add i32 %661, 1
+  br label %663
 
-665:                                              ; preds = %661, %653
-  %.0418 = phi i32 [ %664, %661 ], [ 0, %653 ]
-  call void @packmem(ptr noundef %660, i32 noundef %.0418, ptr noundef %1) #28
-  %666 = getelementptr inbounds i8, ptr %0, i64 1056
-  %667 = load ptr, ptr %666, align 8
-  %.not538 = icmp eq ptr %667, null
-  br i1 %.not538, label %672, label %668
+663:                                              ; preds = %659, %651
+  %.0418 = phi i32 [ %662, %659 ], [ 0, %651 ]
+  call void @packmem(ptr noundef %658, i32 noundef %.0418, ptr noundef %1) #28
+  %664 = getelementptr inbounds i8, ptr %0, i64 1056
+  %665 = load ptr, ptr %664, align 8
+  %.not538 = icmp eq ptr %665, null
+  br i1 %.not538, label %670, label %666
 
-668:                                              ; preds = %665
-  %669 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %667) #31
-  %670 = trunc i64 %669 to i32
-  %671 = add i32 %670, 1
-  br label %672
+666:                                              ; preds = %663
+  %667 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %665) #31
+  %668 = trunc i64 %667 to i32
+  %669 = add i32 %668, 1
+  br label %670
 
-672:                                              ; preds = %668, %665
-  %.0417 = phi i32 [ %671, %668 ], [ 0, %665 ]
-  call void @packmem(ptr noundef %667, i32 noundef %.0417, ptr noundef %1) #28
-  %673 = getelementptr inbounds i8, ptr %0, i64 1024
-  %674 = load ptr, ptr %673, align 8
-  %.not539 = icmp eq ptr %674, null
-  br i1 %.not539, label %679, label %675
+670:                                              ; preds = %666, %663
+  %.0417 = phi i32 [ %669, %666 ], [ 0, %663 ]
+  call void @packmem(ptr noundef %665, i32 noundef %.0417, ptr noundef %1) #28
+  %671 = getelementptr inbounds i8, ptr %0, i64 1024
+  %672 = load ptr, ptr %671, align 8
+  %.not539 = icmp eq ptr %672, null
+  br i1 %.not539, label %677, label %673
 
-675:                                              ; preds = %672
-  %676 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %674) #31
-  %677 = trunc i64 %676 to i32
-  %678 = add i32 %677, 1
-  br label %679
+673:                                              ; preds = %670
+  %674 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %672) #31
+  %675 = trunc i64 %674 to i32
+  %676 = add i32 %675, 1
+  br label %677
 
-679:                                              ; preds = %675, %672
-  %.0416 = phi i32 [ %678, %675 ], [ 0, %672 ]
-  call void @packmem(ptr noundef %674, i32 noundef %.0416, ptr noundef %1) #28
-  %680 = getelementptr inbounds i8, ptr %0, i64 1032
-  %681 = load ptr, ptr %680, align 8
-  %.not540 = icmp eq ptr %681, null
-  br i1 %.not540, label %686, label %682
+677:                                              ; preds = %673, %670
+  %.0416 = phi i32 [ %676, %673 ], [ 0, %670 ]
+  call void @packmem(ptr noundef %672, i32 noundef %.0416, ptr noundef %1) #28
+  %678 = getelementptr inbounds i8, ptr %0, i64 1032
+  %679 = load ptr, ptr %678, align 8
+  %.not540 = icmp eq ptr %679, null
+  br i1 %.not540, label %684, label %680
 
-682:                                              ; preds = %679
-  %683 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %681) #31
-  %684 = trunc i64 %683 to i32
-  %685 = add i32 %684, 1
-  br label %686
+680:                                              ; preds = %677
+  %681 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %679) #31
+  %682 = trunc i64 %681 to i32
+  %683 = add i32 %682, 1
+  br label %684
 
-686:                                              ; preds = %682, %679
-  %.0415 = phi i32 [ %685, %682 ], [ 0, %679 ]
-  call void @packmem(ptr noundef %681, i32 noundef %.0415, ptr noundef %1) #28
-  %687 = getelementptr inbounds i8, ptr %0, i64 136
-  %688 = load ptr, ptr %687, align 8
-  %.not541 = icmp eq ptr %688, null
-  br i1 %.not541, label %693, label %689
+684:                                              ; preds = %680, %677
+  %.0415 = phi i32 [ %683, %680 ], [ 0, %677 ]
+  call void @packmem(ptr noundef %679, i32 noundef %.0415, ptr noundef %1) #28
+  %685 = getelementptr inbounds i8, ptr %0, i64 136
+  %686 = load ptr, ptr %685, align 8
+  %.not541 = icmp eq ptr %686, null
+  br i1 %.not541, label %691, label %687
 
-689:                                              ; preds = %686
-  %690 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %688) #31
-  %691 = trunc i64 %690 to i32
-  %692 = add i32 %691, 1
-  br label %693
+687:                                              ; preds = %684
+  %688 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %686) #31
+  %689 = trunc i64 %688 to i32
+  %690 = add i32 %689, 1
+  br label %691
 
-693:                                              ; preds = %689, %686
-  %.0414 = phi i32 [ %692, %689 ], [ 0, %686 ]
-  call void @packmem(ptr noundef %688, i32 noundef %.0414, ptr noundef %1) #28
-  %694 = getelementptr inbounds i8, ptr %0, i64 280
-  %695 = load ptr, ptr %694, align 8
-  %.not.i557 = icmp eq ptr %695, null
-  br i1 %.not.i557, label %723, label %696
+691:                                              ; preds = %687, %684
+  %.0414 = phi i32 [ %690, %687 ], [ 0, %684 ]
+  call void @packmem(ptr noundef %686, i32 noundef %.0414, ptr noundef %1) #28
+  %692 = getelementptr inbounds i8, ptr %0, i64 280
+  %693 = load ptr, ptr %692, align 8
+  %.not.i556 = icmp eq ptr %693, null
+  br i1 %.not.i556, label %721, label %694
 
-696:                                              ; preds = %693
+694:                                              ; preds = %691
   call void @pack16(i16 noundef zeroext 1, ptr noundef %1) #28
-  %697 = load i32, ptr %695, align 8
-  call void @pack32(i32 noundef %697, ptr noundef %1) #28
-  %698 = getelementptr inbounds i8, ptr %695, i64 8
-  %699 = load ptr, ptr %698, align 8
-  %.not29.i = icmp eq ptr %699, null
-  br i1 %.not29.i, label %704, label %700
+  %695 = load i32, ptr %693, align 8
+  call void @pack32(i32 noundef %695, ptr noundef %1) #28
+  %696 = getelementptr inbounds i8, ptr %693, i64 8
+  %697 = load ptr, ptr %696, align 8
+  %.not29.i = icmp eq ptr %697, null
+  br i1 %.not29.i, label %702, label %698
 
-700:                                              ; preds = %696
-  %701 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %699) #31
-  %702 = trunc i64 %701 to i32
-  %703 = add i32 %702, 1
-  br label %704
+698:                                              ; preds = %694
+  %699 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %697) #31
+  %700 = trunc i64 %699 to i32
+  %701 = add i32 %700, 1
+  br label %702
 
-704:                                              ; preds = %700, %696
-  %.024.i = phi i32 [ %703, %700 ], [ 0, %696 ]
-  call void @packmem(ptr noundef %699, i32 noundef %.024.i, ptr noundef %1) #28
-  %705 = getelementptr inbounds i8, ptr %695, i64 16
-  %706 = load i64, ptr %705, align 8
-  call void @pack64(i64 noundef %706, ptr noundef %1) #28
-  %707 = getelementptr inbounds i8, ptr %695, i64 24
-  %708 = load ptr, ptr %707, align 8
-  %.not30.i = icmp eq ptr %708, null
-  br i1 %.not30.i, label %713, label %709
+702:                                              ; preds = %698, %694
+  %.024.i = phi i32 [ %701, %698 ], [ 0, %694 ]
+  call void @packmem(ptr noundef %697, i32 noundef %.024.i, ptr noundef %1) #28
+  %703 = getelementptr inbounds i8, ptr %693, i64 16
+  %704 = load i64, ptr %703, align 8
+  call void @pack64(i64 noundef %704, ptr noundef %1) #28
+  %705 = getelementptr inbounds i8, ptr %693, i64 24
+  %706 = load ptr, ptr %705, align 8
+  %.not30.i = icmp eq ptr %706, null
+  br i1 %.not30.i, label %711, label %707
 
-709:                                              ; preds = %704
-  %710 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %708) #31
-  %711 = trunc i64 %710 to i32
-  %712 = add i32 %711, 1
-  br label %713
+707:                                              ; preds = %702
+  %708 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %706) #31
+  %709 = trunc i64 %708 to i32
+  %710 = add i32 %709, 1
+  br label %711
 
-713:                                              ; preds = %709, %704
-  %.023.i = phi i32 [ %712, %709 ], [ 0, %704 ]
-  call void @packmem(ptr noundef %708, i32 noundef %.023.i, ptr noundef %1) #28
-  %714 = getelementptr inbounds i8, ptr %695, i64 32
-  %715 = load i64, ptr %714, align 8
-  call void @pack64(i64 noundef %715, ptr noundef %1) #28
-  %716 = getelementptr inbounds i8, ptr %695, i64 40
-  %717 = load ptr, ptr %716, align 8
-  %.not31.i = icmp eq ptr %717, null
-  br i1 %.not31.i, label %722, label %718
+711:                                              ; preds = %707, %702
+  %.023.i = phi i32 [ %710, %707 ], [ 0, %702 ]
+  call void @packmem(ptr noundef %706, i32 noundef %.023.i, ptr noundef %1) #28
+  %712 = getelementptr inbounds i8, ptr %693, i64 32
+  %713 = load i64, ptr %712, align 8
+  call void @pack64(i64 noundef %713, ptr noundef %1) #28
+  %714 = getelementptr inbounds i8, ptr %693, i64 40
+  %715 = load ptr, ptr %714, align 8
+  %.not31.i = icmp eq ptr %715, null
+  br i1 %.not31.i, label %720, label %716
 
-718:                                              ; preds = %713
-  %719 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %717) #31
-  %720 = trunc i64 %719 to i32
-  %721 = add i32 %720, 1
-  br label %722
+716:                                              ; preds = %711
+  %717 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %715) #31
+  %718 = trunc i64 %717 to i32
+  %719 = add i32 %718, 1
+  br label %720
 
-722:                                              ; preds = %718, %713
-  %.0.i558 = phi i32 [ %721, %718 ], [ 0, %713 ]
-  call void @packmem(ptr noundef %717, i32 noundef %.0.i558, ptr noundef %1) #28
+720:                                              ; preds = %716, %711
+  %.0.i557 = phi i32 [ %719, %716 ], [ 0, %711 ]
+  call void @packmem(ptr noundef %715, i32 noundef %.0.i557, ptr noundef %1) #28
   br label %_dump_job_fed_details.exit
 
-723:                                              ; preds = %693
+721:                                              ; preds = %691
   call void @pack16(i16 noundef zeroext 0, ptr noundef %1) #28
   br label %_dump_job_fed_details.exit
 
-_dump_job_fed_details.exit:                       ; preds = %722, %723
-  %724 = getelementptr inbounds i8, ptr %0, i64 624
-  %725 = load ptr, ptr %724, align 8
-  %.not542 = icmp eq ptr %725, null
-  br i1 %.not542, label %730, label %726
+_dump_job_fed_details.exit:                       ; preds = %720, %721
+  %722 = getelementptr inbounds i8, ptr %0, i64 624
+  %723 = load ptr, ptr %722, align 8
+  %.not542 = icmp eq ptr %723, null
+  br i1 %.not542, label %728, label %724
 
-726:                                              ; preds = %_dump_job_fed_details.exit
-  %727 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %725) #31
-  %728 = trunc i64 %727 to i32
-  %729 = add i32 %728, 1
-  br label %730
+724:                                              ; preds = %_dump_job_fed_details.exit
+  %725 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %723) #31
+  %726 = trunc i64 %725 to i32
+  %727 = add i32 %726, 1
+  br label %728
 
-730:                                              ; preds = %726, %_dump_job_fed_details.exit
-  %.0413 = phi i32 [ %729, %726 ], [ 0, %_dump_job_fed_details.exit ]
-  call void @packmem(ptr noundef %725, i32 noundef %.0413, ptr noundef %1) #28
-  %731 = getelementptr inbounds i8, ptr %0, i64 176
-  %732 = load ptr, ptr %731, align 8
-  %.not543 = icmp eq ptr %732, null
-  br i1 %.not543, label %737, label %733
+728:                                              ; preds = %724, %_dump_job_fed_details.exit
+  %.0413 = phi i32 [ %727, %724 ], [ 0, %_dump_job_fed_details.exit ]
+  call void @packmem(ptr noundef %723, i32 noundef %.0413, ptr noundef %1) #28
+  %729 = getelementptr inbounds i8, ptr %0, i64 176
+  %730 = load ptr, ptr %729, align 8
+  %.not543 = icmp eq ptr %730, null
+  br i1 %.not543, label %735, label %731
 
-733:                                              ; preds = %730
-  %734 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %732) #31
-  %735 = trunc i64 %734 to i32
-  %736 = add i32 %735, 1
-  br label %737
+731:                                              ; preds = %728
+  %732 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %730) #31
+  %733 = trunc i64 %732 to i32
+  %734 = add i32 %733, 1
+  br label %735
 
-737:                                              ; preds = %733, %730
-  %.0412 = phi i32 [ %736, %733 ], [ 0, %730 ]
-  call void @packmem(ptr noundef %732, i32 noundef %.0412, ptr noundef %1) #28
-  %738 = getelementptr inbounds i8, ptr %0, i64 520
-  %739 = load ptr, ptr %738, align 8
-  %.not544 = icmp eq ptr %739, null
-  br i1 %.not544, label %744, label %740
+735:                                              ; preds = %731, %728
+  %.0412 = phi i32 [ %734, %731 ], [ 0, %728 ]
+  call void @packmem(ptr noundef %730, i32 noundef %.0412, ptr noundef %1) #28
+  %736 = getelementptr inbounds i8, ptr %0, i64 520
+  %737 = load ptr, ptr %736, align 8
+  %.not544 = icmp eq ptr %737, null
+  br i1 %.not544, label %742, label %738
 
-740:                                              ; preds = %737
-  %741 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %739) #31
-  %742 = trunc i64 %741 to i32
-  %743 = add i32 %742, 1
-  br label %744
+738:                                              ; preds = %735
+  %739 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %737) #31
+  %740 = trunc i64 %739 to i32
+  %741 = add i32 %740, 1
+  br label %742
 
-744:                                              ; preds = %740, %737
-  %.0411 = phi i32 [ %743, %740 ], [ 0, %737 ]
-  call void @packmem(ptr noundef %739, i32 noundef %.0411, ptr noundef %1) #28
-  %745 = getelementptr inbounds i8, ptr %0, i64 968
-  %746 = load ptr, ptr %745, align 8
-  %.not545 = icmp eq ptr %746, null
-  br i1 %.not545, label %751, label %747
+742:                                              ; preds = %738, %735
+  %.0411 = phi i32 [ %741, %738 ], [ 0, %735 ]
+  call void @packmem(ptr noundef %737, i32 noundef %.0411, ptr noundef %1) #28
+  %743 = getelementptr inbounds i8, ptr %0, i64 968
+  %744 = load ptr, ptr %743, align 8
+  %.not545 = icmp eq ptr %744, null
+  br i1 %.not545, label %749, label %745
 
-747:                                              ; preds = %744
-  %748 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %746) #31
-  %749 = trunc i64 %748 to i32
-  %750 = add i32 %749, 1
-  br label %751
+745:                                              ; preds = %742
+  %746 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %744) #31
+  %747 = trunc i64 %746 to i32
+  %748 = add i32 %747, 1
+  br label %749
 
-751:                                              ; preds = %747, %744
-  %.0410 = phi i32 [ %750, %747 ], [ 0, %744 ]
-  call void @packmem(ptr noundef %746, i32 noundef %.0410, ptr noundef %1) #28
-  %752 = getelementptr inbounds i8, ptr %0, i64 976
-  %753 = load ptr, ptr %752, align 8
-  %.not546 = icmp eq ptr %753, null
-  br i1 %.not546, label %758, label %754
+749:                                              ; preds = %745, %742
+  %.0410 = phi i32 [ %748, %745 ], [ 0, %742 ]
+  call void @packmem(ptr noundef %744, i32 noundef %.0410, ptr noundef %1) #28
+  %750 = getelementptr inbounds i8, ptr %0, i64 976
+  %751 = load ptr, ptr %750, align 8
+  %.not546 = icmp eq ptr %751, null
+  br i1 %.not546, label %756, label %752
 
-754:                                              ; preds = %751
-  %755 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %753) #31
-  %756 = trunc i64 %755 to i32
-  %757 = add i32 %756, 1
-  br label %758
+752:                                              ; preds = %749
+  %753 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %751) #31
+  %754 = trunc i64 %753 to i32
+  %755 = add i32 %754, 1
+  br label %756
 
-758:                                              ; preds = %754, %751
-  %.0409 = phi i32 [ %757, %754 ], [ 0, %751 ]
-  call void @packmem(ptr noundef %753, i32 noundef %.0409, ptr noundef %1) #28
-  %759 = getelementptr inbounds i8, ptr %0, i64 984
-  %760 = load ptr, ptr %759, align 8
-  %.not547 = icmp eq ptr %760, null
-  br i1 %.not547, label %765, label %761
+756:                                              ; preds = %752, %749
+  %.0409 = phi i32 [ %755, %752 ], [ 0, %749 ]
+  call void @packmem(ptr noundef %751, i32 noundef %.0409, ptr noundef %1) #28
+  %757 = getelementptr inbounds i8, ptr %0, i64 984
+  %758 = load ptr, ptr %757, align 8
+  %.not547 = icmp eq ptr %758, null
+  br i1 %.not547, label %763, label %759
 
-761:                                              ; preds = %758
-  %762 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %760) #31
-  %763 = trunc i64 %762 to i32
-  %764 = add i32 %763, 1
-  br label %765
+759:                                              ; preds = %756
+  %760 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %758) #31
+  %761 = trunc i64 %760 to i32
+  %762 = add i32 %761, 1
+  br label %763
 
-765:                                              ; preds = %761, %758
-  %.0408 = phi i32 [ %764, %761 ], [ 0, %758 ]
-  call void @packmem(ptr noundef %760, i32 noundef %.0408, ptr noundef %1) #28
-  %766 = getelementptr inbounds i8, ptr %0, i64 992
-  %767 = load ptr, ptr %766, align 8
-  %.not548 = icmp eq ptr %767, null
-  br i1 %.not548, label %772, label %768
+763:                                              ; preds = %759, %756
+  %.0408 = phi i32 [ %762, %759 ], [ 0, %756 ]
+  call void @packmem(ptr noundef %758, i32 noundef %.0408, ptr noundef %1) #28
+  %764 = getelementptr inbounds i8, ptr %0, i64 992
+  %765 = load ptr, ptr %764, align 8
+  %.not548 = icmp eq ptr %765, null
+  br i1 %.not548, label %770, label %766
 
-768:                                              ; preds = %765
-  %769 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %767) #31
-  %770 = trunc i64 %769 to i32
-  %771 = add i32 %770, 1
-  br label %772
+766:                                              ; preds = %763
+  %767 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %765) #31
+  %768 = trunc i64 %767 to i32
+  %769 = add i32 %768, 1
+  br label %770
 
-772:                                              ; preds = %768, %765
-  %.0407 = phi i32 [ %771, %768 ], [ 0, %765 ]
-  call void @packmem(ptr noundef %767, i32 noundef %.0407, ptr noundef %1) #28
-  %773 = getelementptr inbounds i8, ptr %0, i64 1000
-  %774 = load ptr, ptr %773, align 8
-  %.not549 = icmp eq ptr %774, null
-  br i1 %.not549, label %779, label %775
+770:                                              ; preds = %766, %763
+  %.0407 = phi i32 [ %769, %766 ], [ 0, %763 ]
+  call void @packmem(ptr noundef %765, i32 noundef %.0407, ptr noundef %1) #28
+  %771 = getelementptr inbounds i8, ptr %0, i64 1000
+  %772 = load ptr, ptr %771, align 8
+  %.not549 = icmp eq ptr %772, null
+  br i1 %.not549, label %777, label %773
 
-775:                                              ; preds = %772
-  %776 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %774) #31
-  %777 = trunc i64 %776 to i32
-  %778 = add i32 %777, 1
-  br label %779
+773:                                              ; preds = %770
+  %774 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %772) #31
+  %775 = trunc i64 %774 to i32
+  %776 = add i32 %775, 1
+  br label %777
 
-779:                                              ; preds = %775, %772
-  %.0406 = phi i32 [ %778, %775 ], [ 0, %772 ]
-  call void @packmem(ptr noundef %774, i32 noundef %.0406, ptr noundef %1) #28
-  %780 = getelementptr inbounds i8, ptr %0, i64 1008
-  %781 = load ptr, ptr %780, align 8
-  %.not550 = icmp eq ptr %781, null
-  br i1 %.not550, label %786, label %782
+777:                                              ; preds = %773, %770
+  %.0406 = phi i32 [ %776, %773 ], [ 0, %770 ]
+  call void @packmem(ptr noundef %772, i32 noundef %.0406, ptr noundef %1) #28
+  %778 = getelementptr inbounds i8, ptr %0, i64 1008
+  %779 = load ptr, ptr %778, align 8
+  %.not550 = icmp eq ptr %779, null
+  br i1 %.not550, label %784, label %780
 
-782:                                              ; preds = %779
-  %783 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %781) #31
-  %784 = trunc i64 %783 to i32
-  %785 = add i32 %784, 1
-  br label %786
+780:                                              ; preds = %777
+  %781 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %779) #31
+  %782 = trunc i64 %781 to i32
+  %783 = add i32 %782, 1
+  br label %784
 
-786:                                              ; preds = %782, %779
-  %.0405 = phi i32 [ %785, %782 ], [ 0, %779 ]
-  call void @packmem(ptr noundef %781, i32 noundef %.0405, ptr noundef %1) #28
-  %787 = getelementptr inbounds i8, ptr %0, i64 856
-  %788 = load ptr, ptr %787, align 8
-  %.not551 = icmp eq ptr %788, null
-  br i1 %.not551, label %793, label %789
+784:                                              ; preds = %780, %777
+  %.0405 = phi i32 [ %783, %780 ], [ 0, %777 ]
+  call void @packmem(ptr noundef %779, i32 noundef %.0405, ptr noundef %1) #28
+  %785 = getelementptr inbounds i8, ptr %0, i64 856
+  %786 = load ptr, ptr %785, align 8
+  %.not551 = icmp eq ptr %786, null
+  br i1 %.not551, label %791, label %787
 
-789:                                              ; preds = %786
-  %790 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %788) #31
-  %791 = trunc i64 %790 to i32
-  %792 = add i32 %791, 1
-  br label %793
+787:                                              ; preds = %784
+  %788 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %786) #31
+  %789 = trunc i64 %788 to i32
+  %790 = add i32 %789, 1
+  br label %791
 
-793:                                              ; preds = %789, %786
-  %.0 = phi i32 [ %792, %789 ], [ 0, %786 ]
-  call void @packmem(ptr noundef %788, i32 noundef %.0, ptr noundef %1) #28
-  %794 = getelementptr inbounds i8, ptr %0, i64 400
-  %795 = load ptr, ptr %794, align 8
-  %.not552 = icmp eq ptr %795, null
-  br i1 %.not552, label %798, label %796
+791:                                              ; preds = %787, %784
+  %.0 = phi i32 [ %790, %787 ], [ 0, %784 ]
+  call void @packmem(ptr noundef %786, i32 noundef %.0, ptr noundef %1) #28
+  %792 = getelementptr inbounds i8, ptr %0, i64 400
+  %793 = load ptr, ptr %792, align 8
+  %.not552 = icmp eq ptr %793, null
+  br i1 %.not552, label %796, label %794
 
-796:                                              ; preds = %793
+794:                                              ; preds = %791
   call void @pack8(i8 noundef zeroext 1, ptr noundef %1) #28
-  %797 = load ptr, ptr %794, align 8
-  call void @pack_identity(ptr noundef %797, ptr noundef %1, i16 noundef zeroext 10496) #28
-  br label %799
+  %795 = load ptr, ptr %792, align 8
+  call void @pack_identity(ptr noundef %795, ptr noundef %1, i16 noundef zeroext 10496) #28
+  br label %797
 
-798:                                              ; preds = %793
+796:                                              ; preds = %791
   call void @pack8(i8 noundef zeroext 0, ptr noundef %1) #28
-  br label %799
+  br label %797
 
-799:                                              ; preds = %796, %798, %2
+797:                                              ; preds = %794, %796, %2
   ret i32 0
 }
 
@@ -23571,7 +23567,7 @@ define dso_local void @pack_job(ptr noundef %0, i16 noundef zeroext %1, ptr noun
   store ptr null, ptr %9, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %10, ptr noundef nonnull align 4 dereferenceable(28) @__const.pack_job.locks, i64 28, i1 false)
   %13 = icmp ugt i16 %3, 9983
-  br i1 %13, label %14, label %891
+  br i1 %13, label %14, label %888
 
 14:                                               ; preds = %6
   %15 = getelementptr inbounds i8, ptr %0, i64 216
@@ -23677,8 +23673,8 @@ find_job_record.exit:                             ; preds = %.lr.ph.i
   br i1 %.not541, label %find_job_record.exit.thread, label %find_job_record.exit.thread.sink.split
 
 find_job_record.exit.thread.sink.split:           ; preds = %find_job_record.exit, %47
-  %.sink621 = phi ptr [ %48, %47 ], [ %63, %find_job_record.exit ]
-  %64 = getelementptr inbounds i8, ptr %.sink621, i64 28
+  %.sink622 = phi ptr [ %48, %47 ], [ %63, %find_job_record.exit ]
+  %64 = getelementptr inbounds i8, ptr %.sink622, i64 28
   %65 = load i32, ptr %64, align 4
   br label %find_job_record.exit.thread
 
@@ -25088,272 +25084,261 @@ _find_node_config.exit.i:                         ; preds = %.loopexit.i.i
 
 _pack_default_job_details.exit:                   ; preds = %753, %754, %761
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
-  %.not592 = icmp eq ptr %16, null
-  br i1 %.not592, label %765, label %764
+  call fastcc void @_pack_pending_job_details(ptr noundef %16, ptr noundef %2, i16 noundef zeroext %3)
+  %764 = getelementptr inbounds i8, ptr %0, i64 112
+  %765 = load i64, ptr %764, align 8
+  call void @pack64(i64 noundef %765, ptr noundef %2) #28
+  %766 = getelementptr inbounds i8, ptr %0, i64 1056
+  %767 = load ptr, ptr %766, align 8
+  %.not593 = icmp eq ptr %767, null
+  br i1 %.not593, label %772, label %768
 
-764:                                              ; preds = %_pack_default_job_details.exit
-  call fastcc void @_pack_pending_job_details(ptr noundef nonnull %16, ptr noundef %2, i16 noundef zeroext %3)
-  br label %766
+768:                                              ; preds = %_pack_default_job_details.exit
+  %769 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %767) #31
+  %770 = trunc i64 %769 to i32
+  %771 = add i32 %770, 1
+  br label %772
 
-765:                                              ; preds = %_pack_default_job_details.exit
-  call fastcc void @_pack_pending_job_details(ptr noundef null, ptr noundef %2, i16 noundef zeroext %3)
-  br label %766
+772:                                              ; preds = %768, %_pack_default_job_details.exit
+  %.0435 = phi i32 [ %771, %768 ], [ 0, %_pack_default_job_details.exit ]
+  call void @packmem(ptr noundef %767, i32 noundef %.0435, ptr noundef %2) #28
+  %773 = getelementptr inbounds i8, ptr %0, i64 1032
+  %774 = load ptr, ptr %773, align 8
+  %.not594 = icmp eq ptr %774, null
+  br i1 %.not594, label %779, label %775
 
-766:                                              ; preds = %765, %764
-  %767 = getelementptr inbounds i8, ptr %0, i64 112
-  %768 = load i64, ptr %767, align 8
-  call void @pack64(i64 noundef %768, ptr noundef %2) #28
-  %769 = getelementptr inbounds i8, ptr %0, i64 1056
-  %770 = load ptr, ptr %769, align 8
-  %.not593 = icmp eq ptr %770, null
-  br i1 %.not593, label %775, label %771
+775:                                              ; preds = %772
+  %776 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %774) #31
+  %777 = trunc i64 %776 to i32
+  %778 = add i32 %777, 1
+  br label %779
 
-771:                                              ; preds = %766
-  %772 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %770) #31
-  %773 = trunc i64 %772 to i32
-  %774 = add i32 %773, 1
-  br label %775
+779:                                              ; preds = %775, %772
+  %.0434 = phi i32 [ %778, %775 ], [ 0, %772 ]
+  call void @packmem(ptr noundef %774, i32 noundef %.0434, ptr noundef %2) #28
+  %780 = getelementptr inbounds i8, ptr %0, i64 884
+  %781 = load i16, ptr %780, align 4
+  call void @pack16(i16 noundef zeroext %781, ptr noundef %2) #28
+  %782 = getelementptr inbounds i8, ptr %0, i64 280
+  %783 = load ptr, ptr %782, align 8
+  %.not595 = icmp eq ptr %783, null
+  br i1 %.not595, label %814, label %784
 
-775:                                              ; preds = %771, %766
-  %.0435 = phi i32 [ %774, %771 ], [ 0, %766 ]
-  call void @packmem(ptr noundef %770, i32 noundef %.0435, ptr noundef %2) #28
-  %776 = getelementptr inbounds i8, ptr %0, i64 1032
-  %777 = load ptr, ptr %776, align 8
-  %.not594 = icmp eq ptr %777, null
-  br i1 %.not594, label %782, label %778
-
-778:                                              ; preds = %775
-  %779 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %777) #31
-  %780 = trunc i64 %779 to i32
-  %781 = add i32 %780, 1
-  br label %782
-
-782:                                              ; preds = %778, %775
-  %.0434 = phi i32 [ %781, %778 ], [ 0, %775 ]
-  call void @packmem(ptr noundef %777, i32 noundef %.0434, ptr noundef %2) #28
-  %783 = getelementptr inbounds i8, ptr %0, i64 884
-  %784 = load i16, ptr %783, align 4
-  call void @pack16(i16 noundef zeroext %784, ptr noundef %2) #28
-  %785 = getelementptr inbounds i8, ptr %0, i64 280
+784:                                              ; preds = %779
+  %785 = getelementptr inbounds i8, ptr %783, i64 8
   %786 = load ptr, ptr %785, align 8
-  %.not595 = icmp eq ptr %786, null
-  br i1 %.not595, label %817, label %787
+  %.not596 = icmp eq ptr %786, null
+  br i1 %.not596, label %791, label %787
 
-787:                                              ; preds = %782
-  %788 = getelementptr inbounds i8, ptr %786, i64 8
-  %789 = load ptr, ptr %788, align 8
-  %.not596 = icmp eq ptr %789, null
-  br i1 %.not596, label %794, label %790
+787:                                              ; preds = %784
+  %788 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %786) #31
+  %789 = trunc i64 %788 to i32
+  %790 = add i32 %789, 1
+  br label %791
 
-790:                                              ; preds = %787
-  %791 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %789) #31
-  %792 = trunc i64 %791 to i32
-  %793 = add i32 %792, 1
-  br label %794
+791:                                              ; preds = %787, %784
+  %.0433 = phi i32 [ %790, %787 ], [ 0, %784 ]
+  call void @packmem(ptr noundef %786, i32 noundef %.0433, ptr noundef %2) #28
+  %792 = load ptr, ptr %782, align 8
+  %793 = getelementptr inbounds i8, ptr %792, i64 16
+  %794 = load i64, ptr %793, align 8
+  call void @pack64(i64 noundef %794, ptr noundef %2) #28
+  %795 = load ptr, ptr %782, align 8
+  %796 = getelementptr inbounds i8, ptr %795, i64 24
+  %797 = load ptr, ptr %796, align 8
+  %.not597 = icmp eq ptr %797, null
+  br i1 %.not597, label %802, label %798
 
-794:                                              ; preds = %790, %787
-  %.0433 = phi i32 [ %793, %790 ], [ 0, %787 ]
-  call void @packmem(ptr noundef %789, i32 noundef %.0433, ptr noundef %2) #28
-  %795 = load ptr, ptr %785, align 8
-  %796 = getelementptr inbounds i8, ptr %795, i64 16
-  %797 = load i64, ptr %796, align 8
-  call void @pack64(i64 noundef %797, ptr noundef %2) #28
-  %798 = load ptr, ptr %785, align 8
-  %799 = getelementptr inbounds i8, ptr %798, i64 24
-  %800 = load ptr, ptr %799, align 8
-  %.not597 = icmp eq ptr %800, null
-  br i1 %.not597, label %805, label %801
+798:                                              ; preds = %791
+  %799 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %797) #31
+  %800 = trunc i64 %799 to i32
+  %801 = add i32 %800, 1
+  br label %802
 
-801:                                              ; preds = %794
-  %802 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %800) #31
-  %803 = trunc i64 %802 to i32
-  %804 = add i32 %803, 1
-  br label %805
+802:                                              ; preds = %798, %791
+  %.0432 = phi i32 [ %801, %798 ], [ 0, %791 ]
+  call void @packmem(ptr noundef %797, i32 noundef %.0432, ptr noundef %2) #28
+  %803 = load ptr, ptr %782, align 8
+  %804 = getelementptr inbounds i8, ptr %803, i64 32
+  %805 = load i64, ptr %804, align 8
+  call void @pack64(i64 noundef %805, ptr noundef %2) #28
+  %806 = load ptr, ptr %782, align 8
+  %807 = getelementptr inbounds i8, ptr %806, i64 40
+  %808 = load ptr, ptr %807, align 8
+  %.not598 = icmp eq ptr %808, null
+  br i1 %.not598, label %813, label %809
 
-805:                                              ; preds = %801, %794
-  %.0432 = phi i32 [ %804, %801 ], [ 0, %794 ]
-  call void @packmem(ptr noundef %800, i32 noundef %.0432, ptr noundef %2) #28
-  %806 = load ptr, ptr %785, align 8
-  %807 = getelementptr inbounds i8, ptr %806, i64 32
-  %808 = load i64, ptr %807, align 8
-  call void @pack64(i64 noundef %808, ptr noundef %2) #28
-  %809 = load ptr, ptr %785, align 8
-  %810 = getelementptr inbounds i8, ptr %809, i64 40
-  %811 = load ptr, ptr %810, align 8
-  %.not598 = icmp eq ptr %811, null
-  br i1 %.not598, label %816, label %812
+809:                                              ; preds = %802
+  %810 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %808) #31
+  %811 = trunc i64 %810 to i32
+  %812 = add i32 %811, 1
+  br label %813
 
-812:                                              ; preds = %805
-  %813 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %811) #31
-  %814 = trunc i64 %813 to i32
-  %815 = add i32 %814, 1
-  br label %816
+813:                                              ; preds = %809, %802
+  %.0431 = phi i32 [ %812, %809 ], [ 0, %802 ]
+  call void @packmem(ptr noundef %808, i32 noundef %.0431, ptr noundef %2) #28
+  br label %815
 
-816:                                              ; preds = %812, %805
-  %.0431 = phi i32 [ %815, %812 ], [ 0, %805 ]
-  call void @packmem(ptr noundef %811, i32 noundef %.0431, ptr noundef %2) #28
-  br label %818
-
-817:                                              ; preds = %782
+814:                                              ; preds = %779
   call void @packmem(ptr noundef null, i32 noundef 0, ptr noundef %2) #28
   call void @pack64(i64 noundef 0, ptr noundef %2) #28
   call void @packmem(ptr noundef null, i32 noundef 0, ptr noundef %2) #28
   call void @pack64(i64 noundef 0, ptr noundef %2) #28
   call void @packmem(ptr noundef null, i32 noundef 0, ptr noundef %2) #28
-  br label %818
+  br label %815
 
-818:                                              ; preds = %816, %817
-  %819 = getelementptr inbounds i8, ptr %0, i64 176
-  %820 = load ptr, ptr %819, align 8
-  %.not599 = icmp eq ptr %820, null
-  br i1 %.not599, label %825, label %821
+815:                                              ; preds = %813, %814
+  %816 = getelementptr inbounds i8, ptr %0, i64 176
+  %817 = load ptr, ptr %816, align 8
+  %.not599 = icmp eq ptr %817, null
+  br i1 %.not599, label %822, label %818
 
-821:                                              ; preds = %818
-  %822 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %820) #31
-  %823 = trunc i64 %822 to i32
-  %824 = add i32 %823, 1
-  br label %825
+818:                                              ; preds = %815
+  %819 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %817) #31
+  %820 = trunc i64 %819 to i32
+  %821 = add i32 %820, 1
+  br label %822
 
-825:                                              ; preds = %821, %818
-  %.0430 = phi i32 [ %824, %821 ], [ 0, %818 ]
-  call void @packmem(ptr noundef %820, i32 noundef %.0430, ptr noundef %2) #28
-  %826 = getelementptr inbounds i8, ptr %0, i64 520
-  %827 = load ptr, ptr %826, align 8
-  %.not600 = icmp eq ptr %827, null
-  br i1 %.not600, label %832, label %828
+822:                                              ; preds = %818, %815
+  %.0430 = phi i32 [ %821, %818 ], [ 0, %815 ]
+  call void @packmem(ptr noundef %817, i32 noundef %.0430, ptr noundef %2) #28
+  %823 = getelementptr inbounds i8, ptr %0, i64 520
+  %824 = load ptr, ptr %823, align 8
+  %.not600 = icmp eq ptr %824, null
+  br i1 %.not600, label %829, label %825
 
-828:                                              ; preds = %825
-  %829 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %827) #31
-  %830 = trunc i64 %829 to i32
-  %831 = add i32 %830, 1
-  br label %832
+825:                                              ; preds = %822
+  %826 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %824) #31
+  %827 = trunc i64 %826 to i32
+  %828 = add i32 %827, 1
+  br label %829
 
-832:                                              ; preds = %828, %825
-  %.0429 = phi i32 [ %831, %828 ], [ 0, %825 ]
-  call void @packmem(ptr noundef %827, i32 noundef %.0429, ptr noundef %2) #28
-  %833 = getelementptr inbounds i8, ptr %0, i64 968
-  %834 = load ptr, ptr %833, align 8
-  %.not601 = icmp eq ptr %834, null
-  br i1 %.not601, label %839, label %835
+829:                                              ; preds = %825, %822
+  %.0429 = phi i32 [ %828, %825 ], [ 0, %822 ]
+  call void @packmem(ptr noundef %824, i32 noundef %.0429, ptr noundef %2) #28
+  %830 = getelementptr inbounds i8, ptr %0, i64 968
+  %831 = load ptr, ptr %830, align 8
+  %.not601 = icmp eq ptr %831, null
+  br i1 %.not601, label %836, label %832
 
-835:                                              ; preds = %832
-  %836 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %834) #31
-  %837 = trunc i64 %836 to i32
-  %838 = add i32 %837, 1
-  br label %839
+832:                                              ; preds = %829
+  %833 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %831) #31
+  %834 = trunc i64 %833 to i32
+  %835 = add i32 %834, 1
+  br label %836
 
-839:                                              ; preds = %835, %832
-  %.0428 = phi i32 [ %838, %835 ], [ 0, %832 ]
-  call void @packmem(ptr noundef %834, i32 noundef %.0428, ptr noundef %2) #28
-  %840 = getelementptr inbounds i8, ptr %0, i64 976
-  %841 = load ptr, ptr %840, align 8
-  %.not602 = icmp eq ptr %841, null
-  br i1 %.not602, label %846, label %842
+836:                                              ; preds = %832, %829
+  %.0428 = phi i32 [ %835, %832 ], [ 0, %829 ]
+  call void @packmem(ptr noundef %831, i32 noundef %.0428, ptr noundef %2) #28
+  %837 = getelementptr inbounds i8, ptr %0, i64 976
+  %838 = load ptr, ptr %837, align 8
+  %.not602 = icmp eq ptr %838, null
+  br i1 %.not602, label %843, label %839
 
-842:                                              ; preds = %839
-  %843 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %841) #31
-  %844 = trunc i64 %843 to i32
-  %845 = add i32 %844, 1
-  br label %846
+839:                                              ; preds = %836
+  %840 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %838) #31
+  %841 = trunc i64 %840 to i32
+  %842 = add i32 %841, 1
+  br label %843
 
-846:                                              ; preds = %842, %839
-  %.0427 = phi i32 [ %845, %842 ], [ 0, %839 ]
-  call void @packmem(ptr noundef %841, i32 noundef %.0427, ptr noundef %2) #28
-  %847 = getelementptr inbounds i8, ptr %0, i64 984
-  %848 = load ptr, ptr %847, align 8
-  %.not603 = icmp eq ptr %848, null
-  br i1 %.not603, label %853, label %849
+843:                                              ; preds = %839, %836
+  %.0427 = phi i32 [ %842, %839 ], [ 0, %836 ]
+  call void @packmem(ptr noundef %838, i32 noundef %.0427, ptr noundef %2) #28
+  %844 = getelementptr inbounds i8, ptr %0, i64 984
+  %845 = load ptr, ptr %844, align 8
+  %.not603 = icmp eq ptr %845, null
+  br i1 %.not603, label %850, label %846
 
-849:                                              ; preds = %846
-  %850 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %848) #31
-  %851 = trunc i64 %850 to i32
-  %852 = add i32 %851, 1
-  br label %853
+846:                                              ; preds = %843
+  %847 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %845) #31
+  %848 = trunc i64 %847 to i32
+  %849 = add i32 %848, 1
+  br label %850
 
-853:                                              ; preds = %849, %846
-  %.0426 = phi i32 [ %852, %849 ], [ 0, %846 ]
-  call void @packmem(ptr noundef %848, i32 noundef %.0426, ptr noundef %2) #28
-  %854 = getelementptr inbounds i8, ptr %0, i64 992
-  %855 = load ptr, ptr %854, align 8
-  %.not604 = icmp eq ptr %855, null
-  br i1 %.not604, label %860, label %856
+850:                                              ; preds = %846, %843
+  %.0426 = phi i32 [ %849, %846 ], [ 0, %843 ]
+  call void @packmem(ptr noundef %845, i32 noundef %.0426, ptr noundef %2) #28
+  %851 = getelementptr inbounds i8, ptr %0, i64 992
+  %852 = load ptr, ptr %851, align 8
+  %.not604 = icmp eq ptr %852, null
+  br i1 %.not604, label %857, label %853
 
-856:                                              ; preds = %853
-  %857 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %855) #31
-  %858 = trunc i64 %857 to i32
-  %859 = add i32 %858, 1
-  br label %860
+853:                                              ; preds = %850
+  %854 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %852) #31
+  %855 = trunc i64 %854 to i32
+  %856 = add i32 %855, 1
+  br label %857
 
-860:                                              ; preds = %856, %853
-  %.0425 = phi i32 [ %859, %856 ], [ 0, %853 ]
-  call void @packmem(ptr noundef %855, i32 noundef %.0425, ptr noundef %2) #28
-  %861 = getelementptr inbounds i8, ptr %0, i64 1000
-  %862 = load ptr, ptr %861, align 8
-  %.not605 = icmp eq ptr %862, null
-  br i1 %.not605, label %867, label %863
+857:                                              ; preds = %853, %850
+  %.0425 = phi i32 [ %856, %853 ], [ 0, %850 ]
+  call void @packmem(ptr noundef %852, i32 noundef %.0425, ptr noundef %2) #28
+  %858 = getelementptr inbounds i8, ptr %0, i64 1000
+  %859 = load ptr, ptr %858, align 8
+  %.not605 = icmp eq ptr %859, null
+  br i1 %.not605, label %864, label %860
 
-863:                                              ; preds = %860
-  %864 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %862) #31
-  %865 = trunc i64 %864 to i32
-  %866 = add i32 %865, 1
-  br label %867
+860:                                              ; preds = %857
+  %861 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %859) #31
+  %862 = trunc i64 %861 to i32
+  %863 = add i32 %862, 1
+  br label %864
 
-867:                                              ; preds = %863, %860
-  %.0424 = phi i32 [ %866, %863 ], [ 0, %860 ]
-  call void @packmem(ptr noundef %862, i32 noundef %.0424, ptr noundef %2) #28
-  %868 = getelementptr inbounds i8, ptr %0, i64 1008
-  %869 = load ptr, ptr %868, align 8
-  %.not606 = icmp eq ptr %869, null
-  br i1 %.not606, label %874, label %870
+864:                                              ; preds = %860, %857
+  %.0424 = phi i32 [ %863, %860 ], [ 0, %857 ]
+  call void @packmem(ptr noundef %859, i32 noundef %.0424, ptr noundef %2) #28
+  %865 = getelementptr inbounds i8, ptr %0, i64 1008
+  %866 = load ptr, ptr %865, align 8
+  %.not606 = icmp eq ptr %866, null
+  br i1 %.not606, label %871, label %867
 
-870:                                              ; preds = %867
-  %871 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %869) #31
-  %872 = trunc i64 %871 to i32
-  %873 = add i32 %872, 1
-  br label %874
+867:                                              ; preds = %864
+  %868 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %866) #31
+  %869 = trunc i64 %868 to i32
+  %870 = add i32 %869, 1
+  br label %871
 
-874:                                              ; preds = %870, %867
-  %.0423 = phi i32 [ %873, %870 ], [ 0, %867 ]
-  call void @packmem(ptr noundef %869, i32 noundef %.0423, ptr noundef %2) #28
-  %875 = getelementptr inbounds i8, ptr %0, i64 504
-  %876 = load i16, ptr %875, align 8
-  call void @pack16(i16 noundef zeroext %876, ptr noundef %2) #28
-  %877 = getelementptr inbounds i8, ptr %0, i64 512
-  %878 = load ptr, ptr %877, align 8
-  %.not607 = icmp eq ptr %878, null
-  br i1 %.not607, label %883, label %879
+871:                                              ; preds = %867, %864
+  %.0423 = phi i32 [ %870, %867 ], [ 0, %864 ]
+  call void @packmem(ptr noundef %866, i32 noundef %.0423, ptr noundef %2) #28
+  %872 = getelementptr inbounds i8, ptr %0, i64 504
+  %873 = load i16, ptr %872, align 8
+  call void @pack16(i16 noundef zeroext %873, ptr noundef %2) #28
+  %874 = getelementptr inbounds i8, ptr %0, i64 512
+  %875 = load ptr, ptr %874, align 8
+  %.not607 = icmp eq ptr %875, null
+  br i1 %.not607, label %880, label %876
 
-879:                                              ; preds = %874
-  %880 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %878) #31
-  %881 = trunc i64 %880 to i32
-  %882 = add i32 %881, 1
-  br label %883
+876:                                              ; preds = %871
+  %877 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %875) #31
+  %878 = trunc i64 %877 to i32
+  %879 = add i32 %878, 1
+  br label %880
 
-883:                                              ; preds = %879, %874
-  %.0422 = phi i32 [ %882, %879 ], [ 0, %874 ]
-  call void @packmem(ptr noundef %878, i32 noundef %.0422, ptr noundef %2) #28
-  %884 = getelementptr inbounds i8, ptr %0, i64 856
-  %885 = load ptr, ptr %884, align 8
-  %.not608 = icmp eq ptr %885, null
-  br i1 %.not608, label %890, label %886
+880:                                              ; preds = %876, %871
+  %.0422 = phi i32 [ %879, %876 ], [ 0, %871 ]
+  call void @packmem(ptr noundef %875, i32 noundef %.0422, ptr noundef %2) #28
+  %881 = getelementptr inbounds i8, ptr %0, i64 856
+  %882 = load ptr, ptr %881, align 8
+  %.not608 = icmp eq ptr %882, null
+  br i1 %.not608, label %887, label %883
 
-886:                                              ; preds = %883
-  %887 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %885) #31
-  %888 = trunc i64 %887 to i32
-  %889 = add i32 %888, 1
-  br label %890
+883:                                              ; preds = %880
+  %884 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %882) #31
+  %885 = trunc i64 %884 to i32
+  %886 = add i32 %885, 1
+  br label %887
 
-890:                                              ; preds = %886, %883
-  %.0 = phi i32 [ %889, %886 ], [ 0, %883 ]
-  call void @packmem(ptr noundef %885, i32 noundef %.0, ptr noundef %2) #28
-  br label %894
+887:                                              ; preds = %883, %880
+  %.0 = phi i32 [ %886, %883 ], [ 0, %880 ]
+  call void @packmem(ptr noundef %882, i32 noundef %.0, ptr noundef %2) #28
+  br label %891
 
-891:                                              ; preds = %6
-  %892 = zext nneg i16 %3 to i32
-  %893 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.184, i32 noundef %892) #28
-  br label %894
+888:                                              ; preds = %6
+  %889 = zext nneg i16 %3 to i32
+  %890 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.184, i32 noundef %889) #28
+  br label %891
 
-894:                                              ; preds = %891, %890
+891:                                              ; preds = %888, %887
   ret void
 }
 

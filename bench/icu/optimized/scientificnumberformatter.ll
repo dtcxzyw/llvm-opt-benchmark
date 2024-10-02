@@ -89,14 +89,7 @@ delete.notnull.i.i:                               ; preds = %lpad4.i
 if.end11.i:                                       ; preds = %new.notnull.i
   %3 = load i32, ptr %status, align 4
   %cmp.i7.i = icmp slt i32 %3, 1
-  br i1 %cmp.i7.i, label %_ZN6icu_7525ScientificNumberFormatter14createInstanceEPNS_13DecimalFormatEPNS0_5StyleER10UErrorCode.exit, label %delete.notnull.i
-
-delete.notnull.i:                                 ; preds = %if.end11.i
-  %vtable.i = load ptr, ptr %call3.i, align 8
-  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 8
-  %4 = load ptr, ptr %vfn.i, align 8
-  tail call void %4(ptr noundef nonnull align 8 dereferenceable(88) %call3.i) #6
-  br label %_ZN6icu_7525ScientificNumberFormatter14createInstanceEPNS_13DecimalFormatEPNS0_5StyleER10UErrorCode.exit
+  br i1 %cmp.i7.i, label %_ZN6icu_7525ScientificNumberFormatter14createInstanceEPNS_13DecimalFormatEPNS0_5StyleER10UErrorCode.exit, label %_ZN6icu_7512LocalPointerINS_13DecimalFormatEED2Ev.exit.sink.split.i
 
 cleanup.i:                                        ; preds = %if.then10.i, %new.cont
   br i1 %new.isnull, label %_ZN6icu_7512LocalPointerINS_25ScientificNumberFormatter5StyleEED2Ev.exit13.i, label %delete.notnull.i10.i
@@ -104,19 +97,20 @@ cleanup.i:                                        ; preds = %if.then10.i, %new.c
 delete.notnull.i10.i:                             ; preds = %cleanup.i
   %vtable.i11.i = load ptr, ptr %call, align 8
   %vfn.i12.i = getelementptr inbounds i8, ptr %vtable.i11.i, i64 8
-  %5 = load ptr, ptr %vfn.i12.i, align 8
-  tail call void %5(ptr noundef nonnull align 8 dereferenceable(8) %call) #6
+  %4 = load ptr, ptr %vfn.i12.i, align 8
+  tail call void %4(ptr noundef nonnull align 8 dereferenceable(8) %call) #6
   br label %_ZN6icu_7512LocalPointerINS_25ScientificNumberFormatter5StyleEED2Ev.exit13.i
 
 _ZN6icu_7512LocalPointerINS_25ScientificNumberFormatter5StyleEED2Ev.exit13.i: ; preds = %delete.notnull.i10.i, %cleanup.i
   %isnull.i14.i = icmp eq ptr %fmtToAdopt, null
-  br i1 %isnull.i14.i, label %_ZN6icu_7525ScientificNumberFormatter14createInstanceEPNS_13DecimalFormatEPNS0_5StyleER10UErrorCode.exit, label %delete.notnull.i15.i
+  br i1 %isnull.i14.i, label %_ZN6icu_7525ScientificNumberFormatter14createInstanceEPNS_13DecimalFormatEPNS0_5StyleER10UErrorCode.exit, label %_ZN6icu_7512LocalPointerINS_13DecimalFormatEED2Ev.exit.sink.split.i
 
-delete.notnull.i15.i:                             ; preds = %_ZN6icu_7512LocalPointerINS_25ScientificNumberFormatter5StyleEED2Ev.exit13.i
-  %vtable.i16.i = load ptr, ptr %fmtToAdopt, align 8
-  %vfn.i17.i = getelementptr inbounds i8, ptr %vtable.i16.i, i64 8
-  %6 = load ptr, ptr %vfn.i17.i, align 8
-  tail call void %6(ptr noundef nonnull align 8 dereferenceable(368) %fmtToAdopt) #6
+_ZN6icu_7512LocalPointerINS_13DecimalFormatEED2Ev.exit.sink.split.i: ; preds = %_ZN6icu_7512LocalPointerINS_25ScientificNumberFormatter5StyleEED2Ev.exit13.i, %if.end11.i
+  %call3.sink40.i = phi ptr [ %call3.i, %if.end11.i ], [ %fmtToAdopt, %_ZN6icu_7512LocalPointerINS_25ScientificNumberFormatter5StyleEED2Ev.exit13.i ]
+  %vtable.i = load ptr, ptr %call3.sink40.i, align 8
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 8
+  %5 = load ptr, ptr %vfn.i, align 8
+  tail call void %5(ptr noundef nonnull align 8 dereferenceable(88) %call3.sink40.i) #6
   br label %_ZN6icu_7525ScientificNumberFormatter14createInstanceEPNS_13DecimalFormatEPNS0_5StyleER10UErrorCode.exit
 
 ehcleanup22.i:                                    ; preds = %delete.notnull.i.i, %lpad4.i
@@ -126,15 +120,15 @@ ehcleanup22.i:                                    ; preds = %delete.notnull.i.i,
 delete.notnull.i19.i:                             ; preds = %ehcleanup22.i
   %vtable.i20.i = load ptr, ptr %fmtToAdopt, align 8
   %vfn.i21.i = getelementptr inbounds i8, ptr %vtable.i20.i, i64 8
-  %7 = load ptr, ptr %vfn.i21.i, align 8
-  tail call void %7(ptr noundef nonnull align 8 dereferenceable(368) %fmtToAdopt) #6
+  %6 = load ptr, ptr %vfn.i21.i, align 8
+  tail call void %6(ptr noundef nonnull align 8 dereferenceable(368) %fmtToAdopt) #6
   br label %_ZN6icu_7512LocalPointerINS_13DecimalFormatEED2Ev.exit22.i
 
 _ZN6icu_7512LocalPointerINS_13DecimalFormatEED2Ev.exit22.i: ; preds = %delete.notnull.i19.i, %ehcleanup22.i
   resume { ptr, i32 } %1
 
-_ZN6icu_7525ScientificNumberFormatter14createInstanceEPNS_13DecimalFormatEPNS0_5StyleER10UErrorCode.exit: ; preds = %if.end11.i, %delete.notnull.i, %_ZN6icu_7512LocalPointerINS_25ScientificNumberFormatter5StyleEED2Ev.exit13.i, %delete.notnull.i15.i
-  %retval.03539.i = phi ptr [ null, %_ZN6icu_7512LocalPointerINS_25ScientificNumberFormatter5StyleEED2Ev.exit13.i ], [ null, %delete.notnull.i15.i ], [ %call3.i, %if.end11.i ], [ null, %delete.notnull.i ]
+_ZN6icu_7525ScientificNumberFormatter14createInstanceEPNS_13DecimalFormatEPNS0_5StyleER10UErrorCode.exit: ; preds = %if.end11.i, %_ZN6icu_7512LocalPointerINS_25ScientificNumberFormatter5StyleEED2Ev.exit13.i, %_ZN6icu_7512LocalPointerINS_13DecimalFormatEED2Ev.exit.sink.split.i
+  %retval.03539.i = phi ptr [ null, %_ZN6icu_7512LocalPointerINS_25ScientificNumberFormatter5StyleEED2Ev.exit13.i ], [ %call3.i, %if.end11.i ], [ null, %_ZN6icu_7512LocalPointerINS_13DecimalFormatEED2Ev.exit.sink.split.i ]
   ret ptr %retval.03539.i
 }
 
@@ -175,14 +169,7 @@ delete.notnull.i:                                 ; preds = %lpad4
 if.end11:                                         ; preds = %new.notnull
   %3 = load i32, ptr %status, align 4
   %cmp.i7 = icmp slt i32 %3, 1
-  br i1 %cmp.i7, label %_ZN6icu_7512LocalPointerINS_13DecimalFormatEED2Ev.exit, label %delete.notnull
-
-delete.notnull:                                   ; preds = %if.end11
-  %vtable = load ptr, ptr %call3, align 8
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 8
-  %4 = load ptr, ptr %vfn, align 8
-  tail call void %4(ptr noundef nonnull align 8 dereferenceable(88) %call3) #6
-  br label %_ZN6icu_7512LocalPointerINS_13DecimalFormatEED2Ev.exit
+  br i1 %cmp.i7, label %_ZN6icu_7512LocalPointerINS_13DecimalFormatEED2Ev.exit, label %_ZN6icu_7512LocalPointerINS_13DecimalFormatEED2Ev.exit.sink.split
 
 cleanup:                                          ; preds = %invoke.cont, %if.then10
   %isnull.i9 = icmp eq ptr %styleToAdopt, null
@@ -191,23 +178,24 @@ cleanup:                                          ; preds = %invoke.cont, %if.th
 delete.notnull.i10:                               ; preds = %cleanup
   %vtable.i11 = load ptr, ptr %styleToAdopt, align 8
   %vfn.i12 = getelementptr inbounds i8, ptr %vtable.i11, i64 8
-  %5 = load ptr, ptr %vfn.i12, align 8
-  tail call void %5(ptr noundef nonnull align 8 dereferenceable(8) %styleToAdopt) #6
+  %4 = load ptr, ptr %vfn.i12, align 8
+  tail call void %4(ptr noundef nonnull align 8 dereferenceable(8) %styleToAdopt) #6
   br label %_ZN6icu_7512LocalPointerINS_25ScientificNumberFormatter5StyleEED2Ev.exit13
 
 _ZN6icu_7512LocalPointerINS_25ScientificNumberFormatter5StyleEED2Ev.exit13: ; preds = %cleanup, %delete.notnull.i10
   %isnull.i14 = icmp eq ptr %fmtToAdopt, null
-  br i1 %isnull.i14, label %_ZN6icu_7512LocalPointerINS_13DecimalFormatEED2Ev.exit, label %delete.notnull.i15
+  br i1 %isnull.i14, label %_ZN6icu_7512LocalPointerINS_13DecimalFormatEED2Ev.exit, label %_ZN6icu_7512LocalPointerINS_13DecimalFormatEED2Ev.exit.sink.split
 
-delete.notnull.i15:                               ; preds = %_ZN6icu_7512LocalPointerINS_25ScientificNumberFormatter5StyleEED2Ev.exit13
-  %vtable.i16 = load ptr, ptr %fmtToAdopt, align 8
-  %vfn.i17 = getelementptr inbounds i8, ptr %vtable.i16, i64 8
-  %6 = load ptr, ptr %vfn.i17, align 8
-  tail call void %6(ptr noundef nonnull align 8 dereferenceable(368) %fmtToAdopt) #6
+_ZN6icu_7512LocalPointerINS_13DecimalFormatEED2Ev.exit.sink.split: ; preds = %_ZN6icu_7512LocalPointerINS_25ScientificNumberFormatter5StyleEED2Ev.exit13, %if.end11
+  %call3.sink40 = phi ptr [ %call3, %if.end11 ], [ %fmtToAdopt, %_ZN6icu_7512LocalPointerINS_25ScientificNumberFormatter5StyleEED2Ev.exit13 ]
+  %vtable = load ptr, ptr %call3.sink40, align 8
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 8
+  %5 = load ptr, ptr %vfn, align 8
+  tail call void %5(ptr noundef nonnull align 8 dereferenceable(88) %call3.sink40) #6
   br label %_ZN6icu_7512LocalPointerINS_13DecimalFormatEED2Ev.exit
 
-_ZN6icu_7512LocalPointerINS_13DecimalFormatEED2Ev.exit: ; preds = %if.end11, %delete.notnull, %_ZN6icu_7512LocalPointerINS_25ScientificNumberFormatter5StyleEED2Ev.exit13, %delete.notnull.i15
-  %retval.03539 = phi ptr [ null, %_ZN6icu_7512LocalPointerINS_25ScientificNumberFormatter5StyleEED2Ev.exit13 ], [ null, %delete.notnull.i15 ], [ %call3, %if.end11 ], [ null, %delete.notnull ]
+_ZN6icu_7512LocalPointerINS_13DecimalFormatEED2Ev.exit: ; preds = %_ZN6icu_7512LocalPointerINS_13DecimalFormatEED2Ev.exit.sink.split, %if.end11, %_ZN6icu_7512LocalPointerINS_25ScientificNumberFormatter5StyleEED2Ev.exit13
+  %retval.03539 = phi ptr [ null, %_ZN6icu_7512LocalPointerINS_25ScientificNumberFormatter5StyleEED2Ev.exit13 ], [ %call3, %if.end11 ], [ null, %_ZN6icu_7512LocalPointerINS_13DecimalFormatEED2Ev.exit.sink.split ]
   ret ptr %retval.03539
 
 ehcleanup22:                                      ; preds = %delete.notnull.i, %lpad4
@@ -217,8 +205,8 @@ ehcleanup22:                                      ; preds = %delete.notnull.i, %
 delete.notnull.i19:                               ; preds = %ehcleanup22
   %vtable.i20 = load ptr, ptr %fmtToAdopt, align 8
   %vfn.i21 = getelementptr inbounds i8, ptr %vtable.i20, i64 8
-  %7 = load ptr, ptr %vfn.i21, align 8
-  tail call void %7(ptr noundef nonnull align 8 dereferenceable(368) %fmtToAdopt) #6
+  %6 = load ptr, ptr %vfn.i21, align 8
+  tail call void %6(ptr noundef nonnull align 8 dereferenceable(368) %fmtToAdopt) #6
   br label %_ZN6icu_7512LocalPointerINS_13DecimalFormatEED2Ev.exit22
 
 _ZN6icu_7512LocalPointerINS_13DecimalFormatEED2Ev.exit22: ; preds = %ehcleanup22, %delete.notnull.i19
@@ -277,14 +265,7 @@ delete.notnull.i.i:                               ; preds = %lpad4.i
 if.end11.i:                                       ; preds = %new.notnull.i
   %3 = load i32, ptr %status, align 4
   %cmp.i7.i = icmp slt i32 %3, 1
-  br i1 %cmp.i7.i, label %_ZN6icu_7525ScientificNumberFormatter14createInstanceEPNS_13DecimalFormatEPNS0_5StyleER10UErrorCode.exit, label %delete.notnull.i
-
-delete.notnull.i:                                 ; preds = %if.end11.i
-  %vtable.i = load ptr, ptr %call3.i, align 8
-  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 8
-  %4 = load ptr, ptr %vfn.i, align 8
-  tail call void %4(ptr noundef nonnull align 8 dereferenceable(88) %call3.i) #6
-  br label %_ZN6icu_7525ScientificNumberFormatter14createInstanceEPNS_13DecimalFormatEPNS0_5StyleER10UErrorCode.exit
+  br i1 %cmp.i7.i, label %_ZN6icu_7525ScientificNumberFormatter14createInstanceEPNS_13DecimalFormatEPNS0_5StyleER10UErrorCode.exit, label %_ZN6icu_7512LocalPointerINS_13DecimalFormatEED2Ev.exit.sink.split.i
 
 cleanup.i:                                        ; preds = %if.then10.i, %new.cont
   br i1 %new.isnull, label %_ZN6icu_7512LocalPointerINS_25ScientificNumberFormatter5StyleEED2Ev.exit13.i, label %delete.notnull.i10.i
@@ -292,19 +273,20 @@ cleanup.i:                                        ; preds = %if.then10.i, %new.c
 delete.notnull.i10.i:                             ; preds = %cleanup.i
   %vtable.i11.i = load ptr, ptr %call1, align 8
   %vfn.i12.i = getelementptr inbounds i8, ptr %vtable.i11.i, i64 8
-  %5 = load ptr, ptr %vfn.i12.i, align 8
-  tail call void %5(ptr noundef nonnull align 8 dereferenceable(8) %call1) #6
+  %4 = load ptr, ptr %vfn.i12.i, align 8
+  tail call void %4(ptr noundef nonnull align 8 dereferenceable(8) %call1) #6
   br label %_ZN6icu_7512LocalPointerINS_25ScientificNumberFormatter5StyleEED2Ev.exit13.i
 
 _ZN6icu_7512LocalPointerINS_25ScientificNumberFormatter5StyleEED2Ev.exit13.i: ; preds = %delete.notnull.i10.i, %cleanup.i
   %isnull.i14.i = icmp eq ptr %call, null
-  br i1 %isnull.i14.i, label %_ZN6icu_7525ScientificNumberFormatter14createInstanceEPNS_13DecimalFormatEPNS0_5StyleER10UErrorCode.exit, label %delete.notnull.i15.i
+  br i1 %isnull.i14.i, label %_ZN6icu_7525ScientificNumberFormatter14createInstanceEPNS_13DecimalFormatEPNS0_5StyleER10UErrorCode.exit, label %_ZN6icu_7512LocalPointerINS_13DecimalFormatEED2Ev.exit.sink.split.i
 
-delete.notnull.i15.i:                             ; preds = %_ZN6icu_7512LocalPointerINS_25ScientificNumberFormatter5StyleEED2Ev.exit13.i
-  %vtable.i16.i = load ptr, ptr %call, align 8
-  %vfn.i17.i = getelementptr inbounds i8, ptr %vtable.i16.i, i64 8
-  %6 = load ptr, ptr %vfn.i17.i, align 8
-  tail call void %6(ptr noundef nonnull align 8 dereferenceable(368) %call) #6
+_ZN6icu_7512LocalPointerINS_13DecimalFormatEED2Ev.exit.sink.split.i: ; preds = %_ZN6icu_7512LocalPointerINS_25ScientificNumberFormatter5StyleEED2Ev.exit13.i, %if.end11.i
+  %call3.sink40.i = phi ptr [ %call3.i, %if.end11.i ], [ %call, %_ZN6icu_7512LocalPointerINS_25ScientificNumberFormatter5StyleEED2Ev.exit13.i ]
+  %vtable.i = load ptr, ptr %call3.sink40.i, align 8
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 8
+  %5 = load ptr, ptr %vfn.i, align 8
+  tail call void %5(ptr noundef nonnull align 8 dereferenceable(88) %call3.sink40.i) #6
   br label %_ZN6icu_7525ScientificNumberFormatter14createInstanceEPNS_13DecimalFormatEPNS0_5StyleER10UErrorCode.exit
 
 ehcleanup22.i:                                    ; preds = %delete.notnull.i.i, %lpad4.i
@@ -314,15 +296,15 @@ ehcleanup22.i:                                    ; preds = %delete.notnull.i.i,
 delete.notnull.i19.i:                             ; preds = %ehcleanup22.i
   %vtable.i20.i = load ptr, ptr %call, align 8
   %vfn.i21.i = getelementptr inbounds i8, ptr %vtable.i20.i, i64 8
-  %7 = load ptr, ptr %vfn.i21.i, align 8
-  tail call void %7(ptr noundef nonnull align 8 dereferenceable(368) %call) #6
+  %6 = load ptr, ptr %vfn.i21.i, align 8
+  tail call void %6(ptr noundef nonnull align 8 dereferenceable(368) %call) #6
   br label %_ZN6icu_7512LocalPointerINS_13DecimalFormatEED2Ev.exit22.i
 
 _ZN6icu_7512LocalPointerINS_13DecimalFormatEED2Ev.exit22.i: ; preds = %delete.notnull.i19.i, %ehcleanup22.i
   resume { ptr, i32 } %1
 
-_ZN6icu_7525ScientificNumberFormatter14createInstanceEPNS_13DecimalFormatEPNS0_5StyleER10UErrorCode.exit: ; preds = %if.end11.i, %delete.notnull.i, %_ZN6icu_7512LocalPointerINS_25ScientificNumberFormatter5StyleEED2Ev.exit13.i, %delete.notnull.i15.i
-  %retval.03539.i = phi ptr [ null, %_ZN6icu_7512LocalPointerINS_25ScientificNumberFormatter5StyleEED2Ev.exit13.i ], [ null, %delete.notnull.i15.i ], [ %call3.i, %if.end11.i ], [ null, %delete.notnull.i ]
+_ZN6icu_7525ScientificNumberFormatter14createInstanceEPNS_13DecimalFormatEPNS0_5StyleER10UErrorCode.exit: ; preds = %if.end11.i, %_ZN6icu_7512LocalPointerINS_25ScientificNumberFormatter5StyleEED2Ev.exit13.i, %_ZN6icu_7512LocalPointerINS_13DecimalFormatEED2Ev.exit.sink.split.i
+  %retval.03539.i = phi ptr [ null, %_ZN6icu_7512LocalPointerINS_25ScientificNumberFormatter5StyleEED2Ev.exit13.i ], [ %call3.i, %if.end11.i ], [ null, %_ZN6icu_7512LocalPointerINS_13DecimalFormatEED2Ev.exit.sink.split.i ]
   ret ptr %retval.03539.i
 }
 
@@ -397,14 +379,7 @@ delete.notnull.i.i:                               ; preds = %lpad4.i
 if.end11.i:                                       ; preds = %new.notnull.i
   %5 = load i32, ptr %status, align 4
   %cmp.i7.i = icmp slt i32 %5, 1
-  br i1 %cmp.i7.i, label %_ZN6icu_7525ScientificNumberFormatter14createInstanceEPNS_13DecimalFormatEPNS0_5StyleER10UErrorCode.exit, label %delete.notnull.i
-
-delete.notnull.i:                                 ; preds = %if.end11.i
-  %vtable.i = load ptr, ptr %call3.i, align 8
-  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 8
-  %6 = load ptr, ptr %vfn.i, align 8
-  tail call void %6(ptr noundef nonnull align 8 dereferenceable(88) %call3.i) #6
-  br label %_ZN6icu_7525ScientificNumberFormatter14createInstanceEPNS_13DecimalFormatEPNS0_5StyleER10UErrorCode.exit
+  br i1 %cmp.i7.i, label %_ZN6icu_7525ScientificNumberFormatter14createInstanceEPNS_13DecimalFormatEPNS0_5StyleER10UErrorCode.exit, label %_ZN6icu_7512LocalPointerINS_13DecimalFormatEED2Ev.exit.sink.split.i
 
 cleanup.i:                                        ; preds = %if.then10.i, %new.cont
   br i1 %new.isnull, label %_ZN6icu_7512LocalPointerINS_25ScientificNumberFormatter5StyleEED2Ev.exit13.i, label %delete.notnull.i10.i
@@ -412,19 +387,20 @@ cleanup.i:                                        ; preds = %if.then10.i, %new.c
 delete.notnull.i10.i:                             ; preds = %cleanup.i
   %vtable.i11.i = load ptr, ptr %call, align 8
   %vfn.i12.i = getelementptr inbounds i8, ptr %vtable.i11.i, i64 8
-  %7 = load ptr, ptr %vfn.i12.i, align 8
-  tail call void %7(ptr noundef nonnull align 8 dereferenceable(8) %call) #6
+  %6 = load ptr, ptr %vfn.i12.i, align 8
+  tail call void %6(ptr noundef nonnull align 8 dereferenceable(8) %call) #6
   br label %_ZN6icu_7512LocalPointerINS_25ScientificNumberFormatter5StyleEED2Ev.exit13.i
 
 _ZN6icu_7512LocalPointerINS_25ScientificNumberFormatter5StyleEED2Ev.exit13.i: ; preds = %delete.notnull.i10.i, %cleanup.i
   %isnull.i14.i = icmp eq ptr %fmtToAdopt, null
-  br i1 %isnull.i14.i, label %_ZN6icu_7525ScientificNumberFormatter14createInstanceEPNS_13DecimalFormatEPNS0_5StyleER10UErrorCode.exit, label %delete.notnull.i15.i
+  br i1 %isnull.i14.i, label %_ZN6icu_7525ScientificNumberFormatter14createInstanceEPNS_13DecimalFormatEPNS0_5StyleER10UErrorCode.exit, label %_ZN6icu_7512LocalPointerINS_13DecimalFormatEED2Ev.exit.sink.split.i
 
-delete.notnull.i15.i:                             ; preds = %_ZN6icu_7512LocalPointerINS_25ScientificNumberFormatter5StyleEED2Ev.exit13.i
-  %vtable.i16.i = load ptr, ptr %fmtToAdopt, align 8
-  %vfn.i17.i = getelementptr inbounds i8, ptr %vtable.i16.i, i64 8
-  %8 = load ptr, ptr %vfn.i17.i, align 8
-  tail call void %8(ptr noundef nonnull align 8 dereferenceable(368) %fmtToAdopt) #6
+_ZN6icu_7512LocalPointerINS_13DecimalFormatEED2Ev.exit.sink.split.i: ; preds = %_ZN6icu_7512LocalPointerINS_25ScientificNumberFormatter5StyleEED2Ev.exit13.i, %if.end11.i
+  %call3.sink40.i = phi ptr [ %call3.i, %if.end11.i ], [ %fmtToAdopt, %_ZN6icu_7512LocalPointerINS_25ScientificNumberFormatter5StyleEED2Ev.exit13.i ]
+  %vtable.i = load ptr, ptr %call3.sink40.i, align 8
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 8
+  %7 = load ptr, ptr %vfn.i, align 8
+  tail call void %7(ptr noundef nonnull align 8 dereferenceable(88) %call3.sink40.i) #6
   br label %_ZN6icu_7525ScientificNumberFormatter14createInstanceEPNS_13DecimalFormatEPNS0_5StyleER10UErrorCode.exit
 
 ehcleanup22.i:                                    ; preds = %delete.notnull.i.i, %lpad4.i
@@ -434,16 +410,16 @@ ehcleanup22.i:                                    ; preds = %delete.notnull.i.i,
 delete.notnull.i19.i:                             ; preds = %ehcleanup22.i
   %vtable.i20.i = load ptr, ptr %fmtToAdopt, align 8
   %vfn.i21.i = getelementptr inbounds i8, ptr %vtable.i20.i, i64 8
-  %9 = load ptr, ptr %vfn.i21.i, align 8
-  tail call void %9(ptr noundef nonnull align 8 dereferenceable(368) %fmtToAdopt) #6
+  %8 = load ptr, ptr %vfn.i21.i, align 8
+  tail call void %8(ptr noundef nonnull align 8 dereferenceable(368) %fmtToAdopt) #6
   br label %common.resume
 
 common.resume:                                    ; preds = %ehcleanup22.i, %delete.notnull.i19.i, %ehcleanup.i
   %common.resume.op = phi { ptr, i32 } [ %.pn.i, %ehcleanup.i ], [ %3, %delete.notnull.i19.i ], [ %3, %ehcleanup22.i ]
   resume { ptr, i32 } %common.resume.op
 
-_ZN6icu_7525ScientificNumberFormatter14createInstanceEPNS_13DecimalFormatEPNS0_5StyleER10UErrorCode.exit: ; preds = %if.end11.i, %delete.notnull.i, %_ZN6icu_7512LocalPointerINS_25ScientificNumberFormatter5StyleEED2Ev.exit13.i, %delete.notnull.i15.i
-  %retval.03539.i = phi ptr [ null, %_ZN6icu_7512LocalPointerINS_25ScientificNumberFormatter5StyleEED2Ev.exit13.i ], [ null, %delete.notnull.i15.i ], [ %call3.i, %if.end11.i ], [ null, %delete.notnull.i ]
+_ZN6icu_7525ScientificNumberFormatter14createInstanceEPNS_13DecimalFormatEPNS0_5StyleER10UErrorCode.exit: ; preds = %if.end11.i, %_ZN6icu_7512LocalPointerINS_25ScientificNumberFormatter5StyleEED2Ev.exit13.i, %_ZN6icu_7512LocalPointerINS_13DecimalFormatEED2Ev.exit.sink.split.i
+  %retval.03539.i = phi ptr [ null, %_ZN6icu_7512LocalPointerINS_25ScientificNumberFormatter5StyleEED2Ev.exit13.i ], [ %call3.i, %if.end11.i ], [ null, %_ZN6icu_7512LocalPointerINS_13DecimalFormatEED2Ev.exit.sink.split.i ]
   ret ptr %retval.03539.i
 }
 
@@ -522,14 +498,7 @@ delete.notnull.i.i:                               ; preds = %lpad4.i
 if.end11.i:                                       ; preds = %new.notnull.i
   %5 = load i32, ptr %status, align 4
   %cmp.i7.i = icmp slt i32 %5, 1
-  br i1 %cmp.i7.i, label %_ZN6icu_7525ScientificNumberFormatter14createInstanceEPNS_13DecimalFormatEPNS0_5StyleER10UErrorCode.exit, label %delete.notnull.i
-
-delete.notnull.i:                                 ; preds = %if.end11.i
-  %vtable.i = load ptr, ptr %call3.i, align 8
-  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 8
-  %6 = load ptr, ptr %vfn.i, align 8
-  tail call void %6(ptr noundef nonnull align 8 dereferenceable(88) %call3.i) #6
-  br label %_ZN6icu_7525ScientificNumberFormatter14createInstanceEPNS_13DecimalFormatEPNS0_5StyleER10UErrorCode.exit
+  br i1 %cmp.i7.i, label %_ZN6icu_7525ScientificNumberFormatter14createInstanceEPNS_13DecimalFormatEPNS0_5StyleER10UErrorCode.exit, label %_ZN6icu_7512LocalPointerINS_13DecimalFormatEED2Ev.exit.sink.split.i
 
 cleanup.i:                                        ; preds = %if.then10.i, %new.cont
   br i1 %new.isnull, label %_ZN6icu_7512LocalPointerINS_25ScientificNumberFormatter5StyleEED2Ev.exit13.i, label %delete.notnull.i10.i
@@ -537,19 +506,20 @@ cleanup.i:                                        ; preds = %if.then10.i, %new.c
 delete.notnull.i10.i:                             ; preds = %cleanup.i
   %vtable.i11.i = load ptr, ptr %call1, align 8
   %vfn.i12.i = getelementptr inbounds i8, ptr %vtable.i11.i, i64 8
-  %7 = load ptr, ptr %vfn.i12.i, align 8
-  tail call void %7(ptr noundef nonnull align 8 dereferenceable(8) %call1) #6
+  %6 = load ptr, ptr %vfn.i12.i, align 8
+  tail call void %6(ptr noundef nonnull align 8 dereferenceable(8) %call1) #6
   br label %_ZN6icu_7512LocalPointerINS_25ScientificNumberFormatter5StyleEED2Ev.exit13.i
 
 _ZN6icu_7512LocalPointerINS_25ScientificNumberFormatter5StyleEED2Ev.exit13.i: ; preds = %delete.notnull.i10.i, %cleanup.i
   %isnull.i14.i = icmp eq ptr %call, null
-  br i1 %isnull.i14.i, label %_ZN6icu_7525ScientificNumberFormatter14createInstanceEPNS_13DecimalFormatEPNS0_5StyleER10UErrorCode.exit, label %delete.notnull.i15.i
+  br i1 %isnull.i14.i, label %_ZN6icu_7525ScientificNumberFormatter14createInstanceEPNS_13DecimalFormatEPNS0_5StyleER10UErrorCode.exit, label %_ZN6icu_7512LocalPointerINS_13DecimalFormatEED2Ev.exit.sink.split.i
 
-delete.notnull.i15.i:                             ; preds = %_ZN6icu_7512LocalPointerINS_25ScientificNumberFormatter5StyleEED2Ev.exit13.i
-  %vtable.i16.i = load ptr, ptr %call, align 8
-  %vfn.i17.i = getelementptr inbounds i8, ptr %vtable.i16.i, i64 8
-  %8 = load ptr, ptr %vfn.i17.i, align 8
-  tail call void %8(ptr noundef nonnull align 8 dereferenceable(368) %call) #6
+_ZN6icu_7512LocalPointerINS_13DecimalFormatEED2Ev.exit.sink.split.i: ; preds = %_ZN6icu_7512LocalPointerINS_25ScientificNumberFormatter5StyleEED2Ev.exit13.i, %if.end11.i
+  %call3.sink40.i = phi ptr [ %call3.i, %if.end11.i ], [ %call, %_ZN6icu_7512LocalPointerINS_25ScientificNumberFormatter5StyleEED2Ev.exit13.i ]
+  %vtable.i = load ptr, ptr %call3.sink40.i, align 8
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 8
+  %7 = load ptr, ptr %vfn.i, align 8
+  tail call void %7(ptr noundef nonnull align 8 dereferenceable(88) %call3.sink40.i) #6
   br label %_ZN6icu_7525ScientificNumberFormatter14createInstanceEPNS_13DecimalFormatEPNS0_5StyleER10UErrorCode.exit
 
 ehcleanup22.i:                                    ; preds = %delete.notnull.i.i, %lpad4.i
@@ -559,16 +529,16 @@ ehcleanup22.i:                                    ; preds = %delete.notnull.i.i,
 delete.notnull.i19.i:                             ; preds = %ehcleanup22.i
   %vtable.i20.i = load ptr, ptr %call, align 8
   %vfn.i21.i = getelementptr inbounds i8, ptr %vtable.i20.i, i64 8
-  %9 = load ptr, ptr %vfn.i21.i, align 8
-  tail call void %9(ptr noundef nonnull align 8 dereferenceable(368) %call) #6
+  %8 = load ptr, ptr %vfn.i21.i, align 8
+  tail call void %8(ptr noundef nonnull align 8 dereferenceable(368) %call) #6
   br label %common.resume
 
 common.resume:                                    ; preds = %ehcleanup22.i, %delete.notnull.i19.i, %ehcleanup.i
   %common.resume.op = phi { ptr, i32 } [ %.pn.i, %ehcleanup.i ], [ %3, %delete.notnull.i19.i ], [ %3, %ehcleanup22.i ]
   resume { ptr, i32 } %common.resume.op
 
-_ZN6icu_7525ScientificNumberFormatter14createInstanceEPNS_13DecimalFormatEPNS0_5StyleER10UErrorCode.exit: ; preds = %if.end11.i, %delete.notnull.i, %_ZN6icu_7512LocalPointerINS_25ScientificNumberFormatter5StyleEED2Ev.exit13.i, %delete.notnull.i15.i
-  %retval.03539.i = phi ptr [ null, %_ZN6icu_7512LocalPointerINS_25ScientificNumberFormatter5StyleEED2Ev.exit13.i ], [ null, %delete.notnull.i15.i ], [ %call3.i, %if.end11.i ], [ null, %delete.notnull.i ]
+_ZN6icu_7525ScientificNumberFormatter14createInstanceEPNS_13DecimalFormatEPNS0_5StyleER10UErrorCode.exit: ; preds = %if.end11.i, %_ZN6icu_7512LocalPointerINS_25ScientificNumberFormatter5StyleEED2Ev.exit13.i, %_ZN6icu_7512LocalPointerINS_13DecimalFormatEED2Ev.exit.sink.split.i
+  %retval.03539.i = phi ptr [ null, %_ZN6icu_7512LocalPointerINS_25ScientificNumberFormatter5StyleEED2Ev.exit13.i ], [ %call3.i, %if.end11.i ], [ null, %_ZN6icu_7512LocalPointerINS_13DecimalFormatEED2Ev.exit.sink.split.i ]
   ret ptr %retval.03539.i
 }
 

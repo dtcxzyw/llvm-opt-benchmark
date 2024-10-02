@@ -3408,9 +3408,7 @@ update_mergeclause_eclasses.exit:                 ; preds = %.lr.ph11.i, %.prehe
 
 116:                                              ; preds = %._crit_edge187
   %117 = tail call ptr @list_copy_head(ptr noundef nonnull %76, i32 noundef %5) #10
-  tail call void @pfree(ptr noundef %10) #10
-  tail call void @pfree(ptr noundef %12) #10
-  br label %list_length.exit.thread
+  br label %list_length.exit.thread.sink.split
 
 .thread160:                                       ; preds = %..loopexit_crit_edge.us, %.lr.ph198, %.thread157, %.lr.ph198.split.us.split, %._crit_edge187, %._crit_edge180
   %.0111 = phi ptr [ null, %._crit_edge187 ], [ null, %._crit_edge180 ], [ %92, %.lr.ph198.split.us.split ], [ %92, %.thread157 ], [ %92, %.lr.ph198 ], [ %92, %..loopexit_crit_edge.us ]
@@ -3445,7 +3443,7 @@ update_mergeclause_eclasses.exit:                 ; preds = %.lr.ph11.i, %.prehe
   %.0114.lcssa = phi i64 [ 0, %119 ], [ %125, %._crit_edge208.loopexit ]
   %.0112.lcssa = phi i32 [ %120, %119 ], [ %spec.select144, %._crit_edge208.loopexit ]
   %126 = icmp slt i32 %.0112.lcssa, 0
-  br i1 %126, label %137, label %127
+  br i1 %126, label %list_length.exit.thread.sink.split, label %127
 
 127:                                              ; preds = %._crit_edge208
   %128 = getelementptr ptr, ptr %10, i64 %.0114.lcssa
@@ -3461,13 +3459,14 @@ update_mergeclause_eclasses.exit:                 ; preds = %.lr.ph11.i, %.prehe
   %136 = tail call ptr @lappend(ptr noundef %.1, ptr noundef %135) #10
   br label %119
 
-137:                                              ; preds = %._crit_edge208
+list_length.exit.thread.sink.split:               ; preds = %._crit_edge208, %116
+  %.0.ph = phi ptr [ %117, %116 ], [ %.1, %._crit_edge208 ]
   tail call void @pfree(ptr noundef %10) #10
-  tail call void @pfree(ptr noundef nonnull %12) #10
+  tail call void @pfree(ptr noundef %12) #10
   br label %list_length.exit.thread
 
-list_length.exit.thread:                          ; preds = %3, %list_length.exit, %137, %116
-  %.0 = phi ptr [ %.1, %137 ], [ %117, %116 ], [ null, %list_length.exit ], [ null, %3 ]
+list_length.exit.thread:                          ; preds = %list_length.exit.thread.sink.split, %3, %list_length.exit
+  %.0 = phi ptr [ null, %list_length.exit ], [ null, %3 ], [ %.0.ph, %list_length.exit.thread.sink.split ]
   ret ptr %.0
 }
 

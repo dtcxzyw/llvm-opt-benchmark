@@ -489,35 +489,30 @@ entry:
   %call.i = tail call i32 @lua_getfield(ptr noundef %L, i32 noundef -1001001, ptr noundef nonnull @.str) #6
   %call1.i = tail call ptr @lua_tolstring(ptr noundef %L, i32 noundef -1, ptr noundef null) #6
   %cmp.i = icmp eq ptr %call1.i, null
-  br i1 %cmp.i, label %if.then.i, label %entry.split.i
-
-entry.split.i:                                    ; preds = %entry
-  %call66.i = tail call fastcc ptr @searchpath(ptr noundef %L, ptr noundef %call, ptr noundef nonnull %call1.i, ptr noundef nonnull @.str.20, ptr noundef nonnull @.str.21)
-  br label %findfile.exit
+  br i1 %cmp.i, label %if.then.i, label %findfile.exit
 
 if.then.i:                                        ; preds = %entry
   %call5.i = tail call i32 (ptr, ptr, ...) @luaL_error(ptr noundef %L, ptr noundef nonnull @.str.30, ptr noundef nonnull @.str) #6
-  %call67.i = tail call fastcc ptr @searchpath(ptr noundef %L, ptr noundef %call, ptr noundef null, ptr noundef nonnull @.str.20, ptr noundef nonnull @.str.21)
   br label %findfile.exit
 
-findfile.exit:                                    ; preds = %entry.split.i, %if.then.i
-  %phi.call.i = phi ptr [ %call66.i, %entry.split.i ], [ %call67.i, %if.then.i ]
-  %cmp = icmp eq ptr %phi.call.i, null
+findfile.exit:                                    ; preds = %entry, %if.then.i
+  %call66.i = tail call fastcc ptr @searchpath(ptr noundef %L, ptr noundef %call, ptr noundef %call1.i, ptr noundef nonnull @.str.20, ptr noundef nonnull @.str.21)
+  %cmp = icmp eq ptr %call66.i, null
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %findfile.exit
-  %call2 = tail call i32 @luaL_loadfilex(ptr noundef %L, ptr noundef nonnull %phi.call.i, ptr noundef null) #6
+  %call2 = tail call i32 @luaL_loadfilex(ptr noundef %L, ptr noundef nonnull %call66.i, ptr noundef null) #6
   %cmp3.not = icmp eq i32 %call2, 0
   br i1 %cmp3.not, label %if.then.i6, label %if.else.i
 
 if.then.i6:                                       ; preds = %if.end
-  %call.i7 = tail call ptr @lua_pushstring(ptr noundef %L, ptr noundef nonnull %phi.call.i) #6
+  %call.i7 = tail call ptr @lua_pushstring(ptr noundef %L, ptr noundef nonnull %call66.i) #6
   br label %return
 
 if.else.i:                                        ; preds = %if.end
   %call2.i = tail call ptr @lua_tolstring(ptr noundef %L, i32 noundef 1, ptr noundef null) #6
   %call3.i = tail call ptr @lua_tolstring(ptr noundef %L, i32 noundef -1, ptr noundef null) #6
-  %call4.i = tail call i32 (ptr, ptr, ...) @luaL_error(ptr noundef %L, ptr noundef nonnull @.str.31, ptr noundef %call2.i, ptr noundef nonnull %phi.call.i, ptr noundef %call3.i) #6
+  %call4.i = tail call i32 (ptr, ptr, ...) @luaL_error(ptr noundef %L, ptr noundef nonnull @.str.31, ptr noundef %call2.i, ptr noundef nonnull %call66.i, ptr noundef %call3.i) #6
   br label %return
 
 return:                                           ; preds = %if.else.i, %if.then.i6, %findfile.exit
@@ -532,35 +527,30 @@ entry:
   %call.i = tail call i32 @lua_getfield(ptr noundef %L, i32 noundef -1001001, ptr noundef nonnull @.str.3) #6
   %call1.i = tail call ptr @lua_tolstring(ptr noundef %L, i32 noundef -1, ptr noundef null) #6
   %cmp.i = icmp eq ptr %call1.i, null
-  br i1 %cmp.i, label %if.then.i, label %entry.split.i
-
-entry.split.i:                                    ; preds = %entry
-  %call66.i = tail call fastcc ptr @searchpath(ptr noundef %L, ptr noundef %call, ptr noundef nonnull %call1.i, ptr noundef nonnull @.str.20, ptr noundef nonnull @.str.21)
-  br label %findfile.exit
+  br i1 %cmp.i, label %if.then.i, label %findfile.exit
 
 if.then.i:                                        ; preds = %entry
   %call5.i = tail call i32 (ptr, ptr, ...) @luaL_error(ptr noundef %L, ptr noundef nonnull @.str.30, ptr noundef nonnull @.str.3) #6
-  %call67.i = tail call fastcc ptr @searchpath(ptr noundef %L, ptr noundef %call, ptr noundef null, ptr noundef nonnull @.str.20, ptr noundef nonnull @.str.21)
   br label %findfile.exit
 
-findfile.exit:                                    ; preds = %entry.split.i, %if.then.i
-  %phi.call.i = phi ptr [ %call66.i, %entry.split.i ], [ %call67.i, %if.then.i ]
-  %cmp = icmp eq ptr %phi.call.i, null
+findfile.exit:                                    ; preds = %entry, %if.then.i
+  %call66.i = tail call fastcc ptr @searchpath(ptr noundef %L, ptr noundef %call, ptr noundef %call1.i, ptr noundef nonnull @.str.20, ptr noundef nonnull @.str.21)
+  %cmp = icmp eq ptr %call66.i, null
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %findfile.exit
-  %call2 = tail call fastcc i32 @loadfunc(ptr noundef %L, ptr noundef %phi.call.i, ptr noundef %call)
+  %call2 = tail call fastcc i32 @loadfunc(ptr noundef %L, ptr noundef %call66.i, ptr noundef %call)
   %cmp3.not = icmp eq i32 %call2, 0
   br i1 %cmp3.not, label %if.then.i7, label %if.else.i
 
 if.then.i7:                                       ; preds = %if.end
-  %call.i8 = tail call ptr @lua_pushstring(ptr noundef %L, ptr noundef nonnull %phi.call.i) #6
+  %call.i8 = tail call ptr @lua_pushstring(ptr noundef %L, ptr noundef nonnull %call66.i) #6
   br label %return
 
 if.else.i:                                        ; preds = %if.end
   %call2.i = tail call ptr @lua_tolstring(ptr noundef %L, i32 noundef 1, ptr noundef null) #6
   %call3.i = tail call ptr @lua_tolstring(ptr noundef %L, i32 noundef -1, ptr noundef null) #6
-  %call4.i = tail call i32 (ptr, ptr, ...) @luaL_error(ptr noundef %L, ptr noundef nonnull @.str.31, ptr noundef %call2.i, ptr noundef nonnull %phi.call.i, ptr noundef %call3.i) #6
+  %call4.i = tail call i32 (ptr, ptr, ...) @luaL_error(ptr noundef %L, ptr noundef nonnull @.str.31, ptr noundef %call2.i, ptr noundef nonnull %call66.i, ptr noundef %call3.i) #6
   br label %return
 
 return:                                           ; preds = %if.else.i, %if.then.i7, %findfile.exit
@@ -585,24 +575,19 @@ if.end:                                           ; preds = %entry
   %call.i = tail call i32 @lua_getfield(ptr noundef %L, i32 noundef -1001001, ptr noundef nonnull @.str.3) #6
   %call1.i = tail call ptr @lua_tolstring(ptr noundef %L, i32 noundef -1, ptr noundef null) #6
   %cmp.i = icmp eq ptr %call1.i, null
-  br i1 %cmp.i, label %if.then.i, label %entry.split.i
-
-entry.split.i:                                    ; preds = %if.end
-  %call66.i = tail call fastcc ptr @searchpath(ptr noundef %L, ptr noundef %call3, ptr noundef nonnull %call1.i, ptr noundef nonnull @.str.20, ptr noundef nonnull @.str.21)
-  br label %findfile.exit
+  br i1 %cmp.i, label %if.then.i, label %findfile.exit
 
 if.then.i:                                        ; preds = %if.end
   %call5.i = tail call i32 (ptr, ptr, ...) @luaL_error(ptr noundef %L, ptr noundef nonnull @.str.30, ptr noundef nonnull @.str.3) #6
-  %call67.i = tail call fastcc ptr @searchpath(ptr noundef %L, ptr noundef %call3, ptr noundef null, ptr noundef nonnull @.str.20, ptr noundef nonnull @.str.21)
   br label %findfile.exit
 
-findfile.exit:                                    ; preds = %entry.split.i, %if.then.i
-  %phi.call.i = phi ptr [ %call66.i, %entry.split.i ], [ %call67.i, %if.then.i ]
-  %cmp5 = icmp eq ptr %phi.call.i, null
+findfile.exit:                                    ; preds = %if.end, %if.then.i
+  %call66.i = tail call fastcc ptr @searchpath(ptr noundef %L, ptr noundef %call3, ptr noundef %call1.i, ptr noundef nonnull @.str.20, ptr noundef nonnull @.str.21)
+  %cmp5 = icmp eq ptr %call66.i, null
   br i1 %cmp5, label %return, label %if.end7
 
 if.end7:                                          ; preds = %findfile.exit
-  %call8 = tail call fastcc i32 @loadfunc(ptr noundef %L, ptr noundef %phi.call.i, ptr noundef %call)
+  %call8 = tail call fastcc i32 @loadfunc(ptr noundef %L, ptr noundef %call66.i, ptr noundef %call)
   switch i32 %call8, label %if.then12 [
     i32 0, label %if.end15
     i32 2, label %if.else
@@ -611,15 +596,15 @@ if.end7:                                          ; preds = %findfile.exit
 if.then12:                                        ; preds = %if.end7
   %call2.i = tail call ptr @lua_tolstring(ptr noundef %L, i32 noundef 1, ptr noundef null) #6
   %call3.i = tail call ptr @lua_tolstring(ptr noundef %L, i32 noundef -1, ptr noundef null) #6
-  %call4.i = tail call i32 (ptr, ptr, ...) @luaL_error(ptr noundef %L, ptr noundef nonnull @.str.31, ptr noundef %call2.i, ptr noundef nonnull %phi.call.i, ptr noundef %call3.i) #6
+  %call4.i = tail call i32 (ptr, ptr, ...) @luaL_error(ptr noundef %L, ptr noundef nonnull @.str.31, ptr noundef %call2.i, ptr noundef nonnull %call66.i, ptr noundef %call3.i) #6
   br label %return
 
 if.else:                                          ; preds = %if.end7
-  %call14 = tail call ptr (ptr, ptr, ...) @lua_pushfstring(ptr noundef %L, ptr noundef nonnull @.str.35, ptr noundef %call, ptr noundef nonnull %phi.call.i) #6
+  %call14 = tail call ptr (ptr, ptr, ...) @lua_pushfstring(ptr noundef %L, ptr noundef nonnull @.str.35, ptr noundef %call, ptr noundef nonnull %call66.i) #6
   br label %return
 
 if.end15:                                         ; preds = %if.end7
-  %call16 = tail call ptr @lua_pushstring(ptr noundef %L, ptr noundef nonnull %phi.call.i) #6
+  %call16 = tail call ptr @lua_pushstring(ptr noundef %L, ptr noundef nonnull %call66.i) #6
   br label %return
 
 return:                                           ; preds = %findfile.exit, %entry, %if.end15, %if.else, %if.then12

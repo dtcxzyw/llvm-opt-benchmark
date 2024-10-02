@@ -1607,7 +1607,6 @@ av1_allow_intrabc.exit.thread:                    ; preds = %38, %44, %51, %av1_
 85:                                               ; preds = %72
   %86 = getelementptr inbounds nuw i8, ptr %0, i64 75096
   %87 = load ptr, ptr %86, align 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(21264) %84, ptr noundef nonnull align 4 dereferenceable(21264) %87, i64 21264, i1 false)
   br label %99
 
 get_ref_frame_map_idx.exit.i:                     ; preds = %72
@@ -1626,10 +1625,11 @@ get_ref_frame_map_idx.exit.i:                     ; preds = %72
   %96 = getelementptr inbounds [8 x ptr], ptr %94, i64 0, i64 %95
   %97 = load ptr, ptr %96, align 8
   %98 = getelementptr inbounds nuw i8, ptr %97, i64 1552
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(21264) %84, ptr noundef nonnull align 8 dereferenceable(21264) %98, i64 21264, i1 false)
   br label %99
 
 99:                                               ; preds = %get_ref_frame_map_idx.exit.i, %85
+  %.sink = phi ptr [ %98, %get_ref_frame_map_idx.exit.i ], [ %87, %85 ]
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(21264) %84, ptr noundef nonnull align 4 dereferenceable(21264) %.sink, i64 21264, i1 false)
   %100 = getelementptr inbounds nuw i8, ptr %0, i64 75088
   %101 = load ptr, ptr %100, align 16
   %102 = getelementptr inbounds nuw i8, ptr %101, i64 21260

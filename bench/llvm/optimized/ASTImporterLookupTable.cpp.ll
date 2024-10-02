@@ -22762,38 +22762,38 @@ define internal fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorINS_12_
   %.0.copyload.i.i.i.i = load i64, ptr %4, align 8
   %5 = and i64 %.0.copyload.i.i.i.i, 4
   %.not = icmp eq i64 %5, 0
-  br i1 %.not, label %12, label %6
+  br i1 %.not, label %10, label %6
 
 6:                                                ; preds = %3
   %.not.i = icmp ult i64 %.0.copyload.i.i.i.i, 8
-  br i1 %.not.i, label %7, label %9
+  br i1 %.not.i, label %.sink.split, label %7
 
 7:                                                ; preds = %6
-  %8 = tail call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorINS_12_GLOBAL__N_17BuilderEE28TraverseSynOrSemInitListExprEPNS_12InitListExprEPN4llvm15SmallVectorImplINS6_14PointerIntPairIPNS_4StmtELj1EbNS6_21PointerLikeTypeTraitsISA_EENS6_18PointerIntPairInfoISA_Lj1ESC_EEEEEE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %1, ptr noundef %2)
-  br label %21
+  %8 = and i64 %.0.copyload.i.i.i.i, -8
+  %9 = inttoptr i64 %8 to ptr
+  br label %10
 
-9:                                                ; preds = %6
-  %10 = and i64 %.0.copyload.i.i.i.i, -8
-  %11 = inttoptr i64 %10 to ptr
-  br label %12
+10:                                               ; preds = %3, %7
+  %11 = phi ptr [ %9, %7 ], [ %1, %3 ]
+  %12 = tail call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorINS_12_GLOBAL__N_17BuilderEE28TraverseSynOrSemInitListExprEPNS_12InitListExprEPN4llvm15SmallVectorImplINS6_14PointerIntPairIPNS_4StmtELj1EbNS6_21PointerLikeTypeTraitsISA_EENS6_18PointerIntPairInfoISA_Lj1ESC_EEEEEE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %11, ptr noundef %2)
+  br i1 %12, label %13, label %19
 
-12:                                               ; preds = %3, %9
-  %13 = phi ptr [ %11, %9 ], [ %1, %3 ]
-  %14 = tail call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorINS_12_GLOBAL__N_17BuilderEE28TraverseSynOrSemInitListExprEPNS_12InitListExprEPN4llvm15SmallVectorImplINS6_14PointerIntPairIPNS_4StmtELj1EbNS6_21PointerLikeTypeTraitsISA_EENS6_18PointerIntPairInfoISA_Lj1ESC_EEEEEE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %13, ptr noundef %2)
-  br i1 %14, label %15, label %21
-
-15:                                               ; preds = %12
+13:                                               ; preds = %10
   %.0.copyload.i.i.i.i18 = load i64, ptr %4, align 8
-  %16 = and i64 %.0.copyload.i.i.i.i18, 4
-  %.not21 = icmp eq i64 %16, 0
-  %17 = and i64 %.0.copyload.i.i.i.i18, -8
-  %18 = inttoptr i64 %17 to ptr
-  %19 = select i1 %.not21, ptr %18, ptr %1
-  %20 = tail call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorINS_12_GLOBAL__N_17BuilderEE28TraverseSynOrSemInitListExprEPNS_12InitListExprEPN4llvm15SmallVectorImplINS6_14PointerIntPairIPNS_4StmtELj1EbNS6_21PointerLikeTypeTraitsISA_EENS6_18PointerIntPairInfoISA_Lj1ESC_EEEEEE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %19, ptr noundef %2)
-  br label %21
+  %14 = and i64 %.0.copyload.i.i.i.i18, 4
+  %.not21 = icmp eq i64 %14, 0
+  %15 = and i64 %.0.copyload.i.i.i.i18, -8
+  %16 = inttoptr i64 %15 to ptr
+  %17 = select i1 %.not21, ptr %16, ptr %1
+  br label %.sink.split
 
-21:                                               ; preds = %15, %12, %7
-  %.0 = phi i1 [ %8, %7 ], [ false, %12 ], [ %20, %15 ]
+.sink.split:                                      ; preds = %6, %13
+  %.sink = phi ptr [ %17, %13 ], [ %1, %6 ]
+  %18 = tail call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorINS_12_GLOBAL__N_17BuilderEE28TraverseSynOrSemInitListExprEPNS_12InitListExprEPN4llvm15SmallVectorImplINS6_14PointerIntPairIPNS_4StmtELj1EbNS6_21PointerLikeTypeTraitsISA_EENS6_18PointerIntPairInfoISA_Lj1ESC_EEEEEE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %.sink, ptr noundef %2)
+  br label %19
+
+19:                                               ; preds = %.sink.split, %10
+  %.0 = phi i1 [ false, %10 ], [ %18, %.sink.split ]
   ret i1 %.0
 }
 

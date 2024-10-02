@@ -8087,14 +8087,12 @@ _ZN5folly13hazptr_detail21shared_head_tail_listINS_10hazptr_objISt6atomicEES3_E4
 if.then3.i:                                       ; preds = %_ZN5folly13hazptr_detail21shared_head_tail_listINS_10hazptr_objISt6atomicEES3_E4pushEPS4_.exit.i
   %13 = atomicrmw xchg ptr %safe_list_top_.i.i, i64 0 acq_rel, align 8
   %atomic-temp.0.i.i.i8.i = inttoptr i64 %13 to ptr
-  tail call void @_ZN5folly17hazptr_obj_cohortISt6atomicE12reclaim_listEPNS_10hazptr_objIS1_EE(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef %atomic-temp.0.i.i.i8.i)
-  br label %if.end
+  br label %if.end.sink.split
 
 if.else.i:                                        ; preds = %while.end12
   %next_.i.i = getelementptr inbounds i8, ptr %this, i64 8
   store ptr null, ptr %next_.i.i, align 8, !tbaa !143
-  tail call void @_ZN5folly17hazptr_obj_cohortISt6atomicE12reclaim_listEPNS_10hazptr_objIS1_EE(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull %this)
-  br label %if.end
+  br label %if.end.sink.split
 
 if.else:                                          ; preds = %entry
   %next_.i.i.i = getelementptr inbounds i8, ptr %this, i64 8
@@ -8163,7 +8161,12 @@ terminate.lpad.i.i:                               ; preds = %if.end11.i.i.i
   tail call void @__clang_call_terminate(ptr %36) #33
   unreachable
 
-if.end:                                           ; preds = %if.end11.i.i.i, %if.else.i, %if.then3.i, %_ZN5folly13hazptr_detail21shared_head_tail_listINS_10hazptr_objISt6atomicEES3_E4pushEPS4_.exit.i
+if.end.sink.split:                                ; preds = %if.then3.i, %if.else.i
+  %this.sink = phi ptr [ %this, %if.else.i ], [ %atomic-temp.0.i.i.i8.i, %if.then3.i ]
+  tail call void @_ZN5folly17hazptr_obj_cohortISt6atomicE12reclaim_listEPNS_10hazptr_objIS1_EE(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef %this.sink)
+  br label %if.end
+
+if.end:                                           ; preds = %if.end.sink.split, %if.end11.i.i.i, %_ZN5folly13hazptr_detail21shared_head_tail_listINS_10hazptr_objISt6atomicEES3_E4pushEPS4_.exit.i
   ret void
 }
 

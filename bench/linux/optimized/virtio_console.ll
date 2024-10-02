@@ -1008,26 +1008,20 @@ define internal fastcc i32 @init_vqs(ptr nocapture noundef %0) unnamed_addr #4 a
   %105 = icmp eq i64 %104, %19
   br i1 %105, label %.loopexit, label %.preheader, !llvm.loop !23
 
-.loopexit:                                        ; preds = %.preheader, %82, %77, %69
-  tail call void @kfree(ptr noundef nonnull %18) #17
-  tail call void @kfree(ptr noundef nonnull %17) #17
-  tail call void @kfree(ptr noundef nonnull %16) #17
-  br label %110
-
 106:                                              ; preds = %.loopexit10._crit_edge, %30, %.thread
   %107 = phi ptr [ %.pre, %.loopexit10._crit_edge ], [ %23, %30 ], [ %23, %.thread ]
   %108 = phi i32 [ %67, %.loopexit10._crit_edge ], [ -12, %30 ], [ -12, %.thread ]
   tail call void @kfree(ptr noundef %107) #17
   %109 = load ptr, ptr %22, align 8
   tail call void @kfree(ptr noundef %109) #17
+  br label %.loopexit
+
+.loopexit:                                        ; preds = %.preheader, %69, %77, %82, %106
+  %110 = phi i32 [ %108, %106 ], [ 0, %82 ], [ 0, %77 ], [ 0, %69 ], [ 0, %.preheader ]
   tail call void @kfree(ptr noundef %18) #17
   tail call void @kfree(ptr noundef %17) #17
   tail call void @kfree(ptr noundef %16) #17
-  br label %110
-
-110:                                              ; preds = %106, %.loopexit
-  %111 = phi i32 [ %108, %106 ], [ 0, %.loopexit ]
-  ret i32 %111
+  ret i32 %110
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)

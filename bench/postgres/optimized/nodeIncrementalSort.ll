@@ -122,13 +122,13 @@ define internal noundef ptr @ExecIncrementalSort(ptr noundef %0) #0 {
   %28 = load ptr, ptr %27, align 8
   %29 = icmp eq i32 %14, 1
   %30 = tail call zeroext i1 @tuplesort_gettupleslot(ptr noundef %26, i1 noundef zeroext %29, i1 noundef zeroext false, ptr noundef %28, ptr noundef null) #8
-  br i1 %30, label %461, label %31
+  br i1 %30, label %459, label %31
 
 31:                                               ; preds = %25
   %32 = getelementptr inbounds i8, ptr %0, i64 240
   %33 = load i8, ptr %32, align 8
   %34 = trunc i8 %33 to i1
-  br i1 %34, label %461, label %35
+  br i1 %34, label %459, label %35
 
 35:                                               ; preds = %31
   %36 = getelementptr inbounds i8, ptr %0, i64 264
@@ -151,7 +151,7 @@ define internal noundef ptr @ExecIncrementalSort(ptr noundef %0) #0 {
   %44 = tail call ptr @ExecGetResultType(ptr noundef %43) #8
   %45 = load i32, ptr %17, align 8
   %46 = icmp eq i32 %45, 0
-  br i1 %46, label %47, label %333
+  br i1 %46, label %47, label %331
 
 47:                                               ; preds = %41
   %48 = icmp eq ptr %16, null
@@ -504,7 +504,7 @@ instrumentSortedGroup.exit194:                    ; preds = %212, %219, %228, %2
   tail call void @tuplesort_puttupleslot(ptr noundef %.1162, ptr noundef nonnull %161) #8
   %247 = add nsw i64 %.2, 1
   %248 = icmp eq i64 %247, %.0159
-  br i1 %248, label %.thread225, label %293
+  br i1 %248, label %.thread225, label %292
 
 .thread225:                                       ; preds = %246
   %249 = load ptr, ptr %140, align 8
@@ -515,8 +515,8 @@ instrumentSortedGroup.exit194:                    ; preds = %212, %219, %228, %2
   tail call void %253(ptr noundef %249, ptr noundef nonnull %161) #8
   br label %.backedge
 
-.backedge:                                        ; preds = %.thread225, %295, %293
-  %.2.be = phi i64 [ %.0159, %.thread225 ], [ %.3, %295 ], [ %.3, %293 ]
+.backedge:                                        ; preds = %.thread225, %294, %292
+  %.2.be = phi i64 [ %.0159, %.thread225 ], [ %.3, %294 ], [ %.3, %292 ]
   br label %157
 
 254:                                              ; preds = %244
@@ -527,7 +527,7 @@ instrumentSortedGroup.exit194:                    ; preds = %212, %219, %228, %2
 257:                                              ; preds = %254
   tail call void @tuplesort_puttupleslot(ptr noundef %.1162, ptr noundef nonnull %161) #8
   %258 = add i64 %.2, 1
-  br label %293
+  br label %292
 
 259:                                              ; preds = %254
   %260 = load ptr, ptr %140, align 8
@@ -555,347 +555,351 @@ instrumentSortedGroup.exit194:                    ; preds = %212, %219, %228, %2
   %274 = getelementptr inbounds i8, ptr %0, i64 40
   %275 = load ptr, ptr %274, align 8
   %.not182 = icmp eq ptr %275, null
-  br i1 %.not182, label %292, label %276
+  br i1 %.not182, label %291, label %276
 
 276:                                              ; preds = %273
   %277 = getelementptr inbounds i8, ptr %0, i64 416
   %278 = load ptr, ptr %277, align 8
   %.not183 = icmp eq ptr %278, null
-  br i1 %.not183, label %289, label %279
+  br i1 %.not183, label %288, label %279
 
 279:                                              ; preds = %276
   %280 = getelementptr inbounds i8, ptr %0, i64 408
   %281 = load i8, ptr %280, align 8
   %282 = trunc i8 %281 to i1
-  br i1 %282, label %283, label %289
+  br i1 %282, label %283, label %288
 
 283:                                              ; preds = %279
   %284 = getelementptr inbounds i8, ptr %278, i64 8
   %285 = load i32, ptr @ParallelWorkerNumber, align 4
   %286 = sext i32 %285 to i64
   %287 = getelementptr [0 x %struct.IncrementalSortInfo], ptr %284, i64 0, i64 %286
-  %288 = load ptr, ptr %15, align 8
-  tail call fastcc void @instrumentSortedGroup(ptr noundef %287, ptr noundef %288)
-  br label %292
+  br label %.sink.split
 
-289:                                              ; preds = %279, %276
-  %290 = getelementptr inbounds i8, ptr %0, i64 296
-  %291 = load ptr, ptr %15, align 8
-  tail call fastcc void @instrumentSortedGroup(ptr noundef nonnull %290, ptr noundef %291)
-  br label %292
+288:                                              ; preds = %279, %276
+  %289 = getelementptr inbounds i8, ptr %0, i64 296
+  br label %.sink.split
 
-292:                                              ; preds = %273, %289, %283
+.sink.split:                                      ; preds = %283, %288
+  %.sink = phi ptr [ %289, %288 ], [ %287, %283 ]
+  %290 = load ptr, ptr %15, align 8
+  tail call fastcc void @instrumentSortedGroup(ptr noundef %.sink, ptr noundef %290)
+  br label %291
+
+291:                                              ; preds = %.sink.split, %273
   store i32 2, ptr %17, align 8
   br label %.thread
 
-293:                                              ; preds = %246, %257
+292:                                              ; preds = %246, %257
   %.3 = phi i64 [ %247, %246 ], [ %258, %257 ]
-  %294 = icmp sgt i64 %.3, 64
-  br i1 %294, label %295, label %.backedge
+  %293 = icmp sgt i64 %.3, 64
+  br i1 %293, label %294, label %.backedge
 
-295:                                              ; preds = %293
-  %296 = load i32, ptr %17, align 8
-  %.not184 = icmp eq i32 %296, 2
-  br i1 %.not184, label %.backedge, label %297
+294:                                              ; preds = %292
+  %295 = load i32, ptr %17, align 8
+  %.not184 = icmp eq i32 %295, 2
+  br i1 %.not184, label %.backedge, label %296
 
-297:                                              ; preds = %295
-  %298 = load ptr, ptr %140, align 8
-  %299 = getelementptr inbounds i8, ptr %298, i64 8
-  %300 = load ptr, ptr %299, align 8
-  %301 = getelementptr inbounds i8, ptr %300, i64 24
-  %302 = load ptr, ptr %301, align 8
-  tail call void %302(ptr noundef %298) #8
+296:                                              ; preds = %294
+  %297 = load ptr, ptr %140, align 8
+  %298 = getelementptr inbounds i8, ptr %297, i64 8
+  %299 = load ptr, ptr %298, align 8
+  %300 = getelementptr inbounds i8, ptr %299, i64 24
+  %301 = load ptr, ptr %300, align 8
+  tail call void %301(ptr noundef %297) #8
   tail call void @tuplesort_performsort(ptr noundef %.1162) #8
-  %303 = getelementptr inbounds i8, ptr %0, i64 40
-  %304 = load ptr, ptr %303, align 8
-  %.not185 = icmp eq ptr %304, null
-  br i1 %.not185, label %321, label %305
+  %302 = getelementptr inbounds i8, ptr %0, i64 40
+  %303 = load ptr, ptr %302, align 8
+  %.not185 = icmp eq ptr %303, null
+  br i1 %.not185, label %319, label %304
 
-305:                                              ; preds = %297
-  %306 = getelementptr inbounds i8, ptr %0, i64 416
-  %307 = load ptr, ptr %306, align 8
-  %.not186 = icmp eq ptr %307, null
-  br i1 %.not186, label %318, label %308
+304:                                              ; preds = %296
+  %305 = getelementptr inbounds i8, ptr %0, i64 416
+  %306 = load ptr, ptr %305, align 8
+  %.not186 = icmp eq ptr %306, null
+  br i1 %.not186, label %316, label %307
 
-308:                                              ; preds = %305
-  %309 = getelementptr inbounds i8, ptr %0, i64 408
-  %310 = load i8, ptr %309, align 8
-  %311 = trunc i8 %310 to i1
-  br i1 %311, label %312, label %318
+307:                                              ; preds = %304
+  %308 = getelementptr inbounds i8, ptr %0, i64 408
+  %309 = load i8, ptr %308, align 8
+  %310 = trunc i8 %309 to i1
+  br i1 %310, label %311, label %316
 
-312:                                              ; preds = %308
-  %313 = getelementptr inbounds i8, ptr %307, i64 8
-  %314 = load i32, ptr @ParallelWorkerNumber, align 4
-  %315 = sext i32 %314 to i64
-  %316 = getelementptr [0 x %struct.IncrementalSortInfo], ptr %313, i64 0, i64 %315
-  %317 = load ptr, ptr %15, align 8
-  tail call fastcc void @instrumentSortedGroup(ptr noundef %316, ptr noundef %317)
-  br label %321
+311:                                              ; preds = %307
+  %312 = getelementptr inbounds i8, ptr %306, i64 8
+  %313 = load i32, ptr @ParallelWorkerNumber, align 4
+  %314 = sext i32 %313 to i64
+  %315 = getelementptr [0 x %struct.IncrementalSortInfo], ptr %312, i64 0, i64 %314
+  br label %.sink.split240
 
-318:                                              ; preds = %308, %305
-  %319 = getelementptr inbounds i8, ptr %0, i64 296
+316:                                              ; preds = %307, %304
+  %317 = getelementptr inbounds i8, ptr %0, i64 296
+  br label %.sink.split240
+
+.sink.split240:                                   ; preds = %311, %316
+  %.sink241 = phi ptr [ %317, %316 ], [ %315, %311 ]
+  %318 = load ptr, ptr %15, align 8
+  tail call fastcc void @instrumentSortedGroup(ptr noundef %.sink241, ptr noundef %318)
+  br label %319
+
+319:                                              ; preds = %.sink.split240, %296
   %320 = load ptr, ptr %15, align 8
-  tail call fastcc void @instrumentSortedGroup(ptr noundef nonnull %319, ptr noundef %320)
-  br label %321
+  %321 = tail call zeroext i1 @tuplesort_used_bound(ptr noundef %320) #8
+  br i1 %321, label %322, label %329
 
-321:                                              ; preds = %297, %318, %312
-  %322 = load ptr, ptr %15, align 8
-  %323 = tail call zeroext i1 @tuplesort_used_bound(ptr noundef %322) #8
-  br i1 %323, label %324, label %331
-
-324:                                              ; preds = %321
-  %325 = getelementptr inbounds i8, ptr %0, i64 232
+322:                                              ; preds = %319
+  %323 = getelementptr inbounds i8, ptr %0, i64 232
+  %324 = load i64, ptr %323, align 8
+  %325 = getelementptr inbounds i8, ptr %0, i64 248
   %326 = load i64, ptr %325, align 8
-  %327 = getelementptr inbounds i8, ptr %0, i64 248
-  %328 = load i64, ptr %327, align 8
-  %329 = sub i64 %326, %328
-  %330 = tail call i64 @llvm.smin.i64(i64 %329, i64 %.3)
-  br label %331
+  %327 = sub i64 %324, %326
+  %328 = tail call i64 @llvm.smin.i64(i64 %327, i64 %.3)
+  br label %329
 
-331:                                              ; preds = %324, %321
-  %.4 = phi i64 [ %330, %324 ], [ %.3, %321 ]
-  %332 = getelementptr inbounds i8, ptr %0, i64 264
-  store i64 %.4, ptr %332, align 8
+329:                                              ; preds = %322, %319
+  %.4 = phi i64 [ %328, %322 ], [ %.3, %319 ]
+  %330 = getelementptr inbounds i8, ptr %0, i64 264
+  store i64 %.4, ptr %330, align 8
   tail call fastcc void @switchToPresortedPrefixMode(ptr noundef nonnull %0)
   %.pr = load i32, ptr %17, align 8
-  br label %333
+  br label %331
 
-333:                                              ; preds = %331, %41
-  %334 = phi i32 [ %.pr, %331 ], [ %45, %41 ]
-  %.0161 = phi ptr [ %.1162, %331 ], [ %16, %41 ]
-  %.0160 = phi i64 [ %.4, %331 ], [ 0, %41 ]
-  %335 = icmp eq i32 %334, 1
-  br i1 %335, label %.preheader, label %.thread
+331:                                              ; preds = %329, %41
+  %332 = phi i32 [ %.pr, %329 ], [ %45, %41 ]
+  %.0161 = phi ptr [ %.1162, %329 ], [ %16, %41 ]
+  %.0160 = phi i64 [ %.4, %329 ], [ 0, %41 ]
+  %333 = icmp eq i32 %332, 1
+  br i1 %333, label %.preheader, label %.thread
 
-.preheader:                                       ; preds = %333
-  %336 = getelementptr inbounds i8, ptr %43, i64 104
-  %337 = getelementptr inbounds i8, ptr %43, i64 24
-  %338 = getelementptr inbounds i8, ptr %0, i64 392
-  %339 = getelementptr inbounds i8, ptr %0, i64 280
-  br label %340
+.preheader:                                       ; preds = %331
+  %334 = getelementptr inbounds i8, ptr %43, i64 104
+  %335 = getelementptr inbounds i8, ptr %43, i64 24
+  %336 = getelementptr inbounds i8, ptr %0, i64 392
+  %337 = getelementptr inbounds i8, ptr %0, i64 280
+  br label %338
 
-340:                                              ; preds = %.preheader, %355
-  %.5 = phi i64 [ %357, %355 ], [ %.0160, %.preheader ]
-  %341 = load ptr, ptr %336, align 8
-  %.not.i195 = icmp eq ptr %341, null
-  br i1 %.not.i195, label %ExecProcNode.exit196, label %342
+338:                                              ; preds = %.preheader, %353
+  %.5 = phi i64 [ %355, %353 ], [ %.0160, %.preheader ]
+  %339 = load ptr, ptr %334, align 8
+  %.not.i195 = icmp eq ptr %339, null
+  br i1 %.not.i195, label %ExecProcNode.exit196, label %340
 
-342:                                              ; preds = %340
+340:                                              ; preds = %338
   tail call void @ExecReScan(ptr noundef nonnull %43) #8
   br label %ExecProcNode.exit196
 
-ExecProcNode.exit196:                             ; preds = %340, %342
-  %343 = load ptr, ptr %337, align 8
-  %344 = tail call ptr %343(ptr noundef nonnull %43) #8
-  %345 = icmp eq ptr %344, null
-  br i1 %345, label %350, label %346
+ExecProcNode.exit196:                             ; preds = %338, %340
+  %341 = load ptr, ptr %335, align 8
+  %342 = tail call ptr %341(ptr noundef nonnull %43) #8
+  %343 = icmp eq ptr %342, null
+  br i1 %343, label %348, label %344
 
-346:                                              ; preds = %ExecProcNode.exit196
-  %347 = getelementptr inbounds i8, ptr %344, i64 4
-  %348 = load i16, ptr %347, align 4
-  %349 = and i16 %348, 2
-  %.not189 = icmp eq i16 %349, 0
-  br i1 %.not189, label %352, label %350
+344:                                              ; preds = %ExecProcNode.exit196
+  %345 = getelementptr inbounds i8, ptr %342, i64 4
+  %346 = load i16, ptr %345, align 4
+  %347 = and i16 %346, 2
+  %.not189 = icmp eq i16 %347, 0
+  br i1 %.not189, label %350, label %348
 
-350:                                              ; preds = %346, %ExecProcNode.exit196
-  %351 = getelementptr inbounds i8, ptr %0, i64 240
-  store i8 1, ptr %351, align 8
-  br label %364
+348:                                              ; preds = %344, %ExecProcNode.exit196
+  %349 = getelementptr inbounds i8, ptr %0, i64 240
+  store i8 1, ptr %349, align 8
+  br label %362
 
-352:                                              ; preds = %346
-  %353 = load ptr, ptr %338, align 8
-  %354 = tail call fastcc zeroext i1 @isCurrentGroup(ptr noundef nonnull %0, ptr noundef %353, ptr noundef nonnull %344)
-  br i1 %354, label %355, label %358
+350:                                              ; preds = %344
+  %351 = load ptr, ptr %336, align 8
+  %352 = tail call fastcc zeroext i1 @isCurrentGroup(ptr noundef nonnull %0, ptr noundef %351, ptr noundef nonnull %342)
+  br i1 %352, label %353, label %356
 
-355:                                              ; preds = %352
-  %356 = load ptr, ptr %339, align 8
-  tail call void @tuplesort_puttupleslot(ptr noundef %356, ptr noundef nonnull %344) #8
-  %357 = add i64 %.5, 1
-  br label %340
+353:                                              ; preds = %350
+  %354 = load ptr, ptr %337, align 8
+  tail call void @tuplesort_puttupleslot(ptr noundef %354, ptr noundef nonnull %342) #8
+  %355 = add i64 %.5, 1
+  br label %338
 
-358:                                              ; preds = %352
-  %359 = load ptr, ptr %338, align 8
-  %360 = getelementptr inbounds i8, ptr %359, i64 8
+356:                                              ; preds = %350
+  %357 = load ptr, ptr %336, align 8
+  %358 = getelementptr inbounds i8, ptr %357, i64 8
+  %359 = load ptr, ptr %358, align 8
+  %360 = getelementptr inbounds i8, ptr %359, i64 56
   %361 = load ptr, ptr %360, align 8
-  %362 = getelementptr inbounds i8, ptr %361, i64 56
-  %363 = load ptr, ptr %362, align 8
-  tail call void %363(ptr noundef %359, ptr noundef nonnull %344) #8
-  br label %364
+  tail call void %361(ptr noundef %357, ptr noundef nonnull %342) #8
+  br label %362
 
-364:                                              ; preds = %358, %350
-  %365 = load ptr, ptr %339, align 8
-  tail call void @tuplesort_performsort(ptr noundef %365) #8
-  %366 = getelementptr inbounds i8, ptr %0, i64 40
-  %367 = load ptr, ptr %366, align 8
-  %.not190 = icmp eq ptr %367, null
-  br i1 %.not190, label %440, label %368
+362:                                              ; preds = %356, %348
+  %363 = load ptr, ptr %337, align 8
+  tail call void @tuplesort_performsort(ptr noundef %363) #8
+  %364 = getelementptr inbounds i8, ptr %0, i64 40
+  %365 = load ptr, ptr %364, align 8
+  %.not190 = icmp eq ptr %365, null
+  br i1 %.not190, label %438, label %366
 
-368:                                              ; preds = %364
-  %369 = getelementptr inbounds i8, ptr %0, i64 416
-  %370 = load ptr, ptr %369, align 8
-  %.not191 = icmp eq ptr %370, null
-  br i1 %.not191, label %409, label %371
+366:                                              ; preds = %362
+  %367 = getelementptr inbounds i8, ptr %0, i64 416
+  %368 = load ptr, ptr %367, align 8
+  %.not191 = icmp eq ptr %368, null
+  br i1 %.not191, label %407, label %369
 
-371:                                              ; preds = %368
-  %372 = getelementptr inbounds i8, ptr %0, i64 408
-  %373 = load i8, ptr %372, align 8
-  %374 = trunc i8 %373 to i1
-  br i1 %374, label %375, label %409
+369:                                              ; preds = %366
+  %370 = getelementptr inbounds i8, ptr %0, i64 408
+  %371 = load i8, ptr %370, align 8
+  %372 = trunc i8 %371 to i1
+  br i1 %372, label %373, label %407
 
-375:                                              ; preds = %371
-  %376 = getelementptr inbounds i8, ptr %370, i64 8
-  %377 = load i32, ptr @ParallelWorkerNumber, align 4
-  %378 = sext i32 %377 to i64
-  %379 = getelementptr [0 x %struct.IncrementalSortInfo], ptr %376, i64 0, i64 %378, i32 1
-  %380 = load ptr, ptr %339, align 8
+373:                                              ; preds = %369
+  %374 = getelementptr inbounds i8, ptr %368, i64 8
+  %375 = load i32, ptr @ParallelWorkerNumber, align 4
+  %376 = sext i32 %375 to i64
+  %377 = getelementptr [0 x %struct.IncrementalSortInfo], ptr %374, i64 0, i64 %376, i32 1
+  %378 = load ptr, ptr %337, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
-  %381 = load i64, ptr %379, align 8
-  %382 = add i64 %381, 1
-  store i64 %382, ptr %379, align 8
-  call void @tuplesort_get_stats(ptr noundef %380, ptr noundef nonnull %3) #8
-  %383 = getelementptr inbounds i8, ptr %3, i64 4
-  %384 = load i32, ptr %383, align 4
-  switch i32 %384, label %instrumentSortedGroup.exit197 [
-    i32 0, label %385
-    i32 1, label %395
+  %379 = load i64, ptr %377, align 8
+  %380 = add i64 %379, 1
+  store i64 %380, ptr %377, align 8
+  call void @tuplesort_get_stats(ptr noundef %378, ptr noundef nonnull %3) #8
+  %381 = getelementptr inbounds i8, ptr %3, i64 4
+  %382 = load i32, ptr %381, align 4
+  switch i32 %382, label %instrumentSortedGroup.exit197 [
+    i32 0, label %383
+    i32 1, label %393
   ]
 
-385:                                              ; preds = %375
-  %386 = getelementptr inbounds i8, ptr %3, i64 8
+383:                                              ; preds = %373
+  %384 = getelementptr inbounds i8, ptr %3, i64 8
+  %385 = load i64, ptr %384, align 8
+  %386 = getelementptr inbounds i8, ptr %377, i64 16
   %387 = load i64, ptr %386, align 8
-  %388 = getelementptr inbounds i8, ptr %379, i64 16
-  %389 = load i64, ptr %388, align 8
-  %390 = add i64 %389, %387
-  store i64 %390, ptr %388, align 8
-  %391 = getelementptr inbounds i8, ptr %379, i64 8
-  %392 = load i64, ptr %391, align 8
-  %393 = icmp sgt i64 %387, %392
-  br i1 %393, label %394, label %instrumentSortedGroup.exit197
+  %388 = add i64 %387, %385
+  store i64 %388, ptr %386, align 8
+  %389 = getelementptr inbounds i8, ptr %377, i64 8
+  %390 = load i64, ptr %389, align 8
+  %391 = icmp sgt i64 %385, %390
+  br i1 %391, label %392, label %instrumentSortedGroup.exit197
 
-394:                                              ; preds = %385
-  store i64 %387, ptr %391, align 8
+392:                                              ; preds = %383
+  store i64 %385, ptr %389, align 8
   br label %instrumentSortedGroup.exit197
 
-395:                                              ; preds = %375
-  %396 = getelementptr inbounds i8, ptr %3, i64 8
+393:                                              ; preds = %373
+  %394 = getelementptr inbounds i8, ptr %3, i64 8
+  %395 = load i64, ptr %394, align 8
+  %396 = getelementptr inbounds i8, ptr %377, i64 32
   %397 = load i64, ptr %396, align 8
-  %398 = getelementptr inbounds i8, ptr %379, i64 32
-  %399 = load i64, ptr %398, align 8
-  %400 = add i64 %399, %397
-  store i64 %400, ptr %398, align 8
-  %401 = getelementptr inbounds i8, ptr %379, i64 24
-  %402 = load i64, ptr %401, align 8
-  %403 = icmp sgt i64 %397, %402
-  br i1 %403, label %404, label %instrumentSortedGroup.exit197
+  %398 = add i64 %397, %395
+  store i64 %398, ptr %396, align 8
+  %399 = getelementptr inbounds i8, ptr %377, i64 24
+  %400 = load i64, ptr %399, align 8
+  %401 = icmp sgt i64 %395, %400
+  br i1 %401, label %402, label %instrumentSortedGroup.exit197
 
-404:                                              ; preds = %395
-  store i64 %397, ptr %401, align 8
+402:                                              ; preds = %393
+  store i64 %395, ptr %399, align 8
   br label %instrumentSortedGroup.exit197
 
-instrumentSortedGroup.exit197:                    ; preds = %375, %385, %394, %395, %404
-  %405 = load i32, ptr %3, align 8
-  %406 = getelementptr inbounds i8, ptr %379, i64 40
-  %407 = load i32, ptr %406, align 8
-  %408 = or i32 %407, %405
-  store i32 %408, ptr %406, align 8
+instrumentSortedGroup.exit197:                    ; preds = %373, %383, %392, %393, %402
+  %403 = load i32, ptr %3, align 8
+  %404 = getelementptr inbounds i8, ptr %377, i64 40
+  %405 = load i32, ptr %404, align 8
+  %406 = or i32 %405, %403
+  store i32 %406, ptr %404, align 8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
-  br label %440
+  br label %438
 
-409:                                              ; preds = %371, %368
-  %410 = getelementptr inbounds i8, ptr %0, i64 344
-  %411 = load ptr, ptr %339, align 8
+407:                                              ; preds = %369, %366
+  %408 = getelementptr inbounds i8, ptr %0, i64 344
+  %409 = load ptr, ptr %337, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2)
-  %412 = load i64, ptr %410, align 8
-  %413 = add i64 %412, 1
-  store i64 %413, ptr %410, align 8
-  call void @tuplesort_get_stats(ptr noundef %411, ptr noundef nonnull %2) #8
-  %414 = getelementptr inbounds i8, ptr %2, i64 4
-  %415 = load i32, ptr %414, align 4
-  switch i32 %415, label %instrumentSortedGroup.exit198 [
-    i32 0, label %416
-    i32 1, label %426
+  %410 = load i64, ptr %408, align 8
+  %411 = add i64 %410, 1
+  store i64 %411, ptr %408, align 8
+  call void @tuplesort_get_stats(ptr noundef %409, ptr noundef nonnull %2) #8
+  %412 = getelementptr inbounds i8, ptr %2, i64 4
+  %413 = load i32, ptr %412, align 4
+  switch i32 %413, label %instrumentSortedGroup.exit198 [
+    i32 0, label %414
+    i32 1, label %424
   ]
 
-416:                                              ; preds = %409
-  %417 = getelementptr inbounds i8, ptr %2, i64 8
+414:                                              ; preds = %407
+  %415 = getelementptr inbounds i8, ptr %2, i64 8
+  %416 = load i64, ptr %415, align 8
+  %417 = getelementptr inbounds i8, ptr %0, i64 360
   %418 = load i64, ptr %417, align 8
-  %419 = getelementptr inbounds i8, ptr %0, i64 360
-  %420 = load i64, ptr %419, align 8
-  %421 = add i64 %420, %418
-  store i64 %421, ptr %419, align 8
-  %422 = getelementptr inbounds i8, ptr %0, i64 352
-  %423 = load i64, ptr %422, align 8
-  %424 = icmp sgt i64 %418, %423
-  br i1 %424, label %425, label %instrumentSortedGroup.exit198
+  %419 = add i64 %418, %416
+  store i64 %419, ptr %417, align 8
+  %420 = getelementptr inbounds i8, ptr %0, i64 352
+  %421 = load i64, ptr %420, align 8
+  %422 = icmp sgt i64 %416, %421
+  br i1 %422, label %423, label %instrumentSortedGroup.exit198
 
-425:                                              ; preds = %416
-  store i64 %418, ptr %422, align 8
+423:                                              ; preds = %414
+  store i64 %416, ptr %420, align 8
   br label %instrumentSortedGroup.exit198
 
-426:                                              ; preds = %409
-  %427 = getelementptr inbounds i8, ptr %2, i64 8
+424:                                              ; preds = %407
+  %425 = getelementptr inbounds i8, ptr %2, i64 8
+  %426 = load i64, ptr %425, align 8
+  %427 = getelementptr inbounds i8, ptr %0, i64 376
   %428 = load i64, ptr %427, align 8
-  %429 = getelementptr inbounds i8, ptr %0, i64 376
-  %430 = load i64, ptr %429, align 8
-  %431 = add i64 %430, %428
-  store i64 %431, ptr %429, align 8
-  %432 = getelementptr inbounds i8, ptr %0, i64 368
-  %433 = load i64, ptr %432, align 8
-  %434 = icmp sgt i64 %428, %433
-  br i1 %434, label %435, label %instrumentSortedGroup.exit198
+  %429 = add i64 %428, %426
+  store i64 %429, ptr %427, align 8
+  %430 = getelementptr inbounds i8, ptr %0, i64 368
+  %431 = load i64, ptr %430, align 8
+  %432 = icmp sgt i64 %426, %431
+  br i1 %432, label %433, label %instrumentSortedGroup.exit198
 
-435:                                              ; preds = %426
-  store i64 %428, ptr %432, align 8
+433:                                              ; preds = %424
+  store i64 %426, ptr %430, align 8
   br label %instrumentSortedGroup.exit198
 
-instrumentSortedGroup.exit198:                    ; preds = %409, %416, %425, %426, %435
-  %436 = load i32, ptr %2, align 8
-  %437 = getelementptr inbounds i8, ptr %0, i64 384
-  %438 = load i32, ptr %437, align 8
-  %439 = or i32 %438, %436
-  store i32 %439, ptr %437, align 8
+instrumentSortedGroup.exit198:                    ; preds = %407, %414, %423, %424, %433
+  %434 = load i32, ptr %2, align 8
+  %435 = getelementptr inbounds i8, ptr %0, i64 384
+  %436 = load i32, ptr %435, align 8
+  %437 = or i32 %436, %434
+  store i32 %437, ptr %435, align 8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2)
-  br label %440
+  br label %438
 
-440:                                              ; preds = %364, %instrumentSortedGroup.exit198, %instrumentSortedGroup.exit197
+438:                                              ; preds = %362, %instrumentSortedGroup.exit198, %instrumentSortedGroup.exit197
   store i32 3, ptr %17, align 8
-  %441 = getelementptr inbounds i8, ptr %0, i64 224
-  %442 = load i8, ptr %441, align 8
-  %443 = trunc i8 %442 to i1
-  br i1 %443, label %444, label %.thread
+  %439 = getelementptr inbounds i8, ptr %0, i64 224
+  %440 = load i8, ptr %439, align 8
+  %441 = trunc i8 %440 to i1
+  br i1 %441, label %442, label %.thread
 
-444:                                              ; preds = %440
-  %445 = getelementptr inbounds i8, ptr %0, i64 232
+442:                                              ; preds = %438
+  %443 = getelementptr inbounds i8, ptr %0, i64 232
+  %444 = load i64, ptr %443, align 8
+  %445 = getelementptr inbounds i8, ptr %0, i64 248
   %446 = load i64, ptr %445, align 8
-  %447 = getelementptr inbounds i8, ptr %0, i64 248
-  %448 = load i64, ptr %447, align 8
-  %449 = add i64 %448, %.5
-  %.192 = call i64 @llvm.smin.i64(i64 %446, i64 %449)
-  store i64 %.192, ptr %447, align 8
+  %447 = add i64 %446, %.5
+  %.192 = call i64 @llvm.smin.i64(i64 %444, i64 %447)
+  store i64 %.192, ptr %445, align 8
   br label %.thread
 
-.thread:                                          ; preds = %292, %243, %440, %444, %333
-  %.0161201 = phi ptr [ %.0161, %440 ], [ %.0161, %444 ], [ %.0161, %333 ], [ %.1162, %243 ], [ %.1162, %292 ]
+.thread:                                          ; preds = %291, %243, %438, %442, %331
+  %.0161201 = phi ptr [ %.0161, %438 ], [ %.0161, %442 ], [ %.0161, %331 ], [ %.1162, %243 ], [ %.1162, %291 ]
   store i32 %14, ptr %13, align 4
-  %450 = load i32, ptr %17, align 8
-  %451 = icmp eq i32 %450, 2
-  br i1 %451, label %455, label %452
+  %448 = load i32, ptr %17, align 8
+  %449 = icmp eq i32 %448, 2
+  br i1 %449, label %453, label %450
 
-452:                                              ; preds = %.thread
-  %453 = getelementptr inbounds i8, ptr %0, i64 280
-  %454 = load ptr, ptr %453, align 8
-  br label %455
+450:                                              ; preds = %.thread
+  %451 = getelementptr inbounds i8, ptr %0, i64 280
+  %452 = load ptr, ptr %451, align 8
+  br label %453
 
-455:                                              ; preds = %.thread, %452
-  %456 = phi ptr [ %454, %452 ], [ %.0161201, %.thread ]
-  %457 = getelementptr inbounds i8, ptr %0, i64 120
-  %458 = load ptr, ptr %457, align 8
-  %459 = icmp eq i32 %14, 1
-  %460 = call zeroext i1 @tuplesort_gettupleslot(ptr noundef %456, i1 noundef zeroext %459, i1 noundef zeroext false, ptr noundef %458, ptr noundef null) #8
-  br label %461
+453:                                              ; preds = %.thread, %450
+  %454 = phi ptr [ %452, %450 ], [ %.0161201, %.thread ]
+  %455 = getelementptr inbounds i8, ptr %0, i64 120
+  %456 = load ptr, ptr %455, align 8
+  %457 = icmp eq i32 %14, 1
+  %458 = call zeroext i1 @tuplesort_gettupleslot(ptr noundef %454, i1 noundef zeroext %457, i1 noundef zeroext false, ptr noundef %456, ptr noundef null) #8
+  br label %459
 
-461:                                              ; preds = %25, %31, %455
-  %.0 = phi ptr [ %458, %455 ], [ %28, %31 ], [ %28, %25 ]
+459:                                              ; preds = %25, %31, %453
+  %.0 = phi ptr [ %456, %453 ], [ %28, %31 ], [ %28, %25 ]
   ret ptr %.0
 }
 

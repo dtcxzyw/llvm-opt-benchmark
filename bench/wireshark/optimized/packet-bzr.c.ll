@@ -98,9 +98,9 @@ define internal i32 @dissect_bzr(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   br label %13
 
 13:                                               ; preds = %.lr.ph, %dissect_bzr_pdu.exit
-  %.02631 = phi i32 [ 0, %.lr.ph ], [ %94, %dissect_bzr_pdu.exit ]
+  %.02633 = phi i32 [ 0, %.lr.ph ], [ %119, %dissect_bzr_pdu.exit ]
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6)
-  %14 = call i32 @tvb_find_line_end(ptr noundef %0, i32 noundef %.02631, i32 noundef -1, ptr noundef nonnull %6, i32 noundef 1) #3
+  %14 = call i32 @tvb_find_line_end(ptr noundef %0, i32 noundef %.02633, i32 noundef -1, ptr noundef nonnull %6, i32 noundef 1) #3
   %15 = icmp eq i32 %14, -1
   br i1 %15, label %get_bzr_pdu_len.exit.thread, label %16
 
@@ -114,7 +114,7 @@ define internal i32 @dissect_bzr(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   br i1 %22, label %get_bzr_pdu_len.exit.thread, label %.preheader.i
 
 .preheader.i:                                     ; preds = %16
-  %23 = add i32 %21, %.02631
+  %23 = add i32 %21, %.02633
   %24 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %23) #3
   %25 = icmp sgt i32 %24, 0
   br i1 %25, label %.lr.ph.i, label %get_bzr_pdu_len.exit.thread
@@ -132,7 +132,7 @@ define internal i32 @dissect_bzr(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   ]
 
 29:                                               ; preds = %.lr.ph.i, %.lr.ph.i
-  %30 = add i32 %28, %.02631
+  %30 = add i32 %28, %.02633
   %31 = call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %30) #3
   %32 = add i32 %.0271.i, 5
   %33 = add i32 %32, %31
@@ -145,7 +145,7 @@ define internal i32 @dissect_bzr(ptr noundef %0, ptr noundef %1, ptr noundef %2,
 
 37:                                               ; preds = %35, %29, %.lr.ph.i
   %.1.i = phi i32 [ %28, %.lr.ph.i ], [ %36, %35 ], [ %33, %29 ]
-  %38 = add i32 %.1.i, %.02631
+  %38 = add i32 %.1.i, %.02633
   %39 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %38) #3
   %40 = icmp sgt i32 %39, 0
   br i1 %40, label %.lr.ph.i, label %get_bzr_pdu_len.exit.thread, !llvm.loop !4
@@ -169,18 +169,18 @@ get_bzr_pdu_len.exit:                             ; preds = %.lr.ph.i
 
 47:                                               ; preds = %42
   %48 = getelementptr inbounds i8, ptr %1, i64 332
-  store i32 %.02631, ptr %48, align 4
+  store i32 %.02633, ptr %48, align 4
   %49 = getelementptr inbounds i8, ptr %1, i64 336
   store i32 268435455, ptr %49, align 8
   br label %._crit_edge
 
 50:                                               ; preds = %42
-  %51 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.02631) #3
+  %51 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.02633) #3
   br label %52
 
 52:                                               ; preds = %50, %get_bzr_pdu_len.exit
   %.025 = phi i32 [ %51, %50 ], [ %28, %get_bzr_pdu_len.exit ]
-  %53 = call ptr @tvb_new_subset_length(ptr noundef %0, i32 noundef %.02631, i32 noundef %.025) #3
+  %53 = call ptr @tvb_new_subset_length(ptr noundef %0, i32 noundef %.02633, i32 noundef %.025) #3
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5)
   store i32 0, ptr %5, align 4
   %54 = load i32, ptr @proto_bzr, align 4
@@ -193,63 +193,103 @@ get_bzr_pdu_len.exit:                             ; preds = %.lr.ph.i
 
 60:                                               ; preds = %52
   %.not.i = icmp eq ptr %57, null
-  br i1 %.not.i, label %.split.i, label %.split15.i
-
-.split.i:                                         ; preds = %60
-  %61 = load i32, ptr %5, align 4
-  %62 = call i32 @tvb_get_ntohl(ptr noundef %53, i32 noundef %61) #3
-  %63 = load i32, ptr @hf_bzr_prefixed_bencode, align 4
-  %64 = call ptr @proto_tree_add_item(ptr noundef null, i32 noundef %63, ptr noundef %53, i32 noundef %61, i32 noundef -1, i32 noundef 0) #3
-  %65 = load i32, ptr @ett_prefixed_bencode, align 4
-  %66 = call ptr @proto_item_add_subtree(ptr noundef %64, i32 noundef %65) #3
-  %67 = load i32, ptr @hf_bzr_prefixed_bencode_len, align 4
-  %68 = call ptr @proto_tree_add_item(ptr noundef %66, i32 noundef %67, ptr noundef %53, i32 noundef %61, i32 noundef 4, i32 noundef 0) #3
-  %69 = add i32 %61, 4
-  %70 = call ptr @tvb_new_subset_length(ptr noundef %53, i32 noundef %69, i32 noundef %62) #3
-  %71 = load ptr, ptr @bencode_handle, align 8
-  %72 = call i32 @call_dissector(ptr noundef %71, ptr noundef %70, ptr noundef %1, ptr noundef %66) #3
-  %73 = add i32 %62, 4
-  call void @proto_item_set_len(ptr noundef %64, i32 noundef %73) #3
-  %74 = load i32, ptr %5, align 4
-  %75 = add i32 %74, %73
-  store i32 %75, ptr %5, align 4
-  call fastcc void @dissect_body(ptr noundef %53, i32 noundef %75, ptr noundef %1, ptr noundef null)
-  br label %dissect_bzr_pdu.exit
+  br i1 %.not.i, label %.sink.split.i, label %.split15.i
 
 .split15.i:                                       ; preds = %60
-  %76 = load i32, ptr @hf_bzr_packet_protocol_version, align 4
-  %77 = add nuw i32 %58, 1
-  %78 = call ptr @proto_tree_add_item(ptr noundef nonnull %57, i32 noundef %76, ptr noundef %53, i32 noundef 0, i32 noundef %77, i32 noundef 0) #3
-  %79 = load i32, ptr %5, align 4
-  %80 = call i32 @tvb_get_ntohl(ptr noundef %53, i32 noundef %79) #3
-  %81 = load i32, ptr @hf_bzr_prefixed_bencode, align 4
-  %82 = call ptr @proto_tree_add_item(ptr noundef nonnull %57, i32 noundef %81, ptr noundef %53, i32 noundef %79, i32 noundef -1, i32 noundef 0) #3
-  %83 = load i32, ptr @ett_prefixed_bencode, align 4
-  %84 = call ptr @proto_item_add_subtree(ptr noundef %82, i32 noundef %83) #3
-  %85 = load i32, ptr @hf_bzr_prefixed_bencode_len, align 4
-  %86 = call ptr @proto_tree_add_item(ptr noundef %84, i32 noundef %85, ptr noundef %53, i32 noundef %79, i32 noundef 4, i32 noundef 0) #3
-  %87 = add i32 %79, 4
-  %88 = call ptr @tvb_new_subset_length(ptr noundef %53, i32 noundef %87, i32 noundef %80) #3
-  %89 = load ptr, ptr @bencode_handle, align 8
-  %90 = call i32 @call_dissector(ptr noundef %89, ptr noundef %88, ptr noundef %1, ptr noundef %84) #3
-  %91 = add i32 %80, 4
-  call void @proto_item_set_len(ptr noundef %82, i32 noundef %91) #3
-  %92 = load i32, ptr %5, align 4
-  %93 = add i32 %92, %91
-  store i32 %93, ptr %5, align 4
-  call fastcc void @dissect_body(ptr noundef %53, i32 noundef %93, ptr noundef %1, ptr noundef nonnull %57)
-  br label %dissect_bzr_pdu.exit
+  %61 = load i32, ptr @hf_bzr_packet_protocol_version, align 4
+  %62 = add nuw i32 %58, 1
+  %63 = call ptr @proto_tree_add_item(ptr noundef nonnull %57, i32 noundef %61, ptr noundef %53, i32 noundef 0, i32 noundef %62, i32 noundef 0) #3
+  br label %.sink.split.i
 
-dissect_bzr_pdu.exit:                             ; preds = %52, %.split.i, %.split15.i
+.sink.split.i:                                    ; preds = %.split15.i, %60
+  %64 = load i32, ptr %5, align 4
+  %65 = call i32 @tvb_get_ntohl(ptr noundef %53, i32 noundef %64) #3
+  %66 = load i32, ptr @hf_bzr_prefixed_bencode, align 4
+  %67 = call ptr @proto_tree_add_item(ptr noundef %57, i32 noundef %66, ptr noundef %53, i32 noundef %64, i32 noundef -1, i32 noundef 0) #3
+  %68 = load i32, ptr @ett_prefixed_bencode, align 4
+  %69 = call ptr @proto_item_add_subtree(ptr noundef %67, i32 noundef %68) #3
+  %70 = load i32, ptr @hf_bzr_prefixed_bencode_len, align 4
+  %71 = call ptr @proto_tree_add_item(ptr noundef %69, i32 noundef %70, ptr noundef %53, i32 noundef %64, i32 noundef 4, i32 noundef 0) #3
+  %72 = add i32 %64, 4
+  %73 = call ptr @tvb_new_subset_length(ptr noundef %53, i32 noundef %72, i32 noundef %65) #3
+  %74 = load ptr, ptr @bencode_handle, align 8
+  %75 = call i32 @call_dissector(ptr noundef %74, ptr noundef %73, ptr noundef %1, ptr noundef %69) #3
+  %76 = add i32 %65, 4
+  call void @proto_item_set_len(ptr noundef %67, i32 noundef %76) #3
+  %77 = load i32, ptr %5, align 4
+  %78 = add i32 %77, %76
+  store i32 %78, ptr %5, align 4
+  %79 = call i32 @tvb_reported_length_remaining(ptr noundef %53, i32 noundef %78) #3
+  %80 = icmp sgt i32 %79, 0
+  br i1 %80, label %.lr.ph.i28, label %dissect_bzr_pdu.exit
+
+.lr.ph.i28:                                       ; preds = %.sink.split.i, %116
+  %.023.i = phi i32 [ %.1.i29, %116 ], [ %78, %.sink.split.i ]
+  %81 = call zeroext i8 @tvb_get_guint8(ptr noundef %53, i32 noundef %.023.i) #3
+  %82 = load i32, ptr @hf_bzr_packet_kind, align 4
+  %83 = call ptr @proto_tree_add_item(ptr noundef %57, i32 noundef %82, ptr noundef %53, i32 noundef %.023.i, i32 noundef 1, i32 noundef 0) #3
+  %84 = add i32 %.023.i, 1
+  switch i8 %81, label %116 [
+    i8 115, label %85
+    i8 98, label %99
+    i8 111, label %112
+  ]
+
+85:                                               ; preds = %.lr.ph.i28
+  %86 = call i32 @tvb_get_ntohl(ptr noundef %53, i32 noundef %84) #3
+  %87 = load i32, ptr @hf_bzr_prefixed_bencode, align 4
+  %88 = call ptr @proto_tree_add_item(ptr noundef %57, i32 noundef %87, ptr noundef %53, i32 noundef %84, i32 noundef -1, i32 noundef 0) #3
+  %89 = load i32, ptr @ett_prefixed_bencode, align 4
+  %90 = call ptr @proto_item_add_subtree(ptr noundef %88, i32 noundef %89) #3
+  %91 = load i32, ptr @hf_bzr_prefixed_bencode_len, align 4
+  %92 = call ptr @proto_tree_add_item(ptr noundef %90, i32 noundef %91, ptr noundef %53, i32 noundef %84, i32 noundef 4, i32 noundef 0) #3
+  %93 = add i32 %.023.i, 5
+  %94 = call ptr @tvb_new_subset_length(ptr noundef %53, i32 noundef %93, i32 noundef %86) #3
+  %95 = load ptr, ptr @bencode_handle, align 8
+  %96 = call i32 @call_dissector(ptr noundef %95, ptr noundef %94, ptr noundef %1, ptr noundef %90) #3
+  %97 = add i32 %86, 4
+  call void @proto_item_set_len(ptr noundef %88, i32 noundef %97) #3
+  %98 = add i32 %97, %84
+  br label %116
+
+99:                                               ; preds = %.lr.ph.i28
+  %100 = call i32 @tvb_get_ntohl(ptr noundef %53, i32 noundef %84) #3
+  %101 = load i32, ptr @hf_bzr_bytes, align 4
+  %102 = call ptr @proto_tree_add_item(ptr noundef %57, i32 noundef %101, ptr noundef %53, i32 noundef %84, i32 noundef -1, i32 noundef 0) #3
+  %103 = load i32, ptr @ett_prefixed_bytes, align 4
+  %104 = call ptr @proto_item_add_subtree(ptr noundef %102, i32 noundef %103) #3
+  %105 = load i32, ptr @hf_bzr_bytes_length, align 4
+  %106 = call ptr @proto_tree_add_item(ptr noundef %104, i32 noundef %105, ptr noundef %53, i32 noundef %84, i32 noundef 4, i32 noundef 0) #3
+  %107 = load i32, ptr @hf_bzr_bytes_data, align 4
+  %108 = add i32 %.023.i, 5
+  %109 = call ptr @proto_tree_add_item(ptr noundef %104, i32 noundef %107, ptr noundef %53, i32 noundef %108, i32 noundef %100, i32 noundef 0) #3
+  %110 = add i32 %100, 4
+  call void @proto_item_set_len(ptr noundef %102, i32 noundef %110) #3
+  %111 = add i32 %110, %84
+  br label %116
+
+112:                                              ; preds = %.lr.ph.i28
+  %113 = load i32, ptr @hf_bzr_result, align 4
+  %114 = call ptr @proto_tree_add_item(ptr noundef %57, i32 noundef %113, ptr noundef %53, i32 noundef %84, i32 noundef 1, i32 noundef 0) #3
+  %115 = add i32 %.023.i, 2
+  br label %116
+
+116:                                              ; preds = %112, %99, %85, %.lr.ph.i28
+  %.1.i29 = phi i32 [ %84, %.lr.ph.i28 ], [ %115, %112 ], [ %111, %99 ], [ %98, %85 ]
+  %117 = call i32 @tvb_reported_length_remaining(ptr noundef %53, i32 noundef %.1.i29) #3
+  %118 = icmp sgt i32 %117, 0
+  br i1 %118, label %.lr.ph.i28, label %dissect_bzr_pdu.exit, !llvm.loop !6
+
+dissect_bzr_pdu.exit:                             ; preds = %116, %.sink.split.i, %52
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5)
-  %94 = add i32 %.025, %.02631
-  %95 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %94) #3
-  %96 = icmp sgt i32 %95, 0
-  br i1 %96, label %13, label %._crit_edge, !llvm.loop !6
+  %119 = add i32 %.025, %.02633
+  %120 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %119) #3
+  %121 = icmp sgt i32 %120, 0
+  br i1 %121, label %13, label %._crit_edge, !llvm.loop !7
 
 ._crit_edge:                                      ; preds = %dissect_bzr_pdu.exit, %4, %47
-  %97 = call i32 @tvb_captured_length(ptr noundef %0) #3
-  ret i32 %97
+  %122 = call i32 @tvb_captured_length(ptr noundef %0) #3
+  ret i32 %122
 }
 
 declare void @proto_register_field_array(i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
@@ -291,73 +331,6 @@ declare i32 @tvb_get_ntohl(ptr noundef, i32 noundef) local_unnamed_addr #1
 declare ptr @proto_tree_add_item(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 declare ptr @proto_item_add_subtree(ptr noundef, i32 noundef) local_unnamed_addr #1
-
-; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_body(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3) unnamed_addr #0 {
-  %5 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %1) #3
-  %6 = icmp sgt i32 %5, 0
-  br i1 %6, label %.lr.ph, label %._crit_edge
-
-.lr.ph:                                           ; preds = %4, %42
-  %.023 = phi i32 [ %.1, %42 ], [ %1, %4 ]
-  %7 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.023) #3
-  %8 = load i32, ptr @hf_bzr_packet_kind, align 4
-  %9 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %8, ptr noundef %0, i32 noundef %.023, i32 noundef 1, i32 noundef 0) #3
-  %10 = add i32 %.023, 1
-  switch i8 %7, label %42 [
-    i8 115, label %11
-    i8 98, label %25
-    i8 111, label %38
-  ]
-
-11:                                               ; preds = %.lr.ph
-  %12 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %10) #3
-  %13 = load i32, ptr @hf_bzr_prefixed_bencode, align 4
-  %14 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %13, ptr noundef %0, i32 noundef %10, i32 noundef -1, i32 noundef 0) #3
-  %15 = load i32, ptr @ett_prefixed_bencode, align 4
-  %16 = tail call ptr @proto_item_add_subtree(ptr noundef %14, i32 noundef %15) #3
-  %17 = load i32, ptr @hf_bzr_prefixed_bencode_len, align 4
-  %18 = tail call ptr @proto_tree_add_item(ptr noundef %16, i32 noundef %17, ptr noundef %0, i32 noundef %10, i32 noundef 4, i32 noundef 0) #3
-  %19 = add i32 %.023, 5
-  %20 = tail call ptr @tvb_new_subset_length(ptr noundef %0, i32 noundef %19, i32 noundef %12) #3
-  %21 = load ptr, ptr @bencode_handle, align 8
-  %22 = tail call i32 @call_dissector(ptr noundef %21, ptr noundef %20, ptr noundef %2, ptr noundef %16) #3
-  %23 = add i32 %12, 4
-  tail call void @proto_item_set_len(ptr noundef %14, i32 noundef %23) #3
-  %24 = add i32 %23, %10
-  br label %42
-
-25:                                               ; preds = %.lr.ph
-  %26 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %10) #3
-  %27 = load i32, ptr @hf_bzr_bytes, align 4
-  %28 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %27, ptr noundef %0, i32 noundef %10, i32 noundef -1, i32 noundef 0) #3
-  %29 = load i32, ptr @ett_prefixed_bytes, align 4
-  %30 = tail call ptr @proto_item_add_subtree(ptr noundef %28, i32 noundef %29) #3
-  %31 = load i32, ptr @hf_bzr_bytes_length, align 4
-  %32 = tail call ptr @proto_tree_add_item(ptr noundef %30, i32 noundef %31, ptr noundef %0, i32 noundef %10, i32 noundef 4, i32 noundef 0) #3
-  %33 = load i32, ptr @hf_bzr_bytes_data, align 4
-  %34 = add i32 %.023, 5
-  %35 = tail call ptr @proto_tree_add_item(ptr noundef %30, i32 noundef %33, ptr noundef %0, i32 noundef %34, i32 noundef %26, i32 noundef 0) #3
-  %36 = add i32 %26, 4
-  tail call void @proto_item_set_len(ptr noundef %28, i32 noundef %36) #3
-  %37 = add i32 %36, %10
-  br label %42
-
-38:                                               ; preds = %.lr.ph
-  %39 = load i32, ptr @hf_bzr_result, align 4
-  %40 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %39, ptr noundef %0, i32 noundef %10, i32 noundef 1, i32 noundef 0) #3
-  %41 = add i32 %.023, 2
-  br label %42
-
-42:                                               ; preds = %38, %25, %11, %.lr.ph
-  %.1 = phi i32 [ %10, %.lr.ph ], [ %41, %38 ], [ %37, %25 ], [ %24, %11 ]
-  %43 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.1) #3
-  %44 = icmp sgt i32 %43, 0
-  br i1 %44, label %.lr.ph, label %._crit_edge, !llvm.loop !7
-
-._crit_edge:                                      ; preds = %42, %4
-  ret void
-}
 
 declare i32 @call_dissector(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 

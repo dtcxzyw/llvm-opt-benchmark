@@ -1016,8 +1016,7 @@ entry:
 if.then:                                          ; preds = %entry
   tail call void @ERR_new() #3
   tail call void @ERR_set_debug(ptr noundef nonnull @.str.1, i32 noundef 353, ptr noundef nonnull @__func__.derive_secret_key_and_iv) #3
-  tail call void (ptr, i32, i32, ptr, ...) @ossl_statem_fatal(ptr noundef %s, i32 noundef 80, i32 noundef 524294, ptr noundef null) #3
-  br label %return
+  br label %return.sink.split
 
 if.end:                                           ; preds = %entry
   %conv5 = zext nneg i32 %call to i64
@@ -1033,8 +1032,7 @@ if.end:                                           ; preds = %entry
 tls13_hkdf_expand.exit.thread:                    ; preds = %if.end
   tail call void @ERR_new() #3
   tail call void @ERR_set_debug(ptr noundef nonnull @.str.1, i32 noundef 112, ptr noundef nonnull @__func__.tls13_hkdf_expand) #3
-  tail call void (ptr, i32, i32, ptr, ...) @ossl_statem_fatal(ptr noundef nonnull %s, i32 noundef 80, i32 noundef 786691, ptr noundef null) #3
-  br label %return
+  br label %return.sink.split
 
 if.end9:                                          ; preds = %if.end
   %call10 = tail call i32 @EVP_CIPHER_get_key_length(ptr noundef %ciph) #3
@@ -1074,8 +1072,7 @@ land.lhs.true:                                    ; preds = %if.else28
 if.else39:                                        ; preds = %land.lhs.true, %if.else28
   tail call void @ERR_new() #3
   tail call void @ERR_set_debug(ptr noundef nonnull @.str.1, i32 noundef 380, ptr noundef nonnull @__func__.derive_secret_key_and_iv) #3
-  tail call void (ptr, i32, i32, ptr, ...) @ossl_statem_fatal(ptr noundef nonnull %s, i32 noundef 80, i32 noundef 524294, ptr noundef null) #3
-  br label %return
+  br label %return.sink.split
 
 if.end42:                                         ; preds = %land.lhs.true, %if.else, %if.then15
   %.sink = phi ptr [ %3, %if.then15 ], [ %5, %if.else ], [ %7, %land.lhs.true ]
@@ -1102,8 +1099,7 @@ if.end52:                                         ; preds = %if.end9
 if.then56:                                        ; preds = %if.end52
   tail call void @ERR_new() #3
   tail call void @ERR_set_debug(ptr noundef nonnull @.str.1, i32 noundef 398, ptr noundef nonnull @__func__.derive_secret_key_and_iv) #3
-  tail call void (ptr, i32, i32, ptr, ...) @ossl_statem_fatal(ptr noundef nonnull %s, i32 noundef 80, i32 noundef 524294, ptr noundef null) #3
-  br label %return
+  br label %return.sink.split
 
 if.end57:                                         ; preds = %if.end52
   %conv58 = zext nneg i32 %call53 to i64
@@ -1123,8 +1119,7 @@ if.end59:                                         ; preds = %if.then44, %if.else
 tls13_derive_key.exit.thread:                     ; preds = %if.end59
   tail call void @ERR_new() #3
   tail call void @ERR_set_debug(ptr noundef nonnull @.str.1, i32 noundef 112, ptr noundef nonnull @__func__.tls13_hkdf_expand) #3
-  tail call void (ptr, i32, i32, ptr, ...) @ossl_statem_fatal(ptr noundef nonnull %s, i32 noundef 80, i32 noundef 786691, ptr noundef null) #3
-  br label %return
+  br label %return.sink.split
 
 lor.lhs.false:                                    ; preds = %if.end59
   %12 = load i64, ptr %ivlen, align 8
@@ -1139,11 +1134,15 @@ lor.lhs.false:                                    ; preds = %if.end59
 if.then.i.i37:                                    ; preds = %lor.lhs.false
   tail call void @ERR_new() #3
   tail call void @ERR_set_debug(ptr noundef nonnull @.str.1, i32 noundef 112, ptr noundef nonnull @__func__.tls13_hkdf_expand) #3
-  tail call void (ptr, i32, i32, ptr, ...) @ossl_statem_fatal(ptr noundef nonnull %s, i32 noundef 80, i32 noundef 786691, ptr noundef null) #3
+  br label %return.sink.split
+
+return.sink.split:                                ; preds = %if.then, %if.else39, %if.then56, %tls13_hkdf_expand.exit.thread, %tls13_derive_key.exit.thread, %if.then.i.i37
+  %.sink38 = phi i32 [ 786691, %if.then.i.i37 ], [ 786691, %tls13_derive_key.exit.thread ], [ 786691, %tls13_hkdf_expand.exit.thread ], [ 524294, %if.then56 ], [ 524294, %if.else39 ], [ 524294, %if.then ]
+  tail call void (ptr, i32, i32, ptr, ...) @ossl_statem_fatal(ptr noundef %s, i32 noundef 80, i32 noundef %.sink38, ptr noundef null) #3
   br label %return
 
-return:                                           ; preds = %if.then.i.i37, %lor.lhs.false, %tls13_derive_key.exit.thread, %tls13_hkdf_expand.exit.thread, %if.then56, %if.else39, %if.then
-  %retval.0 = phi i32 [ 0, %if.else39 ], [ 0, %if.then56 ], [ 0, %if.then ], [ 0, %tls13_hkdf_expand.exit.thread ], [ 0, %tls13_derive_key.exit.thread ], [ 1, %lor.lhs.false ], [ 0, %if.then.i.i37 ]
+return:                                           ; preds = %return.sink.split, %lor.lhs.false
+  %retval.0 = phi i32 [ 1, %lor.lhs.false ], [ 0, %return.sink.split ]
   ret i32 %retval.0
 }
 

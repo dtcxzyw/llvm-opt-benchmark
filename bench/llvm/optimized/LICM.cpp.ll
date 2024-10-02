@@ -14468,8 +14468,8 @@ _ZN4llvm23SmallVectorTemplateBaseIPNS_11InstructionELb1EE9push_backES2_.exit: ; 
   %232 = zext nneg i8 %.sroa.0256.1.lcssa to i64
   %233 = shl nuw i64 1, %232
   %234 = icmp uge i64 %233, %231
-  %brmerge433.not = select i1 %234, i1 %221, i1 false
-  br i1 %brmerge433.not, label %235, label %_ZNSt6vectorIPN4llvm10DILocationESaIS2_EED2Ev.exit
+  %brmerge434.not = select i1 %234, i1 %221, i1 false
+  br i1 %brmerge434.not, label %235, label %_ZNSt6vectorIPN4llvm10DILocationESaIS2_EED2Ev.exit
 
 .critedge:                                        ; preds = %._crit_edge372
   br i1 %221, label %235, label %_ZNSt6vectorIPN4llvm10DILocationESaIS2_EED2Ev.exit
@@ -14856,16 +14856,16 @@ _ZNK4llvm9AAMDNodescvbEv.exit221.thread:          ; preds = %_ZN4llvm8DebugLocD2
   %390 = load ptr, ptr %389, align 8
   %391 = call noundef ptr @_ZN4llvm16MemorySSAUpdater22createMemoryAccessInBBEPNS_11InstructionEPNS_12MemoryAccessEPKNS_10BasicBlockENS_9MemorySSA14InsertionPlaceE(ptr noundef nonnull align 8 dereferenceable(632) %11, ptr noundef nonnull %351, ptr noundef null, ptr noundef %390, i32 noundef 1) #21
   call void @_ZN4llvm16MemorySSAUpdater9insertUseEPNS_9MemoryUseEb(ptr noundef nonnull align 8 dereferenceable(632) %11, ptr noundef %391, i1 noundef zeroext true) #21
-  call void @_ZN4llvm10SSAUpdater17AddAvailableValueEPNS_10BasicBlockEPNS_5ValueE(ptr noundef nonnull align 8 dereferenceable(56) %29, ptr noundef nonnull %37, ptr noundef nonnull %351) #21
   br label %394
 
 392:                                              ; preds = %_ZN4llvm8DebugLocD2Ev.exit
   %393 = call noundef ptr @_ZN4llvm11PoisonValue3getEPNS_4TypeE(ptr noundef %.1167.lcssa) #21
-  call void @_ZN4llvm10SSAUpdater17AddAvailableValueEPNS_10BasicBlockEPNS_5ValueE(ptr noundef nonnull align 8 dereferenceable(56) %29, ptr noundef nonnull %37, ptr noundef %393) #21
   br label %394
 
 394:                                              ; preds = %392, %388
-  %.0170 = phi ptr [ %351, %388 ], [ null, %392 ]
+  %.sink428 = phi ptr [ %393, %392 ], [ %351, %388 ]
+  %.0170 = phi ptr [ null, %392 ], [ %351, %388 ]
+  call void @_ZN4llvm10SSAUpdater17AddAvailableValueEPNS_10BasicBlockEPNS_5ValueE(ptr noundef nonnull align 8 dereferenceable(56) %29, ptr noundef nonnull %37, ptr noundef %.sink428) #21
   %395 = load i8, ptr @_ZN4llvm15VerifyMemorySSAE, align 1
   %396 = trunc i8 %395 to i1
   br i1 %396, label %397, label %399

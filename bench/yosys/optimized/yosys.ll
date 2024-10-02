@@ -7330,144 +7330,140 @@ define void @_ZN5Yosys5shellEPNS_5RTLIL6DesignE(ptr noundef %0) local_unnamed_ad
   br label %10
 
 10:                                               ; preds = %.lr.ph36, %.backedge
-  %11 = phi ptr [ %7, %.lr.ph36 ], [ %19, %.backedge ]
+  %11 = phi ptr [ %7, %.lr.ph36 ], [ %18, %.backedge ]
   %12 = call i64 @strspn(ptr noundef nonnull %11, ptr noundef nonnull @.str.344) #40
   %13 = getelementptr inbounds i8, ptr %11, i64 %12
   %14 = load i8, ptr %13, align 1
   %15 = icmp eq i8 %14, 0
-  br i1 %15, label %16, label %20
+  br i1 %15, label %.backedge, label %19
 
-16:                                               ; preds = %10
-  call void @free(ptr noundef nonnull %11) #36
-  br label %.backedge
-
-.backedge:                                        ; preds = %16, %59
-  %17 = load i32, ptr @_ZZN5Yosys5shellEPNS_5RTLIL6DesignEE17recursion_counter, align 4
-  %18 = call noundef ptr @_ZN5Yosys13create_promptEPNS_5RTLIL6DesignEi(ptr noundef %0, i32 noundef %17)
-  %19 = call ptr @readline(ptr noundef nonnull @_ZZN5Yosys13create_promptEPNS_5RTLIL6DesignEiE6buffer)
-  %cond = icmp eq ptr %19, null
+.backedge:                                        ; preds = %10, %58
+  call void @free(ptr noundef %11) #36
+  %16 = load i32, ptr @_ZZN5Yosys5shellEPNS_5RTLIL6DesignEE17recursion_counter, align 4
+  %17 = call noundef ptr @_ZN5Yosys13create_promptEPNS_5RTLIL6DesignEi(ptr noundef %0, i32 noundef %16)
+  %18 = call ptr @readline(ptr noundef nonnull @_ZZN5Yosys13create_promptEPNS_5RTLIL6DesignEiE6buffer)
+  %cond = icmp eq ptr %18, null
   br i1 %cond, label %._crit_edge37, label %10, !llvm.loop !40
 
-20:                                               ; preds = %10
+19:                                               ; preds = %10
   call void @add_history(ptr noundef nonnull %11)
-  %21 = call i64 @strspn(ptr noundef nonnull %11, ptr noundef nonnull @.str.344) #40
-  %22 = getelementptr inbounds i8, ptr %11, i64 %21
-  %23 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %22, ptr noundef nonnull dereferenceable(5) @str, i64 noundef 4) #40
-  %.not28 = icmp eq i32 %23, 0
-  br i1 %.not28, label %24, label %30
+  %20 = call i64 @strspn(ptr noundef nonnull %11, ptr noundef nonnull @.str.344) #40
+  %21 = getelementptr inbounds i8, ptr %11, i64 %20
+  %22 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %21, ptr noundef nonnull dereferenceable(5) @str, i64 noundef 4) #40
+  %.not28 = icmp eq i32 %22, 0
+  br i1 %.not28, label %23, label %29
 
-24:                                               ; preds = %20
-  %25 = getelementptr inbounds i8, ptr %22, i64 4
-  %26 = call i64 @strspn(ptr noundef nonnull %25, ptr noundef nonnull @.str.344) #40
-  %27 = getelementptr inbounds i8, ptr %25, i64 %26
-  %28 = load i8, ptr %27, align 1
-  %29 = icmp eq i8 %28, 0
-  br i1 %29, label %62, label %30
+23:                                               ; preds = %19
+  %24 = getelementptr inbounds i8, ptr %21, i64 4
+  %25 = call i64 @strspn(ptr noundef nonnull %24, ptr noundef nonnull @.str.344) #40
+  %26 = getelementptr inbounds i8, ptr %24, i64 %25
+  %27 = load i8, ptr %26, align 1
+  %28 = icmp eq i8 %27, 0
+  br i1 %28, label %61, label %29
 
-30:                                               ; preds = %20, %24
+29:                                               ; preds = %19, %23
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #36
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull %11, ptr noundef nonnull align 1 dereferenceable(1) %3)
-          to label %31 unwind label %33
+          to label %30 unwind label %32
+
+30:                                               ; preds = %29
+  invoke void @_ZN5Yosys4Pass4callEPNS_5RTLIL6DesignENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef %0, ptr noundef nonnull %2)
+          to label %31 unwind label %34
 
 31:                                               ; preds = %30
-  invoke void @_ZN5Yosys4Pass4callEPNS_5RTLIL6DesignENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef %0, ptr noundef nonnull %2)
-          to label %32 unwind label %35
-
-32:                                               ; preds = %31
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #36
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #36
-  br label %59
+  br label %58
 
-33:                                               ; preds = %30
-  %34 = landingpad { ptr, i32 }
+32:                                               ; preds = %29
+  %33 = landingpad { ptr, i32 }
           cleanup
           catch ptr @_ZTIN5Yosys23log_cmd_error_exceptionE
-  br label %37
+  br label %36
 
-35:                                               ; preds = %31
-  %36 = landingpad { ptr, i32 }
+34:                                               ; preds = %30
+  %35 = landingpad { ptr, i32 }
           cleanup
           catch ptr @_ZTIN5Yosys23log_cmd_error_exceptionE
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #36
-  br label %37
+  br label %36
 
-37:                                               ; preds = %35, %33
-  %.pn = phi { ptr, i32 } [ %36, %35 ], [ %34, %33 ]
+36:                                               ; preds = %34, %32
+  %.pn = phi { ptr, i32 } [ %35, %34 ], [ %33, %32 ]
   %.0 = extractvalue { ptr, i32 } %.pn, 1
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #36
-  %38 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN5Yosys23log_cmd_error_exceptionE) #36
-  %39 = icmp eq i32 %.0, %38
-  br i1 %39, label %40, label %.loopexit
+  %37 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN5Yosys23log_cmd_error_exceptionE) #36
+  %38 = icmp eq i32 %.0, %37
+  br i1 %38, label %39, label %.loopexit
 
-40:                                               ; preds = %37
+39:                                               ; preds = %36
   %.024 = extractvalue { ptr, i32 } %.pn, 0
-  %41 = call ptr @__cxa_begin_catch(ptr %.024) #36
-  %42 = load ptr, ptr %9, align 8
-  %43 = load ptr, ptr %8, align 8
+  %40 = call ptr @__cxa_begin_catch(ptr %.024) #36
+  %41 = load ptr, ptr %9, align 8
+  %42 = load ptr, ptr %8, align 8
+  %43 = ptrtoint ptr %41 to i64
   %44 = ptrtoint ptr %42 to i64
-  %45 = ptrtoint ptr %43 to i64
-  %46 = sub i64 %44, %45
-  %47 = sdiv exact i64 %46, 120
-  %48 = icmp ugt i64 %47, 1
-  br i1 %48, label %.lr.ph, label %._crit_edge
+  %45 = sub i64 %43, %44
+  %46 = sdiv exact i64 %45, 120
+  %47 = icmp ugt i64 %46, 1
+  br i1 %47, label %.lr.ph, label %._crit_edge
 
-.lr.ph:                                           ; preds = %40, %.lr.ph
-  %49 = phi ptr [ %51, %.lr.ph ], [ %42, %40 ]
-  %50 = getelementptr inbounds i8, ptr %49, i64 -120
-  store ptr %50, ptr %9, align 8
-  call void @_ZN5Yosys5RTLIL9SelectionD2Ev(ptr noundef nonnull align 8 dereferenceable(120) %50) #36
-  %51 = load ptr, ptr %9, align 8
-  %52 = load ptr, ptr %8, align 8
+.lr.ph:                                           ; preds = %39, %.lr.ph
+  %48 = phi ptr [ %50, %.lr.ph ], [ %41, %39 ]
+  %49 = getelementptr inbounds i8, ptr %48, i64 -120
+  store ptr %49, ptr %9, align 8
+  call void @_ZN5Yosys5RTLIL9SelectionD2Ev(ptr noundef nonnull align 8 dereferenceable(120) %49) #36
+  %50 = load ptr, ptr %9, align 8
+  %51 = load ptr, ptr %8, align 8
+  %52 = ptrtoint ptr %50 to i64
   %53 = ptrtoint ptr %51 to i64
-  %54 = ptrtoint ptr %52 to i64
-  %55 = sub i64 %53, %54
-  %56 = sdiv exact i64 %55, 120
-  %57 = icmp ugt i64 %56, 1
-  br i1 %57, label %.lr.ph, label %._crit_edge, !llvm.loop !41
+  %54 = sub i64 %52, %53
+  %55 = sdiv exact i64 %54, 120
+  %56 = icmp ugt i64 %55, 1
+  br i1 %56, label %.lr.ph, label %._crit_edge, !llvm.loop !41
 
-._crit_edge:                                      ; preds = %.lr.ph, %40
+._crit_edge:                                      ; preds = %.lr.ph, %39
   invoke void @_ZN5Yosys15log_reset_stackEv()
-          to label %58 unwind label %60
+          to label %57 unwind label %59
 
-58:                                               ; preds = %._crit_edge
+57:                                               ; preds = %._crit_edge
   call void @__cxa_end_catch()
-  br label %59
+  br label %58
 
-59:                                               ; preds = %58, %32
+58:                                               ; preds = %57, %31
   call void @_ZN5Yosys5RTLIL6Design5checkEv(ptr noundef nonnull align 8 dereferenceable(376) %0)
-  call void @free(ptr noundef %11) #36
   br label %.backedge
 
-60:                                               ; preds = %._crit_edge
-  %61 = landingpad { ptr, i32 }
+59:                                               ; preds = %._crit_edge
+  %60 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
-          to label %.loopexit unwind label %66
+          to label %.loopexit unwind label %65
 
 ._crit_edge37:                                    ; preds = %.backedge, %1
   %puts = call i32 @puts(ptr nonnull dereferenceable(1) @str)
-  br label %63
+  br label %62
 
-62:                                               ; preds = %24
+61:                                               ; preds = %23
   call void @free(ptr noundef nonnull %11) #36
-  br label %63
+  br label %62
 
-63:                                               ; preds = %62, %._crit_edge37
-  %64 = load i32, ptr @_ZZN5Yosys5shellEPNS_5RTLIL6DesignEE17recursion_counter, align 4
-  %65 = add nsw i32 %64, -1
-  store i32 %65, ptr @_ZZN5Yosys5shellEPNS_5RTLIL6DesignEE17recursion_counter, align 4
+62:                                               ; preds = %61, %._crit_edge37
+  %63 = load i32, ptr @_ZZN5Yosys5shellEPNS_5RTLIL6DesignEE17recursion_counter, align 4
+  %64 = add nsw i32 %63, -1
+  store i32 %64, ptr @_ZZN5Yosys5shellEPNS_5RTLIL6DesignEE17recursion_counter, align 4
   store i8 0, ptr @_ZN5Yosys19log_cmd_error_throwE, align 1
   ret void
 
-.loopexit:                                        ; preds = %37, %60
-  %.merged = phi { ptr, i32 } [ %61, %60 ], [ %.pn, %37 ]
+.loopexit:                                        ; preds = %36, %59
+  %.merged = phi { ptr, i32 } [ %60, %59 ], [ %.pn, %36 ]
   resume { ptr, i32 } %.merged
 
-66:                                               ; preds = %60
-  %67 = landingpad { ptr, i32 }
+65:                                               ; preds = %59
+  %66 = landingpad { ptr, i32 }
           catch ptr null
-  %68 = extractvalue { ptr, i32 } %67, 0
-  call void @__clang_call_terminate(ptr %68) #37
+  %67 = extractvalue { ptr, i32 } %66, 0
+  call void @__clang_call_terminate(ptr %67) #37
   unreachable
 }
 

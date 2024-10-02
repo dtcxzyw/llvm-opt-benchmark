@@ -242,17 +242,7 @@ if.then62:                                        ; preds = %if.then59
   %n.sroa.8.0.copyload105 = load float, ptr %n.sroa.8.0.m_normalOnBInWorld.sroa_idx, align 4
   %n.sroa.11.0.copyload112 = load float, ptr %n.sroa.11.0.m_normalOnBInWorld.sroa_idx, align 8
   %n.sroa.14.0.copyload119 = load float, ptr %n.sroa.14.0.m_normalOnBInWorld.sroa_idx, align 4
-  %m_normal = getelementptr inbounds i8, ptr %result, i64 136
-  store float %n.sroa.0.0.copyload100, ptr %m_normal, align 8
-  %n.sroa.8.0.m_normal.sroa_idx = getelementptr inbounds i8, ptr %result, i64 140
-  store float %n.sroa.8.0.copyload105, ptr %n.sroa.8.0.m_normal.sroa_idx, align 4
-  %n.sroa.11.0.m_normal.sroa_idx = getelementptr inbounds i8, ptr %result, i64 144
-  store float %n.sroa.11.0.copyload112, ptr %n.sroa.11.0.m_normal.sroa_idx, align 8
-  %n.sroa.14.0.m_normal.sroa_idx = getelementptr inbounds i8, ptr %result, i64 148
-  store float %n.sroa.14.0.copyload119, ptr %n.sroa.14.0.m_normal.sroa_idx, align 4
-  %m_hitPoint = getelementptr inbounds i8, ptr %result, i64 152
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %m_hitPoint, ptr noundef nonnull align 8 dereferenceable(16) %m_pointInWorld, i64 16, i1 false)
-  br label %cleanup
+  br label %cleanup.sink.split
 
 if.end65:                                         ; preds = %if.then59
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %c.sroa.0, ptr noundef nonnull align 8 dereferenceable(16) %m_pointInWorld, i64 16, i1 false)
@@ -284,20 +274,28 @@ while.end:                                        ; preds = %while.end.loopexit,
 if.end74:                                         ; preds = %while.end
   %m_fraction75 = getelementptr inbounds i8, ptr %result, i64 168
   store float %lambda.0.lcssa, ptr %m_fraction75, align 8
+  br label %cleanup.sink.split
+
+cleanup.sink.split:                               ; preds = %if.then62, %if.end74
+  %n.sroa.0.0.lcssa.sink = phi float [ %n.sroa.0.0.lcssa, %if.end74 ], [ %n.sroa.0.0.copyload100, %if.then62 ]
+  %n.sroa.8.0.lcssa.sink = phi float [ %n.sroa.8.0.lcssa, %if.end74 ], [ %n.sroa.8.0.copyload105, %if.then62 ]
+  %n.sroa.11.0.lcssa.sink = phi float [ %n.sroa.11.0.lcssa, %if.end74 ], [ %n.sroa.11.0.copyload112, %if.then62 ]
+  %n.sroa.14.0.lcssa.sink = phi float [ %n.sroa.14.0.lcssa, %if.end74 ], [ %n.sroa.14.0.copyload119, %if.then62 ]
+  %c.sroa.0.sink = phi ptr [ %c.sroa.0, %if.end74 ], [ %m_pointInWorld, %if.then62 ]
   %m_normal76 = getelementptr inbounds i8, ptr %result, i64 136
-  store float %n.sroa.0.0.lcssa, ptr %m_normal76, align 8
+  store float %n.sroa.0.0.lcssa.sink, ptr %m_normal76, align 8
   %n.sroa.8.0.m_normal76.sroa_idx = getelementptr inbounds i8, ptr %result, i64 140
-  store float %n.sroa.8.0.lcssa, ptr %n.sroa.8.0.m_normal76.sroa_idx, align 4
+  store float %n.sroa.8.0.lcssa.sink, ptr %n.sroa.8.0.m_normal76.sroa_idx, align 4
   %n.sroa.11.0.m_normal76.sroa_idx = getelementptr inbounds i8, ptr %result, i64 144
-  store float %n.sroa.11.0.lcssa, ptr %n.sroa.11.0.m_normal76.sroa_idx, align 8
+  store float %n.sroa.11.0.lcssa.sink, ptr %n.sroa.11.0.m_normal76.sroa_idx, align 8
   %n.sroa.14.0.m_normal76.sroa_idx = getelementptr inbounds i8, ptr %result, i64 148
-  store float %n.sroa.14.0.lcssa, ptr %n.sroa.14.0.m_normal76.sroa_idx, align 4
+  store float %n.sroa.14.0.lcssa.sink, ptr %n.sroa.14.0.m_normal76.sroa_idx, align 4
   %m_hitPoint77 = getelementptr inbounds i8, ptr %result, i64 152
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %m_hitPoint77, ptr noundef nonnull align 4 dereferenceable(16) %c.sroa.0, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %m_hitPoint77, ptr noundef nonnull align 4 dereferenceable(16) %c.sroa.0.sink, i64 16, i1 false)
   br label %cleanup
 
-cleanup:                                          ; preds = %if.end38, %if.end, %while.body, %entry, %while.end, %if.end74, %if.then62
-  %retval.0 = phi i1 [ true, %if.then62 ], [ true, %if.end74 ], [ false, %while.end ], [ false, %entry ], [ false, %while.body ], [ false, %if.end ], [ false, %if.end38 ]
+cleanup:                                          ; preds = %if.end38, %if.end, %while.body, %cleanup.sink.split, %entry, %while.end
+  %retval.0 = phi i1 [ false, %while.end ], [ false, %entry ], [ true, %cleanup.sink.split ], [ false, %while.body ], [ false, %if.end ], [ false, %if.end38 ]
   ret i1 %retval.0
 }
 

@@ -486,17 +486,8 @@ entry:
   %vtable = load ptr, ptr %this, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 32
   %0 = load ptr, ptr %vfn, align 8
-  br i1 %cmp, label %if.then, label %if.end
-
-if.then:                                          ; preds = %entry
-  tail call void %0(ptr noundef nonnull align 8 dereferenceable(12) %this, ptr noundef nonnull @.str.2)
-  br label %return
-
-if.end:                                           ; preds = %entry
-  tail call void %0(ptr noundef nonnull align 8 dereferenceable(12) %this, ptr noundef %message)
-  br label %return
-
-return:                                           ; preds = %if.end, %if.then
+  %.str.2.message = select i1 %cmp, ptr @.str.2, ptr %message
+  tail call void %0(ptr noundef nonnull align 8 dereferenceable(12) %this, ptr noundef %.str.2.message)
   ret void
 }
 
@@ -511,17 +502,8 @@ entry:
   %vtable = load ptr, ptr %this, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 40
   %0 = load ptr, ptr %vfn, align 8
-  br i1 %cmp, label %if.then, label %if.end
-
-if.then:                                          ; preds = %entry
-  tail call void %0(ptr noundef nonnull align 8 dereferenceable(12) %this, ptr noundef nonnull @.str.2)
-  br label %return
-
-if.end:                                           ; preds = %entry
-  tail call void %0(ptr noundef nonnull align 8 dereferenceable(12) %this, ptr noundef %message)
-  br label %return
-
-return:                                           ; preds = %if.end, %if.then
+  %.str.2.message = select i1 %cmp, ptr @.str.2, ptr %message
+  tail call void %0(ptr noundef nonnull align 8 dereferenceable(12) %this, ptr noundef %.str.2.message)
   ret void
 }
 
@@ -533,17 +515,8 @@ entry:
   %vtable = load ptr, ptr %this, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 48
   %0 = load ptr, ptr %vfn, align 8
-  br i1 %cmp, label %if.then, label %if.end
-
-if.then:                                          ; preds = %entry
-  tail call void %0(ptr noundef nonnull align 8 dereferenceable(12) %this, ptr noundef nonnull @.str.2)
-  br label %return
-
-if.end:                                           ; preds = %entry
-  tail call void %0(ptr noundef nonnull align 8 dereferenceable(12) %this, ptr noundef %message)
-  br label %return
-
-return:                                           ; preds = %if.end, %if.then
+  %.str.2.message = select i1 %cmp, ptr @.str.2, ptr %message
+  tail call void %0(ptr noundef nonnull align 8 dereferenceable(12) %this, ptr noundef %.str.2.message)
   ret void
 }
 
@@ -555,17 +528,8 @@ entry:
   %vtable = load ptr, ptr %this, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 56
   %0 = load ptr, ptr %vfn, align 8
-  br i1 %cmp, label %if.then, label %if.end
-
-if.then:                                          ; preds = %entry
-  tail call void %0(ptr noundef nonnull align 8 dereferenceable(12) %this, ptr noundef nonnull @.str.2)
-  br label %return
-
-if.end:                                           ; preds = %entry
-  tail call void %0(ptr noundef nonnull align 8 dereferenceable(12) %this, ptr noundef %message)
-  br label %return
-
-return:                                           ; preds = %if.end, %if.then
+  %.str.2.message = select i1 %cmp, ptr @.str.2, ptr %message
+  tail call void %0(ptr noundef nonnull align 8 dereferenceable(12) %this, ptr noundef %.str.2.message)
   ret void
 }
 
@@ -577,17 +541,8 @@ entry:
   %vtable = load ptr, ptr %this, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 64
   %0 = load ptr, ptr %vfn, align 8
-  br i1 %cmp, label %if.then, label %if.end
-
-if.then:                                          ; preds = %entry
-  tail call void %0(ptr noundef nonnull align 8 dereferenceable(12) %this, ptr noundef nonnull @.str.2)
-  br label %return
-
-if.end:                                           ; preds = %entry
-  tail call void %0(ptr noundef nonnull align 8 dereferenceable(12) %this, ptr noundef %message)
-  br label %return
-
-return:                                           ; preds = %if.end, %if.then
+  %.str.2.message = select i1 %cmp, ptr @.str.2, ptr %message
+  tail call void %0(ptr noundef nonnull align 8 dereferenceable(12) %this, ptr noundef %.str.2.message)
   ret void
 }
 

@@ -4687,60 +4687,45 @@ define dso_local i64 @_ZNK5clang4ento9MemRegion11sourceRangeEv(ptr noundef nonnu
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load i32, ptr %2, align 8
   %.not = icmp eq i32 %3, 20
-  br i1 %.not, label %4, label %.preheader
+  br i1 %.not, label %.sink.split, label %.preheader
 
-4:                                                ; preds = %1
-  %5 = load ptr, ptr %0, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 112
-  %7 = load ptr, ptr %6, align 8
-  %8 = tail call noundef nonnull ptr %7(ptr noundef nonnull align 8 dereferenceable(64) %0) #20
-  %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 16
-  %11 = load ptr, ptr %10, align 8
-  %12 = tail call i64 %11(ptr noundef nonnull align 8 dereferenceable(80) %8) #21
-  %.sroa.5.0.extract.shift = and i64 %12, -4294967296
-  br label %27
-
-.preheader:                                       ; preds = %1, %14
-  %13 = phi i32 [ %.pre, %14 ], [ %3, %1 ]
-  %.0.i = phi ptr [ %16, %14 ], [ %0, %1 ]
-  switch i32 %13, label %_ZNK5clang4ento9MemRegion13getBaseRegionEv.exit [
-    i32 24, label %14
-    i32 20, label %14
-    i32 21, label %14
-    i32 15, label %14
-    i32 16, label %14
+.preheader:                                       ; preds = %1, %5
+  %4 = phi i32 [ %.pre, %5 ], [ %3, %1 ]
+  %.0.i = phi ptr [ %7, %5 ], [ %0, %1 ]
+  switch i32 %4, label %_ZNK5clang4ento9MemRegion13getBaseRegionEv.exit [
+    i32 24, label %5
+    i32 20, label %5
+    i32 21, label %5
+    i32 15, label %5
+    i32 16, label %5
   ]
 
-14:                                               ; preds = %.preheader, %.preheader, %.preheader, %.preheader, %.preheader
-  %15 = getelementptr inbounds nuw i8, ptr %.0.i, i64 48
-  %16 = load ptr, ptr %15, align 8
-  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %16, i64 16
+5:                                                ; preds = %.preheader, %.preheader, %.preheader, %.preheader, %.preheader
+  %6 = getelementptr inbounds nuw i8, ptr %.0.i, i64 48
+  %7 = load ptr, ptr %6, align 8
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %7, i64 16
   %.pre = load i32, ptr %.phi.trans.insert, align 8
   br label %.preheader, !llvm.loop !72
 
 _ZNK5clang4ento9MemRegion13getBaseRegionEv.exit:  ; preds = %.preheader
-  %17 = and i32 %13, -2
-  %.not12 = icmp eq i32 %17, 22
-  br i1 %.not12, label %18, label %27
+  %8 = and i32 %4, -2
+  %.not18 = icmp eq i32 %8, 22
+  br i1 %.not18, label %.sink.split, label %17
 
-18:                                               ; preds = %_ZNK5clang4ento9MemRegion13getBaseRegionEv.exit
-  %19 = load ptr, ptr %.0.i, align 8
-  %20 = getelementptr inbounds i8, ptr %19, i64 112
-  %21 = load ptr, ptr %20, align 8
-  %22 = tail call noundef ptr %21(ptr noundef nonnull align 8 dereferenceable(56) %.0.i) #20
-  %23 = load ptr, ptr %22, align 8
-  %24 = getelementptr inbounds i8, ptr %23, i64 16
-  %25 = load ptr, ptr %24, align 8
-  %26 = tail call i64 %25(ptr noundef nonnull align 8 dereferenceable(100) %22) #21
-  %.sroa.5.0.extract.shift9 = and i64 %26, -4294967296
-  br label %27
+.sink.split:                                      ; preds = %_ZNK5clang4ento9MemRegion13getBaseRegionEv.exit, %1
+  %.0.i.lcssa.sink17 = phi ptr [ %0, %1 ], [ %.0.i, %_ZNK5clang4ento9MemRegion13getBaseRegionEv.exit ]
+  %9 = load ptr, ptr %.0.i.lcssa.sink17, align 8
+  %10 = getelementptr inbounds i8, ptr %9, i64 112
+  %11 = load ptr, ptr %10, align 8
+  %12 = tail call noundef ptr %11(ptr noundef nonnull align 8 dereferenceable(56) %.0.i.lcssa.sink17) #20
+  %13 = load ptr, ptr %12, align 8
+  %14 = getelementptr inbounds i8, ptr %13, i64 16
+  %15 = load ptr, ptr %14, align 8
+  %16 = tail call i64 %15(ptr noundef nonnull align 8 dereferenceable(80) %12) #21
+  br label %17
 
-27:                                               ; preds = %_ZNK5clang4ento9MemRegion13getBaseRegionEv.exit, %18, %4
-  %.sroa.5.0 = phi i64 [ %.sroa.5.0.extract.shift9, %18 ], [ %.sroa.5.0.extract.shift, %4 ], [ 0, %_ZNK5clang4ento9MemRegion13getBaseRegionEv.exit ]
-  %.sroa.0.0 = phi i64 [ %26, %18 ], [ %12, %4 ], [ 0, %_ZNK5clang4ento9MemRegion13getBaseRegionEv.exit ]
-  %.sroa.0.0.insert.ext = and i64 %.sroa.0.0, 4294967295
-  %.sroa.0.0.insert.insert = or disjoint i64 %.sroa.0.0.insert.ext, %.sroa.5.0
+17:                                               ; preds = %.sink.split, %_ZNK5clang4ento9MemRegion13getBaseRegionEv.exit
+  %.sroa.0.0.insert.insert = phi i64 [ 0, %_ZNK5clang4ento9MemRegion13getBaseRegionEv.exit ], [ %16, %.sink.split ]
   ret i64 %.sroa.0.0.insert.insert
 }
 

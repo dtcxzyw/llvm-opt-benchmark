@@ -546,30 +546,30 @@ thread-pre-split:                                 ; preds = %16, %5
   br i1 %or.cond76, label %.preheader, label %.thread
 
 .preheader:                                       ; preds = %27
-  %.060.in145 = getelementptr inbounds i8, ptr %2, i64 72
-  %.060146 = load ptr, ptr %.060.in145, align 8
-  %.not71147 = icmp eq ptr %.060146, null
-  br i1 %.not71147, label %.thread, label %.lr.ph
+  %.060.in144 = getelementptr inbounds i8, ptr %2, i64 72
+  %.060145 = load ptr, ptr %.060.in144, align 8
+  %.not71146 = icmp eq ptr %.060145, null
+  br i1 %.not71146, label %.thread, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader, %32
-  %.060149 = phi ptr [ %.060, %32 ], [ %.060146, %.preheader ]
-  %.059148 = phi i64 [ %36, %32 ], [ 0, %.preheader ]
-  %30 = load i32, ptr %.060149, align 8
+  %.060148 = phi ptr [ %.060, %32 ], [ %.060145, %.preheader ]
+  %.059147 = phi i64 [ %36, %32 ], [ 0, %.preheader ]
+  %30 = load i32, ptr %.060148, align 8
   %31 = icmp eq i32 %30, 18
   br i1 %31, label %32, label %.critedge
 
 32:                                               ; preds = %.lr.ph
-  %33 = getelementptr inbounds i8, ptr %.060149, i64 40
+  %33 = getelementptr inbounds i8, ptr %.060148, i64 40
   %34 = load ptr, ptr %33, align 8
   %35 = load i64, ptr %34, align 8
-  %36 = add i64 %35, %.059148
-  %.060.in = getelementptr inbounds i8, ptr %.060149, i64 72
+  %36 = add i64 %35, %.059147
+  %.060.in = getelementptr inbounds i8, ptr %.060148, i64 72
   %.060 = load ptr, ptr %.060.in, align 8
   %.not71 = icmp eq ptr %.060, null
   br i1 %.not71, label %.critedge, label %.lr.ph, !llvm.loop !13
 
 .critedge:                                        ; preds = %.lr.ph, %32
-  %.059.lcssa = phi i64 [ %.059148, %.lr.ph ], [ %36, %32 ]
+  %.059.lcssa = phi i64 [ %.059147, %.lr.ph ], [ %36, %32 ]
   %.not72 = icmp eq i64 %.059.lcssa, 0
   br i1 %.not72, label %.thread, label %37
 
@@ -587,24 +587,24 @@ thread-pre-split:                                 ; preds = %16, %5
 41:                                               ; preds = %.thread
   %42 = load i32, ptr %2, align 8
   switch i32 %42, label %.loopexit [
-    i32 3, label %.preheader222
-    i32 13, label %.preheader222
+    i32 3, label %.preheader217
+    i32 13, label %.preheader217
   ]
 
-.preheader222:                                    ; preds = %41, %41
+.preheader217:                                    ; preds = %41, %41
   br label %43
 
-43:                                               ; preds = %.preheader222, %48
-  %.058152 = phi ptr [ %50, %48 ], [ %2, %.preheader222 ]
-  %44 = getelementptr inbounds i8, ptr %.058152, i64 16
+43:                                               ; preds = %.preheader217, %48
+  %.058151 = phi ptr [ %50, %48 ], [ %2, %.preheader217 ]
+  %44 = getelementptr inbounds i8, ptr %.058151, i64 16
   %45 = load i32, ptr %44, align 8
-  %46 = getelementptr inbounds i8, ptr %.058152, i64 52
+  %46 = getelementptr inbounds i8, ptr %.058151, i64 52
   %47 = load i32, ptr %46, align 4
   %.not75.not.not = icmp ne i32 %45, %47
   br i1 %.not75.not.not, label %.loopexit, label %48
 
 48:                                               ; preds = %43
-  %49 = getelementptr inbounds i8, ptr %.058152, i64 56
+  %49 = getelementptr inbounds i8, ptr %.058151, i64 56
   %50 = load ptr, ptr %49, align 8
   %.not74 = icmp eq ptr %50, null
   br i1 %.not74, label %.loopexit, label %43, !llvm.loop !14
@@ -711,8 +711,8 @@ thread-pre-split:                                 ; preds = %16, %5
   br label %.preheader130.i
 
 .preheader130.us.i:                               ; preds = %.preheader130.lr.ph.i, %114
-  %indvars.iv169 = phi i64 [ %indvars.iv.next170, %114 ], [ 0, %.preheader130.lr.ph.i ]
-  %103 = trunc nuw i64 %indvars.iv169 to i32
+  %indvars.iv167 = phi i64 [ %indvars.iv.next168, %114 ], [ 0, %.preheader130.lr.ph.i ]
+  %103 = trunc nuw i64 %indvars.iv167 to i32
   br label %104
 
 104:                                              ; preds = %104, %.preheader130.us.i
@@ -733,12 +733,12 @@ thread-pre-split:                                 ; preds = %16, %5
   br i1 %exitcond196.not.i, label %._crit_edge159.us.i, label %104, !llvm.loop !15
 
 114:                                              ; preds = %._crit_edge159.us.i
-  %indvars.iv.next170 = add nuw nsw i64 %indvars.iv169, 1
-  %exitcond197.not.i = icmp eq i64 %indvars.iv.next170, %102
+  %indvars.iv.next168 = add nuw nsw i64 %indvars.iv167, 1
+  %exitcond197.not.i = icmp eq i64 %indvars.iv.next168, %102
   br i1 %exitcond197.not.i, label %.preheader.i, label %.preheader130.us.i, !llvm.loop !16
 
 ._crit_edge159.us.i:                              ; preds = %104
-  %115 = getelementptr inbounds ptr, ptr %.0, i64 %indvars.iv169
+  %115 = getelementptr inbounds ptr, ptr %.0, i64 %indvars.iv167
   %116 = load ptr, ptr %115, align 8
   %117 = getelementptr inbounds i8, ptr %116, i64 16
   %118 = load i32, ptr %117, align 8
@@ -826,13 +826,13 @@ thread-pre-split:                                 ; preds = %16, %5
   br i1 %.not88.i, label %.preheader131.i, label %119, !llvm.loop !19
 
 149:                                              ; preds = %.preheader130.i
-  %indvars.iv.next173 = add nuw nsw i64 %indvars.iv172, 1
-  %exitcond198.not.i = icmp eq i64 %indvars.iv.next173, %.pre-phi
-  br i1 %exitcond198.not.i, label %._crit_edge167.i, label %.preheader130.i, !llvm.loop !16
+  %indvars.iv.next171 = add nuw nsw i64 %indvars.iv170, 1
+  %exitcond198.not.i = icmp eq i64 %indvars.iv.next171, %.pre-phi
+  br i1 %exitcond198.not.i, label %hwloc__export_synthetic_update_status.exit98.thread.sink.split.i, label %.preheader130.i, !llvm.loop !16
 
 .preheader130.i:                                  ; preds = %149, %.preheader130.preheader.i
-  %indvars.iv172 = phi i64 [ %indvars.iv.next173, %149 ], [ 0, %.preheader130.preheader.i ]
-  %150 = getelementptr inbounds ptr, ptr %.0, i64 %indvars.iv172
+  %indvars.iv170 = phi i64 [ %indvars.iv.next171, %149 ], [ 0, %.preheader130.preheader.i ]
+  %150 = getelementptr inbounds ptr, ptr %.0, i64 %indvars.iv170
   %151 = load ptr, ptr %150, align 8
   %152 = getelementptr inbounds i8, ptr %151, i64 16
   %153 = load i32, ptr %152, align 8
@@ -841,13 +841,13 @@ thread-pre-split:                                 ; preds = %16, %5
 
 .preheader.i:                                     ; preds = %114, %.preheader131.i
   %.not183.i = icmp eq i32 %140, 0
-  br i1 %.not183.i, label %._crit_edge167.i, label %.lr.ph166.i
+  br i1 %.not183.i, label %hwloc__export_synthetic_update_status.exit98.thread.sink.split.i, label %.lr.ph166.i
 
-.lr.ph166.i:                                      ; preds = %.preheader.i, %163
-  %indvars.iv199.i = phi i64 [ %indvars.iv.next200.i, %163 ], [ 0, %.preheader.i ]
-  %.0111164.i = phi i32 [ %164, %163 ], [ 0, %.preheader.i ]
-  %.0114163.i = phi ptr [ %171, %163 ], [ %97, %.preheader.i ]
-  %.0118162.i = phi i64 [ %172, %163 ], [ %98, %.preheader.i ]
+.lr.ph166.i:                                      ; preds = %.preheader.i, %162
+  %indvars.iv199.i = phi i64 [ %indvars.iv.next200.i, %162 ], [ 0, %.preheader.i ]
+  %.0111164.i = phi i32 [ %163, %162 ], [ 0, %.preheader.i ]
+  %.0114163.i = phi ptr [ %170, %162 ], [ %97, %.preheader.i ]
+  %.0118162.i = phi i64 [ %171, %162 ], [ %98, %.preheader.i ]
   %154 = getelementptr inbounds %struct.hwloc_synthetic_intlv_loop_s, ptr %143, i64 %indvars.iv199.i
   %155 = load i32, ptr %154, align 4
   %156 = getelementptr inbounds i8, ptr %154, i64 4
@@ -856,33 +856,23 @@ thread-pre-split:                                 ; preds = %16, %5
   %159 = select i1 %158, ptr @.str.73, ptr @.str.76
   %160 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %.0114163.i, i64 noundef %.0118162.i, ptr noundef nonnull @.str.75, i32 noundef %155, i32 noundef %157, ptr noundef nonnull %159) #22
   %161 = icmp slt i32 %160, 0
-  br i1 %161, label %162, label %163
+  br i1 %161, label %hwloc__export_synthetic_update_status.exit98.thread.sink.split.i, label %162
 
 162:                                              ; preds = %.lr.ph166.i
-  call void @free(ptr noundef nonnull %143) #22
-  br label %hwloc__export_synthetic_update_status.exit.thread
-
-163:                                              ; preds = %.lr.ph166.i
-  %164 = add nuw nsw i32 %160, %.0111164.i
-  %165 = zext nneg i32 %160 to i64
-  %.not.i.i = icmp sgt i64 %.0118162.i, %165
-  %166 = icmp sgt i64 %.0118162.i, 0
-  %167 = trunc nuw nsw i64 %.0118162.i to i32
-  %168 = add nsw i32 %167, -1
-  %169 = select i1 %166, i32 %168, i32 0
-  %.0.i.i = select i1 %.not.i.i, i32 %160, i32 %169
-  %170 = zext nneg i32 %.0.i.i to i64
-  %171 = getelementptr inbounds i8, ptr %.0114163.i, i64 %170
-  %172 = sub nsw i64 %.0118162.i, %170
+  %163 = add nuw nsw i32 %160, %.0111164.i
+  %164 = zext nneg i32 %160 to i64
+  %.not.i.i = icmp sgt i64 %.0118162.i, %164
+  %165 = icmp sgt i64 %.0118162.i, 0
+  %166 = trunc nuw nsw i64 %.0118162.i to i32
+  %167 = add nsw i32 %166, -1
+  %168 = select i1 %165, i32 %167, i32 0
+  %.0.i.i = select i1 %.not.i.i, i32 %160, i32 %168
+  %169 = zext nneg i32 %.0.i.i to i64
+  %170 = getelementptr inbounds i8, ptr %.0114163.i, i64 %169
+  %171 = sub nsw i64 %.0118162.i, %169
   %indvars.iv.next200.i = add nuw nsw i64 %indvars.iv199.i, 1
   %exitcond204.not.i = icmp eq i64 %indvars.iv.next200.i, %141
-  br i1 %exitcond204.not.i, label %._crit_edge167.i, label %.lr.ph166.i, !llvm.loop !20
-
-._crit_edge167.i:                                 ; preds = %163, %149, %.preheader.i
-  %.182.lcssa211.i120 = phi ptr [ %143, %.preheader.i ], [ %.182.lcssa210215.i, %149 ], [ %143, %163 ]
-  %.0111.lcssa.i = phi i32 [ 0, %.preheader.i ], [ 0, %149 ], [ %164, %163 ]
-  call void @free(ptr noundef %.182.lcssa211.i120) #22
-  br label %hwloc__export_synthetic_update_status.exit85
+  br i1 %exitcond204.not.i, label %hwloc__export_synthetic_update_status.exit98.thread.sink.split.i, label %.lr.ph166.i, !llvm.loop !20
 
 .loopexit.i:                                      ; preds = %._crit_edge144.i, %._crit_edge.i, %119, %126, %._crit_edge159.us.i, %.preheader130.i, %89
   %.081.i = phi ptr [ null, %89 ], [ %.182.lcssa210215.i, %.preheader130.i ], [ %143, %._crit_edge159.us.i ], [ %.182151.i, %126 ], [ %.182151.i, %119 ], [ %.182151.i, %._crit_edge.i ], [ %.182151.i, %._crit_edge144.i ]
@@ -893,42 +883,53 @@ thread-pre-split:                                 ; preds = %16, %5
 
 .lr.ph176.i:                                      ; preds = %.loopexit.i, %hwloc__export_synthetic_update_status.exit98.i
   %.079174.i = phi ptr [ %.079.i, %hwloc__export_synthetic_update_status.exit98.i ], [ %.079169.i, %.loopexit.i ]
-  %.1112173.i = phi i32 [ %180, %hwloc__export_synthetic_update_status.exit98.i ], [ 0, %.loopexit.i ]
-  %.1115172.i = phi ptr [ %187, %hwloc__export_synthetic_update_status.exit98.i ], [ %97, %.loopexit.i ]
-  %.1119171.i = phi i64 [ %188, %hwloc__export_synthetic_update_status.exit98.i ], [ %98, %.loopexit.i ]
-  %173 = getelementptr inbounds i8, ptr %.079174.i, i64 16
-  %174 = load i32, ptr %173, align 8
-  %175 = getelementptr inbounds i8, ptr %.079174.i, i64 56
-  %176 = load ptr, ptr %175, align 8
-  %.not94.i = icmp eq ptr %176, null
-  %177 = select i1 %.not94.i, ptr @.str.73, ptr @.str.78
-  %178 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %.1115172.i, i64 noundef %.1119171.i, ptr noundef nonnull @.str.77, i32 noundef %174, ptr noundef nonnull %177) #22
-  %179 = icmp slt i32 %178, 0
-  br i1 %179, label %hwloc__export_synthetic_update_status.exit.thread, label %hwloc__export_synthetic_update_status.exit98.i
+  %.1112173.i = phi i32 [ %179, %hwloc__export_synthetic_update_status.exit98.i ], [ 0, %.loopexit.i ]
+  %.1115172.i = phi ptr [ %186, %hwloc__export_synthetic_update_status.exit98.i ], [ %97, %.loopexit.i ]
+  %.1119171.i = phi i64 [ %187, %hwloc__export_synthetic_update_status.exit98.i ], [ %98, %.loopexit.i ]
+  %172 = getelementptr inbounds i8, ptr %.079174.i, i64 16
+  %173 = load i32, ptr %172, align 8
+  %174 = getelementptr inbounds i8, ptr %.079174.i, i64 56
+  %175 = load ptr, ptr %174, align 8
+  %.not94.i = icmp eq ptr %175, null
+  %176 = select i1 %.not94.i, ptr @.str.73, ptr @.str.78
+  %177 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %.1115172.i, i64 noundef %.1119171.i, ptr noundef nonnull @.str.77, i32 noundef %173, ptr noundef nonnull %176) #22
+  %178 = icmp slt i32 %177, 0
+  br i1 %178, label %hwloc__export_synthetic_update_status.exit.thread, label %hwloc__export_synthetic_update_status.exit98.i
 
 hwloc__export_synthetic_update_status.exit98.i:   ; preds = %.lr.ph176.i
-  %180 = add nuw nsw i32 %178, %.1112173.i
-  %181 = zext nneg i32 %178 to i64
-  %.not.i95.i = icmp sgt i64 %.1119171.i, %181
-  %182 = icmp sgt i64 %.1119171.i, 0
-  %183 = trunc nuw nsw i64 %.1119171.i to i32
-  %184 = add nsw i32 %183, -1
-  %185 = select i1 %182, i32 %184, i32 0
-  %.0.i96.i = select i1 %.not.i95.i, i32 %178, i32 %185
-  %186 = zext nneg i32 %.0.i96.i to i64
-  %187 = getelementptr inbounds i8, ptr %.1115172.i, i64 %186
-  %188 = sub nsw i64 %.1119171.i, %186
-  %.079.i = load ptr, ptr %175, align 8
+  %179 = add nuw nsw i32 %177, %.1112173.i
+  %180 = zext nneg i32 %177 to i64
+  %.not.i95.i = icmp sgt i64 %.1119171.i, %180
+  %181 = icmp sgt i64 %.1119171.i, 0
+  %182 = trunc nuw nsw i64 %.1119171.i to i32
+  %183 = add nsw i32 %182, -1
+  %184 = select i1 %181, i32 %183, i32 0
+  %.0.i96.i = select i1 %.not.i95.i, i32 %177, i32 %184
+  %185 = zext nneg i32 %.0.i96.i to i64
+  %186 = getelementptr inbounds i8, ptr %.1115172.i, i64 %185
+  %187 = sub nsw i64 %.1119171.i, %185
+  %.079.i = load ptr, ptr %174, align 8
   %.not93.i = icmp eq ptr %.079.i, null
-  br i1 %.not93.i, label %hwloc__export_synthetic_update_status.exit85, label %.lr.ph176.i, !llvm.loop !21
+  br i1 %.not93.i, label %hwloc__export_synthetic_indexes.exit, label %.lr.ph176.i, !llvm.loop !21
 
-hwloc__export_synthetic_update_status.exit85:     ; preds = %hwloc__export_synthetic_update_status.exit98.i, %._crit_edge167.i, %.loopexit.i
-  %.080.i127 = phi i32 [ 0, %.loopexit.i ], [ %.0111.lcssa.i, %._crit_edge167.i ], [ %180, %hwloc__export_synthetic_update_status.exit98.i ]
-  %189 = add nsw i32 %90, %.080.i127
+hwloc__export_synthetic_update_status.exit98.thread.sink.split.i: ; preds = %162, %.lr.ph166.i, %149, %.preheader.i
+  %.182.lcssa211.i120 = phi ptr [ %143, %.preheader.i ], [ %.182.lcssa210215.i, %149 ], [ %143, %.lr.ph166.i ], [ %143, %162 ]
+  %.080.ph.i = phi i32 [ 0, %.preheader.i ], [ 0, %149 ], [ %163, %162 ], [ -1, %.lr.ph166.i ]
+  call void @free(ptr noundef %.182.lcssa211.i120) #22
+  br label %hwloc__export_synthetic_indexes.exit
+
+hwloc__export_synthetic_indexes.exit:             ; preds = %hwloc__export_synthetic_update_status.exit98.i, %hwloc__export_synthetic_update_status.exit98.thread.sink.split.i
+  %.080.i = phi i32 [ %.080.ph.i, %hwloc__export_synthetic_update_status.exit98.thread.sink.split.i ], [ %179, %hwloc__export_synthetic_update_status.exit98.i ]
+  %188 = icmp slt i32 %.080.i, 0
+  br i1 %188, label %hwloc__export_synthetic_update_status.exit.thread, label %hwloc__export_synthetic_update_status.exit85
+
+hwloc__export_synthetic_update_status.exit85:     ; preds = %.loopexit.i, %hwloc__export_synthetic_indexes.exit
+  %.080.i127 = phi i32 [ %.080.i, %hwloc__export_synthetic_indexes.exit ], [ 0, %.loopexit.i ]
+  %189 = add nuw nsw i32 %90, %.080.i127
   br label %hwloc__export_synthetic_update_status.exit.thread
 
-hwloc__export_synthetic_update_status.exit.thread: ; preds = %.lr.ph176.i, %162, %86, %58, %62, %hwloc__export_synthetic_update_status.exit85, %.loopexit
-  %.063 = phi i32 [ 0, %.loopexit ], [ %189, %hwloc__export_synthetic_update_status.exit85 ], [ %60, %62 ], [ -1, %58 ], [ -1, %86 ], [ -1, %162 ], [ -1, %.lr.ph176.i ]
+hwloc__export_synthetic_update_status.exit.thread: ; preds = %.lr.ph176.i, %hwloc__export_synthetic_indexes.exit, %86, %58, %62, %hwloc__export_synthetic_update_status.exit85, %.loopexit
+  %.063 = phi i32 [ 0, %.loopexit ], [ %189, %hwloc__export_synthetic_update_status.exit85 ], [ %60, %62 ], [ -1, %58 ], [ -1, %86 ], [ -1, %hwloc__export_synthetic_indexes.exit ], [ -1, %.lr.ph176.i ]
   ret i32 %.063
 }
 

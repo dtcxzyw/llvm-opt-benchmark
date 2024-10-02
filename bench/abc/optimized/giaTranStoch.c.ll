@@ -23,9 +23,9 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nounwind uwtable
 define ptr @Gia_ManTranStochPut(ptr noundef %0) local_unnamed_addr #0 {
-  %2 = tail call ptr @Gia_ManToAig(ptr noundef %0, i32 noundef 0) #11
-  %3 = tail call ptr @Abc_NtkFromAigPhase(ptr noundef %2) #11
-  tail call void @Aig_ManStop(ptr noundef %2) #11
+  %2 = tail call ptr @Gia_ManToAig(ptr noundef %0, i32 noundef 0) #12
+  %3 = tail call ptr @Abc_NtkFromAigPhase(ptr noundef %2) #12
+  tail call void @Aig_ManStop(ptr noundef %2) #12
   ret ptr %3
 }
 
@@ -38,14 +38,14 @@ declare void @Aig_ManStop(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define ptr @Gia_ManTranStochIf(ptr noundef %0) local_unnamed_addr #0 {
   %2 = alloca %struct.If_Par_t_, align 8
-  call void @If_ManSetDefaultPars(ptr noundef nonnull %2) #11
-  %3 = call ptr (...) @Abc_FrameReadLibLut() #11
+  call void @If_ManSetDefaultPars(ptr noundef nonnull %2) #12
+  %3 = call ptr (...) @Abc_FrameReadLibLut() #12
   %4 = getelementptr inbounds i8, ptr %2, i64 280
   store ptr %3, ptr %4, align 8
   %5 = getelementptr inbounds i8, ptr %3, i64 8
   %6 = load i32, ptr %5, align 8
   store i32 %6, ptr %2, align 8
-  %7 = call ptr @Abc_NtkIf(ptr noundef %0, ptr noundef nonnull %2) #11
+  %7 = call ptr @Abc_NtkIf(ptr noundef %0, ptr noundef nonnull %2) #12
   ret ptr %7
 }
 
@@ -58,8 +58,8 @@ declare ptr @Abc_NtkIf(ptr noundef, ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define void @Gia_ManTranStochMfs2(ptr noundef %0) local_unnamed_addr #0 {
   %2 = alloca %struct.Sfm_Par_t_, align 4
-  call void @Sfm_ParSetDefault(ptr noundef nonnull %2) #11
-  %3 = call i32 @Abc_NtkPerformMfs(ptr noundef %0, ptr noundef nonnull %2) #11
+  call void @Sfm_ParSetDefault(ptr noundef nonnull %2) #12
+  %3 = call i32 @Abc_NtkPerformMfs(ptr noundef %0, ptr noundef nonnull %2) #12
   ret void
 }
 
@@ -69,9 +69,9 @@ declare i32 @Abc_NtkPerformMfs(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define ptr @Gia_ManTranStochGet(ptr noundef %0) local_unnamed_addr #0 {
-  %2 = tail call ptr @Abc_NtkToDar(ptr noundef %0, i32 noundef 0, i32 noundef 1) #11
-  %3 = tail call ptr @Gia_ManFromAig(ptr noundef %2) #11
-  tail call void @Aig_ManStop(ptr noundef %2) #11
+  %2 = tail call ptr @Abc_NtkToDar(ptr noundef %0, i32 noundef 0, i32 noundef 1) #12
+  %3 = tail call ptr @Gia_ManFromAig(ptr noundef %2) #12
+  tail call void @Aig_ManStop(ptr noundef %2) #12
   ret ptr %3
 }
 
@@ -82,7 +82,7 @@ declare ptr @Gia_ManFromAig(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define void @Gia_ManTranStochFx(ptr noundef %0) local_unnamed_addr #0 {
   %2 = alloca %struct.FxuDataStruct, align 8
-  call void @Abc_NtkSetDefaultFxParams(ptr noundef nonnull %2) #11
+  call void @Abc_NtkSetDefaultFxParams(ptr noundef nonnull %2) #12
   %3 = getelementptr inbounds i8, ptr %2, i64 24
   %4 = load i32, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %2, i64 40
@@ -93,8 +93,8 @@ define void @Gia_ManTranStochFx(ptr noundef %0) local_unnamed_addr #0 {
   %10 = load i32, ptr %9, align 8
   %11 = getelementptr inbounds i8, ptr %2, i64 20
   %12 = load i32, ptr %11, align 4
-  %13 = call i32 @Abc_NtkFxPerform(ptr noundef %0, i32 noundef %4, i32 noundef %6, i32 noundef %8, i32 noundef %10, i32 noundef %12) #11
-  call void @Abc_NtkFxuFreeInfo(ptr noundef nonnull %2) #11
+  %13 = call i32 @Abc_NtkFxPerform(ptr noundef %0, i32 noundef %4, i32 noundef %6, i32 noundef %8, i32 noundef %10, i32 noundef %12) #12
+  call void @Abc_NtkFxuFreeInfo(ptr noundef nonnull %2) #12
   ret void
 }
 
@@ -107,15 +107,15 @@ declare void @Abc_NtkFxuFreeInfo(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define ptr @Gia_ManTranStochRefactor(ptr noundef %0) local_unnamed_addr #0 {
   %2 = alloca %struct.Dar_RefPar_t_, align 4
-  call void @Dar_ManDefaultRefParams(ptr noundef nonnull %2) #11
+  call void @Dar_ManDefaultRefParams(ptr noundef nonnull %2) #12
   %3 = getelementptr inbounds i8, ptr %2, i64 20
   store i32 1, ptr %3, align 4
-  %4 = call ptr @Gia_ManToAig(ptr noundef %0, i32 noundef 0) #11
-  %5 = call i32 @Dar_ManRefactor(ptr noundef %4, ptr noundef nonnull %2) #11
-  %6 = call ptr @Aig_ManDupDfs(ptr noundef %4) #11
-  call void @Aig_ManStop(ptr noundef %4) #11
-  %7 = call ptr @Gia_ManFromAig(ptr noundef %6) #11
-  call void @Aig_ManStop(ptr noundef %6) #11
+  %4 = call ptr @Gia_ManToAig(ptr noundef %0, i32 noundef 0) #12
+  %5 = call i32 @Dar_ManRefactor(ptr noundef %4, ptr noundef nonnull %2) #12
+  %6 = call ptr @Aig_ManDupDfs(ptr noundef %4) #12
+  call void @Aig_ManStop(ptr noundef %4) #12
+  %7 = call ptr @Gia_ManFromAig(ptr noundef %6) #12
+  call void @Aig_ManStop(ptr noundef %6) #12
   ret ptr %7
 }
 
@@ -135,7 +135,7 @@ define void @Gia_ManTranStochLock(ptr nocapture noundef readonly %0) local_unnam
 4:                                                ; preds = %1
   %5 = getelementptr inbounds i8, ptr %0, i64 96
   %6 = load ptr, ptr %5, align 8
-  %7 = tail call i32 @pthread_mutex_lock(ptr noundef %6) #11
+  %7 = tail call i32 @pthread_mutex_lock(ptr noundef %6) #12
   br label %8
 
 8:                                                ; preds = %4, %1
@@ -155,7 +155,7 @@ define void @Gia_ManTranStochUnlock(ptr nocapture noundef readonly %0) local_unn
 4:                                                ; preds = %1
   %5 = getelementptr inbounds i8, ptr %0, i64 96
   %6 = load ptr, ptr %5, align 8
-  %7 = tail call i32 @pthread_mutex_unlock(ptr noundef %6) #11
+  %7 = tail call i32 @pthread_mutex_unlock(ptr noundef %6) #12
   br label %8
 
 8:                                                ; preds = %4, %1
@@ -168,7 +168,7 @@ declare i32 @pthread_mutex_unlock(ptr noundef) local_unnamed_addr #2
 ; Function Attrs: nounwind uwtable
 define ptr @Gia_ManTranStochOpt1(ptr nocapture noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = alloca %struct.Dar_RefPar_t_, align 4
-  %4 = tail call ptr @Gia_ManDup(ptr noundef %1) #11
+  %4 = tail call ptr @Gia_ManDup(ptr noundef %1) #12
   %5 = getelementptr inbounds i8, ptr %0, i64 44
   %6 = getelementptr inbounds i8, ptr %0, i64 28
   %7 = getelementptr inbounds i8, ptr %0, i64 24
@@ -216,30 +216,30 @@ define ptr @Gia_ManTranStochOpt1(ptr nocapture noundef %0, ptr noundef %1) local
   br i1 %.not, label %31, label %29
 
 29:                                               ; preds = %16
-  %30 = call ptr @Gia_ManTransductionTt(ptr noundef nonnull %.0, i32 noundef %20, i32 noundef %21, i32 noundef %22, i32 noundef 0, i32 noundef 0, i32 noundef 0, i32 noundef 0, ptr noundef %24, i32 noundef %25, i32 noundef %spec.select44) #11
+  %30 = call ptr @Gia_ManTransductionTt(ptr noundef nonnull %.0, i32 noundef %20, i32 noundef %21, i32 noundef %22, i32 noundef 0, i32 noundef 0, i32 noundef 0, i32 noundef 0, ptr noundef %24, i32 noundef %25, i32 noundef %spec.select44) #12
   br label %33
 
 31:                                               ; preds = %16
-  %32 = call ptr @Gia_ManTransductionBdd(ptr noundef nonnull %.0, i32 noundef %20, i32 noundef %21, i32 noundef %22, i32 noundef 0, i32 noundef 0, i32 noundef 0, i32 noundef 0, ptr noundef %24, i32 noundef %25, i32 noundef %spec.select44) #11
+  %32 = call ptr @Gia_ManTransductionBdd(ptr noundef nonnull %.0, i32 noundef %20, i32 noundef %21, i32 noundef %22, i32 noundef 0, i32 noundef 0, i32 noundef 0, i32 noundef 0, ptr noundef %24, i32 noundef %25, i32 noundef %spec.select44) #12
   br label %33
 
 33:                                               ; preds = %31, %29
   %.037 = phi ptr [ %30, %29 ], [ %32, %31 ]
-  call void @Gia_ManStop(ptr noundef nonnull %.0) #11
+  call void @Gia_ManStop(ptr noundef nonnull %.0) #12
   %34 = load i32, ptr %12, align 8
   %.not42 = icmp eq i32 %34, 0
   br i1 %.not42, label %40, label %35
 
 35:                                               ; preds = %33
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3)
-  call void @Dar_ManDefaultRefParams(ptr noundef nonnull %3) #11
+  call void @Dar_ManDefaultRefParams(ptr noundef nonnull %3) #12
   store i32 1, ptr %13, align 4
-  %36 = call ptr @Gia_ManToAig(ptr noundef %.037, i32 noundef 0) #11
-  %37 = call i32 @Dar_ManRefactor(ptr noundef %36, ptr noundef nonnull %3) #11
-  %38 = call ptr @Aig_ManDupDfs(ptr noundef %36) #11
-  call void @Aig_ManStop(ptr noundef %36) #11
-  %39 = call ptr @Gia_ManFromAig(ptr noundef %38) #11
-  call void @Aig_ManStop(ptr noundef %38) #11
+  %36 = call ptr @Gia_ManToAig(ptr noundef %.037, i32 noundef 0) #12
+  %37 = call i32 @Dar_ManRefactor(ptr noundef %36, ptr noundef nonnull %3) #12
+  %38 = call ptr @Aig_ManDupDfs(ptr noundef %36) #12
+  call void @Aig_ManStop(ptr noundef %36) #12
+  %39 = call ptr @Gia_ManFromAig(ptr noundef %38) #12
+  call void @Aig_ManStop(ptr noundef %38) #12
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3)
   br label %Gia_ManTranStochUnlock.exit
 
@@ -250,23 +250,23 @@ define ptr @Gia_ManTranStochOpt1(ptr nocapture noundef %0, ptr noundef %1) local
 
 42:                                               ; preds = %40
   %43 = load ptr, ptr %15, align 8
-  %44 = call i32 @pthread_mutex_lock(ptr noundef %43) #11
+  %44 = call i32 @pthread_mutex_lock(ptr noundef %43) #12
   br label %Gia_ManTranStochLock.exit
 
 Gia_ManTranStochLock.exit:                        ; preds = %40, %42
-  %45 = call ptr @Gia_ManCompress2(ptr noundef %.037, i32 noundef 1, i32 noundef 0) #11
+  %45 = call ptr @Gia_ManCompress2(ptr noundef %.037, i32 noundef 1, i32 noundef 0) #12
   %46 = load i32, ptr %14, align 8
   %.not.i45 = icmp eq i32 %46, 0
   br i1 %.not.i45, label %Gia_ManTranStochUnlock.exit, label %47
 
 47:                                               ; preds = %Gia_ManTranStochLock.exit
   %48 = load ptr, ptr %15, align 8
-  %49 = call i32 @pthread_mutex_unlock(ptr noundef %48) #11
+  %49 = call i32 @pthread_mutex_unlock(ptr noundef %48) #12
   br label %Gia_ManTranStochUnlock.exit
 
 Gia_ManTranStochUnlock.exit:                      ; preds = %47, %Gia_ManTranStochLock.exit, %35
   %.1 = phi ptr [ %39, %35 ], [ %45, %Gia_ManTranStochLock.exit ], [ %45, %47 ]
-  call void @Gia_ManStop(ptr noundef %.037) #11
+  call void @Gia_ManStop(ptr noundef %.037) #12
   %50 = load i32, ptr %11, align 8
   %.not43 = icmp eq i32 %50, 0
   br i1 %.not43, label %64, label %51
@@ -343,8 +343,8 @@ define ptr @Gia_ManTranStochOpt2(ptr nocapture noundef %0) local_unnamed_addr #0
   %14 = add i32 %.val3.i, %.val.i
   %15 = xor i32 %14, -1
   %16 = add i32 %7, %15
-  %17 = tail call ptr @Gia_ManDup(ptr noundef %5) #11
-  %18 = tail call ptr @Gia_ManDup(ptr noundef %17) #11
+  %17 = tail call ptr @Gia_ManDup(ptr noundef %5) #12
+  %18 = tail call ptr @Gia_ManDup(ptr noundef %17) #12
   %19 = getelementptr inbounds i8, ptr %0, i64 32
   %20 = getelementptr inbounds i8, ptr %0, i64 12
   %21 = getelementptr inbounds i8, ptr %0, i64 36
@@ -361,7 +361,7 @@ define ptr @Gia_ManTranStochOpt2(ptr nocapture noundef %0) local_unnamed_addr #0
   %.039 = phi i32 [ %16, %1 ], [ %.140, %96 ]
   %.0 = phi i32 [ 0, %1 ], [ %97, %96 ]
   %28 = call ptr @Gia_ManTranStochOpt1(ptr noundef nonnull %0, ptr noundef %.043)
-  call void @Gia_ManStop(ptr noundef %.043) #11
+  call void @Gia_ManStop(ptr noundef %.043) #12
   %29 = getelementptr inbounds i8, ptr %28, i64 24
   %30 = load i32, ptr %29, align 8
   %31 = getelementptr inbounds i8, ptr %28, i64 64
@@ -379,8 +379,8 @@ define ptr @Gia_ManTranStochOpt2(ptr nocapture noundef %0) local_unnamed_addr #0
   br i1 %40, label %41, label %44
 
 41:                                               ; preds = %27
-  call void @Gia_ManStop(ptr noundef %.041) #11
-  %42 = call ptr @Gia_ManDup(ptr noundef nonnull %28) #11
+  call void @Gia_ManStop(ptr noundef %.041) #12
+  %42 = call ptr @Gia_ManDup(ptr noundef nonnull %28) #12
   %43 = load i32, ptr %19, align 8
   %.not = icmp eq i32 %43, 0
   %spec.select = select i1 %.not, i32 %.0, i32 0
@@ -401,16 +401,16 @@ define ptr @Gia_ManTranStochOpt2(ptr nocapture noundef %0) local_unnamed_addr #0
 
 49:                                               ; preds = %47
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4)
-  call void @Dar_ManDefaultRefParams(ptr noundef nonnull %4) #11
+  call void @Dar_ManDefaultRefParams(ptr noundef nonnull %4) #12
   store i32 1, ptr %22, align 4
-  %50 = call ptr @Gia_ManToAig(ptr noundef nonnull %28, i32 noundef 0) #11
-  %51 = call i32 @Dar_ManRefactor(ptr noundef %50, ptr noundef nonnull %4) #11
-  %52 = call ptr @Aig_ManDupDfs(ptr noundef %50) #11
-  call void @Aig_ManStop(ptr noundef %50) #11
-  %53 = call ptr @Gia_ManFromAig(ptr noundef %52) #11
-  call void @Aig_ManStop(ptr noundef %52) #11
+  %50 = call ptr @Gia_ManToAig(ptr noundef nonnull %28, i32 noundef 0) #12
+  %51 = call i32 @Dar_ManRefactor(ptr noundef %50, ptr noundef nonnull %4) #12
+  %52 = call ptr @Aig_ManDupDfs(ptr noundef %50) #12
+  call void @Aig_ManStop(ptr noundef %50) #12
+  %53 = call ptr @Gia_ManFromAig(ptr noundef %52) #12
+  call void @Aig_ManStop(ptr noundef %52) #12
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4)
-  call void @Gia_ManStop(ptr noundef nonnull %28) #11
+  call void @Gia_ManStop(ptr noundef nonnull %28) #12
   br label %81
 
 54:                                               ; preds = %47
@@ -420,37 +420,37 @@ define ptr @Gia_ManTranStochOpt2(ptr nocapture noundef %0) local_unnamed_addr #0
 
 56:                                               ; preds = %54
   %57 = load ptr, ptr %24, align 8
-  %58 = call i32 @pthread_mutex_lock(ptr noundef %57) #11
+  %58 = call i32 @pthread_mutex_lock(ptr noundef %57) #12
   br label %Gia_ManTranStochLock.exit
 
 Gia_ManTranStochLock.exit:                        ; preds = %54, %56
-  %59 = call ptr @Gia_ManToAig(ptr noundef nonnull %28, i32 noundef 0) #11
-  %60 = call ptr @Abc_NtkFromAigPhase(ptr noundef %59) #11
-  call void @Aig_ManStop(ptr noundef %59) #11
+  %59 = call ptr @Gia_ManToAig(ptr noundef nonnull %28, i32 noundef 0) #12
+  %60 = call ptr @Abc_NtkFromAigPhase(ptr noundef %59) #12
+  call void @Aig_ManStop(ptr noundef %59) #12
   %61 = load i32, ptr %23, align 8
   %.not.i51 = icmp eq i32 %61, 0
   br i1 %.not.i51, label %Gia_ManTranStochUnlock.exit, label %62
 
 62:                                               ; preds = %Gia_ManTranStochLock.exit
   %63 = load ptr, ptr %24, align 8
-  %64 = call i32 @pthread_mutex_unlock(ptr noundef %63) #11
+  %64 = call i32 @pthread_mutex_unlock(ptr noundef %63) #12
   br label %Gia_ManTranStochUnlock.exit
 
 Gia_ManTranStochUnlock.exit:                      ; preds = %Gia_ManTranStochLock.exit, %62
-  call void @Gia_ManStop(ptr noundef nonnull %28) #11
+  call void @Gia_ManStop(ptr noundef nonnull %28) #12
   call void @llvm.lifetime.start.p0(i64 352, ptr nonnull %3)
-  call void @If_ManSetDefaultPars(ptr noundef nonnull %3) #11
-  %65 = call ptr (...) @Abc_FrameReadLibLut() #11
+  call void @If_ManSetDefaultPars(ptr noundef nonnull %3) #12
+  %65 = call ptr (...) @Abc_FrameReadLibLut() #12
   store ptr %65, ptr %25, align 8
   %66 = getelementptr inbounds i8, ptr %65, i64 8
   %67 = load i32, ptr %66, align 8
   store i32 %67, ptr %3, align 8
-  %68 = call ptr @Abc_NtkIf(ptr noundef %60, ptr noundef nonnull %3) #11
+  %68 = call ptr @Abc_NtkIf(ptr noundef %60, ptr noundef nonnull %3) #12
   call void @llvm.lifetime.end.p0(i64 352, ptr nonnull %3)
-  call void @Abc_NtkDelete(ptr noundef %60) #11
+  call void @Abc_NtkDelete(ptr noundef %60) #12
   call void @llvm.lifetime.start.p0(i64 124, ptr nonnull %2)
-  call void @Sfm_ParSetDefault(ptr noundef nonnull %2) #11
-  %69 = call i32 @Abc_NtkPerformMfs(ptr noundef %68, ptr noundef nonnull %2) #11
+  call void @Sfm_ParSetDefault(ptr noundef nonnull %2) #12
+  %69 = call i32 @Abc_NtkPerformMfs(ptr noundef %68, ptr noundef nonnull %2) #12
   call void @llvm.lifetime.end.p0(i64 124, ptr nonnull %2)
   %70 = load i32, ptr %23, align 8
   %.not.i52 = icmp eq i32 %70, 0
@@ -458,26 +458,26 @@ Gia_ManTranStochUnlock.exit:                      ; preds = %Gia_ManTranStochLoc
 
 71:                                               ; preds = %Gia_ManTranStochUnlock.exit
   %72 = load ptr, ptr %24, align 8
-  %73 = call i32 @pthread_mutex_lock(ptr noundef %72) #11
+  %73 = call i32 @pthread_mutex_lock(ptr noundef %72) #12
   br label %Gia_ManTranStochLock.exit53
 
 Gia_ManTranStochLock.exit53:                      ; preds = %Gia_ManTranStochUnlock.exit, %71
-  %74 = call ptr @Abc_NtkStrash(ptr noundef %68, i32 noundef 0, i32 noundef 1, i32 noundef 0) #11
+  %74 = call ptr @Abc_NtkStrash(ptr noundef %68, i32 noundef 0, i32 noundef 1, i32 noundef 0) #12
   %75 = load i32, ptr %23, align 8
   %.not.i54 = icmp eq i32 %75, 0
   br i1 %.not.i54, label %Gia_ManTranStochUnlock.exit55, label %76
 
 76:                                               ; preds = %Gia_ManTranStochLock.exit53
   %77 = load ptr, ptr %24, align 8
-  %78 = call i32 @pthread_mutex_unlock(ptr noundef %77) #11
+  %78 = call i32 @pthread_mutex_unlock(ptr noundef %77) #12
   br label %Gia_ManTranStochUnlock.exit55
 
 Gia_ManTranStochUnlock.exit55:                    ; preds = %Gia_ManTranStochLock.exit53, %76
-  call void @Abc_NtkDelete(ptr noundef %68) #11
-  %79 = call ptr @Abc_NtkToDar(ptr noundef %74, i32 noundef 0, i32 noundef 1) #11
-  %80 = call ptr @Gia_ManFromAig(ptr noundef %79) #11
-  call void @Aig_ManStop(ptr noundef %79) #11
-  call void @Abc_NtkDelete(ptr noundef %74) #11
+  call void @Abc_NtkDelete(ptr noundef %68) #12
+  %79 = call ptr @Abc_NtkToDar(ptr noundef %74, i32 noundef 0, i32 noundef 1) #12
+  %80 = call ptr @Gia_ManFromAig(ptr noundef %79) #12
+  call void @Aig_ManStop(ptr noundef %79) #12
+  call void @Abc_NtkDelete(ptr noundef %74) #12
   br label %81
 
 81:                                               ; preds = %Gia_ManTranStochUnlock.exit55, %49
@@ -508,7 +508,7 @@ Gia_ManTranStochUnlock.exit55:                    ; preds = %Gia_ManTranStochLoc
   br label %27
 
 98:                                               ; preds = %44
-  call void @Gia_ManStop(ptr noundef nonnull %28) #11
+  call void @Gia_ManStop(ptr noundef nonnull %28) #12
   ret ptr %.142
 }
 
@@ -529,7 +529,7 @@ define ptr @Gia_ManTranStochOpt3(ptr nocapture noundef %0) local_unnamed_addr #0
   %9 = load ptr, ptr %8, align 8
   %10 = getelementptr i8, ptr %9, i64 4
   %.val3.i = load i32, ptr %10, align 4
-  %11 = tail call ptr @Gia_ManDup(ptr noundef %2) #11
+  %11 = tail call ptr @Gia_ManDup(ptr noundef %2) #12
   %12 = getelementptr inbounds i8, ptr %0, i64 16
   %13 = load i32, ptr %12, align 8
   %.not30 = icmp slt i32 %13, 0
@@ -544,10 +544,10 @@ define ptr @Gia_ManTranStochOpt3(ptr nocapture noundef %0) local_unnamed_addr #0
   %19 = getelementptr inbounds i8, ptr %0, i64 64
   br label %20
 
-20:                                               ; preds = %.lr.ph, %56
-  %.033 = phi i32 [ 0, %.lr.ph ], [ %57, %56 ]
-  %.01932 = phi ptr [ %11, %.lr.ph ], [ %.1, %56 ]
-  %.02031 = phi i32 [ %16, %.lr.ph ], [ %.121, %56 ]
+20:                                               ; preds = %.lr.ph, %41
+  %.033 = phi i32 [ 0, %.lr.ph ], [ %54, %41 ]
+  %.01932 = phi ptr [ %11, %.lr.ph ], [ %..01932, %41 ]
+  %.02031 = phi i32 [ %16, %.lr.ph ], [ %..02031, %41 ]
   %21 = load i32, ptr %17, align 4
   %22 = add nsw i32 %21, %.033
   %23 = mul nsw i32 %22, 1234
@@ -594,26 +594,17 @@ define ptr @Gia_ManTranStochOpt3(ptr nocapture noundef %0) local_unnamed_addr #0
   %51 = xor i32 %50, -1
   %52 = add i32 %43, %51
   %53 = icmp sgt i32 %.02031, %52
-  br i1 %53, label %54, label %55
-
-54:                                               ; preds = %41
-  tail call void @Gia_ManStop(ptr noundef %.01932) #11
-  br label %56
-
-55:                                               ; preds = %41
-  tail call void @Gia_ManStop(ptr noundef nonnull %24) #11
-  br label %56
-
-56:                                               ; preds = %54, %55
-  %.121 = phi i32 [ %52, %54 ], [ %.02031, %55 ]
-  %.1 = phi ptr [ %24, %54 ], [ %.01932, %55 ]
-  %57 = add nuw nsw i32 %.033, 1
-  %58 = load i32, ptr %12, align 8
-  %.not.not = icmp slt i32 %.033, %58
+  %.01932. = select i1 %53, ptr %.01932, ptr %24
+  %..02031 = tail call i32 @llvm.smin.i32(i32 %.02031, i32 %52)
+  %..01932 = select i1 %53, ptr %24, ptr %.01932
+  tail call void @Gia_ManStop(ptr noundef %.01932.) #12
+  %54 = add nuw nsw i32 %.033, 1
+  %55 = load i32, ptr %12, align 8
+  %.not.not = icmp slt i32 %.033, %55
   br i1 %.not.not, label %20, label %._crit_edge, !llvm.loop !6
 
-._crit_edge:                                      ; preds = %56, %1
-  %.019.lcssa = phi ptr [ %11, %1 ], [ %.1, %56 ]
+._crit_edge:                                      ; preds = %41, %1
+  %.019.lcssa = phi ptr [ %11, %1 ], [ %..01932, %41 ]
   ret ptr %.019.lcssa
 }
 
@@ -640,7 +631,7 @@ define noalias noundef nonnull ptr @Gia_ManTranStochWorkerThread(ptr noundef %0)
   br i1 %12, label %13, label %14
 
 13:                                               ; preds = %10
-  tail call void @pthread_exit(ptr noundef null) #12
+  tail call void @pthread_exit(ptr noundef null) #13
   unreachable
 
 14:                                               ; preds = %10
@@ -691,30 +682,30 @@ Vec_PtrPush.exit:
   store i32 %15, ptr %31, align 8
   %32 = getelementptr inbounds i8, ptr %17, i64 88
   store i32 0, ptr %32, align 8
-  %33 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #13
+  %33 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #14
   %34 = getelementptr inbounds i8, ptr %33, i64 4
   store i32 8, ptr %33, align 8
-  %35 = tail call noalias dereferenceable_or_null(64) ptr @malloc(i64 noundef 64) #13
+  %35 = tail call noalias dereferenceable_or_null(64) ptr @malloc(i64 noundef 64) #14
   %36 = getelementptr inbounds i8, ptr %33, i64 8
   store ptr %35, ptr %36, align 8
-  %37 = tail call ptr @Gia_ManDup(ptr noundef %0) #11
+  %37 = tail call ptr @Gia_ManDup(ptr noundef %0) #12
   store i32 1, ptr %34, align 4
   store ptr %37, ptr %35, align 8
   %.not = icmp eq i32 %11, 0
   br i1 %.not, label %38, label %.thread
 
 38:                                               ; preds = %Vec_PtrPush.exit
-  %39 = tail call ptr @Gia_ManToAig(ptr noundef %0, i32 noundef 0) #11
-  %40 = tail call ptr @Abc_NtkFromAigPhase(ptr noundef %39) #11
-  tail call void @Aig_ManStop(ptr noundef %39) #11
-  %41 = tail call ptr @Abc_NtkCollapse(ptr noundef %40, i32 noundef 1000000000, i32 noundef 0, i32 noundef 1, i32 noundef 0, i32 noundef 0, i32 noundef 0) #11
-  tail call void @Abc_NtkDelete(ptr noundef %40) #11
-  %42 = tail call ptr @Abc_NtkStrash(ptr noundef %41, i32 noundef 0, i32 noundef 1, i32 noundef 0) #11
-  tail call void @Abc_NtkDelete(ptr noundef %41) #11
-  %43 = tail call ptr @Abc_NtkToDar(ptr noundef %42, i32 noundef 0, i32 noundef 1) #11
-  %44 = tail call ptr @Gia_ManFromAig(ptr noundef %43) #11
-  tail call void @Aig_ManStop(ptr noundef %43) #11
-  tail call void @Abc_NtkDelete(ptr noundef %42) #11
+  %39 = tail call ptr @Gia_ManToAig(ptr noundef %0, i32 noundef 0) #12
+  %40 = tail call ptr @Abc_NtkFromAigPhase(ptr noundef %39) #12
+  tail call void @Aig_ManStop(ptr noundef %39) #12
+  %41 = tail call ptr @Abc_NtkCollapse(ptr noundef %40, i32 noundef 1000000000, i32 noundef 0, i32 noundef 1, i32 noundef 0, i32 noundef 0, i32 noundef 0) #12
+  tail call void @Abc_NtkDelete(ptr noundef %40) #12
+  %42 = tail call ptr @Abc_NtkStrash(ptr noundef %41, i32 noundef 0, i32 noundef 1, i32 noundef 0) #12
+  tail call void @Abc_NtkDelete(ptr noundef %41) #12
+  %43 = tail call ptr @Abc_NtkToDar(ptr noundef %42, i32 noundef 0, i32 noundef 1) #12
+  %44 = tail call ptr @Gia_ManFromAig(ptr noundef %43) #12
+  tail call void @Aig_ManStop(ptr noundef %43) #12
+  tail call void @Abc_NtkDelete(ptr noundef %42) #12
   %45 = getelementptr inbounds i8, ptr %35, i64 8
   store ptr %44, ptr %45, align 8
   %46 = getelementptr i8, ptr %0, i64 64
@@ -725,17 +716,17 @@ Vec_PtrPush.exit:
   %.val209 = load ptr, ptr %48, align 8
   %49 = getelementptr i8, ptr %.val209, i64 4
   %.val209.val = load i32, ptr %49, align 4
-  %50 = tail call ptr @Gia_ManTtopt(ptr noundef %0, i32 noundef %.val.val, i32 noundef %.val209.val, i32 noundef 100) #11
+  %50 = tail call ptr @Gia_ManTtopt(ptr noundef %0, i32 noundef %.val.val, i32 noundef %.val209.val, i32 noundef 100) #12
   %51 = getelementptr inbounds i8, ptr %35, i64 16
   store ptr %50, ptr %51, align 8
-  %52 = tail call ptr @Gia_ManToAig(ptr noundef nonnull %0, i32 noundef 0) #11
-  %53 = tail call ptr @Abc_NtkFromAigPhase(ptr noundef %52) #11
-  tail call void @Aig_ManStop(ptr noundef %52) #11
-  %54 = tail call ptr @Abc_NtkCollapse(ptr noundef %53, i32 noundef 1000000000, i32 noundef 0, i32 noundef 1, i32 noundef 0, i32 noundef 0, i32 noundef 0) #11
-  tail call void @Abc_NtkDelete(ptr noundef %53) #11
-  %55 = tail call i32 @Abc_NtkToSop(ptr noundef %54, i32 noundef -1, i32 noundef 1000000000) #11
+  %52 = tail call ptr @Gia_ManToAig(ptr noundef nonnull %0, i32 noundef 0) #12
+  %53 = tail call ptr @Abc_NtkFromAigPhase(ptr noundef %52) #12
+  tail call void @Aig_ManStop(ptr noundef %52) #12
+  %54 = tail call ptr @Abc_NtkCollapse(ptr noundef %53, i32 noundef 1000000000, i32 noundef 0, i32 noundef 1, i32 noundef 0, i32 noundef 0, i32 noundef 0) #12
+  tail call void @Abc_NtkDelete(ptr noundef %53) #12
+  %55 = tail call i32 @Abc_NtkToSop(ptr noundef %54, i32 noundef -1, i32 noundef 1000000000) #12
   call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %16)
-  call void @Abc_NtkSetDefaultFxParams(ptr noundef nonnull %16) #11
+  call void @Abc_NtkSetDefaultFxParams(ptr noundef nonnull %16) #12
   %56 = getelementptr inbounds i8, ptr %16, i64 24
   %57 = load i32, ptr %56, align 8
   %58 = getelementptr inbounds i8, ptr %16, i64 40
@@ -746,15 +737,15 @@ Vec_PtrPush.exit:
   %63 = load i32, ptr %62, align 8
   %64 = getelementptr inbounds i8, ptr %16, i64 20
   %65 = load i32, ptr %64, align 4
-  %66 = call i32 @Abc_NtkFxPerform(ptr noundef %54, i32 noundef %57, i32 noundef %59, i32 noundef %61, i32 noundef %63, i32 noundef %65) #11
-  call void @Abc_NtkFxuFreeInfo(ptr noundef nonnull %16) #11
+  %66 = call i32 @Abc_NtkFxPerform(ptr noundef %54, i32 noundef %57, i32 noundef %59, i32 noundef %61, i32 noundef %63, i32 noundef %65) #12
+  call void @Abc_NtkFxuFreeInfo(ptr noundef nonnull %16) #12
   call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %16)
-  %67 = call ptr @Abc_NtkStrash(ptr noundef %54, i32 noundef 0, i32 noundef 1, i32 noundef 0) #11
-  call void @Abc_NtkDelete(ptr noundef %54) #11
-  %68 = call ptr @Abc_NtkToDar(ptr noundef %67, i32 noundef 0, i32 noundef 1) #11
-  %69 = call ptr @Gia_ManFromAig(ptr noundef %68) #11
-  call void @Aig_ManStop(ptr noundef %68) #11
-  call void @Abc_NtkDelete(ptr noundef %67) #11
+  %67 = call ptr @Abc_NtkStrash(ptr noundef %54, i32 noundef 0, i32 noundef 1, i32 noundef 0) #12
+  call void @Abc_NtkDelete(ptr noundef %54) #12
+  %68 = call ptr @Abc_NtkToDar(ptr noundef %67, i32 noundef 0, i32 noundef 1) #12
+  %69 = call ptr @Gia_ManFromAig(ptr noundef %68) #12
+  call void @Aig_ManStop(ptr noundef %68) #12
+  call void @Abc_NtkDelete(ptr noundef %67) #12
   store i32 4, ptr %34, align 4
   %70 = getelementptr inbounds i8, ptr %35, i64 24
   store ptr %69, ptr %70, align 8
@@ -805,13 +796,13 @@ Vec_PtrPush.exit:
   br i1 %94, label %95, label %97
 
 95:                                               ; preds = %.lr.ph
-  call void @Gia_ManStop(ptr noundef nonnull %.0184287) #11
+  call void @Gia_ManStop(ptr noundef nonnull %.0184287) #12
   %96 = trunc nuw nsw i64 %indvars.iv to i32
   %.val215.pre = load i32, ptr %34, align 4
   br label %98
 
 97:                                               ; preds = %.lr.ph
-  call void @Gia_ManStop(ptr noundef nonnull %73) #11
+  call void @Gia_ManStop(ptr noundef nonnull %73) #12
   br label %98
 
 98:                                               ; preds = %95, %97
@@ -845,11 +836,11 @@ Vec_PtrPush.exit:
   br i1 %.not9.i.i246, label %108, label %106
 
 106:                                              ; preds = %104
-  %107 = call dereferenceable_or_null(128) ptr @realloc(ptr noundef nonnull %105, i64 noundef 128) #14
+  %107 = call dereferenceable_or_null(128) ptr @realloc(ptr noundef nonnull %105, i64 noundef 128) #15
   br label %Vec_PtrGrow.exit.i247
 
 108:                                              ; preds = %104
-  %109 = call noalias dereferenceable_or_null(128) ptr @malloc(i64 noundef 128) #13
+  %109 = call noalias dereferenceable_or_null(128) ptr @malloc(i64 noundef 128) #14
   br label %Vec_PtrGrow.exit.i247
 
 Vec_PtrGrow.exit.i247:                            ; preds = %108, %106
@@ -868,7 +859,7 @@ Vec_PtrPush.exit248:                              ; preds = %.Vec_PtrGrow.exit11
 
 112:                                              ; preds = %.thread, %Vec_PtrPush.exit248, %38
   %.0181 = phi i64 [ %.1182.lcssa433, %Vec_PtrPush.exit248 ], [ 0, %38 ], [ 0, %.thread ]
-  %113 = call ptr @Gia_ManDup(ptr noundef %0) #11
+  %113 = call ptr @Gia_ManDup(ptr noundef %0) #12
   %114 = icmp eq i32 %14, 1
   br i1 %114, label %.preheader, label %176
 
@@ -963,8 +954,8 @@ Vec_PtrPush.exit248:                              ; preds = %.Vec_PtrGrow.exit11
   %173 = icmp slt i32 %170, %172
   %.2186370. = select i1 %173, ptr %.2186370, ptr %135
   %..2186370 = select i1 %173, ptr %135, ptr %.2186370
-  call void @Gia_ManStop(ptr noundef nonnull %.2186370.) #11
-  call void @Gia_ManStop(ptr noundef %117) #11
+  call void @Gia_ManStop(ptr noundef nonnull %.2186370.) #12
+  call void @Gia_ManStop(ptr noundef %117) #12
   %indvars.iv.next419 = add nuw nsw i64 %indvars.iv418, 1
   %.val216 = load i32, ptr %34, align 4
   %174 = sext i32 %.val216 to i64
@@ -1014,7 +1005,7 @@ Vec_PtrPush.exit248:                              ; preds = %.Vec_PtrGrow.exit11
   %187 = getelementptr inbounds [100 x %struct.Gia_ManTranStochParam], ptr %18, i64 0, i64 %indvars.iv382
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %187, ptr noundef nonnull align 8 dereferenceable(104) %17, i64 104, i1 false)
   %188 = getelementptr inbounds i64, ptr %19, i64 %indvars.iv382
-  %189 = call i32 @pthread_create(ptr noundef nonnull %188, ptr noundef null, ptr noundef nonnull @Gia_ManTranStochWorkerThread, ptr noundef nonnull %187) #11
+  %189 = call i32 @pthread_create(ptr noundef nonnull %188, ptr noundef null, ptr noundef nonnull @Gia_ManTranStochWorkerThread, ptr noundef nonnull %187) #12
   %indvars.iv.next383 = add nuw nsw i64 %indvars.iv382, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next383, %wide.trip.count
   br i1 %exitcond.not, label %.preheader284, label %.lr.ph293, !llvm.loop !10
@@ -1073,11 +1064,11 @@ Vec_PtrPush.exit248:                              ; preds = %.Vec_PtrGrow.exit11
   br i1 %217, label %219, label %218
 
 218:                                              ; preds = %196
-  call void @Gia_ManStop(ptr noundef nonnull %195) #11
+  call void @Gia_ManStop(ptr noundef nonnull %195) #12
   br label %221
 
 219:                                              ; preds = %196
-  call void @Gia_ManStop(ptr noundef nonnull %.12336.us.us.us) #11
+  call void @Gia_ManStop(ptr noundef nonnull %.12336.us.us.us) #12
   %220 = load ptr, ptr %194, align 8
   br label %221
 
@@ -1166,11 +1157,11 @@ Vec_PtrPush.exit248:                              ; preds = %.Vec_PtrGrow.exit11
   br i1 %267, label %269, label %268
 
 268:                                              ; preds = %229
-  call void @Gia_ManStop(ptr noundef nonnull %254) #11
+  call void @Gia_ManStop(ptr noundef nonnull %254) #12
   br label %271
 
 269:                                              ; preds = %229
-  call void @Gia_ManStop(ptr noundef nonnull %.12336.us347) #11
+  call void @Gia_ManStop(ptr noundef nonnull %.12336.us347) #12
   %270 = load ptr, ptr %227, align 8
   br label %271
 
@@ -1268,11 +1259,11 @@ Vec_PtrPush.exit248:                              ; preds = %.Vec_PtrGrow.exit11
   br i1 %307, label %309, label %308
 
 308:                                              ; preds = %286
-  call void @Gia_ManStop(ptr noundef nonnull %285) #11
+  call void @Gia_ManStop(ptr noundef nonnull %285) #12
   br label %311
 
 309:                                              ; preds = %286
-  call void @Gia_ManStop(ptr noundef nonnull %.6190301.us.us) #11
+  call void @Gia_ManStop(ptr noundef nonnull %.6190301.us.us) #12
   %310 = load ptr, ptr %284, align 8
   br label %311
 
@@ -1368,11 +1359,11 @@ Vec_PtrPush.exit248:                              ; preds = %.Vec_PtrGrow.exit11
   br i1 %362, label %364, label %363
 
 363:                                              ; preds = %324
-  call void @Gia_ManStop(ptr noundef nonnull %349) #11
+  call void @Gia_ManStop(ptr noundef nonnull %349) #12
   br label %366
 
 364:                                              ; preds = %324
-  call void @Gia_ManStop(ptr noundef nonnull %.6190301.us) #11
+  call void @Gia_ManStop(ptr noundef nonnull %.6190301.us) #12
   %365 = load ptr, ptr %322, align 8
   br label %366
 
@@ -1436,7 +1427,7 @@ Vec_PtrPush.exit248:                              ; preds = %.Vec_PtrGrow.exit11
   %indvars.iv413 = phi i64 [ 0, %.lr.ph368 ], [ %indvars.iv.next414, %377 ]
   %378 = getelementptr inbounds ptr, ptr %.val214, i64 %indvars.iv413
   %379 = load ptr, ptr %378, align 8
-  call void @Gia_ManStop(ptr noundef %379) #11
+  call void @Gia_ManStop(ptr noundef %379) #12
   %indvars.iv.next414 = add nuw nsw i64 %indvars.iv413, 1
   %exitcond417.not = icmp eq i64 %indvars.iv.next414, %wide.trip.count416
   br i1 %exitcond417.not, label %.critedge, label %377, !llvm.loop !17
@@ -1469,11 +1460,11 @@ Vec_PtrPush.exit248:                              ; preds = %.Vec_PtrGrow.exit11
   br i1 %.not.i, label %Vec_PtrFree.exit, label %395
 
 395:                                              ; preds = %393
-  call void @free(ptr noundef nonnull %394) #11
+  call void @free(ptr noundef nonnull %394) #12
   br label %Vec_PtrFree.exit
 
 Vec_PtrFree.exit:                                 ; preds = %393, %395
-  call void @free(ptr noundef nonnull %33) #11
+  call void @free(ptr noundef nonnull %33) #12
   ret ptr %.4188
 }
 
@@ -1504,6 +1495,9 @@ declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #10
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #10
 
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.smin.i32(i32, i32) #11
+
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -1515,10 +1509,11 @@ attributes #7 = { mustprogress nofree nounwind willreturn allockind("alloc,unini
 attributes #8 = { mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #9 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #10 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #11 = { nounwind }
-attributes #12 = { noreturn nounwind }
-attributes #13 = { nounwind allocsize(0) }
-attributes #14 = { nounwind allocsize(1) }
+attributes #11 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #12 = { nounwind }
+attributes #13 = { noreturn nounwind }
+attributes #14 = { nounwind allocsize(0) }
+attributes #15 = { nounwind allocsize(1) }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

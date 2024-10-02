@@ -588,8 +588,7 @@ extcap_iface_toolbar_add.exit.i.i:                ; preds = %192
   %196 = load ptr, ptr @_toolbars, align 8
   %197 = call noalias ptr @g_strdup(ptr noundef %193) #11
   %198 = call i32 @g_hash_table_insert(ptr noundef %196, ptr noundef %197, ptr noundef nonnull %.077.i.i) #11
-  call void @g_free(ptr noundef %193) #11
-  br label %.sink.split.i.i
+  br label %extcap_free_toolbar.exit.sink.split.i.i
 
 extcap_iface_toolbar_add.exit.thread.i.i:         ; preds = %extcap_iface_toolbar_add.exit.thread94.i.i, %191, %189
   %199 = load ptr, ptr %.077.i.i, align 8
@@ -601,10 +600,14 @@ extcap_iface_toolbar_add.exit.thread.i.i:         ; preds = %extcap_iface_toolba
   %202 = getelementptr inbounds i8, ptr %.077.i.i, i64 24
   %203 = load ptr, ptr %202, align 8
   call void @g_list_free_full(ptr noundef %203, ptr noundef nonnull @extcap_free_toolbar_control) #11
-  call void @g_free(ptr noundef nonnull %.077.i.i) #11
+  br label %extcap_free_toolbar.exit.sink.split.i.i
+
+extcap_free_toolbar.exit.sink.split.i.i:          ; preds = %extcap_iface_toolbar_add.exit.thread.i.i, %extcap_iface_toolbar_add.exit.i.i
+  %.sink.i.i = phi ptr [ %193, %extcap_iface_toolbar_add.exit.i.i ], [ %.077.i.i, %extcap_iface_toolbar_add.exit.thread.i.i ]
+  call void @g_free(ptr noundef %.sink.i.i) #11
   br label %.sink.split.i.i
 
-.sink.split.i.i:                                  ; preds = %extcap_iface_toolbar_add.exit.thread.i.i, %extcap_iface_toolbar_add.exit.i.i, %.outer._crit_edge.i.i, %94
+.sink.split.i.i:                                  ; preds = %extcap_free_toolbar.exit.sink.split.i.i, %.outer._crit_edge.i.i, %94
   call void @g_list_foreach(ptr noundef nonnull %87, ptr noundef nonnull @remove_extcap_entry, ptr noundef null) #11
   call void @g_list_free(ptr noundef nonnull %87) #11
   br label %process_new_extcap.exit.i
@@ -2030,40 +2033,37 @@ define internal noundef i32 @cb_verify_filter(ptr nocapture noundef readonly byv
 define hidden range(i32 0, 2) i32 @extcap_has_toolbar(ptr noundef %0) local_unnamed_addr #0 {
   %2 = tail call i32 @iface_toolbar_use() #11
   %.not = icmp eq i32 %2, 0
-  br i1 %.not, label %14, label %3
+  br i1 %.not, label %13, label %3
 
 3:                                                ; preds = %1
   tail call fastcc void @extcap_ensure_all_interfaces_loaded()
   %4 = load ptr, ptr @_toolbars, align 8
   %5 = tail call ptr @g_hash_table_get_values(ptr noundef %4) #11
   %.not911 = icmp eq ptr %5, null
-  br i1 %.not911, label %._crit_edge, label %.lr.ph
+  br i1 %.not911, label %.sink.split, label %.lr.ph
 
-.lr.ph:                                           ; preds = %3, %11
-  %.0812 = phi ptr [ %13, %11 ], [ %5, %3 ]
+.lr.ph:                                           ; preds = %3, %10
+  %.0812 = phi ptr [ %12, %10 ], [ %5, %3 ]
   %6 = load ptr, ptr %.0812, align 8
   %7 = getelementptr inbounds i8, ptr %6, i64 16
   %8 = load ptr, ptr %7, align 8
   %9 = tail call ptr @g_list_find_custom(ptr noundef %8, ptr noundef %0, ptr noundef nonnull @g_strcmp0) #11
   %.not10 = icmp eq ptr %9, null
-  br i1 %.not10, label %11, label %10
+  br i1 %.not10, label %10, label %.sink.split
 
 10:                                               ; preds = %.lr.ph
-  tail call void @g_list_free(ptr noundef nonnull %5) #11
-  br label %14
+  %11 = getelementptr inbounds i8, ptr %.0812, i64 8
+  %12 = load ptr, ptr %11, align 8
+  %.not9 = icmp eq ptr %12, null
+  br i1 %.not9, label %.sink.split, label %.lr.ph, !llvm.loop !30
 
-11:                                               ; preds = %.lr.ph
-  %12 = getelementptr inbounds i8, ptr %.0812, i64 8
-  %13 = load ptr, ptr %12, align 8
-  %.not9 = icmp eq ptr %13, null
-  br i1 %.not9, label %._crit_edge, label %.lr.ph, !llvm.loop !30
-
-._crit_edge:                                      ; preds = %11, %3
+.sink.split:                                      ; preds = %10, %.lr.ph, %3
+  %.0.ph = phi i32 [ 0, %3 ], [ 1, %.lr.ph ], [ 0, %10 ]
   tail call void @g_list_free(ptr noundef %5) #11
-  br label %14
+  br label %13
 
-14:                                               ; preds = %1, %._crit_edge, %10
-  %.0 = phi i32 [ 1, %10 ], [ 0, %._crit_edge ], [ 0, %1 ]
+13:                                               ; preds = %.sink.split, %1
+  %.0 = phi i32 [ 0, %1 ], [ %.0.ph, %.sink.split ]
   ret i32 %.0
 }
 

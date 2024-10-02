@@ -8654,26 +8654,22 @@ _ZNK4node10BaseObject6objectEv.exit:              ; preds = %if.end51, %_ZN4node
   %retval.sroa.0.0.i.i = phi ptr [ %call.i.i.i.i, %_ZN4node17PersistentToLocal4WeakIN2v86ObjectEEENS2_5LocalIT_EEPNS2_7IsolateERKNS2_14PersistentBaseIS5_EE.exit.i.i ], [ %61, %if.end51 ]
   %call60 = tail call ptr @_ZN2v86Object18GetCreationContextEv(ptr noundef nonnull align 1 dereferenceable(1) %retval.sroa.0.0.i.i) #26
   %cmp.i.i344 = icmp eq ptr %call60, null
-  br i1 %cmp.i.i344, label %if.then.i, label %if.end51.split
-
-if.end51.split:                                   ; preds = %_ZNK4node10BaseObject6objectEv.exit
-  %call7226 = tail call ptr @_ZN4node6worker11MessagePort14ReceiveMessageEN2v85LocalINS2_7ContextEEENS1_21MessageProcessingModeEPNS3_INS2_5ValueEEE(ptr noundef nonnull align 8 dereferenceable(240) %retval.i13.0.i.i.i, ptr nonnull %call60, i32 noundef 1, ptr noundef null)
-  br label %_ZN2v810MaybeLocalINS_7ContextEE14ToLocalCheckedEv.exit
+  br i1 %cmp.i.i344, label %if.then.i, label %_ZN2v810MaybeLocalINS_7ContextEE14ToLocalCheckedEv.exit
 
 if.then.i:                                        ; preds = %_ZNK4node10BaseObject6objectEv.exit
   tail call void @_ZN2v812api_internal12ToLocalEmptyEv() #26
-  %call7227 = tail call ptr @_ZN4node6worker11MessagePort14ReceiveMessageEN2v85LocalINS2_7ContextEEENS1_21MessageProcessingModeEPNS3_INS2_5ValueEEE(ptr noundef nonnull align 8 dereferenceable(240) %retval.i13.0.i.i.i, ptr null, i32 noundef 1, ptr noundef null)
   br label %_ZN2v810MaybeLocalINS_7ContextEE14ToLocalCheckedEv.exit
 
-_ZN2v810MaybeLocalINS_7ContextEE14ToLocalCheckedEv.exit: ; preds = %if.end51.split, %if.then.i
-  %phi.call = phi ptr [ %call7226, %if.end51.split ], [ %call7227, %if.then.i ]
-  %cmp.i.i = icmp eq ptr %phi.call, null
+_ZN2v810MaybeLocalINS_7ContextEE14ToLocalCheckedEv.exit: ; preds = %_ZNK4node10BaseObject6objectEv.exit, %if.then.i
+  %call60.sink = phi ptr [ null, %if.then.i ], [ %call60, %_ZNK4node10BaseObject6objectEv.exit ]
+  %call7226 = tail call ptr @_ZN4node6worker11MessagePort14ReceiveMessageEN2v85LocalINS2_7ContextEEENS1_21MessageProcessingModeEPNS3_INS2_5ValueEEE(ptr noundef nonnull align 8 dereferenceable(240) %retval.i13.0.i.i.i, ptr %call60.sink, i32 noundef 1, ptr noundef null)
+  %cmp.i.i = icmp eq ptr %call7226, null
   br i1 %cmp.i.i, label %if.end90, label %if.then78
 
 if.then78:                                        ; preds = %_ZN2v810MaybeLocalINS_7ContextEE14ToLocalCheckedEv.exit
   %68 = load ptr, ptr %args, align 8
   %arrayidx.i = getelementptr inbounds i8, ptr %68, i64 24
-  %69 = load i64, ptr %phi.call, align 8
+  %69 = load i64, ptr %call7226, align 8
   store i64 %69, ptr %arrayidx.i, align 8
   br label %if.end90
 

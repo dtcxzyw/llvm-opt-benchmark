@@ -1249,7 +1249,7 @@ define linkonce_odr hidden void @_ZNSt6vectorIN6casadi18UniversalNodeOwnerESaIS1
   br i1 %.not4.i.i.i, label %_ZSt8_DestroyIPN6casadi18UniversalNodeOwnerES1_EvT_S3_RSaIT0_E.exit, label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %1, %_ZSt8_DestroyIN6casadi18UniversalNodeOwnerEEvPT_.exit.i.i.i
-  %.05.i.i.i = phi ptr [ %34, %_ZSt8_DestroyIN6casadi18UniversalNodeOwnerEEvPT_.exit.i.i.i ], [ %2, %1 ]
+  %.05.i.i.i = phi ptr [ %27, %_ZSt8_DestroyIN6casadi18UniversalNodeOwnerEEvPT_.exit.i.i.i ], [ %2, %1 ]
   %5 = load ptr, ptr %.05.i.i.i, align 8
   %.not.i.i.i.i.i = icmp eq ptr %5, null
   br i1 %.not.i.i.i.i.i, label %_ZSt8_DestroyIN6casadi18UniversalNodeOwnerEEvPT_.exit.i.i.i, label %6
@@ -1258,51 +1258,41 @@ define linkonce_odr hidden void @_ZNSt6vectorIN6casadi18UniversalNodeOwnerESaIS1
   %7 = getelementptr inbounds i8, ptr %.05.i.i.i, i64 8
   %8 = load i8, ptr %7, align 8
   %9 = trunc i8 %8 to i1
-  br i1 %9, label %10, label %22
+  br i1 %9, label %10, label %17
 
 10:                                               ; preds = %6
   %11 = getelementptr inbounds i8, ptr %5, i64 12
   %12 = load i32, ptr %11, align 4
   %13 = add i32 %12, -1
   store i32 %13, ptr %11, align 4
-  %14 = icmp eq i32 %13, 0
-  br i1 %14, label %15, label %_ZSt8_DestroyIN6casadi18UniversalNodeOwnerEEvPT_.exit.i.i.i
+  %14 = icmp ne i32 %13, 0
+  %15 = load ptr, ptr %.05.i.i.i, align 8
+  %16 = icmp eq ptr %15, null
+  %or.cond.i.i.i.i.i = select i1 %14, i1 true, i1 %16
+  br i1 %or.cond.i.i.i.i.i, label %_ZSt8_DestroyIN6casadi18UniversalNodeOwnerEEvPT_.exit.i.i.i, label %.sink.split.i.i.i.i.i
 
-15:                                               ; preds = %10
-  %16 = load ptr, ptr %.05.i.i.i, align 8
-  %17 = icmp eq ptr %16, null
-  br i1 %17, label %_ZSt8_DestroyIN6casadi18UniversalNodeOwnerEEvPT_.exit.i.i.i, label %18
+17:                                               ; preds = %6
+  %18 = getelementptr inbounds i8, ptr %5, i64 8
+  %19 = load i64, ptr %18, align 8
+  %20 = add nsw i64 %19, -1
+  store i64 %20, ptr %18, align 8
+  %21 = icmp ne i64 %20, 0
+  %22 = load ptr, ptr %.05.i.i.i, align 8
+  %23 = icmp eq ptr %22, null
+  %or.cond9.i.i.i.i.i = select i1 %21, i1 true, i1 %23
+  br i1 %or.cond9.i.i.i.i.i, label %_ZSt8_DestroyIN6casadi18UniversalNodeOwnerEEvPT_.exit.i.i.i, label %.sink.split.i.i.i.i.i
 
-18:                                               ; preds = %15
-  %19 = load ptr, ptr %16, align 8
-  %20 = getelementptr inbounds i8, ptr %19, i64 8
-  %21 = load ptr, ptr %20, align 8
-  tail call void %21(ptr noundef nonnull align 8 dereferenceable(16) %16) #22
+.sink.split.i.i.i.i.i:                            ; preds = %17, %10
+  %.sink6.i.i.i.i.i = phi ptr [ %15, %10 ], [ %22, %17 ]
+  %24 = load ptr, ptr %.sink6.i.i.i.i.i, align 8
+  %25 = getelementptr inbounds i8, ptr %24, i64 8
+  %26 = load ptr, ptr %25, align 8
+  tail call void %26(ptr noundef nonnull align 8 dereferenceable(16) %.sink6.i.i.i.i.i) #22
   br label %_ZSt8_DestroyIN6casadi18UniversalNodeOwnerEEvPT_.exit.i.i.i
 
-22:                                               ; preds = %6
-  %23 = getelementptr inbounds i8, ptr %5, i64 8
-  %24 = load i64, ptr %23, align 8
-  %25 = add nsw i64 %24, -1
-  store i64 %25, ptr %23, align 8
-  %26 = icmp eq i64 %25, 0
-  br i1 %26, label %27, label %_ZSt8_DestroyIN6casadi18UniversalNodeOwnerEEvPT_.exit.i.i.i
-
-27:                                               ; preds = %22
-  %28 = load ptr, ptr %.05.i.i.i, align 8
-  %29 = icmp eq ptr %28, null
-  br i1 %29, label %_ZSt8_DestroyIN6casadi18UniversalNodeOwnerEEvPT_.exit.i.i.i, label %30
-
-30:                                               ; preds = %27
-  %31 = load ptr, ptr %28, align 8
-  %32 = getelementptr inbounds i8, ptr %31, i64 8
-  %33 = load ptr, ptr %32, align 8
-  tail call void %33(ptr noundef nonnull align 8 dereferenceable(24) %28) #22
-  br label %_ZSt8_DestroyIN6casadi18UniversalNodeOwnerEEvPT_.exit.i.i.i
-
-_ZSt8_DestroyIN6casadi18UniversalNodeOwnerEEvPT_.exit.i.i.i: ; preds = %30, %27, %22, %18, %15, %10, %.lr.ph.i.i.i
-  %34 = getelementptr inbounds i8, ptr %.05.i.i.i, i64 16
-  %.not.i.i.i = icmp eq ptr %34, %4
+_ZSt8_DestroyIN6casadi18UniversalNodeOwnerEEvPT_.exit.i.i.i: ; preds = %.sink.split.i.i.i.i.i, %17, %10, %.lr.ph.i.i.i
+  %27 = getelementptr inbounds i8, ptr %.05.i.i.i, i64 16
+  %.not.i.i.i = icmp eq ptr %27, %4
   br i1 %.not.i.i.i, label %_ZSt8_DestroyIPN6casadi18UniversalNodeOwnerES1_EvT_S3_RSaIT0_E.exitthread-pre-split, label %.lr.ph.i.i.i, !llvm.loop !16
 
 _ZSt8_DestroyIPN6casadi18UniversalNodeOwnerES1_EvT_S3_RSaIT0_E.exitthread-pre-split: ; preds = %_ZSt8_DestroyIN6casadi18UniversalNodeOwnerEEvPT_.exit.i.i.i
@@ -1310,15 +1300,15 @@ _ZSt8_DestroyIPN6casadi18UniversalNodeOwnerES1_EvT_S3_RSaIT0_E.exitthread-pre-sp
   br label %_ZSt8_DestroyIPN6casadi18UniversalNodeOwnerES1_EvT_S3_RSaIT0_E.exit
 
 _ZSt8_DestroyIPN6casadi18UniversalNodeOwnerES1_EvT_S3_RSaIT0_E.exit: ; preds = %_ZSt8_DestroyIPN6casadi18UniversalNodeOwnerES1_EvT_S3_RSaIT0_E.exitthread-pre-split, %1
-  %35 = phi ptr [ %.pr, %_ZSt8_DestroyIPN6casadi18UniversalNodeOwnerES1_EvT_S3_RSaIT0_E.exitthread-pre-split ], [ %2, %1 ]
-  %.not.i.i = icmp eq ptr %35, null
-  br i1 %.not.i.i, label %_ZNSt12_Vector_baseIN6casadi18UniversalNodeOwnerESaIS1_EED2Ev.exit, label %36
+  %28 = phi ptr [ %.pr, %_ZSt8_DestroyIPN6casadi18UniversalNodeOwnerES1_EvT_S3_RSaIT0_E.exitthread-pre-split ], [ %2, %1 ]
+  %.not.i.i = icmp eq ptr %28, null
+  br i1 %.not.i.i, label %_ZNSt12_Vector_baseIN6casadi18UniversalNodeOwnerESaIS1_EED2Ev.exit, label %29
 
-36:                                               ; preds = %_ZSt8_DestroyIPN6casadi18UniversalNodeOwnerES1_EvT_S3_RSaIT0_E.exit
-  tail call void @_ZdlPv(ptr noundef nonnull %35) #24
+29:                                               ; preds = %_ZSt8_DestroyIPN6casadi18UniversalNodeOwnerES1_EvT_S3_RSaIT0_E.exit
+  tail call void @_ZdlPv(ptr noundef nonnull %28) #24
   br label %_ZNSt12_Vector_baseIN6casadi18UniversalNodeOwnerESaIS1_EED2Ev.exit
 
-_ZNSt12_Vector_baseIN6casadi18UniversalNodeOwnerESaIS1_EED2Ev.exit: ; preds = %_ZSt8_DestroyIPN6casadi18UniversalNodeOwnerES1_EvT_S3_RSaIT0_E.exit, %36
+_ZNSt12_Vector_baseIN6casadi18UniversalNodeOwnerESaIS1_EED2Ev.exit: ; preds = %_ZSt8_DestroyIPN6casadi18UniversalNodeOwnerES1_EvT_S3_RSaIT0_E.exit, %29
   ret void
 }
 
@@ -10186,55 +10176,45 @@ define hidden noundef nonnull align 8 dereferenceable(9) ptr @_ZN6casadi18Univer
 define hidden void @_ZN6casadi18UniversalNodeOwnerD2Ev(ptr nocapture noundef nonnull readonly align 8 dereferenceable(9) %0) unnamed_addr #4 align 2 {
   %2 = load ptr, ptr %0, align 8
   %.not = icmp eq ptr %2, null
-  br i1 %.not, label %31, label %3
+  br i1 %.not, label %24, label %3
 
 3:                                                ; preds = %1
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   %5 = load i8, ptr %4, align 8
   %6 = trunc i8 %5 to i1
-  br i1 %6, label %7, label %19
+  br i1 %6, label %7, label %14
 
 7:                                                ; preds = %3
   %8 = getelementptr inbounds i8, ptr %2, i64 12
   %9 = load i32, ptr %8, align 4
   %10 = add i32 %9, -1
   store i32 %10, ptr %8, align 4
-  %11 = icmp eq i32 %10, 0
-  br i1 %11, label %12, label %31
+  %11 = icmp ne i32 %10, 0
+  %12 = load ptr, ptr %0, align 8
+  %13 = icmp eq ptr %12, null
+  %or.cond = select i1 %11, i1 true, i1 %13
+  br i1 %or.cond, label %24, label %.sink.split
 
-12:                                               ; preds = %7
-  %13 = load ptr, ptr %0, align 8
-  %14 = icmp eq ptr %13, null
-  br i1 %14, label %31, label %15
+14:                                               ; preds = %3
+  %15 = getelementptr inbounds i8, ptr %2, i64 8
+  %16 = load i64, ptr %15, align 8
+  %17 = add nsw i64 %16, -1
+  store i64 %17, ptr %15, align 8
+  %18 = icmp ne i64 %17, 0
+  %19 = load ptr, ptr %0, align 8
+  %20 = icmp eq ptr %19, null
+  %or.cond9 = select i1 %18, i1 true, i1 %20
+  br i1 %or.cond9, label %24, label %.sink.split
 
-15:                                               ; preds = %12
-  %16 = load ptr, ptr %13, align 8
-  %17 = getelementptr inbounds i8, ptr %16, i64 8
-  %18 = load ptr, ptr %17, align 8
-  tail call void %18(ptr noundef nonnull align 8 dereferenceable(16) %13) #22
-  br label %31
+.sink.split:                                      ; preds = %14, %7
+  %.sink6 = phi ptr [ %12, %7 ], [ %19, %14 ]
+  %21 = load ptr, ptr %.sink6, align 8
+  %22 = getelementptr inbounds i8, ptr %21, i64 8
+  %23 = load ptr, ptr %22, align 8
+  tail call void %23(ptr noundef nonnull align 8 dereferenceable(16) %.sink6) #22
+  br label %24
 
-19:                                               ; preds = %3
-  %20 = getelementptr inbounds i8, ptr %2, i64 8
-  %21 = load i64, ptr %20, align 8
-  %22 = add nsw i64 %21, -1
-  store i64 %22, ptr %20, align 8
-  %23 = icmp eq i64 %22, 0
-  br i1 %23, label %24, label %31
-
-24:                                               ; preds = %19
-  %25 = load ptr, ptr %0, align 8
-  %26 = icmp eq ptr %25, null
-  br i1 %26, label %31, label %27
-
-27:                                               ; preds = %24
-  %28 = load ptr, ptr %25, align 8
-  %29 = getelementptr inbounds i8, ptr %28, i64 8
-  %30 = load ptr, ptr %29, align 8
-  tail call void %30(ptr noundef nonnull align 8 dereferenceable(24) %25) #22
-  br label %31
-
-31:                                               ; preds = %19, %27, %24, %7, %15, %12, %1
+24:                                               ; preds = %.sink.split, %14, %7, %1
   ret void
 }
 
@@ -10285,7 +10265,7 @@ define void @_ZN6casadi19DeserializingStream5resetEv(ptr nocapture noundef nonnu
   br i1 %.not.i.i, label %_ZNSt6vectorIN6casadi18UniversalNodeOwnerESaIS1_EE5clearEv.exit, label %.lr.ph.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i:                                 ; preds = %1, %_ZSt8_DestroyIN6casadi18UniversalNodeOwnerEEvPT_.exit.i.i.i.i.i
-  %.05.i.i.i.i.i = phi ptr [ %34, %_ZSt8_DestroyIN6casadi18UniversalNodeOwnerEEvPT_.exit.i.i.i.i.i ], [ %2, %1 ]
+  %.05.i.i.i.i.i = phi ptr [ %27, %_ZSt8_DestroyIN6casadi18UniversalNodeOwnerEEvPT_.exit.i.i.i.i.i ], [ %2, %1 ]
   %5 = load ptr, ptr %.05.i.i.i.i.i, align 8
   %.not.i.i.i.i.i.i.i = icmp eq ptr %5, null
   br i1 %.not.i.i.i.i.i.i.i, label %_ZSt8_DestroyIN6casadi18UniversalNodeOwnerEEvPT_.exit.i.i.i.i.i, label %6
@@ -10294,51 +10274,41 @@ define void @_ZN6casadi19DeserializingStream5resetEv(ptr nocapture noundef nonnu
   %7 = getelementptr inbounds i8, ptr %.05.i.i.i.i.i, i64 8
   %8 = load i8, ptr %7, align 8
   %9 = trunc i8 %8 to i1
-  br i1 %9, label %10, label %22
+  br i1 %9, label %10, label %17
 
 10:                                               ; preds = %6
   %11 = getelementptr inbounds i8, ptr %5, i64 12
   %12 = load i32, ptr %11, align 4
   %13 = add i32 %12, -1
   store i32 %13, ptr %11, align 4
-  %14 = icmp eq i32 %13, 0
-  br i1 %14, label %15, label %_ZSt8_DestroyIN6casadi18UniversalNodeOwnerEEvPT_.exit.i.i.i.i.i
+  %14 = icmp ne i32 %13, 0
+  %15 = load ptr, ptr %.05.i.i.i.i.i, align 8
+  %16 = icmp eq ptr %15, null
+  %or.cond.i.i.i.i.i.i.i = select i1 %14, i1 true, i1 %16
+  br i1 %or.cond.i.i.i.i.i.i.i, label %_ZSt8_DestroyIN6casadi18UniversalNodeOwnerEEvPT_.exit.i.i.i.i.i, label %.sink.split.i.i.i.i.i.i.i
 
-15:                                               ; preds = %10
-  %16 = load ptr, ptr %.05.i.i.i.i.i, align 8
-  %17 = icmp eq ptr %16, null
-  br i1 %17, label %_ZSt8_DestroyIN6casadi18UniversalNodeOwnerEEvPT_.exit.i.i.i.i.i, label %18
+17:                                               ; preds = %6
+  %18 = getelementptr inbounds i8, ptr %5, i64 8
+  %19 = load i64, ptr %18, align 8
+  %20 = add nsw i64 %19, -1
+  store i64 %20, ptr %18, align 8
+  %21 = icmp ne i64 %20, 0
+  %22 = load ptr, ptr %.05.i.i.i.i.i, align 8
+  %23 = icmp eq ptr %22, null
+  %or.cond9.i.i.i.i.i.i.i = select i1 %21, i1 true, i1 %23
+  br i1 %or.cond9.i.i.i.i.i.i.i, label %_ZSt8_DestroyIN6casadi18UniversalNodeOwnerEEvPT_.exit.i.i.i.i.i, label %.sink.split.i.i.i.i.i.i.i
 
-18:                                               ; preds = %15
-  %19 = load ptr, ptr %16, align 8
-  %20 = getelementptr inbounds i8, ptr %19, i64 8
-  %21 = load ptr, ptr %20, align 8
-  tail call void %21(ptr noundef nonnull align 8 dereferenceable(16) %16) #22
+.sink.split.i.i.i.i.i.i.i:                        ; preds = %17, %10
+  %.sink6.i.i.i.i.i.i.i = phi ptr [ %15, %10 ], [ %22, %17 ]
+  %24 = load ptr, ptr %.sink6.i.i.i.i.i.i.i, align 8
+  %25 = getelementptr inbounds i8, ptr %24, i64 8
+  %26 = load ptr, ptr %25, align 8
+  tail call void %26(ptr noundef nonnull align 8 dereferenceable(16) %.sink6.i.i.i.i.i.i.i) #22
   br label %_ZSt8_DestroyIN6casadi18UniversalNodeOwnerEEvPT_.exit.i.i.i.i.i
 
-22:                                               ; preds = %6
-  %23 = getelementptr inbounds i8, ptr %5, i64 8
-  %24 = load i64, ptr %23, align 8
-  %25 = add nsw i64 %24, -1
-  store i64 %25, ptr %23, align 8
-  %26 = icmp eq i64 %25, 0
-  br i1 %26, label %27, label %_ZSt8_DestroyIN6casadi18UniversalNodeOwnerEEvPT_.exit.i.i.i.i.i
-
-27:                                               ; preds = %22
-  %28 = load ptr, ptr %.05.i.i.i.i.i, align 8
-  %29 = icmp eq ptr %28, null
-  br i1 %29, label %_ZSt8_DestroyIN6casadi18UniversalNodeOwnerEEvPT_.exit.i.i.i.i.i, label %30
-
-30:                                               ; preds = %27
-  %31 = load ptr, ptr %28, align 8
-  %32 = getelementptr inbounds i8, ptr %31, i64 8
-  %33 = load ptr, ptr %32, align 8
-  tail call void %33(ptr noundef nonnull align 8 dereferenceable(24) %28) #22
-  br label %_ZSt8_DestroyIN6casadi18UniversalNodeOwnerEEvPT_.exit.i.i.i.i.i
-
-_ZSt8_DestroyIN6casadi18UniversalNodeOwnerEEvPT_.exit.i.i.i.i.i: ; preds = %30, %27, %22, %18, %15, %10, %.lr.ph.i.i.i.i.i
-  %34 = getelementptr inbounds i8, ptr %.05.i.i.i.i.i, i64 16
-  %.not.i.i.i.i.i = icmp eq ptr %34, %4
+_ZSt8_DestroyIN6casadi18UniversalNodeOwnerEEvPT_.exit.i.i.i.i.i: ; preds = %.sink.split.i.i.i.i.i.i.i, %17, %10, %.lr.ph.i.i.i.i.i
+  %27 = getelementptr inbounds i8, ptr %.05.i.i.i.i.i, i64 16
+  %.not.i.i.i.i.i = icmp eq ptr %27, %4
   br i1 %.not.i.i.i.i.i, label %_ZSt8_DestroyIPN6casadi18UniversalNodeOwnerES1_EvT_S3_RSaIT0_E.exit.i.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !16
 
 _ZSt8_DestroyIPN6casadi18UniversalNodeOwnerES1_EvT_S3_RSaIT0_E.exit.i.i: ; preds = %_ZSt8_DestroyIN6casadi18UniversalNodeOwnerEEvPT_.exit.i.i.i.i.i

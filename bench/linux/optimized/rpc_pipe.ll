@@ -2645,12 +2645,12 @@ define internal i32 @rpc_fill_super(ptr noundef %0, ptr nocapture readnone %1) #
   %29 = getelementptr inbounds i8, ptr %0, i64 104
   store ptr %28, ptr %29, align 8
   %30 = icmp eq ptr %28, null
-  br i1 %30, label %90, label %31
+  br i1 %30, label %86, label %31
 
 31:                                               ; preds = %27
   %32 = tail call fastcc i32 @rpc_populate(ptr noundef nonnull %28, ptr noundef nonnull @files, i32 noundef 9, ptr noundef null)
   %33 = icmp eq i32 %32, 0
-  br i1 %33, label %34, label %90
+  br i1 %33, label %34, label %86
 
 34:                                               ; preds = %31
   %35 = getelementptr inbounds i8, ptr %11, i64 48
@@ -2725,7 +2725,7 @@ define internal i32 @rpc_fill_super(ptr noundef %0, ptr nocapture readnone %1) #
   call fastcc void @__rpc_depopulate(ptr noundef nonnull %28, ptr noundef nonnull @files, i32 noundef 9)
   %67 = ptrtoint ptr %66 to i64
   %68 = trunc i64 %67 to i32
-  br label %90
+  br label %86
 
 69:                                               ; preds = %61
   %70 = getelementptr inbounds i8, ptr %11, i64 56
@@ -2738,7 +2738,7 @@ define internal i32 @rpc_fill_super(ptr noundef %0, ptr nocapture readnone %1) #
 
 74:                                               ; preds = %69
   call void @mutex_unlock(ptr noundef %70) #14
-  br label %90
+  br label %86
 
 75:                                               ; preds = %69
   %76 = getelementptr inbounds i8, ptr %63, i64 24
@@ -2748,33 +2748,28 @@ define internal i32 @rpc_fill_super(ptr noundef %0, ptr nocapture readnone %1) #
   %80 = icmp eq ptr %63, null
   br i1 %80, label %.split, label %.split2
 
-.split:                                           ; preds = %75
-  %81 = getelementptr inbounds i8, ptr %77, i64 48
-  %82 = load ptr, ptr %81, align 8
-  %83 = call fastcc i32 @__rpc_rmpipe(ptr noundef %82, ptr noundef null)
-  br label %88
-
 .split2:                                          ; preds = %75
-  %84 = getelementptr inbounds i8, ptr %63, i64 96
-  call void @lockref_get(ptr noundef %84) #14
-  %85 = getelementptr inbounds i8, ptr %77, i64 48
-  %86 = load ptr, ptr %85, align 8
-  %87 = call fastcc i32 @__rpc_rmpipe(ptr noundef %86, ptr noundef nonnull %63)
-  br label %88
+  %81 = getelementptr inbounds i8, ptr %63, i64 96
+  call void @lockref_get(ptr noundef %81) #14
+  br label %.split
 
-88:                                               ; preds = %.split, %.split2
+.split:                                           ; preds = %75, %.split2
+  %.sink12 = phi ptr [ %63, %.split2 ], [ null, %75 ]
+  %82 = getelementptr inbounds i8, ptr %77, i64 48
+  %83 = load ptr, ptr %82, align 8
+  %84 = call fastcc i32 @__rpc_rmpipe(ptr noundef %83, ptr noundef %.sink12)
   call fastcc void @__rpc_depopulate(ptr noundef %77, ptr noundef nonnull @gssd_dummy_info_file, i32 noundef 1)
   call fastcc void @__rpc_depopulate(ptr noundef %79, ptr noundef nonnull @gssd_dummy_clnt_dir, i32 noundef 1)
   call void @dput(ptr noundef %63) #14
-  %89 = call i32 @blocking_notifier_call_chain(ptr noundef nonnull @rpc_pipefs_notifier_list, i64 noundef 1, ptr noundef %0) #14
+  %85 = call i32 @blocking_notifier_call_chain(ptr noundef nonnull @rpc_pipefs_notifier_list, i64 noundef 1, ptr noundef %0) #14
   store ptr null, ptr %71, align 8
   call fastcc void @__rpc_depopulate(ptr noundef nonnull %28, ptr noundef nonnull @files, i32 noundef 9)
   call void @mutex_unlock(ptr noundef %70) #14
-  br label %90
+  br label %86
 
-90:                                               ; preds = %88, %74, %65, %31, %27
-  %91 = phi i32 [ %68, %65 ], [ %72, %88 ], [ 0, %74 ], [ -12, %27 ], [ -12, %31 ]
-  ret i32 %91
+86:                                               ; preds = %.split, %74, %65, %31, %27
+  %87 = phi i32 [ %68, %65 ], [ %72, %.split ], [ 0, %74 ], [ -12, %27 ], [ -12, %31 ]
+  ret i32 %87
 }
 
 ; Function Attrs: null_pointer_is_valid

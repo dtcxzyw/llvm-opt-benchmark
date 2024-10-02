@@ -17466,22 +17466,22 @@ define internal fastcc void @_ZSt16__merge_adaptiveIPN12_GLOBAL__N_119Synthesize
   %8 = alloca %"struct.(anonymous namespace)::SynthesizeIvarChunk", align 8
   %9 = alloca %"struct.(anonymous namespace)::SynthesizeIvarChunk", align 8
   %10 = alloca %"struct.(anonymous namespace)::SynthesizeIvarChunk", align 8
-  %.not111 = icmp sgt i64 %3, %4
-  %.not59112 = icmp sgt i64 %3, %6
-  %or.cond113 = or i1 %.not59112, %.not111
-  br i1 %or.cond113, label %.lr.ph, label %tailrecurse._crit_edge
+  %.not110 = icmp sgt i64 %3, %4
+  %.not59111 = icmp sgt i64 %3, %6
+  %or.cond112 = or i1 %.not59111, %.not110
+  br i1 %or.cond112, label %.lr.ph, label %tailrecurse._crit_edge
 
 .lr.ph:                                           ; preds = %7
   %11 = ptrtoint ptr %2 to i64
   br label %33
 
 tailrecurse._crit_edge:                           ; preds = %_ZSt17__rotate_adaptiveIPN12_GLOBAL__N_119SynthesizeIvarChunkES2_lET_S3_S3_S3_T1_S4_T0_S4_.exit, %7
-  %.tr.lcssa = phi ptr [ %0, %7 ], [ %.0.i84, %_ZSt17__rotate_adaptiveIPN12_GLOBAL__N_119SynthesizeIvarChunkES2_lET_S3_S3_S3_T1_S4_T0_S4_.exit ]
-  %.tr98.lcssa = phi ptr [ %1, %7 ], [ %.094, %_ZSt17__rotate_adaptiveIPN12_GLOBAL__N_119SynthesizeIvarChunkES2_lET_S3_S3_S3_T1_S4_T0_S4_.exit ]
-  %12 = ptrtoint ptr %.tr98.lcssa to i64
+  %.tr.lcssa = phi ptr [ %0, %7 ], [ %.0.i83, %_ZSt17__rotate_adaptiveIPN12_GLOBAL__N_119SynthesizeIvarChunkES2_lET_S3_S3_S3_T1_S4_T0_S4_.exit ]
+  %.tr97.lcssa = phi ptr [ %1, %7 ], [ %.093, %_ZSt17__rotate_adaptiveIPN12_GLOBAL__N_119SynthesizeIvarChunkES2_lET_S3_S3_S3_T1_S4_T0_S4_.exit ]
+  %12 = ptrtoint ptr %.tr97.lcssa to i64
   %13 = ptrtoint ptr %.tr.lcssa to i64
   %14 = sub i64 %12, %13
-  %.not.i.i.i.i.i = icmp eq ptr %.tr98.lcssa, %.tr.lcssa
+  %.not.i.i.i.i.i = icmp eq ptr %.tr97.lcssa, %.tr.lcssa
   br i1 %.not.i.i.i.i.i, label %_ZSt4moveIPN12_GLOBAL__N_119SynthesizeIvarChunkES2_ET0_T_S4_S3_.exit, label %15
 
 15:                                               ; preds = %tailrecurse._crit_edge
@@ -17490,15 +17490,15 @@ tailrecurse._crit_edge:                           ; preds = %_ZSt17__rotate_adap
 
 _ZSt4moveIPN12_GLOBAL__N_119SynthesizeIvarChunkES2_ET0_T_S4_S3_.exit: ; preds = %tailrecurse._crit_edge, %15
   %16 = getelementptr inbounds i8, ptr %5, i64 %14
-  %17 = icmp ne ptr %.tr98.lcssa, %.tr.lcssa
-  %18 = icmp ne ptr %.tr98.lcssa, %2
+  %17 = icmp ne ptr %.tr97.lcssa, %.tr.lcssa
+  %18 = icmp ne ptr %.tr97.lcssa, %2
   %19 = and i1 %17, %18
   br i1 %19, label %.lr.ph.i, label %._crit_edge.i
 
 .lr.ph.i:                                         ; preds = %_ZSt4moveIPN12_GLOBAL__N_119SynthesizeIvarChunkES2_ET0_T_S4_S3_.exit, %25
   %.024.i = phi ptr [ %26, %25 ], [ %.tr.lcssa, %_ZSt4moveIPN12_GLOBAL__N_119SynthesizeIvarChunkES2_ET0_T_S4_S3_.exit ]
   %.01823.i = phi ptr [ %.1.i, %25 ], [ %5, %_ZSt4moveIPN12_GLOBAL__N_119SynthesizeIvarChunkES2_ET0_T_S4_S3_.exit ]
-  %.01922.i = phi ptr [ %.120.i, %25 ], [ %.tr98.lcssa, %_ZSt4moveIPN12_GLOBAL__N_119SynthesizeIvarChunkES2_ET0_T_S4_S3_.exit ]
+  %.01922.i = phi ptr [ %.120.i, %25 ], [ %.tr97.lcssa, %_ZSt4moveIPN12_GLOBAL__N_119SynthesizeIvarChunkES2_ET0_T_S4_S3_.exit ]
   %.019.val.i = load i64, ptr %.01922.i, align 8
   %.018.val.i = load i64, ptr %.01823.i, align 8
   %20 = icmp ult i64 %.019.val.i, %.018.val.i
@@ -17537,372 +17537,368 @@ _ZSt4moveIPN12_GLOBAL__N_119SynthesizeIvarChunkES2_ET0_T_S4_S3_.exit.i: ; preds 
   br label %_ZSt21__move_merge_adaptiveIPN12_GLOBAL__N_119SynthesizeIvarChunkES2_S2_N9__gnu_cxx5__ops15_Iter_less_iterEEvT_S6_T0_S7_T1_T2_.exit
 
 33:                                               ; preds = %.lr.ph, %_ZSt17__rotate_adaptiveIPN12_GLOBAL__N_119SynthesizeIvarChunkES2_lET_S3_S3_S3_T1_S4_T0_S4_.exit
-  %.not120 = phi i1 [ %.not111, %.lr.ph ], [ %.not, %_ZSt17__rotate_adaptiveIPN12_GLOBAL__N_119SynthesizeIvarChunkES2_lET_S3_S3_S3_T1_S4_T0_S4_.exit ]
-  %.tr101119 = phi i64 [ %4, %.lr.ph ], [ %163, %_ZSt17__rotate_adaptiveIPN12_GLOBAL__N_119SynthesizeIvarChunkES2_lET_S3_S3_S3_T1_S4_T0_S4_.exit ]
-  %.tr100118 = phi i64 [ %3, %.lr.ph ], [ %92, %_ZSt17__rotate_adaptiveIPN12_GLOBAL__N_119SynthesizeIvarChunkES2_lET_S3_S3_S3_T1_S4_T0_S4_.exit ]
-  %.tr98116 = phi ptr [ %1, %.lr.ph ], [ %.094, %_ZSt17__rotate_adaptiveIPN12_GLOBAL__N_119SynthesizeIvarChunkES2_lET_S3_S3_S3_T1_S4_T0_S4_.exit ]
-  %.tr114 = phi ptr [ %0, %.lr.ph ], [ %.0.i84, %_ZSt17__rotate_adaptiveIPN12_GLOBAL__N_119SynthesizeIvarChunkES2_lET_S3_S3_S3_T1_S4_T0_S4_.exit ]
-  %.not60 = icmp sgt i64 %.tr101119, %6
-  %34 = ptrtoint ptr %.tr98116 to i64
-  br i1 %.not60, label %61, label %35
+  %.not119 = phi i1 [ %.not110, %.lr.ph ], [ %.not, %_ZSt17__rotate_adaptiveIPN12_GLOBAL__N_119SynthesizeIvarChunkES2_lET_S3_S3_S3_T1_S4_T0_S4_.exit ]
+  %.tr100118 = phi i64 [ %4, %.lr.ph ], [ %160, %_ZSt17__rotate_adaptiveIPN12_GLOBAL__N_119SynthesizeIvarChunkES2_lET_S3_S3_S3_T1_S4_T0_S4_.exit ]
+  %.tr99117 = phi i64 [ %3, %.lr.ph ], [ %89, %_ZSt17__rotate_adaptiveIPN12_GLOBAL__N_119SynthesizeIvarChunkES2_lET_S3_S3_S3_T1_S4_T0_S4_.exit ]
+  %.tr97115 = phi ptr [ %1, %.lr.ph ], [ %.093, %_ZSt17__rotate_adaptiveIPN12_GLOBAL__N_119SynthesizeIvarChunkES2_lET_S3_S3_S3_T1_S4_T0_S4_.exit ]
+  %.tr113 = phi ptr [ %0, %.lr.ph ], [ %.0.i83, %_ZSt17__rotate_adaptiveIPN12_GLOBAL__N_119SynthesizeIvarChunkES2_lET_S3_S3_S3_T1_S4_T0_S4_.exit ]
+  %.not60 = icmp sgt i64 %.tr100118, %6
+  br i1 %.not60, label %57, label %34
 
-35:                                               ; preds = %33
-  %36 = sub i64 %11, %34
-  %.not.i.i.i.i.i62 = icmp eq ptr %2, %.tr98116
+34:                                               ; preds = %33
+  %.not.i.i.i.i.i62 = icmp eq ptr %2, %.tr97115
   br i1 %.not.i.i.i.i.i62, label %_ZSt21__move_merge_adaptiveIPN12_GLOBAL__N_119SynthesizeIvarChunkES2_S2_N9__gnu_cxx5__ops15_Iter_less_iterEEvT_S6_T0_S7_T1_T2_.exit, label %_ZSt4moveIPN12_GLOBAL__N_119SynthesizeIvarChunkES2_ET0_T_S4_S3_.exit63.thread
 
-_ZSt4moveIPN12_GLOBAL__N_119SynthesizeIvarChunkES2_ET0_T_S4_S3_.exit63.thread: ; preds = %35
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %5, ptr align 8 %.tr98116, i64 %36, i1 false)
-  %37 = icmp eq ptr %.tr114, %.tr98116
-  br i1 %37, label %38, label %41
+_ZSt4moveIPN12_GLOBAL__N_119SynthesizeIvarChunkES2_ET0_T_S4_S3_.exit63.thread: ; preds = %34
+  %35 = ptrtoint ptr %.tr97115 to i64
+  %36 = sub i64 %11, %35
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %5, ptr align 8 %.tr97115, i64 %36, i1 false)
+  %37 = getelementptr inbounds i8, ptr %5, i64 %36
+  %38 = icmp eq ptr %.tr113, %.tr97115
+  br i1 %38, label %_ZSt13move_backwardIPN12_GLOBAL__N_119SynthesizeIvarChunkES2_ET0_T_S4_S3_.exit.sink.split.i, label %39
 
-38:                                               ; preds = %_ZSt4moveIPN12_GLOBAL__N_119SynthesizeIvarChunkES2_ET0_T_S4_S3_.exit63.thread
-  %39 = ashr exact i64 %36, 4
-  %.pre.i.i.i.i.i.i = sub nsw i64 0, %39
-  %40 = getelementptr inbounds %"struct.(anonymous namespace)::SynthesizeIvarChunk", ptr %2, i64 %.pre.i.i.i.i.i.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %40, ptr align 8 %5, i64 %36, i1 false)
-  br label %_ZSt21__move_merge_adaptiveIPN12_GLOBAL__N_119SynthesizeIvarChunkES2_S2_N9__gnu_cxx5__ops15_Iter_less_iterEEvT_S6_T0_S7_T1_T2_.exit
-
-41:                                               ; preds = %_ZSt4moveIPN12_GLOBAL__N_119SynthesizeIvarChunkES2_ET0_T_S4_S3_.exit63.thread
-  %42 = getelementptr inbounds i8, ptr %5, i64 %36
-  %43 = getelementptr inbounds i8, ptr %42, i64 -16
+39:                                               ; preds = %_ZSt4moveIPN12_GLOBAL__N_119SynthesizeIvarChunkES2_ET0_T_S4_S3_.exit63.thread
+  %40 = getelementptr inbounds i8, ptr %37, i64 -16
   br label %.outer
 
-.outer:                                           ; preds = %47, %41
-  %.026.i.ph.pn = phi ptr [ %.tr98116, %41 ], [ %.026.i.ph, %47 ]
-  %.024.i64.ph = phi ptr [ %43, %41 ], [ %.024.i64, %47 ]
-  %.0.i.ph = phi ptr [ %2, %41 ], [ %46, %47 ]
+.outer:                                           ; preds = %44, %39
+  %.026.i.ph.pn = phi ptr [ %.tr97115, %39 ], [ %.026.i.ph, %44 ]
+  %.024.i64.ph = phi ptr [ %40, %39 ], [ %.024.i64, %44 ]
+  %.0.i.ph = phi ptr [ %2, %39 ], [ %43, %44 ]
   %.026.i.ph = getelementptr inbounds i8, ptr %.026.i.ph.pn, i64 -16
-  br label %44
+  br label %41
 
-44:                                               ; preds = %.outer, %59
-  %.024.i64 = phi ptr [ %60, %59 ], [ %.024.i64.ph, %.outer ]
-  %.0.i = phi ptr [ %46, %59 ], [ %.0.i.ph, %.outer ]
+41:                                               ; preds = %.outer, %50
+  %.024.i64 = phi ptr [ %51, %50 ], [ %.024.i64.ph, %.outer ]
+  %.0.i = phi ptr [ %43, %50 ], [ %.0.i.ph, %.outer ]
   %.024.val.i = load i64, ptr %.024.i64, align 8
   %.026.val.i = load i64, ptr %.026.i.ph, align 8
-  %45 = icmp ult i64 %.024.val.i, %.026.val.i
-  %46 = getelementptr inbounds i8, ptr %.0.i, i64 -16
-  br i1 %45, label %47, label %57
+  %42 = icmp ult i64 %.024.val.i, %.026.val.i
+  %43 = getelementptr inbounds i8, ptr %.0.i, i64 -16
+  br i1 %42, label %44, label %48
 
-47:                                               ; preds = %44
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %46, ptr noundef nonnull align 8 dereferenceable(16) %.026.i.ph, i64 16, i1 false)
-  %48 = icmp eq ptr %.tr114, %.026.i.ph
-  br i1 %48, label %49, label %.outer, !llvm.loop !95
+44:                                               ; preds = %41
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %43, ptr noundef nonnull align 8 dereferenceable(16) %.026.i.ph, i64 16, i1 false)
+  %45 = icmp eq ptr %.tr113, %.026.i.ph
+  br i1 %45, label %46, label %.outer, !llvm.loop !95
 
-49:                                               ; preds = %47
-  %50 = getelementptr inbounds i8, ptr %.024.i64, i64 16
-  %.not.i.i.i.i.i32.i = icmp eq ptr %50, %5
-  br i1 %.not.i.i.i.i.i32.i, label %_ZSt21__move_merge_adaptiveIPN12_GLOBAL__N_119SynthesizeIvarChunkES2_S2_N9__gnu_cxx5__ops15_Iter_less_iterEEvT_S6_T0_S7_T1_T2_.exit, label %51
+46:                                               ; preds = %44
+  %47 = getelementptr inbounds i8, ptr %.024.i64, i64 16
+  %.not.i.i.i.i.i32.i = icmp eq ptr %47, %5
+  br i1 %.not.i.i.i.i.i32.i, label %_ZSt21__move_merge_adaptiveIPN12_GLOBAL__N_119SynthesizeIvarChunkES2_S2_N9__gnu_cxx5__ops15_Iter_less_iterEEvT_S6_T0_S7_T1_T2_.exit, label %_ZSt13move_backwardIPN12_GLOBAL__N_119SynthesizeIvarChunkES2_ET0_T_S4_S3_.exit.sink.split.i
 
-51:                                               ; preds = %49
-  %52 = ptrtoint ptr %50 to i64
+48:                                               ; preds = %41
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %43, ptr noundef nonnull align 8 dereferenceable(16) %.024.i64, i64 16, i1 false)
+  %49 = icmp eq ptr %5, %.024.i64
+  br i1 %49, label %_ZSt21__move_merge_adaptiveIPN12_GLOBAL__N_119SynthesizeIvarChunkES2_S2_N9__gnu_cxx5__ops15_Iter_less_iterEEvT_S6_T0_S7_T1_T2_.exit, label %50
+
+50:                                               ; preds = %48
+  %51 = getelementptr inbounds i8, ptr %.024.i64, i64 -16
+  br label %41, !llvm.loop !95
+
+_ZSt13move_backwardIPN12_GLOBAL__N_119SynthesizeIvarChunkES2_ET0_T_S4_S3_.exit.sink.split.i: ; preds = %_ZSt4moveIPN12_GLOBAL__N_119SynthesizeIvarChunkES2_ET0_T_S4_S3_.exit63.thread, %46
+  %.sink41.i = phi ptr [ %47, %46 ], [ %37, %_ZSt4moveIPN12_GLOBAL__N_119SynthesizeIvarChunkES2_ET0_T_S4_S3_.exit63.thread ]
+  %.lcssa.sink.i = phi ptr [ %43, %46 ], [ %2, %_ZSt4moveIPN12_GLOBAL__N_119SynthesizeIvarChunkES2_ET0_T_S4_S3_.exit63.thread ]
+  %52 = ptrtoint ptr %.sink41.i to i64
   %53 = ptrtoint ptr %5 to i64
   %54 = sub i64 %52, %53
   %55 = ashr exact i64 %54, 4
   %.pre.i.i.i.i.i33.i = sub nsw i64 0, %55
-  %56 = getelementptr inbounds %"struct.(anonymous namespace)::SynthesizeIvarChunk", ptr %46, i64 %.pre.i.i.i.i.i33.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %56, ptr align 8 %5, i64 %54, i1 false)
+  %56 = getelementptr inbounds %"struct.(anonymous namespace)::SynthesizeIvarChunk", ptr %.lcssa.sink.i, i64 %.pre.i.i.i.i.i33.i
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %56, ptr align 8 %5, i64 %54, i1 false)
   br label %_ZSt21__move_merge_adaptiveIPN12_GLOBAL__N_119SynthesizeIvarChunkES2_S2_N9__gnu_cxx5__ops15_Iter_less_iterEEvT_S6_T0_S7_T1_T2_.exit
 
-57:                                               ; preds = %44
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %46, ptr noundef nonnull align 8 dereferenceable(16) %.024.i64, i64 16, i1 false)
-  %58 = icmp eq ptr %5, %.024.i64
-  br i1 %58, label %_ZSt21__move_merge_adaptiveIPN12_GLOBAL__N_119SynthesizeIvarChunkES2_S2_N9__gnu_cxx5__ops15_Iter_less_iterEEvT_S6_T0_S7_T1_T2_.exit, label %59
+57:                                               ; preds = %33
+  %58 = ptrtoint ptr %.tr97115 to i64
+  br i1 %.not119, label %_ZSt7advanceIPN12_GLOBAL__N_119SynthesizeIvarChunkElEvRT_T0_.exit, label %_ZSt7advanceIPN12_GLOBAL__N_119SynthesizeIvarChunkElEvRT_T0_.exit71
 
-59:                                               ; preds = %57
-  %60 = getelementptr inbounds i8, ptr %.024.i64, i64 -16
-  br label %44, !llvm.loop !95
-
-61:                                               ; preds = %33
-  br i1 %.not120, label %_ZSt7advanceIPN12_GLOBAL__N_119SynthesizeIvarChunkElEvRT_T0_.exit, label %_ZSt7advanceIPN12_GLOBAL__N_119SynthesizeIvarChunkElEvRT_T0_.exit71
-
-_ZSt7advanceIPN12_GLOBAL__N_119SynthesizeIvarChunkElEvRT_T0_.exit: ; preds = %61
-  %62 = sdiv i64 %.tr100118, 2
-  %63 = getelementptr inbounds %"struct.(anonymous namespace)::SynthesizeIvarChunk", ptr %.tr114, i64 %62
-  %.val = load i64, ptr %63, align 8
-  %64 = sub i64 %11, %34
-  %65 = ashr exact i64 %64, 4
-  %66 = icmp sgt i64 %65, 0
-  br i1 %66, label %_ZSt7advanceIPN12_GLOBAL__N_119SynthesizeIvarChunkElEvRT_T0_.exit.i, label %_ZSt13__lower_boundIPN12_GLOBAL__N_119SynthesizeIvarChunkES1_N9__gnu_cxx5__ops14_Iter_less_valEET_S6_S6_RKT0_T1_.exit
+_ZSt7advanceIPN12_GLOBAL__N_119SynthesizeIvarChunkElEvRT_T0_.exit: ; preds = %57
+  %59 = sdiv i64 %.tr99117, 2
+  %60 = getelementptr inbounds %"struct.(anonymous namespace)::SynthesizeIvarChunk", ptr %.tr113, i64 %59
+  %.val = load i64, ptr %60, align 8
+  %61 = sub i64 %11, %58
+  %62 = ashr exact i64 %61, 4
+  %63 = icmp sgt i64 %62, 0
+  br i1 %63, label %_ZSt7advanceIPN12_GLOBAL__N_119SynthesizeIvarChunkElEvRT_T0_.exit.i, label %_ZSt13__lower_boundIPN12_GLOBAL__N_119SynthesizeIvarChunkES1_N9__gnu_cxx5__ops14_Iter_less_valEET_S6_S6_RKT0_T1_.exit
 
 _ZSt7advanceIPN12_GLOBAL__N_119SynthesizeIvarChunkElEvRT_T0_.exit.i: ; preds = %_ZSt7advanceIPN12_GLOBAL__N_119SynthesizeIvarChunkElEvRT_T0_.exit, %_ZSt7advanceIPN12_GLOBAL__N_119SynthesizeIvarChunkElEvRT_T0_.exit.i
-  %.05.i = phi ptr [ %.1.i67, %_ZSt7advanceIPN12_GLOBAL__N_119SynthesizeIvarChunkElEvRT_T0_.exit.i ], [ %.tr98116, %_ZSt7advanceIPN12_GLOBAL__N_119SynthesizeIvarChunkElEvRT_T0_.exit ]
-  %.0114.i = phi i64 [ %.112.i, %_ZSt7advanceIPN12_GLOBAL__N_119SynthesizeIvarChunkElEvRT_T0_.exit.i ], [ %65, %_ZSt7advanceIPN12_GLOBAL__N_119SynthesizeIvarChunkElEvRT_T0_.exit ]
-  %67 = lshr i64 %.0114.i, 1
-  %68 = getelementptr inbounds %"struct.(anonymous namespace)::SynthesizeIvarChunk", ptr %.05.i, i64 %67
-  %.val.i = load i64, ptr %68, align 8
-  %69 = icmp ult i64 %.val.i, %.val
-  %70 = getelementptr inbounds i8, ptr %68, i64 16
-  %71 = xor i64 %67, -1
-  %72 = add nsw i64 %.0114.i, %71
-  %.112.i = select i1 %69, i64 %72, i64 %67
-  %.1.i67 = select i1 %69, ptr %70, ptr %.05.i
-  %73 = icmp sgt i64 %.112.i, 0
-  br i1 %73, label %_ZSt7advanceIPN12_GLOBAL__N_119SynthesizeIvarChunkElEvRT_T0_.exit.i, label %_ZSt13__lower_boundIPN12_GLOBAL__N_119SynthesizeIvarChunkES1_N9__gnu_cxx5__ops14_Iter_less_valEET_S6_S6_RKT0_T1_.exit.loopexit, !llvm.loop !84
+  %.05.i = phi ptr [ %.1.i67, %_ZSt7advanceIPN12_GLOBAL__N_119SynthesizeIvarChunkElEvRT_T0_.exit.i ], [ %.tr97115, %_ZSt7advanceIPN12_GLOBAL__N_119SynthesizeIvarChunkElEvRT_T0_.exit ]
+  %.0114.i = phi i64 [ %.112.i, %_ZSt7advanceIPN12_GLOBAL__N_119SynthesizeIvarChunkElEvRT_T0_.exit.i ], [ %62, %_ZSt7advanceIPN12_GLOBAL__N_119SynthesizeIvarChunkElEvRT_T0_.exit ]
+  %64 = lshr i64 %.0114.i, 1
+  %65 = getelementptr inbounds %"struct.(anonymous namespace)::SynthesizeIvarChunk", ptr %.05.i, i64 %64
+  %.val.i = load i64, ptr %65, align 8
+  %66 = icmp ult i64 %.val.i, %.val
+  %67 = getelementptr inbounds i8, ptr %65, i64 16
+  %68 = xor i64 %64, -1
+  %69 = add nsw i64 %.0114.i, %68
+  %.112.i = select i1 %66, i64 %69, i64 %64
+  %.1.i67 = select i1 %66, ptr %67, ptr %.05.i
+  %70 = icmp sgt i64 %.112.i, 0
+  br i1 %70, label %_ZSt7advanceIPN12_GLOBAL__N_119SynthesizeIvarChunkElEvRT_T0_.exit.i, label %_ZSt13__lower_boundIPN12_GLOBAL__N_119SynthesizeIvarChunkES1_N9__gnu_cxx5__ops14_Iter_less_valEET_S6_S6_RKT0_T1_.exit.loopexit, !llvm.loop !84
 
 _ZSt13__lower_boundIPN12_GLOBAL__N_119SynthesizeIvarChunkES1_N9__gnu_cxx5__ops14_Iter_less_valEET_S6_S6_RKT0_T1_.exit.loopexit: ; preds = %_ZSt7advanceIPN12_GLOBAL__N_119SynthesizeIvarChunkElEvRT_T0_.exit.i
   %.pre = ptrtoint ptr %.1.i67 to i64
   br label %_ZSt13__lower_boundIPN12_GLOBAL__N_119SynthesizeIvarChunkES1_N9__gnu_cxx5__ops14_Iter_less_valEET_S6_S6_RKT0_T1_.exit
 
 _ZSt13__lower_boundIPN12_GLOBAL__N_119SynthesizeIvarChunkES1_N9__gnu_cxx5__ops14_Iter_less_valEET_S6_S6_RKT0_T1_.exit: ; preds = %_ZSt13__lower_boundIPN12_GLOBAL__N_119SynthesizeIvarChunkES1_N9__gnu_cxx5__ops14_Iter_less_valEET_S6_S6_RKT0_T1_.exit.loopexit, %_ZSt7advanceIPN12_GLOBAL__N_119SynthesizeIvarChunkElEvRT_T0_.exit
-  %.pre-phi = phi i64 [ %.pre, %_ZSt13__lower_boundIPN12_GLOBAL__N_119SynthesizeIvarChunkES1_N9__gnu_cxx5__ops14_Iter_less_valEET_S6_S6_RKT0_T1_.exit.loopexit ], [ %34, %_ZSt7advanceIPN12_GLOBAL__N_119SynthesizeIvarChunkElEvRT_T0_.exit ]
-  %.0.lcssa.i66 = phi ptr [ %.1.i67, %_ZSt13__lower_boundIPN12_GLOBAL__N_119SynthesizeIvarChunkES1_N9__gnu_cxx5__ops14_Iter_less_valEET_S6_S6_RKT0_T1_.exit.loopexit ], [ %.tr98116, %_ZSt7advanceIPN12_GLOBAL__N_119SynthesizeIvarChunkElEvRT_T0_.exit ]
-  %74 = sub i64 %.pre-phi, %34
-  %75 = ashr exact i64 %74, 4
-  br label %91
+  %.pre-phi = phi i64 [ %.pre, %_ZSt13__lower_boundIPN12_GLOBAL__N_119SynthesizeIvarChunkES1_N9__gnu_cxx5__ops14_Iter_less_valEET_S6_S6_RKT0_T1_.exit.loopexit ], [ %58, %_ZSt7advanceIPN12_GLOBAL__N_119SynthesizeIvarChunkElEvRT_T0_.exit ]
+  %.0.lcssa.i66 = phi ptr [ %.1.i67, %_ZSt13__lower_boundIPN12_GLOBAL__N_119SynthesizeIvarChunkES1_N9__gnu_cxx5__ops14_Iter_less_valEET_S6_S6_RKT0_T1_.exit.loopexit ], [ %.tr97115, %_ZSt7advanceIPN12_GLOBAL__N_119SynthesizeIvarChunkElEvRT_T0_.exit ]
+  %71 = sub i64 %.pre-phi, %58
+  %72 = ashr exact i64 %71, 4
+  br label %88
 
-_ZSt7advanceIPN12_GLOBAL__N_119SynthesizeIvarChunkElEvRT_T0_.exit71: ; preds = %61
-  %76 = sdiv i64 %.tr101119, 2
-  %77 = getelementptr inbounds %"struct.(anonymous namespace)::SynthesizeIvarChunk", ptr %.tr98116, i64 %76
-  %.val61 = load i64, ptr %77, align 8
-  %78 = ptrtoint ptr %.tr114 to i64
-  %79 = sub i64 %34, %78
-  %80 = ashr exact i64 %79, 4
-  %81 = icmp sgt i64 %80, 0
-  br i1 %81, label %_ZSt7advanceIPN12_GLOBAL__N_119SynthesizeIvarChunkElEvRT_T0_.exit.i74, label %_ZSt13__upper_boundIPN12_GLOBAL__N_119SynthesizeIvarChunkES1_N9__gnu_cxx5__ops14_Val_less_iterEET_S6_S6_RKT0_T1_.exit
+_ZSt7advanceIPN12_GLOBAL__N_119SynthesizeIvarChunkElEvRT_T0_.exit71: ; preds = %57
+  %73 = sdiv i64 %.tr100118, 2
+  %74 = getelementptr inbounds %"struct.(anonymous namespace)::SynthesizeIvarChunk", ptr %.tr97115, i64 %73
+  %.val61 = load i64, ptr %74, align 8
+  %75 = ptrtoint ptr %.tr113 to i64
+  %76 = sub i64 %58, %75
+  %77 = ashr exact i64 %76, 4
+  %78 = icmp sgt i64 %77, 0
+  br i1 %78, label %_ZSt7advanceIPN12_GLOBAL__N_119SynthesizeIvarChunkElEvRT_T0_.exit.i74, label %_ZSt13__upper_boundIPN12_GLOBAL__N_119SynthesizeIvarChunkES1_N9__gnu_cxx5__ops14_Val_less_iterEET_S6_S6_RKT0_T1_.exit
 
 _ZSt7advanceIPN12_GLOBAL__N_119SynthesizeIvarChunkElEvRT_T0_.exit.i74: ; preds = %_ZSt7advanceIPN12_GLOBAL__N_119SynthesizeIvarChunkElEvRT_T0_.exit71, %_ZSt7advanceIPN12_GLOBAL__N_119SynthesizeIvarChunkElEvRT_T0_.exit.i74
-  %.05.i75 = phi ptr [ %.1.i80, %_ZSt7advanceIPN12_GLOBAL__N_119SynthesizeIvarChunkElEvRT_T0_.exit.i74 ], [ %.tr114, %_ZSt7advanceIPN12_GLOBAL__N_119SynthesizeIvarChunkElEvRT_T0_.exit71 ]
-  %.0114.i76 = phi i64 [ %.112.i79, %_ZSt7advanceIPN12_GLOBAL__N_119SynthesizeIvarChunkElEvRT_T0_.exit.i74 ], [ %80, %_ZSt7advanceIPN12_GLOBAL__N_119SynthesizeIvarChunkElEvRT_T0_.exit71 ]
-  %82 = lshr i64 %.0114.i76, 1
-  %83 = getelementptr inbounds %"struct.(anonymous namespace)::SynthesizeIvarChunk", ptr %.05.i75, i64 %82
-  %.val13.i = load i64, ptr %83, align 8
-  %84 = icmp ult i64 %.val61, %.val13.i
-  %85 = getelementptr inbounds i8, ptr %83, i64 16
-  %86 = xor i64 %82, -1
-  %87 = add nsw i64 %.0114.i76, %86
-  %.112.i79 = select i1 %84, i64 %82, i64 %87
-  %.1.i80 = select i1 %84, ptr %.05.i75, ptr %85
-  %88 = icmp sgt i64 %.112.i79, 0
-  br i1 %88, label %_ZSt7advanceIPN12_GLOBAL__N_119SynthesizeIvarChunkElEvRT_T0_.exit.i74, label %_ZSt13__upper_boundIPN12_GLOBAL__N_119SynthesizeIvarChunkES1_N9__gnu_cxx5__ops14_Val_less_iterEET_S6_S6_RKT0_T1_.exit.loopexit, !llvm.loop !85
+  %.05.i75 = phi ptr [ %.1.i80, %_ZSt7advanceIPN12_GLOBAL__N_119SynthesizeIvarChunkElEvRT_T0_.exit.i74 ], [ %.tr113, %_ZSt7advanceIPN12_GLOBAL__N_119SynthesizeIvarChunkElEvRT_T0_.exit71 ]
+  %.0114.i76 = phi i64 [ %.112.i79, %_ZSt7advanceIPN12_GLOBAL__N_119SynthesizeIvarChunkElEvRT_T0_.exit.i74 ], [ %77, %_ZSt7advanceIPN12_GLOBAL__N_119SynthesizeIvarChunkElEvRT_T0_.exit71 ]
+  %79 = lshr i64 %.0114.i76, 1
+  %80 = getelementptr inbounds %"struct.(anonymous namespace)::SynthesizeIvarChunk", ptr %.05.i75, i64 %79
+  %.val13.i = load i64, ptr %80, align 8
+  %81 = icmp ult i64 %.val61, %.val13.i
+  %82 = getelementptr inbounds i8, ptr %80, i64 16
+  %83 = xor i64 %79, -1
+  %84 = add nsw i64 %.0114.i76, %83
+  %.112.i79 = select i1 %81, i64 %79, i64 %84
+  %.1.i80 = select i1 %81, ptr %.05.i75, ptr %82
+  %85 = icmp sgt i64 %.112.i79, 0
+  br i1 %85, label %_ZSt7advanceIPN12_GLOBAL__N_119SynthesizeIvarChunkElEvRT_T0_.exit.i74, label %_ZSt13__upper_boundIPN12_GLOBAL__N_119SynthesizeIvarChunkES1_N9__gnu_cxx5__ops14_Val_less_iterEET_S6_S6_RKT0_T1_.exit.loopexit, !llvm.loop !85
 
 _ZSt13__upper_boundIPN12_GLOBAL__N_119SynthesizeIvarChunkES1_N9__gnu_cxx5__ops14_Val_less_iterEET_S6_S6_RKT0_T1_.exit.loopexit: ; preds = %_ZSt7advanceIPN12_GLOBAL__N_119SynthesizeIvarChunkElEvRT_T0_.exit.i74
-  %.pre130 = ptrtoint ptr %.1.i80 to i64
+  %.pre129 = ptrtoint ptr %.1.i80 to i64
   br label %_ZSt13__upper_boundIPN12_GLOBAL__N_119SynthesizeIvarChunkES1_N9__gnu_cxx5__ops14_Val_less_iterEET_S6_S6_RKT0_T1_.exit
 
 _ZSt13__upper_boundIPN12_GLOBAL__N_119SynthesizeIvarChunkES1_N9__gnu_cxx5__ops14_Val_less_iterEET_S6_S6_RKT0_T1_.exit: ; preds = %_ZSt13__upper_boundIPN12_GLOBAL__N_119SynthesizeIvarChunkES1_N9__gnu_cxx5__ops14_Val_less_iterEET_S6_S6_RKT0_T1_.exit.loopexit, %_ZSt7advanceIPN12_GLOBAL__N_119SynthesizeIvarChunkElEvRT_T0_.exit71
-  %.pre-phi131 = phi i64 [ %.pre130, %_ZSt13__upper_boundIPN12_GLOBAL__N_119SynthesizeIvarChunkES1_N9__gnu_cxx5__ops14_Val_less_iterEET_S6_S6_RKT0_T1_.exit.loopexit ], [ %78, %_ZSt7advanceIPN12_GLOBAL__N_119SynthesizeIvarChunkElEvRT_T0_.exit71 ]
-  %.0.lcssa.i73 = phi ptr [ %.1.i80, %_ZSt13__upper_boundIPN12_GLOBAL__N_119SynthesizeIvarChunkES1_N9__gnu_cxx5__ops14_Val_less_iterEET_S6_S6_RKT0_T1_.exit.loopexit ], [ %.tr114, %_ZSt7advanceIPN12_GLOBAL__N_119SynthesizeIvarChunkElEvRT_T0_.exit71 ]
-  %89 = sub i64 %.pre-phi131, %78
-  %90 = ashr exact i64 %89, 4
-  br label %91
+  %.pre-phi130 = phi i64 [ %.pre129, %_ZSt13__upper_boundIPN12_GLOBAL__N_119SynthesizeIvarChunkES1_N9__gnu_cxx5__ops14_Val_less_iterEET_S6_S6_RKT0_T1_.exit.loopexit ], [ %75, %_ZSt7advanceIPN12_GLOBAL__N_119SynthesizeIvarChunkElEvRT_T0_.exit71 ]
+  %.0.lcssa.i73 = phi ptr [ %.1.i80, %_ZSt13__upper_boundIPN12_GLOBAL__N_119SynthesizeIvarChunkES1_N9__gnu_cxx5__ops14_Val_less_iterEET_S6_S6_RKT0_T1_.exit.loopexit ], [ %.tr113, %_ZSt7advanceIPN12_GLOBAL__N_119SynthesizeIvarChunkElEvRT_T0_.exit71 ]
+  %86 = sub i64 %.pre-phi130, %75
+  %87 = ashr exact i64 %86, 4
+  br label %88
 
-91:                                               ; preds = %_ZSt13__upper_boundIPN12_GLOBAL__N_119SynthesizeIvarChunkES1_N9__gnu_cxx5__ops14_Val_less_iterEET_S6_S6_RKT0_T1_.exit, %_ZSt13__lower_boundIPN12_GLOBAL__N_119SynthesizeIvarChunkES1_N9__gnu_cxx5__ops14_Iter_less_valEET_S6_S6_RKT0_T1_.exit
-  %.095 = phi ptr [ %63, %_ZSt13__lower_boundIPN12_GLOBAL__N_119SynthesizeIvarChunkES1_N9__gnu_cxx5__ops14_Iter_less_valEET_S6_S6_RKT0_T1_.exit ], [ %.0.lcssa.i73, %_ZSt13__upper_boundIPN12_GLOBAL__N_119SynthesizeIvarChunkES1_N9__gnu_cxx5__ops14_Val_less_iterEET_S6_S6_RKT0_T1_.exit ]
-  %.094 = phi ptr [ %.0.lcssa.i66, %_ZSt13__lower_boundIPN12_GLOBAL__N_119SynthesizeIvarChunkES1_N9__gnu_cxx5__ops14_Iter_less_valEET_S6_S6_RKT0_T1_.exit ], [ %77, %_ZSt13__upper_boundIPN12_GLOBAL__N_119SynthesizeIvarChunkES1_N9__gnu_cxx5__ops14_Val_less_iterEET_S6_S6_RKT0_T1_.exit ]
-  %.055 = phi i64 [ %75, %_ZSt13__lower_boundIPN12_GLOBAL__N_119SynthesizeIvarChunkES1_N9__gnu_cxx5__ops14_Iter_less_valEET_S6_S6_RKT0_T1_.exit ], [ %76, %_ZSt13__upper_boundIPN12_GLOBAL__N_119SynthesizeIvarChunkES1_N9__gnu_cxx5__ops14_Val_less_iterEET_S6_S6_RKT0_T1_.exit ]
-  %.0 = phi i64 [ %62, %_ZSt13__lower_boundIPN12_GLOBAL__N_119SynthesizeIvarChunkES1_N9__gnu_cxx5__ops14_Iter_less_valEET_S6_S6_RKT0_T1_.exit ], [ %90, %_ZSt13__upper_boundIPN12_GLOBAL__N_119SynthesizeIvarChunkES1_N9__gnu_cxx5__ops14_Val_less_iterEET_S6_S6_RKT0_T1_.exit ]
-  %92 = sub nsw i64 %.tr100118, %.0
-  %93 = icmp sle i64 %92, %.055
+88:                                               ; preds = %_ZSt13__upper_boundIPN12_GLOBAL__N_119SynthesizeIvarChunkES1_N9__gnu_cxx5__ops14_Val_less_iterEET_S6_S6_RKT0_T1_.exit, %_ZSt13__lower_boundIPN12_GLOBAL__N_119SynthesizeIvarChunkES1_N9__gnu_cxx5__ops14_Iter_less_valEET_S6_S6_RKT0_T1_.exit
+  %.094 = phi ptr [ %60, %_ZSt13__lower_boundIPN12_GLOBAL__N_119SynthesizeIvarChunkES1_N9__gnu_cxx5__ops14_Iter_less_valEET_S6_S6_RKT0_T1_.exit ], [ %.0.lcssa.i73, %_ZSt13__upper_boundIPN12_GLOBAL__N_119SynthesizeIvarChunkES1_N9__gnu_cxx5__ops14_Val_less_iterEET_S6_S6_RKT0_T1_.exit ]
+  %.093 = phi ptr [ %.0.lcssa.i66, %_ZSt13__lower_boundIPN12_GLOBAL__N_119SynthesizeIvarChunkES1_N9__gnu_cxx5__ops14_Iter_less_valEET_S6_S6_RKT0_T1_.exit ], [ %74, %_ZSt13__upper_boundIPN12_GLOBAL__N_119SynthesizeIvarChunkES1_N9__gnu_cxx5__ops14_Val_less_iterEET_S6_S6_RKT0_T1_.exit ]
+  %.055 = phi i64 [ %72, %_ZSt13__lower_boundIPN12_GLOBAL__N_119SynthesizeIvarChunkES1_N9__gnu_cxx5__ops14_Iter_less_valEET_S6_S6_RKT0_T1_.exit ], [ %73, %_ZSt13__upper_boundIPN12_GLOBAL__N_119SynthesizeIvarChunkES1_N9__gnu_cxx5__ops14_Val_less_iterEET_S6_S6_RKT0_T1_.exit ]
+  %.0 = phi i64 [ %59, %_ZSt13__lower_boundIPN12_GLOBAL__N_119SynthesizeIvarChunkES1_N9__gnu_cxx5__ops14_Iter_less_valEET_S6_S6_RKT0_T1_.exit ], [ %87, %_ZSt13__upper_boundIPN12_GLOBAL__N_119SynthesizeIvarChunkES1_N9__gnu_cxx5__ops14_Val_less_iterEET_S6_S6_RKT0_T1_.exit ]
+  %89 = sub nsw i64 %.tr99117, %.0
+  %90 = icmp sle i64 %89, %.055
   %.not.i = icmp sgt i64 %.055, %6
-  %or.cond.i = or i1 %.not.i, %93
-  br i1 %or.cond.i, label %107, label %94
+  %or.cond.i = or i1 %.not.i, %90
+  br i1 %or.cond.i, label %104, label %91
 
-94:                                               ; preds = %91
+91:                                               ; preds = %88
   %.not35.i = icmp eq i64 %.055, 0
-  br i1 %.not35.i, label %_ZSt17__rotate_adaptiveIPN12_GLOBAL__N_119SynthesizeIvarChunkES2_lET_S3_S3_S3_T1_S4_T0_S4_.exit, label %95
+  br i1 %.not35.i, label %_ZSt17__rotate_adaptiveIPN12_GLOBAL__N_119SynthesizeIvarChunkES2_lET_S3_S3_S3_T1_S4_T0_S4_.exit, label %92
 
-95:                                               ; preds = %94
-  %96 = ptrtoint ptr %.094 to i64
-  %97 = ptrtoint ptr %.tr98116 to i64
-  %98 = sub i64 %96, %97
-  %.not.i.i.i.i.i.i81 = icmp eq ptr %.094, %.tr98116
-  br i1 %.not.i.i.i.i.i.i81, label %_ZSt4moveIPN12_GLOBAL__N_119SynthesizeIvarChunkES2_ET0_T_S4_S3_.exit.i82, label %99
+92:                                               ; preds = %91
+  %93 = ptrtoint ptr %.093 to i64
+  %94 = ptrtoint ptr %.tr97115 to i64
+  %95 = sub i64 %93, %94
+  %.not.i.i.i.i.i.i81 = icmp eq ptr %.093, %.tr97115
+  br i1 %.not.i.i.i.i.i.i81, label %_ZSt4moveIPN12_GLOBAL__N_119SynthesizeIvarChunkES2_ET0_T_S4_S3_.exit.i82, label %96
 
-99:                                               ; preds = %95
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %5, ptr align 8 %.tr98116, i64 %98, i1 false)
+96:                                               ; preds = %92
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %5, ptr align 8 %.tr97115, i64 %95, i1 false)
   br label %_ZSt4moveIPN12_GLOBAL__N_119SynthesizeIvarChunkES2_ET0_T_S4_S3_.exit.i82
 
-_ZSt4moveIPN12_GLOBAL__N_119SynthesizeIvarChunkES2_ET0_T_S4_S3_.exit.i82: ; preds = %99, %95
-  %.not.i.i.i.i.i36.i = icmp eq ptr %.tr98116, %.095
-  br i1 %.not.i.i.i.i.i36.i, label %_ZSt13move_backwardIPN12_GLOBAL__N_119SynthesizeIvarChunkES2_ET0_T_S4_S3_.exit.i, label %100
+_ZSt4moveIPN12_GLOBAL__N_119SynthesizeIvarChunkES2_ET0_T_S4_S3_.exit.i82: ; preds = %96, %92
+  %.not.i.i.i.i.i36.i = icmp eq ptr %.tr97115, %.094
+  br i1 %.not.i.i.i.i.i36.i, label %_ZSt13move_backwardIPN12_GLOBAL__N_119SynthesizeIvarChunkES2_ET0_T_S4_S3_.exit.i, label %97
 
-100:                                              ; preds = %_ZSt4moveIPN12_GLOBAL__N_119SynthesizeIvarChunkES2_ET0_T_S4_S3_.exit.i82
-  %101 = ptrtoint ptr %.095 to i64
-  %102 = sub i64 %97, %101
-  %103 = ashr exact i64 %102, 4
-  %.pre.i.i.i.i.i.i83 = sub nsw i64 0, %103
-  %104 = getelementptr inbounds %"struct.(anonymous namespace)::SynthesizeIvarChunk", ptr %.094, i64 %.pre.i.i.i.i.i.i83
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %104, ptr align 8 %.095, i64 %102, i1 false)
+97:                                               ; preds = %_ZSt4moveIPN12_GLOBAL__N_119SynthesizeIvarChunkES2_ET0_T_S4_S3_.exit.i82
+  %98 = ptrtoint ptr %.094 to i64
+  %99 = sub i64 %94, %98
+  %100 = ashr exact i64 %99, 4
+  %.pre.i.i.i.i.i.i = sub nsw i64 0, %100
+  %101 = getelementptr inbounds %"struct.(anonymous namespace)::SynthesizeIvarChunk", ptr %.093, i64 %.pre.i.i.i.i.i.i
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %101, ptr align 8 %.094, i64 %99, i1 false)
   br label %_ZSt13move_backwardIPN12_GLOBAL__N_119SynthesizeIvarChunkES2_ET0_T_S4_S3_.exit.i
 
-_ZSt13move_backwardIPN12_GLOBAL__N_119SynthesizeIvarChunkES2_ET0_T_S4_S3_.exit.i: ; preds = %100, %_ZSt4moveIPN12_GLOBAL__N_119SynthesizeIvarChunkES2_ET0_T_S4_S3_.exit.i82
-  br i1 %.not.i.i.i.i.i.i81, label %_ZSt4moveIPN12_GLOBAL__N_119SynthesizeIvarChunkES2_ET0_T_S4_S3_.exit38.i, label %105
+_ZSt13move_backwardIPN12_GLOBAL__N_119SynthesizeIvarChunkES2_ET0_T_S4_S3_.exit.i: ; preds = %97, %_ZSt4moveIPN12_GLOBAL__N_119SynthesizeIvarChunkES2_ET0_T_S4_S3_.exit.i82
+  br i1 %.not.i.i.i.i.i.i81, label %_ZSt4moveIPN12_GLOBAL__N_119SynthesizeIvarChunkES2_ET0_T_S4_S3_.exit38.i, label %102
 
-105:                                              ; preds = %_ZSt13move_backwardIPN12_GLOBAL__N_119SynthesizeIvarChunkES2_ET0_T_S4_S3_.exit.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %.095, ptr align 8 %5, i64 %98, i1 false)
+102:                                              ; preds = %_ZSt13move_backwardIPN12_GLOBAL__N_119SynthesizeIvarChunkES2_ET0_T_S4_S3_.exit.i
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %.094, ptr align 8 %5, i64 %95, i1 false)
   br label %_ZSt4moveIPN12_GLOBAL__N_119SynthesizeIvarChunkES2_ET0_T_S4_S3_.exit38.i
 
-_ZSt4moveIPN12_GLOBAL__N_119SynthesizeIvarChunkES2_ET0_T_S4_S3_.exit38.i: ; preds = %105, %_ZSt13move_backwardIPN12_GLOBAL__N_119SynthesizeIvarChunkES2_ET0_T_S4_S3_.exit.i
-  %106 = getelementptr inbounds i8, ptr %.095, i64 %98
+_ZSt4moveIPN12_GLOBAL__N_119SynthesizeIvarChunkES2_ET0_T_S4_S3_.exit38.i: ; preds = %102, %_ZSt13move_backwardIPN12_GLOBAL__N_119SynthesizeIvarChunkES2_ET0_T_S4_S3_.exit.i
+  %103 = getelementptr inbounds i8, ptr %.094, i64 %95
   br label %_ZSt17__rotate_adaptiveIPN12_GLOBAL__N_119SynthesizeIvarChunkES2_lET_S3_S3_S3_T1_S4_T0_S4_.exit
 
-107:                                              ; preds = %91
-  %.not33.i = icmp sgt i64 %92, %6
-  br i1 %.not33.i, label %121, label %108
+104:                                              ; preds = %88
+  %.not33.i = icmp sgt i64 %89, %6
+  br i1 %.not33.i, label %118, label %105
 
-108:                                              ; preds = %107
-  %.not34.i = icmp eq i64 %.tr100118, %.0
-  br i1 %.not34.i, label %_ZSt17__rotate_adaptiveIPN12_GLOBAL__N_119SynthesizeIvarChunkES2_lET_S3_S3_S3_T1_S4_T0_S4_.exit, label %109
+105:                                              ; preds = %104
+  %.not34.i = icmp eq i64 %.tr99117, %.0
+  br i1 %.not34.i, label %_ZSt17__rotate_adaptiveIPN12_GLOBAL__N_119SynthesizeIvarChunkES2_lET_S3_S3_S3_T1_S4_T0_S4_.exit, label %106
 
-109:                                              ; preds = %108
-  %110 = ptrtoint ptr %.tr98116 to i64
-  %111 = ptrtoint ptr %.095 to i64
-  %112 = sub i64 %110, %111
-  %.not.i.i.i.i.i39.i = icmp eq ptr %.tr98116, %.095
-  br i1 %.not.i.i.i.i.i39.i, label %_ZSt4moveIPN12_GLOBAL__N_119SynthesizeIvarChunkES2_ET0_T_S4_S3_.exit40.i, label %113
+106:                                              ; preds = %105
+  %107 = ptrtoint ptr %.tr97115 to i64
+  %108 = ptrtoint ptr %.094 to i64
+  %109 = sub i64 %107, %108
+  %.not.i.i.i.i.i39.i = icmp eq ptr %.tr97115, %.094
+  br i1 %.not.i.i.i.i.i39.i, label %_ZSt4moveIPN12_GLOBAL__N_119SynthesizeIvarChunkES2_ET0_T_S4_S3_.exit40.i, label %110
 
-113:                                              ; preds = %109
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %5, ptr align 8 %.095, i64 %112, i1 false)
+110:                                              ; preds = %106
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %5, ptr align 8 %.094, i64 %109, i1 false)
   br label %_ZSt4moveIPN12_GLOBAL__N_119SynthesizeIvarChunkES2_ET0_T_S4_S3_.exit40.i
 
-_ZSt4moveIPN12_GLOBAL__N_119SynthesizeIvarChunkES2_ET0_T_S4_S3_.exit40.i: ; preds = %113, %109
-  %.not.i.i.i.i.i41.i = icmp eq ptr %.094, %.tr98116
-  br i1 %.not.i.i.i.i.i41.i, label %_ZSt4moveIPN12_GLOBAL__N_119SynthesizeIvarChunkES2_ET0_T_S4_S3_.exit42.i, label %114
+_ZSt4moveIPN12_GLOBAL__N_119SynthesizeIvarChunkES2_ET0_T_S4_S3_.exit40.i: ; preds = %110, %106
+  %.not.i.i.i.i.i41.i = icmp eq ptr %.093, %.tr97115
+  br i1 %.not.i.i.i.i.i41.i, label %_ZSt4moveIPN12_GLOBAL__N_119SynthesizeIvarChunkES2_ET0_T_S4_S3_.exit42.i, label %111
 
-114:                                              ; preds = %_ZSt4moveIPN12_GLOBAL__N_119SynthesizeIvarChunkES2_ET0_T_S4_S3_.exit40.i
-  %115 = ptrtoint ptr %.094 to i64
-  %116 = sub i64 %115, %110
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %.095, ptr align 8 %.tr98116, i64 %116, i1 false)
+111:                                              ; preds = %_ZSt4moveIPN12_GLOBAL__N_119SynthesizeIvarChunkES2_ET0_T_S4_S3_.exit40.i
+  %112 = ptrtoint ptr %.093 to i64
+  %113 = sub i64 %112, %107
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %.094, ptr align 8 %.tr97115, i64 %113, i1 false)
   br label %_ZSt4moveIPN12_GLOBAL__N_119SynthesizeIvarChunkES2_ET0_T_S4_S3_.exit42.i
 
-_ZSt4moveIPN12_GLOBAL__N_119SynthesizeIvarChunkES2_ET0_T_S4_S3_.exit42.i: ; preds = %114, %_ZSt4moveIPN12_GLOBAL__N_119SynthesizeIvarChunkES2_ET0_T_S4_S3_.exit40.i
-  %117 = ashr exact i64 %112, 4
-  %.pre.i.i.i.i.i44.i = sub nsw i64 0, %117
-  br i1 %.not.i.i.i.i.i39.i, label %_ZSt13move_backwardIPN12_GLOBAL__N_119SynthesizeIvarChunkES2_ET0_T_S4_S3_.exit45.i, label %118
+_ZSt4moveIPN12_GLOBAL__N_119SynthesizeIvarChunkES2_ET0_T_S4_S3_.exit42.i: ; preds = %111, %_ZSt4moveIPN12_GLOBAL__N_119SynthesizeIvarChunkES2_ET0_T_S4_S3_.exit40.i
+  %114 = ashr exact i64 %109, 4
+  %.pre.i.i.i.i.i44.i = sub nsw i64 0, %114
+  br i1 %.not.i.i.i.i.i39.i, label %_ZSt13move_backwardIPN12_GLOBAL__N_119SynthesizeIvarChunkES2_ET0_T_S4_S3_.exit45.i, label %115
 
-118:                                              ; preds = %_ZSt4moveIPN12_GLOBAL__N_119SynthesizeIvarChunkES2_ET0_T_S4_S3_.exit42.i
-  %119 = getelementptr inbounds %"struct.(anonymous namespace)::SynthesizeIvarChunk", ptr %.094, i64 %.pre.i.i.i.i.i44.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %119, ptr align 8 %5, i64 %112, i1 false)
+115:                                              ; preds = %_ZSt4moveIPN12_GLOBAL__N_119SynthesizeIvarChunkES2_ET0_T_S4_S3_.exit42.i
+  %116 = getelementptr inbounds %"struct.(anonymous namespace)::SynthesizeIvarChunk", ptr %.093, i64 %.pre.i.i.i.i.i44.i
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %116, ptr align 8 %5, i64 %109, i1 false)
   br label %_ZSt13move_backwardIPN12_GLOBAL__N_119SynthesizeIvarChunkES2_ET0_T_S4_S3_.exit45.i
 
-_ZSt13move_backwardIPN12_GLOBAL__N_119SynthesizeIvarChunkES2_ET0_T_S4_S3_.exit45.i: ; preds = %118, %_ZSt4moveIPN12_GLOBAL__N_119SynthesizeIvarChunkES2_ET0_T_S4_S3_.exit42.i
-  %120 = getelementptr inbounds %"struct.(anonymous namespace)::SynthesizeIvarChunk", ptr %.094, i64 %.pre.i.i.i.i.i44.i
+_ZSt13move_backwardIPN12_GLOBAL__N_119SynthesizeIvarChunkES2_ET0_T_S4_S3_.exit45.i: ; preds = %115, %_ZSt4moveIPN12_GLOBAL__N_119SynthesizeIvarChunkES2_ET0_T_S4_S3_.exit42.i
+  %117 = getelementptr inbounds %"struct.(anonymous namespace)::SynthesizeIvarChunk", ptr %.093, i64 %.pre.i.i.i.i.i44.i
   br label %_ZSt17__rotate_adaptiveIPN12_GLOBAL__N_119SynthesizeIvarChunkES2_lET_S3_S3_S3_T1_S4_T0_S4_.exit
 
-121:                                              ; preds = %107
-  %122 = icmp eq ptr %.095, %.tr98116
-  br i1 %122, label %_ZSt17__rotate_adaptiveIPN12_GLOBAL__N_119SynthesizeIvarChunkES2_lET_S3_S3_S3_T1_S4_T0_S4_.exit, label %123
+118:                                              ; preds = %104
+  %119 = icmp eq ptr %.094, %.tr97115
+  br i1 %119, label %_ZSt17__rotate_adaptiveIPN12_GLOBAL__N_119SynthesizeIvarChunkES2_lET_S3_S3_S3_T1_S4_T0_S4_.exit, label %120
 
-123:                                              ; preds = %121
-  %124 = icmp eq ptr %.094, %.tr98116
-  br i1 %124, label %_ZSt17__rotate_adaptiveIPN12_GLOBAL__N_119SynthesizeIvarChunkES2_lET_S3_S3_S3_T1_S4_T0_S4_.exit, label %125
+120:                                              ; preds = %118
+  %121 = icmp eq ptr %.093, %.tr97115
+  br i1 %121, label %_ZSt17__rotate_adaptiveIPN12_GLOBAL__N_119SynthesizeIvarChunkES2_lET_S3_S3_S3_T1_S4_T0_S4_.exit, label %122
 
-125:                                              ; preds = %123
-  %126 = ptrtoint ptr %.094 to i64
-  %127 = ptrtoint ptr %.095 to i64
-  %128 = sub i64 %126, %127
+122:                                              ; preds = %120
+  %123 = ptrtoint ptr %.093 to i64
+  %124 = ptrtoint ptr %.094 to i64
+  %125 = sub i64 %123, %124
+  %126 = ashr exact i64 %125, 4
+  %127 = ptrtoint ptr %.tr97115 to i64
+  %128 = sub i64 %127, %124
   %129 = ashr exact i64 %128, 4
-  %130 = ptrtoint ptr %.tr98116 to i64
-  %131 = sub i64 %130, %127
-  %132 = ashr exact i64 %131, 4
-  %133 = sub nsw i64 %129, %132
-  %134 = icmp eq i64 %132, %133
-  br i1 %134, label %.lr.ph.i.i.i.i, label %137
+  %130 = sub nsw i64 %126, %129
+  %131 = icmp eq i64 %129, %130
+  br i1 %131, label %.lr.ph.i.i.i.i, label %134
 
-.lr.ph.i.i.i.i:                                   ; preds = %125, %.lr.ph.i.i.i.i
-  %.010.i.i.i.i = phi ptr [ %136, %.lr.ph.i.i.i.i ], [ %.tr98116, %125 ]
-  %.079.i.i.i.i = phi ptr [ %135, %.lr.ph.i.i.i.i ], [ %.095, %125 ]
+.lr.ph.i.i.i.i:                                   ; preds = %122, %.lr.ph.i.i.i.i
+  %.010.i.i.i.i = phi ptr [ %133, %.lr.ph.i.i.i.i ], [ %.tr97115, %122 ]
+  %.079.i.i.i.i = phi ptr [ %132, %.lr.ph.i.i.i.i ], [ %.094, %122 ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %10)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %10, ptr noundef nonnull align 8 dereferenceable(16) %.079.i.i.i.i, i64 16, i1 false)
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.079.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %.010.i.i.i.i, i64 16, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.010.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %10, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10)
-  %135 = getelementptr inbounds i8, ptr %.079.i.i.i.i, i64 16
-  %136 = getelementptr inbounds i8, ptr %.010.i.i.i.i, i64 16
-  %.not.i.i.i.i = icmp eq ptr %135, %.tr98116
+  %132 = getelementptr inbounds i8, ptr %.079.i.i.i.i, i64 16
+  %133 = getelementptr inbounds i8, ptr %.010.i.i.i.i, i64 16
+  %.not.i.i.i.i = icmp eq ptr %132, %.tr97115
   br i1 %.not.i.i.i.i, label %_ZSt17__rotate_adaptiveIPN12_GLOBAL__N_119SynthesizeIvarChunkES2_lET_S3_S3_S3_T1_S4_T0_S4_.exit, label %.lr.ph.i.i.i.i, !llvm.loop !86
 
-137:                                              ; preds = %125
-  %138 = sub i64 %126, %130
-  %139 = getelementptr inbounds i8, ptr %.095, i64 %138
-  br label %140
+134:                                              ; preds = %122
+  %135 = sub i64 %123, %127
+  %136 = getelementptr inbounds i8, ptr %.094, i64 %135
+  br label %137
 
-140:                                              ; preds = %.backedge, %137
-  %.059.i.i.i = phi i64 [ %129, %137 ], [ %.059.i.i.i.be, %.backedge ]
-  %.057.i.i.i = phi i64 [ %132, %137 ], [ %.057.i.i.i.be, %.backedge ]
-  %.039.i.i.i = phi ptr [ %.095, %137 ], [ %.039.i.i.i.be, %.backedge ]
-  %141 = sub nsw i64 %.059.i.i.i, %.057.i.i.i
-  %142 = icmp slt i64 %.057.i.i.i, %141
-  br i1 %142, label %143, label %153
+137:                                              ; preds = %.backedge, %134
+  %.059.i.i.i = phi i64 [ %126, %134 ], [ %.059.i.i.i.be, %.backedge ]
+  %.057.i.i.i = phi i64 [ %129, %134 ], [ %.057.i.i.i.be, %.backedge ]
+  %.039.i.i.i = phi ptr [ %.094, %134 ], [ %.039.i.i.i.be, %.backedge ]
+  %138 = sub nsw i64 %.059.i.i.i, %.057.i.i.i
+  %139 = icmp slt i64 %.057.i.i.i, %138
+  br i1 %139, label %140, label %150
 
-143:                                              ; preds = %140
-  %144 = icmp sgt i64 %141, 0
-  br i1 %144, label %.lr.ph69.preheader.i.i.i, label %._crit_edge70.i.i.i
+140:                                              ; preds = %137
+  %141 = icmp sgt i64 %138, 0
+  br i1 %141, label %.lr.ph69.preheader.i.i.i, label %._crit_edge70.i.i.i
 
-.lr.ph69.preheader.i.i.i:                         ; preds = %143
-  %145 = getelementptr inbounds %"struct.(anonymous namespace)::SynthesizeIvarChunk", ptr %.039.i.i.i, i64 %.057.i.i.i
+.lr.ph69.preheader.i.i.i:                         ; preds = %140
+  %142 = getelementptr inbounds %"struct.(anonymous namespace)::SynthesizeIvarChunk", ptr %.039.i.i.i, i64 %.057.i.i.i
   br label %.lr.ph69.i.i.i
 
 .lr.ph69.i.i.i:                                   ; preds = %.lr.ph69.i.i.i, %.lr.ph69.preheader.i.i.i
-  %.03667.i.i.i = phi i64 [ %148, %.lr.ph69.i.i.i ], [ 0, %.lr.ph69.preheader.i.i.i ]
-  %.03766.i.i.i = phi ptr [ %147, %.lr.ph69.i.i.i ], [ %145, %.lr.ph69.preheader.i.i.i ]
-  %.165.i.i.i = phi ptr [ %146, %.lr.ph69.i.i.i ], [ %.039.i.i.i, %.lr.ph69.preheader.i.i.i ]
+  %.03667.i.i.i = phi i64 [ %145, %.lr.ph69.i.i.i ], [ 0, %.lr.ph69.preheader.i.i.i ]
+  %.03766.i.i.i = phi ptr [ %144, %.lr.ph69.i.i.i ], [ %142, %.lr.ph69.preheader.i.i.i ]
+  %.165.i.i.i = phi ptr [ %143, %.lr.ph69.i.i.i ], [ %.039.i.i.i, %.lr.ph69.preheader.i.i.i ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull align 8 dereferenceable(16) %.165.i.i.i, i64 16, i1 false)
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.165.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %.03766.i.i.i, i64 16, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.03766.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %9, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9)
-  %146 = getelementptr inbounds i8, ptr %.165.i.i.i, i64 16
-  %147 = getelementptr inbounds i8, ptr %.03766.i.i.i, i64 16
-  %148 = add nuw nsw i64 %.03667.i.i.i, 1
-  %exitcond74.not.i.i.i = icmp eq i64 %148, %141
+  %143 = getelementptr inbounds i8, ptr %.165.i.i.i, i64 16
+  %144 = getelementptr inbounds i8, ptr %.03766.i.i.i, i64 16
+  %145 = add nuw nsw i64 %.03667.i.i.i, 1
+  %exitcond74.not.i.i.i = icmp eq i64 %145, %138
   br i1 %exitcond74.not.i.i.i, label %._crit_edge70.i.i.i, label %.lr.ph69.i.i.i, !llvm.loop !87
 
-._crit_edge70.i.i.i:                              ; preds = %.lr.ph69.i.i.i, %143
-  %.1.lcssa.i.i.i = phi ptr [ %.039.i.i.i, %143 ], [ %146, %.lr.ph69.i.i.i ]
-  %149 = srem i64 %.059.i.i.i, %.057.i.i.i
-  %150 = icmp eq i64 %149, 0
-  br i1 %150, label %_ZSt17__rotate_adaptiveIPN12_GLOBAL__N_119SynthesizeIvarChunkES2_lET_S3_S3_S3_T1_S4_T0_S4_.exit, label %151
+._crit_edge70.i.i.i:                              ; preds = %.lr.ph69.i.i.i, %140
+  %.1.lcssa.i.i.i = phi ptr [ %.039.i.i.i, %140 ], [ %143, %.lr.ph69.i.i.i ]
+  %146 = srem i64 %.059.i.i.i, %.057.i.i.i
+  %147 = icmp eq i64 %146, 0
+  br i1 %147, label %_ZSt17__rotate_adaptiveIPN12_GLOBAL__N_119SynthesizeIvarChunkES2_lET_S3_S3_S3_T1_S4_T0_S4_.exit, label %148
 
-151:                                              ; preds = %._crit_edge70.i.i.i
-  %152 = sub nsw i64 %.057.i.i.i, %149
+148:                                              ; preds = %._crit_edge70.i.i.i
+  %149 = sub nsw i64 %.057.i.i.i, %146
   br label %.backedge
 
-153:                                              ; preds = %140
-  %154 = getelementptr inbounds %"struct.(anonymous namespace)::SynthesizeIvarChunk", ptr %.039.i.i.i, i64 %.059.i.i.i
-  %155 = sub i64 0, %141
-  %156 = getelementptr inbounds %"struct.(anonymous namespace)::SynthesizeIvarChunk", ptr %154, i64 %155
-  %157 = icmp sgt i64 %.057.i.i.i, 0
-  br i1 %157, label %.lr.ph.i.i.i, label %._crit_edge.i.i.i
+150:                                              ; preds = %137
+  %151 = getelementptr inbounds %"struct.(anonymous namespace)::SynthesizeIvarChunk", ptr %.039.i.i.i, i64 %.059.i.i.i
+  %152 = sub i64 0, %138
+  %153 = getelementptr inbounds %"struct.(anonymous namespace)::SynthesizeIvarChunk", ptr %151, i64 %152
+  %154 = icmp sgt i64 %.057.i.i.i, 0
+  br i1 %154, label %.lr.ph.i.i.i, label %._crit_edge.i.i.i
 
-.lr.ph.i.i.i:                                     ; preds = %153, %.lr.ph.i.i.i
-  %.064.i.i.i = phi i64 [ %160, %.lr.ph.i.i.i ], [ 0, %153 ]
-  %.03563.i.i.i = phi ptr [ %159, %.lr.ph.i.i.i ], [ %154, %153 ]
-  %.362.i.i.i = phi ptr [ %158, %.lr.ph.i.i.i ], [ %156, %153 ]
-  %158 = getelementptr inbounds i8, ptr %.362.i.i.i, i64 -16
-  %159 = getelementptr inbounds i8, ptr %.03563.i.i.i, i64 -16
+.lr.ph.i.i.i:                                     ; preds = %150, %.lr.ph.i.i.i
+  %.064.i.i.i = phi i64 [ %157, %.lr.ph.i.i.i ], [ 0, %150 ]
+  %.03563.i.i.i = phi ptr [ %156, %.lr.ph.i.i.i ], [ %151, %150 ]
+  %.362.i.i.i = phi ptr [ %155, %.lr.ph.i.i.i ], [ %153, %150 ]
+  %155 = getelementptr inbounds i8, ptr %.362.i.i.i, i64 -16
+  %156 = getelementptr inbounds i8, ptr %.03563.i.i.i, i64 -16
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull align 8 dereferenceable(16) %158, i64 16, i1 false)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %158, ptr noundef nonnull align 8 dereferenceable(16) %159, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %159, ptr noundef nonnull align 8 dereferenceable(16) %8, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull align 8 dereferenceable(16) %155, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %155, ptr noundef nonnull align 8 dereferenceable(16) %156, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %156, ptr noundef nonnull align 8 dereferenceable(16) %8, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8)
-  %160 = add nuw nsw i64 %.064.i.i.i, 1
-  %exitcond.not.i.i.i = icmp eq i64 %160, %.057.i.i.i
+  %157 = add nuw nsw i64 %.064.i.i.i, 1
+  %exitcond.not.i.i.i = icmp eq i64 %157, %.057.i.i.i
   br i1 %exitcond.not.i.i.i, label %._crit_edge.i.i.i, label %.lr.ph.i.i.i, !llvm.loop !88
 
-._crit_edge.i.i.i:                                ; preds = %.lr.ph.i.i.i, %153
-  %.3.lcssa.i.i.i = phi ptr [ %156, %153 ], [ %.039.i.i.i, %.lr.ph.i.i.i ]
-  %161 = srem i64 %.059.i.i.i, %141
-  %162 = icmp eq i64 %161, 0
-  br i1 %162, label %_ZSt17__rotate_adaptiveIPN12_GLOBAL__N_119SynthesizeIvarChunkES2_lET_S3_S3_S3_T1_S4_T0_S4_.exit, label %.backedge
+._crit_edge.i.i.i:                                ; preds = %.lr.ph.i.i.i, %150
+  %.3.lcssa.i.i.i = phi ptr [ %153, %150 ], [ %.039.i.i.i, %.lr.ph.i.i.i ]
+  %158 = srem i64 %.059.i.i.i, %138
+  %159 = icmp eq i64 %158, 0
+  br i1 %159, label %_ZSt17__rotate_adaptiveIPN12_GLOBAL__N_119SynthesizeIvarChunkES2_lET_S3_S3_S3_T1_S4_T0_S4_.exit, label %.backedge
 
-.backedge:                                        ; preds = %._crit_edge.i.i.i, %151
-  %.059.i.i.i.be = phi i64 [ %.057.i.i.i, %151 ], [ %141, %._crit_edge.i.i.i ]
-  %.057.i.i.i.be = phi i64 [ %152, %151 ], [ %161, %._crit_edge.i.i.i ]
-  %.039.i.i.i.be = phi ptr [ %.1.lcssa.i.i.i, %151 ], [ %.3.lcssa.i.i.i, %._crit_edge.i.i.i ]
-  br label %140, !llvm.loop !89
+.backedge:                                        ; preds = %._crit_edge.i.i.i, %148
+  %.059.i.i.i.be = phi i64 [ %.057.i.i.i, %148 ], [ %138, %._crit_edge.i.i.i ]
+  %.057.i.i.i.be = phi i64 [ %149, %148 ], [ %158, %._crit_edge.i.i.i ]
+  %.039.i.i.i.be = phi ptr [ %.1.lcssa.i.i.i, %148 ], [ %.3.lcssa.i.i.i, %._crit_edge.i.i.i ]
+  br label %137, !llvm.loop !89
 
-_ZSt17__rotate_adaptiveIPN12_GLOBAL__N_119SynthesizeIvarChunkES2_lET_S3_S3_S3_T1_S4_T0_S4_.exit: ; preds = %._crit_edge70.i.i.i, %._crit_edge.i.i.i, %.lr.ph.i.i.i.i, %94, %_ZSt4moveIPN12_GLOBAL__N_119SynthesizeIvarChunkES2_ET0_T_S4_S3_.exit38.i, %108, %_ZSt13move_backwardIPN12_GLOBAL__N_119SynthesizeIvarChunkES2_ET0_T_S4_S3_.exit45.i, %121, %123
-  %.0.i84 = phi ptr [ %106, %_ZSt4moveIPN12_GLOBAL__N_119SynthesizeIvarChunkES2_ET0_T_S4_S3_.exit38.i ], [ %120, %_ZSt13move_backwardIPN12_GLOBAL__N_119SynthesizeIvarChunkES2_ET0_T_S4_S3_.exit45.i ], [ %.095, %94 ], [ %.094, %108 ], [ %.094, %121 ], [ %.095, %123 ], [ %.tr98116, %.lr.ph.i.i.i.i ], [ %139, %._crit_edge.i.i.i ], [ %139, %._crit_edge70.i.i.i ]
-  tail call fastcc void @_ZSt16__merge_adaptiveIPN12_GLOBAL__N_119SynthesizeIvarChunkElS2_N9__gnu_cxx5__ops15_Iter_less_iterEEvT_S6_S6_T0_S7_T1_S7_T2_(ptr noundef %.tr114, ptr noundef %.095, ptr noundef %.0.i84, i64 noundef %.0, i64 noundef %.055, ptr noundef %5, i64 noundef %6)
-  %163 = sub nsw i64 %.tr101119, %.055
-  %.not = icmp sgt i64 %92, %163
-  %.not59 = icmp sgt i64 %92, %6
+_ZSt17__rotate_adaptiveIPN12_GLOBAL__N_119SynthesizeIvarChunkES2_lET_S3_S3_S3_T1_S4_T0_S4_.exit: ; preds = %._crit_edge70.i.i.i, %._crit_edge.i.i.i, %.lr.ph.i.i.i.i, %91, %_ZSt4moveIPN12_GLOBAL__N_119SynthesizeIvarChunkES2_ET0_T_S4_S3_.exit38.i, %105, %_ZSt13move_backwardIPN12_GLOBAL__N_119SynthesizeIvarChunkES2_ET0_T_S4_S3_.exit45.i, %118, %120
+  %.0.i83 = phi ptr [ %103, %_ZSt4moveIPN12_GLOBAL__N_119SynthesizeIvarChunkES2_ET0_T_S4_S3_.exit38.i ], [ %117, %_ZSt13move_backwardIPN12_GLOBAL__N_119SynthesizeIvarChunkES2_ET0_T_S4_S3_.exit45.i ], [ %.094, %91 ], [ %.093, %105 ], [ %.093, %118 ], [ %.094, %120 ], [ %.tr97115, %.lr.ph.i.i.i.i ], [ %136, %._crit_edge.i.i.i ], [ %136, %._crit_edge70.i.i.i ]
+  tail call fastcc void @_ZSt16__merge_adaptiveIPN12_GLOBAL__N_119SynthesizeIvarChunkElS2_N9__gnu_cxx5__ops15_Iter_less_iterEEvT_S6_S6_T0_S7_T1_S7_T2_(ptr noundef %.tr113, ptr noundef %.094, ptr noundef %.0.i83, i64 noundef %.0, i64 noundef %.055, ptr noundef %5, i64 noundef %6)
+  %160 = sub nsw i64 %.tr100118, %.055
+  %.not = icmp sgt i64 %89, %160
+  %.not59 = icmp sgt i64 %89, %6
   %or.cond = or i1 %.not59, %.not
   br i1 %or.cond, label %33, label %tailrecurse._crit_edge
 
-_ZSt21__move_merge_adaptiveIPN12_GLOBAL__N_119SynthesizeIvarChunkES2_S2_N9__gnu_cxx5__ops15_Iter_less_iterEEvT_S6_T0_S7_T1_T2_.exit: ; preds = %57, %35, %51, %49, %38, %_ZSt4moveIPN12_GLOBAL__N_119SynthesizeIvarChunkES2_ET0_T_S4_S3_.exit.i, %._crit_edge.i
+_ZSt21__move_merge_adaptiveIPN12_GLOBAL__N_119SynthesizeIvarChunkES2_S2_N9__gnu_cxx5__ops15_Iter_less_iterEEvT_S6_T0_S7_T1_T2_.exit: ; preds = %48, %34, %_ZSt13move_backwardIPN12_GLOBAL__N_119SynthesizeIvarChunkES2_ET0_T_S4_S3_.exit.sink.split.i, %46, %_ZSt4moveIPN12_GLOBAL__N_119SynthesizeIvarChunkES2_ET0_T_S4_S3_.exit.i, %._crit_edge.i
   ret void
 }
 

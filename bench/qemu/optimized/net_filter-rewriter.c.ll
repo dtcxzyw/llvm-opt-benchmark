@@ -175,12 +175,12 @@ if.end:                                           ; preds = %if.then, %entry
   %conv5 = trunc i64 %call1 to i32
   %call7 = tail call ptr @packet_new_nocopy(ptr noundef %call2, i32 noundef %conv5, i32 noundef %vnet_hdr_len.0) #9
   %tobool8.not = icmp eq ptr %call7, null
-  br i1 %tobool8.not, label %out, label %land.lhs.true
+  br i1 %tobool8.not, label %return, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %if.end
   %call.i32 = tail call i32 @parse_packet_early(ptr noundef nonnull %call7) #9
   %tobool.not.i = icmp eq i32 %call.i32, 0
-  br i1 %tobool.not.i, label %land.lhs.true.i, label %out
+  br i1 %tobool.not.i, label %land.lhs.true.i, label %return
 
 land.lhs.true.i:                                  ; preds = %land.lhs.true
   %3 = getelementptr inbounds i8, ptr %call7, i64 8
@@ -188,7 +188,7 @@ land.lhs.true.i:                                  ; preds = %land.lhs.true
   %ip_p.i = getelementptr inbounds i8, ptr %4, i64 9
   %5 = load i8, ptr %ip_p.i, align 1
   %cmp.i = icmp eq i8 %5, 6
-  br i1 %cmp.i, label %if.then11, label %out
+  br i1 %cmp.i, label %if.then11, label %return
 
 if.then11:                                        ; preds = %land.lhs.true.i
   %netdev12 = getelementptr inbounds i8, ptr %nf, i64 48
@@ -204,7 +204,7 @@ land.lhs.true16:                                  ; preds = %if.then11
   %connection_track_table = getelementptr inbounds i8, ptr %call.i, i64 104
   %8 = load ptr, ptr %connection_track_table, align 8
   %call17 = call zeroext i1 @connection_has_tracked(ptr noundef %8, ptr noundef nonnull %key) #9
-  br i1 %call17, label %if.end19, label %out
+  br i1 %call17, label %if.end19, label %return
 
 if.end19:                                         ; preds = %land.lhs.true16, %if.then11
   %connection_track_table20 = getelementptr inbounds i8, ptr %call.i, i64 104
@@ -427,84 +427,73 @@ if.end79.i:                                       ; preds = %if.then75.i, %land.
   %54 = load i8, ptr %th_flags22.i, align 1
   %55 = and i8 %54, 1
   %cmp83.not.i = icmp eq i8 %55, 0
-  br i1 %cmp83.not.i, label %handle_primary_tcp_pkt.exit, label %if.then85.i
+  br i1 %cmp83.not.i, label %return.sink.split, label %if.then85.i
 
 if.then85.i:                                      ; preds = %if.end79.i
   %tcp_state86.i = getelementptr inbounds i8, ptr %call21, i64 68
   %56 = load i32, ptr %tcp_state86.i, align 4
-  switch i32 %56, label %handle_primary_tcp_pkt.exit [
+  switch i32 %56, label %return.sink.split [
     i32 4, label %if.end91.thread.i
     i32 6, label %if.then95.i
   ]
 
 if.end91.thread.i:                                ; preds = %if.then85.i
   store i32 5, ptr %tcp_state86.i, align 4
-  br label %handle_primary_tcp_pkt.exit
+  br label %return.sink.split
 
 if.then95.i:                                      ; preds = %if.then85.i
   store i32 0, ptr %tcp_state86.i, align 4
   %57 = load ptr, ptr %connection_track_table20, align 8
   %call98.i = call i32 @g_hash_table_remove(ptr noundef %57, ptr noundef nonnull %key) #9
-  br label %handle_primary_tcp_pkt.exit
-
-handle_primary_tcp_pkt.exit:                      ; preds = %if.end79.i, %if.then85.i, %if.end91.thread.i, %if.then95.i
-  %incoming_queue = getelementptr inbounds i8, ptr %call.i, i64 96
-  %58 = load ptr, ptr %incoming_queue, align 8
-  %59 = load ptr, ptr %call7, align 8
-  %size29 = getelementptr inbounds i8, ptr %call7, i64 24
-  %60 = load i32, ptr %size29, align 8
-  %conv30 = sext i32 %60 to i64
-  %call31 = call i64 @qemu_net_queue_send(ptr noundef %58, ptr noundef %sender, i32 noundef 0, ptr noundef %59, i64 noundef %conv30, ptr noundef null) #9
-  call void @packet_destroy(ptr noundef nonnull %call7, ptr noundef null) #9
-  br label %return
+  br label %return.sink.split
 
 if.else:                                          ; preds = %if.end19
   br i1 %or.cond.i36, label %if.then.i61, label %if.end.i45
 
 if.then.i61:                                      ; preds = %if.else
-  %61 = load ptr, ptr %3, align 8
-  %ip_src.i62 = getelementptr inbounds i8, ptr %61, i64 12
-  %62 = load i32, ptr %ip_src.i62, align 1
-  %call.i63 = call ptr @inet_ntoa(i32 %62) #9
-  %63 = load ptr, ptr %3, align 8
-  %ip_dst.i64 = getelementptr inbounds i8, ptr %63, i64 16
-  %64 = load i32, ptr %ip_dst.i64, align 1
-  %call6.i65 = call ptr @inet_ntoa(i32 %64) #9
+  %58 = load ptr, ptr %3, align 8
+  %ip_src.i62 = getelementptr inbounds i8, ptr %58, i64 12
+  %59 = load i32, ptr %ip_src.i62, align 1
+  %call.i63 = call ptr @inet_ntoa(i32 %59) #9
+  %60 = load ptr, ptr %3, align 8
+  %ip_dst.i64 = getelementptr inbounds i8, ptr %60, i64 16
+  %61 = load i32, ptr %ip_dst.i64, align 1
+  %call6.i65 = call ptr @inet_ntoa(i32 %61) #9
   %th_seq.i66 = getelementptr inbounds i8, ptr %11, i64 4
-  %65 = load i32, ptr %th_seq.i66, align 4
-  %call7.i67 = call i32 @ntohl(i32 noundef %65) #11
+  %62 = load i32, ptr %th_seq.i66, align 4
+  %call7.i67 = call i32 @ntohl(i32 noundef %62) #11
   %th_ack.i68 = getelementptr inbounds i8, ptr %11, i64 8
-  %66 = load i32, ptr %th_ack.i68, align 4
-  %call8.i69 = call i32 @ntohl(i32 noundef %66) #11
+  %63 = load i32, ptr %th_ack.i68, align 4
+  %call8.i69 = call i32 @ntohl(i32 noundef %63) #11
   %th_flags.i70 = getelementptr inbounds i8, ptr %11, i64 13
-  %67 = load i8, ptr %th_flags.i70, align 1
-  %conv9.i71 = zext i8 %67 to i32
+  %64 = load i8, ptr %th_flags.i70, align 1
+  %conv9.i71 = zext i8 %64 to i32
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i.i40)
-  %68 = load i32, ptr @trace_events_enabled_count, align 4
-  %tobool.i.i.i72 = icmp ne i32 %68, 0
-  %69 = load i16, ptr @_TRACE_COLO_FILTER_REWRITER_PKT_INFO_DSTATE, align 2
-  %tobool4.i.i.i73 = icmp ne i16 %69, 0
+  %65 = load i32, ptr @trace_events_enabled_count, align 4
+  %tobool.i.i.i72 = icmp ne i32 %65, 0
+  %66 = load i16, ptr @_TRACE_COLO_FILTER_REWRITER_PKT_INFO_DSTATE, align 2
+  %tobool4.i.i.i73 = icmp ne i16 %66, 0
   %or.cond.i.i.i74 = select i1 %tobool.i.i.i72, i1 %tobool4.i.i.i73, i1 false
   br i1 %or.cond.i.i.i74, label %land.lhs.true5.i.i.i77, label %trace_colo_filter_rewriter_pkt_info.exit.i75
 
 land.lhs.true5.i.i.i77:                           ; preds = %if.then.i61
-  %70 = load i32, ptr @qemu_loglevel, align 4
-  %and.i.i.i.i78 = and i32 %70, 32768
+  %67 = load i32, ptr @qemu_loglevel, align 4
+  %and.i.i.i.i78 = and i32 %67, 32768
   %cmp.i.not.i.i.i79 = icmp eq i32 %and.i.i.i.i78, 0
   br i1 %cmp.i.not.i.i.i79, label %trace_colo_filter_rewriter_pkt_info.exit.i75, label %if.then.i.i.i80
 
 if.then.i.i.i80:                                  ; preds = %land.lhs.true5.i.i.i77
-  %71 = load i8, ptr @message_with_timestamp, align 1
-  %tobool7.i.i.i81 = trunc i8 %71 to i1
+  %68 = load i8, ptr @message_with_timestamp, align 1
+  %tobool7.i.i.i81 = trunc i8 %68 to i1
   br i1 %tobool7.i.i.i81, label %if.then8.i.i.i83, label %if.else.i.i.i82
 
 if.then8.i.i.i83:                                 ; preds = %if.then.i.i.i80
   %call9.i.i.i84 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i.i40, ptr noundef null) #9
   %call10.i.i.i85 = call i32 @qemu_get_thread_id() #9
-  %72 = load i64, ptr %_now.i.i.i40, align 8
+  %69 = load i64, ptr %_now.i.i.i40, align 8
   %tv_usec.i.i.i86 = getelementptr inbounds i8, ptr %_now.i.i.i40, i64 8
-  %73 = load i64, ptr %tv_usec.i.i.i86, align 8
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.5, i32 noundef %call10.i.i.i85, i64 noundef %72, i64 noundef %73, ptr noundef nonnull @__func__.handle_secondary_tcp_pkt, ptr noundef %call.i63, ptr noundef %call6.i65, i32 noundef %call7.i67, i32 noundef %call8.i69, i32 noundef %conv9.i71) #9
+  %70 = load i64, ptr %tv_usec.i.i.i86, align 8
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.5, i32 noundef %call10.i.i.i85, i64 noundef %69, i64 noundef %70, ptr noundef nonnull @__func__.handle_secondary_tcp_pkt, ptr noundef %call.i63, ptr noundef %call6.i65, i32 noundef %call7.i67, i32 noundef %call8.i69, i32 noundef %conv9.i71) #9
   br label %trace_colo_filter_rewriter_pkt_info.exit.i75
 
 if.else.i.i.i82:                                  ; preds = %if.then.i.i.i80
@@ -517,38 +506,38 @@ trace_colo_filter_rewriter_pkt_info.exit.i75:     ; preds = %if.else.i.i.i82, %i
   br label %if.end.i45
 
 if.end.i45:                                       ; preds = %trace_colo_filter_rewriter_pkt_info.exit.i75, %if.else
-  %74 = phi i32 [ %.pre.i76, %trace_colo_filter_rewriter_pkt_info.exit.i75 ], [ %12, %if.else ]
-  %tobool10.i46 = icmp ne i32 %74, 0
-  %75 = load i16, ptr @_TRACE_COLO_FILTER_REWRITER_CONN_OFFSET_DSTATE, align 2
-  %tobool19.i47 = icmp ne i16 %75, 0
+  %71 = phi i32 [ %.pre.i76, %trace_colo_filter_rewriter_pkt_info.exit.i75 ], [ %12, %if.else ]
+  %tobool10.i46 = icmp ne i32 %71, 0
+  %72 = load i16, ptr @_TRACE_COLO_FILTER_REWRITER_CONN_OFFSET_DSTATE, align 2
+  %tobool19.i47 = icmp ne i16 %72, 0
   %or.cond1.i48 = select i1 %tobool10.i46, i1 %tobool19.i47, i1 false
   br i1 %or.cond1.i48, label %land.lhs.true5.i.i34.i, label %if.end21.i49
 
 land.lhs.true5.i.i34.i:                           ; preds = %if.end.i45
   %offset.i59 = getelementptr inbounds i8, ptr %call21, i64 64
-  %76 = load i32, ptr %offset.i59, align 8
+  %73 = load i32, ptr %offset.i59, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i30.i)
-  %77 = load i32, ptr @qemu_loglevel, align 4
-  %and.i.i.i35.i = and i32 %77, 32768
+  %74 = load i32, ptr @qemu_loglevel, align 4
+  %and.i.i.i35.i = and i32 %74, 32768
   %cmp.i.not.i.i36.i = icmp eq i32 %and.i.i.i35.i, 0
   br i1 %cmp.i.not.i.i36.i, label %trace_colo_filter_rewriter_conn_offset.exit.i60, label %if.then.i.i37.i
 
 if.then.i.i37.i:                                  ; preds = %land.lhs.true5.i.i34.i
-  %78 = load i8, ptr @message_with_timestamp, align 1
-  %tobool7.i.i38.i = trunc i8 %78 to i1
+  %75 = load i8, ptr @message_with_timestamp, align 1
+  %tobool7.i.i38.i = trunc i8 %75 to i1
   br i1 %tobool7.i.i38.i, label %if.then8.i.i40.i, label %if.else.i.i39.i
 
 if.then8.i.i40.i:                                 ; preds = %if.then.i.i37.i
   %call9.i.i41.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i30.i, ptr noundef null) #9
   %call10.i.i42.i = call i32 @qemu_get_thread_id() #9
-  %79 = load i64, ptr %_now.i.i30.i, align 8
+  %76 = load i64, ptr %_now.i.i30.i, align 8
   %tv_usec.i.i43.i = getelementptr inbounds i8, ptr %_now.i.i30.i, i64 8
-  %80 = load i64, ptr %tv_usec.i.i43.i, align 8
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.7, i32 noundef %call10.i.i42.i, i64 noundef %79, i64 noundef %80, i32 noundef %76) #9
+  %77 = load i64, ptr %tv_usec.i.i43.i, align 8
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.7, i32 noundef %call10.i.i42.i, i64 noundef %76, i64 noundef %77, i32 noundef %73) #9
   br label %trace_colo_filter_rewriter_conn_offset.exit.i60
 
 if.else.i.i39.i:                                  ; preds = %if.then.i.i37.i
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.8, i32 noundef %76) #9
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.8, i32 noundef %73) #9
   br label %trace_colo_filter_rewriter_conn_offset.exit.i60
 
 trace_colo_filter_rewriter_conn_offset.exit.i60:  ; preds = %if.else.i.i39.i, %if.then8.i.i40.i, %land.lhs.true5.i.i34.i
@@ -557,32 +546,32 @@ trace_colo_filter_rewriter_conn_offset.exit.i60:  ; preds = %if.else.i.i39.i, %i
 
 if.end21.i49:                                     ; preds = %trace_colo_filter_rewriter_conn_offset.exit.i60, %if.end.i45
   %tcp_state.i50 = getelementptr inbounds i8, ptr %call21, i64 68
-  %81 = load i32, ptr %tcp_state.i50, align 4
-  switch i32 %81, label %if.end44.i [
+  %78 = load i32, ptr %tcp_state.i50, align 4
+  switch i32 %78, label %if.end44.i [
     i32 3, label %land.lhs.true23.i
     i32 0, label %land.lhs.true36.i
   ]
 
 land.lhs.true23.i:                                ; preds = %if.end21.i49
   %th_flags24.i = getelementptr inbounds i8, ptr %11, i64 13
-  %82 = load i8, ptr %th_flags24.i, align 1
-  %83 = and i8 %82, 18
-  %cmp26.i57 = icmp eq i8 %83, 18
+  %79 = load i8, ptr %th_flags24.i, align 1
+  %80 = and i8 %79, 18
+  %cmp26.i57 = icmp eq i8 %80, 18
   br i1 %cmp26.i57, label %if.then28.i58, label %if.end44.i
 
 if.then28.i58:                                    ; preds = %land.lhs.true23.i
   %th_seq29.i = getelementptr inbounds i8, ptr %11, i64 4
-  %84 = load i32, ptr %th_seq29.i, align 4
-  %call30.i = call i32 @ntohl(i32 noundef %84) #11
+  %81 = load i32, ptr %th_seq29.i, align 4
+  %call30.i = call i32 @ntohl(i32 noundef %81) #11
   %offset31.i = getelementptr inbounds i8, ptr %call21, i64 64
   store i32 %call30.i, ptr %offset31.i, align 8
   br label %if.end44.i
 
 land.lhs.true36.i:                                ; preds = %if.end21.i49
   %th_flags37.i = getelementptr inbounds i8, ptr %11, i64 13
-  %85 = load i8, ptr %th_flags37.i, align 1
-  %86 = and i8 %85, 18
-  %cmp40.i = icmp eq i8 %86, 2
+  %82 = load i8, ptr %th_flags37.i, align 1
+  %83 = and i8 %82, 18
+  %cmp40.i = icmp eq i8 %83, 2
   br i1 %cmp40.i, label %if.then42.i, label %if.end44.i
 
 if.then42.i:                                      ; preds = %land.lhs.true36.i
@@ -590,87 +579,83 @@ if.then42.i:                                      ; preds = %land.lhs.true36.i
   br label %if.end44.i
 
 if.end44.i:                                       ; preds = %if.then42.i, %land.lhs.true36.i, %if.then28.i58, %land.lhs.true23.i, %if.end21.i49
-  %87 = phi i32 [ %81, %if.end21.i49 ], [ 3, %land.lhs.true23.i ], [ 3, %if.then28.i58 ], [ 2, %if.then42.i ], [ 0, %land.lhs.true36.i ]
+  %84 = phi i32 [ %78, %if.end21.i49 ], [ 3, %land.lhs.true23.i ], [ 3, %if.then28.i58 ], [ 2, %if.then42.i ], [ 0, %land.lhs.true36.i ]
   %th_flags45.i = getelementptr inbounds i8, ptr %11, i64 13
-  %88 = load i8, ptr %th_flags45.i, align 1
-  %89 = and i8 %88, 18
-  %cmp48.i = icmp eq i8 %89, 16
+  %85 = load i8, ptr %th_flags45.i, align 1
+  %86 = and i8 %85, 18
+  %cmp48.i = icmp eq i8 %86, 16
   br i1 %cmp48.i, label %if.then50.i, label %if.end62.i
 
 if.then50.i:                                      ; preds = %if.end44.i
   %offset51.i52 = getelementptr inbounds i8, ptr %call21, i64 64
-  %90 = load i32, ptr %offset51.i52, align 8
-  %tobool52.not.i = icmp eq i32 %90, 0
+  %87 = load i32, ptr %offset51.i52, align 8
+  %tobool52.not.i = icmp eq i32 %87, 0
   br i1 %tobool52.not.i, label %if.end62.i, label %if.then53.i
 
 if.then53.i:                                      ; preds = %if.then50.i
   %th_seq54.i = getelementptr inbounds i8, ptr %11, i64 4
-  %91 = load i32, ptr %th_seq54.i, align 4
-  %call55.i = call i32 @ntohl(i32 noundef %91) #11
-  %sub.i = sub i32 %call55.i, %90
+  %88 = load i32, ptr %th_seq54.i, align 4
+  %call55.i = call i32 @ntohl(i32 noundef %88) #11
+  %sub.i = sub i32 %call55.i, %87
   %call57.i = call i32 @htonl(i32 noundef %sub.i) #11
   store i32 %call57.i, ptr %th_seq54.i, align 4
-  %92 = load ptr, ptr %call7, align 8
+  %89 = load ptr, ptr %call7, align 8
   %vnet_hdr_len.i53 = getelementptr inbounds i8, ptr %call7, i64 40
-  %93 = load i32, ptr %vnet_hdr_len.i53, align 8
-  %idx.ext.i54 = zext i32 %93 to i64
-  %add.ptr.i55 = getelementptr i8, ptr %92, i64 %idx.ext.i54
+  %90 = load i32, ptr %vnet_hdr_len.i53, align 8
+  %idx.ext.i54 = zext i32 %90 to i64
+  %add.ptr.i55 = getelementptr i8, ptr %89, i64 %idx.ext.i54
   %size.i56 = getelementptr inbounds i8, ptr %call7, i64 24
-  %94 = load i32, ptr %size.i56, align 8
-  %sub60.i = sub i32 %94, %93
+  %91 = load i32, ptr %size.i56, align 8
+  %sub60.i = sub i32 %91, %90
   call void @net_checksum_calculate(ptr noundef %add.ptr.i55, i32 noundef %sub60.i, i32 noundef 2) #9
   %.pre3.i = load i32, ptr %tcp_state.i50, align 4
   br label %if.end62.i
 
 if.end62.i:                                       ; preds = %if.then53.i, %if.then50.i, %if.end44.i
-  %.pr.i = phi i32 [ %87, %if.then50.i ], [ %.pre3.i, %if.then53.i ], [ %87, %if.end44.i ]
-  switch i32 %.pr.i, label %handle_secondary_tcp_pkt.exit [
+  %.pr.i = phi i32 [ %84, %if.then50.i ], [ %.pre3.i, %if.then53.i ], [ %84, %if.end44.i ]
+  switch i32 %.pr.i, label %return.sink.split [
     i32 5, label %land.lhs.true66.i
     i32 4, label %land.lhs.true80.i
   ]
 
 land.lhs.true66.i:                                ; preds = %if.end62.i
-  %95 = load i8, ptr %th_flags45.i, align 1
-  %96 = and i8 %95, 17
-  %cmp70.i = icmp eq i8 %96, 17
-  br i1 %cmp70.i, label %if.end76.thread.i, label %handle_secondary_tcp_pkt.exit
+  %92 = load i8, ptr %th_flags45.i, align 1
+  %93 = and i8 %92, 17
+  %cmp70.i = icmp eq i8 %93, 17
+  br i1 %cmp70.i, label %if.end76.thread.i, label %return.sink.split
 
 if.end76.thread.i:                                ; preds = %land.lhs.true66.i
   %th_seq73.i = getelementptr inbounds i8, ptr %11, i64 4
-  %97 = load i32, ptr %th_seq73.i, align 4
-  %call74.i = call i32 @ntohl(i32 noundef %97) #11
+  %94 = load i32, ptr %th_seq73.i, align 4
+  %call74.i = call i32 @ntohl(i32 noundef %94) #11
   %fin_ack_seq.i51 = getelementptr inbounds i8, ptr %call21, i64 72
   store i32 %call74.i, ptr %fin_ack_seq.i51, align 8
   br label %if.end88.sink.split.i
 
 land.lhs.true80.i:                                ; preds = %if.end62.i
-  %98 = load i8, ptr %th_flags45.i, align 1
-  %99 = and i8 %98, 17
-  %cmp84.i = icmp eq i8 %99, 1
-  br i1 %cmp84.i, label %if.end88.sink.split.i, label %handle_secondary_tcp_pkt.exit
+  %95 = load i8, ptr %th_flags45.i, align 1
+  %96 = and i8 %95, 17
+  %cmp84.i = icmp eq i8 %96, 1
+  br i1 %cmp84.i, label %if.end88.sink.split.i, label %return.sink.split
 
 if.end88.sink.split.i:                            ; preds = %land.lhs.true80.i, %if.end76.thread.i
   %.sink.i = phi i32 [ 8, %if.end76.thread.i ], [ 6, %land.lhs.true80.i ]
   store i32 %.sink.i, ptr %tcp_state.i50, align 4
-  br label %handle_secondary_tcp_pkt.exit
+  br label %return.sink.split
 
-handle_secondary_tcp_pkt.exit:                    ; preds = %if.end62.i, %land.lhs.true66.i, %land.lhs.true80.i, %if.end88.sink.split.i
+return.sink.split:                                ; preds = %if.end88.sink.split.i, %land.lhs.true80.i, %land.lhs.true66.i, %if.end62.i, %if.then95.i, %if.end91.thread.i, %if.then85.i, %if.end79.i
   %incoming_queue36 = getelementptr inbounds i8, ptr %call.i, i64 96
-  %100 = load ptr, ptr %incoming_queue36, align 8
-  %101 = load ptr, ptr %call7, align 8
+  %97 = load ptr, ptr %incoming_queue36, align 8
+  %98 = load ptr, ptr %call7, align 8
   %size38 = getelementptr inbounds i8, ptr %call7, i64 24
-  %102 = load i32, ptr %size38, align 8
-  %conv39 = sext i32 %102 to i64
-  %call40 = call i64 @qemu_net_queue_send(ptr noundef %100, ptr noundef %sender, i32 noundef 0, ptr noundef %101, i64 noundef %conv39, ptr noundef null) #9
-  call void @packet_destroy(ptr noundef nonnull %call7, ptr noundef null) #9
+  %99 = load i32, ptr %size38, align 8
+  %conv39 = sext i32 %99 to i64
+  %call40 = call i64 @qemu_net_queue_send(ptr noundef %97, ptr noundef %sender, i32 noundef 0, ptr noundef %98, i64 noundef %conv39, ptr noundef null) #9
   br label %return
 
-out:                                              ; preds = %land.lhs.true.i, %land.lhs.true, %if.end, %land.lhs.true16
+return:                                           ; preds = %return.sink.split, %land.lhs.true16, %if.end, %land.lhs.true, %land.lhs.true.i
+  %retval.0 = phi i64 [ 0, %land.lhs.true.i ], [ 0, %land.lhs.true ], [ 0, %if.end ], [ 0, %land.lhs.true16 ], [ 1, %return.sink.split ]
   call void @packet_destroy(ptr noundef %call7, ptr noundef null) #9
-  br label %return
-
-return:                                           ; preds = %out, %handle_secondary_tcp_pkt.exit, %handle_primary_tcp_pkt.exit
-  %retval.0 = phi i64 [ 0, %out ], [ 1, %handle_primary_tcp_pkt.exit ], [ 1, %handle_secondary_tcp_pkt.exit ]
   ret i64 %retval.0
 }
 

@@ -636,20 +636,20 @@ if.else:                                          ; preds = %entry
 
 if.then2:                                         ; preds = %if.else
   %tobool3.not = icmp eq ptr %valueDeleter, null
-  br i1 %tobool3.not, label %if.end9, label %if.then4
-
-if.then4:                                         ; preds = %if.then2
-  tail call void %valueDeleter(ptr noundef nonnull %0)
-  br label %if.end9
+  br i1 %tobool3.not, label %if.end9, label %if.end9.sink.split
 
 delete.notnull:                                   ; preds = %if.else
   %vtable = load ptr, ptr %0, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 8
   %2 = load ptr, ptr %vfn, align 8
-  tail call void %2(ptr noundef nonnull align 8 dereferenceable(40) %0) #21
+  br label %if.end9.sink.split
+
+if.end9.sink.split:                               ; preds = %if.then2, %delete.notnull
+  %valueDeleter.sink = phi ptr [ %2, %delete.notnull ], [ %valueDeleter, %if.then2 ]
+  tail call void %valueDeleter.sink(ptr noundef nonnull %0)
   br label %if.end9
 
-if.end9:                                          ; preds = %if.then4, %if.then2, %delete.notnull, %entry
+if.end9:                                          ; preds = %if.end9.sink.split, %if.then2, %entry
   ret void
 }
 
@@ -849,104 +849,109 @@ for.body.lr.ph:                                   ; preds = %entry
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
+  %1 = phi i32 [ %0, %for.body.lr.ph ], [ %7, %for.inc ]
   %indvars.iv = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next, %for.inc ]
-  %1 = load ptr, ptr %fNodes, align 8
-  %arrayidx = getelementptr inbounds %"struct.icu_75::CharacterNode", ptr %1, i64 %indvars.iv
-  %2 = load ptr, ptr %fValueDeleter, align 8
-  %3 = load ptr, ptr %arrayidx, align 8
-  %cmp.i = icmp eq ptr %3, null
+  %2 = load ptr, ptr %fNodes, align 8
+  %arrayidx = getelementptr inbounds %"struct.icu_75::CharacterNode", ptr %2, i64 %indvars.iv
+  %3 = load ptr, ptr %fValueDeleter, align 8
+  %4 = load ptr, ptr %arrayidx, align 8
+  %cmp.i = icmp eq ptr %4, null
   br i1 %cmp.i, label %for.inc, label %if.else.i
 
 if.else.i:                                        ; preds = %for.body
   %fHasValuesVector.i = getelementptr inbounds i8, ptr %arrayidx, i64 14
-  %4 = load i8, ptr %fHasValuesVector.i, align 2
-  %tobool.not.i = icmp eq i8 %4, 0
+  %5 = load i8, ptr %fHasValuesVector.i, align 2
+  %tobool.not.i = icmp eq i8 %5, 0
   br i1 %tobool.not.i, label %if.then2.i, label %delete.notnull.i
 
 if.then2.i:                                       ; preds = %if.else.i
-  %tobool3.not.i = icmp eq ptr %2, null
-  br i1 %tobool3.not.i, label %for.inc, label %if.then4.i
-
-if.then4.i:                                       ; preds = %if.then2.i
-  invoke void %2(ptr noundef nonnull %3)
-          to label %for.inc unwind label %terminate.lpad.loopexit.split-lp.loopexit
+  %tobool3.not.i = icmp eq ptr %3, null
+  br i1 %tobool3.not.i, label %for.inc, label %if.end9.sink.split.i
 
 delete.notnull.i:                                 ; preds = %if.else.i
-  %vtable.i = load ptr, ptr %3, align 8
+  %vtable.i = load ptr, ptr %4, align 8
   %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 8
-  %5 = load ptr, ptr %vfn.i, align 8
-  tail call void %5(ptr noundef nonnull align 8 dereferenceable(40) %3) #21
+  %6 = load ptr, ptr %vfn.i, align 8
+  br label %if.end9.sink.split.i
+
+if.end9.sink.split.i:                             ; preds = %delete.notnull.i, %if.then2.i
+  %valueDeleter.sink.i = phi ptr [ %6, %delete.notnull.i ], [ %3, %if.then2.i ]
+  invoke void %valueDeleter.sink.i(ptr noundef nonnull %4)
+          to label %if.end9.sink.split.i.for.inc_crit_edge unwind label %terminate.lpad.loopexit.split-lp.loopexit
+
+if.end9.sink.split.i.for.inc_crit_edge:           ; preds = %if.end9.sink.split.i
+  %.pre = load i32, ptr %fNodesCount, align 4
   br label %for.inc
 
-for.inc:                                          ; preds = %delete.notnull.i, %if.then2.i, %for.body, %if.then4.i
+for.inc:                                          ; preds = %if.end9.sink.split.i.for.inc_crit_edge, %if.then2.i, %for.body
+  %7 = phi i32 [ %.pre, %if.end9.sink.split.i.for.inc_crit_edge ], [ %1, %if.then2.i ], [ %1, %for.body ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %6 = load i32, ptr %fNodesCount, align 4
-  %7 = sext i32 %6 to i64
-  %cmp = icmp slt i64 %indvars.iv.next, %7
+  %8 = sext i32 %7 to i64
+  %cmp = icmp slt i64 %indvars.iv.next, %8
   br i1 %cmp, label %for.body, label %for.end, !llvm.loop !4
 
 for.end:                                          ; preds = %for.inc, %entry
   %fNodes2 = getelementptr inbounds i8, ptr %this, i64 16
-  %8 = load ptr, ptr %fNodes2, align 8
-  invoke void @uprv_free_75(ptr noundef %8)
+  %9 = load ptr, ptr %fNodes2, align 8
+  invoke void @uprv_free_75(ptr noundef %9)
           to label %invoke.cont3 unwind label %terminate.lpad.loopexit.split-lp.loopexit.split-lp
 
 invoke.cont3:                                     ; preds = %for.end
   %fLazyContents = getelementptr inbounds i8, ptr %this, i64 32
-  %9 = load ptr, ptr %fLazyContents, align 8
-  %cmp4.not = icmp eq ptr %9, null
+  %10 = load ptr, ptr %fLazyContents, align 8
+  %cmp4.not = icmp eq ptr %10, null
   br i1 %cmp4.not, label %if.end21, label %for.cond5.preheader
 
 for.cond5.preheader:                              ; preds = %invoke.cont3
-  %count.i12 = getelementptr inbounds i8, ptr %9, i64 8
-  %10 = load i32, ptr %count.i12, align 8
-  %cmp813 = icmp sgt i32 %10, 0
+  %count.i12 = getelementptr inbounds i8, ptr %10, i64 8
+  %11 = load i32, ptr %count.i12, align 8
+  %cmp813 = icmp sgt i32 %11, 0
   br i1 %cmp813, label %for.body9.lr.ph, label %delete.notnull
 
 for.body9.lr.ph:                                  ; preds = %for.cond5.preheader
   %fValueDeleter10 = getelementptr inbounds i8, ptr %this, i64 48
-  %11 = load ptr, ptr %fValueDeleter10, align 8
-  %12 = icmp eq ptr %11, null
-  br i1 %12, label %delete.notnull, label %for.body9
+  %12 = load ptr, ptr %fValueDeleter10, align 8
+  %13 = icmp eq ptr %12, null
+  br i1 %13, label %delete.notnull, label %for.body9
 
 for.body9thread-pre-split:                        ; preds = %for.inc17
   %.pr = load ptr, ptr %fValueDeleter10, align 8
   br label %for.body9
 
 for.body9:                                        ; preds = %for.body9.lr.ph, %for.body9thread-pre-split
-  %13 = phi ptr [ %.pr, %for.body9thread-pre-split ], [ %11, %for.body9.lr.ph ]
-  %14 = phi ptr [ %15, %for.body9thread-pre-split ], [ %9, %for.body9.lr.ph ]
+  %14 = phi ptr [ %.pr, %for.body9thread-pre-split ], [ %12, %for.body9.lr.ph ]
+  %15 = phi ptr [ %16, %for.body9thread-pre-split ], [ %10, %for.body9.lr.ph ]
   %i.014 = phi i32 [ %add18, %for.body9thread-pre-split ], [ 0, %for.body9.lr.ph ]
-  %tobool.not = icmp eq ptr %13, null
+  %tobool.not = icmp eq ptr %14, null
   br i1 %tobool.not, label %for.inc17, label %if.then11
 
 if.then11:                                        ; preds = %for.body9
   %add = or disjoint i32 %i.014, 1
-  %call15 = invoke noundef ptr @_ZNK6icu_757UVector9elementAtEi(ptr noundef nonnull align 8 dereferenceable(40) %14, i32 noundef %add)
+  %call15 = invoke noundef ptr @_ZNK6icu_757UVector9elementAtEi(ptr noundef nonnull align 8 dereferenceable(40) %15, i32 noundef %add)
           to label %invoke.cont14 unwind label %terminate.lpad.loopexit
 
 invoke.cont14:                                    ; preds = %if.then11
-  invoke void %13(ptr noundef %call15)
+  invoke void %14(ptr noundef %call15)
           to label %invoke.cont14.for.inc17_crit_edge unwind label %terminate.lpad.loopexit
 
 invoke.cont14.for.inc17_crit_edge:                ; preds = %invoke.cont14
-  %.pre = load ptr, ptr %fLazyContents, align 8
+  %.pre18 = load ptr, ptr %fLazyContents, align 8
   br label %for.inc17
 
 for.inc17:                                        ; preds = %invoke.cont14.for.inc17_crit_edge, %for.body9
-  %15 = phi ptr [ %.pre, %invoke.cont14.for.inc17_crit_edge ], [ %14, %for.body9 ]
+  %16 = phi ptr [ %.pre18, %invoke.cont14.for.inc17_crit_edge ], [ %15, %for.body9 ]
   %add18 = add nuw nsw i32 %i.014, 2
-  %count.i = getelementptr inbounds i8, ptr %15, i64 8
-  %16 = load i32, ptr %count.i, align 8
-  %cmp8 = icmp slt i32 %add18, %16
+  %count.i = getelementptr inbounds i8, ptr %16, i64 8
+  %17 = load i32, ptr %count.i, align 8
+  %cmp8 = icmp slt i32 %add18, %17
   br i1 %cmp8, label %for.body9thread-pre-split, label %delete.notnull, !llvm.loop !6
 
 delete.notnull:                                   ; preds = %for.inc17, %for.body9.lr.ph, %for.cond5.preheader
-  %.lcssa = phi ptr [ %9, %for.cond5.preheader ], [ %9, %for.body9.lr.ph ], [ %15, %for.inc17 ]
+  %.lcssa = phi ptr [ %10, %for.cond5.preheader ], [ %10, %for.body9.lr.ph ], [ %16, %for.inc17 ]
   %vtable = load ptr, ptr %.lcssa, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 8
-  %17 = load ptr, ptr %vfn, align 8
-  tail call void %17(ptr noundef nonnull align 8 dereferenceable(40) %.lcssa) #21
+  %18 = load ptr, ptr %vfn, align 8
+  tail call void %18(ptr noundef nonnull align 8 dereferenceable(40) %.lcssa) #21
   br label %if.end21
 
 if.end21:                                         ; preds = %delete.notnull, %invoke.cont3
@@ -957,7 +962,7 @@ terminate.lpad.loopexit:                          ; preds = %if.then11, %invoke.
           catch ptr null
   br label %terminate.lpad
 
-terminate.lpad.loopexit.split-lp.loopexit:        ; preds = %if.then4.i
+terminate.lpad.loopexit.split-lp.loopexit:        ; preds = %if.end9.sink.split.i
   %lpad.loopexit6 = landingpad { ptr, i32 }
           catch ptr null
   br label %terminate.lpad
@@ -969,8 +974,8 @@ terminate.lpad.loopexit.split-lp.loopexit.split-lp: ; preds = %for.end
 
 terminate.lpad:                                   ; preds = %terminate.lpad.loopexit.split-lp.loopexit, %terminate.lpad.loopexit.split-lp.loopexit.split-lp, %terminate.lpad.loopexit
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %terminate.lpad.loopexit ], [ %lpad.loopexit6, %terminate.lpad.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp7, %terminate.lpad.loopexit.split-lp.loopexit.split-lp ]
-  %18 = extractvalue { ptr, i32 } %lpad.phi, 0
-  tail call void @__clang_call_terminate(ptr %18) #23
+  %19 = extractvalue { ptr, i32 } %lpad.phi, 0
+  tail call void @__clang_call_terminate(ptr %19) #23
   unreachable
 }
 

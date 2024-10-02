@@ -6006,7 +6006,7 @@ define range(i32 0, 2) i32 @Abc_CommandAbcLivenessToSafety(ptr noundef %0, i32 n
 9:                                                ; preds = %.backedge, %8
   %.1 = phi i32 [ -1, %8 ], [ %.1.be, %.backedge ]
   %10 = tail call i32 @Extra_UtilGetopt(i32 noundef %1, ptr noundef %2, ptr noundef nonnull @.str.29) #14
-  switch i32 %10, label %61 [
+  switch i32 %10, label %59 [
     i32 -1, label %.loopexit
     i32 49, label %11
     i32 115, label %12
@@ -6025,7 +6025,7 @@ define range(i32 0, 2) i32 @Abc_CommandAbcLivenessToSafety(ptr noundef %0, i32 n
   br label %9, !llvm.loop !50
 
 12:                                               ; preds = %9
-  switch i32 %.1, label %61 [
+  switch i32 %.1, label %59 [
     i32 -1, label %.backedge
     i32 4, label %13
   ]
@@ -6034,7 +6034,7 @@ define range(i32 0, 2) i32 @Abc_CommandAbcLivenessToSafety(ptr noundef %0, i32 n
   br label %.backedge
 
 14:                                               ; preds = %9
-  switch i32 %.1, label %61 [
+  switch i32 %.1, label %59 [
     i32 -1, label %.backedge
     i32 4, label %.backedge
   ]
@@ -6046,129 +6046,125 @@ define range(i32 0, 2) i32 @Abc_CommandAbcLivenessToSafety(ptr noundef %0, i32 n
 
 16:                                               ; preds = %.loopexit
   %17 = tail call i64 @fwrite(ptr nonnull @.str.30, i64 15, i64 1, ptr %6)
-  br label %74
+  br label %72
 
 18:                                               ; preds = %.loopexit
   %.val111 = load i32, ptr %4, align 8
   %.not = icmp eq i32 %.val111, 3
-  br i1 %.not, label %22, label %19
+  br i1 %.not, label %21, label %19
 
 19:                                               ; preds = %18
   %puts = tail call i32 @puts(ptr nonnull dereferenceable(1) @str.28)
   %20 = tail call ptr @Abc_NtkStrash(ptr noundef nonnull %4, i32 noundef 0, i32 noundef 0, i32 noundef 0) #14
-  %21 = tail call ptr @Abc_NtkToDar(ptr noundef %20, i32 noundef 0, i32 noundef 1) #14
-  br label %24
+  br label %21
 
-22:                                               ; preds = %18
-  %23 = tail call ptr @Abc_NtkToDar(ptr noundef nonnull %4, i32 noundef 0, i32 noundef 1) #14
-  br label %24
-
-24:                                               ; preds = %22, %19
-  %.sink117 = phi ptr [ %23, %22 ], [ %21, %19 ]
-  %25 = tail call ptr @populateLivenessVector(ptr noundef nonnull %4, ptr noundef %.sink117)
-  %26 = tail call ptr @populateFairnessVector(ptr noundef nonnull %4, ptr noundef %.sink117)
-  %27 = tail call ptr @populateSafetyAssertionVector(ptr noundef nonnull %4, ptr noundef %.sink117)
-  %28 = tail call ptr @populateSafetyAssumptionVector(ptr noundef nonnull %4, ptr noundef %.sink117)
-  switch i32 %.0, label %44 [
-    i32 0, label %29
-    i32 4, label %32
-    i32 1, label %35
-    i32 2, label %38
-    i32 3, label %41
+21:                                               ; preds = %18, %19
+  %.sink118 = phi ptr [ %20, %19 ], [ %4, %18 ]
+  %22 = tail call ptr @Abc_NtkToDar(ptr noundef %.sink118, i32 noundef 0, i32 noundef 1) #14
+  %23 = tail call ptr @populateLivenessVector(ptr noundef nonnull %4, ptr noundef %22)
+  %24 = tail call ptr @populateFairnessVector(ptr noundef nonnull %4, ptr noundef %22)
+  %25 = tail call ptr @populateSafetyAssertionVector(ptr noundef nonnull %4, ptr noundef %22)
+  %26 = tail call ptr @populateSafetyAssumptionVector(ptr noundef nonnull %4, ptr noundef %22)
+  switch i32 %.0, label %42 [
+    i32 0, label %27
+    i32 4, label %30
+    i32 1, label %33
+    i32 2, label %36
+    i32 3, label %39
   ]
 
-29:                                               ; preds = %24
-  %30 = tail call ptr @LivenessToSafetyTransformation(i32 noundef 0, ptr noundef nonnull %4, ptr noundef %.sink117, ptr noundef %25, ptr noundef %26, ptr noundef %27, ptr noundef %28)
-  %31 = getelementptr i8, ptr %30, i64 104
-  %.val110 = load i32, ptr %31, align 8
+27:                                               ; preds = %21
+  %28 = tail call ptr @LivenessToSafetyTransformation(i32 noundef 0, ptr noundef nonnull %4, ptr noundef %22, ptr noundef %23, ptr noundef %24, ptr noundef %25, ptr noundef %26)
+  %29 = getelementptr i8, ptr %28, i64 104
+  %.val110 = load i32, ptr %29, align 8
   %.not102 = icmp eq i32 %.val110, 0
-  br i1 %.not102, label %44, label %.sink.split
+  br i1 %.not102, label %42, label %.sink.split
 
-32:                                               ; preds = %24
-  %33 = tail call ptr @LivenessToSafetyTransformationOneStepLoop(i32 noundef 4, ptr noundef nonnull %4, ptr noundef %.sink117, ptr noundef %25, ptr noundef %26, ptr noundef %27, ptr noundef %28)
-  %34 = getelementptr i8, ptr %33, i64 104
-  %.val109 = load i32, ptr %34, align 8
+30:                                               ; preds = %21
+  %31 = tail call ptr @LivenessToSafetyTransformationOneStepLoop(i32 noundef 4, ptr noundef nonnull %4, ptr noundef %22, ptr noundef %23, ptr noundef %24, ptr noundef %25, ptr noundef %26)
+  %32 = getelementptr i8, ptr %31, i64 104
+  %.val109 = load i32, ptr %32, align 8
   %.not100 = icmp eq i32 %.val109, 0
-  br i1 %.not100, label %44, label %.sink.split
+  br i1 %.not100, label %42, label %.sink.split
 
-35:                                               ; preds = %24
-  %36 = tail call ptr @LivenessToSafetyTransformation(i32 noundef 1, ptr noundef nonnull %4, ptr noundef %.sink117, ptr noundef %25, ptr noundef %26, ptr noundef %27, ptr noundef %28)
-  %37 = getelementptr i8, ptr %36, i64 104
-  %.val108 = load i32, ptr %37, align 8
+33:                                               ; preds = %21
+  %34 = tail call ptr @LivenessToSafetyTransformation(i32 noundef 1, ptr noundef nonnull %4, ptr noundef %22, ptr noundef %23, ptr noundef %24, ptr noundef %25, ptr noundef %26)
+  %35 = getelementptr i8, ptr %34, i64 104
+  %.val108 = load i32, ptr %35, align 8
   %.not98 = icmp eq i32 %.val108, 0
-  br i1 %.not98, label %44, label %.sink.split
+  br i1 %.not98, label %42, label %.sink.split
 
-38:                                               ; preds = %24
-  %39 = tail call ptr @LivenessToSafetyTransformation(i32 noundef 2, ptr noundef nonnull %4, ptr noundef %.sink117, ptr noundef %25, ptr noundef %26, ptr noundef %27, ptr noundef %28)
-  %40 = getelementptr i8, ptr %39, i64 104
-  %.val107 = load i32, ptr %40, align 8
+36:                                               ; preds = %21
+  %37 = tail call ptr @LivenessToSafetyTransformation(i32 noundef 2, ptr noundef nonnull %4, ptr noundef %22, ptr noundef %23, ptr noundef %24, ptr noundef %25, ptr noundef %26)
+  %38 = getelementptr i8, ptr %37, i64 104
+  %.val107 = load i32, ptr %38, align 8
   %.not96 = icmp eq i32 %.val107, 0
-  br i1 %.not96, label %44, label %.sink.split
+  br i1 %.not96, label %42, label %.sink.split
 
-41:                                               ; preds = %24
-  %42 = tail call ptr @LivenessToSafetyTransformationOneStepLoop(i32 noundef 3, ptr noundef nonnull %4, ptr noundef %.sink117, ptr noundef %25, ptr noundef %26, ptr noundef %27, ptr noundef %28)
-  %43 = getelementptr i8, ptr %42, i64 104
-  %.val = load i32, ptr %43, align 8
+39:                                               ; preds = %21
+  %40 = tail call ptr @LivenessToSafetyTransformationOneStepLoop(i32 noundef 3, ptr noundef nonnull %4, ptr noundef %22, ptr noundef %23, ptr noundef %24, ptr noundef %25, ptr noundef %26)
+  %41 = getelementptr i8, ptr %40, i64 104
+  %.val = load i32, ptr %41, align 8
   %.not94 = icmp eq i32 %.val, 0
-  br i1 %.not94, label %44, label %.sink.split
+  br i1 %.not94, label %42, label %.sink.split
 
-.sink.split:                                      ; preds = %41, %38, %35, %32, %29
-  %str.11.sink = phi ptr [ @str.21, %29 ], [ @str.31, %32 ], [ @str.30, %35 ], [ @str.18, %38 ], [ @str.29, %41 ]
-  %.086.ph = phi ptr [ %30, %29 ], [ %33, %32 ], [ %36, %35 ], [ %39, %38 ], [ %42, %41 ]
+.sink.split:                                      ; preds = %39, %36, %33, %30, %27
+  %str.11.sink = phi ptr [ @str.21, %27 ], [ @str.31, %30 ], [ @str.30, %33 ], [ @str.18, %36 ], [ @str.29, %39 ]
+  %.086.ph = phi ptr [ %28, %27 ], [ %31, %30 ], [ %34, %33 ], [ %37, %36 ], [ %40, %39 ]
   %puts95 = tail call i32 @puts(ptr nonnull dereferenceable(1) %str.11.sink)
-  br label %44
+  br label %42
 
-44:                                               ; preds = %.sink.split, %41, %38, %35, %32, %29, %24
-  %.086 = phi ptr [ null, %24 ], [ %42, %41 ], [ %39, %38 ], [ %36, %35 ], [ %33, %32 ], [ %30, %29 ], [ %.086.ph, %.sink.split ]
-  %45 = tail call ptr @Abc_NtkFromAigPhase(ptr noundef %.086) #14
-  %46 = load ptr, ptr %.086, align 8
-  %.not.i = icmp eq ptr %46, null
-  br i1 %.not.i, label %Abc_UtilStrsav.exit, label %47
+42:                                               ; preds = %.sink.split, %39, %36, %33, %30, %27, %21
+  %.086 = phi ptr [ null, %21 ], [ %40, %39 ], [ %37, %36 ], [ %34, %33 ], [ %31, %30 ], [ %28, %27 ], [ %.086.ph, %.sink.split ]
+  %43 = tail call ptr @Abc_NtkFromAigPhase(ptr noundef %.086) #14
+  %44 = load ptr, ptr %.086, align 8
+  %.not.i = icmp eq ptr %44, null
+  br i1 %.not.i, label %Abc_UtilStrsav.exit, label %45
 
-47:                                               ; preds = %44
-  %48 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %46) #16
-  %49 = add i64 %48, 1
-  %50 = tail call noalias ptr @malloc(i64 noundef %49) #15
-  %51 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %50, ptr noundef nonnull readonly dereferenceable(1) %46) #14
+45:                                               ; preds = %42
+  %46 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %44) #16
+  %47 = add i64 %46, 1
+  %48 = tail call noalias ptr @malloc(i64 noundef %47) #15
+  %49 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %48, ptr noundef nonnull readonly dereferenceable(1) %44) #14
   br label %Abc_UtilStrsav.exit
 
-Abc_UtilStrsav.exit:                              ; preds = %44, %47
-  %52 = phi ptr [ %50, %47 ], [ null, %44 ]
-  %53 = getelementptr inbounds i8, ptr %45, i64 8
-  store ptr %52, ptr %53, align 8
-  %54 = tail call i32 @Abc_NtkCheck(ptr noundef %45) #14
-  %.not104 = icmp eq i32 %54, 0
-  br i1 %.not104, label %55, label %58
+Abc_UtilStrsav.exit:                              ; preds = %42, %45
+  %50 = phi ptr [ %48, %45 ], [ null, %42 ]
+  %51 = getelementptr inbounds i8, ptr %43, i64 8
+  store ptr %50, ptr %51, align 8
+  %52 = tail call i32 @Abc_NtkCheck(ptr noundef %43) #14
+  %.not104 = icmp eq i32 %52, 0
+  br i1 %.not104, label %53, label %56
 
-55:                                               ; preds = %Abc_UtilStrsav.exit
-  %56 = load ptr, ptr @stdout, align 8
-  %57 = tail call i64 @fwrite(ptr nonnull @.str.37, i64 47, i64 1, ptr %56)
-  br label %58
+53:                                               ; preds = %Abc_UtilStrsav.exit
+  %54 = load ptr, ptr @stdout, align 8
+  %55 = tail call i64 @fwrite(ptr nonnull @.str.37, i64 47, i64 1, ptr %54)
+  br label %56
 
-58:                                               ; preds = %55, %Abc_UtilStrsav.exit
-  %59 = load ptr, ptr @vecPiNames, align 8
-  %60 = load ptr, ptr @vecLoNames, align 8
-  tail call void @updateNewNetworkNameManager(ptr noundef nonnull %45, ptr noundef nonnull %.086, ptr noundef %59, ptr noundef %60)
-  tail call void @Abc_FrameSetCurrentNetwork(ptr noundef %0, ptr noundef nonnull %45) #14
-  br label %74
+56:                                               ; preds = %53, %Abc_UtilStrsav.exit
+  %57 = load ptr, ptr @vecPiNames, align 8
+  %58 = load ptr, ptr @vecLoNames, align 8
+  tail call void @updateNewNetworkNameManager(ptr noundef nonnull %43, ptr noundef nonnull %.086, ptr noundef %57, ptr noundef %58)
+  tail call void @Abc_FrameSetCurrentNetwork(ptr noundef %0, ptr noundef nonnull %43) #14
+  br label %72
 
-61:                                               ; preds = %14, %12, %9
+59:                                               ; preds = %14, %12, %9
+  %60 = load ptr, ptr @stdout, align 8
+  %61 = tail call i64 @fwrite(ptr nonnull @.str.38, i64 19, i64 1, ptr %60)
   %62 = load ptr, ptr @stdout, align 8
-  %63 = tail call i64 @fwrite(ptr nonnull @.str.38, i64 19, i64 1, ptr %62)
+  %63 = tail call i64 @fwrite(ptr nonnull @.str.39, i64 61, i64 1, ptr %62)
   %64 = load ptr, ptr @stdout, align 8
-  %65 = tail call i64 @fwrite(ptr nonnull @.str.39, i64 61, i64 1, ptr %64)
+  %65 = tail call i64 @fwrite(ptr nonnull @.str.40, i64 56, i64 1, ptr %64)
   %66 = load ptr, ptr @stdout, align 8
-  %67 = tail call i64 @fwrite(ptr nonnull @.str.40, i64 56, i64 1, ptr %66)
+  %67 = tail call i64 @fwrite(ptr nonnull @.str.41, i64 43, i64 1, ptr %66)
   %68 = load ptr, ptr @stdout, align 8
-  %69 = tail call i64 @fwrite(ptr nonnull @.str.41, i64 43, i64 1, ptr %68)
+  %69 = tail call i64 @fwrite(ptr nonnull @.str.42, i64 47, i64 1, ptr %68)
   %70 = load ptr, ptr @stdout, align 8
-  %71 = tail call i64 @fwrite(ptr nonnull @.str.42, i64 47, i64 1, ptr %70)
-  %72 = load ptr, ptr @stdout, align 8
-  %73 = tail call i64 @fwrite(ptr nonnull @.str.43, i64 26, i64 1, ptr %72)
-  br label %74
+  %71 = tail call i64 @fwrite(ptr nonnull @.str.43, i64 26, i64 1, ptr %70)
+  br label %72
 
-74:                                               ; preds = %61, %58, %16
-  %.085 = phi i32 [ 1, %16 ], [ 0, %58 ], [ 1, %61 ]
+72:                                               ; preds = %59, %56, %16
+  %.085 = phi i32 [ 1, %16 ], [ 0, %56 ], [ 1, %59 ]
   ret i32 %.085
 }
 
@@ -6303,7 +6299,7 @@ define range(i32 0, 2) i32 @Abc_CommandAbcLivenessToSafetyAbstraction(ptr nounde
 9:                                                ; preds = %.backedge, %8
   %.1 = phi i32 [ -1, %8 ], [ %.1.be, %.backedge ]
   %10 = tail call i32 @Extra_UtilGetopt(i32 noundef %1, ptr noundef %2, ptr noundef nonnull @.str.29) #14
-  switch i32 %10, label %64 [
+  switch i32 %10, label %62 [
     i32 -1, label %.loopexit
     i32 49, label %11
     i32 115, label %12
@@ -6322,7 +6318,7 @@ define range(i32 0, 2) i32 @Abc_CommandAbcLivenessToSafetyAbstraction(ptr nounde
   br label %9, !llvm.loop !52
 
 12:                                               ; preds = %9
-  switch i32 %.1, label %64 [
+  switch i32 %.1, label %62 [
     i32 -1, label %.backedge
     i32 4, label %13
   ]
@@ -6331,7 +6327,7 @@ define range(i32 0, 2) i32 @Abc_CommandAbcLivenessToSafetyAbstraction(ptr nounde
   br label %.backedge
 
 14:                                               ; preds = %9
-  switch i32 %.1, label %64 [
+  switch i32 %.1, label %62 [
     i32 -1, label %.backedge
     i32 4, label %.backedge
   ]
@@ -6343,133 +6339,129 @@ define range(i32 0, 2) i32 @Abc_CommandAbcLivenessToSafetyAbstraction(ptr nounde
 
 16:                                               ; preds = %.loopexit
   %17 = tail call i64 @fwrite(ptr nonnull @.str.30, i64 15, i64 1, ptr %6)
-  br label %77
+  br label %75
 
 18:                                               ; preds = %.loopexit
   %.val120 = load i32, ptr %4, align 8
   %.not = icmp eq i32 %.val120, 3
-  br i1 %.not, label %22, label %19
+  br i1 %.not, label %21, label %19
 
 19:                                               ; preds = %18
   %puts = tail call i32 @puts(ptr nonnull dereferenceable(1) @str.28)
   %20 = tail call ptr @Abc_NtkStrash(ptr noundef nonnull %4, i32 noundef 0, i32 noundef 0, i32 noundef 0) #14
-  %21 = tail call ptr @Abc_NtkToDar(ptr noundef %20, i32 noundef 0, i32 noundef 1) #14
-  br label %24
+  br label %21
 
-22:                                               ; preds = %18
-  %23 = tail call ptr @Abc_NtkToDar(ptr noundef nonnull %4, i32 noundef 0, i32 noundef 1) #14
-  br label %24
-
-24:                                               ; preds = %22, %19
-  %.sink126 = phi ptr [ %23, %22 ], [ %21, %19 ]
-  %25 = tail call ptr @populateLivenessVector(ptr noundef nonnull %4, ptr noundef %.sink126)
-  %26 = tail call ptr @populateFairnessVector(ptr noundef nonnull %4, ptr noundef %.sink126)
-  %27 = tail call ptr @populateSafetyAssertionVector(ptr noundef nonnull %4, ptr noundef %.sink126)
-  %28 = tail call ptr @populateSafetyAssumptionVector(ptr noundef nonnull %4, ptr noundef %.sink126)
-  %29 = getelementptr i8, ptr %.sink126, i64 104
-  %.094.val119 = load i32, ptr %29, align 8
-  %30 = ashr i32 %.094.val119, 1
-  %31 = tail call ptr @prepareFlopVector(ptr nonnull poison, i32 noundef %30)
-  switch i32 %.088, label %47 [
-    i32 0, label %32
-    i32 4, label %35
-    i32 1, label %38
-    i32 2, label %41
-    i32 3, label %44
+21:                                               ; preds = %18, %19
+  %.sink127 = phi ptr [ %20, %19 ], [ %4, %18 ]
+  %22 = tail call ptr @Abc_NtkToDar(ptr noundef %.sink127, i32 noundef 0, i32 noundef 1) #14
+  %23 = tail call ptr @populateLivenessVector(ptr noundef nonnull %4, ptr noundef %22)
+  %24 = tail call ptr @populateFairnessVector(ptr noundef nonnull %4, ptr noundef %22)
+  %25 = tail call ptr @populateSafetyAssertionVector(ptr noundef nonnull %4, ptr noundef %22)
+  %26 = tail call ptr @populateSafetyAssumptionVector(ptr noundef nonnull %4, ptr noundef %22)
+  %27 = getelementptr i8, ptr %22, i64 104
+  %.094.val119 = load i32, ptr %27, align 8
+  %28 = ashr i32 %.094.val119, 1
+  %29 = tail call ptr @prepareFlopVector(ptr nonnull poison, i32 noundef %28)
+  switch i32 %.088, label %45 [
+    i32 0, label %30
+    i32 4, label %33
+    i32 1, label %36
+    i32 2, label %39
+    i32 3, label %42
   ]
 
-32:                                               ; preds = %24
-  %33 = tail call ptr @LivenessToSafetyTransformationAbs(i32 noundef 0, ptr noundef nonnull %4, ptr noundef nonnull %.sink126, ptr noundef %31, ptr noundef %25, ptr noundef %26, ptr noundef %27, ptr noundef %28)
-  %34 = getelementptr i8, ptr %33, i64 104
-  %.val117 = load i32, ptr %34, align 8
+30:                                               ; preds = %21
+  %31 = tail call ptr @LivenessToSafetyTransformationAbs(i32 noundef 0, ptr noundef nonnull %4, ptr noundef nonnull %22, ptr noundef %29, ptr noundef %23, ptr noundef %24, ptr noundef %25, ptr noundef %26)
+  %32 = getelementptr i8, ptr %31, i64 104
+  %.val117 = load i32, ptr %32, align 8
   %.not109 = icmp eq i32 %.val117, 0
-  br i1 %.not109, label %47, label %.sink.split
+  br i1 %.not109, label %45, label %.sink.split
 
-35:                                               ; preds = %24
-  %36 = tail call ptr @LivenessToSafetyTransformationOneStepLoop(i32 noundef 4, ptr noundef nonnull %4, ptr noundef nonnull %.sink126, ptr noundef %25, ptr noundef %26, ptr noundef %27, ptr noundef %28)
-  %37 = getelementptr i8, ptr %36, i64 104
-  %.val116 = load i32, ptr %37, align 8
+33:                                               ; preds = %21
+  %34 = tail call ptr @LivenessToSafetyTransformationOneStepLoop(i32 noundef 4, ptr noundef nonnull %4, ptr noundef nonnull %22, ptr noundef %23, ptr noundef %24, ptr noundef %25, ptr noundef %26)
+  %35 = getelementptr i8, ptr %34, i64 104
+  %.val116 = load i32, ptr %35, align 8
   %.not107 = icmp eq i32 %.val116, 0
-  br i1 %.not107, label %47, label %.sink.split
+  br i1 %.not107, label %45, label %.sink.split
 
-38:                                               ; preds = %24
-  %39 = tail call ptr @LivenessToSafetyTransformationAbs(i32 noundef 1, ptr noundef nonnull %4, ptr noundef nonnull %.sink126, ptr noundef %31, ptr noundef %25, ptr noundef %26, ptr noundef %27, ptr noundef %28)
-  %40 = getelementptr i8, ptr %39, i64 104
-  %.val115 = load i32, ptr %40, align 8
+36:                                               ; preds = %21
+  %37 = tail call ptr @LivenessToSafetyTransformationAbs(i32 noundef 1, ptr noundef nonnull %4, ptr noundef nonnull %22, ptr noundef %29, ptr noundef %23, ptr noundef %24, ptr noundef %25, ptr noundef %26)
+  %38 = getelementptr i8, ptr %37, i64 104
+  %.val115 = load i32, ptr %38, align 8
   %.not105 = icmp eq i32 %.val115, 0
-  br i1 %.not105, label %47, label %.sink.split
+  br i1 %.not105, label %45, label %.sink.split
 
-41:                                               ; preds = %24
-  %42 = tail call ptr @LivenessToSafetyTransformationAbs(i32 noundef 2, ptr noundef nonnull %4, ptr noundef nonnull %.sink126, ptr noundef %31, ptr noundef %25, ptr noundef %26, ptr noundef %27, ptr noundef %28)
-  %43 = getelementptr i8, ptr %42, i64 104
-  %.val114 = load i32, ptr %43, align 8
+39:                                               ; preds = %21
+  %40 = tail call ptr @LivenessToSafetyTransformationAbs(i32 noundef 2, ptr noundef nonnull %4, ptr noundef nonnull %22, ptr noundef %29, ptr noundef %23, ptr noundef %24, ptr noundef %25, ptr noundef %26)
+  %41 = getelementptr i8, ptr %40, i64 104
+  %.val114 = load i32, ptr %41, align 8
   %.not103 = icmp eq i32 %.val114, 0
-  br i1 %.not103, label %47, label %.sink.split
+  br i1 %.not103, label %45, label %.sink.split
 
-44:                                               ; preds = %24
-  %45 = tail call ptr @LivenessToSafetyTransformationOneStepLoop(i32 noundef 3, ptr noundef nonnull %4, ptr noundef nonnull %.sink126, ptr noundef %25, ptr noundef %26, ptr noundef %27, ptr noundef %28)
-  %46 = getelementptr i8, ptr %45, i64 104
-  %.val = load i32, ptr %46, align 8
+42:                                               ; preds = %21
+  %43 = tail call ptr @LivenessToSafetyTransformationOneStepLoop(i32 noundef 3, ptr noundef nonnull %4, ptr noundef nonnull %22, ptr noundef %23, ptr noundef %24, ptr noundef %25, ptr noundef %26)
+  %44 = getelementptr i8, ptr %43, i64 104
+  %.val = load i32, ptr %44, align 8
   %.not101 = icmp eq i32 %.val, 0
-  br i1 %.not101, label %47, label %.sink.split
+  br i1 %.not101, label %45, label %.sink.split
 
-.sink.split:                                      ; preds = %44, %41, %38, %35, %32
-  %str.17.sink = phi ptr [ @str.21, %32 ], [ @str.31, %35 ], [ @str.30, %38 ], [ @str.18, %41 ], [ @str.29, %44 ]
-  %.093.ph = phi ptr [ %33, %32 ], [ %36, %35 ], [ %39, %38 ], [ %42, %41 ], [ %45, %44 ]
+.sink.split:                                      ; preds = %42, %39, %36, %33, %30
+  %str.17.sink = phi ptr [ @str.21, %30 ], [ @str.31, %33 ], [ @str.30, %36 ], [ @str.18, %39 ], [ @str.29, %42 ]
+  %.093.ph = phi ptr [ %31, %30 ], [ %34, %33 ], [ %37, %36 ], [ %40, %39 ], [ %43, %42 ]
   %puts102 = tail call i32 @puts(ptr nonnull dereferenceable(1) %str.17.sink)
-  br label %47
+  br label %45
 
-47:                                               ; preds = %.sink.split, %44, %41, %38, %35, %32, %24
-  %.093 = phi ptr [ null, %24 ], [ %45, %44 ], [ %42, %41 ], [ %39, %38 ], [ %36, %35 ], [ %33, %32 ], [ %.093.ph, %.sink.split ]
-  %48 = tail call ptr @Abc_NtkFromAigPhase(ptr noundef %.093) #14
-  %49 = load ptr, ptr %.093, align 8
-  %.not.i = icmp eq ptr %49, null
-  br i1 %.not.i, label %Abc_UtilStrsav.exit, label %50
+45:                                               ; preds = %.sink.split, %42, %39, %36, %33, %30, %21
+  %.093 = phi ptr [ null, %21 ], [ %43, %42 ], [ %40, %39 ], [ %37, %36 ], [ %34, %33 ], [ %31, %30 ], [ %.093.ph, %.sink.split ]
+  %46 = tail call ptr @Abc_NtkFromAigPhase(ptr noundef %.093) #14
+  %47 = load ptr, ptr %.093, align 8
+  %.not.i = icmp eq ptr %47, null
+  br i1 %.not.i, label %Abc_UtilStrsav.exit, label %48
 
-50:                                               ; preds = %47
-  %51 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %49) #16
-  %52 = add i64 %51, 1
-  %53 = tail call noalias ptr @malloc(i64 noundef %52) #15
-  %54 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %53, ptr noundef nonnull readonly dereferenceable(1) %49) #14
+48:                                               ; preds = %45
+  %49 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %47) #16
+  %50 = add i64 %49, 1
+  %51 = tail call noalias ptr @malloc(i64 noundef %50) #15
+  %52 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %51, ptr noundef nonnull readonly dereferenceable(1) %47) #14
   br label %Abc_UtilStrsav.exit
 
-Abc_UtilStrsav.exit:                              ; preds = %47, %50
-  %55 = phi ptr [ %53, %50 ], [ null, %47 ]
-  %56 = getelementptr inbounds i8, ptr %48, i64 8
-  store ptr %55, ptr %56, align 8
-  %57 = tail call i32 @Abc_NtkCheck(ptr noundef %48) #14
-  %.not111 = icmp eq i32 %57, 0
-  br i1 %.not111, label %58, label %61
+Abc_UtilStrsav.exit:                              ; preds = %45, %48
+  %53 = phi ptr [ %51, %48 ], [ null, %45 ]
+  %54 = getelementptr inbounds i8, ptr %46, i64 8
+  store ptr %53, ptr %54, align 8
+  %55 = tail call i32 @Abc_NtkCheck(ptr noundef %46) #14
+  %.not111 = icmp eq i32 %55, 0
+  br i1 %.not111, label %56, label %59
 
-58:                                               ; preds = %Abc_UtilStrsav.exit
-  %59 = load ptr, ptr @stdout, align 8
-  %60 = tail call i64 @fwrite(ptr nonnull @.str.37, i64 47, i64 1, ptr %59)
-  br label %61
+56:                                               ; preds = %Abc_UtilStrsav.exit
+  %57 = load ptr, ptr @stdout, align 8
+  %58 = tail call i64 @fwrite(ptr nonnull @.str.37, i64 47, i64 1, ptr %57)
+  br label %59
 
-61:                                               ; preds = %58, %Abc_UtilStrsav.exit
-  %62 = load ptr, ptr @vecPiNames, align 8
-  %63 = load ptr, ptr @vecLoNames, align 8
-  tail call void @updateNewNetworkNameManager(ptr noundef nonnull %48, ptr noundef nonnull %.093, ptr noundef %62, ptr noundef %63)
-  tail call void @Abc_FrameSetCurrentNetwork(ptr noundef %0, ptr noundef nonnull %48) #14
-  br label %77
+59:                                               ; preds = %56, %Abc_UtilStrsav.exit
+  %60 = load ptr, ptr @vecPiNames, align 8
+  %61 = load ptr, ptr @vecLoNames, align 8
+  tail call void @updateNewNetworkNameManager(ptr noundef nonnull %46, ptr noundef nonnull %.093, ptr noundef %60, ptr noundef %61)
+  tail call void @Abc_FrameSetCurrentNetwork(ptr noundef %0, ptr noundef nonnull %46) #14
+  br label %75
 
-64:                                               ; preds = %14, %12, %9
+62:                                               ; preds = %14, %12, %9
+  %63 = load ptr, ptr @stdout, align 8
+  %64 = tail call i64 @fwrite(ptr nonnull @.str.38, i64 19, i64 1, ptr %63)
   %65 = load ptr, ptr @stdout, align 8
-  %66 = tail call i64 @fwrite(ptr nonnull @.str.38, i64 19, i64 1, ptr %65)
+  %66 = tail call i64 @fwrite(ptr nonnull @.str.39, i64 61, i64 1, ptr %65)
   %67 = load ptr, ptr @stdout, align 8
-  %68 = tail call i64 @fwrite(ptr nonnull @.str.39, i64 61, i64 1, ptr %67)
+  %68 = tail call i64 @fwrite(ptr nonnull @.str.40, i64 56, i64 1, ptr %67)
   %69 = load ptr, ptr @stdout, align 8
-  %70 = tail call i64 @fwrite(ptr nonnull @.str.40, i64 56, i64 1, ptr %69)
+  %70 = tail call i64 @fwrite(ptr nonnull @.str.41, i64 43, i64 1, ptr %69)
   %71 = load ptr, ptr @stdout, align 8
-  %72 = tail call i64 @fwrite(ptr nonnull @.str.41, i64 43, i64 1, ptr %71)
+  %72 = tail call i64 @fwrite(ptr nonnull @.str.42, i64 47, i64 1, ptr %71)
   %73 = load ptr, ptr @stdout, align 8
-  %74 = tail call i64 @fwrite(ptr nonnull @.str.42, i64 47, i64 1, ptr %73)
-  %75 = load ptr, ptr @stdout, align 8
-  %76 = tail call i64 @fwrite(ptr nonnull @.str.43, i64 26, i64 1, ptr %75)
-  br label %77
+  %74 = tail call i64 @fwrite(ptr nonnull @.str.43, i64 26, i64 1, ptr %73)
+  br label %75
 
-77:                                               ; preds = %64, %61, %16
-  %.0 = phi i32 [ 1, %16 ], [ 0, %61 ], [ 1, %64 ]
+75:                                               ; preds = %62, %59, %16
+  %.0 = phi i32 [ 1, %16 ], [ 0, %59 ], [ 1, %62 ]
   ret i32 %.0
 }
 
@@ -8525,7 +8517,7 @@ define range(i32 0, 2) i32 @Abc_CommandAbcLivenessToSafetyWithLTL(ptr noundef %0
 10:                                               ; preds = %.backedge, %9
   %.1 = phi i32 [ -1, %9 ], [ %.1.be, %.backedge ]
   %11 = tail call i32 @Extra_UtilGetopt(i32 noundef %1, ptr noundef %2, ptr noundef nonnull @.str.57) #14
-  switch i32 %11, label %75 [
+  switch i32 %11, label %73 [
     i32 -1, label %.loopexit
     i32 49, label %12
     i32 115, label %13
@@ -8545,7 +8537,7 @@ define range(i32 0, 2) i32 @Abc_CommandAbcLivenessToSafetyWithLTL(ptr noundef %0
   br label %10, !llvm.loop !68
 
 13:                                               ; preds = %10
-  switch i32 %.1, label %75 [
+  switch i32 %.1, label %73 [
     i32 -1, label %.backedge
     i32 4, label %14
   ]
@@ -8554,7 +8546,7 @@ define range(i32 0, 2) i32 @Abc_CommandAbcLivenessToSafetyWithLTL(ptr noundef %0
   br label %.backedge
 
 15:                                               ; preds = %10
-  switch i32 %.1, label %75 [
+  switch i32 %.1, label %73 [
     i32 -1, label %.backedge
     i32 4, label %.backedge
   ]
@@ -8571,148 +8563,144 @@ define range(i32 0, 2) i32 @Abc_CommandAbcLivenessToSafetyWithLTL(ptr noundef %0
 
 18:                                               ; preds = %.loopexit
   %19 = tail call i64 @fwrite(ptr nonnull @.str.30, i64 15, i64 1, ptr %7)
-  br label %88
+  br label %86
 
 20:                                               ; preds = %.loopexit
   %.val118 = load i32, ptr %5, align 8
   %.not = icmp eq i32 %.val118, 3
-  br i1 %.not, label %24, label %21
+  br i1 %.not, label %23, label %21
 
 21:                                               ; preds = %20
   %puts101 = tail call i32 @puts(ptr nonnull dereferenceable(1) @str.28)
   %22 = tail call ptr @Abc_NtkStrash(ptr noundef nonnull %5, i32 noundef 0, i32 noundef 0, i32 noundef 0) #14
-  %23 = tail call ptr @Abc_NtkToDar(ptr noundef %22, i32 noundef 0, i32 noundef 1) #14
-  br label %26
+  br label %23
 
-24:                                               ; preds = %20
-  %25 = tail call ptr @Abc_NtkToDar(ptr noundef nonnull %5, i32 noundef 0, i32 noundef 1) #14
-  br label %26
-
-26:                                               ; preds = %24, %21
-  %.sink127 = phi ptr [ %25, %24 ], [ %23, %21 ]
-  %27 = tail call ptr @populateLivenessVector(ptr noundef nonnull %5, ptr noundef %.sink127)
-  %28 = tail call ptr @populateFairnessVector(ptr noundef nonnull %5, ptr noundef %.sink127)
-  %29 = tail call ptr @populateSafetyAssertionVector(ptr noundef nonnull %5, ptr noundef %.sink127)
-  %30 = tail call ptr @populateSafetyAssumptionVector(ptr noundef nonnull %5, ptr noundef %.sink127)
-  %31 = getelementptr inbounds i8, ptr %0, i64 416
-  %32 = load ptr, ptr %31, align 8
-  switch i32 %.086, label %58 [
-    i32 0, label %33
-    i32 4, label %40
-    i32 1, label %44
-    i32 2, label %48
-    i32 3, label %54
+23:                                               ; preds = %20, %21
+  %.sink128 = phi ptr [ %22, %21 ], [ %5, %20 ]
+  %24 = tail call ptr @Abc_NtkToDar(ptr noundef %.sink128, i32 noundef 0, i32 noundef 1) #14
+  %25 = tail call ptr @populateLivenessVector(ptr noundef nonnull %5, ptr noundef %24)
+  %26 = tail call ptr @populateFairnessVector(ptr noundef nonnull %5, ptr noundef %24)
+  %27 = tail call ptr @populateSafetyAssertionVector(ptr noundef nonnull %5, ptr noundef %24)
+  %28 = tail call ptr @populateSafetyAssumptionVector(ptr noundef nonnull %5, ptr noundef %24)
+  %29 = getelementptr inbounds i8, ptr %0, i64 416
+  %30 = load ptr, ptr %29, align 8
+  switch i32 %.086, label %56 [
+    i32 0, label %31
+    i32 4, label %38
+    i32 1, label %42
+    i32 2, label %46
+    i32 3, label %52
   ]
 
-33:                                               ; preds = %26
-  %34 = call ptr @LivenessToSafetyTransformationWithLTL(i32 noundef 0, ptr noundef nonnull %5, ptr noundef %.sink127, ptr noundef %27, ptr noundef %28, ptr noundef %29, ptr noundef %30, ptr noundef nonnull %4, ptr noundef %32)
-  %35 = getelementptr i8, ptr %34, i64 104
-  %.val117 = load i32, ptr %35, align 8
+31:                                               ; preds = %23
+  %32 = call ptr @LivenessToSafetyTransformationWithLTL(i32 noundef 0, ptr noundef nonnull %5, ptr noundef %24, ptr noundef %25, ptr noundef %26, ptr noundef %27, ptr noundef %28, ptr noundef nonnull %4, ptr noundef %30)
+  %33 = getelementptr i8, ptr %32, i64 104
+  %.val117 = load i32, ptr %33, align 8
   %.not110 = icmp eq i32 %.val117, 0
-  br i1 %.not110, label %58, label %36
+  br i1 %.not110, label %56, label %34
 
-36:                                               ; preds = %33
-  %37 = load i32, ptr %4, align 4
-  %38 = add nsw i32 %37, 1
-  %39 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.59, i32 noundef %38, i32 noundef %37)
-  br label %58
+34:                                               ; preds = %31
+  %35 = load i32, ptr %4, align 4
+  %36 = add nsw i32 %35, 1
+  %37 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.59, i32 noundef %36, i32 noundef %35)
+  br label %56
 
-40:                                               ; preds = %26
-  %41 = tail call ptr @LivenessToSafetyTransformationOneStepLoop(i32 noundef 4, ptr noundef nonnull %5, ptr noundef %.sink127, ptr noundef %27, ptr noundef %28, ptr noundef %29, ptr noundef %30)
-  %42 = getelementptr i8, ptr %41, i64 104
-  %.val116 = load i32, ptr %42, align 8
+38:                                               ; preds = %23
+  %39 = tail call ptr @LivenessToSafetyTransformationOneStepLoop(i32 noundef 4, ptr noundef nonnull %5, ptr noundef %24, ptr noundef %25, ptr noundef %26, ptr noundef %27, ptr noundef %28)
+  %40 = getelementptr i8, ptr %39, i64 104
+  %.val116 = load i32, ptr %40, align 8
   %.not108 = icmp eq i32 %.val116, 0
-  br i1 %.not108, label %58, label %43
+  br i1 %.not108, label %56, label %41
 
-43:                                               ; preds = %40
+41:                                               ; preds = %38
   %puts109 = tail call i32 @puts(ptr nonnull dereferenceable(1) @str.31)
-  br label %58
+  br label %56
 
-44:                                               ; preds = %26
-  %45 = call ptr @LivenessToSafetyTransformationWithLTL(i32 noundef 1, ptr noundef nonnull %5, ptr noundef %.sink127, ptr noundef %27, ptr noundef %28, ptr noundef %29, ptr noundef %30, ptr noundef nonnull %4, ptr noundef %32)
-  %46 = getelementptr i8, ptr %45, i64 104
-  %.val115 = load i32, ptr %46, align 8
+42:                                               ; preds = %23
+  %43 = call ptr @LivenessToSafetyTransformationWithLTL(i32 noundef 1, ptr noundef nonnull %5, ptr noundef %24, ptr noundef %25, ptr noundef %26, ptr noundef %27, ptr noundef %28, ptr noundef nonnull %4, ptr noundef %30)
+  %44 = getelementptr i8, ptr %43, i64 104
+  %.val115 = load i32, ptr %44, align 8
   %.not106 = icmp eq i32 %.val115, 0
-  br i1 %.not106, label %58, label %47
+  br i1 %.not106, label %56, label %45
 
-47:                                               ; preds = %44
+45:                                               ; preds = %42
   %puts107 = tail call i32 @puts(ptr nonnull dereferenceable(1) @str.30)
-  br label %58
+  br label %56
 
-48:                                               ; preds = %26
-  %49 = call ptr @LivenessToSafetyTransformationWithLTL(i32 noundef 2, ptr noundef nonnull %5, ptr noundef %.sink127, ptr noundef %27, ptr noundef %28, ptr noundef %29, ptr noundef %30, ptr noundef nonnull %4, ptr noundef %32)
-  %50 = getelementptr i8, ptr %49, i64 104
-  %.val114 = load i32, ptr %50, align 8
+46:                                               ; preds = %23
+  %47 = call ptr @LivenessToSafetyTransformationWithLTL(i32 noundef 2, ptr noundef nonnull %5, ptr noundef %24, ptr noundef %25, ptr noundef %26, ptr noundef %27, ptr noundef %28, ptr noundef nonnull %4, ptr noundef %30)
+  %48 = getelementptr i8, ptr %47, i64 104
+  %.val114 = load i32, ptr %48, align 8
   %.not105 = icmp eq i32 %.val114, 0
-  br i1 %.not105, label %58, label %51
+  br i1 %.not105, label %56, label %49
 
-51:                                               ; preds = %48
-  %52 = load i32, ptr %4, align 4
-  %53 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.60, i32 noundef %52)
-  br label %58
+49:                                               ; preds = %46
+  %50 = load i32, ptr %4, align 4
+  %51 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.60, i32 noundef %50)
+  br label %56
 
-54:                                               ; preds = %26
-  %55 = tail call ptr @LivenessToSafetyTransformationOneStepLoop(i32 noundef 3, ptr noundef nonnull %5, ptr noundef %.sink127, ptr noundef %27, ptr noundef %28, ptr noundef %29, ptr noundef %30)
-  %56 = getelementptr i8, ptr %55, i64 104
-  %.val = load i32, ptr %56, align 8
+52:                                               ; preds = %23
+  %53 = tail call ptr @LivenessToSafetyTransformationOneStepLoop(i32 noundef 3, ptr noundef nonnull %5, ptr noundef %24, ptr noundef %25, ptr noundef %26, ptr noundef %27, ptr noundef %28)
+  %54 = getelementptr i8, ptr %53, i64 104
+  %.val = load i32, ptr %54, align 8
   %.not103 = icmp eq i32 %.val, 0
-  br i1 %.not103, label %58, label %57
+  br i1 %.not103, label %56, label %55
 
-57:                                               ; preds = %54
+55:                                               ; preds = %52
   %puts104 = tail call i32 @puts(ptr nonnull dereferenceable(1) @str.29)
-  br label %58
+  br label %56
 
-58:                                               ; preds = %54, %57, %48, %51, %44, %47, %40, %43, %33, %36, %26
-  %.092 = phi ptr [ null, %26 ], [ %55, %57 ], [ %55, %54 ], [ %49, %51 ], [ %49, %48 ], [ %45, %47 ], [ %45, %44 ], [ %41, %43 ], [ %41, %40 ], [ %34, %36 ], [ %34, %33 ]
-  %59 = tail call ptr @Abc_NtkFromAigPhase(ptr noundef %.092) #14
-  %60 = load ptr, ptr %.092, align 8
-  %.not.i = icmp eq ptr %60, null
-  br i1 %.not.i, label %Abc_UtilStrsav.exit, label %61
+56:                                               ; preds = %52, %55, %46, %49, %42, %45, %38, %41, %31, %34, %23
+  %.092 = phi ptr [ null, %23 ], [ %53, %55 ], [ %53, %52 ], [ %47, %49 ], [ %47, %46 ], [ %43, %45 ], [ %43, %42 ], [ %39, %41 ], [ %39, %38 ], [ %32, %34 ], [ %32, %31 ]
+  %57 = tail call ptr @Abc_NtkFromAigPhase(ptr noundef %.092) #14
+  %58 = load ptr, ptr %.092, align 8
+  %.not.i = icmp eq ptr %58, null
+  br i1 %.not.i, label %Abc_UtilStrsav.exit, label %59
 
-61:                                               ; preds = %58
-  %62 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %60) #16
-  %63 = add i64 %62, 1
-  %64 = tail call noalias ptr @malloc(i64 noundef %63) #15
-  %65 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %64, ptr noundef nonnull readonly dereferenceable(1) %60) #14
+59:                                               ; preds = %56
+  %60 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %58) #16
+  %61 = add i64 %60, 1
+  %62 = tail call noalias ptr @malloc(i64 noundef %61) #15
+  %63 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %62, ptr noundef nonnull readonly dereferenceable(1) %58) #14
   br label %Abc_UtilStrsav.exit
 
-Abc_UtilStrsav.exit:                              ; preds = %58, %61
-  %66 = phi ptr [ %64, %61 ], [ null, %58 ]
-  %67 = getelementptr inbounds i8, ptr %59, i64 8
-  store ptr %66, ptr %67, align 8
-  %68 = tail call i32 @Abc_NtkCheck(ptr noundef %59) #14
-  %.not111 = icmp eq i32 %68, 0
-  br i1 %.not111, label %69, label %72
+Abc_UtilStrsav.exit:                              ; preds = %56, %59
+  %64 = phi ptr [ %62, %59 ], [ null, %56 ]
+  %65 = getelementptr inbounds i8, ptr %57, i64 8
+  store ptr %64, ptr %65, align 8
+  %66 = tail call i32 @Abc_NtkCheck(ptr noundef %57) #14
+  %.not111 = icmp eq i32 %66, 0
+  br i1 %.not111, label %67, label %70
 
-69:                                               ; preds = %Abc_UtilStrsav.exit
-  %70 = load ptr, ptr @stdout, align 8
-  %71 = tail call i64 @fwrite(ptr nonnull @.str.37, i64 47, i64 1, ptr %70)
-  br label %72
+67:                                               ; preds = %Abc_UtilStrsav.exit
+  %68 = load ptr, ptr @stdout, align 8
+  %69 = tail call i64 @fwrite(ptr nonnull @.str.37, i64 47, i64 1, ptr %68)
+  br label %70
 
-72:                                               ; preds = %69, %Abc_UtilStrsav.exit
-  %73 = load ptr, ptr @vecPiNames, align 8
-  %74 = load ptr, ptr @vecLoNames, align 8
-  tail call void @updateNewNetworkNameManager(ptr noundef nonnull %59, ptr noundef nonnull %.092, ptr noundef %73, ptr noundef %74)
-  tail call void @Abc_FrameSetCurrentNetwork(ptr noundef nonnull %0, ptr noundef nonnull %59) #14
-  br label %88
+70:                                               ; preds = %67, %Abc_UtilStrsav.exit
+  %71 = load ptr, ptr @vecPiNames, align 8
+  %72 = load ptr, ptr @vecLoNames, align 8
+  tail call void @updateNewNetworkNameManager(ptr noundef nonnull %57, ptr noundef nonnull %.092, ptr noundef %71, ptr noundef %72)
+  tail call void @Abc_FrameSetCurrentNetwork(ptr noundef nonnull %0, ptr noundef nonnull %57) #14
+  br label %86
 
-75:                                               ; preds = %15, %13, %10
+73:                                               ; preds = %15, %13, %10
+  %74 = load ptr, ptr @stdout, align 8
+  %75 = tail call i64 @fwrite(ptr nonnull @.str.61, i64 19, i64 1, ptr %74)
   %76 = load ptr, ptr @stdout, align 8
-  %77 = tail call i64 @fwrite(ptr nonnull @.str.61, i64 19, i64 1, ptr %76)
+  %77 = tail call i64 @fwrite(ptr nonnull @.str.39, i64 61, i64 1, ptr %76)
   %78 = load ptr, ptr @stdout, align 8
-  %79 = tail call i64 @fwrite(ptr nonnull @.str.39, i64 61, i64 1, ptr %78)
+  %79 = tail call i64 @fwrite(ptr nonnull @.str.40, i64 56, i64 1, ptr %78)
   %80 = load ptr, ptr @stdout, align 8
-  %81 = tail call i64 @fwrite(ptr nonnull @.str.40, i64 56, i64 1, ptr %80)
+  %81 = tail call i64 @fwrite(ptr nonnull @.str.41, i64 43, i64 1, ptr %80)
   %82 = load ptr, ptr @stdout, align 8
-  %83 = tail call i64 @fwrite(ptr nonnull @.str.41, i64 43, i64 1, ptr %82)
+  %83 = tail call i64 @fwrite(ptr nonnull @.str.42, i64 47, i64 1, ptr %82)
   %84 = load ptr, ptr @stdout, align 8
-  %85 = tail call i64 @fwrite(ptr nonnull @.str.42, i64 47, i64 1, ptr %84)
-  %86 = load ptr, ptr @stdout, align 8
-  %87 = tail call i64 @fwrite(ptr nonnull @.str.43, i64 26, i64 1, ptr %86)
-  br label %88
+  %85 = tail call i64 @fwrite(ptr nonnull @.str.43, i64 26, i64 1, ptr %84)
+  br label %86
 
-88:                                               ; preds = %75, %72, %18
-  %.091 = phi i32 [ 1, %18 ], [ 0, %72 ], [ 1, %75 ]
+86:                                               ; preds = %73, %70, %18
+  %.091 = phi i32 [ 1, %18 ], [ 0, %70 ], [ 1, %73 ]
   ret i32 %.091
 }
 

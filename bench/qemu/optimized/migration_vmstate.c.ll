@@ -1164,6 +1164,8 @@ entry:
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local i32 @vmstate_save_state_v(ptr noundef %f, ptr nocapture noundef readonly %vmsd, ptr noundef %opaque, ptr noundef %vmdesc, i32 noundef %version_id, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
+  %_now.i.i26.i = alloca %struct.timeval, align 8
+  %_now.i.i.i = alloca %struct.timeval, align 8
   %_now.i.i116 = alloca %struct.timeval, align 8
   %_now.i.i102 = alloca %struct.timeval, align 8
   %_now.i.i = alloca %struct.timeval, align 8
@@ -1648,32 +1650,186 @@ if.else107:                                       ; preds = %while.end
   unreachable
 
 if.end108:                                        ; preds = %while.end
-  br i1 %tobool7.not, label %if.end108.split, label %if.then110
-
-if.end108.split:                                  ; preds = %if.end108
-  %call11297 = tail call fastcc i32 @vmstate_subsection_save(ptr noundef %f, ptr noundef nonnull %vmsd, ptr noundef %opaque, ptr noundef null)
-  br label %if.end111
+  br i1 %tobool7.not, label %if.end111, label %if.then110
 
 if.then110:                                       ; preds = %if.end108
   tail call void @json_writer_end_array(ptr noundef nonnull %vmdesc) #10
-  %call11298 = tail call fastcc i32 @vmstate_subsection_save(ptr noundef %f, ptr noundef nonnull %vmsd, ptr noundef %opaque, ptr noundef nonnull %vmdesc)
   br label %if.end111
 
-if.end111:                                        ; preds = %if.end108.split, %if.then110
-  %phi.call = phi i32 [ %call11297, %if.end108.split ], [ %call11298, %if.then110 ]
+if.end111:                                        ; preds = %if.end108, %if.then110
+  %subsections.i = getelementptr inbounds i8, ptr %vmsd, i64 80
+  %68 = load ptr, ptr %subsections.i, align 8
+  %69 = load ptr, ptr %vmsd, align 8
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i.i)
+  %70 = load i32, ptr @trace_events_enabled_count, align 4
+  %tobool.i.i.i = icmp ne i32 %70, 0
+  %71 = load i16, ptr @_TRACE_VMSTATE_SUBSECTION_SAVE_TOP_DSTATE, align 2
+  %tobool4.i.i.i = icmp ne i16 %71, 0
+  %or.cond.i.i.i = select i1 %tobool.i.i.i, i1 %tobool4.i.i.i, i1 false
+  br i1 %or.cond.i.i.i, label %land.lhs.true5.i.i.i, label %trace_vmstate_subsection_save_top.exit.i
+
+land.lhs.true5.i.i.i:                             ; preds = %if.end111
+  %72 = load i32, ptr @qemu_loglevel, align 4
+  %and.i.i.i.i = and i32 %72, 32768
+  %cmp.i.not.i.i.i = icmp eq i32 %and.i.i.i.i, 0
+  br i1 %cmp.i.not.i.i.i, label %trace_vmstate_subsection_save_top.exit.i, label %if.then.i.i.i
+
+if.then.i.i.i:                                    ; preds = %land.lhs.true5.i.i.i
+  %73 = load i8, ptr @message_with_timestamp, align 1
+  %tobool7.i.i.i = trunc i8 %73 to i1
+  br i1 %tobool7.i.i.i, label %if.then8.i.i.i, label %if.else.i.i.i
+
+if.then8.i.i.i:                                   ; preds = %if.then.i.i.i
+  %call9.i.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i.i, ptr noundef null) #10
+  %call10.i.i.i = tail call i32 @qemu_get_thread_id() #10
+  %74 = load i64, ptr %_now.i.i.i, align 8
+  %tv_usec.i.i.i = getelementptr inbounds i8, ptr %_now.i.i.i, i64 8
+  %75 = load i64, ptr %tv_usec.i.i.i, align 8
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.61, i32 noundef %call10.i.i.i, i64 noundef %74, i64 noundef %75, ptr noundef %69) #10
+  br label %trace_vmstate_subsection_save_top.exit.i
+
+if.else.i.i.i:                                    ; preds = %if.then.i.i.i
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.62, ptr noundef %69) #10
+  br label %trace_vmstate_subsection_save_top.exit.i
+
+trace_vmstate_subsection_save_top.exit.i:         ; preds = %if.else.i.i.i, %if.then8.i.i.i, %land.lhs.true5.i.i.i, %if.end111
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i.i)
+  %tobool.not43.i = icmp eq ptr %68, null
+  br i1 %tobool.not43.i, label %vmstate_subsection_save.exit, label %land.rhs.lr.ph.i
+
+land.rhs.lr.ph.i:                                 ; preds = %trace_vmstate_subsection_save_top.exit.i
+  %tv_usec.i.i39.i = getelementptr inbounds i8, ptr %_now.i.i26.i, i64 8
+  br label %land.rhs.i
+
+land.rhs.i:                                       ; preds = %if.end21.i, %land.rhs.lr.ph.i
+  %sub.045.i = phi ptr [ %68, %land.rhs.lr.ph.i ], [ %incdec.ptr.i, %if.end21.i ]
+  %vmdesc_has_subsections.044.i = phi i8 [ 0, %land.rhs.lr.ph.i ], [ %vmdesc_has_subsections.1.i, %if.end21.i ]
+  %76 = load ptr, ptr %sub.045.i, align 8
+  %tobool1.not.i171 = icmp eq ptr %76, null
+  br i1 %tobool1.not.i171, label %while.end.i, label %while.body.i
+
+while.body.i:                                     ; preds = %land.rhs.i
+  %needed.i.i = getelementptr inbounds i8, ptr %76, i64 56
+  %77 = load ptr, ptr %needed.i.i, align 8
+  %tobool.not.i.i172 = icmp eq ptr %77, null
+  br i1 %tobool.not.i.i172, label %if.then.i175, label %land.lhs.true.i.i
+
+land.lhs.true.i.i:                                ; preds = %while.body.i
+  %call.i.i173 = tail call zeroext i1 %77(ptr noundef %opaque) #10
+  br i1 %call.i.i173, label %land.lhs.true.i.if.then_crit_edge.i, label %if.end21.i
+
+land.lhs.true.i.if.then_crit_edge.i:              ; preds = %land.lhs.true.i.i
+  %.pre.i = load ptr, ptr %sub.045.i, align 8
+  br label %if.then.i175
+
+if.then.i175:                                     ; preds = %land.lhs.true.i.if.then_crit_edge.i, %while.body.i
+  %78 = phi ptr [ %.pre.i, %land.lhs.true.i.if.then_crit_edge.i ], [ %76, %while.body.i ]
+  %79 = load ptr, ptr %vmsd, align 8
+  %80 = load ptr, ptr %78, align 8
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i26.i)
+  %81 = load i32, ptr @trace_events_enabled_count, align 4
+  %tobool.i.i27.i = icmp ne i32 %81, 0
+  %82 = load i16, ptr @_TRACE_VMSTATE_SUBSECTION_SAVE_LOOP_DSTATE, align 2
+  %tobool4.i.i28.i = icmp ne i16 %82, 0
+  %or.cond.i.i29.i = select i1 %tobool.i.i27.i, i1 %tobool4.i.i28.i, i1 false
+  br i1 %or.cond.i.i29.i, label %land.lhs.true5.i.i30.i, label %trace_vmstate_subsection_save_loop.exit.i
+
+land.lhs.true5.i.i30.i:                           ; preds = %if.then.i175
+  %83 = load i32, ptr @qemu_loglevel, align 4
+  %and.i.i.i31.i = and i32 %83, 32768
+  %cmp.i.not.i.i32.i = icmp eq i32 %and.i.i.i31.i, 0
+  br i1 %cmp.i.not.i.i32.i, label %trace_vmstate_subsection_save_loop.exit.i, label %if.then.i.i33.i
+
+if.then.i.i33.i:                                  ; preds = %land.lhs.true5.i.i30.i
+  %84 = load i8, ptr @message_with_timestamp, align 1
+  %tobool7.i.i34.i = trunc i8 %84 to i1
+  br i1 %tobool7.i.i34.i, label %if.then8.i.i36.i, label %if.else.i.i35.i
+
+if.then8.i.i36.i:                                 ; preds = %if.then.i.i33.i
+  %call9.i.i37.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i26.i, ptr noundef null) #10
+  %call10.i.i38.i = tail call i32 @qemu_get_thread_id() #10
+  %85 = load i64, ptr %_now.i.i26.i, align 8
+  %86 = load i64, ptr %tv_usec.i.i39.i, align 8
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.63, i32 noundef %call10.i.i38.i, i64 noundef %85, i64 noundef %86, ptr noundef %79, ptr noundef %80) #10
+  br label %trace_vmstate_subsection_save_loop.exit.i
+
+if.else.i.i35.i:                                  ; preds = %if.then.i.i33.i
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.64, ptr noundef %79, ptr noundef %80) #10
+  br label %trace_vmstate_subsection_save_loop.exit.i
+
+trace_vmstate_subsection_save_loop.exit.i:        ; preds = %if.else.i.i35.i, %if.then8.i.i36.i, %land.lhs.true5.i.i30.i, %if.then.i175
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i26.i)
+  br i1 %tobool7.not, label %if.end8.i, label %if.then5.i
+
+if.then5.i:                                       ; preds = %trace_vmstate_subsection_save_loop.exit.i
+  %tobool6.i = trunc nuw i8 %vmdesc_has_subsections.044.i to i1
+  br i1 %tobool6.i, label %if.end.i176, label %if.then7.i
+
+if.then7.i:                                       ; preds = %if.then5.i
+  tail call void @json_writer_start_array(ptr noundef nonnull %vmdesc, ptr noundef nonnull @.str.60) #10
+  br label %if.end.i176
+
+if.end.i176:                                      ; preds = %if.then7.i, %if.then5.i
+  %vmdesc_has_subsections.3.i = phi i8 [ %vmdesc_has_subsections.044.i, %if.then5.i ], [ 1, %if.then7.i ]
+  tail call void @json_writer_start_object(ptr noundef nonnull %vmdesc, ptr noundef null) #10
+  br label %if.end8.i
+
+if.end8.i:                                        ; preds = %if.end.i176, %trace_vmstate_subsection_save_loop.exit.i
+  %vmdesc_has_subsections.2.i = phi i8 [ %vmdesc_has_subsections.3.i, %if.end.i176 ], [ %vmdesc_has_subsections.044.i, %trace_vmstate_subsection_save_loop.exit.i ]
+  tail call void @qemu_put_byte(ptr noundef %f, i32 noundef 5) #10
+  %87 = load ptr, ptr %78, align 8
+  %call10.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %87) #13
+  %88 = trunc i64 %call10.i to i32
+  %conv11.i = and i32 %88, 255
+  tail call void @qemu_put_byte(ptr noundef %f, i32 noundef %conv11.i) #10
+  %89 = load ptr, ptr %78, align 8
+  %conv13.i = and i64 %call10.i, 255
+  tail call void @qemu_put_buffer(ptr noundef %f, ptr noundef %89, i64 noundef %conv13.i) #10
+  %version_id.i177 = getelementptr inbounds i8, ptr %78, i64 12
+  %90 = load i32, ptr %version_id.i177, align 4
+  tail call void @qemu_put_be32(ptr noundef %f, i32 noundef %90) #10
+  %91 = load i32, ptr %version_id.i177, align 4
+  %call.i40.i = tail call i32 @vmstate_save_state_v(ptr noundef %f, ptr noundef nonnull %78, ptr noundef %opaque, ptr noundef %vmdesc, i32 noundef %91, ptr noundef null)
+  %tobool15.not.i = icmp eq i32 %call.i40.i, 0
+  br i1 %tobool15.not.i, label %if.end17.i, label %vmstate_subsection_save.exit
+
+if.end17.i:                                       ; preds = %if.end8.i
+  br i1 %tobool7.not, label %if.end21.i, label %if.then19.i178
+
+if.then19.i178:                                   ; preds = %if.end17.i
+  tail call void @json_writer_end_object(ptr noundef nonnull %vmdesc) #10
+  br label %if.end21.i
+
+if.end21.i:                                       ; preds = %if.then19.i178, %if.end17.i, %land.lhs.true.i.i
+  %vmdesc_has_subsections.1.i = phi i8 [ %vmdesc_has_subsections.2.i, %if.then19.i178 ], [ %vmdesc_has_subsections.2.i, %if.end17.i ], [ %vmdesc_has_subsections.044.i, %land.lhs.true.i.i ]
+  %incdec.ptr.i = getelementptr i8, ptr %sub.045.i, i64 8
+  %tobool.not.i174 = icmp eq ptr %incdec.ptr.i, null
+  br i1 %tobool.not.i174, label %while.end.i, label %land.rhs.i, !llvm.loop !14
+
+while.end.i:                                      ; preds = %if.end21.i, %land.rhs.i
+  %vmdesc_has_subsections.0.lcssa.ph.i = phi i8 [ %vmdesc_has_subsections.044.i, %land.rhs.i ], [ %vmdesc_has_subsections.1.i, %if.end21.i ]
+  %92 = trunc nuw i8 %vmdesc_has_subsections.0.lcssa.ph.i to i1
+  br i1 %92, label %if.then23.i, label %vmstate_subsection_save.exit
+
+if.then23.i:                                      ; preds = %while.end.i
+  tail call void @json_writer_end_array(ptr noundef %vmdesc) #10
+  br label %vmstate_subsection_save.exit
+
+vmstate_subsection_save.exit:                     ; preds = %if.end8.i, %trace_vmstate_subsection_save_top.exit.i, %while.end.i, %if.then23.i
+  %retval.0.i = phi i32 [ 0, %if.then23.i ], [ 0, %while.end.i ], [ 0, %trace_vmstate_subsection_save_top.exit.i ], [ %call.i40.i, %if.end8.i ]
   %post_save113 = getelementptr inbounds i8, ptr %vmsd, i64 48
-  %68 = load ptr, ptr %post_save113, align 8
-  %tobool114.not = icmp eq ptr %68, null
+  %93 = load ptr, ptr %post_save113, align 8
+  %tobool114.not = icmp eq ptr %93, null
   br i1 %tobool114.not, label %return, label %if.then115
 
-if.then115:                                       ; preds = %if.end111
-  %call117 = tail call i32 %68(ptr noundef %opaque) #10
-  %tobool118.not = icmp eq i32 %phi.call, 0
-  %spec.select101 = select i1 %tobool118.not, i32 %call117, i32 %phi.call
+if.then115:                                       ; preds = %vmstate_subsection_save.exit
+  %call117 = tail call i32 %93(ptr noundef %opaque) #10
+  %tobool118.not = icmp eq i32 %retval.0.i, 0
+  %spec.select101 = select i1 %tobool118.not, i32 %call117, i32 %retval.0.i
   br label %return
 
-return:                                           ; preds = %if.then115, %if.end111, %if.then72, %if.then76, %if.then4
-  %retval.0 = phi i32 [ %call, %if.then4 ], [ %ret.0, %if.then76 ], [ %ret.0, %if.then72 ], [ %phi.call, %if.end111 ], [ %spec.select101, %if.then115 ]
+return:                                           ; preds = %if.then115, %vmstate_subsection_save.exit, %if.then72, %if.then76, %if.then4
+  %retval.0 = phi i32 [ %call, %if.then4 ], [ %ret.0, %if.then76 ], [ %ret.0, %if.then72 ], [ %retval.0.i, %vmstate_subsection_save.exit ], [ %spec.select101, %if.then115 ]
   ret i32 %retval.0
 }
 
@@ -1724,7 +1880,7 @@ while.cond:                                       ; preds = %while.body
   %incdec.ptr = getelementptr i8, ptr %sfield.07, i64 104
   %5 = load ptr, ptr %incdec.ptr, align 8
   %tobool3.not = icmp eq ptr %5, null
-  br i1 %tobool3.not, label %while.end, label %while.body, !llvm.loop !14
+  br i1 %tobool3.not, label %while.end, label %while.body, !llvm.loop !15
 
 while.body:                                       ; preds = %if.then2, %while.cond
   %sfield.07 = phi ptr [ %incdec.ptr, %while.cond ], [ %3, %if.then2 ]
@@ -1746,175 +1902,6 @@ return:                                           ; preds = %while.body, %while.
 }
 
 declare void @json_writer_end_array(ptr noundef) local_unnamed_addr #1
-
-; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc i32 @vmstate_subsection_save(ptr noundef %f, ptr nocapture noundef readonly %vmsd, ptr noundef %opaque, ptr noundef %vmdesc) unnamed_addr #0 {
-entry:
-  %_now.i.i26 = alloca %struct.timeval, align 8
-  %_now.i.i = alloca %struct.timeval, align 8
-  %subsections = getelementptr inbounds i8, ptr %vmsd, i64 80
-  %0 = load ptr, ptr %subsections, align 8
-  %1 = load ptr, ptr %vmsd, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i)
-  %2 = load i32, ptr @trace_events_enabled_count, align 4
-  %tobool.i.i = icmp ne i32 %2, 0
-  %3 = load i16, ptr @_TRACE_VMSTATE_SUBSECTION_SAVE_TOP_DSTATE, align 2
-  %tobool4.i.i = icmp ne i16 %3, 0
-  %or.cond.i.i = select i1 %tobool.i.i, i1 %tobool4.i.i, i1 false
-  br i1 %or.cond.i.i, label %land.lhs.true5.i.i, label %trace_vmstate_subsection_save_top.exit
-
-land.lhs.true5.i.i:                               ; preds = %entry
-  %4 = load i32, ptr @qemu_loglevel, align 4
-  %and.i.i.i = and i32 %4, 32768
-  %cmp.i.not.i.i = icmp eq i32 %and.i.i.i, 0
-  br i1 %cmp.i.not.i.i, label %trace_vmstate_subsection_save_top.exit, label %if.then.i.i
-
-if.then.i.i:                                      ; preds = %land.lhs.true5.i.i
-  %5 = load i8, ptr @message_with_timestamp, align 1
-  %tobool7.i.i = trunc i8 %5 to i1
-  br i1 %tobool7.i.i, label %if.then8.i.i, label %if.else.i.i
-
-if.then8.i.i:                                     ; preds = %if.then.i.i
-  %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #10
-  %call10.i.i = tail call i32 @qemu_get_thread_id() #10
-  %6 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
-  %7 = load i64, ptr %tv_usec.i.i, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.61, i32 noundef %call10.i.i, i64 noundef %6, i64 noundef %7, ptr noundef %1) #10
-  br label %trace_vmstate_subsection_save_top.exit
-
-if.else.i.i:                                      ; preds = %if.then.i.i
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.62, ptr noundef %1) #10
-  br label %trace_vmstate_subsection_save_top.exit
-
-trace_vmstate_subsection_save_top.exit:           ; preds = %entry, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i)
-  %tobool.not43 = icmp eq ptr %0, null
-  br i1 %tobool.not43, label %return, label %land.rhs.lr.ph
-
-land.rhs.lr.ph:                                   ; preds = %trace_vmstate_subsection_save_top.exit
-  %tv_usec.i.i39 = getelementptr inbounds i8, ptr %_now.i.i26, i64 8
-  %tobool4.not = icmp eq ptr %vmdesc, null
-  br label %land.rhs
-
-land.rhs:                                         ; preds = %land.rhs.lr.ph, %if.end21
-  %sub.045 = phi ptr [ %0, %land.rhs.lr.ph ], [ %incdec.ptr, %if.end21 ]
-  %vmdesc_has_subsections.044 = phi i8 [ 0, %land.rhs.lr.ph ], [ %vmdesc_has_subsections.1, %if.end21 ]
-  %8 = load ptr, ptr %sub.045, align 8
-  %tobool1.not = icmp eq ptr %8, null
-  br i1 %tobool1.not, label %while.end, label %while.body
-
-while.body:                                       ; preds = %land.rhs
-  %needed.i = getelementptr inbounds i8, ptr %8, i64 56
-  %9 = load ptr, ptr %needed.i, align 8
-  %tobool.not.i = icmp eq ptr %9, null
-  br i1 %tobool.not.i, label %if.then, label %land.lhs.true.i
-
-land.lhs.true.i:                                  ; preds = %while.body
-  %call.i = tail call zeroext i1 %9(ptr noundef %opaque) #10
-  br i1 %call.i, label %land.lhs.true.i.if.then_crit_edge, label %if.end21
-
-land.lhs.true.i.if.then_crit_edge:                ; preds = %land.lhs.true.i
-  %.pre = load ptr, ptr %sub.045, align 8
-  br label %if.then
-
-if.then:                                          ; preds = %land.lhs.true.i.if.then_crit_edge, %while.body
-  %10 = phi ptr [ %.pre, %land.lhs.true.i.if.then_crit_edge ], [ %8, %while.body ]
-  %11 = load ptr, ptr %vmsd, align 8
-  %12 = load ptr, ptr %10, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i26)
-  %13 = load i32, ptr @trace_events_enabled_count, align 4
-  %tobool.i.i27 = icmp ne i32 %13, 0
-  %14 = load i16, ptr @_TRACE_VMSTATE_SUBSECTION_SAVE_LOOP_DSTATE, align 2
-  %tobool4.i.i28 = icmp ne i16 %14, 0
-  %or.cond.i.i29 = select i1 %tobool.i.i27, i1 %tobool4.i.i28, i1 false
-  br i1 %or.cond.i.i29, label %land.lhs.true5.i.i30, label %trace_vmstate_subsection_save_loop.exit
-
-land.lhs.true5.i.i30:                             ; preds = %if.then
-  %15 = load i32, ptr @qemu_loglevel, align 4
-  %and.i.i.i31 = and i32 %15, 32768
-  %cmp.i.not.i.i32 = icmp eq i32 %and.i.i.i31, 0
-  br i1 %cmp.i.not.i.i32, label %trace_vmstate_subsection_save_loop.exit, label %if.then.i.i33
-
-if.then.i.i33:                                    ; preds = %land.lhs.true5.i.i30
-  %16 = load i8, ptr @message_with_timestamp, align 1
-  %tobool7.i.i34 = trunc i8 %16 to i1
-  br i1 %tobool7.i.i34, label %if.then8.i.i36, label %if.else.i.i35
-
-if.then8.i.i36:                                   ; preds = %if.then.i.i33
-  %call9.i.i37 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i26, ptr noundef null) #10
-  %call10.i.i38 = tail call i32 @qemu_get_thread_id() #10
-  %17 = load i64, ptr %_now.i.i26, align 8
-  %18 = load i64, ptr %tv_usec.i.i39, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.63, i32 noundef %call10.i.i38, i64 noundef %17, i64 noundef %18, ptr noundef %11, ptr noundef %12) #10
-  br label %trace_vmstate_subsection_save_loop.exit
-
-if.else.i.i35:                                    ; preds = %if.then.i.i33
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.64, ptr noundef %11, ptr noundef %12) #10
-  br label %trace_vmstate_subsection_save_loop.exit
-
-trace_vmstate_subsection_save_loop.exit:          ; preds = %if.then, %land.lhs.true5.i.i30, %if.then8.i.i36, %if.else.i.i35
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i26)
-  br i1 %tobool4.not, label %if.end8, label %if.then5
-
-if.then5:                                         ; preds = %trace_vmstate_subsection_save_loop.exit
-  %tobool6 = trunc nuw i8 %vmdesc_has_subsections.044 to i1
-  br i1 %tobool6, label %if.end, label %if.then7
-
-if.then7:                                         ; preds = %if.then5
-  tail call void @json_writer_start_array(ptr noundef nonnull %vmdesc, ptr noundef nonnull @.str.60) #10
-  br label %if.end
-
-if.end:                                           ; preds = %if.then7, %if.then5
-  %vmdesc_has_subsections.3 = phi i8 [ %vmdesc_has_subsections.044, %if.then5 ], [ 1, %if.then7 ]
-  tail call void @json_writer_start_object(ptr noundef nonnull %vmdesc, ptr noundef null) #10
-  br label %if.end8
-
-if.end8:                                          ; preds = %if.end, %trace_vmstate_subsection_save_loop.exit
-  %vmdesc_has_subsections.2 = phi i8 [ %vmdesc_has_subsections.3, %if.end ], [ %vmdesc_has_subsections.044, %trace_vmstate_subsection_save_loop.exit ]
-  tail call void @qemu_put_byte(ptr noundef %f, i32 noundef 5) #10
-  %19 = load ptr, ptr %10, align 8
-  %call10 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %19) #13
-  %20 = trunc i64 %call10 to i32
-  %conv11 = and i32 %20, 255
-  tail call void @qemu_put_byte(ptr noundef %f, i32 noundef %conv11) #10
-  %21 = load ptr, ptr %10, align 8
-  %conv13 = and i64 %call10, 255
-  tail call void @qemu_put_buffer(ptr noundef %f, ptr noundef %21, i64 noundef %conv13) #10
-  %version_id = getelementptr inbounds i8, ptr %10, i64 12
-  %22 = load i32, ptr %version_id, align 4
-  tail call void @qemu_put_be32(ptr noundef %f, i32 noundef %22) #10
-  %23 = load i32, ptr %version_id, align 4
-  %call.i40 = tail call i32 @vmstate_save_state_v(ptr noundef %f, ptr noundef nonnull %10, ptr noundef %opaque, ptr noundef %vmdesc, i32 noundef %23, ptr noundef null)
-  %tobool15.not = icmp eq i32 %call.i40, 0
-  br i1 %tobool15.not, label %if.end17, label %return
-
-if.end17:                                         ; preds = %if.end8
-  br i1 %tobool4.not, label %if.end21, label %if.then19
-
-if.then19:                                        ; preds = %if.end17
-  tail call void @json_writer_end_object(ptr noundef nonnull %vmdesc) #10
-  br label %if.end21
-
-if.end21:                                         ; preds = %land.lhs.true.i, %if.end17, %if.then19
-  %vmdesc_has_subsections.1 = phi i8 [ %vmdesc_has_subsections.2, %if.then19 ], [ %vmdesc_has_subsections.2, %if.end17 ], [ %vmdesc_has_subsections.044, %land.lhs.true.i ]
-  %incdec.ptr = getelementptr i8, ptr %sub.045, i64 8
-  %tobool.not = icmp eq ptr %incdec.ptr, null
-  br i1 %tobool.not, label %while.end, label %land.rhs, !llvm.loop !15
-
-while.end:                                        ; preds = %land.rhs, %if.end21
-  %vmdesc_has_subsections.0.lcssa.ph = phi i8 [ %vmdesc_has_subsections.044, %land.rhs ], [ %vmdesc_has_subsections.1, %if.end21 ]
-  %24 = trunc nuw i8 %vmdesc_has_subsections.0.lcssa.ph to i1
-  br i1 %24, label %if.then23, label %return
-
-if.then23:                                        ; preds = %while.end
-  tail call void @json_writer_end_array(ptr noundef %vmdesc) #10
-  br label %return
-
-return:                                           ; preds = %if.end8, %trace_vmstate_subsection_save_top.exit, %while.end, %if.then23
-  %retval.0 = phi i32 [ 0, %if.then23 ], [ 0, %while.end ], [ 0, %trace_vmstate_subsection_save_top.exit ], [ %call.i40, %if.end8 ]
-  ret i32 %retval.0
-}
 
 ; Function Attrs: nofree nounwind
 declare noundef i32 @gettimeofday(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #5

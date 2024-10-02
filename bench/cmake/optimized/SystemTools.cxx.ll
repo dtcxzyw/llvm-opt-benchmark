@@ -1915,28 +1915,27 @@ define dso_local noundef ptr @_ZN5cmsys11SystemTools13AppendStringsEPKcS2_(ptr n
   br label %_ZN5cmsys11SystemTools15DuplicateStringEPKc.exit
 
 9:                                                ; preds = %2
+  %10 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #37
   br i1 %.not.i, label %_ZN5cmsys11SystemTools15DuplicateStringEPKc.exit19, label %14
 
 _ZN5cmsys11SystemTools15DuplicateStringEPKc.exit19: ; preds = %9
-  %10 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %0) #37
   %11 = add i64 %10, 1
   %12 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %11) #38
   %13 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %12, ptr noundef nonnull readonly dereferenceable(1) %0) #34
   br label %_ZN5cmsys11SystemTools15DuplicateStringEPKc.exit
 
 14:                                               ; preds = %9
-  %15 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #37
-  %16 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #37
-  %17 = add i64 %15, 1
-  %18 = add i64 %17, %16
-  %19 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %18) #38
-  %20 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %19, ptr noundef nonnull dereferenceable(1) %0) #34
-  %21 = getelementptr inbounds i8, ptr %19, i64 %15
-  %22 = tail call ptr @strcat(ptr noundef nonnull dereferenceable(1) %21, ptr noundef nonnull dereferenceable(1) %1) #34
+  %15 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #37
+  %16 = add i64 %10, 1
+  %17 = add i64 %16, %15
+  %18 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %17) #38
+  %19 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %18, ptr noundef nonnull dereferenceable(1) %0) #34
+  %20 = getelementptr inbounds i8, ptr %18, i64 %10
+  %21 = tail call ptr @strcat(ptr noundef nonnull dereferenceable(1) %20, ptr noundef nonnull dereferenceable(1) %1) #34
   br label %_ZN5cmsys11SystemTools15DuplicateStringEPKc.exit
 
 _ZN5cmsys11SystemTools15DuplicateStringEPKc.exit: ; preds = %4, %3, %14, %_ZN5cmsys11SystemTools15DuplicateStringEPKc.exit19
-  %.0 = phi ptr [ %19, %14 ], [ %12, %_ZN5cmsys11SystemTools15DuplicateStringEPKc.exit19 ], [ %7, %4 ], [ null, %3 ]
+  %.0 = phi ptr [ %18, %14 ], [ %12, %_ZN5cmsys11SystemTools15DuplicateStringEPKc.exit19 ], [ %7, %4 ], [ null, %3 ]
   ret ptr %.0
 }
 
@@ -1967,54 +1966,67 @@ declare ptr @strcpy(ptr noalias noundef returned writeonly, ptr noalias nocaptur
 declare ptr @strcat(ptr noalias noundef returned, ptr noalias nocapture noundef readonly) local_unnamed_addr #16
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef ptr @_ZN5cmsys11SystemTools13AppendStringsEPKcS2_S2_(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #5 align 2 {
+define dso_local noundef ptr @_ZN5cmsys11SystemTools13AppendStringsEPKcS2_S2_(ptr noundef readonly %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #5 align 2 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %4, label %6
 
 4:                                                ; preds = %3
   %5 = tail call noundef ptr @_ZN5cmsys11SystemTools13AppendStringsEPKcS2_(ptr noundef %1, ptr noundef %2)
-  br label %31
+  br label %_ZN5cmsys11SystemTools13AppendStringsEPKcS2_.exit
 
 6:                                                ; preds = %3
   %.not28 = icmp eq ptr %1, null
-  br i1 %.not28, label %7, label %9
+  %.not.i.i = icmp eq ptr %2, null
+  %7 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #37
+  br i1 %.not28, label %8, label %20
 
-7:                                                ; preds = %6
-  %8 = tail call noundef ptr @_ZN5cmsys11SystemTools13AppendStringsEPKcS2_(ptr noundef nonnull %0, ptr noundef %2)
-  br label %31
+8:                                                ; preds = %6
+  br i1 %.not.i.i, label %_ZN5cmsys11SystemTools15DuplicateStringEPKc.exit19.i, label %12
 
-9:                                                ; preds = %6
-  %.not29 = icmp eq ptr %2, null
-  br i1 %.not29, label %_ZN5cmsys11SystemTools13AppendStringsEPKcS2_.exit, label %18
+_ZN5cmsys11SystemTools15DuplicateStringEPKc.exit19.i: ; preds = %8
+  %9 = add i64 %7, 1
+  %10 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %9) #38
+  %11 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %10, ptr noundef nonnull readonly dereferenceable(1) %0) #34
+  br label %_ZN5cmsys11SystemTools13AppendStringsEPKcS2_.exit
 
-_ZN5cmsys11SystemTools13AppendStringsEPKcS2_.exit: ; preds = %9
-  %10 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %0) #37
-  %11 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %1) #37
-  %12 = add i64 %10, 1
-  %13 = add i64 %12, %11
-  %14 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %13) #38
-  %15 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %14, ptr noundef nonnull readonly dereferenceable(1) %0) #34
-  %16 = getelementptr inbounds i8, ptr %14, i64 %10
-  %17 = tail call ptr @strcat(ptr noundef nonnull dereferenceable(1) %16, ptr noundef nonnull readonly dereferenceable(1) %1) #34
-  br label %31
+12:                                               ; preds = %8
+  %13 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %2) #37
+  %14 = add i64 %7, 1
+  %15 = add i64 %14, %13
+  %16 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %15) #38
+  %17 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %16, ptr noundef nonnull readonly dereferenceable(1) %0) #34
+  %18 = getelementptr inbounds i8, ptr %16, i64 %7
+  %19 = tail call ptr @strcat(ptr noundef nonnull dereferenceable(1) %18, ptr noundef nonnull readonly dereferenceable(1) %2) #34
+  br label %_ZN5cmsys11SystemTools13AppendStringsEPKcS2_.exit
 
-18:                                               ; preds = %9
-  %19 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #37
-  %20 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #37
-  %21 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %2) #37
-  %22 = add i64 %19, 1
-  %23 = add i64 %22, %20
-  %24 = add i64 %23, %21
-  %25 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %24) #38
-  %26 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %25, ptr noundef nonnull dereferenceable(1) %0) #34
-  %27 = getelementptr inbounds i8, ptr %25, i64 %19
-  %28 = tail call ptr @strcat(ptr noundef nonnull dereferenceable(1) %27, ptr noundef nonnull dereferenceable(1) %1) #34
-  %29 = getelementptr inbounds i8, ptr %27, i64 %20
-  %30 = tail call ptr @strcat(ptr noundef nonnull dereferenceable(1) %29, ptr noundef nonnull dereferenceable(1) %2) #34
-  br label %31
+20:                                               ; preds = %6
+  %21 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #37
+  br i1 %.not.i.i, label %_ZN5cmsys11SystemTools13AppendStringsEPKcS2_.exit34, label %28
 
-31:                                               ; preds = %18, %_ZN5cmsys11SystemTools13AppendStringsEPKcS2_.exit, %7, %4
-  %.0 = phi ptr [ %25, %18 ], [ %14, %_ZN5cmsys11SystemTools13AppendStringsEPKcS2_.exit ], [ %8, %7 ], [ %5, %4 ]
+_ZN5cmsys11SystemTools13AppendStringsEPKcS2_.exit34: ; preds = %20
+  %22 = add i64 %7, 1
+  %23 = add i64 %22, %21
+  %24 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %23) #38
+  %25 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %24, ptr noundef nonnull readonly dereferenceable(1) %0) #34
+  %26 = getelementptr inbounds i8, ptr %24, i64 %7
+  %27 = tail call ptr @strcat(ptr noundef nonnull dereferenceable(1) %26, ptr noundef nonnull readonly dereferenceable(1) %1) #34
+  br label %_ZN5cmsys11SystemTools13AppendStringsEPKcS2_.exit
+
+28:                                               ; preds = %20
+  %29 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %2) #37
+  %30 = add i64 %7, 1
+  %31 = add i64 %30, %21
+  %32 = add i64 %31, %29
+  %33 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %32) #38
+  %34 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %33, ptr noundef nonnull dereferenceable(1) %0) #34
+  %35 = getelementptr inbounds i8, ptr %33, i64 %7
+  %36 = tail call ptr @strcat(ptr noundef nonnull dereferenceable(1) %35, ptr noundef nonnull dereferenceable(1) %1) #34
+  %37 = getelementptr inbounds i8, ptr %35, i64 %21
+  %38 = tail call ptr @strcat(ptr noundef nonnull dereferenceable(1) %37, ptr noundef nonnull dereferenceable(1) %2) #34
+  br label %_ZN5cmsys11SystemTools13AppendStringsEPKcS2_.exit
+
+_ZN5cmsys11SystemTools13AppendStringsEPKcS2_.exit: ; preds = %12, %_ZN5cmsys11SystemTools15DuplicateStringEPKc.exit19.i, %28, %_ZN5cmsys11SystemTools13AppendStringsEPKcS2_.exit34, %4
+  %.0 = phi ptr [ %33, %28 ], [ %24, %_ZN5cmsys11SystemTools13AppendStringsEPKcS2_.exit34 ], [ %5, %4 ], [ %16, %12 ], [ %10, %_ZN5cmsys11SystemTools15DuplicateStringEPKc.exit19.i ]
   ret ptr %.0
 }
 
@@ -6345,35 +6357,32 @@ define linkonce_odr dso_local void @_Z8RealpathRKNSt7__cxx1112basic_stringIcSt11
 
 8:                                                ; preds = %3
   %9 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull %7)
-  br label %22
+  br label %20
 
 10:                                               ; preds = %3
   %.not12 = icmp eq ptr %2, null
-  br i1 %.not12, label %20, label %11
+  br i1 %.not12, label %18, label %11
 
 11:                                               ; preds = %10
   %12 = load i32, ptr %5, align 4
   %.not13 = icmp eq i32 %12, 0
-  br i1 %.not13, label %16, label %13
+  br i1 %.not13, label %15, label %13
 
 13:                                               ; preds = %11
   %14 = call ptr @strerror(i32 noundef %12) #34
-  %15 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef %14)
-  br label %18
+  br label %15
 
-16:                                               ; preds = %11
-  %17 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull @.str.37)
-  br label %18
+15:                                               ; preds = %11, %13
+  %.str.37.sink = phi ptr [ %14, %13 ], [ @.str.37, %11 ]
+  %16 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef %.str.37.sink)
+  %17 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull @.str.2)
+  br label %20
 
-18:                                               ; preds = %16, %13
-  %19 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull @.str.2)
-  br label %22
+18:                                               ; preds = %10
+  %19 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(32) %0)
+  br label %20
 
-20:                                               ; preds = %10
-  %21 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(32) %0)
-  br label %22
-
-22:                                               ; preds = %18, %20, %8
+20:                                               ; preds = %15, %18, %8
   ret void
 }
 

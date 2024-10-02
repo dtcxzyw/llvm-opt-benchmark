@@ -2571,11 +2571,7 @@ if.end384:                                        ; preds = %snap_dedup.exit.i56
   %ot385 = getelementptr inbounds i8, ptr %arrayidx199.pn664, i64 12
   %156 = load i16, ptr %ot385, align 4
   %conv387 = trunc i32 %val.0 to i16
-  store i16 %156, ptr %ot1.i.i453, align 4
-  store i16 %tmp.1, ptr %fold.i.i452, align 8
-  store i16 %conv387, ptr %op2.i.i454, align 2
-  %call388 = tail call i32 @lj_opt_fold(ptr noundef nonnull %J) #10
-  br label %for.inc403
+  br label %for.inc403.sink.split
 
 if.else389:                                       ; preds = %if.then.i, %if.end.i, %snap_sunk_store.exit, %for.body281
   %o390 = getelementptr inbounds i8, ptr %arrayidx199.pn664, i64 13
@@ -2586,16 +2582,19 @@ if.else389:                                       ; preds = %if.then.i, %if.end.
 land.lhs.true394:                                 ; preds = %if.else389
   %158 = load i8, ptr %o231, align 1
   %cmp397 = icmp eq i8 %158, 83
-  br i1 %cmp397, label %if.then399, label %for.inc403
+  br i1 %cmp397, label %for.inc403.sink.split, label %for.inc403
 
-if.then399:                                       ; preds = %land.lhs.true394
-  store i16 23040, ptr %ot1.i.i453, align 4
-  store i16 0, ptr %fold.i.i452, align 8
-  store i16 0, ptr %op2.i.i454, align 2
-  %call400 = tail call i32 @lj_opt_fold(ptr noundef %J) #10
+for.inc403.sink.split:                            ; preds = %land.lhs.true394, %if.end384
+  %.sink = phi i16 [ %156, %if.end384 ], [ 23040, %land.lhs.true394 ]
+  %tmp.1.sink = phi i16 [ %tmp.1, %if.end384 ], [ 0, %land.lhs.true394 ]
+  %conv387.sink = phi i16 [ %conv387, %if.end384 ], [ 0, %land.lhs.true394 ]
+  store i16 %.sink, ptr %ot1.i.i453, align 4
+  store i16 %tmp.1.sink, ptr %fold.i.i452, align 8
+  store i16 %conv387.sink, ptr %op2.i.i454, align 2
+  %call388 = tail call i32 @lj_opt_fold(ptr noundef %J) #10
   br label %for.inc403
 
-for.inc403:                                       ; preds = %if.end384, %if.then399, %land.lhs.true394, %if.else389
+for.inc403:                                       ; preds = %for.inc403.sink.split, %land.lhs.true394, %if.else389
   %irs267.0 = getelementptr inbounds i8, ptr %irs267.0665, i64 8
   %cmp279 = icmp ult ptr %irs267.0, %arrayidx76
   br i1 %cmp279, label %for.body281, label %for.inc408, !llvm.loop !29

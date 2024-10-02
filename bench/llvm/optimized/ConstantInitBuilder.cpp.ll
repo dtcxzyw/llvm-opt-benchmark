@@ -973,49 +973,44 @@ _ZN5clang7CodeGen28ConstantAggregateBuilderBase12markFinishedEv.exit: ; preds = 
   %.not = icmp eq ptr %30, null
   br i1 %.not, label %.thread, label %.thread22
 
-.thread22:                                        ; preds = %_ZN5clang7CodeGen28ConstantAggregateBuilderBase12markFinishedEv.exit, %22
-  %.025 = phi ptr [ %30, %22 ], [ %1, %_ZN5clang7CodeGen28ConstantAggregateBuilderBase12markFinishedEv.exit ]
-  %31 = tail call noundef ptr @_ZN4llvm14ConstantStruct3getEPNS_10StructTypeENS_8ArrayRefIPNS_8ConstantEEE(ptr noundef nonnull %.025, ptr %18, i64 %17) #11
-  br label %37
-
 .thread:                                          ; preds = %20, %22
-  %32 = getelementptr inbounds nuw i8, ptr %0, i64 34
-  %33 = load i8, ptr %32, align 2
-  %34 = trunc i8 %33 to i1
-  %35 = tail call noundef ptr @_ZN4llvm14ConstantStruct18getTypeForElementsENS_8ArrayRefIPNS_8ConstantEEEb(ptr %18, i64 %17, i1 noundef zeroext %34) #11
-  %36 = tail call noundef ptr @_ZN4llvm14ConstantStruct3getEPNS_10StructTypeENS_8ArrayRefIPNS_8ConstantEEE(ptr noundef %35, ptr %18, i64 %17) #11
-  br label %37
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 34
+  %32 = load i8, ptr %31, align 2
+  %33 = trunc i8 %32 to i1
+  %34 = tail call noundef ptr @_ZN4llvm14ConstantStruct18getTypeForElementsENS_8ArrayRefIPNS_8ConstantEEEb(ptr %18, i64 %17, i1 noundef zeroext %33) #11
+  br label %.thread22
 
-37:                                               ; preds = %.thread, %.thread22
-  %.011 = phi ptr [ %31, %.thread22 ], [ %36, %.thread ]
-  %38 = load ptr, ptr %12, align 8
-  %39 = load i64, ptr %15, align 8
-  %40 = getelementptr inbounds ptr, ptr %38, i64 %39
-  %41 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %12) #11
-  %42 = getelementptr inbounds ptr, ptr %38, i64 %41
-  %43 = load ptr, ptr %12, align 8
-  %44 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %12) #11
-  %45 = getelementptr inbounds ptr, ptr %43, i64 %44
-  %46 = ptrtoint ptr %45 to i64
-  %47 = ptrtoint ptr %42 to i64
-  %48 = sub i64 %46, %47
-  %.not.i.i.i.i.i.i = icmp eq ptr %45, %42
-  br i1 %.not.i.i.i.i.i.i, label %_ZN4llvm15SmallVectorImplIPNS_8ConstantEE5eraseEPKS2_S5_.exit, label %49
+.thread22:                                        ; preds = %22, %_ZN5clang7CodeGen28ConstantAggregateBuilderBase12markFinishedEv.exit, %.thread
+  %.sink = phi ptr [ %34, %.thread ], [ %30, %22 ], [ %1, %_ZN5clang7CodeGen28ConstantAggregateBuilderBase12markFinishedEv.exit ]
+  %35 = tail call noundef ptr @_ZN4llvm14ConstantStruct3getEPNS_10StructTypeENS_8ArrayRefIPNS_8ConstantEEE(ptr noundef %.sink, ptr %18, i64 %17) #11
+  %36 = load ptr, ptr %12, align 8
+  %37 = load i64, ptr %15, align 8
+  %38 = getelementptr inbounds ptr, ptr %36, i64 %37
+  %39 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %12) #11
+  %40 = getelementptr inbounds ptr, ptr %36, i64 %39
+  %41 = load ptr, ptr %12, align 8
+  %42 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %12) #11
+  %43 = getelementptr inbounds ptr, ptr %41, i64 %42
+  %44 = ptrtoint ptr %43 to i64
+  %45 = ptrtoint ptr %40 to i64
+  %46 = sub i64 %44, %45
+  %.not.i.i.i.i.i.i = icmp eq ptr %43, %40
+  br i1 %.not.i.i.i.i.i.i, label %_ZN4llvm15SmallVectorImplIPNS_8ConstantEE5eraseEPKS2_S5_.exit, label %47
 
-49:                                               ; preds = %37
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %40, ptr align 8 %42, i64 %48, i1 false)
+47:                                               ; preds = %.thread22
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %38, ptr align 8 %40, i64 %46, i1 false)
   br label %_ZN4llvm15SmallVectorImplIPNS_8ConstantEE5eraseEPKS2_S5_.exit
 
-_ZN4llvm15SmallVectorImplIPNS_8ConstantEE5eraseEPKS2_S5_.exit: ; preds = %37, %49
-  %50 = getelementptr inbounds i8, ptr %40, i64 %48
-  %51 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %12) #11
-  %52 = load ptr, ptr %12, align 8
-  %53 = ptrtoint ptr %50 to i64
-  %54 = ptrtoint ptr %52 to i64
-  %55 = sub i64 %53, %54
-  %56 = ashr exact i64 %55, 3
-  tail call void @_ZN4llvm15SmallVectorBaseIjE8set_sizeEm(ptr noundef nonnull align 8 dereferenceable(16) %12, i64 noundef %56) #11
-  ret ptr %.011
+_ZN4llvm15SmallVectorImplIPNS_8ConstantEE5eraseEPKS2_S5_.exit: ; preds = %.thread22, %47
+  %48 = getelementptr inbounds i8, ptr %38, i64 %46
+  %49 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %12) #11
+  %50 = load ptr, ptr %12, align 8
+  %51 = ptrtoint ptr %48 to i64
+  %52 = ptrtoint ptr %50 to i64
+  %53 = sub i64 %51, %52
+  %54 = ashr exact i64 %53, 3
+  tail call void @_ZN4llvm15SmallVectorBaseIjE8set_sizeEm(ptr noundef nonnull align 8 dereferenceable(16) %12, i64 noundef %54) #11
+  ret ptr %35
 }
 
 declare noundef ptr @_ZN4llvm10StructType3getERNS_11LLVMContextENS_8ArrayRefIPNS_4TypeEEEb(ptr noundef nonnull align 8 dereferenceable(8), ptr, i64, i1 noundef zeroext) local_unnamed_addr #2

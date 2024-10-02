@@ -557,14 +557,7 @@ entry:
 
 if.then:                                          ; preds = %entry
   %conv = trunc i32 %tr to i16
-  %fold.i33 = getelementptr inbounds i8, ptr %J, i64 184
-  %ot1.i34 = getelementptr inbounds i8, ptr %J, i64 188
-  store i16 23443, ptr %ot1.i34, align 4
-  store i16 %conv, ptr %fold.i33, align 8
-  %op2.i37 = getelementptr inbounds i8, ptr %J, i64 186
-  store i16 8814, ptr %op2.i37, align 2
-  %call = tail call i32 @lj_opt_fold(ptr noundef %J) #5
-  br label %return
+  br label %return.sink.split
 
 if.end:                                           ; preds = %entry
   %ir1 = getelementptr inbounds i8, ptr %J, i64 32
@@ -597,17 +590,23 @@ if.then21:                                        ; preds = %land.lhs.true13
   %add24 = shl nuw nsw i16 %conv23, 8
   %or = add nsw i16 %add24, -3053
   %5 = load i16, ptr %arrayidx, align 8
+  br label %return.sink.split
+
+return.sink.split:                                ; preds = %if.then, %if.then21
+  %or.sink = phi i16 [ %or, %if.then21 ], [ 23443, %if.then ]
+  %.sink19 = phi i16 [ %5, %if.then21 ], [ %conv, %if.then ]
+  %.sink = phi i16 [ %3, %if.then21 ], [ 8814, %if.then ]
   %fold.i = getelementptr inbounds i8, ptr %J, i64 184
   %ot1.i = getelementptr inbounds i8, ptr %J, i64 188
-  store i16 %or, ptr %ot1.i, align 4
-  store i16 %5, ptr %fold.i, align 8
+  store i16 %or.sink, ptr %ot1.i, align 4
+  store i16 %.sink19, ptr %fold.i, align 8
   %op2.i = getelementptr inbounds i8, ptr %J, i64 186
-  store i16 %3, ptr %op2.i, align 2
-  %call27 = tail call i32 @lj_opt_fold(ptr noundef nonnull %J) #5
+  store i16 %.sink, ptr %op2.i, align 2
+  %call27 = tail call i32 @lj_opt_fold(ptr noundef %J) #5
   br label %return
 
-return:                                           ; preds = %if.end, %land.lhs.true, %land.lhs.true13, %if.then21, %if.then
-  %retval.0 = phi i32 [ %call, %if.then ], [ %call27, %if.then21 ], [ %tr, %if.end ], [ %tr, %land.lhs.true13 ], [ %tr, %land.lhs.true ]
+return:                                           ; preds = %return.sink.split, %if.end, %land.lhs.true, %land.lhs.true13
+  %retval.0 = phi i32 [ %tr, %if.end ], [ %tr, %land.lhs.true13 ], [ %tr, %land.lhs.true ], [ %call27, %return.sink.split ]
   ret i32 %retval.0
 }
 

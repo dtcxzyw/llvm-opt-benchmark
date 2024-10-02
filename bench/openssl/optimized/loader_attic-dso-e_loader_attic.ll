@@ -2911,11 +2911,7 @@ for.end:                                          ; preds = %for.inc, %for.cond.
   %pkey.1.lcssa = phi ptr [ null, %for.cond.preheader ], [ %pkey.2, %for.inc ]
   %5 = load i32, ptr %matchcount, align 4
   %cmp28 = icmp sgt i32 %5, 1
-  br i1 %cmp28, label %if.then29, label %if.end31
-
-if.then29:                                        ; preds = %for.end
-  call void @EVP_PKEY_free(ptr noundef %pkey.1.lcssa) #10
-  br label %return
+  br i1 %cmp28, label %return.sink.split, label %if.end31
 
 if.end31:                                         ; preds = %for.end, %if.then6
   %pkey.0 = phi ptr [ %call7, %if.then6 ], [ %pkey.1.lcssa, %for.end ]
@@ -2925,14 +2921,15 @@ if.end31:                                         ; preds = %for.end, %if.then6
 if.end34:                                         ; preds = %if.end31
   %call35 = call ptr @OSSL_STORE_INFO_new_PARAMS(ptr noundef nonnull %pkey.0) #10
   %cmp36 = icmp eq ptr %call35, null
-  br i1 %cmp36, label %if.then37, label %return
+  br i1 %cmp36, label %return.sink.split, label %return
 
-if.then37:                                        ; preds = %if.end34
-  call void @EVP_PKEY_free(ptr noundef nonnull %pkey.0) #10
+return.sink.split:                                ; preds = %if.end34, %for.end
+  %pkey.1.lcssa.sink = phi ptr [ %pkey.1.lcssa, %for.end ], [ %pkey.0, %if.end34 ]
+  call void @EVP_PKEY_free(ptr noundef %pkey.1.lcssa.sink) #10
   br label %return
 
-return:                                           ; preds = %if.end.i, %lor.lhs.false.i, %if.then, %if.then29, %check_suffix.exit, %land.lhs.true, %land.lhs.true4, %if.end34, %if.then37, %if.end31
-  %retval.0 = phi ptr [ null, %if.end31 ], [ null, %if.then37 ], [ %call35, %if.end34 ], [ null, %land.lhs.true4 ], [ null, %land.lhs.true ], [ null, %check_suffix.exit ], [ null, %if.then29 ], [ null, %if.then ], [ null, %lor.lhs.false.i ], [ null, %if.end.i ]
+return:                                           ; preds = %return.sink.split, %if.end.i, %lor.lhs.false.i, %if.then, %check_suffix.exit, %land.lhs.true, %land.lhs.true4, %if.end34, %if.end31
+  %retval.0 = phi ptr [ null, %if.end31 ], [ %call35, %if.end34 ], [ null, %land.lhs.true4 ], [ null, %land.lhs.true ], [ null, %check_suffix.exit ], [ null, %if.then ], [ null, %lor.lhs.false.i ], [ null, %if.end.i ], [ null, %return.sink.split ]
   ret ptr %retval.0
 }
 
@@ -3209,11 +3206,7 @@ for.end76:                                        ; preds = %for.inc74, %for.con
   %pkey.8.lcssa = phi ptr [ %pkey.2.lcssa, %for.cond47.preheader ], [ %pkey.9, %for.inc74 ]
   %11 = load i32, ptr %matchcount, align 4
   %cmp77 = icmp sgt i32 %11, 1
-  br i1 %cmp77, label %if.then78, label %if.end80
-
-if.then78:                                        ; preds = %for.end76
-  call void @EVP_PKEY_free(ptr noundef %pkey.8.lcssa) #10
-  br label %return
+  br i1 %cmp77, label %return.sink.split, label %if.end80
 
 if.end80:                                         ; preds = %for.end76, %if.end, %if.then13
   %pkey.1 = phi ptr [ %pkey.0, %if.end ], [ %call14, %if.then13 ], [ %pkey.8.lcssa, %for.end76 ]
@@ -3223,14 +3216,15 @@ if.end80:                                         ; preds = %for.end76, %if.end,
 if.end83:                                         ; preds = %if.end80
   %call84 = call ptr @OSSL_STORE_INFO_new_PKEY(ptr noundef nonnull %pkey.1) #10
   %cmp85 = icmp eq ptr %call84, null
-  br i1 %cmp85, label %if.then86, label %return
+  br i1 %cmp85, label %return.sink.split, label %return
 
-if.then86:                                        ; preds = %if.end83
-  call void @EVP_PKEY_free(ptr noundef nonnull %pkey.1) #10
+return.sink.split:                                ; preds = %if.end83, %for.end76
+  %pkey.8.lcssa.sink = phi ptr [ %pkey.8.lcssa, %for.end76 ], [ %pkey.1, %if.end83 ]
+  call void @EVP_PKEY_free(ptr noundef %pkey.8.lcssa.sink) #10
   br label %return
 
-return:                                           ; preds = %if.end.i, %lor.lhs.false.i, %if.else, %if.then78, %check_suffix.exit, %land.lhs.true, %land.lhs.true11, %if.end83, %if.then86, %if.end80
-  %retval.0 = phi ptr [ null, %if.end80 ], [ null, %if.then86 ], [ %call84, %if.end83 ], [ null, %land.lhs.true11 ], [ null, %land.lhs.true ], [ null, %check_suffix.exit ], [ null, %if.then78 ], [ null, %if.else ], [ null, %lor.lhs.false.i ], [ null, %if.end.i ]
+return:                                           ; preds = %return.sink.split, %if.end.i, %lor.lhs.false.i, %if.else, %check_suffix.exit, %land.lhs.true, %land.lhs.true11, %if.end83, %if.end80
+  %retval.0 = phi ptr [ null, %if.end80 ], [ %call84, %if.end83 ], [ null, %land.lhs.true11 ], [ null, %land.lhs.true ], [ null, %check_suffix.exit ], [ null, %if.else ], [ null, %lor.lhs.false.i ], [ null, %if.end.i ], [ null, %return.sink.split ]
   ret ptr %retval.0
 }
 

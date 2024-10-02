@@ -728,7 +728,7 @@ define internal fastcc zeroext i1 @_test_extra_constraints(ptr noundef readonly 
 
 .lr.ph:                                           ; preds = %.preheader
   %7 = getelementptr inbounds i8, ptr %0, i64 8
-  br label %71
+  br label %70
 
 8:                                                ; preds = %3
   %9 = getelementptr inbounds i8, ptr %0, i64 24
@@ -743,11 +743,7 @@ define internal fastcc zeroext i1 @_test_extra_constraints(ptr noundef readonly 
   %15 = tail call ptr @data_new() #7
   %16 = tail call ptr @data_set_string(ptr noundef %15, ptr noundef %14) #7
   %.not.i = icmp eq ptr %16, null
-  br i1 %.not.i, label %_compare.exit.thread, label %17
-
-_compare.exit.thread:                             ; preds = %12
-  tail call void @data_free(ptr noundef %15) #7
-  br label %_test.exit
+  br i1 %.not.i, label %.sink.split.i, label %17
 
 17:                                               ; preds = %12
   %18 = tail call i32 @data_get_type(ptr noundef nonnull %11) #7
@@ -826,80 +822,82 @@ _compare.exit.thread:                             ; preds = %12
 52:                                               ; preds = %49, %46, %43, %41, %37, %34, %33, %29, %27, %23, %19, %17
   %.037.i = phi i32 [ -2, %19 ], [ 0, %23 ], [ %..i, %27 ], [ -1, %29 ], [ %.49.i, %33 ], [ -2, %34 ], [ 0, %37 ], [ %.51.i, %41 ], [ -2, %43 ], [ 0, %46 ], [ %.52.i, %49 ], [ -2, %17 ]
   %.not48.i = icmp eq ptr %15, null
-  br i1 %.not48.i, label %_compare.exit, label %53
+  br i1 %.not48.i, label %_compare.exit, label %.sink.split.i
 
-53:                                               ; preds = %52
-  tail call void @data_free(ptr noundef nonnull %15) #7
+.sink.split.i:                                    ; preds = %52, %12
+  %.0.ph.i = phi i32 [ -2, %12 ], [ %.037.i, %52 ]
+  tail call void @data_free(ptr noundef %15) #7
   br label %_compare.exit
 
-_compare.exit:                                    ; preds = %52, %53
-  %54 = icmp eq i32 %.037.i, -2
-  br i1 %54, label %_test.exit, label %55
+_compare.exit:                                    ; preds = %52, %.sink.split.i
+  %.0.i = phi i32 [ %.037.i, %52 ], [ %.0.ph.i, %.sink.split.i ]
+  %53 = icmp eq i32 %.0.i, -2
+  br i1 %53, label %_test.exit, label %54
 
-55:                                               ; preds = %_compare.exit
-  %56 = load i32, ptr %0, align 8
-  switch i32 %56, label %69 [
-    i32 4, label %57
-    i32 5, label %59
-    i32 6, label %61
-    i32 7, label %63
-    i32 8, label %65
-    i32 9, label %67
+54:                                               ; preds = %_compare.exit
+  %55 = load i32, ptr %0, align 8
+  switch i32 %55, label %68 [
+    i32 4, label %56
+    i32 5, label %58
+    i32 6, label %60
+    i32 7, label %62
+    i32 8, label %64
+    i32 9, label %66
   ]
 
-57:                                               ; preds = %55
-  %58 = icmp eq i32 %.037.i, 0
+56:                                               ; preds = %54
+  %57 = icmp eq i32 %.0.i, 0
   br label %_test.exit
 
-59:                                               ; preds = %55
-  %60 = icmp ne i32 %.037.i, 0
+58:                                               ; preds = %54
+  %59 = icmp ne i32 %.0.i, 0
   br label %_test.exit
 
-61:                                               ; preds = %55
-  %62 = icmp eq i32 %.037.i, 1
+60:                                               ; preds = %54
+  %61 = icmp eq i32 %.0.i, 1
   br label %_test.exit
 
-63:                                               ; preds = %55
-  %64 = icmp sgt i32 %.037.i, -1
+62:                                               ; preds = %54
+  %63 = icmp sgt i32 %.0.i, -1
   br label %_test.exit
 
-65:                                               ; preds = %55
-  %66 = icmp eq i32 %.037.i, -1
+64:                                               ; preds = %54
+  %65 = icmp eq i32 %.0.i, -1
   br label %_test.exit
 
-67:                                               ; preds = %55
-  %68 = icmp slt i32 %.037.i, 1
+66:                                               ; preds = %54
+  %67 = icmp slt i32 %.0.i, 1
   br label %_test.exit
 
-69:                                               ; preds = %55
-  %70 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.18, ptr noundef nonnull @__func__._test, i32 noundef %56) #7
+68:                                               ; preds = %54
+  %69 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.18, ptr noundef nonnull @__func__._test, i32 noundef %55) #7
   br label %_test.exit
 
-71:                                               ; preds = %.lr.ph, %80
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %80 ]
-  %72 = load ptr, ptr %7, align 8
-  %73 = getelementptr inbounds ptr, ptr %72, i64 %indvars.iv
-  %74 = load ptr, ptr %73, align 8
-  %75 = tail call fastcc zeroext i1 @_test_extra_constraints(ptr noundef %74, ptr noundef %1)
-  %76 = load i32, ptr %0, align 8
-  %77 = icmp eq i32 %76, 3
-  br i1 %77, label %78, label %79
+70:                                               ; preds = %.lr.ph, %79
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %79 ]
+  %71 = load ptr, ptr %7, align 8
+  %72 = getelementptr inbounds ptr, ptr %71, i64 %indvars.iv
+  %73 = load ptr, ptr %72, align 8
+  %74 = tail call fastcc zeroext i1 @_test_extra_constraints(ptr noundef %73, ptr noundef %1)
+  %75 = load i32, ptr %0, align 8
+  %76 = icmp eq i32 %75, 3
+  br i1 %76, label %77, label %78
 
-78:                                               ; preds = %71
-  br i1 %75, label %_test.exit, label %80
+77:                                               ; preds = %70
+  br i1 %74, label %_test.exit, label %79
 
-79:                                               ; preds = %71
-  br i1 %75, label %80, label %_test.exit
+78:                                               ; preds = %70
+  br i1 %74, label %79, label %_test.exit
 
-80:                                               ; preds = %79, %78
+79:                                               ; preds = %78, %77
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %81 = load i32, ptr %4, align 8
-  %82 = sext i32 %81 to i64
-  %83 = icmp slt i64 %indvars.iv.next, %82
-  br i1 %83, label %71, label %_test.exit, !llvm.loop !15
+  %80 = load i32, ptr %4, align 8
+  %81 = sext i32 %80 to i64
+  %82 = icmp slt i64 %indvars.iv.next, %81
+  br i1 %82, label %70, label %_test.exit, !llvm.loop !15
 
-_test.exit:                                       ; preds = %79, %78, %80, %.preheader, %69, %67, %65, %63, %61, %59, %57, %_compare.exit.thread, %_compare.exit, %8, %2
-  %.023 = phi i1 [ false, %2 ], [ false, %8 ], [ false, %_compare.exit ], [ false, %_compare.exit.thread ], [ %58, %57 ], [ %60, %59 ], [ %62, %61 ], [ %64, %63 ], [ %66, %65 ], [ %68, %67 ], [ false, %69 ], [ false, %.preheader ], [ false, %79 ], [ true, %78 ], [ %75, %80 ]
+_test.exit:                                       ; preds = %78, %77, %79, %.preheader, %68, %66, %64, %62, %60, %58, %56, %_compare.exit, %8, %2
+  %.023 = phi i1 [ false, %2 ], [ false, %8 ], [ false, %_compare.exit ], [ %57, %56 ], [ %59, %58 ], [ %61, %60 ], [ %63, %62 ], [ %65, %64 ], [ %67, %66 ], [ false, %68 ], [ false, %.preheader ], [ false, %78 ], [ true, %77 ], [ %74, %79 ]
   ret i1 %.023
 }
 

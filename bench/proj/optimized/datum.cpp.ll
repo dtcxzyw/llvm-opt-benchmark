@@ -8776,54 +8776,51 @@ _ZNK5osgeo4proj5datum13PrimeMeridian15_isEquivalentToEPKNS0_4util11IComparableEN
 ; Function Attrs: mustprogress uwtable
 define hidden noundef zeroext i1 @_ZNK5osgeo4proj5datum22GeodeticReferenceFrame15_isEquivalentToEPKNS0_4util11IComparableENS4_9CriterionERKSt10shared_ptrINS0_2io15DatabaseContextEE(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef %1, i32 noundef %2, ptr noundef nonnull align 8 dereferenceable(16) %3) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %5 = icmp eq i32 %2, 0
-  br i1 %5, label %7, label %.split
+  br i1 %5, label %6, label %.sink.split
 
-.split:                                           ; preds = %4
-  %6 = tail call noundef zeroext i1 @_ZNK5osgeo4proj5datum22GeodeticReferenceFrame30isEquivalentToNoExactTypeCheckEPKNS0_4util11IComparableENS4_9CriterionERKSt10shared_ptrINS0_2io15DatabaseContextEE(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef %1, i32 noundef %2, ptr noundef nonnull align 8 dereferenceable(16) %3)
-  br label %27
+6:                                                ; preds = %4
+  %7 = invoke noundef i64 @_ZSt11_Hash_bytesPKvmm(ptr noundef nonnull @_ZTSN5osgeo4proj5datum22GeodeticReferenceFrameE, i64 noundef 43, i64 noundef 3339675911)
+          to label %_ZNKSt9type_info9hash_codeEv.exit.i unwind label %8
 
-7:                                                ; preds = %4
-  %8 = invoke noundef i64 @_ZSt11_Hash_bytesPKvmm(ptr noundef nonnull @_ZTSN5osgeo4proj5datum22GeodeticReferenceFrameE, i64 noundef 43, i64 noundef 3339675911)
-          to label %_ZNKSt9type_info9hash_codeEv.exit.i unwind label %9
-
-9:                                                ; preds = %7
-  %10 = landingpad { ptr, i32 }
+8:                                                ; preds = %6
+  %9 = landingpad { ptr, i32 }
           catch ptr null
-  %11 = extractvalue { ptr, i32 } %10, 0
-  tail call void @__clang_call_terminate(ptr %11) #31
+  %10 = extractvalue { ptr, i32 } %9, 0
+  tail call void @__clang_call_terminate(ptr %10) #31
   unreachable
 
-_ZNKSt9type_info9hash_codeEv.exit.i:              ; preds = %7
-  %12 = load ptr, ptr %1, align 8
-  %13 = getelementptr inbounds i8, ptr %12, i64 -8
-  %14 = load ptr, ptr %13, align 8
-  %15 = getelementptr inbounds i8, ptr %14, i64 8
-  %16 = load ptr, ptr %15, align 8
-  %17 = load i8, ptr %16, align 1
-  %18 = icmp eq i8 %17, 42
-  %.idx.i.i.i = zext i1 %18 to i64
-  %19 = getelementptr inbounds i8, ptr %16, i64 %.idx.i.i.i
-  %20 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %19) #28
-  %21 = invoke noundef i64 @_ZSt11_Hash_bytesPKvmm(ptr noundef nonnull %19, i64 noundef %20, i64 noundef 3339675911)
-          to label %_ZN5osgeo4proj4util13isOfExactTypeINS0_5datum22GeodeticReferenceFrameENS1_11IComparableEEEbRKT0_.exit unwind label %22
+_ZNKSt9type_info9hash_codeEv.exit.i:              ; preds = %6
+  %11 = load ptr, ptr %1, align 8
+  %12 = getelementptr inbounds i8, ptr %11, i64 -8
+  %13 = load ptr, ptr %12, align 8
+  %14 = getelementptr inbounds i8, ptr %13, i64 8
+  %15 = load ptr, ptr %14, align 8
+  %16 = load i8, ptr %15, align 1
+  %17 = icmp eq i8 %16, 42
+  %.idx.i.i.i = zext i1 %17 to i64
+  %18 = getelementptr inbounds i8, ptr %15, i64 %.idx.i.i.i
+  %19 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %18) #28
+  %20 = invoke noundef i64 @_ZSt11_Hash_bytesPKvmm(ptr noundef nonnull %18, i64 noundef %19, i64 noundef 3339675911)
+          to label %_ZN5osgeo4proj4util13isOfExactTypeINS0_5datum22GeodeticReferenceFrameENS1_11IComparableEEEbRKT0_.exit unwind label %21
 
-22:                                               ; preds = %_ZNKSt9type_info9hash_codeEv.exit.i
-  %23 = landingpad { ptr, i32 }
+21:                                               ; preds = %_ZNKSt9type_info9hash_codeEv.exit.i
+  %22 = landingpad { ptr, i32 }
           catch ptr null
-  %24 = extractvalue { ptr, i32 } %23, 0
-  tail call void @__clang_call_terminate(ptr %24) #31
+  %23 = extractvalue { ptr, i32 } %22, 0
+  tail call void @__clang_call_terminate(ptr %23) #31
   unreachable
 
 _ZN5osgeo4proj4util13isOfExactTypeINS0_5datum22GeodeticReferenceFrameENS1_11IComparableEEEbRKT0_.exit: ; preds = %_ZNKSt9type_info9hash_codeEv.exit.i
-  %25 = icmp eq i64 %8, %21
-  br i1 %25, label %.split6, label %27
+  %24 = icmp eq i64 %7, %20
+  br i1 %24, label %.sink.split, label %26
 
-.split6:                                          ; preds = %_ZN5osgeo4proj4util13isOfExactTypeINS0_5datum22GeodeticReferenceFrameENS1_11IComparableEEEbRKT0_.exit
-  %26 = tail call noundef zeroext i1 @_ZNK5osgeo4proj5datum22GeodeticReferenceFrame30isEquivalentToNoExactTypeCheckEPKNS0_4util11IComparableENS4_9CriterionERKSt10shared_ptrINS0_2io15DatabaseContextEE(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef nonnull %1, i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(16) %3)
-  br label %27
+.sink.split:                                      ; preds = %_ZN5osgeo4proj4util13isOfExactTypeINS0_5datum22GeodeticReferenceFrameENS1_11IComparableEEEbRKT0_.exit, %4
+  %.sink = phi i32 [ %2, %4 ], [ 0, %_ZN5osgeo4proj4util13isOfExactTypeINS0_5datum22GeodeticReferenceFrameENS1_11IComparableEEEbRKT0_.exit ]
+  %25 = tail call noundef zeroext i1 @_ZNK5osgeo4proj5datum22GeodeticReferenceFrame30isEquivalentToNoExactTypeCheckEPKNS0_4util11IComparableENS4_9CriterionERKSt10shared_ptrINS0_2io15DatabaseContextEE(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef %1, i32 noundef %.sink, ptr noundef nonnull align 8 dereferenceable(16) %3)
+  br label %26
 
-27:                                               ; preds = %.split, %.split6, %_ZN5osgeo4proj4util13isOfExactTypeINS0_5datum22GeodeticReferenceFrameENS1_11IComparableEEEbRKT0_.exit
-  %.0 = phi i1 [ false, %_ZN5osgeo4proj4util13isOfExactTypeINS0_5datum22GeodeticReferenceFrameENS1_11IComparableEEEbRKT0_.exit ], [ %6, %.split ], [ %26, %.split6 ]
+26:                                               ; preds = %.sink.split, %_ZN5osgeo4proj4util13isOfExactTypeINS0_5datum22GeodeticReferenceFrameENS1_11IComparableEEEbRKT0_.exit
+  %.0 = phi i1 [ false, %_ZN5osgeo4proj4util13isOfExactTypeINS0_5datum22GeodeticReferenceFrameENS1_11IComparableEEEbRKT0_.exit ], [ %25, %.sink.split ]
   ret i1 %.0
 }
 
@@ -13524,54 +13521,51 @@ _ZNK5osgeo4proj4util8CodeListneERKS2_.exit.thread11: ; preds = %21, %28, %_ZNK5o
 ; Function Attrs: mustprogress uwtable
 define hidden noundef zeroext i1 @_ZNK5osgeo4proj5datum22VerticalReferenceFrame15_isEquivalentToEPKNS0_4util11IComparableENS4_9CriterionERKSt10shared_ptrINS0_2io15DatabaseContextEE(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef %1, i32 noundef %2, ptr noundef nonnull align 8 dereferenceable(16) %3) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %5 = icmp eq i32 %2, 0
-  br i1 %5, label %7, label %.split
+  br i1 %5, label %6, label %.sink.split
 
-.split:                                           ; preds = %4
-  %6 = tail call noundef zeroext i1 @_ZNK5osgeo4proj5datum22VerticalReferenceFrame30isEquivalentToNoExactTypeCheckEPKNS0_4util11IComparableENS4_9CriterionERKSt10shared_ptrINS0_2io15DatabaseContextEE(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef %1, i32 noundef %2, ptr noundef nonnull align 8 dereferenceable(16) %3)
-  br label %27
+6:                                                ; preds = %4
+  %7 = invoke noundef i64 @_ZSt11_Hash_bytesPKvmm(ptr noundef nonnull @_ZTSN5osgeo4proj5datum22VerticalReferenceFrameE, i64 noundef 43, i64 noundef 3339675911)
+          to label %_ZNKSt9type_info9hash_codeEv.exit.i unwind label %8
 
-7:                                                ; preds = %4
-  %8 = invoke noundef i64 @_ZSt11_Hash_bytesPKvmm(ptr noundef nonnull @_ZTSN5osgeo4proj5datum22VerticalReferenceFrameE, i64 noundef 43, i64 noundef 3339675911)
-          to label %_ZNKSt9type_info9hash_codeEv.exit.i unwind label %9
-
-9:                                                ; preds = %7
-  %10 = landingpad { ptr, i32 }
+8:                                                ; preds = %6
+  %9 = landingpad { ptr, i32 }
           catch ptr null
-  %11 = extractvalue { ptr, i32 } %10, 0
-  tail call void @__clang_call_terminate(ptr %11) #31
+  %10 = extractvalue { ptr, i32 } %9, 0
+  tail call void @__clang_call_terminate(ptr %10) #31
   unreachable
 
-_ZNKSt9type_info9hash_codeEv.exit.i:              ; preds = %7
-  %12 = load ptr, ptr %1, align 8
-  %13 = getelementptr inbounds i8, ptr %12, i64 -8
-  %14 = load ptr, ptr %13, align 8
-  %15 = getelementptr inbounds i8, ptr %14, i64 8
-  %16 = load ptr, ptr %15, align 8
-  %17 = load i8, ptr %16, align 1
-  %18 = icmp eq i8 %17, 42
-  %.idx.i.i.i = zext i1 %18 to i64
-  %19 = getelementptr inbounds i8, ptr %16, i64 %.idx.i.i.i
-  %20 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %19) #28
-  %21 = invoke noundef i64 @_ZSt11_Hash_bytesPKvmm(ptr noundef nonnull %19, i64 noundef %20, i64 noundef 3339675911)
-          to label %_ZN5osgeo4proj4util13isOfExactTypeINS0_5datum22VerticalReferenceFrameENS1_11IComparableEEEbRKT0_.exit unwind label %22
+_ZNKSt9type_info9hash_codeEv.exit.i:              ; preds = %6
+  %11 = load ptr, ptr %1, align 8
+  %12 = getelementptr inbounds i8, ptr %11, i64 -8
+  %13 = load ptr, ptr %12, align 8
+  %14 = getelementptr inbounds i8, ptr %13, i64 8
+  %15 = load ptr, ptr %14, align 8
+  %16 = load i8, ptr %15, align 1
+  %17 = icmp eq i8 %16, 42
+  %.idx.i.i.i = zext i1 %17 to i64
+  %18 = getelementptr inbounds i8, ptr %15, i64 %.idx.i.i.i
+  %19 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %18) #28
+  %20 = invoke noundef i64 @_ZSt11_Hash_bytesPKvmm(ptr noundef nonnull %18, i64 noundef %19, i64 noundef 3339675911)
+          to label %_ZN5osgeo4proj4util13isOfExactTypeINS0_5datum22VerticalReferenceFrameENS1_11IComparableEEEbRKT0_.exit unwind label %21
 
-22:                                               ; preds = %_ZNKSt9type_info9hash_codeEv.exit.i
-  %23 = landingpad { ptr, i32 }
+21:                                               ; preds = %_ZNKSt9type_info9hash_codeEv.exit.i
+  %22 = landingpad { ptr, i32 }
           catch ptr null
-  %24 = extractvalue { ptr, i32 } %23, 0
-  tail call void @__clang_call_terminate(ptr %24) #31
+  %23 = extractvalue { ptr, i32 } %22, 0
+  tail call void @__clang_call_terminate(ptr %23) #31
   unreachable
 
 _ZN5osgeo4proj4util13isOfExactTypeINS0_5datum22VerticalReferenceFrameENS1_11IComparableEEEbRKT0_.exit: ; preds = %_ZNKSt9type_info9hash_codeEv.exit.i
-  %25 = icmp eq i64 %8, %21
-  br i1 %25, label %.split6, label %27
+  %24 = icmp eq i64 %7, %20
+  br i1 %24, label %.sink.split, label %26
 
-.split6:                                          ; preds = %_ZN5osgeo4proj4util13isOfExactTypeINS0_5datum22VerticalReferenceFrameENS1_11IComparableEEEbRKT0_.exit
-  %26 = tail call noundef zeroext i1 @_ZNK5osgeo4proj5datum22VerticalReferenceFrame30isEquivalentToNoExactTypeCheckEPKNS0_4util11IComparableENS4_9CriterionERKSt10shared_ptrINS0_2io15DatabaseContextEE(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef nonnull %1, i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(16) %3)
-  br label %27
+.sink.split:                                      ; preds = %_ZN5osgeo4proj4util13isOfExactTypeINS0_5datum22VerticalReferenceFrameENS1_11IComparableEEEbRKT0_.exit, %4
+  %.sink = phi i32 [ %2, %4 ], [ 0, %_ZN5osgeo4proj4util13isOfExactTypeINS0_5datum22VerticalReferenceFrameENS1_11IComparableEEEbRKT0_.exit ]
+  %25 = tail call noundef zeroext i1 @_ZNK5osgeo4proj5datum22VerticalReferenceFrame30isEquivalentToNoExactTypeCheckEPKNS0_4util11IComparableENS4_9CriterionERKSt10shared_ptrINS0_2io15DatabaseContextEE(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef %1, i32 noundef %.sink, ptr noundef nonnull align 8 dereferenceable(16) %3)
+  br label %26
 
-27:                                               ; preds = %.split, %.split6, %_ZN5osgeo4proj4util13isOfExactTypeINS0_5datum22VerticalReferenceFrameENS1_11IComparableEEEbRKT0_.exit
-  %.0 = phi i1 [ false, %_ZN5osgeo4proj4util13isOfExactTypeINS0_5datum22VerticalReferenceFrameENS1_11IComparableEEEbRKT0_.exit ], [ %6, %.split ], [ %26, %.split6 ]
+26:                                               ; preds = %.sink.split, %_ZN5osgeo4proj4util13isOfExactTypeINS0_5datum22VerticalReferenceFrameENS1_11IComparableEEEbRKT0_.exit
+  %.0 = phi i1 [ false, %_ZN5osgeo4proj4util13isOfExactTypeINS0_5datum22VerticalReferenceFrameENS1_11IComparableEEEbRKT0_.exit ], [ %25, %.sink.split ]
   ret i1 %.0
 }
 

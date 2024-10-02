@@ -2348,20 +2348,20 @@ define internal range(i32 0, 2) i32 @stylefn(ptr nocapture noundef %0, ptr nound
   br label %6
 
 6:                                                ; preds = %tok_next.exit, %.lr.ph
-  %.060 = phi i32 [ 0, %.lr.ph ], [ %.1, %tok_next.exit ]
-  %.sroa.9.057 = phi i64 [ %4, %.lr.ph ], [ %48, %tok_next.exit ]
-  %.sroa.4.055 = phi ptr [ %1, %.lr.ph ], [ %47, %tok_next.exit ]
-  switch i64 %.sroa.9.057, label %strview_case_str_eq.exit46.thread [
+  %.054 = phi i32 [ 0, %.lr.ph ], [ %.1, %tok_next.exit ]
+  %.sroa.9.051 = phi i64 [ %4, %.lr.ph ], [ %48, %tok_next.exit ]
+  %.sroa.4.049 = phi ptr [ %1, %.lr.ph ], [ %47, %tok_next.exit ]
+  switch i64 %.sroa.9.051, label %strview_case_str_eq.exit40.thread [
     i64 7, label %strview_case_str_eq.exit
-    i64 6, label %strview_case_str_eq.exit26
-    i64 5, label %strview_case_str_eq.exit30
-    i64 9, label %strview_case_str_eq.exit34
+    i64 6, label %strview_case_str_eq.exit25
+    i64 5, label %strview_case_str_eq.exit28
+    i64 9, label %strview_case_str_eq.exit31
   ]
 
 strview_case_str_eq.exit:                         ; preds = %6
-  %7 = tail call i32 @strncasecmp(ptr noundef nonnull readonly %.sroa.4.055, ptr noundef nonnull readonly @.str.67, i64 noundef 7) #20
+  %7 = tail call i32 @strncasecmp(ptr noundef nonnull readonly %.sroa.4.049, ptr noundef nonnull readonly @.str.67, i64 noundef 7) #20
   %8 = icmp eq i32 %7, 0
-  br i1 %8, label %9, label %strview_case_str_eq.exit46.thread
+  br i1 %8, label %9, label %strview_case_str_eq.exit40.thread
 
 9:                                                ; preds = %strview_case_str_eq.exit
   %10 = load i16, ptr %5, align 2
@@ -2369,74 +2369,74 @@ strview_case_str_eq.exit:                         ; preds = %6
   store i16 %11, ptr %5, align 2
   br label %41
 
-strview_case_str_eq.exit26:                       ; preds = %6
-  %12 = tail call i32 @strncasecmp(ptr noundef nonnull readonly %.sroa.4.055, ptr noundef nonnull readonly @.str.68, i64 noundef %.sroa.9.057) #20
+strview_case_str_eq.exit25:                       ; preds = %6
+  %12 = tail call i32 @strncasecmp(ptr noundef nonnull readonly %.sroa.4.049, ptr noundef nonnull readonly @.str.68, i64 noundef %.sroa.9.051) #20
   %13 = icmp eq i32 %12, 0
-  br i1 %13, label %14, label %strview_case_str_eq.exit42
+  br i1 %13, label %14, label %strview_case_str_eq.exit37
 
-14:                                               ; preds = %strview_case_str_eq.exit26
+14:                                               ; preds = %strview_case_str_eq.exit25
   %15 = load i16, ptr %5, align 2
   %16 = or i16 %15, 2
   store i16 %16, ptr %5, align 2
   br label %41
 
-strview_case_str_eq.exit30:                       ; preds = %6
-  %17 = tail call i32 @strncasecmp(ptr noundef nonnull readonly %.sroa.4.055, ptr noundef nonnull readonly @.str.69, i64 noundef %.sroa.9.057) #20
+strview_case_str_eq.exit28:                       ; preds = %6
+  %17 = tail call i32 @strncasecmp(ptr noundef nonnull readonly %.sroa.4.049, ptr noundef nonnull readonly @.str.69, i64 noundef %.sroa.9.051) #20
   %18 = icmp eq i32 %17, 0
-  br i1 %18, label %19, label %strview_case_str_eq.exit38
+  br i1 %18, label %19, label %strview_case_str_eq.exit34
 
-19:                                               ; preds = %strview_case_str_eq.exit30
+19:                                               ; preds = %strview_case_str_eq.exit28
   %20 = load i16, ptr %5, align 2
   %21 = and i16 %20, -385
   store i16 %21, ptr %5, align 2
   br label %41
 
-strview_case_str_eq.exit34:                       ; preds = %6
-  %22 = tail call i32 @strncasecmp(ptr noundef nonnull readonly %.sroa.4.055, ptr noundef nonnull readonly @.str.70, i64 noundef %.sroa.9.057) #20
+strview_case_str_eq.exit31:                       ; preds = %6
+  %22 = tail call i32 @strncasecmp(ptr noundef nonnull readonly %.sroa.4.049, ptr noundef nonnull readonly @.str.70, i64 noundef %.sroa.9.051) #20
   %23 = icmp eq i32 %22, 0
-  br i1 %23, label %26, label %strview_case_str_eq.exit46.thread
+  br i1 %23, label %26, label %strview_case_str_eq.exit40.thread
 
-strview_case_str_eq.exit38:                       ; preds = %strview_case_str_eq.exit30
-  %24 = tail call i32 @strncasecmp(ptr noundef nonnull readonly %.sroa.4.055, ptr noundef nonnull readonly @.str.71, i64 noundef %.sroa.9.057) #20
+strview_case_str_eq.exit34:                       ; preds = %strview_case_str_eq.exit28
+  %24 = tail call i32 @strncasecmp(ptr noundef nonnull readonly %.sroa.4.049, ptr noundef nonnull readonly @.str.71, i64 noundef %.sroa.9.051) #20
   %25 = icmp eq i32 %24, 0
-  br i1 %25, label %26, label %strview_case_str_eq.exit46.thread
+  br i1 %25, label %26, label %strview_case_str_eq.exit40.thread
 
-26:                                               ; preds = %strview_case_str_eq.exit38, %strview_case_str_eq.exit34
+26:                                               ; preds = %strview_case_str_eq.exit34, %strview_case_str_eq.exit31
   %27 = load i16, ptr %5, align 2
   %28 = or i16 %27, 32
   store i16 %28, ptr %5, align 2
   br label %41
 
-strview_case_str_eq.exit42:                       ; preds = %strview_case_str_eq.exit26
-  %29 = tail call i32 @strncasecmp(ptr noundef nonnull readonly %.sroa.4.055, ptr noundef nonnull readonly @.str.72, i64 noundef %.sroa.9.057) #20
+strview_case_str_eq.exit37:                       ; preds = %strview_case_str_eq.exit25
+  %29 = tail call i32 @strncasecmp(ptr noundef nonnull readonly %.sroa.4.049, ptr noundef nonnull readonly @.str.72, i64 noundef %.sroa.9.051) #20
   %30 = icmp eq i32 %29, 0
-  br i1 %30, label %31, label %strview_case_str_eq.exit46
+  br i1 %30, label %31, label %strview_case_str_eq.exit40
 
-31:                                               ; preds = %strview_case_str_eq.exit42
+31:                                               ; preds = %strview_case_str_eq.exit37
   %32 = load i16, ptr %5, align 2
   %33 = or i16 %32, 128
   store i16 %33, ptr %5, align 2
   br label %41
 
-strview_case_str_eq.exit46:                       ; preds = %strview_case_str_eq.exit42
-  %34 = tail call i32 @strncasecmp(ptr noundef nonnull readonly %.sroa.4.055, ptr noundef nonnull readonly @.str.73, i64 noundef 6) #20
+strview_case_str_eq.exit40:                       ; preds = %strview_case_str_eq.exit37
+  %34 = tail call i32 @strncasecmp(ptr noundef nonnull readonly %.sroa.4.049, ptr noundef nonnull readonly @.str.73, i64 noundef 6) #20
   %35 = icmp eq i32 %34, 0
-  br i1 %35, label %36, label %strview_case_str_eq.exit46.thread
+  br i1 %35, label %36, label %strview_case_str_eq.exit40.thread
 
-36:                                               ; preds = %strview_case_str_eq.exit46
+36:                                               ; preds = %strview_case_str_eq.exit40
   %37 = load i16, ptr %5, align 2
   %38 = or i16 %37, 256
   store i16 %38, ptr %5, align 2
   br label %41
 
-strview_case_str_eq.exit46.thread:                ; preds = %strview_case_str_eq.exit38, %strview_case_str_eq.exit34, %strview_case_str_eq.exit, %6, %strview_case_str_eq.exit46
-  %39 = trunc i64 %.sroa.9.057 to i32
-  %40 = tail call i32 (i32, ptr, ...) @agerr(i32 noundef 0, ptr noundef nonnull @.str.74, i32 noundef %39, ptr noundef nonnull %.sroa.4.055) #19
+strview_case_str_eq.exit40.thread:                ; preds = %strview_case_str_eq.exit34, %strview_case_str_eq.exit31, %strview_case_str_eq.exit, %6, %strview_case_str_eq.exit40
+  %39 = trunc i64 %.sroa.9.051 to i32
+  %40 = tail call i32 (i32, ptr, ...) @agerr(i32 noundef 0, ptr noundef nonnull @.str.74, i32 noundef %39, ptr noundef nonnull %.sroa.4.049) #19
   br label %41
 
-41:                                               ; preds = %9, %19, %31, %strview_case_str_eq.exit46.thread, %36, %26, %14
-  %.1 = phi i32 [ %.060, %9 ], [ %.060, %14 ], [ %.060, %19 ], [ %.060, %26 ], [ %.060, %31 ], [ %.060, %36 ], [ 1, %strview_case_str_eq.exit46.thread ]
-  %42 = getelementptr inbounds i8, ptr %.sroa.4.055, i64 %.sroa.9.057
+41:                                               ; preds = %9, %19, %31, %strview_case_str_eq.exit40.thread, %36, %26, %14
+  %.1 = phi i32 [ %.054, %9 ], [ %.054, %14 ], [ %.054, %19 ], [ %.054, %26 ], [ %.054, %31 ], [ %.054, %36 ], [ 1, %strview_case_str_eq.exit40.thread ]
+  %42 = getelementptr inbounds i8, ptr %.sroa.4.049, i64 %.sroa.9.051
   %43 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #20
   %44 = getelementptr inbounds i8, ptr %1, i64 %43
   %45 = icmp eq ptr %42, %44

@@ -1570,8 +1570,7 @@ Abc_Clock.exit:                                   ; preds = %11, %18
   %23 = call ptr @Llb_DriverPhaseCube(ptr noundef %0, ptr noundef %6, ptr noundef %2) #12
   call void @Cudd_Ref(ptr noundef %23) #12
   %24 = call ptr @Extra_bddChangePolarity(ptr noundef %2, ptr noundef %3, ptr noundef %23) #12
-  call void @Cudd_Ref(ptr noundef %24) #12
-  br label %33
+  br label %32
 
 25:                                               ; preds = %Abc_Clock.exit
   %26 = getelementptr i8, ptr %4, i64 8
@@ -1588,212 +1587,209 @@ Abc_Clock.exit:                                   ; preds = %11, %18
   call void @Cudd_RecursiveDeref(ptr noundef %2, ptr noundef %28) #12
   br label %.loopexit
 
-32:                                               ; preds = %25
-  call void @Cudd_Ref(ptr noundef nonnull %29) #12
-  br label %33
-
-33:                                               ; preds = %32, %22
-  %.sink = phi ptr [ %28, %32 ], [ %23, %22 ]
-  %.0113 = phi ptr [ %29, %32 ], [ %24, %22 ]
+32:                                               ; preds = %25, %22
+  %.sink169 = phi ptr [ %24, %22 ], [ %29, %25 ]
+  %.sink = phi ptr [ %23, %22 ], [ %28, %25 ]
+  call void @Cudd_Ref(ptr noundef %.sink169) #12
   call void @Cudd_RecursiveDeref(ptr noundef %2, ptr noundef %3) #12
   call void @Cudd_RecursiveDeref(ptr noundef %2, ptr noundef %.sink) #12
-  %34 = getelementptr i8, ptr %1, i64 4
-  %.val132149 = load i32, ptr %34, align 4
-  %35 = icmp sgt i32 %.val132149, 0
-  br i1 %35, label %.lr.ph, label %.critedge
+  %33 = getelementptr i8, ptr %1, i64 4
+  %.val132149 = load i32, ptr %33, align 4
+  %34 = icmp sgt i32 %.val132149, 0
+  br i1 %34, label %.lr.ph, label %.critedge
 
-.lr.ph:                                           ; preds = %33
-  %36 = getelementptr i8, ptr %1, i64 8
-  %37 = getelementptr inbounds i8, ptr %14, i64 8
+.lr.ph:                                           ; preds = %32
+  %35 = getelementptr i8, ptr %1, i64 8
+  %36 = getelementptr inbounds i8, ptr %14, i64 8
   %.not120 = icmp eq i32 %10, 0
-  %38 = getelementptr i8, ptr %5, i64 8
-  %39 = getelementptr inbounds i8, ptr %13, i64 8
-  br label %40
+  %37 = getelementptr i8, ptr %5, i64 8
+  %38 = getelementptr inbounds i8, ptr %13, i64 8
+  br label %39
 
-40:                                               ; preds = %.lr.ph, %.critedge124
+39:                                               ; preds = %.lr.ph, %.critedge124
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %.critedge124 ]
-  %.1151 = phi ptr [ %.0113, %.lr.ph ], [ %66, %.critedge124 ]
-  %.val130 = load ptr, ptr %36, align 8
-  %41 = getelementptr inbounds ptr, ptr %.val130, i64 %indvars.iv
-  %42 = load ptr, ptr %41, align 8
+  %.1151 = phi ptr [ %.sink169, %.lr.ph ], [ %65, %.critedge124 ]
+  %.val130 = load ptr, ptr %35, align 8
+  %40 = getelementptr inbounds ptr, ptr %.val130, i64 %indvars.iv
+  %41 = load ptr, ptr %40, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %14)
-  %43 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %14) #12
-  %44 = icmp slt i32 %43, 0
-  br i1 %44, label %Abc_Clock.exit134, label %45
+  %42 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %14) #12
+  %43 = icmp slt i32 %42, 0
+  br i1 %43, label %Abc_Clock.exit134, label %44
 
-45:                                               ; preds = %40
-  %46 = load i64, ptr %14, align 8
-  %.neg143 = mul i64 %46, -1000000
-  %47 = load i64, ptr %37, align 8
-  %.neg142 = sdiv i64 %47, -1000
+44:                                               ; preds = %39
+  %45 = load i64, ptr %14, align 8
+  %.neg143 = mul i64 %45, -1000000
+  %46 = load i64, ptr %36, align 8
+  %.neg142 = sdiv i64 %46, -1000
   %.neg144 = add i64 %.neg142, %.neg143
   br label %Abc_Clock.exit134
 
-Abc_Clock.exit134:                                ; preds = %40, %45
-  %.0.i133.neg = phi i64 [ %.neg144, %45 ], [ 1, %40 ]
+Abc_Clock.exit134:                                ; preds = %39, %44
+  %.0.i133.neg = phi i64 [ %.neg144, %44 ], [ 1, %39 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %14)
-  br i1 %.not120, label %51, label %48
+  br i1 %.not120, label %50, label %47
 
-48:                                               ; preds = %Abc_Clock.exit134
-  %49 = trunc nuw nsw i64 %indvars.iv to i32
-  %50 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.16, i32 noundef %49)
-  br label %51
+47:                                               ; preds = %Abc_Clock.exit134
+  %48 = trunc nuw nsw i64 %indvars.iv to i32
+  %49 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.16, i32 noundef %48)
+  br label %50
 
-51:                                               ; preds = %48, %Abc_Clock.exit134
-  %52 = getelementptr inbounds i8, ptr %42, i64 736
-  %53 = load ptr, ptr %52, align 8
-  %54 = call ptr @Cudd_bddTransfer(ptr noundef %42, ptr noundef %2, ptr noundef %53) #12
-  %55 = icmp eq ptr %54, null
-  br i1 %55, label %.loopexit, label %56
+50:                                               ; preds = %47, %Abc_Clock.exit134
+  %51 = getelementptr inbounds i8, ptr %41, i64 736
+  %52 = load ptr, ptr %51, align 8
+  %53 = call ptr @Cudd_bddTransfer(ptr noundef %41, ptr noundef %2, ptr noundef %52) #12
+  %54 = icmp eq ptr %53, null
+  br i1 %54, label %.loopexit, label %55
 
-56:                                               ; preds = %51
-  call void @Cudd_Ref(ptr noundef nonnull %54) #12
-  br i1 %.not120, label %62, label %57
+55:                                               ; preds = %50
+  call void @Cudd_Ref(ptr noundef nonnull %53) #12
+  br i1 %.not120, label %61, label %56
 
-57:                                               ; preds = %56
-  %58 = load ptr, ptr %52, align 8
-  %59 = call i32 @Cudd_DagSize(ptr noundef %58) #12
-  %60 = call i32 @Cudd_DagSize(ptr noundef nonnull %54) #12
-  %61 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.17, i32 noundef %59, i32 noundef %60)
-  br label %62
+56:                                               ; preds = %55
+  %57 = load ptr, ptr %51, align 8
+  %58 = call i32 @Cudd_DagSize(ptr noundef %57) #12
+  %59 = call i32 @Cudd_DagSize(ptr noundef nonnull %53) #12
+  %60 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.17, i32 noundef %58, i32 noundef %59)
+  br label %61
 
-62:                                               ; preds = %57, %56
+61:                                               ; preds = %56, %55
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %.val129 = load ptr, ptr %38, align 8
-  %63 = getelementptr inbounds ptr, ptr %.val129, i64 %indvars.iv.next
-  %64 = load ptr, ptr %63, align 8
-  %65 = call ptr @Llb_ImgComputeCube(ptr noundef %0, ptr noundef %64, ptr noundef %2)
-  call void @Cudd_Ref(ptr noundef %65) #12
-  %66 = call ptr @Cudd_bddAndAbstract(ptr noundef %2, ptr noundef %.1151, ptr noundef nonnull %54, ptr noundef %65) #12
-  %67 = icmp eq ptr %66, null
-  br i1 %67, label %68, label %69
+  %.val129 = load ptr, ptr %37, align 8
+  %62 = getelementptr inbounds ptr, ptr %.val129, i64 %indvars.iv.next
+  %63 = load ptr, ptr %62, align 8
+  %64 = call ptr @Llb_ImgComputeCube(ptr noundef %0, ptr noundef %63, ptr noundef %2)
+  call void @Cudd_Ref(ptr noundef %64) #12
+  %65 = call ptr @Cudd_bddAndAbstract(ptr noundef %2, ptr noundef %.1151, ptr noundef nonnull %53, ptr noundef %64) #12
+  %66 = icmp eq ptr %65, null
+  br i1 %66, label %67, label %68
 
-68:                                               ; preds = %62
+67:                                               ; preds = %61
   call void @Cudd_RecursiveDeref(ptr noundef %2, ptr noundef %.1151) #12
-  call void @Cudd_RecursiveDeref(ptr noundef %2, ptr noundef %65) #12
-  call void @Cudd_RecursiveDeref(ptr noundef %2, ptr noundef nonnull %54) #12
+  call void @Cudd_RecursiveDeref(ptr noundef %2, ptr noundef %64) #12
+  call void @Cudd_RecursiveDeref(ptr noundef %2, ptr noundef nonnull %53) #12
   br label %.loopexit
 
-69:                                               ; preds = %62
-  call void @Cudd_Ref(ptr noundef nonnull %66) #12
-  br i1 %.not120, label %.thread, label %70
+68:                                               ; preds = %61
+  call void @Cudd_Ref(ptr noundef nonnull %65) #12
+  br i1 %.not120, label %.thread, label %69
 
-.thread:                                          ; preds = %69
+.thread:                                          ; preds = %68
   call void @Cudd_RecursiveDeref(ptr noundef %2, ptr noundef %.1151) #12
-  call void @Cudd_RecursiveDeref(ptr noundef %2, ptr noundef %65) #12
-  call void @Cudd_RecursiveDeref(ptr noundef %2, ptr noundef nonnull %54) #12
+  call void @Cudd_RecursiveDeref(ptr noundef %2, ptr noundef %64) #12
+  call void @Cudd_RecursiveDeref(ptr noundef %2, ptr noundef nonnull %53) #12
   br label %.critedge124
 
-70:                                               ; preds = %69
-  %71 = call i32 @Cudd_DagSize(ptr noundef %.1151) #12
-  %72 = call i32 @Cudd_DagSize(ptr noundef nonnull %66) #12
-  %73 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.18, i32 noundef %71, i32 noundef %72)
+69:                                               ; preds = %68
+  %70 = call i32 @Cudd_DagSize(ptr noundef %.1151) #12
+  %71 = call i32 @Cudd_DagSize(ptr noundef nonnull %65) #12
+  %72 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.18, i32 noundef %70, i32 noundef %71)
   call void @Cudd_RecursiveDeref(ptr noundef %2, ptr noundef %.1151) #12
-  call void @Cudd_RecursiveDeref(ptr noundef %2, ptr noundef %65) #12
-  call void @Cudd_RecursiveDeref(ptr noundef %2, ptr noundef nonnull %54) #12
-  %74 = call i32 @Cudd_SupportSize(ptr noundef %2, ptr noundef nonnull %66) #12
-  %75 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.19, i32 noundef %74)
+  call void @Cudd_RecursiveDeref(ptr noundef %2, ptr noundef %64) #12
+  call void @Cudd_RecursiveDeref(ptr noundef %2, ptr noundef nonnull %53) #12
+  %73 = call i32 @Cudd_SupportSize(ptr noundef %2, ptr noundef nonnull %65) #12
+  %74 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.19, i32 noundef %73)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %13)
-  %76 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %13) #12
-  %77 = icmp slt i32 %76, 0
-  br i1 %77, label %Abc_Clock.exit136, label %78
+  %75 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %13) #12
+  %76 = icmp slt i32 %75, 0
+  br i1 %76, label %Abc_Clock.exit136, label %77
 
-78:                                               ; preds = %70
-  %79 = load i64, ptr %13, align 8
-  %80 = mul nsw i64 %79, 1000000
-  %81 = load i64, ptr %39, align 8
-  %82 = sdiv i64 %81, 1000
-  %83 = add nsw i64 %82, %80
+77:                                               ; preds = %69
+  %78 = load i64, ptr %13, align 8
+  %79 = mul nsw i64 %78, 1000000
+  %80 = load i64, ptr %38, align 8
+  %81 = sdiv i64 %80, 1000
+  %82 = add nsw i64 %81, %79
   br label %Abc_Clock.exit136
 
-Abc_Clock.exit136:                                ; preds = %70, %78
-  %.0.i135 = phi i64 [ %83, %78 ], [ -1, %70 ]
+Abc_Clock.exit136:                                ; preds = %69, %77
+  %.0.i135 = phi i64 [ %82, %77 ], [ -1, %69 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %13)
-  %84 = add i64 %.0.i135, %.0.i133.neg
+  %83 = add i64 %.0.i135, %.0.i133.neg
   call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.25, ptr noundef nonnull @.str.20)
-  %85 = sitofp i64 %84 to double
-  %86 = fdiv double %85, 1.000000e+06
-  call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.26, double noundef %86)
+  %84 = sitofp i64 %83 to double
+  %85 = fdiv double %84, 1.000000e+06
+  call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.26, double noundef %85)
   br label %.critedge124
 
 .critedge124:                                     ; preds = %.thread, %Abc_Clock.exit136
-  %.val132 = load i32, ptr %34, align 4
-  %87 = sext i32 %.val132 to i64
-  %88 = icmp slt i64 %indvars.iv.next, %87
-  br i1 %88, label %40, label %.critedge, !llvm.loop !28
+  %.val132 = load i32, ptr %33, align 4
+  %86 = sext i32 %.val132 to i64
+  %87 = icmp slt i64 %indvars.iv.next, %86
+  br i1 %87, label %39, label %.critedge, !llvm.loop !28
 
-.critedge:                                        ; preds = %.critedge124, %33
-  %.1.lcssa = phi ptr [ %.0113, %33 ], [ %66, %.critedge124 ]
-  br i1 %.not, label %89, label %92
+.critedge:                                        ; preds = %.critedge124, %32
+  %.1.lcssa = phi ptr [ %.sink169, %32 ], [ %65, %.critedge124 ]
+  br i1 %.not, label %88, label %91
 
-89:                                               ; preds = %.critedge
-  %90 = call ptr @Llb_DriverPhaseCube(ptr noundef %0, ptr noundef %6, ptr noundef %2) #12
-  call void @Cudd_Ref(ptr noundef %90) #12
-  %91 = call ptr @Extra_bddChangePolarity(ptr noundef %2, ptr noundef %.1.lcssa, ptr noundef %90) #12
-  br label %97
+88:                                               ; preds = %.critedge
+  %89 = call ptr @Llb_DriverPhaseCube(ptr noundef %0, ptr noundef %6, ptr noundef %2) #12
+  call void @Cudd_Ref(ptr noundef %89) #12
+  %90 = call ptr @Extra_bddChangePolarity(ptr noundef %2, ptr noundef %.1.lcssa, ptr noundef %89) #12
+  br label %96
 
-92:                                               ; preds = %.critedge
-  %93 = getelementptr i8, ptr %4, i64 8
-  %.val = load ptr, ptr %93, align 8
-  %94 = load ptr, ptr %.val, align 8
-  %95 = call ptr @Llb_ImgComputeCube(ptr noundef %0, ptr noundef %94, ptr noundef %2)
-  call void @Cudd_Ref(ptr noundef %95) #12
-  %96 = call ptr @Cudd_bddExistAbstract(ptr noundef %2, ptr noundef %.1.lcssa, ptr noundef %95) #12
-  br label %97
+91:                                               ; preds = %.critedge
+  %92 = getelementptr i8, ptr %4, i64 8
+  %.val = load ptr, ptr %92, align 8
+  %93 = load ptr, ptr %.val, align 8
+  %94 = call ptr @Llb_ImgComputeCube(ptr noundef %0, ptr noundef %93, ptr noundef %2)
+  call void @Cudd_Ref(ptr noundef %94) #12
+  %95 = call ptr @Cudd_bddExistAbstract(ptr noundef %2, ptr noundef %.1.lcssa, ptr noundef %94) #12
+  br label %96
 
-97:                                               ; preds = %92, %89
-  %.sink170 = phi ptr [ %96, %92 ], [ %91, %89 ]
-  %.sink169 = phi ptr [ %95, %92 ], [ %90, %89 ]
-  call void @Cudd_Ref(ptr noundef %.sink170) #12
+96:                                               ; preds = %91, %88
+  %.sink171 = phi ptr [ %95, %91 ], [ %90, %88 ]
+  %.sink170 = phi ptr [ %94, %91 ], [ %89, %88 ]
+  call void @Cudd_Ref(ptr noundef %.sink171) #12
   call void @Cudd_RecursiveDeref(ptr noundef %2, ptr noundef %.1.lcssa) #12
-  call void @Cudd_RecursiveDeref(ptr noundef %2, ptr noundef %.sink169) #12
+  call void @Cudd_RecursiveDeref(ptr noundef %2, ptr noundef %.sink170) #12
   %.not118 = icmp eq i32 %9, 0
-  br i1 %.not118, label %.critedge128, label %98
+  br i1 %.not118, label %.critedge128, label %97
 
-98:                                               ; preds = %97
+97:                                               ; preds = %96
   %.not119 = icmp eq i32 %10, 0
-  br i1 %.not119, label %.thread139, label %100
+  br i1 %.not119, label %.thread139, label %99
 
-.thread139:                                       ; preds = %98
-  %99 = call i32 @Cudd_ReduceHeap(ptr noundef %2, i32 noundef 6, i32 noundef 100) #12
+.thread139:                                       ; preds = %97
+  %98 = call i32 @Cudd_ReduceHeap(ptr noundef %2, i32 noundef 6, i32 noundef 100) #12
   br label %.critedge128
 
-100:                                              ; preds = %98
-  %101 = call i32 @Cudd_DagSize(ptr noundef %.sink170) #12
-  call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.21, i32 noundef %101)
-  %102 = call i32 @Cudd_ReduceHeap(ptr noundef %2, i32 noundef 6, i32 noundef 100) #12
-  %103 = call i32 @Cudd_DagSize(ptr noundef %.sink170) #12
-  call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.22, i32 noundef %103)
+99:                                               ; preds = %97
+  %100 = call i32 @Cudd_DagSize(ptr noundef %.sink171) #12
+  call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.21, i32 noundef %100)
+  %101 = call i32 @Cudd_ReduceHeap(ptr noundef %2, i32 noundef 6, i32 noundef 100) #12
+  %102 = call i32 @Cudd_DagSize(ptr noundef %.sink171) #12
+  call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.22, i32 noundef %102)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %12)
-  %104 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %12) #12
-  %105 = icmp slt i32 %104, 0
-  br i1 %105, label %Abc_Clock.exit138, label %106
+  %103 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %12) #12
+  %104 = icmp slt i32 %103, 0
+  br i1 %104, label %Abc_Clock.exit138, label %105
 
-106:                                              ; preds = %100
-  %107 = load i64, ptr %12, align 8
-  %108 = mul nsw i64 %107, 1000000
-  %109 = getelementptr inbounds i8, ptr %12, i64 8
-  %110 = load i64, ptr %109, align 8
-  %111 = sdiv i64 %110, 1000
-  %112 = add nsw i64 %111, %108
+105:                                              ; preds = %99
+  %106 = load i64, ptr %12, align 8
+  %107 = mul nsw i64 %106, 1000000
+  %108 = getelementptr inbounds i8, ptr %12, i64 8
+  %109 = load i64, ptr %108, align 8
+  %110 = sdiv i64 %109, 1000
+  %111 = add nsw i64 %110, %107
   br label %Abc_Clock.exit138
 
-Abc_Clock.exit138:                                ; preds = %100, %106
-  %.0.i137 = phi i64 [ %112, %106 ], [ -1, %100 ]
+Abc_Clock.exit138:                                ; preds = %99, %105
+  %.0.i137 = phi i64 [ %111, %105 ], [ -1, %99 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %12)
-  %113 = add i64 %.0.i137, %.0.i.neg
+  %112 = add i64 %.0.i137, %.0.i.neg
   call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.25, ptr noundef nonnull @.str.15)
-  %114 = sitofp i64 %113 to double
-  %115 = fdiv double %114, 1.000000e+06
-  call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.26, double noundef %115)
+  %113 = sitofp i64 %112 to double
+  %114 = fdiv double %113, 1.000000e+06
+  call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.26, double noundef %114)
   br label %.critedge128
 
-.critedge128:                                     ; preds = %.thread139, %Abc_Clock.exit138, %97
-  call void @Cudd_Deref(ptr noundef %.sink170) #12
+.critedge128:                                     ; preds = %.thread139, %Abc_Clock.exit138, %96
+  call void @Cudd_Deref(ptr noundef %.sink171) #12
   br label %.loopexit
 
-.loopexit:                                        ; preds = %51, %.critedge128, %68, %31
-  %.0 = phi ptr [ null, %68 ], [ %.sink170, %.critedge128 ], [ null, %31 ], [ null, %51 ]
+.loopexit:                                        ; preds = %50, %.critedge128, %67, %31
+  %.0 = phi ptr [ null, %67 ], [ %.sink171, %.critedge128 ], [ null, %31 ], [ null, %50 ]
   ret ptr %.0
 }
 

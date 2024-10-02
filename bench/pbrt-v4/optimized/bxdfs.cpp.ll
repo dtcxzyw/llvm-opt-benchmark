@@ -12707,20 +12707,12 @@ lpad4:                                            ; preds = %invoke.cont3
 do.body:                                          ; preds = %invoke.cont5
   %call8 = call i32 @fseek(ptr noundef nonnull %call, i64 noundef 0, i32 noundef 2)
   %tobool.not = icmp eq i32 %call8, 0
-  br i1 %tobool.not, label %do.end, label %if.then9
-
-if.then9:                                         ; preds = %do.body
-  %call11 = call i32 @fclose(ptr noundef nonnull %call)
-  br label %if.then98.invoke
+  br i1 %tobool.not, label %do.end, label %if.then98.invoke.sink.split
 
 do.end:                                           ; preds = %do.body
   %call15 = call i64 @ftell(ptr noundef nonnull %call)
   %cmp17.not = icmp eq i64 %call15, -1
-  br i1 %cmp17.not, label %if.then18, label %do.end24
-
-if.then18:                                        ; preds = %do.end
-  %call20 = call i32 @fclose(ptr noundef nonnull %call)
-  br label %if.then98.invoke
+  br i1 %cmp17.not, label %if.then98.invoke.sink.split, label %do.end24
 
 do.end24:                                         ; preds = %do.end
   %m_size = getelementptr inbounds i8, ptr %this, i64 88
@@ -12728,47 +12720,27 @@ do.end24:                                         ; preds = %do.end
   call void @rewind(ptr noundef nonnull %call)
   %3 = load i64, ptr %m_size, align 8
   %cmp28 = icmp ugt i64 %3, 17
-  br i1 %cmp28, label %do.body36, label %if.then29
-
-if.then29:                                        ; preds = %do.end24
-  %call31 = call i32 @fclose(ptr noundef nonnull %call)
-  br label %if.then98.invoke
+  br i1 %cmp28, label %do.body36, label %if.then98.invoke.sink.split
 
 do.body36:                                        ; preds = %do.end24
   %call38 = call i64 @fread(ptr noundef nonnull %header, i64 noundef 1, i64 noundef 12, ptr noundef nonnull %call)
   %cmp39 = icmp eq i64 %call38, 12
-  br i1 %cmp39, label %do.body47, label %if.then40
-
-if.then40:                                        ; preds = %do.body36
-  %call42 = call i32 @fclose(ptr noundef nonnull %call)
-  br label %if.then98.invoke
+  br i1 %cmp39, label %do.body47, label %if.then98.invoke.sink.split
 
 do.body47:                                        ; preds = %do.body36
   %call50 = call i64 @fread(ptr noundef nonnull %version, i64 noundef 1, i64 noundef 2, ptr noundef nonnull %call)
   %cmp51 = icmp eq i64 %call50, 2
-  br i1 %cmp51, label %do.body59, label %if.then52
-
-if.then52:                                        ; preds = %do.body47
-  %call54 = call i32 @fclose(ptr noundef nonnull %call)
-  br label %if.then98.invoke
+  br i1 %cmp51, label %do.body59, label %if.then98.invoke.sink.split
 
 do.body59:                                        ; preds = %do.body47
   %call61 = call i64 @fread(ptr noundef nonnull %n_fields, i64 noundef 4, i64 noundef 1, ptr noundef nonnull %call)
   %cmp62 = icmp eq i64 %call61, 1
-  br i1 %cmp62, label %do.body70, label %if.then63
-
-if.then63:                                        ; preds = %do.body59
-  %call65 = call i32 @fclose(ptr noundef nonnull %call)
-  br label %if.then98.invoke
+  br i1 %cmp62, label %do.body70, label %if.then98.invoke.sink.split
 
 do.body70:                                        ; preds = %do.body59
   %bcmp = call i32 @bcmp(ptr noundef nonnull dereferenceable(12) %header, ptr noundef nonnull dereferenceable(12) @.str.32, i64 12)
   %cmp73 = icmp eq i32 %bcmp, 0
-  br i1 %cmp73, label %do.body81, label %if.then74
-
-if.then74:                                        ; preds = %do.body70
-  %call76 = call i32 @fclose(ptr noundef nonnull %call)
-  br label %if.then98.invoke
+  br i1 %cmp73, label %do.body81, label %if.then98.invoke.sink.split
 
 do.body81:                                        ; preds = %do.body70
   %4 = load i8, ptr %version, align 1
@@ -12777,7 +12749,7 @@ do.body81:                                        ; preds = %do.body70
   %5 = load i8, ptr %arrayidx83, align 1
   %cmp85 = icmp eq i8 %5, 0
   %or.cond = select i1 %cmp82, i1 %cmp85, i1 false
-  br i1 %or.cond, label %for.cond.preheader, label %if.then86
+  br i1 %or.cond, label %for.cond.preheader, label %if.then98.invoke.sink.split
 
 for.cond.preheader:                               ; preds = %do.body81
   %6 = load i32, ptr %n_fields, align 4
@@ -12792,22 +12764,19 @@ do.body94.lr.ph:                                  ; preds = %for.cond.preheader
   %data248 = getelementptr inbounds i8, ptr %ref.tmp242, i64 40
   br label %do.body94
 
-if.then86:                                        ; preds = %do.body81
-  %call88 = call i32 @fclose(ptr noundef nonnull %call)
-  br label %if.then98.invoke
-
 do.body94:                                        ; preds = %do.body94.lr.ph, %_ZNSt6vectorImSaImEED2Ev.exit
   %i.0145 = phi i32 [ 0, %do.body94.lr.ph ], [ %inc257, %_ZNSt6vectorImSaImEED2Ev.exit ]
   %call96 = call i64 @fread(ptr noundef nonnull %name_length, i64 noundef 2, i64 noundef 1, ptr noundef %call)
   %cmp97 = icmp eq i64 %call96, 1
-  br i1 %cmp97, label %do.end104, label %if.then98
+  br i1 %cmp97, label %do.end104, label %if.then98.invoke.sink.split
 
-if.then98:                                        ; preds = %do.body94
-  %call100 = call i32 @fclose(ptr noundef %call)
+if.then98.invoke.sink.split:                      ; preds = %do.body94, %do.body81, %do.body70, %do.body59, %do.body47, %do.body36, %do.end24, %do.end, %do.body
+  %.ph = phi ptr [ @.str.26, %do.body ], [ @.str.27, %do.end ], [ @.str.28, %do.end24 ], [ @.str.29, %do.body36 ], [ @.str.30, %do.body47 ], [ @.str.31, %do.body59 ], [ @.str.33, %do.body70 ], [ @.str.34, %do.body81 ], [ @.str.35, %do.body94 ]
+  %call11 = call i32 @fclose(ptr noundef %call)
   br label %if.then98.invoke
 
-if.then98.invoke:                                 ; preds = %invoke.cont5, %if.then9, %if.then18, %if.then29, %if.then40, %if.then52, %if.then63, %if.then74, %if.then86, %if.then98
-  %7 = phi ptr [ @.str.35, %if.then98 ], [ @.str.34, %if.then86 ], [ @.str.33, %if.then74 ], [ @.str.31, %if.then63 ], [ @.str.30, %if.then52 ], [ @.str.29, %if.then40 ], [ @.str.28, %if.then29 ], [ @.str.27, %if.then18 ], [ @.str.26, %if.then9 ], [ @.str.25, %invoke.cont5 ]
+if.then98.invoke:                                 ; preds = %if.then98.invoke.sink.split, %invoke.cont5
+  %7 = phi ptr [ @.str.25, %invoke.cont5 ], [ %.ph, %if.then98.invoke.sink.split ]
   invoke void @_ZN4pbrt9ErrorExitIJRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEvPKcDpOT_(ptr noundef nonnull %7, ptr noundef nonnull align 8 dereferenceable(32) %filename) #25
           to label %if.then98.cont unwind label %lpad2
 

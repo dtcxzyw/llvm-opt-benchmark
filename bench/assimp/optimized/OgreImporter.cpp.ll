@@ -743,7 +743,7 @@ if.then.i.i.i.i.i:                                ; preds = %if.then.i.i.i.i
   %vfn.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i, i64 16
   %10 = load ptr, ptr %vfn.i.i.i.i.i, align 8
   call void %10(ptr noundef nonnull align 8 dereferenceable(16) %7) #24
-  br label %if.end8.sink.split.i.i.i.i.i
+  br label %return.sink.split
 
 if.end.i.i.i.i.i:                                 ; preds = %if.then.i.i.i.i
   %11 = load i8, ptr @__libc_single_threaded, align 1
@@ -787,44 +787,37 @@ if.else.i.i.i.i.i.i.i.i:                          ; preds = %if.then7.i.i.i.i.i
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i: ; preds = %if.else.i.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i
   %retval.i.0.i.i.i.i.i.i.i = phi i32 [ %15, %if.then.i.i.i.i.i.i.i.i ], [ %16, %if.else.i.i.i.i.i.i.i.i ]
   %cmp.i.i.i.i.i.i.i = icmp eq i32 %retval.i.0.i.i.i.i.i.i.i, 1
-  br i1 %cmp.i.i.i.i.i.i.i, label %if.end8.sink.split.i.i.i.i.i, label %return
-
-if.end8.sink.split.i.i.i.i.i:                     ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i, %if.then.i.i.i.i.i
-  %vtable2.i.i.i.i.i.i.i = load ptr, ptr %7, align 8
-  %vfn3.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable2.i.i.i.i.i.i.i, i64 24
-  %17 = load ptr, ptr %vfn3.i.i.i.i.i.i.i, align 8
-  call void %17(ptr noundef nonnull align 8 dereferenceable(16) %7) #24
-  br label %return
+  br i1 %cmp.i.i.i.i.i.i.i, label %return.sink.split, label %return
 
 lpad10:                                           ; preds = %call.i25.noexc, %if.end
-  %18 = landingpad { ptr, i32 }
+  %17 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup16
 
 lpad12:                                           ; preds = %invoke.cont11
-  %19 = landingpad { ptr, i32 }
+  %18 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp8) #24
   br label %ehcleanup16
 
 ehcleanup16:                                      ; preds = %lpad10, %lpad.i28, %lpad12
-  %.pn15 = phi { ptr, i32 } [ %19, %lpad12 ], [ %18, %lpad10 ], [ %5, %lpad.i28 ]
+  %.pn15 = phi { ptr, i32 } [ %18, %lpad12 ], [ %17, %lpad10 ], [ %5, %lpad.i28 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp9) #24
   br label %eh.resume
 
 lpad18:                                           ; preds = %if.then17
-  %20 = landingpad { ptr, i32 }
+  %19 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup30
 
 lpad22:                                           ; preds = %invoke.cont26, %invoke.cont23, %invoke.cont19
-  %21 = landingpad { ptr, i32 }
+  %20 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt10unique_ptrIN6Assimp4Ogre4MeshESt14default_deleteIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %mesh) #24
   br label %ehcleanup30
 
 ehcleanup30:                                      ; preds = %lpad22, %lpad18
-  %.pn20 = phi { ptr, i32 } [ %21, %lpad22 ], [ %20, %lpad18 ]
+  %.pn20 = phi { ptr, i32 } [ %20, %lpad22 ], [ %19, %lpad18 ]
   call void @_ZN6Assimp12StreamReaderILb0ELb0EED2Ev(ptr noundef nonnull align 8 dereferenceable(49) %reader) #24
   br label %eh.resume
 
@@ -857,43 +850,48 @@ _ZNSt10unique_ptrIN6Assimp4Ogre7MeshXmlESt14default_deleteIS2_EED2Ev.exit: ; pre
   call void @_ZN6Assimp4Ogre7MeshXmlD1Ev(ptr noundef nonnull align 8 dereferenceable(72) %call40) #24
   call void @_ZdlPv(ptr noundef nonnull %call40) #27
   call void @_ZN6Assimp10TXmlParserIN4pugi8xml_nodeEE5clearEv(ptr noundef nonnull align 8 dereferenceable(40) %xmlParser)
-  %22 = load ptr, ptr %mData.i, align 8
-  %tobool.not.i.i.i.i = icmp eq ptr %22, null
+  %21 = load ptr, ptr %mData.i, align 8
+  %tobool.not.i.i.i.i = icmp eq ptr %21, null
   br i1 %tobool.not.i.i.i.i, label %_ZNSt10unique_ptrIN6Assimp8IOStreamESt14default_deleteIS1_EED2Ev.exit, label %if.then.i.i.i.i35
 
 if.then.i.i.i.i35:                                ; preds = %_ZNSt10unique_ptrIN6Assimp4Ogre7MeshXmlESt14default_deleteIS2_EED2Ev.exit
-  call void @_ZdlPv(ptr noundef nonnull %22) #27
+  call void @_ZdlPv(ptr noundef nonnull %21) #27
   br label %_ZNSt10unique_ptrIN6Assimp8IOStreamESt14default_deleteIS1_EED2Ev.exit
 
 _ZNSt10unique_ptrIN6Assimp8IOStreamESt14default_deleteIS1_EED2Ev.exit: ; preds = %_ZNSt10unique_ptrIN6Assimp4Ogre7MeshXmlESt14default_deleteIS2_EED2Ev.exit, %if.then.i.i.i.i35
   call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %mData.i) #24
-  %vtable.i.i = load ptr, ptr %call3.i24, align 8
-  %vfn.i.i = getelementptr inbounds i8, ptr %vtable.i.i, i64 8
-  %23 = load ptr, ptr %vfn.i.i, align 8
-  call void %23(ptr noundef nonnull align 8 dereferenceable(8) %call3.i24) #24
+  br label %return.sink.split
+
+return.sink.split:                                ; preds = %if.then.i.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i, %_ZNSt10unique_ptrIN6Assimp8IOStreamESt14default_deleteIS1_EED2Ev.exit
+  %.sink46 = phi ptr [ %call3.i24, %_ZNSt10unique_ptrIN6Assimp8IOStreamESt14default_deleteIS1_EED2Ev.exit ], [ %7, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i ], [ %7, %if.then.i.i.i.i.i ]
+  %.sink45 = phi i64 [ 8, %_ZNSt10unique_ptrIN6Assimp8IOStreamESt14default_deleteIS1_EED2Ev.exit ], [ 24, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i ], [ 24, %if.then.i.i.i.i.i ]
+  %vtable2.i.i.i.i.i.i.i = load ptr, ptr %.sink46, align 8
+  %vfn3.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable2.i.i.i.i.i.i.i, i64 %.sink45
+  %22 = load ptr, ptr %vfn3.i.i.i.i.i.i.i, align 8
+  call void %22(ptr noundef nonnull align 8 dereferenceable(8) %.sink46) #24
   br label %return
 
-return:                                           ; preds = %if.end8.sink.split.i.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i, %delete.end.i, %_ZNSt10unique_ptrIN6Assimp8IOStreamESt14default_deleteIS1_EED2Ev.exit
+return:                                           ; preds = %return.sink.split, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i, %delete.end.i
   ret void
 
 lpad35:                                           ; preds = %invoke.cont36, %invoke.cont33
-  %24 = landingpad { ptr, i32 }
+  %23 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup50
 
 lpad42:                                           ; preds = %invoke.cont46, %invoke.cont43, %invoke.cont39
-  %25 = landingpad { ptr, i32 }
+  %24 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt10unique_ptrIN6Assimp4Ogre7MeshXmlESt14default_deleteIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %mesh38) #24
   br label %ehcleanup50
 
 ehcleanup50:                                      ; preds = %lpad42, %lpad35
-  %.pn17 = phi { ptr, i32 } [ %25, %lpad42 ], [ %24, %lpad35 ]
+  %.pn17 = phi { ptr, i32 } [ %24, %lpad42 ], [ %23, %lpad35 ]
   call void @_ZN6Assimp10TXmlParserIN4pugi8xml_nodeEED2Ev(ptr noundef nonnull align 8 dereferenceable(40) %xmlParser) #24
   %vtable.i.i39 = load ptr, ptr %call3.i24, align 8
   %vfn.i.i40 = getelementptr inbounds i8, ptr %vtable.i.i39, i64 8
-  %26 = load ptr, ptr %vfn.i.i40, align 8
-  call void %26(ptr noundef nonnull align 8 dereferenceable(8) %call3.i24) #24
+  %25 = load ptr, ptr %vfn.i.i40, align 8
+  call void %25(ptr noundef nonnull align 8 dereferenceable(8) %call3.i24) #24
   br label %eh.resume
 
 eh.resume:                                        ; preds = %ehcleanup50, %ehcleanup30, %ehcleanup16, %lpad5, %ehcleanup

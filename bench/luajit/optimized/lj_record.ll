@@ -8792,8 +8792,7 @@ if.then26:                                        ; preds = %if.then23
   store i16 659, ptr %ot1.i121, align 4
   store i16 %conv, ptr %fold.i120, align 8
   store i16 %conv29, ptr %op2.i124, align 2
-  %call30 = tail call i32 @lj_opt_fold(ptr noundef nonnull %J) #7
-  br label %if.end79
+  br label %if.end79.sink.split
 
 if.else:                                          ; preds = %if.then20
   %cmp31 = icmp slt i32 %2, 0
@@ -8806,8 +8805,7 @@ if.then33:                                        ; preds = %if.else
   store i16 403, ptr %ot1.i121, align 4
   store i16 %conv, ptr %fold.i120, align 8
   store i16 %conv37, ptr %op2.i124, align 2
-  %call38 = tail call i32 @lj_opt_fold(ptr noundef nonnull %J) #7
-  br label %if.end79
+  br label %if.end79.sink.split
 
 if.else41:                                        ; preds = %if.then15
   %conv16 = trunc i32 %stop to i16
@@ -8819,8 +8817,7 @@ if.else41:                                        ; preds = %if.then15
   store i16 4627, ptr %ot1.i121, align 4
   store i16 %conv45, ptr %fold.i120, align 8
   store i16 0, ptr %op2.i124, align 2
-  %call46 = tail call i32 @lj_opt_fold(ptr noundef nonnull %J) #7
-  br label %if.end79
+  br label %if.end79.sink.split
 
 if.else49:                                        ; preds = %entry
   %tobool50 = icmp eq i32 %init, 0
@@ -8851,10 +8848,13 @@ if.then59:                                        ; preds = %if.else49
   store i16 %conv55, ptr %fold.i, align 8
   %op2.i = getelementptr inbounds i8, ptr %J, i64 186
   store i16 %conv76, ptr %op2.i, align 2
+  br label %if.end79.sink.split
+
+if.end79.sink.split:                              ; preds = %if.else41, %if.then33, %if.then26, %if.then59
   %call77 = tail call i32 @lj_opt_fold(ptr noundef %J) #7
   br label %if.end79
 
-if.end79:                                         ; preds = %if.else49, %if.then59, %cond.end, %if.then26, %if.then23, %if.then33, %if.else, %if.else41
+if.end79:                                         ; preds = %if.end79.sink.split, %if.else49, %cond.end, %if.then23, %if.else
   ret void
 }
 

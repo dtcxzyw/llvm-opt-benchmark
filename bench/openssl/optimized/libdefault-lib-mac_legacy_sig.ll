@@ -386,11 +386,7 @@ if.end15:                                         ; preds = %if.end10
   %macctx = getelementptr inbounds i8, ptr %call1, i64 24
   store ptr %call16, ptr %macctx, align 8
   %cmp18 = icmp eq ptr %call16, null
-  br i1 %cmp18, label %err, label %if.end20
-
-if.end20:                                         ; preds = %if.end15
-  tail call void @EVP_MAC_free(ptr noundef nonnull %call12) #3
-  br label %return
+  br i1 %cmp18, label %err, label %return.sink.split
 
 err:                                              ; preds = %if.end15, %if.end10, %land.lhs.true
   %mac.0 = phi ptr [ null, %land.lhs.true ], [ null, %if.end10 ], [ %call12, %if.end15 ]
@@ -398,11 +394,16 @@ err:                                              ; preds = %if.end15, %if.end10
   %0 = load ptr, ptr %propq21, align 8
   tail call void @CRYPTO_free(ptr noundef %0, ptr noundef nonnull @.str.1, i32 noundef 79) #3
   tail call void @CRYPTO_free(ptr noundef nonnull %call1, ptr noundef nonnull @.str.1, i32 noundef 80) #3
-  tail call void @EVP_MAC_free(ptr noundef %mac.0) #3
+  br label %return.sink.split
+
+return.sink.split:                                ; preds = %if.end15, %err
+  %mac.0.sink = phi ptr [ %mac.0, %err ], [ %call12, %if.end15 ]
+  %retval.0.ph = phi ptr [ null, %err ], [ %call1, %if.end15 ]
+  tail call void @EVP_MAC_free(ptr noundef %mac.0.sink) #3
   br label %return
 
-return:                                           ; preds = %if.end, %entry, %err, %if.end20
-  %retval.0 = phi ptr [ null, %err ], [ %call1, %if.end20 ], [ null, %entry ], [ null, %if.end ]
+return:                                           ; preds = %return.sink.split, %if.end, %entry
+  %retval.0 = phi ptr [ null, %entry ], [ null, %if.end ], [ %retval.0.ph, %return.sink.split ]
   ret ptr %retval.0
 }
 

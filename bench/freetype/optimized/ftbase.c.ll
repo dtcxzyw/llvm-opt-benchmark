@@ -7048,46 +7048,42 @@ define i32 @FT_Attach_File(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0
   store ptr %11, ptr %16, align 8
   %17 = tail call i32 @FT_Stream_Open(ptr noundef nonnull %14, ptr noundef nonnull %1) #34
   %.not41.i = icmp eq i32 %17, 0
-  br i1 %.not41.i, label %FT_Stream_New.exit, label %ft_mem_free.exit.i
-
-ft_mem_free.exit.i:                               ; preds = %15
-  %18 = getelementptr inbounds i8, ptr %11, i64 16
-  %19 = load ptr, ptr %18, align 8
-  tail call void %19(ptr noundef nonnull %11, ptr noundef nonnull %14) #34
-  br label %FT_Attach_Stream.exit
+  br i1 %.not41.i, label %FT_Stream_New.exit, label %FT_Attach_Stream.exit.sink.split
 
 FT_Stream_New.exit:                               ; preds = %15
-  %20 = getelementptr inbounds i8, ptr %6, i64 24
+  %18 = getelementptr inbounds i8, ptr %6, i64 24
+  %19 = load ptr, ptr %18, align 8
+  %20 = getelementptr inbounds i8, ptr %19, i64 160
   %21 = load ptr, ptr %20, align 8
-  %22 = getelementptr inbounds i8, ptr %21, i64 160
-  %23 = load ptr, ptr %22, align 8
-  %.not20.i = icmp eq ptr %23, null
-  br i1 %.not20.i, label %26, label %24
+  %.not20.i = icmp eq ptr %21, null
+  br i1 %.not20.i, label %24, label %22
 
-24:                                               ; preds = %FT_Stream_New.exit
-  %25 = tail call i32 %23(ptr noundef nonnull %0, ptr noundef nonnull %14) #34
-  br label %26
+22:                                               ; preds = %FT_Stream_New.exit
+  %23 = tail call i32 %21(ptr noundef nonnull %0, ptr noundef nonnull %14) #34
+  br label %24
 
-26:                                               ; preds = %24, %FT_Stream_New.exit
-  %.1.i = phi i32 [ %25, %24 ], [ 7, %FT_Stream_New.exit ]
-  %27 = load ptr, ptr %16, align 8
-  %28 = getelementptr inbounds i8, ptr %14, i64 48
-  %29 = load ptr, ptr %28, align 8
-  %.not5.i.i.i = icmp eq ptr %29, null
-  br i1 %.not5.i.i.i, label %ft_mem_free.exit.i.i, label %30
+24:                                               ; preds = %22, %FT_Stream_New.exit
+  %.1.i = phi i32 [ %23, %22 ], [ 7, %FT_Stream_New.exit ]
+  %25 = load ptr, ptr %16, align 8
+  %26 = getelementptr inbounds i8, ptr %14, i64 48
+  %27 = load ptr, ptr %26, align 8
+  %.not5.i.i.i = icmp eq ptr %27, null
+  br i1 %.not5.i.i.i, label %FT_Attach_Stream.exit.sink.split, label %28
 
-30:                                               ; preds = %26
-  tail call void %29(ptr noundef nonnull %14) #34
-  br label %ft_mem_free.exit.i.i
+28:                                               ; preds = %24
+  tail call void %27(ptr noundef nonnull %14) #34
+  br label %FT_Attach_Stream.exit.sink.split
 
-ft_mem_free.exit.i.i:                             ; preds = %26, %30
-  %31 = getelementptr inbounds i8, ptr %27, i64 16
-  %32 = load ptr, ptr %31, align 8
-  tail call void %32(ptr noundef %27, ptr noundef nonnull %14) #34
+FT_Attach_Stream.exit.sink.split:                 ; preds = %28, %24, %15
+  %.sink16 = phi ptr [ %11, %15 ], [ %25, %24 ], [ %25, %28 ]
+  %.0.ph = phi i32 [ %17, %15 ], [ %.1.i, %24 ], [ %.1.i, %28 ]
+  %29 = getelementptr inbounds i8, ptr %.sink16, i64 16
+  %30 = load ptr, ptr %29, align 8
+  tail call void %30(ptr noundef %.sink16, ptr noundef nonnull %14) #34
   br label %FT_Attach_Stream.exit
 
-FT_Attach_Stream.exit:                            ; preds = %ft_mem_free.exit.i, %10, %7, %ft_mem_free.exit.i.i, %4, %3, %2
-  %.0 = phi i32 [ 6, %2 ], [ 35, %3 ], [ 34, %4 ], [ %.1.i, %ft_mem_free.exit.i.i ], [ %17, %ft_mem_free.exit.i ], [ 64, %10 ], [ 33, %7 ]
+FT_Attach_Stream.exit:                            ; preds = %FT_Attach_Stream.exit.sink.split, %10, %7, %4, %3, %2
+  %.0 = phi i32 [ 6, %2 ], [ 35, %3 ], [ 34, %4 ], [ 64, %10 ], [ 33, %7 ], [ %.0.ph, %FT_Attach_Stream.exit.sink.split ]
   ret i32 %.0
 }
 
@@ -19473,9 +19469,9 @@ define internal i32 @raccess_guess_darwin_ufs_export(ptr nocapture noundef reado
   store ptr %9, ptr %14, align 8
   %15 = tail call i32 @FT_Stream_Open(ptr noundef nonnull %12, ptr noundef nonnull %7) #34
   %.not41.i.i = icmp eq i32 %15, 0
-  br i1 %.not41.i.i, label %18, label %ft_mem_free.exit.i.i
+  br i1 %.not41.i.i, label %18, label %raccess_guess_linux_double_from_file_name.exit.thread19
 
-ft_mem_free.exit.i.i:                             ; preds = %13
+raccess_guess_linux_double_from_file_name.exit.thread19: ; preds = %13
   %16 = getelementptr inbounds i8, ptr %9, i64 16
   %17 = load ptr, ptr %16, align 8
   tail call void %17(ptr noundef nonnull %9, ptr noundef nonnull %12) #34
@@ -19504,8 +19500,8 @@ raccess_guess_linux_double_from_file_name.exit:   ; preds = %18, %23
   store ptr %7, ptr %3, align 8
   br label %29
 
-ft_mem_free.exit:                                 ; preds = %8, %ft_mem_free.exit.i.i, %raccess_guess_linux_double_from_file_name.exit
-  %.0.i18 = phi i32 [ %19, %raccess_guess_linux_double_from_file_name.exit ], [ 64, %8 ], [ %15, %ft_mem_free.exit.i.i ]
+ft_mem_free.exit:                                 ; preds = %8, %raccess_guess_linux_double_from_file_name.exit.thread19, %raccess_guess_linux_double_from_file_name.exit
+  %.0.i18 = phi i32 [ %19, %raccess_guess_linux_double_from_file_name.exit ], [ %15, %raccess_guess_linux_double_from_file_name.exit.thread19 ], [ 64, %8 ]
   %27 = getelementptr inbounds i8, ptr %6, i64 16
   %28 = load ptr, ptr %27, align 8
   tail call void %28(ptr noundef %6, ptr noundef nonnull %7) #34
@@ -19645,9 +19641,9 @@ define internal i32 @raccess_guess_linux_double(ptr nocapture noundef readonly %
   store ptr %9, ptr %14, align 8
   %15 = tail call i32 @FT_Stream_Open(ptr noundef nonnull %12, ptr noundef nonnull %7) #34
   %.not41.i.i = icmp eq i32 %15, 0
-  br i1 %.not41.i.i, label %18, label %ft_mem_free.exit.i.i
+  br i1 %.not41.i.i, label %18, label %raccess_guess_linux_double_from_file_name.exit.thread19
 
-ft_mem_free.exit.i.i:                             ; preds = %13
+raccess_guess_linux_double_from_file_name.exit.thread19: ; preds = %13
   %16 = getelementptr inbounds i8, ptr %9, i64 16
   %17 = load ptr, ptr %16, align 8
   tail call void %17(ptr noundef nonnull %9, ptr noundef nonnull %12) #34
@@ -19676,8 +19672,8 @@ raccess_guess_linux_double_from_file_name.exit:   ; preds = %18, %23
   store ptr %7, ptr %3, align 8
   br label %29
 
-ft_mem_free.exit:                                 ; preds = %8, %ft_mem_free.exit.i.i, %raccess_guess_linux_double_from_file_name.exit
-  %.0.i18 = phi i32 [ %19, %raccess_guess_linux_double_from_file_name.exit ], [ 64, %8 ], [ %15, %ft_mem_free.exit.i.i ]
+ft_mem_free.exit:                                 ; preds = %8, %raccess_guess_linux_double_from_file_name.exit.thread19, %raccess_guess_linux_double_from_file_name.exit
+  %.0.i18 = phi i32 [ %19, %raccess_guess_linux_double_from_file_name.exit ], [ %15, %raccess_guess_linux_double_from_file_name.exit.thread19 ], [ 64, %8 ]
   %27 = getelementptr inbounds i8, ptr %6, i64 16
   %28 = load ptr, ptr %27, align 8
   tail call void %28(ptr noundef %6, ptr noundef nonnull %7) #34
@@ -19709,9 +19705,9 @@ define internal i32 @raccess_guess_linux_netatalk(ptr nocapture noundef readonly
   store ptr %9, ptr %14, align 8
   %15 = tail call i32 @FT_Stream_Open(ptr noundef nonnull %12, ptr noundef nonnull %7) #34
   %.not41.i.i = icmp eq i32 %15, 0
-  br i1 %.not41.i.i, label %18, label %ft_mem_free.exit.i.i
+  br i1 %.not41.i.i, label %18, label %raccess_guess_linux_double_from_file_name.exit.thread19
 
-ft_mem_free.exit.i.i:                             ; preds = %13
+raccess_guess_linux_double_from_file_name.exit.thread19: ; preds = %13
   %16 = getelementptr inbounds i8, ptr %9, i64 16
   %17 = load ptr, ptr %16, align 8
   tail call void %17(ptr noundef nonnull %9, ptr noundef nonnull %12) #34
@@ -19740,8 +19736,8 @@ raccess_guess_linux_double_from_file_name.exit:   ; preds = %18, %23
   store ptr %7, ptr %3, align 8
   br label %29
 
-ft_mem_free.exit:                                 ; preds = %8, %ft_mem_free.exit.i.i, %raccess_guess_linux_double_from_file_name.exit
-  %.0.i18 = phi i32 [ %19, %raccess_guess_linux_double_from_file_name.exit ], [ 64, %8 ], [ %15, %ft_mem_free.exit.i.i ]
+ft_mem_free.exit:                                 ; preds = %8, %raccess_guess_linux_double_from_file_name.exit.thread19, %raccess_guess_linux_double_from_file_name.exit
+  %.0.i18 = phi i32 [ %19, %raccess_guess_linux_double_from_file_name.exit ], [ %15, %raccess_guess_linux_double_from_file_name.exit.thread19 ], [ 64, %8 ]
   %27 = getelementptr inbounds i8, ptr %6, i64 16
   %28 = load ptr, ptr %27, align 8
   tail call void %28(ptr noundef %6, ptr noundef nonnull %7) #34

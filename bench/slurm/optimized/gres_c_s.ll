@@ -601,17 +601,17 @@ _distribute_count.exit.i:                         ; preds = %226, %219
   %271 = load ptr, ptr %270, align 8
   %272 = tail call ptr @slurm_xstrdup(ptr noundef %271) #7
   store ptr %272, ptr %269, align 8
-  tail call void @slurm_list_append(ptr noundef %0, ptr noundef nonnull %238) #7
   br label %276
 
 273:                                              ; preds = %.lr.ph.i52
   %274 = tail call fastcc ptr @_create_shared_rec(ptr noundef %237, ptr noundef %206, ptr noundef null)
   %275 = getelementptr inbounds i8, ptr %274, i64 8
   store i64 0, ptr %275, align 8
-  tail call void @slurm_list_append(ptr noundef %0, ptr noundef %274) #7
   br label %276
 
 276:                                              ; preds = %273, %265
+  %.sink.i = phi ptr [ %274, %273 ], [ %238, %265 ]
+  tail call void @slurm_list_append(ptr noundef %0, ptr noundef nonnull %.sink.i) #7
   tail call void @slurm_list_append(ptr noundef %0, ptr noundef nonnull %237) #7
   %277 = tail call ptr @slurm_list_pop(ptr noundef %.044.i64) #7
   %.not48.i = icmp eq ptr %277, null

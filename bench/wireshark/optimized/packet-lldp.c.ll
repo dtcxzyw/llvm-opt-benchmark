@@ -4031,13 +4031,13 @@ define internal fastcc void @dissect_media_tlv(ptr noundef %0, ptr noundef %1, p
     i8 2, label %40
     i8 3, label %63
     i8 4, label %152
-    i8 5, label %175
-    i8 6, label %180
-    i8 7, label %185
-    i8 8, label %190
-    i8 9, label %195
-    i8 10, label %200
-    i8 11, label %205
+    i8 5, label %169
+    i8 6, label %174
+    i8 7, label %179
+    i8 8, label %184
+    i8 9, label %189
+    i8 10, label %194
+    i8 11, label %199
   ]
 
 10:                                               ; preds = %3
@@ -4268,109 +4268,102 @@ define internal fastcc void @dissect_media_tlv(ptr noundef %0, ptr noundef %1, p
   %156 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %155, ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef 0) #8
   %157 = load i32, ptr @hf_media_power_source, align 4
   %158 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %157, ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef 0) #8
-  switch i8 %154, label %169 [
-    i8 0, label %159
-    i8 1, label %164
+  switch i8 %154, label %164 [
+    i8 0, label %.sink.split
+    i8 1, label %159
   ]
 
 159:                                              ; preds = %152
+  br label %.sink.split
+
+.sink.split:                                      ; preds = %152, %159
+  %media_power_pd_device.sink = phi ptr [ @media_power_pd_device, %159 ], [ @media_power_pse_device, %152 ]
   %160 = lshr i8 %153, 4
   %161 = and i8 %160, 3
   %162 = zext nneg i8 %161 to i32
-  %163 = tail call ptr @val_to_str_const(i32 noundef %162, ptr noundef nonnull @media_power_pse_device, ptr noundef nonnull @.str.107) #8
-  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %158, ptr noundef nonnull @.str.1120, ptr noundef %163) #8
-  br label %170
+  %163 = tail call ptr @val_to_str_const(i32 noundef %162, ptr noundef nonnull %media_power_pd_device.sink, ptr noundef nonnull @.str.107) #8
+  br label %164
 
-164:                                              ; preds = %152
-  %165 = lshr i8 %153, 4
-  %166 = and i8 %165, 3
-  %167 = zext nneg i8 %166 to i32
-  %168 = tail call ptr @val_to_str_const(i32 noundef %167, ptr noundef nonnull @media_power_pd_device, ptr noundef nonnull @.str.107) #8
-  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %158, ptr noundef nonnull @.str.1120, ptr noundef %168) #8
-  br label %170
-
-169:                                              ; preds = %152
-  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %158, ptr noundef nonnull @.str.1120, ptr noundef nonnull @.str.92) #8
-  br label %170
-
-170:                                              ; preds = %169, %164, %159
-  %171 = load i32, ptr @hf_media_power_priority, align 4
-  %172 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %171, ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef 0) #8
-  %173 = load i32, ptr @hf_media_power_value, align 4
-  %174 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %173, ptr noundef %0, i32 noundef 2, i32 noundef 2, i32 noundef 0) #8
+164:                                              ; preds = %.sink.split, %152
+  %.str.92.sink = phi ptr [ @.str.92, %152 ], [ %163, %.sink.split ]
+  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %158, ptr noundef nonnull @.str.1120, ptr noundef %.str.92.sink) #8
+  %165 = load i32, ptr @hf_media_power_priority, align 4
+  %166 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %165, ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef 0) #8
+  %167 = load i32, ptr @hf_media_power_value, align 4
+  %168 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %167, ptr noundef %0, i32 noundef 2, i32 noundef 2, i32 noundef 0) #8
   br label %.loopexit
 
-175:                                              ; preds = %3
+169:                                              ; preds = %3
   %.not303 = icmp eq i16 %9, 0
-  br i1 %.not303, label %.loopexit, label %176
+  br i1 %.not303, label %.loopexit, label %170
 
-176:                                              ; preds = %175
-  %177 = zext i16 %9 to i32
-  %178 = load i32, ptr @hf_media_hardware, align 4
-  %179 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %178, ptr noundef %0, i32 noundef 1, i32 noundef %177, i32 noundef 0) #8
+170:                                              ; preds = %169
+  %171 = zext i16 %9 to i32
+  %172 = load i32, ptr @hf_media_hardware, align 4
+  %173 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %172, ptr noundef %0, i32 noundef 1, i32 noundef %171, i32 noundef 0) #8
   br label %.loopexit
 
-180:                                              ; preds = %3
+174:                                              ; preds = %3
   %.not302 = icmp eq i16 %9, 0
-  br i1 %.not302, label %.loopexit, label %181
+  br i1 %.not302, label %.loopexit, label %175
 
-181:                                              ; preds = %180
-  %182 = zext i16 %9 to i32
-  %183 = load i32, ptr @hf_media_firmware, align 4
-  %184 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %183, ptr noundef %0, i32 noundef 1, i32 noundef %182, i32 noundef 0) #8
+175:                                              ; preds = %174
+  %176 = zext i16 %9 to i32
+  %177 = load i32, ptr @hf_media_firmware, align 4
+  %178 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %177, ptr noundef %0, i32 noundef 1, i32 noundef %176, i32 noundef 0) #8
   br label %.loopexit
 
-185:                                              ; preds = %3
+179:                                              ; preds = %3
   %.not301 = icmp eq i16 %9, 0
-  br i1 %.not301, label %.loopexit, label %186
+  br i1 %.not301, label %.loopexit, label %180
 
-186:                                              ; preds = %185
-  %187 = zext i16 %9 to i32
-  %188 = load i32, ptr @hf_media_software, align 4
-  %189 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %188, ptr noundef %0, i32 noundef 1, i32 noundef %187, i32 noundef 0) #8
+180:                                              ; preds = %179
+  %181 = zext i16 %9 to i32
+  %182 = load i32, ptr @hf_media_software, align 4
+  %183 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %182, ptr noundef %0, i32 noundef 1, i32 noundef %181, i32 noundef 0) #8
   br label %.loopexit
 
-190:                                              ; preds = %3
+184:                                              ; preds = %3
   %.not300 = icmp eq i16 %9, 0
-  br i1 %.not300, label %.loopexit, label %191
+  br i1 %.not300, label %.loopexit, label %185
 
-191:                                              ; preds = %190
-  %192 = zext i16 %9 to i32
-  %193 = load i32, ptr @hf_media_sn, align 4
-  %194 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %193, ptr noundef %0, i32 noundef 1, i32 noundef %192, i32 noundef 0) #8
+185:                                              ; preds = %184
+  %186 = zext i16 %9 to i32
+  %187 = load i32, ptr @hf_media_sn, align 4
+  %188 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %187, ptr noundef %0, i32 noundef 1, i32 noundef %186, i32 noundef 0) #8
   br label %.loopexit
 
-195:                                              ; preds = %3
+189:                                              ; preds = %3
   %.not299 = icmp eq i16 %9, 0
-  br i1 %.not299, label %.loopexit, label %196
+  br i1 %.not299, label %.loopexit, label %190
 
-196:                                              ; preds = %195
-  %197 = zext i16 %9 to i32
-  %198 = load i32, ptr @hf_media_manufacturer, align 4
-  %199 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %198, ptr noundef %0, i32 noundef 1, i32 noundef %197, i32 noundef 0) #8
+190:                                              ; preds = %189
+  %191 = zext i16 %9 to i32
+  %192 = load i32, ptr @hf_media_manufacturer, align 4
+  %193 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %192, ptr noundef %0, i32 noundef 1, i32 noundef %191, i32 noundef 0) #8
   br label %.loopexit
 
-200:                                              ; preds = %3
+194:                                              ; preds = %3
   %.not298 = icmp eq i16 %9, 0
-  br i1 %.not298, label %.loopexit, label %201
+  br i1 %.not298, label %.loopexit, label %195
 
-201:                                              ; preds = %200
-  %202 = zext i16 %9 to i32
-  %203 = load i32, ptr @hf_media_model, align 4
-  %204 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %203, ptr noundef %0, i32 noundef 1, i32 noundef %202, i32 noundef 0) #8
+195:                                              ; preds = %194
+  %196 = zext i16 %9 to i32
+  %197 = load i32, ptr @hf_media_model, align 4
+  %198 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %197, ptr noundef %0, i32 noundef 1, i32 noundef %196, i32 noundef 0) #8
   br label %.loopexit
 
-205:                                              ; preds = %3
+199:                                              ; preds = %3
   %.not = icmp eq i16 %9, 0
-  br i1 %.not, label %.loopexit, label %206
+  br i1 %.not, label %.loopexit, label %200
 
-206:                                              ; preds = %205
-  %207 = zext i16 %9 to i32
-  %208 = load i32, ptr @hf_media_asset, align 4
-  %209 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %208, ptr noundef %0, i32 noundef 1, i32 noundef %207, i32 noundef 0) #8
+200:                                              ; preds = %199
+  %201 = zext i16 %9 to i32
+  %202 = load i32, ptr @hf_media_asset, align 4
+  %203 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %202, ptr noundef %0, i32 noundef 1, i32 noundef %201, i32 noundef 0) #8
   br label %.loopexit
 
-.loopexit:                                        ; preds = %132, %146, %122, %3, %37, %52, %170, %147, %148, %77, %67, %176, %175, %181, %180, %186, %185, %191, %190, %196, %195, %201, %200, %206, %205, %130, %120, %114, %108, %100, %74, %65, %50, %42, %35, %12
+.loopexit:                                        ; preds = %132, %146, %122, %3, %37, %52, %164, %147, %148, %77, %67, %170, %169, %175, %174, %180, %179, %185, %184, %190, %189, %195, %194, %200, %199, %130, %120, %114, %108, %100, %74, %65, %50, %42, %35, %12
   ret void
 }
 

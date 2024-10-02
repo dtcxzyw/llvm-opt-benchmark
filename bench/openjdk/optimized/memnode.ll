@@ -20627,22 +20627,14 @@ _ZN4Node8init_reqEjPS_.exit:                      ; preds = %.lr.ph.split, %34
 
 ._crit_edge:                                      ; preds = %_ZN4Node8init_reqEjPS_.exit, %_ZN4Node8init_reqEjPS_.exit.us, %2
   %.not = icmp eq ptr %1, null
-  br i1 %.not, label %.split, label %43
-
-.split:                                           ; preds = %._crit_edge
-  tail call void @_ZN12MergeMemNode15set_base_memoryEP4Node(ptr noundef nonnull align 8 dereferenceable(52) %0, ptr noundef null)
-  br label %_ZN14MergeMemStream15next_non_empty2Ev.exit
+  br i1 %.not, label %_ZN14MergeMemStream15next_non_empty2Ev.exit.sink.split, label %43
 
 43:                                               ; preds = %._crit_edge
   %44 = getelementptr inbounds i8, ptr %1, i64 44
   %45 = load i32, ptr %44, align 4
   %46 = and i32 %45, 255
   %47 = icmp eq i32 %46, 128
-  br i1 %47, label %48, label %.split9
-
-.split9:                                          ; preds = %43
-  tail call void @_ZN12MergeMemNode15set_base_memoryEP4Node(ptr noundef nonnull align 8 dereferenceable(52) %0, ptr noundef nonnull %1)
-  br label %_ZN14MergeMemStream15next_non_empty2Ev.exit
+  br i1 %47, label %48, label %_ZN14MergeMemStream15next_non_empty2Ev.exit.sink.split
 
 48:                                               ; preds = %43
   call void @_ZN14MergeMemStreamC2EP12MergeMemNodePKS0_(ptr noundef nonnull align 8 dereferenceable(52) %3, ptr noundef nonnull %0, ptr noundef nonnull %1)
@@ -20735,7 +20727,12 @@ _ZN14MergeMemStream10set_memoryEP4Node.exit:      ; preds = %88, %89
   %92 = icmp slt i32 %91, %90
   br i1 %92, label %.lr.ph.i.i, label %_ZN14MergeMemStream15next_non_empty2Ev.exit, !llvm.loop !64
 
-_ZN14MergeMemStream15next_non_empty2Ev.exit:      ; preds = %_ZN14MergeMemStream10set_memoryEP4Node.exit, %.thread5.us.i.i, %48, %.split, %.split9
+_ZN14MergeMemStream15next_non_empty2Ev.exit.sink.split: ; preds = %43, %._crit_edge
+  %.sink = phi ptr [ null, %._crit_edge ], [ %1, %43 ]
+  tail call void @_ZN12MergeMemNode15set_base_memoryEP4Node(ptr noundef nonnull align 8 dereferenceable(52) %0, ptr noundef %.sink)
+  br label %_ZN14MergeMemStream15next_non_empty2Ev.exit
+
+_ZN14MergeMemStream15next_non_empty2Ev.exit:      ; preds = %_ZN14MergeMemStream10set_memoryEP4Node.exit, %.thread5.us.i.i, %_ZN14MergeMemStream15next_non_empty2Ev.exit.sink.split, %48
   ret void
 }
 

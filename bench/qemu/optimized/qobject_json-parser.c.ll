@@ -190,11 +190,7 @@ if.end.i:                                         ; preds = %land.lhs.true.i
   %ctxt.val.i = load ptr, ptr %0, align 8
   %call.i87 = tail call ptr @g_queue_peek_head(ptr noundef %ctxt.val.i) #14
   %cmp3.i = icmp eq ptr %call.i87, null
-  br i1 %cmp3.i, label %if.then4.i, label %if.end5.i
-
-if.then4.i:                                       ; preds = %if.end.i
-  tail call void (ptr, ptr, ptr, ...) @parse_error(ptr noundef %ctxt, ptr poison, ptr noundef nonnull @.str.2)
-  br label %out.i
+  br i1 %cmp3.i, label %out.i.sink.split, label %if.end5.i
 
 if.end5.i:                                        ; preds = %if.end.i
   %5 = load i32, ptr %call.i87, align 4
@@ -209,23 +205,15 @@ if.then8.i:                                       ; preds = %if.end5.i
 if.end12.i:                                       ; preds = %if.then8.i
   %call13.i = tail call fastcc ptr @parser_context_pop_token(ptr noundef %ctxt)
   %cmp14.i = icmp eq ptr %call13.i, null
-  br i1 %cmp14.i, label %if.then15.i, label %while.cond.i
-
-if.then15.i:                                      ; preds = %if.end12.i
-  tail call void (ptr, ptr, ptr, ...) @parse_error(ptr noundef %ctxt, ptr poison, ptr noundef nonnull @.str.2)
-  br label %out.i
+  br i1 %cmp14.i, label %out.i.sink.split, label %while.cond.i
 
 while.cond.i:                                     ; preds = %if.end12.i, %if.end26.i
   %token.0.i = phi ptr [ %call.i86, %if.end26.i ], [ %call13.i, %if.end12.i ]
   %6 = load i32, ptr %token.0.i, align 4
-  switch i32 %6, label %if.then21.i [
+  switch i32 %6, label %out.i.sink.split [
     i32 101, label %return
     i32 105, label %if.end22.i
   ]
-
-if.then21.i:                                      ; preds = %while.cond.i
-  tail call void (ptr, ptr, ptr, ...) @parse_error(ptr noundef %ctxt, ptr nonnull poison, ptr noundef nonnull @.str.6)
-  br label %out.i
 
 if.end22.i:                                       ; preds = %while.cond.i
   %call23.i = tail call fastcc i32 @parse_pair(ptr noundef %ctxt, ptr noundef %call1.i)
@@ -239,11 +227,7 @@ if.end26.i:                                       ; preds = %if.end22.i
   %call.i86 = tail call ptr @g_queue_pop_head(ptr noundef %8) #14
   store ptr %call.i86, ptr %current.i88, align 8
   %cmp28.i = icmp eq ptr %call.i86, null
-  br i1 %cmp28.i, label %if.then29.i, label %while.cond.i, !llvm.loop !7
-
-if.then29.i:                                      ; preds = %if.end26.i
-  tail call void (ptr, ptr, ptr, ...) @parse_error(ptr noundef %ctxt, ptr poison, ptr noundef nonnull @.str.2)
-  br label %out.i
+  br i1 %cmp28.i, label %out.i.sink.split, label %while.cond.i, !llvm.loop !7
 
 if.else31.i:                                      ; preds = %if.end5.i
   %9 = load ptr, ptr %current.i88, align 8
@@ -253,7 +237,12 @@ if.else31.i:                                      ; preds = %if.end5.i
   store ptr %call.i83, ptr %current.i88, align 8
   br label %return
 
-out.i:                                            ; preds = %if.end22.i, %if.then29.i, %if.then21.i, %if.then15.i, %if.then8.i, %if.then4.i
+out.i.sink.split:                                 ; preds = %if.end26.i, %while.cond.i, %if.end12.i, %if.end.i
+  %.str.2.sink = phi ptr [ @.str.2, %if.end.i ], [ @.str.2, %if.end12.i ], [ @.str.2, %if.end26.i ], [ @.str.6, %while.cond.i ]
+  tail call void (ptr, ptr, ptr, ...) @parse_error(ptr noundef %ctxt, ptr poison, ptr noundef nonnull %.str.2.sink)
+  br label %out.i
+
+out.i:                                            ; preds = %if.end22.i, %out.i.sink.split, %if.then8.i
   %tobool.not.i79 = icmp eq ptr %call1.i, null
   br i1 %tobool.not.i79, label %return, label %lor.lhs.false.i
 
@@ -301,11 +290,7 @@ if.end.i16:                                       ; preds = %land.lhs.true.i13
   %ctxt.val.i18 = load ptr, ptr %0, align 8
   %call.i107 = tail call ptr @g_queue_peek_head(ptr noundef %ctxt.val.i18) #14
   %cmp3.i20 = icmp eq ptr %call.i107, null
-  br i1 %cmp3.i20, label %if.then4.i47, label %if.end5.i21
-
-if.then4.i47:                                     ; preds = %if.end.i16
-  tail call void (ptr, ptr, ptr, ...) @parse_error(ptr noundef %ctxt, ptr poison, ptr noundef nonnull @.str.2)
-  br label %out.i38
+  br i1 %cmp3.i20, label %out.i38, label %if.end5.i21
 
 if.end5.i21:                                      ; preds = %if.end.i16
   %15 = load i32, ptr %call.i107, align 4
@@ -315,42 +300,26 @@ if.end5.i21:                                      ; preds = %if.end.i16
 if.then8.i23:                                     ; preds = %if.end5.i21
   %call9.i24 = tail call fastcc ptr @parse_value(ptr noundef %ctxt)
   %cmp10.i25 = icmp eq ptr %call9.i24, null
-  br i1 %cmp10.i25, label %if.then11.i, label %if.end12.i26
-
-if.then11.i:                                      ; preds = %if.then8.i23
-  tail call void (ptr, ptr, ptr, ...) @parse_error(ptr noundef %ctxt, ptr nonnull poison, ptr noundef nonnull @.str.3)
-  br label %out.i38
+  br i1 %cmp10.i25, label %out.i38, label %if.end12.i26
 
 if.end12.i26:                                     ; preds = %if.then8.i23
   tail call void @qlist_append_obj(ptr noundef %call1.i17, ptr noundef nonnull %call9.i24) #14
   %call13.i27 = tail call fastcc ptr @parser_context_pop_token(ptr noundef %ctxt)
   %cmp14.i28 = icmp eq ptr %call13.i27, null
-  br i1 %cmp14.i28, label %if.then15.i44, label %while.cond.i29
-
-if.then15.i44:                                    ; preds = %if.end12.i26
-  tail call void (ptr, ptr, ptr, ...) @parse_error(ptr noundef %ctxt, ptr poison, ptr noundef nonnull @.str.2)
-  br label %out.i38
+  br i1 %cmp14.i28, label %out.i38, label %while.cond.i29
 
 while.cond.i29:                                   ; preds = %if.end12.i26, %if.end26.i34
   %token.0.i30 = phi ptr [ %call.i106, %if.end26.i34 ], [ %call13.i27, %if.end12.i26 ]
   %16 = load i32, ptr %token.0.i30, align 4
-  switch i32 %16, label %if.then21.i43 [
+  switch i32 %16, label %out.i38 [
     i32 103, label %return
     i32 105, label %if.end22.i31
   ]
 
-if.then21.i43:                                    ; preds = %while.cond.i29
-  tail call void (ptr, ptr, ptr, ...) @parse_error(ptr noundef %ctxt, ptr nonnull poison, ptr noundef nonnull @.str.15)
-  br label %out.i38
-
 if.end22.i31:                                     ; preds = %while.cond.i29
   %call23.i32 = tail call fastcc ptr @parse_value(ptr noundef %ctxt)
   %cmp24.i33 = icmp eq ptr %call23.i32, null
-  br i1 %cmp24.i33, label %if.then25.i, label %if.end26.i34
-
-if.then25.i:                                      ; preds = %if.end22.i31
-  tail call void (ptr, ptr, ptr, ...) @parse_error(ptr noundef %ctxt, ptr nonnull poison, ptr noundef nonnull @.str.3)
-  br label %out.i38
+  br i1 %cmp24.i33, label %out.i38, label %if.end26.i34
 
 if.end26.i34:                                     ; preds = %if.end22.i31
   tail call void @qlist_append_obj(ptr noundef %call1.i17, ptr noundef nonnull %call23.i32) #14
@@ -360,11 +329,7 @@ if.end26.i34:                                     ; preds = %if.end22.i31
   %call.i106 = tail call ptr @g_queue_pop_head(ptr noundef %18) #14
   store ptr %call.i106, ptr %current.i108, align 8
   %cmp28.i36 = icmp eq ptr %call.i106, null
-  br i1 %cmp28.i36, label %if.then29.i37, label %while.cond.i29, !llvm.loop !8
-
-if.then29.i37:                                    ; preds = %if.end26.i34
-  tail call void (ptr, ptr, ptr, ...) @parse_error(ptr noundef %ctxt, ptr poison, ptr noundef nonnull @.str.2)
-  br label %out.i38
+  br i1 %cmp28.i36, label %out.i38, label %while.cond.i29, !llvm.loop !8
 
 if.else31.i45:                                    ; preds = %if.end5.i21
   %19 = load ptr, ptr %current.i108, align 8
@@ -374,7 +339,9 @@ if.else31.i45:                                    ; preds = %if.end5.i21
   store ptr %call.i103, ptr %current.i108, align 8
   br label %return
 
-out.i38:                                          ; preds = %if.then29.i37, %if.then25.i, %if.then21.i43, %if.then15.i44, %if.then11.i, %if.then4.i47
+out.i38:                                          ; preds = %if.end26.i34, %if.end22.i31, %while.cond.i29, %if.end12.i26, %if.then8.i23, %if.end.i16
+  %.str.2.sink168 = phi ptr [ @.str.2, %if.end.i16 ], [ @.str.3, %if.then8.i23 ], [ @.str.2, %if.end12.i26 ], [ @.str.2, %if.end26.i34 ], [ @.str.3, %if.end22.i31 ], [ @.str.15, %while.cond.i29 ]
+  tail call void (ptr, ptr, ptr, ...) @parse_error(ptr noundef %ctxt, ptr poison, ptr noundef nonnull %.str.2.sink168)
   %tobool.not.i91 = icmp eq ptr %call1.i17, null
   br i1 %tobool.not.i91, label %return, label %lor.lhs.false.i92
 
@@ -1499,7 +1466,7 @@ if.else.i.i:                                      ; preds = %land.lhs.true.i
 
 qobject_type.exit.i:                              ; preds = %land.lhs.true.i
   %cmp.i = icmp eq i32 %obj.val.i, 3
-  br i1 %cmp.i, label %if.end4, label %out
+  br i1 %cmp.i, label %if.end4, label %lor.lhs.false.i30
 
 if.end4:                                          ; preds = %qobject_type.exit.i
   %current.i = getelementptr inbounds i8, ptr %ctxt, i64 8
@@ -1509,39 +1476,23 @@ if.end4:                                          ; preds = %qobject_type.exit.i
   %call.i24 = tail call ptr @g_queue_pop_head(ptr noundef %3) #14
   store ptr %call.i24, ptr %current.i, align 8
   %cmp6 = icmp eq ptr %call.i24, null
-  br i1 %cmp6, label %if.then7, label %if.end8
-
-if.then7:                                         ; preds = %if.end4
-  tail call void (ptr, ptr, ptr, ...) @parse_error(ptr noundef %ctxt, ptr poison, ptr noundef nonnull @.str.2)
-  br label %lor.lhs.false.i30
+  br i1 %cmp6, label %lor.lhs.false.i30, label %if.end8
 
 if.end8:                                          ; preds = %if.end4
   %4 = load i32, ptr %call.i24, align 4
   %cmp9.not = icmp eq i32 %4, 104
-  br i1 %cmp9.not, label %if.end11, label %if.then10
-
-if.then10:                                        ; preds = %if.end8
-  tail call void (ptr, ptr, ptr, ...) @parse_error(ptr noundef %ctxt, ptr nonnull poison, ptr noundef nonnull @.str.8)
-  br label %lor.lhs.false.i30
+  br i1 %cmp9.not, label %if.end11, label %lor.lhs.false.i30
 
 if.end11:                                         ; preds = %if.end8
   %call12 = tail call fastcc ptr @parse_value(ptr noundef %ctxt)
   %cmp13 = icmp eq ptr %call12, null
-  br i1 %cmp13, label %if.then14, label %if.end15
-
-if.then14:                                        ; preds = %if.end11
-  tail call void (ptr, ptr, ptr, ...) @parse_error(ptr noundef %ctxt, ptr nonnull poison, ptr noundef nonnull @.str.9)
-  br label %lor.lhs.false.i30
+  br i1 %cmp13, label %lor.lhs.false.i30, label %if.end15
 
 if.end15:                                         ; preds = %if.end11
   %call16 = tail call ptr @qstring_get_str(ptr noundef nonnull %call1) #14
   %call17 = tail call i32 @qdict_haskey(ptr noundef %dict, ptr noundef %call16) #14
   %tobool18.not = icmp eq i32 %call17, 0
-  br i1 %tobool18.not, label %lor.lhs.false.i, label %if.then19
-
-if.then19:                                        ; preds = %if.end15
-  tail call void (ptr, ptr, ptr, ...) @parse_error(ptr noundef %ctxt, ptr nonnull poison, ptr noundef nonnull @.str.10)
-  br label %lor.lhs.false.i30
+  br i1 %tobool18.not, label %lor.lhs.false.i, label %lor.lhs.false.i30
 
 lor.lhs.false.i:                                  ; preds = %if.end15
   %call21 = tail call ptr @qstring_get_str(ptr noundef nonnull %call1) #14
@@ -1565,11 +1516,9 @@ if.then5.i:                                       ; preds = %land.lhs.true.i26
   tail call void @qobject_destroy(ptr noundef nonnull %call1) #14
   br label %return
 
-out:                                              ; preds = %qobject_type.exit.i
-  tail call void (ptr, ptr, ptr, ...) @parse_error(ptr noundef %ctxt, ptr nonnull poison, ptr noundef nonnull @.str.7)
-  br label %lor.lhs.false.i30
-
-lor.lhs.false.i30:                                ; preds = %if.then19, %if.then14, %if.then10, %if.then7, %out
+lor.lhs.false.i30:                                ; preds = %qobject_type.exit.i, %if.end15, %if.end11, %if.end8, %if.end4
+  %.str.10.sink = phi ptr [ @.str.2, %if.end4 ], [ @.str.8, %if.end8 ], [ @.str.9, %if.end11 ], [ @.str.10, %if.end15 ], [ @.str.7, %qobject_type.exit.i ]
+  tail call void (ptr, ptr, ptr, ...) @parse_error(ptr noundef %ctxt, ptr poison, ptr noundef nonnull %.str.10.sink)
   %refcnt.i31 = getelementptr inbounds i8, ptr %call1, i64 8
   %6 = load i64, ptr %refcnt.i31, align 8
   %tobool1.not.i32 = icmp eq i64 %6, 0

@@ -94,7 +94,6 @@ lor.lhs.false:                                    ; preds = %if.end51
 
 if.then56:                                        ; preds = %lor.lhs.false, %if.end51
   tail call void @BN_CTX_end(ptr noundef nonnull %call) #2
-  tail call void @BN_CTX_free(ptr noundef nonnull %call) #2
   br label %return
 
 if.end57:                                         ; preds = %lor.lhs.false
@@ -201,11 +200,12 @@ err:                                              ; preds = %if.end125, %if.end1
   %ret.0 = phi i32 [ 0, %entry ], [ 0, %if.end ], [ 0, %if.end3 ], [ 0, %if.then23 ], [ 0, %if.then39 ], [ 0, %if.end57 ], [ 0, %if.end93 ], [ 0, %if.end97 ], [ 0, %if.end103 ], [ 0, %if.end114 ], [ 0, %if.end125 ], [ 1, %if.end132 ], [ 0, %if.end119 ], [ 0, %if.end108 ], [ 0, %if.end89 ], [ 0, %if.end85 ], [ 0, %if.end81 ], [ 0, %if.end75 ], [ 0, %if.end69 ], [ 0, %if.end62 ], [ 0, %if.end45 ], [ 0, %if.end29 ], [ 0, %if.then12 ]
   tail call void @BN_CTX_end(ptr noundef %ctx.0) #2
   tail call void @BN_CTX_free(ptr noundef %ctx.0) #2
-  tail call void @BN_CTX_free(ptr noundef %ctx2.0) #2
   br label %return
 
 return:                                           ; preds = %err, %if.then56
+  %ctx2.0.sink = phi ptr [ %ctx2.0, %err ], [ %call, %if.then56 ]
   %retval.0 = phi i32 [ %ret.0, %err ], [ 2, %if.then56 ]
+  tail call void @BN_CTX_free(ptr noundef %ctx2.0.sink) #2
   ret i32 %retval.0
 }
 

@@ -1827,7 +1827,7 @@ define void @Gia_PolynBuildOne(ptr nocapture noundef %0, i32 noundef %1) local_u
   %31 = and i64 %.val123, 536870911
   %32 = icmp eq i64 %31, 536870911
   %narrow.i.not = or i1 %.not.i, %32
-  br i1 %narrow.i.not, label %306, label %33
+  br i1 %narrow.i.not, label %297, label %33
 
 33:                                               ; preds = %2
   %34 = getelementptr inbounds i8, ptr %0, i64 40
@@ -1837,7 +1837,7 @@ define void @Gia_PolynBuildOne(ptr nocapture noundef %0, i32 noundef %1) local_u
   %37 = getelementptr inbounds i32, ptr %.val, i64 %11
   %38 = load i32, ptr %37, align 4
   %39 = icmp eq i32 %38, 0
-  br i1 %39, label %306, label %40
+  br i1 %39, label %297, label %40
 
 40:                                               ; preds = %33
   store i32 0, ptr %37, align 4
@@ -2228,99 +2228,88 @@ Vec_IntPush.exit.i152:                            ; preds = %241, %Vec_IntGrow.e
 
 Vec_IntAppendMinus2x.exit:                        ; preds = %Vec_IntPush.exit.i152, %152
   %250 = load ptr, ptr %169, align 8
-  %251 = getelementptr inbounds i8, ptr %0, i64 88
-  %252 = load ptr, ptr %251, align 8
-  tail call fastcc void @Gia_PolynBuildAdd(ptr noundef %0, ptr noundef %250, ptr noundef %252)
-  br label %306
+  br label %.sink.split
 
 Gia_ObjIsXor.exit140.thread:                      ; preds = %.loopexit, %Gia_ObjIsXor.exit140
-  %253 = and i64 %.val128, 536870912
-  %.not114 = icmp eq i64 %253, 0
-  %254 = and i64 %.val128, 2305843009213693952
-  %.not119 = icmp eq i64 %254, 0
-  %255 = getelementptr inbounds i8, ptr %0, i64 48
-  %256 = load ptr, ptr %255, align 8
-  br i1 %.not114, label %295, label %257
+  %251 = and i64 %.val128, 536870912
+  %.not114 = icmp eq i64 %251, 0
+  %252 = and i64 %.val128, 2305843009213693952
+  %.not119 = icmp eq i64 %252, 0
+  %253 = getelementptr inbounds i8, ptr %0, i64 48
+  %254 = load ptr, ptr %253, align 8
+  br i1 %.not114, label %289, label %255
 
-257:                                              ; preds = %Gia_ObjIsXor.exit140.thread
-  br i1 %.not119, label %288, label %.critedge
+255:                                              ; preds = %Gia_ObjIsXor.exit140.thread
+  br i1 %.not119, label %284, label %.critedge
 
-.critedge:                                        ; preds = %257
-  %258 = load ptr, ptr %58, align 8
-  tail call fastcc void @Gia_PolynBuildAdd(ptr noundef nonnull %0, ptr noundef %256, ptr noundef %258)
-  %259 = getelementptr inbounds i8, ptr %0, i64 56
+.critedge:                                        ; preds = %255
+  %256 = load ptr, ptr %58, align 8
+  tail call fastcc void @Gia_PolynBuildAdd(ptr noundef nonnull %0, ptr noundef %254, ptr noundef %256)
+  %257 = getelementptr inbounds i8, ptr %0, i64 56
+  %258 = load ptr, ptr %257, align 8
+  %259 = getelementptr inbounds i8, ptr %0, i64 72
   %260 = load ptr, ptr %259, align 8
-  %261 = getelementptr inbounds i8, ptr %0, i64 72
-  %262 = load ptr, ptr %261, align 8
-  tail call fastcc void @Gia_PolynBuildAdd(ptr noundef nonnull %0, ptr noundef %260, ptr noundef %262)
-  %263 = load ptr, ptr %114, align 8
-  %264 = getelementptr inbounds i8, ptr %263, i64 8
+  tail call fastcc void @Gia_PolynBuildAdd(ptr noundef nonnull %0, ptr noundef %258, ptr noundef %260)
+  %261 = load ptr, ptr %114, align 8
+  %262 = getelementptr inbounds i8, ptr %261, i64 8
+  %263 = load ptr, ptr %262, align 8
+  %264 = getelementptr inbounds i8, ptr %261, i64 16
   %265 = load ptr, ptr %264, align 8
-  %266 = getelementptr inbounds i8, ptr %263, i64 16
-  %267 = load ptr, ptr %266, align 8
-  %268 = getelementptr i8, ptr %267, i64 8
-  %.val.i.i158 = load ptr, ptr %268, align 8
-  %269 = getelementptr inbounds i32, ptr %.val.i.i158, i64 %122
-  %270 = load i32, ptr %269, align 4
-  %271 = getelementptr i8, ptr %265, i64 8
-  %.val3.i.i159 = load ptr, ptr %271, align 8
-  %272 = sext i32 %270 to i64
-  %273 = getelementptr inbounds i32, ptr %.val3.i.i159, i64 %272
-  %274 = load i32, ptr %273, align 4
-  %275 = getelementptr inbounds i8, ptr %263, i64 24
-  store i32 %274, ptr %275, align 8
-  %276 = getelementptr inbounds i8, ptr %263, i64 28
-  store i32 %274, ptr %276, align 4
-  %277 = getelementptr inbounds i8, ptr %273, i64 8
-  %278 = getelementptr inbounds i8, ptr %263, i64 32
-  store ptr %277, ptr %278, align 8
-  %279 = load ptr, ptr %255, align 8
-  tail call fastcc void @Vec_IntAppendMinus(ptr noundef %279, ptr noundef nonnull %275, i32 noundef 0)
-  %280 = getelementptr inbounds i8, ptr %0, i64 56
-  %281 = load ptr, ptr %280, align 8
-  tail call fastcc void @Vec_IntAppendMinus(ptr noundef %281, ptr noundef nonnull %275, i32 noundef 1)
-  %282 = load ptr, ptr %259, align 8
-  %283 = getelementptr inbounds i8, ptr %0, i64 80
-  %284 = load ptr, ptr %283, align 8
-  tail call fastcc void @Gia_PolynBuildAdd(ptr noundef nonnull %0, ptr noundef %282, ptr noundef %284)
-  %285 = load ptr, ptr %255, align 8
-  %286 = getelementptr inbounds i8, ptr %0, i64 88
-  %287 = load ptr, ptr %286, align 8
-  tail call fastcc void @Gia_PolynBuildAdd(ptr noundef nonnull %0, ptr noundef %285, ptr noundef %287)
-  br label %306
+  %266 = getelementptr i8, ptr %265, i64 8
+  %.val.i.i158 = load ptr, ptr %266, align 8
+  %267 = getelementptr inbounds i32, ptr %.val.i.i158, i64 %122
+  %268 = load i32, ptr %267, align 4
+  %269 = getelementptr i8, ptr %263, i64 8
+  %.val3.i.i159 = load ptr, ptr %269, align 8
+  %270 = sext i32 %268 to i64
+  %271 = getelementptr inbounds i32, ptr %.val3.i.i159, i64 %270
+  %272 = load i32, ptr %271, align 4
+  %273 = getelementptr inbounds i8, ptr %261, i64 24
+  store i32 %272, ptr %273, align 8
+  %274 = getelementptr inbounds i8, ptr %261, i64 28
+  store i32 %272, ptr %274, align 4
+  %275 = getelementptr inbounds i8, ptr %271, i64 8
+  %276 = getelementptr inbounds i8, ptr %261, i64 32
+  store ptr %275, ptr %276, align 8
+  %277 = load ptr, ptr %253, align 8
+  tail call fastcc void @Vec_IntAppendMinus(ptr noundef %277, ptr noundef nonnull %273, i32 noundef 0)
+  %278 = getelementptr inbounds i8, ptr %0, i64 56
+  %279 = load ptr, ptr %278, align 8
+  tail call fastcc void @Vec_IntAppendMinus(ptr noundef %279, ptr noundef nonnull %273, i32 noundef 1)
+  %280 = load ptr, ptr %257, align 8
+  %281 = getelementptr inbounds i8, ptr %0, i64 80
+  %282 = load ptr, ptr %281, align 8
+  tail call fastcc void @Gia_PolynBuildAdd(ptr noundef nonnull %0, ptr noundef %280, ptr noundef %282)
+  %283 = load ptr, ptr %253, align 8
+  br label %.sink.split
 
-288:                                              ; preds = %257
-  %289 = getelementptr inbounds i8, ptr %0, i64 80
-  %290 = load ptr, ptr %289, align 8
-  tail call fastcc void @Gia_PolynBuildAdd(ptr noundef nonnull %0, ptr noundef %256, ptr noundef %290)
-  %291 = getelementptr inbounds i8, ptr %0, i64 56
+284:                                              ; preds = %255
+  %285 = getelementptr inbounds i8, ptr %0, i64 80
+  %286 = load ptr, ptr %285, align 8
+  tail call fastcc void @Gia_PolynBuildAdd(ptr noundef nonnull %0, ptr noundef %254, ptr noundef %286)
+  %287 = getelementptr inbounds i8, ptr %0, i64 56
+  %288 = load ptr, ptr %287, align 8
+  br label %.sink.split
+
+289:                                              ; preds = %Gia_ObjIsXor.exit140.thread
+  br i1 %.not119, label %.sink.split, label %290
+
+290:                                              ; preds = %289
+  %291 = getelementptr inbounds i8, ptr %0, i64 72
   %292 = load ptr, ptr %291, align 8
-  %293 = getelementptr inbounds i8, ptr %0, i64 88
+  tail call fastcc void @Gia_PolynBuildAdd(ptr noundef nonnull %0, ptr noundef %254, ptr noundef %292)
+  %293 = getelementptr inbounds i8, ptr %0, i64 56
   %294 = load ptr, ptr %293, align 8
-  tail call fastcc void @Gia_PolynBuildAdd(ptr noundef nonnull %0, ptr noundef %292, ptr noundef %294)
-  br label %306
+  br label %.sink.split
 
-295:                                              ; preds = %Gia_ObjIsXor.exit140.thread
-  br i1 %.not119, label %303, label %296
+.sink.split:                                      ; preds = %289, %Vec_IntAppendMinus2x.exit, %284, %290, %.critedge
+  %.sink = phi ptr [ %283, %.critedge ], [ %294, %290 ], [ %288, %284 ], [ %250, %Vec_IntAppendMinus2x.exit ], [ %254, %289 ]
+  %295 = getelementptr inbounds i8, ptr %0, i64 88
+  %296 = load ptr, ptr %295, align 8
+  tail call fastcc void @Gia_PolynBuildAdd(ptr noundef %0, ptr noundef %.sink, ptr noundef %296)
+  br label %297
 
-296:                                              ; preds = %295
-  %297 = getelementptr inbounds i8, ptr %0, i64 72
-  %298 = load ptr, ptr %297, align 8
-  tail call fastcc void @Gia_PolynBuildAdd(ptr noundef nonnull %0, ptr noundef %256, ptr noundef %298)
-  %299 = getelementptr inbounds i8, ptr %0, i64 56
-  %300 = load ptr, ptr %299, align 8
-  %301 = getelementptr inbounds i8, ptr %0, i64 88
-  %302 = load ptr, ptr %301, align 8
-  tail call fastcc void @Gia_PolynBuildAdd(ptr noundef nonnull %0, ptr noundef %300, ptr noundef %302)
-  br label %306
-
-303:                                              ; preds = %295
-  %304 = getelementptr inbounds i8, ptr %0, i64 88
-  %305 = load ptr, ptr %304, align 8
-  tail call fastcc void @Gia_PolynBuildAdd(ptr noundef nonnull %0, ptr noundef %256, ptr noundef %305)
-  br label %306
-
-306:                                              ; preds = %.critedge, %296, %303, %288, %33, %2, %Vec_IntAppendMinus2x.exit
+297:                                              ; preds = %.sink.split, %33, %2
   ret void
 }
 

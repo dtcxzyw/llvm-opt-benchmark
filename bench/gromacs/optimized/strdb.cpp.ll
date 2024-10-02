@@ -60,61 +60,55 @@ define noundef zeroext i1 @_Z10get_a_lineP8_IO_FILEPci(ptr nocapture noundef %0,
   %gep = getelementptr i8, ptr %invariant.gep, i64 %7
   br label %8
 
-8:                                                ; preds = %26, %3
+8:                                                ; preds = %25, %3
   %9 = tail call ptr @fgets(ptr noundef %6, i32 noundef %4, ptr noundef %0)
   %.not.not.not.not.not.not = icmp ne ptr %9, null
-  br i1 %.not.not.not.not.not.not, label %11, label %10
+  br i1 %.not.not.not.not.not.not, label %10, label %29
 
 10:                                               ; preds = %8
-  tail call void @_Z9save_freePKcS0_iPv(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 58, ptr noundef %6)
-  br label %31
+  %11 = tail call noundef ptr @strchr(ptr noundef nonnull dereferenceable(1) %6, i32 noundef 10) #11
+  %.not17 = icmp eq ptr %11, null
+  br i1 %.not17, label %13, label %12
 
-11:                                               ; preds = %8
-  %12 = tail call noundef ptr @strchr(ptr noundef nonnull dereferenceable(1) %6, i32 noundef 10) #11
-  %.not17 = icmp eq ptr %12, null
-  br i1 %.not17, label %14, label %13
+12:                                               ; preds = %10
+  store i8 0, ptr %11, align 1
+  br label %22
 
-13:                                               ; preds = %11
-  store i8 0, ptr %12, align 1
-  br label %23
+13:                                               ; preds = %10
+  %14 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %6) #11
+  %15 = trunc i64 %14 to i32
+  %16 = icmp eq i32 %2, %15
+  %17 = load ptr, ptr @stderr, align 8
+  br i1 %16, label %18, label %20
 
-14:                                               ; preds = %11
-  %15 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %6) #11
-  %16 = trunc i64 %15 to i32
-  %17 = icmp eq i32 %2, %16
-  %18 = load ptr, ptr @stderr, align 8
-  br i1 %17, label %19, label %21
-
-19:                                               ; preds = %14
-  %20 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %18, ptr noundef nonnull @.str.2, i32 noundef %2) #12
+18:                                               ; preds = %13
+  %19 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %17, ptr noundef nonnull @.str.2, i32 noundef %2) #12
   store i8 0, ptr %gep, align 1
-  br label %23
+  br label %22
 
-21:                                               ; preds = %14
-  %22 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %18, ptr noundef nonnull @.str.3, ptr noundef %6) #12
-  br label %23
+20:                                               ; preds = %13
+  %21 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %17, ptr noundef nonnull @.str.3, ptr noundef %6) #12
+  br label %22
 
-23:                                               ; preds = %19, %21, %13
-  %24 = tail call noundef ptr @strchr(ptr noundef nonnull dereferenceable(1) %6, i32 noundef 59) #11
-  %.not18 = icmp eq ptr %24, null
-  br i1 %.not18, label %26, label %25
+22:                                               ; preds = %18, %20, %12
+  %23 = tail call noundef ptr @strchr(ptr noundef nonnull dereferenceable(1) %6, i32 noundef 59) #11
+  %.not18 = icmp eq ptr %23, null
+  br i1 %.not18, label %25, label %24
 
-25:                                               ; preds = %23
-  store i8 0, ptr %24, align 1
-  br label %26
+24:                                               ; preds = %22
+  store i8 0, ptr %23, align 1
+  br label %25
 
-26:                                               ; preds = %25, %23
-  %27 = tail call ptr @strncpy(ptr noundef %1, ptr noundef %6, i64 noundef %7) #13
+25:                                               ; preds = %24, %22
+  %26 = tail call ptr @strncpy(ptr noundef %1, ptr noundef %6, i64 noundef %7) #13
   tail call void @_Z5ltrimPc(ptr noundef %6)
-  %28 = load i8, ptr %6, align 1
-  %29 = icmp eq i8 %28, 0
-  br i1 %29, label %8, label %30, !llvm.loop !5
+  %27 = load i8, ptr %6, align 1
+  %28 = icmp eq i8 %27, 0
+  br i1 %28, label %8, label %29, !llvm.loop !5
 
-30:                                               ; preds = %26
-  tail call void @_Z9save_freePKcS0_iPv(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 87, ptr noundef nonnull %6)
-  br label %31
-
-31:                                               ; preds = %30, %10
+29:                                               ; preds = %25, %8
+  %.sink = phi i32 [ 87, %25 ], [ 58, %8 ]
+  tail call void @_Z9save_freePKcS0_iPv(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef %.sink, ptr noundef %6)
   ret i1 %.not.not.not.not.not.not
 }
 

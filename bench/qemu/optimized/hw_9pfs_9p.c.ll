@@ -5776,11 +5776,7 @@ entry:
   %0 = load ptr, ptr %s1, align 8
   %call = call i64 (ptr, i64, ptr, ...) @pdu_unmarshal(ptr noundef %opaque, i64 noundef 7, ptr noundef nonnull @.str.127, ptr noundef nonnull %tag)
   %cmp = icmp slt i64 %call, 0
-  br i1 %cmp, label %if.then, label %if.end
-
-if.then:                                          ; preds = %entry
-  call void @pdu_complete(ptr noundef nonnull %opaque, i64 noundef %call)
-  br label %return
+  br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
   %tag2 = getelementptr inbounds i8, ptr %opaque, i64 4
@@ -5837,13 +5833,13 @@ trace_v9fs_flush.exit:                            ; preds = %if.end, %land.lhs.t
 
 if.then7:                                         ; preds = %trace_v9fs_flush.exit
   call void (ptr, ...) @warn_report(ptr noundef nonnull @.str.128) #23
-  br label %if.end24
+  br label %return
 
 if.else:                                          ; preds = %trace_v9fs_flush.exit
   %active_list = getelementptr inbounds i8, ptr %0, i64 8
   %cancel_pdu.119 = load ptr, ptr %active_list, align 8
   %tobool.not20 = icmp eq ptr %cancel_pdu.119, null
-  br i1 %tobool.not20, label %if.end24, label %for.body
+  br i1 %tobool.not20, label %return, label %for.body
 
 for.body:                                         ; preds = %if.else, %for.inc
   %cancel_pdu.121 = phi ptr [ %cancel_pdu.1, %for.inc ], [ %cancel_pdu.119, %if.else ]
@@ -5857,7 +5853,7 @@ for.inc:                                          ; preds = %for.body
   %next = getelementptr inbounds i8, ptr %cancel_pdu.121, i64 32
   %cancel_pdu.1 = load ptr, ptr %next, align 8
   %tobool.not = icmp eq ptr %cancel_pdu.1, null
-  br i1 %tobool.not, label %if.end24, label %for.body, !llvm.loop !13
+  br i1 %tobool.not, label %return, label %for.body, !llvm.loop !13
 
 if.then17:                                        ; preds = %for.body
   %cancelled = getelementptr inbounds i8, ptr %cancel_pdu.121, i64 7
@@ -5865,7 +5861,7 @@ if.then17:                                        ; preds = %for.body
   %complete = getelementptr inbounds i8, ptr %cancel_pdu.121, i64 8
   call void @qemu_co_queue_wait_impl(ptr noundef nonnull %complete, ptr noundef null, i32 noundef 0) #23
   %call20 = call zeroext i1 @qemu_co_queue_next(ptr noundef nonnull %complete) #23
-  br i1 %call20, label %if.end24, label %do.body2.i
+  br i1 %call20, label %return, label %do.body2.i
 
 do.body2.i:                                       ; preds = %if.then17
   store i8 0, ptr %cancelled, align 1
@@ -5901,13 +5897,11 @@ if.then23.i:                                      ; preds = %if.end9.i
 pdu_free.exit:                                    ; preds = %if.end9.i, %if.then23.i
   store ptr %cancel_pdu.121, ptr %13, align 8
   store ptr %13, ptr %le_prev13.phi.trans.insert.i, align 8
-  br label %if.end24
-
-if.end24:                                         ; preds = %for.inc, %if.else, %if.then7, %if.then17, %pdu_free.exit
-  call void @pdu_complete(ptr noundef %opaque, i64 noundef 7)
   br label %return
 
-return:                                           ; preds = %if.end24, %if.then
+return:                                           ; preds = %for.inc, %pdu_free.exit, %if.then17, %if.then7, %if.else, %entry
+  %.sink = phi i64 [ %call, %entry ], [ 7, %if.else ], [ 7, %if.then7 ], [ 7, %if.then17 ], [ 7, %pdu_free.exit ], [ 7, %for.inc ]
+  call void @pdu_complete(ptr noundef %opaque, i64 noundef %.sink)
   ret void
 }
 
@@ -5935,7 +5929,6 @@ entry:
 if.then:                                          ; preds = %entry
   %sext = shl i64 %call, 32
   %conv3 = ashr exact i64 %sext, 32
-  call void @pdu_complete(ptr noundef nonnull %opaque, i64 noundef %conv3)
   br label %cleanup
 
 if.end:                                           ; preds = %entry
@@ -6568,13 +6561,14 @@ out_nofid:                                        ; preds = %if.end25, %name_is_
   %stbufs.1 = phi ptr [ null, %trace_v9fs_walk.exit ], [ %stbufs.2, %if.end33 ], [ %stbufs.2, %if.end196 ], [ %call15, %for.body ], [ %call15, %name_is_illegal.exit ], [ %call15, %if.end25 ]
   %err.0 = phi i32 [ -22, %trace_v9fs_walk.exit ], [ -2, %if.end33 ], [ %err.4, %if.end196 ], [ -2, %if.end25 ], [ -2, %name_is_illegal.exit ], [ %conv21, %for.body ]
   %conv197 = sext i32 %err.0 to i64
-  call void @pdu_complete(ptr noundef %opaque, i64 noundef %conv197)
   br label %cleanup
 
 cleanup:                                          ; preds = %out_nofid, %if.then
+  %conv197.sink = phi i64 [ %conv197, %out_nofid ], [ %conv3, %if.then ]
   %qids.0 = phi ptr [ %qids.1, %out_nofid ], [ null, %if.then ]
   %pathes.0 = phi ptr [ %pathes.1, %out_nofid ], [ null, %if.then ]
   %stbufs.0 = phi ptr [ %stbufs.1, %out_nofid ], [ null, %if.then ]
+  call void @pdu_complete(ptr noundef %opaque, i64 noundef %conv197.sink)
   call void @p9array_auto_free_V9fsString(ptr noundef nonnull %wnames) #23
   call void @g_free(ptr noundef %stbufs.0) #23
   %tobool.not.i158 = icmp eq ptr %pathes.0, null

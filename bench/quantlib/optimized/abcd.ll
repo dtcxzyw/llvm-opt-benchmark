@@ -100,7 +100,7 @@ entry:
 if.then:                                          ; preds = %entry
   %sub.i.i.i = fsub double %T, %tMax
   %cmp.i.i.i.i = fcmp olt double %sub.i.i.i, 0.000000e+00
-  br i1 %cmp.i.i.i.i, label %_ZNK8QuantLib12AbcdFunction23instantaneousVolatilityEdd.exit, label %cond.false.i3.i.i.i
+  br i1 %cmp.i.i.i.i, label %return, label %cond.false.i3.i.i.i
 
 cond.false.i3.i.i.i:                              ; preds = %if.then
   %0 = load double, ptr %this, align 8, !tbaa !3
@@ -118,11 +118,6 @@ cond.false.i3.i.i.i:                              ; preds = %if.then
   %call.i8.i.i.i = tail call double @exp(double noundef %mul.i.i.i.i) #19, !tbaa !15
   %6 = tail call double @llvm.fmuladd.f64(double %2, double %call.i8.i.i.i, double %4)
   %7 = fmul double %5, %6
-  br label %_ZNK8QuantLib12AbcdFunction23instantaneousVolatilityEdd.exit
-
-_ZNK8QuantLib12AbcdFunction23instantaneousVolatilityEdd.exit: ; preds = %if.then, %cond.false.i3.i.i.i
-  %mul.i.i.i = phi double [ %7, %cond.false.i3.i.i.i ], [ 0.000000e+00, %if.then ]
-  %call2.i = tail call noundef double @sqrt(double noundef %mul.i.i.i) #19, !tbaa !15
   br label %return
 
 do.body:                                          ; preds = %entry
@@ -289,12 +284,12 @@ do.end:                                           ; preds = %do.body
   %call.i = tail call noundef double @_ZNK8QuantLib12AbcdFunction10covarianceEdddd(ptr noundef nonnull readonly align 8 dereferenceable(136) %this, double noundef %tMin, double noundef %tMax, double noundef %T, double noundef %T)
   %sub = fsub double %tMax, %tMin
   %div = fdiv double %call.i, %sub
-  %call30 = tail call double @sqrt(double noundef %div) #19, !tbaa !15
   br label %return
 
-return:                                           ; preds = %do.end, %_ZNK8QuantLib12AbcdFunction23instantaneousVolatilityEdd.exit
-  %retval.0 = phi double [ %call2.i, %_ZNK8QuantLib12AbcdFunction23instantaneousVolatilityEdd.exit ], [ %call30, %do.end ]
-  ret double %retval.0
+return:                                           ; preds = %cond.false.i3.i.i.i, %if.then, %do.end
+  %div.sink = phi double [ %div, %do.end ], [ %7, %cond.false.i3.i.i.i ], [ 0.000000e+00, %if.then ]
+  %call30 = tail call double @sqrt(double noundef %div.sink) #19, !tbaa !15
+  ret double %call30
 
 unreachable:                                      ; preds = %invoke.cont16
   unreachable

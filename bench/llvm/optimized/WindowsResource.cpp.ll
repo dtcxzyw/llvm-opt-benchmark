@@ -2735,7 +2735,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
 _ZN4llvm5ErrorD2Ev.exit9:                         ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i.i.i, %371, %358, %.critedge, %_ZNK4llvm5Error3isAINS_6object13EmptyResErrorEEEbv.exit.thread, %_ZN4llvm12ErrorSuccessD2Ev.exit
   %376 = load i8, ptr %19, align 8
   %377 = trunc i8 %376 to i1
-  br i1 %377, label %415, label %378
+  br i1 %377, label %412, label %378
 
 378:                                              ; preds = %_ZN4llvm5ErrorD2Ev.exit9
   store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN4llvm18BinaryStreamReaderE, i64 16), ptr %13, align 8
@@ -2759,7 +2759,7 @@ _ZN4llvm5ErrorD2Ev.exit9:                         ; preds = %_ZNSt16_Sp_counted_
   %389 = getelementptr inbounds i8, ptr %388, i64 16
   %390 = load ptr, ptr %389, align 8
   call void %390(ptr noundef nonnull align 8 dereferenceable(16) %380) #25
-  br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i.i.i.i
+  br label %_ZN4llvm8ExpectedINS_6object16ResourceEntryRefEED2Ev.exit.sink.split
 
 391:                                              ; preds = %381
   %392 = load i8, ptr @__libc_single_threaded, align 1
@@ -2803,28 +2803,23 @@ _ZN4llvm5ErrorD2Ev.exit9:                         ; preds = %_ZNSt16_Sp_counted_
 410:                                              ; preds = %408, %405
   %.0.i.i.i.i.i.i.i.i.i.i.i = phi i32 [ %406, %405 ], [ %409, %408 ]
   %411 = icmp eq i32 %.0.i.i.i.i.i.i.i.i.i.i.i, 1
-  br i1 %411, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i.i.i.i, label %_ZN4llvm8ExpectedINS_6object16ResourceEntryRefEED2Ev.exit
+  br i1 %411, label %_ZN4llvm8ExpectedINS_6object16ResourceEntryRefEED2Ev.exit.sink.split, label %_ZN4llvm8ExpectedINS_6object16ResourceEntryRefEED2Ev.exit
 
-_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i.i.i.i: ; preds = %410, %386
-  %412 = load ptr, ptr %380, align 8
-  %413 = getelementptr inbounds i8, ptr %412, i64 24
-  %414 = load ptr, ptr %413, align 8
-  call void %414(ptr noundef nonnull align 8 dereferenceable(16) %380) #25
+412:                                              ; preds = %_ZN4llvm5ErrorD2Ev.exit9
+  %413 = load ptr, ptr %13, align 8
+  %.not.i.i21 = icmp eq ptr %413, null
+  br i1 %.not.i.i21, label %_ZN4llvm8ExpectedINS_6object16ResourceEntryRefEED2Ev.exit, label %_ZN4llvm8ExpectedINS_6object16ResourceEntryRefEED2Ev.exit.sink.split
+
+_ZN4llvm8ExpectedINS_6object16ResourceEntryRefEED2Ev.exit.sink.split: ; preds = %412, %386, %410
+  %.sink47 = phi ptr [ %380, %410 ], [ %380, %386 ], [ %413, %412 ]
+  %.sink46 = phi i64 [ 24, %410 ], [ 24, %386 ], [ 8, %412 ]
+  %414 = load ptr, ptr %.sink47, align 8
+  %415 = getelementptr inbounds i8, ptr %414, i64 %.sink46
+  %416 = load ptr, ptr %415, align 8
+  call void %416(ptr noundef nonnull align 8 dereferenceable(8) %.sink47) #25
   br label %_ZN4llvm8ExpectedINS_6object16ResourceEntryRefEED2Ev.exit
 
-415:                                              ; preds = %_ZN4llvm5ErrorD2Ev.exit9
-  %416 = load ptr, ptr %13, align 8
-  %.not.i.i21 = icmp eq ptr %416, null
-  br i1 %.not.i.i21, label %_ZN4llvm8ExpectedINS_6object16ResourceEntryRefEED2Ev.exit, label %_ZNKSt14default_deleteIN4llvm13ErrorInfoBaseEEclEPS1_.exit.i.i
-
-_ZNKSt14default_deleteIN4llvm13ErrorInfoBaseEEclEPS1_.exit.i.i: ; preds = %415
-  %417 = load ptr, ptr %416, align 8
-  %418 = getelementptr inbounds i8, ptr %417, i64 8
-  %419 = load ptr, ptr %418, align 8
-  call void %419(ptr noundef nonnull align 8 dereferenceable(8) %416) #25
-  br label %_ZN4llvm8ExpectedINS_6object16ResourceEntryRefEED2Ev.exit
-
-_ZN4llvm8ExpectedINS_6object16ResourceEntryRefEED2Ev.exit: ; preds = %415, %_ZNKSt14default_deleteIN4llvm13ErrorInfoBaseEEclEPS1_.exit.i.i, %378, %397, %410, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i.i.i.i
+_ZN4llvm8ExpectedINS_6object16ResourceEntryRefEED2Ev.exit: ; preds = %_ZN4llvm8ExpectedINS_6object16ResourceEntryRefEED2Ev.exit.sink.split, %412, %378, %397, %410
   ret void
 }
 

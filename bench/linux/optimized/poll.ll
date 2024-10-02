@@ -1427,7 +1427,7 @@ define internal fastcc noundef range(i32 -2, 1) i32 @__io_poll_cancel(ptr nounde
   %49 = getelementptr i8, ptr %47, i64 -160
   %50 = icmp eq ptr %49, null
   %51 = or i1 %48, %50
-  br i1 %51, label %.loopexit, label %52
+  br i1 %51, label %.thread16.sink.split, label %52
 
 52:                                               ; preds = %34
   %53 = load i64, ptr %35, align 8
@@ -1466,26 +1466,24 @@ define internal fastcc noundef range(i32 -2, 1) i32 @__io_poll_cancel(ptr nounde
   %75 = getelementptr i8, ptr %73, i64 -160
   %76 = icmp eq ptr %75, null
   %77 = or i1 %74, %76
-  br i1 %77, label %.loopexit, label %55, !llvm.loop !40
-
-.loopexit:                                        ; preds = %71, %34
-  tail call void @_raw_spin_unlock(ptr noundef %45) #10
-  br label %.thread16
+  br i1 %77, label %.thread16.sink.split, label %55, !llvm.loop !40
 
 .thread:                                          ; preds = %24, %26, %60, %69
   %.ph10 = phi ptr [ %45, %69 ], [ %45, %60 ], [ %17, %26 ], [ %17, %24 ]
   %.ph11 = phi ptr [ %56, %69 ], [ %56, %60 ], [ %31, %26 ], [ %21, %24 ]
   tail call fastcc void @io_poll_cancel_req(ptr noundef nonnull %.ph11)
   %78 = icmp eq ptr %.ph10, null
-  br i1 %78, label %.thread16, label %79
+  br i1 %78, label %.thread16, label %.thread16.sink.split
 
-79:                                               ; preds = %.thread
-  tail call void @_raw_spin_unlock(ptr noundef nonnull %.ph10) #10
+.thread16.sink.split:                             ; preds = %71, %.thread, %34
+  %.sink = phi ptr [ %45, %34 ], [ %.ph10, %.thread ], [ %45, %71 ]
+  %.ph = phi i32 [ -2, %34 ], [ 0, %.thread ], [ -2, %71 ]
+  tail call void @_raw_spin_unlock(ptr noundef %.sink) #10
   br label %.thread16
 
-.thread16:                                        ; preds = %.loopexit17, %.loopexit, %.thread, %79
-  %80 = phi i32 [ 0, %79 ], [ 0, %.thread ], [ -2, %.loopexit ], [ -2, %.loopexit17 ]
-  ret i32 %80
+.thread16:                                        ; preds = %.loopexit17, %.thread16.sink.split, %.thread
+  %79 = phi i32 [ 0, %.thread ], [ %.ph, %.thread16.sink.split ], [ -2, %.loopexit17 ]
+  ret i32 %79
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nounwind null_pointer_is_valid willreturn memory(argmem: readwrite, inaccessiblemem: readwrite)

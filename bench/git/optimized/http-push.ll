@@ -203,17 +203,17 @@ entry:
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %rs, i8 0, i64 40, i1 false)
   %call = tail call ptr @xcalloc(i64 noundef 1, i64 noundef 48) #15
   store ptr %call, ptr @repo, align 8
-  %cmp171 = icmp sgt i32 %argc, 1
-  br i1 %cmp171, label %for.body, label %for.end
+  %cmp165 = icmp sgt i32 %argc, 1
+  br i1 %cmp165, label %for.body, label %for.end
 
 for.body:                                         ; preds = %entry, %for.inc
   %0 = phi ptr [ %21, %for.inc ], [ %call, %entry ]
-  %argv.addr.0175.pn = phi ptr [ %argv.addr.0175, %for.inc ], [ %argv, %entry ]
-  %i.0174 = phi i32 [ %inc, %for.inc ], [ 1, %entry ]
-  %delete_branch.0173 = phi i32 [ %delete_branch.1, %for.inc ], [ 0, %entry ]
-  %force_delete.0172 = phi i32 [ %force_delete.1, %for.inc ], [ 0, %entry ]
-  %argv.addr.0175 = getelementptr inbounds i8, ptr %argv.addr.0175.pn, i64 8
-  %1 = load ptr, ptr %argv.addr.0175, align 8
+  %argv.addr.0169.pn = phi ptr [ %argv.addr.0169, %for.inc ], [ %argv, %entry ]
+  %i.0168 = phi i32 [ %inc, %for.inc ], [ 1, %entry ]
+  %delete_branch.0167 = phi i32 [ %delete_branch.1, %for.inc ], [ 0, %entry ]
+  %force_delete.0166 = phi i32 [ %force_delete.1, %for.inc ], [ 0, %entry ]
+  %argv.addr.0169 = getelementptr inbounds i8, ptr %argv.addr.0169.pn, i64 8
+  %1 = load ptr, ptr %argv.addr.0169, align 8
   %2 = load i8, ptr %1, align 1
   %cmp1 = icmp eq i8 %2, 45
   br i1 %cmp1, label %if.then, label %if.end33
@@ -267,34 +267,34 @@ if.then19:                                        ; preds = %if.end16
 sub_1:                                            ; preds = %if.end16
   %3 = getelementptr inbounds i8, ptr %1, i64 1
   %4 = load i8, ptr %3, align 1
-  %.not183 = icmp eq i8 %4, 100
-  br i1 %.not183, label %if.end20.tail, label %sub_1150
+  %.not177 = icmp eq i8 %4, 100
+  br i1 %.not177, label %if.end20.tail, label %sub_1144
 
 if.end20.tail:                                    ; preds = %sub_1
   %5 = getelementptr inbounds i8, ptr %1, i64 2
   %6 = load i8, ptr %5, align 1
   %7 = icmp eq i8 %6, 0
-  br i1 %7, label %for.inc, label %sub_1150
+  br i1 %7, label %for.inc, label %sub_1144
 
-sub_1150:                                         ; preds = %sub_1, %if.end20.tail
+sub_1144:                                         ; preds = %sub_1, %if.end20.tail
   %8 = getelementptr inbounds i8, ptr %1, i64 1
   %9 = load i8, ptr %8, align 1
-  %.not185 = icmp eq i8 %9, 68
-  br i1 %.not185, label %if.end24.tail, label %sub_1154
+  %.not179 = icmp eq i8 %9, 68
+  br i1 %.not179, label %if.end24.tail, label %sub_1148
 
-if.end24.tail:                                    ; preds = %sub_1150
+if.end24.tail:                                    ; preds = %sub_1144
   %10 = getelementptr inbounds i8, ptr %1, i64 2
   %11 = load i8, ptr %10, align 1
   %12 = icmp eq i8 %11, 0
-  br i1 %12, label %for.inc, label %sub_1154
+  br i1 %12, label %for.inc, label %sub_1148
 
-sub_1154:                                         ; preds = %sub_1150, %if.end24.tail
+sub_1148:                                         ; preds = %sub_1144, %if.end24.tail
   %13 = getelementptr inbounds i8, ptr %1, i64 1
   %14 = load i8, ptr %13, align 1
-  %.not187 = icmp eq i8 %14, 104
-  br i1 %.not187, label %if.end28.tail, label %if.end33
+  %.not181 = icmp eq i8 %14, 104
+  br i1 %.not181, label %if.end28.tail, label %if.end33
 
-if.end28.tail:                                    ; preds = %sub_1154
+if.end28.tail:                                    ; preds = %sub_1148
   %15 = getelementptr inbounds i8, ptr %1, i64 2
   %16 = load i8, ptr %15, align 1
   %17 = icmp eq i8 %16, 0
@@ -304,7 +304,7 @@ if.then31:                                        ; preds = %if.end28.tail
   tail call void @usage(ptr noundef nonnull @http_push_usage) #17
   unreachable
 
-if.end33:                                         ; preds = %sub_1154, %if.end28.tail, %for.body
+if.end33:                                         ; preds = %sub_1148, %if.end28.tail, %for.body
   %18 = load ptr, ptr %0, align 8
   %tobool34.not = icmp eq ptr %18, null
   br i1 %tobool34.not, label %if.then35, label %if.end54
@@ -336,24 +336,24 @@ if.then47:                                        ; preds = %if.then42
   br label %for.inc
 
 if.end54:                                         ; preds = %if.end33
-  %sub = sub nsw i32 %argc, %i.0174
-  call void @refspec_appendn(ptr noundef nonnull %rs, ptr noundef nonnull %argv.addr.0175, i32 noundef %sub) #15
+  %sub = sub nsw i32 %argc, %i.0168
+  call void @refspec_appendn(ptr noundef nonnull %rs, ptr noundef nonnull %argv.addr.0169, i32 noundef %sub) #15
   %.pre = load ptr, ptr @repo, align 8
   br label %for.end
 
 for.inc:                                          ; preds = %if.end24.tail, %if.end20.tail, %if.then35, %if.then47, %if.then42, %if.then19, %if.then15, %if.then11, %if.then7, %if.then4
   %21 = phi ptr [ %19, %if.then47 ], [ %19, %if.then42 ], [ %19, %if.then35 ], [ %0, %if.then19 ], [ %0, %if.then15 ], [ %0, %if.then11 ], [ %0, %if.then7 ], [ %0, %if.then4 ], [ %0, %if.end20.tail ], [ %0, %if.end24.tail ]
-  %force_delete.1 = phi i32 [ %force_delete.0172, %if.then47 ], [ %force_delete.0172, %if.then42 ], [ %force_delete.0172, %if.then35 ], [ %force_delete.0172, %if.then19 ], [ %force_delete.0172, %if.then15 ], [ %force_delete.0172, %if.then11 ], [ %force_delete.0172, %if.then7 ], [ %force_delete.0172, %if.then4 ], [ %force_delete.0172, %if.end20.tail ], [ 1, %if.end24.tail ]
-  %delete_branch.1 = phi i32 [ %delete_branch.0173, %if.then47 ], [ %delete_branch.0173, %if.then42 ], [ %delete_branch.0173, %if.then35 ], [ %delete_branch.0173, %if.then19 ], [ %delete_branch.0173, %if.then15 ], [ %delete_branch.0173, %if.then11 ], [ %delete_branch.0173, %if.then7 ], [ %delete_branch.0173, %if.then4 ], [ 1, %if.end20.tail ], [ 1, %if.end24.tail ]
-  %inc = add nuw nsw i32 %i.0174, 1
+  %force_delete.1 = phi i32 [ %force_delete.0166, %if.then47 ], [ %force_delete.0166, %if.then42 ], [ %force_delete.0166, %if.then35 ], [ %force_delete.0166, %if.then19 ], [ %force_delete.0166, %if.then15 ], [ %force_delete.0166, %if.then11 ], [ %force_delete.0166, %if.then7 ], [ %force_delete.0166, %if.then4 ], [ %force_delete.0166, %if.end20.tail ], [ 1, %if.end24.tail ]
+  %delete_branch.1 = phi i32 [ %delete_branch.0167, %if.then47 ], [ %delete_branch.0167, %if.then42 ], [ %delete_branch.0167, %if.then35 ], [ %delete_branch.0167, %if.then19 ], [ %delete_branch.0167, %if.then15 ], [ %delete_branch.0167, %if.then11 ], [ %delete_branch.0167, %if.then7 ], [ %delete_branch.0167, %if.then4 ], [ 1, %if.end20.tail ], [ 1, %if.end24.tail ]
+  %inc = add nuw nsw i32 %i.0168, 1
   %exitcond.not = icmp eq i32 %inc, %argc
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !5
 
 for.end:                                          ; preds = %for.inc, %entry, %if.end54
   %22 = phi ptr [ %.pre, %if.end54 ], [ %call, %entry ], [ %21, %for.inc ]
-  %force_delete.0169 = phi i32 [ %force_delete.0172, %if.end54 ], [ 0, %entry ], [ %force_delete.1, %for.inc ]
-  %delete_branch.0166 = phi i32 [ %delete_branch.0173, %if.end54 ], [ 0, %entry ], [ %delete_branch.1, %for.inc ]
-  %i.0163 = phi i32 [ %i.0174, %if.end54 ], [ 1, %entry ], [ %argc, %for.inc ]
+  %force_delete.0163 = phi i32 [ %force_delete.0166, %if.end54 ], [ 0, %entry ], [ %force_delete.1, %for.inc ]
+  %delete_branch.0160 = phi i32 [ %delete_branch.0167, %if.end54 ], [ 0, %entry ], [ %delete_branch.1, %for.inc ]
+  %i.0157 = phi i32 [ %i.0168, %if.end54 ], [ 1, %entry ], [ %argc, %for.inc ]
   %23 = load ptr, ptr %22, align 8
   %tobool57.not = icmp eq ptr %23, null
   br i1 %tobool57.not, label %if.then58, label %if.end59
@@ -363,7 +363,7 @@ if.then58:                                        ; preds = %for.end
   unreachable
 
 if.end59:                                         ; preds = %for.end
-  %tobool60 = icmp ne i32 %delete_branch.0166, 0
+  %tobool60 = icmp ne i32 %delete_branch.0160, 0
   %nr = getelementptr inbounds i8, ptr %rs, i64 12
   %24 = load i32, ptr %nr, align 4
   %cmp61 = icmp ne i32 %24, 1
@@ -563,7 +563,7 @@ if.then78:                                        ; preds = %if.then75
   %can_update_info_refs79 = getelementptr inbounds i8, ptr %53, i64 24
   store i32 1, ptr %can_update_info_refs79, align 8
   %has_info_packs84.phi.trans.insert = getelementptr inbounds i8, ptr %53, i64 28
-  %.pre197 = load i32, ptr %has_info_packs84.phi.trans.insert, align 4
+  %.pre191 = load i32, ptr %has_info_packs84.phi.trans.insert, align 4
   br label %if.end83
 
 if.else:                                          ; preds = %if.then75
@@ -571,7 +571,7 @@ if.else:                                          ; preds = %if.then75
   br label %if.end321
 
 if.end83:                                         ; preds = %if.then78, %remote_exists.exit99
-  %54 = phi i32 [ %.pre197, %if.then78 ], [ %ret.0.i97, %remote_exists.exit99 ]
+  %54 = phi i32 [ %.pre191, %if.then78 ], [ %ret.0.i97, %remote_exists.exit99 ]
   %55 = phi ptr [ %53, %if.then78 ], [ %51, %remote_exists.exit99 ]
   %info_ref_lock.1 = phi ptr [ %call76, %if.then78 ], [ null, %remote_exists.exit99 ]
   %tobool85.not = icmp eq i32 %54, 0
@@ -584,11 +584,11 @@ if.then86:                                        ; preds = %if.end83
 if.then.i101:                                     ; preds = %if.then86
   %56 = load ptr, ptr @stderr, align 8
   %57 = call i64 @fwrite(ptr nonnull @.str.67, i64 18, i64 1, ptr %56) #18
-  %.pre198 = load ptr, ptr @repo, align 8
+  %.pre192 = load ptr, ptr @repo, align 8
   br label %fetch_indices.exit
 
 fetch_indices.exit:                               ; preds = %if.then86, %if.then.i101
-  %58 = phi ptr [ %55, %if.then86 ], [ %.pre198, %if.then.i101 ]
+  %58 = phi ptr [ %55, %if.then86 ], [ %.pre192, %if.then.i101 ]
   %59 = load ptr, ptr %58, align 8
   %packs.i = getelementptr inbounds i8, ptr %58, i64 32
   %call1.i = call i32 @http_get_info_packs(ptr noundef %59, ptr noundef nonnull %packs.i) #15
@@ -619,10 +619,10 @@ run_request_queue.exit:                           ; preds = %do.body.i
 
 if.then92:                                        ; preds = %run_request_queue.exit
   %63 = load ptr, ptr %rs, align 8
-  %idxprom = zext nneg i32 %i.0163 to i64
+  %idxprom = zext nneg i32 %i.0157 to i64
   %src = getelementptr inbounds %struct.refspec_item, ptr %63, i64 %idxprom, i32 1
   %64 = load ptr, ptr %src, align 8
-  %call93 = call fastcc i32 @delete_remote_branch(ptr noundef %64, i32 noundef %force_delete.0169)
+  %call93 = call fastcc i32 @delete_remote_branch(ptr noundef %64, i32 noundef %force_delete.0163)
   %cmp94 = icmp eq i32 %call93, -1
   br i1 %cmp94, label %if.then96, label %cleanup
 
@@ -664,11 +664,11 @@ if.then112:                                       ; preds = %if.then109
   br label %cleanup
 
 for.body118:                                      ; preds = %for.cond116.preheader, %for.inc298
-  %ref.0180 = phi ptr [ %67, %for.cond116.preheader ], [ %101, %for.inc298 ]
-  %new_refs.0179 = phi i32 [ 0, %for.cond116.preheader ], [ %new_refs.1, %for.inc298 ]
-  %rc.1178 = phi i32 [ 0, %for.cond116.preheader ], [ %rc.2, %for.inc298 ]
+  %ref.0174 = phi ptr [ %67, %for.cond116.preheader ], [ %101, %for.inc298 ]
+  %new_refs.0173 = phi i32 [ 0, %for.cond116.preheader ], [ %new_refs.1, %for.inc298 ]
+  %rc.1172 = phi i32 [ 0, %for.cond116.preheader ], [ %rc.2, %for.inc298 ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %commit_argv, ptr noundef nonnull align 8 dereferenceable(24) @__const.cmd_main.commit_argv, i64 24, i1 false)
-  %peer_ref = getelementptr inbounds i8, ptr %ref.0180, i64 168
+  %peer_ref = getelementptr inbounds i8, ptr %ref.0174, i64 168
   %70 = load ptr, ptr %peer_ref, align 8
   %tobool119.not = icmp eq ptr %70, null
   br i1 %tobool119.not, label %for.inc298, label %if.end121
@@ -685,35 +685,25 @@ if.then.i.i:                                      ; preds = %if.end121
   %72 = load ptr, ptr @the_repository, align 8
   %hash_algo.i.i = getelementptr inbounds i8, ptr %72, i64 256
   %73 = load ptr, ptr %hash_algo.i.i, align 8
-  br label %if.end.i.i
+  br label %is_null_oid.exit
 
 if.else.i.i:                                      ; preds = %if.end121
   %idxprom.i.i = sext i32 %71 to i64
   %arrayidx.i.i = getelementptr inbounds [3 x %struct.git_hash_algo], ptr @hash_algos, i64 0, i64 %idxprom.i.i
-  br label %if.end.i.i
+  br label %is_null_oid.exit
 
-if.end.i.i:                                       ; preds = %if.else.i.i, %if.then.i.i
+is_null_oid.exit:                                 ; preds = %if.then.i.i, %if.else.i.i
   %algop.0.i.i = phi ptr [ %arrayidx.i.i, %if.else.i.i ], [ %73, %if.then.i.i ]
   %74 = getelementptr i8, ptr %algop.0.i.i, i64 16
   %algop.0.val.i.i = load i64, ptr %74, align 8
   %cmp.i.i.i = icmp eq i64 %algop.0.val.i.i, 32
-  br i1 %cmp.i.i.i, label %if.then.i.i.i, label %if.end.i.i.i
-
-if.then.i.i.i:                                    ; preds = %if.end.i.i
-  %bcmp3.i.i.i = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(32) %new_oid, ptr noundef nonnull readonly dereferenceable(32) %call.i103, i64 32)
-  br label %is_null_oid.exit
-
-if.end.i.i.i:                                     ; preds = %if.end.i.i
-  %bcmp.i.i.i = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(20) %new_oid, ptr noundef nonnull readonly dereferenceable(20) %call.i103, i64 20)
-  br label %is_null_oid.exit
-
-is_null_oid.exit:                                 ; preds = %if.then.i.i.i, %if.end.i.i.i
-  %retval.0.in.in.i.i.i = phi i32 [ %bcmp3.i.i.i, %if.then.i.i.i ], [ %bcmp.i.i.i, %if.end.i.i.i ]
-  %retval.0.in.i.i.i.not = icmp eq i32 %retval.0.in.in.i.i.i, 0
+  %..i.i.i = select i1 %cmp.i.i.i, i64 32, i64 20
+  %bcmp.i.i.i = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(20) %new_oid, ptr noundef nonnull readonly dereferenceable(20) %call.i103, i64 %..i.i.i)
+  %retval.0.in.i.i.i.not = icmp eq i32 %bcmp.i.i.i, 0
   br i1 %retval.0.in.i.i.i.not, label %if.then125, label %if.end149
 
 if.then125:                                       ; preds = %is_null_oid.exit
-  %name = getelementptr inbounds i8, ptr %ref.0180, i64 176
+  %name = getelementptr inbounds i8, ptr %ref.0174, i64 176
   %call126 = call fastcc i32 @delete_remote_branch(ptr noundef nonnull %name, i32 noundef 1)
   %cmp127 = icmp eq i32 %call126, -1
   br i1 %cmp127, label %if.then129, label %if.else140
@@ -729,53 +719,43 @@ if.else140:                                       ; preds = %if.then125
 
 if.end147.sink.split:                             ; preds = %if.else140, %if.then129
   %.str.15.sink = phi ptr [ @.str.15, %if.then129 ], [ @.str.19, %if.else140 ]
-  %rc.3.ph = phi i32 [ -4, %if.then129 ], [ %rc.1178, %if.else140 ]
+  %rc.3.ph = phi i32 [ -4, %if.then129 ], [ %rc.1172, %if.else140 ]
   %call138 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) %.str.15.sink, ptr noundef nonnull %name)
   br label %if.end147
 
 if.end147:                                        ; preds = %if.end147.sink.split, %if.then129, %if.else140
-  %rc.3 = phi i32 [ %rc.1178, %if.else140 ], [ -4, %if.then129 ], [ %rc.3.ph, %if.end147.sink.split ]
-  %inc148 = add nsw i32 %new_refs.0179, 1
+  %rc.3 = phi i32 [ %rc.1172, %if.else140 ], [ -4, %if.then129 ], [ %rc.3.ph, %if.end147.sink.split ]
+  %inc148 = add nsw i32 %new_refs.0173, 1
   br label %for.inc298
 
 if.end149:                                        ; preds = %is_null_oid.exit
-  %old_oid = getelementptr inbounds i8, ptr %ref.0180, i64 8
+  %old_oid = getelementptr inbounds i8, ptr %ref.0174, i64 8
   %75 = load ptr, ptr %peer_ref, align 8
   %new_oid151 = getelementptr inbounds i8, ptr %75, i64 44
-  %algo.i = getelementptr inbounds i8, ptr %ref.0180, i64 40
+  %algo.i = getelementptr inbounds i8, ptr %ref.0174, i64 40
   %76 = load i32, ptr %algo.i, align 4
   %tobool.not.i104 = icmp eq i32 %76, 0
-  br i1 %tobool.not.i104, label %if.then.i109, label %if.else.i105
+  br i1 %tobool.not.i104, label %if.then.i107, label %if.else.i105
 
-if.then.i109:                                     ; preds = %if.end149
+if.then.i107:                                     ; preds = %if.end149
   %77 = load ptr, ptr @the_repository, align 8
   %hash_algo.i = getelementptr inbounds i8, ptr %77, i64 256
   %78 = load ptr, ptr %hash_algo.i, align 8
-  br label %if.end.i106
+  br label %oideq.exit
 
 if.else.i105:                                     ; preds = %if.end149
   %idxprom.i = sext i32 %76 to i64
   %arrayidx.i = getelementptr inbounds [3 x %struct.git_hash_algo], ptr @hash_algos, i64 0, i64 %idxprom.i
-  br label %if.end.i106
+  br label %oideq.exit
 
-if.end.i106:                                      ; preds = %if.else.i105, %if.then.i109
-  %algop.0.i = phi ptr [ %arrayidx.i, %if.else.i105 ], [ %78, %if.then.i109 ]
+oideq.exit:                                       ; preds = %if.then.i107, %if.else.i105
+  %algop.0.i = phi ptr [ %arrayidx.i, %if.else.i105 ], [ %78, %if.then.i107 ]
   %79 = getelementptr i8, ptr %algop.0.i, i64 16
   %algop.0.val.i = load i64, ptr %79, align 8
   %cmp.i.i = icmp eq i64 %algop.0.val.i, 32
-  br i1 %cmp.i.i, label %if.then.i.i108, label %if.end.i.i107
-
-if.then.i.i108:                                   ; preds = %if.end.i106
-  %bcmp3.i.i = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(32) %old_oid, ptr noundef nonnull readonly dereferenceable(32) %new_oid151, i64 32)
-  br label %oideq.exit
-
-if.end.i.i107:                                    ; preds = %if.end.i106
-  %bcmp.i.i = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(20) %old_oid, ptr noundef nonnull readonly dereferenceable(20) %new_oid151, i64 20)
-  br label %oideq.exit
-
-oideq.exit:                                       ; preds = %if.then.i.i108, %if.end.i.i107
-  %retval.0.in.in.i.i = phi i32 [ %bcmp3.i.i, %if.then.i.i108 ], [ %bcmp.i.i, %if.end.i.i107 ]
-  %retval.0.in.i.i.not = icmp eq i32 %retval.0.in.in.i.i, 0
+  %..i.i = select i1 %cmp.i.i, i64 32, i64 20
+  %bcmp.i.i = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(20) %old_oid, ptr noundef nonnull readonly dereferenceable(20) %new_oid151, i64 %..i.i)
+  %retval.0.in.i.i.not = icmp eq i32 %bcmp.i.i, 0
   br i1 %retval.0.in.i.i.not, label %if.then154, label %if.end167
 
 if.then154:                                       ; preds = %oideq.exit
@@ -784,7 +764,7 @@ if.then154:                                       ; preds = %oideq.exit
 
 if.then156:                                       ; preds = %if.then154
   %80 = load ptr, ptr @stderr, align 8
-  %name157 = getelementptr inbounds i8, ptr %ref.0180, i64 176
+  %name157 = getelementptr inbounds i8, ptr %ref.0174, i64 176
   %call159 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %80, ptr noundef nonnull @.str.20, ptr noundef nonnull %name157) #18
   br label %if.end160
 
@@ -793,7 +773,7 @@ if.end160:                                        ; preds = %if.then156, %if.the
   br i1 %.b83, label %if.then162, label %for.inc298
 
 if.then162:                                       ; preds = %if.end160
-  %name163 = getelementptr inbounds i8, ptr %ref.0180, i64 176
+  %name163 = getelementptr inbounds i8, ptr %ref.0174, i64 176
   %call165 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.21, ptr noundef nonnull %name163)
   br label %for.inc298
 
@@ -802,44 +782,34 @@ if.end167:                                        ; preds = %oideq.exit
   br i1 %.b76, label %if.end199, label %land.lhs.true169
 
 land.lhs.true169:                                 ; preds = %if.end167
-  %call.i110 = call ptr @null_oid() #15
+  %call.i108 = call ptr @null_oid() #15
   %81 = load i32, ptr %algo.i, align 4
-  %tobool.not.i.i112 = icmp eq i32 %81, 0
-  br i1 %tobool.not.i.i112, label %if.then.i.i127, label %if.else.i.i113
+  %tobool.not.i.i110 = icmp eq i32 %81, 0
+  br i1 %tobool.not.i.i110, label %if.then.i.i121, label %if.else.i.i111
 
-if.then.i.i127:                                   ; preds = %land.lhs.true169
+if.then.i.i121:                                   ; preds = %land.lhs.true169
   %82 = load ptr, ptr @the_repository, align 8
-  %hash_algo.i.i128 = getelementptr inbounds i8, ptr %82, i64 256
-  %83 = load ptr, ptr %hash_algo.i.i128, align 8
-  br label %if.end.i.i116
+  %hash_algo.i.i122 = getelementptr inbounds i8, ptr %82, i64 256
+  %83 = load ptr, ptr %hash_algo.i.i122, align 8
+  br label %is_null_oid.exit123
 
-if.else.i.i113:                                   ; preds = %land.lhs.true169
-  %idxprom.i.i114 = sext i32 %81 to i64
-  %arrayidx.i.i115 = getelementptr inbounds [3 x %struct.git_hash_algo], ptr @hash_algos, i64 0, i64 %idxprom.i.i114
-  br label %if.end.i.i116
+if.else.i.i111:                                   ; preds = %land.lhs.true169
+  %idxprom.i.i112 = sext i32 %81 to i64
+  %arrayidx.i.i113 = getelementptr inbounds [3 x %struct.git_hash_algo], ptr @hash_algos, i64 0, i64 %idxprom.i.i112
+  br label %is_null_oid.exit123
 
-if.end.i.i116:                                    ; preds = %if.else.i.i113, %if.then.i.i127
-  %algop.0.i.i117 = phi ptr [ %arrayidx.i.i115, %if.else.i.i113 ], [ %83, %if.then.i.i127 ]
-  %84 = getelementptr i8, ptr %algop.0.i.i117, i64 16
-  %algop.0.val.i.i118 = load i64, ptr %84, align 8
-  %cmp.i.i.i119 = icmp eq i64 %algop.0.val.i.i118, 32
-  br i1 %cmp.i.i.i119, label %if.then.i.i.i125, label %if.end.i.i.i120
+is_null_oid.exit123:                              ; preds = %if.then.i.i121, %if.else.i.i111
+  %algop.0.i.i114 = phi ptr [ %arrayidx.i.i113, %if.else.i.i111 ], [ %83, %if.then.i.i121 ]
+  %84 = getelementptr i8, ptr %algop.0.i.i114, i64 16
+  %algop.0.val.i.i115 = load i64, ptr %84, align 8
+  %cmp.i.i.i116 = icmp eq i64 %algop.0.val.i.i115, 32
+  %..i.i.i117 = select i1 %cmp.i.i.i116, i64 32, i64 20
+  %bcmp.i.i.i118 = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(20) %old_oid, ptr noundef nonnull readonly dereferenceable(20) %call.i108, i64 %..i.i.i117)
+  %retval.0.in.i.i.i119.not = icmp eq i32 %bcmp.i.i.i118, 0
+  br i1 %retval.0.in.i.i.i119.not, label %if.end199, label %land.lhs.true173
 
-if.then.i.i.i125:                                 ; preds = %if.end.i.i116
-  %bcmp3.i.i.i126 = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(32) %old_oid, ptr noundef nonnull readonly dereferenceable(32) %call.i110, i64 32)
-  br label %is_null_oid.exit129
-
-if.end.i.i.i120:                                  ; preds = %if.end.i.i116
-  %bcmp.i.i.i121 = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(20) %old_oid, ptr noundef nonnull readonly dereferenceable(20) %call.i110, i64 20)
-  br label %is_null_oid.exit129
-
-is_null_oid.exit129:                              ; preds = %if.then.i.i.i125, %if.end.i.i.i120
-  %retval.0.in.in.i.i.i122 = phi i32 [ %bcmp3.i.i.i126, %if.then.i.i.i125 ], [ %bcmp.i.i.i121, %if.end.i.i.i120 ]
-  %retval.0.in.i.i.i123.not = icmp eq i32 %retval.0.in.in.i.i.i122, 0
-  br i1 %retval.0.in.i.i.i123.not, label %if.end199, label %land.lhs.true173
-
-land.lhs.true173:                                 ; preds = %is_null_oid.exit129
-  %force = getelementptr inbounds i8, ptr %ref.0180, i64 136
+land.lhs.true173:                                 ; preds = %is_null_oid.exit123
+  %force = getelementptr inbounds i8, ptr %ref.0174, i64 136
   %bf.load = load i8, ptr %force, align 8
   %bf.clear = and i8 %bf.load, 1
   %tobool174.not = icmp eq i8 %bf.clear, 0
@@ -859,7 +829,7 @@ lor.lhs.false:                                    ; preds = %if.then175
   br i1 %tobool183.not, label %if.then184, label %if.end199
 
 if.then184:                                       ; preds = %lor.lhs.false, %if.then175
-  %name185 = getelementptr inbounds i8, ptr %ref.0180, i64 176
+  %name185 = getelementptr inbounds i8, ptr %ref.0174, i64 176
   %87 = load ptr, ptr %peer_ref, align 8
   %name188 = getelementptr inbounds i8, ptr %87, i64 176
   %call190 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.22, ptr noundef nonnull %name185, ptr noundef nonnull %name188) #15
@@ -870,18 +840,18 @@ if.then193:                                       ; preds = %if.then184
   %call196 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.23, ptr noundef nonnull %name185)
   br label %for.inc298
 
-if.end199:                                        ; preds = %lor.lhs.false, %land.lhs.true173, %is_null_oid.exit129, %if.end167
-  %new_oid200 = getelementptr inbounds i8, ptr %ref.0180, i64 44
+if.end199:                                        ; preds = %lor.lhs.false, %land.lhs.true173, %is_null_oid.exit123, %if.end167
+  %new_oid200 = getelementptr inbounds i8, ptr %ref.0174, i64 44
   %88 = load ptr, ptr %peer_ref, align 8
   %new_oid202 = getelementptr inbounds i8, ptr %88, i64 44
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %new_oid200, ptr noundef nonnull readonly align 4 dereferenceable(32) %new_oid202, i64 32, i1 false)
-  %algo.i130 = getelementptr inbounds i8, ptr %88, i64 76
-  %89 = load i32, ptr %algo.i130, align 4
-  %algo3.i = getelementptr inbounds i8, ptr %ref.0180, i64 76
+  %algo.i124 = getelementptr inbounds i8, ptr %88, i64 76
+  %89 = load i32, ptr %algo.i124, align 4
+  %algo3.i = getelementptr inbounds i8, ptr %ref.0174, i64 76
   store i32 %89, ptr %algo3.i, align 4
-  %inc203 = add nsw i32 %new_refs.0179, 1
+  %inc203 = add nsw i32 %new_refs.0173, 1
   %90 = load ptr, ptr @stderr, align 8
-  %name204 = getelementptr inbounds i8, ptr %ref.0180, i64 176
+  %name204 = getelementptr inbounds i8, ptr %ref.0174, i64 176
   %call206 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %90, ptr noundef nonnull @.str.24, ptr noundef nonnull %name204) #18
   %91 = load ptr, ptr %peer_ref, align 8
   %name210 = getelementptr inbounds i8, ptr %91, i64 176
@@ -987,7 +957,7 @@ lor.lhs.false280:                                 ; preds = %if.end278
   br i1 %tobool283.not, label %if.end289, label %if.end285
 
 if.end285:                                        ; preds = %lor.lhs.false280
-  %tobool286.not = icmp eq i32 %rc.1178, 0
+  %tobool286.not = icmp eq i32 %rc.1172, 0
   br i1 %tobool286.not, label %if.then287, label %if.end289
 
 if.then287:                                       ; preds = %if.end285
@@ -996,13 +966,13 @@ if.then287:                                       ; preds = %if.end285
   br label %if.end289
 
 if.end289:                                        ; preds = %lor.lhs.false280, %if.end278, %if.then287, %if.end285
-  %tobool286.not137 = phi ptr [ @.str.36, %if.then287 ], [ @.str.37, %if.end285 ], [ @.str.37, %if.end278 ], [ @.str.37, %lor.lhs.false280 ]
-  %rc.4136 = phi i32 [ 0, %if.then287 ], [ %rc.1178, %if.end285 ], [ 1, %if.end278 ], [ 1, %lor.lhs.false280 ]
+  %tobool286.not131 = phi ptr [ @.str.36, %if.then287 ], [ @.str.37, %if.end285 ], [ @.str.37, %if.end278 ], [ @.str.37, %lor.lhs.false280 ]
+  %rc.4130 = phi i32 [ 0, %if.then287 ], [ %rc.1172, %if.end285 ], [ 1, %if.end278 ], [ 1, %lor.lhs.false280 ]
   %.b79 = load i1, ptr @helper_status, align 4
   br i1 %.b79, label %if.then291, label %if.end296
 
 if.then291:                                       ; preds = %if.end289
-  %call295 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.35, ptr noundef nonnull %tobool286.not137, ptr noundef nonnull %name204)
+  %call295 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.35, ptr noundef nonnull %tobool286.not131, ptr noundef nonnull %name204)
   br label %if.end296
 
 if.end296:                                        ; preds = %if.then291, %if.end289
@@ -1013,9 +983,9 @@ if.end296:                                        ; preds = %if.then291, %if.end
   br label %for.inc298
 
 for.inc298:                                       ; preds = %if.then238, %if.then243, %if.then184, %if.then193, %if.then226, %if.then228, %if.end160, %if.then162, %for.body118, %if.end296, %if.end147
-  %rc.2 = phi i32 [ %rc.3, %if.end147 ], [ %rc.1178, %if.then162 ], [ %rc.1178, %if.end160 ], [ %rc.1178, %if.then228 ], [ %rc.1178, %if.then226 ], [ %rc.4136, %if.end296 ], [ %rc.1178, %for.body118 ], [ -2, %if.then193 ], [ -2, %if.then184 ], [ 1, %if.then243 ], [ 1, %if.then238 ]
-  %new_refs.1 = phi i32 [ %inc148, %if.end147 ], [ %new_refs.0179, %if.then162 ], [ %new_refs.0179, %if.end160 ], [ %inc203, %if.then228 ], [ %inc203, %if.then226 ], [ %inc203, %if.end296 ], [ %new_refs.0179, %for.body118 ], [ %new_refs.0179, %if.then193 ], [ %new_refs.0179, %if.then184 ], [ %inc203, %if.then243 ], [ %inc203, %if.then238 ]
-  %101 = load ptr, ptr %ref.0180, align 8
+  %rc.2 = phi i32 [ %rc.3, %if.end147 ], [ %rc.1172, %if.then162 ], [ %rc.1172, %if.end160 ], [ %rc.1172, %if.then228 ], [ %rc.1172, %if.then226 ], [ %rc.4130, %if.end296 ], [ %rc.1172, %for.body118 ], [ -2, %if.then193 ], [ -2, %if.then184 ], [ 1, %if.then243 ], [ 1, %if.then238 ]
+  %new_refs.1 = phi i32 [ %inc148, %if.end147 ], [ %new_refs.0173, %if.then162 ], [ %new_refs.0173, %if.end160 ], [ %inc203, %if.then228 ], [ %inc203, %if.then226 ], [ %inc203, %if.end296 ], [ %new_refs.0173, %for.body118 ], [ %new_refs.0173, %if.then193 ], [ %new_refs.0173, %if.then184 ], [ %inc203, %if.then243 ], [ %inc203, %if.then238 ]
+  %101 = load ptr, ptr %ref.0174, align 8
   %tobool117.not = icmp eq ptr %101, null
   br i1 %tobool117.not, label %for.end299, label %for.body118, !llvm.loop !8
 
@@ -1059,40 +1029,40 @@ cleanup:                                          ; preds = %if.then109, %if.the
   br i1 %tobool318.not, label %if.end321, label %if.then319
 
 if.then319:                                       ; preds = %if.then312, %if.then309, %cleanup
-  %rc.0147 = phi i32 [ %rc.0, %cleanup ], [ %rc.2, %if.then309 ], [ %rc.2, %if.then312 ]
+  %rc.0141 = phi i32 [ %rc.0, %cleanup ], [ %rc.2, %if.then309 ], [ %rc.2, %if.then312 ]
   call fastcc void @unlock_remote(ptr noundef %info_ref_lock.1)
   br label %if.end321
 
 if.end321:                                        ; preds = %locking_available.exit, %if.else, %if.then319, %cleanup
-  %rc.0141 = phi i32 [ %rc.0147, %if.then319 ], [ %rc.0, %cleanup ], [ 1, %if.else ], [ 1, %locking_available.exit ]
+  %rc.0135 = phi i32 [ %rc.0141, %if.then319 ], [ %rc.0, %cleanup ], [ 1, %if.else ], [ 1, %locking_available.exit ]
   %109 = load ptr, ptr @repo, align 8
   call void @free(ptr noundef %109) #15
   call void @http_cleanup() #15
   %110 = load ptr, ptr @request_queue_head, align 8
-  %cmp322.not181 = icmp eq ptr %110, null
-  br i1 %cmp322.not181, label %while.end, label %while.body
+  %cmp322.not175 = icmp eq ptr %110, null
+  br i1 %cmp322.not175, label %while.end, label %while.body
 
 while.body:                                       ; preds = %if.end321, %release_request.exit
-  %request.0182 = phi ptr [ %111, %release_request.exit ], [ %110, %if.end321 ]
-  %next324 = getelementptr inbounds i8, ptr %request.0182, i64 368
+  %request.0176 = phi ptr [ %111, %release_request.exit ], [ %110, %if.end321 ]
+  %next324 = getelementptr inbounds i8, ptr %request.0176, i64 368
   %111 = load ptr, ptr %next324, align 8
   %112 = load ptr, ptr @request_queue_head, align 8
-  %cmp.i131 = icmp eq ptr %request.0182, %112
-  br i1 %cmp.i131, label %if.then.i133, label %while.cond.i
+  %cmp.i125 = icmp eq ptr %request.0176, %112
+  br i1 %cmp.i125, label %if.then.i127, label %while.cond.i
 
-if.then.i133:                                     ; preds = %while.body
+if.then.i127:                                     ; preds = %while.body
   store ptr %111, ptr @request_queue_head, align 8
   br label %release_request.exit
 
 while.cond.i:                                     ; preds = %while.body, %land.rhs.i
   %entry1.0.i = phi ptr [ %113, %land.rhs.i ], [ %112, %while.body ]
-  %tobool.not.i132 = icmp eq ptr %entry1.0.i, null
-  br i1 %tobool.not.i132, label %release_request.exit, label %land.rhs.i
+  %tobool.not.i126 = icmp eq ptr %entry1.0.i, null
+  br i1 %tobool.not.i126, label %release_request.exit, label %land.rhs.i
 
 land.rhs.i:                                       ; preds = %while.cond.i
   %next2.i = getelementptr inbounds i8, ptr %entry1.0.i, i64 368
   %113 = load ptr, ptr %next2.i, align 8
-  %cmp3.not.i = icmp eq ptr %113, %request.0182
+  %cmp3.not.i = icmp eq ptr %113, %request.0176
   br i1 %cmp3.not.i, label %if.then6.i, label %while.cond.i, !llvm.loop !9
 
 if.then6.i:                                       ; preds = %land.rhs.i
@@ -1100,16 +1070,16 @@ if.then6.i:                                       ; preds = %land.rhs.i
   store ptr %111, ptr %next2.i.le, align 8
   br label %release_request.exit
 
-release_request.exit:                             ; preds = %while.cond.i, %if.then.i133, %if.then6.i
-  %url.i = getelementptr inbounds i8, ptr %request.0182, i64 16
+release_request.exit:                             ; preds = %while.cond.i, %if.then.i127, %if.then6.i
+  %url.i = getelementptr inbounds i8, ptr %request.0176, i64 16
   %114 = load ptr, ptr %url.i, align 8
   call void @free(ptr noundef %114) #15
-  call void @free(ptr noundef %request.0182) #15
+  call void @free(ptr noundef %request.0176) #15
   %cmp322.not = icmp eq ptr %111, null
   br i1 %cmp322.not, label %while.end, label %while.body, !llvm.loop !10
 
 while.end:                                        ; preds = %release_request.exit, %if.end321
-  ret i32 %rc.0141
+  ret i32 %rc.0135
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
@@ -1517,31 +1487,21 @@ if.then.i.i:                                      ; preds = %if.end59
   %8 = load ptr, ptr @the_repository, align 8
   %hash_algo.i.i = getelementptr inbounds i8, ptr %8, i64 256
   %9 = load ptr, ptr %hash_algo.i.i, align 8
-  br label %if.end.i.i
+  br label %is_null_oid.exit
 
 if.else.i.i:                                      ; preds = %if.end59
   %idxprom.i.i = sext i32 %7 to i64
   %arrayidx.i.i = getelementptr inbounds [3 x %struct.git_hash_algo], ptr @hash_algos, i64 0, i64 %idxprom.i.i
-  br label %if.end.i.i
+  br label %is_null_oid.exit
 
-if.end.i.i:                                       ; preds = %if.else.i.i, %if.then.i.i
+is_null_oid.exit:                                 ; preds = %if.then.i.i, %if.else.i.i
   %algop.0.i.i = phi ptr [ %arrayidx.i.i, %if.else.i.i ], [ %9, %if.then.i.i ]
   %10 = getelementptr i8, ptr %algop.0.i.i, i64 16
   %algop.0.val.i.i = load i64, ptr %10, align 8
   %cmp.i.i.i = icmp eq i64 %algop.0.val.i.i, 32
-  br i1 %cmp.i.i.i, label %if.then.i.i.i, label %if.end.i.i.i
-
-if.then.i.i.i:                                    ; preds = %if.end.i.i
-  %bcmp3.i.i.i = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(32) %head_oid, ptr noundef nonnull readonly dereferenceable(32) %call.i, i64 32)
-  br label %is_null_oid.exit
-
-if.end.i.i.i:                                     ; preds = %if.end.i.i
-  %bcmp.i.i.i = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(20) %head_oid, ptr noundef nonnull readonly dereferenceable(20) %call.i, i64 20)
-  br label %is_null_oid.exit
-
-is_null_oid.exit:                                 ; preds = %if.then.i.i.i, %if.end.i.i.i
-  %retval.0.in.in.i.i.i = phi i32 [ %bcmp3.i.i.i, %if.then.i.i.i ], [ %bcmp.i.i.i, %if.end.i.i.i ]
-  %retval.0.in.i.i.i.not = icmp eq i32 %retval.0.in.in.i.i.i, 0
+  %..i.i.i = select i1 %cmp.i.i.i, i64 32, i64 20
+  %bcmp.i.i.i = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(20) %head_oid, ptr noundef nonnull readonly dereferenceable(20) %call.i, i64 %..i.i.i)
+  %retval.0.in.i.i.i.not = icmp eq i32 %bcmp.i.i.i, 0
   br i1 %retval.0.in.i.i.i.not, label %if.then62, label %if.end65
 
 if.then62:                                        ; preds = %is_null_oid.exit
@@ -1654,31 +1614,21 @@ if.then.i:                                        ; preds = %entry
   %1 = load ptr, ptr @the_repository, align 8
   %hash_algo.i = getelementptr inbounds i8, ptr %1, i64 256
   %2 = load ptr, ptr %hash_algo.i, align 8
-  br label %if.end.i
+  br label %oideq.exit
 
 if.else.i:                                        ; preds = %entry
   %idxprom.i = sext i32 %0 to i64
   %arrayidx.i = getelementptr inbounds [3 x %struct.git_hash_algo], ptr @hash_algos, i64 0, i64 %idxprom.i
-  br label %if.end.i
+  br label %oideq.exit
 
-if.end.i:                                         ; preds = %if.else.i, %if.then.i
+oideq.exit:                                       ; preds = %if.then.i, %if.else.i
   %algop.0.i = phi ptr [ %arrayidx.i, %if.else.i ], [ %2, %if.then.i ]
   %3 = getelementptr i8, ptr %algop.0.i, i64 16
   %algop.0.val.i = load i64, ptr %3, align 8
   %cmp.i.i = icmp eq i64 %algop.0.val.i, 32
-  br i1 %cmp.i.i, label %if.then.i.i, label %if.end.i.i
-
-if.then.i.i:                                      ; preds = %if.end.i
-  %bcmp3.i.i = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(32) %oid, ptr noundef nonnull readonly dereferenceable(32) %call, i64 32)
-  br label %oideq.exit
-
-if.end.i.i:                                       ; preds = %if.end.i
-  %bcmp.i.i = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(20) %oid, ptr noundef nonnull readonly dereferenceable(20) %call, i64 20)
-  br label %oideq.exit
-
-oideq.exit:                                       ; preds = %if.then.i.i, %if.end.i.i
-  %retval.0.in.in.i.i = phi i32 [ %bcmp3.i.i, %if.then.i.i ], [ %bcmp.i.i, %if.end.i.i ]
-  %retval.0.in.i.i = icmp eq i32 %retval.0.in.in.i.i, 0
+  %..i.i = select i1 %cmp.i.i, i64 32, i64 20
+  %bcmp.i.i = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(20) %oid, ptr noundef nonnull readonly dereferenceable(20) %call, i64 %..i.i)
+  %retval.0.in.i.i = icmp eq i32 %bcmp.i.i, 0
   %retval.0.i.i = zext i1 %retval.0.in.i.i to i32
   ret i32 %retval.0.i.i
 }

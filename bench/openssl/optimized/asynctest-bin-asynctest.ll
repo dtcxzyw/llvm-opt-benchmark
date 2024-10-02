@@ -77,42 +77,42 @@ if.else:                                          ; preds = %entry
   store ptr null, ptr %job3.i, align 8
   %call.i = tail call i32 @ASYNC_init_thread(i64 noundef 2, i64 noundef 0) #5
   %tobool.not.i = icmp eq i32 %call.i, 0
-  br i1 %tobool.not.i, label %test_ASYNC_init_thread.exit.thread, label %lor.lhs.false.i
+  br i1 %tobool.not.i, label %if.then.i, label %lor.lhs.false.i
 
 lor.lhs.false.i:                                  ; preds = %if.else
   %call1.i = tail call ptr @ASYNC_WAIT_CTX_new() #5
   %cmp.i = icmp eq ptr %call1.i, null
-  br i1 %cmp.i, label %test_ASYNC_init_thread.exit.thread, label %lor.lhs.false2.i
+  br i1 %cmp.i, label %if.then.i, label %lor.lhs.false2.i
 
 lor.lhs.false2.i:                                 ; preds = %lor.lhs.false.i
   %call3.i = call i32 @ASYNC_start_job(ptr noundef nonnull %job1.i, ptr noundef nonnull %call1.i, ptr noundef nonnull %funcret1.i, ptr noundef nonnull @only_pause, ptr noundef null, i64 noundef 0) #5
   %cmp4.not.i = icmp eq i32 %call3.i, 2
-  br i1 %cmp4.not.i, label %lor.lhs.false5.i, label %test_ASYNC_init_thread.exit.thread
+  br i1 %cmp4.not.i, label %lor.lhs.false5.i, label %if.then.i
 
 lor.lhs.false5.i:                                 ; preds = %lor.lhs.false2.i
   %call6.i = call i32 @ASYNC_start_job(ptr noundef nonnull %job2.i, ptr noundef nonnull %call1.i, ptr noundef nonnull %funcret2.i, ptr noundef nonnull @only_pause, ptr noundef null, i64 noundef 0) #5
   %cmp7.not.i = icmp eq i32 %call6.i, 2
-  br i1 %cmp7.not.i, label %lor.lhs.false8.i, label %test_ASYNC_init_thread.exit.thread
+  br i1 %cmp7.not.i, label %lor.lhs.false8.i, label %if.then.i
 
 lor.lhs.false8.i:                                 ; preds = %lor.lhs.false5.i
   %call9.i = call i32 @ASYNC_start_job(ptr noundef nonnull %job3.i, ptr noundef nonnull %call1.i, ptr noundef nonnull %funcret3.i, ptr noundef nonnull @only_pause, ptr noundef null, i64 noundef 0) #5
   %cmp10.not.i = icmp eq i32 %call9.i, 1
-  br i1 %cmp10.not.i, label %lor.lhs.false11.i, label %test_ASYNC_init_thread.exit.thread
+  br i1 %cmp10.not.i, label %lor.lhs.false11.i, label %if.then.i
 
 lor.lhs.false11.i:                                ; preds = %lor.lhs.false8.i
   %call12.i = call i32 @ASYNC_start_job(ptr noundef nonnull %job1.i, ptr noundef nonnull %call1.i, ptr noundef nonnull %funcret1.i, ptr noundef nonnull @only_pause, ptr noundef null, i64 noundef 0) #5
   %cmp13.not.i = icmp eq i32 %call12.i, 3
-  br i1 %cmp13.not.i, label %lor.lhs.false14.i, label %test_ASYNC_init_thread.exit.thread
+  br i1 %cmp13.not.i, label %lor.lhs.false14.i, label %if.then.i
 
 lor.lhs.false14.i:                                ; preds = %lor.lhs.false11.i
   %call15.i = call i32 @ASYNC_start_job(ptr noundef nonnull %job3.i, ptr noundef nonnull %call1.i, ptr noundef nonnull %funcret3.i, ptr noundef nonnull @only_pause, ptr noundef null, i64 noundef 0) #5
   %cmp16.not.i = icmp eq i32 %call15.i, 2
-  br i1 %cmp16.not.i, label %lor.lhs.false17.i, label %test_ASYNC_init_thread.exit.thread
+  br i1 %cmp16.not.i, label %lor.lhs.false17.i, label %if.then.i
 
 lor.lhs.false17.i:                                ; preds = %lor.lhs.false14.i
   %call18.i = call i32 @ASYNC_start_job(ptr noundef nonnull %job2.i, ptr noundef nonnull %call1.i, ptr noundef nonnull %funcret2.i, ptr noundef nonnull @only_pause, ptr noundef null, i64 noundef 0) #5
   %cmp19.not.i = icmp eq i32 %call18.i, 3
-  br i1 %cmp19.not.i, label %lor.lhs.false20.i, label %test_ASYNC_init_thread.exit.thread
+  br i1 %cmp19.not.i, label %lor.lhs.false20.i, label %if.then.i
 
 lor.lhs.false20.i:                                ; preds = %lor.lhs.false17.i
   %call21.i = call i32 @ASYNC_start_job(ptr noundef nonnull %job3.i, ptr noundef nonnull %call1.i, ptr noundef nonnull %funcret3.i, ptr noundef nonnull @only_pause, ptr noundef null, i64 noundef 0) #5
@@ -126,9 +126,9 @@ lor.lhs.false20.i:                                ; preds = %lor.lhs.false17.i
   %4 = load i32, ptr %funcret3.i, align 4
   %cmp28.i = icmp ne i32 %4, 1
   %or.cond2.i = select i1 %or.cond1.i, i1 true, i1 %cmp28.i
-  br i1 %or.cond2.i, label %test_ASYNC_init_thread.exit.thread, label %lor.lhs.false
+  br i1 %or.cond2.i, label %if.then.i, label %test_ASYNC_init_thread.exit
 
-test_ASYNC_init_thread.exit.thread:               ; preds = %if.else, %lor.lhs.false.i, %lor.lhs.false2.i, %lor.lhs.false5.i, %lor.lhs.false8.i, %lor.lhs.false11.i, %lor.lhs.false14.i, %lor.lhs.false17.i, %lor.lhs.false20.i
+if.then.i:                                        ; preds = %lor.lhs.false20.i, %lor.lhs.false17.i, %lor.lhs.false14.i, %lor.lhs.false11.i, %lor.lhs.false8.i, %lor.lhs.false5.i, %lor.lhs.false2.i, %lor.lhs.false.i, %if.else
   %waitctx.0.i = phi ptr [ null, %lor.lhs.false.i ], [ %call1.i, %lor.lhs.false2.i ], [ %call1.i, %lor.lhs.false5.i ], [ %call1.i, %lor.lhs.false8.i ], [ %call1.i, %lor.lhs.false11.i ], [ %call1.i, %lor.lhs.false14.i ], [ %call1.i, %lor.lhs.false17.i ], [ %call1.i, %lor.lhs.false20.i ], [ null, %if.else ]
   %5 = load ptr, ptr @stderr, align 8
   %6 = call i64 @fwrite(ptr nonnull @.str.2, i64 32, i64 1, ptr %5) #6
@@ -142,7 +142,7 @@ test_ASYNC_init_thread.exit.thread:               ; preds = %if.else, %lor.lhs.f
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %funcret3.i)
   br label %return
 
-lor.lhs.false:                                    ; preds = %lor.lhs.false20.i
+test_ASYNC_init_thread.exit:                      ; preds = %lor.lhs.false20.i
   call void @ASYNC_WAIT_CTX_free(ptr noundef nonnull %call1.i) #5
   call void @ASYNC_cleanup_thread() #5
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %job1.i)
@@ -157,42 +157,42 @@ lor.lhs.false:                                    ; preds = %lor.lhs.false20.i
   store i32 100, ptr %set_arg.i, align 4
   %call.i1 = call i32 @ASYNC_init_thread(i64 noundef 1, i64 noundef 0) #5
   %tobool.not.i2 = icmp eq i32 %call.i1, 0
-  br i1 %tobool.not.i2, label %test_ASYNC_callback_status.exit.thread, label %lor.lhs.false.i3
+  br i1 %tobool.not.i2, label %if.then.i9, label %lor.lhs.false.i3
 
-lor.lhs.false.i3:                                 ; preds = %lor.lhs.false
+lor.lhs.false.i3:                                 ; preds = %test_ASYNC_init_thread.exit
   %call1.i4 = call ptr @ASYNC_WAIT_CTX_new() #5
   %cmp.i5 = icmp eq ptr %call1.i4, null
-  br i1 %cmp.i5, label %test_ASYNC_callback_status.exit.thread, label %lor.lhs.false2.i6
+  br i1 %cmp.i5, label %if.then.i9, label %lor.lhs.false2.i6
 
 lor.lhs.false2.i6:                                ; preds = %lor.lhs.false.i3
   %call3.i7 = call i32 @ASYNC_WAIT_CTX_set_callback(ptr noundef nonnull %call1.i4, ptr noundef nonnull @test_callback, ptr noundef nonnull %set_arg.i) #5
   %cmp4.not.i8 = icmp eq i32 %call3.i7, 1
-  br i1 %cmp4.not.i8, label %lor.lhs.false5.i12, label %test_ASYNC_callback_status.exit.thread
+  br i1 %cmp4.not.i8, label %lor.lhs.false5.i13, label %if.then.i9
 
-lor.lhs.false5.i12:                               ; preds = %lor.lhs.false2.i6
-  %call6.i13 = call i32 @ASYNC_WAIT_CTX_get_callback(ptr noundef nonnull %call1.i4, ptr noundef nonnull %get_callback.i, ptr noundef nonnull %get_arg.i) #5
-  %cmp7.i = icmp ne i32 %call6.i13, 1
+lor.lhs.false5.i13:                               ; preds = %lor.lhs.false2.i6
+  %call6.i14 = call i32 @ASYNC_WAIT_CTX_get_callback(ptr noundef nonnull %call1.i4, ptr noundef nonnull %get_callback.i, ptr noundef nonnull %get_arg.i) #5
+  %cmp7.i = icmp ne i32 %call6.i14, 1
   %7 = load ptr, ptr %get_callback.i, align 8
   %cmp9.i = icmp ne ptr %7, @test_callback
-  %or.cond.i14 = select i1 %cmp7.i, i1 true, i1 %cmp9.i
+  %or.cond.i15 = select i1 %cmp7.i, i1 true, i1 %cmp9.i
   %8 = load ptr, ptr %get_arg.i, align 8
   %cmp11.i = icmp ne ptr %8, %set_arg.i
-  %or.cond1.i15 = select i1 %or.cond.i14, i1 true, i1 %cmp11.i
-  br i1 %or.cond1.i15, label %test_ASYNC_callback_status.exit.thread, label %lor.lhs.false15.i
+  %or.cond1.i16 = select i1 %or.cond.i15, i1 true, i1 %cmp11.i
+  br i1 %or.cond1.i16, label %if.then.i9, label %lor.lhs.false15.i
 
-lor.lhs.false15.i:                                ; preds = %lor.lhs.false5.i12
+lor.lhs.false15.i:                                ; preds = %lor.lhs.false5.i13
   %puts.i.i = call i32 @puts(ptr nonnull dereferenceable(1) @str.1)
   %call16.i = call i32 @ASYNC_WAIT_CTX_set_status(ptr noundef nonnull %call1.i4, i32 noundef 1) #5
   %cmp17.not.i = icmp eq i32 %call16.i, 1
-  br i1 %cmp17.not.i, label %lor.lhs.false18.i, label %test_ASYNC_callback_status.exit.thread
+  br i1 %cmp17.not.i, label %lor.lhs.false18.i, label %if.then.i9
 
 lor.lhs.false18.i:                                ; preds = %lor.lhs.false15.i
   %call19.i = call i32 @ASYNC_WAIT_CTX_get_status(ptr noundef nonnull %call1.i4) #5
   %cmp20.not.i = icmp eq i32 %call19.i, 1
-  br i1 %cmp20.not.i, label %lor.lhs.false6, label %test_ASYNC_callback_status.exit.thread
+  br i1 %cmp20.not.i, label %test_ASYNC_callback_status.exit, label %if.then.i9
 
-test_ASYNC_callback_status.exit.thread:           ; preds = %lor.lhs.false, %lor.lhs.false.i3, %lor.lhs.false2.i6, %lor.lhs.false5.i12, %lor.lhs.false15.i, %lor.lhs.false18.i
-  %waitctx.0.i10 = phi ptr [ null, %lor.lhs.false.i3 ], [ %call1.i4, %lor.lhs.false2.i6 ], [ %call1.i4, %lor.lhs.false5.i12 ], [ %call1.i4, %lor.lhs.false15.i ], [ %call1.i4, %lor.lhs.false18.i ], [ null, %lor.lhs.false ]
+if.then.i9:                                       ; preds = %lor.lhs.false18.i, %lor.lhs.false15.i, %lor.lhs.false5.i13, %lor.lhs.false2.i6, %lor.lhs.false.i3, %test_ASYNC_init_thread.exit
+  %waitctx.0.i10 = phi ptr [ null, %lor.lhs.false.i3 ], [ %call1.i4, %lor.lhs.false2.i6 ], [ %call1.i4, %lor.lhs.false5.i13 ], [ %call1.i4, %lor.lhs.false15.i ], [ %call1.i4, %lor.lhs.false18.i ], [ null, %test_ASYNC_init_thread.exit ]
   %9 = load ptr, ptr @stderr, align 8
   %10 = call i64 @fwrite(ptr nonnull @.str.3, i64 36, i64 1, ptr %9) #6
   call void @ASYNC_WAIT_CTX_free(ptr noundef %waitctx.0.i10) #5
@@ -202,7 +202,7 @@ test_ASYNC_callback_status.exit.thread:           ; preds = %lor.lhs.false, %lor
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %get_arg.i)
   br label %return
 
-lor.lhs.false6:                                   ; preds = %lor.lhs.false18.i
+test_ASYNC_callback_status.exit:                  ; preds = %lor.lhs.false18.i
   call void @ASYNC_WAIT_CTX_free(ptr noundef nonnull %call1.i4) #5
   call void @ASYNC_cleanup_thread() #5
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %set_arg.i)
@@ -214,12 +214,12 @@ lor.lhs.false6:                                   ; preds = %lor.lhs.false18.i
   store i32 0, ptr @ctr, align 4
   %call.i17 = call i32 @ASYNC_init_thread(i64 noundef 1, i64 noundef 0) #5
   %tobool.not.i18 = icmp eq i32 %call.i17, 0
-  br i1 %tobool.not.i18, label %test_ASYNC_start_job.exit.thread, label %lor.lhs.false.i19
+  br i1 %tobool.not.i18, label %if.then.i31, label %lor.lhs.false.i19
 
-lor.lhs.false.i19:                                ; preds = %lor.lhs.false6
+lor.lhs.false.i19:                                ; preds = %test_ASYNC_callback_status.exit
   %call1.i20 = call ptr @ASYNC_WAIT_CTX_new() #5
   %cmp.i21 = icmp eq ptr %call1.i20, null
-  br i1 %cmp.i21, label %test_ASYNC_start_job.exit.thread, label %lor.lhs.false2.i22
+  br i1 %cmp.i21, label %if.then.i31, label %lor.lhs.false2.i22
 
 lor.lhs.false2.i22:                               ; preds = %lor.lhs.false.i19
   %call3.i23 = call i32 @ASYNC_start_job(ptr noundef nonnull %job.i, ptr noundef nonnull %call1.i20, ptr noundef nonnull %funcret.i, ptr noundef nonnull @add_two, ptr noundef null, i64 noundef 0) #5
@@ -227,7 +227,7 @@ lor.lhs.false2.i22:                               ; preds = %lor.lhs.false.i19
   %11 = load i32, ptr @ctr, align 4
   %cmp6.i = icmp ne i32 %11, 1
   %or.cond.i24 = select i1 %cmp4.i, i1 true, i1 %cmp6.i
-  br i1 %or.cond.i24, label %test_ASYNC_start_job.exit.thread, label %lor.lhs.false7.i
+  br i1 %or.cond.i24, label %if.then.i31, label %lor.lhs.false7.i
 
 lor.lhs.false7.i:                                 ; preds = %lor.lhs.false2.i22
   %call8.i = call i32 @ASYNC_start_job(ptr noundef nonnull %job.i, ptr noundef nonnull %call1.i20, ptr noundef nonnull %funcret.i, ptr noundef nonnull @add_two, ptr noundef null, i64 noundef 0) #5
@@ -238,10 +238,10 @@ lor.lhs.false7.i:                                 ; preds = %lor.lhs.false2.i22
   %13 = load i32, ptr %funcret.i, align 4
   %cmp13.i = icmp ne i32 %13, 2
   %or.cond2.i28 = select i1 %or.cond1.i27, i1 true, i1 %cmp13.i
-  br i1 %or.cond2.i28, label %test_ASYNC_start_job.exit.thread, label %lor.lhs.false9
+  br i1 %or.cond2.i28, label %if.then.i31, label %test_ASYNC_start_job.exit
 
-test_ASYNC_start_job.exit.thread:                 ; preds = %lor.lhs.false6, %lor.lhs.false.i19, %lor.lhs.false2.i22, %lor.lhs.false7.i
-  %waitctx.0.i32 = phi ptr [ null, %lor.lhs.false.i19 ], [ %call1.i20, %lor.lhs.false2.i22 ], [ %call1.i20, %lor.lhs.false7.i ], [ null, %lor.lhs.false6 ]
+if.then.i31:                                      ; preds = %lor.lhs.false7.i, %lor.lhs.false2.i22, %lor.lhs.false.i19, %test_ASYNC_callback_status.exit
+  %waitctx.0.i32 = phi ptr [ null, %lor.lhs.false.i19 ], [ %call1.i20, %lor.lhs.false2.i22 ], [ %call1.i20, %lor.lhs.false7.i ], [ null, %test_ASYNC_callback_status.exit ]
   %14 = load ptr, ptr @stderr, align 8
   %15 = call i64 @fwrite(ptr nonnull @.str.5, i64 30, i64 1, ptr %14) #6
   call void @ASYNC_WAIT_CTX_free(ptr noundef %waitctx.0.i32) #5
@@ -250,7 +250,7 @@ test_ASYNC_start_job.exit.thread:                 ; preds = %lor.lhs.false6, %lo
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %funcret.i)
   br label %return
 
-lor.lhs.false9:                                   ; preds = %lor.lhs.false7.i
+test_ASYNC_start_job.exit:                        ; preds = %lor.lhs.false7.i
   call void @ASYNC_WAIT_CTX_free(ptr noundef nonnull %call1.i20) #5
   call void @ASYNC_cleanup_thread() #5
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %job.i)
@@ -261,34 +261,34 @@ lor.lhs.false9:                                   ; preds = %lor.lhs.false7.i
   store ptr null, ptr @currjob, align 8
   %call.i35 = call i32 @ASYNC_init_thread(i64 noundef 1, i64 noundef 0) #5
   %tobool.not.i36 = icmp eq i32 %call.i35, 0
-  br i1 %tobool.not.i36, label %test_ASYNC_get_current_job.exit.thread, label %lor.lhs.false.i37
+  br i1 %tobool.not.i36, label %if.then.i43, label %lor.lhs.false.i37
 
-lor.lhs.false.i37:                                ; preds = %lor.lhs.false9
+lor.lhs.false.i37:                                ; preds = %test_ASYNC_start_job.exit
   %call1.i38 = call ptr @ASYNC_WAIT_CTX_new() #5
   %cmp.i39 = icmp eq ptr %call1.i38, null
-  br i1 %cmp.i39, label %test_ASYNC_get_current_job.exit.thread, label %lor.lhs.false2.i40
+  br i1 %cmp.i39, label %if.then.i43, label %lor.lhs.false2.i40
 
 lor.lhs.false2.i40:                               ; preds = %lor.lhs.false.i37
   %call3.i41 = call i32 @ASYNC_start_job(ptr noundef nonnull %job.i33, ptr noundef nonnull %call1.i38, ptr noundef nonnull %funcret.i34, ptr noundef nonnull @save_current, ptr noundef null, i64 noundef 0) #5
   %cmp4.not.i42 = icmp eq i32 %call3.i41, 2
-  br i1 %cmp4.not.i42, label %lor.lhs.false5.i46, label %test_ASYNC_get_current_job.exit.thread
+  br i1 %cmp4.not.i42, label %lor.lhs.false5.i47, label %if.then.i43
 
-lor.lhs.false5.i46:                               ; preds = %lor.lhs.false2.i40
+lor.lhs.false5.i47:                               ; preds = %lor.lhs.false2.i40
   %16 = load ptr, ptr @currjob, align 8
   %17 = load ptr, ptr %job.i33, align 8
   %cmp6.not.i = icmp eq ptr %16, %17
-  br i1 %cmp6.not.i, label %lor.lhs.false7.i47, label %test_ASYNC_get_current_job.exit.thread
+  br i1 %cmp6.not.i, label %lor.lhs.false7.i48, label %if.then.i43
 
-lor.lhs.false7.i47:                               ; preds = %lor.lhs.false5.i46
-  %call8.i48 = call i32 @ASYNC_start_job(ptr noundef nonnull %job.i33, ptr noundef nonnull %call1.i38, ptr noundef nonnull %funcret.i34, ptr noundef nonnull @save_current, ptr noundef null, i64 noundef 0) #5
-  %cmp9.i49 = icmp ne i32 %call8.i48, 3
+lor.lhs.false7.i48:                               ; preds = %lor.lhs.false5.i47
+  %call8.i49 = call i32 @ASYNC_start_job(ptr noundef nonnull %job.i33, ptr noundef nonnull %call1.i38, ptr noundef nonnull %funcret.i34, ptr noundef nonnull @save_current, ptr noundef null, i64 noundef 0) #5
+  %cmp9.i50 = icmp ne i32 %call8.i49, 3
   %18 = load i32, ptr %funcret.i34, align 4
-  %cmp11.i50 = icmp ne i32 %18, 1
-  %or.cond.i51 = select i1 %cmp9.i49, i1 true, i1 %cmp11.i50
-  br i1 %or.cond.i51, label %test_ASYNC_get_current_job.exit.thread, label %lor.lhs.false12
+  %cmp11.i51 = icmp ne i32 %18, 1
+  %or.cond.i52 = select i1 %cmp9.i50, i1 true, i1 %cmp11.i51
+  br i1 %or.cond.i52, label %if.then.i43, label %test_ASYNC_get_current_job.exit
 
-test_ASYNC_get_current_job.exit.thread:           ; preds = %lor.lhs.false9, %lor.lhs.false.i37, %lor.lhs.false2.i40, %lor.lhs.false5.i46, %lor.lhs.false7.i47
-  %waitctx.0.i44 = phi ptr [ null, %lor.lhs.false.i37 ], [ %call1.i38, %lor.lhs.false2.i40 ], [ %call1.i38, %lor.lhs.false5.i46 ], [ %call1.i38, %lor.lhs.false7.i47 ], [ null, %lor.lhs.false9 ]
+if.then.i43:                                      ; preds = %lor.lhs.false7.i48, %lor.lhs.false5.i47, %lor.lhs.false2.i40, %lor.lhs.false.i37, %test_ASYNC_start_job.exit
+  %waitctx.0.i44 = phi ptr [ null, %lor.lhs.false.i37 ], [ %call1.i38, %lor.lhs.false2.i40 ], [ %call1.i38, %lor.lhs.false5.i47 ], [ %call1.i38, %lor.lhs.false7.i48 ], [ null, %test_ASYNC_start_job.exit ]
   %19 = load ptr, ptr @stderr, align 8
   %20 = call i64 @fwrite(ptr nonnull @.str.6, i64 36, i64 1, ptr %19) #6
   call void @ASYNC_WAIT_CTX_free(ptr noundef %waitctx.0.i44) #5
@@ -297,7 +297,7 @@ test_ASYNC_get_current_job.exit.thread:           ; preds = %lor.lhs.false9, %lo
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %funcret.i34)
   br label %return
 
-lor.lhs.false12:                                  ; preds = %lor.lhs.false7.i47
+test_ASYNC_get_current_job.exit:                  ; preds = %lor.lhs.false7.i48
   call void @ASYNC_WAIT_CTX_free(ptr noundef nonnull %call1.i38) #5
   call void @ASYNC_cleanup_thread() #5
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %job.i33)
@@ -313,57 +313,57 @@ lor.lhs.false12:                                  ; preds = %lor.lhs.false7.i47
   store i32 -1, ptr %delfd.i, align 4
   %call.i55 = call i32 @ASYNC_init_thread(i64 noundef 1, i64 noundef 0) #5
   %tobool.not.i56 = icmp eq i32 %call.i55, 0
-  br i1 %tobool.not.i56, label %test_ASYNC_WAIT_CTX_get_all_fds.exit.thread, label %lor.lhs.false.i57
+  br i1 %tobool.not.i56, label %if.then.i63, label %lor.lhs.false.i57
 
-lor.lhs.false.i57:                                ; preds = %lor.lhs.false12
+lor.lhs.false.i57:                                ; preds = %test_ASYNC_get_current_job.exit
   %call1.i58 = call ptr @ASYNC_WAIT_CTX_new() #5
   %cmp.i59 = icmp eq ptr %call1.i58, null
-  br i1 %cmp.i59, label %test_ASYNC_WAIT_CTX_get_all_fds.exit.thread, label %lor.lhs.false2.i60
+  br i1 %cmp.i59, label %if.then.i63, label %lor.lhs.false2.i60
 
 lor.lhs.false2.i60:                               ; preds = %lor.lhs.false.i57
   %call3.i61 = call i32 @ASYNC_start_job(ptr noundef nonnull %job.i53, ptr noundef nonnull %call1.i58, ptr noundef nonnull %funcret.i54, ptr noundef nonnull @waitfd, ptr noundef null, i64 noundef 0) #5
   %cmp4.not.i62 = icmp eq i32 %call3.i61, 2
-  br i1 %cmp4.not.i62, label %lor.lhs.false5.i66, label %test_ASYNC_WAIT_CTX_get_all_fds.exit.thread
+  br i1 %cmp4.not.i62, label %lor.lhs.false5.i67, label %if.then.i63
 
-lor.lhs.false5.i66:                               ; preds = %lor.lhs.false2.i60
-  %call6.i67 = call i32 @ASYNC_WAIT_CTX_get_all_fds(ptr noundef nonnull %call1.i58, ptr noundef null, ptr noundef nonnull %numfds.i) #5
-  %tobool7.i = icmp eq i32 %call6.i67, 0
+lor.lhs.false5.i67:                               ; preds = %lor.lhs.false2.i60
+  %call6.i68 = call i32 @ASYNC_WAIT_CTX_get_all_fds(ptr noundef nonnull %call1.i58, ptr noundef null, ptr noundef nonnull %numfds.i) #5
+  %tobool7.i = icmp eq i32 %call6.i68, 0
   %21 = load i64, ptr %numfds.i, align 8
-  %cmp9.i68 = icmp ne i64 %21, 0
-  %or.cond.i69 = select i1 %tobool7.i, i1 true, i1 %cmp9.i68
-  br i1 %or.cond.i69, label %test_ASYNC_WAIT_CTX_get_all_fds.exit.thread, label %lor.lhs.false10.i
+  %cmp9.i69 = icmp ne i64 %21, 0
+  %or.cond.i70 = select i1 %tobool7.i, i1 true, i1 %cmp9.i69
+  br i1 %or.cond.i70, label %if.then.i63, label %lor.lhs.false10.i
 
-lor.lhs.false10.i:                                ; preds = %lor.lhs.false5.i66
+lor.lhs.false10.i:                                ; preds = %lor.lhs.false5.i67
   %call11.i = call i32 @ASYNC_WAIT_CTX_get_changed_fds(ptr noundef nonnull %call1.i58, ptr noundef null, ptr noundef nonnull %numfds.i, ptr noundef null, ptr noundef nonnull %numdelfds.i) #5
   %tobool12.i = icmp eq i32 %call11.i, 0
   %22 = load i64, ptr %numfds.i, align 8
   %cmp14.i = icmp ne i64 %22, 0
-  %or.cond1.i70 = select i1 %tobool12.i, i1 true, i1 %cmp14.i
+  %or.cond1.i71 = select i1 %tobool12.i, i1 true, i1 %cmp14.i
   %23 = load i64, ptr %numdelfds.i, align 8
   %cmp16.i = icmp ne i64 %23, 0
-  %or.cond2.i71 = select i1 %or.cond1.i70, i1 true, i1 %cmp16.i
-  br i1 %or.cond2.i71, label %test_ASYNC_WAIT_CTX_get_all_fds.exit.thread, label %lor.lhs.false17.i72
+  %or.cond2.i72 = select i1 %or.cond1.i71, i1 true, i1 %cmp16.i
+  br i1 %or.cond2.i72, label %if.then.i63, label %lor.lhs.false17.i73
 
-lor.lhs.false17.i72:                              ; preds = %lor.lhs.false10.i
-  %call18.i73 = call i32 @ASYNC_start_job(ptr noundef nonnull %job.i53, ptr noundef nonnull %call1.i58, ptr noundef nonnull %funcret.i54, ptr noundef nonnull @waitfd, ptr noundef null, i64 noundef 0) #5
-  %cmp19.not.i74 = icmp eq i32 %call18.i73, 2
-  br i1 %cmp19.not.i74, label %lor.lhs.false20.i75, label %test_ASYNC_WAIT_CTX_get_all_fds.exit.thread
+lor.lhs.false17.i73:                              ; preds = %lor.lhs.false10.i
+  %call18.i74 = call i32 @ASYNC_start_job(ptr noundef nonnull %job.i53, ptr noundef nonnull %call1.i58, ptr noundef nonnull %funcret.i54, ptr noundef nonnull @waitfd, ptr noundef null, i64 noundef 0) #5
+  %cmp19.not.i75 = icmp eq i32 %call18.i74, 2
+  br i1 %cmp19.not.i75, label %lor.lhs.false20.i76, label %if.then.i63
 
-lor.lhs.false20.i75:                              ; preds = %lor.lhs.false17.i72
-  %call21.i76 = call i32 @ASYNC_WAIT_CTX_get_all_fds(ptr noundef nonnull %call1.i58, ptr noundef null, ptr noundef nonnull %numfds.i) #5
-  %tobool22.i = icmp eq i32 %call21.i76, 0
+lor.lhs.false20.i76:                              ; preds = %lor.lhs.false17.i73
+  %call21.i77 = call i32 @ASYNC_WAIT_CTX_get_all_fds(ptr noundef nonnull %call1.i58, ptr noundef null, ptr noundef nonnull %numfds.i) #5
+  %tobool22.i = icmp eq i32 %call21.i77, 0
   %24 = load i64, ptr %numfds.i, align 8
-  %cmp24.i77 = icmp ne i64 %24, 1
-  %or.cond3.i = select i1 %tobool22.i, i1 true, i1 %cmp24.i77
-  br i1 %or.cond3.i, label %test_ASYNC_WAIT_CTX_get_all_fds.exit.thread, label %lor.lhs.false25.i
+  %cmp24.i78 = icmp ne i64 %24, 1
+  %or.cond3.i = select i1 %tobool22.i, i1 true, i1 %cmp24.i78
+  br i1 %or.cond3.i, label %if.then.i63, label %lor.lhs.false25.i
 
-lor.lhs.false25.i:                                ; preds = %lor.lhs.false20.i75
+lor.lhs.false25.i:                                ; preds = %lor.lhs.false20.i76
   %call26.i = call i32 @ASYNC_WAIT_CTX_get_all_fds(ptr noundef nonnull %call1.i58, ptr noundef nonnull %fd.i, ptr noundef nonnull %numfds.i) #5
   %tobool27.i = icmp eq i32 %call26.i, 0
   %25 = load i32, ptr %fd.i, align 4
   %cmp29.i = icmp ne i32 %25, 99
   %or.cond4.i = select i1 %tobool27.i, i1 true, i1 %cmp29.i
-  br i1 %or.cond4.i, label %test_ASYNC_WAIT_CTX_get_all_fds.exit.thread, label %lor.lhs.false30.i
+  br i1 %or.cond4.i, label %if.then.i63, label %lor.lhs.false30.i
 
 lor.lhs.false30.i:                                ; preds = %lor.lhs.false25.i
   store i32 -1, ptr %fd.i, align 4
@@ -375,7 +375,7 @@ lor.lhs.false30.i:                                ; preds = %lor.lhs.false25.i
   %27 = load i64, ptr %numdelfds.i, align 8
   %cmp37.i = icmp ne i64 %27, 0
   %or.cond6.i = select i1 %or.cond5.i, i1 true, i1 %cmp37.i
-  br i1 %or.cond6.i, label %test_ASYNC_WAIT_CTX_get_all_fds.exit.thread, label %lor.lhs.false38.i
+  br i1 %or.cond6.i, label %if.then.i63, label %lor.lhs.false38.i
 
 lor.lhs.false38.i:                                ; preds = %lor.lhs.false30.i
   %call39.i = call i32 @ASYNC_WAIT_CTX_get_changed_fds(ptr noundef nonnull %call1.i58, ptr noundef nonnull %fd.i, ptr noundef nonnull %numfds.i, ptr noundef null, ptr noundef nonnull %numdelfds.i) #5
@@ -383,12 +383,12 @@ lor.lhs.false38.i:                                ; preds = %lor.lhs.false30.i
   %28 = load i32, ptr %fd.i, align 4
   %cmp42.i = icmp ne i32 %28, 99
   %or.cond7.i = select i1 %tobool40.i, i1 true, i1 %cmp42.i
-  br i1 %or.cond7.i, label %test_ASYNC_WAIT_CTX_get_all_fds.exit.thread, label %lor.lhs.false43.i
+  br i1 %or.cond7.i, label %if.then.i63, label %lor.lhs.false43.i
 
 lor.lhs.false43.i:                                ; preds = %lor.lhs.false38.i
   %call44.i = call i32 @ASYNC_start_job(ptr noundef nonnull %job.i53, ptr noundef nonnull %call1.i58, ptr noundef nonnull %funcret.i54, ptr noundef nonnull @waitfd, ptr noundef null, i64 noundef 0) #5
   %cmp45.not.i = icmp eq i32 %call44.i, 2
-  br i1 %cmp45.not.i, label %lor.lhs.false46.i, label %test_ASYNC_WAIT_CTX_get_all_fds.exit.thread
+  br i1 %cmp45.not.i, label %lor.lhs.false46.i, label %if.then.i63
 
 lor.lhs.false46.i:                                ; preds = %lor.lhs.false43.i
   %call47.i = call i32 @ASYNC_WAIT_CTX_get_all_fds(ptr noundef nonnull %call1.i58, ptr noundef null, ptr noundef nonnull %numfds.i) #5
@@ -396,7 +396,7 @@ lor.lhs.false46.i:                                ; preds = %lor.lhs.false43.i
   %29 = load i64, ptr %numfds.i, align 8
   %cmp50.i = icmp ne i64 %29, 0
   %or.cond8.i = select i1 %tobool48.i, i1 true, i1 %cmp50.i
-  br i1 %or.cond8.i, label %test_ASYNC_WAIT_CTX_get_all_fds.exit.thread, label %lor.lhs.false51.i
+  br i1 %or.cond8.i, label %if.then.i63, label %lor.lhs.false51.i
 
 lor.lhs.false51.i:                                ; preds = %lor.lhs.false46.i
   %call52.i = call i32 @ASYNC_WAIT_CTX_get_changed_fds(ptr noundef nonnull %call1.i58, ptr noundef null, ptr noundef nonnull %numfds.i, ptr noundef null, ptr noundef nonnull %numdelfds.i) #5
@@ -407,7 +407,7 @@ lor.lhs.false51.i:                                ; preds = %lor.lhs.false46.i
   %31 = load i64, ptr %numdelfds.i, align 8
   %cmp57.i = icmp ne i64 %31, 1
   %or.cond10.i = select i1 %or.cond9.i, i1 true, i1 %cmp57.i
-  br i1 %or.cond10.i, label %test_ASYNC_WAIT_CTX_get_all_fds.exit.thread, label %lor.lhs.false58.i
+  br i1 %or.cond10.i, label %if.then.i63, label %lor.lhs.false58.i
 
 lor.lhs.false58.i:                                ; preds = %lor.lhs.false51.i
   %call59.i = call i32 @ASYNC_WAIT_CTX_get_changed_fds(ptr noundef nonnull %call1.i58, ptr noundef null, ptr noundef nonnull %numfds.i, ptr noundef nonnull %delfd.i, ptr noundef nonnull %numdelfds.i) #5
@@ -415,12 +415,12 @@ lor.lhs.false58.i:                                ; preds = %lor.lhs.false51.i
   %32 = load i32, ptr %delfd.i, align 4
   %cmp62.i = icmp ne i32 %32, 99
   %or.cond11.i = select i1 %tobool60.i, i1 true, i1 %cmp62.i
-  br i1 %or.cond11.i, label %test_ASYNC_WAIT_CTX_get_all_fds.exit.thread, label %lor.lhs.false63.i
+  br i1 %or.cond11.i, label %if.then.i63, label %lor.lhs.false63.i
 
 lor.lhs.false63.i:                                ; preds = %lor.lhs.false58.i
   %call64.i = call i32 @ASYNC_start_job(ptr noundef nonnull %job.i53, ptr noundef nonnull %call1.i58, ptr noundef nonnull %funcret.i54, ptr noundef nonnull @waitfd, ptr noundef null, i64 noundef 0) #5
   %cmp65.not.i = icmp eq i32 %call64.i, 3
-  br i1 %cmp65.not.i, label %lor.lhs.false66.i, label %test_ASYNC_WAIT_CTX_get_all_fds.exit.thread
+  br i1 %cmp65.not.i, label %lor.lhs.false66.i, label %if.then.i63
 
 lor.lhs.false66.i:                                ; preds = %lor.lhs.false63.i
   %call67.i = call i32 @ASYNC_WAIT_CTX_get_all_fds(ptr noundef nonnull %call1.i58, ptr noundef null, ptr noundef nonnull %numfds.i) #5
@@ -428,7 +428,7 @@ lor.lhs.false66.i:                                ; preds = %lor.lhs.false63.i
   %33 = load i64, ptr %numfds.i, align 8
   %cmp70.i = icmp ne i64 %33, 0
   %or.cond12.i = select i1 %tobool68.i, i1 true, i1 %cmp70.i
-  br i1 %or.cond12.i, label %test_ASYNC_WAIT_CTX_get_all_fds.exit.thread, label %lor.lhs.false71.i
+  br i1 %or.cond12.i, label %if.then.i63, label %lor.lhs.false71.i
 
 lor.lhs.false71.i:                                ; preds = %lor.lhs.false66.i
   %call72.i = call i32 @ASYNC_WAIT_CTX_get_changed_fds(ptr noundef nonnull %call1.i58, ptr noundef null, ptr noundef nonnull %numfds.i, ptr noundef null, ptr noundef nonnull %numdelfds.i) #5
@@ -442,10 +442,10 @@ lor.lhs.false71.i:                                ; preds = %lor.lhs.false66.i
   %36 = load i32, ptr %funcret.i54, align 4
   %cmp79.i = icmp ne i32 %36, 1
   %or.cond15.i = select i1 %or.cond14.i, i1 true, i1 %cmp79.i
-  br i1 %or.cond15.i, label %test_ASYNC_WAIT_CTX_get_all_fds.exit.thread, label %lor.lhs.false15
+  br i1 %or.cond15.i, label %if.then.i63, label %test_ASYNC_WAIT_CTX_get_all_fds.exit
 
-test_ASYNC_WAIT_CTX_get_all_fds.exit.thread:      ; preds = %lor.lhs.false12, %lor.lhs.false.i57, %lor.lhs.false2.i60, %lor.lhs.false5.i66, %lor.lhs.false10.i, %lor.lhs.false17.i72, %lor.lhs.false20.i75, %lor.lhs.false25.i, %lor.lhs.false30.i, %lor.lhs.false38.i, %lor.lhs.false43.i, %lor.lhs.false46.i, %lor.lhs.false51.i, %lor.lhs.false58.i, %lor.lhs.false63.i, %lor.lhs.false66.i, %lor.lhs.false71.i
-  %waitctx.0.i64 = phi ptr [ null, %lor.lhs.false.i57 ], [ %call1.i58, %lor.lhs.false2.i60 ], [ %call1.i58, %lor.lhs.false5.i66 ], [ %call1.i58, %lor.lhs.false10.i ], [ %call1.i58, %lor.lhs.false17.i72 ], [ %call1.i58, %lor.lhs.false20.i75 ], [ %call1.i58, %lor.lhs.false25.i ], [ %call1.i58, %lor.lhs.false30.i ], [ %call1.i58, %lor.lhs.false38.i ], [ %call1.i58, %lor.lhs.false43.i ], [ %call1.i58, %lor.lhs.false46.i ], [ %call1.i58, %lor.lhs.false51.i ], [ %call1.i58, %lor.lhs.false58.i ], [ %call1.i58, %lor.lhs.false63.i ], [ %call1.i58, %lor.lhs.false66.i ], [ %call1.i58, %lor.lhs.false71.i ], [ null, %lor.lhs.false12 ]
+if.then.i63:                                      ; preds = %lor.lhs.false71.i, %lor.lhs.false66.i, %lor.lhs.false63.i, %lor.lhs.false58.i, %lor.lhs.false51.i, %lor.lhs.false46.i, %lor.lhs.false43.i, %lor.lhs.false38.i, %lor.lhs.false30.i, %lor.lhs.false25.i, %lor.lhs.false20.i76, %lor.lhs.false17.i73, %lor.lhs.false10.i, %lor.lhs.false5.i67, %lor.lhs.false2.i60, %lor.lhs.false.i57, %test_ASYNC_get_current_job.exit
+  %waitctx.0.i64 = phi ptr [ null, %lor.lhs.false.i57 ], [ %call1.i58, %lor.lhs.false2.i60 ], [ %call1.i58, %lor.lhs.false5.i67 ], [ %call1.i58, %lor.lhs.false10.i ], [ %call1.i58, %lor.lhs.false17.i73 ], [ %call1.i58, %lor.lhs.false20.i76 ], [ %call1.i58, %lor.lhs.false25.i ], [ %call1.i58, %lor.lhs.false30.i ], [ %call1.i58, %lor.lhs.false38.i ], [ %call1.i58, %lor.lhs.false43.i ], [ %call1.i58, %lor.lhs.false46.i ], [ %call1.i58, %lor.lhs.false51.i ], [ %call1.i58, %lor.lhs.false58.i ], [ %call1.i58, %lor.lhs.false63.i ], [ %call1.i58, %lor.lhs.false66.i ], [ %call1.i58, %lor.lhs.false71.i ], [ null, %test_ASYNC_get_current_job.exit ]
   %37 = load ptr, ptr @stderr, align 8
   %38 = call i64 @fwrite(ptr nonnull @.str.7, i64 32, i64 1, ptr %37) #6
   call void @ASYNC_WAIT_CTX_free(ptr noundef %waitctx.0.i64) #5
@@ -458,7 +458,7 @@ test_ASYNC_WAIT_CTX_get_all_fds.exit.thread:      ; preds = %lor.lhs.false12, %l
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %numdelfds.i)
   br label %return
 
-lor.lhs.false15:                                  ; preds = %lor.lhs.false71.i
+test_ASYNC_WAIT_CTX_get_all_fds.exit:             ; preds = %lor.lhs.false71.i
   call void @ASYNC_WAIT_CTX_free(ptr noundef nonnull %call1.i58) #5
   call void @ASYNC_cleanup_thread() #5
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %job.i53)
@@ -472,28 +472,28 @@ lor.lhs.false15:                                  ; preds = %lor.lhs.false71.i
   store ptr null, ptr %job.i79, align 8
   %call.i81 = call i32 @ASYNC_init_thread(i64 noundef 1, i64 noundef 0) #5
   %tobool.not.i82 = icmp eq i32 %call.i81, 0
-  br i1 %tobool.not.i82, label %test_ASYNC_block_pause.exit.thread, label %lor.lhs.false.i83
+  br i1 %tobool.not.i82, label %if.then.i89, label %lor.lhs.false.i83
 
-lor.lhs.false.i83:                                ; preds = %lor.lhs.false15
+lor.lhs.false.i83:                                ; preds = %test_ASYNC_WAIT_CTX_get_all_fds.exit
   %call1.i84 = call ptr @ASYNC_WAIT_CTX_new() #5
   %cmp.i85 = icmp eq ptr %call1.i84, null
-  br i1 %cmp.i85, label %test_ASYNC_block_pause.exit.thread, label %lor.lhs.false2.i86
+  br i1 %cmp.i85, label %if.then.i89, label %lor.lhs.false2.i86
 
 lor.lhs.false2.i86:                               ; preds = %lor.lhs.false.i83
   %call3.i87 = call i32 @ASYNC_start_job(ptr noundef nonnull %job.i79, ptr noundef nonnull %call1.i84, ptr noundef nonnull %funcret.i80, ptr noundef nonnull @blockpause, ptr noundef null, i64 noundef 0) #5
   %cmp4.not.i88 = icmp eq i32 %call3.i87, 2
-  br i1 %cmp4.not.i88, label %lor.lhs.false5.i92, label %test_ASYNC_block_pause.exit.thread
+  br i1 %cmp4.not.i88, label %lor.lhs.false5.i93, label %if.then.i89
 
-lor.lhs.false5.i92:                               ; preds = %lor.lhs.false2.i86
-  %call6.i93 = call i32 @ASYNC_start_job(ptr noundef nonnull %job.i79, ptr noundef nonnull %call1.i84, ptr noundef nonnull %funcret.i80, ptr noundef nonnull @blockpause, ptr noundef null, i64 noundef 0) #5
-  %cmp7.i94 = icmp ne i32 %call6.i93, 3
+lor.lhs.false5.i93:                               ; preds = %lor.lhs.false2.i86
+  %call6.i94 = call i32 @ASYNC_start_job(ptr noundef nonnull %job.i79, ptr noundef nonnull %call1.i84, ptr noundef nonnull %funcret.i80, ptr noundef nonnull @blockpause, ptr noundef null, i64 noundef 0) #5
+  %cmp7.i95 = icmp ne i32 %call6.i94, 3
   %39 = load i32, ptr %funcret.i80, align 4
-  %cmp9.i95 = icmp ne i32 %39, 1
-  %or.cond.i96 = select i1 %cmp7.i94, i1 true, i1 %cmp9.i95
-  br i1 %or.cond.i96, label %test_ASYNC_block_pause.exit.thread, label %lor.lhs.false18
+  %cmp9.i96 = icmp ne i32 %39, 1
+  %or.cond.i97 = select i1 %cmp7.i95, i1 true, i1 %cmp9.i96
+  br i1 %or.cond.i97, label %if.then.i89, label %test_ASYNC_block_pause.exit
 
-test_ASYNC_block_pause.exit.thread:               ; preds = %lor.lhs.false15, %lor.lhs.false.i83, %lor.lhs.false2.i86, %lor.lhs.false5.i92
-  %waitctx.0.i90 = phi ptr [ null, %lor.lhs.false.i83 ], [ %call1.i84, %lor.lhs.false2.i86 ], [ %call1.i84, %lor.lhs.false5.i92 ], [ null, %lor.lhs.false15 ]
+if.then.i89:                                      ; preds = %lor.lhs.false5.i93, %lor.lhs.false2.i86, %lor.lhs.false.i83, %test_ASYNC_WAIT_CTX_get_all_fds.exit
+  %waitctx.0.i90 = phi ptr [ null, %lor.lhs.false.i83 ], [ %call1.i84, %lor.lhs.false2.i86 ], [ %call1.i84, %lor.lhs.false5.i93 ], [ null, %test_ASYNC_WAIT_CTX_get_all_fds.exit ]
   %40 = load ptr, ptr @stderr, align 8
   %41 = call i64 @fwrite(ptr nonnull @.str.8, i64 32, i64 1, ptr %40) #6
   call void @ASYNC_WAIT_CTX_free(ptr noundef %waitctx.0.i90) #5
@@ -502,7 +502,7 @@ test_ASYNC_block_pause.exit.thread:               ; preds = %lor.lhs.false15, %l
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %funcret.i80)
   br label %return
 
-lor.lhs.false18:                                  ; preds = %lor.lhs.false5.i92
+test_ASYNC_block_pause.exit:                      ; preds = %lor.lhs.false5.i93
   call void @ASYNC_WAIT_CTX_free(ptr noundef nonnull %call1.i84) #5
   call void @ASYNC_cleanup_thread() #5
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %job.i79)
@@ -512,32 +512,32 @@ lor.lhs.false18:                                  ; preds = %lor.lhs.false5.i92
   store ptr null, ptr %job.i98, align 8
   %call.i100 = call ptr @OSSL_LIB_CTX_new() #5
   %cmp.i101 = icmp eq ptr %call.i100, null
-  br i1 %cmp.i101, label %if.then.i115, label %if.end.i102
+  br i1 %cmp.i101, label %if.then.i114, label %if.end.i
 
-if.then.i115:                                     ; preds = %lor.lhs.false18
+if.then.i114:                                     ; preds = %test_ASYNC_block_pause.exit
   %42 = load ptr, ptr @stderr, align 8
   %43 = call i64 @fwrite(ptr nonnull @.str.9, i64 50, i64 1, ptr %42) #6
   br label %return.critedge
 
-if.end.i102:                                      ; preds = %lor.lhs.false18
+if.end.i:                                         ; preds = %test_ASYNC_block_pause.exit
   %call2.i = call ptr @OSSL_LIB_CTX_set0_default(ptr noundef nonnull %call.i100) #5
-  %call3.i103 = call ptr @ASYNC_WAIT_CTX_new() #5
-  %cmp4.i104 = icmp eq ptr %call3.i103, null
-  br i1 %cmp4.i104, label %if.then7.i, label %lor.lhs.false.i105
+  %call3.i102 = call ptr @ASYNC_WAIT_CTX_new() #5
+  %cmp4.i103 = icmp eq ptr %call3.i102, null
+  br i1 %cmp4.i103, label %if.then7.i, label %lor.lhs.false.i104
 
-lor.lhs.false.i105:                               ; preds = %if.end.i102
-  %call5.i = call i32 @ASYNC_start_job(ptr noundef nonnull %job.i98, ptr noundef nonnull %call3.i103, ptr noundef nonnull %funcret.i99, ptr noundef nonnull @change_deflt_libctx, ptr noundef null, i64 noundef 0) #5
-  %cmp6.not.i106 = icmp eq i32 %call5.i, 2
-  br i1 %cmp6.not.i106, label %if.end9.i, label %if.then7.i
+lor.lhs.false.i104:                               ; preds = %if.end.i
+  %call5.i = call i32 @ASYNC_start_job(ptr noundef nonnull %job.i98, ptr noundef nonnull %call3.i102, ptr noundef nonnull %funcret.i99, ptr noundef nonnull @change_deflt_libctx, ptr noundef null, i64 noundef 0) #5
+  %cmp6.not.i105 = icmp eq i32 %call5.i, 2
+  br i1 %cmp6.not.i105, label %if.end9.i, label %if.then7.i
 
-if.then7.i:                                       ; preds = %lor.lhs.false.i105, %if.end.i102
+if.then7.i:                                       ; preds = %lor.lhs.false.i104, %if.end.i
   %44 = load ptr, ptr @stderr, align 8
   %45 = call i64 @fwrite(ptr nonnull @.str.10, i64 46, i64 1, ptr %44) #6
   br label %return.critedge
 
-if.end9.i:                                        ; preds = %lor.lhs.false.i105
+if.end9.i:                                        ; preds = %lor.lhs.false.i104
   %call10.i = call ptr @OSSL_LIB_CTX_set0_default(ptr noundef %call2.i) #5
-  %call11.i108 = call ptr @OSSL_LIB_CTX_set0_default(ptr noundef %call10.i) #5
+  %call11.i107 = call ptr @OSSL_LIB_CTX_set0_default(ptr noundef %call10.i) #5
   %cmp12.not.i = icmp eq ptr %call10.i, %call.i100
   br i1 %cmp12.not.i, label %if.end15.i, label %if.then13.i
 
@@ -547,9 +547,9 @@ if.then13.i:                                      ; preds = %if.end9.i
   br label %return.critedge
 
 if.end15.i:                                       ; preds = %if.end9.i
-  %call16.i109 = call i32 @ASYNC_start_job(ptr noundef nonnull %job.i98, ptr noundef nonnull %call3.i103, ptr noundef nonnull %funcret.i99, ptr noundef nonnull @change_deflt_libctx, ptr noundef null, i64 noundef 0) #5
-  %cmp17.not.i110 = icmp eq i32 %call16.i109, 2
-  br i1 %cmp17.not.i110, label %if.end20.i, label %if.then18.i
+  %call16.i108 = call i32 @ASYNC_start_job(ptr noundef nonnull %job.i98, ptr noundef nonnull %call3.i102, ptr noundef nonnull %funcret.i99, ptr noundef nonnull @change_deflt_libctx, ptr noundef null, i64 noundef 0) #5
+  %cmp17.not.i109 = icmp eq i32 %call16.i108, 2
+  br i1 %cmp17.not.i109, label %if.end20.i, label %if.then18.i
 
 if.then18.i:                                      ; preds = %if.end15.i
   %48 = load ptr, ptr @stderr, align 8
@@ -557,8 +557,8 @@ if.then18.i:                                      ; preds = %if.end15.i
   br label %return.critedge
 
 if.end20.i:                                       ; preds = %if.end15.i
-  %call21.i111 = call ptr @OSSL_LIB_CTX_set0_default(ptr noundef %call11.i108) #5
-  %cmp22.not.i = icmp eq ptr %call21.i111, %call.i100
+  %call21.i110 = call ptr @OSSL_LIB_CTX_set0_default(ptr noundef %call11.i107) #5
+  %cmp22.not.i = icmp eq ptr %call21.i110, %call.i100
   br i1 %cmp22.not.i, label %if.end25.i, label %if.then23.i
 
 if.then23.i:                                      ; preds = %if.end20.i
@@ -567,12 +567,12 @@ if.then23.i:                                      ; preds = %if.end20.i
   br label %return.critedge
 
 if.end25.i:                                       ; preds = %if.end20.i
-  %call26.i112 = call i32 @ASYNC_start_job(ptr noundef nonnull %job.i98, ptr noundef nonnull %call3.i103, ptr noundef nonnull %funcret.i99, ptr noundef nonnull @change_deflt_libctx, ptr noundef null, i64 noundef 0) #5
-  %cmp27.i = icmp ne i32 %call26.i112, 3
+  %call26.i111 = call i32 @ASYNC_start_job(ptr noundef nonnull %job.i98, ptr noundef nonnull %call3.i102, ptr noundef nonnull %funcret.i99, ptr noundef nonnull @change_deflt_libctx, ptr noundef null, i64 noundef 0) #5
+  %cmp27.i = icmp ne i32 %call26.i111, 3
   %52 = load i32, ptr %funcret.i99, align 4
-  %cmp29.i113 = icmp ne i32 %52, 1
-  %or.cond.i114 = select i1 %cmp27.i, i1 true, i1 %cmp29.i113
-  br i1 %or.cond.i114, label %if.then30.i, label %if.end32.i
+  %cmp29.i112 = icmp ne i32 %52, 1
+  %or.cond.i113 = select i1 %cmp27.i, i1 true, i1 %cmp29.i112
+  br i1 %or.cond.i113, label %if.then30.i, label %if.end32.i
 
 if.then30.i:                                      ; preds = %if.end25.i
   %53 = load ptr, ptr @stderr, align 8
@@ -591,59 +591,59 @@ if.then36.i:                                      ; preds = %if.end32.i
   br label %return.critedge
 
 test_ASYNC_start_job_ex.exit:                     ; preds = %if.end32.i
-  call void @ASYNC_WAIT_CTX_free(ptr noundef nonnull %call3.i103) #5
+  call void @ASYNC_WAIT_CTX_free(ptr noundef nonnull %call3.i102) #5
   call void @ASYNC_cleanup_thread() #5
   call void @OSSL_LIB_CTX_free(ptr noundef nonnull %call.i100) #5
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %job.i98)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %funcret.i99)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %alloc_fn.i)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %free_fn.i)
-  %call.i116 = call i32 @ASYNC_set_mem_functions(ptr noundef nonnull @test_alloc_stack, ptr noundef nonnull @test_free_stack) #5
-  %cmp.i117 = icmp eq i32 %call.i116, 0
-  br i1 %cmp.i117, label %test_ASYNC_set_mem_functions.exit, label %if.end.i118
+  %call.i115 = call i32 @ASYNC_set_mem_functions(ptr noundef nonnull @test_alloc_stack, ptr noundef nonnull @test_free_stack) #5
+  %cmp.i116 = icmp eq i32 %call.i115, 0
+  br i1 %cmp.i116, label %test_ASYNC_set_mem_functions.exit, label %if.end.i117
 
-if.end.i118:                                      ; preds = %test_ASYNC_start_job_ex.exit
+if.end.i117:                                      ; preds = %test_ASYNC_start_job_ex.exit
   call void @ASYNC_get_mem_functions(ptr noundef nonnull %alloc_fn.i, ptr noundef nonnull %free_fn.i) #5
   %57 = load ptr, ptr %alloc_fn.i, align 8
   %cmp1.i = icmp ne ptr %57, @test_alloc_stack
   %58 = load ptr, ptr %free_fn.i, align 8
   %cmp2.i = icmp ne ptr %58, @test_free_stack
-  %or.cond.i119 = select i1 %cmp1.i, i1 true, i1 %cmp2.i
-  br i1 %or.cond.i119, label %if.then3.i, label %if.end5.i
+  %or.cond.i118 = select i1 %cmp1.i, i1 true, i1 %cmp2.i
+  br i1 %or.cond.i118, label %if.then3.i, label %if.end5.i
 
-if.then3.i:                                       ; preds = %if.end.i118
+if.then3.i:                                       ; preds = %if.end.i117
   %59 = load ptr, ptr @stderr, align 8
   %60 = call i64 @fwrite(ptr nonnull @.str.15, i64 81, i64 1, ptr %59) #6
   br label %test_ASYNC_set_mem_functions.exit.thread
 
-if.end5.i:                                        ; preds = %if.end.i118
-  %call6.i120 = call i32 @ASYNC_init_thread(i64 noundef 1, i64 noundef 1) #5
-  %tobool.not.i121 = icmp eq i32 %call6.i120, 0
-  br i1 %tobool.not.i121, label %if.then7.i126, label %if.end9.i122
+if.end5.i:                                        ; preds = %if.end.i117
+  %call6.i119 = call i32 @ASYNC_init_thread(i64 noundef 1, i64 noundef 1) #5
+  %tobool.not.i120 = icmp eq i32 %call6.i119, 0
+  br i1 %tobool.not.i120, label %if.then7.i125, label %if.end9.i121
 
-if.then7.i126:                                    ; preds = %if.end5.i
+if.then7.i125:                                    ; preds = %if.end5.i
   %61 = load ptr, ptr @stderr, align 8
   %62 = call i64 @fwrite(ptr nonnull @.str.16, i64 62, i64 1, ptr %61) #6
   br label %test_ASYNC_set_mem_functions.exit.thread
 
-if.end9.i122:                                     ; preds = %if.end5.i
+if.end9.i121:                                     ; preds = %if.end5.i
   call void @ASYNC_cleanup_thread() #5
   %.b.i = load i1, ptr @custom_alloc_used, align 4
   %.b2.i = load i1, ptr @custom_free_used, align 4
-  %or.cond1.i123 = select i1 %.b.i, i1 %.b2.i, i1 false
-  br i1 %or.cond1.i123, label %test_ASYNC_set_mem_functions.exit, label %if.then13.i124
+  %or.cond1.i122 = select i1 %.b.i, i1 %.b2.i, i1 false
+  br i1 %or.cond1.i122, label %test_ASYNC_set_mem_functions.exit, label %if.then13.i123
 
-if.then13.i124:                                   ; preds = %if.end9.i122
+if.then13.i123:                                   ; preds = %if.end9.i121
   %63 = load ptr, ptr @stderr, align 8
   %64 = call i64 @fwrite(ptr nonnull @.str.17, i64 70, i64 1, ptr %63) #6
   br label %test_ASYNC_set_mem_functions.exit.thread
 
-test_ASYNC_set_mem_functions.exit.thread:         ; preds = %if.then3.i, %if.then13.i124, %if.then7.i126
+test_ASYNC_set_mem_functions.exit.thread:         ; preds = %if.then3.i, %if.then13.i123, %if.then7.i125
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %alloc_fn.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %free_fn.i)
   br label %return
 
-test_ASYNC_set_mem_functions.exit:                ; preds = %test_ASYNC_start_job_ex.exit, %if.end9.i122
+test_ASYNC_set_mem_functions.exit:                ; preds = %test_ASYNC_start_job_ex.exit, %if.end9.i121
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %alloc_fn.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %free_fn.i)
   br label %if.end25
@@ -652,17 +652,17 @@ if.end25:                                         ; preds = %test_ASYNC_set_mem_
   %puts = call i32 @puts(ptr nonnull dereferenceable(1) @str)
   br label %return
 
-return.critedge:                                  ; preds = %if.then36.i, %if.then30.i, %if.then23.i, %if.then18.i, %if.then13.i, %if.then7.i, %if.then.i115
-  %waitctx.0.i107.ph = phi ptr [ %call3.i103, %if.then36.i ], [ %call3.i103, %if.then30.i ], [ %call3.i103, %if.then23.i ], [ %call3.i103, %if.then18.i ], [ %call3.i103, %if.then13.i ], [ %call3.i103, %if.then7.i ], [ null, %if.then.i115 ]
-  call void @ASYNC_WAIT_CTX_free(ptr noundef %waitctx.0.i107.ph) #5
+return.critedge:                                  ; preds = %if.then36.i, %if.then30.i, %if.then23.i, %if.then18.i, %if.then13.i, %if.then7.i, %if.then.i114
+  %waitctx.0.i106.ph = phi ptr [ %call3.i102, %if.then36.i ], [ %call3.i102, %if.then30.i ], [ %call3.i102, %if.then23.i ], [ %call3.i102, %if.then18.i ], [ %call3.i102, %if.then13.i ], [ %call3.i102, %if.then7.i ], [ null, %if.then.i114 ]
+  call void @ASYNC_WAIT_CTX_free(ptr noundef %waitctx.0.i106.ph) #5
   call void @ASYNC_cleanup_thread() #5
   call void @OSSL_LIB_CTX_free(ptr noundef %call.i100) #5
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %job.i98)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %funcret.i99)
   br label %return
 
-return:                                           ; preds = %return.critedge, %test_ASYNC_set_mem_functions.exit.thread, %test_ASYNC_block_pause.exit.thread, %test_ASYNC_WAIT_CTX_get_all_fds.exit.thread, %test_ASYNC_get_current_job.exit.thread, %test_ASYNC_start_job.exit.thread, %test_ASYNC_callback_status.exit.thread, %test_ASYNC_init_thread.exit.thread, %if.end25
-  %retval.0 = phi i32 [ 0, %if.end25 ], [ 1, %test_ASYNC_init_thread.exit.thread ], [ 1, %test_ASYNC_callback_status.exit.thread ], [ 1, %test_ASYNC_start_job.exit.thread ], [ 1, %test_ASYNC_get_current_job.exit.thread ], [ 1, %test_ASYNC_WAIT_CTX_get_all_fds.exit.thread ], [ 1, %test_ASYNC_block_pause.exit.thread ], [ 1, %test_ASYNC_set_mem_functions.exit.thread ], [ 1, %return.critedge ]
+return:                                           ; preds = %return.critedge, %if.then.i89, %if.then.i63, %if.then.i43, %if.then.i31, %if.then.i9, %if.then.i, %test_ASYNC_set_mem_functions.exit.thread, %if.end25
+  %retval.0 = phi i32 [ 0, %if.end25 ], [ 1, %test_ASYNC_set_mem_functions.exit.thread ], [ 1, %if.then.i ], [ 1, %if.then.i9 ], [ 1, %if.then.i31 ], [ 1, %if.then.i43 ], [ 1, %if.then.i63 ], [ 1, %if.then.i89 ], [ 1, %return.critedge ]
   ret i32 %retval.0
 }
 

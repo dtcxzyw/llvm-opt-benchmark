@@ -966,11 +966,7 @@ entry:
   %call = tail call noalias ptr @g_strdup(ptr noundef %name) #12
   %call1 = tail call ptr @strrchr(ptr noundef nonnull dereferenceable(1) %call, i32 noundef 47) #14
   %tobool.not = icmp eq ptr %call1, null
-  br i1 %tobool.not, label %if.then, label %if.end
-
-if.then:                                          ; preds = %entry
-  tail call void @g_free(ptr noundef %call) #12
-  br label %return
+  br i1 %tobool.not, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
   store i8 0, ptr %call1, align 1
@@ -994,7 +990,7 @@ if.end7:                                          ; preds = %if.then5, %if.end
   %parent.0 = phi i32 [ 0, %if.end ], [ %call.i, %if.then5 ]
   %call8 = tail call i32 @fdt_add_subnode(ptr noundef %fdt, i32 noundef %parent.0, ptr noundef %incdec.ptr) #12
   %cmp = icmp slt i32 %call8, 0
-  br i1 %cmp, label %if.then9, label %if.end11
+  br i1 %cmp, label %if.then9, label %return
 
 if.then9:                                         ; preds = %if.end7
   %call10 = tail call ptr @fdt_strerror(i32 noundef %call8) #12
@@ -1002,12 +998,9 @@ if.then9:                                         ; preds = %if.end7
   tail call void @exit(i32 noundef 1) #13
   unreachable
 
-if.end11:                                         ; preds = %if.end7
-  tail call void @g_free(ptr noundef nonnull %call) #12
-  br label %return
-
-return:                                           ; preds = %if.end11, %if.then
-  %retval.0 = phi i32 [ %call8, %if.end11 ], [ -1, %if.then ]
+return:                                           ; preds = %if.end7, %entry
+  %retval.0 = phi i32 [ -1, %entry ], [ %call8, %if.end7 ]
+  tail call void @g_free(ptr noundef %call) #12
   ret i32 %retval.0
 }
 

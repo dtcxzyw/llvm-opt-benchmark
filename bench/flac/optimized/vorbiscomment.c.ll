@@ -47,11 +47,7 @@ if.then.i18.i:                                    ; preds = %local_strdup.exit.i
 local_strdup.exit19.i:                            ; preds = %local_strdup.exit.i
   %call2.i = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %call.i16.i, i32 noundef 61) #11
   %cmp3.i = icmp eq ptr %call2.i, null
-  br i1 %cmp3.i, label %if.then4.i, label %if.end5.i
-
-if.then4.i:                                       ; preds = %local_strdup.exit19.i
-  tail call void @free(ptr noundef nonnull %call.i16.i) #10
-  br label %free_field.exit
+  br i1 %cmp3.i, label %free_field.exit, label %if.end5.i
 
 if.end5.i:                                        ; preds = %local_strdup.exit19.i
   %incdec.ptr.i = getelementptr inbounds i8, ptr %call2.i, i64 1
@@ -65,18 +61,14 @@ for.body.i:                                       ; preds = %if.end5.i, %for.inc
   %.fr31.i = phi i8 [ %.fr.i, %for.inc.i ], [ %.fr28.i, %if.end5.i ]
   %q.030.i = phi ptr [ %incdec.ptr17.i, %for.inc.i ], [ %call.i16.i, %if.end5.i ]
   %cmp6.i = icmp slt i8 %.fr31.i, 32
-  br i1 %cmp6.i, label %if.then15.i, label %switch.early.test.i
+  br i1 %cmp6.i, label %free_field.exit, label %switch.early.test.i
 
 switch.early.test.i:                              ; preds = %for.body.i
   switch i8 %.fr31.i, label %for.inc.i [
-    i8 127, label %if.then15.i
-    i8 126, label %if.then15.i
-    i8 61, label %if.then15.i
+    i8 127, label %free_field.exit
+    i8 126, label %free_field.exit
+    i8 61, label %free_field.exit
   ]
-
-if.then15.i:                                      ; preds = %switch.early.test.i, %switch.early.test.i, %switch.early.test.i, %for.body.i
-  tail call void @free(ptr noundef %call.i16.i) #10
-  br label %free_field.exit
 
 for.inc.i:                                        ; preds = %switch.early.test.i
   %incdec.ptr17.i = getelementptr inbounds i8, ptr %q.030.i, i64 1
@@ -103,8 +95,9 @@ if.then.i26.i:                                    ; preds = %local_strdup.exit23
   tail call fastcc void @die(ptr noundef nonnull @.str.2)
   unreachable
 
-free_field.exit:                                  ; preds = %if.then4.i, %if.then15.i
-  %storemerge = phi ptr [ @.str, %if.then15.i ], [ @.str.1, %if.then4.i ]
+free_field.exit:                                  ; preds = %for.body.i, %switch.early.test.i, %switch.early.test.i, %switch.early.test.i, %local_strdup.exit19.i
+  %storemerge = phi ptr [ @.str.1, %local_strdup.exit19.i ], [ @.str, %switch.early.test.i ], [ @.str, %switch.early.test.i ], [ @.str, %switch.early.test.i ], [ @.str, %for.body.i ]
+  tail call void @free(ptr noundef %call.i16.i) #10
   store ptr %storemerge, ptr %violation, align 8
   tail call void @free(ptr noundef nonnull %call.i.i) #10
   br label %return

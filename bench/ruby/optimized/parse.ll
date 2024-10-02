@@ -49058,129 +49058,126 @@ define internal fastcc void @parser_set_encode(ptr nocapture noundef %0, ptr nou
 12:                                               ; preds = %2, %9
   %13 = tail call i32 @rb_enc_find_index(ptr noundef nonnull %1) #33
   %14 = icmp slt i32 %13, 0
-  br i1 %14, label %15, label %48
+  br i1 %14, label %15, label %47
 
-15:                                               ; preds = %12, %9
-  %16 = tail call i64 (ptr, ...) @rb_sprintf(ptr noundef nonnull @.str.935, ptr noundef nonnull %1) #33
-  br label %17
-
-17:                                               ; preds = %rb_enc_asciicompat.exit.thread, %15
-  %.sink = phi i64 [ %53, %rb_enc_asciicompat.exit.thread ], [ %16, %15 ]
-  %18 = getelementptr inbounds i8, ptr %3, i64 8
-  store i64 %.sink, ptr %18, align 8
-  %19 = load i64, ptr @rb_eArgError, align 8
-  store i64 %19, ptr %3, align 16
-  %20 = tail call i64 @rb_make_backtrace() #33
-  %21 = getelementptr inbounds i8, ptr %3, i64 16
-  store i64 %20, ptr %21, align 16
-  %22 = getelementptr inbounds i8, ptr %0, i64 224
-  %23 = load i64, ptr %22, align 8
-  %24 = getelementptr inbounds i8, ptr %0, i64 212
-  %25 = load i32, ptr %24, align 4
-  %26 = tail call i64 (ptr, ...) @rb_sprintf(ptr noundef nonnull @.str.936, i64 noundef %23, i32 noundef %25) #33
-  %27 = tail call i64 @rb_ary_unshift(i64 noundef %20, i64 noundef %26) #33
-  %28 = call i64 @rb_make_exception(i32 noundef 3, ptr noundef nonnull %3) #33
-  %29 = load i32, ptr %24, align 4
-  store i32 %29, ptr %4, align 4
-  %30 = getelementptr inbounds i8, ptr %4, i64 4
-  %31 = getelementptr inbounds i8, ptr %0, i64 104
-  %32 = load ptr, ptr %31, align 8
-  %33 = getelementptr inbounds i8, ptr %0, i64 80
-  %34 = load ptr, ptr %33, align 8
-  %35 = ptrtoint ptr %32 to i64
-  %36 = ptrtoint ptr %34 to i64
-  %37 = sub i64 %35, %36
-  %38 = trunc i64 %37 to i32
-  store i32 %38, ptr %30, align 4
-  %39 = getelementptr inbounds i8, ptr %4, i64 8
-  store i32 %29, ptr %39, align 4
-  %40 = getelementptr inbounds i8, ptr %4, i64 12
-  %41 = getelementptr inbounds i8, ptr %0, i64 88
-  %42 = load ptr, ptr %41, align 8
-  %43 = ptrtoint ptr %42 to i64
-  %44 = sub i64 %43, %36
-  %45 = trunc i64 %44 to i32
-  store i32 %45, ptr %40, align 4
-  %46 = getelementptr inbounds i8, ptr %0, i64 64
-  %47 = load ptr, ptr %46, align 8
-  call void @ruby_show_error_line(ptr poison, i64 noundef %28, ptr noundef nonnull %4, i32 noundef %29, ptr noundef %47)
-  call void @rb_exc_raise(i64 noundef %28) #38
+15:                                               ; preds = %9, %12, %rb_enc_asciicompat.exit.thread
+  %.val.sink = phi ptr [ %.val, %rb_enc_asciicompat.exit.thread ], [ %1, %12 ], [ %1, %9 ]
+  %.str.937.sink = phi ptr [ @.str.937, %rb_enc_asciicompat.exit.thread ], [ @.str.935, %12 ], [ @.str.935, %9 ]
+  %16 = tail call i64 (ptr, ...) @rb_sprintf(ptr noundef nonnull %.str.937.sink, ptr noundef %.val.sink) #33
+  %17 = getelementptr inbounds i8, ptr %3, i64 8
+  store i64 %16, ptr %17, align 8
+  %18 = load i64, ptr @rb_eArgError, align 8
+  store i64 %18, ptr %3, align 16
+  %19 = tail call i64 @rb_make_backtrace() #33
+  %20 = getelementptr inbounds i8, ptr %3, i64 16
+  store i64 %19, ptr %20, align 16
+  %21 = getelementptr inbounds i8, ptr %0, i64 224
+  %22 = load i64, ptr %21, align 8
+  %23 = getelementptr inbounds i8, ptr %0, i64 212
+  %24 = load i32, ptr %23, align 4
+  %25 = tail call i64 (ptr, ...) @rb_sprintf(ptr noundef nonnull @.str.936, i64 noundef %22, i32 noundef %24) #33
+  %26 = tail call i64 @rb_ary_unshift(i64 noundef %19, i64 noundef %25) #33
+  %27 = call i64 @rb_make_exception(i32 noundef 3, ptr noundef nonnull %3) #33
+  %28 = load i32, ptr %23, align 4
+  store i32 %28, ptr %4, align 4
+  %29 = getelementptr inbounds i8, ptr %4, i64 4
+  %30 = getelementptr inbounds i8, ptr %0, i64 104
+  %31 = load ptr, ptr %30, align 8
+  %32 = getelementptr inbounds i8, ptr %0, i64 80
+  %33 = load ptr, ptr %32, align 8
+  %34 = ptrtoint ptr %31 to i64
+  %35 = ptrtoint ptr %33 to i64
+  %36 = sub i64 %34, %35
+  %37 = trunc i64 %36 to i32
+  store i32 %37, ptr %29, align 4
+  %38 = getelementptr inbounds i8, ptr %4, i64 8
+  store i32 %28, ptr %38, align 4
+  %39 = getelementptr inbounds i8, ptr %4, i64 12
+  %40 = getelementptr inbounds i8, ptr %0, i64 88
+  %41 = load ptr, ptr %40, align 8
+  %42 = ptrtoint ptr %41 to i64
+  %43 = sub i64 %42, %35
+  %44 = trunc i64 %43 to i32
+  store i32 %44, ptr %39, align 4
+  %45 = getelementptr inbounds i8, ptr %0, i64 64
+  %46 = load ptr, ptr %45, align 8
+  call void @ruby_show_error_line(ptr poison, i64 noundef %27, ptr noundef nonnull %4, i32 noundef %28, ptr noundef %46)
+  call void @rb_exc_raise(i64 noundef %27) #38
   unreachable
 
-48:                                               ; preds = %12
-  %49 = tail call ptr @rb_enc_from_index(i32 noundef %13) #33
-  %50 = getelementptr i8, ptr %49, i64 20
-  %.val.i = load i32, ptr %50, align 4
+47:                                               ; preds = %12
+  %48 = tail call ptr @rb_enc_from_index(i32 noundef %13) #33
+  %49 = getelementptr i8, ptr %48, i64 20
+  %.val.i = load i32, ptr %49, align 4
   %.not.i = icmp eq i32 %.val.i, 1
   br i1 %.not.i, label %rb_enc_asciicompat.exit, label %rb_enc_asciicompat.exit.thread
 
-rb_enc_asciicompat.exit:                          ; preds = %48
-  %51 = tail call i32 @rb_enc_dummy_p(ptr noundef nonnull readonly %49) #37
-  %.not3.i = icmp eq i32 %51, 0
-  br i1 %.not3.i, label %54, label %rb_enc_asciicompat.exit.thread
+rb_enc_asciicompat.exit:                          ; preds = %47
+  %50 = tail call i32 @rb_enc_dummy_p(ptr noundef nonnull readonly %48) #37
+  %.not3.i = icmp eq i32 %50, 0
+  br i1 %.not3.i, label %52, label %rb_enc_asciicompat.exit.thread
 
-rb_enc_asciicompat.exit.thread:                   ; preds = %48, %rb_enc_asciicompat.exit
-  %52 = getelementptr i8, ptr %49, i64 8
-  %.val = load ptr, ptr %52, align 8
-  %53 = tail call i64 (ptr, ...) @rb_sprintf(ptr noundef nonnull @.str.937, ptr noundef %.val) #33
-  br label %17
+rb_enc_asciicompat.exit.thread:                   ; preds = %47, %rb_enc_asciicompat.exit
+  %51 = getelementptr i8, ptr %48, i64 8
+  %.val = load ptr, ptr %51, align 8
+  br label %15
 
-54:                                               ; preds = %rb_enc_asciicompat.exit
-  %55 = getelementptr inbounds i8, ptr %0, i64 232
-  store ptr %49, ptr %55, align 8
-  %56 = getelementptr inbounds i8, ptr %0, i64 384
-  %57 = load i64, ptr %56, align 8
-  %.not36 = icmp eq i64 %57, 0
-  br i1 %.not36, label %.loopexit, label %58
+52:                                               ; preds = %rb_enc_asciicompat.exit
+  %53 = getelementptr inbounds i8, ptr %0, i64 232
+  store ptr %48, ptr %53, align 8
+  %54 = getelementptr inbounds i8, ptr %0, i64 384
+  %55 = load i64, ptr %54, align 8
+  %.not36 = icmp eq i64 %55, 0
+  br i1 %.not36, label %.loopexit, label %56
 
-58:                                               ; preds = %54
-  %59 = inttoptr i64 %57 to ptr
-  %60 = load i64, ptr %59, align 8
-  %61 = and i64 %60, 8192
-  %.not.i37 = icmp eq i64 %61, 0
-  br i1 %.not.i37, label %65, label %62
+56:                                               ; preds = %52
+  %57 = inttoptr i64 %55 to ptr
+  %58 = load i64, ptr %57, align 8
+  %59 = and i64 %58, 8192
+  %.not.i37 = icmp eq i64 %59, 0
+  br i1 %.not.i37, label %63, label %60
 
-62:                                               ; preds = %58
-  %63 = lshr i64 %60, 15
-  %64 = and i64 %63, 127
+60:                                               ; preds = %56
+  %61 = lshr i64 %58, 15
+  %62 = and i64 %61, 127
   br label %rb_array_len.exit
 
-65:                                               ; preds = %58
-  %66 = getelementptr inbounds i8, ptr %59, i64 16
-  %67 = load i64, ptr %66, align 8
+63:                                               ; preds = %56
+  %64 = getelementptr inbounds i8, ptr %57, i64 16
+  %65 = load i64, ptr %64, align 8
   br label %rb_array_len.exit
 
-rb_array_len.exit:                                ; preds = %62, %65
-  %.0.i38 = phi i64 [ %64, %62 ], [ %67, %65 ]
-  %68 = icmp sgt i64 %.0.i38, 0
-  br i1 %68, label %.lr.ph, label %.loopexit
+rb_array_len.exit:                                ; preds = %60, %63
+  %.0.i38 = phi i64 [ %62, %60 ], [ %65, %63 ]
+  %66 = icmp sgt i64 %.0.i38, 0
+  br i1 %66, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %rb_array_len.exit
-  %69 = getelementptr inbounds i8, ptr %59, i64 16
-  %70 = getelementptr inbounds i8, ptr %59, i64 32
-  br label %71
+  %67 = getelementptr inbounds i8, ptr %57, i64 16
+  %68 = getelementptr inbounds i8, ptr %57, i64 32
+  br label %69
 
-71:                                               ; preds = %.lr.ph, %RARRAY_AREF.exit
-  %.043 = phi i64 [ 0, %.lr.ph ], [ %79, %RARRAY_AREF.exit ]
-  %72 = load i64, ptr %59, align 8
-  %73 = and i64 %72, 8192
-  %.not.i.i = icmp eq i64 %73, 0
-  br i1 %.not.i.i, label %74, label %RARRAY_AREF.exit
+69:                                               ; preds = %.lr.ph, %RARRAY_AREF.exit
+  %.043 = phi i64 [ 0, %.lr.ph ], [ %77, %RARRAY_AREF.exit ]
+  %70 = load i64, ptr %57, align 8
+  %71 = and i64 %70, 8192
+  %.not.i.i = icmp eq i64 %71, 0
+  br i1 %.not.i.i, label %72, label %RARRAY_AREF.exit
 
-74:                                               ; preds = %71
-  %75 = load ptr, ptr %70, align 8
+72:                                               ; preds = %69
+  %73 = load ptr, ptr %68, align 8
   br label %RARRAY_AREF.exit
 
-RARRAY_AREF.exit:                                 ; preds = %71, %74
-  %.0.i.i = phi ptr [ %75, %74 ], [ %69, %71 ]
-  %76 = getelementptr i64, ptr %.0.i.i, i64 %.043
-  %77 = load i64, ptr %76, align 8
-  %78 = tail call i64 @rb_enc_associate_index(i64 noundef %77, i32 noundef %13) #33
-  %79 = add nuw nsw i64 %.043, 1
-  %exitcond.not = icmp eq i64 %79, %.0.i38
-  br i1 %exitcond.not, label %.loopexit, label %71, !llvm.loop !166
+RARRAY_AREF.exit:                                 ; preds = %69, %72
+  %.0.i.i = phi ptr [ %73, %72 ], [ %67, %69 ]
+  %74 = getelementptr i64, ptr %.0.i.i, i64 %.043
+  %75 = load i64, ptr %74, align 8
+  %76 = tail call i64 @rb_enc_associate_index(i64 noundef %75, i32 noundef %13) #33
+  %77 = add nuw nsw i64 %.043, 1
+  %exitcond.not = icmp eq i64 %77, %.0.i38
+  br i1 %exitcond.not, label %.loopexit, label %69, !llvm.loop !166
 
-.loopexit:                                        ; preds = %RARRAY_AREF.exit, %rb_array_len.exit, %54
+.loopexit:                                        ; preds = %RARRAY_AREF.exit, %rb_array_len.exit, %52
   ret void
 }
 

@@ -1157,13 +1157,11 @@ sw.bb:                                            ; preds = %entry
   %zsl = getelementptr inbounds i8, ptr %0, i64 8
   %2 = load ptr, ptr %zsl, align 8
   tail call void @zslFree(ptr noundef %2) #17
-  tail call void @zfree(ptr noundef nonnull %0) #17
   br label %sw.epilog
 
 sw.bb1:                                           ; preds = %entry
   %ptr2 = getelementptr inbounds i8, ptr %o, i64 8
   %3 = load ptr, ptr %ptr2, align 8
-  tail call void @zfree(ptr noundef %3) #17
   br label %sw.epilog
 
 sw.default:                                       ; preds = %entry
@@ -1172,6 +1170,8 @@ sw.default:                                       ; preds = %entry
   unreachable
 
 sw.epilog:                                        ; preds = %sw.bb1, %sw.bb
+  %.sink = phi ptr [ %3, %sw.bb1 ], [ %0, %sw.bb ]
+  tail call void @zfree(ptr noundef %.sink) #17
   ret void
 }
 
@@ -1360,19 +1360,22 @@ sw.bb.i25:                                        ; preds = %sw.bb3
   %zsl.i = getelementptr inbounds i8, ptr %7, i64 8
   %9 = load ptr, ptr %zsl.i, align 8
   tail call void @zslFree(ptr noundef %9) #17
-  tail call void @zfree(ptr noundef nonnull %7) #17
-  br label %sw.epilog
+  br label %freeZsetObject.exit
 
 sw.bb1.i23:                                       ; preds = %sw.bb3
   %ptr2.i24 = getelementptr inbounds i8, ptr %o, i64 8
   %10 = load ptr, ptr %ptr2.i24, align 8
-  tail call void @zfree(ptr noundef %10) #17
-  br label %sw.epilog
+  br label %freeZsetObject.exit
 
 sw.default.i27:                                   ; preds = %sw.bb3
   tail call void (ptr, i32, ptr, ...) @_serverPanic(ptr noundef nonnull @.str.1, i32 noundef 352, ptr noundef nonnull @.str.6) #17
   tail call void @abort() #18
   unreachable
+
+freeZsetObject.exit:                              ; preds = %sw.bb.i25, %sw.bb1.i23
+  %.sink.i = phi ptr [ %10, %sw.bb1.i23 ], [ %7, %sw.bb.i25 ]
+  tail call void @zfree(ptr noundef %.sink.i) #17
+  br label %sw.epilog
 
 sw.bb4:                                           ; preds = %if.then
   %bf.lshr.i29 = lshr i32 %bf.load, 4
@@ -1422,7 +1425,7 @@ sw.default:                                       ; preds = %if.then
   tail call void @abort() #18
   unreachable
 
-sw.epilog:                                        ; preds = %sw.bb1.i31, %sw.bb.i33, %sw.bb1.i23, %sw.bb.i25, %sw.bb1.i, %sw.bb.i, %if.then5.i, %if.then.i14, %if.then.i, %sw.bb, %sw.bb6, %sw.bb5
+sw.epilog:                                        ; preds = %sw.bb1.i31, %sw.bb.i33, %sw.bb1.i, %sw.bb.i, %if.then5.i, %if.then.i14, %if.then.i, %sw.bb, %sw.bb6, %sw.bb5, %freeZsetObject.exit
   tail call void @zfree(ptr noundef nonnull %o) #17
   br label %if.end15
 
@@ -1518,28 +1521,18 @@ while.cond.preheader:                             ; preds = %cond.end
   %tobool7.not14 = icmp eq ptr %node.013, null
   br i1 %tobool7.not14, label %if.end30, label %while.body
 
-while.body:                                       ; preds = %while.cond.preheader, %if.end
-  %node.015 = phi ptr [ %node.0, %if.end ], [ %node.013, %while.cond.preheader ]
+while.body:                                       ; preds = %while.cond.preheader, %while.body
+  %node.015 = phi ptr [ %node.0, %while.body ], [ %node.013, %while.cond.preheader ]
   %encoding = getelementptr inbounds i8, ptr %node.015, i64 32
   %bf.load8 = load i32, ptr %encoding, align 8
   %3 = and i32 %bf.load8, 196608
   %cmp11 = icmp eq i32 %3, 131072
   %entry14 = getelementptr inbounds i8, ptr %node.015, i64 16
   %4 = load ptr, ptr %entry14, align 8
-  br i1 %cmp11, label %if.then13, label %if.else
-
-if.then13:                                        ; preds = %while.body
-  %5 = load i64, ptr %4, align 8
-  tail call void @dismissMemory(ptr noundef nonnull %4, i64 noundef %5) #17
-  br label %if.end
-
-if.else:                                          ; preds = %while.body
   %sz17 = getelementptr inbounds i8, ptr %node.015, i64 24
-  %6 = load i64, ptr %sz17, align 8
-  tail call void @dismissMemory(ptr noundef %4, i64 noundef %6) #17
-  br label %if.end
-
-if.end:                                           ; preds = %if.else, %if.then13
+  %.sink.in = select i1 %cmp11, ptr %4, ptr %sz17
+  %.sink = load i64, ptr %.sink.in, align 8
+  tail call void @dismissMemory(ptr noundef %4, i64 noundef %.sink) #17
   %next = getelementptr inbounds i8, ptr %node.015, i64 8
   %node.0 = load ptr, ptr %next, align 8
   %tobool7.not = icmp eq ptr %node.0, null
@@ -1547,9 +1540,9 @@ if.end:                                           ; preds = %if.else, %if.then13
 
 if.then25:                                        ; preds = %entry
   %ptr26 = getelementptr inbounds i8, ptr %o, i64 8
-  %7 = load ptr, ptr %ptr26, align 8
-  %call = tail call i64 @lpBytes(ptr noundef %7) #17
-  tail call void @dismissMemory(ptr noundef %7, i64 noundef %call) #17
+  %5 = load ptr, ptr %ptr26, align 8
+  %call = tail call i64 @lpBytes(ptr noundef %5) #17
+  tail call void @dismissMemory(ptr noundef %5, i64 noundef %call) #17
   br label %if.end30
 
 if.else28:                                        ; preds = %entry
@@ -1557,7 +1550,7 @@ if.else28:                                        ; preds = %entry
   tail call void @abort() #18
   unreachable
 
-if.end30:                                         ; preds = %if.end, %while.cond.preheader, %cond.end, %if.then25
+if.end30:                                         ; preds = %while.body, %while.cond.preheader, %cond.end, %if.then25
   ret void
 }
 

@@ -92,51 +92,38 @@ define internal i32 @parse_cli(ptr noundef %0, ptr noundef %1, i1 zeroext %2) #0
   %.not14.i = icmp eq ptr %.013.i, %13
   br i1 %.not14.i, label %convert_results.exit, label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %12, %31
-  %.015.i = phi ptr [ %.0.i, %31 ], [ %.013.i, %12 ]
+.lr.ph.i:                                         ; preds = %12, %26
+  %.015.i = phi ptr [ %.0.i, %26 ], [ %.013.i, %12 ]
   %15 = getelementptr inbounds i8, ptr %.015.i, i64 144
   %16 = load ptr, ptr %15, align 8
   %17 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %16, ptr noundef nonnull dereferenceable(7) @.str.16) #7
   %18 = icmp eq i32 %17, 0
-  br i1 %18, label %19, label %21
+  br i1 %18, label %.sink.split.i, label %19
 
 19:                                               ; preds = %.lr.ph.i
+  %20 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %16, ptr noundef nonnull dereferenceable(13) @.str.17) #7
+  %21 = icmp eq i32 %20, 0
+  br i1 %21, label %.sink.split.i, label %22
+
+22:                                               ; preds = %19
+  %23 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %16, ptr noundef nonnull dereferenceable(9) @.str.18) #7
+  %24 = icmp eq i32 %23, 0
+  br i1 %24, label %.sink.split.i, label %26
+
+.sink.split.i:                                    ; preds = %22, %19, %.lr.ph.i
+  %.str.20.sink.i = phi ptr [ @.str.20, %.lr.ph.i ], [ @.str.21, %19 ], [ @.str.22, %22 ]
   tail call void @free(ptr noundef %16) #8
-  %20 = tail call noalias dereferenceable_or_null(3) ptr @strdup(ptr noundef nonnull @.str.20) #8
-  br label %.sink.split.i
+  %25 = tail call noalias dereferenceable_or_null(3) ptr @strdup(ptr noundef nonnull %.str.20.sink.i) #8
+  store ptr %25, ptr %15, align 8
+  br label %26
 
-21:                                               ; preds = %.lr.ph.i
-  %22 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %16, ptr noundef nonnull dereferenceable(13) @.str.17) #7
-  %23 = icmp eq i32 %22, 0
-  br i1 %23, label %24, label %26
-
-24:                                               ; preds = %21
-  tail call void @free(ptr noundef %16) #8
-  %25 = tail call noalias dereferenceable_or_null(7) ptr @strdup(ptr noundef nonnull @.str.21) #8
-  br label %.sink.split.i
-
-26:                                               ; preds = %21
-  %27 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %16, ptr noundef nonnull dereferenceable(9) @.str.18) #7
-  %28 = icmp eq i32 %27, 0
-  br i1 %28, label %29, label %31
-
-29:                                               ; preds = %26
-  tail call void @free(ptr noundef %16) #8
-  %30 = tail call noalias dereferenceable_or_null(8) ptr @strdup(ptr noundef nonnull @.str.22) #8
-  br label %.sink.split.i
-
-.sink.split.i:                                    ; preds = %29, %24, %19
-  %.sink.i = phi ptr [ %20, %19 ], [ %30, %29 ], [ %25, %24 ]
-  store ptr %.sink.i, ptr %15, align 8
-  br label %31
-
-31:                                               ; preds = %.sink.split.i, %26
-  %32 = getelementptr inbounds i8, ptr %.015.i, i64 120
-  %.0.i = load ptr, ptr %32, align 8
+26:                                               ; preds = %.sink.split.i, %22
+  %27 = getelementptr inbounds i8, ptr %.015.i, i64 120
+  %.0.i = load ptr, ptr %27, align 8
   %.not.i = icmp eq ptr %.0.i, %13
   br i1 %.not.i, label %convert_results.exit.loopexit, label %.lr.ph.i, !llvm.loop !4
 
-convert_results.exit.loopexit:                    ; preds = %31
+convert_results.exit.loopexit:                    ; preds = %26
   %.045.pre = load ptr, ptr %14, align 8
   br label %convert_results.exit
 
@@ -147,56 +134,56 @@ convert_results.exit:                             ; preds = %convert_results.exi
 
 .lr.ph48:                                         ; preds = %convert_results.exit, %.loopexit
   %.047 = phi ptr [ %.0, %.loopexit ], [ %.045, %convert_results.exit ]
-  %33 = getelementptr inbounds i8, ptr %.047, i64 144
-  %34 = load ptr, ptr %33, align 8
-  %35 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %34, ptr noundef nonnull dereferenceable(8) @.str.7) #7
-  %36 = icmp eq i32 %35, 0
-  br i1 %36, label %.preheader, label %44
+  %28 = getelementptr inbounds i8, ptr %.047, i64 144
+  %29 = load ptr, ptr %28, align 8
+  %30 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %29, ptr noundef nonnull dereferenceable(8) @.str.7) #7
+  %31 = icmp eq i32 %30, 0
+  br i1 %31, label %.preheader, label %39
 
 .preheader:                                       ; preds = %.lr.ph48
-  %37 = getelementptr inbounds i8, ptr %.047, i64 152
-  %38 = load ptr, ptr %37, align 8
-  %39 = load ptr, ptr %38, align 8
-  %.not3642 = icmp eq ptr %39, null
+  %32 = getelementptr inbounds i8, ptr %.047, i64 152
+  %33 = load ptr, ptr %32, align 8
+  %34 = load ptr, ptr %33, align 8
+  %.not3642 = icmp eq ptr %34, null
   br i1 %.not3642, label %.loopexit, label %.lr.ph44
 
 .lr.ph44:                                         ; preds = %.preheader, %.lr.ph44
   %indvars.iv51 = phi i64 [ %indvars.iv.next52, %.lr.ph44 ], [ 0, %.preheader ]
-  %40 = phi ptr [ %43, %.lr.ph44 ], [ %39, %.preheader ]
-  tail call void @prte_schizo_base_expose(ptr noundef nonnull %40, ptr noundef nonnull @.str.8) #8
+  %35 = phi ptr [ %38, %.lr.ph44 ], [ %34, %.preheader ]
+  tail call void @prte_schizo_base_expose(ptr noundef nonnull %35, ptr noundef nonnull @.str.8) #8
   %indvars.iv.next52 = add nuw nsw i64 %indvars.iv51, 1
-  %41 = load ptr, ptr %37, align 8
-  %42 = getelementptr inbounds ptr, ptr %41, i64 %indvars.iv.next52
-  %43 = load ptr, ptr %42, align 8
-  %.not36 = icmp eq ptr %43, null
+  %36 = load ptr, ptr %32, align 8
+  %37 = getelementptr inbounds ptr, ptr %36, i64 %indvars.iv.next52
+  %38 = load ptr, ptr %37, align 8
+  %.not36 = icmp eq ptr %38, null
   br i1 %.not36, label %.loopexit, label %.lr.ph44, !llvm.loop !6
 
-44:                                               ; preds = %.lr.ph48
-  %45 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %34, ptr noundef nonnull dereferenceable(8) @.str.9) #7
-  %46 = icmp eq i32 %45, 0
-  br i1 %46, label %.preheader37, label %.loopexit
+39:                                               ; preds = %.lr.ph48
+  %40 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %29, ptr noundef nonnull dereferenceable(8) @.str.9) #7
+  %41 = icmp eq i32 %40, 0
+  br i1 %41, label %.preheader37, label %.loopexit
 
-.preheader37:                                     ; preds = %44
-  %47 = getelementptr inbounds i8, ptr %.047, i64 152
-  %48 = load ptr, ptr %47, align 8
-  %49 = load ptr, ptr %48, align 8
-  %.not3540 = icmp eq ptr %49, null
+.preheader37:                                     ; preds = %39
+  %42 = getelementptr inbounds i8, ptr %.047, i64 152
+  %43 = load ptr, ptr %42, align 8
+  %44 = load ptr, ptr %43, align 8
+  %.not3540 = icmp eq ptr %44, null
   br i1 %.not3540, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader37, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %.preheader37 ]
-  %50 = phi ptr [ %53, %.lr.ph ], [ %49, %.preheader37 ]
-  tail call void @prte_schizo_base_expose(ptr noundef nonnull %50, ptr noundef nonnull @.str.10) #8
+  %45 = phi ptr [ %48, %.lr.ph ], [ %44, %.preheader37 ]
+  tail call void @prte_schizo_base_expose(ptr noundef nonnull %45, ptr noundef nonnull @.str.10) #8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %51 = load ptr, ptr %47, align 8
-  %52 = getelementptr inbounds ptr, ptr %51, i64 %indvars.iv.next
-  %53 = load ptr, ptr %52, align 8
-  %.not35 = icmp eq ptr %53, null
+  %46 = load ptr, ptr %42, align 8
+  %47 = getelementptr inbounds ptr, ptr %46, i64 %indvars.iv.next
+  %48 = load ptr, ptr %47, align 8
+  %.not35 = icmp eq ptr %48, null
   br i1 %.not35, label %.loopexit, label %.lr.ph, !llvm.loop !7
 
-.loopexit:                                        ; preds = %.lr.ph, %.lr.ph44, %.preheader37, %.preheader, %44
-  %54 = getelementptr inbounds i8, ptr %.047, i64 120
-  %.0 = load ptr, ptr %54, align 8
+.loopexit:                                        ; preds = %.lr.ph, %.lr.ph44, %.preheader37, %.preheader, %39
+  %49 = getelementptr inbounds i8, ptr %.047, i64 120
+  %.0 = load ptr, ptr %49, align 8
   %.not34 = icmp eq ptr %.0, %13
   br i1 %.not34, label %.loopexit39, label %.lr.ph48, !llvm.loop !8
 

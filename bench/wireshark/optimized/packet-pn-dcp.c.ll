@@ -475,7 +475,7 @@ define internal range(i32 0, 2) i32 @dissect_PNDCP_Data_heur(ptr noundef %0, ptr
   %10 = ptrtoint ptr %3 to i64
   %11 = and i64 %10, 65532
   %or.cond.not = icmp eq i64 %11, 65276
-  br i1 %or.cond.not, label %12, label %81
+  br i1 %or.cond.not, label %12, label %76
 
 12:                                               ; preds = %4
   %13 = getelementptr inbounds i8, ptr %1, i64 8
@@ -507,119 +507,110 @@ define internal range(i32 0, 2) i32 @dissect_PNDCP_Data_heur(ptr noundef %0, ptr
   %32 = load i8, ptr %6, align 1
   %33 = icmp eq i8 %32, 0
   %or.cond.i = select i1 %31, i1 %33, i1 false
-  br i1 %or.cond.i, label %34, label %37
+  %..i = select i1 %or.cond.i, ptr %8, ptr null
+  %hf_pn_dcp_response_delay.val.i = load i32, ptr @hf_pn_dcp_response_delay, align 4
+  %hf_pn_dcp_reserved16.val.i = load i32, ptr @hf_pn_dcp_reserved16, align 4
+  %34 = select i1 %or.cond.i, i32 %hf_pn_dcp_response_delay.val.i, i32 %hf_pn_dcp_reserved16.val.i
+  %35 = call i32 @dissect_pn_uint16(ptr noundef %0, i32 noundef %29, ptr noundef %1, ptr noundef %22, i32 noundef %34, ptr noundef %..i) #3
+  %36 = load i32, ptr @hf_pn_dcp_data_length, align 4
+  %37 = call i32 @dissect_pn_uint16(ptr noundef %0, i32 noundef %35, ptr noundef %1, ptr noundef %22, i32 noundef %36, ptr noundef nonnull %9) #3
+  %38 = load i8, ptr %5, align 1
+  %switch.tableidx = add i8 %38, -3
+  %39 = icmp ult i8 %switch.tableidx, 4
+  br i1 %39, label %switch.lookup, label %40
 
-34:                                               ; preds = %12
-  %35 = load i32, ptr @hf_pn_dcp_response_delay, align 4
-  %36 = call i32 @dissect_pn_uint16(ptr noundef %0, i32 noundef %29, ptr noundef nonnull %1, ptr noundef %22, i32 noundef %35, ptr noundef nonnull %8) #3
-  br label %40
-
-37:                                               ; preds = %12
-  %38 = load i32, ptr @hf_pn_dcp_reserved16, align 4
-  %39 = call i32 @dissect_pn_uint16(ptr noundef %0, i32 noundef %29, ptr noundef nonnull %1, ptr noundef %22, i32 noundef %38, ptr noundef null) #3
-  br label %40
-
-40:                                               ; preds = %37, %34
-  %.0.i = phi i32 [ %36, %34 ], [ %39, %37 ]
-  %41 = load i32, ptr @hf_pn_dcp_data_length, align 4
-  %42 = call i32 @dissect_pn_uint16(ptr noundef %0, i32 noundef %.0.i, ptr noundef nonnull %1, ptr noundef %22, i32 noundef %41, ptr noundef nonnull %9) #3
-  %43 = load i8, ptr %5, align 1
-  %switch.tableidx = add i8 %43, -3
-  %44 = icmp ult i8 %switch.tableidx, 4
-  br i1 %44, label %switch.lookup, label %45
-
-45:                                               ; preds = %40
-  %46 = call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef %42) #3
-  %47 = call i32 @dissect_pn_undecoded(ptr noundef %0, i32 noundef %42, ptr noundef nonnull %1, ptr noundef %22, i32 noundef %46) #3
+40:                                               ; preds = %12
+  %41 = call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef %37) #3
+  %42 = call i32 @dissect_pn_undecoded(ptr noundef %0, i32 noundef %37, ptr noundef nonnull %1, ptr noundef %22, i32 noundef %41) #3
   br label %dissect_PNDCP_PDU.exit
 
-switch.lookup:                                    ; preds = %40
-  %48 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [4 x ptr], ptr @switch.table.dissect_PNDCP_Data_heur, i64 0, i64 %48
+switch.lookup:                                    ; preds = %12
+  %43 = zext nneg i8 %switch.tableidx to i64
+  %switch.gep = getelementptr inbounds [4 x ptr], ptr @switch.table.dissect_PNDCP_Data_heur, i64 0, i64 %43
   %switch.load = load ptr, ptr %switch.gep, align 8
   call void @pn_append_info(ptr noundef nonnull %1, ptr noundef %20, ptr noundef nonnull %switch.load) #3
-  %49 = load i8, ptr %6, align 1
-  switch i8 %49, label %52 [
-    i8 0, label %55
-    i8 1, label %50
-    i8 5, label %51
+  %44 = load i8, ptr %6, align 1
+  switch i8 %44, label %47 [
+    i8 0, label %50
+    i8 1, label %45
+    i8 5, label %46
   ]
 
-50:                                               ; preds = %switch.lookup
-  br label %55
+45:                                               ; preds = %switch.lookup
+  br label %50
 
-51:                                               ; preds = %switch.lookup
-  br label %55
+46:                                               ; preds = %switch.lookup
+  br label %50
 
-52:                                               ; preds = %switch.lookup
-  %53 = call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef %42) #3
-  %54 = call i32 @dissect_pn_undecoded(ptr noundef %0, i32 noundef %42, ptr noundef nonnull %1, ptr noundef %22, i32 noundef %53) #3
+47:                                               ; preds = %switch.lookup
+  %48 = call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef %37) #3
+  %49 = call i32 @dissect_pn_undecoded(ptr noundef %0, i32 noundef %37, ptr noundef nonnull %1, ptr noundef %22, i32 noundef %48) #3
   br label %dissect_PNDCP_PDU.exit
 
-55:                                               ; preds = %51, %50, %switch.lookup
-  %.str.215.sink.i = phi ptr [ @.str.215, %51 ], [ @.str.214, %50 ], [ @.str.213, %switch.lookup ]
-  %.082.i = phi i32 [ 1, %51 ], [ 1, %50 ], [ 0, %switch.lookup ]
+50:                                               ; preds = %46, %45, %switch.lookup
+  %.str.215.sink.i = phi ptr [ @.str.215, %46 ], [ @.str.214, %45 ], [ @.str.213, %switch.lookup ]
+  %.082.i = phi i32 [ 1, %46 ], [ 1, %45 ], [ 0, %switch.lookup ]
   call void @pn_append_info(ptr noundef nonnull %1, ptr noundef %20, ptr noundef nonnull %.str.215.sink.i) #3
-  %56 = getelementptr inbounds i8, ptr %1, i64 408
-  %57 = load ptr, ptr %56, align 8
-  %58 = load i32, ptr %7, align 4
-  %59 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %57, ptr noundef nonnull @.str.216, i32 noundef %58) #3
-  call void @pn_append_info(ptr noundef nonnull %1, ptr noundef %20, ptr noundef %59) #3
+  %51 = getelementptr inbounds i8, ptr %1, i64 408
+  %52 = load ptr, ptr %51, align 8
+  %53 = load i32, ptr %7, align 4
+  %54 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %52, ptr noundef nonnull @.str.216, i32 noundef %53) #3
+  call void @pn_append_info(ptr noundef nonnull %1, ptr noundef %20, ptr noundef %54) #3
   %.pr.i = load i16, ptr %9, align 2
   %.not87.i = icmp eq i16 %.pr.i, 0
   br i1 %.not87.i, label %dissect_PNDCP_PDU.exit, label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %55, %78
-  %.188.i = phi i32 [ %.2.i, %78 ], [ %42, %55 ]
-  %60 = load i8, ptr %5, align 1
-  %61 = icmp eq i8 %60, 3
-  %62 = load i8, ptr %6, align 1
-  %63 = icmp eq i8 %62, 0
-  %or.cond5.i = select i1 %61, i1 %63, i1 false
-  br i1 %or.cond5.i, label %64, label %67
+.lr.ph.i:                                         ; preds = %50, %73
+  %.188.i = phi i32 [ %.2.i, %73 ], [ %37, %50 ]
+  %55 = load i8, ptr %5, align 1
+  %56 = icmp eq i8 %55, 3
+  %57 = load i8, ptr %6, align 1
+  %58 = icmp eq i8 %57, 0
+  %or.cond5.i = select i1 %56, i1 %58, i1 false
+  br i1 %or.cond5.i, label %59, label %62
 
-64:                                               ; preds = %.lr.ph.i
-  %65 = load i32, ptr @hf_pn_dcp_option, align 4
-  %66 = call fastcc i32 @dissect_PNDCP_Option(ptr noundef %0, i32 noundef %.188.i, ptr noundef %1, ptr noundef %22, ptr noundef %20, i32 noundef %65, i32 noundef 1)
-  br label %69
+59:                                               ; preds = %.lr.ph.i
+  %60 = load i32, ptr @hf_pn_dcp_option, align 4
+  %61 = call fastcc i32 @dissect_PNDCP_Option(ptr noundef %0, i32 noundef %.188.i, ptr noundef %1, ptr noundef %22, ptr noundef %20, i32 noundef %60, i32 noundef 1)
+  br label %64
 
-67:                                               ; preds = %.lr.ph.i
-  %68 = call fastcc i32 @dissect_PNDCP_Block(ptr noundef %0, i32 noundef %.188.i, ptr noundef %1, ptr noundef %22, ptr noundef %20, i8 noundef zeroext %60, i32 noundef %.082.i)
-  br label %69
+62:                                               ; preds = %.lr.ph.i
+  %63 = call fastcc i32 @dissect_PNDCP_Block(ptr noundef %0, i32 noundef %.188.i, ptr noundef %1, ptr noundef %22, ptr noundef %20, i8 noundef zeroext %55, i32 noundef %.082.i)
+  br label %64
 
-69:                                               ; preds = %67, %64
-  %.2.i = phi i32 [ %66, %64 ], [ %68, %67 ]
+64:                                               ; preds = %62, %59
+  %.2.i = phi i32 [ %61, %59 ], [ %63, %62 ]
   %.not85.i = icmp sgt i32 %.2.i, %.188.i
-  br i1 %.not85.i, label %70, label %75
+  br i1 %.not85.i, label %65, label %70
 
-70:                                               ; preds = %69
-  %71 = load i16, ptr %9, align 2
-  %72 = zext i16 %71 to i32
-  %73 = sub i32 %.2.i, %.188.i
-  %74 = icmp sgt i32 %73, %72
-  br i1 %74, label %75, label %78
+65:                                               ; preds = %64
+  %66 = load i16, ptr %9, align 2
+  %67 = zext i16 %66 to i32
+  %68 = sub i32 %.2.i, %.188.i
+  %69 = icmp sgt i32 %68, %67
+  br i1 %69, label %70, label %73
 
-75:                                               ; preds = %70, %69
-  %76 = call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef %.188.i) #3
-  %77 = call ptr @proto_tree_add_expert(ptr noundef %22, ptr noundef %1, ptr noundef nonnull @ei_pn_dcp_block_parse_error, ptr noundef %0, i32 noundef %.188.i, i32 noundef %76) #3
+70:                                               ; preds = %65, %64
+  %71 = call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef %.188.i) #3
+  %72 = call ptr @proto_tree_add_expert(ptr noundef %22, ptr noundef %1, ptr noundef nonnull @ei_pn_dcp_block_parse_error, ptr noundef %0, i32 noundef %.188.i, i32 noundef %71) #3
   br label %dissect_PNDCP_PDU.exit
 
-78:                                               ; preds = %70
-  %79 = trunc i32 %73 to i16
-  %80 = sub i16 %71, %79
-  store i16 %80, ptr %9, align 2
-  %.not.i = icmp eq i16 %71, %79
+73:                                               ; preds = %65
+  %74 = trunc i32 %68 to i16
+  %75 = sub i16 %66, %74
+  store i16 %75, ptr %9, align 2
+  %.not.i = icmp eq i16 %66, %74
   br i1 %.not.i, label %dissect_PNDCP_PDU.exit, label %.lr.ph.i, !llvm.loop !4
 
-dissect_PNDCP_PDU.exit:                           ; preds = %78, %45, %52, %55, %75
+dissect_PNDCP_PDU.exit:                           ; preds = %73, %40, %47, %50, %70
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7)
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %8)
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %9)
-  br label %81
+  br label %76
 
-81:                                               ; preds = %4, %dissect_PNDCP_PDU.exit
+76:                                               ; preds = %4, %dissect_PNDCP_PDU.exit
   %.0 = phi i32 [ 1, %dissect_PNDCP_PDU.exit ], [ 0, %4 ]
   ret i32 %.0
 }

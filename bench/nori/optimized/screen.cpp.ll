@@ -6975,7 +6975,7 @@ define internal fastcc void @_ZL19glnvg__convertPaintP12GLNVGcontextP17GLNVGfrag
   %86 = lshr i64 %78, 32
   %87 = trunc nuw i64 %86 to i32
   %88 = bitcast i32 %87 to float
-  br i1 %.not, label %123, label %89
+  br i1 %.not, label %121, label %89
 
 89:                                               ; preds = %74
   %90 = getelementptr inbounds i8, ptr %0, i64 40
@@ -7006,7 +7006,7 @@ _ZL18glnvg__findTextureP12GLNVGcontexti.exit:     ; preds = %96
   %101 = load i32, ptr %100, align 4
   %102 = and i32 %101, 8
   %.not67 = icmp eq i32 %102, 0
-  br i1 %.not67, label %109, label %103
+  br i1 %.not67, label %108, label %103
 
 103:                                              ; preds = %_ZL18glnvg__findTextureP12GLNVGcontexti.exit
   %104 = getelementptr inbounds i8, ptr %1, i64 148
@@ -7019,88 +7019,85 @@ _ZL18glnvg__findTextureP12GLNVGcontexti.exit:     ; preds = %96
   %107 = fmul float %106, -5.000000e-01
   call void @nvgTransformTranslate(ptr noundef nonnull %9, float noundef 0.000000e+00, float noundef %107)
   call void @nvgTransformMultiply(ptr noundef nonnull %9, ptr noundef nonnull %10)
-  %108 = call i32 @nvgTransformInverse(ptr noundef nonnull %8, ptr noundef nonnull %9)
-  br label %111
+  br label %108
 
-109:                                              ; preds = %_ZL18glnvg__findTextureP12GLNVGcontexti.exit
-  %110 = call i32 @nvgTransformInverse(ptr noundef nonnull %8, ptr noundef %2)
-  br label %111
+108:                                              ; preds = %_ZL18glnvg__findTextureP12GLNVGcontexti.exit, %103
+  %.sink84 = phi ptr [ %9, %103 ], [ %2, %_ZL18glnvg__findTextureP12GLNVGcontexti.exit ]
+  %109 = call i32 @nvgTransformInverse(ptr noundef nonnull %8, ptr noundef %.sink84)
+  %110 = getelementptr inbounds i8, ptr %1, i64 172
+  store i32 1, ptr %110, align 4
+  %111 = getelementptr inbounds i8, ptr %97, i64 16
+  %112 = load i32, ptr %111, align 4
+  %113 = icmp eq i32 %112, 2
+  br i1 %113, label %114, label %119
 
-111:                                              ; preds = %109, %103
-  %112 = getelementptr inbounds i8, ptr %1, i64 172
-  store i32 1, ptr %112, align 4
-  %113 = getelementptr inbounds i8, ptr %97, i64 16
-  %114 = load i32, ptr %113, align 4
-  %115 = icmp eq i32 %114, 2
-  br i1 %115, label %116, label %121
+114:                                              ; preds = %108
+  %115 = load i32, ptr %100, align 4
+  %116 = lshr i32 %115, 4
+  %.lobit = and i32 %116, 1
+  %117 = xor i32 %.lobit, 1
+  %118 = getelementptr inbounds i8, ptr %1, i64 168
+  store i32 %117, ptr %118, align 4
+  br label %130
 
-116:                                              ; preds = %111
-  %117 = load i32, ptr %100, align 4
-  %118 = lshr i32 %117, 4
-  %.lobit = and i32 %118, 1
-  %119 = xor i32 %.lobit, 1
+119:                                              ; preds = %108
   %120 = getelementptr inbounds i8, ptr %1, i64 168
-  store i32 %119, ptr %120, align 4
-  br label %132
+  store i32 2, ptr %120, align 4
+  br label %130
 
-121:                                              ; preds = %111
-  %122 = getelementptr inbounds i8, ptr %1, i64 168
-  store i32 2, ptr %122, align 4
-  br label %132
+121:                                              ; preds = %74
+  %122 = getelementptr inbounds i8, ptr %1, i64 172
+  store i32 0, ptr %122, align 4
+  %123 = getelementptr inbounds i8, ptr %2, i64 32
+  %124 = load float, ptr %123, align 4
+  %125 = getelementptr inbounds i8, ptr %1, i64 152
+  store float %124, ptr %125, align 4
+  %126 = getelementptr inbounds i8, ptr %2, i64 36
+  %127 = load float, ptr %126, align 4
+  %128 = getelementptr inbounds i8, ptr %1, i64 156
+  store float %127, ptr %128, align 4
+  %129 = call i32 @nvgTransformInverse(ptr noundef nonnull %8, ptr noundef nonnull %2)
+  br label %130
 
-123:                                              ; preds = %74
-  %124 = getelementptr inbounds i8, ptr %1, i64 172
-  store i32 0, ptr %124, align 4
-  %125 = getelementptr inbounds i8, ptr %2, i64 32
-  %126 = load float, ptr %125, align 4
-  %127 = getelementptr inbounds i8, ptr %1, i64 152
-  store float %126, ptr %127, align 4
-  %128 = getelementptr inbounds i8, ptr %2, i64 36
-  %129 = load float, ptr %128, align 4
-  %130 = getelementptr inbounds i8, ptr %1, i64 156
-  store float %129, ptr %130, align 4
-  %131 = call i32 @nvgTransformInverse(ptr noundef nonnull %8, ptr noundef nonnull %2)
-  br label %132
-
-132:                                              ; preds = %116, %121, %123
-  %133 = getelementptr inbounds i8, ptr %1, i64 48
-  %134 = load float, ptr %8, align 16
-  store float %134, ptr %133, align 4
-  %135 = getelementptr inbounds i8, ptr %8, i64 4
-  %136 = load float, ptr %135, align 4
-  %137 = getelementptr inbounds i8, ptr %1, i64 52
-  store float %136, ptr %137, align 4
-  %138 = getelementptr inbounds i8, ptr %1, i64 56
-  store float 0.000000e+00, ptr %138, align 4
-  %139 = getelementptr inbounds i8, ptr %1, i64 60
-  store float 0.000000e+00, ptr %139, align 4
-  %140 = getelementptr inbounds i8, ptr %8, i64 8
-  %141 = load float, ptr %140, align 8
-  %142 = getelementptr inbounds i8, ptr %1, i64 64
-  store float %141, ptr %142, align 4
-  %143 = getelementptr inbounds i8, ptr %8, i64 12
-  %144 = load float, ptr %143, align 4
-  %145 = getelementptr inbounds i8, ptr %1, i64 68
-  store float %144, ptr %145, align 4
-  %146 = getelementptr inbounds i8, ptr %1, i64 72
-  store float 0.000000e+00, ptr %146, align 4
-  %147 = getelementptr inbounds i8, ptr %1, i64 76
-  store float 0.000000e+00, ptr %147, align 4
-  %148 = getelementptr inbounds i8, ptr %8, i64 16
-  %149 = load float, ptr %148, align 16
-  %150 = getelementptr inbounds i8, ptr %1, i64 80
-  store float %149, ptr %150, align 4
-  %151 = getelementptr inbounds i8, ptr %8, i64 20
-  %152 = load float, ptr %151, align 4
-  %153 = getelementptr inbounds i8, ptr %1, i64 84
-  store float %152, ptr %153, align 4
-  %154 = getelementptr inbounds i8, ptr %1, i64 88
-  store float 1.000000e+00, ptr %154, align 4
-  %155 = getelementptr inbounds i8, ptr %1, i64 92
-  store float 0.000000e+00, ptr %155, align 4
+130:                                              ; preds = %114, %119, %121
+  %131 = getelementptr inbounds i8, ptr %1, i64 48
+  %132 = load float, ptr %8, align 16
+  store float %132, ptr %131, align 4
+  %133 = getelementptr inbounds i8, ptr %8, i64 4
+  %134 = load float, ptr %133, align 4
+  %135 = getelementptr inbounds i8, ptr %1, i64 52
+  store float %134, ptr %135, align 4
+  %136 = getelementptr inbounds i8, ptr %1, i64 56
+  store float 0.000000e+00, ptr %136, align 4
+  %137 = getelementptr inbounds i8, ptr %1, i64 60
+  store float 0.000000e+00, ptr %137, align 4
+  %138 = getelementptr inbounds i8, ptr %8, i64 8
+  %139 = load float, ptr %138, align 8
+  %140 = getelementptr inbounds i8, ptr %1, i64 64
+  store float %139, ptr %140, align 4
+  %141 = getelementptr inbounds i8, ptr %8, i64 12
+  %142 = load float, ptr %141, align 4
+  %143 = getelementptr inbounds i8, ptr %1, i64 68
+  store float %142, ptr %143, align 4
+  %144 = getelementptr inbounds i8, ptr %1, i64 72
+  store float 0.000000e+00, ptr %144, align 4
+  %145 = getelementptr inbounds i8, ptr %1, i64 76
+  store float 0.000000e+00, ptr %145, align 4
+  %146 = getelementptr inbounds i8, ptr %8, i64 16
+  %147 = load float, ptr %146, align 16
+  %148 = getelementptr inbounds i8, ptr %1, i64 80
+  store float %147, ptr %148, align 4
+  %149 = getelementptr inbounds i8, ptr %8, i64 20
+  %150 = load float, ptr %149, align 4
+  %151 = getelementptr inbounds i8, ptr %1, i64 84
+  store float %150, ptr %151, align 4
+  %152 = getelementptr inbounds i8, ptr %1, i64 88
+  store float 1.000000e+00, ptr %152, align 4
+  %153 = getelementptr inbounds i8, ptr %1, i64 92
+  store float 0.000000e+00, ptr %153, align 4
   br label %_ZL18glnvg__findTextureP12GLNVGcontexti.exit.thread
 
-_ZL18glnvg__findTextureP12GLNVGcontexti.exit.thread: ; preds = %95, %89, %132
+_ZL18glnvg__findTextureP12GLNVGcontexti.exit.thread: ; preds = %95, %89, %130
   ret void
 }
 

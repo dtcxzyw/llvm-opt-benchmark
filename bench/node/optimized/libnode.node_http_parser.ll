@@ -5840,11 +5840,7 @@ if.end18:                                         ; preds = %if.then15, %if.end1
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %current_buffer_len_, i8 0, i64 16, i1 false)
   %22 = load i8, ptr %got_exception_, align 1
   %tobool22 = trunc i8 %22 to i1
-  br i1 %tobool22, label %if.then23, label %if.end30
-
-if.then23:                                        ; preds = %if.end18
-  %call4.i311 = call noundef ptr @_ZN2v820EscapableHandleScope6EscapeEPm(ptr noundef nonnull align 8 dereferenceable(32) %scope, ptr noundef null) #20
-  br label %cleanup
+  br i1 %tobool22, label %cleanup, label %if.end30
 
 if.end30:                                         ; preds = %if.end18
   %23 = load ptr, ptr %realm_.i, align 8
@@ -6030,31 +6026,21 @@ _ZNK2v85MaybeIbE5CheckEv.exit276:                 ; preds = %if.then.i275, %if.e
   %69 = load ptr, ptr %reason_string_.i.i, align 8
   %call221 = call i16 @_ZN2v86Object3SetENS_5LocalINS_7ContextEEENS1_INS_5ValueEEES5_(ptr noundef nonnull align 1 dereferenceable(1) %call65, ptr %call2.i70, ptr %69, ptr %reason.sroa.0.0) #20
   %tobool.i473 = trunc i16 %call221 to i1
-  br i1 %tobool.i473, label %_ZNK2v85MaybeIbE5CheckEv.exit, label %if.then.i
+  br i1 %tobool.i473, label %cleanup, label %if.then.i
 
 if.then.i:                                        ; preds = %_ZNK2v85MaybeIbE5CheckEv.exit276
   call void @_ZN2v812api_internal17FromJustIsNothingEv() #20
-  br label %_ZNK2v85MaybeIbE5CheckEv.exit
-
-_ZNK2v85MaybeIbE5CheckEv.exit:                    ; preds = %if.then.i, %_ZNK2v85MaybeIbE5CheckEv.exit276
-  %call4.i304 = call noundef ptr @_ZN2v820EscapableHandleScope6EscapeEPm(ptr noundef nonnull align 8 dereferenceable(32) %scope, ptr noundef nonnull %call50) #20
   br label %cleanup
 
 if.end230:                                        ; preds = %if.end30
-  br i1 %cmp, label %if.then232, label %if.end241
-
-if.then232:                                       ; preds = %if.end230
-  %call4.i = call noundef ptr @_ZN2v820EscapableHandleScope6EscapeEPm(ptr noundef nonnull align 8 dereferenceable(32) %scope, ptr noundef null) #20
+  %.call33 = select i1 %cmp, ptr null, ptr %call33
   br label %cleanup
 
-if.end241:                                        ; preds = %if.end230
-  %call4.i338 = call noundef ptr @_ZN2v820EscapableHandleScope6EscapeEPm(ptr noundef nonnull align 8 dereferenceable(32) %scope, ptr noundef %call33) #20
-  br label %cleanup
-
-cleanup:                                          ; preds = %if.end241, %if.then232, %_ZNK2v85MaybeIbE5CheckEv.exit, %if.then23
-  %retval.sroa.0.0 = phi ptr [ %call4.i311, %if.then23 ], [ %call4.i304, %_ZNK2v85MaybeIbE5CheckEv.exit ], [ %call4.i, %if.then232 ], [ %call4.i338, %if.end241 ]
+cleanup:                                          ; preds = %if.end230, %_ZNK2v85MaybeIbE5CheckEv.exit276, %if.then.i, %if.end18
+  %call33.sink = phi ptr [ null, %if.end18 ], [ %call50, %if.then.i ], [ %call50, %_ZNK2v85MaybeIbE5CheckEv.exit276 ], [ %.call33, %if.end230 ]
+  %call4.i338 = call noundef ptr @_ZN2v820EscapableHandleScope6EscapeEPm(ptr noundef nonnull align 8 dereferenceable(32) %scope, ptr noundef %call33.sink) #20
   call void @_ZN2v811HandleScopeD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %scope) #20
-  ret ptr %retval.sroa.0.0
+  ret ptr %call4.i338
 }
 
 declare ptr @_ZN2v86Object3GetENS_5LocalINS_7ContextEEEj(ptr noundef nonnull align 1 dereferenceable(1), ptr, i32 noundef) local_unnamed_addr #0

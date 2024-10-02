@@ -1086,11 +1086,7 @@ entry:
 if.end:                                           ; preds = %entry
   %0 = load i8, ptr %call, align 1
   %tobool1.not = icmp eq i8 %0, 0
-  br i1 %tobool1.not, label %if.then2, label %if.end3
-
-if.then2:                                         ; preds = %if.end
-  tail call void @free(ptr noundef nonnull %call) #4
-  br label %return
+  br i1 %tobool1.not, label %return.sink.split, label %if.end3
 
 if.end3:                                          ; preds = %if.end
   %add.ptr = getelementptr inbounds i8, ptr %call, i64 1
@@ -1142,7 +1138,7 @@ if.end42:                                         ; preds = %if.then36
   %add.ptr43 = getelementptr inbounds i8, ptr %s.0, i64 1
   %7 = load i8, ptr %s.0, align 1
   %cmp45.not = icmp eq i8 %7, 0
-  br i1 %cmp45.not, label %if.end62, label %if.then47
+  br i1 %cmp45.not, label %return.sink.split, label %if.then47
 
 if.then47:                                        ; preds = %if.end42
   %call48 = tail call i32 @BIO_write(ptr noundef %bp, ptr noundef nonnull @.str.31, i32 noundef 2) #4
@@ -1152,7 +1148,7 @@ if.then47:                                        ; preds = %if.end42
 if.end54:                                         ; preds = %if.then47
   %.pr.pre.pre = load i8, ptr %s.0, align 1
   %cmp56 = icmp eq i8 %.pr.pre.pre, 0
-  br i1 %cmp56, label %if.end62, label %if.end59
+  br i1 %cmp56, label %return.sink.split, label %if.end59
 
 if.end59:                                         ; preds = %land.lhs.true, %lor.lhs.false, %land.lhs.true27, %for.cond, %if.end54
   %c.128 = phi ptr [ %add.ptr43, %if.end54 ], [ %c.0, %for.cond ], [ %c.0, %land.lhs.true27 ], [ %c.0, %lor.lhs.false ], [ %c.0, %land.lhs.true ]
@@ -1161,15 +1157,15 @@ if.end59:                                         ; preds = %land.lhs.true, %lor
 
 err:                                              ; preds = %if.then47, %if.then36
   tail call void @ERR_put_error(i32 noundef 11, i32 noundef 0, i32 noundef 7, ptr noundef nonnull @.str, i32 noundef 502) #4
-  br label %if.end62
+  br label %return.sink.split
 
-if.end62:                                         ; preds = %if.end42, %if.end54, %err
-  %ret.0 = phi i32 [ 0, %err ], [ 1, %if.end54 ], [ 1, %if.end42 ]
+return.sink.split:                                ; preds = %if.end54, %if.end42, %err, %if.end
+  %retval.0.ph = phi i32 [ 1, %if.end ], [ 0, %err ], [ 1, %if.end42 ], [ 1, %if.end54 ]
   tail call void @free(ptr noundef %call) #4
   br label %return
 
-return:                                           ; preds = %entry, %if.end62, %if.then2
-  %retval.0 = phi i32 [ %ret.0, %if.end62 ], [ 1, %if.then2 ], [ 0, %entry ]
+return:                                           ; preds = %return.sink.split, %entry
+  %retval.0 = phi i32 [ 0, %entry ], [ %retval.0.ph, %return.sink.split ]
   ret i32 %retval.0
 }
 

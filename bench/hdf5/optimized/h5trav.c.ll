@@ -1818,22 +1818,19 @@ define internal noundef i32 @trav_attr(i64 %0, ptr noundef %1, ptr nocapture rea
   %5 = load ptr, ptr %3, align 8
   %6 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %5) #20
   %7 = icmp eq i64 %6, 1
-  br i1 %7, label %8, label %13
+  br i1 %7, label %8, label %11
 
 8:                                                ; preds = %4
   %9 = load i8, ptr %5, align 1
   %10 = icmp eq i8 %9, 47
-  br i1 %10, label %11, label %13
+  br i1 %10, label %12, label %11
 
-11:                                               ; preds = %8
-  %12 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.19, ptr noundef nonnull @.str.20, ptr noundef nonnull %5, ptr noundef %1)
-  br label %15
+11:                                               ; preds = %8, %4
+  br label %12
 
-13:                                               ; preds = %8, %4
-  %14 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.21, ptr noundef nonnull @.str.20, ptr noundef %5, ptr noundef %1)
-  br label %15
-
-15:                                               ; preds = %13, %11
+12:                                               ; preds = %8, %11
+  %.str.21.sink = phi ptr [ @.str.21, %11 ], [ @.str.19, %8 ]
+  %13 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) %.str.21.sink, ptr noundef nonnull @.str.20, ptr noundef %5, ptr noundef %1)
   %putchar = tail call i32 @putchar(i32 10)
   ret i32 0
 }

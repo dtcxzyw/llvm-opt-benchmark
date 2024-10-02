@@ -725,71 +725,58 @@ _ZN7CommandC2EPKc.exit:                           ; preds = %1, %19
   %22 = inttoptr i64 %0 to ptr
   %23 = tail call noundef ptr @_ZN9CodeCache9find_blobEPv(ptr noundef %22) #16
   %.not = icmp eq ptr %23, null
-  br i1 %.not, label %33, label %24
+  br i1 %.not, label %28, label %24
 
 24:                                               ; preds = %_ZN7CommandC2EPKc.exit
-  %25 = getelementptr inbounds i8, ptr %23, i64 52
-  %26 = load i8, ptr %25, align 4
-  %.not12 = icmp eq i8 %26, 1
-  %27 = load ptr, ptr %23, align 8
-  %28 = getelementptr inbounds i8, ptr %27, i64 24
-  %29 = load ptr, ptr %28, align 8
-  br i1 %.not12, label %30, label %31
-
-30:                                               ; preds = %24
-  tail call void %29(ptr noundef nonnull align 8 dereferenceable(214) %23) #16
-  br label %32
-
-31:                                               ; preds = %24
-  tail call void %29(ptr noundef nonnull align 8 dereferenceable(54) %23) #16
-  br label %32
-
-32:                                               ; preds = %31, %30
+  %25 = load ptr, ptr %23, align 8
+  %26 = getelementptr inbounds i8, ptr %25, i64 24
+  %27 = load ptr, ptr %26, align 8
+  tail call void %27(ptr noundef nonnull align 8 dereferenceable(54) %23) #16
   tail call void @_ZN12Disassembler6decodeEP8CodeBlobP12outputStream(ptr noundef nonnull %23, ptr noundef null) #16
-  br label %33
+  br label %28
 
-33:                                               ; preds = %32, %_ZN7CommandC2EPKc.exit
-  %34 = load ptr, ptr @tty, align 8
-  %35 = load ptr, ptr %34, align 8
-  %36 = load ptr, ptr %35, align 8
-  tail call void %36(ptr noundef nonnull align 8 dereferenceable(56) %34) #16
-  %37 = load i32, ptr @_ZN7Command5levelE, align 4
-  %38 = add nsw i32 %37, -1
-  store i32 %38, ptr @_ZN7Command5levelE, align 4
-  %39 = load i32, ptr @_ZN16DebuggingContext8_enabledE, align 4
-  %40 = icmp sgt i32 %39, 0
-  br i1 %40, label %_ZN16DebuggingContextD2Ev.exit.i, label %41
+28:                                               ; preds = %24, %_ZN7CommandC2EPKc.exit
+  %29 = load ptr, ptr @tty, align 8
+  %30 = load ptr, ptr %29, align 8
+  %31 = load ptr, ptr %30, align 8
+  tail call void %31(ptr noundef nonnull align 8 dereferenceable(56) %29) #16
+  %32 = load i32, ptr @_ZN7Command5levelE, align 4
+  %33 = add nsw i32 %32, -1
+  store i32 %33, ptr @_ZN7Command5levelE, align 4
+  %34 = load i32, ptr @_ZN16DebuggingContext8_enabledE, align 4
+  %35 = icmp sgt i32 %34, 0
+  br i1 %35, label %_ZN16DebuggingContextD2Ev.exit.i, label %36
 
-41:                                               ; preds = %33
-  %42 = load ptr, ptr @g_assert_poison, align 8
-  store i8 88, ptr %42, align 1
+36:                                               ; preds = %28
+  %37 = load ptr, ptr @g_assert_poison, align 8
+  store i8 88, ptr %37, align 1
   tail call void (i32, ptr, i32, ptr, ...) @_Z12report_fatal11VMErrorTypePKciS1_z(i32 noundef -536870912, ptr noundef nonnull @.str, i32 noundef 91, ptr noundef nonnull @.str.4) #15
   unreachable
 
-_ZN16DebuggingContextD2Ev.exit.i:                 ; preds = %33
-  %43 = add nsw i32 %39, -1
-  store i32 %43, ptr @_ZN16DebuggingContext8_enabledE, align 4
-  %44 = load ptr, ptr %7, align 8
-  %.not.i.i.i.i.i = icmp eq ptr %44, null
-  br i1 %.not.i.i.i.i.i, label %46, label %45
+_ZN16DebuggingContextD2Ev.exit.i:                 ; preds = %28
+  %38 = add nsw i32 %34, -1
+  store i32 %38, ptr @_ZN16DebuggingContext8_enabledE, align 4
+  %39 = load ptr, ptr %7, align 8
+  %.not.i.i.i.i.i = icmp eq ptr %39, null
+  br i1 %.not.i.i.i.i.i, label %41, label %40
 
-45:                                               ; preds = %_ZN16DebuggingContextD2Ev.exit.i
+40:                                               ; preds = %_ZN16DebuggingContextD2Ev.exit.i
   tail call void @_ZN5Arena17set_size_in_bytesEm(ptr noundef nonnull align 8 dereferenceable(48) %5, i64 noundef %13) #16
   tail call void @_ZN5Chunk9next_chopEPS_(ptr noundef nonnull %7) #16
-  br label %46
+  br label %41
 
-46:                                               ; preds = %45, %_ZN16DebuggingContextD2Ev.exit.i
-  %47 = load ptr, ptr %8, align 8
-  %.not8.i.i.i.i.i = icmp eq ptr %47, %9
-  br i1 %.not8.i.i.i.i.i, label %_ZN7CommandD2Ev.exit, label %48
+41:                                               ; preds = %40, %_ZN16DebuggingContextD2Ev.exit.i
+  %42 = load ptr, ptr %8, align 8
+  %.not8.i.i.i.i.i = icmp eq ptr %42, %9
+  br i1 %.not8.i.i.i.i.i, label %_ZN7CommandD2Ev.exit, label %43
 
-48:                                               ; preds = %46
+43:                                               ; preds = %41
   store ptr %7, ptr %6, align 8
   store ptr %9, ptr %8, align 8
   store ptr %11, ptr %10, align 8
   br label %_ZN7CommandD2Ev.exit
 
-_ZN7CommandD2Ev.exit:                             ; preds = %46, %48
+_ZN7CommandD2Ev.exit:                             ; preds = %41, %43
   ret void
 }
 

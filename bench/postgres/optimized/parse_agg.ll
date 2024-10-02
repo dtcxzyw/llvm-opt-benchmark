@@ -1076,7 +1076,7 @@ define dso_local void @parseCheckAggregates(ptr noundef %0, ptr noundef %1) loca
   %8 = getelementptr inbounds i8, ptr %1, i64 152
   %9 = load ptr, ptr %8, align 8
   %.not = icmp eq ptr %9, null
-  br i1 %.not, label %50, label %10
+  br i1 %.not, label %47, label %10
 
 10:                                               ; preds = %2
   %11 = getelementptr inbounds i8, ptr %1, i64 144
@@ -1084,7 +1084,7 @@ define dso_local void @parseCheckAggregates(ptr noundef %0, ptr noundef %1) loca
   %13 = trunc i8 %12 to i1
   %14 = tail call ptr @expand_grouping_sets(ptr noundef nonnull %9, i1 noundef zeroext %13, i32 noundef 4096)
   %.not125 = icmp eq ptr %14, null
-  br i1 %.not125, label %15, label %29
+  br i1 %.not125, label %15, label %26
 
 15:                                               ; preds = %10
   %16 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
@@ -1094,346 +1094,342 @@ define dso_local void @parseCheckAggregates(ptr noundef %0, ptr noundef %1) loca
   %19 = getelementptr inbounds i8, ptr %1, i64 136
   %20 = load ptr, ptr %19, align 8
   %.not126 = icmp eq ptr %20, null
-  br i1 %.not126, label %23, label %21
+  br i1 %.not126, label %21, label %23
 
 21:                                               ; preds = %15
-  %22 = tail call i32 @exprLocation(ptr noundef nonnull %20) #10
-  br label %26
+  %22 = load ptr, ptr %8, align 8
+  br label %23
 
-23:                                               ; preds = %15
-  %24 = load ptr, ptr %8, align 8
-  %25 = tail call i32 @exprLocation(ptr noundef %24) #10
-  br label %26
-
-26:                                               ; preds = %23, %21
-  %27 = phi i32 [ %22, %21 ], [ %25, %23 ]
-  %28 = tail call i32 @parser_errposition(ptr noundef %0, i32 noundef %27) #10
+23:                                               ; preds = %15, %21
+  %.sink = phi ptr [ %22, %21 ], [ %20, %15 ]
+  %24 = tail call i32 @exprLocation(ptr noundef %.sink) #10
+  %25 = tail call i32 @parser_errposition(ptr noundef %0, i32 noundef %24) #10
   tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 1112, ptr noundef nonnull @__func__.parseCheckAggregates) #10
   unreachable
 
-29:                                               ; preds = %10
-  %30 = getelementptr i8, ptr %14, i64 16
-  %.val = load ptr, ptr %30, align 8
-  %31 = load ptr, ptr %.val, align 8
-  %.not127 = icmp eq ptr %31, null
+26:                                               ; preds = %10
+  %27 = getelementptr i8, ptr %14, i64 16
+  %.val = load ptr, ptr %27, align 8
+  %28 = load ptr, ptr %.val, align 8
+  %.not127 = icmp eq ptr %28, null
   br i1 %.not127, label %list_length.exit, label %.preheader
 
-.preheader:                                       ; preds = %29
-  %32 = getelementptr inbounds i8, ptr %14, i64 4
-  %33 = load i32, ptr %32, align 4
-  %34 = icmp sgt i32 %33, 1
-  br i1 %34, label %.lr.ph, label %list_length.exit
+.preheader:                                       ; preds = %26
+  %29 = getelementptr inbounds i8, ptr %14, i64 4
+  %30 = load i32, ptr %29, align 4
+  %31 = icmp sgt i32 %30, 1
+  br i1 %31, label %.lr.ph, label %list_length.exit
 
-35:                                               ; preds = %.lr.ph
+32:                                               ; preds = %.lr.ph
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %36 = load i32, ptr %32, align 4
-  %37 = sext i32 %36 to i64
-  %38 = icmp slt i64 %indvars.iv.next, %37
-  br i1 %38, label %.lr.ph, label %list_length.exit, !llvm.loop !8
+  %33 = load i32, ptr %29, align 4
+  %34 = sext i32 %33 to i64
+  %35 = icmp slt i64 %indvars.iv.next, %34
+  br i1 %35, label %.lr.ph, label %list_length.exit, !llvm.loop !8
 
-.lr.ph:                                           ; preds = %.preheader, %35
-  %indvars.iv = phi i64 [ %indvars.iv.next, %35 ], [ 1, %.preheader ]
-  %.2154 = phi ptr [ %42, %35 ], [ %31, %.preheader ]
-  %39 = load ptr, ptr %30, align 8
-  %40 = getelementptr %union.ListCell, ptr %39, i64 %indvars.iv
-  %41 = load ptr, ptr %40, align 8
-  %42 = tail call ptr @list_intersection_int(ptr noundef nonnull %.2154, ptr noundef %41) #10
-  %.not130 = icmp eq ptr %42, null
-  br i1 %.not130, label %list_length.exit, label %35
+.lr.ph:                                           ; preds = %.preheader, %32
+  %indvars.iv = phi i64 [ %indvars.iv.next, %32 ], [ 1, %.preheader ]
+  %.2154 = phi ptr [ %39, %32 ], [ %28, %.preheader ]
+  %36 = load ptr, ptr %27, align 8
+  %37 = getelementptr %union.ListCell, ptr %36, i64 %indvars.iv
+  %38 = load ptr, ptr %37, align 8
+  %39 = tail call ptr @list_intersection_int(ptr noundef nonnull %.2154, ptr noundef %38) #10
+  %.not130 = icmp eq ptr %39, null
+  br i1 %.not130, label %list_length.exit, label %32
 
-list_length.exit:                                 ; preds = %.lr.ph, %35, %.preheader, %29
-  %.1 = phi ptr [ null, %29 ], [ %31, %.preheader ], [ null, %.lr.ph ], [ %42, %35 ]
-  %43 = getelementptr inbounds i8, ptr %14, i64 4
-  %44 = load i32, ptr %43, align 4
-  %45 = icmp eq i32 %44, 1
-  br i1 %45, label %46, label %50
+list_length.exit:                                 ; preds = %.lr.ph, %32, %.preheader, %26
+  %.1 = phi ptr [ null, %26 ], [ %28, %.preheader ], [ null, %.lr.ph ], [ %39, %32 ]
+  %40 = getelementptr inbounds i8, ptr %14, i64 4
+  %41 = load i32, ptr %40, align 4
+  %42 = icmp eq i32 %41, 1
+  br i1 %42, label %43, label %47
 
-46:                                               ; preds = %list_length.exit
-  %47 = getelementptr inbounds i8, ptr %1, i64 136
-  %48 = load ptr, ptr %47, align 8
-  %.not131 = icmp eq ptr %48, null
-  br i1 %.not131, label %50, label %49
+43:                                               ; preds = %list_length.exit
+  %44 = getelementptr inbounds i8, ptr %1, i64 136
+  %45 = load ptr, ptr %44, align 8
+  %.not131 = icmp eq ptr %45, null
+  br i1 %.not131, label %47, label %46
 
-49:                                               ; preds = %46
+46:                                               ; preds = %43
   store ptr null, ptr %8, align 8
-  br label %50
+  br label %47
 
-50:                                               ; preds = %list_length.exit, %46, %49, %2
-  %.0 = phi ptr [ %.1, %49 ], [ %.1, %46 ], [ %.1, %list_length.exit ], [ null, %2 ]
-  %51 = getelementptr inbounds i8, ptr %0, i64 16
-  %52 = load ptr, ptr %51, align 8
-  %.not132 = icmp eq ptr %52, null
+47:                                               ; preds = %list_length.exit, %43, %46, %2
+  %.0 = phi ptr [ %.1, %46 ], [ %.1, %43 ], [ %.1, %list_length.exit ], [ null, %2 ]
+  %48 = getelementptr inbounds i8, ptr %0, i64 16
+  %49 = load ptr, ptr %48, align 8
+  %.not132 = icmp eq ptr %49, null
   br i1 %.not132, label %._crit_edge, label %.lr.ph160
 
-.lr.ph160:                                        ; preds = %50
-  %53 = getelementptr inbounds i8, ptr %52, i64 4
-  %54 = load i32, ptr %53, align 4
-  %55 = icmp sgt i32 %54, 0
-  br i1 %55, label %.lr.ph172, label %._crit_edge
+.lr.ph160:                                        ; preds = %47
+  %50 = getelementptr inbounds i8, ptr %49, i64 4
+  %51 = load i32, ptr %50, align 4
+  %52 = icmp sgt i32 %51, 0
+  br i1 %52, label %.lr.ph172, label %._crit_edge
 
 .lr.ph172:                                        ; preds = %.lr.ph160
-  %56 = getelementptr inbounds i8, ptr %52, i64 16
-  %57 = load ptr, ptr %56, align 8
-  %wide.trip.count = zext nneg i32 %54 to i64
-  br label %58
+  %53 = getelementptr inbounds i8, ptr %49, i64 16
+  %54 = load ptr, ptr %53, align 8
+  %wide.trip.count = zext nneg i32 %51 to i64
+  br label %55
 
-58:                                               ; preds = %.lr.ph172, %67
-  %indvars.iv211 = phi i64 [ 0, %.lr.ph172 ], [ %indvars.iv.next212, %67 ]
-  %.0109158170 = phi i1 [ false, %.lr.ph172 ], [ %.1110, %67 ]
-  %.0107159169 = phi i8 [ 0, %.lr.ph172 ], [ %.1108, %67 ]
-  %59 = getelementptr %union.ListCell, ptr %57, i64 %indvars.iv211
-  %60 = load ptr, ptr %59, align 8
-  %61 = getelementptr inbounds i8, ptr %60, i64 4
-  %62 = load i32, ptr %61, align 4
-  switch i32 %62, label %.fold.split [
-    i32 2, label %67
-    i32 6, label %63
+55:                                               ; preds = %.lr.ph172, %64
+  %indvars.iv211 = phi i64 [ 0, %.lr.ph172 ], [ %indvars.iv.next212, %64 ]
+  %.0109158170 = phi i1 [ false, %.lr.ph172 ], [ %.1110, %64 ]
+  %.0107159169 = phi i8 [ 0, %.lr.ph172 ], [ %.1108, %64 ]
+  %56 = getelementptr %union.ListCell, ptr %54, i64 %indvars.iv211
+  %57 = load ptr, ptr %56, align 8
+  %58 = getelementptr inbounds i8, ptr %57, i64 4
+  %59 = load i32, ptr %58, align 4
+  switch i32 %59, label %.fold.split [
+    i32 2, label %64
+    i32 6, label %60
   ]
 
-63:                                               ; preds = %58
-  %64 = getelementptr inbounds i8, ptr %60, i64 140
-  %65 = load i8, ptr %64, align 4
-  %66 = trunc i8 %65 to i1
-  %spec.select = select i1 %66, i1 true, i1 %.0109158170
-  br label %67
+60:                                               ; preds = %55
+  %61 = getelementptr inbounds i8, ptr %57, i64 140
+  %62 = load i8, ptr %61, align 4
+  %63 = trunc i8 %62 to i1
+  %spec.select = select i1 %63, i1 true, i1 %.0109158170
+  br label %64
 
-.fold.split:                                      ; preds = %58
-  br label %67
+.fold.split:                                      ; preds = %55
+  br label %64
 
-67:                                               ; preds = %63, %58, %.fold.split
-  %.1110 = phi i1 [ %.0109158170, %58 ], [ %.0109158170, %.fold.split ], [ %spec.select, %63 ]
-  %.1108 = phi i8 [ 1, %58 ], [ %.0107159169, %.fold.split ], [ %.0107159169, %63 ]
+64:                                               ; preds = %60, %55, %.fold.split
+  %.1110 = phi i1 [ %.0109158170, %55 ], [ %.0109158170, %.fold.split ], [ %spec.select, %60 ]
+  %.1108 = phi i8 [ 1, %55 ], [ %.0107159169, %.fold.split ], [ %.0107159169, %60 ]
   %indvars.iv.next212 = add nuw nsw i64 %indvars.iv211, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next212, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %58
+  br i1 %exitcond.not, label %._crit_edge, label %55
 
-._crit_edge:                                      ; preds = %67, %.lr.ph160, %50
-  %.0109.lcssa = phi i1 [ false, %50 ], [ false, %.lr.ph160 ], [ %.1110, %67 ]
-  %.0107.lcssa = phi i8 [ 0, %50 ], [ 0, %.lr.ph160 ], [ %.1108, %67 ]
-  %68 = getelementptr inbounds i8, ptr %1, i64 136
-  %69 = load ptr, ptr %68, align 8
-  %70 = getelementptr inbounds i8, ptr %69, i64 4
-  %.not134 = icmp eq ptr %69, null
+._crit_edge:                                      ; preds = %64, %.lr.ph160, %47
+  %.0109.lcssa = phi i1 [ false, %47 ], [ false, %.lr.ph160 ], [ %.1110, %64 ]
+  %.0107.lcssa = phi i8 [ 0, %47 ], [ 0, %.lr.ph160 ], [ %.1108, %64 ]
+  %65 = getelementptr inbounds i8, ptr %1, i64 136
+  %66 = load ptr, ptr %65, align 8
+  %67 = getelementptr inbounds i8, ptr %66, i64 4
+  %.not134 = icmp eq ptr %66, null
   br i1 %.not134, label %._crit_edge179, label %.lr.ph178
 
 .lr.ph178:                                        ; preds = %._crit_edge
-  %71 = getelementptr inbounds i8, ptr %69, i64 16
-  %72 = getelementptr inbounds i8, ptr %1, i64 104
-  %73 = load i32, ptr %70, align 4
-  %74 = icmp sgt i32 %73, 0
-  br i1 %74, label %.lr.ph187, label %._crit_edge179
+  %68 = getelementptr inbounds i8, ptr %66, i64 16
+  %69 = getelementptr inbounds i8, ptr %1, i64 104
+  %70 = load i32, ptr %67, align 4
+  %71 = icmp sgt i32 %70, 0
+  br i1 %71, label %.lr.ph187, label %._crit_edge179
 
-.lr.ph187:                                        ; preds = %.lr.ph178, %83
-  %indvars.iv213 = phi i64 [ %indvars.iv.next214, %83 ], [ 0, %.lr.ph178 ]
-  %.097176185 = phi ptr [ %.198, %83 ], [ null, %.lr.ph178 ]
-  %75 = load ptr, ptr %71, align 8
-  %76 = getelementptr %union.ListCell, ptr %75, i64 %indvars.iv213
-  %77 = load ptr, ptr %76, align 8
-  %78 = load ptr, ptr %72, align 8
-  %79 = tail call ptr @get_sortgroupclause_tle(ptr noundef %77, ptr noundef %78) #10
-  %80 = icmp eq ptr %79, null
-  br i1 %80, label %83, label %81
+.lr.ph187:                                        ; preds = %.lr.ph178, %80
+  %indvars.iv213 = phi i64 [ %indvars.iv.next214, %80 ], [ 0, %.lr.ph178 ]
+  %.097176185 = phi ptr [ %.198, %80 ], [ null, %.lr.ph178 ]
+  %72 = load ptr, ptr %68, align 8
+  %73 = getelementptr %union.ListCell, ptr %72, i64 %indvars.iv213
+  %74 = load ptr, ptr %73, align 8
+  %75 = load ptr, ptr %69, align 8
+  %76 = tail call ptr @get_sortgroupclause_tle(ptr noundef %74, ptr noundef %75) #10
+  %77 = icmp eq ptr %76, null
+  br i1 %77, label %80, label %78
 
-81:                                               ; preds = %.lr.ph187
-  %82 = tail call ptr @lappend(ptr noundef %.097176185, ptr noundef nonnull %79) #10
-  br label %83
+78:                                               ; preds = %.lr.ph187
+  %79 = tail call ptr @lappend(ptr noundef %.097176185, ptr noundef nonnull %76) #10
+  br label %80
 
-83:                                               ; preds = %.lr.ph187, %81
-  %.198 = phi ptr [ %.097176185, %.lr.ph187 ], [ %82, %81 ]
+80:                                               ; preds = %.lr.ph187, %78
+  %.198 = phi ptr [ %.097176185, %.lr.ph187 ], [ %79, %78 ]
   %indvars.iv.next214 = add nuw nsw i64 %indvars.iv213, 1
-  %84 = load i32, ptr %70, align 4
-  %85 = sext i32 %84 to i64
-  %86 = icmp slt i64 %indvars.iv.next214, %85
-  br i1 %86, label %.lr.ph187, label %._crit_edge179
+  %81 = load i32, ptr %67, align 4
+  %82 = sext i32 %81 to i64
+  %83 = icmp slt i64 %indvars.iv.next214, %82
+  br i1 %83, label %.lr.ph187, label %._crit_edge179
 
-._crit_edge179:                                   ; preds = %83, %.lr.ph178, %._crit_edge
-  %.097.lcssa = phi ptr [ null, %._crit_edge ], [ null, %.lr.ph178 ], [ %.198, %83 ]
-  %87 = trunc nuw i8 %.0107.lcssa to i1
-  br i1 %87, label %88, label %90
+._crit_edge179:                                   ; preds = %80, %.lr.ph178, %._crit_edge
+  %.097.lcssa = phi ptr [ null, %._crit_edge ], [ null, %.lr.ph178 ], [ %.198, %80 ]
+  %84 = trunc nuw i8 %.0107.lcssa to i1
+  br i1 %84, label %85, label %87
 
-88:                                               ; preds = %._crit_edge179
-  %89 = tail call ptr @flatten_join_alias_vars(ptr noundef null, ptr noundef nonnull %1, ptr noundef %.097.lcssa) #10
-  br label %90
+85:                                               ; preds = %._crit_edge179
+  %86 = tail call ptr @flatten_join_alias_vars(ptr noundef null, ptr noundef nonnull %1, ptr noundef %.097.lcssa) #10
+  br label %87
 
-90:                                               ; preds = %88, %._crit_edge179
-  %.299 = phi ptr [ %89, %88 ], [ %.097.lcssa, %._crit_edge179 ]
-  %91 = getelementptr inbounds i8, ptr %.299, i64 4
+87:                                               ; preds = %85, %._crit_edge179
+  %.299 = phi ptr [ %86, %85 ], [ %.097.lcssa, %._crit_edge179 ]
+  %88 = getelementptr inbounds i8, ptr %.299, i64 4
   %.not136 = icmp eq ptr %.299, null
   br i1 %.not136, label %._crit_edge194, label %.lr.ph193
 
-.lr.ph193:                                        ; preds = %90
-  %92 = getelementptr inbounds i8, ptr %.299, i64 16
-  %93 = load i32, ptr %91, align 4
-  %94 = icmp sgt i32 %93, 0
-  br i1 %94, label %.lr.ph207, label %._crit_edge194
+.lr.ph193:                                        ; preds = %87
+  %89 = getelementptr inbounds i8, ptr %.299, i64 16
+  %90 = load i32, ptr %88, align 4
+  %91 = icmp sgt i32 %90, 0
+  br i1 %91, label %.lr.ph207, label %._crit_edge194
 
-.lr.ph207:                                        ; preds = %.lr.ph193, %111
-  %indvars.iv216 = phi i64 [ %indvars.iv.next217, %111 ], [ 0, %.lr.ph193 ]
-  %.0102189206 = phi i8 [ %.1103, %111 ], [ 0, %.lr.ph193 ]
-  %.0100190205 = phi ptr [ %.1101, %111 ], [ null, %.lr.ph193 ]
-  %95 = load ptr, ptr %92, align 8
-  %96 = getelementptr %union.ListCell, ptr %95, i64 %indvars.iv216
-  %97 = load ptr, ptr %96, align 8
-  %98 = getelementptr inbounds i8, ptr %97, i64 8
-  %99 = load ptr, ptr %98, align 8
-  %100 = load i32, ptr %99, align 4
-  %101 = icmp eq i32 %100, 6
-  br i1 %101, label %102, label %111
+.lr.ph207:                                        ; preds = %.lr.ph193, %108
+  %indvars.iv216 = phi i64 [ %indvars.iv.next217, %108 ], [ 0, %.lr.ph193 ]
+  %.0102189206 = phi i8 [ %.1103, %108 ], [ 0, %.lr.ph193 ]
+  %.0100190205 = phi ptr [ %.1101, %108 ], [ null, %.lr.ph193 ]
+  %92 = load ptr, ptr %89, align 8
+  %93 = getelementptr %union.ListCell, ptr %92, i64 %indvars.iv216
+  %94 = load ptr, ptr %93, align 8
+  %95 = getelementptr inbounds i8, ptr %94, i64 8
+  %96 = load ptr, ptr %95, align 8
+  %97 = load i32, ptr %96, align 4
+  %98 = icmp eq i32 %97, 6
+  br i1 %98, label %99, label %108
 
-102:                                              ; preds = %.lr.ph207
-  %103 = load ptr, ptr %8, align 8
-  %.not138 = icmp eq ptr %103, null
-  br i1 %.not138, label %108, label %104
+99:                                               ; preds = %.lr.ph207
+  %100 = load ptr, ptr %8, align 8
+  %.not138 = icmp eq ptr %100, null
+  br i1 %.not138, label %105, label %101
 
-104:                                              ; preds = %102
-  %105 = getelementptr inbounds i8, ptr %97, i64 32
-  %106 = load i32, ptr %105, align 8
-  %107 = tail call zeroext i1 @list_member_int(ptr noundef %.0, i32 noundef %106) #10
-  br i1 %107, label %._crit_edge218, label %111
+101:                                              ; preds = %99
+  %102 = getelementptr inbounds i8, ptr %94, i64 32
+  %103 = load i32, ptr %102, align 8
+  %104 = tail call zeroext i1 @list_member_int(ptr noundef %.0, i32 noundef %103) #10
+  br i1 %104, label %._crit_edge218, label %108
 
-._crit_edge218:                                   ; preds = %104
-  %.pre = load ptr, ptr %98, align 8
+._crit_edge218:                                   ; preds = %101
+  %.pre = load ptr, ptr %95, align 8
+  br label %105
+
+105:                                              ; preds = %._crit_edge218, %99
+  %106 = phi ptr [ %.pre, %._crit_edge218 ], [ %96, %99 ]
+  %107 = tail call ptr @lappend(ptr noundef %.0100190205, ptr noundef %106) #10
   br label %108
 
-108:                                              ; preds = %._crit_edge218, %102
-  %109 = phi ptr [ %.pre, %._crit_edge218 ], [ %99, %102 ]
-  %110 = tail call ptr @lappend(ptr noundef %.0100190205, ptr noundef %109) #10
-  br label %111
-
-111:                                              ; preds = %.lr.ph207, %108, %104
-  %.1103 = phi i8 [ %.0102189206, %108 ], [ %.0102189206, %104 ], [ 1, %.lr.ph207 ]
-  %.1101 = phi ptr [ %110, %108 ], [ %.0100190205, %104 ], [ %.0100190205, %.lr.ph207 ]
+108:                                              ; preds = %.lr.ph207, %105, %101
+  %.1103 = phi i8 [ %.0102189206, %105 ], [ %.0102189206, %101 ], [ 1, %.lr.ph207 ]
+  %.1101 = phi ptr [ %107, %105 ], [ %.0100190205, %101 ], [ %.0100190205, %.lr.ph207 ]
   %indvars.iv.next217 = add nuw nsw i64 %indvars.iv216, 1
-  %112 = load i32, ptr %91, align 4
-  %113 = sext i32 %112 to i64
-  %114 = icmp slt i64 %indvars.iv.next217, %113
-  br i1 %114, label %.lr.ph207, label %._crit_edge194.loopexit
+  %109 = load i32, ptr %88, align 4
+  %110 = sext i32 %109 to i64
+  %111 = icmp slt i64 %indvars.iv.next217, %110
+  br i1 %111, label %.lr.ph207, label %._crit_edge194.loopexit
 
-._crit_edge194.loopexit:                          ; preds = %111
-  %115 = and i8 %.1103, 1
+._crit_edge194.loopexit:                          ; preds = %108
+  %112 = and i8 %.1103, 1
   br label %._crit_edge194
 
-._crit_edge194:                                   ; preds = %._crit_edge194.loopexit, %.lr.ph193, %90
-  %.0102.lcssa = phi i8 [ 0, %90 ], [ 0, %.lr.ph193 ], [ %115, %._crit_edge194.loopexit ]
-  %.0100.lcssa = phi ptr [ null, %90 ], [ null, %.lr.ph193 ], [ %.1101, %._crit_edge194.loopexit ]
-  %116 = getelementptr inbounds i8, ptr %1, i64 104
-  %117 = load ptr, ptr %116, align 8
+._crit_edge194:                                   ; preds = %._crit_edge194.loopexit, %.lr.ph193, %87
+  %.0102.lcssa = phi i8 [ 0, %87 ], [ 0, %.lr.ph193 ], [ %112, %._crit_edge194.loopexit ]
+  %.0100.lcssa = phi ptr [ null, %87 ], [ null, %.lr.ph193 ], [ %.1101, %._crit_edge194.loopexit ]
+  %113 = getelementptr inbounds i8, ptr %1, i64 104
+  %114 = load ptr, ptr %113, align 8
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %6)
-  %118 = and i8 %.0107.lcssa, 1
+  %115 = and i8 %.0107.lcssa, 1
   store ptr %0, ptr %6, align 8
-  %119 = getelementptr inbounds i8, ptr %6, i64 8
-  store ptr %1, ptr %119, align 8
-  %120 = getelementptr inbounds i8, ptr %6, i64 16
-  store i8 %118, ptr %120, align 8
-  %121 = getelementptr inbounds i8, ptr %6, i64 24
-  store ptr %.299, ptr %121, align 8
-  %122 = getelementptr inbounds i8, ptr %6, i64 32
-  store ptr null, ptr %122, align 8
-  %123 = getelementptr inbounds i8, ptr %6, i64 40
-  store i8 %.0102.lcssa, ptr %123, align 8
-  %124 = getelementptr inbounds i8, ptr %6, i64 48
-  store ptr null, ptr %124, align 8
-  %125 = getelementptr inbounds i8, ptr %6, i64 56
-  store i32 0, ptr %125, align 8
-  %126 = getelementptr inbounds i8, ptr %6, i64 60
-  store i8 0, ptr %126, align 4
-  %127 = call zeroext i1 @finalize_grouping_exprs_walker(ptr noundef %117, ptr noundef nonnull %6)
+  %116 = getelementptr inbounds i8, ptr %6, i64 8
+  store ptr %1, ptr %116, align 8
+  %117 = getelementptr inbounds i8, ptr %6, i64 16
+  store i8 %115, ptr %117, align 8
+  %118 = getelementptr inbounds i8, ptr %6, i64 24
+  store ptr %.299, ptr %118, align 8
+  %119 = getelementptr inbounds i8, ptr %6, i64 32
+  store ptr null, ptr %119, align 8
+  %120 = getelementptr inbounds i8, ptr %6, i64 40
+  store i8 %.0102.lcssa, ptr %120, align 8
+  %121 = getelementptr inbounds i8, ptr %6, i64 48
+  store ptr null, ptr %121, align 8
+  %122 = getelementptr inbounds i8, ptr %6, i64 56
+  store i32 0, ptr %122, align 8
+  %123 = getelementptr inbounds i8, ptr %6, i64 60
+  store i8 0, ptr %123, align 4
+  %124 = call zeroext i1 @finalize_grouping_exprs_walker(ptr noundef %114, ptr noundef nonnull %6)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %6)
-  br i1 %87, label %128, label %130
+  br i1 %84, label %125, label %127
 
-128:                                              ; preds = %._crit_edge194
-  %129 = call ptr @flatten_join_alias_vars(ptr noundef null, ptr noundef nonnull %1, ptr noundef %117) #10
-  br label %130
+125:                                              ; preds = %._crit_edge194
+  %126 = call ptr @flatten_join_alias_vars(ptr noundef null, ptr noundef nonnull %1, ptr noundef %114) #10
+  br label %127
 
-130:                                              ; preds = %128, %._crit_edge194
-  %.0111 = phi ptr [ %129, %128 ], [ %117, %._crit_edge194 ]
+127:                                              ; preds = %125, %._crit_edge194
+  %.0111 = phi ptr [ %126, %125 ], [ %114, %._crit_edge194 ]
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %5)
   store ptr %0, ptr %5, align 8
-  %131 = getelementptr inbounds i8, ptr %5, i64 8
-  store ptr %1, ptr %131, align 8
-  %132 = getelementptr inbounds i8, ptr %5, i64 16
-  store i8 0, ptr %132, align 8
-  %133 = getelementptr inbounds i8, ptr %5, i64 24
-  store ptr %.299, ptr %133, align 8
-  %134 = getelementptr inbounds i8, ptr %5, i64 32
-  store ptr %.0100.lcssa, ptr %134, align 8
-  %135 = getelementptr inbounds i8, ptr %5, i64 40
-  store i8 %.0102.lcssa, ptr %135, align 8
-  %136 = getelementptr inbounds i8, ptr %5, i64 48
-  store ptr %7, ptr %136, align 8
-  %137 = getelementptr inbounds i8, ptr %5, i64 56
-  store i32 0, ptr %137, align 8
-  %138 = getelementptr inbounds i8, ptr %5, i64 60
-  store i8 0, ptr %138, align 4
-  %139 = call zeroext i1 @check_ungrouped_columns_walker(ptr noundef %.0111, ptr noundef nonnull %5)
+  %128 = getelementptr inbounds i8, ptr %5, i64 8
+  store ptr %1, ptr %128, align 8
+  %129 = getelementptr inbounds i8, ptr %5, i64 16
+  store i8 0, ptr %129, align 8
+  %130 = getelementptr inbounds i8, ptr %5, i64 24
+  store ptr %.299, ptr %130, align 8
+  %131 = getelementptr inbounds i8, ptr %5, i64 32
+  store ptr %.0100.lcssa, ptr %131, align 8
+  %132 = getelementptr inbounds i8, ptr %5, i64 40
+  store i8 %.0102.lcssa, ptr %132, align 8
+  %133 = getelementptr inbounds i8, ptr %5, i64 48
+  store ptr %7, ptr %133, align 8
+  %134 = getelementptr inbounds i8, ptr %5, i64 56
+  store i32 0, ptr %134, align 8
+  %135 = getelementptr inbounds i8, ptr %5, i64 60
+  store i8 0, ptr %135, align 4
+  %136 = call zeroext i1 @check_ungrouped_columns_walker(ptr noundef %.0111, ptr noundef nonnull %5)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %5)
-  %140 = getelementptr inbounds i8, ptr %1, i64 160
-  %141 = load ptr, ptr %140, align 8
+  %137 = getelementptr inbounds i8, ptr %1, i64 160
+  %138 = load ptr, ptr %137, align 8
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %4)
   store ptr %0, ptr %4, align 8
-  %142 = getelementptr inbounds i8, ptr %4, i64 8
-  store ptr %1, ptr %142, align 8
-  %143 = getelementptr inbounds i8, ptr %4, i64 16
-  store i8 %118, ptr %143, align 8
-  %144 = getelementptr inbounds i8, ptr %4, i64 24
-  store ptr %.299, ptr %144, align 8
-  %145 = getelementptr inbounds i8, ptr %4, i64 32
-  store ptr null, ptr %145, align 8
-  %146 = getelementptr inbounds i8, ptr %4, i64 40
-  store i8 %.0102.lcssa, ptr %146, align 8
-  %147 = getelementptr inbounds i8, ptr %4, i64 48
-  store ptr null, ptr %147, align 8
-  %148 = getelementptr inbounds i8, ptr %4, i64 56
-  store i32 0, ptr %148, align 8
-  %149 = getelementptr inbounds i8, ptr %4, i64 60
-  store i8 0, ptr %149, align 4
-  %150 = call zeroext i1 @finalize_grouping_exprs_walker(ptr noundef %141, ptr noundef nonnull %4)
+  %139 = getelementptr inbounds i8, ptr %4, i64 8
+  store ptr %1, ptr %139, align 8
+  %140 = getelementptr inbounds i8, ptr %4, i64 16
+  store i8 %115, ptr %140, align 8
+  %141 = getelementptr inbounds i8, ptr %4, i64 24
+  store ptr %.299, ptr %141, align 8
+  %142 = getelementptr inbounds i8, ptr %4, i64 32
+  store ptr null, ptr %142, align 8
+  %143 = getelementptr inbounds i8, ptr %4, i64 40
+  store i8 %.0102.lcssa, ptr %143, align 8
+  %144 = getelementptr inbounds i8, ptr %4, i64 48
+  store ptr null, ptr %144, align 8
+  %145 = getelementptr inbounds i8, ptr %4, i64 56
+  store i32 0, ptr %145, align 8
+  %146 = getelementptr inbounds i8, ptr %4, i64 60
+  store i8 0, ptr %146, align 4
+  %147 = call zeroext i1 @finalize_grouping_exprs_walker(ptr noundef %138, ptr noundef nonnull %4)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %4)
-  br i1 %87, label %151, label %153
+  br i1 %84, label %148, label %150
 
-151:                                              ; preds = %130
-  %152 = call ptr @flatten_join_alias_vars(ptr noundef null, ptr noundef nonnull %1, ptr noundef %141) #10
-  br label %153
+148:                                              ; preds = %127
+  %149 = call ptr @flatten_join_alias_vars(ptr noundef null, ptr noundef nonnull %1, ptr noundef %138) #10
+  br label %150
 
-153:                                              ; preds = %151, %130
-  %.1112 = phi ptr [ %152, %151 ], [ %141, %130 ]
+150:                                              ; preds = %148, %127
+  %.1112 = phi ptr [ %149, %148 ], [ %138, %127 ]
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %3)
   store ptr %0, ptr %3, align 8
-  %154 = getelementptr inbounds i8, ptr %3, i64 8
-  store ptr %1, ptr %154, align 8
-  %155 = getelementptr inbounds i8, ptr %3, i64 16
-  store i8 0, ptr %155, align 8
-  %156 = getelementptr inbounds i8, ptr %3, i64 24
-  store ptr %.299, ptr %156, align 8
-  %157 = getelementptr inbounds i8, ptr %3, i64 32
-  store ptr %.0100.lcssa, ptr %157, align 8
-  %158 = getelementptr inbounds i8, ptr %3, i64 40
-  store i8 %.0102.lcssa, ptr %158, align 8
-  %159 = getelementptr inbounds i8, ptr %3, i64 48
-  store ptr %7, ptr %159, align 8
-  %160 = getelementptr inbounds i8, ptr %3, i64 56
-  store i32 0, ptr %160, align 8
-  %161 = getelementptr inbounds i8, ptr %3, i64 60
-  store i8 0, ptr %161, align 4
-  %162 = call zeroext i1 @check_ungrouped_columns_walker(ptr noundef %.1112, ptr noundef nonnull %3)
+  %151 = getelementptr inbounds i8, ptr %3, i64 8
+  store ptr %1, ptr %151, align 8
+  %152 = getelementptr inbounds i8, ptr %3, i64 16
+  store i8 0, ptr %152, align 8
+  %153 = getelementptr inbounds i8, ptr %3, i64 24
+  store ptr %.299, ptr %153, align 8
+  %154 = getelementptr inbounds i8, ptr %3, i64 32
+  store ptr %.0100.lcssa, ptr %154, align 8
+  %155 = getelementptr inbounds i8, ptr %3, i64 40
+  store i8 %.0102.lcssa, ptr %155, align 8
+  %156 = getelementptr inbounds i8, ptr %3, i64 48
+  store ptr %7, ptr %156, align 8
+  %157 = getelementptr inbounds i8, ptr %3, i64 56
+  store i32 0, ptr %157, align 8
+  %158 = getelementptr inbounds i8, ptr %3, i64 60
+  store i8 0, ptr %158, align 4
+  %159 = call zeroext i1 @check_ungrouped_columns_walker(ptr noundef %.1112, ptr noundef nonnull %3)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %3)
-  %163 = getelementptr inbounds i8, ptr %0, i64 168
-  %164 = load i8, ptr %163, align 8
-  %165 = trunc i8 %164 to i1
-  %166 = select i1 %165, i1 %.0109.lcssa, i1 false
-  br i1 %166, label %167, label %173
+  %160 = getelementptr inbounds i8, ptr %0, i64 168
+  %161 = load i8, ptr %160, align 8
+  %162 = trunc i8 %161 to i1
+  %163 = select i1 %162, i1 %.0109.lcssa, i1 false
+  br i1 %163, label %164, label %170
 
-167:                                              ; preds = %153
-  %168 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
-  call void @llvm.assume(i1 %168)
-  %169 = call i32 @errcode(i32 noundef 151388292) #10
-  %170 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.27) #10
-  %171 = call i32 @locate_agg_of_level(ptr noundef nonnull %1, i32 noundef 0) #10
-  %172 = call i32 @parser_errposition(ptr noundef nonnull %0, i32 noundef %171) #10
+164:                                              ; preds = %150
+  %165 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
+  call void @llvm.assume(i1 %165)
+  %166 = call i32 @errcode(i32 noundef 151388292) #10
+  %167 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.27) #10
+  %168 = call i32 @locate_agg_of_level(ptr noundef nonnull %1, i32 noundef 0) #10
+  %169 = call i32 @parser_errposition(ptr noundef nonnull %0, i32 noundef %168) #10
   call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 1250, ptr noundef nonnull @__func__.parseCheckAggregates) #10
   unreachable
 
-173:                                              ; preds = %153
+170:                                              ; preds = %150
   ret void
 }
 

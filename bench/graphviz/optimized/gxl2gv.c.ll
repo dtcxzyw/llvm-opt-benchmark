@@ -1913,7 +1913,7 @@ declare ptr @agnameof(ptr noundef) local_unnamed_addr #1
 define internal fastcc void @setEdgeAttr(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef readonly %3, i1 noundef zeroext %4) unnamed_addr #0 {
   %6 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(9) @.str.54) #25
   %7 = icmp eq i32 %6, 0
-  br i1 %7, label %8, label %17
+  br i1 %7, label %8, label %14
 
 8:                                                ; preds = %5
   %9 = getelementptr inbounds i8, ptr %3, i64 109
@@ -1923,61 +1923,52 @@ define internal fastcc void @setEdgeAttr(ptr noundef %0, ptr noundef %1, ptr nou
   %12 = load ptr, ptr @root, align 8
   %13 = tail call ptr @agattr(ptr noundef %12, i32 noundef 2, ptr noundef nonnull %.str.55..str.54, ptr noundef null) #22
   %.not26 = icmp eq ptr %13, null
-  br i1 %.not26, label %14, label %35
+  br i1 %.not26, label %.sink.split, label %28
 
-14:                                               ; preds = %8
-  %15 = load ptr, ptr @root, align 8
-  %16 = tail call ptr @agattr(ptr noundef %15, i32 noundef 2, ptr noundef nonnull %.str.55..str.54, ptr noundef nonnull @.str.3) #22
-  br label %35
+14:                                               ; preds = %5
+  %15 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(9) @.str.55) #25
+  %16 = icmp eq i32 %15, 0
+  br i1 %16, label %17, label %23
 
-17:                                               ; preds = %5
-  %18 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(9) @.str.55) #25
-  %19 = icmp eq i32 %18, 0
-  br i1 %19, label %20, label %29
+17:                                               ; preds = %14
+  %18 = getelementptr inbounds i8, ptr %3, i64 109
+  %19 = load i8, ptr %18, align 1
+  %20 = trunc i8 %19 to i1
+  %.str.54..str.55 = select i1 %20, ptr @.str.54, ptr @.str.55
+  %21 = load ptr, ptr @root, align 8
+  %22 = tail call ptr @agattr(ptr noundef %21, i32 noundef 2, ptr noundef nonnull %.str.54..str.55, ptr noundef null) #22
+  %.not25 = icmp eq ptr %22, null
+  br i1 %.not25, label %.sink.split, label %28
 
-20:                                               ; preds = %17
-  %21 = getelementptr inbounds i8, ptr %3, i64 109
-  %22 = load i8, ptr %21, align 1
-  %23 = trunc i8 %22 to i1
-  %.str.54..str.55 = select i1 %23, ptr @.str.54, ptr @.str.55
+23:                                               ; preds = %14
   %24 = load ptr, ptr @root, align 8
-  %25 = tail call ptr @agattr(ptr noundef %24, i32 noundef 2, ptr noundef nonnull %.str.54..str.55, ptr noundef null) #22
-  %.not25 = icmp eq ptr %25, null
-  br i1 %.not25, label %26, label %35
+  %25 = tail call ptr @agattr(ptr noundef %24, i32 noundef 2, ptr noundef %1, ptr noundef null) #22
+  %.not = icmp eq ptr %25, null
+  br i1 %.not, label %.sink.split, label %28
 
-26:                                               ; preds = %20
-  %27 = load ptr, ptr @root, align 8
-  %28 = tail call ptr @agattr(ptr noundef %27, i32 noundef 2, ptr noundef nonnull %.str.54..str.55, ptr noundef nonnull @.str.3) #22
-  br label %35
+.sink.split:                                      ; preds = %23, %17, %8
+  %.str.54..str.55.sink = phi ptr [ %.str.55..str.54, %8 ], [ %.str.54..str.55, %17 ], [ %1, %23 ]
+  %26 = load ptr, ptr @root, align 8
+  %27 = tail call ptr @agattr(ptr noundef %26, i32 noundef 2, ptr noundef %.str.54..str.55.sink, ptr noundef nonnull @.str.3) #22
+  br label %28
 
-29:                                               ; preds = %17
+28:                                               ; preds = %.sink.split, %17, %23, %8
+  %.0 = phi ptr [ %13, %8 ], [ %22, %17 ], [ %25, %23 ], [ %27, %.sink.split ]
+  br i1 %4, label %29, label %35
+
+29:                                               ; preds = %28
   %30 = load ptr, ptr @root, align 8
-  %31 = tail call ptr @agattr(ptr noundef %30, i32 noundef 2, ptr noundef %1, ptr noundef null) #22
-  %.not = icmp eq ptr %31, null
-  br i1 %.not, label %32, label %35
-
-32:                                               ; preds = %29
+  %31 = tail call ptr @agstrdup_html(ptr noundef %30, ptr noundef %2) #22
+  %32 = tail call i32 @agxset(ptr noundef %0, ptr noundef %.0, ptr noundef %31) #22
   %33 = load ptr, ptr @root, align 8
-  %34 = tail call ptr @agattr(ptr noundef %33, i32 noundef 2, ptr noundef %1, ptr noundef nonnull @.str.3) #22
-  br label %35
+  %34 = tail call i32 @agstrfree(ptr noundef %33, ptr noundef %31) #22
+  br label %37
 
-35:                                               ; preds = %26, %20, %32, %29, %8, %14
-  %.0 = phi ptr [ %13, %8 ], [ %16, %14 ], [ %25, %20 ], [ %28, %26 ], [ %31, %29 ], [ %34, %32 ]
-  br i1 %4, label %36, label %42
+35:                                               ; preds = %28
+  %36 = tail call i32 @agxset(ptr noundef %0, ptr noundef %.0, ptr noundef %2) #22
+  br label %37
 
-36:                                               ; preds = %35
-  %37 = load ptr, ptr @root, align 8
-  %38 = tail call ptr @agstrdup_html(ptr noundef %37, ptr noundef %2) #22
-  %39 = tail call i32 @agxset(ptr noundef %0, ptr noundef %.0, ptr noundef %38) #22
-  %40 = load ptr, ptr @root, align 8
-  %41 = tail call i32 @agstrfree(ptr noundef %40, ptr noundef %38) #22
-  br label %44
-
-42:                                               ; preds = %35
-  %43 = tail call i32 @agxset(ptr noundef %0, ptr noundef %.0, ptr noundef %2) #22
-  br label %44
-
-44:                                               ; preds = %42, %36
+37:                                               ; preds = %35, %29
   ret void
 }
 

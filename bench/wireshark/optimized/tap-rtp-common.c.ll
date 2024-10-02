@@ -914,12 +914,12 @@ rtpstream_to_hash.exit:                           ; preds = %2, %3
   %.0.i = phi ptr [ %6, %3 ], [ null, %2 ]
   %7 = tail call ptr @g_hash_table_lookup(ptr noundef %0, ptr noundef %.0.i) #16
   %.not = icmp eq ptr %7, null
-  br i1 %.not, label %16, label %8
+  br i1 %.not, label %.loopexit.sink.split, label %8
 
 8:                                                ; preds = %rtpstream_to_hash.exit
   %9 = tail call ptr @g_list_first(ptr noundef nonnull %7) #16
   %.not1925 = icmp eq ptr %9, null
-  br i1 %.not1925, label %.critedge, label %.lr.ph
+  br i1 %.not1925, label %.loopexit.sink.split, label %.lr.ph
 
 .lr.ph:                                           ; preds = %8, %12
   %.026 = phi ptr [ %14, %12 ], [ %9, %8 ]
@@ -932,29 +932,26 @@ rtpstream_to_hash.exit:                           ; preds = %2, %3
   %13 = getelementptr inbounds i8, ptr %.026, i64 8
   %14 = load ptr, ptr %13, align 8
   %.not19 = icmp eq ptr %14, null
-  br i1 %.not19, label %.critedge, label %.lr.ph, !llvm.loop !7
+  br i1 %.not19, label %.loopexit.sink.split, label %.lr.ph, !llvm.loop !7
 
-.critedge:                                        ; preds = %12, %8
-  %15 = tail call ptr @g_list_prepend(ptr noundef nonnull %7, ptr noundef %1) #16
+.loopexit.sink.split:                             ; preds = %12, %rtpstream_to_hash.exit, %8
+  %.sink = phi ptr [ %7, %8 ], [ null, %rtpstream_to_hash.exit ], [ %7, %12 ]
+  %15 = tail call ptr @g_list_prepend(ptr noundef %.sink, ptr noundef %1) #16
   br label %.loopexit
 
-16:                                               ; preds = %rtpstream_to_hash.exit
-  %17 = tail call ptr @g_list_prepend(ptr noundef null, ptr noundef %1) #16
-  br label %.loopexit
+.loopexit:                                        ; preds = %.lr.ph, %.loopexit.sink.split
+  %.017 = phi ptr [ %15, %.loopexit.sink.split ], [ %7, %.lr.ph ]
+  br i1 %.not.i, label %rtpstream_to_hash.exit24, label %16
 
-.loopexit:                                        ; preds = %.lr.ph, %.critedge, %16
-  %.017 = phi ptr [ %15, %.critedge ], [ %17, %16 ], [ %7, %.lr.ph ]
-  br i1 %.not.i, label %rtpstream_to_hash.exit24, label %18
-
-18:                                               ; preds = %.loopexit
-  %19 = tail call i32 @rtpstream_id_to_hash(ptr noundef nonnull %1) #16
-  %20 = zext i32 %19 to i64
-  %21 = inttoptr i64 %20 to ptr
+16:                                               ; preds = %.loopexit
+  %17 = tail call i32 @rtpstream_id_to_hash(ptr noundef nonnull %1) #16
+  %18 = zext i32 %17 to i64
+  %19 = inttoptr i64 %18 to ptr
   br label %rtpstream_to_hash.exit24
 
-rtpstream_to_hash.exit24:                         ; preds = %.loopexit, %18
-  %.0.i23 = phi ptr [ %21, %18 ], [ null, %.loopexit ]
-  %22 = tail call i32 @g_hash_table_insert(ptr noundef %0, ptr noundef %.0.i23, ptr noundef %.017) #16
+rtpstream_to_hash.exit24:                         ; preds = %.loopexit, %16
+  %.0.i23 = phi ptr [ %19, %16 ], [ null, %.loopexit ]
+  %20 = tail call i32 @g_hash_table_insert(ptr noundef %0, ptr noundef %.0.i23, ptr noundef %.017) #16
   ret void
 }
 

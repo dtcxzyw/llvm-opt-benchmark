@@ -990,34 +990,34 @@ sw.bb7:                                           ; preds = %entry
 sw.bb9:                                           ; preds = %sw.bb7
   %cmp.i17 = icmp eq i32 %prefix, 32
   %sin6_addr.i.i18 = getelementptr inbounds i8, ptr %this, i64 16
-  %bcmp.i.i29 = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(12) %sin6_addr.i.i18, ptr noundef nonnull dereferenceable(12) @_ZN4node12_GLOBAL__N_14maskE, i64 12)
-  %cmp.not.i.i30 = icmp eq i32 %bcmp.i.i29, 0
-  br i1 %cmp.i17, label %if.then.i28, label %if.end.i19
+  %bcmp.i.i19 = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(12) %sin6_addr.i.i18, ptr noundef nonnull dereferenceable(12) @_ZN4node12_GLOBAL__N_14maskE, i64 12)
+  %cmp.not.i.i20 = icmp eq i32 %bcmp.i.i19, 0
+  br i1 %cmp.i17, label %if.then.i29, label %if.end.i21
 
-if.then.i28:                                      ; preds = %sw.bb9
-  br i1 %cmp.not.i.i30, label %if.end.i.i31, label %return
+if.then.i29:                                      ; preds = %sw.bb9
+  br i1 %cmp.not.i.i20, label %if.end.i.i30, label %return
 
-if.end.i.i31:                                     ; preds = %if.then.i28
-  %sin_addr.i.i32 = getelementptr inbounds i8, ptr %other, i64 12
-  %add.ptr.i.i33 = getelementptr inbounds i8, ptr %this, i64 28
-  %lhsv.i34 = load i32, ptr %sin_addr.i.i32, align 4
-  %rhsv.i35 = load i32, ptr %add.ptr.i.i33, align 4
-  %.not.i36 = icmp eq i32 %lhsv.i34, %rhsv.i35
+if.end.i.i30:                                     ; preds = %if.then.i29
+  %sin_addr.i.i31 = getelementptr inbounds i8, ptr %other, i64 12
+  %add.ptr.i.i32 = getelementptr inbounds i8, ptr %this, i64 28
+  %lhsv.i33 = load i32, ptr %sin_addr.i.i31, align 4
+  %rhsv.i34 = load i32, ptr %add.ptr.i.i32, align 4
+  %.not.i35 = icmp eq i32 %lhsv.i33, %rhsv.i34
   br label %return
 
-if.end.i19:                                       ; preds = %sw.bb9
-  br i1 %cmp.not.i.i30, label %if.end10.i, label %return
+if.end.i21:                                       ; preds = %sw.bb9
+  br i1 %cmp.not.i.i20, label %if.end10.i, label %return
 
-if.end10.i:                                       ; preds = %if.end.i19
-  %sh_prom.i22 = zext nneg i32 %prefix to i64
-  %notmask.i23 = shl nsw i64 -1, %sh_prom.i22
-  %sub.i24 = xor i64 %notmask.i23, -1
+if.end10.i:                                       ; preds = %if.end.i21
+  %sh_prom.i23 = zext nneg i32 %prefix to i64
+  %notmask.i24 = shl nsw i64 -1, %sh_prom.i23
+  %sub.i25 = xor i64 %notmask.i24, -1
   %sub2.i = sub nsw i32 32, %prefix
   %sh_prom3.i = zext nneg i32 %sub2.i to i64
-  %shl4.i = shl i64 %sub.i24, %sh_prom3.i
-  %conv.i25 = trunc i64 %shl4.i to i32
-  %add.ptr.i26 = getelementptr inbounds i8, ptr %this, i64 28
-  %13 = load i8, ptr %add.ptr.i26, align 4
+  %shl4.i = shl i64 %sub.i25, %sh_prom3.i
+  %conv.i26 = trunc i64 %shl4.i to i32
+  %add.ptr.i27 = getelementptr inbounds i8, ptr %this, i64 28
+  %13 = load i8, ptr %add.ptr.i27, align 4
   %conv.i.i = zext i8 %13 to i32
   %shl.i.i = shl nuw i32 %conv.i.i, 24
   %arrayidx1.i.i = getelementptr inbounds i8, ptr %this, i64 29
@@ -1034,54 +1034,54 @@ if.end10.i:                                       ; preds = %if.end.i19
   %16 = load i8, ptr %arrayidx8.i.i, align 1
   %conv9.i.i = zext i8 %16 to i32
   %or10.i.i = or disjoint i32 %or7.i.i, %conv9.i.i
-  %sin_addr.i27 = getelementptr inbounds i8, ptr %other, i64 12
-  %17 = load i32, ptr %sin_addr.i27, align 4
+  %sin_addr.i28 = getelementptr inbounds i8, ptr %other, i64 12
+  %17 = load i32, ptr %sin_addr.i28, align 4
   %call12.i = tail call i32 @htonl(i32 noundef %17) #23
   %18 = xor i32 %or10.i.i, %call12.i
-  %19 = and i32 %18, %conv.i25
+  %19 = and i32 %18, %conv.i26
   %cmp14.i = icmp eq i32 %19, 0
   br label %return
 
 sw.bb11:                                          ; preds = %sw.bb7
-  %cmp.i37 = icmp eq i32 %prefix, 128
-  br i1 %cmp.i37, label %if.then.i50, label %if.end.i38
+  %cmp.i36 = icmp eq i32 %prefix, 128
+  br i1 %cmp.i36, label %if.then.i49, label %if.end.i37
 
-if.then.i50:                                      ; preds = %sw.bb11
-  %sin6_addr.i.i51 = getelementptr inbounds i8, ptr %this, i64 16
+if.then.i49:                                      ; preds = %sw.bb11
+  %sin6_addr.i.i50 = getelementptr inbounds i8, ptr %this, i64 16
   %sin6_addr2.i.i = getelementptr inbounds i8, ptr %other, i64 16
-  %bcmp14.i = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(16) %sin6_addr.i.i51, ptr noundef nonnull readonly dereferenceable(16) %sin6_addr2.i.i, i64 16)
+  %bcmp14.i = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(16) %sin6_addr.i.i50, ptr noundef nonnull readonly dereferenceable(16) %sin6_addr2.i.i, i64 16)
   %cmp4.not.i.not.i = icmp eq i32 %bcmp14.i, 0
   br label %return
 
-if.end.i38:                                       ; preds = %sw.bb11
-  %rem.i39 = srem i32 %prefix, 8
-  %conv2.i40 = and i32 %rem.i39, 255
-  %sub.i41 = sub nsw i32 %prefix, %conv2.i40
-  %div.i42 = sdiv i32 %sub.i41, 8
-  %sin6_addr.i43 = getelementptr inbounds i8, ptr %this, i64 16
+if.end.i37:                                       ; preds = %sw.bb11
+  %rem.i38 = srem i32 %prefix, 8
+  %conv2.i39 = and i32 %rem.i38, 255
+  %sub.i40 = sub nsw i32 %prefix, %conv2.i39
+  %div.i41 = sdiv i32 %sub.i40, 8
+  %sin6_addr.i42 = getelementptr inbounds i8, ptr %this, i64 16
   %sin6_addr11.i = getelementptr inbounds i8, ptr %other, i64 16
-  %conv12.i = sext i32 %div.i42 to i64
-  %bcmp.i44 = tail call i32 @bcmp(ptr nonnull readonly %sin6_addr.i43, ptr nonnull readonly %sin6_addr11.i, i64 %conv12.i)
-  %cmp14.not.i = icmp eq i32 %bcmp.i44, 0
+  %conv12.i = sext i32 %div.i41 to i64
+  %bcmp.i43 = tail call i32 @bcmp(ptr nonnull readonly %sin6_addr.i42, ptr nonnull readonly %sin6_addr11.i, i64 %conv12.i)
+  %cmp14.not.i = icmp eq i32 %bcmp.i43, 0
   br i1 %cmp14.not.i, label %if.end16.i, label %return
 
-if.end16.i:                                       ; preds = %if.end.i38
-  %notmask.i46 = shl nsw i32 -1, %conv2.i40
-  %sub4.i47 = xor i32 %notmask.i46, -1
-  %sub6.i48 = sub nsw i32 8, %conv2.i40
-  %shl7.i49 = shl i32 %sub4.i47, %sub6.i48
-  %arrayidx.i = getelementptr inbounds i8, ptr %sin6_addr.i43, i64 %conv12.i
+if.end16.i:                                       ; preds = %if.end.i37
+  %notmask.i45 = shl nsw i32 -1, %conv2.i39
+  %sub4.i46 = xor i32 %notmask.i45, -1
+  %sub6.i47 = sub nsw i32 8, %conv2.i39
+  %shl7.i48 = shl i32 %sub4.i46, %sub6.i47
+  %arrayidx.i = getelementptr inbounds i8, ptr %sin6_addr.i42, i64 %conv12.i
   %20 = load i8, ptr %arrayidx.i, align 1
   %arrayidx24.i = getelementptr inbounds i8, ptr %sin6_addr11.i, i64 %conv12.i
   %21 = load i8, ptr %arrayidx24.i, align 1
   %22 = xor i8 %21, %20
   %23 = zext i8 %22 to i32
-  %24 = and i32 %shl7.i49, %23
+  %24 = and i32 %shl7.i48, %23
   %cmp28.i = icmp eq i32 %24, 0
   br label %return
 
-return:                                           ; preds = %if.end16.i, %if.end.i38, %if.then.i50, %if.end10.i, %if.end.i19, %if.end.i.i31, %if.then.i28, %entry, %sw.bb, %sw.bb7, %_ZN4node12_GLOBAL__N_120in_network_ipv4_ipv6ERKNS_13SocketAddressES3_i.exit, %sw.bb3
-  %retval.0 = phi i1 [ %retval.0.i, %_ZN4node12_GLOBAL__N_120in_network_ipv4_ipv6ERKNS_13SocketAddressES3_i.exit ], [ %cmp.i, %sw.bb3 ], [ false, %sw.bb7 ], [ false, %sw.bb ], [ false, %entry ], [ %cmp14.i, %if.end10.i ], [ false, %if.end.i19 ], [ false, %if.then.i28 ], [ %.not.i36, %if.end.i.i31 ], [ %cmp4.not.i.not.i, %if.then.i50 ], [ %cmp28.i, %if.end16.i ], [ false, %if.end.i38 ]
+return:                                           ; preds = %if.end16.i, %if.end.i37, %if.then.i49, %if.end10.i, %if.end.i21, %if.end.i.i30, %if.then.i29, %entry, %sw.bb, %sw.bb7, %_ZN4node12_GLOBAL__N_120in_network_ipv4_ipv6ERKNS_13SocketAddressES3_i.exit, %sw.bb3
+  %retval.0 = phi i1 [ %retval.0.i, %_ZN4node12_GLOBAL__N_120in_network_ipv4_ipv6ERKNS_13SocketAddressES3_i.exit ], [ %cmp.i, %sw.bb3 ], [ false, %sw.bb7 ], [ false, %sw.bb ], [ false, %entry ], [ %cmp14.i, %if.end10.i ], [ false, %if.end.i21 ], [ false, %if.then.i29 ], [ %.not.i35, %if.end.i.i30 ], [ %cmp4.not.i.not.i, %if.then.i49 ], [ %cmp28.i, %if.end16.i ], [ false, %if.end.i37 ]
   ret i1 %retval.0
 }
 

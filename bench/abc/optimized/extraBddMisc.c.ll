@@ -4433,7 +4433,7 @@ define internal fastcc ptr @extraTransferPermuteRecur(ptr noundef %0, ptr nounde
   %18 = ptrtoint ptr %10 to i64
   %19 = xor i64 %16, %18
   %20 = inttoptr i64 %19 to ptr
-  br label %120
+  br label %113
 
 21:                                               ; preds = %5
   %22 = call i32 @st__lookup(ptr noundef nonnull %3, ptr noundef nonnull %13, ptr noundef nonnull %8) #18
@@ -4445,7 +4445,7 @@ define internal fastcc ptr @extraTransferPermuteRecur(ptr noundef %0, ptr nounde
   %25 = ptrtoint ptr %24 to i64
   %26 = xor i64 %16, %25
   %27 = inttoptr i64 %26 to ptr
-  br label %120
+  br label %113
 
 28:                                               ; preds = %21
   %29 = getelementptr inbounds i8, ptr %0, i64 752
@@ -4473,7 +4473,7 @@ Abc_Clock.exit:                                   ; preds = %31, %34
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7)
   %41 = load i64, ptr %29, align 8
   %42 = icmp sgt i64 %.0.i, %41
-  br i1 %42, label %120, label %43
+  br i1 %42, label %113, label %43
 
 43:                                               ; preds = %Abc_Clock.exit, %28
   %44 = getelementptr inbounds i8, ptr %1, i64 752
@@ -4501,7 +4501,7 @@ Abc_Clock.exit73:                                 ; preds = %46, %49
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6)
   %56 = load i64, ptr %44, align 8
   %57 = icmp sgt i64 %.0.i72, %56
-  br i1 %57, label %120, label %58
+  br i1 %57, label %113, label %58
 
 58:                                               ; preds = %Abc_Clock.exit73, %43
   %.not71 = icmp eq ptr %4, null
@@ -4512,104 +4512,95 @@ Abc_Clock.exit73:                                 ; preds = %46, %49
   %60 = zext i32 %59 to i64
   %61 = getelementptr inbounds i32, ptr %4, i64 %60
   %62 = load i32, ptr %61, align 4
+  br label %.split64
+
+.split64:                                         ; preds = %58, %.split
+  %.sink74 = phi ptr [ %4, %.split ], [ null, %58 ]
+  %.0 = phi i32 [ %62, %.split ], [ %59, %58 ]
   %63 = getelementptr inbounds i8, ptr %13, i64 16
   %64 = load ptr, ptr %63, align 8
   %65 = getelementptr inbounds i8, ptr %13, i64 24
   %66 = load ptr, ptr %65, align 8
-  %67 = call fastcc ptr @extraTransferPermuteRecur(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef %64, ptr noundef %3, ptr noundef nonnull %4)
-  br label %73
+  %67 = call fastcc ptr @extraTransferPermuteRecur(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef %64, ptr noundef %3, ptr noundef %.sink74)
+  %68 = icmp eq ptr %67, null
+  br i1 %68, label %113, label %69
 
-.split64:                                         ; preds = %58
-  %68 = getelementptr inbounds i8, ptr %13, i64 16
-  %69 = load ptr, ptr %68, align 8
-  %70 = getelementptr inbounds i8, ptr %13, i64 24
-  %71 = load ptr, ptr %70, align 8
-  %72 = call fastcc ptr @extraTransferPermuteRecur(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef %69, ptr noundef %3, ptr noundef null)
-  br label %73
+69:                                               ; preds = %.split64
+  %70 = ptrtoint ptr %67 to i64
+  %71 = and i64 %70, -2
+  %72 = inttoptr i64 %71 to ptr
+  %73 = getelementptr inbounds i8, ptr %72, i64 4
+  %74 = load i32, ptr %73, align 4
+  %75 = add i32 %74, 1
+  store i32 %75, ptr %73, align 4
+  %76 = call fastcc ptr @extraTransferPermuteRecur(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef %66, ptr noundef %3, ptr noundef %4)
+  %77 = icmp eq ptr %76, null
+  br i1 %77, label %78, label %79
 
-73:                                               ; preds = %.split64, %.split
-  %74 = phi ptr [ %66, %.split ], [ %71, %.split64 ]
-  %phi.call = phi ptr [ %67, %.split ], [ %72, %.split64 ]
-  %.0 = phi i32 [ %62, %.split ], [ %59, %.split64 ]
-  %75 = icmp eq ptr %phi.call, null
-  br i1 %75, label %120, label %76
+78:                                               ; preds = %69
+  call void @Cudd_RecursiveDeref(ptr noundef nonnull %1, ptr noundef nonnull %67) #18
+  br label %113
 
-76:                                               ; preds = %73
-  %77 = ptrtoint ptr %phi.call to i64
-  %78 = and i64 %77, -2
-  %79 = inttoptr i64 %78 to ptr
-  %80 = getelementptr inbounds i8, ptr %79, i64 4
-  %81 = load i32, ptr %80, align 4
-  %82 = add i32 %81, 1
-  store i32 %82, ptr %80, align 4
-  %83 = call fastcc ptr @extraTransferPermuteRecur(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef %74, ptr noundef %3, ptr noundef %4)
-  %84 = icmp eq ptr %83, null
-  br i1 %84, label %85, label %86
-
-85:                                               ; preds = %76
-  call void @Cudd_RecursiveDeref(ptr noundef nonnull %1, ptr noundef nonnull %phi.call) #18
-  br label %120
-
-86:                                               ; preds = %76
-  %87 = ptrtoint ptr %83 to i64
-  %88 = and i64 %87, -2
+79:                                               ; preds = %69
+  %80 = ptrtoint ptr %76 to i64
+  %81 = and i64 %80, -2
+  %82 = inttoptr i64 %81 to ptr
+  %83 = getelementptr inbounds i8, ptr %82, i64 4
+  %84 = load i32, ptr %83, align 4
+  %85 = add i32 %84, 1
+  store i32 %85, ptr %83, align 4
+  %86 = load ptr, ptr %9, align 8
+  %87 = ptrtoint ptr %86 to i64
+  %88 = xor i64 %87, 1
   %89 = inttoptr i64 %88 to ptr
-  %90 = getelementptr inbounds i8, ptr %89, i64 4
-  %91 = load i32, ptr %90, align 4
-  %92 = add i32 %91, 1
-  store i32 %92, ptr %90, align 4
-  %93 = load ptr, ptr %9, align 8
-  %94 = ptrtoint ptr %93 to i64
-  %95 = xor i64 %94, 1
-  %96 = inttoptr i64 %95 to ptr
-  %97 = call ptr @cuddUniqueInter(ptr noundef nonnull %1, i32 noundef %.0, ptr noundef %10, ptr noundef %96) #18
-  %98 = icmp eq ptr %97, null
-  br i1 %98, label %99, label %100
+  %90 = call ptr @cuddUniqueInter(ptr noundef nonnull %1, i32 noundef %.0, ptr noundef %10, ptr noundef %89) #18
+  %91 = icmp eq ptr %90, null
+  br i1 %91, label %92, label %93
 
-99:                                               ; preds = %86
-  call void @Cudd_RecursiveDeref(ptr noundef nonnull %1, ptr noundef nonnull %phi.call) #18
-  call void @Cudd_RecursiveDeref(ptr noundef nonnull %1, ptr noundef nonnull %83) #18
-  br label %120
+92:                                               ; preds = %79
+  call void @Cudd_RecursiveDeref(ptr noundef nonnull %1, ptr noundef nonnull %67) #18
+  call void @Cudd_RecursiveDeref(ptr noundef nonnull %1, ptr noundef nonnull %76) #18
+  br label %113
 
-100:                                              ; preds = %86
-  %101 = call ptr @cuddBddIteRecur(ptr noundef nonnull %1, ptr noundef nonnull %97, ptr noundef nonnull %phi.call, ptr noundef nonnull %83) #18
-  store ptr %101, ptr %8, align 8
-  %102 = icmp eq ptr %101, null
-  br i1 %102, label %103, label %104
+93:                                               ; preds = %79
+  %94 = call ptr @cuddBddIteRecur(ptr noundef nonnull %1, ptr noundef nonnull %90, ptr noundef nonnull %67, ptr noundef nonnull %76) #18
+  store ptr %94, ptr %8, align 8
+  %95 = icmp eq ptr %94, null
+  br i1 %95, label %96, label %97
 
-103:                                              ; preds = %100
-  call void @Cudd_RecursiveDeref(ptr noundef nonnull %1, ptr noundef nonnull %phi.call) #18
-  call void @Cudd_RecursiveDeref(ptr noundef nonnull %1, ptr noundef nonnull %83) #18
-  br label %120
+96:                                               ; preds = %93
+  call void @Cudd_RecursiveDeref(ptr noundef nonnull %1, ptr noundef nonnull %67) #18
+  call void @Cudd_RecursiveDeref(ptr noundef nonnull %1, ptr noundef nonnull %76) #18
+  br label %113
 
-104:                                              ; preds = %100
-  %105 = ptrtoint ptr %101 to i64
-  %106 = and i64 %105, -2
-  %107 = inttoptr i64 %106 to ptr
-  %108 = getelementptr inbounds i8, ptr %107, i64 4
-  %109 = load i32, ptr %108, align 4
-  %110 = add i32 %109, 1
-  store i32 %110, ptr %108, align 4
-  call void @Cudd_RecursiveDeref(ptr noundef nonnull %1, ptr noundef nonnull %phi.call) #18
-  call void @Cudd_RecursiveDeref(ptr noundef nonnull %1, ptr noundef nonnull %83) #18
-  %111 = load ptr, ptr %8, align 8
-  %112 = call i32 @st__add_direct(ptr noundef nonnull %3, ptr noundef nonnull %13, ptr noundef %111) #18
-  %113 = icmp eq i32 %112, -10000
-  %114 = load ptr, ptr %8, align 8
-  br i1 %113, label %115, label %116
+97:                                               ; preds = %93
+  %98 = ptrtoint ptr %94 to i64
+  %99 = and i64 %98, -2
+  %100 = inttoptr i64 %99 to ptr
+  %101 = getelementptr inbounds i8, ptr %100, i64 4
+  %102 = load i32, ptr %101, align 4
+  %103 = add i32 %102, 1
+  store i32 %103, ptr %101, align 4
+  call void @Cudd_RecursiveDeref(ptr noundef nonnull %1, ptr noundef nonnull %67) #18
+  call void @Cudd_RecursiveDeref(ptr noundef nonnull %1, ptr noundef nonnull %76) #18
+  %104 = load ptr, ptr %8, align 8
+  %105 = call i32 @st__add_direct(ptr noundef nonnull %3, ptr noundef nonnull %13, ptr noundef %104) #18
+  %106 = icmp eq i32 %105, -10000
+  %107 = load ptr, ptr %8, align 8
+  br i1 %106, label %108, label %109
 
-115:                                              ; preds = %104
-  call void @Cudd_RecursiveDeref(ptr noundef nonnull %1, ptr noundef %114) #18
-  br label %120
+108:                                              ; preds = %97
+  call void @Cudd_RecursiveDeref(ptr noundef nonnull %1, ptr noundef %107) #18
+  br label %113
 
-116:                                              ; preds = %104
-  %117 = ptrtoint ptr %114 to i64
-  %118 = xor i64 %16, %117
-  %119 = inttoptr i64 %118 to ptr
-  br label %120
+109:                                              ; preds = %97
+  %110 = ptrtoint ptr %107 to i64
+  %111 = xor i64 %16, %110
+  %112 = inttoptr i64 %111 to ptr
+  br label %113
 
-120:                                              ; preds = %73, %Abc_Clock.exit73, %Abc_Clock.exit, %116, %115, %103, %99, %85, %23, %17
-  %.062 = phi ptr [ %20, %17 ], [ %27, %23 ], [ null, %85 ], [ null, %99 ], [ null, %103 ], [ null, %115 ], [ %119, %116 ], [ null, %Abc_Clock.exit ], [ null, %Abc_Clock.exit73 ], [ null, %73 ]
+113:                                              ; preds = %.split64, %Abc_Clock.exit73, %Abc_Clock.exit, %109, %108, %96, %92, %78, %23, %17
+  %.062 = phi ptr [ %20, %17 ], [ %27, %23 ], [ null, %78 ], [ null, %92 ], [ null, %96 ], [ null, %108 ], [ %112, %109 ], [ null, %Abc_Clock.exit ], [ null, %Abc_Clock.exit73 ], [ null, %.split64 ]
   ret ptr %.062
 }
 

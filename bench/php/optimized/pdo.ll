@@ -329,17 +329,8 @@ define hidden void @zm_info_pdo(ptr nocapture readnone %0) #1 {
   call void (i32, ...) @php_info_print_table_row(i32 noundef 2, ptr noundef nonnull @.str.11, ptr noundef nonnull %24) #13
   %25 = load ptr, ptr %2, align 8
   %.not19 = icmp eq ptr %25, null
-  br i1 %.not19, label %27, label %26
-
-26:                                               ; preds = %._crit_edge
-  call void @_efree(ptr noundef nonnull %25) #13
-  br label %28
-
-27:                                               ; preds = %._crit_edge
-  call void @_efree(ptr noundef %.0.lcssa) #13
-  br label %28
-
-28:                                               ; preds = %27, %26
+  %.0.lcssa. = select i1 %.not19, ptr %.0.lcssa, ptr %25
+  call void @_efree(ptr noundef %.0.lcssa.) #13
   call void @php_info_print_table_end() #13
   ret void
 }

@@ -76,7 +76,7 @@ define range(i32 0, 2) i32 @write_image(ptr nocapture noundef readonly %0, ptr n
   %27 = zext i32 %24 to i64
   %28 = call noalias ptr @malloc(i64 noundef %27) #17
   %29 = icmp eq ptr %28, null
-  br i1 %29, label %958, label %30
+  br i1 %29, label %956, label %30
 
 30:                                               ; preds = %26
   %31 = call i32 @cmsSaveProfileToMem(ptr noundef %22, ptr noundef nonnull %28, ptr noundef nonnull %13) #16
@@ -113,7 +113,7 @@ define range(i32 0, 2) i32 @write_image(ptr nocapture noundef readonly %0, ptr n
   %52 = phi i16 [ 1, %32 ], [ 1, %37 ], [ %48, %.preheader190 ]
   %53 = call ptr @TIFFOpen(ptr noundef %1, ptr noundef nonnull @.str) #16
   %54 = icmp eq ptr %53, null
-  br i1 %54, label %958, label %55
+  br i1 %54, label %956, label %55
 
 55:                                               ; preds = %.loopexit191
   %56 = zext i16 %52 to i32
@@ -919,12 +919,12 @@ define range(i32 0, 2) i32 @write_image(ptr nocapture noundef readonly %0, ptr n
   %558 = phi i32 [ %556, %550 ], [ 0, %.loopexit165 ]
   %559 = icmp eq i32 %558, 0
   %560 = and i1 %57, %559
-  br i1 %560, label %561, label %958
+  br i1 %560, label %561, label %956
 
 561:                                              ; preds = %557
   %562 = call ptr @TIFFOpen(ptr noundef %1, ptr noundef nonnull @.str.4) #16
   %563 = icmp eq ptr %562, null
-  br i1 %563, label %958, label %564
+  br i1 %563, label %956, label %564
 
 564:                                              ; preds = %561
   call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %16) #16
@@ -940,10 +940,10 @@ define range(i32 0, 2) i32 @write_image(ptr nocapture noundef readonly %0, ptr n
   br label %571
 
 571:                                              ; preds = %.loopexit158, %568
-  %572 = phi ptr [ %566, %568 ], [ %952, %.loopexit158 ]
-  %573 = phi ptr [ %290, %568 ], [ %950, %.loopexit158 ]
-  %574 = phi ptr [ null, %568 ], [ %949, %.loopexit158 ]
-  %575 = phi i16 [ 1, %568 ], [ %948, %.loopexit158 ]
+  %572 = phi ptr [ %566, %568 ], [ %950, %.loopexit158 ]
+  %573 = phi ptr [ %290, %568 ], [ %948, %.loopexit158 ]
+  %574 = phi ptr [ null, %568 ], [ %947, %.loopexit158 ]
+  %575 = phi i16 [ 1, %568 ], [ %946, %.loopexit158 ]
   %576 = load ptr, ptr %572, align 8, !tbaa !14
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %17) #16
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %18) #16
@@ -955,10 +955,10 @@ define range(i32 0, 2) i32 @write_image(ptr nocapture noundef readonly %0, ptr n
   %580 = icmp eq i32 %579, 0
   br i1 %580, label %.loopexit158, label %.preheader157
 
-.preheader157:                                    ; preds = %571, %945
-  %581 = phi ptr [ %681, %945 ], [ %573, %571 ]
-  %582 = phi ptr [ %602, %945 ], [ %574, %571 ]
-  %583 = phi i16 [ %941, %945 ], [ %575, %571 ]
+.preheader157:                                    ; preds = %571, %943
+  %581 = phi ptr [ %679, %943 ], [ %573, %571 ]
+  %582 = phi ptr [ %602, %943 ], [ %574, %571 ]
+  %583 = phi i16 [ %939, %943 ], [ %575, %571 ]
   %584 = load i32, ptr %14, align 4, !tbaa !6
   %585 = icmp eq i32 %584, 0
   br i1 %585, label %587, label %586
@@ -997,631 +997,628 @@ define range(i32 0, 2) i32 @write_image(ptr nocapture noundef readonly %0, ptr n
   %609 = load ptr, ptr %18, align 8, !tbaa !13
   %610 = call ptr @g_hash_table_lookup(ptr noundef %608, ptr noundef %609) #16
   %611 = icmp eq ptr %610, null
-  br i1 %611, label %614, label %612
+  br i1 %611, label %612, label %617
 
 612:                                              ; preds = %599
-  %613 = call i32 (ptr, i32, ...) @TIFFSetField(ptr noundef %562, i32 noundef 285, ptr noundef nonnull %610) #16
-  br label %620
+  %613 = load ptr, ptr %576, align 16, !tbaa !43
+  %614 = getelementptr inbounds i8, ptr %613, i64 40
+  %615 = load ptr, ptr %614, align 8, !tbaa !50
+  %616 = call ptr %615() #16
+  br label %617
 
-614:                                              ; preds = %599
-  %615 = load ptr, ptr %576, align 16, !tbaa !43
-  %616 = getelementptr inbounds i8, ptr %615, i64 40
-  %617 = load ptr, ptr %616, align 8, !tbaa !50
-  %618 = call ptr %617() #16
-  %619 = call i32 (ptr, i32, ...) @TIFFSetField(ptr noundef %562, i32 noundef 285, ptr noundef %618) #16
-  br label %620
-
-620:                                              ; preds = %614, %612
-  %621 = load i32, ptr %67, align 4, !tbaa !27
-  switch i32 %621, label %637 [
-    i32 1, label %622
-    i32 2, label %624
+617:                                              ; preds = %599, %612
+  %.sink = phi ptr [ %616, %612 ], [ %610, %599 ]
+  %618 = call i32 (ptr, i32, ...) @TIFFSetField(ptr noundef %562, i32 noundef 285, ptr noundef %.sink) #16
+  %619 = load i32, ptr %67, align 4, !tbaa !27
+  switch i32 %619, label %635 [
+    i32 1, label %620
+    i32 2, label %622
   ]
 
-622:                                              ; preds = %620
+620:                                              ; preds = %617
+  %621 = call i32 (ptr, i32, ...) @TIFFSetField(ptr noundef %562, i32 noundef 259, i32 noundef 8) #16
+  br label %629
+
+622:                                              ; preds = %617
   %623 = call i32 (ptr, i32, ...) @TIFFSetField(ptr noundef %562, i32 noundef 259, i32 noundef 8) #16
-  br label %631
-
-624:                                              ; preds = %620
-  %625 = call i32 (ptr, i32, ...) @TIFFSetField(ptr noundef %562, i32 noundef 259, i32 noundef 8) #16
-  %626 = load i32, ptr %250, align 4, !tbaa !30
-  switch i32 %626, label %630 [
-    i32 32, label %631
-    i32 16, label %627
+  %624 = load i32, ptr %250, align 4, !tbaa !30
+  switch i32 %624, label %628 [
+    i32 32, label %629
+    i32 16, label %625
   ]
 
-627:                                              ; preds = %624
-  %628 = load i32, ptr %569, align 8, !tbaa !31
-  %629 = icmp eq i32 %628, 0
-  br i1 %629, label %630, label %631
+625:                                              ; preds = %622
+  %626 = load i32, ptr %569, align 8, !tbaa !31
+  %627 = icmp eq i32 %626, 0
+  br i1 %627, label %628, label %629
 
-630:                                              ; preds = %627, %624
-  br label %631
+628:                                              ; preds = %625, %622
+  br label %629
 
-631:                                              ; preds = %630, %627, %624, %622
-  %632 = phi i32 [ 1, %622 ], [ 2, %630 ], [ 3, %624 ], [ 3, %627 ]
-  %633 = call i32 (ptr, i32, ...) @TIFFSetField(ptr noundef %562, i32 noundef 317, i32 noundef %632) #16
-  %634 = load i32, ptr %570, align 8, !tbaa !32
-  %635 = and i32 %634, 65535
-  %636 = call i32 (ptr, i32, ...) @TIFFSetField(ptr noundef %562, i32 noundef 65557, i32 noundef %635) #16
-  br label %637
+629:                                              ; preds = %628, %625, %622, %620
+  %630 = phi i32 [ 1, %620 ], [ 2, %628 ], [ 3, %622 ], [ 3, %625 ]
+  %631 = call i32 (ptr, i32, ...) @TIFFSetField(ptr noundef %562, i32 noundef 317, i32 noundef %630) #16
+  %632 = load i32, ptr %570, align 8, !tbaa !32
+  %633 = and i32 %632, 65535
+  %634 = call i32 (ptr, i32, ...) @TIFFSetField(ptr noundef %562, i32 noundef 65557, i32 noundef %633) #16
+  br label %635
 
-637:                                              ; preds = %631, %620
-  %638 = call i32 (ptr, i32, ...) @TIFFSetField(ptr noundef %562, i32 noundef 282, double noundef %279) #16
-  %639 = call i32 (ptr, i32, ...) @TIFFSetField(ptr noundef %562, i32 noundef 283, double noundef %279) #16
-  %640 = call i32 (ptr, i32, ...) @TIFFSetField(ptr noundef %562, i32 noundef 296, i32 noundef 2) #16
-  %641 = trunc nsw i64 %600 to i32
-  %642 = call i32 (ptr, i32, ...) @TIFFSetField(ptr noundef %562, i32 noundef 256, i32 noundef %641) #16
-  %643 = trunc nsw i64 %601 to i32
-  %644 = call i32 (ptr, i32, ...) @TIFFSetField(ptr noundef %562, i32 noundef 257, i32 noundef %643) #16
-  %645 = call i32 (ptr, i32, ...) @TIFFSetField(ptr noundef %562, i32 noundef 284, i32 noundef 1) #16
-  %646 = call i32 (ptr, i32, ...) @TIFFSetField(ptr noundef %562, i32 noundef 274, i32 noundef 1) #16
+635:                                              ; preds = %629, %617
+  %636 = call i32 (ptr, i32, ...) @TIFFSetField(ptr noundef %562, i32 noundef 282, double noundef %279) #16
+  %637 = call i32 (ptr, i32, ...) @TIFFSetField(ptr noundef %562, i32 noundef 283, double noundef %279) #16
+  %638 = call i32 (ptr, i32, ...) @TIFFSetField(ptr noundef %562, i32 noundef 296, i32 noundef 2) #16
+  %639 = trunc nsw i64 %600 to i32
+  %640 = call i32 (ptr, i32, ...) @TIFFSetField(ptr noundef %562, i32 noundef 256, i32 noundef %639) #16
+  %641 = trunc nsw i64 %601 to i32
+  %642 = call i32 (ptr, i32, ...) @TIFFSetField(ptr noundef %562, i32 noundef 257, i32 noundef %641) #16
+  %643 = call i32 (ptr, i32, ...) @TIFFSetField(ptr noundef %562, i32 noundef 284, i32 noundef 1) #16
+  %644 = call i32 (ptr, i32, ...) @TIFFSetField(ptr noundef %562, i32 noundef 274, i32 noundef 1) #16
   %.0..0..0..0.46 = load volatile i16, ptr %15, align 2, !tbaa !33
-  %647 = zext i16 %.0..0..0..0.46 to i32
-  %648 = call i32 (ptr, i32, ...) @TIFFSetField(ptr noundef %562, i32 noundef 277, i32 noundef %647) #16
-  %649 = load i32, ptr %250, align 4, !tbaa !30
-  %650 = and i32 %649, 65535
-  %651 = call i32 (ptr, i32, ...) @TIFFSetField(ptr noundef %562, i32 noundef 258, i32 noundef %650) #16
-  %652 = load i32, ptr %250, align 4, !tbaa !30
-  switch i32 %652, label %658 [
-    i32 32, label %657
-    i32 16, label %653
+  %645 = zext i16 %.0..0..0..0.46 to i32
+  %646 = call i32 (ptr, i32, ...) @TIFFSetField(ptr noundef %562, i32 noundef 277, i32 noundef %645) #16
+  %647 = load i32, ptr %250, align 4, !tbaa !30
+  %648 = and i32 %647, 65535
+  %649 = call i32 (ptr, i32, ...) @TIFFSetField(ptr noundef %562, i32 noundef 258, i32 noundef %648) #16
+  %650 = load i32, ptr %250, align 4, !tbaa !30
+  switch i32 %650, label %656 [
+    i32 32, label %655
+    i32 16, label %651
   ]
 
-653:                                              ; preds = %637
-  %654 = load i32, ptr %569, align 8, !tbaa !31
-  %655 = freeze i32 %654
-  %656 = icmp eq i32 %655, 0
-  br i1 %656, label %658, label %657
+651:                                              ; preds = %635
+  %652 = load i32, ptr %569, align 8, !tbaa !31
+  %653 = freeze i32 %652
+  %654 = icmp eq i32 %653, 0
+  br i1 %654, label %656, label %655
 
-657:                                              ; preds = %653, %637
-  br label %658
+655:                                              ; preds = %651, %635
+  br label %656
 
-658:                                              ; preds = %657, %653, %637
-  %659 = phi i32 [ 3, %657 ], [ 1, %653 ], [ 1, %637 ]
-  %660 = call i32 (ptr, i32, ...) @TIFFSetField(ptr noundef %562, i32 noundef 339, i32 noundef %659) #16
+656:                                              ; preds = %655, %651, %635
+  %657 = phi i32 [ 3, %655 ], [ 1, %651 ], [ 1, %635 ]
+  %658 = call i32 (ptr, i32, ...) @TIFFSetField(ptr noundef %562, i32 noundef 339, i32 noundef %657) #16
   %.0..0..0..0.47 = load volatile i16, ptr %15, align 2, !tbaa !33
-  %661 = icmp eq i16 %.0..0..0..0.47, 3
-  %662 = select i1 %661, i32 2, i32 1
-  %663 = call i32 (ptr, i32, ...) @TIFFSetField(ptr noundef %562, i32 noundef 262, i32 noundef %662) #16
-  %664 = call i32 @TIFFDefaultStripSize(ptr noundef %562, i32 noundef 0) #16
-  %665 = call i32 (ptr, i32, ...) @TIFFSetField(ptr noundef %562, i32 noundef 278, i32 noundef %664) #16
-  %666 = load i32, ptr %264, align 8, !tbaa !36
-  %667 = sext i32 %666 to i64
-  %668 = icmp eq i64 %600, %667
-  br i1 %668, label %677, label %669
+  %659 = icmp eq i16 %.0..0..0..0.47, 3
+  %660 = select i1 %659, i32 2, i32 1
+  %661 = call i32 (ptr, i32, ...) @TIFFSetField(ptr noundef %562, i32 noundef 262, i32 noundef %660) #16
+  %662 = call i32 @TIFFDefaultStripSize(ptr noundef %562, i32 noundef 0) #16
+  %663 = call i32 (ptr, i32, ...) @TIFFSetField(ptr noundef %562, i32 noundef 278, i32 noundef %662) #16
+  %664 = load i32, ptr %264, align 8, !tbaa !36
+  %665 = sext i32 %664 to i64
+  %666 = icmp eq i64 %600, %665
+  br i1 %666, label %675, label %667
 
-669:                                              ; preds = %658
+667:                                              ; preds = %656
   call void @free(ptr noundef %581) #16
   %.0..0..0..0.48 = load volatile i16, ptr %15, align 2, !tbaa !33
-  %670 = zext i16 %.0..0..0..0.48 to i64
-  %671 = mul nsw i64 %600, %670
-  %672 = load i32, ptr %250, align 4, !tbaa !30
-  %673 = sext i32 %672 to i64
-  %674 = mul i64 %671, %673
-  %675 = lshr i64 %674, 3
-  %676 = call noalias ptr @malloc(i64 noundef %675) #17
-  br label %679
+  %668 = zext i16 %.0..0..0..0.48 to i64
+  %669 = mul nsw i64 %600, %668
+  %670 = load i32, ptr %250, align 4, !tbaa !30
+  %671 = sext i32 %670 to i64
+  %672 = mul i64 %669, %671
+  %673 = lshr i64 %672, 3
+  %674 = call noalias ptr @malloc(i64 noundef %673) #17
+  br label %677
 
-677:                                              ; preds = %658
-  %678 = load i32, ptr %250, align 4, !tbaa !30
-  br label %679
+675:                                              ; preds = %656
+  %676 = load i32, ptr %250, align 4, !tbaa !30
+  br label %677
 
-679:                                              ; preds = %677, %669
-  %680 = phi i32 [ %678, %677 ], [ %672, %669 ]
-  %681 = phi ptr [ %581, %677 ], [ %676, %669 ]
-  switch i32 %680, label %856 [
-    i32 32, label %682
-    i32 16, label %740
+677:                                              ; preds = %675, %667
+  %678 = phi i32 [ %676, %675 ], [ %670, %667 ]
+  %679 = phi ptr [ %581, %675 ], [ %674, %667 ]
+  switch i32 %678, label %854 [
+    i32 32, label %680
+    i32 16, label %738
   ]
 
-682:                                              ; preds = %679
-  %683 = icmp eq i64 %601, 0
-  br i1 %683, label %.loopexit150, label %684
+680:                                              ; preds = %677
+  %681 = icmp eq i64 %601, 0
+  br i1 %681, label %.loopexit150, label %682
 
-684:                                              ; preds = %682
-  %685 = and i64 %600, 1
-  %686 = and i64 %600, -2
-  %687 = icmp eq i64 %685, 0
-  br label %691
+682:                                              ; preds = %680
+  %683 = and i64 %600, 1
+  %684 = and i64 %600, -2
+  %685 = icmp eq i64 %683, 0
+  br label %689
 
-688:                                              ; preds = %713
-  %689 = add nuw i64 %692, 1
-  %690 = icmp eq i64 %689, %601
-  br i1 %690, label %.loopexit150, label %691
+686:                                              ; preds = %711
+  %687 = add nuw i64 %690, 1
+  %688 = icmp eq i64 %687, %601
+  br i1 %688, label %.loopexit150, label %689
 
-691:                                              ; preds = %688, %684
-  %692 = phi i64 [ 0, %684 ], [ %689, %688 ]
-  %693 = mul nsw i64 %692, %600
-  %694 = getelementptr inbounds float, ptr %602, i64 %693
+689:                                              ; preds = %686, %682
+  %690 = phi i64 [ 0, %682 ], [ %687, %686 ]
+  %691 = mul nsw i64 %690, %600
+  %692 = getelementptr inbounds float, ptr %602, i64 %691
   switch i64 %600, label %.preheader144 [
-    i64 0, label %713
+    i64 0, label %711
     i64 1, label %.thread129
   ]
 
-.preheader144:                                    ; preds = %691, %.loopexit133
-  %695 = phi i64 [ %730, %.loopexit133 ], [ 0, %691 ]
-  %696 = phi ptr [ %732, %.loopexit133 ], [ %681, %691 ]
+.preheader144:                                    ; preds = %689, %.loopexit133
+  %693 = phi i64 [ %728, %.loopexit133 ], [ 0, %689 ]
+  %694 = phi ptr [ %730, %.loopexit133 ], [ %679, %689 ]
   %.0..0..0..0.49 = load volatile i16, ptr %15, align 2, !tbaa !33
-  %697 = icmp eq i16 %.0..0..0..0.49, 0
-  br i1 %697, label %.loopexit134, label %698
+  %695 = icmp eq i16 %.0..0..0..0.49, 0
+  br i1 %695, label %.loopexit134, label %696
 
-698:                                              ; preds = %.preheader144
-  %699 = getelementptr inbounds float, ptr %694, i64 %695
-  %700 = load float, ptr %699, align 4, !tbaa !37
-  br label %734
+696:                                              ; preds = %.preheader144
+  %697 = getelementptr inbounds float, ptr %692, i64 %693
+  %698 = load float, ptr %697, align 4, !tbaa !37
+  br label %732
 
-701:                                              ; preds = %.loopexit133
-  br i1 %687, label %713, label %.thread129
+699:                                              ; preds = %.loopexit133
+  br i1 %685, label %711, label %.thread129
 
-.thread129:                                       ; preds = %691, %701
-  %702 = phi ptr [ %732, %701 ], [ %681, %691 ]
+.thread129:                                       ; preds = %689, %699
+  %700 = phi ptr [ %730, %699 ], [ %679, %689 ]
   %.0..0..0..0.50 = load volatile i16, ptr %15, align 2, !tbaa !33
-  %703 = icmp eq i16 %.0..0..0..0.50, 0
-  br i1 %703, label %.loopexit143, label %704
+  %701 = icmp eq i16 %.0..0..0..0.50, 0
+  br i1 %701, label %.loopexit143, label %702
 
-704:                                              ; preds = %.thread129
-  %705 = getelementptr inbounds float, ptr %694, i64 %686
-  %706 = load float, ptr %705, align 4, !tbaa !37
-  br label %707
+702:                                              ; preds = %.thread129
+  %703 = getelementptr inbounds float, ptr %692, i64 %684
+  %704 = load float, ptr %703, align 4, !tbaa !37
+  br label %705
 
-707:                                              ; preds = %707, %704
-  %708 = phi i64 [ 0, %704 ], [ %710, %707 ]
-  %709 = getelementptr inbounds float, ptr %702, i64 %708
-  store float %706, ptr %709, align 4, !tbaa !37
-  %710 = add nuw nsw i64 %708, 1
+705:                                              ; preds = %705, %702
+  %706 = phi i64 [ 0, %702 ], [ %708, %705 ]
+  %707 = getelementptr inbounds float, ptr %700, i64 %706
+  store float %704, ptr %707, align 4, !tbaa !37
+  %708 = add nuw nsw i64 %706, 1
   %.0..0..0..0.51 = load volatile i16, ptr %15, align 2, !tbaa !33
-  %711 = zext i16 %.0..0..0..0.51 to i64
-  %712 = icmp ult i64 %710, %711
-  br i1 %712, label %707, label %.loopexit143
+  %709 = zext i16 %.0..0..0..0.51 to i64
+  %710 = icmp ult i64 %708, %709
+  br i1 %710, label %705, label %.loopexit143
 
-.loopexit143:                                     ; preds = %707, %.thread129
+.loopexit143:                                     ; preds = %705, %.thread129
   %.0..0..0..0.52 = load volatile i16, ptr %15, align 2, !tbaa !33
-  br label %713
+  br label %711
 
-713:                                              ; preds = %.loopexit143, %701, %691
-  %714 = trunc i64 %692 to i32
-  %715 = call i32 @TIFFWriteScanline(ptr noundef %562, ptr noundef %681, i32 noundef %714, i16 noundef zeroext 0) #16
-  %716 = icmp eq i32 %715, -1
-  br i1 %716, label %.loopexit149, label %688
+711:                                              ; preds = %.loopexit143, %699, %689
+  %712 = trunc i64 %690 to i32
+  %713 = call i32 @TIFFWriteScanline(ptr noundef %562, ptr noundef %679, i32 noundef %712, i16 noundef zeroext 0) #16
+  %714 = icmp eq i32 %713, -1
+  br i1 %714, label %.loopexit149, label %686
 
-.loopexit134:                                     ; preds = %734, %.preheader144
+.loopexit134:                                     ; preds = %732, %.preheader144
   %.0..0..0..0.53 = load volatile i16, ptr %15, align 2, !tbaa !33
-  %717 = zext i16 %.0..0..0..0.53 to i64
-  %718 = getelementptr inbounds float, ptr %696, i64 %717
+  %715 = zext i16 %.0..0..0..0.53 to i64
+  %716 = getelementptr inbounds float, ptr %694, i64 %715
   %.0..0..0..0.54 = load volatile i16, ptr %15, align 2, !tbaa !33
-  %719 = icmp eq i16 %.0..0..0..0.54, 0
-  br i1 %719, label %.loopexit133, label %720
+  %717 = icmp eq i16 %.0..0..0..0.54, 0
+  br i1 %717, label %.loopexit133, label %718
 
-720:                                              ; preds = %.loopexit134
-  %721 = or disjoint i64 %695, 1
-  %722 = getelementptr inbounds float, ptr %694, i64 %721
-  %723 = load float, ptr %722, align 4, !tbaa !37
-  br label %724
+718:                                              ; preds = %.loopexit134
+  %719 = or disjoint i64 %693, 1
+  %720 = getelementptr inbounds float, ptr %692, i64 %719
+  %721 = load float, ptr %720, align 4, !tbaa !37
+  br label %722
 
-724:                                              ; preds = %724, %720
-  %725 = phi i64 [ 0, %720 ], [ %727, %724 ]
-  %726 = getelementptr inbounds float, ptr %718, i64 %725
-  store float %723, ptr %726, align 4, !tbaa !37
-  %727 = add nuw nsw i64 %725, 1
+722:                                              ; preds = %722, %718
+  %723 = phi i64 [ 0, %718 ], [ %725, %722 ]
+  %724 = getelementptr inbounds float, ptr %716, i64 %723
+  store float %721, ptr %724, align 4, !tbaa !37
+  %725 = add nuw nsw i64 %723, 1
   %.0..0..0..0.55 = load volatile i16, ptr %15, align 2, !tbaa !33
-  %728 = zext i16 %.0..0..0..0.55 to i64
-  %729 = icmp ult i64 %727, %728
-  br i1 %729, label %724, label %.loopexit133
+  %726 = zext i16 %.0..0..0..0.55 to i64
+  %727 = icmp ult i64 %725, %726
+  br i1 %727, label %722, label %.loopexit133
 
-.loopexit133:                                     ; preds = %724, %.loopexit134
-  %730 = add nuw i64 %695, 2
+.loopexit133:                                     ; preds = %722, %.loopexit134
+  %728 = add nuw i64 %693, 2
   %.0..0..0..0.56 = load volatile i16, ptr %15, align 2, !tbaa !33
-  %731 = zext i16 %.0..0..0..0.56 to i64
-  %732 = getelementptr inbounds float, ptr %718, i64 %731
-  %733 = icmp eq i64 %730, %686
-  br i1 %733, label %701, label %.preheader144
+  %729 = zext i16 %.0..0..0..0.56 to i64
+  %730 = getelementptr inbounds float, ptr %716, i64 %729
+  %731 = icmp eq i64 %728, %684
+  br i1 %731, label %699, label %.preheader144
 
-734:                                              ; preds = %734, %698
-  %735 = phi i64 [ 0, %698 ], [ %737, %734 ]
-  %736 = getelementptr inbounds float, ptr %696, i64 %735
-  store float %700, ptr %736, align 4, !tbaa !37
-  %737 = add nuw nsw i64 %735, 1
+732:                                              ; preds = %732, %696
+  %733 = phi i64 [ 0, %696 ], [ %735, %732 ]
+  %734 = getelementptr inbounds float, ptr %694, i64 %733
+  store float %698, ptr %734, align 4, !tbaa !37
+  %735 = add nuw nsw i64 %733, 1
   %.0..0..0..0.57 = load volatile i16, ptr %15, align 2, !tbaa !33
-  %738 = zext i16 %.0..0..0..0.57 to i64
-  %739 = icmp ult i64 %737, %738
-  br i1 %739, label %734, label %.loopexit134
+  %736 = zext i16 %.0..0..0..0.57 to i64
+  %737 = icmp ult i64 %735, %736
+  br i1 %737, label %732, label %.loopexit134
 
-740:                                              ; preds = %679
-  %741 = load i32, ptr %569, align 8, !tbaa !31
-  %742 = icmp eq i32 %741, 0
-  %743 = icmp eq i64 %601, 0
-  br i1 %742, label %810, label %744
+738:                                              ; preds = %677
+  %739 = load i32, ptr %569, align 8, !tbaa !31
+  %740 = icmp eq i32 %739, 0
+  %741 = icmp eq i64 %601, 0
+  br i1 %740, label %808, label %742
 
-744:                                              ; preds = %740
-  br i1 %743, label %.loopexit150, label %745
+742:                                              ; preds = %738
+  br i1 %741, label %.loopexit150, label %743
 
-745:                                              ; preds = %744
-  %746 = and i64 %600, 1
-  %747 = and i64 %600, -2
-  %748 = icmp eq i64 %746, 0
-  br label %752
+743:                                              ; preds = %742
+  %744 = and i64 %600, 1
+  %745 = and i64 %600, -2
+  %746 = icmp eq i64 %744, 0
+  br label %750
 
-749:                                              ; preds = %780
-  %750 = add nuw i64 %753, 1
-  %751 = icmp eq i64 %750, %601
-  br i1 %751, label %.loopexit150, label %752
+747:                                              ; preds = %778
+  %748 = add nuw i64 %751, 1
+  %749 = icmp eq i64 %748, %601
+  br i1 %749, label %.loopexit150, label %750
 
-752:                                              ; preds = %749, %745
-  %753 = phi i64 [ 0, %745 ], [ %750, %749 ]
-  %754 = mul nsw i64 %753, %600
-  %755 = getelementptr inbounds float, ptr %602, i64 %754
+750:                                              ; preds = %747, %743
+  %751 = phi i64 [ 0, %743 ], [ %748, %747 ]
+  %752 = mul nsw i64 %751, %600
+  %753 = getelementptr inbounds float, ptr %602, i64 %752
   switch i64 %600, label %.preheader148 [
-    i64 0, label %780
+    i64 0, label %778
     i64 1, label %.thread130
   ]
 
-.preheader148:                                    ; preds = %752, %.loopexit139
-  %756 = phi i64 [ %800, %.loopexit139 ], [ 0, %752 ]
-  %757 = phi ptr [ %802, %.loopexit139 ], [ %681, %752 ]
+.preheader148:                                    ; preds = %750, %.loopexit139
+  %754 = phi i64 [ %798, %.loopexit139 ], [ 0, %750 ]
+  %755 = phi ptr [ %800, %.loopexit139 ], [ %679, %750 ]
   %.0..0..0..0.58 = load volatile i16, ptr %15, align 2, !tbaa !33
-  %758 = icmp eq i16 %.0..0..0..0.58, 0
-  br i1 %758, label %.loopexit140, label %759
+  %756 = icmp eq i16 %.0..0..0..0.58, 0
+  br i1 %756, label %.loopexit140, label %757
 
-759:                                              ; preds = %.preheader148
-  %760 = getelementptr inbounds float, ptr %755, i64 %756
-  %761 = load float, ptr %760, align 4, !tbaa !37
-  %762 = insertelement <4 x float> <float poison, float 0.000000e+00, float 0.000000e+00, float 0.000000e+00>, float %761, i64 0
-  %763 = call <8 x i16> @llvm.x86.vcvtps2ph.128(<4 x float> %762, i32 8)
-  %764 = extractelement <8 x i16> %763, i64 0
-  br label %804
+757:                                              ; preds = %.preheader148
+  %758 = getelementptr inbounds float, ptr %753, i64 %754
+  %759 = load float, ptr %758, align 4, !tbaa !37
+  %760 = insertelement <4 x float> <float poison, float 0.000000e+00, float 0.000000e+00, float 0.000000e+00>, float %759, i64 0
+  %761 = call <8 x i16> @llvm.x86.vcvtps2ph.128(<4 x float> %760, i32 8)
+  %762 = extractelement <8 x i16> %761, i64 0
+  br label %802
 
-765:                                              ; preds = %.loopexit139
-  br i1 %748, label %780, label %.thread130
+763:                                              ; preds = %.loopexit139
+  br i1 %746, label %778, label %.thread130
 
-.thread130:                                       ; preds = %752, %765
-  %766 = phi ptr [ %802, %765 ], [ %681, %752 ]
+.thread130:                                       ; preds = %750, %763
+  %764 = phi ptr [ %800, %763 ], [ %679, %750 ]
   %.0..0..0..0.59 = load volatile i16, ptr %15, align 2, !tbaa !33
-  %767 = icmp eq i16 %.0..0..0..0.59, 0
-  br i1 %767, label %.loopexit147, label %768
+  %765 = icmp eq i16 %.0..0..0..0.59, 0
+  br i1 %765, label %.loopexit147, label %766
 
-768:                                              ; preds = %.thread130
-  %769 = getelementptr inbounds float, ptr %755, i64 %747
-  %770 = load float, ptr %769, align 4, !tbaa !37
-  %771 = insertelement <4 x float> <float poison, float 0.000000e+00, float 0.000000e+00, float 0.000000e+00>, float %770, i64 0
-  %772 = call <8 x i16> @llvm.x86.vcvtps2ph.128(<4 x float> %771, i32 8)
-  %773 = extractelement <8 x i16> %772, i64 0
-  br label %774
+766:                                              ; preds = %.thread130
+  %767 = getelementptr inbounds float, ptr %753, i64 %745
+  %768 = load float, ptr %767, align 4, !tbaa !37
+  %769 = insertelement <4 x float> <float poison, float 0.000000e+00, float 0.000000e+00, float 0.000000e+00>, float %768, i64 0
+  %770 = call <8 x i16> @llvm.x86.vcvtps2ph.128(<4 x float> %769, i32 8)
+  %771 = extractelement <8 x i16> %770, i64 0
+  br label %772
 
-774:                                              ; preds = %774, %768
-  %775 = phi i64 [ 0, %768 ], [ %777, %774 ]
-  %776 = getelementptr inbounds i16, ptr %766, i64 %775
-  store i16 %773, ptr %776, align 2, !tbaa !33
-  %777 = add nuw nsw i64 %775, 1
+772:                                              ; preds = %772, %766
+  %773 = phi i64 [ 0, %766 ], [ %775, %772 ]
+  %774 = getelementptr inbounds i16, ptr %764, i64 %773
+  store i16 %771, ptr %774, align 2, !tbaa !33
+  %775 = add nuw nsw i64 %773, 1
   %.0..0..0..0.60 = load volatile i16, ptr %15, align 2, !tbaa !33
-  %778 = zext i16 %.0..0..0..0.60 to i64
-  %779 = icmp ult i64 %777, %778
-  br i1 %779, label %774, label %.loopexit147
+  %776 = zext i16 %.0..0..0..0.60 to i64
+  %777 = icmp ult i64 %775, %776
+  br i1 %777, label %772, label %.loopexit147
 
-.loopexit147:                                     ; preds = %774, %.thread130
+.loopexit147:                                     ; preds = %772, %.thread130
   %.0..0..0..0.61 = load volatile i16, ptr %15, align 2, !tbaa !33
-  br label %780
+  br label %778
 
-780:                                              ; preds = %.loopexit147, %765, %752
-  %781 = trunc i64 %753 to i32
-  %782 = call i32 @TIFFWriteScanline(ptr noundef %562, ptr noundef %681, i32 noundef %781, i16 noundef zeroext 0) #16
-  %783 = icmp eq i32 %782, -1
-  br i1 %783, label %.loopexit149, label %749
+778:                                              ; preds = %.loopexit147, %763, %750
+  %779 = trunc i64 %751 to i32
+  %780 = call i32 @TIFFWriteScanline(ptr noundef %562, ptr noundef %679, i32 noundef %779, i16 noundef zeroext 0) #16
+  %781 = icmp eq i32 %780, -1
+  br i1 %781, label %.loopexit149, label %747
 
-.loopexit140:                                     ; preds = %804, %.preheader148
+.loopexit140:                                     ; preds = %802, %.preheader148
   %.0..0..0..0.62 = load volatile i16, ptr %15, align 2, !tbaa !33
-  %784 = zext i16 %.0..0..0..0.62 to i64
-  %785 = getelementptr inbounds i16, ptr %757, i64 %784
+  %782 = zext i16 %.0..0..0..0.62 to i64
+  %783 = getelementptr inbounds i16, ptr %755, i64 %782
   %.0..0..0..0.63 = load volatile i16, ptr %15, align 2, !tbaa !33
-  %786 = icmp eq i16 %.0..0..0..0.63, 0
-  br i1 %786, label %.loopexit139, label %787
+  %784 = icmp eq i16 %.0..0..0..0.63, 0
+  br i1 %784, label %.loopexit139, label %785
 
-787:                                              ; preds = %.loopexit140
-  %788 = or disjoint i64 %756, 1
-  %789 = getelementptr inbounds float, ptr %755, i64 %788
-  %790 = load float, ptr %789, align 4, !tbaa !37
-  %791 = insertelement <4 x float> <float poison, float 0.000000e+00, float 0.000000e+00, float 0.000000e+00>, float %790, i64 0
-  %792 = call <8 x i16> @llvm.x86.vcvtps2ph.128(<4 x float> %791, i32 8)
-  %793 = extractelement <8 x i16> %792, i64 0
-  br label %794
+785:                                              ; preds = %.loopexit140
+  %786 = or disjoint i64 %754, 1
+  %787 = getelementptr inbounds float, ptr %753, i64 %786
+  %788 = load float, ptr %787, align 4, !tbaa !37
+  %789 = insertelement <4 x float> <float poison, float 0.000000e+00, float 0.000000e+00, float 0.000000e+00>, float %788, i64 0
+  %790 = call <8 x i16> @llvm.x86.vcvtps2ph.128(<4 x float> %789, i32 8)
+  %791 = extractelement <8 x i16> %790, i64 0
+  br label %792
 
-794:                                              ; preds = %794, %787
-  %795 = phi i64 [ 0, %787 ], [ %797, %794 ]
-  %796 = getelementptr inbounds i16, ptr %785, i64 %795
-  store i16 %793, ptr %796, align 2, !tbaa !33
-  %797 = add nuw nsw i64 %795, 1
+792:                                              ; preds = %792, %785
+  %793 = phi i64 [ 0, %785 ], [ %795, %792 ]
+  %794 = getelementptr inbounds i16, ptr %783, i64 %793
+  store i16 %791, ptr %794, align 2, !tbaa !33
+  %795 = add nuw nsw i64 %793, 1
   %.0..0..0..0.64 = load volatile i16, ptr %15, align 2, !tbaa !33
-  %798 = zext i16 %.0..0..0..0.64 to i64
-  %799 = icmp ult i64 %797, %798
-  br i1 %799, label %794, label %.loopexit139
+  %796 = zext i16 %.0..0..0..0.64 to i64
+  %797 = icmp ult i64 %795, %796
+  br i1 %797, label %792, label %.loopexit139
 
-.loopexit139:                                     ; preds = %794, %.loopexit140
-  %800 = add nuw i64 %756, 2
+.loopexit139:                                     ; preds = %792, %.loopexit140
+  %798 = add nuw i64 %754, 2
   %.0..0..0..0.65 = load volatile i16, ptr %15, align 2, !tbaa !33
-  %801 = zext i16 %.0..0..0..0.65 to i64
-  %802 = getelementptr inbounds i16, ptr %785, i64 %801
-  %803 = icmp eq i64 %800, %747
-  br i1 %803, label %765, label %.preheader148
+  %799 = zext i16 %.0..0..0..0.65 to i64
+  %800 = getelementptr inbounds i16, ptr %783, i64 %799
+  %801 = icmp eq i64 %798, %745
+  br i1 %801, label %763, label %.preheader148
 
-804:                                              ; preds = %804, %759
-  %805 = phi i64 [ 0, %759 ], [ %807, %804 ]
-  %806 = getelementptr inbounds i16, ptr %757, i64 %805
-  store i16 %764, ptr %806, align 2, !tbaa !33
-  %807 = add nuw nsw i64 %805, 1
+802:                                              ; preds = %802, %757
+  %803 = phi i64 [ 0, %757 ], [ %805, %802 ]
+  %804 = getelementptr inbounds i16, ptr %755, i64 %803
+  store i16 %762, ptr %804, align 2, !tbaa !33
+  %805 = add nuw nsw i64 %803, 1
   %.0..0..0..0.66 = load volatile i16, ptr %15, align 2, !tbaa !33
-  %808 = zext i16 %.0..0..0..0.66 to i64
-  %809 = icmp ult i64 %807, %808
-  br i1 %809, label %804, label %.loopexit140
+  %806 = zext i16 %.0..0..0..0.66 to i64
+  %807 = icmp ult i64 %805, %806
+  br i1 %807, label %802, label %.loopexit140
 
-810:                                              ; preds = %740
-  br i1 %743, label %.loopexit150, label %811
+808:                                              ; preds = %738
+  br i1 %741, label %.loopexit150, label %809
 
-811:                                              ; preds = %810
-  %812 = icmp eq i64 %600, 0
-  br label %816
+809:                                              ; preds = %808
+  %810 = icmp eq i64 %600, 0
+  br label %814
 
-813:                                              ; preds = %.loopexit146
-  %814 = add nuw i64 %817, 1
-  %815 = icmp eq i64 %814, %601
-  br i1 %815, label %.loopexit150, label %816
+811:                                              ; preds = %.loopexit146
+  %812 = add nuw i64 %815, 1
+  %813 = icmp eq i64 %812, %601
+  br i1 %813, label %.loopexit150, label %814
 
-816:                                              ; preds = %813, %811
-  %817 = phi i64 [ 0, %811 ], [ %814, %813 ]
-  %818 = mul nsw i64 %817, %600
-  %819 = getelementptr inbounds float, ptr %602, i64 %818
-  br i1 %812, label %.loopexit146, label %.preheader145
+814:                                              ; preds = %811, %809
+  %815 = phi i64 [ 0, %809 ], [ %812, %811 ]
+  %816 = mul nsw i64 %815, %600
+  %817 = getelementptr inbounds float, ptr %602, i64 %816
+  br i1 %810, label %.loopexit146, label %.preheader145
 
-.preheader145:                                    ; preds = %816, %.loopexit135
-  %820 = phi i64 [ %846, %.loopexit135 ], [ 0, %816 ]
-  %821 = phi ptr [ %848, %.loopexit135 ], [ %681, %816 ]
+.preheader145:                                    ; preds = %814, %.loopexit135
+  %818 = phi i64 [ %844, %.loopexit135 ], [ 0, %814 ]
+  %819 = phi ptr [ %846, %.loopexit135 ], [ %679, %814 ]
   %.0..0..0..0.67 = load volatile i16, ptr %15, align 2, !tbaa !33
-  %822 = icmp eq i16 %.0..0..0..0.67, 0
-  br i1 %822, label %.loopexit135, label %823
+  %820 = icmp eq i16 %.0..0..0..0.67, 0
+  br i1 %820, label %.loopexit135, label %821
 
-823:                                              ; preds = %.preheader145
-  %824 = getelementptr inbounds float, ptr %819, i64 %820
-  %825 = load float, ptr %824, align 4, !tbaa !37
-  %826 = fcmp reassoc nsz arcp contract afn ult float %825, 0.000000e+00
-  br i1 %826, label %.preheader, label %832
+821:                                              ; preds = %.preheader145
+  %822 = getelementptr inbounds float, ptr %817, i64 %818
+  %823 = load float, ptr %822, align 4, !tbaa !37
+  %824 = fcmp reassoc nsz arcp contract afn ult float %823, 0.000000e+00
+  br i1 %824, label %.preheader, label %830
 
-.preheader:                                       ; preds = %823, %.preheader
-  %827 = phi i64 [ %829, %.preheader ], [ 0, %823 ]
-  %828 = getelementptr inbounds i16, ptr %821, i64 %827
-  store i16 0, ptr %828, align 2, !tbaa !33
-  %829 = add nuw nsw i64 %827, 1
+.preheader:                                       ; preds = %821, %.preheader
+  %825 = phi i64 [ %827, %.preheader ], [ 0, %821 ]
+  %826 = getelementptr inbounds i16, ptr %819, i64 %825
+  store i16 0, ptr %826, align 2, !tbaa !33
+  %827 = add nuw nsw i64 %825, 1
   %.0..0..0..0.68 = load volatile i16, ptr %15, align 2, !tbaa !33
-  %830 = zext i16 %.0..0..0..0.68 to i64
-  %831 = icmp ult i64 %829, %830
-  br i1 %831, label %.preheader, label %.loopexit135
+  %828 = zext i16 %.0..0..0..0.68 to i64
+  %829 = icmp ult i64 %827, %828
+  br i1 %829, label %.preheader, label %.loopexit135
 
-832:                                              ; preds = %823
-  %833 = fcmp reassoc nsz arcp contract afn ugt float %825, 1.000000e+00
-  br i1 %833, label %.preheader136, label %839
+830:                                              ; preds = %821
+  %831 = fcmp reassoc nsz arcp contract afn ugt float %823, 1.000000e+00
+  br i1 %831, label %.preheader136, label %837
 
-.preheader136:                                    ; preds = %832, %.preheader136
-  %834 = phi i64 [ %836, %.preheader136 ], [ 0, %832 ]
-  %835 = getelementptr inbounds i16, ptr %821, i64 %834
-  store i16 -1, ptr %835, align 2, !tbaa !33
-  %836 = add nuw nsw i64 %834, 1
+.preheader136:                                    ; preds = %830, %.preheader136
+  %832 = phi i64 [ %834, %.preheader136 ], [ 0, %830 ]
+  %833 = getelementptr inbounds i16, ptr %819, i64 %832
+  store i16 -1, ptr %833, align 2, !tbaa !33
+  %834 = add nuw nsw i64 %832, 1
   %.0..0..0..0.69 = load volatile i16, ptr %15, align 2, !tbaa !33
-  %837 = zext i16 %.0..0..0..0.69 to i64
-  %838 = icmp ult i64 %836, %837
-  br i1 %838, label %.preheader136, label %.loopexit135
+  %835 = zext i16 %.0..0..0..0.69 to i64
+  %836 = icmp ult i64 %834, %835
+  br i1 %836, label %.preheader136, label %.loopexit135
 
-839:                                              ; preds = %832
-  %840 = fmul reassoc nsz arcp contract afn float %825, 6.553500e+04
-  %841 = call reassoc nsz arcp contract afn float @llvm.round.f32(float %840)
-  %842 = fptoui float %841 to i16
-  br label %850
+837:                                              ; preds = %830
+  %838 = fmul reassoc nsz arcp contract afn float %823, 6.553500e+04
+  %839 = call reassoc nsz arcp contract afn float @llvm.round.f32(float %838)
+  %840 = fptoui float %839 to i16
+  br label %848
 
-.loopexit146:                                     ; preds = %.loopexit135, %816
-  %843 = trunc i64 %817 to i32
-  %844 = call i32 @TIFFWriteScanline(ptr noundef %562, ptr noundef %681, i32 noundef %843, i16 noundef zeroext 0) #16
-  %845 = icmp eq i32 %844, -1
-  br i1 %845, label %.loopexit149, label %813
+.loopexit146:                                     ; preds = %.loopexit135, %814
+  %841 = trunc i64 %815 to i32
+  %842 = call i32 @TIFFWriteScanline(ptr noundef %562, ptr noundef %679, i32 noundef %841, i16 noundef zeroext 0) #16
+  %843 = icmp eq i32 %842, -1
+  br i1 %843, label %.loopexit149, label %811
 
-.loopexit135:                                     ; preds = %850, %.preheader136, %.preheader, %.preheader145
-  %846 = add nuw nsw i64 %820, 1
+.loopexit135:                                     ; preds = %848, %.preheader136, %.preheader, %.preheader145
+  %844 = add nuw nsw i64 %818, 1
   %.0..0..0..0.70 = load volatile i16, ptr %15, align 2, !tbaa !33
-  %847 = zext i16 %.0..0..0..0.70 to i64
-  %848 = getelementptr inbounds i16, ptr %821, i64 %847
-  %849 = icmp eq i64 %846, %600
-  br i1 %849, label %.loopexit146, label %.preheader145
+  %845 = zext i16 %.0..0..0..0.70 to i64
+  %846 = getelementptr inbounds i16, ptr %819, i64 %845
+  %847 = icmp eq i64 %844, %600
+  br i1 %847, label %.loopexit146, label %.preheader145
 
-850:                                              ; preds = %850, %839
-  %851 = phi i64 [ 0, %839 ], [ %853, %850 ]
-  %852 = getelementptr inbounds i16, ptr %821, i64 %851
-  store i16 %842, ptr %852, align 2, !tbaa !33
-  %853 = add nuw nsw i64 %851, 1
+848:                                              ; preds = %848, %837
+  %849 = phi i64 [ 0, %837 ], [ %851, %848 ]
+  %850 = getelementptr inbounds i16, ptr %819, i64 %849
+  store i16 %840, ptr %850, align 2, !tbaa !33
+  %851 = add nuw nsw i64 %849, 1
   %.0..0..0..0.71 = load volatile i16, ptr %15, align 2, !tbaa !33
-  %854 = zext i16 %.0..0..0..0.71 to i64
-  %855 = icmp ult i64 %853, %854
-  br i1 %855, label %850, label %.loopexit135
+  %852 = zext i16 %.0..0..0..0.71 to i64
+  %853 = icmp ult i64 %851, %852
+  br i1 %853, label %848, label %.loopexit135
 
-856:                                              ; preds = %679
-  %857 = icmp eq i64 %601, 0
-  br i1 %857, label %.loopexit150, label %858
+854:                                              ; preds = %677
+  %855 = icmp eq i64 %601, 0
+  br i1 %855, label %.loopexit150, label %856
 
-858:                                              ; preds = %856
-  %859 = and i64 %600, 1
-  %860 = and i64 %600, -2
-  %861 = icmp eq i64 %859, 0
-  br label %865
+856:                                              ; preds = %854
+  %857 = and i64 %600, 1
+  %858 = and i64 %600, -2
+  %859 = icmp eq i64 %857, 0
+  br label %863
 
-862:                                              ; preds = %895
-  %863 = add nuw i64 %866, 1
-  %864 = icmp eq i64 %863, %601
-  br i1 %864, label %.loopexit150, label %865
+860:                                              ; preds = %893
+  %861 = add nuw i64 %864, 1
+  %862 = icmp eq i64 %861, %601
+  br i1 %862, label %.loopexit150, label %863
 
-865:                                              ; preds = %862, %858
-  %866 = phi i64 [ 0, %858 ], [ %863, %862 ]
-  %867 = mul nsw i64 %866, %600
-  %868 = getelementptr inbounds float, ptr %602, i64 %867
+863:                                              ; preds = %860, %856
+  %864 = phi i64 [ 0, %856 ], [ %861, %860 ]
+  %865 = mul nsw i64 %864, %600
+  %866 = getelementptr inbounds float, ptr %602, i64 %865
   switch i64 %600, label %.preheader142 [
-    i64 0, label %895
+    i64 0, label %893
     i64 1, label %.thread131
   ]
 
-.preheader142:                                    ; preds = %865, %.loopexit
-  %869 = phi i64 [ %921, %.loopexit ], [ 0, %865 ]
-  %870 = phi ptr [ %923, %.loopexit ], [ %681, %865 ]
+.preheader142:                                    ; preds = %863, %.loopexit
+  %867 = phi i64 [ %919, %.loopexit ], [ 0, %863 ]
+  %868 = phi ptr [ %921, %.loopexit ], [ %679, %863 ]
   %.0..0..0..0.72 = load volatile i16, ptr %15, align 2, !tbaa !33
-  %871 = icmp eq i16 %.0..0..0..0.72, 0
-  br i1 %871, label %.loopexit132, label %872
+  %869 = icmp eq i16 %.0..0..0..0.72, 0
+  br i1 %869, label %.loopexit132, label %870
 
-872:                                              ; preds = %.preheader142
-  %873 = getelementptr inbounds float, ptr %868, i64 %869
-  br label %925
+870:                                              ; preds = %.preheader142
+  %871 = getelementptr inbounds float, ptr %866, i64 %867
+  br label %923
 
-874:                                              ; preds = %.loopexit
-  br i1 %861, label %895, label %.thread131
+872:                                              ; preds = %.loopexit
+  br i1 %859, label %893, label %.thread131
 
-.thread131:                                       ; preds = %865, %874
-  %875 = phi ptr [ %923, %874 ], [ %681, %865 ]
+.thread131:                                       ; preds = %863, %872
+  %873 = phi ptr [ %921, %872 ], [ %679, %863 ]
   %.0..0..0..0.73 = load volatile i16, ptr %15, align 2, !tbaa !33
-  %876 = icmp eq i16 %.0..0..0..0.73, 0
-  br i1 %876, label %.loopexit141, label %877
+  %874 = icmp eq i16 %.0..0..0..0.73, 0
+  br i1 %874, label %.loopexit141, label %875
 
-877:                                              ; preds = %.thread131
-  %878 = getelementptr inbounds float, ptr %868, i64 %860
-  br label %879
+875:                                              ; preds = %.thread131
+  %876 = getelementptr inbounds float, ptr %866, i64 %858
+  br label %877
 
-879:                                              ; preds = %887, %877
-  %880 = phi i64 [ 0, %877 ], [ %892, %887 ]
-  %881 = load float, ptr %878, align 4, !tbaa !37
-  %882 = fcmp reassoc nsz arcp contract afn ult float %881, 0.000000e+00
-  br i1 %882, label %887, label %883
+877:                                              ; preds = %885, %875
+  %878 = phi i64 [ 0, %875 ], [ %890, %885 ]
+  %879 = load float, ptr %876, align 4, !tbaa !37
+  %880 = fcmp reassoc nsz arcp contract afn ult float %879, 0.000000e+00
+  br i1 %880, label %885, label %881
 
-883:                                              ; preds = %879
-  %884 = fcmp reassoc nsz arcp contract afn ugt float %881, 1.000000e+00
-  br i1 %884, label %887, label %885
+881:                                              ; preds = %877
+  %882 = fcmp reassoc nsz arcp contract afn ugt float %879, 1.000000e+00
+  br i1 %882, label %885, label %883
 
-885:                                              ; preds = %883
-  %886 = fmul reassoc nsz arcp contract afn float %881, 2.550000e+02
-  br label %887
+883:                                              ; preds = %881
+  %884 = fmul reassoc nsz arcp contract afn float %879, 2.550000e+02
+  br label %885
 
-887:                                              ; preds = %885, %883, %879
-  %888 = phi float [ %886, %885 ], [ 2.550000e+02, %883 ], [ 0.000000e+00, %879 ]
-  %889 = call reassoc nsz arcp contract afn float @llvm.round.f32(float %888)
-  %890 = fptoui float %889 to i8
-  %891 = getelementptr inbounds i8, ptr %875, i64 %880
-  store i8 %890, ptr %891, align 1, !tbaa !38
-  %892 = add nuw nsw i64 %880, 1
+885:                                              ; preds = %883, %881, %877
+  %886 = phi float [ %884, %883 ], [ 2.550000e+02, %881 ], [ 0.000000e+00, %877 ]
+  %887 = call reassoc nsz arcp contract afn float @llvm.round.f32(float %886)
+  %888 = fptoui float %887 to i8
+  %889 = getelementptr inbounds i8, ptr %873, i64 %878
+  store i8 %888, ptr %889, align 1, !tbaa !38
+  %890 = add nuw nsw i64 %878, 1
   %.0..0..0..0.74 = load volatile i16, ptr %15, align 2, !tbaa !33
-  %893 = zext i16 %.0..0..0..0.74 to i64
-  %894 = icmp ult i64 %892, %893
-  br i1 %894, label %879, label %.loopexit141
+  %891 = zext i16 %.0..0..0..0.74 to i64
+  %892 = icmp ult i64 %890, %891
+  br i1 %892, label %877, label %.loopexit141
 
-.loopexit141:                                     ; preds = %887, %.thread131
+.loopexit141:                                     ; preds = %885, %.thread131
   %.0..0..0..0.75 = load volatile i16, ptr %15, align 2, !tbaa !33
-  br label %895
+  br label %893
 
-895:                                              ; preds = %.loopexit141, %874, %865
-  %896 = trunc i64 %866 to i32
-  %897 = call i32 @TIFFWriteScanline(ptr noundef %562, ptr noundef %681, i32 noundef %896, i16 noundef zeroext 0) #16
-  %898 = icmp eq i32 %897, -1
-  br i1 %898, label %.loopexit149, label %862
+893:                                              ; preds = %.loopexit141, %872, %863
+  %894 = trunc i64 %864 to i32
+  %895 = call i32 @TIFFWriteScanline(ptr noundef %562, ptr noundef %679, i32 noundef %894, i16 noundef zeroext 0) #16
+  %896 = icmp eq i32 %895, -1
+  br i1 %896, label %.loopexit149, label %860
 
-.loopexit132:                                     ; preds = %933, %.preheader142
+.loopexit132:                                     ; preds = %931, %.preheader142
   %.0..0..0..0.76 = load volatile i16, ptr %15, align 2, !tbaa !33
-  %899 = zext i16 %.0..0..0..0.76 to i64
-  %900 = getelementptr inbounds i8, ptr %870, i64 %899
+  %897 = zext i16 %.0..0..0..0.76 to i64
+  %898 = getelementptr inbounds i8, ptr %868, i64 %897
   %.0..0..0..0.77 = load volatile i16, ptr %15, align 2, !tbaa !33
-  %901 = icmp eq i16 %.0..0..0..0.77, 0
-  br i1 %901, label %.loopexit, label %902
+  %899 = icmp eq i16 %.0..0..0..0.77, 0
+  br i1 %899, label %.loopexit, label %900
 
-902:                                              ; preds = %.loopexit132
-  %903 = or disjoint i64 %869, 1
-  %904 = getelementptr inbounds float, ptr %868, i64 %903
-  br label %905
+900:                                              ; preds = %.loopexit132
+  %901 = or disjoint i64 %867, 1
+  %902 = getelementptr inbounds float, ptr %866, i64 %901
+  br label %903
 
-905:                                              ; preds = %913, %902
-  %906 = phi i64 [ 0, %902 ], [ %918, %913 ]
-  %907 = load float, ptr %904, align 4, !tbaa !37
-  %908 = fcmp reassoc nsz arcp contract afn ult float %907, 0.000000e+00
-  br i1 %908, label %913, label %909
+903:                                              ; preds = %911, %900
+  %904 = phi i64 [ 0, %900 ], [ %916, %911 ]
+  %905 = load float, ptr %902, align 4, !tbaa !37
+  %906 = fcmp reassoc nsz arcp contract afn ult float %905, 0.000000e+00
+  br i1 %906, label %911, label %907
 
-909:                                              ; preds = %905
-  %910 = fcmp reassoc nsz arcp contract afn ugt float %907, 1.000000e+00
-  br i1 %910, label %913, label %911
+907:                                              ; preds = %903
+  %908 = fcmp reassoc nsz arcp contract afn ugt float %905, 1.000000e+00
+  br i1 %908, label %911, label %909
 
-911:                                              ; preds = %909
-  %912 = fmul reassoc nsz arcp contract afn float %907, 2.550000e+02
-  br label %913
+909:                                              ; preds = %907
+  %910 = fmul reassoc nsz arcp contract afn float %905, 2.550000e+02
+  br label %911
 
-913:                                              ; preds = %911, %909, %905
-  %914 = phi float [ %912, %911 ], [ 2.550000e+02, %909 ], [ 0.000000e+00, %905 ]
-  %915 = call reassoc nsz arcp contract afn float @llvm.round.f32(float %914)
-  %916 = fptoui float %915 to i8
-  %917 = getelementptr inbounds i8, ptr %900, i64 %906
-  store i8 %916, ptr %917, align 1, !tbaa !38
-  %918 = add nuw nsw i64 %906, 1
+911:                                              ; preds = %909, %907, %903
+  %912 = phi float [ %910, %909 ], [ 2.550000e+02, %907 ], [ 0.000000e+00, %903 ]
+  %913 = call reassoc nsz arcp contract afn float @llvm.round.f32(float %912)
+  %914 = fptoui float %913 to i8
+  %915 = getelementptr inbounds i8, ptr %898, i64 %904
+  store i8 %914, ptr %915, align 1, !tbaa !38
+  %916 = add nuw nsw i64 %904, 1
   %.0..0..0..0.78 = load volatile i16, ptr %15, align 2, !tbaa !33
-  %919 = zext i16 %.0..0..0..0.78 to i64
-  %920 = icmp ult i64 %918, %919
-  br i1 %920, label %905, label %.loopexit
+  %917 = zext i16 %.0..0..0..0.78 to i64
+  %918 = icmp ult i64 %916, %917
+  br i1 %918, label %903, label %.loopexit
 
-.loopexit:                                        ; preds = %913, %.loopexit132
-  %921 = add nuw i64 %869, 2
+.loopexit:                                        ; preds = %911, %.loopexit132
+  %919 = add nuw i64 %867, 2
   %.0..0..0..0.79 = load volatile i16, ptr %15, align 2, !tbaa !33
-  %922 = zext i16 %.0..0..0..0.79 to i64
-  %923 = getelementptr inbounds i8, ptr %900, i64 %922
-  %924 = icmp eq i64 %921, %860
-  br i1 %924, label %874, label %.preheader142
+  %920 = zext i16 %.0..0..0..0.79 to i64
+  %921 = getelementptr inbounds i8, ptr %898, i64 %920
+  %922 = icmp eq i64 %919, %858
+  br i1 %922, label %872, label %.preheader142
 
-925:                                              ; preds = %933, %872
-  %926 = phi i64 [ 0, %872 ], [ %938, %933 ]
-  %927 = load float, ptr %873, align 4, !tbaa !37
-  %928 = fcmp reassoc nsz arcp contract afn ult float %927, 0.000000e+00
-  br i1 %928, label %933, label %929
+923:                                              ; preds = %931, %870
+  %924 = phi i64 [ 0, %870 ], [ %936, %931 ]
+  %925 = load float, ptr %871, align 4, !tbaa !37
+  %926 = fcmp reassoc nsz arcp contract afn ult float %925, 0.000000e+00
+  br i1 %926, label %931, label %927
 
-929:                                              ; preds = %925
-  %930 = fcmp reassoc nsz arcp contract afn ugt float %927, 1.000000e+00
-  br i1 %930, label %933, label %931
+927:                                              ; preds = %923
+  %928 = fcmp reassoc nsz arcp contract afn ugt float %925, 1.000000e+00
+  br i1 %928, label %931, label %929
 
-931:                                              ; preds = %929
-  %932 = fmul reassoc nsz arcp contract afn float %927, 2.550000e+02
-  br label %933
+929:                                              ; preds = %927
+  %930 = fmul reassoc nsz arcp contract afn float %925, 2.550000e+02
+  br label %931
 
-933:                                              ; preds = %931, %929, %925
-  %934 = phi float [ %932, %931 ], [ 2.550000e+02, %929 ], [ 0.000000e+00, %925 ]
-  %935 = call reassoc nsz arcp contract afn float @llvm.round.f32(float %934)
-  %936 = fptoui float %935 to i8
-  %937 = getelementptr inbounds i8, ptr %870, i64 %926
-  store i8 %936, ptr %937, align 1, !tbaa !38
-  %938 = add nuw nsw i64 %926, 1
+931:                                              ; preds = %929, %927, %923
+  %932 = phi float [ %930, %929 ], [ 2.550000e+02, %927 ], [ 0.000000e+00, %923 ]
+  %933 = call reassoc nsz arcp contract afn float @llvm.round.f32(float %932)
+  %934 = fptoui float %933 to i8
+  %935 = getelementptr inbounds i8, ptr %868, i64 %924
+  store i8 %934, ptr %935, align 1, !tbaa !38
+  %936 = add nuw nsw i64 %924, 1
   %.0..0..0..0.80 = load volatile i16, ptr %15, align 2, !tbaa !33
-  %939 = zext i16 %.0..0..0..0.80 to i64
-  %940 = icmp ult i64 %938, %939
-  br i1 %940, label %925, label %.loopexit132
+  %937 = zext i16 %.0..0..0..0.80 to i64
+  %938 = icmp ult i64 %936, %937
+  br i1 %938, label %923, label %.loopexit132
 
-.loopexit150:                                     ; preds = %749, %813, %688, %862, %856, %810, %744, %682
-  %941 = add i16 %583, 1
-  %942 = icmp ult i16 %941, %52
-  br i1 %942, label %943, label %945
+.loopexit150:                                     ; preds = %747, %811, %686, %860, %854, %808, %742, %680
+  %939 = add i16 %583, 1
+  %940 = icmp ult i16 %939, %52
+  br i1 %940, label %941, label %943
 
-943:                                              ; preds = %.loopexit150
-  %944 = call i32 @TIFFWriteDirectory(ptr noundef %562) #16
-  br label %945
+941:                                              ; preds = %.loopexit150
+  %942 = call i32 @TIFFWriteDirectory(ptr noundef %562) #16
+  br label %943
 
-945:                                              ; preds = %943, %.loopexit150
-  %946 = call i32 @g_hash_table_iter_next(ptr noundef nonnull %17, ptr noundef nonnull %18, ptr noundef nonnull %19) #16
-  %947 = icmp eq i32 %946, 0
-  br i1 %947, label %.loopexit158, label %.preheader157
+943:                                              ; preds = %941, %.loopexit150
+  %944 = call i32 @g_hash_table_iter_next(ptr noundef nonnull %17, ptr noundef nonnull %18, ptr noundef nonnull %19) #16
+  %945 = icmp eq i32 %944, 0
+  br i1 %945, label %.loopexit158, label %.preheader157
 
-.loopexit158:                                     ; preds = %945, %571
-  %948 = phi i16 [ %575, %571 ], [ %941, %945 ]
-  %949 = phi ptr [ %574, %571 ], [ %602, %945 ]
-  %950 = phi ptr [ %573, %571 ], [ %681, %945 ]
+.loopexit158:                                     ; preds = %943, %571
+  %946 = phi i16 [ %575, %571 ], [ %939, %943 ]
+  %947 = phi ptr [ %574, %571 ], [ %602, %943 ]
+  %948 = phi ptr [ %573, %571 ], [ %679, %943 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %19) #16
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %18) #16
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %17) #16
-  %951 = getelementptr inbounds i8, ptr %572, i64 8
-  %952 = load ptr, ptr %951, align 8, !tbaa !13
-  %953 = icmp eq ptr %952, null
-  br i1 %953, label %.loopexit164.sink.split, label %571
+  %949 = getelementptr inbounds i8, ptr %572, i64 8
+  %950 = load ptr, ptr %949, align 8, !tbaa !13
+  %951 = icmp eq ptr %950, null
+  br i1 %951, label %.loopexit164.sink.split, label %571
 
-.loopexit149:                                     ; preds = %780, %.loopexit146, %713, %895
+.loopexit149:                                     ; preds = %778, %.loopexit146, %711, %893
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %19) #16
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %18) #16
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %17) #16
@@ -1629,38 +1626,38 @@ define range(i32 0, 2) i32 @write_image(ptr nocapture noundef readonly %0, ptr n
 
 .loopexit164.sink.split:                          ; preds = %.loopexit158, %564, %.loopexit149
   %.ph = phi i32 [ 1, %.loopexit149 ], [ 0, %564 ], [ 0, %.loopexit158 ]
-  %.ph302 = phi ptr [ %602, %.loopexit149 ], [ null, %564 ], [ %949, %.loopexit158 ]
-  %.ph303 = phi ptr [ %681, %.loopexit149 ], [ %290, %564 ], [ %950, %.loopexit158 ]
+  %.ph302 = phi ptr [ %602, %.loopexit149 ], [ null, %564 ], [ %947, %.loopexit158 ]
+  %.ph303 = phi ptr [ %679, %.loopexit149 ], [ %290, %564 ], [ %948, %.loopexit158 ]
   call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %16) #16
   br label %.loopexit164
 
 .loopexit164:                                     ; preds = %399, %.loopexit173, %.loopexit167, %.loopexit161, %.loopexit164.sink.split, %261
-  %954 = phi i32 [ 1, %261 ], [ %.ph, %.loopexit164.sink.split ], [ 1, %.loopexit161 ], [ 1, %.loopexit167 ], [ 1, %.loopexit173 ], [ 1, %399 ]
-  %955 = phi ptr [ null, %261 ], [ %.ph302, %.loopexit164.sink.split ], [ null, %.loopexit161 ], [ null, %.loopexit167 ], [ null, %.loopexit173 ], [ null, %399 ]
-  %956 = phi ptr [ null, %261 ], [ %.ph303, %.loopexit164.sink.split ], [ %290, %.loopexit161 ], [ %290, %.loopexit167 ], [ %290, %.loopexit173 ], [ %290, %399 ]
-  %957 = phi ptr [ %53, %261 ], [ %562, %.loopexit164.sink.split ], [ %53, %.loopexit161 ], [ %53, %.loopexit167 ], [ %53, %.loopexit173 ], [ %53, %399 ]
-  call void @TIFFClose(ptr noundef nonnull %957) #16
-  br label %958
+  %952 = phi i32 [ 1, %261 ], [ %.ph, %.loopexit164.sink.split ], [ 1, %.loopexit161 ], [ 1, %.loopexit167 ], [ 1, %.loopexit173 ], [ 1, %399 ]
+  %953 = phi ptr [ null, %261 ], [ %.ph302, %.loopexit164.sink.split ], [ null, %.loopexit161 ], [ null, %.loopexit167 ], [ null, %.loopexit173 ], [ null, %399 ]
+  %954 = phi ptr [ null, %261 ], [ %.ph303, %.loopexit164.sink.split ], [ %290, %.loopexit161 ], [ %290, %.loopexit167 ], [ %290, %.loopexit173 ], [ %290, %399 ]
+  %955 = phi ptr [ %53, %261 ], [ %562, %.loopexit164.sink.split ], [ %53, %.loopexit161 ], [ %53, %.loopexit167 ], [ %53, %.loopexit173 ], [ %53, %399 ]
+  call void @TIFFClose(ptr noundef nonnull %955) #16
+  br label %956
 
-958:                                              ; preds = %.loopexit164, %561, %557, %.loopexit191, %26
-  %959 = phi ptr [ %33, %.loopexit164 ], [ %33, %561 ], [ %33, %.loopexit191 ], [ null, %26 ], [ %33, %557 ]
-  %960 = phi ptr [ %956, %.loopexit164 ], [ %290, %561 ], [ null, %.loopexit191 ], [ null, %26 ], [ %290, %557 ]
-  %961 = phi ptr [ %955, %.loopexit164 ], [ null, %561 ], [ null, %.loopexit191 ], [ null, %26 ], [ null, %557 ]
-  %962 = phi i32 [ %954, %.loopexit164 ], [ 1, %561 ], [ 1, %.loopexit191 ], [ 1, %26 ], [ %558, %557 ]
+956:                                              ; preds = %.loopexit164, %561, %557, %.loopexit191, %26
+  %957 = phi ptr [ %33, %.loopexit164 ], [ %33, %561 ], [ %33, %.loopexit191 ], [ null, %26 ], [ %33, %557 ]
+  %958 = phi ptr [ %954, %.loopexit164 ], [ %290, %561 ], [ null, %.loopexit191 ], [ null, %26 ], [ %290, %557 ]
+  %959 = phi ptr [ %953, %.loopexit164 ], [ null, %561 ], [ null, %.loopexit191 ], [ null, %26 ], [ null, %557 ]
+  %960 = phi i32 [ %952, %.loopexit164 ], [ 1, %561 ], [ 1, %.loopexit191 ], [ 1, %26 ], [ %558, %557 ]
+  call void @free(ptr noundef %957) #16
+  call void @free(ptr noundef %958) #16
+  %961 = load i32, ptr %14, align 4, !tbaa !6
+  %962 = icmp eq i32 %961, 0
+  br i1 %962, label %964, label %963
+
+963:                                              ; preds = %956
   call void @free(ptr noundef %959) #16
-  call void @free(ptr noundef %960) #16
-  %963 = load i32, ptr %14, align 4, !tbaa !6
-  %964 = icmp eq i32 %963, 0
-  br i1 %964, label %966, label %965
+  br label %964
 
-965:                                              ; preds = %958
-  call void @free(ptr noundef %961) #16
-  br label %966
-
-966:                                              ; preds = %965, %958
+964:                                              ; preds = %963, %956
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %14) #16
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %13) #16
-  ret i32 %962
+  ret i32 %960
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)

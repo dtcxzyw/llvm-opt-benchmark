@@ -75,8 +75,55 @@ if.end4:                                          ; preds = %if.then, %if.then3,
 ; Function Attrs: nounwind uwtable
 define internal ptr @dh_gen_init(ptr noundef %provctx, i32 noundef %selection, ptr noundef %params) #0 {
 entry:
-  %call = tail call fastcc ptr @dh_gen_init_base(ptr noundef %provctx, i32 noundef %selection, ptr noundef %params, i32 noundef 0)
-  ret ptr %call
+  %call.i = tail call ptr @ossl_prov_ctx_get0_libctx(ptr noundef %provctx) #7
+  %call1.i = tail call i32 @ossl_prov_is_running() #7
+  %tobool.not.i = icmp eq i32 %call1.i, 0
+  %and.i = and i32 %selection, 7
+  %cmp.i = icmp eq i32 %and.i, 0
+  %or.cond.i = or i1 %cmp.i, %tobool.not.i
+  br i1 %or.cond.i, label %dh_gen_init_base.exit, label %if.end3.i
+
+if.end3.i:                                        ; preds = %entry
+  %call4.i = tail call noalias ptr @CRYPTO_zalloc(i64 noundef 120, ptr noundef nonnull @.str, i32 noundef 458) #7
+  %cmp5.not.i = icmp eq ptr %call4.i, null
+  br i1 %cmp5.not.i, label %if.end10.i, label %if.then6.i
+
+if.then6.i:                                       ; preds = %if.end3.i
+  %selection7.i = getelementptr inbounds i8, ptr %call4.i, i64 16
+  store i32 %selection, ptr %selection7.i, align 8
+  store ptr %call.i, ptr %call4.i, align 8
+  %pbits.i = getelementptr inbounds i8, ptr %call4.i, i64 24
+  store i64 2048, ptr %pbits.i, align 8
+  %qbits.i = getelementptr inbounds i8, ptr %call4.i, i64 32
+  store i64 224, ptr %qbits.i, align 8
+  %mdname.i = getelementptr inbounds i8, ptr %call4.i, i64 80
+  store ptr null, ptr %mdname.i, align 8
+  %gen_type.i = getelementptr inbounds i8, ptr %call4.i, i64 60
+  store i32 0, ptr %gen_type.i, align 4
+  %gindex.i = getelementptr inbounds i8, ptr %call4.i, i64 56
+  store i32 -1, ptr %gindex.i, align 8
+  %hindex.i = getelementptr inbounds i8, ptr %call4.i, i64 72
+  store i32 0, ptr %hindex.i, align 8
+  %pcounter.i = getelementptr inbounds i8, ptr %call4.i, i64 68
+  store i32 -1, ptr %pcounter.i, align 4
+  %generator.i = getelementptr inbounds i8, ptr %call4.i, i64 64
+  store i32 2, ptr %generator.i, align 8
+  %dh_type.i = getelementptr inbounds i8, ptr %call4.i, i64 112
+  store i32 0, ptr %dh_type.i, align 8
+  br label %if.end10.i
+
+if.end10.i:                                       ; preds = %if.then6.i, %if.end3.i
+  %call1116.i = tail call i32 @dh_gen_set_params(ptr noundef %call4.i, ptr noundef %params)
+  %tobool12.not.i = icmp eq i32 %call1116.i, 0
+  br i1 %tobool12.not.i, label %if.then13.i, label %dh_gen_init_base.exit
+
+if.then13.i:                                      ; preds = %if.end10.i
+  tail call void @CRYPTO_free(ptr noundef %call4.i, ptr noundef nonnull @.str, i32 noundef 480) #7
+  br label %dh_gen_init_base.exit
+
+dh_gen_init_base.exit:                            ; preds = %entry, %if.end10.i, %if.then13.i
+  %retval.0.i = phi ptr [ null, %entry ], [ %call4.i, %if.end10.i ], [ null, %if.then13.i ]
+  ret ptr %retval.0.i
 }
 
 ; Function Attrs: nounwind uwtable
@@ -1029,8 +1076,55 @@ if.end:                                           ; preds = %if.then, %entry
 ; Function Attrs: nounwind uwtable
 define internal ptr @dhx_gen_init(ptr noundef %provctx, i32 noundef %selection, ptr noundef %params) #0 {
 entry:
-  %call = tail call fastcc ptr @dh_gen_init_base(ptr noundef %provctx, i32 noundef %selection, ptr noundef %params, i32 noundef 4096)
-  ret ptr %call
+  %call.i = tail call ptr @ossl_prov_ctx_get0_libctx(ptr noundef %provctx) #7
+  %call1.i = tail call i32 @ossl_prov_is_running() #7
+  %tobool.not.i = icmp eq i32 %call1.i, 0
+  %and.i = and i32 %selection, 7
+  %cmp.i = icmp eq i32 %and.i, 0
+  %or.cond.i = or i1 %cmp.i, %tobool.not.i
+  br i1 %or.cond.i, label %dh_gen_init_base.exit, label %if.end3.i
+
+if.end3.i:                                        ; preds = %entry
+  %call4.i = tail call noalias ptr @CRYPTO_zalloc(i64 noundef 120, ptr noundef nonnull @.str, i32 noundef 458) #7
+  %cmp5.not.i = icmp eq ptr %call4.i, null
+  br i1 %cmp5.not.i, label %if.end10.i, label %if.then6.i
+
+if.then6.i:                                       ; preds = %if.end3.i
+  %selection7.i = getelementptr inbounds i8, ptr %call4.i, i64 16
+  store i32 %selection, ptr %selection7.i, align 8
+  store ptr %call.i, ptr %call4.i, align 8
+  %pbits.i = getelementptr inbounds i8, ptr %call4.i, i64 24
+  store i64 2048, ptr %pbits.i, align 8
+  %qbits.i = getelementptr inbounds i8, ptr %call4.i, i64 32
+  store i64 224, ptr %qbits.i, align 8
+  %mdname.i = getelementptr inbounds i8, ptr %call4.i, i64 80
+  store ptr null, ptr %mdname.i, align 8
+  %gen_type.i = getelementptr inbounds i8, ptr %call4.i, i64 60
+  store i32 1, ptr %gen_type.i, align 4
+  %gindex.i = getelementptr inbounds i8, ptr %call4.i, i64 56
+  store i32 -1, ptr %gindex.i, align 8
+  %hindex.i = getelementptr inbounds i8, ptr %call4.i, i64 72
+  store i32 0, ptr %hindex.i, align 8
+  %pcounter.i = getelementptr inbounds i8, ptr %call4.i, i64 68
+  store i32 -1, ptr %pcounter.i, align 4
+  %generator.i = getelementptr inbounds i8, ptr %call4.i, i64 64
+  store i32 2, ptr %generator.i, align 8
+  %dh_type.i = getelementptr inbounds i8, ptr %call4.i, i64 112
+  store i32 4096, ptr %dh_type.i, align 8
+  br label %if.end10.i
+
+if.end10.i:                                       ; preds = %if.then6.i, %if.end3.i
+  %call1116.i = tail call i32 @dh_gen_set_params(ptr noundef %call4.i, ptr noundef %params)
+  %tobool12.not.i = icmp eq i32 %call1116.i, 0
+  br i1 %tobool12.not.i, label %if.then13.i, label %dh_gen_init_base.exit
+
+if.then13.i:                                      ; preds = %if.end10.i
+  tail call void @CRYPTO_free(ptr noundef %call4.i, ptr noundef nonnull @.str, i32 noundef 480) #7
+  br label %dh_gen_init_base.exit
+
+dh_gen_init_base.exit:                            ; preds = %entry, %if.end10.i, %if.then13.i
+  %retval.0.i = phi ptr [ null, %entry ], [ %call4.i, %if.end10.i ], [ null, %if.then13.i ]
+  ret ptr %retval.0.i
 }
 
 ; Function Attrs: nounwind uwtable
@@ -1202,67 +1296,6 @@ declare ptr @ossl_prov_ctx_get0_libctx(ptr noundef) local_unnamed_addr #2
 declare void @DH_clear_flags(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 declare void @DH_set_flags(ptr noundef, i32 noundef) local_unnamed_addr #2
-
-; Function Attrs: nounwind uwtable
-define internal fastcc ptr @dh_gen_init_base(ptr noundef %provctx, i32 noundef %selection, ptr noundef %params, i32 noundef range(i32 0, 4097) %type) unnamed_addr #0 {
-entry:
-  %call = tail call ptr @ossl_prov_ctx_get0_libctx(ptr noundef %provctx) #7
-  %call1 = tail call i32 @ossl_prov_is_running() #7
-  %tobool.not = icmp eq i32 %call1, 0
-  %and = and i32 %selection, 7
-  %cmp = icmp eq i32 %and, 0
-  %or.cond = or i1 %cmp, %tobool.not
-  br i1 %or.cond, label %return, label %if.end3
-
-if.end3:                                          ; preds = %entry
-  %call4 = tail call noalias ptr @CRYPTO_zalloc(i64 noundef 120, ptr noundef nonnull @.str, i32 noundef 458) #7
-  %cmp5.not = icmp eq ptr %call4, null
-  br i1 %cmp5.not, label %if.end3.split, label %if.then6
-
-if.end3.split:                                    ; preds = %if.end3
-  %call1116 = tail call i32 @dh_gen_set_params(ptr noundef null, ptr noundef %params)
-  br label %if.end10
-
-if.then6:                                         ; preds = %if.end3
-  %selection7 = getelementptr inbounds i8, ptr %call4, i64 16
-  store i32 %selection, ptr %selection7, align 8
-  store ptr %call, ptr %call4, align 8
-  %pbits = getelementptr inbounds i8, ptr %call4, i64 24
-  store i64 2048, ptr %pbits, align 8
-  %qbits = getelementptr inbounds i8, ptr %call4, i64 32
-  store i64 224, ptr %qbits, align 8
-  %mdname = getelementptr inbounds i8, ptr %call4, i64 80
-  store ptr null, ptr %mdname, align 8
-  %cmp9 = icmp eq i32 %type, 4096
-  %cond = zext i1 %cmp9 to i32
-  %gen_type = getelementptr inbounds i8, ptr %call4, i64 60
-  store i32 %cond, ptr %gen_type, align 4
-  %gindex = getelementptr inbounds i8, ptr %call4, i64 56
-  store i32 -1, ptr %gindex, align 8
-  %hindex = getelementptr inbounds i8, ptr %call4, i64 72
-  store i32 0, ptr %hindex, align 8
-  %pcounter = getelementptr inbounds i8, ptr %call4, i64 68
-  store i32 -1, ptr %pcounter, align 4
-  %generator = getelementptr inbounds i8, ptr %call4, i64 64
-  store i32 2, ptr %generator, align 8
-  %dh_type = getelementptr inbounds i8, ptr %call4, i64 112
-  store i32 %type, ptr %dh_type, align 8
-  %call1117 = tail call i32 @dh_gen_set_params(ptr noundef nonnull %call4, ptr noundef %params)
-  br label %if.end10
-
-if.end10:                                         ; preds = %if.end3.split, %if.then6
-  %phi.call = phi i32 [ %call1116, %if.end3.split ], [ %call1117, %if.then6 ]
-  %tobool12.not = icmp eq i32 %phi.call, 0
-  br i1 %tobool12.not, label %if.then13, label %return
-
-if.then13:                                        ; preds = %if.end10
-  tail call void @CRYPTO_free(ptr noundef %call4, ptr noundef nonnull @.str, i32 noundef 480) #7
-  br label %return
-
-return:                                           ; preds = %if.end10, %if.then13, %entry
-  %retval.0 = phi ptr [ null, %entry ], [ %call4, %if.end10 ], [ null, %if.then13 ]
-  ret ptr %retval.0
-}
 
 declare noalias ptr @CRYPTO_zalloc(i64 noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 

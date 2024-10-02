@@ -15850,19 +15850,19 @@ for.inc75.i.i:                                    ; preds = %land.lhs.true64.i.i
 zip_entry_mark.exit.thread.i:                     ; preds = %for.cond7.preheader.i.i, %for.body.i.i, %if.end23.us.i.i, %for.body.us.i.i, %if.end10
   %retval.0.i.ph.i = phi i32 [ -1, %if.end10 ], [ %call.us.i.i, %for.body.us.i.i ], [ -3, %if.end23.us.i.i ], [ %call.i.i, %for.body.i.i ], [ -3, %for.cond7.preheader.i.i ]
   call void @llvm.lifetime.end.p0(i64 584, ptr nonnull %file_stat.i.i)
-  br label %if.then16
+  br label %return.sink.split
 
 if.end.i21:                                       ; preds = %for.inc75.i.i
   call void @llvm.lifetime.end.p0(i64 584, ptr nonnull %file_stat.i.i)
   %call.i6.i = call noalias ptr @calloc(i64 noundef %wide.trip.count63.i.i, i64 noundef 8) #34
   %tobool.not.i.i = icmp eq ptr %call.i6.i, null
-  br i1 %tobool.not.i.i, label %if.then16, label %for.body.i10.i
+  br i1 %tobool.not.i.i, label %return.sink.split, label %for.body.i10.i
 
 if.end.thread.i:                                  ; preds = %for.cond.preheader.i.i
   call void @llvm.lifetime.end.p0(i64 584, ptr nonnull %file_stat.i.i)
   %call.i632.i = tail call noalias ptr @calloc(i64 noundef %conv, i64 noundef 8) #34
   %tobool.not.i33.i = icmp eq ptr %call.i632.i, null
-  br i1 %tobool.not.i33.i, label %if.then16, label %for.end.i.i
+  br i1 %tobool.not.i33.i, label %return.sink.split, label %for.end.i.i
 
 for.body.i10.i:                                   ; preds = %if.end.i21, %if.end9.i.i
   %indvars.iv.i11.i = phi i64 [ %indvars.iv.next.i13.i, %if.end9.i.i ], [ 0, %if.end.i21 ]
@@ -15950,7 +15950,7 @@ for.end.i.i:                                      ; preds = %if.end9.i.i, %if.en
 
 zip_entry_finalize.exit.thread20.i:               ; preds = %for.end.i.i
   call void @free(ptr noundef %call.i63538.i) #30
-  br label %if.then16
+  br label %return.sink.split
 
 for.cond21.preheader.i.i:                         ; preds = %for.end.i.i
   %sub.i.i = add i32 %0, -1
@@ -16001,17 +16001,12 @@ for.body46.i.i:                                   ; preds = %for.body46.i.i, %fo
   %exitcond68.not.i.i = icmp eq i64 %indvars.iv.next65.i.i, %wide.trip.count67.i.i
   br i1 %exitcond68.not.i.i, label %if.end18, label %for.body46.i.i, !llvm.loop !119
 
-if.then16:                                        ; preds = %zip_entry_mark.exit.thread.i, %zip_entry_finalize.exit.thread20.i, %if.end.i21, %if.end.thread.i
-  %retval.0.i20.ph = phi i32 [ -21, %if.end.thread.i ], [ -21, %if.end.i21 ], [ -21, %zip_entry_finalize.exit.thread20.i ], [ %retval.0.i.ph.i, %zip_entry_mark.exit.thread.i ]
-  call void @free(ptr noundef nonnull %call8) #30
-  br label %return
-
 if.end18:                                         ; preds = %for.body46.i.i, %for.end34.i.i
   call void @free(ptr noundef nonnull %call13.i.i) #30
   call void @free(ptr noundef %call.i63538.i) #30
   %call.i = call noalias ptr @calloc(i64 noundef %conv, i64 noundef 4) #34
   %cmp.i = icmp eq ptr %call.i, null
-  br i1 %cmp.i, label %zip_entries_delete_mark.exit, label %if.end.i22
+  br i1 %cmp.i, label %return.sink.split, label %if.end.i22
 
 if.end.i22:                                       ; preds = %if.end18
   %m_pState.i = getelementptr inbounds i8, ptr %zip, i64 104
@@ -16021,7 +16016,7 @@ if.end.i22:                                       ; preds = %if.end18
   %27 = load ptr, ptr %m_pFile.i, align 8
   %call3.i = call i32 @fseeko(ptr noundef %27, i64 noundef 0, i32 noundef 0)
   %tobool.not.i23 = icmp eq i32 %call3.i, 0
-  br i1 %tobool.not.i23, label %while.cond.preheader.i, label %if.then6.i
+  br i1 %tobool.not.i23, label %while.cond.preheader.i, label %return.sink.split.i
 
 while.cond.preheader.i:                           ; preds = %if.end.i22
   br i1 %cmp44.i.i, label %while.cond11.preheader.lr.ph.i, label %while.end90.i
@@ -16029,10 +16024,6 @@ while.cond.preheader.i:                           ; preds = %if.end.i22
 while.cond11.preheader.lr.ph.i:                   ; preds = %while.cond.preheader.i
   %m_central_dir_offsets.i = getelementptr inbounds i8, ptr %26, i64 32
   br label %while.cond11.preheader.i
-
-if.then6.i:                                       ; preds = %if.end.i22
-  call void @free(ptr noundef nonnull %call.i) #30
-  br label %zip_entries_delete_mark.exit
 
 while.cond11.preheader.i:                         ; preds = %if.end87.i, %while.cond11.preheader.lr.ph.i
   %writen_num.0109.i = phi i64 [ 0, %while.cond11.preheader.lr.ph.i ], [ %add88.i, %if.end87.i ]
@@ -16129,11 +16120,7 @@ while.body53.i:                                   ; preds = %if.end70.i, %while.
   %move_length.197.i = phi i64 [ %move_length.0105.i, %while.body53.lr.ph.i ], [ %add57.i, %if.end70.i ]
   %41 = load ptr, ptr %26, align 8
   %tobool63.not.i = icmp eq ptr %41, null
-  br i1 %tobool63.not.i, label %if.then67.i, label %if.end70.i
-
-if.then67.i:                                      ; preds = %while.body53.i
-  call void @free(ptr noundef %call.i) #30
-  br label %zip_entries_delete_mark.exit
+  br i1 %tobool63.not.i, label %return.sink.split.i, label %if.end70.i
 
 if.end70.i:                                       ; preds = %while.body53.i
   %42 = load ptr, ptr %m_central_dir_offsets.i, align 8
@@ -16247,8 +16234,7 @@ zip_files_move.exit.i:                            ; preds = %if.then16.i.i, %whi
 
 if.then84.i:                                      ; preds = %zip_files_move.exit.i
   %conv77.i = trunc i64 %retval.0.i.i to i32
-  call void @free(ptr noundef %call.i) #30
-  br label %zip_entries_delete_mark.exit
+  br label %return.sink.split.i
 
 if.end87.i:                                       ; preds = %zip_files_move.exit.i
   %add88.i = add i64 %move_length.1.lcssa.i, %writen_num.1.lcssa.i
@@ -16265,16 +16251,20 @@ while.end90.i:                                    ; preds = %if.end87.i, %while.
   %sub93.i = sub nsw i32 %0, %deleted_entry_num.0.lcssa.i
   store i32 %sub93.i, ptr %m_total_files.i, align 8
   call fastcc void @zip_central_dir_delete(ptr noundef %26, ptr noundef %call.i, i32 noundef %0)
-  call void @free(ptr noundef %call.i) #30
-  br label %zip_entries_delete_mark.exit
+  br label %return.sink.split.i
 
-zip_entries_delete_mark.exit:                     ; preds = %if.end18, %if.then6.i, %if.then67.i, %if.then84.i, %while.end90.i
-  %retval.0.i24 = phi i32 [ -3, %if.then6.i ], [ -3, %if.then67.i ], [ %conv77.i, %if.then84.i ], [ %deleted_entry_num.0.lcssa.i, %while.end90.i ], [ -21, %if.end18 ]
+return.sink.split.i:                              ; preds = %while.body53.i, %while.end90.i, %if.then84.i, %if.end.i22
+  %retval.0.ph.i = phi i32 [ %deleted_entry_num.0.lcssa.i, %while.end90.i ], [ %conv77.i, %if.then84.i ], [ -3, %if.end.i22 ], [ -3, %while.body53.i ]
+  call void @free(ptr noundef %call.i) #30
+  br label %return.sink.split
+
+return.sink.split:                                ; preds = %return.sink.split.i, %if.end18, %if.end.thread.i, %if.end.i21, %zip_entry_finalize.exit.thread20.i, %zip_entry_mark.exit.thread.i
+  %retval.0.ph = phi i32 [ -21, %if.end.thread.i ], [ -21, %if.end.i21 ], [ -21, %zip_entry_finalize.exit.thread20.i ], [ %retval.0.i.ph.i, %zip_entry_mark.exit.thread.i ], [ -21, %if.end18 ], [ %retval.0.ph.i, %return.sink.split.i ]
   call void @free(ptr noundef %call8) #30
   br label %return
 
-return:                                           ; preds = %zip_entries_total.exit, %if.end, %entry, %lor.lhs.false, %zip_entries_delete_mark.exit, %if.then16
-  %retval.0 = phi i32 [ %retval.0.i20.ph, %if.then16 ], [ %retval.0.i24, %zip_entries_delete_mark.exit ], [ -1, %lor.lhs.false ], [ -1, %entry ], [ 0, %if.end ], [ -21, %zip_entries_total.exit ]
+return:                                           ; preds = %return.sink.split, %zip_entries_total.exit, %if.end, %entry, %lor.lhs.false
+  %retval.0 = phi i32 [ -1, %lor.lhs.false ], [ -1, %entry ], [ 0, %if.end ], [ -21, %zip_entries_total.exit ], [ %retval.0.ph, %return.sink.split ]
   ret i32 %retval.0
 }
 

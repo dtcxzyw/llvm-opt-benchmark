@@ -163,48 +163,42 @@ invoke.cont4:                                     ; preds = %invoke.cont
 invoke.cont9:                                     ; preds = %invoke.cont4
   %5 = load i8, ptr %agg.result, align 8
   %cmp.i = icmp eq i8 %5, 0
-  br i1 %cmp.i, label %if.then, label %_ZNKSt14default_deleteIN7rocksdb17CuckooTableReaderEEclEPS1_.exit.i
+  br i1 %cmp.i, label %if.then, label %_ZNSt10unique_ptrIN7rocksdb17CuckooTableReaderESt14default_deleteIS1_EED2Ev.exit.sink.split
 
 if.then:                                          ; preds = %invoke.cont9
   %6 = load ptr, ptr %table, align 8
   store ptr %call, ptr %table, align 8
   %tobool.not.i.i.i = icmp eq ptr %6, null
-  br i1 %tobool.not.i.i.i, label %_ZNSt10unique_ptrIN7rocksdb17CuckooTableReaderESt14default_deleteIS1_EED2Ev.exit, label %_ZNKSt14default_deleteIN7rocksdb11TableReaderEEclEPS1_.exit.i.i.i
-
-_ZNKSt14default_deleteIN7rocksdb11TableReaderEEclEPS1_.exit.i.i.i: ; preds = %if.then
-  %vtable.i.i.i.i = load ptr, ptr %6, align 8
-  %vfn.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i, i64 8
-  %7 = load ptr, ptr %vfn.i.i.i.i, align 8
-  tail call void %7(ptr noundef nonnull align 8 dereferenceable(8) %6) #19
-  br label %_ZNSt10unique_ptrIN7rocksdb17CuckooTableReaderESt14default_deleteIS1_EED2Ev.exit
+  br i1 %tobool.not.i.i.i, label %_ZNSt10unique_ptrIN7rocksdb17CuckooTableReaderESt14default_deleteIS1_EED2Ev.exit, label %_ZNSt10unique_ptrIN7rocksdb17CuckooTableReaderESt14default_deleteIS1_EED2Ev.exit.sink.split
 
 lpad:                                             ; preds = %invoke.cont
-  %8 = landingpad { ptr, i32 }
+  %7 = landingpad { ptr, i32 }
           cleanup
   tail call void @_ZdlPv(ptr noundef nonnull %call) #17
   br label %eh.resume
 
 lpad6:                                            ; preds = %invoke.cont4
-  %9 = landingpad { ptr, i32 }
+  %8 = landingpad { ptr, i32 }
           cleanup
   %vtable.i.i6 = load ptr, ptr %call, align 8
   %vfn.i.i7 = getelementptr inbounds i8, ptr %vtable.i.i6, i64 8
-  %10 = load ptr, ptr %vfn.i.i7, align 8
-  tail call void %10(ptr noundef nonnull align 8 dereferenceable(160) %call) #19
+  %9 = load ptr, ptr %vfn.i.i7, align 8
+  tail call void %9(ptr noundef nonnull align 8 dereferenceable(160) %call) #19
   br label %eh.resume
 
-_ZNKSt14default_deleteIN7rocksdb17CuckooTableReaderEEclEPS1_.exit.i: ; preds = %invoke.cont9
-  %vtable.i.i = load ptr, ptr %call, align 8
-  %vfn.i.i = getelementptr inbounds i8, ptr %vtable.i.i, i64 8
-  %11 = load ptr, ptr %vfn.i.i, align 8
-  tail call void %11(ptr noundef nonnull align 8 dereferenceable(160) %call) #19
+_ZNSt10unique_ptrIN7rocksdb17CuckooTableReaderESt14default_deleteIS1_EED2Ev.exit.sink.split: ; preds = %invoke.cont9, %if.then
+  %.sink15 = phi ptr [ %6, %if.then ], [ %call, %invoke.cont9 ]
+  %vtable.i.i.i.i = load ptr, ptr %.sink15, align 8
+  %vfn.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i, i64 8
+  %10 = load ptr, ptr %vfn.i.i.i.i, align 8
+  tail call void %10(ptr noundef nonnull align 8 dereferenceable(8) %.sink15) #19
   br label %_ZNSt10unique_ptrIN7rocksdb17CuckooTableReaderESt14default_deleteIS1_EED2Ev.exit
 
-_ZNSt10unique_ptrIN7rocksdb17CuckooTableReaderESt14default_deleteIS1_EED2Ev.exit: ; preds = %_ZNKSt14default_deleteIN7rocksdb11TableReaderEEclEPS1_.exit.i.i.i, %if.then, %_ZNKSt14default_deleteIN7rocksdb17CuckooTableReaderEEclEPS1_.exit.i
+_ZNSt10unique_ptrIN7rocksdb17CuckooTableReaderESt14default_deleteIS1_EED2Ev.exit: ; preds = %_ZNSt10unique_ptrIN7rocksdb17CuckooTableReaderESt14default_deleteIS1_EED2Ev.exit.sink.split, %if.then
   ret void
 
 eh.resume:                                        ; preds = %lpad6, %lpad
-  %.pn.pn = phi { ptr, i32 } [ %9, %lpad6 ], [ %8, %lpad ]
+  %.pn.pn = phi { ptr, i32 } [ %8, %lpad6 ], [ %7, %lpad ]
   resume { ptr, i32 } %.pn.pn
 }
 

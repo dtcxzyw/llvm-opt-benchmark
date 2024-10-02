@@ -1567,123 +1567,116 @@ extend_span_with_token.exit:                      ; preds = %25, %26
   %46 = phi i1 [ true, %41 ], [ %44, %43 ]
   %47 = tail call ptr @parse_optional_type(ptr noundef nonnull %0) #5
   %.not = icmp eq ptr %47, null
-  br i1 %.not, label %.split78, label %49
+  br i1 %.not, label %.critedge2, label %48
 
-.split78:                                         ; preds = %45
-  %48 = tail call fastcc ptr @parse_decl_stmt_after_type(ptr noundef nonnull %0, ptr noundef null)
-  br label %.critedge2
+48:                                               ; preds = %45
+  %49 = load i16, ptr %47, align 8
+  %50 = and i16 %49, 504
+  %.not82 = icmp eq i16 %50, 0
+  br i1 %.not82, label %51, label %.critedge2
 
-49:                                               ; preds = %45
-  %50 = load i16, ptr %47, align 8
-  %51 = and i16 %50, 504
-  %.not82 = icmp eq i16 %51, 0
-  br i1 %.not82, label %53, label %.split
-
-.split:                                           ; preds = %49
-  %52 = tail call fastcc ptr @parse_decl_stmt_after_type(ptr noundef nonnull %0, ptr noundef nonnull %47)
-  br label %.critedge2
-
-53:                                               ; preds = %49
-  %54 = load ptr, ptr @poisoned_ast, align 8
+51:                                               ; preds = %48
+  %52 = load ptr, ptr @poisoned_ast, align 8
   br label %.loopexit
 
-.critedge2:                                       ; preds = %.split78, %.split
-  %phi.call = phi ptr [ %52, %.split ], [ %48, %.split78 ]
-  %55 = icmp eq ptr %phi.call, null
-  br i1 %55, label %.critedge4, label %56
+.critedge2:                                       ; preds = %48, %45
+  %.sink = phi ptr [ null, %45 ], [ %47, %48 ]
+  %53 = tail call fastcc ptr @parse_decl_stmt_after_type(ptr noundef nonnull %0, ptr noundef %.sink)
+  %54 = icmp eq ptr %53, null
+  br i1 %54, label %.critedge4, label %55
 
-56:                                               ; preds = %.critedge2
-  %57 = getelementptr inbounds i8, ptr %phi.call, i64 12
-  %58 = load i8, ptr %57, align 4
-  %.not83 = icmp eq i8 %58, 0
-  br i1 %.not83, label %59, label %.critedge4
+55:                                               ; preds = %.critedge2
+  %56 = getelementptr inbounds i8, ptr %53, i64 12
+  %57 = load i8, ptr %56, align 4
+  %.not83 = icmp eq i8 %57, 0
+  br i1 %.not83, label %58, label %.critedge4
 
-59:                                               ; preds = %56
-  %60 = load ptr, ptr @poisoned_ast, align 8
+58:                                               ; preds = %55
+  %59 = load ptr, ptr @poisoned_ast, align 8
   br label %.loopexit
 
-.critedge4:                                       ; preds = %.critedge2, %56
-  %61 = load i32, ptr %2, align 8
-  %62 = icmp eq i32 %61, 9
-  br i1 %62, label %67, label %63
+.critedge4:                                       ; preds = %.critedge2, %55
+  %60 = load i32, ptr %2, align 8
+  %61 = icmp eq i32 %60, 9
+  br i1 %61, label %66, label %62
 
-63:                                               ; preds = %.critedge4
-  %64 = getelementptr inbounds i8, ptr %0, i64 56
-  %65 = load i64, ptr %64, align 8
-  tail call void (i64, ptr, ...) @sema_error_at_after(i64 %65, ptr noundef nonnull @.str.11) #5
-  %66 = load ptr, ptr @poisoned_ast, align 8
+62:                                               ; preds = %.critedge4
+  %63 = getelementptr inbounds i8, ptr %0, i64 56
+  %64 = load i64, ptr %63, align 8
+  tail call void (i64, ptr, ...) @sema_error_at_after(i64 %64, ptr noundef nonnull @.str.11) #5
+  %65 = load ptr, ptr @poisoned_ast, align 8
   br label %.loopexit
 
-67:                                               ; preds = %.critedge4
+66:                                               ; preds = %.critedge4
   tail call void @advance(ptr noundef nonnull %0) #5
-  %68 = getelementptr inbounds i8, ptr %phi.call, i64 12
-  %69 = load i8, ptr %68, align 4
-  %70 = icmp eq i8 %69, 15
-  %71 = getelementptr inbounds i8, ptr %phi.call, i64 16
-  %72 = load ptr, ptr %71, align 8
-  br i1 %70, label %73, label %91
+  %67 = getelementptr inbounds i8, ptr %53, i64 12
+  %68 = load i8, ptr %67, align 4
+  %69 = icmp eq i8 %68, 15
+  %70 = getelementptr inbounds i8, ptr %53, i64 16
+  %71 = load ptr, ptr %70, align 8
+  br i1 %69, label %72, label %90
 
-73:                                               ; preds = %67
-  %74 = getelementptr inbounds i8, ptr %72, i64 80
-  %75 = load i32, ptr %74, align 8
-  %76 = select i1 %42, i32 262144, i32 0
-  %77 = and i32 %75, -262145
-  %78 = or disjoint i32 %77, %76
-  store i32 %78, ptr %74, align 8
-  %79 = or i1 %42, %46
-  %80 = load ptr, ptr %71, align 8
-  %81 = getelementptr inbounds i8, ptr %80, i64 80
-  %82 = load i32, ptr %81, align 8
-  %83 = select i1 %79, i32 2048, i32 0
-  %84 = and i32 %82, -2049
-  %85 = or disjoint i32 %84, %83
-  store i32 %85, ptr %81, align 8
-  %86 = load ptr, ptr %71, align 8
-  %87 = getelementptr inbounds i8, ptr %86, i64 24
-  %88 = load i64, ptr %87, align 8
-  %89 = and i64 %88, -7169
-  %90 = or disjoint i64 %89, 2048
-  store i64 %90, ptr %87, align 8
+72:                                               ; preds = %66
+  %73 = getelementptr inbounds i8, ptr %71, i64 80
+  %74 = load i32, ptr %73, align 8
+  %75 = select i1 %42, i32 262144, i32 0
+  %76 = and i32 %74, -262145
+  %77 = or disjoint i32 %76, %75
+  store i32 %77, ptr %73, align 8
+  %78 = or i1 %42, %46
+  %79 = load ptr, ptr %70, align 8
+  %80 = getelementptr inbounds i8, ptr %79, i64 80
+  %81 = load i32, ptr %80, align 8
+  %82 = select i1 %78, i32 2048, i32 0
+  %83 = and i32 %81, -2049
+  %84 = or disjoint i32 %83, %82
+  store i32 %84, ptr %80, align 8
+  %85 = load ptr, ptr %70, align 8
+  %86 = getelementptr inbounds i8, ptr %85, i64 24
+  %87 = load i64, ptr %86, align 8
+  %88 = and i64 %87, -7169
+  %89 = or disjoint i64 %88, 2048
+  store i64 %89, ptr %86, align 8
   br label %.loopexit
 
-91:                                               ; preds = %67
-  %.not84 = icmp eq ptr %72, null
-  br i1 %.not84, label %.loopexit, label %92
+90:                                               ; preds = %66
+  %.not84 = icmp eq ptr %71, null
+  br i1 %.not84, label %.loopexit, label %91
 
-92:                                               ; preds = %91
-  %93 = getelementptr inbounds i8, ptr %72, i64 -8
-  %94 = load i32, ptr %93, align 4
-  %.not88 = icmp eq i32 %94, 0
+91:                                               ; preds = %90
+  %92 = getelementptr inbounds i8, ptr %71, i64 -8
+  %93 = load i32, ptr %92, align 4
+  %.not88 = icmp eq i32 %93, 0
   br i1 %.not88, label %.loopexit, label %.lr.ph
 
-.lr.ph:                                           ; preds = %92
-  %95 = select i1 %42, i32 262144, i32 0
-  %96 = or i1 %42, %46
-  %97 = select i1 %96, i32 2048, i32 0
-  %98 = or disjoint i32 %97, %95
-  %wide.trip.count = zext i32 %94 to i64
-  br label %99
+.lr.ph:                                           ; preds = %91
+  %94 = select i1 %42, i32 262144, i32 0
+  %95 = or i1 %42, %46
+  %96 = select i1 %95, i32 2048, i32 0
+  %97 = or disjoint i32 %96, %94
+  %wide.trip.count = zext i32 %93 to i64
+  br label %98
 
-99:                                               ; preds = %.lr.ph, %99
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %99 ]
-  %100 = getelementptr inbounds ptr, ptr %72, i64 %indvars.iv
-  %101 = load ptr, ptr %100, align 8
-  %102 = getelementptr inbounds i8, ptr %101, i64 80
-  %103 = load i32, ptr %102, align 8
-  %104 = and i32 %103, -264193
-  %105 = or disjoint i32 %98, %104
-  store i32 %105, ptr %102, align 8
-  %106 = getelementptr inbounds i8, ptr %101, i64 24
-  %107 = load i64, ptr %106, align 8
-  %108 = and i64 %107, -7169
-  %109 = or disjoint i64 %108, 2048
-  store i64 %109, ptr %106, align 8
+98:                                               ; preds = %.lr.ph, %98
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %98 ]
+  %99 = getelementptr inbounds ptr, ptr %71, i64 %indvars.iv
+  %100 = load ptr, ptr %99, align 8
+  %101 = getelementptr inbounds i8, ptr %100, i64 80
+  %102 = load i32, ptr %101, align 8
+  %103 = and i32 %102, -264193
+  %104 = or disjoint i32 %97, %103
+  store i32 %104, ptr %101, align 8
+  %105 = getelementptr inbounds i8, ptr %100, i64 24
+  %106 = load i64, ptr %105, align 8
+  %107 = and i64 %106, -7169
+  %108 = or disjoint i64 %107, 2048
+  store i64 %108, ptr %105, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit, label %99, !llvm.loop !11
+  br i1 %exitcond.not, label %.loopexit, label %98, !llvm.loop !11
 
-.loopexit:                                        ; preds = %99, %91, %92, %73, %63, %59, %53, %40, %37, %15
-  %.077 = phi ptr [ %8, %40 ], [ %39, %37 ], [ %16, %15 ], [ %phi.call, %73 ], [ %66, %63 ], [ %60, %59 ], [ %54, %53 ], [ %phi.call, %92 ], [ %phi.call, %91 ], [ %phi.call, %99 ]
+.loopexit:                                        ; preds = %98, %90, %91, %72, %62, %58, %51, %40, %37, %15
+  %.077 = phi ptr [ %8, %40 ], [ %39, %37 ], [ %16, %15 ], [ %53, %72 ], [ %65, %62 ], [ %59, %58 ], [ %52, %51 ], [ %53, %91 ], [ %53, %90 ], [ %53, %98 ]
   ret ptr %.077
 }
 

@@ -463,12 +463,12 @@ define internal i32 @dissect_sscop(ptr noundef %0, ptr noundef %1, ptr noundef %
   %6 = load i32, ptr @proto_sscop, align 4
   %7 = tail call ptr @p_get_proto_data(ptr noundef %5, ptr noundef %1, i32 noundef %6, i32 noundef 0) #2
   %.not = icmp eq ptr %7, null
-  br i1 %.not, label %22, label %8
+  br i1 %.not, label %21, label %8
 
 8:                                                ; preds = %4
   %9 = load ptr, ptr %7, align 8
   %.not17 = icmp eq ptr %9, null
-  br i1 %.not17, label %22, label %10
+  br i1 %.not17, label %21, label %10
 
 10:                                               ; preds = %8
   %11 = load ptr, ptr @data_handle, align 8
@@ -485,20 +485,17 @@ define internal i32 @dissect_sscop(ptr noundef %0, ptr noundef %1, ptr noundef %
   %19 = load ptr, ptr @nbap_handle, align 8
   %20 = icmp eq ptr %9, %19
   %or.cond24 = select i1 %or.cond22, i1 true, i1 %20
-  br i1 %or.cond24, label %21, label %22
+  br i1 %or.cond24, label %23, label %21
 
-21:                                               ; preds = %10
-  tail call void @dissect_sscop_and_payload(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %9)
-  br label %24
+21:                                               ; preds = %10, %8, %4
+  %22 = load ptr, ptr @default_handle, align 8
+  br label %23
 
-22:                                               ; preds = %10, %8, %4
-  %23 = load ptr, ptr @default_handle, align 8
-  tail call void @dissect_sscop_and_payload(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %23)
-  br label %24
-
-24:                                               ; preds = %22, %21
-  %25 = tail call i32 @tvb_captured_length(ptr noundef %0) #2
-  ret i32 %25
+23:                                               ; preds = %10, %21
+  %.sink = phi ptr [ %22, %21 ], [ %9, %10 ]
+  tail call void @dissect_sscop_and_payload(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %.sink)
+  %24 = tail call i32 @tvb_captured_length(ptr noundef %0) #2
+  ret i32 %24
 }
 
 declare ptr @prefs_register_protocol(i32 noundef, ptr noundef) local_unnamed_addr #1

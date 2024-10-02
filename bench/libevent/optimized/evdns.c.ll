@@ -2239,15 +2239,15 @@ if.then29:                                        ; preds = %if.end24
   %rem = srem i32 %conv, %16
   %idxprom = zext nneg i32 %rem to i64
   %arrayidx = getelementptr inbounds ptr, ptr %14, i64 %idxprom
-  tail call fastcc void @request_finished(ptr noundef nonnull %7, ptr noundef %arrayidx, i32 noundef 1)
   br label %do.body31
 
 if.else:                                          ; preds = %if.end24
   %req_waiting_head = getelementptr inbounds i8, ptr %base.addr.0, i64 8
-  tail call fastcc void @request_finished(ptr noundef nonnull %7, ptr noundef nonnull %req_waiting_head, i32 noundef 1)
   br label %do.body31
 
 do.body31:                                        ; preds = %if.then29, %if.else
+  %arrayidx.sink = phi ptr [ %arrayidx, %if.then29 ], [ %req_waiting_head, %if.else ]
+  tail call fastcc void @request_finished(ptr noundef nonnull %7, ptr noundef %arrayidx.sink, i32 noundef 1)
   %17 = load ptr, ptr %lock, align 8
   %tobool33.not = icmp eq ptr %17, null
   br i1 %tobool33.not, label %do.end38, label %do.end38.sink.split

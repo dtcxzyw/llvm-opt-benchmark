@@ -3162,29 +3162,19 @@ if.end25.thread25:                                ; preds = %sw.epilog, %sw.bb8,
   br label %return
 
 if.else:                                          ; preds = %entry
-  br i1 %switch18, label %sw.bb22, label %sw.bb20
-
-sw.bb20:                                          ; preds = %if.else
-  %call21 = tail call ptr @EVP_MD_fetch(ptr noundef null, ptr noundef %name, ptr noundef null) #9
-  br label %if.end25
-
-sw.bb22:                                          ; preds = %if.else
-  %call23 = tail call ptr @EVP_MD_fetch(ptr noundef null, ptr noundef %name, ptr noundef nonnull @.str.78) #9
-  br label %if.end25
-
-if.end25:                                         ; preds = %sw.bb20, %sw.bb22
-  %digest.1 = phi ptr [ %call23, %sw.bb22 ], [ %call21, %sw.bb20 ]
-  %cmp26 = icmp eq ptr %digest.1, null
+  %.str.78. = select i1 %switch18, ptr @.str.78, ptr null
+  %call21 = tail call ptr @EVP_MD_fetch(ptr noundef null, ptr noundef %name, ptr noundef %.str.78.) #9
+  %cmp26 = icmp eq ptr %call21, null
   br i1 %cmp26, label %if.then27, label %return
 
-if.then27:                                        ; preds = %sw.epilog, %if.end25
+if.then27:                                        ; preds = %sw.epilog, %if.else
   %unsupported_digestmod_error = getelementptr inbounds i8, ptr %call.i, i64 32
   %5 = load ptr, ptr %unsupported_digestmod_error, align 8
   tail call void (ptr, ptr, ...) @_setException(ptr noundef %5, ptr noundef nonnull @.str.79, ptr noundef %name)
   br label %return
 
-return:                                           ; preds = %if.end25.thread25, %if.end25, %if.then27
-  %retval.0 = phi ptr [ null, %if.then27 ], [ %digest.1, %if.end25 ], [ %digest.022, %if.end25.thread25 ]
+return:                                           ; preds = %if.end25.thread25, %if.else, %if.then27
+  %retval.0 = phi ptr [ null, %if.then27 ], [ %call21, %if.else ], [ %digest.022, %if.end25.thread25 ]
   ret ptr %retval.0
 }
 

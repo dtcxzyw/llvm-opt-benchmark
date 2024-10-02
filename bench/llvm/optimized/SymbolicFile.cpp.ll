@@ -95,8 +95,8 @@ define dso_local void @_ZN4llvm6object12SymbolicFile18createSymbolicFileENS_15Me
   br label %17
 
 17:                                               ; preds = %15, %5
-  %.sroa.044.0 = phi i32 [ %16, %15 ], [ %2, %5 ]
-  switch i32 %.sroa.044.0, label %_ZN4llvm5ErrorD2Ev.exit [
+  %.sroa.040.0 = phi i32 [ %16, %15 ], [ %2, %5 ]
+  switch i32 %.sroa.040.0, label %_ZN4llvm5ErrorD2Ev.exit [
     i32 1, label %_ZN4llvm6object12SymbolicFile14isSymbolicFileENS_10file_magicEPKNS_11LLVMContextE.exit
     i32 4, label %23
     i32 6, label %23
@@ -138,10 +138,10 @@ _ZN4llvm5ErrorD2Ev.exit:                          ; preds = %17, %_ZN4llvm6objec
   call void @llvm.experimental.noalias.scope.decl(metadata !4)
   %22 = load ptr, ptr %6, align 8, !noalias !4
   store ptr %22, ptr %0, align 8, !alias.scope !4
-  br label %_ZN4llvm8ExpectedISt10unique_ptrINS_6object10ObjectFileESt14default_deleteIS3_EEED2Ev.exit42
+  br label %_ZN4llvm8ExpectedISt10unique_ptrINS_6object10ObjectFileESt14default_deleteIS3_EEED2Ev.exit38
 
 23:                                               ; preds = %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17
-  switch i32 %.sroa.044.0, label %112 [
+  switch i32 %.sroa.040.0, label %104 [
     i32 25, label %45
     i32 4, label %_ZN4llvm8ExpectedISt10unique_ptrINS_6object10ObjectFileESt14default_deleteIS3_EEED2Ev.exit
     i32 6, label %_ZN4llvm8ExpectedISt10unique_ptrINS_6object10ObjectFileESt14default_deleteIS3_EEED2Ev.exit
@@ -181,10 +181,10 @@ _ZN4llvm5ErrorD2Ev.exit:                          ; preds = %17, %_ZN4llvm6objec
   %31 = load i64, ptr %7, align 8
   %.sink = inttoptr i64 %31 to ptr
   store ptr %.sink, ptr %0, align 8
-  br label %_ZN4llvm8ExpectedISt10unique_ptrINS_6object10ObjectFileESt14default_deleteIS3_EEED2Ev.exit42
+  br label %_ZN4llvm8ExpectedISt10unique_ptrINS_6object10ObjectFileESt14default_deleteIS3_EEED2Ev.exit38
 
 _ZN4llvm8ExpectedISt10unique_ptrINS_6object10ObjectFileESt14default_deleteIS3_EEED2Ev.exit: ; preds = %23, %23, %23, %23, %23, %23, %23, %23, %23, %23, %23, %23, %23, %23, %23, %23, %23, %23, %23, %23
-  call void @_ZN4llvm6object10ObjectFile16createObjectFileENS_15MemoryBufferRefENS_10file_magicEb(ptr dead_on_unwind nonnull writable sret(%"class.llvm::Expected.5") align 8 %8, ptr noundef nonnull byval(%"class.llvm::MemoryBufferRef") align 8 %1, i32 %.sroa.044.0, i1 noundef zeroext %4) #14
+  call void @_ZN4llvm6object10ObjectFile16createObjectFileENS_15MemoryBufferRefENS_10file_magicEb(ptr dead_on_unwind nonnull writable sret(%"class.llvm::Expected.5") align 8 %8, ptr noundef nonnull byval(%"class.llvm::MemoryBufferRef") align 8 %1, i32 %.sroa.040.0, i1 noundef zeroext %4) #14
   %32 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %33 = load i8, ptr %32, align 8
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -194,9 +194,9 @@ _ZN4llvm8ExpectedISt10unique_ptrINS_6object10ObjectFileESt14default_deleteIS3_EE
   %38 = or disjoint i8 %37, %35
   store i8 %38, ptr %34, align 8
   %39 = load i64, ptr %8, align 8
-  %.sink58 = inttoptr i64 %39 to ptr
-  store ptr %.sink58, ptr %0, align 8
-  br label %_ZN4llvm8ExpectedISt10unique_ptrINS_6object10ObjectFileESt14default_deleteIS3_EEED2Ev.exit42
+  %.sink49 = inttoptr i64 %39 to ptr
+  store ptr %.sink49, ptr %0, align 8
+  br label %_ZN4llvm8ExpectedISt10unique_ptrINS_6object10ObjectFileESt14default_deleteIS3_EEED2Ev.exit38
 
 _ZNSt10unique_ptrIN4llvm6object12SymbolicFileESt14default_deleteIS2_EED2Ev.exit: ; preds = %23
   %40 = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #16
@@ -208,10 +208,10 @@ _ZNSt10unique_ptrIN4llvm6object12SymbolicFileESt14default_deleteIS2_EED2Ev.exit:
   store i8 %43, ptr %41, align 8
   %44 = ptrtoint ptr %40 to i64
   store i64 %44, ptr %0, align 8
-  br label %_ZN4llvm8ExpectedISt10unique_ptrINS_6object10ObjectFileESt14default_deleteIS3_EEED2Ev.exit42
+  br label %_ZN4llvm8ExpectedISt10unique_ptrINS_6object10ObjectFileESt14default_deleteIS3_EEED2Ev.exit38
 
 45:                                               ; preds = %23, %23, %23
-  call void @_ZN4llvm6object10ObjectFile16createObjectFileENS_15MemoryBufferRefENS_10file_magicEb(ptr dead_on_unwind nonnull writable sret(%"class.llvm::Expected.5") align 8 %9, ptr noundef nonnull byval(%"class.llvm::MemoryBufferRef") align 8 %1, i32 %.sroa.044.0, i1 noundef zeroext %4) #14
+  call void @_ZN4llvm6object10ObjectFile16createObjectFileENS_15MemoryBufferRefENS_10file_magicEb(ptr dead_on_unwind nonnull writable sret(%"class.llvm::Expected.5") align 8 %9, ptr noundef nonnull byval(%"class.llvm::MemoryBufferRef") align 8 %1, i32 %.sroa.040.0, i1 noundef zeroext %4) #14
   %46 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %47 = load i8, ptr %46, align 8
   %48 = trunc i8 %47 to i1
@@ -230,15 +230,13 @@ _ZNSt10unique_ptrIN4llvm6object12SymbolicFileESt14default_deleteIS2_EED2Ev.exit:
 
 56:                                               ; preds = %50
   %57 = load ptr, ptr %9, align 8
-  store ptr null, ptr %9, align 8
   store ptr %57, ptr %0, align 8
-  br label %_ZN4llvm8ExpectedISt10unique_ptrINS_6object12SymbolicFileESt14default_deleteIS3_EEEC2IS1_INS2_10ObjectFileES4_IS9_EEEEONS0_IT_EEPNSt9enable_ifIXsr3stdE16is_convertible_vISC_S6_EEvE4typeE.exit18
+  br label %_ZN4llvm8ExpectedISt10unique_ptrINS_6object10ObjectFileESt14default_deleteIS3_EEED2Ev.exit38
 
 58:                                               ; preds = %50
   %59 = load i64, ptr %9, align 8
   store i64 %59, ptr %0, align 8
-  store ptr null, ptr %9, align 8
-  br label %_ZN4llvm8ExpectedISt10unique_ptrINS_6object12SymbolicFileESt14default_deleteIS3_EEEC2IS1_INS2_10ObjectFileES4_IS9_EEEEONS0_IT_EEPNSt9enable_ifIXsr3stdE16is_convertible_vISC_S6_EEvE4typeE.exit18
+  br label %_ZN4llvm8ExpectedISt10unique_ptrINS_6object10ObjectFileESt14default_deleteIS3_EEED2Ev.exit38
 
 60:                                               ; preds = %45
   %61 = load ptr, ptr %9, align 8
@@ -246,7 +244,7 @@ _ZNSt10unique_ptrIN4llvm6object12SymbolicFileESt14default_deleteIS2_EED2Ev.exit:
   %62 = getelementptr inbounds nuw i8, ptr %10, i64 32
   %63 = load i8, ptr %62, align 8
   %64 = trunc i8 %63 to i1
-  br i1 %64, label %_ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i, label %_ZN4llvm8ExpectedISt10unique_ptrINS_6object12IRObjectFileESt14default_deleteIS3_EEED2Ev.exit36
+  br i1 %64, label %_ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i, label %_ZN4llvm8ExpectedISt10unique_ptrINS_6object12IRObjectFileESt14default_deleteIS3_EEED2Ev.exit34
 
 _ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i: ; preds = %60
   call void @llvm.experimental.noalias.scope.decl(metadata !7)
@@ -257,16 +255,16 @@ _ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i: ; p
   call void @_ZN4llvm12consumeErrorENS_5ErrorE(ptr noundef nonnull %11)
   %67 = load ptr, ptr %11, align 8
   %68 = icmp eq ptr %67, null
-  br i1 %68, label %_ZN4llvm5ErrorD2Ev.exit19, label %69
+  br i1 %68, label %_ZN4llvm5ErrorD2Ev.exit18, label %69
 
 69:                                               ; preds = %_ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i
   %70 = load ptr, ptr %67, align 8
   %71 = getelementptr inbounds i8, ptr %70, i64 8
   %72 = load ptr, ptr %71, align 8
   call void %72(ptr noundef nonnull align 8 dereferenceable(8) %67) #14
-  br label %_ZN4llvm5ErrorD2Ev.exit19
+  br label %_ZN4llvm5ErrorD2Ev.exit18
 
-_ZN4llvm5ErrorD2Ev.exit19:                        ; preds = %_ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i, %69
+_ZN4llvm5ErrorD2Ev.exit18:                        ; preds = %_ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i, %69
   %73 = load i8, ptr %46, align 8
   %74 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %75 = and i8 %73, 1
@@ -277,33 +275,33 @@ _ZN4llvm5ErrorD2Ev.exit19:                        ; preds = %_ZNSt10unique_ptrIN
   %79 = trunc i8 %73 to i1
   br i1 %79, label %82, label %80
 
-80:                                               ; preds = %_ZN4llvm5ErrorD2Ev.exit19
+80:                                               ; preds = %_ZN4llvm5ErrorD2Ev.exit18
   %81 = load ptr, ptr %9, align 8
   store ptr null, ptr %9, align 8
   store ptr %81, ptr %0, align 8
-  br label %_ZN4llvm8ExpectedISt10unique_ptrINS_6object12SymbolicFileESt14default_deleteIS3_EEEC2IS1_INS2_10ObjectFileES4_IS9_EEEEONS0_IT_EEPNSt9enable_ifIXsr3stdE16is_convertible_vISC_S6_EEvE4typeE.exit20
+  br label %_ZN4llvm8ExpectedISt10unique_ptrINS_6object12SymbolicFileESt14default_deleteIS3_EEEC2IS1_INS2_10ObjectFileES4_IS9_EEEEONS0_IT_EEPNSt9enable_ifIXsr3stdE16is_convertible_vISC_S6_EEvE4typeE.exit19
 
-82:                                               ; preds = %_ZN4llvm5ErrorD2Ev.exit19
+82:                                               ; preds = %_ZN4llvm5ErrorD2Ev.exit18
   %83 = load i64, ptr %9, align 8
   store i64 %83, ptr %0, align 8
   store ptr null, ptr %9, align 8
-  br label %_ZN4llvm8ExpectedISt10unique_ptrINS_6object12SymbolicFileESt14default_deleteIS3_EEEC2IS1_INS2_10ObjectFileES4_IS9_EEEEONS0_IT_EEPNSt9enable_ifIXsr3stdE16is_convertible_vISC_S6_EEvE4typeE.exit20
+  br label %_ZN4llvm8ExpectedISt10unique_ptrINS_6object12SymbolicFileESt14default_deleteIS3_EEEC2IS1_INS2_10ObjectFileES4_IS9_EEEEONS0_IT_EEPNSt9enable_ifIXsr3stdE16is_convertible_vISC_S6_EEvE4typeE.exit19
 
-_ZN4llvm8ExpectedISt10unique_ptrINS_6object12IRObjectFileESt14default_deleteIS3_EEED2Ev.exit36: ; preds = %60
-  %.sroa.0.0.copyload.i21 = load ptr, ptr %10, align 8
-  %.sroa.2.0..sroa_idx.i22 = getelementptr inbounds i8, ptr %10, i64 8
-  %.sroa.2.0.copyload.i23 = load i64, ptr %.sroa.2.0..sroa_idx.i22, align 8
+_ZN4llvm8ExpectedISt10unique_ptrINS_6object12IRObjectFileESt14default_deleteIS3_EEED2Ev.exit34: ; preds = %60
+  %.sroa.0.0.copyload.i20 = load ptr, ptr %10, align 8
+  %.sroa.2.0..sroa_idx.i21 = getelementptr inbounds i8, ptr %10, i64 8
+  %.sroa.2.0.copyload.i22 = load i64, ptr %.sroa.2.0..sroa_idx.i21, align 8
   %84 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %.sroa.0.0.copyload.i26 = load ptr, ptr %84, align 8
-  %.sroa.2.0..sroa_idx.i27 = getelementptr inbounds i8, ptr %1, i64 24
-  %.sroa.2.0.copyload.i28 = load i64, ptr %.sroa.2.0..sroa_idx.i27, align 8
-  store ptr %.sroa.0.0.copyload.i21, ptr %13, align 8
+  %.sroa.0.0.copyload.i25 = load ptr, ptr %84, align 8
+  %.sroa.2.0..sroa_idx.i26 = getelementptr inbounds i8, ptr %1, i64 24
+  %.sroa.2.0.copyload.i27 = load i64, ptr %.sroa.2.0..sroa_idx.i26, align 8
+  store ptr %.sroa.0.0.copyload.i20, ptr %13, align 8
   %.sroa.22.0..sroa_idx.i = getelementptr inbounds i8, ptr %13, i64 8
-  store i64 %.sroa.2.0.copyload.i23, ptr %.sroa.22.0..sroa_idx.i, align 8
+  store i64 %.sroa.2.0.copyload.i22, ptr %.sroa.22.0..sroa_idx.i, align 8
   %85 = getelementptr inbounds nuw i8, ptr %13, i64 16
-  store ptr %.sroa.0.0.copyload.i26, ptr %85, align 8
-  %.sroa.2.0..sroa_idx.i31 = getelementptr inbounds i8, ptr %13, i64 24
-  store i64 %.sroa.2.0.copyload.i28, ptr %.sroa.2.0..sroa_idx.i31, align 8
+  store ptr %.sroa.0.0.copyload.i25, ptr %85, align 8
+  %.sroa.2.0..sroa_idx.i30 = getelementptr inbounds i8, ptr %13, i64 24
+  store i64 %.sroa.2.0.copyload.i27, ptr %.sroa.2.0..sroa_idx.i30, align 8
   call void @_ZN4llvm6object12IRObjectFile6createENS_15MemoryBufferRefERNS_11LLVMContextE(ptr dead_on_unwind nonnull writable sret(%"class.llvm::Expected.1") align 8 %12, ptr noundef nonnull byval(%"class.llvm::MemoryBufferRef") align 8 %13, ptr noundef nonnull align 1 %3) #14
   %86 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %87 = load i8, ptr %86, align 8
@@ -314,68 +312,48 @@ _ZN4llvm8ExpectedISt10unique_ptrINS_6object12IRObjectFileESt14default_deleteIS3_
   %92 = or disjoint i8 %91, %89
   store i8 %92, ptr %88, align 8
   %93 = load i64, ptr %12, align 8
-  %.sink59 = inttoptr i64 %93 to ptr
-  store ptr %.sink59, ptr %0, align 8
+  %.sink50 = inttoptr i64 %93 to ptr
+  store ptr %.sink50, ptr %0, align 8
   store ptr null, ptr %12, align 8
-  br label %_ZN4llvm8ExpectedISt10unique_ptrINS_6object12SymbolicFileESt14default_deleteIS3_EEEC2IS1_INS2_10ObjectFileES4_IS9_EEEEONS0_IT_EEPNSt9enable_ifIXsr3stdE16is_convertible_vISC_S6_EEvE4typeE.exit20
+  br label %_ZN4llvm8ExpectedISt10unique_ptrINS_6object12SymbolicFileESt14default_deleteIS3_EEEC2IS1_INS2_10ObjectFileES4_IS9_EEEEONS0_IT_EEPNSt9enable_ifIXsr3stdE16is_convertible_vISC_S6_EEvE4typeE.exit19
 
-_ZN4llvm8ExpectedISt10unique_ptrINS_6object12SymbolicFileESt14default_deleteIS3_EEEC2IS1_INS2_10ObjectFileES4_IS9_EEEEONS0_IT_EEPNSt9enable_ifIXsr3stdE16is_convertible_vISC_S6_EEvE4typeE.exit20: ; preds = %82, %80, %_ZN4llvm8ExpectedISt10unique_ptrINS_6object12IRObjectFileESt14default_deleteIS3_EEED2Ev.exit36
+_ZN4llvm8ExpectedISt10unique_ptrINS_6object12SymbolicFileESt14default_deleteIS3_EEEC2IS1_INS2_10ObjectFileES4_IS9_EEEEONS0_IT_EEPNSt9enable_ifIXsr3stdE16is_convertible_vISC_S6_EEvE4typeE.exit19: ; preds = %82, %80, %_ZN4llvm8ExpectedISt10unique_ptrINS_6object12IRObjectFileESt14default_deleteIS3_EEED2Ev.exit34
   %94 = load i8, ptr %62, align 8
   %95 = trunc i8 %94 to i1
-  br i1 %95, label %96, label %_ZN4llvm8ExpectedISt10unique_ptrINS_6object12SymbolicFileESt14default_deleteIS3_EEEC2IS1_INS2_10ObjectFileES4_IS9_EEEEONS0_IT_EEPNSt9enable_ifIXsr3stdE16is_convertible_vISC_S6_EEvE4typeE.exit18thread-pre-split
+  br i1 %95, label %96, label %_ZN4llvm8ExpectedISt10unique_ptrINS_6object12SymbolicFileESt14default_deleteIS3_EEEC2IS1_INS2_10ObjectFileES4_IS9_EEEEONS0_IT_EEPNSt9enable_ifIXsr3stdE16is_convertible_vISC_S6_EEvE4typeE.exit17
 
-96:                                               ; preds = %_ZN4llvm8ExpectedISt10unique_ptrINS_6object12SymbolicFileESt14default_deleteIS3_EEEC2IS1_INS2_10ObjectFileES4_IS9_EEEEONS0_IT_EEPNSt9enable_ifIXsr3stdE16is_convertible_vISC_S6_EEvE4typeE.exit20
+96:                                               ; preds = %_ZN4llvm8ExpectedISt10unique_ptrINS_6object12SymbolicFileESt14default_deleteIS3_EEEC2IS1_INS2_10ObjectFileES4_IS9_EEEEONS0_IT_EEPNSt9enable_ifIXsr3stdE16is_convertible_vISC_S6_EEvE4typeE.exit19
   %97 = load ptr, ptr %10, align 8
   %.not.i.i = icmp eq ptr %97, null
-  br i1 %.not.i.i, label %_ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i38, label %_ZNKSt14default_deleteIN4llvm13ErrorInfoBaseEEclEPS1_.exit.i.i37
+  br i1 %.not.i.i, label %_ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i35, label %_ZNKSt14default_deleteIN4llvm13ErrorInfoBaseEEclEPS1_.exit.i.i
 
-_ZNKSt14default_deleteIN4llvm13ErrorInfoBaseEEclEPS1_.exit.i.i37: ; preds = %96
+_ZNKSt14default_deleteIN4llvm13ErrorInfoBaseEEclEPS1_.exit.i.i: ; preds = %96
   %98 = load ptr, ptr %97, align 8
   %99 = getelementptr inbounds i8, ptr %98, i64 8
   %100 = load ptr, ptr %99, align 8
   call void %100(ptr noundef nonnull align 8 dereferenceable(8) %97) #14
-  br label %_ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i38
+  br label %_ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i35
 
-_ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i38: ; preds = %_ZNKSt14default_deleteIN4llvm13ErrorInfoBaseEEclEPS1_.exit.i.i37, %96
+_ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i35: ; preds = %_ZNKSt14default_deleteIN4llvm13ErrorInfoBaseEEclEPS1_.exit.i.i, %96
   store ptr null, ptr %10, align 8
-  br label %_ZN4llvm8ExpectedISt10unique_ptrINS_6object12SymbolicFileESt14default_deleteIS3_EEEC2IS1_INS2_10ObjectFileES4_IS9_EEEEONS0_IT_EEPNSt9enable_ifIXsr3stdE16is_convertible_vISC_S6_EEvE4typeE.exit18thread-pre-split
+  br label %_ZN4llvm8ExpectedISt10unique_ptrINS_6object12SymbolicFileESt14default_deleteIS3_EEEC2IS1_INS2_10ObjectFileES4_IS9_EEEEONS0_IT_EEPNSt9enable_ifIXsr3stdE16is_convertible_vISC_S6_EEvE4typeE.exit17
 
-_ZN4llvm8ExpectedISt10unique_ptrINS_6object12SymbolicFileESt14default_deleteIS3_EEEC2IS1_INS2_10ObjectFileES4_IS9_EEEEONS0_IT_EEPNSt9enable_ifIXsr3stdE16is_convertible_vISC_S6_EEvE4typeE.exit18thread-pre-split: ; preds = %_ZN4llvm8ExpectedISt10unique_ptrINS_6object12SymbolicFileESt14default_deleteIS3_EEEC2IS1_INS2_10ObjectFileES4_IS9_EEEEONS0_IT_EEPNSt9enable_ifIXsr3stdE16is_convertible_vISC_S6_EEvE4typeE.exit20, %_ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i38
+_ZN4llvm8ExpectedISt10unique_ptrINS_6object12SymbolicFileESt14default_deleteIS3_EEEC2IS1_INS2_10ObjectFileES4_IS9_EEEEONS0_IT_EEPNSt9enable_ifIXsr3stdE16is_convertible_vISC_S6_EEvE4typeE.exit17: ; preds = %_ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i35, %_ZN4llvm8ExpectedISt10unique_ptrINS_6object12SymbolicFileESt14default_deleteIS3_EEEC2IS1_INS2_10ObjectFileES4_IS9_EEEEONS0_IT_EEPNSt9enable_ifIXsr3stdE16is_convertible_vISC_S6_EEvE4typeE.exit19
   %.pr = load ptr, ptr %9, align 8
-  %.pre = load i8, ptr %46, align 8
-  br label %_ZN4llvm8ExpectedISt10unique_ptrINS_6object12SymbolicFileESt14default_deleteIS3_EEEC2IS1_INS2_10ObjectFileES4_IS9_EEEEONS0_IT_EEPNSt9enable_ifIXsr3stdE16is_convertible_vISC_S6_EEvE4typeE.exit18
+  %.not.i1.i36 = icmp eq ptr %.pr, null
+  br i1 %.not.i1.i36, label %_ZN4llvm8ExpectedISt10unique_ptrINS_6object10ObjectFileESt14default_deleteIS3_EEED2Ev.exit38, label %_ZNSt10unique_ptrIN4llvm6object10ObjectFileESt14default_deleteIS2_EED2Ev.exit.sink.split.i37
 
-_ZN4llvm8ExpectedISt10unique_ptrINS_6object12SymbolicFileESt14default_deleteIS3_EEEC2IS1_INS2_10ObjectFileES4_IS9_EEEEONS0_IT_EEPNSt9enable_ifIXsr3stdE16is_convertible_vISC_S6_EEvE4typeE.exit18: ; preds = %_ZN4llvm8ExpectedISt10unique_ptrINS_6object12SymbolicFileESt14default_deleteIS3_EEEC2IS1_INS2_10ObjectFileES4_IS9_EEEEONS0_IT_EEPNSt9enable_ifIXsr3stdE16is_convertible_vISC_S6_EEvE4typeE.exit18thread-pre-split, %58, %56
-  %101 = phi i8 [ %.pre, %_ZN4llvm8ExpectedISt10unique_ptrINS_6object12SymbolicFileESt14default_deleteIS3_EEEC2IS1_INS2_10ObjectFileES4_IS9_EEEEONS0_IT_EEPNSt9enable_ifIXsr3stdE16is_convertible_vISC_S6_EEvE4typeE.exit18thread-pre-split ], [ %47, %58 ], [ %47, %56 ]
-  %102 = phi ptr [ %.pr, %_ZN4llvm8ExpectedISt10unique_ptrINS_6object12SymbolicFileESt14default_deleteIS3_EEEC2IS1_INS2_10ObjectFileES4_IS9_EEEEONS0_IT_EEPNSt9enable_ifIXsr3stdE16is_convertible_vISC_S6_EEvE4typeE.exit18thread-pre-split ], [ null, %58 ], [ null, %56 ]
-  %103 = trunc i8 %101 to i1
-  %.not.i1.i39 = icmp eq ptr %102, null
-  br i1 %103, label %108, label %104
+_ZNSt10unique_ptrIN4llvm6object10ObjectFileESt14default_deleteIS2_EED2Ev.exit.sink.split.i37: ; preds = %_ZN4llvm8ExpectedISt10unique_ptrINS_6object12SymbolicFileESt14default_deleteIS3_EEEC2IS1_INS2_10ObjectFileES4_IS9_EEEEONS0_IT_EEPNSt9enable_ifIXsr3stdE16is_convertible_vISC_S6_EEvE4typeE.exit17
+  %101 = load ptr, ptr %.pr, align 8
+  %102 = getelementptr inbounds i8, ptr %101, i64 8
+  %103 = load ptr, ptr %102, align 8
+  call void %103(ptr noundef nonnull align 8 dereferenceable(8) %.pr) #14
+  br label %_ZN4llvm8ExpectedISt10unique_ptrINS_6object10ObjectFileESt14default_deleteIS3_EEED2Ev.exit38
 
-104:                                              ; preds = %_ZN4llvm8ExpectedISt10unique_ptrINS_6object12SymbolicFileESt14default_deleteIS3_EEEC2IS1_INS2_10ObjectFileES4_IS9_EEEEONS0_IT_EEPNSt9enable_ifIXsr3stdE16is_convertible_vISC_S6_EEvE4typeE.exit18
-  br i1 %.not.i1.i39, label %_ZN4llvm8ExpectedISt10unique_ptrINS_6object10ObjectFileESt14default_deleteIS3_EEED2Ev.exit42, label %_ZNKSt14default_deleteIN4llvm6object10ObjectFileEEclEPS2_.exit.i.i40
-
-_ZNKSt14default_deleteIN4llvm6object10ObjectFileEEclEPS2_.exit.i.i40: ; preds = %104
-  %105 = load ptr, ptr %102, align 8
-  %106 = getelementptr inbounds i8, ptr %105, i64 8
-  %107 = load ptr, ptr %106, align 8
-  call void %107(ptr noundef nonnull align 8 dereferenceable(48) %102) #14
-  br label %_ZN4llvm8ExpectedISt10unique_ptrINS_6object10ObjectFileESt14default_deleteIS3_EEED2Ev.exit42
-
-108:                                              ; preds = %_ZN4llvm8ExpectedISt10unique_ptrINS_6object12SymbolicFileESt14default_deleteIS3_EEEC2IS1_INS2_10ObjectFileES4_IS9_EEEEONS0_IT_EEPNSt9enable_ifIXsr3stdE16is_convertible_vISC_S6_EEvE4typeE.exit18
-  br i1 %.not.i1.i39, label %_ZN4llvm8ExpectedISt10unique_ptrINS_6object10ObjectFileESt14default_deleteIS3_EEED2Ev.exit42, label %_ZNKSt14default_deleteIN4llvm13ErrorInfoBaseEEclEPS1_.exit.i.i41
-
-_ZNKSt14default_deleteIN4llvm13ErrorInfoBaseEEclEPS1_.exit.i.i41: ; preds = %108
-  %109 = load ptr, ptr %102, align 8
-  %110 = getelementptr inbounds i8, ptr %109, i64 8
-  %111 = load ptr, ptr %110, align 8
-  call void %111(ptr noundef nonnull align 8 dereferenceable(8) %102) #14
-  br label %_ZN4llvm8ExpectedISt10unique_ptrINS_6object10ObjectFileESt14default_deleteIS3_EEED2Ev.exit42
-
-112:                                              ; preds = %23
+104:                                              ; preds = %23
   unreachable
 
-_ZN4llvm8ExpectedISt10unique_ptrINS_6object10ObjectFileESt14default_deleteIS3_EEED2Ev.exit42: ; preds = %_ZNKSt14default_deleteIN4llvm13ErrorInfoBaseEEclEPS1_.exit.i.i41, %108, %_ZNKSt14default_deleteIN4llvm6object10ObjectFileEEclEPS2_.exit.i.i40, %104, %_ZNSt10unique_ptrIN4llvm6object12SymbolicFileESt14default_deleteIS2_EED2Ev.exit, %_ZN4llvm8ExpectedISt10unique_ptrINS_6object10ObjectFileESt14default_deleteIS3_EEED2Ev.exit, %.thread, %_ZN4llvm5ErrorD2Ev.exit
+_ZN4llvm8ExpectedISt10unique_ptrINS_6object10ObjectFileESt14default_deleteIS3_EEED2Ev.exit38: ; preds = %_ZNSt10unique_ptrIN4llvm6object10ObjectFileESt14default_deleteIS2_EED2Ev.exit.sink.split.i37, %_ZN4llvm8ExpectedISt10unique_ptrINS_6object12SymbolicFileESt14default_deleteIS3_EEEC2IS1_INS2_10ObjectFileES4_IS9_EEEEONS0_IT_EEPNSt9enable_ifIXsr3stdE16is_convertible_vISC_S6_EEvE4typeE.exit17, %58, %56, %_ZNSt10unique_ptrIN4llvm6object12SymbolicFileESt14default_deleteIS2_EED2Ev.exit, %_ZN4llvm8ExpectedISt10unique_ptrINS_6object10ObjectFileESt14default_deleteIS3_EEED2Ev.exit, %.thread, %_ZN4llvm5ErrorD2Ev.exit
   ret void
 }
 

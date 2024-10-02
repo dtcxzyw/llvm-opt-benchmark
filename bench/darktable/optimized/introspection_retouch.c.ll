@@ -1013,15 +1013,15 @@ define void @masks_selection_changed(ptr noundef %0, i32 noundef %1) local_unnam
 
 151:                                              ; preds = %141
   %152 = getelementptr inbounds i8, ptr %147, i64 32
-  call void @gtk_label_set_text(ptr noundef %150, ptr noundef nonnull %152) #27
   br label %155
 
 153:                                              ; preds = %141
   %154 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.133, i32 noundef 5) #27
-  call void @gtk_label_set_text(ptr noundef %150, ptr noundef %154) #27
   br label %155
 
 155:                                              ; preds = %153, %151
+  %.sink = phi ptr [ %154, %153 ], [ %152, %151 ]
+  call void @gtk_label_set_text(ptr noundef %150, ptr noundef %.sink) #27
   %156 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 64), align 8, !tbaa !36
   %157 = getelementptr inbounds i8, ptr %156, i64 2136
   %158 = load ptr, ptr %157, align 8, !tbaa !97
@@ -1754,15 +1754,15 @@ define void @gui_update(ptr noundef %0) local_unnamed_addr #1 {
 
 156:                                              ; preds = %129
   %157 = getelementptr inbounds i8, ptr %152, i64 32
-  call void @gtk_label_set_text(ptr noundef %155, ptr noundef nonnull %157) #27
   br label %160
 
 158:                                              ; preds = %129
   %159 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.133, i32 noundef 5) #27
-  call void @gtk_label_set_text(ptr noundef %155, ptr noundef %159) #27
   br label %160
 
 160:                                              ; preds = %158, %156
+  %.sink = phi ptr [ %159, %158 ], [ %157, %156 ]
+  call void @gtk_label_set_text(ptr noundef %155, ptr noundef %.sink) #27
   call fastcc void @rt_show_forms_for_current_scale(ptr noundef nonnull %0)
   %161 = getelementptr inbounds i8, ptr %7, i64 96
   %162 = load ptr, ptr %161, align 8, !tbaa !110

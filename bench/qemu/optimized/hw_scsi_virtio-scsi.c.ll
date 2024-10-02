@@ -907,7 +907,7 @@ trace_virtio_scsi_tmf_req.exit.i.i.i:             ; preds = %if.else.i.i.i.i.i, 
 
 sw.bb.i.i.i:                                      ; preds = %trace_virtio_scsi_tmf_req.exit.i.i.i, %trace_virtio_scsi_tmf_req.exit.i.i.i
   %tobool.not.i.i.i = icmp eq ptr %retval.0.i78.i.i.i, null
-  br i1 %tobool.not.i.i.i, label %fail.i.i.i, label %if.end.i.i.i
+  br i1 %tobool.not.i.i.i, label %if.end29.thread89.sink.split.i.i, label %if.end.i.i.i
 
 if.end.i.i.i:                                     ; preds = %sw.bb.i.i.i
   %lun16.i.i.i = getelementptr inbounds i8, ptr %retval.0.i78.i.i.i, i64 556
@@ -920,7 +920,7 @@ if.end.i.i.i:                                     ; preds = %sw.bb.i.i.i
   %shl.masked.i63.i.i.i = and i32 %shl.i61.i.i.i, 16128
   %and.i64.i.i.i = or disjoint i32 %shl.masked.i63.i.i.i, %conv2.i62.i.i.i
   %cmp.not.i.i.i = icmp eq i32 %34, %and.i64.i.i.i
-  br i1 %cmp.not.i.i.i, label %if.end23.i.i.i, label %incorrect_lun.i.i.i
+  br i1 %cmp.not.i.i.i, label %if.end23.i.i.i, label %if.end29.thread89.sink.split.i.i
 
 if.end23.i.i.i:                                   ; preds = %if.end.i.i.i
   %requests.i.i.i = getelementptr inbounds i8, ptr %retval.0.i78.i.i.i, i64 536
@@ -984,7 +984,7 @@ if.then.i66.i.i.i:                                ; preds = %sw.bb54.i.i.i
 
 sw.bb55.i.i.i:                                    ; preds = %trace_virtio_scsi_tmf_req.exit.i.i.i, %trace_virtio_scsi_tmf_req.exit.i.i.i, %trace_virtio_scsi_tmf_req.exit.i.i.i
   %tobool56.not.i.i.i = icmp eq ptr %retval.0.i78.i.i.i, null
-  br i1 %tobool56.not.i.i.i, label %fail.i.i.i, label %if.end58.i.i.i
+  br i1 %tobool56.not.i.i.i, label %if.end29.thread89.sink.split.i.i, label %if.end58.i.i.i
 
 if.end58.i.i.i:                                   ; preds = %sw.bb55.i.i.i
   %lun59.i.i.i = getelementptr inbounds i8, ptr %retval.0.i78.i.i.i, i64 556
@@ -997,7 +997,7 @@ if.end58.i.i.i:                                   ; preds = %sw.bb55.i.i.i
   %shl.masked.i71.i.i.i = and i32 %shl.i69.i.i.i, 16128
   %and.i72.i.i.i = or disjoint i32 %shl.masked.i71.i.i.i, %conv2.i70.i.i.i
   %cmp64.not.i.i.i = icmp eq i32 %43, %and.i72.i.i.i
-  br i1 %cmp64.not.i.i.i, label %if.end67.i.i.i, label %incorrect_lun.i.i.i
+  br i1 %cmp64.not.i.i.i, label %if.end67.i.i.i, label %if.end29.thread89.sink.split.i.i
 
 if.end67.i.i.i:                                   ; preds = %if.end58.i.i.i
   %remaining68.i.i.i = getelementptr inbounds i8, ptr %call.i11.i, i64 168
@@ -1046,16 +1046,6 @@ for.end97.i.i.i:                                  ; preds = %for.inc96.i.i.i, %i
   store i32 %dec.i.i.i, ptr %remaining68.i.i.i, align 8
   %cmp99.i.i.i = icmp sgt i32 %dec.i.i.i, 0
   br i1 %cmp99.i.i.i, label %if.end29.i.i, label %if.end29.thread89.i.i
-
-incorrect_lun.i.i.i:                              ; preds = %if.end58.i.i.i, %if.end.i.i.i
-  store i8 12, ptr %resp.i.i.i, align 4
-  call void @object_unref(ptr noundef nonnull %retval.0.i78.i.i.i) #13
-  br label %if.then31.i.i
-
-fail.i.i.i:                                       ; preds = %sw.bb55.i.i.i, %sw.bb.i.i.i
-  store i8 3, ptr %resp.i.i.i, align 4
-  call void @object_unref(ptr noundef %retval.0.i78.i.i.i) #13
-  br label %if.then31.i.i
 
 if.else9.i.i:                                     ; preds = %if.end.i2.i
   %or.cond.i.i = icmp ult i32 %12, 3
@@ -1129,8 +1119,8 @@ trace_virtio_scsi_an_req.exit.i.i:                ; preds = %if.else.i.i46.i.i, 
   store i8 0, ptr %response.i.i, align 4
   br label %if.then31.i.i
 
-if.end29.thread89.sink.split.i.i:                 ; preds = %if.end40.i.i.i, %trace_virtio_scsi_tmf_req.exit.i.i.i
-  %.sink.i.i = phi i8 [ 10, %if.end40.i.i.i ], [ 11, %trace_virtio_scsi_tmf_req.exit.i.i.i ]
+if.end29.thread89.sink.split.i.i:                 ; preds = %if.end58.i.i.i, %sw.bb55.i.i.i, %if.end40.i.i.i, %if.end.i.i.i, %sw.bb.i.i.i, %trace_virtio_scsi_tmf_req.exit.i.i.i
+  %.sink.i.i = phi i8 [ 10, %if.end40.i.i.i ], [ 11, %trace_virtio_scsi_tmf_req.exit.i.i.i ], [ 12, %if.end58.i.i.i ], [ 12, %if.end.i.i.i ], [ 3, %sw.bb55.i.i.i ], [ 3, %sw.bb.i.i.i ]
   store i8 %.sink.i.i, ptr %resp.i.i.i, align 4
   br label %if.end29.thread89.i.i
 
@@ -1142,7 +1132,7 @@ if.end29.i.i:                                     ; preds = %for.end97.i.i.i, %i
   call void @object_unref(ptr noundef %retval.0.i78.i.i.i) #13
   br label %virtio_scsi_handle_ctrl_req.exit.i
 
-if.then31.i.i:                                    ; preds = %if.end29.thread89.i.i, %trace_virtio_scsi_an_req.exit.i.i, %fail.i.i.i, %incorrect_lun.i.i.i
+if.then31.i.i:                                    ; preds = %if.end29.thread89.i.i, %trace_virtio_scsi_an_req.exit.i.i
   %.pr.i.i = load i32, ptr %type.i.i, align 4
   %cmp32.i.i = icmp eq i32 %.pr.i.i, 0
   br i1 %cmp32.i.i, label %if.then33.i.i, label %if.else42.i.i

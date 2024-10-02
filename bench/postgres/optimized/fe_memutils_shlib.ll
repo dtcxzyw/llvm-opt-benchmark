@@ -41,14 +41,14 @@ define noundef ptr @pg_malloc0(i64 noundef %0) local_unnamed_addr #0 {
   %8 = ptrtoint ptr %2 to i64
   %9 = and i64 %8, 7
   %10 = icmp eq i64 %9, 0
-  br i1 %10, label %11, label %24
+  br i1 %10, label %11, label %pg_malloc_internal.exit.sink.split
 
 11:                                               ; preds = %7
   %12 = and i64 %spec.store.select.i, 7
   %13 = icmp eq i64 %12, 0
   %14 = icmp ult i64 %0, 1025
   %or.cond3.i = and i1 %14, %13
-  br i1 %or.cond3.i, label %15, label %24
+  br i1 %or.cond3.i, label %15, label %pg_malloc_internal.exit.sink.split
 
 15:                                               ; preds = %11
   %16 = getelementptr i8, ptr %2, i64 %spec.store.select.i
@@ -63,14 +63,14 @@ define noundef ptr @pg_malloc0(i64 noundef %0) local_unnamed_addr #0 {
   %21 = add i64 %umax.i, %20
   %22 = and i64 %21, -8
   %23 = add i64 %22, 8
-  tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %2, i8 0, i64 %23, i1 false)
+  br label %pg_malloc_internal.exit.sink.split
+
+pg_malloc_internal.exit.sink.split:               ; preds = %7, %11, %.lr.ph.preheader.i
+  %.sink = phi i64 [ %23, %.lr.ph.preheader.i ], [ %spec.store.select.i, %11 ], [ %spec.store.select.i, %7 ]
+  tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %2, i8 0, i64 %.sink, i1 false)
   br label %pg_malloc_internal.exit
 
-24:                                               ; preds = %11, %7
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %2, i8 0, i64 %spec.store.select.i, i1 false)
-  br label %pg_malloc_internal.exit
-
-pg_malloc_internal.exit:                          ; preds = %15, %.lr.ph.preheader.i, %24
+pg_malloc_internal.exit:                          ; preds = %pg_malloc_internal.exit.sink.split, %15
   ret ptr %2
 }
 
@@ -101,14 +101,14 @@ define noundef ptr @pg_malloc_extended(i64 noundef %0, i32 noundef %1) local_unn
   %14 = ptrtoint ptr %3 to i64
   %15 = and i64 %14, 7
   %16 = icmp eq i64 %15, 0
-  br i1 %16, label %17, label %30
+  br i1 %16, label %17, label %pg_malloc_internal.exit.sink.split
 
 17:                                               ; preds = %13
   %18 = and i64 %spec.store.select.i, 7
   %19 = icmp eq i64 %18, 0
   %20 = icmp ult i64 %0, 1025
   %or.cond3.i = and i1 %20, %19
-  br i1 %or.cond3.i, label %21, label %30
+  br i1 %or.cond3.i, label %21, label %pg_malloc_internal.exit.sink.split
 
 21:                                               ; preds = %17
   %22 = getelementptr i8, ptr %3, i64 %spec.store.select.i
@@ -123,14 +123,14 @@ define noundef ptr @pg_malloc_extended(i64 noundef %0, i32 noundef %1) local_unn
   %27 = add i64 %umax.i, %26
   %28 = and i64 %27, -8
   %29 = add i64 %28, 8
-  tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %3, i8 0, i64 %29, i1 false)
+  br label %pg_malloc_internal.exit.sink.split
+
+pg_malloc_internal.exit.sink.split:               ; preds = %13, %17, %.lr.ph.preheader.i
+  %.sink = phi i64 [ %29, %.lr.ph.preheader.i ], [ %spec.store.select.i, %17 ], [ %spec.store.select.i, %13 ]
+  tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %3, i8 0, i64 %.sink, i1 false)
   br label %pg_malloc_internal.exit
 
-30:                                               ; preds = %17, %13
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %3, i8 0, i64 %spec.store.select.i, i1 false)
-  br label %pg_malloc_internal.exit
-
-pg_malloc_internal.exit:                          ; preds = %5, %11, %21, %.lr.ph.preheader.i, %30
+pg_malloc_internal.exit:                          ; preds = %pg_malloc_internal.exit.sink.split, %5, %11, %21
   ret ptr %3
 }
 
@@ -234,14 +234,14 @@ define noundef ptr @palloc0(i64 noundef %0) local_unnamed_addr #0 {
   %8 = ptrtoint ptr %2 to i64
   %9 = and i64 %8, 7
   %10 = icmp eq i64 %9, 0
-  br i1 %10, label %11, label %24
+  br i1 %10, label %11, label %pg_malloc_internal.exit.sink.split
 
 11:                                               ; preds = %7
   %12 = and i64 %spec.store.select.i, 7
   %13 = icmp eq i64 %12, 0
   %14 = icmp ult i64 %0, 1025
   %or.cond3.i = and i1 %14, %13
-  br i1 %or.cond3.i, label %15, label %24
+  br i1 %or.cond3.i, label %15, label %pg_malloc_internal.exit.sink.split
 
 15:                                               ; preds = %11
   %16 = getelementptr i8, ptr %2, i64 %spec.store.select.i
@@ -256,14 +256,14 @@ define noundef ptr @palloc0(i64 noundef %0) local_unnamed_addr #0 {
   %21 = add i64 %umax.i, %20
   %22 = and i64 %21, -8
   %23 = add i64 %22, 8
-  tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %2, i8 0, i64 %23, i1 false)
+  br label %pg_malloc_internal.exit.sink.split
+
+pg_malloc_internal.exit.sink.split:               ; preds = %7, %11, %.lr.ph.preheader.i
+  %.sink = phi i64 [ %23, %.lr.ph.preheader.i ], [ %spec.store.select.i, %11 ], [ %spec.store.select.i, %7 ]
+  tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %2, i8 0, i64 %.sink, i1 false)
   br label %pg_malloc_internal.exit
 
-24:                                               ; preds = %11, %7
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %2, i8 0, i64 %spec.store.select.i, i1 false)
-  br label %pg_malloc_internal.exit
-
-pg_malloc_internal.exit:                          ; preds = %15, %.lr.ph.preheader.i, %24
+pg_malloc_internal.exit:                          ; preds = %pg_malloc_internal.exit.sink.split, %15
   ret ptr %2
 }
 
@@ -294,14 +294,14 @@ define noundef ptr @palloc_extended(i64 noundef %0, i32 noundef %1) local_unname
   %14 = ptrtoint ptr %3 to i64
   %15 = and i64 %14, 7
   %16 = icmp eq i64 %15, 0
-  br i1 %16, label %17, label %30
+  br i1 %16, label %17, label %pg_malloc_internal.exit.sink.split
 
 17:                                               ; preds = %13
   %18 = and i64 %spec.store.select.i, 7
   %19 = icmp eq i64 %18, 0
   %20 = icmp ult i64 %0, 1025
   %or.cond3.i = and i1 %20, %19
-  br i1 %or.cond3.i, label %21, label %30
+  br i1 %or.cond3.i, label %21, label %pg_malloc_internal.exit.sink.split
 
 21:                                               ; preds = %17
   %22 = getelementptr i8, ptr %3, i64 %spec.store.select.i
@@ -316,14 +316,14 @@ define noundef ptr @palloc_extended(i64 noundef %0, i32 noundef %1) local_unname
   %27 = add i64 %umax.i, %26
   %28 = and i64 %27, -8
   %29 = add i64 %28, 8
-  tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %3, i8 0, i64 %29, i1 false)
+  br label %pg_malloc_internal.exit.sink.split
+
+pg_malloc_internal.exit.sink.split:               ; preds = %13, %17, %.lr.ph.preheader.i
+  %.sink = phi i64 [ %29, %.lr.ph.preheader.i ], [ %spec.store.select.i, %17 ], [ %spec.store.select.i, %13 ]
+  tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %3, i8 0, i64 %.sink, i1 false)
   br label %pg_malloc_internal.exit
 
-30:                                               ; preds = %17, %13
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %3, i8 0, i64 %spec.store.select.i, i1 false)
-  br label %pg_malloc_internal.exit
-
-pg_malloc_internal.exit:                          ; preds = %5, %11, %21, %.lr.ph.preheader.i, %30
+pg_malloc_internal.exit:                          ; preds = %pg_malloc_internal.exit.sink.split, %5, %11, %21
   ret ptr %3
 }
 

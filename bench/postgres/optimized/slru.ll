@@ -358,7 +358,7 @@ SlruRecentlyUsed.exit:                            ; preds = %2, %25
   %47 = icmp eq i64 %46, 0
   %48 = icmp ult i32 %34, 129
   %or.cond.i = and i1 %48, %47
-  br i1 %or.cond.i, label %49, label %61
+  br i1 %or.cond.i, label %49, label %SimpleLruZeroLSNs.exit.sink.split
 
 49:                                               ; preds = %36
   %50 = getelementptr i8, ptr %42, i64 %44
@@ -376,19 +376,19 @@ SlruRecentlyUsed.exit:                            ; preds = %2, %25
   %58 = add i64 %57, %umax.i
   %59 = and i64 %58, -8
   %60 = add i64 %59, 8
-  tail call void @llvm.memset.p0.i64(ptr align 8 %42, i8 0, i64 %60, i1 false)
+  br label %SimpleLruZeroLSNs.exit.sink.split
+
+SimpleLruZeroLSNs.exit.sink.split:                ; preds = %36, %.lr.ph.preheader.i
+  %.sink = phi i64 [ %60, %.lr.ph.preheader.i ], [ %44, %36 ]
+  tail call void @llvm.memset.p0.i64(ptr align 1 %42, i8 0, i64 %.sink, i1 false)
   br label %SimpleLruZeroLSNs.exit
 
-61:                                               ; preds = %36
-  tail call void @llvm.memset.p0.i64(ptr align 1 %42, i8 0, i64 %44, i1 false)
-  br label %SimpleLruZeroLSNs.exit
-
-SimpleLruZeroLSNs.exit:                           ; preds = %SlruRecentlyUsed.exit, %49, %.lr.ph.preheader.i, %61
-  %62 = getelementptr inbounds i8, ptr %3, i64 88
-  store volatile i64 %1, ptr %62, align 8
-  %63 = getelementptr inbounds i8, ptr %3, i64 96
-  %64 = load i32, ptr %63, align 8
-  tail call void @pgstat_count_slru_page_zeroed(i32 noundef %64) #15
+SimpleLruZeroLSNs.exit:                           ; preds = %SimpleLruZeroLSNs.exit.sink.split, %SlruRecentlyUsed.exit, %49
+  %61 = getelementptr inbounds i8, ptr %3, i64 88
+  store volatile i64 %1, ptr %61, align 8
+  %62 = getelementptr inbounds i8, ptr %3, i64 96
+  %63 = load i32, ptr %62, align 8
+  tail call void @pgstat_count_slru_page_zeroed(i32 noundef %63) #15
   ret i32 %4
 }
 
@@ -671,7 +671,7 @@ SlruRecentlyUsed.exit:                            ; preds = %.split.us, %52
   %56 = getelementptr inbounds i8, ptr %6, i64 96
   %57 = load i32, ptr %56, align 8
   tail call void @pgstat_count_slru_page_hit(i32 noundef %57) #15
-  br label %177
+  br label %176
 
 ._crit_edge:                                      ; preds = %36, %.lr.ph.split, %22, %.lr.ph.split.us, %4
   %.lcssa58 = phi i32 [ %7, %4 ], [ %16, %.lr.ph.split.us ], [ %23, %22 ], [ %30, %.lr.ph.split ], [ %37, %36 ]
@@ -813,7 +813,7 @@ SlruPhysicalReadPage.exit:                        ; preds = %95, %100, %117, %12
   %138 = icmp eq i64 %137, 0
   %139 = icmp ult i32 %125, 129
   %or.cond.i = and i1 %139, %138
-  br i1 %or.cond.i, label %140, label %152
+  br i1 %or.cond.i, label %140, label %SimpleLruZeroLSNs.exit.sink.split
 
 140:                                              ; preds = %127
   %141 = getelementptr i8, ptr %133, i64 %135
@@ -831,59 +831,59 @@ SlruPhysicalReadPage.exit:                        ; preds = %95, %100, %117, %12
   %149 = add i64 %148, %umax.i
   %150 = and i64 %149, -8
   %151 = add i64 %150, 8
-  call void @llvm.memset.p0.i64(ptr align 8 %133, i8 0, i64 %151, i1 false)
+  br label %SimpleLruZeroLSNs.exit.sink.split
+
+SimpleLruZeroLSNs.exit.sink.split:                ; preds = %127, %.lr.ph.preheader.i
+  %.sink = phi i64 [ %151, %.lr.ph.preheader.i ], [ %135, %127 ]
+  call void @llvm.memset.p0.i64(ptr align 1 %133, i8 0, i64 %.sink, i1 false)
   br label %SimpleLruZeroLSNs.exit
 
-152:                                              ; preds = %127
-  call void @llvm.memset.p0.i64(ptr align 1 %133, i8 0, i64 %135, i1 false)
-  br label %SimpleLruZeroLSNs.exit
+SimpleLruZeroLSNs.exit:                           ; preds = %SimpleLruZeroLSNs.exit.sink.split, %SlruPhysicalReadPage.exit, %140
+  %152 = load ptr, ptr %71, align 8
+  %153 = getelementptr %union.LWLockPadded, ptr %152, i64 %73
+  %154 = call zeroext i1 @LWLockAcquire(ptr noundef %153, i32 noundef 0) #15
+  %155 = select i1 %.0.i, i32 2, i32 0
+  %156 = load ptr, ptr %8, align 8
+  %157 = getelementptr i32, ptr %156, i64 %.lcssa
+  store i32 %155, ptr %157, align 4
+  %158 = load ptr, ptr %66, align 8
+  %159 = getelementptr %union.LWLockPadded, ptr %158, i64 %.lcssa
+  call void @LWLockRelease(ptr noundef %159) #15
+  br i1 %.0.i, label %161, label %160
 
-SimpleLruZeroLSNs.exit:                           ; preds = %SlruPhysicalReadPage.exit, %140, %.lr.ph.preheader.i, %152
-  %153 = load ptr, ptr %71, align 8
-  %154 = getelementptr %union.LWLockPadded, ptr %153, i64 %73
-  %155 = call zeroext i1 @LWLockAcquire(ptr noundef %154, i32 noundef 0) #15
-  %156 = select i1 %.0.i, i32 2, i32 0
-  %157 = load ptr, ptr %8, align 8
-  %158 = getelementptr i32, ptr %157, i64 %.lcssa
-  store i32 %156, ptr %158, align 4
-  %159 = load ptr, ptr %66, align 8
-  %160 = getelementptr %union.LWLockPadded, ptr %159, i64 %.lcssa
-  call void @LWLockRelease(ptr noundef %160) #15
-  br i1 %.0.i, label %162, label %161
-
-161:                                              ; preds = %SimpleLruZeroLSNs.exit
+160:                                              ; preds = %SimpleLruZeroLSNs.exit
   call fastcc void @SlruReportIOError(ptr noundef nonnull %0, i64 noundef %1, i32 noundef %3)
-  br label %162
+  br label %161
 
-162:                                              ; preds = %161, %SimpleLruZeroLSNs.exit
-  %163 = getelementptr inbounds i8, ptr %6, i64 64
-  %164 = load ptr, ptr %163, align 8
-  %165 = getelementptr i32, ptr %164, i64 %73
-  %166 = load i32, ptr %165, align 4
-  %167 = getelementptr inbounds i8, ptr %6, i64 40
-  %168 = load ptr, ptr %167, align 8
-  %169 = getelementptr i32, ptr %168, i64 %.lcssa
-  %170 = load i32, ptr %169, align 4
-  %.not.i53 = icmp eq i32 %166, %170
-  br i1 %.not.i53, label %SlruRecentlyUsed.exit54, label %171
+161:                                              ; preds = %160, %SimpleLruZeroLSNs.exit
+  %162 = getelementptr inbounds i8, ptr %6, i64 64
+  %163 = load ptr, ptr %162, align 8
+  %164 = getelementptr i32, ptr %163, i64 %73
+  %165 = load i32, ptr %164, align 4
+  %166 = getelementptr inbounds i8, ptr %6, i64 40
+  %167 = load ptr, ptr %166, align 8
+  %168 = getelementptr i32, ptr %167, i64 %.lcssa
+  %169 = load i32, ptr %168, align 4
+  %.not.i53 = icmp eq i32 %165, %169
+  br i1 %.not.i53, label %SlruRecentlyUsed.exit54, label %170
 
-171:                                              ; preds = %162
-  %172 = add i32 %166, 1
-  store i32 %172, ptr %165, align 4
-  %173 = load ptr, ptr %167, align 8
-  %174 = getelementptr i32, ptr %173, i64 %.lcssa
-  store i32 %172, ptr %174, align 4
+170:                                              ; preds = %161
+  %171 = add i32 %165, 1
+  store i32 %171, ptr %164, align 4
+  %172 = load ptr, ptr %166, align 8
+  %173 = getelementptr i32, ptr %172, i64 %.lcssa
+  store i32 %171, ptr %173, align 4
   br label %SlruRecentlyUsed.exit54
 
-SlruRecentlyUsed.exit54:                          ; preds = %162, %171
-  %175 = getelementptr inbounds i8, ptr %6, i64 96
-  %176 = load i32, ptr %175, align 8
-  call void @pgstat_count_slru_page_read(i32 noundef %176) #15
-  br label %177
+SlruRecentlyUsed.exit54:                          ; preds = %161, %170
+  %174 = getelementptr inbounds i8, ptr %6, i64 96
+  %175 = load i32, ptr %174, align 8
+  call void @pgstat_count_slru_page_read(i32 noundef %175) #15
+  br label %176
 
-177:                                              ; preds = %SlruRecentlyUsed.exit54, %SlruRecentlyUsed.exit
-  %178 = phi i32 [ %.lcssa58, %SlruRecentlyUsed.exit54 ], [ %.us-phi66, %SlruRecentlyUsed.exit ]
-  ret i32 %178
+176:                                              ; preds = %SlruRecentlyUsed.exit54, %SlruRecentlyUsed.exit
+  %177 = phi i32 [ %.lcssa58, %SlruRecentlyUsed.exit54 ], [ %.us-phi66, %SlruRecentlyUsed.exit ]
+  ret i32 %177
 }
 
 ; Function Attrs: nounwind uwtable

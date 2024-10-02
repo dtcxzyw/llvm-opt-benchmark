@@ -746,7 +746,7 @@ define void @Abc_NodeMffcConeSupp(ptr noundef %0, ptr noundef %1, ptr noundef %2
 
 Vec_IntGrow.exit.i.i:                             ; preds = %16, %10
   %20 = icmp sgt i32 %.val.val.i, -500
-  br i1 %20, label %.lr.ph.i.i, label %Vec_IntFill.exit.i
+  br i1 %20, label %.lr.ph.i.i, label %Abc_NtkIncrementTravId.exit.sink.split
 
 .lr.ph.i.i:                                       ; preds = %Vec_IntGrow.exit.i.i
   %wide.trip.count.i.i = zext nneg i32 %14 to i64
@@ -759,80 +759,69 @@ Vec_IntGrow.exit.i.i:                             ; preds = %16, %10
   store i32 0, ptr %23, align 4
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
-  br i1 %exitcond.not.i.i, label %Vec_IntFill.exit.i, label %21, !llvm.loop !8
-
-Vec_IntFill.exit.i:                               ; preds = %21, %Vec_IntGrow.exit.i.i
-  %24 = getelementptr inbounds i8, ptr %7, i64 228
-  store i32 %14, ptr %24, align 4
-  br label %Abc_NtkIncrementTravId.exit
-
-Abc_NtkIncrementTravId.exit:                      ; preds = %.split, %Vec_IntFill.exit.i
-  %25 = getelementptr inbounds i8, ptr %7, i64 216
-  %26 = load i32, ptr %25, align 8
-  %27 = add nsw i32 %26, 1
-  store i32 %27, ptr %25, align 8
-  tail call void @Abc_NodeMffcConeSupp_rec(ptr noundef nonnull %0, ptr noundef %1, ptr noundef null, i32 noundef 1)
-  br label %50
+  br i1 %exitcond.not.i.i, label %Abc_NtkIncrementTravId.exit.sink.split, label %21, !llvm.loop !8
 
 .split9:                                          ; preds = %6
-  %28 = getelementptr inbounds i8, ptr %2, i64 4
-  store i32 0, ptr %28, align 4
-  %29 = load ptr, ptr %0, align 8
-  %30 = getelementptr inbounds i8, ptr %29, i64 232
-  %31 = load ptr, ptr %30, align 8
-  %.not.i12 = icmp eq ptr %31, null
-  br i1 %.not.i12, label %32, label %Abc_NtkIncrementTravId.exit23
+  %24 = getelementptr inbounds i8, ptr %2, i64 4
+  store i32 0, ptr %24, align 4
+  %25 = load ptr, ptr %0, align 8
+  %26 = getelementptr inbounds i8, ptr %25, i64 232
+  %27 = load ptr, ptr %26, align 8
+  %.not.i12 = icmp eq ptr %27, null
+  br i1 %.not.i12, label %28, label %Abc_NtkIncrementTravId.exit
 
-32:                                               ; preds = %.split9
-  %33 = getelementptr inbounds i8, ptr %29, i64 224
-  %34 = getelementptr i8, ptr %29, i64 32
-  %.val.i13 = load ptr, ptr %34, align 8
-  %35 = getelementptr i8, ptr %.val.i13, i64 4
-  %.val.val.i14 = load i32, ptr %35, align 4
-  %36 = add nsw i32 %.val.val.i14, 500
-  %37 = load i32, ptr %33, align 8
-  %.not.i.i.i15 = icmp slt i32 %37, %36
-  br i1 %.not.i.i.i15, label %38, label %Vec_IntGrow.exit.i.i16
+28:                                               ; preds = %.split9
+  %29 = getelementptr inbounds i8, ptr %25, i64 224
+  %30 = getelementptr i8, ptr %25, i64 32
+  %.val.i13 = load ptr, ptr %30, align 8
+  %31 = getelementptr i8, ptr %.val.i13, i64 4
+  %.val.val.i14 = load i32, ptr %31, align 4
+  %32 = add nsw i32 %.val.val.i14, 500
+  %33 = load i32, ptr %29, align 8
+  %.not.i.i.i15 = icmp slt i32 %33, %32
+  br i1 %.not.i.i.i15, label %34, label %Vec_IntGrow.exit.i.i16
 
-38:                                               ; preds = %32
-  %39 = sext i32 %36 to i64
-  %40 = shl nsw i64 %39, 2
-  %41 = tail call noalias ptr @malloc(i64 noundef %40) #9
-  store ptr %41, ptr %30, align 8
-  store i32 %36, ptr %33, align 8
+34:                                               ; preds = %28
+  %35 = sext i32 %32 to i64
+  %36 = shl nsw i64 %35, 2
+  %37 = tail call noalias ptr @malloc(i64 noundef %36) #9
+  store ptr %37, ptr %26, align 8
+  store i32 %32, ptr %29, align 8
   br label %Vec_IntGrow.exit.i.i16
 
-Vec_IntGrow.exit.i.i16:                           ; preds = %38, %32
-  %42 = icmp sgt i32 %.val.val.i14, -500
-  br i1 %42, label %.lr.ph.i.i18, label %Vec_IntFill.exit.i17
+Vec_IntGrow.exit.i.i16:                           ; preds = %34, %28
+  %38 = icmp sgt i32 %.val.val.i14, -500
+  br i1 %38, label %.lr.ph.i.i18, label %Abc_NtkIncrementTravId.exit.sink.split
 
 .lr.ph.i.i18:                                     ; preds = %Vec_IntGrow.exit.i.i16
-  %wide.trip.count.i.i19 = zext nneg i32 %36 to i64
-  br label %43
+  %wide.trip.count.i.i19 = zext nneg i32 %32 to i64
+  br label %39
 
-43:                                               ; preds = %43, %.lr.ph.i.i18
-  %indvars.iv.i.i20 = phi i64 [ 0, %.lr.ph.i.i18 ], [ %indvars.iv.next.i.i21, %43 ]
-  %44 = load ptr, ptr %30, align 8
-  %45 = getelementptr inbounds i32, ptr %44, i64 %indvars.iv.i.i20
-  store i32 0, ptr %45, align 4
+39:                                               ; preds = %39, %.lr.ph.i.i18
+  %indvars.iv.i.i20 = phi i64 [ 0, %.lr.ph.i.i18 ], [ %indvars.iv.next.i.i21, %39 ]
+  %40 = load ptr, ptr %26, align 8
+  %41 = getelementptr inbounds i32, ptr %40, i64 %indvars.iv.i.i20
+  store i32 0, ptr %41, align 4
   %indvars.iv.next.i.i21 = add nuw nsw i64 %indvars.iv.i.i20, 1
   %exitcond.not.i.i22 = icmp eq i64 %indvars.iv.next.i.i21, %wide.trip.count.i.i19
-  br i1 %exitcond.not.i.i22, label %Vec_IntFill.exit.i17, label %43, !llvm.loop !8
+  br i1 %exitcond.not.i.i22, label %Abc_NtkIncrementTravId.exit.sink.split, label %39, !llvm.loop !8
 
-Vec_IntFill.exit.i17:                             ; preds = %43, %Vec_IntGrow.exit.i.i16
-  %46 = getelementptr inbounds i8, ptr %29, i64 228
-  store i32 %36, ptr %46, align 4
-  br label %Abc_NtkIncrementTravId.exit23
+Abc_NtkIncrementTravId.exit.sink.split:           ; preds = %39, %21, %Vec_IntGrow.exit.i.i16, %Vec_IntGrow.exit.i.i
+  %.sink31 = phi ptr [ %7, %Vec_IntGrow.exit.i.i ], [ %25, %Vec_IntGrow.exit.i.i16 ], [ %7, %21 ], [ %25, %39 ]
+  %.sink29 = phi i32 [ %14, %Vec_IntGrow.exit.i.i ], [ %32, %Vec_IntGrow.exit.i.i16 ], [ %14, %21 ], [ %32, %39 ]
+  %.sink.ph = phi ptr [ null, %Vec_IntGrow.exit.i.i ], [ %2, %Vec_IntGrow.exit.i.i16 ], [ null, %21 ], [ %2, %39 ]
+  %42 = getelementptr inbounds i8, ptr %.sink31, i64 228
+  store i32 %.sink29, ptr %42, align 4
+  br label %Abc_NtkIncrementTravId.exit
 
-Abc_NtkIncrementTravId.exit23:                    ; preds = %.split9, %Vec_IntFill.exit.i17
-  %47 = getelementptr inbounds i8, ptr %29, i64 216
-  %48 = load i32, ptr %47, align 8
-  %49 = add nsw i32 %48, 1
-  store i32 %49, ptr %47, align 8
-  tail call void @Abc_NodeMffcConeSupp_rec(ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull %2, i32 noundef 1)
-  br label %50
-
-50:                                               ; preds = %Abc_NtkIncrementTravId.exit, %Abc_NtkIncrementTravId.exit23
+Abc_NtkIncrementTravId.exit:                      ; preds = %Abc_NtkIncrementTravId.exit.sink.split, %.split9, %.split
+  %.sink28 = phi ptr [ %7, %.split ], [ %25, %.split9 ], [ %.sink31, %Abc_NtkIncrementTravId.exit.sink.split ]
+  %.sink = phi ptr [ null, %.split ], [ %2, %.split9 ], [ %.sink.ph, %Abc_NtkIncrementTravId.exit.sink.split ]
+  %43 = getelementptr inbounds i8, ptr %.sink28, i64 216
+  %44 = load i32, ptr %43, align 8
+  %45 = add nsw i32 %44, 1
+  store i32 %45, ptr %43, align 8
+  tail call void @Abc_NodeMffcConeSupp_rec(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %.sink, i32 noundef 1)
   ret void
 }
 
@@ -970,7 +959,7 @@ define i32 @Abc_NodeMffcInside(ptr noundef %0, ptr nocapture noundef readonly %1
 
 Vec_IntGrow.exit.i.i.i:                           ; preds = %28, %22
   %32 = icmp sgt i32 %.val.val.i.i, -500
-  br i1 %32, label %.lr.ph.i.i.i, label %Vec_IntFill.exit.i.i
+  br i1 %32, label %.lr.ph.i.i.i, label %Abc_NtkIncrementTravId.exit.sink.split.i
 
 .lr.ph.i.i.i:                                     ; preds = %Vec_IntGrow.exit.i.i.i
   %wide.trip.count.i.i.i = zext nneg i32 %26 to i64
@@ -983,14 +972,14 @@ Vec_IntGrow.exit.i.i.i:                           ; preds = %28, %22
   store i32 0, ptr %35, align 4
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i, %wide.trip.count.i.i.i
-  br i1 %exitcond.not.i.i.i, label %Vec_IntFill.exit.i.i, label %33, !llvm.loop !8
+  br i1 %exitcond.not.i.i.i, label %Abc_NtkIncrementTravId.exit.sink.split.i, label %33, !llvm.loop !8
 
-Vec_IntFill.exit.i.i:                             ; preds = %33, %Vec_IntGrow.exit.i.i.i
+Abc_NtkIncrementTravId.exit.sink.split.i:         ; preds = %33, %Vec_IntGrow.exit.i.i.i
   %36 = getelementptr inbounds i8, ptr %19, i64 228
   store i32 %26, ptr %36, align 4
   br label %Abc_NodeMffcConeSupp.exit
 
-Abc_NodeMffcConeSupp.exit:                        ; preds = %18, %Vec_IntFill.exit.i.i
+Abc_NodeMffcConeSupp.exit:                        ; preds = %18, %Abc_NtkIncrementTravId.exit.sink.split.i
   %37 = getelementptr inbounds i8, ptr %19, i64 216
   %38 = load i32, ptr %37, align 8
   %39 = add nsw i32 %38, 1
@@ -1061,7 +1050,7 @@ define noundef ptr @Abc_NodeMffcInsideCollect(ptr noundef %0) local_unnamed_addr
 
 Vec_IntGrow.exit.i.i.i:                           ; preds = %16, %10
   %20 = icmp sgt i32 %.val.val.i.i, -500
-  br i1 %20, label %.lr.ph.i.i.i, label %Vec_IntFill.exit.i.i
+  br i1 %20, label %.lr.ph.i.i.i, label %Abc_NtkIncrementTravId.exit.sink.split.i
 
 .lr.ph.i.i.i:                                     ; preds = %Vec_IntGrow.exit.i.i.i
   %wide.trip.count.i.i.i = zext nneg i32 %14 to i64
@@ -1074,14 +1063,14 @@ Vec_IntGrow.exit.i.i.i:                           ; preds = %16, %10
   store i32 0, ptr %23, align 4
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i, %wide.trip.count.i.i.i
-  br i1 %exitcond.not.i.i.i, label %Vec_IntFill.exit.i.i, label %21, !llvm.loop !8
+  br i1 %exitcond.not.i.i.i, label %Abc_NtkIncrementTravId.exit.sink.split.i, label %21, !llvm.loop !8
 
-Vec_IntFill.exit.i.i:                             ; preds = %21, %Vec_IntGrow.exit.i.i.i
+Abc_NtkIncrementTravId.exit.sink.split.i:         ; preds = %21, %Vec_IntGrow.exit.i.i.i
   %24 = getelementptr inbounds i8, ptr %7, i64 228
   store i32 %14, ptr %24, align 4
   br label %Abc_NodeMffcConeSupp.exit
 
-Abc_NodeMffcConeSupp.exit:                        ; preds = %1, %Vec_IntFill.exit.i.i
+Abc_NodeMffcConeSupp.exit:                        ; preds = %1, %Abc_NtkIncrementTravId.exit.sink.split.i
   %25 = getelementptr inbounds i8, ptr %7, i64 216
   %26 = load i32, ptr %25, align 8
   %27 = add nsw i32 %26, 1

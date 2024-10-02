@@ -1327,7 +1327,7 @@ opal_obj_run_constructors.exit:                   ; preds = %.lr.ph.i, %12
 
 34:                                               ; preds = %33
   %35 = call i32 @PMIx_Job_control_nb(ptr noundef null, i64 noundef 0, ptr noundef nonnull %6, i64 noundef %.023, ptr noundef nonnull @cleanup_cbfunc, ptr noundef nonnull %5) #12
-  br label %60
+  br label %59
 
 36:                                               ; preds = %33
   %37 = call ptr @opal_proc_local_get() #12
@@ -1354,92 +1354,92 @@ opal_obj_run_constructors.exit:                   ; preds = %.lr.ph.i, %12
 45:                                               ; preds = %.lr.ph.i28
   %46 = getelementptr inbounds i8, ptr %.011.i, i64 40
   call void @PMIx_Load_nspace(ptr noundef nonnull %8, ptr noundef nonnull %46) #12
-  %47 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %7, i64 noundef 255, ptr noundef nonnull @.str.8, ptr noundef nonnull %8) #12
-  br label %54
+  br label %52
 
 .loopexit:                                        ; preds = %43, %36
-  %48 = load ptr, ptr @opal_jobid_print, align 8
-  %49 = call ptr @opal_proc_local_get() #12
-  %50 = getelementptr inbounds i8, ptr %49, i64 40
-  %51 = load i32, ptr %50, align 8
-  %52 = call ptr %48(i32 noundef %51) #12
-  %53 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %7, i64 noundef 255, ptr noundef nonnull @.str.8, ptr noundef %52) #12
-  br label %54
+  %47 = load ptr, ptr @opal_jobid_print, align 8
+  %48 = call ptr @opal_proc_local_get() #12
+  %49 = getelementptr inbounds i8, ptr %48, i64 40
+  %50 = load i32, ptr %49, align 8
+  %51 = call ptr %47(i32 noundef %50) #12
+  br label %52
 
-54:                                               ; preds = %.loopexit, %45
-  %55 = call ptr @opal_proc_local_get() #12
-  %56 = getelementptr inbounds i8, ptr %55, i64 44
-  %57 = load i32, ptr %56, align 4
-  %58 = getelementptr inbounds i8, ptr %7, i64 256
-  store i32 %57, ptr %58, align 4
-  %59 = call i32 @PMIx_Job_control_nb(ptr noundef nonnull %7, i64 noundef 1, ptr noundef nonnull %6, i64 noundef %.023, ptr noundef nonnull @cleanup_cbfunc, ptr noundef nonnull %5) #12
-  br label %60
+52:                                               ; preds = %.loopexit, %45
+  %.sink = phi ptr [ %51, %.loopexit ], [ %8, %45 ]
+  %53 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %7, i64 noundef 255, ptr noundef nonnull @.str.8, ptr noundef %.sink) #12
+  %54 = call ptr @opal_proc_local_get() #12
+  %55 = getelementptr inbounds i8, ptr %54, i64 44
+  %56 = load i32, ptr %55, align 4
+  %57 = getelementptr inbounds i8, ptr %7, i64 256
+  store i32 %56, ptr %57, align 4
+  %58 = call i32 @PMIx_Job_control_nb(ptr noundef nonnull %7, i64 noundef 1, ptr noundef nonnull %6, i64 noundef %.023, ptr noundef nonnull @cleanup_cbfunc, ptr noundef nonnull %5) #12
+  br label %59
 
-60:                                               ; preds = %54, %34
-  %.022 = phi i32 [ %35, %34 ], [ %59, %54 ]
+59:                                               ; preds = %52, %34
+  %.022 = phi i32 [ %35, %34 ], [ %58, %52 ]
   %.not26 = icmp eq i32 %.022, 0
-  br i1 %.not26, label %61, label %71
+  br i1 %.not26, label %60, label %70
 
-61:                                               ; preds = %60
-  %62 = getelementptr inbounds i8, ptr %5, i64 16
-  %63 = call i32 @pthread_mutex_lock(ptr noundef nonnull %62) #12
-  %64 = load volatile i8, ptr %21, align 8
-  %65 = trunc i8 %64 to i1
-  br i1 %65, label %.lr.ph, label %._crit_edge
+60:                                               ; preds = %59
+  %61 = getelementptr inbounds i8, ptr %5, i64 16
+  %62 = call i32 @pthread_mutex_lock(ptr noundef nonnull %61) #12
+  %63 = load volatile i8, ptr %21, align 8
+  %64 = trunc i8 %63 to i1
+  br i1 %64, label %.lr.ph, label %._crit_edge
 
-.lr.ph:                                           ; preds = %61, %.lr.ph
-  %66 = call i32 @opal_cond_wait(ptr noundef nonnull %19, ptr noundef nonnull %5) #12
-  %67 = load volatile i8, ptr %21, align 8
-  %68 = trunc i8 %67 to i1
-  br i1 %68, label %.lr.ph, label %._crit_edge, !llvm.loop !17
+.lr.ph:                                           ; preds = %60, %.lr.ph
+  %65 = call i32 @opal_cond_wait(ptr noundef nonnull %19, ptr noundef nonnull %5) #12
+  %66 = load volatile i8, ptr %21, align 8
+  %67 = trunc i8 %66 to i1
+  br i1 %67, label %.lr.ph, label %._crit_edge, !llvm.loop !17
 
-._crit_edge:                                      ; preds = %.lr.ph, %61
+._crit_edge:                                      ; preds = %.lr.ph, %60
   fence acquire
-  %69 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %62) #12
-  %70 = load i32, ptr %22, align 4
-  br label %71
+  %68 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %61) #12
+  %69 = load i32, ptr %22, align 4
+  br label %70
 
-71:                                               ; preds = %60, %._crit_edge
-  %.0 = phi i32 [ %70, %._crit_edge ], [ %.022, %60 ]
+70:                                               ; preds = %59, %._crit_edge
+  %.0 = phi i32 [ %69, %._crit_edge ], [ %.022, %59 ]
   fence acquire
-  %72 = load ptr, ptr %5, align 8
-  %73 = getelementptr inbounds i8, ptr %72, i64 48
+  %71 = load ptr, ptr %5, align 8
+  %72 = getelementptr inbounds i8, ptr %71, i64 48
+  %73 = load ptr, ptr %72, align 8
   %74 = load ptr, ptr %73, align 8
-  %75 = load ptr, ptr %74, align 8
-  %.not6.i31 = icmp eq ptr %75, null
+  %.not6.i31 = icmp eq ptr %74, null
   br i1 %.not6.i31, label %opal_obj_run_destructors.exit, label %.lr.ph.i32
 
-.lr.ph.i32:                                       ; preds = %71, %.lr.ph.i32
-  %76 = phi ptr [ %78, %.lr.ph.i32 ], [ %75, %71 ]
-  %.07.i33 = phi ptr [ %77, %.lr.ph.i32 ], [ %74, %71 ]
-  call void %76(ptr noundef nonnull %5) #12
-  %77 = getelementptr inbounds i8, ptr %.07.i33, i64 8
-  %78 = load ptr, ptr %77, align 8
-  %.not.i34 = icmp eq ptr %78, null
+.lr.ph.i32:                                       ; preds = %70, %.lr.ph.i32
+  %75 = phi ptr [ %77, %.lr.ph.i32 ], [ %74, %70 ]
+  %.07.i33 = phi ptr [ %76, %.lr.ph.i32 ], [ %73, %70 ]
+  call void %75(ptr noundef nonnull %5) #12
+  %76 = getelementptr inbounds i8, ptr %.07.i33, i64 8
+  %77 = load ptr, ptr %76, align 8
+  %.not.i34 = icmp eq ptr %77, null
   br i1 %.not.i34, label %opal_obj_run_destructors.exit, label %.lr.ph.i32, !llvm.loop !9
 
-opal_obj_run_destructors.exit:                    ; preds = %.lr.ph.i32, %71
-  %79 = call i32 @opal_cond_destroy(ptr noundef nonnull %19) #12
-  %80 = load ptr, ptr %23, align 8
-  %.not27 = icmp eq ptr %80, null
-  br i1 %.not27, label %.preheader, label %81
+opal_obj_run_destructors.exit:                    ; preds = %.lr.ph.i32, %70
+  %78 = call i32 @opal_cond_destroy(ptr noundef nonnull %19) #12
+  %79 = load ptr, ptr %23, align 8
+  %.not27 = icmp eq ptr %79, null
+  br i1 %.not27, label %.preheader, label %80
 
-81:                                               ; preds = %opal_obj_run_destructors.exit
-  call void @free(ptr noundef nonnull %80) #12
+80:                                               ; preds = %opal_obj_run_destructors.exit
+  call void @free(ptr noundef nonnull %79) #12
   br label %.preheader
 
-.preheader:                                       ; preds = %opal_obj_run_destructors.exit, %81
-  br label %82
+.preheader:                                       ; preds = %opal_obj_run_destructors.exit, %80
+  br label %81
 
-82:                                               ; preds = %.preheader, %82
-  %.02437 = phi i64 [ %84, %82 ], [ 0, %.preheader ]
-  %83 = getelementptr inbounds [3 x %struct.pmix_info], ptr %6, i64 0, i64 %.02437
-  call void @PMIx_Info_destruct(ptr noundef nonnull %83) #12
-  %84 = add nuw nsw i64 %.02437, 1
-  %exitcond.not = icmp eq i64 %84, %.023
-  br i1 %exitcond.not, label %85, label %82, !llvm.loop !18
+81:                                               ; preds = %.preheader, %81
+  %.02437 = phi i64 [ %83, %81 ], [ 0, %.preheader ]
+  %82 = getelementptr inbounds [3 x %struct.pmix_info], ptr %6, i64 0, i64 %.02437
+  call void @PMIx_Info_destruct(ptr noundef nonnull %82) #12
+  %83 = add nuw nsw i64 %.02437, 1
+  %exitcond.not = icmp eq i64 %83, %.023
+  br i1 %exitcond.not, label %84, label %81, !llvm.loop !18
 
-85:                                               ; preds = %82
+84:                                               ; preds = %81
   ret i32 %.0
 }
 

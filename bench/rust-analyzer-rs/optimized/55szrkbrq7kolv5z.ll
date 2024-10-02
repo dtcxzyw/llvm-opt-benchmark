@@ -17240,8 +17240,6 @@ define hidden void @"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..H
   store ptr %1, ptr %.sroa.4.0..sroa_idx, align 8
   %.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 24
   store i32 1, ptr %.sroa.5.0..sroa_idx, align 8
-  %.sroa.5.sroa.4.0..sroa.5.0..sroa_idx.sroa_idx = getelementptr inbounds i8, ptr %0, i64 28
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(24) %.sroa.5.sroa.4.0..sroa.5.0..sroa_idx.sroa_idx, ptr noundef nonnull align 4 dereferenceable(24) %2, i64 24, i1 false)
   br label %46
 
 37:                                               ; preds = %3
@@ -17262,12 +17260,13 @@ define hidden void @"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..H
   store ptr %1, ptr %45, align 8
   %.sroa.46.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
   store i64 %33, ptr %.sroa.46.0..sroa_idx, align 8
-  %.sroa.5.0..sroa_idx7 = getelementptr inbounds i8, ptr %0, i64 24
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.5.0..sroa_idx7, ptr noundef nonnull align 4 dereferenceable(24) %2, i64 24, i1 false)
   br label %46
 
 46:                                               ; preds = %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$7reserve17h7e880b93330c190cE.exit", %35
-  %storemerge = phi i64 [ 0, %35 ], [ 1, %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$7reserve17h7e880b93330c190cE.exit" ]
+  %.sink = phi i64 [ 24, %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$7reserve17h7e880b93330c190cE.exit" ], [ 28, %35 ]
+  %storemerge = phi i64 [ 1, %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$7reserve17h7e880b93330c190cE.exit" ], [ 0, %35 ]
+  %.sroa.5.0..sroa_idx7 = getelementptr inbounds i8, ptr %0, i64 %.sink
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(24) %.sroa.5.0..sroa_idx7, ptr noundef nonnull align 4 dereferenceable(24) %2, i64 24, i1 false)
   store i64 %storemerge, ptr %0, align 8
   ret void
 }
@@ -17847,8 +17846,6 @@ define hidden void @"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..H
   store ptr %1, ptr %.sroa.4.0..sroa_idx, align 8
   %.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 24
   store i32 1, ptr %.sroa.5.0..sroa_idx, align 8
-  %.sroa.5.sroa.4.0..sroa.5.0..sroa_idx.sroa_idx = getelementptr inbounds i8, ptr %0, i64 28
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(24) %.sroa.5.sroa.4.0..sroa.5.0..sroa_idx.sroa_idx, ptr noundef nonnull align 4 dereferenceable(24) %2, i64 24, i1 false)
   br label %46
 
 37:                                               ; preds = %3
@@ -17869,12 +17866,13 @@ define hidden void @"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..H
   store ptr %1, ptr %45, align 8
   %.sroa.46.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
   store i64 %33, ptr %.sroa.46.0..sroa_idx, align 8
-  %.sroa.5.0..sroa_idx7 = getelementptr inbounds i8, ptr %0, i64 24
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.5.0..sroa_idx7, ptr noundef nonnull align 4 dereferenceable(24) %2, i64 24, i1 false)
   br label %46
 
 46:                                               ; preds = %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$7reserve17hb6defb5d146b2195E.exit", %35
-  %storemerge = phi i64 [ 0, %35 ], [ 1, %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$7reserve17hb6defb5d146b2195E.exit" ]
+  %.sink = phi i64 [ 24, %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$7reserve17hb6defb5d146b2195E.exit" ], [ 28, %35 ]
+  %storemerge = phi i64 [ 1, %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$7reserve17hb6defb5d146b2195E.exit" ], [ 0, %35 ]
+  %.sroa.5.0..sroa_idx7 = getelementptr inbounds i8, ptr %0, i64 %.sink
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(24) %.sroa.5.0..sroa_idx7, ptr noundef nonnull align 4 dereferenceable(24) %2, i64 24, i1 false)
   store i64 %storemerge, ptr %0, align 8
   ret void
 }
@@ -17936,8 +17934,6 @@ define hidden void @"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..H
   store ptr %1, ptr %.sroa.4.0..sroa_idx, align 8
   %.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 24
   store i32 1, ptr %.sroa.5.0..sroa_idx, align 8
-  %.sroa.5.sroa.4.0..sroa.5.0..sroa_idx.sroa_idx = getelementptr inbounds i8, ptr %0, i64 28
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(24) %.sroa.5.sroa.4.0..sroa.5.0..sroa_idx.sroa_idx, ptr noundef nonnull align 4 dereferenceable(24) %2, i64 24, i1 false)
   br label %46
 
 37:                                               ; preds = %3
@@ -17958,12 +17954,13 @@ define hidden void @"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..H
   store ptr %1, ptr %45, align 8
   %.sroa.46.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
   store i64 %33, ptr %.sroa.46.0..sroa_idx, align 8
-  %.sroa.5.0..sroa_idx7 = getelementptr inbounds i8, ptr %0, i64 24
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.5.0..sroa_idx7, ptr noundef nonnull align 4 dereferenceable(24) %2, i64 24, i1 false)
   br label %46
 
 46:                                               ; preds = %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$7reserve17h32f18dfeaad8da48E.exit", %35
-  %storemerge = phi i64 [ 0, %35 ], [ 1, %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$7reserve17h32f18dfeaad8da48E.exit" ]
+  %.sink = phi i64 [ 24, %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$7reserve17h32f18dfeaad8da48E.exit" ], [ 28, %35 ]
+  %storemerge = phi i64 [ 1, %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$7reserve17h32f18dfeaad8da48E.exit" ], [ 0, %35 ]
+  %.sroa.5.0..sroa_idx7 = getelementptr inbounds i8, ptr %0, i64 %.sink
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(24) %.sroa.5.0..sroa_idx7, ptr noundef nonnull align 4 dereferenceable(24) %2, i64 24, i1 false)
   store i64 %storemerge, ptr %0, align 8
   ret void
 }
@@ -18447,8 +18444,6 @@ define hidden void @"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..H
   store ptr %1, ptr %.sroa.4.0..sroa_idx, align 8
   %.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 24
   store i32 1, ptr %.sroa.5.0..sroa_idx, align 8
-  %.sroa.5.sroa.4.0..sroa.5.0..sroa_idx.sroa_idx = getelementptr inbounds i8, ptr %0, i64 28
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(24) %.sroa.5.sroa.4.0..sroa.5.0..sroa_idx.sroa_idx, ptr noundef nonnull align 4 dereferenceable(24) %2, i64 24, i1 false)
   br label %46
 
 37:                                               ; preds = %3
@@ -18469,12 +18464,13 @@ define hidden void @"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..H
   store ptr %1, ptr %45, align 8
   %.sroa.46.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
   store i64 %33, ptr %.sroa.46.0..sroa_idx, align 8
-  %.sroa.5.0..sroa_idx7 = getelementptr inbounds i8, ptr %0, i64 24
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.5.0..sroa_idx7, ptr noundef nonnull align 4 dereferenceable(24) %2, i64 24, i1 false)
   br label %46
 
 46:                                               ; preds = %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$7reserve17h0ef653092d5cbc93E.exit", %35
-  %storemerge = phi i64 [ 0, %35 ], [ 1, %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$7reserve17h0ef653092d5cbc93E.exit" ]
+  %.sink = phi i64 [ 24, %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$7reserve17h0ef653092d5cbc93E.exit" ], [ 28, %35 ]
+  %storemerge = phi i64 [ 1, %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$7reserve17h0ef653092d5cbc93E.exit" ], [ 0, %35 ]
+  %.sroa.5.0..sroa_idx7 = getelementptr inbounds i8, ptr %0, i64 %.sink
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(24) %.sroa.5.0..sroa_idx7, ptr noundef nonnull align 4 dereferenceable(24) %2, i64 24, i1 false)
   store i64 %storemerge, ptr %0, align 8
   ret void
 }
@@ -18536,8 +18532,6 @@ define hidden void @"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..H
   store ptr %1, ptr %.sroa.4.0..sroa_idx, align 8
   %.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 24
   store i32 1, ptr %.sroa.5.0..sroa_idx, align 8
-  %.sroa.5.sroa.4.0..sroa.5.0..sroa_idx.sroa_idx = getelementptr inbounds i8, ptr %0, i64 28
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(24) %.sroa.5.sroa.4.0..sroa.5.0..sroa_idx.sroa_idx, ptr noundef nonnull align 4 dereferenceable(24) %2, i64 24, i1 false)
   br label %46
 
 37:                                               ; preds = %3
@@ -18558,12 +18552,13 @@ define hidden void @"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..H
   store ptr %1, ptr %45, align 8
   %.sroa.46.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
   store i64 %33, ptr %.sroa.46.0..sroa_idx, align 8
-  %.sroa.5.0..sroa_idx7 = getelementptr inbounds i8, ptr %0, i64 24
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.5.0..sroa_idx7, ptr noundef nonnull align 4 dereferenceable(24) %2, i64 24, i1 false)
   br label %46
 
 46:                                               ; preds = %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$7reserve17hcd6cee6a45be1725E.exit", %35
-  %storemerge = phi i64 [ 0, %35 ], [ 1, %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$7reserve17hcd6cee6a45be1725E.exit" ]
+  %.sink = phi i64 [ 24, %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$7reserve17hcd6cee6a45be1725E.exit" ], [ 28, %35 ]
+  %storemerge = phi i64 [ 1, %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$7reserve17hcd6cee6a45be1725E.exit" ], [ 0, %35 ]
+  %.sroa.5.0..sroa_idx7 = getelementptr inbounds i8, ptr %0, i64 %.sink
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(24) %.sroa.5.0..sroa_idx7, ptr noundef nonnull align 4 dereferenceable(24) %2, i64 24, i1 false)
   store i64 %storemerge, ptr %0, align 8
   ret void
 }
@@ -19393,8 +19388,6 @@ define hidden void @"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..H
   store ptr %1, ptr %.sroa.4.0..sroa_idx, align 8
   %.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 24
   store i32 1, ptr %.sroa.5.0..sroa_idx, align 8
-  %.sroa.5.sroa.4.0..sroa.5.0..sroa_idx.sroa_idx = getelementptr inbounds i8, ptr %0, i64 28
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(24) %.sroa.5.sroa.4.0..sroa.5.0..sroa_idx.sroa_idx, ptr noundef nonnull align 4 dereferenceable(24) %2, i64 24, i1 false)
   br label %46
 
 37:                                               ; preds = %3
@@ -19415,12 +19408,13 @@ define hidden void @"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..H
   store ptr %1, ptr %45, align 8
   %.sroa.46.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
   store i64 %33, ptr %.sroa.46.0..sroa_idx, align 8
-  %.sroa.5.0..sroa_idx7 = getelementptr inbounds i8, ptr %0, i64 24
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.5.0..sroa_idx7, ptr noundef nonnull align 4 dereferenceable(24) %2, i64 24, i1 false)
   br label %46
 
 46:                                               ; preds = %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$7reserve17h4579a46a04e0cb27E.exit", %35
-  %storemerge = phi i64 [ 0, %35 ], [ 1, %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$7reserve17h4579a46a04e0cb27E.exit" ]
+  %.sink = phi i64 [ 24, %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$7reserve17h4579a46a04e0cb27E.exit" ], [ 28, %35 ]
+  %storemerge = phi i64 [ 1, %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$7reserve17h4579a46a04e0cb27E.exit" ], [ 0, %35 ]
+  %.sroa.5.0..sroa_idx7 = getelementptr inbounds i8, ptr %0, i64 %.sink
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(24) %.sroa.5.0..sroa_idx7, ptr noundef nonnull align 4 dereferenceable(24) %2, i64 24, i1 false)
   store i64 %storemerge, ptr %0, align 8
   ret void
 }
@@ -19482,8 +19476,6 @@ define hidden void @"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..H
   store ptr %1, ptr %.sroa.4.0..sroa_idx, align 8
   %.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 24
   store i32 1, ptr %.sroa.5.0..sroa_idx, align 8
-  %.sroa.5.sroa.4.0..sroa.5.0..sroa_idx.sroa_idx = getelementptr inbounds i8, ptr %0, i64 28
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(24) %.sroa.5.sroa.4.0..sroa.5.0..sroa_idx.sroa_idx, ptr noundef nonnull align 4 dereferenceable(24) %2, i64 24, i1 false)
   br label %46
 
 37:                                               ; preds = %3
@@ -19504,12 +19496,13 @@ define hidden void @"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..H
   store ptr %1, ptr %45, align 8
   %.sroa.46.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
   store i64 %33, ptr %.sroa.46.0..sroa_idx, align 8
-  %.sroa.5.0..sroa_idx7 = getelementptr inbounds i8, ptr %0, i64 24
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.5.0..sroa_idx7, ptr noundef nonnull align 4 dereferenceable(24) %2, i64 24, i1 false)
   br label %46
 
 46:                                               ; preds = %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$7reserve17h49ce84a0f1ae5545E.exit", %35
-  %storemerge = phi i64 [ 0, %35 ], [ 1, %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$7reserve17h49ce84a0f1ae5545E.exit" ]
+  %.sink = phi i64 [ 24, %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$7reserve17h49ce84a0f1ae5545E.exit" ], [ 28, %35 ]
+  %storemerge = phi i64 [ 1, %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$7reserve17h49ce84a0f1ae5545E.exit" ], [ 0, %35 ]
+  %.sroa.5.0..sroa_idx7 = getelementptr inbounds i8, ptr %0, i64 %.sink
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(24) %.sroa.5.0..sroa_idx7, ptr noundef nonnull align 4 dereferenceable(24) %2, i64 24, i1 false)
   store i64 %storemerge, ptr %0, align 8
   ret void
 }
@@ -19571,8 +19564,6 @@ define hidden void @"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..H
   store ptr %1, ptr %.sroa.4.0..sroa_idx, align 8
   %.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 24
   store i32 1, ptr %.sroa.5.0..sroa_idx, align 8
-  %.sroa.5.sroa.4.0..sroa.5.0..sroa_idx.sroa_idx = getelementptr inbounds i8, ptr %0, i64 28
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(24) %.sroa.5.sroa.4.0..sroa.5.0..sroa_idx.sroa_idx, ptr noundef nonnull align 4 dereferenceable(24) %2, i64 24, i1 false)
   br label %46
 
 37:                                               ; preds = %3
@@ -19593,12 +19584,13 @@ define hidden void @"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..H
   store ptr %1, ptr %45, align 8
   %.sroa.46.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
   store i64 %33, ptr %.sroa.46.0..sroa_idx, align 8
-  %.sroa.5.0..sroa_idx7 = getelementptr inbounds i8, ptr %0, i64 24
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.5.0..sroa_idx7, ptr noundef nonnull align 4 dereferenceable(24) %2, i64 24, i1 false)
   br label %46
 
 46:                                               ; preds = %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$7reserve17h18f0372ef7d693cdE.exit", %35
-  %storemerge = phi i64 [ 0, %35 ], [ 1, %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$7reserve17h18f0372ef7d693cdE.exit" ]
+  %.sink = phi i64 [ 24, %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$7reserve17h18f0372ef7d693cdE.exit" ], [ 28, %35 ]
+  %storemerge = phi i64 [ 1, %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$7reserve17h18f0372ef7d693cdE.exit" ], [ 0, %35 ]
+  %.sroa.5.0..sroa_idx7 = getelementptr inbounds i8, ptr %0, i64 %.sink
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(24) %.sroa.5.0..sroa_idx7, ptr noundef nonnull align 4 dereferenceable(24) %2, i64 24, i1 false)
   store i64 %storemerge, ptr %0, align 8
   ret void
 }
@@ -20248,8 +20240,6 @@ define hidden void @"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..H
   store ptr %1, ptr %.sroa.4.0..sroa_idx, align 8
   %.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 24
   store i32 1, ptr %.sroa.5.0..sroa_idx, align 8
-  %.sroa.5.sroa.4.0..sroa.5.0..sroa_idx.sroa_idx = getelementptr inbounds i8, ptr %0, i64 28
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(24) %.sroa.5.sroa.4.0..sroa.5.0..sroa_idx.sroa_idx, ptr noundef nonnull align 4 dereferenceable(24) %2, i64 24, i1 false)
   br label %46
 
 37:                                               ; preds = %3
@@ -20270,12 +20260,13 @@ define hidden void @"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..H
   store ptr %1, ptr %45, align 8
   %.sroa.46.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
   store i64 %33, ptr %.sroa.46.0..sroa_idx, align 8
-  %.sroa.5.0..sroa_idx7 = getelementptr inbounds i8, ptr %0, i64 24
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.5.0..sroa_idx7, ptr noundef nonnull align 4 dereferenceable(24) %2, i64 24, i1 false)
   br label %46
 
 46:                                               ; preds = %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$7reserve17hc5e01094747b5b80E.exit", %35
-  %storemerge = phi i64 [ 0, %35 ], [ 1, %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$7reserve17hc5e01094747b5b80E.exit" ]
+  %.sink = phi i64 [ 24, %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$7reserve17hc5e01094747b5b80E.exit" ], [ 28, %35 ]
+  %storemerge = phi i64 [ 1, %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$7reserve17hc5e01094747b5b80E.exit" ], [ 0, %35 ]
+  %.sroa.5.0..sroa_idx7 = getelementptr inbounds i8, ptr %0, i64 %.sink
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(24) %.sroa.5.0..sroa_idx7, ptr noundef nonnull align 4 dereferenceable(24) %2, i64 24, i1 false)
   store i64 %storemerge, ptr %0, align 8
   ret void
 }

@@ -990,7 +990,7 @@ define dso_local void @ida_free(ptr noundef %0, i32 noundef %1) #0 align 16 {
   %9 = and i32 %1, 1023
   %10 = icmp slt i32 %1, 0
   call void @llvm.memset.p0.i64(ptr noundef align 8 dereferenceable(24) %8, i8 0, i64 24, i1 false)
-  br i1 %10, label %50, label %11
+  br i1 %10, label %48, label %11
 
 11:                                               ; preds = %2
   %12 = getelementptr inbounds i8, ptr %3, i64 16
@@ -1000,7 +1000,7 @@ define dso_local void @ida_free(ptr noundef %0, i32 noundef %1) #0 align 16 {
   %15 = ptrtoint ptr %14 to i64
   %16 = and i64 %15, 1
   %17 = icmp eq i64 %16, 0
-  br i1 %17, label %34, label %18
+  br i1 %17, label %33, label %18
 
 18:                                               ; preds = %11
   %19 = lshr i64 %15, 1
@@ -1018,59 +1018,59 @@ define dso_local void @ida_free(ptr noundef %0, i32 noundef %1) #0 align 16 {
   %27 = xor i64 %23, -1
   %28 = and i64 %19, %27
   %29 = icmp eq i64 %28, 0
-  br i1 %29, label %45, label %.thread4
+  br i1 %29, label %.sink.split, label %.thread4
 
 .thread4:                                         ; preds = %26
   %30 = shl nuw i64 %28, 1
   %31 = or disjoint i64 %30, 1
   %32 = inttoptr i64 %31 to ptr
-  %33 = call ptr @xas_store(ptr noundef nonnull %3, ptr noundef nonnull %32) #7
-  br label %47
+  br label %.sink.split
 
-34:                                               ; preds = %11
-  %35 = icmp eq ptr %14, null
-  br i1 %35, label %.thread, label %36
+33:                                               ; preds = %11
+  %34 = icmp eq ptr %14, null
+  br i1 %34, label %.thread, label %35
 
-36:                                               ; preds = %34
-  %37 = zext nneg i32 %9 to i64
-  %38 = call i8 asm sideeffect " btq  $2,$1\0A\09/* output condition code c*/\0A", "={@ccc},*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %14, i64 %37) #7, !srcloc !29
-  %39 = icmp ult i8 %38, 2
-  call void @llvm.assume(i1 %39)
-  %40 = icmp eq i8 %38, 0
-  br i1 %40, label %.thread, label %41
+35:                                               ; preds = %33
+  %36 = zext nneg i32 %9 to i64
+  %37 = call i8 asm sideeffect " btq  $2,$1\0A\09/* output condition code c*/\0A", "={@ccc},*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %14, i64 %36) #7, !srcloc !29
+  %38 = icmp ult i8 %37, 2
+  call void @llvm.assume(i1 %38)
+  %39 = icmp eq i8 %37, 0
+  br i1 %39, label %.thread, label %40
 
-41:                                               ; preds = %36
-  call void asm sideeffect " btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %14, i64 %37) #7, !srcloc !30
+40:                                               ; preds = %35
+  call void asm sideeffect " btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %14, i64 %36) #7, !srcloc !30
   call void @xas_set_mark(ptr noundef nonnull %3, i32 noundef 0) #7
-  %42 = call i64 @_find_first_bit(ptr noundef nonnull %14, i64 noundef 1024) #7
-  %43 = icmp eq i64 %42, 1024
-  br i1 %43, label %44, label %47
+  %41 = call i64 @_find_first_bit(ptr noundef nonnull %14, i64 noundef 1024) #7
+  %42 = icmp eq i64 %41, 1024
+  br i1 %42, label %43, label %45
 
-44:                                               ; preds = %41
+43:                                               ; preds = %40
   call void @kfree(ptr noundef nonnull %14) #7
+  br label %.sink.split
+
+.sink.split:                                      ; preds = %43, %26, %.thread4
+  %.sink = phi ptr [ %32, %.thread4 ], [ null, %26 ], [ null, %43 ]
+  %44 = call ptr @xas_store(ptr noundef nonnull %3, ptr noundef %.sink) #7
   br label %45
 
-45:                                               ; preds = %26, %44
-  %46 = call ptr @xas_store(ptr noundef nonnull %3, ptr noundef null) #7
-  br label %47
+45:                                               ; preds = %.sink.split, %40
+  %46 = load ptr, ptr %3, align 8
+  call void @_raw_spin_unlock_irqrestore(ptr noundef %46, i64 noundef %13) #7
+  br label %48
 
-47:                                               ; preds = %.thread4, %45, %41
-  %48 = load ptr, ptr %3, align 8
-  call void @_raw_spin_unlock_irqrestore(ptr noundef %48, i64 noundef %13) #7
-  br label %50
-
-.thread:                                          ; preds = %21, %18, %36, %34
-  %49 = load ptr, ptr %3, align 8
-  call void @_raw_spin_unlock_irqrestore(ptr noundef %49, i64 noundef %13) #7
+.thread:                                          ; preds = %21, %18, %35, %33
+  %47 = load ptr, ptr %3, align 8
+  call void @_raw_spin_unlock_irqrestore(ptr noundef %47, i64 noundef %13) #7
   call void asm sideeffect "190: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 190b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 190) #7, !srcloc !31
   call void (ptr, ...) @__warn_printk(ptr noundef nonnull @.str.1, i32 noundef %1) #7
   call void asm sideeffect "191: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 191b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 191) #7, !srcloc !32
   call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str, i32 525, i32 2313, i64 12) #7, !srcloc !33
   call void asm sideeffect "192: nop\0A\09.pushsection .discard.instr_end\0A\09.long 192b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 192) #7, !srcloc !34
   call void asm sideeffect "193: nop\0A\09.pushsection .discard.instr_end\0A\09.long 193b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 193) #7, !srcloc !35
-  br label %50
+  br label %48
 
-50:                                               ; preds = %.thread, %47, %2
+48:                                               ; preds = %.thread, %45, %2
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %3) #7
   ret void
 }

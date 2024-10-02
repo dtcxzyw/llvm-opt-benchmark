@@ -1481,29 +1481,20 @@ entry:
 dynamic_cast.end:                                 ; preds = %entry
   %1 = tail call ptr @__dynamic_cast(ptr nonnull %fmt, ptr nonnull @_ZTIN6icu_7510DateFormatE, ptr nonnull @_ZTIN6icu_7516SimpleDateFormatE, i64 0) #7
   %cmp.not = icmp eq ptr %1, null
-  br i1 %cmp.not, label %dynamic_cast.end3, label %if.then
-
-if.then:                                          ; preds = %dynamic_cast.end
-  %vtable = load ptr, ptr %1, align 8
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 272
-  %2 = load ptr, ptr %vfn, align 8
-  %call = tail call noundef ptr %2(ptr noundef nonnull align 8 dereferenceable(832) %1)
-  br label %if.end10
+  br i1 %cmp.not, label %dynamic_cast.end3, label %if.end10
 
 dynamic_cast.end3:                                ; preds = %dynamic_cast.end
-  %3 = tail call ptr @__dynamic_cast(ptr nonnull %fmt, ptr nonnull @_ZTIN6icu_7510DateFormatE, ptr nonnull @_ZTIN6icu_7518RelativeDateFormatE, i64 0) #7
-  %cmp4.not = icmp eq ptr %3, null
-  br i1 %cmp4.not, label %return, label %if.then5
+  %2 = tail call ptr @__dynamic_cast(ptr nonnull %fmt, ptr nonnull @_ZTIN6icu_7510DateFormatE, ptr nonnull @_ZTIN6icu_7518RelativeDateFormatE, i64 0) #7
+  %cmp4.not = icmp eq ptr %2, null
+  br i1 %cmp4.not, label %return, label %if.end10
 
-if.then5:                                         ; preds = %dynamic_cast.end3
-  %vtable6 = load ptr, ptr %3, align 8
-  %vfn7 = getelementptr inbounds i8, ptr %vtable6, i64 264
-  %4 = load ptr, ptr %vfn7, align 8
-  %call8 = tail call noundef ptr %4(ptr noundef nonnull align 8 dereferenceable(760) %3)
-  br label %if.end10
-
-if.end10:                                         ; preds = %if.then5, %if.then
-  %syms.0 = phi ptr [ %call, %if.then ], [ %call8, %if.then5 ]
+if.end10:                                         ; preds = %dynamic_cast.end3, %dynamic_cast.end
+  %.sink47 = phi ptr [ %1, %dynamic_cast.end ], [ %2, %dynamic_cast.end3 ]
+  %.sink46 = phi i64 [ 272, %dynamic_cast.end ], [ 264, %dynamic_cast.end3 ]
+  %vtable6 = load ptr, ptr %.sink47, align 8
+  %vfn7 = getelementptr inbounds i8, ptr %vtable6, i64 %.sink46
+  %3 = load ptr, ptr %vfn7, align 8
+  %call8 = tail call noundef ptr %3(ptr noundef nonnull align 8 dereferenceable(760) %.sink47)
   store i32 0, ptr %count, align 4
   switch i32 %type, label %sw.epilog [
     i32 0, label %sw.bb
@@ -1539,31 +1530,31 @@ if.end10:                                         ; preds = %if.then5, %if.then
   ]
 
 sw.bb:                                            ; preds = %if.end10
-  %call11 = call noundef ptr @_ZNK6icu_7517DateFormatSymbols7getErasERi(ptr noundef nonnull align 8 dereferenceable(1272) %syms.0, ptr noundef nonnull align 4 dereferenceable(4) %count)
+  %call11 = call noundef ptr @_ZNK6icu_7517DateFormatSymbols7getErasERi(ptr noundef nonnull align 8 dereferenceable(1272) %call8, ptr noundef nonnull align 4 dereferenceable(4) %count)
   br label %sw.epilog
 
 sw.bb12:                                          ; preds = %if.end10
-  %call13 = call noundef ptr @_ZNK6icu_7517DateFormatSymbols11getEraNamesERi(ptr noundef nonnull align 8 dereferenceable(1272) %syms.0, ptr noundef nonnull align 4 dereferenceable(4) %count)
+  %call13 = call noundef ptr @_ZNK6icu_7517DateFormatSymbols11getEraNamesERi(ptr noundef nonnull align 8 dereferenceable(1272) %call8, ptr noundef nonnull align 4 dereferenceable(4) %count)
   br label %sw.epilog
 
 sw.bb14:                                          ; preds = %if.end10
-  %call15 = call noundef ptr @_ZNK6icu_7517DateFormatSymbols9getMonthsERi(ptr noundef nonnull align 8 dereferenceable(1272) %syms.0, ptr noundef nonnull align 4 dereferenceable(4) %count)
+  %call15 = call noundef ptr @_ZNK6icu_7517DateFormatSymbols9getMonthsERi(ptr noundef nonnull align 8 dereferenceable(1272) %call8, ptr noundef nonnull align 4 dereferenceable(4) %count)
   br label %sw.epilog
 
 sw.bb16:                                          ; preds = %if.end10
-  %call17 = call noundef ptr @_ZNK6icu_7517DateFormatSymbols14getShortMonthsERi(ptr noundef nonnull align 8 dereferenceable(1272) %syms.0, ptr noundef nonnull align 4 dereferenceable(4) %count)
+  %call17 = call noundef ptr @_ZNK6icu_7517DateFormatSymbols14getShortMonthsERi(ptr noundef nonnull align 8 dereferenceable(1272) %call8, ptr noundef nonnull align 4 dereferenceable(4) %count)
   br label %sw.epilog
 
 sw.bb18:                                          ; preds = %if.end10
-  %call19 = call noundef ptr @_ZNK6icu_7517DateFormatSymbols11getWeekdaysERi(ptr noundef nonnull align 8 dereferenceable(1272) %syms.0, ptr noundef nonnull align 4 dereferenceable(4) %count)
+  %call19 = call noundef ptr @_ZNK6icu_7517DateFormatSymbols11getWeekdaysERi(ptr noundef nonnull align 8 dereferenceable(1272) %call8, ptr noundef nonnull align 4 dereferenceable(4) %count)
   br label %sw.epilog
 
 sw.bb20:                                          ; preds = %if.end10
-  %call21 = call noundef ptr @_ZNK6icu_7517DateFormatSymbols16getShortWeekdaysERi(ptr noundef nonnull align 8 dereferenceable(1272) %syms.0, ptr noundef nonnull align 4 dereferenceable(4) %count)
+  %call21 = call noundef ptr @_ZNK6icu_7517DateFormatSymbols16getShortWeekdaysERi(ptr noundef nonnull align 8 dereferenceable(1272) %call8, ptr noundef nonnull align 4 dereferenceable(4) %count)
   br label %sw.epilog
 
 sw.bb22:                                          ; preds = %if.end10
-  %call23 = call noundef ptr @_ZNK6icu_7517DateFormatSymbols14getAmPmStringsERi(ptr noundef nonnull align 8 dereferenceable(1272) %syms.0, ptr noundef nonnull align 4 dereferenceable(4) %count)
+  %call23 = call noundef ptr @_ZNK6icu_7517DateFormatSymbols14getAmPmStringsERi(ptr noundef nonnull align 8 dereferenceable(1272) %call8, ptr noundef nonnull align 4 dereferenceable(4) %count)
   br label %sw.epilog
 
 sw.bb24:                                          ; preds = %if.end10
@@ -1580,12 +1571,12 @@ if.then27:                                        ; preds = %sw.bb24
           to label %if.end29 unwind label %lpad
 
 lpad:                                             ; preds = %if.end29, %if.then27
-  %5 = landingpad { ptr, i32 }
+  %4 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup
 
 if.end29:                                         ; preds = %if.then27, %sw.bb24
-  %call31 = invoke noundef nonnull align 8 dereferenceable(64) ptr @_ZNK6icu_7517DateFormatSymbols20getLocalPatternCharsERNS_13UnicodeStringE(ptr noundef nonnull align 8 dereferenceable(1272) %syms.0, ptr noundef nonnull align 8 dereferenceable(64) %res1)
+  %call31 = invoke noundef nonnull align 8 dereferenceable(64) ptr @_ZNK6icu_7517DateFormatSymbols20getLocalPatternCharsERNS_13UnicodeStringE(ptr noundef nonnull align 8 dereferenceable(1272) %call8, ptr noundef nonnull align 8 dereferenceable(64) %res1)
           to label %invoke.cont30 unwind label %lpad
 
 invoke.cont30:                                    ; preds = %if.end29
@@ -1594,115 +1585,115 @@ invoke.cont30:                                    ; preds = %if.end29
           to label %invoke.cont34 unwind label %lpad33
 
 invoke.cont34:                                    ; preds = %invoke.cont30
-  %6 = load ptr, ptr %agg.tmp, align 8
-  call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %6) #7, !srcloc !5
+  %5 = load ptr, ptr %agg.tmp, align 8
+  call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %5) #7, !srcloc !5
   call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %res1) #7
   br label %return
 
 lpad33:                                           ; preds = %invoke.cont30
-  %7 = landingpad { ptr, i32 }
+  %6 = landingpad { ptr, i32 }
           cleanup
-  %8 = load ptr, ptr %agg.tmp, align 8
-  call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %8) #7, !srcloc !5
+  %7 = load ptr, ptr %agg.tmp, align 8
+  call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %7) #7, !srcloc !5
   br label %ehcleanup
 
 ehcleanup:                                        ; preds = %lpad33, %lpad
-  %.pn = phi { ptr, i32 } [ %7, %lpad33 ], [ %5, %lpad ]
+  %.pn = phi { ptr, i32 } [ %6, %lpad33 ], [ %4, %lpad ]
   call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %res1) #7
   br label %eh.resume
 
 sw.bb36:                                          ; preds = %if.end10
-  %call37 = call noundef ptr @_ZNK6icu_7517DateFormatSymbols9getMonthsERiNS0_13DtContextTypeENS0_11DtWidthTypeE(ptr noundef nonnull align 8 dereferenceable(1272) %syms.0, ptr noundef nonnull align 4 dereferenceable(4) %count, i32 noundef 0, i32 noundef 2)
+  %call37 = call noundef ptr @_ZNK6icu_7517DateFormatSymbols9getMonthsERiNS0_13DtContextTypeENS0_11DtWidthTypeE(ptr noundef nonnull align 8 dereferenceable(1272) %call8, ptr noundef nonnull align 4 dereferenceable(4) %count, i32 noundef 0, i32 noundef 2)
   br label %sw.epilog
 
 sw.bb38:                                          ; preds = %if.end10
-  %call39 = call noundef ptr @_ZNK6icu_7517DateFormatSymbols11getWeekdaysERiNS0_13DtContextTypeENS0_11DtWidthTypeE(ptr noundef nonnull align 8 dereferenceable(1272) %syms.0, ptr noundef nonnull align 4 dereferenceable(4) %count, i32 noundef 0, i32 noundef 3)
+  %call39 = call noundef ptr @_ZNK6icu_7517DateFormatSymbols11getWeekdaysERiNS0_13DtContextTypeENS0_11DtWidthTypeE(ptr noundef nonnull align 8 dereferenceable(1272) %call8, ptr noundef nonnull align 4 dereferenceable(4) %count, i32 noundef 0, i32 noundef 3)
   br label %sw.epilog
 
 sw.bb40:                                          ; preds = %if.end10
-  %call41 = call noundef ptr @_ZNK6icu_7517DateFormatSymbols11getWeekdaysERiNS0_13DtContextTypeENS0_11DtWidthTypeE(ptr noundef nonnull align 8 dereferenceable(1272) %syms.0, ptr noundef nonnull align 4 dereferenceable(4) %count, i32 noundef 0, i32 noundef 2)
+  %call41 = call noundef ptr @_ZNK6icu_7517DateFormatSymbols11getWeekdaysERiNS0_13DtContextTypeENS0_11DtWidthTypeE(ptr noundef nonnull align 8 dereferenceable(1272) %call8, ptr noundef nonnull align 4 dereferenceable(4) %count, i32 noundef 0, i32 noundef 2)
   br label %sw.epilog
 
 sw.bb42:                                          ; preds = %if.end10
-  %call43 = call noundef ptr @_ZNK6icu_7517DateFormatSymbols9getMonthsERiNS0_13DtContextTypeENS0_11DtWidthTypeE(ptr noundef nonnull align 8 dereferenceable(1272) %syms.0, ptr noundef nonnull align 4 dereferenceable(4) %count, i32 noundef 1, i32 noundef 1)
+  %call43 = call noundef ptr @_ZNK6icu_7517DateFormatSymbols9getMonthsERiNS0_13DtContextTypeENS0_11DtWidthTypeE(ptr noundef nonnull align 8 dereferenceable(1272) %call8, ptr noundef nonnull align 4 dereferenceable(4) %count, i32 noundef 1, i32 noundef 1)
   br label %sw.epilog
 
 sw.bb44:                                          ; preds = %if.end10
-  %call45 = call noundef ptr @_ZNK6icu_7517DateFormatSymbols9getMonthsERiNS0_13DtContextTypeENS0_11DtWidthTypeE(ptr noundef nonnull align 8 dereferenceable(1272) %syms.0, ptr noundef nonnull align 4 dereferenceable(4) %count, i32 noundef 1, i32 noundef 0)
+  %call45 = call noundef ptr @_ZNK6icu_7517DateFormatSymbols9getMonthsERiNS0_13DtContextTypeENS0_11DtWidthTypeE(ptr noundef nonnull align 8 dereferenceable(1272) %call8, ptr noundef nonnull align 4 dereferenceable(4) %count, i32 noundef 1, i32 noundef 0)
   br label %sw.epilog
 
 sw.bb46:                                          ; preds = %if.end10
-  %call47 = call noundef ptr @_ZNK6icu_7517DateFormatSymbols9getMonthsERiNS0_13DtContextTypeENS0_11DtWidthTypeE(ptr noundef nonnull align 8 dereferenceable(1272) %syms.0, ptr noundef nonnull align 4 dereferenceable(4) %count, i32 noundef 1, i32 noundef 2)
+  %call47 = call noundef ptr @_ZNK6icu_7517DateFormatSymbols9getMonthsERiNS0_13DtContextTypeENS0_11DtWidthTypeE(ptr noundef nonnull align 8 dereferenceable(1272) %call8, ptr noundef nonnull align 4 dereferenceable(4) %count, i32 noundef 1, i32 noundef 2)
   br label %sw.epilog
 
 sw.bb48:                                          ; preds = %if.end10
-  %call49 = call noundef ptr @_ZNK6icu_7517DateFormatSymbols11getWeekdaysERiNS0_13DtContextTypeENS0_11DtWidthTypeE(ptr noundef nonnull align 8 dereferenceable(1272) %syms.0, ptr noundef nonnull align 4 dereferenceable(4) %count, i32 noundef 1, i32 noundef 1)
+  %call49 = call noundef ptr @_ZNK6icu_7517DateFormatSymbols11getWeekdaysERiNS0_13DtContextTypeENS0_11DtWidthTypeE(ptr noundef nonnull align 8 dereferenceable(1272) %call8, ptr noundef nonnull align 4 dereferenceable(4) %count, i32 noundef 1, i32 noundef 1)
   br label %sw.epilog
 
 sw.bb50:                                          ; preds = %if.end10
-  %call51 = call noundef ptr @_ZNK6icu_7517DateFormatSymbols11getWeekdaysERiNS0_13DtContextTypeENS0_11DtWidthTypeE(ptr noundef nonnull align 8 dereferenceable(1272) %syms.0, ptr noundef nonnull align 4 dereferenceable(4) %count, i32 noundef 1, i32 noundef 0)
+  %call51 = call noundef ptr @_ZNK6icu_7517DateFormatSymbols11getWeekdaysERiNS0_13DtContextTypeENS0_11DtWidthTypeE(ptr noundef nonnull align 8 dereferenceable(1272) %call8, ptr noundef nonnull align 4 dereferenceable(4) %count, i32 noundef 1, i32 noundef 0)
   br label %sw.epilog
 
 sw.bb52:                                          ; preds = %if.end10
-  %call53 = call noundef ptr @_ZNK6icu_7517DateFormatSymbols11getWeekdaysERiNS0_13DtContextTypeENS0_11DtWidthTypeE(ptr noundef nonnull align 8 dereferenceable(1272) %syms.0, ptr noundef nonnull align 4 dereferenceable(4) %count, i32 noundef 1, i32 noundef 3)
+  %call53 = call noundef ptr @_ZNK6icu_7517DateFormatSymbols11getWeekdaysERiNS0_13DtContextTypeENS0_11DtWidthTypeE(ptr noundef nonnull align 8 dereferenceable(1272) %call8, ptr noundef nonnull align 4 dereferenceable(4) %count, i32 noundef 1, i32 noundef 3)
   br label %sw.epilog
 
 sw.bb54:                                          ; preds = %if.end10
-  %call55 = call noundef ptr @_ZNK6icu_7517DateFormatSymbols11getWeekdaysERiNS0_13DtContextTypeENS0_11DtWidthTypeE(ptr noundef nonnull align 8 dereferenceable(1272) %syms.0, ptr noundef nonnull align 4 dereferenceable(4) %count, i32 noundef 1, i32 noundef 2)
+  %call55 = call noundef ptr @_ZNK6icu_7517DateFormatSymbols11getWeekdaysERiNS0_13DtContextTypeENS0_11DtWidthTypeE(ptr noundef nonnull align 8 dereferenceable(1272) %call8, ptr noundef nonnull align 4 dereferenceable(4) %count, i32 noundef 1, i32 noundef 2)
   br label %sw.epilog
 
 sw.bb56:                                          ; preds = %if.end10
-  %call57 = call noundef ptr @_ZNK6icu_7517DateFormatSymbols11getQuartersERiNS0_13DtContextTypeENS0_11DtWidthTypeE(ptr noundef nonnull align 8 dereferenceable(1272) %syms.0, ptr noundef nonnull align 4 dereferenceable(4) %count, i32 noundef 0, i32 noundef 1)
+  %call57 = call noundef ptr @_ZNK6icu_7517DateFormatSymbols11getQuartersERiNS0_13DtContextTypeENS0_11DtWidthTypeE(ptr noundef nonnull align 8 dereferenceable(1272) %call8, ptr noundef nonnull align 4 dereferenceable(4) %count, i32 noundef 0, i32 noundef 1)
   br label %sw.epilog
 
 sw.bb58:                                          ; preds = %if.end10
-  %call59 = call noundef ptr @_ZNK6icu_7517DateFormatSymbols11getQuartersERiNS0_13DtContextTypeENS0_11DtWidthTypeE(ptr noundef nonnull align 8 dereferenceable(1272) %syms.0, ptr noundef nonnull align 4 dereferenceable(4) %count, i32 noundef 0, i32 noundef 0)
+  %call59 = call noundef ptr @_ZNK6icu_7517DateFormatSymbols11getQuartersERiNS0_13DtContextTypeENS0_11DtWidthTypeE(ptr noundef nonnull align 8 dereferenceable(1272) %call8, ptr noundef nonnull align 4 dereferenceable(4) %count, i32 noundef 0, i32 noundef 0)
   br label %sw.epilog
 
 sw.bb60:                                          ; preds = %if.end10
-  %call61 = call noundef ptr @_ZNK6icu_7517DateFormatSymbols11getQuartersERiNS0_13DtContextTypeENS0_11DtWidthTypeE(ptr noundef nonnull align 8 dereferenceable(1272) %syms.0, ptr noundef nonnull align 4 dereferenceable(4) %count, i32 noundef 0, i32 noundef 2)
+  %call61 = call noundef ptr @_ZNK6icu_7517DateFormatSymbols11getQuartersERiNS0_13DtContextTypeENS0_11DtWidthTypeE(ptr noundef nonnull align 8 dereferenceable(1272) %call8, ptr noundef nonnull align 4 dereferenceable(4) %count, i32 noundef 0, i32 noundef 2)
   br label %sw.epilog
 
 sw.bb62:                                          ; preds = %if.end10
-  %call63 = call noundef ptr @_ZNK6icu_7517DateFormatSymbols11getQuartersERiNS0_13DtContextTypeENS0_11DtWidthTypeE(ptr noundef nonnull align 8 dereferenceable(1272) %syms.0, ptr noundef nonnull align 4 dereferenceable(4) %count, i32 noundef 1, i32 noundef 1)
+  %call63 = call noundef ptr @_ZNK6icu_7517DateFormatSymbols11getQuartersERiNS0_13DtContextTypeENS0_11DtWidthTypeE(ptr noundef nonnull align 8 dereferenceable(1272) %call8, ptr noundef nonnull align 4 dereferenceable(4) %count, i32 noundef 1, i32 noundef 1)
   br label %sw.epilog
 
 sw.bb64:                                          ; preds = %if.end10
-  %call65 = call noundef ptr @_ZNK6icu_7517DateFormatSymbols11getQuartersERiNS0_13DtContextTypeENS0_11DtWidthTypeE(ptr noundef nonnull align 8 dereferenceable(1272) %syms.0, ptr noundef nonnull align 4 dereferenceable(4) %count, i32 noundef 1, i32 noundef 0)
+  %call65 = call noundef ptr @_ZNK6icu_7517DateFormatSymbols11getQuartersERiNS0_13DtContextTypeENS0_11DtWidthTypeE(ptr noundef nonnull align 8 dereferenceable(1272) %call8, ptr noundef nonnull align 4 dereferenceable(4) %count, i32 noundef 1, i32 noundef 0)
   br label %sw.epilog
 
 sw.bb66:                                          ; preds = %if.end10
-  %call67 = call noundef ptr @_ZNK6icu_7517DateFormatSymbols11getQuartersERiNS0_13DtContextTypeENS0_11DtWidthTypeE(ptr noundef nonnull align 8 dereferenceable(1272) %syms.0, ptr noundef nonnull align 4 dereferenceable(4) %count, i32 noundef 1, i32 noundef 2)
+  %call67 = call noundef ptr @_ZNK6icu_7517DateFormatSymbols11getQuartersERiNS0_13DtContextTypeENS0_11DtWidthTypeE(ptr noundef nonnull align 8 dereferenceable(1272) %call8, ptr noundef nonnull align 4 dereferenceable(4) %count, i32 noundef 1, i32 noundef 2)
   br label %sw.epilog
 
 sw.bb68:                                          ; preds = %if.end10
-  %call69 = call noundef ptr @_ZNK6icu_7517DateFormatSymbols12getYearNamesERiNS0_13DtContextTypeENS0_11DtWidthTypeE(ptr noundef nonnull align 8 dereferenceable(1272) %syms.0, ptr noundef nonnull align 4 dereferenceable(4) %count, i32 noundef 0, i32 noundef 1)
+  %call69 = call noundef ptr @_ZNK6icu_7517DateFormatSymbols12getYearNamesERiNS0_13DtContextTypeENS0_11DtWidthTypeE(ptr noundef nonnull align 8 dereferenceable(1272) %call8, ptr noundef nonnull align 4 dereferenceable(4) %count, i32 noundef 0, i32 noundef 1)
   br label %sw.epilog
 
 sw.bb70:                                          ; preds = %if.end10
-  %call71 = call noundef ptr @_ZNK6icu_7517DateFormatSymbols12getYearNamesERiNS0_13DtContextTypeENS0_11DtWidthTypeE(ptr noundef nonnull align 8 dereferenceable(1272) %syms.0, ptr noundef nonnull align 4 dereferenceable(4) %count, i32 noundef 0, i32 noundef 0)
+  %call71 = call noundef ptr @_ZNK6icu_7517DateFormatSymbols12getYearNamesERiNS0_13DtContextTypeENS0_11DtWidthTypeE(ptr noundef nonnull align 8 dereferenceable(1272) %call8, ptr noundef nonnull align 4 dereferenceable(4) %count, i32 noundef 0, i32 noundef 0)
   br label %sw.epilog
 
 sw.bb72:                                          ; preds = %if.end10
-  %call73 = call noundef ptr @_ZNK6icu_7517DateFormatSymbols12getYearNamesERiNS0_13DtContextTypeENS0_11DtWidthTypeE(ptr noundef nonnull align 8 dereferenceable(1272) %syms.0, ptr noundef nonnull align 4 dereferenceable(4) %count, i32 noundef 0, i32 noundef 2)
+  %call73 = call noundef ptr @_ZNK6icu_7517DateFormatSymbols12getYearNamesERiNS0_13DtContextTypeENS0_11DtWidthTypeE(ptr noundef nonnull align 8 dereferenceable(1272) %call8, ptr noundef nonnull align 4 dereferenceable(4) %count, i32 noundef 0, i32 noundef 2)
   br label %sw.epilog
 
 sw.bb74:                                          ; preds = %if.end10
-  %call75 = call noundef ptr @_ZNK6icu_7517DateFormatSymbols14getZodiacNamesERiNS0_13DtContextTypeENS0_11DtWidthTypeE(ptr noundef nonnull align 8 dereferenceable(1272) %syms.0, ptr noundef nonnull align 4 dereferenceable(4) %count, i32 noundef 0, i32 noundef 1)
+  %call75 = call noundef ptr @_ZNK6icu_7517DateFormatSymbols14getZodiacNamesERiNS0_13DtContextTypeENS0_11DtWidthTypeE(ptr noundef nonnull align 8 dereferenceable(1272) %call8, ptr noundef nonnull align 4 dereferenceable(4) %count, i32 noundef 0, i32 noundef 1)
   br label %sw.epilog
 
 sw.bb76:                                          ; preds = %if.end10
-  %call77 = call noundef ptr @_ZNK6icu_7517DateFormatSymbols14getZodiacNamesERiNS0_13DtContextTypeENS0_11DtWidthTypeE(ptr noundef nonnull align 8 dereferenceable(1272) %syms.0, ptr noundef nonnull align 4 dereferenceable(4) %count, i32 noundef 0, i32 noundef 0)
+  %call77 = call noundef ptr @_ZNK6icu_7517DateFormatSymbols14getZodiacNamesERiNS0_13DtContextTypeENS0_11DtWidthTypeE(ptr noundef nonnull align 8 dereferenceable(1272) %call8, ptr noundef nonnull align 4 dereferenceable(4) %count, i32 noundef 0, i32 noundef 0)
   br label %sw.epilog
 
 sw.bb78:                                          ; preds = %if.end10
-  %call79 = call noundef ptr @_ZNK6icu_7517DateFormatSymbols14getZodiacNamesERiNS0_13DtContextTypeENS0_11DtWidthTypeE(ptr noundef nonnull align 8 dereferenceable(1272) %syms.0, ptr noundef nonnull align 4 dereferenceable(4) %count, i32 noundef 0, i32 noundef 2)
+  %call79 = call noundef ptr @_ZNK6icu_7517DateFormatSymbols14getZodiacNamesERiNS0_13DtContextTypeENS0_11DtWidthTypeE(ptr noundef nonnull align 8 dereferenceable(1272) %call8, ptr noundef nonnull align 4 dereferenceable(4) %count, i32 noundef 0, i32 noundef 2)
   br label %sw.epilog
 
 sw.epilog:                                        ; preds = %sw.bb78, %sw.bb76, %sw.bb74, %sw.bb72, %sw.bb70, %sw.bb68, %sw.bb66, %sw.bb64, %sw.bb62, %sw.bb60, %sw.bb58, %sw.bb56, %sw.bb54, %sw.bb52, %sw.bb50, %sw.bb48, %sw.bb46, %sw.bb44, %sw.bb42, %sw.bb40, %sw.bb38, %sw.bb36, %sw.bb22, %sw.bb20, %sw.bb18, %sw.bb16, %sw.bb14, %sw.bb12, %sw.bb, %if.end10
   %res.0 = phi ptr [ null, %if.end10 ], [ %call79, %sw.bb78 ], [ %call77, %sw.bb76 ], [ %call75, %sw.bb74 ], [ %call73, %sw.bb72 ], [ %call71, %sw.bb70 ], [ %call69, %sw.bb68 ], [ %call67, %sw.bb66 ], [ %call65, %sw.bb64 ], [ %call63, %sw.bb62 ], [ %call61, %sw.bb60 ], [ %call59, %sw.bb58 ], [ %call57, %sw.bb56 ], [ %call55, %sw.bb54 ], [ %call53, %sw.bb52 ], [ %call51, %sw.bb50 ], [ %call49, %sw.bb48 ], [ %call47, %sw.bb46 ], [ %call45, %sw.bb44 ], [ %call43, %sw.bb42 ], [ %call41, %sw.bb40 ], [ %call39, %sw.bb38 ], [ %call37, %sw.bb36 ], [ %call23, %sw.bb22 ], [ %call21, %sw.bb20 ], [ %call19, %sw.bb18 ], [ %call17, %sw.bb16 ], [ %call15, %sw.bb14 ], [ %call13, %sw.bb12 ], [ %call11, %sw.bb ]
-  %9 = load i32, ptr %count, align 4
-  %cmp80 = icmp slt i32 %index, %9
+  %8 = load i32, ptr %count, align 4
+  %cmp80 = icmp slt i32 %index, %8
   br i1 %cmp80, label %if.then81, label %return
 
 if.then81:                                        ; preds = %sw.epilog
@@ -1713,15 +1704,15 @@ if.then81:                                        ; preds = %sw.epilog
           to label %invoke.cont84 unwind label %lpad83
 
 invoke.cont84:                                    ; preds = %if.then81
-  %10 = load ptr, ptr %agg.tmp82, align 8
-  call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %10) #7, !srcloc !5
+  %9 = load ptr, ptr %agg.tmp82, align 8
+  call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %9) #7, !srcloc !5
   br label %return
 
 lpad83:                                           ; preds = %if.then81
-  %11 = landingpad { ptr, i32 }
+  %10 = landingpad { ptr, i32 }
           cleanup
-  %12 = load ptr, ptr %agg.tmp82, align 8
-  call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %12) #7, !srcloc !5
+  %11 = load ptr, ptr %agg.tmp82, align 8
+  call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %11) #7, !srcloc !5
   br label %eh.resume
 
 return:                                           ; preds = %entry, %sw.epilog, %dynamic_cast.end3, %invoke.cont84, %invoke.cont34
@@ -1729,7 +1720,7 @@ return:                                           ; preds = %entry, %sw.epilog, 
   ret i32 %retval.0
 
 eh.resume:                                        ; preds = %lpad83, %ehcleanup
-  %.pn41 = phi { ptr, i32 } [ %11, %lpad83 ], [ %.pn, %ehcleanup ]
+  %.pn41 = phi { ptr, i32 } [ %10, %lpad83 ], [ %.pn, %ehcleanup ]
   resume { ptr, i32 } %.pn41
 }
 
@@ -1769,29 +1760,20 @@ entry:
 dynamic_cast.end:                                 ; preds = %entry
   %1 = tail call ptr @__dynamic_cast(ptr nonnull %fmt, ptr nonnull @_ZTIN6icu_7510DateFormatE, ptr nonnull @_ZTIN6icu_7516SimpleDateFormatE, i64 0) #7
   %cmp.not = icmp eq ptr %1, null
-  br i1 %cmp.not, label %dynamic_cast.end3, label %if.then
-
-if.then:                                          ; preds = %dynamic_cast.end
-  %vtable = load ptr, ptr %1, align 8
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 272
-  %2 = load ptr, ptr %vfn, align 8
-  %call = tail call noundef ptr %2(ptr noundef nonnull align 8 dereferenceable(832) %1)
-  br label %if.end10
+  br i1 %cmp.not, label %dynamic_cast.end3, label %if.end10
 
 dynamic_cast.end3:                                ; preds = %dynamic_cast.end
-  %3 = tail call ptr @__dynamic_cast(ptr nonnull %fmt, ptr nonnull @_ZTIN6icu_7510DateFormatE, ptr nonnull @_ZTIN6icu_7518RelativeDateFormatE, i64 0) #7
-  %cmp4.not = icmp eq ptr %3, null
-  br i1 %cmp4.not, label %return, label %if.then5
+  %2 = tail call ptr @__dynamic_cast(ptr nonnull %fmt, ptr nonnull @_ZTIN6icu_7510DateFormatE, ptr nonnull @_ZTIN6icu_7518RelativeDateFormatE, i64 0) #7
+  %cmp4.not = icmp eq ptr %2, null
+  br i1 %cmp4.not, label %return, label %if.end10
 
-if.then5:                                         ; preds = %dynamic_cast.end3
-  %vtable6 = load ptr, ptr %3, align 8
-  %vfn7 = getelementptr inbounds i8, ptr %vtable6, i64 264
-  %4 = load ptr, ptr %vfn7, align 8
-  %call8 = tail call noundef ptr %4(ptr noundef nonnull align 8 dereferenceable(760) %3)
-  br label %if.end10
-
-if.end10:                                         ; preds = %if.then5, %if.then
-  %syms.0 = phi ptr [ %call, %if.then ], [ %call8, %if.then5 ]
+if.end10:                                         ; preds = %dynamic_cast.end3, %dynamic_cast.end
+  %.sink35 = phi ptr [ %1, %dynamic_cast.end ], [ %2, %dynamic_cast.end3 ]
+  %.sink34 = phi i64 [ 272, %dynamic_cast.end ], [ 264, %dynamic_cast.end3 ]
+  %vtable6 = load ptr, ptr %.sink35, align 8
+  %vfn7 = getelementptr inbounds i8, ptr %vtable6, i64 %.sink34
+  %3 = load ptr, ptr %vfn7, align 8
+  %call8 = tail call noundef ptr %3(ptr noundef nonnull align 8 dereferenceable(760) %.sink35)
   store i32 0, ptr %count, align 4
   switch i32 %type, label %sw.epilog [
     i32 0, label %sw.bb
@@ -1827,27 +1809,27 @@ if.end10:                                         ; preds = %if.then5, %if.then
   ]
 
 sw.bb:                                            ; preds = %if.end10
-  %call11 = call noundef ptr @_ZNK6icu_7517DateFormatSymbols7getErasERi(ptr noundef nonnull align 8 dereferenceable(1272) %syms.0, ptr noundef nonnull align 4 dereferenceable(4) %count)
+  %call11 = call noundef ptr @_ZNK6icu_7517DateFormatSymbols7getErasERi(ptr noundef nonnull align 8 dereferenceable(1272) %call8, ptr noundef nonnull align 4 dereferenceable(4) %count)
   br label %sw.epilog
 
 sw.bb12:                                          ; preds = %if.end10
-  %call13 = call noundef ptr @_ZNK6icu_7517DateFormatSymbols9getMonthsERi(ptr noundef nonnull align 8 dereferenceable(1272) %syms.0, ptr noundef nonnull align 4 dereferenceable(4) %count)
+  %call13 = call noundef ptr @_ZNK6icu_7517DateFormatSymbols9getMonthsERi(ptr noundef nonnull align 8 dereferenceable(1272) %call8, ptr noundef nonnull align 4 dereferenceable(4) %count)
   br label %sw.epilog
 
 sw.bb14:                                          ; preds = %if.end10
-  %call15 = call noundef ptr @_ZNK6icu_7517DateFormatSymbols14getShortMonthsERi(ptr noundef nonnull align 8 dereferenceable(1272) %syms.0, ptr noundef nonnull align 4 dereferenceable(4) %count)
+  %call15 = call noundef ptr @_ZNK6icu_7517DateFormatSymbols14getShortMonthsERi(ptr noundef nonnull align 8 dereferenceable(1272) %call8, ptr noundef nonnull align 4 dereferenceable(4) %count)
   br label %sw.epilog
 
 sw.bb16:                                          ; preds = %if.end10
-  %call17 = call noundef ptr @_ZNK6icu_7517DateFormatSymbols11getWeekdaysERi(ptr noundef nonnull align 8 dereferenceable(1272) %syms.0, ptr noundef nonnull align 4 dereferenceable(4) %count)
+  %call17 = call noundef ptr @_ZNK6icu_7517DateFormatSymbols11getWeekdaysERi(ptr noundef nonnull align 8 dereferenceable(1272) %call8, ptr noundef nonnull align 4 dereferenceable(4) %count)
   br label %sw.epilog
 
 sw.bb18:                                          ; preds = %if.end10
-  %call19 = call noundef ptr @_ZNK6icu_7517DateFormatSymbols16getShortWeekdaysERi(ptr noundef nonnull align 8 dereferenceable(1272) %syms.0, ptr noundef nonnull align 4 dereferenceable(4) %count)
+  %call19 = call noundef ptr @_ZNK6icu_7517DateFormatSymbols16getShortWeekdaysERi(ptr noundef nonnull align 8 dereferenceable(1272) %call8, ptr noundef nonnull align 4 dereferenceable(4) %count)
   br label %sw.epilog
 
 sw.bb20:                                          ; preds = %if.end10
-  %call21 = call noundef ptr @_ZNK6icu_7517DateFormatSymbols14getAmPmStringsERi(ptr noundef nonnull align 8 dereferenceable(1272) %syms.0, ptr noundef nonnull align 4 dereferenceable(4) %count)
+  %call21 = call noundef ptr @_ZNK6icu_7517DateFormatSymbols14getAmPmStringsERi(ptr noundef nonnull align 8 dereferenceable(1272) %call8, ptr noundef nonnull align 4 dereferenceable(4) %count)
   br label %sw.epilog
 
 sw.bb22:                                          ; preds = %if.end10
@@ -1855,103 +1837,103 @@ sw.bb22:                                          ; preds = %if.end10
   br label %sw.epilog
 
 sw.bb23:                                          ; preds = %if.end10
-  %call24 = call noundef ptr @_ZNK6icu_7517DateFormatSymbols11getEraNamesERi(ptr noundef nonnull align 8 dereferenceable(1272) %syms.0, ptr noundef nonnull align 4 dereferenceable(4) %count)
+  %call24 = call noundef ptr @_ZNK6icu_7517DateFormatSymbols11getEraNamesERi(ptr noundef nonnull align 8 dereferenceable(1272) %call8, ptr noundef nonnull align 4 dereferenceable(4) %count)
   br label %sw.epilog
 
 sw.bb25:                                          ; preds = %if.end10
-  %call26 = call noundef ptr @_ZNK6icu_7517DateFormatSymbols9getMonthsERiNS0_13DtContextTypeENS0_11DtWidthTypeE(ptr noundef nonnull align 8 dereferenceable(1272) %syms.0, ptr noundef nonnull align 4 dereferenceable(4) %count, i32 noundef 0, i32 noundef 2)
+  %call26 = call noundef ptr @_ZNK6icu_7517DateFormatSymbols9getMonthsERiNS0_13DtContextTypeENS0_11DtWidthTypeE(ptr noundef nonnull align 8 dereferenceable(1272) %call8, ptr noundef nonnull align 4 dereferenceable(4) %count, i32 noundef 0, i32 noundef 2)
   br label %sw.epilog
 
 sw.bb27:                                          ; preds = %if.end10
-  %call28 = call noundef ptr @_ZNK6icu_7517DateFormatSymbols11getWeekdaysERiNS0_13DtContextTypeENS0_11DtWidthTypeE(ptr noundef nonnull align 8 dereferenceable(1272) %syms.0, ptr noundef nonnull align 4 dereferenceable(4) %count, i32 noundef 0, i32 noundef 3)
+  %call28 = call noundef ptr @_ZNK6icu_7517DateFormatSymbols11getWeekdaysERiNS0_13DtContextTypeENS0_11DtWidthTypeE(ptr noundef nonnull align 8 dereferenceable(1272) %call8, ptr noundef nonnull align 4 dereferenceable(4) %count, i32 noundef 0, i32 noundef 3)
   br label %sw.epilog
 
 sw.bb29:                                          ; preds = %if.end10
-  %call30 = call noundef ptr @_ZNK6icu_7517DateFormatSymbols11getWeekdaysERiNS0_13DtContextTypeENS0_11DtWidthTypeE(ptr noundef nonnull align 8 dereferenceable(1272) %syms.0, ptr noundef nonnull align 4 dereferenceable(4) %count, i32 noundef 0, i32 noundef 2)
+  %call30 = call noundef ptr @_ZNK6icu_7517DateFormatSymbols11getWeekdaysERiNS0_13DtContextTypeENS0_11DtWidthTypeE(ptr noundef nonnull align 8 dereferenceable(1272) %call8, ptr noundef nonnull align 4 dereferenceable(4) %count, i32 noundef 0, i32 noundef 2)
   br label %sw.epilog
 
 sw.bb31:                                          ; preds = %if.end10
-  %call32 = call noundef ptr @_ZNK6icu_7517DateFormatSymbols9getMonthsERiNS0_13DtContextTypeENS0_11DtWidthTypeE(ptr noundef nonnull align 8 dereferenceable(1272) %syms.0, ptr noundef nonnull align 4 dereferenceable(4) %count, i32 noundef 1, i32 noundef 1)
+  %call32 = call noundef ptr @_ZNK6icu_7517DateFormatSymbols9getMonthsERiNS0_13DtContextTypeENS0_11DtWidthTypeE(ptr noundef nonnull align 8 dereferenceable(1272) %call8, ptr noundef nonnull align 4 dereferenceable(4) %count, i32 noundef 1, i32 noundef 1)
   br label %sw.epilog
 
 sw.bb33:                                          ; preds = %if.end10
-  %call34 = call noundef ptr @_ZNK6icu_7517DateFormatSymbols9getMonthsERiNS0_13DtContextTypeENS0_11DtWidthTypeE(ptr noundef nonnull align 8 dereferenceable(1272) %syms.0, ptr noundef nonnull align 4 dereferenceable(4) %count, i32 noundef 1, i32 noundef 0)
+  %call34 = call noundef ptr @_ZNK6icu_7517DateFormatSymbols9getMonthsERiNS0_13DtContextTypeENS0_11DtWidthTypeE(ptr noundef nonnull align 8 dereferenceable(1272) %call8, ptr noundef nonnull align 4 dereferenceable(4) %count, i32 noundef 1, i32 noundef 0)
   br label %sw.epilog
 
 sw.bb35:                                          ; preds = %if.end10
-  %call36 = call noundef ptr @_ZNK6icu_7517DateFormatSymbols9getMonthsERiNS0_13DtContextTypeENS0_11DtWidthTypeE(ptr noundef nonnull align 8 dereferenceable(1272) %syms.0, ptr noundef nonnull align 4 dereferenceable(4) %count, i32 noundef 1, i32 noundef 2)
+  %call36 = call noundef ptr @_ZNK6icu_7517DateFormatSymbols9getMonthsERiNS0_13DtContextTypeENS0_11DtWidthTypeE(ptr noundef nonnull align 8 dereferenceable(1272) %call8, ptr noundef nonnull align 4 dereferenceable(4) %count, i32 noundef 1, i32 noundef 2)
   br label %sw.epilog
 
 sw.bb37:                                          ; preds = %if.end10
-  %call38 = call noundef ptr @_ZNK6icu_7517DateFormatSymbols11getWeekdaysERiNS0_13DtContextTypeENS0_11DtWidthTypeE(ptr noundef nonnull align 8 dereferenceable(1272) %syms.0, ptr noundef nonnull align 4 dereferenceable(4) %count, i32 noundef 1, i32 noundef 1)
+  %call38 = call noundef ptr @_ZNK6icu_7517DateFormatSymbols11getWeekdaysERiNS0_13DtContextTypeENS0_11DtWidthTypeE(ptr noundef nonnull align 8 dereferenceable(1272) %call8, ptr noundef nonnull align 4 dereferenceable(4) %count, i32 noundef 1, i32 noundef 1)
   br label %sw.epilog
 
 sw.bb39:                                          ; preds = %if.end10
-  %call40 = call noundef ptr @_ZNK6icu_7517DateFormatSymbols11getWeekdaysERiNS0_13DtContextTypeENS0_11DtWidthTypeE(ptr noundef nonnull align 8 dereferenceable(1272) %syms.0, ptr noundef nonnull align 4 dereferenceable(4) %count, i32 noundef 1, i32 noundef 0)
+  %call40 = call noundef ptr @_ZNK6icu_7517DateFormatSymbols11getWeekdaysERiNS0_13DtContextTypeENS0_11DtWidthTypeE(ptr noundef nonnull align 8 dereferenceable(1272) %call8, ptr noundef nonnull align 4 dereferenceable(4) %count, i32 noundef 1, i32 noundef 0)
   br label %sw.epilog
 
 sw.bb41:                                          ; preds = %if.end10
-  %call42 = call noundef ptr @_ZNK6icu_7517DateFormatSymbols11getWeekdaysERiNS0_13DtContextTypeENS0_11DtWidthTypeE(ptr noundef nonnull align 8 dereferenceable(1272) %syms.0, ptr noundef nonnull align 4 dereferenceable(4) %count, i32 noundef 1, i32 noundef 3)
+  %call42 = call noundef ptr @_ZNK6icu_7517DateFormatSymbols11getWeekdaysERiNS0_13DtContextTypeENS0_11DtWidthTypeE(ptr noundef nonnull align 8 dereferenceable(1272) %call8, ptr noundef nonnull align 4 dereferenceable(4) %count, i32 noundef 1, i32 noundef 3)
   br label %sw.epilog
 
 sw.bb43:                                          ; preds = %if.end10
-  %call44 = call noundef ptr @_ZNK6icu_7517DateFormatSymbols11getWeekdaysERiNS0_13DtContextTypeENS0_11DtWidthTypeE(ptr noundef nonnull align 8 dereferenceable(1272) %syms.0, ptr noundef nonnull align 4 dereferenceable(4) %count, i32 noundef 1, i32 noundef 2)
+  %call44 = call noundef ptr @_ZNK6icu_7517DateFormatSymbols11getWeekdaysERiNS0_13DtContextTypeENS0_11DtWidthTypeE(ptr noundef nonnull align 8 dereferenceable(1272) %call8, ptr noundef nonnull align 4 dereferenceable(4) %count, i32 noundef 1, i32 noundef 2)
   br label %sw.epilog
 
 sw.bb45:                                          ; preds = %if.end10
-  %call46 = call noundef ptr @_ZNK6icu_7517DateFormatSymbols11getQuartersERiNS0_13DtContextTypeENS0_11DtWidthTypeE(ptr noundef nonnull align 8 dereferenceable(1272) %syms.0, ptr noundef nonnull align 4 dereferenceable(4) %count, i32 noundef 0, i32 noundef 1)
+  %call46 = call noundef ptr @_ZNK6icu_7517DateFormatSymbols11getQuartersERiNS0_13DtContextTypeENS0_11DtWidthTypeE(ptr noundef nonnull align 8 dereferenceable(1272) %call8, ptr noundef nonnull align 4 dereferenceable(4) %count, i32 noundef 0, i32 noundef 1)
   br label %sw.epilog
 
 sw.bb47:                                          ; preds = %if.end10
-  %call48 = call noundef ptr @_ZNK6icu_7517DateFormatSymbols11getQuartersERiNS0_13DtContextTypeENS0_11DtWidthTypeE(ptr noundef nonnull align 8 dereferenceable(1272) %syms.0, ptr noundef nonnull align 4 dereferenceable(4) %count, i32 noundef 0, i32 noundef 0)
+  %call48 = call noundef ptr @_ZNK6icu_7517DateFormatSymbols11getQuartersERiNS0_13DtContextTypeENS0_11DtWidthTypeE(ptr noundef nonnull align 8 dereferenceable(1272) %call8, ptr noundef nonnull align 4 dereferenceable(4) %count, i32 noundef 0, i32 noundef 0)
   br label %sw.epilog
 
 sw.bb49:                                          ; preds = %if.end10
-  %call50 = call noundef ptr @_ZNK6icu_7517DateFormatSymbols11getQuartersERiNS0_13DtContextTypeENS0_11DtWidthTypeE(ptr noundef nonnull align 8 dereferenceable(1272) %syms.0, ptr noundef nonnull align 4 dereferenceable(4) %count, i32 noundef 0, i32 noundef 2)
+  %call50 = call noundef ptr @_ZNK6icu_7517DateFormatSymbols11getQuartersERiNS0_13DtContextTypeENS0_11DtWidthTypeE(ptr noundef nonnull align 8 dereferenceable(1272) %call8, ptr noundef nonnull align 4 dereferenceable(4) %count, i32 noundef 0, i32 noundef 2)
   br label %sw.epilog
 
 sw.bb51:                                          ; preds = %if.end10
-  %call52 = call noundef ptr @_ZNK6icu_7517DateFormatSymbols11getQuartersERiNS0_13DtContextTypeENS0_11DtWidthTypeE(ptr noundef nonnull align 8 dereferenceable(1272) %syms.0, ptr noundef nonnull align 4 dereferenceable(4) %count, i32 noundef 1, i32 noundef 1)
+  %call52 = call noundef ptr @_ZNK6icu_7517DateFormatSymbols11getQuartersERiNS0_13DtContextTypeENS0_11DtWidthTypeE(ptr noundef nonnull align 8 dereferenceable(1272) %call8, ptr noundef nonnull align 4 dereferenceable(4) %count, i32 noundef 1, i32 noundef 1)
   br label %sw.epilog
 
 sw.bb53:                                          ; preds = %if.end10
-  %call54 = call noundef ptr @_ZNK6icu_7517DateFormatSymbols11getQuartersERiNS0_13DtContextTypeENS0_11DtWidthTypeE(ptr noundef nonnull align 8 dereferenceable(1272) %syms.0, ptr noundef nonnull align 4 dereferenceable(4) %count, i32 noundef 1, i32 noundef 0)
+  %call54 = call noundef ptr @_ZNK6icu_7517DateFormatSymbols11getQuartersERiNS0_13DtContextTypeENS0_11DtWidthTypeE(ptr noundef nonnull align 8 dereferenceable(1272) %call8, ptr noundef nonnull align 4 dereferenceable(4) %count, i32 noundef 1, i32 noundef 0)
   br label %sw.epilog
 
 sw.bb55:                                          ; preds = %if.end10
-  %call56 = call noundef ptr @_ZNK6icu_7517DateFormatSymbols11getQuartersERiNS0_13DtContextTypeENS0_11DtWidthTypeE(ptr noundef nonnull align 8 dereferenceable(1272) %syms.0, ptr noundef nonnull align 4 dereferenceable(4) %count, i32 noundef 1, i32 noundef 2)
+  %call56 = call noundef ptr @_ZNK6icu_7517DateFormatSymbols11getQuartersERiNS0_13DtContextTypeENS0_11DtWidthTypeE(ptr noundef nonnull align 8 dereferenceable(1272) %call8, ptr noundef nonnull align 4 dereferenceable(4) %count, i32 noundef 1, i32 noundef 2)
   br label %sw.epilog
 
 sw.bb57:                                          ; preds = %if.end10
-  %call58 = call noundef ptr @_ZNK6icu_7517DateFormatSymbols12getYearNamesERiNS0_13DtContextTypeENS0_11DtWidthTypeE(ptr noundef nonnull align 8 dereferenceable(1272) %syms.0, ptr noundef nonnull align 4 dereferenceable(4) %count, i32 noundef 0, i32 noundef 1)
+  %call58 = call noundef ptr @_ZNK6icu_7517DateFormatSymbols12getYearNamesERiNS0_13DtContextTypeENS0_11DtWidthTypeE(ptr noundef nonnull align 8 dereferenceable(1272) %call8, ptr noundef nonnull align 4 dereferenceable(4) %count, i32 noundef 0, i32 noundef 1)
   br label %sw.epilog
 
 sw.bb59:                                          ; preds = %if.end10
-  %call60 = call noundef ptr @_ZNK6icu_7517DateFormatSymbols12getYearNamesERiNS0_13DtContextTypeENS0_11DtWidthTypeE(ptr noundef nonnull align 8 dereferenceable(1272) %syms.0, ptr noundef nonnull align 4 dereferenceable(4) %count, i32 noundef 0, i32 noundef 0)
+  %call60 = call noundef ptr @_ZNK6icu_7517DateFormatSymbols12getYearNamesERiNS0_13DtContextTypeENS0_11DtWidthTypeE(ptr noundef nonnull align 8 dereferenceable(1272) %call8, ptr noundef nonnull align 4 dereferenceable(4) %count, i32 noundef 0, i32 noundef 0)
   br label %sw.epilog
 
 sw.bb61:                                          ; preds = %if.end10
-  %call62 = call noundef ptr @_ZNK6icu_7517DateFormatSymbols12getYearNamesERiNS0_13DtContextTypeENS0_11DtWidthTypeE(ptr noundef nonnull align 8 dereferenceable(1272) %syms.0, ptr noundef nonnull align 4 dereferenceable(4) %count, i32 noundef 0, i32 noundef 2)
+  %call62 = call noundef ptr @_ZNK6icu_7517DateFormatSymbols12getYearNamesERiNS0_13DtContextTypeENS0_11DtWidthTypeE(ptr noundef nonnull align 8 dereferenceable(1272) %call8, ptr noundef nonnull align 4 dereferenceable(4) %count, i32 noundef 0, i32 noundef 2)
   br label %sw.epilog
 
 sw.bb63:                                          ; preds = %if.end10
-  %call64 = call noundef ptr @_ZNK6icu_7517DateFormatSymbols14getZodiacNamesERiNS0_13DtContextTypeENS0_11DtWidthTypeE(ptr noundef nonnull align 8 dereferenceable(1272) %syms.0, ptr noundef nonnull align 4 dereferenceable(4) %count, i32 noundef 0, i32 noundef 1)
+  %call64 = call noundef ptr @_ZNK6icu_7517DateFormatSymbols14getZodiacNamesERiNS0_13DtContextTypeENS0_11DtWidthTypeE(ptr noundef nonnull align 8 dereferenceable(1272) %call8, ptr noundef nonnull align 4 dereferenceable(4) %count, i32 noundef 0, i32 noundef 1)
   br label %sw.epilog
 
 sw.bb65:                                          ; preds = %if.end10
-  %call66 = call noundef ptr @_ZNK6icu_7517DateFormatSymbols14getZodiacNamesERiNS0_13DtContextTypeENS0_11DtWidthTypeE(ptr noundef nonnull align 8 dereferenceable(1272) %syms.0, ptr noundef nonnull align 4 dereferenceable(4) %count, i32 noundef 0, i32 noundef 0)
+  %call66 = call noundef ptr @_ZNK6icu_7517DateFormatSymbols14getZodiacNamesERiNS0_13DtContextTypeENS0_11DtWidthTypeE(ptr noundef nonnull align 8 dereferenceable(1272) %call8, ptr noundef nonnull align 4 dereferenceable(4) %count, i32 noundef 0, i32 noundef 0)
   br label %sw.epilog
 
 sw.bb67:                                          ; preds = %if.end10
-  %call68 = call noundef ptr @_ZNK6icu_7517DateFormatSymbols14getZodiacNamesERiNS0_13DtContextTypeENS0_11DtWidthTypeE(ptr noundef nonnull align 8 dereferenceable(1272) %syms.0, ptr noundef nonnull align 4 dereferenceable(4) %count, i32 noundef 0, i32 noundef 2)
+  %call68 = call noundef ptr @_ZNK6icu_7517DateFormatSymbols14getZodiacNamesERiNS0_13DtContextTypeENS0_11DtWidthTypeE(ptr noundef nonnull align 8 dereferenceable(1272) %call8, ptr noundef nonnull align 4 dereferenceable(4) %count, i32 noundef 0, i32 noundef 2)
   br label %sw.epilog
 
 sw.epilog:                                        ; preds = %sw.bb67, %sw.bb65, %sw.bb63, %sw.bb61, %sw.bb59, %sw.bb57, %sw.bb55, %sw.bb53, %sw.bb51, %sw.bb49, %sw.bb47, %sw.bb45, %sw.bb43, %sw.bb41, %sw.bb39, %sw.bb37, %sw.bb35, %sw.bb33, %sw.bb31, %sw.bb29, %sw.bb27, %sw.bb25, %sw.bb23, %sw.bb22, %sw.bb20, %sw.bb18, %sw.bb16, %sw.bb14, %sw.bb12, %sw.bb, %if.end10
-  %5 = load i32, ptr %count, align 4
+  %4 = load i32, ptr %count, align 4
   br label %return
 
 return:                                           ; preds = %entry, %dynamic_cast.end3, %sw.epilog
-  %retval.0 = phi i32 [ %5, %sw.epilog ], [ 0, %dynamic_cast.end3 ], [ 0, %entry ]
+  %retval.0 = phi i32 [ %4, %sw.epilog ], [ 0, %dynamic_cast.end3 ], [ 0, %entry ]
   ret i32 %retval.0
 }
 

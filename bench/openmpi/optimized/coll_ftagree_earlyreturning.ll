@@ -1476,7 +1476,7 @@ ompi_group_get_proc_name.exit:                    ; preds = %25, %29
   %47 = getelementptr inbounds i8, ptr %0, i64 224
   br label %48
 
-48:                                               ; preds = %.preheader, %81
+48:                                               ; preds = %.preheader, %79
   %49 = load i64, ptr %7, align 8
   %.sroa.1.0.extract.shift = lshr i64 %49, 16
   %50 = load ptr, ptr %6, align 8
@@ -1484,86 +1484,83 @@ ompi_group_get_proc_name.exit:                    ; preds = %25, %29
   %52 = and i64 %.sroa.1.0.extract.shift, 65535
   %53 = load i64, ptr %45, align 8
   %54 = icmp eq i64 %52, %53
-  br i1 %54, label %55, label %81
+  br i1 %54, label %55, label %79
 
 55:                                               ; preds = %48
   %.sroa.2.0.extract.shift = lshr i64 %49, 32
   %.sroa.2.0.extract.trunc = trunc nuw i64 %.sroa.2.0.extract.shift to i32
   %56 = load i32, ptr %46, align 8
   %57 = icmp eq i32 %56, %.sroa.2.0.extract.trunc
-  br i1 %57, label %58, label %81
+  br i1 %57, label %58, label %79
 
 58:                                               ; preds = %55
   %59 = load ptr, ptr %4, align 8
   %60 = load i32, ptr %47, align 8
   %61 = and i32 %60, 1
   %.not39 = icmp eq i32 %61, 0
-  br i1 %.not39, label %62, label %63
+  br i1 %.not39, label %.sink.split47, label %62
 
 62:                                               ; preds = %58
-  call fastcc void @era_mark_process_failed(ptr noundef %59, i32 noundef %1)
-  br label %81
+  %63 = call i32 @ompi_comm_determine_first_auto(ptr noundef nonnull %0) #19
+  %.not40 = icmp eq i32 %63, 0
+  br i1 %.not40, label %65, label %64
 
-63:                                               ; preds = %58
-  %64 = call i32 @ompi_comm_determine_first_auto(ptr noundef nonnull %0) #19
-  %.not40 = icmp eq i32 %64, 0
-  br i1 %.not40, label %66, label %65
+64:                                               ; preds = %62
+  br i1 %2, label %.sink.split, label %68
 
-65:                                               ; preds = %63
-  br i1 %2, label %.sink.split, label %69
+65:                                               ; preds = %62
+  br i1 %2, label %68, label %.sink.split
 
-66:                                               ; preds = %63
-  br i1 %2, label %69, label %.sink.split
-
-.sink.split:                                      ; preds = %66, %65
-  %.sink46.in = phi ptr [ %17, %65 ], [ %16, %66 ]
+.sink.split:                                      ; preds = %65, %64
+  %.sink46.in = phi ptr [ %17, %64 ], [ %16, %65 ]
   %.sink46 = load ptr, ptr %.sink46.in, align 8
-  %67 = getelementptr i8, ptr %.sink46, i64 16
-  %.val45 = load i32, ptr %67, align 8
-  %68 = add nsw i32 %.val45, %1
-  br label %69
+  %66 = getelementptr i8, ptr %.sink46, i64 16
+  %.val45 = load i32, ptr %66, align 8
+  %67 = add nsw i32 %.val45, %1
+  br label %68
 
-69:                                               ; preds = %.sink.split, %66, %65
-  %.0 = phi i32 [ %1, %65 ], [ %1, %66 ], [ %68, %.sink.split ]
-  %70 = getelementptr inbounds i8, ptr %59, i64 40
-  %71 = load ptr, ptr %70, align 8
-  %.not41 = icmp eq ptr %71, null
-  br i1 %.not41, label %80, label %72
+68:                                               ; preds = %.sink.split, %65, %64
+  %.0 = phi i32 [ %1, %64 ], [ %1, %65 ], [ %67, %.sink.split ]
+  %69 = getelementptr inbounds i8, ptr %59, i64 40
+  %70 = load ptr, ptr %69, align 8
+  %.not41 = icmp eq ptr %70, null
+  br i1 %.not41, label %.sink.split47, label %71
 
-72:                                               ; preds = %69
-  %73 = load ptr, ptr %9, align 8
-  %74 = getelementptr inbounds i8, ptr %71, i64 344
-  %75 = load ptr, ptr %74, align 8
-  %.not42 = icmp eq ptr %73, %75
-  br i1 %.not42, label %80, label %76
+71:                                               ; preds = %68
+  %72 = load ptr, ptr %9, align 8
+  %73 = getelementptr inbounds i8, ptr %70, i64 344
+  %74 = load ptr, ptr %73, align 8
+  %.not42 = icmp eq ptr %72, %74
+  br i1 %.not42, label %.sink.split47, label %75
 
-76:                                               ; preds = %72
-  %77 = getelementptr inbounds i8, ptr %75, i64 56
-  %78 = load i32, ptr %77, align 8
-  %79 = or i32 %78, 2
-  store i32 %79, ptr %77, align 8
-  br label %80
+75:                                               ; preds = %71
+  %76 = getelementptr inbounds i8, ptr %74, i64 56
+  %77 = load i32, ptr %76, align 8
+  %78 = or i32 %77, 2
+  store i32 %78, ptr %76, align 8
+  br label %.sink.split47
 
-80:                                               ; preds = %76, %72, %69
-  call fastcc void @era_mark_process_failed(ptr noundef nonnull %59, i32 noundef %.0)
-  br label %81
+.sink.split47:                                    ; preds = %68, %71, %75, %58
+  %.sink = phi i32 [ %1, %58 ], [ %.0, %75 ], [ %.0, %71 ], [ %.0, %68 ]
+  call fastcc void @era_mark_process_failed(ptr noundef %59, i32 noundef %.sink)
+  br label %79
 
-81:                                               ; preds = %62, %80, %55, %48
-  %82 = load ptr, ptr %5, align 8
-  store ptr %82, ptr %4, align 8
-  %83 = icmp eq i32 %51, 0
-  br i1 %83, label %48, label %.loopexit, !llvm.loop !14
+79:                                               ; preds = %.sink.split47, %55, %48
+  %80 = load ptr, ptr %5, align 8
+  store ptr %80, ptr %4, align 8
+  %81 = icmp eq i32 %51, 0
+  br i1 %81, label %48, label %.loopexit, !llvm.loop !14
 
-.loopexit:                                        ; preds = %81, %42
-  %84 = load ptr, ptr @ompi_stacked_rank_failure_callback_fct, align 8
-  %.not43 = icmp eq ptr %84, null
-  br i1 %.not43, label %86, label %85
+.loopexit:                                        ; preds = %79, %42
+  %82 = load ptr, ptr @ompi_stacked_rank_failure_callback_fct, align 8
+  %.not43 = icmp eq ptr %82, null
+  br i1 %.not43, label %84, label %83
 
-85:                                               ; preds = %.loopexit
-  call void %84(ptr noundef %0, i32 noundef %1, i1 noundef zeroext %2) #19
-  br label %86
+83:                                               ; preds = %.loopexit
+  call void %82(ptr noundef %0, i32 noundef %1, i1 noundef zeroext %2) #19
+  br label %84
 
-86:                                               ; preds = %85, %.loopexit
+84:                                               ; preds = %83, %.loopexit
   ret void
 }
 

@@ -3517,19 +3517,19 @@ _ZNKSt4lessIN5clang6tblgen13HasPropertiesEEclERKS2_S5_.exit: ; preds = %20, %_ZN
 
 .critedge:                                        ; preds = %2, %26, %_ZNSt3mapIN5clang6tblgen13HasPropertiesEN12_GLOBAL__N_18NodeInfoESt4lessIS2_ESaISt4pairIKS2_S4_EEE11lower_boundERS8_.exit, %_ZNKSt4lessIN5clang6tblgen13HasPropertiesEEclERKS2_S5_.exit
   %28 = phi i1 [ true, %_ZNSt3mapIN5clang6tblgen13HasPropertiesEN12_GLOBAL__N_18NodeInfoESt4lessIS2_ESaISt4pairIKS2_S4_EEE11lower_boundERS8_.exit ], [ false, %_ZNKSt4lessIN5clang6tblgen13HasPropertiesEEclERKS2_S5_.exit ], [ false, %26 ], [ true, %2 ]
-  %.08.lcssa.i.i.i26 = phi ptr [ %.19.i.i.i, %_ZNSt3mapIN5clang6tblgen13HasPropertiesEN12_GLOBAL__N_18NodeInfoESt4lessIS2_ESaISt4pairIKS2_S4_EEE11lower_boundERS8_.exit ], [ %.19.i.i.i, %_ZNKSt4lessIN5clang6tblgen13HasPropertiesEEclERKS2_S5_.exit ], [ %.19.i.i.i, %26 ], [ %4, %2 ]
+  %.08.lcssa.i.i.i27 = phi ptr [ %.19.i.i.i, %_ZNSt3mapIN5clang6tblgen13HasPropertiesEN12_GLOBAL__N_18NodeInfoESt4lessIS2_ESaISt4pairIKS2_S4_EEE11lower_boundERS8_.exit ], [ %.19.i.i.i, %_ZNKSt4lessIN5clang6tblgen13HasPropertiesEEclERKS2_S5_.exit ], [ %.19.i.i.i, %26 ], [ %4, %2 ]
   %29 = tail call noalias noundef nonnull dereferenceable(88) ptr @_Znwm(i64 noundef 88) #18
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 32
   store i64 %5, ptr %30, align 8
   %31 = getelementptr inbounds i8, ptr %29, i64 40
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %31, i8 0, i64 48, i1 false)
-  br i1 %28, label %32, label %50
+  br i1 %28, label %32, label %46
 
 32:                                               ; preds = %.critedge
   %33 = getelementptr inbounds i8, ptr %0, i64 40
   %.val12.i.i = load i64, ptr %33, align 8
   %.not.i.i = icmp eq i64 %.val12.i.i, 0
-  br i1 %.not.i.i, label %46, label %34
+  br i1 %.not.i.i, label %_ZNSt8_Rb_treeIN5clang6tblgen13HasPropertiesESt4pairIKS2_N12_GLOBAL__N_18NodeInfoEESt10_Select1stIS7_ESt4lessIS2_ESaIS7_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorIS7_ERS4_.exit.sink.split.i, label %34
 
 34:                                               ; preds = %32
   %35 = getelementptr inbounds i8, ptr %0, i64 32
@@ -3557,223 +3557,306 @@ _ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i.i.i: ; preds = %34
 
 44:                                               ; preds = %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i.i.i
   %.inv.i.i.i.i.i.i = icmp slt i32 %43, 0
-  br i1 %.inv.i.i.i.i.i.i, label %_ZNSt8_Rb_treeIN5clang6tblgen13HasPropertiesESt4pairIKS2_N12_GLOBAL__N_18NodeInfoEESt10_Select1stIS7_ESt4lessIS2_ESaIS7_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorIS7_ERS4_.exit.thread.i, label %46
+  br i1 %.inv.i.i.i.i.i.i, label %_ZNSt8_Rb_treeIN5clang6tblgen13HasPropertiesESt4pairIKS2_N12_GLOBAL__N_18NodeInfoEESt10_Select1stIS7_ESt4lessIS2_ESaIS7_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorIS7_ERS4_.exit.thread.i, label %_ZNSt8_Rb_treeIN5clang6tblgen13HasPropertiesESt4pairIKS2_N12_GLOBAL__N_18NodeInfoEESt10_Select1stIS7_ESt4lessIS2_ESaIS7_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorIS7_ERS4_.exit.sink.split.i
 
 _ZNKSt4lessIN5clang6tblgen13HasPropertiesEEclERKS2_S5_.exit.i.i: ; preds = %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i.i.i, %34
   %45 = icmp ult i64 %.sroa.2.0.copyload.i.i.i.i.i.i, %.sroa.2.0.copyload.i.i5.i.i.i.i
-  br i1 %45, label %_ZNSt8_Rb_treeIN5clang6tblgen13HasPropertiesESt4pairIKS2_N12_GLOBAL__N_18NodeInfoEESt10_Select1stIS7_ESt4lessIS2_ESaIS7_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorIS7_ERS4_.exit.thread.i, label %46
+  br i1 %45, label %_ZNSt8_Rb_treeIN5clang6tblgen13HasPropertiesESt4pairIKS2_N12_GLOBAL__N_18NodeInfoEESt10_Select1stIS7_ESt4lessIS2_ESaIS7_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorIS7_ERS4_.exit.thread.i, label %_ZNSt8_Rb_treeIN5clang6tblgen13HasPropertiesESt4pairIKS2_N12_GLOBAL__N_18NodeInfoEESt10_Select1stIS7_ESt4lessIS2_ESaIS7_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorIS7_ERS4_.exit.sink.split.i
 
-46:                                               ; preds = %_ZNKSt4lessIN5clang6tblgen13HasPropertiesEEclERKS2_S5_.exit.i.i, %44, %32
-  %47 = tail call fastcc { ptr, ptr } @_ZNSt8_Rb_treeIN5clang6tblgen13HasPropertiesESt4pairIKS2_N12_GLOBAL__N_18NodeInfoEESt10_Select1stIS7_ESt4lessIS2_ESaIS7_EE24_M_get_insert_unique_posERS4_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr readonly %.val)
-  %48 = extractvalue { ptr, ptr } %47, 0
-  %49 = extractvalue { ptr, ptr } %47, 1
-  br label %_ZNSt8_Rb_treeIN5clang6tblgen13HasPropertiesESt4pairIKS2_N12_GLOBAL__N_18NodeInfoEESt10_Select1stIS7_ESt4lessIS2_ESaIS7_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorIS7_ERS4_.exit.i
-
-50:                                               ; preds = %.critedge
-  %51 = getelementptr inbounds nuw i8, ptr %.08.lcssa.i.i.i26, i64 32
-  %.sroa.0.0.copyload.i17.i.i = load ptr, ptr %51, align 8
-  %52 = load ptr, ptr %.val, align 8
-  %.sroa.2.0..sroa_idx.i.i.i.i18.i.i = getelementptr inbounds i8, ptr %52, i64 32
+46:                                               ; preds = %.critedge
+  %47 = getelementptr inbounds nuw i8, ptr %.08.lcssa.i.i.i27, i64 32
+  %.sroa.0.0.copyload.i17.i.i = load ptr, ptr %47, align 8
+  %48 = load ptr, ptr %.val, align 8
+  %.sroa.2.0..sroa_idx.i.i.i.i18.i.i = getelementptr inbounds i8, ptr %48, i64 32
   %.sroa.2.0.copyload.i.i.i.i19.i.i = load i64, ptr %.sroa.2.0..sroa_idx.i.i.i.i18.i.i, align 8
-  %53 = load ptr, ptr %.sroa.0.0.copyload.i17.i.i, align 8
-  %.sroa.2.0..sroa_idx.i.i4.i.i20.i.i = getelementptr inbounds i8, ptr %53, i64 32
+  %49 = load ptr, ptr %.sroa.0.0.copyload.i17.i.i, align 8
+  %.sroa.2.0..sroa_idx.i.i4.i.i20.i.i = getelementptr inbounds i8, ptr %49, i64 32
   %.sroa.2.0.copyload.i.i5.i.i21.i.i = load i64, ptr %.sroa.2.0..sroa_idx.i.i4.i.i20.i.i, align 8
   %.sroa.speculated.i.i.i.i22.i.i = tail call i64 @llvm.umin.i64(i64 %.sroa.2.0.copyload.i.i5.i.i21.i.i, i64 %.sroa.2.0.copyload.i.i.i.i19.i.i)
-  %54 = icmp eq i64 %.sroa.speculated.i.i.i.i22.i.i, 0
-  br i1 %54, label %_ZNKSt4lessIN5clang6tblgen13HasPropertiesEEclERKS2_S5_.exit30.i.i, label %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i23.i.i
+  %50 = icmp eq i64 %.sroa.speculated.i.i.i.i22.i.i, 0
+  br i1 %50, label %_ZNKSt4lessIN5clang6tblgen13HasPropertiesEEclERKS2_S5_.exit30.i.i, label %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i23.i.i
 
-_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i23.i.i: ; preds = %50
-  %55 = getelementptr inbounds nuw i8, ptr %53, i64 24
-  %.sroa.0.0.copyload.i.i3.i.i24.i.i = load ptr, ptr %55, align 8
-  %56 = getelementptr inbounds nuw i8, ptr %52, i64 24
-  %.sroa.0.0.copyload.i.i.i.i25.i.i = load ptr, ptr %56, align 8
-  %57 = tail call i32 @memcmp(ptr noundef %.sroa.0.0.copyload.i.i.i.i25.i.i, ptr noundef %.sroa.0.0.copyload.i.i3.i.i24.i.i, i64 noundef %.sroa.speculated.i.i.i.i22.i.i) #19
-  %.not.i.i.i.i26.i.i = icmp eq i32 %57, 0
-  br i1 %.not.i.i.i.i26.i.i, label %_ZNKSt4lessIN5clang6tblgen13HasPropertiesEEclERKS2_S5_.exit30.thread.i.i, label %58
+_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i23.i.i: ; preds = %46
+  %51 = getelementptr inbounds nuw i8, ptr %49, i64 24
+  %.sroa.0.0.copyload.i.i3.i.i24.i.i = load ptr, ptr %51, align 8
+  %52 = getelementptr inbounds nuw i8, ptr %48, i64 24
+  %.sroa.0.0.copyload.i.i.i.i25.i.i = load ptr, ptr %52, align 8
+  %53 = tail call i32 @memcmp(ptr noundef %.sroa.0.0.copyload.i.i.i.i25.i.i, ptr noundef %.sroa.0.0.copyload.i.i3.i.i24.i.i, i64 noundef %.sroa.speculated.i.i.i.i22.i.i) #19
+  %.not.i.i.i.i26.i.i = icmp eq i32 %53, 0
+  br i1 %.not.i.i.i.i26.i.i, label %_ZNKSt4lessIN5clang6tblgen13HasPropertiesEEclERKS2_S5_.exit30.thread.i.i, label %54
 
-58:                                               ; preds = %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i23.i.i
-  %.inv.i.i.i.i27.i.i = icmp slt i32 %57, 0
-  br i1 %.inv.i.i.i.i27.i.i, label %61, label %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i53.i.i
+54:                                               ; preds = %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i23.i.i
+  %.inv.i.i.i.i27.i.i = icmp slt i32 %53, 0
+  br i1 %.inv.i.i.i.i27.i.i, label %57, label %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i53.i.i
 
-_ZNKSt4lessIN5clang6tblgen13HasPropertiesEEclERKS2_S5_.exit30.i.i: ; preds = %50
-  %59 = icmp ult i64 %.sroa.2.0.copyload.i.i.i.i19.i.i, %.sroa.2.0.copyload.i.i5.i.i21.i.i
-  br i1 %59, label %61, label %_ZNKSt4lessIN5clang6tblgen13HasPropertiesEEclERKS2_S5_.exit60.i.i
+_ZNKSt4lessIN5clang6tblgen13HasPropertiesEEclERKS2_S5_.exit30.i.i: ; preds = %46
+  %55 = icmp ult i64 %.sroa.2.0.copyload.i.i.i.i19.i.i, %.sroa.2.0.copyload.i.i5.i.i21.i.i
+  br i1 %55, label %57, label %_ZNKSt4lessIN5clang6tblgen13HasPropertiesEEclERKS2_S5_.exit60.i.i
 
 _ZNKSt4lessIN5clang6tblgen13HasPropertiesEEclERKS2_S5_.exit30.thread.i.i: ; preds = %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i23.i.i
-  %60 = icmp ult i64 %.sroa.2.0.copyload.i.i.i.i19.i.i, %.sroa.2.0.copyload.i.i5.i.i21.i.i
-  br i1 %60, label %61, label %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i53.i.i
+  %56 = icmp ult i64 %.sroa.2.0.copyload.i.i.i.i19.i.i, %.sroa.2.0.copyload.i.i5.i.i21.i.i
+  br i1 %56, label %57, label %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i53.i.i
 
-61:                                               ; preds = %_ZNKSt4lessIN5clang6tblgen13HasPropertiesEEclERKS2_S5_.exit30.thread.i.i, %_ZNKSt4lessIN5clang6tblgen13HasPropertiesEEclERKS2_S5_.exit30.i.i, %58
-  %62 = getelementptr inbounds i8, ptr %0, i64 24
-  %63 = load ptr, ptr %62, align 8
-  %64 = icmp eq ptr %63, %.08.lcssa.i.i.i26
-  br i1 %64, label %_ZNSt8_Rb_treeIN5clang6tblgen13HasPropertiesESt4pairIKS2_N12_GLOBAL__N_18NodeInfoEESt10_Select1stIS7_ESt4lessIS2_ESaIS7_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorIS7_ERS4_.exit.i, label %65
+57:                                               ; preds = %_ZNKSt4lessIN5clang6tblgen13HasPropertiesEEclERKS2_S5_.exit30.thread.i.i, %_ZNKSt4lessIN5clang6tblgen13HasPropertiesEEclERKS2_S5_.exit30.i.i, %54
+  %58 = getelementptr inbounds i8, ptr %0, i64 24
+  %59 = load ptr, ptr %58, align 8
+  %60 = icmp eq ptr %59, %.08.lcssa.i.i.i27
+  br i1 %60, label %_ZNSt8_Rb_treeIN5clang6tblgen13HasPropertiesESt4pairIKS2_N12_GLOBAL__N_18NodeInfoEESt10_Select1stIS7_ESt4lessIS2_ESaIS7_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorIS7_ERS4_.exit.i, label %61
 
-65:                                               ; preds = %61
-  %66 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.08.lcssa.i.i.i26) #19
-  %67 = getelementptr inbounds nuw i8, ptr %66, i64 32
-  %.sroa.01.0.copyload.i31.i.i = load ptr, ptr %67, align 8
-  %68 = load ptr, ptr %.sroa.01.0.copyload.i31.i.i, align 8
-  %.sroa.2.0..sroa_idx.i.i.i.i33.i.i = getelementptr inbounds i8, ptr %68, i64 32
+61:                                               ; preds = %57
+  %62 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.08.lcssa.i.i.i27) #19
+  %63 = getelementptr inbounds nuw i8, ptr %62, i64 32
+  %.sroa.01.0.copyload.i31.i.i = load ptr, ptr %63, align 8
+  %64 = load ptr, ptr %.sroa.01.0.copyload.i31.i.i, align 8
+  %.sroa.2.0..sroa_idx.i.i.i.i33.i.i = getelementptr inbounds i8, ptr %64, i64 32
   %.sroa.2.0.copyload.i.i.i.i34.i.i = load i64, ptr %.sroa.2.0..sroa_idx.i.i.i.i33.i.i, align 8
   %.sroa.speculated.i.i.i.i37.i.i = tail call i64 @llvm.umin.i64(i64 %.sroa.2.0.copyload.i.i.i.i19.i.i, i64 %.sroa.2.0.copyload.i.i.i.i34.i.i)
-  %69 = icmp eq i64 %.sroa.speculated.i.i.i.i37.i.i, 0
-  br i1 %69, label %_ZNKSt4lessIN5clang6tblgen13HasPropertiesEEclERKS2_S5_.exit45.i.i, label %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i38.i.i
+  %65 = icmp eq i64 %.sroa.speculated.i.i.i.i37.i.i, 0
+  br i1 %65, label %_ZNKSt4lessIN5clang6tblgen13HasPropertiesEEclERKS2_S5_.exit45.i.i, label %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i38.i.i
 
-_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i38.i.i: ; preds = %65
-  %70 = getelementptr inbounds nuw i8, ptr %52, i64 24
-  %.sroa.0.0.copyload.i.i3.i.i39.i.i = load ptr, ptr %70, align 8
-  %71 = getelementptr inbounds nuw i8, ptr %68, i64 24
-  %.sroa.0.0.copyload.i.i.i.i40.i.i = load ptr, ptr %71, align 8
-  %72 = tail call i32 @memcmp(ptr noundef %.sroa.0.0.copyload.i.i.i.i40.i.i, ptr noundef %.sroa.0.0.copyload.i.i3.i.i39.i.i, i64 noundef %.sroa.speculated.i.i.i.i37.i.i) #19
-  %.not.i.i.i.i41.i.i = icmp eq i32 %72, 0
-  br i1 %.not.i.i.i.i41.i.i, label %_ZNKSt4lessIN5clang6tblgen13HasPropertiesEEclERKS2_S5_.exit45.i.i, label %73
+_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i38.i.i: ; preds = %61
+  %66 = getelementptr inbounds nuw i8, ptr %48, i64 24
+  %.sroa.0.0.copyload.i.i3.i.i39.i.i = load ptr, ptr %66, align 8
+  %67 = getelementptr inbounds nuw i8, ptr %64, i64 24
+  %.sroa.0.0.copyload.i.i.i.i40.i.i = load ptr, ptr %67, align 8
+  %68 = tail call i32 @memcmp(ptr noundef %.sroa.0.0.copyload.i.i.i.i40.i.i, ptr noundef %.sroa.0.0.copyload.i.i3.i.i39.i.i, i64 noundef %.sroa.speculated.i.i.i.i37.i.i) #19
+  %.not.i.i.i.i41.i.i = icmp eq i32 %68, 0
+  br i1 %.not.i.i.i.i41.i.i, label %_ZNKSt4lessIN5clang6tblgen13HasPropertiesEEclERKS2_S5_.exit45.i.i, label %69
 
-73:                                               ; preds = %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i38.i.i
-  %.inv.i.i.i.i42.i.i = icmp slt i32 %72, 0
-  br i1 %.inv.i.i.i.i42.i.i, label %75, label %78
+69:                                               ; preds = %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i38.i.i
+  %.inv.i.i.i.i42.i.i = icmp slt i32 %68, 0
+  br i1 %.inv.i.i.i.i42.i.i, label %71, label %_ZNSt8_Rb_treeIN5clang6tblgen13HasPropertiesESt4pairIKS2_N12_GLOBAL__N_18NodeInfoEESt10_Select1stIS7_ESt4lessIS2_ESaIS7_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorIS7_ERS4_.exit.sink.split.i
 
-_ZNKSt4lessIN5clang6tblgen13HasPropertiesEEclERKS2_S5_.exit45.i.i: ; preds = %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i38.i.i, %65
-  %74 = icmp ult i64 %.sroa.2.0.copyload.i.i.i.i34.i.i, %.sroa.2.0.copyload.i.i.i.i19.i.i
-  br i1 %74, label %75, label %78
+_ZNKSt4lessIN5clang6tblgen13HasPropertiesEEclERKS2_S5_.exit45.i.i: ; preds = %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i38.i.i, %61
+  %70 = icmp ult i64 %.sroa.2.0.copyload.i.i.i.i34.i.i, %.sroa.2.0.copyload.i.i.i.i19.i.i
+  br i1 %70, label %71, label %_ZNSt8_Rb_treeIN5clang6tblgen13HasPropertiesESt4pairIKS2_N12_GLOBAL__N_18NodeInfoEESt10_Select1stIS7_ESt4lessIS2_ESaIS7_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorIS7_ERS4_.exit.sink.split.i
 
-75:                                               ; preds = %_ZNKSt4lessIN5clang6tblgen13HasPropertiesEEclERKS2_S5_.exit45.i.i, %73
-  %76 = getelementptr i8, ptr %66, i64 24
-  %.val10.i.i = load ptr, ptr %76, align 8
-  %77 = icmp eq ptr %.val10.i.i, null
-  %spec.select.i.i = select i1 %77, ptr null, ptr %.08.lcssa.i.i.i26
-  %spec.select23.i.i = select i1 %77, ptr %66, ptr %.08.lcssa.i.i.i26
+71:                                               ; preds = %_ZNKSt4lessIN5clang6tblgen13HasPropertiesEEclERKS2_S5_.exit45.i.i, %69
+  %72 = getelementptr i8, ptr %62, i64 24
+  %.val10.i.i = load ptr, ptr %72, align 8
+  %73 = icmp eq ptr %.val10.i.i, null
+  %spec.select.i.i = select i1 %73, ptr null, ptr %.08.lcssa.i.i.i27
+  %spec.select23.i.i = select i1 %73, ptr %62, ptr %.08.lcssa.i.i.i27
   br label %_ZNSt8_Rb_treeIN5clang6tblgen13HasPropertiesESt4pairIKS2_N12_GLOBAL__N_18NodeInfoEESt10_Select1stIS7_ESt4lessIS2_ESaIS7_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorIS7_ERS4_.exit.thread.i
 
-78:                                               ; preds = %_ZNKSt4lessIN5clang6tblgen13HasPropertiesEEclERKS2_S5_.exit45.i.i, %73
-  %79 = tail call fastcc { ptr, ptr } @_ZNSt8_Rb_treeIN5clang6tblgen13HasPropertiesESt4pairIKS2_N12_GLOBAL__N_18NodeInfoEESt10_Select1stIS7_ESt4lessIS2_ESaIS7_EE24_M_get_insert_unique_posERS4_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr nonnull readonly %.val)
-  %80 = extractvalue { ptr, ptr } %79, 0
-  %81 = extractvalue { ptr, ptr } %79, 1
-  br label %_ZNSt8_Rb_treeIN5clang6tblgen13HasPropertiesESt4pairIKS2_N12_GLOBAL__N_18NodeInfoEESt10_Select1stIS7_ESt4lessIS2_ESaIS7_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorIS7_ERS4_.exit.i
+_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i53.i.i: ; preds = %_ZNKSt4lessIN5clang6tblgen13HasPropertiesEEclERKS2_S5_.exit30.thread.i.i, %54
+  %74 = tail call i32 @memcmp(ptr noundef %.sroa.0.0.copyload.i.i3.i.i24.i.i, ptr noundef %.sroa.0.0.copyload.i.i.i.i25.i.i, i64 noundef %.sroa.speculated.i.i.i.i22.i.i) #19
+  %.not.i.i.i.i56.i.i = icmp eq i32 %74, 0
+  br i1 %.not.i.i.i.i56.i.i, label %_ZNKSt4lessIN5clang6tblgen13HasPropertiesEEclERKS2_S5_.exit60.i.i, label %75
 
-_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i53.i.i: ; preds = %_ZNKSt4lessIN5clang6tblgen13HasPropertiesEEclERKS2_S5_.exit30.thread.i.i, %58
-  %82 = tail call i32 @memcmp(ptr noundef %.sroa.0.0.copyload.i.i3.i.i24.i.i, ptr noundef %.sroa.0.0.copyload.i.i.i.i25.i.i, i64 noundef %.sroa.speculated.i.i.i.i22.i.i) #19
-  %.not.i.i.i.i56.i.i = icmp eq i32 %82, 0
-  br i1 %.not.i.i.i.i56.i.i, label %_ZNKSt4lessIN5clang6tblgen13HasPropertiesEEclERKS2_S5_.exit60.i.i, label %83
-
-83:                                               ; preds = %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i53.i.i
-  %.inv.i.i.i.i57.i.i = icmp slt i32 %82, 0
-  br i1 %.inv.i.i.i.i57.i.i, label %85, label %_ZNSt8_Rb_treeIN5clang6tblgen13HasPropertiesESt4pairIKS2_N12_GLOBAL__N_18NodeInfoEESt10_Select1stIS7_ESt4lessIS2_ESaIS7_EE12_M_drop_nodeEPSt13_Rb_tree_nodeIS7_E.exit.i.i
+75:                                               ; preds = %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i53.i.i
+  %.inv.i.i.i.i57.i.i = icmp slt i32 %74, 0
+  br i1 %.inv.i.i.i.i57.i.i, label %77, label %_ZNSt8_Rb_treeIN5clang6tblgen13HasPropertiesESt4pairIKS2_N12_GLOBAL__N_18NodeInfoEESt10_Select1stIS7_ESt4lessIS2_ESaIS7_EE12_M_drop_nodeEPSt13_Rb_tree_nodeIS7_E.exit.i.i
 
 _ZNKSt4lessIN5clang6tblgen13HasPropertiesEEclERKS2_S5_.exit60.i.i: ; preds = %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i53.i.i, %_ZNKSt4lessIN5clang6tblgen13HasPropertiesEEclERKS2_S5_.exit30.i.i
-  %84 = icmp ult i64 %.sroa.2.0.copyload.i.i5.i.i21.i.i, %.sroa.2.0.copyload.i.i.i.i19.i.i
-  br i1 %84, label %85, label %_ZNSt8_Rb_treeIN5clang6tblgen13HasPropertiesESt4pairIKS2_N12_GLOBAL__N_18NodeInfoEESt10_Select1stIS7_ESt4lessIS2_ESaIS7_EE12_M_drop_nodeEPSt13_Rb_tree_nodeIS7_E.exit.i.i
+  %76 = icmp ult i64 %.sroa.2.0.copyload.i.i5.i.i21.i.i, %.sroa.2.0.copyload.i.i.i.i19.i.i
+  br i1 %76, label %77, label %_ZNSt8_Rb_treeIN5clang6tblgen13HasPropertiesESt4pairIKS2_N12_GLOBAL__N_18NodeInfoEESt10_Select1stIS7_ESt4lessIS2_ESaIS7_EE12_M_drop_nodeEPSt13_Rb_tree_nodeIS7_E.exit.i.i
 
-85:                                               ; preds = %_ZNKSt4lessIN5clang6tblgen13HasPropertiesEEclERKS2_S5_.exit60.i.i, %83
-  %86 = getelementptr inbounds i8, ptr %0, i64 32
-  %87 = load ptr, ptr %86, align 8
-  %88 = icmp eq ptr %87, %.08.lcssa.i.i.i26
-  br i1 %88, label %_ZNSt8_Rb_treeIN5clang6tblgen13HasPropertiesESt4pairIKS2_N12_GLOBAL__N_18NodeInfoEESt10_Select1stIS7_ESt4lessIS2_ESaIS7_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorIS7_ERS4_.exit.i, label %89
+77:                                               ; preds = %_ZNKSt4lessIN5clang6tblgen13HasPropertiesEEclERKS2_S5_.exit60.i.i, %75
+  %78 = getelementptr inbounds i8, ptr %0, i64 32
+  %79 = load ptr, ptr %78, align 8
+  %80 = icmp eq ptr %79, %.08.lcssa.i.i.i27
+  br i1 %80, label %_ZNSt8_Rb_treeIN5clang6tblgen13HasPropertiesESt4pairIKS2_N12_GLOBAL__N_18NodeInfoEESt10_Select1stIS7_ESt4lessIS2_ESaIS7_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorIS7_ERS4_.exit.i, label %81
 
-89:                                               ; preds = %85
-  %90 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.08.lcssa.i.i.i26) #19
-  %91 = getelementptr inbounds nuw i8, ptr %90, i64 32
-  %.sroa.0.0.copyload.i62.i.i = load ptr, ptr %91, align 8
-  %92 = load ptr, ptr %.sroa.0.0.copyload.i62.i.i, align 8
-  %.sroa.2.0..sroa_idx.i.i4.i.i65.i.i = getelementptr inbounds i8, ptr %92, i64 32
+81:                                               ; preds = %77
+  %82 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.08.lcssa.i.i.i27) #19
+  %83 = getelementptr inbounds nuw i8, ptr %82, i64 32
+  %.sroa.0.0.copyload.i62.i.i = load ptr, ptr %83, align 8
+  %84 = load ptr, ptr %.sroa.0.0.copyload.i62.i.i, align 8
+  %.sroa.2.0..sroa_idx.i.i4.i.i65.i.i = getelementptr inbounds i8, ptr %84, i64 32
   %.sroa.2.0.copyload.i.i5.i.i66.i.i = load i64, ptr %.sroa.2.0..sroa_idx.i.i4.i.i65.i.i, align 8
   %.sroa.speculated.i.i.i.i67.i.i = tail call i64 @llvm.umin.i64(i64 %.sroa.2.0.copyload.i.i5.i.i66.i.i, i64 %.sroa.2.0.copyload.i.i.i.i19.i.i)
-  %93 = icmp eq i64 %.sroa.speculated.i.i.i.i67.i.i, 0
-  br i1 %93, label %_ZNKSt4lessIN5clang6tblgen13HasPropertiesEEclERKS2_S5_.exit75.i.i, label %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i68.i.i
+  %85 = icmp eq i64 %.sroa.speculated.i.i.i.i67.i.i, 0
+  br i1 %85, label %_ZNKSt4lessIN5clang6tblgen13HasPropertiesEEclERKS2_S5_.exit75.i.i, label %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i68.i.i
 
-_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i68.i.i: ; preds = %89
-  %94 = getelementptr inbounds nuw i8, ptr %92, i64 24
-  %.sroa.0.0.copyload.i.i3.i.i69.i.i = load ptr, ptr %94, align 8
-  %95 = getelementptr inbounds nuw i8, ptr %52, i64 24
-  %.sroa.0.0.copyload.i.i.i.i70.i.i = load ptr, ptr %95, align 8
-  %96 = tail call i32 @memcmp(ptr noundef %.sroa.0.0.copyload.i.i.i.i70.i.i, ptr noundef %.sroa.0.0.copyload.i.i3.i.i69.i.i, i64 noundef %.sroa.speculated.i.i.i.i67.i.i) #19
-  %.not.i.i.i.i71.i.i = icmp eq i32 %96, 0
-  br i1 %.not.i.i.i.i71.i.i, label %_ZNKSt4lessIN5clang6tblgen13HasPropertiesEEclERKS2_S5_.exit75.i.i, label %97
+_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i68.i.i: ; preds = %81
+  %86 = getelementptr inbounds nuw i8, ptr %84, i64 24
+  %.sroa.0.0.copyload.i.i3.i.i69.i.i = load ptr, ptr %86, align 8
+  %87 = getelementptr inbounds nuw i8, ptr %48, i64 24
+  %.sroa.0.0.copyload.i.i.i.i70.i.i = load ptr, ptr %87, align 8
+  %88 = tail call i32 @memcmp(ptr noundef %.sroa.0.0.copyload.i.i.i.i70.i.i, ptr noundef %.sroa.0.0.copyload.i.i3.i.i69.i.i, i64 noundef %.sroa.speculated.i.i.i.i67.i.i) #19
+  %.not.i.i.i.i71.i.i = icmp eq i32 %88, 0
+  br i1 %.not.i.i.i.i71.i.i, label %_ZNKSt4lessIN5clang6tblgen13HasPropertiesEEclERKS2_S5_.exit75.i.i, label %89
 
-97:                                               ; preds = %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i68.i.i
-  %.inv.i.i.i.i72.i.i = icmp slt i32 %96, 0
-  br i1 %.inv.i.i.i.i72.i.i, label %99, label %102
+89:                                               ; preds = %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i68.i.i
+  %.inv.i.i.i.i72.i.i = icmp slt i32 %88, 0
+  br i1 %.inv.i.i.i.i72.i.i, label %91, label %_ZNSt8_Rb_treeIN5clang6tblgen13HasPropertiesESt4pairIKS2_N12_GLOBAL__N_18NodeInfoEESt10_Select1stIS7_ESt4lessIS2_ESaIS7_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorIS7_ERS4_.exit.sink.split.i
 
-_ZNKSt4lessIN5clang6tblgen13HasPropertiesEEclERKS2_S5_.exit75.i.i: ; preds = %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i68.i.i, %89
-  %98 = icmp ult i64 %.sroa.2.0.copyload.i.i.i.i19.i.i, %.sroa.2.0.copyload.i.i5.i.i66.i.i
-  br i1 %98, label %99, label %102
+_ZNKSt4lessIN5clang6tblgen13HasPropertiesEEclERKS2_S5_.exit75.i.i: ; preds = %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i68.i.i, %81
+  %90 = icmp ult i64 %.sroa.2.0.copyload.i.i.i.i19.i.i, %.sroa.2.0.copyload.i.i5.i.i66.i.i
+  br i1 %90, label %91, label %_ZNSt8_Rb_treeIN5clang6tblgen13HasPropertiesESt4pairIKS2_N12_GLOBAL__N_18NodeInfoEESt10_Select1stIS7_ESt4lessIS2_ESaIS7_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorIS7_ERS4_.exit.sink.split.i
 
-99:                                               ; preds = %_ZNKSt4lessIN5clang6tblgen13HasPropertiesEEclERKS2_S5_.exit75.i.i, %97
-  %100 = getelementptr i8, ptr %.08.lcssa.i.i.i26, i64 24
-  %.val.i9.i = load ptr, ptr %100, align 8
-  %101 = icmp eq ptr %.val.i9.i, null
-  %spec.select24.i.i = select i1 %101, ptr null, ptr %90
-  %spec.select25.i.i = select i1 %101, ptr %.08.lcssa.i.i.i26, ptr %90
+91:                                               ; preds = %_ZNKSt4lessIN5clang6tblgen13HasPropertiesEEclERKS2_S5_.exit75.i.i, %89
+  %92 = getelementptr i8, ptr %.08.lcssa.i.i.i27, i64 24
+  %.val.i9.i = load ptr, ptr %92, align 8
+  %93 = icmp eq ptr %.val.i9.i, null
+  %spec.select24.i.i = select i1 %93, ptr null, ptr %82
+  %spec.select25.i.i = select i1 %93, ptr %.08.lcssa.i.i.i27, ptr %82
   br label %_ZNSt8_Rb_treeIN5clang6tblgen13HasPropertiesESt4pairIKS2_N12_GLOBAL__N_18NodeInfoEESt10_Select1stIS7_ESt4lessIS2_ESaIS7_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorIS7_ERS4_.exit.thread.i
 
-102:                                              ; preds = %_ZNKSt4lessIN5clang6tblgen13HasPropertiesEEclERKS2_S5_.exit75.i.i, %97
-  %103 = tail call fastcc { ptr, ptr } @_ZNSt8_Rb_treeIN5clang6tblgen13HasPropertiesESt4pairIKS2_N12_GLOBAL__N_18NodeInfoEESt10_Select1stIS7_ESt4lessIS2_ESaIS7_EE24_M_get_insert_unique_posERS4_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr nonnull readonly %.val)
-  %104 = extractvalue { ptr, ptr } %103, 0
-  %105 = extractvalue { ptr, ptr } %103, 1
-  br label %_ZNSt8_Rb_treeIN5clang6tblgen13HasPropertiesESt4pairIKS2_N12_GLOBAL__N_18NodeInfoEESt10_Select1stIS7_ESt4lessIS2_ESaIS7_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorIS7_ERS4_.exit.i
+_ZNSt8_Rb_treeIN5clang6tblgen13HasPropertiesESt4pairIKS2_N12_GLOBAL__N_18NodeInfoEESt10_Select1stIS7_ESt4lessIS2_ESaIS7_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorIS7_ERS4_.exit.sink.split.i: ; preds = %_ZNKSt4lessIN5clang6tblgen13HasPropertiesEEclERKS2_S5_.exit75.i.i, %89, %_ZNKSt4lessIN5clang6tblgen13HasPropertiesEEclERKS2_S5_.exit45.i.i, %69, %_ZNKSt4lessIN5clang6tblgen13HasPropertiesEEclERKS2_S5_.exit.i.i, %44, %32
+  br i1 %.not2.i.i.i, label %._crit_edge.thread.i, label %.lr.ph.i
 
-_ZNSt8_Rb_treeIN5clang6tblgen13HasPropertiesESt4pairIKS2_N12_GLOBAL__N_18NodeInfoEESt10_Select1stIS7_ESt4lessIS2_ESaIS7_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorIS7_ERS4_.exit.i: ; preds = %102, %85, %78, %61, %46
-  %.sroa.021.0.i.i = phi ptr [ %48, %46 ], [ %80, %78 ], [ %104, %102 ], [ %63, %61 ], [ null, %85 ]
-  %.sroa.12.0.i.i = phi ptr [ %49, %46 ], [ %81, %78 ], [ %105, %102 ], [ %63, %61 ], [ %87, %85 ]
+.lr.ph.i:                                         ; preds = %_ZNSt8_Rb_treeIN5clang6tblgen13HasPropertiesESt4pairIKS2_N12_GLOBAL__N_18NodeInfoEESt10_Select1stIS7_ESt4lessIS2_ESaIS7_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorIS7_ERS4_.exit.sink.split.i
+  %94 = load ptr, ptr %.val, align 8
+  %.sroa.2.0..sroa_idx.i.i.i.i.i = getelementptr inbounds i8, ptr %94, i64 32
+  %.sroa.2.0.copyload.i.i.i.i.i = load i64, ptr %.sroa.2.0..sroa_idx.i.i.i.i.i, align 8
+  %95 = getelementptr inbounds nuw i8, ptr %94, i64 24
+  br label %.backedge
+
+.backedge:                                        ; preds = %.backedge.backedge, %.lr.ph.i
+  %.01117.i = phi ptr [ %.val.i.i, %.lr.ph.i ], [ %.01117.i.be, %.backedge.backedge ]
+  %96 = getelementptr inbounds nuw i8, ptr %.01117.i, i64 32
+  %.sroa.0.0.copyload.i.i = load ptr, ptr %96, align 8
+  %97 = load ptr, ptr %.sroa.0.0.copyload.i.i, align 8
+  %.sroa.2.0..sroa_idx.i.i4.i.i.i = getelementptr inbounds i8, ptr %97, i64 32
+  %.sroa.2.0.copyload.i.i5.i.i.i = load i64, ptr %.sroa.2.0..sroa_idx.i.i4.i.i.i, align 8
+  %.sroa.speculated.i.i.i.i.i = tail call i64 @llvm.umin.i64(i64 %.sroa.2.0.copyload.i.i5.i.i.i, i64 %.sroa.2.0.copyload.i.i.i.i.i)
+  %98 = icmp eq i64 %.sroa.speculated.i.i.i.i.i, 0
+  br i1 %98, label %_ZNKSt4lessIN5clang6tblgen13HasPropertiesEEclERKS2_S5_.exit.i, label %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i.i
+
+_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i.i: ; preds = %.backedge
+  %99 = getelementptr inbounds nuw i8, ptr %97, i64 24
+  %.sroa.0.0.copyload.i.i3.i.i.i = load ptr, ptr %99, align 8
+  %.sroa.0.0.copyload.i.i.i.i.i = load ptr, ptr %95, align 8
+  %100 = tail call i32 @memcmp(ptr noundef %.sroa.0.0.copyload.i.i.i.i.i, ptr noundef %.sroa.0.0.copyload.i.i3.i.i.i, i64 noundef %.sroa.speculated.i.i.i.i.i) #19
+  %.not.i.i.i.i.i = icmp eq i32 %100, 0
+  br i1 %.not.i.i.i.i.i, label %_ZNKSt4lessIN5clang6tblgen13HasPropertiesEEclERKS2_S5_.exit.i, label %101
+
+101:                                              ; preds = %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i.i
+  %.inv.i.i.i.i.i = icmp slt i32 %100, 0
+  br i1 %.inv.i.i.i.i.i, label %103, label %.thread
+
+_ZNKSt4lessIN5clang6tblgen13HasPropertiesEEclERKS2_S5_.exit.i: ; preds = %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i.i, %.backedge
+  %102 = icmp ult i64 %.sroa.2.0.copyload.i.i.i.i.i, %.sroa.2.0.copyload.i.i5.i.i.i
+  br i1 %102, label %103, label %.thread
+
+103:                                              ; preds = %_ZNKSt4lessIN5clang6tblgen13HasPropertiesEEclERKS2_S5_.exit.i, %101
+  %104 = getelementptr i8, ptr %.01117.i, i64 16
+  %.011.i = load ptr, ptr %104, align 8
+  %.not.i22 = icmp eq ptr %.011.i, null
+  br i1 %.not.i22, label %._crit_edge.thread.i, label %.backedge.backedge
+
+.backedge.backedge:                               ; preds = %103, %.thread
+  %.01117.i.be = phi ptr [ %.011.i, %103 ], [ %.011.i30, %.thread ]
+  br label %.backedge, !llvm.loop !64
+
+.thread:                                          ; preds = %101, %_ZNKSt4lessIN5clang6tblgen13HasPropertiesEEclERKS2_S5_.exit.i
+  %105 = getelementptr i8, ptr %.01117.i, i64 24
+  %.011.i30 = load ptr, ptr %105, align 8
+  %.not.i2231 = icmp eq ptr %.011.i30, null
+  br i1 %.not.i2231, label %._crit_edge.i.thread, label %.backedge.backedge
+
+._crit_edge.thread.i:                             ; preds = %103, %_ZNSt8_Rb_treeIN5clang6tblgen13HasPropertiesESt4pairIKS2_N12_GLOBAL__N_18NodeInfoEESt10_Select1stIS7_ESt4lessIS2_ESaIS7_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorIS7_ERS4_.exit.sink.split.i
+  %.010.lcssa22.i = phi ptr [ %4, %_ZNSt8_Rb_treeIN5clang6tblgen13HasPropertiesESt4pairIKS2_N12_GLOBAL__N_18NodeInfoEESt10_Select1stIS7_ESt4lessIS2_ESaIS7_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorIS7_ERS4_.exit.sink.split.i ], [ %.01117.i, %103 ]
+  %106 = getelementptr inbounds i8, ptr %0, i64 24
+  %.val9.i = load ptr, ptr %106, align 8
+  %107 = icmp eq ptr %.010.lcssa22.i, %.val9.i
+  br i1 %107, label %_ZNSt8_Rb_treeIN5clang6tblgen13HasPropertiesESt4pairIKS2_N12_GLOBAL__N_18NodeInfoEESt10_Select1stIS7_ESt4lessIS2_ESaIS7_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorIS7_ERS4_.exit.thread.i, label %108
+
+108:                                              ; preds = %._crit_edge.thread.i
+  %109 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.010.lcssa22.i) #19
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %109, i64 32
+  %.sroa.01.0.copyload.i14.i.pre = load ptr, ptr %.phi.trans.insert, align 8
+  %.pre = load ptr, ptr %.sroa.01.0.copyload.i14.i.pre, align 8
+  %.sroa.2.0..sroa_idx.i.i.i.i16.i.phi.trans.insert = getelementptr inbounds i8, ptr %.pre, i64 32
+  %.sroa.2.0.copyload.i.i.i.i17.i.pre = load i64, ptr %.sroa.2.0..sroa_idx.i.i.i.i16.i.phi.trans.insert, align 8
+  %.pre38 = load ptr, ptr %.val, align 8
+  %.sroa.2.0..sroa_idx.i.i4.i.i18.i.phi.trans.insert = getelementptr inbounds i8, ptr %.pre38, i64 32
+  %.sroa.2.0.copyload.i.i5.i.i19.i.pre = load i64, ptr %.sroa.2.0..sroa_idx.i.i4.i.i18.i.phi.trans.insert, align 8
+  %.pre40 = tail call i64 @llvm.umin.i64(i64 %.sroa.2.0.copyload.i.i5.i.i19.i.pre, i64 %.sroa.2.0.copyload.i.i.i.i17.i.pre)
+  br label %._crit_edge.i.thread
+
+._crit_edge.i.thread:                             ; preds = %.thread, %108
+  %.sroa.speculated.i.i.i.i20.i.pre-phi = phi i64 [ %.pre40, %108 ], [ %.sroa.speculated.i.i.i.i.i, %.thread ]
+  %.sroa.2.0.copyload.i.i5.i.i19.i = phi i64 [ %.sroa.2.0.copyload.i.i5.i.i19.i.pre, %108 ], [ %.sroa.2.0.copyload.i.i.i.i.i, %.thread ]
+  %110 = phi ptr [ %.pre38, %108 ], [ %94, %.thread ]
+  %.sroa.2.0.copyload.i.i.i.i17.i = phi i64 [ %.sroa.2.0.copyload.i.i.i.i17.i.pre, %108 ], [ %.sroa.2.0.copyload.i.i5.i.i.i, %.thread ]
+  %111 = phi ptr [ %.pre, %108 ], [ %97, %.thread ]
+  %.010.lcssa21.i = phi ptr [ %.010.lcssa22.i, %108 ], [ %.01117.i, %.thread ]
+  %.sroa.01.0.i = phi ptr [ %109, %108 ], [ %.01117.i, %.thread ]
+  %112 = icmp eq i64 %.sroa.speculated.i.i.i.i20.i.pre-phi, 0
+  br i1 %112, label %_ZNKSt4lessIN5clang6tblgen13HasPropertiesEEclERKS2_S5_.exit28.i, label %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i21.i
+
+_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i21.i: ; preds = %._crit_edge.i.thread
+  %113 = getelementptr inbounds nuw i8, ptr %110, i64 24
+  %.sroa.0.0.copyload.i.i3.i.i22.i = load ptr, ptr %113, align 8
+  %114 = getelementptr inbounds nuw i8, ptr %111, i64 24
+  %.sroa.0.0.copyload.i.i.i.i23.i = load ptr, ptr %114, align 8
+  %115 = tail call i32 @memcmp(ptr noundef %.sroa.0.0.copyload.i.i.i.i23.i, ptr noundef %.sroa.0.0.copyload.i.i3.i.i22.i, i64 noundef %.sroa.speculated.i.i.i.i20.i.pre-phi) #19
+  %.not.i.i.i.i24.i = icmp eq i32 %115, 0
+  br i1 %.not.i.i.i.i24.i, label %_ZNKSt4lessIN5clang6tblgen13HasPropertiesEEclERKS2_S5_.exit28.i, label %116
+
+116:                                              ; preds = %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i21.i
+  %.inv.i.i.i.i25.i = icmp slt i32 %115, 0
+  br i1 %.inv.i.i.i.i25.i, label %_ZNSt8_Rb_treeIN5clang6tblgen13HasPropertiesESt4pairIKS2_N12_GLOBAL__N_18NodeInfoEESt10_Select1stIS7_ESt4lessIS2_ESaIS7_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorIS7_ERS4_.exit.thread.i, label %_ZNSt8_Rb_treeIN5clang6tblgen13HasPropertiesESt4pairIKS2_N12_GLOBAL__N_18NodeInfoEESt10_Select1stIS7_ESt4lessIS2_ESaIS7_EE12_M_drop_nodeEPSt13_Rb_tree_nodeIS7_E.exit.i.i
+
+_ZNKSt4lessIN5clang6tblgen13HasPropertiesEEclERKS2_S5_.exit28.i: ; preds = %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i21.i, %._crit_edge.i.thread
+  %117 = icmp ult i64 %.sroa.2.0.copyload.i.i.i.i17.i, %.sroa.2.0.copyload.i.i5.i.i19.i
+  br i1 %117, label %_ZNSt8_Rb_treeIN5clang6tblgen13HasPropertiesESt4pairIKS2_N12_GLOBAL__N_18NodeInfoEESt10_Select1stIS7_ESt4lessIS2_ESaIS7_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorIS7_ERS4_.exit.thread.i, label %_ZNSt8_Rb_treeIN5clang6tblgen13HasPropertiesESt4pairIKS2_N12_GLOBAL__N_18NodeInfoEESt10_Select1stIS7_ESt4lessIS2_ESaIS7_EE12_M_drop_nodeEPSt13_Rb_tree_nodeIS7_E.exit.i.i
+
+_ZNSt8_Rb_treeIN5clang6tblgen13HasPropertiesESt4pairIKS2_N12_GLOBAL__N_18NodeInfoEESt10_Select1stIS7_ESt4lessIS2_ESaIS7_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorIS7_ERS4_.exit.i: ; preds = %77, %57
+  %.sroa.021.0.i.i = phi ptr [ %59, %57 ], [ null, %77 ]
+  %.sroa.12.0.i.i = phi ptr [ %59, %57 ], [ %79, %77 ]
   %.not.i = icmp eq ptr %.sroa.12.0.i.i, null
   br i1 %.not.i, label %_ZNSt8_Rb_treeIN5clang6tblgen13HasPropertiesESt4pairIKS2_N12_GLOBAL__N_18NodeInfoEESt10_Select1stIS7_ESt4lessIS2_ESaIS7_EE12_M_drop_nodeEPSt13_Rb_tree_nodeIS7_E.exit.i.i, label %_ZNSt8_Rb_treeIN5clang6tblgen13HasPropertiesESt4pairIKS2_N12_GLOBAL__N_18NodeInfoEESt10_Select1stIS7_ESt4lessIS2_ESaIS7_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorIS7_ERS4_.exit.thread.i
 
-_ZNSt8_Rb_treeIN5clang6tblgen13HasPropertiesESt4pairIKS2_N12_GLOBAL__N_18NodeInfoEESt10_Select1stIS7_ESt4lessIS2_ESaIS7_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorIS7_ERS4_.exit.thread.i: ; preds = %_ZNSt8_Rb_treeIN5clang6tblgen13HasPropertiesESt4pairIKS2_N12_GLOBAL__N_18NodeInfoEESt10_Select1stIS7_ESt4lessIS2_ESaIS7_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorIS7_ERS4_.exit.i, %99, %75, %_ZNKSt4lessIN5clang6tblgen13HasPropertiesEEclERKS2_S5_.exit.i.i, %44
-  %.sroa.12.0.i8.i = phi ptr [ %.sroa.12.0.i.i, %_ZNSt8_Rb_treeIN5clang6tblgen13HasPropertiesESt4pairIKS2_N12_GLOBAL__N_18NodeInfoEESt10_Select1stIS7_ESt4lessIS2_ESaIS7_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorIS7_ERS4_.exit.i ], [ %spec.select25.i.i, %99 ], [ %spec.select23.i.i, %75 ], [ %36, %_ZNKSt4lessIN5clang6tblgen13HasPropertiesEEclERKS2_S5_.exit.i.i ], [ %36, %44 ]
-  %.sroa.021.0.i7.i = phi ptr [ %.sroa.021.0.i.i, %_ZNSt8_Rb_treeIN5clang6tblgen13HasPropertiesESt4pairIKS2_N12_GLOBAL__N_18NodeInfoEESt10_Select1stIS7_ESt4lessIS2_ESaIS7_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorIS7_ERS4_.exit.i ], [ %spec.select24.i.i, %99 ], [ %spec.select.i.i, %75 ], [ null, %_ZNKSt4lessIN5clang6tblgen13HasPropertiesEEclERKS2_S5_.exit.i.i ], [ null, %44 ]
+_ZNSt8_Rb_treeIN5clang6tblgen13HasPropertiesESt4pairIKS2_N12_GLOBAL__N_18NodeInfoEESt10_Select1stIS7_ESt4lessIS2_ESaIS7_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorIS7_ERS4_.exit.thread.i: ; preds = %_ZNKSt4lessIN5clang6tblgen13HasPropertiesEEclERKS2_S5_.exit28.i, %116, %._crit_edge.thread.i, %_ZNSt8_Rb_treeIN5clang6tblgen13HasPropertiesESt4pairIKS2_N12_GLOBAL__N_18NodeInfoEESt10_Select1stIS7_ESt4lessIS2_ESaIS7_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorIS7_ERS4_.exit.i, %91, %71, %_ZNKSt4lessIN5clang6tblgen13HasPropertiesEEclERKS2_S5_.exit.i.i, %44
+  %.sroa.12.0.i8.i = phi ptr [ %.sroa.12.0.i.i, %_ZNSt8_Rb_treeIN5clang6tblgen13HasPropertiesESt4pairIKS2_N12_GLOBAL__N_18NodeInfoEESt10_Select1stIS7_ESt4lessIS2_ESaIS7_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorIS7_ERS4_.exit.i ], [ %spec.select25.i.i, %91 ], [ %spec.select23.i.i, %71 ], [ %36, %_ZNKSt4lessIN5clang6tblgen13HasPropertiesEEclERKS2_S5_.exit.i.i ], [ %36, %44 ], [ %.010.lcssa21.i, %_ZNKSt4lessIN5clang6tblgen13HasPropertiesEEclERKS2_S5_.exit28.i ], [ %.010.lcssa21.i, %116 ], [ %.010.lcssa22.i, %._crit_edge.thread.i ]
+  %.sroa.021.0.i7.i = phi ptr [ %.sroa.021.0.i.i, %_ZNSt8_Rb_treeIN5clang6tblgen13HasPropertiesESt4pairIKS2_N12_GLOBAL__N_18NodeInfoEESt10_Select1stIS7_ESt4lessIS2_ESaIS7_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorIS7_ERS4_.exit.i ], [ %spec.select24.i.i, %91 ], [ %spec.select.i.i, %71 ], [ null, %_ZNKSt4lessIN5clang6tblgen13HasPropertiesEEclERKS2_S5_.exit.i.i ], [ null, %44 ], [ null, %_ZNKSt4lessIN5clang6tblgen13HasPropertiesEEclERKS2_S5_.exit28.i ], [ null, %116 ], [ null, %._crit_edge.thread.i ]
   %.not.i.i.i10 = icmp ne ptr %.sroa.021.0.i7.i, null
-  %106 = icmp eq ptr %.sroa.12.0.i8.i, %4
-  %or.cond.i.i.i = select i1 %.not.i.i.i10, i1 true, i1 %106
-  br i1 %or.cond.i.i.i, label %117, label %107
+  %118 = icmp eq ptr %.sroa.12.0.i8.i, %4
+  %or.cond.i.i.i = select i1 %.not.i.i.i10, i1 true, i1 %118
+  br i1 %or.cond.i.i.i, label %129, label %119
 
-107:                                              ; preds = %_ZNSt8_Rb_treeIN5clang6tblgen13HasPropertiesESt4pairIKS2_N12_GLOBAL__N_18NodeInfoEESt10_Select1stIS7_ESt4lessIS2_ESaIS7_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorIS7_ERS4_.exit.thread.i
-  %108 = getelementptr inbounds nuw i8, ptr %.sroa.12.0.i8.i, i64 32
-  %.sroa.0.0.copyload.i.i.i.i11 = load ptr, ptr %108, align 8
-  %109 = load ptr, ptr %.val, align 8
-  %.sroa.2.0..sroa_idx.i.i.i.i.i.i.i12 = getelementptr inbounds i8, ptr %109, i64 32
+119:                                              ; preds = %_ZNSt8_Rb_treeIN5clang6tblgen13HasPropertiesESt4pairIKS2_N12_GLOBAL__N_18NodeInfoEESt10_Select1stIS7_ESt4lessIS2_ESaIS7_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorIS7_ERS4_.exit.thread.i
+  %120 = getelementptr inbounds nuw i8, ptr %.sroa.12.0.i8.i, i64 32
+  %.sroa.0.0.copyload.i.i.i.i11 = load ptr, ptr %120, align 8
+  %121 = load ptr, ptr %.val, align 8
+  %.sroa.2.0..sroa_idx.i.i.i.i.i.i.i12 = getelementptr inbounds i8, ptr %121, i64 32
   %.sroa.2.0.copyload.i.i.i.i.i.i.i13 = load i64, ptr %.sroa.2.0..sroa_idx.i.i.i.i.i.i.i12, align 8
-  %110 = load ptr, ptr %.sroa.0.0.copyload.i.i.i.i11, align 8
-  %.sroa.2.0..sroa_idx.i.i4.i.i.i.i.i14 = getelementptr inbounds i8, ptr %110, i64 32
+  %122 = load ptr, ptr %.sroa.0.0.copyload.i.i.i.i11, align 8
+  %.sroa.2.0..sroa_idx.i.i4.i.i.i.i.i14 = getelementptr inbounds i8, ptr %122, i64 32
   %.sroa.2.0.copyload.i.i5.i.i.i.i.i15 = load i64, ptr %.sroa.2.0..sroa_idx.i.i4.i.i.i.i.i14, align 8
   %.sroa.speculated.i.i.i.i.i.i.i16 = tail call i64 @llvm.umin.i64(i64 %.sroa.2.0.copyload.i.i5.i.i.i.i.i15, i64 %.sroa.2.0.copyload.i.i.i.i.i.i.i13)
-  %111 = icmp eq i64 %.sroa.speculated.i.i.i.i.i.i.i16, 0
-  br i1 %111, label %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.thread.i.i.i.i.i.i.i, label %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i.i.i.i17
+  %123 = icmp eq i64 %.sroa.speculated.i.i.i.i.i.i.i16, 0
+  br i1 %123, label %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.thread.i.i.i.i.i.i.i, label %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i.i.i.i17
 
-_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i.i.i.i17: ; preds = %107
-  %112 = getelementptr inbounds nuw i8, ptr %110, i64 24
-  %.sroa.0.0.copyload.i.i3.i.i.i.i.i18 = load ptr, ptr %112, align 8
-  %113 = getelementptr inbounds nuw i8, ptr %109, i64 24
-  %.sroa.0.0.copyload.i.i.i.i.i.i.i19 = load ptr, ptr %113, align 8
-  %114 = tail call i32 @memcmp(ptr noundef %.sroa.0.0.copyload.i.i.i.i.i.i.i19, ptr noundef %.sroa.0.0.copyload.i.i3.i.i.i.i.i18, i64 noundef %.sroa.speculated.i.i.i.i.i.i.i16) #19
-  %.not.i.i.i.i.i.i.i20 = icmp eq i32 %114, 0
-  br i1 %.not.i.i.i.i.i.i.i20, label %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.thread.i.i.i.i.i.i.i, label %115
+_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i.i.i.i17: ; preds = %119
+  %124 = getelementptr inbounds nuw i8, ptr %122, i64 24
+  %.sroa.0.0.copyload.i.i3.i.i.i.i.i18 = load ptr, ptr %124, align 8
+  %125 = getelementptr inbounds nuw i8, ptr %121, i64 24
+  %.sroa.0.0.copyload.i.i.i.i.i.i.i19 = load ptr, ptr %125, align 8
+  %126 = tail call i32 @memcmp(ptr noundef %.sroa.0.0.copyload.i.i.i.i.i.i.i19, ptr noundef %.sroa.0.0.copyload.i.i3.i.i.i.i.i18, i64 noundef %.sroa.speculated.i.i.i.i.i.i.i16) #19
+  %.not.i.i.i.i.i.i.i20 = icmp eq i32 %126, 0
+  br i1 %.not.i.i.i.i.i.i.i20, label %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.thread.i.i.i.i.i.i.i, label %127
 
-115:                                              ; preds = %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i.i.i.i17
-  %.inv.i.i.i.i.i.i.i21 = icmp slt i32 %114, 0
-  br label %117
+127:                                              ; preds = %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i.i.i.i17
+  %.inv.i.i.i.i.i.i.i21 = icmp slt i32 %126, 0
+  br label %129
 
-_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.thread.i.i.i.i.i.i.i: ; preds = %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i.i.i.i17, %107
-  %116 = icmp ult i64 %.sroa.2.0.copyload.i.i.i.i.i.i.i13, %.sroa.2.0.copyload.i.i5.i.i.i.i.i15
-  br label %117
+_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.thread.i.i.i.i.i.i.i: ; preds = %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i.i.i.i17, %119
+  %128 = icmp ult i64 %.sroa.2.0.copyload.i.i.i.i.i.i.i13, %.sroa.2.0.copyload.i.i5.i.i.i.i.i15
+  br label %129
 
-117:                                              ; preds = %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.thread.i.i.i.i.i.i.i, %115, %_ZNSt8_Rb_treeIN5clang6tblgen13HasPropertiesESt4pairIKS2_N12_GLOBAL__N_18NodeInfoEESt10_Select1stIS7_ESt4lessIS2_ESaIS7_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorIS7_ERS4_.exit.thread.i
-  %118 = phi i1 [ true, %_ZNSt8_Rb_treeIN5clang6tblgen13HasPropertiesESt4pairIKS2_N12_GLOBAL__N_18NodeInfoEESt10_Select1stIS7_ESt4lessIS2_ESaIS7_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorIS7_ERS4_.exit.thread.i ], [ %.inv.i.i.i.i.i.i.i21, %115 ], [ %116, %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.thread.i.i.i.i.i.i.i ]
-  tail call void @_ZSt29_Rb_tree_insert_and_rebalancebPSt18_Rb_tree_node_baseS0_RS_(i1 noundef zeroext %118, ptr noundef nonnull %29, ptr noundef nonnull %.sroa.12.0.i8.i, ptr noundef nonnull align 8 dereferenceable(32) %4) #15
-  %119 = getelementptr inbounds i8, ptr %0, i64 40
-  %120 = load i64, ptr %119, align 8
-  %121 = add i64 %120, 1
-  store i64 %121, ptr %119, align 8
+129:                                              ; preds = %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.thread.i.i.i.i.i.i.i, %127, %_ZNSt8_Rb_treeIN5clang6tblgen13HasPropertiesESt4pairIKS2_N12_GLOBAL__N_18NodeInfoEESt10_Select1stIS7_ESt4lessIS2_ESaIS7_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorIS7_ERS4_.exit.thread.i
+  %130 = phi i1 [ true, %_ZNSt8_Rb_treeIN5clang6tblgen13HasPropertiesESt4pairIKS2_N12_GLOBAL__N_18NodeInfoEESt10_Select1stIS7_ESt4lessIS2_ESaIS7_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorIS7_ERS4_.exit.thread.i ], [ %.inv.i.i.i.i.i.i.i21, %127 ], [ %128, %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.thread.i.i.i.i.i.i.i ]
+  tail call void @_ZSt29_Rb_tree_insert_and_rebalancebPSt18_Rb_tree_node_baseS0_RS_(i1 noundef zeroext %130, ptr noundef nonnull %29, ptr noundef nonnull %.sroa.12.0.i8.i, ptr noundef nonnull align 8 dereferenceable(32) %4) #15
+  %131 = getelementptr inbounds i8, ptr %0, i64 40
+  %132 = load i64, ptr %131, align 8
+  %133 = add i64 %132, 1
+  store i64 %133, ptr %131, align 8
   br label %_ZNSt8_Rb_treeIN5clang6tblgen13HasPropertiesESt4pairIKS2_N12_GLOBAL__N_18NodeInfoEESt10_Select1stIS7_ESt4lessIS2_ESaIS7_EE22_M_emplace_hint_uniqueIJRKSt21piecewise_construct_tSt5tupleIJRS4_EESI_IJEEEEESt17_Rb_tree_iteratorIS7_ESt23_Rb_tree_const_iteratorIS7_EDpOT_.exit
 
-_ZNSt8_Rb_treeIN5clang6tblgen13HasPropertiesESt4pairIKS2_N12_GLOBAL__N_18NodeInfoEESt10_Select1stIS7_ESt4lessIS2_ESaIS7_EE12_M_drop_nodeEPSt13_Rb_tree_nodeIS7_E.exit.i.i: ; preds = %_ZNSt8_Rb_treeIN5clang6tblgen13HasPropertiesESt4pairIKS2_N12_GLOBAL__N_18NodeInfoEESt10_Select1stIS7_ESt4lessIS2_ESaIS7_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorIS7_ERS4_.exit.i, %_ZNKSt4lessIN5clang6tblgen13HasPropertiesEEclERKS2_S5_.exit60.i.i, %83
-  %.sroa.01.0.ph.i = phi ptr [ %.sroa.021.0.i.i, %_ZNSt8_Rb_treeIN5clang6tblgen13HasPropertiesESt4pairIKS2_N12_GLOBAL__N_18NodeInfoEESt10_Select1stIS7_ESt4lessIS2_ESaIS7_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorIS7_ERS4_.exit.i ], [ %.08.lcssa.i.i.i26, %83 ], [ %.08.lcssa.i.i.i26, %_ZNKSt4lessIN5clang6tblgen13HasPropertiesEEclERKS2_S5_.exit60.i.i ]
+_ZNSt8_Rb_treeIN5clang6tblgen13HasPropertiesESt4pairIKS2_N12_GLOBAL__N_18NodeInfoEESt10_Select1stIS7_ESt4lessIS2_ESaIS7_EE12_M_drop_nodeEPSt13_Rb_tree_nodeIS7_E.exit.i.i: ; preds = %_ZNKSt4lessIN5clang6tblgen13HasPropertiesEEclERKS2_S5_.exit28.i, %116, %_ZNSt8_Rb_treeIN5clang6tblgen13HasPropertiesESt4pairIKS2_N12_GLOBAL__N_18NodeInfoEESt10_Select1stIS7_ESt4lessIS2_ESaIS7_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorIS7_ERS4_.exit.i, %_ZNKSt4lessIN5clang6tblgen13HasPropertiesEEclERKS2_S5_.exit60.i.i, %75
+  %.sroa.01.0.ph.i = phi ptr [ %.sroa.021.0.i.i, %_ZNSt8_Rb_treeIN5clang6tblgen13HasPropertiesESt4pairIKS2_N12_GLOBAL__N_18NodeInfoEESt10_Select1stIS7_ESt4lessIS2_ESaIS7_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorIS7_ERS4_.exit.i ], [ %.08.lcssa.i.i.i27, %75 ], [ %.08.lcssa.i.i.i27, %_ZNKSt4lessIN5clang6tblgen13HasPropertiesEEclERKS2_S5_.exit60.i.i ], [ %.sroa.01.0.i, %116 ], [ %.sroa.01.0.i, %_ZNKSt4lessIN5clang6tblgen13HasPropertiesEEclERKS2_S5_.exit28.i ]
   tail call void @_ZdlPvm(ptr noundef nonnull %29, i64 noundef 88) #16
   br label %_ZNSt8_Rb_treeIN5clang6tblgen13HasPropertiesESt4pairIKS2_N12_GLOBAL__N_18NodeInfoEESt10_Select1stIS7_ESt4lessIS2_ESaIS7_EE22_M_emplace_hint_uniqueIJRKSt21piecewise_construct_tSt5tupleIJRS4_EESI_IJEEEEESt17_Rb_tree_iteratorIS7_ESt23_Rb_tree_const_iteratorIS7_EDpOT_.exit
 
-_ZNSt8_Rb_treeIN5clang6tblgen13HasPropertiesESt4pairIKS2_N12_GLOBAL__N_18NodeInfoEESt10_Select1stIS7_ESt4lessIS2_ESaIS7_EE22_M_emplace_hint_uniqueIJRKSt21piecewise_construct_tSt5tupleIJRS4_EESI_IJEEEEESt17_Rb_tree_iteratorIS7_ESt23_Rb_tree_const_iteratorIS7_EDpOT_.exit: ; preds = %_ZNSt8_Rb_treeIN5clang6tblgen13HasPropertiesESt4pairIKS2_N12_GLOBAL__N_18NodeInfoEESt10_Select1stIS7_ESt4lessIS2_ESaIS7_EE12_M_drop_nodeEPSt13_Rb_tree_nodeIS7_E.exit.i.i, %117, %26, %_ZNKSt4lessIN5clang6tblgen13HasPropertiesEEclERKS2_S5_.exit
-  %.sroa.024.0 = phi ptr [ %.19.i.i.i, %_ZNKSt4lessIN5clang6tblgen13HasPropertiesEEclERKS2_S5_.exit ], [ %.19.i.i.i, %26 ], [ %29, %117 ], [ %.sroa.01.0.ph.i, %_ZNSt8_Rb_treeIN5clang6tblgen13HasPropertiesESt4pairIKS2_N12_GLOBAL__N_18NodeInfoEESt10_Select1stIS7_ESt4lessIS2_ESaIS7_EE12_M_drop_nodeEPSt13_Rb_tree_nodeIS7_E.exit.i.i ]
-  %122 = getelementptr inbounds nuw i8, ptr %.sroa.024.0, i64 40
-  ret ptr %122
+_ZNSt8_Rb_treeIN5clang6tblgen13HasPropertiesESt4pairIKS2_N12_GLOBAL__N_18NodeInfoEESt10_Select1stIS7_ESt4lessIS2_ESaIS7_EE22_M_emplace_hint_uniqueIJRKSt21piecewise_construct_tSt5tupleIJRS4_EESI_IJEEEEESt17_Rb_tree_iteratorIS7_ESt23_Rb_tree_const_iteratorIS7_EDpOT_.exit: ; preds = %_ZNSt8_Rb_treeIN5clang6tblgen13HasPropertiesESt4pairIKS2_N12_GLOBAL__N_18NodeInfoEESt10_Select1stIS7_ESt4lessIS2_ESaIS7_EE12_M_drop_nodeEPSt13_Rb_tree_nodeIS7_E.exit.i.i, %129, %26, %_ZNKSt4lessIN5clang6tblgen13HasPropertiesEEclERKS2_S5_.exit
+  %.sroa.025.0 = phi ptr [ %.19.i.i.i, %_ZNKSt4lessIN5clang6tblgen13HasPropertiesEEclERKS2_S5_.exit ], [ %.19.i.i.i, %26 ], [ %29, %129 ], [ %.sroa.01.0.ph.i, %_ZNSt8_Rb_treeIN5clang6tblgen13HasPropertiesESt4pairIKS2_N12_GLOBAL__N_18NodeInfoEESt10_Select1stIS7_ESt4lessIS2_ESaIS7_EE12_M_drop_nodeEPSt13_Rb_tree_nodeIS7_E.exit.i.i ]
+  %134 = getelementptr inbounds nuw i8, ptr %.sroa.025.0, i64 40
+  ret ptr %134
 }
 
 ; Function Attrs: noreturn
@@ -3792,23 +3875,23 @@ define linkonce_odr hidden { ptr, i64 } @_ZNK5clang6tblgen13WrappedRecord6getLoc
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN4llvmplERKNS_5TwineES2_(ptr dead_on_unwind noalias writable sret(%"class.llvm::Twine") align 8 %0, ptr noundef nonnull align 8 dereferenceable(34) %1, ptr noundef nonnull align 8 dereferenceable(34) %2) local_unnamed_addr #0 comdat {
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !64)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !65)
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %5 = load i8, ptr %4, align 8, !noalias !64
+  %5 = load i8, ptr %4, align 8, !noalias !65
   %6 = icmp eq i8 %5, 0
   br i1 %6, label %11, label %7
 
 7:                                                ; preds = %3
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  %9 = load i8, ptr %8, align 8, !noalias !64
+  %9 = load i8, ptr %8, align 8, !noalias !65
   %10 = icmp eq i8 %9, 0
   br i1 %10, label %11, label %14
 
 11:                                               ; preds = %7, %3
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store i8 0, ptr %12, align 8, !alias.scope !64
+  store i8 0, ptr %12, align 8, !alias.scope !65
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 33
-  store i8 1, ptr %13, align 1, !alias.scope !64
+  store i8 1, ptr %13, align 1, !alias.scope !65
   br label %_ZNK4llvm5Twine6concatERKS0_.exit
 
 14:                                               ; preds = %7
@@ -3829,34 +3912,34 @@ define linkonce_odr hidden void @_ZN4llvmplERKNS_5TwineES2_(ptr dead_on_unwind n
 
 20:                                               ; preds = %17
   %21 = getelementptr inbounds nuw i8, ptr %1, i64 33
-  %22 = load i8, ptr %21, align 1, !noalias !64
+  %22 = load i8, ptr %21, align 1, !noalias !65
   %23 = icmp eq i8 %22, 1
-  %.sroa.05.0.copyload.i = load ptr, ptr %1, align 8, !noalias !64
+  %.sroa.05.0.copyload.i = load ptr, ptr %1, align 8, !noalias !65
   %.sroa.36.0..sroa_idx.i = getelementptr inbounds i8, ptr %1, i64 8
-  %.sroa.36.0.copyload.i = load i64, ptr %.sroa.36.0..sroa_idx.i, align 8, !noalias !64
+  %.sroa.36.0.copyload.i = load i64, ptr %.sroa.36.0..sroa_idx.i, align 8, !noalias !65
   %.014.i = select i1 %23, i8 %5, i8 2
   %.sroa.05.0.i = select i1 %23, ptr %.sroa.05.0.copyload.i, ptr %1
   %.sroa.36.0.i = select i1 %23, i64 %.sroa.36.0.copyload.i, i64 undef
   %24 = getelementptr inbounds nuw i8, ptr %2, i64 33
-  %25 = load i8, ptr %24, align 1, !noalias !64
+  %25 = load i8, ptr %24, align 1, !noalias !65
   %26 = icmp eq i8 %25, 1
-  %.sroa.04.0.copyload.i = load ptr, ptr %2, align 8, !noalias !64
+  %.sroa.04.0.copyload.i = load ptr, ptr %2, align 8, !noalias !65
   %.sroa.3.0..sroa_idx.i = getelementptr inbounds i8, ptr %2, i64 8
-  %.sroa.3.0.copyload.i = load i64, ptr %.sroa.3.0..sroa_idx.i, align 8, !noalias !64
+  %.sroa.3.0.copyload.i = load i64, ptr %.sroa.3.0..sroa_idx.i, align 8, !noalias !65
   %.0.i = select i1 %26, i8 %9, i8 2
   %.sroa.04.0.i = select i1 %26, ptr %.sroa.04.0.copyload.i, ptr %2
   %.sroa.3.0.i = select i1 %26, i64 %.sroa.3.0.copyload.i, i64 undef
-  store ptr %.sroa.05.0.i, ptr %0, align 8, !alias.scope !64
+  store ptr %.sroa.05.0.i, ptr %0, align 8, !alias.scope !65
   %.sroa.23.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %0, i64 8
-  store i64 %.sroa.36.0.i, ptr %.sroa.23.0..sroa_idx.i.i, align 8, !alias.scope !64
+  store i64 %.sroa.36.0.i, ptr %.sroa.23.0..sroa_idx.i.i, align 8, !alias.scope !65
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %.sroa.04.0.i, ptr %27, align 8, !alias.scope !64
+  store ptr %.sroa.04.0.i, ptr %27, align 8, !alias.scope !65
   %.sroa.2.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %0, i64 24
-  store i64 %.sroa.3.0.i, ptr %.sroa.2.0..sroa_idx.i.i, align 8, !alias.scope !64
+  store i64 %.sroa.3.0.i, ptr %.sroa.2.0..sroa_idx.i.i, align 8, !alias.scope !65
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store i8 %.014.i, ptr %28, align 8, !alias.scope !64
+  store i8 %.014.i, ptr %28, align 8, !alias.scope !65
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 33
-  store i8 %.0.i, ptr %29, align 1, !alias.scope !64
+  store i8 %.0.i, ptr %29, align 1, !alias.scope !65
   br label %_ZNK4llvm5Twine6concatERKS0_.exit
 
 _ZNK4llvm5Twine6concatERKS0_.exit:                ; preds = %11, %16, %19, %20
@@ -3886,127 +3969,17 @@ declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #5
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #6
 
-; Function Attrs: mustprogress nofree nounwind willreturn memory(read) uwtable
-define internal fastcc { ptr, ptr } @_ZNSt8_Rb_treeIN5clang6tblgen13HasPropertiesESt4pairIKS2_N12_GLOBAL__N_18NodeInfoEESt10_Select1stIS7_ESt4lessIS2_ESaIS7_EE24_M_get_insert_unique_posERS4_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr nocapture readonly %.0.val) unnamed_addr #7 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 16
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
-  %.01115 = load ptr, ptr %2, align 8
-  %.not16 = icmp eq ptr %.01115, null
-  br i1 %.not16, label %._crit_edge.thread, label %.lr.ph
-
-.lr.ph:                                           ; preds = %1
-  %4 = load ptr, ptr %.0.val, align 8
-  %.sroa.2.0..sroa_idx.i.i.i.i = getelementptr inbounds i8, ptr %4, i64 32
-  %.sroa.2.0.copyload.i.i.i.i = load i64, ptr %.sroa.2.0..sroa_idx.i.i.i.i, align 8
-  %5 = getelementptr inbounds nuw i8, ptr %4, i64 24
-  br label %6
-
-6:                                                ; preds = %.lr.ph, %15
-  %.01117 = phi ptr [ %.01115, %.lr.ph ], [ %.011, %15 ]
-  %7 = getelementptr inbounds nuw i8, ptr %.01117, i64 32
-  %.sroa.0.0.copyload.i = load ptr, ptr %7, align 8
-  %8 = load ptr, ptr %.sroa.0.0.copyload.i, align 8
-  %.sroa.2.0..sroa_idx.i.i4.i.i = getelementptr inbounds i8, ptr %8, i64 32
-  %.sroa.2.0.copyload.i.i5.i.i = load i64, ptr %.sroa.2.0..sroa_idx.i.i4.i.i, align 8
-  %.sroa.speculated.i.i.i.i = tail call i64 @llvm.umin.i64(i64 %.sroa.2.0.copyload.i.i5.i.i, i64 %.sroa.2.0.copyload.i.i.i.i)
-  %9 = icmp eq i64 %.sroa.speculated.i.i.i.i, 0
-  br i1 %9, label %_ZNKSt4lessIN5clang6tblgen13HasPropertiesEEclERKS2_S5_.exit, label %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i
-
-_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i: ; preds = %6
-  %10 = getelementptr inbounds nuw i8, ptr %8, i64 24
-  %.sroa.0.0.copyload.i.i3.i.i = load ptr, ptr %10, align 8
-  %.sroa.0.0.copyload.i.i.i.i = load ptr, ptr %5, align 8
-  %11 = tail call i32 @memcmp(ptr noundef %.sroa.0.0.copyload.i.i.i.i, ptr noundef %.sroa.0.0.copyload.i.i3.i.i, i64 noundef %.sroa.speculated.i.i.i.i) #19
-  %.not.i.i.i.i = icmp eq i32 %11, 0
-  br i1 %.not.i.i.i.i, label %_ZNKSt4lessIN5clang6tblgen13HasPropertiesEEclERKS2_S5_.exit, label %12
-
-12:                                               ; preds = %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i
-  %.inv.i.i.i.i = icmp slt i32 %11, 0
-  br i1 %.inv.i.i.i.i, label %15, label %14
-
-_ZNKSt4lessIN5clang6tblgen13HasPropertiesEEclERKS2_S5_.exit: ; preds = %6, %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i
-  %13 = icmp ult i64 %.sroa.2.0.copyload.i.i.i.i, %.sroa.2.0.copyload.i.i5.i.i
-  br i1 %13, label %15, label %14
-
-14:                                               ; preds = %12, %_ZNKSt4lessIN5clang6tblgen13HasPropertiesEEclERKS2_S5_.exit
-  br label %15
-
-15:                                               ; preds = %_ZNKSt4lessIN5clang6tblgen13HasPropertiesEEclERKS2_S5_.exit, %12, %14
-  %.sink = phi i64 [ 24, %14 ], [ 16, %12 ], [ 16, %_ZNKSt4lessIN5clang6tblgen13HasPropertiesEEclERKS2_S5_.exit ]
-  %.0.i.i.i.i12 = phi i1 [ false, %14 ], [ true, %12 ], [ true, %_ZNKSt4lessIN5clang6tblgen13HasPropertiesEEclERKS2_S5_.exit ]
-  %16 = getelementptr i8, ptr %.01117, i64 %.sink
-  %.011 = load ptr, ptr %16, align 8
-  %.not = icmp eq ptr %.011, null
-  br i1 %.not, label %._crit_edge, label %6, !llvm.loop !67
-
-._crit_edge:                                      ; preds = %15
-  br i1 %.0.i.i.i.i12, label %._crit_edge.thread, label %21
-
-._crit_edge.thread:                               ; preds = %1, %._crit_edge
-  %.010.lcssa22 = phi ptr [ %.01117, %._crit_edge ], [ %3, %1 ]
-  %17 = getelementptr inbounds i8, ptr %0, i64 24
-  %.val9 = load ptr, ptr %17, align 8
-  %18 = icmp eq ptr %.010.lcssa22, %.val9
-  br i1 %18, label %32, label %19
-
-19:                                               ; preds = %._crit_edge.thread
-  %20 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.010.lcssa22) #19
-  br label %21
-
-21:                                               ; preds = %19, %._crit_edge
-  %.010.lcssa21 = phi ptr [ %.010.lcssa22, %19 ], [ %.01117, %._crit_edge ]
-  %.sroa.01.0 = phi ptr [ %20, %19 ], [ %.01117, %._crit_edge ]
-  %22 = getelementptr inbounds nuw i8, ptr %.sroa.01.0, i64 32
-  %.sroa.01.0.copyload.i14 = load ptr, ptr %22, align 8
-  %23 = load ptr, ptr %.sroa.01.0.copyload.i14, align 8
-  %.sroa.2.0..sroa_idx.i.i.i.i16 = getelementptr inbounds i8, ptr %23, i64 32
-  %.sroa.2.0.copyload.i.i.i.i17 = load i64, ptr %.sroa.2.0..sroa_idx.i.i.i.i16, align 8
-  %24 = load ptr, ptr %.0.val, align 8
-  %.sroa.2.0..sroa_idx.i.i4.i.i18 = getelementptr inbounds i8, ptr %24, i64 32
-  %.sroa.2.0.copyload.i.i5.i.i19 = load i64, ptr %.sroa.2.0..sroa_idx.i.i4.i.i18, align 8
-  %.sroa.speculated.i.i.i.i20 = tail call i64 @llvm.umin.i64(i64 %.sroa.2.0.copyload.i.i5.i.i19, i64 %.sroa.2.0.copyload.i.i.i.i17)
-  %25 = icmp eq i64 %.sroa.speculated.i.i.i.i20, 0
-  br i1 %25, label %_ZNKSt4lessIN5clang6tblgen13HasPropertiesEEclERKS2_S5_.exit28, label %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i21
-
-_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i21: ; preds = %21
-  %26 = getelementptr inbounds nuw i8, ptr %24, i64 24
-  %.sroa.0.0.copyload.i.i3.i.i22 = load ptr, ptr %26, align 8
-  %27 = getelementptr inbounds nuw i8, ptr %23, i64 24
-  %.sroa.0.0.copyload.i.i.i.i23 = load ptr, ptr %27, align 8
-  %28 = tail call i32 @memcmp(ptr noundef %.sroa.0.0.copyload.i.i.i.i23, ptr noundef %.sroa.0.0.copyload.i.i3.i.i22, i64 noundef %.sroa.speculated.i.i.i.i20) #19
-  %.not.i.i.i.i24 = icmp eq i32 %28, 0
-  br i1 %.not.i.i.i.i24, label %_ZNKSt4lessIN5clang6tblgen13HasPropertiesEEclERKS2_S5_.exit28, label %29
-
-29:                                               ; preds = %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i21
-  %.inv.i.i.i.i25 = icmp slt i32 %28, 0
-  br i1 %.inv.i.i.i.i25, label %32, label %31
-
-_ZNKSt4lessIN5clang6tblgen13HasPropertiesEEclERKS2_S5_.exit28: ; preds = %21, %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i21
-  %30 = icmp ult i64 %.sroa.2.0.copyload.i.i.i.i17, %.sroa.2.0.copyload.i.i5.i.i19
-  br i1 %30, label %32, label %31
-
-31:                                               ; preds = %29, %_ZNKSt4lessIN5clang6tblgen13HasPropertiesEEclERKS2_S5_.exit28
-  br label %32
-
-32:                                               ; preds = %_ZNKSt4lessIN5clang6tblgen13HasPropertiesEEclERKS2_S5_.exit28, %29, %._crit_edge.thread, %31
-  %.sroa.09.0 = phi ptr [ %.sroa.01.0, %31 ], [ null, %._crit_edge.thread ], [ null, %29 ], [ null, %_ZNKSt4lessIN5clang6tblgen13HasPropertiesEEclERKS2_S5_.exit28 ]
-  %.sroa.4.0 = phi ptr [ null, %31 ], [ %.010.lcssa22, %._crit_edge.thread ], [ %.010.lcssa21, %29 ], [ %.010.lcssa21, %_ZNKSt4lessIN5clang6tblgen13HasPropertiesEEclERKS2_S5_.exit28 ]
-  %.fca.0.insert = insertvalue { ptr, ptr } poison, ptr %.sroa.09.0, 0
-  %.fca.1.insert = insertvalue { ptr, ptr } %.fca.0.insert, ptr %.sroa.4.0, 1
-  ret { ptr, ptr } %.fca.1.insert
-}
+; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
+declare noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
-declare noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef) local_unnamed_addr #8
-
-; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
-declare noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef) local_unnamed_addr #8
+declare noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef) local_unnamed_addr #7
 
 ; Function Attrs: nounwind
-declare void @_ZSt29_Rb_tree_insert_and_rebalancebPSt18_Rb_tree_node_baseS0_RS_(i1 noundef zeroext, ptr noundef, ptr noundef, ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #9
+declare void @_ZSt29_Rb_tree_insert_and_rebalancebPSt18_Rb_tree_node_baseS0_RS_(i1 noundef zeroext, ptr noundef, ptr noundef, ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #8
 
 ; Function Attrs: nobuiltin nounwind
-declare void @_ZdlPvm(ptr noundef, i64 noundef) local_unnamed_addr #10
+declare void @_ZdlPvm(ptr noundef, i64 noundef) local_unnamed_addr #9
 
 ; Function Attrs: noreturn
 declare void @_ZSt20__throw_length_errorPKc(ptr noundef) local_unnamed_addr #2
@@ -4014,7 +3987,7 @@ declare void @_ZSt20__throw_length_errorPKc(ptr noundef) local_unnamed_addr #2
 declare noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read) uwtable
-define internal fastcc { ptr, ptr } @_ZNSt8_Rb_treeIN5clang6tblgen12PropertyTypeESt4pairIKS2_N12_GLOBAL__N_113CasedTypeInfoEESt10_Select1stIS7_ESt4lessIS2_ESaIS7_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorIS7_ERS4_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr %1, ptr nocapture readonly %.0.val) unnamed_addr #7 align 2 {
+define internal fastcc { ptr, ptr } @_ZNSt8_Rb_treeIN5clang6tblgen12PropertyTypeESt4pairIKS2_N12_GLOBAL__N_113CasedTypeInfoEESt10_Select1stIS7_ESt4lessIS2_ESaIS7_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorIS7_ERS4_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr %1, ptr nocapture readonly %.0.val) unnamed_addr #10 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   %4 = icmp eq ptr %1, %3
   br i1 %4, label %5, label %23
@@ -4215,7 +4188,7 @@ _ZNKSt4lessIN5clang6tblgen12PropertyTypeEEclERKS2_S5_.exit75: ; preds = %62, %_Z
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read) uwtable
-define internal fastcc { ptr, ptr } @_ZNSt8_Rb_treeIN5clang6tblgen12PropertyTypeESt4pairIKS2_N12_GLOBAL__N_113CasedTypeInfoEESt10_Select1stIS7_ESt4lessIS2_ESaIS7_EE24_M_get_insert_unique_posERS4_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr nocapture readonly %.0.val) unnamed_addr #7 align 2 {
+define internal fastcc { ptr, ptr } @_ZNSt8_Rb_treeIN5clang6tblgen12PropertyTypeESt4pairIKS2_N12_GLOBAL__N_113CasedTypeInfoEESt10_Select1stIS7_ESt4lessIS2_ESaIS7_EE24_M_get_insert_unique_posERS4_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr nocapture readonly %.0.val) unnamed_addr #10 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   %.01115 = load ptr, ptr %2, align 8
@@ -4705,13 +4678,13 @@ _ZN4llvmeqENS_9StringRefES0_.exit.thread:         ; preds = %_ZN4llvmeqENS_9Stri
 }
 
 ; Function Attrs: nounwind
-declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #9
+declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #8
 
 ; Function Attrs: nounwind
-declare noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #9
+declare noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #8
 
 ; Function Attrs: nounwind
-declare noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #9
+declare noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #8
 
 declare noundef ptr @_ZNK4llvm6Record21getValueAsOptionalDefENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(192), ptr, i64) local_unnamed_addr #1
 
@@ -11229,10 +11202,10 @@ attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argm
 attributes #4 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #5 = { nobuiltin allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #7 = { mustprogress nofree nounwind willreturn memory(read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { mustprogress nofree nounwind willreturn memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { nobuiltin nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { mustprogress nofree nounwind willreturn memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { nobuiltin nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { mustprogress nofree nounwind willreturn memory(read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #11 = { nofree nounwind willreturn memory(argmem: read) }
 attributes #12 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #13 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
@@ -11309,10 +11282,10 @@ attributes #19 = { nounwind willreturn memory(read) }
 !61 = distinct !{!61, !62, !"_ZN12_GLOBAL__N_116ReaderWriterInfo9forWriterIN5clang6tblgen8TypeNodeEEES0_v: argument 0"}
 !62 = distinct !{!62, !"_ZN12_GLOBAL__N_116ReaderWriterInfo9forWriterIN5clang6tblgen8TypeNodeEEES0_v"}
 !63 = distinct !{!63, !19}
-!64 = !{!65}
-!65 = distinct !{!65, !66, !"_ZNK4llvm5Twine6concatERKS0_: argument 0"}
-!66 = distinct !{!66, !"_ZNK4llvm5Twine6concatERKS0_"}
-!67 = distinct !{!67, !19}
+!64 = distinct !{!64, !19}
+!65 = !{!66}
+!66 = distinct !{!66, !67, !"_ZNK4llvm5Twine6concatERKS0_: argument 0"}
+!67 = distinct !{!67, !"_ZNK4llvm5Twine6concatERKS0_"}
 !68 = distinct !{!68, !19}
 !69 = distinct !{!69, !19}
 !70 = distinct !{!70, !19}

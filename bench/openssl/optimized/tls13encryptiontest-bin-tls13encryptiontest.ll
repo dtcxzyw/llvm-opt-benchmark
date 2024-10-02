@@ -68,7 +68,7 @@ declare void @add_test(ptr noundef, ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 2) i32 @test_tls13_encryption() #0 {
 entry:
-  %refdatalen.i18 = alloca i64, align 8
+  %refdatalen.i16 = alloca i64, align 8
   %refdatalen.i = alloca i64, align 8
   %ptlen.i = alloca i64, align 8
   %rec = alloca %struct.tls_rl_record_st, align 8
@@ -90,10 +90,10 @@ entry:
   br label %for.body
 
 for.body:                                         ; preds = %entry, %if.end55
-  %ctr.068 = phi i64 [ 0, %entry ], [ %inc, %if.end55 ]
+  %ctr.067 = phi i64 [ 0, %entry ], [ %inc, %if.end55 ]
   %call1 = call i32 @EVP_CIPHER_get_iv_length(ptr noundef %call) #5
   %conv = sext i32 %call1 to i64
-  %arrayidx = getelementptr inbounds [7 x %struct.RECORD_DATA], ptr @refdata, i64 0, i64 %ctr.068
+  %arrayidx = getelementptr inbounds [7 x %struct.RECORD_DATA], ptr @refdata, i64 0, i64 %ctr.067
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ptlen.i)
   %key1.i = getelementptr inbounds i8, ptr %arrayidx, i64 48
   %2 = load ptr, ptr %key1.i, align 8
@@ -164,16 +164,16 @@ if.end12:                                         ; preds = %if.end
   br i1 %tobool18.not, label %if.then19, label %if.end20
 
 if.then19:                                        ; preds = %if.end12
-  call void (ptr, i32, ptr, ...) @test_info(ptr noundef nonnull @.str.1, i32 noundef 348, ptr noundef nonnull @.str.6, i64 noundef %ctr.068) #5
+  call void (ptr, i32, ptr, ...) @test_info(ptr noundef nonnull @.str.1, i32 noundef 348, ptr noundef nonnull @.str.6, i64 noundef %ctr.067) #5
   br label %err
 
 if.end20:                                         ; preds = %if.end12
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %refdatalen.i)
   store i64 0, ptr %refdatalen.i, align 8
-  %ciphertext.i = getelementptr inbounds i8, ptr %arrayidx, i64 24
-  %call.i12 = call fastcc ptr @multihexstr2buf(ptr noundef nonnull readonly %ciphertext.i, ptr noundef %refdatalen.i)
-  %call3.i14 = call i32 @test_ptr(ptr noundef nonnull @.str.1, i32 noundef 290, ptr noundef nonnull @.str.43, ptr noundef %call.i12) #5
-  %tobool4.not.i = icmp eq i32 %call3.i14, 0
+  %recd.sink.i = getelementptr inbounds i8, ptr %arrayidx, i64 24
+  %call2.i = call fastcc ptr @multihexstr2buf(ptr noundef nonnull readonly %recd.sink.i, ptr noundef %refdatalen.i)
+  %call3.i12 = call i32 @test_ptr(ptr noundef nonnull @.str.1, i32 noundef 290, ptr noundef nonnull @.str.43, ptr noundef %call2.i) #5
+  %tobool4.not.i = icmp eq i32 %call3.i12, 0
   br i1 %tobool4.not.i, label %if.then5.i, label %if.end6.i
 
 if.then5.i:                                       ; preds = %if.end20
@@ -184,21 +184,21 @@ if.end6.i:                                        ; preds = %if.end20
   %10 = load ptr, ptr %data, align 8
   %11 = load i64, ptr %length.i, align 8
   %12 = load i64, ptr %refdatalen.i, align 8
-  %call7.i = call i32 @test_mem_eq(ptr noundef nonnull @.str.1, i32 noundef 295, ptr noundef nonnull @.str.45, ptr noundef nonnull @.str.43, ptr noundef %10, i64 noundef %11, ptr noundef %call.i12, i64 noundef %12) #5
+  %call7.i = call i32 @test_mem_eq(ptr noundef nonnull @.str.1, i32 noundef 295, ptr noundef nonnull @.str.45, ptr noundef nonnull @.str.43, ptr noundef %10, i64 noundef %11, ptr noundef %call2.i, i64 noundef %12) #5
   %tobool8.not.i = icmp ne i32 %call7.i, 0
   %spec.select.i = zext i1 %tobool8.not.i to i32
   br label %test_record.exit
 
 test_record.exit:                                 ; preds = %if.then5.i, %if.end6.i
   %ret.0.i = phi i32 [ 0, %if.then5.i ], [ %spec.select.i, %if.end6.i ]
-  call void @CRYPTO_free(ptr noundef %call.i12, ptr noundef nonnull @.str.1, i32 noundef 301) #5
+  call void @CRYPTO_free(ptr noundef %call2.i, ptr noundef nonnull @.str.1, i32 noundef 301) #5
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %refdatalen.i)
   %call25 = call i32 @test_true(ptr noundef nonnull @.str.1, i32 noundef 352, ptr noundef nonnull @.str.7, i32 noundef %ret.0.i) #5
   %tobool26.not = icmp eq i32 %call25, 0
   br i1 %tobool26.not, label %if.then27, label %if.end28
 
 if.then27:                                        ; preds = %test_record.exit
-  call void (ptr, i32, ptr, ...) @test_info(ptr noundef nonnull @.str.1, i32 noundef 353, ptr noundef nonnull @.str.8, i64 noundef %ctr.068) #5
+  call void (ptr, i32, ptr, ...) @test_info(ptr noundef nonnull @.str.1, i32 noundef 353, ptr noundef nonnull @.str.8, i64 noundef %ctr.067) #5
   br label %err
 
 if.end28:                                         ; preds = %test_record.exit
@@ -224,43 +224,43 @@ if.end37:                                         ; preds = %if.end28
   br i1 %tobool45.not, label %if.then46, label %if.end47
 
 if.then46:                                        ; preds = %if.end37
-  call void (ptr, i32, ptr, ...) @test_info(ptr noundef nonnull @.str.1, i32 noundef 371, ptr noundef nonnull @.str.11, i64 noundef %ctr.068) #5
+  call void (ptr, i32, ptr, ...) @test_info(ptr noundef nonnull @.str.1, i32 noundef 371, ptr noundef nonnull @.str.11, i64 noundef %ctr.067) #5
   br label %err
 
 if.end47:                                         ; preds = %if.end37
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %refdatalen.i18)
-  store i64 0, ptr %refdatalen.i18, align 8
-  %call2.i = call fastcc ptr @multihexstr2buf(ptr noundef nonnull readonly %arrayidx, ptr noundef %refdatalen.i18)
-  %call3.i20 = call i32 @test_ptr(ptr noundef nonnull @.str.1, i32 noundef 290, ptr noundef nonnull @.str.43, ptr noundef %call2.i) #5
-  %tobool4.not.i21 = icmp eq i32 %call3.i20, 0
-  br i1 %tobool4.not.i21, label %if.then5.i30, label %if.end6.i22
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %refdatalen.i16)
+  store i64 0, ptr %refdatalen.i16, align 8
+  %call2.i18 = call fastcc ptr @multihexstr2buf(ptr noundef nonnull readonly %arrayidx, ptr noundef %refdatalen.i16)
+  %call3.i19 = call i32 @test_ptr(ptr noundef nonnull @.str.1, i32 noundef 290, ptr noundef nonnull @.str.43, ptr noundef %call2.i18) #5
+  %tobool4.not.i20 = icmp eq i32 %call3.i19, 0
+  br i1 %tobool4.not.i20, label %if.then5.i29, label %if.end6.i21
 
-if.then5.i30:                                     ; preds = %if.end47
+if.then5.i29:                                     ; preds = %if.end47
   call void (ptr, i32, ptr, ...) @test_info(ptr noundef nonnull @.str.1, i32 noundef 291, ptr noundef nonnull @.str.44) #5
-  br label %test_record.exit31
+  br label %test_record.exit30
 
-if.end6.i22:                                      ; preds = %if.end47
+if.end6.i21:                                      ; preds = %if.end47
   %16 = load ptr, ptr %data, align 8
   %17 = load i64, ptr %length.i, align 8
-  %18 = load i64, ptr %refdatalen.i18, align 8
-  %call7.i25 = call i32 @test_mem_eq(ptr noundef nonnull @.str.1, i32 noundef 295, ptr noundef nonnull @.str.45, ptr noundef nonnull @.str.43, ptr noundef %16, i64 noundef %17, ptr noundef %call2.i, i64 noundef %18) #5
-  %tobool8.not.i26 = icmp ne i32 %call7.i25, 0
-  %spec.select.i27 = zext i1 %tobool8.not.i26 to i32
-  br label %test_record.exit31
+  %18 = load i64, ptr %refdatalen.i16, align 8
+  %call7.i24 = call i32 @test_mem_eq(ptr noundef nonnull @.str.1, i32 noundef 295, ptr noundef nonnull @.str.45, ptr noundef nonnull @.str.43, ptr noundef %16, i64 noundef %17, ptr noundef %call2.i18, i64 noundef %18) #5
+  %tobool8.not.i25 = icmp ne i32 %call7.i24, 0
+  %spec.select.i26 = zext i1 %tobool8.not.i25 to i32
+  br label %test_record.exit30
 
-test_record.exit31:                               ; preds = %if.then5.i30, %if.end6.i22
-  %ret.0.i29 = phi i32 [ 0, %if.then5.i30 ], [ %spec.select.i27, %if.end6.i22 ]
-  call void @CRYPTO_free(ptr noundef %call2.i, ptr noundef nonnull @.str.1, i32 noundef 301) #5
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %refdatalen.i18)
-  %call52 = call i32 @test_true(ptr noundef nonnull @.str.1, i32 noundef 375, ptr noundef nonnull @.str.12, i32 noundef %ret.0.i29) #5
+test_record.exit30:                               ; preds = %if.then5.i29, %if.end6.i21
+  %ret.0.i28 = phi i32 [ 0, %if.then5.i29 ], [ %spec.select.i26, %if.end6.i21 ]
+  call void @CRYPTO_free(ptr noundef %call2.i18, ptr noundef nonnull @.str.1, i32 noundef 301) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %refdatalen.i16)
+  %call52 = call i32 @test_true(ptr noundef nonnull @.str.1, i32 noundef 375, ptr noundef nonnull @.str.12, i32 noundef %ret.0.i28) #5
   %tobool53.not = icmp eq i32 %call52, 0
   br i1 %tobool53.not, label %if.then54, label %if.end55
 
-if.then54:                                        ; preds = %test_record.exit31
-  call void (ptr, i32, ptr, ...) @test_info(ptr noundef nonnull @.str.1, i32 noundef 376, ptr noundef nonnull @.str.13, i64 noundef %ctr.068) #5
+if.then54:                                        ; preds = %test_record.exit30
+  call void (ptr, i32, ptr, ...) @test_info(ptr noundef nonnull @.str.1, i32 noundef 376, ptr noundef nonnull @.str.13, i64 noundef %ctr.067) #5
   br label %err
 
-if.end55:                                         ; preds = %test_record.exit31
+if.end55:                                         ; preds = %test_record.exit30
   %19 = load ptr, ptr %rrl, align 8
   %call56 = call i32 %1(ptr noundef %19) #5
   %20 = load ptr, ptr %wrl, align 8
@@ -271,7 +271,7 @@ if.end55:                                         ; preds = %test_record.exit31
   call void @CRYPTO_free(ptr noundef %21, ptr noundef nonnull @.str.1, i32 noundef 383) #5
   call void @CRYPTO_free(ptr noundef nonnull %call.i, ptr noundef nonnull @.str.1, i32 noundef 384) #5
   store ptr null, ptr %data, align 8
-  %inc = add nuw nsw i64 %ctr.068, 1
+  %inc = add nuw nsw i64 %ctr.067, 1
   %exitcond.not = icmp eq i64 %inc, 7
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !5
 

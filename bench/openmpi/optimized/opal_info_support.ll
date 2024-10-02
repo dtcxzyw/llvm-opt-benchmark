@@ -817,7 +817,7 @@ define void @opal_info_out(ptr noundef %0, ptr noundef %1, ptr noundef %2) local
   %28 = trunc i8 %27 to i1
   %29 = icmp ne ptr %0, null
   %or.cond = and i1 %29, %28
-  br i1 %or.cond, label %30, label %97
+  br i1 %or.cond, label %30, label %93
 
 30:                                               ; preds = %26
   %31 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #20
@@ -861,8 +861,8 @@ define void @opal_info_out(ptr noundef %0, ptr noundef %1, ptr noundef %2) local
   %51 = icmp ne i64 %44, 0
   br label %52
 
-52:                                               ; preds = %85, %49
-  %.079 = phi ptr [ %13, %49 ], [ %.180, %85 ]
+52:                                               ; preds = %79, %49
+  %.079 = phi ptr [ %13, %49 ], [ %.180, %79 ]
   store ptr null, ptr %4, align 8
   %53 = load i8, ptr @opal_info_color, align 1
   %54 = trunc i8 %53 to i1
@@ -904,155 +904,147 @@ define void @opal_info_out(ptr noundef %0, ptr noundef %1, ptr noundef %2) local
   %.078 = phi i64 [ %66, %.critedge3 ], [ %44, %52 ]
   %68 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.079) #20
   %69 = icmp ult i64 %68, %.078
-  br i1 %69, label %70, label %73
+  br i1 %69, label %85, label %70
 
 70:                                               ; preds = %67
-  %71 = load ptr, ptr %5, align 8
-  %72 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.99, ptr noundef %71, ptr noundef %.079)
-  br label %91
+  %71 = call i32 (ptr, ptr, ...) @opal_asprintf(ptr noundef nonnull %4, ptr noundef nonnull @.str.96, i32 noundef 26, ptr noundef nonnull @.str.95) #17
+  %72 = getelementptr inbounds i8, ptr %.079, i64 %.078
+  %73 = load i8, ptr %72, align 1
+  store i8 0, ptr %72, align 1
+  %74 = call ptr @strrchr(ptr noundef nonnull dereferenceable(1) %.079, i32 noundef 32) #20
+  store i8 %73, ptr %72, align 1
+  %75 = icmp eq ptr %74, null
+  br i1 %75, label %76, label %79
 
-73:                                               ; preds = %67
-  %74 = call i32 (ptr, ptr, ...) @opal_asprintf(ptr noundef nonnull %4, ptr noundef nonnull @.str.96, i32 noundef 26, ptr noundef nonnull @.str.95) #17
-  %75 = getelementptr inbounds i8, ptr %.079, i64 %.078
-  %76 = load i8, ptr %75, align 1
-  store i8 0, ptr %75, align 1
-  %77 = call ptr @strrchr(ptr noundef nonnull dereferenceable(1) %.079, i32 noundef 32) #20
-  store i8 %76, ptr %75, align 1
+76:                                               ; preds = %70
+  %77 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %72, i32 noundef 32) #20
   %78 = icmp eq ptr %77, null
-  br i1 %78, label %79, label %85
+  br i1 %78, label %85, label %79
 
-79:                                               ; preds = %73
-  %80 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %75, i32 noundef 32) #20
-  %81 = icmp eq ptr %80, null
-  br i1 %81, label %82, label %85
-
-82:                                               ; preds = %79
-  %83 = load ptr, ptr %5, align 8
-  %84 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.99, ptr noundef %83, ptr noundef nonnull %.079)
-  br label %91
-
-85:                                               ; preds = %73, %79
-  %.sink = phi ptr [ %80, %79 ], [ %77, %73 ]
+79:                                               ; preds = %70, %76
+  %.sink = phi ptr [ %77, %76 ], [ %74, %70 ]
   store i8 0, ptr %.sink, align 1
-  %86 = load ptr, ptr %5, align 8
-  %87 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.99, ptr noundef %86, ptr noundef nonnull %.079)
+  %80 = load ptr, ptr %5, align 8
+  %81 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.99, ptr noundef %80, ptr noundef nonnull %.079)
   %.180 = getelementptr inbounds i8, ptr %.sink, i64 1
-  %88 = load ptr, ptr %5, align 8
-  call void @free(ptr noundef %88) #17
-  %89 = load ptr, ptr %4, align 8
-  %90 = call noalias ptr @strdup(ptr noundef %89) #17
-  store ptr %90, ptr %5, align 8
-  call void @free(ptr noundef %89) #17
+  %82 = load ptr, ptr %5, align 8
+  call void @free(ptr noundef %82) #17
+  %83 = load ptr, ptr %4, align 8
+  %84 = call noalias ptr @strdup(ptr noundef %83) #17
+  store ptr %84, ptr %5, align 8
+  call void @free(ptr noundef %83) #17
   br label %52
 
-91:                                               ; preds = %82, %70
-  %92 = load ptr, ptr %5, align 8
-  %.not102 = icmp eq ptr %92, null
-  br i1 %.not102, label %94, label %93
+85:                                               ; preds = %76, %67
+  %86 = load ptr, ptr %5, align 8
+  %87 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.99, ptr noundef %86, ptr noundef %.079)
+  %88 = load ptr, ptr %5, align 8
+  %.not102 = icmp eq ptr %88, null
+  br i1 %.not102, label %90, label %89
 
-93:                                               ; preds = %91
-  call void @free(ptr noundef nonnull %92) #17
-  br label %94
+89:                                               ; preds = %85
+  call void @free(ptr noundef nonnull %88) #17
+  br label %90
 
-94:                                               ; preds = %93, %91
-  %95 = load ptr, ptr %4, align 8
-  %.not103 = icmp eq ptr %95, null
-  br i1 %.not103, label %123, label %96
+90:                                               ; preds = %89, %85
+  %91 = load ptr, ptr %4, align 8
+  %.not103 = icmp eq ptr %91, null
+  br i1 %.not103, label %119, label %92
 
-96:                                               ; preds = %94
-  call void @free(ptr noundef nonnull %95) #17
-  br label %123
+92:                                               ; preds = %90
+  call void @free(ptr noundef nonnull %91) #17
+  br label %119
 
-97:                                               ; preds = %26
+93:                                               ; preds = %26
   %.not96 = icmp eq ptr %1, null
-  br i1 %.not96, label %122, label %98
+  br i1 %.not96, label %118, label %94
 
-98:                                               ; preds = %97
+94:                                               ; preds = %93
   %char0 = load i8, ptr %1, align 1
   %.not97 = icmp eq i8 %char0, 0
-  br i1 %.not97, label %122, label %.lr.ph.i
+  br i1 %.not97, label %118, label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %98, %102
-  %.02132.i = phi i32 [ %.122.i, %102 ], [ 0, %98 ]
-  %.02331.i = phi ptr [ %103, %102 ], [ %spec.store.select, %98 ]
-  %99 = load i8, ptr %.02331.i, align 1
-  switch i8 %99, label %102 [
+.lr.ph.i:                                         ; preds = %94, %98
+  %.02132.i = phi i32 [ %.122.i, %98 ], [ 0, %94 ]
+  %.02331.i = phi ptr [ %99, %98 ], [ %spec.store.select, %94 ]
+  %95 = load i8, ptr %.02331.i, align 1
+  switch i8 %95, label %98 [
     i8 0, label %.critedge.i
-    i8 34, label %100
+    i8 34, label %96
   ]
 
-100:                                              ; preds = %.lr.ph.i
-  %101 = add nsw i32 %.02132.i, 1
-  br label %102
+96:                                               ; preds = %.lr.ph.i
+  %97 = add nsw i32 %.02132.i, 1
+  br label %98
 
-102:                                              ; preds = %100, %.lr.ph.i
-  %.122.i = phi i32 [ %101, %100 ], [ %.02132.i, %.lr.ph.i ]
-  %103 = getelementptr inbounds i8, ptr %.02331.i, i64 1
+98:                                               ; preds = %96, %.lr.ph.i
+  %.122.i = phi i32 [ %97, %96 ], [ %.02132.i, %.lr.ph.i ]
+  %99 = getelementptr inbounds i8, ptr %.02331.i, i64 1
   br label %.lr.ph.i
 
 .critedge.i:                                      ; preds = %.lr.ph.i
-  %104 = icmp eq i32 %.02132.i, 0
-  br i1 %104, label %escape_quotes.exit, label %105
+  %100 = icmp eq i32 %.02132.i, 0
+  br i1 %100, label %escape_quotes.exit, label %101
 
-105:                                              ; preds = %.critedge.i
-  %106 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %spec.store.select) #20
-  %107 = sext i32 %.02132.i to i64
-  %108 = add nsw i64 %107, 1
-  %109 = add i64 %108, %106
-  %110 = tail call noalias ptr @calloc(i64 noundef 1, i64 noundef %109) #24
-  %111 = icmp eq ptr %110, null
-  br i1 %111, label %escape_quotes.exit, label %.preheader.i
+101:                                              ; preds = %.critedge.i
+  %102 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %spec.store.select) #20
+  %103 = sext i32 %.02132.i to i64
+  %104 = add nsw i64 %103, 1
+  %105 = add i64 %104, %102
+  %106 = tail call noalias ptr @calloc(i64 noundef 1, i64 noundef %105) #24
+  %107 = icmp eq ptr %106, null
+  br i1 %107, label %escape_quotes.exit, label %.preheader.i
 
-.preheader.i:                                     ; preds = %105, %115
-  %.124.i = phi ptr [ %117, %115 ], [ %spec.store.select, %105 ]
-  %.0.i = phi ptr [ %118, %115 ], [ %110, %105 ]
-  %112 = load i8, ptr %.124.i, align 1
-  switch i8 %112, label %115 [
+.preheader.i:                                     ; preds = %101, %111
+  %.124.i = phi ptr [ %113, %111 ], [ %spec.store.select, %101 ]
+  %.0.i = phi ptr [ %114, %111 ], [ %106, %101 ]
+  %108 = load i8, ptr %.124.i, align 1
+  switch i8 %108, label %111 [
     i8 0, label %escape_quotes.exit
-    i8 34, label %113
+    i8 34, label %109
   ]
 
-113:                                              ; preds = %.preheader.i
-  %114 = getelementptr inbounds i8, ptr %.0.i, i64 1
+109:                                              ; preds = %.preheader.i
+  %110 = getelementptr inbounds i8, ptr %.0.i, i64 1
   store i8 92, ptr %.0.i, align 1
   %.pre.i = load i8, ptr %.124.i, align 1
-  br label %115
+  br label %111
 
-115:                                              ; preds = %113, %.preheader.i
-  %116 = phi i8 [ %.pre.i, %113 ], [ %112, %.preheader.i ]
-  %.1.i = phi ptr [ %114, %113 ], [ %.0.i, %.preheader.i ]
-  store i8 %116, ptr %.1.i, align 1
-  %117 = getelementptr inbounds i8, ptr %.124.i, i64 1
-  %118 = getelementptr inbounds i8, ptr %.1.i, i64 1
+111:                                              ; preds = %109, %.preheader.i
+  %112 = phi i8 [ %.pre.i, %109 ], [ %108, %.preheader.i ]
+  %.1.i = phi ptr [ %110, %109 ], [ %.0.i, %.preheader.i ]
+  store i8 %112, ptr %.1.i, align 1
+  %113 = getelementptr inbounds i8, ptr %.124.i, i64 1
+  %114 = getelementptr inbounds i8, ptr %.1.i, i64 1
   br label %.preheader.i, !llvm.loop !12
 
-escape_quotes.exit:                               ; preds = %.preheader.i, %.critedge.i, %105
-  %.020.i = phi ptr [ null, %.critedge.i ], [ null, %105 ], [ %110, %.preheader.i ]
+escape_quotes.exit:                               ; preds = %.preheader.i, %.critedge.i, %101
+  %.020.i = phi ptr [ null, %.critedge.i ], [ null, %101 ], [ %106, %.preheader.i ]
   %.not98 = icmp eq ptr %.020.i, null
   %spec.select107 = select i1 %.not98, ptr %spec.store.select, ptr %.020.i
-  %119 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %spec.select107, i32 noundef 58) #20
-  %.not99 = icmp eq ptr %119, null
+  %115 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %spec.select107, i32 noundef 58) #20
+  %.not99 = icmp eq ptr %115, null
   %.str.101..str.100 = select i1 %.not99, ptr @.str.101, ptr @.str.100
-  %120 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) %.str.101..str.100, ptr noundef nonnull %1, ptr noundef nonnull %spec.select107)
-  br i1 %.not98, label %123, label %121
+  %116 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) %.str.101..str.100, ptr noundef nonnull %1, ptr noundef nonnull %spec.select107)
+  br i1 %.not98, label %119, label %117
 
-121:                                              ; preds = %escape_quotes.exit
+117:                                              ; preds = %escape_quotes.exit
   tail call void @free(ptr noundef nonnull %.020.i) #17
-  br label %123
+  br label %119
 
-122:                                              ; preds = %98, %97
+118:                                              ; preds = %94, %93
   %puts = tail call i32 @puts(ptr nonnull dereferenceable(1) %spec.store.select)
-  br label %123
+  br label %119
 
-123:                                              ; preds = %122, %121, %escape_quotes.exit, %94, %96
+119:                                              ; preds = %118, %117, %escape_quotes.exit, %90, %92
   %.not104 = icmp eq ptr %13, null
-  br i1 %.not104, label %125, label %124
+  br i1 %.not104, label %121, label %120
 
-124:                                              ; preds = %123
+120:                                              ; preds = %119
   call void @free(ptr noundef nonnull %13) #17
-  br label %125
+  br label %121
 
-125:                                              ; preds = %124, %123
+121:                                              ; preds = %120, %119
   ret void
 }
 
@@ -3071,7 +3063,7 @@ define void @opal_info_show_mca_version(ptr noundef %0, ptr nocapture noundef re
   %40 = load i8, ptr @opal_info_pretty, align 1
   %41 = trunc i8 %40 to i1
   %42 = getelementptr inbounds i8, ptr %0, i64 40
-  br i1 %41, label %43, label %88
+  br i1 %41, label %43, label %87
 
 43:                                               ; preds = %19
   %44 = call i32 (ptr, ptr, ...) @opal_asprintf(ptr noundef nonnull %4, ptr noundef nonnull @.str.86, ptr noundef nonnull %42) #17
@@ -3168,80 +3160,80 @@ thread-pre-split:                                 ; preds = %64
   call void @free(ptr noundef %85) #17
   %86 = load ptr, ptr %6, align 8
   %.not49 = icmp eq ptr %86, null
-  br i1 %.not49, label %110, label %87
+  br i1 %.not49, label %109, label %.sink.split
 
-87:                                               ; preds = %82
-  call void @free(ptr noundef nonnull %86) #17
-  br label %110
+87:                                               ; preds = %19
+  %88 = getelementptr inbounds i8, ptr %0, i64 84
+  %89 = call i32 (ptr, ptr, ...) @opal_asprintf(ptr noundef nonnull %4, ptr noundef nonnull @.str.110, ptr noundef nonnull %42, ptr noundef nonnull %88) #17
+  br i1 %.0415461, label %90, label %95
 
-88:                                               ; preds = %19
-  %89 = getelementptr inbounds i8, ptr %0, i64 84
-  %90 = call i32 (ptr, ptr, ...) @opal_asprintf(ptr noundef nonnull %4, ptr noundef nonnull @.str.110, ptr noundef nonnull %42, ptr noundef nonnull %89) #17
-  br i1 %.0415461, label %91, label %96
-
-91:                                               ; preds = %88
-  %92 = call i32 (ptr, ptr, ...) @opal_asprintf(ptr noundef nonnull %6, ptr noundef nonnull @.str.111, ptr noundef %25) #17
-  %93 = load ptr, ptr %4, align 8
+90:                                               ; preds = %87
+  %91 = call i32 (ptr, ptr, ...) @opal_asprintf(ptr noundef nonnull %6, ptr noundef nonnull @.str.111, ptr noundef %25) #17
+  %92 = load ptr, ptr %4, align 8
+  %93 = load ptr, ptr %6, align 8
+  call void @opal_info_out(ptr noundef null, ptr noundef %92, ptr noundef %93)
   %94 = load ptr, ptr %6, align 8
-  call void @opal_info_out(ptr noundef null, ptr noundef %93, ptr noundef %94)
-  %95 = load ptr, ptr %6, align 8
-  call void @free(ptr noundef %95) #17
-  br label %96
+  call void @free(ptr noundef %94) #17
+  br label %95
 
-96:                                               ; preds = %91, %88
-  br i1 %.04264, label %97, label %102
+95:                                               ; preds = %90, %87
+  br i1 %.04264, label %96, label %101
 
-97:                                               ; preds = %96
-  %98 = call i32 (ptr, ptr, ...) @opal_asprintf(ptr noundef nonnull %6, ptr noundef nonnull @.str.112, ptr noundef %32) #17
-  %99 = load ptr, ptr %4, align 8
+96:                                               ; preds = %95
+  %97 = call i32 (ptr, ptr, ...) @opal_asprintf(ptr noundef nonnull %6, ptr noundef nonnull @.str.112, ptr noundef %32) #17
+  %98 = load ptr, ptr %4, align 8
+  %99 = load ptr, ptr %6, align 8
+  call void @opal_info_out(ptr noundef null, ptr noundef %98, ptr noundef %99)
   %100 = load ptr, ptr %6, align 8
-  call void @opal_info_out(ptr noundef null, ptr noundef %99, ptr noundef %100)
-  %101 = load ptr, ptr %6, align 8
-  call void @free(ptr noundef %101) #17
-  br label %102
+  call void @free(ptr noundef %100) #17
+  br label %101
 
-102:                                              ; preds = %97, %96
-  br i1 %.043, label %103, label %108
+101:                                              ; preds = %96, %95
+  br i1 %.043, label %102, label %107
 
-103:                                              ; preds = %102
-  %104 = call i32 (ptr, ptr, ...) @opal_asprintf(ptr noundef nonnull %6, ptr noundef nonnull @.str.113, ptr noundef %39) #17
-  %105 = load ptr, ptr %4, align 8
+102:                                              ; preds = %101
+  %103 = call i32 (ptr, ptr, ...) @opal_asprintf(ptr noundef nonnull %6, ptr noundef nonnull @.str.113, ptr noundef %39) #17
+  %104 = load ptr, ptr %4, align 8
+  %105 = load ptr, ptr %6, align 8
+  call void @opal_info_out(ptr noundef null, ptr noundef %104, ptr noundef %105)
   %106 = load ptr, ptr %6, align 8
-  call void @opal_info_out(ptr noundef null, ptr noundef %105, ptr noundef %106)
-  %107 = load ptr, ptr %6, align 8
-  call void @free(ptr noundef %107) #17
-  br label %108
+  call void @free(ptr noundef %106) #17
+  br label %107
 
-108:                                              ; preds = %103, %102
-  %109 = load ptr, ptr %4, align 8
-  call void @free(ptr noundef %109) #17
-  br label %110
+107:                                              ; preds = %102, %101
+  %108 = load ptr, ptr %4, align 8
+  br label %.sink.split
 
-110:                                              ; preds = %82, %87, %108
+.sink.split:                                      ; preds = %82, %107
+  %.sink = phi ptr [ %108, %107 ], [ %86, %82 ]
+  call void @free(ptr noundef %.sink) #17
+  br label %109
+
+109:                                              ; preds = %.sink.split, %82
   %.not50 = icmp eq ptr %25, null
-  br i1 %.not50, label %112, label %111
+  br i1 %.not50, label %111, label %110
 
-111:                                              ; preds = %110
+110:                                              ; preds = %109
   call void @free(ptr noundef nonnull %25) #17
-  br label %112
+  br label %111
 
-112:                                              ; preds = %111, %110
+111:                                              ; preds = %110, %109
   %.not51 = icmp eq ptr %32, null
-  br i1 %.not51, label %114, label %113
+  br i1 %.not51, label %113, label %112
 
-113:                                              ; preds = %112
+112:                                              ; preds = %111
   call void @free(ptr noundef nonnull %32) #17
-  br label %114
+  br label %113
 
-114:                                              ; preds = %113, %112
+113:                                              ; preds = %112, %111
   %.not52 = icmp eq ptr %39, null
-  br i1 %.not52, label %116, label %115
+  br i1 %.not52, label %115, label %114
 
-115:                                              ; preds = %114
+114:                                              ; preds = %113
   call void @free(ptr noundef nonnull %39) #17
-  br label %116
+  br label %115
 
-116:                                              ; preds = %115, %114
+115:                                              ; preds = %114, %113
   ret void
 }
 

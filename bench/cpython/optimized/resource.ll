@@ -337,24 +337,17 @@ if.end.i:                                         ; preds = %skip_optional
 
 if.end5.i:                                        ; preds = %if.end.i
   %cmp6.not.i = icmp eq ptr %limits.0, @_Py_NoneStruct
-  br i1 %cmp6.not.i, label %if.else.i, label %if.then7.i
+  br i1 %cmp6.not.i, label %if.end14.i, label %if.then7.i
 
 if.then7.i:                                       ; preds = %if.end5.i
   %call8.i = call fastcc i32 @py2rlimit(ptr noundef %limits.0, ptr noundef %new_limit.i)
   %cmp9.i = icmp slt i32 %call8.i, 0
-  br i1 %cmp9.i, label %resource_prlimit_impl.exit, label %if.end11.i
+  br i1 %cmp9.i, label %resource_prlimit_impl.exit, label %if.end14.i
 
-if.end11.i:                                       ; preds = %if.then7.i
-  %call12.i = call i32 @prlimit64(i32 noundef %conv, i32 noundef %call12, ptr noundef nonnull %new_limit.i, ptr noundef nonnull %old_limit.i) #6
-  br label %if.end14.i
-
-if.else.i:                                        ; preds = %if.end5.i
-  %call13.i = call i32 @prlimit64(i32 noundef %conv, i32 noundef %call12, ptr noundef null, ptr noundef nonnull %old_limit.i) #6
-  br label %if.end14.i
-
-if.end14.i:                                       ; preds = %if.else.i, %if.end11.i
-  %retval1.0.i = phi i32 [ %call12.i, %if.end11.i ], [ %call13.i, %if.else.i ]
-  %cmp15.i = icmp eq i32 %retval1.0.i, -1
+if.end14.i:                                       ; preds = %if.then7.i, %if.end5.i
+  %.sink.i = phi ptr [ %new_limit.i, %if.then7.i ], [ null, %if.end5.i ]
+  %call13.i = call i32 @prlimit64(i32 noundef %conv, i32 noundef %call12, ptr noundef %.sink.i, ptr noundef nonnull %old_limit.i) #6
+  %cmp15.i = icmp eq i32 %call13.i, -1
   br i1 %cmp15.i, label %if.then16.i, label %if.end23.i
 
 if.then16.i:                                      ; preds = %if.end14.i

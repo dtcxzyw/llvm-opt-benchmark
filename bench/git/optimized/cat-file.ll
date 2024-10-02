@@ -2642,8 +2642,7 @@ if.else.i.i:                                      ; preds = %if.end37.i
 
 batch_write.exit.i:                               ; preds = %if.else.i.i, %if.then.i.i
   %39 = load ptr, ptr %contents.i, align 8
-  call void @free(ptr noundef %39) #13
-  br label %print_object_or_die.exit
+  br label %if.end71.sink.split.i
 
 if.else38.i:                                      ; preds = %if.end.i
   %call.i31.i = call i32 @stream_blob_to_fd(i32 noundef 1, ptr noundef nonnull %data, ptr noundef null, i32 noundef 0) #13
@@ -2732,7 +2731,7 @@ if.then.i37.i:                                    ; preds = %if.end69.i
   %49 = load ptr, ptr @stdout, align 8
   %call.i38.i = call i64 @fwrite(ptr noundef nonnull %contents44.0.i, i64 noundef 1, i64 noundef %conv4.i36.i, ptr noundef %49)
   %cmp.not.i39.i = icmp eq i64 %call.i38.i, %conv4.i36.i
-  br i1 %cmp.not.i39.i, label %batch_write.exit42.i, label %if.then3.i40.i
+  br i1 %cmp.not.i39.i, label %if.end71.sink.split.i, label %if.then3.i40.i
 
 if.then3.i40.i:                                   ; preds = %if.then.i37.i
   call void (ptr, ...) @die_errno(ptr noundef nonnull @.str.87) #14
@@ -2740,13 +2739,14 @@ if.then3.i40.i:                                   ; preds = %if.then.i37.i
 
 if.else.i41.i:                                    ; preds = %if.end69.i
   call void @write_or_die(i32 noundef 1, ptr noundef nonnull %contents44.0.i, i64 noundef %conv4.i36.i) #13
-  br label %batch_write.exit42.i
+  br label %if.end71.sink.split.i
 
-batch_write.exit42.i:                             ; preds = %if.else.i41.i, %if.then.i37.i
-  call void @free(ptr noundef nonnull %contents44.0.i) #13
+if.end71.sink.split.i:                            ; preds = %if.else.i41.i, %if.then.i37.i, %batch_write.exit.i
+  %.sink.i = phi ptr [ %39, %batch_write.exit.i ], [ %contents44.0.i, %if.then.i37.i ], [ %contents44.0.i, %if.else.i41.i ]
+  call void @free(ptr noundef %.sink.i) #13
   br label %print_object_or_die.exit
 
-print_object_or_die.exit:                         ; preds = %batch_write.exit.i, %if.else38.i, %batch_write.exit42.i
+print_object_or_die.exit:                         ; preds = %if.else38.i, %if.end71.sink.split.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %contents.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %size.i43)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %type22.i)

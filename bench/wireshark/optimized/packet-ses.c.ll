@@ -734,110 +734,104 @@ get_item_len.exit:                                ; preds = %70, %73
   %.not144 = icmp eq ptr %3, null
   br i1 %.not144, label %.split, label %.split131
 
-.split:                                           ; preds = %get_item_len.exit
-  %76 = add i32 %storemerge.i, %67
-  %77 = call fastcc i32 @dissect_parameters(ptr noundef %0, i32 noundef %76, i16 noundef zeroext %.0.i, ptr noundef null, ptr noundef %.1125, ptr noundef nonnull %2, ptr noundef %7, ptr noundef %8)
-  br label %82
-
 .split131:                                        ; preds = %get_item_len.exit
-  %78 = load i32, ptr @hf_ses_length, align 4
-  %79 = tail call ptr @proto_tree_add_uint(ptr noundef %.1125, i32 noundef %78, ptr noundef %0, i32 noundef %67, i32 noundef %storemerge.i, i32 noundef %75) #3
-  %80 = add i32 %storemerge.i, %67
-  %81 = call fastcc i32 @dissect_parameters(ptr noundef %0, i32 noundef %80, i16 noundef zeroext %.0.i, ptr noundef nonnull %3, ptr noundef %.1125, ptr noundef nonnull %2, ptr noundef %7, ptr noundef %8)
-  br label %82
+  %76 = load i32, ptr @hf_ses_length, align 4
+  %77 = tail call ptr @proto_tree_add_uint(ptr noundef %.1125, i32 noundef %76, ptr noundef %0, i32 noundef %67, i32 noundef %storemerge.i, i32 noundef %75) #3
+  br label %.split
 
-82:                                               ; preds = %.split, %.split131
-  %83 = phi i32 [ %76, %.split ], [ %80, %.split131 ]
-  %phi.call = phi i32 [ %77, %.split ], [ %81, %.split131 ]
-  %84 = add i32 %83, %75
-  call void @proto_item_set_end(ptr noundef %.1128, ptr noundef %0, i32 noundef %84) #3
-  %85 = load i32, ptr @ses_desegment, align 4
-  %86 = icmp eq i32 %85, 0
-  %87 = load i8, ptr %7, align 1
-  %88 = icmp eq i8 %87, 3
-  %or.cond4 = select i1 %86, i1 true, i1 %88
-  br i1 %or.cond4, label %89, label %96
+.split:                                           ; preds = %get_item_len.exit, %.split131
+  %.sink162 = phi ptr [ %3, %.split131 ], [ null, %get_item_len.exit ]
+  %78 = add i32 %storemerge.i, %67
+  %79 = call fastcc i32 @dissect_parameters(ptr noundef %0, i32 noundef %78, i16 noundef zeroext %.0.i, ptr noundef %.sink162, ptr noundef %.1125, ptr noundef nonnull %2, ptr noundef %7, ptr noundef %8)
+  %80 = add i32 %78, %75
+  call void @proto_item_set_end(ptr noundef %.1128, ptr noundef %0, i32 noundef %80) #3
+  %81 = load i32, ptr @ses_desegment, align 4
+  %82 = icmp eq i32 %81, 0
+  %83 = load i8, ptr %7, align 1
+  %84 = icmp eq i8 %83, 3
+  %or.cond4 = select i1 %82, i1 true, i1 %84
+  br i1 %or.cond4, label %85, label %92
 
-89:                                               ; preds = %82
-  %.not145 = icmp eq i32 %phi.call, 0
+85:                                               ; preds = %.split
+  %.not145 = icmp eq i32 %79, 0
   %.not149 = or i1 %.0122, %.not145
-  br i1 %.not149, label %.thread156, label %90
+  br i1 %.not149, label %.thread156, label %86
 
-90:                                               ; preds = %89
-  %91 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %84) #3
-  %92 = icmp sgt i32 %91, 0
-  %93 = icmp eq i8 %9, 41
-  %or.cond7 = select i1 %92, i1 true, i1 %93
-  br i1 %or.cond7, label %94, label %.thread156
+86:                                               ; preds = %85
+  %87 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %80) #3
+  %88 = icmp sgt i32 %87, 0
+  %89 = icmp eq i8 %9, 41
+  %or.cond7 = select i1 %88, i1 true, i1 %89
+  br i1 %or.cond7, label %90, label %.thread156
 
-94:                                               ; preds = %90
-  %95 = call ptr @tvb_new_subset_remaining(ptr noundef %0, i32 noundef %84) #3
-  br label %114
+90:                                               ; preds = %86
+  %91 = call ptr @tvb_new_subset_remaining(ptr noundef %0, i32 noundef %80) #3
+  br label %110
 
-96:                                               ; preds = %82
-  %97 = call ptr @find_conversation_pinfo(ptr noundef nonnull %2, i32 noundef 0) #3
-  %.not146 = icmp eq ptr %97, null
-  br i1 %.not146, label %101, label %98
+92:                                               ; preds = %.split
+  %93 = call ptr @find_conversation_pinfo(ptr noundef nonnull %2, i32 noundef 0) #3
+  %.not146 = icmp eq ptr %93, null
+  br i1 %.not146, label %97, label %94
 
-98:                                               ; preds = %96
-  %99 = getelementptr inbounds i8, ptr %97, i64 24
-  %100 = load i32, ptr %99, align 8
-  br label %101
+94:                                               ; preds = %92
+  %95 = getelementptr inbounds i8, ptr %93, i64 24
+  %96 = load i32, ptr %95, align 8
+  br label %97
 
-101:                                              ; preds = %98, %96
-  %.0 = phi i32 [ %100, %98 ], [ 0, %96 ]
-  %102 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %84) #3
-  %103 = load i32, ptr @hf_ses_segment_data, align 4
-  %104 = call ptr @proto_tree_add_item(ptr noundef %.1125, i32 noundef %103, ptr noundef %0, i32 noundef %84, i32 noundef %102, i32 noundef 0) #3
-  %105 = icmp eq i32 %102, 1
-  %106 = select i1 %105, ptr @.str.242, ptr @.str.243
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %104, ptr noundef nonnull @.str.241, i32 noundef %102, ptr noundef nonnull %106) #3
-  %107 = load i8, ptr %7, align 1
-  %108 = and i8 %107, 2
-  %.not147 = icmp eq i8 %108, 0
-  %109 = zext i1 %.not147 to i32
-  %110 = call ptr @fragment_add_seq_next(ptr noundef nonnull @ses_reassembly_table, ptr noundef %0, i32 noundef %84, ptr noundef nonnull %2, i32 noundef %.0, ptr noundef null, i32 noundef %102, i32 noundef %109) #3
-  %111 = select i1 %.not147, ptr %.1125, ptr %3
-  %112 = call ptr @process_reassembled_data(ptr noundef %0, i32 noundef %84, ptr noundef nonnull %2, ptr noundef nonnull @.str.244, ptr noundef %110, ptr noundef nonnull @ses_frag_items, ptr noundef null, ptr noundef %111) #3
-  %113 = add i32 %102, %84
-  br label %114
+97:                                               ; preds = %94, %92
+  %.0 = phi i32 [ %96, %94 ], [ 0, %92 ]
+  %98 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %80) #3
+  %99 = load i32, ptr @hf_ses_segment_data, align 4
+  %100 = call ptr @proto_tree_add_item(ptr noundef %.1125, i32 noundef %99, ptr noundef %0, i32 noundef %80, i32 noundef %98, i32 noundef 0) #3
+  %101 = icmp eq i32 %98, 1
+  %102 = select i1 %101, ptr @.str.242, ptr @.str.243
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %100, ptr noundef nonnull @.str.241, i32 noundef %98, ptr noundef nonnull %102) #3
+  %103 = load i8, ptr %7, align 1
+  %104 = and i8 %103, 2
+  %.not147 = icmp eq i8 %104, 0
+  %105 = zext i1 %.not147 to i32
+  %106 = call ptr @fragment_add_seq_next(ptr noundef nonnull @ses_reassembly_table, ptr noundef %0, i32 noundef %80, ptr noundef nonnull %2, i32 noundef %.0, ptr noundef null, i32 noundef %98, i32 noundef %105) #3
+  %107 = select i1 %.not147, ptr %.1125, ptr %3
+  %108 = call ptr @process_reassembled_data(ptr noundef %0, i32 noundef %80, ptr noundef nonnull %2, ptr noundef nonnull @.str.244, ptr noundef %106, ptr noundef nonnull @ses_frag_items, ptr noundef null, ptr noundef %107) #3
+  %109 = add i32 %98, %80
+  br label %110
 
-114:                                              ; preds = %94, %101
-  %.0121 = phi ptr [ %95, %94 ], [ %112, %101 ]
-  %.0119 = phi i32 [ %84, %94 ], [ %113, %101 ]
+110:                                              ; preds = %90, %97
+  %.0121 = phi ptr [ %91, %90 ], [ %108, %97 ]
+  %.0119 = phi i32 [ %80, %90 ], [ %109, %97 ]
   %.not161 = icmp eq ptr %.0121, null
-  br i1 %.not161, label %.thread156, label %115
+  br i1 %.not161, label %.thread156, label %111
 
-115:                                              ; preds = %114
-  %116 = load ptr, ptr @pres_handle, align 8
-  %.not150 = icmp eq ptr %116, null
-  br i1 %.not150, label %117, label %119
+111:                                              ; preds = %110
+  %112 = load ptr, ptr @pres_handle, align 8
+  %.not150 = icmp eq ptr %112, null
+  br i1 %.not150, label %113, label %115
 
-117:                                              ; preds = %115
-  %118 = call i32 @call_data_dissector(ptr noundef nonnull %.0121, ptr noundef nonnull %2, ptr noundef %3) #3
-  br label %121
+113:                                              ; preds = %111
+  %114 = call i32 @call_data_dissector(ptr noundef nonnull %.0121, ptr noundef nonnull %2, ptr noundef %3) #3
+  br label %117
 
-119:                                              ; preds = %115
-  %120 = call i32 @call_dissector_with_data(ptr noundef nonnull %116, ptr noundef nonnull %.0121, ptr noundef nonnull %2, ptr noundef %3, ptr noundef nonnull %8) #3
-  br label %121
+115:                                              ; preds = %111
+  %116 = call i32 @call_dissector_with_data(ptr noundef nonnull %112, ptr noundef nonnull %.0121, ptr noundef nonnull %2, ptr noundef %3, ptr noundef nonnull %8) #3
+  br label %117
 
-121:                                              ; preds = %119, %117
-  %122 = call i32 @tvb_captured_length(ptr noundef %0) #3
-  %123 = load i32, ptr %13, align 4
-  %124 = icmp ne i32 %123, 0
-  %125 = icmp eq i8 %9, 1
-  %or.cond12 = select i1 %124, i1 %125, i1 false
-  br i1 %or.cond12, label %126, label %.thread156
+117:                                              ; preds = %115, %113
+  %118 = call i32 @tvb_captured_length(ptr noundef %0) #3
+  %119 = load i32, ptr %13, align 4
+  %120 = icmp ne i32 %119, 0
+  %121 = icmp eq i8 %9, 1
+  %or.cond12 = select i1 %120, i1 %121, i1 false
+  br i1 %or.cond12, label %122, label %.thread156
 
-126:                                              ; preds = %121
-  %127 = load i8, ptr %11, align 2
-  %128 = zext i8 %127 to i32
-  store i32 %128, ptr @ses_pres_ctx_id, align 4
+122:                                              ; preds = %117
+  %123 = load i8, ptr %11, align 2
+  %124 = zext i8 %123 to i32
+  store i32 %124, ptr @ses_pres_ctx_id, align 4
   store i1 true, ptr @ses_rtse_reassemble, align 4
   br label %.thread156
 
-.thread156:                                       ; preds = %90, %89, %121, %126, %114
-  %.1 = phi i32 [ %122, %126 ], [ %122, %121 ], [ %.0119, %114 ], [ %84, %89 ], [ %84, %90 ]
+.thread156:                                       ; preds = %86, %85, %117, %122, %110
+  %.1 = phi i32 [ %118, %122 ], [ %118, %117 ], [ %.0119, %110 ], [ %80, %85 ], [ %80, %86 ]
   ret i32 %.1
 }
 

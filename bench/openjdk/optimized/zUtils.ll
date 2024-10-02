@@ -15,23 +15,11 @@ define hidden noundef ptr @_ZN6ZUtils11thread_nameEv() local_unnamed_addr #0 ali
   %5 = load ptr, ptr %4, align 8
   %6 = tail call noundef zeroext i1 %5(ptr noundef nonnull align 8 dereferenceable(888) %2) #3
   %7 = load ptr, ptr %2, align 8
-  br i1 %6, label %8, label %12
-
-8:                                                ; preds = %0
-  %9 = getelementptr inbounds i8, ptr %7, i64 168
-  %10 = load ptr, ptr %9, align 8
-  %11 = tail call noundef ptr %10(ptr noundef nonnull align 8 dereferenceable(916) %2) #3
-  br label %16
-
-12:                                               ; preds = %0
-  %13 = getelementptr inbounds i8, ptr %7, i64 176
-  %14 = load ptr, ptr %13, align 8
-  %15 = tail call noundef ptr %14(ptr noundef nonnull align 8 dereferenceable(888) %2) #3
-  br label %16
-
-16:                                               ; preds = %12, %8
-  %.0 = phi ptr [ %11, %8 ], [ %15, %12 ]
-  ret ptr %.0
+  %. = select i1 %6, i64 168, i64 176
+  %8 = getelementptr inbounds i8, ptr %7, i64 %.
+  %9 = load ptr, ptr %8, align 8
+  %10 = tail call noundef ptr %9(ptr noundef nonnull align 8 dereferenceable(888) %2) #3
+  ret ptr %10
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: write) uwtable

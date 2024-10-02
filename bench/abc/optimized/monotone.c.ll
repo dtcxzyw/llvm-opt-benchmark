@@ -1486,7 +1486,7 @@ findPendingSignal.exit:                           ; preds = %.lr.ph.i
   %20 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.15, i32 noundef %14, ptr noundef %19)
   %21 = tail call ptr @findHintOutputs(ptr noundef nonnull %0)
   %22 = icmp eq ptr %21, null
-  br i1 %22, label %54, label %.preheader
+  br i1 %22, label %52, label %.preheader
 
 .preheader:                                       ; preds = %findPendingSignal.exit
   %23 = getelementptr i8, ptr %21, i64 4
@@ -1506,7 +1506,7 @@ findPendingSignal.exit:                           ; preds = %.lr.ph.i
 
 findPendingSignal.exit.thread:                    ; preds = %10, %1
   %puts = tail call i32 @puts(ptr nonnull dereferenceable(1) @str)
-  br label %54
+  br label %52
 
 27:                                               ; preds = %.lr.ph, %27
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %27 ]
@@ -1545,25 +1545,21 @@ findPendingSignal.exit.thread:                    ; preds = %10, %1
   store ptr %21, ptr %46, align 8
   %.val49 = load i32, ptr %0, align 8
   %.not = icmp eq i32 %.val49, 3
-  br i1 %.not, label %50, label %47
+  br i1 %.not, label %49, label %47
 
 47:                                               ; preds = %.critedge
   %48 = tail call ptr @Abc_NtkStrash(ptr noundef nonnull %0, i32 noundef 0, i32 noundef 0, i32 noundef 0) #15
-  %49 = tail call ptr @Abc_NtkToDar(ptr noundef %48, i32 noundef 0, i32 noundef 1) #15
-  br label %52
+  br label %49
 
-50:                                               ; preds = %.critedge
-  %51 = tail call ptr @Abc_NtkToDar(ptr noundef nonnull %0, i32 noundef 0, i32 noundef 1) #15
-  br label %52
-
-52:                                               ; preds = %50, %47
-  %.040 = phi ptr [ %51, %50 ], [ %49, %47 ]
-  %53 = tail call ptr @findNewMonotone(ptr noundef %.040, ptr noundef nonnull %41, ptr noundef nonnull %calloc.i)
+49:                                               ; preds = %.critedge, %47
+  %.sink = phi ptr [ %48, %47 ], [ %0, %.critedge ]
+  %50 = tail call ptr @Abc_NtkToDar(ptr noundef %.sink, i32 noundef 0, i32 noundef 1) #15
+  %51 = tail call ptr @findNewMonotone(ptr noundef %50, ptr noundef nonnull %41, ptr noundef nonnull %calloc.i)
   tail call void @free(ptr noundef nonnull %41) #15
   tail call void @free(ptr noundef nonnull %calloc.i) #15
-  br label %54
+  br label %52
 
-54:                                               ; preds = %findPendingSignal.exit, %52, %findPendingSignal.exit.thread
+52:                                               ; preds = %findPendingSignal.exit, %49, %findPendingSignal.exit.thread
   ret ptr null
 }
 

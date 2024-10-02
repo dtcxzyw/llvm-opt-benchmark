@@ -2250,7 +2250,6 @@ gv_alloc.exit:                                    ; preds = %._crit_edge157
 
 TriangleSmoother_delete.exit:                     ; preds = %68, %69
   tail call void @free(ptr noundef %51) #18
-  tail call void @free(ptr noundef nonnull %39) #18
   br label %130
 
 70:                                               ; preds = %61
@@ -2380,11 +2379,12 @@ TriangleSmoother_delete.exit:                     ; preds = %68, %69
 
 ._crit_edge184:                                   ; preds = %.lr.ph183, %._crit_edge178
   store double %120, ptr %44, align 8
-  tail call void @free(ptr noundef %11) #18
   br label %130
 
 130:                                              ; preds = %._crit_edge184, %TriangleSmoother_delete.exit
+  %.sink = phi ptr [ %11, %._crit_edge184 ], [ %39, %TriangleSmoother_delete.exit ]
   %.0 = phi ptr [ %39, %._crit_edge184 ], [ null, %TriangleSmoother_delete.exit ]
+  tail call void @free(ptr noundef %.sink) #18
   ret ptr %.0
 }
 

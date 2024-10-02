@@ -1628,17 +1628,8 @@ entry:
   %attached_settable = getelementptr inbounds i8, ptr %call1.i, i64 296
   %0 = load i8, ptr %attached_settable, align 8
   %tobool = trunc i8 %0 to i1
-  br i1 %tobool, label %if.then, label %if.else
-
-if.then:                                          ; preds = %entry
-  %call2 = tail call ptr @object_property_add_bool(ptr noundef %obj, ptr noundef nonnull @.str.65, ptr noundef nonnull @usb_get_attached, ptr noundef nonnull @usb_set_attached) #12
-  br label %if.end
-
-if.else:                                          ; preds = %entry
-  %call3 = tail call ptr @object_property_add_bool(ptr noundef %obj, ptr noundef nonnull @.str.65, ptr noundef nonnull @usb_get_attached, ptr noundef null) #12
-  br label %if.end
-
-if.end:                                           ; preds = %if.else, %if.then
+  %usb_set_attached. = select i1 %tobool, ptr @usb_set_attached, ptr null
+  %call3 = tail call ptr @object_property_add_bool(ptr noundef %obj, ptr noundef nonnull @.str.65, ptr noundef nonnull @usb_get_attached, ptr noundef %usb_set_attached.) #12
   ret void
 }
 

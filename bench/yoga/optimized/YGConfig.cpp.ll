@@ -123,18 +123,15 @@ declare noundef i32 @_ZNK8facebook4yoga6Config9getErrataEv(ptr noundef nonnull a
 define void @YGConfigSetLogger(ptr noundef %config, ptr noundef %logger) local_unnamed_addr #0 {
 entry:
   %cmp.not = icmp eq ptr %logger, null
-  br i1 %cmp.not, label %if.else, label %if.then
-
-if.then:                                          ; preds = %entry
-  tail call void @_ZN8facebook4yoga6Config9setLoggerEPFiPK8YGConfigPK6YGNode10YGLogLevelPKcP13__va_list_tagE(ptr noundef nonnull align 8 dereferenceable(48) %config, ptr noundef nonnull %logger)
-  br label %if.end
+  br i1 %cmp.not, label %if.else, label %if.end
 
 if.else:                                          ; preds = %entry
   %call2 = tail call noundef ptr @_ZN8facebook4yoga16getDefaultLoggerEv()
-  tail call void @_ZN8facebook4yoga6Config9setLoggerEPFiPK8YGConfigPK6YGNode10YGLogLevelPKcP13__va_list_tagE(ptr noundef nonnull align 8 dereferenceable(48) %config, ptr noundef %call2)
   br label %if.end
 
-if.end:                                           ; preds = %if.else, %if.then
+if.end:                                           ; preds = %entry, %if.else
+  %call2.sink = phi ptr [ %call2, %if.else ], [ %logger, %entry ]
+  tail call void @_ZN8facebook4yoga6Config9setLoggerEPFiPK8YGConfigPK6YGNode10YGLogLevelPKcP13__va_list_tagE(ptr noundef nonnull align 8 dereferenceable(48) %config, ptr noundef %call2.sink)
   ret void
 }
 

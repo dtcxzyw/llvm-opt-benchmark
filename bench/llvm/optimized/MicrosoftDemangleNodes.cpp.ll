@@ -5491,446 +5491,437 @@ define dso_local void @_ZNK4llvm11ms_demangle15PointerTypeNode9outputPreERNS_16i
   %9 = load ptr, ptr %5, align 8
   %10 = getelementptr inbounds i8, ptr %9, i64 24
   %11 = load ptr, ptr %10, align 8
-  br i1 %8, label %12, label %13
+  %. = select i1 %8, i32 1, i32 %2
+  tail call void %11(ptr noundef nonnull align 8 dereferenceable(13) %5, ptr noundef nonnull align 8 dereferenceable(36) %1, i32 noundef %.) #15
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %13 = load i64, ptr %12, align 8
+  %14 = icmp eq i64 %13, 0
+  br i1 %14, label %_ZL22outputSpaceIfNecessaryRN4llvm16itanium_demangle12OutputBufferE.exit, label %15
 
-12:                                               ; preds = %3
-  tail call void %11(ptr noundef nonnull align 8 dereferenceable(57) %5, ptr noundef nonnull align 8 dereferenceable(36) %1, i32 noundef 1) #15
-  br label %14
+15:                                               ; preds = %3
+  %16 = load ptr, ptr %1, align 8
+  %17 = getelementptr i8, ptr %16, i64 %13
+  %18 = getelementptr i8, ptr %17, i64 -1
+  %19 = load i8, ptr %18, align 1
+  %20 = sext i8 %19 to i32
+  %21 = tail call i32 @isalnum(i32 noundef %20) #18
+  %22 = icmp ne i32 %21, 0
+  %23 = icmp eq i8 %19, 62
+  %or.cond.i = or i1 %23, %22
+  br i1 %or.cond.i, label %24, label %_ZL22outputSpaceIfNecessaryRN4llvm16itanium_demangle12OutputBufferE.exit
 
-13:                                               ; preds = %3
-  tail call void %11(ptr noundef nonnull align 8 dereferenceable(13) %5, ptr noundef nonnull align 8 dereferenceable(36) %1, i32 noundef %2) #15
-  br label %14
+24:                                               ; preds = %15
+  %25 = add i64 %13, 1
+  %26 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %27 = load i64, ptr %26, align 8
+  %28 = icmp ugt i64 %25, %27
+  br i1 %28, label %29, label %_ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit.i.i.i
 
-14:                                               ; preds = %13, %12
-  %15 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %16 = load i64, ptr %15, align 8
-  %17 = icmp eq i64 %16, 0
-  br i1 %17, label %_ZL22outputSpaceIfNecessaryRN4llvm16itanium_demangle12OutputBufferE.exit, label %18
+29:                                               ; preds = %24
+  %30 = add i64 %13, 993
+  %31 = shl i64 %27, 1
+  %spec.select.i.i.i.i = tail call i64 @llvm.umax.i64(i64 %31, i64 %30)
+  store i64 %spec.select.i.i.i.i, ptr %26, align 8
+  %32 = tail call ptr @realloc(ptr noundef nonnull %16, i64 noundef %spec.select.i.i.i.i) #16
+  store ptr %32, ptr %1, align 8
+  %33 = icmp eq ptr %32, null
+  br i1 %33, label %34, label %._ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit_crit_edge.i.i.i
 
-18:                                               ; preds = %14
-  %19 = load ptr, ptr %1, align 8
-  %20 = getelementptr i8, ptr %19, i64 %16
-  %21 = getelementptr i8, ptr %20, i64 -1
-  %22 = load i8, ptr %21, align 1
-  %23 = sext i8 %22 to i32
-  %24 = tail call i32 @isalnum(i32 noundef %23) #18
-  %25 = icmp ne i32 %24, 0
-  %26 = icmp eq i8 %22, 62
-  %or.cond.i = or i1 %26, %25
-  br i1 %or.cond.i, label %27, label %_ZL22outputSpaceIfNecessaryRN4llvm16itanium_demangle12OutputBufferE.exit
-
-27:                                               ; preds = %18
-  %28 = add i64 %16, 1
-  %29 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %30 = load i64, ptr %29, align 8
-  %31 = icmp ugt i64 %28, %30
-  br i1 %31, label %32, label %_ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit.i.i.i
-
-32:                                               ; preds = %27
-  %33 = add i64 %16, 993
-  %34 = shl i64 %30, 1
-  %spec.select.i.i.i.i = tail call i64 @llvm.umax.i64(i64 %34, i64 %33)
-  store i64 %spec.select.i.i.i.i, ptr %29, align 8
-  %35 = tail call ptr @realloc(ptr noundef nonnull %19, i64 noundef %spec.select.i.i.i.i) #16
-  store ptr %35, ptr %1, align 8
-  %36 = icmp eq ptr %35, null
-  br i1 %36, label %37, label %._ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit_crit_edge.i.i.i
-
-._ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit_crit_edge.i.i.i: ; preds = %32
-  %.pre4.i.i.i = load i64, ptr %15, align 8
+._ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit_crit_edge.i.i.i: ; preds = %29
+  %.pre4.i.i.i = load i64, ptr %12, align 8
   br label %_ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit.i.i.i
 
-37:                                               ; preds = %32
+34:                                               ; preds = %29
   tail call void @abort() #17
   unreachable
 
-_ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit.i.i.i: ; preds = %._ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit_crit_edge.i.i.i, %27
-  %38 = phi i64 [ %16, %27 ], [ %.pre4.i.i.i, %._ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit_crit_edge.i.i.i ]
-  %39 = phi ptr [ %19, %27 ], [ %35, %._ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit_crit_edge.i.i.i ]
-  %40 = getelementptr inbounds i8, ptr %39, i64 %38
-  store i8 32, ptr %40, align 1
-  %41 = load i64, ptr %15, align 8
-  %42 = add i64 %41, 1
-  store i64 %42, ptr %15, align 8
+_ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit.i.i.i: ; preds = %._ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit_crit_edge.i.i.i, %24
+  %35 = phi i64 [ %13, %24 ], [ %.pre4.i.i.i, %._ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit_crit_edge.i.i.i ]
+  %36 = phi ptr [ %16, %24 ], [ %32, %._ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit_crit_edge.i.i.i ]
+  %37 = getelementptr inbounds i8, ptr %36, i64 %35
+  store i8 32, ptr %37, align 1
+  %38 = load i64, ptr %12, align 8
+  %39 = add i64 %38, 1
+  store i64 %39, ptr %12, align 8
   br label %_ZL22outputSpaceIfNecessaryRN4llvm16itanium_demangle12OutputBufferE.exit
 
-_ZL22outputSpaceIfNecessaryRN4llvm16itanium_demangle12OutputBufferE.exit: ; preds = %14, %18, %_ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit.i.i.i
-  %43 = phi i64 [ 0, %14 ], [ %16, %18 ], [ %42, %_ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit.i.i.i ]
-  %44 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %45 = load i8, ptr %44, align 4
-  %46 = and i8 %45, 16
-  %.not = icmp eq i8 %46, 0
-  br i1 %.not, label %_ZN4llvm16itanium_demangle12OutputBufferlsESt17basic_string_viewIcSt11char_traitsIcEE.exit, label %47
+_ZL22outputSpaceIfNecessaryRN4llvm16itanium_demangle12OutputBufferE.exit: ; preds = %3, %15, %_ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit.i.i.i
+  %40 = phi i64 [ 0, %3 ], [ %13, %15 ], [ %39, %_ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit.i.i.i ]
+  %41 = getelementptr inbounds nuw i8, ptr %0, i64 12
+  %42 = load i8, ptr %41, align 4
+  %43 = and i8 %42, 16
+  %.not = icmp eq i8 %43, 0
+  br i1 %.not, label %_ZN4llvm16itanium_demangle12OutputBufferlsESt17basic_string_viewIcSt11char_traitsIcEE.exit, label %44
 
-47:                                               ; preds = %_ZL22outputSpaceIfNecessaryRN4llvm16itanium_demangle12OutputBufferE.exit
-  %48 = add i64 %43, 12
-  %49 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %50 = load i64, ptr %49, align 8
-  %51 = icmp ugt i64 %48, %50
+44:                                               ; preds = %_ZL22outputSpaceIfNecessaryRN4llvm16itanium_demangle12OutputBufferE.exit
+  %45 = add i64 %40, 12
+  %46 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %47 = load i64, ptr %46, align 8
+  %48 = icmp ugt i64 %45, %47
   %.pre.i.i = load ptr, ptr %1, align 8
-  br i1 %51, label %52, label %_ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit.i.i
+  br i1 %48, label %49, label %_ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit.i.i
 
-52:                                               ; preds = %47
-  %53 = add i64 %43, 1004
-  %54 = shl i64 %50, 1
-  %spec.select.i.i.i = tail call i64 @llvm.umax.i64(i64 %54, i64 %53)
-  store i64 %spec.select.i.i.i, ptr %49, align 8
-  %55 = tail call ptr @realloc(ptr noundef %.pre.i.i, i64 noundef %spec.select.i.i.i) #16
-  store ptr %55, ptr %1, align 8
-  %56 = icmp eq ptr %55, null
-  br i1 %56, label %57, label %._ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit_crit_edge.i.i
+49:                                               ; preds = %44
+  %50 = add i64 %40, 1004
+  %51 = shl i64 %47, 1
+  %spec.select.i.i.i = tail call i64 @llvm.umax.i64(i64 %51, i64 %50)
+  store i64 %spec.select.i.i.i, ptr %46, align 8
+  %52 = tail call ptr @realloc(ptr noundef %.pre.i.i, i64 noundef %spec.select.i.i.i) #16
+  store ptr %52, ptr %1, align 8
+  %53 = icmp eq ptr %52, null
+  br i1 %53, label %54, label %._ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit_crit_edge.i.i
 
-._ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit_crit_edge.i.i: ; preds = %52
-  %.pre4.i.i = load i64, ptr %15, align 8
+._ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit_crit_edge.i.i: ; preds = %49
+  %.pre4.i.i = load i64, ptr %12, align 8
   br label %_ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit.i.i
 
-57:                                               ; preds = %52
+54:                                               ; preds = %49
   tail call void @abort() #17
   unreachable
 
-_ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit.i.i: ; preds = %._ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit_crit_edge.i.i, %47
-  %58 = phi i64 [ %43, %47 ], [ %.pre4.i.i, %._ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit_crit_edge.i.i ]
-  %59 = phi ptr [ %.pre.i.i, %47 ], [ %55, %._ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit_crit_edge.i.i ]
-  %60 = getelementptr inbounds i8, ptr %59, i64 %58
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(12) %60, ptr noundef nonnull align 1 dereferenceable(12) @.str.127, i64 12, i1 false)
-  %61 = load i64, ptr %15, align 8
-  %62 = add i64 %61, 12
-  store i64 %62, ptr %15, align 8
+_ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit.i.i: ; preds = %._ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit_crit_edge.i.i, %44
+  %55 = phi i64 [ %40, %44 ], [ %.pre4.i.i, %._ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit_crit_edge.i.i ]
+  %56 = phi ptr [ %.pre.i.i, %44 ], [ %52, %._ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit_crit_edge.i.i ]
+  %57 = getelementptr inbounds i8, ptr %56, i64 %55
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(12) %57, ptr noundef nonnull align 1 dereferenceable(12) @.str.127, i64 12, i1 false)
+  %58 = load i64, ptr %12, align 8
+  %59 = add i64 %58, 12
+  store i64 %59, ptr %12, align 8
   br label %_ZN4llvm16itanium_demangle12OutputBufferlsESt17basic_string_viewIcSt11char_traitsIcEE.exit
 
 _ZN4llvm16itanium_demangle12OutputBufferlsESt17basic_string_viewIcSt11char_traitsIcEE.exit: ; preds = %_ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit.i.i, %_ZL22outputSpaceIfNecessaryRN4llvm16itanium_demangle12OutputBufferE.exit
-  %63 = phi i64 [ %62, %_ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit.i.i ], [ %43, %_ZL22outputSpaceIfNecessaryRN4llvm16itanium_demangle12OutputBufferE.exit ]
-  %64 = load ptr, ptr %4, align 8
-  %65 = getelementptr inbounds nuw i8, ptr %64, i64 8
-  %66 = load i32, ptr %65, align 8
-  switch i32 %66, label %_ZN4llvm16itanium_demangle12OutputBufferlsESt17basic_string_viewIcSt11char_traitsIcEE.exit25 [
-    i32 16, label %67
-    i32 3, label %81
+  %60 = phi i64 [ %59, %_ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit.i.i ], [ %40, %_ZL22outputSpaceIfNecessaryRN4llvm16itanium_demangle12OutputBufferE.exit ]
+  %61 = load ptr, ptr %4, align 8
+  %62 = getelementptr inbounds nuw i8, ptr %61, i64 8
+  %63 = load i32, ptr %62, align 8
+  switch i32 %63, label %_ZN4llvm16itanium_demangle12OutputBufferlsESt17basic_string_viewIcSt11char_traitsIcEE.exit25 [
+    i32 16, label %64
+    i32 3, label %78
   ]
 
-67:                                               ; preds = %_ZN4llvm16itanium_demangle12OutputBufferlsESt17basic_string_viewIcSt11char_traitsIcEE.exit
-  %68 = add i64 %63, 1
-  %69 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %70 = load i64, ptr %69, align 8
-  %71 = icmp ugt i64 %68, %70
+64:                                               ; preds = %_ZN4llvm16itanium_demangle12OutputBufferlsESt17basic_string_viewIcSt11char_traitsIcEE.exit
+  %65 = add i64 %60, 1
+  %66 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %67 = load i64, ptr %66, align 8
+  %68 = icmp ugt i64 %65, %67
   %.pre.i.i20 = load ptr, ptr %1, align 8
-  br i1 %71, label %72, label %_ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit.i.i21
+  br i1 %68, label %69, label %_ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit.i.i21
 
-72:                                               ; preds = %67
-  %73 = add i64 %63, 993
-  %74 = shl i64 %70, 1
-  %spec.select.i.i.i22 = tail call i64 @llvm.umax.i64(i64 %74, i64 %73)
-  store i64 %spec.select.i.i.i22, ptr %69, align 8
-  %75 = tail call ptr @realloc(ptr noundef %.pre.i.i20, i64 noundef %spec.select.i.i.i22) #16
-  store ptr %75, ptr %1, align 8
-  %76 = icmp eq ptr %75, null
-  br i1 %76, label %77, label %._ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit_crit_edge.i.i23
+69:                                               ; preds = %64
+  %70 = add i64 %60, 993
+  %71 = shl i64 %67, 1
+  %spec.select.i.i.i22 = tail call i64 @llvm.umax.i64(i64 %71, i64 %70)
+  store i64 %spec.select.i.i.i22, ptr %66, align 8
+  %72 = tail call ptr @realloc(ptr noundef %.pre.i.i20, i64 noundef %spec.select.i.i.i22) #16
+  store ptr %72, ptr %1, align 8
+  %73 = icmp eq ptr %72, null
+  br i1 %73, label %74, label %._ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit_crit_edge.i.i23
 
-._ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit_crit_edge.i.i23: ; preds = %72
-  %.pre4.i.i24 = load i64, ptr %15, align 8
+._ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit_crit_edge.i.i23: ; preds = %69
+  %.pre4.i.i24 = load i64, ptr %12, align 8
   br label %_ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit.i.i21
 
-77:                                               ; preds = %72
+74:                                               ; preds = %69
   tail call void @abort() #17
   unreachable
 
-_ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit.i.i21: ; preds = %._ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit_crit_edge.i.i23, %67
-  %78 = phi i64 [ %63, %67 ], [ %.pre4.i.i24, %._ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit_crit_edge.i.i23 ]
-  %79 = phi ptr [ %.pre.i.i20, %67 ], [ %75, %._ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit_crit_edge.i.i23 ]
-  %80 = getelementptr inbounds i8, ptr %79, i64 %78
-  store i8 40, ptr %80, align 1
+_ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit.i.i21: ; preds = %._ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit_crit_edge.i.i23, %64
+  %75 = phi i64 [ %60, %64 ], [ %.pre4.i.i24, %._ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit_crit_edge.i.i23 ]
+  %76 = phi ptr [ %.pre.i.i20, %64 ], [ %72, %._ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit_crit_edge.i.i23 ]
+  %77 = getelementptr inbounds i8, ptr %76, i64 %75
+  store i8 40, ptr %77, align 1
   br label %_ZN4llvm16itanium_demangle12OutputBufferlsESt17basic_string_viewIcSt11char_traitsIcEE.exit25.sink.split
 
-81:                                               ; preds = %_ZN4llvm16itanium_demangle12OutputBufferlsESt17basic_string_viewIcSt11char_traitsIcEE.exit
-  %82 = add i64 %63, 1
-  %83 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %84 = load i64, ptr %83, align 8
-  %85 = icmp ugt i64 %82, %84
+78:                                               ; preds = %_ZN4llvm16itanium_demangle12OutputBufferlsESt17basic_string_viewIcSt11char_traitsIcEE.exit
+  %79 = add i64 %60, 1
+  %80 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %81 = load i64, ptr %80, align 8
+  %82 = icmp ugt i64 %79, %81
   %.pre.i.i27 = load ptr, ptr %1, align 8
-  br i1 %85, label %86, label %_ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit.i.i28
+  br i1 %82, label %83, label %_ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit.i.i28
 
-86:                                               ; preds = %81
-  %87 = add i64 %63, 993
-  %88 = shl i64 %84, 1
-  %spec.select.i.i.i29 = tail call i64 @llvm.umax.i64(i64 %88, i64 %87)
-  store i64 %spec.select.i.i.i29, ptr %83, align 8
-  %89 = tail call ptr @realloc(ptr noundef %.pre.i.i27, i64 noundef %spec.select.i.i.i29) #16
-  store ptr %89, ptr %1, align 8
-  %90 = icmp eq ptr %89, null
-  br i1 %90, label %91, label %._ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit_crit_edge.i.i30
+83:                                               ; preds = %78
+  %84 = add i64 %60, 993
+  %85 = shl i64 %81, 1
+  %spec.select.i.i.i29 = tail call i64 @llvm.umax.i64(i64 %85, i64 %84)
+  store i64 %spec.select.i.i.i29, ptr %80, align 8
+  %86 = tail call ptr @realloc(ptr noundef %.pre.i.i27, i64 noundef %spec.select.i.i.i29) #16
+  store ptr %86, ptr %1, align 8
+  %87 = icmp eq ptr %86, null
+  br i1 %87, label %88, label %._ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit_crit_edge.i.i30
 
-._ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit_crit_edge.i.i30: ; preds = %86
-  %.pre4.i.i31 = load i64, ptr %15, align 8
+._ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit_crit_edge.i.i30: ; preds = %83
+  %.pre4.i.i31 = load i64, ptr %12, align 8
   br label %_ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit.i.i28
 
-91:                                               ; preds = %86
+88:                                               ; preds = %83
   tail call void @abort() #17
   unreachable
 
-_ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit.i.i28: ; preds = %._ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit_crit_edge.i.i30, %81
-  %92 = phi i64 [ %63, %81 ], [ %.pre4.i.i31, %._ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit_crit_edge.i.i30 ]
-  %93 = phi ptr [ %.pre.i.i27, %81 ], [ %89, %._ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit_crit_edge.i.i30 ]
-  %94 = getelementptr inbounds i8, ptr %93, i64 %92
-  store i8 40, ptr %94, align 1
-  %95 = load i64, ptr %15, align 8
-  %96 = add i64 %95, 1
-  store i64 %96, ptr %15, align 8
-  %97 = load ptr, ptr %4, align 8
-  %98 = getelementptr inbounds nuw i8, ptr %97, i64 20
-  %99 = load i8, ptr %98, align 4
-  tail call fastcc void @_ZL23outputCallingConventionRN4llvm16itanium_demangle12OutputBufferENS_11ms_demangle11CallingConvE(ptr noundef nonnull align 8 dereferenceable(36) %1, i8 noundef zeroext %99)
-  %100 = load i64, ptr %15, align 8
-  %101 = add i64 %100, 1
-  %102 = load i64, ptr %83, align 8
-  %103 = icmp ugt i64 %101, %102
+_ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit.i.i28: ; preds = %._ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit_crit_edge.i.i30, %78
+  %89 = phi i64 [ %60, %78 ], [ %.pre4.i.i31, %._ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit_crit_edge.i.i30 ]
+  %90 = phi ptr [ %.pre.i.i27, %78 ], [ %86, %._ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit_crit_edge.i.i30 ]
+  %91 = getelementptr inbounds i8, ptr %90, i64 %89
+  store i8 40, ptr %91, align 1
+  %92 = load i64, ptr %12, align 8
+  %93 = add i64 %92, 1
+  store i64 %93, ptr %12, align 8
+  %94 = load ptr, ptr %4, align 8
+  %95 = getelementptr inbounds nuw i8, ptr %94, i64 20
+  %96 = load i8, ptr %95, align 4
+  tail call fastcc void @_ZL23outputCallingConventionRN4llvm16itanium_demangle12OutputBufferENS_11ms_demangle11CallingConvE(ptr noundef nonnull align 8 dereferenceable(36) %1, i8 noundef zeroext %96)
+  %97 = load i64, ptr %12, align 8
+  %98 = add i64 %97, 1
+  %99 = load i64, ptr %80, align 8
+  %100 = icmp ugt i64 %98, %99
   %.pre.i.i34 = load ptr, ptr %1, align 8
-  br i1 %103, label %104, label %_ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit.i.i35
+  br i1 %100, label %101, label %_ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit.i.i35
 
-104:                                              ; preds = %_ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit.i.i28
-  %105 = add i64 %100, 993
-  %106 = shl i64 %102, 1
-  %spec.select.i.i.i36 = tail call i64 @llvm.umax.i64(i64 %106, i64 %105)
-  store i64 %spec.select.i.i.i36, ptr %83, align 8
-  %107 = tail call ptr @realloc(ptr noundef %.pre.i.i34, i64 noundef %spec.select.i.i.i36) #16
-  store ptr %107, ptr %1, align 8
-  %108 = icmp eq ptr %107, null
-  br i1 %108, label %109, label %._ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit_crit_edge.i.i37
+101:                                              ; preds = %_ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit.i.i28
+  %102 = add i64 %97, 993
+  %103 = shl i64 %99, 1
+  %spec.select.i.i.i36 = tail call i64 @llvm.umax.i64(i64 %103, i64 %102)
+  store i64 %spec.select.i.i.i36, ptr %80, align 8
+  %104 = tail call ptr @realloc(ptr noundef %.pre.i.i34, i64 noundef %spec.select.i.i.i36) #16
+  store ptr %104, ptr %1, align 8
+  %105 = icmp eq ptr %104, null
+  br i1 %105, label %106, label %._ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit_crit_edge.i.i37
 
-._ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit_crit_edge.i.i37: ; preds = %104
-  %.pre4.i.i38 = load i64, ptr %15, align 8
+._ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit_crit_edge.i.i37: ; preds = %101
+  %.pre4.i.i38 = load i64, ptr %12, align 8
   br label %_ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit.i.i35
 
-109:                                              ; preds = %104
+106:                                              ; preds = %101
   tail call void @abort() #17
   unreachable
 
 _ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit.i.i35: ; preds = %._ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit_crit_edge.i.i37, %_ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit.i.i28
-  %110 = phi i64 [ %100, %_ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit.i.i28 ], [ %.pre4.i.i38, %._ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit_crit_edge.i.i37 ]
-  %111 = phi ptr [ %.pre.i.i34, %_ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit.i.i28 ], [ %107, %._ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit_crit_edge.i.i37 ]
-  %112 = getelementptr inbounds i8, ptr %111, i64 %110
-  store i8 32, ptr %112, align 1
+  %107 = phi i64 [ %97, %_ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit.i.i28 ], [ %.pre4.i.i38, %._ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit_crit_edge.i.i37 ]
+  %108 = phi ptr [ %.pre.i.i34, %_ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit.i.i28 ], [ %104, %._ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit_crit_edge.i.i37 ]
+  %109 = getelementptr inbounds i8, ptr %108, i64 %107
+  store i8 32, ptr %109, align 1
   br label %_ZN4llvm16itanium_demangle12OutputBufferlsESt17basic_string_viewIcSt11char_traitsIcEE.exit25.sink.split
 
 _ZN4llvm16itanium_demangle12OutputBufferlsESt17basic_string_viewIcSt11char_traitsIcEE.exit25.sink.split: ; preds = %_ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit.i.i21, %_ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit.i.i35
-  %113 = load i64, ptr %15, align 8
-  %114 = add i64 %113, 1
-  store i64 %114, ptr %15, align 8
+  %110 = load i64, ptr %12, align 8
+  %111 = add i64 %110, 1
+  store i64 %111, ptr %12, align 8
   br label %_ZN4llvm16itanium_demangle12OutputBufferlsESt17basic_string_viewIcSt11char_traitsIcEE.exit25
 
 _ZN4llvm16itanium_demangle12OutputBufferlsESt17basic_string_viewIcSt11char_traitsIcEE.exit25: ; preds = %_ZN4llvm16itanium_demangle12OutputBufferlsESt17basic_string_viewIcSt11char_traitsIcEE.exit25.sink.split, %_ZN4llvm16itanium_demangle12OutputBufferlsESt17basic_string_viewIcSt11char_traitsIcEE.exit
-  %115 = phi i64 [ %63, %_ZN4llvm16itanium_demangle12OutputBufferlsESt17basic_string_viewIcSt11char_traitsIcEE.exit ], [ %114, %_ZN4llvm16itanium_demangle12OutputBufferlsESt17basic_string_viewIcSt11char_traitsIcEE.exit25.sink.split ]
-  %116 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %117 = load ptr, ptr %116, align 8
-  %.not18 = icmp eq ptr %117, null
-  br i1 %.not18, label %_ZN4llvm16itanium_demangle12OutputBufferlsESt17basic_string_viewIcSt11char_traitsIcEE.exit46, label %118
+  %112 = phi i64 [ %60, %_ZN4llvm16itanium_demangle12OutputBufferlsESt17basic_string_viewIcSt11char_traitsIcEE.exit ], [ %111, %_ZN4llvm16itanium_demangle12OutputBufferlsESt17basic_string_viewIcSt11char_traitsIcEE.exit25.sink.split ]
+  %113 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %114 = load ptr, ptr %113, align 8
+  %.not18 = icmp eq ptr %114, null
+  br i1 %.not18, label %_ZN4llvm16itanium_demangle12OutputBufferlsESt17basic_string_viewIcSt11char_traitsIcEE.exit46, label %115
 
-118:                                              ; preds = %_ZN4llvm16itanium_demangle12OutputBufferlsESt17basic_string_viewIcSt11char_traitsIcEE.exit25
-  %119 = load ptr, ptr %117, align 8
-  %120 = getelementptr inbounds i8, ptr %119, i64 16
-  %121 = load ptr, ptr %120, align 8
-  tail call void %121(ptr noundef nonnull align 8 dereferenceable(24) %117, ptr noundef nonnull align 8 dereferenceable(36) %1, i32 noundef %2) #15
-  %122 = load i64, ptr %15, align 8
-  %123 = add i64 %122, 2
-  %124 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %125 = load i64, ptr %124, align 8
-  %126 = icmp ugt i64 %123, %125
+115:                                              ; preds = %_ZN4llvm16itanium_demangle12OutputBufferlsESt17basic_string_viewIcSt11char_traitsIcEE.exit25
+  %116 = load ptr, ptr %114, align 8
+  %117 = getelementptr inbounds i8, ptr %116, i64 16
+  %118 = load ptr, ptr %117, align 8
+  tail call void %118(ptr noundef nonnull align 8 dereferenceable(24) %114, ptr noundef nonnull align 8 dereferenceable(36) %1, i32 noundef %2) #15
+  %119 = load i64, ptr %12, align 8
+  %120 = add i64 %119, 2
+  %121 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %122 = load i64, ptr %121, align 8
+  %123 = icmp ugt i64 %120, %122
   %.pre.i.i41 = load ptr, ptr %1, align 8
-  br i1 %126, label %127, label %_ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit.i.i42
+  br i1 %123, label %124, label %_ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit.i.i42
 
-127:                                              ; preds = %118
-  %128 = add i64 %122, 994
-  %129 = shl i64 %125, 1
-  %spec.select.i.i.i43 = tail call i64 @llvm.umax.i64(i64 %129, i64 %128)
-  store i64 %spec.select.i.i.i43, ptr %124, align 8
-  %130 = tail call ptr @realloc(ptr noundef %.pre.i.i41, i64 noundef %spec.select.i.i.i43) #16
-  store ptr %130, ptr %1, align 8
-  %131 = icmp eq ptr %130, null
-  br i1 %131, label %132, label %._ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit_crit_edge.i.i44
+124:                                              ; preds = %115
+  %125 = add i64 %119, 994
+  %126 = shl i64 %122, 1
+  %spec.select.i.i.i43 = tail call i64 @llvm.umax.i64(i64 %126, i64 %125)
+  store i64 %spec.select.i.i.i43, ptr %121, align 8
+  %127 = tail call ptr @realloc(ptr noundef %.pre.i.i41, i64 noundef %spec.select.i.i.i43) #16
+  store ptr %127, ptr %1, align 8
+  %128 = icmp eq ptr %127, null
+  br i1 %128, label %129, label %._ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit_crit_edge.i.i44
 
-._ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit_crit_edge.i.i44: ; preds = %127
-  %.pre4.i.i45 = load i64, ptr %15, align 8
+._ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit_crit_edge.i.i44: ; preds = %124
+  %.pre4.i.i45 = load i64, ptr %12, align 8
   br label %_ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit.i.i42
 
-132:                                              ; preds = %127
+129:                                              ; preds = %124
   tail call void @abort() #17
   unreachable
 
-_ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit.i.i42: ; preds = %._ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit_crit_edge.i.i44, %118
-  %133 = phi i64 [ %122, %118 ], [ %.pre4.i.i45, %._ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit_crit_edge.i.i44 ]
-  %134 = phi ptr [ %.pre.i.i41, %118 ], [ %130, %._ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit_crit_edge.i.i44 ]
-  %135 = getelementptr inbounds i8, ptr %134, i64 %133
-  store i16 14906, ptr %135, align 1
-  %136 = load i64, ptr %15, align 8
-  %137 = add i64 %136, 2
-  store i64 %137, ptr %15, align 8
+_ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit.i.i42: ; preds = %._ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit_crit_edge.i.i44, %115
+  %130 = phi i64 [ %119, %115 ], [ %.pre4.i.i45, %._ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit_crit_edge.i.i44 ]
+  %131 = phi ptr [ %.pre.i.i41, %115 ], [ %127, %._ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit_crit_edge.i.i44 ]
+  %132 = getelementptr inbounds i8, ptr %131, i64 %130
+  store i16 14906, ptr %132, align 1
+  %133 = load i64, ptr %12, align 8
+  %134 = add i64 %133, 2
+  store i64 %134, ptr %12, align 8
   br label %_ZN4llvm16itanium_demangle12OutputBufferlsESt17basic_string_viewIcSt11char_traitsIcEE.exit46
 
 _ZN4llvm16itanium_demangle12OutputBufferlsESt17basic_string_viewIcSt11char_traitsIcEE.exit46: ; preds = %_ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit.i.i42, %_ZN4llvm16itanium_demangle12OutputBufferlsESt17basic_string_viewIcSt11char_traitsIcEE.exit25
-  %138 = phi i64 [ %137, %_ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit.i.i42 ], [ %115, %_ZN4llvm16itanium_demangle12OutputBufferlsESt17basic_string_viewIcSt11char_traitsIcEE.exit25 ]
-  %139 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %140 = load i32, ptr %139, align 8
-  switch i32 %140, label %_ZN4llvm16itanium_demangle12OutputBufferlsESt17basic_string_viewIcSt11char_traitsIcEE.exit53 [
-    i32 1, label %141
-    i32 2, label %155
-    i32 3, label %169
+  %135 = phi i64 [ %134, %_ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit.i.i42 ], [ %112, %_ZN4llvm16itanium_demangle12OutputBufferlsESt17basic_string_viewIcSt11char_traitsIcEE.exit25 ]
+  %136 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %137 = load i32, ptr %136, align 8
+  switch i32 %137, label %_ZN4llvm16itanium_demangle12OutputBufferlsESt17basic_string_viewIcSt11char_traitsIcEE.exit53 [
+    i32 1, label %138
+    i32 2, label %152
+    i32 3, label %166
   ]
 
-141:                                              ; preds = %_ZN4llvm16itanium_demangle12OutputBufferlsESt17basic_string_viewIcSt11char_traitsIcEE.exit46
-  %142 = add i64 %138, 1
-  %143 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %144 = load i64, ptr %143, align 8
-  %145 = icmp ugt i64 %142, %144
+138:                                              ; preds = %_ZN4llvm16itanium_demangle12OutputBufferlsESt17basic_string_viewIcSt11char_traitsIcEE.exit46
+  %139 = add i64 %135, 1
+  %140 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %141 = load i64, ptr %140, align 8
+  %142 = icmp ugt i64 %139, %141
   %.pre.i.i48 = load ptr, ptr %1, align 8
-  br i1 %145, label %146, label %_ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit.i.i49
+  br i1 %142, label %143, label %_ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit.i.i49
 
-146:                                              ; preds = %141
-  %147 = add i64 %138, 993
-  %148 = shl i64 %144, 1
-  %spec.select.i.i.i50 = tail call i64 @llvm.umax.i64(i64 %148, i64 %147)
-  store i64 %spec.select.i.i.i50, ptr %143, align 8
-  %149 = tail call ptr @realloc(ptr noundef %.pre.i.i48, i64 noundef %spec.select.i.i.i50) #16
-  store ptr %149, ptr %1, align 8
-  %150 = icmp eq ptr %149, null
-  br i1 %150, label %151, label %._ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit_crit_edge.i.i51
+143:                                              ; preds = %138
+  %144 = add i64 %135, 993
+  %145 = shl i64 %141, 1
+  %spec.select.i.i.i50 = tail call i64 @llvm.umax.i64(i64 %145, i64 %144)
+  store i64 %spec.select.i.i.i50, ptr %140, align 8
+  %146 = tail call ptr @realloc(ptr noundef %.pre.i.i48, i64 noundef %spec.select.i.i.i50) #16
+  store ptr %146, ptr %1, align 8
+  %147 = icmp eq ptr %146, null
+  br i1 %147, label %148, label %._ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit_crit_edge.i.i51
 
-._ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit_crit_edge.i.i51: ; preds = %146
-  %.pre4.i.i52 = load i64, ptr %15, align 8
+._ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit_crit_edge.i.i51: ; preds = %143
+  %.pre4.i.i52 = load i64, ptr %12, align 8
   br label %_ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit.i.i49
 
-151:                                              ; preds = %146
+148:                                              ; preds = %143
   tail call void @abort() #17
   unreachable
 
-_ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit.i.i49: ; preds = %._ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit_crit_edge.i.i51, %141
-  %152 = phi i64 [ %138, %141 ], [ %.pre4.i.i52, %._ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit_crit_edge.i.i51 ]
-  %153 = phi ptr [ %.pre.i.i48, %141 ], [ %149, %._ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit_crit_edge.i.i51 ]
-  %154 = getelementptr inbounds i8, ptr %153, i64 %152
-  store i8 42, ptr %154, align 1
+_ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit.i.i49: ; preds = %._ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit_crit_edge.i.i51, %138
+  %149 = phi i64 [ %135, %138 ], [ %.pre4.i.i52, %._ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit_crit_edge.i.i51 ]
+  %150 = phi ptr [ %.pre.i.i48, %138 ], [ %146, %._ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit_crit_edge.i.i51 ]
+  %151 = getelementptr inbounds i8, ptr %150, i64 %149
+  store i8 42, ptr %151, align 1
   br label %_ZN4llvm16itanium_demangle12OutputBufferlsESt17basic_string_viewIcSt11char_traitsIcEE.exit53.sink.split
 
-155:                                              ; preds = %_ZN4llvm16itanium_demangle12OutputBufferlsESt17basic_string_viewIcSt11char_traitsIcEE.exit46
-  %156 = add i64 %138, 1
-  %157 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %158 = load i64, ptr %157, align 8
-  %159 = icmp ugt i64 %156, %158
+152:                                              ; preds = %_ZN4llvm16itanium_demangle12OutputBufferlsESt17basic_string_viewIcSt11char_traitsIcEE.exit46
+  %153 = add i64 %135, 1
+  %154 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %155 = load i64, ptr %154, align 8
+  %156 = icmp ugt i64 %153, %155
   %.pre.i.i55 = load ptr, ptr %1, align 8
-  br i1 %159, label %160, label %_ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit.i.i56
+  br i1 %156, label %157, label %_ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit.i.i56
 
-160:                                              ; preds = %155
-  %161 = add i64 %138, 993
-  %162 = shl i64 %158, 1
-  %spec.select.i.i.i57 = tail call i64 @llvm.umax.i64(i64 %162, i64 %161)
-  store i64 %spec.select.i.i.i57, ptr %157, align 8
-  %163 = tail call ptr @realloc(ptr noundef %.pre.i.i55, i64 noundef %spec.select.i.i.i57) #16
-  store ptr %163, ptr %1, align 8
-  %164 = icmp eq ptr %163, null
-  br i1 %164, label %165, label %._ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit_crit_edge.i.i58
+157:                                              ; preds = %152
+  %158 = add i64 %135, 993
+  %159 = shl i64 %155, 1
+  %spec.select.i.i.i57 = tail call i64 @llvm.umax.i64(i64 %159, i64 %158)
+  store i64 %spec.select.i.i.i57, ptr %154, align 8
+  %160 = tail call ptr @realloc(ptr noundef %.pre.i.i55, i64 noundef %spec.select.i.i.i57) #16
+  store ptr %160, ptr %1, align 8
+  %161 = icmp eq ptr %160, null
+  br i1 %161, label %162, label %._ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit_crit_edge.i.i58
 
-._ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit_crit_edge.i.i58: ; preds = %160
-  %.pre4.i.i59 = load i64, ptr %15, align 8
+._ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit_crit_edge.i.i58: ; preds = %157
+  %.pre4.i.i59 = load i64, ptr %12, align 8
   br label %_ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit.i.i56
 
-165:                                              ; preds = %160
+162:                                              ; preds = %157
   tail call void @abort() #17
   unreachable
 
-_ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit.i.i56: ; preds = %._ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit_crit_edge.i.i58, %155
-  %166 = phi i64 [ %138, %155 ], [ %.pre4.i.i59, %._ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit_crit_edge.i.i58 ]
-  %167 = phi ptr [ %.pre.i.i55, %155 ], [ %163, %._ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit_crit_edge.i.i58 ]
-  %168 = getelementptr inbounds i8, ptr %167, i64 %166
-  store i8 38, ptr %168, align 1
+_ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit.i.i56: ; preds = %._ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit_crit_edge.i.i58, %152
+  %163 = phi i64 [ %135, %152 ], [ %.pre4.i.i59, %._ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit_crit_edge.i.i58 ]
+  %164 = phi ptr [ %.pre.i.i55, %152 ], [ %160, %._ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit_crit_edge.i.i58 ]
+  %165 = getelementptr inbounds i8, ptr %164, i64 %163
+  store i8 38, ptr %165, align 1
   br label %_ZN4llvm16itanium_demangle12OutputBufferlsESt17basic_string_viewIcSt11char_traitsIcEE.exit53.sink.split
 
-169:                                              ; preds = %_ZN4llvm16itanium_demangle12OutputBufferlsESt17basic_string_viewIcSt11char_traitsIcEE.exit46
-  %170 = add i64 %138, 2
-  %171 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %172 = load i64, ptr %171, align 8
-  %173 = icmp ugt i64 %170, %172
+166:                                              ; preds = %_ZN4llvm16itanium_demangle12OutputBufferlsESt17basic_string_viewIcSt11char_traitsIcEE.exit46
+  %167 = add i64 %135, 2
+  %168 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %169 = load i64, ptr %168, align 8
+  %170 = icmp ugt i64 %167, %169
   %.pre.i.i62 = load ptr, ptr %1, align 8
-  br i1 %173, label %174, label %_ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit.i.i63
+  br i1 %170, label %171, label %_ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit.i.i63
 
-174:                                              ; preds = %169
-  %175 = add i64 %138, 994
-  %176 = shl i64 %172, 1
-  %spec.select.i.i.i64 = tail call i64 @llvm.umax.i64(i64 %176, i64 %175)
-  store i64 %spec.select.i.i.i64, ptr %171, align 8
-  %177 = tail call ptr @realloc(ptr noundef %.pre.i.i62, i64 noundef %spec.select.i.i.i64) #16
-  store ptr %177, ptr %1, align 8
-  %178 = icmp eq ptr %177, null
-  br i1 %178, label %179, label %._ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit_crit_edge.i.i65
+171:                                              ; preds = %166
+  %172 = add i64 %135, 994
+  %173 = shl i64 %169, 1
+  %spec.select.i.i.i64 = tail call i64 @llvm.umax.i64(i64 %173, i64 %172)
+  store i64 %spec.select.i.i.i64, ptr %168, align 8
+  %174 = tail call ptr @realloc(ptr noundef %.pre.i.i62, i64 noundef %spec.select.i.i.i64) #16
+  store ptr %174, ptr %1, align 8
+  %175 = icmp eq ptr %174, null
+  br i1 %175, label %176, label %._ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit_crit_edge.i.i65
 
-._ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit_crit_edge.i.i65: ; preds = %174
-  %.pre4.i.i66 = load i64, ptr %15, align 8
+._ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit_crit_edge.i.i65: ; preds = %171
+  %.pre4.i.i66 = load i64, ptr %12, align 8
   br label %_ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit.i.i63
 
-179:                                              ; preds = %174
+176:                                              ; preds = %171
   tail call void @abort() #17
   unreachable
 
-_ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit.i.i63: ; preds = %._ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit_crit_edge.i.i65, %169
-  %180 = phi i64 [ %138, %169 ], [ %.pre4.i.i66, %._ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit_crit_edge.i.i65 ]
-  %181 = phi ptr [ %.pre.i.i62, %169 ], [ %177, %._ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit_crit_edge.i.i65 ]
-  %182 = getelementptr inbounds i8, ptr %181, i64 %180
-  store i16 9766, ptr %182, align 1
+_ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit.i.i63: ; preds = %._ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit_crit_edge.i.i65, %166
+  %177 = phi i64 [ %135, %166 ], [ %.pre4.i.i66, %._ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit_crit_edge.i.i65 ]
+  %178 = phi ptr [ %.pre.i.i62, %166 ], [ %174, %._ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit_crit_edge.i.i65 ]
+  %179 = getelementptr inbounds i8, ptr %178, i64 %177
+  store i16 9766, ptr %179, align 1
   br label %_ZN4llvm16itanium_demangle12OutputBufferlsESt17basic_string_viewIcSt11char_traitsIcEE.exit53.sink.split
 
 _ZN4llvm16itanium_demangle12OutputBufferlsESt17basic_string_viewIcSt11char_traitsIcEE.exit53.sink.split: ; preds = %_ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit.i.i49, %_ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit.i.i56, %_ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit.i.i63
-  %.sink89 = phi i64 [ 2, %_ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit.i.i63 ], [ 1, %_ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit.i.i56 ], [ 1, %_ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit.i.i49 ]
-  %183 = load i64, ptr %15, align 8
-  %184 = add i64 %183, %.sink89
-  store i64 %184, ptr %15, align 8
+  %.sink91 = phi i64 [ 2, %_ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit.i.i63 ], [ 1, %_ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit.i.i56 ], [ 1, %_ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit.i.i49 ]
+  %180 = load i64, ptr %12, align 8
+  %181 = add i64 %180, %.sink91
+  store i64 %181, ptr %12, align 8
   br label %_ZN4llvm16itanium_demangle12OutputBufferlsESt17basic_string_viewIcSt11char_traitsIcEE.exit53
 
 _ZN4llvm16itanium_demangle12OutputBufferlsESt17basic_string_viewIcSt11char_traitsIcEE.exit53: ; preds = %_ZN4llvm16itanium_demangle12OutputBufferlsESt17basic_string_viewIcSt11char_traitsIcEE.exit53.sink.split, %_ZN4llvm16itanium_demangle12OutputBufferlsESt17basic_string_viewIcSt11char_traitsIcEE.exit46
-  %185 = phi i64 [ %138, %_ZN4llvm16itanium_demangle12OutputBufferlsESt17basic_string_viewIcSt11char_traitsIcEE.exit46 ], [ %184, %_ZN4llvm16itanium_demangle12OutputBufferlsESt17basic_string_viewIcSt11char_traitsIcEE.exit53.sink.split ]
-  %186 = load i8, ptr %44, align 4
-  %187 = icmp eq i8 %186, 0
-  br i1 %187, label %_ZL16outputQualifiersRN4llvm16itanium_demangle12OutputBufferENS_11ms_demangle10QualifiersEbb.exit, label %188
+  %182 = phi i64 [ %135, %_ZN4llvm16itanium_demangle12OutputBufferlsESt17basic_string_viewIcSt11char_traitsIcEE.exit46 ], [ %181, %_ZN4llvm16itanium_demangle12OutputBufferlsESt17basic_string_viewIcSt11char_traitsIcEE.exit53.sink.split ]
+  %183 = load i8, ptr %41, align 4
+  %184 = icmp eq i8 %183, 0
+  br i1 %184, label %_ZL16outputQualifiersRN4llvm16itanium_demangle12OutputBufferENS_11ms_demangle10QualifiersEbb.exit, label %185
 
-188:                                              ; preds = %_ZN4llvm16itanium_demangle12OutputBufferlsESt17basic_string_viewIcSt11char_traitsIcEE.exit53
-  %189 = and i8 %186, 1
-  %.not.i = icmp ne i8 %189, 0
-  br i1 %.not.i, label %190, label %_ZL24outputQualifierIfPresentRN4llvm16itanium_demangle12OutputBufferENS_11ms_demangle10QualifiersES4_b.exit
+185:                                              ; preds = %_ZN4llvm16itanium_demangle12OutputBufferlsESt17basic_string_viewIcSt11char_traitsIcEE.exit53
+  %186 = and i8 %183, 1
+  %.not.i = icmp ne i8 %186, 0
+  br i1 %.not.i, label %187, label %_ZL24outputQualifierIfPresentRN4llvm16itanium_demangle12OutputBufferENS_11ms_demangle10QualifiersES4_b.exit
 
-190:                                              ; preds = %188
-  %191 = add i64 %185, 5
-  %192 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %193 = load i64, ptr %192, align 8
-  %194 = icmp ugt i64 %191, %193
+187:                                              ; preds = %185
+  %188 = add i64 %182, 5
+  %189 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %190 = load i64, ptr %189, align 8
+  %191 = icmp ugt i64 %188, %190
   %.pre.i.i.i.i = load ptr, ptr %1, align 8
-  br i1 %194, label %195, label %_ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit.i.i.i.i
+  br i1 %191, label %192, label %_ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit.i.i.i.i
 
-195:                                              ; preds = %190
-  %196 = add i64 %185, 997
-  %197 = shl i64 %193, 1
-  %spec.select.i.i.i.i.i = tail call i64 @llvm.umax.i64(i64 %197, i64 %196)
-  store i64 %spec.select.i.i.i.i.i, ptr %192, align 8
-  %198 = tail call ptr @realloc(ptr noundef %.pre.i.i.i.i, i64 noundef %spec.select.i.i.i.i.i) #16
-  store ptr %198, ptr %1, align 8
-  %199 = icmp eq ptr %198, null
-  br i1 %199, label %200, label %._ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit_crit_edge.i.i.i.i
+192:                                              ; preds = %187
+  %193 = add i64 %182, 997
+  %194 = shl i64 %190, 1
+  %spec.select.i.i.i.i.i = tail call i64 @llvm.umax.i64(i64 %194, i64 %193)
+  store i64 %spec.select.i.i.i.i.i, ptr %189, align 8
+  %195 = tail call ptr @realloc(ptr noundef %.pre.i.i.i.i, i64 noundef %spec.select.i.i.i.i.i) #16
+  store ptr %195, ptr %1, align 8
+  %196 = icmp eq ptr %195, null
+  br i1 %196, label %197, label %._ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit_crit_edge.i.i.i.i
 
-._ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit_crit_edge.i.i.i.i: ; preds = %195
-  %.pre4.i.i.i.i = load i64, ptr %15, align 8
+._ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit_crit_edge.i.i.i.i: ; preds = %192
+  %.pre4.i.i.i.i = load i64, ptr %12, align 8
   br label %_ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit.i.i.i.i
 
-200:                                              ; preds = %195
+197:                                              ; preds = %192
   tail call void @abort() #17
   unreachable
 
-_ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit.i.i.i.i: ; preds = %._ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit_crit_edge.i.i.i.i, %190
-  %201 = phi i64 [ %185, %190 ], [ %.pre4.i.i.i.i, %._ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit_crit_edge.i.i.i.i ]
-  %202 = phi ptr [ %.pre.i.i.i.i, %190 ], [ %198, %._ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit_crit_edge.i.i.i.i ]
-  %203 = getelementptr inbounds i8, ptr %202, i64 %201
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(5) %203, ptr noundef nonnull align 1 dereferenceable(5) @.str.148, i64 5, i1 false)
-  %204 = load i64, ptr %15, align 8
-  %205 = add i64 %204, 5
-  store i64 %205, ptr %15, align 8
+_ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit.i.i.i.i: ; preds = %._ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit_crit_edge.i.i.i.i, %187
+  %198 = phi i64 [ %182, %187 ], [ %.pre4.i.i.i.i, %._ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit_crit_edge.i.i.i.i ]
+  %199 = phi ptr [ %.pre.i.i.i.i, %187 ], [ %195, %._ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit_crit_edge.i.i.i.i ]
+  %200 = getelementptr inbounds i8, ptr %199, i64 %198
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(5) %200, ptr noundef nonnull align 1 dereferenceable(5) @.str.148, i64 5, i1 false)
+  %201 = load i64, ptr %12, align 8
+  %202 = add i64 %201, 5
+  store i64 %202, ptr %12, align 8
   br label %_ZL24outputQualifierIfPresentRN4llvm16itanium_demangle12OutputBufferENS_11ms_demangle10QualifiersES4_b.exit
 
-_ZL24outputQualifierIfPresentRN4llvm16itanium_demangle12OutputBufferENS_11ms_demangle10QualifiersES4_b.exit: ; preds = %188, %_ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit.i.i.i.i
-  %206 = tail call fastcc noundef zeroext i1 @_ZL24outputQualifierIfPresentRN4llvm16itanium_demangle12OutputBufferENS_11ms_demangle10QualifiersES4_b(ptr noundef nonnull align 8 dereferenceable(36) %1, i8 noundef zeroext %186, i8 noundef zeroext 2, i1 noundef zeroext %.not.i)
-  %207 = tail call fastcc noundef zeroext i1 @_ZL24outputQualifierIfPresentRN4llvm16itanium_demangle12OutputBufferENS_11ms_demangle10QualifiersES4_b(ptr noundef nonnull align 8 dereferenceable(36) %1, i8 noundef zeroext %186, i8 noundef zeroext 32, i1 noundef zeroext %206)
+_ZL24outputQualifierIfPresentRN4llvm16itanium_demangle12OutputBufferENS_11ms_demangle10QualifiersES4_b.exit: ; preds = %185, %_ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit.i.i.i.i
+  %203 = tail call fastcc noundef zeroext i1 @_ZL24outputQualifierIfPresentRN4llvm16itanium_demangle12OutputBufferENS_11ms_demangle10QualifiersES4_b(ptr noundef nonnull align 8 dereferenceable(36) %1, i8 noundef zeroext %183, i8 noundef zeroext 2, i1 noundef zeroext %.not.i)
+  %204 = tail call fastcc noundef zeroext i1 @_ZL24outputQualifierIfPresentRN4llvm16itanium_demangle12OutputBufferENS_11ms_demangle10QualifiersES4_b(ptr noundef nonnull align 8 dereferenceable(36) %1, i8 noundef zeroext %183, i8 noundef zeroext 32, i1 noundef zeroext %203)
   br label %_ZL16outputQualifiersRN4llvm16itanium_demangle12OutputBufferENS_11ms_demangle10QualifiersEbb.exit
 
 _ZL16outputQualifiersRN4llvm16itanium_demangle12OutputBufferENS_11ms_demangle10QualifiersEbb.exit: ; preds = %_ZN4llvm16itanium_demangle12OutputBufferlsESt17basic_string_viewIcSt11char_traitsIcEE.exit53, %_ZL24outputQualifierIfPresentRN4llvm16itanium_demangle12OutputBufferENS_11ms_demangle10QualifiersES4_b.exit
@@ -6745,25 +6736,23 @@ _ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit.i.i.i: ; preds = %._ZN4llvm
   tail call void %105(ptr noundef nonnull align 8 dereferenceable(24) %102, ptr noundef nonnull align 8 dereferenceable(36) %1, i32 noundef %2) #15
   %106 = load ptr, ptr %66, align 8
   %.not22 = icmp eq ptr %106, null
-  br i1 %.not22, label %116, label %107
-
-107:                                              ; preds = %100
-  %108 = load ptr, ptr %106, align 8
-  %109 = getelementptr inbounds i8, ptr %108, i64 32
-  %110 = load ptr, ptr %109, align 8
-  tail call void %110(ptr noundef nonnull align 8 dereferenceable(13) %106, ptr noundef nonnull align 8 dereferenceable(36) %1, i32 noundef %2) #15
-  br label %116
+  br i1 %.not22, label %112, label %.sink.split
 
 .critedge:                                        ; preds = %_ZN4llvm16itanium_demangle12OutputBufferlsESt17basic_string_viewIcSt11char_traitsIcEE.exit37
-  %111 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %112 = load ptr, ptr %111, align 8
-  %113 = load ptr, ptr %112, align 8
-  %114 = getelementptr inbounds i8, ptr %113, i64 16
-  %115 = load ptr, ptr %114, align 8
-  tail call void %115(ptr noundef nonnull align 8 dereferenceable(24) %112, ptr noundef nonnull align 8 dereferenceable(36) %1, i32 noundef %2) #15
-  br label %116
+  %107 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %108 = load ptr, ptr %107, align 8
+  br label %.sink.split
 
-116:                                              ; preds = %.critedge, %107, %100
+.sink.split:                                      ; preds = %100, %.critedge
+  %.sink52 = phi ptr [ %108, %.critedge ], [ %106, %100 ]
+  %.sink51 = phi i64 [ 16, %.critedge ], [ 32, %100 ]
+  %109 = load ptr, ptr %.sink52, align 8
+  %110 = getelementptr inbounds i8, ptr %109, i64 %.sink51
+  %111 = load ptr, ptr %110, align 8
+  tail call void %111(ptr noundef nonnull align 8 dereferenceable(13) %.sink52, ptr noundef nonnull align 8 dereferenceable(36) %1, i32 noundef %2) #15
+  br label %112
+
+112:                                              ; preds = %.sink.split, %100
   ret void
 }
 

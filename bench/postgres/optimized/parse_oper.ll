@@ -425,7 +425,7 @@ define internal fastcc noundef zeroext i1 @make_oper_cache_key(ptr noundef %0, p
   %10 = ptrtoint ptr %1 to i64
   %11 = and i64 %10, 7
   %12 = icmp eq i64 %11, 0
-  br i1 %12, label %13, label %22
+  br i1 %12, label %13, label %.loopexit.sink.split
 
 13:                                               ; preds = %6
   %14 = getelementptr i8, ptr %1, i64 136
@@ -440,44 +440,44 @@ define internal fastcc noundef zeroext i1 @make_oper_cache_key(ptr noundef %0, p
   %19 = add i64 %umax, %18
   %20 = and i64 %19, -8
   %21 = add i64 %20, 8
-  call void @llvm.memset.p0.i64(ptr nonnull align 8 %1, i8 0, i64 %21, i1 false)
+  br label %.loopexit.sink.split
+
+.loopexit.sink.split:                             ; preds = %6, %.lr.ph.preheader
+  %.sink = phi i64 [ %21, %.lr.ph.preheader ], [ 136, %6 ]
+  call void @llvm.memset.p0.i64(ptr nonnull align 1 %1, i8 0, i64 %.sink, i1 false)
   br label %.loopexit
 
-22:                                               ; preds = %6
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(136) %1, i8 0, i64 136, i1 false)
-  br label %.loopexit
+.loopexit:                                        ; preds = %.loopexit.sink.split, %13
+  %22 = load ptr, ptr %8, align 8
+  %23 = call i64 @strlcpy(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(1) %22, i64 noundef 64) #10
+  %24 = getelementptr inbounds i8, ptr %1, i64 64
+  store i32 %3, ptr %24, align 4
+  %25 = getelementptr inbounds i8, ptr %1, i64 68
+  store i32 %4, ptr %25, align 4
+  %26 = load ptr, ptr %7, align 8
+  %.not = icmp eq ptr %26, null
+  br i1 %.not, label %31, label %27
 
-.loopexit:                                        ; preds = %.lr.ph.preheader, %13, %22
-  %23 = load ptr, ptr %8, align 8
-  %24 = call i64 @strlcpy(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(1) %23, i64 noundef 64) #10
-  %25 = getelementptr inbounds i8, ptr %1, i64 64
-  store i32 %3, ptr %25, align 4
-  %26 = getelementptr inbounds i8, ptr %1, i64 68
-  store i32 %4, ptr %26, align 4
-  %27 = load ptr, ptr %7, align 8
-  %.not = icmp eq ptr %27, null
-  br i1 %.not, label %32, label %28
-
-28:                                               ; preds = %.loopexit
+27:                                               ; preds = %.loopexit
   call void @setup_parser_errposition_callback(ptr noundef nonnull %9, ptr noundef %0, i32 noundef %5) #10
-  %29 = load ptr, ptr %7, align 8
-  %30 = call i32 @LookupExplicitNamespace(ptr noundef %29, i1 noundef zeroext false) #10
-  %31 = getelementptr inbounds i8, ptr %1, i64 72
-  store i32 %30, ptr %31, align 4
+  %28 = load ptr, ptr %7, align 8
+  %29 = call i32 @LookupExplicitNamespace(ptr noundef %28, i1 noundef zeroext false) #10
+  %30 = getelementptr inbounds i8, ptr %1, i64 72
+  store i32 %29, ptr %30, align 4
   call void @cancel_parser_errposition_callback(ptr noundef nonnull %9) #10
+  br label %35
+
+31:                                               ; preds = %.loopexit
+  %32 = getelementptr inbounds i8, ptr %1, i64 72
+  %33 = call i32 @fetch_search_path_array(ptr noundef nonnull %32, i32 noundef 16) #10
+  %34 = icmp sgt i32 %33, 16
+  br i1 %34, label %36, label %35
+
+35:                                               ; preds = %31, %27
   br label %36
 
-32:                                               ; preds = %.loopexit
-  %33 = getelementptr inbounds i8, ptr %1, i64 72
-  %34 = call i32 @fetch_search_path_array(ptr noundef nonnull %33, i32 noundef 16) #10
-  %35 = icmp sgt i32 %34, 16
-  br i1 %35, label %37, label %36
-
-36:                                               ; preds = %32, %28
-  br label %37
-
-37:                                               ; preds = %32, %36
-  %.0 = phi i1 [ true, %36 ], [ false, %32 ]
+36:                                               ; preds = %31, %35
+  %.0 = phi i1 [ true, %35 ], [ false, %31 ]
   ret i1 %.0
 }
 

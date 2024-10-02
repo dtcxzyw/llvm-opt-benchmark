@@ -2382,8 +2382,7 @@ if.end72.i:                                       ; preds = %if.end63.i
   %27 = load ptr, ptr %local.i, align 8
   call void @freeaddrinfo(ptr noundef %27) #13
   %28 = load ptr, ptr %peer.i, align 8
-  call void @freeaddrinfo(ptr noundef %28) #13
-  br label %inet_dgram_saddr.exit
+  br label %cleanup.sink.split.i
 
 err.i:                                            ; preds = %if.end49.i
   %call55.i = tail call ptr @__errno_location() #14
@@ -2411,14 +2410,16 @@ if.then78.i:                                      ; preds = %if.end76.i
 if.end79.i:                                       ; preds = %if.then78.i, %if.end76.i
   %33 = load ptr, ptr %peer.i, align 8
   %tobool80.not.i = icmp eq ptr %33, null
-  br i1 %tobool80.not.i, label %inet_dgram_saddr.exit, label %if.then81.i
+  br i1 %tobool80.not.i, label %inet_dgram_saddr.exit, label %cleanup.sink.split.i
 
-if.then81.i:                                      ; preds = %if.end79.i
-  call void @freeaddrinfo(ptr noundef nonnull %33) #13
+cleanup.sink.split.i:                             ; preds = %if.end79.i, %if.end72.i
+  %.sink.i = phi ptr [ %28, %if.end72.i ], [ %33, %if.end79.i ]
+  %retval.0.ph.i = phi i32 [ %call52.i, %if.end72.i ], [ -1, %if.end79.i ]
+  call void @freeaddrinfo(ptr noundef %.sink.i) #13
   br label %inet_dgram_saddr.exit
 
-inet_dgram_saddr.exit:                            ; preds = %if.end72.i, %if.end79.i, %if.then81.i
-  %retval.0.i = phi i32 [ %call52.i, %if.end72.i ], [ -1, %if.then81.i ], [ -1, %if.end79.i ]
+inet_dgram_saddr.exit:                            ; preds = %if.end79.i, %cleanup.sink.split.i
+  %retval.0.i = phi i32 [ -1, %if.end79.i ], [ %retval.0.ph.i, %cleanup.sink.split.i ]
   %_auto_errp_prop.val.i = load ptr, ptr %_auto_errp_prop.i, align 8
   %_auto_errp_prop.val46.i = load ptr, ptr %errp1.i, align 8
   call void @error_propagate(ptr noundef %_auto_errp_prop.val46.i, ptr noundef %_auto_errp_prop.val.i) #13

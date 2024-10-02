@@ -686,11 +686,7 @@ land.lhs.true28.i:                                ; preds = %land.lhs.true19.i, 
 if.then32.i:                                      ; preds = %land.lhs.true28.i
   %call33.i = tail call fastcc i32 @add_bitmaps_to_list(ptr noundef %opaque, ptr noundef %bs.059.i, ptr noundef nonnull %call11.i, ptr noundef null)
   %tobool34.not.i = icmp eq i32 %call33.i, 0
-  br i1 %tobool34.not.i, label %if.end36.i, label %fail.thread.i
-
-fail.thread.i:                                    ; preds = %if.then32.i
-  tail call void @g_hash_table_destroy(ptr noundef %call.i) #11
-  br label %if.end74.i
+  br i1 %tobool34.not.i, label %if.end36.i, label %if.end74.sink.split.i
 
 if.end36.i:                                       ; preds = %if.then32.i
   %call37.i = tail call i32 @g_hash_table_add(ptr noundef %call.i, ptr noundef nonnull %bs.059.i) #11
@@ -760,13 +756,14 @@ if.then70.i:                                      ; preds = %if.end68.i
 
 fail.i:                                           ; preds = %if.end48.i
   tail call void @g_hash_table_destroy(ptr noundef %call.i) #11
-  br i1 %tobool.not52.i, label %if.end74.i, label %if.then73.i
+  br i1 %tobool.not52.i, label %if.end74.i, label %if.end74.sink.split.i
 
-if.then73.i:                                      ; preds = %fail.i
-  tail call void @g_hash_table_destroy(ptr noundef nonnull %alias_map.047.i) #11
+if.end74.sink.split.i:                            ; preds = %if.then32.i, %fail.i
+  %call.sink.i = phi ptr [ %alias_map.047.i, %fail.i ], [ %call.i, %if.then32.i ]
+  tail call void @g_hash_table_destroy(ptr noundef %call.sink.i) #11
   br label %if.end74.i
 
-if.end74.i:                                       ; preds = %if.then73.i, %fail.i, %fail.thread.i
+if.end74.i:                                       ; preds = %if.end74.sink.split.i, %fail.i
   %6 = load ptr, ptr %opaque, align 8
   %cmp.not10.i.i = icmp eq ptr %6, null
   br i1 %cmp.not10.i.i, label %init_dirty_bitmap_migration.exit.thread, label %do.body.lr.ph.i.i

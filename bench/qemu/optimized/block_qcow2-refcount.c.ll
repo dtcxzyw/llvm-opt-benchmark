@@ -508,24 +508,15 @@ if.end54:                                         ; preds = %if.end50
   %cmp55 = icmp ult i32 %6, %conv33
   %refcount_table = getelementptr inbounds i8, ptr %0, i64 120
   %7 = load ptr, ptr %refcount_table, align 8
-  br i1 %cmp55, label %if.then57, label %if.else62
-
-if.then57:                                        ; preds = %if.end54
   %add59 = add nuw nsw i32 %6, 1
   %conv60 = zext nneg i32 %add59 to i64
   %mul61 = shl nuw nsw i64 %conv60, 3
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %call45, ptr noundef nonnull align 8 dereferenceable(1) %7, i64 %mul61, i1 false)
-  br label %if.end66
-
-if.else62:                                        ; preds = %if.end54
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %call45, ptr align 8 %7, i64 %mul, i1 false)
-  br label %if.end66
-
-if.end66:                                         ; preds = %if.else62, %if.then57
+  %mul.sink = select i1 %cmp55, i64 %mul61, i64 %mul
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %call45, ptr align 8 %7, i64 %mul.sink, i1 false)
   %tobool67.not = icmp eq i64 %new_refblock_offset, 0
   br i1 %tobool67.not, label %if.end74, label %if.then68
 
-if.then68:                                        ; preds = %if.end66
+if.then68:                                        ; preds = %if.end54
   %cmp69 = icmp slt i32 %new_refblock_index, %conv9
   br i1 %cmp69, label %if.end73, label %if.else72
 
@@ -539,7 +530,7 @@ if.end73:                                         ; preds = %if.then68
   store i64 %new_refblock_offset, ptr %arrayidx, align 8
   br label %if.end74
 
-if.end74:                                         ; preds = %if.end73, %if.end66
+if.end74:                                         ; preds = %if.end73, %if.end54
   %cmp75139 = icmp slt i32 %conv15, %conv9
   br i1 %cmp75139, label %for.body.preheader, label %for.end182.thread
 

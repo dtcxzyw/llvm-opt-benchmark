@@ -682,11 +682,6 @@ tailrecurse.us:                                   ; preds = %19, %18
   %.not23 = icmp eq i32 %47, 0
   br i1 %.not23, label %tailrecurse, label %._crit_edge
 
-._crit_edge:                                      ; preds = %tailrecurse, %.lr.ph.split.split, %43, %46, %tailrecurse.us, %.lr.ph.split.split.us, %19, %.lr.ph.split.us, %10, %14, %5
-  %.tr.lcssa = phi ptr [ %0, %5 ], [ %0, %14 ], [ %0, %10 ], [ %0, %.lr.ph.split.us ], [ %.tr32.us43, %19 ], [ %.tr32.us43, %.lr.ph.split.split.us ], [ %39, %tailrecurse.us ], [ %.tr32, %46 ], [ %.tr32, %43 ], [ %.tr32, %.lr.ph.split.split ], [ %66, %tailrecurse ]
-  tail call fastcc void @Vec_PtrPushUnique(ptr noundef %1, ptr noundef %.tr.lcssa)
-  br label %87
-
 tailrecurse:                                      ; preds = %46
   %48 = load i64, ptr %.tr32, align 4
   %49 = and i64 %48, 536870911
@@ -733,10 +728,11 @@ tailrecurse:                                      ; preds = %46
   %84 = ptrtoint ptr %81 to i64
   %85 = or disjoint i64 %83, %84
   %86 = inttoptr i64 %85 to ptr
-  tail call fastcc void @Vec_PtrPushUnique(ptr noundef %1, ptr noundef nonnull %86)
-  br label %87
+  br label %._crit_edge
 
-87:                                               ; preds = %.split.us, %._crit_edge
+._crit_edge:                                      ; preds = %46, %43, %.lr.ph.split.split, %tailrecurse, %19, %.lr.ph.split.split.us, %tailrecurse.us, %5, %14, %10, %.lr.ph.split.us, %.split.us
+  %.sink = phi ptr [ %86, %.split.us ], [ %0, %5 ], [ %0, %14 ], [ %0, %10 ], [ %0, %.lr.ph.split.us ], [ %.tr32.us43, %19 ], [ %.tr32.us43, %.lr.ph.split.split.us ], [ %39, %tailrecurse.us ], [ %.tr32, %46 ], [ %.tr32, %43 ], [ %.tr32, %.lr.ph.split.split ], [ %66, %tailrecurse ]
+  tail call fastcc void @Vec_PtrPushUnique(ptr noundef %1, ptr noundef %.sink)
   ret void
 }
 

@@ -2421,176 +2421,175 @@ define internal fastcc ptr @add_iwarp_fragment(ptr noundef %0, ptr noundef %1, p
   %8 = load i16, ptr %7, align 2
   %9 = and i16 %8, 8
   %.not = icmp eq i16 %9, 0
-  br i1 %.not, label %12, label %10
+  br i1 %.not, label %10, label %find_segment_info.exit.thread.sink.split
 
 10:                                               ; preds = %4
-  %11 = tail call fastcc ptr @get_reassembled_data(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %2, ptr noundef %3)
-  br label %find_segment_info.exit.thread
+  %11 = load ptr, ptr @gp_rdmap_info, align 8
+  %12 = load i8, ptr %11, align 8
+  %13 = icmp ne i8 %12, 2
+  br i1 %13, label %30, label %14
 
-12:                                               ; preds = %4
-  %13 = load ptr, ptr @gp_rdmap_info, align 8
-  %14 = load i8, ptr %13, align 8
-  %15 = icmp ne i8 %14, 2
-  br i1 %15, label %32, label %16
+14:                                               ; preds = %10
+  %15 = getelementptr inbounds i8, ptr %1, i64 24
+  %16 = load ptr, ptr %15, align 8
+  %17 = getelementptr inbounds i8, ptr %11, i64 16
+  %18 = load i32, ptr %17, align 8
+  %19 = tail call ptr @wmem_tree_lookup32(ptr noundef %16, i32 noundef %18) #9
+  %.not77 = icmp eq ptr %19, null
+  br i1 %.not77, label %find_segment_info.exit.thread, label %20
 
-16:                                               ; preds = %12
-  %17 = getelementptr inbounds i8, ptr %1, i64 24
-  %18 = load ptr, ptr %17, align 8
-  %19 = getelementptr inbounds i8, ptr %13, i64 16
-  %20 = load i32, ptr %19, align 8
-  %21 = tail call ptr @wmem_tree_lookup32(ptr noundef %18, i32 noundef %20) #9
-  %.not77 = icmp eq ptr %21, null
-  br i1 %.not77, label %find_segment_info.exit.thread, label %22
-
-22:                                               ; preds = %16
-  %23 = load ptr, ptr @gp_rdmap_info, align 8
-  %24 = getelementptr inbounds i8, ptr %23, i64 24
+20:                                               ; preds = %14
+  %21 = load ptr, ptr @gp_rdmap_info, align 8
+  %22 = getelementptr inbounds i8, ptr %21, i64 24
+  %23 = load i64, ptr %22, align 8
+  %24 = getelementptr inbounds i8, ptr %19, i64 8
   %25 = load i64, ptr %24, align 8
-  %26 = getelementptr inbounds i8, ptr %21, i64 8
-  %27 = load i64, ptr %26, align 8
-  %28 = sub i64 %25, %27
-  %29 = getelementptr inbounds i8, ptr %21, i64 24
-  %30 = load i64, ptr %29, align 8
-  %31 = add i64 %28, %30
-  br label %35
+  %26 = sub i64 %23, %25
+  %27 = getelementptr inbounds i8, ptr %19, i64 24
+  %28 = load i64, ptr %27, align 8
+  %29 = add i64 %26, %28
+  br label %33
 
-32:                                               ; preds = %12
-  %33 = getelementptr inbounds i8, ptr %13, i64 24
-  %34 = load i64, ptr %33, align 8
-  br label %35
+30:                                               ; preds = %10
+  %31 = getelementptr inbounds i8, ptr %11, i64 24
+  %32 = load i64, ptr %31, align 8
+  br label %33
 
-35:                                               ; preds = %22, %32
-  %.pn = phi ptr [ %21, %22 ], [ %13, %32 ]
-  %.072 = phi i64 [ %31, %22 ], [ %34, %32 ]
+33:                                               ; preds = %20, %30
+  %.pn = phi ptr [ %19, %20 ], [ %11, %30 ]
+  %.072 = phi i64 [ %29, %20 ], [ %32, %30 ]
   %.073.in = getelementptr inbounds i8, ptr %.pn, i64 16
   %.073 = load i32, ptr %.073.in, align 8
-  %36 = getelementptr inbounds i8, ptr %1, i64 48
-  store ptr null, ptr %36, align 8
+  %34 = getelementptr inbounds i8, ptr %1, i64 48
+  store ptr null, ptr %34, align 8
   %.val = load ptr, ptr %1, align 8
-  %37 = tail call ptr @wmem_tree_lookup32(ptr noundef %.val, i32 noundef %.073) #9
-  %.not.i = icmp eq ptr %37, null
-  br i1 %.not.i, label %find_segment_info.exit.thread, label %38
+  %35 = tail call ptr @wmem_tree_lookup32(ptr noundef %.val, i32 noundef %.073) #9
+  %.not.i = icmp eq ptr %35, null
+  br i1 %.not.i, label %find_segment_info.exit.thread, label %36
 
-38:                                               ; preds = %35
-  %39 = getelementptr inbounds i8, ptr %37, i64 8
-  %40 = load i64, ptr %39, align 8
-  %.not12.i = icmp ult i64 %.072, %40
-  br i1 %.not12.i, label %find_segment_info.exit.thread, label %41
+36:                                               ; preds = %33
+  %37 = getelementptr inbounds i8, ptr %35, i64 8
+  %38 = load i64, ptr %37, align 8
+  %.not12.i = icmp ult i64 %.072, %38
+  br i1 %.not12.i, label %find_segment_info.exit.thread, label %39
 
-41:                                               ; preds = %38
-  %42 = getelementptr inbounds i8, ptr %37, i64 32
-  %43 = load i32, ptr %42, align 8
-  %44 = zext i32 %43 to i64
-  %45 = add i64 %40, %44
-  %46 = icmp ult i64 %.072, %45
-  br i1 %46, label %find_segment_info.exit, label %find_segment_info.exit.thread
+39:                                               ; preds = %36
+  %40 = getelementptr inbounds i8, ptr %35, i64 32
+  %41 = load i32, ptr %40, align 8
+  %42 = zext i32 %41 to i64
+  %43 = add i64 %38, %42
+  %44 = icmp ult i64 %.072, %43
+  br i1 %44, label %find_segment_info.exit, label %find_segment_info.exit.thread
 
-find_segment_info.exit:                           ; preds = %41
-  %47 = sub i64 %.072, %40
-  %48 = trunc i64 %47 to i32
-  %49 = getelementptr inbounds i8, ptr %37, i64 20
-  %50 = load i32, ptr %49, align 4
-  %51 = add i32 %50, %48
-  %52 = add i32 %51, 1
-  store ptr %37, ptr %36, align 8
-  %53 = tail call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef 0) #9
-  %54 = getelementptr inbounds i8, ptr %37, i64 36
-  %55 = load i32, ptr %54, align 4
-  %56 = add i32 %55, %53
-  store i32 %56, ptr %54, align 4
-  %57 = load ptr, ptr @gp_rdmap_info, align 8
-  %58 = getelementptr inbounds i8, ptr %57, i64 4
-  %59 = load i32, ptr %58, align 4
-  %.not79 = icmp eq i32 %59, 0
-  br i1 %.not79, label %77, label %60
+find_segment_info.exit:                           ; preds = %39
+  %45 = sub i64 %.072, %38
+  %46 = trunc i64 %45 to i32
+  %47 = getelementptr inbounds i8, ptr %35, i64 20
+  %48 = load i32, ptr %47, align 4
+  %49 = add i32 %48, %46
+  %50 = add i32 %49, 1
+  store ptr %35, ptr %34, align 8
+  %51 = tail call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef 0) #9
+  %52 = getelementptr inbounds i8, ptr %35, i64 36
+  %53 = load i32, ptr %52, align 4
+  %54 = add i32 %53, %51
+  store i32 %54, ptr %52, align 4
+  %55 = load ptr, ptr @gp_rdmap_info, align 8
+  %56 = getelementptr inbounds i8, ptr %55, i64 4
+  %57 = load i32, ptr %56, align 4
+  %.not79 = icmp eq i32 %57, 0
+  br i1 %.not79, label %75, label %58
 
-60:                                               ; preds = %find_segment_info.exit
-  %61 = getelementptr inbounds i8, ptr %1, i64 16
-  %62 = load ptr, ptr %61, align 8
-  %63 = getelementptr inbounds i8, ptr %37, i64 16
-  %64 = load i32, ptr %63, align 8
-  %65 = tail call ptr @wmem_tree_lookup32(ptr noundef %62, i32 noundef %64) #9
-  %.not80 = icmp eq ptr %65, null
-  br i1 %.not80, label %.loopexit, label %66
+58:                                               ; preds = %find_segment_info.exit
+  %59 = getelementptr inbounds i8, ptr %1, i64 16
+  %60 = load ptr, ptr %59, align 8
+  %61 = getelementptr inbounds i8, ptr %35, i64 16
+  %62 = load i32, ptr %61, align 8
+  %63 = tail call ptr @wmem_tree_lookup32(ptr noundef %60, i32 noundef %62) #9
+  %.not80 = icmp eq ptr %63, null
+  br i1 %.not80, label %.loopexit, label %64
 
-66:                                               ; preds = %60
-  %67 = tail call ptr @wmem_list_head(ptr noundef nonnull %65) #9
-  %.not8191 = icmp eq ptr %67, null
+64:                                               ; preds = %58
+  %65 = tail call ptr @wmem_list_head(ptr noundef nonnull %63) #9
+  %.not8191 = icmp eq ptr %65, null
   br i1 %.not8191, label %.loopexit, label %.lr.ph
 
-.lr.ph:                                           ; preds = %66, %.lr.ph
-  %.294 = phi i32 [ %71, %.lr.ph ], [ 0, %66 ]
-  %.06793 = phi ptr [ %75, %.lr.ph ], [ %67, %66 ]
-  %.27092 = phi i32 [ %74, %.lr.ph ], [ 0, %66 ]
-  %68 = tail call ptr @wmem_list_frame_data(ptr noundef nonnull %.06793) #9
-  %69 = getelementptr inbounds i8, ptr %68, i64 32
-  %70 = load i32, ptr %69, align 8
-  %71 = add i32 %70, %.294
-  %72 = getelementptr inbounds i8, ptr %68, i64 36
-  %73 = load i32, ptr %72, align 4
-  %74 = add i32 %73, %.27092
-  %75 = tail call ptr @wmem_list_frame_next(ptr noundef nonnull %.06793) #9
-  %.not81 = icmp eq ptr %75, null
+.lr.ph:                                           ; preds = %64, %.lr.ph
+  %.294 = phi i32 [ %69, %.lr.ph ], [ 0, %64 ]
+  %.06793 = phi ptr [ %73, %.lr.ph ], [ %65, %64 ]
+  %.27092 = phi i32 [ %72, %.lr.ph ], [ 0, %64 ]
+  %66 = tail call ptr @wmem_list_frame_data(ptr noundef nonnull %.06793) #9
+  %67 = getelementptr inbounds i8, ptr %66, i64 32
+  %68 = load i32, ptr %67, align 8
+  %69 = add i32 %68, %.294
+  %70 = getelementptr inbounds i8, ptr %66, i64 36
+  %71 = load i32, ptr %70, align 4
+  %72 = add i32 %71, %.27092
+  %73 = tail call ptr @wmem_list_frame_next(ptr noundef nonnull %.06793) #9
+  %.not81 = icmp eq ptr %73, null
   br i1 %.not81, label %.loopexit, label %.lr.ph, !llvm.loop !12
 
-.loopexit:                                        ; preds = %.lr.ph, %66, %60
-  %.169 = phi i32 [ 0, %60 ], [ 0, %66 ], [ %74, %.lr.ph ]
-  %.1 = phi i32 [ 0, %60 ], [ 0, %66 ], [ %71, %.lr.ph ]
-  %76 = icmp ne i32 %.169, %.1
-  %or.cond83 = select i1 %15, i1 true, i1 %76
-  br label %77
+.loopexit:                                        ; preds = %.lr.ph, %64, %58
+  %.169 = phi i32 [ 0, %58 ], [ 0, %64 ], [ %72, %.lr.ph ]
+  %.1 = phi i32 [ 0, %58 ], [ 0, %64 ], [ %69, %.lr.ph ]
+  %74 = icmp ne i32 %.169, %.1
+  %or.cond83 = select i1 %13, i1 true, i1 %74
+  br label %75
 
-77:                                               ; preds = %.loopexit, %find_segment_info.exit
-  %78 = phi i1 [ true, %find_segment_info.exit ], [ %or.cond83, %.loopexit ]
+75:                                               ; preds = %.loopexit, %find_segment_info.exit
+  %76 = phi i1 [ true, %find_segment_info.exit ], [ %or.cond83, %.loopexit ]
   %.068 = phi i32 [ 0, %find_segment_info.exit ], [ %.169, %.loopexit ]
   %.066 = phi i32 [ 0, %find_segment_info.exit ], [ %.1, %.loopexit ]
-  %79 = getelementptr inbounds i8, ptr %37, i64 16
-  %80 = load i32, ptr %79, align 8
-  %81 = tail call fastcc ptr @add_fragment(ptr noundef %0, i32 noundef 0, i32 noundef %80, i32 noundef %52, i32 noundef 1, ptr noundef nonnull %1, ptr noundef %2, ptr noundef %3)
-  %82 = icmp ne ptr %81, null
-  %or.cond = or i1 %78, %82
-  br i1 %or.cond, label %83, label %89
+  %77 = getelementptr inbounds i8, ptr %35, i64 16
+  %78 = load i32, ptr %77, align 8
+  %79 = tail call fastcc ptr @add_fragment(ptr noundef %0, i32 noundef 0, i32 noundef %78, i32 noundef %50, i32 noundef 1, ptr noundef nonnull %1, ptr noundef %2, ptr noundef %3)
+  %80 = icmp ne ptr %79, null
+  %or.cond = or i1 %76, %80
+  br i1 %or.cond, label %81, label %87
 
-83:                                               ; preds = %77
-  %84 = load ptr, ptr @gp_rdmap_info, align 8
-  %85 = getelementptr inbounds i8, ptr %84, i64 4
-  %86 = load i32, ptr %85, align 4
-  %87 = icmp ne i32 %86, 0
-  %or.cond3.not90 = and i1 %15, %87
-  %88 = icmp eq i32 %.068, %.066
-  %or.cond84 = select i1 %or.cond3.not90, i1 %88, i1 false
-  br i1 %or.cond84, label %89, label %find_segment_info.exit.thread
+81:                                               ; preds = %75
+  %82 = load ptr, ptr @gp_rdmap_info, align 8
+  %83 = getelementptr inbounds i8, ptr %82, i64 4
+  %84 = load i32, ptr %83, align 4
+  %85 = icmp ne i32 %84, 0
+  %or.cond3.not90 = and i1 %13, %85
+  %86 = icmp eq i32 %.068, %.066
+  %or.cond84 = select i1 %or.cond3.not90, i1 %86, i1 false
+  br i1 %or.cond84, label %87, label %find_segment_info.exit.thread
 
-89:                                               ; preds = %83, %77
-  %90 = load i32, ptr %79, align 8
-  %91 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef 0) #9
-  %92 = sub i32 0, %91
-  %93 = and i32 %92, 3
-  %.not.i85 = icmp eq i32 %93, 0
-  br i1 %.not.i85, label %add_iwarp_padding.exit, label %94
+87:                                               ; preds = %81, %75
+  %88 = load i32, ptr %77, align 8
+  %89 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef 0) #9
+  %90 = sub i32 0, %89
+  %91 = and i32 %90, 3
+  %.not.i85 = icmp eq i32 %91, 0
+  br i1 %.not.i85, label %add_iwarp_padding.exit, label %92
 
-94:                                               ; preds = %89
-  %95 = add i32 %51, 2
-  %96 = getelementptr inbounds i8, ptr %2, i64 408
-  %97 = load ptr, ptr %96, align 8
-  %98 = zext nneg i32 %93 to i64
-  %99 = tail call noalias ptr @wmem_alloc(ptr noundef %97, i64 noundef %98) #9
-  tail call void @llvm.memset.p0.i64(ptr align 1 %99, i8 0, i64 %98, i1 false)
-  %100 = tail call ptr @tvb_new_real_data(ptr noundef %99, i32 noundef %93, i32 noundef %93) #9
-  %101 = tail call ptr @fragment_add_seq_check(ptr noundef nonnull @rpcordma_reassembly_table, ptr noundef %100, i32 noundef 0, ptr noundef %2, i32 noundef %90, ptr noundef null, i32 noundef %95, i32 noundef %93, i32 noundef 1) #9
+92:                                               ; preds = %87
+  %93 = add i32 %49, 2
+  %94 = getelementptr inbounds i8, ptr %2, i64 408
+  %95 = load ptr, ptr %94, align 8
+  %96 = zext nneg i32 %91 to i64
+  %97 = tail call noalias ptr @wmem_alloc(ptr noundef %95, i64 noundef %96) #9
+  tail call void @llvm.memset.p0.i64(ptr align 1 %97, i8 0, i64 %96, i1 false)
+  %98 = tail call ptr @tvb_new_real_data(ptr noundef %97, i32 noundef %91, i32 noundef %91) #9
+  %99 = tail call ptr @fragment_add_seq_check(ptr noundef nonnull @rpcordma_reassembly_table, ptr noundef %98, i32 noundef 0, ptr noundef %2, i32 noundef %88, ptr noundef null, i32 noundef %93, i32 noundef %91, i32 noundef 1) #9
   br label %add_iwarp_padding.exit
 
-add_iwarp_padding.exit:                           ; preds = %94, %89
-  br i1 %or.cond, label %find_segment_info.exit.thread, label %102
+add_iwarp_padding.exit:                           ; preds = %92, %87
+  br i1 %or.cond, label %find_segment_info.exit.thread, label %100
 
-102:                                              ; preds = %add_iwarp_padding.exit
-  %103 = load i32, ptr %79, align 8
-  %104 = tail call fastcc ptr @end_reassembly(i32 noundef %103, ptr noundef nonnull %1, ptr noundef %2)
-  %105 = tail call fastcc ptr @get_reassembled_data(ptr noundef %0, i32 noundef 0, ptr noundef %2, ptr noundef %3)
+100:                                              ; preds = %add_iwarp_padding.exit
+  %101 = load i32, ptr %77, align 8
+  %102 = tail call fastcc ptr @end_reassembly(i32 noundef %101, ptr noundef nonnull %1, ptr noundef %2)
+  br label %find_segment_info.exit.thread.sink.split
+
+find_segment_info.exit.thread.sink.split:         ; preds = %4, %100
+  %103 = tail call fastcc ptr @get_reassembled_data(ptr noundef %0, i32 noundef 0, ptr noundef %2, ptr noundef %3)
   br label %find_segment_info.exit.thread
 
-find_segment_info.exit.thread:                    ; preds = %83, %41, %38, %35, %102, %add_iwarp_padding.exit, %16, %10
-  %.065 = phi ptr [ %11, %10 ], [ null, %16 ], [ %81, %add_iwarp_padding.exit ], [ %105, %102 ], [ null, %35 ], [ null, %38 ], [ null, %41 ], [ %81, %83 ]
+find_segment_info.exit.thread:                    ; preds = %find_segment_info.exit.thread.sink.split, %81, %39, %36, %33, %add_iwarp_padding.exit, %14
+  %.065 = phi ptr [ null, %14 ], [ %79, %add_iwarp_padding.exit ], [ null, %33 ], [ null, %36 ], [ null, %39 ], [ %79, %81 ], [ %103, %find_segment_info.exit.thread.sink.split ]
   ret ptr %.065
 }
 

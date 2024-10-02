@@ -1261,7 +1261,7 @@ define internal i32 @pfr_slot_load(ptr noundef %0, ptr nocapture noundef readonl
   %.not98.i.i = icmp eq i32 %113, 0
   %.not114.i.i = icmp eq i32 %74, 0
   %or.cond128.i.i = or i1 %.not114.i.i, %.not98.i.i
-  br i1 %or.cond128.i.i, label %pfr_lookup_bitmap_data.exit.thread.i, label %.lr.ph108.i.i
+  br i1 %or.cond128.i.i, label %pfr_slot_load_bitmap.exit.thread107, label %.lr.ph108.i.i
 
 .lr.ph108.i.i:                                    ; preds = %111
   %114 = lshr i32 %74, 1
@@ -1300,7 +1300,7 @@ define internal i32 @pfr_slot_load(ptr noundef %0, ptr nocapture noundef readonl
   %131 = add i32 %130, %.1.us.i.i
   %.189.us.i.i = select i1 %or.cond.us.i.i, i32 %131, i32 %127
   %132 = icmp ult i32 %.1.us.i.i, %.185.us.i.i
-  br i1 %132, label %.lr.ph108.split.us.i.i, label %pfr_lookup_bitmap_data.exit.thread.i, !llvm.loop !15
+  br i1 %132, label %.lr.ph108.split.us.i.i, label %pfr_slot_load_bitmap.exit.thread107, !llvm.loop !15
 
 .split110.us.i.i:                                 ; preds = %121
   %133 = getelementptr inbounds i8, ptr %72, i64 %116
@@ -1345,7 +1345,7 @@ define internal i32 @pfr_slot_load(ptr noundef %0, ptr nocapture noundef readonl
   %156 = add i32 %155, %.1.i.i
   %.189.i.i = select i1 %or.cond.i.i, i32 %156, i32 %152
   %157 = icmp ult i32 %.1.i.i, %.185.i.i
-  br i1 %157, label %.lr.ph108.split.i.i, label %pfr_lookup_bitmap_data.exit.thread.i, !llvm.loop !15
+  br i1 %157, label %.lr.ph108.split.i.i, label %pfr_slot_load_bitmap.exit.thread107, !llvm.loop !15
 
 .split110.i.i:                                    ; preds = %146
   %158 = getelementptr inbounds i8, ptr %137, i64 2
@@ -1398,10 +1398,6 @@ define internal i32 @pfr_slot_load(ptr noundef %0, ptr nocapture noundef readonl
   %188 = shl nuw nsw i64 %175, 8
   %189 = or disjoint i64 %188, %178
   br label %pfr_lookup_bitmap_data.exit.i
-
-pfr_lookup_bitmap_data.exit.thread.i:             ; preds = %150, %125, %111
-  tail call void @FT_Stream_ExitFrame(ptr noundef %24) #12
-  br label %.sink.split
 
 pfr_lookup_bitmap_data.exit.i:                    ; preds = %187, %179
   %.sink.i.i = phi i64 [ %189, %187 ], [ %186, %179 ]
@@ -1597,8 +1593,8 @@ pfr_lookup_bitmap_data.exit.i:                    ; preds = %187, %179
   tail call fastcc void @pfr_load_bitmap_bits(ptr noundef %304, ptr noundef %305, i32 noundef %226, i8 noundef zeroext %310, ptr noundef nonnull %266)
   br label %pfr_slot_load_bitmap.exit
 
-pfr_slot_load_bitmap.exit.thread107:              ; preds = %221, %299, %242, %227, %235, %251, %257, %225
-  tail call void @FT_Stream_ExitFrame(ptr noundef nonnull %24) #12
+pfr_slot_load_bitmap.exit.thread107:              ; preds = %150, %125, %111, %221, %299, %242, %227, %235, %251, %257, %225
+  tail call void @FT_Stream_ExitFrame(ptr noundef %24) #12
   br label %.sink.split
 
 pfr_slot_load_bitmap.exit:                        ; preds = %264, %303
@@ -1612,7 +1608,7 @@ pfr_slot_load_bitmap.exit:                        ; preds = %264, %303
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11)
   br label %438
 
-.sink.split:                                      ; preds = %46, %22, %pfr_lookup_bitmap_data.exit.thread.i, %pfr_lookup_bitmap_data.exit.i, %219, %203, %59, %49, %pfr_slot_load_bitmap.exit.thread107
+.sink.split:                                      ; preds = %46, %22, %pfr_lookup_bitmap_data.exit.i, %219, %203, %59, %49, %pfr_slot_load_bitmap.exit.thread107
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)

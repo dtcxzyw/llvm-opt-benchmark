@@ -1745,7 +1745,7 @@ define void @Wlc_BlastAdderFast_int(ptr noundef %0, ptr nocapture noundef %1, pt
   %11 = tail call noalias ptr @calloc(i64 noundef %9, i64 noundef 4) #22
   %12 = tail call noalias ptr @calloc(i64 noundef %9, i64 noundef 4) #22
   %13 = icmp eq i32 %3, 0
-  br i1 %13, label %14, label %22
+  br i1 %13, label %14, label %21
 
 14:                                               ; preds = %5
   store i32 %4, ptr %6, align 4
@@ -1769,103 +1769,99 @@ define void @Wlc_BlastAdderFast_int(ptr noundef %0, ptr nocapture noundef %1, pt
 
 20:                                               ; preds = %18, %19
   %.not168 = icmp eq ptr %12, null
-  br i1 %.not168, label %104, label %21
+  br i1 %.not168, label %103, label %.sink.split
 
-21:                                               ; preds = %20
-  tail call void @free(ptr noundef nonnull %12) #21
-  br label %104
-
-22:                                               ; preds = %5
+21:                                               ; preds = %5
   store i32 %4, ptr %10, align 4
   %.not172 = icmp eq i32 %3, 31
   br i1 %.not172, label %.lr.ph181.preheader, label %.lr.ph.preheader
 
-.lr.ph.preheader:                                 ; preds = %22
+.lr.ph.preheader:                                 ; preds = %21
   %smax = tail call i32 @llvm.smax.i32(i32 %7, i32 1)
-  %23 = add nuw i32 %smax, 1
-  %wide.trip.count = zext i32 %23 to i64
+  %22 = add nuw i32 %smax, 1
+  %wide.trip.count = zext i32 %22 to i64
   br label %.lr.ph
 
 .lr.ph176.preheader:                              ; preds = %.lr.ph
-  %24 = sext i32 %7 to i64
+  %23 = sext i32 %7 to i64
   br label %.lr.ph176
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 1, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %25 = add nsw i64 %indvars.iv, -1
-  %26 = getelementptr inbounds i32, ptr %1, i64 %25
-  %27 = load i32, ptr %26, align 4
-  %28 = getelementptr inbounds i32, ptr %2, i64 %25
-  %29 = load i32, ptr %28, align 4
-  %30 = tail call i32 @Gia_ManHashAnd(ptr noundef %0, i32 noundef %27, i32 noundef %29) #21
-  %31 = getelementptr inbounds i32, ptr %10, i64 %indvars.iv
-  store i32 %30, ptr %31, align 4
-  %32 = load i32, ptr %26, align 4
-  %33 = load i32, ptr %28, align 4
-  %34 = tail call i32 @Gia_ManHashXor(ptr noundef %0, i32 noundef %32, i32 noundef %33) #21
-  %35 = getelementptr inbounds i32, ptr %11, i64 %indvars.iv
-  store i32 %34, ptr %35, align 4
-  %36 = getelementptr inbounds i32, ptr %12, i64 %indvars.iv
-  store i32 %34, ptr %36, align 4
+  %24 = add nsw i64 %indvars.iv, -1
+  %25 = getelementptr inbounds i32, ptr %1, i64 %24
+  %26 = load i32, ptr %25, align 4
+  %27 = getelementptr inbounds i32, ptr %2, i64 %24
+  %28 = load i32, ptr %27, align 4
+  %29 = tail call i32 @Gia_ManHashAnd(ptr noundef %0, i32 noundef %26, i32 noundef %28) #21
+  %30 = getelementptr inbounds i32, ptr %10, i64 %indvars.iv
+  store i32 %29, ptr %30, align 4
+  %31 = load i32, ptr %25, align 4
+  %32 = load i32, ptr %27, align 4
+  %33 = tail call i32 @Gia_ManHashXor(ptr noundef %0, i32 noundef %31, i32 noundef %32) #21
+  %34 = getelementptr inbounds i32, ptr %11, i64 %indvars.iv
+  store i32 %33, ptr %34, align 4
+  %35 = getelementptr inbounds i32, ptr %12, i64 %indvars.iv
+  store i32 %33, ptr %35, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.lr.ph176.preheader, label %.lr.ph, !llvm.loop !33
 
 .preheader170:                                    ; preds = %.lr.ph176
-  %37 = icmp sgt i32 %3, 2
-  br i1 %37, label %.lr.ph181.preheader, label %.lr.ph186.preheader
+  %36 = icmp sgt i32 %3, 2
+  br i1 %36, label %.lr.ph181.preheader, label %.lr.ph186.preheader
 
-.lr.ph181.preheader:                              ; preds = %22, %.preheader170
-  %38 = add nsw i32 %3, -1
-  %39 = sext i32 %7 to i64
-  %wide.trip.count205 = zext nneg i32 %38 to i64
+.lr.ph181.preheader:                              ; preds = %21, %.preheader170
+  %37 = add nsw i32 %3, -1
+  %38 = sext i32 %7 to i64
+  %wide.trip.count205 = zext nneg i32 %37 to i64
   br label %.lr.ph181
 
 .lr.ph176:                                        ; preds = %.lr.ph176.preheader, %.lr.ph176
   %indvars.iv194 = phi i64 [ 1, %.lr.ph176.preheader ], [ %indvars.iv.next195, %.lr.ph176 ]
-  %40 = getelementptr inbounds i32, ptr %10, i64 %indvars.iv194
-  %41 = load i32, ptr %40, align 4
-  %42 = getelementptr inbounds i32, ptr %11, i64 %indvars.iv194
-  %43 = load i32, ptr %42, align 4
-  %44 = add nsw i64 %indvars.iv194, -1
-  %45 = getelementptr inbounds i32, ptr %10, i64 %44
-  %46 = load i32, ptr %45, align 4
-  %47 = tail call i32 @Gia_ManHashAnd(ptr noundef %0, i32 noundef %43, i32 noundef %46) #21
-  %48 = tail call i32 @Gia_ManHashOr(ptr noundef %0, i32 noundef %41, i32 noundef %47) #21
-  %49 = getelementptr inbounds i32, ptr %11, i64 %44
-  %50 = load i32, ptr %49, align 4
-  %51 = tail call i32 @Gia_ManHashAnd(ptr noundef %0, i32 noundef %43, i32 noundef %50) #21
-  store i32 %51, ptr %42, align 4
-  store i32 %48, ptr %40, align 4
+  %39 = getelementptr inbounds i32, ptr %10, i64 %indvars.iv194
+  %40 = load i32, ptr %39, align 4
+  %41 = getelementptr inbounds i32, ptr %11, i64 %indvars.iv194
+  %42 = load i32, ptr %41, align 4
+  %43 = add nsw i64 %indvars.iv194, -1
+  %44 = getelementptr inbounds i32, ptr %10, i64 %43
+  %45 = load i32, ptr %44, align 4
+  %46 = tail call i32 @Gia_ManHashAnd(ptr noundef %0, i32 noundef %42, i32 noundef %45) #21
+  %47 = tail call i32 @Gia_ManHashOr(ptr noundef %0, i32 noundef %40, i32 noundef %46) #21
+  %48 = getelementptr inbounds i32, ptr %11, i64 %43
+  %49 = load i32, ptr %48, align 4
+  %50 = tail call i32 @Gia_ManHashAnd(ptr noundef %0, i32 noundef %42, i32 noundef %49) #21
+  store i32 %50, ptr %41, align 4
+  store i32 %47, ptr %39, align 4
   %indvars.iv.next195 = add nuw nsw i64 %indvars.iv194, 2
-  %.not162 = icmp sgt i64 %indvars.iv.next195, %24
+  %.not162 = icmp sgt i64 %indvars.iv.next195, %23
   br i1 %.not162, label %.preheader170, label %.lr.ph176, !llvm.loop !34
 
 .lr.ph181:                                        ; preds = %.lr.ph181.preheader, %._crit_edge
   %indvars.iv202 = phi i64 [ 1, %.lr.ph181.preheader ], [ %indvars.iv.next203, %._crit_edge ]
   %indvars.iv197 = phi i64 [ 3, %.lr.ph181.preheader ], [ %indvars.iv.next198, %._crit_edge ]
-  %52 = shl nuw nsw i64 %indvars.iv202, 1
-  %.not165177.not = icmp slt i64 %52, %39
+  %51 = shl nuw nsw i64 %indvars.iv202, 1
+  %.not165177.not = icmp slt i64 %51, %38
   br i1 %.not165177.not, label %.lr.ph179, label %._crit_edge
 
 .lr.ph179:                                        ; preds = %.lr.ph181, %.lr.ph179
   %indvars.iv199 = phi i64 [ %indvars.iv.next200, %.lr.ph179 ], [ %indvars.iv197, %.lr.ph181 ]
-  %53 = getelementptr inbounds i32, ptr %10, i64 %indvars.iv199
-  %54 = load i32, ptr %53, align 4
-  %55 = getelementptr inbounds i32, ptr %11, i64 %indvars.iv199
-  %56 = load i32, ptr %55, align 4
-  %57 = sub nuw nsw i64 %indvars.iv199, %52
-  %58 = getelementptr inbounds i32, ptr %10, i64 %57
-  %59 = load i32, ptr %58, align 4
-  %60 = tail call i32 @Gia_ManHashAnd(ptr noundef %0, i32 noundef %56, i32 noundef %59) #21
-  %61 = tail call i32 @Gia_ManHashOr(ptr noundef %0, i32 noundef %54, i32 noundef %60) #21
-  %62 = getelementptr inbounds i32, ptr %11, i64 %57
-  %63 = load i32, ptr %62, align 4
-  %64 = tail call i32 @Gia_ManHashAnd(ptr noundef %0, i32 noundef %56, i32 noundef %63) #21
-  store i32 %64, ptr %55, align 4
-  store i32 %61, ptr %53, align 4
+  %52 = getelementptr inbounds i32, ptr %10, i64 %indvars.iv199
+  %53 = load i32, ptr %52, align 4
+  %54 = getelementptr inbounds i32, ptr %11, i64 %indvars.iv199
+  %55 = load i32, ptr %54, align 4
+  %56 = sub nuw nsw i64 %indvars.iv199, %51
+  %57 = getelementptr inbounds i32, ptr %10, i64 %56
+  %58 = load i32, ptr %57, align 4
+  %59 = tail call i32 @Gia_ManHashAnd(ptr noundef %0, i32 noundef %55, i32 noundef %58) #21
+  %60 = tail call i32 @Gia_ManHashOr(ptr noundef %0, i32 noundef %53, i32 noundef %59) #21
+  %61 = getelementptr inbounds i32, ptr %11, i64 %56
+  %62 = load i32, ptr %61, align 4
+  %63 = tail call i32 @Gia_ManHashAnd(ptr noundef %0, i32 noundef %55, i32 noundef %62) #21
+  store i32 %63, ptr %54, align 4
+  store i32 %60, ptr %52, align 4
   %indvars.iv.next200 = add nuw nsw i64 %indvars.iv199, 2
-  %.not165 = icmp sgt i64 %indvars.iv.next200, %39
+  %.not165 = icmp sgt i64 %indvars.iv.next200, %38
   br i1 %.not165, label %._crit_edge, label %.lr.ph179, !llvm.loop !35
 
 ._crit_edge:                                      ; preds = %.lr.ph179, %.lr.ph181
@@ -1878,10 +1874,10 @@ define void @Wlc_BlastAdderFast_int(ptr noundef %0, ptr nocapture noundef %1, pt
   br i1 %.not172, label %._crit_edge192, label %.lr.ph186.preheader
 
 .lr.ph186.preheader:                              ; preds = %.preheader170, %._crit_edge182
-  %65 = sdiv i32 %7, 2
-  %66 = sext i32 %65 to i64
-  %67 = add nsw i64 %66, 1
-  %68 = sext i32 %7 to i64
+  %64 = sdiv i32 %7, 2
+  %65 = sext i32 %64 to i64
+  %66 = add nsw i64 %65, 1
+  %67 = sext i32 %7 to i64
   br label %.lr.ph186
 
 .preheader169:                                    ; preds = %.lr.ph186
@@ -1889,27 +1885,27 @@ define void @Wlc_BlastAdderFast_int(ptr noundef %0, ptr nocapture noundef %1, pt
   br i1 %.not164187, label %.preheader, label %.lr.ph189.preheader
 
 .lr.ph189.preheader:                              ; preds = %.preheader169
-  %69 = zext nneg i32 %7 to i64
+  %68 = zext nneg i32 %7 to i64
   br label %.lr.ph189
 
 .lr.ph186:                                        ; preds = %.lr.ph186.preheader, %.lr.ph186
-  %indvars.iv207 = phi i64 [ %67, %.lr.ph186.preheader ], [ %indvars.iv.next208, %.lr.ph186 ]
-  %70 = getelementptr inbounds i32, ptr %10, i64 %indvars.iv207
-  %71 = load i32, ptr %70, align 4
-  %72 = getelementptr inbounds i32, ptr %11, i64 %indvars.iv207
-  %73 = load i32, ptr %72, align 4
-  %74 = sub nsw i64 %indvars.iv207, %66
-  %75 = getelementptr inbounds i32, ptr %10, i64 %74
-  %76 = load i32, ptr %75, align 4
-  %77 = tail call i32 @Gia_ManHashAnd(ptr noundef %0, i32 noundef %73, i32 noundef %76) #21
-  %78 = tail call i32 @Gia_ManHashOr(ptr noundef %0, i32 noundef %71, i32 noundef %77) #21
-  %79 = getelementptr inbounds i32, ptr %11, i64 %74
-  %80 = load i32, ptr %79, align 4
-  %81 = tail call i32 @Gia_ManHashAnd(ptr noundef %0, i32 noundef %73, i32 noundef %80) #21
-  store i32 %81, ptr %72, align 4
-  store i32 %78, ptr %70, align 4
+  %indvars.iv207 = phi i64 [ %66, %.lr.ph186.preheader ], [ %indvars.iv.next208, %.lr.ph186 ]
+  %69 = getelementptr inbounds i32, ptr %10, i64 %indvars.iv207
+  %70 = load i32, ptr %69, align 4
+  %71 = getelementptr inbounds i32, ptr %11, i64 %indvars.iv207
+  %72 = load i32, ptr %71, align 4
+  %73 = sub nsw i64 %indvars.iv207, %65
+  %74 = getelementptr inbounds i32, ptr %10, i64 %73
+  %75 = load i32, ptr %74, align 4
+  %76 = tail call i32 @Gia_ManHashAnd(ptr noundef %0, i32 noundef %72, i32 noundef %75) #21
+  %77 = tail call i32 @Gia_ManHashOr(ptr noundef %0, i32 noundef %70, i32 noundef %76) #21
+  %78 = getelementptr inbounds i32, ptr %11, i64 %73
+  %79 = load i32, ptr %78, align 4
+  %80 = tail call i32 @Gia_ManHashAnd(ptr noundef %0, i32 noundef %72, i32 noundef %79) #21
+  store i32 %80, ptr %71, align 4
+  store i32 %77, ptr %69, align 4
   %indvars.iv.next208 = add nsw i64 %indvars.iv207, 2
-  %.not163 = icmp sgt i64 %indvars.iv.next208, %68
+  %.not163 = icmp sgt i64 %indvars.iv.next208, %67
   br i1 %.not163, label %.preheader169, label %.lr.ph186, !llvm.loop !37
 
 .preheader:                                       ; preds = %.lr.ph189, %.preheader169
@@ -1922,49 +1918,52 @@ define void @Wlc_BlastAdderFast_int(ptr noundef %0, ptr nocapture noundef %1, pt
 
 .lr.ph189:                                        ; preds = %.lr.ph189.preheader, %.lr.ph189
   %indvars.iv210 = phi i64 [ 2, %.lr.ph189.preheader ], [ %indvars.iv.next211, %.lr.ph189 ]
-  %82 = getelementptr inbounds i32, ptr %10, i64 %indvars.iv210
-  %83 = load i32, ptr %82, align 4
-  %84 = getelementptr inbounds i32, ptr %11, i64 %indvars.iv210
-  %85 = load i32, ptr %84, align 4
-  %86 = add nsw i64 %indvars.iv210, -1
-  %87 = getelementptr inbounds i32, ptr %10, i64 %86
-  %88 = load i32, ptr %87, align 4
-  %89 = tail call i32 @Gia_ManHashAnd(ptr noundef %0, i32 noundef %85, i32 noundef %88) #21
-  %90 = tail call i32 @Gia_ManHashOr(ptr noundef %0, i32 noundef %83, i32 noundef %89) #21
-  %91 = getelementptr inbounds i32, ptr %11, i64 %86
-  %92 = load i32, ptr %91, align 4
-  %93 = tail call i32 @Gia_ManHashAnd(ptr noundef %0, i32 noundef %85, i32 noundef %92) #21
-  store i32 %93, ptr %84, align 4
-  store i32 %90, ptr %82, align 4
+  %81 = getelementptr inbounds i32, ptr %10, i64 %indvars.iv210
+  %82 = load i32, ptr %81, align 4
+  %83 = getelementptr inbounds i32, ptr %11, i64 %indvars.iv210
+  %84 = load i32, ptr %83, align 4
+  %85 = add nsw i64 %indvars.iv210, -1
+  %86 = getelementptr inbounds i32, ptr %10, i64 %85
+  %87 = load i32, ptr %86, align 4
+  %88 = tail call i32 @Gia_ManHashAnd(ptr noundef %0, i32 noundef %84, i32 noundef %87) #21
+  %89 = tail call i32 @Gia_ManHashOr(ptr noundef %0, i32 noundef %82, i32 noundef %88) #21
+  %90 = getelementptr inbounds i32, ptr %11, i64 %85
+  %91 = load i32, ptr %90, align 4
+  %92 = tail call i32 @Gia_ManHashAnd(ptr noundef %0, i32 noundef %84, i32 noundef %91) #21
+  store i32 %92, ptr %83, align 4
+  store i32 %89, ptr %81, align 4
   %indvars.iv.next211 = add nuw nsw i64 %indvars.iv210, 2
-  %.not164 = icmp ugt i64 %indvars.iv.next211, %69
+  %.not164 = icmp ugt i64 %indvars.iv.next211, %68
   br i1 %.not164, label %.preheader, label %.lr.ph189, !llvm.loop !38
 
 .lr.ph191:                                        ; preds = %.lr.ph191.preheader, %.lr.ph191
   %indvars.iv213 = phi i64 [ 0, %.lr.ph191.preheader ], [ %indvars.iv.next214, %.lr.ph191 ]
   %indvars.iv.next214 = add nuw nsw i64 %indvars.iv213, 1
-  %94 = getelementptr inbounds i32, ptr %12, i64 %indvars.iv.next214
-  %95 = load i32, ptr %94, align 4
-  %96 = getelementptr inbounds i32, ptr %10, i64 %indvars.iv213
-  %97 = load i32, ptr %96, align 4
-  %98 = tail call i32 @Gia_ManHashXor(ptr noundef %0, i32 noundef %95, i32 noundef %97) #21
-  %99 = getelementptr inbounds i32, ptr %1, i64 %indvars.iv213
-  store i32 %98, ptr %99, align 4
+  %93 = getelementptr inbounds i32, ptr %12, i64 %indvars.iv.next214
+  %94 = load i32, ptr %93, align 4
+  %95 = getelementptr inbounds i32, ptr %10, i64 %indvars.iv213
+  %96 = load i32, ptr %95, align 4
+  %97 = tail call i32 @Gia_ManHashXor(ptr noundef %0, i32 noundef %94, i32 noundef %96) #21
+  %98 = getelementptr inbounds i32, ptr %1, i64 %indvars.iv213
+  store i32 %97, ptr %98, align 4
   %exitcond218.not = icmp eq i64 %indvars.iv.next214, %wide.trip.count217
   br i1 %exitcond218.not, label %._crit_edge192, label %.lr.ph191, !llvm.loop !39
 
 ._crit_edge192:                                   ; preds = %.lr.ph191, %._crit_edge182, %.preheader
-  %100 = sext i32 %7 to i64
-  %101 = getelementptr inbounds i32, ptr %10, i64 %100
-  %102 = load i32, ptr %101, align 4
-  %103 = getelementptr inbounds i32, ptr %1, i64 %100
-  store i32 %102, ptr %103, align 4
+  %99 = sext i32 %7 to i64
+  %100 = getelementptr inbounds i32, ptr %10, i64 %99
+  %101 = load i32, ptr %100, align 4
+  %102 = getelementptr inbounds i32, ptr %1, i64 %99
+  store i32 %101, ptr %102, align 4
   tail call void @free(ptr noundef %10) #21
   tail call void @free(ptr noundef %11) #21
-  tail call void @free(ptr noundef %12) #21
-  br label %104
+  br label %.sink.split
 
-104:                                              ; preds = %._crit_edge192, %21, %20
+.sink.split:                                      ; preds = %20, %._crit_edge192
+  tail call void @free(ptr noundef %12) #21
+  br label %103
+
+103:                                              ; preds = %.sink.split, %20
   ret void
 }
 

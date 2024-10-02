@@ -5915,13 +5915,13 @@ define internal i32 @spl_array_compare_objects(ptr noundef %0, ptr noundef %1) #
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   %4 = load i8, ptr %3, align 8
   %.not = icmp eq i8 %4, 8
-  br i1 %.not, label %5, label %19
+  br i1 %.not, label %5, label %.sink.split
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds i8, ptr %1, i64 8
   %7 = load i8, ptr %6, align 8
   %.not24 = icmp eq i8 %7, 8
-  br i1 %.not24, label %8, label %19
+  br i1 %.not24, label %8, label %.sink.split
 
 8:                                                ; preds = %5
   %9 = load ptr, ptr %0, align 8
@@ -5935,193 +5935,189 @@ define internal i32 @spl_array_compare_objects(ptr noundef %0, ptr noundef %1) #
   %17 = getelementptr inbounds i8, ptr %16, i64 184
   %18 = load ptr, ptr %17, align 8
   %.not25 = icmp eq ptr %13, %18
-  br i1 %.not25, label %21, label %19
+  br i1 %.not25, label %19, label %.sink.split
 
-19:                                               ; preds = %8, %5, %2
-  %20 = tail call i32 @zend_std_compare_objects(ptr noundef nonnull %0, ptr noundef %1) #11
-  br label %108
-
-21:                                               ; preds = %8
-  %22 = getelementptr inbounds i8, ptr %9, i64 -88
-  %23 = getelementptr inbounds i8, ptr %14, i64 -88
-  %24 = getelementptr inbounds i8, ptr %9, i64 -68
-  %25 = load i32, ptr %24, align 4
-  %26 = and i32 %25, 16777216
-  %.not30.i.i = icmp eq i32 %26, 0
+19:                                               ; preds = %8
+  %20 = getelementptr inbounds i8, ptr %9, i64 -88
+  %21 = getelementptr inbounds i8, ptr %14, i64 -88
+  %22 = getelementptr inbounds i8, ptr %9, i64 -68
+  %23 = load i32, ptr %22, align 4
+  %24 = and i32 %23, 16777216
+  %.not30.i.i = icmp eq i32 %24, 0
   br i1 %.not30.i.i, label %.lr.ph.i.i, label %tailrecurse._crit_edge.i.i
 
-tailrecurse._crit_edge.i.i:                       ; preds = %tailrecurse.i.i, %21
-  %.tr.lcssa.i.i = phi ptr [ %22, %21 ], [ %34, %tailrecurse.i.i ]
-  %27 = getelementptr inbounds i8, ptr %.tr.lcssa.i.i, i64 120
-  %28 = load ptr, ptr %27, align 8
-  %.not28.i.i = icmp eq ptr %28, null
-  br i1 %.not28.i.i, label %29, label %spl_array_get_hash_table.exit
+tailrecurse._crit_edge.i.i:                       ; preds = %tailrecurse.i.i, %19
+  %.tr.lcssa.i.i = phi ptr [ %20, %19 ], [ %32, %tailrecurse.i.i ]
+  %25 = getelementptr inbounds i8, ptr %.tr.lcssa.i.i, i64 120
+  %26 = load ptr, ptr %25, align 8
+  %.not28.i.i = icmp eq ptr %26, null
+  br i1 %.not28.i.i, label %27, label %spl_array_get_hash_table.exit
 
-29:                                               ; preds = %tailrecurse._crit_edge.i.i
-  %30 = getelementptr inbounds i8, ptr %.tr.lcssa.i.i, i64 88
-  tail call void @rebuild_object_properties(ptr noundef nonnull %30) #11
+27:                                               ; preds = %tailrecurse._crit_edge.i.i
+  %28 = getelementptr inbounds i8, ptr %.tr.lcssa.i.i, i64 88
+  tail call void @rebuild_object_properties(ptr noundef nonnull %28) #11
   br label %spl_array_get_hash_table.exit
 
-.lr.ph.i.i:                                       ; preds = %21, %tailrecurse.i.i
-  %31 = phi i32 [ %36, %tailrecurse.i.i ], [ %25, %21 ]
-  %.tr31.i.i = phi ptr [ %34, %tailrecurse.i.i ], [ %22, %21 ]
-  %32 = and i32 %31, 33554432
-  %.not25.i.i = icmp eq i32 %32, 0
-  br i1 %.not25.i.i, label %38, label %tailrecurse.i.i
+.lr.ph.i.i:                                       ; preds = %19, %tailrecurse.i.i
+  %29 = phi i32 [ %34, %tailrecurse.i.i ], [ %23, %19 ]
+  %.tr31.i.i = phi ptr [ %32, %tailrecurse.i.i ], [ %20, %19 ]
+  %30 = and i32 %29, 33554432
+  %.not25.i.i = icmp eq i32 %30, 0
+  br i1 %.not25.i.i, label %36, label %tailrecurse.i.i
 
 tailrecurse.i.i:                                  ; preds = %.lr.ph.i.i
-  %33 = load ptr, ptr %.tr31.i.i, align 8
-  %34 = getelementptr inbounds i8, ptr %33, i64 -88
-  %35 = getelementptr inbounds i8, ptr %33, i64 -68
-  %36 = load i32, ptr %35, align 4
-  %37 = and i32 %36, 16777216
-  %.not.i.i = icmp eq i32 %37, 0
+  %31 = load ptr, ptr %.tr31.i.i, align 8
+  %32 = getelementptr inbounds i8, ptr %31, i64 -88
+  %33 = getelementptr inbounds i8, ptr %31, i64 -68
+  %34 = load i32, ptr %33, align 4
+  %35 = and i32 %34, 16777216
+  %.not.i.i = icmp eq i32 %35, 0
   br i1 %.not.i.i, label %.lr.ph.i.i, label %tailrecurse._crit_edge.i.i
 
-38:                                               ; preds = %.lr.ph.i.i
-  %39 = getelementptr inbounds i8, ptr %.tr31.i.i, i64 8
-  %40 = load i8, ptr %39, align 8
-  %41 = icmp eq i8 %40, 7
-  br i1 %41, label %spl_array_get_hash_table.exit, label %42
+36:                                               ; preds = %.lr.ph.i.i
+  %37 = getelementptr inbounds i8, ptr %.tr31.i.i, i64 8
+  %38 = load i8, ptr %37, align 8
+  %39 = icmp eq i8 %38, 7
+  br i1 %39, label %spl_array_get_hash_table.exit, label %40
 
-42:                                               ; preds = %38
-  %43 = load ptr, ptr %.tr31.i.i, align 8
-  %44 = getelementptr inbounds i8, ptr %43, i64 32
-  %45 = load ptr, ptr %44, align 8
-  %.not26.i.i = icmp eq ptr %45, null
-  br i1 %.not26.i.i, label %46, label %47
+40:                                               ; preds = %36
+  %41 = load ptr, ptr %.tr31.i.i, align 8
+  %42 = getelementptr inbounds i8, ptr %41, i64 32
+  %43 = load ptr, ptr %42, align 8
+  %.not26.i.i = icmp eq ptr %43, null
+  br i1 %.not26.i.i, label %44, label %45
 
-46:                                               ; preds = %42
-  tail call void @rebuild_object_properties(ptr noundef nonnull %43) #11
+44:                                               ; preds = %40
+  tail call void @rebuild_object_properties(ptr noundef nonnull %41) #11
   br label %spl_array_get_hash_table.exit
 
-47:                                               ; preds = %42
-  %48 = load i32, ptr %45, align 4
-  %49 = icmp ugt i32 %48, 1
-  br i1 %49, label %50, label %spl_array_get_hash_table.exit
+45:                                               ; preds = %40
+  %46 = load i32, ptr %43, align 4
+  %47 = icmp ugt i32 %46, 1
+  br i1 %47, label %48, label %spl_array_get_hash_table.exit
 
-50:                                               ; preds = %47
-  %51 = getelementptr inbounds i8, ptr %45, i64 4
-  %52 = load i32, ptr %51, align 4
-  %53 = and i32 %52, 64
-  %.not27.i.i = icmp eq i32 %53, 0
-  br i1 %.not27.i.i, label %54, label %56
+48:                                               ; preds = %45
+  %49 = getelementptr inbounds i8, ptr %43, i64 4
+  %50 = load i32, ptr %49, align 4
+  %51 = and i32 %50, 64
+  %.not27.i.i = icmp eq i32 %51, 0
+  br i1 %.not27.i.i, label %52, label %54
 
-54:                                               ; preds = %50
-  %55 = add i32 %48, -1
-  store i32 %55, ptr %45, align 4
-  %.pre.i.i = load ptr, ptr %44, align 8
-  br label %56
+52:                                               ; preds = %48
+  %53 = add i32 %46, -1
+  store i32 %53, ptr %43, align 4
+  %.pre.i.i = load ptr, ptr %42, align 8
+  br label %54
 
-56:                                               ; preds = %54, %50
-  %57 = phi ptr [ %.pre.i.i, %54 ], [ %45, %50 ]
-  %58 = tail call ptr @zend_array_dup(ptr noundef %57) #11
-  store ptr %58, ptr %44, align 8
+54:                                               ; preds = %52, %48
+  %55 = phi ptr [ %.pre.i.i, %52 ], [ %43, %48 ]
+  %56 = tail call ptr @zend_array_dup(ptr noundef %55) #11
+  store ptr %56, ptr %42, align 8
   br label %spl_array_get_hash_table.exit
 
-spl_array_get_hash_table.exit:                    ; preds = %tailrecurse._crit_edge.i.i, %29, %38, %46, %47, %56
-  %.0.i.i = phi ptr [ %27, %29 ], [ %27, %tailrecurse._crit_edge.i.i ], [ %.tr31.i.i, %38 ], [ %44, %47 ], [ %44, %56 ], [ %44, %46 ]
-  %59 = load ptr, ptr %.0.i.i, align 8
-  %60 = getelementptr inbounds i8, ptr %14, i64 -68
-  %61 = load i32, ptr %60, align 4
-  %62 = and i32 %61, 16777216
-  %.not30.i.i26 = icmp eq i32 %62, 0
+spl_array_get_hash_table.exit:                    ; preds = %tailrecurse._crit_edge.i.i, %27, %36, %44, %45, %54
+  %.0.i.i = phi ptr [ %25, %27 ], [ %25, %tailrecurse._crit_edge.i.i ], [ %.tr31.i.i, %36 ], [ %42, %45 ], [ %42, %54 ], [ %42, %44 ]
+  %57 = load ptr, ptr %.0.i.i, align 8
+  %58 = getelementptr inbounds i8, ptr %14, i64 -68
+  %59 = load i32, ptr %58, align 4
+  %60 = and i32 %59, 16777216
+  %.not30.i.i26 = icmp eq i32 %60, 0
   br i1 %.not30.i.i26, label %.lr.ph.i.i31, label %tailrecurse._crit_edge.i.i27
 
 tailrecurse._crit_edge.i.i27:                     ; preds = %tailrecurse.i.i34, %spl_array_get_hash_table.exit
-  %.tr.lcssa.i.i28 = phi ptr [ %23, %spl_array_get_hash_table.exit ], [ %70, %tailrecurse.i.i34 ]
-  %63 = getelementptr inbounds i8, ptr %.tr.lcssa.i.i28, i64 120
-  %64 = load ptr, ptr %63, align 8
-  %.not28.i.i29 = icmp eq ptr %64, null
-  br i1 %.not28.i.i29, label %65, label %spl_array_get_hash_table.exit39
+  %.tr.lcssa.i.i28 = phi ptr [ %21, %spl_array_get_hash_table.exit ], [ %68, %tailrecurse.i.i34 ]
+  %61 = getelementptr inbounds i8, ptr %.tr.lcssa.i.i28, i64 120
+  %62 = load ptr, ptr %61, align 8
+  %.not28.i.i29 = icmp eq ptr %62, null
+  br i1 %.not28.i.i29, label %63, label %spl_array_get_hash_table.exit39
 
-65:                                               ; preds = %tailrecurse._crit_edge.i.i27
-  %66 = getelementptr inbounds i8, ptr %.tr.lcssa.i.i28, i64 88
-  tail call void @rebuild_object_properties(ptr noundef nonnull %66) #11
+63:                                               ; preds = %tailrecurse._crit_edge.i.i27
+  %64 = getelementptr inbounds i8, ptr %.tr.lcssa.i.i28, i64 88
+  tail call void @rebuild_object_properties(ptr noundef nonnull %64) #11
   br label %spl_array_get_hash_table.exit39
 
 .lr.ph.i.i31:                                     ; preds = %spl_array_get_hash_table.exit, %tailrecurse.i.i34
-  %67 = phi i32 [ %72, %tailrecurse.i.i34 ], [ %61, %spl_array_get_hash_table.exit ]
-  %.tr31.i.i32 = phi ptr [ %70, %tailrecurse.i.i34 ], [ %23, %spl_array_get_hash_table.exit ]
-  %68 = and i32 %67, 33554432
-  %.not25.i.i33 = icmp eq i32 %68, 0
-  br i1 %.not25.i.i33, label %74, label %tailrecurse.i.i34
+  %65 = phi i32 [ %70, %tailrecurse.i.i34 ], [ %59, %spl_array_get_hash_table.exit ]
+  %.tr31.i.i32 = phi ptr [ %68, %tailrecurse.i.i34 ], [ %21, %spl_array_get_hash_table.exit ]
+  %66 = and i32 %65, 33554432
+  %.not25.i.i33 = icmp eq i32 %66, 0
+  br i1 %.not25.i.i33, label %72, label %tailrecurse.i.i34
 
 tailrecurse.i.i34:                                ; preds = %.lr.ph.i.i31
-  %69 = load ptr, ptr %.tr31.i.i32, align 8
-  %70 = getelementptr inbounds i8, ptr %69, i64 -88
-  %71 = getelementptr inbounds i8, ptr %69, i64 -68
-  %72 = load i32, ptr %71, align 4
-  %73 = and i32 %72, 16777216
-  %.not.i.i35 = icmp eq i32 %73, 0
+  %67 = load ptr, ptr %.tr31.i.i32, align 8
+  %68 = getelementptr inbounds i8, ptr %67, i64 -88
+  %69 = getelementptr inbounds i8, ptr %67, i64 -68
+  %70 = load i32, ptr %69, align 4
+  %71 = and i32 %70, 16777216
+  %.not.i.i35 = icmp eq i32 %71, 0
   br i1 %.not.i.i35, label %.lr.ph.i.i31, label %tailrecurse._crit_edge.i.i27
 
-74:                                               ; preds = %.lr.ph.i.i31
-  %75 = getelementptr inbounds i8, ptr %.tr31.i.i32, i64 8
-  %76 = load i8, ptr %75, align 8
-  %77 = icmp eq i8 %76, 7
-  br i1 %77, label %spl_array_get_hash_table.exit39, label %78
+72:                                               ; preds = %.lr.ph.i.i31
+  %73 = getelementptr inbounds i8, ptr %.tr31.i.i32, i64 8
+  %74 = load i8, ptr %73, align 8
+  %75 = icmp eq i8 %74, 7
+  br i1 %75, label %spl_array_get_hash_table.exit39, label %76
 
-78:                                               ; preds = %74
-  %79 = load ptr, ptr %.tr31.i.i32, align 8
-  %80 = getelementptr inbounds i8, ptr %79, i64 32
-  %81 = load ptr, ptr %80, align 8
-  %.not26.i.i36 = icmp eq ptr %81, null
-  br i1 %.not26.i.i36, label %82, label %83
+76:                                               ; preds = %72
+  %77 = load ptr, ptr %.tr31.i.i32, align 8
+  %78 = getelementptr inbounds i8, ptr %77, i64 32
+  %79 = load ptr, ptr %78, align 8
+  %.not26.i.i36 = icmp eq ptr %79, null
+  br i1 %.not26.i.i36, label %80, label %81
 
-82:                                               ; preds = %78
-  tail call void @rebuild_object_properties(ptr noundef nonnull %79) #11
+80:                                               ; preds = %76
+  tail call void @rebuild_object_properties(ptr noundef nonnull %77) #11
   br label %spl_array_get_hash_table.exit39
 
-83:                                               ; preds = %78
-  %84 = load i32, ptr %81, align 4
-  %85 = icmp ugt i32 %84, 1
-  br i1 %85, label %86, label %spl_array_get_hash_table.exit39
+81:                                               ; preds = %76
+  %82 = load i32, ptr %79, align 4
+  %83 = icmp ugt i32 %82, 1
+  br i1 %83, label %84, label %spl_array_get_hash_table.exit39
 
-86:                                               ; preds = %83
-  %87 = getelementptr inbounds i8, ptr %81, i64 4
-  %88 = load i32, ptr %87, align 4
-  %89 = and i32 %88, 64
-  %.not27.i.i37 = icmp eq i32 %89, 0
-  br i1 %.not27.i.i37, label %90, label %92
+84:                                               ; preds = %81
+  %85 = getelementptr inbounds i8, ptr %79, i64 4
+  %86 = load i32, ptr %85, align 4
+  %87 = and i32 %86, 64
+  %.not27.i.i37 = icmp eq i32 %87, 0
+  br i1 %.not27.i.i37, label %88, label %90
 
-90:                                               ; preds = %86
-  %91 = add i32 %84, -1
-  store i32 %91, ptr %81, align 4
-  %.pre.i.i38 = load ptr, ptr %80, align 8
-  br label %92
+88:                                               ; preds = %84
+  %89 = add i32 %82, -1
+  store i32 %89, ptr %79, align 4
+  %.pre.i.i38 = load ptr, ptr %78, align 8
+  br label %90
 
-92:                                               ; preds = %90, %86
-  %93 = phi ptr [ %.pre.i.i38, %90 ], [ %81, %86 ]
-  %94 = tail call ptr @zend_array_dup(ptr noundef %93) #11
-  store ptr %94, ptr %80, align 8
+90:                                               ; preds = %88, %84
+  %91 = phi ptr [ %.pre.i.i38, %88 ], [ %79, %84 ]
+  %92 = tail call ptr @zend_array_dup(ptr noundef %91) #11
+  store ptr %92, ptr %78, align 8
   br label %spl_array_get_hash_table.exit39
 
-spl_array_get_hash_table.exit39:                  ; preds = %tailrecurse._crit_edge.i.i27, %65, %74, %82, %83, %92
-  %.0.i.i30 = phi ptr [ %63, %65 ], [ %63, %tailrecurse._crit_edge.i.i27 ], [ %.tr31.i.i32, %74 ], [ %80, %83 ], [ %80, %92 ], [ %80, %82 ]
-  %95 = load ptr, ptr %.0.i.i30, align 8
-  %96 = tail call i32 @zend_compare_symbol_tables(ptr noundef %59, ptr noundef %95) #11
-  %97 = icmp eq i32 %96, 0
-  br i1 %97, label %98, label %108
+spl_array_get_hash_table.exit39:                  ; preds = %tailrecurse._crit_edge.i.i27, %63, %72, %80, %81, %90
+  %.0.i.i30 = phi ptr [ %61, %63 ], [ %61, %tailrecurse._crit_edge.i.i27 ], [ %.tr31.i.i32, %72 ], [ %78, %81 ], [ %78, %90 ], [ %78, %80 ]
+  %93 = load ptr, ptr %.0.i.i30, align 8
+  %94 = tail call i32 @zend_compare_symbol_tables(ptr noundef %57, ptr noundef %93) #11
+  %95 = icmp eq i32 %94, 0
+  br i1 %95, label %96, label %105
 
-98:                                               ; preds = %spl_array_get_hash_table.exit39
-  %99 = getelementptr inbounds i8, ptr %9, i64 32
-  %100 = load ptr, ptr %99, align 8
-  %101 = icmp eq ptr %59, %100
-  br i1 %101, label %102, label %106
+96:                                               ; preds = %spl_array_get_hash_table.exit39
+  %97 = getelementptr inbounds i8, ptr %9, i64 32
+  %98 = load ptr, ptr %97, align 8
+  %99 = icmp eq ptr %57, %98
+  br i1 %99, label %100, label %.sink.split
 
-102:                                              ; preds = %98
-  %103 = getelementptr inbounds i8, ptr %14, i64 32
-  %104 = load ptr, ptr %103, align 8
-  %105 = icmp eq ptr %95, %104
-  br i1 %105, label %108, label %106
+100:                                              ; preds = %96
+  %101 = getelementptr inbounds i8, ptr %14, i64 32
+  %102 = load ptr, ptr %101, align 8
+  %103 = icmp eq ptr %93, %102
+  br i1 %103, label %105, label %.sink.split
 
-106:                                              ; preds = %102, %98
-  %107 = tail call i32 @zend_std_compare_objects(ptr noundef nonnull %0, ptr noundef nonnull %1) #11
-  br label %108
+.sink.split:                                      ; preds = %96, %100, %2, %5, %8
+  %104 = tail call i32 @zend_std_compare_objects(ptr noundef nonnull %0, ptr noundef %1) #11
+  br label %105
 
-108:                                              ; preds = %spl_array_get_hash_table.exit39, %102, %106, %19
-  %.022 = phi i32 [ %20, %19 ], [ 0, %102 ], [ %107, %106 ], [ %96, %spl_array_get_hash_table.exit39 ]
+105:                                              ; preds = %.sink.split, %spl_array_get_hash_table.exit39, %100
+  %.022 = phi i32 [ 0, %100 ], [ %94, %spl_array_get_hash_table.exit39 ], [ %104, %.sink.split ]
   ret i32 %.022
 }
 

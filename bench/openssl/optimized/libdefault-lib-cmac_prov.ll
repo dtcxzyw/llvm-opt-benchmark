@@ -65,18 +65,14 @@ if.end:                                           ; preds = %entry
 if.end.i:                                         ; preds = %if.end
   %call1.i = tail call noalias ptr @CRYPTO_zalloc(i64 noundef 40, ptr noundef nonnull @.str, i32 noundef 60) #3
   %cmp.i = icmp eq ptr %call1.i, null
-  br i1 %cmp.i, label %if.then4.i, label %lor.lhs.false.i
+  br i1 %cmp.i, label %return.sink.split, label %lor.lhs.false.i
 
 lor.lhs.false.i:                                  ; preds = %if.end.i
   %call2.i = tail call ptr @CMAC_CTX_new() #3
   %ctx.i = getelementptr inbounds i8, ptr %call1.i, i64 8
   store ptr %call2.i, ptr %ctx.i, align 8
   %cmp3.i = icmp eq ptr %call2.i, null
-  br i1 %cmp3.i, label %if.then4.i, label %if.end3
-
-if.then4.i:                                       ; preds = %lor.lhs.false.i, %if.end.i
-  tail call void @CRYPTO_free(ptr noundef %call1.i, ptr noundef nonnull @.str, i32 noundef 62) #3
-  br label %return
+  br i1 %cmp3.i, label %return.sink.split, label %if.end3
 
 if.end3:                                          ; preds = %lor.lhs.false.i
   store ptr %0, ptr %call1.i, align 8
@@ -98,11 +94,15 @@ cmac_free.exit:                                   ; preds = %lor.lhs.false, %if.
   tail call void @CMAC_CTX_free(ptr noundef %2) #3
   %cipher.i = getelementptr inbounds i8, ptr %call1.i, i64 16
   tail call void @ossl_prov_cipher_reset(ptr noundef nonnull %cipher.i) #3
-  tail call void @CRYPTO_free(ptr noundef nonnull %call1.i, ptr noundef nonnull @.str, i32 noundef 78) #3
+  br label %return.sink.split
+
+return.sink.split:                                ; preds = %if.end.i, %lor.lhs.false.i, %cmac_free.exit
+  %.sink = phi i32 [ 78, %cmac_free.exit ], [ 62, %lor.lhs.false.i ], [ 62, %if.end.i ]
+  tail call void @CRYPTO_free(ptr noundef %call1.i, ptr noundef nonnull @.str, i32 noundef %.sink) #3
   br label %return
 
-return:                                           ; preds = %if.then4.i, %if.end, %lor.lhs.false, %entry, %cmac_free.exit
-  %retval.0 = phi ptr [ null, %cmac_free.exit ], [ null, %entry ], [ %call1.i, %lor.lhs.false ], [ null, %if.end ], [ null, %if.then4.i ]
+return:                                           ; preds = %return.sink.split, %if.end, %lor.lhs.false, %entry
+  %retval.0 = phi ptr [ null, %entry ], [ %call1.i, %lor.lhs.false ], [ null, %if.end ], [ null, %return.sink.split ]
   ret ptr %retval.0
 }
 

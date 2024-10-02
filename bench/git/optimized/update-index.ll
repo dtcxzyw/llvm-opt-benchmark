@@ -2728,8 +2728,8 @@ do.end6:                                          ; preds = %do.body2
   call void @parse_pathspec(ptr noundef nonnull %pathspec.i, i32 noundef 0, i32 noundef 1, ptr noundef %2, ptr noundef nonnull %add.ptr) #18
   %call.i = call i32 @read_ref(ptr noundef nonnull @.str.107, ptr noundef nonnull %head_oid.i) #18
   %4 = load i32, ptr getelementptr inbounds (i8, ptr @the_index, i64 12), align 4
-  %cmp3032.not.i = icmp eq i32 %4, 0
-  br i1 %cmp3032.not.i, label %do_reupdate.exit, label %for.body.lr.ph.lr.ph.i
+  %cmp2931.not.i = icmp eq i32 %4, 0
+  br i1 %cmp2931.not.i, label %do_reupdate.exit, label %for.body.lr.ph.lr.ph.i
 
 for.body.lr.ph.lr.ph.i:                           ; preds = %do.end6
   %call.fr.i = freeze i32 %call.i
@@ -2738,14 +2738,14 @@ for.body.lr.ph.lr.ph.i:                           ; preds = %do.end6
   br i1 %tobool.not.not.i, label %for.body.us.us.i, label %for.body.i
 
 redo.backedge.us.i:                               ; preds = %if.end22.us.us.i, %if.then21.split.us.us.i
-  %5 = phi i32 [ %.pre42.i, %if.then21.split.us.us.i ], [ %25, %if.end22.us.us.i ]
-  %cmp30.us.not.i = icmp eq i32 %5, 0
-  br i1 %cmp30.us.not.i, label %do_reupdate.exit, label %for.body.us.us.i.backedge
+  %5 = phi i32 [ %.pre41.i, %if.then21.split.us.us.i ], [ %25, %if.end22.us.us.i ]
+  %cmp29.us.not.i = icmp eq i32 %5, 0
+  br i1 %cmp29.us.not.i, label %do_reupdate.exit, label %for.body.us.us.i.backedge
 
 for.body.us.us.i:                                 ; preds = %for.body.lr.ph.lr.ph.i, %for.body.us.us.i.backedge
-  %indvars.iv37.i = phi i64 [ %indvars.iv37.i.be, %for.body.us.us.i.backedge ], [ 0, %for.body.lr.ph.lr.ph.i ]
+  %indvars.iv36.i = phi i64 [ %indvars.iv36.i.be, %for.body.us.us.i.backedge ], [ 0, %for.body.lr.ph.lr.ph.i ]
   %6 = load ptr, ptr @the_index, align 8
-  %arrayidx.us.us.i = getelementptr inbounds ptr, ptr %6, i64 %indvars.iv37.i
+  %arrayidx.us.us.i = getelementptr inbounds ptr, ptr %6, i64 %indvars.iv36.i
   %7 = load ptr, ptr %arrayidx.us.us.i, align 8
   %ce_flags.us.us.i = getelementptr inbounds i8, ptr %7, i64 56
   %8 = load i32, ptr %ce_flags.us.us.i, align 8
@@ -2775,7 +2775,7 @@ if.end5.us.us.i:                                  ; preds = %lor.lhs.false.us.us
   %13 = load ptr, ptr @the_repository, align 8
   %call.i15.us.us.i = call i32 @get_tree_entry(ptr noundef %13, ptr noundef nonnull %head_oid.i, ptr noundef nonnull %name.i.us.us.i, ptr noundef nonnull %oid.i.i, ptr noundef nonnull %mode.i.i) #18
   %tobool.not.i.us.us.i = icmp eq i32 %call.i15.us.us.i, 0
-  br i1 %tobool.not.i.us.us.i, label %if.end5.i.us.us.i, label %if.end9.thread27.us.us.i
+  br i1 %tobool.not.i.us.us.i, label %if.end5.i.us.us.i, label %if.end9.thread26.us.us.i
 
 if.end5.i.us.us.i:                                ; preds = %if.end5.us.us.i
   %14 = load i32, ptr getelementptr inbounds (i8, ptr @the_index, i64 60), align 4
@@ -2783,7 +2783,7 @@ if.end5.i.us.us.i:                                ; preds = %if.end5.us.us.i
   %15 = load i16, ptr %mode.i.i, align 2
   %cmp.i16.us.us.i = icmp eq i16 %15, 16384
   %or.cond.i.us.us.i = select i1 %tobool6.i.us.us.i, i1 %cmp.i16.us.us.i, i1 false
-  br i1 %or.cond.i.us.us.i, label %if.end9.thread27.us.us.i, label %if.end14.i.us.us.i
+  br i1 %or.cond.i.us.us.i, label %if.end9.thread26.us.us.i, label %if.end14.i.us.us.i
 
 if.end14.i.us.us.i:                               ; preds = %if.end5.i.us.us.i
   %conv15.i.us.us.i = sext i32 %12 to i64
@@ -2842,47 +2842,37 @@ land.lhs.true13.us.us.i:                          ; preds = %land.lhs.true.us.us
 if.else.i.us.us.i:                                ; preds = %land.lhs.true13.us.us.i
   %idxprom.i.us.us.i = sext i32 %19 to i64
   %arrayidx.i.us.us.i = getelementptr inbounds [3 x %struct.git_hash_algo], ptr @hash_algos, i64 0, i64 %idxprom.i.us.us.i
-  br label %if.end.i.us.us.i
+  br label %oideq.exit.us.us.i
 
 if.then.i.us.us.i:                                ; preds = %land.lhs.true13.us.us.i
   %20 = load ptr, ptr @the_repository, align 8
   %hash_algo.i.us.us.i = getelementptr inbounds i8, ptr %20, i64 256
   %21 = load ptr, ptr %hash_algo.i.us.us.i, align 8
-  br label %if.end.i.us.us.i
+  br label %oideq.exit.us.us.i
 
-if.end.i.us.us.i:                                 ; preds = %if.then.i.us.us.i, %if.else.i.us.us.i
+oideq.exit.us.us.i:                               ; preds = %if.then.i.us.us.i, %if.else.i.us.us.i
   %algop.0.i.us.us.i = phi ptr [ %arrayidx.i.us.us.i, %if.else.i.us.us.i ], [ %21, %if.then.i.us.us.i ]
   %22 = getelementptr i8, ptr %algop.0.i.us.us.i, i64 16
   %algop.0.val.i.us.us.i = load i64, ptr %22, align 8
   %cmp.i.i21.us.us.i = icmp eq i64 %algop.0.val.i.us.us.i, 32
-  br i1 %cmp.i.i21.us.us.i, label %if.then.i.i.us.us.i, label %if.end.i.i22.us.us.i
-
-if.end.i.i22.us.us.i:                             ; preds = %if.end.i.us.us.i
-  %bcmp.i.i.us.us.i = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(20) %oid.us.us.i, ptr noundef nonnull readonly dereferenceable(20) %oid17.i.us.us.i, i64 20)
-  br label %oideq.exit.us.us.i
-
-if.then.i.i.us.us.i:                              ; preds = %if.end.i.us.us.i
-  %bcmp3.i.i.us.us.i = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(32) %oid.us.us.i, ptr noundef nonnull readonly dereferenceable(32) %oid17.i.us.us.i, i64 32)
-  br label %oideq.exit.us.us.i
-
-oideq.exit.us.us.i:                               ; preds = %if.then.i.i.us.us.i, %if.end.i.i22.us.us.i
-  %retval.0.in.in.i.i.us.us.i = phi i32 [ %bcmp3.i.i.us.us.i, %if.then.i.i.us.us.i ], [ %bcmp.i.i.us.us.i, %if.end.i.i22.us.us.i ]
-  %retval.0.in.i.i.not.us.us.i = icmp eq i32 %retval.0.in.in.i.i.us.us.i, 0
+  %..i.i.us.us.i = select i1 %cmp.i.i21.us.us.i, i64 32, i64 20
+  %bcmp.i.i.us.us.i = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(20) %oid.us.us.i, ptr noundef nonnull readonly dereferenceable(20) %oid17.i.us.us.i, i64 %..i.i.us.us.i)
+  %retval.0.in.i.i.not.us.us.i = icmp eq i32 %bcmp.i.i.us.us.i, 0
   br i1 %retval.0.in.i.i.not.us.us.i, label %if.then17.us.us.i, label %if.end18.us.us.i
 
 if.then17.us.us.i:                                ; preds = %oideq.exit.us.us.i
   call void @discard_cache_entry(ptr noundef nonnull %call16.i.us.us.i) #18
   br label %for.inc.us.us.i
 
-if.end9.thread27.us.us.i:                         ; preds = %if.end5.i.us.us.i, %if.end5.us.us.i
+if.end9.thread26.us.us.i:                         ; preds = %if.end5.i.us.us.i, %if.end5.us.us.i
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %mode.i.i)
   call void @llvm.lifetime.end.p0(i64 36, ptr nonnull %oid.i.i)
   %.pr.us.us.pre.i = load i32, ptr %ce_mode.i.us.us.i, align 4
   br label %if.end18.us.us.i
 
-if.end18.us.us.i:                                 ; preds = %if.end9.thread27.us.us.i, %oideq.exit.us.us.i, %land.lhs.true.us.us.i
-  %23 = phi i32 [ %18, %land.lhs.true.us.us.i ], [ %.pr.us.us.pre.i, %if.end9.thread27.us.us.i ], [ %retval.0.i.i.us.us.i, %oideq.exit.us.us.i ]
-  %old.026.us.us.i = phi ptr [ %call16.i.us.us.i, %land.lhs.true.us.us.i ], [ null, %if.end9.thread27.us.us.i ], [ %call16.i.us.us.i, %oideq.exit.us.us.i ]
+if.end18.us.us.i:                                 ; preds = %if.end9.thread26.us.us.i, %oideq.exit.us.us.i, %land.lhs.true.us.us.i
+  %23 = phi i32 [ %18, %land.lhs.true.us.us.i ], [ %.pr.us.us.pre.i, %if.end9.thread26.us.us.i ], [ %retval.0.i.i.us.us.i, %oideq.exit.us.us.i ]
+  %old.025.us.us.i = phi ptr [ %call16.i.us.us.i, %land.lhs.true.us.us.i ], [ null, %if.end9.thread26.us.us.i ], [ %call16.i.us.us.i, %oideq.exit.us.us.i ]
   %cmp20.us.us.i = icmp eq i32 %23, 16384
   br i1 %cmp20.us.us.i, label %if.then21.split.us.us.i, label %if.end22.us.us.i
 
@@ -2891,25 +2881,25 @@ if.end22.us.us.i:                                 ; preds = %if.end18.us.us.i
   %call25.us.us.i = call ptr @xstrdup(ptr noundef nonnull %name.i.us.us.i) #18
   call fastcc void @update_one(ptr noundef %call25.us.us.i)
   call void @free(ptr noundef %call25.us.us.i) #18
-  call void @discard_cache_entry(ptr noundef %old.026.us.us.i) #18
+  call void @discard_cache_entry(ptr noundef %old.025.us.us.i) #18
   %25 = load i32, ptr getelementptr inbounds (i8, ptr @the_index, i64 12), align 4
   %cmp26.not.us.us.i = icmp eq i32 %24, %25
   br i1 %cmp26.not.us.us.i, label %for.inc.us.us.i, label %redo.backedge.us.i
 
 for.inc.us.us.i:                                  ; preds = %if.end22.us.us.i, %if.then17.us.us.i, %lor.lhs.false.us.us.i, %for.body.us.us.i
-  %indvars.iv.next38.i = add nuw nsw i64 %indvars.iv37.i, 1
+  %indvars.iv.next37.i = add nuw nsw i64 %indvars.iv36.i, 1
   %26 = load i32, ptr getelementptr inbounds (i8, ptr @the_index, i64 12), align 4
   %27 = zext i32 %26 to i64
-  %cmp.us.us.i = icmp ult i64 %indvars.iv.next38.i, %27
+  %cmp.us.us.i = icmp ult i64 %indvars.iv.next37.i, %27
   br i1 %cmp.us.us.i, label %for.body.us.us.i.backedge, label %do_reupdate.exit
 
 for.body.us.us.i.backedge:                        ; preds = %for.inc.us.us.i, %redo.backedge.us.i
-  %indvars.iv37.i.be = phi i64 [ %indvars.iv.next38.i, %for.inc.us.us.i ], [ 0, %redo.backedge.us.i ]
+  %indvars.iv36.i.be = phi i64 [ %indvars.iv.next37.i, %for.inc.us.us.i ], [ 0, %redo.backedge.us.i ]
   br label %for.body.us.us.i, !llvm.loop !11
 
 if.then21.split.us.us.i:                          ; preds = %if.end18.us.us.i
   call void @ensure_full_index(ptr noundef nonnull @the_index) #18
-  %.pre42.i = load i32, ptr getelementptr inbounds (i8, ptr @the_index, i64 12), align 4
+  %.pre41.i = load i32, ptr getelementptr inbounds (i8, ptr @the_index, i64 12), align 4
   br label %redo.backedge.us.i
 
 for.body.i:                                       ; preds = %for.body.lr.ph.lr.ph.i, %for.body.i.backedge
@@ -2940,7 +2930,7 @@ lor.lhs.false.i:                                  ; preds = %for.body.i
   br i1 %tobool3.not.i, label %lor.lhs.false.for.inc_crit_edge.i, label %if.end5.i
 
 lor.lhs.false.for.inc_crit_edge.i:                ; preds = %lor.lhs.false.i
-  %.pre40.i = load i32, ptr getelementptr inbounds (i8, ptr @the_index, i64 12), align 4
+  %.pre39.i = load i32, ptr getelementptr inbounds (i8, ptr @the_index, i64 12), align 4
   br label %for.inc.i
 
 if.end5.i:                                        ; preds = %lor.lhs.false.i
@@ -2955,8 +2945,8 @@ if.then21.split.i:                                ; preds = %if.end5.i
 
 redo.backedge.i:                                  ; preds = %if.end22.i, %if.then21.split.i
   %35 = phi i32 [ %.pre.i, %if.then21.split.i ], [ %37, %if.end22.i ]
-  %cmp30.not.i = icmp eq i32 %35, 0
-  br i1 %cmp30.not.i, label %do_reupdate.exit, label %for.body.i.backedge
+  %cmp29.not.i = icmp eq i32 %35, 0
+  br i1 %cmp29.not.i, label %do_reupdate.exit, label %for.body.i.backedge
 
 if.end22.i:                                       ; preds = %if.end5.i
   %36 = load i32, ptr getelementptr inbounds (i8, ptr @the_index, i64 12), align 4
@@ -2969,7 +2959,7 @@ if.end22.i:                                       ; preds = %if.end5.i
   br i1 %cmp26.not.i, label %for.inc.i, label %redo.backedge.i
 
 for.inc.i:                                        ; preds = %if.end22.i, %lor.lhs.false.for.inc_crit_edge.i, %for.body.i
-  %38 = phi i32 [ %.pre40.i, %lor.lhs.false.for.inc_crit_edge.i ], [ %36, %if.end22.i ], [ %28, %for.body.i ]
+  %38 = phi i32 [ %.pre39.i, %lor.lhs.false.for.inc_crit_edge.i ], [ %36, %if.end22.i ], [ %28, %for.body.i ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %39 = zext i32 %38 to i64
   %cmp.i = icmp ult i64 %indvars.iv.next.i, %39

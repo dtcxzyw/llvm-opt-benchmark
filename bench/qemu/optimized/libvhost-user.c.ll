@@ -499,31 +499,21 @@ do.end:                                           ; preds = %do.body.backedge, %
 do.body28.preheader:                              ; preds = %do.end
   %data = getelementptr inbounds i8, ptr %vmsg, i64 320
   %add.ptr = getelementptr i8, ptr %vmsg, i64 12
-  br label %do.body28
-
-do.body28:                                        ; preds = %do.body28.backedge, %do.body28.preheader
   %3 = load ptr, ptr %data, align 1
-  %tobool29.not = icmp eq ptr %3, null
+  %tobool29.not37 = icmp eq ptr %3, null
   %4 = load i32, ptr %size, align 1
-  %conv38 = zext i32 %4 to i64
-  br i1 %tobool29.not, label %if.else36, label %if.then30
+  %conv3838 = zext i32 %4 to i64
+  %add.ptr.39 = select i1 %tobool29.not37, ptr %add.ptr, ptr %3
+  %call3440 = call i64 @write(i32 noundef %conn_fd, ptr noundef %add.ptr.39, i64 noundef %conv3838) #21
+  %rc.141 = trunc i64 %call3440 to i32
+  %cmp4342 = icmp slt i32 %rc.141, 0
+  br i1 %cmp4342, label %land.rhs45.preheader, label %if.end56
 
-if.then30:                                        ; preds = %do.body28
-  %call34 = call i64 @write(i32 noundef %conn_fd, ptr noundef nonnull %3, i64 noundef %conv38) #21
-  br label %do.cond42
-
-if.else36:                                        ; preds = %do.body28
-  %call39 = call i64 @write(i32 noundef %conn_fd, ptr noundef %add.ptr, i64 noundef %conv38) #21
-  br label %do.cond42
-
-do.cond42:                                        ; preds = %if.then30, %if.else36
-  %rc.1.in = phi i64 [ %call34, %if.then30 ], [ %call39, %if.else36 ]
-  %rc.1 = trunc i64 %rc.1.in to i32
-  %cmp43 = icmp slt i32 %rc.1, 0
-  br i1 %cmp43, label %land.rhs45, label %if.end56
-
-land.rhs45:                                       ; preds = %do.cond42
+land.rhs45.preheader:                             ; preds = %do.body28.preheader
   %call46 = tail call ptr @__errno_location() #22
+  br label %land.rhs45
+
+land.rhs45:                                       ; preds = %land.rhs45.preheader, %do.body28.backedge
   %5 = load i32, ptr %call46, align 4
   switch i32 %5, label %if.then59 [
     i32 4, label %do.body28.backedge
@@ -531,10 +521,18 @@ land.rhs45:                                       ; preds = %do.cond42
   ]
 
 do.body28.backedge:                               ; preds = %land.rhs45, %land.rhs45
-  br label %do.body28
+  %6 = load ptr, ptr %data, align 1
+  %tobool29.not = icmp eq ptr %6, null
+  %7 = load i32, ptr %size, align 1
+  %conv38 = zext i32 %7 to i64
+  %add.ptr. = select i1 %tobool29.not, ptr %add.ptr, ptr %6
+  %call34 = call i64 @write(i32 noundef %conn_fd, ptr noundef %add.ptr., i64 noundef %conv38) #21
+  %rc.1 = trunc i64 %call34 to i32
+  %cmp43 = icmp slt i32 %rc.1, 0
+  br i1 %cmp43, label %land.rhs45, label %if.end56
 
-if.end56:                                         ; preds = %do.cond42, %do.end
-  %rc.0 = phi i32 [ %conv18.lcssa, %do.end ], [ %rc.1, %do.cond42 ]
+if.end56:                                         ; preds = %do.body28.backedge, %do.body28.preheader, %do.end
+  %rc.0 = phi i32 [ %conv18.lcssa, %do.end ], [ %rc.141, %do.body28.preheader ], [ %rc.1, %do.body28.backedge ]
   %cmp57 = icmp sgt i32 %rc.0, 0
   br i1 %cmp57, label %return, label %if.end56.if.then59_crit_edge
 
@@ -544,8 +542,8 @@ if.end56.if.then59_crit_edge:                     ; preds = %if.end56
 
 if.then59:                                        ; preds = %land.rhs45, %if.end56.if.then59_crit_edge
   %call60.pre-phi = phi ptr [ %.pre, %if.end56.if.then59_crit_edge ], [ %call46, %land.rhs45 ]
-  %6 = load i32, ptr %call60.pre-phi, align 4
-  %call61 = call ptr @strerror(i32 noundef %6) #21
+  %8 = load i32, ptr %call60.pre-phi, align 4
+  %call61 = call ptr @strerror(i32 noundef %8) #21
   call void (ptr, ptr, ...) @vu_panic(ptr noundef %dev, ptr noundef nonnull @.str.54, ptr noundef %call61)
   br label %return
 

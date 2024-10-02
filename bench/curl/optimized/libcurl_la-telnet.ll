@@ -2215,18 +2215,7 @@ sw.bb:                                            ; preds = %entry
   %6 = load i32, ptr %sock, align 8
   %call11 = call i64 @send(i32 noundef %6, ptr noundef nonnull %temp, i64 noundef %add5, i32 noundef 16384) #10
   %cmp = icmp slt i64 %call11, 0
-  br i1 %cmp, label %if.then, label %if.end
-
-if.then:                                          ; preds = %sw.bb
-  %call13 = tail call ptr @__errno_location() #12
-  %7 = load i32, ptr %call13, align 4
-  call void (ptr, ptr, ...) @Curl_failf(ptr noundef nonnull %data, ptr noundef nonnull @.str.76, i32 noundef %7) #10
-  br label %if.end
-
-if.end:                                           ; preds = %if.then, %sw.bb
-  %arrayidx14 = getelementptr inbounds i8, ptr %temp, i64 2
-  call fastcc void @printsub(ptr noundef nonnull %data, i32 noundef 62, ptr noundef nonnull %arrayidx14, i64 noundef %add4)
-  br label %sw.epilog
+  br i1 %cmp, label %sw.epilog.sink.split.sink.split, label %sw.epilog.sink.split
 
 sw.bb15:                                          ; preds = %entry
   %subopt_xdisploc = getelementptr inbounds i8, ptr %0, i64 7208
@@ -2235,21 +2224,10 @@ sw.bb15:                                          ; preds = %entry
   %add19 = add i64 %call17, 6
   %call23 = call i32 (ptr, i64, ptr, ...) @curl_msnprintf(ptr noundef nonnull %temp, i64 noundef 2048, ptr noundef nonnull @.str.99, i32 noundef 255, i32 noundef 250, i32 noundef 35, i32 noundef 0, ptr noundef nonnull %subopt_xdisploc, i32 noundef 255, i32 noundef 240) #10
   %sock24 = getelementptr inbounds i8, ptr %1, i64 392
-  %8 = load i32, ptr %sock24, align 8
-  %call27 = call i64 @send(i32 noundef %8, ptr noundef nonnull %temp, i64 noundef %add19, i32 noundef 16384) #10
+  %7 = load i32, ptr %sock24, align 8
+  %call27 = call i64 @send(i32 noundef %7, ptr noundef nonnull %temp, i64 noundef %add19, i32 noundef 16384) #10
   %cmp28 = icmp slt i64 %call27, 0
-  br i1 %cmp28, label %if.then30, label %if.end32
-
-if.then30:                                        ; preds = %sw.bb15
-  %call31 = tail call ptr @__errno_location() #12
-  %9 = load i32, ptr %call31, align 4
-  call void (ptr, ptr, ...) @Curl_failf(ptr noundef nonnull %data, ptr noundef nonnull @.str.76, i32 noundef %9) #10
-  br label %if.end32
-
-if.end32:                                         ; preds = %if.then30, %sw.bb15
-  %arrayidx33 = getelementptr inbounds i8, ptr %temp, i64 2
-  call fastcc void @printsub(ptr noundef nonnull %data, i32 noundef 62, ptr noundef nonnull %arrayidx33, i64 noundef %add18)
-  br label %sw.epilog
+  br i1 %cmp28, label %sw.epilog.sink.split.sink.split, label %sw.epilog.sink.split
 
 sw.bb35:                                          ; preds = %entry
   %call37 = call i32 (ptr, i64, ptr, ...) @curl_msnprintf(ptr noundef nonnull %temp, i64 noundef 2048, ptr noundef nonnull @.str.100, i32 noundef 255, i32 noundef 250, i32 noundef 39, i32 noundef 0) #10
@@ -2261,35 +2239,35 @@ sw.bb35:                                          ; preds = %entry
 for.body:                                         ; preds = %sw.bb35, %for.inc
   %v.049 = phi ptr [ %v.0, %for.inc ], [ %v.046, %sw.bb35 ]
   %len.048 = phi i64 [ %len.1, %for.inc ], [ 4, %sw.bb35 ]
-  %10 = load ptr, ptr %v.049, align 8
-  %call39 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %10) #11
+  %8 = load ptr, ptr %v.049, align 8
+  %call39 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %8) #11
   %add40 = add i64 %len.048, 1
   %add41 = add i64 %add40, %call39
   %cmp42 = icmp ult i64 %add41, 2042
   br i1 %cmp42, label %if.then44, label %for.inc
 
 if.then44:                                        ; preds = %for.body
-  %call46 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %10, i32 noundef 44) #11
+  %call46 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %8, i32 noundef 44) #11
   %tobool47.not = icmp eq ptr %call46, null
   br i1 %tobool47.not, label %if.then48, label %if.else
 
 if.then48:                                        ; preds = %if.then44
   %arrayidx49 = getelementptr inbounds [2048 x i8], ptr %temp, i64 0, i64 %len.048
   %sub50 = sub i64 2048, %len.048
-  %call52 = call i32 (ptr, i64, ptr, ...) @curl_msnprintf(ptr noundef nonnull %arrayidx49, i64 noundef %sub50, ptr noundef nonnull @.str.101, i32 noundef 0, ptr noundef %10) #10
+  %call52 = call i32 (ptr, i64, ptr, ...) @curl_msnprintf(ptr noundef nonnull %arrayidx49, i64 noundef %sub50, ptr noundef nonnull @.str.101, i32 noundef 0, ptr noundef %8) #10
   %conv53 = sext i32 %call52 to i64
   %add54 = add i64 %len.048, %conv53
   br label %for.inc
 
 if.else:                                          ; preds = %if.then44
   %sub.ptr.lhs.cast56 = ptrtoint ptr %call46 to i64
-  %sub.ptr.rhs.cast57 = ptrtoint ptr %10 to i64
+  %sub.ptr.rhs.cast57 = ptrtoint ptr %8 to i64
   %sub.ptr.sub58 = sub i64 %sub.ptr.lhs.cast56, %sub.ptr.rhs.cast57
   %arrayidx59 = getelementptr inbounds [2048 x i8], ptr %temp, i64 0, i64 %len.048
   %sub60 = sub i64 2048, %len.048
   %conv61 = trunc i64 %sub.ptr.sub58 to i32
   %incdec.ptr63 = getelementptr inbounds i8, ptr %call46, i64 1
-  %call64 = call i32 (ptr, i64, ptr, ...) @curl_msnprintf(ptr noundef nonnull %arrayidx59, i64 noundef %sub60, ptr noundef nonnull @.str.102, i32 noundef 0, i32 noundef %conv61, ptr noundef %10, i32 noundef 1, ptr noundef nonnull %incdec.ptr63) #10
+  %call64 = call i32 (ptr, i64, ptr, ...) @curl_msnprintf(ptr noundef nonnull %arrayidx59, i64 noundef %sub60, ptr noundef nonnull @.str.102, i32 noundef 0, i32 noundef %conv61, ptr noundef %8, i32 noundef 1, ptr noundef nonnull %incdec.ptr63) #10
   %conv65 = sext i32 %call64 to i64
   %add66 = add i64 %len.048, %conv65
   br label %for.inc
@@ -2308,23 +2286,25 @@ for.end:                                          ; preds = %for.inc, %sw.bb35
   %call71 = call i32 (ptr, i64, ptr, ...) @curl_msnprintf(ptr noundef nonnull %arrayidx69, i64 noundef %sub70, ptr noundef nonnull @.str.103, i32 noundef 255, i32 noundef 240) #10
   %add72 = add i64 %len.0.lcssa, 2
   %sock73 = getelementptr inbounds i8, ptr %1, i64 392
-  %11 = load i32, ptr %sock73, align 8
-  %call76 = call i64 @send(i32 noundef %11, ptr noundef nonnull %temp, i64 noundef %add72, i32 noundef 16384) #10
+  %9 = load i32, ptr %sock73, align 8
+  %call76 = call i64 @send(i32 noundef %9, ptr noundef nonnull %temp, i64 noundef %add72, i32 noundef 16384) #10
   %cmp77 = icmp slt i64 %call76, 0
-  br i1 %cmp77, label %if.then79, label %if.end81
+  br i1 %cmp77, label %sw.epilog.sink.split.sink.split, label %sw.epilog.sink.split
 
-if.then79:                                        ; preds = %for.end
+sw.epilog.sink.split.sink.split:                  ; preds = %for.end, %sw.bb15, %sw.bb
+  %len.0.lcssa.sink.ph = phi i64 [ %add4, %sw.bb ], [ %add18, %sw.bb15 ], [ %len.0.lcssa, %for.end ]
   %call80 = tail call ptr @__errno_location() #12
-  %12 = load i32, ptr %call80, align 4
-  call void (ptr, ptr, ...) @Curl_failf(ptr noundef %data, ptr noundef nonnull @.str.76, i32 noundef %12) #10
-  br label %if.end81
+  %10 = load i32, ptr %call80, align 4
+  call void (ptr, ptr, ...) @Curl_failf(ptr noundef %data, ptr noundef nonnull @.str.76, i32 noundef %10) #10
+  br label %sw.epilog.sink.split
 
-if.end81:                                         ; preds = %if.then79, %for.end
+sw.epilog.sink.split:                             ; preds = %sw.epilog.sink.split.sink.split, %for.end, %sw.bb15, %sw.bb
+  %len.0.lcssa.sink = phi i64 [ %add4, %sw.bb ], [ %add18, %sw.bb15 ], [ %len.0.lcssa, %for.end ], [ %len.0.lcssa.sink.ph, %sw.epilog.sink.split.sink.split ]
   %arrayidx82 = getelementptr inbounds i8, ptr %temp, i64 2
-  call fastcc void @printsub(ptr noundef %data, i32 noundef 62, ptr noundef nonnull %arrayidx82, i64 noundef %len.0.lcssa)
+  call fastcc void @printsub(ptr noundef %data, i32 noundef 62, ptr noundef nonnull %arrayidx82, i64 noundef %len.0.lcssa.sink)
   br label %sw.epilog
 
-sw.epilog:                                        ; preds = %if.end81, %if.end32, %if.end, %entry
+sw.epilog:                                        ; preds = %sw.epilog.sink.split, %entry
   ret void
 }
 

@@ -4501,25 +4501,21 @@ for.body26:                                       ; preds = %for.body26.lr.ph, %
 
 if.then31:                                        ; preds = %for.body26
   %cmp.i.i.i.i.i.i.i = icmp eq i32 %3, 42
-  br i1 %cmp.i.i.i.i.i.i.i, label %if.then34, label %if.else
+  br i1 %cmp.i.i.i.i.i.i.i, label %if.then34, label %if.end42
 
 if.then34:                                        ; preds = %if.then31
   %_argument = getelementptr inbounds i8, ptr %__begin218.sroa.0.0130, i64 48
   %4 = load ptr, ptr %_argument, align 8
-  %call37 = call noundef ptr @_ZN6hermes5irgen11ESTreeIRGen13genExpressionEPNS_6ESTree4NodeENS_10IdentifierE(ptr noundef nonnull align 8 dereferenceable(200) %this, ptr noundef %4, ptr null)
   br label %if.end42
 
-if.else:                                          ; preds = %if.then31
-  %call40 = call noundef ptr @_ZN6hermes5irgen11ESTreeIRGen13genExpressionEPNS_6ESTree4NodeENS_10IdentifierE(ptr noundef nonnull align 8 dereferenceable(200) %this, ptr noundef nonnull %__begin218.sroa.0.0130, ptr null)
-  br label %if.end42
-
-if.end42:                                         ; preds = %if.then34, %if.else
-  %value.0 = phi ptr [ %call40, %if.else ], [ %call37, %if.then34 ]
-  %tobool43.not = icmp eq ptr %value.0, null
+if.end42:                                         ; preds = %if.then31, %if.then34
+  %.sink = phi ptr [ %4, %if.then34 ], [ %__begin218.sroa.0.0130, %if.then31 ]
+  %call37 = call noundef ptr @_ZN6hermes5irgen11ESTreeIRGen13genExpressionEPNS_6ESTree4NodeENS_10IdentifierE(ptr noundef nonnull align 8 dereferenceable(200) %this, ptr noundef %.sink, ptr null)
+  %tobool43.not = icmp eq ptr %call37, null
   br i1 %tobool43.not, label %if.then48, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %if.end42
-  %5 = load i8, ptr %value.0, align 8
+  %5 = load i8, ptr %call37, align 8
   %6 = add i8 %5, -109
   %7 = icmp ult i8 %6, 11
   br i1 %7, label %lor.lhs.false46, label %land.lhs.true
@@ -4537,7 +4533,7 @@ lor.lhs.false46:                                  ; preds = %lor.lhs.false
 if.then48:                                        ; preds = %for.body26, %land.lhs.true, %lor.lhs.false46, %if.end42
   %tobool43.not93 = phi i1 [ false, %land.lhs.true ], [ false, %lor.lhs.false46 ], [ true, %if.end42 ], [ true, %for.body26 ]
   %isSpread.091 = phi i1 [ %cmp.i.i.i.i.i.i.i, %land.lhs.true ], [ true, %lor.lhs.false46 ], [ %cmp.i.i.i.i.i.i.i, %if.end42 ], [ false, %for.body26 ]
-  %value.089 = phi ptr [ %value.0, %land.lhs.true ], [ %value.0, %lor.lhs.false46 ], [ null, %if.end42 ], [ null, %for.body26 ]
+  %value.089 = phi ptr [ %call37, %land.lhs.true ], [ %call37, %lor.lhs.false46 ], [ null, %if.end42 ], [ null, %for.body26 ]
   %tobool49 = trunc nuw i8 %consecutive.0126 to i1
   br i1 %tobool49, label %if.then50, label %if.end55
 
@@ -4615,7 +4611,7 @@ if.end71:                                         ; preds = %if.then.i.i, %if.en
   br i1 %tobool43.not93, label %if.end91, label %if.then73
 
 if.then73:                                        ; preds = %land.lhs.true, %lor.lhs.false46, %if.end71
-  %value.088100116 = phi ptr [ %value.089, %if.end71 ], [ %value.0, %lor.lhs.false46 ], [ %value.0, %land.lhs.true ]
+  %value.088100116 = phi ptr [ %value.089, %if.end71 ], [ %call37, %lor.lhs.false46 ], [ %call37, %land.lhs.true ]
   %consecutive.1102114 = phi i8 [ %consecutive.1102, %if.end71 ], [ %consecutive.0126, %lor.lhs.false46 ], [ %consecutive.0126, %land.lhs.true ]
   %allocArrayInst.1104112 = phi ptr [ %allocArrayInst.1104, %if.end71 ], [ %allocArrayInst.0127, %lor.lhs.false46 ], [ %allocArrayInst.0127, %land.lhs.true ]
   %tobool74 = trunc nuw i8 %consecutive.1102114 to i1

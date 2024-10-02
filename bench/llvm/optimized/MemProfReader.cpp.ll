@@ -1022,50 +1022,44 @@ _ZN4llvm5ErrorD2Ev.exit:                          ; preds = %25, %21, %19, %17, 
   store ptr null, ptr %7, align 8, !noalias !12
   %33 = load ptr, ptr %8, align 8
   %34 = icmp eq ptr %33, null
-  br i1 %34, label %_ZN4llvm5ErrorD2Ev.exit12, label %35
-
-35:                                               ; preds = %_ZN4llvm5ErrorD2Ev.exit
-  %36 = load ptr, ptr %33, align 8
-  %37 = getelementptr inbounds i8, ptr %36, i64 8
-  %38 = load ptr, ptr %37, align 8
-  call void %38(ptr noundef nonnull align 8 dereferenceable(8) %33) #20
-  br label %_ZN4llvm5ErrorD2Ev.exit12
+  br i1 %34, label %_ZN4llvm5ErrorD2Ev.exit12, label %_ZN4llvm5ErrorD2Ev.exit12.sink.split
 
 _ZNK4llvm7ErrorOrISt10unique_ptrINS_12MemoryBufferESt14default_deleteIS2_EEE8getErrorEv.exit.thread: ; preds = %5, %_ZNK4llvm7ErrorOrISt10unique_ptrINS_12MemoryBufferESt14default_deleteIS2_EEE8getErrorEv.exit
-  %39 = load ptr, ptr %6, align 8
+  %35 = load ptr, ptr %6, align 8
   store ptr null, ptr %6, align 8
-  %40 = ptrtoint ptr %39 to i64
-  store i64 %40, ptr %9, align 8
+  %36 = ptrtoint ptr %35 to i64
+  store i64 %36, ptr %9, align 8
   call void @_ZN4llvm7memprof16RawMemProfReader6createESt10unique_ptrINS_12MemoryBufferESt14default_deleteIS3_EENS_9StringRefEb(ptr dead_on_unwind writable sret(%"class.llvm::Expected") align 8 %0, ptr noundef nonnull %9, ptr %2, i64 %3, i1 noundef zeroext %4)
-  %41 = load ptr, ptr %9, align 8
-  %.not.i = icmp eq ptr %41, null
-  br i1 %.not.i, label %_ZN4llvm5ErrorD2Ev.exit12, label %_ZNKSt14default_deleteIN4llvm12MemoryBufferEEclEPS1_.exit.i
+  %37 = load ptr, ptr %9, align 8
+  %.not.i = icmp eq ptr %37, null
+  br i1 %.not.i, label %_ZN4llvm5ErrorD2Ev.exit12, label %_ZN4llvm5ErrorD2Ev.exit12.sink.split
 
-_ZNKSt14default_deleteIN4llvm12MemoryBufferEEclEPS1_.exit.i: ; preds = %_ZNK4llvm7ErrorOrISt10unique_ptrINS_12MemoryBufferESt14default_deleteIS2_EEE8getErrorEv.exit.thread
-  %42 = load ptr, ptr %41, align 8
-  %43 = getelementptr inbounds i8, ptr %42, i64 8
-  %44 = load ptr, ptr %43, align 8
-  call void %44(ptr noundef nonnull align 8 dereferenceable(24) %41) #20
+_ZN4llvm5ErrorD2Ev.exit12.sink.split:             ; preds = %_ZNK4llvm7ErrorOrISt10unique_ptrINS_12MemoryBufferESt14default_deleteIS2_EEE8getErrorEv.exit.thread, %_ZN4llvm5ErrorD2Ev.exit
+  %.sink27 = phi ptr [ %33, %_ZN4llvm5ErrorD2Ev.exit ], [ %37, %_ZNK4llvm7ErrorOrISt10unique_ptrINS_12MemoryBufferESt14default_deleteIS2_EEE8getErrorEv.exit.thread ]
+  %38 = load ptr, ptr %.sink27, align 8
+  %39 = getelementptr inbounds i8, ptr %38, i64 8
+  %40 = load ptr, ptr %39, align 8
+  call void %40(ptr noundef nonnull align 8 dereferenceable(8) %.sink27) #20
   br label %_ZN4llvm5ErrorD2Ev.exit12
 
-_ZN4llvm5ErrorD2Ev.exit12:                        ; preds = %_ZNK4llvm7ErrorOrISt10unique_ptrINS_12MemoryBufferESt14default_deleteIS2_EEE8getErrorEv.exit.thread, %_ZNKSt14default_deleteIN4llvm12MemoryBufferEEclEPS1_.exit.i, %35, %_ZN4llvm5ErrorD2Ev.exit
-  %45 = load i8, ptr %10, align 8
-  %46 = trunc i8 %45 to i1
-  br i1 %46, label %_ZN4llvm7ErrorOrISt10unique_ptrINS_12MemoryBufferESt14default_deleteIS2_EEED2Ev.exit, label %47
+_ZN4llvm5ErrorD2Ev.exit12:                        ; preds = %_ZN4llvm5ErrorD2Ev.exit12.sink.split, %_ZNK4llvm7ErrorOrISt10unique_ptrINS_12MemoryBufferESt14default_deleteIS2_EEE8getErrorEv.exit.thread, %_ZN4llvm5ErrorD2Ev.exit
+  %41 = load i8, ptr %10, align 8
+  %42 = trunc i8 %41 to i1
+  br i1 %42, label %_ZN4llvm7ErrorOrISt10unique_ptrINS_12MemoryBufferESt14default_deleteIS2_EEED2Ev.exit, label %43
 
-47:                                               ; preds = %_ZN4llvm5ErrorD2Ev.exit12
-  %48 = load ptr, ptr %6, align 8
-  %.not.i.i16 = icmp eq ptr %48, null
+43:                                               ; preds = %_ZN4llvm5ErrorD2Ev.exit12
+  %44 = load ptr, ptr %6, align 8
+  %.not.i.i16 = icmp eq ptr %44, null
   br i1 %.not.i.i16, label %_ZN4llvm7ErrorOrISt10unique_ptrINS_12MemoryBufferESt14default_deleteIS2_EEED2Ev.exit, label %_ZNKSt14default_deleteIN4llvm12MemoryBufferEEclEPS1_.exit.i.i
 
-_ZNKSt14default_deleteIN4llvm12MemoryBufferEEclEPS1_.exit.i.i: ; preds = %47
-  %49 = load ptr, ptr %48, align 8
-  %50 = getelementptr inbounds i8, ptr %49, i64 8
-  %51 = load ptr, ptr %50, align 8
-  call void %51(ptr noundef nonnull align 8 dereferenceable(24) %48) #20
+_ZNKSt14default_deleteIN4llvm12MemoryBufferEEclEPS1_.exit.i.i: ; preds = %43
+  %45 = load ptr, ptr %44, align 8
+  %46 = getelementptr inbounds i8, ptr %45, i64 8
+  %47 = load ptr, ptr %46, align 8
+  call void %47(ptr noundef nonnull align 8 dereferenceable(24) %44) #20
   br label %_ZN4llvm7ErrorOrISt10unique_ptrINS_12MemoryBufferESt14default_deleteIS2_EEED2Ev.exit
 
-_ZN4llvm7ErrorOrISt10unique_ptrINS_12MemoryBufferESt14default_deleteIS2_EEED2Ev.exit: ; preds = %47, %_ZNKSt14default_deleteIN4llvm12MemoryBufferEEclEPS1_.exit.i.i, %_ZN4llvm5ErrorD2Ev.exit12
+_ZN4llvm7ErrorOrISt10unique_ptrINS_12MemoryBufferESt14default_deleteIS2_EEED2Ev.exit: ; preds = %43, %_ZNKSt14default_deleteIN4llvm12MemoryBufferEEclEPS1_.exit.i.i, %_ZN4llvm5ErrorD2Ev.exit12
   ret void
 }
 
@@ -1528,7 +1522,7 @@ _ZNKSt14default_deleteIN4llvm7memprof16RawMemProfReaderEEclEPS2_.exit.i: ; preds
 _ZN4llvm5ErrorD2Ev.exit15:                        ; preds = %_ZNKSt14default_deleteIN4llvm7memprof16RawMemProfReaderEEclEPS2_.exit.i, %.thread, %135, %_ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i
   %173 = load i8, ptr %124, align 8
   %174 = trunc i8 %173 to i1
-  br i1 %174, label %185, label %175
+  br i1 %174, label %182, label %175
 
 175:                                              ; preds = %_ZN4llvm5ErrorD2Ev.exit15
   %176 = getelementptr inbounds nuw i8, ptr %19, i64 8
@@ -1547,28 +1541,22 @@ _ZNSt10unique_ptrIN4llvm12MemoryBufferESt14default_deleteIS1_EED2Ev.exit.i.i: ; 
   store ptr null, ptr %176, align 8
   %181 = load ptr, ptr %19, align 8
   %.not.i1.i.i = icmp eq ptr %181, null
-  br i1 %.not.i1.i.i, label %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit, label %_ZNKSt14default_deleteIN4llvm6object6BinaryEEclEPS2_.exit.i.i.i
+  br i1 %.not.i1.i.i, label %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit, label %_ZN4llvm6object12OwningBinaryINS0_6BinaryEED2Ev.exit.sink.split.i
 
-_ZNKSt14default_deleteIN4llvm6object6BinaryEEclEPS2_.exit.i.i.i: ; preds = %_ZNSt10unique_ptrIN4llvm12MemoryBufferESt14default_deleteIS1_EED2Ev.exit.i.i
-  %182 = load ptr, ptr %181, align 8
-  %183 = getelementptr inbounds i8, ptr %182, i64 8
-  %184 = load ptr, ptr %183, align 8
-  call void %184(ptr noundef nonnull align 8 dereferenceable(48) %181) #20
+182:                                              ; preds = %_ZN4llvm5ErrorD2Ev.exit15
+  %183 = load ptr, ptr %19, align 8
+  %.not.i.i = icmp eq ptr %183, null
+  br i1 %.not.i.i, label %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit, label %_ZN4llvm6object12OwningBinaryINS0_6BinaryEED2Ev.exit.sink.split.i
+
+_ZN4llvm6object12OwningBinaryINS0_6BinaryEED2Ev.exit.sink.split.i: ; preds = %182, %_ZNSt10unique_ptrIN4llvm12MemoryBufferESt14default_deleteIS1_EED2Ev.exit.i.i
+  %.sink4.i = phi ptr [ %181, %_ZNSt10unique_ptrIN4llvm12MemoryBufferESt14default_deleteIS1_EED2Ev.exit.i.i ], [ %183, %182 ]
+  %184 = load ptr, ptr %.sink4.i, align 8
+  %185 = getelementptr inbounds i8, ptr %184, i64 8
+  %186 = load ptr, ptr %185, align 8
+  call void %186(ptr noundef nonnull align 8 dereferenceable(8) %.sink4.i) #20
   br label %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit
 
-185:                                              ; preds = %_ZN4llvm5ErrorD2Ev.exit15
-  %186 = load ptr, ptr %19, align 8
-  %.not.i.i = icmp eq ptr %186, null
-  br i1 %.not.i.i, label %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit, label %_ZNKSt14default_deleteIN4llvm13ErrorInfoBaseEEclEPS1_.exit.i.i
-
-_ZNKSt14default_deleteIN4llvm13ErrorInfoBaseEEclEPS1_.exit.i.i: ; preds = %185
-  %187 = load ptr, ptr %186, align 8
-  %188 = getelementptr inbounds i8, ptr %187, i64 8
-  %189 = load ptr, ptr %188, align 8
-  call void %189(ptr noundef nonnull align 8 dereferenceable(8) %186) #20
-  br label %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit
-
-_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit: ; preds = %_ZNKSt14default_deleteIN4llvm13ErrorInfoBaseEEclEPS1_.exit.i.i, %185, %_ZNKSt14default_deleteIN4llvm6object6BinaryEEclEPS2_.exit.i.i.i, %_ZNSt10unique_ptrIN4llvm12MemoryBufferESt14default_deleteIS1_EED2Ev.exit.i.i, %84, %_ZN4llvm5ErrorD2Ev.exit, %117, %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i
+_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit: ; preds = %_ZN4llvm6object12OwningBinaryINS0_6BinaryEED2Ev.exit.sink.split.i, %182, %_ZNSt10unique_ptrIN4llvm12MemoryBufferESt14default_deleteIS1_EED2Ev.exit.i.i, %84, %_ZN4llvm5ErrorD2Ev.exit, %117, %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i
   ret void
 }
 
@@ -1994,8 +1982,8 @@ define dso_local void @_ZN4llvm7memprof16RawMemProfReader10initializeESt10unique
   %31 = load i32, ptr %30, align 8
   %32 = add i32 %31, -17
   %spec.select.i.i.i.i.i.i.i.i.i = icmp ult i32 %32, -4
-  %.not93 = icmp eq ptr %29, null
-  %.not = or i1 %.not93, %spec.select.i.i.i.i.i.i.i.i.i
+  %.not92 = icmp eq ptr %29, null
+  %.not = or i1 %.not92, %spec.select.i.i.i.i.i.i.i.i.i
   br i1 %.not, label %33, label %42
 
 33:                                               ; preds = %3
@@ -2054,23 +2042,23 @@ define dso_local void @_ZN4llvm7memprof16RawMemProfReader10initializeESt10unique
   %62 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %63 = load i64, ptr %62, align 8
   %64 = getelementptr inbounds %"struct.llvm::object::Elf_Phdr_Impl", ptr %61, i64 %63
-  %.not4697 = icmp eq i64 %63, 0
-  br i1 %.not4697, label %._crit_edge, label %.lr.ph
+  %.not4696 = icmp eq i64 %63, 0
+  br i1 %.not4696, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %60
   %65 = getelementptr inbounds nuw i8, ptr %1, i64 128
   br label %66
 
 66:                                               ; preds = %.lr.ph, %88
-  %.03999 = phi i32 [ 0, %.lr.ph ], [ %.140, %88 ]
-  %.04198 = phi ptr [ %61, %.lr.ph ], [ %89, %88 ]
-  call void @llvm.assume(i1 true) [ "align"(ptr %.04198, i64 1) ]
-  %.0.copyload.i.i.i = load i32, ptr %.04198, align 1
+  %.03998 = phi i32 [ 0, %.lr.ph ], [ %.140, %88 ]
+  %.04197 = phi ptr [ %61, %.lr.ph ], [ %89, %88 ]
+  call void @llvm.assume(i1 true) [ "align"(ptr %.04197, i64 1) ]
+  %.0.copyload.i.i.i = load i32, ptr %.04197, align 1
   %67 = icmp eq i32 %.0.copyload.i.i.i, 1
   br i1 %67, label %68, label %88
 
 68:                                               ; preds = %66
-  %69 = getelementptr inbounds nuw i8, ptr %.04198, i64 4
+  %69 = getelementptr inbounds nuw i8, ptr %.04197, i64 4
   call void @llvm.assume(i1 true) [ "align"(ptr %69, i64 1) ]
   %.0.copyload.i.i.i56 = load i32, ptr %69, align 1
   %70 = and i32 %.0.copyload.i.i.i56, 1
@@ -2078,7 +2066,7 @@ define dso_local void @_ZN4llvm7memprof16RawMemProfReader10initializeESt10unique
   br i1 %.not47, label %88, label %71
 
 71:                                               ; preds = %68
-  %72 = icmp sgt i32 %.03999, 0
+  %72 = icmp sgt i32 %.03998, 0
   br i1 %72, label %73, label %86
 
 73:                                               ; preds = %71
@@ -2109,15 +2097,15 @@ define dso_local void @_ZN4llvm7memprof16RawMemProfReader10initializeESt10unique
   br label %_ZN4llvm5ErrorD2Ev.exit55
 
 86:                                               ; preds = %71
-  %87 = getelementptr inbounds nuw i8, ptr %.04198, i64 16
+  %87 = getelementptr inbounds nuw i8, ptr %.04197, i64 16
   call void @llvm.assume(i1 true) [ "align"(ptr %87, i64 1) ]
   %.0.copyload.i.i.i61 = load i64, ptr %87, align 1
   store i64 %.0.copyload.i.i.i61, ptr %65, align 8
   br label %88
 
 88:                                               ; preds = %66, %86, %68
-  %.140 = phi i32 [ 1, %86 ], [ %.03999, %68 ], [ %.03999, %66 ]
-  %89 = getelementptr inbounds i8, ptr %.04198, i64 56
+  %.140 = phi i32 [ 1, %86 ], [ %.03998, %68 ], [ %.03998, %66 ]
+  %89 = getelementptr inbounds i8, ptr %.04197, i64 56
   %.not46 = icmp eq ptr %89, %64
   br i1 %.not46, label %._crit_edge, label %66
 
@@ -2180,14 +2168,14 @@ _ZNKSt14default_deleteIN4llvm12MemoryBufferEEclEPS1_.exit.i: ; preds = %109
 _ZNSt10unique_ptrIN4llvm12MemoryBufferESt14default_deleteIS1_EED2Ev.exit: ; preds = %109, %_ZNKSt14default_deleteIN4llvm12MemoryBufferEEclEPS1_.exit.i
   store ptr null, ptr %14, align 8
   %114 = load ptr, ptr %0, align 8
-  %.not94 = icmp eq ptr %114, null
-  br i1 %.not94, label %_ZN4llvm5ErrorD2Ev.exit66, label %.critedge
+  %.not93 = icmp eq ptr %114, null
+  br i1 %.not93, label %_ZN4llvm5ErrorD2Ev.exit66, label %.critedge
 
 _ZN4llvm5ErrorD2Ev.exit66:                        ; preds = %_ZNSt10unique_ptrIN4llvm12MemoryBufferESt14default_deleteIS1_EED2Ev.exit
   call void @_ZN4llvm7memprof16RawMemProfReader21setupForSymbolizationEv(ptr dead_on_unwind nonnull writable sret(%"class.llvm::Error") align 8 %0, ptr noundef nonnull align 8 dereferenceable(416) %1)
   %115 = load ptr, ptr %0, align 8
-  %.not95 = icmp eq ptr %115, null
-  br i1 %.not95, label %_ZNSt10unique_ptrIN4llvm12DWARFContextESt14default_deleteIS1_EED2Ev.exit, label %.critedge
+  %.not94 = icmp eq ptr %115, null
+  br i1 %.not94, label %_ZNSt10unique_ptrIN4llvm12DWARFContextESt14default_deleteIS1_EED2Ev.exit, label %.critedge
 
 _ZNSt10unique_ptrIN4llvm12DWARFContextESt14default_deleteIS1_EED2Ev.exit: ; preds = %_ZN4llvm5ErrorD2Ev.exit66
   %116 = load ptr, ptr %24, align 8
@@ -2289,41 +2277,26 @@ _ZNKSt14default_deleteIN4llvm9symbolize18SymbolizableModuleEEclEPS2_.exit.i: ; p
 
 _ZNSt10unique_ptrIN4llvm9symbolize18SymbolizableModuleESt14default_deleteIS2_EED2Ev.exit: ; preds = %147, %_ZNKSt14default_deleteIN4llvm9symbolize18SymbolizableModuleEEclEPS2_.exit.i
   %153 = load ptr, ptr %0, align 8
-  %.not96 = icmp eq ptr %153, null
-  br i1 %.not96, label %_ZN4llvm5ErrorD2Ev.exit74, label %_ZN4llvm5ErrorD2Ev.exit72
+  %.not95 = icmp eq ptr %153, null
+  br i1 %.not95, label %_ZN4llvm5ErrorD2Ev.exit74, label %_ZN4llvm5ErrorD2Ev.exit72
 
 _ZN4llvm5ErrorD2Ev.exit74:                        ; preds = %_ZNSt10unique_ptrIN4llvm9symbolize18SymbolizableModuleESt14default_deleteIS2_EED2Ev.exit
   call void @_ZN4llvm7memprof16RawMemProfReader22mapRawProfileToRecordsEv(ptr dead_on_unwind nonnull writable sret(%"class.llvm::Error") align 8 %0, ptr noundef nonnull align 8 dereferenceable(416) %1)
   br label %_ZN4llvm5ErrorD2Ev.exit72
 
 _ZN4llvm5ErrorD2Ev.exit72:                        ; preds = %_ZNSt10unique_ptrIN4llvm9symbolize18SymbolizableModuleESt14default_deleteIS2_EED2Ev.exit, %_ZN4llvm5ErrorD2Ev.exit74, %143, %_ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i
-  %154 = load i8, ptr %136, align 8
-  %155 = trunc i8 %154 to i1
-  %156 = load ptr, ptr %20, align 8
-  %.not.i1.i = icmp eq ptr %156, null
-  br i1 %155, label %161, label %157
+  %154 = load ptr, ptr %20, align 8
+  %.not.i1.i = icmp eq ptr %154, null
+  br i1 %.not.i1.i, label %_ZNSt10unique_ptrIN4llvm9DIContextESt14default_deleteIS1_EED2Ev.exit78, label %_ZNSt10unique_ptrIN4llvm9symbolize22SymbolizableObjectFileESt14default_deleteIS2_EED2Ev.exit.sink.split.i
 
-157:                                              ; preds = %_ZN4llvm5ErrorD2Ev.exit72
-  br i1 %.not.i1.i, label %_ZNSt10unique_ptrIN4llvm9DIContextESt14default_deleteIS1_EED2Ev.exit78, label %_ZNKSt14default_deleteIN4llvm9symbolize22SymbolizableObjectFileEEclEPS2_.exit.i.i
-
-_ZNKSt14default_deleteIN4llvm9symbolize22SymbolizableObjectFileEEclEPS2_.exit.i.i: ; preds = %157
-  %158 = load ptr, ptr %156, align 8
-  %159 = getelementptr inbounds i8, ptr %158, i64 8
-  %160 = load ptr, ptr %159, align 8
-  call void %160(ptr noundef nonnull align 8 dereferenceable(80) %156) #20
+_ZNSt10unique_ptrIN4llvm9symbolize22SymbolizableObjectFileESt14default_deleteIS2_EED2Ev.exit.sink.split.i: ; preds = %_ZN4llvm5ErrorD2Ev.exit72
+  %155 = load ptr, ptr %154, align 8
+  %156 = getelementptr inbounds i8, ptr %155, i64 8
+  %157 = load ptr, ptr %156, align 8
+  call void %157(ptr noundef nonnull align 8 dereferenceable(8) %154) #20
   br label %_ZNSt10unique_ptrIN4llvm9DIContextESt14default_deleteIS1_EED2Ev.exit78
 
-161:                                              ; preds = %_ZN4llvm5ErrorD2Ev.exit72
-  br i1 %.not.i1.i, label %_ZNSt10unique_ptrIN4llvm9DIContextESt14default_deleteIS1_EED2Ev.exit78, label %_ZNKSt14default_deleteIN4llvm13ErrorInfoBaseEEclEPS1_.exit.i.i
-
-_ZNKSt14default_deleteIN4llvm13ErrorInfoBaseEEclEPS1_.exit.i.i: ; preds = %161
-  %162 = load ptr, ptr %156, align 8
-  %163 = getelementptr inbounds i8, ptr %162, i64 8
-  %164 = load ptr, ptr %163, align 8
-  call void %164(ptr noundef nonnull align 8 dereferenceable(8) %156) #20
-  br label %_ZNSt10unique_ptrIN4llvm9DIContextESt14default_deleteIS1_EED2Ev.exit78
-
-_ZNSt10unique_ptrIN4llvm9DIContextESt14default_deleteIS1_EED2Ev.exit78: ; preds = %_ZNKSt14default_deleteIN4llvm13ErrorInfoBaseEEclEPS1_.exit.i.i, %161, %_ZNKSt14default_deleteIN4llvm9symbolize22SymbolizableObjectFileEEclEPS2_.exit.i.i, %157
+_ZNSt10unique_ptrIN4llvm9DIContextESt14default_deleteIS1_EED2Ev.exit78: ; preds = %_ZNSt10unique_ptrIN4llvm9symbolize22SymbolizableObjectFileESt14default_deleteIS2_EED2Ev.exit.sink.split.i, %_ZN4llvm5ErrorD2Ev.exit72
   store ptr null, ptr %20, align 8
   br label %.critedge
 
@@ -2332,19 +2305,19 @@ _ZNSt10unique_ptrIN4llvm9DIContextESt14default_deleteIS1_EED2Ev.exit78: ; preds 
   br label %_ZN4llvm5ErrorD2Ev.exit55
 
 _ZN4llvm5ErrorD2Ev.exit55:                        ; preds = %82, %73, %56, %47, %.critedge
-  %165 = load i8, ptr %44, align 8
-  %166 = trunc i8 %165 to i1
-  %167 = load ptr, ptr %7, align 8
-  %.not.i.i79 = icmp ne ptr %167, null
-  %or.cond.not = select i1 %166, i1 %.not.i.i79, i1 false
+  %158 = load i8, ptr %44, align 8
+  %159 = trunc i8 %158 to i1
+  %160 = load ptr, ptr %7, align 8
+  %.not.i.i79 = icmp ne ptr %160, null
+  %or.cond.not = select i1 %159, i1 %.not.i.i79, i1 false
   br i1 %or.cond.not, label %_ZN4llvm5ErrorD2Ev.exit.sink.split, label %_ZN4llvm5ErrorD2Ev.exit
 
 _ZN4llvm5ErrorD2Ev.exit.sink.split:               ; preds = %_ZN4llvm5ErrorD2Ev.exit55, %33
-  %.sink104 = phi ptr [ %40, %33 ], [ %167, %_ZN4llvm5ErrorD2Ev.exit55 ]
-  %168 = load ptr, ptr %.sink104, align 8
-  %169 = getelementptr inbounds i8, ptr %168, i64 8
-  %170 = load ptr, ptr %169, align 8
-  call void %170(ptr noundef nonnull align 8 dereferenceable(8) %.sink104) #20
+  %.sink103 = phi ptr [ %40, %33 ], [ %160, %_ZN4llvm5ErrorD2Ev.exit55 ]
+  %161 = load ptr, ptr %.sink103, align 8
+  %162 = getelementptr inbounds i8, ptr %161, i64 8
+  %163 = load ptr, ptr %162, align 8
+  call void %163(ptr noundef nonnull align 8 dereferenceable(8) %.sink103) #20
   br label %_ZN4llvm5ErrorD2Ev.exit
 
 _ZN4llvm5ErrorD2Ev.exit:                          ; preds = %_ZN4llvm5ErrorD2Ev.exit.sink.split, %_ZN4llvm5ErrorD2Ev.exit55, %33

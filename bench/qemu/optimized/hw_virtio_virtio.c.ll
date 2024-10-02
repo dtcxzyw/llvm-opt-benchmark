@@ -7948,25 +7948,16 @@ entry:
   %assign.not = xor i1 %assign, true
   %brmerge = or i1 %with_irqfd, %assign.not
   %guest_notifier3 = getelementptr inbounds i8, ptr %vq, i64 104
-  br i1 %brmerge, label %if.else, label %if.then
-
-if.then:                                          ; preds = %entry
-  tail call void @event_notifier_set_handler(ptr noundef nonnull %guest_notifier3, ptr noundef nonnull @virtio_queue_guest_notifier_read) #23
-  br label %if.end
-
-if.else:                                          ; preds = %entry
-  tail call void @event_notifier_set_handler(ptr noundef nonnull %guest_notifier3, ptr noundef null) #23
-  br label %if.end
-
-if.end:                                           ; preds = %if.else, %if.then
+  %.virtio_queue_guest_notifier_read = select i1 %brmerge, ptr null, ptr @virtio_queue_guest_notifier_read
+  tail call void @event_notifier_set_handler(ptr noundef nonnull %guest_notifier3, ptr noundef %.virtio_queue_guest_notifier_read) #23
   br i1 %assign, label %if.end7, label %if.then5
 
-if.then5:                                         ; preds = %if.end
+if.then5:                                         ; preds = %entry
   %guest_notifier6 = getelementptr inbounds i8, ptr %vq, i64 104
   tail call void @virtio_queue_guest_notifier_read(ptr noundef nonnull %guest_notifier6)
   br label %if.end7
 
-if.end7:                                          ; preds = %if.then5, %if.end
+if.end7:                                          ; preds = %if.then5, %entry
   ret void
 }
 
@@ -8034,20 +8025,11 @@ entry:
   %config_notifier = getelementptr inbounds i8, ptr %vdev, i64 504
   %assign.not = xor i1 %assign, true
   %brmerge = or i1 %with_irqfd, %assign.not
-  br i1 %brmerge, label %if.else, label %if.then
-
-if.then:                                          ; preds = %entry
-  tail call void @event_notifier_set_handler(ptr noundef nonnull %config_notifier, ptr noundef nonnull @virtio_config_guest_notifier_read) #23
-  br label %if.end
-
-if.else:                                          ; preds = %entry
-  tail call void @event_notifier_set_handler(ptr noundef nonnull %config_notifier, ptr noundef null) #23
-  br label %if.end
-
-if.end:                                           ; preds = %if.else, %if.then
+  %.virtio_config_guest_notifier_read = select i1 %brmerge, ptr null, ptr @virtio_config_guest_notifier_read
+  tail call void @event_notifier_set_handler(ptr noundef nonnull %config_notifier, ptr noundef %.virtio_config_guest_notifier_read) #23
   br i1 %assign, label %if.end5, label %if.then4
 
-if.then4:                                         ; preds = %if.end
+if.then4:                                         ; preds = %entry
   %call.i = tail call i32 @event_notifier_test_and_clear(ptr noundef nonnull %config_notifier) #23
   %tobool.not.i = icmp eq i32 %call.i, 0
   br i1 %tobool.not.i, label %if.end5, label %if.then.i
@@ -8056,7 +8038,7 @@ if.then.i:                                        ; preds = %if.then4
   tail call void @virtio_notify_config(ptr noundef %vdev)
   br label %if.end5
 
-if.end5:                                          ; preds = %if.then.i, %if.then4, %if.end
+if.end5:                                          ; preds = %if.then.i, %if.then4, %entry
   ret void
 }
 

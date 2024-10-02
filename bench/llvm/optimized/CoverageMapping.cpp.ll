@@ -8937,33 +8937,18 @@ _ZNKSt14default_deleteIN4llvm22IndexedInstrProfReaderEEclEPS1_.exit.i: ; preds =
   br label %_ZNSt10unique_ptrIN4llvm22IndexedInstrProfReaderESt14default_deleteIS1_EED2Ev.exit
 
 _ZNSt10unique_ptrIN4llvm22IndexedInstrProfReaderESt14default_deleteIS1_EED2Ev.exit: ; preds = %_ZNKSt14default_deleteIN4llvm22IndexedInstrProfReaderEEclEPS1_.exit.i, %_ZNSt10unique_ptrIN4llvm8coverage15CoverageMappingESt14default_deleteIS2_EED2Ev.exit, %_ZN4llvm5ErrorD2Ev.exit57
-  %331 = load i8, ptr %46, align 8
-  %332 = trunc i8 %331 to i1
-  %333 = load ptr, ptr %17, align 8
-  %.not.i1.i = icmp eq ptr %333, null
-  br i1 %332, label %338, label %334
+  %331 = load ptr, ptr %17, align 8
+  %.not.i1.i = icmp eq ptr %331, null
+  br i1 %.not.i1.i, label %_ZN4llvm8ExpectedISt10unique_ptrINS_22IndexedInstrProfReaderESt14default_deleteIS2_EEED2Ev.exit, label %_ZNSt10unique_ptrIN4llvm22IndexedInstrProfReaderESt14default_deleteIS1_EED2Ev.exit.sink.split.i
 
-334:                                              ; preds = %_ZNSt10unique_ptrIN4llvm22IndexedInstrProfReaderESt14default_deleteIS1_EED2Ev.exit
-  br i1 %.not.i1.i, label %_ZN4llvm8ExpectedISt10unique_ptrINS_22IndexedInstrProfReaderESt14default_deleteIS2_EEED2Ev.exit, label %_ZNKSt14default_deleteIN4llvm22IndexedInstrProfReaderEEclEPS1_.exit.i.i
-
-_ZNKSt14default_deleteIN4llvm22IndexedInstrProfReaderEEclEPS1_.exit.i.i: ; preds = %334
-  %335 = load ptr, ptr %333, align 8
-  %336 = getelementptr inbounds i8, ptr %335, i64 8
-  %337 = load ptr, ptr %336, align 8
-  call void %337(ptr noundef nonnull align 8 dereferenceable(484) %333) #28
+_ZNSt10unique_ptrIN4llvm22IndexedInstrProfReaderESt14default_deleteIS1_EED2Ev.exit.sink.split.i: ; preds = %_ZNSt10unique_ptrIN4llvm22IndexedInstrProfReaderESt14default_deleteIS1_EED2Ev.exit
+  %332 = load ptr, ptr %331, align 8
+  %333 = getelementptr inbounds i8, ptr %332, i64 8
+  %334 = load ptr, ptr %333, align 8
+  call void %334(ptr noundef nonnull align 8 dereferenceable(8) %331) #28
   br label %_ZN4llvm8ExpectedISt10unique_ptrINS_22IndexedInstrProfReaderESt14default_deleteIS2_EEED2Ev.exit
 
-338:                                              ; preds = %_ZNSt10unique_ptrIN4llvm22IndexedInstrProfReaderESt14default_deleteIS1_EED2Ev.exit
-  br i1 %.not.i1.i, label %_ZN4llvm8ExpectedISt10unique_ptrINS_22IndexedInstrProfReaderESt14default_deleteIS2_EEED2Ev.exit, label %_ZNKSt14default_deleteIN4llvm13ErrorInfoBaseEEclEPS1_.exit.i.i
-
-_ZNKSt14default_deleteIN4llvm13ErrorInfoBaseEEclEPS1_.exit.i.i: ; preds = %338
-  %339 = load ptr, ptr %333, align 8
-  %340 = getelementptr inbounds i8, ptr %339, i64 8
-  %341 = load ptr, ptr %340, align 8
-  call void %341(ptr noundef nonnull align 8 dereferenceable(8) %333) #28
-  br label %_ZN4llvm8ExpectedISt10unique_ptrINS_22IndexedInstrProfReaderESt14default_deleteIS2_EEED2Ev.exit
-
-_ZN4llvm8ExpectedISt10unique_ptrINS_22IndexedInstrProfReaderESt14default_deleteIS2_EEED2Ev.exit: ; preds = %334, %_ZNKSt14default_deleteIN4llvm22IndexedInstrProfReaderEEclEPS1_.exit.i.i, %338, %_ZNKSt14default_deleteIN4llvm13ErrorInfoBaseEEclEPS1_.exit.i.i
+_ZN4llvm8ExpectedISt10unique_ptrINS_22IndexedInstrProfReaderESt14default_deleteIS2_EEED2Ev.exit: ; preds = %_ZNSt10unique_ptrIN4llvm22IndexedInstrProfReaderESt14default_deleteIS1_EED2Ev.exit, %_ZNSt10unique_ptrIN4llvm22IndexedInstrProfReaderESt14default_deleteIS1_EED2Ev.exit.sink.split.i
   ret void
 }
 
@@ -19599,22 +19584,22 @@ _ZSt22__chunk_insertion_sortIPPKN4llvm8coverage13CountedRegionElN9__gnu_cxx5__op
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal fastcc void @_ZSt16__merge_adaptiveIPPKN4llvm8coverage13CountedRegionElS5_N9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_114SegmentBuilder20completeRegionsUntilESt8optionalISt4pairIjjEEjEUlS4_S4_E_EEEvT_SH_SH_T0_SI_T1_SI_T2_(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, i64 noundef %4, ptr noundef %5, i64 noundef %6) unnamed_addr #0 {
-  %.not140 = icmp sgt i64 %3, %4
-  %.not70141 = icmp sgt i64 %3, %6
-  %or.cond142 = or i1 %.not70141, %.not140
-  br i1 %or.cond142, label %.lr.ph, label %tailrecurse._crit_edge
+  %.not139 = icmp sgt i64 %3, %4
+  %.not70140 = icmp sgt i64 %3, %6
+  %or.cond141 = or i1 %.not70140, %.not139
+  br i1 %or.cond141, label %.lr.ph, label %tailrecurse._crit_edge
 
 .lr.ph:                                           ; preds = %7
   %8 = ptrtoint ptr %2 to i64
   br label %33
 
 tailrecurse._crit_edge:                           ; preds = %_ZSt17__rotate_adaptiveIPPKN4llvm8coverage13CountedRegionES5_lET_S6_S6_S6_T1_S7_T0_S7_.exit, %7
-  %.tr.lcssa = phi ptr [ %0, %7 ], [ %.0.i113, %_ZSt17__rotate_adaptiveIPPKN4llvm8coverage13CountedRegionES5_lET_S6_S6_S6_T1_S7_T0_S7_.exit ]
-  %.tr127.lcssa = phi ptr [ %1, %7 ], [ %.0123, %_ZSt17__rotate_adaptiveIPPKN4llvm8coverage13CountedRegionES5_lET_S6_S6_S6_T1_S7_T0_S7_.exit ]
-  %9 = ptrtoint ptr %.tr127.lcssa to i64
+  %.tr.lcssa = phi ptr [ %0, %7 ], [ %.0.i112, %_ZSt17__rotate_adaptiveIPPKN4llvm8coverage13CountedRegionES5_lET_S6_S6_S6_T1_S7_T0_S7_.exit ]
+  %.tr126.lcssa = phi ptr [ %1, %7 ], [ %.0122, %_ZSt17__rotate_adaptiveIPPKN4llvm8coverage13CountedRegionES5_lET_S6_S6_S6_T1_S7_T0_S7_.exit ]
+  %9 = ptrtoint ptr %.tr126.lcssa to i64
   %10 = ptrtoint ptr %.tr.lcssa to i64
   %11 = sub i64 %9, %10
-  %.not.i.i.i.i.i = icmp eq ptr %.tr127.lcssa, %.tr.lcssa
+  %.not.i.i.i.i.i = icmp eq ptr %.tr126.lcssa, %.tr.lcssa
   br i1 %.not.i.i.i.i.i, label %_ZSt4moveIPPKN4llvm8coverage13CountedRegionES5_ET0_T_S7_S6_.exit, label %12
 
 12:                                               ; preds = %tailrecurse._crit_edge
@@ -19623,15 +19608,15 @@ tailrecurse._crit_edge:                           ; preds = %_ZSt17__rotate_adap
 
 _ZSt4moveIPPKN4llvm8coverage13CountedRegionES5_ET0_T_S7_S6_.exit: ; preds = %tailrecurse._crit_edge, %12
   %13 = getelementptr inbounds i8, ptr %5, i64 %11
-  %14 = icmp ne ptr %.tr127.lcssa, %.tr.lcssa
-  %15 = icmp ne ptr %.tr127.lcssa, %2
+  %14 = icmp ne ptr %.tr126.lcssa, %.tr.lcssa
+  %15 = icmp ne ptr %.tr126.lcssa, %2
   %16 = and i1 %14, %15
   br i1 %16, label %.lr.ph.i, label %._crit_edge.i
 
 .lr.ph.i:                                         ; preds = %_ZSt4moveIPPKN4llvm8coverage13CountedRegionES5_ET0_T_S7_S6_.exit, %25
   %.024.i = phi ptr [ %26, %25 ], [ %.tr.lcssa, %_ZSt4moveIPPKN4llvm8coverage13CountedRegionES5_ET0_T_S7_S6_.exit ]
   %.01823.i = phi ptr [ %.1.i, %25 ], [ %5, %_ZSt4moveIPPKN4llvm8coverage13CountedRegionES5_ET0_T_S7_S6_.exit ]
-  %.01922.i = phi ptr [ %.120.i, %25 ], [ %.tr127.lcssa, %_ZSt4moveIPPKN4llvm8coverage13CountedRegionES5_ET0_T_S7_S6_.exit ]
+  %.01922.i = phi ptr [ %.120.i, %25 ], [ %.tr126.lcssa, %_ZSt4moveIPPKN4llvm8coverage13CountedRegionES5_ET0_T_S7_S6_.exit ]
   %.019.val.i = load ptr, ptr %.01922.i, align 8
   %.018.val.i = load ptr, ptr %.01823.i, align 8
   %17 = getelementptr i8, ptr %.019.val.i, i64 44
@@ -19684,331 +19669,327 @@ _ZSt4moveIPPKN4llvm8coverage13CountedRegionES5_ET0_T_S7_S6_.exit.i: ; preds = %.
   br label %_ZSt21__move_merge_adaptiveIPPKN4llvm8coverage13CountedRegionES5_S5_N9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_114SegmentBuilder20completeRegionsUntilESt8optionalISt4pairIjjEEjEUlS4_S4_E_EEEvT_SH_T0_SI_T1_T2_.exit
 
 33:                                               ; preds = %.lr.ph, %_ZSt17__rotate_adaptiveIPPKN4llvm8coverage13CountedRegionES5_lET_S6_S6_S6_T1_S7_T0_S7_.exit
-  %.not148 = phi i1 [ %.not140, %.lr.ph ], [ %.not, %_ZSt17__rotate_adaptiveIPPKN4llvm8coverage13CountedRegionES5_lET_S6_S6_S6_T1_S7_T0_S7_.exit ]
-  %.tr130147 = phi i64 [ %4, %.lr.ph ], [ %144, %_ZSt17__rotate_adaptiveIPPKN4llvm8coverage13CountedRegionES5_lET_S6_S6_S6_T1_S7_T0_S7_.exit ]
-  %.tr129146 = phi i64 [ %3, %.lr.ph ], [ %113, %_ZSt17__rotate_adaptiveIPPKN4llvm8coverage13CountedRegionES5_lET_S6_S6_S6_T1_S7_T0_S7_.exit ]
-  %.tr127144 = phi ptr [ %1, %.lr.ph ], [ %.0123, %_ZSt17__rotate_adaptiveIPPKN4llvm8coverage13CountedRegionES5_lET_S6_S6_S6_T1_S7_T0_S7_.exit ]
-  %.tr143 = phi ptr [ %0, %.lr.ph ], [ %.0.i113, %_ZSt17__rotate_adaptiveIPPKN4llvm8coverage13CountedRegionES5_lET_S6_S6_S6_T1_S7_T0_S7_.exit ]
-  %.not71 = icmp sgt i64 %.tr130147, %6
-  %34 = ptrtoint ptr %.tr127144 to i64
-  br i1 %.not71, label %65, label %35
+  %.not147 = phi i1 [ %.not139, %.lr.ph ], [ %.not, %_ZSt17__rotate_adaptiveIPPKN4llvm8coverage13CountedRegionES5_lET_S6_S6_S6_T1_S7_T0_S7_.exit ]
+  %.tr129146 = phi i64 [ %4, %.lr.ph ], [ %141, %_ZSt17__rotate_adaptiveIPPKN4llvm8coverage13CountedRegionES5_lET_S6_S6_S6_T1_S7_T0_S7_.exit ]
+  %.tr128145 = phi i64 [ %3, %.lr.ph ], [ %110, %_ZSt17__rotate_adaptiveIPPKN4llvm8coverage13CountedRegionES5_lET_S6_S6_S6_T1_S7_T0_S7_.exit ]
+  %.tr126143 = phi ptr [ %1, %.lr.ph ], [ %.0122, %_ZSt17__rotate_adaptiveIPPKN4llvm8coverage13CountedRegionES5_lET_S6_S6_S6_T1_S7_T0_S7_.exit ]
+  %.tr142 = phi ptr [ %0, %.lr.ph ], [ %.0.i112, %_ZSt17__rotate_adaptiveIPPKN4llvm8coverage13CountedRegionES5_lET_S6_S6_S6_T1_S7_T0_S7_.exit ]
+  %.not71 = icmp sgt i64 %.tr129146, %6
+  br i1 %.not71, label %61, label %34
 
-35:                                               ; preds = %33
-  %36 = sub i64 %8, %34
-  %.not.i.i.i.i.i73 = icmp eq ptr %2, %.tr127144
+34:                                               ; preds = %33
+  %.not.i.i.i.i.i73 = icmp eq ptr %2, %.tr126143
   br i1 %.not.i.i.i.i.i73, label %_ZSt21__move_merge_adaptiveIPPKN4llvm8coverage13CountedRegionES5_S5_N9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_114SegmentBuilder20completeRegionsUntilESt8optionalISt4pairIjjEEjEUlS4_S4_E_EEEvT_SH_T0_SI_T1_T2_.exit, label %_ZSt4moveIPPKN4llvm8coverage13CountedRegionES5_ET0_T_S7_S6_.exit74.thread
 
-_ZSt4moveIPPKN4llvm8coverage13CountedRegionES5_ET0_T_S7_S6_.exit74.thread: ; preds = %35
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %5, ptr align 8 %.tr127144, i64 %36, i1 false)
-  %37 = icmp eq ptr %.tr143, %.tr127144
-  br i1 %37, label %38, label %41
+_ZSt4moveIPPKN4llvm8coverage13CountedRegionES5_ET0_T_S7_S6_.exit74.thread: ; preds = %34
+  %35 = ptrtoint ptr %.tr126143 to i64
+  %36 = sub i64 %8, %35
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %5, ptr align 8 %.tr126143, i64 %36, i1 false)
+  %37 = getelementptr inbounds i8, ptr %5, i64 %36
+  %38 = icmp eq ptr %.tr142, %.tr126143
+  br i1 %38, label %_ZSt13move_backwardIPPKN4llvm8coverage13CountedRegionES5_ET0_T_S7_S6_.exit.sink.split.i, label %39
 
-38:                                               ; preds = %_ZSt4moveIPPKN4llvm8coverage13CountedRegionES5_ET0_T_S7_S6_.exit74.thread
-  %39 = ashr exact i64 %36, 3
-  %.pre.i.i.i.i.i.i = sub nsw i64 0, %39
-  %40 = getelementptr inbounds ptr, ptr %2, i64 %.pre.i.i.i.i.i.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %40, ptr align 8 %5, i64 %36, i1 false)
-  br label %_ZSt21__move_merge_adaptiveIPPKN4llvm8coverage13CountedRegionES5_S5_N9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_114SegmentBuilder20completeRegionsUntilESt8optionalISt4pairIjjEEjEUlS4_S4_E_EEEvT_SH_T0_SI_T1_T2_.exit
-
-41:                                               ; preds = %_ZSt4moveIPPKN4llvm8coverage13CountedRegionES5_ET0_T_S7_S6_.exit74.thread
-  %42 = getelementptr inbounds i8, ptr %5, i64 %36
-  %43 = getelementptr inbounds i8, ptr %42, i64 -8
+39:                                               ; preds = %_ZSt4moveIPPKN4llvm8coverage13CountedRegionES5_ET0_T_S7_S6_.exit74.thread
+  %40 = getelementptr inbounds i8, ptr %37, i64 -8
   br label %.outer
 
-.outer:                                           ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_114SegmentBuilder20completeRegionsUntilESt8optionalISt4pairIjjEEjEUlPKN4llvm8coverage13CountedRegionESC_E_EclIPSC_SG_EEbT_T0_.exit.thread.i83, %41
-  %.026.i.ph.pn = phi ptr [ %.tr127144, %41 ], [ %.026.i.ph, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_114SegmentBuilder20completeRegionsUntilESt8optionalISt4pairIjjEEjEUlPKN4llvm8coverage13CountedRegionESC_E_EclIPSC_SG_EEbT_T0_.exit.thread.i83 ]
-  %.024.i75.ph = phi ptr [ %43, %41 ], [ %.024.i75, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_114SegmentBuilder20completeRegionsUntilESt8optionalISt4pairIjjEEjEUlPKN4llvm8coverage13CountedRegionESC_E_EclIPSC_SG_EEbT_T0_.exit.thread.i83 ]
-  %.0.i.ph = phi ptr [ %2, %41 ], [ %50, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_114SegmentBuilder20completeRegionsUntilESt8optionalISt4pairIjjEEjEUlPKN4llvm8coverage13CountedRegionESC_E_EclIPSC_SG_EEbT_T0_.exit.thread.i83 ]
+.outer:                                           ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_114SegmentBuilder20completeRegionsUntilESt8optionalISt4pairIjjEEjEUlPKN4llvm8coverage13CountedRegionESC_E_EclIPSC_SG_EEbT_T0_.exit.thread.i83, %39
+  %.026.i.ph.pn = phi ptr [ %.tr126143, %39 ], [ %.026.i.ph, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_114SegmentBuilder20completeRegionsUntilESt8optionalISt4pairIjjEEjEUlPKN4llvm8coverage13CountedRegionESC_E_EclIPSC_SG_EEbT_T0_.exit.thread.i83 ]
+  %.024.i75.ph = phi ptr [ %40, %39 ], [ %.024.i75, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_114SegmentBuilder20completeRegionsUntilESt8optionalISt4pairIjjEEjEUlPKN4llvm8coverage13CountedRegionESC_E_EclIPSC_SG_EEbT_T0_.exit.thread.i83 ]
+  %.0.i.ph = phi ptr [ %2, %39 ], [ %47, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_114SegmentBuilder20completeRegionsUntilESt8optionalISt4pairIjjEEjEUlPKN4llvm8coverage13CountedRegionESC_E_EclIPSC_SG_EEbT_T0_.exit.thread.i83 ]
   %.026.i.ph = getelementptr inbounds i8, ptr %.026.i.ph.pn, i64 -8
-  br label %44
+  br label %41
 
-44:                                               ; preds = %.outer, %63
-  %.024.i75 = phi ptr [ %64, %63 ], [ %.024.i75.ph, %.outer ]
-  %.0.i = phi ptr [ %61, %63 ], [ %.0.i.ph, %.outer ]
+41:                                               ; preds = %.outer, %54
+  %.024.i75 = phi ptr [ %55, %54 ], [ %.024.i75.ph, %.outer ]
+  %.0.i = phi ptr [ %52, %54 ], [ %.0.i.ph, %.outer ]
   %.024.val.i = load ptr, ptr %.024.i75, align 8
   %.026.val.i = load ptr, ptr %.026.i.ph, align 8
-  %45 = getelementptr i8, ptr %.024.val.i, i64 44
-  %.024.val.val.i = load i64, ptr %45, align 4
-  %46 = getelementptr i8, ptr %.026.val.i, i64 44
-  %.026.val.val.i = load i64, ptr %46, align 4
+  %42 = getelementptr i8, ptr %.024.val.i, i64 44
+  %.024.val.val.i = load i64, ptr %42, align 4
+  %43 = getelementptr i8, ptr %.026.val.i, i64 44
+  %.026.val.val.i = load i64, ptr %43, align 4
   %.sroa.03.0.extract.trunc.i.i.i76 = trunc i64 %.024.val.val.i to i32
   %.sroa.0.0.extract.trunc.i.i.i77 = trunc i64 %.026.val.val.i to i32
-  %47 = icmp ult i32 %.sroa.03.0.extract.trunc.i.i.i76, %.sroa.0.0.extract.trunc.i.i.i77
-  br i1 %47, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_114SegmentBuilder20completeRegionsUntilESt8optionalISt4pairIjjEEjEUlPKN4llvm8coverage13CountedRegionESC_E_EclIPSC_SG_EEbT_T0_.exit.thread.i83, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_114SegmentBuilder20completeRegionsUntilESt8optionalISt4pairIjjEEjEUlPKN4llvm8coverage13CountedRegionESC_E_EclIPSC_SG_EEbT_T0_.exit.i78
+  %44 = icmp ult i32 %.sroa.03.0.extract.trunc.i.i.i76, %.sroa.0.0.extract.trunc.i.i.i77
+  br i1 %44, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_114SegmentBuilder20completeRegionsUntilESt8optionalISt4pairIjjEEjEUlPKN4llvm8coverage13CountedRegionESC_E_EclIPSC_SG_EEbT_T0_.exit.thread.i83, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_114SegmentBuilder20completeRegionsUntilESt8optionalISt4pairIjjEEjEUlPKN4llvm8coverage13CountedRegionESC_E_EclIPSC_SG_EEbT_T0_.exit.i78
 
-_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_114SegmentBuilder20completeRegionsUntilESt8optionalISt4pairIjjEEjEUlPKN4llvm8coverage13CountedRegionESC_E_EclIPSC_SG_EEbT_T0_.exit.i78: ; preds = %44
+_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_114SegmentBuilder20completeRegionsUntilESt8optionalISt4pairIjjEEjEUlPKN4llvm8coverage13CountedRegionESC_E_EclIPSC_SG_EEbT_T0_.exit.i78: ; preds = %41
   %.sroa.2.0.extract.shift.i.i.i79 = lshr i64 %.026.val.val.i, 32
   %.sroa.24.0.extract.shift.i.i.i80 = lshr i64 %.024.val.val.i, 32
-  %48 = icmp uge i32 %.sroa.0.0.extract.trunc.i.i.i77, %.sroa.03.0.extract.trunc.i.i.i76
-  %49 = icmp ult i64 %.sroa.24.0.extract.shift.i.i.i80, %.sroa.2.0.extract.shift.i.i.i79
-  %spec.select.i.i.i81 = and i1 %48, %49
-  br i1 %spec.select.i.i.i81, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_114SegmentBuilder20completeRegionsUntilESt8optionalISt4pairIjjEEjEUlPKN4llvm8coverage13CountedRegionESC_E_EclIPSC_SG_EEbT_T0_.exit.thread.i83, label %60
+  %45 = icmp uge i32 %.sroa.0.0.extract.trunc.i.i.i77, %.sroa.03.0.extract.trunc.i.i.i76
+  %46 = icmp ult i64 %.sroa.24.0.extract.shift.i.i.i80, %.sroa.2.0.extract.shift.i.i.i79
+  %spec.select.i.i.i81 = and i1 %45, %46
+  br i1 %spec.select.i.i.i81, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_114SegmentBuilder20completeRegionsUntilESt8optionalISt4pairIjjEEjEUlPKN4llvm8coverage13CountedRegionESC_E_EclIPSC_SG_EEbT_T0_.exit.thread.i83, label %51
 
-_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_114SegmentBuilder20completeRegionsUntilESt8optionalISt4pairIjjEEjEUlPKN4llvm8coverage13CountedRegionESC_E_EclIPSC_SG_EEbT_T0_.exit.thread.i83: ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_114SegmentBuilder20completeRegionsUntilESt8optionalISt4pairIjjEEjEUlPKN4llvm8coverage13CountedRegionESC_E_EclIPSC_SG_EEbT_T0_.exit.i78, %44
-  %50 = getelementptr inbounds i8, ptr %.0.i, i64 -8
-  store ptr %.026.val.i, ptr %50, align 8
-  %51 = icmp eq ptr %.tr143, %.026.i.ph
-  br i1 %51, label %52, label %.outer, !llvm.loop !452
+_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_114SegmentBuilder20completeRegionsUntilESt8optionalISt4pairIjjEEjEUlPKN4llvm8coverage13CountedRegionESC_E_EclIPSC_SG_EEbT_T0_.exit.thread.i83: ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_114SegmentBuilder20completeRegionsUntilESt8optionalISt4pairIjjEEjEUlPKN4llvm8coverage13CountedRegionESC_E_EclIPSC_SG_EEbT_T0_.exit.i78, %41
+  %47 = getelementptr inbounds i8, ptr %.0.i, i64 -8
+  store ptr %.026.val.i, ptr %47, align 8
+  %48 = icmp eq ptr %.tr142, %.026.i.ph
+  br i1 %48, label %49, label %.outer, !llvm.loop !452
 
-52:                                               ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_114SegmentBuilder20completeRegionsUntilESt8optionalISt4pairIjjEEjEUlPKN4llvm8coverage13CountedRegionESC_E_EclIPSC_SG_EEbT_T0_.exit.thread.i83
-  %53 = getelementptr inbounds i8, ptr %.024.i75, i64 8
-  %.not.i.i.i.i.i32.i = icmp eq ptr %53, %5
-  br i1 %.not.i.i.i.i.i32.i, label %_ZSt21__move_merge_adaptiveIPPKN4llvm8coverage13CountedRegionES5_S5_N9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_114SegmentBuilder20completeRegionsUntilESt8optionalISt4pairIjjEEjEUlS4_S4_E_EEEvT_SH_T0_SI_T1_T2_.exit, label %54
+49:                                               ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_114SegmentBuilder20completeRegionsUntilESt8optionalISt4pairIjjEEjEUlPKN4llvm8coverage13CountedRegionESC_E_EclIPSC_SG_EEbT_T0_.exit.thread.i83
+  %50 = getelementptr inbounds i8, ptr %.024.i75, i64 8
+  %.not.i.i.i.i.i32.i = icmp eq ptr %50, %5
+  br i1 %.not.i.i.i.i.i32.i, label %_ZSt21__move_merge_adaptiveIPPKN4llvm8coverage13CountedRegionES5_S5_N9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_114SegmentBuilder20completeRegionsUntilESt8optionalISt4pairIjjEEjEUlS4_S4_E_EEEvT_SH_T0_SI_T1_T2_.exit, label %_ZSt13move_backwardIPPKN4llvm8coverage13CountedRegionES5_ET0_T_S7_S6_.exit.sink.split.i
 
-54:                                               ; preds = %52
-  %55 = ptrtoint ptr %53 to i64
-  %56 = ptrtoint ptr %5 to i64
-  %57 = sub i64 %55, %56
-  %58 = ashr exact i64 %57, 3
-  %.pre.i.i.i.i.i33.i = sub nsw i64 0, %58
-  %59 = getelementptr inbounds ptr, ptr %50, i64 %.pre.i.i.i.i.i33.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %59, ptr align 8 %5, i64 %57, i1 false)
+51:                                               ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_114SegmentBuilder20completeRegionsUntilESt8optionalISt4pairIjjEEjEUlPKN4llvm8coverage13CountedRegionESC_E_EclIPSC_SG_EEbT_T0_.exit.i78
+  %52 = getelementptr inbounds i8, ptr %.0.i, i64 -8
+  store ptr %.024.val.i, ptr %52, align 8
+  %53 = icmp eq ptr %5, %.024.i75
+  br i1 %53, label %_ZSt21__move_merge_adaptiveIPPKN4llvm8coverage13CountedRegionES5_S5_N9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_114SegmentBuilder20completeRegionsUntilESt8optionalISt4pairIjjEEjEUlS4_S4_E_EEEvT_SH_T0_SI_T1_T2_.exit, label %54
+
+54:                                               ; preds = %51
+  %55 = getelementptr inbounds i8, ptr %.024.i75, i64 -8
+  br label %41, !llvm.loop !452
+
+_ZSt13move_backwardIPPKN4llvm8coverage13CountedRegionES5_ET0_T_S7_S6_.exit.sink.split.i: ; preds = %_ZSt4moveIPPKN4llvm8coverage13CountedRegionES5_ET0_T_S7_S6_.exit74.thread, %49
+  %.sink41.i = phi ptr [ %50, %49 ], [ %37, %_ZSt4moveIPPKN4llvm8coverage13CountedRegionES5_ET0_T_S7_S6_.exit74.thread ]
+  %.lcssa.sink.i = phi ptr [ %47, %49 ], [ %2, %_ZSt4moveIPPKN4llvm8coverage13CountedRegionES5_ET0_T_S7_S6_.exit74.thread ]
+  %56 = ptrtoint ptr %.sink41.i to i64
+  %57 = ptrtoint ptr %5 to i64
+  %58 = sub i64 %56, %57
+  %59 = ashr exact i64 %58, 3
+  %.pre.i.i.i.i.i33.i = sub nsw i64 0, %59
+  %60 = getelementptr inbounds ptr, ptr %.lcssa.sink.i, i64 %.pre.i.i.i.i.i33.i
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %60, ptr align 8 %5, i64 %58, i1 false)
   br label %_ZSt21__move_merge_adaptiveIPPKN4llvm8coverage13CountedRegionES5_S5_N9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_114SegmentBuilder20completeRegionsUntilESt8optionalISt4pairIjjEEjEUlS4_S4_E_EEEvT_SH_T0_SI_T1_T2_.exit
 
-60:                                               ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_114SegmentBuilder20completeRegionsUntilESt8optionalISt4pairIjjEEjEUlPKN4llvm8coverage13CountedRegionESC_E_EclIPSC_SG_EEbT_T0_.exit.i78
-  %61 = getelementptr inbounds i8, ptr %.0.i, i64 -8
-  store ptr %.024.val.i, ptr %61, align 8
-  %62 = icmp eq ptr %5, %.024.i75
-  br i1 %62, label %_ZSt21__move_merge_adaptiveIPPKN4llvm8coverage13CountedRegionES5_S5_N9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_114SegmentBuilder20completeRegionsUntilESt8optionalISt4pairIjjEEjEUlS4_S4_E_EEEvT_SH_T0_SI_T1_T2_.exit, label %63
+61:                                               ; preds = %33
+  %62 = ptrtoint ptr %.tr126143 to i64
+  br i1 %.not147, label %_ZSt7advanceIPPKN4llvm8coverage13CountedRegionElEvRT_T0_.exit, label %_ZSt7advanceIPPKN4llvm8coverage13CountedRegionElEvRT_T0_.exit94
 
-63:                                               ; preds = %60
-  %64 = getelementptr inbounds i8, ptr %.024.i75, i64 -8
-  br label %44, !llvm.loop !452
-
-65:                                               ; preds = %33
-  br i1 %.not148, label %_ZSt7advanceIPPKN4llvm8coverage13CountedRegionElEvRT_T0_.exit, label %_ZSt7advanceIPPKN4llvm8coverage13CountedRegionElEvRT_T0_.exit94
-
-_ZSt7advanceIPPKN4llvm8coverage13CountedRegionElEvRT_T0_.exit: ; preds = %65
-  %66 = sdiv i64 %.tr129146, 2
-  %67 = getelementptr inbounds ptr, ptr %.tr143, i64 %66
-  %68 = sub i64 %8, %34
-  %69 = ashr exact i64 %68, 3
-  %70 = icmp sgt i64 %69, 0
-  br i1 %70, label %_ZSt7advanceIPPKN4llvm8coverage13CountedRegionElEvRT_T0_.exit.lr.ph.i, label %_ZSt13__lower_boundIPPKN4llvm8coverage13CountedRegionES4_N9__gnu_cxx5__ops14_Iter_comp_valIZN12_GLOBAL__N_114SegmentBuilder20completeRegionsUntilESt8optionalISt4pairIjjEEjEUlS4_S4_E_EEET_SH_SH_RKT0_T1_.exit
+_ZSt7advanceIPPKN4llvm8coverage13CountedRegionElEvRT_T0_.exit: ; preds = %61
+  %63 = sdiv i64 %.tr128145, 2
+  %64 = getelementptr inbounds ptr, ptr %.tr142, i64 %63
+  %65 = sub i64 %8, %62
+  %66 = ashr exact i64 %65, 3
+  %67 = icmp sgt i64 %66, 0
+  br i1 %67, label %_ZSt7advanceIPPKN4llvm8coverage13CountedRegionElEvRT_T0_.exit.lr.ph.i, label %_ZSt13__lower_boundIPPKN4llvm8coverage13CountedRegionES4_N9__gnu_cxx5__ops14_Iter_comp_valIZN12_GLOBAL__N_114SegmentBuilder20completeRegionsUntilESt8optionalISt4pairIjjEEjEUlS4_S4_E_EEET_SH_SH_RKT0_T1_.exit
 
 _ZSt7advanceIPPKN4llvm8coverage13CountedRegionElEvRT_T0_.exit.lr.ph.i: ; preds = %_ZSt7advanceIPPKN4llvm8coverage13CountedRegionElEvRT_T0_.exit
-  %.val = load ptr, ptr %67, align 8
-  %71 = getelementptr i8, ptr %.val, i64 44
-  %.val13.val.i = load i64, ptr %71, align 4
+  %.val = load ptr, ptr %64, align 8
+  %68 = getelementptr i8, ptr %.val, i64 44
+  %.val13.val.i = load i64, ptr %68, align 4
   %.sroa.0.0.extract.trunc.i.i.i86 = trunc i64 %.val13.val.i to i32
   %.sroa.2.0.extract.shift.i.i.i87 = lshr i64 %.val13.val.i, 32
   br label %_ZSt7advanceIPPKN4llvm8coverage13CountedRegionElEvRT_T0_.exit.i
 
-_ZSt7advanceIPPKN4llvm8coverage13CountedRegionElEvRT_T0_.exit.i: ; preds = %84, %_ZSt7advanceIPPKN4llvm8coverage13CountedRegionElEvRT_T0_.exit.lr.ph.i
-  %.010.i = phi ptr [ %.tr127144, %_ZSt7advanceIPPKN4llvm8coverage13CountedRegionElEvRT_T0_.exit.lr.ph.i ], [ %86, %84 ]
-  %.0119.i = phi i64 [ %69, %_ZSt7advanceIPPKN4llvm8coverage13CountedRegionElEvRT_T0_.exit.lr.ph.i ], [ %85, %84 ]
-  %72 = lshr i64 %.0119.i, 1
-  %73 = getelementptr inbounds ptr, ptr %.010.i, i64 %72
-  %.val.i = load ptr, ptr %73, align 8
-  %74 = getelementptr i8, ptr %.val.i, i64 44
-  %.val.val.i = load i64, ptr %74, align 4
+_ZSt7advanceIPPKN4llvm8coverage13CountedRegionElEvRT_T0_.exit.i: ; preds = %81, %_ZSt7advanceIPPKN4llvm8coverage13CountedRegionElEvRT_T0_.exit.lr.ph.i
+  %.010.i = phi ptr [ %.tr126143, %_ZSt7advanceIPPKN4llvm8coverage13CountedRegionElEvRT_T0_.exit.lr.ph.i ], [ %83, %81 ]
+  %.0119.i = phi i64 [ %66, %_ZSt7advanceIPPKN4llvm8coverage13CountedRegionElEvRT_T0_.exit.lr.ph.i ], [ %82, %81 ]
+  %69 = lshr i64 %.0119.i, 1
+  %70 = getelementptr inbounds ptr, ptr %.010.i, i64 %69
+  %.val.i = load ptr, ptr %70, align 8
+  %71 = getelementptr i8, ptr %.val.i, i64 44
+  %.val.val.i = load i64, ptr %71, align 4
   %.sroa.03.0.extract.trunc.i.i.i88 = trunc i64 %.val.val.i to i32
-  %75 = icmp ult i32 %.sroa.03.0.extract.trunc.i.i.i88, %.sroa.0.0.extract.trunc.i.i.i86
-  br i1 %75, label %.thread.i, label %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN12_GLOBAL__N_114SegmentBuilder20completeRegionsUntilESt8optionalISt4pairIjjEEjEUlPKN4llvm8coverage13CountedRegionESC_E_EclIPSC_KSC_EEbT_RT0_.exit.i
+  %72 = icmp ult i32 %.sroa.03.0.extract.trunc.i.i.i88, %.sroa.0.0.extract.trunc.i.i.i86
+  br i1 %72, label %.thread.i, label %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN12_GLOBAL__N_114SegmentBuilder20completeRegionsUntilESt8optionalISt4pairIjjEEjEUlPKN4llvm8coverage13CountedRegionESC_E_EclIPSC_KSC_EEbT_RT0_.exit.i
 
 .thread.i:                                        ; preds = %_ZSt7advanceIPPKN4llvm8coverage13CountedRegionElEvRT_T0_.exit.i
-  %76 = getelementptr inbounds i8, ptr %73, i64 8
-  %77 = xor i64 %72, -1
-  %78 = add nsw i64 %.0119.i, %77
-  br label %84
+  %73 = getelementptr inbounds i8, ptr %70, i64 8
+  %74 = xor i64 %69, -1
+  %75 = add nsw i64 %.0119.i, %74
+  br label %81
 
 _ZN9__gnu_cxx5__ops14_Iter_comp_valIZN12_GLOBAL__N_114SegmentBuilder20completeRegionsUntilESt8optionalISt4pairIjjEEjEUlPKN4llvm8coverage13CountedRegionESC_E_EclIPSC_KSC_EEbT_RT0_.exit.i: ; preds = %_ZSt7advanceIPPKN4llvm8coverage13CountedRegionElEvRT_T0_.exit.i
   %.sroa.24.0.extract.shift.i.i.i89 = lshr i64 %.val.val.i, 32
-  %79 = icmp uge i32 %.sroa.0.0.extract.trunc.i.i.i86, %.sroa.03.0.extract.trunc.i.i.i88
-  %80 = icmp ult i64 %.sroa.24.0.extract.shift.i.i.i89, %.sroa.2.0.extract.shift.i.i.i87
-  %spec.select.i.i.i90 = and i1 %79, %80
+  %76 = icmp uge i32 %.sroa.0.0.extract.trunc.i.i.i86, %.sroa.03.0.extract.trunc.i.i.i88
+  %77 = icmp ult i64 %.sroa.24.0.extract.shift.i.i.i89, %.sroa.2.0.extract.shift.i.i.i87
+  %spec.select.i.i.i90 = and i1 %76, %77
   %cond.fr.i = freeze i1 %spec.select.i.i.i90
-  %81 = getelementptr inbounds i8, ptr %73, i64 8
-  %82 = xor i64 %72, -1
-  %83 = add nsw i64 %.0119.i, %82
-  %spec.select.i = select i1 %cond.fr.i, i64 %83, i64 %72
-  %spec.select8.i = select i1 %cond.fr.i, ptr %81, ptr %.010.i
-  br label %84
+  %78 = getelementptr inbounds i8, ptr %70, i64 8
+  %79 = xor i64 %69, -1
+  %80 = add nsw i64 %.0119.i, %79
+  %spec.select.i = select i1 %cond.fr.i, i64 %80, i64 %69
+  %spec.select8.i = select i1 %cond.fr.i, ptr %78, ptr %.010.i
+  br label %81
 
-84:                                               ; preds = %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN12_GLOBAL__N_114SegmentBuilder20completeRegionsUntilESt8optionalISt4pairIjjEEjEUlPKN4llvm8coverage13CountedRegionESC_E_EclIPSC_KSC_EEbT_RT0_.exit.i, %.thread.i
-  %85 = phi i64 [ %78, %.thread.i ], [ %spec.select.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN12_GLOBAL__N_114SegmentBuilder20completeRegionsUntilESt8optionalISt4pairIjjEEjEUlPKN4llvm8coverage13CountedRegionESC_E_EclIPSC_KSC_EEbT_RT0_.exit.i ]
-  %86 = phi ptr [ %76, %.thread.i ], [ %spec.select8.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN12_GLOBAL__N_114SegmentBuilder20completeRegionsUntilESt8optionalISt4pairIjjEEjEUlPKN4llvm8coverage13CountedRegionESC_E_EclIPSC_KSC_EEbT_RT0_.exit.i ]
-  %87 = icmp sgt i64 %85, 0
-  br i1 %87, label %_ZSt7advanceIPPKN4llvm8coverage13CountedRegionElEvRT_T0_.exit.i, label %_ZSt13__lower_boundIPPKN4llvm8coverage13CountedRegionES4_N9__gnu_cxx5__ops14_Iter_comp_valIZN12_GLOBAL__N_114SegmentBuilder20completeRegionsUntilESt8optionalISt4pairIjjEEjEUlS4_S4_E_EEET_SH_SH_RKT0_T1_.exit.loopexit, !llvm.loop !447
+81:                                               ; preds = %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN12_GLOBAL__N_114SegmentBuilder20completeRegionsUntilESt8optionalISt4pairIjjEEjEUlPKN4llvm8coverage13CountedRegionESC_E_EclIPSC_KSC_EEbT_RT0_.exit.i, %.thread.i
+  %82 = phi i64 [ %75, %.thread.i ], [ %spec.select.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN12_GLOBAL__N_114SegmentBuilder20completeRegionsUntilESt8optionalISt4pairIjjEEjEUlPKN4llvm8coverage13CountedRegionESC_E_EclIPSC_KSC_EEbT_RT0_.exit.i ]
+  %83 = phi ptr [ %73, %.thread.i ], [ %spec.select8.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN12_GLOBAL__N_114SegmentBuilder20completeRegionsUntilESt8optionalISt4pairIjjEEjEUlPKN4llvm8coverage13CountedRegionESC_E_EclIPSC_KSC_EEbT_RT0_.exit.i ]
+  %84 = icmp sgt i64 %82, 0
+  br i1 %84, label %_ZSt7advanceIPPKN4llvm8coverage13CountedRegionElEvRT_T0_.exit.i, label %_ZSt13__lower_boundIPPKN4llvm8coverage13CountedRegionES4_N9__gnu_cxx5__ops14_Iter_comp_valIZN12_GLOBAL__N_114SegmentBuilder20completeRegionsUntilESt8optionalISt4pairIjjEEjEUlS4_S4_E_EEET_SH_SH_RKT0_T1_.exit.loopexit, !llvm.loop !447
 
-_ZSt13__lower_boundIPPKN4llvm8coverage13CountedRegionES4_N9__gnu_cxx5__ops14_Iter_comp_valIZN12_GLOBAL__N_114SegmentBuilder20completeRegionsUntilESt8optionalISt4pairIjjEEjEUlS4_S4_E_EEET_SH_SH_RKT0_T1_.exit.loopexit: ; preds = %84
-  %.pre = ptrtoint ptr %86 to i64
+_ZSt13__lower_boundIPPKN4llvm8coverage13CountedRegionES4_N9__gnu_cxx5__ops14_Iter_comp_valIZN12_GLOBAL__N_114SegmentBuilder20completeRegionsUntilESt8optionalISt4pairIjjEEjEUlS4_S4_E_EEET_SH_SH_RKT0_T1_.exit.loopexit: ; preds = %81
+  %.pre = ptrtoint ptr %83 to i64
   br label %_ZSt13__lower_boundIPPKN4llvm8coverage13CountedRegionES4_N9__gnu_cxx5__ops14_Iter_comp_valIZN12_GLOBAL__N_114SegmentBuilder20completeRegionsUntilESt8optionalISt4pairIjjEEjEUlS4_S4_E_EEET_SH_SH_RKT0_T1_.exit
 
 _ZSt13__lower_boundIPPKN4llvm8coverage13CountedRegionES4_N9__gnu_cxx5__ops14_Iter_comp_valIZN12_GLOBAL__N_114SegmentBuilder20completeRegionsUntilESt8optionalISt4pairIjjEEjEUlS4_S4_E_EEET_SH_SH_RKT0_T1_.exit: ; preds = %_ZSt13__lower_boundIPPKN4llvm8coverage13CountedRegionES4_N9__gnu_cxx5__ops14_Iter_comp_valIZN12_GLOBAL__N_114SegmentBuilder20completeRegionsUntilESt8optionalISt4pairIjjEEjEUlS4_S4_E_EEET_SH_SH_RKT0_T1_.exit.loopexit, %_ZSt7advanceIPPKN4llvm8coverage13CountedRegionElEvRT_T0_.exit
-  %.pre-phi = phi i64 [ %.pre, %_ZSt13__lower_boundIPPKN4llvm8coverage13CountedRegionES4_N9__gnu_cxx5__ops14_Iter_comp_valIZN12_GLOBAL__N_114SegmentBuilder20completeRegionsUntilESt8optionalISt4pairIjjEEjEUlS4_S4_E_EEET_SH_SH_RKT0_T1_.exit.loopexit ], [ %34, %_ZSt7advanceIPPKN4llvm8coverage13CountedRegionElEvRT_T0_.exit ]
-  %.0.lcssa.i85 = phi ptr [ %86, %_ZSt13__lower_boundIPPKN4llvm8coverage13CountedRegionES4_N9__gnu_cxx5__ops14_Iter_comp_valIZN12_GLOBAL__N_114SegmentBuilder20completeRegionsUntilESt8optionalISt4pairIjjEEjEUlS4_S4_E_EEET_SH_SH_RKT0_T1_.exit.loopexit ], [ %.tr127144, %_ZSt7advanceIPPKN4llvm8coverage13CountedRegionElEvRT_T0_.exit ]
-  %88 = sub i64 %.pre-phi, %34
-  %89 = ashr exact i64 %88, 3
-  br label %112
+  %.pre-phi = phi i64 [ %.pre, %_ZSt13__lower_boundIPPKN4llvm8coverage13CountedRegionES4_N9__gnu_cxx5__ops14_Iter_comp_valIZN12_GLOBAL__N_114SegmentBuilder20completeRegionsUntilESt8optionalISt4pairIjjEEjEUlS4_S4_E_EEET_SH_SH_RKT0_T1_.exit.loopexit ], [ %62, %_ZSt7advanceIPPKN4llvm8coverage13CountedRegionElEvRT_T0_.exit ]
+  %.0.lcssa.i85 = phi ptr [ %83, %_ZSt13__lower_boundIPPKN4llvm8coverage13CountedRegionES4_N9__gnu_cxx5__ops14_Iter_comp_valIZN12_GLOBAL__N_114SegmentBuilder20completeRegionsUntilESt8optionalISt4pairIjjEEjEUlS4_S4_E_EEET_SH_SH_RKT0_T1_.exit.loopexit ], [ %.tr126143, %_ZSt7advanceIPPKN4llvm8coverage13CountedRegionElEvRT_T0_.exit ]
+  %85 = sub i64 %.pre-phi, %62
+  %86 = ashr exact i64 %85, 3
+  br label %109
 
-_ZSt7advanceIPPKN4llvm8coverage13CountedRegionElEvRT_T0_.exit94: ; preds = %65
-  %90 = sdiv i64 %.tr130147, 2
-  %91 = getelementptr inbounds ptr, ptr %.tr127144, i64 %90
-  %92 = ptrtoint ptr %.tr143 to i64
-  %93 = sub i64 %34, %92
-  %94 = ashr exact i64 %93, 3
-  %95 = icmp sgt i64 %94, 0
-  br i1 %95, label %_ZSt7advanceIPPKN4llvm8coverage13CountedRegionElEvRT_T0_.exit.lr.ph.i97, label %_ZSt13__upper_boundIPPKN4llvm8coverage13CountedRegionES4_N9__gnu_cxx5__ops14_Val_comp_iterIZN12_GLOBAL__N_114SegmentBuilder20completeRegionsUntilESt8optionalISt4pairIjjEEjEUlS4_S4_E_EEET_SH_SH_RKT0_T1_.exit
+_ZSt7advanceIPPKN4llvm8coverage13CountedRegionElEvRT_T0_.exit94: ; preds = %61
+  %87 = sdiv i64 %.tr129146, 2
+  %88 = getelementptr inbounds ptr, ptr %.tr126143, i64 %87
+  %89 = ptrtoint ptr %.tr142 to i64
+  %90 = sub i64 %62, %89
+  %91 = ashr exact i64 %90, 3
+  %92 = icmp sgt i64 %91, 0
+  br i1 %92, label %_ZSt7advanceIPPKN4llvm8coverage13CountedRegionElEvRT_T0_.exit.lr.ph.i97, label %_ZSt13__upper_boundIPPKN4llvm8coverage13CountedRegionES4_N9__gnu_cxx5__ops14_Val_comp_iterIZN12_GLOBAL__N_114SegmentBuilder20completeRegionsUntilESt8optionalISt4pairIjjEEjEUlS4_S4_E_EEET_SH_SH_RKT0_T1_.exit
 
 _ZSt7advanceIPPKN4llvm8coverage13CountedRegionElEvRT_T0_.exit.lr.ph.i97: ; preds = %_ZSt7advanceIPPKN4llvm8coverage13CountedRegionElEvRT_T0_.exit94
-  %.val72 = load ptr, ptr %91, align 8
-  %96 = getelementptr i8, ptr %.val72, i64 44
-  %.val.val.i98 = load i64, ptr %96, align 4
+  %.val72 = load ptr, ptr %88, align 8
+  %93 = getelementptr i8, ptr %.val72, i64 44
+  %.val.val.i98 = load i64, ptr %93, align 4
   %.sroa.03.0.extract.trunc.i.i.i99 = trunc i64 %.val.val.i98 to i32
   %.sroa.24.0.extract.shift.i.i.i100 = lshr i64 %.val.val.i98, 32
   br label %_ZSt7advanceIPPKN4llvm8coverage13CountedRegionElEvRT_T0_.exit.i101
 
 _ZSt7advanceIPPKN4llvm8coverage13CountedRegionElEvRT_T0_.exit.i101: ; preds = %.thread.i109, %_ZSt7advanceIPPKN4llvm8coverage13CountedRegionElEvRT_T0_.exit.lr.ph.i97
-  %.09.i = phi ptr [ %.tr143, %_ZSt7advanceIPPKN4llvm8coverage13CountedRegionElEvRT_T0_.exit.lr.ph.i97 ], [ %108, %.thread.i109 ]
-  %.0118.i = phi i64 [ %94, %_ZSt7advanceIPPKN4llvm8coverage13CountedRegionElEvRT_T0_.exit.lr.ph.i97 ], [ %107, %.thread.i109 ]
-  %97 = lshr i64 %.0118.i, 1
-  %98 = getelementptr inbounds ptr, ptr %.09.i, i64 %97
-  %.val13.i = load ptr, ptr %98, align 8
-  %99 = getelementptr i8, ptr %.val13.i, i64 44
-  %.val13.val.i104 = load i64, ptr %99, align 4
+  %.09.i = phi ptr [ %.tr142, %_ZSt7advanceIPPKN4llvm8coverage13CountedRegionElEvRT_T0_.exit.lr.ph.i97 ], [ %105, %.thread.i109 ]
+  %.0118.i = phi i64 [ %91, %_ZSt7advanceIPPKN4llvm8coverage13CountedRegionElEvRT_T0_.exit.lr.ph.i97 ], [ %104, %.thread.i109 ]
+  %94 = lshr i64 %.0118.i, 1
+  %95 = getelementptr inbounds ptr, ptr %.09.i, i64 %94
+  %.val13.i = load ptr, ptr %95, align 8
+  %96 = getelementptr i8, ptr %.val13.i, i64 44
+  %.val13.val.i104 = load i64, ptr %96, align 4
   %.sroa.0.0.extract.trunc.i.i.i105 = trunc i64 %.val13.val.i104 to i32
-  %100 = icmp ult i32 %.sroa.03.0.extract.trunc.i.i.i99, %.sroa.0.0.extract.trunc.i.i.i105
-  br i1 %100, label %.thread.i109, label %_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN12_GLOBAL__N_114SegmentBuilder20completeRegionsUntilESt8optionalISt4pairIjjEEjEUlPKN4llvm8coverage13CountedRegionESC_E_EclIKSC_PSC_EEbRT_T0_.exit.i
+  %97 = icmp ult i32 %.sroa.03.0.extract.trunc.i.i.i99, %.sroa.0.0.extract.trunc.i.i.i105
+  br i1 %97, label %.thread.i109, label %_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN12_GLOBAL__N_114SegmentBuilder20completeRegionsUntilESt8optionalISt4pairIjjEEjEUlPKN4llvm8coverage13CountedRegionESC_E_EclIKSC_PSC_EEbRT_T0_.exit.i
 
 _ZN9__gnu_cxx5__ops14_Val_comp_iterIZN12_GLOBAL__N_114SegmentBuilder20completeRegionsUntilESt8optionalISt4pairIjjEEjEUlPKN4llvm8coverage13CountedRegionESC_E_EclIKSC_PSC_EEbRT_T0_.exit.i: ; preds = %_ZSt7advanceIPPKN4llvm8coverage13CountedRegionElEvRT_T0_.exit.i101
   %.sroa.2.0.extract.shift.i.i.i106 = lshr i64 %.val13.val.i104, 32
-  %101 = icmp uge i32 %.sroa.0.0.extract.trunc.i.i.i105, %.sroa.03.0.extract.trunc.i.i.i99
-  %102 = icmp ult i64 %.sroa.24.0.extract.shift.i.i.i100, %.sroa.2.0.extract.shift.i.i.i106
-  %spec.select.i.i.i107 = and i1 %101, %102
+  %98 = icmp uge i32 %.sroa.0.0.extract.trunc.i.i.i105, %.sroa.03.0.extract.trunc.i.i.i99
+  %99 = icmp ult i64 %.sroa.24.0.extract.shift.i.i.i100, %.sroa.2.0.extract.shift.i.i.i106
+  %spec.select.i.i.i107 = and i1 %98, %99
   %cond.fr.i108 = freeze i1 %spec.select.i.i.i107
-  br i1 %cond.fr.i108, label %.thread.i109, label %103
+  br i1 %cond.fr.i108, label %.thread.i109, label %100
 
-103:                                              ; preds = %_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN12_GLOBAL__N_114SegmentBuilder20completeRegionsUntilESt8optionalISt4pairIjjEEjEUlPKN4llvm8coverage13CountedRegionESC_E_EclIKSC_PSC_EEbRT_T0_.exit.i
-  %104 = xor i64 %97, -1
-  %105 = add nsw i64 %.0118.i, %104
-  %106 = getelementptr inbounds i8, ptr %98, i64 8
+100:                                              ; preds = %_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN12_GLOBAL__N_114SegmentBuilder20completeRegionsUntilESt8optionalISt4pairIjjEEjEUlPKN4llvm8coverage13CountedRegionESC_E_EclIKSC_PSC_EEbRT_T0_.exit.i
+  %101 = xor i64 %94, -1
+  %102 = add nsw i64 %.0118.i, %101
+  %103 = getelementptr inbounds i8, ptr %95, i64 8
   br label %.thread.i109
 
-.thread.i109:                                     ; preds = %103, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN12_GLOBAL__N_114SegmentBuilder20completeRegionsUntilESt8optionalISt4pairIjjEEjEUlPKN4llvm8coverage13CountedRegionESC_E_EclIKSC_PSC_EEbRT_T0_.exit.i, %_ZSt7advanceIPPKN4llvm8coverage13CountedRegionElEvRT_T0_.exit.i101
-  %107 = phi i64 [ %97, %_ZSt7advanceIPPKN4llvm8coverage13CountedRegionElEvRT_T0_.exit.i101 ], [ %97, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN12_GLOBAL__N_114SegmentBuilder20completeRegionsUntilESt8optionalISt4pairIjjEEjEUlPKN4llvm8coverage13CountedRegionESC_E_EclIKSC_PSC_EEbRT_T0_.exit.i ], [ %105, %103 ]
-  %108 = phi ptr [ %.09.i, %_ZSt7advanceIPPKN4llvm8coverage13CountedRegionElEvRT_T0_.exit.i101 ], [ %.09.i, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN12_GLOBAL__N_114SegmentBuilder20completeRegionsUntilESt8optionalISt4pairIjjEEjEUlPKN4llvm8coverage13CountedRegionESC_E_EclIKSC_PSC_EEbRT_T0_.exit.i ], [ %106, %103 ]
-  %109 = icmp sgt i64 %107, 0
-  br i1 %109, label %_ZSt7advanceIPPKN4llvm8coverage13CountedRegionElEvRT_T0_.exit.i101, label %_ZSt13__upper_boundIPPKN4llvm8coverage13CountedRegionES4_N9__gnu_cxx5__ops14_Val_comp_iterIZN12_GLOBAL__N_114SegmentBuilder20completeRegionsUntilESt8optionalISt4pairIjjEEjEUlS4_S4_E_EEET_SH_SH_RKT0_T1_.exit.loopexit, !llvm.loop !448
+.thread.i109:                                     ; preds = %100, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN12_GLOBAL__N_114SegmentBuilder20completeRegionsUntilESt8optionalISt4pairIjjEEjEUlPKN4llvm8coverage13CountedRegionESC_E_EclIKSC_PSC_EEbRT_T0_.exit.i, %_ZSt7advanceIPPKN4llvm8coverage13CountedRegionElEvRT_T0_.exit.i101
+  %104 = phi i64 [ %94, %_ZSt7advanceIPPKN4llvm8coverage13CountedRegionElEvRT_T0_.exit.i101 ], [ %94, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN12_GLOBAL__N_114SegmentBuilder20completeRegionsUntilESt8optionalISt4pairIjjEEjEUlPKN4llvm8coverage13CountedRegionESC_E_EclIKSC_PSC_EEbRT_T0_.exit.i ], [ %102, %100 ]
+  %105 = phi ptr [ %.09.i, %_ZSt7advanceIPPKN4llvm8coverage13CountedRegionElEvRT_T0_.exit.i101 ], [ %.09.i, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN12_GLOBAL__N_114SegmentBuilder20completeRegionsUntilESt8optionalISt4pairIjjEEjEUlPKN4llvm8coverage13CountedRegionESC_E_EclIKSC_PSC_EEbRT_T0_.exit.i ], [ %103, %100 ]
+  %106 = icmp sgt i64 %104, 0
+  br i1 %106, label %_ZSt7advanceIPPKN4llvm8coverage13CountedRegionElEvRT_T0_.exit.i101, label %_ZSt13__upper_boundIPPKN4llvm8coverage13CountedRegionES4_N9__gnu_cxx5__ops14_Val_comp_iterIZN12_GLOBAL__N_114SegmentBuilder20completeRegionsUntilESt8optionalISt4pairIjjEEjEUlS4_S4_E_EEET_SH_SH_RKT0_T1_.exit.loopexit, !llvm.loop !448
 
 _ZSt13__upper_boundIPPKN4llvm8coverage13CountedRegionES4_N9__gnu_cxx5__ops14_Val_comp_iterIZN12_GLOBAL__N_114SegmentBuilder20completeRegionsUntilESt8optionalISt4pairIjjEEjEUlS4_S4_E_EEET_SH_SH_RKT0_T1_.exit.loopexit: ; preds = %.thread.i109
-  %.pre157 = ptrtoint ptr %108 to i64
+  %.pre156 = ptrtoint ptr %105 to i64
   br label %_ZSt13__upper_boundIPPKN4llvm8coverage13CountedRegionES4_N9__gnu_cxx5__ops14_Val_comp_iterIZN12_GLOBAL__N_114SegmentBuilder20completeRegionsUntilESt8optionalISt4pairIjjEEjEUlS4_S4_E_EEET_SH_SH_RKT0_T1_.exit
 
 _ZSt13__upper_boundIPPKN4llvm8coverage13CountedRegionES4_N9__gnu_cxx5__ops14_Val_comp_iterIZN12_GLOBAL__N_114SegmentBuilder20completeRegionsUntilESt8optionalISt4pairIjjEEjEUlS4_S4_E_EEET_SH_SH_RKT0_T1_.exit: ; preds = %_ZSt13__upper_boundIPPKN4llvm8coverage13CountedRegionES4_N9__gnu_cxx5__ops14_Val_comp_iterIZN12_GLOBAL__N_114SegmentBuilder20completeRegionsUntilESt8optionalISt4pairIjjEEjEUlS4_S4_E_EEET_SH_SH_RKT0_T1_.exit.loopexit, %_ZSt7advanceIPPKN4llvm8coverage13CountedRegionElEvRT_T0_.exit94
-  %.pre-phi158 = phi i64 [ %.pre157, %_ZSt13__upper_boundIPPKN4llvm8coverage13CountedRegionES4_N9__gnu_cxx5__ops14_Val_comp_iterIZN12_GLOBAL__N_114SegmentBuilder20completeRegionsUntilESt8optionalISt4pairIjjEEjEUlS4_S4_E_EEET_SH_SH_RKT0_T1_.exit.loopexit ], [ %92, %_ZSt7advanceIPPKN4llvm8coverage13CountedRegionElEvRT_T0_.exit94 ]
-  %.0.lcssa.i96 = phi ptr [ %108, %_ZSt13__upper_boundIPPKN4llvm8coverage13CountedRegionES4_N9__gnu_cxx5__ops14_Val_comp_iterIZN12_GLOBAL__N_114SegmentBuilder20completeRegionsUntilESt8optionalISt4pairIjjEEjEUlS4_S4_E_EEET_SH_SH_RKT0_T1_.exit.loopexit ], [ %.tr143, %_ZSt7advanceIPPKN4llvm8coverage13CountedRegionElEvRT_T0_.exit94 ]
-  %110 = sub i64 %.pre-phi158, %92
-  %111 = ashr exact i64 %110, 3
-  br label %112
+  %.pre-phi157 = phi i64 [ %.pre156, %_ZSt13__upper_boundIPPKN4llvm8coverage13CountedRegionES4_N9__gnu_cxx5__ops14_Val_comp_iterIZN12_GLOBAL__N_114SegmentBuilder20completeRegionsUntilESt8optionalISt4pairIjjEEjEUlS4_S4_E_EEET_SH_SH_RKT0_T1_.exit.loopexit ], [ %89, %_ZSt7advanceIPPKN4llvm8coverage13CountedRegionElEvRT_T0_.exit94 ]
+  %.0.lcssa.i96 = phi ptr [ %105, %_ZSt13__upper_boundIPPKN4llvm8coverage13CountedRegionES4_N9__gnu_cxx5__ops14_Val_comp_iterIZN12_GLOBAL__N_114SegmentBuilder20completeRegionsUntilESt8optionalISt4pairIjjEEjEUlS4_S4_E_EEET_SH_SH_RKT0_T1_.exit.loopexit ], [ %.tr142, %_ZSt7advanceIPPKN4llvm8coverage13CountedRegionElEvRT_T0_.exit94 ]
+  %107 = sub i64 %.pre-phi157, %89
+  %108 = ashr exact i64 %107, 3
+  br label %109
 
-112:                                              ; preds = %_ZSt13__upper_boundIPPKN4llvm8coverage13CountedRegionES4_N9__gnu_cxx5__ops14_Val_comp_iterIZN12_GLOBAL__N_114SegmentBuilder20completeRegionsUntilESt8optionalISt4pairIjjEEjEUlS4_S4_E_EEET_SH_SH_RKT0_T1_.exit, %_ZSt13__lower_boundIPPKN4llvm8coverage13CountedRegionES4_N9__gnu_cxx5__ops14_Iter_comp_valIZN12_GLOBAL__N_114SegmentBuilder20completeRegionsUntilESt8optionalISt4pairIjjEEjEUlS4_S4_E_EEET_SH_SH_RKT0_T1_.exit
-  %.0124 = phi ptr [ %67, %_ZSt13__lower_boundIPPKN4llvm8coverage13CountedRegionES4_N9__gnu_cxx5__ops14_Iter_comp_valIZN12_GLOBAL__N_114SegmentBuilder20completeRegionsUntilESt8optionalISt4pairIjjEEjEUlS4_S4_E_EEET_SH_SH_RKT0_T1_.exit ], [ %.0.lcssa.i96, %_ZSt13__upper_boundIPPKN4llvm8coverage13CountedRegionES4_N9__gnu_cxx5__ops14_Val_comp_iterIZN12_GLOBAL__N_114SegmentBuilder20completeRegionsUntilESt8optionalISt4pairIjjEEjEUlS4_S4_E_EEET_SH_SH_RKT0_T1_.exit ]
-  %.0123 = phi ptr [ %.0.lcssa.i85, %_ZSt13__lower_boundIPPKN4llvm8coverage13CountedRegionES4_N9__gnu_cxx5__ops14_Iter_comp_valIZN12_GLOBAL__N_114SegmentBuilder20completeRegionsUntilESt8optionalISt4pairIjjEEjEUlS4_S4_E_EEET_SH_SH_RKT0_T1_.exit ], [ %91, %_ZSt13__upper_boundIPPKN4llvm8coverage13CountedRegionES4_N9__gnu_cxx5__ops14_Val_comp_iterIZN12_GLOBAL__N_114SegmentBuilder20completeRegionsUntilESt8optionalISt4pairIjjEEjEUlS4_S4_E_EEET_SH_SH_RKT0_T1_.exit ]
-  %.066 = phi i64 [ %89, %_ZSt13__lower_boundIPPKN4llvm8coverage13CountedRegionES4_N9__gnu_cxx5__ops14_Iter_comp_valIZN12_GLOBAL__N_114SegmentBuilder20completeRegionsUntilESt8optionalISt4pairIjjEEjEUlS4_S4_E_EEET_SH_SH_RKT0_T1_.exit ], [ %90, %_ZSt13__upper_boundIPPKN4llvm8coverage13CountedRegionES4_N9__gnu_cxx5__ops14_Val_comp_iterIZN12_GLOBAL__N_114SegmentBuilder20completeRegionsUntilESt8optionalISt4pairIjjEEjEUlS4_S4_E_EEET_SH_SH_RKT0_T1_.exit ]
-  %.0 = phi i64 [ %66, %_ZSt13__lower_boundIPPKN4llvm8coverage13CountedRegionES4_N9__gnu_cxx5__ops14_Iter_comp_valIZN12_GLOBAL__N_114SegmentBuilder20completeRegionsUntilESt8optionalISt4pairIjjEEjEUlS4_S4_E_EEET_SH_SH_RKT0_T1_.exit ], [ %111, %_ZSt13__upper_boundIPPKN4llvm8coverage13CountedRegionES4_N9__gnu_cxx5__ops14_Val_comp_iterIZN12_GLOBAL__N_114SegmentBuilder20completeRegionsUntilESt8optionalISt4pairIjjEEjEUlS4_S4_E_EEET_SH_SH_RKT0_T1_.exit ]
-  %113 = sub nsw i64 %.tr129146, %.0
-  %114 = icmp sle i64 %113, %.066
+109:                                              ; preds = %_ZSt13__upper_boundIPPKN4llvm8coverage13CountedRegionES4_N9__gnu_cxx5__ops14_Val_comp_iterIZN12_GLOBAL__N_114SegmentBuilder20completeRegionsUntilESt8optionalISt4pairIjjEEjEUlS4_S4_E_EEET_SH_SH_RKT0_T1_.exit, %_ZSt13__lower_boundIPPKN4llvm8coverage13CountedRegionES4_N9__gnu_cxx5__ops14_Iter_comp_valIZN12_GLOBAL__N_114SegmentBuilder20completeRegionsUntilESt8optionalISt4pairIjjEEjEUlS4_S4_E_EEET_SH_SH_RKT0_T1_.exit
+  %.0123 = phi ptr [ %64, %_ZSt13__lower_boundIPPKN4llvm8coverage13CountedRegionES4_N9__gnu_cxx5__ops14_Iter_comp_valIZN12_GLOBAL__N_114SegmentBuilder20completeRegionsUntilESt8optionalISt4pairIjjEEjEUlS4_S4_E_EEET_SH_SH_RKT0_T1_.exit ], [ %.0.lcssa.i96, %_ZSt13__upper_boundIPPKN4llvm8coverage13CountedRegionES4_N9__gnu_cxx5__ops14_Val_comp_iterIZN12_GLOBAL__N_114SegmentBuilder20completeRegionsUntilESt8optionalISt4pairIjjEEjEUlS4_S4_E_EEET_SH_SH_RKT0_T1_.exit ]
+  %.0122 = phi ptr [ %.0.lcssa.i85, %_ZSt13__lower_boundIPPKN4llvm8coverage13CountedRegionES4_N9__gnu_cxx5__ops14_Iter_comp_valIZN12_GLOBAL__N_114SegmentBuilder20completeRegionsUntilESt8optionalISt4pairIjjEEjEUlS4_S4_E_EEET_SH_SH_RKT0_T1_.exit ], [ %88, %_ZSt13__upper_boundIPPKN4llvm8coverage13CountedRegionES4_N9__gnu_cxx5__ops14_Val_comp_iterIZN12_GLOBAL__N_114SegmentBuilder20completeRegionsUntilESt8optionalISt4pairIjjEEjEUlS4_S4_E_EEET_SH_SH_RKT0_T1_.exit ]
+  %.066 = phi i64 [ %86, %_ZSt13__lower_boundIPPKN4llvm8coverage13CountedRegionES4_N9__gnu_cxx5__ops14_Iter_comp_valIZN12_GLOBAL__N_114SegmentBuilder20completeRegionsUntilESt8optionalISt4pairIjjEEjEUlS4_S4_E_EEET_SH_SH_RKT0_T1_.exit ], [ %87, %_ZSt13__upper_boundIPPKN4llvm8coverage13CountedRegionES4_N9__gnu_cxx5__ops14_Val_comp_iterIZN12_GLOBAL__N_114SegmentBuilder20completeRegionsUntilESt8optionalISt4pairIjjEEjEUlS4_S4_E_EEET_SH_SH_RKT0_T1_.exit ]
+  %.0 = phi i64 [ %63, %_ZSt13__lower_boundIPPKN4llvm8coverage13CountedRegionES4_N9__gnu_cxx5__ops14_Iter_comp_valIZN12_GLOBAL__N_114SegmentBuilder20completeRegionsUntilESt8optionalISt4pairIjjEEjEUlS4_S4_E_EEET_SH_SH_RKT0_T1_.exit ], [ %108, %_ZSt13__upper_boundIPPKN4llvm8coverage13CountedRegionES4_N9__gnu_cxx5__ops14_Val_comp_iterIZN12_GLOBAL__N_114SegmentBuilder20completeRegionsUntilESt8optionalISt4pairIjjEEjEUlS4_S4_E_EEET_SH_SH_RKT0_T1_.exit ]
+  %110 = sub nsw i64 %.tr128145, %.0
+  %111 = icmp sle i64 %110, %.066
   %.not.i = icmp sgt i64 %.066, %6
-  %or.cond.i = or i1 %.not.i, %114
-  br i1 %or.cond.i, label %128, label %115
+  %or.cond.i = or i1 %.not.i, %111
+  br i1 %or.cond.i, label %125, label %112
 
-115:                                              ; preds = %112
+112:                                              ; preds = %109
   %.not35.i = icmp eq i64 %.066, 0
-  br i1 %.not35.i, label %_ZSt17__rotate_adaptiveIPPKN4llvm8coverage13CountedRegionES5_lET_S6_S6_S6_T1_S7_T0_S7_.exit, label %116
+  br i1 %.not35.i, label %_ZSt17__rotate_adaptiveIPPKN4llvm8coverage13CountedRegionES5_lET_S6_S6_S6_T1_S7_T0_S7_.exit, label %113
 
-116:                                              ; preds = %115
-  %117 = ptrtoint ptr %.0123 to i64
-  %118 = ptrtoint ptr %.tr127144 to i64
-  %119 = sub i64 %117, %118
-  %.not.i.i.i.i.i.i110 = icmp eq ptr %.0123, %.tr127144
-  br i1 %.not.i.i.i.i.i.i110, label %_ZSt4moveIPPKN4llvm8coverage13CountedRegionES5_ET0_T_S7_S6_.exit.i111, label %120
+113:                                              ; preds = %112
+  %114 = ptrtoint ptr %.0122 to i64
+  %115 = ptrtoint ptr %.tr126143 to i64
+  %116 = sub i64 %114, %115
+  %.not.i.i.i.i.i.i110 = icmp eq ptr %.0122, %.tr126143
+  br i1 %.not.i.i.i.i.i.i110, label %_ZSt4moveIPPKN4llvm8coverage13CountedRegionES5_ET0_T_S7_S6_.exit.i111, label %117
 
-120:                                              ; preds = %116
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %5, ptr align 8 %.tr127144, i64 %119, i1 false)
+117:                                              ; preds = %113
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %5, ptr align 8 %.tr126143, i64 %116, i1 false)
   br label %_ZSt4moveIPPKN4llvm8coverage13CountedRegionES5_ET0_T_S7_S6_.exit.i111
 
-_ZSt4moveIPPKN4llvm8coverage13CountedRegionES5_ET0_T_S7_S6_.exit.i111: ; preds = %120, %116
-  %.not.i.i.i.i.i36.i = icmp eq ptr %.tr127144, %.0124
-  br i1 %.not.i.i.i.i.i36.i, label %_ZSt13move_backwardIPPKN4llvm8coverage13CountedRegionES5_ET0_T_S7_S6_.exit.i, label %121
+_ZSt4moveIPPKN4llvm8coverage13CountedRegionES5_ET0_T_S7_S6_.exit.i111: ; preds = %117, %113
+  %.not.i.i.i.i.i36.i = icmp eq ptr %.tr126143, %.0123
+  br i1 %.not.i.i.i.i.i36.i, label %_ZSt13move_backwardIPPKN4llvm8coverage13CountedRegionES5_ET0_T_S7_S6_.exit.i, label %118
 
-121:                                              ; preds = %_ZSt4moveIPPKN4llvm8coverage13CountedRegionES5_ET0_T_S7_S6_.exit.i111
-  %122 = ptrtoint ptr %.0124 to i64
-  %123 = sub i64 %118, %122
-  %124 = ashr exact i64 %123, 3
-  %.pre.i.i.i.i.i.i112 = sub nsw i64 0, %124
-  %125 = getelementptr inbounds ptr, ptr %.0123, i64 %.pre.i.i.i.i.i.i112
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %125, ptr align 8 %.0124, i64 %123, i1 false)
+118:                                              ; preds = %_ZSt4moveIPPKN4llvm8coverage13CountedRegionES5_ET0_T_S7_S6_.exit.i111
+  %119 = ptrtoint ptr %.0123 to i64
+  %120 = sub i64 %115, %119
+  %121 = ashr exact i64 %120, 3
+  %.pre.i.i.i.i.i.i = sub nsw i64 0, %121
+  %122 = getelementptr inbounds ptr, ptr %.0122, i64 %.pre.i.i.i.i.i.i
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %122, ptr align 8 %.0123, i64 %120, i1 false)
   br label %_ZSt13move_backwardIPPKN4llvm8coverage13CountedRegionES5_ET0_T_S7_S6_.exit.i
 
-_ZSt13move_backwardIPPKN4llvm8coverage13CountedRegionES5_ET0_T_S7_S6_.exit.i: ; preds = %121, %_ZSt4moveIPPKN4llvm8coverage13CountedRegionES5_ET0_T_S7_S6_.exit.i111
-  br i1 %.not.i.i.i.i.i.i110, label %_ZSt4moveIPPKN4llvm8coverage13CountedRegionES5_ET0_T_S7_S6_.exit38.i, label %126
+_ZSt13move_backwardIPPKN4llvm8coverage13CountedRegionES5_ET0_T_S7_S6_.exit.i: ; preds = %118, %_ZSt4moveIPPKN4llvm8coverage13CountedRegionES5_ET0_T_S7_S6_.exit.i111
+  br i1 %.not.i.i.i.i.i.i110, label %_ZSt4moveIPPKN4llvm8coverage13CountedRegionES5_ET0_T_S7_S6_.exit38.i, label %123
 
-126:                                              ; preds = %_ZSt13move_backwardIPPKN4llvm8coverage13CountedRegionES5_ET0_T_S7_S6_.exit.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %.0124, ptr align 8 %5, i64 %119, i1 false)
+123:                                              ; preds = %_ZSt13move_backwardIPPKN4llvm8coverage13CountedRegionES5_ET0_T_S7_S6_.exit.i
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %.0123, ptr align 8 %5, i64 %116, i1 false)
   br label %_ZSt4moveIPPKN4llvm8coverage13CountedRegionES5_ET0_T_S7_S6_.exit38.i
 
-_ZSt4moveIPPKN4llvm8coverage13CountedRegionES5_ET0_T_S7_S6_.exit38.i: ; preds = %126, %_ZSt13move_backwardIPPKN4llvm8coverage13CountedRegionES5_ET0_T_S7_S6_.exit.i
-  %127 = getelementptr inbounds i8, ptr %.0124, i64 %119
+_ZSt4moveIPPKN4llvm8coverage13CountedRegionES5_ET0_T_S7_S6_.exit38.i: ; preds = %123, %_ZSt13move_backwardIPPKN4llvm8coverage13CountedRegionES5_ET0_T_S7_S6_.exit.i
+  %124 = getelementptr inbounds i8, ptr %.0123, i64 %116
   br label %_ZSt17__rotate_adaptiveIPPKN4llvm8coverage13CountedRegionES5_lET_S6_S6_S6_T1_S7_T0_S7_.exit
 
-128:                                              ; preds = %112
-  %.not33.i = icmp sgt i64 %113, %6
-  br i1 %.not33.i, label %142, label %129
+125:                                              ; preds = %109
+  %.not33.i = icmp sgt i64 %110, %6
+  br i1 %.not33.i, label %139, label %126
 
-129:                                              ; preds = %128
-  %.not34.i = icmp eq i64 %.tr129146, %.0
-  br i1 %.not34.i, label %_ZSt17__rotate_adaptiveIPPKN4llvm8coverage13CountedRegionES5_lET_S6_S6_S6_T1_S7_T0_S7_.exit, label %130
+126:                                              ; preds = %125
+  %.not34.i = icmp eq i64 %.tr128145, %.0
+  br i1 %.not34.i, label %_ZSt17__rotate_adaptiveIPPKN4llvm8coverage13CountedRegionES5_lET_S6_S6_S6_T1_S7_T0_S7_.exit, label %127
 
-130:                                              ; preds = %129
-  %131 = ptrtoint ptr %.tr127144 to i64
-  %132 = ptrtoint ptr %.0124 to i64
-  %133 = sub i64 %131, %132
-  %.not.i.i.i.i.i39.i = icmp eq ptr %.tr127144, %.0124
-  br i1 %.not.i.i.i.i.i39.i, label %_ZSt4moveIPPKN4llvm8coverage13CountedRegionES5_ET0_T_S7_S6_.exit40.i, label %134
+127:                                              ; preds = %126
+  %128 = ptrtoint ptr %.tr126143 to i64
+  %129 = ptrtoint ptr %.0123 to i64
+  %130 = sub i64 %128, %129
+  %.not.i.i.i.i.i39.i = icmp eq ptr %.tr126143, %.0123
+  br i1 %.not.i.i.i.i.i39.i, label %_ZSt4moveIPPKN4llvm8coverage13CountedRegionES5_ET0_T_S7_S6_.exit40.i, label %131
 
-134:                                              ; preds = %130
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %5, ptr align 8 %.0124, i64 %133, i1 false)
+131:                                              ; preds = %127
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %5, ptr align 8 %.0123, i64 %130, i1 false)
   br label %_ZSt4moveIPPKN4llvm8coverage13CountedRegionES5_ET0_T_S7_S6_.exit40.i
 
-_ZSt4moveIPPKN4llvm8coverage13CountedRegionES5_ET0_T_S7_S6_.exit40.i: ; preds = %134, %130
-  %.not.i.i.i.i.i41.i = icmp eq ptr %.0123, %.tr127144
-  br i1 %.not.i.i.i.i.i41.i, label %_ZSt4moveIPPKN4llvm8coverage13CountedRegionES5_ET0_T_S7_S6_.exit42.i, label %135
+_ZSt4moveIPPKN4llvm8coverage13CountedRegionES5_ET0_T_S7_S6_.exit40.i: ; preds = %131, %127
+  %.not.i.i.i.i.i41.i = icmp eq ptr %.0122, %.tr126143
+  br i1 %.not.i.i.i.i.i41.i, label %_ZSt4moveIPPKN4llvm8coverage13CountedRegionES5_ET0_T_S7_S6_.exit42.i, label %132
 
-135:                                              ; preds = %_ZSt4moveIPPKN4llvm8coverage13CountedRegionES5_ET0_T_S7_S6_.exit40.i
-  %136 = ptrtoint ptr %.0123 to i64
-  %137 = sub i64 %136, %131
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %.0124, ptr align 8 %.tr127144, i64 %137, i1 false)
+132:                                              ; preds = %_ZSt4moveIPPKN4llvm8coverage13CountedRegionES5_ET0_T_S7_S6_.exit40.i
+  %133 = ptrtoint ptr %.0122 to i64
+  %134 = sub i64 %133, %128
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %.0123, ptr align 8 %.tr126143, i64 %134, i1 false)
   br label %_ZSt4moveIPPKN4llvm8coverage13CountedRegionES5_ET0_T_S7_S6_.exit42.i
 
-_ZSt4moveIPPKN4llvm8coverage13CountedRegionES5_ET0_T_S7_S6_.exit42.i: ; preds = %135, %_ZSt4moveIPPKN4llvm8coverage13CountedRegionES5_ET0_T_S7_S6_.exit40.i
-  %138 = ashr exact i64 %133, 3
-  %.pre.i.i.i.i.i44.i = sub nsw i64 0, %138
-  br i1 %.not.i.i.i.i.i39.i, label %_ZSt13move_backwardIPPKN4llvm8coverage13CountedRegionES5_ET0_T_S7_S6_.exit45.i, label %139
+_ZSt4moveIPPKN4llvm8coverage13CountedRegionES5_ET0_T_S7_S6_.exit42.i: ; preds = %132, %_ZSt4moveIPPKN4llvm8coverage13CountedRegionES5_ET0_T_S7_S6_.exit40.i
+  %135 = ashr exact i64 %130, 3
+  %.pre.i.i.i.i.i44.i = sub nsw i64 0, %135
+  br i1 %.not.i.i.i.i.i39.i, label %_ZSt13move_backwardIPPKN4llvm8coverage13CountedRegionES5_ET0_T_S7_S6_.exit45.i, label %136
 
-139:                                              ; preds = %_ZSt4moveIPPKN4llvm8coverage13CountedRegionES5_ET0_T_S7_S6_.exit42.i
-  %140 = getelementptr inbounds ptr, ptr %.0123, i64 %.pre.i.i.i.i.i44.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %140, ptr align 8 %5, i64 %133, i1 false)
+136:                                              ; preds = %_ZSt4moveIPPKN4llvm8coverage13CountedRegionES5_ET0_T_S7_S6_.exit42.i
+  %137 = getelementptr inbounds ptr, ptr %.0122, i64 %.pre.i.i.i.i.i44.i
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %137, ptr align 8 %5, i64 %130, i1 false)
   br label %_ZSt13move_backwardIPPKN4llvm8coverage13CountedRegionES5_ET0_T_S7_S6_.exit45.i
 
-_ZSt13move_backwardIPPKN4llvm8coverage13CountedRegionES5_ET0_T_S7_S6_.exit45.i: ; preds = %139, %_ZSt4moveIPPKN4llvm8coverage13CountedRegionES5_ET0_T_S7_S6_.exit42.i
-  %141 = getelementptr inbounds ptr, ptr %.0123, i64 %.pre.i.i.i.i.i44.i
+_ZSt13move_backwardIPPKN4llvm8coverage13CountedRegionES5_ET0_T_S7_S6_.exit45.i: ; preds = %136, %_ZSt4moveIPPKN4llvm8coverage13CountedRegionES5_ET0_T_S7_S6_.exit42.i
+  %138 = getelementptr inbounds ptr, ptr %.0122, i64 %.pre.i.i.i.i.i44.i
   br label %_ZSt17__rotate_adaptiveIPPKN4llvm8coverage13CountedRegionES5_lET_S6_S6_S6_T1_S7_T0_S7_.exit
 
-142:                                              ; preds = %128
-  %143 = tail call noundef ptr @_ZNSt3_V28__rotateIPPKN4llvm8coverage13CountedRegionEEET_S7_S7_S7_St26random_access_iterator_tag(ptr noundef %.0124, ptr noundef %.tr127144, ptr noundef %.0123)
+139:                                              ; preds = %125
+  %140 = tail call noundef ptr @_ZNSt3_V28__rotateIPPKN4llvm8coverage13CountedRegionEEET_S7_S7_S7_St26random_access_iterator_tag(ptr noundef %.0123, ptr noundef %.tr126143, ptr noundef %.0122)
   br label %_ZSt17__rotate_adaptiveIPPKN4llvm8coverage13CountedRegionES5_lET_S6_S6_S6_T1_S7_T0_S7_.exit
 
-_ZSt17__rotate_adaptiveIPPKN4llvm8coverage13CountedRegionES5_lET_S6_S6_S6_T1_S7_T0_S7_.exit: ; preds = %115, %_ZSt4moveIPPKN4llvm8coverage13CountedRegionES5_ET0_T_S7_S6_.exit38.i, %129, %_ZSt13move_backwardIPPKN4llvm8coverage13CountedRegionES5_ET0_T_S7_S6_.exit45.i, %142
-  %.0.i113 = phi ptr [ %127, %_ZSt4moveIPPKN4llvm8coverage13CountedRegionES5_ET0_T_S7_S6_.exit38.i ], [ %141, %_ZSt13move_backwardIPPKN4llvm8coverage13CountedRegionES5_ET0_T_S7_S6_.exit45.i ], [ %143, %142 ], [ %.0124, %115 ], [ %.0123, %129 ]
-  tail call fastcc void @_ZSt16__merge_adaptiveIPPKN4llvm8coverage13CountedRegionElS5_N9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_114SegmentBuilder20completeRegionsUntilESt8optionalISt4pairIjjEEjEUlS4_S4_E_EEEvT_SH_SH_T0_SI_T1_SI_T2_(ptr noundef %.tr143, ptr noundef %.0124, ptr noundef %.0.i113, i64 noundef %.0, i64 noundef %.066, ptr noundef %5, i64 noundef %6)
-  %144 = sub nsw i64 %.tr130147, %.066
-  %.not = icmp sgt i64 %113, %144
-  %.not70 = icmp sgt i64 %113, %6
+_ZSt17__rotate_adaptiveIPPKN4llvm8coverage13CountedRegionES5_lET_S6_S6_S6_T1_S7_T0_S7_.exit: ; preds = %112, %_ZSt4moveIPPKN4llvm8coverage13CountedRegionES5_ET0_T_S7_S6_.exit38.i, %126, %_ZSt13move_backwardIPPKN4llvm8coverage13CountedRegionES5_ET0_T_S7_S6_.exit45.i, %139
+  %.0.i112 = phi ptr [ %124, %_ZSt4moveIPPKN4llvm8coverage13CountedRegionES5_ET0_T_S7_S6_.exit38.i ], [ %138, %_ZSt13move_backwardIPPKN4llvm8coverage13CountedRegionES5_ET0_T_S7_S6_.exit45.i ], [ %140, %139 ], [ %.0123, %112 ], [ %.0122, %126 ]
+  tail call fastcc void @_ZSt16__merge_adaptiveIPPKN4llvm8coverage13CountedRegionElS5_N9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_114SegmentBuilder20completeRegionsUntilESt8optionalISt4pairIjjEEjEUlS4_S4_E_EEEvT_SH_SH_T0_SI_T1_SI_T2_(ptr noundef %.tr142, ptr noundef %.0123, ptr noundef %.0.i112, i64 noundef %.0, i64 noundef %.066, ptr noundef %5, i64 noundef %6)
+  %141 = sub nsw i64 %.tr129146, %.066
+  %.not = icmp sgt i64 %110, %141
+  %.not70 = icmp sgt i64 %110, %6
   %or.cond = or i1 %.not70, %.not
   br i1 %or.cond, label %33, label %tailrecurse._crit_edge
 
-_ZSt21__move_merge_adaptiveIPPKN4llvm8coverage13CountedRegionES5_S5_N9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_114SegmentBuilder20completeRegionsUntilESt8optionalISt4pairIjjEEjEUlS4_S4_E_EEEvT_SH_T0_SI_T1_T2_.exit: ; preds = %60, %35, %54, %52, %38, %_ZSt4moveIPPKN4llvm8coverage13CountedRegionES5_ET0_T_S7_S6_.exit.i, %._crit_edge.i
+_ZSt21__move_merge_adaptiveIPPKN4llvm8coverage13CountedRegionES5_S5_N9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_114SegmentBuilder20completeRegionsUntilESt8optionalISt4pairIjjEEjEUlS4_S4_E_EEEvT_SH_T0_SI_T1_T2_.exit: ; preds = %51, %34, %_ZSt13move_backwardIPPKN4llvm8coverage13CountedRegionES5_ET0_T_S7_S6_.exit.sink.split.i, %49, %_ZSt4moveIPPKN4llvm8coverage13CountedRegionES5_ET0_T_S7_S6_.exit.i, %._crit_edge.i
   ret void
 }
 

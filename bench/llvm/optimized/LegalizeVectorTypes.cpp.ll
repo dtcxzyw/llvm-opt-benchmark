@@ -51849,9 +51849,9 @@ _ZNK4llvm3EVT13getSizeInBitsEv.exit121:           ; preds = %65, %69
   %.not.i.i = icmp ugt i32 %63, %39
   %80 = call range(i32 1, 33) i32 @llvm.ctpop.i32(i32 %77)
   %81 = icmp ugt i32 %80, 1
-  %or.cond175.not204 = select i1 %.not.i.i, i1 true, i1 %81
+  %or.cond175.not205 = select i1 %.not.i.i, i1 true, i1 %81
   %or.cond188 = icmp ult i32 %invariant.umax, %63
-  %or.cond200 = or i1 %or.cond175.not204, %or.cond188
+  %or.cond200 = or i1 %or.cond175.not205, %or.cond188
   br i1 %or.cond200, label %_ZN4llvm13isPowerOf2_32Ej.exit.thread, label %82
 
 82:                                               ; preds = %79
@@ -51957,9 +51957,9 @@ _ZNK4llvm3EVTeqES0_.exit.thread:                  ; preds = %114
   %.not.i.i144 = icmp ugt i32 %99, %39
   %122 = call range(i32 1, 33) i32 @llvm.ctpop.i32(i32 %119)
   %123 = icmp ugt i32 %122, 1
-  %or.cond179.not206 = select i1 %.not.i.i144, i1 true, i1 %123
+  %or.cond179.not207 = select i1 %.not.i.i144, i1 true, i1 %123
   %or.cond189 = icmp ult i32 %invariant.umax199, %99
-  %or.cond201 = or i1 %or.cond179.not206, %or.cond189
+  %or.cond201 = or i1 %or.cond179.not207, %or.cond189
   br i1 %or.cond201, label %_ZNK4llvm3EVTeqES0_.exit.thread169, label %124
 
 124:                                              ; preds = %121
@@ -52008,8 +52008,8 @@ _ZNK4llvm3EVTeqES0_.exit.thread169:               ; preds = %137, %114, %135, %1
   br i1 %38, label %143, label %.sink.split
 
 .sink.split:                                      ; preds = %_ZNK4llvm3EVT18getFixedSizeInBitsEv.exit, %137, %142, %82, %48
-  %.sink208 = phi ptr [ %12, %48 ], [ %15, %82 ], [ %14, %142 ], [ %18, %137 ], [ %18, %_ZNK4llvm3EVT18getFixedSizeInBitsEv.exit ]
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %.sink208, i64 16, i1 false)
+  %.sink203 = phi ptr [ %12, %48 ], [ %15, %82 ], [ %14, %142 ], [ %18, %137 ], [ %18, %_ZNK4llvm3EVT18getFixedSizeInBitsEv.exit ]
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %.sink203, i64 16, i1 false)
   br label %143
 
 143:                                              ; preds = %.sink.split, %142

@@ -3493,14 +3493,11 @@ look_up_tlv.exit:                                 ; preds = %3, %8, %13, %18
 21:                                               ; preds = %look_up_tlv.exit
   %22 = getelementptr inbounds i8, ptr %.0.i, i64 8
   %23 = load ptr, ptr %22, align 8
-  %24 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %0, i64 noundef 240, ptr noundef nonnull @.str.1636, ptr noundef %23, i32 noundef %1) #7
-  br label %26
+  br label %look_up_tlv.exit.thread
 
-look_up_tlv.exit.thread:                          ; preds = %16, %look_up_tlv.exit
-  %25 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %0, i64 noundef 240, ptr noundef nonnull @.str.1636, ptr noundef nonnull @.str.1637, i32 noundef %1) #7
-  br label %26
-
-26:                                               ; preds = %look_up_tlv.exit.thread, %21
+look_up_tlv.exit.thread:                          ; preds = %look_up_tlv.exit, %16, %21
+  %.str.1637.sink = phi ptr [ %23, %21 ], [ @.str.1637, %16 ], [ @.str.1637, %look_up_tlv.exit ]
+  %24 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %0, i64 noundef 240, ptr noundef nonnull @.str.1636, ptr noundef %.str.1637.sink, i32 noundef %1) #7
   ret void
 }
 

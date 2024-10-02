@@ -1081,20 +1081,16 @@ return:                                           ; preds = %if.then382, %if.the
 define i32 @EVP_CipherInit(ptr noundef %ctx, ptr noundef %cipher, ptr noundef %key, ptr noundef %iv, i32 noundef %enc) local_unnamed_addr #0 {
 entry:
   %cmp.not = icmp eq ptr %cipher, null
-  br i1 %cmp.not, label %entry.split, label %if.then
-
-entry.split:                                      ; preds = %entry
-  %call13 = tail call fastcc i32 @evp_cipher_init_internal(ptr noundef %ctx, ptr noundef null, ptr noundef null, ptr noundef %key, ptr noundef %iv, i32 noundef %enc, ptr noundef null)
-  br label %if.end
+  br i1 %cmp.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
   %call = tail call i32 @EVP_CIPHER_CTX_reset(ptr noundef %ctx)
-  %call14 = tail call fastcc i32 @evp_cipher_init_internal(ptr noundef %ctx, ptr noundef nonnull %cipher, ptr noundef null, ptr noundef %key, ptr noundef %iv, i32 noundef %enc, ptr noundef null)
   br label %if.end
 
-if.end:                                           ; preds = %entry.split, %if.then
-  %phi.call = phi i32 [ %call13, %entry.split ], [ %call14, %if.then ]
-  ret i32 %phi.call
+if.end:                                           ; preds = %entry, %if.then
+  %.sink = phi ptr [ %cipher, %if.then ], [ null, %entry ]
+  %call13 = tail call fastcc i32 @evp_cipher_init_internal(ptr noundef %ctx, ptr noundef %.sink, ptr noundef null, ptr noundef %key, ptr noundef %iv, i32 noundef %enc, ptr noundef null)
+  ret i32 %call13
 }
 
 ; Function Attrs: nounwind uwtable
@@ -1989,20 +1985,15 @@ entry:
 define i32 @EVP_EncryptInit(ptr noundef %ctx, ptr noundef %cipher, ptr noundef %key, ptr noundef %iv) local_unnamed_addr #0 {
 entry:
   %cmp.not.i = icmp eq ptr %cipher, null
-  br i1 %cmp.not.i, label %entry.split.i, label %if.then.i
-
-entry.split.i:                                    ; preds = %entry
-  %call13.i = tail call fastcc i32 @evp_cipher_init_internal(ptr noundef %ctx, ptr noundef null, ptr noundef null, ptr noundef %key, ptr noundef %iv, i32 noundef 1, ptr noundef null)
-  br label %EVP_CipherInit.exit
+  br i1 %cmp.not.i, label %EVP_CipherInit.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %entry
   %call.i = tail call i32 @EVP_CIPHER_CTX_reset(ptr noundef %ctx)
-  %call14.i = tail call fastcc i32 @evp_cipher_init_internal(ptr noundef %ctx, ptr noundef nonnull %cipher, ptr noundef null, ptr noundef %key, ptr noundef %iv, i32 noundef 1, ptr noundef null)
   br label %EVP_CipherInit.exit
 
-EVP_CipherInit.exit:                              ; preds = %entry.split.i, %if.then.i
-  %phi.call.i = phi i32 [ %call13.i, %entry.split.i ], [ %call14.i, %if.then.i ]
-  ret i32 %phi.call.i
+EVP_CipherInit.exit:                              ; preds = %entry, %if.then.i
+  %call13.i = tail call fastcc i32 @evp_cipher_init_internal(ptr noundef %ctx, ptr noundef %cipher, ptr noundef null, ptr noundef %key, ptr noundef %iv, i32 noundef 1, ptr noundef null)
+  ret i32 %call13.i
 }
 
 ; Function Attrs: nounwind uwtable
@@ -2023,20 +2014,15 @@ entry:
 define i32 @EVP_DecryptInit(ptr noundef %ctx, ptr noundef %cipher, ptr noundef %key, ptr noundef %iv) local_unnamed_addr #0 {
 entry:
   %cmp.not.i = icmp eq ptr %cipher, null
-  br i1 %cmp.not.i, label %entry.split.i, label %if.then.i
-
-entry.split.i:                                    ; preds = %entry
-  %call13.i = tail call fastcc i32 @evp_cipher_init_internal(ptr noundef %ctx, ptr noundef null, ptr noundef null, ptr noundef %key, ptr noundef %iv, i32 noundef 0, ptr noundef null)
-  br label %EVP_CipherInit.exit
+  br i1 %cmp.not.i, label %EVP_CipherInit.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %entry
   %call.i = tail call i32 @EVP_CIPHER_CTX_reset(ptr noundef %ctx)
-  %call14.i = tail call fastcc i32 @evp_cipher_init_internal(ptr noundef %ctx, ptr noundef nonnull %cipher, ptr noundef null, ptr noundef %key, ptr noundef %iv, i32 noundef 0, ptr noundef null)
   br label %EVP_CipherInit.exit
 
-EVP_CipherInit.exit:                              ; preds = %entry.split.i, %if.then.i
-  %phi.call.i = phi i32 [ %call13.i, %entry.split.i ], [ %call14.i, %if.then.i ]
-  ret i32 %phi.call.i
+EVP_CipherInit.exit:                              ; preds = %entry, %if.then.i
+  %call13.i = tail call fastcc i32 @evp_cipher_init_internal(ptr noundef %ctx, ptr noundef %cipher, ptr noundef null, ptr noundef %key, ptr noundef %iv, i32 noundef 0, ptr noundef null)
+  ret i32 %call13.i
 }
 
 ; Function Attrs: nounwind uwtable

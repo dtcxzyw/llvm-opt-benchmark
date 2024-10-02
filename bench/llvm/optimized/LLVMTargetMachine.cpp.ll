@@ -1259,7 +1259,7 @@ _ZN4llvm8ExpectedISt10unique_ptrINS_10MCStreamerESt14default_deleteIS2_EEE9takeE
   %16 = getelementptr inbounds i8, ptr %15, i64 8
   %17 = load ptr, ptr %16, align 8
   tail call void %17(ptr noundef nonnull align 8 dereferenceable(8) %14) #17
-  br label %thread-pre-split
+  br label %_ZNK4llvm6Target16createAsmPrinterERNS_13TargetMachineEOSt10unique_ptrINS_10MCStreamerESt14default_deleteIS4_EE.exit.thread
 
 _ZN4llvm5ErrorD2Ev.exit.thread:                   ; preds = %_ZN4llvm8ExpectedISt10unique_ptrINS_10MCStreamerESt14default_deleteIS2_EEE9takeErrorEv.exit, %6
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -1267,49 +1267,37 @@ _ZN4llvm5ErrorD2Ev.exit.thread:                   ; preds = %_ZN4llvm8ExpectedIS
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 120
   %21 = load ptr, ptr %20, align 8
   %.not.i = icmp eq ptr %21, null
-  br i1 %.not.i, label %thread-pre-split, label %_ZNK4llvm6Target16createAsmPrinterERNS_13TargetMachineEOSt10unique_ptrINS_10MCStreamerESt14default_deleteIS4_EE.exit
+  br i1 %.not.i, label %_ZNK4llvm6Target16createAsmPrinterERNS_13TargetMachineEOSt10unique_ptrINS_10MCStreamerESt14default_deleteIS4_EE.exit.thread, label %_ZNK4llvm6Target16createAsmPrinterERNS_13TargetMachineEOSt10unique_ptrINS_10MCStreamerESt14default_deleteIS4_EE.exit
 
 _ZNK4llvm6Target16createAsmPrinterERNS_13TargetMachineEOSt10unique_ptrINS_10MCStreamerESt14default_deleteIS4_EE.exit: ; preds = %_ZN4llvm5ErrorD2Ev.exit.thread
   %22 = call noundef ptr %21(ptr noundef nonnull align 8 dereferenceable(1232) %0, ptr noundef nonnull align 8 dereferenceable(8) %7) #17
   %.not = icmp eq ptr %22, null
-  br i1 %.not, label %thread-pre-split, label %23
+  br i1 %.not, label %_ZNK4llvm6Target16createAsmPrinterERNS_13TargetMachineEOSt10unique_ptrINS_10MCStreamerESt14default_deleteIS4_EE.exit.thread, label %23
 
 23:                                               ; preds = %_ZNK4llvm6Target16createAsmPrinterERNS_13TargetMachineEOSt10unique_ptrINS_10MCStreamerESt14default_deleteIS4_EE.exit
   %24 = load ptr, ptr %1, align 8
   %25 = getelementptr inbounds i8, ptr %24, i64 16
   %26 = load ptr, ptr %25, align 8
   call void %26(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull %22) #17
-  br label %thread-pre-split
+  br label %_ZNK4llvm6Target16createAsmPrinterERNS_13TargetMachineEOSt10unique_ptrINS_10MCStreamerESt14default_deleteIS4_EE.exit.thread
 
-thread-pre-split:                                 ; preds = %_ZN4llvm5ErrorD2Ev.exit.thread, %13, %23, %_ZNK4llvm6Target16createAsmPrinterERNS_13TargetMachineEOSt10unique_ptrINS_10MCStreamerESt14default_deleteIS4_EE.exit
+_ZNK4llvm6Target16createAsmPrinterERNS_13TargetMachineEOSt10unique_ptrINS_10MCStreamerESt14default_deleteIS4_EE.exit.thread: ; preds = %_ZN4llvm5ErrorD2Ev.exit.thread, %13, %_ZNK4llvm6Target16createAsmPrinterERNS_13TargetMachineEOSt10unique_ptrINS_10MCStreamerESt14default_deleteIS4_EE.exit, %23
   %.1.ph = phi i1 [ true, %13 ], [ true, %_ZNK4llvm6Target16createAsmPrinterERNS_13TargetMachineEOSt10unique_ptrINS_10MCStreamerESt14default_deleteIS4_EE.exit ], [ false, %23 ], [ true, %_ZN4llvm5ErrorD2Ev.exit.thread ]
   %.pr = load ptr, ptr %7, align 8
+  %.not.i1.i = icmp eq ptr %.pr, null
+  br i1 %.not.i1.i, label %_ZN4llvm8ExpectedISt10unique_ptrINS_10MCStreamerESt14default_deleteIS2_EEED2Ev.exit, label %_ZNSt10unique_ptrIN4llvm10MCStreamerESt14default_deleteIS1_EED2Ev.exit.sink.split.i
+
+_ZNSt10unique_ptrIN4llvm10MCStreamerESt14default_deleteIS1_EED2Ev.exit.sink.split.i: ; preds = %_ZNK4llvm6Target16createAsmPrinterERNS_13TargetMachineEOSt10unique_ptrINS_10MCStreamerESt14default_deleteIS4_EE.exit.thread
   %27 = load i8, ptr %8, align 8
   %28 = trunc i8 %27 to i1
-  %.not.i1.i = icmp eq ptr %.pr, null
-  br i1 %28, label %33, label %29
-
-29:                                               ; preds = %thread-pre-split
-  br i1 %.not.i1.i, label %_ZN4llvm8ExpectedISt10unique_ptrINS_10MCStreamerESt14default_deleteIS2_EEED2Ev.exit, label %_ZNKSt14default_deleteIN4llvm10MCStreamerEEclEPS1_.exit.i.i
-
-_ZNKSt14default_deleteIN4llvm10MCStreamerEEclEPS1_.exit.i.i: ; preds = %29
-  %30 = load ptr, ptr %.pr, align 8
-  %31 = getelementptr inbounds i8, ptr %30, i64 56
-  %32 = load ptr, ptr %31, align 8
-  call void %32(ptr noundef nonnull align 8 dereferenceable(288) %.pr) #17
+  %..i = select i1 %28, i64 8, i64 56
+  %29 = load ptr, ptr %.pr, align 8
+  %30 = getelementptr inbounds i8, ptr %29, i64 %..i
+  %31 = load ptr, ptr %30, align 8
+  call void %31(ptr noundef nonnull align 8 dereferenceable(8) %.pr) #17
   br label %_ZN4llvm8ExpectedISt10unique_ptrINS_10MCStreamerESt14default_deleteIS2_EEED2Ev.exit
 
-33:                                               ; preds = %thread-pre-split
-  br i1 %.not.i1.i, label %_ZN4llvm8ExpectedISt10unique_ptrINS_10MCStreamerESt14default_deleteIS2_EEED2Ev.exit, label %_ZNKSt14default_deleteIN4llvm13ErrorInfoBaseEEclEPS1_.exit.i.i
-
-_ZNKSt14default_deleteIN4llvm13ErrorInfoBaseEEclEPS1_.exit.i.i: ; preds = %33
-  %34 = load ptr, ptr %.pr, align 8
-  %35 = getelementptr inbounds i8, ptr %34, i64 8
-  %36 = load ptr, ptr %35, align 8
-  call void %36(ptr noundef nonnull align 8 dereferenceable(8) %.pr) #17
-  br label %_ZN4llvm8ExpectedISt10unique_ptrINS_10MCStreamerESt14default_deleteIS2_EEED2Ev.exit
-
-_ZN4llvm8ExpectedISt10unique_ptrINS_10MCStreamerESt14default_deleteIS2_EEED2Ev.exit: ; preds = %29, %_ZNKSt14default_deleteIN4llvm10MCStreamerEEclEPS1_.exit.i.i, %33, %_ZNKSt14default_deleteIN4llvm13ErrorInfoBaseEEclEPS1_.exit.i.i
+_ZN4llvm8ExpectedISt10unique_ptrINS_10MCStreamerESt14default_deleteIS2_EEED2Ev.exit: ; preds = %_ZNK4llvm6Target16createAsmPrinterERNS_13TargetMachineEOSt10unique_ptrINS_10MCStreamerESt14default_deleteIS4_EE.exit.thread, %_ZNSt10unique_ptrIN4llvm10MCStreamerESt14default_deleteIS1_EED2Ev.exit.sink.split.i
   ret i1 %.1.ph
 }
 
@@ -1661,7 +1649,7 @@ define dso_local noundef zeroext i1 @_ZN4llvm17LLVMTargetMachine19addPassesToEmi
   %28 = getelementptr inbounds nuw i8, ptr %15, i64 128
   store i8 1, ptr %28, align 8
   %29 = tail call noundef zeroext i1 @_ZN4llvm16TargetPassConfig27willCompleteCodeGenPipelineEv() #17
-  br i1 %29, label %30, label %64
+  br i1 %29, label %30, label %59
 
 30:                                               ; preds = %24
   %31 = getelementptr inbounds nuw i8, ptr %.015, i64 2472
@@ -1688,7 +1676,7 @@ _ZN4llvm8ExpectedISt10unique_ptrINS_10MCStreamerESt14default_deleteIS2_EEE9takeE
   %43 = getelementptr inbounds i8, ptr %42, i64 8
   %44 = load ptr, ptr %43, align 8
   tail call void %44(ptr noundef nonnull align 8 dereferenceable(8) %41) #17
-  br label %thread-pre-split.i
+  br label %_ZNK4llvm6Target16createAsmPrinterERNS_13TargetMachineEOSt10unique_ptrINS_10MCStreamerESt14default_deleteIS4_EE.exit.thread.i
 
 _ZN4llvm5ErrorD2Ev.exit.thread.i:                 ; preds = %_ZN4llvm8ExpectedISt10unique_ptrINS_10MCStreamerESt14default_deleteIS2_EEE9takeErrorEv.exit.i, %30
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -1696,74 +1684,62 @@ _ZN4llvm5ErrorD2Ev.exit.thread.i:                 ; preds = %_ZN4llvm8ExpectedIS
   %47 = getelementptr inbounds nuw i8, ptr %46, i64 120
   %48 = load ptr, ptr %47, align 8
   %.not.i.i = icmp eq ptr %48, null
-  br i1 %.not.i.i, label %thread-pre-split.i, label %_ZNK4llvm6Target16createAsmPrinterERNS_13TargetMachineEOSt10unique_ptrINS_10MCStreamerESt14default_deleteIS4_EE.exit.i
+  br i1 %.not.i.i, label %_ZNK4llvm6Target16createAsmPrinterERNS_13TargetMachineEOSt10unique_ptrINS_10MCStreamerESt14default_deleteIS4_EE.exit.thread.i, label %_ZNK4llvm6Target16createAsmPrinterERNS_13TargetMachineEOSt10unique_ptrINS_10MCStreamerESt14default_deleteIS4_EE.exit.i
 
 _ZNK4llvm6Target16createAsmPrinterERNS_13TargetMachineEOSt10unique_ptrINS_10MCStreamerESt14default_deleteIS4_EE.exit.i: ; preds = %_ZN4llvm5ErrorD2Ev.exit.thread.i
   %49 = call noundef ptr %48(ptr noundef nonnull align 8 dereferenceable(1232) %0, ptr noundef nonnull align 8 dereferenceable(8) %8) #17
   %.not.i19 = icmp eq ptr %49, null
-  br i1 %.not.i19, label %thread-pre-split.i, label %50
+  br i1 %.not.i19, label %_ZNK4llvm6Target16createAsmPrinterERNS_13TargetMachineEOSt10unique_ptrINS_10MCStreamerESt14default_deleteIS4_EE.exit.thread.i, label %50
 
 50:                                               ; preds = %_ZNK4llvm6Target16createAsmPrinterERNS_13TargetMachineEOSt10unique_ptrINS_10MCStreamerESt14default_deleteIS4_EE.exit.i
   %51 = load ptr, ptr %1, align 8
   %52 = getelementptr inbounds i8, ptr %51, i64 16
   %53 = load ptr, ptr %52, align 8
   call void %53(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull %49) #17
-  br label %thread-pre-split.i
+  br label %_ZNK4llvm6Target16createAsmPrinterERNS_13TargetMachineEOSt10unique_ptrINS_10MCStreamerESt14default_deleteIS4_EE.exit.thread.i
 
-thread-pre-split.i:                               ; preds = %50, %_ZNK4llvm6Target16createAsmPrinterERNS_13TargetMachineEOSt10unique_ptrINS_10MCStreamerESt14default_deleteIS4_EE.exit.i, %_ZN4llvm5ErrorD2Ev.exit.thread.i, %40
+_ZNK4llvm6Target16createAsmPrinterERNS_13TargetMachineEOSt10unique_ptrINS_10MCStreamerESt14default_deleteIS4_EE.exit.thread.i: ; preds = %50, %_ZNK4llvm6Target16createAsmPrinterERNS_13TargetMachineEOSt10unique_ptrINS_10MCStreamerESt14default_deleteIS4_EE.exit.i, %_ZN4llvm5ErrorD2Ev.exit.thread.i, %40
   %.1.ph.i = phi i1 [ true, %40 ], [ true, %_ZNK4llvm6Target16createAsmPrinterERNS_13TargetMachineEOSt10unique_ptrINS_10MCStreamerESt14default_deleteIS4_EE.exit.i ], [ false, %50 ], [ true, %_ZN4llvm5ErrorD2Ev.exit.thread.i ]
   %.pr.i = load ptr, ptr %8, align 8
+  %.not.i1.i.i = icmp eq ptr %.pr.i, null
+  br i1 %.not.i1.i.i, label %_ZN4llvm17LLVMTargetMachine13addAsmPrinterERNS_6legacy15PassManagerBaseERNS_17raw_pwrite_streamEPS4_NS_15CodeGenFileTypeERNS_9MCContextE.exit, label %_ZNSt10unique_ptrIN4llvm10MCStreamerESt14default_deleteIS1_EED2Ev.exit.sink.split.i.i
+
+_ZNSt10unique_ptrIN4llvm10MCStreamerESt14default_deleteIS1_EED2Ev.exit.sink.split.i.i: ; preds = %_ZNK4llvm6Target16createAsmPrinterERNS_13TargetMachineEOSt10unique_ptrINS_10MCStreamerESt14default_deleteIS4_EE.exit.thread.i
   %54 = load i8, ptr %35, align 8
   %55 = trunc i8 %54 to i1
-  %.not.i1.i.i = icmp eq ptr %.pr.i, null
-  br i1 %55, label %60, label %56
-
-56:                                               ; preds = %thread-pre-split.i
-  br i1 %.not.i1.i.i, label %_ZN4llvm17LLVMTargetMachine13addAsmPrinterERNS_6legacy15PassManagerBaseERNS_17raw_pwrite_streamEPS4_NS_15CodeGenFileTypeERNS_9MCContextE.exit, label %_ZNKSt14default_deleteIN4llvm10MCStreamerEEclEPS1_.exit.i.i.i
-
-_ZNKSt14default_deleteIN4llvm10MCStreamerEEclEPS1_.exit.i.i.i: ; preds = %56
-  %57 = load ptr, ptr %.pr.i, align 8
-  %58 = getelementptr inbounds i8, ptr %57, i64 56
-  %59 = load ptr, ptr %58, align 8
-  call void %59(ptr noundef nonnull align 8 dereferenceable(288) %.pr.i) #17
+  %..i.i = select i1 %55, i64 8, i64 56
+  %56 = load ptr, ptr %.pr.i, align 8
+  %57 = getelementptr inbounds i8, ptr %56, i64 %..i.i
+  %58 = load ptr, ptr %57, align 8
+  call void %58(ptr noundef nonnull align 8 dereferenceable(8) %.pr.i) #17
   br label %_ZN4llvm17LLVMTargetMachine13addAsmPrinterERNS_6legacy15PassManagerBaseERNS_17raw_pwrite_streamEPS4_NS_15CodeGenFileTypeERNS_9MCContextE.exit
 
-60:                                               ; preds = %thread-pre-split.i
-  br i1 %.not.i1.i.i, label %_ZN4llvm17LLVMTargetMachine13addAsmPrinterERNS_6legacy15PassManagerBaseERNS_17raw_pwrite_streamEPS4_NS_15CodeGenFileTypeERNS_9MCContextE.exit, label %_ZNKSt14default_deleteIN4llvm13ErrorInfoBaseEEclEPS1_.exit.i.i.i
-
-_ZNKSt14default_deleteIN4llvm13ErrorInfoBaseEEclEPS1_.exit.i.i.i: ; preds = %60
-  %61 = load ptr, ptr %.pr.i, align 8
-  %62 = getelementptr inbounds i8, ptr %61, i64 8
-  %63 = load ptr, ptr %62, align 8
-  call void %63(ptr noundef nonnull align 8 dereferenceable(8) %.pr.i) #17
-  br label %_ZN4llvm17LLVMTargetMachine13addAsmPrinterERNS_6legacy15PassManagerBaseERNS_17raw_pwrite_streamEPS4_NS_15CodeGenFileTypeERNS_9MCContextE.exit
-
-_ZN4llvm17LLVMTargetMachine13addAsmPrinterERNS_6legacy15PassManagerBaseERNS_17raw_pwrite_streamEPS4_NS_15CodeGenFileTypeERNS_9MCContextE.exit: ; preds = %56, %_ZNKSt14default_deleteIN4llvm10MCStreamerEEclEPS1_.exit.i.i.i, %60, %_ZNKSt14default_deleteIN4llvm13ErrorInfoBaseEEclEPS1_.exit.i.i.i
+_ZN4llvm17LLVMTargetMachine13addAsmPrinterERNS_6legacy15PassManagerBaseERNS_17raw_pwrite_streamEPS4_NS_15CodeGenFileTypeERNS_9MCContextE.exit: ; preds = %_ZNK4llvm6Target16createAsmPrinterERNS_13TargetMachineEOSt10unique_ptrINS_10MCStreamerESt14default_deleteIS4_EE.exit.thread.i, %_ZNSt10unique_ptrIN4llvm10MCStreamerESt14default_deleteIS1_EED2Ev.exit.sink.split.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8)
-  br i1 %.1.ph.i, label %_ZL23addPassesToGenerateCodeRN4llvm17LLVMTargetMachineERNS_6legacy15PassManagerBaseEbRNS_28MachineModuleInfoWrapperPassE.exit.thread, label %70
+  br i1 %.1.ph.i, label %_ZL23addPassesToGenerateCodeRN4llvm17LLVMTargetMachineERNS_6legacy15PassManagerBaseEbRNS_28MachineModuleInfoWrapperPassE.exit.thread, label %65
 
-64:                                               ; preds = %24
+59:                                               ; preds = %24
   %.not18 = icmp eq i32 %4, 2
-  br i1 %.not18, label %70, label %65
+  br i1 %.not18, label %65, label %60
 
-65:                                               ; preds = %64
-  %66 = tail call noundef ptr @_ZN4llvm18createPrintMIRPassERNS_11raw_ostreamE(ptr noundef nonnull align 8 dereferenceable(48) %2) #17
+60:                                               ; preds = %59
+  %61 = tail call noundef ptr @_ZN4llvm18createPrintMIRPassERNS_11raw_ostreamE(ptr noundef nonnull align 8 dereferenceable(48) %2) #17
+  %62 = load ptr, ptr %1, align 8
+  %63 = getelementptr inbounds i8, ptr %62, i64 16
+  %64 = load ptr, ptr %63, align 8
+  tail call void %64(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef %61) #17
+  br label %65
+
+65:                                               ; preds = %59, %60, %_ZN4llvm17LLVMTargetMachine13addAsmPrinterERNS_6legacy15PassManagerBaseERNS_17raw_pwrite_streamEPS4_NS_15CodeGenFileTypeERNS_9MCContextE.exit
+  %66 = call noundef ptr @_ZN4llvm29createFreeMachineFunctionPassEv() #17
   %67 = load ptr, ptr %1, align 8
   %68 = getelementptr inbounds i8, ptr %67, i64 16
   %69 = load ptr, ptr %68, align 8
-  tail call void %69(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef %66) #17
-  br label %70
-
-70:                                               ; preds = %64, %65, %_ZN4llvm17LLVMTargetMachine13addAsmPrinterERNS_6legacy15PassManagerBaseERNS_17raw_pwrite_streamEPS4_NS_15CodeGenFileTypeERNS_9MCContextE.exit
-  %71 = call noundef ptr @_ZN4llvm29createFreeMachineFunctionPassEv() #17
-  %72 = load ptr, ptr %1, align 8
-  %73 = getelementptr inbounds i8, ptr %72, i64 16
-  %74 = load ptr, ptr %73, align 8
-  call void %74(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef %71) #17
+  call void %69(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef %66) #17
   br label %_ZL23addPassesToGenerateCodeRN4llvm17LLVMTargetMachineERNS_6legacy15PassManagerBaseEbRNS_28MachineModuleInfoWrapperPassE.exit.thread
 
-_ZL23addPassesToGenerateCodeRN4llvm17LLVMTargetMachineERNS_6legacy15PassManagerBaseEbRNS_28MachineModuleInfoWrapperPassE.exit.thread: ; preds = %11, %_ZN4llvm17LLVMTargetMachine13addAsmPrinterERNS_6legacy15PassManagerBaseERNS_17raw_pwrite_streamEPS4_NS_15CodeGenFileTypeERNS_9MCContextE.exit, %70
-  %.0 = phi i1 [ false, %70 ], [ true, %_ZN4llvm17LLVMTargetMachine13addAsmPrinterERNS_6legacy15PassManagerBaseERNS_17raw_pwrite_streamEPS4_NS_15CodeGenFileTypeERNS_9MCContextE.exit ], [ true, %11 ]
+_ZL23addPassesToGenerateCodeRN4llvm17LLVMTargetMachineERNS_6legacy15PassManagerBaseEbRNS_28MachineModuleInfoWrapperPassE.exit.thread: ; preds = %11, %_ZN4llvm17LLVMTargetMachine13addAsmPrinterERNS_6legacy15PassManagerBaseERNS_17raw_pwrite_streamEPS4_NS_15CodeGenFileTypeERNS_9MCContextE.exit, %65
+  %.0 = phi i1 [ false, %65 ], [ true, %_ZN4llvm17LLVMTargetMachine13addAsmPrinterERNS_6legacy15PassManagerBaseERNS_17raw_pwrite_streamEPS4_NS_15CodeGenFileTypeERNS_9MCContextE.exit ], [ true, %11 ]
   ret i1 %.0
 }
 

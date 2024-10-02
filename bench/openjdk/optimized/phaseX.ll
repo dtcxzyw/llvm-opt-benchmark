@@ -3808,9 +3808,7 @@ _ZN11PhaseValues8set_typeEPK4NodePK4Type.exit:    ; preds = %118, %_ZN10Type_Arr
 
 164:                                              ; preds = %160
   %165 = tail call noundef ptr @_ZN11PhaseValues7makeconEPK4Type(ptr noundef nonnull align 8 dereferenceable(2400) %0, ptr noundef nonnull %110)
-  tail call void @_ZN12PhaseIterGVN21add_users_to_worklistEP4Node(ptr noundef nonnull align 8 dereferenceable(2416) %0, ptr noundef nonnull %.049.lcssa)
-  tail call void @_ZN12PhaseIterGVN12subsume_nodeEP4NodeS1_(ptr noundef nonnull align 8 dereferenceable(2416) %0, ptr noundef nonnull %.049.lcssa, ptr noundef %165)
-  br label %176
+  br label %.sink.split
 
 166:                                              ; preds = %160, %155
   %167 = load ptr, ptr %.049.lcssa, align 8
@@ -3818,28 +3816,24 @@ _ZN11PhaseValues8set_typeEPK4NodePK4Type.exit:    ; preds = %118, %_ZN10Type_Arr
   %169 = load ptr, ptr %168, align 8
   %170 = tail call noundef ptr %169(ptr noundef nonnull align 8 dereferenceable(52) %.049.lcssa, ptr noundef nonnull %0) #16
   %.not55 = icmp eq ptr %170, %.049.lcssa
-  br i1 %.not55, label %172, label %171
+  br i1 %.not55, label %171, label %.sink.split
 
 171:                                              ; preds = %166
-  tail call void @_ZN12PhaseIterGVN21add_users_to_worklistEP4Node(ptr noundef nonnull align 8 dereferenceable(2416) %0, ptr noundef nonnull %.049.lcssa)
-  tail call void @_ZN12PhaseIterGVN12subsume_nodeEP4NodeS1_(ptr noundef nonnull align 8 dereferenceable(2416) %0, ptr noundef nonnull %.049.lcssa, ptr noundef %170)
-  br label %176
-
-172:                                              ; preds = %166
-  %173 = load ptr, ptr %3, align 8
-  %174 = tail call noundef ptr @_ZN8NodeHash16hash_find_insertEP4Node(ptr noundef nonnull align 8 dereferenceable(40) %173, ptr noundef nonnull %.049.lcssa)
-  %.not56 = icmp eq ptr %174, null
-  %.not57 = icmp eq ptr %174, %.049.lcssa
+  %172 = load ptr, ptr %3, align 8
+  %173 = tail call noundef ptr @_ZN8NodeHash16hash_find_insertEP4Node(ptr noundef nonnull align 8 dereferenceable(40) %172, ptr noundef nonnull %.049.lcssa)
+  %.not56 = icmp eq ptr %173, null
+  %.not57 = icmp eq ptr %173, %.049.lcssa
   %or.cond = or i1 %.not56, %.not57
-  br i1 %or.cond, label %176, label %175
+  br i1 %or.cond, label %174, label %.sink.split
 
-175:                                              ; preds = %172
+.sink.split:                                      ; preds = %171, %166, %164
+  %.sink = phi ptr [ %165, %164 ], [ %170, %166 ], [ %173, %171 ]
   tail call void @_ZN12PhaseIterGVN21add_users_to_worklistEP4Node(ptr noundef nonnull align 8 dereferenceable(2416) %0, ptr noundef nonnull %.049.lcssa)
-  tail call void @_ZN12PhaseIterGVN12subsume_nodeEP4NodeS1_(ptr noundef nonnull align 8 dereferenceable(2416) %0, ptr noundef nonnull %.049.lcssa, ptr noundef nonnull %174)
-  br label %176
+  tail call void @_ZN12PhaseIterGVN12subsume_nodeEP4NodeS1_(ptr noundef nonnull align 8 dereferenceable(2416) %0, ptr noundef nonnull %.049.lcssa, ptr noundef %.sink)
+  br label %174
 
-176:                                              ; preds = %172, %175, %171, %164
-  %.0 = phi ptr [ %170, %171 ], [ %174, %175 ], [ %165, %164 ], [ %.049.lcssa, %172 ]
+174:                                              ; preds = %.sink.split, %171
+  %.0 = phi ptr [ %.049.lcssa, %171 ], [ %.sink, %.sink.split ]
   ret ptr %.0
 }
 

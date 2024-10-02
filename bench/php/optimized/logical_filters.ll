@@ -2710,8 +2710,8 @@ switch.early.test:                                ; preds = %103
 113:                                              ; preds = %111
   %114 = and i64 %1, 134217728
   %.not263 = icmp eq i64 %114, 0
-  %115 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @zval_ptr_dtor(ptr noundef nonnull %0) #14
+  %115 = getelementptr inbounds i8, ptr %0, i64 8
   br i1 %.not263, label %117, label %116
 
 116:                                              ; preds = %113

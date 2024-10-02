@@ -2080,7 +2080,7 @@ if.end61:                                         ; preds = %for.inc44, %for.inc
   %and63 = and i32 %18, 2
   %19 = or i32 %and63, %idx.addr.038
   %or.cond1.not = icmp eq i32 %19, 0
-  br i1 %or.cond1.not, label %if.end86, label %if.then68
+  br i1 %or.cond1.not, label %return.sink.split, label %if.then68
 
 if.then68:                                        ; preds = %if.end61
   %idxprom69 = zext nneg i32 %idx.addr.038 to i64
@@ -2122,29 +2122,24 @@ if.end.i:                                         ; preds = %if.then.i
   %hash.i = getelementptr inbounds i8, ptr %lu.04.i, i64 12
   %26 = load i32, ptr %hash.i, align 4
   %cmp1.i = icmp eq i32 %26, 0
-  br i1 %cmp1.i, label %if.end81, label %if.else.i
+  br i1 %cmp1.i, label %return.sink.split, label %if.else.i
 
 if.else.i:                                        ; preds = %if.end.i
   %hash_idx.i = getelementptr inbounds i8, ptr %lu.04.i, i64 16
   %27 = load i32, ptr %hash_idx.i, align 8
   %call.i = tail call ptr @ssl_md(ptr noundef %s.val, i32 noundef %27) #15
   %cmp3.i = icmp eq ptr %call.i, null
-  br i1 %cmp3.i, label %return, label %if.end81
+  br i1 %cmp3.i, label %return, label %return.sink.split
 
-if.end81:                                         ; preds = %if.else.i, %if.end.i
-  %call82 = tail call fastcc i32 @tls12_sigalg_allowed(ptr noundef %s, i32 noundef 327691, ptr noundef nonnull %lu.04.i)
-  %tobool83.not = icmp eq i32 %call82, 0
-  %.call71 = select i1 %tobool83.not, ptr null, ptr %lu.04.i
-  br label %return
-
-if.end86:                                         ; preds = %if.end61
-  %call87 = tail call fastcc i32 @tls12_sigalg_allowed(ptr noundef nonnull %s, i32 noundef 327691, ptr noundef nonnull @legacy_rsa_sigalg)
+return.sink.split:                                ; preds = %if.end61, %if.end.i, %if.else.i
+  %legacy_rsa_sigalg.sink71 = phi ptr [ %lu.04.i, %if.else.i ], [ %lu.04.i, %if.end.i ], [ @legacy_rsa_sigalg, %if.end61 ]
+  %call87 = tail call fastcc i32 @tls12_sigalg_allowed(ptr noundef %s, i32 noundef 327691, ptr noundef nonnull %legacy_rsa_sigalg.sink71)
   %tobool88.not = icmp eq i32 %call87, 0
-  %.legacy_rsa_sigalg = select i1 %tobool88.not, ptr null, ptr @legacy_rsa_sigalg
+  %.legacy_rsa_sigalg = select i1 %tobool88.not, ptr null, ptr %legacy_rsa_sigalg.sink71
   br label %return
 
-return:                                           ; preds = %for.inc, %for.inc.i, %for.cond.preheader, %if.else.i, %if.then.i, %if.then68, %if.end86, %if.end81, %if.end55
-  %retval.0 = phi ptr [ null, %if.end55 ], [ %.call71, %if.end81 ], [ %.legacy_rsa_sigalg, %if.end86 ], [ null, %if.then68 ], [ null, %if.then.i ], [ null, %if.else.i ], [ null, %for.cond.preheader ], [ null, %for.inc.i ], [ null, %for.inc ]
+return:                                           ; preds = %for.inc, %for.inc.i, %return.sink.split, %for.cond.preheader, %if.else.i, %if.then.i, %if.then68, %if.end55
+  %retval.0 = phi ptr [ null, %if.end55 ], [ null, %if.then68 ], [ null, %if.then.i ], [ null, %if.else.i ], [ null, %for.cond.preheader ], [ %.legacy_rsa_sigalg, %return.sink.split ], [ null, %for.inc.i ], [ null, %for.inc ]
   ret ptr %retval.0
 }
 

@@ -1096,7 +1096,7 @@ define dso_local void @fwnode_remove_software_node(ptr noundef %0) #1 align 16 {
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local ptr @fwnode_create_software_node(ptr noundef %0, ptr noundef %1) #1 align 16 {
   %3 = icmp ugt ptr %1, inttoptr (i64 -4096 to ptr)
-  br i1 %3, label %34, label %4
+  br i1 %3, label %31, label %4
 
 4:                                                ; preds = %2
   %.not12 = icmp eq ptr %1, null
@@ -1108,9 +1108,9 @@ define dso_local ptr @fwnode_create_software_node(ptr noundef %0, ptr noundef %1
   %.fr = freeze ptr %7
   %8 = icmp ne ptr %.fr, @software_node_ops
   %9 = getelementptr i8, ptr %1, i64 -64
-  %.not13 = icmp eq ptr %9, null
-  %.not = or i1 %8, %.not13
-  br i1 %.not, label %34, label %.thread10
+  %.not15 = icmp eq ptr %9, null
+  %.not = or i1 %8, %.not15
+  br i1 %.not, label %31, label %.thread10
 
 .thread10:                                        ; preds = %4, %5
   %10 = phi ptr [ %9, %5 ], [ null, %4 ]
@@ -1126,7 +1126,7 @@ define dso_local ptr @fwnode_create_software_node(ptr noundef %0, ptr noundef %1
 
 .thread11:                                        ; preds = %13
   tail call void @property_entries_free(ptr noundef %11)
-  br label %34
+  br label %31
 
 17:                                               ; preds = %13
   %18 = getelementptr inbounds i8, ptr %15, i64 16
@@ -1136,40 +1136,35 @@ define dso_local ptr @fwnode_create_software_node(ptr noundef %0, ptr noundef %1
 19:                                               ; preds = %17, %.thread10
   %20 = phi ptr [ %15, %17 ], [ %11, %.thread10 ]
   %21 = icmp ugt ptr %20, inttoptr (i64 -4096 to ptr)
-  br i1 %21, label %34, label %22
+  br i1 %21, label %31, label %22
 
 22:                                               ; preds = %19
   br i1 %.not12, label %.split, label %.split2
 
-.split:                                           ; preds = %22
-  %23 = getelementptr inbounds i8, ptr %20, i64 8
-  store ptr null, ptr %23, align 8
-  %24 = tail call fastcc ptr @swnode_register(ptr noundef nonnull %20, ptr noundef null, i32 noundef 1)
-  br label %29
-
 .split2:                                          ; preds = %22
-  %25 = getelementptr inbounds i8, ptr %10, i64 128
-  %26 = load ptr, ptr %25, align 8
-  %27 = getelementptr inbounds i8, ptr %20, i64 8
-  store ptr %26, ptr %27, align 8
-  %28 = tail call fastcc ptr @swnode_register(ptr noundef nonnull %20, ptr noundef nonnull %10, i32 noundef 1)
-  br label %29
+  %23 = getelementptr inbounds i8, ptr %10, i64 128
+  %24 = load ptr, ptr %23, align 8
+  br label %.split
 
-29:                                               ; preds = %.split, %.split2
-  %phi.call = phi ptr [ %24, %.split ], [ %28, %.split2 ]
-  %30 = icmp ugt ptr %phi.call, inttoptr (i64 -4096 to ptr)
-  br i1 %30, label %31, label %34
+.split:                                           ; preds = %22, %.split2
+  %.sink13 = phi ptr [ %24, %.split2 ], [ null, %22 ]
+  %.sink = phi ptr [ %10, %.split2 ], [ null, %22 ]
+  %25 = getelementptr inbounds i8, ptr %20, i64 8
+  store ptr %.sink13, ptr %25, align 8
+  %26 = tail call fastcc ptr @swnode_register(ptr noundef nonnull %20, ptr noundef %.sink, i32 noundef 1)
+  %27 = icmp ugt ptr %26, inttoptr (i64 -4096 to ptr)
+  br i1 %27, label %28, label %31
 
-31:                                               ; preds = %29
-  %32 = getelementptr inbounds i8, ptr %20, i64 16
-  %33 = load ptr, ptr %32, align 8
-  tail call void @property_entries_free(ptr noundef %33)
+28:                                               ; preds = %.split
+  %29 = getelementptr inbounds i8, ptr %20, i64 16
+  %30 = load ptr, ptr %29, align 8
+  tail call void @property_entries_free(ptr noundef %30)
   tail call void @kfree(ptr noundef nonnull %20) #12
-  br label %34
+  br label %31
 
-34:                                               ; preds = %.thread11, %31, %29, %19, %5, %2
-  %35 = phi ptr [ %phi.call, %31 ], [ %phi.call, %29 ], [ %1, %2 ], [ inttoptr (i64 -22 to ptr), %5 ], [ %20, %19 ], [ inttoptr (i64 -12 to ptr), %.thread11 ]
-  ret ptr %35
+31:                                               ; preds = %.thread11, %28, %.split, %19, %5, %2
+  %32 = phi ptr [ %26, %28 ], [ %26, %.split ], [ %1, %2 ], [ inttoptr (i64 -22 to ptr), %5 ], [ %20, %19 ], [ inttoptr (i64 -12 to ptr), %.thread11 ]
+  ret ptr %32
 }
 
 ; Function Attrs: null_pointer_is_valid

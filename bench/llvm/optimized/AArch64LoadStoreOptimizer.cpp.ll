@@ -12373,7 +12373,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRN4llvm12Machine
   %11 = getelementptr inbounds nuw i8, ptr %5, i64 64
   %12 = getelementptr inbounds nuw i8, ptr %.val, i64 16
   %13 = getelementptr inbounds i8, ptr %.val, i64 24
-  br label %67
+  br label %62
 
 .preheader.i.i.i:                                 ; preds = %3
   br i1 %.not98.i.i.i, label %"_ZSt10__invoke_rIbRZN12_GLOBAL__N_119AArch64LoadStoreOpt16mergePairedInsnsEN4llvm26MachineInstrBundleIteratorINS2_12MachineInstrELb0EEES5_RKNS0_13LdStPairFlagsEE3$_0JRS4_bEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESD_E4typeEOSE_DpOSF_.exit", label %.lr.ph96.i.i.i
@@ -12442,140 +12442,116 @@ _ZNK4llvm18TargetRegisterInfo11regsOverlapENS_8RegisterES1_.exit.thread.i.i.i: ;
   %46 = trunc nuw nsw i64 %indvars.iv102.i.i.i to i32
   %47 = tail call noundef ptr @_ZNK4llvm12MachineInstr21getRegClassConstraintEjPKNS_15TargetInstrInfoEPKNS_18TargetRegisterInfoE(ptr noundef nonnull align 8 dereferenceable(70) %1, i32 noundef %46, ptr noundef %45, ptr noundef %44) #19
   %.not50.i.i.i = icmp eq ptr %47, null
-  br i1 %.not50.i.i.i, label %53, label %48
+  br i1 %.not50.i.i.i, label %48, label %54
 
 48:                                               ; preds = %_ZNK4llvm18TargetRegisterInfo11regsOverlapENS_8RegisterES1_.exit.thread.i.i.i
-  %.val.i.i.i = load ptr, ptr %19, align 8
-  %.val52.i.i.i = load i16, ptr %20, align 2
-  %49 = getelementptr i8, ptr %.val.i.i.i, i64 72
-  %.val.val.i.i.i = load ptr, ptr %49, align 8
-  %50 = getelementptr i8, ptr %.val.val.i.i.i, i64 8
-  %.val.val.val.i.i.i = load ptr, ptr %50, align 8, !noalias !327
-  %51 = getelementptr i8, ptr %.val.val.i.i.i, i64 56
-  %.val.val.val59.i.i.i = load ptr, ptr %51, align 8, !noalias !327
-  %52 = tail call fastcc noundef zeroext i16 @"_ZZN12_GLOBAL__N_119AArch64LoadStoreOpt16mergePairedInsnsEN4llvm26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEES4_RKNS_13LdStPairFlagsEENK3$_1clEPKNS1_19TargetRegisterClassE"(ptr %.val.val.val.i.i.i, ptr %.val.val.val59.i.i.i, i16 %.val52.i.i.i, ptr noundef nonnull %47)
-  br label %63
-
-53:                                               ; preds = %_ZNK4llvm18TargetRegisterInfo11regsOverlapENS_8RegisterES1_.exit.thread.i.i.i
-  %54 = load i16, ptr %21, align 4
-  switch i16 %54, label %.critedge.i.i.i [
-    i16 4875, label %55
-    i16 1462, label %55
+  %49 = load i16, ptr %21, align 4
+  switch i16 %49, label %.critedge.i.i.i [
+    i16 4875, label %50
+    i16 1462, label %50
   ]
 
-55:                                               ; preds = %53, %53
-  %56 = load ptr, ptr %16, align 8
-  %57 = load i32, ptr %28, align 4
-  %58 = tail call noundef ptr @_ZNK4llvm18TargetRegisterInfo22getMinimalPhysRegClassENS_10MCRegisterENS_3MVTE(ptr noundef nonnull align 8 dereferenceable(308) %56, i32 %57, i16 1) #19
+50:                                               ; preds = %48, %48
+  %51 = load ptr, ptr %16, align 8
+  %52 = load i32, ptr %28, align 4
+  %53 = tail call noundef ptr @_ZNK4llvm18TargetRegisterInfo22getMinimalPhysRegClassENS_10MCRegisterENS_3MVTE(ptr noundef nonnull align 8 dereferenceable(308) %51, i32 %52, i16 1) #19
+  br label %54
+
+54:                                               ; preds = %50, %_ZNK4llvm18TargetRegisterInfo11regsOverlapENS_8RegisterES1_.exit.thread.i.i.i
+  %.sink.i.i.i = phi ptr [ %53, %50 ], [ %47, %_ZNK4llvm18TargetRegisterInfo11regsOverlapENS_8RegisterES1_.exit.thread.i.i.i ]
   %.val53.i.i.i = load ptr, ptr %19, align 8
   %.val54.i.i.i = load i16, ptr %20, align 2
-  %59 = getelementptr i8, ptr %.val53.i.i.i, i64 72
-  %.val53.val.i.i.i = load ptr, ptr %59, align 8
-  %60 = getelementptr i8, ptr %.val53.val.i.i.i, i64 8
-  %.val53.val.val.i.i.i = load ptr, ptr %60, align 8, !noalias !327
-  %61 = getelementptr i8, ptr %.val53.val.i.i.i, i64 56
-  %.val53.val.val60.i.i.i = load ptr, ptr %61, align 8, !noalias !327
-  %62 = tail call fastcc noundef zeroext i16 @"_ZZN12_GLOBAL__N_119AArch64LoadStoreOpt16mergePairedInsnsEN4llvm26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEES4_RKNS_13LdStPairFlagsEENK3$_1clEPKNS1_19TargetRegisterClassE"(ptr %.val53.val.val.i.i.i, ptr %.val53.val.val60.i.i.i, i16 %.val54.i.i.i, ptr noundef %58)
-  br label %63
-
-63:                                               ; preds = %55, %48
-  %storemerge51.in.sroa.speculated.in.i.i.i = phi i16 [ %52, %48 ], [ %62, %55 ]
-  %storemerge51.in.sroa.speculated.i.i.i = zext i16 %storemerge51.in.sroa.speculated.in.i.i.i to i32
+  %55 = getelementptr i8, ptr %.val53.i.i.i, i64 72
+  %.val53.val.i.i.i = load ptr, ptr %55, align 8
+  %56 = getelementptr i8, ptr %.val53.val.i.i.i, i64 8
+  %.val53.val.val.i.i.i = load ptr, ptr %56, align 8, !noalias !327
+  %57 = getelementptr i8, ptr %.val53.val.i.i.i, i64 56
+  %.val53.val.val60.i.i.i = load ptr, ptr %57, align 8, !noalias !327
+  %58 = tail call fastcc noundef zeroext i16 @"_ZZN12_GLOBAL__N_119AArch64LoadStoreOpt16mergePairedInsnsEN4llvm26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEES4_RKNS_13LdStPairFlagsEENK3$_1clEPKNS1_19TargetRegisterClassE"(ptr %.val53.val.val.i.i.i, ptr %.val53.val.val60.i.i.i, i16 %.val54.i.i.i, ptr noundef %.sink.i.i.i)
+  %storemerge51.in.sroa.speculated.i.i.i = zext i16 %58 to i32
   tail call void @_ZN4llvm14MachineOperand6setRegENS_8RegisterE(ptr noundef nonnull align 8 dereferenceable(32) %24, i32 %storemerge51.in.sroa.speculated.i.i.i) #19
   br label %.critedge.i.i.i
 
-.critedge.i.i.i:                                  ; preds = %63, %53, %_ZNK4llvm18TargetRegisterInfo11regsOverlapENS_8RegisterES1_.exit.i.i.i, %38, %30, %27, %22
-  %.1.i.i.i = phi i1 [ true, %63 ], [ %.095.i.i.i, %53 ], [ %.095.i.i.i, %_ZNK4llvm18TargetRegisterInfo11regsOverlapENS_8RegisterES1_.exit.i.i.i ], [ %.095.i.i.i, %27 ], [ %.095.i.i.i, %22 ], [ %.095.i.i.i, %38 ], [ true, %30 ]
+.critedge.i.i.i:                                  ; preds = %54, %48, %_ZNK4llvm18TargetRegisterInfo11regsOverlapENS_8RegisterES1_.exit.i.i.i, %38, %30, %27, %22
+  %.1.i.i.i = phi i1 [ true, %54 ], [ %.095.i.i.i, %48 ], [ %.095.i.i.i, %_ZNK4llvm18TargetRegisterInfo11regsOverlapENS_8RegisterES1_.exit.i.i.i ], [ %.095.i.i.i, %27 ], [ %.095.i.i.i, %22 ], [ %.095.i.i.i, %38 ], [ true, %30 ]
   %indvars.iv.next103.i.i.i = add nuw nsw i64 %indvars.iv102.i.i.i, 1
-  %64 = load i24, ptr %6, align 8
-  %65 = zext i24 %64 to i64
-  %66 = icmp ult i64 %indvars.iv.next103.i.i.i, %65
-  br i1 %66, label %22, label %"_ZSt10__invoke_rIbRZN12_GLOBAL__N_119AArch64LoadStoreOpt16mergePairedInsnsEN4llvm26MachineInstrBundleIteratorINS2_12MachineInstrELb0EEES5_RKNS0_13LdStPairFlagsEE3$_0JRS4_bEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESD_E4typeEOSE_DpOSF_.exit", !llvm.loop !330
+  %59 = load i24, ptr %6, align 8
+  %60 = zext i24 %59 to i64
+  %61 = icmp ult i64 %indvars.iv.next103.i.i.i, %60
+  br i1 %61, label %22, label %"_ZSt10__invoke_rIbRZN12_GLOBAL__N_119AArch64LoadStoreOpt16mergePairedInsnsEN4llvm26MachineInstrBundleIteratorINS2_12MachineInstrELb0EEES5_RKNS0_13LdStPairFlagsEE3$_0JRS4_bEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESD_E4typeEOSE_DpOSF_.exit", !llvm.loop !330
 
-67:                                               ; preds = %.critedge2.i.i.i, %.lr.ph.i.i.i
+62:                                               ; preds = %.critedge2.i.i.i, %.lr.ph.i.i.i
   %indvars.iv.i.i.i = phi i64 [ 0, %.lr.ph.i.i.i ], [ %indvars.iv.next.i.i.i, %.critedge2.i.i.i ]
-  %68 = load ptr, ptr %8, align 8
-  %69 = getelementptr inbounds %"class.llvm::MachineOperand", ptr %68, i64 %indvars.iv.i.i.i
-  %70 = load i32, ptr %69, align 8
-  %71 = and i32 %70, -2147483393
-  %or.cond89.not.i.i.i = icmp eq i32 %71, 0
-  br i1 %or.cond89.not.i.i.i, label %72, label %.critedge2.i.i.i
+  %63 = load ptr, ptr %8, align 8
+  %64 = getelementptr inbounds %"class.llvm::MachineOperand", ptr %63, i64 %indvars.iv.i.i.i
+  %65 = load i32, ptr %64, align 8
+  %66 = and i32 %65, -2147483393
+  %or.cond89.not.i.i.i = icmp eq i32 %66, 0
+  br i1 %or.cond89.not.i.i.i, label %67, label %.critedge2.i.i.i
 
-72:                                               ; preds = %67
-  %73 = getelementptr inbounds nuw i8, ptr %69, i64 4
-  %74 = load i32, ptr %73, align 4
-  %.not.i.i.i = icmp eq i32 %74, 0
-  br i1 %.not.i.i.i, label %.critedge2.i.i.i, label %75
+67:                                               ; preds = %62
+  %68 = getelementptr inbounds nuw i8, ptr %64, i64 4
+  %69 = load i32, ptr %68, align 4
+  %.not.i.i.i = icmp eq i32 %69, 0
+  br i1 %.not.i.i.i, label %.critedge2.i.i.i, label %70
 
-75:                                               ; preds = %72
-  %76 = load ptr, ptr %9, align 8
+70:                                               ; preds = %67
+  %71 = load ptr, ptr %9, align 8
   %.sroa.05.0.copyload.i.i.i = load i32, ptr %10, align 8
-  %77 = icmp eq i32 %74, %.sroa.05.0.copyload.i.i.i
-  br i1 %77, label %_ZNK4llvm18TargetRegisterInfo11regsOverlapENS_8RegisterES1_.exit65.thread.i.i.i, label %78
+  %72 = icmp eq i32 %69, %.sroa.05.0.copyload.i.i.i
+  br i1 %72, label %_ZNK4llvm18TargetRegisterInfo11regsOverlapENS_8RegisterES1_.exit65.thread.i.i.i, label %73
 
-78:                                               ; preds = %75
-  %79 = icmp ult i32 %74, 1073741824
-  %80 = add i32 %.sroa.05.0.copyload.i.i.i, -1
-  %81 = icmp ult i32 %80, 1073741823
-  %or.cond.i63.i.i.i = and i1 %79, %81
+73:                                               ; preds = %70
+  %74 = icmp ult i32 %69, 1073741824
+  %75 = add i32 %.sroa.05.0.copyload.i.i.i, -1
+  %76 = icmp ult i32 %75, 1073741823
+  %or.cond.i63.i.i.i = and i1 %74, %76
   br i1 %or.cond.i63.i.i.i, label %_ZNK4llvm18TargetRegisterInfo11regsOverlapENS_8RegisterES1_.exit65.i.i.i, label %.critedge2.i.i.i
 
-_ZNK4llvm18TargetRegisterInfo11regsOverlapENS_8RegisterES1_.exit65.i.i.i: ; preds = %78
-  %82 = getelementptr inbounds i8, ptr %76, i64 8
-  %83 = tail call noundef zeroext i1 @_ZNK4llvm14MCRegisterInfo11regsOverlapENS_10MCRegisterES1_(ptr noundef nonnull align 8 dereferenceable(224) %82, i32 %74, i32 %.sroa.05.0.copyload.i.i.i) #19
-  br i1 %83, label %_ZNK4llvm18TargetRegisterInfo11regsOverlapENS_8RegisterES1_.exit65._ZNK4llvm18TargetRegisterInfo11regsOverlapENS_8RegisterES1_.exit65.thread_crit_edge.i.i.i, label %.critedge2.i.i.i
+_ZNK4llvm18TargetRegisterInfo11regsOverlapENS_8RegisterES1_.exit65.i.i.i: ; preds = %73
+  %77 = getelementptr inbounds i8, ptr %71, i64 8
+  %78 = tail call noundef zeroext i1 @_ZNK4llvm14MCRegisterInfo11regsOverlapENS_10MCRegisterES1_(ptr noundef nonnull align 8 dereferenceable(224) %77, i32 %69, i32 %.sroa.05.0.copyload.i.i.i) #19
+  br i1 %78, label %_ZNK4llvm18TargetRegisterInfo11regsOverlapENS_8RegisterES1_.exit65._ZNK4llvm18TargetRegisterInfo11regsOverlapENS_8RegisterES1_.exit65.thread_crit_edge.i.i.i, label %.critedge2.i.i.i
 
 _ZNK4llvm18TargetRegisterInfo11regsOverlapENS_8RegisterES1_.exit65._ZNK4llvm18TargetRegisterInfo11regsOverlapENS_8RegisterES1_.exit65.thread_crit_edge.i.i.i: ; preds = %_ZNK4llvm18TargetRegisterInfo11regsOverlapENS_8RegisterES1_.exit65.i.i.i
   %.pre.i.i.i = load ptr, ptr %9, align 8
   br label %_ZNK4llvm18TargetRegisterInfo11regsOverlapENS_8RegisterES1_.exit65.thread.i.i.i
 
-_ZNK4llvm18TargetRegisterInfo11regsOverlapENS_8RegisterES1_.exit65.thread.i.i.i: ; preds = %_ZNK4llvm18TargetRegisterInfo11regsOverlapENS_8RegisterES1_.exit65._ZNK4llvm18TargetRegisterInfo11regsOverlapENS_8RegisterES1_.exit65.thread_crit_edge.i.i.i, %75
-  %84 = phi ptr [ %.pre.i.i.i, %_ZNK4llvm18TargetRegisterInfo11regsOverlapENS_8RegisterES1_.exit65._ZNK4llvm18TargetRegisterInfo11regsOverlapENS_8RegisterES1_.exit65.thread_crit_edge.i.i.i ], [ %76, %75 ]
-  %85 = load ptr, ptr %11, align 8
-  %86 = trunc nuw nsw i64 %indvars.iv.i.i.i to i32
-  %87 = tail call noundef ptr @_ZNK4llvm12MachineInstr21getRegClassConstraintEjPKNS_15TargetInstrInfoEPKNS_18TargetRegisterInfoE(ptr noundef nonnull align 8 dereferenceable(70) %1, i32 noundef %86, ptr noundef %85, ptr noundef %84) #19
-  %.not48.i.i.i = icmp eq ptr %87, null
-  br i1 %.not48.i.i.i, label %93, label %88
+_ZNK4llvm18TargetRegisterInfo11regsOverlapENS_8RegisterES1_.exit65.thread.i.i.i: ; preds = %_ZNK4llvm18TargetRegisterInfo11regsOverlapENS_8RegisterES1_.exit65._ZNK4llvm18TargetRegisterInfo11regsOverlapENS_8RegisterES1_.exit65.thread_crit_edge.i.i.i, %70
+  %79 = phi ptr [ %.pre.i.i.i, %_ZNK4llvm18TargetRegisterInfo11regsOverlapENS_8RegisterES1_.exit65._ZNK4llvm18TargetRegisterInfo11regsOverlapENS_8RegisterES1_.exit65.thread_crit_edge.i.i.i ], [ %71, %70 ]
+  %80 = load ptr, ptr %11, align 8
+  %81 = trunc nuw nsw i64 %indvars.iv.i.i.i to i32
+  %82 = tail call noundef ptr @_ZNK4llvm12MachineInstr21getRegClassConstraintEjPKNS_15TargetInstrInfoEPKNS_18TargetRegisterInfoE(ptr noundef nonnull align 8 dereferenceable(70) %1, i32 noundef %81, ptr noundef %80, ptr noundef %79) #19
+  %.not48.i.i.i = icmp eq ptr %82, null
+  br i1 %.not48.i.i.i, label %83, label %87
 
-88:                                               ; preds = %_ZNK4llvm18TargetRegisterInfo11regsOverlapENS_8RegisterES1_.exit65.thread.i.i.i
-  %.val55.i.i.i = load ptr, ptr %12, align 8
-  %.val56.i.i.i = load i16, ptr %13, align 2
-  %89 = getelementptr i8, ptr %.val55.i.i.i, i64 72
-  %.val55.val.i.i.i = load ptr, ptr %89, align 8
-  %90 = getelementptr i8, ptr %.val55.val.i.i.i, i64 8
-  %.val55.val.val.i.i.i = load ptr, ptr %90, align 8, !noalias !327
-  %91 = getelementptr i8, ptr %.val55.val.i.i.i, i64 56
-  %.val55.val.val61.i.i.i = load ptr, ptr %91, align 8, !noalias !327
-  %92 = tail call fastcc noundef zeroext i16 @"_ZZN12_GLOBAL__N_119AArch64LoadStoreOpt16mergePairedInsnsEN4llvm26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEES4_RKNS_13LdStPairFlagsEENK3$_1clEPKNS1_19TargetRegisterClassE"(ptr %.val55.val.val.i.i.i, ptr %.val55.val.val61.i.i.i, i16 %.val56.i.i.i, ptr noundef nonnull %87)
-  br label %101
+83:                                               ; preds = %_ZNK4llvm18TargetRegisterInfo11regsOverlapENS_8RegisterES1_.exit65.thread.i.i.i
+  %84 = load ptr, ptr %9, align 8
+  %85 = load i32, ptr %68, align 4
+  %86 = tail call noundef ptr @_ZNK4llvm18TargetRegisterInfo22getMinimalPhysRegClassENS_10MCRegisterENS_3MVTE(ptr noundef nonnull align 8 dereferenceable(308) %84, i32 %85, i16 1) #19
+  br label %87
 
-93:                                               ; preds = %_ZNK4llvm18TargetRegisterInfo11regsOverlapENS_8RegisterES1_.exit65.thread.i.i.i
-  %94 = load ptr, ptr %9, align 8
-  %95 = load i32, ptr %73, align 4
-  %96 = tail call noundef ptr @_ZNK4llvm18TargetRegisterInfo22getMinimalPhysRegClassENS_10MCRegisterENS_3MVTE(ptr noundef nonnull align 8 dereferenceable(308) %94, i32 %95, i16 1) #19
+87:                                               ; preds = %83, %_ZNK4llvm18TargetRegisterInfo11regsOverlapENS_8RegisterES1_.exit65.thread.i.i.i
+  %.sink110.i.i.i = phi ptr [ %86, %83 ], [ %82, %_ZNK4llvm18TargetRegisterInfo11regsOverlapENS_8RegisterES1_.exit65.thread.i.i.i ]
   %.val57.i.i.i = load ptr, ptr %12, align 8
   %.val58.i.i.i = load i16, ptr %13, align 2
-  %97 = getelementptr i8, ptr %.val57.i.i.i, i64 72
-  %.val57.val.i.i.i = load ptr, ptr %97, align 8
-  %98 = getelementptr i8, ptr %.val57.val.i.i.i, i64 8
-  %.val57.val.val.i.i.i = load ptr, ptr %98, align 8, !noalias !327
-  %99 = getelementptr i8, ptr %.val57.val.i.i.i, i64 56
-  %.val57.val.val62.i.i.i = load ptr, ptr %99, align 8, !noalias !327
-  %100 = tail call fastcc noundef zeroext i16 @"_ZZN12_GLOBAL__N_119AArch64LoadStoreOpt16mergePairedInsnsEN4llvm26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEES4_RKNS_13LdStPairFlagsEENK3$_1clEPKNS1_19TargetRegisterClassE"(ptr %.val57.val.val.i.i.i, ptr %.val57.val.val62.i.i.i, i16 %.val58.i.i.i, ptr noundef %96)
-  br label %101
-
-101:                                              ; preds = %93, %88
-  %storemerge.in.sroa.speculated.in.i.i.i = phi i16 [ %92, %88 ], [ %100, %93 ]
-  %storemerge.in.sroa.speculated.i.i.i = zext i16 %storemerge.in.sroa.speculated.in.i.i.i to i32
-  tail call void @_ZN4llvm14MachineOperand6setRegENS_8RegisterE(ptr noundef nonnull align 8 dereferenceable(32) %69, i32 %storemerge.in.sroa.speculated.i.i.i) #19
+  %88 = getelementptr i8, ptr %.val57.i.i.i, i64 72
+  %.val57.val.i.i.i = load ptr, ptr %88, align 8
+  %89 = getelementptr i8, ptr %.val57.val.i.i.i, i64 8
+  %.val57.val.val.i.i.i = load ptr, ptr %89, align 8, !noalias !327
+  %90 = getelementptr i8, ptr %.val57.val.i.i.i, i64 56
+  %.val57.val.val62.i.i.i = load ptr, ptr %90, align 8, !noalias !327
+  %91 = tail call fastcc noundef zeroext i16 @"_ZZN12_GLOBAL__N_119AArch64LoadStoreOpt16mergePairedInsnsEN4llvm26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEES4_RKNS_13LdStPairFlagsEENK3$_1clEPKNS1_19TargetRegisterClassE"(ptr %.val57.val.val.i.i.i, ptr %.val57.val.val62.i.i.i, i16 %.val58.i.i.i, ptr noundef %.sink110.i.i.i)
+  %storemerge.in.sroa.speculated.i.i.i = zext i16 %91 to i32
+  tail call void @_ZN4llvm14MachineOperand6setRegENS_8RegisterE(ptr noundef nonnull align 8 dereferenceable(32) %64, i32 %storemerge.in.sroa.speculated.i.i.i) #19
   br label %.critedge2.i.i.i
 
-.critedge2.i.i.i:                                 ; preds = %101, %_ZNK4llvm18TargetRegisterInfo11regsOverlapENS_8RegisterES1_.exit65.i.i.i, %78, %72, %67
+.critedge2.i.i.i:                                 ; preds = %87, %_ZNK4llvm18TargetRegisterInfo11regsOverlapENS_8RegisterES1_.exit65.i.i.i, %73, %67, %62
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
-  %102 = load i24, ptr %6, align 8
-  %103 = zext i24 %102 to i64
-  %104 = icmp ult i64 %indvars.iv.next.i.i.i, %103
-  br i1 %104, label %67, label %"_ZSt10__invoke_rIbRZN12_GLOBAL__N_119AArch64LoadStoreOpt16mergePairedInsnsEN4llvm26MachineInstrBundleIteratorINS2_12MachineInstrELb0EEES5_RKNS0_13LdStPairFlagsEE3$_0JRS4_bEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESD_E4typeEOSE_DpOSF_.exit", !llvm.loop !331
+  %92 = load i24, ptr %6, align 8
+  %93 = zext i24 %92 to i64
+  %94 = icmp ult i64 %indvars.iv.next.i.i.i, %93
+  br i1 %94, label %62, label %"_ZSt10__invoke_rIbRZN12_GLOBAL__N_119AArch64LoadStoreOpt16mergePairedInsnsEN4llvm26MachineInstrBundleIteratorINS2_12MachineInstrELb0EEES5_RKNS0_13LdStPairFlagsEE3$_0JRS4_bEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESD_E4typeEOSE_DpOSF_.exit", !llvm.loop !331
 
 "_ZSt10__invoke_rIbRZN12_GLOBAL__N_119AArch64LoadStoreOpt16mergePairedInsnsEN4llvm26MachineInstrBundleIteratorINS2_12MachineInstrELb0EEES5_RKNS0_13LdStPairFlagsEE3$_0JRS4_bEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESD_E4typeEOSE_DpOSF_.exit": ; preds = %.critedge2.i.i.i, %.critedge.i.i.i, %.preheader91.i.i.i, %.preheader.i.i.i
   ret i1 true

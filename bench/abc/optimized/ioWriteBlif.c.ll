@@ -3046,27 +3046,18 @@ define void @Io_WriteBlifSpecial(ptr noundef %0, ptr nocapture noundef readonly 
 8:                                                ; preds = %4
   %9 = load ptr, ptr @stdout, align 8
   %10 = tail call i64 @fwrite(ptr nonnull @.str, i64 25, i64 1, ptr %9)
-  br label %17
+  br label %14
 
 11:                                               ; preds = %4
   %12 = icmp ne ptr %2, null
   %13 = icmp ne i32 %3, 0
   %or.cond = and i1 %12, %13
-  br i1 %or.cond, label %14, label %15
-
-14:                                               ; preds = %11
-  tail call void @Io_WriteBlifInt(ptr noundef nonnull %6, ptr noundef %1, ptr noundef nonnull %2, i32 noundef 1)
-  br label %16
-
-15:                                               ; preds = %11
-  tail call void @Io_WriteBlifInt(ptr noundef nonnull %6, ptr noundef %1, ptr noundef %2, i32 noundef 0)
-  br label %16
-
-16:                                               ; preds = %15, %14
+  %. = zext i1 %or.cond to i32
+  tail call void @Io_WriteBlifInt(ptr noundef nonnull %6, ptr noundef %1, ptr noundef %2, i32 noundef %.)
   tail call void @Abc_NtkDelete(ptr noundef nonnull %6) #10
-  br label %17
+  br label %14
 
-17:                                               ; preds = %16, %8
+14:                                               ; preds = %11, %8
   ret void
 }
 

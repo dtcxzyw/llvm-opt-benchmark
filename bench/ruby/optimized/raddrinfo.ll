@@ -2820,7 +2820,7 @@ rb_num2int_inline.exit:                           ; preds = %41, %43
   %48 = load i64, ptr %7, align 8
   %49 = call i64 @rb_check_array_type(i64 noundef %48) #19
   %50 = icmp eq i64 %49, 4
-  br i1 %50, label %177, label %51
+  br i1 %50, label %176, label %51
 
 51:                                               ; preds = %46
   %52 = call i64 @rb_ary_entry(i64 noundef %49, i64 noundef 0) #22
@@ -2854,7 +2854,7 @@ RSTRING_PTR.exit:                                 ; preds = %51, %59
 
 67:                                               ; preds = %RSTRING_PTR.exit
   %68 = load i32, ptr %12, align 4
-  switch i32 %68, label %175 [
+  switch i32 %68, label %174 [
     i32 2, label %69
     i32 10, label %69
     i32 1, label %147
@@ -3008,7 +3008,7 @@ init_addrinfo.exit.i:                             ; preds = %133, %132
 
 init_addrinfo_getaddrinfo.exit:                   ; preds = %.lr.ph.i.i, %142
   call void @ruby_xfree(ptr noundef nonnull %108) #19
-  br label %201
+  br label %200
 
 147:                                              ; preds = %67
   %148 = call i64 @rb_ary_entry(i64 noundef %49, i64 noundef 1) #22
@@ -3032,8 +3032,8 @@ init_addrinfo_getaddrinfo.exit:                   ; preds = %.lr.ph.i.i, %142
   unreachable
 
 159:                                              ; preds = %147
-  %.2..2..2..sroa_idx51 = getelementptr inbounds i8, ptr %6, i64 2
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(108) %.2..2..2..sroa_idx51, i8 0, i64 108, i1 false)
+  %.2..2..2..sroa_idx48 = getelementptr inbounds i8, ptr %6, i64 2
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(108) %.2..2..2..sroa_idx48, i8 0, i64 108, i1 false)
   store i16 1, ptr %6, align 2
   %160 = load i64, ptr %153, align 8, !noalias !36
   %161 = and i64 %160, 8192
@@ -3043,117 +3043,112 @@ init_addrinfo_getaddrinfo.exit:                   ; preds = %.lr.ph.i.i, %142
   br i1 %.not.i.i.i36, label %RSTRING_PTR.exit.i, label %RSTRING_PTR.exit.thread.i
 
 RSTRING_PTR.exit.i:                               ; preds = %159
-  br i1 %.not.i.i37, label %init_unix_addrinfo.exit, label %163
+  br i1 %.not.i.i37, label %init_unix_addrinfo.exit, label %RSTRING_PTR.exit.i.i
 
 RSTRING_PTR.exit.thread.i:                        ; preds = %159
-  br i1 %.not.i.i37, label %init_unix_addrinfo.exit, label %164
+  br i1 %.not.i.i37, label %init_unix_addrinfo.exit, label %163
 
-163:                                              ; preds = %RSTRING_PTR.exit.i
-  %.2..2..2..sroa_idx50 = getelementptr inbounds i8, ptr %6, i64 2
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 2 %.2..2..2..sroa_idx50, ptr nonnull readonly align 1 %162, i64 %155, i1 false)
-  br label %RSTRING_PTR.exit.i.i
-
-164:                                              ; preds = %RSTRING_PTR.exit.thread.i
+163:                                              ; preds = %RSTRING_PTR.exit.thread.i
   %.sroa.2.0.copyload.i.i = load ptr, ptr %162, align 8
-  %.2..2..2..sroa_idx = getelementptr inbounds i8, ptr %6, i64 2
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 2 %.2..2..2..sroa_idx, ptr readonly align 1 %.sroa.2.0.copyload.i.i, i64 %155, i1 false)
   br label %RSTRING_PTR.exit.i.i
 
-RSTRING_PTR.exit.i.i:                             ; preds = %164, %163
-  %.sroa.2.0.i.i.i = phi ptr [ %.sroa.2.0.copyload.i.i, %164 ], [ %162, %163 ]
-  %165 = load i8, ptr %.sroa.2.0.i.i.i, align 1
-  %166 = icmp eq i8 %165, 0
-  br i1 %166, label %RSTRING_LENINT.exit.i.i, label %init_unix_addrinfo.exit
+RSTRING_PTR.exit.i.i:                             ; preds = %163, %RSTRING_PTR.exit.i
+  %.sink.i = phi ptr [ %.sroa.2.0.copyload.i.i, %163 ], [ %162, %RSTRING_PTR.exit.i ]
+  %.2..2..2..sroa_idx = getelementptr inbounds i8, ptr %6, i64 2
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 2 %.2..2..2..sroa_idx, ptr readonly align 1 %.sink.i, i64 %155, i1 false)
+  %164 = load i8, ptr %.sink.i, align 1
+  %165 = icmp eq i8 %164, 0
+  br i1 %165, label %RSTRING_LENINT.exit.i.i, label %init_unix_addrinfo.exit
 
 RSTRING_LENINT.exit.i.i:                          ; preds = %RSTRING_PTR.exit.i.i
-  %167 = trunc nuw i64 %155 to i32
-  %168 = add nuw nsw i32 %167, 2
+  %166 = trunc nuw i64 %155 to i32
+  %167 = add nuw nsw i32 %166, 2
   br label %init_unix_addrinfo.exit
 
 init_unix_addrinfo.exit:                          ; preds = %RSTRING_PTR.exit.i, %RSTRING_PTR.exit.thread.i, %RSTRING_PTR.exit.i.i, %RSTRING_LENINT.exit.i.i
-  %.0.i.i = phi i32 [ %168, %RSTRING_LENINT.exit.i.i ], [ 110, %RSTRING_PTR.exit.i.i ], [ 2, %RSTRING_PTR.exit.thread.i ], [ 2, %RSTRING_PTR.exit.i ]
-  %169 = zext nneg i32 %.0.i.i to i64
-  %170 = getelementptr inbounds i8, ptr %20, i64 32
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %170, ptr noundef nonnull readonly align 2 dereferenceable(1) %6, i64 %169, i1 false)
-  %171 = getelementptr inbounds i8, ptr %20, i64 28
-  store i32 %.0.i.i, ptr %171, align 4
-  %172 = getelementptr inbounds i8, ptr %20, i64 16
-  store i32 1, ptr %172, align 8
-  %173 = getelementptr inbounds i8, ptr %20, i64 20
-  store i32 1, ptr %173, align 4
-  %174 = getelementptr inbounds i8, ptr %20, i64 24
-  store i32 0, ptr %174, align 8
+  %.0.i.i = phi i32 [ %167, %RSTRING_LENINT.exit.i.i ], [ 110, %RSTRING_PTR.exit.i.i ], [ 2, %RSTRING_PTR.exit.thread.i ], [ 2, %RSTRING_PTR.exit.i ]
+  %168 = zext nneg i32 %.0.i.i to i64
+  %169 = getelementptr inbounds i8, ptr %20, i64 32
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %169, ptr noundef nonnull readonly align 2 dereferenceable(1) %6, i64 %168, i1 false)
+  %170 = getelementptr inbounds i8, ptr %20, i64 28
+  store i32 %.0.i.i, ptr %170, align 4
+  %171 = getelementptr inbounds i8, ptr %20, i64 16
+  store i32 1, ptr %171, align 8
+  %172 = getelementptr inbounds i8, ptr %20, i64 20
+  store i32 1, ptr %172, align 4
+  %173 = getelementptr inbounds i8, ptr %20, i64 24
+  store i32 0, ptr %173, align 8
   store i64 4, ptr %21, align 8
   store i64 4, ptr %20, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 110, ptr nonnull %6)
-  br label %201
+  br label %200
 
-175:                                              ; preds = %67
-  %176 = load i64, ptr @rb_eSocket, align 8
-  call void (i64, ptr, ...) @rb_raise(i64 noundef %176, ptr noundef nonnull @.str.106) #21
+174:                                              ; preds = %67
+  %175 = load i64, ptr @rb_eSocket, align 8
+  call void (i64, ptr, ...) @rb_raise(i64 noundef %175, ptr noundef nonnull @.str.106) #21
   unreachable
 
-177:                                              ; preds = %46
-  %178 = call i64 @rb_string_value(ptr noundef nonnull %7) #19
-  %179 = load i64, ptr %7, align 8
-  %180 = inttoptr i64 %179 to ptr
-  %181 = load i64, ptr %180, align 8, !noalias !37
-  %182 = and i64 %181, 8192
-  %.not.i.i39 = icmp eq i64 %182, 0
-  %183 = getelementptr inbounds i8, ptr %180, i64 24
-  br i1 %.not.i.i39, label %RSTRING_PTR.exit42, label %184
+176:                                              ; preds = %46
+  %177 = call i64 @rb_string_value(ptr noundef nonnull %7) #19
+  %178 = load i64, ptr %7, align 8
+  %179 = inttoptr i64 %178 to ptr
+  %180 = load i64, ptr %179, align 8, !noalias !37
+  %181 = and i64 %180, 8192
+  %.not.i.i39 = icmp eq i64 %181, 0
+  %182 = getelementptr inbounds i8, ptr %179, i64 24
+  br i1 %.not.i.i39, label %RSTRING_PTR.exit42, label %183
 
-184:                                              ; preds = %177
-  %.sroa.2.0.copyload.i40 = load ptr, ptr %183, align 8
+183:                                              ; preds = %176
+  %.sroa.2.0.copyload.i40 = load ptr, ptr %182, align 8
   br label %RSTRING_PTR.exit42
 
-RSTRING_PTR.exit42:                               ; preds = %177, %184
-  %.sroa.2.0.i41 = phi ptr [ %.sroa.2.0.copyload.i40, %184 ], [ %183, %177 ]
-  %185 = getelementptr inbounds i8, ptr %180, i64 16
-  %186 = load i64, ptr %185, align 8
-  %187 = add i64 %186, 2147483648
-  %.not.i.i43 = icmp ult i64 %187, 4294967296
-  br i1 %.not.i.i43, label %RSTRING_LENINT.exit, label %188
+RSTRING_PTR.exit42:                               ; preds = %176, %183
+  %.sroa.2.0.i41 = phi ptr [ %.sroa.2.0.copyload.i40, %183 ], [ %182, %176 ]
+  %184 = getelementptr inbounds i8, ptr %179, i64 16
+  %185 = load i64, ptr %184, align 8
+  %186 = add i64 %185, 2147483648
+  %.not.i.i43 = icmp ult i64 %186, 4294967296
+  br i1 %.not.i.i43, label %RSTRING_LENINT.exit, label %187
 
-188:                                              ; preds = %RSTRING_PTR.exit42
-  call void @rb_out_of_int(i64 noundef %186) #25
+187:                                              ; preds = %RSTRING_PTR.exit42
+  call void @rb_out_of_int(i64 noundef %185) #25
   unreachable
 
 RSTRING_LENINT.exit:                              ; preds = %RSTRING_PTR.exit42
-  %189 = trunc i64 %186 to i32
-  %190 = icmp ugt i32 %189, 2048
-  br i1 %190, label %191, label %193
+  %188 = trunc i64 %185 to i32
+  %189 = icmp ugt i32 %188, 2048
+  br i1 %189, label %190, label %192
 
-191:                                              ; preds = %RSTRING_LENINT.exit
-  %192 = load i64, ptr @rb_eArgError, align 8
-  call void (i64, ptr, ...) @rb_raise(i64 noundef %192, ptr noundef nonnull @.str.100) #21
+190:                                              ; preds = %RSTRING_LENINT.exit
+  %191 = load i64, ptr @rb_eArgError, align 8
+  call void (i64, ptr, ...) @rb_raise(i64 noundef %191, ptr noundef nonnull @.str.100) #21
   unreachable
 
-193:                                              ; preds = %RSTRING_LENINT.exit
-  %.not.i.i44 = icmp eq i32 %189, 0
-  br i1 %.not.i.i44, label %init_addrinfo.exit, label %194
+192:                                              ; preds = %RSTRING_LENINT.exit
+  %.not.i.i44 = icmp eq i32 %188, 0
+  br i1 %.not.i.i44, label %init_addrinfo.exit, label %193
 
-194:                                              ; preds = %193
-  %195 = and i64 %186, 4095
-  %196 = getelementptr inbounds i8, ptr %20, i64 32
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %196, ptr readonly align 1 %.sroa.2.0.i41, i64 %195, i1 false)
+193:                                              ; preds = %192
+  %194 = and i64 %185, 4095
+  %195 = getelementptr inbounds i8, ptr %20, i64 32
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %195, ptr readonly align 1 %.sroa.2.0.i41, i64 %194, i1 false)
   br label %init_addrinfo.exit
 
-init_addrinfo.exit:                               ; preds = %193, %194
-  %197 = getelementptr inbounds i8, ptr %20, i64 28
-  store i32 %189, ptr %197, align 4
-  %198 = getelementptr inbounds i8, ptr %20, i64 16
-  store i32 %30, ptr %198, align 8
-  %199 = getelementptr inbounds i8, ptr %20, i64 20
-  store i32 %36, ptr %199, align 4
-  %200 = getelementptr inbounds i8, ptr %20, i64 24
-  store i32 %47, ptr %200, align 8
+init_addrinfo.exit:                               ; preds = %192, %193
+  %196 = getelementptr inbounds i8, ptr %20, i64 28
+  store i32 %188, ptr %196, align 4
+  %197 = getelementptr inbounds i8, ptr %20, i64 16
+  store i32 %30, ptr %197, align 8
+  %198 = getelementptr inbounds i8, ptr %20, i64 20
+  store i32 %36, ptr %198, align 4
+  %199 = getelementptr inbounds i8, ptr %20, i64 24
+  store i32 %47, ptr %199, align 8
   store i64 4, ptr %21, align 8
   store i64 4, ptr %20, align 8
-  br label %201
+  br label %200
 
-201:                                              ; preds = %init_addrinfo_getaddrinfo.exit, %init_unix_addrinfo.exit, %init_addrinfo.exit
+200:                                              ; preds = %init_addrinfo_getaddrinfo.exit, %init_unix_addrinfo.exit, %init_addrinfo.exit
   ret i64 %2
 }
 
@@ -3565,8 +3560,8 @@ define internal i64 @addrinfo_s_unix(i32 noundef %0, ptr noundef %1, i64 %2) #0 
   unreachable
 
 29:                                               ; preds = %13
-  %.2..2..2..sroa_idx9 = getelementptr inbounds i8, ptr %5, i64 2
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(108) %.2..2..2..sroa_idx9, i8 0, i64 108, i1 false)
+  %.2..2..2..sroa_idx6 = getelementptr inbounds i8, ptr %5, i64 2
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(108) %.2..2..2..sroa_idx6, i8 0, i64 108, i1 false)
   store i16 1, ptr %5, align 2
   %30 = load i64, ptr %23, align 8, !noalias !36
   %31 = and i64 %30, 8192
@@ -3576,46 +3571,41 @@ define internal i64 @addrinfo_s_unix(i32 noundef %0, ptr noundef %1, i64 %2) #0 
   br i1 %.not.i.i.i, label %RSTRING_PTR.exit.i, label %RSTRING_PTR.exit.thread.i
 
 RSTRING_PTR.exit.i:                               ; preds = %29
-  br i1 %.not.i.i, label %init_unix_addrinfo.exit, label %33
+  br i1 %.not.i.i, label %init_unix_addrinfo.exit, label %RSTRING_PTR.exit.i.i
 
 RSTRING_PTR.exit.thread.i:                        ; preds = %29
-  br i1 %.not.i.i, label %init_unix_addrinfo.exit, label %34
+  br i1 %.not.i.i, label %init_unix_addrinfo.exit, label %33
 
-33:                                               ; preds = %RSTRING_PTR.exit.i
-  %.2..2..2..sroa_idx8 = getelementptr inbounds i8, ptr %5, i64 2
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 2 %.2..2..2..sroa_idx8, ptr nonnull readonly align 1 %32, i64 %25, i1 false)
-  br label %RSTRING_PTR.exit.i.i
-
-34:                                               ; preds = %RSTRING_PTR.exit.thread.i
+33:                                               ; preds = %RSTRING_PTR.exit.thread.i
   %.sroa.2.0.copyload.i.i = load ptr, ptr %32, align 8
-  %.2..2..2..sroa_idx = getelementptr inbounds i8, ptr %5, i64 2
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 2 %.2..2..2..sroa_idx, ptr readonly align 1 %.sroa.2.0.copyload.i.i, i64 %25, i1 false)
   br label %RSTRING_PTR.exit.i.i
 
-RSTRING_PTR.exit.i.i:                             ; preds = %34, %33
-  %.sroa.2.0.i.i.i = phi ptr [ %.sroa.2.0.copyload.i.i, %34 ], [ %32, %33 ]
-  %35 = load i8, ptr %.sroa.2.0.i.i.i, align 1
-  %36 = icmp eq i8 %35, 0
-  br i1 %36, label %RSTRING_LENINT.exit.i.i, label %init_unix_addrinfo.exit
+RSTRING_PTR.exit.i.i:                             ; preds = %33, %RSTRING_PTR.exit.i
+  %.sink.i = phi ptr [ %.sroa.2.0.copyload.i.i, %33 ], [ %32, %RSTRING_PTR.exit.i ]
+  %.2..2..2..sroa_idx = getelementptr inbounds i8, ptr %5, i64 2
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 2 %.2..2..2..sroa_idx, ptr readonly align 1 %.sink.i, i64 %25, i1 false)
+  %34 = load i8, ptr %.sink.i, align 1
+  %35 = icmp eq i8 %34, 0
+  br i1 %35, label %RSTRING_LENINT.exit.i.i, label %init_unix_addrinfo.exit
 
 RSTRING_LENINT.exit.i.i:                          ; preds = %RSTRING_PTR.exit.i.i
-  %37 = trunc nuw i64 %25 to i32
-  %38 = add nuw nsw i32 %37, 2
+  %36 = trunc nuw i64 %25 to i32
+  %37 = add nuw nsw i32 %36, 2
   br label %init_unix_addrinfo.exit
 
 init_unix_addrinfo.exit:                          ; preds = %RSTRING_PTR.exit.i, %RSTRING_PTR.exit.thread.i, %RSTRING_PTR.exit.i.i, %RSTRING_LENINT.exit.i.i
-  %.0.i.i = phi i32 [ %38, %RSTRING_LENINT.exit.i.i ], [ 110, %RSTRING_PTR.exit.i.i ], [ 2, %RSTRING_PTR.exit.thread.i ], [ 2, %RSTRING_PTR.exit.i ]
-  %39 = zext nneg i32 %.0.i.i to i64
-  %40 = getelementptr inbounds i8, ptr %16, i64 32
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %40, ptr noundef nonnull readonly align 2 dereferenceable(1) %5, i64 %39, i1 false)
-  %41 = getelementptr inbounds i8, ptr %16, i64 28
-  store i32 %.0.i.i, ptr %41, align 4
-  %42 = getelementptr inbounds i8, ptr %16, i64 16
-  store i32 1, ptr %42, align 8
-  %43 = getelementptr inbounds i8, ptr %16, i64 20
-  store i32 %.0, ptr %43, align 4
-  %44 = getelementptr inbounds i8, ptr %16, i64 24
-  store i32 0, ptr %44, align 8
+  %.0.i.i = phi i32 [ %37, %RSTRING_LENINT.exit.i.i ], [ 110, %RSTRING_PTR.exit.i.i ], [ 2, %RSTRING_PTR.exit.thread.i ], [ 2, %RSTRING_PTR.exit.i ]
+  %38 = zext nneg i32 %.0.i.i to i64
+  %39 = getelementptr inbounds i8, ptr %16, i64 32
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %39, ptr noundef nonnull readonly align 2 dereferenceable(1) %5, i64 %38, i1 false)
+  %40 = getelementptr inbounds i8, ptr %16, i64 28
+  store i32 %.0.i.i, ptr %40, align 4
+  %41 = getelementptr inbounds i8, ptr %16, i64 16
+  store i32 1, ptr %41, align 8
+  %42 = getelementptr inbounds i8, ptr %16, i64 20
+  store i32 %.0, ptr %42, align 4
+  %43 = getelementptr inbounds i8, ptr %16, i64 24
+  store i32 0, ptr %43, align 8
   store i64 4, ptr %17, align 8
   store i64 4, ptr %16, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)

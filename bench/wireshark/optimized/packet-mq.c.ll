@@ -4240,13 +4240,13 @@ define internal fastcc void @dissect_mq_pdu(ptr noundef %0, ptr noundef %1, ptr 
   store i32 0, ptr %16, align 4
   %17 = tail call i32 @tvb_reported_length(ptr noundef %0) #7
   %18 = icmp ugt i32 %17, 3
-  br i1 %18, label %19, label %2058
+  br i1 %18, label %19, label %2056
 
 19:                                               ; preds = %3
   %20 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef 0) #7
   store i32 %20, ptr %9, align 4
   %21 = and i32 %20, -256
-  switch i32 %21, label %2050 [
+  switch i32 %21, label %2048 [
     i32 1414744064, label %22
     i32 -471676928, label %22
   ]
@@ -4254,7 +4254,7 @@ define internal fastcc void @dissect_mq_pdu(ptr noundef %0, ptr noundef %1, ptr 
 22:                                               ; preds = %19, %19
   %23 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef 0) #7
   %24 = icmp sgt i32 %23, 27
-  br i1 %24, label %25, label %2050
+  br i1 %24, label %25, label %2048
 
 25:                                               ; preds = %22
   %26 = load i32, ptr %9, align 4
@@ -4279,7 +4279,7 @@ define internal fastcc void @dissect_mq_pdu(ptr noundef %0, ptr noundef %1, ptr 
 33:                                               ; preds = %30, %30
   %34 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef 0) #7
   %35 = icmp slt i32 %34, 36
-  br i1 %35, label %2058, label %36
+  br i1 %35, label %2056, label %36
 
 36:                                               ; preds = %33
   %37 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef 8) #7
@@ -4445,7 +4445,7 @@ define internal fastcc void @dissect_mq_pdu(ptr noundef %0, ptr noundef %1, ptr 
   %.02370 = phi ptr [ %95, %105 ], [ null, %79 ]
   %129 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.02391) #7
   %130 = icmp sgt i32 %129, 3
-  br i1 %130, label %131, label %2058
+  br i1 %130, label %131, label %2056
 
 131:                                              ; preds = %128
   %132 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %.02391) #7
@@ -4458,7 +4458,7 @@ define internal fastcc void @dissect_mq_pdu(ptr noundef %0, ptr noundef %1, ptr 
 
 135:                                              ; preds = %131
   %136 = icmp sgt i8 %.pre, -1
-  br i1 %136, label %.thread, label %2043
+  br i1 %136, label %.thread, label %2041
 
 137:                                              ; preds = %131
   %or.cond2533 = icmp slt i8 %.pre, -96
@@ -6486,16 +6486,16 @@ dissect_mq_addCR_colinfo.exit2550:                ; preds = %1269, %1275
 
 1340:                                             ; preds = %1338, %1335
   %1341 = icmp eq i32 %.32361, 1
-  br i1 %1341, label %1342, label %2035
+  br i1 %1341, label %1342, label %2033
 
 1342:                                             ; preds = %1340
   %.not2526 = icmp eq i32 %.32355, 0
-  br i1 %.not2526, label %2033, label %1343
+  br i1 %.not2526, label %2031, label %1343
 
 1343:                                             ; preds = %1342
   %1344 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.12) #7
   %1345 = icmp sgt i32 %1344, 0
-  br i1 %1345, label %1346, label %2033
+  br i1 %1345, label %1346, label %2031
 
 1346:                                             ; preds = %1343
   %1347 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.12) #7
@@ -6837,7 +6837,7 @@ thread-pre-split2608:                             ; preds = %1504, %1514
   %1567 = add i32 %.20, 8
   %1568 = call i32 @tvb_get_guint32(ptr noundef %0, i32 noundef %1567, i32 noundef %1566) #7
   %1569 = icmp slt i32 %1568, 33
-  br i1 %1569, label %2058, label %1570
+  br i1 %1569, label %2056, label %1570
 
 1570:                                             ; preds = %1560
   %1571 = add i32 %.20, 12
@@ -7376,7 +7376,7 @@ thread-pre-split2608:                             ; preds = %1504, %1514
   %.02396 = phi i32 [ %.42400, %2006 ], [ %.32399, %1557 ], [ 0, %1346 ], [ %.32399, %1555 ]
   %.15 = phi i32 [ %.21, %2006 ], [ %.20, %1557 ], [ %.12, %1346 ], [ %.20, %1555 ]
   %.b2481 = load i1, ptr @mq_in_reassembly, align 4
-  br i1 %.b2481, label %2030, label %2008
+  br i1 %.b2481, label %2028, label %2008
 
 2008:                                             ; preds = %2007
   %2009 = load ptr, ptr %12, align 8
@@ -7403,68 +7403,68 @@ thread-pre-split2608:                             ; preds = %1504, %1514
   %2026 = load ptr, ptr @mq_heur_subdissector_list, align 8
   %2027 = call i32 @dissector_try_heuristic(ptr noundef %2026, ptr noundef %2025, ptr noundef %1, ptr noundef %.02389, ptr noundef nonnull %5, ptr noundef nonnull %8) #7
   %.not2532 = icmp eq i32 %2027, 0
-  br i1 %.not2532, label %2028, label %2033
+  br i1 %.not2532, label %.sink.split2672, label %2031
 
-2028:                                             ; preds = %2008
-  %2029 = call i32 @call_data_dissector(ptr noundef %2025, ptr noundef nonnull %1, ptr noundef %.02389) #7
+2028:                                             ; preds = %2007
+  %2029 = call ptr @tvb_new_subset_remaining(ptr noundef %0, i32 noundef %.15) #7
+  br label %.sink.split2672
+
+.sink.split2672:                                  ; preds = %2008, %2028
+  %.sink2673 = phi ptr [ %2029, %2028 ], [ %2025, %2008 ]
+  %2030 = call i32 @call_data_dissector(ptr noundef %.sink2673, ptr noundef %1, ptr noundef %.02389) #7
+  br label %2031
+
+2031:                                             ; preds = %.sink.split2672, %2008, %1343, %1342
+  %2032 = call i32 @tvb_reported_length(ptr noundef %0) #7
   br label %2033
 
-2030:                                             ; preds = %2007
-  %2031 = call ptr @tvb_new_subset_remaining(ptr noundef %0, i32 noundef %.15) #7
-  %2032 = call i32 @call_data_dissector(ptr noundef %2031, ptr noundef %1, ptr noundef %.02389) #7
-  br label %2033
+2033:                                             ; preds = %2031, %1340
+  %.14 = phi i32 [ %2032, %2031 ], [ %.12, %1340 ]
+  %2034 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.14) #7
+  %2035 = icmp sgt i32 %2034, 3
+  br i1 %2035, label %2036, label %2056
 
-2033:                                             ; preds = %2030, %2028, %2008, %1343, %1342
-  %2034 = call i32 @tvb_reported_length(ptr noundef %0) #7
-  br label %2035
+2036:                                             ; preds = %2033
+  %2037 = call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %.14) #7
+  store i32 %2037, ptr %9, align 4
+  %2038 = load i32, ptr @ett_mq_structid, align 4
+  %2039 = call ptr @val_to_str_ext(i32 noundef %2037, ptr noundef nonnull @mq_StructID_xvals, ptr noundef nonnull @.str.1854) #7
+  %2040 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %.02389, ptr noundef %0, i32 noundef %.14, i32 noundef -1, i32 noundef %2038, ptr noundef null, ptr noundef nonnull @.str.1882, ptr noundef %2039) #7
+  br label %2056
 
-2035:                                             ; preds = %2033, %1340
-  %.14 = phi i32 [ %2034, %2033 ], [ %.12, %1340 ]
-  %2036 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.14) #7
-  %2037 = icmp sgt i32 %2036, 3
-  br i1 %2037, label %2038, label %2058
-
-2038:                                             ; preds = %2035
-  %2039 = call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %.14) #7
-  store i32 %2039, ptr %9, align 4
-  %2040 = load i32, ptr @ett_mq_structid, align 4
-  %2041 = call ptr @val_to_str_ext(i32 noundef %2039, ptr noundef nonnull @mq_StructID_xvals, ptr noundef nonnull @.str.1854) #7
-  %2042 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %.02389, ptr noundef %0, i32 noundef %.14, i32 noundef -1, i32 noundef %2040, ptr noundef null, ptr noundef nonnull @.str.1882, ptr noundef %2041) #7
-  br label %2058
-
-2043:                                             ; preds = %135
+2041:                                             ; preds = %135
   %.b2480 = load i1, ptr @mq_in_reassembly, align 4
-  br i1 %.b2480, label %2046, label %2044
+  br i1 %.b2480, label %2044, label %2042
 
-2044:                                             ; preds = %2043
-  %2045 = load ptr, ptr %12, align 8
-  tail call void @col_append_str(ptr noundef %2045, i32 noundef 25, ptr noundef nonnull @.str.1807) #7
-  br label %2046
+2042:                                             ; preds = %2041
+  %2043 = load ptr, ptr %12, align 8
+  tail call void @col_append_str(ptr noundef %2043, i32 noundef 25, ptr noundef nonnull @.str.1807) #7
+  br label %2044
 
-2046:                                             ; preds = %2044, %2043
-  %2047 = tail call ptr @tvb_new_subset_remaining(ptr noundef %0, i32 noundef %.02391) #7
+2044:                                             ; preds = %2042, %2041
+  %2045 = tail call ptr @tvb_new_subset_remaining(ptr noundef %0, i32 noundef %.02391) #7
   %.not2488 = icmp eq ptr %.02389, null
-  %2048 = select i1 %.not2488, ptr %2, ptr %.02389
-  %2049 = tail call i32 @call_data_dissector(ptr noundef %2047, ptr noundef nonnull %1, ptr noundef %2048) #7
-  br label %2058
+  %2046 = select i1 %.not2488, ptr %2, ptr %.02389
+  %2047 = tail call i32 @call_data_dissector(ptr noundef %2045, ptr noundef nonnull %1, ptr noundef %2046) #7
+  br label %2056
 
-2050:                                             ; preds = %19, %22
-  %2051 = load ptr, ptr %12, align 8
-  tail call void @col_append_str(ptr noundef %2051, i32 noundef 25, ptr noundef nonnull @.str.1883) #7
+2048:                                             ; preds = %19, %22
+  %2049 = load ptr, ptr %12, align 8
+  tail call void @col_append_str(ptr noundef %2049, i32 noundef 25, ptr noundef nonnull @.str.1883) #7
   %.not = icmp eq ptr %2, null
-  br i1 %.not, label %2055, label %2052
+  br i1 %.not, label %2053, label %2050
 
-2052:                                             ; preds = %2050
-  %2053 = load i32, ptr @proto_mq, align 4
-  %2054 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %2, i32 noundef %2053, ptr noundef %0, i32 noundef 0, i32 noundef -1, i32 noundef 0) #7
-  br label %2055
+2050:                                             ; preds = %2048
+  %2051 = load i32, ptr @proto_mq, align 4
+  %2052 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %2, i32 noundef %2051, ptr noundef %0, i32 noundef 0, i32 noundef -1, i32 noundef 0) #7
+  br label %2053
 
-2055:                                             ; preds = %2052, %2050
-  %2056 = tail call ptr @tvb_new_subset_remaining(ptr noundef %0, i32 noundef 0) #7
-  %2057 = tail call i32 @call_data_dissector(ptr noundef %2056, ptr noundef nonnull %1, ptr noundef %2) #7
-  br label %2058
+2053:                                             ; preds = %2050, %2048
+  %2054 = tail call ptr @tvb_new_subset_remaining(ptr noundef %0, i32 noundef 0) #7
+  %2055 = tail call i32 @call_data_dissector(ptr noundef %2054, ptr noundef nonnull %1, ptr noundef %2) #7
+  br label %2056
 
-2058:                                             ; preds = %2055, %2046, %2038, %2035, %128, %1560, %33, %3
+2056:                                             ; preds = %2053, %2044, %2036, %2033, %128, %1560, %33, %3
   ret void
 }
 

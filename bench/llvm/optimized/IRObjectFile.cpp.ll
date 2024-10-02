@@ -488,66 +488,45 @@ define dso_local void @_ZN4llvm6object12IRObjectFile22findBitcodeInMemBufferENS_
   %11 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %12 = load i8, ptr %11, align 8
   %13 = trunc i8 %12 to i1
-  br i1 %13, label %_ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i, label %19
+  br i1 %13, label %.thread, label %19
 
-_ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i: ; preds = %10
+.thread:                                          ; preds = %10
   %14 = load i64, ptr %3, align 8, !noalias !24
   %15 = inttoptr i64 %14 to ptr
-  store ptr null, ptr %3, align 8, !noalias !24
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %17 = load i8, ptr %16, align 8
   %18 = or i8 %17, 1
   store i8 %18, ptr %16, align 8
   store ptr %15, ptr %0, align 8, !alias.scope !27
-  br label %21
+  br label %_ZN4llvm8ExpectedISt10unique_ptrINS_6object10ObjectFileESt14default_deleteIS3_EEED2Ev.exit
 
 19:                                               ; preds = %10
   %20 = load ptr, ptr %3, align 8
   call void @_ZN4llvm6object12IRObjectFile19findBitcodeInObjectERKNS0_10ObjectFileE(ptr dead_on_unwind writable sret(%"class.llvm::Expected.108") align 8 %0, ptr noundef nonnull align 8 dereferenceable(48) %20)
-  %.pre = load i8, ptr %11, align 8
-  %.pre7 = load ptr, ptr %3, align 8
-  br label %21
+  %.pre = load ptr, ptr %3, align 8
+  %.not.i1.i = icmp eq ptr %.pre, null
+  br i1 %.not.i1.i, label %_ZN4llvm8ExpectedISt10unique_ptrINS_6object10ObjectFileESt14default_deleteIS3_EEED2Ev.exit, label %_ZNSt10unique_ptrIN4llvm6object10ObjectFileESt14default_deleteIS2_EED2Ev.exit.sink.split.i
 
-21:                                               ; preds = %19, %_ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i
-  %22 = phi ptr [ %.pre7, %19 ], [ null, %_ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i ]
-  %23 = phi i8 [ %.pre, %19 ], [ %12, %_ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i ]
-  %24 = trunc i8 %23 to i1
-  %.not.i1.i = icmp eq ptr %22, null
-  br i1 %24, label %29, label %25
-
-25:                                               ; preds = %21
-  br i1 %.not.i1.i, label %_ZN4llvm8ExpectedISt10unique_ptrINS_6object10ObjectFileESt14default_deleteIS3_EEED2Ev.exit, label %_ZNKSt14default_deleteIN4llvm6object10ObjectFileEEclEPS2_.exit.i.i
-
-_ZNKSt14default_deleteIN4llvm6object10ObjectFileEEclEPS2_.exit.i.i: ; preds = %25
-  %26 = load ptr, ptr %22, align 8
-  %27 = getelementptr inbounds i8, ptr %26, i64 8
-  %28 = load ptr, ptr %27, align 8
-  call void %28(ptr noundef nonnull align 8 dereferenceable(48) %22) #14
-  br label %_ZN4llvm8ExpectedISt10unique_ptrINS_6object10ObjectFileESt14default_deleteIS3_EEED2Ev.exit
-
-29:                                               ; preds = %21
-  br i1 %.not.i1.i, label %_ZN4llvm8ExpectedISt10unique_ptrINS_6object10ObjectFileESt14default_deleteIS3_EEED2Ev.exit, label %_ZNKSt14default_deleteIN4llvm13ErrorInfoBaseEEclEPS1_.exit.i.i
-
-_ZNKSt14default_deleteIN4llvm13ErrorInfoBaseEEclEPS1_.exit.i.i: ; preds = %29
-  %30 = load ptr, ptr %22, align 8
-  %31 = getelementptr inbounds i8, ptr %30, i64 8
-  %32 = load ptr, ptr %31, align 8
-  call void %32(ptr noundef nonnull align 8 dereferenceable(8) %22) #14
+_ZNSt10unique_ptrIN4llvm6object10ObjectFileESt14default_deleteIS2_EED2Ev.exit.sink.split.i: ; preds = %19
+  %21 = load ptr, ptr %.pre, align 8
+  %22 = getelementptr inbounds i8, ptr %21, i64 8
+  %23 = load ptr, ptr %22, align 8
+  call void %23(ptr noundef nonnull align 8 dereferenceable(8) %.pre) #14
   br label %_ZN4llvm8ExpectedISt10unique_ptrINS_6object10ObjectFileESt14default_deleteIS3_EEED2Ev.exit
 
 _ZN4llvm5ErrorD2Ev.exit2:                         ; preds = %2
-  %33 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZN4llvm6object15object_categoryEv() #14
-  call void @_ZN4llvm16errorCodeToErrorESt10error_code(ptr dead_on_unwind nonnull writable sret(%"class.llvm::Error") align 8 %4, i32 2, ptr nonnull %33) #14
-  %34 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %35 = load i8, ptr %34, align 8
-  %36 = or i8 %35, 1
-  store i8 %36, ptr %34, align 8
+  %24 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZN4llvm6object15object_categoryEv() #14
+  call void @_ZN4llvm16errorCodeToErrorESt10error_code(ptr dead_on_unwind nonnull writable sret(%"class.llvm::Error") align 8 %4, i32 2, ptr nonnull %24) #14
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %26 = load i8, ptr %25, align 8
+  %27 = or i8 %26, 1
+  store i8 %27, ptr %25, align 8
   call void @llvm.experimental.noalias.scope.decl(metadata !30)
-  %37 = load ptr, ptr %4, align 8, !noalias !30
-  store ptr %37, ptr %0, align 8, !alias.scope !30
+  %28 = load ptr, ptr %4, align 8, !noalias !30
+  store ptr %28, ptr %0, align 8, !alias.scope !30
   br label %_ZN4llvm8ExpectedISt10unique_ptrINS_6object10ObjectFileESt14default_deleteIS3_EEED2Ev.exit
 
-_ZN4llvm8ExpectedISt10unique_ptrINS_6object10ObjectFileESt14default_deleteIS3_EEED2Ev.exit: ; preds = %_ZNKSt14default_deleteIN4llvm13ErrorInfoBaseEEclEPS1_.exit.i.i, %29, %_ZNKSt14default_deleteIN4llvm6object10ObjectFileEEclEPS2_.exit.i.i, %25, %_ZN4llvm5ErrorD2Ev.exit2, %6
+_ZN4llvm8ExpectedISt10unique_ptrINS_6object10ObjectFileESt14default_deleteIS3_EEED2Ev.exit: ; preds = %_ZNSt10unique_ptrIN4llvm6object10ObjectFileESt14default_deleteIS2_EED2Ev.exit.sink.split.i, %19, %.thread, %_ZN4llvm5ErrorD2Ev.exit2, %6
   ret void
 }
 

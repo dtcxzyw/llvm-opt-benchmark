@@ -6004,27 +6004,23 @@ if.end13:                                         ; preds = %if.end8
   %8 = load i32, ptr %call15, align 8
   switch i32 %8, label %if.end27 [
     i32 12, label %if.then18
-    i32 11, label %if.then23
+    i32 11, label %if.end27.sink.split
   ]
 
 if.then18:                                        ; preds = %if.end13
   %base = getelementptr inbounds i8, ptr %call15, i64 24
   %9 = load ptr, ptr %base, align 8
-  %call19 = call ptr @pointer_to(ptr noundef %9) #13
   br label %if.end27.sink.split
 
-if.then23:                                        ; preds = %if.end13
-  %call24 = call ptr @pointer_to(ptr noundef nonnull %call15) #13
-  br label %if.end27.sink.split
-
-if.end27.sink.split:                              ; preds = %if.then18, %if.then23
-  %call24.sink = phi ptr [ %call24, %if.then23 ], [ %call19, %if.then18 ]
-  %name25 = getelementptr inbounds i8, ptr %call24.sink, i64 32
+if.end27.sink.split:                              ; preds = %if.end13, %if.then18
+  %call15.sink = phi ptr [ %9, %if.then18 ], [ %call15, %if.end13 ]
+  %call24 = call ptr @pointer_to(ptr noundef %call15.sink) #13
+  %name25 = getelementptr inbounds i8, ptr %call24, i64 32
   store ptr %7, ptr %name25, align 8
   br label %if.end27
 
 if.end27:                                         ; preds = %if.end27.sink.split, %if.end13
-  %ty2.0 = phi ptr [ %call15, %if.end13 ], [ %call24.sink, %if.end27.sink.split ]
+  %ty2.0 = phi ptr [ %call15, %if.end13 ], [ %call24, %if.end27.sink.split ]
   %call28 = call ptr @copy_type(ptr noundef nonnull %ty2.0) #13
   %next29 = getelementptr inbounds i8, ptr %cur.022, i64 112
   store ptr %call28, ptr %next29, align 8
@@ -7415,22 +7411,22 @@ if.then90.i:                                      ; preds = %if.end88.i
   %87 = load ptr, ptr %ty.i162, align 16
   %88 = load i32, ptr %87, align 8
   switch i32 %88, label %if.end7.i [
-    i32 11, label %if.then.i177
+    i32 11, label %if.end7.i.sink.split
     i32 12, label %if.then5.i
   ]
-
-if.then.i177:                                     ; preds = %if.then90.i
-  %call2.i178 = call ptr @pointer_to(ptr noundef nonnull %87) #13
-  br label %if.end7.i
 
 if.then5.i:                                       ; preds = %if.then90.i
   %base.i163 = getelementptr inbounds i8, ptr %87, i64 24
   %89 = load ptr, ptr %base.i163, align 8
-  %call6.i164 = call ptr @pointer_to(ptr noundef %89) #13
+  br label %if.end7.i.sink.split
+
+if.end7.i.sink.split:                             ; preds = %if.then90.i, %if.then5.i
+  %.sink = phi ptr [ %89, %if.then5.i ], [ %87, %if.then90.i ]
+  %call6.i164 = call ptr @pointer_to(ptr noundef %.sink) #13
   br label %if.end7.i
 
-if.end7.i:                                        ; preds = %if.then5.i, %if.then.i177, %if.then90.i
-  %t1.0.i = phi ptr [ %call2.i178, %if.then.i177 ], [ %call6.i164, %if.then5.i ], [ %87, %if.then90.i ]
+if.end7.i:                                        ; preds = %if.end7.i.sink.split, %if.then90.i
+  %t1.0.i = phi ptr [ %87, %if.then90.i ], [ %call6.i164, %if.end7.i.sink.split ]
   %90 = load ptr, ptr %tok.addr.i159, align 8
   %call8.i166310 = call zeroext i1 @consume(ptr noundef nonnull %tok.addr, ptr noundef %90, ptr noundef nonnull @.str.24) #13
   br i1 %call8.i166310, label %if.then25.i176, label %while.body.i167

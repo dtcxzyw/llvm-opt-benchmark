@@ -215,17 +215,14 @@ land.lhs.true:                                    ; preds = %entry
   %0 = getelementptr i8, ptr %tb, i64 72
   %tb.val = load i64, ptr %0, align 8
   %cmp1.not = icmp eq i64 %tb.val, -1
-  br i1 %cmp1.not, label %if.else, label %if.then
-
-if.then:                                          ; preds = %land.lhs.true
-  tail call fastcc void @do_tb_phys_invalidate(ptr noundef nonnull %tb, i1 noundef zeroext true)
-  br label %if.end
+  br i1 %cmp1.not, label %if.else, label %if.end
 
 if.else:                                          ; preds = %land.lhs.true, %entry
-  tail call fastcc void @do_tb_phys_invalidate(ptr noundef %tb, i1 noundef zeroext false)
   br label %if.end
 
-if.end:                                           ; preds = %if.else, %if.then
+if.end:                                           ; preds = %land.lhs.true, %if.else
+  %.sink = phi i1 [ false, %if.else ], [ true, %land.lhs.true ]
+  tail call fastcc void @do_tb_phys_invalidate(ptr noundef %tb, i1 noundef zeroext %.sink)
   ret void
 }
 

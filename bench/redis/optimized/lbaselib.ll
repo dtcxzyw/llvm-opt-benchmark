@@ -1110,24 +1110,18 @@ define internal range(i32 1, -2147483648) i32 @luaB_coresume(ptr noundef %L) #0 
 entry:
   %call = tail call ptr @lua_tothread(ptr noundef %L, i32 noundef 1) #8
   %tobool.not = icmp eq ptr %call, null
-  br i1 %tobool.not, label %lor.rhs, label %entry.split
-
-entry.split:                                      ; preds = %entry
-  %call31 = tail call i32 @lua_gettop(ptr noundef %L) #8
-  %sub2 = add nsw i32 %call31, -1
-  %call43 = tail call fastcc i32 @auxresume(ptr noundef %L, ptr noundef nonnull %call, i32 noundef %sub2)
-  br label %lor.end
+  br i1 %tobool.not, label %lor.rhs, label %lor.end
 
 lor.rhs:                                          ; preds = %entry
   %call1 = tail call i32 @luaL_argerror(ptr noundef %L, i32 noundef 1, ptr noundef nonnull @.str.72) #8
-  %call34 = tail call i32 @lua_gettop(ptr noundef %L) #8
-  %sub6 = add nsw i32 %call34, -1
-  %call47 = tail call fastcc i32 @auxresume(ptr noundef %L, ptr noundef null, i32 noundef %sub6)
   br label %lor.end
 
-lor.end:                                          ; preds = %entry.split, %lor.rhs
-  %phi.call = phi i32 [ %call43, %entry.split ], [ %call47, %lor.rhs ]
-  %cmp = icmp slt i32 %phi.call, 0
+lor.end:                                          ; preds = %entry, %lor.rhs
+  %call.sink = phi ptr [ null, %lor.rhs ], [ %call, %entry ]
+  %call31 = tail call i32 @lua_gettop(ptr noundef %L) #8
+  %sub2 = add nsw i32 %call31, -1
+  %call43 = tail call fastcc i32 @auxresume(ptr noundef %L, ptr noundef %call.sink, i32 noundef %sub2)
+  %cmp = icmp slt i32 %call43, 0
   br i1 %cmp, label %if.then, label %if.else
 
 if.then:                                          ; preds = %lor.end
@@ -1136,8 +1130,8 @@ if.then:                                          ; preds = %lor.end
 
 if.else:                                          ; preds = %lor.end
   tail call void @lua_pushboolean(ptr noundef %L, i32 noundef 1) #8
-  %add = add nuw nsw i32 %phi.call, 1
-  %sub5 = xor i32 %phi.call, -1
+  %add = add nuw nsw i32 %call43, 1
+  %sub5 = xor i32 %call43, -1
   br label %cleanup
 
 cleanup:                                          ; preds = %if.else, %if.then

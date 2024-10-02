@@ -5036,23 +5036,13 @@ if.end84.i:                                       ; preds = %if.then83.i, %if.el
 if.end88.i:                                       ; preds = %if.end84.i
   %call89.i = call i32 @PyEval_MergeCompilerFlags(ptr noundef nonnull %cf.i) #7
   %tobool90.not.i = icmp eq i32 %call89.i, 0
-  br i1 %tobool90.not.i, label %if.else93.i, label %if.then91.i
-
-if.then91.i:                                      ; preds = %if.end88.i
-  %call92.i = call ptr @PyRun_StringFlags(ptr noundef nonnull %call85.i, i32 noundef 257, ptr noundef nonnull %globals.addr.0.i, ptr noundef %locals.addr.1.i, ptr noundef nonnull %cf.i) #7
-  br label %if.end95.i
-
-if.else93.i:                                      ; preds = %if.end88.i
-  %call94.i = call ptr @PyRun_StringFlags(ptr noundef nonnull %call85.i, i32 noundef 257, ptr noundef nonnull %globals.addr.0.i, ptr noundef %locals.addr.1.i, ptr noundef null) #7
-  br label %if.end95.i
-
-if.end95.i:                                       ; preds = %if.else93.i, %if.then91.i
-  %v.1.i = phi ptr [ %call92.i, %if.then91.i ], [ %call94.i, %if.else93.i ]
+  %.cf.i = select i1 %tobool90.not.i, ptr null, ptr %cf.i
+  %call94.i = call ptr @PyRun_StringFlags(ptr noundef nonnull %call85.i, i32 noundef 257, ptr noundef nonnull %globals.addr.0.i, ptr noundef %locals.addr.1.i, ptr noundef %.cf.i) #7
   %29 = load ptr, ptr %source_copy.i, align 8
   %cmp.not.i.i = icmp eq ptr %29, null
   br i1 %cmp.not.i.i, label %if.end96.i, label %if.then.i.i
 
-if.then.i.i:                                      ; preds = %if.end95.i
+if.then.i.i:                                      ; preds = %if.end88.i
   %30 = load i64, ptr %29, align 8
   %31 = and i64 %30, 2147483648
   %cmp.i2.not.i.i = icmp eq i64 %31, 0
@@ -5068,8 +5058,8 @@ if.then1.i.i.i:                                   ; preds = %if.end.i.i68.i
   call void @_Py_Dealloc(ptr noundef nonnull %29) #7
   br label %if.end96.i
 
-if.end96.i:                                       ; preds = %if.then1.i.i.i, %if.end.i.i68.i, %if.then.i.i, %if.end95.i, %if.else78.i, %if.then76.i
-  %v.0.i = phi ptr [ %call79.i, %if.else78.i ], [ %call77.i, %if.then76.i ], [ %v.1.i, %if.end95.i ], [ %v.1.i, %if.then.i.i ], [ %v.1.i, %if.end.i.i68.i ], [ %v.1.i, %if.then1.i.i.i ]
+if.end96.i:                                       ; preds = %if.then1.i.i.i, %if.end.i.i68.i, %if.then.i.i, %if.end88.i, %if.else78.i, %if.then76.i
+  %v.0.i = phi ptr [ %call79.i, %if.else78.i ], [ %call77.i, %if.then76.i ], [ %call94.i, %if.end88.i ], [ %call94.i, %if.then.i.i ], [ %call94.i, %if.end.i.i68.i ], [ %call94.i, %if.then1.i.i.i ]
   %cmp97.i = icmp eq ptr %v.0.i, null
   br i1 %cmp97.i, label %if.then.i71.i, label %if.end99.i
 

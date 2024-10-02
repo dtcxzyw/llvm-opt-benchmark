@@ -29983,10 +29983,10 @@ define internal fastcc void @_ZSt16__merge_adaptiveIN9__gnu_cxx17__normal_iterat
   %8 = alloca %"struct.(anonymous namespace)::X86FrameSortingObject", align 4
   %9 = alloca %"struct.(anonymous namespace)::X86FrameSortingObject", align 4
   %10 = alloca %"struct.(anonymous namespace)::X86FrameSortingObject", align 4
-  %.not129 = icmp sgt i64 %3, %4
-  %.not80130 = icmp sgt i64 %3, %6
-  %or.cond131 = or i1 %.not80130, %.not129
-  br i1 %or.cond131, label %.lr.ph, label %tailrecurse._crit_edge
+  %.not128 = icmp sgt i64 %3, %4
+  %.not80129 = icmp sgt i64 %3, %6
+  %or.cond130 = or i1 %.not80129, %.not128
+  br i1 %or.cond130, label %.lr.ph, label %tailrecurse._crit_edge
 
 .lr.ph:                                           ; preds = %7
   %11 = ptrtoint ptr %2 to i64
@@ -29994,12 +29994,12 @@ define internal fastcc void @_ZSt16__merge_adaptiveIN9__gnu_cxx17__normal_iterat
 
 tailrecurse._crit_edge:                           ; preds = %_ZSt17__rotate_adaptiveIN9__gnu_cxx17__normal_iteratorIPN12_GLOBAL__N_121X86FrameSortingObjectESt6vectorIS3_SaIS3_EEEES4_lET_S9_S9_S9_T1_SA_T0_SA_.exit, %7
   %.tr.lcssa = phi ptr [ %0, %7 ], [ %.sroa.032.0.i, %_ZSt17__rotate_adaptiveIN9__gnu_cxx17__normal_iteratorIPN12_GLOBAL__N_121X86FrameSortingObjectESt6vectorIS3_SaIS3_EEEES4_lET_S9_S9_S9_T1_SA_T0_SA_.exit ]
-  %.tr115.lcssa = phi ptr [ %1, %7 ], [ %.sroa.0.0, %_ZSt17__rotate_adaptiveIN9__gnu_cxx17__normal_iteratorIPN12_GLOBAL__N_121X86FrameSortingObjectESt6vectorIS3_SaIS3_EEEES4_lET_S9_S9_S9_T1_SA_T0_SA_.exit ]
-  %.not.i.i.i.i.i = icmp eq ptr %.tr115.lcssa, %.tr.lcssa
+  %.tr114.lcssa = phi ptr [ %1, %7 ], [ %.sroa.0.0, %_ZSt17__rotate_adaptiveIN9__gnu_cxx17__normal_iteratorIPN12_GLOBAL__N_121X86FrameSortingObjectESt6vectorIS3_SaIS3_EEEES4_lET_S9_S9_S9_T1_SA_T0_SA_.exit ]
+  %.not.i.i.i.i.i = icmp eq ptr %.tr114.lcssa, %.tr.lcssa
   br i1 %.not.i.i.i.i.i, label %_ZSt21__move_merge_adaptiveIPN12_GLOBAL__N_121X86FrameSortingObjectEN9__gnu_cxx17__normal_iteratorIS2_St6vectorIS1_SaIS1_EEEES8_NS3_5__ops15_Iter_comp_iterINS0_25X86FrameSortingComparatorEEEEvT_SD_T0_SE_T1_T2_.exit, label %.lr.ph.i.preheader
 
 .lr.ph.i.preheader:                               ; preds = %tailrecurse._crit_edge
-  %12 = ptrtoint ptr %.tr115.lcssa to i64
+  %12 = ptrtoint ptr %.tr114.lcssa to i64
   %13 = ptrtoint ptr %.tr.lcssa to i64
   %14 = sub i64 %12, %13
   tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %5, ptr align 4 %.tr.lcssa, i64 %14, i1 false)
@@ -30009,7 +30009,7 @@ tailrecurse._crit_edge:                           ; preds = %_ZSt17__rotate_adap
 .lr.ph.i:                                         ; preds = %.lr.ph.i.preheader, %45
   %.029.i = phi ptr [ %.1.i, %45 ], [ %5, %.lr.ph.i.preheader ]
   %.sroa.0.027.i = phi ptr [ %46, %45 ], [ %.tr.lcssa, %.lr.ph.i.preheader ]
-  %.sroa.018.026.i = phi ptr [ %.sroa.018.1.i, %45 ], [ %.tr115.lcssa, %.lr.ph.i.preheader ]
+  %.sroa.018.026.i = phi ptr [ %.sroa.018.1.i, %45 ], [ %.tr114.lcssa, %.lr.ph.i.preheader ]
   %.not22.i = icmp eq ptr %.sroa.018.026.i, %2
   br i1 %.not22.i, label %_ZSt4moveIPN12_GLOBAL__N_121X86FrameSortingObjectEN9__gnu_cxx17__normal_iteratorIS2_St6vectorIS1_SaIS1_EEEEET0_T_SA_S9_.exit.i, label %16
 
@@ -30078,489 +30078,486 @@ _ZSt4moveIPN12_GLOBAL__N_121X86FrameSortingObjectEN9__gnu_cxx17__normal_iterator
   br label %_ZSt21__move_merge_adaptiveIPN12_GLOBAL__N_121X86FrameSortingObjectEN9__gnu_cxx17__normal_iteratorIS2_St6vectorIS1_SaIS1_EEEES8_NS3_5__ops15_Iter_comp_iterINS0_25X86FrameSortingComparatorEEEEvT_SD_T0_SE_T1_T2_.exit
 
 50:                                               ; preds = %.lr.ph, %_ZSt17__rotate_adaptiveIN9__gnu_cxx17__normal_iteratorIPN12_GLOBAL__N_121X86FrameSortingObjectESt6vectorIS3_SaIS3_EEEES4_lET_S9_S9_S9_T1_SA_T0_SA_.exit
-  %.not136 = phi i1 [ %.not129, %.lr.ph ], [ %.not, %_ZSt17__rotate_adaptiveIN9__gnu_cxx17__normal_iteratorIPN12_GLOBAL__N_121X86FrameSortingObjectESt6vectorIS3_SaIS3_EEEES4_lET_S9_S9_S9_T1_SA_T0_SA_.exit ]
-  %.tr118135 = phi i64 [ %4, %.lr.ph ], [ %250, %_ZSt17__rotate_adaptiveIN9__gnu_cxx17__normal_iteratorIPN12_GLOBAL__N_121X86FrameSortingObjectESt6vectorIS3_SaIS3_EEEES4_lET_S9_S9_S9_T1_SA_T0_SA_.exit ]
-  %.tr117134 = phi i64 [ %3, %.lr.ph ], [ %181, %_ZSt17__rotate_adaptiveIN9__gnu_cxx17__normal_iteratorIPN12_GLOBAL__N_121X86FrameSortingObjectESt6vectorIS3_SaIS3_EEEES4_lET_S9_S9_S9_T1_SA_T0_SA_.exit ]
-  %.tr115133 = phi ptr [ %1, %.lr.ph ], [ %.sroa.0.0, %_ZSt17__rotate_adaptiveIN9__gnu_cxx17__normal_iteratorIPN12_GLOBAL__N_121X86FrameSortingObjectESt6vectorIS3_SaIS3_EEEES4_lET_S9_S9_S9_T1_SA_T0_SA_.exit ]
-  %.tr132 = phi ptr [ %0, %.lr.ph ], [ %.sroa.032.0.i, %_ZSt17__rotate_adaptiveIN9__gnu_cxx17__normal_iteratorIPN12_GLOBAL__N_121X86FrameSortingObjectESt6vectorIS3_SaIS3_EEEES4_lET_S9_S9_S9_T1_SA_T0_SA_.exit ]
-  %.not81 = icmp sgt i64 %.tr118135, %6
-  %51 = ptrtoint ptr %.tr115133 to i64
-  br i1 %.not81, label %100, label %52
+  %.not135 = phi i1 [ %.not128, %.lr.ph ], [ %.not, %_ZSt17__rotate_adaptiveIN9__gnu_cxx17__normal_iteratorIPN12_GLOBAL__N_121X86FrameSortingObjectESt6vectorIS3_SaIS3_EEEES4_lET_S9_S9_S9_T1_SA_T0_SA_.exit ]
+  %.tr117134 = phi i64 [ %4, %.lr.ph ], [ %248, %_ZSt17__rotate_adaptiveIN9__gnu_cxx17__normal_iteratorIPN12_GLOBAL__N_121X86FrameSortingObjectESt6vectorIS3_SaIS3_EEEES4_lET_S9_S9_S9_T1_SA_T0_SA_.exit ]
+  %.tr116133 = phi i64 [ %3, %.lr.ph ], [ %179, %_ZSt17__rotate_adaptiveIN9__gnu_cxx17__normal_iteratorIPN12_GLOBAL__N_121X86FrameSortingObjectESt6vectorIS3_SaIS3_EEEES4_lET_S9_S9_S9_T1_SA_T0_SA_.exit ]
+  %.tr114132 = phi ptr [ %1, %.lr.ph ], [ %.sroa.0.0, %_ZSt17__rotate_adaptiveIN9__gnu_cxx17__normal_iteratorIPN12_GLOBAL__N_121X86FrameSortingObjectESt6vectorIS3_SaIS3_EEEES4_lET_S9_S9_S9_T1_SA_T0_SA_.exit ]
+  %.tr131 = phi ptr [ %0, %.lr.ph ], [ %.sroa.032.0.i, %_ZSt17__rotate_adaptiveIN9__gnu_cxx17__normal_iteratorIPN12_GLOBAL__N_121X86FrameSortingObjectESt6vectorIS3_SaIS3_EEEES4_lET_S9_S9_S9_T1_SA_T0_SA_.exit ]
+  %.not81 = icmp sgt i64 %.tr117134, %6
+  br i1 %.not81, label %97, label %51
 
-52:                                               ; preds = %50
-  %53 = sub i64 %11, %51
-  %.not.i.i.i.i.i83 = icmp eq ptr %2, %.tr115133
+51:                                               ; preds = %50
+  %.not.i.i.i.i.i83 = icmp eq ptr %2, %.tr114132
   br i1 %.not.i.i.i.i.i83, label %_ZSt21__move_merge_adaptiveIPN12_GLOBAL__N_121X86FrameSortingObjectEN9__gnu_cxx17__normal_iteratorIS2_St6vectorIS1_SaIS1_EEEES8_NS3_5__ops15_Iter_comp_iterINS0_25X86FrameSortingComparatorEEEEvT_SD_T0_SE_T1_T2_.exit, label %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN12_GLOBAL__N_121X86FrameSortingObjectESt6vectorIS3_SaIS3_EEEES4_ET0_T_SA_S9_.exit84.thread
 
-_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN12_GLOBAL__N_121X86FrameSortingObjectESt6vectorIS3_SaIS3_EEEES4_ET0_T_SA_S9_.exit84.thread: ; preds = %52
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %5, ptr align 4 %.tr115133, i64 %53, i1 false)
-  %54 = icmp eq ptr %.tr132, %.tr115133
-  br i1 %54, label %55, label %57
+_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN12_GLOBAL__N_121X86FrameSortingObjectESt6vectorIS3_SaIS3_EEEES4_ET0_T_SA_S9_.exit84.thread: ; preds = %51
+  %52 = ptrtoint ptr %.tr114132 to i64
+  %53 = sub i64 %11, %52
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %5, ptr align 4 %.tr114132, i64 %53, i1 false)
+  %54 = getelementptr inbounds i8, ptr %5, i64 %53
+  %55 = icmp eq ptr %.tr131, %.tr114132
+  br i1 %55, label %_ZSt13move_backwardIPN12_GLOBAL__N_121X86FrameSortingObjectEN9__gnu_cxx17__normal_iteratorIS2_St6vectorIS1_SaIS1_EEEEET0_T_SA_S9_.exit.sink.split.i, label %56
 
-55:                                               ; preds = %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN12_GLOBAL__N_121X86FrameSortingObjectESt6vectorIS3_SaIS3_EEEES4_ET0_T_SA_S9_.exit84.thread
-  %.neg.i.i.i.i.i.i = sdiv exact i64 %53, -20
-  %56 = getelementptr inbounds %"struct.(anonymous namespace)::X86FrameSortingObject", ptr %2, i64 %.neg.i.i.i.i.i.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %56, ptr align 4 %5, i64 %53, i1 false)
-  br label %_ZSt21__move_merge_adaptiveIPN12_GLOBAL__N_121X86FrameSortingObjectEN9__gnu_cxx17__normal_iteratorIS2_St6vectorIS1_SaIS1_EEEES8_NS3_5__ops15_Iter_comp_iterINS0_25X86FrameSortingComparatorEEEEvT_SD_T0_SE_T1_T2_.exit
-
-57:                                               ; preds = %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN12_GLOBAL__N_121X86FrameSortingObjectESt6vectorIS3_SaIS3_EEEES4_ET0_T_SA_S9_.exit84.thread
-  %58 = getelementptr inbounds i8, ptr %5, i64 %53
-  %59 = getelementptr inbounds i8, ptr %58, i64 -20
+56:                                               ; preds = %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN12_GLOBAL__N_121X86FrameSortingObjectESt6vectorIS3_SaIS3_EEEES4_ET0_T_SA_S9_.exit84.thread
+  %57 = getelementptr inbounds i8, ptr %54, i64 -20
   br label %.outer
 
-.outer:                                           ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN12_GLOBAL__N_125X86FrameSortingComparatorEEclIPNS2_21X86FrameSortingObjectENS_17__normal_iteratorIS7_St6vectorIS6_SaIS6_EEEEEEbT_T0_.exit.thread.i, %57
-  %.sroa.028.0.i.ph.pn = phi ptr [ %.tr115133, %57 ], [ %.sroa.028.0.i.ph, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN12_GLOBAL__N_125X86FrameSortingComparatorEEclIPNS2_21X86FrameSortingObjectENS_17__normal_iteratorIS7_St6vectorIS6_SaIS6_EEEEEEbT_T0_.exit.thread.i ]
-  %.sroa.0.0.i.ph = phi ptr [ %2, %57 ], [ %87, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN12_GLOBAL__N_125X86FrameSortingComparatorEEclIPNS2_21X86FrameSortingObjectENS_17__normal_iteratorIS7_St6vectorIS6_SaIS6_EEEEEEbT_T0_.exit.thread.i ]
-  %.0.i.ph = phi ptr [ %59, %57 ], [ %.0.i, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN12_GLOBAL__N_125X86FrameSortingComparatorEEclIPNS2_21X86FrameSortingObjectENS_17__normal_iteratorIS7_St6vectorIS6_SaIS6_EEEEEEbT_T0_.exit.thread.i ]
+.outer:                                           ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN12_GLOBAL__N_125X86FrameSortingComparatorEEclIPNS2_21X86FrameSortingObjectENS_17__normal_iteratorIS7_St6vectorIS6_SaIS6_EEEEEEbT_T0_.exit.thread.i, %56
+  %.sroa.028.0.i.ph.pn = phi ptr [ %.tr114132, %56 ], [ %.sroa.028.0.i.ph, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN12_GLOBAL__N_125X86FrameSortingComparatorEEclIPNS2_21X86FrameSortingObjectENS_17__normal_iteratorIS7_St6vectorIS6_SaIS6_EEEEEEbT_T0_.exit.thread.i ]
+  %.sroa.0.0.i.ph = phi ptr [ %2, %56 ], [ %85, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN12_GLOBAL__N_125X86FrameSortingComparatorEEclIPNS2_21X86FrameSortingObjectENS_17__normal_iteratorIS7_St6vectorIS6_SaIS6_EEEEEEbT_T0_.exit.thread.i ]
+  %.0.i.ph = phi ptr [ %57, %56 ], [ %.0.i, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN12_GLOBAL__N_125X86FrameSortingComparatorEEclIPNS2_21X86FrameSortingObjectENS_17__normal_iteratorIS7_St6vectorIS6_SaIS6_EEEEEEbT_T0_.exit.thread.i ]
   %.sroa.028.0.i.ph = getelementptr inbounds i8, ptr %.sroa.028.0.i.ph.pn, i64 -20
-  %60 = getelementptr inbounds i8, ptr %.sroa.028.0.i.ph.pn, i64 -12
-  %61 = getelementptr inbounds i8, ptr %.sroa.028.0.i.ph.pn, i64 -4
-  %62 = getelementptr inbounds i8, ptr %.sroa.028.0.i.ph.pn, i64 -8
-  br label %63
+  %58 = getelementptr inbounds i8, ptr %.sroa.028.0.i.ph.pn, i64 -12
+  %59 = getelementptr inbounds i8, ptr %.sroa.028.0.i.ph.pn, i64 -4
+  %60 = getelementptr inbounds i8, ptr %.sroa.028.0.i.ph.pn, i64 -8
+  br label %61
 
-63:                                               ; preds = %.outer, %98
-  %.sroa.0.0.i = phi ptr [ %96, %98 ], [ %.sroa.0.0.i.ph, %.outer ]
-  %.0.i = phi ptr [ %99, %98 ], [ %.0.i.ph, %.outer ]
-  %64 = load i8, ptr %.0.i, align 4
-  %65 = trunc i8 %64 to i1
-  br i1 %65, label %66, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN12_GLOBAL__N_125X86FrameSortingComparatorEEclIPNS2_21X86FrameSortingObjectENS_17__normal_iteratorIS7_St6vectorIS6_SaIS6_EEEEEEbT_T0_.exit.thread32.i
+61:                                               ; preds = %.outer, %91
+  %.sroa.0.0.i = phi ptr [ %89, %91 ], [ %.sroa.0.0.i.ph, %.outer ]
+  %.0.i = phi ptr [ %92, %91 ], [ %.0.i.ph, %.outer ]
+  %62 = load i8, ptr %.0.i, align 4
+  %63 = trunc i8 %62 to i1
+  br i1 %63, label %64, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN12_GLOBAL__N_125X86FrameSortingComparatorEEclIPNS2_21X86FrameSortingObjectENS_17__normal_iteratorIS7_St6vectorIS6_SaIS6_EEEEEEbT_T0_.exit.thread32.i
 
-66:                                               ; preds = %63
-  %67 = load i8, ptr %.sroa.028.0.i.ph, align 4
-  %68 = trunc i8 %67 to i1
-  br i1 %68, label %69, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN12_GLOBAL__N_125X86FrameSortingComparatorEEclIPNS2_21X86FrameSortingObjectENS_17__normal_iteratorIS7_St6vectorIS6_SaIS6_EEEEEEbT_T0_.exit.thread.i
+64:                                               ; preds = %61
+  %65 = load i8, ptr %.sroa.028.0.i.ph, align 4
+  %66 = trunc i8 %65 to i1
+  br i1 %66, label %67, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN12_GLOBAL__N_125X86FrameSortingComparatorEEclIPNS2_21X86FrameSortingObjectENS_17__normal_iteratorIS7_St6vectorIS6_SaIS6_EEEEEEbT_T0_.exit.thread.i
 
-69:                                               ; preds = %66
-  %70 = getelementptr inbounds nuw i8, ptr %.0.i, i64 16
-  %71 = load i32, ptr %70, align 4
+67:                                               ; preds = %64
+  %68 = getelementptr inbounds nuw i8, ptr %.0.i, i64 16
+  %69 = load i32, ptr %68, align 4
+  %70 = zext i32 %69 to i64
+  %71 = load i32, ptr %58, align 4
   %72 = zext i32 %71 to i64
-  %73 = load i32, ptr %60, align 4
-  %74 = zext i32 %73 to i64
-  %75 = mul nuw i64 %74, %72
-  %76 = load i32, ptr %61, align 4
-  %77 = zext i32 %76 to i64
-  %78 = getelementptr inbounds nuw i8, ptr %.0.i, i64 8
-  %79 = load i32, ptr %78, align 4
-  %80 = zext i32 %79 to i64
-  %81 = mul nuw i64 %80, %77
-  %82 = icmp eq i64 %75, %81
-  br i1 %82, label %83, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN12_GLOBAL__N_125X86FrameSortingComparatorEEclIPNS2_21X86FrameSortingObjectENS_17__normal_iteratorIS7_St6vectorIS6_SaIS6_EEEEEEbT_T0_.exit.i
+  %73 = mul nuw i64 %72, %70
+  %74 = load i32, ptr %59, align 4
+  %75 = zext i32 %74 to i64
+  %76 = getelementptr inbounds nuw i8, ptr %.0.i, i64 8
+  %77 = load i32, ptr %76, align 4
+  %78 = zext i32 %77 to i64
+  %79 = mul nuw i64 %78, %75
+  %80 = icmp eq i64 %73, %79
+  br i1 %80, label %81, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN12_GLOBAL__N_125X86FrameSortingComparatorEEclIPNS2_21X86FrameSortingObjectENS_17__normal_iteratorIS7_St6vectorIS6_SaIS6_EEEEEEbT_T0_.exit.i
 
-83:                                               ; preds = %69
-  %84 = getelementptr inbounds nuw i8, ptr %.0.i, i64 12
-  %.sroa.01.0.copyload.i.i.i86 = load i8, ptr %84, align 4
-  %.sroa.0.0.copyload.i.i.i87 = load i8, ptr %62, align 4
-  %85 = icmp ult i8 %.sroa.01.0.copyload.i.i.i86, %.sroa.0.0.copyload.i.i.i87
-  br i1 %85, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN12_GLOBAL__N_125X86FrameSortingComparatorEEclIPNS2_21X86FrameSortingObjectENS_17__normal_iteratorIS7_St6vectorIS6_SaIS6_EEEEEEbT_T0_.exit.thread.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN12_GLOBAL__N_125X86FrameSortingComparatorEEclIPNS2_21X86FrameSortingObjectENS_17__normal_iteratorIS7_St6vectorIS6_SaIS6_EEEEEEbT_T0_.exit.thread32.i
+81:                                               ; preds = %67
+  %82 = getelementptr inbounds nuw i8, ptr %.0.i, i64 12
+  %.sroa.01.0.copyload.i.i.i86 = load i8, ptr %82, align 4
+  %.sroa.0.0.copyload.i.i.i87 = load i8, ptr %60, align 4
+  %83 = icmp ult i8 %.sroa.01.0.copyload.i.i.i86, %.sroa.0.0.copyload.i.i.i87
+  br i1 %83, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN12_GLOBAL__N_125X86FrameSortingComparatorEEclIPNS2_21X86FrameSortingObjectENS_17__normal_iteratorIS7_St6vectorIS6_SaIS6_EEEEEEbT_T0_.exit.thread.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN12_GLOBAL__N_125X86FrameSortingComparatorEEclIPNS2_21X86FrameSortingObjectENS_17__normal_iteratorIS7_St6vectorIS6_SaIS6_EEEEEEbT_T0_.exit.thread32.i
 
-_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN12_GLOBAL__N_125X86FrameSortingComparatorEEclIPNS2_21X86FrameSortingObjectENS_17__normal_iteratorIS7_St6vectorIS6_SaIS6_EEEEEEbT_T0_.exit.i: ; preds = %69
-  %86 = icmp ult i64 %75, %81
-  br i1 %86, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN12_GLOBAL__N_125X86FrameSortingComparatorEEclIPNS2_21X86FrameSortingObjectENS_17__normal_iteratorIS7_St6vectorIS6_SaIS6_EEEEEEbT_T0_.exit.thread.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN12_GLOBAL__N_125X86FrameSortingComparatorEEclIPNS2_21X86FrameSortingObjectENS_17__normal_iteratorIS7_St6vectorIS6_SaIS6_EEEEEEbT_T0_.exit.thread32.i
+_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN12_GLOBAL__N_125X86FrameSortingComparatorEEclIPNS2_21X86FrameSortingObjectENS_17__normal_iteratorIS7_St6vectorIS6_SaIS6_EEEEEEbT_T0_.exit.i: ; preds = %67
+  %84 = icmp ult i64 %73, %79
+  br i1 %84, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN12_GLOBAL__N_125X86FrameSortingComparatorEEclIPNS2_21X86FrameSortingObjectENS_17__normal_iteratorIS7_St6vectorIS6_SaIS6_EEEEEEbT_T0_.exit.thread.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN12_GLOBAL__N_125X86FrameSortingComparatorEEclIPNS2_21X86FrameSortingObjectENS_17__normal_iteratorIS7_St6vectorIS6_SaIS6_EEEEEEbT_T0_.exit.thread32.i
 
-_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN12_GLOBAL__N_125X86FrameSortingComparatorEEclIPNS2_21X86FrameSortingObjectENS_17__normal_iteratorIS7_St6vectorIS6_SaIS6_EEEEEEbT_T0_.exit.thread.i: ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN12_GLOBAL__N_125X86FrameSortingComparatorEEclIPNS2_21X86FrameSortingObjectENS_17__normal_iteratorIS7_St6vectorIS6_SaIS6_EEEEEEbT_T0_.exit.i, %83, %66
-  %87 = getelementptr inbounds i8, ptr %.sroa.0.0.i, i64 -20
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %87, ptr noundef nonnull align 4 dereferenceable(20) %.sroa.028.0.i.ph, i64 20, i1 false)
-  %88 = icmp eq ptr %.tr132, %.sroa.028.0.i.ph
-  br i1 %88, label %89, label %.outer, !llvm.loop !1212
+_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN12_GLOBAL__N_125X86FrameSortingComparatorEEclIPNS2_21X86FrameSortingObjectENS_17__normal_iteratorIS7_St6vectorIS6_SaIS6_EEEEEEbT_T0_.exit.thread.i: ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN12_GLOBAL__N_125X86FrameSortingComparatorEEclIPNS2_21X86FrameSortingObjectENS_17__normal_iteratorIS7_St6vectorIS6_SaIS6_EEEEEEbT_T0_.exit.i, %81, %64
+  %85 = getelementptr inbounds i8, ptr %.sroa.0.0.i, i64 -20
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %85, ptr noundef nonnull align 4 dereferenceable(20) %.sroa.028.0.i.ph, i64 20, i1 false)
+  %86 = icmp eq ptr %.tr131, %.sroa.028.0.i.ph
+  br i1 %86, label %87, label %.outer, !llvm.loop !1212
 
-89:                                               ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN12_GLOBAL__N_125X86FrameSortingComparatorEEclIPNS2_21X86FrameSortingObjectENS_17__normal_iteratorIS7_St6vectorIS6_SaIS6_EEEEEEbT_T0_.exit.thread.i
-  %90 = getelementptr inbounds i8, ptr %.0.i, i64 20
-  %.not.i.i.i.i.i25.i = icmp eq ptr %90, %5
-  br i1 %.not.i.i.i.i.i25.i, label %_ZSt21__move_merge_adaptiveIPN12_GLOBAL__N_121X86FrameSortingObjectEN9__gnu_cxx17__normal_iteratorIS2_St6vectorIS1_SaIS1_EEEES8_NS3_5__ops15_Iter_comp_iterINS0_25X86FrameSortingComparatorEEEEvT_SD_T0_SE_T1_T2_.exit, label %91
+87:                                               ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN12_GLOBAL__N_125X86FrameSortingComparatorEEclIPNS2_21X86FrameSortingObjectENS_17__normal_iteratorIS7_St6vectorIS6_SaIS6_EEEEEEbT_T0_.exit.thread.i
+  %88 = getelementptr inbounds i8, ptr %.0.i, i64 20
+  %.not.i.i.i.i.i25.i = icmp eq ptr %88, %5
+  br i1 %.not.i.i.i.i.i25.i, label %_ZSt21__move_merge_adaptiveIPN12_GLOBAL__N_121X86FrameSortingObjectEN9__gnu_cxx17__normal_iteratorIS2_St6vectorIS1_SaIS1_EEEES8_NS3_5__ops15_Iter_comp_iterINS0_25X86FrameSortingComparatorEEEEvT_SD_T0_SE_T1_T2_.exit, label %_ZSt13move_backwardIPN12_GLOBAL__N_121X86FrameSortingObjectEN9__gnu_cxx17__normal_iteratorIS2_St6vectorIS1_SaIS1_EEEEET0_T_SA_S9_.exit.sink.split.i
 
-91:                                               ; preds = %89
-  %92 = ptrtoint ptr %90 to i64
-  %93 = ptrtoint ptr %5 to i64
-  %94 = sub i64 %92, %93
-  %.neg.i.i.i.i.i24.i = sdiv exact i64 %94, -20
-  %95 = getelementptr inbounds %"struct.(anonymous namespace)::X86FrameSortingObject", ptr %87, i64 %.neg.i.i.i.i.i24.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 4 %95, ptr align 4 %5, i64 %94, i1 false)
+_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN12_GLOBAL__N_125X86FrameSortingComparatorEEclIPNS2_21X86FrameSortingObjectENS_17__normal_iteratorIS7_St6vectorIS6_SaIS6_EEEEEEbT_T0_.exit.thread32.i: ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN12_GLOBAL__N_125X86FrameSortingComparatorEEclIPNS2_21X86FrameSortingObjectENS_17__normal_iteratorIS7_St6vectorIS6_SaIS6_EEEEEEbT_T0_.exit.i, %81, %61
+  %89 = getelementptr inbounds i8, ptr %.sroa.0.0.i, i64 -20
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %89, ptr noundef nonnull align 4 dereferenceable(20) %.0.i, i64 20, i1 false)
+  %90 = icmp eq ptr %5, %.0.i
+  br i1 %90, label %_ZSt21__move_merge_adaptiveIPN12_GLOBAL__N_121X86FrameSortingObjectEN9__gnu_cxx17__normal_iteratorIS2_St6vectorIS1_SaIS1_EEEES8_NS3_5__ops15_Iter_comp_iterINS0_25X86FrameSortingComparatorEEEEvT_SD_T0_SE_T1_T2_.exit, label %91
+
+91:                                               ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN12_GLOBAL__N_125X86FrameSortingComparatorEEclIPNS2_21X86FrameSortingObjectENS_17__normal_iteratorIS7_St6vectorIS6_SaIS6_EEEEEEbT_T0_.exit.thread32.i
+  %92 = getelementptr inbounds i8, ptr %.0.i, i64 -20
+  br label %61, !llvm.loop !1212
+
+_ZSt13move_backwardIPN12_GLOBAL__N_121X86FrameSortingObjectEN9__gnu_cxx17__normal_iteratorIS2_St6vectorIS1_SaIS1_EEEEET0_T_SA_S9_.exit.sink.split.i: ; preds = %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN12_GLOBAL__N_121X86FrameSortingObjectESt6vectorIS3_SaIS3_EEEES4_ET0_T_SA_S9_.exit84.thread, %87
+  %.sink.i = phi ptr [ %88, %87 ], [ %54, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN12_GLOBAL__N_121X86FrameSortingObjectESt6vectorIS3_SaIS3_EEEES4_ET0_T_SA_S9_.exit84.thread ]
+  %.lcssa.sink.i = phi ptr [ %85, %87 ], [ %2, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN12_GLOBAL__N_121X86FrameSortingObjectESt6vectorIS3_SaIS3_EEEES4_ET0_T_SA_S9_.exit84.thread ]
+  %93 = ptrtoint ptr %.sink.i to i64
+  %94 = ptrtoint ptr %5 to i64
+  %95 = sub i64 %93, %94
+  %.neg.i.i.i.i.i24.i = sdiv exact i64 %95, -20
+  %96 = getelementptr inbounds %"struct.(anonymous namespace)::X86FrameSortingObject", ptr %.lcssa.sink.i, i64 %.neg.i.i.i.i.i24.i
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %96, ptr align 4 %5, i64 %95, i1 false)
   br label %_ZSt21__move_merge_adaptiveIPN12_GLOBAL__N_121X86FrameSortingObjectEN9__gnu_cxx17__normal_iteratorIS2_St6vectorIS1_SaIS1_EEEES8_NS3_5__ops15_Iter_comp_iterINS0_25X86FrameSortingComparatorEEEEvT_SD_T0_SE_T1_T2_.exit
 
-_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN12_GLOBAL__N_125X86FrameSortingComparatorEEclIPNS2_21X86FrameSortingObjectENS_17__normal_iteratorIS7_St6vectorIS6_SaIS6_EEEEEEbT_T0_.exit.thread32.i: ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN12_GLOBAL__N_125X86FrameSortingComparatorEEclIPNS2_21X86FrameSortingObjectENS_17__normal_iteratorIS7_St6vectorIS6_SaIS6_EEEEEEbT_T0_.exit.i, %83, %63
-  %96 = getelementptr inbounds i8, ptr %.sroa.0.0.i, i64 -20
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %96, ptr noundef nonnull align 4 dereferenceable(20) %.0.i, i64 20, i1 false)
-  %97 = icmp eq ptr %5, %.0.i
-  br i1 %97, label %_ZSt21__move_merge_adaptiveIPN12_GLOBAL__N_121X86FrameSortingObjectEN9__gnu_cxx17__normal_iteratorIS2_St6vectorIS1_SaIS1_EEEES8_NS3_5__ops15_Iter_comp_iterINS0_25X86FrameSortingComparatorEEEEvT_SD_T0_SE_T1_T2_.exit, label %98
+97:                                               ; preds = %50
+  %98 = ptrtoint ptr %.tr114132 to i64
+  br i1 %.not135, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN12_GLOBAL__N_121X86FrameSortingObjectESt6vectorIS3_SaIS3_EEEElEvRT_T0_.exit, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN12_GLOBAL__N_121X86FrameSortingObjectESt6vectorIS3_SaIS3_EEEElEvRT_T0_.exit94
 
-98:                                               ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN12_GLOBAL__N_125X86FrameSortingComparatorEEclIPNS2_21X86FrameSortingObjectENS_17__normal_iteratorIS7_St6vectorIS6_SaIS6_EEEEEEbT_T0_.exit.thread32.i
-  %99 = getelementptr inbounds i8, ptr %.0.i, i64 -20
-  br label %63, !llvm.loop !1212
-
-100:                                              ; preds = %50
-  br i1 %.not136, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN12_GLOBAL__N_121X86FrameSortingObjectESt6vectorIS3_SaIS3_EEEElEvRT_T0_.exit, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN12_GLOBAL__N_121X86FrameSortingObjectESt6vectorIS3_SaIS3_EEEElEvRT_T0_.exit94
-
-_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN12_GLOBAL__N_121X86FrameSortingObjectESt6vectorIS3_SaIS3_EEEElEvRT_T0_.exit: ; preds = %100
-  %101 = sdiv i64 %.tr117134, 2
-  %102 = getelementptr inbounds %"struct.(anonymous namespace)::X86FrameSortingObject", ptr %.tr132, i64 %101
-  %103 = sub i64 %11, %51
-  %104 = icmp sgt i64 %103, 0
-  br i1 %104, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN12_GLOBAL__N_121X86FrameSortingObjectESt6vectorIS3_SaIS3_EEEElEvRT_T0_.exit.lr.ph.i, label %_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPN12_GLOBAL__N_121X86FrameSortingObjectESt6vectorIS3_SaIS3_EEEES3_NS0_5__ops14_Iter_comp_valINS2_25X86FrameSortingComparatorEEEET_SD_SD_RKT0_T1_.exit
+_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN12_GLOBAL__N_121X86FrameSortingObjectESt6vectorIS3_SaIS3_EEEElEvRT_T0_.exit: ; preds = %97
+  %99 = sdiv i64 %.tr116133, 2
+  %100 = getelementptr inbounds %"struct.(anonymous namespace)::X86FrameSortingObject", ptr %.tr131, i64 %99
+  %101 = sub i64 %11, %98
+  %102 = icmp sgt i64 %101, 0
+  br i1 %102, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN12_GLOBAL__N_121X86FrameSortingObjectESt6vectorIS3_SaIS3_EEEElEvRT_T0_.exit.lr.ph.i, label %_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPN12_GLOBAL__N_121X86FrameSortingObjectESt6vectorIS3_SaIS3_EEEES3_NS0_5__ops14_Iter_comp_valINS2_25X86FrameSortingComparatorEEEET_SD_SD_RKT0_T1_.exit
 
 _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN12_GLOBAL__N_121X86FrameSortingObjectESt6vectorIS3_SaIS3_EEEElEvRT_T0_.exit.lr.ph.i: ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN12_GLOBAL__N_121X86FrameSortingObjectESt6vectorIS3_SaIS3_EEEElEvRT_T0_.exit
-  %105 = udiv exact i64 %103, 20
-  %106 = load i8, ptr %102, align 4
-  %107 = trunc i8 %106 to i1
-  %108 = getelementptr inbounds nuw i8, ptr %102, i64 8
-  %109 = load i32, ptr %108, align 4
-  %110 = zext i32 %109 to i64
-  %111 = getelementptr inbounds nuw i8, ptr %102, i64 16
-  %112 = load i32, ptr %111, align 4
-  %113 = zext i32 %112 to i64
-  %114 = getelementptr inbounds nuw i8, ptr %102, i64 12
-  %.sroa.0.0.copyload.i.i.i88 = load i8, ptr %114, align 4
+  %103 = udiv exact i64 %101, 20
+  %104 = load i8, ptr %100, align 4
+  %105 = trunc i8 %104 to i1
+  %106 = getelementptr inbounds nuw i8, ptr %100, i64 8
+  %107 = load i32, ptr %106, align 4
+  %108 = zext i32 %107 to i64
+  %109 = getelementptr inbounds nuw i8, ptr %100, i64 16
+  %110 = load i32, ptr %109, align 4
+  %111 = zext i32 %110 to i64
+  %112 = getelementptr inbounds nuw i8, ptr %100, i64 12
+  %.sroa.0.0.copyload.i.i.i88 = load i8, ptr %112, align 4
   br label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN12_GLOBAL__N_121X86FrameSortingObjectESt6vectorIS3_SaIS3_EEEElEvRT_T0_.exit.i
 
 _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN12_GLOBAL__N_121X86FrameSortingObjectESt6vectorIS3_SaIS3_EEEElEvRT_T0_.exit.i: ; preds = %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN12_GLOBAL__N_125X86FrameSortingComparatorEEclINS_17__normal_iteratorIPNS2_21X86FrameSortingObjectESt6vectorIS7_SaIS7_EEEEKS7_EEbT_RT0_.exit.thread13.i, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN12_GLOBAL__N_121X86FrameSortingObjectESt6vectorIS3_SaIS3_EEEElEvRT_T0_.exit.lr.ph.i
-  %.016.i = phi i64 [ %105, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN12_GLOBAL__N_121X86FrameSortingObjectESt6vectorIS3_SaIS3_EEEElEvRT_T0_.exit.lr.ph.i ], [ %.1.i89, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN12_GLOBAL__N_125X86FrameSortingComparatorEEclINS_17__normal_iteratorIPNS2_21X86FrameSortingObjectESt6vectorIS7_SaIS7_EEEEKS7_EEbT_RT0_.exit.thread13.i ]
-  %.sroa.011.015.i = phi ptr [ %.tr115133, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN12_GLOBAL__N_121X86FrameSortingObjectESt6vectorIS3_SaIS3_EEEElEvRT_T0_.exit.lr.ph.i ], [ %.sroa.011.1.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN12_GLOBAL__N_125X86FrameSortingComparatorEEclINS_17__normal_iteratorIPNS2_21X86FrameSortingObjectESt6vectorIS7_SaIS7_EEEEKS7_EEbT_RT0_.exit.thread13.i ]
-  %115 = lshr i64 %.016.i, 1
-  %116 = getelementptr inbounds %"struct.(anonymous namespace)::X86FrameSortingObject", ptr %.sroa.011.015.i, i64 %115
-  %117 = load i8, ptr %116, align 4
-  %118 = trunc i8 %117 to i1
-  br i1 %118, label %119, label %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN12_GLOBAL__N_125X86FrameSortingComparatorEEclINS_17__normal_iteratorIPNS2_21X86FrameSortingObjectESt6vectorIS7_SaIS7_EEEEKS7_EEbT_RT0_.exit.thread13.i
+  %.016.i = phi i64 [ %103, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN12_GLOBAL__N_121X86FrameSortingObjectESt6vectorIS3_SaIS3_EEEElEvRT_T0_.exit.lr.ph.i ], [ %.1.i89, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN12_GLOBAL__N_125X86FrameSortingComparatorEEclINS_17__normal_iteratorIPNS2_21X86FrameSortingObjectESt6vectorIS7_SaIS7_EEEEKS7_EEbT_RT0_.exit.thread13.i ]
+  %.sroa.011.015.i = phi ptr [ %.tr114132, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN12_GLOBAL__N_121X86FrameSortingObjectESt6vectorIS3_SaIS3_EEEElEvRT_T0_.exit.lr.ph.i ], [ %.sroa.011.1.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN12_GLOBAL__N_125X86FrameSortingComparatorEEclINS_17__normal_iteratorIPNS2_21X86FrameSortingObjectESt6vectorIS7_SaIS7_EEEEKS7_EEbT_RT0_.exit.thread13.i ]
+  %113 = lshr i64 %.016.i, 1
+  %114 = getelementptr inbounds %"struct.(anonymous namespace)::X86FrameSortingObject", ptr %.sroa.011.015.i, i64 %113
+  %115 = load i8, ptr %114, align 4
+  %116 = trunc i8 %115 to i1
+  br i1 %116, label %117, label %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN12_GLOBAL__N_125X86FrameSortingComparatorEEclINS_17__normal_iteratorIPNS2_21X86FrameSortingObjectESt6vectorIS7_SaIS7_EEEEKS7_EEbT_RT0_.exit.thread13.i
 
-119:                                              ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN12_GLOBAL__N_121X86FrameSortingObjectESt6vectorIS3_SaIS3_EEEElEvRT_T0_.exit.i
-  br i1 %107, label %120, label %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN12_GLOBAL__N_125X86FrameSortingComparatorEEclINS_17__normal_iteratorIPNS2_21X86FrameSortingObjectESt6vectorIS7_SaIS7_EEEEKS7_EEbT_RT0_.exit.thread.i
+117:                                              ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN12_GLOBAL__N_121X86FrameSortingObjectESt6vectorIS3_SaIS3_EEEElEvRT_T0_.exit.i
+  br i1 %105, label %118, label %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN12_GLOBAL__N_125X86FrameSortingComparatorEEclINS_17__normal_iteratorIPNS2_21X86FrameSortingObjectESt6vectorIS7_SaIS7_EEEEKS7_EEbT_RT0_.exit.thread.i
 
-120:                                              ; preds = %119
-  %121 = getelementptr inbounds nuw i8, ptr %116, i64 16
-  %122 = load i32, ptr %121, align 4
-  %123 = zext i32 %122 to i64
-  %124 = mul nuw i64 %123, %110
-  %125 = getelementptr inbounds nuw i8, ptr %116, i64 8
-  %126 = load i32, ptr %125, align 4
-  %127 = zext i32 %126 to i64
-  %128 = mul nuw i64 %127, %113
-  %129 = icmp eq i64 %124, %128
-  br i1 %129, label %130, label %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN12_GLOBAL__N_125X86FrameSortingComparatorEEclINS_17__normal_iteratorIPNS2_21X86FrameSortingObjectESt6vectorIS7_SaIS7_EEEEKS7_EEbT_RT0_.exit.i
+118:                                              ; preds = %117
+  %119 = getelementptr inbounds nuw i8, ptr %114, i64 16
+  %120 = load i32, ptr %119, align 4
+  %121 = zext i32 %120 to i64
+  %122 = mul nuw i64 %121, %108
+  %123 = getelementptr inbounds nuw i8, ptr %114, i64 8
+  %124 = load i32, ptr %123, align 4
+  %125 = zext i32 %124 to i64
+  %126 = mul nuw i64 %125, %111
+  %127 = icmp eq i64 %122, %126
+  br i1 %127, label %128, label %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN12_GLOBAL__N_125X86FrameSortingComparatorEEclINS_17__normal_iteratorIPNS2_21X86FrameSortingObjectESt6vectorIS7_SaIS7_EEEEKS7_EEbT_RT0_.exit.i
 
-130:                                              ; preds = %120
-  %131 = getelementptr inbounds nuw i8, ptr %116, i64 12
-  %.sroa.01.0.copyload.i.i.i90 = load i8, ptr %131, align 4
-  %132 = icmp ult i8 %.sroa.01.0.copyload.i.i.i90, %.sroa.0.0.copyload.i.i.i88
-  br i1 %132, label %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN12_GLOBAL__N_125X86FrameSortingComparatorEEclINS_17__normal_iteratorIPNS2_21X86FrameSortingObjectESt6vectorIS7_SaIS7_EEEEKS7_EEbT_RT0_.exit.thread.i, label %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN12_GLOBAL__N_125X86FrameSortingComparatorEEclINS_17__normal_iteratorIPNS2_21X86FrameSortingObjectESt6vectorIS7_SaIS7_EEEEKS7_EEbT_RT0_.exit.thread13.i
+128:                                              ; preds = %118
+  %129 = getelementptr inbounds nuw i8, ptr %114, i64 12
+  %.sroa.01.0.copyload.i.i.i90 = load i8, ptr %129, align 4
+  %130 = icmp ult i8 %.sroa.01.0.copyload.i.i.i90, %.sroa.0.0.copyload.i.i.i88
+  br i1 %130, label %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN12_GLOBAL__N_125X86FrameSortingComparatorEEclINS_17__normal_iteratorIPNS2_21X86FrameSortingObjectESt6vectorIS7_SaIS7_EEEEKS7_EEbT_RT0_.exit.thread.i, label %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN12_GLOBAL__N_125X86FrameSortingComparatorEEclINS_17__normal_iteratorIPNS2_21X86FrameSortingObjectESt6vectorIS7_SaIS7_EEEEKS7_EEbT_RT0_.exit.thread13.i
 
-_ZN9__gnu_cxx5__ops14_Iter_comp_valIN12_GLOBAL__N_125X86FrameSortingComparatorEEclINS_17__normal_iteratorIPNS2_21X86FrameSortingObjectESt6vectorIS7_SaIS7_EEEEKS7_EEbT_RT0_.exit.i: ; preds = %120
-  %133 = icmp ult i64 %124, %128
-  br i1 %133, label %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN12_GLOBAL__N_125X86FrameSortingComparatorEEclINS_17__normal_iteratorIPNS2_21X86FrameSortingObjectESt6vectorIS7_SaIS7_EEEEKS7_EEbT_RT0_.exit.thread.i, label %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN12_GLOBAL__N_125X86FrameSortingComparatorEEclINS_17__normal_iteratorIPNS2_21X86FrameSortingObjectESt6vectorIS7_SaIS7_EEEEKS7_EEbT_RT0_.exit.thread13.i
+_ZN9__gnu_cxx5__ops14_Iter_comp_valIN12_GLOBAL__N_125X86FrameSortingComparatorEEclINS_17__normal_iteratorIPNS2_21X86FrameSortingObjectESt6vectorIS7_SaIS7_EEEEKS7_EEbT_RT0_.exit.i: ; preds = %118
+  %131 = icmp ult i64 %122, %126
+  br i1 %131, label %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN12_GLOBAL__N_125X86FrameSortingComparatorEEclINS_17__normal_iteratorIPNS2_21X86FrameSortingObjectESt6vectorIS7_SaIS7_EEEEKS7_EEbT_RT0_.exit.thread.i, label %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN12_GLOBAL__N_125X86FrameSortingComparatorEEclINS_17__normal_iteratorIPNS2_21X86FrameSortingObjectESt6vectorIS7_SaIS7_EEEEKS7_EEbT_RT0_.exit.thread13.i
 
-_ZN9__gnu_cxx5__ops14_Iter_comp_valIN12_GLOBAL__N_125X86FrameSortingComparatorEEclINS_17__normal_iteratorIPNS2_21X86FrameSortingObjectESt6vectorIS7_SaIS7_EEEEKS7_EEbT_RT0_.exit.thread.i: ; preds = %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN12_GLOBAL__N_125X86FrameSortingComparatorEEclINS_17__normal_iteratorIPNS2_21X86FrameSortingObjectESt6vectorIS7_SaIS7_EEEEKS7_EEbT_RT0_.exit.i, %130, %119
-  %134 = getelementptr inbounds i8, ptr %116, i64 20
-  %135 = xor i64 %115, -1
-  %136 = add nsw i64 %.016.i, %135
+_ZN9__gnu_cxx5__ops14_Iter_comp_valIN12_GLOBAL__N_125X86FrameSortingComparatorEEclINS_17__normal_iteratorIPNS2_21X86FrameSortingObjectESt6vectorIS7_SaIS7_EEEEKS7_EEbT_RT0_.exit.thread.i: ; preds = %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN12_GLOBAL__N_125X86FrameSortingComparatorEEclINS_17__normal_iteratorIPNS2_21X86FrameSortingObjectESt6vectorIS7_SaIS7_EEEEKS7_EEbT_RT0_.exit.i, %128, %117
+  %132 = getelementptr inbounds i8, ptr %114, i64 20
+  %133 = xor i64 %113, -1
+  %134 = add nsw i64 %.016.i, %133
   br label %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN12_GLOBAL__N_125X86FrameSortingComparatorEEclINS_17__normal_iteratorIPNS2_21X86FrameSortingObjectESt6vectorIS7_SaIS7_EEEEKS7_EEbT_RT0_.exit.thread13.i
 
-_ZN9__gnu_cxx5__ops14_Iter_comp_valIN12_GLOBAL__N_125X86FrameSortingComparatorEEclINS_17__normal_iteratorIPNS2_21X86FrameSortingObjectESt6vectorIS7_SaIS7_EEEEKS7_EEbT_RT0_.exit.thread13.i: ; preds = %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN12_GLOBAL__N_125X86FrameSortingComparatorEEclINS_17__normal_iteratorIPNS2_21X86FrameSortingObjectESt6vectorIS7_SaIS7_EEEEKS7_EEbT_RT0_.exit.thread.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN12_GLOBAL__N_125X86FrameSortingComparatorEEclINS_17__normal_iteratorIPNS2_21X86FrameSortingObjectESt6vectorIS7_SaIS7_EEEEKS7_EEbT_RT0_.exit.i, %130, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN12_GLOBAL__N_121X86FrameSortingObjectESt6vectorIS3_SaIS3_EEEElEvRT_T0_.exit.i
-  %.sroa.011.1.i = phi ptr [ %134, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN12_GLOBAL__N_125X86FrameSortingComparatorEEclINS_17__normal_iteratorIPNS2_21X86FrameSortingObjectESt6vectorIS7_SaIS7_EEEEKS7_EEbT_RT0_.exit.thread.i ], [ %.sroa.011.015.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN12_GLOBAL__N_125X86FrameSortingComparatorEEclINS_17__normal_iteratorIPNS2_21X86FrameSortingObjectESt6vectorIS7_SaIS7_EEEEKS7_EEbT_RT0_.exit.i ], [ %.sroa.011.015.i, %130 ], [ %.sroa.011.015.i, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN12_GLOBAL__N_121X86FrameSortingObjectESt6vectorIS3_SaIS3_EEEElEvRT_T0_.exit.i ]
-  %.1.i89 = phi i64 [ %136, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN12_GLOBAL__N_125X86FrameSortingComparatorEEclINS_17__normal_iteratorIPNS2_21X86FrameSortingObjectESt6vectorIS7_SaIS7_EEEEKS7_EEbT_RT0_.exit.thread.i ], [ %115, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN12_GLOBAL__N_125X86FrameSortingComparatorEEclINS_17__normal_iteratorIPNS2_21X86FrameSortingObjectESt6vectorIS7_SaIS7_EEEEKS7_EEbT_RT0_.exit.i ], [ %115, %130 ], [ %115, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN12_GLOBAL__N_121X86FrameSortingObjectESt6vectorIS3_SaIS3_EEEElEvRT_T0_.exit.i ]
-  %137 = icmp sgt i64 %.1.i89, 0
-  br i1 %137, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN12_GLOBAL__N_121X86FrameSortingObjectESt6vectorIS3_SaIS3_EEEElEvRT_T0_.exit.i, label %_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPN12_GLOBAL__N_121X86FrameSortingObjectESt6vectorIS3_SaIS3_EEEES3_NS0_5__ops14_Iter_comp_valINS2_25X86FrameSortingComparatorEEEET_SD_SD_RKT0_T1_.exit.loopexit, !llvm.loop !1199
+_ZN9__gnu_cxx5__ops14_Iter_comp_valIN12_GLOBAL__N_125X86FrameSortingComparatorEEclINS_17__normal_iteratorIPNS2_21X86FrameSortingObjectESt6vectorIS7_SaIS7_EEEEKS7_EEbT_RT0_.exit.thread13.i: ; preds = %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN12_GLOBAL__N_125X86FrameSortingComparatorEEclINS_17__normal_iteratorIPNS2_21X86FrameSortingObjectESt6vectorIS7_SaIS7_EEEEKS7_EEbT_RT0_.exit.thread.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN12_GLOBAL__N_125X86FrameSortingComparatorEEclINS_17__normal_iteratorIPNS2_21X86FrameSortingObjectESt6vectorIS7_SaIS7_EEEEKS7_EEbT_RT0_.exit.i, %128, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN12_GLOBAL__N_121X86FrameSortingObjectESt6vectorIS3_SaIS3_EEEElEvRT_T0_.exit.i
+  %.sroa.011.1.i = phi ptr [ %132, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN12_GLOBAL__N_125X86FrameSortingComparatorEEclINS_17__normal_iteratorIPNS2_21X86FrameSortingObjectESt6vectorIS7_SaIS7_EEEEKS7_EEbT_RT0_.exit.thread.i ], [ %.sroa.011.015.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN12_GLOBAL__N_125X86FrameSortingComparatorEEclINS_17__normal_iteratorIPNS2_21X86FrameSortingObjectESt6vectorIS7_SaIS7_EEEEKS7_EEbT_RT0_.exit.i ], [ %.sroa.011.015.i, %128 ], [ %.sroa.011.015.i, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN12_GLOBAL__N_121X86FrameSortingObjectESt6vectorIS3_SaIS3_EEEElEvRT_T0_.exit.i ]
+  %.1.i89 = phi i64 [ %134, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN12_GLOBAL__N_125X86FrameSortingComparatorEEclINS_17__normal_iteratorIPNS2_21X86FrameSortingObjectESt6vectorIS7_SaIS7_EEEEKS7_EEbT_RT0_.exit.thread.i ], [ %113, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN12_GLOBAL__N_125X86FrameSortingComparatorEEclINS_17__normal_iteratorIPNS2_21X86FrameSortingObjectESt6vectorIS7_SaIS7_EEEEKS7_EEbT_RT0_.exit.i ], [ %113, %128 ], [ %113, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN12_GLOBAL__N_121X86FrameSortingObjectESt6vectorIS3_SaIS3_EEEElEvRT_T0_.exit.i ]
+  %135 = icmp sgt i64 %.1.i89, 0
+  br i1 %135, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN12_GLOBAL__N_121X86FrameSortingObjectESt6vectorIS3_SaIS3_EEEElEvRT_T0_.exit.i, label %_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPN12_GLOBAL__N_121X86FrameSortingObjectESt6vectorIS3_SaIS3_EEEES3_NS0_5__ops14_Iter_comp_valINS2_25X86FrameSortingComparatorEEEET_SD_SD_RKT0_T1_.exit.loopexit, !llvm.loop !1199
 
 _ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPN12_GLOBAL__N_121X86FrameSortingObjectESt6vectorIS3_SaIS3_EEEES3_NS0_5__ops14_Iter_comp_valINS2_25X86FrameSortingComparatorEEEET_SD_SD_RKT0_T1_.exit.loopexit: ; preds = %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN12_GLOBAL__N_125X86FrameSortingComparatorEEclINS_17__normal_iteratorIPNS2_21X86FrameSortingObjectESt6vectorIS7_SaIS7_EEEEKS7_EEbT_RT0_.exit.thread13.i
   %.pre = ptrtoint ptr %.sroa.011.1.i to i64
   br label %_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPN12_GLOBAL__N_121X86FrameSortingObjectESt6vectorIS3_SaIS3_EEEES3_NS0_5__ops14_Iter_comp_valINS2_25X86FrameSortingComparatorEEEET_SD_SD_RKT0_T1_.exit
 
 _ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPN12_GLOBAL__N_121X86FrameSortingObjectESt6vectorIS3_SaIS3_EEEES3_NS0_5__ops14_Iter_comp_valINS2_25X86FrameSortingComparatorEEEET_SD_SD_RKT0_T1_.exit: ; preds = %_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPN12_GLOBAL__N_121X86FrameSortingObjectESt6vectorIS3_SaIS3_EEEES3_NS0_5__ops14_Iter_comp_valINS2_25X86FrameSortingComparatorEEEET_SD_SD_RKT0_T1_.exit.loopexit, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN12_GLOBAL__N_121X86FrameSortingObjectESt6vectorIS3_SaIS3_EEEElEvRT_T0_.exit
-  %.pre-phi = phi i64 [ %.pre, %_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPN12_GLOBAL__N_121X86FrameSortingObjectESt6vectorIS3_SaIS3_EEEES3_NS0_5__ops14_Iter_comp_valINS2_25X86FrameSortingComparatorEEEET_SD_SD_RKT0_T1_.exit.loopexit ], [ %51, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN12_GLOBAL__N_121X86FrameSortingObjectESt6vectorIS3_SaIS3_EEEElEvRT_T0_.exit ]
-  %.sroa.011.0.lcssa.i = phi ptr [ %.sroa.011.1.i, %_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPN12_GLOBAL__N_121X86FrameSortingObjectESt6vectorIS3_SaIS3_EEEES3_NS0_5__ops14_Iter_comp_valINS2_25X86FrameSortingComparatorEEEET_SD_SD_RKT0_T1_.exit.loopexit ], [ %.tr115133, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN12_GLOBAL__N_121X86FrameSortingObjectESt6vectorIS3_SaIS3_EEEElEvRT_T0_.exit ]
-  %138 = sub i64 %.pre-phi, %51
-  %139 = sdiv exact i64 %138, 20
-  br label %180
+  %.pre-phi = phi i64 [ %.pre, %_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPN12_GLOBAL__N_121X86FrameSortingObjectESt6vectorIS3_SaIS3_EEEES3_NS0_5__ops14_Iter_comp_valINS2_25X86FrameSortingComparatorEEEET_SD_SD_RKT0_T1_.exit.loopexit ], [ %98, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN12_GLOBAL__N_121X86FrameSortingObjectESt6vectorIS3_SaIS3_EEEElEvRT_T0_.exit ]
+  %.sroa.011.0.lcssa.i = phi ptr [ %.sroa.011.1.i, %_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPN12_GLOBAL__N_121X86FrameSortingObjectESt6vectorIS3_SaIS3_EEEES3_NS0_5__ops14_Iter_comp_valINS2_25X86FrameSortingComparatorEEEET_SD_SD_RKT0_T1_.exit.loopexit ], [ %.tr114132, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN12_GLOBAL__N_121X86FrameSortingObjectESt6vectorIS3_SaIS3_EEEElEvRT_T0_.exit ]
+  %136 = sub i64 %.pre-phi, %98
+  %137 = sdiv exact i64 %136, 20
+  br label %178
 
-_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN12_GLOBAL__N_121X86FrameSortingObjectESt6vectorIS3_SaIS3_EEEElEvRT_T0_.exit94: ; preds = %100
-  %140 = sdiv i64 %.tr118135, 2
-  %141 = getelementptr inbounds %"struct.(anonymous namespace)::X86FrameSortingObject", ptr %.tr115133, i64 %140
-  %142 = ptrtoint ptr %.tr132 to i64
-  %143 = sub i64 %51, %142
-  %144 = icmp sgt i64 %143, 0
-  br i1 %144, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN12_GLOBAL__N_121X86FrameSortingObjectESt6vectorIS3_SaIS3_EEEElEvRT_T0_.exit.lr.ph.i96, label %_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPN12_GLOBAL__N_121X86FrameSortingObjectESt6vectorIS3_SaIS3_EEEES3_NS0_5__ops14_Val_comp_iterINS2_25X86FrameSortingComparatorEEEET_SD_SD_RKT0_T1_.exit
+_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN12_GLOBAL__N_121X86FrameSortingObjectESt6vectorIS3_SaIS3_EEEElEvRT_T0_.exit94: ; preds = %97
+  %138 = sdiv i64 %.tr117134, 2
+  %139 = getelementptr inbounds %"struct.(anonymous namespace)::X86FrameSortingObject", ptr %.tr114132, i64 %138
+  %140 = ptrtoint ptr %.tr131 to i64
+  %141 = sub i64 %98, %140
+  %142 = icmp sgt i64 %141, 0
+  br i1 %142, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN12_GLOBAL__N_121X86FrameSortingObjectESt6vectorIS3_SaIS3_EEEElEvRT_T0_.exit.lr.ph.i96, label %_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPN12_GLOBAL__N_121X86FrameSortingObjectESt6vectorIS3_SaIS3_EEEES3_NS0_5__ops14_Val_comp_iterINS2_25X86FrameSortingComparatorEEEET_SD_SD_RKT0_T1_.exit
 
 _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN12_GLOBAL__N_121X86FrameSortingObjectESt6vectorIS3_SaIS3_EEEElEvRT_T0_.exit.lr.ph.i96: ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN12_GLOBAL__N_121X86FrameSortingObjectESt6vectorIS3_SaIS3_EEEElEvRT_T0_.exit94
-  %145 = udiv exact i64 %143, 20
-  %146 = load i8, ptr %141, align 4
-  %147 = trunc i8 %146 to i1
-  %148 = getelementptr inbounds nuw i8, ptr %141, i64 16
-  %149 = load i32, ptr %148, align 4
-  %150 = zext i32 %149 to i64
-  %151 = getelementptr inbounds nuw i8, ptr %141, i64 8
-  %152 = load i32, ptr %151, align 4
-  %153 = zext i32 %152 to i64
-  %154 = getelementptr inbounds nuw i8, ptr %141, i64 12
-  %.sroa.01.0.copyload.i.i.i97 = load i8, ptr %154, align 4
+  %143 = udiv exact i64 %141, 20
+  %144 = load i8, ptr %139, align 4
+  %145 = trunc i8 %144 to i1
+  %146 = getelementptr inbounds nuw i8, ptr %139, i64 16
+  %147 = load i32, ptr %146, align 4
+  %148 = zext i32 %147 to i64
+  %149 = getelementptr inbounds nuw i8, ptr %139, i64 8
+  %150 = load i32, ptr %149, align 4
+  %151 = zext i32 %150 to i64
+  %152 = getelementptr inbounds nuw i8, ptr %139, i64 12
+  %.sroa.01.0.copyload.i.i.i97 = load i8, ptr %152, align 4
   br label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN12_GLOBAL__N_121X86FrameSortingObjectESt6vectorIS3_SaIS3_EEEElEvRT_T0_.exit.i98
 
 _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN12_GLOBAL__N_121X86FrameSortingObjectESt6vectorIS3_SaIS3_EEEElEvRT_T0_.exit.i98: ; preds = %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN12_GLOBAL__N_125X86FrameSortingComparatorEEclIKNS2_21X86FrameSortingObjectENS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEEEEbRT_T0_.exit.thread.i, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN12_GLOBAL__N_121X86FrameSortingObjectESt6vectorIS3_SaIS3_EEEElEvRT_T0_.exit.lr.ph.i96
-  %.016.i99 = phi i64 [ %145, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN12_GLOBAL__N_121X86FrameSortingObjectESt6vectorIS3_SaIS3_EEEElEvRT_T0_.exit.lr.ph.i96 ], [ %.1.i104, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN12_GLOBAL__N_125X86FrameSortingComparatorEEclIKNS2_21X86FrameSortingObjectENS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEEEEbRT_T0_.exit.thread.i ]
-  %.sroa.011.015.i100 = phi ptr [ %.tr132, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN12_GLOBAL__N_121X86FrameSortingObjectESt6vectorIS3_SaIS3_EEEElEvRT_T0_.exit.lr.ph.i96 ], [ %.sroa.011.1.i103, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN12_GLOBAL__N_125X86FrameSortingComparatorEEclIKNS2_21X86FrameSortingObjectENS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEEEEbRT_T0_.exit.thread.i ]
-  %155 = lshr i64 %.016.i99, 1
-  %156 = getelementptr inbounds %"struct.(anonymous namespace)::X86FrameSortingObject", ptr %.sroa.011.015.i100, i64 %155
-  br i1 %147, label %157, label %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN12_GLOBAL__N_125X86FrameSortingComparatorEEclIKNS2_21X86FrameSortingObjectENS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEEEEbRT_T0_.exit.thread13.i
+  %.016.i99 = phi i64 [ %143, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN12_GLOBAL__N_121X86FrameSortingObjectESt6vectorIS3_SaIS3_EEEElEvRT_T0_.exit.lr.ph.i96 ], [ %.1.i104, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN12_GLOBAL__N_125X86FrameSortingComparatorEEclIKNS2_21X86FrameSortingObjectENS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEEEEbRT_T0_.exit.thread.i ]
+  %.sroa.011.015.i100 = phi ptr [ %.tr131, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN12_GLOBAL__N_121X86FrameSortingObjectESt6vectorIS3_SaIS3_EEEElEvRT_T0_.exit.lr.ph.i96 ], [ %.sroa.011.1.i103, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN12_GLOBAL__N_125X86FrameSortingComparatorEEclIKNS2_21X86FrameSortingObjectENS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEEEEbRT_T0_.exit.thread.i ]
+  %153 = lshr i64 %.016.i99, 1
+  %154 = getelementptr inbounds %"struct.(anonymous namespace)::X86FrameSortingObject", ptr %.sroa.011.015.i100, i64 %153
+  br i1 %145, label %155, label %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN12_GLOBAL__N_125X86FrameSortingComparatorEEclIKNS2_21X86FrameSortingObjectENS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEEEEbRT_T0_.exit.thread13.i
 
-157:                                              ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN12_GLOBAL__N_121X86FrameSortingObjectESt6vectorIS3_SaIS3_EEEElEvRT_T0_.exit.i98
-  %158 = load i8, ptr %156, align 4
-  %159 = trunc i8 %158 to i1
-  br i1 %159, label %160, label %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN12_GLOBAL__N_125X86FrameSortingComparatorEEclIKNS2_21X86FrameSortingObjectENS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEEEEbRT_T0_.exit.thread.i
+155:                                              ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN12_GLOBAL__N_121X86FrameSortingObjectESt6vectorIS3_SaIS3_EEEElEvRT_T0_.exit.i98
+  %156 = load i8, ptr %154, align 4
+  %157 = trunc i8 %156 to i1
+  br i1 %157, label %158, label %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN12_GLOBAL__N_125X86FrameSortingComparatorEEclIKNS2_21X86FrameSortingObjectENS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEEEEbRT_T0_.exit.thread.i
 
-160:                                              ; preds = %157
-  %161 = getelementptr inbounds nuw i8, ptr %156, i64 8
-  %162 = load i32, ptr %161, align 4
-  %163 = zext i32 %162 to i64
-  %164 = mul nuw i64 %163, %150
-  %165 = getelementptr inbounds nuw i8, ptr %156, i64 16
-  %166 = load i32, ptr %165, align 4
-  %167 = zext i32 %166 to i64
-  %168 = mul nuw i64 %167, %153
-  %169 = icmp eq i64 %164, %168
-  br i1 %169, label %170, label %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN12_GLOBAL__N_125X86FrameSortingComparatorEEclIKNS2_21X86FrameSortingObjectENS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEEEEbRT_T0_.exit.i
+158:                                              ; preds = %155
+  %159 = getelementptr inbounds nuw i8, ptr %154, i64 8
+  %160 = load i32, ptr %159, align 4
+  %161 = zext i32 %160 to i64
+  %162 = mul nuw i64 %161, %148
+  %163 = getelementptr inbounds nuw i8, ptr %154, i64 16
+  %164 = load i32, ptr %163, align 4
+  %165 = zext i32 %164 to i64
+  %166 = mul nuw i64 %165, %151
+  %167 = icmp eq i64 %162, %166
+  br i1 %167, label %168, label %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN12_GLOBAL__N_125X86FrameSortingComparatorEEclIKNS2_21X86FrameSortingObjectENS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEEEEbRT_T0_.exit.i
 
-170:                                              ; preds = %160
-  %171 = getelementptr inbounds nuw i8, ptr %156, i64 12
-  %.sroa.0.0.copyload.i.i.i105 = load i8, ptr %171, align 4
-  %172 = icmp ult i8 %.sroa.01.0.copyload.i.i.i97, %.sroa.0.0.copyload.i.i.i105
-  br i1 %172, label %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN12_GLOBAL__N_125X86FrameSortingComparatorEEclIKNS2_21X86FrameSortingObjectENS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEEEEbRT_T0_.exit.thread.i, label %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN12_GLOBAL__N_125X86FrameSortingComparatorEEclIKNS2_21X86FrameSortingObjectENS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEEEEbRT_T0_.exit.thread13.i
+168:                                              ; preds = %158
+  %169 = getelementptr inbounds nuw i8, ptr %154, i64 12
+  %.sroa.0.0.copyload.i.i.i105 = load i8, ptr %169, align 4
+  %170 = icmp ult i8 %.sroa.01.0.copyload.i.i.i97, %.sroa.0.0.copyload.i.i.i105
+  br i1 %170, label %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN12_GLOBAL__N_125X86FrameSortingComparatorEEclIKNS2_21X86FrameSortingObjectENS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEEEEbRT_T0_.exit.thread.i, label %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN12_GLOBAL__N_125X86FrameSortingComparatorEEclIKNS2_21X86FrameSortingObjectENS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEEEEbRT_T0_.exit.thread13.i
 
-_ZN9__gnu_cxx5__ops14_Val_comp_iterIN12_GLOBAL__N_125X86FrameSortingComparatorEEclIKNS2_21X86FrameSortingObjectENS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEEEEbRT_T0_.exit.i: ; preds = %160
-  %173 = icmp ult i64 %164, %168
-  br i1 %173, label %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN12_GLOBAL__N_125X86FrameSortingComparatorEEclIKNS2_21X86FrameSortingObjectENS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEEEEbRT_T0_.exit.thread.i, label %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN12_GLOBAL__N_125X86FrameSortingComparatorEEclIKNS2_21X86FrameSortingObjectENS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEEEEbRT_T0_.exit.thread13.i
+_ZN9__gnu_cxx5__ops14_Val_comp_iterIN12_GLOBAL__N_125X86FrameSortingComparatorEEclIKNS2_21X86FrameSortingObjectENS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEEEEbRT_T0_.exit.i: ; preds = %158
+  %171 = icmp ult i64 %162, %166
+  br i1 %171, label %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN12_GLOBAL__N_125X86FrameSortingComparatorEEclIKNS2_21X86FrameSortingObjectENS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEEEEbRT_T0_.exit.thread.i, label %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN12_GLOBAL__N_125X86FrameSortingComparatorEEclIKNS2_21X86FrameSortingObjectENS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEEEEbRT_T0_.exit.thread13.i
 
-_ZN9__gnu_cxx5__ops14_Val_comp_iterIN12_GLOBAL__N_125X86FrameSortingComparatorEEclIKNS2_21X86FrameSortingObjectENS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEEEEbRT_T0_.exit.thread13.i: ; preds = %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN12_GLOBAL__N_125X86FrameSortingComparatorEEclIKNS2_21X86FrameSortingObjectENS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEEEEbRT_T0_.exit.i, %170, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN12_GLOBAL__N_121X86FrameSortingObjectESt6vectorIS3_SaIS3_EEEElEvRT_T0_.exit.i98
-  %174 = getelementptr inbounds i8, ptr %156, i64 20
-  %175 = xor i64 %155, -1
-  %176 = add nsw i64 %.016.i99, %175
+_ZN9__gnu_cxx5__ops14_Val_comp_iterIN12_GLOBAL__N_125X86FrameSortingComparatorEEclIKNS2_21X86FrameSortingObjectENS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEEEEbRT_T0_.exit.thread13.i: ; preds = %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN12_GLOBAL__N_125X86FrameSortingComparatorEEclIKNS2_21X86FrameSortingObjectENS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEEEEbRT_T0_.exit.i, %168, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN12_GLOBAL__N_121X86FrameSortingObjectESt6vectorIS3_SaIS3_EEEElEvRT_T0_.exit.i98
+  %172 = getelementptr inbounds i8, ptr %154, i64 20
+  %173 = xor i64 %153, -1
+  %174 = add nsw i64 %.016.i99, %173
   br label %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN12_GLOBAL__N_125X86FrameSortingComparatorEEclIKNS2_21X86FrameSortingObjectENS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEEEEbRT_T0_.exit.thread.i
 
-_ZN9__gnu_cxx5__ops14_Val_comp_iterIN12_GLOBAL__N_125X86FrameSortingComparatorEEclIKNS2_21X86FrameSortingObjectENS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEEEEbRT_T0_.exit.thread.i: ; preds = %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN12_GLOBAL__N_125X86FrameSortingComparatorEEclIKNS2_21X86FrameSortingObjectENS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEEEEbRT_T0_.exit.thread13.i, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN12_GLOBAL__N_125X86FrameSortingComparatorEEclIKNS2_21X86FrameSortingObjectENS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEEEEbRT_T0_.exit.i, %170, %157
-  %.sroa.011.1.i103 = phi ptr [ %.sroa.011.015.i100, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN12_GLOBAL__N_125X86FrameSortingComparatorEEclIKNS2_21X86FrameSortingObjectENS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEEEEbRT_T0_.exit.i ], [ %174, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN12_GLOBAL__N_125X86FrameSortingComparatorEEclIKNS2_21X86FrameSortingObjectENS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEEEEbRT_T0_.exit.thread13.i ], [ %.sroa.011.015.i100, %170 ], [ %.sroa.011.015.i100, %157 ]
-  %.1.i104 = phi i64 [ %155, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN12_GLOBAL__N_125X86FrameSortingComparatorEEclIKNS2_21X86FrameSortingObjectENS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEEEEbRT_T0_.exit.i ], [ %176, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN12_GLOBAL__N_125X86FrameSortingComparatorEEclIKNS2_21X86FrameSortingObjectENS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEEEEbRT_T0_.exit.thread13.i ], [ %155, %170 ], [ %155, %157 ]
-  %177 = icmp sgt i64 %.1.i104, 0
-  br i1 %177, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN12_GLOBAL__N_121X86FrameSortingObjectESt6vectorIS3_SaIS3_EEEElEvRT_T0_.exit.i98, label %_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPN12_GLOBAL__N_121X86FrameSortingObjectESt6vectorIS3_SaIS3_EEEES3_NS0_5__ops14_Val_comp_iterINS2_25X86FrameSortingComparatorEEEET_SD_SD_RKT0_T1_.exit.loopexit, !llvm.loop !1200
+_ZN9__gnu_cxx5__ops14_Val_comp_iterIN12_GLOBAL__N_125X86FrameSortingComparatorEEclIKNS2_21X86FrameSortingObjectENS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEEEEbRT_T0_.exit.thread.i: ; preds = %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN12_GLOBAL__N_125X86FrameSortingComparatorEEclIKNS2_21X86FrameSortingObjectENS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEEEEbRT_T0_.exit.thread13.i, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN12_GLOBAL__N_125X86FrameSortingComparatorEEclIKNS2_21X86FrameSortingObjectENS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEEEEbRT_T0_.exit.i, %168, %155
+  %.sroa.011.1.i103 = phi ptr [ %.sroa.011.015.i100, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN12_GLOBAL__N_125X86FrameSortingComparatorEEclIKNS2_21X86FrameSortingObjectENS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEEEEbRT_T0_.exit.i ], [ %172, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN12_GLOBAL__N_125X86FrameSortingComparatorEEclIKNS2_21X86FrameSortingObjectENS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEEEEbRT_T0_.exit.thread13.i ], [ %.sroa.011.015.i100, %168 ], [ %.sroa.011.015.i100, %155 ]
+  %.1.i104 = phi i64 [ %153, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN12_GLOBAL__N_125X86FrameSortingComparatorEEclIKNS2_21X86FrameSortingObjectENS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEEEEbRT_T0_.exit.i ], [ %174, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN12_GLOBAL__N_125X86FrameSortingComparatorEEclIKNS2_21X86FrameSortingObjectENS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEEEEbRT_T0_.exit.thread13.i ], [ %153, %168 ], [ %153, %155 ]
+  %175 = icmp sgt i64 %.1.i104, 0
+  br i1 %175, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN12_GLOBAL__N_121X86FrameSortingObjectESt6vectorIS3_SaIS3_EEEElEvRT_T0_.exit.i98, label %_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPN12_GLOBAL__N_121X86FrameSortingObjectESt6vectorIS3_SaIS3_EEEES3_NS0_5__ops14_Val_comp_iterINS2_25X86FrameSortingComparatorEEEET_SD_SD_RKT0_T1_.exit.loopexit, !llvm.loop !1200
 
 _ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPN12_GLOBAL__N_121X86FrameSortingObjectESt6vectorIS3_SaIS3_EEEES3_NS0_5__ops14_Val_comp_iterINS2_25X86FrameSortingComparatorEEEET_SD_SD_RKT0_T1_.exit.loopexit: ; preds = %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN12_GLOBAL__N_125X86FrameSortingComparatorEEclIKNS2_21X86FrameSortingObjectENS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEEEEbRT_T0_.exit.thread.i
-  %.pre146 = ptrtoint ptr %.sroa.011.1.i103 to i64
+  %.pre145 = ptrtoint ptr %.sroa.011.1.i103 to i64
   br label %_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPN12_GLOBAL__N_121X86FrameSortingObjectESt6vectorIS3_SaIS3_EEEES3_NS0_5__ops14_Val_comp_iterINS2_25X86FrameSortingComparatorEEEET_SD_SD_RKT0_T1_.exit
 
 _ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPN12_GLOBAL__N_121X86FrameSortingObjectESt6vectorIS3_SaIS3_EEEES3_NS0_5__ops14_Val_comp_iterINS2_25X86FrameSortingComparatorEEEET_SD_SD_RKT0_T1_.exit: ; preds = %_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPN12_GLOBAL__N_121X86FrameSortingObjectESt6vectorIS3_SaIS3_EEEES3_NS0_5__ops14_Val_comp_iterINS2_25X86FrameSortingComparatorEEEET_SD_SD_RKT0_T1_.exit.loopexit, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN12_GLOBAL__N_121X86FrameSortingObjectESt6vectorIS3_SaIS3_EEEElEvRT_T0_.exit94
-  %.pre-phi147 = phi i64 [ %.pre146, %_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPN12_GLOBAL__N_121X86FrameSortingObjectESt6vectorIS3_SaIS3_EEEES3_NS0_5__ops14_Val_comp_iterINS2_25X86FrameSortingComparatorEEEET_SD_SD_RKT0_T1_.exit.loopexit ], [ %142, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN12_GLOBAL__N_121X86FrameSortingObjectESt6vectorIS3_SaIS3_EEEElEvRT_T0_.exit94 ]
-  %.sroa.011.0.lcssa.i95 = phi ptr [ %.sroa.011.1.i103, %_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPN12_GLOBAL__N_121X86FrameSortingObjectESt6vectorIS3_SaIS3_EEEES3_NS0_5__ops14_Val_comp_iterINS2_25X86FrameSortingComparatorEEEET_SD_SD_RKT0_T1_.exit.loopexit ], [ %.tr132, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN12_GLOBAL__N_121X86FrameSortingObjectESt6vectorIS3_SaIS3_EEEElEvRT_T0_.exit94 ]
-  %178 = sub i64 %.pre-phi147, %142
-  %179 = sdiv exact i64 %178, 20
-  br label %180
+  %.pre-phi146 = phi i64 [ %.pre145, %_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPN12_GLOBAL__N_121X86FrameSortingObjectESt6vectorIS3_SaIS3_EEEES3_NS0_5__ops14_Val_comp_iterINS2_25X86FrameSortingComparatorEEEET_SD_SD_RKT0_T1_.exit.loopexit ], [ %140, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN12_GLOBAL__N_121X86FrameSortingObjectESt6vectorIS3_SaIS3_EEEElEvRT_T0_.exit94 ]
+  %.sroa.011.0.lcssa.i95 = phi ptr [ %.sroa.011.1.i103, %_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPN12_GLOBAL__N_121X86FrameSortingObjectESt6vectorIS3_SaIS3_EEEES3_NS0_5__ops14_Val_comp_iterINS2_25X86FrameSortingComparatorEEEET_SD_SD_RKT0_T1_.exit.loopexit ], [ %.tr131, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN12_GLOBAL__N_121X86FrameSortingObjectESt6vectorIS3_SaIS3_EEEElEvRT_T0_.exit94 ]
+  %176 = sub i64 %.pre-phi146, %140
+  %177 = sdiv exact i64 %176, 20
+  br label %178
 
-180:                                              ; preds = %_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPN12_GLOBAL__N_121X86FrameSortingObjectESt6vectorIS3_SaIS3_EEEES3_NS0_5__ops14_Val_comp_iterINS2_25X86FrameSortingComparatorEEEET_SD_SD_RKT0_T1_.exit, %_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPN12_GLOBAL__N_121X86FrameSortingObjectESt6vectorIS3_SaIS3_EEEES3_NS0_5__ops14_Iter_comp_valINS2_25X86FrameSortingComparatorEEEET_SD_SD_RKT0_T1_.exit
-  %.sroa.0111.0 = phi ptr [ %102, %_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPN12_GLOBAL__N_121X86FrameSortingObjectESt6vectorIS3_SaIS3_EEEES3_NS0_5__ops14_Iter_comp_valINS2_25X86FrameSortingComparatorEEEET_SD_SD_RKT0_T1_.exit ], [ %.sroa.011.0.lcssa.i95, %_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPN12_GLOBAL__N_121X86FrameSortingObjectESt6vectorIS3_SaIS3_EEEES3_NS0_5__ops14_Val_comp_iterINS2_25X86FrameSortingComparatorEEEET_SD_SD_RKT0_T1_.exit ]
-  %.sroa.0.0 = phi ptr [ %.sroa.011.0.lcssa.i, %_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPN12_GLOBAL__N_121X86FrameSortingObjectESt6vectorIS3_SaIS3_EEEES3_NS0_5__ops14_Iter_comp_valINS2_25X86FrameSortingComparatorEEEET_SD_SD_RKT0_T1_.exit ], [ %141, %_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPN12_GLOBAL__N_121X86FrameSortingObjectESt6vectorIS3_SaIS3_EEEES3_NS0_5__ops14_Val_comp_iterINS2_25X86FrameSortingComparatorEEEET_SD_SD_RKT0_T1_.exit ]
-  %.076 = phi i64 [ %139, %_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPN12_GLOBAL__N_121X86FrameSortingObjectESt6vectorIS3_SaIS3_EEEES3_NS0_5__ops14_Iter_comp_valINS2_25X86FrameSortingComparatorEEEET_SD_SD_RKT0_T1_.exit ], [ %140, %_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPN12_GLOBAL__N_121X86FrameSortingObjectESt6vectorIS3_SaIS3_EEEES3_NS0_5__ops14_Val_comp_iterINS2_25X86FrameSortingComparatorEEEET_SD_SD_RKT0_T1_.exit ]
-  %.0 = phi i64 [ %101, %_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPN12_GLOBAL__N_121X86FrameSortingObjectESt6vectorIS3_SaIS3_EEEES3_NS0_5__ops14_Iter_comp_valINS2_25X86FrameSortingComparatorEEEET_SD_SD_RKT0_T1_.exit ], [ %179, %_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPN12_GLOBAL__N_121X86FrameSortingObjectESt6vectorIS3_SaIS3_EEEES3_NS0_5__ops14_Val_comp_iterINS2_25X86FrameSortingComparatorEEEET_SD_SD_RKT0_T1_.exit ]
-  %181 = sub nsw i64 %.tr117134, %.0
-  %182 = icmp sle i64 %181, %.076
+178:                                              ; preds = %_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPN12_GLOBAL__N_121X86FrameSortingObjectESt6vectorIS3_SaIS3_EEEES3_NS0_5__ops14_Val_comp_iterINS2_25X86FrameSortingComparatorEEEET_SD_SD_RKT0_T1_.exit, %_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPN12_GLOBAL__N_121X86FrameSortingObjectESt6vectorIS3_SaIS3_EEEES3_NS0_5__ops14_Iter_comp_valINS2_25X86FrameSortingComparatorEEEET_SD_SD_RKT0_T1_.exit
+  %.sroa.0110.0 = phi ptr [ %100, %_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPN12_GLOBAL__N_121X86FrameSortingObjectESt6vectorIS3_SaIS3_EEEES3_NS0_5__ops14_Iter_comp_valINS2_25X86FrameSortingComparatorEEEET_SD_SD_RKT0_T1_.exit ], [ %.sroa.011.0.lcssa.i95, %_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPN12_GLOBAL__N_121X86FrameSortingObjectESt6vectorIS3_SaIS3_EEEES3_NS0_5__ops14_Val_comp_iterINS2_25X86FrameSortingComparatorEEEET_SD_SD_RKT0_T1_.exit ]
+  %.sroa.0.0 = phi ptr [ %.sroa.011.0.lcssa.i, %_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPN12_GLOBAL__N_121X86FrameSortingObjectESt6vectorIS3_SaIS3_EEEES3_NS0_5__ops14_Iter_comp_valINS2_25X86FrameSortingComparatorEEEET_SD_SD_RKT0_T1_.exit ], [ %139, %_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPN12_GLOBAL__N_121X86FrameSortingObjectESt6vectorIS3_SaIS3_EEEES3_NS0_5__ops14_Val_comp_iterINS2_25X86FrameSortingComparatorEEEET_SD_SD_RKT0_T1_.exit ]
+  %.076 = phi i64 [ %137, %_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPN12_GLOBAL__N_121X86FrameSortingObjectESt6vectorIS3_SaIS3_EEEES3_NS0_5__ops14_Iter_comp_valINS2_25X86FrameSortingComparatorEEEET_SD_SD_RKT0_T1_.exit ], [ %138, %_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPN12_GLOBAL__N_121X86FrameSortingObjectESt6vectorIS3_SaIS3_EEEES3_NS0_5__ops14_Val_comp_iterINS2_25X86FrameSortingComparatorEEEET_SD_SD_RKT0_T1_.exit ]
+  %.0 = phi i64 [ %99, %_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPN12_GLOBAL__N_121X86FrameSortingObjectESt6vectorIS3_SaIS3_EEEES3_NS0_5__ops14_Iter_comp_valINS2_25X86FrameSortingComparatorEEEET_SD_SD_RKT0_T1_.exit ], [ %177, %_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPN12_GLOBAL__N_121X86FrameSortingObjectESt6vectorIS3_SaIS3_EEEES3_NS0_5__ops14_Val_comp_iterINS2_25X86FrameSortingComparatorEEEET_SD_SD_RKT0_T1_.exit ]
+  %179 = sub nsw i64 %.tr116133, %.0
+  %180 = icmp sle i64 %179, %.076
   %.not.i106 = icmp sgt i64 %.076, %6
-  %or.cond.i = or i1 %.not.i106, %182
-  br i1 %or.cond.i, label %195, label %183
+  %or.cond.i = or i1 %.not.i106, %180
+  br i1 %or.cond.i, label %193, label %181
 
-183:                                              ; preds = %180
+181:                                              ; preds = %178
   %.not36.i = icmp eq i64 %.076, 0
-  br i1 %.not36.i, label %_ZSt17__rotate_adaptiveIN9__gnu_cxx17__normal_iteratorIPN12_GLOBAL__N_121X86FrameSortingObjectESt6vectorIS3_SaIS3_EEEES4_lET_S9_S9_S9_T1_SA_T0_SA_.exit, label %184
+  br i1 %.not36.i, label %_ZSt17__rotate_adaptiveIN9__gnu_cxx17__normal_iteratorIPN12_GLOBAL__N_121X86FrameSortingObjectESt6vectorIS3_SaIS3_EEEES4_lET_S9_S9_S9_T1_SA_T0_SA_.exit, label %182
 
-184:                                              ; preds = %183
-  %185 = ptrtoint ptr %.sroa.0.0 to i64
-  %186 = ptrtoint ptr %.tr115133 to i64
-  %187 = sub i64 %185, %186
-  %.not.i.i.i.i.i.i107 = icmp eq ptr %.sroa.0.0, %.tr115133
-  br i1 %.not.i.i.i.i.i.i107, label %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN12_GLOBAL__N_121X86FrameSortingObjectESt6vectorIS3_SaIS3_EEEES4_ET0_T_SA_S9_.exit.i, label %188
+182:                                              ; preds = %181
+  %183 = ptrtoint ptr %.sroa.0.0 to i64
+  %184 = ptrtoint ptr %.tr114132 to i64
+  %185 = sub i64 %183, %184
+  %.not.i.i.i.i.i.i107 = icmp eq ptr %.sroa.0.0, %.tr114132
+  br i1 %.not.i.i.i.i.i.i107, label %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN12_GLOBAL__N_121X86FrameSortingObjectESt6vectorIS3_SaIS3_EEEES4_ET0_T_SA_S9_.exit.i, label %186
 
-188:                                              ; preds = %184
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %5, ptr align 4 %.tr115133, i64 %187, i1 false)
+186:                                              ; preds = %182
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %5, ptr align 4 %.tr114132, i64 %185, i1 false)
   br label %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN12_GLOBAL__N_121X86FrameSortingObjectESt6vectorIS3_SaIS3_EEEES4_ET0_T_SA_S9_.exit.i
 
-_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN12_GLOBAL__N_121X86FrameSortingObjectESt6vectorIS3_SaIS3_EEEES4_ET0_T_SA_S9_.exit.i: ; preds = %188, %184
-  %.not.i.i.i.i.i37.i = icmp eq ptr %.tr115133, %.sroa.0111.0
-  br i1 %.not.i.i.i.i.i37.i, label %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPN12_GLOBAL__N_121X86FrameSortingObjectESt6vectorIS3_SaIS3_EEEES8_ET0_T_SA_S9_.exit.i, label %189
+_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN12_GLOBAL__N_121X86FrameSortingObjectESt6vectorIS3_SaIS3_EEEES4_ET0_T_SA_S9_.exit.i: ; preds = %186, %182
+  %.not.i.i.i.i.i37.i = icmp eq ptr %.tr114132, %.sroa.0110.0
+  br i1 %.not.i.i.i.i.i37.i, label %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPN12_GLOBAL__N_121X86FrameSortingObjectESt6vectorIS3_SaIS3_EEEES8_ET0_T_SA_S9_.exit.i, label %187
 
-189:                                              ; preds = %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN12_GLOBAL__N_121X86FrameSortingObjectESt6vectorIS3_SaIS3_EEEES4_ET0_T_SA_S9_.exit.i
-  %190 = ptrtoint ptr %.sroa.0111.0 to i64
-  %191 = sub i64 %186, %190
-  %.neg.i.i.i.i.i.i108 = sdiv exact i64 %191, -20
-  %192 = getelementptr inbounds %"struct.(anonymous namespace)::X86FrameSortingObject", ptr %.sroa.0.0, i64 %.neg.i.i.i.i.i.i108
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %192, ptr align 4 %.sroa.0111.0, i64 %191, i1 false)
+187:                                              ; preds = %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN12_GLOBAL__N_121X86FrameSortingObjectESt6vectorIS3_SaIS3_EEEES4_ET0_T_SA_S9_.exit.i
+  %188 = ptrtoint ptr %.sroa.0110.0 to i64
+  %189 = sub i64 %184, %188
+  %.neg.i.i.i.i.i.i = sdiv exact i64 %189, -20
+  %190 = getelementptr inbounds %"struct.(anonymous namespace)::X86FrameSortingObject", ptr %.sroa.0.0, i64 %.neg.i.i.i.i.i.i
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %190, ptr align 4 %.sroa.0110.0, i64 %189, i1 false)
   br label %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPN12_GLOBAL__N_121X86FrameSortingObjectESt6vectorIS3_SaIS3_EEEES8_ET0_T_SA_S9_.exit.i
 
-_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPN12_GLOBAL__N_121X86FrameSortingObjectESt6vectorIS3_SaIS3_EEEES8_ET0_T_SA_S9_.exit.i: ; preds = %189, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN12_GLOBAL__N_121X86FrameSortingObjectESt6vectorIS3_SaIS3_EEEES4_ET0_T_SA_S9_.exit.i
-  br i1 %.not.i.i.i.i.i.i107, label %_ZSt4moveIPN12_GLOBAL__N_121X86FrameSortingObjectEN9__gnu_cxx17__normal_iteratorIS2_St6vectorIS1_SaIS1_EEEEET0_T_SA_S9_.exit.i109, label %193
+_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPN12_GLOBAL__N_121X86FrameSortingObjectESt6vectorIS3_SaIS3_EEEES8_ET0_T_SA_S9_.exit.i: ; preds = %187, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN12_GLOBAL__N_121X86FrameSortingObjectESt6vectorIS3_SaIS3_EEEES4_ET0_T_SA_S9_.exit.i
+  br i1 %.not.i.i.i.i.i.i107, label %_ZSt4moveIPN12_GLOBAL__N_121X86FrameSortingObjectEN9__gnu_cxx17__normal_iteratorIS2_St6vectorIS1_SaIS1_EEEEET0_T_SA_S9_.exit.i108, label %191
 
-193:                                              ; preds = %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPN12_GLOBAL__N_121X86FrameSortingObjectESt6vectorIS3_SaIS3_EEEES8_ET0_T_SA_S9_.exit.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %.sroa.0111.0, ptr align 4 %5, i64 %187, i1 false)
-  br label %_ZSt4moveIPN12_GLOBAL__N_121X86FrameSortingObjectEN9__gnu_cxx17__normal_iteratorIS2_St6vectorIS1_SaIS1_EEEEET0_T_SA_S9_.exit.i109
+191:                                              ; preds = %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPN12_GLOBAL__N_121X86FrameSortingObjectESt6vectorIS3_SaIS3_EEEES8_ET0_T_SA_S9_.exit.i
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %.sroa.0110.0, ptr align 4 %5, i64 %185, i1 false)
+  br label %_ZSt4moveIPN12_GLOBAL__N_121X86FrameSortingObjectEN9__gnu_cxx17__normal_iteratorIS2_St6vectorIS1_SaIS1_EEEEET0_T_SA_S9_.exit.i108
 
-_ZSt4moveIPN12_GLOBAL__N_121X86FrameSortingObjectEN9__gnu_cxx17__normal_iteratorIS2_St6vectorIS1_SaIS1_EEEEET0_T_SA_S9_.exit.i109: ; preds = %193, %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPN12_GLOBAL__N_121X86FrameSortingObjectESt6vectorIS3_SaIS3_EEEES8_ET0_T_SA_S9_.exit.i
-  %194 = getelementptr inbounds i8, ptr %.sroa.0111.0, i64 %187
+_ZSt4moveIPN12_GLOBAL__N_121X86FrameSortingObjectEN9__gnu_cxx17__normal_iteratorIS2_St6vectorIS1_SaIS1_EEEEET0_T_SA_S9_.exit.i108: ; preds = %191, %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPN12_GLOBAL__N_121X86FrameSortingObjectESt6vectorIS3_SaIS3_EEEES8_ET0_T_SA_S9_.exit.i
+  %192 = getelementptr inbounds i8, ptr %.sroa.0110.0, i64 %185
   br label %_ZSt17__rotate_adaptiveIN9__gnu_cxx17__normal_iteratorIPN12_GLOBAL__N_121X86FrameSortingObjectESt6vectorIS3_SaIS3_EEEES4_lET_S9_S9_S9_T1_SA_T0_SA_.exit
 
-195:                                              ; preds = %180
-  %.not34.i = icmp sgt i64 %181, %6
-  br i1 %.not34.i, label %208, label %196
+193:                                              ; preds = %178
+  %.not34.i = icmp sgt i64 %179, %6
+  br i1 %.not34.i, label %206, label %194
 
-196:                                              ; preds = %195
-  %.not35.i = icmp eq i64 %.tr117134, %.0
-  br i1 %.not35.i, label %_ZSt17__rotate_adaptiveIN9__gnu_cxx17__normal_iteratorIPN12_GLOBAL__N_121X86FrameSortingObjectESt6vectorIS3_SaIS3_EEEES4_lET_S9_S9_S9_T1_SA_T0_SA_.exit, label %197
+194:                                              ; preds = %193
+  %.not35.i = icmp eq i64 %.tr116133, %.0
+  br i1 %.not35.i, label %_ZSt17__rotate_adaptiveIN9__gnu_cxx17__normal_iteratorIPN12_GLOBAL__N_121X86FrameSortingObjectESt6vectorIS3_SaIS3_EEEES4_lET_S9_S9_S9_T1_SA_T0_SA_.exit, label %195
 
-197:                                              ; preds = %196
-  %198 = ptrtoint ptr %.tr115133 to i64
-  %199 = ptrtoint ptr %.sroa.0111.0 to i64
-  %200 = sub i64 %198, %199
-  %.not.i.i.i.i.i39.i = icmp eq ptr %.tr115133, %.sroa.0111.0
-  br i1 %.not.i.i.i.i.i39.i, label %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN12_GLOBAL__N_121X86FrameSortingObjectESt6vectorIS3_SaIS3_EEEES4_ET0_T_SA_S9_.exit40.i, label %201
+195:                                              ; preds = %194
+  %196 = ptrtoint ptr %.tr114132 to i64
+  %197 = ptrtoint ptr %.sroa.0110.0 to i64
+  %198 = sub i64 %196, %197
+  %.not.i.i.i.i.i39.i = icmp eq ptr %.tr114132, %.sroa.0110.0
+  br i1 %.not.i.i.i.i.i39.i, label %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN12_GLOBAL__N_121X86FrameSortingObjectESt6vectorIS3_SaIS3_EEEES4_ET0_T_SA_S9_.exit40.i, label %199
 
-201:                                              ; preds = %197
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %5, ptr align 4 %.sroa.0111.0, i64 %200, i1 false)
+199:                                              ; preds = %195
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %5, ptr align 4 %.sroa.0110.0, i64 %198, i1 false)
   br label %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN12_GLOBAL__N_121X86FrameSortingObjectESt6vectorIS3_SaIS3_EEEES4_ET0_T_SA_S9_.exit40.i
 
-_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN12_GLOBAL__N_121X86FrameSortingObjectESt6vectorIS3_SaIS3_EEEES4_ET0_T_SA_S9_.exit40.i: ; preds = %201, %197
-  %.not.i.i.i.i.i41.i = icmp eq ptr %.sroa.0.0, %.tr115133
-  br i1 %.not.i.i.i.i.i41.i, label %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN12_GLOBAL__N_121X86FrameSortingObjectESt6vectorIS3_SaIS3_EEEES8_ET0_T_SA_S9_.exit.i, label %202
+_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN12_GLOBAL__N_121X86FrameSortingObjectESt6vectorIS3_SaIS3_EEEES4_ET0_T_SA_S9_.exit40.i: ; preds = %199, %195
+  %.not.i.i.i.i.i41.i = icmp eq ptr %.sroa.0.0, %.tr114132
+  br i1 %.not.i.i.i.i.i41.i, label %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN12_GLOBAL__N_121X86FrameSortingObjectESt6vectorIS3_SaIS3_EEEES8_ET0_T_SA_S9_.exit.i, label %200
 
-202:                                              ; preds = %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN12_GLOBAL__N_121X86FrameSortingObjectESt6vectorIS3_SaIS3_EEEES4_ET0_T_SA_S9_.exit40.i
-  %203 = ptrtoint ptr %.sroa.0.0 to i64
-  %204 = sub i64 %203, %198
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %.sroa.0111.0, ptr align 4 %.tr115133, i64 %204, i1 false)
+200:                                              ; preds = %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN12_GLOBAL__N_121X86FrameSortingObjectESt6vectorIS3_SaIS3_EEEES4_ET0_T_SA_S9_.exit40.i
+  %201 = ptrtoint ptr %.sroa.0.0 to i64
+  %202 = sub i64 %201, %196
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %.sroa.0110.0, ptr align 4 %.tr114132, i64 %202, i1 false)
   br label %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN12_GLOBAL__N_121X86FrameSortingObjectESt6vectorIS3_SaIS3_EEEES8_ET0_T_SA_S9_.exit.i
 
-_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN12_GLOBAL__N_121X86FrameSortingObjectESt6vectorIS3_SaIS3_EEEES8_ET0_T_SA_S9_.exit.i: ; preds = %202, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN12_GLOBAL__N_121X86FrameSortingObjectESt6vectorIS3_SaIS3_EEEES4_ET0_T_SA_S9_.exit40.i
-  %.neg.i.i.i.i.i42.i = sdiv exact i64 %200, -20
-  br i1 %.not.i.i.i.i.i39.i, label %_ZSt13move_backwardIPN12_GLOBAL__N_121X86FrameSortingObjectEN9__gnu_cxx17__normal_iteratorIS2_St6vectorIS1_SaIS1_EEEEET0_T_SA_S9_.exit.i, label %205
+_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN12_GLOBAL__N_121X86FrameSortingObjectESt6vectorIS3_SaIS3_EEEES8_ET0_T_SA_S9_.exit.i: ; preds = %200, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN12_GLOBAL__N_121X86FrameSortingObjectESt6vectorIS3_SaIS3_EEEES4_ET0_T_SA_S9_.exit40.i
+  %.neg.i.i.i.i.i42.i = sdiv exact i64 %198, -20
+  br i1 %.not.i.i.i.i.i39.i, label %_ZSt13move_backwardIPN12_GLOBAL__N_121X86FrameSortingObjectEN9__gnu_cxx17__normal_iteratorIS2_St6vectorIS1_SaIS1_EEEEET0_T_SA_S9_.exit.i, label %203
 
-205:                                              ; preds = %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN12_GLOBAL__N_121X86FrameSortingObjectESt6vectorIS3_SaIS3_EEEES8_ET0_T_SA_S9_.exit.i
-  %206 = getelementptr inbounds %"struct.(anonymous namespace)::X86FrameSortingObject", ptr %.sroa.0.0, i64 %.neg.i.i.i.i.i42.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %206, ptr align 4 %5, i64 %200, i1 false)
+203:                                              ; preds = %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN12_GLOBAL__N_121X86FrameSortingObjectESt6vectorIS3_SaIS3_EEEES8_ET0_T_SA_S9_.exit.i
+  %204 = getelementptr inbounds %"struct.(anonymous namespace)::X86FrameSortingObject", ptr %.sroa.0.0, i64 %.neg.i.i.i.i.i42.i
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %204, ptr align 4 %5, i64 %198, i1 false)
   br label %_ZSt13move_backwardIPN12_GLOBAL__N_121X86FrameSortingObjectEN9__gnu_cxx17__normal_iteratorIS2_St6vectorIS1_SaIS1_EEEEET0_T_SA_S9_.exit.i
 
-_ZSt13move_backwardIPN12_GLOBAL__N_121X86FrameSortingObjectEN9__gnu_cxx17__normal_iteratorIS2_St6vectorIS1_SaIS1_EEEEET0_T_SA_S9_.exit.i: ; preds = %205, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN12_GLOBAL__N_121X86FrameSortingObjectESt6vectorIS3_SaIS3_EEEES8_ET0_T_SA_S9_.exit.i
-  %207 = getelementptr inbounds %"struct.(anonymous namespace)::X86FrameSortingObject", ptr %.sroa.0.0, i64 %.neg.i.i.i.i.i42.i
+_ZSt13move_backwardIPN12_GLOBAL__N_121X86FrameSortingObjectEN9__gnu_cxx17__normal_iteratorIS2_St6vectorIS1_SaIS1_EEEEET0_T_SA_S9_.exit.i: ; preds = %203, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN12_GLOBAL__N_121X86FrameSortingObjectESt6vectorIS3_SaIS3_EEEES8_ET0_T_SA_S9_.exit.i
+  %205 = getelementptr inbounds %"struct.(anonymous namespace)::X86FrameSortingObject", ptr %.sroa.0.0, i64 %.neg.i.i.i.i.i42.i
   br label %_ZSt17__rotate_adaptiveIN9__gnu_cxx17__normal_iteratorIPN12_GLOBAL__N_121X86FrameSortingObjectESt6vectorIS3_SaIS3_EEEES4_lET_S9_S9_S9_T1_SA_T0_SA_.exit
 
-208:                                              ; preds = %195
-  %209 = icmp eq ptr %.sroa.0111.0, %.tr115133
+206:                                              ; preds = %193
+  %207 = icmp eq ptr %.sroa.0110.0, %.tr114132
+  br i1 %207, label %_ZSt17__rotate_adaptiveIN9__gnu_cxx17__normal_iteratorIPN12_GLOBAL__N_121X86FrameSortingObjectESt6vectorIS3_SaIS3_EEEES4_lET_S9_S9_S9_T1_SA_T0_SA_.exit, label %208
+
+208:                                              ; preds = %206
+  %209 = icmp eq ptr %.sroa.0.0, %.tr114132
   br i1 %209, label %_ZSt17__rotate_adaptiveIN9__gnu_cxx17__normal_iteratorIPN12_GLOBAL__N_121X86FrameSortingObjectESt6vectorIS3_SaIS3_EEEES4_lET_S9_S9_S9_T1_SA_T0_SA_.exit, label %210
 
 210:                                              ; preds = %208
-  %211 = icmp eq ptr %.sroa.0.0, %.tr115133
-  br i1 %211, label %_ZSt17__rotate_adaptiveIN9__gnu_cxx17__normal_iteratorIPN12_GLOBAL__N_121X86FrameSortingObjectESt6vectorIS3_SaIS3_EEEES4_lET_S9_S9_S9_T1_SA_T0_SA_.exit, label %212
+  %211 = ptrtoint ptr %.sroa.0.0 to i64
+  %212 = ptrtoint ptr %.sroa.0110.0 to i64
+  %213 = sub i64 %211, %212
+  %214 = sdiv exact i64 %213, 20
+  %215 = ptrtoint ptr %.tr114132 to i64
+  %216 = sub i64 %215, %212
+  %217 = sdiv exact i64 %216, 20
+  %218 = sub nsw i64 %214, %217
+  %219 = icmp eq i64 %217, %218
+  br i1 %219, label %.lr.ph.i.i.i.i, label %222
 
-212:                                              ; preds = %210
-  %213 = ptrtoint ptr %.sroa.0.0 to i64
-  %214 = ptrtoint ptr %.sroa.0111.0 to i64
-  %215 = sub i64 %213, %214
-  %216 = sdiv exact i64 %215, 20
-  %217 = ptrtoint ptr %.tr115133 to i64
-  %218 = sub i64 %217, %214
-  %219 = sdiv exact i64 %218, 20
-  %220 = sub nsw i64 %216, %219
-  %221 = icmp eq i64 %219, %220
-  br i1 %221, label %.lr.ph.i.i.i.i, label %224
-
-.lr.ph.i.i.i.i:                                   ; preds = %212, %.lr.ph.i.i.i.i
-  %.sroa.0.08.i.i.i.i = phi ptr [ %223, %.lr.ph.i.i.i.i ], [ %.tr115133, %212 ]
-  %.sroa.05.07.i.i.i.i = phi ptr [ %222, %.lr.ph.i.i.i.i ], [ %.sroa.0111.0, %212 ]
+.lr.ph.i.i.i.i:                                   ; preds = %210, %.lr.ph.i.i.i.i
+  %.sroa.0.08.i.i.i.i = phi ptr [ %221, %.lr.ph.i.i.i.i ], [ %.tr114132, %210 ]
+  %.sroa.05.07.i.i.i.i = phi ptr [ %220, %.lr.ph.i.i.i.i ], [ %.sroa.0110.0, %210 ]
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %10)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %10, ptr noundef nonnull align 4 dereferenceable(20) %.sroa.05.07.i.i.i.i, i64 20, i1 false)
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %.sroa.05.07.i.i.i.i, ptr noundef nonnull align 4 dereferenceable(20) %.sroa.0.08.i.i.i.i, i64 20, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %.sroa.0.08.i.i.i.i, ptr noundef nonnull align 4 dereferenceable(20) %10, i64 20, i1 false)
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %10)
-  %222 = getelementptr inbounds i8, ptr %.sroa.05.07.i.i.i.i, i64 20
-  %223 = getelementptr inbounds i8, ptr %.sroa.0.08.i.i.i.i, i64 20
-  %.not.i.i.i.i = icmp eq ptr %222, %.tr115133
+  %220 = getelementptr inbounds i8, ptr %.sroa.05.07.i.i.i.i, i64 20
+  %221 = getelementptr inbounds i8, ptr %.sroa.0.08.i.i.i.i, i64 20
+  %.not.i.i.i.i = icmp eq ptr %220, %.tr114132
   br i1 %.not.i.i.i.i, label %_ZSt17__rotate_adaptiveIN9__gnu_cxx17__normal_iteratorIPN12_GLOBAL__N_121X86FrameSortingObjectESt6vectorIS3_SaIS3_EEEES4_lET_S9_S9_S9_T1_SA_T0_SA_.exit, label %.lr.ph.i.i.i.i, !llvm.loop !1201
 
-224:                                              ; preds = %212
-  %225 = sub i64 %213, %217
-  %226 = getelementptr inbounds i8, ptr %.sroa.0111.0, i64 %225
-  br label %227
+222:                                              ; preds = %210
+  %223 = sub i64 %211, %215
+  %224 = getelementptr inbounds i8, ptr %.sroa.0110.0, i64 %223
+  br label %225
 
-227:                                              ; preds = %.backedge, %224
-  %.052.i.i.i = phi i64 [ %216, %224 ], [ %.052.i.i.i.be, %.backedge ]
-  %.051.i.i.i = phi i64 [ %219, %224 ], [ %.051.i.i.i.be, %.backedge ]
-  %.sroa.032.0.i.i.i = phi ptr [ %.sroa.0111.0, %224 ], [ %.sroa.032.0.i.i.i.be, %.backedge ]
-  %228 = sub nsw i64 %.052.i.i.i, %.051.i.i.i
-  %229 = icmp slt i64 %.051.i.i.i, %228
-  br i1 %229, label %230, label %240
+225:                                              ; preds = %.backedge, %222
+  %.052.i.i.i = phi i64 [ %214, %222 ], [ %.052.i.i.i.be, %.backedge ]
+  %.051.i.i.i = phi i64 [ %217, %222 ], [ %.051.i.i.i.be, %.backedge ]
+  %.sroa.032.0.i.i.i = phi ptr [ %.sroa.0110.0, %222 ], [ %.sroa.032.0.i.i.i.be, %.backedge ]
+  %226 = sub nsw i64 %.052.i.i.i, %.051.i.i.i
+  %227 = icmp slt i64 %.051.i.i.i, %226
+  br i1 %227, label %228, label %238
 
-230:                                              ; preds = %227
-  %231 = icmp sgt i64 %228, 0
-  br i1 %231, label %.lr.ph62.preheader.i.i.i, label %._crit_edge63.i.i.i
+228:                                              ; preds = %225
+  %229 = icmp sgt i64 %226, 0
+  br i1 %229, label %.lr.ph62.preheader.i.i.i, label %._crit_edge63.i.i.i
 
-.lr.ph62.preheader.i.i.i:                         ; preds = %230
-  %232 = getelementptr inbounds %"struct.(anonymous namespace)::X86FrameSortingObject", ptr %.sroa.032.0.i.i.i, i64 %.051.i.i.i
+.lr.ph62.preheader.i.i.i:                         ; preds = %228
+  %230 = getelementptr inbounds %"struct.(anonymous namespace)::X86FrameSortingObject", ptr %.sroa.032.0.i.i.i, i64 %.051.i.i.i
   br label %.lr.ph62.i.i.i
 
 .lr.ph62.i.i.i:                                   ; preds = %.lr.ph62.i.i.i, %.lr.ph62.preheader.i.i.i
-  %.060.i.i.i = phi i64 [ %235, %.lr.ph62.i.i.i ], [ 0, %.lr.ph62.preheader.i.i.i ]
-  %.sroa.031.059.i.i.i = phi ptr [ %234, %.lr.ph62.i.i.i ], [ %232, %.lr.ph62.preheader.i.i.i ]
-  %.sroa.032.158.i.i.i = phi ptr [ %233, %.lr.ph62.i.i.i ], [ %.sroa.032.0.i.i.i, %.lr.ph62.preheader.i.i.i ]
+  %.060.i.i.i = phi i64 [ %233, %.lr.ph62.i.i.i ], [ 0, %.lr.ph62.preheader.i.i.i ]
+  %.sroa.031.059.i.i.i = phi ptr [ %232, %.lr.ph62.i.i.i ], [ %230, %.lr.ph62.preheader.i.i.i ]
+  %.sroa.032.158.i.i.i = phi ptr [ %231, %.lr.ph62.i.i.i ], [ %.sroa.032.0.i.i.i, %.lr.ph62.preheader.i.i.i ]
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %9)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %9, ptr noundef nonnull align 4 dereferenceable(20) %.sroa.032.158.i.i.i, i64 20, i1 false)
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %.sroa.032.158.i.i.i, ptr noundef nonnull align 4 dereferenceable(20) %.sroa.031.059.i.i.i, i64 20, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %.sroa.031.059.i.i.i, ptr noundef nonnull align 4 dereferenceable(20) %9, i64 20, i1 false)
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %9)
-  %233 = getelementptr inbounds i8, ptr %.sroa.032.158.i.i.i, i64 20
-  %234 = getelementptr inbounds i8, ptr %.sroa.031.059.i.i.i, i64 20
-  %235 = add nuw nsw i64 %.060.i.i.i, 1
-  %exitcond67.not.i.i.i = icmp eq i64 %235, %228
+  %231 = getelementptr inbounds i8, ptr %.sroa.032.158.i.i.i, i64 20
+  %232 = getelementptr inbounds i8, ptr %.sroa.031.059.i.i.i, i64 20
+  %233 = add nuw nsw i64 %.060.i.i.i, 1
+  %exitcond67.not.i.i.i = icmp eq i64 %233, %226
   br i1 %exitcond67.not.i.i.i, label %._crit_edge63.i.i.i, label %.lr.ph62.i.i.i, !llvm.loop !1202
 
-._crit_edge63.i.i.i:                              ; preds = %.lr.ph62.i.i.i, %230
-  %.sroa.032.1.lcssa.i.i.i = phi ptr [ %.sroa.032.0.i.i.i, %230 ], [ %233, %.lr.ph62.i.i.i ]
-  %236 = srem i64 %.052.i.i.i, %.051.i.i.i
-  %237 = icmp eq i64 %236, 0
-  br i1 %237, label %_ZSt17__rotate_adaptiveIN9__gnu_cxx17__normal_iteratorIPN12_GLOBAL__N_121X86FrameSortingObjectESt6vectorIS3_SaIS3_EEEES4_lET_S9_S9_S9_T1_SA_T0_SA_.exit, label %238
+._crit_edge63.i.i.i:                              ; preds = %.lr.ph62.i.i.i, %228
+  %.sroa.032.1.lcssa.i.i.i = phi ptr [ %.sroa.032.0.i.i.i, %228 ], [ %231, %.lr.ph62.i.i.i ]
+  %234 = srem i64 %.052.i.i.i, %.051.i.i.i
+  %235 = icmp eq i64 %234, 0
+  br i1 %235, label %_ZSt17__rotate_adaptiveIN9__gnu_cxx17__normal_iteratorIPN12_GLOBAL__N_121X86FrameSortingObjectESt6vectorIS3_SaIS3_EEEES4_lET_S9_S9_S9_T1_SA_T0_SA_.exit, label %236
 
-238:                                              ; preds = %._crit_edge63.i.i.i
-  %239 = sub nsw i64 %.051.i.i.i, %236
+236:                                              ; preds = %._crit_edge63.i.i.i
+  %237 = sub nsw i64 %.051.i.i.i, %234
   br label %.backedge
 
-240:                                              ; preds = %227
-  %241 = getelementptr inbounds %"struct.(anonymous namespace)::X86FrameSortingObject", ptr %.sroa.032.0.i.i.i, i64 %.052.i.i.i
-  %242 = sub i64 0, %228
-  %243 = getelementptr inbounds %"struct.(anonymous namespace)::X86FrameSortingObject", ptr %241, i64 %242
-  %244 = icmp sgt i64 %.051.i.i.i, 0
-  br i1 %244, label %.lr.ph.i.i.i, label %._crit_edge.i.i.i
+238:                                              ; preds = %225
+  %239 = getelementptr inbounds %"struct.(anonymous namespace)::X86FrameSortingObject", ptr %.sroa.032.0.i.i.i, i64 %.052.i.i.i
+  %240 = sub i64 0, %226
+  %241 = getelementptr inbounds %"struct.(anonymous namespace)::X86FrameSortingObject", ptr %239, i64 %240
+  %242 = icmp sgt i64 %.051.i.i.i, 0
+  br i1 %242, label %.lr.ph.i.i.i, label %._crit_edge.i.i.i
 
-.lr.ph.i.i.i:                                     ; preds = %240, %.lr.ph.i.i.i
-  %.01557.i.i.i = phi i64 [ %247, %.lr.ph.i.i.i ], [ 0, %240 ]
-  %.sroa.0.056.i.i.i = phi ptr [ %246, %.lr.ph.i.i.i ], [ %241, %240 ]
-  %.sroa.032.355.i.i.i = phi ptr [ %245, %.lr.ph.i.i.i ], [ %243, %240 ]
-  %245 = getelementptr inbounds i8, ptr %.sroa.032.355.i.i.i, i64 -20
-  %246 = getelementptr inbounds i8, ptr %.sroa.0.056.i.i.i, i64 -20
+.lr.ph.i.i.i:                                     ; preds = %238, %.lr.ph.i.i.i
+  %.01557.i.i.i = phi i64 [ %245, %.lr.ph.i.i.i ], [ 0, %238 ]
+  %.sroa.0.056.i.i.i = phi ptr [ %244, %.lr.ph.i.i.i ], [ %239, %238 ]
+  %.sroa.032.355.i.i.i = phi ptr [ %243, %.lr.ph.i.i.i ], [ %241, %238 ]
+  %243 = getelementptr inbounds i8, ptr %.sroa.032.355.i.i.i, i64 -20
+  %244 = getelementptr inbounds i8, ptr %.sroa.0.056.i.i.i, i64 -20
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %8)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %8, ptr noundef nonnull align 4 dereferenceable(20) %245, i64 20, i1 false)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %245, ptr noundef nonnull align 4 dereferenceable(20) %246, i64 20, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %246, ptr noundef nonnull align 4 dereferenceable(20) %8, i64 20, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %8, ptr noundef nonnull align 4 dereferenceable(20) %243, i64 20, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %243, ptr noundef nonnull align 4 dereferenceable(20) %244, i64 20, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %244, ptr noundef nonnull align 4 dereferenceable(20) %8, i64 20, i1 false)
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %8)
-  %247 = add nuw nsw i64 %.01557.i.i.i, 1
-  %exitcond.not.i.i.i = icmp eq i64 %247, %.051.i.i.i
+  %245 = add nuw nsw i64 %.01557.i.i.i, 1
+  %exitcond.not.i.i.i = icmp eq i64 %245, %.051.i.i.i
   br i1 %exitcond.not.i.i.i, label %._crit_edge.i.i.i, label %.lr.ph.i.i.i, !llvm.loop !1203
 
-._crit_edge.i.i.i:                                ; preds = %.lr.ph.i.i.i, %240
-  %.sroa.032.3.lcssa.i.i.i = phi ptr [ %243, %240 ], [ %.sroa.032.0.i.i.i, %.lr.ph.i.i.i ]
-  %248 = srem i64 %.052.i.i.i, %228
-  %249 = icmp eq i64 %248, 0
-  br i1 %249, label %_ZSt17__rotate_adaptiveIN9__gnu_cxx17__normal_iteratorIPN12_GLOBAL__N_121X86FrameSortingObjectESt6vectorIS3_SaIS3_EEEES4_lET_S9_S9_S9_T1_SA_T0_SA_.exit, label %.backedge
+._crit_edge.i.i.i:                                ; preds = %.lr.ph.i.i.i, %238
+  %.sroa.032.3.lcssa.i.i.i = phi ptr [ %241, %238 ], [ %.sroa.032.0.i.i.i, %.lr.ph.i.i.i ]
+  %246 = srem i64 %.052.i.i.i, %226
+  %247 = icmp eq i64 %246, 0
+  br i1 %247, label %_ZSt17__rotate_adaptiveIN9__gnu_cxx17__normal_iteratorIPN12_GLOBAL__N_121X86FrameSortingObjectESt6vectorIS3_SaIS3_EEEES4_lET_S9_S9_S9_T1_SA_T0_SA_.exit, label %.backedge
 
-.backedge:                                        ; preds = %._crit_edge.i.i.i, %238
-  %.052.i.i.i.be = phi i64 [ %.051.i.i.i, %238 ], [ %228, %._crit_edge.i.i.i ]
-  %.051.i.i.i.be = phi i64 [ %239, %238 ], [ %248, %._crit_edge.i.i.i ]
-  %.sroa.032.0.i.i.i.be = phi ptr [ %.sroa.032.1.lcssa.i.i.i, %238 ], [ %.sroa.032.3.lcssa.i.i.i, %._crit_edge.i.i.i ]
-  br label %227, !llvm.loop !1204
+.backedge:                                        ; preds = %._crit_edge.i.i.i, %236
+  %.052.i.i.i.be = phi i64 [ %.051.i.i.i, %236 ], [ %226, %._crit_edge.i.i.i ]
+  %.051.i.i.i.be = phi i64 [ %237, %236 ], [ %246, %._crit_edge.i.i.i ]
+  %.sroa.032.0.i.i.i.be = phi ptr [ %.sroa.032.1.lcssa.i.i.i, %236 ], [ %.sroa.032.3.lcssa.i.i.i, %._crit_edge.i.i.i ]
+  br label %225, !llvm.loop !1204
 
-_ZSt17__rotate_adaptiveIN9__gnu_cxx17__normal_iteratorIPN12_GLOBAL__N_121X86FrameSortingObjectESt6vectorIS3_SaIS3_EEEES4_lET_S9_S9_S9_T1_SA_T0_SA_.exit: ; preds = %._crit_edge63.i.i.i, %._crit_edge.i.i.i, %.lr.ph.i.i.i.i, %183, %_ZSt4moveIPN12_GLOBAL__N_121X86FrameSortingObjectEN9__gnu_cxx17__normal_iteratorIS2_St6vectorIS1_SaIS1_EEEEET0_T_SA_S9_.exit.i109, %196, %_ZSt13move_backwardIPN12_GLOBAL__N_121X86FrameSortingObjectEN9__gnu_cxx17__normal_iteratorIS2_St6vectorIS1_SaIS1_EEEEET0_T_SA_S9_.exit.i, %208, %210
-  %.sroa.032.0.i = phi ptr [ %194, %_ZSt4moveIPN12_GLOBAL__N_121X86FrameSortingObjectEN9__gnu_cxx17__normal_iteratorIS2_St6vectorIS1_SaIS1_EEEEET0_T_SA_S9_.exit.i109 ], [ %207, %_ZSt13move_backwardIPN12_GLOBAL__N_121X86FrameSortingObjectEN9__gnu_cxx17__normal_iteratorIS2_St6vectorIS1_SaIS1_EEEEET0_T_SA_S9_.exit.i ], [ %.sroa.0111.0, %183 ], [ %.sroa.0.0, %196 ], [ %.sroa.0.0, %208 ], [ %.sroa.0111.0, %210 ], [ %.tr115133, %.lr.ph.i.i.i.i ], [ %226, %._crit_edge.i.i.i ], [ %226, %._crit_edge63.i.i.i ]
-  tail call fastcc void @_ZSt16__merge_adaptiveIN9__gnu_cxx17__normal_iteratorIPN12_GLOBAL__N_121X86FrameSortingObjectESt6vectorIS3_SaIS3_EEEElS4_NS0_5__ops15_Iter_comp_iterINS2_25X86FrameSortingComparatorEEEEvT_SD_SD_T0_SE_T1_SE_T2_(ptr %.tr132, ptr %.sroa.0111.0, ptr %.sroa.032.0.i, i64 noundef %.0, i64 noundef %.076, ptr noundef %5, i64 noundef %6)
-  %250 = sub nsw i64 %.tr118135, %.076
-  %.not = icmp sgt i64 %181, %250
-  %.not80 = icmp sgt i64 %181, %6
+_ZSt17__rotate_adaptiveIN9__gnu_cxx17__normal_iteratorIPN12_GLOBAL__N_121X86FrameSortingObjectESt6vectorIS3_SaIS3_EEEES4_lET_S9_S9_S9_T1_SA_T0_SA_.exit: ; preds = %._crit_edge63.i.i.i, %._crit_edge.i.i.i, %.lr.ph.i.i.i.i, %181, %_ZSt4moveIPN12_GLOBAL__N_121X86FrameSortingObjectEN9__gnu_cxx17__normal_iteratorIS2_St6vectorIS1_SaIS1_EEEEET0_T_SA_S9_.exit.i108, %194, %_ZSt13move_backwardIPN12_GLOBAL__N_121X86FrameSortingObjectEN9__gnu_cxx17__normal_iteratorIS2_St6vectorIS1_SaIS1_EEEEET0_T_SA_S9_.exit.i, %206, %208
+  %.sroa.032.0.i = phi ptr [ %192, %_ZSt4moveIPN12_GLOBAL__N_121X86FrameSortingObjectEN9__gnu_cxx17__normal_iteratorIS2_St6vectorIS1_SaIS1_EEEEET0_T_SA_S9_.exit.i108 ], [ %205, %_ZSt13move_backwardIPN12_GLOBAL__N_121X86FrameSortingObjectEN9__gnu_cxx17__normal_iteratorIS2_St6vectorIS1_SaIS1_EEEEET0_T_SA_S9_.exit.i ], [ %.sroa.0110.0, %181 ], [ %.sroa.0.0, %194 ], [ %.sroa.0.0, %206 ], [ %.sroa.0110.0, %208 ], [ %.tr114132, %.lr.ph.i.i.i.i ], [ %224, %._crit_edge.i.i.i ], [ %224, %._crit_edge63.i.i.i ]
+  tail call fastcc void @_ZSt16__merge_adaptiveIN9__gnu_cxx17__normal_iteratorIPN12_GLOBAL__N_121X86FrameSortingObjectESt6vectorIS3_SaIS3_EEEElS4_NS0_5__ops15_Iter_comp_iterINS2_25X86FrameSortingComparatorEEEEvT_SD_SD_T0_SE_T1_SE_T2_(ptr %.tr131, ptr %.sroa.0110.0, ptr %.sroa.032.0.i, i64 noundef %.0, i64 noundef %.076, ptr noundef %5, i64 noundef %6)
+  %248 = sub nsw i64 %.tr117134, %.076
+  %.not = icmp sgt i64 %179, %248
+  %.not80 = icmp sgt i64 %179, %6
   %or.cond = or i1 %.not80, %.not
   br i1 %or.cond, label %50, label %tailrecurse._crit_edge
 
-_ZSt21__move_merge_adaptiveIPN12_GLOBAL__N_121X86FrameSortingObjectEN9__gnu_cxx17__normal_iteratorIS2_St6vectorIS1_SaIS1_EEEES8_NS3_5__ops15_Iter_comp_iterINS0_25X86FrameSortingComparatorEEEEvT_SD_T0_SE_T1_T2_.exit: ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN12_GLOBAL__N_125X86FrameSortingComparatorEEclIPNS2_21X86FrameSortingObjectENS_17__normal_iteratorIS7_St6vectorIS6_SaIS6_EEEEEEbT_T0_.exit.thread32.i, %45, %52, %tailrecurse._crit_edge, %91, %89, %55, %_ZSt4moveIPN12_GLOBAL__N_121X86FrameSortingObjectEN9__gnu_cxx17__normal_iteratorIS2_St6vectorIS1_SaIS1_EEEEET0_T_SA_S9_.exit.i
+_ZSt21__move_merge_adaptiveIPN12_GLOBAL__N_121X86FrameSortingObjectEN9__gnu_cxx17__normal_iteratorIS2_St6vectorIS1_SaIS1_EEEES8_NS3_5__ops15_Iter_comp_iterINS0_25X86FrameSortingComparatorEEEEvT_SD_T0_SE_T1_T2_.exit: ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN12_GLOBAL__N_125X86FrameSortingComparatorEEclIPNS2_21X86FrameSortingObjectENS_17__normal_iteratorIS7_St6vectorIS6_SaIS6_EEEEEEbT_T0_.exit.thread32.i, %45, %51, %tailrecurse._crit_edge, %_ZSt13move_backwardIPN12_GLOBAL__N_121X86FrameSortingObjectEN9__gnu_cxx17__normal_iteratorIS2_St6vectorIS1_SaIS1_EEEEET0_T_SA_S9_.exit.sink.split.i, %87, %_ZSt4moveIPN12_GLOBAL__N_121X86FrameSortingObjectEN9__gnu_cxx17__normal_iteratorIS2_St6vectorIS1_SaIS1_EEEEET0_T_SA_S9_.exit.i
   ret void
 }
 

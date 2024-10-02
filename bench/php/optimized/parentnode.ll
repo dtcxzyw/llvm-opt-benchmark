@@ -198,7 +198,7 @@ dom_doc_from_context_node.exit:                   ; preds = %4, %4, %7
   %15 = load i8, ptr %14, align 8
   %16 = icmp eq i8 %15, 8
   %17 = load ptr, ptr %13, align 8
-  br i1 %16, label %18, label %52
+  br i1 %16, label %18, label %51
 
 18:                                               ; preds = %12
   %19 = getelementptr inbounds i8, ptr %17, i64 -24
@@ -273,29 +273,26 @@ dom_doc_from_context_node.exit:                   ; preds = %4, %4, %7
   br i1 %.not5068, label %.loopexit53, label %.loopexit
 
 50:                                               ; preds = %47
-  br i1 %28, label %51, label %.loopexit53
+  br i1 %28, label %.loopexit53.sink.split, label %.loopexit53
 
-51:                                               ; preds = %50
-  tail call void @xmlFreeNode(ptr noundef nonnull %.043) #3
-  br label %.loopexit53
+51:                                               ; preds = %12
+  %52 = getelementptr inbounds i8, ptr %17, i64 24
+  %53 = tail call ptr @xmlNewDocText(ptr noundef %.0.i, ptr noundef nonnull %52) #3
+  %54 = tail call ptr @xmlAddChild(ptr noundef nonnull %10, ptr noundef %53) #3
+  %.not47 = icmp eq ptr %54, null
+  br i1 %.not47, label %.loopexit53.sink.split, label %.loopexit
 
-52:                                               ; preds = %12
-  %53 = getelementptr inbounds i8, ptr %17, i64 24
-  %54 = tail call ptr @xmlNewDocText(ptr noundef %.0.i, ptr noundef nonnull %53) #3
-  %55 = tail call ptr @xmlAddChild(ptr noundef nonnull %10, ptr noundef %54) #3
-  %.not47 = icmp eq ptr %55, null
-  br i1 %.not47, label %56, label %.loopexit
-
-56:                                               ; preds = %52
-  tail call void @xmlFreeNode(ptr noundef %54) #3
-  br label %.loopexit53
-
-.loopexit:                                        ; preds = %42, %.thread66, %47, %52
+.loopexit:                                        ; preds = %42, %.thread66, %47, %51
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.loopexit54, label %12
 
-.loopexit53:                                      ; preds = %.thread66, %43, %50, %51, %56
+.loopexit53.sink.split:                           ; preds = %51, %50
+  %.043.sink = phi ptr [ %.043, %50 ], [ %53, %51 ]
+  tail call void @xmlFreeNode(ptr noundef %.043.sink) #3
+  br label %.loopexit53
+
+.loopexit53:                                      ; preds = %.thread66, %43, %.loopexit53.sink.split, %50
   tail call void @xmlFreeNode(ptr noundef nonnull %10) #3
   br label %.loopexit54
 
