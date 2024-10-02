@@ -495,9 +495,9 @@ land.lhs.true:                                    ; preds = %for.body46
   %44 = load i32, ptr %fixed_length, align 4
   %45 = tail call range(i32 1, 33) i32 @llvm.ctpop.i32(i32 %44)
   %or.cond = icmp ult i32 %45, 2
-  br i1 %or.cond, label %if.end, label %lor.lhs.false.i
+  br i1 %or.cond, label %if.end, label %_ZN5arrow7compute16RowTableMetadata21padding_for_alignmentEjiRKNS0_17KeyColumnMetadataE.exit
 
-lor.lhs.false.i:                                  ; preds = %land.lhs.true
+_ZN5arrow7compute16RowTableMetadata21padding_for_alignmentEjiRKNS0_17KeyColumnMetadataE.exit: ; preds = %land.lhs.true
   %46 = load i32, ptr %string_alignment, align 4
   %sub.i.i = sub nsw i32 0, %offset_within_row.0120
   %sub4.i.i = add nsw i32 %46, -1
@@ -505,8 +505,8 @@ lor.lhs.false.i:                                  ; preds = %land.lhs.true
   %add = add i32 %and.i.i, %offset_within_row.0120
   br label %if.end
 
-if.end:                                           ; preds = %lor.lhs.false.i, %land.lhs.true, %for.body46
-  %offset_within_row.1 = phi i32 [ %add, %lor.lhs.false.i ], [ %offset_within_row.0120, %land.lhs.true ], [ %offset_within_row.0120, %for.body46 ]
+if.end:                                           ; preds = %_ZN5arrow7compute16RowTableMetadata21padding_for_alignmentEjiRKNS0_17KeyColumnMetadataE.exit, %land.lhs.true, %for.body46
+  %offset_within_row.1 = phi i32 [ %add, %_ZN5arrow7compute16RowTableMetadata21padding_for_alignmentEjiRKNS0_17KeyColumnMetadataE.exit ], [ %offset_within_row.0120, %land.lhs.true ], [ %offset_within_row.0120, %for.body46 ]
   %47 = load ptr, ptr %column_offsets, align 8
   %add.ptr.i106 = getelementptr inbounds i32, ptr %47, i64 %indvars.iv131
   store i32 %offset_within_row.1, ptr %add.ptr.i106, align 4

@@ -1210,10 +1210,7 @@ _ZNK6google8protobuf8internal12ExtensionSet3HasEi.exit: ; preds = %entry
   br i1 %bf.cast.i, label %land.end, label %land.rhs
 
 land.rhs:                                         ; preds = %_ZNK6google8protobuf8internal12ExtensionSet3HasEi.exit
-  %call2 = tail call noundef ptr @_ZNK6google8protobuf8internal12ExtensionSet10FindOrNullEi(ptr noundef nonnull align 8 dereferenceable(24) %this, i32 noundef %number)
-  %is_lazy = getelementptr inbounds i8, ptr %call2, i64 10
-  %bf.load = load i8, ptr %is_lazy, align 2
-  %0 = and i8 %bf.load, 16
+  %0 = and i8 %bf.load.i, 16
   %bf.cast = icmp ne i8 %0, 0
   br label %land.end
 

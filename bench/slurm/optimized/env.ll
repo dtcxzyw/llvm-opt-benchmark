@@ -5349,8 +5349,7 @@ _bracket_cnt.exit:                                ; preds = %249
   br i1 %264, label %.loopexit, label %265
 
 265:                                              ; preds = %260
-  %strlen = call i64 @strlen(ptr nonnull dereferenceable(1) %.pre115.pre)
-  %endptr = getelementptr inbounds i8, ptr %.pre115.pre, i64 %strlen
+  %endptr = getelementptr inbounds i8, ptr %.pre115.pre, i64 %261
   store i16 10, ptr %endptr, align 1
   %266 = load ptr, ptr %9, align 8
   %267 = call ptr @strcat(ptr noundef nonnull dereferenceable(1) %266, ptr noundef nonnull dereferenceable(1) %259) #18
@@ -5609,8 +5608,7 @@ _strip_cr_nl.exit19:                              ; preds = %.lr.ph.i15, %80, %7
   br i1 %84, label %.loopexit, label %85
 
 85:                                               ; preds = %_strip_cr_nl.exit19
-  %strlen = call i64 @strlen(ptr nonnull dereferenceable(1) %61)
-  %endptr = getelementptr inbounds i8, ptr %61, i64 %strlen
+  %endptr = getelementptr inbounds i8, ptr %61, i64 %81
   store i16 10, ptr %endptr, align 1
   %86 = call ptr @strcat(ptr noundef nonnull dereferenceable(1) %61, ptr noundef nonnull dereferenceable(1) %73) #18
   br label %.preheader.backedge

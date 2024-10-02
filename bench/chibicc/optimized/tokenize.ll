@@ -1756,8 +1756,7 @@ for.body:                                         ; preds = %entry, %for.cond
   br i1 %cmp.i, label %if.then, label %for.cond
 
 if.then:                                          ; preds = %for.body
-  %call4 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #29
-  %conv5 = trunc i64 %call4 to i32
+  %conv5 = trunc i64 %call.i to i32
   br label %return
 
 for.end:                                          ; preds = %for.cond

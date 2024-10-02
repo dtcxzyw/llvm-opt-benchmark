@@ -4250,8 +4250,7 @@ sub_1:                                            ; preds = %sub_0
   br i1 %65, label %.loopexit.thread, label %.tail.thread
 
 .tail.thread:                                     ; preds = %sub_1, %sub_0, %.tail, %56
-  %strlen32 = call i64 @strlen(ptr nonnull dereferenceable(1) %1)
-  %endptr33 = getelementptr inbounds i8, ptr %1, i64 %strlen32
+  %endptr33 = getelementptr inbounds i8, ptr %1, i64 %57
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %endptr33, ptr noundef nonnull align 1 dereferenceable(3) @.str.52, i64 3, i1 false)
   %66 = call noalias ptr @fopen(ptr noundef nonnull %1, ptr noundef nonnull @.str.51)
   store ptr %66, ptr @base_yyin, align 8
@@ -4277,7 +4276,6 @@ sub_1:                                            ; preds = %sub_0
 
 .thread35:                                        ; preds = %37, %.critedge, %.thread, %67
   %76 = phi ptr [ null, %.critedge ], [ %.pre, %.thread ], [ null, %67 ], [ null, %37 ]
-  %invariant.gep = getelementptr i8, ptr %1, i64 -2
   %.02151 = load ptr, ptr @include_paths, align 8
   %77 = icmp eq ptr %76, null
   %78 = icmp ne ptr %.02151, null
@@ -4311,69 +4309,67 @@ sub_1:                                            ; preds = %sub_0
 
 sub_043:                                          ; preds = %91
   %94 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #30
-  %gep = getelementptr i8, ptr %invariant.gep, i64 %94
-  %95 = load i8, ptr %gep, align 1
-  %.not57 = icmp eq i8 %95, 46
+  %95 = getelementptr i8, ptr %1, i64 %94
+  %96 = getelementptr i8, ptr %95, i64 -2
+  %97 = load i8, ptr %96, align 1
+  %.not57 = icmp eq i8 %97, 46
   br i1 %.not57, label %sub_144, label %thread-pre-split
 
 sub_144:                                          ; preds = %sub_043
-  %96 = getelementptr inbounds i8, ptr %gep, i64 1
-  %97 = load i8, ptr %96, align 1
-  %.not58 = icmp eq i8 %97, 104
+  %98 = getelementptr i8, ptr %95, i64 -1
+  %99 = load i8, ptr %98, align 1
+  %.not58 = icmp eq i8 %99, 104
   br i1 %.not58, label %.tail42, label %thread-pre-split
 
 .tail42:                                          ; preds = %sub_144
-  %98 = getelementptr inbounds i8, ptr %gep, i64 2
-  %99 = load i8, ptr %98, align 1
-  %100 = icmp eq i8 %99, 0
-  br i1 %100, label %thread-pre-split.thread, label %thread-pre-split
+  %100 = load i8, ptr %95, align 1
+  %101 = icmp eq i8 %100, 0
+  br i1 %101, label %thread-pre-split.thread, label %thread-pre-split
 
 thread-pre-split:                                 ; preds = %sub_144, %sub_043, %.tail42
-  %strlen = call i64 @strlen(ptr nonnull dereferenceable(1) %1)
-  %endptr = getelementptr inbounds i8, ptr %1, i64 %strlen
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %endptr, ptr noundef nonnull align 1 dereferenceable(3) @.str.52, i64 3, i1 false)
-  %101 = call noalias ptr @fopen(ptr noundef nonnull %1, ptr noundef nonnull @.str.51)
-  store ptr %101, ptr @base_yyin, align 8
-  %.not28 = icmp eq ptr %101, null
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %95, ptr noundef nonnull align 1 dereferenceable(3) @.str.52, i64 3, i1 false)
+  %102 = call noalias ptr @fopen(ptr noundef nonnull %1, ptr noundef nonnull @.str.51)
+  store ptr %102, ptr @base_yyin, align 8
+  %.not28 = icmp eq ptr %102, null
   br i1 %.not28, label %thread-pre-split.thread, label %.thread36
 
 .thread36:                                        ; preds = %91, %thread-pre-split
-  %102 = phi ptr [ %101, %thread-pre-split ], [ %93, %91 ]
+  %103 = phi ptr [ %102, %thread-pre-split ], [ %93, %91 ]
   %.b29 = load i1, ptr @include_next, align 1
-  br i1 %.b29, label %103, label %.thread40
+  br i1 %.b29, label %104, label %.thread40
 
-103:                                              ; preds = %.thread36
-  %104 = call i32 @fclose(ptr noundef nonnull %102)
+104:                                              ; preds = %.thread36
+  %105 = call i32 @fclose(ptr noundef nonnull %103)
   store ptr null, ptr @base_yyin, align 8
   store i1 false, ptr @include_next, align 1
   br label %thread-pre-split.thread
 
-thread-pre-split.thread:                          ; preds = %.tail42, %thread-pre-split, %103, %87
-  %105 = phi ptr [ null, %thread-pre-split ], [ null, %103 ], [ %.pre60, %87 ], [ null, %.tail42 ]
-  %106 = getelementptr inbounds i8, ptr %.02152, i64 8
-  %.021 = load ptr, ptr %106, align 8
-  %107 = icmp eq ptr %105, null
-  %108 = icmp ne ptr %.021, null
-  %109 = select i1 %107, i1 %108, i1 false
-  br i1 %109, label %.lr.ph53, label %.loopexit, !llvm.loop !39
+thread-pre-split.thread:                          ; preds = %.tail42, %thread-pre-split, %104, %87
+  %106 = phi ptr [ null, %thread-pre-split ], [ null, %104 ], [ %.pre60, %87 ], [ null, %.tail42 ]
+  %107 = getelementptr inbounds i8, ptr %.02152, i64 8
+  %.021 = load ptr, ptr %107, align 8
+  %108 = icmp eq ptr %106, null
+  %109 = icmp ne ptr %.021, null
+  %110 = select i1 %108, i1 %109, i1 false
+  br i1 %110, label %.lr.ph53, label %.loopexit, !llvm.loop !39
 
 .loopexit:                                        ; preds = %thread-pre-split.thread, %.thread35, %.tail.thread
-  %110 = phi ptr [ %66, %.tail.thread ], [ %76, %.thread35 ], [ %105, %thread-pre-split.thread ]
-  %.not34 = icmp eq ptr %110, null
+  %111 = phi ptr [ %66, %.tail.thread ], [ %76, %.thread35 ], [ %106, %thread-pre-split.thread ]
+  %.not34 = icmp eq ptr %111, null
   br i1 %.not34, label %.loopexit.thread, label %.thread40
 
 .loopexit.thread:                                 ; preds = %.tail, %.loopexit
-  %111 = load ptr, ptr @base_yytext, align 8
-  %112 = load i32, ptr @base_yylineno, align 4
-  call void (i32, ptr, ...) @mmfatal(i32 noundef 2, ptr noundef nonnull @.str.55, ptr noundef %111, i32 noundef %112) #29
+  %112 = load ptr, ptr @base_yytext, align 8
+  %113 = load i32, ptr @base_yylineno, align 4
+  call void (i32, ptr, ...) @mmfatal(i32 noundef 2, ptr noundef nonnull @.str.55, ptr noundef %112, i32 noundef %113) #29
   unreachable
 
 .thread40:                                        ; preds = %.thread36, %49, %.loopexit
-  %113 = call ptr @mm_strdup(ptr noundef nonnull %1) #31
-  store ptr %113, ptr @input_filename, align 8
-  %114 = load ptr, ptr @base_yyin, align 8
-  %115 = call ptr @base_yy_create_buffer(ptr noundef %114, i32 noundef 16384)
-  call void @base_yy_switch_to_buffer(ptr noundef nonnull %115)
+  %114 = call ptr @mm_strdup(ptr noundef nonnull %1) #31
+  store ptr %114, ptr @input_filename, align 8
+  %115 = load ptr, ptr @base_yyin, align 8
+  %116 = call ptr @base_yy_create_buffer(ptr noundef %115, i32 noundef 16384)
+  call void @base_yy_switch_to_buffer(ptr noundef nonnull %116)
   store i32 1, ptr @base_yylineno, align 4
   call void @output_line_number() #31
   store i32 33, ptr @yy_start, align 4

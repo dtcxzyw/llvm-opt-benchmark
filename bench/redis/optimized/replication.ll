@@ -2177,30 +2177,22 @@ land.lhs.true:                                    ; preds = %entry
 if.then:                                          ; preds = %land.lhs.true
   %4 = load i8, ptr %2, align 1
   %cmp4.not = icmp eq i8 %4, 63
-  br i1 %cmp4.not, label %do.body24, label %if.then6
+  br i1 %cmp4.not, label %do.body24, label %land.lhs.true9
 
-if.then6:                                         ; preds = %if.then
-  %call7 = tail call i32 @strcasecmp(ptr noundef nonnull %2, ptr noundef nonnull getelementptr inbounds (i8, ptr @server, i64 4356)) #23
-  %tobool8.not = icmp eq i32 %call7, 0
-  br i1 %tobool8.not, label %do.body16, label %land.lhs.true9
-
-land.lhs.true9:                                   ; preds = %if.then6
-  %call10 = tail call i32 @strcasecmp(ptr noundef nonnull %2, ptr noundef nonnull getelementptr inbounds (i8, ptr @server, i64 4397)) #23
-  %tobool11.not = icmp eq i32 %call10, 0
+land.lhs.true9:                                   ; preds = %if.then
+  %tobool11.not = icmp eq i32 %call1, 0
+  %5 = load i32, ptr getelementptr inbounds (i8, ptr @server, i64 3696), align 8
+  %cmp17 = icmp sgt i32 %5, 2
   br i1 %tobool11.not, label %do.body16, label %do.body
 
 do.body:                                          ; preds = %land.lhs.true9
-  %5 = load i32, ptr getelementptr inbounds (i8, ptr @server, i64 3696), align 8
-  %cmp13 = icmp sgt i32 %5, 2
-  br i1 %cmp13, label %return, label %if.end
+  br i1 %cmp17, label %return, label %if.end
 
 if.end:                                           ; preds = %do.body
   tail call void (i32, ptr, ...) @_serverLog(i32 noundef 2, ptr noundef nonnull @.str.34, ptr noundef nonnull %2, ptr noundef nonnull getelementptr inbounds (i8, ptr @server, i64 4356), ptr noundef nonnull getelementptr inbounds (i8, ptr @server, i64 4397)) #22
   br label %return
 
-do.body16:                                        ; preds = %if.then6, %land.lhs.true9
-  %6 = load i32, ptr getelementptr inbounds (i8, ptr @server, i64 3696), align 8
-  %cmp17 = icmp sgt i32 %6, 2
+do.body16:                                        ; preds = %land.lhs.true9
   br i1 %cmp17, label %return, label %if.end20
 
 if.end20:                                         ; preds = %do.body16
@@ -2208,8 +2200,8 @@ if.end20:                                         ; preds = %do.body16
   br label %return
 
 do.body24:                                        ; preds = %if.then
-  %7 = load i32, ptr getelementptr inbounds (i8, ptr @server, i64 3696), align 8
-  %cmp25 = icmp sgt i32 %7, 2
+  %6 = load i32, ptr getelementptr inbounds (i8, ptr @server, i64 3696), align 8
+  %cmp25 = icmp sgt i32 %6, 2
   br i1 %cmp25, label %return, label %if.end28
 
 if.end28:                                         ; preds = %do.body24
@@ -2218,26 +2210,26 @@ if.end28:                                         ; preds = %do.body24
   br label %return
 
 if.end32:                                         ; preds = %land.lhs.true, %entry
-  %8 = load ptr, ptr getelementptr inbounds (i8, ptr @server, i64 4480), align 8
-  %tobool33.not = icmp eq ptr %8, null
+  %7 = load ptr, ptr getelementptr inbounds (i8, ptr @server, i64 4480), align 8
+  %tobool33.not = icmp eq ptr %7, null
   br i1 %tobool33.not, label %do.body42, label %lor.lhs.false34
 
 lor.lhs.false34:                                  ; preds = %if.end32
-  %offset = getelementptr inbounds i8, ptr %8, i64 32
-  %9 = load i64, ptr %offset, align 8
-  %cmp35 = icmp slt i64 %psync_offset, %9
+  %offset = getelementptr inbounds i8, ptr %7, i64 32
+  %8 = load i64, ptr %offset, align 8
+  %cmp35 = icmp slt i64 %psync_offset, %8
   br i1 %cmp35, label %do.body42, label %lor.lhs.false37
 
 lor.lhs.false37:                                  ; preds = %lor.lhs.false34
-  %histlen = getelementptr inbounds i8, ptr %8, i64 24
-  %10 = load i64, ptr %histlen, align 8
-  %add = add nsw i64 %10, %9
+  %histlen = getelementptr inbounds i8, ptr %7, i64 24
+  %9 = load i64, ptr %histlen, align 8
+  %add = add nsw i64 %9, %8
   %cmp39 = icmp sgt i64 %psync_offset, %add
   br i1 %cmp39, label %do.body42, label %if.end60
 
 do.body42:                                        ; preds = %if.end32, %lor.lhs.false34, %lor.lhs.false37
-  %11 = load i32, ptr getelementptr inbounds (i8, ptr @server, i64 3696), align 8
-  %cmp43 = icmp sgt i32 %11, 2
+  %10 = load i32, ptr getelementptr inbounds (i8, ptr @server, i64 3696), align 8
+  %cmp43 = icmp sgt i32 %10, 2
   br i1 %cmp43, label %do.end48, label %if.end46
 
 if.end46:                                         ; preds = %do.body42
@@ -2247,10 +2239,10 @@ if.end46:                                         ; preds = %do.body42
   br label %do.end48
 
 do.end48:                                         ; preds = %do.body42, %if.end46
-  %12 = phi i32 [ %11, %do.body42 ], [ %.pre, %if.end46 ]
-  %13 = load i64, ptr getelementptr inbounds (i8, ptr @server, i64 4440), align 8
-  %cmp49 = icmp sle i64 %psync_offset, %13
-  %cmp53 = icmp sgt i32 %12, 3
+  %11 = phi i32 [ %10, %do.body42 ], [ %.pre, %if.end46 ]
+  %12 = load i64, ptr getelementptr inbounds (i8, ptr @server, i64 4440), align 8
+  %cmp49 = icmp sle i64 %psync_offset, %12
+  %cmp53 = icmp sgt i32 %11, 3
   %or.cond28 = select i1 %cmp49, i1 true, i1 %cmp53
   br i1 %or.cond28, label %return, label %if.end56
 
@@ -2261,8 +2253,8 @@ if.end56:                                         ; preds = %do.end48
 
 if.end60:                                         ; preds = %lor.lhs.false37
   %flags = getelementptr inbounds i8, ptr %c, i64 8
-  %14 = load i64, ptr %flags, align 8
-  %or = or i64 %14, 1
+  %13 = load i64, ptr %flags, align 8
+  %or = or i64 %13, 1
   store i64 %or, ptr %flags, align 8
   %replstate = getelementptr inbounds i8, ptr %c, i64 260
   store i32 9, ptr %replstate, align 4
@@ -2271,11 +2263,11 @@ if.end60:                                         ; preds = %lor.lhs.false37
   store i64 %atomic-load, ptr %repl_ack_time, align 8
   %repl_start_cmd_stream_on_ack = getelementptr inbounds i8, ptr %c, i64 264
   store i32 0, ptr %repl_start_cmd_stream_on_ack, align 8
-  %15 = load ptr, ptr getelementptr inbounds (i8, ptr @server, i64 1464), align 8
-  %call61 = tail call ptr @listAddNodeTail(ptr noundef %15, ptr noundef nonnull %c) #22
+  %14 = load ptr, ptr getelementptr inbounds (i8, ptr @server, i64 1464), align 8
+  %call61 = tail call ptr @listAddNodeTail(ptr noundef %14, ptr noundef nonnull %c) #22
   %slave_capa = getelementptr inbounds i8, ptr %c, i64 416
-  %16 = load i32, ptr %slave_capa, align 8
-  %and = and i32 %16, 2
+  %15 = load i32, ptr %slave_capa, align 8
+  %and = and i32 %15, 2
   %tobool62.not = icmp eq i32 %and, 0
   br i1 %tobool62.not, label %if.else65, label %if.then63
 
@@ -2290,12 +2282,12 @@ if.else65:                                        ; preds = %if.end60
 if.end68:                                         ; preds = %if.else65, %if.then63
   %buflen.0 = phi i32 [ %call64, %if.then63 ], [ 11, %if.else65 ]
   %conn = getelementptr inbounds i8, ptr %c, i64 16
-  %17 = load ptr, ptr %conn, align 8
+  %16 = load ptr, ptr %conn, align 8
   %conv70 = sext i32 %buflen.0 to i64
-  %18 = load ptr, ptr %17, align 8
-  %write.i = getelementptr inbounds i8, ptr %18, i64 128
-  %19 = load ptr, ptr %write.i, align 8
-  %call.i = call i32 %19(ptr noundef nonnull %17, ptr noundef nonnull %buf, i64 noundef %conv70) #22
+  %17 = load ptr, ptr %16, align 8
+  %write.i = getelementptr inbounds i8, ptr %17, i64 128
+  %18 = load ptr, ptr %write.i, align 8
+  %call.i = call i32 %18(ptr noundef nonnull %16, ptr noundef nonnull %buf, i64 noundef %conv70) #22
   %cmp72.not = icmp eq i32 %call.i, %buflen.0
   br i1 %cmp72.not, label %if.end75, label %if.then74
 
@@ -2305,8 +2297,8 @@ if.then74:                                        ; preds = %if.end68
 
 if.end75:                                         ; preds = %if.end68
   %call76 = call i64 @addReplyReplicationBacklog(ptr noundef nonnull %c, i64 noundef %psync_offset)
-  %20 = load i32, ptr getelementptr inbounds (i8, ptr @server, i64 3696), align 8
-  %cmp78 = icmp sgt i32 %20, 2
+  %19 = load i32, ptr getelementptr inbounds (i8, ptr @server, i64 3696), align 8
+  %cmp78 = icmp sgt i32 %19, 2
   br i1 %cmp78, label %do.end83, label %if.end81
 
 if.end81:                                         ; preds = %if.end75
@@ -2316,16 +2308,16 @@ if.end81:                                         ; preds = %if.end75
 
 do.end83:                                         ; preds = %if.end75, %if.end81
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %li.i)
-  %21 = load i32, ptr getelementptr inbounds (i8, ptr @server, i64 4512), align 8
-  %tobool.not.i = icmp eq i32 %21, 0
-  %22 = load i32, ptr getelementptr inbounds (i8, ptr @server, i64 4516), align 4
-  %tobool1.not.i = icmp eq i32 %22, 0
+  %20 = load i32, ptr getelementptr inbounds (i8, ptr @server, i64 4512), align 8
+  %tobool.not.i = icmp eq i32 %20, 0
+  %21 = load i32, ptr getelementptr inbounds (i8, ptr @server, i64 4516), align 4
+  %tobool1.not.i = icmp eq i32 %21, 0
   %or.cond.i = select i1 %tobool.not.i, i1 true, i1 %tobool1.not.i
   br i1 %or.cond.i, label %refreshGoodSlavesCount.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %do.end83
-  %23 = load ptr, ptr getelementptr inbounds (i8, ptr @server, i64 1464), align 8
-  call void @listRewind(ptr noundef %23, ptr noundef nonnull %li.i) #22
+  %22 = load ptr, ptr getelementptr inbounds (i8, ptr @server, i64 1464), align 8
+  call void @listRewind(ptr noundef %22, ptr noundef nonnull %li.i) #22
   %call3.i = call ptr @listNext(ptr noundef nonnull %li.i) #22
   %tobool2.not4.i = icmp eq ptr %call3.i, null
   br i1 %tobool2.not4.i, label %while.end.i, label %while.body.i
@@ -2334,19 +2326,19 @@ while.body.i:                                     ; preds = %if.end.i, %if.end6.
   %call6.i = phi ptr [ %call.i29, %if.end6.i ], [ %call3.i, %if.end.i ]
   %good.05.i = phi i32 [ %good.1.i, %if.end6.i ], [ 0, %if.end.i ]
   %value.i = getelementptr inbounds i8, ptr %call6.i, i64 16
-  %24 = load ptr, ptr %value.i, align 8
+  %23 = load ptr, ptr %value.i, align 8
   %atomic-load.i = load atomic i64, ptr getelementptr inbounds (i8, ptr @server, i64 5072) seq_cst, align 8
-  %replstate.i = getelementptr inbounds i8, ptr %24, i64 260
-  %25 = load i32, ptr %replstate.i, align 4
-  %cmp.i = icmp eq i32 %25, 9
+  %replstate.i = getelementptr inbounds i8, ptr %23, i64 260
+  %24 = load i32, ptr %replstate.i, align 4
+  %cmp.i = icmp eq i32 %24, 9
   br i1 %cmp.i, label %land.lhs.true.i, label %if.end6.i
 
 land.lhs.true.i:                                  ; preds = %while.body.i
-  %repl_ack_time.i = getelementptr inbounds i8, ptr %24, i64 336
-  %26 = load i64, ptr %repl_ack_time.i, align 8
-  %sub.i = sub nsw i64 %atomic-load.i, %26
-  %27 = load i32, ptr getelementptr inbounds (i8, ptr @server, i64 4516), align 4
-  %conv.i = sext i32 %27 to i64
+  %repl_ack_time.i = getelementptr inbounds i8, ptr %23, i64 336
+  %25 = load i64, ptr %repl_ack_time.i, align 8
+  %sub.i = sub nsw i64 %atomic-load.i, %25
+  %26 = load i32, ptr getelementptr inbounds (i8, ptr @server, i64 4516), align 4
+  %conv.i = sext i32 %26 to i64
   %cmp3.not.i = icmp sle i64 %sub.i, %conv.i
   %inc.i = zext i1 %cmp3.not.i to i32
   %spec.select.i = add nsw i32 %good.05.i, %inc.i

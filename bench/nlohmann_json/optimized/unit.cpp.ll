@@ -15701,16 +15701,15 @@ if.then17:                                        ; preds = %land.lhs.true11
   br i1 %tobool23.not, label %for.inc, label %if.then24
 
 if.then24:                                        ; preds = %if.then17
-  %call.i = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %add.ptr) #47
-  %conv.i = trunc i64 %call.i to i32
+  %conv.i = trunc i64 %call21 to i32
   %cmp.i.i.i = icmp ult i32 %conv.i, 24
   br i1 %cmp.i.i.i, label %if.then.i.i.i, label %if.else.i.i.i
 
 if.then.i.i.i:                                    ; preds = %if.then24
-  %idxprom.i.i.i = and i64 %call.i, 31
+  %idxprom.i.i.i = and i64 %call21, 31
   %arrayidx.i.i.i = getelementptr inbounds [24 x i8], ptr %ref.tmp, i64 0, i64 %idxprom.i.i.i
   store i8 0, ptr %arrayidx.i.i.i, align 1
-  %8 = trunc i64 %call.i to i8
+  %8 = trunc i64 %call21 to i8
   %conv.i.i.i.i = sub nuw nsw i8 23, %8
   %arrayidx.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 23
   store i8 %conv.i.i.i.i, ptr %arrayidx.i.i.i.i, align 1
@@ -15727,13 +15726,12 @@ if.else.i.i.i:                                    ; preds = %if.then24
   %conv.i.i.i = zext i32 %add.i.i.i to i64
   %call.i.i.i = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %conv.i.i.i) #46
   store ptr %call.i.i.i, ptr %ref.tmp, align 8
-  %idxprom5.i.i.i = and i64 %call.i, 4294967295
-  %arrayidx6.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 %idxprom5.i.i.i
+  %arrayidx6.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 %7
   store i8 0, ptr %arrayidx6.i.i.i, align 1
   br label %_ZN7doctest6StringC2EPKc.exit
 
 _ZN7doctest6StringC2EPKc.exit:                    ; preds = %if.then.i.i.i, %if.else.i.i.i
-  %conv.pre-phi.i.i = phi i64 [ %idxprom.i.i.i, %if.then.i.i.i ], [ %idxprom5.i.i.i, %if.else.i.i.i ]
+  %conv.pre-phi.i.i = phi i64 [ %idxprom.i.i.i, %if.then.i.i.i ], [ %7, %if.else.i.i.i ]
   %retval.0.i.i.i = phi ptr [ %ref.tmp, %if.then.i.i.i ], [ %call.i.i.i, %if.else.i.i.i ]
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %retval.0.i.i.i, ptr nonnull readonly align 1 %add.ptr, i64 %conv.pre-phi.i.i, i1 false)
   %arrayidx.i.i = getelementptr inbounds i8, ptr %value, i64 23

@@ -309,7 +309,7 @@ define linkonce_odr noundef i32 @_ZNK5ZXing6AiInfo6aiSizeEv(ptr noundef nonnull 
   %7 = sext i8 %6 to i32
   %8 = tail call ptr @memchr(ptr nonnull dereferenceable(1) @.str.1, i32 %7, i64 8)
   %9 = icmp eq ptr %8, null
-  br i1 %9, label %10, label %22
+  br i1 %9, label %10, label %21
 
 10:                                               ; preds = %4, %1
   %11 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #12
@@ -319,21 +319,20 @@ define linkonce_odr noundef i32 @_ZNK5ZXing6AiInfo6aiSizeEv(ptr noundef nonnull 
 13:                                               ; preds = %10
   %14 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(3) %0, ptr noundef nonnull dereferenceable(3) @.str.2, i64 3)
   %15 = icmp eq i32 %14, 0
-  br i1 %15, label %22, label %16
+  br i1 %15, label %21, label %16
 
 16:                                               ; preds = %13
   %17 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(3) %0, ptr noundef nonnull dereferenceable(3) @.str.3, i64 3)
   %18 = icmp eq i32 %17, 0
-  br i1 %18, label %22, label %19
+  br i1 %18, label %21, label %19
 
 19:                                               ; preds = %16, %10
-  %20 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #14
-  %21 = trunc i64 %20 to i32
-  br label %22
+  %20 = trunc i64 %11 to i32
+  br label %21
 
-22:                                               ; preds = %19, %16, %13, %4
-  %23 = phi i32 [ %21, %19 ], [ 4, %4 ], [ 4, %13 ], [ 4, %16 ]
-  ret i32 %23
+21:                                               ; preds = %19, %16, %13, %4
+  %22 = phi i32 [ %20, %19 ], [ 4, %4 ], [ 4, %13 ], [ 4, %16 ]
+  ret i32 %22
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
@@ -486,7 +485,6 @@ attributes #10 = { nounwind }
 attributes #11 = { optsize }
 attributes #12 = { nounwind optsize }
 attributes #13 = { builtin nounwind optsize }
-attributes #14 = { nounwind optsize willreturn memory(read) }
 
 !llvm.module.flags = !{!0, !1, !2}
 

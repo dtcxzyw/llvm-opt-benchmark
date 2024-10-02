@@ -521,13 +521,12 @@ Classifier_match.exit.i:                          ; preds = %if.end3.i.i, %if.th
 if.then7.i:                                       ; preds = %Classifier_match.exit.i
   %call.i24.i = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %18) #18
   %add1.i.i = add i64 %nOut.042.i, 3
-  %add12.i = add i64 %call.i24.i, %add1.i.i
-  %cmp13.i = icmp ult i64 %2, %add12.i
+  %add8.i = add i64 %add1.i.i, %call.i24.i
+  %cmp13.i = icmp ult i64 %2, %add8.i
   br i1 %cmp13.i, label %return, label %if.end16.i
 
 if.end16.i:                                       ; preds = %if.then7.i
-  %call.i25.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %18) #18
-  %add.i.i = add i64 %call.i25.i, 1
+  %add.i.i = add i64 %call.i24.i, 1
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %curp.039.i, ptr align 1 %18, i64 %add.i.i, i1 false)
   %add.ptr.i26.i = getelementptr inbounds i8, ptr %curp.039.i, i64 %add.i.i
   %_cscIdx.i.i = getelementptr inbounds i8, ptr %arrayidx5.i, i64 16
@@ -550,7 +549,6 @@ if.end16.i:                                       ; preds = %if.then7.i
   %arrayidx20.i.i = getelementptr inbounds i8, ptr %add.ptr.i26.i, i64 1
   store i8 %conv19.i.i, ptr %arrayidx20.i.i, align 1
   %add.ptr21.i.i = getelementptr inbounds i8, ptr %add.ptr.i26.i, i64 2
-  %add20.i = add i64 %call.i25.i, %add1.i.i
   %.pre.i = load i64, ptr %_channelRuleCount, align 8
   br label %for.inc22.i
 
@@ -562,7 +560,7 @@ for.inc.i:                                        ; preds = %Classifier_match.ex
 for.inc22.i:                                      ; preds = %for.inc.i, %if.end16.i, %for.cond2.preheader.i
   %25 = phi i64 [ %.pre.i, %if.end16.i ], [ %10, %for.cond2.preheader.i ], [ %10, %for.inc.i ]
   %curp.1.i = phi ptr [ %add.ptr21.i.i, %if.end16.i ], [ %curp.039.i, %for.cond2.preheader.i ], [ %curp.039.i, %for.inc.i ]
-  %nOut.1.i = phi i64 [ %add20.i, %if.end16.i ], [ %nOut.042.i, %for.cond2.preheader.i ], [ %nOut.042.i, %for.inc.i ]
+  %nOut.1.i = phi i64 [ %add8.i, %if.end16.i ], [ %nOut.042.i, %for.cond2.preheader.i ], [ %nOut.042.i, %for.inc.i ]
   %inc23.i = add nuw i64 %i.040.i, 1
   %cmp1.i = icmp ult i64 %inc23.i, %25
   br i1 %cmp1.i, label %for.cond2.preheaderthread-pre-split.i, label %for.end24.i, !llvm.loop !11

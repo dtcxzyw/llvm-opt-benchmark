@@ -6315,15 +6315,11 @@ entry:
   %0 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %alignment)
   %cmp.i = icmp ult i64 %0, 2
   %or.cond14 = select i1 %or.cond8.not16, i1 %cmp.i, i1 false
-  br i1 %or.cond14, label %if.end6, label %return
+  br i1 %or.cond14, label %if.end.i.i, label %return
 
-if.end6:                                          ; preds = %entry
+if.end.i.i:                                       ; preds = %entry
   %1 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_mi_heap_default)
   %2 = load ptr, ptr %1, align 8
-  %or.cond.not.i.i = icmp eq i64 %0, 1
-  br i1 %or.cond.not.i.i, label %if.end.i.i, label %mi_malloc_aligned.exit
-
-if.end.i.i:                                       ; preds = %if.end6
   %3 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %size)
   %cmp.i10.i.i = icmp ult i64 %3, 2
   %cmp5.not.i.i = icmp uge i64 %size, %alignment
@@ -6361,8 +6357,8 @@ if.else.i.i:                                      ; preds = %if.end.i.i
   %call.i.i.i = tail call fastcc noalias ptr @mi_heap_malloc_zero_aligned_at(ptr noundef %2, i64 noundef %size, i64 noundef %alignment, i64 noundef 0, i1 noundef zeroext false)
   br label %mi_malloc_aligned.exit
 
-mi_malloc_aligned.exit:                           ; preds = %if.end6, %if.then.i.i.i.i.i, %if.else.i.i
-  %retval.0.i.i = phi ptr [ %call.i.i.i, %if.else.i.i ], [ null, %if.end6 ], [ %call.i.i.i.i.i, %if.then.i.i.i.i.i ]
+mi_malloc_aligned.exit:                           ; preds = %if.then.i.i.i.i.i, %if.else.i.i
+  %retval.0.i.i = phi ptr [ %call.i.i.i, %if.else.i.i ], [ %call.i.i.i.i.i, %if.then.i.i.i.i.i ]
   %cmp8 = icmp eq ptr %retval.0.i.i, null
   %cmp9 = icmp ne i64 %size, 0
   %or.cond = and i1 %cmp9, %cmp8
