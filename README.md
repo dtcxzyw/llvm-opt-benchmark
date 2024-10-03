@@ -19,6 +19,8 @@ Please cite this work with the following BibTex entry:
 
 ## Online services (previously hosted by PLCT Lab, ISCAS/currently hosted by SUSTech ARiSE Lab)
 
+**Special Acknowledgement**: Thank @goldsteinn for providing additional computational resources to meet the growing demand for testing!
+
 + Fuzzy DAG matching
 
   Please file an issue to provide LLVM IR with a single function. I will add the `grep` label to trigger CI.
