@@ -3405,8 +3405,7 @@ ZSTD_hashPtrSalted.exit:                          ; preds = %sw.bb3.i, %sw.bb1.i
 
 if.end.i96.thread:                                ; preds = %ZSTD_hashPtrSalted.exit
   %add.ptr5.i1488 = getelementptr inbounds i8, ptr %39, i64 %idx.ext.i93
-  tail call void @llvm.prefetch.p0(ptr %add.ptr5.i1488, i32 0, i32 3, i32 1)
-  br label %ZSTD_row_prefetch.exit
+  br label %ZSTD_row_prefetch.exit.sink.split
 
 if.end.i96:                                       ; preds = %ZSTD_hashPtrSalted.exit
   %add.ptr3.i99 = getelementptr inbounds i8, ptr %add.ptr.i94, i64 64
@@ -3417,10 +3416,14 @@ if.end.i96:                                       ; preds = %ZSTD_hashPtrSalted.
 
 if.then7.i:                                       ; preds = %if.end.i96
   %add.ptr10.i = getelementptr inbounds i8, ptr %add.ptr5.i, i64 32
-  tail call void @llvm.prefetch.p0(ptr nonnull %add.ptr10.i, i32 0, i32 3, i32 1)
+  br label %ZSTD_row_prefetch.exit.sink.split
+
+ZSTD_row_prefetch.exit.sink.split:                ; preds = %if.then7.i, %if.end.i96.thread
+  %add.ptr5.i1488.sink = phi ptr [ %add.ptr5.i1488, %if.end.i96.thread ], [ %add.ptr10.i, %if.then7.i ]
+  tail call void @llvm.prefetch.p0(ptr %add.ptr5.i1488.sink, i32 0, i32 3, i32 1)
   br label %ZSTD_row_prefetch.exit
 
-ZSTD_row_prefetch.exit:                           ; preds = %if.end.i96.thread, %if.then7.i, %if.end.i96
+ZSTD_row_prefetch.exit:                           ; preds = %ZSTD_row_prefetch.exit.sink.split, %if.end.i96
   %and.i64 = and i64 %indvars.iv1695, 7
   %arrayidx.i66 = getelementptr inbounds [8 x i32], ptr %hashCache.i63, i64 0, i64 %and.i64
   store i32 %conv17.i60, ptr %arrayidx.i66, align 4
@@ -4300,8 +4303,7 @@ ZSTD_hashPtrSalted.exit:                          ; preds = %sw.bb3.i, %sw.bb1.i
 
 if.end.i96.thread:                                ; preds = %ZSTD_hashPtrSalted.exit
   %add.ptr5.i1419 = getelementptr inbounds i8, ptr %39, i64 %idx.ext.i93
-  tail call void @llvm.prefetch.p0(ptr %add.ptr5.i1419, i32 0, i32 3, i32 1)
-  br label %ZSTD_row_prefetch.exit
+  br label %ZSTD_row_prefetch.exit.sink.split
 
 if.end.i96:                                       ; preds = %ZSTD_hashPtrSalted.exit
   %add.ptr3.i99 = getelementptr inbounds i8, ptr %add.ptr.i94, i64 64
@@ -4312,10 +4314,14 @@ if.end.i96:                                       ; preds = %ZSTD_hashPtrSalted.
 
 if.then7.i:                                       ; preds = %if.end.i96
   %add.ptr10.i = getelementptr inbounds i8, ptr %add.ptr5.i, i64 32
-  tail call void @llvm.prefetch.p0(ptr nonnull %add.ptr10.i, i32 0, i32 3, i32 1)
+  br label %ZSTD_row_prefetch.exit.sink.split
+
+ZSTD_row_prefetch.exit.sink.split:                ; preds = %if.then7.i, %if.end.i96.thread
+  %add.ptr5.i1419.sink = phi ptr [ %add.ptr5.i1419, %if.end.i96.thread ], [ %add.ptr10.i, %if.then7.i ]
+  tail call void @llvm.prefetch.p0(ptr %add.ptr5.i1419.sink, i32 0, i32 3, i32 1)
   br label %ZSTD_row_prefetch.exit
 
-ZSTD_row_prefetch.exit:                           ; preds = %if.end.i96.thread, %if.then7.i, %if.end.i96
+ZSTD_row_prefetch.exit:                           ; preds = %ZSTD_row_prefetch.exit.sink.split, %if.end.i96
   %and.i64 = and i64 %indvars.iv1644, 7
   %arrayidx.i66 = getelementptr inbounds [8 x i32], ptr %hashCache.i63, i64 0, i64 %and.i64
   store i32 %conv17.i60, ptr %arrayidx.i66, align 4
@@ -5310,8 +5316,7 @@ ZSTD_hashPtrSalted.exit:                          ; preds = %sw.bb3.i, %sw.bb1.i
 
 if.end.i96.thread:                                ; preds = %ZSTD_hashPtrSalted.exit
   %add.ptr5.i1419 = getelementptr inbounds i8, ptr %39, i64 %idx.ext.i93
-  tail call void @llvm.prefetch.p0(ptr %add.ptr5.i1419, i32 0, i32 3, i32 1)
-  br label %ZSTD_row_prefetch.exit
+  br label %ZSTD_row_prefetch.exit.sink.split
 
 if.end.i96:                                       ; preds = %ZSTD_hashPtrSalted.exit
   %add.ptr3.i99 = getelementptr inbounds i8, ptr %add.ptr.i94, i64 64
@@ -5322,10 +5327,14 @@ if.end.i96:                                       ; preds = %ZSTD_hashPtrSalted.
 
 if.then7.i:                                       ; preds = %if.end.i96
   %add.ptr10.i = getelementptr inbounds i8, ptr %add.ptr5.i, i64 32
-  tail call void @llvm.prefetch.p0(ptr nonnull %add.ptr10.i, i32 0, i32 3, i32 1)
+  br label %ZSTD_row_prefetch.exit.sink.split
+
+ZSTD_row_prefetch.exit.sink.split:                ; preds = %if.then7.i, %if.end.i96.thread
+  %add.ptr5.i1419.sink = phi ptr [ %add.ptr5.i1419, %if.end.i96.thread ], [ %add.ptr10.i, %if.then7.i ]
+  tail call void @llvm.prefetch.p0(ptr %add.ptr5.i1419.sink, i32 0, i32 3, i32 1)
   br label %ZSTD_row_prefetch.exit
 
-ZSTD_row_prefetch.exit:                           ; preds = %if.end.i96.thread, %if.then7.i, %if.end.i96
+ZSTD_row_prefetch.exit:                           ; preds = %ZSTD_row_prefetch.exit.sink.split, %if.end.i96
   %and.i64 = and i64 %indvars.iv1644, 7
   %arrayidx.i66 = getelementptr inbounds [8 x i32], ptr %hashCache.i63, i64 0, i64 %and.i64
   store i32 %conv17.i60, ptr %arrayidx.i66, align 4
@@ -9026,8 +9035,7 @@ ZSTD_hashPtrSalted.exit:                          ; preds = %sw.bb3.i, %sw.bb1.i
 
 if.end.i96.thread:                                ; preds = %ZSTD_hashPtrSalted.exit
   %add.ptr5.i1565 = getelementptr inbounds i8, ptr %54, i64 %idx.ext.i93
-  tail call void @llvm.prefetch.p0(ptr %add.ptr5.i1565, i32 0, i32 3, i32 1)
-  br label %ZSTD_row_prefetch.exit
+  br label %ZSTD_row_prefetch.exit.sink.split
 
 if.end.i96:                                       ; preds = %ZSTD_hashPtrSalted.exit
   %add.ptr3.i99 = getelementptr inbounds i8, ptr %add.ptr.i94, i64 64
@@ -9038,10 +9046,14 @@ if.end.i96:                                       ; preds = %ZSTD_hashPtrSalted.
 
 if.then7.i:                                       ; preds = %if.end.i96
   %add.ptr10.i = getelementptr inbounds i8, ptr %add.ptr5.i, i64 32
-  tail call void @llvm.prefetch.p0(ptr nonnull %add.ptr10.i, i32 0, i32 3, i32 1)
+  br label %ZSTD_row_prefetch.exit.sink.split
+
+ZSTD_row_prefetch.exit.sink.split:                ; preds = %if.then7.i, %if.end.i96.thread
+  %add.ptr5.i1565.sink = phi ptr [ %add.ptr5.i1565, %if.end.i96.thread ], [ %add.ptr10.i, %if.then7.i ]
+  tail call void @llvm.prefetch.p0(ptr %add.ptr5.i1565.sink, i32 0, i32 3, i32 1)
   br label %ZSTD_row_prefetch.exit
 
-ZSTD_row_prefetch.exit:                           ; preds = %if.end.i96.thread, %if.then7.i, %if.end.i96
+ZSTD_row_prefetch.exit:                           ; preds = %ZSTD_row_prefetch.exit.sink.split, %if.end.i96
   %and.i64 = and i64 %indvars.iv1803, 7
   %arrayidx.i66 = getelementptr inbounds [8 x i32], ptr %hashCache.i63, i64 0, i64 %and.i64
   store i32 %conv17.i60, ptr %arrayidx.i66, align 4
@@ -10093,8 +10105,7 @@ ZSTD_hashPtrSalted.exit:                          ; preds = %sw.bb3.i, %sw.bb1.i
 
 if.end.i96.thread:                                ; preds = %ZSTD_hashPtrSalted.exit
   %add.ptr5.i1423 = getelementptr inbounds i8, ptr %50, i64 %idx.ext.i93
-  tail call void @llvm.prefetch.p0(ptr %add.ptr5.i1423, i32 0, i32 3, i32 1)
-  br label %ZSTD_row_prefetch.exit
+  br label %ZSTD_row_prefetch.exit.sink.split
 
 if.end.i96:                                       ; preds = %ZSTD_hashPtrSalted.exit
   %add.ptr3.i99 = getelementptr inbounds i8, ptr %add.ptr.i94, i64 64
@@ -10105,10 +10116,14 @@ if.end.i96:                                       ; preds = %ZSTD_hashPtrSalted.
 
 if.then7.i:                                       ; preds = %if.end.i96
   %add.ptr10.i = getelementptr inbounds i8, ptr %add.ptr5.i, i64 32
-  tail call void @llvm.prefetch.p0(ptr nonnull %add.ptr10.i, i32 0, i32 3, i32 1)
+  br label %ZSTD_row_prefetch.exit.sink.split
+
+ZSTD_row_prefetch.exit.sink.split:                ; preds = %if.then7.i, %if.end.i96.thread
+  %add.ptr5.i1423.sink = phi ptr [ %add.ptr5.i1423, %if.end.i96.thread ], [ %add.ptr10.i, %if.then7.i ]
+  tail call void @llvm.prefetch.p0(ptr %add.ptr5.i1423.sink, i32 0, i32 3, i32 1)
   br label %ZSTD_row_prefetch.exit
 
-ZSTD_row_prefetch.exit:                           ; preds = %if.end.i96.thread, %if.then7.i, %if.end.i96
+ZSTD_row_prefetch.exit:                           ; preds = %ZSTD_row_prefetch.exit.sink.split, %if.end.i96
   %and.i64 = and i64 %indvars.iv1654, 7
   %arrayidx.i66 = getelementptr inbounds [8 x i32], ptr %hashCache.i63, i64 0, i64 %and.i64
   store i32 %conv17.i60, ptr %arrayidx.i66, align 4
@@ -11275,8 +11290,7 @@ ZSTD_hashPtrSalted.exit:                          ; preds = %sw.bb3.i, %sw.bb1.i
 
 if.end.i96.thread:                                ; preds = %ZSTD_hashPtrSalted.exit
   %add.ptr5.i1423 = getelementptr inbounds i8, ptr %50, i64 %idx.ext.i93
-  tail call void @llvm.prefetch.p0(ptr %add.ptr5.i1423, i32 0, i32 3, i32 1)
-  br label %ZSTD_row_prefetch.exit
+  br label %ZSTD_row_prefetch.exit.sink.split
 
 if.end.i96:                                       ; preds = %ZSTD_hashPtrSalted.exit
   %add.ptr3.i99 = getelementptr inbounds i8, ptr %add.ptr.i94, i64 64
@@ -11287,10 +11301,14 @@ if.end.i96:                                       ; preds = %ZSTD_hashPtrSalted.
 
 if.then7.i:                                       ; preds = %if.end.i96
   %add.ptr10.i = getelementptr inbounds i8, ptr %add.ptr5.i, i64 32
-  tail call void @llvm.prefetch.p0(ptr nonnull %add.ptr10.i, i32 0, i32 3, i32 1)
+  br label %ZSTD_row_prefetch.exit.sink.split
+
+ZSTD_row_prefetch.exit.sink.split:                ; preds = %if.then7.i, %if.end.i96.thread
+  %add.ptr5.i1423.sink = phi ptr [ %add.ptr5.i1423, %if.end.i96.thread ], [ %add.ptr10.i, %if.then7.i ]
+  tail call void @llvm.prefetch.p0(ptr %add.ptr5.i1423.sink, i32 0, i32 3, i32 1)
   br label %ZSTD_row_prefetch.exit
 
-ZSTD_row_prefetch.exit:                           ; preds = %if.end.i96.thread, %if.then7.i, %if.end.i96
+ZSTD_row_prefetch.exit:                           ; preds = %ZSTD_row_prefetch.exit.sink.split, %if.end.i96
   %and.i64 = and i64 %indvars.iv1654, 7
   %arrayidx.i66 = getelementptr inbounds [8 x i32], ptr %hashCache.i63, i64 0, i64 %and.i64
   store i32 %conv17.i60, ptr %arrayidx.i66, align 4
@@ -15586,8 +15604,7 @@ ZSTD_hashPtrSalted.exit:                          ; preds = %sw.bb3.i, %sw.bb1.i
 
 if.end.i96.thread:                                ; preds = %ZSTD_hashPtrSalted.exit
   %add.ptr5.i1638 = getelementptr inbounds i8, ptr %66, i64 %idx.ext.i93
-  tail call void @llvm.prefetch.p0(ptr %add.ptr5.i1638, i32 0, i32 3, i32 1)
-  br label %ZSTD_row_prefetch.exit
+  br label %ZSTD_row_prefetch.exit.sink.split
 
 if.end.i96:                                       ; preds = %ZSTD_hashPtrSalted.exit
   %add.ptr3.i99 = getelementptr inbounds i8, ptr %add.ptr.i94, i64 64
@@ -15598,10 +15615,14 @@ if.end.i96:                                       ; preds = %ZSTD_hashPtrSalted.
 
 if.then7.i:                                       ; preds = %if.end.i96
   %add.ptr10.i = getelementptr inbounds i8, ptr %add.ptr5.i, i64 32
-  tail call void @llvm.prefetch.p0(ptr nonnull %add.ptr10.i, i32 0, i32 3, i32 1)
+  br label %ZSTD_row_prefetch.exit.sink.split
+
+ZSTD_row_prefetch.exit.sink.split:                ; preds = %if.then7.i, %if.end.i96.thread
+  %add.ptr5.i1638.sink = phi ptr [ %add.ptr5.i1638, %if.end.i96.thread ], [ %add.ptr10.i, %if.then7.i ]
+  tail call void @llvm.prefetch.p0(ptr %add.ptr5.i1638.sink, i32 0, i32 3, i32 1)
   br label %ZSTD_row_prefetch.exit
 
-ZSTD_row_prefetch.exit:                           ; preds = %if.end.i96.thread, %if.then7.i, %if.end.i96
+ZSTD_row_prefetch.exit:                           ; preds = %ZSTD_row_prefetch.exit.sink.split, %if.end.i96
   %and.i64 = and i64 %indvars.iv1924, 7
   %arrayidx.i66 = getelementptr inbounds [8 x i32], ptr %hashCache.i63, i64 0, i64 %and.i64
   store i32 %conv17.i60, ptr %arrayidx.i66, align 4
@@ -16797,8 +16818,7 @@ ZSTD_hashPtrSalted.exit:                          ; preds = %sw.bb3.i, %sw.bb1.i
 
 if.end.i96.thread:                                ; preds = %ZSTD_hashPtrSalted.exit
   %add.ptr5.i1427 = getelementptr inbounds i8, ptr %59, i64 %idx.ext.i93
-  tail call void @llvm.prefetch.p0(ptr %add.ptr5.i1427, i32 0, i32 3, i32 1)
-  br label %ZSTD_row_prefetch.exit
+  br label %ZSTD_row_prefetch.exit.sink.split
 
 if.end.i96:                                       ; preds = %ZSTD_hashPtrSalted.exit
   %add.ptr3.i99 = getelementptr inbounds i8, ptr %add.ptr.i94, i64 64
@@ -16809,10 +16829,14 @@ if.end.i96:                                       ; preds = %ZSTD_hashPtrSalted.
 
 if.then7.i:                                       ; preds = %if.end.i96
   %add.ptr10.i = getelementptr inbounds i8, ptr %add.ptr5.i, i64 32
-  tail call void @llvm.prefetch.p0(ptr nonnull %add.ptr10.i, i32 0, i32 3, i32 1)
+  br label %ZSTD_row_prefetch.exit.sink.split
+
+ZSTD_row_prefetch.exit.sink.split:                ; preds = %if.then7.i, %if.end.i96.thread
+  %add.ptr5.i1427.sink = phi ptr [ %add.ptr5.i1427, %if.end.i96.thread ], [ %add.ptr10.i, %if.then7.i ]
+  tail call void @llvm.prefetch.p0(ptr %add.ptr5.i1427.sink, i32 0, i32 3, i32 1)
   br label %ZSTD_row_prefetch.exit
 
-ZSTD_row_prefetch.exit:                           ; preds = %if.end.i96.thread, %if.then7.i, %if.end.i96
+ZSTD_row_prefetch.exit:                           ; preds = %ZSTD_row_prefetch.exit.sink.split, %if.end.i96
   %and.i64 = and i64 %indvars.iv1700, 7
   %arrayidx.i66 = getelementptr inbounds [8 x i32], ptr %hashCache.i63, i64 0, i64 %and.i64
   store i32 %conv17.i60, ptr %arrayidx.i66, align 4
@@ -18123,8 +18147,7 @@ ZSTD_hashPtrSalted.exit:                          ; preds = %sw.bb3.i, %sw.bb1.i
 
 if.end.i96.thread:                                ; preds = %ZSTD_hashPtrSalted.exit
   %add.ptr5.i1427 = getelementptr inbounds i8, ptr %59, i64 %idx.ext.i93
-  tail call void @llvm.prefetch.p0(ptr %add.ptr5.i1427, i32 0, i32 3, i32 1)
-  br label %ZSTD_row_prefetch.exit
+  br label %ZSTD_row_prefetch.exit.sink.split
 
 if.end.i96:                                       ; preds = %ZSTD_hashPtrSalted.exit
   %add.ptr3.i99 = getelementptr inbounds i8, ptr %add.ptr.i94, i64 64
@@ -18135,10 +18158,14 @@ if.end.i96:                                       ; preds = %ZSTD_hashPtrSalted.
 
 if.then7.i:                                       ; preds = %if.end.i96
   %add.ptr10.i = getelementptr inbounds i8, ptr %add.ptr5.i, i64 32
-  tail call void @llvm.prefetch.p0(ptr nonnull %add.ptr10.i, i32 0, i32 3, i32 1)
+  br label %ZSTD_row_prefetch.exit.sink.split
+
+ZSTD_row_prefetch.exit.sink.split:                ; preds = %if.then7.i, %if.end.i96.thread
+  %add.ptr5.i1427.sink = phi ptr [ %add.ptr5.i1427, %if.end.i96.thread ], [ %add.ptr10.i, %if.then7.i ]
+  tail call void @llvm.prefetch.p0(ptr %add.ptr5.i1427.sink, i32 0, i32 3, i32 1)
   br label %ZSTD_row_prefetch.exit
 
-ZSTD_row_prefetch.exit:                           ; preds = %if.end.i96.thread, %if.then7.i, %if.end.i96
+ZSTD_row_prefetch.exit:                           ; preds = %ZSTD_row_prefetch.exit.sink.split, %if.end.i96
   %and.i64 = and i64 %indvars.iv1700, 7
   %arrayidx.i66 = getelementptr inbounds [8 x i32], ptr %hashCache.i63, i64 0, i64 %and.i64
   store i32 %conv17.i60, ptr %arrayidx.i66, align 4
@@ -22513,8 +22540,7 @@ ZSTD_hashPtrSalted.exit:                          ; preds = %sw.bb3.i, %sw.bb1.i
 
 if.end.i96.thread:                                ; preds = %ZSTD_hashPtrSalted.exit
   %add.ptr5.i1285 = getelementptr inbounds i8, ptr %36, i64 %idx.ext.i93
-  tail call void @llvm.prefetch.p0(ptr %add.ptr5.i1285, i32 0, i32 3, i32 1)
-  br label %ZSTD_row_prefetch.exit
+  br label %ZSTD_row_prefetch.exit.sink.split
 
 if.end.i96:                                       ; preds = %ZSTD_hashPtrSalted.exit
   %add.ptr3.i99 = getelementptr inbounds i8, ptr %add.ptr.i94, i64 64
@@ -22525,10 +22551,14 @@ if.end.i96:                                       ; preds = %ZSTD_hashPtrSalted.
 
 if.then7.i:                                       ; preds = %if.end.i96
   %add.ptr10.i = getelementptr inbounds i8, ptr %add.ptr5.i, i64 32
-  tail call void @llvm.prefetch.p0(ptr nonnull %add.ptr10.i, i32 0, i32 3, i32 1)
+  br label %ZSTD_row_prefetch.exit.sink.split
+
+ZSTD_row_prefetch.exit.sink.split:                ; preds = %if.then7.i, %if.end.i96.thread
+  %add.ptr5.i1285.sink = phi ptr [ %add.ptr5.i1285, %if.end.i96.thread ], [ %add.ptr10.i, %if.then7.i ]
+  tail call void @llvm.prefetch.p0(ptr %add.ptr5.i1285.sink, i32 0, i32 3, i32 1)
   br label %ZSTD_row_prefetch.exit
 
-ZSTD_row_prefetch.exit:                           ; preds = %if.end.i96.thread, %if.then7.i, %if.end.i96
+ZSTD_row_prefetch.exit:                           ; preds = %ZSTD_row_prefetch.exit.sink.split, %if.end.i96
   %and.i64 = and i64 %indvars.iv1526, 7
   %arrayidx.i66 = getelementptr inbounds [8 x i32], ptr %hashCache.i63, i64 0, i64 %and.i64
   store i32 %conv17.i60, ptr %arrayidx.i66, align 4
@@ -24504,8 +24534,7 @@ ZSTD_hashPtrSalted.exit:                          ; preds = %sw.bb3.i, %sw.bb1.i
 
 if.end.i96.thread:                                ; preds = %ZSTD_hashPtrSalted.exit
   %add.ptr5.i1298 = getelementptr inbounds i8, ptr %48, i64 %idx.ext.i93
-  tail call void @llvm.prefetch.p0(ptr %add.ptr5.i1298, i32 0, i32 3, i32 1)
-  br label %ZSTD_row_prefetch.exit
+  br label %ZSTD_row_prefetch.exit.sink.split
 
 if.end.i96:                                       ; preds = %ZSTD_hashPtrSalted.exit
   %add.ptr3.i99 = getelementptr inbounds i8, ptr %add.ptr.i94, i64 64
@@ -24516,10 +24545,14 @@ if.end.i96:                                       ; preds = %ZSTD_hashPtrSalted.
 
 if.then7.i:                                       ; preds = %if.end.i96
   %add.ptr10.i = getelementptr inbounds i8, ptr %add.ptr5.i, i64 32
-  tail call void @llvm.prefetch.p0(ptr nonnull %add.ptr10.i, i32 0, i32 3, i32 1)
+  br label %ZSTD_row_prefetch.exit.sink.split
+
+ZSTD_row_prefetch.exit.sink.split:                ; preds = %if.then7.i, %if.end.i96.thread
+  %add.ptr5.i1298.sink = phi ptr [ %add.ptr5.i1298, %if.end.i96.thread ], [ %add.ptr10.i, %if.then7.i ]
+  tail call void @llvm.prefetch.p0(ptr %add.ptr5.i1298.sink, i32 0, i32 3, i32 1)
   br label %ZSTD_row_prefetch.exit
 
-ZSTD_row_prefetch.exit:                           ; preds = %if.end.i96.thread, %if.then7.i, %if.end.i96
+ZSTD_row_prefetch.exit:                           ; preds = %ZSTD_row_prefetch.exit.sink.split, %if.end.i96
   %and.i64 = and i64 %indvars.iv1549, 7
   %arrayidx.i66 = getelementptr inbounds [8 x i32], ptr %hashCache.i63, i64 0, i64 %and.i64
   store i32 %conv17.i60, ptr %arrayidx.i66, align 4
@@ -26758,8 +26791,7 @@ ZSTD_hashPtrSalted.exit:                          ; preds = %sw.bb3.i, %sw.bb1.i
 
 if.end.i96.thread:                                ; preds = %ZSTD_hashPtrSalted.exit
   %add.ptr5.i1310 = getelementptr inbounds i8, ptr %57, i64 %idx.ext.i93
-  tail call void @llvm.prefetch.p0(ptr %add.ptr5.i1310, i32 0, i32 3, i32 1)
-  br label %ZSTD_row_prefetch.exit
+  br label %ZSTD_row_prefetch.exit.sink.split
 
 if.end.i96:                                       ; preds = %ZSTD_hashPtrSalted.exit
   %add.ptr3.i99 = getelementptr inbounds i8, ptr %add.ptr.i94, i64 64
@@ -26770,10 +26802,14 @@ if.end.i96:                                       ; preds = %ZSTD_hashPtrSalted.
 
 if.then7.i:                                       ; preds = %if.end.i96
   %add.ptr10.i = getelementptr inbounds i8, ptr %add.ptr5.i, i64 32
-  tail call void @llvm.prefetch.p0(ptr nonnull %add.ptr10.i, i32 0, i32 3, i32 1)
+  br label %ZSTD_row_prefetch.exit.sink.split
+
+ZSTD_row_prefetch.exit.sink.split:                ; preds = %if.then7.i, %if.end.i96.thread
+  %add.ptr5.i1310.sink = phi ptr [ %add.ptr5.i1310, %if.end.i96.thread ], [ %add.ptr10.i, %if.then7.i ]
+  tail call void @llvm.prefetch.p0(ptr %add.ptr5.i1310.sink, i32 0, i32 3, i32 1)
   br label %ZSTD_row_prefetch.exit
 
-ZSTD_row_prefetch.exit:                           ; preds = %if.end.i96.thread, %if.then7.i, %if.end.i96
+ZSTD_row_prefetch.exit:                           ; preds = %ZSTD_row_prefetch.exit.sink.split, %if.end.i96
   %and.i64 = and i64 %indvars.iv1604, 7
   %arrayidx.i66 = getelementptr inbounds [8 x i32], ptr %hashCache.i63, i64 0, i64 %and.i64
   store i32 %conv17.i60, ptr %arrayidx.i66, align 4

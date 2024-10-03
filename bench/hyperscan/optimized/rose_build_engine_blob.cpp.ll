@@ -351,7 +351,7 @@ if.end.i.i153.lr.ph:                              ; preds = %invoke.cont40
   br label %if.end.i.i153
 
 if.end.i.i153:                                    ; preds = %if.end.i.i153.backedge, %if.end.i.i153.lr.ph
-  %c.0177 = phi i64 [ %add.i.i, %if.end.i.i153.lr.ph ], [ %c.0177.be, %if.end.i.i153.backedge ]
+  %c.0177 = phi i64 [ %add.i.i, %if.end.i.i153.lr.ph ], [ %add21.i.i, %if.end.i.i153.backedge ]
   %add = add i64 %c.0177, %off.0186
   %add.ptr.i152 = getelementptr inbounds i8, ptr %raw_reach.sroa.0.0, i64 %add
   %26 = load i8, ptr %add.ptr.i152, align 1
@@ -372,9 +372,14 @@ if.then5.i.i:                                     ; preds = %if.end.i.i153
 
 if.then7.i.i:                                     ; preds = %if.then5.i.i
   %mul.i.i = and i64 %c.0177, 192
-  %28 = tail call i64 @llvm.cttz.i64(i64 %and.i.i, i1 true), !range !8
-  %add9.i.i = or disjoint i64 %28, %mul.i.i
   br label %if.end.i.i153.backedge
+
+if.end.i.i153.backedge:                           ; preds = %if.then18.i.i, %if.then7.i.i
+  %.lcssa.sink = phi i64 [ %.lcssa, %if.then18.i.i ], [ %and.i.i, %if.then7.i.i ]
+  %mul19.i.i.sink = phi i64 [ %mul19.i.i, %if.then18.i.i ], [ %mul.i.i, %if.then7.i.i ]
+  %28 = tail call i64 @llvm.cttz.i64(i64 %.lcssa.sink, i1 true), !range !8
+  %add21.i.i = or disjoint i64 %28, %mul19.i.i.sink
+  br label %if.end.i.i153
 
 for.cond.i.i:                                     ; preds = %if.then5.i.i, %if.end.i.i153
   %cmp14.i.i = icmp ult i64 %c.0177, 192
@@ -411,13 +416,7 @@ if.then18.i.i:                                    ; preds = %for.body.i.i155.2, 
   %i.0.i.i.lcssa = phi i64 [ %i.0.i.i, %for.body.i.i155 ], [ %i.0.i.i.1, %for.body.i.i155.1 ], [ 3, %for.body.i.i155.2 ]
   %.lcssa = phi i64 [ %29, %for.body.i.i155 ], [ %30, %for.body.i.i155.1 ], [ %31, %for.body.i.i155.2 ]
   %mul19.i.i = shl nuw nsw i64 %i.0.i.i.lcssa, 6
-  %32 = tail call noundef i64 @llvm.cttz.i64(i64 %.lcssa, i1 true), !range !8
-  %add21.i.i = or disjoint i64 %32, %mul19.i.i
   br label %if.end.i.i153.backedge
-
-if.end.i.i153.backedge:                           ; preds = %if.then18.i.i, %if.then7.i.i
-  %c.0177.be = phi i64 [ %add9.i.i, %if.then7.i.i ], [ %add21.i.i, %if.then18.i.i ]
-  br label %if.end.i.i153
 
 cleanup:                                          ; preds = %for.body.i.i155.2, %for.cond.i.i.2, %for.cond.i.i.1, %for.cond.i.i, %invoke.cont40
   %inc62 = add nuw i64 %i32.0183, 1
@@ -431,7 +430,7 @@ invoke.cont79:                                    ; preds = %call.i11.i.i.noexc,
           to label %invoke.cont85 unwind label %lpad78.loopexit.split-lp
 
 invoke.cont85:                                    ; preds = %invoke.cont79
-  %33 = load i32, ptr %reach_idx, align 4
+  %32 = load i32, ptr %reach_idx, align 4
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %reach_idx) #20
   %tobool.not.i.i.i = icmp eq ptr %raw_reach.sroa.0.0, null
   br i1 %tobool.not.i.i.i, label %cleanup95, label %if.then.i.i.i
@@ -471,7 +470,7 @@ ehcleanup94:                                      ; preds = %if.then.i.i.i158, %
   resume { ptr, i32 } %lpad.phi60
 
 cleanup95:                                        ; preds = %if.then.i.i.i, %invoke.cont85, %do.end
-  %retval.0 = phi i32 [ %0, %do.end ], [ %33, %invoke.cont85 ], [ %33, %if.then.i.i.i ]
+  %retval.0 = phi i32 [ %0, %do.end ], [ %32, %invoke.cont85 ], [ %32, %if.then.i.i.i ]
   ret i32 %retval.0
 }
 

@@ -991,31 +991,23 @@ _ZN4node11Environment10GetCurrentEN2v85LocalINS1_7ContextEEE.exit: ; preds = %en
   tail call void @_ZN4node22SetConstructorFunctionEN2v85LocalINS0_7ContextEEENS1_INS0_6ObjectEEEPKcNS1_INS0_16FunctionTemplateEEENS_26SetConstructorFunctionFlagE(ptr %context.coerce, ptr %target.coerce, ptr noundef nonnull @.str.36, ptr %call17, i32 noundef 1) #19
   %call216 = tail call ptr @_ZN2v816FunctionTemplate11GetFunctionENS_5LocalINS_7ContextEEE(ptr noundef nonnull align 1 dereferenceable(1) %call17, ptr %context.coerce) #19
   %cmp.i.i560 = icmp eq ptr %call216, null
-  br i1 %cmp.i.i560, label %if.then.i, label %entry.split
+  br i1 %cmp.i.i560, label %if.then.i, label %_ZN2v810MaybeLocalINS_8FunctionEE14ToLocalCheckedEv.exit
 
-entry.split:                                      ; preds = %_ZN4node11Environment10GetCurrentEN2v85LocalINS1_7ContextEEE.exit
+if.then.i:                                        ; preds = %_ZN4node11Environment10GetCurrentEN2v85LocalINS1_7ContextEEE.exit
+  tail call void @_ZN2v812api_internal12ToLocalEmptyEv() #19
+  br label %_ZN2v810MaybeLocalINS_8FunctionEE14ToLocalCheckedEv.exit
+
+_ZN2v810MaybeLocalINS_8FunctionEE14ToLocalCheckedEv.exit: ; preds = %_ZN4node11Environment10GetCurrentEN2v85LocalINS1_7ContextEEE.exit, %if.then.i
+  %call216.sink = phi ptr [ null, %if.then.i ], [ %call216, %_ZN4node11Environment10GetCurrentEN2v85LocalINS1_7ContextEEE.exit ]
   %principal_realm_.i = getelementptr inbounds i8, ptr %retval.0.i, i64 2728
   %15 = load ptr, ptr %principal_realm_.i, align 8
   %vtable.i = load ptr, ptr %15, align 8
   %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 976
   %16 = load ptr, ptr %vfn.i, align 8
-  tail call void %16(ptr noundef nonnull align 8 dereferenceable(872) %15, ptr nonnull %call216) #19
-  br label %_ZN2v810MaybeLocalINS_8FunctionEE14ToLocalCheckedEv.exit
-
-if.then.i:                                        ; preds = %_ZN4node11Environment10GetCurrentEN2v85LocalINS1_7ContextEEE.exit
-  tail call void @_ZN2v812api_internal12ToLocalEmptyEv() #19
-  %principal_realm_.i86 = getelementptr inbounds i8, ptr %retval.0.i, i64 2728
-  %17 = load ptr, ptr %principal_realm_.i86, align 8
-  %vtable.i87 = load ptr, ptr %17, align 8
-  %vfn.i88 = getelementptr inbounds i8, ptr %vtable.i87, i64 976
-  %18 = load ptr, ptr %vfn.i88, align 8
-  tail call void %18(ptr noundef nonnull align 8 dereferenceable(872) %17, ptr null) #19
-  br label %_ZN2v810MaybeLocalINS_8FunctionEE14ToLocalCheckedEv.exit
-
-_ZN2v810MaybeLocalINS_8FunctionEE14ToLocalCheckedEv.exit: ; preds = %entry.split, %if.then.i
+  tail call void %16(ptr noundef nonnull align 8 dereferenceable(872) %15, ptr %call216.sink) #19
   %call228 = tail call ptr @_ZN4node10BaseObject31MakeLazilyInitializedJSTemplateEPNS_11EnvironmentE(ptr noundef nonnull %retval.0.i) #19
-  %19 = load ptr, ptr %isolate_data_.i.i, align 8
-  %call1.i = tail call ptr @_ZN4node9AsyncWrap22GetConstructorTemplateEPNS_11IsolateDataE(ptr noundef %19) #19
+  %17 = load ptr, ptr %isolate_data_.i.i, align 8
+  %call1.i = tail call ptr @_ZN4node9AsyncWrap22GetConstructorTemplateEPNS_11IsolateDataE(ptr noundef %17) #19
   tail call void @_ZN2v816FunctionTemplate7InheritENS_5LocalIS0_EE(ptr noundef nonnull align 1 dereferenceable(1) %call228, ptr %call1.i) #19
   tail call void @_ZN4node22SetConstructorFunctionEN2v85LocalINS0_7ContextEEENS1_INS0_6ObjectEEEPKcNS1_INS0_16FunctionTemplateEEENS_26SetConstructorFunctionFlagE(ptr %context.coerce, ptr %target.coerce, ptr noundef nonnull @.str.37, ptr nonnull %call228, i32 noundef 1) #19
   %call253 = tail call ptr @_ZN2v86Object3NewEPNS_7IsolateE(ptr noundef %10) #19
@@ -1061,10 +1053,10 @@ if.then.i457:                                     ; preds = %_ZN2v810MaybeLocalI
   br label %do.end351
 
 do.end351:                                        ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit, %if.then.i457
-  %20 = load ptr, ptr %isolate_data_.i.i, align 8
-  %constants_string_.i.i = getelementptr inbounds i8, ptr %20, i64 512
-  %21 = load ptr, ptr %constants_string_.i.i, align 8
-  %call378 = tail call i16 @_ZN2v86Object3SetENS_5LocalINS_7ContextEEENS1_INS_5ValueEEES5_(ptr noundef nonnull align 1 dereferenceable(1) %target.coerce, ptr %context.coerce, ptr %21, ptr nonnull %call253) #19
+  %18 = load ptr, ptr %isolate_data_.i.i, align 8
+  %constants_string_.i.i = getelementptr inbounds i8, ptr %18, i64 512
+  %19 = load ptr, ptr %constants_string_.i.i, align 8
+  %call378 = tail call i16 @_ZN2v86Object3SetENS_5LocalINS_7ContextEEENS1_INS_5ValueEEES5_(ptr noundef nonnull align 1 dereferenceable(1) %target.coerce, ptr %context.coerce, ptr %19, ptr nonnull %call253) #19
   %tobool.i571 = trunc i16 %call378 to i1
   br i1 %tobool.i571, label %_ZNK2v85MaybeIbE5CheckEv.exit, label %if.then.i451
 

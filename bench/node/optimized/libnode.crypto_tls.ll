@@ -12397,31 +12397,24 @@ _ZN4node21FIXED_ONE_BYTE_STRINGILi8EEEN2v85LocalINS1_6StringEEEPNS1_7IsolateERAT
   %call2.i = tail call ptr %17(ptr noundef nonnull align 8 dereferenceable(872) %16) #23
   %call359 = tail call ptr @_ZN2v816FunctionTemplate11GetFunctionENS_5LocalINS_7ContextEEE(ptr noundef nonnull align 1 dereferenceable(1) %call66, ptr %call2.i) #23
   %cmp.i.i528 = icmp eq ptr %call359, null
-  br i1 %cmp.i.i528, label %if.then.i460, label %do.end.split
+  br i1 %cmp.i.i528, label %if.then.i460, label %_ZN2v810MaybeLocalINS_8FunctionEE14ToLocalCheckedEv.exit
 
-do.end.split:                                     ; preds = %_ZN4node21FIXED_ONE_BYTE_STRINGILi8EEEN2v85LocalINS1_6StringEEEPNS1_7IsolateERAT__Kc.exit
+if.then.i460:                                     ; preds = %_ZN4node21FIXED_ONE_BYTE_STRINGILi8EEEN2v85LocalINS1_6StringEEEPNS1_7IsolateERAT__Kc.exit
+  tail call void @_ZN2v812api_internal12ToLocalEmptyEv() #23
+  br label %_ZN2v810MaybeLocalINS_8FunctionEE14ToLocalCheckedEv.exit
+
+_ZN2v810MaybeLocalINS_8FunctionEE14ToLocalCheckedEv.exit: ; preds = %_ZN4node21FIXED_ONE_BYTE_STRINGILi8EEEN2v85LocalINS1_6StringEEEPNS1_7IsolateERAT__Kc.exit, %if.then.i460
+  %call359.sink = phi ptr [ null, %if.then.i460 ], [ %call359, %_ZN4node21FIXED_ONE_BYTE_STRINGILi8EEEN2v85LocalINS1_6StringEEEPNS1_7IsolateERAT__Kc.exit ]
   %18 = load ptr, ptr %principal_realm_.i.i, align 8
   %vtable.i144 = load ptr, ptr %18, align 8
   %vfn.i145 = getelementptr inbounds i8, ptr %vtable.i144, i64 944
   %19 = load ptr, ptr %vfn.i145, align 8
-  tail call void %19(ptr noundef nonnull align 8 dereferenceable(872) %18, ptr nonnull %call359) #23
-  br label %_ZN2v810MaybeLocalINS_8FunctionEE14ToLocalCheckedEv.exit
-
-if.then.i460:                                     ; preds = %_ZN4node21FIXED_ONE_BYTE_STRINGILi8EEEN2v85LocalINS1_6StringEEEPNS1_7IsolateERAT__Kc.exit
-  tail call void @_ZN2v812api_internal12ToLocalEmptyEv() #23
+  tail call void %19(ptr noundef nonnull align 8 dereferenceable(872) %18, ptr %call359.sink) #23
   %20 = load ptr, ptr %principal_realm_.i.i, align 8
-  %vtable.i147 = load ptr, ptr %20, align 8
-  %vfn.i148 = getelementptr inbounds i8, ptr %vtable.i147, i64 944
-  %21 = load ptr, ptr %vfn.i148, align 8
-  tail call void %21(ptr noundef nonnull align 8 dereferenceable(872) %20, ptr null) #23
-  br label %_ZN2v810MaybeLocalINS_8FunctionEE14ToLocalCheckedEv.exit
-
-_ZN2v810MaybeLocalINS_8FunctionEE14ToLocalCheckedEv.exit: ; preds = %do.end.split, %if.then.i460
-  %22 = load ptr, ptr %principal_realm_.i.i, align 8
-  %vtable.i150 = load ptr, ptr %22, align 8
+  %vtable.i150 = load ptr, ptr %20, align 8
   %vfn.i151 = getelementptr inbounds i8, ptr %vtable.i150, i64 64
-  %23 = load ptr, ptr %vfn.i151, align 8
-  %call2.i152 = tail call ptr %23(ptr noundef nonnull align 8 dereferenceable(872) %22) #23
+  %21 = load ptr, ptr %vfn.i151, align 8
+  %call2.i152 = tail call ptr %21(ptr noundef nonnull align 8 dereferenceable(872) %20) #23
   %call398 = tail call i16 @_ZN2v86Object3SetENS_5LocalINS_7ContextEEENS1_INS_5ValueEEES5_(ptr noundef nonnull align 1 dereferenceable(1) %target.coerce, ptr %call2.i152, ptr %call.i.i60, ptr %call359) #23
   %tobool.i539 = trunc i16 %call398 to i1
   br i1 %tobool.i539, label %_ZNK2v85MaybeIbE5CheckEv.exit, label %if.then.i439

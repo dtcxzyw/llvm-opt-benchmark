@@ -2174,24 +2174,20 @@ if.end600:                                        ; preds = %if.end545.split, %d
   %72 = load ptr, ptr %stdio_string_.i.i, align 8
   %call620 = call ptr @_ZN2v86Object3GetENS_5LocalINS_7ContextEEENS1_INS_5ValueEEE(ptr noundef nonnull align 1 dereferenceable(1) %js_value.coerce, ptr %call2.i, ptr %72) #25
   %cmp.i.i967 = icmp eq ptr %call620, null
-  br i1 %cmp.i.i967, label %if.then.i784, label %if.end600.split
-
-if.end600.split:                                  ; preds = %if.end600
-  %call63356 = call noundef i32 @_ZN4node17SyncProcessRunner17ParseStdioOptionsEN2v85LocalINS1_5ValueEEE(ptr noundef nonnull align 8 dereferenceable(520) %this, ptr nonnull %call620)
-  br label %_ZN2v810MaybeLocalINS_5ValueEE14ToLocalCheckedEv.exit
+  br i1 %cmp.i.i967, label %if.then.i784, label %_ZN2v810MaybeLocalINS_5ValueEE14ToLocalCheckedEv.exit
 
 if.then.i784:                                     ; preds = %if.end600
   call void @_ZN2v812api_internal12ToLocalEmptyEv() #25
-  %call63357 = call noundef i32 @_ZN4node17SyncProcessRunner17ParseStdioOptionsEN2v85LocalINS1_5ValueEEE(ptr noundef nonnull align 8 dereferenceable(520) %this, ptr null)
   br label %_ZN2v810MaybeLocalINS_5ValueEE14ToLocalCheckedEv.exit
 
-_ZN2v810MaybeLocalINS_5ValueEE14ToLocalCheckedEv.exit: ; preds = %if.end600.split, %if.then.i784
-  %phi.call58 = phi i32 [ %call63356, %if.end600.split ], [ %call63357, %if.then.i784 ]
-  %cmp634 = icmp slt i32 %phi.call58, 0
+_ZN2v810MaybeLocalINS_5ValueEE14ToLocalCheckedEv.exit: ; preds = %if.end600, %if.then.i784
+  %call620.sink = phi ptr [ null, %if.then.i784 ], [ %call620, %if.end600 ]
+  %call63356 = call noundef i32 @_ZN4node17SyncProcessRunner17ParseStdioOptionsEN2v85LocalINS1_5ValueEEE(ptr noundef nonnull align 8 dereferenceable(520) %this, ptr %call620.sink)
+  %cmp634 = icmp slt i32 %call63356, 0
   br i1 %cmp634, label %if.then635, label %cleanup
 
 if.then635:                                       ; preds = %_ZN2v810MaybeLocalINS_5ValueEE14ToLocalCheckedEv.exit
-  %retval.sroa.21.0.insert.ext.i113 = zext i32 %phi.call58 to i64
+  %retval.sroa.21.0.insert.ext.i113 = zext i32 %call63356 to i64
   %retval.sroa.21.0.insert.shift.i114 = shl nuw i64 %retval.sroa.21.0.insert.ext.i113, 32
   %retval.sroa.0.0.insert.insert.i115 = or disjoint i64 %retval.sroa.21.0.insert.shift.i114, 1
   br label %cleanup

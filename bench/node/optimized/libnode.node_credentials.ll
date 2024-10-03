@@ -3461,20 +3461,16 @@ for.body:                                         ; preds = %for.body.lr.ph, %_Z
   %conv40 = trunc nuw i64 %i.059 to i32
   %call44 = call ptr @_ZN2v86Object3GetENS_5LocalINS_7ContextEEEj(ptr noundef nonnull align 1 dereferenceable(1) %retval.i.sroa.0.0, ptr %call2.i, i32 noundef %conv40) #19
   %cmp.i.i = icmp eq ptr %call44, null
-  br i1 %cmp.i.i, label %if.then.i100, label %for.body.split
-
-for.body.split:                                   ; preds = %for.body
-  %call5645 = call fastcc noundef i32 @_ZN4node11credentialsL11gid_by_nameEPN2v87IsolateENS1_5LocalINS1_5ValueEEE(ptr noundef %21, ptr nonnull %call44)
-  br label %_ZN2v810MaybeLocalINS_5ValueEE14ToLocalCheckedEv.exit
+  br i1 %cmp.i.i, label %if.then.i100, label %_ZN2v810MaybeLocalINS_5ValueEE14ToLocalCheckedEv.exit
 
 if.then.i100:                                     ; preds = %for.body
   call void @_ZN2v812api_internal12ToLocalEmptyEv() #19
-  %call5646 = call fastcc noundef i32 @_ZN4node11credentialsL11gid_by_nameEPN2v87IsolateENS1_5LocalINS1_5ValueEEE(ptr noundef %21, ptr null)
   br label %_ZN2v810MaybeLocalINS_5ValueEE14ToLocalCheckedEv.exit
 
-_ZN2v810MaybeLocalINS_5ValueEE14ToLocalCheckedEv.exit: ; preds = %for.body.split, %if.then.i100
-  %phi.call = phi i32 [ %call5645, %for.body.split ], [ %call5646, %if.then.i100 ]
-  %cmp57 = icmp eq i32 %phi.call, -1
+_ZN2v810MaybeLocalINS_5ValueEE14ToLocalCheckedEv.exit: ; preds = %for.body, %if.then.i100
+  %call44.sink = phi ptr [ null, %if.then.i100 ], [ %call44, %for.body ]
+  %call5645 = call fastcc noundef i32 @_ZN4node11credentialsL11gid_by_nameEPN2v87IsolateENS1_5LocalINS1_5ValueEEE(ptr noundef %21, ptr %call44.sink)
+  %cmp57 = icmp eq i32 %call5645, -1
   br i1 %cmp57, label %if.then58, label %if.end63
 
 if.then58:                                        ; preds = %_ZN2v810MaybeLocalINS_5ValueEE14ToLocalCheckedEv.exit
@@ -3524,7 +3520,7 @@ do.body4.i:                                       ; preds = %if.end63
 _ZN4node16MaybeStackBufferIjLm64EEixEm.exit:      ; preds = %if.end63
   %32 = load ptr, ptr %buf_.i.i, align 8
   %arrayidx.i49 = getelementptr inbounds i32, ptr %32, i64 %i.059
-  store i32 %phi.call, ptr %arrayidx.i49, align 4
+  store i32 %call5645, ptr %arrayidx.i49, align 4
   %inc = add nuw nsw i64 %i.059, 1
   %exitcond.not = icmp eq i64 %inc, %conv
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !11

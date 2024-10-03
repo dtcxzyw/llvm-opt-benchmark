@@ -4014,7 +4014,6 @@ if.then15:                                        ; preds = %if.then
   %mul5.i.i.i = fmul float %3, %3
   %21 = tail call float @llvm.fmuladd.f32(float %1, float %1, float %mul5.i.i.i)
   %22 = tail call noundef float @llvm.fmuladd.f32(float %5, float %5, float %21)
-  %sqrt.i = tail call noundef float @llvm.sqrt.f32(float %22)
   br label %return.sink.split
 
 if.else:                                          ; preds = %if.then
@@ -4028,7 +4027,6 @@ if.then19:                                        ; preds = %if.else
   %mul5.i.i.i29 = fmul float %2, %2
   %25 = tail call float @llvm.fmuladd.f32(float %0, float %0, float %mul5.i.i.i29)
   %26 = tail call noundef float @llvm.fmuladd.f32(float %4, float %4, float %25)
-  %sqrt.i31 = tail call noundef float @llvm.sqrt.f32(float %26)
   br label %return.sink.split
 
 if.else22:                                        ; preds = %if.else
@@ -4047,12 +4045,12 @@ if.else22:                                        ; preds = %if.else
   %div = fdiv float %34, %18
   %cmp.i = fcmp ogt float %div, 0.000000e+00
   %.sroa.speculated = select i1 %cmp.i, float %div, float 0.000000e+00
-  %sqrt = tail call float @llvm.sqrt.f32(float %.sroa.speculated)
   br label %return.sink.split
 
 return.sink.split:                                ; preds = %if.then19, %if.else22, %if.then15
-  %sqrt.i.sink = phi float [ %sqrt.i, %if.then15 ], [ %sqrt, %if.else22 ], [ %sqrt.i31, %if.then19 ]
-  store float %sqrt.i.sink, ptr %dist, align 4
+  %.sink = phi float [ %22, %if.then15 ], [ %.sroa.speculated, %if.else22 ], [ %26, %if.then19 ]
+  %sqrt.i = tail call float @llvm.sqrt.f32(float %.sink)
+  store float %sqrt.i, ptr %dist, align 4
   br label %return
 
 return:                                           ; preds = %return.sink.split, %entry

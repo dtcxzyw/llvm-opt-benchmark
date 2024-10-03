@@ -11711,8 +11711,7 @@ ZSTD_safecopyLiterals.exit:                       ; preds = %476, %.lr.ph.i, %.l
 
 .thread1772:                                      ; preds = %565
   %571 = getelementptr inbounds i8, ptr %532, i64 %569
-  tail call void @llvm.prefetch.p0(ptr %571, i32 0, i32 3, i32 1)
-  br label %577
+  br label %.sink.split
 
 572:                                              ; preds = %565
   %573 = getelementptr inbounds i8, ptr %570, i64 64
@@ -11723,10 +11722,14 @@ ZSTD_safecopyLiterals.exit:                       ; preds = %476, %.lr.ph.i, %.l
 
 575:                                              ; preds = %572
   %576 = getelementptr inbounds i8, ptr %574, i64 32
-  tail call void @llvm.prefetch.p0(ptr nonnull %576, i32 0, i32 3, i32 1)
+  br label %.sink.split
+
+.sink.split:                                      ; preds = %575, %.thread1772
+  %.sink = phi ptr [ %571, %.thread1772 ], [ %576, %575 ]
+  tail call void @llvm.prefetch.p0(ptr %.sink, i32 0, i32 3, i32 1)
   br label %577
 
-577:                                              ; preds = %.thread1772, %575, %572
+577:                                              ; preds = %.sink.split, %572
   %578 = and i64 %indvars.iv2010, 7
   %579 = getelementptr inbounds [8 x i32], ptr %166, i64 0, i64 %578
   store i32 %566, ptr %579, align 4
@@ -12933,8 +12936,7 @@ ZSTD_safecopyLiterals.exit:                       ; preds = %385, %.lr.ph.i, %.l
 
 .thread1741:                                      ; preds = %474
   %480 = getelementptr inbounds i8, ptr %441, i64 %478
-  tail call void @llvm.prefetch.p0(ptr %480, i32 0, i32 3, i32 1)
-  br label %486
+  br label %.sink.split
 
 481:                                              ; preds = %474
   %482 = getelementptr inbounds i8, ptr %479, i64 64
@@ -12945,10 +12947,14 @@ ZSTD_safecopyLiterals.exit:                       ; preds = %385, %.lr.ph.i, %.l
 
 484:                                              ; preds = %481
   %485 = getelementptr inbounds i8, ptr %483, i64 32
-  tail call void @llvm.prefetch.p0(ptr nonnull %485, i32 0, i32 3, i32 1)
+  br label %.sink.split
+
+.sink.split:                                      ; preds = %484, %.thread1741
+  %.sink = phi ptr [ %480, %.thread1741 ], [ %485, %484 ]
+  tail call void @llvm.prefetch.p0(ptr %.sink, i32 0, i32 3, i32 1)
   br label %486
 
-486:                                              ; preds = %.thread1741, %484, %481
+486:                                              ; preds = %.sink.split, %481
   %487 = and i64 %indvars.iv1926, 7
   %488 = getelementptr inbounds [8 x i32], ptr %165, i64 0, i64 %487
   store i32 %475, ptr %488, align 4
@@ -13902,8 +13908,7 @@ ZSTD_safecopyLiterals.exit:                       ; preds = %288, %.lr.ph.i, %.l
 
 .thread1710:                                      ; preds = %377
   %383 = getelementptr inbounds i8, ptr %344, i64 %381
-  tail call void @llvm.prefetch.p0(ptr %383, i32 0, i32 3, i32 1)
-  br label %389
+  br label %.sink.split
 
 384:                                              ; preds = %377
   %385 = getelementptr inbounds i8, ptr %382, i64 64
@@ -13914,10 +13919,14 @@ ZSTD_safecopyLiterals.exit:                       ; preds = %288, %.lr.ph.i, %.l
 
 387:                                              ; preds = %384
   %388 = getelementptr inbounds i8, ptr %386, i64 32
-  tail call void @llvm.prefetch.p0(ptr nonnull %388, i32 0, i32 3, i32 1)
+  br label %.sink.split
+
+.sink.split:                                      ; preds = %387, %.thread1710
+  %.sink = phi ptr [ %383, %.thread1710 ], [ %388, %387 ]
+  tail call void @llvm.prefetch.p0(ptr %.sink, i32 0, i32 3, i32 1)
   br label %389
 
-389:                                              ; preds = %.thread1710, %387, %384
+389:                                              ; preds = %.sink.split, %384
   %390 = and i64 %indvars.iv1861, 7
   %391 = getelementptr inbounds [8 x i32], ptr %164, i64 0, i64 %390
   store i32 %378, ptr %391, align 4
@@ -15112,8 +15121,7 @@ ZSTD_safecopyLiterals.exit:                       ; preds = %407, %.lr.ph.i, %.l
 
 .thread1680:                                      ; preds = %496
   %502 = getelementptr inbounds i8, ptr %463, i64 %500
-  tail call void @llvm.prefetch.p0(ptr %502, i32 0, i32 3, i32 1)
-  br label %508
+  br label %.sink.split
 
 503:                                              ; preds = %496
   %504 = getelementptr inbounds i8, ptr %501, i64 64
@@ -15124,10 +15132,14 @@ ZSTD_safecopyLiterals.exit:                       ; preds = %407, %.lr.ph.i, %.l
 
 506:                                              ; preds = %503
   %507 = getelementptr inbounds i8, ptr %505, i64 32
-  tail call void @llvm.prefetch.p0(ptr nonnull %507, i32 0, i32 3, i32 1)
+  br label %.sink.split
+
+.sink.split:                                      ; preds = %506, %.thread1680
+  %.sink = phi ptr [ %502, %.thread1680 ], [ %507, %506 ]
+  tail call void @llvm.prefetch.p0(ptr %.sink, i32 0, i32 3, i32 1)
   br label %508
 
-508:                                              ; preds = %.thread1680, %506, %503
+508:                                              ; preds = %.sink.split, %503
   %509 = and i64 %indvars.iv1916, 7
   %510 = getelementptr inbounds [8 x i32], ptr %165, i64 0, i64 %509
   store i32 %497, ptr %510, align 4
@@ -16293,8 +16305,7 @@ ZSTD_safecopyLiterals.exit:                       ; preds = %338, %.lr.ph.i, %.l
 
 .thread1677:                                      ; preds = %427
   %433 = getelementptr inbounds i8, ptr %394, i64 %431
-  tail call void @llvm.prefetch.p0(ptr %433, i32 0, i32 3, i32 1)
-  br label %439
+  br label %.sink.split
 
 434:                                              ; preds = %427
   %435 = getelementptr inbounds i8, ptr %432, i64 64
@@ -16305,10 +16316,14 @@ ZSTD_safecopyLiterals.exit:                       ; preds = %338, %.lr.ph.i, %.l
 
 437:                                              ; preds = %434
   %438 = getelementptr inbounds i8, ptr %436, i64 32
-  tail call void @llvm.prefetch.p0(ptr nonnull %438, i32 0, i32 3, i32 1)
+  br label %.sink.split
+
+.sink.split:                                      ; preds = %437, %.thread1677
+  %.sink = phi ptr [ %433, %.thread1677 ], [ %438, %437 ]
+  tail call void @llvm.prefetch.p0(ptr %.sink, i32 0, i32 3, i32 1)
   br label %439
 
-439:                                              ; preds = %.thread1677, %437, %434
+439:                                              ; preds = %.sink.split, %434
   %440 = and i64 %indvars.iv1866, 7
   %441 = getelementptr inbounds [8 x i32], ptr %164, i64 0, i64 %440
   store i32 %428, ptr %441, align 4
@@ -17302,8 +17317,7 @@ ZSTD_safecopyLiterals.exit:                       ; preds = %264, %.lr.ph.i, %.l
 
 .thread1675:                                      ; preds = %353
   %359 = getelementptr inbounds i8, ptr %320, i64 %357
-  tail call void @llvm.prefetch.p0(ptr %359, i32 0, i32 3, i32 1)
-  br label %365
+  br label %.sink.split
 
 360:                                              ; preds = %353
   %361 = getelementptr inbounds i8, ptr %358, i64 64
@@ -17314,10 +17328,14 @@ ZSTD_safecopyLiterals.exit:                       ; preds = %264, %.lr.ph.i, %.l
 
 363:                                              ; preds = %360
   %364 = getelementptr inbounds i8, ptr %362, i64 32
-  tail call void @llvm.prefetch.p0(ptr nonnull %364, i32 0, i32 3, i32 1)
+  br label %.sink.split
+
+.sink.split:                                      ; preds = %363, %.thread1675
+  %.sink = phi ptr [ %359, %.thread1675 ], [ %364, %363 ]
+  tail call void @llvm.prefetch.p0(ptr %.sink, i32 0, i32 3, i32 1)
   br label %365
 
-365:                                              ; preds = %.thread1675, %363, %360
+365:                                              ; preds = %.sink.split, %360
   %366 = and i64 %indvars.iv1862, 7
   %367 = getelementptr inbounds [8 x i32], ptr %163, i64 0, i64 %366
   store i32 %354, ptr %367, align 4
@@ -18627,8 +18645,7 @@ ZSTD_safecopyLiterals.exit:                       ; preds = %407, %.lr.ph.i, %.l
 
 .thread1680:                                      ; preds = %496
   %502 = getelementptr inbounds i8, ptr %463, i64 %500
-  tail call void @llvm.prefetch.p0(ptr %502, i32 0, i32 3, i32 1)
-  br label %508
+  br label %.sink.split
 
 503:                                              ; preds = %496
   %504 = getelementptr inbounds i8, ptr %501, i64 64
@@ -18639,10 +18656,14 @@ ZSTD_safecopyLiterals.exit:                       ; preds = %407, %.lr.ph.i, %.l
 
 506:                                              ; preds = %503
   %507 = getelementptr inbounds i8, ptr %505, i64 32
-  tail call void @llvm.prefetch.p0(ptr nonnull %507, i32 0, i32 3, i32 1)
+  br label %.sink.split
+
+.sink.split:                                      ; preds = %506, %.thread1680
+  %.sink = phi ptr [ %502, %.thread1680 ], [ %507, %506 ]
+  tail call void @llvm.prefetch.p0(ptr %.sink, i32 0, i32 3, i32 1)
   br label %508
 
-508:                                              ; preds = %.thread1680, %506, %503
+508:                                              ; preds = %.sink.split, %503
   %509 = and i64 %indvars.iv1916, 7
   %510 = getelementptr inbounds [8 x i32], ptr %165, i64 0, i64 %509
   store i32 %497, ptr %510, align 4
@@ -19808,8 +19829,7 @@ ZSTD_safecopyLiterals.exit:                       ; preds = %338, %.lr.ph.i, %.l
 
 .thread1677:                                      ; preds = %427
   %433 = getelementptr inbounds i8, ptr %394, i64 %431
-  tail call void @llvm.prefetch.p0(ptr %433, i32 0, i32 3, i32 1)
-  br label %439
+  br label %.sink.split
 
 434:                                              ; preds = %427
   %435 = getelementptr inbounds i8, ptr %432, i64 64
@@ -19820,10 +19840,14 @@ ZSTD_safecopyLiterals.exit:                       ; preds = %338, %.lr.ph.i, %.l
 
 437:                                              ; preds = %434
   %438 = getelementptr inbounds i8, ptr %436, i64 32
-  tail call void @llvm.prefetch.p0(ptr nonnull %438, i32 0, i32 3, i32 1)
+  br label %.sink.split
+
+.sink.split:                                      ; preds = %437, %.thread1677
+  %.sink = phi ptr [ %433, %.thread1677 ], [ %438, %437 ]
+  tail call void @llvm.prefetch.p0(ptr %.sink, i32 0, i32 3, i32 1)
   br label %439
 
-439:                                              ; preds = %.thread1677, %437, %434
+439:                                              ; preds = %.sink.split, %434
   %440 = and i64 %indvars.iv1866, 7
   %441 = getelementptr inbounds [8 x i32], ptr %164, i64 0, i64 %440
   store i32 %428, ptr %441, align 4
@@ -20817,8 +20841,7 @@ ZSTD_safecopyLiterals.exit:                       ; preds = %264, %.lr.ph.i, %.l
 
 .thread1675:                                      ; preds = %353
   %359 = getelementptr inbounds i8, ptr %320, i64 %357
-  tail call void @llvm.prefetch.p0(ptr %359, i32 0, i32 3, i32 1)
-  br label %365
+  br label %.sink.split
 
 360:                                              ; preds = %353
   %361 = getelementptr inbounds i8, ptr %358, i64 64
@@ -20829,10 +20852,14 @@ ZSTD_safecopyLiterals.exit:                       ; preds = %264, %.lr.ph.i, %.l
 
 363:                                              ; preds = %360
   %364 = getelementptr inbounds i8, ptr %362, i64 32
-  tail call void @llvm.prefetch.p0(ptr nonnull %364, i32 0, i32 3, i32 1)
+  br label %.sink.split
+
+.sink.split:                                      ; preds = %363, %.thread1675
+  %.sink = phi ptr [ %359, %.thread1675 ], [ %364, %363 ]
+  tail call void @llvm.prefetch.p0(ptr %.sink, i32 0, i32 3, i32 1)
   br label %365
 
-365:                                              ; preds = %.thread1675, %363, %360
+365:                                              ; preds = %.sink.split, %360
   %366 = and i64 %indvars.iv1862, 7
   %367 = getelementptr inbounds [8 x i32], ptr %163, i64 0, i64 %366
   store i32 %354, ptr %367, align 4
@@ -25509,8 +25536,7 @@ ZSTD_safecopyLiterals.exit:                       ; preds = %262, %.lr.ph.i, %.l
 
 .thread1454:                                      ; preds = %351
   %357 = getelementptr inbounds i8, ptr %318, i64 %355
-  tail call void @llvm.prefetch.p0(ptr %357, i32 0, i32 3, i32 1)
-  br label %363
+  br label %.sink.split
 
 358:                                              ; preds = %351
   %359 = getelementptr inbounds i8, ptr %356, i64 64
@@ -25521,10 +25547,14 @@ ZSTD_safecopyLiterals.exit:                       ; preds = %262, %.lr.ph.i, %.l
 
 361:                                              ; preds = %358
   %362 = getelementptr inbounds i8, ptr %360, i64 32
-  tail call void @llvm.prefetch.p0(ptr nonnull %362, i32 0, i32 3, i32 1)
+  br label %.sink.split
+
+.sink.split:                                      ; preds = %361, %.thread1454
+  %.sink = phi ptr [ %357, %.thread1454 ], [ %362, %361 ]
+  tail call void @llvm.prefetch.p0(ptr %.sink, i32 0, i32 3, i32 1)
   br label %363
 
-363:                                              ; preds = %.thread1454, %361, %358
+363:                                              ; preds = %.sink.split, %358
   %364 = and i64 %indvars.iv1656, 7
   %365 = getelementptr inbounds [8 x i32], ptr %154, i64 0, i64 %364
   store i32 %352, ptr %365, align 4
@@ -26705,8 +26735,7 @@ ZSTD_safecopyLiterals.exit:                       ; preds = %340, %.lr.ph.i, %.l
 
 .thread1460:                                      ; preds = %429
   %435 = getelementptr inbounds i8, ptr %396, i64 %433
-  tail call void @llvm.prefetch.p0(ptr %435, i32 0, i32 3, i32 1)
-  br label %441
+  br label %.sink.split
 
 436:                                              ; preds = %429
   %437 = getelementptr inbounds i8, ptr %434, i64 64
@@ -26717,10 +26746,14 @@ ZSTD_safecopyLiterals.exit:                       ; preds = %340, %.lr.ph.i, %.l
 
 439:                                              ; preds = %436
   %440 = getelementptr inbounds i8, ptr %438, i64 32
-  tail call void @llvm.prefetch.p0(ptr nonnull %440, i32 0, i32 3, i32 1)
+  br label %.sink.split
+
+.sink.split:                                      ; preds = %439, %.thread1460
+  %.sink = phi ptr [ %435, %.thread1460 ], [ %440, %439 ]
+  tail call void @llvm.prefetch.p0(ptr %.sink, i32 0, i32 3, i32 1)
   br label %441
 
-441:                                              ; preds = %.thread1460, %439, %436
+441:                                              ; preds = %.sink.split, %436
   %442 = and i64 %indvars.iv1673, 7
   %443 = getelementptr inbounds [8 x i32], ptr %155, i64 0, i64 %442
   store i32 %430, ptr %443, align 4
@@ -28055,8 +28088,7 @@ ZSTD_safecopyLiterals.exit:                       ; preds = %414, %.lr.ph.i, %.l
 
 .thread1466:                                      ; preds = %503
   %509 = getelementptr inbounds i8, ptr %470, i64 %507
-  tail call void @llvm.prefetch.p0(ptr %509, i32 0, i32 3, i32 1)
-  br label %515
+  br label %.sink.split
 
 510:                                              ; preds = %503
   %511 = getelementptr inbounds i8, ptr %508, i64 64
@@ -28067,10 +28099,14 @@ ZSTD_safecopyLiterals.exit:                       ; preds = %414, %.lr.ph.i, %.l
 
 513:                                              ; preds = %510
   %514 = getelementptr inbounds i8, ptr %512, i64 32
-  tail call void @llvm.prefetch.p0(ptr nonnull %514, i32 0, i32 3, i32 1)
+  br label %.sink.split
+
+.sink.split:                                      ; preds = %513, %.thread1466
+  %.sink = phi ptr [ %509, %.thread1466 ], [ %514, %513 ]
+  tail call void @llvm.prefetch.p0(ptr %.sink, i32 0, i32 3, i32 1)
   br label %515
 
-515:                                              ; preds = %.thread1466, %513, %510
+515:                                              ; preds = %.sink.split, %510
   %516 = and i64 %indvars.iv1727, 7
   %517 = getelementptr inbounds [8 x i32], ptr %156, i64 0, i64 %516
   store i32 %504, ptr %517, align 4

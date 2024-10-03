@@ -7523,44 +7523,34 @@ if.then16:                                        ; preds = %if.then12
   %26 = ptrtoint ptr %25 to i64
   %add1.i = add i64 %26, 608
   %27 = inttoptr i64 %add1.i to ptr
-  %vtable = load ptr, ptr %1, align 8
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 168
-  %28 = load ptr, ptr %vfn, align 8
-  call void %28(ptr noundef nonnull align 8 dereferenceable(648) %1, ptr %27) #30
   br label %cleanup
 
 if.end29:                                         ; preds = %if.then12
   call void @_ZN4node3url18FromNamespacedPathEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull %first_path) #30
   store ptr null, ptr %error, align 8
   %realm_.i25 = getelementptr inbounds i8, ptr %1, i64 16
-  %29 = load ptr, ptr %realm_.i25, align 8
-  %env_.i.i26 = getelementptr inbounds i8, ptr %29, i64 176
-  %30 = load ptr, ptr %env_.i.i26, align 8
-  %isolate_.i27 = getelementptr inbounds i8, ptr %30, i64 88
-  %31 = load ptr, ptr %isolate_.i27, align 8
+  %28 = load ptr, ptr %realm_.i25, align 8
+  %env_.i.i26 = getelementptr inbounds i8, ptr %28, i64 176
+  %29 = load ptr, ptr %env_.i.i26, align 8
+  %isolate_.i27 = getelementptr inbounds i8, ptr %29, i64 88
+  %30 = load ptr, ptr %isolate_.i27, align 8
   %call33 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %first_path) #30
   %encoding_.i = getelementptr inbounds i8, ptr %1, i64 536
-  %32 = load i32, ptr %encoding_.i, align 8
-  %call35 = call ptr @_ZN4node11StringBytes6EncodeEPN2v87IsolateEPKcNS_8encodingEPNS1_5LocalINS1_5ValueEEE(ptr noundef %31, ptr noundef %call33, i32 noundef %32, ptr noundef nonnull %error) #30
+  %31 = load i32, ptr %encoding_.i, align 8
+  %call35 = call ptr @_ZN4node11StringBytes6EncodeEPN2v87IsolateEPKcNS_8encodingEPNS1_5LocalINS1_5ValueEEE(ptr noundef %30, ptr noundef %call33, i32 noundef %31, ptr noundef nonnull %error) #30
   %cmp.i.i = icmp eq ptr %call35, null
-  br i1 %cmp.i.i, label %if.then41, label %if.end48
-
-if.then41:                                        ; preds = %if.end29
   %agg.tmp42.sroa.0.0.copyload = load ptr, ptr %error, align 8
-  %vtable46 = load ptr, ptr %1, align 8
-  %vfn47 = getelementptr inbounds i8, ptr %vtable46, i64 160
-  %33 = load ptr, ptr %vfn47, align 8
-  call void %33(ptr noundef nonnull align 8 dereferenceable(648) %1, ptr %agg.tmp42.sroa.0.0.copyload) #30
+  %spec.select = select i1 %cmp.i.i, i64 160, i64 168
+  %spec.select30 = select i1 %cmp.i.i, ptr %agg.tmp42.sroa.0.0.copyload, ptr %call35
   br label %cleanup
 
-if.end48:                                         ; preds = %if.end29
+cleanup:                                          ; preds = %if.end29, %if.then16
+  %.sink = phi i64 [ 168, %if.then16 ], [ %spec.select, %if.end29 ]
+  %call35.sink = phi ptr [ %27, %if.then16 ], [ %spec.select30, %if.end29 ]
   %vtable53 = load ptr, ptr %1, align 8
-  %vfn54 = getelementptr inbounds i8, ptr %vtable53, i64 168
-  %34 = load ptr, ptr %vfn54, align 8
-  call void %34(ptr noundef nonnull align 8 dereferenceable(648) %1, ptr nonnull %call35) #30
-  br label %cleanup
-
-cleanup:                                          ; preds = %if.end48, %if.then41, %if.then16
+  %vfn54 = getelementptr inbounds i8, ptr %vtable53, i64 %.sink
+  %32 = load ptr, ptr %vfn54, align 8
+  call void %32(ptr noundef nonnull align 8 dereferenceable(648) %1, ptr %call35.sink) #30
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %first_path) #30
   br label %cleanup56
 

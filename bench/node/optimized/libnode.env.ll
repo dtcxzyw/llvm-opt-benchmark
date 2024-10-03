@@ -65210,20 +65210,17 @@ declare void @_ZN4node9inspector5Agent14ContextCreatedEN2v85LocalINS2_7ContextEE
 define dso_local void @_ZN4node11Environment19UnassignFromContextEN2v85LocalINS1_7ContextEEE(ptr noundef nonnull align 8 dereferenceable(2872) %this, ptr %context.coerce) local_unnamed_addr #3 align 2 {
 entry:
   %cmp.i = icmp eq ptr %context.coerce, null
-  br i1 %cmp.i, label %entry.split, label %if.then
-
-entry.split:                                      ; preds = %entry
-  tail call void @_ZN4node11Environment14UntrackContextEN2v85LocalINS1_7ContextEEE(ptr noundef nonnull align 8 dereferenceable(2872) %this, ptr null)
-  br label %if.end
+  br i1 %cmp.i, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
   tail call void @_ZN2v87Context31SetAlignedPointerInEmbedderDataEiPv(ptr noundef nonnull align 1 dereferenceable(1) %context.coerce, i32 noundef 32, ptr noundef null) #24
   tail call void @_ZN2v87Context31SetAlignedPointerInEmbedderDataEiPv(ptr noundef nonnull align 1 dereferenceable(1) %context.coerce, i32 noundef 38, ptr noundef null) #24
   tail call void @_ZN2v87Context31SetAlignedPointerInEmbedderDataEiPv(ptr noundef nonnull align 1 dereferenceable(1) %context.coerce, i32 noundef 37, ptr noundef null) #24
-  tail call void @_ZN4node11Environment14UntrackContextEN2v85LocalINS1_7ContextEEE(ptr noundef nonnull align 8 dereferenceable(2872) %this, ptr nonnull %context.coerce)
   br label %if.end
 
-if.end:                                           ; preds = %entry.split, %if.then
+if.end:                                           ; preds = %entry, %if.then
+  %.sink = phi ptr [ %context.coerce, %if.then ], [ null, %entry ]
+  tail call void @_ZN4node11Environment14UntrackContextEN2v85LocalINS1_7ContextEEE(ptr noundef nonnull align 8 dereferenceable(2872) %this, ptr %.sink)
   ret void
 }
 
