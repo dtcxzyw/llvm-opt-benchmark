@@ -37753,7 +37753,7 @@ sundials/sunlinsol_spfgmr.c.ll 212636179
 sundials/sunlinsol_spgmr.c.ll 222126304
 sundials/sunlinsol_sptfqmr.c.ll 215614951
 sundials/sunmatrix_band.c.ll 200541543
-sundials/sunmatrix_dense.c.ll 121118579
+sundials/sunmatrix_dense.c.ll 120997357
 sundials/sunmatrix_sparse.c.ll 489668085
 sundials/sunnonlinsol_fixedpoint.c.ll 278914850
 sundials/sunnonlinsol_newton.c.ll 81660659
