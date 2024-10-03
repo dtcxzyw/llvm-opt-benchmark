@@ -15072,7 +15072,7 @@ llvm/Attributor.cpp.ll 22302508758
 llvm/AttributorAttributes.cpp.ll 40022088382
 llvm/AutoUpgrade.cpp.ll 9213799955
 llvm/Availability.cpp.ll 846448080
-llvm/BDCE.cpp.ll 894669558
+llvm/BDCE.cpp.ll 895564928
 llvm/BPF.cpp.ll 470567155
 llvm/BTFContext.cpp.ll 283596688
 llvm/BTFParser.cpp.ll 3147335250
@@ -15113,7 +15113,7 @@ llvm/BlockFrequencyInfo.cpp.ll 6373128309
 llvm/BlockFrequencyInfoImpl.cpp.ll 3990722884
 llvm/BlockInCriticalSectionChecker.cpp.ll 2876549433
 llvm/BodyFarm.cpp.ll 1571772968
-llvm/BoolAssignmentChecker.cpp.ll 631509781
+llvm/BoolAssignmentChecker.cpp.ll 632142591
 llvm/BoundsChecking.cpp.ll 1336676690
 llvm/BranchFolding.cpp.ll 4473318476
 llvm/BranchProbability.cpp.ll 115327580
@@ -16358,7 +16358,7 @@ llvm/OpenACCClause.cpp.ll 1336528840
 llvm/OpenBSD.cpp.ll 862394018
 llvm/OpenCLOptions.cpp.ll 509545095
 llvm/OpenMPClause.cpp.ll 5788104573
-llvm/OpenMPKinds.cpp.ll 819608437
+llvm/OpenMPKinds.cpp.ll 820428130
 llvm/OpenMPOpt.cpp.ll 29939784852
 llvm/Operator.cpp.ll 1103790178
 llvm/OperatorPrecedence.cpp.ll 37958707
@@ -19799,7 +19799,7 @@ node/idna.ll 382557166
 node/inet.ll 270945968
 node/libnode.NodeRuntime.ll 467045415
 node/libnode.NodeTracing.ll 1120901783
-node/libnode.NodeWorker.ll 902195005
+node/libnode.NodeWorker.ll 903099292
 node/libnode.Protocol.ll 6063597643
 node/libnode.agent.ll 1055557518
 node/libnode.application.ll 516299252
