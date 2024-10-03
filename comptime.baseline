@@ -3232,7 +3232,7 @@ cmake/cmCTestMemCheckCommand.cxx.ll 308477405
 cmake/cmCTestMemCheckHandler.cxx.ll 2688618678
 cmake/cmCTestMultiProcessHandler.cxx.ll 5935032243
 cmake/cmCTestP4.cxx.ll 1281698639
-cmake/cmCTestReadCustomFilesCommand.cxx.ll 105413584
+cmake/cmCTestReadCustomFilesCommand.cxx.ll 105519126
 cmake/cmCTestResourceAllocator.cxx.ll 397336015
 cmake/cmCTestResourceGroupsLexer.cxx.ll 507711433
 cmake/cmCTestResourceGroupsLexerHelper.cxx.ll 274339091
