@@ -389,97 +389,96 @@ declare dso_local void @folio_wait_writeback(ptr noundef) local_unnamed_addr #2
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local noundef range(i32 -22, 1) i32 @generic_error_remove_folio(ptr noundef readonly %0, ptr noundef %1) #0 align 16 {
   %3 = icmp eq ptr %0, null
-  br i1 %3, label %55, label %4
+  br i1 %3, label %54, label %4
 
 4:                                                ; preds = %2
   %5 = load ptr, ptr %0, align 8
   %6 = load i16, ptr %5, align 8
-  %7 = and i16 %6, -4096
-  %8 = icmp eq i16 %7, -32768
-  br i1 %8, label %9, label %55
+  %7 = icmp slt i16 %6, -28672
+  br i1 %7, label %8, label %54
 
-9:                                                ; preds = %4
-  %10 = getelementptr inbounds i8, ptr %1, i64 24
-  %11 = load ptr, ptr %10, align 8
-  %12 = icmp eq ptr %11, %0
-  br i1 %12, label %13, label %55
+8:                                                ; preds = %4
+  %9 = getelementptr inbounds i8, ptr %1, i64 24
+  %10 = load ptr, ptr %9, align 8
+  %11 = icmp eq ptr %10, %0
+  br i1 %11, label %12, label %54
 
-13:                                               ; preds = %9
-  %14 = load volatile i64, ptr %1, align 8
-  %15 = and i64 %14, 64
-  %16 = icmp eq i64 %15, 0
-  br i1 %16, label %21, label %17, !prof !5
+12:                                               ; preds = %8
+  %13 = load volatile i64, ptr %1, align 8
+  %14 = and i64 %13, 64
+  %15 = icmp eq i64 %14, 0
+  br i1 %15, label %20, label %16, !prof !5
 
-17:                                               ; preds = %13
-  %18 = getelementptr inbounds i8, ptr %1, i64 92
-  %19 = load volatile i32, ptr %18, align 4
-  %20 = icmp sgt i32 %19, 0
-  br i1 %20, label %26, label %21
+16:                                               ; preds = %12
+  %17 = getelementptr inbounds i8, ptr %1, i64 92
+  %18 = load volatile i32, ptr %17, align 4
+  %19 = icmp sgt i32 %18, 0
+  br i1 %19, label %25, label %20
 
-21:                                               ; preds = %17, %13
-  %22 = phi i64 [ 48, %13 ], [ 88, %17 ]
-  %23 = getelementptr inbounds i8, ptr %1, i64 %22
-  %24 = load volatile i32, ptr %23, align 4
-  %25 = icmp sgt i32 %24, -1
-  br i1 %25, label %26, label %27
+20:                                               ; preds = %16, %12
+  %21 = phi i64 [ 48, %12 ], [ 88, %16 ]
+  %22 = getelementptr inbounds i8, ptr %1, i64 %21
+  %23 = load volatile i32, ptr %22, align 4
+  %24 = icmp sgt i32 %23, -1
+  br i1 %24, label %25, label %26
 
-26:                                               ; preds = %21, %17
+25:                                               ; preds = %20, %16
   tail call void @unmap_mapping_folio(ptr noundef %1) #5
   %.pre.i = load i64, ptr %1, align 16
-  br label %27
+  br label %26
 
-27:                                               ; preds = %26, %21
-  %28 = phi i64 [ %.pre.i, %26 ], [ %14, %21 ]
-  %29 = and i64 %28, 98304
-  %30 = icmp eq i64 %29, 0
-  br i1 %30, label %49, label %31
+26:                                               ; preds = %25, %20
+  %27 = phi i64 [ %.pre.i, %25 ], [ %13, %20 ]
+  %28 = and i64 %27, 98304
+  %29 = icmp eq i64 %28, 0
+  br i1 %29, label %48, label %30
 
-31:                                               ; preds = %27
-  %32 = load volatile i64, ptr %1, align 8
-  %33 = and i64 %32, 64
-  %34 = icmp eq i64 %33, 0
-  br i1 %34, label %39, label %35
+30:                                               ; preds = %26
+  %31 = load volatile i64, ptr %1, align 8
+  %32 = and i64 %31, 64
+  %33 = icmp eq i64 %32, 0
+  br i1 %33, label %38, label %34
 
-35:                                               ; preds = %31
-  %36 = getelementptr inbounds i8, ptr %1, i64 64
-  %37 = load i64, ptr %36, align 16
-  %38 = and i64 %37, 255
-  br label %39
+34:                                               ; preds = %30
+  %35 = getelementptr inbounds i8, ptr %1, i64 64
+  %36 = load i64, ptr %35, align 16
+  %37 = and i64 %36, 255
+  br label %38
 
-39:                                               ; preds = %35, %31
-  %40 = phi i64 [ %38, %35 ], [ 0, %31 ]
-  %41 = load ptr, ptr %10, align 8
-  %42 = getelementptr inbounds i8, ptr %41, i64 104
-  %43 = load ptr, ptr %42, align 8
-  %44 = getelementptr inbounds i8, ptr %43, i64 64
-  %45 = load ptr, ptr %44, align 8
-  %46 = icmp eq ptr %45, null
-  br i1 %46, label %49, label %47
+38:                                               ; preds = %34, %30
+  %39 = phi i64 [ %37, %34 ], [ 0, %30 ]
+  %40 = load ptr, ptr %9, align 8
+  %41 = getelementptr inbounds i8, ptr %40, i64 104
+  %42 = load ptr, ptr %41, align 8
+  %43 = getelementptr inbounds i8, ptr %42, i64 64
+  %44 = load ptr, ptr %43, align 8
+  %45 = icmp eq ptr %44, null
+  br i1 %45, label %48, label %46
 
-47:                                               ; preds = %39
-  %48 = shl i64 4096, %40
-  tail call void %45(ptr noundef %1, i64 noundef 0, i64 noundef %48) #5
-  br label %49
+46:                                               ; preds = %38
+  %47 = shl i64 4096, %39
+  tail call void %44(ptr noundef %1, i64 noundef 0, i64 noundef %47) #5
+  br label %48
 
-49:                                               ; preds = %47, %39, %27
-  %50 = load volatile i64, ptr %1, align 8
-  %51 = and i64 %50, 16
-  %52 = icmp eq i64 %51, 0
-  br i1 %52, label %truncate_cleanup_folio.exit, label %53
+48:                                               ; preds = %46, %38, %26
+  %49 = load volatile i64, ptr %1, align 8
+  %50 = and i64 %49, 16
+  %51 = icmp eq i64 %50, 0
+  br i1 %51, label %truncate_cleanup_folio.exit, label %52
 
-53:                                               ; preds = %49
+52:                                               ; preds = %48
   tail call void @__folio_cancel_dirty(ptr noundef %1) #5
   br label %truncate_cleanup_folio.exit
 
-truncate_cleanup_folio.exit:                      ; preds = %49, %53
-  %54 = getelementptr i8, ptr %1, i64 2
-  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; andb ${1:b},$0", "=*m,iq,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %54, i32 -3, ptr elementtype(i8) %54) #5, !srcloc !6
+truncate_cleanup_folio.exit:                      ; preds = %48, %52
+  %53 = getelementptr i8, ptr %1, i64 2
+  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; andb ${1:b},$0", "=*m,iq,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %53, i32 -3, ptr elementtype(i8) %53) #5, !srcloc !6
   tail call void @filemap_remove_folio(ptr noundef %1) #5
-  br label %55
+  br label %54
 
-55:                                               ; preds = %truncate_cleanup_folio.exit, %9, %4, %2
-  %56 = phi i32 [ -22, %2 ], [ -5, %4 ], [ 0, %truncate_cleanup_folio.exit ], [ -5, %9 ]
-  ret i32 %56
+54:                                               ; preds = %truncate_cleanup_folio.exit, %8, %4, %2
+  %55 = phi i32 [ -22, %2 ], [ -5, %4 ], [ 0, %truncate_cleanup_folio.exit ], [ -5, %8 ]
+  ret i32 %55
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid

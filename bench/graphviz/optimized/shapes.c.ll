@@ -6135,7 +6135,7 @@ gv_alloc.exit:                                    ; preds = %4
 52:                                               ; preds = %50
   tail call fastcc void @free_field(ptr noundef nonnull %6)
   tail call void @free(ptr noundef %.0138.ph255.ph.ph) #26
-  br label %208
+  br label %206
 
 53:                                               ; preds = %50
   %54 = load i8, ptr %38, align 2
@@ -6160,7 +6160,7 @@ gv_alloc.exit:                                    ; preds = %4
 64:                                               ; preds = %62
   tail call fastcc void @free_field(ptr noundef nonnull %6)
   tail call void @free(ptr noundef %.0138.ph255.ph.ph) #26
-  br label %208
+  br label %206
 
 65:                                               ; preds = %62
   %66 = icmp ugt ptr %.0151.ph252.ph, %43
@@ -6212,7 +6212,7 @@ gv_strdup.exit:                                   ; preds = %72
 87:                                               ; preds = %85, %83
   tail call fastcc void @free_field(ptr noundef nonnull %6)
   tail call void @free(ptr noundef %.0138.ph255.ph.ph) #26
-  br label %208
+  br label %206
 
 88:                                               ; preds = %85
   %89 = tail call fastcc ptr @parse_reclbl(ptr noundef %0, i1 noundef zeroext %42, i1 noundef zeroext false, ptr noundef %3)
@@ -6227,7 +6227,7 @@ gv_strdup.exit:                                   ; preds = %72
 94:                                               ; preds = %88
   tail call fastcc void @free_field(ptr noundef nonnull %6)
   tail call void @free(ptr noundef %.0138.ph255.ph.ph) #26
-  br label %208
+  br label %206
 
 95:                                               ; preds = %.split.us, %.split.us, %.split.us
   %.0156.ptr.le.le508 = getelementptr inbounds i8, ptr %3, i64 %.0156.idx.ph251.ph
@@ -6241,7 +6241,7 @@ gv_strdup.exit:                                   ; preds = %72
 97:                                               ; preds = %95
   tail call fastcc void @free_field(ptr noundef nonnull %6)
   tail call void @free(ptr noundef %.0138.ph255.ph.ph) #26
-  br label %208
+  br label %206
 
 98:                                               ; preds = %95
   %99 = and i32 %.0131.ph256, 4
@@ -6343,7 +6343,7 @@ gv_alloc.exit202:                                 ; preds = %100
   store ptr %140, ptr @reclblp, align 8
   %141 = getelementptr inbounds i8, ptr %6, i64 48
   store i32 %.2130, ptr %141, align 8
-  br label %208
+  br label %206
 
 142:                                              ; preds = %136
   %143 = getelementptr inbounds i8, ptr %137, i64 1
@@ -6400,7 +6400,7 @@ gv_alloc.exit202:                                 ; preds = %100
 157:                                              ; preds = %154
   tail call fastcc void @free_field(ptr noundef nonnull %6)
   tail call void @free(ptr noundef %.0138.ph255.ph.ph) #26
-  br label %208
+  br label %206
 
 158:                                              ; preds = %154, %.loopexit
   %159 = and i32 %.1132, 24
@@ -6492,29 +6492,27 @@ gv_alloc.exit202:                                 ; preds = %100
   %196 = getelementptr inbounds i8, ptr %195, i64 1
   store ptr %196, ptr @reclblp, align 8
   %197 = load i8, ptr %196, align 1
-  %198 = and i8 %197, -64
-  %199 = icmp eq i8 %198, -128
-  br i1 %199, label %.lr.ph247.preheader, label %.lr.ph.split.us.outer
+  %198 = icmp slt i8 %197, -64
+  br i1 %198, label %.lr.ph247.preheader, label %.lr.ph.split.us.outer
 
 .lr.ph247.preheader:                              ; preds = %.thread280
-  %200 = getelementptr inbounds i8, ptr %195, i64 1
+  %199 = getelementptr inbounds i8, ptr %195, i64 1
   br label %.lr.ph247
 
 .lr.ph247:                                        ; preds = %.lr.ph247.preheader, %.lr.ph247
-  %201 = phi i8 [ %204, %.lr.ph247 ], [ %197, %.lr.ph247.preheader ]
+  %200 = phi i8 [ %203, %.lr.ph247 ], [ %197, %.lr.ph247.preheader ]
   %.9.idx245 = phi i64 [ %.9.add, %.lr.ph247 ], [ %.8.idx, %.lr.ph247.preheader ]
-  %202 = phi ptr [ %203, %.lr.ph247 ], [ %200, %.lr.ph247.preheader ]
+  %201 = phi ptr [ %202, %.lr.ph247 ], [ %199, %.lr.ph247.preheader ]
   %.9.ptr = getelementptr inbounds i8, ptr %3, i64 %.9.idx245
-  %203 = getelementptr inbounds i8, ptr %202, i64 1
+  %202 = getelementptr inbounds i8, ptr %201, i64 1
   %.9.add = add nsw i64 %.9.idx245, 1
-  store i8 %201, ptr %.9.ptr, align 1
-  %204 = load i8, ptr %203, align 1
-  %205 = and i8 %204, -64
-  %206 = icmp eq i8 %205, -128
-  br i1 %206, label %.lr.ph247, label %.outer.sink.split
+  store i8 %200, ptr %.9.ptr, align 1
+  %203 = load i8, ptr %202, align 1
+  %204 = icmp slt i8 %203, -64
+  br i1 %204, label %.lr.ph247, label %.outer.sink.split
 
 .outer.sink.split:                                ; preds = %.lr.ph247, %56, %gv_strdup.exit, %142
-  %.lcssa306.sink = phi ptr [ %143, %142 ], [ %82, %gv_strdup.exit ], [ %58, %56 ], [ %203, %.lr.ph247 ]
+  %.lcssa306.sink = phi ptr [ %143, %142 ], [ %82, %gv_strdup.exit ], [ %58, %56 ], [ %202, %.lr.ph247 ]
   %.2158.idx.ph = phi i64 [ %.4160.idx, %142 ], [ %.0156.idx.ph251.ph, %gv_strdup.exit ], [ %.0156.idx.ph251.ph, %56 ], [ %.9.add, %.lr.ph247 ]
   %.1152.ph = phi ptr [ %.0151.ph252.ph, %142 ], [ %.2153, %gv_strdup.exit ], [ %3, %56 ], [ %.3154, %.lr.ph247 ]
   %.1148.ph = phi ptr [ %.2149, %142 ], [ %.0147.ph253.ph, %gv_strdup.exit ], [ %.0147.ph253.ph, %56 ], [ %.3150, %.lr.ph247 ]
@@ -6528,11 +6526,11 @@ gv_alloc.exit202:                                 ; preds = %100
   br label %.lr.ph.split.us.outer.outer
 
 .outer._crit_edge:                                ; preds = %136
-  %207 = getelementptr inbounds i8, ptr %6, i64 48
-  store i32 %.2130, ptr %207, align 8
-  br label %208
+  %205 = getelementptr inbounds i8, ptr %6, i64 48
+  store i32 %.2130, ptr %205, align 8
+  br label %206
 
-208:                                              ; preds = %.outer._crit_edge, %157, %139, %97, %94, %87, %64, %52
+206:                                              ; preds = %.outer._crit_edge, %157, %139, %97, %94, %87, %64, %52
   %.0124 = phi ptr [ null, %157 ], [ null, %97 ], [ %6, %139 ], [ null, %87 ], [ null, %94 ], [ null, %64 ], [ null, %52 ], [ %6, %.outer._crit_edge ]
   ret ptr %.0124
 }

@@ -32843,7 +32843,7 @@ define linkonce_odr dso_local noundef i32 @_ZN4asio6detail10socket_ops9inet_pton
   store i32 22, ptr %4, align 8, !tbaa !30
   %27 = getelementptr inbounds i8, ptr %4, i64 8
   store ptr @_ZZN4asio15system_categoryEvE8instance, ptr %27, align 8, !tbaa !27
-  br label %83
+  br label %82
 
 28:                                               ; preds = %13
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %6, ptr align 1 %1, i64 %16, i1 false)
@@ -32880,7 +32880,7 @@ define linkonce_odr dso_local noundef i32 @_ZN4asio6detail10socket_ops9inet_pton
 
 46:                                               ; preds = %43
   %47 = icmp eq i32 %35, 0
-  br i1 %47, label %48, label %83
+  br i1 %47, label %48, label %82
 
 48:                                               ; preds = %46
   %49 = load atomic i8, ptr @_ZGVZN4asio15system_categoryEvE8instance acquire, align 8
@@ -32900,20 +32900,20 @@ define linkonce_odr dso_local noundef i32 @_ZN4asio6detail10socket_ops9inet_pton
 56:                                               ; preds = %54, %51, %48
   store i32 22, ptr %4, align 8, !tbaa !30
   store ptr @_ZZN4asio15system_categoryEvE8instance, ptr %44, align 8, !tbaa !27
-  br label %83
+  br label %82
 
 57:                                               ; preds = %43
   %58 = icmp ne ptr %3, null
   %59 = and i1 %8, %58
-  br i1 %59, label %60, label %83
+  br i1 %59, label %60, label %82
 
 60:                                               ; preds = %57
   store i64 0, ptr %3, align 8, !tbaa !10
-  br i1 %31, label %83, label %61
+  br i1 %31, label %82, label %61
 
 61:                                               ; preds = %60
   %62 = load i8, ptr %2, align 4, !tbaa !14
-  switch i8 %62, label %78 [
+  switch i8 %62, label %77 [
     i8 -2, label %68
     i8 -1, label %63
   ]
@@ -32923,35 +32923,34 @@ define linkonce_odr dso_local noundef i32 @_ZN4asio6detail10socket_ops9inet_pton
   %65 = load i8, ptr %64, align 1, !tbaa !14
   %66 = and i8 %65, 15
   %67 = icmp eq i8 %66, 2
-  br i1 %67, label %73, label %78
+  br i1 %67, label %72, label %77
 
 68:                                               ; preds = %61
   %69 = getelementptr inbounds i8, ptr %2, i64 1
   %70 = load i8, ptr %69, align 1, !tbaa !14
-  %71 = and i8 %70, -64
-  %72 = icmp eq i8 %71, -128
-  br i1 %72, label %73, label %78
+  %71 = icmp slt i8 %70, -64
+  br i1 %71, label %72, label %77
 
-73:                                               ; preds = %68, %63
-  %74 = getelementptr inbounds i8, ptr %32, i64 1
-  %75 = call i32 @if_nametoindex(ptr noundef nonnull %74) #36
-  %76 = zext i32 %75 to i64
-  store i64 %76, ptr %3, align 8, !tbaa !10
-  %77 = icmp eq i32 %75, 0
-  br i1 %77, label %78, label %83
+72:                                               ; preds = %68, %63
+  %73 = getelementptr inbounds i8, ptr %32, i64 1
+  %74 = call i32 @if_nametoindex(ptr noundef nonnull %73) #36
+  %75 = zext i32 %74 to i64
+  store i64 %75, ptr %3, align 8, !tbaa !10
+  %76 = icmp eq i32 %74, 0
+  br i1 %76, label %77, label %82
 
-78:                                               ; preds = %73, %68, %63, %61
-  %79 = getelementptr inbounds i8, ptr %32, i64 1
-  %80 = call i64 @strtol(ptr nocapture noundef nonnull %79, ptr noundef null, i32 noundef 10) #36
-  %81 = shl i64 %80, 32
-  %82 = ashr exact i64 %81, 32
-  store i64 %82, ptr %3, align 8, !tbaa !10
-  br label %83
+77:                                               ; preds = %72, %68, %63, %61
+  %78 = getelementptr inbounds i8, ptr %32, i64 1
+  %79 = call i64 @strtol(ptr nocapture noundef nonnull %78, ptr noundef null, i32 noundef 10) #36
+  %80 = shl i64 %79, 32
+  %81 = ashr exact i64 %80, 32
+  store i64 %81, ptr %3, align 8, !tbaa !10
+  br label %82
 
-83:                                               ; preds = %78, %73, %60, %57, %56, %46, %26
-  %84 = phi i32 [ 0, %26 ], [ %34, %73 ], [ %34, %78 ], [ %34, %60 ], [ %34, %57 ], [ %34, %56 ], [ %34, %46 ]
+82:                                               ; preds = %77, %72, %60, %57, %56, %46, %26
+  %83 = phi i32 [ 0, %26 ], [ %34, %72 ], [ %34, %77 ], [ %34, %60 ], [ %34, %57 ], [ %34, %56 ], [ %34, %46 ]
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %6) #36
-  ret i32 %84
+  ret i32 %83
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
@@ -81234,7 +81233,7 @@ define linkonce_odr dso_local noundef ptr @_ZN4asio6detail10socket_ops9inet_ntop
 
 22:                                               ; preds = %19
   %23 = icmp eq i32 %11, 0
-  br i1 %23, label %24, label %59
+  br i1 %23, label %24, label %58
 
 24:                                               ; preds = %22
   %25 = load atomic i8, ptr @_ZGVZN4asio15system_categoryEvE8instance acquire, align 8
@@ -81254,19 +81253,19 @@ define linkonce_odr dso_local noundef ptr @_ZN4asio6detail10socket_ops9inet_ntop
 32:                                               ; preds = %30, %27, %24
   store i32 22, ptr %5, align 8, !tbaa !30
   store ptr @_ZZN4asio15system_categoryEvE8instance, ptr %20, align 8, !tbaa !27
-  br label %59
+  br label %58
 
 33:                                               ; preds = %19
   %34 = icmp eq i32 %0, 10
   %35 = icmp ne i64 %4, 0
   %36 = and i1 %34, %35
-  br i1 %36, label %37, label %59
+  br i1 %36, label %37, label %58
 
 37:                                               ; preds = %33
   call void @llvm.lifetime.start.p0(i64 22, ptr nonnull %7) #36
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(22) %7, ptr noundef nonnull align 16 dereferenceable(22) @__const._ZN4asio6detail10socket_ops9inet_ntopEiPKvPcmmRSt10error_code.if_name, i64 22, i1 false)
   %38 = load i8, ptr %1, align 4, !tbaa !14
-  switch i8 %38, label %54 [
+  switch i8 %38, label %53 [
     i8 -2, label %44
     i8 -1, label %39
   ]
@@ -81276,33 +81275,32 @@ define linkonce_odr dso_local noundef ptr @_ZN4asio6detail10socket_ops9inet_ntop
   %41 = load i8, ptr %40, align 1, !tbaa !14
   %42 = and i8 %41, 15
   %43 = icmp eq i8 %42, 2
-  br i1 %43, label %49, label %54
+  br i1 %43, label %48, label %53
 
 44:                                               ; preds = %37
   %45 = getelementptr inbounds i8, ptr %1, i64 1
   %46 = load i8, ptr %45, align 1, !tbaa !14
-  %47 = and i8 %46, -64
-  %48 = icmp eq i8 %47, -128
-  br i1 %48, label %49, label %54
+  %47 = icmp slt i8 %46, -64
+  br i1 %47, label %48, label %53
 
-49:                                               ; preds = %44, %39
-  %50 = trunc i64 %4 to i32
-  %51 = getelementptr inbounds i8, ptr %7, i64 1
-  %52 = call ptr @if_indextoname(i32 noundef %50, ptr noundef nonnull %51) #36
-  %53 = icmp eq ptr %52, null
-  br i1 %53, label %54, label %57
+48:                                               ; preds = %44, %39
+  %49 = trunc i64 %4 to i32
+  %50 = getelementptr inbounds i8, ptr %7, i64 1
+  %51 = call ptr @if_indextoname(i32 noundef %49, ptr noundef nonnull %50) #36
+  %52 = icmp eq ptr %51, null
+  br i1 %52, label %53, label %56
 
-54:                                               ; preds = %49, %44, %39, %37
-  %55 = getelementptr inbounds i8, ptr %7, i64 1
-  %56 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %55, ptr noundef nonnull dereferenceable(1) @.str.462, i64 noundef %4) #36
-  br label %57
+53:                                               ; preds = %48, %44, %39, %37
+  %54 = getelementptr inbounds i8, ptr %7, i64 1
+  %55 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %54, ptr noundef nonnull dereferenceable(1) @.str.462, i64 noundef %4) #36
+  br label %56
 
-57:                                               ; preds = %54, %49
-  %58 = call ptr @strcat(ptr noundef nonnull dereferenceable(1) %2, ptr noundef nonnull dereferenceable(1) %7) #36
+56:                                               ; preds = %53, %48
+  %57 = call ptr @strcat(ptr noundef nonnull dereferenceable(1) %2, ptr noundef nonnull dereferenceable(1) %7) #36
   call void @llvm.lifetime.end.p0(i64 22, ptr nonnull %7) #36
-  br label %59
+  br label %58
 
-59:                                               ; preds = %57, %33, %32, %22
+58:                                               ; preds = %56, %33, %32, %22
   ret ptr %10
 }
 

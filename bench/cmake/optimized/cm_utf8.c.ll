@@ -43,57 +43,56 @@ define dso_local ptr @cm_utf8_decode_character(ptr noundef readonly %0, ptr noun
   %19 = zext i8 %18 to i32
   br label %.lr.ph
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %22
-  %.042 = phi i32 [ %.0, %22 ], [ %.039, %.lr.ph.preheader ]
-  %.02941 = phi i32 [ %27, %22 ], [ %19, %.lr.ph.preheader ]
-  %.03140 = phi ptr [ %23, %22 ], [ %6, %.lr.ph.preheader ]
+.lr.ph:                                           ; preds = %.lr.ph.preheader, %21
+  %.042 = phi i32 [ %.0, %21 ], [ %.039, %.lr.ph.preheader ]
+  %.02941 = phi i32 [ %26, %21 ], [ %19, %.lr.ph.preheader ]
+  %.03140 = phi ptr [ %22, %21 ], [ %6, %.lr.ph.preheader ]
   %20 = load i8, ptr %.03140, align 1
-  %21 = and i8 %20, -64
-  %.not = icmp eq i8 %21, -128
-  br i1 %.not, label %22, label %.loopexit
+  %.not = icmp slt i8 %20, -64
+  br i1 %.not, label %21, label %.loopexit
 
-22:                                               ; preds = %.lr.ph
-  %23 = getelementptr inbounds i8, ptr %.03140, i64 1
-  %24 = shl i32 %.02941, 6
-  %25 = and i8 %20, 63
-  %26 = zext nneg i8 %25 to i32
-  %27 = or disjoint i32 %24, %26
+21:                                               ; preds = %.lr.ph
+  %22 = getelementptr inbounds i8, ptr %.03140, i64 1
+  %23 = shl i32 %.02941, 6
+  %24 = and i8 %20, 63
+  %25 = zext nneg i8 %24 to i32
+  %26 = or disjoint i32 %23, %25
   %.0 = add nsw i32 %.042, -1
-  %28 = icmp ne i32 %.0, 0
-  %29 = icmp ne ptr %23, %1
-  %30 = select i1 %28, i1 %29, i1 false
-  br i1 %30, label %.lr.ph, label %._crit_edge, !llvm.loop !5
+  %27 = icmp ne i32 %.0, 0
+  %28 = icmp ne ptr %22, %1
+  %29 = select i1 %27, i1 %28, i1 false
+  br i1 %29, label %.lr.ph, label %._crit_edge, !llvm.loop !5
 
-._crit_edge:                                      ; preds = %22
-  %31 = icmp sgt i32 %.042, 1
-  br i1 %31, label %.loopexit, label %32
+._crit_edge:                                      ; preds = %21
+  %30 = icmp sgt i32 %.042, 1
+  br i1 %30, label %.loopexit, label %31
 
-32:                                               ; preds = %._crit_edge
-  %33 = getelementptr inbounds [7 x i32], ptr @cm_utf8_min, i64 0, i64 %14
-  %34 = load i32, ptr %33, align 4
-  %35 = icmp ult i32 %27, %34
-  %36 = and i32 %.02941, 67108832
-  %or.cond = icmp eq i32 %36, 864
-  %or.cond34 = or i1 %or.cond, %35
-  %37 = icmp ugt i32 %24, 1114111
-  %or.cond35 = or i1 %37, %or.cond34
+31:                                               ; preds = %._crit_edge
+  %32 = getelementptr inbounds [7 x i32], ptr @cm_utf8_min, i64 0, i64 %14
+  %33 = load i32, ptr %32, align 4
+  %34 = icmp ult i32 %26, %33
+  %35 = and i32 %.02941, 67108832
+  %or.cond = icmp eq i32 %35, 864
+  %or.cond34 = or i1 %or.cond, %34
+  %36 = icmp ugt i32 %23, 1114111
+  %or.cond35 = or i1 %36, %or.cond34
   br i1 %or.cond35, label %.loopexit, label %.loopexit.sink.split
 
-.loopexit.sink.split:                             ; preds = %32, %11
-  %.lcssa.sink = phi i32 [ %12, %11 ], [ %27, %32 ]
-  %.030.ph = phi ptr [ %6, %11 ], [ %23, %32 ]
+.loopexit.sink.split:                             ; preds = %31, %11
+  %.lcssa.sink = phi i32 [ %12, %11 ], [ %26, %31 ]
+  %.030.ph = phi ptr [ %6, %11 ], [ %22, %31 ]
   store i32 %.lcssa.sink, ptr %2, align 4
   br label %.loopexit
 
-.loopexit:                                        ; preds = %.lr.ph, %.loopexit.sink.split, %13, %._crit_edge, %32, %5, %5, %5, %3
-  %.030 = phi ptr [ null, %3 ], [ null, %5 ], [ null, %5 ], [ null, %5 ], [ null, %32 ], [ null, %._crit_edge ], [ null, %13 ], [ %.030.ph, %.loopexit.sink.split ], [ null, %.lr.ph ]
+.loopexit:                                        ; preds = %.lr.ph, %.loopexit.sink.split, %13, %._crit_edge, %31, %5, %5, %5, %3
+  %.030 = phi ptr [ null, %3 ], [ null, %5 ], [ null, %5 ], [ null, %5 ], [ null, %31 ], [ null, %._crit_edge ], [ null, %13 ], [ %.030.ph, %.loopexit.sink.split ], [ null, %.lr.ph ]
   ret ptr %.030
 }
 
 ; Function Attrs: nofree nounwind memory(argmem: read) uwtable
 define dso_local range(i32 0, 2) i32 @cm_utf8_is_valid(ptr noundef readonly %0) local_unnamed_addr #1 {
   %.not = icmp eq ptr %0, null
-  br i1 %.not, label %37, label %2
+  br i1 %.not, label %36, label %2
 
 2:                                                ; preds = %1
   %3 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #3
@@ -129,55 +128,54 @@ define dso_local range(i32 0, 2) i32 @cm_utf8_is_valid(ptr noundef readonly %0) 
   %16 = zext i8 %15 to i32
   br label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %.lr.ph.i.preheader, %19
-  %.042.i = phi i32 [ %.0.i, %19 ], [ %.039.i, %.lr.ph.i.preheader ]
-  %.02941.i = phi i32 [ %24, %19 ], [ %16, %.lr.ph.i.preheader ]
-  %.03140.i = phi ptr [ %20, %19 ], [ %5, %.lr.ph.i.preheader ]
+.lr.ph.i:                                         ; preds = %.lr.ph.i.preheader, %18
+  %.042.i = phi i32 [ %.0.i, %18 ], [ %.039.i, %.lr.ph.i.preheader ]
+  %.02941.i = phi i32 [ %23, %18 ], [ %16, %.lr.ph.i.preheader ]
+  %.03140.i = phi ptr [ %19, %18 ], [ %5, %.lr.ph.i.preheader ]
   %17 = load i8, ptr %.03140.i, align 1
-  %18 = and i8 %17, -64
-  %.not.i = icmp eq i8 %18, -128
-  br i1 %.not.i, label %19, label %.critedge
+  %.not.i = icmp slt i8 %17, -64
+  br i1 %.not.i, label %18, label %.critedge
 
-19:                                               ; preds = %.lr.ph.i
-  %20 = getelementptr inbounds i8, ptr %.03140.i, i64 1
-  %21 = shl i32 %.02941.i, 6
-  %22 = and i8 %17, 63
-  %23 = zext nneg i8 %22 to i32
-  %24 = or disjoint i32 %21, %23
+18:                                               ; preds = %.lr.ph.i
+  %19 = getelementptr inbounds i8, ptr %.03140.i, i64 1
+  %20 = shl i32 %.02941.i, 6
+  %21 = and i8 %17, 63
+  %22 = zext nneg i8 %21 to i32
+  %23 = or disjoint i32 %20, %22
   %.0.i = add nsw i32 %.042.i, -1
-  %25 = icmp ne i32 %.0.i, 0
-  %26 = icmp ne ptr %20, %4
-  %27 = select i1 %25, i1 %26, i1 false
-  br i1 %27, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !5
+  %24 = icmp ne i32 %.0.i, 0
+  %25 = icmp ne ptr %19, %4
+  %26 = select i1 %24, i1 %25, i1 false
+  br i1 %26, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !5
 
-._crit_edge.i:                                    ; preds = %19
-  %28 = icmp sgt i32 %.042.i, 1
-  br i1 %28, label %.critedge, label %29
+._crit_edge.i:                                    ; preds = %18
+  %27 = icmp sgt i32 %.042.i, 1
+  br i1 %27, label %.critedge, label %28
 
-29:                                               ; preds = %._crit_edge.i
-  %30 = getelementptr inbounds [7 x i32], ptr @cm_utf8_min, i64 0, i64 %11
-  %31 = load i32, ptr %30, align 4
-  %32 = icmp ult i32 %24, %31
-  %33 = and i32 %.02941.i, 67108832
-  %or.cond.i = icmp eq i32 %33, 864
-  %or.cond34.i = or i1 %or.cond.i, %32
-  %34 = icmp ugt i32 %21, 1114111
-  %or.cond35.i = or i1 %34, %or.cond34.i
+28:                                               ; preds = %._crit_edge.i
+  %29 = getelementptr inbounds [7 x i32], ptr @cm_utf8_min, i64 0, i64 %11
+  %30 = load i32, ptr %29, align 4
+  %31 = icmp ult i32 %23, %30
+  %32 = and i32 %.02941.i, 67108832
+  %or.cond.i = icmp eq i32 %32, 864
+  %or.cond34.i = or i1 %or.cond.i, %31
+  %33 = icmp ugt i32 %20, 1114111
+  %or.cond35.i = or i1 %33, %or.cond34.i
   br i1 %or.cond35.i, label %.critedge, label %cm_utf8_decode_character.exit
 
-cm_utf8_decode_character.exit:                    ; preds = %29, %.lr.ph
-  %.030.ph.i = phi ptr [ %20, %29 ], [ %5, %.lr.ph ]
+cm_utf8_decode_character.exit:                    ; preds = %28, %.lr.ph
+  %.030.ph.i = phi ptr [ %19, %28 ], [ %5, %.lr.ph ]
   %.not15 = icmp eq ptr %.030.ph.i, %4
   br i1 %.not15, label %.critedge, label %.lr.ph, !llvm.loop !7
 
-.critedge:                                        ; preds = %cm_utf8_decode_character.exit, %.lr.ph, %.lr.ph, %.lr.ph, %29, %._crit_edge.i, %10, %.lr.ph.i, %2
-  %.1 = phi ptr [ %0, %2 ], [ null, %.lr.ph.i ], [ %4, %cm_utf8_decode_character.exit ], [ null, %.lr.ph ], [ null, %.lr.ph ], [ null, %.lr.ph ], [ null, %29 ], [ null, %._crit_edge.i ], [ null, %10 ]
-  %35 = icmp eq ptr %.1, %4
-  %36 = zext i1 %35 to i32
-  br label %37
+.critedge:                                        ; preds = %cm_utf8_decode_character.exit, %.lr.ph, %.lr.ph, %.lr.ph, %28, %._crit_edge.i, %10, %.lr.ph.i, %2
+  %.1 = phi ptr [ %0, %2 ], [ null, %.lr.ph.i ], [ %4, %cm_utf8_decode_character.exit ], [ null, %.lr.ph ], [ null, %.lr.ph ], [ null, %.lr.ph ], [ null, %28 ], [ null, %._crit_edge.i ], [ null, %10 ]
+  %34 = icmp eq ptr %.1, %4
+  %35 = zext i1 %34 to i32
+  br label %36
 
-37:                                               ; preds = %1, %.critedge
-  %.010 = phi i32 [ %36, %.critedge ], [ 0, %1 ]
+36:                                               ; preds = %1, %.critedge
+  %.010 = phi i32 [ %35, %.critedge ], [ 0, %1 ]
   ret i32 %.010
 }
 

@@ -3662,8 +3662,7 @@ _ZNSt3__112basic_stringIDuNS_11char_traitsIDuEENS_9allocatorIDuEEE9push_backEDu.
 
 65:                                               ; preds = %64
   %66 = load i8, ptr %storemerge, align 1
-  %.mask.i = and i8 %66, -64
-  %67 = icmp eq i8 %.mask.i, -128
+  %67 = icmp slt i8 %66, -64
   br i1 %67, label %64, label %.critedge, !llvm.loop !52
 
 .critedge:                                        ; preds = %65, %64, %_ZNSt3__112basic_stringIDuNS_11char_traitsIDuEENS_9allocatorIDuEEE9push_backEDu.exit, %..critedge_crit_edge, %.preheader, %57
@@ -3795,8 +3794,7 @@ define linkonce_odr dso_local noundef i32 @_ZN4utf88internal13validate_nextINSt3
 
 19:                                               ; preds = %16
   %20 = load i8, ptr %17, align 1
-  %.mask.i.i.i = and i8 %20, -64
-  %21 = icmp eq i8 %.mask.i.i.i, -128
+  %21 = icmp slt i8 %20, -64
   br i1 %21, label %_ZN4utf88internal15increase_safelyINSt3__111__wrap_iterIPKcEEEENS0_9utf_errorERT_S8_.exit.i, label %_ZN4utf88internal15sequence_lengthINSt3__111__wrap_iterIPKcEEEENS2_15iterator_traitsIT_E15difference_typeES8_.exit.thread.sink.split
 
 _ZN4utf88internal15increase_safelyINSt3__111__wrap_iterIPKcEEEENS0_9utf_errorERT_S8_.exit.i: ; preds = %19
@@ -3815,11 +3813,10 @@ _ZN4utf88internal15increase_safelyINSt3__111__wrap_iterIPKcEEEENS0_9utf_errorERT
 
 30:                                               ; preds = %27
   %31 = load i8, ptr %28, align 1
-  %.mask.i.i.i23 = and i8 %31, -64
-  %32 = icmp eq i8 %.mask.i.i.i23, -128
-  br i1 %32, label %_ZN4utf88internal15increase_safelyINSt3__111__wrap_iterIPKcEEEENS0_9utf_errorERT_S8_.exit.i25, label %_ZN4utf88internal15sequence_lengthINSt3__111__wrap_iterIPKcEEEENS2_15iterator_traitsIT_E15difference_typeES8_.exit.thread.sink.split
+  %32 = icmp slt i8 %31, -64
+  br i1 %32, label %_ZN4utf88internal15increase_safelyINSt3__111__wrap_iterIPKcEEEENS0_9utf_errorERT_S8_.exit.i24, label %_ZN4utf88internal15sequence_lengthINSt3__111__wrap_iterIPKcEEEENS2_15iterator_traitsIT_E15difference_typeES8_.exit.thread.sink.split
 
-_ZN4utf88internal15increase_safelyINSt3__111__wrap_iterIPKcEEEENS0_9utf_errorERT_S8_.exit.i25: ; preds = %30
+_ZN4utf88internal15increase_safelyINSt3__111__wrap_iterIPKcEEEENS0_9utf_errorERT_S8_.exit.i24: ; preds = %30
   %33 = shl nuw nsw i32 %8, 12
   %34 = and i32 %33, 61440
   %35 = zext i8 %31 to i32
@@ -3831,13 +3828,12 @@ _ZN4utf88internal15increase_safelyINSt3__111__wrap_iterIPKcEEEENS0_9utf_errorERT
   %40 = icmp eq ptr %39, %1
   br i1 %40, label %_ZN4utf88internal15sequence_lengthINSt3__111__wrap_iterIPKcEEEENS2_15iterator_traitsIT_E15difference_typeES8_.exit.thread.sink.split, label %41
 
-41:                                               ; preds = %_ZN4utf88internal15increase_safelyINSt3__111__wrap_iterIPKcEEEENS0_9utf_errorERT_S8_.exit.i25
+41:                                               ; preds = %_ZN4utf88internal15increase_safelyINSt3__111__wrap_iterIPKcEEEENS0_9utf_errorERT_S8_.exit.i24
   %42 = load i8, ptr %39, align 1
-  %.mask.i.i18.i = and i8 %42, -64
-  %43 = icmp eq i8 %.mask.i.i18.i, -128
-  br i1 %43, label %_ZN4utf88internal15increase_safelyINSt3__111__wrap_iterIPKcEEEENS0_9utf_errorERT_S8_.exit21.i, label %_ZN4utf88internal15sequence_lengthINSt3__111__wrap_iterIPKcEEEENS2_15iterator_traitsIT_E15difference_typeES8_.exit.thread.sink.split
+  %43 = icmp slt i8 %42, -64
+  br i1 %43, label %_ZN4utf88internal15increase_safelyINSt3__111__wrap_iterIPKcEEEENS0_9utf_errorERT_S8_.exit20.i, label %_ZN4utf88internal15sequence_lengthINSt3__111__wrap_iterIPKcEEEENS2_15iterator_traitsIT_E15difference_typeES8_.exit.thread.sink.split
 
-_ZN4utf88internal15increase_safelyINSt3__111__wrap_iterIPKcEEEENS0_9utf_errorERT_S8_.exit21.i: ; preds = %41
+_ZN4utf88internal15increase_safelyINSt3__111__wrap_iterIPKcEEEENS0_9utf_errorERT_S8_.exit20.i: ; preds = %41
   %44 = and i8 %42, 63
   %45 = zext nneg i8 %44 to i32
   %46 = or disjoint i32 %38, %45
@@ -3851,11 +3847,10 @@ _ZN4utf88internal15sequence_lengthINSt3__111__wrap_iterIPKcEEEENS2_15iterator_tr
 
 49:                                               ; preds = %_ZN4utf88internal15sequence_lengthINSt3__111__wrap_iterIPKcEEEENS2_15iterator_traitsIT_E15difference_typeES8_.exit
   %50 = load i8, ptr %47, align 1
-  %.mask.i.i.i26 = and i8 %50, -64
-  %51 = icmp eq i8 %.mask.i.i.i26, -128
-  br i1 %51, label %_ZN4utf88internal15increase_safelyINSt3__111__wrap_iterIPKcEEEENS0_9utf_errorERT_S8_.exit.i28, label %_ZN4utf88internal15sequence_lengthINSt3__111__wrap_iterIPKcEEEENS2_15iterator_traitsIT_E15difference_typeES8_.exit.thread.sink.split
+  %51 = icmp slt i8 %50, -64
+  br i1 %51, label %_ZN4utf88internal15increase_safelyINSt3__111__wrap_iterIPKcEEEENS0_9utf_errorERT_S8_.exit.i26, label %_ZN4utf88internal15sequence_lengthINSt3__111__wrap_iterIPKcEEEENS2_15iterator_traitsIT_E15difference_typeES8_.exit.thread.sink.split
 
-_ZN4utf88internal15increase_safelyINSt3__111__wrap_iterIPKcEEEENS0_9utf_errorERT_S8_.exit.i28: ; preds = %49
+_ZN4utf88internal15increase_safelyINSt3__111__wrap_iterIPKcEEEENS0_9utf_errorERT_S8_.exit.i26: ; preds = %49
   %52 = shl nuw nsw i32 %8, 18
   %53 = and i32 %52, 1835008
   %54 = zext i8 %50 to i32
@@ -3867,13 +3862,12 @@ _ZN4utf88internal15increase_safelyINSt3__111__wrap_iterIPKcEEEENS0_9utf_errorERT
   %59 = icmp eq ptr %58, %1
   br i1 %59, label %_ZN4utf88internal15sequence_lengthINSt3__111__wrap_iterIPKcEEEENS2_15iterator_traitsIT_E15difference_typeES8_.exit.thread.sink.split, label %60
 
-60:                                               ; preds = %_ZN4utf88internal15increase_safelyINSt3__111__wrap_iterIPKcEEEENS0_9utf_errorERT_S8_.exit.i28
+60:                                               ; preds = %_ZN4utf88internal15increase_safelyINSt3__111__wrap_iterIPKcEEEENS0_9utf_errorERT_S8_.exit.i26
   %61 = load i8, ptr %58, align 1
-  %.mask.i.i26.i = and i8 %61, -64
-  %62 = icmp eq i8 %.mask.i.i26.i, -128
-  br i1 %62, label %_ZN4utf88internal15increase_safelyINSt3__111__wrap_iterIPKcEEEENS0_9utf_errorERT_S8_.exit29.i, label %_ZN4utf88internal15sequence_lengthINSt3__111__wrap_iterIPKcEEEENS2_15iterator_traitsIT_E15difference_typeES8_.exit.thread.sink.split
+  %62 = icmp slt i8 %61, -64
+  br i1 %62, label %_ZN4utf88internal15increase_safelyINSt3__111__wrap_iterIPKcEEEENS0_9utf_errorERT_S8_.exit28.i, label %_ZN4utf88internal15sequence_lengthINSt3__111__wrap_iterIPKcEEEENS2_15iterator_traitsIT_E15difference_typeES8_.exit.thread.sink.split
 
-_ZN4utf88internal15increase_safelyINSt3__111__wrap_iterIPKcEEEENS0_9utf_errorERT_S8_.exit29.i: ; preds = %60
+_ZN4utf88internal15increase_safelyINSt3__111__wrap_iterIPKcEEEENS0_9utf_errorERT_S8_.exit28.i: ; preds = %60
   %63 = zext i8 %61 to i32
   %64 = shl nuw nsw i32 %63, 6
   %65 = and i32 %64, 4032
@@ -3883,56 +3877,55 @@ _ZN4utf88internal15increase_safelyINSt3__111__wrap_iterIPKcEEEENS0_9utf_errorERT
   %68 = icmp eq ptr %67, %1
   br i1 %68, label %_ZN4utf88internal15sequence_lengthINSt3__111__wrap_iterIPKcEEEENS2_15iterator_traitsIT_E15difference_typeES8_.exit.thread.sink.split, label %69
 
-69:                                               ; preds = %_ZN4utf88internal15increase_safelyINSt3__111__wrap_iterIPKcEEEENS0_9utf_errorERT_S8_.exit29.i
+69:                                               ; preds = %_ZN4utf88internal15increase_safelyINSt3__111__wrap_iterIPKcEEEENS0_9utf_errorERT_S8_.exit28.i
   %70 = load i8, ptr %67, align 1
-  %.mask.i.i30.i = and i8 %70, -64
-  %71 = icmp eq i8 %.mask.i.i30.i, -128
-  br i1 %71, label %_ZN4utf88internal15increase_safelyINSt3__111__wrap_iterIPKcEEEENS0_9utf_errorERT_S8_.exit33.i, label %_ZN4utf88internal15sequence_lengthINSt3__111__wrap_iterIPKcEEEENS2_15iterator_traitsIT_E15difference_typeES8_.exit.thread.sink.split
+  %71 = icmp slt i8 %70, -64
+  br i1 %71, label %_ZN4utf88internal15increase_safelyINSt3__111__wrap_iterIPKcEEEENS0_9utf_errorERT_S8_.exit31.i, label %_ZN4utf88internal15sequence_lengthINSt3__111__wrap_iterIPKcEEEENS2_15iterator_traitsIT_E15difference_typeES8_.exit.thread.sink.split
 
-_ZN4utf88internal15increase_safelyINSt3__111__wrap_iterIPKcEEEENS0_9utf_errorERT_S8_.exit33.i: ; preds = %69
+_ZN4utf88internal15increase_safelyINSt3__111__wrap_iterIPKcEEEENS0_9utf_errorERT_S8_.exit31.i: ; preds = %69
   %72 = and i8 %70, 63
   %73 = zext nneg i8 %72 to i32
   %74 = or disjoint i32 %66, %73
   br label %_ZN4utf88internal14get_sequence_1INSt3__111__wrap_iterIPKcEEEENS0_9utf_errorERT_S8_Rj.exit
 
-_ZN4utf88internal14get_sequence_1INSt3__111__wrap_iterIPKcEEEENS0_9utf_errorERT_S8_Rj.exit: ; preds = %6, %_ZN4utf88internal15increase_safelyINSt3__111__wrap_iterIPKcEEEENS0_9utf_errorERT_S8_.exit.i, %_ZN4utf88internal15increase_safelyINSt3__111__wrap_iterIPKcEEEENS0_9utf_errorERT_S8_.exit21.i, %_ZN4utf88internal15increase_safelyINSt3__111__wrap_iterIPKcEEEENS0_9utf_errorERT_S8_.exit33.i
-  %75 = phi i1 [ true, %6 ], [ true, %_ZN4utf88internal15increase_safelyINSt3__111__wrap_iterIPKcEEEENS0_9utf_errorERT_S8_.exit.i ], [ false, %_ZN4utf88internal15increase_safelyINSt3__111__wrap_iterIPKcEEEENS0_9utf_errorERT_S8_.exit21.i ], [ true, %_ZN4utf88internal15increase_safelyINSt3__111__wrap_iterIPKcEEEENS0_9utf_errorERT_S8_.exit33.i ]
-  %.not.i = phi i1 [ false, %6 ], [ true, %_ZN4utf88internal15increase_safelyINSt3__111__wrap_iterIPKcEEEENS0_9utf_errorERT_S8_.exit.i ], [ false, %_ZN4utf88internal15increase_safelyINSt3__111__wrap_iterIPKcEEEENS0_9utf_errorERT_S8_.exit21.i ], [ false, %_ZN4utf88internal15increase_safelyINSt3__111__wrap_iterIPKcEEEENS0_9utf_errorERT_S8_.exit33.i ]
-  %.038 = phi i32 [ %8, %6 ], [ %26, %_ZN4utf88internal15increase_safelyINSt3__111__wrap_iterIPKcEEEENS0_9utf_errorERT_S8_.exit.i ], [ %46, %_ZN4utf88internal15increase_safelyINSt3__111__wrap_iterIPKcEEEENS0_9utf_errorERT_S8_.exit21.i ], [ %74, %_ZN4utf88internal15increase_safelyINSt3__111__wrap_iterIPKcEEEENS0_9utf_errorERT_S8_.exit33.i ]
-  %76 = icmp ult i32 %.038, 1114112
-  %77 = and i32 %.038, -2048
+_ZN4utf88internal14get_sequence_1INSt3__111__wrap_iterIPKcEEEENS0_9utf_errorERT_S8_Rj.exit: ; preds = %6, %_ZN4utf88internal15increase_safelyINSt3__111__wrap_iterIPKcEEEENS0_9utf_errorERT_S8_.exit.i, %_ZN4utf88internal15increase_safelyINSt3__111__wrap_iterIPKcEEEENS0_9utf_errorERT_S8_.exit20.i, %_ZN4utf88internal15increase_safelyINSt3__111__wrap_iterIPKcEEEENS0_9utf_errorERT_S8_.exit31.i
+  %75 = phi i1 [ true, %6 ], [ true, %_ZN4utf88internal15increase_safelyINSt3__111__wrap_iterIPKcEEEENS0_9utf_errorERT_S8_.exit.i ], [ false, %_ZN4utf88internal15increase_safelyINSt3__111__wrap_iterIPKcEEEENS0_9utf_errorERT_S8_.exit20.i ], [ true, %_ZN4utf88internal15increase_safelyINSt3__111__wrap_iterIPKcEEEENS0_9utf_errorERT_S8_.exit31.i ]
+  %.not.i = phi i1 [ false, %6 ], [ true, %_ZN4utf88internal15increase_safelyINSt3__111__wrap_iterIPKcEEEENS0_9utf_errorERT_S8_.exit.i ], [ false, %_ZN4utf88internal15increase_safelyINSt3__111__wrap_iterIPKcEEEENS0_9utf_errorERT_S8_.exit20.i ], [ false, %_ZN4utf88internal15increase_safelyINSt3__111__wrap_iterIPKcEEEENS0_9utf_errorERT_S8_.exit31.i ]
+  %.036 = phi i32 [ %8, %6 ], [ %26, %_ZN4utf88internal15increase_safelyINSt3__111__wrap_iterIPKcEEEENS0_9utf_errorERT_S8_.exit.i ], [ %46, %_ZN4utf88internal15increase_safelyINSt3__111__wrap_iterIPKcEEEENS0_9utf_errorERT_S8_.exit20.i ], [ %74, %_ZN4utf88internal15increase_safelyINSt3__111__wrap_iterIPKcEEEENS0_9utf_errorERT_S8_.exit31.i ]
+  %76 = icmp ult i32 %.036, 1114112
+  %77 = and i32 %.036, -2048
   %78 = icmp ne i32 %77, 55296
   %79 = and i1 %76, %78
   br i1 %79, label %80, label %_ZN4utf88internal15sequence_lengthINSt3__111__wrap_iterIPKcEEEENS2_15iterator_traitsIT_E15difference_typeES8_.exit.thread.sink.split
 
 80:                                               ; preds = %_ZN4utf88internal14get_sequence_1INSt3__111__wrap_iterIPKcEEEENS0_9utf_errorERT_S8_Rj.exit
-  %81 = icmp ult i32 %.038, 128
+  %81 = icmp ult i32 %.036, 128
   br i1 %81, label %82, label %83
 
 82:                                               ; preds = %80
   br i1 %9, label %_ZN4utf88internal20is_overlong_sequenceIlEEbjT_.exit, label %_ZN4utf88internal15sequence_lengthINSt3__111__wrap_iterIPKcEEEENS2_15iterator_traitsIT_E15difference_typeES8_.exit.thread.sink.split
 
 83:                                               ; preds = %80
-  %84 = icmp ult i32 %.038, 2048
+  %84 = icmp ult i32 %.036, 2048
   br i1 %84, label %85, label %86
 
 85:                                               ; preds = %83
   br i1 %.not.i, label %_ZN4utf88internal20is_overlong_sequenceIlEEbjT_.exit, label %_ZN4utf88internal15sequence_lengthINSt3__111__wrap_iterIPKcEEEENS2_15iterator_traitsIT_E15difference_typeES8_.exit.thread.sink.split
 
 86:                                               ; preds = %83
-  %87 = icmp ult i32 %.038, 65536
+  %87 = icmp ult i32 %.036, 65536
   %or.cond.i = and i1 %75, %87
   br i1 %or.cond.i, label %_ZN4utf88internal15sequence_lengthINSt3__111__wrap_iterIPKcEEEENS2_15iterator_traitsIT_E15difference_typeES8_.exit.thread.sink.split, label %_ZN4utf88internal20is_overlong_sequenceIlEEbjT_.exit
 
 _ZN4utf88internal20is_overlong_sequenceIlEEbjT_.exit: ; preds = %86, %85, %82
-  store i32 %.038, ptr %2, align 4
+  store i32 %.036, ptr %2, align 4
   %88 = load ptr, ptr %0, align 8
   %89 = getelementptr inbounds i8, ptr %88, i64 1
   br label %_ZN4utf88internal15sequence_lengthINSt3__111__wrap_iterIPKcEEEENS2_15iterator_traitsIT_E15difference_typeES8_.exit.thread.sink.split
 
-_ZN4utf88internal15sequence_lengthINSt3__111__wrap_iterIPKcEEEENS2_15iterator_traitsIT_E15difference_typeES8_.exit.thread.sink.split: ; preds = %_ZN4utf88internal14get_sequence_1INSt3__111__wrap_iterIPKcEEEENS0_9utf_errorERT_S8_Rj.exit, %19, %16, %30, %27, %41, %_ZN4utf88internal15increase_safelyINSt3__111__wrap_iterIPKcEEEENS0_9utf_errorERT_S8_.exit.i25, %49, %_ZN4utf88internal15sequence_lengthINSt3__111__wrap_iterIPKcEEEENS2_15iterator_traitsIT_E15difference_typeES8_.exit, %60, %_ZN4utf88internal15increase_safelyINSt3__111__wrap_iterIPKcEEEENS0_9utf_errorERT_S8_.exit.i28, %69, %_ZN4utf88internal15increase_safelyINSt3__111__wrap_iterIPKcEEEENS0_9utf_errorERT_S8_.exit29.i, %82, %85, %86, %_ZN4utf88internal20is_overlong_sequenceIlEEbjT_.exit
-  %.sink = phi ptr [ %89, %_ZN4utf88internal20is_overlong_sequenceIlEEbjT_.exit ], [ %4, %86 ], [ %4, %85 ], [ %4, %82 ], [ %4, %_ZN4utf88internal15increase_safelyINSt3__111__wrap_iterIPKcEEEENS0_9utf_errorERT_S8_.exit29.i ], [ %4, %69 ], [ %4, %_ZN4utf88internal15increase_safelyINSt3__111__wrap_iterIPKcEEEENS0_9utf_errorERT_S8_.exit.i28 ], [ %4, %60 ], [ %4, %_ZN4utf88internal15sequence_lengthINSt3__111__wrap_iterIPKcEEEENS2_15iterator_traitsIT_E15difference_typeES8_.exit ], [ %4, %49 ], [ %4, %_ZN4utf88internal15increase_safelyINSt3__111__wrap_iterIPKcEEEENS0_9utf_errorERT_S8_.exit.i25 ], [ %4, %41 ], [ %4, %27 ], [ %4, %30 ], [ %4, %16 ], [ %4, %19 ], [ %4, %_ZN4utf88internal14get_sequence_1INSt3__111__wrap_iterIPKcEEEENS0_9utf_errorERT_S8_Rj.exit ]
-  %.0.ph = phi i32 [ 0, %_ZN4utf88internal20is_overlong_sequenceIlEEbjT_.exit ], [ 4, %86 ], [ 4, %85 ], [ 4, %82 ], [ 1, %_ZN4utf88internal15increase_safelyINSt3__111__wrap_iterIPKcEEEENS0_9utf_errorERT_S8_.exit29.i ], [ 3, %69 ], [ 1, %_ZN4utf88internal15increase_safelyINSt3__111__wrap_iterIPKcEEEENS0_9utf_errorERT_S8_.exit.i28 ], [ 3, %60 ], [ 1, %_ZN4utf88internal15sequence_lengthINSt3__111__wrap_iterIPKcEEEENS2_15iterator_traitsIT_E15difference_typeES8_.exit ], [ 3, %49 ], [ 1, %_ZN4utf88internal15increase_safelyINSt3__111__wrap_iterIPKcEEEENS0_9utf_errorERT_S8_.exit.i25 ], [ 3, %41 ], [ 1, %27 ], [ 3, %30 ], [ 1, %16 ], [ 3, %19 ], [ 5, %_ZN4utf88internal14get_sequence_1INSt3__111__wrap_iterIPKcEEEENS0_9utf_errorERT_S8_Rj.exit ]
+_ZN4utf88internal15sequence_lengthINSt3__111__wrap_iterIPKcEEEENS2_15iterator_traitsIT_E15difference_typeES8_.exit.thread.sink.split: ; preds = %_ZN4utf88internal14get_sequence_1INSt3__111__wrap_iterIPKcEEEENS0_9utf_errorERT_S8_Rj.exit, %19, %16, %30, %27, %41, %_ZN4utf88internal15increase_safelyINSt3__111__wrap_iterIPKcEEEENS0_9utf_errorERT_S8_.exit.i24, %49, %_ZN4utf88internal15sequence_lengthINSt3__111__wrap_iterIPKcEEEENS2_15iterator_traitsIT_E15difference_typeES8_.exit, %60, %_ZN4utf88internal15increase_safelyINSt3__111__wrap_iterIPKcEEEENS0_9utf_errorERT_S8_.exit.i26, %69, %_ZN4utf88internal15increase_safelyINSt3__111__wrap_iterIPKcEEEENS0_9utf_errorERT_S8_.exit28.i, %82, %85, %86, %_ZN4utf88internal20is_overlong_sequenceIlEEbjT_.exit
+  %.sink = phi ptr [ %89, %_ZN4utf88internal20is_overlong_sequenceIlEEbjT_.exit ], [ %4, %86 ], [ %4, %85 ], [ %4, %82 ], [ %4, %_ZN4utf88internal15increase_safelyINSt3__111__wrap_iterIPKcEEEENS0_9utf_errorERT_S8_.exit28.i ], [ %4, %69 ], [ %4, %_ZN4utf88internal15increase_safelyINSt3__111__wrap_iterIPKcEEEENS0_9utf_errorERT_S8_.exit.i26 ], [ %4, %60 ], [ %4, %_ZN4utf88internal15sequence_lengthINSt3__111__wrap_iterIPKcEEEENS2_15iterator_traitsIT_E15difference_typeES8_.exit ], [ %4, %49 ], [ %4, %_ZN4utf88internal15increase_safelyINSt3__111__wrap_iterIPKcEEEENS0_9utf_errorERT_S8_.exit.i24 ], [ %4, %41 ], [ %4, %27 ], [ %4, %30 ], [ %4, %16 ], [ %4, %19 ], [ %4, %_ZN4utf88internal14get_sequence_1INSt3__111__wrap_iterIPKcEEEENS0_9utf_errorERT_S8_Rj.exit ]
+  %.0.ph = phi i32 [ 0, %_ZN4utf88internal20is_overlong_sequenceIlEEbjT_.exit ], [ 4, %86 ], [ 4, %85 ], [ 4, %82 ], [ 1, %_ZN4utf88internal15increase_safelyINSt3__111__wrap_iterIPKcEEEENS0_9utf_errorERT_S8_.exit28.i ], [ 3, %69 ], [ 1, %_ZN4utf88internal15increase_safelyINSt3__111__wrap_iterIPKcEEEENS0_9utf_errorERT_S8_.exit.i26 ], [ 3, %60 ], [ 1, %_ZN4utf88internal15sequence_lengthINSt3__111__wrap_iterIPKcEEEENS2_15iterator_traitsIT_E15difference_typeES8_.exit ], [ 3, %49 ], [ 1, %_ZN4utf88internal15increase_safelyINSt3__111__wrap_iterIPKcEEEENS0_9utf_errorERT_S8_.exit.i24 ], [ 3, %41 ], [ 1, %27 ], [ 3, %30 ], [ 1, %16 ], [ 3, %19 ], [ 5, %_ZN4utf88internal14get_sequence_1INSt3__111__wrap_iterIPKcEEEENS0_9utf_errorERT_S8_Rj.exit ]
   store ptr %.sink, ptr %0, align 8
   br label %_ZN4utf88internal15sequence_lengthINSt3__111__wrap_iterIPKcEEEENS2_15iterator_traitsIT_E15difference_typeES8_.exit.thread
 
@@ -4139,8 +4132,7 @@ define linkonce_odr dso_local ptr @_ZN4utf815replace_invalidINSt3__111__wrap_ite
 
 22:                                               ; preds = %21
   %23 = load i8, ptr %storemerge, align 1
-  %.mask.i = and i8 %23, -64
-  %24 = icmp eq i8 %.mask.i, -128
+  %24 = icmp slt i8 %23, -64
   br i1 %24, label %21, label %.critedge, !llvm.loop !55
 
 .critedge:                                        ; preds = %22, %21, %.lr.ph, %..critedge_crit_edge, %.preheader, %14
@@ -4272,8 +4264,7 @@ define linkonce_odr dso_local noundef i32 @_ZN4utf88internal13validate_nextINSt3
 
 19:                                               ; preds = %16
   %20 = load i8, ptr %17, align 1
-  %.mask.i.i.i = and i8 %20, -64
-  %21 = icmp eq i8 %.mask.i.i.i, -128
+  %21 = icmp slt i8 %20, -64
   br i1 %21, label %_ZN4utf88internal15increase_safelyINSt3__111__wrap_iterIPKDuEEEENS0_9utf_errorERT_S8_.exit.i, label %_ZN4utf88internal15sequence_lengthINSt3__111__wrap_iterIPKDuEEEENS2_15iterator_traitsIT_E15difference_typeES8_.exit.thread.sink.split
 
 _ZN4utf88internal15increase_safelyINSt3__111__wrap_iterIPKDuEEEENS0_9utf_errorERT_S8_.exit.i: ; preds = %19
@@ -4292,11 +4283,10 @@ _ZN4utf88internal15increase_safelyINSt3__111__wrap_iterIPKDuEEEENS0_9utf_errorER
 
 30:                                               ; preds = %27
   %31 = load i8, ptr %28, align 1
-  %.mask.i.i.i23 = and i8 %31, -64
-  %32 = icmp eq i8 %.mask.i.i.i23, -128
-  br i1 %32, label %_ZN4utf88internal15increase_safelyINSt3__111__wrap_iterIPKDuEEEENS0_9utf_errorERT_S8_.exit.i25, label %_ZN4utf88internal15sequence_lengthINSt3__111__wrap_iterIPKDuEEEENS2_15iterator_traitsIT_E15difference_typeES8_.exit.thread.sink.split
+  %32 = icmp slt i8 %31, -64
+  br i1 %32, label %_ZN4utf88internal15increase_safelyINSt3__111__wrap_iterIPKDuEEEENS0_9utf_errorERT_S8_.exit.i24, label %_ZN4utf88internal15sequence_lengthINSt3__111__wrap_iterIPKDuEEEENS2_15iterator_traitsIT_E15difference_typeES8_.exit.thread.sink.split
 
-_ZN4utf88internal15increase_safelyINSt3__111__wrap_iterIPKDuEEEENS0_9utf_errorERT_S8_.exit.i25: ; preds = %30
+_ZN4utf88internal15increase_safelyINSt3__111__wrap_iterIPKDuEEEENS0_9utf_errorERT_S8_.exit.i24: ; preds = %30
   %33 = shl nuw nsw i32 %8, 12
   %34 = and i32 %33, 61440
   %35 = zext i8 %31 to i32
@@ -4308,13 +4298,12 @@ _ZN4utf88internal15increase_safelyINSt3__111__wrap_iterIPKDuEEEENS0_9utf_errorER
   %40 = icmp eq ptr %39, %1
   br i1 %40, label %_ZN4utf88internal15sequence_lengthINSt3__111__wrap_iterIPKDuEEEENS2_15iterator_traitsIT_E15difference_typeES8_.exit.thread.sink.split, label %41
 
-41:                                               ; preds = %_ZN4utf88internal15increase_safelyINSt3__111__wrap_iterIPKDuEEEENS0_9utf_errorERT_S8_.exit.i25
+41:                                               ; preds = %_ZN4utf88internal15increase_safelyINSt3__111__wrap_iterIPKDuEEEENS0_9utf_errorERT_S8_.exit.i24
   %42 = load i8, ptr %39, align 1
-  %.mask.i.i18.i = and i8 %42, -64
-  %43 = icmp eq i8 %.mask.i.i18.i, -128
-  br i1 %43, label %_ZN4utf88internal15increase_safelyINSt3__111__wrap_iterIPKDuEEEENS0_9utf_errorERT_S8_.exit21.i, label %_ZN4utf88internal15sequence_lengthINSt3__111__wrap_iterIPKDuEEEENS2_15iterator_traitsIT_E15difference_typeES8_.exit.thread.sink.split
+  %43 = icmp slt i8 %42, -64
+  br i1 %43, label %_ZN4utf88internal15increase_safelyINSt3__111__wrap_iterIPKDuEEEENS0_9utf_errorERT_S8_.exit20.i, label %_ZN4utf88internal15sequence_lengthINSt3__111__wrap_iterIPKDuEEEENS2_15iterator_traitsIT_E15difference_typeES8_.exit.thread.sink.split
 
-_ZN4utf88internal15increase_safelyINSt3__111__wrap_iterIPKDuEEEENS0_9utf_errorERT_S8_.exit21.i: ; preds = %41
+_ZN4utf88internal15increase_safelyINSt3__111__wrap_iterIPKDuEEEENS0_9utf_errorERT_S8_.exit20.i: ; preds = %41
   %44 = and i8 %42, 63
   %45 = zext nneg i8 %44 to i32
   %46 = or disjoint i32 %38, %45
@@ -4328,11 +4317,10 @@ _ZN4utf88internal15sequence_lengthINSt3__111__wrap_iterIPKDuEEEENS2_15iterator_t
 
 49:                                               ; preds = %_ZN4utf88internal15sequence_lengthINSt3__111__wrap_iterIPKDuEEEENS2_15iterator_traitsIT_E15difference_typeES8_.exit
   %50 = load i8, ptr %47, align 1
-  %.mask.i.i.i26 = and i8 %50, -64
-  %51 = icmp eq i8 %.mask.i.i.i26, -128
-  br i1 %51, label %_ZN4utf88internal15increase_safelyINSt3__111__wrap_iterIPKDuEEEENS0_9utf_errorERT_S8_.exit.i28, label %_ZN4utf88internal15sequence_lengthINSt3__111__wrap_iterIPKDuEEEENS2_15iterator_traitsIT_E15difference_typeES8_.exit.thread.sink.split
+  %51 = icmp slt i8 %50, -64
+  br i1 %51, label %_ZN4utf88internal15increase_safelyINSt3__111__wrap_iterIPKDuEEEENS0_9utf_errorERT_S8_.exit.i26, label %_ZN4utf88internal15sequence_lengthINSt3__111__wrap_iterIPKDuEEEENS2_15iterator_traitsIT_E15difference_typeES8_.exit.thread.sink.split
 
-_ZN4utf88internal15increase_safelyINSt3__111__wrap_iterIPKDuEEEENS0_9utf_errorERT_S8_.exit.i28: ; preds = %49
+_ZN4utf88internal15increase_safelyINSt3__111__wrap_iterIPKDuEEEENS0_9utf_errorERT_S8_.exit.i26: ; preds = %49
   %52 = shl nuw nsw i32 %8, 18
   %53 = and i32 %52, 1835008
   %54 = zext i8 %50 to i32
@@ -4344,13 +4332,12 @@ _ZN4utf88internal15increase_safelyINSt3__111__wrap_iterIPKDuEEEENS0_9utf_errorER
   %59 = icmp eq ptr %58, %1
   br i1 %59, label %_ZN4utf88internal15sequence_lengthINSt3__111__wrap_iterIPKDuEEEENS2_15iterator_traitsIT_E15difference_typeES8_.exit.thread.sink.split, label %60
 
-60:                                               ; preds = %_ZN4utf88internal15increase_safelyINSt3__111__wrap_iterIPKDuEEEENS0_9utf_errorERT_S8_.exit.i28
+60:                                               ; preds = %_ZN4utf88internal15increase_safelyINSt3__111__wrap_iterIPKDuEEEENS0_9utf_errorERT_S8_.exit.i26
   %61 = load i8, ptr %58, align 1
-  %.mask.i.i26.i = and i8 %61, -64
-  %62 = icmp eq i8 %.mask.i.i26.i, -128
-  br i1 %62, label %_ZN4utf88internal15increase_safelyINSt3__111__wrap_iterIPKDuEEEENS0_9utf_errorERT_S8_.exit29.i, label %_ZN4utf88internal15sequence_lengthINSt3__111__wrap_iterIPKDuEEEENS2_15iterator_traitsIT_E15difference_typeES8_.exit.thread.sink.split
+  %62 = icmp slt i8 %61, -64
+  br i1 %62, label %_ZN4utf88internal15increase_safelyINSt3__111__wrap_iterIPKDuEEEENS0_9utf_errorERT_S8_.exit28.i, label %_ZN4utf88internal15sequence_lengthINSt3__111__wrap_iterIPKDuEEEENS2_15iterator_traitsIT_E15difference_typeES8_.exit.thread.sink.split
 
-_ZN4utf88internal15increase_safelyINSt3__111__wrap_iterIPKDuEEEENS0_9utf_errorERT_S8_.exit29.i: ; preds = %60
+_ZN4utf88internal15increase_safelyINSt3__111__wrap_iterIPKDuEEEENS0_9utf_errorERT_S8_.exit28.i: ; preds = %60
   %63 = zext i8 %61 to i32
   %64 = shl nuw nsw i32 %63, 6
   %65 = and i32 %64, 4032
@@ -4360,56 +4347,55 @@ _ZN4utf88internal15increase_safelyINSt3__111__wrap_iterIPKDuEEEENS0_9utf_errorER
   %68 = icmp eq ptr %67, %1
   br i1 %68, label %_ZN4utf88internal15sequence_lengthINSt3__111__wrap_iterIPKDuEEEENS2_15iterator_traitsIT_E15difference_typeES8_.exit.thread.sink.split, label %69
 
-69:                                               ; preds = %_ZN4utf88internal15increase_safelyINSt3__111__wrap_iterIPKDuEEEENS0_9utf_errorERT_S8_.exit29.i
+69:                                               ; preds = %_ZN4utf88internal15increase_safelyINSt3__111__wrap_iterIPKDuEEEENS0_9utf_errorERT_S8_.exit28.i
   %70 = load i8, ptr %67, align 1
-  %.mask.i.i30.i = and i8 %70, -64
-  %71 = icmp eq i8 %.mask.i.i30.i, -128
-  br i1 %71, label %_ZN4utf88internal15increase_safelyINSt3__111__wrap_iterIPKDuEEEENS0_9utf_errorERT_S8_.exit33.i, label %_ZN4utf88internal15sequence_lengthINSt3__111__wrap_iterIPKDuEEEENS2_15iterator_traitsIT_E15difference_typeES8_.exit.thread.sink.split
+  %71 = icmp slt i8 %70, -64
+  br i1 %71, label %_ZN4utf88internal15increase_safelyINSt3__111__wrap_iterIPKDuEEEENS0_9utf_errorERT_S8_.exit31.i, label %_ZN4utf88internal15sequence_lengthINSt3__111__wrap_iterIPKDuEEEENS2_15iterator_traitsIT_E15difference_typeES8_.exit.thread.sink.split
 
-_ZN4utf88internal15increase_safelyINSt3__111__wrap_iterIPKDuEEEENS0_9utf_errorERT_S8_.exit33.i: ; preds = %69
+_ZN4utf88internal15increase_safelyINSt3__111__wrap_iterIPKDuEEEENS0_9utf_errorERT_S8_.exit31.i: ; preds = %69
   %72 = and i8 %70, 63
   %73 = zext nneg i8 %72 to i32
   %74 = or disjoint i32 %66, %73
   br label %_ZN4utf88internal14get_sequence_1INSt3__111__wrap_iterIPKDuEEEENS0_9utf_errorERT_S8_Rj.exit
 
-_ZN4utf88internal14get_sequence_1INSt3__111__wrap_iterIPKDuEEEENS0_9utf_errorERT_S8_Rj.exit: ; preds = %6, %_ZN4utf88internal15increase_safelyINSt3__111__wrap_iterIPKDuEEEENS0_9utf_errorERT_S8_.exit.i, %_ZN4utf88internal15increase_safelyINSt3__111__wrap_iterIPKDuEEEENS0_9utf_errorERT_S8_.exit21.i, %_ZN4utf88internal15increase_safelyINSt3__111__wrap_iterIPKDuEEEENS0_9utf_errorERT_S8_.exit33.i
-  %75 = phi i1 [ true, %6 ], [ true, %_ZN4utf88internal15increase_safelyINSt3__111__wrap_iterIPKDuEEEENS0_9utf_errorERT_S8_.exit.i ], [ false, %_ZN4utf88internal15increase_safelyINSt3__111__wrap_iterIPKDuEEEENS0_9utf_errorERT_S8_.exit21.i ], [ true, %_ZN4utf88internal15increase_safelyINSt3__111__wrap_iterIPKDuEEEENS0_9utf_errorERT_S8_.exit33.i ]
-  %.not.i = phi i1 [ false, %6 ], [ true, %_ZN4utf88internal15increase_safelyINSt3__111__wrap_iterIPKDuEEEENS0_9utf_errorERT_S8_.exit.i ], [ false, %_ZN4utf88internal15increase_safelyINSt3__111__wrap_iterIPKDuEEEENS0_9utf_errorERT_S8_.exit21.i ], [ false, %_ZN4utf88internal15increase_safelyINSt3__111__wrap_iterIPKDuEEEENS0_9utf_errorERT_S8_.exit33.i ]
-  %.038 = phi i32 [ %8, %6 ], [ %26, %_ZN4utf88internal15increase_safelyINSt3__111__wrap_iterIPKDuEEEENS0_9utf_errorERT_S8_.exit.i ], [ %46, %_ZN4utf88internal15increase_safelyINSt3__111__wrap_iterIPKDuEEEENS0_9utf_errorERT_S8_.exit21.i ], [ %74, %_ZN4utf88internal15increase_safelyINSt3__111__wrap_iterIPKDuEEEENS0_9utf_errorERT_S8_.exit33.i ]
-  %76 = icmp ult i32 %.038, 1114112
-  %77 = and i32 %.038, -2048
+_ZN4utf88internal14get_sequence_1INSt3__111__wrap_iterIPKDuEEEENS0_9utf_errorERT_S8_Rj.exit: ; preds = %6, %_ZN4utf88internal15increase_safelyINSt3__111__wrap_iterIPKDuEEEENS0_9utf_errorERT_S8_.exit.i, %_ZN4utf88internal15increase_safelyINSt3__111__wrap_iterIPKDuEEEENS0_9utf_errorERT_S8_.exit20.i, %_ZN4utf88internal15increase_safelyINSt3__111__wrap_iterIPKDuEEEENS0_9utf_errorERT_S8_.exit31.i
+  %75 = phi i1 [ true, %6 ], [ true, %_ZN4utf88internal15increase_safelyINSt3__111__wrap_iterIPKDuEEEENS0_9utf_errorERT_S8_.exit.i ], [ false, %_ZN4utf88internal15increase_safelyINSt3__111__wrap_iterIPKDuEEEENS0_9utf_errorERT_S8_.exit20.i ], [ true, %_ZN4utf88internal15increase_safelyINSt3__111__wrap_iterIPKDuEEEENS0_9utf_errorERT_S8_.exit31.i ]
+  %.not.i = phi i1 [ false, %6 ], [ true, %_ZN4utf88internal15increase_safelyINSt3__111__wrap_iterIPKDuEEEENS0_9utf_errorERT_S8_.exit.i ], [ false, %_ZN4utf88internal15increase_safelyINSt3__111__wrap_iterIPKDuEEEENS0_9utf_errorERT_S8_.exit20.i ], [ false, %_ZN4utf88internal15increase_safelyINSt3__111__wrap_iterIPKDuEEEENS0_9utf_errorERT_S8_.exit31.i ]
+  %.036 = phi i32 [ %8, %6 ], [ %26, %_ZN4utf88internal15increase_safelyINSt3__111__wrap_iterIPKDuEEEENS0_9utf_errorERT_S8_.exit.i ], [ %46, %_ZN4utf88internal15increase_safelyINSt3__111__wrap_iterIPKDuEEEENS0_9utf_errorERT_S8_.exit20.i ], [ %74, %_ZN4utf88internal15increase_safelyINSt3__111__wrap_iterIPKDuEEEENS0_9utf_errorERT_S8_.exit31.i ]
+  %76 = icmp ult i32 %.036, 1114112
+  %77 = and i32 %.036, -2048
   %78 = icmp ne i32 %77, 55296
   %79 = and i1 %76, %78
   br i1 %79, label %80, label %_ZN4utf88internal15sequence_lengthINSt3__111__wrap_iterIPKDuEEEENS2_15iterator_traitsIT_E15difference_typeES8_.exit.thread.sink.split
 
 80:                                               ; preds = %_ZN4utf88internal14get_sequence_1INSt3__111__wrap_iterIPKDuEEEENS0_9utf_errorERT_S8_Rj.exit
-  %81 = icmp ult i32 %.038, 128
+  %81 = icmp ult i32 %.036, 128
   br i1 %81, label %82, label %83
 
 82:                                               ; preds = %80
   br i1 %9, label %_ZN4utf88internal20is_overlong_sequenceIlEEbjT_.exit, label %_ZN4utf88internal15sequence_lengthINSt3__111__wrap_iterIPKDuEEEENS2_15iterator_traitsIT_E15difference_typeES8_.exit.thread.sink.split
 
 83:                                               ; preds = %80
-  %84 = icmp ult i32 %.038, 2048
+  %84 = icmp ult i32 %.036, 2048
   br i1 %84, label %85, label %86
 
 85:                                               ; preds = %83
   br i1 %.not.i, label %_ZN4utf88internal20is_overlong_sequenceIlEEbjT_.exit, label %_ZN4utf88internal15sequence_lengthINSt3__111__wrap_iterIPKDuEEEENS2_15iterator_traitsIT_E15difference_typeES8_.exit.thread.sink.split
 
 86:                                               ; preds = %83
-  %87 = icmp ult i32 %.038, 65536
+  %87 = icmp ult i32 %.036, 65536
   %or.cond.i = and i1 %75, %87
   br i1 %or.cond.i, label %_ZN4utf88internal15sequence_lengthINSt3__111__wrap_iterIPKDuEEEENS2_15iterator_traitsIT_E15difference_typeES8_.exit.thread.sink.split, label %_ZN4utf88internal20is_overlong_sequenceIlEEbjT_.exit
 
 _ZN4utf88internal20is_overlong_sequenceIlEEbjT_.exit: ; preds = %86, %85, %82
-  store i32 %.038, ptr %2, align 4
+  store i32 %.036, ptr %2, align 4
   %88 = load ptr, ptr %0, align 8
   %89 = getelementptr inbounds i8, ptr %88, i64 1
   br label %_ZN4utf88internal15sequence_lengthINSt3__111__wrap_iterIPKDuEEEENS2_15iterator_traitsIT_E15difference_typeES8_.exit.thread.sink.split
 
-_ZN4utf88internal15sequence_lengthINSt3__111__wrap_iterIPKDuEEEENS2_15iterator_traitsIT_E15difference_typeES8_.exit.thread.sink.split: ; preds = %_ZN4utf88internal14get_sequence_1INSt3__111__wrap_iterIPKDuEEEENS0_9utf_errorERT_S8_Rj.exit, %19, %16, %30, %27, %41, %_ZN4utf88internal15increase_safelyINSt3__111__wrap_iterIPKDuEEEENS0_9utf_errorERT_S8_.exit.i25, %49, %_ZN4utf88internal15sequence_lengthINSt3__111__wrap_iterIPKDuEEEENS2_15iterator_traitsIT_E15difference_typeES8_.exit, %60, %_ZN4utf88internal15increase_safelyINSt3__111__wrap_iterIPKDuEEEENS0_9utf_errorERT_S8_.exit.i28, %69, %_ZN4utf88internal15increase_safelyINSt3__111__wrap_iterIPKDuEEEENS0_9utf_errorERT_S8_.exit29.i, %82, %85, %86, %_ZN4utf88internal20is_overlong_sequenceIlEEbjT_.exit
-  %.sink = phi ptr [ %89, %_ZN4utf88internal20is_overlong_sequenceIlEEbjT_.exit ], [ %4, %86 ], [ %4, %85 ], [ %4, %82 ], [ %4, %_ZN4utf88internal15increase_safelyINSt3__111__wrap_iterIPKDuEEEENS0_9utf_errorERT_S8_.exit29.i ], [ %4, %69 ], [ %4, %_ZN4utf88internal15increase_safelyINSt3__111__wrap_iterIPKDuEEEENS0_9utf_errorERT_S8_.exit.i28 ], [ %4, %60 ], [ %4, %_ZN4utf88internal15sequence_lengthINSt3__111__wrap_iterIPKDuEEEENS2_15iterator_traitsIT_E15difference_typeES8_.exit ], [ %4, %49 ], [ %4, %_ZN4utf88internal15increase_safelyINSt3__111__wrap_iterIPKDuEEEENS0_9utf_errorERT_S8_.exit.i25 ], [ %4, %41 ], [ %4, %27 ], [ %4, %30 ], [ %4, %16 ], [ %4, %19 ], [ %4, %_ZN4utf88internal14get_sequence_1INSt3__111__wrap_iterIPKDuEEEENS0_9utf_errorERT_S8_Rj.exit ]
-  %.0.ph = phi i32 [ 0, %_ZN4utf88internal20is_overlong_sequenceIlEEbjT_.exit ], [ 4, %86 ], [ 4, %85 ], [ 4, %82 ], [ 1, %_ZN4utf88internal15increase_safelyINSt3__111__wrap_iterIPKDuEEEENS0_9utf_errorERT_S8_.exit29.i ], [ 3, %69 ], [ 1, %_ZN4utf88internal15increase_safelyINSt3__111__wrap_iterIPKDuEEEENS0_9utf_errorERT_S8_.exit.i28 ], [ 3, %60 ], [ 1, %_ZN4utf88internal15sequence_lengthINSt3__111__wrap_iterIPKDuEEEENS2_15iterator_traitsIT_E15difference_typeES8_.exit ], [ 3, %49 ], [ 1, %_ZN4utf88internal15increase_safelyINSt3__111__wrap_iterIPKDuEEEENS0_9utf_errorERT_S8_.exit.i25 ], [ 3, %41 ], [ 1, %27 ], [ 3, %30 ], [ 1, %16 ], [ 3, %19 ], [ 5, %_ZN4utf88internal14get_sequence_1INSt3__111__wrap_iterIPKDuEEEENS0_9utf_errorERT_S8_Rj.exit ]
+_ZN4utf88internal15sequence_lengthINSt3__111__wrap_iterIPKDuEEEENS2_15iterator_traitsIT_E15difference_typeES8_.exit.thread.sink.split: ; preds = %_ZN4utf88internal14get_sequence_1INSt3__111__wrap_iterIPKDuEEEENS0_9utf_errorERT_S8_Rj.exit, %19, %16, %30, %27, %41, %_ZN4utf88internal15increase_safelyINSt3__111__wrap_iterIPKDuEEEENS0_9utf_errorERT_S8_.exit.i24, %49, %_ZN4utf88internal15sequence_lengthINSt3__111__wrap_iterIPKDuEEEENS2_15iterator_traitsIT_E15difference_typeES8_.exit, %60, %_ZN4utf88internal15increase_safelyINSt3__111__wrap_iterIPKDuEEEENS0_9utf_errorERT_S8_.exit.i26, %69, %_ZN4utf88internal15increase_safelyINSt3__111__wrap_iterIPKDuEEEENS0_9utf_errorERT_S8_.exit28.i, %82, %85, %86, %_ZN4utf88internal20is_overlong_sequenceIlEEbjT_.exit
+  %.sink = phi ptr [ %89, %_ZN4utf88internal20is_overlong_sequenceIlEEbjT_.exit ], [ %4, %86 ], [ %4, %85 ], [ %4, %82 ], [ %4, %_ZN4utf88internal15increase_safelyINSt3__111__wrap_iterIPKDuEEEENS0_9utf_errorERT_S8_.exit28.i ], [ %4, %69 ], [ %4, %_ZN4utf88internal15increase_safelyINSt3__111__wrap_iterIPKDuEEEENS0_9utf_errorERT_S8_.exit.i26 ], [ %4, %60 ], [ %4, %_ZN4utf88internal15sequence_lengthINSt3__111__wrap_iterIPKDuEEEENS2_15iterator_traitsIT_E15difference_typeES8_.exit ], [ %4, %49 ], [ %4, %_ZN4utf88internal15increase_safelyINSt3__111__wrap_iterIPKDuEEEENS0_9utf_errorERT_S8_.exit.i24 ], [ %4, %41 ], [ %4, %27 ], [ %4, %30 ], [ %4, %16 ], [ %4, %19 ], [ %4, %_ZN4utf88internal14get_sequence_1INSt3__111__wrap_iterIPKDuEEEENS0_9utf_errorERT_S8_Rj.exit ]
+  %.0.ph = phi i32 [ 0, %_ZN4utf88internal20is_overlong_sequenceIlEEbjT_.exit ], [ 4, %86 ], [ 4, %85 ], [ 4, %82 ], [ 1, %_ZN4utf88internal15increase_safelyINSt3__111__wrap_iterIPKDuEEEENS0_9utf_errorERT_S8_.exit28.i ], [ 3, %69 ], [ 1, %_ZN4utf88internal15increase_safelyINSt3__111__wrap_iterIPKDuEEEENS0_9utf_errorERT_S8_.exit.i26 ], [ 3, %60 ], [ 1, %_ZN4utf88internal15sequence_lengthINSt3__111__wrap_iterIPKDuEEEENS2_15iterator_traitsIT_E15difference_typeES8_.exit ], [ 3, %49 ], [ 1, %_ZN4utf88internal15increase_safelyINSt3__111__wrap_iterIPKDuEEEENS0_9utf_errorERT_S8_.exit.i24 ], [ 3, %41 ], [ 1, %27 ], [ 3, %30 ], [ 1, %16 ], [ 3, %19 ], [ 5, %_ZN4utf88internal14get_sequence_1INSt3__111__wrap_iterIPKDuEEEENS0_9utf_errorERT_S8_Rj.exit ]
   store ptr %.sink, ptr %0, align 8
   br label %_ZN4utf88internal15sequence_lengthINSt3__111__wrap_iterIPKDuEEEENS2_15iterator_traitsIT_E15difference_typeES8_.exit.thread
 
@@ -4486,8 +4472,7 @@ define linkonce_odr dso_local ptr @_ZN4utf815replace_invalidINSt3__111__wrap_ite
 
 22:                                               ; preds = %21
   %23 = load i8, ptr %storemerge, align 1
-  %.mask.i = and i8 %23, -64
-  %24 = icmp eq i8 %.mask.i, -128
+  %24 = icmp slt i8 %23, -64
   br i1 %24, label %21, label %.critedge, !llvm.loop !58
 
 .critedge:                                        ; preds = %22, %21, %.lr.ph, %..critedge_crit_edge, %.preheader, %14
@@ -51896,118 +51881,117 @@ define linkonce_odr dso_local ptr @_ZN3fmt2v96detail5writeIcNS0_8appenderEEET0_S
   %14 = icmp ugt i64 %2, %13
   br i1 %14, label %.lr.ph.i, label %_ZN3fmt2v96detail16code_point_indexENS0_17basic_string_viewIcEEm.exit
 
-.lr.ph.i:                                         ; preds = %12, %21
-  %.0815.i = phi i64 [ %22, %21 ], [ 0, %12 ]
-  %.0914.i = phi i64 [ %.1.i, %21 ], [ 0, %12 ]
+.lr.ph.i:                                         ; preds = %12, %20
+  %.0815.i = phi i64 [ %21, %20 ], [ 0, %12 ]
+  %.0914.i = phi i64 [ %.1.i, %20 ], [ 0, %12 ]
   %15 = getelementptr inbounds i8, ptr %1, i64 %.0815.i
   %16 = load i8, ptr %15, align 1
-  %17 = and i8 %16, -64
-  %.not11.i = icmp eq i8 %17, -128
-  br i1 %.not11.i, label %21, label %18
+  %.not11.i = icmp slt i8 %16, -64
+  br i1 %.not11.i, label %20, label %17
 
-18:                                               ; preds = %.lr.ph.i
-  %19 = add i64 %.0914.i, 1
-  %20 = icmp ugt i64 %19, %13
-  br i1 %20, label %_ZN3fmt2v96detail16code_point_indexENS0_17basic_string_viewIcEEm.exit, label %21
+17:                                               ; preds = %.lr.ph.i
+  %18 = add i64 %.0914.i, 1
+  %19 = icmp ugt i64 %18, %13
+  br i1 %19, label %_ZN3fmt2v96detail16code_point_indexENS0_17basic_string_viewIcEEm.exit, label %20
 
-21:                                               ; preds = %18, %.lr.ph.i
-  %.1.i = phi i64 [ %19, %18 ], [ %.0914.i, %.lr.ph.i ]
-  %22 = add nuw i64 %.0815.i, 1
-  %.not.i = icmp eq i64 %22, %2
+20:                                               ; preds = %17, %.lr.ph.i
+  %.1.i = phi i64 [ %18, %17 ], [ %.0914.i, %.lr.ph.i ]
+  %21 = add nuw i64 %.0815.i, 1
+  %.not.i = icmp eq i64 %21, %2
   br i1 %.not.i, label %_ZN3fmt2v96detail16code_point_indexENS0_17basic_string_viewIcEEm.exit, label %.lr.ph.i, !llvm.loop !324
 
-_ZN3fmt2v96detail16code_point_indexENS0_17basic_string_viewIcEEm.exit: ; preds = %21, %18, %12, %4
-  %.0 = phi i64 [ %2, %12 ], [ %2, %4 ], [ %.0815.i, %18 ], [ %2, %21 ]
-  %23 = getelementptr inbounds i8, ptr %3, i64 8
-  %24 = load i8, ptr %23, align 4
-  %25 = icmp eq i8 %24, 18
-  %26 = load i32, ptr %3, align 4
-  %.not = icmp eq i32 %26, 0
-  br i1 %.not, label %55, label %27
+_ZN3fmt2v96detail16code_point_indexENS0_17basic_string_viewIcEEm.exit: ; preds = %20, %17, %12, %4
+  %.0 = phi i64 [ %2, %12 ], [ %2, %4 ], [ %.0815.i, %17 ], [ %2, %20 ]
+  %22 = getelementptr inbounds i8, ptr %3, i64 8
+  %23 = load i8, ptr %22, align 4
+  %24 = icmp eq i8 %23, 18
+  %25 = load i32, ptr %3, align 4
+  %.not = icmp eq i32 %25, 0
+  br i1 %.not, label %54, label %26
 
-27:                                               ; preds = %_ZN3fmt2v96detail16code_point_indexENS0_17basic_string_viewIcEEm.exit
-  br i1 %25, label %28, label %30
+26:                                               ; preds = %_ZN3fmt2v96detail16code_point_indexENS0_17basic_string_viewIcEEm.exit
+  br i1 %24, label %27, label %29
 
-28:                                               ; preds = %27
-  %29 = tail call i64 @_ZN3fmt2v96detail20write_escaped_stringIcNS1_17counting_iteratorEEET0_S4_NS0_17basic_string_viewIT_EE(i64 0, ptr %1, i64 %2)
-  br label %55
+27:                                               ; preds = %26
+  %28 = tail call i64 @_ZN3fmt2v96detail20write_escaped_stringIcNS1_17counting_iteratorEEET0_S4_NS0_17basic_string_viewIT_EE(i64 0, ptr %1, i64 %2)
+  br label %54
 
-30:                                               ; preds = %27
+29:                                               ; preds = %26
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
   store i64 0, ptr %7, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
   call void @llvm.lifetime.start.p0(i64 7, ptr nonnull %6)
   store ptr %7, ptr %5, align 8
-  %31 = icmp ugt i64 %.0, 3
-  br i1 %31, label %32, label %.loopexit28.i.i
+  %30 = icmp ugt i64 %.0, 3
+  br i1 %30, label %31, label %.loopexit28.i.i
 
-32:                                               ; preds = %30
-  %33 = getelementptr inbounds i8, ptr %1, i64 %.0
-  %34 = getelementptr inbounds i8, ptr %33, i64 -3
-  br label %35
+31:                                               ; preds = %29
+  %32 = getelementptr inbounds i8, ptr %1, i64 %.0
+  %33 = getelementptr inbounds i8, ptr %32, i64 -3
+  br label %34
 
-35:                                               ; preds = %37, %32
-  %.1.i.i = phi ptr [ %1, %32 ], [ %38, %37 ]
-  %36 = icmp ult ptr %.1.i.i, %34
-  br i1 %36, label %37, label %.loopexit28.i.i
+34:                                               ; preds = %36, %31
+  %.1.i.i = phi ptr [ %1, %31 ], [ %37, %36 ]
+  %35 = icmp ult ptr %.1.i.i, %33
+  br i1 %35, label %36, label %.loopexit28.i.i
 
-37:                                               ; preds = %35
-  %38 = call noundef ptr @_ZZN3fmt2v96detail18for_each_codepointIZNS1_13compute_widthENS0_17basic_string_viewIcEEE17count_code_pointsEEvS4_T_ENKUlPKcS8_E_clES8_S8_(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef %.1.i.i, ptr noundef %.1.i.i)
-  %.not24.i.i = icmp eq ptr %38, null
-  br i1 %.not24.i.i, label %_ZN3fmt2v96detail13compute_widthENS0_17basic_string_viewIcEE.exit, label %35, !llvm.loop !325
+36:                                               ; preds = %34
+  %37 = call noundef ptr @_ZZN3fmt2v96detail18for_each_codepointIZNS1_13compute_widthENS0_17basic_string_viewIcEEE17count_code_pointsEEvS4_T_ENKUlPKcS8_E_clES8_S8_(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef %.1.i.i, ptr noundef %.1.i.i)
+  %.not24.i.i = icmp eq ptr %37, null
+  br i1 %.not24.i.i, label %_ZN3fmt2v96detail13compute_widthENS0_17basic_string_viewIcEE.exit, label %34, !llvm.loop !325
 
-.loopexit28.i.i:                                  ; preds = %35, %30
-  %.0.i.i = phi ptr [ %1, %30 ], [ %.1.i.i, %35 ]
-  %39 = getelementptr inbounds i8, ptr %1, i64 %.0
-  %40 = ptrtoint ptr %39 to i64
-  %41 = ptrtoint ptr %.0.i.i to i64
-  %42 = sub i64 %40, %41
-  %.not.i.i = icmp eq ptr %39, %.0.i.i
-  br i1 %.not.i.i, label %_ZN3fmt2v96detail13compute_widthENS0_17basic_string_viewIcEE.exit, label %43
+.loopexit28.i.i:                                  ; preds = %34, %29
+  %.0.i.i = phi ptr [ %1, %29 ], [ %.1.i.i, %34 ]
+  %38 = getelementptr inbounds i8, ptr %1, i64 %.0
+  %39 = ptrtoint ptr %38 to i64
+  %40 = ptrtoint ptr %.0.i.i to i64
+  %41 = sub i64 %39, %40
+  %.not.i.i = icmp eq ptr %38, %.0.i.i
+  br i1 %.not.i.i, label %_ZN3fmt2v96detail13compute_widthENS0_17basic_string_viewIcEE.exit, label %42
 
-43:                                               ; preds = %.loopexit28.i.i
+42:                                               ; preds = %.loopexit28.i.i
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %6, i8 0, i64 7, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %6, ptr align 1 %.0.i.i, i64 %42, i1 false)
-  %44 = ptrtoint ptr %6 to i64
-  br label %45
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %6, ptr align 1 %.0.i.i, i64 %41, i1 false)
+  %43 = ptrtoint ptr %6 to i64
+  br label %44
 
-45:                                               ; preds = %47, %43
-  %.019.i.i = phi ptr [ %6, %43 ], [ %46, %47 ]
-  %.2.i.i = phi ptr [ %.0.i.i, %43 ], [ %51, %47 ]
-  %46 = call noundef ptr @_ZZN3fmt2v96detail18for_each_codepointIZNS1_13compute_widthENS0_17basic_string_viewIcEEE17count_code_pointsEEvS4_T_ENKUlPKcS8_E_clES8_S8_(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull %.019.i.i, ptr noundef %.2.i.i)
-  %.not23.i.i = icmp eq ptr %46, null
-  br i1 %.not23.i.i, label %_ZN3fmt2v96detail13compute_widthENS0_17basic_string_viewIcEE.exit, label %47
+44:                                               ; preds = %46, %42
+  %.019.i.i = phi ptr [ %6, %42 ], [ %45, %46 ]
+  %.2.i.i = phi ptr [ %.0.i.i, %42 ], [ %50, %46 ]
+  %45 = call noundef ptr @_ZZN3fmt2v96detail18for_each_codepointIZNS1_13compute_widthENS0_17basic_string_viewIcEEE17count_code_pointsEEvS4_T_ENKUlPKcS8_E_clES8_S8_(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull %.019.i.i, ptr noundef %.2.i.i)
+  %.not23.i.i = icmp eq ptr %45, null
+  br i1 %.not23.i.i, label %_ZN3fmt2v96detail13compute_widthENS0_17basic_string_viewIcEE.exit, label %46
 
-47:                                               ; preds = %45
-  %48 = ptrtoint ptr %46 to i64
-  %49 = ptrtoint ptr %.019.i.i to i64
-  %50 = sub i64 %48, %49
-  %51 = getelementptr inbounds i8, ptr %.2.i.i, i64 %50
-  %52 = sub i64 %48, %44
-  %53 = icmp slt i64 %52, %42
-  br i1 %53, label %45, label %_ZN3fmt2v96detail13compute_widthENS0_17basic_string_viewIcEE.exit, !llvm.loop !326
+46:                                               ; preds = %44
+  %47 = ptrtoint ptr %45 to i64
+  %48 = ptrtoint ptr %.019.i.i to i64
+  %49 = sub i64 %47, %48
+  %50 = getelementptr inbounds i8, ptr %.2.i.i, i64 %49
+  %51 = sub i64 %47, %43
+  %52 = icmp slt i64 %51, %41
+  br i1 %52, label %44, label %_ZN3fmt2v96detail13compute_widthENS0_17basic_string_viewIcEE.exit, !llvm.loop !326
 
-_ZN3fmt2v96detail13compute_widthENS0_17basic_string_viewIcEE.exit: ; preds = %37, %45, %47, %.loopexit28.i.i
+_ZN3fmt2v96detail13compute_widthENS0_17basic_string_viewIcEE.exit: ; preds = %36, %44, %46, %.loopexit28.i.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 7, ptr nonnull %6)
-  %54 = load i64, ptr %7, align 8
+  %53 = load i64, ptr %7, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
-  br label %55
+  br label %54
 
-55:                                               ; preds = %28, %_ZN3fmt2v96detail13compute_widthENS0_17basic_string_viewIcEE.exit, %_ZN3fmt2v96detail16code_point_indexENS0_17basic_string_viewIcEEm.exit
-  %.019 = phi i64 [ %29, %28 ], [ %54, %_ZN3fmt2v96detail13compute_widthENS0_17basic_string_viewIcEE.exit ], [ 0, %_ZN3fmt2v96detail16code_point_indexENS0_17basic_string_viewIcEEm.exit ]
-  %56 = zext i1 %25 to i8
-  store i8 %56, ptr %8, align 8
-  %57 = getelementptr inbounds i8, ptr %8, i64 8
-  store ptr %1, ptr %57, align 8
+54:                                               ; preds = %27, %_ZN3fmt2v96detail13compute_widthENS0_17basic_string_viewIcEE.exit, %_ZN3fmt2v96detail16code_point_indexENS0_17basic_string_viewIcEEm.exit
+  %.019 = phi i64 [ %28, %27 ], [ %53, %_ZN3fmt2v96detail13compute_widthENS0_17basic_string_viewIcEE.exit ], [ 0, %_ZN3fmt2v96detail16code_point_indexENS0_17basic_string_viewIcEEm.exit ]
+  %55 = zext i1 %24 to i8
+  store i8 %55, ptr %8, align 8
+  %56 = getelementptr inbounds i8, ptr %8, i64 8
+  store ptr %1, ptr %56, align 8
   %.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %8, i64 16
   store i64 %2, ptr %.sroa.5.0..sroa_idx, align 8
-  %58 = getelementptr inbounds i8, ptr %8, i64 24
-  store ptr %1, ptr %58, align 8
-  %59 = getelementptr inbounds i8, ptr %8, i64 32
-  store i64 %.0, ptr %59, align 8
-  %60 = call ptr @_ZN3fmt2v96detail12write_paddedILNS0_5align4typeE1ENS0_8appenderEcZNS1_5writeIcS5_EET0_S7_NS0_17basic_string_viewIT_EERKNS0_18basic_format_specsIS9_EEEUlS5_E_EES7_S7_RKNSB_IT1_EEmmOT2_(ptr %0, ptr noundef nonnull align 4 dereferenceable(16) %3, i64 noundef %.0, i64 noundef %.019, ptr noundef nonnull align 8 dereferenceable(40) %8)
-  ret ptr %60
+  %57 = getelementptr inbounds i8, ptr %8, i64 24
+  store ptr %1, ptr %57, align 8
+  %58 = getelementptr inbounds i8, ptr %8, i64 32
+  store i64 %.0, ptr %58, align 8
+  %59 = call ptr @_ZN3fmt2v96detail12write_paddedILNS0_5align4typeE1ENS0_8appenderEcZNS1_5writeIcS5_EET0_S7_NS0_17basic_string_viewIT_EERKNS0_18basic_format_specsIS9_EEEUlS5_E_EES7_S7_RKNSB_IT1_EEmmOT2_(ptr %0, ptr noundef nonnull align 4 dereferenceable(16) %3, i64 noundef %.0, i64 noundef %.019, ptr noundef nonnull align 8 dereferenceable(40) %8)
+  ret ptr %59
 }
 
 ; Function Attrs: mustprogress uwtable

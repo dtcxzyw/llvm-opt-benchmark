@@ -87,8 +87,8 @@ if.then32:                                        ; preds = %land.lhs.true26
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %literal_added.i)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %options.i)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %options.i, i8 0, i64 24, i1 false)
-  %cmp.i36 = icmp eq i16 %7, -32768
-  %11 = icmp ne i16 %8, -32768
+  %cmp.i36 = icmp slt i16 %4, -28672
+  %11 = icmp sgt i16 %6, -28673
   %cmp7.not.i = xor i1 %cmp.i36, %11
   br i1 %cmp7.not.i, label %if.end.i, label %if.then37
 

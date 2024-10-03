@@ -4978,13 +4978,13 @@ define dso_local noundef ptr @_ZN9Stockfish8generateILNS_7GenTypeE5EEEPNS_7ExtMo
 
 24:                                               ; preds = %22, %20
   %25 = phi ptr [ %21, %20 ], [ %23, %22 ]
-  %.not2731 = icmp eq ptr %1, %25
-  br i1 %.not2731, label %._crit_edge, label %.lr.ph
+  %.not2730 = icmp eq ptr %1, %25
+  br i1 %.not2730, label %._crit_edge, label %.lr.ph
 
-.lr.ph:                                           ; preds = %24, %43
-  %.033 = phi ptr [ %.1, %43 ], [ %25, %24 ]
-  %.02532 = phi ptr [ %.126, %43 ], [ %1, %24 ]
-  %26 = load i16, ptr %.02532, align 2
+.lr.ph:                                           ; preds = %24, %42
+  %.032 = phi ptr [ %.1, %42 ], [ %25, %24 ]
+  %.02531 = phi ptr [ %.126, %42 ], [ %1, %24 ]
+  %26 = load i16, ptr %.02531, align 2
   %27 = lshr i16 %26, 6
   %28 = and i16 %27, 63
   %29 = zext nneg i16 %28 to i64
@@ -4994,33 +4994,32 @@ define dso_local noundef ptr @_ZN9Stockfish8generateILNS_7GenTypeE5EEEPNS_7ExtMo
   %.not28 = icmp ne i64 %32, 0
   %33 = icmp eq i64 %17, %29
   %or.cond = select i1 %.not28, i1 true, i1 %33
-  %34 = and i16 %26, -16384
-  %35 = icmp eq i16 %34, -32768
-  %or.cond30 = or i1 %35, %or.cond
-  br i1 %or.cond30, label %36, label %41
+  %34 = icmp slt i16 %26, -16384
+  %or.cond29 = or i1 %34, %or.cond
+  br i1 %or.cond29, label %35, label %40
 
-36:                                               ; preds = %.lr.ph
-  %37 = tail call noundef zeroext i1 @_ZNK9Stockfish8Position5legalENS_4MoveE(ptr noundef nonnull align 8 dereferenceable(865) %0, i16 %26) #8
-  br i1 %37, label %41, label %38
+35:                                               ; preds = %.lr.ph
+  %36 = tail call noundef zeroext i1 @_ZNK9Stockfish8Position5legalENS_4MoveE(ptr noundef nonnull align 8 dereferenceable(865) %0, i16 %26) #8
+  br i1 %36, label %40, label %37
 
-38:                                               ; preds = %36
-  %39 = getelementptr inbounds i8, ptr %.033, i64 -8
-  %40 = load i64, ptr %39, align 4
-  store i64 %40, ptr %.02532, align 4
-  br label %43
+37:                                               ; preds = %35
+  %38 = getelementptr inbounds i8, ptr %.032, i64 -8
+  %39 = load i64, ptr %38, align 4
+  store i64 %39, ptr %.02531, align 4
+  br label %42
 
-41:                                               ; preds = %.lr.ph, %36
-  %42 = getelementptr inbounds i8, ptr %.02532, i64 8
-  br label %43
+40:                                               ; preds = %.lr.ph, %35
+  %41 = getelementptr inbounds i8, ptr %.02531, i64 8
+  br label %42
 
-43:                                               ; preds = %41, %38
-  %.126 = phi ptr [ %42, %41 ], [ %.02532, %38 ]
-  %.1 = phi ptr [ %.033, %41 ], [ %39, %38 ]
+42:                                               ; preds = %40, %37
+  %.126 = phi ptr [ %41, %40 ], [ %.02531, %37 ]
+  %.1 = phi ptr [ %.032, %40 ], [ %38, %37 ]
   %.not27 = icmp eq ptr %.126, %.1
   br i1 %.not27, label %._crit_edge, label %.lr.ph, !llvm.loop !102
 
-._crit_edge:                                      ; preds = %43, %24
-  %.0.lcssa = phi ptr [ %25, %24 ], [ %.1, %43 ]
+._crit_edge:                                      ; preds = %42, %24
+  %.0.lcssa = phi ptr [ %25, %24 ], [ %.1, %42 ]
   ret ptr %.0.lcssa
 }
 

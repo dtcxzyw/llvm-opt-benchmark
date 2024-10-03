@@ -647,7 +647,7 @@ define dso_local noundef range(i32 -12, 1) i32 @usb_hub_clear_tt_buffer(ptr noca
 11:                                               ; preds = %1
   %12 = getelementptr inbounds i8, ptr %3, i64 168
   tail call void (ptr, ptr, ...) @_dev_err(ptr noundef %12, ptr noundef nonnull @.str.3) #17
-  br label %55
+  br label %54
 
 13:                                               ; preds = %1
   %14 = getelementptr inbounds i8, ptr %7, i64 8
@@ -672,43 +672,42 @@ define dso_local noundef range(i32 -12, 1) i32 @usb_hub_clear_tt_buffer(ptr noca
   %28 = shl nuw nsw i32 %27, 4
   %29 = and i32 %23, 15
   %30 = or disjoint i32 %28, %29
-  %31 = and i32 %5, -1073741824
-  %32 = icmp eq i32 %31, -2147483648
-  %33 = select i1 %32, i32 -2147483648, i32 4096
-  %34 = or disjoint i32 %30, %33
-  %35 = trunc i32 %34 to i16
-  %36 = trunc i32 %5 to i16
-  %37 = shl i16 %36, 8
-  %38 = and i16 %37, -32768
-  %39 = or disjoint i16 %38, %35
-  store i16 %39, ptr %24, align 4
-  %40 = getelementptr inbounds i8, ptr %3, i64 80
-  %41 = load ptr, ptr %40, align 8
-  %42 = getelementptr inbounds i8, ptr %9, i64 24
-  store ptr %41, ptr %42, align 8
-  %43 = getelementptr inbounds i8, ptr %0, i64 72
-  %44 = load ptr, ptr %43, align 8
-  %45 = getelementptr inbounds i8, ptr %9, i64 32
-  store ptr %44, ptr %45, align 8
-  %46 = getelementptr inbounds i8, ptr %7, i64 24
-  %47 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef %46) #18
-  %48 = getelementptr inbounds i8, ptr %7, i64 32
-  %49 = getelementptr inbounds i8, ptr %7, i64 40
-  %50 = load ptr, ptr %49, align 8
-  store ptr %9, ptr %49, align 8
-  store ptr %48, ptr %9, align 8
-  %51 = getelementptr inbounds i8, ptr %9, i64 8
-  store ptr %50, ptr %51, align 8
-  store volatile ptr %9, ptr %50, align 8
-  %52 = getelementptr inbounds i8, ptr %7, i64 48
-  %53 = load ptr, ptr @system_wq, align 8
-  %54 = tail call zeroext i1 @queue_work_on(i32 noundef 64, ptr noundef %53, ptr noundef %52) #18
-  tail call void @_raw_spin_unlock_irqrestore(ptr noundef %46, i64 noundef %47) #18
-  br label %55
+  %31 = icmp slt i32 %5, -1073741824
+  %32 = select i1 %31, i32 -1073741824, i32 4096
+  %33 = or disjoint i32 %30, %32
+  %34 = trunc i32 %33 to i16
+  %35 = trunc i32 %5 to i16
+  %36 = shl i16 %35, 8
+  %37 = and i16 %36, -32768
+  %38 = or disjoint i16 %37, %34
+  store i16 %38, ptr %24, align 4
+  %39 = getelementptr inbounds i8, ptr %3, i64 80
+  %40 = load ptr, ptr %39, align 8
+  %41 = getelementptr inbounds i8, ptr %9, i64 24
+  store ptr %40, ptr %41, align 8
+  %42 = getelementptr inbounds i8, ptr %0, i64 72
+  %43 = load ptr, ptr %42, align 8
+  %44 = getelementptr inbounds i8, ptr %9, i64 32
+  store ptr %43, ptr %44, align 8
+  %45 = getelementptr inbounds i8, ptr %7, i64 24
+  %46 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef %45) #18
+  %47 = getelementptr inbounds i8, ptr %7, i64 32
+  %48 = getelementptr inbounds i8, ptr %7, i64 40
+  %49 = load ptr, ptr %48, align 8
+  store ptr %9, ptr %48, align 8
+  store ptr %47, ptr %9, align 8
+  %50 = getelementptr inbounds i8, ptr %9, i64 8
+  store ptr %49, ptr %50, align 8
+  store volatile ptr %9, ptr %49, align 8
+  %51 = getelementptr inbounds i8, ptr %7, i64 48
+  %52 = load ptr, ptr @system_wq, align 8
+  %53 = tail call zeroext i1 @queue_work_on(i32 noundef 64, ptr noundef %52, ptr noundef %51) #18
+  tail call void @_raw_spin_unlock_irqrestore(ptr noundef %45, i64 noundef %46) #18
+  br label %54
 
-55:                                               ; preds = %20, %11
-  %56 = phi i32 [ -12, %11 ], [ 0, %20 ]
-  ret i32 %56
+54:                                               ; preds = %20, %11
+  %55 = phi i32 [ -12, %11 ], [ 0, %20 ]
+  ret i32 %55
 }
 
 ; Function Attrs: cold null_pointer_is_valid

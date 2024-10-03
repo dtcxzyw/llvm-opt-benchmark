@@ -1495,16 +1495,15 @@ if.then2:                                         ; preds = %if.end
 if.then7:                                         ; preds = %if.then2
   %2 = load i8, ptr %loc.coerce, align 1
   %cmp.i.i = icmp eq i8 %2, 13
-  %3 = and i8 %2, -64
-  %cmp.i.i.i = icmp eq i8 %3, -128
+  %cmp.i.i.i = icmp slt i8 %2, -64
   %or.cond.i.i = or i1 %cmp.i.i, %cmp.i.i.i
   br i1 %or.cond.i.i, label %do.body.preheader.i.i, label %_ZN6hermes18SourceErrorManager13FindLineCache10fillCoordsEN4llvh5SMLocERNS0_12SourceCoordsE.exit
 
 do.body.preheader.i.i:                            ; preds = %if.then7
   %bufStart9.i.i = ptrtoint ptr %agg.tmp.sroa.0.0.copyload to i64
   %loc.coerce10.i.i = ptrtoint ptr %loc.coerce to i64
-  %4 = sub i64 %bufStart9.i.i, %loc.coerce10.i.i
-  %scevgep.i.i = getelementptr i8, ptr %loc.coerce, i64 %4
+  %3 = sub i64 %bufStart9.i.i, %loc.coerce10.i.i
+  %scevgep.i.i = getelementptr i8, ptr %loc.coerce, i64 %3
   br label %do.body.i.i
 
 do.body.i.i:                                      ; preds = %if.end.i.i, %do.body.preheader.i.i
@@ -1514,10 +1513,9 @@ do.body.i.i:                                      ; preds = %if.end.i.i, %do.bod
 
 if.end.i.i:                                       ; preds = %do.body.i.i
   %incdec.ptr.i.i = getelementptr inbounds i8, ptr %ptr.1.i.i, i64 -1
-  %5 = load i8, ptr %incdec.ptr.i.i, align 1
-  %cmp8.i.i = icmp eq i8 %5, 13
-  %6 = and i8 %5, -64
-  %cmp.i7.i.i = icmp eq i8 %6, -128
+  %4 = load i8, ptr %incdec.ptr.i.i, align 1
+  %cmp8.i.i = icmp eq i8 %4, 13
+  %cmp.i7.i.i = icmp slt i8 %4, -64
   %or.cond8.i.i = or i1 %cmp8.i.i, %cmp.i7.i.i
   br i1 %or.cond8.i.i, label %do.body.i.i, label %_ZN6hermes18SourceErrorManager13FindLineCache10fillCoordsEN4llvh5SMLocERNS0_12SourceCoordsE.exit, !llvm.loop !24
 
@@ -1525,15 +1523,15 @@ _ZN6hermes18SourceErrorManager13FindLineCache10fillCoordsEN4llvh5SMLocERNS0_12So
   %ptr.0.i.i = phi ptr [ %loc.coerce, %if.then7 ], [ %incdec.ptr.i.i, %if.end.i.i ], [ %scevgep.i.i, %do.body.i.i ]
   store i32 %0, ptr %result, align 4
   %lineNo.i = getelementptr inbounds i8, ptr %this, i64 156
-  %7 = load i32, ptr %lineNo.i, align 4
+  %5 = load i32, ptr %lineNo.i, align 4
   %line.i = getelementptr inbounds i8, ptr %result, i64 4
-  store i32 %7, ptr %line.i, align 4
-  %8 = load ptr, ptr %lineRef, align 8
+  store i32 %5, ptr %line.i, align 4
+  %6 = load ptr, ptr %lineRef, align 8
   %sub.ptr.lhs.cast.i = ptrtoint ptr %ptr.0.i.i to i64
-  %sub.ptr.rhs.cast.i = ptrtoint ptr %8 to i64
+  %sub.ptr.rhs.cast.i = ptrtoint ptr %6 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
-  %9 = trunc i64 %sub.ptr.sub.i to i32
-  %conv.i = add i32 %9, 1
+  %7 = trunc i64 %sub.ptr.sub.i to i32
+  %conv.i = add i32 %7, 1
   %col.i = getelementptr inbounds i8, ptr %result, i64 8
   store i32 %conv.i, ptr %col.i, align 4
   br label %return
@@ -1546,63 +1544,61 @@ if.end11:                                         ; preds = %if.then2
   %cmp.not.i5 = icmp uge ptr %loc.coerce, %agg.tmp12.sroa.0.0.copyload
   %add.ptr.i.i6 = getelementptr inbounds i8, ptr %agg.tmp12.sroa.0.0.copyload, i64 %agg.tmp12.sroa.2.0.copyload
   %cmp3.i7 = icmp ult ptr %loc.coerce, %add.ptr.i.i6
-  %10 = select i1 %cmp.not.i5, i1 %cmp3.i7, i1 false
-  br i1 %10, label %if.then17, label %if.end33
+  %8 = select i1 %cmp.not.i5, i1 %cmp3.i7, i1 false
+  br i1 %8, label %if.then17, label %if.end33
 
 if.then17:                                        ; preds = %if.end11
   %lineNo = getelementptr inbounds i8, ptr %this, i64 156
-  %11 = load i32, ptr %lineNo, align 4
-  %inc = add i32 %11, 1
+  %9 = load i32, ptr %lineNo, align 4
+  %inc = add i32 %9, 1
   store i32 %inc, ptr %lineNo, align 4
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %lineRef, ptr noundef nonnull align 8 dereferenceable(16) %nextLineRef, i64 16, i1 false)
-  %add = add i32 %11, 2
+  %add = add i32 %9, 2
   %call27 = tail call { ptr, i64 } @_ZNK4llvh9SourceMgr10getLineRefEjj(ptr noundef nonnull align 8 dereferenceable(120) %this, i32 noundef %add, i32 noundef %0) #24
-  %12 = extractvalue { ptr, i64 } %call27, 0
-  %13 = extractvalue { ptr, i64 } %call27, 1
-  store ptr %12, ptr %nextLineRef, align 8
-  store i64 %13, ptr %agg.tmp12.sroa.2.0.nextLineRef.sroa_idx, align 8
-  %14 = load ptr, ptr %lineRef, align 8
-  %15 = load i8, ptr %loc.coerce, align 1
-  %cmp.i.i9 = icmp eq i8 %15, 13
-  %16 = and i8 %15, -64
-  %cmp.i.i.i10 = icmp eq i8 %16, -128
+  %10 = extractvalue { ptr, i64 } %call27, 0
+  %11 = extractvalue { ptr, i64 } %call27, 1
+  store ptr %10, ptr %nextLineRef, align 8
+  store i64 %11, ptr %agg.tmp12.sroa.2.0.nextLineRef.sroa_idx, align 8
+  %12 = load ptr, ptr %lineRef, align 8
+  %13 = load i8, ptr %loc.coerce, align 1
+  %cmp.i.i9 = icmp eq i8 %13, 13
+  %cmp.i.i.i10 = icmp slt i8 %13, -64
   %or.cond.i.i11 = or i1 %cmp.i.i9, %cmp.i.i.i10
   br i1 %or.cond.i.i11, label %do.body.preheader.i.i20, label %_ZN6hermes18SourceErrorManager13FindLineCache10fillCoordsEN4llvh5SMLocERNS0_12SourceCoordsE.exit32
 
 do.body.preheader.i.i20:                          ; preds = %if.then17
-  %bufStart9.i.i21 = ptrtoint ptr %14 to i64
+  %bufStart9.i.i21 = ptrtoint ptr %12 to i64
   %loc.coerce10.i.i22 = ptrtoint ptr %loc.coerce to i64
-  %17 = sub i64 %bufStart9.i.i21, %loc.coerce10.i.i22
-  %scevgep.i.i23 = getelementptr i8, ptr %loc.coerce, i64 %17
+  %14 = sub i64 %bufStart9.i.i21, %loc.coerce10.i.i22
+  %scevgep.i.i23 = getelementptr i8, ptr %loc.coerce, i64 %14
   br label %do.body.i.i24
 
 do.body.i.i24:                                    ; preds = %if.end.i.i27, %do.body.preheader.i.i20
   %ptr.1.i.i25 = phi ptr [ %incdec.ptr.i.i28, %if.end.i.i27 ], [ %loc.coerce, %do.body.preheader.i.i20 ]
-  %cmp4.i.i26 = icmp eq ptr %ptr.1.i.i25, %14
+  %cmp4.i.i26 = icmp eq ptr %ptr.1.i.i25, %12
   br i1 %cmp4.i.i26, label %_ZN6hermes18SourceErrorManager13FindLineCache10fillCoordsEN4llvh5SMLocERNS0_12SourceCoordsE.exit32, label %if.end.i.i27
 
 if.end.i.i27:                                     ; preds = %do.body.i.i24
   %incdec.ptr.i.i28 = getelementptr inbounds i8, ptr %ptr.1.i.i25, i64 -1
-  %18 = load i8, ptr %incdec.ptr.i.i28, align 1
-  %cmp8.i.i29 = icmp eq i8 %18, 13
-  %19 = and i8 %18, -64
-  %cmp.i7.i.i30 = icmp eq i8 %19, -128
+  %15 = load i8, ptr %incdec.ptr.i.i28, align 1
+  %cmp8.i.i29 = icmp eq i8 %15, 13
+  %cmp.i7.i.i30 = icmp slt i8 %15, -64
   %or.cond8.i.i31 = or i1 %cmp8.i.i29, %cmp.i7.i.i30
   br i1 %or.cond8.i.i31, label %do.body.i.i24, label %_ZN6hermes18SourceErrorManager13FindLineCache10fillCoordsEN4llvh5SMLocERNS0_12SourceCoordsE.exit32, !llvm.loop !24
 
 _ZN6hermes18SourceErrorManager13FindLineCache10fillCoordsEN4llvh5SMLocERNS0_12SourceCoordsE.exit32: ; preds = %do.body.i.i24, %if.end.i.i27, %if.then17
   %ptr.0.i.i12 = phi ptr [ %loc.coerce, %if.then17 ], [ %incdec.ptr.i.i28, %if.end.i.i27 ], [ %scevgep.i.i23, %do.body.i.i24 ]
-  %20 = load i32, ptr %findLineCache_, align 8
-  store i32 %20, ptr %result, align 4
-  %21 = load i32, ptr %lineNo, align 4
+  %16 = load i32, ptr %findLineCache_, align 8
+  store i32 %16, ptr %result, align 4
+  %17 = load i32, ptr %lineNo, align 4
   %line.i14 = getelementptr inbounds i8, ptr %result, i64 4
-  store i32 %21, ptr %line.i14, align 4
-  %22 = load ptr, ptr %lineRef, align 8
+  store i32 %17, ptr %line.i14, align 4
+  %18 = load ptr, ptr %lineRef, align 8
   %sub.ptr.lhs.cast.i15 = ptrtoint ptr %ptr.0.i.i12 to i64
-  %sub.ptr.rhs.cast.i16 = ptrtoint ptr %22 to i64
+  %sub.ptr.rhs.cast.i16 = ptrtoint ptr %18 to i64
   %sub.ptr.sub.i17 = sub i64 %sub.ptr.lhs.cast.i15, %sub.ptr.rhs.cast.i16
-  %23 = trunc i64 %sub.ptr.sub.i17 to i32
-  %conv.i18 = add i32 %23, 1
+  %19 = trunc i64 %sub.ptr.sub.i17 to i32
+  %conv.i18 = add i32 %19, 1
   %col.i19 = getelementptr inbounds i8, ptr %result, i64 8
   store i32 %conv.i18, ptr %col.i19, align 4
   br label %return
@@ -1625,64 +1621,62 @@ if.then40:                                        ; preds = %if.end.i
 if.end42:                                         ; preds = %if.end.i
   call void @_ZNK4llvh9SourceMgr8FindLineENS_5SMLocEj(ptr nonnull sret(%"struct.std::pair") align 8 %lineRefAndNo.i, ptr noundef nonnull align 8 dereferenceable(120) %this, ptr nonnull %loc.coerce, i32 noundef %call3.i) #24, !noalias !25
   %second.i = getelementptr inbounds i8, ptr %lineRefAndNo.i, i64 16
-  %24 = load i32, ptr %second.i, align 8, !noalias !25
+  %20 = load i32, ptr %second.i, align 8, !noalias !25
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %lineCoord.sroa.5, ptr noundef nonnull align 8 dereferenceable(16) %lineRefAndNo.i, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %lineRefAndNo.i)
   store i32 %call3.i, ptr %findLineCache_, align 8
   %lineNo50 = getelementptr inbounds i8, ptr %this, i64 156
-  store i32 %24, ptr %lineNo50, align 4
+  store i32 %20, ptr %lineNo50, align 4
   %lineRef54 = getelementptr inbounds i8, ptr %this, i64 160
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %lineRef54, ptr noundef nonnull align 8 dereferenceable(16) %lineCoord.sroa.5, i64 16, i1 false)
-  %add59 = add i32 %24, 1
+  %add59 = add i32 %20, 1
   %call62 = call { ptr, i64 } @_ZNK4llvh9SourceMgr10getLineRefEjj(ptr noundef nonnull align 8 dereferenceable(120) %this, i32 noundef %add59, i32 noundef %call3.i) #24
-  %25 = extractvalue { ptr, i64 } %call62, 0
-  %26 = extractvalue { ptr, i64 } %call62, 1
+  %21 = extractvalue { ptr, i64 } %call62, 0
+  %22 = extractvalue { ptr, i64 } %call62, 1
   %nextLineRef64 = getelementptr inbounds i8, ptr %this, i64 176
-  store ptr %25, ptr %nextLineRef64, align 8
+  store ptr %21, ptr %nextLineRef64, align 8
   %ref.tmp55.sroa.2.0.nextLineRef64.sroa_idx = getelementptr inbounds i8, ptr %this, i64 184
-  store i64 %26, ptr %ref.tmp55.sroa.2.0.nextLineRef64.sroa_idx, align 8
-  %27 = load ptr, ptr %lineRef54, align 8
-  %28 = load i8, ptr %loc.coerce, align 1
-  %cmp.i.i34 = icmp eq i8 %28, 13
-  %29 = and i8 %28, -64
-  %cmp.i.i.i35 = icmp eq i8 %29, -128
+  store i64 %22, ptr %ref.tmp55.sroa.2.0.nextLineRef64.sroa_idx, align 8
+  %23 = load ptr, ptr %lineRef54, align 8
+  %24 = load i8, ptr %loc.coerce, align 1
+  %cmp.i.i34 = icmp eq i8 %24, 13
+  %cmp.i.i.i35 = icmp slt i8 %24, -64
   %or.cond.i.i36 = or i1 %cmp.i.i34, %cmp.i.i.i35
   br i1 %or.cond.i.i36, label %do.body.preheader.i.i45, label %_ZN6hermes18SourceErrorManager13FindLineCache10fillCoordsEN4llvh5SMLocERNS0_12SourceCoordsE.exit57
 
 do.body.preheader.i.i45:                          ; preds = %if.end42
-  %bufStart9.i.i46 = ptrtoint ptr %27 to i64
+  %bufStart9.i.i46 = ptrtoint ptr %23 to i64
   %loc.coerce10.i.i47 = ptrtoint ptr %loc.coerce to i64
-  %30 = sub i64 %bufStart9.i.i46, %loc.coerce10.i.i47
-  %scevgep.i.i48 = getelementptr i8, ptr %loc.coerce, i64 %30
+  %25 = sub i64 %bufStart9.i.i46, %loc.coerce10.i.i47
+  %scevgep.i.i48 = getelementptr i8, ptr %loc.coerce, i64 %25
   br label %do.body.i.i49
 
 do.body.i.i49:                                    ; preds = %if.end.i.i52, %do.body.preheader.i.i45
   %ptr.1.i.i50 = phi ptr [ %incdec.ptr.i.i53, %if.end.i.i52 ], [ %loc.coerce, %do.body.preheader.i.i45 ]
-  %cmp4.i.i51 = icmp eq ptr %ptr.1.i.i50, %27
+  %cmp4.i.i51 = icmp eq ptr %ptr.1.i.i50, %23
   br i1 %cmp4.i.i51, label %_ZN6hermes18SourceErrorManager13FindLineCache10fillCoordsEN4llvh5SMLocERNS0_12SourceCoordsE.exit57, label %if.end.i.i52
 
 if.end.i.i52:                                     ; preds = %do.body.i.i49
   %incdec.ptr.i.i53 = getelementptr inbounds i8, ptr %ptr.1.i.i50, i64 -1
-  %31 = load i8, ptr %incdec.ptr.i.i53, align 1
-  %cmp8.i.i54 = icmp eq i8 %31, 13
-  %32 = and i8 %31, -64
-  %cmp.i7.i.i55 = icmp eq i8 %32, -128
+  %26 = load i8, ptr %incdec.ptr.i.i53, align 1
+  %cmp8.i.i54 = icmp eq i8 %26, 13
+  %cmp.i7.i.i55 = icmp slt i8 %26, -64
   %or.cond8.i.i56 = or i1 %cmp8.i.i54, %cmp.i7.i.i55
   br i1 %or.cond8.i.i56, label %do.body.i.i49, label %_ZN6hermes18SourceErrorManager13FindLineCache10fillCoordsEN4llvh5SMLocERNS0_12SourceCoordsE.exit57, !llvm.loop !24
 
 _ZN6hermes18SourceErrorManager13FindLineCache10fillCoordsEN4llvh5SMLocERNS0_12SourceCoordsE.exit57: ; preds = %do.body.i.i49, %if.end.i.i52, %if.end42
   %ptr.0.i.i37 = phi ptr [ %loc.coerce, %if.end42 ], [ %incdec.ptr.i.i53, %if.end.i.i52 ], [ %scevgep.i.i48, %do.body.i.i49 ]
-  %33 = load i32, ptr %findLineCache_, align 8
-  store i32 %33, ptr %result, align 4
-  %34 = load i32, ptr %lineNo50, align 4
+  %27 = load i32, ptr %findLineCache_, align 8
+  store i32 %27, ptr %result, align 4
+  %28 = load i32, ptr %lineNo50, align 4
   %line.i39 = getelementptr inbounds i8, ptr %result, i64 4
-  store i32 %34, ptr %line.i39, align 4
-  %35 = load ptr, ptr %lineRef54, align 8
+  store i32 %28, ptr %line.i39, align 4
+  %29 = load ptr, ptr %lineRef54, align 8
   %sub.ptr.lhs.cast.i40 = ptrtoint ptr %ptr.0.i.i37 to i64
-  %sub.ptr.rhs.cast.i41 = ptrtoint ptr %35 to i64
+  %sub.ptr.rhs.cast.i41 = ptrtoint ptr %29 to i64
   %sub.ptr.sub.i42 = sub i64 %sub.ptr.lhs.cast.i40, %sub.ptr.rhs.cast.i41
-  %36 = trunc i64 %sub.ptr.sub.i42 to i32
-  %conv.i43 = add i32 %36, 1
+  %30 = trunc i64 %sub.ptr.sub.i42 to i32
+  %conv.i43 = add i32 %30, 1
   %col.i44 = getelementptr inbounds i8, ptr %result, i64 8
   store i32 %conv.i43, ptr %col.i44, align 4
   br label %return
@@ -2332,8 +2326,7 @@ for.body61:                                       ; preds = %for.body, %for.inc7
   %column.052 = phi i32 [ %column.1, %for.inc72 ], [ 0, %for.body ]
   %cur.251 = phi ptr [ %incdec.ptr73, %for.inc72 ], [ %cur.1, %for.body ]
   %10 = load i8, ptr %cur.251, align 1
-  %11 = and i8 %10, -64
-  %cmp.i33 = icmp eq i8 %11, -128
+  %cmp.i33 = icmp slt i8 %10, -64
   br i1 %cmp.i33, label %for.inc72, label %if.end64
 
 if.end64:                                         ; preds = %for.body61

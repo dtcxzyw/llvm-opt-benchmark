@@ -600,9 +600,9 @@ define dso_local noundef zeroext i1 @_ZNK4llvm3pdb17NativeTypePointer17isRValueR
   %4 = trunc i8 %3 to i1
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 36
   %6 = load i32, ptr %5, align 4
-  %.mask2 = and i32 %6, 224
-  %7 = icmp eq i32 %.mask2, 128
-  %.0 = select i1 %4, i1 %7, i1 false
+  %7 = trunc i32 %6 to i8
+  %8 = icmp slt i8 %7, -96
+  %.0 = select i1 %4, i1 %8, i1 false
   ret i1 %.0
 }
 

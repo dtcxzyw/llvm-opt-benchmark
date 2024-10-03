@@ -430,12 +430,12 @@ define internal range(i32 0, 2) i32 @dissect_mpeg_pes(ptr noundef %0, ptr nounde
   %6 = alloca %struct._asn1_ctx_t, align 8
   %7 = tail call i32 @tvb_bytes_exist(ptr noundef %0, i32 noundef 0, i32 noundef 3) #3
   %.not = icmp eq i32 %7, 0
-  br i1 %.not, label %206, label %8
+  br i1 %.not, label %205, label %8
 
 8:                                                ; preds = %4
   %9 = tail call i32 @tvb_get_ntoh24(ptr noundef %0, i32 noundef 0) #3
   %.not163 = icmp eq i32 %9, 1
-  br i1 %.not163, label %10, label %206
+  br i1 %.not163, label %10, label %205
 
 10:                                               ; preds = %8
   %11 = getelementptr inbounds i8, ptr %1, i64 8
@@ -476,7 +476,7 @@ define internal range(i32 0, 2) i32 @dissect_mpeg_pes(ptr noundef %0, ptr nounde
   %33 = load i32, ptr @hf_mpeg_video_data, align 4
   %34 = sdiv i32 %32, 8
   %35 = call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %33, ptr noundef %0, i32 noundef %34, i32 noundef -1, i32 noundef 0) #3
-  br label %206
+  br label %205
 
 36:                                               ; preds = %10
   %37 = load i32, ptr @hf_mpeg_video_sequence_header, align 4
@@ -489,7 +489,7 @@ define internal range(i32 0, 2) i32 @dissect_mpeg_pes(ptr noundef %0, ptr nounde
   %44 = sdiv i32 %43, 8
   %45 = call ptr @tvb_new_subset_remaining(ptr noundef %0, i32 noundef %44) #3
   %46 = call i32 @dissect_mpeg_pes(ptr noundef %45, ptr noundef nonnull %1, ptr noundef %2, ptr noundef null)
-  br label %206
+  br label %205
 
 47:                                               ; preds = %10
   %48 = load i32, ptr @hf_mpeg_video_sequence_extension, align 4
@@ -498,7 +498,7 @@ define internal range(i32 0, 2) i32 @dissect_mpeg_pes(ptr noundef %0, ptr nounde
   %51 = sdiv i32 %50, 8
   %52 = call ptr @tvb_new_subset_remaining(ptr noundef %0, i32 noundef %51) #3
   %53 = call i32 @dissect_mpeg_pes(ptr noundef %52, ptr noundef nonnull %1, ptr noundef %2, ptr noundef null)
-  br label %206
+  br label %205
 
 54:                                               ; preds = %10
   %55 = load i32, ptr @hf_mpeg_video_group_of_pictures, align 4
@@ -507,7 +507,7 @@ define internal range(i32 0, 2) i32 @dissect_mpeg_pes(ptr noundef %0, ptr nounde
   %58 = sdiv i32 %57, 8
   %59 = call ptr @tvb_new_subset_remaining(ptr noundef %0, i32 noundef %58) #3
   %60 = call i32 @dissect_mpeg_pes(ptr noundef %59, ptr noundef nonnull %1, ptr noundef %2, ptr noundef null)
-  br label %206
+  br label %205
 
 61:                                               ; preds = %10
   %62 = sdiv i32 %22, 8
@@ -571,12 +571,12 @@ define internal range(i32 0, 2) i32 @dissect_mpeg_pes(ptr noundef %0, ptr nounde
 
 dissect_mpeg_pes_pack_header.exit:                ; preds = %65, %104
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
-  br label %206
+  br label %205
 
 110:                                              ; preds = %61
   %111 = load i32, ptr @hf_mpeg_pes_data, align 4
   %112 = call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %111, ptr noundef %0, i32 noundef %62, i32 noundef 8, i32 noundef 0) #3
-  br label %206
+  br label %205
 
 113:                                              ; preds = %10
   %114 = and i8 %14, -5
@@ -593,7 +593,7 @@ dissect_mpeg_pes_pack_header.exit:                ; preds = %65, %104
   %122 = load i32, ptr @hf_mpeg_pes_data, align 4
   %123 = sdiv i32 %121, 8
   %124 = call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %122, ptr noundef %0, i32 noundef %123, i32 noundef %118, i32 noundef 0) #3
-  br label %206
+  br label %205
 
 125:                                              ; preds = %113
   %126 = icmp eq i8 %14, -66
@@ -609,129 +609,128 @@ dissect_mpeg_pes_pack_header.exit:                ; preds = %65, %104
   %134 = load i32, ptr @hf_mpeg_pes_padding, align 4
   %135 = sdiv i32 %133, 8
   %136 = call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %134, ptr noundef %0, i32 noundef %135, i32 noundef %130, i32 noundef 0) #3
-  br label %206
+  br label %205
 
 137:                                              ; preds = %125
   %138 = icmp eq i8 %14, -67
   %139 = icmp ugt i8 %14, -65
   %or.cond3 = or i1 %138, %139
-  br i1 %or.cond3, label %140, label %201
+  br i1 %or.cond3, label %140, label %200
 
 140:                                              ; preds = %137
   %141 = call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef 4) #3
   %142 = zext i16 %141 to i32
   %143 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 6) #3
-  %144 = and i8 %143, -64
-  %145 = icmp eq i8 %144, -128
-  br i1 %145, label %146, label %191
+  %144 = icmp slt i8 %143, -64
+  br i1 %144, label %145, label %190
 
-146:                                              ; preds = %140
-  %147 = load i32, ptr @hf_mpeg_pes_extension, align 4
-  %148 = load i32, ptr @ett_mpeg_pes_Stream, align 4
-  %149 = call i32 @dissect_per_sequence(ptr noundef %0, i32 noundef %22, ptr noundef nonnull %6, ptr noundef %2, i32 noundef %147, i32 noundef %148, ptr noundef nonnull @Stream_sequence) #3
-  %150 = icmp ne i16 %141, 0
-  %151 = icmp ne i8 %14, -32
-  %or.cond5 = and i1 %151, %150
-  br i1 %or.cond5, label %152, label %155
+145:                                              ; preds = %140
+  %146 = load i32, ptr @hf_mpeg_pes_extension, align 4
+  %147 = load i32, ptr @ett_mpeg_pes_Stream, align 4
+  %148 = call i32 @dissect_per_sequence(ptr noundef %0, i32 noundef %22, ptr noundef nonnull %6, ptr noundef %2, i32 noundef %146, i32 noundef %147, ptr noundef nonnull @Stream_sequence) #3
+  %149 = icmp ne i16 %141, 0
+  %150 = icmp ne i8 %14, -32
+  %or.cond5 = and i1 %150, %149
+  br i1 %or.cond5, label %151, label %154
 
-152:                                              ; preds = %146
-  %153 = sub i32 %149, %22
-  %.neg = sdiv i32 %153, -8
+151:                                              ; preds = %145
+  %152 = sub i32 %148, %22
+  %.neg = sdiv i32 %152, -8
   %.neg165 = add nuw nsw i32 %142, 2
-  %154 = add nsw i32 %.neg165, %.neg
-  br label %155
+  %153 = add nsw i32 %.neg165, %.neg
+  br label %154
 
-155:                                              ; preds = %152, %146
-  %.0158 = phi i32 [ %154, %152 ], [ %142, %146 ]
-  %156 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 8) #3
-  %.not166 = icmp eq i8 %156, 0
-  br i1 %.not166, label %167, label %157
+154:                                              ; preds = %151, %145
+  %.0158 = phi i32 [ %153, %151 ], [ %142, %145 ]
+  %155 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 8) #3
+  %.not166 = icmp eq i8 %155, 0
+  br i1 %.not166, label %166, label %156
 
-157:                                              ; preds = %155
-  %158 = zext i8 %156 to i32
-  %159 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 7) #3
-  %160 = zext i8 %159 to i32
-  %161 = sdiv i32 %149, 8
-  %162 = call ptr @tvb_new_subset_length(ptr noundef %0, i32 noundef %161, i32 noundef %158) #3
-  call fastcc void @dissect_mpeg_pes_header_data(ptr noundef %162, ptr noundef %2, i32 noundef %160)
-  %163 = shl nuw nsw i32 %158, 3
-  %164 = add i32 %163, %149
-  %165 = icmp ne i32 %.0158, 0
-  %or.cond7 = and i1 %151, %165
-  %166 = select i1 %or.cond7, i32 %158, i32 0
-  %spec.select = sub nsw i32 %.0158, %166
-  br label %167
+156:                                              ; preds = %154
+  %157 = zext i8 %155 to i32
+  %158 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 7) #3
+  %159 = zext i8 %158 to i32
+  %160 = sdiv i32 %148, 8
+  %161 = call ptr @tvb_new_subset_length(ptr noundef %0, i32 noundef %160, i32 noundef %157) #3
+  call fastcc void @dissect_mpeg_pes_header_data(ptr noundef %161, ptr noundef %2, i32 noundef %159)
+  %162 = shl nuw nsw i32 %157, 3
+  %163 = add i32 %162, %148
+  %164 = icmp ne i32 %.0158, 0
+  %or.cond7 = and i1 %150, %164
+  %165 = select i1 %or.cond7, i32 %157, i32 0
+  %spec.select = sub nsw i32 %.0158, %165
+  br label %166
 
-167:                                              ; preds = %157, %155
-  %.1 = phi i32 [ %.0158, %155 ], [ %spec.select, %157 ]
-  %.0157 = phi i32 [ %149, %155 ], [ %164, %157 ]
-  %168 = icmp eq i32 %.1, 0
-  %169 = sdiv i32 %.0157, 8
-  br i1 %168, label %170, label %172
+166:                                              ; preds = %156, %154
+  %.1 = phi i32 [ %.0158, %154 ], [ %spec.select, %156 ]
+  %.0157 = phi i32 [ %148, %154 ], [ %163, %156 ]
+  %167 = icmp eq i32 %.1, 0
+  %168 = sdiv i32 %.0157, 8
+  br i1 %167, label %169, label %171
 
-170:                                              ; preds = %167
-  %171 = call ptr @tvb_new_subset_remaining(ptr noundef %0, i32 noundef %169) #3
-  br label %174
+169:                                              ; preds = %166
+  %170 = call ptr @tvb_new_subset_remaining(ptr noundef %0, i32 noundef %168) #3
+  br label %173
 
-172:                                              ; preds = %167
-  %173 = call ptr @tvb_new_subset_length_caplen(ptr noundef %0, i32 noundef %169, i32 noundef -1, i32 noundef %.1) #3
-  br label %174
+171:                                              ; preds = %166
+  %172 = call ptr @tvb_new_subset_length_caplen(ptr noundef %0, i32 noundef %168, i32 noundef -1, i32 noundef %.1) #3
+  br label %173
 
-174:                                              ; preds = %172, %170
-  %.0159 = phi ptr [ %171, %170 ], [ %173, %172 ]
-  %175 = load ptr, ptr @stream_type_table, align 8
-  %176 = and i32 %19, 255
-  %177 = call i32 @dissector_try_uint_new(ptr noundef %175, i32 noundef %176, ptr noundef %.0159, ptr noundef nonnull %1, ptr noundef %2, i32 noundef 1, ptr noundef null) #3
-  %.not167 = icmp eq i32 %177, 0
-  br i1 %.not167, label %178, label %206
+173:                                              ; preds = %171, %169
+  %.0159 = phi ptr [ %170, %169 ], [ %172, %171 ]
+  %174 = load ptr, ptr @stream_type_table, align 8
+  %175 = and i32 %19, 255
+  %176 = call i32 @dissector_try_uint_new(ptr noundef %174, i32 noundef %175, ptr noundef %.0159, ptr noundef nonnull %1, ptr noundef %2, i32 noundef 1, ptr noundef null) #3
+  %.not167 = icmp eq i32 %176, 0
+  br i1 %.not167, label %177, label %205
 
-178:                                              ; preds = %174
-  %179 = call i32 @tvb_get_ntoh24(ptr noundef %.0159, i32 noundef 0) #3
-  %180 = icmp eq i32 %179, 1
-  br i1 %180, label %181, label %183
+177:                                              ; preds = %173
+  %178 = call i32 @tvb_get_ntoh24(ptr noundef %.0159, i32 noundef 0) #3
+  %179 = icmp eq i32 %178, 1
+  br i1 %179, label %180, label %182
 
-181:                                              ; preds = %178
-  %182 = call i32 @dissect_mpeg_pes(ptr noundef %.0159, ptr noundef nonnull %1, ptr noundef %2, ptr noundef null)
-  br label %206
+180:                                              ; preds = %177
+  %181 = call i32 @dissect_mpeg_pes(ptr noundef %.0159, ptr noundef nonnull %1, ptr noundef %2, ptr noundef null)
+  br label %205
 
-183:                                              ; preds = %178
-  %184 = call zeroext i8 @tvb_get_guint8(ptr noundef %.0159, i32 noundef 0) #3
-  %185 = icmp eq i8 %184, -1
-  br i1 %185, label %186, label %188
+182:                                              ; preds = %177
+  %183 = call zeroext i8 @tvb_get_guint8(ptr noundef %.0159, i32 noundef 0) #3
+  %184 = icmp eq i8 %183, -1
+  br i1 %184, label %185, label %187
 
-186:                                              ; preds = %183
-  %187 = call i32 @dissect_mpeg(ptr noundef %.0159, ptr noundef nonnull %1, ptr noundef %2, ptr poison)
-  br label %206
+185:                                              ; preds = %182
+  %186 = call i32 @dissect_mpeg(ptr noundef %.0159, ptr noundef nonnull %1, ptr noundef %2, ptr poison)
+  br label %205
 
-188:                                              ; preds = %183
-  %189 = load i32, ptr @hf_mpeg_pes_data, align 4
-  %190 = call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %189, ptr noundef %.0159, i32 noundef 0, i32 noundef -1, i32 noundef 0) #3
-  br label %206
+187:                                              ; preds = %182
+  %188 = load i32, ptr @hf_mpeg_pes_data, align 4
+  %189 = call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %188, ptr noundef %.0159, i32 noundef 0, i32 noundef -1, i32 noundef 0) #3
+  br label %205
 
-191:                                              ; preds = %140
-  %192 = sdiv i32 %22, 8
-  %193 = call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %192) #3
-  %194 = zext i16 %193 to i32
-  %195 = load i32, ptr @hf_mpeg_pes_length, align 4
-  %196 = call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %195, ptr noundef %0, i32 noundef %192, i32 noundef 2, i32 noundef 0) #3
-  %197 = add i32 %22, 16
-  %198 = load i32, ptr @hf_mpeg_pes_data, align 4
-  %199 = sdiv i32 %197, 8
-  %200 = call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %198, ptr noundef %0, i32 noundef %199, i32 noundef %194, i32 noundef 0) #3
-  br label %206
+190:                                              ; preds = %140
+  %191 = sdiv i32 %22, 8
+  %192 = call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %191) #3
+  %193 = zext i16 %192 to i32
+  %194 = load i32, ptr @hf_mpeg_pes_length, align 4
+  %195 = call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %194, ptr noundef %0, i32 noundef %191, i32 noundef 2, i32 noundef 0) #3
+  %196 = add i32 %22, 16
+  %197 = load i32, ptr @hf_mpeg_pes_data, align 4
+  %198 = sdiv i32 %196, 8
+  %199 = call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %197, ptr noundef %0, i32 noundef %198, i32 noundef %193, i32 noundef 0) #3
+  br label %205
 
-201:                                              ; preds = %137
+200:                                              ; preds = %137
   %.not164 = icmp eq i8 %14, -71
-  br i1 %.not164, label %206, label %202
+  br i1 %.not164, label %205, label %201
 
-202:                                              ; preds = %201
-  %203 = load i32, ptr @hf_mpeg_pes_data, align 4
-  %204 = sdiv i32 %22, 8
-  %205 = call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %203, ptr noundef %0, i32 noundef %204, i32 noundef -1, i32 noundef 0) #3
-  br label %206
+201:                                              ; preds = %200
+  %202 = load i32, ptr @hf_mpeg_pes_data, align 4
+  %203 = sdiv i32 %22, 8
+  %204 = call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %202, ptr noundef %0, i32 noundef %203, i32 noundef -1, i32 noundef 0) #3
+  br label %205
 
-206:                                              ; preds = %23, %47, %110, %dissect_mpeg_pes_pack_header.exit, %127, %201, %202, %191, %181, %188, %186, %174, %115, %54, %36, %8, %4
-  %.0 = phi i32 [ 0, %4 ], [ 0, %8 ], [ 1, %36 ], [ 1, %54 ], [ 1, %115 ], [ 1, %174 ], [ 1, %186 ], [ 1, %188 ], [ 1, %181 ], [ 1, %191 ], [ 1, %202 ], [ 1, %201 ], [ 1, %127 ], [ 1, %dissect_mpeg_pes_pack_header.exit ], [ 1, %110 ], [ 1, %47 ], [ 1, %23 ]
+205:                                              ; preds = %23, %47, %110, %dissect_mpeg_pes_pack_header.exit, %127, %200, %201, %190, %180, %187, %185, %173, %115, %54, %36, %8, %4
+  %.0 = phi i32 [ 0, %4 ], [ 0, %8 ], [ 1, %36 ], [ 1, %54 ], [ 1, %115 ], [ 1, %173 ], [ 1, %185 ], [ 1, %187 ], [ 1, %180 ], [ 1, %190 ], [ 1, %201 ], [ 1, %200 ], [ 1, %127 ], [ 1, %dissect_mpeg_pes_pack_header.exit ], [ 1, %110 ], [ 1, %47 ], [ 1, %23 ]
   ret i32 %.0
 }
 

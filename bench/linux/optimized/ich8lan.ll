@@ -6239,9 +6239,9 @@ define internal fastcc noundef range(i32 -1, 1) i32 @e1000_valid_nvm_bank_detect
 
 42:                                               ; preds = %39
   %43 = load i16, ptr %4, align 2
+  %44 = trunc i16 %43 to i8
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %4) #9
-  %44 = and i16 %43, 192
-  %45 = icmp eq i16 %44, 128
+  %45 = icmp slt i8 %44, -64
   br i1 %45, label %57, label %46
 
 46:                                               ; preds = %42
@@ -6249,23 +6249,23 @@ define internal fastcc noundef range(i32 -1, 1) i32 @e1000_valid_nvm_bank_detect
   store i16 0, ptr %3, align 2
   %47 = load i32, ptr %9, align 4
   %48 = icmp ugt i32 %47, 11
-  br i1 %48, label %.thread8, label %49
+  br i1 %48, label %.thread7, label %49
 
 49:                                               ; preds = %46
   %50 = add i32 %8, 39
   %51 = call fastcc i32 @e1000_read_flash_data_ich8lan(ptr noundef %0, i32 noundef %50, i8 noundef zeroext 1, ptr noundef nonnull %3), !range !36
   %52 = icmp eq i32 %51, 0
-  br i1 %52, label %53, label %.thread8
+  br i1 %52, label %53, label %.thread7
 
-.thread8:                                         ; preds = %46, %49
+.thread7:                                         ; preds = %46, %49
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %3) #9
   br label %59
 
 53:                                               ; preds = %49
   %54 = load i16, ptr %3, align 2
+  %55 = trunc i16 %54 to i8
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %3) #9
-  %55 = and i16 %54, 192
-  %56 = icmp eq i16 %55, 128
+  %56 = icmp slt i8 %55, -64
   br i1 %56, label %57, label %59
 
 57:                                               ; preds = %53, %42, %33, %22, %14
@@ -6273,8 +6273,8 @@ define internal fastcc noundef range(i32 -1, 1) i32 @e1000_valid_nvm_bank_detect
   store i32 %58, ptr %1, align 4
   br label %59
 
-59:                                               ; preds = %.thread8, %.thread, %57, %53, %22, %18, %11
-  %60 = phi i32 [ -1, %11 ], [ -1, %18 ], [ -1, %22 ], [ -1, %53 ], [ 0, %57 ], [ -1, %.thread ], [ -1, %.thread8 ]
+59:                                               ; preds = %.thread7, %.thread, %57, %53, %22, %18, %11
+  %60 = phi i32 [ -1, %11 ], [ -1, %18 ], [ -1, %22 ], [ -1, %53 ], [ 0, %57 ], [ -1, %.thread ], [ -1, %.thread7 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #9
   ret i32 %60
 }

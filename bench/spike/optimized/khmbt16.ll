@@ -177,9 +177,8 @@ define noundef i64 @_Z18fast_rv64i_khmbt16P11processor_t6insn_tm(ptr nocapture n
   %46 = trunc i64 %43 to i32
   %47 = shl i32 %46, 16
   %48 = trunc i64 %45 to i32
-  %sext52 = and i32 %48, -65536
   %49 = icmp ne i32 %47, -2147483648
-  %50 = icmp ne i32 %sext52, -2147483648
+  %50 = icmp sgt i32 %48, -2147418113
   %51 = or i1 %49, %50
   br i1 %51, label %52, label %59
 
@@ -315,9 +314,8 @@ define noundef i64 @_Z20logged_rv64i_khmbt16P11processor_t6insn_tm(ptr noundef %
   %46 = trunc i64 %43 to i32
   %47 = shl i32 %46, 16
   %48 = trunc i64 %45 to i32
-  %sext55 = and i32 %48, -65536
   %49 = icmp ne i32 %47, -2147483648
-  %50 = icmp ne i32 %sext55, -2147483648
+  %50 = icmp sgt i32 %48, -2147418113
   %51 = or i1 %49, %50
   br i1 %51, label %52, label %59
 
@@ -552,9 +550,8 @@ define noundef i64 @_Z18fast_rv64e_khmbt16P11processor_t6insn_tm(ptr nocapture n
   %67 = trunc i64 %64 to i32
   %68 = shl i32 %67, 16
   %69 = trunc i64 %66 to i32
-  %sext60 = and i32 %69, -65536
   %70 = icmp ne i32 %68, -2147483648
-  %71 = icmp ne i32 %sext60, -2147483648
+  %71 = icmp sgt i32 %69, -2147418113
   %72 = or i1 %70, %71
   br i1 %72, label %73, label %80
 
@@ -732,9 +729,8 @@ define noundef i64 @_Z20logged_rv64e_khmbt16P11processor_t6insn_tm(ptr noundef %
   %67 = trunc i64 %64 to i32
   %68 = shl i32 %67, 16
   %69 = trunc i64 %66 to i32
-  %sext63 = and i32 %69, -65536
   %70 = icmp ne i32 %68, -2147483648
-  %71 = icmp ne i32 %sext63, -2147483648
+  %71 = icmp sgt i32 %69, -2147418113
   %72 = or i1 %70, %71
   br i1 %72, label %73, label %80
 

@@ -1223,7 +1223,7 @@ define void @_ZN8WasmEdge7FileMgr8readNameB5cxx11Ev(ptr dead_on_unwind noalias w
   store i8 0, ptr %0, align 8
   %7 = getelementptr inbounds i8, ptr %0, i64 8
   store i32 %5, ptr %7, align 8
-  br label %150
+  br label %149
 
 8:                                                ; preds = %2
   %9 = getelementptr inbounds i8, ptr %1, i64 16
@@ -1278,7 +1278,7 @@ define void @_ZN8WasmEdge7FileMgr8readNameB5cxx11Ev(ptr dead_on_unwind noalias w
   store i8 0, ptr %0, align 8
   %35 = getelementptr inbounds i8, ptr %0, i64 8
   store i32 %.sink26.i, ptr %35, align 8
-  br label %150
+  br label %149
 
 36:                                               ; preds = %30
   %37 = zext i32 %33 to i64
@@ -1293,7 +1293,7 @@ define void @_ZN8WasmEdge7FileMgr8readNameB5cxx11Ev(ptr dead_on_unwind noalias w
   store i8 0, ptr %0, align 8
   %41 = getelementptr inbounds i8, ptr %0, i64 8
   store i32 263, ptr %41, align 8
-  br label %150
+  br label %149
 
 42:                                               ; preds = %36
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #19
@@ -1358,7 +1358,7 @@ _ZN8WasmEdge7FileMgr9readBytesEN5cxx204spanIhLm18446744073709551615EEE.exit: ; p
   store i8 0, ptr %0, align 8
   %62 = getelementptr inbounds i8, ptr %0, i64 8
   store i32 %.sroa.460.0.ph, ptr %62, align 8
-  br label %149
+  br label %148
 
 63:                                               ; preds = %.noexc, %42
   %64 = landingpad { ptr, i32 }
@@ -1371,8 +1371,8 @@ _ZN8WasmEdge7FileMgr9readBytesEN5cxx204spanIhLm18446744073709551615EEE.exit: ; p
   resume { ptr, i32 } %eh.lpad-body
 
 .lr.ph91:                                         ; preds = %_ZN8WasmEdge7FileMgr9readBytesEN5cxx204spanIhLm18446744073709551615EEE.exit, %._crit_edge
-  %65 = phi i64 [ %141, %._crit_edge ], [ 0, %_ZN8WasmEdge7FileMgr9readBytesEN5cxx204spanIhLm18446744073709551615EEE.exit ]
-  %.03989 = phi i32 [ %140, %._crit_edge ], [ 0, %_ZN8WasmEdge7FileMgr9readBytesEN5cxx204spanIhLm18446744073709551615EEE.exit ]
+  %65 = phi i64 [ %140, %._crit_edge ], [ 0, %_ZN8WasmEdge7FileMgr9readBytesEN5cxx204spanIhLm18446744073709551615EEE.exit ]
+  %.03989 = phi i32 [ %139, %._crit_edge ], [ 0, %_ZN8WasmEdge7FileMgr9readBytesEN5cxx204spanIhLm18446744073709551615EEE.exit ]
   %.04088 = phi i8 [ %.4.lcssa, %._crit_edge ], [ 1, %_ZN8WasmEdge7FileMgr9readBytesEN5cxx204spanIhLm18446744073709551615EEE.exit ]
   %66 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %3) #19
   %67 = getelementptr inbounds i8, ptr %66, i64 %65
@@ -1504,46 +1504,45 @@ _ZN8WasmEdge7FileMgr9readBytesEN5cxx204spanIhLm18446744073709551615EEE.exit: ; p
   %133 = zext i32 %132 to i64
   %134 = getelementptr inbounds i8, ptr %130, i64 %133
   %135 = load i8, ptr %134, align 1
-  %136 = and i8 %135, -64
-  %.not47 = icmp eq i8 %136, -128
+  %.not47 = icmp slt i8 %135, -64
   %spec.select53 = select i1 %.not47, i8 %.486, i8 0
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %137 = icmp ult i64 %indvars.iv.next, %128
-  %138 = trunc nuw i8 %spec.select53 to i1
-  %139 = select i1 %137, i1 %138, i1 false
-  br i1 %139, label %129, label %._crit_edge, !llvm.loop !67
+  %136 = icmp ult i64 %indvars.iv.next, %128
+  %137 = trunc nuw i8 %spec.select53 to i1
+  %138 = select i1 %136, i1 %137, i1 false
+  br i1 %138, label %129, label %._crit_edge, !llvm.loop !67
 
 ._crit_edge:                                      ; preds = %129, %108, %116, %123, %80, %.thread96
   %.4.lcssa = phi i8 [ %.3, %.thread96 ], [ 0, %80 ], [ 0, %123 ], [ 0, %116 ], [ 0, %108 ], [ %spec.select53, %129 ]
-  %140 = add i32 %84, 1
-  %141 = zext i32 %140 to i64
-  %142 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %3) #19
-  %143 = icmp ugt i64 %142, %141
-  %144 = trunc nuw i8 %.4.lcssa to i1
-  %145 = select i1 %143, i1 %144, i1 false
-  br i1 %145, label %.lr.ph91, label %._crit_edge92, !llvm.loop !68
+  %139 = add i32 %84, 1
+  %140 = zext i32 %139 to i64
+  %141 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %3) #19
+  %142 = icmp ugt i64 %141, %140
+  %143 = trunc nuw i8 %.4.lcssa to i1
+  %144 = select i1 %142, i1 %143, i1 false
+  br i1 %144, label %.lr.ph91, label %._crit_edge92, !llvm.loop !68
 
 ._crit_edge92:                                    ; preds = %._crit_edge
-  br i1 %144, label %.critedge, label %146
+  br i1 %143, label %.critedge, label %145
 
-146:                                              ; preds = %._crit_edge92
+145:                                              ; preds = %._crit_edge92
   store i32 276, ptr %1, align 8
   store i8 0, ptr %0, align 8
-  %147 = getelementptr inbounds i8, ptr %0, i64 8
-  store i32 276, ptr %147, align 8
-  br label %149
+  %146 = getelementptr inbounds i8, ptr %0, i64 8
+  store i32 276, ptr %146, align 8
+  br label %148
 
 .critedge:                                        ; preds = %_ZN8WasmEdge7FileMgr9readBytesEN5cxx204spanIhLm18446744073709551615EEE.exit, %._crit_edge92
   store i8 1, ptr %0, align 8
-  %148 = getelementptr inbounds i8, ptr %0, i64 8
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %148, ptr noundef nonnull align 8 dereferenceable(32) %3) #19
+  %147 = getelementptr inbounds i8, ptr %0, i64 8
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %147, ptr noundef nonnull align 8 dereferenceable(32) %3) #19
+  br label %148
+
+148:                                              ; preds = %.critedge, %145, %61
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #19
   br label %149
 
-149:                                              ; preds = %.critedge, %146, %61
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #19
-  br label %150
-
-150:                                              ; preds = %149, %40, %.loopexit, %6
+149:                                              ; preds = %148, %40, %.loopexit, %6
   ret void
 }
 

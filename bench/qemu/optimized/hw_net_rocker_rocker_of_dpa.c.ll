@@ -3010,13 +3010,11 @@ sw.bb147:                                         ; preds = %if.then122
   br i1 %cmp152.not, label %if.end183, label %return
 
 sw.bb159:                                         ; preds = %if.then122
-  %shr163.mask = and i32 %.val74, -268435456
-  %cmp164.not = icmp eq i32 %shr163.mask, -2147483648
+  %cmp164.not = icmp slt i32 %.val74, -1879048192
   br i1 %cmp164.not, label %if.end183, label %return
 
 sw.bb171:                                         ; preds = %if.then122
-  %shr175.mask = and i32 %.val74, -268435456
-  %cmp176.not = icmp eq i32 %shr175.mask, -2147483648
+  %cmp176.not = icmp slt i32 %.val74, -1879048192
   br i1 %cmp176.not, label %if.end183, label %return
 
 if.end183:                                        ; preds = %sw.bb, %sw.bb135, %sw.bb147, %sw.bb159, %sw.bb171, %if.end119
