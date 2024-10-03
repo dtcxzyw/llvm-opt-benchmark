@@ -9665,7 +9665,7 @@ grpc/xds_channel_stack_modifier.cc.ll 235568460
 grpc/xds_client.cc.ll 8125407019
 grpc/xds_client_grpc.cc.ll 698023304
 grpc/xds_client_stats.cc.ll 660564285
-grpc/xds_cluster.cc.ll 3846531993
+grpc/xds_cluster.cc.ll 3850384326
 grpc/xds_cluster_impl.cc.ll 2464699488
 grpc/xds_cluster_manager.cc.ll 2578366044
 grpc/xds_cluster_resolver.cc.ll 8125483981
