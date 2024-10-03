@@ -2267,7 +2267,7 @@ c3c/llvm_codegen_function.c.ll 404196610
 c3c/llvm_codegen_instr.c.ll 49966857
 c3c/llvm_codegen_module.c.ll 102511570
 c3c/llvm_codegen_stmt.c.ll 693603153
-c3c/llvm_codegen_storeload.c.ll 100390520
+c3c/llvm_codegen_storeload.c.ll 100289965
 c3c/llvm_codegen_type.c.ll 431720612
 c3c/llvm_codegen_value.c.ll 129529680
 c3c/mac_support.c.ll 44511938
@@ -3380,7 +3380,7 @@ cmake/cmGetDirectoryPropertyCommand.cxx.ll 103201439
 cmake/cmGetFilenameComponentCommand.cxx.ll 174257384
 cmake/cmGetPropertyCommand.cxx.ll 391631087
 cmake/cmGetSourceFilePropertyCommand.cxx.ll 182081415
-cmake/cmGetTargetPropertyCommand.cxx.ll 88633561
+cmake/cmGetTargetPropertyCommand.cxx.ll 88544822
 cmake/cmGetTestPropertyCommand.cxx.ll 75332138
 cmake/cmGhsMultiTargetGenerator.cxx.ll 2441343278
 cmake/cmGlobVerificationManager.cxx.ll 763648238
@@ -24023,7 +24023,7 @@ openjdk/g1ConcurrentMarkThread.ll 2671753252
 openjdk/g1ConcurrentRebuildAndScrub.ll 3889657824
 openjdk/g1ConcurrentRefine.ll 2722370040
 openjdk/g1ConcurrentRefineStats.ll 63620075
-openjdk/g1ConcurrentRefineThread.ll 170417202
+openjdk/g1ConcurrentRefineThread.ll 170245544
 openjdk/g1ConcurrentRefineThreadsNeeded.ll 49745540
 openjdk/g1DirtyCardQueue.ll 2767539612
 openjdk/g1EvacFailureRegions.ll 2464433276
@@ -29104,7 +29104,7 @@ openusd/conformWindow.cpp.ll 123328768
 openusd/connectableAPI.cpp.ll 1897844194
 openusd/connectableAPIBehavior.cpp.ll 2605228783
 openusd/connectionListEditor.cpp.ll 1765810571
-openusd/constraintTarget.cpp.ll 929827200
+openusd/constraintTarget.cpp.ll 928896670
 openusd/containerDataSourceEditor.cpp.ll 2042714811
 openusd/containerSchema.cpp.ll 69356875
 openusd/convolve.c.ll 1570787043
@@ -40150,7 +40150,7 @@ wireshark/packet-http.c.ll 1137701487
 wireshark/packet-http2.c.ll 283325113
 wireshark/packet-http3.c.ll 369372684
 wireshark/packet-iax2.c.ll 780744849
-wireshark/packet-icap.c.ll 92967123
+wireshark/packet-icap.c.ll 92874090
 wireshark/packet-icep.c.ll 207846837
 wireshark/packet-icmp.c.ll 489272376
 wireshark/packet-icmpv6.c.ll 1067366768
@@ -40394,7 +40394,7 @@ wireshark/packet-netbios.c.ll 254913159
 wireshark/packet-netflow.c.ll 7617777428
 wireshark/packet-netlink-generic.c.ll 87297883
 wireshark/packet-netlink-net_dm.c.ll 82660380
-wireshark/packet-netlink-netfilter.c.ll 196358673
+wireshark/packet-netlink-netfilter.c.ll 196161997
 wireshark/packet-netlink-psample.c.ll 64441940
 wireshark/packet-netlink-route.c.ll 190423264
 wireshark/packet-netlink-sock_diag.c.ll 297311853
