@@ -25141,7 +25141,7 @@ openjdk/zLargePages.ll 48300476
 openjdk/zLargePages_linux.ll 37029360
 openjdk/zLiveMap.ll 168410367
 openjdk/zMark.ll 3249783605
-openjdk/zMarkCache.ll 73373791
+openjdk/zMarkCache.ll 73447195
 openjdk/zMarkStack.ll 217616004
 openjdk/zMarkStackAllocator.ll 184206011
 openjdk/zMemory.ll 168862194
