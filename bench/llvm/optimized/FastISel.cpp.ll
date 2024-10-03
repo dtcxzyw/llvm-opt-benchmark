@@ -10316,84 +10316,79 @@ define dso_local void @_ZN4llvm8FastISel14fastEmitBranchEPNS_17MachineBasicBlock
   %10 = load ptr, ptr %9, align 8
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 56
   %12 = load ptr, ptr %11, align 8
-  %13 = icmp eq ptr %12, null
-  %14 = getelementptr inbounds nuw i8, ptr %10, i64 48
-  %15 = load ptr, ptr %14, align 8
-  %16 = icmp eq ptr %15, null
-  %.not171819 = icmp eq ptr %15, %12
-  %not. = xor i1 %16, true
-  %.not1718 = and i1 %.not171819, %not.
-  %.not17 = select i1 %13, i1 %16, i1 %.not1718
-  br i1 %.not17, label %.thread15, label %17
+  %13 = getelementptr inbounds nuw i8, ptr %10, i64 48
+  %14 = load ptr, ptr %13, align 8
+  %.not171819 = icmp eq ptr %14, %12
+  br i1 %.not171819, label %.thread15, label %15
 
-17:                                               ; preds = %3
-  %18 = tail call noundef ptr @_ZNK4llvm10BasicBlock9getModuleEv(ptr noundef nonnull align 8 dereferenceable(80) %10) #21
-  %19 = getelementptr inbounds nuw i8, ptr %18, i64 856
-  %20 = load i8, ptr %19, align 8
-  %21 = trunc i8 %20 to i1
-  br i1 %21, label %.thread, label %22
+15:                                               ; preds = %3
+  %16 = tail call noundef ptr @_ZNK4llvm10BasicBlock9getModuleEv(ptr noundef nonnull align 8 dereferenceable(80) %10) #21
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 856
+  %18 = load i8, ptr %17, align 8
+  %19 = trunc i8 %18 to i1
+  br i1 %19, label %.thread, label %20
 
-22:                                               ; preds = %17
-  %23 = tail call noundef i64 @_ZNK4llvm10BasicBlock16sizeWithoutDebugEv(ptr noundef nonnull align 8 dereferenceable(80) %10) #21
-  %24 = icmp sgt i64 %23, 1
-  br i1 %24, label %.thread, label %.thread15
+20:                                               ; preds = %15
+  %21 = tail call noundef i64 @_ZNK4llvm10BasicBlock16sizeWithoutDebugEv(ptr noundef nonnull align 8 dereferenceable(80) %10) #21
+  %22 = icmp sgt i64 %21, 1
+  br i1 %22, label %.thread, label %.thread15
 
-.thread:                                          ; preds = %17, %22
-  %25 = load ptr, ptr %5, align 8
-  %26 = getelementptr inbounds nuw i8, ptr %25, i64 680
-  %27 = load ptr, ptr %26, align 8
-  %28 = tail call noundef zeroext i1 @_ZNK4llvm17MachineBasicBlock17isLayoutSuccessorEPKS0_(ptr noundef nonnull align 8 dereferenceable(288) %27, ptr noundef %1) #21
-  br i1 %28, label %_ZN4llvm11SmallVectorINS_14MachineOperandELj0EED2Ev.exit, label %.thread15
+.thread:                                          ; preds = %15, %20
+  %23 = load ptr, ptr %5, align 8
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 680
+  %25 = load ptr, ptr %24, align 8
+  %26 = tail call noundef zeroext i1 @_ZNK4llvm17MachineBasicBlock17isLayoutSuccessorEPKS0_(ptr noundef nonnull align 8 dereferenceable(288) %25, ptr noundef %1) #21
+  br i1 %26, label %_ZN4llvm11SmallVectorINS_14MachineOperandELj0EED2Ev.exit, label %.thread15
 
-.thread15:                                        ; preds = %3, %.thread, %22
-  %29 = getelementptr inbounds nuw i8, ptr %0, i64 112
-  %30 = load ptr, ptr %29, align 8
-  %31 = load ptr, ptr %5, align 8
-  %32 = getelementptr inbounds nuw i8, ptr %31, i64 680
-  %33 = load ptr, ptr %32, align 8
-  %34 = getelementptr inbounds i8, ptr %4, i64 16
-  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull %34, i64 noundef 0) #21
-  %35 = load ptr, ptr %4, align 8
-  %36 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %4) #21
-  %37 = load ptr, ptr %30, align 8
-  %38 = getelementptr inbounds i8, ptr %37, i64 280
-  %39 = load ptr, ptr %38, align 8
-  %40 = call noundef i32 %39(ptr noundef nonnull align 8 dereferenceable(80) %30, ptr noundef nonnull align 8 dereferenceable(288) %33, ptr noundef %1, ptr noundef null, ptr %35, i64 %36, ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef null) #21
-  %41 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %4) #21
-  %42 = load ptr, ptr %4, align 8
-  %43 = icmp eq ptr %42, %34
-  br i1 %43, label %_ZN4llvm11SmallVectorINS_14MachineOperandELj0EED2Ev.exit, label %44
+.thread15:                                        ; preds = %3, %.thread, %20
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 112
+  %28 = load ptr, ptr %27, align 8
+  %29 = load ptr, ptr %5, align 8
+  %30 = getelementptr inbounds nuw i8, ptr %29, i64 680
+  %31 = load ptr, ptr %30, align 8
+  %32 = getelementptr inbounds i8, ptr %4, i64 16
+  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull %32, i64 noundef 0) #21
+  %33 = load ptr, ptr %4, align 8
+  %34 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %4) #21
+  %35 = load ptr, ptr %28, align 8
+  %36 = getelementptr inbounds i8, ptr %35, i64 280
+  %37 = load ptr, ptr %36, align 8
+  %38 = call noundef i32 %37(ptr noundef nonnull align 8 dereferenceable(80) %28, ptr noundef nonnull align 8 dereferenceable(288) %31, ptr noundef %1, ptr noundef null, ptr %33, i64 %34, ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef null) #21
+  %39 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %4) #21
+  %40 = load ptr, ptr %4, align 8
+  %41 = icmp eq ptr %40, %32
+  br i1 %41, label %_ZN4llvm11SmallVectorINS_14MachineOperandELj0EED2Ev.exit, label %42
 
-44:                                               ; preds = %.thread15
-  call void @free(ptr noundef %42) #21
+42:                                               ; preds = %.thread15
+  call void @free(ptr noundef %40) #21
   br label %_ZN4llvm11SmallVectorINS_14MachineOperandELj0EED2Ev.exit
 
-_ZN4llvm11SmallVectorINS_14MachineOperandELj0EED2Ev.exit: ; preds = %44, %.thread15, %.thread
-  %45 = load ptr, ptr %5, align 8
-  %46 = getelementptr inbounds nuw i8, ptr %45, i64 32
+_ZN4llvm11SmallVectorINS_14MachineOperandELj0EED2Ev.exit: ; preds = %42, %.thread15, %.thread
+  %43 = load ptr, ptr %5, align 8
+  %44 = getelementptr inbounds nuw i8, ptr %43, i64 32
+  %45 = load ptr, ptr %44, align 8
+  %.not = icmp eq ptr %45, null
+  %46 = getelementptr inbounds nuw i8, ptr %43, i64 680
   %47 = load ptr, ptr %46, align 8
-  %.not = icmp eq ptr %47, null
-  %48 = getelementptr inbounds nuw i8, ptr %45, i64 680
-  %49 = load ptr, ptr %48, align 8
-  br i1 %.not, label %59, label %50
+  br i1 %.not, label %57, label %48
 
-50:                                               ; preds = %_ZN4llvm11SmallVectorINS_14MachineOperandELj0EED2Ev.exit
-  %51 = getelementptr inbounds nuw i8, ptr %49, i64 16
+48:                                               ; preds = %_ZN4llvm11SmallVectorINS_14MachineOperandELj0EED2Ev.exit
+  %49 = getelementptr inbounds nuw i8, ptr %47, i64 16
+  %50 = load ptr, ptr %49, align 8
+  %51 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %52 = load ptr, ptr %51, align 8
-  %53 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %54 = load ptr, ptr %53, align 8
-  %55 = call i32 @_ZNK4llvm21BranchProbabilityInfo18getEdgeProbabilityEPKNS_10BasicBlockES3_(ptr noundef nonnull align 8 dereferenceable(248) %47, ptr noundef %52, ptr noundef %54) #21
-  %56 = load ptr, ptr %5, align 8
-  %57 = getelementptr inbounds nuw i8, ptr %56, i64 680
-  %58 = load ptr, ptr %57, align 8
-  call void @_ZN4llvm17MachineBasicBlock12addSuccessorEPS0_NS_17BranchProbabilityE(ptr noundef nonnull align 8 dereferenceable(288) %58, ptr noundef nonnull %1, i32 %55) #21
-  br label %60
+  %53 = call i32 @_ZNK4llvm21BranchProbabilityInfo18getEdgeProbabilityEPKNS_10BasicBlockES3_(ptr noundef nonnull align 8 dereferenceable(248) %45, ptr noundef %50, ptr noundef %52) #21
+  %54 = load ptr, ptr %5, align 8
+  %55 = getelementptr inbounds nuw i8, ptr %54, i64 680
+  %56 = load ptr, ptr %55, align 8
+  call void @_ZN4llvm17MachineBasicBlock12addSuccessorEPS0_NS_17BranchProbabilityE(ptr noundef nonnull align 8 dereferenceable(288) %56, ptr noundef nonnull %1, i32 %53) #21
+  br label %58
 
-59:                                               ; preds = %_ZN4llvm11SmallVectorINS_14MachineOperandELj0EED2Ev.exit
-  call void @_ZN4llvm17MachineBasicBlock23addSuccessorWithoutProbEPS0_(ptr noundef nonnull align 8 dereferenceable(288) %49, ptr noundef %1) #21
-  br label %60
+57:                                               ; preds = %_ZN4llvm11SmallVectorINS_14MachineOperandELj0EED2Ev.exit
+  call void @_ZN4llvm17MachineBasicBlock23addSuccessorWithoutProbEPS0_(ptr noundef nonnull align 8 dereferenceable(288) %47, ptr noundef %1) #21
+  br label %58
 
-60:                                               ; preds = %59, %50
+58:                                               ; preds = %57, %48
   ret void
 }
 

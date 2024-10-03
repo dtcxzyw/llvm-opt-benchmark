@@ -85,22 +85,15 @@ land.lhs.true13:                                  ; preds = %land.lhs.true7
 land.rhs:                                         ; preds = %land.lhs.true13
   %13 = getelementptr i8, ptr %ap, i64 80
   %ap.val13 = load i64, ptr %13, align 8
-  %and.i = and i64 %ap.val13, -4096
-  %and2.i = and i64 %ap.val, -4096
-  %cmp.i = icmp eq i64 %and.i, %and2.i
   %14 = getelementptr i8, ptr %bp, i64 80
   %bp.val15 = load i64, ptr %14, align 8
-  %and.i18 = and i64 %bp.val15, -4096
-  %cmp.i20 = icmp eq i64 %and.i18, %and2.i
-  %cmp192223 = icmp eq i64 %and.i18, %and.i
-  %not.cmp.i20 = xor i1 %cmp.i20, true
-  %cmp1922 = select i1 %not.cmp.i20, i1 %cmp192223, i1 false
-  %cmp19 = select i1 %cmp.i, i1 %cmp.i20, i1 %cmp1922
+  %15 = xor i64 %bp.val15, %ap.val13
+  %cmp192223 = icmp ult i64 %15, 4096
   br label %land.end
 
 land.end:                                         ; preds = %land.rhs, %land.lhs.true13, %land.lhs.true7, %land.lhs.true4, %land.lhs.true, %lor.lhs.false
-  %15 = phi i1 [ false, %land.lhs.true13 ], [ false, %land.lhs.true7 ], [ false, %land.lhs.true4 ], [ false, %land.lhs.true ], [ false, %lor.lhs.false ], [ %cmp19, %land.rhs ]
-  ret i1 %15
+  %16 = phi i1 [ false, %land.lhs.true13 ], [ false, %land.lhs.true7 ], [ false, %land.lhs.true4 ], [ false, %land.lhs.true ], [ false, %lor.lhs.false ], [ %cmp192223, %land.rhs ]
+  ret i1 %16
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
