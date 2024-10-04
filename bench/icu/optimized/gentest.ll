@@ -104,7 +104,7 @@ if.then14:                                        ; preds = %if.end12
   br i1 %tobool.not.i, label %if.end.i, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %if.then14
-  %call2.i = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %file.i) #11
+  %call2.i = call i64 @strlen(ptr nonnull dereferenceable(1) %file.i)
   %sub.i = add i64 %call2.i, -1
   %arrayidx.i = getelementptr inbounds [512 x i8], ptr %file.i, i64 0, i64 %sub.i
   %10 = load i8, ptr %arrayidx.i, align 1
@@ -112,8 +112,7 @@ land.lhs.true.i:                                  ; preds = %if.then14
   br i1 %cmp.not.i, label %if.end.i, label %if.then.i
 
 if.then.i:                                        ; preds = %land.lhs.true.i
-  %strlen.i = call i64 @strlen(ptr nonnull dereferenceable(1) %file.i)
-  %endptr.i = getelementptr inbounds i8, ptr %file.i, i64 %strlen.i
+  %endptr.i = getelementptr inbounds i8, ptr %file.i, i64 %call2.i
   store i16 47, ptr %endptr.i, align 1
   br label %if.end.i
 
@@ -316,7 +315,7 @@ if.then.i14:                                      ; preds = %if.else21
   %call1.i = call ptr @u_errorName_75(i32 noundef %38) #9
   %call2.i15 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %39, ptr noundef nonnull @.str.9, ptr noundef %call1.i) #10
   %40 = load i32, ptr %errorCode, align 4
-  call void @exit(i32 noundef %40) #12
+  call void @exit(i32 noundef %40) #11
   unreachable
 
 if.end.i13:                                       ; preds = %if.else21
@@ -331,7 +330,7 @@ if.then6.i:                                       ; preds = %if.end.i13
   %42 = load ptr, ptr @stderr, align 8
   %call7.i = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %42, ptr noundef nonnull @.str.10, i32 noundef %41) #10
   %43 = load i32, ptr %errorCode, align 4
-  call void @exit(i32 noundef %43) #12
+  call void @exit(i32 noundef %43) #11
   unreachable
 
 if.end8.i:                                        ; preds = %if.end.i13
@@ -342,7 +341,7 @@ if.then12.i:                                      ; preds = %if.end8.i
   %conv.i = zext i32 %call3.i to i64
   %44 = load ptr, ptr @stderr, align 8
   %call14.i = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %44, ptr noundef nonnull @.str.11, i64 noundef %conv.i, i64 noundef 7) #10
-  call void @exit(i32 noundef 5) #13
+  call void @exit(i32 noundef 5) #12
   unreachable
 
 createData.exit:                                  ; preds = %if.end8.i
@@ -421,9 +420,8 @@ attributes #7 = { nofree nounwind }
 attributes #8 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #9 = { nounwind }
 attributes #10 = { cold }
-attributes #11 = { nounwind willreturn memory(read) }
-attributes #12 = { noreturn nounwind }
-attributes #13 = { cold noreturn nounwind }
+attributes #11 = { noreturn nounwind }
+attributes #12 = { cold noreturn nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4}
 

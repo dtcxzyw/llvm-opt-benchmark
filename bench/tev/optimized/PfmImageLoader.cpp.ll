@@ -1357,11 +1357,11 @@ _ZNSt3__1eqB8ne190000IcNS_11char_traitsIcEENS_9allocatorIcEEEEbRKNS_12basic_stri
   br label %.body110
 
 130:                                              ; preds = %118
-  %131 = fcmp olt float %119, 0.000000e+00
-  %132 = zext i1 %131 to i8
-  store i8 %132, ptr %29, align 1
-  %133 = tail call noundef float @llvm.fabs.f32(float %119)
-  store float %133, ptr %27, align 4
+  %131 = tail call float @llvm.fabs.f32(float %119)
+  %132 = fcmp olt float %119, 0.000000e+00
+  %133 = zext i1 %132 to i8
+  store i8 %133, ptr %29, align 1
+  store float %131, ptr %27, align 4
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %15) #22
   invoke void @_ZN3tev11ImageLoader13makeNChannelsEiRKN7nanogui5ArrayIiLm2EEE(ptr dead_on_unwind nonnull writable sret(%"class.std::__1::vector.10") align 8 %15, i32 noundef %.sink, ptr noundef nonnull align 4 dereferenceable(8) %26)
           to label %134 unwind label %162
@@ -44376,11 +44376,11 @@ _ZNSt3__1eqB8ne190000IcNS_11char_traitsIcEENS_9allocatorIcEEEEbRKNS_12basic_stri
   br label %.body106
 
 111:                                              ; preds = %99
-  %112 = fcmp olt float %100, 0.000000e+00
-  %113 = zext i1 %112 to i8
-  store i8 %113, ptr %20, align 2
-  %114 = tail call noundef float @llvm.fabs.f32(float %100)
-  store float %114, ptr %18, align 4
+  %112 = tail call float @llvm.fabs.f32(float %100)
+  %113 = fcmp olt float %100, 0.000000e+00
+  %114 = zext i1 %113 to i8
+  store i8 %114, ptr %20, align 2
+  store float %112, ptr %18, align 4
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6) #22
   invoke void @_ZN3tev11ImageLoader13makeNChannelsEiRKN7nanogui5ArrayIiLm2EEE(ptr dead_on_unwind nonnull writable sret(%"class.std::__1::vector.10") align 8 %6, i32 noundef %.sink, ptr noundef nonnull align 4 dereferenceable(8) %17)
           to label %115 unwind label %143

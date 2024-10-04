@@ -3289,59 +3289,63 @@ if.else:                                          ; preds = %if.end12
   %cmp.i.i.i = fcmp olt float %22, 0x3810000000000000
   %.sroa.speculated.i.i = select i1 %cmp.i.i.i, float 0x3810000000000000, float %22
   %call.i.i.i = tail call noundef float @logf(float noundef %.sroa.speculated.i.i) #24
-  %23 = tail call float @llvm.fabs.f32(float %call.i.i.i)
-  %or.cond.i.i = fcmp ueq float %23, 0x7FF0000000000000
-  br i1 %or.cond.i.i, label %land.rhs.i.i, label %land.end.i.i
+  %23 = fcmp uno float %call.i.i.i, 0.000000e+00
+  br i1 %23, label %land.rhs.i.i, label %land.lhs.true.i.i
 
-land.rhs.i.i:                                     ; preds = %if.else
+land.lhs.true.i.i:                                ; preds = %if.else
+  %24 = tail call float @llvm.fabs.f32(float %call.i.i.i)
+  %25 = fcmp oeq float %24, 0x7FF0000000000000
+  br i1 %25, label %land.rhs.i.i, label %land.end.i.i
+
+land.rhs.i.i:                                     ; preds = %land.lhs.true.i.i, %if.else
   tail call void @_ZN4pbrt8LogFatalIJRA23_KcEEEvNS_8LogLevelEPS1_iS5_DpOT_(i32 noundef 2, ptr noundef nonnull @.str.69, i32 noundef 766, ptr noundef nonnull @.str.19, ptr noundef nonnull align 1 dereferenceable(23) @.str.70) #23
   unreachable
 
-land.end.i.i:                                     ; preds = %if.else
-  %cmp.i.i36 = fcmp ogt float %23, 6.125000e+00
+land.end.i.i:                                     ; preds = %land.lhs.true.i.i
+  %cmp.i.i36 = fcmp ogt float %24, 6.125000e+00
   br i1 %cmp.i.i36, label %if.then.i.i, label %if.else.i.i
 
 if.then.i.i:                                      ; preds = %land.end.i.i
-  %24 = tail call noundef float @llvm.fma.f32(float %call.i.i.i, float 0x3DF4DEB440000000, float 0x3E5F7C9AE0000000)
-  %25 = tail call noundef float @llvm.fma.f32(float %24, float %call.i.i.i, float 0x3EB47E5120000000)
-  %26 = tail call noundef float @llvm.fma.f32(float %25, float %call.i.i.i, float 0x3EFDCA7DE0000000)
-  %27 = tail call noundef float @llvm.fma.f32(float %26, float %call.i.i.i, float 0x3F39CAB920000000)
-  %28 = tail call noundef float @llvm.fma.f32(float %27, float %call.i.i.i, float 0x3F68CC0DE0000000)
-  %29 = tail call noundef float @llvm.fma.f32(float %28, float %call.i.i.i, float 0x3F73CA9200000000)
-  %30 = tail call noundef float @llvm.fma.f32(float %29, float %call.i.i.i, float 0xBFD0EFF660000000)
-  %31 = tail call noundef float @llvm.fma.f32(float %30, float %call.i.i.i, float 0x3FEAE16A40000000)
+  %26 = tail call noundef float @llvm.fma.f32(float %call.i.i.i, float 0x3DF4DEB440000000, float 0x3E5F7C9AE0000000)
+  %27 = tail call noundef float @llvm.fma.f32(float %26, float %call.i.i.i, float 0x3EB47E5120000000)
+  %28 = tail call noundef float @llvm.fma.f32(float %27, float %call.i.i.i, float 0x3EFDCA7DE0000000)
+  %29 = tail call noundef float @llvm.fma.f32(float %28, float %call.i.i.i, float 0x3F39CAB920000000)
+  %30 = tail call noundef float @llvm.fma.f32(float %29, float %call.i.i.i, float 0x3F68CC0DE0000000)
+  %31 = tail call noundef float @llvm.fma.f32(float %30, float %call.i.i.i, float 0x3F73CA9200000000)
+  %32 = tail call noundef float @llvm.fma.f32(float %31, float %call.i.i.i, float 0xBFD0EFF660000000)
+  %33 = tail call noundef float @llvm.fma.f32(float %32, float %call.i.i.i, float 0x3FEAE16A40000000)
   br label %_ZN4pbrt12SampleNormalEfff.exit
 
 if.else.i.i:                                      ; preds = %land.end.i.i
-  %32 = tail call noundef float @llvm.fma.f32(float %call.i.i.i, float 0x3E375C0000000000, float 0x3E833B4580000000)
-  %33 = tail call noundef float @llvm.fma.f32(float %32, float %call.i.i.i, float 0x3EB49929C0000000)
-  %34 = tail call noundef float @llvm.fma.f32(float %33, float %call.i.i.i, float 0x3E7E52BBA0000000)
-  %35 = tail call noundef float @llvm.fma.f32(float %34, float %call.i.i.i, float 0xBF0D70C120000000)
-  %36 = tail call noundef float @llvm.fma.f32(float %35, float %call.i.i.i, float 0xBF235BE9A0000000)
-  %37 = tail call noundef float @llvm.fma.f32(float %36, float %call.i.i.i, float 0x3F62F64020000000)
-  %38 = tail call noundef float @llvm.fma.f32(float %37, float %call.i.i.i, float 0x3F87A1E4C0000000)
-  %39 = tail call noundef float @llvm.fma.f32(float %38, float %call.i.i.i, float 0xBFCDB2AEE0000000)
-  %40 = tail call noundef float @llvm.fma.f32(float %39, float %call.i.i.i, float 0x3FEC5BF880000000)
+  %34 = tail call noundef float @llvm.fma.f32(float %call.i.i.i, float 0x3E375C0000000000, float 0x3E833B4580000000)
+  %35 = tail call noundef float @llvm.fma.f32(float %34, float %call.i.i.i, float 0x3EB49929C0000000)
+  %36 = tail call noundef float @llvm.fma.f32(float %35, float %call.i.i.i, float 0x3E7E52BBA0000000)
+  %37 = tail call noundef float @llvm.fma.f32(float %36, float %call.i.i.i, float 0xBF0D70C120000000)
+  %38 = tail call noundef float @llvm.fma.f32(float %37, float %call.i.i.i, float 0xBF235BE9A0000000)
+  %39 = tail call noundef float @llvm.fma.f32(float %38, float %call.i.i.i, float 0x3F62F64020000000)
+  %40 = tail call noundef float @llvm.fma.f32(float %39, float %call.i.i.i, float 0x3F87A1E4C0000000)
+  %41 = tail call noundef float @llvm.fma.f32(float %40, float %call.i.i.i, float 0xBFCDB2AEE0000000)
+  %42 = tail call noundef float @llvm.fma.f32(float %41, float %call.i.i.i, float 0x3FEC5BF880000000)
   br label %_ZN4pbrt12SampleNormalEfff.exit
 
 _ZN4pbrt12SampleNormalEfff.exit:                  ; preds = %if.then.i.i, %if.else.i.i
-  %p.0.i.i = phi float [ %31, %if.then.i.i ], [ %40, %if.else.i.i ]
+  %p.0.i.i = phi float [ %33, %if.then.i.i ], [ %42, %if.else.i.i ]
   %mul.i37 = fmul float %mul, 0x3FF6A09E60000000
   %mul.i.i38 = fmul float %sub.i, %p.0.i.i
   %mul2.i = fmul float %mul.i37, %mul.i.i38
   %add.i = fadd float %mul2.i, 0.000000e+00
-  %41 = load float, ptr %arrayidx.i, align 8
-  %add24 = fadd float %41, %add.i
-  %42 = tail call noundef float @llvm.floor.f32(float %add24)
-  %sub28 = fsub float %add24, %42
+  %43 = load float, ptr %arrayidx.i, align 8
+  %add24 = fadd float %43, %add.i
+  %44 = tail call noundef float @llvm.floor.f32(float %add24)
+  %sub28 = fsub float %add24, %44
   br label %if.end29
 
 if.end29:                                         ; preds = %_ZN4pbrt12SampleNormalEfff.exit, %if.then13
   %storemerge = phi float [ %sub28, %_ZN4pbrt12SampleNormalEfff.exit ], [ %.sroa.speculated.i23, %if.then13 ]
   store float %storemerge, ptr %arrayidx.i, align 8
   %currentIteration30 = getelementptr inbounds i8, ptr %this, i64 72
-  %43 = load i64, ptr %currentIteration30, align 8
-  store i64 %43, ptr %lastModificationIteration, align 8
+  %45 = load i64, ptr %currentIteration30, align 8
+  store i64 %45, ptr %lastModificationIteration, align 8
   ret void
 }
 

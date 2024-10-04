@@ -1176,7 +1176,7 @@ if.then5.i:                                       ; preds = %if.end.i
   br label %math_1.exit
 
 if.end6.i:                                        ; preds = %if.end.i
-  %3 = tail call double @llvm.fabs.f64(double %call3.i) #17
+  %3 = tail call double @llvm.fabs.f64(double %call3.i)
   %isinf.i = fcmp une double %3, 0x7FF0000000000000
   %4 = tail call double @llvm.fabs.f64(double %call.i)
   %5 = fcmp ueq double %4, 0x7FF0000000000000
@@ -1262,7 +1262,7 @@ if.then5.i:                                       ; preds = %if.end.i
   br label %math_1.exit
 
 if.end6.i:                                        ; preds = %if.end.i
-  %3 = tail call double @llvm.fabs.f64(double %call3.i) #17
+  %3 = tail call double @llvm.fabs.f64(double %call3.i)
   %isinf.i = fcmp une double %3, 0x7FF0000000000000
   %4 = tail call double @llvm.fabs.f64(double %call.i)
   %5 = fcmp ueq double %4, 0x7FF0000000000000
@@ -1355,7 +1355,7 @@ if.then5.i:                                       ; preds = %if.end.i
   br label %math_1.exit
 
 if.end6.i:                                        ; preds = %if.end.i
-  %3 = tail call double @llvm.fabs.f64(double %call3.i) #17
+  %3 = tail call double @llvm.fabs.f64(double %call3.i)
   %isinf.i = fcmp une double %3, 0x7FF0000000000000
   %4 = tail call double @llvm.fabs.f64(double %call.i)
   %5 = fcmp ueq double %4, 0x7FF0000000000000
@@ -1434,7 +1434,7 @@ if.then5.i:                                       ; preds = %if.end.i
   br label %math_1.exit
 
 if.end6.i:                                        ; preds = %if.end.i
-  %3 = tail call double @llvm.fabs.f64(double %call3.i) #17
+  %3 = tail call double @llvm.fabs.f64(double %call3.i)
   %isinf.i = fcmp une double %3, 0x7FF0000000000000
   %4 = tail call double @llvm.fabs.f64(double %call.i)
   %5 = fcmp ueq double %4, 0x7FF0000000000000
@@ -2036,7 +2036,7 @@ if.then5.i:                                       ; preds = %if.end.i
   br label %math_1.exit
 
 if.end6.i:                                        ; preds = %if.end.i
-  %3 = tail call double @llvm.fabs.f64(double %call3.i) #17
+  %3 = tail call double @llvm.fabs.f64(double %call3.i)
   %isinf.i = fcmp une double %3, 0x7FF0000000000000
   %4 = tail call double @llvm.fabs.f64(double %call.i)
   %5 = fcmp ueq double %4, 0x7FF0000000000000
@@ -2122,7 +2122,7 @@ if.then5.i:                                       ; preds = %if.end.i
   br label %math_1.exit
 
 if.end6.i:                                        ; preds = %if.end.i
-  %3 = tail call double @llvm.fabs.f64(double %call3.i) #17
+  %3 = tail call double @llvm.fabs.f64(double %call3.i)
   %isinf.i = fcmp une double %3, 0x7FF0000000000000
   %4 = tail call double @llvm.fabs.f64(double %call.i)
   %5 = fcmp ueq double %4, 0x7FF0000000000000
@@ -7098,7 +7098,7 @@ if.then5:                                         ; preds = %if.end
   br label %return
 
 if.end6:                                          ; preds = %if.end
-  %3 = tail call double @llvm.fabs.f64(double %call3) #17
+  %3 = tail call double @llvm.fabs.f64(double %call3)
   %isinf = fcmp une double %3, 0x7FF0000000000000
   %4 = tail call double @llvm.fabs.f64(double %call)
   %5 = fcmp ueq double %4, 0x7FF0000000000000

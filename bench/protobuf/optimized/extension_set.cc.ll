@@ -1199,7 +1199,7 @@ return:                                           ; preds = %entry, %_ZNK6google
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define noundef zeroext i1 @_ZNK6google8protobuf8internal12ExtensionSet7HasLazyEi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this, i32 noundef %number) local_unnamed_addr #13 align 2 {
 entry:
-  %call.i = tail call noundef ptr @_ZNK6google8protobuf8internal12ExtensionSet10FindOrNullEi(ptr noundef nonnull readonly align 8 dereferenceable(24) %this, i32 noundef %number)
+  %call.i = tail call noundef ptr @_ZNK6google8protobuf8internal12ExtensionSet10FindOrNullEi(ptr noundef nonnull align 8 dereferenceable(24) %this, i32 noundef %number)
   %cmp.i = icmp eq ptr %call.i, null
   br i1 %cmp.i, label %land.end, label %_ZNK6google8protobuf8internal12ExtensionSet3HasEi.exit
 
@@ -1210,10 +1210,7 @@ _ZNK6google8protobuf8internal12ExtensionSet3HasEi.exit: ; preds = %entry
   br i1 %bf.cast.i, label %land.end, label %land.rhs
 
 land.rhs:                                         ; preds = %_ZNK6google8protobuf8internal12ExtensionSet3HasEi.exit
-  %call2 = tail call noundef ptr @_ZNK6google8protobuf8internal12ExtensionSet10FindOrNullEi(ptr noundef nonnull align 8 dereferenceable(24) %this, i32 noundef %number)
-  %is_lazy = getelementptr inbounds i8, ptr %call2, i64 10
-  %bf.load = load i8, ptr %is_lazy, align 2
-  %0 = and i8 %bf.load, 16
+  %0 = and i8 %bf.load.i, 16
   %bf.cast = icmp ne i8 %0, 0
   br label %land.end
 

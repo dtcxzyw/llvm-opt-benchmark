@@ -1212,7 +1212,8 @@ lor.lhs.false2:                                   ; preds = %entry
 
 lor.lhs.false3:                                   ; preds = %lor.lhs.false2
   %call4 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %posixID) #15
-  %cmp5 = icmp ult i64 %call4, 2
+  %call.fr.i = freeze i64 %call4
+  %cmp5 = icmp ult i64 %call.fr.i, 2
   br i1 %cmp5, label %return, label %while.body
 
 while.body:                                       ; preds = %lor.lhs.false3, %if.end21
@@ -1250,8 +1251,6 @@ if.end21:                                         ; preds = %if.else, %if.end9
   br i1 %cmp6, label %while.body, label %while.end, !llvm.loop !7
 
 while.end:                                        ; preds = %while.body, %if.end21
-  %call.i = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %posixID) #15
-  %call.fr.i = freeze i64 %call.i
   %conv.i = trunc i64 %call.fr.i to i32
   br label %for.body
 

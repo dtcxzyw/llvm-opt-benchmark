@@ -10989,7 +10989,7 @@ _ZN5vcpkg4Json12_GLOBAL__N_16Parser4nextEv.exit47.i: ; preds = %_ZN5vcpkg4Json12
 528:                                              ; preds = %525
   %529 = getelementptr inbounds i8, ptr %32, i64 8
   %530 = load double, ptr %529, align 8, !noalias !364
-  %531 = call noundef double @llvm.fabs.f64(double %530)
+  %531 = call double @llvm.fabs.f64(double %530)
   %532 = fcmp ueq double %531, 0x7FF0000000000000
   br i1 %532, label %540, label %.critedge.i
 

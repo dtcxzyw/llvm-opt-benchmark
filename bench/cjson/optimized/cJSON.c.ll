@@ -285,30 +285,29 @@ define ptr @cJSON_SetValuestring(ptr noundef %0, ptr noundef readonly %1) local_
   br i1 %19, label %cJSON_strdup.exit.thread, label %20
 
 20:                                               ; preds = %18
-  %21 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %1) #32
-  %22 = add i64 %21, 1
-  %23 = load ptr, ptr @global_hooks, align 8
-  %24 = tail call ptr %23(i64 noundef %22) #31
-  %25 = icmp eq ptr %24, null
-  br i1 %25, label %cJSON_strdup.exit.thread, label %26
+  %21 = add i64 %13, 1
+  %22 = load ptr, ptr @global_hooks, align 8
+  %23 = tail call ptr %22(i64 noundef %21) #31
+  %24 = icmp eq ptr %23, null
+  br i1 %24, label %cJSON_strdup.exit.thread, label %25
 
-26:                                               ; preds = %20
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %24, ptr nonnull readonly align 1 %1, i64 %22, i1 false)
-  %27 = load ptr, ptr %9, align 8
-  %.not23 = icmp eq ptr %27, null
-  br i1 %.not23, label %30, label %28
+25:                                               ; preds = %20
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %23, ptr nonnull readonly align 1 %1, i64 %21, i1 false)
+  %26 = load ptr, ptr %9, align 8
+  %.not23 = icmp eq ptr %26, null
+  br i1 %.not23, label %29, label %27
 
-28:                                               ; preds = %26
-  %29 = load ptr, ptr getelementptr inbounds (i8, ptr @global_hooks, i64 8), align 8
-  tail call void %29(ptr noundef nonnull %27) #31
-  br label %30
+27:                                               ; preds = %25
+  %28 = load ptr, ptr getelementptr inbounds (i8, ptr @global_hooks, i64 8), align 8
+  tail call void %28(ptr noundef nonnull %26) #31
+  br label %29
 
-30:                                               ; preds = %28, %26
-  store ptr %24, ptr %9, align 8
+29:                                               ; preds = %27, %25
+  store ptr %23, ptr %9, align 8
   br label %cJSON_strdup.exit.thread
 
-cJSON_strdup.exit.thread:                         ; preds = %20, %18, %8, %2, %4, %30, %15
-  %.0 = phi ptr [ %17, %15 ], [ %24, %30 ], [ null, %4 ], [ null, %2 ], [ null, %8 ], [ null, %18 ], [ null, %20 ]
+cJSON_strdup.exit.thread:                         ; preds = %20, %18, %8, %2, %4, %29, %15
+  %.0 = phi ptr [ %17, %15 ], [ %23, %29 ], [ null, %4 ], [ null, %2 ], [ null, %8 ], [ null, %18 ], [ null, %20 ]
   ret ptr %.0
 }
 

@@ -55125,7 +55125,7 @@ for.body.i.i.i.i.i.i.i.i.i.i.i.i:                 ; preds = %"_ZNR9hb_iter_tI13h
   %41 = load i8, ptr %arrayidx3.i.i.i.i.i.i.i.i, align 1
   %conv4.i.i.i.i.i.i.i.i = zext i8 %41 to i32
   %add.i.i.i.i.i.i.i.i = or disjoint i32 %shl.i.i.i.i.i.i.i.i, %conv4.i.i.i.i.i.i.i.i
-  %spec.select.i.i.i.i.i.i = call noundef i32 @llvm.usub.sat.i32(i32 %add.i.i.i.i.i.i.i.i, i32 1)
+  %spec.select.i.i.i.i.i.i = call i32 @llvm.usub.sat.i32(i32 %add.i.i.i.i.i.i.i.i, i32 1)
   %mul.i.i4.i.i.i = shl nuw nsw i32 %spec.select.i.i.i.i.i.i, 1
   %42 = zext nneg i32 %mul.i.i4.i.i.i to i64
   %43 = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i, i64 %42
@@ -55457,7 +55457,7 @@ entry:
   %6 = load i8, ptr %arrayidx3.i.i.i.i.i, align 1
   %conv4.i.i.i.i.i = zext i8 %6 to i32
   %add.i.i.i.i.i = or disjoint i32 %shl.i.i.i.i.i, %conv4.i.i.i.i.i
-  %spec.select.i.i.i = tail call noundef i32 @llvm.usub.sat.i32(i32 %add.i.i.i.i.i, i32 1)
+  %spec.select.i.i.i = tail call i32 @llvm.usub.sat.i32(i32 %add.i.i.i.i.i, i32 1)
   %mul.i.i4 = shl nuw nsw i32 %spec.select.i.i.i, 1
   %7 = zext nneg i32 %mul.i.i4 to i64
   %8 = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 %7

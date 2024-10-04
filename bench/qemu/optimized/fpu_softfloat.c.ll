@@ -895,7 +895,7 @@ if.end14.i:                                       ; preds = %f32_is_zon2.exit.i
   %12 = bitcast i32 %ub.sroa.0.0.i to float
   %add.i = fadd float %11, %12
   %13 = bitcast float %add.i to i32
-  %14 = tail call float @llvm.fabs.f32(float %add.i) #16
+  %14 = tail call float @llvm.fabs.f32(float %add.i)
   %isinf.i.i = fcmp oeq float %14, 0x7FF0000000000000
   br i1 %isinf.i.i, label %if.then24.i, label %if.else.i
 
@@ -996,7 +996,7 @@ if.end14.i:                                       ; preds = %f32_is_zon2.exit.i
   %12 = bitcast i32 %ub.sroa.0.0.i to float
   %sub.i = fsub float %11, %12
   %13 = bitcast float %sub.i to i32
-  %14 = tail call float @llvm.fabs.f32(float %sub.i) #16
+  %14 = tail call float @llvm.fabs.f32(float %sub.i)
   %isinf.i.i = fcmp oeq float %14, 0x7FF0000000000000
   br i1 %isinf.i.i, label %if.then24.i, label %if.else.i
 
@@ -1102,7 +1102,7 @@ f64_is_zon2.exit.i:                               ; preds = %land.rhs.i5.i
 if.end14.i:                                       ; preds = %f64_is_zon2.exit.i, %fpclassify_not_nan18.i.i
   %add.i = fadd double %9, %10
   %11 = bitcast double %add.i to i64
-  %12 = tail call double @llvm.fabs.f64(double %add.i) #16
+  %12 = tail call double @llvm.fabs.f64(double %add.i)
   %isinf.i.i = fcmp oeq double %12, 0x7FF0000000000000
   br i1 %isinf.i.i, label %if.then24.i, label %if.else.i
 
@@ -1208,7 +1208,7 @@ f64_is_zon2.exit.i:                               ; preds = %land.rhs.i5.i
 if.end14.i:                                       ; preds = %f64_is_zon2.exit.i, %fpclassify_not_nan18.i.i
   %sub.i = fsub double %9, %10
   %11 = bitcast double %sub.i to i64
-  %12 = tail call double @llvm.fabs.f64(double %sub.i) #16
+  %12 = tail call double @llvm.fabs.f64(double %sub.i)
   %isinf.i.i = fcmp oeq double %12, 0x7FF0000000000000
   br i1 %isinf.i.i, label %if.then24.i, label %if.else.i
 
@@ -3699,7 +3699,7 @@ if.end14.i:                                       ; preds = %f32_is_zon2.exit
   %13 = bitcast i32 %ub.i.sroa.0.1 to float
   %mul.i = fmul float %12, %13
   %14 = bitcast float %mul.i to i32
-  %15 = tail call float @llvm.fabs.f32(float %mul.i) #16
+  %15 = tail call float @llvm.fabs.f32(float %mul.i)
   %isinf.i = fcmp oeq float %15, 0x7FF0000000000000
   br i1 %isinf.i, label %if.then24.i, label %if.else.i
 
@@ -4133,7 +4133,7 @@ f64_is_zon2.exit:                                 ; preds = %land.rhs.i7
 if.end14.i:                                       ; preds = %fpclassify_not_nan18.i, %f64_is_zon2.exit
   %mul.i = fmul double %10, %11
   %12 = bitcast double %mul.i to i64
-  %13 = tail call double @llvm.fabs.f64(double %mul.i) #16
+  %13 = tail call double @llvm.fabs.f64(double %mul.i)
   %isinf.i = fcmp oeq double %13, 0x7FF0000000000000
   br i1 %isinf.i, label %if.then24.i, label %if.else.i
 
@@ -6873,7 +6873,7 @@ if.else:                                          ; preds = %if.end33
   %21 = bitcast i32 %ub.sroa.0.1 to float
   %22 = select i1 %tobool68.not, float %19, float %fneg70
   %23 = tail call float @llvm.fma.f32(float %20, float %21, float %22)
-  %24 = tail call float @llvm.fabs.f32(float %23) #16
+  %24 = tail call float @llvm.fabs.f32(float %23)
   %isinf.i = fcmp oeq float %24, 0x7FF0000000000000
   br i1 %isinf.i, label %if.then80, label %if.else81
 
@@ -7376,24 +7376,24 @@ if.end.i:                                         ; preds = %if.end11
   %.lobit.i = and i64 %xa, -9223372036854775808
   %or1.i.i = or i16 %0, 32
   %ua.sroa.0.3 = select i1 %cmp.i.i.i, i64 %.lobit.i, i64 %xa
-  %and.i.i.i49 = and i64 %xb, 9218868437227405312
-  %cmp.i.i.i50 = icmp eq i64 %and.i.i.i49, 0
-  %and.i2.i.i51 = and i64 %xb, 9223372036854775807
-  %cmp.i3.i.i52 = icmp ne i64 %and.i2.i.i51, 0
-  %5 = and i1 %cmp.i.i.i50, %cmp.i3.i.i52
-  %.lobit.i55 = and i64 %xb, -9223372036854775808
+  %and.i.i.i50 = and i64 %xb, 9218868437227405312
+  %cmp.i.i.i51 = icmp eq i64 %and.i.i.i50, 0
+  %and.i2.i.i52 = and i64 %xb, 9223372036854775807
+  %cmp.i3.i.i53 = icmp ne i64 %and.i2.i.i52, 0
+  %5 = and i1 %cmp.i.i.i51, %cmp.i3.i.i53
+  %.lobit.i56 = and i64 %xb, -9223372036854775808
   %6 = or i1 %5, %4
-  %ub.sroa.0.2 = select i1 %cmp.i.i.i50, i64 %.lobit.i55, i64 %xb
+  %ub.sroa.0.2 = select i1 %cmp.i.i.i51, i64 %.lobit.i56, i64 %xb
   %7 = or i1 %4, %5
-  %and.i.i.i58 = and i64 %xc, 9218868437227405312
-  %cmp.i.i.i59 = icmp eq i64 %and.i.i.i58, 0
-  %and.i2.i.i60 = and i64 %xc, 9223372036854775807
-  %cmp.i3.i.i61 = icmp ne i64 %and.i2.i.i60, 0
-  %8 = and i1 %cmp.i.i.i59, %cmp.i3.i.i61
-  %.lobit.i64 = and i64 %xc, -9223372036854775808
+  %and.i.i.i59 = and i64 %xc, 9218868437227405312
+  %cmp.i.i.i60 = icmp eq i64 %and.i.i.i59, 0
+  %and.i2.i.i61 = and i64 %xc, 9223372036854775807
+  %cmp.i3.i.i62 = icmp ne i64 %and.i2.i.i61, 0
+  %8 = and i1 %cmp.i.i.i60, %cmp.i3.i.i62
+  %.lobit.i65 = and i64 %xc, -9223372036854775808
   %9 = or i1 %8, %6
   %.ph = select i1 %9, i16 %or1.i.i, i16 %0
-  %uc.sroa.0.1.ph = select i1 %cmp.i.i.i59, i64 %.lobit.i64, i64 %xc
+  %uc.sroa.0.1.ph = select i1 %cmp.i.i.i60, i64 %.lobit.i65, i64 %xc
   %10 = or i1 %7, %8
   br i1 %10, label %11, label %float64_input_flush3.exit
 
@@ -7409,40 +7409,40 @@ float64_input_flush3.exit:                        ; preds = %11, %if.end.i, %if.
   %13 = bitcast i64 %ua.sroa.0.1 to double
   %14 = bitcast i64 %ub.sroa.0.1 to double
   %15 = bitcast i64 %uc.sroa.0.1 to double
-  %or.cond35 = fcmp ueq double %13, 0.000000e+00
-  br i1 %or.cond35, label %lor.lhs.false.i, label %fpclassify_not_nan.i
+  %or.cond36 = fcmp ueq double %13, 0.000000e+00
+  br i1 %or.cond36, label %lor.lhs.false.i, label %fpclassify_not_nan.i
 
 lor.lhs.false.i:                                  ; preds = %float64_input_flush3.exit
   %iszero.i = fcmp oeq double %13, 0.000000e+00
   br i1 %iszero.i, label %land.lhs.true.i, label %soft
 
 fpclassify_not_nan.i:                             ; preds = %float64_input_flush3.exit
-  %or.cond44 = tail call i1 @llvm.is.fpclass.f64(double %13, i32 264)
-  br i1 %or.cond44, label %land.lhs.true.i, label %soft
+  %or.cond45 = tail call i1 @llvm.is.fpclass.f64(double %13, i32 264)
+  br i1 %or.cond45, label %land.lhs.true.i, label %soft
 
 land.lhs.true.i:                                  ; preds = %fpclassify_not_nan.i, %lor.lhs.false.i
-  %or.cond37 = fcmp ueq double %14, 0.000000e+00
-  br i1 %or.cond37, label %lor.lhs.false24.i, label %fpclassify_not_nan19.i
+  %or.cond38 = fcmp ueq double %14, 0.000000e+00
+  br i1 %or.cond38, label %lor.lhs.false24.i, label %fpclassify_not_nan19.i
 
 lor.lhs.false24.i:                                ; preds = %land.lhs.true.i
   %iszero16.i = fcmp oeq double %14, 0.000000e+00
   br i1 %iszero16.i, label %land.rhs.i107, label %soft
 
 fpclassify_not_nan19.i:                           ; preds = %land.lhs.true.i
-  %or.cond45 = tail call i1 @llvm.is.fpclass.f64(double %14, i32 264)
-  br i1 %or.cond45, label %land.rhs.i107, label %soft
+  %or.cond46 = tail call i1 @llvm.is.fpclass.f64(double %14, i32 264)
+  br i1 %or.cond46, label %land.rhs.i107, label %soft
 
 land.rhs.i107:                                    ; preds = %fpclassify_not_nan19.i, %lor.lhs.false24.i
   %iszero37.i = fcmp oeq double %15, 0.000000e+00
-  %or.cond39 = fcmp ueq double %15, 0.000000e+00
-  br i1 %or.cond39, label %lor.rhs.i, label %fpclassify_not_nan40.i
+  %or.cond40 = fcmp ueq double %15, 0.000000e+00
+  br i1 %or.cond40, label %lor.rhs.i, label %fpclassify_not_nan40.i
 
 lor.rhs.i:                                        ; preds = %land.rhs.i107
   br i1 %iszero37.i, label %if.end33, label %soft
 
 fpclassify_not_nan40.i:                           ; preds = %land.rhs.i107
-  %or.cond46 = tail call i1 @llvm.is.fpclass.f64(double %15, i32 264)
-  %brmerge = or i1 %or.cond46, %iszero37.i
+  %or.cond47 = tail call i1 @llvm.is.fpclass.f64(double %15, i32 264)
+  %brmerge = or i1 %or.cond47, %iszero37.i
   br i1 %brmerge, label %if.end33, label %soft
 
 if.end33:                                         ; preds = %fpclassify_not_nan40.i, %lor.rhs.i
@@ -7450,15 +7450,15 @@ if.end33:                                         ; preds = %fpclassify_not_nan4
   %cmp.i113 = icmp eq i64 %and.i112, 0
   %and.i109 = and i64 %ub.sroa.0.1, 9223372036854775807
   %cmp.i110 = icmp eq i64 %and.i109, 0
-  %or.cond83 = or i1 %cmp.i113, %cmp.i110
-  br i1 %or.cond83, label %if.then38, label %if.else
+  %or.cond84 = or i1 %cmp.i113, %cmp.i110
+  br i1 %or.cond84, label %if.then38, label %if.else
 
 if.then38:                                        ; preds = %if.end33
-  %.lobit34 = xor i64 %ub.sroa.0.1, %ua.sroa.0.1
+  %.lobit35 = xor i64 %ub.sroa.0.1, %ua.sroa.0.1
   %and44 = lshr i32 %flags, 1
   %and44.lobit = and i32 %and44, 1
-  %.lobit34.lobit = lshr i64 %.lobit34, 63
-  %conv51 = trunc nuw nsw i64 %.lobit34.lobit to i32
+  %.lobit35.lobit = lshr i64 %.lobit35, 63
+  %conv51 = trunc nuw nsw i64 %.lobit35.lobit to i32
   %tobool53.not = icmp eq i32 %and44.lobit, %conv51
   %and58 = and i32 %flags, 1
   %tobool59.not = icmp eq i32 %and58, 0
@@ -7478,7 +7478,7 @@ if.else:                                          ; preds = %if.end33
   %18 = select i1 %tobool63.not, double %13, double %fneg65
   %19 = select i1 %tobool68.not, double %15, double %fneg70
   %20 = tail call double @llvm.fma.f64(double %18, double %14, double %19)
-  %21 = tail call double @llvm.fabs.f64(double %20) #16
+  %21 = tail call double @llvm.fabs.f64(double %20)
   %isinf.i124 = fcmp oeq double %21, 0x7FF0000000000000
   br i1 %isinf.i124, label %if.then80, label %if.else81
 
@@ -7529,8 +7529,8 @@ soft:                                             ; preds = %fpclassify_not_nan4
   ]
 
 if.then.i67.i:                                    ; preds = %soft
-  %cmp.i.i.i67 = icmp eq i64 %and.i10.i.i, 0
-  br i1 %cmp.i.i.i67, label %if.then8.i.i, label %if.else.i68.i
+  %cmp.i.i.i68 = icmp eq i64 %and.i10.i.i, 0
+  br i1 %cmp.i.i.i68, label %if.then8.i.i, label %if.else.i68.i
 
 if.then8.i.i:                                     ; preds = %if.then.i67.i
   store i8 1, ptr %pa.i, align 8
@@ -9246,7 +9246,7 @@ if.then:                                          ; preds = %entry
   %shr.i = zext i1 %not.cmp.i to i64
   %n0.0.i = lshr i64 %8, %shr.i
   %n1.0.i = select i1 %cmp.i, i64 0, i64 %shl.i
-  %9 = tail call { i64, i64 } asm "divq $4", "={ax},={dx},0,1,rm,~{dirflag},~{fpsr},~{flags}"(i64 %n1.0.i, i64 %n0.0.i, i64 %b.val) #17, !srcloc !6
+  %9 = tail call { i64, i64 } asm "divq $4", "={ax},={dx},0,1,rm,~{dirflag},~{fpsr},~{flags}"(i64 %n1.0.i, i64 %n0.0.i, i64 %b.val) #16, !srcloc !6
   %asmresult.i.i = extractvalue { i64, i64 } %9, 0
   %asmresult1.i.i = extractvalue { i64, i64 } %9, 1
   %cmp1.i = icmp ne i64 %asmresult1.i.i, 0
@@ -9476,7 +9476,7 @@ if.end14.i:                                       ; preds = %f32_div_pre.exit
   %12 = bitcast i32 %ub.i.sroa.0.1 to float
   %div.i = fdiv float %11, %12
   %13 = bitcast float %div.i to i32
-  %14 = tail call float @llvm.fabs.f32(float %div.i) #16
+  %14 = tail call float @llvm.fabs.f32(float %div.i)
   %isinf.i = fcmp oeq float %14, 0x7FF0000000000000
   br i1 %isinf.i, label %if.then24.i, label %if.else.i
 
@@ -9676,7 +9676,7 @@ if.then.i.i10:                                    ; preds = %parts64_canonicaliz
   %shr.i.i11 = zext i1 %not.cmp.i.i to i64
   %n0.0.i.i = lshr i64 %.pre, %shr.i.i11
   %n1.0.i.i = select i1 %cmp.i83.i, i64 0, i64 %shl.i84.i
-  %29 = tail call { i64, i64 } asm "divq $4", "={ax},={dx},0,1,rm,~{dirflag},~{fpsr},~{flags}"(i64 %n1.0.i.i, i64 %n0.0.i.i, i64 %25) #17, !srcloc !6
+  %29 = tail call { i64, i64 } asm "divq $4", "={ax},={dx},0,1,rm,~{dirflag},~{fpsr},~{flags}"(i64 %n1.0.i.i, i64 %n0.0.i.i, i64 %25) #16, !srcloc !6
   %asmresult.i.i.i = extractvalue { i64, i64 } %29, 0
   %asmresult1.i.i.i = extractvalue { i64, i64 } %29, 1
   %cmp1.i.i = icmp ne i64 %asmresult1.i.i.i, 0
@@ -9903,7 +9903,7 @@ fpclassify_not_nan18.i:                           ; preds = %land.rhs.i7
 if.end14.i:                                       ; preds = %fpclassify_not_nan18.i
   %div.i = fdiv double %10, %11
   %12 = bitcast double %div.i to i64
-  %13 = tail call double @llvm.fabs.f64(double %div.i) #16
+  %13 = tail call double @llvm.fabs.f64(double %div.i)
   %isinf.i = fcmp oeq double %13, 0x7FF0000000000000
   br i1 %isinf.i, label %if.then24.i, label %if.else.i
 
@@ -10102,7 +10102,7 @@ if.then.i.i9:                                     ; preds = %parts64_canonicaliz
   %shr.i.i = zext i1 %not.cmp.i.i to i64
   %n0.0.i.i = lshr i64 %.pre, %shr.i.i
   %n1.0.i.i = select i1 %cmp.i83.i, i64 0, i64 %shl.i84.i
-  %29 = tail call { i64, i64 } asm "divq $4", "={ax},={dx},0,1,rm,~{dirflag},~{fpsr},~{flags}"(i64 %n1.0.i.i, i64 %n0.0.i.i, i64 %25) #17, !srcloc !6
+  %29 = tail call { i64, i64 } asm "divq $4", "={ax},={dx},0,1,rm,~{dirflag},~{fpsr},~{flags}"(i64 %n1.0.i.i, i64 %n0.0.i.i, i64 %25) #16, !srcloc !6
   %asmresult.i.i.i = extractvalue { i64, i64 } %29, 0
   %asmresult1.i.i.i = extractvalue { i64, i64 } %29, 1
   %cmp1.i.i = icmp ne i64 %asmresult1.i.i.i, 0
@@ -10600,7 +10600,7 @@ if.then.i:                                        ; preds = %parts64_canonicaliz
   %shr.i = zext i1 %not.cmp.i to i64
   %n0.0.i = lshr i64 %a.val.i, %shr.i
   %n1.0.i = select i1 %cmp.i82, i64 0, i64 %shl.i83
-  %16 = tail call { i64, i64 } asm "divq $4", "={ax},={dx},0,1,rm,~{dirflag},~{fpsr},~{flags}"(i64 %n1.0.i, i64 %n0.0.i, i64 %b.val.i) #17, !srcloc !6
+  %16 = tail call { i64, i64 } asm "divq $4", "={ax},={dx},0,1,rm,~{dirflag},~{fpsr},~{flags}"(i64 %n1.0.i, i64 %n0.0.i, i64 %b.val.i) #16, !srcloc !6
   %asmresult.i.i = extractvalue { i64, i64 } %16, 0
   %asmresult1.i.i = extractvalue { i64, i64 } %16, 1
   %cmp1.i = icmp ne i64 %asmresult1.i.i, 0
@@ -28788,7 +28788,7 @@ lor.rhs:                                          ; preds = %float32_input_flush
 
 if.end13:                                         ; preds = %lor.rhs.i, %lor.rhs
   %6 = bitcast i32 %ua.sroa.0.1 to float
-  %call14 = tail call float @sqrtf(float noundef %6) #18
+  %call14 = tail call float @sqrtf(float noundef %6) #17
   %7 = bitcast float %call14 to i32
   br label %return
 
@@ -29066,7 +29066,7 @@ fpclassify_not_nan:                               ; preds = %float64_input_flush
   br i1 %or.cond20.not, label %if.end23, label %soft
 
 if.end23:                                         ; preds = %lor.lhs.false, %fpclassify_not_nan
-  %call24 = tail call double @sqrt(double noundef %6) #18
+  %call24 = tail call double @sqrt(double noundef %6) #17
   %7 = bitcast double %call24 to i64
   br label %return
 
@@ -36509,9 +36509,8 @@ attributes #12 = { nocallback nofree nosync nounwind speculatable willreturn mem
 attributes #13 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #14 = { nounwind memory(none) }
 attributes #15 = { noreturn nounwind }
-attributes #16 = { memory(none) }
-attributes #17 = { nounwind memory(read) }
-attributes #18 = { alwaysinline nounwind }
+attributes #16 = { nounwind memory(read) }
+attributes #17 = { alwaysinline nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4}
 

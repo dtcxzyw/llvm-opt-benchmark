@@ -442,7 +442,7 @@ invoke.cont110:                                   ; preds = %invoke.cont83, %inv
   %mul.i100 = fmul float %0, %56
   %mul1.i102 = fmul float %0, %57
   %mul3.i = fmul float %mul1.i102, %mul1.i102
-  %59 = call noundef float @llvm.fmuladd.f32(float %mul.i100, float %mul.i100, float %mul3.i)
+  %59 = call float @llvm.fmuladd.f32(float %mul.i100, float %mul.i100, float %mul3.i)
   %cmp114 = fcmp ogt float %59, 4.000000e+00
   br i1 %cmp114, label %if.then115, label %if.end120
 
@@ -1087,7 +1087,7 @@ invoke.cont92:                                    ; preds = %for.end66, %for.inc
   %mul.i = fmul float %38, %45
   %mul1.i = fmul float %38, %46
   %mul3.i = fmul float %mul1.i, %mul1.i
-  %48 = call noundef float @llvm.fmuladd.f32(float %mul.i, float %mul.i, float %mul3.i)
+  %48 = call float @llvm.fmuladd.f32(float %mul.i, float %mul.i, float %mul3.i)
   %cmp96 = fcmp ogt float %48, 4.000000e+00
   br i1 %cmp96, label %if.then97, label %if.end101
 

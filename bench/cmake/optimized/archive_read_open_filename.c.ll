@@ -540,72 +540,71 @@ define dso_local i32 @archive_read_open_filename_w(ptr noundef %0, ptr noundef %
 
 9:                                                ; preds = %3
   tail call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef %0, i32 noundef 12, ptr noundef nonnull @.str.1) #14
-  br label %41
+  br label %40
 
 10:                                               ; preds = %3
   store i32 -1, ptr %8, align 8
   %11 = getelementptr inbounds i8, ptr %8, i64 8
   store i64 %2, ptr %11, align 8
   %12 = icmp eq ptr %1, null
-  br i1 %12, label %31, label %13
+  br i1 %12, label %30, label %13
 
 13:                                               ; preds = %10
   %14 = load i32, ptr %1, align 4
   %15 = icmp eq i32 %14, 0
-  br i1 %15, label %31, label %16
+  br i1 %15, label %30, label %16
 
 16:                                               ; preds = %13
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, i8 0, i64 24, i1 false)
-  %17 = tail call i64 @wcslen(ptr noundef nonnull %1) #15
-  %18 = call i32 @archive_string_append_from_wcs(ptr noundef nonnull %4, ptr noundef nonnull %1, i64 noundef %17) #14
-  %.not28 = icmp eq i32 %18, 0
-  br i1 %.not28, label %26, label %19
+  %17 = call i32 @archive_string_append_from_wcs(ptr noundef nonnull %4, ptr noundef nonnull %1, i64 noundef %5) #14
+  %.not28 = icmp eq i32 %17, 0
+  br i1 %.not28, label %25, label %18
 
-19:                                               ; preds = %16
-  %20 = tail call ptr @__errno_location() #17
-  %21 = load i32, ptr %20, align 4
-  %22 = icmp eq i32 %21, 12
-  br i1 %22, label %23, label %24
+18:                                               ; preds = %16
+  %19 = tail call ptr @__errno_location() #17
+  %20 = load i32, ptr %19, align 4
+  %21 = icmp eq i32 %20, 12
+  br i1 %21, label %22, label %23
 
-23:                                               ; preds = %19
+22:                                               ; preds = %18
   call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef %0, i32 noundef 12, ptr noundef nonnull @.str.2) #14
-  br label %25
+  br label %24
 
-24:                                               ; preds = %19
+23:                                               ; preds = %18
   call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef %0, i32 noundef 22, ptr noundef nonnull @.str.3) #14
-  br label %25
+  br label %24
 
-25:                                               ; preds = %24, %23
+24:                                               ; preds = %23, %22
   call void @archive_string_free(ptr noundef nonnull %4) #14
   call void @free(ptr noundef nonnull %8) #14
-  br label %41
+  br label %40
 
-26:                                               ; preds = %16
-  %27 = getelementptr inbounds i8, ptr %8, i64 32
-  store i32 1, ptr %27, align 8
-  %28 = getelementptr inbounds i8, ptr %8, i64 36
-  %29 = load ptr, ptr %4, align 8
-  %30 = call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %28, ptr noundef nonnull dereferenceable(1) %29) #14
+25:                                               ; preds = %16
+  %26 = getelementptr inbounds i8, ptr %8, i64 32
+  store i32 1, ptr %26, align 8
+  %27 = getelementptr inbounds i8, ptr %8, i64 36
+  %28 = load ptr, ptr %4, align 8
+  %29 = call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %27, ptr noundef nonnull dereferenceable(1) %28) #14
   call void @archive_string_free(ptr noundef nonnull %4) #14
-  br label %31
+  br label %30
 
-31:                                               ; preds = %10, %13, %26
-  %32 = call i32 @archive_read_append_callback_data(ptr noundef %0, ptr noundef nonnull %8) #14
-  %.not29 = icmp eq i32 %32, 0
-  br i1 %.not29, label %33, label %41
+30:                                               ; preds = %10, %13, %25
+  %31 = call i32 @archive_read_append_callback_data(ptr noundef %0, ptr noundef nonnull %8) #14
+  %.not29 = icmp eq i32 %31, 0
+  br i1 %.not29, label %32, label %40
 
-33:                                               ; preds = %31
-  %34 = call i32 @archive_read_set_open_callback(ptr noundef %0, ptr noundef nonnull @file_open) #14
-  %35 = call i32 @archive_read_set_read_callback(ptr noundef %0, ptr noundef nonnull @file_read) #14
-  %36 = call i32 @archive_read_set_skip_callback(ptr noundef %0, ptr noundef nonnull @file_skip) #14
-  %37 = call i32 @archive_read_set_close_callback(ptr noundef %0, ptr noundef nonnull @file_close) #14
-  %38 = call i32 @archive_read_set_switch_callback(ptr noundef %0, ptr noundef nonnull @file_switch) #14
-  %39 = call i32 @archive_read_set_seek_callback(ptr noundef %0, ptr noundef nonnull @file_seek) #14
-  %40 = call i32 @archive_read_open1(ptr noundef %0) #14
-  br label %41
+32:                                               ; preds = %30
+  %33 = call i32 @archive_read_set_open_callback(ptr noundef %0, ptr noundef nonnull @file_open) #14
+  %34 = call i32 @archive_read_set_read_callback(ptr noundef %0, ptr noundef nonnull @file_read) #14
+  %35 = call i32 @archive_read_set_skip_callback(ptr noundef %0, ptr noundef nonnull @file_skip) #14
+  %36 = call i32 @archive_read_set_close_callback(ptr noundef %0, ptr noundef nonnull @file_close) #14
+  %37 = call i32 @archive_read_set_switch_callback(ptr noundef %0, ptr noundef nonnull @file_switch) #14
+  %38 = call i32 @archive_read_set_seek_callback(ptr noundef %0, ptr noundef nonnull @file_seek) #14
+  %39 = call i32 @archive_read_open1(ptr noundef %0) #14
+  br label %40
 
-41:                                               ; preds = %31, %33, %25, %9
-  %.0 = phi i32 [ %40, %33 ], [ -30, %25 ], [ -30, %9 ], [ -30, %31 ]
+40:                                               ; preds = %30, %32, %24, %9
+  %.0 = phi i32 [ %39, %32 ], [ -30, %24 ], [ -30, %9 ], [ -30, %30 ]
   ret i32 %.0
 }
 

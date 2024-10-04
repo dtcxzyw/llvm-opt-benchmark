@@ -193,7 +193,7 @@ define internal fastcc void @arrow_match_name(ptr noundef %0, ptr nocapture noun
   br i1 %.not, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %2, %.thread23
-  %4 = phi i32 [ %52, %.thread23 ], [ 0, %2 ]
+  %4 = phi i32 [ %50, %.thread23 ], [ 0, %2 ]
   %.033 = phi i32 [ %.1, %.thread23 ], [ 0, %2 ]
   %.01432 = phi ptr [ %.0.i, %.thread23 ], [ %0, %2 ]
   %5 = tail call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %.01432, ptr noundef nonnull readonly dereferenceable(9) @.str.7, i64 noundef 8) #12
@@ -209,106 +209,104 @@ arrow_match_name_frag.exit.i:                     ; preds = %.lr.ph
   %.1.i = phi ptr [ %.011.i19.i, %arrow_match_name_frag.exit20.i ], [ %.01432, %.lr.ph ]
   br label %.lr.ph.i16.i
 
-.lr.ph.i16.i:                                     ; preds = %18, %.preheader.i
-  %8 = phi ptr [ %20, %18 ], [ @.str.8, %.preheader.i ]
-  %.016.i17.i = phi ptr [ %19, %18 ], [ @Arrowmods, %.preheader.i ]
-  %9 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %8) #12
+.lr.ph.i16.i:                                     ; preds = %17, %.preheader.i
+  %8 = phi ptr [ %19, %17 ], [ @.str.8, %.preheader.i ]
+  %.015.i17.i = phi ptr [ %18, %17 ], [ @Arrowmods, %.preheader.i ]
+  %9 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %8) #12
   %10 = tail call i32 @strncmp(ptr noundef readonly %.1.i, ptr noundef nonnull readonly %8, i64 noundef %9) #12
   %11 = icmp eq i32 %10, 0
-  br i1 %11, label %12, label %18
+  br i1 %11, label %12, label %17
 
 12:                                               ; preds = %.lr.ph.i16.i
-  %13 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %8) #12
-  %14 = getelementptr inbounds i8, ptr %.016.i17.i, i64 8
-  %15 = load i32, ptr %14, align 8
-  %16 = or i32 %15, %.131.i
-  %17 = getelementptr inbounds i8, ptr %.1.i, i64 %13
+  %13 = getelementptr inbounds i8, ptr %.015.i17.i, i64 8
+  %14 = load i32, ptr %13, align 8
+  %15 = or i32 %14, %.131.i
+  %16 = getelementptr inbounds i8, ptr %.1.i, i64 %9
   br label %arrow_match_name_frag.exit20.i
 
-18:                                               ; preds = %.lr.ph.i16.i
-  %19 = getelementptr inbounds i8, ptr %.016.i17.i, i64 16
-  %20 = load ptr, ptr %19, align 8
-  %.not.i18.i = icmp eq ptr %20, null
+17:                                               ; preds = %.lr.ph.i16.i
+  %18 = getelementptr inbounds i8, ptr %.015.i17.i, i64 16
+  %19 = load ptr, ptr %18, align 8
+  %.not.i18.i = icmp eq ptr %19, null
   br i1 %.not.i18.i, label %arrow_match_name_frag.exit20.i, label %.lr.ph.i16.i
 
-arrow_match_name_frag.exit20.i:                   ; preds = %18, %12
-  %.4.i = phi i32 [ %16, %12 ], [ %.131.i, %18 ]
-  %.011.i19.i = phi ptr [ %17, %12 ], [ %.1.i, %18 ]
+arrow_match_name_frag.exit20.i:                   ; preds = %17, %12
+  %.4.i = phi i32 [ %15, %12 ], [ %.131.i, %17 ]
+  %.011.i19.i = phi ptr [ %16, %12 ], [ %.1.i, %17 ]
   %.not.i = icmp eq ptr %.1.i, %.011.i19.i
   br i1 %.not.i, label %.lr.ph.i21.i, label %.preheader.i
 
-.lr.ph.i21.i:                                     ; preds = %arrow_match_name_frag.exit20.i, %31
-  %21 = phi ptr [ %33, %31 ], [ @.str.13, %arrow_match_name_frag.exit20.i ]
-  %.016.i22.i = phi ptr [ %32, %31 ], [ @Arrownames, %arrow_match_name_frag.exit20.i ]
-  %22 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %21) #12
-  %23 = tail call i32 @strncmp(ptr noundef readonly %.1.i, ptr noundef nonnull readonly %21, i64 noundef %22) #12
-  %24 = icmp eq i32 %23, 0
-  br i1 %24, label %25, label %31
+.lr.ph.i21.i:                                     ; preds = %arrow_match_name_frag.exit20.i, %29
+  %20 = phi ptr [ %31, %29 ], [ @.str.13, %arrow_match_name_frag.exit20.i ]
+  %.015.i22.i = phi ptr [ %30, %29 ], [ @Arrownames, %arrow_match_name_frag.exit20.i ]
+  %21 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %20) #12
+  %22 = tail call i32 @strncmp(ptr noundef readonly %.1.i, ptr noundef nonnull readonly %20, i64 noundef %21) #12
+  %23 = icmp eq i32 %22, 0
+  br i1 %23, label %24, label %29
 
-25:                                               ; preds = %.lr.ph.i21.i
-  %26 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %21) #12
-  %27 = getelementptr inbounds i8, ptr %.016.i22.i, i64 8
-  %28 = load i32, ptr %27, align 8
-  %29 = or i32 %28, %.4.i
-  %30 = getelementptr inbounds i8, ptr %.1.i, i64 %26
+24:                                               ; preds = %.lr.ph.i21.i
+  %25 = getelementptr inbounds i8, ptr %.015.i22.i, i64 8
+  %26 = load i32, ptr %25, align 8
+  %27 = or i32 %26, %.4.i
+  %28 = getelementptr inbounds i8, ptr %.1.i, i64 %21
   br label %arrow_match_shape.exit
 
-31:                                               ; preds = %.lr.ph.i21.i
-  %32 = getelementptr inbounds i8, ptr %.016.i22.i, i64 16
-  %33 = load ptr, ptr %32, align 8
-  %.not.i23.i = icmp eq ptr %33, null
+29:                                               ; preds = %.lr.ph.i21.i
+  %30 = getelementptr inbounds i8, ptr %.015.i22.i, i64 16
+  %31 = load ptr, ptr %30, align 8
+  %.not.i23.i = icmp eq ptr %31, null
   br i1 %.not.i23.i, label %arrow_match_shape.exit, label %.lr.ph.i21.i
 
-arrow_match_shape.exit:                           ; preds = %31, %arrow_match_name_frag.exit.i, %25
-  %.030.i = phi i32 [ 49, %arrow_match_name_frag.exit.i ], [ %29, %25 ], [ %.4.i, %31 ]
-  %.0.i = phi ptr [ %7, %arrow_match_name_frag.exit.i ], [ %30, %25 ], [ %.1.i, %31 ]
+arrow_match_shape.exit:                           ; preds = %29, %arrow_match_name_frag.exit.i, %24
+  %.030.i = phi i32 [ 49, %arrow_match_name_frag.exit.i ], [ %27, %24 ], [ %.4.i, %29 ]
+  %.0.i = phi ptr [ %7, %arrow_match_name_frag.exit.i ], [ %28, %24 ], [ %.1.i, %29 ]
   %.not14.i = icmp ne i32 %.030.i, 0
-  %34 = and i32 %.030.i, 15
-  %.not15.i = icmp eq i32 %34, 0
+  %32 = and i32 %.030.i, 15
+  %.not15.i = icmp eq i32 %32, 0
   %or.cond.i = and i1 %.not14.i, %.not15.i
-  %35 = zext i1 %or.cond.i to i32
-  %spec.select.i = or disjoint i32 %.030.i, %35
-  %36 = icmp eq i32 %spec.select.i, 0
-  br i1 %36, label %37, label %39
+  %33 = zext i1 %or.cond.i to i32
+  %spec.select.i = or disjoint i32 %.030.i, %33
+  %34 = icmp eq i32 %spec.select.i, 0
+  br i1 %34, label %35, label %37
 
-37:                                               ; preds = %arrow_match_shape.exit
-  %38 = tail call i32 (i32, ptr, ...) @agerr(i32 noundef 0, ptr noundef nonnull @.str.6, ptr noundef nonnull %.01432) #11
+35:                                               ; preds = %arrow_match_shape.exit
+  %36 = tail call i32 (i32, ptr, ...) @agerr(i32 noundef 0, ptr noundef nonnull @.str.6, ptr noundef nonnull %.01432) #11
   br label %.loopexit
 
-39:                                               ; preds = %arrow_match_shape.exit
-  %40 = icmp eq i32 %spec.select.i, 8
-  %41 = icmp eq i32 %.033, 3
-  %or.cond = select i1 %40, i1 %41, i1 false
-  br i1 %or.cond, label %.thread23, label %42
+37:                                               ; preds = %arrow_match_shape.exit
+  %38 = icmp eq i32 %spec.select.i, 8
+  %39 = icmp eq i32 %.033, 3
+  %or.cond = select i1 %38, i1 %39, i1 false
+  br i1 %or.cond, label %.thread23, label %40
 
-42:                                               ; preds = %39
-  %43 = icmp eq i32 %.033, 0
-  %or.cond3 = select i1 %40, i1 %43, i1 false
-  br i1 %or.cond3, label %44, label %47
+40:                                               ; preds = %37
+  %41 = icmp eq i32 %.033, 0
+  %or.cond3 = select i1 %38, i1 %41, i1 false
+  br i1 %or.cond3, label %42, label %45
 
-44:                                               ; preds = %42
-  %45 = load i8, ptr %.0.i, align 1
-  %46 = icmp eq i8 %45, 0
-  br i1 %46, label %.thread23, label %47
+42:                                               ; preds = %40
+  %43 = load i8, ptr %.0.i, align 1
+  %44 = icmp eq i8 %43, 0
+  br i1 %44, label %.thread23, label %45
 
-47:                                               ; preds = %42, %44
-  %48 = add nsw i32 %.033, 1
-  %49 = shl nsw i32 %.033, 3
-  %50 = shl i32 %spec.select.i, %49
-  %51 = or i32 %4, %50
-  store i32 %51, ptr %1, align 4
+45:                                               ; preds = %40, %42
+  %46 = add nsw i32 %.033, 1
+  %47 = shl nsw i32 %.033, 3
+  %48 = shl i32 %spec.select.i, %47
+  %49 = or i32 %4, %48
+  store i32 %49, ptr %1, align 4
   br label %.thread23
 
-.thread23:                                        ; preds = %44, %39, %47
-  %52 = phi i32 [ %51, %47 ], [ %4, %39 ], [ %4, %44 ]
-  %.1 = phi i32 [ %48, %47 ], [ 3, %39 ], [ 0, %44 ]
-  %53 = load i8, ptr %.0.i, align 1
-  %54 = icmp ne i8 %53, 0
-  %55 = icmp slt i32 %.1, 4
-  %56 = select i1 %54, i1 %55, i1 false
-  br i1 %56, label %.lr.ph, label %.loopexit
+.thread23:                                        ; preds = %42, %37, %45
+  %50 = phi i32 [ %49, %45 ], [ %4, %37 ], [ %4, %42 ]
+  %.1 = phi i32 [ %46, %45 ], [ 3, %37 ], [ 0, %42 ]
+  %51 = load i8, ptr %.0.i, align 1
+  %52 = icmp ne i8 %51, 0
+  %53 = icmp slt i32 %.1, 4
+  %54 = select i1 %52, i1 %53, i1 false
+  br i1 %54, label %.lr.ph, label %.loopexit
 
-.loopexit:                                        ; preds = %.thread23, %2, %37
+.loopexit:                                        ; preds = %.thread23, %2, %35
   ret void
 }
 

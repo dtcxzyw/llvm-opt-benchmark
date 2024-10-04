@@ -4591,7 +4591,7 @@ hwloc__get_soc_info.exit:                         ; preds = %hwloc_checkat.exit.
 
 287:                                              ; preds = %284
   call fastcc void @hwloc_linuxfs_look_cpu(ptr noundef %0, ptr noundef nonnull %1)
-  br label %1668
+  br label %1662
 
 288:                                              ; preds = %284
   %289 = call i32 @hwloc_topology_get_type_filter(ptr noundef %85, i32 noundef 15, ptr noundef nonnull %79) #26
@@ -7547,7 +7547,7 @@ hwloc_linuxfs_lookup_dma_class.exit:              ; preds = %hwloc_linuxfs_looku
   %1504 = load i32, ptr %82, align 4
   %1505 = icmp ne i32 %1504, 1
   %or.cond7 = select i1 %1503, i1 %1505, i1 false
-  br i1 %or.cond7, label %1506, label %1668
+  br i1 %or.cond7, label %1506, label %1662
 
 1506:                                             ; preds = %.thread
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %6)
@@ -7568,7 +7568,7 @@ hwloc_linuxfs_lookup_dma_class.exit:              ; preds = %hwloc_linuxfs_looku
   br label %1520
 
 1520:                                             ; preds = %hwloc__get_firmware_dmi_memory_info_one.exit.i, %1506
-  %.0.i279 = phi i32 [ 0, %1506 ], [ %1666, %hwloc__get_firmware_dmi_memory_info_one.exit.i ]
+  %.0.i279 = phi i32 [ 0, %1506 ], [ %1660, %hwloc__get_firmware_dmi_memory_info_one.exit.i ]
   %1521 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %6, i64 noundef 128, ptr noundef nonnull @.str.541, i32 noundef %.0.i279) #26
   %1522 = load i32, ptr %1507, align 8
   %1523 = icmp sgt i32 %1522, -1
@@ -7628,7 +7628,7 @@ hwloc_fopen.exit.i282:                            ; preds = %hwloc_openat.exit.i
   %1552 = zext i8 %1551 to i32
   br label %1558
 
-1553:                                             ; preds = %1609
+1553:                                             ; preds = %1603
   %1554 = add i32 %.060139.i.i, %.061145.i.i
   %1555 = zext i32 %1554 to i64
   %1556 = call i32 @fseek(ptr noundef nonnull %1529, i64 noundef %1555, i32 noundef 0)
@@ -7647,20 +7647,20 @@ hwloc_fopen.exit.i282:                            ; preds = %hwloc_openat.exit.i
   br i1 %or.cond.i.i287, label %.loopexit.i.i, label %.lr.ph.i.i288
 
 .lr.ph.i.i288:                                    ; preds = %1558, %check_dmi_entry.exit.thread.i.i
-  %1561 = phi i64 [ %1606, %check_dmi_entry.exit.thread.i.i ], [ 0, %1558 ]
+  %1561 = phi i64 [ %1600, %check_dmi_entry.exit.thread.i.i ], [ 0, %1558 ]
   %.1141.i.i = phi i32 [ %.3.i.i, %check_dmi_entry.exit.thread.i.i ], [ %.0147.i.i, %1558 ]
-  %.159140.i.i = phi i32 [ %1605, %check_dmi_entry.exit.thread.i.i ], [ %.058146.i.i, %1558 ]
-  %.060139.i.i = phi i32 [ %1604, %check_dmi_entry.exit.thread.i.i ], [ 0, %1558 ]
+  %.159140.i.i = phi i32 [ %1599, %check_dmi_entry.exit.thread.i.i ], [ %.058146.i.i, %1558 ]
+  %.060139.i.i = phi i32 [ %1598, %check_dmi_entry.exit.thread.i.i ], [ 0, %1558 ]
   %1562 = getelementptr inbounds i8, ptr %4, i64 %1561
   %1563 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1562) #29
   %1564 = trunc i64 %1563 to i32
   %1565 = add i32 %.060139.i.i, %1564
   %1566 = icmp eq i32 %1565, 255
-  br i1 %1566, label %1609, label %1567
+  br i1 %1566, label %1603, label %1567
 
 1567:                                             ; preds = %.lr.ph.i.i288
   %1568 = icmp eq i32 %.159140.i.i, %1542
-  br i1 %1568, label %1569, label %1573
+  br i1 %1568, label %1569, label %1572
 
 1569:                                             ; preds = %1567
   %1570 = load i8, ptr %1562, align 1
@@ -7669,330 +7669,324 @@ hwloc_fopen.exit.i282:                            ; preds = %hwloc_openat.exit.i
 
 check_dmi_entry.exit.i.i:                         ; preds = %1569
   %1571 = call i64 @strspn(ptr noundef nonnull readonly %1562, ptr noundef nonnull @.str.22) #29
-  %1572 = call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %1562) #29
-  %.not131.i.i = icmp eq i64 %1571, %1572
+  %.not131.i.i = icmp eq i64 %1571, %1563
   br i1 %.not131.i.i, label %check_dmi_entry.exit.thread.i.i, label %check_dmi_entry.exit.thread.sink.split.i.i
 
-1573:                                             ; preds = %1567
-  %1574 = icmp eq i32 %.159140.i.i, %1544
-  br i1 %1574, label %1575, label %1579
+1572:                                             ; preds = %1567
+  %1573 = icmp eq i32 %.159140.i.i, %1544
+  br i1 %1573, label %1574, label %1577
 
-1575:                                             ; preds = %1573
-  %1576 = load i8, ptr %1562, align 1
-  %.not.i79.i.i = icmp eq i8 %1576, 0
+1574:                                             ; preds = %1572
+  %1575 = load i8, ptr %1562, align 1
+  %.not.i79.i.i = icmp eq i8 %1575, 0
   br i1 %.not.i79.i.i, label %check_dmi_entry.exit.thread.i.i, label %check_dmi_entry.exit82.i.i
 
-check_dmi_entry.exit82.i.i:                       ; preds = %1575
-  %1577 = call i64 @strspn(ptr noundef nonnull readonly %1562, ptr noundef nonnull @.str.22) #29
-  %1578 = call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %1562) #29
-  %.not130.i.i = icmp eq i64 %1577, %1578
+check_dmi_entry.exit82.i.i:                       ; preds = %1574
+  %1576 = call i64 @strspn(ptr noundef nonnull readonly %1562, ptr noundef nonnull @.str.22) #29
+  %.not130.i.i = icmp eq i64 %1576, %1563
   br i1 %.not130.i.i, label %check_dmi_entry.exit.thread.i.i, label %check_dmi_entry.exit.thread.sink.split.i.i
 
-1579:                                             ; preds = %1573
-  %1580 = icmp eq i32 %.159140.i.i, %1546
-  br i1 %1580, label %1581, label %1585
+1577:                                             ; preds = %1572
+  %1578 = icmp eq i32 %.159140.i.i, %1546
+  br i1 %1578, label %1579, label %1582
 
-1581:                                             ; preds = %1579
-  %1582 = load i8, ptr %1562, align 1
-  %.not.i83.i.i = icmp eq i8 %1582, 0
+1579:                                             ; preds = %1577
+  %1580 = load i8, ptr %1562, align 1
+  %.not.i83.i.i = icmp eq i8 %1580, 0
   br i1 %.not.i83.i.i, label %check_dmi_entry.exit.thread.i.i, label %check_dmi_entry.exit86.i.i
 
-check_dmi_entry.exit86.i.i:                       ; preds = %1581
-  %1583 = call i64 @strspn(ptr noundef nonnull readonly %1562, ptr noundef nonnull @.str.22) #29
-  %1584 = call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %1562) #29
-  %.not129.i.i = icmp eq i64 %1583, %1584
+check_dmi_entry.exit86.i.i:                       ; preds = %1579
+  %1581 = call i64 @strspn(ptr noundef nonnull readonly %1562, ptr noundef nonnull @.str.22) #29
+  %.not129.i.i = icmp eq i64 %1581, %1563
   br i1 %.not129.i.i, label %check_dmi_entry.exit.thread.i.i, label %check_dmi_entry.exit.thread.sink.split.i.i
 
-1585:                                             ; preds = %1579
-  %1586 = icmp eq i32 %.159140.i.i, %1548
-  br i1 %1586, label %1587, label %1591
+1582:                                             ; preds = %1577
+  %1583 = icmp eq i32 %.159140.i.i, %1548
+  br i1 %1583, label %1584, label %1587
 
-1587:                                             ; preds = %1585
-  %1588 = load i8, ptr %1562, align 1
-  %.not.i87.i.i = icmp eq i8 %1588, 0
+1584:                                             ; preds = %1582
+  %1585 = load i8, ptr %1562, align 1
+  %.not.i87.i.i = icmp eq i8 %1585, 0
   br i1 %.not.i87.i.i, label %check_dmi_entry.exit.thread.i.i, label %check_dmi_entry.exit90.i.i
 
-check_dmi_entry.exit90.i.i:                       ; preds = %1587
-  %1589 = call i64 @strspn(ptr noundef nonnull readonly %1562, ptr noundef nonnull @.str.22) #29
-  %1590 = call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %1562) #29
-  %.not128.i.i = icmp eq i64 %1589, %1590
+check_dmi_entry.exit90.i.i:                       ; preds = %1584
+  %1586 = call i64 @strspn(ptr noundef nonnull readonly %1562, ptr noundef nonnull @.str.22) #29
+  %.not128.i.i = icmp eq i64 %1586, %1563
   br i1 %.not128.i.i, label %check_dmi_entry.exit.thread.i.i, label %check_dmi_entry.exit.thread.sink.split.i.i
 
-1591:                                             ; preds = %1585
-  %1592 = icmp eq i32 %.159140.i.i, %1550
-  br i1 %1592, label %1593, label %1597
+1587:                                             ; preds = %1582
+  %1588 = icmp eq i32 %.159140.i.i, %1550
+  br i1 %1588, label %1589, label %1592
 
-1593:                                             ; preds = %1591
-  %1594 = load i8, ptr %1562, align 1
-  %.not.i91.i.i = icmp eq i8 %1594, 0
+1589:                                             ; preds = %1587
+  %1590 = load i8, ptr %1562, align 1
+  %.not.i91.i.i = icmp eq i8 %1590, 0
   br i1 %.not.i91.i.i, label %check_dmi_entry.exit.thread.i.i, label %check_dmi_entry.exit94.i.i
 
-check_dmi_entry.exit94.i.i:                       ; preds = %1593
-  %1595 = call i64 @strspn(ptr noundef nonnull readonly %1562, ptr noundef nonnull @.str.22) #29
-  %1596 = call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %1562) #29
-  %.not127.i.i = icmp eq i64 %1595, %1596
+check_dmi_entry.exit94.i.i:                       ; preds = %1589
+  %1591 = call i64 @strspn(ptr noundef nonnull readonly %1562, ptr noundef nonnull @.str.22) #29
+  %.not127.i.i = icmp eq i64 %1591, %1563
   br i1 %.not127.i.i, label %check_dmi_entry.exit.thread.i.i, label %check_dmi_entry.exit.thread.sink.split.i.i
 
-1597:                                             ; preds = %1591
-  %1598 = icmp eq i32 %.159140.i.i, %1552
-  br i1 %1598, label %1599, label %.loopexit.i.i
+1592:                                             ; preds = %1587
+  %1593 = icmp eq i32 %.159140.i.i, %1552
+  br i1 %1593, label %1594, label %.loopexit.i.i
 
-1599:                                             ; preds = %1597
-  %1600 = load i8, ptr %1562, align 1
-  %.not.i95.i.i = icmp eq i8 %1600, 0
+1594:                                             ; preds = %1592
+  %1595 = load i8, ptr %1562, align 1
+  %.not.i95.i.i = icmp eq i8 %1595, 0
   br i1 %.not.i95.i.i, label %check_dmi_entry.exit.thread.i.i, label %check_dmi_entry.exit98.i.i
 
-check_dmi_entry.exit98.i.i:                       ; preds = %1599
-  %1601 = call i64 @strspn(ptr noundef nonnull readonly %1562, ptr noundef nonnull @.str.22) #29
-  %1602 = call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %1562) #29
-  %.not126.i.i = icmp eq i64 %1601, %1602
+check_dmi_entry.exit98.i.i:                       ; preds = %1594
+  %1596 = call i64 @strspn(ptr noundef nonnull readonly %1562, ptr noundef nonnull @.str.22) #29
+  %.not126.i.i = icmp eq i64 %1596, %1563
   br i1 %.not126.i.i, label %check_dmi_entry.exit.thread.i.i, label %check_dmi_entry.exit.thread.sink.split.i.i
 
 check_dmi_entry.exit.thread.sink.split.i.i:       ; preds = %check_dmi_entry.exit98.i.i, %check_dmi_entry.exit94.i.i, %check_dmi_entry.exit90.i.i, %check_dmi_entry.exit86.i.i, %check_dmi_entry.exit82.i.i, %check_dmi_entry.exit.i.i
   %.str.462.sink.i.i = phi ptr [ @.str.460, %check_dmi_entry.exit.i.i ], [ @.str.462, %check_dmi_entry.exit82.i.i ], [ @.str.542, %check_dmi_entry.exit86.i.i ], [ @.str.543, %check_dmi_entry.exit90.i.i ], [ @.str.544, %check_dmi_entry.exit94.i.i ], [ @.str.545, %check_dmi_entry.exit98.i.i ]
   %.3.ph.i.i = phi i32 [ 1, %check_dmi_entry.exit.i.i ], [ 1, %check_dmi_entry.exit82.i.i ], [ 1, %check_dmi_entry.exit86.i.i ], [ 1, %check_dmi_entry.exit90.i.i ], [ %.1141.i.i, %check_dmi_entry.exit94.i.i ], [ %.1141.i.i, %check_dmi_entry.exit98.i.i ]
-  %1603 = call i32 @hwloc__add_info(ptr noundef nonnull %5, ptr noundef nonnull %.str.462.sink.i.i, ptr noundef nonnull %1562) #26
+  %1597 = call i32 @hwloc__add_info(ptr noundef nonnull %5, ptr noundef nonnull %.str.462.sink.i.i, ptr noundef nonnull %1562) #26
   br label %check_dmi_entry.exit.thread.i.i
 
-check_dmi_entry.exit.thread.i.i:                  ; preds = %check_dmi_entry.exit.thread.sink.split.i.i, %check_dmi_entry.exit98.i.i, %1599, %check_dmi_entry.exit94.i.i, %1593, %check_dmi_entry.exit90.i.i, %1587, %check_dmi_entry.exit86.i.i, %1581, %check_dmi_entry.exit82.i.i, %1575, %check_dmi_entry.exit.i.i, %1569
-  %.3.i.i = phi i32 [ %.1141.i.i, %check_dmi_entry.exit.i.i ], [ %.1141.i.i, %check_dmi_entry.exit82.i.i ], [ %.1141.i.i, %check_dmi_entry.exit86.i.i ], [ %.1141.i.i, %check_dmi_entry.exit90.i.i ], [ %.1141.i.i, %check_dmi_entry.exit94.i.i ], [ %.1141.i.i, %check_dmi_entry.exit98.i.i ], [ %.1141.i.i, %1569 ], [ %.1141.i.i, %1575 ], [ %.1141.i.i, %1581 ], [ %.1141.i.i, %1587 ], [ %.1141.i.i, %1593 ], [ %.1141.i.i, %1599 ], [ %.3.ph.i.i, %check_dmi_entry.exit.thread.sink.split.i.i ]
-  %1604 = add i32 %1565, 1
-  %1605 = add nuw nsw i32 %.159140.i.i, 1
-  %1606 = zext i32 %1604 to i64
-  %1607 = getelementptr inbounds [256 x i8], ptr %4, i64 0, i64 %1606
-  %1608 = load i8, ptr %1607, align 1
-  %.not65.i.i290 = icmp eq i8 %1608, 0
+check_dmi_entry.exit.thread.i.i:                  ; preds = %check_dmi_entry.exit.thread.sink.split.i.i, %check_dmi_entry.exit98.i.i, %1594, %check_dmi_entry.exit94.i.i, %1589, %check_dmi_entry.exit90.i.i, %1584, %check_dmi_entry.exit86.i.i, %1579, %check_dmi_entry.exit82.i.i, %1574, %check_dmi_entry.exit.i.i, %1569
+  %.3.i.i = phi i32 [ %.1141.i.i, %check_dmi_entry.exit.i.i ], [ %.1141.i.i, %check_dmi_entry.exit82.i.i ], [ %.1141.i.i, %check_dmi_entry.exit86.i.i ], [ %.1141.i.i, %check_dmi_entry.exit90.i.i ], [ %.1141.i.i, %check_dmi_entry.exit94.i.i ], [ %.1141.i.i, %check_dmi_entry.exit98.i.i ], [ %.1141.i.i, %1569 ], [ %.1141.i.i, %1574 ], [ %.1141.i.i, %1579 ], [ %.1141.i.i, %1584 ], [ %.1141.i.i, %1589 ], [ %.1141.i.i, %1594 ], [ %.3.ph.i.i, %check_dmi_entry.exit.thread.sink.split.i.i ]
+  %1598 = add i32 %1565, 1
+  %1599 = add nuw nsw i32 %.159140.i.i, 1
+  %1600 = zext i32 %1598 to i64
+  %1601 = getelementptr inbounds [256 x i8], ptr %4, i64 0, i64 %1600
+  %1602 = load i8, ptr %1601, align 1
+  %.not65.i.i290 = icmp eq i8 %1602, 0
   br i1 %.not65.i.i290, label %.loopexit.i.i, label %.lr.ph.i.i288
 
-1609:                                             ; preds = %.lr.ph.i.i288
+1603:                                             ; preds = %.lr.ph.i.i288
   %.not72.i.i291 = icmp eq i32 %.060139.i.i, 0
-  br i1 %.not72.i.i291, label %1610, label %1553
+  br i1 %.not72.i.i291, label %1604, label %1553
 
-1610:                                             ; preds = %1609
-  %1611 = call i32 @hwloc_hide_errors() #26
-  %1612 = icmp slt i32 %1611, 2
-  br i1 %1612, label %1613, label %.loopexit.i.i
+1604:                                             ; preds = %1603
+  %1605 = call i32 @hwloc_hide_errors() #26
+  %1606 = icmp slt i32 %1605, 2
+  br i1 %1606, label %1607, label %.loopexit.i.i
 
-1613:                                             ; preds = %1610
-  %1614 = load ptr, ptr @stderr, align 8
-  %1615 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1614, ptr noundef nonnull @.str.546, i32 noundef %.159140.i.i, ptr noundef nonnull %6) #32
+1607:                                             ; preds = %1604
+  %1608 = load ptr, ptr @stderr, align 8
+  %1609 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1608, ptr noundef nonnull @.str.546, i32 noundef %.159140.i.i, ptr noundef nonnull %6) #32
   br label %.loopexit.i.i
 
-.loopexit.i.i:                                    ; preds = %1558, %1553, %check_dmi_entry.exit.thread.i.i, %1597, %1613, %1610
-  %.2.i.i = phi i32 [ %.1141.i.i, %1613 ], [ %.1141.i.i, %1610 ], [ %.3.i.i, %check_dmi_entry.exit.thread.i.i ], [ %.1141.i.i, %1597 ], [ %.0147.i.i, %1558 ], [ %.1141.i.i, %1553 ]
+.loopexit.i.i:                                    ; preds = %1558, %1553, %check_dmi_entry.exit.thread.i.i, %1592, %1607, %1604
+  %.2.i.i = phi i32 [ %.1141.i.i, %1607 ], [ %.1141.i.i, %1604 ], [ %.3.i.i, %check_dmi_entry.exit.thread.i.i ], [ %.1141.i.i, %1592 ], [ %.0147.i.i, %1558 ], [ %.1141.i.i, %1553 ]
   %.not73.i.i = icmp eq i32 %.2.i.i, 0
-  br i1 %.not73.i.i, label %.loopexit.thread.i.i, label %1616
+  br i1 %.not73.i.i, label %.loopexit.thread.i.i, label %1610
 
-1616:                                             ; preds = %.loopexit.i.i
-  %1617 = load i8, ptr %1515, align 1
-  %1618 = add i8 %1617, -1
-  %or.cond.i.i.i = icmp ult i8 %1618, 16
+1610:                                             ; preds = %.loopexit.i.i
+  %1611 = load i8, ptr %1515, align 1
+  %1612 = add i8 %1611, -1
+  %or.cond.i.i.i = icmp ult i8 %1612, 16
   br i1 %or.cond.i.i.i, label %dmi_memory_device_form_factor.exit.i.i, label %dmi_memory_device_form_factor.exit.thread.i.i
 
-dmi_memory_device_form_factor.exit.i.i:           ; preds = %1616
-  %1619 = zext nneg i8 %1617 to i64
-  %1620 = add nuw nsw i64 %1619, 4294967295
-  %1621 = and i64 %1620, 4294967295
-  %1622 = getelementptr inbounds [16 x ptr], ptr @dmi_memory_device_form_factor.form_factor, i64 0, i64 %1621
-  %1623 = load ptr, ptr %1622, align 8
-  %1624 = call i32 @hwloc__add_info(ptr noundef nonnull %5, ptr noundef nonnull @.str.547, ptr noundef nonnull %1623) #26
+dmi_memory_device_form_factor.exit.i.i:           ; preds = %1610
+  %1613 = zext nneg i8 %1611 to i64
+  %1614 = add nuw nsw i64 %1613, 4294967295
+  %1615 = and i64 %1614, 4294967295
+  %1616 = getelementptr inbounds [16 x ptr], ptr @dmi_memory_device_form_factor.form_factor, i64 0, i64 %1615
+  %1617 = load ptr, ptr %1616, align 8
+  %1618 = call i32 @hwloc__add_info(ptr noundef nonnull %5, ptr noundef nonnull @.str.547, ptr noundef nonnull %1617) #26
   br label %dmi_memory_device_form_factor.exit.thread.i.i
 
-dmi_memory_device_form_factor.exit.thread.i.i:    ; preds = %dmi_memory_device_form_factor.exit.i.i, %1616
-  %1625 = load i8, ptr %1516, align 1
-  %1626 = add i8 %1625, -1
-  %or.cond.i100.i.i = icmp ult i8 %1626, 36
+dmi_memory_device_form_factor.exit.thread.i.i:    ; preds = %dmi_memory_device_form_factor.exit.i.i, %1610
+  %1619 = load i8, ptr %1516, align 1
+  %1620 = add i8 %1619, -1
+  %or.cond.i100.i.i = icmp ult i8 %1620, 36
   br i1 %or.cond.i100.i.i, label %dmi_memory_device_type.exit.i.i, label %dmi_memory_device_type.exit.thread.i.i
 
 dmi_memory_device_type.exit.i.i:                  ; preds = %dmi_memory_device_form_factor.exit.thread.i.i
-  %1627 = zext nneg i8 %1625 to i64
-  %1628 = add nuw nsw i64 %1627, 4294967295
-  %1629 = and i64 %1628, 4294967295
-  %1630 = getelementptr inbounds [36 x ptr], ptr @dmi_memory_device_type.type, i64 0, i64 %1629
-  %1631 = load ptr, ptr %1630, align 8
-  %1632 = call i32 @hwloc__add_info(ptr noundef nonnull %5, ptr noundef nonnull @.str.548, ptr noundef nonnull %1631) #26
+  %1621 = zext nneg i8 %1619 to i64
+  %1622 = add nuw nsw i64 %1621, 4294967295
+  %1623 = and i64 %1622, 4294967295
+  %1624 = getelementptr inbounds [36 x ptr], ptr @dmi_memory_device_type.type, i64 0, i64 %1623
+  %1625 = load ptr, ptr %1624, align 8
+  %1626 = call i32 @hwloc__add_info(ptr noundef nonnull %5, ptr noundef nonnull @.str.548, ptr noundef nonnull %1625) #26
   br label %dmi_memory_device_type.exit.thread.i.i
 
 dmi_memory_device_type.exit.thread.i.i:           ; preds = %dmi_memory_device_type.exit.i.i, %dmi_memory_device_form_factor.exit.thread.i.i
-  %1633 = load i16, ptr %1517, align 1
-  %1634 = icmp eq i16 %1633, -1
-  br i1 %1634, label %dmi_memory_device_size.exit.i.i, label %1635
+  %1627 = load i16, ptr %1517, align 1
+  %1628 = icmp eq i16 %1627, -1
+  br i1 %1628, label %dmi_memory_device_size.exit.i.i, label %1629
 
-1635:                                             ; preds = %dmi_memory_device_type.exit.thread.i.i
-  %1636 = icmp ugt i8 %1534, 31
-  %1637 = icmp eq i16 %1633, 32767
-  %or.cond.i102.i.i = and i1 %1636, %1637
-  br i1 %or.cond.i102.i.i, label %1638, label %1643
+1629:                                             ; preds = %dmi_memory_device_type.exit.thread.i.i
+  %1630 = icmp ugt i8 %1534, 31
+  %1631 = icmp eq i16 %1627, 32767
+  %or.cond.i102.i.i = and i1 %1630, %1631
+  br i1 %or.cond.i102.i.i, label %1632, label %1637
 
-1638:                                             ; preds = %1635
-  %1639 = load i32, ptr %1518, align 1
-  %1640 = and i32 %1639, 2147483647
-  %1641 = zext nneg i32 %1640 to i64
-  %1642 = shl nuw nsw i64 %1641, 10
-  br label %1647
+1632:                                             ; preds = %1629
+  %1633 = load i32, ptr %1518, align 1
+  %1634 = and i32 %1633, 2147483647
+  %1635 = zext nneg i32 %1634 to i64
+  %1636 = shl nuw nsw i64 %1635, 10
+  br label %1641
 
-1643:                                             ; preds = %1635
-  %1644 = and i16 %1633, 32767
-  %1645 = zext nneg i16 %1644 to i64
-  %1646 = shl nuw nsw i64 %1645, 10
-  %.not16.i.i.i = icmp slt i16 %1633, 0
-  %spec.select.i.i.i = select i1 %.not16.i.i.i, i64 %1645, i64 %1646
-  br label %1647
+1637:                                             ; preds = %1629
+  %1638 = and i16 %1627, 32767
+  %1639 = zext nneg i16 %1638 to i64
+  %1640 = shl nuw nsw i64 %1639, 10
+  %.not16.i.i.i = icmp slt i16 %1627, 0
+  %spec.select.i.i.i = select i1 %.not16.i.i.i, i64 %1639, i64 %1640
+  br label %1641
 
-1647:                                             ; preds = %1643, %1638
-  %.014.i.i.i = phi i64 [ %1642, %1638 ], [ %spec.select.i.i.i, %1643 ]
-  %1648 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %4, i64 noundef 256, ptr noundef nonnull @.str.428, i64 noundef %.014.i.i.i) #26
-  %1649 = call i32 @hwloc__add_info(ptr noundef nonnull %5, ptr noundef nonnull @.str.429, ptr noundef nonnull %4) #26
+1641:                                             ; preds = %1637, %1632
+  %.014.i.i.i = phi i64 [ %1636, %1632 ], [ %spec.select.i.i.i, %1637 ]
+  %1642 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %4, i64 noundef 256, ptr noundef nonnull @.str.428, i64 noundef %.014.i.i.i) #26
+  %1643 = call i32 @hwloc__add_info(ptr noundef nonnull %5, ptr noundef nonnull @.str.429, ptr noundef nonnull %4) #26
   br label %dmi_memory_device_size.exit.i.i
 
-dmi_memory_device_size.exit.i.i:                  ; preds = %1647, %dmi_memory_device_type.exit.thread.i.i
-  %1650 = icmp eq i8 %1534, 27
-  br i1 %1650, label %dmi_memory_device_rank.exit.thread.i.i, label %1651
+dmi_memory_device_size.exit.i.i:                  ; preds = %1641, %dmi_memory_device_type.exit.thread.i.i
+  %1644 = icmp eq i8 %1534, 27
+  br i1 %1644, label %dmi_memory_device_rank.exit.thread.i.i, label %1645
 
-1651:                                             ; preds = %dmi_memory_device_size.exit.i.i
-  %1652 = load i8, ptr %1519, align 1
-  %.not.i104.i.i = icmp eq i8 %1652, 0
-  br i1 %.not.i104.i.i, label %dmi_memory_device_rank.exit.thread.i.i, label %1653
+1645:                                             ; preds = %dmi_memory_device_size.exit.i.i
+  %1646 = load i8, ptr %1519, align 1
+  %.not.i104.i.i = icmp eq i8 %1646, 0
+  br i1 %.not.i104.i.i, label %dmi_memory_device_rank.exit.thread.i.i, label %1647
 
-1653:                                             ; preds = %1651
-  %1654 = and i8 %1652, 15
-  %1655 = zext nneg i8 %1654 to i32
-  %1656 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %4, i64 noundef 256, ptr noundef nonnull @.str.306, i32 noundef %1655) #26
-  %1657 = call i32 @hwloc__add_info(ptr noundef nonnull %5, ptr noundef nonnull @.str.549, ptr noundef nonnull %4) #26
+1647:                                             ; preds = %1645
+  %1648 = and i8 %1646, 15
+  %1649 = zext nneg i8 %1648 to i32
+  %1650 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %4, i64 noundef 256, ptr noundef nonnull @.str.306, i32 noundef %1649) #26
+  %1651 = call i32 @hwloc__add_info(ptr noundef nonnull %5, ptr noundef nonnull @.str.549, ptr noundef nonnull %4) #26
   br label %dmi_memory_device_rank.exit.thread.i.i
 
-dmi_memory_device_rank.exit.thread.i.i:           ; preds = %1653, %1651, %dmi_memory_device_size.exit.i.i
-  %1658 = call ptr @hwloc_alloc_setup_object(ptr noundef %85, i32 noundef 17, i32 noundef %.0.i279) #26
-  %.not78.i.i289 = icmp eq ptr %1658, null
-  br i1 %.not78.i.i289, label %.loopexit.thread.i.i, label %1659
+dmi_memory_device_rank.exit.thread.i.i:           ; preds = %1647, %1645, %dmi_memory_device_size.exit.i.i
+  %1652 = call ptr @hwloc_alloc_setup_object(ptr noundef %85, i32 noundef 17, i32 noundef %.0.i279) #26
+  %.not78.i.i289 = icmp eq ptr %1652, null
+  br i1 %.not78.i.i289, label %.loopexit.thread.i.i, label %1653
 
-1659:                                             ; preds = %dmi_memory_device_rank.exit.thread.i.i
-  %1660 = call noalias dereferenceable_or_null(13) ptr @strdup(ptr noundef nonnull @.str.550) #26
-  %1661 = getelementptr inbounds i8, ptr %1658, i64 8
-  store ptr %1660, ptr %1661, align 8
-  %1662 = getelementptr inbounds i8, ptr %1658, i64 216
-  %1663 = call i32 @hwloc__move_infos(ptr noundef nonnull %1662, ptr noundef nonnull %5) #26
-  %1664 = call ptr @hwloc_get_obj_by_depth(ptr noundef readonly %85, i32 noundef 0, i32 noundef 0) #29
-  call void @hwloc_insert_object_by_parent(ptr noundef %85, ptr noundef %1664, ptr noundef nonnull %1658) #26
+1653:                                             ; preds = %dmi_memory_device_rank.exit.thread.i.i
+  %1654 = call noalias dereferenceable_or_null(13) ptr @strdup(ptr noundef nonnull @.str.550) #26
+  %1655 = getelementptr inbounds i8, ptr %1652, i64 8
+  store ptr %1654, ptr %1655, align 8
+  %1656 = getelementptr inbounds i8, ptr %1652, i64 216
+  %1657 = call i32 @hwloc__move_infos(ptr noundef nonnull %1656, ptr noundef nonnull %5) #26
+  %1658 = call ptr @hwloc_get_obj_by_depth(ptr noundef readonly %85, i32 noundef 0, i32 noundef 0) #29
+  call void @hwloc_insert_object_by_parent(ptr noundef %85, ptr noundef %1658, ptr noundef nonnull %1652) #26
   br label %hwloc__get_firmware_dmi_memory_info_one.exit.i
 
 .loopexit.thread.i.i:                             ; preds = %dmi_memory_device_rank.exit.thread.i.i, %.loopexit.i.i, %1536
   call void @hwloc__free_infos(ptr noundef nonnull %5) #26
   br label %hwloc__get_firmware_dmi_memory_info_one.exit.i
 
-hwloc__get_firmware_dmi_memory_info_one.exit.i:   ; preds = %.loopexit.thread.i.i, %1659
+hwloc__get_firmware_dmi_memory_info_one.exit.i:   ; preds = %.loopexit.thread.i.i, %1653
   call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
-  %1665 = call i32 @fclose(ptr noundef nonnull %1529)
-  %1666 = add i32 %.0.i279, 1
+  %1659 = call i32 @fclose(ptr noundef nonnull %1529)
+  %1660 = add i32 %.0.i279, 1
   br label %1520
 
 hwloc_fopen.exit.thread.sink.split.i:             ; preds = %1533, %1530
-  %1667 = call i32 @fclose(ptr noundef nonnull %1529)
+  %1661 = call i32 @fclose(ptr noundef nonnull %1529)
   br label %hwloc__get_firmware_dmi_memory_info.exit
 
 hwloc__get_firmware_dmi_memory_info.exit:         ; preds = %hwloc_openat.exit.i.i.i280, %hwloc_fopen.exit.i282, %hwloc_fopen.exit.thread.sink.split.i
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7)
-  br label %1668
+  br label %1662
 
-1668:                                             ; preds = %.thread, %hwloc__get_firmware_dmi_memory_info.exit, %287
-  %1669 = load i32, ptr %86, align 4
-  %.not59 = icmp eq i32 %1669, 0
-  br i1 %.not59, label %1700, label %1670
+1662:                                             ; preds = %.thread, %hwloc__get_firmware_dmi_memory_info.exit, %287
+  %1663 = load i32, ptr %86, align 4
+  %.not59 = icmp eq i32 %1663, 0
+  br i1 %.not59, label %1694, label %1664
 
-1670:                                             ; preds = %1668
-  %1671 = getelementptr inbounds i8, ptr %85, i64 24
-  %1672 = load ptr, ptr %1671, align 8
-  %1673 = load ptr, ptr %1672, align 8
-  %1674 = load ptr, ptr %1673, align 8
+1664:                                             ; preds = %1662
+  %1665 = getelementptr inbounds i8, ptr %85, i64 24
+  %1666 = load ptr, ptr %1665, align 8
+  %1667 = load ptr, ptr %1666, align 8
+  %1668 = load ptr, ptr %1667, align 8
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %3)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(28) %3, ptr noundef nonnull align 1 dereferenceable(28) @.str.598, i64 28, i1 false) #26
-  %1675 = getelementptr inbounds i8, ptr %0, i64 88
-  %1676 = load i32, ptr %1675, align 8
-  %1677 = icmp sgt i32 %1676, -1
-  br i1 %1677, label %.preheader.i.i.i.i299, label %hwloc_checkat.exit.thread.i.i.i294
+  %1669 = getelementptr inbounds i8, ptr %0, i64 88
+  %1670 = load i32, ptr %1669, align 8
+  %1671 = icmp sgt i32 %1670, -1
+  br i1 %1671, label %.preheader.i.i.i.i299, label %hwloc_checkat.exit.thread.i.i.i294
 
-.preheader.i.i.i.i299:                            ; preds = %1670, %.preheader.i.i.i.i299
-  %.1.i.i.i.i300 = phi ptr [ %1680, %.preheader.i.i.i.i299 ], [ %3, %1670 ]
-  %1678 = load i8, ptr %.1.i.i.i.i300, align 1
-  %1679 = icmp eq i8 %1678, 47
-  %1680 = getelementptr inbounds i8, ptr %.1.i.i.i.i300, i64 1
-  br i1 %1679, label %.preheader.i.i.i.i299, label %hwloc_checkat.exit.thread.i.i.i294, !llvm.loop !4
+.preheader.i.i.i.i299:                            ; preds = %1664, %.preheader.i.i.i.i299
+  %.1.i.i.i.i300 = phi ptr [ %1674, %.preheader.i.i.i.i299 ], [ %3, %1664 ]
+  %1672 = load i8, ptr %.1.i.i.i.i300, align 1
+  %1673 = icmp eq i8 %1672, 47
+  %1674 = getelementptr inbounds i8, ptr %.1.i.i.i.i300, i64 1
+  br i1 %1673, label %.preheader.i.i.i.i299, label %hwloc_checkat.exit.thread.i.i.i294, !llvm.loop !4
 
-hwloc_checkat.exit.thread.i.i.i294:               ; preds = %.preheader.i.i.i.i299, %1670
-  %.0.i11.i.i.i295 = phi ptr [ %3, %1670 ], [ %.1.i.i.i.i300, %.preheader.i.i.i.i299 ]
-  %1681 = call i32 (i32, ptr, i32, ...) @openat(i32 noundef %1676, ptr noundef nonnull %.0.i11.i.i.i295, i32 noundef 65536) #26
-  %1682 = icmp slt i32 %1681, 0
-  br i1 %1682, label %hwloc_opendir.exit.thread.i, label %hwloc_opendir.exit.i296
+hwloc_checkat.exit.thread.i.i.i294:               ; preds = %.preheader.i.i.i.i299, %1664
+  %.0.i11.i.i.i295 = phi ptr [ %3, %1664 ], [ %.1.i.i.i.i300, %.preheader.i.i.i.i299 ]
+  %1675 = call i32 (i32, ptr, i32, ...) @openat(i32 noundef %1670, ptr noundef nonnull %.0.i11.i.i.i295, i32 noundef 65536) #26
+  %1676 = icmp slt i32 %1675, 0
+  br i1 %1676, label %hwloc_opendir.exit.thread.i, label %hwloc_opendir.exit.i296
 
 hwloc_opendir.exit.i296:                          ; preds = %hwloc_checkat.exit.thread.i.i.i294
-  %1683 = call ptr @fdopendir(i32 noundef %1681) #26
-  %.not.i297 = icmp eq ptr %1683, null
-  br i1 %.not.i297, label %hwloc_opendir.exit.thread.i, label %1692
+  %1677 = call ptr @fdopendir(i32 noundef %1675) #26
+  %.not.i297 = icmp eq ptr %1677, null
+  br i1 %.not.i297, label %hwloc_opendir.exit.thread.i, label %1686
 
 hwloc_opendir.exit.thread.i:                      ; preds = %hwloc_opendir.exit.i296, %hwloc_checkat.exit.thread.i.i.i294
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(18) %3, ptr noundef nonnull align 1 dereferenceable(18) @.str.599, i64 18, i1 false) #26
-  %1684 = load i32, ptr %1675, align 8
-  %1685 = icmp sgt i32 %1684, -1
-  br i1 %1685, label %.preheader.i.i.i67.i, label %hwloc_checkat.exit.thread.i.i64.i
+  %1678 = load i32, ptr %1669, align 8
+  %1679 = icmp sgt i32 %1678, -1
+  br i1 %1679, label %.preheader.i.i.i67.i, label %hwloc_checkat.exit.thread.i.i64.i
 
 .preheader.i.i.i67.i:                             ; preds = %hwloc_opendir.exit.thread.i, %.preheader.i.i.i67.i
-  %.1.i.i.i68.i = phi ptr [ %1688, %.preheader.i.i.i67.i ], [ %3, %hwloc_opendir.exit.thread.i ]
-  %1686 = load i8, ptr %.1.i.i.i68.i, align 1
-  %1687 = icmp eq i8 %1686, 47
-  %1688 = getelementptr inbounds i8, ptr %.1.i.i.i68.i, i64 1
-  br i1 %1687, label %.preheader.i.i.i67.i, label %hwloc_checkat.exit.thread.i.i64.i, !llvm.loop !4
+  %.1.i.i.i68.i = phi ptr [ %1682, %.preheader.i.i.i67.i ], [ %3, %hwloc_opendir.exit.thread.i ]
+  %1680 = load i8, ptr %.1.i.i.i68.i, align 1
+  %1681 = icmp eq i8 %1680, 47
+  %1682 = getelementptr inbounds i8, ptr %.1.i.i.i68.i, i64 1
+  br i1 %1681, label %.preheader.i.i.i67.i, label %hwloc_checkat.exit.thread.i.i64.i, !llvm.loop !4
 
 hwloc_checkat.exit.thread.i.i64.i:                ; preds = %.preheader.i.i.i67.i, %hwloc_opendir.exit.thread.i
   %.0.i11.i.i65.i = phi ptr [ %3, %hwloc_opendir.exit.thread.i ], [ %.1.i.i.i68.i, %.preheader.i.i.i67.i ]
-  %1689 = call i32 (i32, ptr, i32, ...) @openat(i32 noundef %1684, ptr noundef nonnull %.0.i11.i.i65.i, i32 noundef 65536) #26
-  %1690 = icmp slt i32 %1689, 0
-  br i1 %1690, label %hwloc__get_dmi_id_info.exit, label %hwloc_opendir.exit69.i
+  %1683 = call i32 (i32, ptr, i32, ...) @openat(i32 noundef %1678, ptr noundef nonnull %.0.i11.i.i65.i, i32 noundef 65536) #26
+  %1684 = icmp slt i32 %1683, 0
+  br i1 %1684, label %hwloc__get_dmi_id_info.exit, label %hwloc_opendir.exit69.i
 
 hwloc_opendir.exit69.i:                           ; preds = %hwloc_checkat.exit.thread.i.i64.i
-  %1691 = call ptr @fdopendir(i32 noundef %1689) #26
-  %.not62.i = icmp eq ptr %1691, null
-  br i1 %.not62.i, label %hwloc__get_dmi_id_info.exit, label %1692
+  %1685 = call ptr @fdopendir(i32 noundef %1683) #26
+  %.not62.i = icmp eq ptr %1685, null
+  br i1 %.not62.i, label %hwloc__get_dmi_id_info.exit, label %1686
 
-1692:                                             ; preds = %hwloc_opendir.exit69.i, %hwloc_opendir.exit.i296
+1686:                                             ; preds = %hwloc_opendir.exit69.i, %hwloc_opendir.exit.i296
   %.059.i = phi i32 [ 27, %hwloc_opendir.exit.i296 ], [ 17, %hwloc_opendir.exit69.i ]
-  %.0.i298 = phi ptr [ %1683, %hwloc_opendir.exit.i296 ], [ %1691, %hwloc_opendir.exit69.i ]
-  %1693 = call i32 @closedir(ptr noundef nonnull %.0.i298)
-  %1694 = add nuw nsw i32 %.059.i, 1
-  %1695 = zext nneg i32 %.059.i to i64
-  %1696 = getelementptr inbounds [128 x i8], ptr %3, i64 0, i64 %1695
-  store i8 47, ptr %1696, align 1
-  call fastcc void @hwloc__get_dmi_id_one_info(ptr noundef nonnull readonly %83, ptr noundef %1674, ptr noundef %3, i32 noundef %1694, ptr noundef nonnull @.str.600, ptr noundef nonnull @.str.601)
-  call fastcc void @hwloc__get_dmi_id_one_info(ptr noundef nonnull readonly %83, ptr noundef %1674, ptr noundef %3, i32 noundef %1694, ptr noundef nonnull @.str.602, ptr noundef nonnull @.str.603)
-  call fastcc void @hwloc__get_dmi_id_one_info(ptr noundef nonnull readonly %83, ptr noundef %1674, ptr noundef %3, i32 noundef %1694, ptr noundef nonnull @.str.604, ptr noundef nonnull @.str.605)
-  call fastcc void @hwloc__get_dmi_id_one_info(ptr noundef nonnull readonly %83, ptr noundef %1674, ptr noundef %3, i32 noundef %1694, ptr noundef nonnull @.str.606, ptr noundef nonnull @.str.607)
-  call fastcc void @hwloc__get_dmi_id_one_info(ptr noundef nonnull readonly %83, ptr noundef %1674, ptr noundef %3, i32 noundef %1694, ptr noundef nonnull @.str.608, ptr noundef nonnull @.str.609)
-  call fastcc void @hwloc__get_dmi_id_one_info(ptr noundef nonnull readonly %83, ptr noundef %1674, ptr noundef %3, i32 noundef %1694, ptr noundef nonnull @.str.610, ptr noundef nonnull @.str.611)
-  call fastcc void @hwloc__get_dmi_id_one_info(ptr noundef nonnull readonly %83, ptr noundef %1674, ptr noundef %3, i32 noundef %1694, ptr noundef nonnull @.str.612, ptr noundef nonnull @.str.613)
-  call fastcc void @hwloc__get_dmi_id_one_info(ptr noundef nonnull readonly %83, ptr noundef %1674, ptr noundef %3, i32 noundef %1694, ptr noundef nonnull @.str.614, ptr noundef nonnull @.str.615)
-  call fastcc void @hwloc__get_dmi_id_one_info(ptr noundef nonnull readonly %83, ptr noundef %1674, ptr noundef %3, i32 noundef %1694, ptr noundef nonnull @.str.616, ptr noundef nonnull @.str.617)
-  call fastcc void @hwloc__get_dmi_id_one_info(ptr noundef nonnull readonly %83, ptr noundef %1674, ptr noundef %3, i32 noundef %1694, ptr noundef nonnull @.str.618, ptr noundef nonnull @.str.619)
-  call fastcc void @hwloc__get_dmi_id_one_info(ptr noundef nonnull readonly %83, ptr noundef %1674, ptr noundef %3, i32 noundef %1694, ptr noundef nonnull @.str.620, ptr noundef nonnull @.str.621)
-  call fastcc void @hwloc__get_dmi_id_one_info(ptr noundef nonnull readonly %83, ptr noundef %1674, ptr noundef %3, i32 noundef %1694, ptr noundef nonnull @.str.622, ptr noundef nonnull @.str.623)
-  call fastcc void @hwloc__get_dmi_id_one_info(ptr noundef nonnull readonly %83, ptr noundef %1674, ptr noundef %3, i32 noundef %1694, ptr noundef nonnull @.str.624, ptr noundef nonnull @.str.625)
-  call fastcc void @hwloc__get_dmi_id_one_info(ptr noundef nonnull readonly %83, ptr noundef %1674, ptr noundef %3, i32 noundef %1694, ptr noundef nonnull @.str.626, ptr noundef nonnull @.str.627)
-  call fastcc void @hwloc__get_dmi_id_one_info(ptr noundef nonnull readonly %83, ptr noundef %1674, ptr noundef %3, i32 noundef %1694, ptr noundef nonnull @.str.628, ptr noundef nonnull @.str.629)
-  call fastcc void @hwloc__get_dmi_id_one_info(ptr noundef nonnull readonly %83, ptr noundef %1674, ptr noundef %3, i32 noundef %1694, ptr noundef nonnull @.str.630, ptr noundef nonnull @.str.631)
-  call fastcc void @hwloc__get_dmi_id_one_info(ptr noundef nonnull readonly %83, ptr noundef %1674, ptr noundef %3, i32 noundef %1694, ptr noundef nonnull @.str.632, ptr noundef nonnull @.str.633)
-  call fastcc void @hwloc__get_dmi_id_one_info(ptr noundef nonnull readonly %83, ptr noundef %1674, ptr noundef %3, i32 noundef %1694, ptr noundef nonnull @.str.634, ptr noundef nonnull @.str.635)
+  %.0.i298 = phi ptr [ %1677, %hwloc_opendir.exit.i296 ], [ %1685, %hwloc_opendir.exit69.i ]
+  %1687 = call i32 @closedir(ptr noundef nonnull %.0.i298)
+  %1688 = add nuw nsw i32 %.059.i, 1
+  %1689 = zext nneg i32 %.059.i to i64
+  %1690 = getelementptr inbounds [128 x i8], ptr %3, i64 0, i64 %1689
+  store i8 47, ptr %1690, align 1
+  call fastcc void @hwloc__get_dmi_id_one_info(ptr noundef nonnull readonly %83, ptr noundef %1668, ptr noundef %3, i32 noundef %1688, ptr noundef nonnull @.str.600, ptr noundef nonnull @.str.601)
+  call fastcc void @hwloc__get_dmi_id_one_info(ptr noundef nonnull readonly %83, ptr noundef %1668, ptr noundef %3, i32 noundef %1688, ptr noundef nonnull @.str.602, ptr noundef nonnull @.str.603)
+  call fastcc void @hwloc__get_dmi_id_one_info(ptr noundef nonnull readonly %83, ptr noundef %1668, ptr noundef %3, i32 noundef %1688, ptr noundef nonnull @.str.604, ptr noundef nonnull @.str.605)
+  call fastcc void @hwloc__get_dmi_id_one_info(ptr noundef nonnull readonly %83, ptr noundef %1668, ptr noundef %3, i32 noundef %1688, ptr noundef nonnull @.str.606, ptr noundef nonnull @.str.607)
+  call fastcc void @hwloc__get_dmi_id_one_info(ptr noundef nonnull readonly %83, ptr noundef %1668, ptr noundef %3, i32 noundef %1688, ptr noundef nonnull @.str.608, ptr noundef nonnull @.str.609)
+  call fastcc void @hwloc__get_dmi_id_one_info(ptr noundef nonnull readonly %83, ptr noundef %1668, ptr noundef %3, i32 noundef %1688, ptr noundef nonnull @.str.610, ptr noundef nonnull @.str.611)
+  call fastcc void @hwloc__get_dmi_id_one_info(ptr noundef nonnull readonly %83, ptr noundef %1668, ptr noundef %3, i32 noundef %1688, ptr noundef nonnull @.str.612, ptr noundef nonnull @.str.613)
+  call fastcc void @hwloc__get_dmi_id_one_info(ptr noundef nonnull readonly %83, ptr noundef %1668, ptr noundef %3, i32 noundef %1688, ptr noundef nonnull @.str.614, ptr noundef nonnull @.str.615)
+  call fastcc void @hwloc__get_dmi_id_one_info(ptr noundef nonnull readonly %83, ptr noundef %1668, ptr noundef %3, i32 noundef %1688, ptr noundef nonnull @.str.616, ptr noundef nonnull @.str.617)
+  call fastcc void @hwloc__get_dmi_id_one_info(ptr noundef nonnull readonly %83, ptr noundef %1668, ptr noundef %3, i32 noundef %1688, ptr noundef nonnull @.str.618, ptr noundef nonnull @.str.619)
+  call fastcc void @hwloc__get_dmi_id_one_info(ptr noundef nonnull readonly %83, ptr noundef %1668, ptr noundef %3, i32 noundef %1688, ptr noundef nonnull @.str.620, ptr noundef nonnull @.str.621)
+  call fastcc void @hwloc__get_dmi_id_one_info(ptr noundef nonnull readonly %83, ptr noundef %1668, ptr noundef %3, i32 noundef %1688, ptr noundef nonnull @.str.622, ptr noundef nonnull @.str.623)
+  call fastcc void @hwloc__get_dmi_id_one_info(ptr noundef nonnull readonly %83, ptr noundef %1668, ptr noundef %3, i32 noundef %1688, ptr noundef nonnull @.str.624, ptr noundef nonnull @.str.625)
+  call fastcc void @hwloc__get_dmi_id_one_info(ptr noundef nonnull readonly %83, ptr noundef %1668, ptr noundef %3, i32 noundef %1688, ptr noundef nonnull @.str.626, ptr noundef nonnull @.str.627)
+  call fastcc void @hwloc__get_dmi_id_one_info(ptr noundef nonnull readonly %83, ptr noundef %1668, ptr noundef %3, i32 noundef %1688, ptr noundef nonnull @.str.628, ptr noundef nonnull @.str.629)
+  call fastcc void @hwloc__get_dmi_id_one_info(ptr noundef nonnull readonly %83, ptr noundef %1668, ptr noundef %3, i32 noundef %1688, ptr noundef nonnull @.str.630, ptr noundef nonnull @.str.631)
+  call fastcc void @hwloc__get_dmi_id_one_info(ptr noundef nonnull readonly %83, ptr noundef %1668, ptr noundef %3, i32 noundef %1688, ptr noundef nonnull @.str.632, ptr noundef nonnull @.str.633)
+  call fastcc void @hwloc__get_dmi_id_one_info(ptr noundef nonnull readonly %83, ptr noundef %1668, ptr noundef %3, i32 noundef %1688, ptr noundef nonnull @.str.634, ptr noundef nonnull @.str.635)
   br label %hwloc__get_dmi_id_info.exit
 
-hwloc__get_dmi_id_info.exit:                      ; preds = %hwloc_checkat.exit.thread.i.i64.i, %hwloc_opendir.exit69.i, %1692
+hwloc__get_dmi_id_info.exit:                      ; preds = %hwloc_checkat.exit.thread.i.i64.i, %hwloc_opendir.exit69.i, %1686
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %3)
-  %1697 = getelementptr inbounds i8, ptr %85, i64 688
-  %1698 = call i32 @hwloc__add_info(ptr noundef nonnull %1697, ptr noundef nonnull @.str.55, ptr noundef nonnull @.str.56) #26
-  %1699 = getelementptr inbounds i8, ptr %0, i64 140
-  call void @hwloc_add_uname_info(ptr noundef %85, ptr noundef nonnull %1699) #26
+  %1691 = getelementptr inbounds i8, ptr %85, i64 688
+  %1692 = call i32 @hwloc__add_info(ptr noundef nonnull %1691, ptr noundef nonnull @.str.55, ptr noundef nonnull @.str.56) #26
+  %1693 = getelementptr inbounds i8, ptr %0, i64 140
+  call void @hwloc_add_uname_info(ptr noundef %85, ptr noundef nonnull %1693) #26
   store i32 0, ptr %86, align 4
-  br label %1700
+  br label %1694
 
-1700:                                             ; preds = %hwloc__get_dmi_id_info.exit, %1668
+1694:                                             ; preds = %hwloc__get_dmi_id_info.exit, %1662
   ret i32 0
 }
 

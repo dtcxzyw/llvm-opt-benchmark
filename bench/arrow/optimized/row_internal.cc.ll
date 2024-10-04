@@ -493,7 +493,7 @@ for.body46:                                       ; preds = %for.body46.preheade
 land.lhs.true:                                    ; preds = %for.body46
   %fixed_length = getelementptr inbounds i8, ptr %add.ptr.i103, i64 4
   %44 = load i32, ptr %fixed_length, align 4
-  %45 = tail call range(i32 1, 33) i32 @llvm.ctpop.i32(i32 %44)
+  %45 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %44)
   %or.cond = icmp ult i32 %45, 2
   br i1 %or.cond, label %if.end, label %lor.lhs.false.i
 

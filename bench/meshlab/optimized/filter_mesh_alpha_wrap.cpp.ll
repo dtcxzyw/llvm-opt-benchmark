@@ -57182,17 +57182,17 @@ define linkonce_odr void @_ZNK4CGAL24Aff_transformation_repC3INS_16Simple_cartes
   %10 = load double, ptr %4, align 8
   %11 = fneg double %10
   %12 = fmul double %9, %11
-  %13 = tail call noundef double @llvm.fmuladd.f64(double %7, double %8, double %12)
+  %13 = tail call double @llvm.fmuladd.f64(double %7, double %8, double %12)
   %14 = getelementptr inbounds i8, ptr %1, i64 24
   %15 = getelementptr inbounds i8, ptr %1, i64 32
   %16 = load double, ptr %14, align 8
   %17 = load double, ptr %15, align 8
   %18 = fneg double %17
   %19 = fmul double %9, %18
-  %20 = tail call noundef double @llvm.fmuladd.f64(double %16, double %8, double %19)
+  %20 = tail call double @llvm.fmuladd.f64(double %16, double %8, double %19)
   %21 = fneg double %20
   %22 = fmul double %7, %18
-  %23 = tail call noundef double @llvm.fmuladd.f64(double %16, double %10, double %22)
+  %23 = tail call double @llvm.fmuladd.f64(double %16, double %10, double %22)
   %24 = getelementptr inbounds i8, ptr %1, i64 40
   %25 = getelementptr inbounds i8, ptr %1, i64 72
   %26 = getelementptr inbounds i8, ptr %1, i64 104
@@ -57209,27 +57209,27 @@ define linkonce_odr void @_ZNK4CGAL24Aff_transformation_repC3INS_16Simple_cartes
   %37 = load double, ptr %35, align 8
   %38 = load double, ptr %36, align 8
   %39 = fmul double %38, %11
-  %40 = tail call noundef double @llvm.fmuladd.f64(double %37, double %8, double %39)
+  %40 = tail call double @llvm.fmuladd.f64(double %37, double %8, double %39)
   %41 = fneg double %40
   %42 = getelementptr inbounds i8, ptr %1, i64 16
   %43 = load double, ptr %42, align 8
   %44 = fmul double %38, %18
-  %45 = tail call noundef double @llvm.fmuladd.f64(double %43, double %8, double %44)
+  %45 = tail call double @llvm.fmuladd.f64(double %43, double %8, double %44)
   %46 = fmul double %37, %18
-  %47 = tail call noundef double @llvm.fmuladd.f64(double %43, double %10, double %46)
+  %47 = tail call double @llvm.fmuladd.f64(double %43, double %10, double %46)
   %48 = fneg double %47
   %49 = fmul double %45, %29
   %50 = tail call double @llvm.fmuladd.f64(double %47, double %27, double %49)
   %51 = tail call noundef double @llvm.fmuladd.f64(double %40, double %32, double %50)
   %52 = fneg double %7
   %53 = fmul double %38, %52
-  %54 = tail call noundef double @llvm.fmuladd.f64(double %37, double %9, double %53)
+  %54 = tail call double @llvm.fmuladd.f64(double %37, double %9, double %53)
   %55 = fneg double %16
   %56 = fmul double %38, %55
-  %57 = tail call noundef double @llvm.fmuladd.f64(double %43, double %9, double %56)
+  %57 = tail call double @llvm.fmuladd.f64(double %43, double %9, double %56)
   %58 = fneg double %57
   %59 = fmul double %37, %55
-  %60 = tail call noundef double @llvm.fmuladd.f64(double %43, double %7, double %59)
+  %60 = tail call double @llvm.fmuladd.f64(double %43, double %7, double %59)
   %61 = fmul double %57, %29
   %62 = tail call double @llvm.fmuladd.f64(double %60, double %27, double %61)
   %63 = tail call noundef double @llvm.fmuladd.f64(double %54, double %32, double %62)
@@ -70235,10 +70235,10 @@ select.unfold:                                    ; preds = %41, %.select.unfold
   %123 = fmul double %100, %122
   %124 = tail call double @llvm.fmuladd.f64(double %89, double %119, double %123)
   %125 = fmul double %103, %101
-  %126 = tail call noundef double @llvm.fmuladd.f64(double %91, double %106, double %125)
+  %126 = tail call double @llvm.fmuladd.f64(double %91, double %106, double %125)
   %127 = fneg double %81
   %128 = fmul double %103, %127
-  %129 = tail call noundef double @llvm.fmuladd.f64(double %78, double %106, double %128)
+  %129 = tail call double @llvm.fmuladd.f64(double %78, double %106, double %128)
   %130 = fneg double %129
   %131 = fmul double %100, %130
   %132 = tail call double @llvm.fmuladd.f64(double %89, double %126, double %131)
@@ -74857,10 +74857,10 @@ define linkonce_odr noundef i32 @_ZNK4CGAL8internal25Static_filters_predicates24
   %60 = fmul double %37, %59
   %61 = tail call double @llvm.fmuladd.f64(double %29, double %56, double %60)
   %62 = fmul double %40, %38
-  %63 = tail call noundef double @llvm.fmuladd.f64(double %30, double %43, double %62)
+  %63 = tail call double @llvm.fmuladd.f64(double %30, double %43, double %62)
   %64 = fneg double %23
   %65 = fmul double %40, %64
-  %66 = tail call noundef double @llvm.fmuladd.f64(double %22, double %43, double %65)
+  %66 = tail call double @llvm.fmuladd.f64(double %22, double %43, double %65)
   %67 = fneg double %66
   %68 = fmul double %37, %67
   %69 = tail call double @llvm.fmuladd.f64(double %29, double %63, double %68)
@@ -93944,7 +93944,7 @@ _ZNK4CGAL8internal25Static_filters_predicates15Is_degenerate_3INS_20Filtered_ker
   %75 = fsub double %74, %23
   %76 = fmul double %46, %72
   %77 = tail call double @llvm.fmuladd.f64(double %45, double %69, double %76)
-  %78 = tail call noundef double @llvm.fmuladd.f64(double %47, double %75, double %77)
+  %78 = tail call double @llvm.fmuladd.f64(double %47, double %75, double %77)
   %79 = fcmp ugt double %78, 0.000000e+00
   br i1 %79, label %81, label %80
 
@@ -94017,7 +94017,7 @@ _ZNK4CGAL8internal25Static_filters_predicates15Is_degenerate_3INS_20Filtered_ker
   %110 = fsub double %109, %30
   %111 = fmul double %52, %107
   %112 = tail call double @llvm.fmuladd.f64(double %51, double %104, double %111)
-  %113 = tail call noundef double @llvm.fmuladd.f64(double %53, double %110, double %112)
+  %113 = tail call double @llvm.fmuladd.f64(double %53, double %110, double %112)
   %114 = fcmp ugt double %113, 0.000000e+00
   br i1 %114, label %116, label %115
 
@@ -94094,7 +94094,7 @@ _ZNK4CGAL8internal25Static_filters_predicates15Is_degenerate_3INS_20Filtered_ker
   %147 = fsub double %146, %23
   %148 = fmul double %49, %144
   %149 = tail call double @llvm.fmuladd.f64(double %48, double %141, double %148)
-  %150 = tail call noundef double @llvm.fmuladd.f64(double %50, double %147, double %149)
+  %150 = tail call double @llvm.fmuladd.f64(double %50, double %147, double %149)
   %151 = fcmp ugt double %150, 0.000000e+00
   br i1 %151, label %153, label %152
 
@@ -94167,7 +94167,7 @@ _ZNK4CGAL8internal25Static_filters_predicates15Is_degenerate_3INS_20Filtered_ker
   %182 = fsub double %181, %30
   %183 = fmul double %52, %179
   %184 = tail call double @llvm.fmuladd.f64(double %51, double %176, double %183)
-  %185 = tail call noundef double @llvm.fmuladd.f64(double %53, double %182, double %184)
+  %185 = tail call double @llvm.fmuladd.f64(double %53, double %182, double %184)
   %186 = fcmp ugt double %185, 0.000000e+00
   br i1 %186, label %188, label %187
 
@@ -94311,7 +94311,7 @@ define linkonce_odr noundef zeroext i1 @_ZN4CGAL20CommonKernelFunctors27Construc
 48:                                               ; preds = %6
   %49 = fmul double %16, %26
   %50 = tail call double @llvm.fmuladd.f64(double %23, double %11, double %49)
-  %51 = tail call noundef double @llvm.fmuladd.f64(double %29, double %21, double %50)
+  %51 = tail call double @llvm.fmuladd.f64(double %29, double %21, double %50)
   %52 = fcmp ult double %51, 0.000000e+00
   br i1 %52, label %71, label %53
 
@@ -94373,7 +94373,7 @@ _ZN4CGAL20CommonKernelFunctors27Construct_projected_point_3INS_5EpickEE24is_insi
 96:                                               ; preds = %71
   %97 = fmul double %76, %81
   %98 = tail call double @llvm.fmuladd.f64(double %80, double %73, double %97)
-  %99 = tail call noundef double @llvm.fmuladd.f64(double %82, double %79, double %98)
+  %99 = tail call double @llvm.fmuladd.f64(double %82, double %79, double %98)
   %100 = fcmp ult double %99, 0.000000e+00
   br i1 %100, label %119, label %101
 
@@ -94431,7 +94431,7 @@ _ZN4CGAL20CommonKernelFunctors27Construct_projected_point_3INS_5EpickEE24is_insi
 139:                                              ; preds = %119
   %140 = fmul double %121, %124
   %141 = tail call double @llvm.fmuladd.f64(double %123, double %120, double %140)
-  %142 = tail call noundef double @llvm.fmuladd.f64(double %125, double %122, double %141)
+  %142 = tail call double @llvm.fmuladd.f64(double %125, double %122, double %141)
   %143 = fcmp ult double %142, 0.000000e+00
   br i1 %143, label %.thread, label %144
 
@@ -145059,10 +145059,10 @@ define linkonce_odr void @_ZNK4CGAL40Robust_filtered_construct_circumcenter_3INS
   %42 = fmul double %25, %41
   %43 = tail call double @llvm.fmuladd.f64(double %22, double %32, double %42)
   %44 = fmul double %37, %35
-  %45 = tail call noundef double @llvm.fmuladd.f64(double %30, double %40, double %44)
+  %45 = tail call double @llvm.fmuladd.f64(double %30, double %40, double %44)
   %46 = fneg double %25
   %47 = fmul double %37, %46
-  %48 = tail call noundef double @llvm.fmuladd.f64(double %22, double %40, double %47)
+  %48 = tail call double @llvm.fmuladd.f64(double %22, double %40, double %47)
   %49 = fmul double %30, %46
   %50 = tail call double @llvm.fmuladd.f64(double %22, double %32, double %49)
   %51 = fmul double %48, %38

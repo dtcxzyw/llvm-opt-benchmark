@@ -1209,21 +1209,23 @@ if.end26:                                         ; preds = %_ZN4absl12lts_20230
 
 if.then28:                                        ; preds = %if.end26.thread, %if.end26
   %tolerance.127 = phi ptr [ %second, %if.end26.thread ], [ %default_tolerance_, %if.end26 ]
-  %19 = tail call float @llvm.fabs.f32(float %value_1)
-  %20 = fcmp one float %19, 0x7FF0000000000000
-  %21 = tail call float @llvm.fabs.f32(float %value_2)
-  %22 = fcmp one float %21, 0x7FF0000000000000
-  %or.cond.i = and i1 %20, %22
-  br i1 %or.cond.i, label %if.end.i, label %return
-
-if.end.i:                                         ; preds = %if.then28
+  %19 = load double, ptr %tolerance.127, align 8
+  %conv = fptrunc double %19 to float
   %margin = getelementptr inbounds i8, ptr %tolerance.127, i64 8
-  %23 = load double, ptr %margin, align 8
-  %conv29 = fptrunc double %23 to float
-  %24 = load double, ptr %tolerance.127, align 8
-  %conv = fptrunc double %24 to float
-  %cmp.i.i13 = fcmp olt float %19, %21
-  %.sroa.speculated.i = select i1 %cmp.i.i13, float %21, float %19
+  %20 = load double, ptr %margin, align 8
+  %conv29 = fptrunc double %20 to float
+  %21 = tail call float @llvm.fabs.f32(float %value_1)
+  %22 = fcmp ueq float %21, 0x7FF0000000000000
+  br i1 %22, label %return, label %lor.lhs.false.i
+
+lor.lhs.false.i:                                  ; preds = %if.then28
+  %23 = tail call float @llvm.fabs.f32(float %value_2)
+  %24 = fcmp ueq float %23, 0x7FF0000000000000
+  br i1 %24, label %return, label %if.end.i
+
+if.end.i:                                         ; preds = %lor.lhs.false.i
+  %cmp.i.i13 = fcmp olt float %21, %23
+  %.sroa.speculated.i = select i1 %cmp.i.i13, float %23, float %21
   %mul.i = fmul float %.sroa.speculated.i, %conv
   %sub.i = fsub float %value_1, %value_2
   %25 = tail call noundef float @llvm.fabs.f32(float %sub.i)
@@ -1233,7 +1235,7 @@ if.end.i:                                         ; preds = %if.then28
   br label %return
 
 if.else31:                                        ; preds = %if.end26
-  %26 = tail call noundef float @llvm.fabs.f32(float %value_1)
+  %26 = tail call float @llvm.fabs.f32(float %value_1)
   %cmp33 = fcmp ugt float %26, 0x3ED0000000000000
   %27 = tail call float @llvm.fabs.f32(float %value_2)
   %cmp36 = fcmp ugt float %27, 0x3ED0000000000000
@@ -1241,24 +1243,24 @@ if.else31:                                        ; preds = %if.end26
   br i1 %or.cond31, label %if.end38, label %return
 
 if.end38:                                         ; preds = %if.else31
-  %28 = fcmp one float %26, 0x7FF0000000000000
-  %29 = fcmp one float %27, 0x7FF0000000000000
-  %or.cond.i14 = and i1 %28, %29
-  br i1 %or.cond.i14, label %if.end.i16, label %return
+  %28 = fcmp ueq float %26, 0x7FF0000000000000
+  %29 = fcmp ueq float %27, 0x7FF0000000000000
+  %or.cond39 = or i1 %28, %29
+  br i1 %or.cond39, label %return, label %if.end.i15
 
-if.end.i16:                                       ; preds = %if.end38
-  %cmp.i.i17 = fcmp olt float %26, %27
-  %.sroa.speculated.i18 = select i1 %cmp.i.i17, float %27, float %26
-  %mul.i19 = fmul float %.sroa.speculated.i18, 0x3ED0000000000000
-  %sub.i20 = fsub float %value_1, %value_2
-  %30 = tail call noundef float @llvm.fabs.f32(float %sub.i20)
-  %cmp.i5.i21 = fcmp ogt float %mul.i19, 0x3ED0000000000000
-  %.sroa.speculated7.i22 = select i1 %cmp.i5.i21, float %mul.i19, float 0x3ED0000000000000
-  %cmp.i23 = fcmp ole float %30, %.sroa.speculated7.i22
+if.end.i15:                                       ; preds = %if.end38
+  %cmp.i.i16 = fcmp olt float %26, %27
+  %.sroa.speculated.i17 = select i1 %cmp.i.i16, float %27, float %26
+  %mul.i18 = fmul float %.sroa.speculated.i17, 0x3ED0000000000000
+  %sub.i19 = fsub float %value_1, %value_2
+  %30 = tail call noundef float @llvm.fabs.f32(float %sub.i19)
+  %cmp.i5.i20 = fcmp ogt float %mul.i18, 0x3ED0000000000000
+  %.sroa.speculated7.i21 = select i1 %cmp.i5.i20, float %mul.i18, float 0x3ED0000000000000
+  %cmp.i22 = fcmp ole float %30, %.sroa.speculated7.i21
   br label %return
 
-return:                                           ; preds = %if.else, %if.else31, %if.end.i16, %if.end38, %if.end.i, %if.then28, %entry
-  %retval.0 = phi i1 [ true, %entry ], [ %cmp.i, %if.end.i ], [ false, %if.then28 ], [ %cmp.i23, %if.end.i16 ], [ false, %if.end38 ], [ true, %if.else31 ], [ %or.cond28.mux, %if.else ]
+return:                                           ; preds = %if.else, %if.else31, %if.end.i15, %if.end38, %if.end.i, %lor.lhs.false.i, %if.then28, %entry
+  %retval.0 = phi i1 [ true, %entry ], [ %cmp.i, %if.end.i ], [ false, %lor.lhs.false.i ], [ false, %if.then28 ], [ %cmp.i22, %if.end.i15 ], [ false, %if.end38 ], [ true, %if.else31 ], [ %or.cond28.mux, %if.else ]
   ret i1 %retval.0
 }
 

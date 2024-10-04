@@ -9678,7 +9678,7 @@ invoke.cont44:                                    ; preds = %for.body
   %mul8.i.i.i.i38 = fmul float %mul4.i, %mul4.i
   %21 = call float @llvm.fmuladd.f32(float %mul.i, float %mul.i, float %mul8.i.i.i.i38)
   %22 = call noundef float @llvm.fmuladd.f32(float %mul7.i, float %mul7.i, float %21)
-  %sqrt.i.i40 = call noundef float @llvm.sqrt.f32(float %22)
+  %sqrt.i.i40 = call float @llvm.sqrt.f32(float %22)
   %cmp46 = fcmp ogt float %sqrt.i.i40, %div31
   br i1 %cmp46, label %if.then47, label %invoke.cont62
 

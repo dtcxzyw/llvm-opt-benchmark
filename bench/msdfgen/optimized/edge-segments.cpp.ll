@@ -960,7 +960,7 @@ entry:
   %mul3.i = fmul double %sub3.i, %sub3.i7
   %0 = tail call noundef double @llvm.fmuladd.f64(double %sub.i, double %sub.i6, double %mul3.i)
   %mul3.i10 = fmul double %sub3.i7, %sub3.i7
-  %1 = tail call noundef double @llvm.fmuladd.f64(double %sub.i6, double %sub.i6, double %mul3.i10)
+  %1 = tail call double @llvm.fmuladd.f64(double %sub.i6, double %sub.i6, double %mul3.i10)
   %div = fdiv double %0, %1
   store double %div, ptr %param, align 8
   %cmp = fcmp ogt double %div, 5.000000e-01

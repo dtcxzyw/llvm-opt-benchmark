@@ -5342,15 +5342,14 @@ _bracket_cnt.exit:                                ; preds = %249
   br i1 %.not81, label %.loopexit, label %260
 
 260:                                              ; preds = %258
-  %261 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.pre115.pre) #19
+  %261 = call i64 @strlen(ptr nonnull dereferenceable(1) %.pre115.pre)
   %262 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %259) #19
   %263 = add i64 %262, %261
   %264 = icmp ugt i64 %263, 262142
   br i1 %264, label %.loopexit, label %265
 
 265:                                              ; preds = %260
-  %strlen = call i64 @strlen(ptr nonnull dereferenceable(1) %.pre115.pre)
-  %endptr = getelementptr inbounds i8, ptr %.pre115.pre, i64 %strlen
+  %endptr = getelementptr inbounds i8, ptr %.pre115.pre, i64 %261
   store i16 10, ptr %endptr, align 1
   %266 = load ptr, ptr %9, align 8
   %267 = call ptr @strcat(ptr noundef nonnull dereferenceable(1) %266, ptr noundef nonnull dereferenceable(1) %259) #18
@@ -5602,15 +5601,14 @@ _bracket_cnt.exit:                                ; preds = %.preheader
   br i1 %.not.i18, label %_strip_cr_nl.exit19, label %.lr.ph.i15, !llvm.loop !29
 
 _strip_cr_nl.exit19:                              ; preds = %.lr.ph.i15, %80, %75
-  %81 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %61) #19
+  %81 = call i64 @strlen(ptr nonnull dereferenceable(1) %61)
   %82 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %73) #19
   %83 = add i64 %82, %81
   %84 = icmp ugt i64 %83, 262142
   br i1 %84, label %.loopexit, label %85
 
 85:                                               ; preds = %_strip_cr_nl.exit19
-  %strlen = call i64 @strlen(ptr nonnull dereferenceable(1) %61)
-  %endptr = getelementptr inbounds i8, ptr %61, i64 %strlen
+  %endptr = getelementptr inbounds i8, ptr %61, i64 %81
   store i16 10, ptr %endptr, align 1
   %86 = call ptr @strcat(ptr noundef nonnull dereferenceable(1) %61, ptr noundef nonnull dereferenceable(1) %73) #18
   br label %.preheader.backedge

@@ -108210,7 +108210,7 @@ _ZN3vcg4face10IsManifoldI6CFaceOEEbRKT_i.exit.thread: ; preds = %200, %_ZN3vcg4f
   %342 = fmul float %338, %338
   %343 = call float @llvm.fmuladd.f32(float %335, float %335, float %342)
   %344 = call float @llvm.fmuladd.f32(float %341, float %341, float %343)
-  %sqrt.i.i.i171 = call noundef float @llvm.sqrt.f32(float %344)
+  %sqrt.i.i.i171 = call float @llvm.sqrt.f32(float %344)
   %345 = fsub float %.sroa.16391.12.copyload..sroa.16418.12.copyload, %.sroa.0382.0.copyload..sroa.0409.0.copyload
   %346 = fsub float %.sroa.22394.12.copyload..sroa.22421.12.copyload, %.sroa.6385.0.copyload..sroa.6412.0.copyload
   %347 = fsub float %.sroa.27397.12.copyload..sroa.27424.12.copyload, %.sroa.11388.0.copyload..sroa.11415.0.copyload
@@ -122669,7 +122669,7 @@ _ZNK3vcg4face3PosI6CFaceOE4VIndEv.exit111:        ; preds = %51, %.split.loop.ex
   %104 = fmul float %100, %100
   %105 = call float @llvm.fmuladd.f32(float %97, float %97, float %104)
   %106 = call float @llvm.fmuladd.f32(float %103, float %103, float %105)
-  %sqrt.i.i.i = call noundef float @llvm.sqrt.f32(float %106)
+  %sqrt.i.i.i = call float @llvm.sqrt.f32(float %106)
   %107 = fcmp oeq float %106, 0.000000e+00
   br i1 %107, label %_ZN3vcg7QualityIfEET_RKNS_6Point3IS1_EES5_S5_.exit, label %108
 
@@ -131861,7 +131861,7 @@ define linkonce_odr void @_ZN3vcg3tri7InertiaI6CMeshOE7ComputeERKS2_(ptr noundef
   %74 = fmul float %70, %70
   %75 = call float @llvm.fmuladd.f32(float %67, float %67, float %74)
   %76 = call float @llvm.fmuladd.f32(float %73, float %73, float %75)
-  %sqrt.i.i.i = call noundef float @llvm.sqrt.f32(float %76)
+  %sqrt.i.i.i = call float @llvm.sqrt.f32(float %76)
   %77 = fcmp ogt float %sqrt.i.i.i, 0x3810000000000000
   br i1 %77, label %78, label %188
 

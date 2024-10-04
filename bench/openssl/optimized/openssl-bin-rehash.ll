@@ -245,8 +245,7 @@ ends_with_dirsep.exit.thread:                     ; preds = %land.lhs.true
   br label %if.end7
 
 ends_with_dirsep.exit:                            ; preds = %land.lhs.true
-  %call.i = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %dirname) #15
-  %3 = getelementptr i8, ptr %dirname, i64 %call.i
+  %3 = getelementptr i8, ptr %dirname, i64 %call2
   %add.ptr.i = getelementptr i8, ptr %3, i64 -1
   %.pre.i = load i8, ptr %add.ptr.i, align 1
   %.pre.i.fr = freeze i8 %.pre.i

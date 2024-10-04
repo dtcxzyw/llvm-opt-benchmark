@@ -976,7 +976,7 @@ if.then:                                          ; preds = %for.body
   br label %for.inc
 
 if.else:                                          ; preds = %for.body
-  %call.i.i.i78 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %9) #25
+  %call.i.i.i78 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %9) #25
   %cmp.not.i = icmp ult i64 %sub.ptr.sub.i.i83, %call.i.i.i78
   br i1 %cmp.not.i, label %for.inc, label %for.cond.preheader.i.i
 
@@ -999,8 +999,7 @@ for.body.i.i:                                     ; preds = %for.cond.preheader.
   br i1 %cmp.i.i.i, label %for.cond.i.i, label %for.inc
 
 if.then18:                                        ; preds = %for.cond.i.i, %for.cond.preheader.i.i
-  %call22 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %9) #30
-  %conv23 = trunc i64 %call22 to i32
+  %conv23 = trunc i64 %call.i.i.i78 to i32
   %cmp24 = icmp slt i32 %longestPrefixLen.0105, %conv23
   %14 = trunc i64 %indvars.iv to i32
   %spec.select74 = select i1 %cmp24, i32 %14, i32 %bestPrefixId.0103

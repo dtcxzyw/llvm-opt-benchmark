@@ -7991,7 +7991,7 @@ define internal fastcc ptr @new_branch(ptr noundef %name) unnamed_addr #0 {
 entry:
   %call = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %name) #25
   %cmp.not2.i = icmp eq i64 %call, 0
-  br i1 %cmp.not2.i, label %hc_str.exit, label %while.body.i
+  br i1 %cmp.not2.i, label %hc_str.exit.i, label %while.body.i
 
 while.body.i:                                     ; preds = %entry, %while.body.i
   %r.05.i = phi i32 [ %add.i, %while.body.i ], [ 0, %entry ]
@@ -8004,39 +8004,31 @@ while.body.i:                                     ; preds = %entry, %while.body.
   %conv.i = sext i8 %0 to i32
   %add.i = add i32 %mul.i, %conv.i
   %cmp.not.i = icmp eq i64 %dec.i, 0
-  br i1 %cmp.not.i, label %hc_str.exit.loopexit, label %while.body.i, !llvm.loop !9
+  br i1 %cmp.not.i, label %while.body.i.i, label %while.body.i, !llvm.loop !9
 
-hc_str.exit.loopexit:                             ; preds = %while.body.i
-  %1 = urem i32 %add.i, 1039
-  %2 = zext nneg i32 %1 to i64
-  br label %hc_str.exit
-
-hc_str.exit:                                      ; preds = %hc_str.exit.loopexit, %entry
-  %r.0.lcssa.i = phi i64 [ 0, %entry ], [ %2, %hc_str.exit.loopexit ]
-  %call.i = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %name) #25
-  %cmp.not2.i.i = icmp eq i64 %call.i, 0
-  br i1 %cmp.not2.i.i, label %hc_str.exit.i, label %while.body.i.i
-
-while.body.i.i:                                   ; preds = %hc_str.exit, %while.body.i.i
-  %r.05.i.i = phi i32 [ %add.i.i, %while.body.i.i ], [ 0, %hc_str.exit ]
-  %len.addr.04.i.i = phi i64 [ %dec.i.i, %while.body.i.i ], [ %call.i, %hc_str.exit ]
-  %s.addr.03.i.i = phi ptr [ %incdec.ptr.i.i, %while.body.i.i ], [ %name, %hc_str.exit ]
+while.body.i.i:                                   ; preds = %while.body.i, %while.body.i.i
+  %r.05.i.i = phi i32 [ %add.i.i, %while.body.i.i ], [ 0, %while.body.i ]
+  %len.addr.04.i.i = phi i64 [ %dec.i.i, %while.body.i.i ], [ %call, %while.body.i ]
+  %s.addr.03.i.i = phi ptr [ %incdec.ptr.i.i, %while.body.i.i ], [ %name, %while.body.i ]
   %dec.i.i = add i64 %len.addr.04.i.i, -1
   %mul.i.i = mul i32 %r.05.i.i, 31
   %incdec.ptr.i.i = getelementptr inbounds i8, ptr %s.addr.03.i.i, i64 1
-  %3 = load i8, ptr %s.addr.03.i.i, align 1
-  %conv.i.i = sext i8 %3 to i32
+  %1 = load i8, ptr %s.addr.03.i.i, align 1
+  %conv.i.i = sext i8 %1 to i32
   %add.i.i = add i32 %mul.i.i, %conv.i.i
   %cmp.not.i.i = icmp eq i64 %dec.i.i, 0
   br i1 %cmp.not.i.i, label %hc_str.exit.loopexit.i, label %while.body.i.i, !llvm.loop !9
 
 hc_str.exit.loopexit.i:                           ; preds = %while.body.i.i
-  %4 = urem i32 %add.i.i, 1039
+  %2 = urem i32 %add.i.i, 1039
+  %3 = zext nneg i32 %2 to i64
+  %4 = urem i32 %add.i, 1039
   %5 = zext nneg i32 %4 to i64
   br label %hc_str.exit.i
 
-hc_str.exit.i:                                    ; preds = %hc_str.exit.loopexit.i, %hc_str.exit
-  %r.0.lcssa.i.i = phi i64 [ 0, %hc_str.exit ], [ %5, %hc_str.exit.loopexit.i ]
+hc_str.exit.i:                                    ; preds = %entry, %hc_str.exit.loopexit.i
+  %r.0.lcssa.i18 = phi i64 [ %5, %hc_str.exit.loopexit.i ], [ 0, %entry ]
+  %r.0.lcssa.i.i = phi i64 [ %3, %hc_str.exit.loopexit.i ], [ 0, %entry ]
   %6 = load ptr, ptr @branch_table, align 8
   %arrayidx.i = getelementptr inbounds ptr, ptr %6, i64 %r.0.lcssa.i.i
   br label %for.cond.i
@@ -8073,7 +8065,7 @@ if.end7:                                          ; preds = %if.end
   %name10 = getelementptr inbounds i8, ptr %call8, i64 16
   store ptr %call9, ptr %name10, align 8
   %8 = load ptr, ptr @branch_table, align 8
-  %arrayidx = getelementptr inbounds ptr, ptr %8, i64 %r.0.lcssa.i
+  %arrayidx = getelementptr inbounds ptr, ptr %8, i64 %r.0.lcssa.i18
   %9 = load ptr, ptr %arrayidx, align 8
   store ptr %9, ptr %call8, align 8
   %versions = getelementptr inbounds i8, ptr %call8, i64 40

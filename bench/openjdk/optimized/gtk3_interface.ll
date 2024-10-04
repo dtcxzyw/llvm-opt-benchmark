@@ -3439,13 +3439,12 @@ dl_symbol.exit532:                                ; preds = %dl_symbol.exit530
   br i1 %.not86, label %783, label %789
 
 783:                                              ; preds = %781
-  %784 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %777) #22
+  %784 = call i64 @strlen(ptr nonnull dereferenceable(1) %777)
   %785 = icmp ugt i64 %784, 12
   br i1 %785, label %786, label %787
 
 786:                                              ; preds = %783
-  %strlen = call i64 @strlen(ptr nonnull dereferenceable(1) %777)
-  %endptr = getelementptr inbounds i8, ptr %777, i64 %strlen
+  %endptr = getelementptr inbounds i8, ptr %777, i64 %784
   store i16 58, ptr %endptr, align 1
   br label %787
 

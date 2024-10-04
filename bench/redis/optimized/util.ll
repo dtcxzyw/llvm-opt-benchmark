@@ -1676,7 +1676,7 @@ if.then:                                          ; preds = %entry
   br label %if.end34
 
 if.else:                                          ; preds = %entry
-  %1 = tail call double @llvm.fabs.f64(double %value) #31
+  %1 = tail call double @llvm.fabs.f64(double %value)
   %isinf = fcmp oeq double %1, 0x7FF0000000000000
   br i1 %isinf, label %if.then1, label %if.else9
 

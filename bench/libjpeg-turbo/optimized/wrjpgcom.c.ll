@@ -281,7 +281,7 @@ keymatch.exit126:                                 ; preds = %53
 
 113:                                              ; preds = %139, %110
   %indvars.iv = phi i64 [ %indvars.iv.next, %139 ], [ %92, %110 ]
-  %114 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %98) #12
+  %114 = tail call i64 @strlen(ptr nonnull dereferenceable(1) %98)
   %115 = and i64 %114, 4294967295
   %.not105 = icmp eq i64 %115, 0
   br i1 %.not105, label %125, label %116
@@ -327,8 +327,7 @@ keymatch.exit126:                                 ; preds = %53
   unreachable
 
 139:                                              ; preds = %129
-  %strlen = tail call i64 @strlen(ptr nonnull dereferenceable(1) %98)
-  %endptr = getelementptr inbounds i8, ptr %98, i64 %strlen
+  %endptr = getelementptr inbounds i8, ptr %98, i64 %114
   store i16 32, ptr %endptr, align 1
   %140 = tail call ptr @strcat(ptr noundef nonnull dereferenceable(1) %98, ptr noundef nonnull dereferenceable(1) %131) #16
   br label %113

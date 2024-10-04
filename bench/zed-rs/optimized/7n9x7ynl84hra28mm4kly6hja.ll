@@ -8540,9 +8540,9 @@ _ZN4core10intrinsics10typed_swap17h7ca4d776d6aa1551E.exit: ; preds = %_ZN4core10
   %35 = trunc i64 %34 to i32
   %36 = sub i32 0, %35
   %37 = icmp slt i32 %29, %36
-  br i1 %37, label %49, label %_ZN18alacritty_terminal5index5Point10grid_clamp17h60e6c6cf779a11caE.llvm.8621876355426791832.exit
+  br i1 %37, label %49, label %_ZN18alacritty_terminal5index5Point10grid_clamp17h60e6c6cf779a11caE.llvm.8621876355426791832.exit10
 
-_ZN18alacritty_terminal5index5Point10grid_clamp17h60e6c6cf779a11caE.llvm.8621876355426791832.exit: ; preds = %_ZN4core10intrinsics10typed_swap17h7ca4d776d6aa1551E.exit
+_ZN18alacritty_terminal5index5Point10grid_clamp17h60e6c6cf779a11caE.llvm.8621876355426791832.exit10: ; preds = %_ZN4core10intrinsics10typed_swap17h7ca4d776d6aa1551E.exit
   %38 = load i64, ptr %10, align 8, !noundef !4
   %39 = load i32, ptr %14, align 8, !noundef !4
   %40 = add i64 %12, -1
@@ -8578,10 +8578,10 @@ _ZN18alacritty_terminal5index5Point10grid_clamp17h60e6c6cf779a11caE.llvm.8621876
   store i8 2, ptr %50, align 8
   br label %134
 
-default.unreachable37:                            ; preds = %_ZN18alacritty_terminal5index5Point10grid_clamp17h60e6c6cf779a11caE.llvm.8621876355426791832.exit
+default.unreachable37:                            ; preds = %_ZN18alacritty_terminal5index5Point10grid_clamp17h60e6c6cf779a11caE.llvm.8621876355426791832.exit10
   unreachable
 
-51:                                               ; preds = %_ZN18alacritty_terminal5index5Point10grid_clamp17h60e6c6cf779a11caE.llvm.8621876355426791832.exit
+51:                                               ; preds = %_ZN18alacritty_terminal5index5Point10grid_clamp17h60e6c6cf779a11caE.llvm.8621876355426791832.exit10
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %8)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %8, ptr noundef nonnull align 8 dereferenceable(24) %10, i64 24, i1 false)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7)
@@ -8591,7 +8591,7 @@ default.unreachable37:                            ; preds = %_ZN18alacritty_term
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8)
   br label %134
 
-52:                                               ; preds = %_ZN18alacritty_terminal5index5Point10grid_clamp17h60e6c6cf779a11caE.llvm.8621876355426791832.exit
+52:                                               ; preds = %_ZN18alacritty_terminal5index5Point10grid_clamp17h60e6c6cf779a11caE.llvm.8621876355426791832.exit10
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull align 8 dereferenceable(24) %10, i64 24, i1 false)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5)
@@ -8601,7 +8601,7 @@ default.unreachable37:                            ; preds = %_ZN18alacritty_term
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6)
   br label %134
 
-53:                                               ; preds = %_ZN18alacritty_terminal5index5Point10grid_clamp17h60e6c6cf779a11caE.llvm.8621876355426791832.exit
+53:                                               ; preds = %_ZN18alacritty_terminal5index5Point10grid_clamp17h60e6c6cf779a11caE.llvm.8621876355426791832.exit10
   %54 = icmp eq i32 %.sroa.6.0.i, %spec.select20
   %55 = icmp eq i64 %.sroa.011.0.i, %spec.select19
   %or.cond.i = and i1 %54, %55
@@ -8670,7 +8670,7 @@ _ZN18alacritty_terminal9selection9Selection14range_semantic17h3a493247a26fd927E.
   store i8 0, ptr %.sroa.1117.0..sroa_idx, align 8
   br label %134
 
-77:                                               ; preds = %_ZN18alacritty_terminal5index5Point10grid_clamp17h60e6c6cf779a11caE.llvm.8621876355426791832.exit
+77:                                               ; preds = %_ZN18alacritty_terminal5index5Point10grid_clamp17h60e6c6cf779a11caE.llvm.8621876355426791832.exit10
   %78 = getelementptr inbounds i8, ptr %2, i64 32
   %79 = load i64, ptr %78, align 8
   %80 = getelementptr inbounds i8, ptr %2, i64 24

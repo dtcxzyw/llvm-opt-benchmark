@@ -6458,7 +6458,7 @@ if.then2:                                         ; preds = %_ZNSt6vectorINSt7__
   br label %_ZTW10infostream.exit
 
 _ZTW10infostream.exit:                            ; preds = %8, %if.then2
-  %9 = tail call noundef align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @infostream)
+  %9 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @infostream)
   %10 = load ptr, ptr %9, align 8, !tbaa !105
   %vtable.i = load ptr, ptr %10, align 8, !tbaa !91
   %11 = load ptr, ptr %vtable.i, align 8

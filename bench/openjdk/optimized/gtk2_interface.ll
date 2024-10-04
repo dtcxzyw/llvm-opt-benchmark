@@ -2296,13 +2296,12 @@ dl_symbol.exit367:                                ; preds = %dl_symbol.exit365
   br i1 %.not90, label %539, label %545
 
 539:                                              ; preds = %537
-  %540 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %533) #21
+  %540 = call i64 @strlen(ptr nonnull dereferenceable(1) %533)
   %541 = icmp ugt i64 %540, 12
   br i1 %541, label %542, label %543
 
 542:                                              ; preds = %539
-  %strlen = call i64 @strlen(ptr nonnull dereferenceable(1) %533)
-  %endptr = getelementptr inbounds i8, ptr %533, i64 %strlen
+  %endptr = getelementptr inbounds i8, ptr %533, i64 %540
   store i16 58, ptr %endptr, align 1
   br label %543
 

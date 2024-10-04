@@ -4279,7 +4279,7 @@ define hidden double @ruby_float_step_size(double noundef %0, double noundef %1,
   br i1 %5, label %60, label %6
 
 6:                                                ; preds = %4
-  %7 = tail call double @llvm.fabs.f64(double %2) #28
+  %7 = tail call double @llvm.fabs.f64(double %2)
   %8 = fcmp oeq double %7, 0x7FF0000000000000
   br i1 %8, label %9, label %14
 
@@ -4364,8 +4364,8 @@ define hidden double @ruby_float_step_size(double noundef %0, double noundef %1,
 54:                                               ; preds = %45
   %55 = fcmp ule double %0, %1
   %56 = fcmp ult double %49, %1
-  %or.cond60 = select i1 %55, i1 true, i1 %56
-  br i1 %or.cond60, label %58, label %57
+  %or.cond61 = select i1 %55, i1 true, i1 %56
+  br i1 %or.cond61, label %58, label %57
 
 57:                                               ; preds = %54
   br label %58
@@ -4470,7 +4470,7 @@ RB_FLOAT_TYPE_P.exit.thread:                      ; preds = %RB_FLOAT_TYPE_P.exi
   br i1 %49, label %ruby_float_step_size.exit.thread, label %50
 
 50:                                               ; preds = %47
-  %51 = tail call double @llvm.fabs.f64(double %39) #28
+  %51 = tail call double @llvm.fabs.f64(double %39)
   %52 = fcmp oeq double %51, 0x7FF0000000000000
   br i1 %52, label %126, label %53
 
@@ -4547,8 +4547,8 @@ RB_FLOAT_TYPE_P.exit.thread:                      ; preds = %RB_FLOAT_TYPE_P.exi
 93:                                               ; preds = %84
   %94 = fcmp ule double %40, %48
   %95 = fcmp ult double %88, %48
-  %or.cond60.i = select i1 %94, i1 true, i1 %95
-  br i1 %or.cond60.i, label %.preheader, label %96
+  %or.cond61.i = select i1 %94, i1 true, i1 %95
+  br i1 %or.cond61.i, label %.preheader, label %96
 
 96:                                               ; preds = %93
   br label %.preheader
@@ -4877,7 +4877,7 @@ RB_FLOAT_TYPE_P.exit.thread:                      ; preds = %RB_FLOAT_TYPE_P.exi
   br i1 %72, label %ruby_float_step_size.exit.thread, label %73
 
 73:                                               ; preds = %RB_FLOAT_TYPE_P.exit.thread
-  %74 = tail call double @llvm.fabs.f64(double %71) #28
+  %74 = tail call double @llvm.fabs.f64(double %71)
   %75 = fcmp oeq double %74, 0x7FF0000000000000
   br i1 %75, label %76, label %81
 
@@ -4962,8 +4962,8 @@ RB_FLOAT_TYPE_P.exit.thread:                      ; preds = %RB_FLOAT_TYPE_P.exi
 121:                                              ; preds = %112
   %122 = fcmp ule double %69, %70
   %123 = fcmp ult double %116, %70
-  %or.cond60.i = select i1 %122, i1 true, i1 %123
-  br i1 %or.cond60.i, label %125, label %124
+  %or.cond61.i = select i1 %122, i1 true, i1 %123
+  br i1 %or.cond61.i, label %125, label %124
 
 124:                                              ; preds = %121
   br label %125

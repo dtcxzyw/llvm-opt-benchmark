@@ -1162,7 +1162,7 @@ if.else.i103:                                     ; preds = %if.end26.i
   br i1 %tobool.not.i.i104, label %check_embedded_repo.exit.i, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %if.else.i103
-  %call.i.i.i.i = call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %name42.i) #15
+  %call.i.i.i.i = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %name42.i) #15
   %cmp.i.i.i.i.i = icmp eq i64 %call.i.i.i.i, 0
   br i1 %cmp.i.i.i.i.i, label %check_embedded_repo.exit.i, label %ends_with.exit.i.i
 
@@ -1174,8 +1174,7 @@ ends_with.exit.i.i:                               ; preds = %if.end.i.i
   br i1 %tobool.not.i.i.i.not.i.i, label %if.end3.i21.i, label %check_embedded_repo.exit.i
 
 if.end3.i21.i:                                    ; preds = %ends_with.exit.i.i
-  %call.i.i.i = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %name42.i) #15
-  call void @strbuf_add(ptr noundef nonnull %name.i.i90, ptr noundef nonnull %name42.i, i64 noundef %call.i.i.i) #12
+  call void @strbuf_add(ptr noundef nonnull %name.i.i90, ptr noundef nonnull %name42.i, i64 noundef %call.i.i.i.i) #12
   %125 = load ptr, ptr %buf.i.i.i, align 8
   %126 = load i64, ptr %len.i.i.i, align 8
   %cmp.i.i.i.i = icmp eq i64 %126, 0

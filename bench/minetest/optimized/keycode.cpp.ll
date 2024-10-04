@@ -1152,7 +1152,7 @@ entry:
   %_M_string_length.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
   store i64 0, ptr %_M_string_length.i.i.i.i, align 8, !tbaa !22
   store i8 0, ptr %0, align 8, !tbaa !21
-  %call = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %name) #24
+  %call = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %name) #25
   %cmp = icmp eq i64 %call, 0
   br i1 %cmp, label %if.then, label %if.end
 
@@ -1230,8 +1230,7 @@ lpad24:                                           ; preds = %catch
   br label %ehcleanup71
 
 if.else:                                          ; preds = %if.end
-  %call.i.i.i85 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %name) #25
-  %call3.i.i86 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_replaceEmmPKcm(ptr noundef nonnull align 8 dereferenceable(32) %m_name, i64 noundef 0, i64 noundef 0, ptr noundef %name, i64 noundef %call.i.i.i85)
+  %call3.i.i86 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_replaceEmmPKcm(ptr noundef nonnull align 8 dereferenceable(32) %m_name, i64 noundef 0, i64 noundef 0, ptr noundef %name, i64 noundef %call)
           to label %for.body.i unwind label %lpad5
 
 for.cond.i:                                       ; preds = %for.body.i

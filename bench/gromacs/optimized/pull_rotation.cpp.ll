@@ -9580,7 +9580,7 @@ _ZL16do_flex_lowlevelP13gmx_enfrotgrpfN3gmx8ArrayRefIKNS1_11BasicVectorIfEEEEbbP
   %1029 = getelementptr inbounds i8, ptr %1028, i64 100
   %1030 = load float, ptr %1029, align 4
   %1031 = fadd float %1030, %1027
-  %sqrt.i46.i.i = tail call noundef float @llvm.sqrt.f32(float %1027)
+  %sqrt.i46.i.i = tail call float @llvm.sqrt.f32(float %1027)
   %1032 = fdiv float 1.000000e+00, %sqrt.i46.i.i
   %1033 = fmul float %1017, %1032
   %1034 = fmul float %1021, %1032
@@ -10011,7 +10011,7 @@ _ZL18shift_single_coordPA3_KfPfPKi.exit.i84:      ; preds = %1191, %._crit_edge.
 
 .loopexit.i90:                                    ; preds = %.lr.ph.i94, %.preheader.i93, %1277
   %1374 = phi ptr [ %1293, %.preheader.i93 ], [ %1293, %1277 ], [ %1369, %.lr.ph.i94 ]
-  %sqrt.i143.i = tail call noundef float @llvm.sqrt.f32(float %1292)
+  %sqrt.i143.i = tail call float @llvm.sqrt.f32(float %1292)
   %1375 = fdiv float 1.000000e+00, %sqrt.i143.i
   %1376 = fmul float %1282, %1375
   %1377 = fmul float %1286, %1375

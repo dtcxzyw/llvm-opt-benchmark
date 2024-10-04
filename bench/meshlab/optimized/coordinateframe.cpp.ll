@@ -1731,7 +1731,7 @@ define void @_ZN3vcg22MovableCoordinateFrame9AlignWithENS_6Point3IfEES2_cc(ptr n
   %8 = fmul float %.sroa.0378.4.vec.extract, %.sroa.0378.4.vec.extract
   %9 = tail call float @llvm.fmuladd.f32(float %.sroa.0378.0.vec.extract, float %.sroa.0378.0.vec.extract, float %8)
   %10 = tail call float @llvm.fmuladd.f32(float %2, float %2, float %9)
-  %sqrt.i = tail call noundef float @llvm.sqrt.f32(float %10)
+  %sqrt.i = tail call float @llvm.sqrt.f32(float %10)
   %11 = getelementptr inbounds i8, ptr %0, i64 24
   %12 = load float, ptr %11, align 8
   %13 = fmul float %12, 0x3EB0C6F7A0000000
@@ -2074,7 +2074,7 @@ _ZN3vcg6Point3IfE9NormalizeEv.exit:               ; preds = %15, %17
   %255 = fmul float %190, %190
   %256 = tail call float @llvm.fmuladd.f32(float %189, float %189, float %255)
   %257 = tail call float @llvm.fmuladd.f32(float %191, float %191, float %256)
-  %sqrt.i211 = tail call noundef float @llvm.sqrt.f32(float %257)
+  %sqrt.i211 = tail call float @llvm.sqrt.f32(float %257)
   %258 = fcmp ogt float %sqrt.i211, 0x3EB0C6F7A0000000
   br i1 %258, label %259, label %265
 
@@ -2100,7 +2100,7 @@ _ZN3vcg6Point3IfE9NormalizeEv.exit213:            ; preds = %259, %261
   %266 = fmul float %130, %130
   %267 = tail call float @llvm.fmuladd.f32(float %129, float %129, float %266)
   %268 = tail call float @llvm.fmuladd.f32(float %131, float %131, float %267)
-  %sqrt.i214 = tail call noundef float @llvm.sqrt.f32(float %268)
+  %sqrt.i214 = tail call float @llvm.sqrt.f32(float %268)
   %269 = fcmp ogt float %sqrt.i214, 0x3EB0C6F7A0000000
   br i1 %269, label %270, label %276
 

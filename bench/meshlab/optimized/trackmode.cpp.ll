@@ -1074,7 +1074,7 @@ _ZN3vcg10trackutils12GetViewPlaneERKNS_4ViewIfEERKNS_6Point3IfEE.exit: ; preds =
   %74 = fmul float %72, %72
   %75 = tail call float @llvm.fmuladd.f32(float %71, float %71, float %74)
   %76 = tail call float @llvm.fmuladd.f32(float %73, float %73, float %75)
-  %sqrt.i = tail call noundef float @llvm.sqrt.f32(float %76)
+  %sqrt.i = tail call float @llvm.sqrt.f32(float %76)
   %77 = fcmp olt float %sqrt.i, 0x3F747AE140000000
   br i1 %77, label %78, label %90
 

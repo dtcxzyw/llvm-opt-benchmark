@@ -32095,39 +32095,39 @@ _ZN4llvm16dyn_cast_or_nullIN5clang14BinaryOperatorEKNS1_4ExprEEEDaPT0_.exit.i: ;
 
 _ZN4llvm16dyn_cast_or_nullIN5clang14BinaryOperatorEKNS1_4ExprEEEDaPT0_.exit.thread.i: ; preds = %.lr.ph, %_ZN4llvm16dyn_cast_or_nullIN5clang14BinaryOperatorEKNS1_4ExprEEEDaPT0_.exit.i, %.lr.ph.i, %_ZN4llvm16dyn_cast_or_nullIN5clang14BinaryOperatorEKNS1_4ExprEEEDaPT0_.exit.i.preheader
   %.0.lcssa.i = phi ptr [ %7, %_ZN4llvm16dyn_cast_or_nullIN5clang14BinaryOperatorEKNS1_4ExprEEEDaPT0_.exit.i.preheader ], [ %33, %.lr.ph.i ], [ %33, %_ZN4llvm16dyn_cast_or_nullIN5clang14BinaryOperatorEKNS1_4ExprEEEDaPT0_.exit.i ], [ %33, %.lr.ph ]
+  %.lcssa.i = phi ptr [ %20, %_ZN4llvm16dyn_cast_or_nullIN5clang14BinaryOperatorEKNS1_4ExprEEEDaPT0_.exit.i.preheader ], [ null, %.lr.ph ], [ %34, %_ZN4llvm16dyn_cast_or_nullIN5clang14BinaryOperatorEKNS1_4ExprEEEDaPT0_.exit.i ], [ %34, %.lr.ph.i ]
   %.not9.i = icmp eq ptr %.0.lcssa.i, %7
   br i1 %.not9.i, label %"_ZZN5clangL16canExprResolveToEPKNS_4ExprES2_ENK3$_3clIZNS_L16canExprResolveToES2_S2_E3$_2EEDaS2_T_.exit", label %35
 
 35:                                               ; preds = %_ZN4llvm16dyn_cast_or_nullIN5clang14BinaryOperatorEKNS1_4ExprEEEDaPT0_.exit.thread.i
-  %36 = call noundef ptr @_ZN5clang4Expr12IgnoreParensEv(ptr noundef nonnull readonly align 8 dereferenceable(16) %.0.lcssa.i) #19
-  %37 = icmp eq ptr %36, %1
-  br i1 %37, label %"_ZZN5clangL16canExprResolveToEPKNS_4ExprES2_ENK3$_3clIZNS_L16canExprResolveToES2_S2_E3$_2EEDaS2_T_.exit", label %38
+  %36 = icmp eq ptr %.lcssa.i, %1
+  br i1 %36, label %"_ZZN5clangL16canExprResolveToEPKNS_4ExprES2_ENK3$_3clIZNS_L16canExprResolveToES2_S2_E3$_2EEDaS2_T_.exit", label %37
 
-38:                                               ; preds = %35
-  %39 = load i8, ptr %36, align 8
-  %.not.i.i10.i = icmp eq i8 %39, 79
-  br i1 %.not.i.i10.i, label %40, label %48
+37:                                               ; preds = %35
+  %38 = load i8, ptr %.lcssa.i, align 8
+  %.not.i.i10.i = icmp eq i8 %38, 79
+  br i1 %.not.i.i10.i, label %39, label %47
 
-40:                                               ; preds = %38
-  %41 = load i32, ptr %36, align 8
-  %42 = lshr i32 %41, 18
-  %43 = and i32 %42, 127
-  %.off.i.i.i = add nsw i32 %43, -7
+39:                                               ; preds = %37
+  %40 = load i32, ptr %.lcssa.i, align 8
+  %41 = lshr i32 %40, 18
+  %42 = and i32 %41, 127
+  %.off.i.i.i = add nsw i32 %42, -7
   %switch.i.i.i = icmp ult i32 %.off.i.i.i, 2
-  br i1 %switch.i.i.i, label %44, label %48
+  br i1 %switch.i.i.i, label %43, label %47
 
-44:                                               ; preds = %40
-  %45 = getelementptr inbounds nuw i8, ptr %36, i64 16
-  %46 = load ptr, ptr %45, align 8
-  %47 = icmp eq ptr %46, %1
-  br i1 %47, label %"_ZZN5clangL16canExprResolveToEPKNS_4ExprES2_ENK3$_3clIZNS_L16canExprResolveToES2_S2_E3$_2EEDaS2_T_.exit", label %48
+43:                                               ; preds = %39
+  %44 = getelementptr inbounds nuw i8, ptr %.lcssa.i, i64 16
+  %45 = load ptr, ptr %44, align 8
+  %46 = icmp eq ptr %45, %1
+  br i1 %46, label %"_ZZN5clangL16canExprResolveToEPKNS_4ExprES2_ENK3$_3clIZNS_L16canExprResolveToES2_S2_E3$_2EEDaS2_T_.exit", label %47
 
-48:                                               ; preds = %44, %40, %38
+47:                                               ; preds = %43, %39, %37
   br label %"_ZZN5clangL16canExprResolveToEPKNS_4ExprES2_ENK3$_3clIZNS_L16canExprResolveToES2_S2_E3$_2EEDaS2_T_.exit"
 
-"_ZZN5clangL16canExprResolveToEPKNS_4ExprES2_ENK3$_3clIZNS_L16canExprResolveToES2_S2_E3$_2EEDaS2_T_.exit": ; preds = %.lr.ph.i.preheader, %48, %44, %35, %_ZN4llvm16dyn_cast_or_nullIN5clang14BinaryOperatorEKNS1_4ExprEEEDaPT0_.exit.thread.i, %19, %"_ZZN5clangL16canExprResolveToEPKNS_4ExprES2_ENK3$_0clIZNS_L16canExprResolveToES2_S2_E3$_1EEDaS2_T_.exit.thread"
-  %49 = phi i1 [ true, %"_ZZN5clangL16canExprResolveToEPKNS_4ExprES2_ENK3$_0clIZNS_L16canExprResolveToES2_S2_E3$_1EEDaS2_T_.exit.thread" ], [ false, %_ZN4llvm16dyn_cast_or_nullIN5clang14BinaryOperatorEKNS1_4ExprEEEDaPT0_.exit.thread.i ], [ false, %48 ], [ true, %35 ], [ true, %44 ], [ false, %19 ], [ false, %.lr.ph.i.preheader ]
-  ret i1 %49
+"_ZZN5clangL16canExprResolveToEPKNS_4ExprES2_ENK3$_3clIZNS_L16canExprResolveToES2_S2_E3$_2EEDaS2_T_.exit": ; preds = %.lr.ph.i.preheader, %47, %43, %35, %_ZN4llvm16dyn_cast_or_nullIN5clang14BinaryOperatorEKNS1_4ExprEEEDaPT0_.exit.thread.i, %19, %"_ZZN5clangL16canExprResolveToEPKNS_4ExprES2_ENK3$_0clIZNS_L16canExprResolveToES2_S2_E3$_1EEDaS2_T_.exit.thread"
+  %48 = phi i1 [ true, %"_ZZN5clangL16canExprResolveToEPKNS_4ExprES2_ENK3$_0clIZNS_L16canExprResolveToES2_S2_E3$_1EEDaS2_T_.exit.thread" ], [ false, %_ZN4llvm16dyn_cast_or_nullIN5clang14BinaryOperatorEKNS1_4ExprEEEDaPT0_.exit.thread.i ], [ false, %47 ], [ true, %35 ], [ true, %43 ], [ false, %19 ], [ false, %.lr.ph.i.preheader ]
+  ret i1 %48
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read) uwtable

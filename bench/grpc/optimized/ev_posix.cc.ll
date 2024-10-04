@@ -821,16 +821,14 @@ land.lhs.true.i.i:                                ; preds = %for.body.i.i
   br i1 %cmp.i2.i.i.i, label %land.rhs.i3.i.i.i, label %for.inc.i.i
 
 land.rhs.i3.i.i.i:                                ; preds = %land.lhs.true.i.i
-  %bcmp.i6.i.i.i = call i32 @bcmp(ptr readonly %trial.sroa.2.0.copyload.i, ptr readonly %19, i64 %engine.coerce0.fr.i.i)
+  %bcmp.i6.i.i.i = call i32 @bcmp(ptr readonly %trial.sroa.2.0.copyload.i, ptr %19, i64 %engine.coerce0.fr.i.i)
   %cmp.i.i7.i.i.i = icmp eq i32 %bcmp.i6.i.i.i, 0
   br i1 %cmp.i.i7.i.i.i, label %_ZSteqIcSt11char_traitsIcEEbSt17basic_string_viewIT_T0_ENSt15__type_identityIS5_E4typeE.exit.i.i, label %for.inc.i.i
 
 _ZSteqIcSt11char_traitsIcEEbSt17basic_string_viewIT_T0_ENSt15__type_identityIS5_E4typeE.exit.i.i: ; preds = %land.rhs.i3.i.i.i
   %check_engine_available.i.i = getelementptr inbounds i8, ptr %18, i64 232
   %20 = load ptr, ptr %check_engine_available.i.i, align 8
-  %bcmp.i.i.i = call i32 @bcmp(ptr readonly %trial.sroa.2.0.copyload.i, ptr %19, i64 %engine.coerce0.fr.i.i)
-  %cmp.i.i10.i.i = icmp eq i32 %bcmp.i.i.i, 0
-  %call11.i.i = call noundef zeroext i1 %20(i1 noundef zeroext %cmp.i.i10.i.i)
+  %call11.i.i = call noundef zeroext i1 %20(i1 noundef zeroext true)
   br i1 %call11.i.i, label %if.then.i.i, label %for.inc.i.i
 
 if.then.i.i:                                      ; preds = %land.rhs.i3.i.us.i.i, %_ZSteqIcSt11char_traitsIcEEbSt17basic_string_viewIT_T0_ENSt15__type_identityIS5_E4typeE.exit.us.i.i, %_ZSteqIcSt11char_traitsIcEEbSt17basic_string_viewIT_T0_ENSt15__type_identityIS5_E4typeE.exit.i.i

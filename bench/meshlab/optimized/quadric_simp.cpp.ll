@@ -45208,7 +45208,7 @@ define linkonce_odr noundef float @_ZN3vcg3tri25TriEdgeCollapseQuadricTexI6CMesh
   %163 = fmul float %159, %159
   %164 = tail call float @llvm.fmuladd.f32(float %156, float %156, float %163)
   %165 = tail call float @llvm.fmuladd.f32(float %162, float %162, float %164)
-  %sqrt.i.i.i.i = tail call noundef float @llvm.sqrt.f32(float %165)
+  %sqrt.i.i.i.i = tail call float @llvm.sqrt.f32(float %165)
   %166 = fcmp oeq float %165, 0.000000e+00
   br i1 %166, label %_ZN3vcg11QualityFaceI6CFaceOEENT_10ScalarTypeERKS2_.exit, label %167
 
@@ -45389,7 +45389,7 @@ _ZN3vcg6Point3IfE9NormalizeEv.exit:               ; preds = %186, %188
   %282 = fmul float %278, %278
   %283 = tail call float @llvm.fmuladd.f32(float %275, float %275, float %282)
   %284 = tail call float @llvm.fmuladd.f32(float %281, float %281, float %283)
-  %sqrt.i.i.i.i80 = tail call noundef float @llvm.sqrt.f32(float %284)
+  %sqrt.i.i.i.i80 = tail call float @llvm.sqrt.f32(float %284)
   %285 = fcmp oeq float %284, 0.000000e+00
   br i1 %285, label %_ZN3vcg11QualityFaceI6CFaceOEENT_10ScalarTypeERKS2_.exit84, label %286
 

@@ -18896,23 +18896,19 @@ call.i.noexc:                                     ; preds = %for.body
           to label %call1.i.noexc unwind label %lpad.loopexit
 
 call1.i.noexc:                                    ; preds = %call.i.noexc
-  %.pre7.i = load double, ptr %dest.i, align 8
+  %.pre8.i = load double, ptr %dest.i, align 8
   br i1 %call1.i17, label %land.lhs.true.i, label %invoke.cont14
 
 land.lhs.true.i:                                  ; preds = %call1.i.noexc
-  %2 = call double @llvm.fabs.f64(double %.pre7.i)
+  %2 = call double @llvm.fabs.f64(double %.pre8.i)
   %cmp.i14 = fcmp oeq double %2, 0x10000000000000
   br i1 %cmp.i14, label %if.then.i15, label %lor.lhs.false.i
 
 lor.lhs.false.i:                                  ; preds = %land.lhs.true.i
-  %or.cond.i = fcmp ueq double %.pre7.i, 0.000000e+00
-  br i1 %or.cond.i, label %invoke.cont14, label %fpclassify_not_nan.i.i
-
-fpclassify_not_nan.i.i:                           ; preds = %lor.lhs.false.i
-  %or.cond6.i = call i1 @llvm.is.fpclass.f64(double %.pre7.i, i32 780)
+  %or.cond6.i = call i1 @llvm.is.fpclass.f64(double %.pre8.i, i32 879)
   br i1 %or.cond6.i, label %invoke.cont14, label %if.then.i15
 
-if.then.i15:                                      ; preds = %fpclassify_not_nan.i.i, %land.lhs.true.i
+if.then.i15:                                      ; preds = %lor.lhs.false.i, %land.lhs.true.i
   %vtable5.i = load ptr, ptr %is, align 8
   %vbase.offset.ptr6.i = getelementptr i8, ptr %vtable5.i, i64 -24
   %vbase.offset7.i = load i64, ptr %vbase.offset.ptr6.i, align 8
@@ -18929,8 +18925,8 @@ call13.i.noexc:                                   ; preds = %if.then.i15
   %.pre.i = load double, ptr %dest.i, align 8
   br label %invoke.cont14
 
-invoke.cont14:                                    ; preds = %.noexc19, %fpclassify_not_nan.i.i, %lor.lhs.false.i, %call1.i.noexc
-  %3 = phi double [ %.pre7.i, %fpclassify_not_nan.i.i ], [ %.pre7.i, %lor.lhs.false.i ], [ %.pre.i, %.noexc19 ], [ %.pre7.i, %call1.i.noexc ]
+invoke.cont14:                                    ; preds = %.noexc19, %lor.lhs.false.i, %call1.i.noexc
+  %3 = phi double [ %.pre8.i, %lor.lhs.false.i ], [ %.pre.i, %.noexc19 ], [ %.pre8.i, %call1.i.noexc ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %dest.i)
   %vtable16 = load ptr, ptr %is, align 8
   %vbase.offset.ptr17 = getelementptr i8, ptr %vtable16, i64 -24
@@ -23960,23 +23956,19 @@ call.i.noexc:                                     ; preds = %for.body
           to label %call1.i.noexc unwind label %lpad.loopexit
 
 call1.i.noexc:                                    ; preds = %call.i.noexc
-  %.pre7.i = load double, ptr %dest.i, align 8
+  %.pre8.i = load double, ptr %dest.i, align 8
   br i1 %call1.i17, label %land.lhs.true.i, label %invoke.cont14
 
 land.lhs.true.i:                                  ; preds = %call1.i.noexc
-  %2 = call double @llvm.fabs.f64(double %.pre7.i)
+  %2 = call double @llvm.fabs.f64(double %.pre8.i)
   %cmp.i14 = fcmp oeq double %2, 0x10000000000000
   br i1 %cmp.i14, label %if.then.i15, label %lor.lhs.false.i
 
 lor.lhs.false.i:                                  ; preds = %land.lhs.true.i
-  %or.cond.i = fcmp ueq double %.pre7.i, 0.000000e+00
-  br i1 %or.cond.i, label %invoke.cont14, label %fpclassify_not_nan.i.i
-
-fpclassify_not_nan.i.i:                           ; preds = %lor.lhs.false.i
-  %or.cond6.i = call i1 @llvm.is.fpclass.f64(double %.pre7.i, i32 780)
+  %or.cond6.i = call i1 @llvm.is.fpclass.f64(double %.pre8.i, i32 879)
   br i1 %or.cond6.i, label %invoke.cont14, label %if.then.i15
 
-if.then.i15:                                      ; preds = %fpclassify_not_nan.i.i, %land.lhs.true.i
+if.then.i15:                                      ; preds = %lor.lhs.false.i, %land.lhs.true.i
   %vtable5.i = load ptr, ptr %is, align 8
   %vbase.offset.ptr6.i = getelementptr i8, ptr %vtable5.i, i64 -24
   %vbase.offset7.i = load i64, ptr %vbase.offset.ptr6.i, align 8
@@ -23993,8 +23985,8 @@ call13.i.noexc:                                   ; preds = %if.then.i15
   %.pre.i = load double, ptr %dest.i, align 8
   br label %invoke.cont14
 
-invoke.cont14:                                    ; preds = %.noexc19, %fpclassify_not_nan.i.i, %lor.lhs.false.i, %call1.i.noexc
-  %3 = phi double [ %.pre7.i, %fpclassify_not_nan.i.i ], [ %.pre7.i, %lor.lhs.false.i ], [ %.pre.i, %.noexc19 ], [ %.pre7.i, %call1.i.noexc ]
+invoke.cont14:                                    ; preds = %.noexc19, %lor.lhs.false.i, %call1.i.noexc
+  %3 = phi double [ %.pre8.i, %lor.lhs.false.i ], [ %.pre.i, %.noexc19 ], [ %.pre8.i, %call1.i.noexc ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %dest.i)
   %vtable16 = load ptr, ptr %is, align 8
   %vbase.offset.ptr17 = getelementptr i8, ptr %vtable16, i64 -24
@@ -26510,23 +26502,19 @@ call.i.noexc:                                     ; preds = %for.body
           to label %call1.i.noexc unwind label %lpad.loopexit
 
 call1.i.noexc:                                    ; preds = %call.i.noexc
-  %.pre7.i = load double, ptr %dest.i, align 8
+  %.pre8.i = load double, ptr %dest.i, align 8
   br i1 %call1.i17, label %land.lhs.true.i, label %invoke.cont14
 
 land.lhs.true.i:                                  ; preds = %call1.i.noexc
-  %2 = call double @llvm.fabs.f64(double %.pre7.i)
+  %2 = call double @llvm.fabs.f64(double %.pre8.i)
   %cmp.i14 = fcmp oeq double %2, 0x10000000000000
   br i1 %cmp.i14, label %if.then.i15, label %lor.lhs.false.i
 
 lor.lhs.false.i:                                  ; preds = %land.lhs.true.i
-  %or.cond.i = fcmp ueq double %.pre7.i, 0.000000e+00
-  br i1 %or.cond.i, label %invoke.cont14, label %fpclassify_not_nan.i.i
-
-fpclassify_not_nan.i.i:                           ; preds = %lor.lhs.false.i
-  %or.cond6.i = call i1 @llvm.is.fpclass.f64(double %.pre7.i, i32 780)
+  %or.cond6.i = call i1 @llvm.is.fpclass.f64(double %.pre8.i, i32 879)
   br i1 %or.cond6.i, label %invoke.cont14, label %if.then.i15
 
-if.then.i15:                                      ; preds = %fpclassify_not_nan.i.i, %land.lhs.true.i
+if.then.i15:                                      ; preds = %lor.lhs.false.i, %land.lhs.true.i
   %vtable5.i = load ptr, ptr %is, align 8
   %vbase.offset.ptr6.i = getelementptr i8, ptr %vtable5.i, i64 -24
   %vbase.offset7.i = load i64, ptr %vbase.offset.ptr6.i, align 8
@@ -26543,8 +26531,8 @@ call13.i.noexc:                                   ; preds = %if.then.i15
   %.pre.i = load double, ptr %dest.i, align 8
   br label %invoke.cont14
 
-invoke.cont14:                                    ; preds = %.noexc19, %fpclassify_not_nan.i.i, %lor.lhs.false.i, %call1.i.noexc
-  %3 = phi double [ %.pre7.i, %fpclassify_not_nan.i.i ], [ %.pre7.i, %lor.lhs.false.i ], [ %.pre.i, %.noexc19 ], [ %.pre7.i, %call1.i.noexc ]
+invoke.cont14:                                    ; preds = %.noexc19, %lor.lhs.false.i, %call1.i.noexc
+  %3 = phi double [ %.pre8.i, %lor.lhs.false.i ], [ %.pre.i, %.noexc19 ], [ %.pre8.i, %call1.i.noexc ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %dest.i)
   %vtable16 = load ptr, ptr %is, align 8
   %vbase.offset.ptr17 = getelementptr i8, ptr %vtable16, i64 -24
@@ -29060,23 +29048,19 @@ call.i.noexc:                                     ; preds = %for.body
           to label %call1.i.noexc unwind label %lpad.loopexit
 
 call1.i.noexc:                                    ; preds = %call.i.noexc
-  %.pre7.i = load double, ptr %dest.i, align 8
+  %.pre8.i = load double, ptr %dest.i, align 8
   br i1 %call1.i17, label %land.lhs.true.i, label %invoke.cont14
 
 land.lhs.true.i:                                  ; preds = %call1.i.noexc
-  %2 = call double @llvm.fabs.f64(double %.pre7.i)
+  %2 = call double @llvm.fabs.f64(double %.pre8.i)
   %cmp.i14 = fcmp oeq double %2, 0x10000000000000
   br i1 %cmp.i14, label %if.then.i15, label %lor.lhs.false.i
 
 lor.lhs.false.i:                                  ; preds = %land.lhs.true.i
-  %or.cond.i = fcmp ueq double %.pre7.i, 0.000000e+00
-  br i1 %or.cond.i, label %invoke.cont14, label %fpclassify_not_nan.i.i
-
-fpclassify_not_nan.i.i:                           ; preds = %lor.lhs.false.i
-  %or.cond6.i = call i1 @llvm.is.fpclass.f64(double %.pre7.i, i32 780)
+  %or.cond6.i = call i1 @llvm.is.fpclass.f64(double %.pre8.i, i32 879)
   br i1 %or.cond6.i, label %invoke.cont14, label %if.then.i15
 
-if.then.i15:                                      ; preds = %fpclassify_not_nan.i.i, %land.lhs.true.i
+if.then.i15:                                      ; preds = %lor.lhs.false.i, %land.lhs.true.i
   %vtable5.i = load ptr, ptr %is, align 8
   %vbase.offset.ptr6.i = getelementptr i8, ptr %vtable5.i, i64 -24
   %vbase.offset7.i = load i64, ptr %vbase.offset.ptr6.i, align 8
@@ -29093,8 +29077,8 @@ call13.i.noexc:                                   ; preds = %if.then.i15
   %.pre.i = load double, ptr %dest.i, align 8
   br label %invoke.cont14
 
-invoke.cont14:                                    ; preds = %.noexc19, %fpclassify_not_nan.i.i, %lor.lhs.false.i, %call1.i.noexc
-  %3 = phi double [ %.pre7.i, %fpclassify_not_nan.i.i ], [ %.pre7.i, %lor.lhs.false.i ], [ %.pre.i, %.noexc19 ], [ %.pre7.i, %call1.i.noexc ]
+invoke.cont14:                                    ; preds = %.noexc19, %lor.lhs.false.i, %call1.i.noexc
+  %3 = phi double [ %.pre8.i, %lor.lhs.false.i ], [ %.pre.i, %.noexc19 ], [ %.pre8.i, %call1.i.noexc ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %dest.i)
   %vtable16 = load ptr, ptr %is, align 8
   %vbase.offset.ptr17 = getelementptr i8, ptr %vtable16, i64 -24
@@ -31474,23 +31458,19 @@ call.i.noexc:                                     ; preds = %for.body
           to label %call1.i.noexc unwind label %lpad.loopexit
 
 call1.i.noexc:                                    ; preds = %call.i.noexc
-  %.pre7.i = load double, ptr %dest.i, align 8
+  %.pre8.i = load double, ptr %dest.i, align 8
   br i1 %call1.i17, label %land.lhs.true.i, label %invoke.cont14
 
 land.lhs.true.i:                                  ; preds = %call1.i.noexc
-  %2 = call double @llvm.fabs.f64(double %.pre7.i)
+  %2 = call double @llvm.fabs.f64(double %.pre8.i)
   %cmp.i14 = fcmp oeq double %2, 0x10000000000000
   br i1 %cmp.i14, label %if.then.i15, label %lor.lhs.false.i
 
 lor.lhs.false.i:                                  ; preds = %land.lhs.true.i
-  %or.cond.i = fcmp ueq double %.pre7.i, 0.000000e+00
-  br i1 %or.cond.i, label %invoke.cont14, label %fpclassify_not_nan.i.i
-
-fpclassify_not_nan.i.i:                           ; preds = %lor.lhs.false.i
-  %or.cond6.i = call i1 @llvm.is.fpclass.f64(double %.pre7.i, i32 780)
+  %or.cond6.i = call i1 @llvm.is.fpclass.f64(double %.pre8.i, i32 879)
   br i1 %or.cond6.i, label %invoke.cont14, label %if.then.i15
 
-if.then.i15:                                      ; preds = %fpclassify_not_nan.i.i, %land.lhs.true.i
+if.then.i15:                                      ; preds = %lor.lhs.false.i, %land.lhs.true.i
   %vtable5.i = load ptr, ptr %is, align 8
   %vbase.offset.ptr6.i = getelementptr i8, ptr %vtable5.i, i64 -24
   %vbase.offset7.i = load i64, ptr %vbase.offset.ptr6.i, align 8
@@ -31507,8 +31487,8 @@ call13.i.noexc:                                   ; preds = %if.then.i15
   %.pre.i = load double, ptr %dest.i, align 8
   br label %invoke.cont14
 
-invoke.cont14:                                    ; preds = %.noexc19, %fpclassify_not_nan.i.i, %lor.lhs.false.i, %call1.i.noexc
-  %3 = phi double [ %.pre7.i, %fpclassify_not_nan.i.i ], [ %.pre7.i, %lor.lhs.false.i ], [ %.pre.i, %.noexc19 ], [ %.pre7.i, %call1.i.noexc ]
+invoke.cont14:                                    ; preds = %.noexc19, %lor.lhs.false.i, %call1.i.noexc
+  %3 = phi double [ %.pre8.i, %lor.lhs.false.i ], [ %.pre.i, %.noexc19 ], [ %.pre8.i, %call1.i.noexc ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %dest.i)
   %vtable16 = load ptr, ptr %is, align 8
   %vbase.offset.ptr17 = getelementptr i8, ptr %vtable16, i64 -24
@@ -33871,23 +33851,19 @@ call.i.noexc:                                     ; preds = %for.body
           to label %call1.i.noexc unwind label %lpad.loopexit
 
 call1.i.noexc:                                    ; preds = %call.i.noexc
-  %.pre7.i = load double, ptr %dest.i, align 8
+  %.pre8.i = load double, ptr %dest.i, align 8
   br i1 %call1.i17, label %land.lhs.true.i, label %invoke.cont14
 
 land.lhs.true.i:                                  ; preds = %call1.i.noexc
-  %2 = call double @llvm.fabs.f64(double %.pre7.i)
+  %2 = call double @llvm.fabs.f64(double %.pre8.i)
   %cmp.i14 = fcmp oeq double %2, 0x10000000000000
   br i1 %cmp.i14, label %if.then.i15, label %lor.lhs.false.i
 
 lor.lhs.false.i:                                  ; preds = %land.lhs.true.i
-  %or.cond.i = fcmp ueq double %.pre7.i, 0.000000e+00
-  br i1 %or.cond.i, label %invoke.cont14, label %fpclassify_not_nan.i.i
-
-fpclassify_not_nan.i.i:                           ; preds = %lor.lhs.false.i
-  %or.cond6.i = call i1 @llvm.is.fpclass.f64(double %.pre7.i, i32 780)
+  %or.cond6.i = call i1 @llvm.is.fpclass.f64(double %.pre8.i, i32 879)
   br i1 %or.cond6.i, label %invoke.cont14, label %if.then.i15
 
-if.then.i15:                                      ; preds = %fpclassify_not_nan.i.i, %land.lhs.true.i
+if.then.i15:                                      ; preds = %lor.lhs.false.i, %land.lhs.true.i
   %vtable5.i = load ptr, ptr %is, align 8
   %vbase.offset.ptr6.i = getelementptr i8, ptr %vtable5.i, i64 -24
   %vbase.offset7.i = load i64, ptr %vbase.offset.ptr6.i, align 8
@@ -33904,8 +33880,8 @@ call13.i.noexc:                                   ; preds = %if.then.i15
   %.pre.i = load double, ptr %dest.i, align 8
   br label %invoke.cont14
 
-invoke.cont14:                                    ; preds = %.noexc19, %fpclassify_not_nan.i.i, %lor.lhs.false.i, %call1.i.noexc
-  %3 = phi double [ %.pre7.i, %fpclassify_not_nan.i.i ], [ %.pre7.i, %lor.lhs.false.i ], [ %.pre.i, %.noexc19 ], [ %.pre7.i, %call1.i.noexc ]
+invoke.cont14:                                    ; preds = %.noexc19, %lor.lhs.false.i, %call1.i.noexc
+  %3 = phi double [ %.pre8.i, %lor.lhs.false.i ], [ %.pre.i, %.noexc19 ], [ %.pre8.i, %call1.i.noexc ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %dest.i)
   %vtable16 = load ptr, ptr %is, align 8
   %vbase.offset.ptr17 = getelementptr i8, ptr %vtable16, i64 -24
@@ -36371,23 +36347,19 @@ call.i.noexc:                                     ; preds = %for.body
           to label %call1.i.noexc unwind label %lpad.loopexit
 
 call1.i.noexc:                                    ; preds = %call.i.noexc
-  %.pre7.i = load double, ptr %dest.i, align 8
+  %.pre8.i = load double, ptr %dest.i, align 8
   br i1 %call1.i17, label %land.lhs.true.i, label %invoke.cont14
 
 land.lhs.true.i:                                  ; preds = %call1.i.noexc
-  %2 = call double @llvm.fabs.f64(double %.pre7.i)
+  %2 = call double @llvm.fabs.f64(double %.pre8.i)
   %cmp.i14 = fcmp oeq double %2, 0x10000000000000
   br i1 %cmp.i14, label %if.then.i15, label %lor.lhs.false.i
 
 lor.lhs.false.i:                                  ; preds = %land.lhs.true.i
-  %or.cond.i = fcmp ueq double %.pre7.i, 0.000000e+00
-  br i1 %or.cond.i, label %invoke.cont14, label %fpclassify_not_nan.i.i
-
-fpclassify_not_nan.i.i:                           ; preds = %lor.lhs.false.i
-  %or.cond6.i = call i1 @llvm.is.fpclass.f64(double %.pre7.i, i32 780)
+  %or.cond6.i = call i1 @llvm.is.fpclass.f64(double %.pre8.i, i32 879)
   br i1 %or.cond6.i, label %invoke.cont14, label %if.then.i15
 
-if.then.i15:                                      ; preds = %fpclassify_not_nan.i.i, %land.lhs.true.i
+if.then.i15:                                      ; preds = %lor.lhs.false.i, %land.lhs.true.i
   %vtable5.i = load ptr, ptr %is, align 8
   %vbase.offset.ptr6.i = getelementptr i8, ptr %vtable5.i, i64 -24
   %vbase.offset7.i = load i64, ptr %vbase.offset.ptr6.i, align 8
@@ -36404,8 +36376,8 @@ call13.i.noexc:                                   ; preds = %if.then.i15
   %.pre.i = load double, ptr %dest.i, align 8
   br label %invoke.cont14
 
-invoke.cont14:                                    ; preds = %.noexc19, %fpclassify_not_nan.i.i, %lor.lhs.false.i, %call1.i.noexc
-  %3 = phi double [ %.pre7.i, %fpclassify_not_nan.i.i ], [ %.pre7.i, %lor.lhs.false.i ], [ %.pre.i, %.noexc19 ], [ %.pre7.i, %call1.i.noexc ]
+invoke.cont14:                                    ; preds = %.noexc19, %lor.lhs.false.i, %call1.i.noexc
+  %3 = phi double [ %.pre8.i, %lor.lhs.false.i ], [ %.pre.i, %.noexc19 ], [ %.pre8.i, %call1.i.noexc ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %dest.i)
   %vtable16 = load ptr, ptr %is, align 8
   %vbase.offset.ptr17 = getelementptr i8, ptr %vtable16, i64 -24
@@ -38768,23 +38740,19 @@ call.i.noexc:                                     ; preds = %for.body
           to label %call1.i.noexc unwind label %lpad.loopexit
 
 call1.i.noexc:                                    ; preds = %call.i.noexc
-  %.pre7.i = load double, ptr %dest.i, align 8
+  %.pre8.i = load double, ptr %dest.i, align 8
   br i1 %call1.i17, label %land.lhs.true.i, label %invoke.cont14
 
 land.lhs.true.i:                                  ; preds = %call1.i.noexc
-  %2 = call double @llvm.fabs.f64(double %.pre7.i)
+  %2 = call double @llvm.fabs.f64(double %.pre8.i)
   %cmp.i14 = fcmp oeq double %2, 0x10000000000000
   br i1 %cmp.i14, label %if.then.i15, label %lor.lhs.false.i
 
 lor.lhs.false.i:                                  ; preds = %land.lhs.true.i
-  %or.cond.i = fcmp ueq double %.pre7.i, 0.000000e+00
-  br i1 %or.cond.i, label %invoke.cont14, label %fpclassify_not_nan.i.i
-
-fpclassify_not_nan.i.i:                           ; preds = %lor.lhs.false.i
-  %or.cond6.i = call i1 @llvm.is.fpclass.f64(double %.pre7.i, i32 780)
+  %or.cond6.i = call i1 @llvm.is.fpclass.f64(double %.pre8.i, i32 879)
   br i1 %or.cond6.i, label %invoke.cont14, label %if.then.i15
 
-if.then.i15:                                      ; preds = %fpclassify_not_nan.i.i, %land.lhs.true.i
+if.then.i15:                                      ; preds = %lor.lhs.false.i, %land.lhs.true.i
   %vtable5.i = load ptr, ptr %is, align 8
   %vbase.offset.ptr6.i = getelementptr i8, ptr %vtable5.i, i64 -24
   %vbase.offset7.i = load i64, ptr %vbase.offset.ptr6.i, align 8
@@ -38801,8 +38769,8 @@ call13.i.noexc:                                   ; preds = %if.then.i15
   %.pre.i = load double, ptr %dest.i, align 8
   br label %invoke.cont14
 
-invoke.cont14:                                    ; preds = %.noexc19, %fpclassify_not_nan.i.i, %lor.lhs.false.i, %call1.i.noexc
-  %3 = phi double [ %.pre7.i, %fpclassify_not_nan.i.i ], [ %.pre7.i, %lor.lhs.false.i ], [ %.pre.i, %.noexc19 ], [ %.pre7.i, %call1.i.noexc ]
+invoke.cont14:                                    ; preds = %.noexc19, %lor.lhs.false.i, %call1.i.noexc
+  %3 = phi double [ %.pre8.i, %lor.lhs.false.i ], [ %.pre.i, %.noexc19 ], [ %.pre8.i, %call1.i.noexc ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %dest.i)
   %vtable16 = load ptr, ptr %is, align 8
   %vbase.offset.ptr17 = getelementptr i8, ptr %vtable16, i64 -24

@@ -945,7 +945,7 @@ define hidden void @_ZN10tokio_util4util8poll_buf14poll_write_buf17h82ae71698102
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9)
   %.val1.i.i.i = load i64, ptr %12, align 8, !noundef !4
   %25 = load i64, ptr %13, align 8, !noundef !4
-  %26 = call noundef i64 @llvm.usub.sat.i64(i64 %.val1.i.i.i, i64 %25)
+  %26 = call i64 @llvm.usub.sat.i64(i64 %.val1.i.i.i, i64 %25)
   %.not1.i = icmp ugt i64 %.val1.i.i.i, %25
   br i1 %.not1.i, label %45, label %27
 
@@ -1221,7 +1221,7 @@ define hidden void @_ZN10tokio_util4util8poll_buf14poll_write_buf17he36f3c8aa1d1
   %.0 = phi i64 [ %.sroa.2.0.copyload, %110 ], [ %.sroa.212.0.copyload, %51 ]
   %.val1.i.i.i = load i64, ptr %13, align 8, !noundef !4
   %55 = load i64, ptr %14, align 8, !noundef !4
-  %56 = call noundef i64 @llvm.usub.sat.i64(i64 %.val1.i.i.i, i64 %55)
+  %56 = call i64 @llvm.usub.sat.i64(i64 %.val1.i.i.i, i64 %55)
   %.not1.i = icmp ugt i64 %.val1.i.i.i, %55
   br i1 %.not1.i, label %75, label %57
 

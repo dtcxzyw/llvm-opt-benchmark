@@ -43,7 +43,7 @@ define dso_local noundef i32 @pg_open_tzfile(ptr noundef %0, ptr noundef %1) loc
 
 6:                                                ; preds = %4, %2
   %7 = call i64 @strlcpy(ptr noundef nonnull dereferenceable(1) %3, ptr noundef nonnull dereferenceable(1) @tzdirpath, i64 noundef 1024) #13
-  %8 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %3) #14
+  %8 = call i64 @strlen(ptr nonnull dereferenceable(1) %3)
   %9 = add i64 %8, 1
   %10 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #14
   %11 = add i64 %9, %10
@@ -51,8 +51,7 @@ define dso_local noundef i32 @pg_open_tzfile(ptr noundef %0, ptr noundef %1) loc
   br i1 %12, label %16, label %13
 
 13:                                               ; preds = %6
-  %strlen = call i64 @strlen(ptr nonnull dereferenceable(1) %3)
-  %endptr = getelementptr inbounds i8, ptr %3, i64 %strlen
+  %endptr = getelementptr inbounds i8, ptr %3, i64 %8
   store i16 47, ptr %endptr, align 1
   %14 = call ptr @strcat(ptr noundef nonnull dereferenceable(1) %3, ptr noundef nonnull dereferenceable(1) %0) #13
   %15 = call i32 (ptr, i32, ...) @open(ptr noundef nonnull %3, i32 noundef 0, i32 noundef 0) #13

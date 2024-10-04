@@ -8875,7 +8875,7 @@ entry:
   br label %_ZNK9grpc_core8Activity10is_currentEv.exit
 
 _ZNK9grpc_core8Activity10is_currentEv.exit:       ; preds = %entry, %0
-  %1 = tail call noundef align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN9grpc_core8Activity19g_current_activity_E)
+  %1 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN9grpc_core8Activity19g_current_activity_E)
   %2 = load ptr, ptr %1, align 8
   %cmp.i = icmp eq ptr %this, %2
   br i1 %cmp.i, label %while.body.preheader, label %if.then

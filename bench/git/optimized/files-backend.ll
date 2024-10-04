@@ -4000,7 +4000,7 @@ while.body:                                       ; preds = %while.body.lr.ph, %
   br i1 %cmp8, label %while.cond.backedge, label %if.end11
 
 if.end11:                                         ; preds = %while.body
-  %call.i.i = call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %d_name) #18
+  %call.i.i = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %d_name) #18
   %cmp.i.i.i = icmp ult i64 %call.i.i, 5
   br i1 %cmp.i.i.i, label %if.end16, label %ends_with.exit
 
@@ -4012,8 +4012,7 @@ ends_with.exit:                                   ; preds = %if.end11
   br i1 %tobool.not.i.i.i.not, label %while.cond.backedge, label %if.end16
 
 if.end16:                                         ; preds = %if.end11, %ends_with.exit
-  %call.i = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %d_name) #18
-  call void @strbuf_add(ptr noundef nonnull %refname, ptr noundef nonnull %d_name, i64 noundef %call.i) #19
+  call void @strbuf_add(ptr noundef nonnull %refname, ptr noundef nonnull %d_name, i64 noundef %call.i.i) #19
   %call19 = call zeroext i8 @get_dtype(ptr noundef nonnull %call541, ptr noundef nonnull %path, i32 noundef 1) #19
   switch i8 %call19, label %if.end56 [
     i8 4, label %if.then23

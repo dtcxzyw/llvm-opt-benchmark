@@ -21,12 +21,12 @@ target triple = "x86_64-pc-linux-gnu"
 ; Function Attrs: nounwind uwtable
 define range(i32 -27, 1) i32 @pmix_os_dirpath_create(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %0, null
-  br i1 %3, label %42, label %4
+  br i1 %3, label %44, label %4
 
 4:                                                ; preds = %2
   %5 = tail call i32 @mkdir(ptr noundef nonnull %0, i32 noundef %1) #10
   %6 = icmp eq i32 %5, 0
-  br i1 %6, label %42, label %7
+  br i1 %6, label %44, label %7
 
 7:                                                ; preds = %4
   %8 = tail call ptr @__errno_location() #11
@@ -43,7 +43,7 @@ define range(i32 -27, 1) i32 @pmix_os_dirpath_create(ptr noundef %0, i32 noundef
 12:                                               ; preds = %7
   %13 = tail call ptr @strerror(i32 noundef %9) #10
   %14 = tail call i32 (ptr, ptr, i32, ...) @pmix_show_help(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 1, ptr noundef nonnull %0, ptr noundef %13) #10
-  br label %42
+  br label %44
 
 15:                                               ; preds = %7, %10
   %16 = tail call ptr @PMIx_Argv_split(ptr noundef nonnull %0, i32 noundef 47) #10
@@ -52,7 +52,6 @@ define range(i32 -27, 1) i32 @pmix_os_dirpath_create(ptr noundef %0, i32 noundef
   %19 = tail call noalias ptr @malloc(i64 noundef %18) #13
   store i8 0, ptr %19, align 1
   %20 = tail call i32 @PMIx_Argv_count(ptr noundef %16) #10
-  %invariant.gep = getelementptr i8, ptr %19, i64 -1
   %21 = icmp sgt i32 %20, 0
   br i1 %21, label %.lr.ph.preheader, label %._crit_edge
 
@@ -60,71 +59,70 @@ define range(i32 -27, 1) i32 @pmix_os_dirpath_create(ptr noundef %0, i32 noundef
   %wide.trip.count = zext nneg i32 %20 to i64
   br label %.lr.ph
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %41
-  %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %41 ]
+.lr.ph:                                           ; preds = %.lr.ph.preheader, %43
+  %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %43 ]
   %22 = icmp eq i64 %indvars.iv, 0
   br i1 %22, label %23, label %27
 
 23:                                               ; preds = %.lr.ph
   %24 = load i8, ptr %0, align 1
   %25 = icmp eq i8 %24, 47
-  br i1 %25, label %26, label %33
+  br i1 %25, label %26, label %35
 
 26:                                               ; preds = %23
   %strlen41 = tail call i64 @strlen(ptr nonnull dereferenceable(1) %19)
   %endptr42 = getelementptr inbounds i8, ptr %19, i64 %strlen41
   store i16 47, ptr %endptr42, align 1
-  br label %33
+  br label %35
 
 27:                                               ; preds = %.lr.ph
-  %28 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %19) #12
-  %gep = getelementptr i8, ptr %invariant.gep, i64 %28
-  %29 = load i8, ptr %gep, align 1
-  %.not40 = icmp eq i8 %29, 47
-  br i1 %.not40, label %31, label %30
+  %28 = tail call i64 @strlen(ptr nonnull dereferenceable(1) %19)
+  %29 = getelementptr i8, ptr %19, i64 %28
+  %30 = getelementptr i8, ptr %29, i64 -1
+  %31 = load i8, ptr %30, align 1
+  %.not40 = icmp eq i8 %31, 47
+  br i1 %.not40, label %33, label %32
 
-30:                                               ; preds = %27
-  %strlen = tail call i64 @strlen(ptr nonnull dereferenceable(1) %19)
-  %endptr = getelementptr inbounds i8, ptr %19, i64 %strlen
-  store i16 47, ptr %endptr, align 1
-  br label %31
-
-31:                                               ; preds = %30, %27
-  %32 = getelementptr inbounds ptr, ptr %16, i64 %indvars.iv
+32:                                               ; preds = %27
+  store i16 47, ptr %29, align 1
   br label %33
 
-33:                                               ; preds = %23, %26, %31
-  %.sink.in = phi ptr [ %32, %31 ], [ %16, %26 ], [ %16, %23 ]
+33:                                               ; preds = %32, %27
+  %34 = getelementptr inbounds ptr, ptr %16, i64 %indvars.iv
+  br label %35
+
+35:                                               ; preds = %23, %26, %33
+  %.sink.in = phi ptr [ %34, %33 ], [ %16, %26 ], [ %16, %23 ]
   %.sink = load ptr, ptr %.sink.in, align 8
-  %34 = tail call ptr @strcat(ptr noundef nonnull dereferenceable(1) %19, ptr noundef nonnull dereferenceable(1) %.sink) #10
-  %35 = tail call i32 @mkdir(ptr noundef nonnull %19, i32 noundef %1) #10
-  %.not43 = icmp eq i32 %35, 0
-  br i1 %.not43, label %41, label %36
+  %36 = tail call ptr @strcat(ptr noundef nonnull dereferenceable(1) %19, ptr noundef nonnull dereferenceable(1) %.sink) #10
+  %37 = tail call i32 @mkdir(ptr noundef nonnull %19, i32 noundef %1) #10
+  %.not43 = icmp eq i32 %37, 0
+  br i1 %.not43, label %43, label %38
 
-36:                                               ; preds = %33
-  %37 = load i32, ptr %8, align 4
-  %.not44 = icmp eq i32 %37, 17
-  br i1 %.not44, label %41, label %38
+38:                                               ; preds = %35
+  %39 = load i32, ptr %8, align 4
+  %.not44 = icmp eq i32 %39, 17
+  br i1 %.not44, label %43, label %40
 
-38:                                               ; preds = %36
-  %39 = tail call ptr @strerror(i32 noundef %37) #10
-  %40 = tail call i32 (ptr, ptr, i32, ...) @pmix_show_help(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 1, ptr noundef nonnull %19, ptr noundef %39) #10
+40:                                               ; preds = %38
+  %41 = tail call ptr @strerror(i32 noundef %39) #10
+  %42 = tail call i32 (ptr, ptr, i32, ...) @pmix_show_help(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 1, ptr noundef nonnull %19, ptr noundef %41) #10
   tail call void @PMIx_Argv_free(ptr noundef nonnull %16) #10
   tail call void @free(ptr noundef %19) #10
-  br label %42
+  br label %44
 
-41:                                               ; preds = %33, %36
+43:                                               ; preds = %35, %38
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !4
 
-._crit_edge:                                      ; preds = %41, %15
+._crit_edge:                                      ; preds = %43, %15
   tail call void @PMIx_Argv_free(ptr noundef %16) #10
   tail call void @free(ptr noundef %19) #10
-  br label %42
+  br label %44
 
-42:                                               ; preds = %4, %2, %._crit_edge, %38, %12
-  %.0 = phi i32 [ -2, %38 ], [ 0, %._crit_edge ], [ -2, %12 ], [ -27, %2 ], [ 0, %4 ]
+44:                                               ; preds = %4, %2, %._crit_edge, %40, %12
+  %.0 = phi i32 [ -2, %40 ], [ 0, %._crit_edge ], [ -2, %12 ], [ -27, %2 ], [ 0, %4 ]
   ret i32 %.0
 }
 

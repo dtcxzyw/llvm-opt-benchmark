@@ -467,7 +467,7 @@ entry:
   %40 = load float, ptr %m_maxForce, align 8
   %mul48 = fmul float %13, %40
   %mul4.i = fmul float %add4.i, %add4.i
-  %41 = tail call noundef float @llvm.fmuladd.f32(float %add.i64, float %add.i64, float %mul4.i)
+  %41 = tail call float @llvm.fmuladd.f32(float %add.i64, float %add.i64, float %mul4.i)
   %mul51 = fmul float %mul48, %mul48
   %cmp = fcmp ogt float %41, %mul51
   br i1 %cmp, label %if.then, label %if.end

@@ -2444,8 +2444,8 @@ if.end20:                                         ; preds = %if.then18, %if.end1
 
 if.end28:                                         ; preds = %if.end20, %if.end60
   %27 = phi i32 [ %.pre, %if.end20 ], [ %6, %if.end60 ]
-  %inc127 = phi i32 [ 1, %if.end20 ], [ %inc, %if.end60 ]
-  %locale_coerced.0126 = phi i32 [ 0, %if.end20 ], [ %locale_coerced.1, %if.end60 ]
+  %inc129 = phi i32 [ 1, %if.end20 ], [ %inc, %if.end60 ]
+  %locale_coerced.0128 = phi i32 [ 0, %if.end20 ], [ %locale_coerced.1, %if.end60 ]
   %28 = phi i32 [ %.pr, %if.end20 ], [ %75, %if.end60 ]
   store i32 %27, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 3536), align 8
   %29 = load i32, ptr %parse_argv.i.i, align 4
@@ -2646,12 +2646,10 @@ _Py_get_xoption.exit.i.i:                         ; preds = %land.lhs.true.i.i23
   br i1 %tobool.not.i24.i, label %if.end24.i.i, label %if.then1.i.i
 
 if.then1.i.i:                                     ; preds = %_Py_get_xoption.exit.i.i
-  %call2.i.i = call ptr @wcschr(ptr noundef nonnull %54, i32 noundef 61) #18, !noalias !17
-  %tobool3.not.i.i = icmp eq ptr %call2.i.i, null
-  br i1 %tobool3.not.i.i, label %if.end5.sink.split.i, label %if.then4.i25.i
+  br i1 %cmp1.not.i.i.i, label %if.end5.sink.split.i, label %if.then4.i25.i
 
 if.then4.i25.i:                                   ; preds = %if.then1.i.i
-  %add.ptr.i.i = getelementptr i8, ptr %call2.i.i, i64 4
+  %add.ptr.i.i = getelementptr i8, ptr %call.i.i21.i, i64 4
   %call5.i.i = call i32 @wcscmp(ptr noundef %add.ptr.i.i, ptr noundef nonnull @.str.23) #18, !noalias !17
   %cmp6.i26.i = icmp eq i32 %call5.i.i, 0
   br i1 %cmp6.i26.i, label %if.end5.sink.split.i, label %if.else.i27.i
@@ -2784,7 +2782,7 @@ if.end41:                                         ; preds = %if.then11.i.i, %if.
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %tmp.i)
   %74 = load i32, ptr %coerce_c_locale.i.i, align 4
   %tobool42 = icmp eq i32 %74, 0
-  %tobool43 = icmp ne i32 %locale_coerced.0126, 0
+  %tobool43 = icmp ne i32 %locale_coerced.0128, 0
   %or.cond = select i1 %tobool42, i1 true, i1 %tobool43
   br i1 %or.cond, label %if.end46, label %if.then44
 
@@ -2793,7 +2791,7 @@ if.then44:                                        ; preds = %if.end41
   br label %if.end46
 
 if.end46:                                         ; preds = %if.then44, %if.end41
-  %locale_coerced.1 = phi i32 [ %locale_coerced.0126, %if.end41 ], [ 1, %if.then44 ]
+  %locale_coerced.1 = phi i32 [ %locale_coerced.0128, %if.end41 ], [ 1, %if.then44 ]
   %cmp47 = icmp eq i32 %28, -1
   %75 = load i32, ptr %utf8_mode.i.i, align 4
   br i1 %cmp47, label %if.then48, label %if.else
@@ -2820,7 +2818,7 @@ if.end60:                                         ; preds = %if.then48, %if.else
   store i32 %13, ptr %allocator.i.i, align 4
   store i32 %75, ptr %utf8_mode.i.i, align 4
   store i32 %76, ptr %coerce_c_locale.i.i, align 4
-  %inc = add nuw nsw i32 %inc127, 1
+  %inc = add nuw nsw i32 %inc129, 1
   %cmp22 = icmp eq i32 %inc, 3
   br i1 %cmp22, label %done, label %if.end28
 

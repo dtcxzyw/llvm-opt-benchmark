@@ -26802,7 +26802,7 @@ define linkonce_odr void @_ZN3vcg3tri7InertiaI6CMeshOE7ComputeERKS2_(ptr noundef
   %74 = fmul float %70, %70
   %75 = call float @llvm.fmuladd.f32(float %67, float %67, float %74)
   %76 = call float @llvm.fmuladd.f32(float %73, float %73, float %75)
-  %sqrt.i.i.i = call noundef float @llvm.sqrt.f32(float %76)
+  %sqrt.i.i.i = call float @llvm.sqrt.f32(float %76)
   %77 = fcmp ogt float %sqrt.i.i.i, 0x3810000000000000
   br i1 %77, label %78, label %188
 

@@ -1750,14 +1750,13 @@ for.body:                                         ; preds = %entry, %for.cond
   %indvars.iv = phi i64 [ 0, %entry ], [ %indvars.iv.next, %for.cond ]
   %arrayidx = getelementptr inbounds [23 x ptr], ptr @read_punct.kw, i64 0, i64 %indvars.iv
   %0 = load ptr, ptr %arrayidx, align 8
-  %call.i = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %0) #29
+  %call.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #29
   %call1.i = tail call i32 @strncmp(ptr noundef readonly %p, ptr noundef readonly %0, i64 noundef %call.i) #29
   %cmp.i = icmp eq i32 %call1.i, 0
   br i1 %cmp.i, label %if.then, label %for.cond
 
 if.then:                                          ; preds = %for.body
-  %call4 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #29
-  %conv5 = trunc i64 %call4 to i32
+  %conv5 = trunc i64 %call.i to i32
   br label %return
 
 for.end:                                          ; preds = %for.cond

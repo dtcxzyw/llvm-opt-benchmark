@@ -438,9 +438,8 @@ for.body:                                         ; preds = %entry, %invoke.cont
   %max_experiment_length.065 = phi i64 [ 0, %entry ], [ %.sroa.speculated, %invoke.cont5 ]
   %arrayidx = getelementptr inbounds [41 x %"struct.grpc_core::ExperimentMetadata"], ptr @_ZN9grpc_core21g_experiment_metadataE, i64 0, i64 %i.066
   %1 = load ptr, ptr %arrayidx, align 8
-  %call = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #21
-  %call.i.i = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #19
-  store i64 %call.i.i, ptr %ref.tmp2, align 8
+  %call = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #19
+  store i64 %call, ptr %ref.tmp2, align 8
   store ptr %1, ptr %_M_str.i, align 8
   %call6 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3mapISt17basic_string_viewIcSt11char_traitsIcEEmSt4lessIS3_ESaISt4pairIKS3_mEEEixEOS3_(ptr noundef nonnull align 8 dereferenceable(48) %visitation_order, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp2)
           to label %invoke.cont5 unwind label %lpad

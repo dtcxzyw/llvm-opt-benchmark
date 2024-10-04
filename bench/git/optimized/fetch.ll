@@ -6566,14 +6566,13 @@ entry:
   %buf = getelementptr inbounds i8, ptr %haystack, i64 16
   %0 = load ptr, ptr %buf, align 8
   %call.i.i = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %0) #19
-  %call.i.i.i = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %needle) #19
-  %cmp.i.i.i = icmp ult i64 %call.i.i, %call.i.i.i
+  %cmp.i.i.i = icmp ult i64 %call.i.i, %call
   br i1 %cmp.i.i.i, label %if.else, label %ends_with.exit
 
 ends_with.exit:                                   ; preds = %entry
-  %sub.i.i.i = sub nuw i64 %call.i.i, %call.i.i.i
+  %sub.i.i.i = sub nuw i64 %call.i.i, %call
   %add.ptr.i.i.i = getelementptr inbounds i8, ptr %0, i64 %sub.i.i.i
-  %bcmp.i.i.i = tail call i32 @bcmp(ptr readonly %add.ptr.i.i.i, ptr readonly %needle, i64 %call.i.i.i)
+  %bcmp.i.i.i = tail call i32 @bcmp(ptr readonly %add.ptr.i.i.i, ptr readonly %needle, i64 %call)
   %tobool.not.i.i.i.not = icmp eq i32 %bcmp.i.i.i, 0
   br i1 %tobool.not.i.i.i.not, label %if.then, label %if.else
 

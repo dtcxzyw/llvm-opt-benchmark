@@ -1442,7 +1442,7 @@ define void @_ZN6colvar10distance_z10calc_valueEv(ptr noundef nonnull align 8 de
   %94 = call double @llvm.fmuladd.f64(double %90, double %90, double %93)
   %95 = getelementptr inbounds i8, ptr %0, i64 1688
   %96 = call noundef double @llvm.fmuladd.f64(double %88, double %88, double %94)
-  %sqrt.i = call noundef double @llvm.sqrt.f64(double %96)
+  %sqrt.i = call double @llvm.sqrt.f64(double %96)
   %97 = getelementptr inbounds i8, ptr %0, i64 1696
   store double %sqrt.i, ptr %97, align 8
   %98 = fcmp ogt double %96, 0.000000e+00
@@ -2117,7 +2117,7 @@ define void @_ZN6colvar11distance_xy10calc_valueEv(ptr nocapture noundef nonnull
   %64 = fmul double %62, %62
   %65 = call double @llvm.fmuladd.f64(double %63, double %63, double %64)
   %66 = call noundef double @llvm.fmuladd.f64(double %61, double %61, double %65)
-  %sqrt.i = call noundef double @llvm.sqrt.f64(double %66)
+  %sqrt.i = call double @llvm.sqrt.f64(double %66)
   %67 = getelementptr inbounds i8, ptr %0, i64 1696
   store double %sqrt.i, ptr %67, align 8
   %68 = fcmp ogt double %66, 0.000000e+00
@@ -3239,7 +3239,7 @@ _ZN12colvarmodule8vector1dIdE6resizeEm.exit:      ; preds = %33, %35, %37, %39
   %82 = fmul double %76, %76
   %83 = tail call double @llvm.fmuladd.f64(double %71, double %71, double %82)
   %84 = tail call noundef double @llvm.fmuladd.f64(double %81, double %81, double %83)
-  %sqrt.i = tail call noundef double @llvm.sqrt.f64(double %84)
+  %sqrt.i = tail call double @llvm.sqrt.f64(double %84)
   %85 = mul i64 %62, %.065
   %86 = load ptr, ptr %3, align 8
   %87 = getelementptr double, ptr %86, i64 %85
