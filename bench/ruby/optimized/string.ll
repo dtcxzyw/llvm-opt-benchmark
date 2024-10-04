@@ -31146,11 +31146,11 @@ get_encoding.exit.i94:                            ; preds = %38, %34
   %49 = zext i8 %45 to i32
   %50 = add nsw i32 %49, -91
   %51 = icmp ult i32 %50, -26
-  %52 = or i32 %49, 32
+  %52 = or disjoint i32 %49, 32
   %53 = select i1 %51, i32 %49, i32 %52
   %54 = add nsw i32 %48, -91
   %55 = icmp ult i32 %54, -26
-  %56 = or i32 %48, 32
+  %56 = or disjoint i32 %48, 32
   %57 = select i1 %55, i32 %48, i32 %56
   %.not82 = icmp eq i32 %53, %57
   br i1 %.not82, label %.critedge, label %58
@@ -31187,11 +31187,11 @@ get_encoding.exit.i94:                            ; preds = %38, %34
 74:                                               ; preds = %.lr.ph
   %75 = add nsw i32 %70, -91
   %76 = icmp ult i32 %75, -26
-  %77 = or i32 %70, 32
+  %77 = or disjoint i32 %70, 32
   %78 = select i1 %76, i32 %70, i32 %77
   %79 = add nsw i32 %71, -91
   %80 = icmp ult i32 %79, -26
-  %81 = or i32 %71, 32
+  %81 = or disjoint i32 %71, 32
   %82 = select i1 %80, i32 %71, i32 %81
   %.not80 = icmp eq i32 %78, %82
   br i1 %.not80, label %._crit_edge, label %83

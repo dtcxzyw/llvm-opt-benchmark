@@ -3597,46 +3597,42 @@ define dso_local void @_ZN4llvm3pdb16DbiStreamBuilder16createSectionMapENS_8Arra
   br i1 %.not19, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %3, %.lr.ph
-  %.020 = phi ptr [ %22, %.lr.ph ], [ %1, %3 ]
-  %6 = phi i32 [ %21, %.lr.ph ], [ 0, %3 ]
+  %.020 = phi ptr [ %21, %.lr.ph ], [ %1, %3 ]
+  %6 = phi i32 [ %20, %.lr.ph ], [ 0, %3 ]
   %7 = call fastcc noundef nonnull align 1 dereferenceable(20) ptr @"_ZZN4llvm3pdb16DbiStreamBuilder16createSectionMapENS_8ArrayRefINS_6object12coff_sectionEEEENK3$_0clEv"(ptr nonnull %0, ptr nonnull %4)
   %8 = getelementptr inbounds nuw i8, ptr %.020, i64 36
   call void @llvm.assume(i1 true) [ "align"(ptr %8, i64 1) ]
   %.0.copyload.i.i.i = load i32, ptr %8, align 1
   %9 = lshr i32 %.0.copyload.i.i.i, 30
   %10 = trunc nuw nsw i32 %9 to i16
-  %spec.select.i = and i16 %10, 1
-  %11 = or i16 %10, 2
-  %.not1013.i = icmp slt i32 %.0.copyload.i.i.i, 0
-  %.1.i = select i1 %.not1013.i, i16 %11, i16 %spec.select.i
-  %12 = lshr i32 %.0.copyload.i.i.i, 27
-  %13 = trunc nuw nsw i32 %12 to i16
-  %14 = and i16 %13, 4
-  %.2.i = or disjoint i16 %.1.i, %14
-  %15 = and i32 %.0.copyload.i.i.i, 131072
-  %.not12.i = icmp eq i32 %15, 0
-  %16 = or disjoint i16 %.2.i, 8
-  %.3.i = select i1 %.not12.i, i16 %16, i16 %.2.i
-  %17 = or i16 %.3.i, 256
+  %11 = lshr i32 %.0.copyload.i.i.i, 27
+  %12 = trunc nuw nsw i32 %11 to i16
+  %13 = and i16 %12, 4
+  %.2.i = or disjoint i16 %13, %10
+  %14 = and i32 %.0.copyload.i.i.i, 131072
+  %.not12.i = icmp eq i32 %14, 0
+  %15 = or disjoint i16 %.2.i, 8
+  %.3.i = select i1 %.not12.i, i16 %15, i16 %.2.i
+  %16 = or disjoint i16 %.3.i, 256
   call void @llvm.assume(i1 true) [ "align"(ptr %7, i64 1) ]
-  store i16 %17, ptr %7, align 1
-  %18 = getelementptr inbounds nuw i8, ptr %.020, i64 8
-  %19 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  %20 = load i32, ptr %18, align 1
-  store i32 %20, ptr %19, align 1
-  %21 = add nuw nsw i32 %6, 1
-  store i32 %21, ptr %4, align 4
-  %22 = getelementptr inbounds i8, ptr %.020, i64 40
-  %.not = icmp eq ptr %22, %5
+  store i16 %16, ptr %7, align 1
+  %17 = getelementptr inbounds nuw i8, ptr %.020, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %7, i64 16
+  %19 = load i32, ptr %17, align 1
+  store i32 %19, ptr %18, align 1
+  %20 = add nuw nsw i32 %6, 1
+  store i32 %20, ptr %4, align 4
+  %21 = getelementptr inbounds i8, ptr %.020, i64 40
+  %.not = icmp eq ptr %21, %5
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.lr.ph, %3
-  %23 = call fastcc noundef nonnull align 1 dereferenceable(20) ptr @"_ZZN4llvm3pdb16DbiStreamBuilder16createSectionMapENS_8ArrayRefINS_6object12coff_sectionEEEENK3$_0clEv"(ptr nonnull %0, ptr nonnull %4)
+  %22 = call fastcc noundef nonnull align 1 dereferenceable(20) ptr @"_ZZN4llvm3pdb16DbiStreamBuilder16createSectionMapENS_8ArrayRefINS_6object12coff_sectionEEEENK3$_0clEv"(ptr nonnull %0, ptr nonnull %4)
+  call void @llvm.assume(i1 true) [ "align"(ptr %22, i64 1) ]
+  store i16 520, ptr %22, align 1
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 16
   call void @llvm.assume(i1 true) [ "align"(ptr %23, i64 1) ]
-  store i16 520, ptr %23, align 1
-  %24 = getelementptr inbounds nuw i8, ptr %23, i64 16
-  call void @llvm.assume(i1 true) [ "align"(ptr %24, i64 1) ]
-  store i32 -1, ptr %24, align 1
+  store i32 -1, ptr %23, align 1
   ret void
 }
 

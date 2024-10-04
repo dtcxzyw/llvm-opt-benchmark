@@ -4673,12 +4673,8 @@ if.end322:                                        ; preds = %sw.bb318
 
 if.end326:                                        ; preds = %if.end322
   %58 = trunc i64 %arg3 to i32
-  %conv328 = and i32 %58, -524289
-  %and329 = and i64 %arg3, 524288
-  %tobool330.not = icmp eq i64 %and329, 0
-  %spec.select = select i1 %tobool330.not, i32 %conv328, i32 %58
   %conv333 = trunc i64 %arg1 to i32
-  %call.i1963 = tail call i64 (i64, ...) @syscall(i64 noundef 428, i32 noundef %conv333, ptr noundef nonnull %call323, i32 noundef %spec.select) #27
+  %call.i1963 = tail call i64 (i64, ...) @syscall(i64 noundef 428, i32 noundef %conv333, ptr noundef nonnull %call323, i32 noundef %58) #27
   %sext3868 = shl i64 %call.i1963, 32
   %conv335 = ashr exact i64 %sext3868, 32
   %cmp.i1965 = icmp eq i64 %sext3868, -4294967296
@@ -9979,7 +9975,7 @@ land.lhs.true3458:                                ; preds = %get_errno.exit3591
 sw.bb3465:                                        ; preds = %entry
   %469 = and i64 %arg1, 4294967264
   %or.cond.i3597.not.not = icmp eq i64 %469, 212795392
-  %and2.i3598 = and i64 %arg1, 65535
+  %and2.i3598 = and i64 %arg1, 31
   br i1 %or.cond.i3597.not.not, label %if.else3472, label %return
 
 if.else3472:                                      ; preds = %sw.bb3465
@@ -12683,10 +12679,9 @@ entry:
   br i1 %tobool.not, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %and1 = and i32 %flags, 2048
   %tobool6.not = icmp ult i32 %flags, 524288
   %or8 = or i32 %flags, 524288
-  %host_flags.1 = select i1 %tobool6.not, i32 %and1, i32 %or8
+  %host_flags.1 = select i1 %tobool6.not, i32 %flags, i32 %or8
   %cmp = icmp eq i64 %target_addr, 0
   br i1 %cmp, label %if.then10, label %if.end12
 

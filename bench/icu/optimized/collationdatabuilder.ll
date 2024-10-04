@@ -3628,7 +3628,7 @@ if.else10:                                        ; preds = %if.else
   %and12 = and i32 %conv1, 255
   %cmp13 = icmp eq i32 %and12, 0
   %or.cond = and i1 %cmp11, %cmp13
-  %or1.i = or i32 %conv1, 194
+  %or1.i = or disjoint i32 %conv1, 194
   %spec.select = select i1 %or.cond, i32 %or1.i, i32 1
   br label %return
 
@@ -3661,7 +3661,7 @@ if.else10.i:                                      ; preds = %if.else.i
   %and12.i = and i32 %conv1.i, 255
   %cmp13.i = icmp eq i32 %and12.i, 0
   %or.cond.i = and i1 %cmp11.i, %cmp13.i
-  %or1.i.i = or i32 %conv1.i, 194
+  %or1.i.i = or disjoint i32 %conv1.i, 194
   br i1 %or.cond.i, label %return, label %if.end
 
 _ZN6icu_7520CollationDataBuilder17encodeOneCEAsCE32El.exit: ; preds = %entry
@@ -3865,7 +3865,7 @@ if.else10.i:                                      ; preds = %if.else.i
   %and12.i = and i32 %conv1.i, 255
   %cmp13.i = icmp eq i32 %and12.i, 0
   %or.cond.i = and i1 %cmp11.i, %cmp13.i
-  %or1.i.i = or i32 %conv1.i, 194
+  %or1.i.i = or disjoint i32 %conv1.i, 194
   br i1 %or.cond.i, label %if.end50, label %for.end
 
 _ZN6icu_7520CollationDataBuilder17encodeOneCEAsCE32El.exit: ; preds = %if.end45

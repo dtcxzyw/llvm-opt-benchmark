@@ -58,9 +58,9 @@ if.end22.i:                                       ; preds = %entry
   %cmp3.i30.i = icmp slt i32 %0, 0
   %cond.i31.i = select i1 %cmp3.i30.i, i32 %sub.i29.i, i32 %add.i27.i
   %sub.i = sub nuw i32 -2147483648, %cond.i31.i
-  %sub32.i = xor i32 %cond.i31.i, -2147483648
+  %4 = and i32 %cond.i31.i, 2147483647
   %cmp31.i1 = icmp slt i32 %cond.i31.i, 0
-  %cond.i = select i1 %cmp31.i1, i32 %sub32.i, i32 %sub.i
+  %cond.i = select i1 %cmp31.i1, i32 %4, i32 %sub.i
   %cmp33.i = icmp ult i32 %cond.i, 3
   br label %_ZN19OpenColorIO_v2_4dev12FloatsDifferEffib.exit
 
@@ -271,9 +271,9 @@ _ZN19OpenColorIO_v2_4dev19IsScalarEqualToZeroIfEEbT_.exit: ; preds = %for.body
   %cmp3.i30.i.i = icmp slt i32 %1, 0
   %cond.i31.i.i = select i1 %cmp3.i30.i.i, i32 %sub.i29.i.i, i32 %add.i27.i.i
   %sub.i.i = sub nuw i32 -2147483648, %cond.i31.i.i
-  %sub32.i.i = xor i32 %cond.i31.i.i, -2147483648
+  %5 = and i32 %cond.i31.i.i, 2147483647
   %cmp31.i1.i = icmp slt i32 %cond.i31.i.i, 0
-  %cond.i.i = select i1 %cmp31.i1.i, i32 %sub32.i.i, i32 %sub.i.i
+  %cond.i.i = select i1 %cmp31.i1.i, i32 %5, i32 %sub.i.i
   %cmp33.i.i = icmp ult i32 %cond.i.i, 3
   br i1 %cmp33.i.i, label %for.cond, label %return
 
@@ -500,14 +500,14 @@ entry:
   br label %for.cond1.preheader
 
 for.cond1.preheader:                              ; preds = %entry, %for.inc12
-  %indvars.iv32 = phi i64 [ 0, %entry ], [ %indvars.iv.next33, %for.inc12 ]
-  %arrayidx.idx = shl nsw i64 %indvars.iv32, 4
+  %indvars.iv31 = phi i64 [ 0, %entry ], [ %indvars.iv.next32, %for.inc12 ]
+  %arrayidx.idx = shl nsw i64 %indvars.iv31, 4
   %invariant.gep = getelementptr inbounds i8, ptr %m44, i64 %arrayidx.idx
   br label %for.body3
 
 for.body3:                                        ; preds = %for.cond1.preheader, %for.inc
   %indvars.iv = phi i64 [ 0, %for.cond1.preheader ], [ %indvars.iv.next, %for.inc ]
-  %cmp4 = icmp eq i64 %indvars.iv, %indvars.iv32
+  %cmp4 = icmp eq i64 %indvars.iv, %indvars.iv31
   %gep = getelementptr inbounds float, ptr %invariant.gep, i64 %indvars.iv
   %0 = load float, ptr %gep, align 4
   %1 = bitcast float %0 to i32
@@ -545,11 +545,11 @@ _ZN19OpenColorIO_v2_4dev19IsScalarEqualToZeroIfEEbT_.exit: ; preds = %if.else
   %cmp3.i30.i.i14 = icmp slt i32 %1, 0
   %cond.i31.i.i15 = select i1 %cmp3.i30.i.i14, i32 %sub.i29.i.i13, i32 %add.i27.i.i11
   %sub.i.i16 = sub nuw i32 -2147483648, %cond.i31.i.i15
-  %sub32.i.i17 = xor i32 %cond.i31.i.i15, -2147483648
+  %7 = and i32 %cond.i31.i.i15, 2147483647
   %cmp31.i1.i = icmp slt i32 %cond.i31.i.i15, 0
-  %cond.i.i18 = select i1 %cmp31.i1.i, i32 %sub32.i.i17, i32 %sub.i.i16
-  %cmp33.i.i19 = icmp ult i32 %cond.i.i18, 3
-  br i1 %cmp33.i.i19, label %for.inc, label %return
+  %cond.i.i17 = select i1 %cmp31.i1.i, i32 %7, i32 %sub.i.i16
+  %cmp33.i.i18 = icmp ult i32 %cond.i.i17, 3
+  br i1 %cmp33.i.i18, label %for.inc, label %return
 
 for.inc:                                          ; preds = %_ZN19OpenColorIO_v2_4dev18IsScalarEqualToOneIfEEbT_.exit, %_ZN19OpenColorIO_v2_4dev19IsScalarEqualToZeroIfEEbT_.exit
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -557,13 +557,13 @@ for.inc:                                          ; preds = %_ZN19OpenColorIO_v2
   br i1 %exitcond.not, label %for.inc12, label %for.body3, !llvm.loop !11
 
 for.inc12:                                        ; preds = %for.inc
-  %indvars.iv.next33 = add nuw nsw i64 %indvars.iv32, 1
-  %exitcond36 = icmp eq i64 %indvars.iv.next33, 4
-  br i1 %exitcond36, label %return, label %for.cond1.preheader, !llvm.loop !12
+  %indvars.iv.next32 = add nuw nsw i64 %indvars.iv31, 1
+  %exitcond35 = icmp eq i64 %indvars.iv.next32, 4
+  br i1 %exitcond35, label %return, label %for.cond1.preheader, !llvm.loop !12
 
 return:                                           ; preds = %for.inc12, %if.else, %if.then, %_ZN19OpenColorIO_v2_4dev19IsScalarEqualToZeroIfEEbT_.exit, %_ZN19OpenColorIO_v2_4dev18IsScalarEqualToOneIfEEbT_.exit
-  %cmp25 = phi i1 [ false, %_ZN19OpenColorIO_v2_4dev18IsScalarEqualToOneIfEEbT_.exit ], [ false, %_ZN19OpenColorIO_v2_4dev19IsScalarEqualToZeroIfEEbT_.exit ], [ false, %if.then ], [ false, %if.else ], [ true, %for.inc12 ]
-  ret i1 %cmp25
+  %cmp24 = phi i1 [ false, %_ZN19OpenColorIO_v2_4dev18IsScalarEqualToOneIfEEbT_.exit ], [ false, %_ZN19OpenColorIO_v2_4dev19IsScalarEqualToZeroIfEEbT_.exit ], [ false, %if.then ], [ false, %if.else ], [ true, %for.inc12 ]
+  ret i1 %cmp24
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -649,7 +649,7 @@ entry:
 
 _ZN19OpenColorIO_v2_4dev19IsScalarEqualToZeroIfEEbT_.exit.thread: ; preds = %entry
   %div3 = fdiv float 1.000000e+00, %v
-  br label %5
+  br label %6
 
 _ZN19OpenColorIO_v2_4dev19IsScalarEqualToZeroIfEEbT_.exit: ; preds = %entry
   %2 = tail call float @llvm.fabs.f32(float %v)
@@ -660,20 +660,20 @@ _ZN19OpenColorIO_v2_4dev19IsScalarEqualToZeroIfEEbT_.exit: ; preds = %entry
   %cmp3.i30.i.i = icmp slt i32 %0, 0
   %cond.i31.i.i = select i1 %cmp3.i30.i.i, i32 %sub.i29.i.i, i32 %add.i27.i.i
   %sub.i.i = sub nuw i32 -2147483648, %cond.i31.i.i
-  %sub32.i.i = xor i32 %cond.i31.i.i, -2147483648
+  %4 = and i32 %cond.i31.i.i, 2147483647
   %cmp31.i1.i = icmp slt i32 %cond.i31.i.i, 0
-  %cond.i.i = select i1 %cmp31.i1.i, i32 %sub32.i.i, i32 %sub.i.i
+  %cond.i.i = select i1 %cmp31.i1.i, i32 %4, i32 %sub.i.i
   %cond.i.i.fr = freeze i32 %cond.i.i
   %cmp33.i.i = icmp ult i32 %cond.i.i.fr, 3
   %div = fdiv float 1.000000e+00, %v
-  br i1 %cmp33.i.i, label %4, label %5
+  br i1 %cmp33.i.i, label %5, label %6
 
-4:                                                ; preds = %_ZN19OpenColorIO_v2_4dev19IsScalarEqualToZeroIfEEbT_.exit
-  br label %5
+5:                                                ; preds = %_ZN19OpenColorIO_v2_4dev19IsScalarEqualToZeroIfEEbT_.exit
+  br label %6
 
-5:                                                ; preds = %_ZN19OpenColorIO_v2_4dev19IsScalarEqualToZeroIfEEbT_.exit.thread, %_ZN19OpenColorIO_v2_4dev19IsScalarEqualToZeroIfEEbT_.exit, %4
-  %6 = phi float [ %defaultValue, %4 ], [ %div, %_ZN19OpenColorIO_v2_4dev19IsScalarEqualToZeroIfEEbT_.exit ], [ %div3, %_ZN19OpenColorIO_v2_4dev19IsScalarEqualToZeroIfEEbT_.exit.thread ]
-  ret float %6
+6:                                                ; preds = %_ZN19OpenColorIO_v2_4dev19IsScalarEqualToZeroIfEEbT_.exit.thread, %_ZN19OpenColorIO_v2_4dev19IsScalarEqualToZeroIfEEbT_.exit, %5
+  %7 = phi float [ %defaultValue, %5 ], [ %div, %_ZN19OpenColorIO_v2_4dev19IsScalarEqualToZeroIfEEbT_.exit ], [ %div3, %_ZN19OpenColorIO_v2_4dev19IsScalarEqualToZeroIfEEbT_.exit.thread ]
+  ret float %7
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
@@ -704,9 +704,9 @@ _ZN19OpenColorIO_v2_4dev19IsScalarEqualToZeroIfEEbT_.exit: ; preds = %for.body
   %cmp3.i30.i.i = icmp slt i32 %1, 0
   %cond.i31.i.i = select i1 %cmp3.i30.i.i, i32 %sub.i29.i.i, i32 %add.i27.i.i
   %sub.i.i = sub nuw i32 -2147483648, %cond.i31.i.i
-  %sub32.i.i = xor i32 %cond.i31.i.i, -2147483648
+  %5 = and i32 %cond.i31.i.i, 2147483647
   %cmp31.i1.i = icmp slt i32 %cond.i31.i.i, 0
-  %cond.i.i = select i1 %cmp31.i1.i, i32 %sub32.i.i, i32 %sub.i.i
+  %cond.i.i = select i1 %cmp31.i1.i, i32 %5, i32 %sub.i.i
   %cmp33.i.i = icmp ult i32 %cond.i.i, 3
   br i1 %cmp33.i.i, label %return, label %for.inc
 
@@ -951,86 +951,86 @@ _ZN19OpenColorIO_v2_4dev19IsScalarEqualToZeroIfEEbT_.exit: ; preds = %for.end
   %cmp3.i30.i.i = icmp slt i32 %41, 0
   %cond.i31.i.i = select i1 %cmp3.i30.i.i, i32 %sub.i29.i.i, i32 %add.i27.i.i
   %sub.i.i = sub nuw i32 -2147483648, %cond.i31.i.i
-  %sub32.i.i = xor i32 %cond.i31.i.i, -2147483648
+  %45 = and i32 %cond.i31.i.i, 2147483647
   %cmp31.i1.i = icmp slt i32 %cond.i31.i.i, 0
-  %cond.i.i = select i1 %cmp31.i1.i, i32 %sub32.i.i, i32 %sub.i.i
+  %cond.i.i = select i1 %cmp31.i1.i, i32 %45, i32 %sub.i.i
   %cmp33.i.i = icmp ult i32 %cond.i.i, 3
   br i1 %cmp33.i.i, label %return, label %if.end
 
 if.end:                                           ; preds = %for.end, %_ZN19OpenColorIO_v2_4dev19IsScalarEqualToZeroIfEEbT_.exit
   %div = fdiv double 1.000000e+00, %40
   %neg71 = fmul double %35, %neg48
-  %45 = tail call double @llvm.fmuladd.f64(double %34, double %18, double %neg71)
+  %46 = tail call double @llvm.fmuladd.f64(double %34, double %18, double %neg71)
   %neg77 = fmul double %37, %neg48
-  %46 = tail call double @llvm.fmuladd.f64(double %34, double %19, double %neg77)
+  %47 = tail call double @llvm.fmuladd.f64(double %34, double %19, double %neg77)
   %neg83 = fmul double %39, %neg48
-  %47 = tail call double @llvm.fmuladd.f64(double %34, double %22, double %neg83)
-  %48 = fneg double %18
-  %neg89 = fmul double %37, %48
-  %49 = tail call double @llvm.fmuladd.f64(double %35, double %19, double %neg89)
-  %neg95 = fmul double %39, %48
-  %50 = tail call double @llvm.fmuladd.f64(double %35, double %22, double %neg95)
-  %51 = fneg double %19
-  %neg101 = fmul double %39, %51
-  %52 = tail call double @llvm.fmuladd.f64(double %37, double %22, double %neg101)
-  %53 = fneg double %50
-  %neg105 = fmul double %7, %53
-  %54 = tail call double @llvm.fmuladd.f64(double %2, double %52, double %neg105)
-  %55 = tail call double @llvm.fmuladd.f64(double %10, double %49, double %54)
-  %56 = fneg double %46
-  %neg110 = fmul double %10, %56
-  %57 = tail call double @llvm.fmuladd.f64(double %7, double %47, double %neg110)
-  %58 = tail call double @llvm.fmuladd.f64(double %5, double %52, double %57)
-  %59 = fneg double %47
-  %neg116 = fmul double %2, %59
-  %60 = tail call double @llvm.fmuladd.f64(double %4, double %50, double %neg116)
-  %61 = tail call double @llvm.fmuladd.f64(double %10, double %45, double %60)
-  %62 = fneg double %45
-  %neg121 = fmul double %7, %62
-  %63 = tail call double @llvm.fmuladd.f64(double %2, double %46, double %neg121)
-  %64 = tail call double @llvm.fmuladd.f64(double %5, double %49, double %63)
-  %65 = fneg double %49
-  %neg127 = fmul double %11, %65
-  %66 = tail call double @llvm.fmuladd.f64(double %8, double %50, double %neg127)
+  %48 = tail call double @llvm.fmuladd.f64(double %34, double %22, double %neg83)
+  %49 = fneg double %18
+  %neg89 = fmul double %37, %49
+  %50 = tail call double @llvm.fmuladd.f64(double %35, double %19, double %neg89)
+  %neg95 = fmul double %39, %49
+  %51 = tail call double @llvm.fmuladd.f64(double %35, double %22, double %neg95)
+  %52 = fneg double %19
+  %neg101 = fmul double %39, %52
+  %53 = tail call double @llvm.fmuladd.f64(double %37, double %22, double %neg101)
+  %54 = fneg double %51
+  %neg105 = fmul double %7, %54
+  %55 = tail call double @llvm.fmuladd.f64(double %2, double %53, double %neg105)
+  %56 = tail call double @llvm.fmuladd.f64(double %10, double %50, double %55)
+  %57 = fneg double %47
+  %neg110 = fmul double %10, %57
+  %58 = tail call double @llvm.fmuladd.f64(double %7, double %48, double %neg110)
+  %59 = tail call double @llvm.fmuladd.f64(double %5, double %53, double %58)
+  %60 = fneg double %48
+  %neg116 = fmul double %2, %60
+  %61 = tail call double @llvm.fmuladd.f64(double %4, double %51, double %neg116)
+  %62 = tail call double @llvm.fmuladd.f64(double %10, double %46, double %61)
+  %63 = fneg double %46
+  %neg121 = fmul double %7, %63
+  %64 = tail call double @llvm.fmuladd.f64(double %2, double %47, double %neg121)
+  %65 = tail call double @llvm.fmuladd.f64(double %5, double %50, double %64)
+  %66 = fneg double %50
+  %neg127 = fmul double %11, %66
+  %67 = tail call double @llvm.fmuladd.f64(double %8, double %51, double %neg127)
   %neg129 = fneg double %3
-  %67 = tail call double @llvm.fmuladd.f64(double %neg129, double %52, double %66)
-  %neg133 = fmul double %8, %59
-  %68 = tail call double @llvm.fmuladd.f64(double %1, double %52, double %neg133)
-  %69 = tail call double @llvm.fmuladd.f64(double %11, double %46, double %68)
-  %neg138 = fmul double %11, %62
-  %70 = tail call double @llvm.fmuladd.f64(double %3, double %47, double %neg138)
+  %68 = tail call double @llvm.fmuladd.f64(double %neg129, double %53, double %67)
+  %neg133 = fmul double %8, %60
+  %69 = tail call double @llvm.fmuladd.f64(double %1, double %53, double %neg133)
+  %70 = tail call double @llvm.fmuladd.f64(double %11, double %47, double %69)
+  %neg138 = fmul double %11, %63
+  %71 = tail call double @llvm.fmuladd.f64(double %3, double %48, double %neg138)
   %neg140 = fneg double %1
-  %71 = tail call double @llvm.fmuladd.f64(double %neg140, double %50, double %70)
-  %neg144 = fmul double %3, %56
-  %72 = tail call double @llvm.fmuladd.f64(double %1, double %49, double %neg144)
-  %73 = tail call double @llvm.fmuladd.f64(double %8, double %45, double %72)
-  %74 = fneg double %14
-  %neg149 = fmul double %39, %74
-  %75 = tail call double @llvm.fmuladd.f64(double %37, double %15, double %neg149)
+  %72 = tail call double @llvm.fmuladd.f64(double %neg140, double %51, double %71)
+  %neg144 = fmul double %3, %57
+  %73 = tail call double @llvm.fmuladd.f64(double %1, double %50, double %neg144)
+  %74 = tail call double @llvm.fmuladd.f64(double %8, double %46, double %73)
+  %75 = fneg double %14
+  %neg149 = fmul double %39, %75
+  %76 = tail call double @llvm.fmuladd.f64(double %37, double %15, double %neg149)
   %neg151 = fneg double %35
-  %76 = tail call double @llvm.fmuladd.f64(double %neg151, double %17, double %75)
+  %77 = tail call double @llvm.fmuladd.f64(double %neg151, double %17, double %76)
   %neg155 = fmul double %37, %28
-  %77 = tail call double @llvm.fmuladd.f64(double %34, double %17, double %neg155)
-  %78 = tail call double @llvm.fmuladd.f64(double %39, double %9, double %77)
+  %78 = tail call double @llvm.fmuladd.f64(double %34, double %17, double %neg155)
+  %79 = tail call double @llvm.fmuladd.f64(double %39, double %9, double %78)
   %neg160 = fmul double %39, %31
-  %79 = tail call double @llvm.fmuladd.f64(double %35, double %12, double %neg160)
+  %80 = tail call double @llvm.fmuladd.f64(double %35, double %12, double %neg160)
   %neg162 = fneg double %34
-  %80 = tail call double @llvm.fmuladd.f64(double %neg162, double %15, double %79)
+  %81 = tail call double @llvm.fmuladd.f64(double %neg162, double %15, double %80)
   %neg166 = fmul double %35, %24
-  %81 = tail call double @llvm.fmuladd.f64(double %34, double %14, double %neg166)
-  %82 = tail call double @llvm.fmuladd.f64(double %37, double %6, double %81)
+  %82 = tail call double @llvm.fmuladd.f64(double %34, double %14, double %neg166)
+  %83 = tail call double @llvm.fmuladd.f64(double %37, double %6, double %82)
   %mul = fmul double %23, %div
   %conv168 = fptrunc double %mul to float
   store float %conv168, ptr %inverse_out, align 4
-  %mul170 = fmul double %div, %55
+  %mul170 = fmul double %div, %56
   %conv171 = fptrunc double %mul170 to float
   %arrayidx172 = getelementptr inbounds i8, ptr %inverse_out, i64 4
   store float %conv171, ptr %arrayidx172, align 4
-  %mul173 = fmul double %div, %67
+  %mul173 = fmul double %div, %68
   %conv174 = fptrunc double %mul173 to float
   %arrayidx175 = getelementptr inbounds i8, ptr %inverse_out, i64 8
   store float %conv174, ptr %arrayidx175, align 4
-  %mul176 = fmul double %76, %div
+  %mul176 = fmul double %77, %div
   %conv177 = fptrunc double %mul176 to float
   %arrayidx178 = getelementptr inbounds i8, ptr %inverse_out, i64 12
   store float %conv177, ptr %arrayidx178, align 4
@@ -1038,15 +1038,15 @@ if.end:                                           ; preds = %for.end, %_ZN19Open
   %conv180 = fptrunc double %mul179 to float
   %arrayidx181 = getelementptr inbounds i8, ptr %inverse_out, i64 16
   store float %conv180, ptr %arrayidx181, align 4
-  %mul182 = fmul double %div, %58
+  %mul182 = fmul double %div, %59
   %conv183 = fptrunc double %mul182 to float
   %arrayidx184 = getelementptr inbounds i8, ptr %inverse_out, i64 20
   store float %conv183, ptr %arrayidx184, align 4
-  %mul185 = fmul double %div, %69
+  %mul185 = fmul double %div, %70
   %conv186 = fptrunc double %mul185 to float
   %arrayidx187 = getelementptr inbounds i8, ptr %inverse_out, i64 24
   store float %conv186, ptr %arrayidx187, align 4
-  %mul188 = fmul double %78, %div
+  %mul188 = fmul double %79, %div
   %conv189 = fptrunc double %mul188 to float
   %arrayidx190 = getelementptr inbounds i8, ptr %inverse_out, i64 28
   store float %conv189, ptr %arrayidx190, align 4
@@ -1054,15 +1054,15 @@ if.end:                                           ; preds = %for.end, %_ZN19Open
   %conv192 = fptrunc double %mul191 to float
   %arrayidx193 = getelementptr inbounds i8, ptr %inverse_out, i64 32
   store float %conv192, ptr %arrayidx193, align 4
-  %mul194 = fmul double %div, %61
+  %mul194 = fmul double %div, %62
   %conv195 = fptrunc double %mul194 to float
   %arrayidx196 = getelementptr inbounds i8, ptr %inverse_out, i64 36
   store float %conv195, ptr %arrayidx196, align 4
-  %mul197 = fmul double %div, %71
+  %mul197 = fmul double %div, %72
   %conv198 = fptrunc double %mul197 to float
   %arrayidx199 = getelementptr inbounds i8, ptr %inverse_out, i64 40
   store float %conv198, ptr %arrayidx199, align 4
-  %mul200 = fmul double %80, %div
+  %mul200 = fmul double %81, %div
   %conv201 = fptrunc double %mul200 to float
   %arrayidx202 = getelementptr inbounds i8, ptr %inverse_out, i64 44
   store float %conv201, ptr %arrayidx202, align 4
@@ -1070,15 +1070,15 @@ if.end:                                           ; preds = %for.end, %_ZN19Open
   %conv204 = fptrunc double %mul203 to float
   %arrayidx205 = getelementptr inbounds i8, ptr %inverse_out, i64 48
   store float %conv204, ptr %arrayidx205, align 4
-  %mul206 = fmul double %64, %div
+  %mul206 = fmul double %65, %div
   %conv207 = fptrunc double %mul206 to float
   %arrayidx208 = getelementptr inbounds i8, ptr %inverse_out, i64 52
   store float %conv207, ptr %arrayidx208, align 4
-  %mul209 = fmul double %div, %73
+  %mul209 = fmul double %div, %74
   %conv210 = fptrunc double %mul209 to float
   %arrayidx211 = getelementptr inbounds i8, ptr %inverse_out, i64 56
   store float %conv210, ptr %arrayidx211, align 4
-  %mul212 = fmul double %82, %div
+  %mul212 = fmul double %83, %div
   %conv213 = fptrunc double %mul212 to float
   %arrayidx214 = getelementptr inbounds i8, ptr %inverse_out, i64 60
   store float %conv213, ptr %arrayidx214, align 4

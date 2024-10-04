@@ -3408,8 +3408,8 @@ entry:
   %call10 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %8) #25
   %call12 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %8) #25
   %mul = shl nsw i32 %0, 1
-  %conv13 = sext i32 %mul to i64
-  %9 = shl nsw i64 %conv13, 4
+  %conv13 = zext i32 %mul to i64
+  %9 = shl nuw nsw i64 %conv13, 4
   %10 = select i1 %6, i64 -1, i64 %9
   %call14 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %10) #25
   %11 = shl nsw i64 %conv7, 3

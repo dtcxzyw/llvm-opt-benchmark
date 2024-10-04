@@ -38,19 +38,19 @@ define internal fastcc noundef zeroext i1 @_ZN4core3ops8function5FnMut8call_mut1
   %3 = load i64, ptr %0, align 8, !range !14, !alias.scope !15, !noalias !16, !noundef !17
   %4 = add i64 %3, 9223372036854775807
   %5 = icmp ult i64 %4, 8
-  %6 = xor i64 %3, -9223372036854775808
+  %6 = and i64 %3, 15
   %7 = select i1 %5, i64 %6, i64 0
   %8 = load i64, ptr %1, align 8, !range !14, !alias.scope !16, !noalias !15, !noundef !17
   %9 = add i64 %8, 9223372036854775807
   %10 = icmp ult i64 %9, 8
-  %11 = xor i64 %8, -9223372036854775808
+  %11 = and i64 %8, 15
   %12 = select i1 %10, i64 %11, i64 0
   %13 = or i64 %12, %7
   %or.cond.i.i = icmp eq i64 %13, 0
   br i1 %or.cond.i.i, label %15, label %14
 
 14:                                               ; preds = %2
-  %.04.i.i = tail call i8 @llvm.scmp.i8.i64(i64 %7, i64 %12)
+  %.04.i.i = tail call i8 @llvm.ucmp.i8.i64(i64 %7, i64 %12)
   br label %_ZN4core3cmp10PartialOrd2lt17h14bc09c7fe3972cbE.exit
 
 15:                                               ; preds = %2
@@ -2227,19 +2227,19 @@ _ZN4core5slice4sort20provide_sorted_batch17hc7a5229d5ab0b3c2E.exit: ; preds = %.
   %188 = load i64, ptr %186, align 8, !range !14, !alias.scope !447, !noalias !448, !noundef !17
   %189 = add i64 %188, 9223372036854775807
   %190 = icmp ult i64 %189, 8
-  %191 = xor i64 %188, -9223372036854775808
+  %191 = and i64 %188, 15
   %192 = select i1 %190, i64 %191, i64 0
   %193 = load i64, ptr %187, align 8, !range !14, !alias.scope !448, !noalias !447, !noundef !17
   %194 = add i64 %193, 9223372036854775807
   %195 = icmp ult i64 %194, 8
-  %196 = xor i64 %193, -9223372036854775808
+  %196 = and i64 %193, 15
   %197 = select i1 %195, i64 %196, i64 0
   %198 = or i64 %197, %192
   %or.cond.i.i.i61 = icmp eq i64 %198, 0
   br i1 %or.cond.i.i.i61, label %200, label %199
 
 199:                                              ; preds = %.lr.ph24.i
-  %.04.i.i.i62 = tail call i8 @llvm.scmp.i8.i64(i64 %192, i64 %197)
+  %.04.i.i.i62 = tail call i8 @llvm.ucmp.i8.i64(i64 %192, i64 %197)
   br label %_ZN4core3ops8function5FnMut8call_mut17h8d77d178888f143fE.exit83
 
 200:                                              ; preds = %.lr.ph24.i
@@ -2343,19 +2343,19 @@ _ZN4core3ops8function5FnMut8call_mut17h8d77d178888f143fE.exit83: ; preds = %199,
   %246 = load i64, ptr %.02818.i, align 8, !range !14, !alias.scope !488, !noalias !489, !noundef !17
   %247 = add i64 %246, 9223372036854775807
   %248 = icmp ult i64 %247, 8
-  %249 = xor i64 %246, -9223372036854775808
+  %249 = and i64 %246, 15
   %250 = select i1 %248, i64 %249, i64 0
   %251 = load i64, ptr %.sroa.0.217.i, align 8, !range !14, !alias.scope !489, !noalias !488, !noundef !17
   %252 = add i64 %251, 9223372036854775807
   %253 = icmp ult i64 %252, 8
-  %254 = xor i64 %251, -9223372036854775808
+  %254 = and i64 %251, 15
   %255 = select i1 %253, i64 %254, i64 0
   %256 = or i64 %255, %250
   %or.cond.i.i.i = icmp eq i64 %256, 0
   br i1 %or.cond.i.i.i, label %258, label %257
 
 257:                                              ; preds = %.lr.ph.i56
-  %.04.i.i.i = tail call i8 @llvm.scmp.i8.i64(i64 %250, i64 %255)
+  %.04.i.i.i = tail call i8 @llvm.ucmp.i8.i64(i64 %250, i64 %255)
   br label %_ZN4core3ops8function5FnMut8call_mut17h8d77d178888f143fE.exit
 
 258:                                              ; preds = %.lr.ph.i56
@@ -6940,7 +6940,7 @@ define internal fastcc void @_ZN4core5slice4sort25insertion_sort_shift_left17h05
 .lr.ph.i:                                         ; preds = %11
   %13 = add i64 %.sroa.016.0.copyload.fr.i, 9223372036854775807
   %14 = icmp ult i64 %13, 8
-  %15 = xor i64 %.sroa.016.0.copyload.fr.i, -9223372036854775808
+  %15 = and i64 %.sroa.016.0.copyload.fr.i, 15
   %16 = select i1 %14, i64 %15, i64 0
   %.not44.i = icmp eq i64 %.sroa.016.0.copyload.fr.i, -9223372036854775808
   %17 = icmp ne ptr %.sroa.617.0.copyload.i, null
@@ -6957,11 +6957,13 @@ define internal fastcc void @_ZN4core5slice4sort25insertion_sort_shift_left17h05
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1003)
   %21 = load i64, ptr %20, align 8, !range !14, !alias.scope !1006, !noalias !1007, !noundef !17
   %22 = icmp ult i64 %21, -9223372036854775807
-  br i1 %22, label %26, label %23
+  %23 = and i64 %21, 15
+  %or.cond.i.i.i.us45.i = icmp eq i64 %23, 0
+  %or.cond.i.i.i.us.i = or i1 %22, %or.cond.i.i.i.us45.i
+  br i1 %or.cond.i.i.i.us.i, label %26, label %24
 
-23:                                               ; preds = %.lr.ph.split.us.split.i
-  %24 = and i64 %21, 9223372036854775807
-  %25 = icmp slt i64 %16, %24
+24:                                               ; preds = %.lr.ph.split.us.split.i
+  %25 = icmp ult i64 %16, %23
   br i1 %25, label %.thread26.us.i, label %.thread.i
 
 26:                                               ; preds = %.lr.ph.split.us.split.i
@@ -6969,13 +6971,13 @@ define internal fastcc void @_ZN4core5slice4sort25insertion_sort_shift_left17h05
   %.not46.i = icmp eq i64 %21, -9223372036854775808
   br i1 %.not46.i, label %.thread.i, label %.thread26.us.i
 
-.thread26.us.i:                                   ; preds = %26, %23
+.thread26.us.i:                                   ; preds = %26, %24
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %.sroa.5.031.us.i, ptr noundef nonnull align 8 dereferenceable(48) %20, i64 48, i1 false), !alias.scope !994
   %.not.us.i = icmp eq i64 %19, 0
   br i1 %.not.us.i, label %.thread.i, label %.lr.ph.split.us.split.i
 
-.thread.i:                                        ; preds = %.thread26.i, %62, %36, %.thread26.us.i, %26, %23, %11
-  %.sroa.5.0.lcssa.i = phi ptr [ %9, %11 ], [ %.sroa.5.031.us.i, %23 ], [ %0, %.thread26.us.i ], [ %.sroa.5.031.us.i, %26 ], [ %.sroa.5.031.i, %36 ], [ %.sroa.5.031.i, %62 ], [ %0, %.thread26.i ]
+.thread.i:                                        ; preds = %.thread26.i, %62, %36, %.thread26.us.i, %26, %24, %11
+  %.sroa.5.0.lcssa.i = phi ptr [ %9, %11 ], [ %.sroa.5.031.us.i, %24 ], [ %0, %.thread26.us.i ], [ %.sroa.5.031.us.i, %26 ], [ %.sroa.5.031.i, %36 ], [ %.sroa.5.031.i, %62 ], [ %0, %.thread26.i ]
   store i64 %.sroa.016.0.copyload.fr.i, ptr %.sroa.5.0.lcssa.i, align 8, !alias.scope !994
   %.sroa.6.0..sroa.5.0.sroa_idx.i = getelementptr inbounds i8, ptr %.sroa.5.0.lcssa.i, i64 8
   store ptr %.sroa.4.0.copyload.i, ptr %.sroa.6.0..sroa.5.0.sroa_idx.i, align 8, !alias.scope !994
@@ -7005,14 +7007,14 @@ define internal fastcc void @_ZN4core5slice4sort25insertion_sort_shift_left17h05
   %29 = load i64, ptr %28, align 8, !range !14, !alias.scope !1006, !noalias !1007, !noundef !17
   %30 = add i64 %29, 9223372036854775807
   %31 = icmp ult i64 %30, 8
-  %32 = xor i64 %29, -9223372036854775808
+  %32 = and i64 %29, 15
   %33 = select i1 %31, i64 %32, i64 0
   %34 = or i64 %33, %16
   %or.cond.i.i.i.i = icmp eq i64 %34, 0
   br i1 %or.cond.i.i.i.i, label %36, label %35
 
 35:                                               ; preds = %.lr.ph.split.i
-  %.04.i.i.i.i = tail call i8 @llvm.scmp.i8.i64(i64 %16, i64 %33)
+  %.04.i.i.i.i = tail call i8 @llvm.ucmp.i8.i64(i64 %16, i64 %33)
   br label %62
 
 36:                                               ; preds = %.lr.ph.split.i
@@ -10749,6 +10751,9 @@ declare void @llvm.experimental.noalias.scope.decl(metadata) #22
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #23
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i8 @llvm.ucmp.i8.i64(i64, i64) #24
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #24

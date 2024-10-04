@@ -29743,7 +29743,7 @@ define linkonce_odr noundef zeroext i8 @_ZSt13__invoke_implIhRN32pxrInternal_v0_
   %3 = load i64, ptr %1, align 8
   %4 = icmp ugt i64 %3, 255
   %5 = trunc nuw i64 %3 to i16
-  %6 = or i16 %5, 256
+  %6 = or disjoint i16 %5, 256
   %.sroa.06.0.insert.insert.i.i.i = select i1 %4, i16 0, i16 %6
   %7 = and i16 %.sroa.06.0.insert.insert.i.i.i, 256
   %.not.i.i = icmp eq i16 %7, 0
@@ -29830,7 +29830,7 @@ define linkonce_odr noundef zeroext i8 @_ZSt13__invoke_implIhRN32pxrInternal_v0_
   %3 = load i64, ptr %1, align 8
   %4 = icmp ugt i64 %3, 255
   %5 = trunc nuw i64 %3 to i16
-  %6 = or i16 %5, 256
+  %6 = or disjoint i16 %5, 256
   %.sroa.06.0.insert.insert.i.i.i = select i1 %4, i16 0, i16 %6
   %7 = and i16 %.sroa.06.0.insert.insert.i.i.i, 256
   %.not.i.i = icmp eq i16 %7, 0
@@ -30946,7 +30946,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__12SdfAssetPathC2ERKS0_.exit.i.i.i: ; preds 
 define linkonce_odr noundef i32 @_ZSt13__invoke_implIiRN32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpers8_GetImplIivEEJRKmEET_St14__invoke_otherOT0_DpOT1_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) local_unnamed_addr #0 comdat personality ptr @__gxx_personality_v0 {
   %3 = load i64, ptr %1, align 8
   %4 = icmp ugt i64 %3, 2147483647
-  %5 = or i64 %3, 4294967296
+  %5 = or disjoint i64 %3, 4294967296
   %.sroa.06.0.insert.insert.i.i.i = select i1 %4, i64 0, i64 %5
   %6 = and i64 %.sroa.06.0.insert.insert.i.i.i, 4294967296
   %.not.i.i = icmp eq i64 %6, 0
@@ -32017,7 +32017,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__12SdfAssetPathC2ERKS0_.exit.i.i.i: ; preds 
 define linkonce_odr noundef i32 @_ZSt13__invoke_implIjRN32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpers8_GetImplIjvEEJRKmEET_St14__invoke_otherOT0_DpOT1_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) local_unnamed_addr #0 comdat personality ptr @__gxx_personality_v0 {
   %3 = load i64, ptr %1, align 8
   %4 = icmp ugt i64 %3, 4294967295
-  %5 = or i64 %3, 4294967296
+  %5 = or disjoint i64 %3, 4294967296
   %.sroa.06.0.insert.insert.i.i.i = select i1 %4, i64 0, i64 %5
   %6 = and i64 %.sroa.06.0.insert.insert.i.i.i, 4294967296
   %.not.i.i = icmp eq i64 %6, 0
@@ -32077,7 +32077,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpers8_GetImplIjvEclEm.exit: 
 define linkonce_odr noundef i32 @_ZSt13__invoke_implIjRN32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpers8_GetImplIjvEEJRKlEET_St14__invoke_otherOT0_DpOT1_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) local_unnamed_addr #0 comdat personality ptr @__gxx_personality_v0 {
   %3 = load i64, ptr %1, align 8
   %4 = icmp ugt i64 %3, 4294967295
-  %5 = or i64 %3, 4294967296
+  %5 = or disjoint i64 %3, 4294967296
   %.sroa.06.0.insert.insert.i.i.i = select i1 %4, i64 0, i64 %5
   %6 = and i64 %.sroa.06.0.insert.insert.i.i.i, 4294967296
   %.not.i.i = icmp eq i64 %6, 0

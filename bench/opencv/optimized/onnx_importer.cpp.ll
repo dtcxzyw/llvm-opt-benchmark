@@ -27317,7 +27317,7 @@ _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN2cv3dnn14dnn4_v20
 
 59:                                               ; preds = %.noexc
   %60 = icmp slt i32 %54, 0
-  %61 = ashr exact i64 %sext, 29
+  %61 = lshr exact i64 %sext, 29
   %62 = select i1 %60, i64 -1, i64 %61
   %63 = invoke noalias noundef nonnull ptr @_Znam(i64 noundef %62) #29
           to label %.noexc.i unwind label %71, !noalias !179
@@ -27622,7 +27622,7 @@ _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN2cv3dnn14dnn4_v20
 
 67:                                               ; preds = %.noexc
   %68 = icmp slt i32 %62, 0
-  %69 = ashr exact i64 %sext, 29
+  %69 = lshr exact i64 %sext, 29
   %70 = select i1 %68, i64 -1, i64 %69
   %71 = invoke noalias noundef nonnull ptr @_Znam(i64 noundef %70) #29
           to label %.noexc.i unwind label %79, !noalias !182
@@ -27687,7 +27687,7 @@ _ZN2cv3dnn14dnn4_v202405219DictValue8arrayIntIPiEES2_T_i.exit: ; preds = %.lr.ph
 
 87:                                               ; preds = %.noexc38
   %88 = icmp slt i32 %62, 0
-  %89 = ashr exact i64 %sext, 29
+  %89 = lshr exact i64 %sext, 29
   %90 = select i1 %88, i64 -1, i64 %89
   %91 = invoke noalias noundef nonnull ptr @_Znam(i64 noundef %90) #29
           to label %.noexc.i37 unwind label %98, !noalias !185
@@ -39071,7 +39071,7 @@ _ZNK11opencv_onnx9NodeProto10input_sizeEv.exit:   ; preds = %50
 
 68:                                               ; preds = %.noexc
   %69 = icmp slt i32 %63, 0
-  %70 = ashr exact i64 %sext, 29
+  %70 = lshr exact i64 %sext, 29
   %71 = select i1 %69, i64 -1, i64 %70
   %72 = invoke noalias noundef nonnull ptr @_Znam(i64 noundef %71) #29
           to label %.noexc.i unwind label %80, !noalias !239
@@ -40646,7 +40646,7 @@ _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN2cv3MatESt4lessIS
 
 72:                                               ; preds = %.noexc
   %73 = icmp slt i32 %67, 0
-  %74 = ashr exact i64 %sext, 29
+  %74 = lshr exact i64 %sext, 29
   %75 = select i1 %73, i64 -1, i64 %74
   %76 = invoke noalias noundef nonnull ptr @_Znam(i64 noundef %75) #29
           to label %.noexc.i unwind label %84, !noalias !256
@@ -41292,7 +41292,7 @@ _ZNK2cv3dnn14dnn4_v202405214Dict3getIiEET_RKNSt7__cxx1112basic_stringIcSt11char_
 
 121:                                              ; preds = %.noexc90
   %122 = icmp slt i32 %116, 0
-  %123 = ashr exact i64 %sext, 29
+  %123 = lshr exact i64 %sext, 29
   %124 = select i1 %122, i64 -1, i64 %123
   %125 = invoke noalias noundef nonnull ptr @_Znam(i64 noundef %124) #29
           to label %.noexc.i unwind label %133, !noalias !259
@@ -42142,7 +42142,7 @@ _ZN2cv3MataSERKNS_7MatExprE.exit:                 ; preds = %56
 
 74:                                               ; preds = %.noexc37
   %75 = icmp slt i32 %69, 0
-  %76 = ashr exact i64 %sext, 29
+  %76 = lshr exact i64 %sext, 29
   %77 = select i1 %75, i64 -1, i64 %76
   %78 = invoke noalias noundef nonnull ptr @_Znam(i64 noundef %77) #29
           to label %.noexc.i unwind label %86, !noalias !266

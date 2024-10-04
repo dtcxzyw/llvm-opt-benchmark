@@ -600,7 +600,7 @@ define hidden void @_RNvXsR_CsdF516cSs19B_10rustc_spanNtB5_8FileNameNtNtCs9nhK3F
   %5 = load i64, ptr %1, align 8, !range !14, !noundef !8
   %6 = add i64 %5, 9223372036854775807
   %7 = icmp ult i64 %6, 8
-  %8 = xor i64 %5, -9223372036854775808
+  %8 = and i64 %5, 15
   %9 = select i1 %7, i64 %8, i64 0
   switch i64 %9, label %10 [
     i64 0, label %11
@@ -4146,7 +4146,7 @@ define internal fastcc void @"_ZN4core3ptr41drop_in_place$LT$rustc_span..FileNam
   %4 = load i64, ptr %0, align 8, !range !14, !noundef !8
   %5 = add i64 %4, 9223372036854775807
   %6 = icmp ult i64 %5, 8
-  %7 = xor i64 %4, -9223372036854775808
+  %7 = and i64 %4, 15
   %8 = select i1 %6, i64 %7, i64 0
   switch i64 %8, label %9 [
     i64 0, label %10
@@ -22038,7 +22038,7 @@ define void @"_ZN113_$LT$rustfmt_nightly..config..file_lines..FileName$u20$as$u2
   %3 = load i64, ptr %1, align 8, !range !14, !noundef !8
   %4 = add i64 %3, 9223372036854775807
   %5 = icmp ult i64 %4, 8
-  %6 = xor i64 %3, -9223372036854775808
+  %6 = and i64 %3, 15
   %7 = select i1 %5, i64 %6, i64 0
   switch i64 %7, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h884929514755f779E.exit.thread" [
     i64 0, label %8
@@ -22047,7 +22047,7 @@ define void @"_ZN113_$LT$rustfmt_nightly..config..file_lines..FileName$u20$as$u2
 
 "_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h884929514755f779E.exit.thread": ; preds = %10, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h884929514755f779E.exit", %8, %2
   invoke void @_ZN4core9panicking5panic17hbd449742545cb8d5E(ptr noalias noundef nonnull readonly align 1 @anon.ac9b56db96481140084a14b3a62254c9.217.llvm.17476841346288807550, i64 noundef 40, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.ac9b56db96481140084a14b3a62254c9.245) #50
-          to label %28 unwind label %16
+          to label %33 unwind label %18
 
 8:                                                ; preds = %2
   %9 = icmp eq i64 %3, -9223372036854775808
@@ -22062,70 +22062,75 @@ define void @"_ZN113_$LT$rustfmt_nightly..config..file_lines..FileName$u20$as$u2
 .thread11:                                        ; preds = %8
   %13 = getelementptr inbounds i8, ptr %1, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %13, i64 24, i1 false)
-  br label %26
+  br label %31
 
 14:                                               ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h884929514755f779E.exit"
   store i64 -9223372036854775808, ptr %0, align 8
   %15 = icmp ult i64 %3, -9223372036854775807
-  br i1 %15, label %23, label %25
+  %16 = icmp eq i64 %6, 0
+  %17 = or i1 %15, %16
+  br i1 %17, label %28, label %30
 
-16:                                               ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h884929514755f779E.exit.thread"
-  %17 = landingpad { ptr, i32 }
+18:                                               ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h884929514755f779E.exit.thread"
+  %19 = landingpad { ptr, i32 }
           cleanup
-  %18 = load i64, ptr %1, align 8, !range !14, !noundef !8
-  %19 = icmp ult i64 %18, -9223372036854775807
-  br i1 %19, label %29, label %31
+  %20 = load i64, ptr %1, align 8, !range !14, !noundef !8
+  %21 = icmp ult i64 %20, -9223372036854775807
+  %22 = and i64 %20, 15
+  %23 = icmp eq i64 %22, 0
+  %24 = or i1 %21, %23
+  br i1 %24, label %34, label %36
 
 "_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h884929514755f779E.exit": ; preds = %10
-  %20 = getelementptr inbounds i8, ptr %1, i64 16
-  %21 = load ptr, ptr %20, align 8, !nonnull !8, !noundef !8
-  %bcmp.i = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(5) %21, ptr noundef nonnull readonly dereferenceable(5) @anon.ac9b56db96481140084a14b3a62254c9.242, i64 5), !alias.scope !3834
-  %22 = icmp eq i32 %bcmp.i, 0
-  br i1 %22, label %14, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h884929514755f779E.exit.thread"
+  %25 = getelementptr inbounds i8, ptr %1, i64 16
+  %26 = load ptr, ptr %25, align 8, !nonnull !8, !noundef !8
+  %bcmp.i = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(5) %26, ptr noundef nonnull readonly dereferenceable(5) @anon.ac9b56db96481140084a14b3a62254c9.242, i64 5), !alias.scope !3834
+  %27 = icmp eq i32 %bcmp.i, 0
+  br i1 %27, label %14, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h884929514755f779E.exit.thread"
 
-23:                                               ; preds = %14
-  %24 = icmp eq i64 %3, -9223372036854775808
-  br i1 %24, label %26, label %27
+28:                                               ; preds = %14
+  %29 = icmp eq i64 %3, -9223372036854775808
+  br i1 %29, label %31, label %32
 
-25:                                               ; preds = %14
+30:                                               ; preds = %14
   tail call fastcc void @"_ZN4core3ptr41drop_in_place$LT$rustc_span..FileName$GT$17h3412e72dfa202629E"(ptr noalias noundef align 8 dereferenceable(48) %1)
-  br label %26
+  br label %31
 
-26:                                               ; preds = %.thread11, %27, %25, %23
+31:                                               ; preds = %.thread11, %32, %30, %28
   ret void
 
-27:                                               ; preds = %23
+32:                                               ; preds = %28
   tail call fastcc void @"_ZN4core3ptr45drop_in_place$LT$rustc_span..RealFileName$GT$17h44a2681868c9b82bE"(ptr noalias noundef align 8 dereferenceable(48) %1)
-  br label %26
+  br label %31
 
-28:                                               ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h884929514755f779E.exit.thread"
+33:                                               ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h884929514755f779E.exit.thread"
   unreachable
 
-29:                                               ; preds = %16
-  %30 = icmp eq i64 %18, -9223372036854775808
-  br i1 %30, label %32, label %34
+34:                                               ; preds = %18
+  %35 = icmp eq i64 %20, -9223372036854775808
+  br i1 %35, label %37, label %39
 
-31:                                               ; preds = %16
+36:                                               ; preds = %18
   invoke fastcc void @"_ZN4core3ptr41drop_in_place$LT$rustc_span..FileName$GT$17h3412e72dfa202629E"(ptr noalias noundef align 8 dereferenceable(48) %1) #48
-          to label %37 unwind label %35
+          to label %42 unwind label %40
 
-32:                                               ; preds = %29
-  %33 = getelementptr inbounds i8, ptr %1, i64 8
-  invoke void @"_ZN4core3ptr39drop_in_place$LT$std..path..PathBuf$GT$17h2740da28ff94c641E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %33) #48
-          to label %37 unwind label %35
+37:                                               ; preds = %34
+  %38 = getelementptr inbounds i8, ptr %1, i64 8
+  invoke void @"_ZN4core3ptr39drop_in_place$LT$std..path..PathBuf$GT$17h2740da28ff94c641E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %38) #48
+          to label %42 unwind label %40
 
-34:                                               ; preds = %29
+39:                                               ; preds = %34
   invoke fastcc void @"_ZN4core3ptr45drop_in_place$LT$rustc_span..RealFileName$GT$17h44a2681868c9b82bE"(ptr noalias noundef align 8 dereferenceable(48) %1) #48
-          to label %37 unwind label %35
+          to label %42 unwind label %40
 
-35:                                               ; preds = %34, %32, %31
-  %36 = landingpad { ptr, i32 }
+40:                                               ; preds = %39, %37, %36
+  %41 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   tail call void @_ZN4core9panicking16panic_in_cleanup17h7bbd4fcd6f160435E() #49
   unreachable
 
-37:                                               ; preds = %34, %32, %31
-  resume { ptr, i32 } %17
+42:                                               ; preds = %39, %37, %36
+  resume { ptr, i32 } %19
 }
 
 ; Function Attrs: nonlazybind uwtable
