@@ -657,3 +657,6 @@
 [submodule "bench/turborepo-rs/turborepo"]
 	path = bench/turborepo-rs/turborepo
 	url = https://github.com/vercel/turborepo.git
+[submodule "bench/zed-rs/zed"]
+	path = bench/zed-rs/zed
+	url = https://github.com/zed-industries/zed.git
