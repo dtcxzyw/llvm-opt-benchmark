@@ -651,3 +651,6 @@
 [submodule "bench/quantlib/QuantLib"]
 	path = bench/quantlib/QuantLib
 	url = https://github.com/lballabio/QuantLib.git
+[submodule "bench/egg-rs/egg"]
+	path = bench/egg-rs/egg
+	url = https://github.com/egraphs-good/egg.git
