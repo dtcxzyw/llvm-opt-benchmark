@@ -654,3 +654,6 @@
 [submodule "bench/egg-rs/egg"]
 	path = bench/egg-rs/egg
 	url = https://github.com/egraphs-good/egg.git
+[submodule "bench/turborepo-rs/turborepo"]
+	path = bench/turborepo-rs/turborepo
+	url = https://github.com/vercel/turborepo.git
