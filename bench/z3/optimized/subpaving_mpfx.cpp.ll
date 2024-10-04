@@ -1223,362 +1223,373 @@ sw.bb7.i:                                         ; preds = %while.body.i
 while.body.i.unreachabledefault:                  ; preds = %while.body.i
   unreachable
 
-default.unreachable:                              ; preds = %while.body.i137
+default.unreachable:                              ; preds = %while.body.i136
   unreachable
 
 _ZNK14parray_managerIN9subpaving9context_tINS0_11config_mpfxEE18bound_array_configEE4sizeERKNS5_3refE.exit: ; preds = %sw.bb3.i, %sw.bb5.i, %sw.bb7.i
   %retval.0.i = phi i32 [ %27, %sw.bb7.i ], [ %sub.i, %sw.bb5.i ], [ %add.i, %sw.bb3.i ]
   %cmp8 = icmp ugt i32 %19, %retval.0.i
-  br i1 %cmp8, label %if.end.i151, label %if.end.i81
+  br i1 %cmp8, label %if.then9, label %if.end.i80
 
-if.end.i151:                                      ; preds = %_ZNK14parray_managerIN9subpaving9context_tINS0_11config_mpfxEE18bound_array_configEE4sizeERKNS5_3refE.exit
-  %m_allocator.i.i37 = getelementptr inbounds i8, ptr %this, i64 8
-  %28 = load ptr, ptr %m_allocator.i.i37, align 8
-  %call.i.i38 = tail call noundef ptr @_ZN22small_object_allocator8allocateEm(ptr noundef nonnull align 8 dereferenceable(520) %28, i64 noundef 24)
-  store i32 -1073741823, ptr %call.i.i38, align 8
-  %29 = getelementptr inbounds i8, ptr %call.i.i38, i64 4
+if.then9:                                         ; preds = %_ZNK14parray_managerIN9subpaving9context_tINS0_11config_mpfxEE18bound_array_configEE4sizeERKNS5_3refE.exit
+  %or.cond.i = icmp eq i32 %bf.load.i.i, -1073741823
+  br i1 %or.cond.i, label %_ZN14parray_managerIN9subpaving9context_tINS0_11config_mpfxEE18bound_array_configEE7unshareERNS5_3refE.exit, label %if.end.i150
+
+if.end.i150:                                      ; preds = %if.then9
+  %m_allocator.i.i36 = getelementptr inbounds i8, ptr %this, i64 8
+  %28 = load ptr, ptr %m_allocator.i.i36, align 8
+  %call.i.i37 = tail call noundef ptr @_ZN22small_object_allocator8allocateEm(ptr noundef nonnull align 8 dereferenceable(520) %28, i64 noundef 24)
+  store i32 -1073741823, ptr %call.i.i37, align 8
+  %29 = getelementptr inbounds i8, ptr %call.i.i37, i64 4
   store i32 0, ptr %29, align 4
-  %30 = getelementptr inbounds i8, ptr %call.i.i38, i64 16
+  %30 = getelementptr inbounds i8, ptr %call.i.i37, i64 16
   store ptr null, ptr %30, align 8
   %call4.i = tail call noundef i32 @_ZN14parray_managerIN9subpaving9context_tINS0_11config_mpfxEE18bound_array_configEE10get_valuesEPNS5_4cellERPPNS3_5boundE(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef nonnull %4, ptr noundef nonnull align 8 dereferenceable(8) %30)
   store i32 %call4.i, ptr %29, align 4
-  %bf.load.i152 = load i32, ptr %4, align 8
-  %dec.i153 = add i32 %bf.load.i152, 1073741823
-  %bf.value.i154 = and i32 %dec.i153, 1073741823
-  %bf.clear3.i155 = and i32 %bf.load.i152, -1073741824
-  %bf.set.i156 = or disjoint i32 %bf.value.i154, %bf.clear3.i155
-  store i32 %bf.set.i156, ptr %4, align 8
-  %cmp.i157 = icmp eq i32 %bf.value.i154, 0
-  br i1 %cmp.i157, label %while.body.i.i160, label %_ZN14parray_managerIN9subpaving9context_tINS0_11config_mpfxEE18bound_array_configEE7unshareERNS5_3refE.exit
+  %bf.load.i151 = load i32, ptr %4, align 8
+  %dec.i152 = add i32 %bf.load.i151, 1073741823
+  %bf.value.i153 = and i32 %dec.i152, 1073741823
+  %bf.clear3.i154 = and i32 %bf.load.i151, -1073741824
+  %bf.set.i155 = or disjoint i32 %bf.value.i153, %bf.clear3.i154
+  store i32 %bf.set.i155, ptr %4, align 8
+  %cmp.i156 = icmp eq i32 %bf.value.i153, 0
+  br i1 %cmp.i156, label %while.body.i.i159, label %_ZN14parray_managerIN9subpaving9context_tINS0_11config_mpfxEE18bound_array_configEE7dec_refEPNS5_4cellE.exit181
 
-while.body.i.i160:                                ; preds = %if.end.i151, %if.end.i.i168
-  %bf.load.i.i.i161 = phi i32 [ %bf.set.i.i173, %if.end.i.i168 ], [ %bf.set.i156, %if.end.i151 ]
-  %c.addr.0.i.i162 = phi ptr [ %32, %if.end.i.i168 ], [ %4, %if.end.i151 ]
-  %switch.not.i.i163 = icmp ugt i32 %bf.load.i.i.i161, -1073741825
-  %31 = getelementptr inbounds i8, ptr %c.addr.0.i.i162, i64 16
+while.body.i.i159:                                ; preds = %if.end.i150, %if.end.i.i167
+  %bf.load.i.i.i160 = phi i32 [ %bf.set.i.i172, %if.end.i.i167 ], [ %bf.set.i155, %if.end.i150 ]
+  %c.addr.0.i.i161 = phi ptr [ %32, %if.end.i.i167 ], [ %4, %if.end.i150 ]
+  %switch.not.i.i162 = icmp ugt i32 %bf.load.i.i.i160, -1073741825
+  %31 = getelementptr inbounds i8, ptr %c.addr.0.i.i161, i64 16
   %32 = load ptr, ptr %31, align 8
-  br i1 %switch.not.i.i163, label %sw.bb6.i.i175, label %sw.epilog.i.i164
+  br i1 %switch.not.i.i162, label %sw.bb6.i.i174, label %sw.epilog.i.i163
 
-sw.bb6.i.i175:                                    ; preds = %while.body.i.i160
-  %cmp.i.i.i176 = icmp eq ptr %32, null
-  br i1 %cmp.i.i.i176, label %sw.epilog.thread.i.i181, label %_ZN14parray_managerIN9subpaving9context_tINS0_11config_mpfxEE18bound_array_configEE8capacityEPPNS3_5boundE.exit.i.i.i177
+sw.bb6.i.i174:                                    ; preds = %while.body.i.i159
+  %cmp.i.i.i175 = icmp eq ptr %32, null
+  br i1 %cmp.i.i.i175, label %sw.epilog.thread.i.i180, label %_ZN14parray_managerIN9subpaving9context_tINS0_11config_mpfxEE18bound_array_configEE8capacityEPPNS3_5boundE.exit.i.i.i176
 
-_ZN14parray_managerIN9subpaving9context_tINS0_11config_mpfxEE18bound_array_configEE8capacityEPPNS3_5boundE.exit.i.i.i177: ; preds = %sw.bb6.i.i175
-  %arrayidx.i.i.i.i178 = getelementptr inbounds i8, ptr %32, i64 -8
-  %33 = load i64, ptr %arrayidx.i.i.i.i178, align 8
-  %34 = load ptr, ptr %m_allocator.i.i37, align 8
-  %mul.i.i.i179 = shl i64 %33, 3
-  %add.i.i.i180 = add i64 %mul.i.i.i179, 8
-  tail call void @_ZN22small_object_allocator10deallocateEmPv(ptr noundef nonnull align 8 dereferenceable(520) %34, i64 noundef %add.i.i.i180, ptr noundef nonnull %arrayidx.i.i.i.i178)
-  br label %sw.epilog.thread.i.i181
+_ZN14parray_managerIN9subpaving9context_tINS0_11config_mpfxEE18bound_array_configEE8capacityEPPNS3_5boundE.exit.i.i.i176: ; preds = %sw.bb6.i.i174
+  %arrayidx.i.i.i.i177 = getelementptr inbounds i8, ptr %32, i64 -8
+  %33 = load i64, ptr %arrayidx.i.i.i.i177, align 8
+  %34 = load ptr, ptr %m_allocator.i.i36, align 8
+  %mul.i.i.i178 = shl i64 %33, 3
+  %add.i.i.i179 = add i64 %mul.i.i.i178, 8
+  tail call void @_ZN22small_object_allocator10deallocateEmPv(ptr noundef nonnull align 8 dereferenceable(520) %34, i64 noundef %add.i.i.i179, ptr noundef nonnull %arrayidx.i.i.i.i177)
+  br label %sw.epilog.thread.i.i180
 
-sw.epilog.thread.i.i181:                          ; preds = %_ZN14parray_managerIN9subpaving9context_tINS0_11config_mpfxEE18bound_array_configEE8capacityEPPNS3_5boundE.exit.i.i.i177, %sw.bb6.i.i175
-  %35 = load ptr, ptr %m_allocator.i.i37, align 8
-  tail call void @_ZN22small_object_allocator10deallocateEmPv(ptr noundef nonnull align 8 dereferenceable(520) %35, i64 noundef 24, ptr noundef nonnull %c.addr.0.i.i162)
+sw.epilog.thread.i.i180:                          ; preds = %_ZN14parray_managerIN9subpaving9context_tINS0_11config_mpfxEE18bound_array_configEE8capacityEPPNS3_5boundE.exit.i.i.i176, %sw.bb6.i.i174
+  %35 = load ptr, ptr %m_allocator.i.i36, align 8
+  tail call void @_ZN22small_object_allocator10deallocateEmPv(ptr noundef nonnull align 8 dereferenceable(520) %35, i64 noundef 24, ptr noundef nonnull %c.addr.0.i.i161)
+  br label %_ZN14parray_managerIN9subpaving9context_tINS0_11config_mpfxEE18bound_array_configEE7dec_refEPNS5_4cellE.exit181
+
+sw.epilog.i.i163:                                 ; preds = %while.body.i.i159
+  %36 = load ptr, ptr %m_allocator.i.i36, align 8
+  tail call void @_ZN22small_object_allocator10deallocateEmPv(ptr noundef nonnull align 8 dereferenceable(520) %36, i64 noundef 24, ptr noundef nonnull %c.addr.0.i.i161)
+  %cmp.i.i166 = icmp eq ptr %32, null
+  br i1 %cmp.i.i166, label %_ZN14parray_managerIN9subpaving9context_tINS0_11config_mpfxEE18bound_array_configEE7dec_refEPNS5_4cellE.exit181, label %if.end.i.i167
+
+if.end.i.i167:                                    ; preds = %sw.epilog.i.i163
+  %bf.load.i.i168 = load i32, ptr %32, align 8
+  %dec.i.i169 = add i32 %bf.load.i.i168, 1073741823
+  %bf.value.i.i170 = and i32 %dec.i.i169, 1073741823
+  %bf.clear9.i.i171 = and i32 %bf.load.i.i168, -1073741824
+  %bf.set.i.i172 = or disjoint i32 %bf.value.i.i170, %bf.clear9.i.i171
+  store i32 %bf.set.i.i172, ptr %32, align 8
+  %cmp12.not.i.i173 = icmp eq i32 %bf.value.i.i170, 0
+  br i1 %cmp12.not.i.i173, label %while.body.i.i159, label %_ZN14parray_managerIN9subpaving9context_tINS0_11config_mpfxEE18bound_array_configEE7dec_refEPNS5_4cellE.exit181, !llvm.loop !8
+
+_ZN14parray_managerIN9subpaving9context_tINS0_11config_mpfxEE18bound_array_configEE7dec_refEPNS5_4cellE.exit181: ; preds = %sw.epilog.i.i163, %if.end.i.i167, %if.end.i150, %sw.epilog.thread.i.i180
+  store ptr %call.i.i37, ptr %r, align 8
+  store i32 0, ptr %m_updt_counter, align 8
   br label %_ZN14parray_managerIN9subpaving9context_tINS0_11config_mpfxEE18bound_array_configEE7unshareERNS5_3refE.exit
 
-sw.epilog.i.i164:                                 ; preds = %while.body.i.i160
-  %36 = load ptr, ptr %m_allocator.i.i37, align 8
-  tail call void @_ZN22small_object_allocator10deallocateEmPv(ptr noundef nonnull align 8 dereferenceable(520) %36, i64 noundef 24, ptr noundef nonnull %c.addr.0.i.i162)
-  %cmp.i.i167 = icmp eq ptr %32, null
-  br i1 %cmp.i.i167, label %_ZN14parray_managerIN9subpaving9context_tINS0_11config_mpfxEE18bound_array_configEE7unshareERNS5_3refE.exit, label %if.end.i.i168
+_ZN14parray_managerIN9subpaving9context_tINS0_11config_mpfxEE18bound_array_configEE7unshareERNS5_3refE.exit: ; preds = %if.then9, %_ZN14parray_managerIN9subpaving9context_tINS0_11config_mpfxEE18bound_array_configEE7dec_refEPNS5_4cellE.exit181
+  %37 = phi ptr [ %4, %if.then9 ], [ %call.i.i37, %_ZN14parray_managerIN9subpaving9context_tINS0_11config_mpfxEE18bound_array_configEE7dec_refEPNS5_4cellE.exit181 ]
+  %38 = getelementptr inbounds i8, ptr %37, i64 16
+  %39 = getelementptr inbounds i8, ptr %37, i64 4
+  %40 = load i32, ptr %39, align 4
+  %41 = load ptr, ptr %38, align 8
+  %cmp.i.i.i39 = icmp eq ptr %41, null
+  br i1 %cmp.i.i.i39, label %_ZN14parray_managerIN9subpaving9context_tINS0_11config_mpfxEE18bound_array_configEE8capacityEPPNS3_5boundE.exit.i.i74, label %_ZN14parray_managerIN9subpaving9context_tINS0_11config_mpfxEE18bound_array_configEE8capacityEPPNS3_5boundE.exit.thread.i.i40
 
-if.end.i.i168:                                    ; preds = %sw.epilog.i.i164
-  %bf.load.i.i169 = load i32, ptr %32, align 8
-  %dec.i.i170 = add i32 %bf.load.i.i169, 1073741823
-  %bf.value.i.i171 = and i32 %dec.i.i170, 1073741823
-  %bf.clear9.i.i172 = and i32 %bf.load.i.i169, -1073741824
-  %bf.set.i.i173 = or disjoint i32 %bf.value.i.i171, %bf.clear9.i.i172
-  store i32 %bf.set.i.i173, ptr %32, align 8
-  %cmp12.not.i.i174 = icmp eq i32 %bf.value.i.i171, 0
-  br i1 %cmp12.not.i.i174, label %while.body.i.i160, label %_ZN14parray_managerIN9subpaving9context_tINS0_11config_mpfxEE18bound_array_configEE7unshareERNS5_3refE.exit, !llvm.loop !8
+_ZN14parray_managerIN9subpaving9context_tINS0_11config_mpfxEE18bound_array_configEE8capacityEPPNS3_5boundE.exit.i.i74: ; preds = %_ZN14parray_managerIN9subpaving9context_tINS0_11config_mpfxEE18bound_array_configEE7unshareERNS5_3refE.exit
+  %cmp.i.i75 = icmp eq i32 %40, 0
+  tail call void @llvm.assume(i1 %cmp.i.i75)
+  br label %_ZN14parray_managerIN9subpaving9context_tINS0_11config_mpfxEE18bound_array_configEE8capacityEPPNS3_5boundE.exit.i.i.i47
 
-_ZN14parray_managerIN9subpaving9context_tINS0_11config_mpfxEE18bound_array_configEE7unshareERNS5_3refE.exit: ; preds = %if.end.i.i168, %sw.epilog.i.i164, %sw.epilog.thread.i.i181, %if.end.i151
-  store ptr %call.i.i38, ptr %r, align 8
-  store i32 0, ptr %m_updt_counter, align 8
-  %37 = load i32, ptr %29, align 4
-  %38 = load ptr, ptr %30, align 8
-  %cmp.i.i.i40 = icmp eq ptr %38, null
-  br i1 %cmp.i.i.i40, label %_ZN14parray_managerIN9subpaving9context_tINS0_11config_mpfxEE18bound_array_configEE8capacityEPPNS3_5boundE.exit.i.i75, label %_ZN14parray_managerIN9subpaving9context_tINS0_11config_mpfxEE18bound_array_configEE8capacityEPPNS3_5boundE.exit.thread.i.i41
+_ZN14parray_managerIN9subpaving9context_tINS0_11config_mpfxEE18bound_array_configEE8capacityEPPNS3_5boundE.exit.thread.i.i40: ; preds = %_ZN14parray_managerIN9subpaving9context_tINS0_11config_mpfxEE18bound_array_configEE7unshareERNS5_3refE.exit
+  %conv.i.i41 = zext i32 %40 to i64
+  %arrayidx.i.i.i42 = getelementptr inbounds i8, ptr %41, i64 -8
+  %42 = load i64, ptr %arrayidx.i.i.i42, align 8
+  %cmp10.i.i43 = icmp eq i64 %42, %conv.i.i41
+  br i1 %cmp10.i.i43, label %_ZN14parray_managerIN9subpaving9context_tINS0_11config_mpfxEE18bound_array_configEE8capacityEPPNS3_5boundE.exit.i.i.i47, label %_ZN14parray_managerIN9subpaving9context_tINS0_11config_mpfxEE18bound_array_configEE10rpush_backEPNS5_4cellERKPNS3_5boundE.exit76
 
-_ZN14parray_managerIN9subpaving9context_tINS0_11config_mpfxEE18bound_array_configEE8capacityEPPNS3_5boundE.exit.i.i75: ; preds = %_ZN14parray_managerIN9subpaving9context_tINS0_11config_mpfxEE18bound_array_configEE7unshareERNS5_3refE.exit
-  %cmp.i.i76 = icmp eq i32 %37, 0
-  tail call void @llvm.assume(i1 %cmp.i.i76)
-  br label %_ZN14parray_managerIN9subpaving9context_tINS0_11config_mpfxEE18bound_array_configEE8capacityEPPNS3_5boundE.exit.i.i.i48
+_ZN14parray_managerIN9subpaving9context_tINS0_11config_mpfxEE18bound_array_configEE8capacityEPPNS3_5boundE.exit.i.i.i47: ; preds = %_ZN14parray_managerIN9subpaving9context_tINS0_11config_mpfxEE18bound_array_configEE8capacityEPPNS3_5boundE.exit.thread.i.i40, %_ZN14parray_managerIN9subpaving9context_tINS0_11config_mpfxEE18bound_array_configEE8capacityEPPNS3_5boundE.exit.i.i74
+  %cond.i.i.i.i48 = phi i64 [ 0, %_ZN14parray_managerIN9subpaving9context_tINS0_11config_mpfxEE18bound_array_configEE8capacityEPPNS3_5boundE.exit.i.i74 ], [ %conv.i.i41, %_ZN14parray_managerIN9subpaving9context_tINS0_11config_mpfxEE18bound_array_configEE8capacityEPPNS3_5boundE.exit.thread.i.i40 ]
+  %cmp.i6.i.i49 = icmp eq i64 %cond.i.i.i.i48, 0
+  %mul.i.i.i50 = mul nuw nsw i64 %cond.i.i.i.i48, 3
+  %add.i.i.i51 = add nuw nsw i64 %mul.i.i.i50, 1
+  %shr.i.i.i52 = lshr i64 %add.i.i.i51, 1
+  %cond.i7.i.i53 = select i1 %cmp.i6.i.i49, i64 2, i64 %shr.i.i.i52
+  %m_allocator.i.i.i.i54 = getelementptr inbounds i8, ptr %this, i64 8
+  %43 = load ptr, ptr %m_allocator.i.i.i.i54, align 8
+  %mul.i.i.i.i55 = shl nuw nsw i64 %cond.i7.i.i53, 3
+  %add.i.i.i.i56 = add nuw nsw i64 %mul.i.i.i.i55, 8
+  %call.i.i.i.i57 = tail call noundef ptr @_ZN22small_object_allocator8allocateEm(ptr noundef nonnull align 8 dereferenceable(520) %43, i64 noundef %add.i.i.i.i56)
+  store i64 %cond.i7.i.i53, ptr %call.i.i.i.i57, align 8
+  %incdec.ptr.i.i.i.i58 = getelementptr inbounds i8, ptr %call.i.i.i.i57, i64 8
+  br i1 %cmp.i6.i.i49, label %_ZN14parray_managerIN9subpaving9context_tINS0_11config_mpfxEE18bound_array_configEE6expandERPPNS3_5boundE.exit.i.i71, label %for.body.i.i.i59
 
-_ZN14parray_managerIN9subpaving9context_tINS0_11config_mpfxEE18bound_array_configEE8capacityEPPNS3_5boundE.exit.thread.i.i41: ; preds = %_ZN14parray_managerIN9subpaving9context_tINS0_11config_mpfxEE18bound_array_configEE7unshareERNS5_3refE.exit
-  %conv.i.i42 = zext i32 %37 to i64
-  %arrayidx.i.i.i43 = getelementptr inbounds i8, ptr %38, i64 -8
-  %39 = load i64, ptr %arrayidx.i.i.i43, align 8
-  %cmp10.i.i44 = icmp eq i64 %39, %conv.i.i42
-  br i1 %cmp10.i.i44, label %_ZN14parray_managerIN9subpaving9context_tINS0_11config_mpfxEE18bound_array_configEE8capacityEPPNS3_5boundE.exit.i.i.i48, label %_ZN14parray_managerIN9subpaving9context_tINS0_11config_mpfxEE18bound_array_configEE10rpush_backEPNS5_4cellERKPNS3_5boundE.exit77
+for.body.i.i.i59:                                 ; preds = %_ZN14parray_managerIN9subpaving9context_tINS0_11config_mpfxEE18bound_array_configEE8capacityEPPNS3_5boundE.exit.i.i.i47, %for.body.i.i.i59
+  %i.015.i.i.i60 = phi i64 [ %inc.i.i.i63, %for.body.i.i.i59 ], [ 0, %_ZN14parray_managerIN9subpaving9context_tINS0_11config_mpfxEE18bound_array_configEE8capacityEPPNS3_5boundE.exit.i.i.i47 ]
+  %44 = load ptr, ptr %38, align 8
+  %arrayidx.i8.i.i61 = getelementptr inbounds ptr, ptr %44, i64 %i.015.i.i.i60
+  %45 = load ptr, ptr %arrayidx.i8.i.i61, align 8
+  %arrayidx5.i.i.i62 = getelementptr inbounds ptr, ptr %incdec.ptr.i.i.i.i58, i64 %i.015.i.i.i60
+  store ptr %45, ptr %arrayidx5.i.i.i62, align 8
+  %inc.i.i.i63 = add nuw nsw i64 %i.015.i.i.i60, 1
+  %exitcond.not.i.i.i64 = icmp eq i64 %inc.i.i.i63, %cond.i.i.i.i48
+  br i1 %exitcond.not.i.i.i64, label %for.end.i.i.i65, label %for.body.i.i.i59, !llvm.loop !6
 
-_ZN14parray_managerIN9subpaving9context_tINS0_11config_mpfxEE18bound_array_configEE8capacityEPPNS3_5boundE.exit.i.i.i48: ; preds = %_ZN14parray_managerIN9subpaving9context_tINS0_11config_mpfxEE18bound_array_configEE8capacityEPPNS3_5boundE.exit.thread.i.i41, %_ZN14parray_managerIN9subpaving9context_tINS0_11config_mpfxEE18bound_array_configEE8capacityEPPNS3_5boundE.exit.i.i75
-  %cond.i.i.i.i49 = phi i64 [ 0, %_ZN14parray_managerIN9subpaving9context_tINS0_11config_mpfxEE18bound_array_configEE8capacityEPPNS3_5boundE.exit.i.i75 ], [ %conv.i.i42, %_ZN14parray_managerIN9subpaving9context_tINS0_11config_mpfxEE18bound_array_configEE8capacityEPPNS3_5boundE.exit.thread.i.i41 ]
-  %cmp.i6.i.i50 = icmp eq i64 %cond.i.i.i.i49, 0
-  %mul.i.i.i51 = mul nuw nsw i64 %cond.i.i.i.i49, 3
-  %add.i.i.i52 = add nuw nsw i64 %mul.i.i.i51, 1
-  %shr.i.i.i53 = lshr i64 %add.i.i.i52, 1
-  %cond.i7.i.i54 = select i1 %cmp.i6.i.i50, i64 2, i64 %shr.i.i.i53
-  %40 = load ptr, ptr %m_allocator.i.i37, align 8
-  %mul.i.i.i.i56 = shl nuw nsw i64 %cond.i7.i.i54, 3
-  %add.i.i.i.i57 = add nuw nsw i64 %mul.i.i.i.i56, 8
-  %call.i.i.i.i58 = tail call noundef ptr @_ZN22small_object_allocator8allocateEm(ptr noundef nonnull align 8 dereferenceable(520) %40, i64 noundef %add.i.i.i.i57)
-  store i64 %cond.i7.i.i54, ptr %call.i.i.i.i58, align 8
-  %incdec.ptr.i.i.i.i59 = getelementptr inbounds i8, ptr %call.i.i.i.i58, i64 8
-  br i1 %cmp.i6.i.i50, label %_ZN14parray_managerIN9subpaving9context_tINS0_11config_mpfxEE18bound_array_configEE6expandERPPNS3_5boundE.exit.i.i72, label %for.body.i.i.i60
+for.end.i.i.i65:                                  ; preds = %for.body.i.i.i59
+  %46 = load ptr, ptr %38, align 8
+  %cmp.i11.i.i.i66 = icmp eq ptr %46, null
+  br i1 %cmp.i11.i.i.i66, label %_ZN14parray_managerIN9subpaving9context_tINS0_11config_mpfxEE18bound_array_configEE6expandERPPNS3_5boundE.exit.i.i71, label %_ZN14parray_managerIN9subpaving9context_tINS0_11config_mpfxEE18bound_array_configEE8capacityEPPNS3_5boundE.exit.i.i.i.i67
 
-for.body.i.i.i60:                                 ; preds = %_ZN14parray_managerIN9subpaving9context_tINS0_11config_mpfxEE18bound_array_configEE8capacityEPPNS3_5boundE.exit.i.i.i48, %for.body.i.i.i60
-  %i.015.i.i.i61 = phi i64 [ %inc.i.i.i64, %for.body.i.i.i60 ], [ 0, %_ZN14parray_managerIN9subpaving9context_tINS0_11config_mpfxEE18bound_array_configEE8capacityEPPNS3_5boundE.exit.i.i.i48 ]
-  %41 = load ptr, ptr %30, align 8
-  %arrayidx.i8.i.i62 = getelementptr inbounds ptr, ptr %41, i64 %i.015.i.i.i61
-  %42 = load ptr, ptr %arrayidx.i8.i.i62, align 8
-  %arrayidx5.i.i.i63 = getelementptr inbounds ptr, ptr %incdec.ptr.i.i.i.i59, i64 %i.015.i.i.i61
-  store ptr %42, ptr %arrayidx5.i.i.i63, align 8
-  %inc.i.i.i64 = add nuw nsw i64 %i.015.i.i.i61, 1
-  %exitcond.not.i.i.i65 = icmp eq i64 %inc.i.i.i64, %cond.i.i.i.i49
-  br i1 %exitcond.not.i.i.i65, label %for.end.i.i.i66, label %for.body.i.i.i60, !llvm.loop !6
+_ZN14parray_managerIN9subpaving9context_tINS0_11config_mpfxEE18bound_array_configEE8capacityEPPNS3_5boundE.exit.i.i.i.i67: ; preds = %for.end.i.i.i65
+  %arrayidx.i.i.i.i.i68 = getelementptr inbounds i8, ptr %46, i64 -8
+  %47 = load i64, ptr %arrayidx.i.i.i.i.i68, align 8
+  %48 = load ptr, ptr %m_allocator.i.i.i.i54, align 8
+  %mul.i13.i.i.i69 = shl i64 %47, 3
+  %add.i14.i.i.i70 = add i64 %mul.i13.i.i.i69, 8
+  tail call void @_ZN22small_object_allocator10deallocateEmPv(ptr noundef nonnull align 8 dereferenceable(520) %48, i64 noundef %add.i14.i.i.i70, ptr noundef nonnull %arrayidx.i.i.i.i.i68)
+  br label %_ZN14parray_managerIN9subpaving9context_tINS0_11config_mpfxEE18bound_array_configEE6expandERPPNS3_5boundE.exit.i.i71
 
-for.end.i.i.i66:                                  ; preds = %for.body.i.i.i60
-  %43 = load ptr, ptr %30, align 8
-  %cmp.i11.i.i.i67 = icmp eq ptr %43, null
-  br i1 %cmp.i11.i.i.i67, label %_ZN14parray_managerIN9subpaving9context_tINS0_11config_mpfxEE18bound_array_configEE6expandERPPNS3_5boundE.exit.i.i72, label %_ZN14parray_managerIN9subpaving9context_tINS0_11config_mpfxEE18bound_array_configEE8capacityEPPNS3_5boundE.exit.i.i.i.i68
+_ZN14parray_managerIN9subpaving9context_tINS0_11config_mpfxEE18bound_array_configEE6expandERPPNS3_5boundE.exit.i.i71: ; preds = %_ZN14parray_managerIN9subpaving9context_tINS0_11config_mpfxEE18bound_array_configEE8capacityEPPNS3_5boundE.exit.i.i.i.i67, %for.end.i.i.i65, %_ZN14parray_managerIN9subpaving9context_tINS0_11config_mpfxEE18bound_array_configEE8capacityEPPNS3_5boundE.exit.i.i.i47
+  store ptr %incdec.ptr.i.i.i.i58, ptr %38, align 8
+  %.pre.i.i72 = load i32, ptr %39, align 4
+  %.pre.i73 = zext i32 %.pre.i.i72 to i64
+  br label %_ZN14parray_managerIN9subpaving9context_tINS0_11config_mpfxEE18bound_array_configEE10rpush_backEPNS5_4cellERKPNS3_5boundE.exit76
 
-_ZN14parray_managerIN9subpaving9context_tINS0_11config_mpfxEE18bound_array_configEE8capacityEPPNS3_5boundE.exit.i.i.i.i68: ; preds = %for.end.i.i.i66
-  %arrayidx.i.i.i.i.i69 = getelementptr inbounds i8, ptr %43, i64 -8
-  %44 = load i64, ptr %arrayidx.i.i.i.i.i69, align 8
-  %45 = load ptr, ptr %m_allocator.i.i37, align 8
-  %mul.i13.i.i.i70 = shl i64 %44, 3
-  %add.i14.i.i.i71 = add i64 %mul.i13.i.i.i70, 8
-  tail call void @_ZN22small_object_allocator10deallocateEmPv(ptr noundef nonnull align 8 dereferenceable(520) %45, i64 noundef %add.i14.i.i.i71, ptr noundef nonnull %arrayidx.i.i.i.i.i69)
-  br label %_ZN14parray_managerIN9subpaving9context_tINS0_11config_mpfxEE18bound_array_configEE6expandERPPNS3_5boundE.exit.i.i72
-
-_ZN14parray_managerIN9subpaving9context_tINS0_11config_mpfxEE18bound_array_configEE6expandERPPNS3_5boundE.exit.i.i72: ; preds = %_ZN14parray_managerIN9subpaving9context_tINS0_11config_mpfxEE18bound_array_configEE8capacityEPPNS3_5boundE.exit.i.i.i.i68, %for.end.i.i.i66, %_ZN14parray_managerIN9subpaving9context_tINS0_11config_mpfxEE18bound_array_configEE8capacityEPPNS3_5boundE.exit.i.i.i48
-  store ptr %incdec.ptr.i.i.i.i59, ptr %30, align 8
-  %.pre.i.i73 = load i32, ptr %29, align 4
-  %.pre.i74 = zext i32 %.pre.i.i73 to i64
-  br label %_ZN14parray_managerIN9subpaving9context_tINS0_11config_mpfxEE18bound_array_configEE10rpush_backEPNS5_4cellERKPNS3_5boundE.exit77
-
-_ZN14parray_managerIN9subpaving9context_tINS0_11config_mpfxEE18bound_array_configEE10rpush_backEPNS5_4cellERKPNS3_5boundE.exit77: ; preds = %_ZN14parray_managerIN9subpaving9context_tINS0_11config_mpfxEE18bound_array_configEE8capacityEPPNS3_5boundE.exit.thread.i.i41, %_ZN14parray_managerIN9subpaving9context_tINS0_11config_mpfxEE18bound_array_configEE6expandERPPNS3_5boundE.exit.i.i72
-  %idxprom.i.pre-phi.i45 = phi i64 [ %conv.i.i42, %_ZN14parray_managerIN9subpaving9context_tINS0_11config_mpfxEE18bound_array_configEE8capacityEPPNS3_5boundE.exit.thread.i.i41 ], [ %.pre.i74, %_ZN14parray_managerIN9subpaving9context_tINS0_11config_mpfxEE18bound_array_configEE6expandERPPNS3_5boundE.exit.i.i72 ]
-  %46 = phi ptr [ %38, %_ZN14parray_managerIN9subpaving9context_tINS0_11config_mpfxEE18bound_array_configEE8capacityEPPNS3_5boundE.exit.thread.i.i41 ], [ %incdec.ptr.i.i.i.i59, %_ZN14parray_managerIN9subpaving9context_tINS0_11config_mpfxEE18bound_array_configEE6expandERPPNS3_5boundE.exit.i.i72 ]
-  %47 = load ptr, ptr %v, align 8
-  %arrayidx.i.i46 = getelementptr inbounds ptr, ptr %46, i64 %idxprom.i.pre-phi.i45
-  store ptr %47, ptr %arrayidx.i.i46, align 8
-  %48 = load i32, ptr %29, align 4
-  %inc.i.i47 = add i32 %48, 1
-  store i32 %inc.i.i47, ptr %29, align 4
+_ZN14parray_managerIN9subpaving9context_tINS0_11config_mpfxEE18bound_array_configEE10rpush_backEPNS5_4cellERKPNS3_5boundE.exit76: ; preds = %_ZN14parray_managerIN9subpaving9context_tINS0_11config_mpfxEE18bound_array_configEE8capacityEPPNS3_5boundE.exit.thread.i.i40, %_ZN14parray_managerIN9subpaving9context_tINS0_11config_mpfxEE18bound_array_configEE6expandERPPNS3_5boundE.exit.i.i71
+  %idxprom.i.pre-phi.i44 = phi i64 [ %conv.i.i41, %_ZN14parray_managerIN9subpaving9context_tINS0_11config_mpfxEE18bound_array_configEE8capacityEPPNS3_5boundE.exit.thread.i.i40 ], [ %.pre.i73, %_ZN14parray_managerIN9subpaving9context_tINS0_11config_mpfxEE18bound_array_configEE6expandERPPNS3_5boundE.exit.i.i71 ]
+  %49 = phi ptr [ %41, %_ZN14parray_managerIN9subpaving9context_tINS0_11config_mpfxEE18bound_array_configEE8capacityEPPNS3_5boundE.exit.thread.i.i40 ], [ %incdec.ptr.i.i.i.i58, %_ZN14parray_managerIN9subpaving9context_tINS0_11config_mpfxEE18bound_array_configEE6expandERPPNS3_5boundE.exit.i.i71 ]
+  %50 = load ptr, ptr %v, align 8
+  %arrayidx.i.i45 = getelementptr inbounds ptr, ptr %49, i64 %idxprom.i.pre-phi.i44
+  store ptr %50, ptr %arrayidx.i.i45, align 8
+  %51 = load i32, ptr %39, align 4
+  %inc.i.i46 = add i32 %51, 1
+  store i32 %inc.i.i46, ptr %39, align 4
   br label %return
 
-if.end.i81:                                       ; preds = %_ZNK14parray_managerIN9subpaving9context_tINS0_11config_mpfxEE18bound_array_configEE4sizeERKNS5_3refE.exit
+if.end.i80:                                       ; preds = %_ZNK14parray_managerIN9subpaving9context_tINS0_11config_mpfxEE18bound_array_configEE4sizeERKNS5_3refE.exit
   %inc = add i32 %19, 1
   store i32 %inc, ptr %m_updt_counter, align 8
   %m_allocator.i = getelementptr inbounds i8, ptr %this, i64 8
-  %49 = load ptr, ptr %m_allocator.i, align 8
-  %call.i = tail call noundef ptr @_ZN22small_object_allocator8allocateEm(ptr noundef nonnull align 8 dereferenceable(520) %49, i64 noundef 24)
+  %52 = load ptr, ptr %m_allocator.i, align 8
+  %call.i = tail call noundef ptr @_ZN22small_object_allocator8allocateEm(ptr noundef nonnull align 8 dereferenceable(520) %52, i64 noundef 24)
   store i32 -1073741823, ptr %call.i, align 8
-  %50 = getelementptr inbounds i8, ptr %call.i, i64 4
-  store i32 0, ptr %50, align 4
-  %51 = getelementptr inbounds i8, ptr %call.i, i64 16
-  store ptr null, ptr %51, align 8
-  %52 = getelementptr inbounds i8, ptr %4, i64 4
-  %53 = load i32, ptr %52, align 4
-  store i32 %53, ptr %50, align 4
-  %54 = getelementptr inbounds i8, ptr %4, i64 16
-  %55 = load ptr, ptr %54, align 8
-  store ptr %55, ptr %51, align 8
+  %53 = getelementptr inbounds i8, ptr %call.i, i64 4
+  store i32 0, ptr %53, align 4
+  %54 = getelementptr inbounds i8, ptr %call.i, i64 16
+  store ptr null, ptr %54, align 8
+  %55 = getelementptr inbounds i8, ptr %4, i64 4
+  %56 = load i32, ptr %55, align 4
+  store i32 %56, ptr %53, align 4
+  %57 = getelementptr inbounds i8, ptr %4, i64 16
+  %58 = load ptr, ptr %57, align 8
+  store ptr %58, ptr %54, align 8
   store i32 -1073741822, ptr %call.i, align 8
   %bf.load = load i32, ptr %4, align 8
   %bf.clear = and i32 %bf.load, 1073741823
   %bf.set = or disjoint i32 %bf.clear, -2147483648
   store i32 %bf.set, ptr %4, align 8
-  %56 = load i32, ptr %50, align 4
-  %add = add i32 %56, 1
-  store i32 %add, ptr %52, align 4
-  store ptr %call.i, ptr %54, align 8
+  %59 = load i32, ptr %53, align 4
+  %add = add i32 %59, 1
+  store i32 %add, ptr %55, align 4
+  store ptr %call.i, ptr %57, align 8
   %dec.i = add i32 %bf.load, 1073741823
-  %bf.value.i83 = and i32 %dec.i, 1073741823
-  %bf.set.i85 = or disjoint i32 %bf.value.i83, -2147483648
-  store i32 %bf.set.i85, ptr %4, align 8
-  %cmp.i86 = icmp eq i32 %bf.value.i83, 0
-  br i1 %cmp.i86, label %while.body.i.i, label %_ZN14parray_managerIN9subpaving9context_tINS0_11config_mpfxEE18bound_array_configEE7dec_refEPNS5_4cellE.exit
+  %bf.value.i82 = and i32 %dec.i, 1073741823
+  %bf.set.i84 = or disjoint i32 %bf.value.i82, -2147483648
+  store i32 %bf.set.i84, ptr %4, align 8
+  %cmp.i85 = icmp eq i32 %bf.value.i82, 0
+  br i1 %cmp.i85, label %while.body.i.i, label %_ZN14parray_managerIN9subpaving9context_tINS0_11config_mpfxEE18bound_array_configEE7dec_refEPNS5_4cellE.exit
 
-while.body.i.i:                                   ; preds = %if.end.i81, %if.end.i.i
-  %bf.load.i.i.i88 = phi i32 [ %bf.set.i.i, %if.end.i.i ], [ -2147483648, %if.end.i81 ]
-  %c.addr.0.i.i = phi ptr [ %58, %if.end.i.i ], [ %4, %if.end.i81 ]
-  %switch.not.i.i = icmp ugt i32 %bf.load.i.i.i88, -1073741825
-  %57 = getelementptr inbounds i8, ptr %c.addr.0.i.i, i64 16
-  %58 = load ptr, ptr %57, align 8
+while.body.i.i:                                   ; preds = %if.end.i80, %if.end.i.i
+  %bf.load.i.i.i87 = phi i32 [ %bf.set.i.i, %if.end.i.i ], [ -2147483648, %if.end.i80 ]
+  %c.addr.0.i.i = phi ptr [ %61, %if.end.i.i ], [ %4, %if.end.i80 ]
+  %switch.not.i.i = icmp ugt i32 %bf.load.i.i.i87, -1073741825
+  %60 = getelementptr inbounds i8, ptr %c.addr.0.i.i, i64 16
+  %61 = load ptr, ptr %60, align 8
   br i1 %switch.not.i.i, label %sw.bb6.i.i, label %sw.epilog.i.i
 
 sw.bb6.i.i:                                       ; preds = %while.body.i.i
-  %cmp.i.i.i91 = icmp eq ptr %58, null
-  br i1 %cmp.i.i.i91, label %sw.epilog.thread.i.i, label %_ZN14parray_managerIN9subpaving9context_tINS0_11config_mpfxEE18bound_array_configEE8capacityEPPNS3_5boundE.exit.i.i.i92
+  %cmp.i.i.i90 = icmp eq ptr %61, null
+  br i1 %cmp.i.i.i90, label %sw.epilog.thread.i.i, label %_ZN14parray_managerIN9subpaving9context_tINS0_11config_mpfxEE18bound_array_configEE8capacityEPPNS3_5boundE.exit.i.i.i91
 
-_ZN14parray_managerIN9subpaving9context_tINS0_11config_mpfxEE18bound_array_configEE8capacityEPPNS3_5boundE.exit.i.i.i92: ; preds = %sw.bb6.i.i
-  %arrayidx.i.i.i.i = getelementptr inbounds i8, ptr %58, i64 -8
-  %59 = load i64, ptr %arrayidx.i.i.i.i, align 8
-  %60 = load ptr, ptr %m_allocator.i, align 8
-  %mul.i.i.i93 = shl i64 %59, 3
-  %add.i.i.i94 = add i64 %mul.i.i.i93, 8
-  tail call void @_ZN22small_object_allocator10deallocateEmPv(ptr noundef nonnull align 8 dereferenceable(520) %60, i64 noundef %add.i.i.i94, ptr noundef nonnull %arrayidx.i.i.i.i)
+_ZN14parray_managerIN9subpaving9context_tINS0_11config_mpfxEE18bound_array_configEE8capacityEPPNS3_5boundE.exit.i.i.i91: ; preds = %sw.bb6.i.i
+  %arrayidx.i.i.i.i = getelementptr inbounds i8, ptr %61, i64 -8
+  %62 = load i64, ptr %arrayidx.i.i.i.i, align 8
+  %63 = load ptr, ptr %m_allocator.i, align 8
+  %mul.i.i.i92 = shl i64 %62, 3
+  %add.i.i.i93 = add i64 %mul.i.i.i92, 8
+  tail call void @_ZN22small_object_allocator10deallocateEmPv(ptr noundef nonnull align 8 dereferenceable(520) %63, i64 noundef %add.i.i.i93, ptr noundef nonnull %arrayidx.i.i.i.i)
   br label %sw.epilog.thread.i.i
 
-sw.epilog.thread.i.i:                             ; preds = %_ZN14parray_managerIN9subpaving9context_tINS0_11config_mpfxEE18bound_array_configEE8capacityEPPNS3_5boundE.exit.i.i.i92, %sw.bb6.i.i
-  %61 = load ptr, ptr %m_allocator.i, align 8
-  tail call void @_ZN22small_object_allocator10deallocateEmPv(ptr noundef nonnull align 8 dereferenceable(520) %61, i64 noundef 24, ptr noundef nonnull %c.addr.0.i.i)
+sw.epilog.thread.i.i:                             ; preds = %_ZN14parray_managerIN9subpaving9context_tINS0_11config_mpfxEE18bound_array_configEE8capacityEPPNS3_5boundE.exit.i.i.i91, %sw.bb6.i.i
+  %64 = load ptr, ptr %m_allocator.i, align 8
+  tail call void @_ZN22small_object_allocator10deallocateEmPv(ptr noundef nonnull align 8 dereferenceable(520) %64, i64 noundef 24, ptr noundef nonnull %c.addr.0.i.i)
   br label %_ZN14parray_managerIN9subpaving9context_tINS0_11config_mpfxEE18bound_array_configEE7dec_refEPNS5_4cellE.exit
 
 sw.epilog.i.i:                                    ; preds = %while.body.i.i
-  %62 = load ptr, ptr %m_allocator.i, align 8
-  tail call void @_ZN22small_object_allocator10deallocateEmPv(ptr noundef nonnull align 8 dereferenceable(520) %62, i64 noundef 24, ptr noundef nonnull %c.addr.0.i.i)
-  %cmp.i.i89 = icmp eq ptr %58, null
-  br i1 %cmp.i.i89, label %_ZN14parray_managerIN9subpaving9context_tINS0_11config_mpfxEE18bound_array_configEE7dec_refEPNS5_4cellE.exit, label %if.end.i.i
+  %65 = load ptr, ptr %m_allocator.i, align 8
+  tail call void @_ZN22small_object_allocator10deallocateEmPv(ptr noundef nonnull align 8 dereferenceable(520) %65, i64 noundef 24, ptr noundef nonnull %c.addr.0.i.i)
+  %cmp.i.i88 = icmp eq ptr %61, null
+  br i1 %cmp.i.i88, label %_ZN14parray_managerIN9subpaving9context_tINS0_11config_mpfxEE18bound_array_configEE7dec_refEPNS5_4cellE.exit, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %sw.epilog.i.i
-  %bf.load.i.i90 = load i32, ptr %58, align 8
-  %dec.i.i = add i32 %bf.load.i.i90, 1073741823
+  %bf.load.i.i89 = load i32, ptr %61, align 8
+  %dec.i.i = add i32 %bf.load.i.i89, 1073741823
   %bf.value.i.i = and i32 %dec.i.i, 1073741823
-  %bf.clear9.i.i = and i32 %bf.load.i.i90, -1073741824
+  %bf.clear9.i.i = and i32 %bf.load.i.i89, -1073741824
   %bf.set.i.i = or disjoint i32 %bf.value.i.i, %bf.clear9.i.i
-  store i32 %bf.set.i.i, ptr %58, align 8
+  store i32 %bf.set.i.i, ptr %61, align 8
   %cmp12.not.i.i = icmp eq i32 %bf.value.i.i, 0
   br i1 %cmp12.not.i.i, label %while.body.i.i, label %_ZN14parray_managerIN9subpaving9context_tINS0_11config_mpfxEE18bound_array_configEE7dec_refEPNS5_4cellE.exit, !llvm.loop !8
 
-_ZN14parray_managerIN9subpaving9context_tINS0_11config_mpfxEE18bound_array_configEE7dec_refEPNS5_4cellE.exit: ; preds = %sw.epilog.i.i, %if.end.i.i, %if.end.i81, %sw.epilog.thread.i.i
+_ZN14parray_managerIN9subpaving9context_tINS0_11config_mpfxEE18bound_array_configEE7dec_refEPNS5_4cellE.exit: ; preds = %sw.epilog.i.i, %if.end.i.i, %if.end.i80, %sw.epilog.thread.i.i
   store ptr %call.i, ptr %r, align 8
-  %63 = load i32, ptr %50, align 4
-  %64 = load ptr, ptr %51, align 8
-  %cmp.i.i.i95 = icmp eq ptr %64, null
-  br i1 %cmp.i.i.i95, label %_ZN14parray_managerIN9subpaving9context_tINS0_11config_mpfxEE18bound_array_configEE8capacityEPPNS3_5boundE.exit.i.i130, label %_ZN14parray_managerIN9subpaving9context_tINS0_11config_mpfxEE18bound_array_configEE8capacityEPPNS3_5boundE.exit.thread.i.i96
+  %66 = load i32, ptr %53, align 4
+  %67 = load ptr, ptr %54, align 8
+  %cmp.i.i.i94 = icmp eq ptr %67, null
+  br i1 %cmp.i.i.i94, label %_ZN14parray_managerIN9subpaving9context_tINS0_11config_mpfxEE18bound_array_configEE8capacityEPPNS3_5boundE.exit.i.i129, label %_ZN14parray_managerIN9subpaving9context_tINS0_11config_mpfxEE18bound_array_configEE8capacityEPPNS3_5boundE.exit.thread.i.i95
 
-_ZN14parray_managerIN9subpaving9context_tINS0_11config_mpfxEE18bound_array_configEE8capacityEPPNS3_5boundE.exit.i.i130: ; preds = %_ZN14parray_managerIN9subpaving9context_tINS0_11config_mpfxEE18bound_array_configEE7dec_refEPNS5_4cellE.exit
-  %cmp.i.i131 = icmp eq i32 %63, 0
-  tail call void @llvm.assume(i1 %cmp.i.i131)
-  br label %_ZN14parray_managerIN9subpaving9context_tINS0_11config_mpfxEE18bound_array_configEE8capacityEPPNS3_5boundE.exit.i.i.i103
+_ZN14parray_managerIN9subpaving9context_tINS0_11config_mpfxEE18bound_array_configEE8capacityEPPNS3_5boundE.exit.i.i129: ; preds = %_ZN14parray_managerIN9subpaving9context_tINS0_11config_mpfxEE18bound_array_configEE7dec_refEPNS5_4cellE.exit
+  %cmp.i.i130 = icmp eq i32 %66, 0
+  tail call void @llvm.assume(i1 %cmp.i.i130)
+  br label %_ZN14parray_managerIN9subpaving9context_tINS0_11config_mpfxEE18bound_array_configEE8capacityEPPNS3_5boundE.exit.i.i.i102
 
-_ZN14parray_managerIN9subpaving9context_tINS0_11config_mpfxEE18bound_array_configEE8capacityEPPNS3_5boundE.exit.thread.i.i96: ; preds = %_ZN14parray_managerIN9subpaving9context_tINS0_11config_mpfxEE18bound_array_configEE7dec_refEPNS5_4cellE.exit
-  %conv.i.i97 = zext i32 %63 to i64
-  %arrayidx.i.i.i98 = getelementptr inbounds i8, ptr %64, i64 -8
-  %65 = load i64, ptr %arrayidx.i.i.i98, align 8
-  %cmp10.i.i99 = icmp eq i64 %65, %conv.i.i97
-  br i1 %cmp10.i.i99, label %_ZN14parray_managerIN9subpaving9context_tINS0_11config_mpfxEE18bound_array_configEE8capacityEPPNS3_5boundE.exit.i.i.i103, label %_ZN14parray_managerIN9subpaving9context_tINS0_11config_mpfxEE18bound_array_configEE10rpush_backEPNS5_4cellERKPNS3_5boundE.exit132
+_ZN14parray_managerIN9subpaving9context_tINS0_11config_mpfxEE18bound_array_configEE8capacityEPPNS3_5boundE.exit.thread.i.i95: ; preds = %_ZN14parray_managerIN9subpaving9context_tINS0_11config_mpfxEE18bound_array_configEE7dec_refEPNS5_4cellE.exit
+  %conv.i.i96 = zext i32 %66 to i64
+  %arrayidx.i.i.i97 = getelementptr inbounds i8, ptr %67, i64 -8
+  %68 = load i64, ptr %arrayidx.i.i.i97, align 8
+  %cmp10.i.i98 = icmp eq i64 %68, %conv.i.i96
+  br i1 %cmp10.i.i98, label %_ZN14parray_managerIN9subpaving9context_tINS0_11config_mpfxEE18bound_array_configEE8capacityEPPNS3_5boundE.exit.i.i.i102, label %_ZN14parray_managerIN9subpaving9context_tINS0_11config_mpfxEE18bound_array_configEE10rpush_backEPNS5_4cellERKPNS3_5boundE.exit131
 
-_ZN14parray_managerIN9subpaving9context_tINS0_11config_mpfxEE18bound_array_configEE8capacityEPPNS3_5boundE.exit.i.i.i103: ; preds = %_ZN14parray_managerIN9subpaving9context_tINS0_11config_mpfxEE18bound_array_configEE8capacityEPPNS3_5boundE.exit.thread.i.i96, %_ZN14parray_managerIN9subpaving9context_tINS0_11config_mpfxEE18bound_array_configEE8capacityEPPNS3_5boundE.exit.i.i130
-  %cond.i.i.i.i104 = phi i64 [ 0, %_ZN14parray_managerIN9subpaving9context_tINS0_11config_mpfxEE18bound_array_configEE8capacityEPPNS3_5boundE.exit.i.i130 ], [ %conv.i.i97, %_ZN14parray_managerIN9subpaving9context_tINS0_11config_mpfxEE18bound_array_configEE8capacityEPPNS3_5boundE.exit.thread.i.i96 ]
-  %cmp.i6.i.i105 = icmp eq i64 %cond.i.i.i.i104, 0
-  %mul.i.i.i106 = mul nuw nsw i64 %cond.i.i.i.i104, 3
-  %add.i.i.i107 = add nuw nsw i64 %mul.i.i.i106, 1
-  %shr.i.i.i108 = lshr i64 %add.i.i.i107, 1
-  %cond.i7.i.i109 = select i1 %cmp.i6.i.i105, i64 2, i64 %shr.i.i.i108
-  %66 = load ptr, ptr %m_allocator.i, align 8
-  %mul.i.i.i.i111 = shl nuw nsw i64 %cond.i7.i.i109, 3
-  %add.i.i.i.i112 = add nuw nsw i64 %mul.i.i.i.i111, 8
-  %call.i.i.i.i113 = tail call noundef ptr @_ZN22small_object_allocator8allocateEm(ptr noundef nonnull align 8 dereferenceable(520) %66, i64 noundef %add.i.i.i.i112)
-  store i64 %cond.i7.i.i109, ptr %call.i.i.i.i113, align 8
-  %incdec.ptr.i.i.i.i114 = getelementptr inbounds i8, ptr %call.i.i.i.i113, i64 8
-  br i1 %cmp.i6.i.i105, label %_ZN14parray_managerIN9subpaving9context_tINS0_11config_mpfxEE18bound_array_configEE6expandERPPNS3_5boundE.exit.i.i127, label %for.body.i.i.i115
+_ZN14parray_managerIN9subpaving9context_tINS0_11config_mpfxEE18bound_array_configEE8capacityEPPNS3_5boundE.exit.i.i.i102: ; preds = %_ZN14parray_managerIN9subpaving9context_tINS0_11config_mpfxEE18bound_array_configEE8capacityEPPNS3_5boundE.exit.thread.i.i95, %_ZN14parray_managerIN9subpaving9context_tINS0_11config_mpfxEE18bound_array_configEE8capacityEPPNS3_5boundE.exit.i.i129
+  %cond.i.i.i.i103 = phi i64 [ 0, %_ZN14parray_managerIN9subpaving9context_tINS0_11config_mpfxEE18bound_array_configEE8capacityEPPNS3_5boundE.exit.i.i129 ], [ %conv.i.i96, %_ZN14parray_managerIN9subpaving9context_tINS0_11config_mpfxEE18bound_array_configEE8capacityEPPNS3_5boundE.exit.thread.i.i95 ]
+  %cmp.i6.i.i104 = icmp eq i64 %cond.i.i.i.i103, 0
+  %mul.i.i.i105 = mul nuw nsw i64 %cond.i.i.i.i103, 3
+  %add.i.i.i106 = add nuw nsw i64 %mul.i.i.i105, 1
+  %shr.i.i.i107 = lshr i64 %add.i.i.i106, 1
+  %cond.i7.i.i108 = select i1 %cmp.i6.i.i104, i64 2, i64 %shr.i.i.i107
+  %69 = load ptr, ptr %m_allocator.i, align 8
+  %mul.i.i.i.i110 = shl nuw nsw i64 %cond.i7.i.i108, 3
+  %add.i.i.i.i111 = add nuw nsw i64 %mul.i.i.i.i110, 8
+  %call.i.i.i.i112 = tail call noundef ptr @_ZN22small_object_allocator8allocateEm(ptr noundef nonnull align 8 dereferenceable(520) %69, i64 noundef %add.i.i.i.i111)
+  store i64 %cond.i7.i.i108, ptr %call.i.i.i.i112, align 8
+  %incdec.ptr.i.i.i.i113 = getelementptr inbounds i8, ptr %call.i.i.i.i112, i64 8
+  br i1 %cmp.i6.i.i104, label %_ZN14parray_managerIN9subpaving9context_tINS0_11config_mpfxEE18bound_array_configEE6expandERPPNS3_5boundE.exit.i.i126, label %for.body.i.i.i114
 
-for.body.i.i.i115:                                ; preds = %_ZN14parray_managerIN9subpaving9context_tINS0_11config_mpfxEE18bound_array_configEE8capacityEPPNS3_5boundE.exit.i.i.i103, %for.body.i.i.i115
-  %i.015.i.i.i116 = phi i64 [ %inc.i.i.i119, %for.body.i.i.i115 ], [ 0, %_ZN14parray_managerIN9subpaving9context_tINS0_11config_mpfxEE18bound_array_configEE8capacityEPPNS3_5boundE.exit.i.i.i103 ]
-  %67 = load ptr, ptr %51, align 8
-  %arrayidx.i8.i.i117 = getelementptr inbounds ptr, ptr %67, i64 %i.015.i.i.i116
-  %68 = load ptr, ptr %arrayidx.i8.i.i117, align 8
-  %arrayidx5.i.i.i118 = getelementptr inbounds ptr, ptr %incdec.ptr.i.i.i.i114, i64 %i.015.i.i.i116
-  store ptr %68, ptr %arrayidx5.i.i.i118, align 8
-  %inc.i.i.i119 = add nuw nsw i64 %i.015.i.i.i116, 1
-  %exitcond.not.i.i.i120 = icmp eq i64 %inc.i.i.i119, %cond.i.i.i.i104
-  br i1 %exitcond.not.i.i.i120, label %for.end.i.i.i121, label %for.body.i.i.i115, !llvm.loop !6
+for.body.i.i.i114:                                ; preds = %_ZN14parray_managerIN9subpaving9context_tINS0_11config_mpfxEE18bound_array_configEE8capacityEPPNS3_5boundE.exit.i.i.i102, %for.body.i.i.i114
+  %i.015.i.i.i115 = phi i64 [ %inc.i.i.i118, %for.body.i.i.i114 ], [ 0, %_ZN14parray_managerIN9subpaving9context_tINS0_11config_mpfxEE18bound_array_configEE8capacityEPPNS3_5boundE.exit.i.i.i102 ]
+  %70 = load ptr, ptr %54, align 8
+  %arrayidx.i8.i.i116 = getelementptr inbounds ptr, ptr %70, i64 %i.015.i.i.i115
+  %71 = load ptr, ptr %arrayidx.i8.i.i116, align 8
+  %arrayidx5.i.i.i117 = getelementptr inbounds ptr, ptr %incdec.ptr.i.i.i.i113, i64 %i.015.i.i.i115
+  store ptr %71, ptr %arrayidx5.i.i.i117, align 8
+  %inc.i.i.i118 = add nuw nsw i64 %i.015.i.i.i115, 1
+  %exitcond.not.i.i.i119 = icmp eq i64 %inc.i.i.i118, %cond.i.i.i.i103
+  br i1 %exitcond.not.i.i.i119, label %for.end.i.i.i120, label %for.body.i.i.i114, !llvm.loop !6
 
-for.end.i.i.i121:                                 ; preds = %for.body.i.i.i115
-  %69 = load ptr, ptr %51, align 8
-  %cmp.i11.i.i.i122 = icmp eq ptr %69, null
-  br i1 %cmp.i11.i.i.i122, label %_ZN14parray_managerIN9subpaving9context_tINS0_11config_mpfxEE18bound_array_configEE6expandERPPNS3_5boundE.exit.i.i127, label %_ZN14parray_managerIN9subpaving9context_tINS0_11config_mpfxEE18bound_array_configEE8capacityEPPNS3_5boundE.exit.i.i.i.i123
+for.end.i.i.i120:                                 ; preds = %for.body.i.i.i114
+  %72 = load ptr, ptr %54, align 8
+  %cmp.i11.i.i.i121 = icmp eq ptr %72, null
+  br i1 %cmp.i11.i.i.i121, label %_ZN14parray_managerIN9subpaving9context_tINS0_11config_mpfxEE18bound_array_configEE6expandERPPNS3_5boundE.exit.i.i126, label %_ZN14parray_managerIN9subpaving9context_tINS0_11config_mpfxEE18bound_array_configEE8capacityEPPNS3_5boundE.exit.i.i.i.i122
 
-_ZN14parray_managerIN9subpaving9context_tINS0_11config_mpfxEE18bound_array_configEE8capacityEPPNS3_5boundE.exit.i.i.i.i123: ; preds = %for.end.i.i.i121
-  %arrayidx.i.i.i.i.i124 = getelementptr inbounds i8, ptr %69, i64 -8
-  %70 = load i64, ptr %arrayidx.i.i.i.i.i124, align 8
-  %71 = load ptr, ptr %m_allocator.i, align 8
-  %mul.i13.i.i.i125 = shl i64 %70, 3
-  %add.i14.i.i.i126 = add i64 %mul.i13.i.i.i125, 8
-  tail call void @_ZN22small_object_allocator10deallocateEmPv(ptr noundef nonnull align 8 dereferenceable(520) %71, i64 noundef %add.i14.i.i.i126, ptr noundef nonnull %arrayidx.i.i.i.i.i124)
-  br label %_ZN14parray_managerIN9subpaving9context_tINS0_11config_mpfxEE18bound_array_configEE6expandERPPNS3_5boundE.exit.i.i127
+_ZN14parray_managerIN9subpaving9context_tINS0_11config_mpfxEE18bound_array_configEE8capacityEPPNS3_5boundE.exit.i.i.i.i122: ; preds = %for.end.i.i.i120
+  %arrayidx.i.i.i.i.i123 = getelementptr inbounds i8, ptr %72, i64 -8
+  %73 = load i64, ptr %arrayidx.i.i.i.i.i123, align 8
+  %74 = load ptr, ptr %m_allocator.i, align 8
+  %mul.i13.i.i.i124 = shl i64 %73, 3
+  %add.i14.i.i.i125 = add i64 %mul.i13.i.i.i124, 8
+  tail call void @_ZN22small_object_allocator10deallocateEmPv(ptr noundef nonnull align 8 dereferenceable(520) %74, i64 noundef %add.i14.i.i.i125, ptr noundef nonnull %arrayidx.i.i.i.i.i123)
+  br label %_ZN14parray_managerIN9subpaving9context_tINS0_11config_mpfxEE18bound_array_configEE6expandERPPNS3_5boundE.exit.i.i126
 
-_ZN14parray_managerIN9subpaving9context_tINS0_11config_mpfxEE18bound_array_configEE6expandERPPNS3_5boundE.exit.i.i127: ; preds = %_ZN14parray_managerIN9subpaving9context_tINS0_11config_mpfxEE18bound_array_configEE8capacityEPPNS3_5boundE.exit.i.i.i.i123, %for.end.i.i.i121, %_ZN14parray_managerIN9subpaving9context_tINS0_11config_mpfxEE18bound_array_configEE8capacityEPPNS3_5boundE.exit.i.i.i103
-  store ptr %incdec.ptr.i.i.i.i114, ptr %51, align 8
-  %.pre.i.i128 = load i32, ptr %50, align 4
-  %.pre.i129 = zext i32 %.pre.i.i128 to i64
-  br label %_ZN14parray_managerIN9subpaving9context_tINS0_11config_mpfxEE18bound_array_configEE10rpush_backEPNS5_4cellERKPNS3_5boundE.exit132
+_ZN14parray_managerIN9subpaving9context_tINS0_11config_mpfxEE18bound_array_configEE6expandERPPNS3_5boundE.exit.i.i126: ; preds = %_ZN14parray_managerIN9subpaving9context_tINS0_11config_mpfxEE18bound_array_configEE8capacityEPPNS3_5boundE.exit.i.i.i.i122, %for.end.i.i.i120, %_ZN14parray_managerIN9subpaving9context_tINS0_11config_mpfxEE18bound_array_configEE8capacityEPPNS3_5boundE.exit.i.i.i102
+  store ptr %incdec.ptr.i.i.i.i113, ptr %54, align 8
+  %.pre.i.i127 = load i32, ptr %53, align 4
+  %.pre.i128 = zext i32 %.pre.i.i127 to i64
+  br label %_ZN14parray_managerIN9subpaving9context_tINS0_11config_mpfxEE18bound_array_configEE10rpush_backEPNS5_4cellERKPNS3_5boundE.exit131
 
-_ZN14parray_managerIN9subpaving9context_tINS0_11config_mpfxEE18bound_array_configEE10rpush_backEPNS5_4cellERKPNS3_5boundE.exit132: ; preds = %_ZN14parray_managerIN9subpaving9context_tINS0_11config_mpfxEE18bound_array_configEE8capacityEPPNS3_5boundE.exit.thread.i.i96, %_ZN14parray_managerIN9subpaving9context_tINS0_11config_mpfxEE18bound_array_configEE6expandERPPNS3_5boundE.exit.i.i127
-  %idxprom.i.pre-phi.i100 = phi i64 [ %conv.i.i97, %_ZN14parray_managerIN9subpaving9context_tINS0_11config_mpfxEE18bound_array_configEE8capacityEPPNS3_5boundE.exit.thread.i.i96 ], [ %.pre.i129, %_ZN14parray_managerIN9subpaving9context_tINS0_11config_mpfxEE18bound_array_configEE6expandERPPNS3_5boundE.exit.i.i127 ]
-  %72 = phi ptr [ %64, %_ZN14parray_managerIN9subpaving9context_tINS0_11config_mpfxEE18bound_array_configEE8capacityEPPNS3_5boundE.exit.thread.i.i96 ], [ %incdec.ptr.i.i.i.i114, %_ZN14parray_managerIN9subpaving9context_tINS0_11config_mpfxEE18bound_array_configEE6expandERPPNS3_5boundE.exit.i.i127 ]
-  %73 = load ptr, ptr %v, align 8
-  %arrayidx.i.i101 = getelementptr inbounds ptr, ptr %72, i64 %idxprom.i.pre-phi.i100
-  store ptr %73, ptr %arrayidx.i.i101, align 8
-  %74 = load i32, ptr %50, align 4
-  %inc.i.i102 = add i32 %74, 1
-  store i32 %inc.i.i102, ptr %50, align 4
+_ZN14parray_managerIN9subpaving9context_tINS0_11config_mpfxEE18bound_array_configEE10rpush_backEPNS5_4cellERKPNS3_5boundE.exit131: ; preds = %_ZN14parray_managerIN9subpaving9context_tINS0_11config_mpfxEE18bound_array_configEE8capacityEPPNS3_5boundE.exit.thread.i.i95, %_ZN14parray_managerIN9subpaving9context_tINS0_11config_mpfxEE18bound_array_configEE6expandERPPNS3_5boundE.exit.i.i126
+  %idxprom.i.pre-phi.i99 = phi i64 [ %conv.i.i96, %_ZN14parray_managerIN9subpaving9context_tINS0_11config_mpfxEE18bound_array_configEE8capacityEPPNS3_5boundE.exit.thread.i.i95 ], [ %.pre.i128, %_ZN14parray_managerIN9subpaving9context_tINS0_11config_mpfxEE18bound_array_configEE6expandERPPNS3_5boundE.exit.i.i126 ]
+  %75 = phi ptr [ %67, %_ZN14parray_managerIN9subpaving9context_tINS0_11config_mpfxEE18bound_array_configEE8capacityEPPNS3_5boundE.exit.thread.i.i95 ], [ %incdec.ptr.i.i.i.i113, %_ZN14parray_managerIN9subpaving9context_tINS0_11config_mpfxEE18bound_array_configEE6expandERPPNS3_5boundE.exit.i.i126 ]
+  %76 = load ptr, ptr %v, align 8
+  %arrayidx.i.i100 = getelementptr inbounds ptr, ptr %75, i64 %idxprom.i.pre-phi.i99
+  store ptr %76, ptr %arrayidx.i.i100, align 8
+  %77 = load i32, ptr %53, align 4
+  %inc.i.i101 = add i32 %77, 1
+  store i32 %inc.i.i101, ptr %53, align 4
   br label %return
 
 if.end16:                                         ; preds = %if.end
-  %m_allocator.i133 = getelementptr inbounds i8, ptr %this, i64 8
-  %75 = load ptr, ptr %m_allocator.i133, align 8
-  %call.i134 = tail call noundef ptr @_ZN22small_object_allocator8allocateEm(ptr noundef nonnull align 8 dereferenceable(520) %75, i64 noundef 24)
-  store i32 1073741825, ptr %call.i134, align 8
-  %76 = getelementptr inbounds i8, ptr %call.i134, i64 4
-  store i32 0, ptr %76, align 4
-  %77 = getelementptr inbounds i8, ptr %call.i134, i64 16
-  store ptr null, ptr %77, align 8
-  %78 = load ptr, ptr %r, align 8
-  %cmp.i136 = icmp eq ptr %78, null
-  br i1 %cmp.i136, label %_ZNK14parray_managerIN9subpaving9context_tINS0_11config_mpfxEE18bound_array_configEE4sizeERKNS5_3refE.exit149, label %while.body.i137
+  %m_allocator.i132 = getelementptr inbounds i8, ptr %this, i64 8
+  %78 = load ptr, ptr %m_allocator.i132, align 8
+  %call.i133 = tail call noundef ptr @_ZN22small_object_allocator8allocateEm(ptr noundef nonnull align 8 dereferenceable(520) %78, i64 noundef 24)
+  store i32 1073741825, ptr %call.i133, align 8
+  %79 = getelementptr inbounds i8, ptr %call.i133, i64 4
+  store i32 0, ptr %79, align 4
+  %80 = getelementptr inbounds i8, ptr %call.i133, i64 16
+  store ptr null, ptr %80, align 8
+  %81 = load ptr, ptr %r, align 8
+  %cmp.i135 = icmp eq ptr %81, null
+  br i1 %cmp.i135, label %_ZNK14parray_managerIN9subpaving9context_tINS0_11config_mpfxEE18bound_array_configEE4sizeERKNS5_3refE.exit148, label %while.body.i136
 
-while.body.i137:                                  ; preds = %if.end16, %sw.bb.i147
-  %c.0.i138 = phi ptr [ %80, %sw.bb.i147 ], [ %78, %if.end16 ]
-  %bf.load.i.i139 = load i32, ptr %c.0.i138, align 8
-  %bf.lshr.i.i140 = lshr i32 %bf.load.i.i139, 30
-  switch i32 %bf.lshr.i.i140, label %default.unreachable [
-    i32 0, label %sw.bb.i147
-    i32 1, label %sw.bb3.i145
-    i32 2, label %sw.bb5.i143
-    i32 3, label %sw.bb7.i141
+while.body.i136:                                  ; preds = %if.end16, %sw.bb.i146
+  %c.0.i137 = phi ptr [ %83, %sw.bb.i146 ], [ %81, %if.end16 ]
+  %bf.load.i.i138 = load i32, ptr %c.0.i137, align 8
+  %bf.lshr.i.i139 = lshr i32 %bf.load.i.i138, 30
+  switch i32 %bf.lshr.i.i139, label %default.unreachable [
+    i32 0, label %sw.bb.i146
+    i32 1, label %sw.bb3.i144
+    i32 2, label %sw.bb5.i142
+    i32 3, label %sw.bb7.i140
   ]
 
-sw.bb.i147:                                       ; preds = %while.body.i137
-  %79 = getelementptr inbounds i8, ptr %c.0.i138, i64 16
-  %80 = load ptr, ptr %79, align 8
-  br label %while.body.i137, !llvm.loop !7
+sw.bb.i146:                                       ; preds = %while.body.i136
+  %82 = getelementptr inbounds i8, ptr %c.0.i137, i64 16
+  %83 = load ptr, ptr %82, align 8
+  br label %while.body.i136, !llvm.loop !7
 
-sw.bb3.i145:                                      ; preds = %while.body.i137
-  %81 = getelementptr inbounds i8, ptr %c.0.i138, i64 4
-  %82 = load i32, ptr %81, align 4
-  %add.i146 = add i32 %82, 1
-  br label %_ZNK14parray_managerIN9subpaving9context_tINS0_11config_mpfxEE18bound_array_configEE4sizeERKNS5_3refE.exit149
+sw.bb3.i144:                                      ; preds = %while.body.i136
+  %84 = getelementptr inbounds i8, ptr %c.0.i137, i64 4
+  %85 = load i32, ptr %84, align 4
+  %add.i145 = add i32 %85, 1
+  br label %_ZNK14parray_managerIN9subpaving9context_tINS0_11config_mpfxEE18bound_array_configEE4sizeERKNS5_3refE.exit148
 
-sw.bb5.i143:                                      ; preds = %while.body.i137
-  %83 = getelementptr inbounds i8, ptr %c.0.i138, i64 4
-  %84 = load i32, ptr %83, align 4
-  %sub.i144 = add i32 %84, -1
-  br label %_ZNK14parray_managerIN9subpaving9context_tINS0_11config_mpfxEE18bound_array_configEE4sizeERKNS5_3refE.exit149
+sw.bb5.i142:                                      ; preds = %while.body.i136
+  %86 = getelementptr inbounds i8, ptr %c.0.i137, i64 4
+  %87 = load i32, ptr %86, align 4
+  %sub.i143 = add i32 %87, -1
+  br label %_ZNK14parray_managerIN9subpaving9context_tINS0_11config_mpfxEE18bound_array_configEE4sizeERKNS5_3refE.exit148
 
-sw.bb7.i141:                                      ; preds = %while.body.i137
-  %85 = getelementptr inbounds i8, ptr %c.0.i138, i64 4
-  %86 = load i32, ptr %85, align 4
-  br label %_ZNK14parray_managerIN9subpaving9context_tINS0_11config_mpfxEE18bound_array_configEE4sizeERKNS5_3refE.exit149
+sw.bb7.i140:                                      ; preds = %while.body.i136
+  %88 = getelementptr inbounds i8, ptr %c.0.i137, i64 4
+  %89 = load i32, ptr %88, align 4
+  br label %_ZNK14parray_managerIN9subpaving9context_tINS0_11config_mpfxEE18bound_array_configEE4sizeERKNS5_3refE.exit148
 
-_ZNK14parray_managerIN9subpaving9context_tINS0_11config_mpfxEE18bound_array_configEE4sizeERKNS5_3refE.exit149: ; preds = %if.end16, %sw.bb3.i145, %sw.bb5.i143, %sw.bb7.i141
-  %retval.0.i142 = phi i32 [ %86, %sw.bb7.i141 ], [ %sub.i144, %sw.bb5.i143 ], [ %add.i146, %sw.bb3.i145 ], [ 0, %if.end16 ]
-  store i32 %retval.0.i142, ptr %76, align 4
-  %87 = load ptr, ptr %v, align 8
-  %m_elem = getelementptr inbounds i8, ptr %call.i134, i64 8
-  store ptr %87, ptr %m_elem, align 8
-  %88 = load ptr, ptr %r, align 8
-  store ptr %88, ptr %77, align 8
-  store ptr %call.i134, ptr %r, align 8
+_ZNK14parray_managerIN9subpaving9context_tINS0_11config_mpfxEE18bound_array_configEE4sizeERKNS5_3refE.exit148: ; preds = %if.end16, %sw.bb3.i144, %sw.bb5.i142, %sw.bb7.i140
+  %retval.0.i141 = phi i32 [ %89, %sw.bb7.i140 ], [ %sub.i143, %sw.bb5.i142 ], [ %add.i145, %sw.bb3.i144 ], [ 0, %if.end16 ]
+  store i32 %retval.0.i141, ptr %79, align 4
+  %90 = load ptr, ptr %v, align 8
+  %m_elem = getelementptr inbounds i8, ptr %call.i133, i64 8
+  store ptr %90, ptr %m_elem, align 8
+  %91 = load ptr, ptr %r, align 8
+  store ptr %91, ptr %80, align 8
+  store ptr %call.i133, ptr %r, align 8
   br label %return
 
-return:                                           ; preds = %_ZNK14parray_managerIN9subpaving9context_tINS0_11config_mpfxEE18bound_array_configEE4sizeERKNS5_3refE.exit149, %_ZN14parray_managerIN9subpaving9context_tINS0_11config_mpfxEE18bound_array_configEE10rpush_backEPNS5_4cellERKPNS3_5boundE.exit132, %_ZN14parray_managerIN9subpaving9context_tINS0_11config_mpfxEE18bound_array_configEE10rpush_backEPNS5_4cellERKPNS3_5boundE.exit77, %_ZN14parray_managerIN9subpaving9context_tINS0_11config_mpfxEE18bound_array_configEE10rpush_backEPNS5_4cellERKPNS3_5boundE.exit
+return:                                           ; preds = %_ZNK14parray_managerIN9subpaving9context_tINS0_11config_mpfxEE18bound_array_configEE4sizeERKNS5_3refE.exit148, %_ZN14parray_managerIN9subpaving9context_tINS0_11config_mpfxEE18bound_array_configEE10rpush_backEPNS5_4cellERKPNS3_5boundE.exit131, %_ZN14parray_managerIN9subpaving9context_tINS0_11config_mpfxEE18bound_array_configEE10rpush_backEPNS5_4cellERKPNS3_5boundE.exit76, %_ZN14parray_managerIN9subpaving9context_tINS0_11config_mpfxEE18bound_array_configEE10rpush_backEPNS5_4cellERKPNS3_5boundE.exit
   ret void
 }
 
@@ -2122,9 +2133,13 @@ default.unreachable:                              ; preds = %while.body.i
 _ZNK14parray_managerIN9subpaving9context_tINS0_11config_mpfxEE18bound_array_configEE4sizeERKNS5_3refE.exit: ; preds = %sw.bb3.i, %sw.bb5.i, %sw.bb7.i
   %retval.0.i = phi i32 [ %12, %sw.bb7.i ], [ %sub.i, %sw.bb5.i ], [ %add.i, %sw.bb3.i ]
   %cmp = icmp ugt i32 %4, %retval.0.i
-  br i1 %cmp, label %if.end.i60, label %if.end.i45
+  br i1 %cmp, label %if.then5, label %if.end.i45
 
-if.end.i60:                                       ; preds = %_ZNK14parray_managerIN9subpaving9context_tINS0_11config_mpfxEE18bound_array_configEE4sizeERKNS5_3refE.exit
+if.then5:                                         ; preds = %_ZNK14parray_managerIN9subpaving9context_tINS0_11config_mpfxEE18bound_array_configEE4sizeERKNS5_3refE.exit
+  %or.cond.i = icmp eq i32 %bf.load.i.i, -1073741823
+  br i1 %or.cond.i, label %_ZN14parray_managerIN9subpaving9context_tINS0_11config_mpfxEE18bound_array_configEE7unshareERNS5_3refE.exit, label %if.end.i59
+
+if.end.i59:                                       ; preds = %if.then5
   %m_allocator.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %13 = load ptr, ptr %m_allocator.i.i, align 8
   %call.i.i = tail call noundef ptr @_ZN22small_object_allocator8allocateEm(ptr noundef nonnull align 8 dereferenceable(520) %13, i64 noundef 24)
@@ -2135,96 +2150,101 @@ if.end.i60:                                       ; preds = %_ZNK14parray_manage
   store ptr null, ptr %15, align 8
   %call4.i = tail call noundef i32 @_ZN14parray_managerIN9subpaving9context_tINS0_11config_mpfxEE18bound_array_configEE10get_valuesEPNS5_4cellERPPNS3_5boundE(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef nonnull %0, ptr noundef nonnull align 8 dereferenceable(8) %15)
   store i32 %call4.i, ptr %14, align 4
-  %bf.load.i61 = load i32, ptr %0, align 8
-  %dec.i62 = add i32 %bf.load.i61, 1073741823
-  %bf.value.i63 = and i32 %dec.i62, 1073741823
-  %bf.clear3.i64 = and i32 %bf.load.i61, -1073741824
-  %bf.set.i65 = or disjoint i32 %bf.value.i63, %bf.clear3.i64
-  store i32 %bf.set.i65, ptr %0, align 8
-  %cmp.i66 = icmp eq i32 %bf.value.i63, 0
-  br i1 %cmp.i66, label %while.body.i.i69, label %_ZN14parray_managerIN9subpaving9context_tINS0_11config_mpfxEE18bound_array_configEE7unshareERNS5_3refE.exit
+  %bf.load.i60 = load i32, ptr %0, align 8
+  %dec.i61 = add i32 %bf.load.i60, 1073741823
+  %bf.value.i62 = and i32 %dec.i61, 1073741823
+  %bf.clear3.i63 = and i32 %bf.load.i60, -1073741824
+  %bf.set.i64 = or disjoint i32 %bf.value.i62, %bf.clear3.i63
+  store i32 %bf.set.i64, ptr %0, align 8
+  %cmp.i65 = icmp eq i32 %bf.value.i62, 0
+  br i1 %cmp.i65, label %while.body.i.i68, label %_ZN14parray_managerIN9subpaving9context_tINS0_11config_mpfxEE18bound_array_configEE7dec_refEPNS5_4cellE.exit90
 
-while.body.i.i69:                                 ; preds = %if.end.i60, %if.end.i.i77
-  %bf.load.i.i.i70 = phi i32 [ %bf.set.i.i82, %if.end.i.i77 ], [ %bf.set.i65, %if.end.i60 ]
-  %c.addr.0.i.i71 = phi ptr [ %17, %if.end.i.i77 ], [ %0, %if.end.i60 ]
-  %switch.not.i.i72 = icmp ugt i32 %bf.load.i.i.i70, -1073741825
-  %16 = getelementptr inbounds i8, ptr %c.addr.0.i.i71, i64 16
+while.body.i.i68:                                 ; preds = %if.end.i59, %if.end.i.i76
+  %bf.load.i.i.i69 = phi i32 [ %bf.set.i.i81, %if.end.i.i76 ], [ %bf.set.i64, %if.end.i59 ]
+  %c.addr.0.i.i70 = phi ptr [ %17, %if.end.i.i76 ], [ %0, %if.end.i59 ]
+  %switch.not.i.i71 = icmp ugt i32 %bf.load.i.i.i69, -1073741825
+  %16 = getelementptr inbounds i8, ptr %c.addr.0.i.i70, i64 16
   %17 = load ptr, ptr %16, align 8
-  br i1 %switch.not.i.i72, label %sw.bb6.i.i84, label %sw.epilog.i.i73
+  br i1 %switch.not.i.i71, label %sw.bb6.i.i83, label %sw.epilog.i.i72
 
-sw.bb6.i.i84:                                     ; preds = %while.body.i.i69
-  %cmp.i.i.i85 = icmp eq ptr %17, null
-  br i1 %cmp.i.i.i85, label %sw.epilog.thread.i.i90, label %_ZN14parray_managerIN9subpaving9context_tINS0_11config_mpfxEE18bound_array_configEE8capacityEPPNS3_5boundE.exit.i.i.i86
+sw.bb6.i.i83:                                     ; preds = %while.body.i.i68
+  %cmp.i.i.i84 = icmp eq ptr %17, null
+  br i1 %cmp.i.i.i84, label %sw.epilog.thread.i.i89, label %_ZN14parray_managerIN9subpaving9context_tINS0_11config_mpfxEE18bound_array_configEE8capacityEPPNS3_5boundE.exit.i.i.i85
 
-_ZN14parray_managerIN9subpaving9context_tINS0_11config_mpfxEE18bound_array_configEE8capacityEPPNS3_5boundE.exit.i.i.i86: ; preds = %sw.bb6.i.i84
-  %arrayidx.i.i.i.i87 = getelementptr inbounds i8, ptr %17, i64 -8
-  %18 = load i64, ptr %arrayidx.i.i.i.i87, align 8
+_ZN14parray_managerIN9subpaving9context_tINS0_11config_mpfxEE18bound_array_configEE8capacityEPPNS3_5boundE.exit.i.i.i85: ; preds = %sw.bb6.i.i83
+  %arrayidx.i.i.i.i86 = getelementptr inbounds i8, ptr %17, i64 -8
+  %18 = load i64, ptr %arrayidx.i.i.i.i86, align 8
   %19 = load ptr, ptr %m_allocator.i.i, align 8
-  %mul.i.i.i88 = shl i64 %18, 3
-  %add.i.i.i89 = add i64 %mul.i.i.i88, 8
-  tail call void @_ZN22small_object_allocator10deallocateEmPv(ptr noundef nonnull align 8 dereferenceable(520) %19, i64 noundef %add.i.i.i89, ptr noundef nonnull %arrayidx.i.i.i.i87)
-  br label %sw.epilog.thread.i.i90
+  %mul.i.i.i87 = shl i64 %18, 3
+  %add.i.i.i88 = add i64 %mul.i.i.i87, 8
+  tail call void @_ZN22small_object_allocator10deallocateEmPv(ptr noundef nonnull align 8 dereferenceable(520) %19, i64 noundef %add.i.i.i88, ptr noundef nonnull %arrayidx.i.i.i.i86)
+  br label %sw.epilog.thread.i.i89
 
-sw.epilog.thread.i.i90:                           ; preds = %_ZN14parray_managerIN9subpaving9context_tINS0_11config_mpfxEE18bound_array_configEE8capacityEPPNS3_5boundE.exit.i.i.i86, %sw.bb6.i.i84
+sw.epilog.thread.i.i89:                           ; preds = %_ZN14parray_managerIN9subpaving9context_tINS0_11config_mpfxEE18bound_array_configEE8capacityEPPNS3_5boundE.exit.i.i.i85, %sw.bb6.i.i83
   %20 = load ptr, ptr %m_allocator.i.i, align 8
-  tail call void @_ZN22small_object_allocator10deallocateEmPv(ptr noundef nonnull align 8 dereferenceable(520) %20, i64 noundef 24, ptr noundef nonnull %c.addr.0.i.i71)
-  br label %_ZN14parray_managerIN9subpaving9context_tINS0_11config_mpfxEE18bound_array_configEE7unshareERNS5_3refE.exit
+  tail call void @_ZN22small_object_allocator10deallocateEmPv(ptr noundef nonnull align 8 dereferenceable(520) %20, i64 noundef 24, ptr noundef nonnull %c.addr.0.i.i70)
+  br label %_ZN14parray_managerIN9subpaving9context_tINS0_11config_mpfxEE18bound_array_configEE7dec_refEPNS5_4cellE.exit90
 
-sw.epilog.i.i73:                                  ; preds = %while.body.i.i69
+sw.epilog.i.i72:                                  ; preds = %while.body.i.i68
   %21 = load ptr, ptr %m_allocator.i.i, align 8
-  tail call void @_ZN22small_object_allocator10deallocateEmPv(ptr noundef nonnull align 8 dereferenceable(520) %21, i64 noundef 24, ptr noundef nonnull %c.addr.0.i.i71)
-  %cmp.i.i76 = icmp eq ptr %17, null
-  br i1 %cmp.i.i76, label %_ZN14parray_managerIN9subpaving9context_tINS0_11config_mpfxEE18bound_array_configEE7unshareERNS5_3refE.exit, label %if.end.i.i77
+  tail call void @_ZN22small_object_allocator10deallocateEmPv(ptr noundef nonnull align 8 dereferenceable(520) %21, i64 noundef 24, ptr noundef nonnull %c.addr.0.i.i70)
+  %cmp.i.i75 = icmp eq ptr %17, null
+  br i1 %cmp.i.i75, label %_ZN14parray_managerIN9subpaving9context_tINS0_11config_mpfxEE18bound_array_configEE7dec_refEPNS5_4cellE.exit90, label %if.end.i.i76
 
-if.end.i.i77:                                     ; preds = %sw.epilog.i.i73
-  %bf.load.i.i78 = load i32, ptr %17, align 8
-  %dec.i.i79 = add i32 %bf.load.i.i78, 1073741823
-  %bf.value.i.i80 = and i32 %dec.i.i79, 1073741823
-  %bf.clear9.i.i81 = and i32 %bf.load.i.i78, -1073741824
-  %bf.set.i.i82 = or disjoint i32 %bf.value.i.i80, %bf.clear9.i.i81
-  store i32 %bf.set.i.i82, ptr %17, align 8
-  %cmp12.not.i.i83 = icmp eq i32 %bf.value.i.i80, 0
-  br i1 %cmp12.not.i.i83, label %while.body.i.i69, label %_ZN14parray_managerIN9subpaving9context_tINS0_11config_mpfxEE18bound_array_configEE7unshareERNS5_3refE.exit, !llvm.loop !8
+if.end.i.i76:                                     ; preds = %sw.epilog.i.i72
+  %bf.load.i.i77 = load i32, ptr %17, align 8
+  %dec.i.i78 = add i32 %bf.load.i.i77, 1073741823
+  %bf.value.i.i79 = and i32 %dec.i.i78, 1073741823
+  %bf.clear9.i.i80 = and i32 %bf.load.i.i77, -1073741824
+  %bf.set.i.i81 = or disjoint i32 %bf.value.i.i79, %bf.clear9.i.i80
+  store i32 %bf.set.i.i81, ptr %17, align 8
+  %cmp12.not.i.i82 = icmp eq i32 %bf.value.i.i79, 0
+  br i1 %cmp12.not.i.i82, label %while.body.i.i68, label %_ZN14parray_managerIN9subpaving9context_tINS0_11config_mpfxEE18bound_array_configEE7dec_refEPNS5_4cellE.exit90, !llvm.loop !8
 
-_ZN14parray_managerIN9subpaving9context_tINS0_11config_mpfxEE18bound_array_configEE7unshareERNS5_3refE.exit: ; preds = %if.end.i.i77, %sw.epilog.i.i73, %sw.epilog.thread.i.i90, %if.end.i60
+_ZN14parray_managerIN9subpaving9context_tINS0_11config_mpfxEE18bound_array_configEE7dec_refEPNS5_4cellE.exit90: ; preds = %sw.epilog.i.i72, %if.end.i.i76, %if.end.i59, %sw.epilog.thread.i.i89
   store ptr %call.i.i, ptr %r, align 8
   store i32 0, ptr %m_updt_counter, align 8
-  %22 = load ptr, ptr %15, align 8
+  br label %_ZN14parray_managerIN9subpaving9context_tINS0_11config_mpfxEE18bound_array_configEE7unshareERNS5_3refE.exit
+
+_ZN14parray_managerIN9subpaving9context_tINS0_11config_mpfxEE18bound_array_configEE7unshareERNS5_3refE.exit: ; preds = %if.then5, %_ZN14parray_managerIN9subpaving9context_tINS0_11config_mpfxEE18bound_array_configEE7dec_refEPNS5_4cellE.exit90
+  %22 = phi ptr [ %0, %if.then5 ], [ %call.i.i, %_ZN14parray_managerIN9subpaving9context_tINS0_11config_mpfxEE18bound_array_configEE7dec_refEPNS5_4cellE.exit90 ]
+  %23 = getelementptr inbounds i8, ptr %22, i64 16
+  %24 = load ptr, ptr %23, align 8
   %idxprom.i.i40 = zext i32 %i to i64
-  %arrayidx.i.i41 = getelementptr inbounds ptr, ptr %22, i64 %idxprom.i.i40
-  %23 = load ptr, ptr %v, align 8
-  store ptr %23, ptr %arrayidx.i.i41, align 8
+  %arrayidx.i.i41 = getelementptr inbounds ptr, ptr %24, i64 %idxprom.i.i40
+  %25 = load ptr, ptr %v, align 8
+  store ptr %25, ptr %arrayidx.i.i41, align 8
   br label %return
 
 if.end.i45:                                       ; preds = %_ZNK14parray_managerIN9subpaving9context_tINS0_11config_mpfxEE18bound_array_configEE4sizeERKNS5_3refE.exit
   %inc = add i32 %4, 1
   store i32 %inc, ptr %m_updt_counter, align 8
   %m_allocator.i = getelementptr inbounds i8, ptr %this, i64 8
-  %24 = load ptr, ptr %m_allocator.i, align 8
-  %call.i = tail call noundef ptr @_ZN22small_object_allocator8allocateEm(ptr noundef nonnull align 8 dereferenceable(520) %24, i64 noundef 24)
+  %26 = load ptr, ptr %m_allocator.i, align 8
+  %call.i = tail call noundef ptr @_ZN22small_object_allocator8allocateEm(ptr noundef nonnull align 8 dereferenceable(520) %26, i64 noundef 24)
   store i32 -1073741823, ptr %call.i, align 8
-  %25 = getelementptr inbounds i8, ptr %call.i, i64 4
-  store i32 0, ptr %25, align 4
-  %26 = getelementptr inbounds i8, ptr %call.i, i64 16
-  store ptr null, ptr %26, align 8
-  %27 = getelementptr inbounds i8, ptr %0, i64 4
-  %28 = load i32, ptr %27, align 4
-  store i32 %28, ptr %25, align 4
-  %29 = getelementptr inbounds i8, ptr %0, i64 16
-  %30 = load ptr, ptr %29, align 8
-  store ptr %30, ptr %26, align 8
+  %27 = getelementptr inbounds i8, ptr %call.i, i64 4
+  store i32 0, ptr %27, align 4
+  %28 = getelementptr inbounds i8, ptr %call.i, i64 16
+  store ptr null, ptr %28, align 8
+  %29 = getelementptr inbounds i8, ptr %0, i64 4
+  %30 = load i32, ptr %29, align 4
+  store i32 %30, ptr %27, align 4
+  %31 = getelementptr inbounds i8, ptr %0, i64 16
+  %32 = load ptr, ptr %31, align 8
+  store ptr %32, ptr %28, align 8
   store i32 -1073741822, ptr %call.i, align 8
   %bf.load = load i32, ptr %0, align 8
   %bf.clear = and i32 %bf.load, 1073741823
   store i32 %bf.clear, ptr %0, align 8
-  store i32 %i, ptr %27, align 4
-  %31 = load ptr, ptr %29, align 8
+  store i32 %i, ptr %29, align 4
+  %33 = load ptr, ptr %31, align 8
   %idxprom = zext i32 %i to i64
-  %arrayidx = getelementptr inbounds ptr, ptr %31, i64 %idxprom
-  %32 = load ptr, ptr %arrayidx, align 8
+  %arrayidx = getelementptr inbounds ptr, ptr %33, i64 %idxprom
+  %34 = load ptr, ptr %arrayidx, align 8
   %m_elem = getelementptr inbounds i8, ptr %0, i64 8
-  store ptr %32, ptr %m_elem, align 8
-  store ptr %call.i, ptr %29, align 8
+  store ptr %34, ptr %m_elem, align 8
+  store ptr %call.i, ptr %31, align 8
   %dec.i = add i32 %bf.load, 1073741823
   %bf.value.i47 = and i32 %dec.i, 1073741823
   store i32 %bf.value.i47, ptr %0, align 8
@@ -2233,69 +2253,69 @@ if.end.i45:                                       ; preds = %_ZNK14parray_manage
 
 while.body.i.i:                                   ; preds = %if.end.i45, %if.end.i.i
   %bf.load.i.i.i52 = phi i32 [ %bf.set.i.i, %if.end.i.i ], [ 0, %if.end.i45 ]
-  %c.addr.0.i.i = phi ptr [ %34, %if.end.i.i ], [ %0, %if.end.i45 ]
+  %c.addr.0.i.i = phi ptr [ %36, %if.end.i.i ], [ %0, %if.end.i45 ]
   %switch.not.i.i = icmp ugt i32 %bf.load.i.i.i52, -1073741825
-  %33 = getelementptr inbounds i8, ptr %c.addr.0.i.i, i64 16
-  %34 = load ptr, ptr %33, align 8
+  %35 = getelementptr inbounds i8, ptr %c.addr.0.i.i, i64 16
+  %36 = load ptr, ptr %35, align 8
   br i1 %switch.not.i.i, label %sw.bb6.i.i, label %sw.epilog.i.i
 
 sw.bb6.i.i:                                       ; preds = %while.body.i.i
-  %cmp.i.i.i = icmp eq ptr %34, null
+  %cmp.i.i.i = icmp eq ptr %36, null
   br i1 %cmp.i.i.i, label %sw.epilog.thread.i.i, label %_ZN14parray_managerIN9subpaving9context_tINS0_11config_mpfxEE18bound_array_configEE8capacityEPPNS3_5boundE.exit.i.i.i
 
 _ZN14parray_managerIN9subpaving9context_tINS0_11config_mpfxEE18bound_array_configEE8capacityEPPNS3_5boundE.exit.i.i.i: ; preds = %sw.bb6.i.i
-  %arrayidx.i.i.i.i = getelementptr inbounds i8, ptr %34, i64 -8
-  %35 = load i64, ptr %arrayidx.i.i.i.i, align 8
-  %36 = load ptr, ptr %m_allocator.i, align 8
-  %mul.i.i.i = shl i64 %35, 3
+  %arrayidx.i.i.i.i = getelementptr inbounds i8, ptr %36, i64 -8
+  %37 = load i64, ptr %arrayidx.i.i.i.i, align 8
+  %38 = load ptr, ptr %m_allocator.i, align 8
+  %mul.i.i.i = shl i64 %37, 3
   %add.i.i.i = add i64 %mul.i.i.i, 8
-  tail call void @_ZN22small_object_allocator10deallocateEmPv(ptr noundef nonnull align 8 dereferenceable(520) %36, i64 noundef %add.i.i.i, ptr noundef nonnull %arrayidx.i.i.i.i)
+  tail call void @_ZN22small_object_allocator10deallocateEmPv(ptr noundef nonnull align 8 dereferenceable(520) %38, i64 noundef %add.i.i.i, ptr noundef nonnull %arrayidx.i.i.i.i)
   br label %sw.epilog.thread.i.i
 
 sw.epilog.thread.i.i:                             ; preds = %_ZN14parray_managerIN9subpaving9context_tINS0_11config_mpfxEE18bound_array_configEE8capacityEPPNS3_5boundE.exit.i.i.i, %sw.bb6.i.i
-  %37 = load ptr, ptr %m_allocator.i, align 8
-  tail call void @_ZN22small_object_allocator10deallocateEmPv(ptr noundef nonnull align 8 dereferenceable(520) %37, i64 noundef 24, ptr noundef nonnull %c.addr.0.i.i)
+  %39 = load ptr, ptr %m_allocator.i, align 8
+  tail call void @_ZN22small_object_allocator10deallocateEmPv(ptr noundef nonnull align 8 dereferenceable(520) %39, i64 noundef 24, ptr noundef nonnull %c.addr.0.i.i)
   br label %_ZN14parray_managerIN9subpaving9context_tINS0_11config_mpfxEE18bound_array_configEE7dec_refEPNS5_4cellE.exit
 
 sw.epilog.i.i:                                    ; preds = %while.body.i.i
-  %38 = load ptr, ptr %m_allocator.i, align 8
-  tail call void @_ZN22small_object_allocator10deallocateEmPv(ptr noundef nonnull align 8 dereferenceable(520) %38, i64 noundef 24, ptr noundef nonnull %c.addr.0.i.i)
-  %cmp.i.i53 = icmp eq ptr %34, null
-  br i1 %cmp.i.i53, label %_ZN14parray_managerIN9subpaving9context_tINS0_11config_mpfxEE18bound_array_configEE7dec_refEPNS5_4cellE.exit, label %if.end.i.i
+  %40 = load ptr, ptr %m_allocator.i, align 8
+  tail call void @_ZN22small_object_allocator10deallocateEmPv(ptr noundef nonnull align 8 dereferenceable(520) %40, i64 noundef 24, ptr noundef nonnull %c.addr.0.i.i)
+  %cmp.i.i = icmp eq ptr %36, null
+  br i1 %cmp.i.i, label %_ZN14parray_managerIN9subpaving9context_tINS0_11config_mpfxEE18bound_array_configEE7dec_refEPNS5_4cellE.exit, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %sw.epilog.i.i
-  %bf.load.i.i54 = load i32, ptr %34, align 8
-  %dec.i.i = add i32 %bf.load.i.i54, 1073741823
+  %bf.load.i.i53 = load i32, ptr %36, align 8
+  %dec.i.i = add i32 %bf.load.i.i53, 1073741823
   %bf.value.i.i = and i32 %dec.i.i, 1073741823
-  %bf.clear9.i.i = and i32 %bf.load.i.i54, -1073741824
+  %bf.clear9.i.i = and i32 %bf.load.i.i53, -1073741824
   %bf.set.i.i = or disjoint i32 %bf.value.i.i, %bf.clear9.i.i
-  store i32 %bf.set.i.i, ptr %34, align 8
+  store i32 %bf.set.i.i, ptr %36, align 8
   %cmp12.not.i.i = icmp eq i32 %bf.value.i.i, 0
   br i1 %cmp12.not.i.i, label %while.body.i.i, label %_ZN14parray_managerIN9subpaving9context_tINS0_11config_mpfxEE18bound_array_configEE7dec_refEPNS5_4cellE.exit, !llvm.loop !8
 
 _ZN14parray_managerIN9subpaving9context_tINS0_11config_mpfxEE18bound_array_configEE7dec_refEPNS5_4cellE.exit: ; preds = %sw.epilog.i.i, %if.end.i.i, %if.end.i45, %sw.epilog.thread.i.i
   store ptr %call.i, ptr %r, align 8
-  %39 = load ptr, ptr %26, align 8
-  %arrayidx.i.i56 = getelementptr inbounds ptr, ptr %39, i64 %idxprom
-  %40 = load ptr, ptr %v, align 8
-  store ptr %40, ptr %arrayidx.i.i56, align 8
+  %41 = load ptr, ptr %28, align 8
+  %arrayidx.i.i55 = getelementptr inbounds ptr, ptr %41, i64 %idxprom
+  %42 = load ptr, ptr %v, align 8
+  store ptr %42, ptr %arrayidx.i.i55, align 8
   br label %return
 
 if.end13:                                         ; preds = %entry
-  %m_allocator.i57 = getelementptr inbounds i8, ptr %this, i64 8
-  %41 = load ptr, ptr %m_allocator.i57, align 8
-  %call.i58 = tail call noundef ptr @_ZN22small_object_allocator8allocateEm(ptr noundef nonnull align 8 dereferenceable(520) %41, i64 noundef 24)
-  store i32 1, ptr %call.i58, align 8
-  %42 = getelementptr inbounds i8, ptr %call.i58, i64 4
-  %43 = getelementptr inbounds i8, ptr %call.i58, i64 16
-  store ptr null, ptr %43, align 8
-  store i32 %i, ptr %42, align 4
-  %44 = load ptr, ptr %v, align 8
-  %m_elem16 = getelementptr inbounds i8, ptr %call.i58, i64 8
-  store ptr %44, ptr %m_elem16, align 8
-  %45 = load ptr, ptr %r, align 8
-  store ptr %45, ptr %43, align 8
-  store ptr %call.i58, ptr %r, align 8
+  %m_allocator.i56 = getelementptr inbounds i8, ptr %this, i64 8
+  %43 = load ptr, ptr %m_allocator.i56, align 8
+  %call.i57 = tail call noundef ptr @_ZN22small_object_allocator8allocateEm(ptr noundef nonnull align 8 dereferenceable(520) %43, i64 noundef 24)
+  store i32 1, ptr %call.i57, align 8
+  %44 = getelementptr inbounds i8, ptr %call.i57, i64 4
+  %45 = getelementptr inbounds i8, ptr %call.i57, i64 16
+  store ptr null, ptr %45, align 8
+  store i32 %i, ptr %44, align 4
+  %46 = load ptr, ptr %v, align 8
+  %m_elem16 = getelementptr inbounds i8, ptr %call.i57, i64 8
+  store ptr %46, ptr %m_elem16, align 8
+  %47 = load ptr, ptr %r, align 8
+  store ptr %47, ptr %45, align 8
+  store ptr %call.i57, ptr %r, align 8
   br label %return
 
 return:                                           ; preds = %if.end13, %_ZN14parray_managerIN9subpaving9context_tINS0_11config_mpfxEE18bound_array_configEE7dec_refEPNS5_4cellE.exit, %_ZN14parray_managerIN9subpaving9context_tINS0_11config_mpfxEE18bound_array_configEE7unshareERNS5_3refE.exit, %if.then3

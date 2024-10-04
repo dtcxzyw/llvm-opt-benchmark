@@ -16933,7 +16933,7 @@ define dso_local noundef zeroext i1 @_ZN4llvm8CastInst11castIsValidENS_11Instruc
     i32 47, label %142
     i32 48, label %156
     i32 49, label %170
-    i32 50, label %208
+    i32 50, label %209
   ]
 
 29:                                               ; preds = %28
@@ -17441,84 +17441,85 @@ _ZNK4llvm4Type13getScalarTypeEv.exit180:          ; preds = %_ZNK4llvm4Type13get
   br i1 %.not38, label %196, label %_ZNK4llvm7details23FixedOrScalableQuantityINS_12ElementCountEjEeqERKS3_.exit129
 
 196:                                              ; preds = %191
-  %brmerge = or i1 %spec.select.i.i.i.i.i.i.i.i, %spec.select.i.i.i.i.i.i.i.i49
-  br i1 %brmerge, label %200, label %197
+  %197 = and i32 %16, %15
+  %brmerge.not = icmp ugt i32 %197, -3
+  br i1 %brmerge.not, label %198, label %201
 
-197:                                              ; preds = %196
-  %198 = icmp eq i32 %.sroa.0223.0.extract.trunc, %.sroa.0200.0.extract.trunc
-  %199 = icmp eq i64 %.sroa.13.0.extract.shift293, %.sroa.13235.0.extract.shift292
-  %spec.select297 = and i1 %198, %199
+198:                                              ; preds = %196
+  %199 = icmp eq i32 %.sroa.0223.0.extract.trunc, %.sroa.0200.0.extract.trunc
+  %200 = icmp eq i64 %.sroa.13.0.extract.shift293, %.sroa.13235.0.extract.shift292
+  %spec.select297 = and i1 %199, %200
   br label %_ZNK4llvm7details23FixedOrScalableQuantityINS_12ElementCountEjEeqERKS3_.exit129
 
-200:                                              ; preds = %196
-  br i1 %spec.select.i.i.i.i.i.i.i.i, label %204, label %201
+201:                                              ; preds = %196
+  br i1 %spec.select.i.i.i.i.i.i.i.i, label %205, label %202
 
-201:                                              ; preds = %200
-  %202 = icmp eq i32 %.sroa.0223.0.extract.trunc, 1
-  %203 = icmp ult i64 %storemerge.in, 4294967296
-  %spec.select287 = and i1 %202, %203
+202:                                              ; preds = %201
+  %203 = icmp eq i32 %.sroa.0223.0.extract.trunc, 1
+  %204 = icmp ult i64 %storemerge.in, 4294967296
+  %spec.select287 = and i1 %203, %204
   br label %_ZNK4llvm7details23FixedOrScalableQuantityINS_12ElementCountEjEeqERKS3_.exit129
 
-204:                                              ; preds = %200
-  br i1 %spec.select.i.i.i.i.i.i.i.i49, label %_ZNK4llvm7details23FixedOrScalableQuantityINS_12ElementCountEjEeqERKS3_.exit129, label %205
+205:                                              ; preds = %201
+  br i1 %spec.select.i.i.i.i.i.i.i.i49, label %_ZNK4llvm7details23FixedOrScalableQuantityINS_12ElementCountEjEeqERKS3_.exit129, label %206
 
-205:                                              ; preds = %204
-  %206 = icmp eq i32 %.sroa.0200.0.extract.trunc, 1
-  %207 = icmp ult i64 %storemerge33.in, 4294967296
-  %spec.select288 = and i1 %206, %207
+206:                                              ; preds = %205
+  %207 = icmp eq i32 %.sroa.0200.0.extract.trunc, 1
+  %208 = icmp ult i64 %storemerge33.in, 4294967296
+  %spec.select288 = and i1 %207, %208
   br label %_ZNK4llvm7details23FixedOrScalableQuantityINS_12ElementCountEjEeqERKS3_.exit129
 
-208:                                              ; preds = %28
-  br i1 %spec.select.i.i.i.i.i.i.i.i, label %_ZNK4llvm4Type13getScalarTypeEv.exit187, label %209
+209:                                              ; preds = %28
+  br i1 %spec.select.i.i.i.i.i.i.i.i, label %_ZNK4llvm4Type13getScalarTypeEv.exit187, label %210
 
-209:                                              ; preds = %208
-  %210 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %211 = load ptr, ptr %210, align 8
+210:                                              ; preds = %209
+  %211 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %212 = load ptr, ptr %211, align 8
-  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %212, i64 8
+  %213 = load ptr, ptr %212, align 8
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %213, i64 8
   %.pre = load i32, ptr %.phi.trans.insert, align 8
-  %213 = icmp eq ptr %212, null
+  %214 = icmp eq ptr %213, null
   br label %_ZNK4llvm4Type13getScalarTypeEv.exit187
 
-_ZNK4llvm4Type13getScalarTypeEv.exit187:          ; preds = %208, %209
-  %214 = phi i32 [ %.pre, %209 ], [ %5, %208 ]
-  %.0.i186 = phi i1 [ %213, %209 ], [ false, %208 ]
-  %215 = and i32 %214, 255
-  %216 = icmp ne i32 %215, 14
-  %.not = or i1 %.0.i186, %216
-  br i1 %.not, label %_ZNK4llvm7details23FixedOrScalableQuantityINS_12ElementCountEjEeqERKS3_.exit129, label %217
+_ZNK4llvm4Type13getScalarTypeEv.exit187:          ; preds = %209, %210
+  %215 = phi i32 [ %.pre, %210 ], [ %5, %209 ]
+  %.0.i186 = phi i1 [ %214, %210 ], [ false, %209 ]
+  %216 = and i32 %215, 255
+  %217 = icmp ne i32 %216, 14
+  %.not = or i1 %.0.i186, %217
+  br i1 %.not, label %_ZNK4llvm7details23FixedOrScalableQuantityINS_12ElementCountEjEeqERKS3_.exit129, label %218
 
-217:                                              ; preds = %_ZNK4llvm4Type13getScalarTypeEv.exit187
-  br i1 %spec.select.i.i.i.i.i.i.i.i49, label %_ZNK4llvm4Type13getScalarTypeEv.exit191, label %218
+218:                                              ; preds = %_ZNK4llvm4Type13getScalarTypeEv.exit187
+  br i1 %spec.select.i.i.i.i.i.i.i.i49, label %_ZNK4llvm4Type13getScalarTypeEv.exit191, label %219
 
-218:                                              ; preds = %217
-  %219 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %220 = load ptr, ptr %219, align 8
+219:                                              ; preds = %218
+  %220 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %221 = load ptr, ptr %220, align 8
-  %.phi.trans.insert299 = getelementptr inbounds nuw i8, ptr %221, i64 8
+  %222 = load ptr, ptr %221, align 8
+  %.phi.trans.insert299 = getelementptr inbounds nuw i8, ptr %222, i64 8
   %.pre300 = load i32, ptr %.phi.trans.insert299, align 8
-  %222 = icmp eq ptr %221, null
+  %223 = icmp eq ptr %222, null
   br label %_ZNK4llvm4Type13getScalarTypeEv.exit191
 
-_ZNK4llvm4Type13getScalarTypeEv.exit191:          ; preds = %217, %218
-  %223 = phi i32 [ %.pre300, %218 ], [ %9, %217 ]
-  %.0.i190 = phi i1 [ %222, %218 ], [ false, %217 ]
-  %224 = and i32 %223, 255
-  %225 = icmp ne i32 %224, 14
-  %.not34 = or i1 %.0.i190, %225
-  br i1 %.not34, label %_ZNK4llvm7details23FixedOrScalableQuantityINS_12ElementCountEjEeqERKS3_.exit129, label %226
+_ZNK4llvm4Type13getScalarTypeEv.exit191:          ; preds = %218, %219
+  %224 = phi i32 [ %.pre300, %219 ], [ %9, %218 ]
+  %.0.i190 = phi i1 [ %223, %219 ], [ false, %218 ]
+  %225 = and i32 %224, 255
+  %226 = icmp ne i32 %225, 14
+  %.not34 = or i1 %.0.i190, %226
+  br i1 %.not34, label %_ZNK4llvm7details23FixedOrScalableQuantityINS_12ElementCountEjEeqERKS3_.exit129, label %227
 
-226:                                              ; preds = %_ZNK4llvm4Type13getScalarTypeEv.exit191
-  %.unshifted = xor i32 %223, %214
-  %227 = icmp ugt i32 %.unshifted, 255
-  %228 = icmp eq i32 %.sroa.0223.0.extract.trunc, %.sroa.0200.0.extract.trunc
-  %229 = icmp eq i64 %.sroa.13.0.extract.shift293, %.sroa.13235.0.extract.shift292
-  %230 = and i1 %228, %229
-  %spec.select298 = select i1 %227, i1 %230, i1 false
+227:                                              ; preds = %_ZNK4llvm4Type13getScalarTypeEv.exit191
+  %.unshifted = xor i32 %224, %215
+  %228 = icmp ugt i32 %.unshifted, 255
+  %229 = icmp eq i32 %.sroa.0223.0.extract.trunc, %.sroa.0200.0.extract.trunc
+  %230 = icmp eq i64 %.sroa.13.0.extract.shift293, %.sroa.13235.0.extract.shift292
+  %231 = and i1 %229, %230
+  %spec.select298 = select i1 %228, i1 %231, i1 false
   br label %_ZNK4llvm7details23FixedOrScalableQuantityINS_12ElementCountEjEeqERKS3_.exit129
 
-_ZNK4llvm7details23FixedOrScalableQuantityINS_12ElementCountEjEeqERKS3_.exit129: ; preds = %226, %197, %_ZNK4llvm4Type18isIntOrIntVectorTyEv.exit144, %205, %201, %7, %7, %3, %3, %156, %142, %187, %183, %125, %_ZNK4llvm4Type16isFPOrFPVectorTyEv.exit128.thread, %_ZNK4llvm4Type16isFPOrFPVectorTyEv.exit112.thread, %_ZNK4llvm4Type16isFPOrFPVectorTyEv.exit95.thread, %_ZNK4llvm7details23FixedOrScalableQuantityINS_12ElementCountEjEeqERKS3_.exit84, %_ZNK4llvm7details23FixedOrScalableQuantityINS_12ElementCountEjEeqERKS3_.exit71, %_ZNK4llvm7details23FixedOrScalableQuantityINS_12ElementCountEjEeqERKS3_.exit, %_ZNK4llvm4Type13getScalarTypeEv.exit191, %_ZNK4llvm4Type13getScalarTypeEv.exit187, %204, %191, %_ZNK4llvm4Type13getScalarTypeEv.exit180, %_ZNK4llvm4Type18isIntOrIntVectorTyEv.exit168, %_ZNK4llvm4Type18isPtrOrPtrVectorTyEv.exit175, %_ZNK4llvm4Type18isPtrOrPtrVectorTyEv.exit, %_ZNK4llvm4Type18isIntOrIntVectorTyEv.exit159, %_ZNK4llvm4Type16isFPOrFPVectorTyEv.exit137, %_ZNK4llvm4Type18isIntOrIntVectorTyEv.exit120, %_ZNK4llvm4Type16isFPOrFPVectorTyEv.exit128, %_ZNK4llvm4Type16isFPOrFPVectorTyEv.exit104, %_ZNK4llvm4Type16isFPOrFPVectorTyEv.exit112, %_ZNK4llvm4Type16isFPOrFPVectorTyEv.exit, %_ZNK4llvm4Type16isFPOrFPVectorTyEv.exit95, %_ZNK4llvm4Type18isIntOrIntVectorTyEv.exit77, %_ZNK4llvm4Type18isIntOrIntVectorTyEv.exit83, %_ZNK4llvm4Type18isIntOrIntVectorTyEv.exit64, %_ZNK4llvm4Type18isIntOrIntVectorTyEv.exit70, %_ZNK4llvm4Type18isIntOrIntVectorTyEv.exit, %_ZNK4llvm4Type18isIntOrIntVectorTyEv.exit58, %28, %11
-  %.0 = phi i1 [ false, %11 ], [ false, %7 ], [ false, %3 ], [ false, %28 ], [ false, %_ZNK4llvm4Type18isIntOrIntVectorTyEv.exit58 ], [ false, %_ZNK4llvm4Type18isIntOrIntVectorTyEv.exit ], [ %spec.select, %_ZNK4llvm7details23FixedOrScalableQuantityINS_12ElementCountEjEeqERKS3_.exit ], [ false, %_ZNK4llvm4Type18isIntOrIntVectorTyEv.exit70 ], [ false, %_ZNK4llvm4Type18isIntOrIntVectorTyEv.exit64 ], [ %spec.select39, %_ZNK4llvm7details23FixedOrScalableQuantityINS_12ElementCountEjEeqERKS3_.exit71 ], [ false, %_ZNK4llvm4Type18isIntOrIntVectorTyEv.exit83 ], [ false, %_ZNK4llvm4Type18isIntOrIntVectorTyEv.exit77 ], [ %spec.select40, %_ZNK4llvm7details23FixedOrScalableQuantityINS_12ElementCountEjEeqERKS3_.exit84 ], [ false, %_ZNK4llvm4Type16isFPOrFPVectorTyEv.exit95 ], [ false, %_ZNK4llvm4Type16isFPOrFPVectorTyEv.exit ], [ %spec.select41, %_ZNK4llvm4Type16isFPOrFPVectorTyEv.exit95.thread ], [ false, %_ZNK4llvm4Type16isFPOrFPVectorTyEv.exit112 ], [ false, %_ZNK4llvm4Type16isFPOrFPVectorTyEv.exit104 ], [ %spec.select42, %_ZNK4llvm4Type16isFPOrFPVectorTyEv.exit112.thread ], [ false, %_ZNK4llvm4Type16isFPOrFPVectorTyEv.exit128 ], [ false, %_ZNK4llvm4Type18isIntOrIntVectorTyEv.exit120 ], [ false, %_ZNK4llvm4Type16isFPOrFPVectorTyEv.exit137 ], [ false, %_ZNK4llvm4Type18isPtrOrPtrVectorTyEv.exit ], [ %155, %_ZNK4llvm4Type18isIntOrIntVectorTyEv.exit159 ], [ false, %_ZNK4llvm4Type18isIntOrIntVectorTyEv.exit168 ], [ %169, %_ZNK4llvm4Type18isPtrOrPtrVectorTyEv.exit175 ], [ false, %_ZNK4llvm4Type13getScalarTypeEv.exit180 ], [ false, %191 ], [ true, %204 ], [ false, %_ZNK4llvm4Type13getScalarTypeEv.exit187 ], [ false, %_ZNK4llvm4Type13getScalarTypeEv.exit191 ], [ false, %_ZNK4llvm4Type16isFPOrFPVectorTyEv.exit128.thread ], [ %126, %125 ], [ false, %183 ], [ %190, %187 ], [ false, %142 ], [ false, %156 ], [ false, %3 ], [ false, %7 ], [ %spec.select287, %201 ], [ %spec.select288, %205 ], [ %spec.select296, %_ZNK4llvm4Type18isIntOrIntVectorTyEv.exit144 ], [ %spec.select297, %197 ], [ %spec.select298, %226 ]
+_ZNK4llvm7details23FixedOrScalableQuantityINS_12ElementCountEjEeqERKS3_.exit129: ; preds = %227, %198, %_ZNK4llvm4Type18isIntOrIntVectorTyEv.exit144, %206, %202, %7, %7, %3, %3, %156, %142, %187, %183, %125, %_ZNK4llvm4Type16isFPOrFPVectorTyEv.exit128.thread, %_ZNK4llvm4Type16isFPOrFPVectorTyEv.exit112.thread, %_ZNK4llvm4Type16isFPOrFPVectorTyEv.exit95.thread, %_ZNK4llvm7details23FixedOrScalableQuantityINS_12ElementCountEjEeqERKS3_.exit84, %_ZNK4llvm7details23FixedOrScalableQuantityINS_12ElementCountEjEeqERKS3_.exit71, %_ZNK4llvm7details23FixedOrScalableQuantityINS_12ElementCountEjEeqERKS3_.exit, %_ZNK4llvm4Type13getScalarTypeEv.exit191, %_ZNK4llvm4Type13getScalarTypeEv.exit187, %205, %191, %_ZNK4llvm4Type13getScalarTypeEv.exit180, %_ZNK4llvm4Type18isIntOrIntVectorTyEv.exit168, %_ZNK4llvm4Type18isPtrOrPtrVectorTyEv.exit175, %_ZNK4llvm4Type18isPtrOrPtrVectorTyEv.exit, %_ZNK4llvm4Type18isIntOrIntVectorTyEv.exit159, %_ZNK4llvm4Type16isFPOrFPVectorTyEv.exit137, %_ZNK4llvm4Type18isIntOrIntVectorTyEv.exit120, %_ZNK4llvm4Type16isFPOrFPVectorTyEv.exit128, %_ZNK4llvm4Type16isFPOrFPVectorTyEv.exit104, %_ZNK4llvm4Type16isFPOrFPVectorTyEv.exit112, %_ZNK4llvm4Type16isFPOrFPVectorTyEv.exit, %_ZNK4llvm4Type16isFPOrFPVectorTyEv.exit95, %_ZNK4llvm4Type18isIntOrIntVectorTyEv.exit77, %_ZNK4llvm4Type18isIntOrIntVectorTyEv.exit83, %_ZNK4llvm4Type18isIntOrIntVectorTyEv.exit64, %_ZNK4llvm4Type18isIntOrIntVectorTyEv.exit70, %_ZNK4llvm4Type18isIntOrIntVectorTyEv.exit, %_ZNK4llvm4Type18isIntOrIntVectorTyEv.exit58, %28, %11
+  %.0 = phi i1 [ false, %11 ], [ false, %7 ], [ false, %3 ], [ false, %28 ], [ false, %_ZNK4llvm4Type18isIntOrIntVectorTyEv.exit58 ], [ false, %_ZNK4llvm4Type18isIntOrIntVectorTyEv.exit ], [ %spec.select, %_ZNK4llvm7details23FixedOrScalableQuantityINS_12ElementCountEjEeqERKS3_.exit ], [ false, %_ZNK4llvm4Type18isIntOrIntVectorTyEv.exit70 ], [ false, %_ZNK4llvm4Type18isIntOrIntVectorTyEv.exit64 ], [ %spec.select39, %_ZNK4llvm7details23FixedOrScalableQuantityINS_12ElementCountEjEeqERKS3_.exit71 ], [ false, %_ZNK4llvm4Type18isIntOrIntVectorTyEv.exit83 ], [ false, %_ZNK4llvm4Type18isIntOrIntVectorTyEv.exit77 ], [ %spec.select40, %_ZNK4llvm7details23FixedOrScalableQuantityINS_12ElementCountEjEeqERKS3_.exit84 ], [ false, %_ZNK4llvm4Type16isFPOrFPVectorTyEv.exit95 ], [ false, %_ZNK4llvm4Type16isFPOrFPVectorTyEv.exit ], [ %spec.select41, %_ZNK4llvm4Type16isFPOrFPVectorTyEv.exit95.thread ], [ false, %_ZNK4llvm4Type16isFPOrFPVectorTyEv.exit112 ], [ false, %_ZNK4llvm4Type16isFPOrFPVectorTyEv.exit104 ], [ %spec.select42, %_ZNK4llvm4Type16isFPOrFPVectorTyEv.exit112.thread ], [ false, %_ZNK4llvm4Type16isFPOrFPVectorTyEv.exit128 ], [ false, %_ZNK4llvm4Type18isIntOrIntVectorTyEv.exit120 ], [ false, %_ZNK4llvm4Type16isFPOrFPVectorTyEv.exit137 ], [ false, %_ZNK4llvm4Type18isPtrOrPtrVectorTyEv.exit ], [ %155, %_ZNK4llvm4Type18isIntOrIntVectorTyEv.exit159 ], [ false, %_ZNK4llvm4Type18isIntOrIntVectorTyEv.exit168 ], [ %169, %_ZNK4llvm4Type18isPtrOrPtrVectorTyEv.exit175 ], [ false, %_ZNK4llvm4Type13getScalarTypeEv.exit180 ], [ false, %191 ], [ true, %205 ], [ false, %_ZNK4llvm4Type13getScalarTypeEv.exit187 ], [ false, %_ZNK4llvm4Type13getScalarTypeEv.exit191 ], [ false, %_ZNK4llvm4Type16isFPOrFPVectorTyEv.exit128.thread ], [ %126, %125 ], [ false, %183 ], [ %190, %187 ], [ false, %142 ], [ false, %156 ], [ false, %3 ], [ false, %7 ], [ %spec.select287, %202 ], [ %spec.select288, %206 ], [ %spec.select296, %_ZNK4llvm4Type18isIntOrIntVectorTyEv.exit144 ], [ %spec.select297, %198 ], [ %spec.select298, %227 ]
   ret i1 %.0
 }
 

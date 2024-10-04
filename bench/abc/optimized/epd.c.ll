@@ -67,129 +67,120 @@ define void @EpdGetString(ptr nocapture noundef readonly %0, ptr noundef %1) loc
   %4 = alloca %struct.EpDoubleStruct, align 8
   %5 = load double, ptr %0, align 8
   %6 = bitcast double %5 to i64
-  %or.cond.i = icmp ult i64 %6, -4503599627370496
-  %7 = and i64 %6, 4503599627370495
-  %8 = icmp ne i64 %7, 2251799813685248
-  %or.cond10.i.not = or i1 %or.cond.i, %8
-  br i1 %or.cond10.i.not, label %10, label %9
+  %or.cond10.i.not = icmp eq i64 %6, -2251799813685248
+  br i1 %or.cond10.i.not, label %7, label %8
 
-9:                                                ; preds = %2
+7:                                                ; preds = %2
   store i32 5136718, ptr %1, align 1
-  br label %55
+  br label %51
 
-10:                                               ; preds = %2
-  %11 = tail call double @llvm.fabs.f64(double %5)
-  %or.cond6.i = fcmp une double %11, 0x7FF0000000000000
-  br i1 %or.cond6.i, label %15, label %12
+8:                                                ; preds = %2
+  %9 = tail call double @llvm.fabs.f64(double %5)
+  %or.cond6.i = fcmp une double %9, 0x7FF0000000000000
+  br i1 %or.cond6.i, label %13, label %10
+
+10:                                               ; preds = %8
+  %.not15 = icmp sgt i64 %6, -1
+  br i1 %.not15, label %12, label %11
+
+11:                                               ; preds = %10
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(5) %1, ptr noundef nonnull align 1 dereferenceable(5) @.str.1, i64 5, i1 false)
+  br label %51
 
 12:                                               ; preds = %10
-  %.not15 = icmp sgt i64 %6, -1
-  br i1 %.not15, label %14, label %13
-
-13:                                               ; preds = %12
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(5) %1, ptr noundef nonnull align 1 dereferenceable(5) @.str.1, i64 5, i1 false)
-  br label %55
-
-14:                                               ; preds = %12
   store i32 6712905, ptr %1, align 1
-  br label %55
+  br label %51
 
-15:                                               ; preds = %10
+13:                                               ; preds = %8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
-  %16 = and i64 %6, 9221120237041090559
-  %or.cond7.i.i.i = icmp ne i64 %16, 9218868437227405312
-  %17 = and i64 %6, -9221120237041090560
-  %or.cond9.not.i.i.i = icmp eq i64 %17, 2251799813685248
+  %14 = and i64 %6, 9221120237041090559
+  %or.cond7.i.i.i = icmp ne i64 %14, 9218868437227405312
+  %15 = and i64 %6, -9221120237041090560
+  %or.cond9.not.i.i.i = icmp eq i64 %15, 2251799813685248
   %or.cond.not.i.i.not.i = or i1 %or.cond7.i.i.i, %or.cond9.not.i.i.i
   tail call void @llvm.assume(i1 %or.cond.not.i.i.not.i)
-  %18 = fcmp une double %5, 0.000000e+00
-  br i1 %18, label %19, label %EpdGetValueAndDecimalExponent.exit
+  %16 = fcmp une double %5, 0.000000e+00
+  br i1 %16, label %17, label %EpdGetValueAndDecimalExponent.exit
 
-19:                                               ; preds = %15
-  %20 = getelementptr inbounds i8, ptr %3, i64 8
-  %21 = getelementptr inbounds i8, ptr %0, i64 8
-  %22 = load i32, ptr %21, align 8
-  call void @EpdPow2Decimal(i32 noundef %22, ptr noundef nonnull %4)
-  %23 = load i64, ptr %4, align 8
-  %or.cond.i.i20.i.i = icmp ult i64 %23, -4503599627370496
-  %24 = and i64 %23, 4503599627370495
-  %25 = icmp ne i64 %24, 2251799813685248
-  %or.cond10.i.i21.not.i.i = or i1 %or.cond.i.i20.i.i, %25
-  %26 = bitcast i64 %23 to double
-  br i1 %or.cond10.i.i21.not.i.i, label %27, label %EpdGetValueAndDecimalExponent.exit
+17:                                               ; preds = %13
+  %18 = getelementptr inbounds i8, ptr %3, i64 8
+  %19 = getelementptr inbounds i8, ptr %0, i64 8
+  %20 = load i32, ptr %19, align 8
+  call void @EpdPow2Decimal(i32 noundef %20, ptr noundef nonnull %4)
+  %21 = load i64, ptr %4, align 8
+  %or.cond10.i.i20.not.i.i = icmp eq i64 %21, -2251799813685248
+  %22 = bitcast i64 %21 to double
+  br i1 %or.cond10.i.i20.not.i.i, label %EpdGetValueAndDecimalExponent.exit, label %23
 
-27:                                               ; preds = %19
-  %28 = tail call double @llvm.fabs.f64(double %26)
-  %or.cond6.i.i24.i.i = fcmp une double %28, 0x7FF0000000000000
-  br i1 %or.cond6.i.i24.i.i, label %34, label %29
+23:                                               ; preds = %17
+  %24 = tail call double @llvm.fabs.f64(double %22)
+  %or.cond6.i.i23.i.i = fcmp une double %24, 0x7FF0000000000000
+  br i1 %or.cond6.i.i23.i.i, label %30, label %25
 
-29:                                               ; preds = %27
-  %30 = xor i64 %23, %6
-  %31 = and i64 %30, -9223372036854775808
-  %32 = or disjoint i64 %31, 9218868437227405312
-  %33 = bitcast i64 %32 to double
+25:                                               ; preds = %23
+  %26 = xor i64 %21, %6
+  %27 = and i64 %26, -9223372036854775808
+  %28 = or disjoint i64 %27, 9218868437227405312
+  %29 = bitcast i64 %28 to double
   br label %EpdGetValueAndDecimalExponent.exit
 
-34:                                               ; preds = %27
-  %35 = fmul double %5, %26
-  %36 = getelementptr inbounds i8, ptr %4, i64 8
-  %37 = load i32, ptr %36, align 8
-  store double %35, ptr %3, align 8
-  store i32 %37, ptr %20, align 8
+30:                                               ; preds = %23
+  %31 = fmul double %5, %22
+  %32 = getelementptr inbounds i8, ptr %4, i64 8
+  %33 = load i32, ptr %32, align 8
+  store double %31, ptr %3, align 8
+  store i32 %33, ptr %18, align 8
   call void @EpdNormalizeDecimal(ptr noundef nonnull %3)
   %.pre.i = load double, ptr %3, align 8
-  %.pre9.i = load i32, ptr %20, align 8
+  %.pre9.i = load i32, ptr %18, align 8
   br label %EpdGetValueAndDecimalExponent.exit
 
-EpdGetValueAndDecimalExponent.exit:               ; preds = %15, %19, %29, %34
-  %.017 = phi double [ 0.000000e+00, %15 ], [ %33, %29 ], [ %.pre.i, %34 ], [ 0xFFF8000000000000, %19 ]
-  %.0 = phi i32 [ 0, %15 ], [ 0, %29 ], [ %.pre9.i, %34 ], [ 0, %19 ]
+EpdGetValueAndDecimalExponent.exit:               ; preds = %13, %17, %25, %30
+  %.017 = phi double [ 0.000000e+00, %13 ], [ %29, %25 ], [ %.pre.i, %30 ], [ 0xFFF8000000000000, %17 ]
+  %.0 = phi i32 [ 0, %13 ], [ 0, %25 ], [ %.pre9.i, %30 ], [ 0, %17 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
-  %38 = tail call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(1) @.str.3, double noundef %.017) #19
+  %34 = tail call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(1) @.str.3, double noundef %.017) #19
   %strchr = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %1, i32 101)
-  %39 = icmp sgt i32 %.0, -1
-  br i1 %39, label %40, label %47
+  %35 = icmp sgt i32 %.0, -1
+  br i1 %35, label %36, label %43
 
-40:                                               ; preds = %EpdGetValueAndDecimalExponent.exit
-  %41 = icmp ult i32 %.0, 10
-  %42 = getelementptr inbounds i8, ptr %strchr, i64 1
-  br i1 %41, label %43, label %45
+36:                                               ; preds = %EpdGetValueAndDecimalExponent.exit
+  %37 = icmp ult i32 %.0, 10
+  %38 = getelementptr inbounds i8, ptr %strchr, i64 1
+  br i1 %37, label %39, label %41
 
-43:                                               ; preds = %40
-  %44 = tail call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %42, ptr noundef nonnull dereferenceable(1) @.str.5, i32 noundef %.0) #19
-  br label %55
+39:                                               ; preds = %36
+  %40 = tail call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %38, ptr noundef nonnull dereferenceable(1) @.str.5, i32 noundef %.0) #19
+  br label %51
 
-45:                                               ; preds = %40
-  %46 = tail call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %42, ptr noundef nonnull dereferenceable(1) @.str.6, i32 noundef %.0) #19
-  br label %55
+41:                                               ; preds = %36
+  %42 = tail call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %38, ptr noundef nonnull dereferenceable(1) @.str.6, i32 noundef %.0) #19
+  br label %51
 
-47:                                               ; preds = %EpdGetValueAndDecimalExponent.exit
-  %48 = sub nsw i32 0, %.0
-  %49 = icmp ugt i32 %.0, -10
-  %50 = getelementptr inbounds i8, ptr %strchr, i64 1
-  br i1 %49, label %51, label %53
+43:                                               ; preds = %EpdGetValueAndDecimalExponent.exit
+  %44 = sub nsw i32 0, %.0
+  %45 = icmp ugt i32 %.0, -10
+  %46 = getelementptr inbounds i8, ptr %strchr, i64 1
+  br i1 %45, label %47, label %49
 
-51:                                               ; preds = %47
-  %52 = tail call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %50, ptr noundef nonnull dereferenceable(1) @.str.7, i32 noundef %48) #19
-  br label %55
+47:                                               ; preds = %43
+  %48 = tail call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %46, ptr noundef nonnull dereferenceable(1) @.str.7, i32 noundef %44) #19
+  br label %51
 
-53:                                               ; preds = %47
-  %54 = tail call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %50, ptr noundef nonnull dereferenceable(1) @.str.8, i32 noundef %48) #19
-  br label %55
+49:                                               ; preds = %43
+  %50 = tail call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %46, ptr noundef nonnull dereferenceable(1) @.str.8, i32 noundef %44) #19
+  br label %51
 
-55:                                               ; preds = %51, %53, %43, %45, %13, %14, %9
+51:                                               ; preds = %47, %49, %39, %41, %11, %12, %7
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define range(i32 0, 2) i32 @IsNanDouble(double noundef %0) local_unnamed_addr #6 {
   %2 = bitcast double %0 to i64
-  %or.cond = icmp ugt i64 %2, -4503599627370497
-  %3 = and i64 %2, 4503599627370495
-  %4 = icmp eq i64 %3, 2251799813685248
-  %or.cond10 = and i1 %or.cond, %4
+  %or.cond10 = icmp eq i64 %2, -2251799813685248
   %.0 = zext i1 %or.cond10 to i32
   ret i32 %.0
 }
@@ -219,7 +210,7 @@ define void @EpdGetValueAndDecimalExponent(ptr nocapture noundef readonly %0, pt
   %or.cond9.not.i.i = icmp eq i64 %8, 2251799813685248
   %or.cond.not.i.i.not = or i1 %or.cond7.i.i, %or.cond9.not.i.i
   %9 = bitcast i64 %6 to double
-  br i1 %or.cond.not.i.i.not, label %10, label %35
+  br i1 %or.cond.not.i.i.not, label %10, label %31
 
 10:                                               ; preds = %3
   %11 = fcmp une double %9, 0.000000e+00
@@ -230,55 +221,49 @@ define void @EpdGetValueAndDecimalExponent(ptr nocapture noundef readonly %0, pt
   %14 = getelementptr inbounds i8, ptr %0, i64 8
   %15 = load i32, ptr %14, align 8
   call void @EpdPow2Decimal(i32 noundef %15, ptr noundef nonnull %5)
-  %or.cond.i.i.i = icmp ult i64 %6, -4503599627370496
-  %16 = and i64 %6, 4503599627370495
-  %17 = icmp ne i64 %16, 2251799813685248
-  %or.cond10.i.i.not.i = or i1 %or.cond.i.i.i, %17
-  br i1 %or.cond10.i.i.not.i, label %18, label %.sink.split
+  %or.cond10.i.i.not.i = icmp eq i64 %6, -2251799813685248
+  br i1 %or.cond10.i.i.not.i, label %.sink.split, label %16
 
-18:                                               ; preds = %12
-  %19 = load i64, ptr %5, align 8
-  %or.cond.i.i20.i = icmp ult i64 %19, -4503599627370496
-  %20 = and i64 %19, 4503599627370495
-  %21 = icmp ne i64 %20, 2251799813685248
-  %or.cond10.i.i21.not.i = or i1 %or.cond.i.i20.i, %21
-  %22 = bitcast i64 %19 to double
-  br i1 %or.cond10.i.i21.not.i, label %23, label %.sink.split
+16:                                               ; preds = %12
+  %17 = load i64, ptr %5, align 8
+  %or.cond10.i.i20.not.i = icmp eq i64 %17, -2251799813685248
+  %18 = bitcast i64 %17 to double
+  br i1 %or.cond10.i.i20.not.i, label %.sink.split, label %19
 
-23:                                               ; preds = %18
-  %24 = tail call double @llvm.fabs.f64(double %9)
-  %or.cond6.i.i.i = fcmp une double %24, 0x7FF0000000000000
-  %25 = tail call double @llvm.fabs.f64(double %22)
-  %or.cond6.i.i24.i = fcmp une double %25, 0x7FF0000000000000
-  %or.cond.i = and i1 %or.cond6.i.i.i, %or.cond6.i.i24.i
-  br i1 %or.cond.i, label %31, label %26
+19:                                               ; preds = %16
+  %20 = tail call double @llvm.fabs.f64(double %9)
+  %or.cond6.i.i.i = fcmp une double %20, 0x7FF0000000000000
+  %21 = tail call double @llvm.fabs.f64(double %18)
+  %or.cond6.i.i23.i = fcmp une double %21, 0x7FF0000000000000
+  %or.cond.i = and i1 %or.cond6.i.i.i, %or.cond6.i.i23.i
+  br i1 %or.cond.i, label %27, label %22
 
-26:                                               ; preds = %23
-  %27 = xor i64 %19, %6
-  %28 = and i64 %27, -9223372036854775808
-  %29 = or disjoint i64 %28, 9218868437227405312
-  %30 = bitcast i64 %29 to double
+22:                                               ; preds = %19
+  %23 = xor i64 %17, %6
+  %24 = and i64 %23, -9223372036854775808
+  %25 = or disjoint i64 %24, 9218868437227405312
+  %26 = bitcast i64 %25 to double
   br label %.sink.split
 
-31:                                               ; preds = %23
-  %32 = fmul double %9, %22
-  %33 = getelementptr inbounds i8, ptr %5, i64 8
-  %34 = load i32, ptr %33, align 8
-  store double %32, ptr %4, align 8
-  store i32 %34, ptr %13, align 8
+27:                                               ; preds = %19
+  %28 = fmul double %9, %18
+  %29 = getelementptr inbounds i8, ptr %5, i64 8
+  %30 = load i32, ptr %29, align 8
+  store double %28, ptr %4, align 8
+  store i32 %30, ptr %13, align 8
   call void @EpdNormalizeDecimal(ptr noundef nonnull %4)
   %.pre = load double, ptr %4, align 8
   %.pre9 = load i32, ptr %13, align 8
   br label %.sink.split
 
-.sink.split:                                      ; preds = %31, %26, %18, %12, %10
-  %.sink10 = phi double [ 0.000000e+00, %10 ], [ %30, %26 ], [ %.pre, %31 ], [ 0xFFF8000000000000, %18 ], [ 0xFFF8000000000000, %12 ]
-  %.sink = phi i32 [ 0, %10 ], [ 0, %26 ], [ %.pre9, %31 ], [ 0, %18 ], [ 0, %12 ]
+.sink.split:                                      ; preds = %27, %22, %16, %12, %10
+  %.sink10 = phi double [ 0.000000e+00, %10 ], [ %26, %22 ], [ %.pre, %27 ], [ 0xFFF8000000000000, %16 ], [ 0xFFF8000000000000, %12 ]
+  %.sink = phi i32 [ 0, %10 ], [ 0, %22 ], [ %.pre9, %27 ], [ 0, %16 ], [ 0, %12 ]
   store double %.sink10, ptr %1, align 8
   store i32 %.sink, ptr %2, align 4
-  br label %35
+  br label %31
 
-35:                                               ; preds = %.sink.split, %3
+31:                                               ; preds = %.sink.split, %3
   ret void
 }
 
@@ -354,89 +339,80 @@ define void @EpdNormalize(ptr nocapture noundef %0) local_unnamed_addr #9 {
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define void @EpdMultiply(ptr nocapture noundef %0, double noundef %1) local_unnamed_addr #9 {
   %3 = load i64, ptr %0, align 8
-  %or.cond.i.i = icmp ult i64 %3, -4503599627370496
-  %4 = and i64 %3, 4503599627370495
-  %5 = icmp ne i64 %4, 2251799813685248
-  %or.cond10.i.i.not = or i1 %or.cond.i.i, %5
-  %6 = bitcast i64 %3 to double
-  br i1 %or.cond10.i.i.not, label %7, label %11
+  %or.cond10.i.i.not = icmp eq i64 %3, -2251799813685248
+  %4 = bitcast i64 %3 to double
+  br i1 %or.cond10.i.i.not, label %7, label %5
 
-7:                                                ; preds = %2
-  %8 = bitcast double %1 to i64
-  %or.cond.i = icmp ult i64 %8, -4503599627370496
-  %9 = and i64 %8, 4503599627370495
-  %10 = icmp ne i64 %9, 2251799813685248
-  %or.cond10.i.not = or i1 %or.cond.i, %10
-  br i1 %or.cond10.i.not, label %13, label %11
+5:                                                ; preds = %2
+  %6 = bitcast double %1 to i64
+  %or.cond10.i.not = icmp eq i64 %6, -2251799813685248
+  br i1 %or.cond10.i.not, label %7, label %9
 
-11:                                               ; preds = %7, %2
+7:                                                ; preds = %5, %2
   store i64 -2251799813685248, ptr %0, align 8
-  %12 = getelementptr inbounds i8, ptr %0, i64 8
-  store i32 0, ptr %12, align 8
-  br label %37
+  %8 = getelementptr inbounds i8, ptr %0, i64 8
+  store i32 0, ptr %8, align 8
+  br label %33
 
-13:                                               ; preds = %7
-  %14 = tail call double @llvm.fabs.f64(double %6)
-  %or.cond6.i.i = fcmp une double %14, 0x7FF0000000000000
-  %15 = tail call double @llvm.fabs.f64(double %1)
-  %or.cond6.i = fcmp une double %15, 0x7FF0000000000000
+9:                                                ; preds = %5
+  %10 = tail call double @llvm.fabs.f64(double %4)
+  %or.cond6.i.i = fcmp une double %10, 0x7FF0000000000000
+  %11 = tail call double @llvm.fabs.f64(double %1)
+  %or.cond6.i = fcmp une double %11, 0x7FF0000000000000
   %or.cond = and i1 %or.cond6.i, %or.cond6.i.i
-  br i1 %or.cond, label %20, label %EpdConvert.exit
+  br i1 %or.cond, label %16, label %EpdConvert.exit
 
-EpdConvert.exit:                                  ; preds = %13
-  %16 = xor i64 %3, %8
-  %17 = and i64 %16, -9223372036854775808
-  %18 = or disjoint i64 %17, 9218868437227405312
-  store i64 %18, ptr %0, align 8
-  %19 = getelementptr inbounds i8, ptr %0, i64 8
-  store i32 0, ptr %19, align 8
-  br label %37
+EpdConvert.exit:                                  ; preds = %9
+  %12 = xor i64 %3, %6
+  %13 = and i64 %12, -9223372036854775808
+  %14 = or disjoint i64 %13, 9218868437227405312
+  store i64 %14, ptr %0, align 8
+  %15 = getelementptr inbounds i8, ptr %0, i64 8
+  store i32 0, ptr %15, align 8
+  br label %33
 
-20:                                               ; preds = %13
-  %21 = and i64 %8, 9221120237041090559
-  %or.cond7.i.i.i22 = icmp ne i64 %21, 9218868437227405312
-  %22 = and i64 %8, -9221120237041090560
-  %or.cond9.not.i.i.i23 = icmp eq i64 %22, 2251799813685248
+16:                                               ; preds = %9
+  %17 = and i64 %6, 9221120237041090559
+  %or.cond7.i.i.i22 = icmp ne i64 %17, 9218868437227405312
+  %18 = and i64 %6, -9221120237041090560
+  %or.cond9.not.i.i.i23 = icmp eq i64 %18, 2251799813685248
   %or.cond.not.i.not.i.i24 = or i1 %or.cond7.i.i.i22, %or.cond9.not.i.i.i23
-  br i1 %or.cond.not.i.not.i.i24, label %23, label %EpdConvert.exit25
+  br i1 %or.cond.not.i.not.i.i24, label %19, label %EpdConvert.exit25
 
-23:                                               ; preds = %20
-  %24 = lshr i64 %8, 52
-  %25 = trunc nuw nsw i64 %24 to i32
-  %26 = and i32 %25, 2047
-  %27 = icmp eq i32 %26, 1023
-  br i1 %27, label %EpdConvert.exit25, label %28
+19:                                               ; preds = %16
+  %20 = lshr i64 %6, 52
+  %21 = trunc nuw nsw i64 %20 to i32
+  %22 = and i32 %21, 2047
+  %23 = icmp eq i32 %22, 1023
+  br i1 %23, label %EpdConvert.exit25, label %24
 
-28:                                               ; preds = %23
-  %29 = add nsw i32 %26, -1023
-  %30 = and i64 %8, -9218868437227405313
-  %31 = or disjoint i64 %30, 4607182418800017408
-  %32 = bitcast i64 %31 to double
+24:                                               ; preds = %19
+  %25 = add nsw i32 %22, -1023
+  %26 = and i64 %6, -9218868437227405313
+  %27 = or disjoint i64 %26, 4607182418800017408
+  %28 = bitcast i64 %27 to double
   br label %EpdConvert.exit25
 
-EpdConvert.exit25:                                ; preds = %20, %23, %28
-  %.sroa.6.0 = phi i32 [ 0, %23 ], [ %29, %28 ], [ 0, %20 ]
-  %.sroa.0.1 = phi double [ %1, %23 ], [ %32, %28 ], [ %1, %20 ]
-  %33 = fmul double %.sroa.0.1, %6
-  %34 = getelementptr inbounds i8, ptr %0, i64 8
-  %35 = load i32, ptr %34, align 8
-  %36 = add nsw i32 %35, %.sroa.6.0
-  store double %33, ptr %0, align 8
-  store i32 %36, ptr %34, align 8
+EpdConvert.exit25:                                ; preds = %16, %19, %24
+  %.sroa.6.0 = phi i32 [ 0, %19 ], [ %25, %24 ], [ 0, %16 ]
+  %.sroa.0.1 = phi double [ %1, %19 ], [ %28, %24 ], [ %1, %16 ]
+  %29 = fmul double %.sroa.0.1, %4
+  %30 = getelementptr inbounds i8, ptr %0, i64 8
+  %31 = load i32, ptr %30, align 8
+  %32 = add nsw i32 %31, %.sroa.6.0
+  store double %29, ptr %0, align 8
+  store i32 %32, ptr %30, align 8
   tail call void @EpdNormalize(ptr noundef nonnull %0)
-  br label %37
+  br label %33
 
-37:                                               ; preds = %EpdConvert.exit25, %EpdConvert.exit, %11
+33:                                               ; preds = %EpdConvert.exit25, %EpdConvert.exit, %7
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define range(i32 0, 2) i32 @EpdIsNan(ptr nocapture noundef readonly %0) local_unnamed_addr #2 {
   %2 = load i64, ptr %0, align 8
-  %or.cond.i = icmp ugt i64 %2, -4503599627370497
-  %3 = and i64 %2, 4503599627370495
-  %4 = icmp eq i64 %3, 2251799813685248
-  %or.cond10.i = and i1 %or.cond.i, %4
+  %or.cond10.i = icmp eq i64 %2, -2251799813685248
   %.0.i = zext i1 %or.cond10.i to i32
   ret i32 %.0.i
 }
@@ -476,116 +452,104 @@ define void @EpdMakeInf(ptr nocapture noundef writeonly %0, i32 noundef %1) loca
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define void @EpdMultiply2(ptr nocapture noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #9 {
   %3 = load i64, ptr %0, align 8
-  %or.cond.i.i = icmp ult i64 %3, -4503599627370496
-  %4 = and i64 %3, 4503599627370495
-  %5 = icmp ne i64 %4, 2251799813685248
-  %or.cond10.i.i.not = or i1 %or.cond.i.i, %5
-  %6 = bitcast i64 %3 to double
-  br i1 %or.cond10.i.i.not, label %7, label %12
+  %or.cond10.i.i.not = icmp eq i64 %3, -2251799813685248
+  %4 = bitcast i64 %3 to double
+  br i1 %or.cond10.i.i.not, label %8, label %5
 
-7:                                                ; preds = %2
-  %8 = load i64, ptr %1, align 8
-  %or.cond.i.i20 = icmp ult i64 %8, -4503599627370496
-  %9 = and i64 %8, 4503599627370495
-  %10 = icmp ne i64 %9, 2251799813685248
-  %or.cond10.i.i21.not = or i1 %or.cond.i.i20, %10
-  %11 = bitcast i64 %8 to double
-  br i1 %or.cond10.i.i21.not, label %14, label %12
+5:                                                ; preds = %2
+  %6 = load i64, ptr %1, align 8
+  %or.cond10.i.i20.not = icmp eq i64 %6, -2251799813685248
+  %7 = bitcast i64 %6 to double
+  br i1 %or.cond10.i.i20.not, label %8, label %10
 
-12:                                               ; preds = %7, %2
+8:                                                ; preds = %5, %2
   store i64 -2251799813685248, ptr %0, align 8
-  %13 = getelementptr inbounds i8, ptr %0, i64 8
-  store i32 0, ptr %13, align 8
-  br label %29
+  %9 = getelementptr inbounds i8, ptr %0, i64 8
+  store i32 0, ptr %9, align 8
+  br label %25
 
-14:                                               ; preds = %7
-  %15 = tail call double @llvm.fabs.f64(double %6)
-  %or.cond6.i.i = fcmp une double %15, 0x7FF0000000000000
-  %16 = tail call double @llvm.fabs.f64(double %11)
-  %or.cond6.i.i24 = fcmp une double %16, 0x7FF0000000000000
-  %or.cond = and i1 %or.cond6.i.i, %or.cond6.i.i24
-  br i1 %or.cond, label %22, label %17
+10:                                               ; preds = %5
+  %11 = tail call double @llvm.fabs.f64(double %4)
+  %or.cond6.i.i = fcmp une double %11, 0x7FF0000000000000
+  %12 = tail call double @llvm.fabs.f64(double %7)
+  %or.cond6.i.i23 = fcmp une double %12, 0x7FF0000000000000
+  %or.cond = and i1 %or.cond6.i.i, %or.cond6.i.i23
+  br i1 %or.cond, label %18, label %13
 
-17:                                               ; preds = %14
-  %18 = xor i64 %3, %8
-  %19 = and i64 %18, -9223372036854775808
-  %20 = or disjoint i64 %19, 9218868437227405312
-  store i64 %20, ptr %0, align 8
-  %21 = getelementptr inbounds i8, ptr %0, i64 8
-  store i32 0, ptr %21, align 8
-  br label %29
+13:                                               ; preds = %10
+  %14 = xor i64 %3, %6
+  %15 = and i64 %14, -9223372036854775808
+  %16 = or disjoint i64 %15, 9218868437227405312
+  store i64 %16, ptr %0, align 8
+  %17 = getelementptr inbounds i8, ptr %0, i64 8
+  store i32 0, ptr %17, align 8
+  br label %25
 
-22:                                               ; preds = %14
-  %23 = fmul double %6, %11
-  %24 = getelementptr inbounds i8, ptr %0, i64 8
-  %25 = load i32, ptr %24, align 8
-  %26 = getelementptr inbounds i8, ptr %1, i64 8
-  %27 = load i32, ptr %26, align 8
-  %28 = add nsw i32 %27, %25
-  store double %23, ptr %0, align 8
-  store i32 %28, ptr %24, align 8
+18:                                               ; preds = %10
+  %19 = fmul double %4, %7
+  %20 = getelementptr inbounds i8, ptr %0, i64 8
+  %21 = load i32, ptr %20, align 8
+  %22 = getelementptr inbounds i8, ptr %1, i64 8
+  %23 = load i32, ptr %22, align 8
+  %24 = add nsw i32 %23, %21
+  store double %19, ptr %0, align 8
+  store i32 %24, ptr %20, align 8
   tail call void @EpdNormalize(ptr noundef nonnull %0)
-  br label %29
+  br label %25
 
-29:                                               ; preds = %22, %17, %12
+25:                                               ; preds = %18, %13, %8
   ret void
 }
 
 ; Function Attrs: nofree nounwind uwtable
 define void @EpdMultiply2Decimal(ptr nocapture noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #5 {
   %3 = load i64, ptr %0, align 8
-  %or.cond.i.i = icmp ult i64 %3, -4503599627370496
-  %4 = and i64 %3, 4503599627370495
-  %5 = icmp ne i64 %4, 2251799813685248
-  %or.cond10.i.i.not = or i1 %or.cond.i.i, %5
-  %6 = bitcast i64 %3 to double
-  br i1 %or.cond10.i.i.not, label %7, label %12
+  %or.cond10.i.i.not = icmp eq i64 %3, -2251799813685248
+  %4 = bitcast i64 %3 to double
+  br i1 %or.cond10.i.i.not, label %8, label %5
 
-7:                                                ; preds = %2
-  %8 = load i64, ptr %1, align 8
-  %or.cond.i.i20 = icmp ult i64 %8, -4503599627370496
-  %9 = and i64 %8, 4503599627370495
-  %10 = icmp ne i64 %9, 2251799813685248
-  %or.cond10.i.i21.not = or i1 %or.cond.i.i20, %10
-  %11 = bitcast i64 %8 to double
-  br i1 %or.cond10.i.i21.not, label %14, label %12
+5:                                                ; preds = %2
+  %6 = load i64, ptr %1, align 8
+  %or.cond10.i.i20.not = icmp eq i64 %6, -2251799813685248
+  %7 = bitcast i64 %6 to double
+  br i1 %or.cond10.i.i20.not, label %8, label %10
 
-12:                                               ; preds = %7, %2
+8:                                                ; preds = %5, %2
   store i64 -2251799813685248, ptr %0, align 8
-  %13 = getelementptr inbounds i8, ptr %0, i64 8
-  store i32 0, ptr %13, align 8
-  br label %29
+  %9 = getelementptr inbounds i8, ptr %0, i64 8
+  store i32 0, ptr %9, align 8
+  br label %25
 
-14:                                               ; preds = %7
-  %15 = tail call double @llvm.fabs.f64(double %6)
-  %or.cond6.i.i = fcmp une double %15, 0x7FF0000000000000
-  %16 = tail call double @llvm.fabs.f64(double %11)
-  %or.cond6.i.i24 = fcmp une double %16, 0x7FF0000000000000
-  %or.cond = and i1 %or.cond6.i.i, %or.cond6.i.i24
-  br i1 %or.cond, label %22, label %17
+10:                                               ; preds = %5
+  %11 = tail call double @llvm.fabs.f64(double %4)
+  %or.cond6.i.i = fcmp une double %11, 0x7FF0000000000000
+  %12 = tail call double @llvm.fabs.f64(double %7)
+  %or.cond6.i.i23 = fcmp une double %12, 0x7FF0000000000000
+  %or.cond = and i1 %or.cond6.i.i, %or.cond6.i.i23
+  br i1 %or.cond, label %18, label %13
 
-17:                                               ; preds = %14
-  %18 = xor i64 %3, %8
-  %19 = and i64 %18, -9223372036854775808
-  %20 = or disjoint i64 %19, 9218868437227405312
-  store i64 %20, ptr %0, align 8
-  %21 = getelementptr inbounds i8, ptr %0, i64 8
-  store i32 0, ptr %21, align 8
-  br label %29
+13:                                               ; preds = %10
+  %14 = xor i64 %3, %6
+  %15 = and i64 %14, -9223372036854775808
+  %16 = or disjoint i64 %15, 9218868437227405312
+  store i64 %16, ptr %0, align 8
+  %17 = getelementptr inbounds i8, ptr %0, i64 8
+  store i32 0, ptr %17, align 8
+  br label %25
 
-22:                                               ; preds = %14
-  %23 = fmul double %6, %11
-  %24 = getelementptr inbounds i8, ptr %0, i64 8
-  %25 = load i32, ptr %24, align 8
-  %26 = getelementptr inbounds i8, ptr %1, i64 8
-  %27 = load i32, ptr %26, align 8
-  %28 = add nsw i32 %27, %25
-  store double %23, ptr %0, align 8
-  store i32 %28, ptr %24, align 8
+18:                                               ; preds = %10
+  %19 = fmul double %4, %7
+  %20 = getelementptr inbounds i8, ptr %0, i64 8
+  %21 = load i32, ptr %20, align 8
+  %22 = getelementptr inbounds i8, ptr %1, i64 8
+  %23 = load i32, ptr %22, align 8
+  %24 = add nsw i32 %23, %21
+  store double %19, ptr %0, align 8
+  store i32 %24, ptr %20, align 8
   tail call void @EpdNormalizeDecimal(ptr noundef nonnull %0)
-  br label %29
+  br label %25
 
-29:                                               ; preds = %22, %17, %12
+25:                                               ; preds = %18, %13, %8
   ret void
 }
 
@@ -634,241 +598,223 @@ define void @EpdNormalizeDecimal(ptr nocapture noundef %0) local_unnamed_addr #5
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define void @EpdMultiply3(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2) local_unnamed_addr #9 {
   %4 = load i64, ptr %0, align 8
-  %or.cond.i.i = icmp ult i64 %4, -4503599627370496
-  %5 = and i64 %4, 4503599627370495
-  %6 = icmp ne i64 %5, 2251799813685248
-  %or.cond10.i.i.not = or i1 %or.cond.i.i, %6
-  %7 = bitcast i64 %4 to double
-  br i1 %or.cond10.i.i.not, label %8, label %13
+  %or.cond10.i.i.not = icmp eq i64 %4, -2251799813685248
+  %5 = bitcast i64 %4 to double
+  br i1 %or.cond10.i.i.not, label %9, label %6
 
-8:                                                ; preds = %3
-  %9 = load i64, ptr %1, align 8
-  %or.cond.i.i18 = icmp ult i64 %9, -4503599627370496
-  %10 = and i64 %9, 4503599627370495
-  %11 = icmp ne i64 %10, 2251799813685248
-  %or.cond10.i.i19.not = or i1 %or.cond.i.i18, %11
-  %12 = bitcast i64 %9 to double
-  br i1 %or.cond10.i.i19.not, label %15, label %13
+6:                                                ; preds = %3
+  %7 = load i64, ptr %1, align 8
+  %or.cond10.i.i18.not = icmp eq i64 %7, -2251799813685248
+  %8 = bitcast i64 %7 to double
+  br i1 %or.cond10.i.i18.not, label %9, label %11
 
-13:                                               ; preds = %8, %3
+9:                                                ; preds = %6, %3
   store i64 -2251799813685248, ptr %0, align 8
-  %14 = getelementptr inbounds i8, ptr %0, i64 8
-  store i32 0, ptr %14, align 8
-  br label %31
+  %10 = getelementptr inbounds i8, ptr %0, i64 8
+  store i32 0, ptr %10, align 8
+  br label %27
 
-15:                                               ; preds = %8
-  %16 = tail call double @llvm.fabs.f64(double %7)
-  %or.cond6.i.i = fcmp une double %16, 0x7FF0000000000000
-  %17 = tail call double @llvm.fabs.f64(double %12)
-  %or.cond6.i.i22 = fcmp une double %17, 0x7FF0000000000000
-  %or.cond = and i1 %or.cond6.i.i, %or.cond6.i.i22
-  br i1 %or.cond, label %23, label %18
+11:                                               ; preds = %6
+  %12 = tail call double @llvm.fabs.f64(double %5)
+  %or.cond6.i.i = fcmp une double %12, 0x7FF0000000000000
+  %13 = tail call double @llvm.fabs.f64(double %8)
+  %or.cond6.i.i21 = fcmp une double %13, 0x7FF0000000000000
+  %or.cond = and i1 %or.cond6.i.i, %or.cond6.i.i21
+  br i1 %or.cond, label %19, label %14
 
-18:                                               ; preds = %15
-  %19 = xor i64 %4, %9
-  %20 = and i64 %19, -9223372036854775808
-  %21 = or disjoint i64 %20, 9218868437227405312
-  store i64 %21, ptr %2, align 8
-  %22 = getelementptr inbounds i8, ptr %2, i64 8
-  store i32 0, ptr %22, align 8
-  br label %31
+14:                                               ; preds = %11
+  %15 = xor i64 %4, %7
+  %16 = and i64 %15, -9223372036854775808
+  %17 = or disjoint i64 %16, 9218868437227405312
+  store i64 %17, ptr %2, align 8
+  %18 = getelementptr inbounds i8, ptr %2, i64 8
+  store i32 0, ptr %18, align 8
+  br label %27
 
-23:                                               ; preds = %15
-  %24 = fmul double %7, %12
-  store double %24, ptr %2, align 8
-  %25 = getelementptr inbounds i8, ptr %0, i64 8
-  %26 = load i32, ptr %25, align 8
-  %27 = getelementptr inbounds i8, ptr %1, i64 8
-  %28 = load i32, ptr %27, align 8
-  %29 = add nsw i32 %28, %26
-  %30 = getelementptr inbounds i8, ptr %2, i64 8
-  store i32 %29, ptr %30, align 8
+19:                                               ; preds = %11
+  %20 = fmul double %5, %8
+  store double %20, ptr %2, align 8
+  %21 = getelementptr inbounds i8, ptr %0, i64 8
+  %22 = load i32, ptr %21, align 8
+  %23 = getelementptr inbounds i8, ptr %1, i64 8
+  %24 = load i32, ptr %23, align 8
+  %25 = add nsw i32 %24, %22
+  %26 = getelementptr inbounds i8, ptr %2, i64 8
+  store i32 %25, ptr %26, align 8
   tail call void @EpdNormalize(ptr noundef nonnull %2)
-  br label %31
+  br label %27
 
-31:                                               ; preds = %23, %18, %13
+27:                                               ; preds = %19, %14, %9
   ret void
 }
 
 ; Function Attrs: nofree nounwind uwtable
 define void @EpdMultiply3Decimal(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2) local_unnamed_addr #5 {
   %4 = load i64, ptr %0, align 8
-  %or.cond.i.i = icmp ult i64 %4, -4503599627370496
-  %5 = and i64 %4, 4503599627370495
-  %6 = icmp ne i64 %5, 2251799813685248
-  %or.cond10.i.i.not = or i1 %or.cond.i.i, %6
-  %7 = bitcast i64 %4 to double
-  br i1 %or.cond10.i.i.not, label %8, label %13
+  %or.cond10.i.i.not = icmp eq i64 %4, -2251799813685248
+  %5 = bitcast i64 %4 to double
+  br i1 %or.cond10.i.i.not, label %9, label %6
 
-8:                                                ; preds = %3
-  %9 = load i64, ptr %1, align 8
-  %or.cond.i.i18 = icmp ult i64 %9, -4503599627370496
-  %10 = and i64 %9, 4503599627370495
-  %11 = icmp ne i64 %10, 2251799813685248
-  %or.cond10.i.i19.not = or i1 %or.cond.i.i18, %11
-  %12 = bitcast i64 %9 to double
-  br i1 %or.cond10.i.i19.not, label %15, label %13
+6:                                                ; preds = %3
+  %7 = load i64, ptr %1, align 8
+  %or.cond10.i.i18.not = icmp eq i64 %7, -2251799813685248
+  %8 = bitcast i64 %7 to double
+  br i1 %or.cond10.i.i18.not, label %9, label %11
 
-13:                                               ; preds = %8, %3
+9:                                                ; preds = %6, %3
   store i64 -2251799813685248, ptr %0, align 8
-  %14 = getelementptr inbounds i8, ptr %0, i64 8
-  store i32 0, ptr %14, align 8
-  br label %31
+  %10 = getelementptr inbounds i8, ptr %0, i64 8
+  store i32 0, ptr %10, align 8
+  br label %27
 
-15:                                               ; preds = %8
-  %16 = tail call double @llvm.fabs.f64(double %7)
-  %or.cond6.i.i = fcmp une double %16, 0x7FF0000000000000
-  %17 = tail call double @llvm.fabs.f64(double %12)
-  %or.cond6.i.i22 = fcmp une double %17, 0x7FF0000000000000
-  %or.cond = and i1 %or.cond6.i.i, %or.cond6.i.i22
-  br i1 %or.cond, label %23, label %18
+11:                                               ; preds = %6
+  %12 = tail call double @llvm.fabs.f64(double %5)
+  %or.cond6.i.i = fcmp une double %12, 0x7FF0000000000000
+  %13 = tail call double @llvm.fabs.f64(double %8)
+  %or.cond6.i.i21 = fcmp une double %13, 0x7FF0000000000000
+  %or.cond = and i1 %or.cond6.i.i, %or.cond6.i.i21
+  br i1 %or.cond, label %19, label %14
 
-18:                                               ; preds = %15
-  %19 = xor i64 %4, %9
-  %20 = and i64 %19, -9223372036854775808
-  %21 = or disjoint i64 %20, 9218868437227405312
-  store i64 %21, ptr %2, align 8
-  %22 = getelementptr inbounds i8, ptr %2, i64 8
-  store i32 0, ptr %22, align 8
-  br label %31
+14:                                               ; preds = %11
+  %15 = xor i64 %4, %7
+  %16 = and i64 %15, -9223372036854775808
+  %17 = or disjoint i64 %16, 9218868437227405312
+  store i64 %17, ptr %2, align 8
+  %18 = getelementptr inbounds i8, ptr %2, i64 8
+  store i32 0, ptr %18, align 8
+  br label %27
 
-23:                                               ; preds = %15
-  %24 = fmul double %7, %12
-  store double %24, ptr %2, align 8
-  %25 = getelementptr inbounds i8, ptr %0, i64 8
-  %26 = load i32, ptr %25, align 8
-  %27 = getelementptr inbounds i8, ptr %1, i64 8
-  %28 = load i32, ptr %27, align 8
-  %29 = add nsw i32 %28, %26
-  %30 = getelementptr inbounds i8, ptr %2, i64 8
-  store i32 %29, ptr %30, align 8
+19:                                               ; preds = %11
+  %20 = fmul double %5, %8
+  store double %20, ptr %2, align 8
+  %21 = getelementptr inbounds i8, ptr %0, i64 8
+  %22 = load i32, ptr %21, align 8
+  %23 = getelementptr inbounds i8, ptr %1, i64 8
+  %24 = load i32, ptr %23, align 8
+  %25 = add nsw i32 %24, %22
+  %26 = getelementptr inbounds i8, ptr %2, i64 8
+  store i32 %25, ptr %26, align 8
   tail call void @EpdNormalizeDecimal(ptr noundef nonnull %2)
-  br label %31
+  br label %27
 
-31:                                               ; preds = %23, %18, %13
+27:                                               ; preds = %19, %14, %9
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define void @EpdDivide(ptr nocapture noundef %0, double noundef %1) local_unnamed_addr #9 {
   %3 = load i64, ptr %0, align 8
-  %or.cond.i.i = icmp ult i64 %3, -4503599627370496
-  %4 = and i64 %3, 4503599627370495
-  %5 = icmp ne i64 %4, 2251799813685248
-  %or.cond10.i.i.not = or i1 %or.cond.i.i, %5
-  %6 = bitcast i64 %3 to double
-  br i1 %or.cond10.i.i.not, label %7, label %11
+  %or.cond10.i.i.not = icmp eq i64 %3, -2251799813685248
+  %4 = bitcast i64 %3 to double
+  br i1 %or.cond10.i.i.not, label %7, label %5
 
-7:                                                ; preds = %2
-  %8 = bitcast double %1 to i64
-  %or.cond.i = icmp ult i64 %8, -4503599627370496
-  %9 = and i64 %8, 4503599627370495
-  %10 = icmp ne i64 %9, 2251799813685248
-  %or.cond10.i.not = or i1 %or.cond.i, %10
-  br i1 %or.cond10.i.not, label %13, label %11
+5:                                                ; preds = %2
+  %6 = bitcast double %1 to i64
+  %or.cond10.i.not = icmp eq i64 %6, -2251799813685248
+  br i1 %or.cond10.i.not, label %7, label %9
 
-11:                                               ; preds = %7, %2
+7:                                                ; preds = %5, %2
   store i64 -2251799813685248, ptr %0, align 8
-  %12 = getelementptr inbounds i8, ptr %0, i64 8
-  store i32 0, ptr %12, align 8
-  br label %58
+  %8 = getelementptr inbounds i8, ptr %0, i64 8
+  store i32 0, ptr %8, align 8
+  br label %54
 
-13:                                               ; preds = %7
-  %14 = tail call double @llvm.fabs.f64(double %6)
-  %or.cond6.i.i = fcmp une double %14, 0x7FF0000000000000
-  %15 = tail call double @llvm.fabs.f64(double %1)
-  %or.cond6.i = fcmp une double %15, 0x7FF0000000000000
+9:                                                ; preds = %5
+  %10 = tail call double @llvm.fabs.f64(double %4)
+  %or.cond6.i.i = fcmp une double %10, 0x7FF0000000000000
+  %11 = tail call double @llvm.fabs.f64(double %1)
+  %or.cond6.i = fcmp une double %11, 0x7FF0000000000000
   %or.cond = and i1 %or.cond6.i, %or.cond6.i.i
-  br i1 %or.cond, label %37, label %EpdConvert.exit
+  br i1 %or.cond, label %33, label %EpdConvert.exit
 
-EpdConvert.exit:                                  ; preds = %13
-  %16 = and i64 %8, 9221120237041090559
-  %or.cond7.i.i.i = icmp eq i64 %16, 9218868437227405312
-  %17 = and i64 %8, -9221120237041090560
-  %or.cond9.not.i.i.i = icmp ne i64 %17, 2251799813685248
-  %or.cond.not.i.not.i.i.not51 = and i1 %or.cond7.i.i.i, %or.cond9.not.i.i.i
-  %18 = and i64 %8, 9218868437227405312
-  %19 = icmp eq i64 %18, 4607182418800017408
-  %or.cond50 = or i1 %19, %or.cond.not.i.not.i.i.not51
-  %20 = and i64 %8, -9218868437227405313
-  %21 = or disjoint i64 %20, 4607182418800017408
-  %22 = bitcast i64 %21 to double
-  %.sroa.0.0 = select i1 %or.cond50, double %1, double %22
-  br i1 %or.cond6.i.i, label %32, label %23
+EpdConvert.exit:                                  ; preds = %9
+  %12 = and i64 %6, 9221120237041090559
+  %or.cond7.i.i.i = icmp eq i64 %12, 9218868437227405312
+  %13 = and i64 %6, -9221120237041090560
+  %or.cond9.not.i.i.i = icmp ne i64 %13, 2251799813685248
+  %or.cond.not.i.not.i.i.not50 = and i1 %or.cond7.i.i.i, %or.cond9.not.i.i.i
+  %14 = and i64 %6, 9218868437227405312
+  %15 = icmp eq i64 %14, 4607182418800017408
+  %or.cond49 = or i1 %15, %or.cond.not.i.not.i.i.not50
+  %16 = and i64 %6, -9218868437227405313
+  %17 = or disjoint i64 %16, 4607182418800017408
+  %18 = bitcast i64 %17 to double
+  %.sroa.0.0 = select i1 %or.cond49, double %1, double %18
+  br i1 %or.cond6.i.i, label %28, label %19
 
-23:                                               ; preds = %EpdConvert.exit
-  br i1 %or.cond6.i, label %26, label %24
+19:                                               ; preds = %EpdConvert.exit
+  br i1 %or.cond6.i, label %22, label %20
 
-24:                                               ; preds = %23
+20:                                               ; preds = %19
   store i64 -2251799813685248, ptr %0, align 8
-  %25 = getelementptr inbounds i8, ptr %0, i64 8
-  store i32 0, ptr %25, align 8
-  br label %58
+  %21 = getelementptr inbounds i8, ptr %0, i64 8
+  store i32 0, ptr %21, align 8
+  br label %54
 
-26:                                               ; preds = %23
-  %27 = bitcast double %.sroa.0.0 to i64
-  %28 = xor i64 %3, %27
-  %29 = and i64 %28, -9223372036854775808
-  %30 = or disjoint i64 %29, 9218868437227405312
-  store i64 %30, ptr %0, align 8
-  %31 = getelementptr inbounds i8, ptr %0, i64 8
-  store i32 0, ptr %31, align 8
-  br label %58
+22:                                               ; preds = %19
+  %23 = bitcast double %.sroa.0.0 to i64
+  %24 = xor i64 %3, %23
+  %25 = and i64 %24, -9223372036854775808
+  %26 = or disjoint i64 %25, 9218868437227405312
+  store i64 %26, ptr %0, align 8
+  %27 = getelementptr inbounds i8, ptr %0, i64 8
+  store i32 0, ptr %27, align 8
+  br label %54
 
-32:                                               ; preds = %EpdConvert.exit
-  %33 = bitcast double %.sroa.0.0 to i64
-  %34 = xor i64 %3, %33
-  %35 = and i64 %34, -9223372036854775808
-  store i64 %35, ptr %0, align 8
+28:                                               ; preds = %EpdConvert.exit
+  %29 = bitcast double %.sroa.0.0 to i64
+  %30 = xor i64 %3, %29
+  %31 = and i64 %30, -9223372036854775808
+  store i64 %31, ptr %0, align 8
+  %32 = getelementptr inbounds i8, ptr %0, i64 8
+  store i32 0, ptr %32, align 8
+  br label %54
+
+33:                                               ; preds = %9
+  %34 = fcmp oeq double %1, 0.000000e+00
+  br i1 %34, label %35, label %37
+
+35:                                               ; preds = %33
+  store i64 -2251799813685248, ptr %0, align 8
   %36 = getelementptr inbounds i8, ptr %0, i64 8
   store i32 0, ptr %36, align 8
-  br label %58
+  br label %54
 
-37:                                               ; preds = %13
-  %38 = fcmp oeq double %1, 0.000000e+00
-  br i1 %38, label %39, label %41
-
-39:                                               ; preds = %37
-  store i64 -2251799813685248, ptr %0, align 8
-  %40 = getelementptr inbounds i8, ptr %0, i64 8
-  store i32 0, ptr %40, align 8
-  br label %58
-
-41:                                               ; preds = %37
-  %42 = and i64 %8, 9221120237041090559
-  %or.cond7.i.i.i43 = icmp ne i64 %42, 9218868437227405312
-  %43 = and i64 %8, -9221120237041090560
-  %or.cond9.not.i.i.i44 = icmp eq i64 %43, 2251799813685248
+37:                                               ; preds = %33
+  %38 = and i64 %6, 9221120237041090559
+  %or.cond7.i.i.i43 = icmp ne i64 %38, 9218868437227405312
+  %39 = and i64 %6, -9221120237041090560
+  %or.cond9.not.i.i.i44 = icmp eq i64 %39, 2251799813685248
   %or.cond.not.i.not.i.i45 = or i1 %or.cond7.i.i.i43, %or.cond9.not.i.i.i44
-  br i1 %or.cond.not.i.not.i.i45, label %44, label %EpdConvert.exit46
+  br i1 %or.cond.not.i.not.i.i45, label %40, label %EpdConvert.exit46
 
-44:                                               ; preds = %41
-  %45 = lshr i64 %8, 52
-  %46 = trunc nuw nsw i64 %45 to i32
-  %47 = and i32 %46, 2047
-  %48 = icmp eq i32 %47, 1023
-  br i1 %48, label %EpdConvert.exit46, label %49
+40:                                               ; preds = %37
+  %41 = lshr i64 %6, 52
+  %42 = trunc nuw nsw i64 %41 to i32
+  %43 = and i32 %42, 2047
+  %44 = icmp eq i32 %43, 1023
+  br i1 %44, label %EpdConvert.exit46, label %45
 
-49:                                               ; preds = %44
-  %50 = add nsw i32 %47, -1023
-  %51 = and i64 %8, -9218868437227405313
-  %52 = or disjoint i64 %51, 4607182418800017408
-  %53 = bitcast i64 %52 to double
+45:                                               ; preds = %40
+  %46 = add nsw i32 %43, -1023
+  %47 = and i64 %6, -9218868437227405313
+  %48 = or disjoint i64 %47, 4607182418800017408
+  %49 = bitcast i64 %48 to double
   br label %EpdConvert.exit46
 
-EpdConvert.exit46:                                ; preds = %41, %44, %49
-  %.sroa.7.0 = phi i32 [ 0, %44 ], [ %50, %49 ], [ 0, %41 ]
-  %.sroa.0.1 = phi double [ %1, %44 ], [ %53, %49 ], [ %1, %41 ]
-  %54 = fdiv double %6, %.sroa.0.1
-  %55 = getelementptr inbounds i8, ptr %0, i64 8
-  %56 = load i32, ptr %55, align 8
-  %57 = sub nsw i32 %56, %.sroa.7.0
-  store double %54, ptr %0, align 8
-  store i32 %57, ptr %55, align 8
+EpdConvert.exit46:                                ; preds = %37, %40, %45
+  %.sroa.7.0 = phi i32 [ 0, %40 ], [ %46, %45 ], [ 0, %37 ]
+  %.sroa.0.1 = phi double [ %1, %40 ], [ %49, %45 ], [ %1, %37 ]
+  %50 = fdiv double %4, %.sroa.0.1
+  %51 = getelementptr inbounds i8, ptr %0, i64 8
+  %52 = load i32, ptr %51, align 8
+  %53 = sub nsw i32 %52, %.sroa.7.0
+  store double %50, ptr %0, align 8
+  store i32 %53, ptr %51, align 8
   tail call void @EpdNormalize(ptr noundef nonnull %0)
-  br label %58
+  br label %54
 
-58:                                               ; preds = %24, %32, %26, %EpdConvert.exit46, %39, %11
+54:                                               ; preds = %20, %28, %22, %EpdConvert.exit46, %35, %7
   ret void
 }
 
@@ -886,325 +832,307 @@ define void @EpdMakeZero(ptr nocapture noundef writeonly %0, i32 noundef %1) loc
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define void @EpdDivide2(ptr nocapture noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #9 {
   %3 = load i64, ptr %0, align 8
-  %or.cond.i.i = icmp ult i64 %3, -4503599627370496
-  %4 = and i64 %3, 4503599627370495
-  %5 = icmp ne i64 %4, 2251799813685248
-  %or.cond10.i.i.not = or i1 %or.cond.i.i, %5
-  %6 = bitcast i64 %3 to double
-  br i1 %or.cond10.i.i.not, label %7, label %12
+  %or.cond10.i.i.not = icmp eq i64 %3, -2251799813685248
+  %4 = bitcast i64 %3 to double
+  br i1 %or.cond10.i.i.not, label %8, label %5
 
-7:                                                ; preds = %2
-  %8 = load i64, ptr %1, align 8
-  %or.cond.i.i33 = icmp ult i64 %8, -4503599627370496
-  %9 = and i64 %8, 4503599627370495
-  %10 = icmp ne i64 %9, 2251799813685248
-  %or.cond10.i.i34.not = or i1 %or.cond.i.i33, %10
-  %11 = bitcast i64 %8 to double
-  br i1 %or.cond10.i.i34.not, label %14, label %12
+5:                                                ; preds = %2
+  %6 = load i64, ptr %1, align 8
+  %or.cond10.i.i33.not = icmp eq i64 %6, -2251799813685248
+  %7 = bitcast i64 %6 to double
+  br i1 %or.cond10.i.i33.not, label %8, label %10
 
-12:                                               ; preds = %7, %2
+8:                                                ; preds = %5, %2
   store i64 -2251799813685248, ptr %0, align 8
-  %13 = getelementptr inbounds i8, ptr %0, i64 8
-  store i32 0, ptr %13, align 8
-  br label %40
+  %9 = getelementptr inbounds i8, ptr %0, i64 8
+  store i32 0, ptr %9, align 8
+  br label %36
 
-14:                                               ; preds = %7
-  %15 = tail call double @llvm.fabs.f64(double %6)
-  %or.cond6.i.i = fcmp une double %15, 0x7FF0000000000000
-  %16 = tail call double @llvm.fabs.f64(double %11)
-  %or.cond6.i.i37 = fcmp une double %16, 0x7FF0000000000000
-  br i1 %or.cond6.i.i, label %17, label %18
+10:                                               ; preds = %5
+  %11 = tail call double @llvm.fabs.f64(double %4)
+  %or.cond6.i.i = fcmp une double %11, 0x7FF0000000000000
+  %12 = tail call double @llvm.fabs.f64(double %7)
+  %or.cond6.i.i36 = fcmp une double %12, 0x7FF0000000000000
+  br i1 %or.cond6.i.i, label %13, label %14
+
+13:                                               ; preds = %10
+  br i1 %or.cond6.i.i36, label %26, label %22
+
+14:                                               ; preds = %10
+  br i1 %or.cond6.i.i36, label %17, label %15
+
+15:                                               ; preds = %14
+  store i64 -2251799813685248, ptr %0, align 8
+  %16 = getelementptr inbounds i8, ptr %0, i64 8
+  store i32 0, ptr %16, align 8
+  br label %36
 
 17:                                               ; preds = %14
-  br i1 %or.cond6.i.i37, label %30, label %26
+  %18 = xor i64 %3, %6
+  %19 = and i64 %18, -9223372036854775808
+  %20 = or disjoint i64 %19, 9218868437227405312
+  store i64 %20, ptr %0, align 8
+  %21 = getelementptr inbounds i8, ptr %0, i64 8
+  store i32 0, ptr %21, align 8
+  br label %36
 
-18:                                               ; preds = %14
-  br i1 %or.cond6.i.i37, label %21, label %19
-
-19:                                               ; preds = %18
-  store i64 -2251799813685248, ptr %0, align 8
-  %20 = getelementptr inbounds i8, ptr %0, i64 8
-  store i32 0, ptr %20, align 8
-  br label %40
-
-21:                                               ; preds = %18
-  %22 = xor i64 %3, %8
-  %23 = and i64 %22, -9223372036854775808
-  %24 = or disjoint i64 %23, 9218868437227405312
+22:                                               ; preds = %13
+  %23 = xor i64 %3, %6
+  %24 = and i64 %23, -9223372036854775808
   store i64 %24, ptr %0, align 8
   %25 = getelementptr inbounds i8, ptr %0, i64 8
   store i32 0, ptr %25, align 8
-  br label %40
+  br label %36
 
-26:                                               ; preds = %17
-  %27 = xor i64 %3, %8
-  %28 = and i64 %27, -9223372036854775808
-  store i64 %28, ptr %0, align 8
-  %29 = getelementptr inbounds i8, ptr %0, i64 8
-  store i32 0, ptr %29, align 8
-  br label %40
+26:                                               ; preds = %13
+  %27 = fcmp oeq double %7, 0.000000e+00
+  %28 = getelementptr inbounds i8, ptr %0, i64 8
+  br i1 %27, label %29, label %30
 
-30:                                               ; preds = %17
-  %31 = fcmp oeq double %11, 0.000000e+00
-  %32 = getelementptr inbounds i8, ptr %0, i64 8
-  br i1 %31, label %33, label %34
-
-33:                                               ; preds = %30
+29:                                               ; preds = %26
   store i64 -2251799813685248, ptr %0, align 8
-  store i32 0, ptr %32, align 8
-  br label %40
+  store i32 0, ptr %28, align 8
+  br label %36
 
-34:                                               ; preds = %30
-  %35 = fdiv double %6, %11
-  %36 = load i32, ptr %32, align 8
-  %37 = getelementptr inbounds i8, ptr %1, i64 8
-  %38 = load i32, ptr %37, align 8
-  %39 = sub nsw i32 %36, %38
-  store double %35, ptr %0, align 8
-  store i32 %39, ptr %32, align 8
+30:                                               ; preds = %26
+  %31 = fdiv double %4, %7
+  %32 = load i32, ptr %28, align 8
+  %33 = getelementptr inbounds i8, ptr %1, i64 8
+  %34 = load i32, ptr %33, align 8
+  %35 = sub nsw i32 %32, %34
+  store double %31, ptr %0, align 8
+  store i32 %35, ptr %28, align 8
   tail call void @EpdNormalize(ptr noundef nonnull %0)
-  br label %40
+  br label %36
 
-40:                                               ; preds = %19, %26, %21, %34, %33, %12
+36:                                               ; preds = %15, %22, %17, %30, %29, %8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define void @EpdDivide3(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2) local_unnamed_addr #9 {
   %4 = load i64, ptr %0, align 8
-  %or.cond.i.i = icmp ult i64 %4, -4503599627370496
-  %5 = and i64 %4, 4503599627370495
-  %6 = icmp ne i64 %5, 2251799813685248
-  %or.cond10.i.i.not = or i1 %or.cond.i.i, %6
-  %7 = bitcast i64 %4 to double
-  br i1 %or.cond10.i.i.not, label %8, label %13
+  %or.cond10.i.i.not = icmp eq i64 %4, -2251799813685248
+  %5 = bitcast i64 %4 to double
+  br i1 %or.cond10.i.i.not, label %9, label %6
 
-8:                                                ; preds = %3
-  %9 = load i64, ptr %1, align 8
-  %or.cond.i.i31 = icmp ult i64 %9, -4503599627370496
-  %10 = and i64 %9, 4503599627370495
-  %11 = icmp ne i64 %10, 2251799813685248
-  %or.cond10.i.i32.not = or i1 %or.cond.i.i31, %11
-  %12 = bitcast i64 %9 to double
-  br i1 %or.cond10.i.i32.not, label %15, label %13
+6:                                                ; preds = %3
+  %7 = load i64, ptr %1, align 8
+  %or.cond10.i.i31.not = icmp eq i64 %7, -2251799813685248
+  %8 = bitcast i64 %7 to double
+  br i1 %or.cond10.i.i31.not, label %9, label %11
 
-13:                                               ; preds = %8, %3
+9:                                                ; preds = %6, %3
   store i64 -2251799813685248, ptr %2, align 8
-  %14 = getelementptr inbounds i8, ptr %2, i64 8
-  store i32 0, ptr %14, align 8
-  br label %43
+  %10 = getelementptr inbounds i8, ptr %2, i64 8
+  store i32 0, ptr %10, align 8
+  br label %39
 
-15:                                               ; preds = %8
-  %16 = tail call double @llvm.fabs.f64(double %7)
-  %or.cond6.i.i = fcmp une double %16, 0x7FF0000000000000
-  %17 = tail call double @llvm.fabs.f64(double %12)
-  %or.cond6.i.i35 = fcmp une double %17, 0x7FF0000000000000
-  br i1 %or.cond6.i.i, label %18, label %19
+11:                                               ; preds = %6
+  %12 = tail call double @llvm.fabs.f64(double %5)
+  %or.cond6.i.i = fcmp une double %12, 0x7FF0000000000000
+  %13 = tail call double @llvm.fabs.f64(double %8)
+  %or.cond6.i.i34 = fcmp une double %13, 0x7FF0000000000000
+  br i1 %or.cond6.i.i, label %14, label %15
+
+14:                                               ; preds = %11
+  br i1 %or.cond6.i.i34, label %27, label %23
+
+15:                                               ; preds = %11
+  br i1 %or.cond6.i.i34, label %18, label %16
+
+16:                                               ; preds = %15
+  store i64 -2251799813685248, ptr %2, align 8
+  %17 = getelementptr inbounds i8, ptr %2, i64 8
+  store i32 0, ptr %17, align 8
+  br label %39
 
 18:                                               ; preds = %15
-  br i1 %or.cond6.i.i35, label %31, label %27
+  %19 = xor i64 %4, %7
+  %20 = and i64 %19, -9223372036854775808
+  %21 = or disjoint i64 %20, 9218868437227405312
+  store i64 %21, ptr %2, align 8
+  %22 = getelementptr inbounds i8, ptr %2, i64 8
+  store i32 0, ptr %22, align 8
+  br label %39
 
-19:                                               ; preds = %15
-  br i1 %or.cond6.i.i35, label %22, label %20
-
-20:                                               ; preds = %19
-  store i64 -2251799813685248, ptr %2, align 8
-  %21 = getelementptr inbounds i8, ptr %2, i64 8
-  store i32 0, ptr %21, align 8
-  br label %43
-
-22:                                               ; preds = %19
-  %23 = xor i64 %4, %9
-  %24 = and i64 %23, -9223372036854775808
-  %25 = or disjoint i64 %24, 9218868437227405312
+23:                                               ; preds = %14
+  %24 = xor i64 %4, %7
+  %25 = and i64 %24, -9223372036854775808
   store i64 %25, ptr %2, align 8
   %26 = getelementptr inbounds i8, ptr %2, i64 8
   store i32 0, ptr %26, align 8
-  br label %43
+  br label %39
 
-27:                                               ; preds = %18
-  %28 = xor i64 %4, %9
-  %29 = and i64 %28, -9223372036854775808
-  store i64 %29, ptr %2, align 8
+27:                                               ; preds = %14
+  %28 = fcmp oeq double %8, 0.000000e+00
+  br i1 %28, label %29, label %31
+
+29:                                               ; preds = %27
+  store i64 -2251799813685248, ptr %2, align 8
   %30 = getelementptr inbounds i8, ptr %2, i64 8
   store i32 0, ptr %30, align 8
-  br label %43
+  br label %39
 
-31:                                               ; preds = %18
-  %32 = fcmp oeq double %12, 0.000000e+00
-  br i1 %32, label %33, label %35
-
-33:                                               ; preds = %31
-  store i64 -2251799813685248, ptr %2, align 8
-  %34 = getelementptr inbounds i8, ptr %2, i64 8
-  store i32 0, ptr %34, align 8
-  br label %43
-
-35:                                               ; preds = %31
-  %36 = fdiv double %7, %12
-  store double %36, ptr %2, align 8
-  %37 = getelementptr inbounds i8, ptr %0, i64 8
-  %38 = load i32, ptr %37, align 8
-  %39 = getelementptr inbounds i8, ptr %1, i64 8
-  %40 = load i32, ptr %39, align 8
-  %41 = sub nsw i32 %38, %40
-  %42 = getelementptr inbounds i8, ptr %2, i64 8
-  store i32 %41, ptr %42, align 8
+31:                                               ; preds = %27
+  %32 = fdiv double %5, %8
+  store double %32, ptr %2, align 8
+  %33 = getelementptr inbounds i8, ptr %0, i64 8
+  %34 = load i32, ptr %33, align 8
+  %35 = getelementptr inbounds i8, ptr %1, i64 8
+  %36 = load i32, ptr %35, align 8
+  %37 = sub nsw i32 %34, %36
+  %38 = getelementptr inbounds i8, ptr %2, i64 8
+  store i32 %37, ptr %38, align 8
   tail call void @EpdNormalize(ptr noundef nonnull %2)
-  br label %43
+  br label %39
 
-43:                                               ; preds = %20, %27, %22, %35, %33, %13
+39:                                               ; preds = %16, %23, %18, %31, %29, %9
   ret void
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn uwtable
 define void @EpdAdd(ptr nocapture noundef %0, double noundef %1) local_unnamed_addr #10 {
   %3 = load i64, ptr %0, align 8
-  %or.cond.i.i = icmp ult i64 %3, -4503599627370496
-  %4 = and i64 %3, 4503599627370495
-  %5 = icmp ne i64 %4, 2251799813685248
-  %or.cond10.i.i.not = or i1 %or.cond.i.i, %5
-  %6 = bitcast i64 %3 to double
-  br i1 %or.cond10.i.i.not, label %7, label %11
+  %or.cond10.i.i.not = icmp eq i64 %3, -2251799813685248
+  %4 = bitcast i64 %3 to double
+  br i1 %or.cond10.i.i.not, label %7, label %5
 
-7:                                                ; preds = %2
-  %8 = bitcast double %1 to i64
-  %or.cond.i = icmp ult i64 %8, -4503599627370496
-  %9 = and i64 %8, 4503599627370495
-  %10 = icmp ne i64 %9, 2251799813685248
-  %or.cond10.i.not = or i1 %or.cond.i, %10
-  br i1 %or.cond10.i.not, label %13, label %11
+5:                                                ; preds = %2
+  %6 = bitcast double %1 to i64
+  %or.cond10.i.not = icmp eq i64 %6, -2251799813685248
+  br i1 %or.cond10.i.not, label %7, label %9
 
-11:                                               ; preds = %7, %2
+7:                                                ; preds = %5, %2
   store i64 -2251799813685248, ptr %0, align 8
-  %12 = getelementptr inbounds i8, ptr %0, i64 8
-  store i32 0, ptr %12, align 8
-  br label %69
+  %8 = getelementptr inbounds i8, ptr %0, i64 8
+  store i32 0, ptr %8, align 8
+  br label %65
 
-13:                                               ; preds = %7
-  %14 = tail call double @llvm.fabs.f64(double %6)
-  %or.cond6.i.i = fcmp une double %14, 0x7FF0000000000000
-  %15 = tail call double @llvm.fabs.f64(double %1)
-  %or.cond6.i = fcmp une double %15, 0x7FF0000000000000
+9:                                                ; preds = %5
+  %10 = tail call double @llvm.fabs.f64(double %4)
+  %or.cond6.i.i = fcmp une double %10, 0x7FF0000000000000
+  %11 = tail call double @llvm.fabs.f64(double %1)
+  %or.cond6.i = fcmp une double %11, 0x7FF0000000000000
   %or.cond = and i1 %or.cond6.i, %or.cond6.i.i
-  %16 = and i64 %8, 9221120237041090559
-  %or.cond7.i.i.i58 = icmp ne i64 %16, 9218868437227405312
-  %17 = and i64 %8, -9221120237041090560
-  %or.cond9.not.i.i.i59 = icmp eq i64 %17, 2251799813685248
+  %12 = and i64 %6, 9221120237041090559
+  %or.cond7.i.i.i58 = icmp ne i64 %12, 9218868437227405312
+  %13 = and i64 %6, -9221120237041090560
+  %or.cond9.not.i.i.i59 = icmp eq i64 %13, 2251799813685248
   %or.cond.not.i.not.i.i60 = or i1 %or.cond7.i.i.i58, %or.cond9.not.i.i.i59
-  br i1 %or.cond, label %38, label %18
+  br i1 %or.cond, label %34, label %14
 
-18:                                               ; preds = %13
-  br i1 %or.cond.not.i.not.i.i60, label %19, label %EpdConvert.exit
+14:                                               ; preds = %9
+  br i1 %or.cond.not.i.not.i.i60, label %15, label %EpdConvert.exit
 
-19:                                               ; preds = %18
-  %20 = lshr i64 %8, 52
-  %21 = trunc nuw nsw i64 %20 to i32
-  %22 = and i32 %21, 2047
-  %23 = icmp eq i32 %22, 1023
-  br i1 %23, label %EpdConvert.exit, label %24
+15:                                               ; preds = %14
+  %16 = lshr i64 %6, 52
+  %17 = trunc nuw nsw i64 %16 to i32
+  %18 = and i32 %17, 2047
+  %19 = icmp eq i32 %18, 1023
+  br i1 %19, label %EpdConvert.exit, label %20
 
-24:                                               ; preds = %19
-  %25 = add nsw i32 %22, -1023
-  %26 = and i64 %8, -9218868437227405313
-  %27 = or disjoint i64 %26, 4607182418800017408
-  %28 = bitcast i64 %27 to double
+20:                                               ; preds = %15
+  %21 = add nsw i32 %18, -1023
+  %22 = and i64 %6, -9218868437227405313
+  %23 = or disjoint i64 %22, 4607182418800017408
+  %24 = bitcast i64 %23 to double
   br label %EpdConvert.exit
 
-EpdConvert.exit:                                  ; preds = %18, %19, %24
-  %.sroa.11.0 = phi i32 [ 0, %19 ], [ %25, %24 ], [ 0, %18 ]
-  %.sroa.0.0 = phi double [ %1, %19 ], [ %28, %24 ], [ %1, %18 ]
-  %or.cond70 = or i1 %or.cond6.i, %or.cond6.i.i
-  br i1 %or.cond70, label %34, label %29
+EpdConvert.exit:                                  ; preds = %14, %15, %20
+  %.sroa.11.0 = phi i32 [ 0, %15 ], [ %21, %20 ], [ 0, %14 ]
+  %.sroa.0.0 = phi double [ %1, %15 ], [ %24, %20 ], [ %1, %14 ]
+  %or.cond69 = or i1 %or.cond6.i, %or.cond6.i.i
+  br i1 %or.cond69, label %30, label %25
 
-29:                                               ; preds = %EpdConvert.exit
-  %30 = bitcast double %.sroa.0.0 to i64
-  %31 = xor i64 %3, %30
-  %.not45 = icmp sgt i64 %31, -1
-  br i1 %.not45, label %69, label %32
+25:                                               ; preds = %EpdConvert.exit
+  %26 = bitcast double %.sroa.0.0 to i64
+  %27 = xor i64 %3, %26
+  %.not45 = icmp sgt i64 %27, -1
+  br i1 %.not45, label %65, label %28
 
-32:                                               ; preds = %29
+28:                                               ; preds = %25
   store i64 -2251799813685248, ptr %0, align 8
-  %33 = getelementptr inbounds i8, ptr %0, i64 8
-  store i32 0, ptr %33, align 8
-  br label %69
+  %29 = getelementptr inbounds i8, ptr %0, i64 8
+  store i32 0, ptr %29, align 8
+  br label %65
 
-34:                                               ; preds = %EpdConvert.exit
-  %35 = tail call double @llvm.fabs.f64(double %.sroa.0.0)
-  %or.cond6.i.i54 = fcmp une double %35, 0x7FF0000000000000
-  br i1 %or.cond6.i.i54, label %69, label %36
+30:                                               ; preds = %EpdConvert.exit
+  %31 = tail call double @llvm.fabs.f64(double %.sroa.0.0)
+  %or.cond6.i.i54 = fcmp une double %31, 0x7FF0000000000000
+  br i1 %or.cond6.i.i54, label %65, label %32
 
-36:                                               ; preds = %34
+32:                                               ; preds = %30
   store double %.sroa.0.0, ptr %0, align 8
-  %37 = getelementptr inbounds i8, ptr %0, i64 8
-  store i32 %.sroa.11.0, ptr %37, align 8
-  br label %69
+  %33 = getelementptr inbounds i8, ptr %0, i64 8
+  store i32 %.sroa.11.0, ptr %33, align 8
+  br label %65
 
-38:                                               ; preds = %13
-  br i1 %or.cond.not.i.not.i.i60, label %39, label %EpdConvert.exit61
+34:                                               ; preds = %9
+  br i1 %or.cond.not.i.not.i.i60, label %35, label %EpdConvert.exit61
 
-39:                                               ; preds = %38
-  %40 = lshr i64 %8, 52
-  %41 = trunc nuw nsw i64 %40 to i32
-  %42 = and i32 %41, 2047
-  %43 = icmp eq i32 %42, 1023
-  br i1 %43, label %EpdConvert.exit61, label %44
+35:                                               ; preds = %34
+  %36 = lshr i64 %6, 52
+  %37 = trunc nuw nsw i64 %36 to i32
+  %38 = and i32 %37, 2047
+  %39 = icmp eq i32 %38, 1023
+  br i1 %39, label %EpdConvert.exit61, label %40
 
-44:                                               ; preds = %39
-  %45 = add nsw i32 %42, -1023
-  %46 = and i64 %8, -9218868437227405313
-  %47 = or disjoint i64 %46, 4607182418800017408
-  %48 = bitcast i64 %47 to double
+40:                                               ; preds = %35
+  %41 = add nsw i32 %38, -1023
+  %42 = and i64 %6, -9218868437227405313
+  %43 = or disjoint i64 %42, 4607182418800017408
+  %44 = bitcast i64 %43 to double
   br label %EpdConvert.exit61
 
-EpdConvert.exit61:                                ; preds = %38, %39, %44
-  %.sroa.11.1 = phi i32 [ 0, %39 ], [ %45, %44 ], [ 0, %38 ]
-  %.sroa.0.1 = phi double [ %1, %39 ], [ %48, %44 ], [ %1, %38 ]
-  %49 = getelementptr inbounds i8, ptr %0, i64 8
-  %50 = load i32, ptr %49, align 8
-  %51 = icmp sgt i32 %50, %.sroa.11.1
-  br i1 %51, label %52, label %58
+EpdConvert.exit61:                                ; preds = %34, %35, %40
+  %.sroa.11.1 = phi i32 [ 0, %35 ], [ %41, %40 ], [ 0, %34 ]
+  %.sroa.0.1 = phi double [ %1, %35 ], [ %44, %40 ], [ %1, %34 ]
+  %45 = getelementptr inbounds i8, ptr %0, i64 8
+  %46 = load i32, ptr %45, align 8
+  %47 = icmp sgt i32 %46, %.sroa.11.1
+  br i1 %47, label %48, label %54
 
-52:                                               ; preds = %EpdConvert.exit61
-  %53 = sub nsw i32 %50, %.sroa.11.1
-  %54 = icmp slt i32 %53, 1024
-  br i1 %54, label %55, label %68
+48:                                               ; preds = %EpdConvert.exit61
+  %49 = sub nsw i32 %46, %.sroa.11.1
+  %50 = icmp slt i32 %49, 1024
+  br i1 %50, label %51, label %64
 
-55:                                               ; preds = %52
-  %ldexp41 = tail call double @ldexp(double 1.000000e+00, i32 %53) #19
-  %56 = fdiv double %.sroa.0.1, %ldexp41
-  %57 = fadd double %56, %6
-  %.pre = load i32, ptr %49, align 8
-  br label %68
+51:                                               ; preds = %48
+  %ldexp41 = tail call double @ldexp(double 1.000000e+00, i32 %49) #19
+  %52 = fdiv double %.sroa.0.1, %ldexp41
+  %53 = fadd double %52, %4
+  %.pre = load i32, ptr %45, align 8
+  br label %64
 
-58:                                               ; preds = %EpdConvert.exit61
-  %59 = icmp slt i32 %50, %.sroa.11.1
-  br i1 %59, label %60, label %66
+54:                                               ; preds = %EpdConvert.exit61
+  %55 = icmp slt i32 %46, %.sroa.11.1
+  br i1 %55, label %56, label %62
 
-60:                                               ; preds = %58
-  %61 = sub nsw i32 %.sroa.11.1, %50
-  %62 = icmp slt i32 %61, 1024
-  br i1 %62, label %63, label %68
+56:                                               ; preds = %54
+  %57 = sub nsw i32 %.sroa.11.1, %46
+  %58 = icmp slt i32 %57, 1024
+  br i1 %58, label %59, label %64
 
-63:                                               ; preds = %60
-  %ldexp = tail call double @ldexp(double 1.000000e+00, i32 %61) #19
-  %64 = fdiv double %6, %ldexp
-  %65 = fadd double %.sroa.0.1, %64
-  br label %68
+59:                                               ; preds = %56
+  %ldexp = tail call double @ldexp(double 1.000000e+00, i32 %57) #19
+  %60 = fdiv double %4, %ldexp
+  %61 = fadd double %.sroa.0.1, %60
+  br label %64
 
-66:                                               ; preds = %58
-  %67 = fadd double %.sroa.0.1, %6
-  br label %68
+62:                                               ; preds = %54
+  %63 = fadd double %.sroa.0.1, %4
+  br label %64
 
-68:                                               ; preds = %55, %52, %63, %60, %66
-  %.031 = phi i32 [ %50, %66 ], [ %.sroa.11.1, %60 ], [ %.sroa.11.1, %63 ], [ %.pre, %55 ], [ %50, %52 ]
-  %.1 = phi double [ %67, %66 ], [ %.sroa.0.1, %60 ], [ %65, %63 ], [ %57, %55 ], [ %6, %52 ]
+64:                                               ; preds = %51, %48, %59, %56, %62
+  %.031 = phi i32 [ %46, %62 ], [ %.sroa.11.1, %56 ], [ %.sroa.11.1, %59 ], [ %.pre, %51 ], [ %46, %48 ]
+  %.1 = phi double [ %63, %62 ], [ %.sroa.0.1, %56 ], [ %61, %59 ], [ %53, %51 ], [ %4, %48 ]
   store double %.1, ptr %0, align 8
-  store i32 %.031, ptr %49, align 8
+  store i32 %.031, ptr %45, align 8
   tail call void @EpdNormalize(ptr noundef nonnull %0)
-  br label %69
+  br label %65
 
-69:                                               ; preds = %32, %29, %36, %34, %68, %11
+65:                                               ; preds = %28, %25, %32, %30, %64, %7
   ret void
 }
 
@@ -1225,637 +1153,607 @@ declare double @pow(double noundef, double noundef) local_unnamed_addr #11
 ; Function Attrs: mustprogress nofree nounwind willreturn uwtable
 define void @EpdAdd2(ptr nocapture noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #10 {
   %3 = load i64, ptr %0, align 8
-  %or.cond.i.i = icmp ult i64 %3, -4503599627370496
-  %4 = and i64 %3, 4503599627370495
-  %5 = icmp ne i64 %4, 2251799813685248
-  %or.cond10.i.i.not = or i1 %or.cond.i.i, %5
-  %6 = bitcast i64 %3 to double
-  br i1 %or.cond10.i.i.not, label %7, label %12
+  %or.cond10.i.i.not = icmp eq i64 %3, -2251799813685248
+  %4 = bitcast i64 %3 to double
+  br i1 %or.cond10.i.i.not, label %8, label %5
 
-7:                                                ; preds = %2
-  %8 = load i64, ptr %1, align 8
-  %or.cond.i.i56 = icmp ult i64 %8, -4503599627370496
-  %9 = and i64 %8, 4503599627370495
-  %10 = icmp ne i64 %9, 2251799813685248
-  %or.cond10.i.i57.not = or i1 %or.cond.i.i56, %10
-  %11 = bitcast i64 %8 to double
-  br i1 %or.cond10.i.i57.not, label %14, label %12
+5:                                                ; preds = %2
+  %6 = load i64, ptr %1, align 8
+  %or.cond10.i.i56.not = icmp eq i64 %6, -2251799813685248
+  %7 = bitcast i64 %6 to double
+  br i1 %or.cond10.i.i56.not, label %8, label %10
 
-12:                                               ; preds = %7, %2
+8:                                                ; preds = %5, %2
   store i64 -2251799813685248, ptr %0, align 8
-  %13 = getelementptr inbounds i8, ptr %0, i64 8
-  store i32 0, ptr %13, align 8
-  br label %51
+  %9 = getelementptr inbounds i8, ptr %0, i64 8
+  store i32 0, ptr %9, align 8
+  br label %47
 
-14:                                               ; preds = %7
-  %15 = tail call double @llvm.fabs.f64(double %6)
-  %or.cond6.i.i = fcmp une double %15, 0x7FF0000000000000
-  %16 = tail call double @llvm.fabs.f64(double %11)
-  %or.cond6.i.i60 = fcmp une double %16, 0x7FF0000000000000
-  br i1 %or.cond6.i.i, label %17, label %18
+10:                                               ; preds = %5
+  %11 = tail call double @llvm.fabs.f64(double %4)
+  %or.cond6.i.i = fcmp une double %11, 0x7FF0000000000000
+  %12 = tail call double @llvm.fabs.f64(double %7)
+  %or.cond6.i.i59 = fcmp une double %12, 0x7FF0000000000000
+  br i1 %or.cond6.i.i, label %13, label %14
 
-17:                                               ; preds = %14
-  br i1 %or.cond6.i.i60, label %27, label %.thread
+13:                                               ; preds = %10
+  br i1 %or.cond6.i.i59, label %23, label %.thread
 
-18:                                               ; preds = %14
-  br i1 %or.cond6.i.i60, label %.thread, label %19
+14:                                               ; preds = %10
+  br i1 %or.cond6.i.i59, label %.thread, label %15
 
-19:                                               ; preds = %18
-  %20 = xor i64 %8, %3
-  %.not55 = icmp sgt i64 %20, -1
-  br i1 %.not55, label %51, label %21
+15:                                               ; preds = %14
+  %16 = xor i64 %6, %3
+  %.not55 = icmp sgt i64 %16, -1
+  br i1 %.not55, label %47, label %17
 
-21:                                               ; preds = %19
+17:                                               ; preds = %15
   store i64 -2251799813685248, ptr %0, align 8
+  %18 = getelementptr inbounds i8, ptr %0, i64 8
+  store i32 0, ptr %18, align 8
+  br label %47
+
+.thread:                                          ; preds = %13, %14
+  %or.cond6.i.i68 = fcmp une double %12, 0x7FF0000000000000
+  br i1 %or.cond6.i.i68, label %47, label %19
+
+19:                                               ; preds = %.thread
+  store i64 %6, ptr %0, align 8
+  %20 = getelementptr inbounds i8, ptr %1, i64 8
+  %21 = load i32, ptr %20, align 8
   %22 = getelementptr inbounds i8, ptr %0, i64 8
-  store i32 0, ptr %22, align 8
-  br label %51
+  store i32 %21, ptr %22, align 8
+  br label %47
 
-.thread:                                          ; preds = %17, %18
-  %or.cond6.i.i69 = fcmp une double %16, 0x7FF0000000000000
-  br i1 %or.cond6.i.i69, label %51, label %23
-
-23:                                               ; preds = %.thread
-  store i64 %8, ptr %0, align 8
-  %24 = getelementptr inbounds i8, ptr %1, i64 8
+23:                                               ; preds = %13
+  %24 = getelementptr inbounds i8, ptr %0, i64 8
   %25 = load i32, ptr %24, align 8
-  %26 = getelementptr inbounds i8, ptr %0, i64 8
-  store i32 %25, ptr %26, align 8
-  br label %51
+  %26 = getelementptr inbounds i8, ptr %1, i64 8
+  %27 = load i32, ptr %26, align 8
+  %28 = icmp sgt i32 %25, %27
+  br i1 %28, label %29, label %35
 
-27:                                               ; preds = %17
-  %28 = getelementptr inbounds i8, ptr %0, i64 8
-  %29 = load i32, ptr %28, align 8
-  %30 = getelementptr inbounds i8, ptr %1, i64 8
-  %31 = load i32, ptr %30, align 8
-  %32 = icmp sgt i32 %29, %31
-  br i1 %32, label %33, label %39
+29:                                               ; preds = %23
+  %30 = sub nsw i32 %25, %27
+  %31 = icmp slt i32 %30, 1024
+  br i1 %31, label %32, label %46
 
-33:                                               ; preds = %27
-  %34 = sub nsw i32 %29, %31
-  %35 = icmp slt i32 %34, 1024
-  br i1 %35, label %36, label %50
+32:                                               ; preds = %29
+  %ldexp51 = tail call double @ldexp(double 1.000000e+00, i32 %30) #19
+  %33 = fdiv double %7, %ldexp51
+  %34 = fadd double %33, %4
+  %.pre71 = load i32, ptr %24, align 8
+  br label %46
 
-36:                                               ; preds = %33
-  %ldexp51 = tail call double @ldexp(double 1.000000e+00, i32 %34) #19
-  %37 = fdiv double %11, %ldexp51
-  %38 = fadd double %37, %6
-  %.pre73 = load i32, ptr %28, align 8
-  br label %50
+35:                                               ; preds = %23
+  %36 = icmp slt i32 %25, %27
+  br i1 %36, label %37, label %44
 
-39:                                               ; preds = %27
-  %40 = icmp slt i32 %29, %31
-  br i1 %40, label %41, label %48
+37:                                               ; preds = %35
+  %38 = sub nsw i32 %27, %25
+  %39 = icmp slt i32 %38, 1024
+  br i1 %39, label %40, label %46
 
-41:                                               ; preds = %39
-  %42 = sub nsw i32 %31, %29
-  %43 = icmp slt i32 %42, 1024
-  br i1 %43, label %44, label %50
+40:                                               ; preds = %37
+  %ldexp = tail call double @ldexp(double 1.000000e+00, i32 %38) #19
+  %41 = fdiv double %4, %ldexp
+  %42 = load double, ptr %1, align 8
+  %43 = fadd double %41, %42
+  %.pre = load i32, ptr %26, align 8
+  br label %46
 
-44:                                               ; preds = %41
-  %ldexp = tail call double @ldexp(double 1.000000e+00, i32 %42) #19
-  %45 = fdiv double %6, %ldexp
-  %46 = load double, ptr %1, align 8
-  %47 = fadd double %45, %46
-  %.pre = load i32, ptr %30, align 8
-  br label %50
+44:                                               ; preds = %35
+  %45 = fadd double %4, %7
+  br label %46
 
-48:                                               ; preds = %39
-  %49 = fadd double %6, %11
-  br label %50
-
-50:                                               ; preds = %44, %41, %36, %33, %48
-  %.041 = phi i32 [ %29, %48 ], [ %.pre73, %36 ], [ %29, %33 ], [ %.pre, %44 ], [ %31, %41 ]
-  %.1 = phi double [ %49, %48 ], [ %38, %36 ], [ %6, %33 ], [ %47, %44 ], [ %11, %41 ]
+46:                                               ; preds = %40, %37, %32, %29, %44
+  %.041 = phi i32 [ %25, %44 ], [ %.pre71, %32 ], [ %25, %29 ], [ %.pre, %40 ], [ %27, %37 ]
+  %.1 = phi double [ %45, %44 ], [ %34, %32 ], [ %4, %29 ], [ %43, %40 ], [ %7, %37 ]
   store double %.1, ptr %0, align 8
-  store i32 %.041, ptr %28, align 8
+  store i32 %.041, ptr %24, align 8
   tail call void @EpdNormalize(ptr noundef nonnull %0)
-  br label %51
+  br label %47
 
-51:                                               ; preds = %21, %19, %23, %.thread, %50, %12
+47:                                               ; preds = %17, %15, %19, %.thread, %46, %8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn uwtable
 define void @EpdAdd3(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2) local_unnamed_addr #10 {
   %4 = load i64, ptr %0, align 8
-  %or.cond.i.i = icmp ult i64 %4, -4503599627370496
-  %5 = and i64 %4, 4503599627370495
-  %6 = icmp ne i64 %5, 2251799813685248
-  %or.cond10.i.i.not = or i1 %or.cond.i.i, %6
-  %7 = bitcast i64 %4 to double
-  br i1 %or.cond10.i.i.not, label %8, label %13
+  %or.cond10.i.i.not = icmp eq i64 %4, -2251799813685248
+  %5 = bitcast i64 %4 to double
+  br i1 %or.cond10.i.i.not, label %9, label %6
 
-8:                                                ; preds = %3
-  %9 = load i64, ptr %1, align 8
-  %or.cond.i.i60 = icmp ult i64 %9, -4503599627370496
-  %10 = and i64 %9, 4503599627370495
-  %11 = icmp ne i64 %10, 2251799813685248
-  %or.cond10.i.i61.not = or i1 %or.cond.i.i60, %11
-  %12 = bitcast i64 %9 to double
-  br i1 %or.cond10.i.i61.not, label %15, label %13
+6:                                                ; preds = %3
+  %7 = load i64, ptr %1, align 8
+  %or.cond10.i.i60.not = icmp eq i64 %7, -2251799813685248
+  %8 = bitcast i64 %7 to double
+  br i1 %or.cond10.i.i60.not, label %9, label %11
 
-13:                                               ; preds = %8, %3
+9:                                                ; preds = %6, %3
   store i64 -2251799813685248, ptr %2, align 8
-  %14 = getelementptr inbounds i8, ptr %2, i64 8
-  store i32 0, ptr %14, align 8
-  br label %61
+  %10 = getelementptr inbounds i8, ptr %2, i64 8
+  store i32 0, ptr %10, align 8
+  br label %57
 
-15:                                               ; preds = %8
-  %16 = tail call double @llvm.fabs.f64(double %7)
-  %or.cond6.i.i = fcmp une double %16, 0x7FF0000000000000
-  %17 = tail call double @llvm.fabs.f64(double %12)
-  %or.cond6.i.i64 = fcmp une double %17, 0x7FF0000000000000
-  br i1 %or.cond6.i.i, label %18, label %19
+11:                                               ; preds = %6
+  %12 = tail call double @llvm.fabs.f64(double %5)
+  %or.cond6.i.i = fcmp une double %12, 0x7FF0000000000000
+  %13 = tail call double @llvm.fabs.f64(double %8)
+  %or.cond6.i.i63 = fcmp une double %13, 0x7FF0000000000000
+  br i1 %or.cond6.i.i, label %14, label %15
 
-18:                                               ; preds = %15
-  br i1 %or.cond6.i.i64, label %36, label %32
+14:                                               ; preds = %11
+  br i1 %or.cond6.i.i63, label %32, label %28
 
-19:                                               ; preds = %15
-  br i1 %or.cond6.i.i64, label %28, label %20
+15:                                               ; preds = %11
+  br i1 %or.cond6.i.i63, label %24, label %16
 
-20:                                               ; preds = %19
-  %21 = xor i64 %9, %4
-  %.not59 = icmp sgt i64 %21, -1
-  br i1 %.not59, label %24, label %22
+16:                                               ; preds = %15
+  %17 = xor i64 %7, %4
+  %.not59 = icmp sgt i64 %17, -1
+  br i1 %.not59, label %20, label %18
 
-22:                                               ; preds = %20
+18:                                               ; preds = %16
   store i64 -2251799813685248, ptr %2, align 8
+  %19 = getelementptr inbounds i8, ptr %2, i64 8
+  store i32 0, ptr %19, align 8
+  br label %57
+
+20:                                               ; preds = %16
+  store i64 %4, ptr %2, align 8
+  %21 = getelementptr inbounds i8, ptr %0, i64 8
+  %22 = load i32, ptr %21, align 8
   %23 = getelementptr inbounds i8, ptr %2, i64 8
-  store i32 0, ptr %23, align 8
-  br label %61
+  store i32 %22, ptr %23, align 8
+  br label %57
 
-24:                                               ; preds = %20
+24:                                               ; preds = %15
   store i64 %4, ptr %2, align 8
   %25 = getelementptr inbounds i8, ptr %0, i64 8
   %26 = load i32, ptr %25, align 8
   %27 = getelementptr inbounds i8, ptr %2, i64 8
   store i32 %26, ptr %27, align 8
-  br label %61
+  br label %57
 
-28:                                               ; preds = %19
-  store i64 %4, ptr %2, align 8
-  %29 = getelementptr inbounds i8, ptr %0, i64 8
+28:                                               ; preds = %14
+  store i64 %7, ptr %2, align 8
+  %29 = getelementptr inbounds i8, ptr %1, i64 8
   %30 = load i32, ptr %29, align 8
   %31 = getelementptr inbounds i8, ptr %2, i64 8
   store i32 %30, ptr %31, align 8
-  br label %61
+  br label %57
 
-32:                                               ; preds = %18
-  store i64 %9, ptr %2, align 8
-  %33 = getelementptr inbounds i8, ptr %1, i64 8
+32:                                               ; preds = %14
+  %33 = getelementptr inbounds i8, ptr %0, i64 8
   %34 = load i32, ptr %33, align 8
-  %35 = getelementptr inbounds i8, ptr %2, i64 8
-  store i32 %34, ptr %35, align 8
-  br label %61
+  %35 = getelementptr inbounds i8, ptr %1, i64 8
+  %36 = load i32, ptr %35, align 8
+  %37 = icmp sgt i32 %34, %36
+  br i1 %37, label %38, label %44
 
-36:                                               ; preds = %18
-  %37 = getelementptr inbounds i8, ptr %0, i64 8
-  %38 = load i32, ptr %37, align 8
-  %39 = getelementptr inbounds i8, ptr %1, i64 8
-  %40 = load i32, ptr %39, align 8
-  %41 = icmp sgt i32 %38, %40
-  br i1 %41, label %42, label %48
+38:                                               ; preds = %32
+  %39 = sub nsw i32 %34, %36
+  %40 = icmp slt i32 %39, 1024
+  br i1 %40, label %41, label %55
 
-42:                                               ; preds = %36
-  %43 = sub nsw i32 %38, %40
-  %44 = icmp slt i32 %43, 1024
-  br i1 %44, label %45, label %59
+41:                                               ; preds = %38
+  %ldexp55 = tail call double @ldexp(double 1.000000e+00, i32 %39) #19
+  %42 = fdiv double %8, %ldexp55
+  %43 = fadd double %42, %5
+  %.pre76 = load i32, ptr %33, align 8
+  br label %55
 
-45:                                               ; preds = %42
-  %ldexp55 = tail call double @ldexp(double 1.000000e+00, i32 %43) #19
-  %46 = fdiv double %12, %ldexp55
-  %47 = fadd double %46, %7
-  %.pre78 = load i32, ptr %37, align 8
-  br label %59
+44:                                               ; preds = %32
+  %45 = icmp slt i32 %34, %36
+  br i1 %45, label %46, label %53
 
-48:                                               ; preds = %36
-  %49 = icmp slt i32 %38, %40
-  br i1 %49, label %50, label %57
+46:                                               ; preds = %44
+  %47 = sub nsw i32 %36, %34
+  %48 = icmp slt i32 %47, 1024
+  br i1 %48, label %49, label %55
 
-50:                                               ; preds = %48
-  %51 = sub nsw i32 %40, %38
-  %52 = icmp slt i32 %51, 1024
-  br i1 %52, label %53, label %59
+49:                                               ; preds = %46
+  %ldexp = tail call double @ldexp(double 1.000000e+00, i32 %47) #19
+  %50 = fdiv double %5, %ldexp
+  %51 = load double, ptr %1, align 8
+  %52 = fadd double %50, %51
+  %.pre = load i32, ptr %35, align 8
+  br label %55
 
-53:                                               ; preds = %50
-  %ldexp = tail call double @ldexp(double 1.000000e+00, i32 %51) #19
-  %54 = fdiv double %7, %ldexp
-  %55 = load double, ptr %1, align 8
-  %56 = fadd double %54, %55
-  %.pre = load i32, ptr %39, align 8
-  br label %59
+53:                                               ; preds = %44
+  %54 = fadd double %5, %8
+  br label %55
 
-57:                                               ; preds = %48
-  %58 = fadd double %7, %12
-  br label %59
-
-59:                                               ; preds = %53, %50, %45, %42, %57
-  %.045 = phi i32 [ %38, %57 ], [ %.pre78, %45 ], [ %38, %42 ], [ %.pre, %53 ], [ %40, %50 ]
-  %.1 = phi double [ %58, %57 ], [ %47, %45 ], [ %7, %42 ], [ %56, %53 ], [ %12, %50 ]
+55:                                               ; preds = %49, %46, %41, %38, %53
+  %.045 = phi i32 [ %34, %53 ], [ %.pre76, %41 ], [ %34, %38 ], [ %.pre, %49 ], [ %36, %46 ]
+  %.1 = phi double [ %54, %53 ], [ %43, %41 ], [ %5, %38 ], [ %52, %49 ], [ %8, %46 ]
   store double %.1, ptr %2, align 8
-  %60 = getelementptr inbounds i8, ptr %2, i64 8
-  store i32 %.045, ptr %60, align 8
+  %56 = getelementptr inbounds i8, ptr %2, i64 8
+  store i32 %.045, ptr %56, align 8
   tail call void @EpdNormalize(ptr noundef nonnull %2)
-  br label %61
+  br label %57
 
-61:                                               ; preds = %24, %22, %32, %28, %59, %13
+57:                                               ; preds = %20, %18, %28, %24, %55, %9
   ret void
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn uwtable
 define void @EpdSubtract(ptr nocapture noundef %0, double noundef %1) local_unnamed_addr #10 {
   %3 = load i64, ptr %0, align 8
-  %or.cond.i.i = icmp ult i64 %3, -4503599627370496
-  %4 = and i64 %3, 4503599627370495
-  %5 = icmp ne i64 %4, 2251799813685248
-  %or.cond10.i.i.not = or i1 %or.cond.i.i, %5
-  %6 = bitcast i64 %3 to double
-  br i1 %or.cond10.i.i.not, label %7, label %11
+  %or.cond10.i.i.not = icmp eq i64 %3, -2251799813685248
+  %4 = bitcast i64 %3 to double
+  br i1 %or.cond10.i.i.not, label %7, label %5
 
-7:                                                ; preds = %2
-  %8 = bitcast double %1 to i64
-  %or.cond.i = icmp ult i64 %8, -4503599627370496
-  %9 = and i64 %8, 4503599627370495
-  %10 = icmp ne i64 %9, 2251799813685248
-  %or.cond10.i.not = or i1 %or.cond.i, %10
-  br i1 %or.cond10.i.not, label %13, label %11
+5:                                                ; preds = %2
+  %6 = bitcast double %1 to i64
+  %or.cond10.i.not = icmp eq i64 %6, -2251799813685248
+  br i1 %or.cond10.i.not, label %7, label %9
 
-11:                                               ; preds = %7, %2
+7:                                                ; preds = %5, %2
   store i64 -2251799813685248, ptr %0, align 8
-  %12 = getelementptr inbounds i8, ptr %0, i64 8
-  store i32 0, ptr %12, align 8
-  br label %72
+  %8 = getelementptr inbounds i8, ptr %0, i64 8
+  store i32 0, ptr %8, align 8
+  br label %68
 
-13:                                               ; preds = %7
-  %14 = tail call double @llvm.fabs.f64(double %6)
-  %or.cond6.i.i = fcmp une double %14, 0x7FF0000000000000
-  %15 = tail call double @llvm.fabs.f64(double %1)
-  %or.cond6.i = fcmp une double %15, 0x7FF0000000000000
+9:                                                ; preds = %5
+  %10 = tail call double @llvm.fabs.f64(double %4)
+  %or.cond6.i.i = fcmp une double %10, 0x7FF0000000000000
+  %11 = tail call double @llvm.fabs.f64(double %1)
+  %or.cond6.i = fcmp une double %11, 0x7FF0000000000000
   %or.cond = and i1 %or.cond6.i, %or.cond6.i.i
-  %16 = and i64 %8, 9221120237041090559
-  %or.cond7.i.i.i57 = icmp ne i64 %16, 9218868437227405312
-  %17 = and i64 %8, -9221120237041090560
-  %or.cond9.not.i.i.i58 = icmp eq i64 %17, 2251799813685248
+  %12 = and i64 %6, 9221120237041090559
+  %or.cond7.i.i.i57 = icmp ne i64 %12, 9218868437227405312
+  %13 = and i64 %6, -9221120237041090560
+  %or.cond9.not.i.i.i58 = icmp eq i64 %13, 2251799813685248
   %or.cond.not.i.not.i.i59 = or i1 %or.cond7.i.i.i57, %or.cond9.not.i.i.i58
-  br i1 %or.cond, label %39, label %18
+  br i1 %or.cond, label %35, label %14
 
-18:                                               ; preds = %13
-  br i1 %or.cond.not.i.not.i.i59, label %19, label %EpdConvert.exit
+14:                                               ; preds = %9
+  br i1 %or.cond.not.i.not.i.i59, label %15, label %EpdConvert.exit
 
-19:                                               ; preds = %18
-  %20 = lshr i64 %8, 52
-  %21 = trunc nuw nsw i64 %20 to i32
-  %22 = and i32 %21, 2047
-  %23 = icmp eq i32 %22, 1023
-  br i1 %23, label %EpdConvert.exit, label %24
+15:                                               ; preds = %14
+  %16 = lshr i64 %6, 52
+  %17 = trunc nuw nsw i64 %16 to i32
+  %18 = and i32 %17, 2047
+  %19 = icmp eq i32 %18, 1023
+  br i1 %19, label %EpdConvert.exit, label %20
 
-24:                                               ; preds = %19
-  %25 = add nsw i32 %22, -1023
-  %26 = and i64 %8, -9218868437227405313
-  %27 = or disjoint i64 %26, 4607182418800017408
-  %28 = bitcast i64 %27 to double
+20:                                               ; preds = %15
+  %21 = add nsw i32 %18, -1023
+  %22 = and i64 %6, -9218868437227405313
+  %23 = or disjoint i64 %22, 4607182418800017408
+  %24 = bitcast i64 %23 to double
   br label %EpdConvert.exit
 
-EpdConvert.exit:                                  ; preds = %18, %19, %24
-  %.sroa.11.0 = phi i32 [ 0, %19 ], [ %25, %24 ], [ 0, %18 ]
-  %.sroa.0.0 = phi double [ %1, %19 ], [ %28, %24 ], [ %1, %18 ]
-  %or.cond69 = or i1 %or.cond6.i, %or.cond6.i.i
-  br i1 %or.cond69, label %35, label %29
+EpdConvert.exit:                                  ; preds = %14, %15, %20
+  %.sroa.11.0 = phi i32 [ 0, %15 ], [ %21, %20 ], [ 0, %14 ]
+  %.sroa.0.0 = phi double [ %1, %15 ], [ %24, %20 ], [ %1, %14 ]
+  %or.cond68 = or i1 %or.cond6.i, %or.cond6.i.i
+  br i1 %or.cond68, label %31, label %25
 
-29:                                               ; preds = %EpdConvert.exit
-  %30 = bitcast double %.sroa.0.0 to i64
-  %31 = xor i64 %3, %30
-  %32 = icmp sgt i64 %31, -1
-  br i1 %32, label %33, label %72
+25:                                               ; preds = %EpdConvert.exit
+  %26 = bitcast double %.sroa.0.0 to i64
+  %27 = xor i64 %3, %26
+  %28 = icmp sgt i64 %27, -1
+  br i1 %28, label %29, label %68
 
-33:                                               ; preds = %29
+29:                                               ; preds = %25
   store i64 -2251799813685248, ptr %0, align 8
-  %34 = getelementptr inbounds i8, ptr %0, i64 8
-  store i32 0, ptr %34, align 8
-  br label %72
+  %30 = getelementptr inbounds i8, ptr %0, i64 8
+  store i32 0, ptr %30, align 8
+  br label %68
 
-35:                                               ; preds = %EpdConvert.exit
-  %36 = tail call double @llvm.fabs.f64(double %.sroa.0.0)
-  %or.cond6.i.i53 = fcmp une double %36, 0x7FF0000000000000
-  br i1 %or.cond6.i.i53, label %72, label %37
+31:                                               ; preds = %EpdConvert.exit
+  %32 = tail call double @llvm.fabs.f64(double %.sroa.0.0)
+  %or.cond6.i.i53 = fcmp une double %32, 0x7FF0000000000000
+  br i1 %or.cond6.i.i53, label %68, label %33
 
-37:                                               ; preds = %35
+33:                                               ; preds = %31
   store double %.sroa.0.0, ptr %0, align 8
-  %38 = getelementptr inbounds i8, ptr %0, i64 8
-  store i32 %.sroa.11.0, ptr %38, align 8
-  br label %72
+  %34 = getelementptr inbounds i8, ptr %0, i64 8
+  store i32 %.sroa.11.0, ptr %34, align 8
+  br label %68
 
-39:                                               ; preds = %13
-  br i1 %or.cond.not.i.not.i.i59, label %40, label %EpdConvert.exit60
+35:                                               ; preds = %9
+  br i1 %or.cond.not.i.not.i.i59, label %36, label %EpdConvert.exit60
 
-40:                                               ; preds = %39
-  %41 = lshr i64 %8, 52
-  %42 = trunc nuw nsw i64 %41 to i32
-  %43 = and i32 %42, 2047
-  %44 = icmp eq i32 %43, 1023
-  br i1 %44, label %EpdConvert.exit60, label %45
+36:                                               ; preds = %35
+  %37 = lshr i64 %6, 52
+  %38 = trunc nuw nsw i64 %37 to i32
+  %39 = and i32 %38, 2047
+  %40 = icmp eq i32 %39, 1023
+  br i1 %40, label %EpdConvert.exit60, label %41
 
-45:                                               ; preds = %40
-  %46 = add nsw i32 %43, -1023
-  %47 = and i64 %8, -9218868437227405313
-  %48 = or disjoint i64 %47, 4607182418800017408
-  %49 = bitcast i64 %48 to double
+41:                                               ; preds = %36
+  %42 = add nsw i32 %39, -1023
+  %43 = and i64 %6, -9218868437227405313
+  %44 = or disjoint i64 %43, 4607182418800017408
+  %45 = bitcast i64 %44 to double
   br label %EpdConvert.exit60
 
-EpdConvert.exit60:                                ; preds = %39, %40, %45
-  %.sroa.11.1 = phi i32 [ 0, %40 ], [ %46, %45 ], [ 0, %39 ]
-  %.sroa.0.1 = phi double [ %1, %40 ], [ %49, %45 ], [ %1, %39 ]
-  %50 = getelementptr inbounds i8, ptr %0, i64 8
-  %51 = load i32, ptr %50, align 8
-  %52 = icmp sgt i32 %51, %.sroa.11.1
-  br i1 %52, label %53, label %59
+EpdConvert.exit60:                                ; preds = %35, %36, %41
+  %.sroa.11.1 = phi i32 [ 0, %36 ], [ %42, %41 ], [ 0, %35 ]
+  %.sroa.0.1 = phi double [ %1, %36 ], [ %45, %41 ], [ %1, %35 ]
+  %46 = getelementptr inbounds i8, ptr %0, i64 8
+  %47 = load i32, ptr %46, align 8
+  %48 = icmp sgt i32 %47, %.sroa.11.1
+  br i1 %48, label %49, label %55
 
-53:                                               ; preds = %EpdConvert.exit60
-  %54 = sub nsw i32 %51, %.sroa.11.1
-  %55 = icmp slt i32 %54, 1024
-  br i1 %55, label %56, label %71
+49:                                               ; preds = %EpdConvert.exit60
+  %50 = sub nsw i32 %47, %.sroa.11.1
+  %51 = icmp slt i32 %50, 1024
+  br i1 %51, label %52, label %67
 
-56:                                               ; preds = %53
-  %ldexp41 = tail call double @ldexp(double 1.000000e+00, i32 %54) #19
-  %57 = fdiv double %.sroa.0.1, %ldexp41
-  %58 = fsub double %6, %57
-  %.pre = load i32, ptr %50, align 8
-  br label %71
+52:                                               ; preds = %49
+  %ldexp41 = tail call double @ldexp(double 1.000000e+00, i32 %50) #19
+  %53 = fdiv double %.sroa.0.1, %ldexp41
+  %54 = fsub double %4, %53
+  %.pre = load i32, ptr %46, align 8
+  br label %67
 
-59:                                               ; preds = %EpdConvert.exit60
-  %60 = icmp slt i32 %51, %.sroa.11.1
-  br i1 %60, label %61, label %69
+55:                                               ; preds = %EpdConvert.exit60
+  %56 = icmp slt i32 %47, %.sroa.11.1
+  br i1 %56, label %57, label %65
 
-61:                                               ; preds = %59
-  %62 = sub nsw i32 %.sroa.11.1, %51
-  %63 = icmp slt i32 %62, 1024
-  br i1 %63, label %64, label %67
+57:                                               ; preds = %55
+  %58 = sub nsw i32 %.sroa.11.1, %47
+  %59 = icmp slt i32 %58, 1024
+  br i1 %59, label %60, label %63
 
-64:                                               ; preds = %61
-  %ldexp = tail call double @ldexp(double 1.000000e+00, i32 %62) #19
-  %65 = fdiv double %6, %ldexp
-  %66 = fsub double %65, %.sroa.0.1
-  br label %71
+60:                                               ; preds = %57
+  %ldexp = tail call double @ldexp(double 1.000000e+00, i32 %58) #19
+  %61 = fdiv double %4, %ldexp
+  %62 = fsub double %61, %.sroa.0.1
+  br label %67
 
-67:                                               ; preds = %61
-  %68 = fneg double %.sroa.0.1
-  br label %71
+63:                                               ; preds = %57
+  %64 = fneg double %.sroa.0.1
+  br label %67
 
-69:                                               ; preds = %59
-  %70 = fsub double %6, %.sroa.0.1
-  br label %71
+65:                                               ; preds = %55
+  %66 = fsub double %4, %.sroa.0.1
+  br label %67
 
-71:                                               ; preds = %56, %53, %64, %67, %69
-  %.031 = phi i32 [ %51, %69 ], [ %.sroa.11.1, %67 ], [ %.sroa.11.1, %64 ], [ %.pre, %56 ], [ %51, %53 ]
-  %.1 = phi double [ %70, %69 ], [ %68, %67 ], [ %66, %64 ], [ %58, %56 ], [ %6, %53 ]
+67:                                               ; preds = %52, %49, %60, %63, %65
+  %.031 = phi i32 [ %47, %65 ], [ %.sroa.11.1, %63 ], [ %.sroa.11.1, %60 ], [ %.pre, %52 ], [ %47, %49 ]
+  %.1 = phi double [ %66, %65 ], [ %64, %63 ], [ %62, %60 ], [ %54, %52 ], [ %4, %49 ]
   store double %.1, ptr %0, align 8
-  store i32 %.031, ptr %50, align 8
+  store i32 %.031, ptr %46, align 8
   tail call void @EpdNormalize(ptr noundef nonnull %0)
-  br label %72
+  br label %68
 
-72:                                               ; preds = %33, %29, %37, %35, %71, %11
+68:                                               ; preds = %29, %25, %33, %31, %67, %7
   ret void
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn uwtable
 define void @EpdSubtract2(ptr nocapture noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #10 {
   %3 = load i64, ptr %0, align 8
-  %or.cond.i.i = icmp ult i64 %3, -4503599627370496
-  %4 = and i64 %3, 4503599627370495
-  %5 = icmp ne i64 %4, 2251799813685248
-  %or.cond10.i.i.not = or i1 %or.cond.i.i, %5
-  %6 = bitcast i64 %3 to double
-  br i1 %or.cond10.i.i.not, label %7, label %12
+  %or.cond10.i.i.not = icmp eq i64 %3, -2251799813685248
+  %4 = bitcast i64 %3 to double
+  br i1 %or.cond10.i.i.not, label %8, label %5
 
-7:                                                ; preds = %2
-  %8 = load i64, ptr %1, align 8
-  %or.cond.i.i55 = icmp ult i64 %8, -4503599627370496
-  %9 = and i64 %8, 4503599627370495
-  %10 = icmp ne i64 %9, 2251799813685248
-  %or.cond10.i.i56.not = or i1 %or.cond.i.i55, %10
-  %11 = bitcast i64 %8 to double
-  br i1 %or.cond10.i.i56.not, label %14, label %12
+5:                                                ; preds = %2
+  %6 = load i64, ptr %1, align 8
+  %or.cond10.i.i55.not = icmp eq i64 %6, -2251799813685248
+  %7 = bitcast i64 %6 to double
+  br i1 %or.cond10.i.i55.not, label %8, label %10
 
-12:                                               ; preds = %7, %2
+8:                                                ; preds = %5, %2
   store i64 -2251799813685248, ptr %0, align 8
-  %13 = getelementptr inbounds i8, ptr %0, i64 8
-  store i32 0, ptr %13, align 8
-  br label %54
+  %9 = getelementptr inbounds i8, ptr %0, i64 8
+  store i32 0, ptr %9, align 8
+  br label %50
 
-14:                                               ; preds = %7
-  %15 = tail call double @llvm.fabs.f64(double %6)
-  %or.cond6.i.i = fcmp une double %15, 0x7FF0000000000000
-  %16 = tail call double @llvm.fabs.f64(double %11)
-  %or.cond6.i.i59 = fcmp une double %16, 0x7FF0000000000000
-  br i1 %or.cond6.i.i, label %17, label %18
+10:                                               ; preds = %5
+  %11 = tail call double @llvm.fabs.f64(double %4)
+  %or.cond6.i.i = fcmp une double %11, 0x7FF0000000000000
+  %12 = tail call double @llvm.fabs.f64(double %7)
+  %or.cond6.i.i58 = fcmp une double %12, 0x7FF0000000000000
+  br i1 %or.cond6.i.i, label %13, label %14
 
-17:                                               ; preds = %14
-  br i1 %or.cond6.i.i59, label %28, label %.thread
+13:                                               ; preds = %10
+  br i1 %or.cond6.i.i58, label %24, label %.thread
 
-18:                                               ; preds = %14
-  br i1 %or.cond6.i.i59, label %.thread, label %19
+14:                                               ; preds = %10
+  br i1 %or.cond6.i.i58, label %.thread, label %15
 
-19:                                               ; preds = %18
-  %20 = xor i64 %8, %3
-  %21 = icmp sgt i64 %20, -1
-  br i1 %21, label %22, label %54
+15:                                               ; preds = %14
+  %16 = xor i64 %6, %3
+  %17 = icmp sgt i64 %16, -1
+  br i1 %17, label %18, label %50
 
-22:                                               ; preds = %19
+18:                                               ; preds = %15
   store i64 -2251799813685248, ptr %0, align 8
+  %19 = getelementptr inbounds i8, ptr %0, i64 8
+  store i32 0, ptr %19, align 8
+  br label %50
+
+.thread:                                          ; preds = %13, %14
+  %or.cond6.i.i67 = fcmp une double %12, 0x7FF0000000000000
+  br i1 %or.cond6.i.i67, label %50, label %20
+
+20:                                               ; preds = %.thread
+  store i64 %6, ptr %0, align 8
+  %21 = getelementptr inbounds i8, ptr %1, i64 8
+  %22 = load i32, ptr %21, align 8
   %23 = getelementptr inbounds i8, ptr %0, i64 8
-  store i32 0, ptr %23, align 8
-  br label %54
+  store i32 %22, ptr %23, align 8
+  br label %50
 
-.thread:                                          ; preds = %17, %18
-  %or.cond6.i.i68 = fcmp une double %16, 0x7FF0000000000000
-  br i1 %or.cond6.i.i68, label %54, label %24
-
-24:                                               ; preds = %.thread
-  store i64 %8, ptr %0, align 8
-  %25 = getelementptr inbounds i8, ptr %1, i64 8
+24:                                               ; preds = %13
+  %25 = getelementptr inbounds i8, ptr %0, i64 8
   %26 = load i32, ptr %25, align 8
-  %27 = getelementptr inbounds i8, ptr %0, i64 8
-  store i32 %26, ptr %27, align 8
-  br label %54
+  %27 = getelementptr inbounds i8, ptr %1, i64 8
+  %28 = load i32, ptr %27, align 8
+  %29 = icmp sgt i32 %26, %28
+  br i1 %29, label %30, label %36
 
-28:                                               ; preds = %17
-  %29 = getelementptr inbounds i8, ptr %0, i64 8
-  %30 = load i32, ptr %29, align 8
-  %31 = getelementptr inbounds i8, ptr %1, i64 8
-  %32 = load i32, ptr %31, align 8
-  %33 = icmp sgt i32 %30, %32
-  br i1 %33, label %34, label %40
+30:                                               ; preds = %24
+  %31 = sub nsw i32 %26, %28
+  %32 = icmp slt i32 %31, 1024
+  br i1 %32, label %33, label %49
 
-34:                                               ; preds = %28
-  %35 = sub nsw i32 %30, %32
-  %36 = icmp slt i32 %35, 1024
-  br i1 %36, label %37, label %53
+33:                                               ; preds = %30
+  %ldexp51 = tail call double @ldexp(double 1.000000e+00, i32 %31) #19
+  %34 = fdiv double %7, %ldexp51
+  %35 = fsub double %4, %34
+  %.pre70 = load i32, ptr %25, align 8
+  br label %49
 
-37:                                               ; preds = %34
-  %ldexp51 = tail call double @ldexp(double 1.000000e+00, i32 %35) #19
-  %38 = fdiv double %11, %ldexp51
-  %39 = fsub double %6, %38
-  %.pre72 = load i32, ptr %29, align 8
-  br label %53
+36:                                               ; preds = %24
+  %37 = icmp slt i32 %26, %28
+  br i1 %37, label %38, label %47
 
-40:                                               ; preds = %28
-  %41 = icmp slt i32 %30, %32
-  br i1 %41, label %42, label %51
+38:                                               ; preds = %36
+  %39 = sub nsw i32 %28, %26
+  %40 = icmp slt i32 %39, 1024
+  br i1 %40, label %41, label %45
 
-42:                                               ; preds = %40
-  %43 = sub nsw i32 %32, %30
-  %44 = icmp slt i32 %43, 1024
-  br i1 %44, label %45, label %49
+41:                                               ; preds = %38
+  %ldexp = tail call double @ldexp(double 1.000000e+00, i32 %39) #19
+  %42 = fdiv double %4, %ldexp
+  %43 = load double, ptr %1, align 8
+  %44 = fsub double %42, %43
+  %.pre = load i32, ptr %27, align 8
+  br label %49
 
-45:                                               ; preds = %42
-  %ldexp = tail call double @ldexp(double 1.000000e+00, i32 %43) #19
-  %46 = fdiv double %6, %ldexp
-  %47 = load double, ptr %1, align 8
-  %48 = fsub double %46, %47
-  %.pre = load i32, ptr %31, align 8
-  br label %53
+45:                                               ; preds = %38
+  %46 = fneg double %7
+  br label %49
 
-49:                                               ; preds = %42
-  %50 = fneg double %11
-  br label %53
+47:                                               ; preds = %36
+  %48 = fsub double %4, %7
+  br label %49
 
-51:                                               ; preds = %40
-  %52 = fsub double %6, %11
-  br label %53
-
-53:                                               ; preds = %45, %49, %37, %34, %51
-  %.041 = phi i32 [ %30, %51 ], [ %.pre72, %37 ], [ %30, %34 ], [ %.pre, %45 ], [ %32, %49 ]
-  %.1 = phi double [ %52, %51 ], [ %39, %37 ], [ %6, %34 ], [ %48, %45 ], [ %50, %49 ]
+49:                                               ; preds = %41, %45, %33, %30, %47
+  %.041 = phi i32 [ %26, %47 ], [ %.pre70, %33 ], [ %26, %30 ], [ %.pre, %41 ], [ %28, %45 ]
+  %.1 = phi double [ %48, %47 ], [ %35, %33 ], [ %4, %30 ], [ %44, %41 ], [ %46, %45 ]
   store double %.1, ptr %0, align 8
-  store i32 %.041, ptr %29, align 8
+  store i32 %.041, ptr %25, align 8
   tail call void @EpdNormalize(ptr noundef nonnull %0)
-  br label %54
+  br label %50
 
-54:                                               ; preds = %22, %19, %24, %.thread, %53, %12
+50:                                               ; preds = %18, %15, %20, %.thread, %49, %8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn uwtable
 define void @EpdSubtract3(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2) local_unnamed_addr #10 {
   %4 = load i64, ptr %0, align 8
-  %or.cond.i.i = icmp ult i64 %4, -4503599627370496
-  %5 = and i64 %4, 4503599627370495
-  %6 = icmp ne i64 %5, 2251799813685248
-  %or.cond10.i.i.not = or i1 %or.cond.i.i, %6
-  %7 = bitcast i64 %4 to double
-  br i1 %or.cond10.i.i.not, label %8, label %13
+  %or.cond10.i.i.not = icmp eq i64 %4, -2251799813685248
+  %5 = bitcast i64 %4 to double
+  br i1 %or.cond10.i.i.not, label %9, label %6
 
-8:                                                ; preds = %3
-  %9 = load i64, ptr %1, align 8
-  %or.cond.i.i60 = icmp ult i64 %9, -4503599627370496
-  %10 = and i64 %9, 4503599627370495
-  %11 = icmp ne i64 %10, 2251799813685248
-  %or.cond10.i.i61.not = or i1 %or.cond.i.i60, %11
-  %12 = bitcast i64 %9 to double
-  br i1 %or.cond10.i.i61.not, label %15, label %13
+6:                                                ; preds = %3
+  %7 = load i64, ptr %1, align 8
+  %or.cond10.i.i60.not = icmp eq i64 %7, -2251799813685248
+  %8 = bitcast i64 %7 to double
+  br i1 %or.cond10.i.i60.not, label %9, label %11
 
-13:                                               ; preds = %8, %3
+9:                                                ; preds = %6, %3
   store i64 -2251799813685248, ptr %2, align 8
-  %14 = getelementptr inbounds i8, ptr %2, i64 8
-  store i32 0, ptr %14, align 8
-  br label %60
+  %10 = getelementptr inbounds i8, ptr %2, i64 8
+  store i32 0, ptr %10, align 8
+  br label %56
 
-15:                                               ; preds = %8
-  %16 = tail call double @llvm.fabs.f64(double %7)
-  %or.cond6.i.i = fcmp une double %16, 0x7FF0000000000000
-  %17 = tail call double @llvm.fabs.f64(double %12)
-  %or.cond6.i.i64 = fcmp une double %17, 0x7FF0000000000000
-  br i1 %or.cond6.i.i, label %18, label %19
+11:                                               ; preds = %6
+  %12 = tail call double @llvm.fabs.f64(double %5)
+  %or.cond6.i.i = fcmp une double %12, 0x7FF0000000000000
+  %13 = tail call double @llvm.fabs.f64(double %8)
+  %or.cond6.i.i63 = fcmp une double %13, 0x7FF0000000000000
+  br i1 %or.cond6.i.i, label %14, label %15
 
-18:                                               ; preds = %15
-  br i1 %or.cond6.i.i64, label %33, label %29
+14:                                               ; preds = %11
+  br i1 %or.cond6.i.i63, label %29, label %25
 
-19:                                               ; preds = %15
-  br i1 %or.cond6.i.i64, label %60, label %20
+15:                                               ; preds = %11
+  br i1 %or.cond6.i.i63, label %56, label %16
 
-20:                                               ; preds = %19
-  %21 = xor i64 %9, %4
-  %22 = icmp sgt i64 %21, -1
-  br i1 %22, label %23, label %27
+16:                                               ; preds = %15
+  %17 = xor i64 %7, %4
+  %18 = icmp sgt i64 %17, -1
+  br i1 %18, label %19, label %23
 
-23:                                               ; preds = %20
+19:                                               ; preds = %16
   store i64 %4, ptr %2, align 8
-  %24 = getelementptr inbounds i8, ptr %0, i64 8
-  %25 = load i32, ptr %24, align 8
-  %26 = getelementptr inbounds i8, ptr %2, i64 8
-  store i32 %25, ptr %26, align 8
-  br label %60
+  %20 = getelementptr inbounds i8, ptr %0, i64 8
+  %21 = load i32, ptr %20, align 8
+  %22 = getelementptr inbounds i8, ptr %2, i64 8
+  store i32 %21, ptr %22, align 8
+  br label %56
 
-27:                                               ; preds = %20
+23:                                               ; preds = %16
   store i64 -2251799813685248, ptr %2, align 8
+  %24 = getelementptr inbounds i8, ptr %2, i64 8
+  store i32 0, ptr %24, align 8
+  br label %56
+
+25:                                               ; preds = %14
+  %26 = and i64 %7, -9223372036854775808
+  %27 = xor i64 %26, -4503599627370496
+  store i64 %27, ptr %2, align 8
   %28 = getelementptr inbounds i8, ptr %2, i64 8
   store i32 0, ptr %28, align 8
-  br label %60
+  br label %56
 
-29:                                               ; preds = %18
-  %30 = and i64 %9, -9223372036854775808
-  %31 = xor i64 %30, -4503599627370496
-  store i64 %31, ptr %2, align 8
-  %32 = getelementptr inbounds i8, ptr %2, i64 8
-  store i32 0, ptr %32, align 8
-  br label %60
+29:                                               ; preds = %14
+  %30 = getelementptr inbounds i8, ptr %0, i64 8
+  %31 = load i32, ptr %30, align 8
+  %32 = getelementptr inbounds i8, ptr %1, i64 8
+  %33 = load i32, ptr %32, align 8
+  %34 = icmp sgt i32 %31, %33
+  br i1 %34, label %35, label %41
 
-33:                                               ; preds = %18
-  %34 = getelementptr inbounds i8, ptr %0, i64 8
-  %35 = load i32, ptr %34, align 8
-  %36 = getelementptr inbounds i8, ptr %1, i64 8
-  %37 = load i32, ptr %36, align 8
-  %38 = icmp sgt i32 %35, %37
-  br i1 %38, label %39, label %45
+35:                                               ; preds = %29
+  %36 = sub nsw i32 %31, %33
+  %37 = icmp slt i32 %36, 1024
+  br i1 %37, label %38, label %54
 
-39:                                               ; preds = %33
-  %40 = sub nsw i32 %35, %37
-  %41 = icmp slt i32 %40, 1024
-  br i1 %41, label %42, label %58
+38:                                               ; preds = %35
+  %ldexp56 = tail call double @ldexp(double 1.000000e+00, i32 %36) #19
+  %39 = fdiv double %8, %ldexp56
+  %40 = fsub double %5, %39
+  %.pre76 = load i32, ptr %30, align 8
+  br label %54
 
-42:                                               ; preds = %39
-  %ldexp56 = tail call double @ldexp(double 1.000000e+00, i32 %40) #19
-  %43 = fdiv double %12, %ldexp56
-  %44 = fsub double %7, %43
-  %.pre78 = load i32, ptr %34, align 8
-  br label %58
+41:                                               ; preds = %29
+  %42 = icmp slt i32 %31, %33
+  br i1 %42, label %43, label %52
 
-45:                                               ; preds = %33
-  %46 = icmp slt i32 %35, %37
-  br i1 %46, label %47, label %56
+43:                                               ; preds = %41
+  %44 = sub nsw i32 %33, %31
+  %45 = icmp slt i32 %44, 1024
+  br i1 %45, label %46, label %50
 
-47:                                               ; preds = %45
-  %48 = sub nsw i32 %37, %35
-  %49 = icmp slt i32 %48, 1024
-  br i1 %49, label %50, label %54
+46:                                               ; preds = %43
+  %ldexp = tail call double @ldexp(double 1.000000e+00, i32 %44) #19
+  %47 = fdiv double %5, %ldexp
+  %48 = load double, ptr %1, align 8
+  %49 = fsub double %47, %48
+  %.pre = load i32, ptr %32, align 8
+  br label %54
 
-50:                                               ; preds = %47
-  %ldexp = tail call double @ldexp(double 1.000000e+00, i32 %48) #19
-  %51 = fdiv double %7, %ldexp
-  %52 = load double, ptr %1, align 8
-  %53 = fsub double %51, %52
-  %.pre = load i32, ptr %36, align 8
-  br label %58
+50:                                               ; preds = %43
+  %51 = fneg double %8
+  br label %54
 
-54:                                               ; preds = %47
-  %55 = fneg double %12
-  br label %58
+52:                                               ; preds = %41
+  %53 = fsub double %5, %8
+  br label %54
 
-56:                                               ; preds = %45
-  %57 = fsub double %7, %12
-  br label %58
-
-58:                                               ; preds = %50, %54, %42, %39, %56
-  %.1 = phi double [ %57, %56 ], [ %44, %42 ], [ %7, %39 ], [ %53, %50 ], [ %55, %54 ]
-  %.0 = phi i32 [ %35, %56 ], [ %.pre78, %42 ], [ %35, %39 ], [ %.pre, %50 ], [ %37, %54 ]
+54:                                               ; preds = %46, %50, %38, %35, %52
+  %.1 = phi double [ %53, %52 ], [ %40, %38 ], [ %5, %35 ], [ %49, %46 ], [ %51, %50 ]
+  %.0 = phi i32 [ %31, %52 ], [ %.pre76, %38 ], [ %31, %35 ], [ %.pre, %46 ], [ %33, %50 ]
   store double %.1, ptr %2, align 8
-  %59 = getelementptr inbounds i8, ptr %2, i64 8
-  store i32 %.0, ptr %59, align 8
+  %55 = getelementptr inbounds i8, ptr %2, i64 8
+  store i32 %.0, ptr %55, align 8
   tail call void @EpdNormalize(ptr noundef nonnull %2)
-  br label %60
+  br label %56
 
-60:                                               ; preds = %19, %27, %23, %29, %58, %13
+56:                                               ; preds = %15, %23, %19, %25, %54, %9
   ret void
 }
 
@@ -1900,78 +1798,72 @@ define void @EpdPow2(i32 noundef %0, ptr nocapture noundef writeonly %1) local_u
   call void @EpdPow2(i32 noundef %20, ptr noundef nonnull %3)
   call void @EpdPow2(i32 noundef %21, ptr noundef nonnull %4)
   %22 = load i64, ptr %3, align 8
-  %or.cond.i.i.i = icmp ult i64 %22, -4503599627370496
-  %23 = and i64 %22, 4503599627370495
-  %24 = icmp ne i64 %23, 2251799813685248
-  %or.cond10.i.i.not.i = or i1 %or.cond.i.i.i, %24
-  %25 = bitcast i64 %22 to double
-  br i1 %or.cond10.i.i.not.i, label %26, label %EpdConvert.exit
+  %or.cond10.i.i.not.i = icmp eq i64 %22, -2251799813685248
+  %23 = bitcast i64 %22 to double
+  br i1 %or.cond10.i.i.not.i, label %EpdConvert.exit, label %24
 
-26:                                               ; preds = %19
-  %27 = load i64, ptr %4, align 8
-  %or.cond.i.i18.i = icmp ult i64 %27, -4503599627370496
-  %28 = and i64 %27, 4503599627370495
-  %29 = icmp ne i64 %28, 2251799813685248
-  %or.cond10.i.i19.not.i = or i1 %or.cond.i.i18.i, %29
-  %30 = bitcast i64 %27 to double
-  br i1 %or.cond10.i.i19.not.i, label %31, label %EpdConvert.exit
+24:                                               ; preds = %19
+  %25 = load i64, ptr %4, align 8
+  %or.cond10.i.i18.not.i = icmp eq i64 %25, -2251799813685248
+  %26 = bitcast i64 %25 to double
+  br i1 %or.cond10.i.i18.not.i, label %EpdConvert.exit, label %27
 
-31:                                               ; preds = %26
-  %32 = tail call double @llvm.fabs.f64(double %25)
-  %or.cond6.i.i.i = fcmp une double %32, 0x7FF0000000000000
-  %33 = tail call double @llvm.fabs.f64(double %30)
-  %or.cond6.i.i22.i = fcmp une double %33, 0x7FF0000000000000
-  %or.cond.i = and i1 %or.cond6.i.i.i, %or.cond6.i.i22.i
-  br i1 %or.cond.i, label %39, label %34
+27:                                               ; preds = %24
+  %28 = tail call double @llvm.fabs.f64(double %23)
+  %or.cond6.i.i.i = fcmp une double %28, 0x7FF0000000000000
+  %29 = tail call double @llvm.fabs.f64(double %26)
+  %or.cond6.i.i21.i = fcmp une double %29, 0x7FF0000000000000
+  %or.cond.i = and i1 %or.cond6.i.i.i, %or.cond6.i.i21.i
+  br i1 %or.cond.i, label %35, label %30
 
-34:                                               ; preds = %31
-  %35 = xor i64 %27, %22
-  %36 = and i64 %35, -9223372036854775808
-  %37 = or disjoint i64 %36, 9218868437227405312
-  store i64 %37, ptr %1, align 8
-  %38 = getelementptr inbounds i8, ptr %1, i64 8
-  store i32 0, ptr %38, align 8
+30:                                               ; preds = %27
+  %31 = xor i64 %25, %22
+  %32 = and i64 %31, -9223372036854775808
+  %33 = or disjoint i64 %32, 9218868437227405312
+  store i64 %33, ptr %1, align 8
+  %34 = getelementptr inbounds i8, ptr %1, i64 8
+  store i32 0, ptr %34, align 8
   br label %EpdConvert.exit
 
-39:                                               ; preds = %31
-  %40 = fmul double %25, %30
-  store double %40, ptr %1, align 8
-  %41 = getelementptr inbounds i8, ptr %3, i64 8
-  %42 = load i32, ptr %41, align 8
-  %43 = getelementptr inbounds i8, ptr %4, i64 8
-  %44 = load i32, ptr %43, align 8
-  %45 = add nsw i32 %44, %42
-  %46 = getelementptr inbounds i8, ptr %1, i64 8
-  store i32 %45, ptr %46, align 8
-  %47 = bitcast double %40 to i64
-  %48 = and i64 %47, 9221120237041090559
-  %or.cond7.i.i = icmp ne i64 %48, 9218868437227405312
-  %49 = and i64 %47, -9221120237041090560
-  %or.cond9.not.i.i = icmp eq i64 %49, 2251799813685248
+35:                                               ; preds = %27
+  %36 = fmul double %23, %26
+  store double %36, ptr %1, align 8
+  %37 = getelementptr inbounds i8, ptr %3, i64 8
+  %38 = load i32, ptr %37, align 8
+  %39 = getelementptr inbounds i8, ptr %4, i64 8
+  %40 = load i32, ptr %39, align 8
+  %41 = add nsw i32 %40, %38
+  %42 = getelementptr inbounds i8, ptr %1, i64 8
+  store i32 %41, ptr %42, align 8
+  %43 = bitcast double %36 to i64
+  %44 = and i64 %43, 9221120237041090559
+  %or.cond7.i.i = icmp ne i64 %44, 9218868437227405312
+  %45 = and i64 %43, -9221120237041090560
+  %or.cond9.not.i.i = icmp eq i64 %45, 2251799813685248
   %or.cond.not.i.not.i = or i1 %or.cond7.i.i, %or.cond9.not.i.i
-  br i1 %or.cond.not.i.not.i, label %51, label %50
+  br i1 %or.cond.not.i.not.i, label %47, label %46
 
-50:                                               ; preds = %39
-  store i32 0, ptr %46, align 8
+46:                                               ; preds = %35
+  store i32 0, ptr %42, align 8
   br label %EpdConvert.exit
 
-51:                                               ; preds = %39
-  %52 = lshr i64 %47, 52
-  %53 = trunc nuw nsw i64 %52 to i32
-  %54 = and i32 %53, 2047
-  %55 = icmp eq i32 %54, 1023
-  br i1 %55, label %EpdConvert.exit, label %56
+47:                                               ; preds = %35
+  %48 = lshr i64 %43, 52
+  %49 = trunc nuw nsw i64 %48 to i32
+  %50 = and i32 %49, 2047
+  %51 = icmp eq i32 %50, 1023
+  br i1 %51, label %EpdConvert.exit, label %52
 
-56:                                               ; preds = %51
-  %57 = and i64 %47, -9218868437227405313
-  %58 = or disjoint i64 %57, 4607182418800017408
-  store i64 %58, ptr %1, align 8
-  %59 = add i32 %45, -1023
-  %60 = add i32 %59, %54
-  store i32 %60, ptr %46, align 8
+52:                                               ; preds = %47
+  %53 = and i64 %43, -9218868437227405313
+  %54 = or disjoint i64 %53, 4607182418800017408
+  store i64 %54, ptr %1, align 8
+  %55 = add i32 %41, -1023
+  %56 = add i32 %55, %50
+  store i32 %56, ptr %42, align 8
   br label %EpdConvert.exit
 
-EpdConvert.exit:                                  ; preds = %19, %26, %34, %50, %51, %56, %15, %10, %6
+EpdConvert.exit:                                  ; preds = %19, %24, %30, %46, %47, %52, %15, %10, %6
   ret void
 }
 
@@ -2024,81 +1916,75 @@ define void @EpdPow2Decimal(i32 noundef %0, ptr nocapture noundef %1) local_unna
   call void @EpdPow2Decimal(i32 noundef %26, ptr noundef nonnull %7)
   call void @EpdPow2Decimal(i32 noundef %27, ptr noundef nonnull %8)
   %28 = load i64, ptr %7, align 8
-  %or.cond.i.i.i = icmp ult i64 %28, -4503599627370496
-  %29 = and i64 %28, 4503599627370495
-  %30 = icmp ne i64 %29, 2251799813685248
-  %or.cond10.i.i.not.i = or i1 %or.cond.i.i.i, %30
-  %31 = bitcast i64 %28 to double
-  br i1 %or.cond10.i.i.not.i, label %32, label %EpdNormalizeDecimal.exit
+  %or.cond10.i.i.not.i = icmp eq i64 %28, -2251799813685248
+  %29 = bitcast i64 %28 to double
+  br i1 %or.cond10.i.i.not.i, label %EpdNormalizeDecimal.exit, label %30
 
-32:                                               ; preds = %25
-  %33 = load i64, ptr %8, align 8
-  %or.cond.i.i18.i = icmp ult i64 %33, -4503599627370496
-  %34 = and i64 %33, 4503599627370495
-  %35 = icmp ne i64 %34, 2251799813685248
-  %or.cond10.i.i19.not.i = or i1 %or.cond.i.i18.i, %35
-  %36 = bitcast i64 %33 to double
-  br i1 %or.cond10.i.i19.not.i, label %37, label %EpdNormalizeDecimal.exit
+30:                                               ; preds = %25
+  %31 = load i64, ptr %8, align 8
+  %or.cond10.i.i18.not.i = icmp eq i64 %31, -2251799813685248
+  %32 = bitcast i64 %31 to double
+  br i1 %or.cond10.i.i18.not.i, label %EpdNormalizeDecimal.exit, label %33
 
-37:                                               ; preds = %32
-  %38 = tail call double @llvm.fabs.f64(double %31)
-  %or.cond6.i.i.i = fcmp une double %38, 0x7FF0000000000000
-  %39 = tail call double @llvm.fabs.f64(double %36)
-  %or.cond6.i.i22.i = fcmp une double %39, 0x7FF0000000000000
-  %or.cond.i = and i1 %or.cond6.i.i.i, %or.cond6.i.i22.i
-  br i1 %or.cond.i, label %45, label %40
+33:                                               ; preds = %30
+  %34 = tail call double @llvm.fabs.f64(double %29)
+  %or.cond6.i.i.i = fcmp une double %34, 0x7FF0000000000000
+  %35 = tail call double @llvm.fabs.f64(double %32)
+  %or.cond6.i.i21.i = fcmp une double %35, 0x7FF0000000000000
+  %or.cond.i = and i1 %or.cond6.i.i.i, %or.cond6.i.i21.i
+  br i1 %or.cond.i, label %41, label %36
 
-40:                                               ; preds = %37
-  %41 = xor i64 %33, %28
-  %42 = and i64 %41, -9223372036854775808
-  %43 = or disjoint i64 %42, 9218868437227405312
-  store i64 %43, ptr %1, align 8
-  %44 = getelementptr inbounds i8, ptr %1, i64 8
-  store i32 0, ptr %44, align 8
+36:                                               ; preds = %33
+  %37 = xor i64 %31, %28
+  %38 = and i64 %37, -9223372036854775808
+  %39 = or disjoint i64 %38, 9218868437227405312
+  store i64 %39, ptr %1, align 8
+  %40 = getelementptr inbounds i8, ptr %1, i64 8
+  store i32 0, ptr %40, align 8
   br label %EpdNormalizeDecimal.exit
 
-45:                                               ; preds = %37
-  %46 = fmul double %31, %36
-  store double %46, ptr %1, align 8
-  %47 = getelementptr inbounds i8, ptr %7, i64 8
-  %48 = load i32, ptr %47, align 8
-  %49 = getelementptr inbounds i8, ptr %8, i64 8
-  %50 = load i32, ptr %49, align 8
-  %51 = add nsw i32 %50, %48
-  %52 = getelementptr inbounds i8, ptr %1, i64 8
-  store i32 %51, ptr %52, align 8
-  %53 = bitcast double %46 to i64
-  %54 = and i64 %53, 9221120237041090559
-  %or.cond7.i.i10 = icmp ne i64 %54, 9218868437227405312
-  %55 = and i64 %53, -9221120237041090560
-  %or.cond9.not.i.i11 = icmp eq i64 %55, 2251799813685248
+41:                                               ; preds = %33
+  %42 = fmul double %29, %32
+  store double %42, ptr %1, align 8
+  %43 = getelementptr inbounds i8, ptr %7, i64 8
+  %44 = load i32, ptr %43, align 8
+  %45 = getelementptr inbounds i8, ptr %8, i64 8
+  %46 = load i32, ptr %45, align 8
+  %47 = add nsw i32 %46, %44
+  %48 = getelementptr inbounds i8, ptr %1, i64 8
+  store i32 %47, ptr %48, align 8
+  %49 = bitcast double %42 to i64
+  %50 = and i64 %49, 9221120237041090559
+  %or.cond7.i.i10 = icmp ne i64 %50, 9218868437227405312
+  %51 = and i64 %49, -9221120237041090560
+  %or.cond9.not.i.i11 = icmp eq i64 %51, 2251799813685248
   %or.cond.not.i.not.i12 = or i1 %or.cond7.i.i10, %or.cond9.not.i.i11
-  br i1 %or.cond.not.i.not.i12, label %57, label %56
+  br i1 %or.cond.not.i.not.i12, label %53, label %52
 
-56:                                               ; preds = %45
-  store i32 0, ptr %52, align 8
+52:                                               ; preds = %41
+  store i32 0, ptr %48, align 8
   br label %EpdNormalizeDecimal.exit
 
-57:                                               ; preds = %45
+53:                                               ; preds = %41
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4)
-  %58 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %3, ptr noundef nonnull dereferenceable(1) @.str.9, double noundef %46) #19
+  %54 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %3, ptr noundef nonnull dereferenceable(1) @.str.9, double noundef %42) #19
   %strchr.i.i13 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %3, i32 69)
-  %59 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef %strchr.i.i13, ptr noundef nonnull @.str.11, ptr noundef nonnull %4) #19
-  %60 = load i32, ptr %4, align 4
+  %55 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef %strchr.i.i13, ptr noundef nonnull @.str.11, ptr noundef nonnull %4) #19
+  %56 = load i32, ptr %4, align 4
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4)
-  %61 = sitofp i32 %60 to double
-  %62 = call double @pow(double noundef 1.000000e+01, double noundef %61) #19
-  %63 = load double, ptr %1, align 8
-  %64 = fdiv double %63, %62
-  store double %64, ptr %1, align 8
-  %65 = load i32, ptr %52, align 8
-  %66 = add nsw i32 %65, %60
-  store i32 %66, ptr %52, align 8
+  %57 = sitofp i32 %56 to double
+  %58 = call double @pow(double noundef 1.000000e+01, double noundef %57) #19
+  %59 = load double, ptr %1, align 8
+  %60 = fdiv double %59, %58
+  store double %60, ptr %1, align 8
+  %61 = load i32, ptr %48, align 8
+  %62 = add nsw i32 %61, %56
+  store i32 %62, ptr %48, align 8
   br label %EpdNormalizeDecimal.exit
 
-EpdNormalizeDecimal.exit:                         ; preds = %25, %32, %10, %40, %56, %57, %15
+EpdNormalizeDecimal.exit:                         ; preds = %25, %30, %10, %36, %52, %53, %15
   ret void
 }
 

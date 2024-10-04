@@ -5558,59 +5558,58 @@ define internal i32 @dissect_nas_eps_plain(ptr noundef %0, ptr noundef %1, ptr n
   %9 = load i32, ptr @ett_nas_eps, align 4
   %10 = tail call ptr @proto_item_add_subtree(ptr noundef %8, i32 noundef %9) #10
   %11 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 0) #10
-  %12 = and i8 %11, 15
-  %13 = icmp eq i8 %12, 7
-  %14 = icmp ugt i8 %11, -65
-  %or.cond = and i1 %14, %13
-  br i1 %or.cond, label %15, label %23
+  %12 = and i8 %11, -49
+  %or.cond = icmp eq i8 %12, -57
+  br i1 %or.cond, label %13, label %21
 
-15:                                               ; preds = %4
-  %16 = load ptr, ptr %5, align 8
-  tail call void @col_append_sep_str(ptr noundef %16, i32 noundef 25, ptr noundef null, ptr noundef nonnull @.str.1292) #10
-  %17 = load i32, ptr @hf_nas_eps_security_header_type, align 4
+13:                                               ; preds = %4
+  %14 = load ptr, ptr %5, align 8
+  tail call void @col_append_sep_str(ptr noundef %14, i32 noundef 25, ptr noundef null, ptr noundef nonnull @.str.1292) #10
+  %15 = load i32, ptr @hf_nas_eps_security_header_type, align 4
+  %16 = tail call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %15, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef 0) #10
+  %17 = load i32, ptr @hf_gsm_a_L3_protocol_discriminator, align 4
   %18 = tail call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %17, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef 0) #10
-  %19 = load i32, ptr @hf_gsm_a_L3_protocol_discriminator, align 4
-  %20 = tail call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %19, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef 0) #10
-  %21 = tail call i32 @tvb_reported_length(ptr noundef %0) #10
-  %22 = add i32 %21, -1
-  tail call fastcc void @nas_emm_service_req(ptr noundef %0, ptr noundef %10, ptr noundef nonnull %1, i32 noundef %22)
-  br label %36
+  %19 = tail call i32 @tvb_reported_length(ptr noundef %0) #10
+  %20 = add i32 %19, -1
+  tail call fastcc void @nas_emm_service_req(ptr noundef %0, ptr noundef %10, ptr noundef nonnull %1, i32 noundef %20)
+  br label %35
 
-23:                                               ; preds = %4
-  %24 = zext nneg i8 %12 to i32
-  switch i8 %12, label %33 [
-    i8 2, label %25
-    i8 7, label %26
-    i8 15, label %27
+21:                                               ; preds = %4
+  %22 = and i8 %11, 15
+  %23 = zext nneg i8 %22 to i32
+  switch i8 %22, label %32 [
+    i8 2, label %24
+    i8 7, label %25
+    i8 15, label %26
   ]
 
-25:                                               ; preds = %23
+24:                                               ; preds = %21
   tail call fastcc void @dissect_nas_eps_esm_msg(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %10, i32 noundef 0)
-  br label %36
+  br label %35
 
-26:                                               ; preds = %23
+25:                                               ; preds = %21
   tail call fastcc void @dissect_nas_eps_emm_msg(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %10, i32 noundef 0, i32 noundef 1)
-  br label %36
+  br label %35
 
-27:                                               ; preds = %23
-  %28 = load ptr, ptr @gsm_a_dtap_handle, align 8
-  %.not = icmp eq ptr %28, null
-  br i1 %.not, label %33, label %29
+26:                                               ; preds = %21
+  %27 = load ptr, ptr @gsm_a_dtap_handle, align 8
+  %.not = icmp eq ptr %27, null
+  br i1 %.not, label %32, label %28
 
-29:                                               ; preds = %27
-  %30 = tail call ptr @tvb_new_subset_remaining(ptr noundef %0, i32 noundef 0) #10
-  %31 = load ptr, ptr @gsm_a_dtap_handle, align 8
-  %32 = tail call i32 @call_dissector(ptr noundef %31, ptr noundef %30, ptr noundef nonnull %1, ptr noundef %10) #10
-  br label %36
+28:                                               ; preds = %26
+  %29 = tail call ptr @tvb_new_subset_remaining(ptr noundef %0, i32 noundef 0) #10
+  %30 = load ptr, ptr @gsm_a_dtap_handle, align 8
+  %31 = tail call i32 @call_dissector(ptr noundef %30, ptr noundef %29, ptr noundef nonnull %1, ptr noundef %10) #10
+  br label %35
 
-33:                                               ; preds = %27, %23
-  %34 = tail call ptr @val_to_str_const(i32 noundef %24, ptr noundef nonnull @protocol_discriminator_vals, ptr noundef nonnull @.str.916) #10
-  %35 = tail call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %10, ptr noundef nonnull %1, ptr noundef nonnull @ei_nas_eps_unknown_pd, ptr noundef %0, i32 noundef 0, i32 noundef -1, ptr noundef nonnull @.str.1293, i32 noundef %24, ptr noundef %34) #10
-  br label %36
+32:                                               ; preds = %26, %21
+  %33 = tail call ptr @val_to_str_const(i32 noundef %23, ptr noundef nonnull @protocol_discriminator_vals, ptr noundef nonnull @.str.916) #10
+  %34 = tail call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %10, ptr noundef nonnull %1, ptr noundef nonnull @ei_nas_eps_unknown_pd, ptr noundef %0, i32 noundef 0, i32 noundef -1, ptr noundef nonnull @.str.1293, i32 noundef %23, ptr noundef %33) #10
+  br label %35
 
-36:                                               ; preds = %25, %26, %29, %33, %15
-  %37 = tail call i32 @tvb_captured_length(ptr noundef %0) #10
-  ret i32 %37
+35:                                               ; preds = %24, %25, %28, %32, %13
+  %36 = tail call i32 @tvb_captured_length(ptr noundef %0) #10
+  ret i32 %36
 }
 
 declare ptr @prefs_register_protocol(i32 noundef, ptr noundef) local_unnamed_addr #0

@@ -677,21 +677,20 @@ define i32 @Dar_ManCutCount(ptr nocapture noundef readonly %0, ptr noundef write
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %.135 = phi i32 [ %.2, %.lr.ph ], [ %.039, %.lr.ph.preheader ]
   %.12034 = phi i32 [ %.221, %.lr.ph ], [ %.01938, %.lr.ph.preheader ]
-  %.02333 = phi i32 [ %27, %.lr.ph ], [ 0, %.lr.ph.preheader ]
-  %.02532 = phi ptr [ %28, %.lr.ph ], [ %.val31, %.lr.ph.preheader ]
+  %.02333 = phi i32 [ %26, %.lr.ph ], [ 0, %.lr.ph.preheader ]
+  %.02532 = phi ptr [ %27, %.lr.ph ], [ %.val31, %.lr.ph.preheader ]
   %21 = getelementptr inbounds i8, ptr %.02532, i64 4
   %22 = load i32, ptr %21, align 4
-  %23 = and i32 %22, 268435456
-  %24 = icmp ne i32 %23, 0
-  %25 = icmp slt i32 %22, -1610612736
-  %26 = lshr exact i32 %23, 28
-  %.221 = add i32 %26, %.12034
-  %narrow = and i1 %25, %24
+  %23 = lshr i32 %22, 28
+  %24 = and i32 %23, 1
+  %.221 = add i32 %24, %.12034
+  %25 = and i32 %22, -268435456
+  %narrow = icmp eq i32 %25, -1879048192
   %spec.select = zext i1 %narrow to i32
   %.2 = add nsw i32 %.135, %spec.select
-  %27 = add nuw nsw i32 %.02333, 1
-  %28 = getelementptr inbounds i8, ptr %.02532, i64 24
-  %exitcond.not = icmp eq i32 %27, %19
+  %26 = add nuw nsw i32 %.02333, 1
+  %27 = getelementptr inbounds i8, ptr %.02532, i64 24
+  %exitcond.not = icmp eq i32 %26, %19
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !8
 
 .loopexit:                                        ; preds = %.lr.ph, %17, %12, %8
@@ -705,13 +704,13 @@ define i32 @Dar_ManCutCount(ptr nocapture noundef readonly %0, ptr noundef write
   %.019.lcssa = phi i32 [ 0, %2 ], [ %.322, %.loopexit ]
   %.0.lcssa = phi i32 [ 0, %2 ], [ %.3, %.loopexit ]
   %.not = icmp eq ptr %1, null
-  br i1 %.not, label %30, label %29
+  br i1 %.not, label %29, label %28
 
-29:                                               ; preds = %.critedge
+28:                                               ; preds = %.critedge
   store i32 %.0.lcssa, ptr %1, align 4
-  br label %30
+  br label %29
 
-30:                                               ; preds = %29, %.critedge
+29:                                               ; preds = %28, %.critedge
   ret i32 %.019.lcssa
 }
 
@@ -834,7 +833,7 @@ Abc_Clock.exit:                                   ; preds = %4, %10
   %.lcssa = phi ptr [ %36, %.critedge.preheader ], [ %60, %.critedge ]
   %.val.lcssa = phi i32 [ %.val53, %.critedge.preheader ], [ %.val, %.critedge ]
   %.not = icmp eq i32 %3, 0
-  br i1 %.not, label %108, label %64
+  br i1 %.not, label %107, label %64
 
 64:                                               ; preds = %.critedge2
   %65 = icmp sgt i32 %.val.lcssa, 0
@@ -878,21 +877,20 @@ Abc_Clock.exit:                                   ; preds = %4, %10
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
   %.135.i = phi i32 [ %.2.i, %.lr.ph.i ], [ %.039.i, %.lr.ph.preheader.i ]
   %.12034.i = phi i32 [ %.221.i, %.lr.ph.i ], [ %.01938.i, %.lr.ph.preheader.i ]
-  %.02333.i = phi i32 [ %86, %.lr.ph.i ], [ 0, %.lr.ph.preheader.i ]
-  %.02532.i = phi ptr [ %87, %.lr.ph.i ], [ %.val31.i, %.lr.ph.preheader.i ]
+  %.02333.i = phi i32 [ %85, %.lr.ph.i ], [ 0, %.lr.ph.preheader.i ]
+  %.02532.i = phi ptr [ %86, %.lr.ph.i ], [ %.val31.i, %.lr.ph.preheader.i ]
   %80 = getelementptr inbounds i8, ptr %.02532.i, i64 4
   %81 = load i32, ptr %80, align 4
-  %82 = and i32 %81, 268435456
-  %83 = icmp ne i32 %82, 0
-  %84 = icmp slt i32 %81, -1610612736
-  %85 = lshr exact i32 %82, 28
-  %.221.i = add i32 %85, %.12034.i
-  %narrow.i46 = and i1 %84, %83
+  %82 = lshr i32 %81, 28
+  %83 = and i32 %82, 1
+  %.221.i = add i32 %83, %.12034.i
+  %84 = and i32 %81, -268435456
+  %narrow.i46 = icmp eq i32 %84, -1879048192
   %spec.select.i = zext i1 %narrow.i46 to i32
   %.2.i = add nsw i32 %.135.i, %spec.select.i
-  %86 = add nuw nsw i32 %.02333.i, 1
-  %87 = getelementptr inbounds i8, ptr %.02532.i, i64 24
-  %exitcond.not.i = icmp eq i32 %86, %78
+  %85 = add nuw nsw i32 %.02333.i, 1
+  %86 = getelementptr inbounds i8, ptr %.02532.i, i64 24
+  %exitcond.not.i = icmp eq i32 %85, %78
   br i1 %exitcond.not.i, label %.loopexit.i, label %.lr.ph.i, !llvm.loop !8
 
 .loopexit.i:                                      ; preds = %.lr.ph.i, %76, %71, %67
@@ -905,44 +903,44 @@ Abc_Clock.exit:                                   ; preds = %4, %10
 Dar_ManCutCount.exit:                             ; preds = %.loopexit.i, %64
   %.019.lcssa.i = phi i32 [ 0, %64 ], [ %.322.i, %.loopexit.i ]
   %.0.lcssa.i = phi i32 [ 0, %64 ], [ %.3.i, %.loopexit.i ]
-  %88 = getelementptr i8, ptr %0, i64 156
-  %.val45 = load i32, ptr %88, align 4
-  %89 = sub nsw i32 %.val.lcssa, %.val45
-  %90 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.1, i32 noundef %89, i32 noundef %.019.lcssa.i, i32 noundef %.0.lcssa.i)
-  %91 = load ptr, ptr %25, align 8
-  %92 = call i32 @Aig_MmFixedReadMemUsage(ptr noundef %91) #11
-  %93 = sitofp i32 %92 to double
-  %94 = fmul double %93, 0x3EB0000000000000
-  %95 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.2, i32 noundef 24, i32 noundef 4, double noundef %94)
+  %87 = getelementptr i8, ptr %0, i64 156
+  %.val45 = load i32, ptr %87, align 4
+  %88 = sub nsw i32 %.val.lcssa, %.val45
+  %89 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.1, i32 noundef %88, i32 noundef %.019.lcssa.i, i32 noundef %.0.lcssa.i)
+  %90 = load ptr, ptr %25, align 8
+  %91 = call i32 @Aig_MmFixedReadMemUsage(ptr noundef %90) #11
+  %92 = sitofp i32 %91 to double
+  %93 = fmul double %92, 0x3EB0000000000000
+  %94 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.2, i32 noundef 24, i32 noundef 4, double noundef %93)
   call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.4)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
-  %96 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %5) #11
-  %97 = icmp slt i32 %96, 0
-  br i1 %97, label %Abc_Clock.exit48, label %98
+  %95 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %5) #11
+  %96 = icmp slt i32 %95, 0
+  br i1 %96, label %Abc_Clock.exit48, label %97
 
-98:                                               ; preds = %Dar_ManCutCount.exit
-  %99 = load i64, ptr %5, align 8
-  %100 = mul nsw i64 %99, 1000000
-  %101 = getelementptr inbounds i8, ptr %5, i64 8
-  %102 = load i64, ptr %101, align 8
-  %103 = sdiv i64 %102, 1000
-  %104 = add nsw i64 %103, %100
+97:                                               ; preds = %Dar_ManCutCount.exit
+  %98 = load i64, ptr %5, align 8
+  %99 = mul nsw i64 %98, 1000000
+  %100 = getelementptr inbounds i8, ptr %5, i64 8
+  %101 = load i64, ptr %100, align 8
+  %102 = sdiv i64 %101, 1000
+  %103 = add nsw i64 %102, %99
   br label %Abc_Clock.exit48
 
-Abc_Clock.exit48:                                 ; preds = %Dar_ManCutCount.exit, %98
-  %.0.i47 = phi i64 [ %104, %98 ], [ -1, %Dar_ManCutCount.exit ]
+Abc_Clock.exit48:                                 ; preds = %Dar_ManCutCount.exit, %97
+  %.0.i47 = phi i64 [ %103, %97 ], [ -1, %Dar_ManCutCount.exit ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
-  %105 = add i64 %.0.i47, %.0.i.neg
-  %106 = sitofp i64 %105 to double
-  %107 = fdiv double %106, 1.000000e+06
-  call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.5, double noundef %107)
-  br label %108
+  %104 = add i64 %.0.i47, %.0.i.neg
+  %105 = sitofp i64 %104 to double
+  %106 = fdiv double %105, 1.000000e+06
+  call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.5, double noundef %106)
+  br label %107
 
-108:                                              ; preds = %Abc_Clock.exit48, %.critedge2
-  %109 = load ptr, ptr %25, align 8
+107:                                              ; preds = %Abc_Clock.exit48, %.critedge2
+  %108 = load ptr, ptr %25, align 8
   store ptr null, ptr %25, align 8
   call void @Dar_ManStop(ptr noundef %24) #11
-  ret ptr %109
+  ret ptr %108
 }
 
 declare void @Aig_MmFixedRestart(ptr noundef) local_unnamed_addr #2

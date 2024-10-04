@@ -6239,9 +6239,9 @@ define internal fastcc noundef range(i32 -1, 1) i32 @e1000_valid_nvm_bank_detect
 
 42:                                               ; preds = %39
   %43 = load i16, ptr %4, align 2
-  %44 = trunc i16 %43 to i8
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %4) #9
-  %45 = icmp slt i8 %44, -64
+  %44 = and i16 %43, 192
+  %45 = icmp eq i16 %44, 128
   br i1 %45, label %57, label %46
 
 46:                                               ; preds = %42
@@ -6263,9 +6263,9 @@ define internal fastcc noundef range(i32 -1, 1) i32 @e1000_valid_nvm_bank_detect
 
 53:                                               ; preds = %49
   %54 = load i16, ptr %3, align 2
-  %55 = trunc i16 %54 to i8
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %3) #9
-  %56 = icmp slt i8 %55, -64
+  %55 = and i16 %54, 192
+  %56 = icmp eq i16 %55, 128
   br i1 %56, label %57, label %59
 
 57:                                               ; preds = %53, %42, %33, %22, %14

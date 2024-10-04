@@ -536,24 +536,22 @@ define noundef range(i32 0, 13) i32 @_ZN3vcg3ply10PlyElement9AddToReadEPKciimiii
   br i1 %.not.i, label %_ZN3vcg3ply10PlyElement8FindPropEPKc.exit.thread, label %.lr.ph.i, !llvm.loop !19
 
 _ZN3vcg3ply10PlyElement8FindPropEPKc.exit:        ; preds = %.lr.ph.i
-  %20 = add i32 %2, -9
-  %or.cond = icmp ult i32 %20, -8
-  %21 = add i32 %3, -9
-  %22 = icmp ult i32 %21, -8
-  %or.cond5 = or i1 %or.cond, %22
-  br i1 %or.cond5, label %_ZN3vcg3ply10PlyElement8FindPropEPKc.exit.thread, label %23
+  %20 = sub i32 8, %2
+  %21 = sub i32 8, %3
+  %22 = or i32 %21, %20
+  %or.cond5.not = icmp ult i32 %22, 8
+  br i1 %or.cond5.not, label %23, label %_ZN3vcg3ply10PlyElement8FindPropEPKc.exit.thread
 
 23:                                               ; preds = %_ZN3vcg3ply10PlyElement8FindPropEPKc.exit
   %24 = icmp ne i32 %5, 0
   br i1 %24, label %25, label %29
 
 25:                                               ; preds = %23
-  %26 = add i32 %7, -9
-  %or.cond7 = icmp ult i32 %26, -8
-  %27 = add i32 %8, -9
-  %28 = icmp ult i32 %27, -8
-  %or.cond11 = or i1 %or.cond7, %28
-  br i1 %or.cond11, label %_ZN3vcg3ply10PlyElement8FindPropEPKc.exit.thread, label %29
+  %26 = sub i32 8, %7
+  %27 = sub i32 8, %8
+  %28 = or i32 %27, %26
+  %or.cond11.not = icmp ult i32 %28, 8
+  br i1 %or.cond11.not, label %29, label %_ZN3vcg3ply10PlyElement8FindPropEPKc.exit.thread
 
 29:                                               ; preds = %25, %23
   %30 = getelementptr inbounds i8, ptr %.sroa.03.08.i, i64 36
@@ -577,52 +575,54 @@ _ZN3vcg3ply10PlyElement8FindPropEPKc.exit:        ; preds = %.lr.ph.i
   br i1 %.not56, label %39, label %_ZN3vcg3ply10PlyElement8FindPropEPKc.exit.thread
 
 39:                                               ; preds = %36
-  %40 = zext nneg i32 %2 to i64
-  %41 = getelementptr inbounds [9 x [9 x i8]], ptr @_ZN3vcg3plyL9CrossTypeE, i64 0, i64 %40, i64 %40
-  %42 = load i8, ptr %41, align 1
-  %.not57 = icmp eq i8 %42, 0
-  br i1 %.not57, label %_ZN3vcg3ply10PlyElement8FindPropEPKc.exit.thread, label %46
+  %40 = sext i32 %2 to i64
+  %41 = zext nneg i32 %2 to i64
+  %42 = getelementptr inbounds [9 x [9 x i8]], ptr @_ZN3vcg3plyL9CrossTypeE, i64 0, i64 %40, i64 %41
+  %43 = load i8, ptr %42, align 1
+  %.not57 = icmp eq i8 %43, 0
+  br i1 %.not57, label %_ZN3vcg3ply10PlyElement8FindPropEPKc.exit.thread, label %48
 
 .thread:                                          ; preds = %35
-  %43 = zext nneg i32 %2 to i64
-  %44 = getelementptr inbounds [9 x [9 x i8]], ptr @_ZN3vcg3plyL9CrossTypeE, i64 0, i64 %43, i64 %43
-  %45 = load i8, ptr %44, align 1
-  %.not5760 = icmp eq i8 %45, 0
+  %44 = sext i32 %2 to i64
+  %45 = zext nneg i32 %2 to i64
+  %46 = getelementptr inbounds [9 x [9 x i8]], ptr @_ZN3vcg3plyL9CrossTypeE, i64 0, i64 %44, i64 %45
+  %47 = load i8, ptr %46, align 1
+  %.not5760 = icmp eq i8 %47, 0
   br i1 %.not5760, label %_ZN3vcg3ply10PlyElement8FindPropEPKc.exit.thread, label %.thread61
 
-46:                                               ; preds = %39
-  %47 = sext i32 %7 to i64
-  %48 = getelementptr inbounds [9 x [9 x i8]], ptr @_ZN3vcg3plyL9CrossTypeE, i64 0, i64 %47, i64 %47
-  %49 = load i8, ptr %48, align 1
-  %.not58 = icmp eq i8 %49, 0
+48:                                               ; preds = %39
+  %49 = sext i32 %7 to i64
+  %50 = getelementptr inbounds [9 x [9 x i8]], ptr @_ZN3vcg3plyL9CrossTypeE, i64 0, i64 %49, i64 %49
+  %51 = load i8, ptr %50, align 1
+  %.not58 = icmp eq i8 %51, 0
   br i1 %.not58, label %_ZN3vcg3ply10PlyElement8FindPropEPKc.exit.thread, label %.thread61
 
-.thread61:                                        ; preds = %.thread, %46
-  %50 = getelementptr inbounds i8, ptr %.sroa.03.08.i, i64 44
-  store i32 1, ptr %50, align 4
-  %51 = getelementptr inbounds i8, ptr %.sroa.03.08.i, i64 112
-  store i32 %2, ptr %51, align 8
-  %52 = getelementptr inbounds i8, ptr %.sroa.03.08.i, i64 116
-  store i32 %3, ptr %52, align 4
-  %53 = getelementptr inbounds i8, ptr %.sroa.03.08.i, i64 120
-  store i64 %4, ptr %53, align 8
-  %54 = getelementptr inbounds i8, ptr %.sroa.03.08.i, i64 128
-  %55 = zext i1 %24 to i8
-  store i8 %55, ptr %54, align 8
-  %56 = icmp ne i32 %6, 0
-  %57 = getelementptr inbounds i8, ptr %.sroa.03.08.i, i64 129
-  %58 = zext i1 %56 to i8
-  store i8 %58, ptr %57, align 1
-  %59 = getelementptr inbounds i8, ptr %.sroa.03.08.i, i64 132
-  store i32 %7, ptr %59, align 4
-  %60 = getelementptr inbounds i8, ptr %.sroa.03.08.i, i64 136
-  store i32 %8, ptr %60, align 8
-  %61 = getelementptr inbounds i8, ptr %.sroa.03.08.i, i64 144
-  store i64 %9, ptr %61, align 8
+.thread61:                                        ; preds = %.thread, %48
+  %52 = getelementptr inbounds i8, ptr %.sroa.03.08.i, i64 44
+  store i32 1, ptr %52, align 4
+  %53 = getelementptr inbounds i8, ptr %.sroa.03.08.i, i64 112
+  store i32 %2, ptr %53, align 8
+  %54 = getelementptr inbounds i8, ptr %.sroa.03.08.i, i64 116
+  store i32 %3, ptr %54, align 4
+  %55 = getelementptr inbounds i8, ptr %.sroa.03.08.i, i64 120
+  store i64 %4, ptr %55, align 8
+  %56 = getelementptr inbounds i8, ptr %.sroa.03.08.i, i64 128
+  %57 = zext i1 %24 to i8
+  store i8 %57, ptr %56, align 8
+  %58 = icmp ne i32 %6, 0
+  %59 = getelementptr inbounds i8, ptr %.sroa.03.08.i, i64 129
+  %60 = zext i1 %58 to i8
+  store i8 %60, ptr %59, align 1
+  %61 = getelementptr inbounds i8, ptr %.sroa.03.08.i, i64 132
+  store i32 %7, ptr %61, align 4
+  %62 = getelementptr inbounds i8, ptr %.sroa.03.08.i, i64 136
+  store i32 %8, ptr %62, align 8
+  %63 = getelementptr inbounds i8, ptr %.sroa.03.08.i, i64 144
+  store i64 %9, ptr %63, align 8
   br label %_ZN3vcg3ply10PlyElement8FindPropEPKc.exit.thread
 
-_ZN3vcg3ply10PlyElement8FindPropEPKc.exit.thread: ; preds = %17, %10, %.thread, %39, %46, %29, %32, %36, %25, %_ZN3vcg3ply10PlyElement8FindPropEPKc.exit, %.thread61
-  %.0 = phi i32 [ 0, %.thread61 ], [ 10, %_ZN3vcg3ply10PlyElement8FindPropEPKc.exit ], [ 10, %25 ], [ 11, %36 ], [ 11, %32 ], [ 11, %29 ], [ 12, %46 ], [ 12, %39 ], [ 12, %.thread ], [ 9, %10 ], [ 9, %17 ]
+_ZN3vcg3ply10PlyElement8FindPropEPKc.exit.thread: ; preds = %17, %10, %.thread, %39, %48, %29, %32, %36, %25, %_ZN3vcg3ply10PlyElement8FindPropEPKc.exit, %.thread61
+  %.0 = phi i32 [ 0, %.thread61 ], [ 10, %_ZN3vcg3ply10PlyElement8FindPropEPKc.exit ], [ 10, %25 ], [ 11, %36 ], [ 11, %32 ], [ 11, %29 ], [ 12, %48 ], [ 12, %39 ], [ 12, %.thread ], [ 9, %10 ], [ 9, %17 ]
   ret i32 %.0
 }
 

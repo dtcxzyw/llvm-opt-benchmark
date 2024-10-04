@@ -413,8 +413,8 @@ return:                                           ; preds = %if.then72, %do.end,
 define i32 @utf8_prevCharSafeBody_75(ptr nocapture noundef readonly %s, i32 noundef %start, ptr nocapture noundef %pi, i32 noundef %c, i8 noundef signext %strict) local_unnamed_addr #0 {
 entry:
   %0 = load i32, ptr %pi, align 4
-  %1 = trunc i32 %c to i8
-  %cmp = icmp slt i8 %1, -64
+  %1 = and i32 %c, 192
+  %cmp = icmp eq i32 %1, 128
   %cmp2 = icmp sgt i32 %0, %start
   %or.cond86 = select i1 %cmp, i1 %cmp2, i1 false
   br i1 %or.cond86, label %if.then, label %if.end186

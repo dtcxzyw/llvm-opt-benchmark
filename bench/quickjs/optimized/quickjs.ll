@@ -249,7 +249,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.125 = private unnamed_addr constant [25 x i8] c"cannot convert to bigint\00", align 1
 @.str.126 = private unnamed_addr constant [23 x i8] c"invalid bigint literal\00", align 1
 @.str.127 = private unnamed_addr constant [24 x i8] c"must be called with new\00", align 1
-@JS_CallInternal.dispatch_table = internal unnamed_addr constant [256 x ptr] [ptr blockaddress(@JS_CallInternal, %7518), ptr blockaddress(@JS_CallInternal, %319), ptr blockaddress(@JS_CallInternal, %323), ptr blockaddress(@JS_CallInternal, %847), ptr blockaddress(@JS_CallInternal, %423), ptr blockaddress(@JS_CallInternal, %4184), ptr blockaddress(@JS_CallInternal, %448), ptr blockaddress(@JS_CallInternal, %451), ptr blockaddress(@JS_CallInternal, %454), ptr blockaddress(@JS_CallInternal, %473), ptr blockaddress(@JS_CallInternal, %476), ptr blockaddress(@JS_CallInternal, %479), ptr blockaddress(@JS_CallInternal, %524), ptr blockaddress(@JS_CallInternal, %580), ptr blockaddress(@JS_CallInternal, %620), ptr blockaddress(@JS_CallInternal, %635), ptr blockaddress(@JS_CallInternal, %651), ptr blockaddress(@JS_CallInternal, %668), ptr blockaddress(@JS_CallInternal, %740), ptr blockaddress(@JS_CallInternal, %681), ptr blockaddress(@JS_CallInternal, %705), ptr blockaddress(@JS_CallInternal, %754), ptr blockaddress(@JS_CallInternal, %768), ptr blockaddress(@JS_CallInternal, %783), ptr blockaddress(@JS_CallInternal, %799), ptr blockaddress(@JS_CallInternal, %826), ptr blockaddress(@JS_CallInternal, %831), ptr blockaddress(@JS_CallInternal, %837), ptr blockaddress(@JS_CallInternal, %841), ptr blockaddress(@JS_CallInternal, %803), ptr blockaddress(@JS_CallInternal, %821), ptr blockaddress(@JS_CallInternal, %808), ptr blockaddress(@JS_CallInternal, %814), ptr blockaddress(@JS_CallInternal, %904), ptr blockaddress(@JS_CallInternal, %870), ptr blockaddress(@JS_CallInternal, %870), ptr blockaddress(@JS_CallInternal, %942), ptr blockaddress(@JS_CallInternal, %942), ptr blockaddress(@JS_CallInternal, %982), ptr blockaddress(@JS_CallInternal, %1025), ptr blockaddress(@JS_CallInternal, %1075), ptr blockaddress(@JS_CallInternal, %7619), ptr blockaddress(@JS_CallInternal, %1077), ptr blockaddress(@JS_CallInternal, %1086), ptr blockaddress(@JS_CallInternal, %1093), ptr blockaddress(@JS_CallInternal, %1109), ptr blockaddress(@JS_CallInternal, %7435), ptr blockaddress(@JS_CallInternal, %1379), ptr blockaddress(@JS_CallInternal, %1385), ptr blockaddress(@JS_CallInternal, %1399), ptr blockaddress(@JS_CallInternal, %1457), ptr blockaddress(@JS_CallInternal, %1540), ptr blockaddress(@JS_CallInternal, %1550), ptr blockaddress(@JS_CallInternal, %1600), ptr blockaddress(@JS_CallInternal, %1730), ptr blockaddress(@JS_CallInternal, %1761), ptr blockaddress(@JS_CallInternal, %1761), ptr blockaddress(@JS_CallInternal, %1807), ptr blockaddress(@JS_CallInternal, %1807), ptr blockaddress(@JS_CallInternal, %1818), ptr blockaddress(@JS_CallInternal, %5216), ptr blockaddress(@JS_CallInternal, %5386), ptr blockaddress(@JS_CallInternal, %1897), ptr blockaddress(@JS_CallInternal, %1832), ptr blockaddress(@JS_CallInternal, %1934), ptr blockaddress(@JS_CallInternal, %4123), ptr blockaddress(@JS_CallInternal, %4146), ptr blockaddress(@JS_CallInternal, %4159), ptr blockaddress(@JS_CallInternal, %4212), ptr blockaddress(@JS_CallInternal, %4309), ptr blockaddress(@JS_CallInternal, %4407), ptr blockaddress(@JS_CallInternal, %5175), ptr blockaddress(@JS_CallInternal, %5201), ptr blockaddress(@JS_CallInternal, %5360), ptr blockaddress(@JS_CallInternal, %5244), ptr blockaddress(@JS_CallInternal, %5439), ptr blockaddress(@JS_CallInternal, %4493), ptr blockaddress(@JS_CallInternal, %4516), ptr blockaddress(@JS_CallInternal, %4589), ptr blockaddress(@JS_CallInternal, %4602), ptr blockaddress(@JS_CallInternal, %4621), ptr blockaddress(@JS_CallInternal, %5560), ptr blockaddress(@JS_CallInternal, %5669), ptr blockaddress(@JS_CallInternal, %5848), ptr blockaddress(@JS_CallInternal, %4656), ptr blockaddress(@JS_CallInternal, %4656), ptr blockaddress(@JS_CallInternal, %4860), ptr blockaddress(@JS_CallInternal, %4860), ptr blockaddress(@JS_CallInternal, %1983), ptr blockaddress(@JS_CallInternal, %1998), ptr blockaddress(@JS_CallInternal, %2016), ptr blockaddress(@JS_CallInternal, %2040), ptr blockaddress(@JS_CallInternal, %2055), ptr blockaddress(@JS_CallInternal, %2073), ptr blockaddress(@JS_CallInternal, %2761), ptr blockaddress(@JS_CallInternal, %2776), ptr blockaddress(@JS_CallInternal, %2797), ptr blockaddress(@JS_CallInternal, %2896), ptr blockaddress(@JS_CallInternal, %2910), ptr blockaddress(@JS_CallInternal, %2962), ptr blockaddress(@JS_CallInternal, %2993), ptr blockaddress(@JS_CallInternal, %2936), ptr blockaddress(@JS_CallInternal, %2824), ptr blockaddress(@JS_CallInternal, %2846), ptr blockaddress(@JS_CallInternal, %2876), ptr blockaddress(@JS_CallInternal, %3007), ptr blockaddress(@JS_CallInternal, %3356), ptr blockaddress(@JS_CallInternal, %3314), ptr blockaddress(@JS_CallInternal, %3220), ptr blockaddress(@JS_CallInternal, %3482), ptr blockaddress(@JS_CallInternal, %3492), ptr blockaddress(@JS_CallInternal, %3502), ptr blockaddress(@JS_CallInternal, %4006), ptr blockaddress(@JS_CallInternal, %7219), ptr blockaddress(@JS_CallInternal, %7244), ptr blockaddress(@JS_CallInternal, %7269), ptr blockaddress(@JS_CallInternal, %7299), ptr blockaddress(@JS_CallInternal, %7299), ptr blockaddress(@JS_CallInternal, %7299), ptr blockaddress(@JS_CallInternal, %7299), ptr blockaddress(@JS_CallInternal, %7299), ptr blockaddress(@JS_CallInternal, %7299), ptr blockaddress(@JS_CallInternal, %3067), ptr blockaddress(@JS_CallInternal, %3067), ptr blockaddress(@JS_CallInternal, %3067), ptr blockaddress(@JS_CallInternal, %3139), ptr blockaddress(@JS_CallInternal, %3514), ptr blockaddress(@JS_CallInternal, %3839), ptr blockaddress(@JS_CallInternal, %3913), ptr blockaddress(@JS_CallInternal, %3633), ptr blockaddress(@JS_CallInternal, %3863), ptr blockaddress(@JS_CallInternal, %3964), ptr blockaddress(@JS_CallInternal, %3937), ptr blockaddress(@JS_CallInternal, %3972), ptr blockaddress(@JS_CallInternal, %4040), ptr blockaddress(@JS_CallInternal, %4068), ptr blockaddress(@JS_CallInternal, %7436), ptr blockaddress(@JS_CallInternal, %7433), ptr blockaddress(@JS_CallInternal, %7434), ptr blockaddress(@JS_CallInternal, %7434), ptr blockaddress(@JS_CallInternal, %7616), ptr blockaddress(@JS_CallInternal, %6356), ptr blockaddress(@JS_CallInternal, %6350), ptr blockaddress(@JS_CallInternal, %6382), ptr blockaddress(@JS_CallInternal, %6371), ptr blockaddress(@JS_CallInternal, %6393), ptr blockaddress(@JS_CallInternal, %6393), ptr blockaddress(@JS_CallInternal, %6446), ptr blockaddress(@JS_CallInternal, %6411), ptr blockaddress(@JS_CallInternal, %5909), ptr blockaddress(@JS_CallInternal, %6481), ptr blockaddress(@JS_CallInternal, %4111), ptr blockaddress(@JS_CallInternal, %7030), ptr blockaddress(@JS_CallInternal, %7085), ptr blockaddress(@JS_CallInternal, %7197), ptr blockaddress(@JS_CallInternal, %6014), ptr blockaddress(@JS_CallInternal, %6053), ptr blockaddress(@JS_CallInternal, %6072), ptr blockaddress(@JS_CallInternal, %5874), ptr blockaddress(@JS_CallInternal, %5991), ptr blockaddress(@JS_CallInternal, %6085), ptr blockaddress(@JS_CallInternal, %6526), ptr blockaddress(@JS_CallInternal, %6629), ptr blockaddress(@JS_CallInternal, %6548), ptr blockaddress(@JS_CallInternal, %6684), ptr blockaddress(@JS_CallInternal, %6696), ptr blockaddress(@JS_CallInternal, %6708), ptr blockaddress(@JS_CallInternal, %6720), ptr blockaddress(@JS_CallInternal, %7003), ptr blockaddress(@JS_CallInternal, %6793), ptr blockaddress(@JS_CallInternal, %6732), ptr blockaddress(@JS_CallInternal, %6744), ptr blockaddress(@JS_CallInternal, %6756), ptr blockaddress(@JS_CallInternal, %6771), ptr blockaddress(@JS_CallInternal, %6648), ptr blockaddress(@JS_CallInternal, %6672), ptr blockaddress(@JS_CallInternal, %6660), ptr blockaddress(@JS_CallInternal, %7439), ptr blockaddress(@JS_CallInternal, %6885), ptr blockaddress(@JS_CallInternal, %6787), ptr blockaddress(@JS_CallInternal, %6072), ptr blockaddress(@JS_CallInternal, %7437), ptr blockaddress(@JS_CallInternal, %339), ptr blockaddress(@JS_CallInternal, %339), ptr blockaddress(@JS_CallInternal, %339), ptr blockaddress(@JS_CallInternal, %339), ptr blockaddress(@JS_CallInternal, %339), ptr blockaddress(@JS_CallInternal, %339), ptr blockaddress(@JS_CallInternal, %339), ptr blockaddress(@JS_CallInternal, %339), ptr blockaddress(@JS_CallInternal, %339), ptr blockaddress(@JS_CallInternal, %343), ptr blockaddress(@JS_CallInternal, %348), ptr blockaddress(@JS_CallInternal, %353), ptr blockaddress(@JS_CallInternal, %370), ptr blockaddress(@JS_CallInternal, %__JS_AtomToValue.exit), ptr blockaddress(@JS_CallInternal, %2097), ptr blockaddress(@JS_CallInternal, %2113), ptr blockaddress(@JS_CallInternal, %2132), ptr blockaddress(@JS_CallInternal, %2157), ptr blockaddress(@JS_CallInternal, %2168), ptr blockaddress(@JS_CallInternal, %2179), ptr blockaddress(@JS_CallInternal, %2190), ptr blockaddress(@JS_CallInternal, %2201), ptr blockaddress(@JS_CallInternal, %2216), ptr blockaddress(@JS_CallInternal, %2231), ptr blockaddress(@JS_CallInternal, %2246), ptr blockaddress(@JS_CallInternal, %2261), ptr blockaddress(@JS_CallInternal, %2282), ptr blockaddress(@JS_CallInternal, %2303), ptr blockaddress(@JS_CallInternal, %2324), ptr blockaddress(@JS_CallInternal, %2345), ptr blockaddress(@JS_CallInternal, %2356), ptr blockaddress(@JS_CallInternal, %2367), ptr blockaddress(@JS_CallInternal, %2378), ptr blockaddress(@JS_CallInternal, %2389), ptr blockaddress(@JS_CallInternal, %2404), ptr blockaddress(@JS_CallInternal, %2419), ptr blockaddress(@JS_CallInternal, %2434), ptr blockaddress(@JS_CallInternal, %2449), ptr blockaddress(@JS_CallInternal, %2470), ptr blockaddress(@JS_CallInternal, %2491), ptr blockaddress(@JS_CallInternal, %2512), ptr blockaddress(@JS_CallInternal, %2533), ptr blockaddress(@JS_CallInternal, %2548), ptr blockaddress(@JS_CallInternal, %2563), ptr blockaddress(@JS_CallInternal, %2578), ptr blockaddress(@JS_CallInternal, %2593), ptr blockaddress(@JS_CallInternal, %2611), ptr blockaddress(@JS_CallInternal, %2629), ptr blockaddress(@JS_CallInternal, %2647), ptr blockaddress(@JS_CallInternal, %2665), ptr blockaddress(@JS_CallInternal, %2689), ptr blockaddress(@JS_CallInternal, %2713), ptr blockaddress(@JS_CallInternal, %2737), ptr blockaddress(@JS_CallInternal, %401), ptr blockaddress(@JS_CallInternal, %3440), ptr blockaddress(@JS_CallInternal, %3398), ptr blockaddress(@JS_CallInternal, %3282), ptr blockaddress(@JS_CallInternal, %3251), ptr blockaddress(@JS_CallInternal, %868), ptr blockaddress(@JS_CallInternal, %868), ptr blockaddress(@JS_CallInternal, %868), ptr blockaddress(@JS_CallInternal, %868), ptr blockaddress(@JS_CallInternal, %7443), ptr blockaddress(@JS_CallInternal, %7448), ptr blockaddress(@JS_CallInternal, %7453), ptr blockaddress(@JS_CallInternal, %7463), ptr blockaddress(@JS_CallInternal, %7518), ptr blockaddress(@JS_CallInternal, %7518), ptr blockaddress(@JS_CallInternal, %7518), ptr blockaddress(@JS_CallInternal, %7518), ptr blockaddress(@JS_CallInternal, %7518), ptr blockaddress(@JS_CallInternal, %7518), ptr blockaddress(@JS_CallInternal, %7518), ptr blockaddress(@JS_CallInternal, %7518)], align 16
+@JS_CallInternal.dispatch_table = internal unnamed_addr constant [256 x ptr] [ptr blockaddress(@JS_CallInternal, %7516), ptr blockaddress(@JS_CallInternal, %319), ptr blockaddress(@JS_CallInternal, %323), ptr blockaddress(@JS_CallInternal, %847), ptr blockaddress(@JS_CallInternal, %423), ptr blockaddress(@JS_CallInternal, %4184), ptr blockaddress(@JS_CallInternal, %448), ptr blockaddress(@JS_CallInternal, %451), ptr blockaddress(@JS_CallInternal, %454), ptr blockaddress(@JS_CallInternal, %473), ptr blockaddress(@JS_CallInternal, %476), ptr blockaddress(@JS_CallInternal, %479), ptr blockaddress(@JS_CallInternal, %524), ptr blockaddress(@JS_CallInternal, %580), ptr blockaddress(@JS_CallInternal, %620), ptr blockaddress(@JS_CallInternal, %635), ptr blockaddress(@JS_CallInternal, %651), ptr blockaddress(@JS_CallInternal, %668), ptr blockaddress(@JS_CallInternal, %740), ptr blockaddress(@JS_CallInternal, %681), ptr blockaddress(@JS_CallInternal, %705), ptr blockaddress(@JS_CallInternal, %754), ptr blockaddress(@JS_CallInternal, %768), ptr blockaddress(@JS_CallInternal, %783), ptr blockaddress(@JS_CallInternal, %799), ptr blockaddress(@JS_CallInternal, %826), ptr blockaddress(@JS_CallInternal, %831), ptr blockaddress(@JS_CallInternal, %837), ptr blockaddress(@JS_CallInternal, %841), ptr blockaddress(@JS_CallInternal, %803), ptr blockaddress(@JS_CallInternal, %821), ptr blockaddress(@JS_CallInternal, %808), ptr blockaddress(@JS_CallInternal, %814), ptr blockaddress(@JS_CallInternal, %904), ptr blockaddress(@JS_CallInternal, %870), ptr blockaddress(@JS_CallInternal, %870), ptr blockaddress(@JS_CallInternal, %942), ptr blockaddress(@JS_CallInternal, %942), ptr blockaddress(@JS_CallInternal, %982), ptr blockaddress(@JS_CallInternal, %1025), ptr blockaddress(@JS_CallInternal, %1075), ptr blockaddress(@JS_CallInternal, %7617), ptr blockaddress(@JS_CallInternal, %1077), ptr blockaddress(@JS_CallInternal, %1086), ptr blockaddress(@JS_CallInternal, %1093), ptr blockaddress(@JS_CallInternal, %1109), ptr blockaddress(@JS_CallInternal, %7433), ptr blockaddress(@JS_CallInternal, %1379), ptr blockaddress(@JS_CallInternal, %1385), ptr blockaddress(@JS_CallInternal, %1399), ptr blockaddress(@JS_CallInternal, %1457), ptr blockaddress(@JS_CallInternal, %1540), ptr blockaddress(@JS_CallInternal, %1550), ptr blockaddress(@JS_CallInternal, %1600), ptr blockaddress(@JS_CallInternal, %1730), ptr blockaddress(@JS_CallInternal, %1761), ptr blockaddress(@JS_CallInternal, %1761), ptr blockaddress(@JS_CallInternal, %1807), ptr blockaddress(@JS_CallInternal, %1807), ptr blockaddress(@JS_CallInternal, %1818), ptr blockaddress(@JS_CallInternal, %5214), ptr blockaddress(@JS_CallInternal, %5384), ptr blockaddress(@JS_CallInternal, %1897), ptr blockaddress(@JS_CallInternal, %1832), ptr blockaddress(@JS_CallInternal, %1934), ptr blockaddress(@JS_CallInternal, %4123), ptr blockaddress(@JS_CallInternal, %4146), ptr blockaddress(@JS_CallInternal, %4159), ptr blockaddress(@JS_CallInternal, %4212), ptr blockaddress(@JS_CallInternal, %4309), ptr blockaddress(@JS_CallInternal, %4407), ptr blockaddress(@JS_CallInternal, %5173), ptr blockaddress(@JS_CallInternal, %5199), ptr blockaddress(@JS_CallInternal, %5358), ptr blockaddress(@JS_CallInternal, %5242), ptr blockaddress(@JS_CallInternal, %5437), ptr blockaddress(@JS_CallInternal, %4493), ptr blockaddress(@JS_CallInternal, %4516), ptr blockaddress(@JS_CallInternal, %4589), ptr blockaddress(@JS_CallInternal, %4602), ptr blockaddress(@JS_CallInternal, %4621), ptr blockaddress(@JS_CallInternal, %5558), ptr blockaddress(@JS_CallInternal, %5667), ptr blockaddress(@JS_CallInternal, %5846), ptr blockaddress(@JS_CallInternal, %4656), ptr blockaddress(@JS_CallInternal, %4656), ptr blockaddress(@JS_CallInternal, %4858), ptr blockaddress(@JS_CallInternal, %4858), ptr blockaddress(@JS_CallInternal, %1983), ptr blockaddress(@JS_CallInternal, %1998), ptr blockaddress(@JS_CallInternal, %2016), ptr blockaddress(@JS_CallInternal, %2040), ptr blockaddress(@JS_CallInternal, %2055), ptr blockaddress(@JS_CallInternal, %2073), ptr blockaddress(@JS_CallInternal, %2761), ptr blockaddress(@JS_CallInternal, %2776), ptr blockaddress(@JS_CallInternal, %2797), ptr blockaddress(@JS_CallInternal, %2896), ptr blockaddress(@JS_CallInternal, %2910), ptr blockaddress(@JS_CallInternal, %2962), ptr blockaddress(@JS_CallInternal, %2993), ptr blockaddress(@JS_CallInternal, %2936), ptr blockaddress(@JS_CallInternal, %2824), ptr blockaddress(@JS_CallInternal, %2846), ptr blockaddress(@JS_CallInternal, %2876), ptr blockaddress(@JS_CallInternal, %3007), ptr blockaddress(@JS_CallInternal, %3356), ptr blockaddress(@JS_CallInternal, %3314), ptr blockaddress(@JS_CallInternal, %3220), ptr blockaddress(@JS_CallInternal, %3482), ptr blockaddress(@JS_CallInternal, %3492), ptr blockaddress(@JS_CallInternal, %3502), ptr blockaddress(@JS_CallInternal, %4006), ptr blockaddress(@JS_CallInternal, %7217), ptr blockaddress(@JS_CallInternal, %7242), ptr blockaddress(@JS_CallInternal, %7267), ptr blockaddress(@JS_CallInternal, %7297), ptr blockaddress(@JS_CallInternal, %7297), ptr blockaddress(@JS_CallInternal, %7297), ptr blockaddress(@JS_CallInternal, %7297), ptr blockaddress(@JS_CallInternal, %7297), ptr blockaddress(@JS_CallInternal, %7297), ptr blockaddress(@JS_CallInternal, %3067), ptr blockaddress(@JS_CallInternal, %3067), ptr blockaddress(@JS_CallInternal, %3067), ptr blockaddress(@JS_CallInternal, %3139), ptr blockaddress(@JS_CallInternal, %3514), ptr blockaddress(@JS_CallInternal, %3839), ptr blockaddress(@JS_CallInternal, %3913), ptr blockaddress(@JS_CallInternal, %3633), ptr blockaddress(@JS_CallInternal, %3863), ptr blockaddress(@JS_CallInternal, %3964), ptr blockaddress(@JS_CallInternal, %3937), ptr blockaddress(@JS_CallInternal, %3972), ptr blockaddress(@JS_CallInternal, %4040), ptr blockaddress(@JS_CallInternal, %4068), ptr blockaddress(@JS_CallInternal, %7434), ptr blockaddress(@JS_CallInternal, %7431), ptr blockaddress(@JS_CallInternal, %7432), ptr blockaddress(@JS_CallInternal, %7432), ptr blockaddress(@JS_CallInternal, %7614), ptr blockaddress(@JS_CallInternal, %6354), ptr blockaddress(@JS_CallInternal, %6348), ptr blockaddress(@JS_CallInternal, %6380), ptr blockaddress(@JS_CallInternal, %6369), ptr blockaddress(@JS_CallInternal, %6391), ptr blockaddress(@JS_CallInternal, %6391), ptr blockaddress(@JS_CallInternal, %6444), ptr blockaddress(@JS_CallInternal, %6409), ptr blockaddress(@JS_CallInternal, %5907), ptr blockaddress(@JS_CallInternal, %6479), ptr blockaddress(@JS_CallInternal, %4111), ptr blockaddress(@JS_CallInternal, %7028), ptr blockaddress(@JS_CallInternal, %7083), ptr blockaddress(@JS_CallInternal, %7195), ptr blockaddress(@JS_CallInternal, %6012), ptr blockaddress(@JS_CallInternal, %6051), ptr blockaddress(@JS_CallInternal, %6070), ptr blockaddress(@JS_CallInternal, %5872), ptr blockaddress(@JS_CallInternal, %5989), ptr blockaddress(@JS_CallInternal, %6083), ptr blockaddress(@JS_CallInternal, %6524), ptr blockaddress(@JS_CallInternal, %6627), ptr blockaddress(@JS_CallInternal, %6546), ptr blockaddress(@JS_CallInternal, %6682), ptr blockaddress(@JS_CallInternal, %6694), ptr blockaddress(@JS_CallInternal, %6706), ptr blockaddress(@JS_CallInternal, %6718), ptr blockaddress(@JS_CallInternal, %7001), ptr blockaddress(@JS_CallInternal, %6791), ptr blockaddress(@JS_CallInternal, %6730), ptr blockaddress(@JS_CallInternal, %6742), ptr blockaddress(@JS_CallInternal, %6754), ptr blockaddress(@JS_CallInternal, %6769), ptr blockaddress(@JS_CallInternal, %6646), ptr blockaddress(@JS_CallInternal, %6670), ptr blockaddress(@JS_CallInternal, %6658), ptr blockaddress(@JS_CallInternal, %7437), ptr blockaddress(@JS_CallInternal, %6883), ptr blockaddress(@JS_CallInternal, %6785), ptr blockaddress(@JS_CallInternal, %6070), ptr blockaddress(@JS_CallInternal, %7435), ptr blockaddress(@JS_CallInternal, %339), ptr blockaddress(@JS_CallInternal, %339), ptr blockaddress(@JS_CallInternal, %339), ptr blockaddress(@JS_CallInternal, %339), ptr blockaddress(@JS_CallInternal, %339), ptr blockaddress(@JS_CallInternal, %339), ptr blockaddress(@JS_CallInternal, %339), ptr blockaddress(@JS_CallInternal, %339), ptr blockaddress(@JS_CallInternal, %339), ptr blockaddress(@JS_CallInternal, %343), ptr blockaddress(@JS_CallInternal, %348), ptr blockaddress(@JS_CallInternal, %353), ptr blockaddress(@JS_CallInternal, %370), ptr blockaddress(@JS_CallInternal, %__JS_AtomToValue.exit), ptr blockaddress(@JS_CallInternal, %2097), ptr blockaddress(@JS_CallInternal, %2113), ptr blockaddress(@JS_CallInternal, %2132), ptr blockaddress(@JS_CallInternal, %2157), ptr blockaddress(@JS_CallInternal, %2168), ptr blockaddress(@JS_CallInternal, %2179), ptr blockaddress(@JS_CallInternal, %2190), ptr blockaddress(@JS_CallInternal, %2201), ptr blockaddress(@JS_CallInternal, %2216), ptr blockaddress(@JS_CallInternal, %2231), ptr blockaddress(@JS_CallInternal, %2246), ptr blockaddress(@JS_CallInternal, %2261), ptr blockaddress(@JS_CallInternal, %2282), ptr blockaddress(@JS_CallInternal, %2303), ptr blockaddress(@JS_CallInternal, %2324), ptr blockaddress(@JS_CallInternal, %2345), ptr blockaddress(@JS_CallInternal, %2356), ptr blockaddress(@JS_CallInternal, %2367), ptr blockaddress(@JS_CallInternal, %2378), ptr blockaddress(@JS_CallInternal, %2389), ptr blockaddress(@JS_CallInternal, %2404), ptr blockaddress(@JS_CallInternal, %2419), ptr blockaddress(@JS_CallInternal, %2434), ptr blockaddress(@JS_CallInternal, %2449), ptr blockaddress(@JS_CallInternal, %2470), ptr blockaddress(@JS_CallInternal, %2491), ptr blockaddress(@JS_CallInternal, %2512), ptr blockaddress(@JS_CallInternal, %2533), ptr blockaddress(@JS_CallInternal, %2548), ptr blockaddress(@JS_CallInternal, %2563), ptr blockaddress(@JS_CallInternal, %2578), ptr blockaddress(@JS_CallInternal, %2593), ptr blockaddress(@JS_CallInternal, %2611), ptr blockaddress(@JS_CallInternal, %2629), ptr blockaddress(@JS_CallInternal, %2647), ptr blockaddress(@JS_CallInternal, %2665), ptr blockaddress(@JS_CallInternal, %2689), ptr blockaddress(@JS_CallInternal, %2713), ptr blockaddress(@JS_CallInternal, %2737), ptr blockaddress(@JS_CallInternal, %401), ptr blockaddress(@JS_CallInternal, %3440), ptr blockaddress(@JS_CallInternal, %3398), ptr blockaddress(@JS_CallInternal, %3282), ptr blockaddress(@JS_CallInternal, %3251), ptr blockaddress(@JS_CallInternal, %868), ptr blockaddress(@JS_CallInternal, %868), ptr blockaddress(@JS_CallInternal, %868), ptr blockaddress(@JS_CallInternal, %868), ptr blockaddress(@JS_CallInternal, %7441), ptr blockaddress(@JS_CallInternal, %7446), ptr blockaddress(@JS_CallInternal, %7451), ptr blockaddress(@JS_CallInternal, %7461), ptr blockaddress(@JS_CallInternal, %7516), ptr blockaddress(@JS_CallInternal, %7516), ptr blockaddress(@JS_CallInternal, %7516), ptr blockaddress(@JS_CallInternal, %7516), ptr blockaddress(@JS_CallInternal, %7516), ptr blockaddress(@JS_CallInternal, %7516), ptr blockaddress(@JS_CallInternal, %7516), ptr blockaddress(@JS_CallInternal, %7516)], align 16
 @.str.128 = private unnamed_addr constant [15 x i8] c"not a function\00", align 1
 @.str.129 = private unnamed_addr constant [61 x i8] c"derived class constructor must return an object or undefined\00", align 1
 @.str.130 = private unnamed_addr constant [46 x i8] c"class constructors must be invoked with 'new'\00", align 1
@@ -33248,13 +33248,13 @@ define internal fastcc { i64, i64 } @JS_CallInternal(ptr noundef %0, i64 %1, i64
 
 .preheader4995.loopexit:                          ; preds = %JS_DupValue.exit
   %.pre = load i16, ptr %160, align 8
-  %.pre5890 = zext i16 %.pre to i32
+  %.pre5887 = zext i16 %.pre to i32
   br label %.preheader4995
 
 .preheader4995:                                   ; preds = %.preheader4995.loopexit, %195
-  %.pre-phi5891 = phi i32 [ %.pre5890, %.preheader4995.loopexit ], [ %197, %195 ]
+  %.pre-phi5888 = phi i32 [ %.pre5887, %.preheader4995.loopexit ], [ %197, %195 ]
   %.03335.lcssa = phi i32 [ %..i, %.preheader4995.loopexit ], [ 0, %195 ]
-  %199 = icmp ult i32 %.03335.lcssa, %.pre-phi5891
+  %199 = icmp ult i32 %.03335.lcssa, %.pre-phi5888
   br i1 %199, label %.lr.ph5352.preheader, label %._crit_edge
 
 .lr.ph5352.preheader:                             ; preds = %.preheader4995
@@ -33288,15 +33288,15 @@ JS_DupValue.exit:                                 ; preds = %.lr.ph, %208
   br i1 %exitcond.not, label %.preheader4995.loopexit, label %.lr.ph, !llvm.loop !106
 
 .lr.ph5352:                                       ; preds = %.lr.ph5352.preheader, %.lr.ph5352
-  %indvars.iv5825 = phi i64 [ %200, %.lr.ph5352.preheader ], [ %indvars.iv.next5826, %.lr.ph5352 ]
-  %212 = getelementptr %struct.JSValue, ptr %194, i64 %indvars.iv5825
+  %indvars.iv5822 = phi i64 [ %200, %.lr.ph5352.preheader ], [ %indvars.iv.next5823, %.lr.ph5352 ]
+  %212 = getelementptr %struct.JSValue, ptr %194, i64 %indvars.iv5822
   store i32 0, ptr %212, align 16
   %.sroa.21036.0..sroa_idx = getelementptr inbounds i8, ptr %212, i64 8
   store i64 3, ptr %.sroa.21036.0..sroa_idx, align 8
-  %indvars.iv.next5826 = add nuw nsw i64 %indvars.iv5825, 1
+  %indvars.iv.next5823 = add nuw nsw i64 %indvars.iv5822, 1
   %213 = load i16, ptr %160, align 8
   %214 = zext i16 %213 to i64
-  %215 = icmp ult i64 %indvars.iv.next5826, %214
+  %215 = icmp ult i64 %indvars.iv.next5823, %214
   br i1 %215, label %.lr.ph5352, label %._crit_edge.loopexit, !llvm.loop !107
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph5352
@@ -33304,7 +33304,7 @@ JS_DupValue.exit:                                 ; preds = %.lr.ph, %208
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %.preheader4995
-  %.lcssa5349 = phi i32 [ %.pre-phi5891, %.preheader4995 ], [ %216, %._crit_edge.loopexit ]
+  %.lcssa5349 = phi i32 [ %.pre-phi5888, %.preheader4995 ], [ %216, %._crit_edge.loopexit ]
   store i32 %.lcssa5349, ptr %188, align 8
   br label %217
 
@@ -33321,15 +33321,15 @@ JS_DupValue.exit:                                 ; preds = %.lr.ph, %208
   br i1 %.not5442, label %._crit_edge5357, label %.lr.ph5356
 
 .lr.ph5356:                                       ; preds = %217, %.lr.ph5356
-  %indvars.iv5828 = phi i64 [ %indvars.iv.next5829, %.lr.ph5356 ], [ 0, %217 ]
-  %223 = getelementptr %struct.JSValue, ptr %219, i64 %indvars.iv5828
+  %indvars.iv5825 = phi i64 [ %indvars.iv.next5826, %.lr.ph5356 ], [ 0, %217 ]
+  %223 = getelementptr %struct.JSValue, ptr %219, i64 %indvars.iv5825
   store i32 0, ptr %223, align 16
   %.sroa.21033.0..sroa_idx = getelementptr inbounds i8, ptr %223, i64 8
   store i64 3, ptr %.sroa.21033.0..sroa_idx, align 8
-  %indvars.iv.next5829 = add nuw nsw i64 %indvars.iv5828, 1
+  %indvars.iv.next5826 = add nuw nsw i64 %indvars.iv5825, 1
   %224 = load i16, ptr %167, align 2
   %225 = zext i16 %224 to i64
-  %226 = icmp ult i64 %indvars.iv.next5829, %225
+  %226 = icmp ult i64 %indvars.iv.next5826, %225
   br i1 %226, label %.lr.ph5356, label %._crit_edge5357, !llvm.loop !108
 
 ._crit_edge5357:                                  ; preds = %.lr.ph5356, %217
@@ -33345,18 +33345,18 @@ JS_DupValue.exit:                                 ; preds = %.lr.ph, %208
   %233 = load ptr, ptr %232, align 8
   br label %234
 
-234:                                              ; preds = %._crit_edge5357, %7606, %116
-  %.13365 = phi ptr [ %.03364, %7606 ], [ %125, %116 ], [ %193, %._crit_edge5357 ]
-  %.13353 = phi ptr [ %.285435, %7606 ], [ %135, %116 ], [ %227, %._crit_edge5357 ]
-  %.23351 = phi ptr [ %.03349, %7606 ], [ %127, %116 ], [ %.13350, %._crit_edge5357 ]
-  %.13348 = phi ptr [ %.03347, %7606 ], [ %129, %116 ], [ %219, %._crit_edge5357 ]
-  %.13346 = phi ptr [ %.03345, %7606 ], [ %133, %116 ], [ %227, %._crit_edge5357 ]
-  %.13343 = phi ptr [ %.03342, %7606 ], [ %127, %116 ], [ %194, %._crit_edge5357 ]
-  %.13329 = phi ptr [ %7610, %7606 ], [ %137, %116 ], [ %229, %._crit_edge5357 ]
-  %.13326 = phi ptr [ %.03325, %7606 ], [ %117, %116 ], [ %61, %._crit_edge5357 ]
-  %.13324 = phi ptr [ %.03323, %7606 ], [ %121, %116 ], [ %159, %._crit_edge5357 ]
-  %.13322 = phi ptr [ %.03321, %7606 ], [ %119, %116 ], [ %88, %._crit_edge5357 ]
-  %.1 = phi ptr [ %.0, %7606 ], [ %123, %116 ], [ %233, %._crit_edge5357 ]
+234:                                              ; preds = %._crit_edge5357, %7604, %116
+  %.13365 = phi ptr [ %.03364, %7604 ], [ %125, %116 ], [ %193, %._crit_edge5357 ]
+  %.13353 = phi ptr [ %.285435, %7604 ], [ %135, %116 ], [ %227, %._crit_edge5357 ]
+  %.23351 = phi ptr [ %.03349, %7604 ], [ %127, %116 ], [ %.13350, %._crit_edge5357 ]
+  %.13348 = phi ptr [ %.03347, %7604 ], [ %129, %116 ], [ %219, %._crit_edge5357 ]
+  %.13346 = phi ptr [ %.03345, %7604 ], [ %133, %116 ], [ %227, %._crit_edge5357 ]
+  %.13343 = phi ptr [ %.03342, %7604 ], [ %127, %116 ], [ %194, %._crit_edge5357 ]
+  %.13329 = phi ptr [ %7608, %7604 ], [ %137, %116 ], [ %229, %._crit_edge5357 ]
+  %.13326 = phi ptr [ %.03325, %7604 ], [ %117, %116 ], [ %61, %._crit_edge5357 ]
+  %.13324 = phi ptr [ %.03323, %7604 ], [ %121, %116 ], [ %159, %._crit_edge5357 ]
+  %.13322 = phi ptr [ %.03321, %7604 ], [ %119, %116 ], [ %88, %._crit_edge5357 ]
+  %.1 = phi ptr [ %.0, %7604 ], [ %123, %116 ], [ %233, %._crit_edge5357 ]
   %235 = getelementptr i8, ptr %.13329, i64 1
   %236 = getelementptr i8, ptr %.23351, i64 16
   %.sroa.2.0..sroa_idx.i3933 = getelementptr i8, ptr %.23351, i64 24
@@ -33442,7 +33442,7 @@ JS_DupValue.exit:                                 ; preds = %.lr.ph, %208
   %303 = and i32 %301, -2
   %or.cond = icmp eq i32 %303, 2
   %304 = icmp ugt i32 %301, -12
-  %wide.trip.count5865 = zext nneg i32 %6 to i64
+  %wide.trip.count5862 = zext nneg i32 %6 to i64
   %305 = getelementptr inbounds i8, ptr %28, i64 8
   %306 = getelementptr inbounds i8, ptr %29, i64 8
   %307 = getelementptr inbounds i8, ptr %24, i64 8
@@ -33470,10 +33470,10 @@ JS_DupValue.exit:                                 ; preds = %.lr.ph, %208
   %322 = getelementptr i8, ptr %.23330, i64 5
   br label %.backedge4994.backedge
 
-.backedge4994.backedge:                           ; preds = %319, %JS_DupValue.exit3675, %339, %343, %348, %JS_DupValue.exit3678, %390, %__JS_AtomToValue.exit, %JS_FreeValue.exit, %__JS_AtomToValue.exit4334, %448, %451, %JS_DupValue.exit3684, %473, %476, %522, %578, %618, %JS_FreeValue.exit3700, %JS_FreeValue.exit3701, %JS_FreeValue.exit3702, %JS_DupValue.exit3705, %JS_DupValue.exit3711, %JS_DupValue.exit3720, %JS_DupValue.exit3723, %JS_DupValue.exit3726, %JS_DupValue.exit3729, %JS_DupValue.exit3732, %799, %803, %808, %814, %821, %826, %831, %837, %841, %866, %._crit_edge5430, %935, %975, %._crit_edge5426, %JS_FreeValue.exit3742, %1083, %1091, %1107, %JS_FreeValue.exit3746, %1450, %JS_FreeValue.exit3753, %1540, %JS_FreeValue.exit3758, %JS_FreeValue.exit3762, %1757, %1804, %1816, %1830, %.loopexit4981, %1932, %JS_FreeValue.exit3780, %JS_DupValue.exit3783, %set_value.exit, %set_value.exit3792, %JS_DupValue.exit3795, %set_value.exit3800, %set_value.exit3808, %JS_DupValue.exit3811, %set_value.exit3816, %set_value.exit3824, %JS_DupValue.exit3827, %JS_DupValue.exit3830, %JS_DupValue.exit3833, %JS_DupValue.exit3836, %set_value.exit3841, %set_value.exit3846, %set_value.exit3851, %set_value.exit3856, %set_value.exit3864, %set_value.exit3872, %set_value.exit3880, %set_value.exit3888, %JS_DupValue.exit3891, %JS_DupValue.exit3894, %JS_DupValue.exit3897, %JS_DupValue.exit3900, %set_value.exit3905, %set_value.exit3910, %set_value.exit3915, %set_value.exit3920, %set_value.exit3928, %set_value.exit3936, %set_value.exit3944, %set_value.exit3952, %JS_DupValue.exit3955, %JS_DupValue.exit3958, %JS_DupValue.exit3961, %JS_DupValue.exit3964, %set_value.exit3969, %set_value.exit3974, %set_value.exit3979, %set_value.exit3984, %set_value.exit3992, %set_value.exit4000, %set_value.exit4008, %set_value.exit4016, %JS_DupValue.exit4019, %set_value.exit4024, %set_value.exit4032, %JS_DupValue.exit4036, %set_value.exit4042, %set_value.exit4048, %set_value.exit4053, %JS_DupValue.exit4057, %JS_DupValue.exit4063, %set_value.exit4071, %set_value.exit4076, %close_lexical_var.exit, %__JS_AtomToValue.exit4407, %3217, %js_poll_interrupts.exit4089.thread, %js_poll_interrupts.exit4091.thread, %js_poll_interrupts.exit4093.thread, %js_poll_interrupts.exit4095.thread, %js_poll_interrupts.exit4097.thread, %js_poll_interrupts.exit4099.thread, %js_poll_interrupts.exit4101.thread, %3482, %3492, %3509, %3631, %3835, %3858, %3907, %3932, %3960, %3970, %JS_FreeValue.exit4131, %4037, %JS_FreeValue.exit4134, %4108, %4121, %JS_FreeValue.exit4136, %4155, %4182, %4203, %4307, %4405, %4491, %4514, %JS_DefineObjectName.exit, %4600, %JS_FreeValue.exit4163, %js_method_set_home_object.exit, %4858, %5173, %5199, %5214, %5240, %JS_FreeValue.exit4185, %5384, %5437, %5558, %5667, %JS_FreeValue.exit4212, %5872, %5907, %JS_FreeValue.exit4217, %6012, %6051, %6062, %6082, %6348, %6354, %6369, %6380, %6391, %6409, %set_value.exit4247, %set_value.exit4255, %6524, %6546, %6627, %6646, %6658, %6670, %6682, %6694, %6706, %6718, %6730, %6742, %6754, %6769, %6785, %6790, %6882, %7000, %7027, %__JS_AtomToValue.exit4595, %7194, %JS_DeleteProperty.exit.thread4825, %7242, %7267, %7297, %JS_FreeValue.exit4295, %7437, %JS_FreeValue.exit4312, %JS_FreeValue.exit4313
-  %.23354.be = phi ptr [ %320, %319 ], [ %324, %JS_DupValue.exit3675 ], [ %340, %339 ], [ %344, %343 ], [ %349, %348 ], [ %354, %JS_DupValue.exit3678 ], [ %371, %390 ], [ %392, %__JS_AtomToValue.exit ], [ %.23354, %JS_FreeValue.exit ], [ %424, %__JS_AtomToValue.exit4334 ], [ %449, %448 ], [ %452, %451 ], [ %471, %JS_DupValue.exit3684 ], [ %474, %473 ], [ %477, %476 ], [ %480, %522 ], [ %.33355, %578 ], [ %582, %618 ], [ %621, %JS_FreeValue.exit3700 ], [ %649, %JS_FreeValue.exit3701 ], [ %666, %JS_FreeValue.exit3702 ], [ %679, %JS_DupValue.exit3705 ], [ %703, %JS_DupValue.exit3711 ], [ %738, %JS_DupValue.exit3720 ], [ %752, %JS_DupValue.exit3723 ], [ %766, %JS_DupValue.exit3726 ], [ %781, %JS_DupValue.exit3729 ], [ %797, %JS_DupValue.exit3732 ], [ %.23354, %799 ], [ %.23354, %803 ], [ %.23354, %808 ], [ %.23354, %814 ], [ %.23354, %821 ], [ %.23354, %826 ], [ %.23354, %831 ], [ %.23354, %837 ], [ %.23354, %841 ], [ %861, %866 ], [ %902, %._crit_edge5430 ], [ %940, %935 ], [ %980, %975 ], [ %1023, %._crit_edge5426 ], [ %1029, %JS_FreeValue.exit3742 ], [ %1084, %1083 ], [ %.23354, %1091 ], [ %.23354, %1107 ], [ %1110, %JS_FreeValue.exit3746 ], [ %1455, %1450 ], [ %1461, %JS_FreeValue.exit3753 ], [ %1542, %1540 ], [ %.23354, %JS_FreeValue.exit3758 ], [ %.23354, %JS_FreeValue.exit3762 ], [ %1758, %1757 ], [ %1805, %1804 ], [ %1809, %1816 ], [ %1820, %1830 ], [ %.23354, %.loopexit4981 ], [ %.23354, %1932 ], [ %1939, %JS_FreeValue.exit3780 ], [ %1996, %JS_DupValue.exit3783 ], [ %2002, %set_value.exit ], [ %.23354, %set_value.exit3792 ], [ %2053, %JS_DupValue.exit3795 ], [ %2059, %set_value.exit3800 ], [ %.23354, %set_value.exit3808 ], [ %2098, %JS_DupValue.exit3811 ], [ %2118, %set_value.exit3816 ], [ %.23354, %set_value.exit3824 ], [ %2158, %JS_DupValue.exit3827 ], [ %2169, %JS_DupValue.exit3830 ], [ %2180, %JS_DupValue.exit3833 ], [ %2191, %JS_DupValue.exit3836 ], [ %2202, %set_value.exit3841 ], [ %2217, %set_value.exit3846 ], [ %2232, %set_value.exit3851 ], [ %2247, %set_value.exit3856 ], [ %.23354, %set_value.exit3864 ], [ %.23354, %set_value.exit3872 ], [ %.23354, %set_value.exit3880 ], [ %.23354, %set_value.exit3888 ], [ %2346, %JS_DupValue.exit3891 ], [ %2357, %JS_DupValue.exit3894 ], [ %2368, %JS_DupValue.exit3897 ], [ %2379, %JS_DupValue.exit3900 ], [ %2390, %set_value.exit3905 ], [ %2405, %set_value.exit3910 ], [ %2420, %set_value.exit3915 ], [ %2435, %set_value.exit3920 ], [ %.23354, %set_value.exit3928 ], [ %.23354, %set_value.exit3936 ], [ %.23354, %set_value.exit3944 ], [ %.23354, %set_value.exit3952 ], [ %2534, %JS_DupValue.exit3955 ], [ %2549, %JS_DupValue.exit3958 ], [ %2564, %JS_DupValue.exit3961 ], [ %2579, %JS_DupValue.exit3964 ], [ %2597, %set_value.exit3969 ], [ %2615, %set_value.exit3974 ], [ %2633, %set_value.exit3979 ], [ %2651, %set_value.exit3984 ], [ %.23354, %set_value.exit3992 ], [ %.23354, %set_value.exit4000 ], [ %.23354, %set_value.exit4008 ], [ %.23354, %set_value.exit4016 ], [ %2774, %JS_DupValue.exit4019 ], [ %2783, %set_value.exit4024 ], [ %.23354, %set_value.exit4032 ], [ %2844, %JS_DupValue.exit4036 ], [ %2862, %set_value.exit4042 ], [ %2891, %set_value.exit4048 ], [ %.23354, %set_value.exit4053 ], [ %2934, %JS_DupValue.exit4057 ], [ %2960, %JS_DupValue.exit4063 ], [ %2979, %set_value.exit4071 ], [ %3002, %set_value.exit4076 ], [ %.23354, %close_lexical_var.exit ], [ %3116, %__JS_AtomToValue.exit4407 ], [ %3218, %3217 ], [ %.23354, %js_poll_interrupts.exit4089.thread ], [ %.23354, %js_poll_interrupts.exit4091.thread ], [ %.23354, %js_poll_interrupts.exit4093.thread ], [ %3315, %js_poll_interrupts.exit4095.thread ], [ %3357, %js_poll_interrupts.exit4097.thread ], [ %3399, %js_poll_interrupts.exit4099.thread ], [ %3441, %js_poll_interrupts.exit4101.thread ], [ %3489, %3482 ], [ %3498, %3492 ], [ %3503, %3509 ], [ %.23354, %3631 ], [ %3837, %3835 ], [ %3861, %3858 ], [ %3911, %3907 ], [ %3935, %3932 ], [ %3962, %3960 ], [ %.23354, %3970 ], [ %3986, %JS_FreeValue.exit4131 ], [ %.53357.lcssa, %4037 ], [ %.23354, %JS_FreeValue.exit4134 ], [ %4109, %4108 ], [ %.23354, %4121 ], [ %.23354, %JS_FreeValue.exit4136 ], [ %4157, %4155 ], [ %4161, %4182 ], [ %4210, %4203 ], [ %4214, %4307 ], [ %4310, %4405 ], [ %4409, %4491 ], [ %4496, %4514 ], [ %.23354, %JS_DefineObjectName.exit ], [ %.23354, %4600 ], [ %4603, %JS_FreeValue.exit4163 ], [ %.23354, %js_method_set_home_object.exit ], [ %4857, %4858 ], [ %.23354, %5173 ], [ %5177, %5199 ], [ %.23354, %5214 ], [ %5242, %5240 ], [ %5252, %JS_FreeValue.exit4185 ], [ %5361, %5384 ], [ %5387, %5437 ], [ %5455, %5558 ], [ %5572, %5667 ], [ %5678, %JS_FreeValue.exit4212 ], [ %.23354, %5872 ], [ %5876, %5907 ], [ %5912, %JS_FreeValue.exit4217 ], [ %5993, %6012 ], [ %6016, %6051 ], [ %6055, %6062 ], [ %6074, %6082 ], [ %6087, %6348 ], [ %.23354, %6354 ], [ %.23354, %6369 ], [ %.23354, %6380 ], [ %.23354, %6391 ], [ %6406, %6409 ], [ %.23354, %set_value.exit4247 ], [ %.23354, %set_value.exit4255 ], [ %.23354, %6524 ], [ %6528, %6546 ], [ %6549, %6627 ], [ %6631, %6646 ], [ %6649, %6658 ], [ %6661, %6670 ], [ %6673, %6682 ], [ %6685, %6694 ], [ %6697, %6706 ], [ %6709, %6718 ], [ %6721, %6730 ], [ %6733, %6742 ], [ %6745, %6754 ], [ %6757, %6769 ], [ %6772, %6785 ], [ %6791, %6790 ], [ %6795, %6882 ], [ %6887, %7000 ], [ %7005, %7027 ], [ %.23354, %__JS_AtomToValue.exit4595 ], [ %7087, %7194 ], [ %7217, %JS_DeleteProperty.exit.thread4825 ], [ %.23354, %7242 ], [ %.23354, %7267 ], [ %.23354, %7297 ], [ %.25, %JS_FreeValue.exit4295 ], [ %.23354, %7437 ], [ %.23354, %JS_FreeValue.exit4312 ], [ %.23354, %JS_FreeValue.exit4313 ]
-  %.03333.in.in.be = phi ptr [ %321, %319 ], [ %337, %JS_DupValue.exit3675 ], [ %.23330, %339 ], [ %346, %343 ], [ %351, %348 ], [ %356, %JS_DupValue.exit3678 ], [ %373, %390 ], [ %.23330, %__JS_AtomToValue.exit ], [ %.23330, %JS_FreeValue.exit ], [ %446, %__JS_AtomToValue.exit4334 ], [ %.23330, %448 ], [ %.23330, %451 ], [ %.23330, %JS_DupValue.exit3684 ], [ %.23330, %473 ], [ %.23330, %476 ], [ %.23330, %522 ], [ %525, %578 ], [ %581, %618 ], [ %.23330, %JS_FreeValue.exit3700 ], [ %.23330, %JS_FreeValue.exit3701 ], [ %.23330, %JS_FreeValue.exit3702 ], [ %.23330, %JS_DupValue.exit3705 ], [ %.23330, %JS_DupValue.exit3711 ], [ %.23330, %JS_DupValue.exit3720 ], [ %.23330, %JS_DupValue.exit3723 ], [ %.23330, %JS_DupValue.exit3726 ], [ %.23330, %JS_DupValue.exit3729 ], [ %.23330, %JS_DupValue.exit3732 ], [ %.23330, %799 ], [ %.23330, %803 ], [ %.23330, %808 ], [ %.23330, %814 ], [ %.23330, %821 ], [ %.23330, %826 ], [ %.23330, %831 ], [ %.23330, %837 ], [ %.23330, %841 ], [ %860, %866 ], [ %.33331, %._crit_edge5430 ], [ %906, %935 ], [ %944, %975 ], [ %983, %._crit_edge5426 ], [ %1027, %JS_FreeValue.exit3742 ], [ %.23330, %1083 ], [ %.23330, %1091 ], [ %.23330, %1107 ], [ %.23330, %JS_FreeValue.exit3746 ], [ %1404, %1450 ], [ %1460, %JS_FreeValue.exit3753 ], [ %.23330, %1540 ], [ %.23330, %JS_FreeValue.exit3758 ], [ %.23330, %JS_FreeValue.exit3762 ], [ %1731, %1757 ], [ %1762, %1804 ], [ %1808, %1816 ], [ %1819, %1830 ], [ %1835, %.loopexit4981 ], [ %1901, %1932 ], [ %1938, %JS_FreeValue.exit3780 ], [ %1984, %JS_DupValue.exit3783 ], [ %1999, %set_value.exit ], [ %2017, %set_value.exit3792 ], [ %2041, %JS_DupValue.exit3795 ], [ %2056, %set_value.exit3800 ], [ %2074, %set_value.exit3808 ], [ %2099, %JS_DupValue.exit3811 ], [ %2114, %set_value.exit3816 ], [ %2133, %set_value.exit3824 ], [ %.23330, %JS_DupValue.exit3827 ], [ %.23330, %JS_DupValue.exit3830 ], [ %.23330, %JS_DupValue.exit3833 ], [ %.23330, %JS_DupValue.exit3836 ], [ %.23330, %set_value.exit3841 ], [ %.23330, %set_value.exit3846 ], [ %.23330, %set_value.exit3851 ], [ %.23330, %set_value.exit3856 ], [ %.23330, %set_value.exit3864 ], [ %.23330, %set_value.exit3872 ], [ %.23330, %set_value.exit3880 ], [ %.23330, %set_value.exit3888 ], [ %.23330, %JS_DupValue.exit3891 ], [ %.23330, %JS_DupValue.exit3894 ], [ %.23330, %JS_DupValue.exit3897 ], [ %.23330, %JS_DupValue.exit3900 ], [ %.23330, %set_value.exit3905 ], [ %.23330, %set_value.exit3910 ], [ %.23330, %set_value.exit3915 ], [ %.23330, %set_value.exit3920 ], [ %.23330, %set_value.exit3928 ], [ %.23330, %set_value.exit3936 ], [ %.23330, %set_value.exit3944 ], [ %.23330, %set_value.exit3952 ], [ %.23330, %JS_DupValue.exit3955 ], [ %.23330, %JS_DupValue.exit3958 ], [ %.23330, %JS_DupValue.exit3961 ], [ %.23330, %JS_DupValue.exit3964 ], [ %.23330, %set_value.exit3969 ], [ %.23330, %set_value.exit3974 ], [ %.23330, %set_value.exit3979 ], [ %.23330, %set_value.exit3984 ], [ %.23330, %set_value.exit3992 ], [ %.23330, %set_value.exit4000 ], [ %.23330, %set_value.exit4008 ], [ %.23330, %set_value.exit4016 ], [ %2762, %JS_DupValue.exit4019 ], [ %2777, %set_value.exit4024 ], [ %2798, %set_value.exit4032 ], [ %2825, %JS_DupValue.exit4036 ], [ %2847, %set_value.exit4042 ], [ %2877, %set_value.exit4048 ], [ %2897, %set_value.exit4053 ], [ %2912, %JS_DupValue.exit4057 ], [ %2938, %JS_DupValue.exit4063 ], [ %2964, %set_value.exit4071 ], [ %2994, %set_value.exit4076 ], [ %3008, %close_lexical_var.exit ], [ %3070, %__JS_AtomToValue.exit4407 ], [ %3140, %3217 ], [ %3222, %js_poll_interrupts.exit4089.thread ], [ %3253, %js_poll_interrupts.exit4091.thread ], [ %3285, %js_poll_interrupts.exit4093.thread ], [ %.43332, %js_poll_interrupts.exit4095.thread ], [ %.5, %js_poll_interrupts.exit4097.thread ], [ %.6, %js_poll_interrupts.exit4099.thread ], [ %.7, %js_poll_interrupts.exit4101.thread ], [ %3490, %3482 ], [ %3500, %3492 ], [ %3512, %3509 ], [ %.23330, %3631 ], [ %.23330, %3835 ], [ %.23330, %3858 ], [ %3867, %3907 ], [ %.23330, %3932 ], [ %.23330, %3960 ], [ %.23330, %3970 ], [ %.23330, %JS_FreeValue.exit4131 ], [ %.23330, %4037 ], [ %.23330, %JS_FreeValue.exit4134 ], [ %4069, %4108 ], [ %.23330, %4121 ], [ %4124, %JS_FreeValue.exit4136 ], [ %4147, %4155 ], [ %4160, %4182 ], [ %4185, %4203 ], [ %.23330, %4307 ], [ %.23330, %4405 ], [ %.23330, %4491 ], [ %4494, %4514 ], [ %4517, %JS_DefineObjectName.exit ], [ %.23330, %4600 ], [ %.23330, %JS_FreeValue.exit4163 ], [ %.23330, %js_method_set_home_object.exit ], [ %4669, %4858 ], [ %4863, %5173 ], [ %.23330, %5199 ], [ %.23330, %5214 ], [ %.23330, %5240 ], [ %.23330, %JS_FreeValue.exit4185 ], [ %.23330, %5384 ], [ %.23330, %5437 ], [ %.23330, %5558 ], [ %.23330, %5667 ], [ %.23330, %JS_FreeValue.exit4212 ], [ %5849, %5872 ], [ %.23330, %5907 ], [ %5911, %JS_FreeValue.exit4217 ], [ %.23330, %6012 ], [ %.23330, %6051 ], [ %.23330, %6062 ], [ %.23330, %6082 ], [ %.23330, %6348 ], [ %.23330, %6354 ], [ %.23330, %6369 ], [ %.23330, %6380 ], [ %.23330, %6391 ], [ %.23330, %6409 ], [ %6413, %set_value.exit4247 ], [ %6448, %set_value.exit4255 ], [ %.23330, %6524 ], [ %.23330, %6546 ], [ %.23330, %6627 ], [ %.23330, %6646 ], [ %.23330, %6658 ], [ %.23330, %6670 ], [ %.23330, %6682 ], [ %.23330, %6694 ], [ %.23330, %6706 ], [ %.23330, %6718 ], [ %.23330, %6730 ], [ %.23330, %6742 ], [ %.23330, %6754 ], [ %.23330, %6769 ], [ %.23330, %6785 ], [ %.23330, %6790 ], [ %.23330, %6882 ], [ %.23330, %7000 ], [ %.23330, %7027 ], [ %.23330, %__JS_AtomToValue.exit4595 ], [ %.23330, %7194 ], [ %7198, %JS_DeleteProperty.exit.thread4825 ], [ %.23330, %7242 ], [ %.23330, %7267 ], [ %.23330, %7297 ], [ %.9, %JS_FreeValue.exit4295 ], [ %.23330, %7437 ], [ %.23330, %JS_FreeValue.exit4312 ], [ %.23330, %JS_FreeValue.exit4313 ]
-  %.23330.be = phi ptr [ %322, %319 ], [ %338, %JS_DupValue.exit3675 ], [ %342, %339 ], [ %347, %343 ], [ %352, %348 ], [ %369, %JS_DupValue.exit3678 ], [ %391, %390 ], [ %400, %__JS_AtomToValue.exit ], [ %422, %JS_FreeValue.exit ], [ %447, %__JS_AtomToValue.exit4334 ], [ %450, %448 ], [ %453, %451 ], [ %472, %JS_DupValue.exit3684 ], [ %475, %473 ], [ %478, %476 ], [ %523, %522 ], [ %579, %578 ], [ %619, %618 ], [ %634, %JS_FreeValue.exit3700 ], [ %650, %JS_FreeValue.exit3701 ], [ %667, %JS_FreeValue.exit3702 ], [ %680, %JS_DupValue.exit3705 ], [ %704, %JS_DupValue.exit3711 ], [ %739, %JS_DupValue.exit3720 ], [ %753, %JS_DupValue.exit3723 ], [ %767, %JS_DupValue.exit3726 ], [ %782, %JS_DupValue.exit3729 ], [ %798, %JS_DupValue.exit3732 ], [ %802, %799 ], [ %807, %803 ], [ %813, %808 ], [ %820, %814 ], [ %825, %821 ], [ %830, %826 ], [ %836, %831 ], [ %840, %837 ], [ %846, %841 ], [ %867, %866 ], [ %903, %._crit_edge5430 ], [ %941, %935 ], [ %981, %975 ], [ %1024, %._crit_edge5426 ], [ %1074, %JS_FreeValue.exit3742 ], [ %1085, %1083 ], [ %1092, %1091 ], [ %1108, %1107 ], [ %1378, %JS_FreeValue.exit3746 ], [ %1456, %1450 ], [ %1539, %JS_FreeValue.exit3753 ], [ %1549, %1540 ], [ %1599, %JS_FreeValue.exit3758 ], [ %1729, %JS_FreeValue.exit3762 ], [ %1760, %1757 ], [ %1806, %1804 ], [ %1817, %1816 ], [ %1831, %1830 ], [ %1896, %.loopexit4981 ], [ %1933, %1932 ], [ %1982, %JS_FreeValue.exit3780 ], [ %1997, %JS_DupValue.exit3783 ], [ %2015, %set_value.exit ], [ %2039, %set_value.exit3792 ], [ %2054, %JS_DupValue.exit3795 ], [ %2072, %set_value.exit3800 ], [ %2096, %set_value.exit3808 ], [ %2112, %JS_DupValue.exit3811 ], [ %2131, %set_value.exit3816 ], [ %2156, %set_value.exit3824 ], [ %2167, %JS_DupValue.exit3827 ], [ %2178, %JS_DupValue.exit3830 ], [ %2189, %JS_DupValue.exit3833 ], [ %2200, %JS_DupValue.exit3836 ], [ %2215, %set_value.exit3841 ], [ %2230, %set_value.exit3846 ], [ %2245, %set_value.exit3851 ], [ %2260, %set_value.exit3856 ], [ %2281, %set_value.exit3864 ], [ %2302, %set_value.exit3872 ], [ %2323, %set_value.exit3880 ], [ %2344, %set_value.exit3888 ], [ %2355, %JS_DupValue.exit3891 ], [ %2366, %JS_DupValue.exit3894 ], [ %2377, %JS_DupValue.exit3897 ], [ %2388, %JS_DupValue.exit3900 ], [ %2403, %set_value.exit3905 ], [ %2418, %set_value.exit3910 ], [ %2433, %set_value.exit3915 ], [ %2448, %set_value.exit3920 ], [ %2469, %set_value.exit3928 ], [ %2490, %set_value.exit3936 ], [ %2511, %set_value.exit3944 ], [ %2532, %set_value.exit3952 ], [ %2547, %JS_DupValue.exit3955 ], [ %2562, %JS_DupValue.exit3958 ], [ %2577, %JS_DupValue.exit3961 ], [ %2592, %JS_DupValue.exit3964 ], [ %2610, %set_value.exit3969 ], [ %2628, %set_value.exit3974 ], [ %2646, %set_value.exit3979 ], [ %2664, %set_value.exit3984 ], [ %2688, %set_value.exit3992 ], [ %2712, %set_value.exit4000 ], [ %2736, %set_value.exit4008 ], [ %2760, %set_value.exit4016 ], [ %2775, %JS_DupValue.exit4019 ], [ %2796, %set_value.exit4024 ], [ %2823, %set_value.exit4032 ], [ %2845, %JS_DupValue.exit4036 ], [ %2875, %set_value.exit4042 ], [ %2895, %set_value.exit4048 ], [ %2909, %set_value.exit4053 ], [ %2935, %JS_DupValue.exit4057 ], [ %2961, %JS_DupValue.exit4063 ], [ %2992, %set_value.exit4071 ], [ %3006, %set_value.exit4076 ], [ %3066, %close_lexical_var.exit ], [ %3138, %__JS_AtomToValue.exit4407 ], [ %3219, %3217 ], [ %3250, %js_poll_interrupts.exit4089.thread ], [ %3281, %js_poll_interrupts.exit4091.thread ], [ %3313, %js_poll_interrupts.exit4093.thread ], [ %3355, %js_poll_interrupts.exit4095.thread ], [ %3397, %js_poll_interrupts.exit4097.thread ], [ %3439, %js_poll_interrupts.exit4099.thread ], [ %3481, %js_poll_interrupts.exit4101.thread ], [ %3491, %3482 ], [ %3501, %3492 ], [ %3513, %3509 ], [ %3632, %3631 ], [ %3838, %3835 ], [ %3862, %3858 ], [ %3912, %3907 ], [ %3936, %3932 ], [ %3963, %3960 ], [ %3971, %3970 ], [ %4005, %JS_FreeValue.exit4131 ], [ %4039, %4037 ], [ %4067, %JS_FreeValue.exit4134 ], [ %4110, %4108 ], [ %4122, %4121 ], [ %4145, %JS_FreeValue.exit4136 ], [ %4158, %4155 ], [ %4183, %4182 ], [ %4211, %4203 ], [ %4308, %4307 ], [ %4406, %4405 ], [ %4492, %4491 ], [ %4515, %4514 ], [ %4588, %JS_DefineObjectName.exit ], [ %4601, %4600 ], [ %4620, %JS_FreeValue.exit4163 ], [ %4655, %js_method_set_home_object.exit ], [ %4859, %4858 ], [ %5174, %5173 ], [ %5200, %5199 ], [ %5215, %5214 ], [ %5243, %5240 ], [ %5359, %JS_FreeValue.exit4185 ], [ %5385, %5384 ], [ %5438, %5437 ], [ %5559, %5558 ], [ %5668, %5667 ], [ %5847, %JS_FreeValue.exit4212 ], [ %5873, %5872 ], [ %5908, %5907 ], [ %5990, %JS_FreeValue.exit4217 ], [ %6013, %6012 ], [ %6052, %6051 ], [ %6071, %6062 ], [ %6084, %6082 ], [ %6349, %6348 ], [ %6355, %6354 ], [ %6370, %6369 ], [ %6381, %6380 ], [ %6392, %6391 ], [ %6410, %6409 ], [ %6445, %set_value.exit4247 ], [ %6480, %set_value.exit4255 ], [ %6525, %6524 ], [ %6547, %6546 ], [ %6628, %6627 ], [ %6647, %6646 ], [ %6659, %6658 ], [ %6671, %6670 ], [ %6683, %6682 ], [ %6695, %6694 ], [ %6707, %6706 ], [ %6719, %6718 ], [ %6731, %6730 ], [ %6743, %6742 ], [ %6755, %6754 ], [ %6770, %6769 ], [ %6786, %6785 ], [ %6792, %6790 ], [ %6884, %6882 ], [ %7002, %7000 ], [ %7029, %7027 ], [ %7084, %__JS_AtomToValue.exit4595 ], [ %7196, %7194 ], [ %7218, %JS_DeleteProperty.exit.thread4825 ], [ %7243, %7242 ], [ %7268, %7267 ], [ %7298, %7297 ], [ %7432, %JS_FreeValue.exit4295 ], [ %7438, %7437 ], [ %7503, %JS_FreeValue.exit4312 ], [ %7517, %JS_FreeValue.exit4313 ]
+.backedge4994.backedge:                           ; preds = %319, %JS_DupValue.exit3675, %339, %343, %348, %JS_DupValue.exit3678, %390, %__JS_AtomToValue.exit, %JS_FreeValue.exit, %__JS_AtomToValue.exit4334, %448, %451, %JS_DupValue.exit3684, %473, %476, %522, %578, %618, %JS_FreeValue.exit3700, %JS_FreeValue.exit3701, %JS_FreeValue.exit3702, %JS_DupValue.exit3705, %JS_DupValue.exit3711, %JS_DupValue.exit3720, %JS_DupValue.exit3723, %JS_DupValue.exit3726, %JS_DupValue.exit3729, %JS_DupValue.exit3732, %799, %803, %808, %814, %821, %826, %831, %837, %841, %866, %._crit_edge5430, %935, %975, %._crit_edge5426, %JS_FreeValue.exit3742, %1083, %1091, %1107, %JS_FreeValue.exit3746, %1450, %JS_FreeValue.exit3753, %1540, %JS_FreeValue.exit3758, %JS_FreeValue.exit3762, %1757, %1804, %1816, %1830, %.loopexit4981, %1932, %JS_FreeValue.exit3780, %JS_DupValue.exit3783, %set_value.exit, %set_value.exit3792, %JS_DupValue.exit3795, %set_value.exit3800, %set_value.exit3808, %JS_DupValue.exit3811, %set_value.exit3816, %set_value.exit3824, %JS_DupValue.exit3827, %JS_DupValue.exit3830, %JS_DupValue.exit3833, %JS_DupValue.exit3836, %set_value.exit3841, %set_value.exit3846, %set_value.exit3851, %set_value.exit3856, %set_value.exit3864, %set_value.exit3872, %set_value.exit3880, %set_value.exit3888, %JS_DupValue.exit3891, %JS_DupValue.exit3894, %JS_DupValue.exit3897, %JS_DupValue.exit3900, %set_value.exit3905, %set_value.exit3910, %set_value.exit3915, %set_value.exit3920, %set_value.exit3928, %set_value.exit3936, %set_value.exit3944, %set_value.exit3952, %JS_DupValue.exit3955, %JS_DupValue.exit3958, %JS_DupValue.exit3961, %JS_DupValue.exit3964, %set_value.exit3969, %set_value.exit3974, %set_value.exit3979, %set_value.exit3984, %set_value.exit3992, %set_value.exit4000, %set_value.exit4008, %set_value.exit4016, %JS_DupValue.exit4019, %set_value.exit4024, %set_value.exit4032, %JS_DupValue.exit4036, %set_value.exit4042, %set_value.exit4048, %set_value.exit4053, %JS_DupValue.exit4057, %JS_DupValue.exit4063, %set_value.exit4071, %set_value.exit4076, %close_lexical_var.exit, %__JS_AtomToValue.exit4407, %3217, %js_poll_interrupts.exit4089.thread, %js_poll_interrupts.exit4091.thread, %js_poll_interrupts.exit4093.thread, %js_poll_interrupts.exit4095.thread, %js_poll_interrupts.exit4097.thread, %js_poll_interrupts.exit4099.thread, %js_poll_interrupts.exit4101.thread, %3482, %3492, %3509, %3631, %3835, %3858, %3907, %3932, %3960, %3970, %JS_FreeValue.exit4131, %4037, %JS_FreeValue.exit4134, %4108, %4121, %JS_FreeValue.exit4136, %4155, %4182, %4203, %4307, %4405, %4491, %4514, %JS_DefineObjectName.exit, %4600, %JS_FreeValue.exit4163, %js_method_set_home_object.exit, %4856, %5171, %5197, %5212, %5238, %JS_FreeValue.exit4185, %5382, %5435, %5556, %5665, %JS_FreeValue.exit4212, %5870, %5905, %JS_FreeValue.exit4217, %6010, %6049, %6060, %6080, %6346, %6352, %6367, %6378, %6389, %6407, %set_value.exit4247, %set_value.exit4255, %6522, %6544, %6625, %6644, %6656, %6668, %6680, %6692, %6704, %6716, %6728, %6740, %6752, %6767, %6783, %6788, %6880, %6998, %7025, %__JS_AtomToValue.exit4595, %7192, %JS_DeleteProperty.exit.thread4825, %7240, %7265, %7295, %JS_FreeValue.exit4295, %7435, %JS_FreeValue.exit4312, %JS_FreeValue.exit4313
+  %.23354.be = phi ptr [ %320, %319 ], [ %324, %JS_DupValue.exit3675 ], [ %340, %339 ], [ %344, %343 ], [ %349, %348 ], [ %354, %JS_DupValue.exit3678 ], [ %371, %390 ], [ %392, %__JS_AtomToValue.exit ], [ %.23354, %JS_FreeValue.exit ], [ %424, %__JS_AtomToValue.exit4334 ], [ %449, %448 ], [ %452, %451 ], [ %471, %JS_DupValue.exit3684 ], [ %474, %473 ], [ %477, %476 ], [ %480, %522 ], [ %.33355, %578 ], [ %582, %618 ], [ %621, %JS_FreeValue.exit3700 ], [ %649, %JS_FreeValue.exit3701 ], [ %666, %JS_FreeValue.exit3702 ], [ %679, %JS_DupValue.exit3705 ], [ %703, %JS_DupValue.exit3711 ], [ %738, %JS_DupValue.exit3720 ], [ %752, %JS_DupValue.exit3723 ], [ %766, %JS_DupValue.exit3726 ], [ %781, %JS_DupValue.exit3729 ], [ %797, %JS_DupValue.exit3732 ], [ %.23354, %799 ], [ %.23354, %803 ], [ %.23354, %808 ], [ %.23354, %814 ], [ %.23354, %821 ], [ %.23354, %826 ], [ %.23354, %831 ], [ %.23354, %837 ], [ %.23354, %841 ], [ %861, %866 ], [ %902, %._crit_edge5430 ], [ %940, %935 ], [ %980, %975 ], [ %1023, %._crit_edge5426 ], [ %1029, %JS_FreeValue.exit3742 ], [ %1084, %1083 ], [ %.23354, %1091 ], [ %.23354, %1107 ], [ %1110, %JS_FreeValue.exit3746 ], [ %1455, %1450 ], [ %1461, %JS_FreeValue.exit3753 ], [ %1542, %1540 ], [ %.23354, %JS_FreeValue.exit3758 ], [ %.23354, %JS_FreeValue.exit3762 ], [ %1758, %1757 ], [ %1805, %1804 ], [ %1809, %1816 ], [ %1820, %1830 ], [ %.23354, %.loopexit4981 ], [ %.23354, %1932 ], [ %1939, %JS_FreeValue.exit3780 ], [ %1996, %JS_DupValue.exit3783 ], [ %2002, %set_value.exit ], [ %.23354, %set_value.exit3792 ], [ %2053, %JS_DupValue.exit3795 ], [ %2059, %set_value.exit3800 ], [ %.23354, %set_value.exit3808 ], [ %2098, %JS_DupValue.exit3811 ], [ %2118, %set_value.exit3816 ], [ %.23354, %set_value.exit3824 ], [ %2158, %JS_DupValue.exit3827 ], [ %2169, %JS_DupValue.exit3830 ], [ %2180, %JS_DupValue.exit3833 ], [ %2191, %JS_DupValue.exit3836 ], [ %2202, %set_value.exit3841 ], [ %2217, %set_value.exit3846 ], [ %2232, %set_value.exit3851 ], [ %2247, %set_value.exit3856 ], [ %.23354, %set_value.exit3864 ], [ %.23354, %set_value.exit3872 ], [ %.23354, %set_value.exit3880 ], [ %.23354, %set_value.exit3888 ], [ %2346, %JS_DupValue.exit3891 ], [ %2357, %JS_DupValue.exit3894 ], [ %2368, %JS_DupValue.exit3897 ], [ %2379, %JS_DupValue.exit3900 ], [ %2390, %set_value.exit3905 ], [ %2405, %set_value.exit3910 ], [ %2420, %set_value.exit3915 ], [ %2435, %set_value.exit3920 ], [ %.23354, %set_value.exit3928 ], [ %.23354, %set_value.exit3936 ], [ %.23354, %set_value.exit3944 ], [ %.23354, %set_value.exit3952 ], [ %2534, %JS_DupValue.exit3955 ], [ %2549, %JS_DupValue.exit3958 ], [ %2564, %JS_DupValue.exit3961 ], [ %2579, %JS_DupValue.exit3964 ], [ %2597, %set_value.exit3969 ], [ %2615, %set_value.exit3974 ], [ %2633, %set_value.exit3979 ], [ %2651, %set_value.exit3984 ], [ %.23354, %set_value.exit3992 ], [ %.23354, %set_value.exit4000 ], [ %.23354, %set_value.exit4008 ], [ %.23354, %set_value.exit4016 ], [ %2774, %JS_DupValue.exit4019 ], [ %2783, %set_value.exit4024 ], [ %.23354, %set_value.exit4032 ], [ %2844, %JS_DupValue.exit4036 ], [ %2862, %set_value.exit4042 ], [ %2891, %set_value.exit4048 ], [ %.23354, %set_value.exit4053 ], [ %2934, %JS_DupValue.exit4057 ], [ %2960, %JS_DupValue.exit4063 ], [ %2979, %set_value.exit4071 ], [ %3002, %set_value.exit4076 ], [ %.23354, %close_lexical_var.exit ], [ %3116, %__JS_AtomToValue.exit4407 ], [ %3218, %3217 ], [ %.23354, %js_poll_interrupts.exit4089.thread ], [ %.23354, %js_poll_interrupts.exit4091.thread ], [ %.23354, %js_poll_interrupts.exit4093.thread ], [ %3315, %js_poll_interrupts.exit4095.thread ], [ %3357, %js_poll_interrupts.exit4097.thread ], [ %3399, %js_poll_interrupts.exit4099.thread ], [ %3441, %js_poll_interrupts.exit4101.thread ], [ %3489, %3482 ], [ %3498, %3492 ], [ %3503, %3509 ], [ %.23354, %3631 ], [ %3837, %3835 ], [ %3861, %3858 ], [ %3911, %3907 ], [ %3935, %3932 ], [ %3962, %3960 ], [ %.23354, %3970 ], [ %3986, %JS_FreeValue.exit4131 ], [ %.53357.lcssa, %4037 ], [ %.23354, %JS_FreeValue.exit4134 ], [ %4109, %4108 ], [ %.23354, %4121 ], [ %.23354, %JS_FreeValue.exit4136 ], [ %4157, %4155 ], [ %4161, %4182 ], [ %4210, %4203 ], [ %4214, %4307 ], [ %4310, %4405 ], [ %4409, %4491 ], [ %4496, %4514 ], [ %.23354, %JS_DefineObjectName.exit ], [ %.23354, %4600 ], [ %4603, %JS_FreeValue.exit4163 ], [ %.23354, %js_method_set_home_object.exit ], [ %4855, %4856 ], [ %.23354, %5171 ], [ %5175, %5197 ], [ %.23354, %5212 ], [ %5240, %5238 ], [ %5250, %JS_FreeValue.exit4185 ], [ %5359, %5382 ], [ %5385, %5435 ], [ %5453, %5556 ], [ %5570, %5665 ], [ %5676, %JS_FreeValue.exit4212 ], [ %.23354, %5870 ], [ %5874, %5905 ], [ %5910, %JS_FreeValue.exit4217 ], [ %5991, %6010 ], [ %6014, %6049 ], [ %6053, %6060 ], [ %6072, %6080 ], [ %6085, %6346 ], [ %.23354, %6352 ], [ %.23354, %6367 ], [ %.23354, %6378 ], [ %.23354, %6389 ], [ %6404, %6407 ], [ %.23354, %set_value.exit4247 ], [ %.23354, %set_value.exit4255 ], [ %.23354, %6522 ], [ %6526, %6544 ], [ %6547, %6625 ], [ %6629, %6644 ], [ %6647, %6656 ], [ %6659, %6668 ], [ %6671, %6680 ], [ %6683, %6692 ], [ %6695, %6704 ], [ %6707, %6716 ], [ %6719, %6728 ], [ %6731, %6740 ], [ %6743, %6752 ], [ %6755, %6767 ], [ %6770, %6783 ], [ %6789, %6788 ], [ %6793, %6880 ], [ %6885, %6998 ], [ %7003, %7025 ], [ %.23354, %__JS_AtomToValue.exit4595 ], [ %7085, %7192 ], [ %7215, %JS_DeleteProperty.exit.thread4825 ], [ %.23354, %7240 ], [ %.23354, %7265 ], [ %.23354, %7295 ], [ %.25, %JS_FreeValue.exit4295 ], [ %.23354, %7435 ], [ %.23354, %JS_FreeValue.exit4312 ], [ %.23354, %JS_FreeValue.exit4313 ]
+  %.03333.in.in.be = phi ptr [ %321, %319 ], [ %337, %JS_DupValue.exit3675 ], [ %.23330, %339 ], [ %346, %343 ], [ %351, %348 ], [ %356, %JS_DupValue.exit3678 ], [ %373, %390 ], [ %.23330, %__JS_AtomToValue.exit ], [ %.23330, %JS_FreeValue.exit ], [ %446, %__JS_AtomToValue.exit4334 ], [ %.23330, %448 ], [ %.23330, %451 ], [ %.23330, %JS_DupValue.exit3684 ], [ %.23330, %473 ], [ %.23330, %476 ], [ %.23330, %522 ], [ %525, %578 ], [ %581, %618 ], [ %.23330, %JS_FreeValue.exit3700 ], [ %.23330, %JS_FreeValue.exit3701 ], [ %.23330, %JS_FreeValue.exit3702 ], [ %.23330, %JS_DupValue.exit3705 ], [ %.23330, %JS_DupValue.exit3711 ], [ %.23330, %JS_DupValue.exit3720 ], [ %.23330, %JS_DupValue.exit3723 ], [ %.23330, %JS_DupValue.exit3726 ], [ %.23330, %JS_DupValue.exit3729 ], [ %.23330, %JS_DupValue.exit3732 ], [ %.23330, %799 ], [ %.23330, %803 ], [ %.23330, %808 ], [ %.23330, %814 ], [ %.23330, %821 ], [ %.23330, %826 ], [ %.23330, %831 ], [ %.23330, %837 ], [ %.23330, %841 ], [ %860, %866 ], [ %.33331, %._crit_edge5430 ], [ %906, %935 ], [ %944, %975 ], [ %983, %._crit_edge5426 ], [ %1027, %JS_FreeValue.exit3742 ], [ %.23330, %1083 ], [ %.23330, %1091 ], [ %.23330, %1107 ], [ %.23330, %JS_FreeValue.exit3746 ], [ %1404, %1450 ], [ %1460, %JS_FreeValue.exit3753 ], [ %.23330, %1540 ], [ %.23330, %JS_FreeValue.exit3758 ], [ %.23330, %JS_FreeValue.exit3762 ], [ %1731, %1757 ], [ %1762, %1804 ], [ %1808, %1816 ], [ %1819, %1830 ], [ %1835, %.loopexit4981 ], [ %1901, %1932 ], [ %1938, %JS_FreeValue.exit3780 ], [ %1984, %JS_DupValue.exit3783 ], [ %1999, %set_value.exit ], [ %2017, %set_value.exit3792 ], [ %2041, %JS_DupValue.exit3795 ], [ %2056, %set_value.exit3800 ], [ %2074, %set_value.exit3808 ], [ %2099, %JS_DupValue.exit3811 ], [ %2114, %set_value.exit3816 ], [ %2133, %set_value.exit3824 ], [ %.23330, %JS_DupValue.exit3827 ], [ %.23330, %JS_DupValue.exit3830 ], [ %.23330, %JS_DupValue.exit3833 ], [ %.23330, %JS_DupValue.exit3836 ], [ %.23330, %set_value.exit3841 ], [ %.23330, %set_value.exit3846 ], [ %.23330, %set_value.exit3851 ], [ %.23330, %set_value.exit3856 ], [ %.23330, %set_value.exit3864 ], [ %.23330, %set_value.exit3872 ], [ %.23330, %set_value.exit3880 ], [ %.23330, %set_value.exit3888 ], [ %.23330, %JS_DupValue.exit3891 ], [ %.23330, %JS_DupValue.exit3894 ], [ %.23330, %JS_DupValue.exit3897 ], [ %.23330, %JS_DupValue.exit3900 ], [ %.23330, %set_value.exit3905 ], [ %.23330, %set_value.exit3910 ], [ %.23330, %set_value.exit3915 ], [ %.23330, %set_value.exit3920 ], [ %.23330, %set_value.exit3928 ], [ %.23330, %set_value.exit3936 ], [ %.23330, %set_value.exit3944 ], [ %.23330, %set_value.exit3952 ], [ %.23330, %JS_DupValue.exit3955 ], [ %.23330, %JS_DupValue.exit3958 ], [ %.23330, %JS_DupValue.exit3961 ], [ %.23330, %JS_DupValue.exit3964 ], [ %.23330, %set_value.exit3969 ], [ %.23330, %set_value.exit3974 ], [ %.23330, %set_value.exit3979 ], [ %.23330, %set_value.exit3984 ], [ %.23330, %set_value.exit3992 ], [ %.23330, %set_value.exit4000 ], [ %.23330, %set_value.exit4008 ], [ %.23330, %set_value.exit4016 ], [ %2762, %JS_DupValue.exit4019 ], [ %2777, %set_value.exit4024 ], [ %2798, %set_value.exit4032 ], [ %2825, %JS_DupValue.exit4036 ], [ %2847, %set_value.exit4042 ], [ %2877, %set_value.exit4048 ], [ %2897, %set_value.exit4053 ], [ %2912, %JS_DupValue.exit4057 ], [ %2938, %JS_DupValue.exit4063 ], [ %2964, %set_value.exit4071 ], [ %2994, %set_value.exit4076 ], [ %3008, %close_lexical_var.exit ], [ %3070, %__JS_AtomToValue.exit4407 ], [ %3140, %3217 ], [ %3222, %js_poll_interrupts.exit4089.thread ], [ %3253, %js_poll_interrupts.exit4091.thread ], [ %3285, %js_poll_interrupts.exit4093.thread ], [ %.43332, %js_poll_interrupts.exit4095.thread ], [ %.5, %js_poll_interrupts.exit4097.thread ], [ %.6, %js_poll_interrupts.exit4099.thread ], [ %.7, %js_poll_interrupts.exit4101.thread ], [ %3490, %3482 ], [ %3500, %3492 ], [ %3512, %3509 ], [ %.23330, %3631 ], [ %.23330, %3835 ], [ %.23330, %3858 ], [ %3867, %3907 ], [ %.23330, %3932 ], [ %.23330, %3960 ], [ %.23330, %3970 ], [ %.23330, %JS_FreeValue.exit4131 ], [ %.23330, %4037 ], [ %.23330, %JS_FreeValue.exit4134 ], [ %4069, %4108 ], [ %.23330, %4121 ], [ %4124, %JS_FreeValue.exit4136 ], [ %4147, %4155 ], [ %4160, %4182 ], [ %4185, %4203 ], [ %.23330, %4307 ], [ %.23330, %4405 ], [ %.23330, %4491 ], [ %4494, %4514 ], [ %4517, %JS_DefineObjectName.exit ], [ %.23330, %4600 ], [ %.23330, %JS_FreeValue.exit4163 ], [ %.23330, %js_method_set_home_object.exit ], [ %4669, %4856 ], [ %4861, %5171 ], [ %.23330, %5197 ], [ %.23330, %5212 ], [ %.23330, %5238 ], [ %.23330, %JS_FreeValue.exit4185 ], [ %.23330, %5382 ], [ %.23330, %5435 ], [ %.23330, %5556 ], [ %.23330, %5665 ], [ %.23330, %JS_FreeValue.exit4212 ], [ %5847, %5870 ], [ %.23330, %5905 ], [ %5909, %JS_FreeValue.exit4217 ], [ %.23330, %6010 ], [ %.23330, %6049 ], [ %.23330, %6060 ], [ %.23330, %6080 ], [ %.23330, %6346 ], [ %.23330, %6352 ], [ %.23330, %6367 ], [ %.23330, %6378 ], [ %.23330, %6389 ], [ %.23330, %6407 ], [ %6411, %set_value.exit4247 ], [ %6446, %set_value.exit4255 ], [ %.23330, %6522 ], [ %.23330, %6544 ], [ %.23330, %6625 ], [ %.23330, %6644 ], [ %.23330, %6656 ], [ %.23330, %6668 ], [ %.23330, %6680 ], [ %.23330, %6692 ], [ %.23330, %6704 ], [ %.23330, %6716 ], [ %.23330, %6728 ], [ %.23330, %6740 ], [ %.23330, %6752 ], [ %.23330, %6767 ], [ %.23330, %6783 ], [ %.23330, %6788 ], [ %.23330, %6880 ], [ %.23330, %6998 ], [ %.23330, %7025 ], [ %.23330, %__JS_AtomToValue.exit4595 ], [ %.23330, %7192 ], [ %7196, %JS_DeleteProperty.exit.thread4825 ], [ %.23330, %7240 ], [ %.23330, %7265 ], [ %.23330, %7295 ], [ %.9, %JS_FreeValue.exit4295 ], [ %.23330, %7435 ], [ %.23330, %JS_FreeValue.exit4312 ], [ %.23330, %JS_FreeValue.exit4313 ]
+  %.23330.be = phi ptr [ %322, %319 ], [ %338, %JS_DupValue.exit3675 ], [ %342, %339 ], [ %347, %343 ], [ %352, %348 ], [ %369, %JS_DupValue.exit3678 ], [ %391, %390 ], [ %400, %__JS_AtomToValue.exit ], [ %422, %JS_FreeValue.exit ], [ %447, %__JS_AtomToValue.exit4334 ], [ %450, %448 ], [ %453, %451 ], [ %472, %JS_DupValue.exit3684 ], [ %475, %473 ], [ %478, %476 ], [ %523, %522 ], [ %579, %578 ], [ %619, %618 ], [ %634, %JS_FreeValue.exit3700 ], [ %650, %JS_FreeValue.exit3701 ], [ %667, %JS_FreeValue.exit3702 ], [ %680, %JS_DupValue.exit3705 ], [ %704, %JS_DupValue.exit3711 ], [ %739, %JS_DupValue.exit3720 ], [ %753, %JS_DupValue.exit3723 ], [ %767, %JS_DupValue.exit3726 ], [ %782, %JS_DupValue.exit3729 ], [ %798, %JS_DupValue.exit3732 ], [ %802, %799 ], [ %807, %803 ], [ %813, %808 ], [ %820, %814 ], [ %825, %821 ], [ %830, %826 ], [ %836, %831 ], [ %840, %837 ], [ %846, %841 ], [ %867, %866 ], [ %903, %._crit_edge5430 ], [ %941, %935 ], [ %981, %975 ], [ %1024, %._crit_edge5426 ], [ %1074, %JS_FreeValue.exit3742 ], [ %1085, %1083 ], [ %1092, %1091 ], [ %1108, %1107 ], [ %1378, %JS_FreeValue.exit3746 ], [ %1456, %1450 ], [ %1539, %JS_FreeValue.exit3753 ], [ %1549, %1540 ], [ %1599, %JS_FreeValue.exit3758 ], [ %1729, %JS_FreeValue.exit3762 ], [ %1760, %1757 ], [ %1806, %1804 ], [ %1817, %1816 ], [ %1831, %1830 ], [ %1896, %.loopexit4981 ], [ %1933, %1932 ], [ %1982, %JS_FreeValue.exit3780 ], [ %1997, %JS_DupValue.exit3783 ], [ %2015, %set_value.exit ], [ %2039, %set_value.exit3792 ], [ %2054, %JS_DupValue.exit3795 ], [ %2072, %set_value.exit3800 ], [ %2096, %set_value.exit3808 ], [ %2112, %JS_DupValue.exit3811 ], [ %2131, %set_value.exit3816 ], [ %2156, %set_value.exit3824 ], [ %2167, %JS_DupValue.exit3827 ], [ %2178, %JS_DupValue.exit3830 ], [ %2189, %JS_DupValue.exit3833 ], [ %2200, %JS_DupValue.exit3836 ], [ %2215, %set_value.exit3841 ], [ %2230, %set_value.exit3846 ], [ %2245, %set_value.exit3851 ], [ %2260, %set_value.exit3856 ], [ %2281, %set_value.exit3864 ], [ %2302, %set_value.exit3872 ], [ %2323, %set_value.exit3880 ], [ %2344, %set_value.exit3888 ], [ %2355, %JS_DupValue.exit3891 ], [ %2366, %JS_DupValue.exit3894 ], [ %2377, %JS_DupValue.exit3897 ], [ %2388, %JS_DupValue.exit3900 ], [ %2403, %set_value.exit3905 ], [ %2418, %set_value.exit3910 ], [ %2433, %set_value.exit3915 ], [ %2448, %set_value.exit3920 ], [ %2469, %set_value.exit3928 ], [ %2490, %set_value.exit3936 ], [ %2511, %set_value.exit3944 ], [ %2532, %set_value.exit3952 ], [ %2547, %JS_DupValue.exit3955 ], [ %2562, %JS_DupValue.exit3958 ], [ %2577, %JS_DupValue.exit3961 ], [ %2592, %JS_DupValue.exit3964 ], [ %2610, %set_value.exit3969 ], [ %2628, %set_value.exit3974 ], [ %2646, %set_value.exit3979 ], [ %2664, %set_value.exit3984 ], [ %2688, %set_value.exit3992 ], [ %2712, %set_value.exit4000 ], [ %2736, %set_value.exit4008 ], [ %2760, %set_value.exit4016 ], [ %2775, %JS_DupValue.exit4019 ], [ %2796, %set_value.exit4024 ], [ %2823, %set_value.exit4032 ], [ %2845, %JS_DupValue.exit4036 ], [ %2875, %set_value.exit4042 ], [ %2895, %set_value.exit4048 ], [ %2909, %set_value.exit4053 ], [ %2935, %JS_DupValue.exit4057 ], [ %2961, %JS_DupValue.exit4063 ], [ %2992, %set_value.exit4071 ], [ %3006, %set_value.exit4076 ], [ %3066, %close_lexical_var.exit ], [ %3138, %__JS_AtomToValue.exit4407 ], [ %3219, %3217 ], [ %3250, %js_poll_interrupts.exit4089.thread ], [ %3281, %js_poll_interrupts.exit4091.thread ], [ %3313, %js_poll_interrupts.exit4093.thread ], [ %3355, %js_poll_interrupts.exit4095.thread ], [ %3397, %js_poll_interrupts.exit4097.thread ], [ %3439, %js_poll_interrupts.exit4099.thread ], [ %3481, %js_poll_interrupts.exit4101.thread ], [ %3491, %3482 ], [ %3501, %3492 ], [ %3513, %3509 ], [ %3632, %3631 ], [ %3838, %3835 ], [ %3862, %3858 ], [ %3912, %3907 ], [ %3936, %3932 ], [ %3963, %3960 ], [ %3971, %3970 ], [ %4005, %JS_FreeValue.exit4131 ], [ %4039, %4037 ], [ %4067, %JS_FreeValue.exit4134 ], [ %4110, %4108 ], [ %4122, %4121 ], [ %4145, %JS_FreeValue.exit4136 ], [ %4158, %4155 ], [ %4183, %4182 ], [ %4211, %4203 ], [ %4308, %4307 ], [ %4406, %4405 ], [ %4492, %4491 ], [ %4515, %4514 ], [ %4588, %JS_DefineObjectName.exit ], [ %4601, %4600 ], [ %4620, %JS_FreeValue.exit4163 ], [ %4655, %js_method_set_home_object.exit ], [ %4857, %4856 ], [ %5172, %5171 ], [ %5198, %5197 ], [ %5213, %5212 ], [ %5241, %5238 ], [ %5357, %JS_FreeValue.exit4185 ], [ %5383, %5382 ], [ %5436, %5435 ], [ %5557, %5556 ], [ %5666, %5665 ], [ %5845, %JS_FreeValue.exit4212 ], [ %5871, %5870 ], [ %5906, %5905 ], [ %5988, %JS_FreeValue.exit4217 ], [ %6011, %6010 ], [ %6050, %6049 ], [ %6069, %6060 ], [ %6082, %6080 ], [ %6347, %6346 ], [ %6353, %6352 ], [ %6368, %6367 ], [ %6379, %6378 ], [ %6390, %6389 ], [ %6408, %6407 ], [ %6443, %set_value.exit4247 ], [ %6478, %set_value.exit4255 ], [ %6523, %6522 ], [ %6545, %6544 ], [ %6626, %6625 ], [ %6645, %6644 ], [ %6657, %6656 ], [ %6669, %6668 ], [ %6681, %6680 ], [ %6693, %6692 ], [ %6705, %6704 ], [ %6717, %6716 ], [ %6729, %6728 ], [ %6741, %6740 ], [ %6753, %6752 ], [ %6768, %6767 ], [ %6784, %6783 ], [ %6790, %6788 ], [ %6882, %6880 ], [ %7000, %6998 ], [ %7027, %7025 ], [ %7082, %__JS_AtomToValue.exit4595 ], [ %7194, %7192 ], [ %7216, %JS_DeleteProperty.exit.thread4825 ], [ %7241, %7240 ], [ %7266, %7265 ], [ %7296, %7295 ], [ %7430, %JS_FreeValue.exit4295 ], [ %7436, %7435 ], [ %7501, %JS_FreeValue.exit4312 ], [ %7515, %JS_FreeValue.exit4313 ]
   br label %.backedge4994
 
 323:                                              ; preds = %.backedge4994
@@ -33858,8 +33858,8 @@ find_hashed_shape_proto.exit.i:                   ; preds = %509
 
 JS_NewObjectProtoClass.exit.thread:               ; preds = %.loopexit4974
   store i64 0, ptr %.23354, align 8
-  %.sroa.2945.0..sroa_idx5908 = getelementptr inbounds i8, ptr %.23354, i64 8
-  store i64 6, ptr %.sroa.2945.0..sroa_idx5908, align 8
+  %.sroa.2945.0..sroa_idx5905 = getelementptr inbounds i8, ptr %.23354, i64 8
+  store i64 6, ptr %.sroa.2945.0..sroa_idx5905, align 8
   br label %JS_FreeValue.exit3739.loopexit
 
 JS_NewObjectProtoClass.exit:                      ; preds = %find_hashed_shape_proto.exit.i, %.loopexit4974
@@ -34000,10 +34000,10 @@ JS_DupValue.exit3694:                             ; preds = %550, %555
   unreachable
 
 .sink.split:                                      ; preds = %JS_DupValue.exit3691, %JS_DupValue.exit3694, %562, %561
-  %.sink6417 = phi i64 [ 3, %561 ], [ -1, %562 ], [ %552, %JS_DupValue.exit3694 ], [ %543, %JS_DupValue.exit3691 ]
+  %.sink6414 = phi i64 [ 3, %561 ], [ -1, %562 ], [ %552, %JS_DupValue.exit3694 ], [ %543, %JS_DupValue.exit3691 ]
   %.33355.ph = getelementptr i8, ptr %.23354, i64 16
   %.sroa.2932.0..sroa_idx = getelementptr inbounds i8, ptr %.23354, i64 8
-  store i64 %.sink6417, ptr %.sroa.2932.0..sroa_idx, align 8
+  store i64 %.sink6414, ptr %.sroa.2932.0..sroa_idx, align 8
   br label %578
 
 578:                                              ; preds = %.sink.split, %571, %565, %533, %527
@@ -34026,22 +34026,22 @@ JS_DupValue.exit3694:                             ; preds = %550, %555
   %.not4952 = icmp ne i64 %589, 6
   %590 = zext i16 %.23330.val3643 to i32
   %591 = icmp sgt i32 %6, %590
-  %or.cond6440 = select i1 %.not4952, i1 %591, i1 false
-  br i1 %or.cond6440, label %.lr.ph5433.preheader, label %js_build_rest.exit
+  %or.cond6437 = select i1 %.not4952, i1 %591, i1 false
+  br i1 %or.cond6437, label %.lr.ph5433.preheader, label %js_build_rest.exit
 
 .lr.ph5433.preheader:                             ; preds = %580
   %592 = zext i16 %.23330.val3643 to i64
   br label %.lr.ph5433
 
 593:                                              ; preds = %JS_DupValue.exit4347
-  %indvars.iv.next5863 = add nuw nsw i64 %indvars.iv5862, 1
-  %exitcond5866.not = icmp eq i64 %indvars.iv.next5863, %wide.trip.count5865
-  br i1 %exitcond5866.not, label %js_build_rest.exit, label %.lr.ph5433, !llvm.loop !109
+  %indvars.iv.next5860 = add nuw nsw i64 %indvars.iv5859, 1
+  %exitcond5863.not = icmp eq i64 %indvars.iv.next5860, %wide.trip.count5862
+  br i1 %exitcond5863.not, label %js_build_rest.exit, label %.lr.ph5433, !llvm.loop !109
 
 .lr.ph5433:                                       ; preds = %.lr.ph5433.preheader, %593
-  %indvars.iv5862 = phi i64 [ %592, %.lr.ph5433.preheader ], [ %indvars.iv.next5863, %593 ]
-  %594 = sub nuw nsw i64 %indvars.iv5862, %592
-  %595 = getelementptr %struct.JSValue, ptr %7, i64 %indvars.iv5862
+  %indvars.iv5859 = phi i64 [ %592, %.lr.ph5433.preheader ], [ %indvars.iv.next5860, %593 ]
+  %594 = sub nuw nsw i64 %indvars.iv5859, %592
+  %595 = getelementptr %struct.JSValue, ptr %7, i64 %indvars.iv5859
   %596 = load i64, ptr %595, align 8
   %597 = getelementptr inbounds i8, ptr %595, i64 8
   %598 = load i64, ptr %597, align 8
@@ -34082,8 +34082,8 @@ JS_DupValue.exit4347:                             ; preds = %.lr.ph5433, %601
 
 js_build_rest.exit.thread:                        ; preds = %608, %611, %616
   store i64 0, ptr %.23354, align 8
-  %.sroa.2917.0..sroa_idx5915 = getelementptr inbounds i8, ptr %.23354, i64 8
-  store i64 6, ptr %.sroa.2917.0..sroa_idx5915, align 8
+  %.sroa.2917.0..sroa_idx5912 = getelementptr inbounds i8, ptr %.23354, i64 8
+  store i64 6, ptr %.sroa.2917.0..sroa_idx5912, align 8
   br label %JS_FreeValue.exit3739.loopexit
 
 js_build_rest.exit:                               ; preds = %593, %580
@@ -34600,19 +34600,19 @@ JS_DupValue.exit3735:                             ; preds = %847, %856
 
 884:                                              ; preds = %873
   %885 = icmp eq i8 %.03333.in, 35
-  br i1 %885, label %7619, label %.preheader4977
+  br i1 %885, label %7617, label %.preheader4977
 
 .preheader4977:                                   ; preds = %884
   %886 = icmp sgt i32 %.03366, -1
   br i1 %886, label %.lr.ph5429.preheader, label %._crit_edge5430
 
 .lr.ph5429.preheader:                             ; preds = %.preheader4977
-  %wide.trip.count5855 = zext nneg i32 %.03366 to i64
+  %wide.trip.count5852 = zext nneg i32 %.03366 to i64
   br label %.lr.ph5429
 
 .lr.ph5429:                                       ; preds = %.lr.ph5429.preheader, %JS_FreeValue.exit3736
-  %indvars.iv5852 = phi i64 [ -1, %.lr.ph5429.preheader ], [ %indvars.iv.next5853, %JS_FreeValue.exit3736 ]
-  %887 = getelementptr %struct.JSValue, ptr %875, i64 %indvars.iv5852
+  %indvars.iv5849 = phi i64 [ -1, %.lr.ph5429.preheader ], [ %indvars.iv.next5850, %JS_FreeValue.exit3736 ]
+  %887 = getelementptr %struct.JSValue, ptr %875, i64 %indvars.iv5849
   %888 = load i64, ptr %887, align 8
   %889 = getelementptr inbounds i8, ptr %887, i64 8
   %890 = load i64, ptr %889, align 8
@@ -34634,9 +34634,9 @@ JS_DupValue.exit3735:                             ; preds = %847, %856
   br label %JS_FreeValue.exit3736
 
 JS_FreeValue.exit3736:                            ; preds = %.lr.ph5429, %893, %898
-  %indvars.iv.next5853 = add nsw i64 %indvars.iv5852, 1
-  %exitcond5856.not = icmp eq i64 %indvars.iv.next5853, %wide.trip.count5855
-  br i1 %exitcond5856.not, label %._crit_edge5430, label %.lr.ph5429, !llvm.loop !110
+  %indvars.iv.next5850 = add nsw i64 %indvars.iv5849, 1
+  %exitcond5853.not = icmp eq i64 %indvars.iv.next5850, %wide.trip.count5852
+  br i1 %exitcond5853.not, label %._crit_edge5430, label %.lr.ph5429, !llvm.loop !110
 
 ._crit_edge5430:                                  ; preds = %JS_FreeValue.exit3736, %.preheader4977
   %narrow3587 = xor i32 %.03366, -1
@@ -34673,8 +34673,8 @@ JS_FreeValue.exit3736:                            ; preds = %.lr.ph5429, %893, %
   br i1 %.not4951, label %JS_FreeValue.exit3739.loopexit, label %.preheader4976
 
 .preheader4976:                                   ; preds = %904, %JS_FreeValue.exit3737
-  %indvars.iv5857 = phi i64 [ %indvars.iv.next5858, %JS_FreeValue.exit3737 ], [ -2, %904 ]
-  %922 = getelementptr %struct.JSValue, ptr %909, i64 %indvars.iv5857
+  %indvars.iv5854 = phi i64 [ %indvars.iv.next5855, %JS_FreeValue.exit3737 ], [ -2, %904 ]
+  %922 = getelementptr %struct.JSValue, ptr %909, i64 %indvars.iv5854
   %923 = load i64, ptr %922, align 8
   %924 = getelementptr inbounds i8, ptr %922, i64 8
   %925 = load i64, ptr %924, align 8
@@ -34696,9 +34696,9 @@ JS_FreeValue.exit3736:                            ; preds = %.lr.ph5429, %893, %
   br label %JS_FreeValue.exit3737
 
 JS_FreeValue.exit3737:                            ; preds = %.preheader4976, %928, %933
-  %indvars.iv.next5858 = add nsw i64 %indvars.iv5857, 1
-  %exitcond5861.not = icmp eq i64 %indvars.iv.next5858, %907
-  br i1 %exitcond5861.not, label %935, label %.preheader4976, !llvm.loop !111
+  %indvars.iv.next5855 = add nsw i64 %indvars.iv5854, 1
+  %exitcond5858.not = icmp eq i64 %indvars.iv.next5855, %907
+  br i1 %exitcond5858.not, label %935, label %.preheader4976, !llvm.loop !111
 
 935:                                              ; preds = %JS_FreeValue.exit3737
   %936 = add nuw nsw i32 %905, 2
@@ -34739,11 +34739,11 @@ JS_FreeValue.exit3737:                            ; preds = %.preheader4976, %92
 
 960:                                              ; preds = %942
   %961 = icmp eq i8 %.03333.in, 37
-  br i1 %961, label %7619, label %.preheader4978
+  br i1 %961, label %7617, label %.preheader4978
 
 .preheader4978:                                   ; preds = %960, %JS_FreeValue.exit3738
-  %indvars.iv5847 = phi i64 [ %indvars.iv.next5848, %JS_FreeValue.exit3738 ], [ -2, %960 ]
-  %962 = getelementptr %struct.JSValue, ptr %947, i64 %indvars.iv5847
+  %indvars.iv5844 = phi i64 [ %indvars.iv.next5845, %JS_FreeValue.exit3738 ], [ -2, %960 ]
+  %962 = getelementptr %struct.JSValue, ptr %947, i64 %indvars.iv5844
   %963 = load i64, ptr %962, align 8
   %964 = getelementptr inbounds i8, ptr %962, i64 8
   %965 = load i64, ptr %964, align 8
@@ -34765,9 +34765,9 @@ JS_FreeValue.exit3737:                            ; preds = %.preheader4976, %92
   br label %JS_FreeValue.exit3738
 
 JS_FreeValue.exit3738:                            ; preds = %.preheader4978, %968, %973
-  %indvars.iv.next5848 = add nsw i64 %indvars.iv5847, 1
-  %exitcond5851.not = icmp eq i64 %indvars.iv.next5848, %945
-  br i1 %exitcond5851.not, label %975, label %.preheader4978, !llvm.loop !112
+  %indvars.iv.next5845 = add nsw i64 %indvars.iv5844, 1
+  %exitcond5848.not = icmp eq i64 %indvars.iv.next5845, %945
+  br i1 %exitcond5848.not, label %975, label %.preheader4978, !llvm.loop !112
 
 975:                                              ; preds = %JS_FreeValue.exit3738
   %976 = add nuw nsw i32 %943, 2
@@ -34799,17 +34799,17 @@ JS_FreeValue.exit3738:                            ; preds = %.preheader4978, %96
   %992 = zext i16 %.23330.val3647 to i64
   %993 = sub nsw i64 0, %992
   %994 = getelementptr %struct.JSValue, ptr %.23354, i64 %993
-  %.not5454 = icmp eq i16 %.23330.val3647, 0
-  br i1 %.not5454, label %._crit_edge5426, label %.lr.ph5425
+  %.not5451 = icmp eq i16 %.23330.val3647, 0
+  br i1 %.not5451, label %._crit_edge5426, label %.lr.ph5425
 
 995:                                              ; preds = %JS_DefinePropertyValue.exit
-  %indvars.iv.next5843 = add nuw nsw i64 %indvars.iv5842, 1
-  %exitcond5846.not = icmp eq i64 %indvars.iv.next5843, %992
-  br i1 %exitcond5846.not, label %._crit_edge5426, label %.lr.ph5425, !llvm.loop !113
+  %indvars.iv.next5840 = add nuw nsw i64 %indvars.iv5839, 1
+  %exitcond5843.not = icmp eq i64 %indvars.iv.next5840, %992
+  br i1 %exitcond5843.not, label %._crit_edge5426, label %.lr.ph5425, !llvm.loop !113
 
 .lr.ph5425:                                       ; preds = %991, %995
-  %indvars.iv5842 = phi i64 [ %indvars.iv.next5843, %995 ], [ 0, %991 ]
-  %996 = getelementptr %struct.JSValue, ptr %994, i64 %indvars.iv5842
+  %indvars.iv5839 = phi i64 [ %indvars.iv.next5840, %995 ], [ 0, %991 ]
+  %996 = getelementptr %struct.JSValue, ptr %994, i64 %indvars.iv5839
   %997 = load i64, ptr %996, align 8
   %998 = getelementptr inbounds i8, ptr %996, i64 8
   %999 = load i64, ptr %998, align 8
@@ -34819,7 +34819,7 @@ JS_FreeValue.exit3738:                            ; preds = %.preheader4978, %96
   store i64 3, ptr %292, align 8
   store i32 0, ptr %60, align 8
   store i64 3, ptr %293, align 8
-  %1000 = trunc i64 %indvars.iv5842 to i32
+  %1000 = trunc i64 %indvars.iv5839 to i32
   %1001 = or i32 %1000, -2147483648
   %1002 = call i32 @JS_DefineProperty(ptr noundef %.1, i64 %988, i64 %989, i32 noundef %1001, i64 %997, i64 %999, ptr noundef nonnull byval(%struct.JSValue) align 8 %59, ptr noundef nonnull byval(%struct.JSValue) align 8 %60, i32 noundef 26375)
   %1003 = trunc i64 %999 to i32
@@ -34963,13 +34963,13 @@ JS_FreeValue.exit3742:                            ; preds = %JS_FreeValue.exit37
   %.sroa.01073.0.copyload1089 = load i64, ptr %1076, align 8
   %.sroa.46.0..sroa_idx1106 = getelementptr i8, ptr %.23354, i64 -8
   %.sroa.46.0.copyload1107 = load i64, ptr %.sroa.46.0..sroa_idx1106, align 8
-  br label %7619
+  br label %7617
 
 1077:                                             ; preds = %.backedge4994
   %1078 = getelementptr i8, ptr %.23354, i64 -8
   %1079 = load i64, ptr %1078, align 8
-  %trunc5453 = trunc i64 %1079 to i32
-  switch i32 %trunc5453, label %1080 [
+  %trunc5450 = trunc i64 %1079 to i32
+  switch i32 %trunc5450, label %1080 [
     i32 -1, label %1082
     i32 3, label %1083
   ]
@@ -34982,8 +34982,8 @@ JS_FreeValue.exit3742:                            ; preds = %JS_FreeValue.exit37
   br label %1083
 
 1083:                                             ; preds = %1077, %1082
-  %.sink6418 = phi i32 [ 0, %1082 ], [ 1, %1077 ]
-  store i32 %.sink6418, ptr %.23354, align 8
+  %.sink6415 = phi i32 [ 0, %1082 ], [ 1, %1077 ]
+  store i32 %.sink6415, ptr %.23354, align 8
   %.sroa.2860.0..sroa_idx = getelementptr inbounds i8, ptr %.23354, i64 8
   store i64 1, ptr %.sroa.2860.0..sroa_idx, align 8
   %1084 = getelementptr i8, ptr %.23354, i64 16
@@ -35101,8 +35101,8 @@ JS_FreeValue.exit3742:                            ; preds = %JS_FreeValue.exit37
   %1154 = load ptr, ptr %237, align 8
   %1155 = getelementptr inbounds i8, ptr %1154, i64 240
   %1156 = load i8, ptr %1155, align 8
-  %.not.i.i6443 = icmp eq i8 %1156, 0
-  br i1 %.not.i.i6443, label %1157, label %JS_AddBrand.exit.thread
+  %.not.i.i6440 = icmp eq i8 %1156, 0
+  br i1 %.not.i.i6440, label %1157, label %JS_AddBrand.exit.thread
 
 1157:                                             ; preds = %1153
   store i8 1, ptr %1155, align 8
@@ -35245,7 +35245,7 @@ js_symbol_to_atom.exit:                           ; preds = %1205, %JS_DupValue.
 .critedge.i:                                      ; preds = %1226, %1208, %1224
   %1231 = call fastcc ptr @add_property(ptr noundef %.1, ptr noundef %.sroa.041.i.0..sroa.041.i.0..sroa.041.i.0..sroa.041.i.0..sroa.041.i.0..sroa.041.i.0..sroa.041.i.0..sroa.041.0..sroa.041.0..i, i32 noundef %.012.i.i, i32 noundef 7)
   %1232 = icmp sgt i32 %.012.i.i, 226
-  br i1 %1232, label %1233, label %JS_FreeAtom.exit6452
+  br i1 %1232, label %1233, label %JS_FreeAtom.exit6449
 
 1233:                                             ; preds = %.critedge.i
   %1234 = load ptr, ptr %237, align 8
@@ -35258,19 +35258,19 @@ js_symbol_to_atom.exit:                           ; preds = %1205, %JS_DupValue.
   %1241 = add i32 %1240, -1
   store i32 %1241, ptr %1239, align 4
   %1242 = icmp sgt i32 %1241, 0
-  br i1 %1242, label %JS_FreeAtom.exit6452, label %1243
+  br i1 %1242, label %JS_FreeAtom.exit6449, label %1243
 
 1243:                                             ; preds = %1233
   %1244 = getelementptr inbounds i8, ptr %1239, i64 4
   %1245 = load i64, ptr %1244, align 4
-  %.not.i.i.i6444 = icmp ugt i64 %1245, -4611686018427387905
-  br i1 %.not.i.i.i6444, label %._crit_edge.i.i.i6450, label %1248
+  %.not.i.i.i6441 = icmp ugt i64 %1245, -4611686018427387905
+  br i1 %.not.i.i.i6441, label %._crit_edge.i.i.i6447, label %1248
 
-._crit_edge.i.i.i6450:                            ; preds = %1243
+._crit_edge.i.i.i6447:                            ; preds = %1243
   %1246 = getelementptr inbounds i8, ptr %1239, i64 12
   %1247 = load i32, ptr %1246, align 4
-  %.pre.i.i.i6451 = zext i32 %1247 to i64
-  br label %JS_FreeAtomStruct.exit.i.i6447
+  %.pre.i.i.i6448 = zext i32 %1247 to i64
+  br label %JS_FreeAtomStruct.exit.i.i6444
 
 1248:                                             ; preds = %1243
   %1249 = lshr i64 %1245, 32
@@ -35290,34 +35290,34 @@ js_symbol_to_atom.exit:                           ; preds = %1205, %JS_DupValue.
   %1263 = getelementptr ptr, ptr %1261, i64 %1262
   %1264 = load ptr, ptr %1263, align 8
   %1265 = icmp eq ptr %1264, %1239
-  br i1 %1265, label %1266, label %.preheader.i.i.i6445
+  br i1 %1265, label %1266, label %.preheader.i.i.i6442
 
 1266:                                             ; preds = %1248
   %1267 = getelementptr inbounds i8, ptr %1264, i64 12
   %1268 = load i32, ptr %1267, align 4
   store i32 %1268, ptr %1259, align 4
-  br label %JS_FreeAtomStruct.exit.i.i6447
+  br label %JS_FreeAtomStruct.exit.i.i6444
 
-.preheader.i.i.i6445:                             ; preds = %1248, %.preheader.i.i.i6445
-  %.028.i.i.i6446 = phi ptr [ %1273, %.preheader.i.i.i6445 ], [ %1264, %1248 ]
-  %1269 = getelementptr inbounds i8, ptr %.028.i.i.i6446, i64 12
+.preheader.i.i.i6442:                             ; preds = %1248, %.preheader.i.i.i6442
+  %.028.i.i.i6443 = phi ptr [ %1273, %.preheader.i.i.i6442 ], [ %1264, %1248 ]
+  %1269 = getelementptr inbounds i8, ptr %.028.i.i.i6443, i64 12
   %1270 = load i32, ptr %1269, align 4
   %1271 = zext i32 %1270 to i64
   %1272 = getelementptr ptr, ptr %1261, i64 %1271
   %1273 = load ptr, ptr %1272, align 8
   %1274 = icmp eq ptr %1273, %1239
-  br i1 %1274, label %1275, label %.preheader.i.i.i6445
+  br i1 %1274, label %1275, label %.preheader.i.i.i6442
 
-1275:                                             ; preds = %.preheader.i.i.i6445
-  %1276 = getelementptr inbounds i8, ptr %.028.i.i.i6446, i64 12
+1275:                                             ; preds = %.preheader.i.i.i6442
+  %1276 = getelementptr inbounds i8, ptr %.028.i.i.i6443, i64 12
   %1277 = getelementptr inbounds i8, ptr %1273, i64 12
   %1278 = load i32, ptr %1277, align 4
   store i32 %1278, ptr %1276, align 4
-  br label %JS_FreeAtomStruct.exit.i.i6447
+  br label %JS_FreeAtomStruct.exit.i.i6444
 
-JS_FreeAtomStruct.exit.i.i6447:                   ; preds = %1275, %1266, %._crit_edge.i.i.i6450
-  %.pre-phi.i.i.i6448 = phi i64 [ %.pre.i.i.i6451, %._crit_edge.i.i.i6450 ], [ %1262, %1266 ], [ %1271, %1275 ]
-  %.0.i.i.i6449 = phi i32 [ %1247, %._crit_edge.i.i.i6450 ], [ %1260, %1266 ], [ %1270, %1275 ]
+JS_FreeAtomStruct.exit.i.i6444:                   ; preds = %1275, %1266, %._crit_edge.i.i.i6447
+  %.pre-phi.i.i.i6445 = phi i64 [ %.pre.i.i.i6448, %._crit_edge.i.i.i6447 ], [ %1262, %1266 ], [ %1271, %1275 ]
+  %.0.i.i.i6446 = phi i32 [ %1247, %._crit_edge.i.i.i6447 ], [ %1260, %1266 ], [ %1270, %1275 ]
   %1279 = getelementptr inbounds i8, ptr %1234, i64 104
   %1280 = load i32, ptr %1279, align 8
   %1281 = zext i32 %1280 to i64
@@ -35325,9 +35325,9 @@ JS_FreeAtomStruct.exit.i.i6447:                   ; preds = %1275, %1266, %._cri
   %1283 = or disjoint i64 %1282, 1
   %1284 = inttoptr i64 %1283 to ptr
   %1285 = load ptr, ptr %1235, align 8
-  %1286 = getelementptr ptr, ptr %1285, i64 %.pre-phi.i.i.i6448
+  %1286 = getelementptr ptr, ptr %1285, i64 %.pre-phi.i.i.i6445
   store ptr %1284, ptr %1286, align 8
-  store i32 %.0.i.i.i6449, ptr %1279, align 8
+  store i32 %.0.i.i.i6446, ptr %1279, align 8
   %1287 = getelementptr inbounds i8, ptr %1234, i64 8
   %1288 = load ptr, ptr %1287, align 8
   %1289 = getelementptr inbounds i8, ptr %1234, i64 32
@@ -35336,21 +35336,21 @@ JS_FreeAtomStruct.exit.i.i6447:                   ; preds = %1275, %1266, %._cri
   %1291 = load i32, ptr %1290, align 4
   %1292 = add i32 %1291, -1
   store i32 %1292, ptr %1290, align 4
-  br label %JS_FreeAtom.exit6452
+  br label %JS_FreeAtom.exit6449
 
-JS_FreeAtom.exit6452:                             ; preds = %.critedge.i, %1233, %JS_FreeAtomStruct.exit.i.i6447
+JS_FreeAtom.exit6449:                             ; preds = %.critedge.i, %1233, %JS_FreeAtomStruct.exit.i.i6444
   %.not99.i = icmp eq ptr %1231, null
   br i1 %.not99.i, label %JS_AddBrand.exit.thread, label %1293
 
-1293:                                             ; preds = %JS_FreeAtom.exit6452
+1293:                                             ; preds = %JS_FreeAtom.exit6449
   store i32 0, ptr %1231, align 8
   %.sroa.21.0..sroa_idx.i = getelementptr inbounds i8, ptr %1231, i64 8
   store i64 3, ptr %.sroa.21.0..sroa_idx.i, align 8
-  br label %JS_FreeAtom.exit6461
+  br label %JS_FreeAtom.exit6458
 
 1294:                                             ; preds = %js_symbol_to_atom.exit
   %1295 = icmp sgt i32 %.012.i.i, 226
-  br i1 %1295, label %1296, label %JS_FreeAtom.exit6461
+  br i1 %1295, label %1296, label %JS_FreeAtom.exit6458
 
 1296:                                             ; preds = %1294
   %1297 = load ptr, ptr %237, align 8
@@ -35363,19 +35363,19 @@ JS_FreeAtom.exit6452:                             ; preds = %.critedge.i, %1233,
   %1304 = add i32 %1303, -1
   store i32 %1304, ptr %1302, align 4
   %1305 = icmp sgt i32 %1304, 0
-  br i1 %1305, label %JS_FreeAtom.exit6461, label %1306
+  br i1 %1305, label %JS_FreeAtom.exit6458, label %1306
 
 1306:                                             ; preds = %1296
   %1307 = getelementptr inbounds i8, ptr %1302, i64 4
   %1308 = load i64, ptr %1307, align 4
-  %.not.i.i.i6453 = icmp ugt i64 %1308, -4611686018427387905
-  br i1 %.not.i.i.i6453, label %._crit_edge.i.i.i6459, label %1311
+  %.not.i.i.i6450 = icmp ugt i64 %1308, -4611686018427387905
+  br i1 %.not.i.i.i6450, label %._crit_edge.i.i.i6456, label %1311
 
-._crit_edge.i.i.i6459:                            ; preds = %1306
+._crit_edge.i.i.i6456:                            ; preds = %1306
   %1309 = getelementptr inbounds i8, ptr %1302, i64 12
   %1310 = load i32, ptr %1309, align 4
-  %.pre.i.i.i6460 = zext i32 %1310 to i64
-  br label %JS_FreeAtomStruct.exit.i.i6456
+  %.pre.i.i.i6457 = zext i32 %1310 to i64
+  br label %JS_FreeAtomStruct.exit.i.i6453
 
 1311:                                             ; preds = %1306
   %1312 = lshr i64 %1308, 32
@@ -35395,34 +35395,34 @@ JS_FreeAtom.exit6452:                             ; preds = %.critedge.i, %1233,
   %1326 = getelementptr ptr, ptr %1324, i64 %1325
   %1327 = load ptr, ptr %1326, align 8
   %1328 = icmp eq ptr %1327, %1302
-  br i1 %1328, label %1329, label %.preheader.i.i.i6454
+  br i1 %1328, label %1329, label %.preheader.i.i.i6451
 
 1329:                                             ; preds = %1311
   %1330 = getelementptr inbounds i8, ptr %1327, i64 12
   %1331 = load i32, ptr %1330, align 4
   store i32 %1331, ptr %1322, align 4
-  br label %JS_FreeAtomStruct.exit.i.i6456
+  br label %JS_FreeAtomStruct.exit.i.i6453
 
-.preheader.i.i.i6454:                             ; preds = %1311, %.preheader.i.i.i6454
-  %.028.i.i.i6455 = phi ptr [ %1336, %.preheader.i.i.i6454 ], [ %1327, %1311 ]
-  %1332 = getelementptr inbounds i8, ptr %.028.i.i.i6455, i64 12
+.preheader.i.i.i6451:                             ; preds = %1311, %.preheader.i.i.i6451
+  %.028.i.i.i6452 = phi ptr [ %1336, %.preheader.i.i.i6451 ], [ %1327, %1311 ]
+  %1332 = getelementptr inbounds i8, ptr %.028.i.i.i6452, i64 12
   %1333 = load i32, ptr %1332, align 4
   %1334 = zext i32 %1333 to i64
   %1335 = getelementptr ptr, ptr %1324, i64 %1334
   %1336 = load ptr, ptr %1335, align 8
   %1337 = icmp eq ptr %1336, %1302
-  br i1 %1337, label %1338, label %.preheader.i.i.i6454
+  br i1 %1337, label %1338, label %.preheader.i.i.i6451
 
-1338:                                             ; preds = %.preheader.i.i.i6454
-  %1339 = getelementptr inbounds i8, ptr %.028.i.i.i6455, i64 12
+1338:                                             ; preds = %.preheader.i.i.i6451
+  %1339 = getelementptr inbounds i8, ptr %.028.i.i.i6452, i64 12
   %1340 = getelementptr inbounds i8, ptr %1336, i64 12
   %1341 = load i32, ptr %1340, align 4
   store i32 %1341, ptr %1339, align 4
-  br label %JS_FreeAtomStruct.exit.i.i6456
+  br label %JS_FreeAtomStruct.exit.i.i6453
 
-JS_FreeAtomStruct.exit.i.i6456:                   ; preds = %1338, %1329, %._crit_edge.i.i.i6459
-  %.pre-phi.i.i.i6457 = phi i64 [ %.pre.i.i.i6460, %._crit_edge.i.i.i6459 ], [ %1325, %1329 ], [ %1334, %1338 ]
-  %.0.i.i.i6458 = phi i32 [ %1310, %._crit_edge.i.i.i6459 ], [ %1323, %1329 ], [ %1333, %1338 ]
+JS_FreeAtomStruct.exit.i.i6453:                   ; preds = %1338, %1329, %._crit_edge.i.i.i6456
+  %.pre-phi.i.i.i6454 = phi i64 [ %.pre.i.i.i6457, %._crit_edge.i.i.i6456 ], [ %1325, %1329 ], [ %1334, %1338 ]
+  %.0.i.i.i6455 = phi i32 [ %1310, %._crit_edge.i.i.i6456 ], [ %1323, %1329 ], [ %1333, %1338 ]
   %1342 = getelementptr inbounds i8, ptr %1297, i64 104
   %1343 = load i32, ptr %1342, align 8
   %1344 = zext i32 %1343 to i64
@@ -35430,9 +35430,9 @@ JS_FreeAtomStruct.exit.i.i6456:                   ; preds = %1338, %1329, %._cri
   %1346 = or disjoint i64 %1345, 1
   %1347 = inttoptr i64 %1346 to ptr
   %1348 = load ptr, ptr %1298, align 8
-  %1349 = getelementptr ptr, ptr %1348, i64 %.pre-phi.i.i.i6457
+  %1349 = getelementptr ptr, ptr %1348, i64 %.pre-phi.i.i.i6454
   store ptr %1347, ptr %1349, align 8
-  store i32 %.0.i.i.i6458, ptr %1342, align 8
+  store i32 %.0.i.i.i6455, ptr %1342, align 8
   %1350 = getelementptr inbounds i8, ptr %1297, i64 8
   %1351 = load ptr, ptr %1350, align 8
   %1352 = getelementptr inbounds i8, ptr %1297, i64 32
@@ -35441,13 +35441,13 @@ JS_FreeAtomStruct.exit.i.i6456:                   ; preds = %1338, %1329, %._cri
   %1354 = load i32, ptr %1353, align 4
   %1355 = add i32 %1354, -1
   store i32 %1355, ptr %1353, align 4
-  br label %JS_FreeAtom.exit6461
+  br label %JS_FreeAtom.exit6458
 
-JS_AddBrand.exit.thread:                          ; preds = %JS_FreeAtom.exit6452, %1157, %1153, %1120, %1229, %1168, %1171
+JS_AddBrand.exit.thread:                          ; preds = %JS_FreeAtom.exit6449, %1157, %1153, %1120, %1229, %1168, %1171
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %.sroa.041.i)
   br label %JS_FreeValue.exit3739
 
-JS_FreeAtom.exit6461:                             ; preds = %JS_FreeAtomStruct.exit.i.i6456, %1296, %1294, %1293
+JS_FreeAtom.exit6458:                             ; preds = %JS_FreeAtomStruct.exit.i.i6453, %1296, %1294, %1293
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %.sroa.041.i)
   %1356 = load i64, ptr %1110, align 8
   %1357 = load i64, ptr %1113, align 8
@@ -35455,7 +35455,7 @@ JS_FreeAtom.exit6461:                             ; preds = %JS_FreeAtomStruct.e
   %1359 = icmp ugt i32 %1358, -12
   br i1 %1359, label %1360, label %JS_FreeValue.exit3745
 
-1360:                                             ; preds = %JS_FreeAtom.exit6461
+1360:                                             ; preds = %JS_FreeAtom.exit6458
   %1361 = inttoptr i64 %1356 to ptr
   %1362 = load i32, ptr %1361, align 4
   %1363 = add i32 %1362, -1
@@ -35468,7 +35468,7 @@ JS_FreeAtom.exit6461:                             ; preds = %JS_FreeAtomStruct.e
   call void @__JS_FreeValueRT(ptr noundef %1366, i64 %1356, i64 %1357)
   br label %JS_FreeValue.exit3745
 
-JS_FreeValue.exit3745:                            ; preds = %JS_FreeAtom.exit6461, %1360, %1365
+JS_FreeValue.exit3745:                            ; preds = %JS_FreeAtom.exit6458, %1360, %1365
   %1367 = load i64, ptr %1111, align 8
   %1368 = load i64, ptr %1116, align 8
   %1369 = trunc i64 %1368 to i32
@@ -35617,8 +35617,8 @@ js_same_value.exit:                               ; preds = %JS_DupValue.exit.i,
   br i1 %.not4941, label %JS_FreeValue.exit3739.loopexit, label %.preheader4979
 
 .preheader4979:                                   ; preds = %1435, %JS_FreeValue.exit3748
-  %indvars.iv5837 = phi i64 [ %indvars.iv.next5838, %JS_FreeValue.exit3748 ], [ -1, %1435 ]
-  %1437 = getelementptr %struct.JSValue, ptr %1407, i64 %indvars.iv5837
+  %indvars.iv5834 = phi i64 [ %indvars.iv.next5835, %JS_FreeValue.exit3748 ], [ -1, %1435 ]
+  %1437 = getelementptr %struct.JSValue, ptr %1407, i64 %indvars.iv5834
   %1438 = load i64, ptr %1437, align 8
   %1439 = getelementptr inbounds i8, ptr %1437, i64 8
   %1440 = load i64, ptr %1439, align 8
@@ -35640,9 +35640,9 @@ js_same_value.exit:                               ; preds = %JS_DupValue.exit.i,
   br label %JS_FreeValue.exit3748
 
 JS_FreeValue.exit3748:                            ; preds = %.preheader4979, %1443, %1448
-  %indvars.iv.next5838 = add nsw i64 %indvars.iv5837, 1
-  %exitcond5841.not = icmp eq i64 %indvars.iv.next5838, %1405
-  br i1 %exitcond5841.not, label %1450, label %.preheader4979, !llvm.loop !116
+  %indvars.iv.next5835 = add nsw i64 %indvars.iv5834, 1
+  %exitcond5838.not = icmp eq i64 %indvars.iv.next5835, %1405
+  br i1 %exitcond5838.not, label %1450, label %.preheader4979, !llvm.loop !116
 
 1450:                                             ; preds = %JS_FreeValue.exit3748
   %1451 = add nuw nsw i32 %1400, 1
@@ -35894,12 +35894,12 @@ switch.lookup:                                    ; preds = %switch.hole_check
   %switch.gep = getelementptr inbounds [19 x i64], ptr @switch.table.JS_GetPrototypeFree, i64 0, i64 %1577
   %switch.load = load i64, ptr %switch.gep, align 8
   %1578 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep10801 = getelementptr inbounds [19 x i64], ptr @switch.table.JS_GetPrototypeFree.102, i64 0, i64 %1578
-  %switch.load10802 = load i64, ptr %switch.gep10801, align 8
+  %switch.gep10798 = getelementptr inbounds [19 x i64], ptr @switch.table.JS_GetPrototypeFree.102, i64 0, i64 %1578
+  %switch.load10799 = load i64, ptr %switch.gep10798, align 8
   %1579 = load ptr, ptr %272, align 8
   %1580 = getelementptr i8, ptr %1579, i64 %switch.load
   %.sroa.08.0.copyload14.i = load i64, ptr %1580, align 8
-  %.sroa.11.0..sroa_idx26.i = getelementptr i8, ptr %1579, i64 %switch.load10802
+  %.sroa.11.0..sroa_idx26.i = getelementptr i8, ptr %1579, i64 %switch.load10799
   %.sroa.11.0.copyload27.i = load i64, ptr %.sroa.11.0..sroa_idx26.i, align 8
   %1581 = trunc i64 %.sroa.11.0.copyload27.i to i32
   %1582 = icmp ugt i32 %1581, -12
@@ -35913,15 +35913,15 @@ switch.lookup:                                    ; preds = %switch.hole_check
   br label %JS_GetPrototype.exit
 
 JS_GetPrototype.exit:                             ; preds = %1583, %switch.lookup, %1562
-  %.sink6419 = phi i64 [ %1564, %1562 ], [ %.sroa.08.0.copyload14.i, %switch.lookup ], [ %.sroa.08.0.copyload14.i, %1583 ]
+  %.sink6416 = phi i64 [ %1564, %1562 ], [ %.sroa.08.0.copyload14.i, %switch.lookup ], [ %.sroa.08.0.copyload14.i, %1583 ]
   %.sroa.6.0.i3754 = phi i64 [ %1565, %1562 ], [ %.sroa.11.0.copyload27.i, %switch.lookup ], [ %.sroa.11.0.copyload27.i, %1583 ]
   %1587 = and i64 %.sroa.6.0.i3754, 4294967295
   %.not4939 = icmp eq i64 %1587, 6
   br i1 %.not4939, label %JS_FreeValue.exit3739.loopexit, label %JS_GetPrototype.exit.thread
 
 JS_GetPrototype.exit.thread:                      ; preds = %switch.hole_check, %1574, %1566, %1571, %JS_GetPrototype.exit
-  %.sroa.024.0.insert.insert.i5924 = phi i64 [ %.sink6419, %JS_GetPrototype.exit ], [ 0, %1566 ], [ %.sroa.03.0..sroa.03.0.31.cast.i, %1571 ], [ 0, %1574 ], [ 0, %switch.hole_check ]
-  %.sroa.6.0.i37545923 = phi i64 [ %.sroa.6.0.i3754, %JS_GetPrototype.exit ], [ 2, %1566 ], [ -1, %1571 ], [ 2, %1574 ], [ 2, %switch.hole_check ]
+  %.sroa.024.0.insert.insert.i5921 = phi i64 [ %.sink6416, %JS_GetPrototype.exit ], [ 0, %1566 ], [ %.sroa.03.0..sroa.03.0.31.cast.i, %1571 ], [ 0, %1574 ], [ 0, %switch.hole_check ]
+  %.sroa.6.0.i37545920 = phi i64 [ %.sroa.6.0.i3754, %JS_GetPrototype.exit ], [ 2, %1566 ], [ -1, %1571 ], [ 2, %1574 ], [ 2, %switch.hole_check ]
   %1588 = load i64, ptr %1551, align 8
   %1589 = load i64, ptr %1553, align 8
   %1590 = trunc i64 %1589 to i32
@@ -35942,8 +35942,8 @@ JS_GetPrototype.exit.thread:                      ; preds = %switch.hole_check, 
   br label %JS_FreeValue.exit3758
 
 JS_FreeValue.exit3758:                            ; preds = %JS_GetPrototype.exit.thread, %1592, %1597
-  store i64 %.sroa.024.0.insert.insert.i5924, ptr %1551, align 8
-  store i64 %.sroa.6.0.i37545923, ptr %1553, align 8
+  store i64 %.sroa.024.0.insert.insert.i5921, ptr %1551, align 8
+  store i64 %.sroa.6.0.i37545920, ptr %1553, align 8
   %1599 = getelementptr i8, ptr %.23330, i64 1
   br label %.backedge4994.backedge
 
@@ -36068,15 +36068,15 @@ JS_GetScriptOrModuleName.exit:                    ; preds = %1623
   %1657 = load ptr, ptr %1656, align 8
   %1658 = getelementptr inbounds i8, ptr %1656, i64 32
   %1659 = call ptr %1657(ptr noundef nonnull %1658, i64 noundef 104) #42
-  %.not.i.i6463 = icmp eq ptr %1659, null
-  br i1 %.not.i.i6463, label %1660, label %js_malloc.exit.i6464
+  %.not.i.i6460 = icmp eq ptr %1659, null
+  br i1 %.not.i.i6460, label %1660, label %js_malloc.exit.i6461
 
 1660:                                             ; preds = %1655
   %1661 = load ptr, ptr %237, align 8
   %1662 = getelementptr inbounds i8, ptr %1661, i64 240
   %1663 = load i8, ptr %1662, align 8
-  %.not.i.i.i6471 = icmp eq i8 %1663, 0
-  br i1 %.not.i.i.i6471, label %1664, label %JS_EnqueueJob.exit
+  %.not.i.i.i6468 = icmp eq i8 %1663, 0
+  br i1 %.not.i.i.i6468, label %1664, label %JS_EnqueueJob.exit
 
 1664:                                             ; preds = %1660
   store i8 1, ptr %1662, align 8
@@ -36084,7 +36084,7 @@ JS_GetScriptOrModuleName.exit:                    ; preds = %1623
   store i8 0, ptr %1662, align 8
   br label %JS_EnqueueJob.exit
 
-js_malloc.exit.i6464:                             ; preds = %1655
+js_malloc.exit.i6461:                             ; preds = %1655
   %1666 = getelementptr inbounds i8, ptr %1659, i64 16
   store ptr %.1, ptr %1666, align 8
   %1667 = getelementptr inbounds i8, ptr %1659, i64 24
@@ -36094,33 +36094,33 @@ js_malloc.exit.i6464:                             ; preds = %1655
   %1669 = getelementptr inbounds i8, ptr %1659, i64 40
   br label %1670
 
-1670:                                             ; preds = %JS_DupValue.exit.i6467, %js_malloc.exit.i6464
-  %indvars.iv.i6466 = phi i64 [ 0, %js_malloc.exit.i6464 ], [ %indvars.iv.next.i6469, %JS_DupValue.exit.i6467 ]
-  %1671 = getelementptr [0 x %struct.JSValue], ptr %1669, i64 0, i64 %indvars.iv.i6466
-  %1672 = getelementptr %struct.JSValue, ptr %57, i64 %indvars.iv.i6466
+1670:                                             ; preds = %JS_DupValue.exit.i6464, %js_malloc.exit.i6461
+  %indvars.iv.i6463 = phi i64 [ 0, %js_malloc.exit.i6461 ], [ %indvars.iv.next.i6466, %JS_DupValue.exit.i6464 ]
+  %1671 = getelementptr [0 x %struct.JSValue], ptr %1669, i64 0, i64 %indvars.iv.i6463
+  %1672 = getelementptr %struct.JSValue, ptr %57, i64 %indvars.iv.i6463
   %1673 = load i64, ptr %1672, align 16
   %1674 = getelementptr inbounds i8, ptr %1672, i64 8
   %1675 = load i64, ptr %1674, align 8
   %1676 = trunc i64 %1675 to i32
   %1677 = icmp ugt i32 %1676, -12
-  br i1 %1677, label %1678, label %JS_DupValue.exit.i6467
+  br i1 %1677, label %1678, label %JS_DupValue.exit.i6464
 
 1678:                                             ; preds = %1670
   %1679 = inttoptr i64 %1673 to ptr
   %1680 = load i32, ptr %1679, align 4
   %1681 = add i32 %1680, 1
   store i32 %1681, ptr %1679, align 4
-  br label %JS_DupValue.exit.i6467
+  br label %JS_DupValue.exit.i6464
 
-JS_DupValue.exit.i6467:                           ; preds = %1678, %1670
+JS_DupValue.exit.i6464:                           ; preds = %1678, %1670
   store i64 %1673, ptr %1671, align 8
-  %.sroa.2.0..sroa_idx.i6468 = getelementptr inbounds i8, ptr %1671, i64 8
-  store i64 %1675, ptr %.sroa.2.0..sroa_idx.i6468, align 8
-  %indvars.iv.next.i6469 = add nuw nsw i64 %indvars.iv.i6466, 1
-  %exitcond.not.i6470 = icmp eq i64 %indvars.iv.next.i6469, 4
-  br i1 %exitcond.not.i6470, label %._crit_edge.i, label %1670, !llvm.loop !20
+  %.sroa.2.0..sroa_idx.i6465 = getelementptr inbounds i8, ptr %1671, i64 8
+  store i64 %1675, ptr %.sroa.2.0..sroa_idx.i6465, align 8
+  %indvars.iv.next.i6466 = add nuw nsw i64 %indvars.iv.i6463, 1
+  %exitcond.not.i6467 = icmp eq i64 %indvars.iv.next.i6466, 4
+  br i1 %exitcond.not.i6467, label %._crit_edge.i, label %1670, !llvm.loop !20
 
-._crit_edge.i:                                    ; preds = %JS_DupValue.exit.i6467
+._crit_edge.i:                                    ; preds = %JS_DupValue.exit.i6464
   %1682 = getelementptr inbounds i8, ptr %1656, i64 288
   %1683 = load ptr, ptr %1682, align 8
   %1684 = getelementptr inbounds i8, ptr %1683, i64 8
@@ -36348,14 +36348,14 @@ JS_GetGlobalVar.exit.thread:                      ; preds = %1787
   %1801 = call { i64, i64 } @JS_GetPropertyInternal(ptr noundef %.1, i64 %1799, i64 %1800, i32 noundef %.23330.val3617, i64 %1799, i64 %1800, i32 noundef %1763)
   %1802 = extractvalue { i64, i64 } %1801, 0
   %1803 = extractvalue { i64, i64 } %1801, 1
-  %.pre5884 = and i64 %1803, 4294967295
+  %.pre5881 = and i64 %1803, 4294967295
   br label %JS_GetGlobalVar.exit
 
 JS_GetGlobalVar.exit:                             ; preds = %1795, %1791, %.thread4683
-  %.pre-phi5885 = phi i64 [ %1790, %1795 ], [ %1790, %1791 ], [ %.pre5884, %.thread4683 ]
+  %.pre-phi5882 = phi i64 [ %1790, %1795 ], [ %1790, %1791 ], [ %.pre5881, %.thread4683 ]
   %.sroa.0.0.i = phi i64 [ %1792, %1795 ], [ %1792, %1791 ], [ %1802, %.thread4683 ]
   %.sroa.4.0.i = phi i64 [ %1789, %1795 ], [ %1789, %1791 ], [ %1803, %.thread4683 ]
-  %.not4934 = icmp eq i64 %.pre-phi5885, 6
+  %.not4934 = icmp eq i64 %.pre-phi5882, 6
   br i1 %.not4934, label %JS_FreeValue.exit3739.loopexit, label %1804
 
 1804:                                             ; preds = %JS_GetGlobalVar.exit
@@ -38847,8 +38847,8 @@ find_hashed_shape_proto.exit.i4386:               ; preds = %3086
 
 JS_NewObjectProtoClass.exit4395.thread:           ; preds = %.loopexit4988
   store i64 0, ptr %.23354, align 8
-  %.sroa.2625.0..sroa_idx5931 = getelementptr inbounds i8, ptr %.23354, i64 8
-  store i64 6, ptr %.sroa.2625.0..sroa_idx5931, align 8
+  %.sroa.2625.0..sroa_idx5928 = getelementptr inbounds i8, ptr %.23354, i64 8
+  store i64 6, ptr %.sroa.2625.0..sroa_idx5928, align 8
   br label %JS_FreeValue.exit3739.loopexit
 
 JS_NewObjectProtoClass.exit4395:                  ; preds = %find_hashed_shape_proto.exit.i4386, %.loopexit4988
@@ -39052,13 +39052,13 @@ JS_DupValue.exit4410:                             ; preds = %3184, %3189
   br label %JS_GetGlobalVarRef.exit.thread4722
 
 JS_GetGlobalVarRef.exit.thread4722:               ; preds = %JS_DupValue.exit4413, %JS_DupValue.exit4410, %3193
-  %.sink6420 = phi i64 [ %3173, %JS_DupValue.exit4413 ], [ %3186, %JS_DupValue.exit4410 ], [ 3, %3193 ]
+  %.sink6417 = phi i64 [ %3173, %JS_DupValue.exit4413 ], [ %3186, %JS_DupValue.exit4410 ], [ 3, %3193 ]
   %.sroa.28.0..sroa_idx.i = getelementptr inbounds i8, ptr %.23354, i64 8
-  store i64 %.sink6420, ptr %.sroa.28.0..sroa_idx.i, align 8
+  store i64 %.sink6417, ptr %.sroa.28.0..sroa_idx.i, align 8
   %3194 = getelementptr i8, ptr %.23354, i64 16
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %32)
-  %.not.i.i6472 = icmp sgt i32 %.23330.val3624, -1
-  br i1 %.not.i.i6472, label %3200, label %3195
+  %.not.i.i6469 = icmp sgt i32 %.23330.val3624, -1
+  br i1 %.not.i.i6469, label %3200, label %3195
 
 3195:                                             ; preds = %JS_GetGlobalVarRef.exit.thread4722
   %3196 = and i32 %.23330.val3624, 2147483647
@@ -39094,10 +39094,10 @@ JS_GetGlobalVarRef.exit.thread4722:               ; preds = %JS_DupValue.exit441
   br label %JS_AtomToValue.exit
 
 JS_AtomToValue.exit:                              ; preds = %3195, %3212, %3213
-  %.pn.i.i6473 = phi { i64, i64 } [ %3199, %3195 ], [ %.fca.1.insert.i.i, %3213 ], [ %.fca.1.insert.i2.i, %3212 ]
+  %.pn.i.i6470 = phi { i64, i64 } [ %3199, %3195 ], [ %.fca.1.insert.i.i, %3213 ], [ %.fca.1.insert.i2.i, %3212 ]
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %32)
-  %3214 = extractvalue { i64, i64 } %.pn.i.i6473, 0
-  %3215 = extractvalue { i64, i64 } %.pn.i.i6473, 1
+  %3214 = extractvalue { i64, i64 } %.pn.i.i6470, 0
+  %3215 = extractvalue { i64, i64 } %.pn.i.i6470, 1
   store i64 %3214, ptr %3194, align 8
   %.sroa.2.0..sroa_idx.i4087 = getelementptr i8, ptr %.23354, i64 24
   store i64 %3215, ptr %.sroa.2.0..sroa_idx.i4087, align 8
@@ -39135,8 +39135,8 @@ js_poll_interrupts.exit4089:                      ; preds = %3220
   %3230 = getelementptr inbounds i8, ptr %3226, i64 264
   %3231 = load ptr, ptr %3230, align 8
   %3232 = call i32 %3228(ptr noundef nonnull %3226, ptr noundef %3231) #42
-  %.not10.i6474 = icmp eq i32 %3232, 0
-  br i1 %.not10.i6474, label %js_poll_interrupts.exit4089.thread, label %3233
+  %.not10.i6471 = icmp eq i32 %3232, 0
+  br i1 %.not10.i6471, label %js_poll_interrupts.exit4089.thread, label %3233
 
 3233:                                             ; preds = %3229
   %3234 = call { i64, i64 } (ptr, ptr, ...) @JS_ThrowInternalError(ptr noundef nonnull %.1, ptr noundef nonnull @.str.103)
@@ -39146,9 +39146,9 @@ js_poll_interrupts.exit4089:                      ; preds = %3220
   %3238 = getelementptr inbounds i8, ptr %3235, i64 232
   %3239 = load i64, ptr %3238, align 8
   %3240 = and i64 %3239, 4294967295
-  %.not.i.i6475 = icmp eq i64 %3240, 4294967295
+  %.not.i.i6472 = icmp eq i64 %3240, 4294967295
   %3241 = inttoptr i64 %3237 to ptr
-  br i1 %.not.i.i6475, label %3242, label %JS_FreeValue.exit3739.loopexit
+  br i1 %.not.i.i6472, label %3242, label %JS_FreeValue.exit3739.loopexit
 
 3242:                                             ; preds = %3233
   %3243 = getelementptr inbounds i8, ptr %3241, i64 6
@@ -39182,15 +39182,15 @@ js_poll_interrupts.exit4091:                      ; preds = %3251
   store i32 10000, ptr %259, align 4
   %3258 = getelementptr inbounds i8, ptr %3257, i64 256
   %3259 = load ptr, ptr %3258, align 8
-  %.not.i6477 = icmp eq ptr %3259, null
-  br i1 %.not.i6477, label %js_poll_interrupts.exit4091.thread, label %3260
+  %.not.i6474 = icmp eq ptr %3259, null
+  br i1 %.not.i6474, label %js_poll_interrupts.exit4091.thread, label %3260
 
 3260:                                             ; preds = %js_poll_interrupts.exit4091
   %3261 = getelementptr inbounds i8, ptr %3257, i64 264
   %3262 = load ptr, ptr %3261, align 8
   %3263 = call i32 %3259(ptr noundef nonnull %3257, ptr noundef %3262) #42
-  %.not10.i6478 = icmp eq i32 %3263, 0
-  br i1 %.not10.i6478, label %js_poll_interrupts.exit4091.thread, label %3264
+  %.not10.i6475 = icmp eq i32 %3263, 0
+  br i1 %.not10.i6475, label %js_poll_interrupts.exit4091.thread, label %3264
 
 3264:                                             ; preds = %3260
   %3265 = call { i64, i64 } (ptr, ptr, ...) @JS_ThrowInternalError(ptr noundef nonnull %.1, ptr noundef nonnull @.str.103)
@@ -39200,9 +39200,9 @@ js_poll_interrupts.exit4091:                      ; preds = %3251
   %3269 = getelementptr inbounds i8, ptr %3266, i64 232
   %3270 = load i64, ptr %3269, align 8
   %3271 = and i64 %3270, 4294967295
-  %.not.i.i6479 = icmp eq i64 %3271, 4294967295
+  %.not.i.i6476 = icmp eq i64 %3271, 4294967295
   %3272 = inttoptr i64 %3268 to ptr
-  br i1 %.not.i.i6479, label %3273, label %JS_FreeValue.exit3739.loopexit
+  br i1 %.not.i.i6476, label %3273, label %JS_FreeValue.exit3739.loopexit
 
 3273:                                             ; preds = %3264
   %3274 = getelementptr inbounds i8, ptr %3272, i64 6
@@ -39236,15 +39236,15 @@ js_poll_interrupts.exit4093:                      ; preds = %3282
   store i32 10000, ptr %259, align 4
   %3290 = getelementptr inbounds i8, ptr %3289, i64 256
   %3291 = load ptr, ptr %3290, align 8
-  %.not.i6482 = icmp eq ptr %3291, null
-  br i1 %.not.i6482, label %js_poll_interrupts.exit4093.thread, label %3292
+  %.not.i6479 = icmp eq ptr %3291, null
+  br i1 %.not.i6479, label %js_poll_interrupts.exit4093.thread, label %3292
 
 3292:                                             ; preds = %js_poll_interrupts.exit4093
   %3293 = getelementptr inbounds i8, ptr %3289, i64 264
   %3294 = load ptr, ptr %3293, align 8
   %3295 = call i32 %3291(ptr noundef nonnull %3289, ptr noundef %3294) #42
-  %.not10.i6483 = icmp eq i32 %3295, 0
-  br i1 %.not10.i6483, label %js_poll_interrupts.exit4093.thread, label %3296
+  %.not10.i6480 = icmp eq i32 %3295, 0
+  br i1 %.not10.i6480, label %js_poll_interrupts.exit4093.thread, label %3296
 
 3296:                                             ; preds = %3292
   %3297 = call { i64, i64 } (ptr, ptr, ...) @JS_ThrowInternalError(ptr noundef nonnull %.1, ptr noundef nonnull @.str.103)
@@ -39254,9 +39254,9 @@ js_poll_interrupts.exit4093:                      ; preds = %3282
   %3301 = getelementptr inbounds i8, ptr %3298, i64 232
   %3302 = load i64, ptr %3301, align 8
   %3303 = and i64 %3302, 4294967295
-  %.not.i.i6484 = icmp eq i64 %3303, 4294967295
+  %.not.i.i6481 = icmp eq i64 %3303, 4294967295
   %3304 = inttoptr i64 %3300 to ptr
-  br i1 %.not.i.i6484, label %3305, label %JS_FreeValue.exit3739.loopexit
+  br i1 %.not.i.i6481, label %3305, label %JS_FreeValue.exit3739.loopexit
 
 3305:                                             ; preds = %3296
   %3306 = getelementptr inbounds i8, ptr %3304, i64 6
@@ -39318,15 +39318,15 @@ js_poll_interrupts.exit4095:                      ; preds = %3327
   store i32 10000, ptr %259, align 4
   %3332 = getelementptr inbounds i8, ptr %3331, i64 256
   %3333 = load ptr, ptr %3332, align 8
-  %.not.i6487 = icmp eq ptr %3333, null
-  br i1 %.not.i6487, label %js_poll_interrupts.exit4095.thread, label %3334
+  %.not.i6484 = icmp eq ptr %3333, null
+  br i1 %.not.i6484, label %js_poll_interrupts.exit4095.thread, label %3334
 
 3334:                                             ; preds = %js_poll_interrupts.exit4095
   %3335 = getelementptr inbounds i8, ptr %3331, i64 264
   %3336 = load ptr, ptr %3335, align 8
   %3337 = call i32 %3333(ptr noundef nonnull %3331, ptr noundef %3336) #42
-  %.not10.i6488 = icmp eq i32 %3337, 0
-  br i1 %.not10.i6488, label %js_poll_interrupts.exit4095.thread, label %3338
+  %.not10.i6485 = icmp eq i32 %3337, 0
+  br i1 %.not10.i6485, label %js_poll_interrupts.exit4095.thread, label %3338
 
 3338:                                             ; preds = %3334
   %3339 = call { i64, i64 } (ptr, ptr, ...) @JS_ThrowInternalError(ptr noundef nonnull %.1, ptr noundef nonnull @.str.103)
@@ -39336,9 +39336,9 @@ js_poll_interrupts.exit4095:                      ; preds = %3327
   %3343 = getelementptr inbounds i8, ptr %3340, i64 232
   %3344 = load i64, ptr %3343, align 8
   %3345 = and i64 %3344, 4294967295
-  %.not.i.i6489 = icmp eq i64 %3345, 4294967295
+  %.not.i.i6486 = icmp eq i64 %3345, 4294967295
   %3346 = inttoptr i64 %3342 to ptr
-  br i1 %.not.i.i6489, label %3347, label %JS_FreeValue.exit3739.loopexit
+  br i1 %.not.i.i6486, label %3347, label %JS_FreeValue.exit3739.loopexit
 
 3347:                                             ; preds = %3338
   %3348 = getelementptr inbounds i8, ptr %3346, i64 6
@@ -39400,15 +39400,15 @@ js_poll_interrupts.exit4097:                      ; preds = %3369
   store i32 10000, ptr %259, align 4
   %3374 = getelementptr inbounds i8, ptr %3373, i64 256
   %3375 = load ptr, ptr %3374, align 8
-  %.not.i6492 = icmp eq ptr %3375, null
-  br i1 %.not.i6492, label %js_poll_interrupts.exit4097.thread, label %3376
+  %.not.i6489 = icmp eq ptr %3375, null
+  br i1 %.not.i6489, label %js_poll_interrupts.exit4097.thread, label %3376
 
 3376:                                             ; preds = %js_poll_interrupts.exit4097
   %3377 = getelementptr inbounds i8, ptr %3373, i64 264
   %3378 = load ptr, ptr %3377, align 8
   %3379 = call i32 %3375(ptr noundef nonnull %3373, ptr noundef %3378) #42
-  %.not10.i6493 = icmp eq i32 %3379, 0
-  br i1 %.not10.i6493, label %js_poll_interrupts.exit4097.thread, label %3380
+  %.not10.i6490 = icmp eq i32 %3379, 0
+  br i1 %.not10.i6490, label %js_poll_interrupts.exit4097.thread, label %3380
 
 3380:                                             ; preds = %3376
   %3381 = call { i64, i64 } (ptr, ptr, ...) @JS_ThrowInternalError(ptr noundef nonnull %.1, ptr noundef nonnull @.str.103)
@@ -39418,9 +39418,9 @@ js_poll_interrupts.exit4097:                      ; preds = %3369
   %3385 = getelementptr inbounds i8, ptr %3382, i64 232
   %3386 = load i64, ptr %3385, align 8
   %3387 = and i64 %3386, 4294967295
-  %.not.i.i6494 = icmp eq i64 %3387, 4294967295
+  %.not.i.i6491 = icmp eq i64 %3387, 4294967295
   %3388 = inttoptr i64 %3384 to ptr
-  br i1 %.not.i.i6494, label %3389, label %JS_FreeValue.exit3739.loopexit
+  br i1 %.not.i.i6491, label %3389, label %JS_FreeValue.exit3739.loopexit
 
 3389:                                             ; preds = %3380
   %3390 = getelementptr inbounds i8, ptr %3388, i64 6
@@ -39481,15 +39481,15 @@ js_poll_interrupts.exit4099:                      ; preds = %3411
   store i32 10000, ptr %259, align 4
   %3416 = getelementptr inbounds i8, ptr %3415, i64 256
   %3417 = load ptr, ptr %3416, align 8
-  %.not.i6497 = icmp eq ptr %3417, null
-  br i1 %.not.i6497, label %js_poll_interrupts.exit4099.thread, label %3418
+  %.not.i6494 = icmp eq ptr %3417, null
+  br i1 %.not.i6494, label %js_poll_interrupts.exit4099.thread, label %3418
 
 3418:                                             ; preds = %js_poll_interrupts.exit4099
   %3419 = getelementptr inbounds i8, ptr %3415, i64 264
   %3420 = load ptr, ptr %3419, align 8
   %3421 = call i32 %3417(ptr noundef nonnull %3415, ptr noundef %3420) #42
-  %.not10.i6498 = icmp eq i32 %3421, 0
-  br i1 %.not10.i6498, label %js_poll_interrupts.exit4099.thread, label %3422
+  %.not10.i6495 = icmp eq i32 %3421, 0
+  br i1 %.not10.i6495, label %js_poll_interrupts.exit4099.thread, label %3422
 
 3422:                                             ; preds = %3418
   %3423 = call { i64, i64 } (ptr, ptr, ...) @JS_ThrowInternalError(ptr noundef nonnull %.1, ptr noundef nonnull @.str.103)
@@ -39499,9 +39499,9 @@ js_poll_interrupts.exit4099:                      ; preds = %3411
   %3427 = getelementptr inbounds i8, ptr %3424, i64 232
   %3428 = load i64, ptr %3427, align 8
   %3429 = and i64 %3428, 4294967295
-  %.not.i.i6499 = icmp eq i64 %3429, 4294967295
+  %.not.i.i6496 = icmp eq i64 %3429, 4294967295
   %3430 = inttoptr i64 %3426 to ptr
-  br i1 %.not.i.i6499, label %3431, label %JS_FreeValue.exit3739.loopexit
+  br i1 %.not.i.i6496, label %3431, label %JS_FreeValue.exit3739.loopexit
 
 3431:                                             ; preds = %3422
   %3432 = getelementptr inbounds i8, ptr %3430, i64 6
@@ -39562,15 +39562,15 @@ js_poll_interrupts.exit4101:                      ; preds = %3453
   store i32 10000, ptr %259, align 4
   %3458 = getelementptr inbounds i8, ptr %3457, i64 256
   %3459 = load ptr, ptr %3458, align 8
-  %.not.i6502 = icmp eq ptr %3459, null
-  br i1 %.not.i6502, label %js_poll_interrupts.exit4101.thread, label %3460
+  %.not.i6499 = icmp eq ptr %3459, null
+  br i1 %.not.i6499, label %js_poll_interrupts.exit4101.thread, label %3460
 
 3460:                                             ; preds = %js_poll_interrupts.exit4101
   %3461 = getelementptr inbounds i8, ptr %3457, i64 264
   %3462 = load ptr, ptr %3461, align 8
   %3463 = call i32 %3459(ptr noundef nonnull %3457, ptr noundef %3462) #42
-  %.not10.i6503 = icmp eq i32 %3463, 0
-  br i1 %.not10.i6503, label %js_poll_interrupts.exit4101.thread, label %3464
+  %.not10.i6500 = icmp eq i32 %3463, 0
+  br i1 %.not10.i6500, label %js_poll_interrupts.exit4101.thread, label %3464
 
 3464:                                             ; preds = %3460
   %3465 = call { i64, i64 } (ptr, ptr, ...) @JS_ThrowInternalError(ptr noundef nonnull %.1, ptr noundef nonnull @.str.103)
@@ -39580,9 +39580,9 @@ js_poll_interrupts.exit4101:                      ; preds = %3453
   %3469 = getelementptr inbounds i8, ptr %3466, i64 232
   %3470 = load i64, ptr %3469, align 8
   %3471 = and i64 %3470, 4294967295
-  %.not.i.i6504 = icmp eq i64 %3471, 4294967295
+  %.not.i.i6501 = icmp eq i64 %3471, 4294967295
   %3472 = inttoptr i64 %3468 to ptr
-  br i1 %.not.i.i6504, label %3473, label %JS_FreeValue.exit3739.loopexit
+  br i1 %.not.i.i6501, label %3473, label %JS_FreeValue.exit3739.loopexit
 
 3473:                                             ; preds = %3464
   %3474 = getelementptr inbounds i8, ptr %3472, i64 6
@@ -39698,7 +39698,7 @@ JS_FreeValue.exit4599:                            ; preds = %3520, %3523, %3528
   br label %3532
 
 3532:                                             ; preds = %JS_FreeValue.exit4599, %3514, %3514, %3514
-  %.sroa.052.i.0..sroa.052.i.0..sroa.052.0..sroa.052.0.5469.i48855876.in = phi i64 [ %3530, %JS_FreeValue.exit4599 ], [ %3516, %3514 ], [ %3516, %3514 ], [ %3516, %3514 ]
+  %.sroa.052.i.0..sroa.052.i.0..sroa.052.0..sroa.052.0.5469.i48855873.in = phi i64 [ %3530, %JS_FreeValue.exit4599 ], [ %3516, %3514 ], [ %3516, %3514 ], [ %3516, %3514 ]
   %.sroa.7.0.i4414 = phi i64 [ %3531, %JS_FreeValue.exit4599 ], [ %3518, %3514 ], [ %3518, %3514 ], [ %3518, %3514 ]
   %3533 = load ptr, ptr %237, align 8
   %3534 = load ptr, ptr %3533, align 8
@@ -39726,7 +39726,7 @@ JS_FreeValue.exit4599:                            ; preds = %3520, %3523, %3528
   br i1 %3545, label %3546, label %build_for_in_iterator.exit.thread
 
 3546:                                             ; preds = %3543
-  %3547 = inttoptr i64 %.sroa.052.i.0..sroa.052.i.0..sroa.052.0..sroa.052.0.5469.i48855876.in to ptr
+  %3547 = inttoptr i64 %.sroa.052.i.0..sroa.052.i.0..sroa.052.0..sroa.052.0.5469.i48855873.in to ptr
   %3548 = load i32, ptr %3547, align 4
   %3549 = add i32 %3548, -1
   store i32 %3549, ptr %3547, align 4
@@ -39735,7 +39735,7 @@ JS_FreeValue.exit4599:                            ; preds = %3520, %3523, %3528
 
 3551:                                             ; preds = %3546
   %3552 = load ptr, ptr %237, align 8
-  call void @__JS_FreeValueRT(ptr noundef %3552, i64 %.sroa.052.i.0..sroa.052.i.0..sroa.052.0..sroa.052.0.5469.i48855876.in, i64 %.sroa.7.0.i4414)
+  call void @__JS_FreeValueRT(ptr noundef %3552, i64 %.sroa.052.i.0..sroa.052.i.0..sroa.052.0..sroa.052.0.5469.i48855873.in, i64 %.sroa.7.0.i4414)
   br label %build_for_in_iterator.exit.thread
 
 js_malloc.exit.i:                                 ; preds = %3532
@@ -39785,7 +39785,7 @@ find_hashed_shape_proto.exit:                     ; preds = %3566
 .loopexit4990:                                    ; preds = %3570, %js_malloc.exit.i
   %3574 = call fastcc ptr @js_new_shape2(ptr noundef %.1, ptr noundef null, i32 noundef 2)
   %.not13.i.i4426 = icmp eq ptr %3574, null
-  br i1 %.not13.i.i4426, label %.loopexit5975, label %JS_NewObjectProtoClass.exit.i
+  br i1 %.not13.i.i4426, label %.loopexit5972, label %JS_NewObjectProtoClass.exit.i
 
 JS_NewObjectProtoClass.exit.i:                    ; preds = %find_hashed_shape_proto.exit, %.loopexit4990
   %.0.i79.i = phi ptr [ %.0133.i, %find_hashed_shape_proto.exit ], [ %3574, %.loopexit4990 ]
@@ -39794,9 +39794,9 @@ JS_NewObjectProtoClass.exit.i:                    ; preds = %find_hashed_shape_p
   %3577 = extractvalue { i64, i64 } %3575, 1
   %3578 = and i64 %3577, 4294967295
   %.not4880 = icmp eq i64 %3578, 6
-  br i1 %.not4880, label %.loopexit5975, label %3592
+  br i1 %.not4880, label %.loopexit5972, label %3592
 
-.loopexit5975:                                    ; preds = %.loopexit4990, %JS_NewObjectProtoClass.exit.i
+.loopexit5972:                                    ; preds = %.loopexit4990, %JS_NewObjectProtoClass.exit.i
   %3579 = load ptr, ptr %237, align 8
   %3580 = getelementptr inbounds i8, ptr %3579, i64 8
   %3581 = load ptr, ptr %3580, align 8
@@ -39806,8 +39806,8 @@ JS_NewObjectProtoClass.exit.i:                    ; preds = %find_hashed_shape_p
   %3584 = icmp ugt i32 %3583, -12
   br i1 %3584, label %3585, label %build_for_in_iterator.exit.thread
 
-3585:                                             ; preds = %.loopexit5975
-  %3586 = inttoptr i64 %.sroa.052.i.0..sroa.052.i.0..sroa.052.0..sroa.052.0.5469.i48855876.in to ptr
+3585:                                             ; preds = %.loopexit5972
+  %3586 = inttoptr i64 %.sroa.052.i.0..sroa.052.i.0..sroa.052.0..sroa.052.0.5469.i48855873.in to ptr
   %3587 = load i32, ptr %3586, align 4
   %3588 = add i32 %3587, -1
   store i32 %3588, ptr %3586, align 4
@@ -39816,14 +39816,14 @@ JS_NewObjectProtoClass.exit.i:                    ; preds = %find_hashed_shape_p
 
 3590:                                             ; preds = %3585
   %3591 = load ptr, ptr %237, align 8
-  call void @__JS_FreeValueRT(ptr noundef %3591, i64 %.sroa.052.i.0..sroa.052.i.0..sroa.052.0..sroa.052.0.5469.i48855876.in, i64 %.sroa.7.0.i4414)
+  call void @__JS_FreeValueRT(ptr noundef %3591, i64 %.sroa.052.i.0..sroa.052.i.0..sroa.052.0..sroa.052.0.5469.i48855873.in, i64 %.sroa.7.0.i4414)
   br label %build_for_in_iterator.exit.thread
 
 3592:                                             ; preds = %JS_NewObjectProtoClass.exit.i
   %3593 = inttoptr i64 %3576 to ptr
   %3594 = getelementptr inbounds i8, ptr %3536, i64 25
   store i8 0, ptr %3594, align 1
-  store i64 %.sroa.052.i.0..sroa.052.i.0..sroa.052.0..sroa.052.0.5469.i48855876.in, ptr %3536, align 8
+  store i64 %.sroa.052.i.0..sroa.052.i.0..sroa.052.0..sroa.052.0.5469.i48855873.in, ptr %3536, align 8
   %.sroa.7.0..sroa_idx.i4422 = getelementptr inbounds i8, ptr %3536, i64 8
   store i64 %.sroa.7.0.i4414, ptr %.sroa.7.0..sroa_idx.i4422, align 8
   %3595 = getelementptr inbounds i8, ptr %3536, i64 16
@@ -39835,7 +39835,7 @@ JS_NewObjectProtoClass.exit.i:                    ; preds = %find_hashed_shape_p
   store ptr %3536, ptr %3598, align 8
   %3599 = and i32 %3519, -2
   %or.cond5.i4423 = icmp eq i32 %3599, 2
-  %3600 = inttoptr i64 %.sroa.052.i.0..sroa.052.i.0..sroa.052.0..sroa.052.0.5469.i48855876.in to ptr
+  %3600 = inttoptr i64 %.sroa.052.i.0..sroa.052.i.0..sroa.052.0..sroa.052.0.5469.i48855873.in to ptr
   br i1 %or.cond5.i4423, label %3631, label %3601
 
 3601:                                             ; preds = %3592
@@ -39868,8 +39868,8 @@ JS_NewObjectProtoClass.exit.i:                    ; preds = %find_hashed_shape_p
 3614:                                             ; preds = %.lr.ph5366
   %3615 = add nuw nsw i32 %.067.i5363, 1
   %3616 = getelementptr i8, ptr %.0.i44245364, i64 8
-  %exitcond5831.not = icmp eq i32 %3615, %3609
-  br i1 %exitcond5831.not, label %._crit_edge5367, label %.lr.ph5366, !llvm.loop !126
+  %exitcond5828.not = icmp eq i32 %3615, %3609
+  br i1 %exitcond5828.not, label %._crit_edge5367, label %.lr.ph5366, !llvm.loop !126
 
 ._crit_edge5367:                                  ; preds = %3614, %3605
   store i8 1, ptr %3594, align 1
@@ -39909,7 +39909,7 @@ JS_NewObjectProtoClass.exit.i:                    ; preds = %find_hashed_shape_p
   store i32 %storemerge.i4425, ptr %3597, align 4
   br label %3631
 
-build_for_in_iterator.exit.thread:                ; preds = %3551, %3546, %3543, %3590, %3585, %.loopexit5975, %3626, %3622, %3619
+build_for_in_iterator.exit.thread:                ; preds = %3551, %3546, %3543, %3590, %3585, %.loopexit5972, %3626, %3622, %3619
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %38)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %39)
   store i64 0, ptr %3515, align 8
@@ -39974,10 +39974,10 @@ build_for_in_iterator.exit.thread:                ; preds = %3551, %3546, %3543,
   br i1 %.not91.i4108, label %3657, label %3761
 
 3657:                                             ; preds = %3655
-  %.sroa.054.i.0..sroa.054.i.0..sroa.054.i.0..sroa.054.i.0..sroa.054.i.0..sroa.054.i.0..sroa.054.i.0..sroa.054.0..sroa.054.0.5692.i48725899672578868484964311400 = load i64, ptr %.sroa.054.i, align 8
+  %.sroa.054.i.0..sroa.054.i.0..sroa.054.i.0..sroa.054.i.0..sroa.054.i.0..sroa.054.i.0..sroa.054.i.0..sroa.054.0..sroa.054.0.5692.i48725896672278838481964011397 = load i64, ptr %.sroa.054.i, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %30)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %31)
-  %.sroa.040.0..sroa.040.0..cast.i = inttoptr i64 %.sroa.054.i.0..sroa.054.i.0..sroa.054.i.0..sroa.054.i.0..sroa.054.i.0..sroa.054.i.0..sroa.054.i.0..sroa.054.0..sroa.054.0.5692.i48725899672578868484964311400 to ptr
+  %.sroa.040.0..sroa.040.0..cast.i = inttoptr i64 %.sroa.054.i.0..sroa.054.i.0..sroa.054.i.0..sroa.054.i.0..sroa.054.i.0..sroa.054.i.0..sroa.054.i.0..sroa.054.0..sroa.054.0.5692.i48725896672278838481964011397 to ptr
   %3658 = getelementptr inbounds i8, ptr %.sroa.040.0..sroa.040.0..cast.i, i64 48
   %3659 = load ptr, ptr %3658, align 8
   %3660 = load i64, ptr %3659, align 8
@@ -39985,27 +39985,27 @@ build_for_in_iterator.exit.thread:                ; preds = %3551, %3546, %3543,
   %3662 = load i64, ptr %3661, align 8
   %3663 = trunc i64 %3662 to i32
   %3664 = icmp ugt i32 %3663, -12
-  br i1 %3664, label %3665, label %JS_DupValue.exit.i6507.preheader
+  br i1 %3664, label %3665, label %JS_DupValue.exit.i6504.preheader
 
 3665:                                             ; preds = %3657
   %3666 = inttoptr i64 %3660 to ptr
   %3667 = load i32, ptr %3666, align 4
   %3668 = add i32 %3667, 1
   store i32 %3668, ptr %3666, align 4
-  br label %JS_DupValue.exit.i6507.preheader
+  br label %JS_DupValue.exit.i6504.preheader
 
-JS_DupValue.exit.i6507.preheader:                 ; preds = %3665, %3657
-  br label %JS_DupValue.exit.i6507
+JS_DupValue.exit.i6504.preheader:                 ; preds = %3665, %3657
+  br label %JS_DupValue.exit.i6504
 
-JS_DupValue.exit.i6507:                           ; preds = %JS_DupValue.exit.i6507.backedge, %JS_DupValue.exit.i6507.preheader
-  %.sroa.05.0..sroa.05.0..sroa.05.0..sroa.05.0.64464.in.i = phi i64 [ %3660, %JS_DupValue.exit.i6507.preheader ], [ %3679, %JS_DupValue.exit.i6507.backedge ]
-  %.sroa.10.0.i = phi i64 [ %3662, %JS_DupValue.exit.i6507.preheader ], [ %3680, %JS_DupValue.exit.i6507.backedge ]
+JS_DupValue.exit.i6504:                           ; preds = %JS_DupValue.exit.i6504.backedge, %JS_DupValue.exit.i6504.preheader
+  %.sroa.05.0..sroa.05.0..sroa.05.0..sroa.05.0.64464.in.i = phi i64 [ %3660, %JS_DupValue.exit.i6504.preheader ], [ %3679, %JS_DupValue.exit.i6504.backedge ]
+  %.sroa.10.0.i = phi i64 [ %3662, %JS_DupValue.exit.i6504.preheader ], [ %3680, %JS_DupValue.exit.i6504.backedge ]
   %3669 = call { i64, i64 } @JS_GetPrototype(ptr noundef %.1, i64 %.sroa.05.0..sroa.05.0..sroa.05.0..sroa.05.0.64464.in.i, i64 %.sroa.10.0.i)
   %3670 = trunc i64 %.sroa.10.0.i to i32
   %3671 = icmp ugt i32 %3670, -12
   br i1 %3671, label %3672, label %JS_FreeValue.exit60.i
 
-3672:                                             ; preds = %JS_DupValue.exit.i6507
+3672:                                             ; preds = %JS_DupValue.exit.i6504
   %3673 = inttoptr i64 %.sroa.05.0..sroa.05.0..sroa.05.0..sroa.05.0.64464.in.i to ptr
   %3674 = load i32, ptr %3673, align 4
   %3675 = add i32 %3674, -1
@@ -40018,7 +40018,7 @@ JS_DupValue.exit.i6507:                           ; preds = %JS_DupValue.exit.i6
   call void @__JS_FreeValueRT(ptr noundef %3678, i64 %.sroa.05.0..sroa.05.0..sroa.05.0..sroa.05.0.64464.in.i, i64 %.sroa.10.0.i)
   br label %JS_FreeValue.exit60.i
 
-JS_FreeValue.exit60.i:                            ; preds = %3677, %3672, %JS_DupValue.exit.i6507
+JS_FreeValue.exit60.i:                            ; preds = %3677, %3672, %JS_DupValue.exit.i6504
   %3679 = extractvalue { i64, i64 } %3669, 0
   %3680 = extractvalue { i64, i64 } %3669, 1
   %trunc.i = trunc i64 %3680 to i32
@@ -40083,25 +40083,25 @@ JS_FreeValue.exit57._crit_edge.i:                 ; preds = %JS_FreeValue.exit57
   %3705 = add i32 %3704, -1
   store i32 %3705, ptr %259, align 4
   %3706 = icmp slt i32 %3705, 1
-  br i1 %3706, label %3707, label %JS_DupValue.exit.i6507.backedge
+  br i1 %3706, label %3707, label %JS_DupValue.exit.i6504.backedge
 
 3707:                                             ; preds = %3703
   %3708 = load ptr, ptr %237, align 8
   store i32 10000, ptr %259, align 4
   %3709 = getelementptr inbounds i8, ptr %3708, i64 256
   %3710 = load ptr, ptr %3709, align 8
-  %.not.i.i6514 = icmp eq ptr %3710, null
-  br i1 %.not.i.i6514, label %JS_DupValue.exit.i6507.backedge, label %3711
+  %.not.i.i6511 = icmp eq ptr %3710, null
+  br i1 %.not.i.i6511, label %JS_DupValue.exit.i6504.backedge, label %3711
 
 3711:                                             ; preds = %3707
   %3712 = getelementptr inbounds i8, ptr %3708, i64 264
   %3713 = load ptr, ptr %3712, align 8
   %3714 = call i32 %3710(ptr noundef nonnull %3708, ptr noundef %3713) #42
-  %.not10.i.i6515 = icmp eq i32 %3714, 0
-  br i1 %.not10.i.i6515, label %JS_DupValue.exit.i6507.backedge, label %3715
+  %.not10.i.i6512 = icmp eq i32 %3714, 0
+  br i1 %.not10.i.i6512, label %JS_DupValue.exit.i6504.backedge, label %3715
 
-JS_DupValue.exit.i6507.backedge:                  ; preds = %3711, %3707, %3703
-  br label %JS_DupValue.exit.i6507
+JS_DupValue.exit.i6504.backedge:                  ; preds = %3711, %3707, %3703
+  br label %JS_DupValue.exit.i6504
 
 3715:                                             ; preds = %3711
   %3716 = call { i64, i64 } (ptr, ptr, ...) @JS_ThrowInternalError(ptr noundef nonnull %.1, ptr noundef nonnull @.str.103)
@@ -40111,9 +40111,9 @@ JS_DupValue.exit.i6507.backedge:                  ; preds = %3711, %3707, %3703
   %3720 = getelementptr inbounds i8, ptr %3717, i64 232
   %3721 = load i64, ptr %3720, align 8
   %3722 = and i64 %3721, 4294967295
-  %.not.i.i.i6516 = icmp eq i64 %3722, 4294967295
+  %.not.i.i.i6513 = icmp eq i64 %3722, 4294967295
   %3723 = inttoptr i64 %3719 to ptr
-  br i1 %.not.i.i.i6516, label %3724, label %3732
+  br i1 %.not.i.i.i6513, label %3724, label %3732
 
 3724:                                             ; preds = %3715
   %3725 = getelementptr inbounds i8, ptr %3723, i64 6
@@ -40159,20 +40159,20 @@ JS_DupValue.exit.i6507.backedge:                  ; preds = %3711, %3707, %3703
   %3747 = phi i32 [ %.pre.i, %JS_FreeValue.exit57._crit_edge.i ], [ %3744, %3741 ]
   %3748 = getelementptr inbounds i8, ptr %3659, i64 32
   %3749 = getelementptr inbounds i8, ptr %3659, i64 20
-  %.not.i6510 = icmp eq i32 %3747, 0
-  br i1 %.not.i6510, label %.loopexit6729, label %.lr.ph.i6511
+  %.not.i6507 = icmp eq i32 %3747, 0
+  br i1 %.not.i6507, label %.loopexit6726, label %.lr.ph.i6508
 
-3750:                                             ; preds = %.lr.ph.i6511
-  %indvars.iv.next.i6513 = add nuw nsw i64 %indvars.iv.i6512, 1
+3750:                                             ; preds = %.lr.ph.i6508
+  %indvars.iv.next.i6510 = add nuw nsw i64 %indvars.iv.i6509, 1
   %3751 = load i32, ptr %3749, align 4
   %3752 = zext i32 %3751 to i64
-  %3753 = icmp ult i64 %indvars.iv.next.i6513, %3752
-  br i1 %3753, label %.lr.ph.i6511, label %.loopexit6729, !llvm.loop !127
+  %3753 = icmp ult i64 %indvars.iv.next.i6510, %3752
+  br i1 %3753, label %.lr.ph.i6508, label %.loopexit6726, !llvm.loop !127
 
-.lr.ph.i6511:                                     ; preds = %3746, %3750
-  %indvars.iv.i6512 = phi i64 [ %indvars.iv.next.i6513, %3750 ], [ 0, %3746 ]
+.lr.ph.i6508:                                     ; preds = %3746, %3750
+  %indvars.iv.i6509 = phi i64 [ %indvars.iv.next.i6510, %3750 ], [ 0, %3746 ]
   %3754 = load ptr, ptr %3748, align 8
-  %3755 = getelementptr %struct.JSPropertyEnum, ptr %3754, i64 %indvars.iv.i6512, i32 1
+  %3755 = getelementptr %struct.JSPropertyEnum, ptr %3754, i64 %indvars.iv.i6509, i32 1
   %3756 = load i32, ptr %3755, align 4
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %28)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %29)
@@ -40180,7 +40180,7 @@ JS_DupValue.exit.i6507.backedge:                  ; preds = %3711, %3707, %3703
   store i64 3, ptr %305, align 8
   store i32 0, ptr %29, align 8
   store i64 3, ptr %306, align 8
-  %3757 = call i32 @JS_DefineProperty(ptr noundef %.1, i64 %.sroa.054.i.0..sroa.054.i.0..sroa.054.i.0..sroa.054.i.0..sroa.054.i.0..sroa.054.i.0..sroa.054.i.0..sroa.054.0..sroa.054.0.5692.i48725899672578868484964311400, i64 %.sroa.5.0.copyload.i, i32 noundef %3756, i64 0, i64 2, ptr noundef nonnull byval(%struct.JSValue) align 8 %28, ptr noundef nonnull byval(%struct.JSValue) align 8 %29, i32 noundef 9988)
+  %3757 = call i32 @JS_DefineProperty(ptr noundef %.1, i64 %.sroa.054.i.0..sroa.054.i.0..sroa.054.i.0..sroa.054.i.0..sroa.054.i.0..sroa.054.i.0..sroa.054.i.0..sroa.054.0..sroa.054.0.5692.i48725896672278838481964011397, i64 %.sroa.5.0.copyload.i, i32 noundef %3756, i64 0, i64 2, ptr noundef nonnull byval(%struct.JSValue) align 8 %28, ptr noundef nonnull byval(%struct.JSValue) align 8 %29, i32 noundef 9988)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %28)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %29)
   %3758 = icmp slt i32 %3757, 0
@@ -40191,7 +40191,7 @@ js_for_in_prepare_prototype_chain_enum.exit.thread.sink.split: ; preds = %3734, 
   call void @__JS_FreeValueRT(ptr noundef %3759, i64 %3679, i64 %3680)
   br label %js_for_in_prepare_prototype_chain_enum.exit.thread
 
-js_for_in_prepare_prototype_chain_enum.exit.thread: ; preds = %3738, %JS_FreeValue.exit60.i, %.lr.ph.i6511, %js_for_in_prepare_prototype_chain_enum.exit.thread.sink.split, %3684, %3686, %3732, %3734
+js_for_in_prepare_prototype_chain_enum.exit.thread: ; preds = %3738, %JS_FreeValue.exit60.i, %.lr.ph.i6508, %js_for_in_prepare_prototype_chain_enum.exit.thread.sink.split, %3684, %3686, %3732, %3734
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %30)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %31)
   br label %js_for_in_next.exit.thread
@@ -40201,15 +40201,15 @@ js_for_in_prepare_prototype_chain_enum.exit.thread: ; preds = %3738, %JS_FreeVal
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %31)
   br label %.loopexit4991
 
-.loopexit6729:                                    ; preds = %3750, %3746
+.loopexit6726:                                    ; preds = %3750, %3746
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %30)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %31)
   store i8 1, ptr %3647, align 8
-  %.pre5873 = load i64, ptr %3646, align 8
+  %.pre5870 = load i64, ptr %3646, align 8
   br label %3761
 
-3761:                                             ; preds = %.loopexit6729, %3655
-  %3762 = phi i64 [ %.pre5873, %.loopexit6729 ], [ %3653, %3655 ]
+3761:                                             ; preds = %.loopexit6726, %3655
+  %3762 = phi i64 [ %.pre5870, %.loopexit6726 ], [ %3653, %3655 ]
   %3763 = load i64, ptr %3643, align 8
   %3764 = call fastcc { i64, i64 } @JS_GetPrototypeFree(ptr noundef %.1, i64 %3763, i64 %3762)
   %3765 = extractvalue { i64, i64 } %3764, 0
@@ -40324,14 +40324,14 @@ js_for_in_prepare_prototype_chain_enum.exit.thread: ; preds = %3738, %JS_FreeVal
   br i1 %.not85.i, label %3822, label %.backedge.backedge
 
 3822:                                             ; preds = %3821
-  %.sroa.054.i.0..sroa.054.i.0..sroa.054.i.0..sroa.054.i.0..sroa.054.i.0..sroa.054.i.0..sroa.054.i.0..sroa.054.0..sroa.054.0.5786.i48755900672678878485964411401 = load i64, ptr %.sroa.054.i, align 8
+  %.sroa.054.i.0..sroa.054.i.0..sroa.054.i.0..sroa.054.i.0..sroa.054.i.0..sroa.054.i.0..sroa.054.i.0..sroa.054.0..sroa.054.0.5786.i48755897672378848482964111398 = load i64, ptr %.sroa.054.i, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %36)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %37)
   store i32 0, ptr %36, align 8
   store i64 3, ptr %260, align 8
   store i32 0, ptr %37, align 8
   store i64 3, ptr %261, align 8
-  %3823 = call i32 @JS_DefineProperty(ptr noundef %.1, i64 %.sroa.054.i.0..sroa.054.i.0..sroa.054.i.0..sroa.054.i.0..sroa.054.i.0..sroa.054.i.0..sroa.054.i.0..sroa.054.0..sroa.054.0.5786.i48755900672678878485964411401, i64 %.sroa.5.0.copyload.i, i32 noundef %3814, i64 0, i64 2, ptr noundef nonnull byval(%struct.JSValue) align 8 %36, ptr noundef nonnull byval(%struct.JSValue) align 8 %37, i32 noundef 9988)
+  %3823 = call i32 @JS_DefineProperty(ptr noundef %.1, i64 %.sroa.054.i.0..sroa.054.i.0..sroa.054.i.0..sroa.054.i.0..sroa.054.i.0..sroa.054.i.0..sroa.054.i.0..sroa.054.0..sroa.054.0.5786.i48755897672378848482964111398, i64 %.sroa.5.0.copyload.i, i32 noundef %3814, i64 0, i64 2, ptr noundef nonnull byval(%struct.JSValue) align 8 %36, ptr noundef nonnull byval(%struct.JSValue) align 8 %37, i32 noundef 9988)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %36)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %37)
   %3824 = icmp slt i32 %3823, 0
@@ -40370,12 +40370,12 @@ js_for_in_next.exit.thread:                       ; preds = %3761, %3796, %3818,
   br label %JS_FreeValue.exit3739
 
 3835:                                             ; preds = %.loopexit4991, %3831
-  %.sink6423 = phi i64 [ 3, %.loopexit4991 ], [ %3834, %3831 ]
-  %.sink6421 = phi i32 [ 1, %.loopexit4991 ], [ 0, %3831 ]
+  %.sink6420 = phi i64 [ 3, %.loopexit4991 ], [ %3834, %3831 ]
+  %.sink6418 = phi i32 [ 1, %.loopexit4991 ], [ 0, %3831 ]
   %.sroa.24.0..sroa_idx.i = getelementptr inbounds i8, ptr %.23354, i64 8
-  store i64 %.sink6423, ptr %.sroa.24.0..sroa_idx.i, align 8
+  store i64 %.sink6420, ptr %.sroa.24.0..sroa_idx.i, align 8
   %3836 = getelementptr i8, ptr %.23354, i64 16
-  store i32 %.sink6421, ptr %3836, align 8
+  store i32 %.sink6418, ptr %3836, align 8
   %.sroa.21.0..sroa_idx.i4106 = getelementptr i8, ptr %.23354, i64 24
   store i64 1, ptr %.sroa.21.0..sroa_idx.i4106, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %.sroa.054.i)
@@ -40613,8 +40613,8 @@ JS_FreeValue.exit4437:                            ; preds = %3919, %3922, %3927
   %3943 = call { i64, i64 } @JS_GetPropertyInternal(ptr noundef %.1, i64 %.sroa.05.0.copyload.i, i64 %.sroa.4.0.copyload.i, i32 noundef 106, i64 %.sroa.05.0.copyload.i, i64 %.sroa.4.0.copyload.i, i32 noundef 0)
   %3944 = extractvalue { i64, i64 } %3943, 1
   %3945 = and i64 %3944, 4294967295
-  %.not.i6517 = icmp eq i64 %3945, 6
-  br i1 %.not.i6517, label %JS_FreeValue.exit3739, label %3946
+  %.not.i6514 = icmp eq i64 %3945, 6
+  br i1 %.not.i6514, label %JS_FreeValue.exit3739, label %3946
 
 3946:                                             ; preds = %3942
   %3947 = extractvalue { i64, i64 } %3943, 0
@@ -40622,8 +40622,8 @@ JS_FreeValue.exit4437:                            ; preds = %3919, %3922, %3927
   %3949 = call { i64, i64 } @JS_GetPropertyInternal(ptr noundef %.1, i64 %.sroa.05.0.copyload.i, i64 %.sroa.4.0.copyload.i, i32 noundef 65, i64 %.sroa.05.0.copyload.i, i64 %.sroa.4.0.copyload.i, i32 noundef 0)
   %3950 = extractvalue { i64, i64 } %3949, 1
   %3951 = and i64 %3950, 4294967295
-  %.not40.i6518 = icmp eq i64 %3951, 6
-  br i1 %.not40.i6518, label %JS_FreeValue.exit3739, label %3952
+  %.not40.i6515 = icmp eq i64 %3951, 6
+  br i1 %.not40.i6515, label %JS_FreeValue.exit3739, label %3952
 
 3952:                                             ; preds = %3946
   %3953 = extractvalue { i64, i64 } %3949, 0
@@ -41695,9 +41695,9 @@ JS_DefinePropertyValue.exit4160:                  ; preds = %4493, %4506, %4511
   %4532 = load i32, ptr %4531, align 4
   %4533 = getelementptr inbounds i8, ptr %4525, i64 64
   %.not5.i = icmp eq i32 %4532, 0
-  br i1 %.not5.i, label %js_object_has_name.exit.thread, label %.lr.ph.i6521
+  br i1 %.not5.i, label %js_object_has_name.exit.thread, label %.lr.ph.i6518
 
-.lr.ph.i6521:                                     ; preds = %4523, %4539
+.lr.ph.i6518:                                     ; preds = %4523, %4539
   %.023.in6.i = phi i32 [ %4541, %4539 ], [ %4532, %4523 ]
   %.023.i = zext i32 %.023.in6.i to i64
   %4534 = add nsw i64 %.023.i, -1
@@ -41707,13 +41707,13 @@ JS_DefinePropertyValue.exit4160:                  ; preds = %4493, %4506, %4511
   %4538 = icmp eq i32 %4537, 55
   br i1 %4538, label %4542, label %4539
 
-4539:                                             ; preds = %.lr.ph.i6521
+4539:                                             ; preds = %.lr.ph.i6518
   %4540 = load i32, ptr %4535, align 4
   %4541 = and i32 %4540, 67108863
-  %.not.i6522 = icmp eq i32 %4541, 0
-  br i1 %.not.i6522, label %js_object_has_name.exit.thread, label %.lr.ph.i6521, !llvm.loop !132
+  %.not.i6519 = icmp eq i32 %4541, 0
+  br i1 %.not.i6519, label %js_object_has_name.exit.thread, label %.lr.ph.i6518, !llvm.loop !132
 
-4542:                                             ; preds = %.lr.ph.i6521
+4542:                                             ; preds = %.lr.ph.i6518
   %4543 = getelementptr inbounds i8, ptr %.sroa.03.0..sroa.03.0..cast.i, i64 32
   %4544 = load ptr, ptr %4543, align 8
   %4545 = getelementptr %struct.JSProperty, ptr %4544, i64 %4534
@@ -41726,24 +41726,24 @@ JS_DefinePropertyValue.exit4160:                  ; preds = %4493, %4506, %4511
   br i1 %.not27.i, label %4548, label %JS_DefineObjectName.exit
 
 4548:                                             ; preds = %4546
-  %.sroa.2.0..sroa_idx.i6524 = getelementptr inbounds i8, ptr %4545, i64 8
-  %.sroa.2.0.copyload.i6525 = load i64, ptr %.sroa.2.0..sroa_idx.i6524, align 8
-  %4549 = and i64 %.sroa.2.0.copyload.i6525, 4294967295
-  %.not28.i6526 = icmp eq i64 %4549, 4294967289
-  br i1 %.not28.i6526, label %js_object_has_name.exit, label %JS_DefineObjectName.exit
+  %.sroa.2.0..sroa_idx.i6521 = getelementptr inbounds i8, ptr %4545, i64 8
+  %.sroa.2.0.copyload.i6522 = load i64, ptr %.sroa.2.0..sroa_idx.i6521, align 8
+  %4549 = and i64 %.sroa.2.0.copyload.i6522, 4294967295
+  %.not28.i6523 = icmp eq i64 %4549, 4294967289
+  br i1 %.not28.i6523, label %js_object_has_name.exit, label %JS_DefineObjectName.exit
 
 js_object_has_name.exit:                          ; preds = %4548
-  %.sroa.0.0.copyload.i6527 = load ptr, ptr %4545, align 8
-  %4550 = getelementptr inbounds i8, ptr %.sroa.0.0.copyload.i6527, i64 4
+  %.sroa.0.0.copyload.i6524 = load ptr, ptr %4545, align 8
+  %4550 = getelementptr inbounds i8, ptr %.sroa.0.0.copyload.i6524, i64 4
   %4551 = load i64, ptr %4550, align 4
   %4552 = and i64 %4551, 2147483647
-  %.not6728 = icmp eq i64 %4552, 0
-  br i1 %.not6728, label %js_object_has_name.exit.thread, label %JS_DefineObjectName.exit
+  %.not6725 = icmp eq i64 %4552, 0
+  br i1 %.not6725, label %js_object_has_name.exit.thread, label %JS_DefineObjectName.exit
 
 js_object_has_name.exit.thread:                   ; preds = %4539, %4523, %4542, %js_object_has_name.exit
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %12)
-  %.not.i.i8471 = icmp sgt i32 %.23330.val3635, -1
-  br i1 %.not.i.i8471, label %4558, label %4553
+  %.not.i.i8468 = icmp sgt i32 %.23330.val3635, -1
+  br i1 %.not.i.i8468, label %4558, label %4553
 
 4553:                                             ; preds = %js_object_has_name.exit.thread
   %4554 = and i32 %.23330.val3635, 2147483647
@@ -41761,12 +41761,12 @@ js_object_has_name.exit.thread:                   ; preds = %4539, %4523, %4542,
   %4564 = load ptr, ptr %4563, align 8
   %4565 = getelementptr inbounds i8, ptr %4564, i64 4
   %4566 = load i64, ptr %4565, align 4
-  %.mask.i.i8474 = and i64 %4566, -4611686018427387904
-  %4567 = icmp ne i64 %.mask.i.i8474, 4611686018427387904
+  %.mask.i.i8471 = and i64 %4566, -4611686018427387904
+  %4567 = icmp ne i64 %.mask.i.i8471, 4611686018427387904
   %4568 = and i64 %4566, 4294967295
-  %or.cond.i.not.i8475 = icmp eq i64 %4568, 2147483648
-  %or.cond.i8476 = and i1 %4567, %or.cond.i.not.i8475
-  br i1 %or.cond.i8476, label %4569, label %4572
+  %or.cond.i.not.i8472 = icmp eq i64 %4568, 2147483648
+  %or.cond.i8473 = and i1 %4567, %or.cond.i.not.i8472
+  br i1 %or.cond.i8473, label %4569, label %4572
 
 4569:                                             ; preds = %4558
   %4570 = getelementptr i8, ptr %4561, i64 376
@@ -41774,20 +41774,20 @@ js_object_has_name.exit.thread:                   ; preds = %4539, %4523, %4542,
   br label %4572
 
 4572:                                             ; preds = %4569, %4558
-  %.0.i.i8477 = phi ptr [ %4564, %4558 ], [ %4571, %4569 ]
-  %.sroa.01.0..sroa.01.0.20.cast.i.i8478 = ptrtoint ptr %.0.i.i8477 to i64
-  %4573 = load i32, ptr %.0.i.i8477, align 4
+  %.0.i.i8474 = phi ptr [ %4564, %4558 ], [ %4571, %4569 ]
+  %.sroa.01.0..sroa.01.0.20.cast.i.i8475 = ptrtoint ptr %.0.i.i8474 to i64
+  %4573 = load i32, ptr %.0.i.i8474, align 4
   %4574 = add i32 %4573, 1
-  store i32 %4574, ptr %.0.i.i8477, align 4
-  %.fca.0.insert.i.i8479 = insertvalue { i64, i64 } poison, i64 %.sroa.01.0..sroa.01.0.20.cast.i.i8478, 0
-  %.fca.1.insert.i.i8480 = insertvalue { i64, i64 } %.fca.0.insert.i.i8479, i64 -7, 1
+  store i32 %4574, ptr %.0.i.i8474, align 4
+  %.fca.0.insert.i.i8476 = insertvalue { i64, i64 } poison, i64 %.sroa.01.0..sroa.01.0.20.cast.i.i8475, 0
+  %.fca.1.insert.i.i8477 = insertvalue { i64, i64 } %.fca.0.insert.i.i8476, i64 -7, 1
   br label %JS_AtomToString.exit
 
 JS_AtomToString.exit:                             ; preds = %4553, %4572
-  %.pn.i.i8473 = phi { i64, i64 } [ %4557, %4553 ], [ %.fca.1.insert.i.i8480, %4572 ]
+  %.pn.i.i8470 = phi { i64, i64 } [ %4557, %4553 ], [ %.fca.1.insert.i.i8477, %4572 ]
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %12)
-  %4575 = extractvalue { i64, i64 } %.pn.i.i8473, 0
-  %4576 = extractvalue { i64, i64 } %.pn.i.i8473, 1
+  %4575 = extractvalue { i64, i64 } %.pn.i.i8470, 0
+  %4576 = extractvalue { i64, i64 } %.pn.i.i8470, 1
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %10)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %11)
   store i32 0, ptr %10, align 8
@@ -41797,7 +41797,7 @@ JS_AtomToString.exit:                             ; preds = %4553, %4572
   %4577 = call i32 @JS_DefineProperty(ptr noundef %.1, i64 %4519, i64 %4521, i32 noundef 55, i64 %4575, i64 %4576, ptr noundef nonnull byval(%struct.JSValue) align 8 %10, ptr noundef nonnull byval(%struct.JSValue) align 8 %11, i32 noundef 9985)
   %4578 = trunc i64 %4576 to i32
   %4579 = icmp ugt i32 %4578, -12
-  br i1 %4579, label %4580, label %JS_DefinePropertyValue.exit8482
+  br i1 %4579, label %4580, label %JS_DefinePropertyValue.exit8479
 
 4580:                                             ; preds = %JS_AtomToString.exit
   %4581 = inttoptr i64 %4575 to ptr
@@ -41805,20 +41805,20 @@ JS_AtomToString.exit:                             ; preds = %4553, %4572
   %4583 = add i32 %4582, -1
   store i32 %4583, ptr %4581, align 4
   %4584 = icmp slt i32 %4583, 1
-  br i1 %4584, label %4585, label %JS_DefinePropertyValue.exit8482
+  br i1 %4584, label %4585, label %JS_DefinePropertyValue.exit8479
 
 4585:                                             ; preds = %4580
   %4586 = load ptr, ptr %237, align 8
   call void @__JS_FreeValueRT(ptr noundef %4586, i64 %4575, i64 %4576)
-  br label %JS_DefinePropertyValue.exit8482
+  br label %JS_DefinePropertyValue.exit8479
 
-JS_DefinePropertyValue.exit8482:                  ; preds = %JS_AtomToString.exit, %4580, %4585
+JS_DefinePropertyValue.exit8479:                  ; preds = %JS_AtomToString.exit, %4580, %4585
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %11)
   %4587 = icmp slt i32 %4577, 0
   br i1 %4587, label %JS_FreeValue.exit3739.loopexit, label %JS_DefineObjectName.exit
 
-JS_DefineObjectName.exit:                         ; preds = %4548, %4546, %JS_DefinePropertyValue.exit8482, %js_object_has_name.exit, %4516
+JS_DefineObjectName.exit:                         ; preds = %4548, %4546, %JS_DefinePropertyValue.exit8479, %js_object_has_name.exit, %4516
   %4588 = getelementptr i8, ptr %.23330, i64 5
   br label %.backedge4994.backedge
 
@@ -41844,8 +41844,8 @@ JS_DefineObjectName.exit:                         ; preds = %4548, %4546, %JS_De
   %.sroa.0502.0.copyload = load i64, ptr %4603, align 8
   %.sroa.5506.0..sroa_idx = getelementptr i8, ptr %.23354, i64 -8
   %.sroa.5506.0.copyload = load i64, ptr %.sroa.5506.0..sroa_idx, align 8
-  %trunc5452 = trunc i64 %.sroa.5506.0.copyload to i32
-  switch i32 %trunc5452, label %4611 [
+  %trunc5449 = trunc i64 %.sroa.5506.0.copyload to i32
+  switch i32 %trunc5449, label %4611 [
     i32 -1, label %4604
     i32 2, label %4604
   ]
@@ -41860,7 +41860,7 @@ JS_DefineObjectName.exit:                         ; preds = %4548, %4546, %JS_De
   br i1 %4610, label %JS_FreeValue.exit3739.loopexit, label %4611
 
 4611:                                             ; preds = %4602, %4604
-  %4612 = icmp ugt i32 %trunc5452, -12
+  %4612 = icmp ugt i32 %trunc5449, -12
   br i1 %4612, label %4613, label %JS_FreeValue.exit4163
 
 4613:                                             ; preds = %4611
@@ -42070,920 +42070,918 @@ __JS_AtomToValue.exit4613:                        ; preds = %4683
   %4711 = load ptr, ptr %4710, align 8
   %4712 = getelementptr inbounds i8, ptr %4711, i64 4
   %4713 = load i64, ptr %4712, align 4
-  %4714 = icmp ult i64 %4713, -4611686018427387904
-  %4715 = and i64 %4713, 4611686014132420608
-  %4716 = icmp ne i64 %4715, 0
-  %or.cond.i.i.not5450 = or i1 %4714, %4716
-  %4717 = icmp sgt i64 %4713, -4611686018427387905
-  %or.cond1.i.i.not5447 = and i1 %4717, %or.cond.i.i.not5450
-  %4718 = and i64 %4713, 4294967295
-  %narrow.i.i.not = icmp eq i64 %4718, 2147483648
+  %4714 = and i64 %4713, -4294967296
+  %or.cond.i.i = icmp ne i64 %4714, -4611686018427387904
+  %4715 = icmp sgt i64 %4713, -4611686018427387905
+  %or.cond1.i.i.not5447 = and i1 %4715, %or.cond.i.i
+  %4716 = and i64 %4713, 4294967295
+  %narrow.i.i.not = icmp eq i64 %4716, 2147483648
   %or.cond4966 = or i1 %narrow.i.i.not, %or.cond1.i.i.not5447
-  br i1 %or.cond4966, label %js_get_function_name.exit, label %4719
+  br i1 %or.cond4966, label %js_get_function_name.exit, label %4717
 
-4719:                                             ; preds = %4705
-  %4720 = call fastcc { i64, i64 } @JS_ConcatString3(ptr noundef nonnull %.1, ptr noundef nonnull @.str.155, i64 %.sroa.01.0..sroa.01.0.20.cast.i4610, i64 -7, ptr noundef nonnull @.str.156)
+4717:                                             ; preds = %4705
+  %4718 = call fastcc { i64, i64 } @JS_ConcatString3(ptr noundef nonnull %.1, ptr noundef nonnull @.str.155, i64 %.sroa.01.0..sroa.01.0.20.cast.i4610, i64 -7, ptr noundef nonnull @.str.156)
   br label %js_get_function_name.exit
 
-js_get_function_name.exit:                        ; preds = %__JS_AtomToValue.exit4613, %4705, %4719
-  %.fca.1.insert.merged.i = phi { i64, i64 } [ %4720, %4719 ], [ %4704, %__JS_AtomToValue.exit4613 ], [ %.fca.1.insert.i.i4612, %4705 ]
-  %4721 = extractvalue { i64, i64 } %.fca.1.insert.merged.i, 0
-  %4722 = extractvalue { i64, i64 } %.fca.1.insert.merged.i, 1
-  %4723 = and i32 %.13377, 2048
-  %.not.i4169 = icmp eq i32 %4723, 0
-  br i1 %.not.i4169, label %4724, label %.sink.split6424
+js_get_function_name.exit:                        ; preds = %__JS_AtomToValue.exit4613, %4705, %4717
+  %.fca.1.insert.merged.i = phi { i64, i64 } [ %4718, %4717 ], [ %4704, %__JS_AtomToValue.exit4613 ], [ %.fca.1.insert.i.i4612, %4705 ]
+  %4719 = extractvalue { i64, i64 } %.fca.1.insert.merged.i, 0
+  %4720 = extractvalue { i64, i64 } %.fca.1.insert.merged.i, 1
+  %4721 = and i32 %.13377, 2048
+  %.not.i4169 = icmp eq i32 %4721, 0
+  br i1 %.not.i4169, label %4722, label %.sink.split6421
 
-4724:                                             ; preds = %js_get_function_name.exit
-  %4725 = and i32 %.13377, 4096
-  %.not22.i = icmp eq i32 %4725, 0
-  br i1 %.not22.i, label %4729, label %.sink.split6424
+4722:                                             ; preds = %js_get_function_name.exit
+  %4723 = and i32 %.13377, 4096
+  %.not22.i = icmp eq i32 %4723, 0
+  br i1 %.not22.i, label %4727, label %.sink.split6421
 
-.sink.split6424:                                  ; preds = %4724, %js_get_function_name.exit
-  %.str.158.sink = phi ptr [ @.str.157, %js_get_function_name.exit ], [ @.str.158, %4724 ]
-  %4726 = call fastcc { i64, i64 } @JS_ConcatString3(ptr noundef nonnull %.1, ptr noundef nonnull %.str.158.sink, i64 %4721, i64 %4722, ptr noundef nonnull @.str.48)
-  %4727 = extractvalue { i64, i64 } %4726, 0
-  %4728 = extractvalue { i64, i64 } %4726, 1
-  br label %4729
+.sink.split6421:                                  ; preds = %4722, %js_get_function_name.exit
+  %.str.158.sink = phi ptr [ @.str.157, %js_get_function_name.exit ], [ @.str.158, %4722 ]
+  %4724 = call fastcc { i64, i64 } @JS_ConcatString3(ptr noundef nonnull %.1, ptr noundef nonnull %.str.158.sink, i64 %4719, i64 %4720, ptr noundef nonnull @.str.48)
+  %4725 = extractvalue { i64, i64 } %4724, 0
+  %4726 = extractvalue { i64, i64 } %4724, 1
+  br label %4727
 
-4729:                                             ; preds = %.sink.split6424, %4724
-  %.sroa.05.0.i = phi i64 [ %4721, %4724 ], [ %4727, %.sink.split6424 ]
-  %.sroa.7.0.i4170 = phi i64 [ %4722, %4724 ], [ %4728, %.sink.split6424 ]
-  %4730 = and i64 %.sroa.7.0.i4170, 4294967295
-  %.not4913 = icmp eq i64 %4730, 6
-  br i1 %.not4913, label %js_method_set_properties.exit.thread, label %4731
+4727:                                             ; preds = %.sink.split6421, %4722
+  %.sroa.05.0.i = phi i64 [ %4719, %4722 ], [ %4725, %.sink.split6421 ]
+  %.sroa.7.0.i4170 = phi i64 [ %4720, %4722 ], [ %4726, %.sink.split6421 ]
+  %4728 = and i64 %.sroa.7.0.i4170, 4294967295
+  %.not4913 = icmp eq i64 %4728, 6
+  br i1 %.not4913, label %js_method_set_properties.exit.thread, label %4729
 
-4731:                                             ; preds = %4729
+4729:                                             ; preds = %4727
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %26)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %27)
   store i32 0, ptr %26, align 8
   store i64 3, ptr %313, align 8
   store i32 0, ptr %27, align 8
   store i64 3, ptr %314, align 8
-  %4732 = call i32 @JS_DefineProperty(ptr noundef %.1, i64 %4684, i64 %4686, i32 noundef 55, i64 %.sroa.05.0.i, i64 %.sroa.7.0.i4170, ptr noundef nonnull byval(%struct.JSValue) align 8 %26, ptr noundef nonnull byval(%struct.JSValue) align 8 %27, i32 noundef 9985)
-  %4733 = trunc i64 %.sroa.7.0.i4170 to i32
-  %4734 = icmp ugt i32 %4733, -12
-  br i1 %4734, label %4735, label %JS_DefinePropertyValue.exit6529
+  %4730 = call i32 @JS_DefineProperty(ptr noundef %.1, i64 %4684, i64 %4686, i32 noundef 55, i64 %.sroa.05.0.i, i64 %.sroa.7.0.i4170, ptr noundef nonnull byval(%struct.JSValue) align 8 %26, ptr noundef nonnull byval(%struct.JSValue) align 8 %27, i32 noundef 9985)
+  %4731 = trunc i64 %.sroa.7.0.i4170 to i32
+  %4732 = icmp ugt i32 %4731, -12
+  br i1 %4732, label %4733, label %JS_DefinePropertyValue.exit6526
 
-4735:                                             ; preds = %4731
-  %4736 = inttoptr i64 %.sroa.05.0.i to ptr
-  %4737 = load i32, ptr %4736, align 4
-  %4738 = add i32 %4737, -1
-  store i32 %4738, ptr %4736, align 4
-  %4739 = icmp slt i32 %4738, 1
-  br i1 %4739, label %4740, label %JS_DefinePropertyValue.exit6529
+4733:                                             ; preds = %4729
+  %4734 = inttoptr i64 %.sroa.05.0.i to ptr
+  %4735 = load i32, ptr %4734, align 4
+  %4736 = add i32 %4735, -1
+  store i32 %4736, ptr %4734, align 4
+  %4737 = icmp slt i32 %4736, 1
+  br i1 %4737, label %4738, label %JS_DefinePropertyValue.exit6526
 
-4740:                                             ; preds = %4735
-  %4741 = load ptr, ptr %237, align 8
-  call void @__JS_FreeValueRT(ptr noundef %4741, i64 %.sroa.05.0.i, i64 %.sroa.7.0.i4170)
-  br label %JS_DefinePropertyValue.exit6529
+4738:                                             ; preds = %4733
+  %4739 = load ptr, ptr %237, align 8
+  call void @__JS_FreeValueRT(ptr noundef %4739, i64 %.sroa.05.0.i, i64 %.sroa.7.0.i4170)
+  br label %JS_DefinePropertyValue.exit6526
 
-JS_DefinePropertyValue.exit6529:                  ; preds = %4731, %4735, %4740
+JS_DefinePropertyValue.exit6526:                  ; preds = %4729, %4733, %4738
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %26)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %27)
-  %4742 = icmp slt i32 %4732, 0
-  br i1 %4742, label %js_method_set_properties.exit.thread, label %4743
+  %4740 = icmp slt i32 %4730, 0
+  br i1 %4740, label %js_method_set_properties.exit.thread, label %4741
 
-4743:                                             ; preds = %JS_DefinePropertyValue.exit6529
-  %4744 = and i64 %4686, 4294967295
-  %.not.i6530 = icmp eq i64 %4744, 4294967295
-  %4745 = inttoptr i64 %4684 to ptr
-  br i1 %.not.i6530, label %4746, label %js_method_set_home_object.exit6537
+4741:                                             ; preds = %JS_DefinePropertyValue.exit6526
+  %4742 = and i64 %4686, 4294967295
+  %.not.i6527 = icmp eq i64 %4742, 4294967295
+  %4743 = inttoptr i64 %4684 to ptr
+  br i1 %.not.i6527, label %4744, label %js_method_set_home_object.exit6534
 
-4746:                                             ; preds = %4743
-  %4747 = getelementptr inbounds i8, ptr %4745, i64 6
-  %4748 = load i16, ptr %4747, align 2
-  switch i16 %4748, label %js_method_set_home_object.exit6537 [
-    i16 52, label %js_class_has_bytecode.exit.thread.i6531
-    i16 16, label %js_class_has_bytecode.exit.thread.i6531
-    i16 13, label %js_class_has_bytecode.exit.thread.i6531
-    i16 56, label %js_class_has_bytecode.exit.thread.i6531
+4744:                                             ; preds = %4741
+  %4745 = getelementptr inbounds i8, ptr %4743, i64 6
+  %4746 = load i16, ptr %4745, align 2
+  switch i16 %4746, label %js_method_set_home_object.exit6534 [
+    i16 52, label %js_class_has_bytecode.exit.thread.i6528
+    i16 16, label %js_class_has_bytecode.exit.thread.i6528
+    i16 13, label %js_class_has_bytecode.exit.thread.i6528
+    i16 56, label %js_class_has_bytecode.exit.thread.i6528
   ]
 
-js_class_has_bytecode.exit.thread.i6531:          ; preds = %4746, %4746, %4746, %4746
-  %4749 = getelementptr inbounds i8, ptr %4745, i64 48
-  %4750 = load ptr, ptr %4749, align 8
-  %4751 = getelementptr inbounds i8, ptr %4750, i64 25
-  %4752 = load i16, ptr %4751, align 1
-  %4753 = and i16 %4752, 8
-  %.not19.i = icmp eq i16 %4753, 0
-  br i1 %.not19.i, label %js_method_set_home_object.exit6537, label %4754
+js_class_has_bytecode.exit.thread.i6528:          ; preds = %4744, %4744, %4744, %4744
+  %4747 = getelementptr inbounds i8, ptr %4743, i64 48
+  %4748 = load ptr, ptr %4747, align 8
+  %4749 = getelementptr inbounds i8, ptr %4748, i64 25
+  %4750 = load i16, ptr %4749, align 1
+  %4751 = and i16 %4750, 8
+  %.not19.i = icmp eq i16 %4751, 0
+  br i1 %.not19.i, label %js_method_set_home_object.exit6534, label %4752
 
-4754:                                             ; preds = %js_class_has_bytecode.exit.thread.i6531
-  %4755 = getelementptr inbounds i8, ptr %4745, i64 64
-  %4756 = load ptr, ptr %4755, align 8
-  %.not20.i6532 = icmp eq ptr %4756, null
-  br i1 %.not20.i6532, label %JS_FreeValue.exit.i6533, label %4757
+4752:                                             ; preds = %js_class_has_bytecode.exit.thread.i6528
+  %4753 = getelementptr inbounds i8, ptr %4743, i64 64
+  %4754 = load ptr, ptr %4753, align 8
+  %.not20.i6529 = icmp eq ptr %4754, null
+  br i1 %.not20.i6529, label %JS_FreeValue.exit.i6530, label %4755
 
-4757:                                             ; preds = %4754
-  %4758 = load i32, ptr %4756, align 4
-  %4759 = add i32 %4758, -1
-  store i32 %4759, ptr %4756, align 4
-  %4760 = icmp slt i32 %4759, 1
-  br i1 %4760, label %4761, label %JS_FreeValue.exit.i6533
+4755:                                             ; preds = %4752
+  %4756 = load i32, ptr %4754, align 4
+  %4757 = add i32 %4756, -1
+  store i32 %4757, ptr %4754, align 4
+  %4758 = icmp slt i32 %4757, 1
+  br i1 %4758, label %4759, label %JS_FreeValue.exit.i6530
 
-4761:                                             ; preds = %4757
-  %.sroa.01.0..sroa.01.0.21.cast.i6536 = ptrtoint ptr %4756 to i64
-  %4762 = load ptr, ptr %237, align 8
-  call void @__JS_FreeValueRT(ptr noundef %4762, i64 %.sroa.01.0..sroa.01.0.21.cast.i6536, i64 -1)
-  br label %JS_FreeValue.exit.i6533
+4759:                                             ; preds = %4755
+  %.sroa.01.0..sroa.01.0.21.cast.i6533 = ptrtoint ptr %4754 to i64
+  %4760 = load ptr, ptr %237, align 8
+  call void @__JS_FreeValueRT(ptr noundef %4760, i64 %.sroa.01.0..sroa.01.0.21.cast.i6533, i64 -1)
+  br label %JS_FreeValue.exit.i6530
 
-JS_FreeValue.exit.i6533:                          ; preds = %4761, %4757, %4754
-  %4763 = and i64 %.sroa.3.0.copyload4630, 4294967295
-  %4764 = icmp eq i64 %4763, 4294967295
-  br i1 %4764, label %JS_DupValue.exit.i6535, label %4768
+JS_FreeValue.exit.i6530:                          ; preds = %4759, %4755, %4752
+  %4761 = and i64 %.sroa.3.0.copyload4630, 4294967295
+  %4762 = icmp eq i64 %4761, 4294967295
+  br i1 %4762, label %JS_DupValue.exit.i6532, label %4766
 
-JS_DupValue.exit.i6535:                           ; preds = %JS_FreeValue.exit.i6533
-  %4765 = inttoptr i64 %.sroa.0.0.copyload to ptr
-  %4766 = load i32, ptr %4765, align 4
-  %4767 = add i32 %4766, 1
-  store i32 %4767, ptr %4765, align 4
-  br label %4768
+JS_DupValue.exit.i6532:                           ; preds = %JS_FreeValue.exit.i6530
+  %4763 = inttoptr i64 %.sroa.0.0.copyload to ptr
+  %4764 = load i32, ptr %4763, align 4
+  %4765 = add i32 %4764, 1
+  store i32 %4765, ptr %4763, align 4
+  br label %4766
 
-4768:                                             ; preds = %JS_DupValue.exit.i6535, %JS_FreeValue.exit.i6533
-  %.0.i6534 = phi ptr [ %4765, %JS_DupValue.exit.i6535 ], [ null, %JS_FreeValue.exit.i6533 ]
-  store ptr %.0.i6534, ptr %4755, align 8
-  br label %js_method_set_home_object.exit6537
+4766:                                             ; preds = %JS_DupValue.exit.i6532, %JS_FreeValue.exit.i6530
+  %.0.i6531 = phi ptr [ %4763, %JS_DupValue.exit.i6532 ], [ null, %JS_FreeValue.exit.i6530 ]
+  store ptr %.0.i6531, ptr %4753, align 8
+  br label %js_method_set_home_object.exit6534
 
-js_method_set_home_object.exit6537:               ; preds = %4743, %4746, %js_class_has_bytecode.exit.thread.i6531, %4768
+js_method_set_home_object.exit6534:               ; preds = %4741, %4744, %js_class_has_bytecode.exit.thread.i6528, %4766
   %.sroa.0501.sroa.0.0.insert.insert = or disjoint i64 %.sroa.0501.sroa.3.0, %.sroa.0501.sroa.0.0
-  %4769 = call i32 @JS_DefineProperty(ptr noundef nonnull %.1, i64 %.sroa.0.0.copyload, i64 %.sroa.3.0.copyload4630, i32 noundef %.03375, i64 %.sroa.0501.sroa.0.0.insert.insert, i64 %.sroa.4.0, ptr noundef nonnull byval(%struct.JSValue) align 8 %76, ptr noundef nonnull byval(%struct.JSValue) align 8 %77, i32 noundef %.13377)
-  %4770 = icmp slt i32 %4769, 0
+  %4767 = call i32 @JS_DefineProperty(ptr noundef nonnull %.1, i64 %.sroa.0.0.copyload, i64 %.sroa.3.0.copyload4630, i32 noundef %.03375, i64 %.sroa.0501.sroa.0.0.insert.insert, i64 %.sroa.4.0, ptr noundef nonnull byval(%struct.JSValue) align 8 %76, ptr noundef nonnull byval(%struct.JSValue) align 8 %77, i32 noundef %.13377)
+  %4768 = icmp slt i32 %4767, 0
   br label %js_method_set_properties.exit.thread
 
-js_method_set_properties.exit.thread:             ; preds = %JS_DefinePropertyValue.exit6529, %4729, %js_method_set_home_object.exit6537
-  %.03378 = phi i1 [ %4770, %js_method_set_home_object.exit6537 ], [ true, %4729 ], [ true, %JS_DefinePropertyValue.exit6529 ]
-  %4771 = load i64, ptr %4675, align 8
-  %4772 = load i64, ptr %4685, align 8
-  %4773 = trunc i64 %4772 to i32
-  %4774 = icmp ugt i32 %4773, -12
-  br i1 %4774, label %4775, label %JS_FreeValue.exit4172
+js_method_set_properties.exit.thread:             ; preds = %JS_DefinePropertyValue.exit6526, %4727, %js_method_set_home_object.exit6534
+  %.03378 = phi i1 [ %4768, %js_method_set_home_object.exit6534 ], [ true, %4727 ], [ true, %JS_DefinePropertyValue.exit6526 ]
+  %4769 = load i64, ptr %4675, align 8
+  %4770 = load i64, ptr %4685, align 8
+  %4771 = trunc i64 %4770 to i32
+  %4772 = icmp ugt i32 %4771, -12
+  br i1 %4772, label %4773, label %JS_FreeValue.exit4172
 
-4775:                                             ; preds = %js_method_set_properties.exit.thread
-  %4776 = inttoptr i64 %4771 to ptr
-  %4777 = load i32, ptr %4776, align 4
-  %4778 = add i32 %4777, -1
-  store i32 %4778, ptr %4776, align 4
-  %4779 = icmp slt i32 %4778, 1
-  br i1 %4779, label %4780, label %JS_FreeValue.exit4172
+4773:                                             ; preds = %js_method_set_properties.exit.thread
+  %4774 = inttoptr i64 %4769 to ptr
+  %4775 = load i32, ptr %4774, align 4
+  %4776 = add i32 %4775, -1
+  store i32 %4776, ptr %4774, align 4
+  %4777 = icmp slt i32 %4776, 1
+  br i1 %4777, label %4778, label %JS_FreeValue.exit4172
 
-4780:                                             ; preds = %4775
-  %4781 = load ptr, ptr %237, align 8
-  call void @__JS_FreeValueRT(ptr noundef %4781, i64 %4771, i64 %4772)
+4778:                                             ; preds = %4773
+  %4779 = load ptr, ptr %237, align 8
+  call void @__JS_FreeValueRT(ptr noundef %4779, i64 %4769, i64 %4770)
   br label %JS_FreeValue.exit4172
 
-JS_FreeValue.exit4172:                            ; preds = %js_method_set_properties.exit.thread, %4775, %4780
-  br i1 %4657, label %4782, label %JS_FreeValue.exit4173
+JS_FreeValue.exit4172:                            ; preds = %js_method_set_properties.exit.thread, %4773, %4778
+  br i1 %4657, label %4780, label %JS_FreeValue.exit4173
 
-4782:                                             ; preds = %JS_FreeValue.exit4172
-  %4783 = icmp sgt i32 %.03375, 226
-  br i1 %4783, label %4784, label %JS_FreeAtom.exit6546
+4780:                                             ; preds = %JS_FreeValue.exit4172
+  %4781 = icmp sgt i32 %.03375, 226
+  br i1 %4781, label %4782, label %JS_FreeAtom.exit6543
 
-4784:                                             ; preds = %4782
-  %4785 = load ptr, ptr %237, align 8
-  %4786 = getelementptr inbounds i8, ptr %4785, i64 96
-  %4787 = load ptr, ptr %4786, align 8
-  %4788 = zext nneg i32 %.03375 to i64
-  %4789 = getelementptr ptr, ptr %4787, i64 %4788
-  %4790 = load ptr, ptr %4789, align 8
-  %4791 = load i32, ptr %4790, align 4
-  %4792 = add i32 %4791, -1
-  store i32 %4792, ptr %4790, align 4
-  %4793 = icmp sgt i32 %4792, 0
-  br i1 %4793, label %JS_FreeAtom.exit6546, label %4794
+4782:                                             ; preds = %4780
+  %4783 = load ptr, ptr %237, align 8
+  %4784 = getelementptr inbounds i8, ptr %4783, i64 96
+  %4785 = load ptr, ptr %4784, align 8
+  %4786 = zext nneg i32 %.03375 to i64
+  %4787 = getelementptr ptr, ptr %4785, i64 %4786
+  %4788 = load ptr, ptr %4787, align 8
+  %4789 = load i32, ptr %4788, align 4
+  %4790 = add i32 %4789, -1
+  store i32 %4790, ptr %4788, align 4
+  %4791 = icmp sgt i32 %4790, 0
+  br i1 %4791, label %JS_FreeAtom.exit6543, label %4792
 
-4794:                                             ; preds = %4784
-  %4795 = getelementptr inbounds i8, ptr %4790, i64 4
-  %4796 = load i64, ptr %4795, align 4
-  %.not.i.i.i6538 = icmp ugt i64 %4796, -4611686018427387905
-  br i1 %.not.i.i.i6538, label %._crit_edge.i.i.i6544, label %4799
+4792:                                             ; preds = %4782
+  %4793 = getelementptr inbounds i8, ptr %4788, i64 4
+  %4794 = load i64, ptr %4793, align 4
+  %.not.i.i.i6535 = icmp ugt i64 %4794, -4611686018427387905
+  br i1 %.not.i.i.i6535, label %._crit_edge.i.i.i6541, label %4797
 
-._crit_edge.i.i.i6544:                            ; preds = %4794
-  %4797 = getelementptr inbounds i8, ptr %4790, i64 12
-  %4798 = load i32, ptr %4797, align 4
-  %.pre.i.i.i6545 = zext i32 %4798 to i64
-  br label %JS_FreeAtomStruct.exit.i.i6541
+._crit_edge.i.i.i6541:                            ; preds = %4792
+  %4795 = getelementptr inbounds i8, ptr %4788, i64 12
+  %4796 = load i32, ptr %4795, align 4
+  %.pre.i.i.i6542 = zext i32 %4796 to i64
+  br label %JS_FreeAtomStruct.exit.i.i6538
 
-4799:                                             ; preds = %4794
-  %4800 = lshr i64 %4796, 32
-  %4801 = trunc nuw i64 %4800 to i32
-  %4802 = and i32 %4801, 1073741823
-  %4803 = getelementptr inbounds i8, ptr %4785, i64 72
-  %4804 = load i32, ptr %4803, align 8
-  %4805 = add i32 %4804, -1
-  %4806 = and i32 %4802, %4805
-  %4807 = getelementptr inbounds i8, ptr %4785, i64 88
-  %4808 = load ptr, ptr %4807, align 8
-  %4809 = zext nneg i32 %4806 to i64
-  %4810 = getelementptr i32, ptr %4808, i64 %4809
-  %4811 = load i32, ptr %4810, align 4
-  %4812 = load ptr, ptr %4786, align 8
-  %4813 = zext i32 %4811 to i64
-  %4814 = getelementptr ptr, ptr %4812, i64 %4813
-  %4815 = load ptr, ptr %4814, align 8
-  %4816 = icmp eq ptr %4815, %4790
-  br i1 %4816, label %4817, label %.preheader.i.i.i6539
+4797:                                             ; preds = %4792
+  %4798 = lshr i64 %4794, 32
+  %4799 = trunc nuw i64 %4798 to i32
+  %4800 = and i32 %4799, 1073741823
+  %4801 = getelementptr inbounds i8, ptr %4783, i64 72
+  %4802 = load i32, ptr %4801, align 8
+  %4803 = add i32 %4802, -1
+  %4804 = and i32 %4800, %4803
+  %4805 = getelementptr inbounds i8, ptr %4783, i64 88
+  %4806 = load ptr, ptr %4805, align 8
+  %4807 = zext nneg i32 %4804 to i64
+  %4808 = getelementptr i32, ptr %4806, i64 %4807
+  %4809 = load i32, ptr %4808, align 4
+  %4810 = load ptr, ptr %4784, align 8
+  %4811 = zext i32 %4809 to i64
+  %4812 = getelementptr ptr, ptr %4810, i64 %4811
+  %4813 = load ptr, ptr %4812, align 8
+  %4814 = icmp eq ptr %4813, %4788
+  br i1 %4814, label %4815, label %.preheader.i.i.i6536
 
-4817:                                             ; preds = %4799
-  %4818 = getelementptr inbounds i8, ptr %4815, i64 12
+4815:                                             ; preds = %4797
+  %4816 = getelementptr inbounds i8, ptr %4813, i64 12
+  %4817 = load i32, ptr %4816, align 4
+  store i32 %4817, ptr %4808, align 4
+  br label %JS_FreeAtomStruct.exit.i.i6538
+
+.preheader.i.i.i6536:                             ; preds = %4797, %.preheader.i.i.i6536
+  %.028.i.i.i6537 = phi ptr [ %4822, %.preheader.i.i.i6536 ], [ %4813, %4797 ]
+  %4818 = getelementptr inbounds i8, ptr %.028.i.i.i6537, i64 12
   %4819 = load i32, ptr %4818, align 4
-  store i32 %4819, ptr %4810, align 4
-  br label %JS_FreeAtomStruct.exit.i.i6541
+  %4820 = zext i32 %4819 to i64
+  %4821 = getelementptr ptr, ptr %4810, i64 %4820
+  %4822 = load ptr, ptr %4821, align 8
+  %4823 = icmp eq ptr %4822, %4788
+  br i1 %4823, label %4824, label %.preheader.i.i.i6536
 
-.preheader.i.i.i6539:                             ; preds = %4799, %.preheader.i.i.i6539
-  %.028.i.i.i6540 = phi ptr [ %4824, %.preheader.i.i.i6539 ], [ %4815, %4799 ]
-  %4820 = getelementptr inbounds i8, ptr %.028.i.i.i6540, i64 12
-  %4821 = load i32, ptr %4820, align 4
-  %4822 = zext i32 %4821 to i64
-  %4823 = getelementptr ptr, ptr %4812, i64 %4822
-  %4824 = load ptr, ptr %4823, align 8
-  %4825 = icmp eq ptr %4824, %4790
-  br i1 %4825, label %4826, label %.preheader.i.i.i6539
+4824:                                             ; preds = %.preheader.i.i.i6536
+  %4825 = getelementptr inbounds i8, ptr %.028.i.i.i6537, i64 12
+  %4826 = getelementptr inbounds i8, ptr %4822, i64 12
+  %4827 = load i32, ptr %4826, align 4
+  store i32 %4827, ptr %4825, align 4
+  br label %JS_FreeAtomStruct.exit.i.i6538
 
-4826:                                             ; preds = %.preheader.i.i.i6539
-  %4827 = getelementptr inbounds i8, ptr %.028.i.i.i6540, i64 12
-  %4828 = getelementptr inbounds i8, ptr %4824, i64 12
-  %4829 = load i32, ptr %4828, align 4
-  store i32 %4829, ptr %4827, align 4
-  br label %JS_FreeAtomStruct.exit.i.i6541
+JS_FreeAtomStruct.exit.i.i6538:                   ; preds = %4824, %4815, %._crit_edge.i.i.i6541
+  %.pre-phi.i.i.i6539 = phi i64 [ %.pre.i.i.i6542, %._crit_edge.i.i.i6541 ], [ %4811, %4815 ], [ %4820, %4824 ]
+  %.0.i.i.i6540 = phi i32 [ %4796, %._crit_edge.i.i.i6541 ], [ %4809, %4815 ], [ %4819, %4824 ]
+  %4828 = getelementptr inbounds i8, ptr %4783, i64 104
+  %4829 = load i32, ptr %4828, align 8
+  %4830 = zext i32 %4829 to i64
+  %4831 = shl nuw nsw i64 %4830, 1
+  %4832 = or disjoint i64 %4831, 1
+  %4833 = inttoptr i64 %4832 to ptr
+  %4834 = load ptr, ptr %4784, align 8
+  %4835 = getelementptr ptr, ptr %4834, i64 %.pre-phi.i.i.i6539
+  store ptr %4833, ptr %4835, align 8
+  store i32 %.0.i.i.i6540, ptr %4828, align 8
+  %4836 = getelementptr inbounds i8, ptr %4783, i64 8
+  %4837 = load ptr, ptr %4836, align 8
+  %4838 = getelementptr inbounds i8, ptr %4783, i64 32
+  call void %4837(ptr noundef nonnull %4838, ptr noundef nonnull %4788) #42
+  %4839 = getelementptr inbounds i8, ptr %4783, i64 76
+  %4840 = load i32, ptr %4839, align 4
+  %4841 = add i32 %4840, -1
+  store i32 %4841, ptr %4839, align 4
+  br label %JS_FreeAtom.exit6543
 
-JS_FreeAtomStruct.exit.i.i6541:                   ; preds = %4826, %4817, %._crit_edge.i.i.i6544
-  %.pre-phi.i.i.i6542 = phi i64 [ %.pre.i.i.i6545, %._crit_edge.i.i.i6544 ], [ %4813, %4817 ], [ %4822, %4826 ]
-  %.0.i.i.i6543 = phi i32 [ %4798, %._crit_edge.i.i.i6544 ], [ %4811, %4817 ], [ %4821, %4826 ]
-  %4830 = getelementptr inbounds i8, ptr %4785, i64 104
-  %4831 = load i32, ptr %4830, align 8
-  %4832 = zext i32 %4831 to i64
-  %4833 = shl nuw nsw i64 %4832, 1
-  %4834 = or disjoint i64 %4833, 1
-  %4835 = inttoptr i64 %4834 to ptr
-  %4836 = load ptr, ptr %4786, align 8
-  %4837 = getelementptr ptr, ptr %4836, i64 %.pre-phi.i.i.i6542
-  store ptr %4835, ptr %4837, align 8
-  store i32 %.0.i.i.i6543, ptr %4830, align 8
-  %4838 = getelementptr inbounds i8, ptr %4785, i64 8
-  %4839 = load ptr, ptr %4838, align 8
-  %4840 = getelementptr inbounds i8, ptr %4785, i64 32
-  call void %4839(ptr noundef nonnull %4840, ptr noundef nonnull %4790) #42
-  %4841 = getelementptr inbounds i8, ptr %4785, i64 76
-  %4842 = load i32, ptr %4841, align 4
-  %4843 = add i32 %4842, -1
-  store i32 %4843, ptr %4841, align 4
-  br label %JS_FreeAtom.exit6546
-
-JS_FreeAtom.exit6546:                             ; preds = %4782, %4784, %JS_FreeAtomStruct.exit.i.i6541
-  %4844 = getelementptr i8, ptr %.23354, i64 -32
+JS_FreeAtom.exit6543:                             ; preds = %4780, %4782, %JS_FreeAtomStruct.exit.i.i6538
+  %4842 = getelementptr i8, ptr %.23354, i64 -32
+  %4843 = load i64, ptr %4842, align 8
+  %4844 = getelementptr i8, ptr %.23354, i64 -24
   %4845 = load i64, ptr %4844, align 8
-  %4846 = getelementptr i8, ptr %.23354, i64 -24
-  %4847 = load i64, ptr %4846, align 8
-  %4848 = trunc i64 %4847 to i32
-  %4849 = icmp ugt i32 %4848, -12
-  br i1 %4849, label %4850, label %JS_FreeValue.exit4173
+  %4846 = trunc i64 %4845 to i32
+  %4847 = icmp ugt i32 %4846, -12
+  br i1 %4847, label %4848, label %JS_FreeValue.exit4173
 
-4850:                                             ; preds = %JS_FreeAtom.exit6546
-  %4851 = inttoptr i64 %4845 to ptr
-  %4852 = load i32, ptr %4851, align 4
-  %4853 = add i32 %4852, -1
-  store i32 %4853, ptr %4851, align 4
-  %4854 = icmp slt i32 %4853, 1
-  br i1 %4854, label %4855, label %JS_FreeValue.exit4173
+4848:                                             ; preds = %JS_FreeAtom.exit6543
+  %4849 = inttoptr i64 %4843 to ptr
+  %4850 = load i32, ptr %4849, align 4
+  %4851 = add i32 %4850, -1
+  store i32 %4851, ptr %4849, align 4
+  %4852 = icmp slt i32 %4851, 1
+  br i1 %4852, label %4853, label %JS_FreeValue.exit4173
 
-4855:                                             ; preds = %4850
-  %4856 = load ptr, ptr %237, align 8
-  call void @__JS_FreeValueRT(ptr noundef %4856, i64 %4845, i64 %4847)
+4853:                                             ; preds = %4848
+  %4854 = load ptr, ptr %237, align 8
+  call void @__JS_FreeValueRT(ptr noundef %4854, i64 %4843, i64 %4845)
   br label %JS_FreeValue.exit4173
 
-JS_FreeValue.exit4173:                            ; preds = %4855, %4850, %JS_FreeAtom.exit6546, %JS_FreeValue.exit4172
-  %.neg = phi i64 [ -1, %JS_FreeValue.exit4172 ], [ -2, %JS_FreeAtom.exit6546 ], [ -2, %4850 ], [ -2, %4855 ]
-  %4857 = getelementptr %struct.JSValue, ptr %.23354, i64 %.neg
-  br i1 %.03378, label %JS_FreeValue.exit3739.loopexit, label %4858
+JS_FreeValue.exit4173:                            ; preds = %4853, %4848, %JS_FreeAtom.exit6543, %JS_FreeValue.exit4172
+  %.neg = phi i64 [ -1, %JS_FreeValue.exit4172 ], [ -2, %JS_FreeAtom.exit6543 ], [ -2, %4848 ], [ -2, %4853 ]
+  %4855 = getelementptr %struct.JSValue, ptr %.23354, i64 %.neg
+  br i1 %.03378, label %JS_FreeValue.exit3739.loopexit, label %4856
 
-4858:                                             ; preds = %JS_FreeValue.exit4173
-  %4859 = getelementptr i8, ptr %.8, i64 2
+4856:                                             ; preds = %JS_FreeValue.exit4173
+  %4857 = getelementptr i8, ptr %.8, i64 2
   br label %.backedge4994.backedge
 
-4860:                                             ; preds = %.backedge4994
+4858:                                             ; preds = %.backedge4994
   %.23330.val3637 = load i32, ptr %.23330, align 1
-  %4861 = getelementptr i8, ptr %.23330, i64 4
-  %4862 = load i8, ptr %4861, align 1
-  %4863 = getelementptr i8, ptr %.23330, i64 5
+  %4859 = getelementptr i8, ptr %.23330, i64 4
+  %4860 = load i8, ptr %4859, align 1
+  %4861 = getelementptr i8, ptr %.23330, i64 5
   %.not4911 = icmp eq i8 %.03333.in, 87
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %.sroa.0137.i)
-  %4864 = getelementptr i8, ptr %.23354, i64 -32
-  %.sroa.0125.0.copyload.i = load i64, ptr %4864, align 8
+  %4862 = getelementptr i8, ptr %.23354, i64 -32
+  %.sroa.0125.0.copyload.i = load i64, ptr %4862, align 8
   %.sroa.9131.0..sroa_idx.i = getelementptr i8, ptr %.23354, i64 -24
   %.sroa.9131.0.copyload.i = load i64, ptr %.sroa.9131.0..sroa_idx.i, align 8
-  %4865 = getelementptr i8, ptr %.23354, i64 -16
-  %.sroa.0137.0.copyload.i = load double, ptr %4865, align 8
+  %4863 = getelementptr i8, ptr %.23354, i64 -16
+  %.sroa.0137.0.copyload.i = load double, ptr %4863, align 8
   store double %.sroa.0137.0.copyload.i, ptr %.sroa.0137.i, align 8
   %.sroa.5.0..sroa_idx.i4174 = getelementptr i8, ptr %.23354, i64 -8
   %.sroa.5.0.copyload.i4175 = load i64, ptr %.sroa.5.0..sroa_idx.i4174, align 8
-  %4866 = and i8 %4862, 1
-  %.not.i4176 = icmp eq i8 %4866, 0
-  br i1 %.not.i4176, label %4883, label %4867
+  %4864 = and i8 %4860, 1
+  %.not.i4176 = icmp eq i8 %4864, 0
+  br i1 %.not.i4176, label %4881, label %4865
 
-4867:                                             ; preds = %4860
+4865:                                             ; preds = %4858
   %trunc5444 = trunc i64 %.sroa.9131.0.copyload.i to i32
   switch i32 %trunc5444, label %JS_IsConstructor.exit.thread [
-    i32 2, label %4868
+    i32 2, label %4866
     i32 -1, label %JS_IsConstructor.exit
   ]
 
-4868:                                             ; preds = %4867
-  %4869 = load i64, ptr %270, align 8
-  %4870 = load i64, ptr %271, align 8
-  %4871 = trunc i64 %4870 to i32
-  %4872 = icmp ugt i32 %4871, -12
-  br i1 %4872, label %JS_DupValue.exit4520.sink.split, label %JS_DupValue.exit4520
+4866:                                             ; preds = %4865
+  %4867 = load i64, ptr %270, align 8
+  %4868 = load i64, ptr %271, align 8
+  %4869 = trunc i64 %4868 to i32
+  %4870 = icmp ugt i32 %4869, -12
+  br i1 %4870, label %JS_DupValue.exit4520.sink.split, label %JS_DupValue.exit4520
 
-JS_IsConstructor.exit:                            ; preds = %4867
-  %4873 = inttoptr i64 %.sroa.0125.0.copyload.i to ptr
-  %4874 = getelementptr inbounds i8, ptr %4873, i64 5
-  %4875 = load i8, ptr %4874, align 1
-  %4876 = and i8 %4875, 16
-  %.not197.i = icmp eq i8 %4876, 0
-  br i1 %.not197.i, label %JS_IsConstructor.exit.thread, label %4878
+JS_IsConstructor.exit:                            ; preds = %4865
+  %4871 = inttoptr i64 %.sroa.0125.0.copyload.i to ptr
+  %4872 = getelementptr inbounds i8, ptr %4871, i64 5
+  %4873 = load i8, ptr %4872, align 1
+  %4874 = and i8 %4873, 16
+  %.not197.i = icmp eq i8 %4874, 0
+  br i1 %.not197.i, label %JS_IsConstructor.exit.thread, label %4876
 
-JS_IsConstructor.exit.thread:                     ; preds = %4867, %JS_IsConstructor.exit
-  %4877 = call { i64, i64 } (ptr, ptr, ...) @JS_ThrowTypeError(ptr noundef %.1, ptr noundef nonnull @.str.159)
+JS_IsConstructor.exit.thread:                     ; preds = %4865, %JS_IsConstructor.exit
+  %4875 = call { i64, i64 } (ptr, ptr, ...) @JS_ThrowTypeError(ptr noundef %.1, ptr noundef nonnull @.str.159)
   br label %JS_NewObjectProto.exit.thread
 
-4878:                                             ; preds = %JS_IsConstructor.exit
-  %4879 = call { i64, i64 } @JS_GetPropertyInternal(ptr noundef %.1, i64 %.sroa.0125.0.copyload.i, i64 %.sroa.9131.0.copyload.i, i32 noundef 60, i64 %.sroa.0125.0.copyload.i, i64 %.sroa.9131.0.copyload.i, i32 noundef 0)
-  %4880 = extractvalue { i64, i64 } %4879, 0
-  %4881 = extractvalue { i64, i64 } %4879, 1
-  %.sroa.035.sroa.0.0.extract.trunc61.i = trunc i64 %4880 to i32
-  %.sroa.035.sroa.10.0.extract.shift83.i = lshr i64 %4880, 32
+4876:                                             ; preds = %JS_IsConstructor.exit
+  %4877 = call { i64, i64 } @JS_GetPropertyInternal(ptr noundef %.1, i64 %.sroa.0125.0.copyload.i, i64 %.sroa.9131.0.copyload.i, i32 noundef 60, i64 %.sroa.0125.0.copyload.i, i64 %.sroa.9131.0.copyload.i, i32 noundef 0)
+  %4878 = extractvalue { i64, i64 } %4877, 0
+  %4879 = extractvalue { i64, i64 } %4877, 1
+  %.sroa.035.sroa.0.0.extract.trunc61.i = trunc i64 %4878 to i32
+  %.sroa.035.sroa.10.0.extract.shift83.i = lshr i64 %4878, 32
   %.sroa.035.sroa.10.0.extract.trunc84.i = trunc nuw i64 %.sroa.035.sroa.10.0.extract.shift83.i to i32
-  %trunc5445 = trunc i64 %4881 to i32
+  %trunc5445 = trunc i64 %4879 to i32
   switch i32 %trunc5445, label %JS_NewObjectProto.exit.thread.thread [
     i32 6, label %JS_NewObjectProto.exit.thread.loopexit
     i32 2, label %JS_DupValue.exit4520
     i32 -1, label %JS_DupValue.exit4520
   ]
 
-JS_NewObjectProto.exit.thread.thread:             ; preds = %4878
-  %4882 = call { i64, i64 } (ptr, ptr, ...) @JS_ThrowTypeError(ptr noundef %.1, ptr noundef nonnull @.str.160)
-  br label %5131
+JS_NewObjectProto.exit.thread.thread:             ; preds = %4876
+  %4880 = call { i64, i64 } (ptr, ptr, ...) @JS_ThrowTypeError(ptr noundef %.1, ptr noundef nonnull @.str.160)
+  br label %5129
 
-4883:                                             ; preds = %4860
-  %4884 = load ptr, ptr %272, align 8
-  %4885 = getelementptr i8, ptr %4884, i64 16
+4881:                                             ; preds = %4858
+  %4882 = load ptr, ptr %272, align 8
+  %4883 = getelementptr i8, ptr %4882, i64 16
+  %4884 = load i64, ptr %4883, align 8
+  %4885 = getelementptr i8, ptr %4882, i64 24
   %4886 = load i64, ptr %4885, align 8
-  %4887 = getelementptr i8, ptr %4884, i64 24
-  %4888 = load i64, ptr %4887, align 8
-  %4889 = trunc i64 %4888 to i32
-  %4890 = icmp ugt i32 %4889, -12
-  br i1 %4890, label %4891, label %JS_DupValue.exit4515
+  %4887 = trunc i64 %4886 to i32
+  %4888 = icmp ugt i32 %4887, -12
+  br i1 %4888, label %4889, label %JS_DupValue.exit4515
 
-4891:                                             ; preds = %4883
-  %4892 = inttoptr i64 %4886 to ptr
-  %4893 = load i32, ptr %4892, align 4
-  %4894 = add i32 %4893, 1
-  store i32 %4894, ptr %4892, align 4
+4889:                                             ; preds = %4881
+  %4890 = inttoptr i64 %4884 to ptr
+  %4891 = load i32, ptr %4890, align 4
+  %4892 = add i32 %4891, 1
+  store i32 %4892, ptr %4890, align 4
   br label %JS_DupValue.exit4515
 
-JS_DupValue.exit4515:                             ; preds = %4883, %4891
-  %.sroa.035.sroa.0.0.extract.trunc.i = trunc i64 %4886 to i32
-  %.sroa.035.sroa.10.0.extract.shift.i = lshr i64 %4886, 32
+JS_DupValue.exit4515:                             ; preds = %4881, %4889
+  %.sroa.035.sroa.0.0.extract.trunc.i = trunc i64 %4884 to i32
+  %.sroa.035.sroa.10.0.extract.shift.i = lshr i64 %4884, 32
   %.sroa.035.sroa.10.0.extract.trunc.i = trunc nuw i64 %.sroa.035.sroa.10.0.extract.shift.i to i32
-  %4895 = load i64, ptr %270, align 8
-  %4896 = load i64, ptr %271, align 8
-  %4897 = trunc i64 %4896 to i32
-  %4898 = icmp ugt i32 %4897, -12
-  br i1 %4898, label %JS_DupValue.exit4520.sink.split, label %JS_DupValue.exit4520
+  %4893 = load i64, ptr %270, align 8
+  %4894 = load i64, ptr %271, align 8
+  %4895 = trunc i64 %4894 to i32
+  %4896 = icmp ugt i32 %4895, -12
+  br i1 %4896, label %JS_DupValue.exit4520.sink.split, label %JS_DupValue.exit4520
 
-JS_DupValue.exit4520.sink.split:                  ; preds = %JS_DupValue.exit4515, %4868
-  %.sink6431 = phi i64 [ %4869, %4868 ], [ %4895, %JS_DupValue.exit4515 ]
-  %.sroa.11.1.i.ph = phi i64 [ 2, %4868 ], [ %4888, %JS_DupValue.exit4515 ]
-  %.sroa.035.sroa.0.1.i.ph = phi i32 [ 0, %4868 ], [ %.sroa.035.sroa.0.0.extract.trunc.i, %JS_DupValue.exit4515 ]
-  %.sroa.035.sroa.10.1.i.ph = phi i32 [ undef, %4868 ], [ %.sroa.035.sroa.10.0.extract.trunc.i, %JS_DupValue.exit4515 ]
-  %.sroa.9131.1.i.ph = phi i64 [ %4870, %4868 ], [ %4896, %JS_DupValue.exit4515 ]
-  %4899 = inttoptr i64 %.sink6431 to ptr
-  %4900 = load i32, ptr %4899, align 4
-  %4901 = add i32 %4900, 1
-  store i32 %4901, ptr %4899, align 4
+JS_DupValue.exit4520.sink.split:                  ; preds = %JS_DupValue.exit4515, %4866
+  %.sink6428 = phi i64 [ %4867, %4866 ], [ %4893, %JS_DupValue.exit4515 ]
+  %.sroa.11.1.i.ph = phi i64 [ 2, %4866 ], [ %4886, %JS_DupValue.exit4515 ]
+  %.sroa.035.sroa.0.1.i.ph = phi i32 [ 0, %4866 ], [ %.sroa.035.sroa.0.0.extract.trunc.i, %JS_DupValue.exit4515 ]
+  %.sroa.035.sroa.10.1.i.ph = phi i32 [ undef, %4866 ], [ %.sroa.035.sroa.10.0.extract.trunc.i, %JS_DupValue.exit4515 ]
+  %.sroa.9131.1.i.ph = phi i64 [ %4868, %4866 ], [ %4894, %JS_DupValue.exit4515 ]
+  %4897 = inttoptr i64 %.sink6428 to ptr
+  %4898 = load i32, ptr %4897, align 4
+  %4899 = add i32 %4898, 1
+  store i32 %4899, ptr %4897, align 4
   br label %JS_DupValue.exit4520
 
-JS_DupValue.exit4520:                             ; preds = %JS_DupValue.exit4520.sink.split, %JS_DupValue.exit4515, %4878, %4878, %4868
-  %.sroa.11.1.i = phi i64 [ 2, %4868 ], [ %4881, %4878 ], [ %4881, %4878 ], [ %4888, %JS_DupValue.exit4515 ], [ %.sroa.11.1.i.ph, %JS_DupValue.exit4520.sink.split ]
-  %.sroa.035.sroa.0.1.i = phi i32 [ 0, %4868 ], [ %.sroa.035.sroa.0.0.extract.trunc61.i, %4878 ], [ %.sroa.035.sroa.0.0.extract.trunc61.i, %4878 ], [ %.sroa.035.sroa.0.0.extract.trunc.i, %JS_DupValue.exit4515 ], [ %.sroa.035.sroa.0.1.i.ph, %JS_DupValue.exit4520.sink.split ]
-  %.sroa.035.sroa.10.1.i = phi i32 [ undef, %4868 ], [ %.sroa.035.sroa.10.0.extract.trunc84.i, %4878 ], [ %.sroa.035.sroa.10.0.extract.trunc84.i, %4878 ], [ %.sroa.035.sroa.10.0.extract.trunc.i, %JS_DupValue.exit4515 ], [ %.sroa.035.sroa.10.1.i.ph, %JS_DupValue.exit4520.sink.split ]
-  %.sroa.0125.1.i = phi i64 [ %4869, %4868 ], [ %.sroa.0125.0.copyload.i, %4878 ], [ %.sroa.0125.0.copyload.i, %4878 ], [ %4895, %JS_DupValue.exit4515 ], [ %.sink6431, %JS_DupValue.exit4520.sink.split ]
-  %.sroa.9131.1.i = phi i64 [ %4870, %4868 ], [ %.sroa.9131.0.copyload.i, %4878 ], [ %.sroa.9131.0.copyload.i, %4878 ], [ %4896, %JS_DupValue.exit4515 ], [ %.sroa.9131.1.i.ph, %JS_DupValue.exit4520.sink.split ]
+JS_DupValue.exit4520:                             ; preds = %JS_DupValue.exit4520.sink.split, %JS_DupValue.exit4515, %4876, %4876, %4866
+  %.sroa.11.1.i = phi i64 [ 2, %4866 ], [ %4879, %4876 ], [ %4879, %4876 ], [ %4886, %JS_DupValue.exit4515 ], [ %.sroa.11.1.i.ph, %JS_DupValue.exit4520.sink.split ]
+  %.sroa.035.sroa.0.1.i = phi i32 [ 0, %4866 ], [ %.sroa.035.sroa.0.0.extract.trunc61.i, %4876 ], [ %.sroa.035.sroa.0.0.extract.trunc61.i, %4876 ], [ %.sroa.035.sroa.0.0.extract.trunc.i, %JS_DupValue.exit4515 ], [ %.sroa.035.sroa.0.1.i.ph, %JS_DupValue.exit4520.sink.split ]
+  %.sroa.035.sroa.10.1.i = phi i32 [ undef, %4866 ], [ %.sroa.035.sroa.10.0.extract.trunc84.i, %4876 ], [ %.sroa.035.sroa.10.0.extract.trunc84.i, %4876 ], [ %.sroa.035.sroa.10.0.extract.trunc.i, %JS_DupValue.exit4515 ], [ %.sroa.035.sroa.10.1.i.ph, %JS_DupValue.exit4520.sink.split ]
+  %.sroa.0125.1.i = phi i64 [ %4867, %4866 ], [ %.sroa.0125.0.copyload.i, %4876 ], [ %.sroa.0125.0.copyload.i, %4876 ], [ %4893, %JS_DupValue.exit4515 ], [ %.sink6428, %JS_DupValue.exit4520.sink.split ]
+  %.sroa.9131.1.i = phi i64 [ %4868, %4866 ], [ %.sroa.9131.0.copyload.i, %4876 ], [ %.sroa.9131.0.copyload.i, %4876 ], [ %4894, %JS_DupValue.exit4515 ], [ %.sroa.9131.1.i.ph, %JS_DupValue.exit4520.sink.split ]
   %.sroa.035.sroa.10.0.insert.ext71.i = zext i32 %.sroa.035.sroa.10.1.i to i64
   %.sroa.035.sroa.10.0.insert.shift72.i = shl nuw i64 %.sroa.035.sroa.10.0.insert.ext71.i, 32
   %.sroa.035.sroa.0.0.insert.ext52.i = zext i32 %.sroa.035.sroa.0.1.i to i64
   %.sroa.035.sroa.0.0.insert.insert54.i = or disjoint i64 %.sroa.035.sroa.10.0.insert.shift72.i, %.sroa.035.sroa.0.0.insert.ext52.i
-  %4902 = and i64 %.sroa.11.1.i, 4294967295
-  %.not.i4614 = icmp eq i64 %4902, 4294967295
+  %4900 = and i64 %.sroa.11.1.i, 4294967295
+  %.not.i4614 = icmp eq i64 %4900, 4294967295
   %.sroa.0.0..sroa.0.0..sroa.0.0..cast.i = inttoptr i64 %.sroa.035.sroa.0.0.insert.insert54.i to ptr
   %.0.i4615 = select i1 %.not.i4614, ptr %.sroa.0.0..sroa.0.0..sroa.0.0..cast.i, ptr null
-  %4903 = load ptr, ptr %237, align 8
-  %4904 = getelementptr i8, ptr %4903, i64 376
-  %.val.i.i4500 = load i32, ptr %4904, align 8
-  %4905 = getelementptr i8, ptr %4903, i64 392
-  %.val14.i.i4501 = load ptr, ptr %4905, align 8
-  %4906 = ptrtoint ptr %.0.i4615 to i64
-  %4907 = trunc i64 %4906 to i32
-  %4908 = mul i32 %4907, -1640562687
-  %4909 = add i32 %4908, -1640562687
-  %4910 = lshr i64 %4906, 32
-  %4911 = trunc nuw i64 %4910 to i32
-  %4912 = add i32 %4909, %4911
-  %4913 = mul i32 %4912, -1640562687
-  %4914 = sub i32 32, %.val.i.i4500
-  %4915 = lshr i32 %4913, %4914
-  %4916 = zext i32 %4915 to i64
-  %4917 = getelementptr ptr, ptr %.val14.i.i4501, i64 %4916
-  %.0131.i4616 = load ptr, ptr %4917, align 8
+  %4901 = load ptr, ptr %237, align 8
+  %4902 = getelementptr i8, ptr %4901, i64 376
+  %.val.i.i4500 = load i32, ptr %4902, align 8
+  %4903 = getelementptr i8, ptr %4901, i64 392
+  %.val14.i.i4501 = load ptr, ptr %4903, align 8
+  %4904 = ptrtoint ptr %.0.i4615 to i64
+  %4905 = trunc i64 %4904 to i32
+  %4906 = mul i32 %4905, -1640562687
+  %4907 = add i32 %4906, -1640562687
+  %4908 = lshr i64 %4904, 32
+  %4909 = trunc nuw i64 %4908 to i32
+  %4910 = add i32 %4907, %4909
+  %4911 = mul i32 %4910, -1640562687
+  %4912 = sub i32 32, %.val.i.i4500
+  %4913 = lshr i32 %4911, %4912
+  %4914 = zext i32 %4913 to i64
+  %4915 = getelementptr ptr, ptr %.val14.i.i4501, i64 %4914
+  %.0131.i4616 = load ptr, ptr %4915, align 8
   %.not2.i4617 = icmp eq ptr %.0131.i4616, null
   br i1 %.not2.i4617, label %.loopexit4987, label %.lr.ph.i4618
 
-.lr.ph.i4618:                                     ; preds = %JS_DupValue.exit4520, %4929
-  %.0133.i4619 = phi ptr [ %.013.i4620, %4929 ], [ %.0131.i4616, %JS_DupValue.exit4520 ]
-  %4918 = getelementptr inbounds i8, ptr %.0133.i4619, i64 28
-  %4919 = load i32, ptr %4918, align 4
-  %4920 = icmp eq i32 %4919, %4913
-  br i1 %4920, label %4921, label %4929
+.lr.ph.i4618:                                     ; preds = %JS_DupValue.exit4520, %4927
+  %.0133.i4619 = phi ptr [ %.013.i4620, %4927 ], [ %.0131.i4616, %JS_DupValue.exit4520 ]
+  %4916 = getelementptr inbounds i8, ptr %.0133.i4619, i64 28
+  %4917 = load i32, ptr %4916, align 4
+  %4918 = icmp eq i32 %4917, %4911
+  br i1 %4918, label %4919, label %4927
 
-4921:                                             ; preds = %.lr.ph.i4618
-  %4922 = getelementptr inbounds i8, ptr %.0133.i4619, i64 56
-  %4923 = load ptr, ptr %4922, align 8
-  %4924 = icmp eq ptr %4923, %.0.i4615
-  br i1 %4924, label %4925, label %4929
+4919:                                             ; preds = %.lr.ph.i4618
+  %4920 = getelementptr inbounds i8, ptr %.0133.i4619, i64 56
+  %4921 = load ptr, ptr %4920, align 8
+  %4922 = icmp eq ptr %4921, %.0.i4615
+  br i1 %4922, label %4923, label %4927
 
-4925:                                             ; preds = %4921
-  %4926 = getelementptr inbounds i8, ptr %.0133.i4619, i64 40
-  %4927 = load i32, ptr %4926, align 8
-  %4928 = icmp eq i32 %4927, 0
-  br i1 %4928, label %find_hashed_shape_proto.exit4623, label %4929
+4923:                                             ; preds = %4919
+  %4924 = getelementptr inbounds i8, ptr %.0133.i4619, i64 40
+  %4925 = load i32, ptr %4924, align 8
+  %4926 = icmp eq i32 %4925, 0
+  br i1 %4926, label %find_hashed_shape_proto.exit4623, label %4927
 
-4929:                                             ; preds = %4925, %4921, %.lr.ph.i4618
-  %4930 = getelementptr inbounds i8, ptr %.0133.i4619, i64 48
-  %.013.i4620 = load ptr, ptr %4930, align 8
+4927:                                             ; preds = %4923, %4919, %.lr.ph.i4618
+  %4928 = getelementptr inbounds i8, ptr %.0133.i4619, i64 48
+  %.013.i4620 = load ptr, ptr %4928, align 8
   %.not.i4621 = icmp eq ptr %.013.i4620, null
   br i1 %.not.i4621, label %.loopexit4987, label %.lr.ph.i4618, !llvm.loop !34
 
-find_hashed_shape_proto.exit4623:                 ; preds = %4925
-  %4931 = load i32, ptr %.0133.i4619, align 8
-  %4932 = add i32 %4931, 1
-  store i32 %4932, ptr %.0133.i4619, align 8
+find_hashed_shape_proto.exit4623:                 ; preds = %4923
+  %4929 = load i32, ptr %.0133.i4619, align 8
+  %4930 = add i32 %4929, 1
+  store i32 %4930, ptr %.0133.i4619, align 8
   br label %JS_NewObjectProto.exit
 
-.loopexit4987:                                    ; preds = %4929, %JS_DupValue.exit4520
-  %4933 = call fastcc ptr @js_new_shape2(ptr noundef %.1, ptr noundef %.0.i4615, i32 noundef 2)
-  %.not13.i.i4509 = icmp eq ptr %4933, null
+.loopexit4987:                                    ; preds = %4927, %JS_DupValue.exit4520
+  %4931 = call fastcc ptr @js_new_shape2(ptr noundef %.1, ptr noundef %.0.i4615, i32 noundef 2)
+  %.not13.i.i4509 = icmp eq ptr %4931, null
   br i1 %.not13.i.i4509, label %JS_NewObjectProto.exit.thread.loopexit, label %JS_NewObjectProto.exit
 
 JS_NewObjectProto.exit:                           ; preds = %find_hashed_shape_proto.exit4623, %.loopexit4987
-  %.0.i.i4503 = phi ptr [ %.0133.i4619, %find_hashed_shape_proto.exit4623 ], [ %4933, %.loopexit4987 ]
-  %4934 = call fastcc { i64, i64 } @JS_NewObjectFromShape(ptr noundef %.1, ptr noundef nonnull %.0.i.i4503, i32 noundef 1)
-  %4935 = extractvalue { i64, i64 } %4934, 0
-  %4936 = extractvalue { i64, i64 } %4934, 1
-  %4937 = and i64 %4936, 4294967295
-  %.not4908 = icmp eq i64 %4937, 6
-  br i1 %.not4908, label %JS_NewObjectProto.exit.thread.loopexit, label %4938
+  %.0.i.i4503 = phi ptr [ %.0133.i4619, %find_hashed_shape_proto.exit4623 ], [ %4931, %.loopexit4987 ]
+  %4932 = call fastcc { i64, i64 } @JS_NewObjectFromShape(ptr noundef %.1, ptr noundef nonnull %.0.i.i4503, i32 noundef 1)
+  %4933 = extractvalue { i64, i64 } %4932, 0
+  %4934 = extractvalue { i64, i64 } %4932, 1
+  %4935 = and i64 %4934, 4294967295
+  %.not4908 = icmp eq i64 %4935, 6
+  br i1 %.not4908, label %JS_NewObjectProto.exit.thread.loopexit, label %4936
 
-4938:                                             ; preds = %JS_NewObjectProto.exit
+4936:                                             ; preds = %JS_NewObjectProto.exit
   %.sroa.0137.i.0..sroa.0137.i.0..sroa.0137.i.0..sroa.0137.i.0..sroa.0137.i.0..sroa.0137.i.0..sroa.0137.i.0..sroa.0137.0..sroa.0137.0..i = load ptr, ptr %.sroa.0137.i, align 8
-  %4939 = and i64 %.sroa.9131.1.i, 4294967295
-  %.not.i.i6547 = icmp eq i64 %4939, 4294967295
-  %.sroa.0.0..sroa.0.0..sroa.0.0..cast.i.i6548 = inttoptr i64 %.sroa.0125.1.i to ptr
-  %.0.i.i6549 = select i1 %.not.i.i6547, ptr %.sroa.0.0..sroa.0.0..sroa.0.0..cast.i.i6548, ptr null
-  %4940 = load ptr, ptr %237, align 8
-  %4941 = getelementptr i8, ptr %4940, i64 376
-  %.val.i6550 = load i32, ptr %4941, align 8
-  %4942 = getelementptr i8, ptr %4940, i64 392
-  %.val14.i6551 = load ptr, ptr %4942, align 8
-  %4943 = ptrtoint ptr %.0.i.i6549 to i64
-  %4944 = trunc i64 %4943 to i32
-  %4945 = mul i32 %4944, -1640562687
-  %4946 = add i32 %4945, -1640562687
-  %4947 = lshr i64 %4943, 32
-  %4948 = trunc nuw i64 %4947 to i32
-  %4949 = add i32 %4946, %4948
-  %4950 = mul i32 %4949, -1640562687
-  %4951 = sub i32 32, %.val.i6550
-  %4952 = lshr i32 %4950, %4951
-  %4953 = zext i32 %4952 to i64
-  %4954 = getelementptr ptr, ptr %.val14.i6551, i64 %4953
-  %.0131.i.i6552 = load ptr, ptr %4954, align 8
-  %.not2.i.i6553 = icmp eq ptr %.0131.i.i6552, null
-  br i1 %.not2.i.i6553, label %.loopexit.i, label %.lr.ph.i.i6554
+  %4937 = and i64 %.sroa.9131.1.i, 4294967295
+  %.not.i.i6544 = icmp eq i64 %4937, 4294967295
+  %.sroa.0.0..sroa.0.0..sroa.0.0..cast.i.i6545 = inttoptr i64 %.sroa.0125.1.i to ptr
+  %.0.i.i6546 = select i1 %.not.i.i6544, ptr %.sroa.0.0..sroa.0.0..sroa.0.0..cast.i.i6545, ptr null
+  %4938 = load ptr, ptr %237, align 8
+  %4939 = getelementptr i8, ptr %4938, i64 376
+  %.val.i6547 = load i32, ptr %4939, align 8
+  %4940 = getelementptr i8, ptr %4938, i64 392
+  %.val14.i6548 = load ptr, ptr %4940, align 8
+  %4941 = ptrtoint ptr %.0.i.i6546 to i64
+  %4942 = trunc i64 %4941 to i32
+  %4943 = mul i32 %4942, -1640562687
+  %4944 = add i32 %4943, -1640562687
+  %4945 = lshr i64 %4941, 32
+  %4946 = trunc nuw i64 %4945 to i32
+  %4947 = add i32 %4944, %4946
+  %4948 = mul i32 %4947, -1640562687
+  %4949 = sub i32 32, %.val.i6547
+  %4950 = lshr i32 %4948, %4949
+  %4951 = zext i32 %4950 to i64
+  %4952 = getelementptr ptr, ptr %.val14.i6548, i64 %4951
+  %.0131.i.i6549 = load ptr, ptr %4952, align 8
+  %.not2.i.i6550 = icmp eq ptr %.0131.i.i6549, null
+  br i1 %.not2.i.i6550, label %.loopexit.i, label %.lr.ph.i.i6551
 
-.lr.ph.i.i6554:                                   ; preds = %4938, %4966
-  %.0133.i.i6555 = phi ptr [ %.013.i.i6556, %4966 ], [ %.0131.i.i6552, %4938 ]
-  %4955 = getelementptr inbounds i8, ptr %.0133.i.i6555, i64 28
-  %4956 = load i32, ptr %4955, align 4
-  %4957 = icmp eq i32 %4956, %4950
-  br i1 %4957, label %4958, label %4966
+.lr.ph.i.i6551:                                   ; preds = %4936, %4964
+  %.0133.i.i6552 = phi ptr [ %.013.i.i6553, %4964 ], [ %.0131.i.i6549, %4936 ]
+  %4953 = getelementptr inbounds i8, ptr %.0133.i.i6552, i64 28
+  %4954 = load i32, ptr %4953, align 4
+  %4955 = icmp eq i32 %4954, %4948
+  br i1 %4955, label %4956, label %4964
 
-4958:                                             ; preds = %.lr.ph.i.i6554
-  %4959 = getelementptr inbounds i8, ptr %.0133.i.i6555, i64 56
-  %4960 = load ptr, ptr %4959, align 8
-  %4961 = icmp eq ptr %4960, %.0.i.i6549
-  br i1 %4961, label %4962, label %4966
+4956:                                             ; preds = %.lr.ph.i.i6551
+  %4957 = getelementptr inbounds i8, ptr %.0133.i.i6552, i64 56
+  %4958 = load ptr, ptr %4957, align 8
+  %4959 = icmp eq ptr %4958, %.0.i.i6546
+  br i1 %4959, label %4960, label %4964
 
-4962:                                             ; preds = %4958
-  %4963 = getelementptr inbounds i8, ptr %.0133.i.i6555, i64 40
-  %4964 = load i32, ptr %4963, align 8
-  %4965 = icmp eq i32 %4964, 0
-  br i1 %4965, label %find_hashed_shape_proto.exit.i6562, label %4966
+4960:                                             ; preds = %4956
+  %4961 = getelementptr inbounds i8, ptr %.0133.i.i6552, i64 40
+  %4962 = load i32, ptr %4961, align 8
+  %4963 = icmp eq i32 %4962, 0
+  br i1 %4963, label %find_hashed_shape_proto.exit.i6559, label %4964
 
-4966:                                             ; preds = %4962, %4958, %.lr.ph.i.i6554
-  %4967 = getelementptr inbounds i8, ptr %.0133.i.i6555, i64 48
-  %.013.i.i6556 = load ptr, ptr %4967, align 8
-  %.not.i15.i6557 = icmp eq ptr %.013.i.i6556, null
-  br i1 %.not.i15.i6557, label %.loopexit.i, label %.lr.ph.i.i6554, !llvm.loop !34
+4964:                                             ; preds = %4960, %4956, %.lr.ph.i.i6551
+  %4965 = getelementptr inbounds i8, ptr %.0133.i.i6552, i64 48
+  %.013.i.i6553 = load ptr, ptr %4965, align 8
+  %.not.i15.i6554 = icmp eq ptr %.013.i.i6553, null
+  br i1 %.not.i15.i6554, label %.loopexit.i, label %.lr.ph.i.i6551, !llvm.loop !34
 
-find_hashed_shape_proto.exit.i6562:               ; preds = %4962
-  %4968 = load i32, ptr %.0133.i.i6555, align 8
-  %4969 = add i32 %4968, 1
-  store i32 %4969, ptr %.0133.i.i6555, align 8
-  br label %JS_NewObjectProtoClass.exit6563
+find_hashed_shape_proto.exit.i6559:               ; preds = %4960
+  %4966 = load i32, ptr %.0133.i.i6552, align 8
+  %4967 = add i32 %4966, 1
+  store i32 %4967, ptr %.0133.i.i6552, align 8
+  br label %JS_NewObjectProtoClass.exit6560
 
-.loopexit.i:                                      ; preds = %4966, %4938
-  %4970 = call fastcc ptr @js_new_shape2(ptr noundef %.1, ptr noundef %.0.i.i6549, i32 noundef 2)
-  %.not13.i6558 = icmp eq ptr %4970, null
-  br i1 %.not13.i6558, label %JS_NewObjectProto.exit.thread.loopexit, label %JS_NewObjectProtoClass.exit6563
+.loopexit.i:                                      ; preds = %4964, %4936
+  %4968 = call fastcc ptr @js_new_shape2(ptr noundef %.1, ptr noundef %.0.i.i6546, i32 noundef 2)
+  %.not13.i6555 = icmp eq ptr %4968, null
+  br i1 %.not13.i6555, label %JS_NewObjectProto.exit.thread.loopexit, label %JS_NewObjectProtoClass.exit6560
 
-JS_NewObjectProtoClass.exit6563:                  ; preds = %find_hashed_shape_proto.exit.i6562, %.loopexit.i
-  %.0.i6559 = phi ptr [ %.0133.i.i6555, %find_hashed_shape_proto.exit.i6562 ], [ %4970, %.loopexit.i ]
-  %4971 = call fastcc { i64, i64 } @JS_NewObjectFromShape(ptr noundef %.1, ptr noundef nonnull %.0.i6559, i32 noundef 13)
-  %4972 = extractvalue { i64, i64 } %4971, 0
-  %4973 = extractvalue { i64, i64 } %4971, 1
-  %4974 = and i64 %4973, 4294967295
-  %.not4909 = icmp eq i64 %4974, 6
-  br i1 %.not4909, label %JS_NewObjectProto.exit.thread.loopexit, label %4975
+JS_NewObjectProtoClass.exit6560:                  ; preds = %find_hashed_shape_proto.exit.i6559, %.loopexit.i
+  %.0.i6556 = phi ptr [ %.0133.i.i6552, %find_hashed_shape_proto.exit.i6559 ], [ %4968, %.loopexit.i ]
+  %4969 = call fastcc { i64, i64 } @JS_NewObjectFromShape(ptr noundef %.1, ptr noundef nonnull %.0.i6556, i32 noundef 13)
+  %4970 = extractvalue { i64, i64 } %4969, 0
+  %4971 = extractvalue { i64, i64 } %4969, 1
+  %4972 = and i64 %4971, 4294967295
+  %.not4909 = icmp eq i64 %4972, 6
+  br i1 %.not4909, label %JS_NewObjectProto.exit.thread.loopexit, label %4973
 
-4975:                                             ; preds = %JS_NewObjectProtoClass.exit6563
-  %4976 = call fastcc { i64, i64 } @js_closure2(ptr noundef %.1, i64 %4972, i64 %4973, ptr noundef %.sroa.0137.i.0..sroa.0137.i.0..sroa.0137.i.0..sroa.0137.i.0..sroa.0137.i.0..sroa.0137.i.0..sroa.0137.i.0..sroa.0137.0..sroa.0137.0..i, ptr noundef %.13365, ptr noundef %.13326)
-  %4977 = extractvalue { i64, i64 } %4976, 0
-  %4978 = extractvalue { i64, i64 } %4976, 1
+4973:                                             ; preds = %JS_NewObjectProtoClass.exit6560
+  %4974 = call fastcc { i64, i64 } @js_closure2(ptr noundef %.1, i64 %4970, i64 %4971, ptr noundef %.sroa.0137.i.0..sroa.0137.i.0..sroa.0137.i.0..sroa.0137.i.0..sroa.0137.i.0..sroa.0137.i.0..sroa.0137.i.0..sroa.0137.0..sroa.0137.0..i, ptr noundef %.13365, ptr noundef %.13326)
+  %4975 = extractvalue { i64, i64 } %4974, 0
+  %4976 = extractvalue { i64, i64 } %4974, 1
   store i32 0, ptr %.sroa.0137.i, align 8
-  %4979 = and i64 %4978, 4294967295
-  %.not4910 = icmp eq i64 %4979, 6
-  br i1 %.not4910, label %JS_NewObjectProto.exit.thread.loopexit, label %4980
+  %4977 = and i64 %4976, 4294967295
+  %.not4910 = icmp eq i64 %4977, 6
+  br i1 %.not4910, label %JS_NewObjectProto.exit.thread.loopexit, label %4978
 
-4980:                                             ; preds = %4975
-  %.not.i6564 = icmp eq i64 %4979, 4294967295
-  %4981 = inttoptr i64 %4977 to ptr
-  br i1 %.not.i6564, label %4982, label %JS_SetConstructorBit.exit
+4978:                                             ; preds = %4973
+  %.not.i6561 = icmp eq i64 %4977, 4294967295
+  %4979 = inttoptr i64 %4975 to ptr
+  br i1 %.not.i6561, label %4980, label %JS_SetConstructorBit.exit
 
-4982:                                             ; preds = %4980
-  %4983 = getelementptr inbounds i8, ptr %4981, i64 6
-  %4984 = load i16, ptr %4983, align 2
-  switch i16 %4984, label %5004 [
-    i16 52, label %js_class_has_bytecode.exit.thread.i6565
-    i16 16, label %js_class_has_bytecode.exit.thread.i6565
-    i16 13, label %js_class_has_bytecode.exit.thread.i6565
-    i16 56, label %js_class_has_bytecode.exit.thread.i6565
+4980:                                             ; preds = %4978
+  %4981 = getelementptr inbounds i8, ptr %4979, i64 6
+  %4982 = load i16, ptr %4981, align 2
+  switch i16 %4982, label %5002 [
+    i16 52, label %js_class_has_bytecode.exit.thread.i6562
+    i16 16, label %js_class_has_bytecode.exit.thread.i6562
+    i16 13, label %js_class_has_bytecode.exit.thread.i6562
+    i16 56, label %js_class_has_bytecode.exit.thread.i6562
   ]
 
-js_class_has_bytecode.exit.thread.i6565:          ; preds = %4982, %4982, %4982, %4982
-  %4985 = getelementptr inbounds i8, ptr %4981, i64 48
-  %4986 = load ptr, ptr %4985, align 8
-  %4987 = getelementptr inbounds i8, ptr %4986, i64 25
-  %4988 = load i16, ptr %4987, align 1
-  %4989 = and i16 %4988, 8
-  %.not19.i6566 = icmp eq i16 %4989, 0
-  br i1 %.not19.i6566, label %5004, label %4990
+js_class_has_bytecode.exit.thread.i6562:          ; preds = %4980, %4980, %4980, %4980
+  %4983 = getelementptr inbounds i8, ptr %4979, i64 48
+  %4984 = load ptr, ptr %4983, align 8
+  %4985 = getelementptr inbounds i8, ptr %4984, i64 25
+  %4986 = load i16, ptr %4985, align 1
+  %4987 = and i16 %4986, 8
+  %.not19.i6563 = icmp eq i16 %4987, 0
+  br i1 %.not19.i6563, label %5002, label %4988
 
-4990:                                             ; preds = %js_class_has_bytecode.exit.thread.i6565
-  %4991 = getelementptr inbounds i8, ptr %4981, i64 64
-  %4992 = load ptr, ptr %4991, align 8
-  %.not20.i6567 = icmp eq ptr %4992, null
-  br i1 %.not20.i6567, label %JS_FreeValue.exit.i6568, label %4993
+4988:                                             ; preds = %js_class_has_bytecode.exit.thread.i6562
+  %4989 = getelementptr inbounds i8, ptr %4979, i64 64
+  %4990 = load ptr, ptr %4989, align 8
+  %.not20.i6564 = icmp eq ptr %4990, null
+  br i1 %.not20.i6564, label %JS_FreeValue.exit.i6565, label %4991
 
-4993:                                             ; preds = %4990
-  %4994 = load i32, ptr %4992, align 4
-  %4995 = add i32 %4994, -1
-  store i32 %4995, ptr %4992, align 4
-  %4996 = icmp slt i32 %4995, 1
-  br i1 %4996, label %4997, label %JS_FreeValue.exit.i6568
+4991:                                             ; preds = %4988
+  %4992 = load i32, ptr %4990, align 4
+  %4993 = add i32 %4992, -1
+  store i32 %4993, ptr %4990, align 4
+  %4994 = icmp slt i32 %4993, 1
+  br i1 %4994, label %4995, label %JS_FreeValue.exit.i6565
 
-4997:                                             ; preds = %4993
-  %.sroa.01.0..sroa.01.0.21.cast.i6571 = ptrtoint ptr %4992 to i64
-  %4998 = load ptr, ptr %237, align 8
-  call void @__JS_FreeValueRT(ptr noundef %4998, i64 %.sroa.01.0..sroa.01.0.21.cast.i6571, i64 -1)
-  br label %JS_FreeValue.exit.i6568
+4995:                                             ; preds = %4991
+  %.sroa.01.0..sroa.01.0.21.cast.i6568 = ptrtoint ptr %4990 to i64
+  %4996 = load ptr, ptr %237, align 8
+  call void @__JS_FreeValueRT(ptr noundef %4996, i64 %.sroa.01.0..sroa.01.0.21.cast.i6568, i64 -1)
+  br label %JS_FreeValue.exit.i6565
 
-JS_FreeValue.exit.i6568:                          ; preds = %4997, %4993, %4990
-  %4999 = icmp eq i64 %4937, 4294967295
-  br i1 %4999, label %JS_DupValue.exit.i6570, label %5003
+JS_FreeValue.exit.i6565:                          ; preds = %4995, %4991, %4988
+  %4997 = icmp eq i64 %4935, 4294967295
+  br i1 %4997, label %JS_DupValue.exit.i6567, label %5001
 
-JS_DupValue.exit.i6570:                           ; preds = %JS_FreeValue.exit.i6568
-  %5000 = inttoptr i64 %4935 to ptr
-  %5001 = load i32, ptr %5000, align 4
-  %5002 = add i32 %5001, 1
-  store i32 %5002, ptr %5000, align 4
-  br label %5003
+JS_DupValue.exit.i6567:                           ; preds = %JS_FreeValue.exit.i6565
+  %4998 = inttoptr i64 %4933 to ptr
+  %4999 = load i32, ptr %4998, align 4
+  %5000 = add i32 %4999, 1
+  store i32 %5000, ptr %4998, align 4
+  br label %5001
 
-5003:                                             ; preds = %JS_DupValue.exit.i6570, %JS_FreeValue.exit.i6568
-  %.0.i6569 = phi ptr [ %5000, %JS_DupValue.exit.i6570 ], [ null, %JS_FreeValue.exit.i6568 ]
-  store ptr %.0.i6569, ptr %4991, align 8
-  br label %5004
+5001:                                             ; preds = %JS_DupValue.exit.i6567, %JS_FreeValue.exit.i6565
+  %.0.i6566 = phi ptr [ %4998, %JS_DupValue.exit.i6567 ], [ null, %JS_FreeValue.exit.i6565 ]
+  store ptr %.0.i6566, ptr %4989, align 8
+  br label %5002
 
-5004:                                             ; preds = %4982, %js_class_has_bytecode.exit.thread.i6565, %5003
-  %5005 = getelementptr inbounds i8, ptr %4981, i64 5
-  %5006 = load i8, ptr %5005, align 1
-  %5007 = or i8 %5006, 16
-  store i8 %5007, ptr %5005, align 1
+5002:                                             ; preds = %4980, %js_class_has_bytecode.exit.thread.i6562, %5001
+  %5003 = getelementptr inbounds i8, ptr %4979, i64 5
+  %5004 = load i8, ptr %5003, align 1
+  %5005 = or i8 %5004, 16
+  store i8 %5005, ptr %5003, align 1
   br label %JS_SetConstructorBit.exit
 
-JS_SetConstructorBit.exit:                        ; preds = %4980, %5004
-  %5008 = getelementptr inbounds i8, ptr %.sroa.0137.i.0..sroa.0137.i.0..sroa.0137.i.0..sroa.0137.i.0..sroa.0137.i.0..sroa.0137.i.0..sroa.0137.i.0..sroa.0137.0..sroa.0137.0..i, i64 68
-  %5009 = load i16, ptr %5008, align 4
-  %.sroa.0194.0.insert.ext.i = zext i16 %5009 to i64
+JS_SetConstructorBit.exit:                        ; preds = %4978, %5002
+  %5006 = getelementptr inbounds i8, ptr %.sroa.0137.i.0..sroa.0137.i.0..sroa.0137.i.0..sroa.0137.i.0..sroa.0137.i.0..sroa.0137.i.0..sroa.0137.i.0..sroa.0137.0..sroa.0137.0..i, i64 68
+  %5007 = load i16, ptr %5006, align 4
+  %.sroa.0194.0.insert.ext.i = zext i16 %5007 to i64
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %34)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %35)
   store i32 0, ptr %34, align 8
   store i64 3, ptr %273, align 8
   store i32 0, ptr %35, align 8
   store i64 3, ptr %274, align 8
-  %5010 = call i32 @JS_DefineProperty(ptr noundef %.1, i64 %4977, i64 %4978, i32 noundef 48, i64 %.sroa.0194.0.insert.ext.i, i64 0, ptr noundef nonnull byval(%struct.JSValue) align 8 %34, ptr noundef nonnull byval(%struct.JSValue) align 8 %35, i32 noundef 9985)
+  %5008 = call i32 @JS_DefineProperty(ptr noundef %.1, i64 %4975, i64 %4976, i32 noundef 48, i64 %.sroa.0194.0.insert.ext.i, i64 0, ptr noundef nonnull byval(%struct.JSValue) align 8 %34, ptr noundef nonnull byval(%struct.JSValue) align 8 %35, i32 noundef 9985)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %34)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %35)
-  br i1 %.not4911, label %5011, label %5018
+  br i1 %.not4911, label %5009, label %5016
 
-5011:                                             ; preds = %JS_SetConstructorBit.exit
-  %5012 = getelementptr i8, ptr %.23354, i64 -48
+5009:                                             ; preds = %JS_SetConstructorBit.exit
+  %5010 = getelementptr i8, ptr %.23354, i64 -48
+  %5011 = load i64, ptr %5010, align 8
+  %5012 = getelementptr i8, ptr %.23354, i64 -40
   %5013 = load i64, ptr %5012, align 8
-  %5014 = getelementptr i8, ptr %.23354, i64 -40
-  %5015 = load i64, ptr %5014, align 8
-  %5016 = call fastcc i32 @JS_DefineObjectNameComputed(ptr noundef %.1, i64 %4977, i64 %4978, i64 %5013, i64 %5015)
-  %5017 = icmp slt i32 %5016, 0
-  br i1 %5017, label %JS_NewObjectProto.exit.thread.loopexit, label %JS_DefineObjectName.exit6582
+  %5014 = call fastcc i32 @JS_DefineObjectNameComputed(ptr noundef %.1, i64 %4975, i64 %4976, i64 %5011, i64 %5013)
+  %5015 = icmp slt i32 %5014, 0
+  br i1 %5015, label %JS_NewObjectProto.exit.thread.loopexit, label %JS_DefineObjectName.exit6579
 
-5018:                                             ; preds = %JS_SetConstructorBit.exit
-  %.not.i6573 = icmp ne i32 %.23330.val3637, 0
-  %or.cond.i = and i1 %.not.i6573, %.not.i6564
-  br i1 %or.cond.i, label %5019, label %JS_DefineObjectName.exit6582
+5016:                                             ; preds = %JS_SetConstructorBit.exit
+  %.not.i6570 = icmp ne i32 %.23330.val3637, 0
+  %or.cond.i = and i1 %.not.i6570, %.not.i6561
+  br i1 %or.cond.i, label %5017, label %JS_DefineObjectName.exit6579
 
-5019:                                             ; preds = %5018
-  %5020 = getelementptr inbounds i8, ptr %4981, i64 24
-  %5021 = load ptr, ptr %5020, align 8
-  %5022 = getelementptr inbounds i8, ptr %5021, i64 32
-  %5023 = load i32, ptr %5022, align 8
-  %5024 = and i32 %5023, 55
-  %5025 = xor i32 %5024, -1
-  %5026 = sext i32 %5025 to i64
-  %5027 = getelementptr i32, ptr %5021, i64 %5026
-  %5028 = load i32, ptr %5027, align 4
-  %5029 = getelementptr inbounds i8, ptr %5021, i64 64
-  %.not5.i.i = icmp eq i32 %5028, 0
-  br i1 %.not5.i.i, label %js_object_has_name.exit.thread.i, label %.lr.ph.i.i6575
+5017:                                             ; preds = %5016
+  %5018 = getelementptr inbounds i8, ptr %4979, i64 24
+  %5019 = load ptr, ptr %5018, align 8
+  %5020 = getelementptr inbounds i8, ptr %5019, i64 32
+  %5021 = load i32, ptr %5020, align 8
+  %5022 = and i32 %5021, 55
+  %5023 = xor i32 %5022, -1
+  %5024 = sext i32 %5023 to i64
+  %5025 = getelementptr i32, ptr %5019, i64 %5024
+  %5026 = load i32, ptr %5025, align 4
+  %5027 = getelementptr inbounds i8, ptr %5019, i64 64
+  %.not5.i.i = icmp eq i32 %5026, 0
+  br i1 %.not5.i.i, label %js_object_has_name.exit.thread.i, label %.lr.ph.i.i6572
 
-.lr.ph.i.i6575:                                   ; preds = %5019, %5035
-  %.023.in6.i.i = phi i32 [ %5037, %5035 ], [ %5028, %5019 ]
+.lr.ph.i.i6572:                                   ; preds = %5017, %5033
+  %.023.in6.i.i = phi i32 [ %5035, %5033 ], [ %5026, %5017 ]
   %.023.i.i = zext i32 %.023.in6.i.i to i64
-  %5030 = add nsw i64 %.023.i.i, -1
-  %5031 = getelementptr %struct.JSShapeProperty, ptr %5029, i64 %5030
-  %5032 = getelementptr inbounds i8, ptr %5031, i64 4
-  %5033 = load i32, ptr %5032, align 4
-  %5034 = icmp eq i32 %5033, 55
-  br i1 %5034, label %5038, label %5035
+  %5028 = add nsw i64 %.023.i.i, -1
+  %5029 = getelementptr %struct.JSShapeProperty, ptr %5027, i64 %5028
+  %5030 = getelementptr inbounds i8, ptr %5029, i64 4
+  %5031 = load i32, ptr %5030, align 4
+  %5032 = icmp eq i32 %5031, 55
+  br i1 %5032, label %5036, label %5033
 
-5035:                                             ; preds = %.lr.ph.i.i6575
-  %5036 = load i32, ptr %5031, align 4
-  %5037 = and i32 %5036, 67108863
-  %.not.i.i6576 = icmp eq i32 %5037, 0
-  br i1 %.not.i.i6576, label %js_object_has_name.exit.thread.i, label %.lr.ph.i.i6575, !llvm.loop !132
+5033:                                             ; preds = %.lr.ph.i.i6572
+  %5034 = load i32, ptr %5029, align 4
+  %5035 = and i32 %5034, 67108863
+  %.not.i.i6573 = icmp eq i32 %5035, 0
+  br i1 %.not.i.i6573, label %js_object_has_name.exit.thread.i, label %.lr.ph.i.i6572, !llvm.loop !132
 
-5038:                                             ; preds = %.lr.ph.i.i6575
-  %5039 = getelementptr inbounds i8, ptr %4981, i64 32
-  %5040 = load ptr, ptr %5039, align 8
-  %5041 = getelementptr %struct.JSProperty, ptr %5040, i64 %5030
-  %.not26.i.i = icmp eq ptr %5031, null
-  br i1 %.not26.i.i, label %js_object_has_name.exit.thread.i, label %5042
+5036:                                             ; preds = %.lr.ph.i.i6572
+  %5037 = getelementptr inbounds i8, ptr %4979, i64 32
+  %5038 = load ptr, ptr %5037, align 8
+  %5039 = getelementptr %struct.JSProperty, ptr %5038, i64 %5028
+  %.not26.i.i = icmp eq ptr %5029, null
+  br i1 %.not26.i.i, label %js_object_has_name.exit.thread.i, label %5040
 
-5042:                                             ; preds = %5038
-  %5043 = load i32, ptr %5031, align 4
-  %.not27.i.i = icmp ult i32 %5043, 1073741824
-  br i1 %.not27.i.i, label %5044, label %JS_DefineObjectName.exit6582
+5040:                                             ; preds = %5036
+  %5041 = load i32, ptr %5029, align 4
+  %.not27.i.i = icmp ult i32 %5041, 1073741824
+  br i1 %.not27.i.i, label %5042, label %JS_DefineObjectName.exit6579
 
-5044:                                             ; preds = %5042
-  %.sroa.2.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %5041, i64 8
+5042:                                             ; preds = %5040
+  %.sroa.2.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %5039, i64 8
   %.sroa.2.0.copyload.i.i = load i64, ptr %.sroa.2.0..sroa_idx.i.i, align 8
-  %5045 = and i64 %.sroa.2.0.copyload.i.i, 4294967295
-  %.not28.i.i = icmp eq i64 %5045, 4294967289
-  br i1 %.not28.i.i, label %js_object_has_name.exit.i, label %JS_DefineObjectName.exit6582
+  %5043 = and i64 %.sroa.2.0.copyload.i.i, 4294967295
+  %.not28.i.i = icmp eq i64 %5043, 4294967289
+  br i1 %.not28.i.i, label %js_object_has_name.exit.i, label %JS_DefineObjectName.exit6579
 
-js_object_has_name.exit.i:                        ; preds = %5044
-  %.sroa.0.0.copyload.i.i = load ptr, ptr %5041, align 8
-  %5046 = getelementptr inbounds i8, ptr %.sroa.0.0.copyload.i.i, i64 4
-  %5047 = load i64, ptr %5046, align 4
-  %5048 = and i64 %5047, 2147483647
-  %.not22.i6581 = icmp eq i64 %5048, 0
-  br i1 %.not22.i6581, label %js_object_has_name.exit.thread.i, label %JS_DefineObjectName.exit6582
+js_object_has_name.exit.i:                        ; preds = %5042
+  %.sroa.0.0.copyload.i.i = load ptr, ptr %5039, align 8
+  %5044 = getelementptr inbounds i8, ptr %.sroa.0.0.copyload.i.i, i64 4
+  %5045 = load i64, ptr %5044, align 4
+  %5046 = and i64 %5045, 2147483647
+  %.not22.i6578 = icmp eq i64 %5046, 0
+  br i1 %.not22.i6578, label %js_object_has_name.exit.thread.i, label %JS_DefineObjectName.exit6579
 
-js_object_has_name.exit.thread.i:                 ; preds = %5035, %js_object_has_name.exit.i, %5038, %5019
+js_object_has_name.exit.thread.i:                 ; preds = %5033, %js_object_has_name.exit.i, %5036, %5017
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %23)
   %.not.i14.i = icmp sgt i32 %.23330.val3637, -1
-  br i1 %.not.i14.i, label %5054, label %5049
+  br i1 %.not.i14.i, label %5052, label %5047
 
-5049:                                             ; preds = %js_object_has_name.exit.thread.i
-  %5050 = and i32 %.23330.val3637, 2147483647
-  %5051 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %23, i64 noundef 64, ptr noundef nonnull @.str, i32 noundef %5050) #42
-  %5052 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %23) #43
-  %5053 = call { i64, i64 } @JS_NewStringLen(ptr noundef %.1, ptr noundef nonnull %23, i64 noundef %5052)
+5047:                                             ; preds = %js_object_has_name.exit.thread.i
+  %5048 = and i32 %.23330.val3637, 2147483647
+  %5049 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %23, i64 noundef 64, ptr noundef nonnull @.str, i32 noundef %5048) #42
+  %5050 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %23) #43
+  %5051 = call { i64, i64 } @JS_NewStringLen(ptr noundef %.1, ptr noundef nonnull %23, i64 noundef %5050)
   br label %__JS_AtomToValue.exit.i
 
-5054:                                             ; preds = %js_object_has_name.exit.thread.i
-  %5055 = load ptr, ptr %237, align 8
-  %5056 = getelementptr inbounds i8, ptr %5055, i64 96
-  %5057 = load ptr, ptr %5056, align 8
-  %5058 = zext nneg i32 %.23330.val3637 to i64
-  %5059 = getelementptr ptr, ptr %5057, i64 %5058
-  %5060 = load ptr, ptr %5059, align 8
-  %5061 = getelementptr inbounds i8, ptr %5060, i64 4
-  %5062 = load i64, ptr %5061, align 4
-  %.mask.i.i6578 = and i64 %5062, -4611686018427387904
-  %5063 = icmp ne i64 %.mask.i.i6578, 4611686018427387904
-  %5064 = and i64 %5062, 4294967295
-  %or.cond.i.not.i = icmp eq i64 %5064, 2147483648
-  %or.cond23.i = and i1 %5063, %or.cond.i.not.i
-  br i1 %or.cond23.i, label %5065, label %5068
+5052:                                             ; preds = %js_object_has_name.exit.thread.i
+  %5053 = load ptr, ptr %237, align 8
+  %5054 = getelementptr inbounds i8, ptr %5053, i64 96
+  %5055 = load ptr, ptr %5054, align 8
+  %5056 = zext nneg i32 %.23330.val3637 to i64
+  %5057 = getelementptr ptr, ptr %5055, i64 %5056
+  %5058 = load ptr, ptr %5057, align 8
+  %5059 = getelementptr inbounds i8, ptr %5058, i64 4
+  %5060 = load i64, ptr %5059, align 4
+  %.mask.i.i6575 = and i64 %5060, -4611686018427387904
+  %5061 = icmp ne i64 %.mask.i.i6575, 4611686018427387904
+  %5062 = and i64 %5060, 4294967295
+  %or.cond.i.not.i = icmp eq i64 %5062, 2147483648
+  %or.cond23.i = and i1 %5061, %or.cond.i.not.i
+  br i1 %or.cond23.i, label %5063, label %5066
 
-5065:                                             ; preds = %5054
-  %5066 = getelementptr i8, ptr %5057, i64 376
-  %5067 = load ptr, ptr %5066, align 8
-  br label %5068
+5063:                                             ; preds = %5052
+  %5064 = getelementptr i8, ptr %5055, i64 376
+  %5065 = load ptr, ptr %5064, align 8
+  br label %5066
 
-5068:                                             ; preds = %5065, %5054
-  %.0.i.i6579 = phi ptr [ %5060, %5054 ], [ %5067, %5065 ]
-  %.sroa.01.0..sroa.01.0.20.cast.i.i6580 = ptrtoint ptr %.0.i.i6579 to i64
-  %5069 = load i32, ptr %.0.i.i6579, align 4
-  %5070 = add i32 %5069, 1
-  store i32 %5070, ptr %.0.i.i6579, align 4
-  %.fca.0.insert.i.i.i = insertvalue { i64, i64 } poison, i64 %.sroa.01.0..sroa.01.0.20.cast.i.i6580, 0
+5066:                                             ; preds = %5063, %5052
+  %.0.i.i6576 = phi ptr [ %5058, %5052 ], [ %5065, %5063 ]
+  %.sroa.01.0..sroa.01.0.20.cast.i.i6577 = ptrtoint ptr %.0.i.i6576 to i64
+  %5067 = load i32, ptr %.0.i.i6576, align 4
+  %5068 = add i32 %5067, 1
+  store i32 %5068, ptr %.0.i.i6576, align 4
+  %.fca.0.insert.i.i.i = insertvalue { i64, i64 } poison, i64 %.sroa.01.0..sroa.01.0.20.cast.i.i6577, 0
   %.fca.1.insert.i.i.i = insertvalue { i64, i64 } %.fca.0.insert.i.i.i, i64 -7, 1
   br label %__JS_AtomToValue.exit.i
 
-__JS_AtomToValue.exit.i:                          ; preds = %5068, %5049
-  %.pn.i.i6577 = phi { i64, i64 } [ %5053, %5049 ], [ %.fca.1.insert.i.i.i, %5068 ]
+__JS_AtomToValue.exit.i:                          ; preds = %5066, %5047
+  %.pn.i.i6574 = phi { i64, i64 } [ %5051, %5047 ], [ %.fca.1.insert.i.i.i, %5066 ]
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %23)
-  %5071 = extractvalue { i64, i64 } %.pn.i.i6577, 0
-  %5072 = extractvalue { i64, i64 } %.pn.i.i6577, 1
+  %5069 = extractvalue { i64, i64 } %.pn.i.i6574, 0
+  %5070 = extractvalue { i64, i64 } %.pn.i.i6574, 1
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %24)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %25)
   store i32 0, ptr %24, align 8
   store i64 3, ptr %307, align 8
   store i32 0, ptr %25, align 8
   store i64 3, ptr %308, align 8
-  %5073 = call i32 @JS_DefineProperty(ptr noundef %.1, i64 %4977, i64 %4978, i32 noundef 55, i64 %5071, i64 %5072, ptr noundef nonnull byval(%struct.JSValue) align 8 %24, ptr noundef nonnull byval(%struct.JSValue) align 8 %25, i32 noundef 9985)
-  %5074 = trunc i64 %5072 to i32
-  %5075 = icmp ugt i32 %5074, -12
-  br i1 %5075, label %5076, label %JS_DefinePropertyValue.exit.i
+  %5071 = call i32 @JS_DefineProperty(ptr noundef %.1, i64 %4975, i64 %4976, i32 noundef 55, i64 %5069, i64 %5070, ptr noundef nonnull byval(%struct.JSValue) align 8 %24, ptr noundef nonnull byval(%struct.JSValue) align 8 %25, i32 noundef 9985)
+  %5072 = trunc i64 %5070 to i32
+  %5073 = icmp ugt i32 %5072, -12
+  br i1 %5073, label %5074, label %JS_DefinePropertyValue.exit.i
 
-5076:                                             ; preds = %__JS_AtomToValue.exit.i
-  %5077 = inttoptr i64 %5071 to ptr
-  %5078 = load i32, ptr %5077, align 4
-  %5079 = add i32 %5078, -1
-  store i32 %5079, ptr %5077, align 4
-  %5080 = icmp slt i32 %5079, 1
-  br i1 %5080, label %5081, label %JS_DefinePropertyValue.exit.i
+5074:                                             ; preds = %__JS_AtomToValue.exit.i
+  %5075 = inttoptr i64 %5069 to ptr
+  %5076 = load i32, ptr %5075, align 4
+  %5077 = add i32 %5076, -1
+  store i32 %5077, ptr %5075, align 4
+  %5078 = icmp slt i32 %5077, 1
+  br i1 %5078, label %5079, label %JS_DefinePropertyValue.exit.i
 
-5081:                                             ; preds = %5076
-  %5082 = load ptr, ptr %237, align 8
-  call void @__JS_FreeValueRT(ptr noundef %5082, i64 %5071, i64 %5072)
+5079:                                             ; preds = %5074
+  %5080 = load ptr, ptr %237, align 8
+  call void @__JS_FreeValueRT(ptr noundef %5080, i64 %5069, i64 %5070)
   br label %JS_DefinePropertyValue.exit.i
 
-JS_DefinePropertyValue.exit.i:                    ; preds = %5081, %5076, %__JS_AtomToValue.exit.i
+JS_DefinePropertyValue.exit.i:                    ; preds = %5079, %5074, %__JS_AtomToValue.exit.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %24)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %25)
-  %5083 = icmp slt i32 %5073, 0
-  br i1 %5083, label %JS_NewObjectProto.exit.thread.loopexit, label %JS_DefineObjectName.exit6582
+  %5081 = icmp slt i32 %5071, 0
+  br i1 %5081, label %JS_NewObjectProto.exit.thread.loopexit, label %JS_DefineObjectName.exit6579
 
-JS_DefineObjectName.exit6582:                     ; preds = %JS_DefinePropertyValue.exit.i, %js_object_has_name.exit.i, %5044, %5042, %5018, %5011
-  %5084 = trunc i64 %4978 to i32
-  %5085 = icmp ugt i32 %5084, -12
-  br i1 %5085, label %5086, label %JS_DupValue.exit4496
+JS_DefineObjectName.exit6579:                     ; preds = %JS_DefinePropertyValue.exit.i, %js_object_has_name.exit.i, %5042, %5040, %5016, %5009
+  %5082 = trunc i64 %4976 to i32
+  %5083 = icmp ugt i32 %5082, -12
+  br i1 %5083, label %5084, label %JS_DupValue.exit4496
 
-5086:                                             ; preds = %JS_DefineObjectName.exit6582
-  %5087 = load i32, ptr %4981, align 4
-  %5088 = add i32 %5087, 1
-  store i32 %5088, ptr %4981, align 4
+5084:                                             ; preds = %JS_DefineObjectName.exit6579
+  %5085 = load i32, ptr %4979, align 4
+  %5086 = add i32 %5085, 1
+  store i32 %5086, ptr %4979, align 4
   br label %JS_DupValue.exit4496
 
-JS_DupValue.exit4496:                             ; preds = %JS_DefineObjectName.exit6582, %5086
+JS_DupValue.exit4496:                             ; preds = %JS_DefineObjectName.exit6579, %5084
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %21)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %22)
   store i32 0, ptr %21, align 8
   store i64 3, ptr %309, align 8
   store i32 0, ptr %22, align 8
   store i64 3, ptr %310, align 8
-  %5089 = call i32 @JS_DefineProperty(ptr noundef %.1, i64 %4935, i64 %4936, i32 noundef 61, i64 %4977, i64 %4978, ptr noundef nonnull byval(%struct.JSValue) align 8 %21, ptr noundef nonnull byval(%struct.JSValue) align 8 %22, i32 noundef 26371)
-  br i1 %5085, label %5090, label %JS_DefinePropertyValue.exit6584
+  %5087 = call i32 @JS_DefineProperty(ptr noundef %.1, i64 %4933, i64 %4934, i32 noundef 61, i64 %4975, i64 %4976, ptr noundef nonnull byval(%struct.JSValue) align 8 %21, ptr noundef nonnull byval(%struct.JSValue) align 8 %22, i32 noundef 26371)
+  br i1 %5083, label %5088, label %JS_DefinePropertyValue.exit6581
 
-5090:                                             ; preds = %JS_DupValue.exit4496
-  %5091 = load i32, ptr %4981, align 4
-  %5092 = add i32 %5091, -1
-  store i32 %5092, ptr %4981, align 4
-  %5093 = icmp slt i32 %5092, 1
-  br i1 %5093, label %5094, label %JS_DefinePropertyValue.exit6584
+5088:                                             ; preds = %JS_DupValue.exit4496
+  %5089 = load i32, ptr %4979, align 4
+  %5090 = add i32 %5089, -1
+  store i32 %5090, ptr %4979, align 4
+  %5091 = icmp slt i32 %5090, 1
+  br i1 %5091, label %5092, label %JS_DefinePropertyValue.exit6581
 
-5094:                                             ; preds = %5090
-  %5095 = load ptr, ptr %237, align 8
-  call void @__JS_FreeValueRT(ptr noundef %5095, i64 %4977, i64 %4978)
-  br label %JS_DefinePropertyValue.exit6584
+5092:                                             ; preds = %5088
+  %5093 = load ptr, ptr %237, align 8
+  call void @__JS_FreeValueRT(ptr noundef %5093, i64 %4975, i64 %4976)
+  br label %JS_DefinePropertyValue.exit6581
 
-JS_DefinePropertyValue.exit6584:                  ; preds = %JS_DupValue.exit4496, %5090, %5094
+JS_DefinePropertyValue.exit6581:                  ; preds = %JS_DupValue.exit4496, %5088, %5092
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %21)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %22)
-  %5096 = icmp slt i32 %5089, 0
-  br i1 %5096, label %JS_NewObjectProto.exit.thread.loopexit, label %5097
+  %5094 = icmp slt i32 %5087, 0
+  br i1 %5094, label %JS_NewObjectProto.exit.thread.loopexit, label %5095
 
-5097:                                             ; preds = %JS_DefinePropertyValue.exit6584
-  %5098 = trunc i64 %4936 to i32
-  %5099 = icmp ugt i32 %5098, -12
-  br i1 %5099, label %5100, label %JS_DupValue.exit4493
+5095:                                             ; preds = %JS_DefinePropertyValue.exit6581
+  %5096 = trunc i64 %4934 to i32
+  %5097 = icmp ugt i32 %5096, -12
+  br i1 %5097, label %5098, label %JS_DupValue.exit4493
 
-5100:                                             ; preds = %5097
-  %5101 = inttoptr i64 %4935 to ptr
-  %5102 = load i32, ptr %5101, align 4
-  %5103 = add i32 %5102, 1
-  store i32 %5103, ptr %5101, align 4
+5098:                                             ; preds = %5095
+  %5099 = inttoptr i64 %4933 to ptr
+  %5100 = load i32, ptr %5099, align 4
+  %5101 = add i32 %5100, 1
+  store i32 %5101, ptr %5099, align 4
   br label %JS_DupValue.exit4493
 
-JS_DupValue.exit4493:                             ; preds = %5097, %5100
+JS_DupValue.exit4493:                             ; preds = %5095, %5098
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %19)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %20)
   store i32 0, ptr %19, align 8
   store i64 3, ptr %311, align 8
   store i32 0, ptr %20, align 8
   store i64 3, ptr %312, align 8
-  %5104 = call i32 @JS_DefineProperty(ptr noundef %.1, i64 %4977, i64 %4978, i32 noundef 60, i64 %4935, i64 %4936, ptr noundef nonnull byval(%struct.JSValue) align 8 %19, ptr noundef nonnull byval(%struct.JSValue) align 8 %20, i32 noundef 26368)
-  br i1 %5099, label %5105, label %JS_DefinePropertyValue.exit6586
+  %5102 = call i32 @JS_DefineProperty(ptr noundef %.1, i64 %4975, i64 %4976, i32 noundef 60, i64 %4933, i64 %4934, ptr noundef nonnull byval(%struct.JSValue) align 8 %19, ptr noundef nonnull byval(%struct.JSValue) align 8 %20, i32 noundef 26368)
+  br i1 %5097, label %5103, label %JS_DefinePropertyValue.exit6583
 
-5105:                                             ; preds = %JS_DupValue.exit4493
-  %5106 = inttoptr i64 %4935 to ptr
-  %5107 = load i32, ptr %5106, align 4
-  %5108 = add i32 %5107, -1
-  store i32 %5108, ptr %5106, align 4
-  %5109 = icmp slt i32 %5108, 1
-  br i1 %5109, label %5110, label %JS_DefinePropertyValue.exit6586
+5103:                                             ; preds = %JS_DupValue.exit4493
+  %5104 = inttoptr i64 %4933 to ptr
+  %5105 = load i32, ptr %5104, align 4
+  %5106 = add i32 %5105, -1
+  store i32 %5106, ptr %5104, align 4
+  %5107 = icmp slt i32 %5106, 1
+  br i1 %5107, label %5108, label %JS_DefinePropertyValue.exit6583
 
-5110:                                             ; preds = %5105
-  %5111 = load ptr, ptr %237, align 8
-  call void @__JS_FreeValueRT(ptr noundef %5111, i64 %4935, i64 %4936)
-  br label %JS_DefinePropertyValue.exit6586
+5108:                                             ; preds = %5103
+  %5109 = load ptr, ptr %237, align 8
+  call void @__JS_FreeValueRT(ptr noundef %5109, i64 %4933, i64 %4934)
+  br label %JS_DefinePropertyValue.exit6583
 
-JS_DefinePropertyValue.exit6586:                  ; preds = %JS_DupValue.exit4493, %5105, %5110
+JS_DefinePropertyValue.exit6583:                  ; preds = %JS_DupValue.exit4493, %5103, %5108
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %19)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %20)
-  %5112 = icmp slt i32 %5104, 0
-  br i1 %5112, label %JS_NewObjectProto.exit.thread.loopexit, label %5113
+  %5110 = icmp slt i32 %5102, 0
+  br i1 %5110, label %JS_NewObjectProto.exit.thread.loopexit, label %5111
 
-5113:                                             ; preds = %JS_DefinePropertyValue.exit6586
-  %5114 = trunc i64 %.sroa.11.1.i to i32
-  %5115 = icmp ugt i32 %5114, -12
-  br i1 %5115, label %5116, label %JS_FreeValue.exit4490
+5111:                                             ; preds = %JS_DefinePropertyValue.exit6583
+  %5112 = trunc i64 %.sroa.11.1.i to i32
+  %5113 = icmp ugt i32 %5112, -12
+  br i1 %5113, label %5114, label %JS_FreeValue.exit4490
 
-5116:                                             ; preds = %5113
-  %5117 = load i32, ptr %.sroa.0.0..sroa.0.0..sroa.0.0..cast.i, align 4
-  %5118 = add i32 %5117, -1
-  store i32 %5118, ptr %.sroa.0.0..sroa.0.0..sroa.0.0..cast.i, align 4
-  %5119 = icmp slt i32 %5118, 1
-  br i1 %5119, label %5120, label %JS_FreeValue.exit4490
+5114:                                             ; preds = %5111
+  %5115 = load i32, ptr %.sroa.0.0..sroa.0.0..sroa.0.0..cast.i, align 4
+  %5116 = add i32 %5115, -1
+  store i32 %5116, ptr %.sroa.0.0..sroa.0.0..sroa.0.0..cast.i, align 4
+  %5117 = icmp slt i32 %5116, 1
+  br i1 %5117, label %5118, label %JS_FreeValue.exit4490
 
-5120:                                             ; preds = %5116
-  %5121 = load ptr, ptr %237, align 8
-  call void @__JS_FreeValueRT(ptr noundef %5121, i64 %.sroa.035.sroa.0.0.insert.insert54.i, i64 %.sroa.11.1.i)
+5118:                                             ; preds = %5114
+  %5119 = load ptr, ptr %237, align 8
+  call void @__JS_FreeValueRT(ptr noundef %5119, i64 %.sroa.035.sroa.0.0.insert.insert54.i, i64 %.sroa.11.1.i)
   br label %JS_FreeValue.exit4490
 
-JS_FreeValue.exit4490:                            ; preds = %5113, %5116, %5120
-  %5122 = trunc i64 %.sroa.9131.1.i to i32
-  %5123 = icmp ugt i32 %5122, -12
-  br i1 %5123, label %5124, label %5173
+JS_FreeValue.exit4490:                            ; preds = %5111, %5114, %5118
+  %5120 = trunc i64 %.sroa.9131.1.i to i32
+  %5121 = icmp ugt i32 %5120, -12
+  br i1 %5121, label %5122, label %5171
 
-5124:                                             ; preds = %JS_FreeValue.exit4490
-  %5125 = load i32, ptr %.sroa.0.0..sroa.0.0..sroa.0.0..cast.i.i6548, align 4
-  %5126 = add i32 %5125, -1
-  store i32 %5126, ptr %.sroa.0.0..sroa.0.0..sroa.0.0..cast.i.i6548, align 4
-  %5127 = icmp slt i32 %5126, 1
-  br i1 %5127, label %5128, label %5173
+5122:                                             ; preds = %JS_FreeValue.exit4490
+  %5123 = load i32, ptr %.sroa.0.0..sroa.0.0..sroa.0.0..cast.i.i6545, align 4
+  %5124 = add i32 %5123, -1
+  store i32 %5124, ptr %.sroa.0.0..sroa.0.0..sroa.0.0..cast.i.i6545, align 4
+  %5125 = icmp slt i32 %5124, 1
+  br i1 %5125, label %5126, label %5171
 
-5128:                                             ; preds = %5124
-  %5129 = load ptr, ptr %237, align 8
-  call void @__JS_FreeValueRT(ptr noundef %5129, i64 %.sroa.0125.1.i, i64 %.sroa.9131.1.i)
-  br label %5173
+5126:                                             ; preds = %5122
+  %5127 = load ptr, ptr %237, align 8
+  call void @__JS_FreeValueRT(ptr noundef %5127, i64 %.sroa.0125.1.i, i64 %.sroa.9131.1.i)
+  br label %5171
 
-JS_NewObjectProto.exit.thread.loopexit:           ; preds = %JS_DefinePropertyValue.exit.i, %.loopexit.i, %JS_NewObjectProto.exit, %JS_NewObjectProtoClass.exit6563, %4975, %5011, %JS_DefinePropertyValue.exit6584, %JS_DefinePropertyValue.exit6586, %.loopexit4987, %4878
-  %.sroa.11.0.i.ph = phi i64 [ %.sroa.11.1.i, %JS_NewObjectProto.exit ], [ %.sroa.11.1.i, %JS_NewObjectProtoClass.exit6563 ], [ %.sroa.11.1.i, %4975 ], [ %.sroa.11.1.i, %5011 ], [ %.sroa.11.1.i, %JS_DefinePropertyValue.exit6584 ], [ %.sroa.11.1.i, %JS_DefinePropertyValue.exit6586 ], [ %4881, %4878 ], [ %.sroa.11.1.i, %.loopexit4987 ], [ %.sroa.11.1.i, %.loopexit.i ], [ %.sroa.11.1.i, %JS_DefinePropertyValue.exit.i ]
-  %.sroa.035.sroa.0.0.i.ph = phi i32 [ %.sroa.035.sroa.0.1.i, %JS_NewObjectProto.exit ], [ %.sroa.035.sroa.0.1.i, %JS_NewObjectProtoClass.exit6563 ], [ %.sroa.035.sroa.0.1.i, %4975 ], [ %.sroa.035.sroa.0.1.i, %5011 ], [ %.sroa.035.sroa.0.1.i, %JS_DefinePropertyValue.exit6584 ], [ %.sroa.035.sroa.0.1.i, %JS_DefinePropertyValue.exit6586 ], [ %.sroa.035.sroa.0.0.extract.trunc61.i, %4878 ], [ %.sroa.035.sroa.0.1.i, %.loopexit4987 ], [ %.sroa.035.sroa.0.1.i, %.loopexit.i ], [ %.sroa.035.sroa.0.1.i, %JS_DefinePropertyValue.exit.i ]
-  %.sroa.035.sroa.10.0.i.ph = phi i32 [ %.sroa.035.sroa.10.1.i, %JS_NewObjectProto.exit ], [ %.sroa.035.sroa.10.1.i, %JS_NewObjectProtoClass.exit6563 ], [ %.sroa.035.sroa.10.1.i, %4975 ], [ %.sroa.035.sroa.10.1.i, %5011 ], [ %.sroa.035.sroa.10.1.i, %JS_DefinePropertyValue.exit6584 ], [ %.sroa.035.sroa.10.1.i, %JS_DefinePropertyValue.exit6586 ], [ %.sroa.035.sroa.10.0.extract.trunc84.i, %4878 ], [ %.sroa.035.sroa.10.1.i, %.loopexit4987 ], [ %.sroa.035.sroa.10.1.i, %.loopexit.i ], [ %.sroa.035.sroa.10.1.i, %JS_DefinePropertyValue.exit.i ]
-  %.sroa.087.0.i.ph = phi i64 [ 0, %JS_NewObjectProto.exit ], [ %4972, %JS_NewObjectProtoClass.exit6563 ], [ %4977, %4975 ], [ %4977, %5011 ], [ %4977, %JS_DefinePropertyValue.exit6584 ], [ %4977, %JS_DefinePropertyValue.exit6586 ], [ 0, %4878 ], [ 0, %.loopexit4987 ], [ 0, %.loopexit.i ], [ %4977, %JS_DefinePropertyValue.exit.i ]
-  %.sroa.16.0.i.ph = phi i64 [ 3, %JS_NewObjectProto.exit ], [ %4973, %JS_NewObjectProtoClass.exit6563 ], [ %4978, %4975 ], [ %4978, %5011 ], [ %4978, %JS_DefinePropertyValue.exit6584 ], [ %4978, %JS_DefinePropertyValue.exit6586 ], [ 3, %4878 ], [ 3, %.loopexit4987 ], [ 6, %.loopexit.i ], [ %4978, %JS_DefinePropertyValue.exit.i ]
-  %.sroa.0112.0.i.ph = phi i64 [ %4935, %JS_NewObjectProto.exit ], [ %4935, %JS_NewObjectProtoClass.exit6563 ], [ %4935, %4975 ], [ %4935, %5011 ], [ %4935, %JS_DefinePropertyValue.exit6584 ], [ %4935, %JS_DefinePropertyValue.exit6586 ], [ 0, %4878 ], [ 0, %.loopexit4987 ], [ %4935, %.loopexit.i ], [ %4935, %JS_DefinePropertyValue.exit.i ]
-  %.sroa.9.0.i.ph = phi i64 [ %4936, %JS_NewObjectProto.exit ], [ %4936, %JS_NewObjectProtoClass.exit6563 ], [ %4936, %4975 ], [ %4936, %5011 ], [ %4936, %JS_DefinePropertyValue.exit6584 ], [ %4936, %JS_DefinePropertyValue.exit6586 ], [ 3, %4878 ], [ 6, %.loopexit4987 ], [ %4936, %.loopexit.i ], [ %4936, %JS_DefinePropertyValue.exit.i ]
-  %.sroa.0125.0.i.ph = phi i64 [ %.sroa.0125.1.i, %JS_NewObjectProto.exit ], [ %.sroa.0125.1.i, %JS_NewObjectProtoClass.exit6563 ], [ %.sroa.0125.1.i, %4975 ], [ %.sroa.0125.1.i, %5011 ], [ %.sroa.0125.1.i, %JS_DefinePropertyValue.exit6584 ], [ %.sroa.0125.1.i, %JS_DefinePropertyValue.exit6586 ], [ %.sroa.0125.0.copyload.i, %4878 ], [ %.sroa.0125.1.i, %.loopexit4987 ], [ %.sroa.0125.1.i, %.loopexit.i ], [ %.sroa.0125.1.i, %JS_DefinePropertyValue.exit.i ]
-  %.sroa.9131.0.i.ph = phi i64 [ %.sroa.9131.1.i, %JS_NewObjectProto.exit ], [ %.sroa.9131.1.i, %JS_NewObjectProtoClass.exit6563 ], [ %.sroa.9131.1.i, %4975 ], [ %.sroa.9131.1.i, %5011 ], [ %.sroa.9131.1.i, %JS_DefinePropertyValue.exit6584 ], [ %.sroa.9131.1.i, %JS_DefinePropertyValue.exit6586 ], [ %.sroa.9131.0.copyload.i, %4878 ], [ %.sroa.9131.1.i, %.loopexit4987 ], [ %.sroa.9131.1.i, %.loopexit.i ], [ %.sroa.9131.1.i, %JS_DefinePropertyValue.exit.i ]
-  %.sroa.5.0.i4177.ph = phi i64 [ %.sroa.5.0.copyload.i4175, %JS_NewObjectProto.exit ], [ %.sroa.5.0.copyload.i4175, %JS_NewObjectProtoClass.exit6563 ], [ 3, %4975 ], [ 3, %5011 ], [ 3, %JS_DefinePropertyValue.exit6584 ], [ 3, %JS_DefinePropertyValue.exit6586 ], [ %.sroa.5.0.copyload.i4175, %4878 ], [ %.sroa.5.0.copyload.i4175, %.loopexit4987 ], [ %.sroa.5.0.copyload.i4175, %.loopexit.i ], [ 3, %JS_DefinePropertyValue.exit.i ]
-  %.pre5886 = trunc i64 %.sroa.9131.0.i.ph to i32
+JS_NewObjectProto.exit.thread.loopexit:           ; preds = %JS_DefinePropertyValue.exit.i, %.loopexit.i, %JS_NewObjectProto.exit, %JS_NewObjectProtoClass.exit6560, %4973, %5009, %JS_DefinePropertyValue.exit6581, %JS_DefinePropertyValue.exit6583, %.loopexit4987, %4876
+  %.sroa.11.0.i.ph = phi i64 [ %.sroa.11.1.i, %JS_NewObjectProto.exit ], [ %.sroa.11.1.i, %JS_NewObjectProtoClass.exit6560 ], [ %.sroa.11.1.i, %4973 ], [ %.sroa.11.1.i, %5009 ], [ %.sroa.11.1.i, %JS_DefinePropertyValue.exit6581 ], [ %.sroa.11.1.i, %JS_DefinePropertyValue.exit6583 ], [ %4879, %4876 ], [ %.sroa.11.1.i, %.loopexit4987 ], [ %.sroa.11.1.i, %.loopexit.i ], [ %.sroa.11.1.i, %JS_DefinePropertyValue.exit.i ]
+  %.sroa.035.sroa.0.0.i.ph = phi i32 [ %.sroa.035.sroa.0.1.i, %JS_NewObjectProto.exit ], [ %.sroa.035.sroa.0.1.i, %JS_NewObjectProtoClass.exit6560 ], [ %.sroa.035.sroa.0.1.i, %4973 ], [ %.sroa.035.sroa.0.1.i, %5009 ], [ %.sroa.035.sroa.0.1.i, %JS_DefinePropertyValue.exit6581 ], [ %.sroa.035.sroa.0.1.i, %JS_DefinePropertyValue.exit6583 ], [ %.sroa.035.sroa.0.0.extract.trunc61.i, %4876 ], [ %.sroa.035.sroa.0.1.i, %.loopexit4987 ], [ %.sroa.035.sroa.0.1.i, %.loopexit.i ], [ %.sroa.035.sroa.0.1.i, %JS_DefinePropertyValue.exit.i ]
+  %.sroa.035.sroa.10.0.i.ph = phi i32 [ %.sroa.035.sroa.10.1.i, %JS_NewObjectProto.exit ], [ %.sroa.035.sroa.10.1.i, %JS_NewObjectProtoClass.exit6560 ], [ %.sroa.035.sroa.10.1.i, %4973 ], [ %.sroa.035.sroa.10.1.i, %5009 ], [ %.sroa.035.sroa.10.1.i, %JS_DefinePropertyValue.exit6581 ], [ %.sroa.035.sroa.10.1.i, %JS_DefinePropertyValue.exit6583 ], [ %.sroa.035.sroa.10.0.extract.trunc84.i, %4876 ], [ %.sroa.035.sroa.10.1.i, %.loopexit4987 ], [ %.sroa.035.sroa.10.1.i, %.loopexit.i ], [ %.sroa.035.sroa.10.1.i, %JS_DefinePropertyValue.exit.i ]
+  %.sroa.087.0.i.ph = phi i64 [ 0, %JS_NewObjectProto.exit ], [ %4970, %JS_NewObjectProtoClass.exit6560 ], [ %4975, %4973 ], [ %4975, %5009 ], [ %4975, %JS_DefinePropertyValue.exit6581 ], [ %4975, %JS_DefinePropertyValue.exit6583 ], [ 0, %4876 ], [ 0, %.loopexit4987 ], [ 0, %.loopexit.i ], [ %4975, %JS_DefinePropertyValue.exit.i ]
+  %.sroa.16.0.i.ph = phi i64 [ 3, %JS_NewObjectProto.exit ], [ %4971, %JS_NewObjectProtoClass.exit6560 ], [ %4976, %4973 ], [ %4976, %5009 ], [ %4976, %JS_DefinePropertyValue.exit6581 ], [ %4976, %JS_DefinePropertyValue.exit6583 ], [ 3, %4876 ], [ 3, %.loopexit4987 ], [ 6, %.loopexit.i ], [ %4976, %JS_DefinePropertyValue.exit.i ]
+  %.sroa.0112.0.i.ph = phi i64 [ %4933, %JS_NewObjectProto.exit ], [ %4933, %JS_NewObjectProtoClass.exit6560 ], [ %4933, %4973 ], [ %4933, %5009 ], [ %4933, %JS_DefinePropertyValue.exit6581 ], [ %4933, %JS_DefinePropertyValue.exit6583 ], [ 0, %4876 ], [ 0, %.loopexit4987 ], [ %4933, %.loopexit.i ], [ %4933, %JS_DefinePropertyValue.exit.i ]
+  %.sroa.9.0.i.ph = phi i64 [ %4934, %JS_NewObjectProto.exit ], [ %4934, %JS_NewObjectProtoClass.exit6560 ], [ %4934, %4973 ], [ %4934, %5009 ], [ %4934, %JS_DefinePropertyValue.exit6581 ], [ %4934, %JS_DefinePropertyValue.exit6583 ], [ 3, %4876 ], [ 6, %.loopexit4987 ], [ %4934, %.loopexit.i ], [ %4934, %JS_DefinePropertyValue.exit.i ]
+  %.sroa.0125.0.i.ph = phi i64 [ %.sroa.0125.1.i, %JS_NewObjectProto.exit ], [ %.sroa.0125.1.i, %JS_NewObjectProtoClass.exit6560 ], [ %.sroa.0125.1.i, %4973 ], [ %.sroa.0125.1.i, %5009 ], [ %.sroa.0125.1.i, %JS_DefinePropertyValue.exit6581 ], [ %.sroa.0125.1.i, %JS_DefinePropertyValue.exit6583 ], [ %.sroa.0125.0.copyload.i, %4876 ], [ %.sroa.0125.1.i, %.loopexit4987 ], [ %.sroa.0125.1.i, %.loopexit.i ], [ %.sroa.0125.1.i, %JS_DefinePropertyValue.exit.i ]
+  %.sroa.9131.0.i.ph = phi i64 [ %.sroa.9131.1.i, %JS_NewObjectProto.exit ], [ %.sroa.9131.1.i, %JS_NewObjectProtoClass.exit6560 ], [ %.sroa.9131.1.i, %4973 ], [ %.sroa.9131.1.i, %5009 ], [ %.sroa.9131.1.i, %JS_DefinePropertyValue.exit6581 ], [ %.sroa.9131.1.i, %JS_DefinePropertyValue.exit6583 ], [ %.sroa.9131.0.copyload.i, %4876 ], [ %.sroa.9131.1.i, %.loopexit4987 ], [ %.sroa.9131.1.i, %.loopexit.i ], [ %.sroa.9131.1.i, %JS_DefinePropertyValue.exit.i ]
+  %.sroa.5.0.i4177.ph = phi i64 [ %.sroa.5.0.copyload.i4175, %JS_NewObjectProto.exit ], [ %.sroa.5.0.copyload.i4175, %JS_NewObjectProtoClass.exit6560 ], [ 3, %4973 ], [ 3, %5009 ], [ 3, %JS_DefinePropertyValue.exit6581 ], [ 3, %JS_DefinePropertyValue.exit6583 ], [ %.sroa.5.0.copyload.i4175, %4876 ], [ %.sroa.5.0.copyload.i4175, %.loopexit4987 ], [ %.sroa.5.0.copyload.i4175, %.loopexit.i ], [ 3, %JS_DefinePropertyValue.exit.i ]
+  %.pre5883 = trunc i64 %.sroa.9131.0.i.ph to i32
   br label %JS_NewObjectProto.exit.thread
 
 JS_NewObjectProto.exit.thread:                    ; preds = %JS_NewObjectProto.exit.thread.loopexit, %JS_IsConstructor.exit.thread
-  %.pre-phi5887 = phi i32 [ %.pre5886, %JS_NewObjectProto.exit.thread.loopexit ], [ %trunc5444, %JS_IsConstructor.exit.thread ]
+  %.pre-phi5884 = phi i32 [ %.pre5883, %JS_NewObjectProto.exit.thread.loopexit ], [ %trunc5444, %JS_IsConstructor.exit.thread ]
   %.sroa.11.0.i = phi i64 [ %.sroa.11.0.i.ph, %JS_NewObjectProto.exit.thread.loopexit ], [ 3, %JS_IsConstructor.exit.thread ]
   %.sroa.035.sroa.0.0.i = phi i32 [ %.sroa.035.sroa.0.0.i.ph, %JS_NewObjectProto.exit.thread.loopexit ], [ 0, %JS_IsConstructor.exit.thread ]
   %.sroa.035.sroa.10.0.i = phi i32 [ %.sroa.035.sroa.10.0.i.ph, %JS_NewObjectProto.exit.thread.loopexit ], [ 0, %JS_IsConstructor.exit.thread ]
@@ -42994,845 +42992,845 @@ JS_NewObjectProto.exit.thread:                    ; preds = %JS_NewObjectProto.e
   %.sroa.0125.0.i = phi i64 [ %.sroa.0125.0.i.ph, %JS_NewObjectProto.exit.thread.loopexit ], [ %.sroa.0125.0.copyload.i, %JS_IsConstructor.exit.thread ]
   %.sroa.9131.0.i = phi i64 [ %.sroa.9131.0.i.ph, %JS_NewObjectProto.exit.thread.loopexit ], [ %.sroa.9131.0.copyload.i, %JS_IsConstructor.exit.thread ]
   %.sroa.5.0.i4177 = phi i64 [ %.sroa.5.0.i4177.ph, %JS_NewObjectProto.exit.thread.loopexit ], [ %.sroa.5.0.copyload.i4175, %JS_IsConstructor.exit.thread ]
-  %5130 = icmp ugt i32 %.pre-phi5887, -12
-  br i1 %5130, label %JS_NewObjectProto.exit.thread._crit_edge, label %JS_FreeValue.exit4488
+  %5128 = icmp ugt i32 %.pre-phi5884, -12
+  br i1 %5128, label %JS_NewObjectProto.exit.thread._crit_edge, label %JS_FreeValue.exit4488
 
 JS_NewObjectProto.exit.thread._crit_edge:         ; preds = %JS_NewObjectProto.exit.thread
-  %.pre7883 = inttoptr i64 %.sroa.0125.0.i to ptr
-  br label %5131
+  %.pre7880 = inttoptr i64 %.sroa.0125.0.i to ptr
+  br label %5129
 
-5131:                                             ; preds = %JS_NewObjectProto.exit.thread._crit_edge, %JS_NewObjectProto.exit.thread.thread
-  %.pre-phi7884 = phi ptr [ %.pre7883, %JS_NewObjectProto.exit.thread._crit_edge ], [ %4873, %JS_NewObjectProto.exit.thread.thread ]
-  %.sroa.5.0.i41775971 = phi i64 [ %.sroa.5.0.i4177, %JS_NewObjectProto.exit.thread._crit_edge ], [ %.sroa.5.0.copyload.i4175, %JS_NewObjectProto.exit.thread.thread ]
-  %.sroa.9131.0.i5969 = phi i64 [ %.sroa.9131.0.i, %JS_NewObjectProto.exit.thread._crit_edge ], [ %.sroa.9131.0.copyload.i, %JS_NewObjectProto.exit.thread.thread ]
-  %.sroa.0125.0.i5968 = phi i64 [ %.sroa.0125.0.i, %JS_NewObjectProto.exit.thread._crit_edge ], [ %.sroa.0125.0.copyload.i, %JS_NewObjectProto.exit.thread.thread ]
-  %.sroa.9.0.i5967 = phi i64 [ %.sroa.9.0.i, %JS_NewObjectProto.exit.thread._crit_edge ], [ 3, %JS_NewObjectProto.exit.thread.thread ]
-  %.sroa.0112.0.i5965 = phi i64 [ %.sroa.0112.0.i, %JS_NewObjectProto.exit.thread._crit_edge ], [ 0, %JS_NewObjectProto.exit.thread.thread ]
-  %.sroa.16.0.i5963 = phi i64 [ %.sroa.16.0.i, %JS_NewObjectProto.exit.thread._crit_edge ], [ 3, %JS_NewObjectProto.exit.thread.thread ]
-  %.sroa.087.0.i5961 = phi i64 [ %.sroa.087.0.i, %JS_NewObjectProto.exit.thread._crit_edge ], [ 0, %JS_NewObjectProto.exit.thread.thread ]
-  %.sroa.035.sroa.10.0.i5959 = phi i32 [ %.sroa.035.sroa.10.0.i, %JS_NewObjectProto.exit.thread._crit_edge ], [ %.sroa.035.sroa.10.0.extract.trunc84.i, %JS_NewObjectProto.exit.thread.thread ]
-  %.sroa.035.sroa.0.0.i5957 = phi i32 [ %.sroa.035.sroa.0.0.i, %JS_NewObjectProto.exit.thread._crit_edge ], [ %.sroa.035.sroa.0.0.extract.trunc61.i, %JS_NewObjectProto.exit.thread.thread ]
-  %.sroa.11.0.i5955 = phi i64 [ %.sroa.11.0.i, %JS_NewObjectProto.exit.thread._crit_edge ], [ %4881, %JS_NewObjectProto.exit.thread.thread ]
-  %5132 = load i32, ptr %.pre-phi7884, align 4
-  %5133 = add i32 %5132, -1
-  store i32 %5133, ptr %.pre-phi7884, align 4
-  %5134 = icmp slt i32 %5133, 1
-  br i1 %5134, label %5135, label %JS_FreeValue.exit4488
+5129:                                             ; preds = %JS_NewObjectProto.exit.thread._crit_edge, %JS_NewObjectProto.exit.thread.thread
+  %.pre-phi7881 = phi ptr [ %.pre7880, %JS_NewObjectProto.exit.thread._crit_edge ], [ %4871, %JS_NewObjectProto.exit.thread.thread ]
+  %.sroa.5.0.i41775968 = phi i64 [ %.sroa.5.0.i4177, %JS_NewObjectProto.exit.thread._crit_edge ], [ %.sroa.5.0.copyload.i4175, %JS_NewObjectProto.exit.thread.thread ]
+  %.sroa.9131.0.i5966 = phi i64 [ %.sroa.9131.0.i, %JS_NewObjectProto.exit.thread._crit_edge ], [ %.sroa.9131.0.copyload.i, %JS_NewObjectProto.exit.thread.thread ]
+  %.sroa.0125.0.i5965 = phi i64 [ %.sroa.0125.0.i, %JS_NewObjectProto.exit.thread._crit_edge ], [ %.sroa.0125.0.copyload.i, %JS_NewObjectProto.exit.thread.thread ]
+  %.sroa.9.0.i5964 = phi i64 [ %.sroa.9.0.i, %JS_NewObjectProto.exit.thread._crit_edge ], [ 3, %JS_NewObjectProto.exit.thread.thread ]
+  %.sroa.0112.0.i5962 = phi i64 [ %.sroa.0112.0.i, %JS_NewObjectProto.exit.thread._crit_edge ], [ 0, %JS_NewObjectProto.exit.thread.thread ]
+  %.sroa.16.0.i5960 = phi i64 [ %.sroa.16.0.i, %JS_NewObjectProto.exit.thread._crit_edge ], [ 3, %JS_NewObjectProto.exit.thread.thread ]
+  %.sroa.087.0.i5958 = phi i64 [ %.sroa.087.0.i, %JS_NewObjectProto.exit.thread._crit_edge ], [ 0, %JS_NewObjectProto.exit.thread.thread ]
+  %.sroa.035.sroa.10.0.i5956 = phi i32 [ %.sroa.035.sroa.10.0.i, %JS_NewObjectProto.exit.thread._crit_edge ], [ %.sroa.035.sroa.10.0.extract.trunc84.i, %JS_NewObjectProto.exit.thread.thread ]
+  %.sroa.035.sroa.0.0.i5954 = phi i32 [ %.sroa.035.sroa.0.0.i, %JS_NewObjectProto.exit.thread._crit_edge ], [ %.sroa.035.sroa.0.0.extract.trunc61.i, %JS_NewObjectProto.exit.thread.thread ]
+  %.sroa.11.0.i5952 = phi i64 [ %.sroa.11.0.i, %JS_NewObjectProto.exit.thread._crit_edge ], [ %4879, %JS_NewObjectProto.exit.thread.thread ]
+  %5130 = load i32, ptr %.pre-phi7881, align 4
+  %5131 = add i32 %5130, -1
+  store i32 %5131, ptr %.pre-phi7881, align 4
+  %5132 = icmp slt i32 %5131, 1
+  br i1 %5132, label %5133, label %JS_FreeValue.exit4488
 
-5135:                                             ; preds = %5131
-  %5136 = load ptr, ptr %237, align 8
-  call void @__JS_FreeValueRT(ptr noundef %5136, i64 %.sroa.0125.0.i5968, i64 %.sroa.9131.0.i5969)
+5133:                                             ; preds = %5129
+  %5134 = load ptr, ptr %237, align 8
+  call void @__JS_FreeValueRT(ptr noundef %5134, i64 %.sroa.0125.0.i5965, i64 %.sroa.9131.0.i5966)
   br label %JS_FreeValue.exit4488
 
-JS_FreeValue.exit4488:                            ; preds = %JS_NewObjectProto.exit.thread, %5131, %5135
-  %.sroa.5.0.i41775970 = phi i64 [ %.sroa.5.0.i4177, %JS_NewObjectProto.exit.thread ], [ %.sroa.5.0.i41775971, %5131 ], [ %.sroa.5.0.i41775971, %5135 ]
-  %.sroa.9.0.i5966 = phi i64 [ %.sroa.9.0.i, %JS_NewObjectProto.exit.thread ], [ %.sroa.9.0.i5967, %5131 ], [ %.sroa.9.0.i5967, %5135 ]
-  %.sroa.0112.0.i5964 = phi i64 [ %.sroa.0112.0.i, %JS_NewObjectProto.exit.thread ], [ %.sroa.0112.0.i5965, %5131 ], [ %.sroa.0112.0.i5965, %5135 ]
-  %.sroa.16.0.i5962 = phi i64 [ %.sroa.16.0.i, %JS_NewObjectProto.exit.thread ], [ %.sroa.16.0.i5963, %5131 ], [ %.sroa.16.0.i5963, %5135 ]
-  %.sroa.087.0.i5960 = phi i64 [ %.sroa.087.0.i, %JS_NewObjectProto.exit.thread ], [ %.sroa.087.0.i5961, %5131 ], [ %.sroa.087.0.i5961, %5135 ]
-  %.sroa.035.sroa.10.0.i5958 = phi i32 [ %.sroa.035.sroa.10.0.i, %JS_NewObjectProto.exit.thread ], [ %.sroa.035.sroa.10.0.i5959, %5131 ], [ %.sroa.035.sroa.10.0.i5959, %5135 ]
-  %.sroa.035.sroa.0.0.i5956 = phi i32 [ %.sroa.035.sroa.0.0.i, %JS_NewObjectProto.exit.thread ], [ %.sroa.035.sroa.0.0.i5957, %5131 ], [ %.sroa.035.sroa.0.0.i5957, %5135 ]
-  %.sroa.11.0.i5954 = phi i64 [ %.sroa.11.0.i, %JS_NewObjectProto.exit.thread ], [ %.sroa.11.0.i5955, %5131 ], [ %.sroa.11.0.i5955, %5135 ]
-  %.sroa.035.sroa.10.0.insert.ext79.i = zext i32 %.sroa.035.sroa.10.0.i5958 to i64
+JS_FreeValue.exit4488:                            ; preds = %JS_NewObjectProto.exit.thread, %5129, %5133
+  %.sroa.5.0.i41775967 = phi i64 [ %.sroa.5.0.i4177, %JS_NewObjectProto.exit.thread ], [ %.sroa.5.0.i41775968, %5129 ], [ %.sroa.5.0.i41775968, %5133 ]
+  %.sroa.9.0.i5963 = phi i64 [ %.sroa.9.0.i, %JS_NewObjectProto.exit.thread ], [ %.sroa.9.0.i5964, %5129 ], [ %.sroa.9.0.i5964, %5133 ]
+  %.sroa.0112.0.i5961 = phi i64 [ %.sroa.0112.0.i, %JS_NewObjectProto.exit.thread ], [ %.sroa.0112.0.i5962, %5129 ], [ %.sroa.0112.0.i5962, %5133 ]
+  %.sroa.16.0.i5959 = phi i64 [ %.sroa.16.0.i, %JS_NewObjectProto.exit.thread ], [ %.sroa.16.0.i5960, %5129 ], [ %.sroa.16.0.i5960, %5133 ]
+  %.sroa.087.0.i5957 = phi i64 [ %.sroa.087.0.i, %JS_NewObjectProto.exit.thread ], [ %.sroa.087.0.i5958, %5129 ], [ %.sroa.087.0.i5958, %5133 ]
+  %.sroa.035.sroa.10.0.i5955 = phi i32 [ %.sroa.035.sroa.10.0.i, %JS_NewObjectProto.exit.thread ], [ %.sroa.035.sroa.10.0.i5956, %5129 ], [ %.sroa.035.sroa.10.0.i5956, %5133 ]
+  %.sroa.035.sroa.0.0.i5953 = phi i32 [ %.sroa.035.sroa.0.0.i, %JS_NewObjectProto.exit.thread ], [ %.sroa.035.sroa.0.0.i5954, %5129 ], [ %.sroa.035.sroa.0.0.i5954, %5133 ]
+  %.sroa.11.0.i5951 = phi i64 [ %.sroa.11.0.i, %JS_NewObjectProto.exit.thread ], [ %.sroa.11.0.i5952, %5129 ], [ %.sroa.11.0.i5952, %5133 ]
+  %.sroa.035.sroa.10.0.insert.ext79.i = zext i32 %.sroa.035.sroa.10.0.i5955 to i64
   %.sroa.035.sroa.10.0.insert.shift80.i = shl nuw i64 %.sroa.035.sroa.10.0.insert.ext79.i, 32
-  %.sroa.035.sroa.0.0.insert.ext58.i = zext i32 %.sroa.035.sroa.0.0.i5956 to i64
+  %.sroa.035.sroa.0.0.insert.ext58.i = zext i32 %.sroa.035.sroa.0.0.i5953 to i64
   %.sroa.035.sroa.0.0.insert.insert60.i = or disjoint i64 %.sroa.035.sroa.10.0.insert.shift80.i, %.sroa.035.sroa.0.0.insert.ext58.i
-  %5137 = trunc i64 %.sroa.11.0.i5954 to i32
-  %5138 = icmp ugt i32 %5137, -12
-  br i1 %5138, label %5139, label %JS_FreeValue.exit4487
+  %5135 = trunc i64 %.sroa.11.0.i5951 to i32
+  %5136 = icmp ugt i32 %5135, -12
+  br i1 %5136, label %5137, label %JS_FreeValue.exit4487
 
-5139:                                             ; preds = %JS_FreeValue.exit4488
-  %5140 = inttoptr i64 %.sroa.035.sroa.0.0.insert.insert60.i to ptr
-  %5141 = load i32, ptr %5140, align 4
-  %5142 = add i32 %5141, -1
-  store i32 %5142, ptr %5140, align 4
-  %5143 = icmp slt i32 %5142, 1
-  br i1 %5143, label %5144, label %JS_FreeValue.exit4487
+5137:                                             ; preds = %JS_FreeValue.exit4488
+  %5138 = inttoptr i64 %.sroa.035.sroa.0.0.insert.insert60.i to ptr
+  %5139 = load i32, ptr %5138, align 4
+  %5140 = add i32 %5139, -1
+  store i32 %5140, ptr %5138, align 4
+  %5141 = icmp slt i32 %5140, 1
+  br i1 %5141, label %5142, label %JS_FreeValue.exit4487
 
-5144:                                             ; preds = %5139
-  %5145 = load ptr, ptr %237, align 8
-  call void @__JS_FreeValueRT(ptr noundef %5145, i64 %.sroa.035.sroa.0.0.insert.insert60.i, i64 %.sroa.11.0.i5954)
+5142:                                             ; preds = %5137
+  %5143 = load ptr, ptr %237, align 8
+  call void @__JS_FreeValueRT(ptr noundef %5143, i64 %.sroa.035.sroa.0.0.insert.insert60.i, i64 %.sroa.11.0.i5951)
   br label %JS_FreeValue.exit4487
 
-JS_FreeValue.exit4487:                            ; preds = %JS_FreeValue.exit4488, %5139, %5144
-  %.sroa.0137.i.0..sroa.0137.i.0..sroa.0137.i.0..sroa.0137.i.0..sroa.0137.i.0..sroa.0137.i.0..sroa.0137.i.0..sroa.0137.0..sroa.0137.0.138205.i49125905672778888486964511402 = load i64, ptr %.sroa.0137.i, align 8
-  %5146 = trunc i64 %.sroa.5.0.i41775970 to i32
-  %5147 = icmp ugt i32 %5146, -12
-  br i1 %5147, label %5148, label %JS_FreeValue.exit4486
+JS_FreeValue.exit4487:                            ; preds = %JS_FreeValue.exit4488, %5137, %5142
+  %.sroa.0137.i.0..sroa.0137.i.0..sroa.0137.i.0..sroa.0137.i.0..sroa.0137.i.0..sroa.0137.i.0..sroa.0137.i.0..sroa.0137.0..sroa.0137.0.138205.i49125902672478858483964211399 = load i64, ptr %.sroa.0137.i, align 8
+  %5144 = trunc i64 %.sroa.5.0.i41775967 to i32
+  %5145 = icmp ugt i32 %5144, -12
+  br i1 %5145, label %5146, label %JS_FreeValue.exit4486
 
-5148:                                             ; preds = %JS_FreeValue.exit4487
-  %5149 = inttoptr i64 %.sroa.0137.i.0..sroa.0137.i.0..sroa.0137.i.0..sroa.0137.i.0..sroa.0137.i.0..sroa.0137.i.0..sroa.0137.i.0..sroa.0137.0..sroa.0137.0.138205.i49125905672778888486964511402 to ptr
-  %5150 = load i32, ptr %5149, align 4
-  %5151 = add i32 %5150, -1
-  store i32 %5151, ptr %5149, align 4
-  %5152 = icmp slt i32 %5151, 1
-  br i1 %5152, label %5153, label %JS_FreeValue.exit4486
+5146:                                             ; preds = %JS_FreeValue.exit4487
+  %5147 = inttoptr i64 %.sroa.0137.i.0..sroa.0137.i.0..sroa.0137.i.0..sroa.0137.i.0..sroa.0137.i.0..sroa.0137.i.0..sroa.0137.i.0..sroa.0137.0..sroa.0137.0.138205.i49125902672478858483964211399 to ptr
+  %5148 = load i32, ptr %5147, align 4
+  %5149 = add i32 %5148, -1
+  store i32 %5149, ptr %5147, align 4
+  %5150 = icmp slt i32 %5149, 1
+  br i1 %5150, label %5151, label %JS_FreeValue.exit4486
 
-5153:                                             ; preds = %5148
-  %5154 = load ptr, ptr %237, align 8
-  call void @__JS_FreeValueRT(ptr noundef %5154, i64 %.sroa.0137.i.0..sroa.0137.i.0..sroa.0137.i.0..sroa.0137.i.0..sroa.0137.i.0..sroa.0137.i.0..sroa.0137.i.0..sroa.0137.0..sroa.0137.0.138205.i49125905672778888486964511402, i64 %.sroa.5.0.i41775970)
+5151:                                             ; preds = %5146
+  %5152 = load ptr, ptr %237, align 8
+  call void @__JS_FreeValueRT(ptr noundef %5152, i64 %.sroa.0137.i.0..sroa.0137.i.0..sroa.0137.i.0..sroa.0137.i.0..sroa.0137.i.0..sroa.0137.i.0..sroa.0137.i.0..sroa.0137.0..sroa.0137.0.138205.i49125902672478858483964211399, i64 %.sroa.5.0.i41775967)
   br label %JS_FreeValue.exit4486
 
-JS_FreeValue.exit4486:                            ; preds = %JS_FreeValue.exit4487, %5148, %5153
-  %5155 = trunc i64 %.sroa.9.0.i5966 to i32
-  %5156 = icmp ugt i32 %5155, -12
-  br i1 %5156, label %5157, label %JS_FreeValue.exit4485
+JS_FreeValue.exit4486:                            ; preds = %JS_FreeValue.exit4487, %5146, %5151
+  %5153 = trunc i64 %.sroa.9.0.i5963 to i32
+  %5154 = icmp ugt i32 %5153, -12
+  br i1 %5154, label %5155, label %JS_FreeValue.exit4485
 
-5157:                                             ; preds = %JS_FreeValue.exit4486
-  %5158 = inttoptr i64 %.sroa.0112.0.i5964 to ptr
-  %5159 = load i32, ptr %5158, align 4
-  %5160 = add i32 %5159, -1
-  store i32 %5160, ptr %5158, align 4
-  %5161 = icmp slt i32 %5160, 1
-  br i1 %5161, label %5162, label %JS_FreeValue.exit4485
+5155:                                             ; preds = %JS_FreeValue.exit4486
+  %5156 = inttoptr i64 %.sroa.0112.0.i5961 to ptr
+  %5157 = load i32, ptr %5156, align 4
+  %5158 = add i32 %5157, -1
+  store i32 %5158, ptr %5156, align 4
+  %5159 = icmp slt i32 %5158, 1
+  br i1 %5159, label %5160, label %JS_FreeValue.exit4485
 
-5162:                                             ; preds = %5157
-  %5163 = load ptr, ptr %237, align 8
-  call void @__JS_FreeValueRT(ptr noundef %5163, i64 %.sroa.0112.0.i5964, i64 %.sroa.9.0.i5966)
+5160:                                             ; preds = %5155
+  %5161 = load ptr, ptr %237, align 8
+  call void @__JS_FreeValueRT(ptr noundef %5161, i64 %.sroa.0112.0.i5961, i64 %.sroa.9.0.i5963)
   br label %JS_FreeValue.exit4485
 
-JS_FreeValue.exit4485:                            ; preds = %JS_FreeValue.exit4486, %5157, %5162
-  %5164 = trunc i64 %.sroa.16.0.i5962 to i32
-  %5165 = icmp ugt i32 %5164, -12
-  br i1 %5165, label %5166, label %js_op_define_class.exit.thread
+JS_FreeValue.exit4485:                            ; preds = %JS_FreeValue.exit4486, %5155, %5160
+  %5162 = trunc i64 %.sroa.16.0.i5959 to i32
+  %5163 = icmp ugt i32 %5162, -12
+  br i1 %5163, label %5164, label %js_op_define_class.exit.thread
 
-5166:                                             ; preds = %JS_FreeValue.exit4485
-  %5167 = inttoptr i64 %.sroa.087.0.i5960 to ptr
-  %5168 = load i32, ptr %5167, align 4
-  %5169 = add i32 %5168, -1
-  store i32 %5169, ptr %5167, align 4
-  %5170 = icmp slt i32 %5169, 1
-  br i1 %5170, label %5171, label %js_op_define_class.exit.thread
+5164:                                             ; preds = %JS_FreeValue.exit4485
+  %5165 = inttoptr i64 %.sroa.087.0.i5957 to ptr
+  %5166 = load i32, ptr %5165, align 4
+  %5167 = add i32 %5166, -1
+  store i32 %5167, ptr %5165, align 4
+  %5168 = icmp slt i32 %5167, 1
+  br i1 %5168, label %5169, label %js_op_define_class.exit.thread
 
-5171:                                             ; preds = %5166
-  %5172 = load ptr, ptr %237, align 8
-  call void @__JS_FreeValueRT(ptr noundef %5172, i64 %.sroa.087.0.i5960, i64 %.sroa.16.0.i5962)
+5169:                                             ; preds = %5164
+  %5170 = load ptr, ptr %237, align 8
+  call void @__JS_FreeValueRT(ptr noundef %5170, i64 %.sroa.087.0.i5957, i64 %.sroa.16.0.i5959)
   br label %js_op_define_class.exit.thread
 
-js_op_define_class.exit.thread:                   ; preds = %5171, %5166, %JS_FreeValue.exit4485
-  store i32 0, ptr %4864, align 8
+js_op_define_class.exit.thread:                   ; preds = %5169, %5164, %JS_FreeValue.exit4485
+  store i32 0, ptr %4862, align 8
   store i64 3, ptr %.sroa.9131.0..sroa_idx.i, align 8
-  store i32 0, ptr %4865, align 8
+  store i32 0, ptr %4863, align 8
   store i64 3, ptr %.sroa.5.0..sroa_idx.i4174, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %.sroa.0137.i)
   br label %JS_FreeValue.exit3739
 
-5173:                                             ; preds = %JS_FreeValue.exit4490, %5124, %5128
-  store i64 %4977, ptr %4864, align 8
-  store i64 %4978, ptr %.sroa.9131.0..sroa_idx.i, align 8
-  store i64 %4935, ptr %4865, align 8
-  store i64 %4936, ptr %.sroa.5.0..sroa_idx.i4174, align 8
+5171:                                             ; preds = %JS_FreeValue.exit4490, %5122, %5126
+  store i64 %4975, ptr %4862, align 8
+  store i64 %4976, ptr %.sroa.9131.0..sroa_idx.i, align 8
+  store i64 %4933, ptr %4863, align 8
+  store i64 %4934, ptr %.sroa.5.0..sroa_idx.i4174, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %.sroa.0137.i)
-  %5174 = getelementptr i8, ptr %.23330, i64 6
+  %5172 = getelementptr i8, ptr %.23330, i64 6
   br label %.backedge4994.backedge
 
-5175:                                             ; preds = %.backedge4994
-  %5176 = getelementptr i8, ptr %.23354, i64 -32
-  %5177 = getelementptr i8, ptr %.23354, i64 -16
-  %5178 = load i64, ptr %5176, align 8
-  %5179 = getelementptr i8, ptr %.23354, i64 -24
-  %5180 = load i64, ptr %5179, align 8
-  %5181 = load i64, ptr %5177, align 8
-  %5182 = getelementptr i8, ptr %.23354, i64 -8
-  %5183 = load i64, ptr %5182, align 8
-  %5184 = call fastcc { i64, i64 } @JS_GetPropertyValue(ptr noundef %.1, i64 %5178, i64 %5180, i64 %5181, i64 %5183)
-  %5185 = extractvalue { i64, i64 } %5184, 0
-  %5186 = extractvalue { i64, i64 } %5184, 1
-  %5187 = load i64, ptr %5176, align 8
-  %5188 = load i64, ptr %5179, align 8
-  %5189 = trunc i64 %5188 to i32
-  %5190 = icmp ugt i32 %5189, -12
-  br i1 %5190, label %5191, label %JS_FreeValue.exit4179
+5173:                                             ; preds = %.backedge4994
+  %5174 = getelementptr i8, ptr %.23354, i64 -32
+  %5175 = getelementptr i8, ptr %.23354, i64 -16
+  %5176 = load i64, ptr %5174, align 8
+  %5177 = getelementptr i8, ptr %.23354, i64 -24
+  %5178 = load i64, ptr %5177, align 8
+  %5179 = load i64, ptr %5175, align 8
+  %5180 = getelementptr i8, ptr %.23354, i64 -8
+  %5181 = load i64, ptr %5180, align 8
+  %5182 = call fastcc { i64, i64 } @JS_GetPropertyValue(ptr noundef %.1, i64 %5176, i64 %5178, i64 %5179, i64 %5181)
+  %5183 = extractvalue { i64, i64 } %5182, 0
+  %5184 = extractvalue { i64, i64 } %5182, 1
+  %5185 = load i64, ptr %5174, align 8
+  %5186 = load i64, ptr %5177, align 8
+  %5187 = trunc i64 %5186 to i32
+  %5188 = icmp ugt i32 %5187, -12
+  br i1 %5188, label %5189, label %JS_FreeValue.exit4179
 
-5191:                                             ; preds = %5175
-  %5192 = inttoptr i64 %5187 to ptr
-  %5193 = load i32, ptr %5192, align 4
-  %5194 = add i32 %5193, -1
-  store i32 %5194, ptr %5192, align 4
-  %5195 = icmp slt i32 %5194, 1
-  br i1 %5195, label %5196, label %JS_FreeValue.exit4179
+5189:                                             ; preds = %5173
+  %5190 = inttoptr i64 %5185 to ptr
+  %5191 = load i32, ptr %5190, align 4
+  %5192 = add i32 %5191, -1
+  store i32 %5192, ptr %5190, align 4
+  %5193 = icmp slt i32 %5192, 1
+  br i1 %5193, label %5194, label %JS_FreeValue.exit4179
 
-5196:                                             ; preds = %5191
-  %5197 = load ptr, ptr %237, align 8
-  call void @__JS_FreeValueRT(ptr noundef %5197, i64 %5187, i64 %5188)
+5194:                                             ; preds = %5189
+  %5195 = load ptr, ptr %237, align 8
+  call void @__JS_FreeValueRT(ptr noundef %5195, i64 %5185, i64 %5186)
   br label %JS_FreeValue.exit4179
 
-JS_FreeValue.exit4179:                            ; preds = %5175, %5191, %5196
-  store i64 %5185, ptr %5176, align 8
-  store i64 %5186, ptr %5179, align 8
-  %5198 = and i64 %5186, 4294967295
-  %.not4924 = icmp eq i64 %5198, 6
-  br i1 %.not4924, label %JS_FreeValue.exit3739.loopexit, label %5199
+JS_FreeValue.exit4179:                            ; preds = %5173, %5189, %5194
+  store i64 %5183, ptr %5174, align 8
+  store i64 %5184, ptr %5177, align 8
+  %5196 = and i64 %5184, 4294967295
+  %.not4924 = icmp eq i64 %5196, 6
+  br i1 %.not4924, label %JS_FreeValue.exit3739.loopexit, label %5197
 
-5199:                                             ; preds = %JS_FreeValue.exit4179
-  %5200 = getelementptr i8, ptr %.23330, i64 1
+5197:                                             ; preds = %JS_FreeValue.exit4179
+  %5198 = getelementptr i8, ptr %.23330, i64 1
   br label %.backedge4994.backedge
 
-5201:                                             ; preds = %.backedge4994
-  %5202 = getelementptr i8, ptr %.23354, i64 -32
-  %5203 = getelementptr i8, ptr %.23354, i64 -16
-  %5204 = load i64, ptr %5202, align 8
-  %5205 = getelementptr i8, ptr %.23354, i64 -24
-  %5206 = load i64, ptr %5205, align 8
-  %5207 = load i64, ptr %5203, align 8
-  %5208 = getelementptr i8, ptr %.23354, i64 -8
-  %5209 = load i64, ptr %5208, align 8
-  %5210 = call fastcc { i64, i64 } @JS_GetPropertyValue(ptr noundef %.1, i64 %5204, i64 %5206, i64 %5207, i64 %5209)
-  %5211 = extractvalue { i64, i64 } %5210, 0
-  %5212 = extractvalue { i64, i64 } %5210, 1
-  store i64 %5211, ptr %5203, align 8
-  store i64 %5212, ptr %5208, align 8
-  %5213 = and i64 %5212, 4294967295
-  %.not4923 = icmp eq i64 %5213, 6
-  br i1 %.not4923, label %JS_FreeValue.exit3739.loopexit, label %5214
+5199:                                             ; preds = %.backedge4994
+  %5200 = getelementptr i8, ptr %.23354, i64 -32
+  %5201 = getelementptr i8, ptr %.23354, i64 -16
+  %5202 = load i64, ptr %5200, align 8
+  %5203 = getelementptr i8, ptr %.23354, i64 -24
+  %5204 = load i64, ptr %5203, align 8
+  %5205 = load i64, ptr %5201, align 8
+  %5206 = getelementptr i8, ptr %.23354, i64 -8
+  %5207 = load i64, ptr %5206, align 8
+  %5208 = call fastcc { i64, i64 } @JS_GetPropertyValue(ptr noundef %.1, i64 %5202, i64 %5204, i64 %5205, i64 %5207)
+  %5209 = extractvalue { i64, i64 } %5208, 0
+  %5210 = extractvalue { i64, i64 } %5208, 1
+  store i64 %5209, ptr %5201, align 8
+  store i64 %5210, ptr %5206, align 8
+  %5211 = and i64 %5210, 4294967295
+  %.not4923 = icmp eq i64 %5211, 6
+  br i1 %.not4923, label %JS_FreeValue.exit3739.loopexit, label %5212
 
-5214:                                             ; preds = %5201
-  %5215 = getelementptr i8, ptr %.23330, i64 1
+5212:                                             ; preds = %5199
+  %5213 = getelementptr i8, ptr %.23330, i64 1
   br label %.backedge4994.backedge
 
-5216:                                             ; preds = %.backedge4994
-  %5217 = getelementptr i8, ptr %.23354, i64 -32
-  %5218 = getelementptr i8, ptr %.23354, i64 -24
-  %5219 = load i64, ptr %5218, align 8
-  %5220 = and i64 %5219, 4294967295
-  %.not4931 = icmp eq i64 %5220, 3
-  %5221 = getelementptr i8, ptr %.23354, i64 -16
+5214:                                             ; preds = %.backedge4994
+  %5215 = getelementptr i8, ptr %.23354, i64 -32
+  %5216 = getelementptr i8, ptr %.23354, i64 -24
+  %5217 = load i64, ptr %5216, align 8
+  %5218 = and i64 %5217, 4294967295
+  %.not4931 = icmp eq i64 %5218, 3
+  %5219 = getelementptr i8, ptr %.23354, i64 -16
+  %5220 = load i64, ptr %5219, align 8
+  %5221 = getelementptr i8, ptr %.23354, i64 -8
   %5222 = load i64, ptr %5221, align 8
-  %5223 = getelementptr i8, ptr %.23354, i64 -8
-  %5224 = load i64, ptr %5223, align 8
-  br i1 %.not4931, label %5225, label %5228
+  br i1 %.not4931, label %5223, label %5226
 
-5225:                                             ; preds = %5216
-  %5226 = call i32 @JS_ValueToAtom(ptr noundef %.1, i64 %5222, i64 %5224)
-  %.not3563 = icmp eq i32 %5226, 0
-  br i1 %.not3563, label %JS_FreeValue.exit3739, label %5227
+5223:                                             ; preds = %5214
+  %5224 = call i32 @JS_ValueToAtom(ptr noundef %.1, i64 %5220, i64 %5222)
+  %.not3563 = icmp eq i32 %5224, 0
+  br i1 %.not3563, label %JS_FreeValue.exit3739, label %5225
 
-5227:                                             ; preds = %5225
-  call fastcc void @JS_ThrowReferenceErrorNotDefined(ptr noundef %.1, i32 noundef %5226)
-  call void @JS_FreeAtom(ptr noundef %.1, i32 noundef %5226)
+5225:                                             ; preds = %5223
+  call fastcc void @JS_ThrowReferenceErrorNotDefined(ptr noundef %.1, i32 noundef %5224)
+  call void @JS_FreeAtom(ptr noundef %.1, i32 noundef %5224)
   br label %JS_FreeValue.exit3739
 
-5228:                                             ; preds = %5216
-  %5229 = trunc i64 %5224 to i32
-  %5230 = icmp ugt i32 %5229, -12
-  br i1 %5230, label %5231, label %JS_DupValue.exit4182
+5226:                                             ; preds = %5214
+  %5227 = trunc i64 %5222 to i32
+  %5228 = icmp ugt i32 %5227, -12
+  br i1 %5228, label %5229, label %JS_DupValue.exit4182
 
-5231:                                             ; preds = %5228
-  %5232 = inttoptr i64 %5222 to ptr
-  %5233 = load i32, ptr %5232, align 4
-  %5234 = add i32 %5233, 1
-  store i32 %5234, ptr %5232, align 4
-  %.pre5877 = load i64, ptr %5218, align 8
+5229:                                             ; preds = %5226
+  %5230 = inttoptr i64 %5220 to ptr
+  %5231 = load i32, ptr %5230, align 4
+  %5232 = add i32 %5231, 1
+  store i32 %5232, ptr %5230, align 4
+  %.pre5874 = load i64, ptr %5216, align 8
   br label %JS_DupValue.exit4182
 
-JS_DupValue.exit4182:                             ; preds = %5228, %5231
-  %5235 = phi i64 [ %5219, %5228 ], [ %.pre5877, %5231 ]
-  %5236 = load i64, ptr %5217, align 8
-  %5237 = call fastcc { i64, i64 } @JS_GetPropertyValue(ptr noundef %.1, i64 %5236, i64 %5235, i64 %5222, i64 %5224)
-  %5238 = extractvalue { i64, i64 } %5237, 1
-  %5239 = and i64 %5238, 4294967295
-  %.not4932 = icmp eq i64 %5239, 6
-  br i1 %.not4932, label %JS_FreeValue.exit3739.loopexit, label %5240
+JS_DupValue.exit4182:                             ; preds = %5226, %5229
+  %5233 = phi i64 [ %5217, %5226 ], [ %.pre5874, %5229 ]
+  %5234 = load i64, ptr %5215, align 8
+  %5235 = call fastcc { i64, i64 } @JS_GetPropertyValue(ptr noundef %.1, i64 %5234, i64 %5233, i64 %5220, i64 %5222)
+  %5236 = extractvalue { i64, i64 } %5235, 1
+  %5237 = and i64 %5236, 4294967295
+  %.not4932 = icmp eq i64 %5237, 6
+  br i1 %.not4932, label %JS_FreeValue.exit3739.loopexit, label %5238
 
-5240:                                             ; preds = %JS_DupValue.exit4182
-  %5241 = extractvalue { i64, i64 } %5237, 0
-  store i64 %5241, ptr %.23354, align 8
+5238:                                             ; preds = %JS_DupValue.exit4182
+  %5239 = extractvalue { i64, i64 } %5235, 0
+  store i64 %5239, ptr %.23354, align 8
   %.sroa.3461.0..sroa_idx = getelementptr inbounds i8, ptr %.23354, i64 8
-  store i64 %5238, ptr %.sroa.3461.0..sroa_idx, align 8
-  %5242 = getelementptr i8, ptr %.23354, i64 16
-  %5243 = getelementptr i8, ptr %.23330, i64 1
+  store i64 %5236, ptr %.sroa.3461.0..sroa_idx, align 8
+  %5240 = getelementptr i8, ptr %.23354, i64 16
+  %5241 = getelementptr i8, ptr %.23330, i64 1
   br label %.backedge4994.backedge
 
-5244:                                             ; preds = %.backedge4994
-  %5245 = getelementptr i8, ptr %.23354, i64 -16
+5242:                                             ; preds = %.backedge4994
+  %5243 = getelementptr i8, ptr %.23354, i64 -16
+  %5244 = load i64, ptr %5243, align 8
+  %5245 = getelementptr i8, ptr %.23354, i64 -8
   %5246 = load i64, ptr %5245, align 8
-  %5247 = getelementptr i8, ptr %.23354, i64 -8
-  %5248 = load i64, ptr %5247, align 8
-  %5249 = call i32 @JS_ValueToAtom(ptr noundef %.1, i64 %5246, i64 %5248)
-  %5250 = icmp eq i32 %5249, 0
-  br i1 %5250, label %JS_FreeValue.exit3739.loopexit, label %5251
+  %5247 = call i32 @JS_ValueToAtom(ptr noundef %.1, i64 %5244, i64 %5246)
+  %5248 = icmp eq i32 %5247, 0
+  br i1 %5248, label %JS_FreeValue.exit3739.loopexit, label %5249
 
-5251:                                             ; preds = %5244
-  %5252 = getelementptr i8, ptr %.23354, i64 -32
-  %5253 = getelementptr i8, ptr %.23354, i64 -48
-  %5254 = load i64, ptr %5252, align 8
-  %5255 = getelementptr i8, ptr %.23354, i64 -24
-  %5256 = load i64, ptr %5255, align 8
-  %5257 = load i64, ptr %5253, align 8
-  %5258 = getelementptr i8, ptr %.23354, i64 -40
-  %5259 = load i64, ptr %5258, align 8
-  %5260 = call { i64, i64 } @JS_GetPropertyInternal(ptr noundef %.1, i64 %5254, i64 %5256, i32 noundef %5249, i64 %5257, i64 %5259, i32 noundef 0)
-  %5261 = extractvalue { i64, i64 } %5260, 0
-  %5262 = extractvalue { i64, i64 } %5260, 1
-  %5263 = icmp sgt i32 %5249, 226
-  br i1 %5263, label %5264, label %JS_FreeAtom.exit
+5249:                                             ; preds = %5242
+  %5250 = getelementptr i8, ptr %.23354, i64 -32
+  %5251 = getelementptr i8, ptr %.23354, i64 -48
+  %5252 = load i64, ptr %5250, align 8
+  %5253 = getelementptr i8, ptr %.23354, i64 -24
+  %5254 = load i64, ptr %5253, align 8
+  %5255 = load i64, ptr %5251, align 8
+  %5256 = getelementptr i8, ptr %.23354, i64 -40
+  %5257 = load i64, ptr %5256, align 8
+  %5258 = call { i64, i64 } @JS_GetPropertyInternal(ptr noundef %.1, i64 %5252, i64 %5254, i32 noundef %5247, i64 %5255, i64 %5257, i32 noundef 0)
+  %5259 = extractvalue { i64, i64 } %5258, 0
+  %5260 = extractvalue { i64, i64 } %5258, 1
+  %5261 = icmp sgt i32 %5247, 226
+  br i1 %5261, label %5262, label %JS_FreeAtom.exit
 
-5264:                                             ; preds = %5251
-  %5265 = load ptr, ptr %237, align 8
-  %5266 = getelementptr inbounds i8, ptr %5265, i64 96
-  %5267 = load ptr, ptr %5266, align 8
-  %5268 = zext nneg i32 %5249 to i64
-  %5269 = getelementptr ptr, ptr %5267, i64 %5268
-  %5270 = load ptr, ptr %5269, align 8
-  %5271 = load i32, ptr %5270, align 4
-  %5272 = add i32 %5271, -1
-  store i32 %5272, ptr %5270, align 4
-  %5273 = icmp sgt i32 %5272, 0
-  br i1 %5273, label %JS_FreeAtom.exit, label %5274
+5262:                                             ; preds = %5249
+  %5263 = load ptr, ptr %237, align 8
+  %5264 = getelementptr inbounds i8, ptr %5263, i64 96
+  %5265 = load ptr, ptr %5264, align 8
+  %5266 = zext nneg i32 %5247 to i64
+  %5267 = getelementptr ptr, ptr %5265, i64 %5266
+  %5268 = load ptr, ptr %5267, align 8
+  %5269 = load i32, ptr %5268, align 4
+  %5270 = add i32 %5269, -1
+  store i32 %5270, ptr %5268, align 4
+  %5271 = icmp sgt i32 %5270, 0
+  br i1 %5271, label %JS_FreeAtom.exit, label %5272
 
-5274:                                             ; preds = %5264
-  %5275 = getelementptr inbounds i8, ptr %5270, i64 4
-  %5276 = load i64, ptr %5275, align 4
-  %.not.i.i.i = icmp ugt i64 %5276, -4611686018427387905
-  br i1 %.not.i.i.i, label %._crit_edge.i.i.i, label %5279
+5272:                                             ; preds = %5262
+  %5273 = getelementptr inbounds i8, ptr %5268, i64 4
+  %5274 = load i64, ptr %5273, align 4
+  %.not.i.i.i = icmp ugt i64 %5274, -4611686018427387905
+  br i1 %.not.i.i.i, label %._crit_edge.i.i.i, label %5277
 
-._crit_edge.i.i.i:                                ; preds = %5274
-  %5277 = getelementptr inbounds i8, ptr %5270, i64 12
-  %5278 = load i32, ptr %5277, align 4
-  %.pre.i.i.i = zext i32 %5278 to i64
+._crit_edge.i.i.i:                                ; preds = %5272
+  %5275 = getelementptr inbounds i8, ptr %5268, i64 12
+  %5276 = load i32, ptr %5275, align 4
+  %.pre.i.i.i = zext i32 %5276 to i64
   br label %JS_FreeAtomStruct.exit.i.i
 
-5279:                                             ; preds = %5274
-  %5280 = lshr i64 %5276, 32
-  %5281 = trunc nuw i64 %5280 to i32
-  %5282 = and i32 %5281, 1073741823
-  %5283 = getelementptr inbounds i8, ptr %5265, i64 72
-  %5284 = load i32, ptr %5283, align 8
-  %5285 = add i32 %5284, -1
-  %5286 = and i32 %5282, %5285
-  %5287 = getelementptr inbounds i8, ptr %5265, i64 88
-  %5288 = load ptr, ptr %5287, align 8
-  %5289 = zext nneg i32 %5286 to i64
-  %5290 = getelementptr i32, ptr %5288, i64 %5289
-  %5291 = load i32, ptr %5290, align 4
-  %5292 = load ptr, ptr %5266, align 8
-  %5293 = zext i32 %5291 to i64
-  %5294 = getelementptr ptr, ptr %5292, i64 %5293
-  %5295 = load ptr, ptr %5294, align 8
-  %5296 = icmp eq ptr %5295, %5270
-  br i1 %5296, label %5297, label %.preheader.i.i.i
+5277:                                             ; preds = %5272
+  %5278 = lshr i64 %5274, 32
+  %5279 = trunc nuw i64 %5278 to i32
+  %5280 = and i32 %5279, 1073741823
+  %5281 = getelementptr inbounds i8, ptr %5263, i64 72
+  %5282 = load i32, ptr %5281, align 8
+  %5283 = add i32 %5282, -1
+  %5284 = and i32 %5280, %5283
+  %5285 = getelementptr inbounds i8, ptr %5263, i64 88
+  %5286 = load ptr, ptr %5285, align 8
+  %5287 = zext nneg i32 %5284 to i64
+  %5288 = getelementptr i32, ptr %5286, i64 %5287
+  %5289 = load i32, ptr %5288, align 4
+  %5290 = load ptr, ptr %5264, align 8
+  %5291 = zext i32 %5289 to i64
+  %5292 = getelementptr ptr, ptr %5290, i64 %5291
+  %5293 = load ptr, ptr %5292, align 8
+  %5294 = icmp eq ptr %5293, %5268
+  br i1 %5294, label %5295, label %.preheader.i.i.i
 
-5297:                                             ; preds = %5279
-  %5298 = getelementptr inbounds i8, ptr %5295, i64 12
+5295:                                             ; preds = %5277
+  %5296 = getelementptr inbounds i8, ptr %5293, i64 12
+  %5297 = load i32, ptr %5296, align 4
+  store i32 %5297, ptr %5288, align 4
+  br label %JS_FreeAtomStruct.exit.i.i
+
+.preheader.i.i.i:                                 ; preds = %5277, %.preheader.i.i.i
+  %.028.i.i.i = phi ptr [ %5302, %.preheader.i.i.i ], [ %5293, %5277 ]
+  %5298 = getelementptr inbounds i8, ptr %.028.i.i.i, i64 12
   %5299 = load i32, ptr %5298, align 4
-  store i32 %5299, ptr %5290, align 4
+  %5300 = zext i32 %5299 to i64
+  %5301 = getelementptr ptr, ptr %5290, i64 %5300
+  %5302 = load ptr, ptr %5301, align 8
+  %5303 = icmp eq ptr %5302, %5268
+  br i1 %5303, label %5304, label %.preheader.i.i.i
+
+5304:                                             ; preds = %.preheader.i.i.i
+  %5305 = getelementptr inbounds i8, ptr %.028.i.i.i, i64 12
+  %5306 = getelementptr inbounds i8, ptr %5302, i64 12
+  %5307 = load i32, ptr %5306, align 4
+  store i32 %5307, ptr %5305, align 4
   br label %JS_FreeAtomStruct.exit.i.i
 
-.preheader.i.i.i:                                 ; preds = %5279, %.preheader.i.i.i
-  %.028.i.i.i = phi ptr [ %5304, %.preheader.i.i.i ], [ %5295, %5279 ]
-  %5300 = getelementptr inbounds i8, ptr %.028.i.i.i, i64 12
-  %5301 = load i32, ptr %5300, align 4
-  %5302 = zext i32 %5301 to i64
-  %5303 = getelementptr ptr, ptr %5292, i64 %5302
-  %5304 = load ptr, ptr %5303, align 8
-  %5305 = icmp eq ptr %5304, %5270
-  br i1 %5305, label %5306, label %.preheader.i.i.i
-
-5306:                                             ; preds = %.preheader.i.i.i
-  %5307 = getelementptr inbounds i8, ptr %.028.i.i.i, i64 12
-  %5308 = getelementptr inbounds i8, ptr %5304, i64 12
-  %5309 = load i32, ptr %5308, align 4
-  store i32 %5309, ptr %5307, align 4
-  br label %JS_FreeAtomStruct.exit.i.i
-
-JS_FreeAtomStruct.exit.i.i:                       ; preds = %5306, %5297, %._crit_edge.i.i.i
-  %.pre-phi.i.i.i = phi i64 [ %.pre.i.i.i, %._crit_edge.i.i.i ], [ %5293, %5297 ], [ %5302, %5306 ]
-  %.0.i.i.i = phi i32 [ %5278, %._crit_edge.i.i.i ], [ %5291, %5297 ], [ %5301, %5306 ]
-  %5310 = getelementptr inbounds i8, ptr %5265, i64 104
-  %5311 = load i32, ptr %5310, align 8
-  %5312 = zext i32 %5311 to i64
-  %5313 = shl nuw nsw i64 %5312, 1
-  %5314 = or disjoint i64 %5313, 1
-  %5315 = inttoptr i64 %5314 to ptr
-  %5316 = load ptr, ptr %5266, align 8
-  %5317 = getelementptr ptr, ptr %5316, i64 %.pre-phi.i.i.i
-  store ptr %5315, ptr %5317, align 8
-  store i32 %.0.i.i.i, ptr %5310, align 8
-  %5318 = getelementptr inbounds i8, ptr %5265, i64 8
-  %5319 = load ptr, ptr %5318, align 8
-  %5320 = getelementptr inbounds i8, ptr %5265, i64 32
-  call void %5319(ptr noundef nonnull %5320, ptr noundef nonnull %5270) #42
-  %5321 = getelementptr inbounds i8, ptr %5265, i64 76
-  %5322 = load i32, ptr %5321, align 4
-  %5323 = add i32 %5322, -1
-  store i32 %5323, ptr %5321, align 4
+JS_FreeAtomStruct.exit.i.i:                       ; preds = %5304, %5295, %._crit_edge.i.i.i
+  %.pre-phi.i.i.i = phi i64 [ %.pre.i.i.i, %._crit_edge.i.i.i ], [ %5291, %5295 ], [ %5300, %5304 ]
+  %.0.i.i.i = phi i32 [ %5276, %._crit_edge.i.i.i ], [ %5289, %5295 ], [ %5299, %5304 ]
+  %5308 = getelementptr inbounds i8, ptr %5263, i64 104
+  %5309 = load i32, ptr %5308, align 8
+  %5310 = zext i32 %5309 to i64
+  %5311 = shl nuw nsw i64 %5310, 1
+  %5312 = or disjoint i64 %5311, 1
+  %5313 = inttoptr i64 %5312 to ptr
+  %5314 = load ptr, ptr %5264, align 8
+  %5315 = getelementptr ptr, ptr %5314, i64 %.pre-phi.i.i.i
+  store ptr %5313, ptr %5315, align 8
+  store i32 %.0.i.i.i, ptr %5308, align 8
+  %5316 = getelementptr inbounds i8, ptr %5263, i64 8
+  %5317 = load ptr, ptr %5316, align 8
+  %5318 = getelementptr inbounds i8, ptr %5263, i64 32
+  call void %5317(ptr noundef nonnull %5318, ptr noundef nonnull %5268) #42
+  %5319 = getelementptr inbounds i8, ptr %5263, i64 76
+  %5320 = load i32, ptr %5319, align 4
+  %5321 = add i32 %5320, -1
+  store i32 %5321, ptr %5319, align 4
   br label %JS_FreeAtom.exit
 
-JS_FreeAtom.exit:                                 ; preds = %5251, %5264, %JS_FreeAtomStruct.exit.i.i
-  %5324 = and i64 %5262, 4294967295
-  %.not4922 = icmp eq i64 %5324, 6
-  br i1 %.not4922, label %JS_FreeValue.exit3739.loopexit, label %5325
+JS_FreeAtom.exit:                                 ; preds = %5249, %5262, %JS_FreeAtomStruct.exit.i.i
+  %5322 = and i64 %5260, 4294967295
+  %.not4922 = icmp eq i64 %5322, 6
+  br i1 %.not4922, label %JS_FreeValue.exit3739.loopexit, label %5323
 
-5325:                                             ; preds = %JS_FreeAtom.exit
-  %5326 = load i64, ptr %5245, align 8
-  %5327 = load i64, ptr %5247, align 8
-  %5328 = trunc i64 %5327 to i32
-  %5329 = icmp ugt i32 %5328, -12
-  br i1 %5329, label %5330, label %JS_FreeValue.exit4183
+5323:                                             ; preds = %JS_FreeAtom.exit
+  %5324 = load i64, ptr %5243, align 8
+  %5325 = load i64, ptr %5245, align 8
+  %5326 = trunc i64 %5325 to i32
+  %5327 = icmp ugt i32 %5326, -12
+  br i1 %5327, label %5328, label %JS_FreeValue.exit4183
 
-5330:                                             ; preds = %5325
-  %5331 = inttoptr i64 %5326 to ptr
-  %5332 = load i32, ptr %5331, align 4
-  %5333 = add i32 %5332, -1
-  store i32 %5333, ptr %5331, align 4
-  %5334 = icmp slt i32 %5333, 1
-  br i1 %5334, label %5335, label %JS_FreeValue.exit4183
+5328:                                             ; preds = %5323
+  %5329 = inttoptr i64 %5324 to ptr
+  %5330 = load i32, ptr %5329, align 4
+  %5331 = add i32 %5330, -1
+  store i32 %5331, ptr %5329, align 4
+  %5332 = icmp slt i32 %5331, 1
+  br i1 %5332, label %5333, label %JS_FreeValue.exit4183
 
-5335:                                             ; preds = %5330
-  %5336 = load ptr, ptr %237, align 8
-  call void @__JS_FreeValueRT(ptr noundef %5336, i64 %5326, i64 %5327)
+5333:                                             ; preds = %5328
+  %5334 = load ptr, ptr %237, align 8
+  call void @__JS_FreeValueRT(ptr noundef %5334, i64 %5324, i64 %5325)
   br label %JS_FreeValue.exit4183
 
-JS_FreeValue.exit4183:                            ; preds = %5325, %5330, %5335
-  %5337 = load i64, ptr %5252, align 8
-  %5338 = load i64, ptr %5255, align 8
-  %5339 = trunc i64 %5338 to i32
-  %5340 = icmp ugt i32 %5339, -12
-  br i1 %5340, label %5341, label %JS_FreeValue.exit4184
+JS_FreeValue.exit4183:                            ; preds = %5323, %5328, %5333
+  %5335 = load i64, ptr %5250, align 8
+  %5336 = load i64, ptr %5253, align 8
+  %5337 = trunc i64 %5336 to i32
+  %5338 = icmp ugt i32 %5337, -12
+  br i1 %5338, label %5339, label %JS_FreeValue.exit4184
 
-5341:                                             ; preds = %JS_FreeValue.exit4183
-  %5342 = inttoptr i64 %5337 to ptr
-  %5343 = load i32, ptr %5342, align 4
-  %5344 = add i32 %5343, -1
-  store i32 %5344, ptr %5342, align 4
-  %5345 = icmp slt i32 %5344, 1
-  br i1 %5345, label %5346, label %JS_FreeValue.exit4184
+5339:                                             ; preds = %JS_FreeValue.exit4183
+  %5340 = inttoptr i64 %5335 to ptr
+  %5341 = load i32, ptr %5340, align 4
+  %5342 = add i32 %5341, -1
+  store i32 %5342, ptr %5340, align 4
+  %5343 = icmp slt i32 %5342, 1
+  br i1 %5343, label %5344, label %JS_FreeValue.exit4184
 
-5346:                                             ; preds = %5341
-  %5347 = load ptr, ptr %237, align 8
-  call void @__JS_FreeValueRT(ptr noundef %5347, i64 %5337, i64 %5338)
+5344:                                             ; preds = %5339
+  %5345 = load ptr, ptr %237, align 8
+  call void @__JS_FreeValueRT(ptr noundef %5345, i64 %5335, i64 %5336)
   br label %JS_FreeValue.exit4184
 
-JS_FreeValue.exit4184:                            ; preds = %JS_FreeValue.exit4183, %5341, %5346
-  %5348 = load i64, ptr %5253, align 8
-  %5349 = load i64, ptr %5258, align 8
-  %5350 = trunc i64 %5349 to i32
-  %5351 = icmp ugt i32 %5350, -12
-  br i1 %5351, label %5352, label %JS_FreeValue.exit4185
+JS_FreeValue.exit4184:                            ; preds = %JS_FreeValue.exit4183, %5339, %5344
+  %5346 = load i64, ptr %5251, align 8
+  %5347 = load i64, ptr %5256, align 8
+  %5348 = trunc i64 %5347 to i32
+  %5349 = icmp ugt i32 %5348, -12
+  br i1 %5349, label %5350, label %JS_FreeValue.exit4185
 
-5352:                                             ; preds = %JS_FreeValue.exit4184
-  %5353 = inttoptr i64 %5348 to ptr
-  %5354 = load i32, ptr %5353, align 4
-  %5355 = add i32 %5354, -1
-  store i32 %5355, ptr %5353, align 4
-  %5356 = icmp slt i32 %5355, 1
-  br i1 %5356, label %5357, label %JS_FreeValue.exit4185
+5350:                                             ; preds = %JS_FreeValue.exit4184
+  %5351 = inttoptr i64 %5346 to ptr
+  %5352 = load i32, ptr %5351, align 4
+  %5353 = add i32 %5352, -1
+  store i32 %5353, ptr %5351, align 4
+  %5354 = icmp slt i32 %5353, 1
+  br i1 %5354, label %5355, label %JS_FreeValue.exit4185
 
-5357:                                             ; preds = %5352
-  %5358 = load ptr, ptr %237, align 8
-  call void @__JS_FreeValueRT(ptr noundef %5358, i64 %5348, i64 %5349)
+5355:                                             ; preds = %5350
+  %5356 = load ptr, ptr %237, align 8
+  call void @__JS_FreeValueRT(ptr noundef %5356, i64 %5346, i64 %5347)
   br label %JS_FreeValue.exit4185
 
-JS_FreeValue.exit4185:                            ; preds = %JS_FreeValue.exit4184, %5352, %5357
-  store i64 %5261, ptr %5253, align 8
-  store i64 %5262, ptr %5258, align 8
-  %5359 = getelementptr i8, ptr %.23330, i64 1
+JS_FreeValue.exit4185:                            ; preds = %JS_FreeValue.exit4184, %5350, %5355
+  store i64 %5259, ptr %5251, align 8
+  store i64 %5260, ptr %5256, align 8
+  %5357 = getelementptr i8, ptr %.23330, i64 1
   br label %.backedge4994.backedge
 
-5360:                                             ; preds = %.backedge4994
-  %5361 = getelementptr i8, ptr %.23354, i64 -48
-  %5362 = getelementptr i8, ptr %.23354, i64 -32
-  %5363 = getelementptr i8, ptr %.23354, i64 -16
-  %5364 = load i64, ptr %5361, align 8
-  %5365 = getelementptr i8, ptr %.23354, i64 -40
-  %5366 = load i64, ptr %5365, align 8
-  %5367 = load i64, ptr %5362, align 8
-  %5368 = getelementptr i8, ptr %.23354, i64 -24
-  %5369 = load i64, ptr %5368, align 8
-  %.val4626 = load i64, ptr %5363, align 8
-  %5370 = getelementptr i8, ptr %.23354, i64 -8
-  %.val4627 = load i64, ptr %5370, align 8
-  %5371 = call fastcc i32 @JS_SetPropertyValue(ptr noundef %.1, i64 %5364, i64 %5366, i64 %5367, i64 %5369, i64 %.val4626, i64 %.val4627, i32 noundef 32768)
-  %5372 = load i64, ptr %5361, align 8
-  %5373 = load i64, ptr %5365, align 8
-  %5374 = trunc i64 %5373 to i32
-  %5375 = icmp ugt i32 %5374, -12
-  br i1 %5375, label %5376, label %JS_FreeValue.exit4186
+5358:                                             ; preds = %.backedge4994
+  %5359 = getelementptr i8, ptr %.23354, i64 -48
+  %5360 = getelementptr i8, ptr %.23354, i64 -32
+  %5361 = getelementptr i8, ptr %.23354, i64 -16
+  %5362 = load i64, ptr %5359, align 8
+  %5363 = getelementptr i8, ptr %.23354, i64 -40
+  %5364 = load i64, ptr %5363, align 8
+  %5365 = load i64, ptr %5360, align 8
+  %5366 = getelementptr i8, ptr %.23354, i64 -24
+  %5367 = load i64, ptr %5366, align 8
+  %.val4626 = load i64, ptr %5361, align 8
+  %5368 = getelementptr i8, ptr %.23354, i64 -8
+  %.val4627 = load i64, ptr %5368, align 8
+  %5369 = call fastcc i32 @JS_SetPropertyValue(ptr noundef %.1, i64 %5362, i64 %5364, i64 %5365, i64 %5367, i64 %.val4626, i64 %.val4627, i32 noundef 32768)
+  %5370 = load i64, ptr %5359, align 8
+  %5371 = load i64, ptr %5363, align 8
+  %5372 = trunc i64 %5371 to i32
+  %5373 = icmp ugt i32 %5372, -12
+  br i1 %5373, label %5374, label %JS_FreeValue.exit4186
 
-5376:                                             ; preds = %5360
-  %5377 = inttoptr i64 %5372 to ptr
-  %5378 = load i32, ptr %5377, align 4
-  %5379 = add i32 %5378, -1
-  store i32 %5379, ptr %5377, align 4
-  %5380 = icmp slt i32 %5379, 1
-  br i1 %5380, label %5381, label %JS_FreeValue.exit4186
+5374:                                             ; preds = %5358
+  %5375 = inttoptr i64 %5370 to ptr
+  %5376 = load i32, ptr %5375, align 4
+  %5377 = add i32 %5376, -1
+  store i32 %5377, ptr %5375, align 4
+  %5378 = icmp slt i32 %5377, 1
+  br i1 %5378, label %5379, label %JS_FreeValue.exit4186
 
-5381:                                             ; preds = %5376
-  %5382 = load ptr, ptr %237, align 8
-  call void @__JS_FreeValueRT(ptr noundef %5382, i64 %5372, i64 %5373)
+5379:                                             ; preds = %5374
+  %5380 = load ptr, ptr %237, align 8
+  call void @__JS_FreeValueRT(ptr noundef %5380, i64 %5370, i64 %5371)
   br label %JS_FreeValue.exit4186
 
-JS_FreeValue.exit4186:                            ; preds = %5360, %5376, %5381
-  %5383 = icmp slt i32 %5371, 0
-  br i1 %5383, label %JS_FreeValue.exit3739.loopexit, label %5384
+JS_FreeValue.exit4186:                            ; preds = %5358, %5374, %5379
+  %5381 = icmp slt i32 %5369, 0
+  br i1 %5381, label %JS_FreeValue.exit3739.loopexit, label %5382
 
-5384:                                             ; preds = %JS_FreeValue.exit4186
-  %5385 = getelementptr i8, ptr %.23330, i64 1
+5382:                                             ; preds = %JS_FreeValue.exit4186
+  %5383 = getelementptr i8, ptr %.23330, i64 1
   br label %.backedge4994.backedge
 
-5386:                                             ; preds = %.backedge4994
-  %5387 = getelementptr i8, ptr %.23354, i64 -48
-  %5388 = getelementptr i8, ptr %.23354, i64 -40
-  %5389 = load i64, ptr %5388, align 8
-  %5390 = and i64 %5389, 4294967295
-  %.not4929 = icmp eq i64 %5390, 3
+5384:                                             ; preds = %.backedge4994
+  %5385 = getelementptr i8, ptr %.23354, i64 -48
+  %5386 = getelementptr i8, ptr %.23354, i64 -40
+  %5387 = load i64, ptr %5386, align 8
+  %5388 = and i64 %5387, 4294967295
+  %.not4929 = icmp eq i64 %5388, 3
   %.1.val3672 = load ptr, ptr %237, align 8
-  %5391 = getelementptr i8, ptr %.1.val3672, i64 248
-  %.1.val3672.val = load ptr, ptr %5391, align 8
+  %5389 = getelementptr i8, ptr %.1.val3672, i64 248
+  %.1.val3672.val = load ptr, ptr %5389, align 8
   %.not.i4187 = icmp eq ptr %.1.val3672.val, null
-  br i1 %.not4929, label %5392, label %5411
+  br i1 %.not4929, label %5390, label %5409
 
-5392:                                             ; preds = %5386
+5390:                                             ; preds = %5384
   br i1 %.not.i4187, label %is_strict_mode.exit.thread, label %is_strict_mode.exit
 
-is_strict_mode.exit:                              ; preds = %5392
-  %5393 = getelementptr inbounds i8, ptr %.1.val3672.val, i64 68
-  %5394 = load i32, ptr %5393, align 4
-  %5395 = and i32 %5394, 1
-  %.not3559 = icmp eq i32 %5395, 0
-  br i1 %.not3559, label %is_strict_mode.exit.thread, label %5396
+is_strict_mode.exit:                              ; preds = %5390
+  %5391 = getelementptr inbounds i8, ptr %.1.val3672.val, i64 68
+  %5392 = load i32, ptr %5391, align 4
+  %5393 = and i32 %5392, 1
+  %.not3559 = icmp eq i32 %5393, 0
+  br i1 %.not3559, label %is_strict_mode.exit.thread, label %5394
 
-5396:                                             ; preds = %is_strict_mode.exit
-  %5397 = getelementptr i8, ptr %.23354, i64 -32
+5394:                                             ; preds = %is_strict_mode.exit
+  %5395 = getelementptr i8, ptr %.23354, i64 -32
+  %5396 = load i64, ptr %5395, align 8
+  %5397 = getelementptr i8, ptr %.23354, i64 -24
   %5398 = load i64, ptr %5397, align 8
-  %5399 = getelementptr i8, ptr %.23354, i64 -24
-  %5400 = load i64, ptr %5399, align 8
-  %5401 = call i32 @JS_ValueToAtom(ptr noundef nonnull %.1, i64 %5398, i64 %5400)
-  %.not3560 = icmp eq i32 %5401, 0
-  br i1 %.not3560, label %JS_FreeValue.exit3739, label %5402
+  %5399 = call i32 @JS_ValueToAtom(ptr noundef nonnull %.1, i64 %5396, i64 %5398)
+  %.not3560 = icmp eq i32 %5399, 0
+  br i1 %.not3560, label %JS_FreeValue.exit3739, label %5400
 
-5402:                                             ; preds = %5396
-  call fastcc void @JS_ThrowReferenceErrorNotDefined(ptr noundef nonnull %.1, i32 noundef %5401)
-  call void @JS_FreeAtom(ptr noundef nonnull %.1, i32 noundef %5401)
+5400:                                             ; preds = %5394
+  call fastcc void @JS_ThrowReferenceErrorNotDefined(ptr noundef nonnull %.1, i32 noundef %5399)
+  call void @JS_FreeAtom(ptr noundef nonnull %.1, i32 noundef %5399)
   br label %JS_FreeValue.exit3739
 
-is_strict_mode.exit.thread:                       ; preds = %5392, %is_strict_mode.exit
-  %5403 = load i64, ptr %250, align 8
-  %5404 = load i64, ptr %251, align 8
-  %5405 = trunc i64 %5404 to i32
-  %5406 = icmp ugt i32 %5405, -12
-  br i1 %5406, label %5407, label %JS_DupValue.exit4190
+is_strict_mode.exit.thread:                       ; preds = %5390, %is_strict_mode.exit
+  %5401 = load i64, ptr %250, align 8
+  %5402 = load i64, ptr %251, align 8
+  %5403 = trunc i64 %5402 to i32
+  %5404 = icmp ugt i32 %5403, -12
+  br i1 %5404, label %5405, label %JS_DupValue.exit4190
 
-5407:                                             ; preds = %is_strict_mode.exit.thread
-  %5408 = inttoptr i64 %5403 to ptr
-  %5409 = load i32, ptr %5408, align 4
-  %5410 = add i32 %5409, 1
-  store i32 %5410, ptr %5408, align 4
+5405:                                             ; preds = %is_strict_mode.exit.thread
+  %5406 = inttoptr i64 %5401 to ptr
+  %5407 = load i32, ptr %5406, align 4
+  %5408 = add i32 %5407, 1
+  store i32 %5408, ptr %5406, align 4
   br label %JS_DupValue.exit4190
 
-JS_DupValue.exit4190:                             ; preds = %is_strict_mode.exit.thread, %5407
-  store i64 %5403, ptr %5387, align 8
-  store i64 %5404, ptr %5388, align 8
-  br label %5415
+JS_DupValue.exit4190:                             ; preds = %is_strict_mode.exit.thread, %5405
+  store i64 %5401, ptr %5385, align 8
+  store i64 %5402, ptr %5386, align 8
+  br label %5413
 
-5411:                                             ; preds = %5386
+5409:                                             ; preds = %5384
   br i1 %.not.i4187, label %is_strict_mode.exit4192.thread, label %is_strict_mode.exit4192
 
-is_strict_mode.exit4192:                          ; preds = %5411
-  %5412 = getelementptr inbounds i8, ptr %.1.val3672.val, i64 68
-  %5413 = load i32, ptr %5412, align 4
-  %.fr4930 = freeze i32 %5413
-  %5414 = and i32 %.fr4930, 1
-  %.not3558 = icmp eq i32 %5414, 0
-  br i1 %.not3558, label %is_strict_mode.exit4192.thread, label %5415
+is_strict_mode.exit4192:                          ; preds = %5409
+  %5410 = getelementptr inbounds i8, ptr %.1.val3672.val, i64 68
+  %5411 = load i32, ptr %5410, align 4
+  %.fr4930 = freeze i32 %5411
+  %5412 = and i32 %.fr4930, 1
+  %.not3558 = icmp eq i32 %5412, 0
+  br i1 %.not3558, label %is_strict_mode.exit4192.thread, label %5413
 
-is_strict_mode.exit4192.thread:                   ; preds = %5411, %is_strict_mode.exit4192
-  br label %5415
+is_strict_mode.exit4192.thread:                   ; preds = %5409, %is_strict_mode.exit4192
+  br label %5413
 
-5415:                                             ; preds = %is_strict_mode.exit4192.thread, %is_strict_mode.exit4192, %JS_DupValue.exit4190
-  %5416 = phi i64 [ %5404, %JS_DupValue.exit4190 ], [ %5389, %is_strict_mode.exit4192.thread ], [ %5389, %is_strict_mode.exit4192 ]
+5413:                                             ; preds = %is_strict_mode.exit4192.thread, %is_strict_mode.exit4192, %JS_DupValue.exit4190
+  %5414 = phi i64 [ %5402, %JS_DupValue.exit4190 ], [ %5387, %is_strict_mode.exit4192.thread ], [ %5387, %is_strict_mode.exit4192 ]
   %.03379 = phi i32 [ 32768, %JS_DupValue.exit4190 ], [ 32768, %is_strict_mode.exit4192.thread ], [ 98304, %is_strict_mode.exit4192 ]
-  %5417 = getelementptr i8, ptr %.23354, i64 -32
-  %5418 = getelementptr i8, ptr %.23354, i64 -16
-  %5419 = load i64, ptr %5387, align 8
-  %5420 = load i64, ptr %5417, align 8
-  %5421 = getelementptr i8, ptr %.23354, i64 -24
-  %5422 = load i64, ptr %5421, align 8
-  %.val4624 = load i64, ptr %5418, align 8
-  %5423 = getelementptr i8, ptr %.23354, i64 -8
-  %.val4625 = load i64, ptr %5423, align 8
-  %5424 = call fastcc i32 @JS_SetPropertyValue(ptr noundef nonnull %.1, i64 %5419, i64 %5416, i64 %5420, i64 %5422, i64 %.val4624, i64 %.val4625, i32 noundef %.03379)
-  %5425 = load i64, ptr %5387, align 8
-  %5426 = load i64, ptr %5388, align 8
-  %5427 = trunc i64 %5426 to i32
-  %5428 = icmp ugt i32 %5427, -12
-  br i1 %5428, label %5429, label %JS_FreeValue.exit4193
+  %5415 = getelementptr i8, ptr %.23354, i64 -32
+  %5416 = getelementptr i8, ptr %.23354, i64 -16
+  %5417 = load i64, ptr %5385, align 8
+  %5418 = load i64, ptr %5415, align 8
+  %5419 = getelementptr i8, ptr %.23354, i64 -24
+  %5420 = load i64, ptr %5419, align 8
+  %.val4624 = load i64, ptr %5416, align 8
+  %5421 = getelementptr i8, ptr %.23354, i64 -8
+  %.val4625 = load i64, ptr %5421, align 8
+  %5422 = call fastcc i32 @JS_SetPropertyValue(ptr noundef nonnull %.1, i64 %5417, i64 %5414, i64 %5418, i64 %5420, i64 %.val4624, i64 %.val4625, i32 noundef %.03379)
+  %5423 = load i64, ptr %5385, align 8
+  %5424 = load i64, ptr %5386, align 8
+  %5425 = trunc i64 %5424 to i32
+  %5426 = icmp ugt i32 %5425, -12
+  br i1 %5426, label %5427, label %JS_FreeValue.exit4193
 
-5429:                                             ; preds = %5415
-  %5430 = inttoptr i64 %5425 to ptr
-  %5431 = load i32, ptr %5430, align 4
-  %5432 = add i32 %5431, -1
-  store i32 %5432, ptr %5430, align 4
-  %5433 = icmp slt i32 %5432, 1
-  br i1 %5433, label %5434, label %JS_FreeValue.exit4193
+5427:                                             ; preds = %5413
+  %5428 = inttoptr i64 %5423 to ptr
+  %5429 = load i32, ptr %5428, align 4
+  %5430 = add i32 %5429, -1
+  store i32 %5430, ptr %5428, align 4
+  %5431 = icmp slt i32 %5430, 1
+  br i1 %5431, label %5432, label %JS_FreeValue.exit4193
 
-5434:                                             ; preds = %5429
-  %5435 = load ptr, ptr %237, align 8
-  call void @__JS_FreeValueRT(ptr noundef %5435, i64 %5425, i64 %5426)
+5432:                                             ; preds = %5427
+  %5433 = load ptr, ptr %237, align 8
+  call void @__JS_FreeValueRT(ptr noundef %5433, i64 %5423, i64 %5424)
   br label %JS_FreeValue.exit4193
 
-JS_FreeValue.exit4193:                            ; preds = %5415, %5429, %5434
-  %5436 = icmp slt i32 %5424, 0
-  br i1 %5436, label %JS_FreeValue.exit3739.loopexit, label %5437
+JS_FreeValue.exit4193:                            ; preds = %5413, %5427, %5432
+  %5434 = icmp slt i32 %5422, 0
+  br i1 %5434, label %JS_FreeValue.exit3739.loopexit, label %5435
 
-5437:                                             ; preds = %JS_FreeValue.exit4193
-  %5438 = getelementptr i8, ptr %.23330, i64 1
+5435:                                             ; preds = %JS_FreeValue.exit4193
+  %5436 = getelementptr i8, ptr %.23330, i64 1
   br label %.backedge4994.backedge
 
-5439:                                             ; preds = %.backedge4994
-  %5440 = getelementptr i8, ptr %.23354, i64 -48
-  %5441 = getelementptr i8, ptr %.23354, i64 -40
-  %5442 = load i64, ptr %5441, align 8
-  %5443 = and i64 %5442, 4294967295
-  %.not3547 = icmp eq i64 %5443, 4294967295
-  br i1 %.not3547, label %5446, label %5444
+5437:                                             ; preds = %.backedge4994
+  %5438 = getelementptr i8, ptr %.23354, i64 -48
+  %5439 = getelementptr i8, ptr %.23354, i64 -40
+  %5440 = load i64, ptr %5439, align 8
+  %5441 = and i64 %5440, 4294967295
+  %.not3547 = icmp eq i64 %5441, 4294967295
+  br i1 %.not3547, label %5444, label %5442
 
-5444:                                             ; preds = %5439
-  %5445 = call { i64, i64 } (ptr, ptr, ...) @JS_ThrowTypeError(ptr noundef %.1, ptr noundef nonnull @.str.52)
+5442:                                             ; preds = %5437
+  %5443 = call { i64, i64 } (ptr, ptr, ...) @JS_ThrowTypeError(ptr noundef %.1, ptr noundef nonnull @.str.52)
   br label %JS_FreeValue.exit3739
 
-5446:                                             ; preds = %5439
-  %5447 = getelementptr i8, ptr %.23354, i64 -32
+5444:                                             ; preds = %5437
+  %5445 = getelementptr i8, ptr %.23354, i64 -32
+  %5446 = load i64, ptr %5445, align 8
+  %5447 = getelementptr i8, ptr %.23354, i64 -24
   %5448 = load i64, ptr %5447, align 8
-  %5449 = getelementptr i8, ptr %.23354, i64 -24
-  %5450 = load i64, ptr %5449, align 8
-  %5451 = call i32 @JS_ValueToAtom(ptr noundef %.1, i64 %5448, i64 %5450)
-  %5452 = icmp eq i32 %5451, 0
-  br i1 %5452, label %JS_FreeValue.exit3739.loopexit, label %5453
+  %5449 = call i32 @JS_ValueToAtom(ptr noundef %.1, i64 %5446, i64 %5448)
+  %5450 = icmp eq i32 %5449, 0
+  br i1 %5450, label %JS_FreeValue.exit3739.loopexit, label %5451
 
-5453:                                             ; preds = %5446
-  %5454 = getelementptr i8, ptr %.23354, i64 -16
-  %5455 = getelementptr i8, ptr %.23354, i64 -64
-  %5456 = load i64, ptr %5440, align 8
-  %5457 = load i64, ptr %5441, align 8
-  %5458 = load i64, ptr %5454, align 8
-  %5459 = getelementptr i8, ptr %.23354, i64 -8
-  %5460 = load i64, ptr %5459, align 8
-  %5461 = call i32 @JS_SetPropertyInternal(ptr noundef %.1, i64 %5456, i64 %5457, i32 noundef %5451, i64 %5458, i64 %5460, ptr noundef byval(%struct.JSValue) align 8 %5455, i32 noundef 32768)
-  %5462 = icmp sgt i32 %5451, 226
-  br i1 %5462, label %5463, label %JS_FreeAtom.exit4202
+5451:                                             ; preds = %5444
+  %5452 = getelementptr i8, ptr %.23354, i64 -16
+  %5453 = getelementptr i8, ptr %.23354, i64 -64
+  %5454 = load i64, ptr %5438, align 8
+  %5455 = load i64, ptr %5439, align 8
+  %5456 = load i64, ptr %5452, align 8
+  %5457 = getelementptr i8, ptr %.23354, i64 -8
+  %5458 = load i64, ptr %5457, align 8
+  %5459 = call i32 @JS_SetPropertyInternal(ptr noundef %.1, i64 %5454, i64 %5455, i32 noundef %5449, i64 %5456, i64 %5458, ptr noundef byval(%struct.JSValue) align 8 %5453, i32 noundef 32768)
+  %5460 = icmp sgt i32 %5449, 226
+  br i1 %5460, label %5461, label %JS_FreeAtom.exit4202
 
-5463:                                             ; preds = %5453
-  %5464 = load ptr, ptr %237, align 8
-  %5465 = getelementptr inbounds i8, ptr %5464, i64 96
-  %5466 = load ptr, ptr %5465, align 8
-  %5467 = zext nneg i32 %5451 to i64
-  %5468 = getelementptr ptr, ptr %5466, i64 %5467
-  %5469 = load ptr, ptr %5468, align 8
-  %5470 = load i32, ptr %5469, align 4
-  %5471 = add i32 %5470, -1
-  store i32 %5471, ptr %5469, align 4
-  %5472 = icmp sgt i32 %5471, 0
-  br i1 %5472, label %JS_FreeAtom.exit4202, label %5473
+5461:                                             ; preds = %5451
+  %5462 = load ptr, ptr %237, align 8
+  %5463 = getelementptr inbounds i8, ptr %5462, i64 96
+  %5464 = load ptr, ptr %5463, align 8
+  %5465 = zext nneg i32 %5449 to i64
+  %5466 = getelementptr ptr, ptr %5464, i64 %5465
+  %5467 = load ptr, ptr %5466, align 8
+  %5468 = load i32, ptr %5467, align 4
+  %5469 = add i32 %5468, -1
+  store i32 %5469, ptr %5467, align 4
+  %5470 = icmp sgt i32 %5469, 0
+  br i1 %5470, label %JS_FreeAtom.exit4202, label %5471
 
-5473:                                             ; preds = %5463
-  %5474 = getelementptr inbounds i8, ptr %5469, i64 4
-  %5475 = load i64, ptr %5474, align 4
-  %.not.i.i.i4194 = icmp ugt i64 %5475, -4611686018427387905
-  br i1 %.not.i.i.i4194, label %._crit_edge.i.i.i4200, label %5478
+5471:                                             ; preds = %5461
+  %5472 = getelementptr inbounds i8, ptr %5467, i64 4
+  %5473 = load i64, ptr %5472, align 4
+  %.not.i.i.i4194 = icmp ugt i64 %5473, -4611686018427387905
+  br i1 %.not.i.i.i4194, label %._crit_edge.i.i.i4200, label %5476
 
-._crit_edge.i.i.i4200:                            ; preds = %5473
-  %5476 = getelementptr inbounds i8, ptr %5469, i64 12
-  %5477 = load i32, ptr %5476, align 4
-  %.pre.i.i.i4201 = zext i32 %5477 to i64
+._crit_edge.i.i.i4200:                            ; preds = %5471
+  %5474 = getelementptr inbounds i8, ptr %5467, i64 12
+  %5475 = load i32, ptr %5474, align 4
+  %.pre.i.i.i4201 = zext i32 %5475 to i64
   br label %JS_FreeAtomStruct.exit.i.i4197
 
-5478:                                             ; preds = %5473
-  %5479 = lshr i64 %5475, 32
-  %5480 = trunc nuw i64 %5479 to i32
-  %5481 = and i32 %5480, 1073741823
-  %5482 = getelementptr inbounds i8, ptr %5464, i64 72
-  %5483 = load i32, ptr %5482, align 8
-  %5484 = add i32 %5483, -1
-  %5485 = and i32 %5481, %5484
-  %5486 = getelementptr inbounds i8, ptr %5464, i64 88
-  %5487 = load ptr, ptr %5486, align 8
-  %5488 = zext nneg i32 %5485 to i64
-  %5489 = getelementptr i32, ptr %5487, i64 %5488
-  %5490 = load i32, ptr %5489, align 4
-  %5491 = load ptr, ptr %5465, align 8
-  %5492 = zext i32 %5490 to i64
-  %5493 = getelementptr ptr, ptr %5491, i64 %5492
-  %5494 = load ptr, ptr %5493, align 8
-  %5495 = icmp eq ptr %5494, %5469
-  br i1 %5495, label %5496, label %.preheader.i.i.i4195
+5476:                                             ; preds = %5471
+  %5477 = lshr i64 %5473, 32
+  %5478 = trunc nuw i64 %5477 to i32
+  %5479 = and i32 %5478, 1073741823
+  %5480 = getelementptr inbounds i8, ptr %5462, i64 72
+  %5481 = load i32, ptr %5480, align 8
+  %5482 = add i32 %5481, -1
+  %5483 = and i32 %5479, %5482
+  %5484 = getelementptr inbounds i8, ptr %5462, i64 88
+  %5485 = load ptr, ptr %5484, align 8
+  %5486 = zext nneg i32 %5483 to i64
+  %5487 = getelementptr i32, ptr %5485, i64 %5486
+  %5488 = load i32, ptr %5487, align 4
+  %5489 = load ptr, ptr %5463, align 8
+  %5490 = zext i32 %5488 to i64
+  %5491 = getelementptr ptr, ptr %5489, i64 %5490
+  %5492 = load ptr, ptr %5491, align 8
+  %5493 = icmp eq ptr %5492, %5467
+  br i1 %5493, label %5494, label %.preheader.i.i.i4195
 
-5496:                                             ; preds = %5478
-  %5497 = getelementptr inbounds i8, ptr %5494, i64 12
+5494:                                             ; preds = %5476
+  %5495 = getelementptr inbounds i8, ptr %5492, i64 12
+  %5496 = load i32, ptr %5495, align 4
+  store i32 %5496, ptr %5487, align 4
+  br label %JS_FreeAtomStruct.exit.i.i4197
+
+.preheader.i.i.i4195:                             ; preds = %5476, %.preheader.i.i.i4195
+  %.028.i.i.i4196 = phi ptr [ %5501, %.preheader.i.i.i4195 ], [ %5492, %5476 ]
+  %5497 = getelementptr inbounds i8, ptr %.028.i.i.i4196, i64 12
   %5498 = load i32, ptr %5497, align 4
-  store i32 %5498, ptr %5489, align 4
+  %5499 = zext i32 %5498 to i64
+  %5500 = getelementptr ptr, ptr %5489, i64 %5499
+  %5501 = load ptr, ptr %5500, align 8
+  %5502 = icmp eq ptr %5501, %5467
+  br i1 %5502, label %5503, label %.preheader.i.i.i4195
+
+5503:                                             ; preds = %.preheader.i.i.i4195
+  %5504 = getelementptr inbounds i8, ptr %.028.i.i.i4196, i64 12
+  %5505 = getelementptr inbounds i8, ptr %5501, i64 12
+  %5506 = load i32, ptr %5505, align 4
+  store i32 %5506, ptr %5504, align 4
   br label %JS_FreeAtomStruct.exit.i.i4197
 
-.preheader.i.i.i4195:                             ; preds = %5478, %.preheader.i.i.i4195
-  %.028.i.i.i4196 = phi ptr [ %5503, %.preheader.i.i.i4195 ], [ %5494, %5478 ]
-  %5499 = getelementptr inbounds i8, ptr %.028.i.i.i4196, i64 12
-  %5500 = load i32, ptr %5499, align 4
-  %5501 = zext i32 %5500 to i64
-  %5502 = getelementptr ptr, ptr %5491, i64 %5501
-  %5503 = load ptr, ptr %5502, align 8
-  %5504 = icmp eq ptr %5503, %5469
-  br i1 %5504, label %5505, label %.preheader.i.i.i4195
-
-5505:                                             ; preds = %.preheader.i.i.i4195
-  %5506 = getelementptr inbounds i8, ptr %.028.i.i.i4196, i64 12
-  %5507 = getelementptr inbounds i8, ptr %5503, i64 12
-  %5508 = load i32, ptr %5507, align 4
-  store i32 %5508, ptr %5506, align 4
-  br label %JS_FreeAtomStruct.exit.i.i4197
-
-JS_FreeAtomStruct.exit.i.i4197:                   ; preds = %5505, %5496, %._crit_edge.i.i.i4200
-  %.pre-phi.i.i.i4198 = phi i64 [ %.pre.i.i.i4201, %._crit_edge.i.i.i4200 ], [ %5492, %5496 ], [ %5501, %5505 ]
-  %.0.i.i.i4199 = phi i32 [ %5477, %._crit_edge.i.i.i4200 ], [ %5490, %5496 ], [ %5500, %5505 ]
-  %5509 = getelementptr inbounds i8, ptr %5464, i64 104
-  %5510 = load i32, ptr %5509, align 8
-  %5511 = zext i32 %5510 to i64
-  %5512 = shl nuw nsw i64 %5511, 1
-  %5513 = or disjoint i64 %5512, 1
-  %5514 = inttoptr i64 %5513 to ptr
-  %5515 = load ptr, ptr %5465, align 8
-  %5516 = getelementptr ptr, ptr %5515, i64 %.pre-phi.i.i.i4198
-  store ptr %5514, ptr %5516, align 8
-  store i32 %.0.i.i.i4199, ptr %5509, align 8
-  %5517 = getelementptr inbounds i8, ptr %5464, i64 8
-  %5518 = load ptr, ptr %5517, align 8
-  %5519 = getelementptr inbounds i8, ptr %5464, i64 32
-  call void %5518(ptr noundef nonnull %5519, ptr noundef nonnull %5469) #42
-  %5520 = getelementptr inbounds i8, ptr %5464, i64 76
-  %5521 = load i32, ptr %5520, align 4
-  %5522 = add i32 %5521, -1
-  store i32 %5522, ptr %5520, align 4
+JS_FreeAtomStruct.exit.i.i4197:                   ; preds = %5503, %5494, %._crit_edge.i.i.i4200
+  %.pre-phi.i.i.i4198 = phi i64 [ %.pre.i.i.i4201, %._crit_edge.i.i.i4200 ], [ %5490, %5494 ], [ %5499, %5503 ]
+  %.0.i.i.i4199 = phi i32 [ %5475, %._crit_edge.i.i.i4200 ], [ %5488, %5494 ], [ %5498, %5503 ]
+  %5507 = getelementptr inbounds i8, ptr %5462, i64 104
+  %5508 = load i32, ptr %5507, align 8
+  %5509 = zext i32 %5508 to i64
+  %5510 = shl nuw nsw i64 %5509, 1
+  %5511 = or disjoint i64 %5510, 1
+  %5512 = inttoptr i64 %5511 to ptr
+  %5513 = load ptr, ptr %5463, align 8
+  %5514 = getelementptr ptr, ptr %5513, i64 %.pre-phi.i.i.i4198
+  store ptr %5512, ptr %5514, align 8
+  store i32 %.0.i.i.i4199, ptr %5507, align 8
+  %5515 = getelementptr inbounds i8, ptr %5462, i64 8
+  %5516 = load ptr, ptr %5515, align 8
+  %5517 = getelementptr inbounds i8, ptr %5462, i64 32
+  call void %5516(ptr noundef nonnull %5517, ptr noundef nonnull %5467) #42
+  %5518 = getelementptr inbounds i8, ptr %5462, i64 76
+  %5519 = load i32, ptr %5518, align 4
+  %5520 = add i32 %5519, -1
+  store i32 %5520, ptr %5518, align 4
   br label %JS_FreeAtom.exit4202
 
-JS_FreeAtom.exit4202:                             ; preds = %5453, %5463, %JS_FreeAtomStruct.exit.i.i4197
-  %5523 = load i64, ptr %5455, align 8
-  %5524 = getelementptr i8, ptr %.23354, i64 -56
-  %5525 = load i64, ptr %5524, align 8
-  %5526 = trunc i64 %5525 to i32
-  %5527 = icmp ugt i32 %5526, -12
-  br i1 %5527, label %5528, label %JS_FreeValue.exit4203
+JS_FreeAtom.exit4202:                             ; preds = %5451, %5461, %JS_FreeAtomStruct.exit.i.i4197
+  %5521 = load i64, ptr %5453, align 8
+  %5522 = getelementptr i8, ptr %.23354, i64 -56
+  %5523 = load i64, ptr %5522, align 8
+  %5524 = trunc i64 %5523 to i32
+  %5525 = icmp ugt i32 %5524, -12
+  br i1 %5525, label %5526, label %JS_FreeValue.exit4203
 
-5528:                                             ; preds = %JS_FreeAtom.exit4202
-  %5529 = inttoptr i64 %5523 to ptr
-  %5530 = load i32, ptr %5529, align 4
-  %5531 = add i32 %5530, -1
-  store i32 %5531, ptr %5529, align 4
-  %5532 = icmp slt i32 %5531, 1
-  br i1 %5532, label %5533, label %JS_FreeValue.exit4203
+5526:                                             ; preds = %JS_FreeAtom.exit4202
+  %5527 = inttoptr i64 %5521 to ptr
+  %5528 = load i32, ptr %5527, align 4
+  %5529 = add i32 %5528, -1
+  store i32 %5529, ptr %5527, align 4
+  %5530 = icmp slt i32 %5529, 1
+  br i1 %5530, label %5531, label %JS_FreeValue.exit4203
 
-5533:                                             ; preds = %5528
-  %5534 = load ptr, ptr %237, align 8
-  call void @__JS_FreeValueRT(ptr noundef %5534, i64 %5523, i64 %5525)
+5531:                                             ; preds = %5526
+  %5532 = load ptr, ptr %237, align 8
+  call void @__JS_FreeValueRT(ptr noundef %5532, i64 %5521, i64 %5523)
   br label %JS_FreeValue.exit4203
 
-JS_FreeValue.exit4203:                            ; preds = %JS_FreeAtom.exit4202, %5528, %5533
-  %5535 = load i64, ptr %5440, align 8
-  %5536 = load i64, ptr %5441, align 8
-  %5537 = trunc i64 %5536 to i32
-  %5538 = icmp ugt i32 %5537, -12
-  br i1 %5538, label %5539, label %JS_FreeValue.exit4204
+JS_FreeValue.exit4203:                            ; preds = %JS_FreeAtom.exit4202, %5526, %5531
+  %5533 = load i64, ptr %5438, align 8
+  %5534 = load i64, ptr %5439, align 8
+  %5535 = trunc i64 %5534 to i32
+  %5536 = icmp ugt i32 %5535, -12
+  br i1 %5536, label %5537, label %JS_FreeValue.exit4204
 
-5539:                                             ; preds = %JS_FreeValue.exit4203
-  %5540 = inttoptr i64 %5535 to ptr
-  %5541 = load i32, ptr %5540, align 4
-  %5542 = add i32 %5541, -1
-  store i32 %5542, ptr %5540, align 4
-  %5543 = icmp slt i32 %5542, 1
-  br i1 %5543, label %5544, label %JS_FreeValue.exit4204
+5537:                                             ; preds = %JS_FreeValue.exit4203
+  %5538 = inttoptr i64 %5533 to ptr
+  %5539 = load i32, ptr %5538, align 4
+  %5540 = add i32 %5539, -1
+  store i32 %5540, ptr %5538, align 4
+  %5541 = icmp slt i32 %5540, 1
+  br i1 %5541, label %5542, label %JS_FreeValue.exit4204
 
-5544:                                             ; preds = %5539
-  %5545 = load ptr, ptr %237, align 8
-  call void @__JS_FreeValueRT(ptr noundef %5545, i64 %5535, i64 %5536)
+5542:                                             ; preds = %5537
+  %5543 = load ptr, ptr %237, align 8
+  call void @__JS_FreeValueRT(ptr noundef %5543, i64 %5533, i64 %5534)
   br label %JS_FreeValue.exit4204
 
-JS_FreeValue.exit4204:                            ; preds = %JS_FreeValue.exit4203, %5539, %5544
-  %5546 = load i64, ptr %5447, align 8
-  %5547 = load i64, ptr %5449, align 8
-  %5548 = trunc i64 %5547 to i32
-  %5549 = icmp ugt i32 %5548, -12
-  br i1 %5549, label %5550, label %JS_FreeValue.exit4205
+JS_FreeValue.exit4204:                            ; preds = %JS_FreeValue.exit4203, %5537, %5542
+  %5544 = load i64, ptr %5445, align 8
+  %5545 = load i64, ptr %5447, align 8
+  %5546 = trunc i64 %5545 to i32
+  %5547 = icmp ugt i32 %5546, -12
+  br i1 %5547, label %5548, label %JS_FreeValue.exit4205
 
-5550:                                             ; preds = %JS_FreeValue.exit4204
-  %5551 = inttoptr i64 %5546 to ptr
-  %5552 = load i32, ptr %5551, align 4
-  %5553 = add i32 %5552, -1
-  store i32 %5553, ptr %5551, align 4
-  %5554 = icmp slt i32 %5553, 1
-  br i1 %5554, label %5555, label %JS_FreeValue.exit4205
+5548:                                             ; preds = %JS_FreeValue.exit4204
+  %5549 = inttoptr i64 %5544 to ptr
+  %5550 = load i32, ptr %5549, align 4
+  %5551 = add i32 %5550, -1
+  store i32 %5551, ptr %5549, align 4
+  %5552 = icmp slt i32 %5551, 1
+  br i1 %5552, label %5553, label %JS_FreeValue.exit4205
 
-5555:                                             ; preds = %5550
-  %5556 = load ptr, ptr %237, align 8
-  call void @__JS_FreeValueRT(ptr noundef %5556, i64 %5546, i64 %5547)
+5553:                                             ; preds = %5548
+  %5554 = load ptr, ptr %237, align 8
+  call void @__JS_FreeValueRT(ptr noundef %5554, i64 %5544, i64 %5545)
   br label %JS_FreeValue.exit4205
 
-JS_FreeValue.exit4205:                            ; preds = %JS_FreeValue.exit4204, %5550, %5555
-  %5557 = icmp slt i32 %5461, 0
-  br i1 %5557, label %JS_FreeValue.exit3739.loopexit, label %5558
+JS_FreeValue.exit4205:                            ; preds = %JS_FreeValue.exit4204, %5548, %5553
+  %5555 = icmp slt i32 %5459, 0
+  br i1 %5555, label %JS_FreeValue.exit3739.loopexit, label %5556
 
-5558:                                             ; preds = %JS_FreeValue.exit4205
-  %5559 = getelementptr i8, ptr %.23330, i64 1
+5556:                                             ; preds = %JS_FreeValue.exit4205
+  %5557 = getelementptr i8, ptr %.23330, i64 1
   br label %.backedge4994.backedge
 
-5560:                                             ; preds = %.backedge4994
-  %5561 = getelementptr i8, ptr %.23354, i64 -48
-  %5562 = getelementptr i8, ptr %.23354, i64 -32
+5558:                                             ; preds = %.backedge4994
+  %5559 = getelementptr i8, ptr %.23354, i64 -48
+  %5560 = getelementptr i8, ptr %.23354, i64 -32
+  %5561 = load i64, ptr %5560, align 8
+  %5562 = getelementptr i8, ptr %.23354, i64 -24
   %5563 = load i64, ptr %5562, align 8
-  %5564 = getelementptr i8, ptr %.23354, i64 -24
-  %5565 = load i64, ptr %5564, align 8
-  %5566 = trunc i64 %5565 to i32
-  %5567 = icmp ugt i32 %5566, -12
-  br i1 %5567, label %5568, label %JS_DupValue.exit4208
+  %5564 = trunc i64 %5563 to i32
+  %5565 = icmp ugt i32 %5564, -12
+  br i1 %5565, label %5566, label %JS_DupValue.exit4208
 
-5568:                                             ; preds = %5560
-  %5569 = inttoptr i64 %5563 to ptr
-  %5570 = load i32, ptr %5569, align 4
-  %5571 = add i32 %5570, 1
-  store i32 %5571, ptr %5569, align 4
+5566:                                             ; preds = %5558
+  %5567 = inttoptr i64 %5561 to ptr
+  %5568 = load i32, ptr %5567, align 4
+  %5569 = add i32 %5568, 1
+  store i32 %5569, ptr %5567, align 4
   br label %JS_DupValue.exit4208
 
-JS_DupValue.exit4208:                             ; preds = %5560, %5568
-  %5572 = getelementptr i8, ptr %.23354, i64 -16
-  %5573 = load i64, ptr %5561, align 8
-  %5574 = getelementptr i8, ptr %.23354, i64 -40
-  %5575 = load i64, ptr %5574, align 8
-  %.sroa.04644.0.copyload = load i64, ptr %5572, align 1
+JS_DupValue.exit4208:                             ; preds = %5558, %5566
+  %5570 = getelementptr i8, ptr %.23354, i64 -16
+  %5571 = load i64, ptr %5559, align 8
+  %5572 = getelementptr i8, ptr %.23354, i64 -40
+  %5573 = load i64, ptr %5572, align 8
+  %.sroa.04644.0.copyload = load i64, ptr %5570, align 1
   %.sroa.54646.0..sroa_idx = getelementptr i8, ptr %.23354, i64 -8
   %.sroa.54646.0.copyload = load i64, ptr %.sroa.54646.0..sroa_idx, align 1
-  %5576 = call i32 @JS_ValueToAtom(ptr noundef %.1, i64 %5563, i64 %5565)
-  br i1 %5567, label %5577, label %JS_FreeValue.exit4522
+  %5574 = call i32 @JS_ValueToAtom(ptr noundef %.1, i64 %5561, i64 %5563)
+  br i1 %5565, label %5575, label %JS_FreeValue.exit4522
 
-5577:                                             ; preds = %JS_DupValue.exit4208
-  %5578 = inttoptr i64 %5563 to ptr
-  %5579 = load i32, ptr %5578, align 4
-  %5580 = add i32 %5579, -1
-  store i32 %5580, ptr %5578, align 4
-  %5581 = icmp slt i32 %5580, 1
-  br i1 %5581, label %5582, label %JS_FreeValue.exit4522
+5575:                                             ; preds = %JS_DupValue.exit4208
+  %5576 = inttoptr i64 %5561 to ptr
+  %5577 = load i32, ptr %5576, align 4
+  %5578 = add i32 %5577, -1
+  store i32 %5578, ptr %5576, align 4
+  %5579 = icmp slt i32 %5578, 1
+  br i1 %5579, label %5580, label %JS_FreeValue.exit4522
 
-5582:                                             ; preds = %5577
-  %5583 = load ptr, ptr %237, align 8
-  call void @__JS_FreeValueRT(ptr noundef %5583, i64 %5563, i64 %5565)
+5580:                                             ; preds = %5575
+  %5581 = load ptr, ptr %237, align 8
+  call void @__JS_FreeValueRT(ptr noundef %5581, i64 %5561, i64 %5563)
   br label %JS_FreeValue.exit4522
 
-JS_FreeValue.exit4522:                            ; preds = %JS_DupValue.exit4208, %5577, %5582
-  %5584 = icmp eq i32 %5576, 0
-  br i1 %5584, label %5585, label %JS_DefinePropertyValueValue.exit
+JS_FreeValue.exit4522:                            ; preds = %JS_DupValue.exit4208, %5575, %5580
+  %5582 = icmp eq i32 %5574, 0
+  br i1 %5582, label %5583, label %JS_DefinePropertyValueValue.exit
 
-5585:                                             ; preds = %JS_FreeValue.exit4522
-  %5586 = trunc i64 %.sroa.54646.0.copyload to i32
-  %5587 = icmp ugt i32 %5586, -12
-  br i1 %5587, label %5588, label %JS_FreeValue.exit3739
+5583:                                             ; preds = %JS_FreeValue.exit4522
+  %5584 = trunc i64 %.sroa.54646.0.copyload to i32
+  %5585 = icmp ugt i32 %5584, -12
+  br i1 %5585, label %5586, label %JS_FreeValue.exit3739
 
-5588:                                             ; preds = %5585
-  %5589 = inttoptr i64 %.sroa.04644.0.copyload to ptr
-  %5590 = load i32, ptr %5589, align 4
-  %5591 = add i32 %5590, -1
-  store i32 %5591, ptr %5589, align 4
-  %5592 = icmp slt i32 %5591, 1
-  br i1 %5592, label %5593, label %JS_FreeValue.exit3739
+5586:                                             ; preds = %5583
+  %5587 = inttoptr i64 %.sroa.04644.0.copyload to ptr
+  %5588 = load i32, ptr %5587, align 4
+  %5589 = add i32 %5588, -1
+  store i32 %5589, ptr %5587, align 4
+  %5590 = icmp slt i32 %5589, 1
+  br i1 %5590, label %5591, label %JS_FreeValue.exit3739
 
-5593:                                             ; preds = %5588
-  %5594 = load ptr, ptr %237, align 8
-  call void @__JS_FreeValueRT(ptr noundef %5594, i64 %.sroa.04644.0.copyload, i64 %.sroa.54646.0.copyload)
+5591:                                             ; preds = %5586
+  %5592 = load ptr, ptr %237, align 8
+  call void @__JS_FreeValueRT(ptr noundef %5592, i64 %.sroa.04644.0.copyload, i64 %.sroa.54646.0.copyload)
   br label %JS_FreeValue.exit3739
 
 JS_DefinePropertyValueValue.exit:                 ; preds = %JS_FreeValue.exit4522
@@ -43842,1527 +43840,1527 @@ JS_DefinePropertyValueValue.exit:                 ; preds = %JS_FreeValue.exit45
   store i64 3, ptr %315, align 8
   store i32 0, ptr %18, align 8
   store i64 3, ptr %316, align 8
-  %5595 = call i32 @JS_DefineProperty(ptr noundef %.1, i64 %5573, i64 %5575, i32 noundef %5576, i64 %.sroa.04644.0.copyload, i64 %.sroa.54646.0.copyload, ptr noundef nonnull byval(%struct.JSValue) align 8 %17, ptr noundef nonnull byval(%struct.JSValue) align 8 %18, i32 noundef 26375)
-  %5596 = trunc i64 %.sroa.54646.0.copyload to i32
-  %5597 = icmp ugt i32 %5596, -12
-  br i1 %5597, label %5598, label %JS_DefinePropertyValue.exit6588
+  %5593 = call i32 @JS_DefineProperty(ptr noundef %.1, i64 %5571, i64 %5573, i32 noundef %5574, i64 %.sroa.04644.0.copyload, i64 %.sroa.54646.0.copyload, ptr noundef nonnull byval(%struct.JSValue) align 8 %17, ptr noundef nonnull byval(%struct.JSValue) align 8 %18, i32 noundef 26375)
+  %5594 = trunc i64 %.sroa.54646.0.copyload to i32
+  %5595 = icmp ugt i32 %5594, -12
+  br i1 %5595, label %5596, label %JS_DefinePropertyValue.exit6585
 
-5598:                                             ; preds = %JS_DefinePropertyValueValue.exit
-  %5599 = inttoptr i64 %.sroa.04644.0.copyload to ptr
-  %5600 = load i32, ptr %5599, align 4
-  %5601 = add i32 %5600, -1
-  store i32 %5601, ptr %5599, align 4
-  %5602 = icmp slt i32 %5601, 1
-  br i1 %5602, label %5603, label %JS_DefinePropertyValue.exit6588
+5596:                                             ; preds = %JS_DefinePropertyValueValue.exit
+  %5597 = inttoptr i64 %.sroa.04644.0.copyload to ptr
+  %5598 = load i32, ptr %5597, align 4
+  %5599 = add i32 %5598, -1
+  store i32 %5599, ptr %5597, align 4
+  %5600 = icmp slt i32 %5599, 1
+  br i1 %5600, label %5601, label %JS_DefinePropertyValue.exit6585
 
-5603:                                             ; preds = %5598
-  %5604 = load ptr, ptr %237, align 8
-  call void @__JS_FreeValueRT(ptr noundef %5604, i64 %.sroa.04644.0.copyload, i64 %.sroa.54646.0.copyload)
-  br label %JS_DefinePropertyValue.exit6588
+5601:                                             ; preds = %5596
+  %5602 = load ptr, ptr %237, align 8
+  call void @__JS_FreeValueRT(ptr noundef %5602, i64 %.sroa.04644.0.copyload, i64 %.sroa.54646.0.copyload)
+  br label %JS_DefinePropertyValue.exit6585
 
-JS_DefinePropertyValue.exit6588:                  ; preds = %JS_DefinePropertyValueValue.exit, %5598, %5603
+JS_DefinePropertyValue.exit6585:                  ; preds = %JS_DefinePropertyValueValue.exit, %5596, %5601
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %17)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %18)
-  %5605 = icmp sgt i32 %5576, 226
-  br i1 %5605, label %5606, label %JS_FreeAtom.exit6597
+  %5603 = icmp sgt i32 %5574, 226
+  br i1 %5603, label %5604, label %JS_FreeAtom.exit6594
 
-5606:                                             ; preds = %JS_DefinePropertyValue.exit6588
-  %5607 = load ptr, ptr %237, align 8
-  %5608 = getelementptr inbounds i8, ptr %5607, i64 96
-  %5609 = load ptr, ptr %5608, align 8
-  %5610 = zext nneg i32 %5576 to i64
-  %5611 = getelementptr ptr, ptr %5609, i64 %5610
-  %5612 = load ptr, ptr %5611, align 8
-  %5613 = load i32, ptr %5612, align 4
-  %5614 = add i32 %5613, -1
-  store i32 %5614, ptr %5612, align 4
-  %5615 = icmp sgt i32 %5614, 0
-  br i1 %5615, label %JS_FreeAtom.exit6597, label %5616
+5604:                                             ; preds = %JS_DefinePropertyValue.exit6585
+  %5605 = load ptr, ptr %237, align 8
+  %5606 = getelementptr inbounds i8, ptr %5605, i64 96
+  %5607 = load ptr, ptr %5606, align 8
+  %5608 = zext nneg i32 %5574 to i64
+  %5609 = getelementptr ptr, ptr %5607, i64 %5608
+  %5610 = load ptr, ptr %5609, align 8
+  %5611 = load i32, ptr %5610, align 4
+  %5612 = add i32 %5611, -1
+  store i32 %5612, ptr %5610, align 4
+  %5613 = icmp sgt i32 %5612, 0
+  br i1 %5613, label %JS_FreeAtom.exit6594, label %5614
 
-5616:                                             ; preds = %5606
-  %5617 = getelementptr inbounds i8, ptr %5612, i64 4
-  %5618 = load i64, ptr %5617, align 4
-  %.not.i.i.i6589 = icmp ugt i64 %5618, -4611686018427387905
-  br i1 %.not.i.i.i6589, label %._crit_edge.i.i.i6595, label %5621
+5614:                                             ; preds = %5604
+  %5615 = getelementptr inbounds i8, ptr %5610, i64 4
+  %5616 = load i64, ptr %5615, align 4
+  %.not.i.i.i6586 = icmp ugt i64 %5616, -4611686018427387905
+  br i1 %.not.i.i.i6586, label %._crit_edge.i.i.i6592, label %5619
 
-._crit_edge.i.i.i6595:                            ; preds = %5616
-  %5619 = getelementptr inbounds i8, ptr %5612, i64 12
-  %5620 = load i32, ptr %5619, align 4
-  %.pre.i.i.i6596 = zext i32 %5620 to i64
-  br label %JS_FreeAtomStruct.exit.i.i6592
+._crit_edge.i.i.i6592:                            ; preds = %5614
+  %5617 = getelementptr inbounds i8, ptr %5610, i64 12
+  %5618 = load i32, ptr %5617, align 4
+  %.pre.i.i.i6593 = zext i32 %5618 to i64
+  br label %JS_FreeAtomStruct.exit.i.i6589
 
-5621:                                             ; preds = %5616
-  %5622 = lshr i64 %5618, 32
-  %5623 = trunc nuw i64 %5622 to i32
-  %5624 = and i32 %5623, 1073741823
-  %5625 = getelementptr inbounds i8, ptr %5607, i64 72
-  %5626 = load i32, ptr %5625, align 8
-  %5627 = add i32 %5626, -1
-  %5628 = and i32 %5624, %5627
-  %5629 = getelementptr inbounds i8, ptr %5607, i64 88
-  %5630 = load ptr, ptr %5629, align 8
-  %5631 = zext nneg i32 %5628 to i64
-  %5632 = getelementptr i32, ptr %5630, i64 %5631
-  %5633 = load i32, ptr %5632, align 4
-  %5634 = load ptr, ptr %5608, align 8
-  %5635 = zext i32 %5633 to i64
-  %5636 = getelementptr ptr, ptr %5634, i64 %5635
-  %5637 = load ptr, ptr %5636, align 8
-  %5638 = icmp eq ptr %5637, %5612
-  br i1 %5638, label %5639, label %.preheader.i.i.i6590
+5619:                                             ; preds = %5614
+  %5620 = lshr i64 %5616, 32
+  %5621 = trunc nuw i64 %5620 to i32
+  %5622 = and i32 %5621, 1073741823
+  %5623 = getelementptr inbounds i8, ptr %5605, i64 72
+  %5624 = load i32, ptr %5623, align 8
+  %5625 = add i32 %5624, -1
+  %5626 = and i32 %5622, %5625
+  %5627 = getelementptr inbounds i8, ptr %5605, i64 88
+  %5628 = load ptr, ptr %5627, align 8
+  %5629 = zext nneg i32 %5626 to i64
+  %5630 = getelementptr i32, ptr %5628, i64 %5629
+  %5631 = load i32, ptr %5630, align 4
+  %5632 = load ptr, ptr %5606, align 8
+  %5633 = zext i32 %5631 to i64
+  %5634 = getelementptr ptr, ptr %5632, i64 %5633
+  %5635 = load ptr, ptr %5634, align 8
+  %5636 = icmp eq ptr %5635, %5610
+  br i1 %5636, label %5637, label %.preheader.i.i.i6587
 
-5639:                                             ; preds = %5621
-  %5640 = getelementptr inbounds i8, ptr %5637, i64 12
+5637:                                             ; preds = %5619
+  %5638 = getelementptr inbounds i8, ptr %5635, i64 12
+  %5639 = load i32, ptr %5638, align 4
+  store i32 %5639, ptr %5630, align 4
+  br label %JS_FreeAtomStruct.exit.i.i6589
+
+.preheader.i.i.i6587:                             ; preds = %5619, %.preheader.i.i.i6587
+  %.028.i.i.i6588 = phi ptr [ %5644, %.preheader.i.i.i6587 ], [ %5635, %5619 ]
+  %5640 = getelementptr inbounds i8, ptr %.028.i.i.i6588, i64 12
   %5641 = load i32, ptr %5640, align 4
-  store i32 %5641, ptr %5632, align 4
-  br label %JS_FreeAtomStruct.exit.i.i6592
+  %5642 = zext i32 %5641 to i64
+  %5643 = getelementptr ptr, ptr %5632, i64 %5642
+  %5644 = load ptr, ptr %5643, align 8
+  %5645 = icmp eq ptr %5644, %5610
+  br i1 %5645, label %5646, label %.preheader.i.i.i6587
 
-.preheader.i.i.i6590:                             ; preds = %5621, %.preheader.i.i.i6590
-  %.028.i.i.i6591 = phi ptr [ %5646, %.preheader.i.i.i6590 ], [ %5637, %5621 ]
-  %5642 = getelementptr inbounds i8, ptr %.028.i.i.i6591, i64 12
-  %5643 = load i32, ptr %5642, align 4
-  %5644 = zext i32 %5643 to i64
-  %5645 = getelementptr ptr, ptr %5634, i64 %5644
-  %5646 = load ptr, ptr %5645, align 8
-  %5647 = icmp eq ptr %5646, %5612
-  br i1 %5647, label %5648, label %.preheader.i.i.i6590
+5646:                                             ; preds = %.preheader.i.i.i6587
+  %5647 = getelementptr inbounds i8, ptr %.028.i.i.i6588, i64 12
+  %5648 = getelementptr inbounds i8, ptr %5644, i64 12
+  %5649 = load i32, ptr %5648, align 4
+  store i32 %5649, ptr %5647, align 4
+  br label %JS_FreeAtomStruct.exit.i.i6589
 
-5648:                                             ; preds = %.preheader.i.i.i6590
-  %5649 = getelementptr inbounds i8, ptr %.028.i.i.i6591, i64 12
-  %5650 = getelementptr inbounds i8, ptr %5646, i64 12
-  %5651 = load i32, ptr %5650, align 4
-  store i32 %5651, ptr %5649, align 4
-  br label %JS_FreeAtomStruct.exit.i.i6592
+JS_FreeAtomStruct.exit.i.i6589:                   ; preds = %5646, %5637, %._crit_edge.i.i.i6592
+  %.pre-phi.i.i.i6590 = phi i64 [ %.pre.i.i.i6593, %._crit_edge.i.i.i6592 ], [ %5633, %5637 ], [ %5642, %5646 ]
+  %.0.i.i.i6591 = phi i32 [ %5618, %._crit_edge.i.i.i6592 ], [ %5631, %5637 ], [ %5641, %5646 ]
+  %5650 = getelementptr inbounds i8, ptr %5605, i64 104
+  %5651 = load i32, ptr %5650, align 8
+  %5652 = zext i32 %5651 to i64
+  %5653 = shl nuw nsw i64 %5652, 1
+  %5654 = or disjoint i64 %5653, 1
+  %5655 = inttoptr i64 %5654 to ptr
+  %5656 = load ptr, ptr %5606, align 8
+  %5657 = getelementptr ptr, ptr %5656, i64 %.pre-phi.i.i.i6590
+  store ptr %5655, ptr %5657, align 8
+  store i32 %.0.i.i.i6591, ptr %5650, align 8
+  %5658 = getelementptr inbounds i8, ptr %5605, i64 8
+  %5659 = load ptr, ptr %5658, align 8
+  %5660 = getelementptr inbounds i8, ptr %5605, i64 32
+  call void %5659(ptr noundef nonnull %5660, ptr noundef nonnull %5610) #42
+  %5661 = getelementptr inbounds i8, ptr %5605, i64 76
+  %5662 = load i32, ptr %5661, align 4
+  %5663 = add i32 %5662, -1
+  store i32 %5663, ptr %5661, align 4
+  br label %JS_FreeAtom.exit6594
 
-JS_FreeAtomStruct.exit.i.i6592:                   ; preds = %5648, %5639, %._crit_edge.i.i.i6595
-  %.pre-phi.i.i.i6593 = phi i64 [ %.pre.i.i.i6596, %._crit_edge.i.i.i6595 ], [ %5635, %5639 ], [ %5644, %5648 ]
-  %.0.i.i.i6594 = phi i32 [ %5620, %._crit_edge.i.i.i6595 ], [ %5633, %5639 ], [ %5643, %5648 ]
-  %5652 = getelementptr inbounds i8, ptr %5607, i64 104
-  %5653 = load i32, ptr %5652, align 8
-  %5654 = zext i32 %5653 to i64
-  %5655 = shl nuw nsw i64 %5654, 1
-  %5656 = or disjoint i64 %5655, 1
-  %5657 = inttoptr i64 %5656 to ptr
-  %5658 = load ptr, ptr %5608, align 8
-  %5659 = getelementptr ptr, ptr %5658, i64 %.pre-phi.i.i.i6593
-  store ptr %5657, ptr %5659, align 8
-  store i32 %.0.i.i.i6594, ptr %5652, align 8
-  %5660 = getelementptr inbounds i8, ptr %5607, i64 8
-  %5661 = load ptr, ptr %5660, align 8
-  %5662 = getelementptr inbounds i8, ptr %5607, i64 32
-  call void %5661(ptr noundef nonnull %5662, ptr noundef nonnull %5612) #42
-  %5663 = getelementptr inbounds i8, ptr %5607, i64 76
-  %5664 = load i32, ptr %5663, align 4
-  %5665 = add i32 %5664, -1
-  store i32 %5665, ptr %5663, align 4
-  br label %JS_FreeAtom.exit6597
+JS_FreeAtom.exit6594:                             ; preds = %JS_DefinePropertyValue.exit6585, %5604, %JS_FreeAtomStruct.exit.i.i6589
+  %5664 = icmp slt i32 %5593, 0
+  br i1 %5664, label %JS_FreeValue.exit3739.loopexit, label %5665
 
-JS_FreeAtom.exit6597:                             ; preds = %JS_DefinePropertyValue.exit6588, %5606, %JS_FreeAtomStruct.exit.i.i6592
-  %5666 = icmp slt i32 %5595, 0
-  br i1 %5666, label %JS_FreeValue.exit3739.loopexit, label %5667
-
-5667:                                             ; preds = %JS_FreeAtom.exit6597
-  %5668 = getelementptr i8, ptr %.23330, i64 1
+5665:                                             ; preds = %JS_FreeAtom.exit6594
+  %5666 = getelementptr i8, ptr %.23330, i64 1
   br label %.backedge4994.backedge
 
-5669:                                             ; preds = %.backedge4994
+5667:                                             ; preds = %.backedge4994
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %46)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %47)
-  %5670 = getelementptr i8, ptr %.23354, i64 -32
-  %5671 = getelementptr i8, ptr %.23354, i64 -24
-  %5672 = load i64, ptr %5671, align 8
-  %5673 = and i64 %5672, 4294967295
-  %.not.i4210 = icmp eq i64 %5673, 0
-  br i1 %.not.i4210, label %5676, label %5674
+  %5668 = getelementptr i8, ptr %.23354, i64 -32
+  %5669 = getelementptr i8, ptr %.23354, i64 -24
+  %5670 = load i64, ptr %5669, align 8
+  %5671 = and i64 %5670, 4294967295
+  %.not.i4210 = icmp eq i64 %5671, 0
+  br i1 %.not.i4210, label %5674, label %5672
 
-5674:                                             ; preds = %5669
-  %5675 = call { i64, i64 } (ptr, ptr, ...) @JS_ThrowInternalError(ptr noundef %.1, ptr noundef nonnull @.str.161)
+5672:                                             ; preds = %5667
+  %5673 = call { i64, i64 } (ptr, ptr, ...) @JS_ThrowInternalError(ptr noundef %.1, ptr noundef nonnull @.str.161)
   br label %js_append_enumerate.exit.thread
 
-5676:                                             ; preds = %5669
-  %5677 = load i32, ptr %5670, align 8
-  %5678 = getelementptr i8, ptr %.23354, i64 -16
+5674:                                             ; preds = %5667
+  %5675 = load i32, ptr %5668, align 8
+  %5676 = getelementptr i8, ptr %.23354, i64 -16
+  %5677 = load i64, ptr %5676, align 8
+  %5678 = getelementptr i8, ptr %.23354, i64 -8
   %5679 = load i64, ptr %5678, align 8
-  %5680 = getelementptr i8, ptr %.23354, i64 -8
-  %5681 = load i64, ptr %5680, align 8
-  %5682 = call { i64, i64 } @JS_GetPropertyInternal(ptr noundef %.1, i64 %5679, i64 %5681, i32 noundef 214, i64 %5679, i64 %5681, i32 noundef 0)
-  %5683 = extractvalue { i64, i64 } %5682, 0
-  %5684 = extractvalue { i64, i64 } %5682, 1
-  %5685 = and i64 %5684, 4294967295
-  %.not4914 = icmp eq i64 %5685, 6
-  br i1 %.not4914, label %js_append_enumerate.exit.thread, label %5686
+  %5680 = call { i64, i64 } @JS_GetPropertyInternal(ptr noundef %.1, i64 %5677, i64 %5679, i32 noundef 214, i64 %5677, i64 %5679, i32 noundef 0)
+  %5681 = extractvalue { i64, i64 } %5680, 0
+  %5682 = extractvalue { i64, i64 } %5680, 1
+  %5683 = and i64 %5682, 4294967295
+  %.not4914 = icmp eq i64 %5683, 6
+  br i1 %.not4914, label %js_append_enumerate.exit.thread, label %5684
 
-5686:                                             ; preds = %5676
-  %.not.i4536 = icmp eq i64 %5685, 4294967295
-  %5687 = inttoptr i64 %5683 to ptr
-  br i1 %.not.i4536, label %5688, label %JS_IsCFunction.exit4538
+5684:                                             ; preds = %5674
+  %.not.i4536 = icmp eq i64 %5683, 4294967295
+  %5685 = inttoptr i64 %5681 to ptr
+  br i1 %.not.i4536, label %5686, label %JS_IsCFunction.exit4538
 
-5688:                                             ; preds = %5686
-  %5689 = getelementptr inbounds i8, ptr %5687, i64 6
-  %5690 = load i16, ptr %5689, align 2
-  %5691 = icmp eq i16 %5690, 12
-  br i1 %5691, label %5692, label %JS_IsCFunction.exit4538
+5686:                                             ; preds = %5684
+  %5687 = getelementptr inbounds i8, ptr %5685, i64 6
+  %5688 = load i16, ptr %5687, align 2
+  %5689 = icmp eq i16 %5688, 12
+  br i1 %5689, label %5690, label %JS_IsCFunction.exit4538
 
-5692:                                             ; preds = %5688
-  %5693 = getelementptr inbounds i8, ptr %5687, i64 56
-  %5694 = load ptr, ptr %5693, align 8
-  %5695 = icmp eq ptr %5694, @js_create_array_iterator
-  br i1 %5695, label %5696, label %JS_IsCFunction.exit4538
+5690:                                             ; preds = %5686
+  %5691 = getelementptr inbounds i8, ptr %5685, i64 56
+  %5692 = load ptr, ptr %5691, align 8
+  %5693 = icmp eq ptr %5692, @js_create_array_iterator
+  br i1 %5693, label %5694, label %JS_IsCFunction.exit4538
 
-5696:                                             ; preds = %5692
-  %5697 = getelementptr inbounds i8, ptr %5687, i64 66
-  %5698 = load i16, ptr %5697, align 2
-  %5699 = icmp ne i16 %5698, 1
+5694:                                             ; preds = %5690
+  %5695 = getelementptr inbounds i8, ptr %5685, i64 66
+  %5696 = load i16, ptr %5695, align 2
+  %5697 = icmp ne i16 %5696, 1
   br label %JS_IsCFunction.exit4538
 
-JS_IsCFunction.exit4538:                          ; preds = %5686, %5688, %5692, %5696
-  %.0.i4537 = phi i1 [ true, %5686 ], [ true, %5692 ], [ %5699, %5696 ], [ true, %5688 ]
-  %5700 = trunc i64 %5684 to i32
-  %5701 = icmp ugt i32 %5700, -12
-  br i1 %5701, label %5702, label %JS_FreeValue.exit4535
+JS_IsCFunction.exit4538:                          ; preds = %5684, %5686, %5690, %5694
+  %.0.i4537 = phi i1 [ true, %5684 ], [ true, %5690 ], [ %5697, %5694 ], [ true, %5686 ]
+  %5698 = trunc i64 %5682 to i32
+  %5699 = icmp ugt i32 %5698, -12
+  br i1 %5699, label %5700, label %JS_FreeValue.exit4535
 
-5702:                                             ; preds = %JS_IsCFunction.exit4538
-  %5703 = load i32, ptr %5687, align 4
-  %5704 = add i32 %5703, -1
-  store i32 %5704, ptr %5687, align 4
-  %5705 = icmp slt i32 %5704, 1
-  br i1 %5705, label %5706, label %JS_FreeValue.exit4535
+5700:                                             ; preds = %JS_IsCFunction.exit4538
+  %5701 = load i32, ptr %5685, align 4
+  %5702 = add i32 %5701, -1
+  store i32 %5702, ptr %5685, align 4
+  %5703 = icmp slt i32 %5702, 1
+  br i1 %5703, label %5704, label %JS_FreeValue.exit4535
 
-5706:                                             ; preds = %5702
-  %5707 = load ptr, ptr %237, align 8
-  call void @__JS_FreeValueRT(ptr noundef %5707, i64 %5683, i64 %5684)
+5704:                                             ; preds = %5700
+  %5705 = load ptr, ptr %237, align 8
+  call void @__JS_FreeValueRT(ptr noundef %5705, i64 %5681, i64 %5682)
   br label %JS_FreeValue.exit4535
 
-JS_FreeValue.exit4535:                            ; preds = %JS_IsCFunction.exit4538, %5702, %5706
-  %5708 = load i64, ptr %5678, align 8
-  %5709 = load i64, ptr %5680, align 8
-  %5710 = call fastcc { i64, i64 } @JS_GetIterator(ptr noundef %.1, i64 %5708, i64 %5709, i32 noundef 0)
-  %5711 = extractvalue { i64, i64 } %5710, 0
-  %5712 = extractvalue { i64, i64 } %5710, 1
-  %5713 = and i64 %5712, 4294967295
-  %.not4915 = icmp eq i64 %5713, 6
-  br i1 %.not4915, label %js_append_enumerate.exit.thread, label %5714
+JS_FreeValue.exit4535:                            ; preds = %JS_IsCFunction.exit4538, %5700, %5704
+  %5706 = load i64, ptr %5676, align 8
+  %5707 = load i64, ptr %5678, align 8
+  %5708 = call fastcc { i64, i64 } @JS_GetIterator(ptr noundef %.1, i64 %5706, i64 %5707, i32 noundef 0)
+  %5709 = extractvalue { i64, i64 } %5708, 0
+  %5710 = extractvalue { i64, i64 } %5708, 1
+  %5711 = and i64 %5710, 4294967295
+  %.not4915 = icmp eq i64 %5711, 6
+  br i1 %.not4915, label %js_append_enumerate.exit.thread, label %5712
 
-5714:                                             ; preds = %JS_FreeValue.exit4535
-  %5715 = call { i64, i64 } @JS_GetPropertyInternal(ptr noundef %.1, i64 %5711, i64 %5712, i32 noundef 107, i64 %5711, i64 %5712, i32 noundef 0)
-  %5716 = extractvalue { i64, i64 } %5715, 0
-  %5717 = extractvalue { i64, i64 } %5715, 1
-  %5718 = and i64 %5717, 4294967295
-  %.not4916 = icmp eq i64 %5718, 6
-  br i1 %.not4916, label %5719, label %5729
+5712:                                             ; preds = %JS_FreeValue.exit4535
+  %5713 = call { i64, i64 } @JS_GetPropertyInternal(ptr noundef %.1, i64 %5709, i64 %5710, i32 noundef 107, i64 %5709, i64 %5710, i32 noundef 0)
+  %5714 = extractvalue { i64, i64 } %5713, 0
+  %5715 = extractvalue { i64, i64 } %5713, 1
+  %5716 = and i64 %5715, 4294967295
+  %.not4916 = icmp eq i64 %5716, 6
+  br i1 %.not4916, label %5717, label %5727
 
-5719:                                             ; preds = %5714
-  %5720 = trunc i64 %5712 to i32
-  %5721 = icmp ugt i32 %5720, -12
-  br i1 %5721, label %5722, label %js_append_enumerate.exit.thread
+5717:                                             ; preds = %5712
+  %5718 = trunc i64 %5710 to i32
+  %5719 = icmp ugt i32 %5718, -12
+  br i1 %5719, label %5720, label %js_append_enumerate.exit.thread
 
-5722:                                             ; preds = %5719
-  %5723 = inttoptr i64 %5711 to ptr
-  %5724 = load i32, ptr %5723, align 4
-  %5725 = add i32 %5724, -1
-  store i32 %5725, ptr %5723, align 4
-  %5726 = icmp slt i32 %5725, 1
-  br i1 %5726, label %5727, label %js_append_enumerate.exit.thread
+5720:                                             ; preds = %5717
+  %5721 = inttoptr i64 %5709 to ptr
+  %5722 = load i32, ptr %5721, align 4
+  %5723 = add i32 %5722, -1
+  store i32 %5723, ptr %5721, align 4
+  %5724 = icmp slt i32 %5723, 1
+  br i1 %5724, label %5725, label %js_append_enumerate.exit.thread
 
-5727:                                             ; preds = %5722
-  %5728 = load ptr, ptr %237, align 8
-  call void @__JS_FreeValueRT(ptr noundef %5728, i64 %5711, i64 %5712)
+5725:                                             ; preds = %5720
+  %5726 = load ptr, ptr %237, align 8
+  call void @__JS_FreeValueRT(ptr noundef %5726, i64 %5709, i64 %5710)
   br label %js_append_enumerate.exit.thread
 
-5729:                                             ; preds = %5714
-  br i1 %.0.i4537, label %JS_IsCFunction.exit.thread, label %5730
+5727:                                             ; preds = %5712
+  br i1 %.0.i4537, label %JS_IsCFunction.exit.thread, label %5728
 
-5730:                                             ; preds = %5729
-  %.not.i4532 = icmp eq i64 %5718, 4294967295
-  %5731 = inttoptr i64 %5716 to ptr
-  br i1 %.not.i4532, label %5732, label %JS_IsCFunction.exit.thread
+5728:                                             ; preds = %5727
+  %.not.i4532 = icmp eq i64 %5716, 4294967295
+  %5729 = inttoptr i64 %5714 to ptr
+  br i1 %.not.i4532, label %5730, label %JS_IsCFunction.exit.thread
 
-5732:                                             ; preds = %5730
-  %5733 = getelementptr inbounds i8, ptr %5731, i64 6
-  %5734 = load i16, ptr %5733, align 2
-  %5735 = icmp eq i16 %5734, 12
-  br i1 %5735, label %5736, label %JS_IsCFunction.exit.thread
+5730:                                             ; preds = %5728
+  %5731 = getelementptr inbounds i8, ptr %5729, i64 6
+  %5732 = load i16, ptr %5731, align 2
+  %5733 = icmp eq i16 %5732, 12
+  br i1 %5733, label %5734, label %JS_IsCFunction.exit.thread
 
-5736:                                             ; preds = %5732
-  %5737 = getelementptr inbounds i8, ptr %5731, i64 56
-  %5738 = load ptr, ptr %5737, align 8
-  %5739 = icmp eq ptr %5738, @js_array_iterator_next
-  br i1 %5739, label %JS_IsCFunction.exit, label %JS_IsCFunction.exit.thread
+5734:                                             ; preds = %5730
+  %5735 = getelementptr inbounds i8, ptr %5729, i64 56
+  %5736 = load ptr, ptr %5735, align 8
+  %5737 = icmp eq ptr %5736, @js_array_iterator_next
+  br i1 %5737, label %JS_IsCFunction.exit, label %JS_IsCFunction.exit.thread
 
-JS_IsCFunction.exit:                              ; preds = %5736
-  %5740 = getelementptr inbounds i8, ptr %5731, i64 66
-  %5741 = load i16, ptr %5740, align 2
-  %.not4917 = icmp eq i16 %5741, 0
-  br i1 %.not4917, label %5742, label %JS_IsCFunction.exit.thread
+JS_IsCFunction.exit:                              ; preds = %5734
+  %5738 = getelementptr inbounds i8, ptr %5729, i64 66
+  %5739 = load i16, ptr %5738, align 2
+  %.not4917 = icmp eq i16 %5739, 0
+  br i1 %.not4917, label %5740, label %JS_IsCFunction.exit.thread
 
-5742:                                             ; preds = %JS_IsCFunction.exit
-  %5743 = load i64, ptr %5678, align 8
-  %5744 = load i64, ptr %5680, align 8
-  %5745 = and i64 %5744, 4294967295
-  %5746 = icmp eq i64 %5745, 4294967295
-  %5747 = inttoptr i64 %5743 to ptr
-  br i1 %5746, label %5748, label %JS_IsCFunction.exit.thread
+5740:                                             ; preds = %JS_IsCFunction.exit
+  %5741 = load i64, ptr %5676, align 8
+  %5742 = load i64, ptr %5678, align 8
+  %5743 = and i64 %5742, 4294967295
+  %5744 = icmp eq i64 %5743, 4294967295
+  %5745 = inttoptr i64 %5741 to ptr
+  br i1 %5744, label %5746, label %JS_IsCFunction.exit.thread
 
-5748:                                             ; preds = %5742
-  %5749 = getelementptr inbounds i8, ptr %5747, i64 6
-  %5750 = load i16, ptr %5749, align 2
-  %5751 = icmp eq i16 %5750, 2
-  br i1 %5751, label %5752, label %JS_IsCFunction.exit.thread
+5746:                                             ; preds = %5740
+  %5747 = getelementptr inbounds i8, ptr %5745, i64 6
+  %5748 = load i16, ptr %5747, align 2
+  %5749 = icmp eq i16 %5748, 2
+  br i1 %5749, label %5750, label %JS_IsCFunction.exit.thread
 
-5752:                                             ; preds = %5748
-  %5753 = getelementptr inbounds i8, ptr %5747, i64 5
-  %5754 = load i8, ptr %5753, align 1
-  %5755 = and i8 %5754, 8
-  %.not.i4531 = icmp eq i8 %5755, 0
-  br i1 %.not.i4531, label %JS_IsCFunction.exit.thread, label %5756
+5750:                                             ; preds = %5746
+  %5751 = getelementptr inbounds i8, ptr %5745, i64 5
+  %5752 = load i8, ptr %5751, align 1
+  %5753 = and i8 %5752, 8
+  %.not.i4531 = icmp eq i8 %5753, 0
+  br i1 %.not.i4531, label %JS_IsCFunction.exit.thread, label %5754
 
-5756:                                             ; preds = %5752
-  %5757 = getelementptr inbounds i8, ptr %5747, i64 64
-  %5758 = load i32, ptr %5757, align 8
-  %5759 = getelementptr inbounds i8, ptr %5747, i64 56
-  %5760 = load ptr, ptr %5759, align 8
-  %5761 = call fastcc i32 @js_get_length32(ptr noundef %.1, ptr noundef %46, i64 %5743, i64 %5744)
-  %.not108.i = icmp eq i32 %5761, 0
-  br i1 %.not108.i, label %5762, label %.loopexit4982
+5754:                                             ; preds = %5750
+  %5755 = getelementptr inbounds i8, ptr %5745, i64 64
+  %5756 = load i32, ptr %5755, align 8
+  %5757 = getelementptr inbounds i8, ptr %5745, i64 56
+  %5758 = load ptr, ptr %5757, align 8
+  %5759 = call fastcc i32 @js_get_length32(ptr noundef %.1, ptr noundef %46, i64 %5741, i64 %5742)
+  %.not108.i = icmp eq i32 %5759, 0
+  br i1 %.not108.i, label %5760, label %.loopexit4982
 
-5762:                                             ; preds = %5756
-  %5763 = load i32, ptr %46, align 4
-  %.not109.i = icmp eq i32 %5763, %5758
+5760:                                             ; preds = %5754
+  %5761 = load i32, ptr %46, align 4
+  %.not109.i = icmp eq i32 %5761, %5756
   br i1 %.not109.i, label %.preheader4984, label %JS_IsCFunction.exit.thread
 
-.preheader4984:                                   ; preds = %5762
-  %.not5451 = icmp eq i32 %5758, 0
-  br i1 %.not5451, label %.loopexit4983, label %.lr.ph5380
+.preheader4984:                                   ; preds = %5760
+  %.not5448 = icmp eq i32 %5756, 0
+  br i1 %.not5448, label %.loopexit4983, label %.lr.ph5380
 
 .lr.ph5380:                                       ; preds = %.preheader4984
-  %5764 = getelementptr i8, ptr %.23354, i64 -48
-  %5765 = getelementptr i8, ptr %.23354, i64 -40
-  %wide.trip.count5835 = zext i32 %5758 to i64
-  br label %5766
+  %5762 = getelementptr i8, ptr %.23354, i64 -48
+  %5763 = getelementptr i8, ptr %.23354, i64 -40
+  %wide.trip.count5832 = zext i32 %5756 to i64
+  br label %5764
 
-5766:                                             ; preds = %.lr.ph5380, %5781
-  %indvars.iv5832 = phi i64 [ 0, %.lr.ph5380 ], [ %indvars.iv.next5833, %5781 ]
-  %.0101.i5378 = phi i32 [ %5677, %.lr.ph5380 ], [ %5782, %5781 ]
-  %5767 = getelementptr %struct.JSValue, ptr %5760, i64 %indvars.iv5832
+5764:                                             ; preds = %.lr.ph5380, %5779
+  %indvars.iv5829 = phi i64 [ 0, %.lr.ph5380 ], [ %indvars.iv.next5830, %5779 ]
+  %.0101.i5378 = phi i32 [ %5675, %.lr.ph5380 ], [ %5780, %5779 ]
+  %5765 = getelementptr %struct.JSValue, ptr %5758, i64 %indvars.iv5829
+  %5766 = load i64, ptr %5765, align 8
+  %5767 = getelementptr inbounds i8, ptr %5765, i64 8
   %5768 = load i64, ptr %5767, align 8
-  %5769 = getelementptr inbounds i8, ptr %5767, i64 8
-  %5770 = load i64, ptr %5769, align 8
-  %5771 = trunc i64 %5770 to i32
-  %5772 = icmp ugt i32 %5771, -12
-  br i1 %5772, label %5773, label %JS_DupValue.exit4529
+  %5769 = trunc i64 %5768 to i32
+  %5770 = icmp ugt i32 %5769, -12
+  br i1 %5770, label %5771, label %JS_DupValue.exit4529
 
-5773:                                             ; preds = %5766
-  %5774 = inttoptr i64 %5768 to ptr
-  %5775 = load i32, ptr %5774, align 4
-  %5776 = add i32 %5775, 1
-  store i32 %5776, ptr %5774, align 4
+5771:                                             ; preds = %5764
+  %5772 = inttoptr i64 %5766 to ptr
+  %5773 = load i32, ptr %5772, align 4
+  %5774 = add i32 %5773, 1
+  store i32 %5774, ptr %5772, align 4
   br label %JS_DupValue.exit4529
 
-JS_DupValue.exit4529:                             ; preds = %5766, %5773
-  %5777 = load i64, ptr %5764, align 8
-  %5778 = load i64, ptr %5765, align 8
-  %5779 = call i32 @JS_DefinePropertyValueUint32(ptr noundef %.1, i64 %5777, i64 %5778, i32 noundef %.0101.i5378, i64 %5768, i64 %5770, i32 noundef 7)
-  %5780 = icmp slt i32 %5779, 0
-  br i1 %5780, label %.loopexit4982, label %5781
+JS_DupValue.exit4529:                             ; preds = %5764, %5771
+  %5775 = load i64, ptr %5762, align 8
+  %5776 = load i64, ptr %5763, align 8
+  %5777 = call i32 @JS_DefinePropertyValueUint32(ptr noundef %.1, i64 %5775, i64 %5776, i32 noundef %.0101.i5378, i64 %5766, i64 %5768, i32 noundef 7)
+  %5778 = icmp slt i32 %5777, 0
+  br i1 %5778, label %.loopexit4982, label %5779
 
-5781:                                             ; preds = %JS_DupValue.exit4529
-  %5782 = add i32 %.0101.i5378, 1
-  %indvars.iv.next5833 = add nuw nsw i64 %indvars.iv5832, 1
-  %exitcond5836.not = icmp eq i64 %indvars.iv.next5833, %wide.trip.count5835
-  br i1 %exitcond5836.not, label %.loopexit4983, label %5766, !llvm.loop !133
+5779:                                             ; preds = %JS_DupValue.exit4529
+  %5780 = add i32 %.0101.i5378, 1
+  %indvars.iv.next5830 = add nuw nsw i64 %indvars.iv5829, 1
+  %exitcond5833.not = icmp eq i64 %indvars.iv.next5830, %wide.trip.count5832
+  br i1 %exitcond5833.not, label %.loopexit4983, label %5764, !llvm.loop !133
 
-JS_IsCFunction.exit.thread:                       ; preds = %5742, %5752, %5748, %5732, %5736, %5730, %5762, %JS_IsCFunction.exit, %5729
-  %5783 = getelementptr i8, ptr %.23354, i64 -48
-  %5784 = getelementptr i8, ptr %.23354, i64 -40
-  br label %5785
+JS_IsCFunction.exit.thread:                       ; preds = %5740, %5750, %5746, %5730, %5734, %5728, %5760, %JS_IsCFunction.exit, %5727
+  %5781 = getelementptr i8, ptr %.23354, i64 -48
+  %5782 = getelementptr i8, ptr %.23354, i64 -40
+  br label %5783
 
-5785:                                             ; preds = %5792, %JS_IsCFunction.exit.thread
-  %.2.i = phi i32 [ %5677, %JS_IsCFunction.exit.thread ], [ %5793, %5792 ]
-  %5786 = call fastcc { i64, i64 } @JS_IteratorNext(ptr noundef %.1, i64 %5711, i64 %5712, i64 %5716, i64 %5717, ptr noundef %47)
-  %5787 = extractvalue { i64, i64 } %5786, 0
-  %5788 = extractvalue { i64, i64 } %5786, 1
-  %5789 = and i64 %5788, 4294967295
-  %.not4918 = icmp eq i64 %5789, 6
-  br i1 %.not4918, label %.loopexit4982, label %5790
+5783:                                             ; preds = %5790, %JS_IsCFunction.exit.thread
+  %.2.i = phi i32 [ %5675, %JS_IsCFunction.exit.thread ], [ %5791, %5790 ]
+  %5784 = call fastcc { i64, i64 } @JS_IteratorNext(ptr noundef %.1, i64 %5709, i64 %5710, i64 %5714, i64 %5715, ptr noundef %47)
+  %5785 = extractvalue { i64, i64 } %5784, 0
+  %5786 = extractvalue { i64, i64 } %5784, 1
+  %5787 = and i64 %5786, 4294967295
+  %.not4918 = icmp eq i64 %5787, 6
+  br i1 %.not4918, label %.loopexit4982, label %5788
 
-5790:                                             ; preds = %5785
-  %5791 = load i32, ptr %47, align 4
-  %.not111.i = icmp eq i32 %5791, 0
-  br i1 %.not111.i, label %5792, label %.loopexit4983
+5788:                                             ; preds = %5783
+  %5789 = load i32, ptr %47, align 4
+  %.not111.i = icmp eq i32 %5789, 0
+  br i1 %.not111.i, label %5790, label %.loopexit4983
 
-5792:                                             ; preds = %5790
-  %5793 = add i32 %.2.i, 1
-  %5794 = load i64, ptr %5783, align 8
-  %5795 = load i64, ptr %5784, align 8
-  %5796 = call i32 @JS_DefinePropertyValueUint32(ptr noundef %.1, i64 %5794, i64 %5795, i32 noundef %.2.i, i64 %5787, i64 %5788, i32 noundef 7)
-  %5797 = icmp slt i32 %5796, 0
-  br i1 %5797, label %.loopexit4982, label %5785
+5790:                                             ; preds = %5788
+  %5791 = add i32 %.2.i, 1
+  %5792 = load i64, ptr %5781, align 8
+  %5793 = load i64, ptr %5782, align 8
+  %5794 = call i32 @JS_DefinePropertyValueUint32(ptr noundef %.1, i64 %5792, i64 %5793, i32 noundef %.2.i, i64 %5785, i64 %5786, i32 noundef 7)
+  %5795 = icmp slt i32 %5794, 0
+  br i1 %5795, label %.loopexit4982, label %5783
 
-.loopexit4983:                                    ; preds = %5781, %5790, %.preheader4984
-  %.1.i = phi i32 [ %5677, %.preheader4984 ], [ %.2.i, %5790 ], [ %5782, %5781 ]
+.loopexit4983:                                    ; preds = %5779, %5788, %.preheader4984
+  %.1.i = phi i32 [ %5675, %.preheader4984 ], [ %.2.i, %5788 ], [ %5780, %5779 ]
   %.sroa.098.0.insert.ext.i = zext i32 %.1.i to i64
-  store i64 %.sroa.098.0.insert.ext.i, ptr %5670, align 8
-  store i64 0, ptr %5671, align 8
-  %5798 = trunc i64 %5712 to i32
-  %5799 = icmp ugt i32 %5798, -12
-  br i1 %5799, label %5800, label %JS_FreeValue.exit4526
+  store i64 %.sroa.098.0.insert.ext.i, ptr %5668, align 8
+  store i64 0, ptr %5669, align 8
+  %5796 = trunc i64 %5710 to i32
+  %5797 = icmp ugt i32 %5796, -12
+  br i1 %5797, label %5798, label %JS_FreeValue.exit4526
 
-5800:                                             ; preds = %.loopexit4983
-  %5801 = inttoptr i64 %5711 to ptr
-  %5802 = load i32, ptr %5801, align 4
-  %5803 = add i32 %5802, -1
-  store i32 %5803, ptr %5801, align 4
-  %5804 = icmp slt i32 %5803, 1
-  br i1 %5804, label %5805, label %JS_FreeValue.exit4526
+5798:                                             ; preds = %.loopexit4983
+  %5799 = inttoptr i64 %5709 to ptr
+  %5800 = load i32, ptr %5799, align 4
+  %5801 = add i32 %5800, -1
+  store i32 %5801, ptr %5799, align 4
+  %5802 = icmp slt i32 %5801, 1
+  br i1 %5802, label %5803, label %JS_FreeValue.exit4526
 
-5805:                                             ; preds = %5800
-  %5806 = load ptr, ptr %237, align 8
-  call void @__JS_FreeValueRT(ptr noundef %5806, i64 %5711, i64 %5712)
+5803:                                             ; preds = %5798
+  %5804 = load ptr, ptr %237, align 8
+  call void @__JS_FreeValueRT(ptr noundef %5804, i64 %5709, i64 %5710)
   br label %JS_FreeValue.exit4526
 
-JS_FreeValue.exit4526:                            ; preds = %.loopexit4983, %5800, %5805
-  %5807 = trunc i64 %5717 to i32
-  %5808 = icmp ugt i32 %5807, -12
-  br i1 %5808, label %5809, label %5835
+JS_FreeValue.exit4526:                            ; preds = %.loopexit4983, %5798, %5803
+  %5805 = trunc i64 %5715 to i32
+  %5806 = icmp ugt i32 %5805, -12
+  br i1 %5806, label %5807, label %5833
 
-5809:                                             ; preds = %JS_FreeValue.exit4526
-  %5810 = inttoptr i64 %5716 to ptr
-  %5811 = load i32, ptr %5810, align 4
-  %5812 = add i32 %5811, -1
-  store i32 %5812, ptr %5810, align 4
-  %5813 = icmp slt i32 %5812, 1
-  br i1 %5813, label %5814, label %5835
+5807:                                             ; preds = %JS_FreeValue.exit4526
+  %5808 = inttoptr i64 %5714 to ptr
+  %5809 = load i32, ptr %5808, align 4
+  %5810 = add i32 %5809, -1
+  store i32 %5810, ptr %5808, align 4
+  %5811 = icmp slt i32 %5810, 1
+  br i1 %5811, label %5812, label %5833
 
-5814:                                             ; preds = %5809
-  %5815 = load ptr, ptr %237, align 8
-  call void @__JS_FreeValueRT(ptr noundef %5815, i64 %5716, i64 %5717)
-  br label %5835
+5812:                                             ; preds = %5807
+  %5813 = load ptr, ptr %237, align 8
+  call void @__JS_FreeValueRT(ptr noundef %5813, i64 %5714, i64 %5715)
+  br label %5833
 
-.loopexit4982:                                    ; preds = %5756, %JS_DupValue.exit4529, %5792, %5785
-  %5816 = call fastcc i32 @JS_IteratorClose(ptr noundef %.1, i64 %5711, i64 %5712, i32 noundef 1)
-  %5817 = trunc i64 %5712 to i32
-  %5818 = icmp ugt i32 %5817, -12
-  br i1 %5818, label %5819, label %JS_FreeValue.exit4524
+.loopexit4982:                                    ; preds = %5754, %JS_DupValue.exit4529, %5790, %5783
+  %5814 = call fastcc i32 @JS_IteratorClose(ptr noundef %.1, i64 %5709, i64 %5710, i32 noundef 1)
+  %5815 = trunc i64 %5710 to i32
+  %5816 = icmp ugt i32 %5815, -12
+  br i1 %5816, label %5817, label %JS_FreeValue.exit4524
 
-5819:                                             ; preds = %.loopexit4982
-  %5820 = inttoptr i64 %5711 to ptr
-  %5821 = load i32, ptr %5820, align 4
-  %5822 = add i32 %5821, -1
-  store i32 %5822, ptr %5820, align 4
-  %5823 = icmp slt i32 %5822, 1
-  br i1 %5823, label %5824, label %JS_FreeValue.exit4524
+5817:                                             ; preds = %.loopexit4982
+  %5818 = inttoptr i64 %5709 to ptr
+  %5819 = load i32, ptr %5818, align 4
+  %5820 = add i32 %5819, -1
+  store i32 %5820, ptr %5818, align 4
+  %5821 = icmp slt i32 %5820, 1
+  br i1 %5821, label %5822, label %JS_FreeValue.exit4524
 
-5824:                                             ; preds = %5819
-  %5825 = load ptr, ptr %237, align 8
-  call void @__JS_FreeValueRT(ptr noundef %5825, i64 %5711, i64 %5712)
+5822:                                             ; preds = %5817
+  %5823 = load ptr, ptr %237, align 8
+  call void @__JS_FreeValueRT(ptr noundef %5823, i64 %5709, i64 %5710)
   br label %JS_FreeValue.exit4524
 
-JS_FreeValue.exit4524:                            ; preds = %.loopexit4982, %5819, %5824
-  %5826 = trunc i64 %5717 to i32
-  %5827 = icmp ugt i32 %5826, -12
-  br i1 %5827, label %5828, label %js_append_enumerate.exit.thread
+JS_FreeValue.exit4524:                            ; preds = %.loopexit4982, %5817, %5822
+  %5824 = trunc i64 %5715 to i32
+  %5825 = icmp ugt i32 %5824, -12
+  br i1 %5825, label %5826, label %js_append_enumerate.exit.thread
 
-5828:                                             ; preds = %JS_FreeValue.exit4524
-  %5829 = inttoptr i64 %5716 to ptr
-  %5830 = load i32, ptr %5829, align 4
-  %5831 = add i32 %5830, -1
-  store i32 %5831, ptr %5829, align 4
-  %5832 = icmp slt i32 %5831, 1
-  br i1 %5832, label %5833, label %js_append_enumerate.exit.thread
+5826:                                             ; preds = %JS_FreeValue.exit4524
+  %5827 = inttoptr i64 %5714 to ptr
+  %5828 = load i32, ptr %5827, align 4
+  %5829 = add i32 %5828, -1
+  store i32 %5829, ptr %5827, align 4
+  %5830 = icmp slt i32 %5829, 1
+  br i1 %5830, label %5831, label %js_append_enumerate.exit.thread
 
-5833:                                             ; preds = %5828
-  %5834 = load ptr, ptr %237, align 8
-  call void @__JS_FreeValueRT(ptr noundef %5834, i64 %5716, i64 %5717)
+5831:                                             ; preds = %5826
+  %5832 = load ptr, ptr %237, align 8
+  call void @__JS_FreeValueRT(ptr noundef %5832, i64 %5714, i64 %5715)
   br label %js_append_enumerate.exit.thread
 
-js_append_enumerate.exit.thread:                  ; preds = %5676, %JS_FreeValue.exit4535, %5674, %5719, %5722, %5727, %JS_FreeValue.exit4524, %5828, %5833
+js_append_enumerate.exit.thread:                  ; preds = %5674, %JS_FreeValue.exit4535, %5672, %5717, %5720, %5725, %JS_FreeValue.exit4524, %5826, %5831
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %46)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %47)
   br label %JS_FreeValue.exit3739
 
-5835:                                             ; preds = %JS_FreeValue.exit4526, %5809, %5814
+5833:                                             ; preds = %JS_FreeValue.exit4526, %5807, %5812
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %46)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %47)
-  %5836 = load i64, ptr %5678, align 8
-  %5837 = load i64, ptr %5680, align 8
-  %5838 = trunc i64 %5837 to i32
-  %5839 = icmp ugt i32 %5838, -12
-  br i1 %5839, label %5840, label %JS_FreeValue.exit4212
+  %5834 = load i64, ptr %5676, align 8
+  %5835 = load i64, ptr %5678, align 8
+  %5836 = trunc i64 %5835 to i32
+  %5837 = icmp ugt i32 %5836, -12
+  br i1 %5837, label %5838, label %JS_FreeValue.exit4212
 
-5840:                                             ; preds = %5835
-  %5841 = inttoptr i64 %5836 to ptr
-  %5842 = load i32, ptr %5841, align 4
-  %5843 = add i32 %5842, -1
-  store i32 %5843, ptr %5841, align 4
-  %5844 = icmp slt i32 %5843, 1
-  br i1 %5844, label %5845, label %JS_FreeValue.exit4212
+5838:                                             ; preds = %5833
+  %5839 = inttoptr i64 %5834 to ptr
+  %5840 = load i32, ptr %5839, align 4
+  %5841 = add i32 %5840, -1
+  store i32 %5841, ptr %5839, align 4
+  %5842 = icmp slt i32 %5841, 1
+  br i1 %5842, label %5843, label %JS_FreeValue.exit4212
 
-5845:                                             ; preds = %5840
-  %5846 = load ptr, ptr %237, align 8
-  call void @__JS_FreeValueRT(ptr noundef %5846, i64 %5836, i64 %5837)
+5843:                                             ; preds = %5838
+  %5844 = load ptr, ptr %237, align 8
+  call void @__JS_FreeValueRT(ptr noundef %5844, i64 %5834, i64 %5835)
   br label %JS_FreeValue.exit4212
 
-JS_FreeValue.exit4212:                            ; preds = %5835, %5840, %5845
+JS_FreeValue.exit4212:                            ; preds = %5833, %5838, %5843
+  %5845 = getelementptr i8, ptr %.23330, i64 1
+  br label %.backedge4994.backedge
+
+5846:                                             ; preds = %.backedge4994
   %5847 = getelementptr i8, ptr %.23330, i64 1
+  %5848 = load i8, ptr %.23330, align 1
+  %5849 = zext i8 %5848 to i32
+  %5850 = and i32 %5849, 3
+  %5851 = xor i32 %5850, -1
+  %5852 = sext i32 %5851 to i64
+  %5853 = getelementptr %struct.JSValue, ptr %.23354, i64 %5852
+  %5854 = lshr i32 %5849, 2
+  %5855 = and i32 %5854, 7
+  %5856 = xor i32 %5855, -1
+  %5857 = sext i32 %5856 to i64
+  %5858 = getelementptr %struct.JSValue, ptr %.23354, i64 %5857
+  %5859 = lshr i32 %5849, 5
+  %5860 = xor i32 %5859, -1
+  %5861 = sext i32 %5860 to i64
+  %5862 = getelementptr %struct.JSValue, ptr %.23354, i64 %5861
+  %5863 = load i64, ptr %5853, align 8
+  %5864 = getelementptr inbounds i8, ptr %5853, i64 8
+  %5865 = load i64, ptr %5864, align 8
+  %5866 = load i64, ptr %5858, align 8
+  %5867 = getelementptr inbounds i8, ptr %5858, i64 8
+  %5868 = load i64, ptr %5867, align 8
+  %5869 = call fastcc i32 @JS_CopyDataProperties(ptr noundef %.1, i64 %5863, i64 %5865, i64 %5866, i64 %5868, ptr noundef byval(%struct.JSValue) align 8 %5862, i32 noundef 0)
+  %.not3543 = icmp eq i32 %5869, 0
+  br i1 %.not3543, label %5870, label %JS_FreeValue.exit3739.loopexit
+
+5870:                                             ; preds = %5846
+  %5871 = getelementptr i8, ptr %.23330, i64 2
   br label %.backedge4994.backedge
 
-5848:                                             ; preds = %.backedge4994
-  %5849 = getelementptr i8, ptr %.23330, i64 1
-  %5850 = load i8, ptr %.23330, align 1
-  %5851 = zext i8 %5850 to i32
-  %5852 = and i32 %5851, 3
-  %5853 = xor i32 %5852, -1
-  %5854 = sext i32 %5853 to i64
-  %5855 = getelementptr %struct.JSValue, ptr %.23354, i64 %5854
-  %5856 = lshr i32 %5851, 2
-  %5857 = and i32 %5856, 7
-  %5858 = xor i32 %5857, -1
-  %5859 = sext i32 %5858 to i64
-  %5860 = getelementptr %struct.JSValue, ptr %.23354, i64 %5859
-  %5861 = lshr i32 %5851, 5
-  %5862 = xor i32 %5861, -1
-  %5863 = sext i32 %5862 to i64
-  %5864 = getelementptr %struct.JSValue, ptr %.23354, i64 %5863
-  %5865 = load i64, ptr %5855, align 8
-  %5866 = getelementptr inbounds i8, ptr %5855, i64 8
-  %5867 = load i64, ptr %5866, align 8
-  %5868 = load i64, ptr %5860, align 8
-  %5869 = getelementptr inbounds i8, ptr %5860, i64 8
-  %5870 = load i64, ptr %5869, align 8
-  %5871 = call fastcc i32 @JS_CopyDataProperties(ptr noundef %.1, i64 %5865, i64 %5867, i64 %5868, i64 %5870, ptr noundef byval(%struct.JSValue) align 8 %5864, i32 noundef 0)
-  %.not3543 = icmp eq i32 %5871, 0
-  br i1 %.not3543, label %5872, label %JS_FreeValue.exit3739.loopexit
-
-5872:                                             ; preds = %5848
-  %5873 = getelementptr i8, ptr %.23330, i64 2
-  br label %.backedge4994.backedge
-
-5874:                                             ; preds = %.backedge4994
-  %5875 = getelementptr i8, ptr %.23354, i64 -32
-  %.sroa.0413.0.copyload = load double, ptr %5875, align 8
+5872:                                             ; preds = %.backedge4994
+  %5873 = getelementptr i8, ptr %.23354, i64 -32
+  %.sroa.0413.0.copyload = load double, ptr %5873, align 8
   %.sroa.5417.0..sroa_idx = getelementptr i8, ptr %.23354, i64 -24
   %.sroa.5417.0.copyload = load i64, ptr %.sroa.5417.0..sroa_idx, align 8
-  %5876 = getelementptr i8, ptr %.23354, i64 -16
-  %.sroa.0406.0.copyload = load double, ptr %5876, align 8
+  %5874 = getelementptr i8, ptr %.23354, i64 -16
+  %.sroa.0406.0.copyload = load double, ptr %5874, align 8
   %.sroa.5.0..sroa_idx = getelementptr i8, ptr %.23354, i64 -8
   %.sroa.5.0.copyload = load i64, ptr %.sroa.5.0..sroa_idx, align 8
-  %5877 = trunc i64 %.sroa.5417.0.copyload to i32
-  %5878 = trunc i64 %.sroa.5.0.copyload to i32
-  %5879 = or i32 %5878, %5877
-  %5880 = icmp eq i32 %5879, 0
-  br i1 %5880, label %5881, label %5890
+  %5875 = trunc i64 %.sroa.5417.0.copyload to i32
+  %5876 = trunc i64 %.sroa.5.0.copyload to i32
+  %5877 = or i32 %5876, %5875
+  %5878 = icmp eq i32 %5877, 0
+  br i1 %5878, label %5879, label %5888
 
-5881:                                             ; preds = %5874
-  %5882 = bitcast double %.sroa.0413.0.copyload to i64
-  %sext3455 = shl i64 %5882, 32
-  %5883 = ashr exact i64 %sext3455, 32
-  %5884 = bitcast double %.sroa.0406.0.copyload to i64
-  %sext3456 = shl i64 %5884, 32
-  %5885 = ashr exact i64 %sext3456, 32
-  %5886 = add nsw i64 %5885, %5883
-  %5887 = add nsw i64 %5886, 2147483648
-  %.not3458 = icmp ult i64 %5887, 4294967296
-  br i1 %.not3458, label %5888, label %5905
+5879:                                             ; preds = %5872
+  %5880 = bitcast double %.sroa.0413.0.copyload to i64
+  %sext3455 = shl i64 %5880, 32
+  %5881 = ashr exact i64 %sext3455, 32
+  %5882 = bitcast double %.sroa.0406.0.copyload to i64
+  %sext3456 = shl i64 %5882, 32
+  %5883 = ashr exact i64 %sext3456, 32
+  %5884 = add nsw i64 %5883, %5881
+  %5885 = add nsw i64 %5884, 2147483648
+  %.not3458 = icmp ult i64 %5885, 4294967296
+  br i1 %.not3458, label %5886, label %5903
 
-5888:                                             ; preds = %5881
-  %.sroa.03178.0.insert.ext = and i64 %5886, 4294967295
-  %5889 = bitcast i64 %.sroa.03178.0.insert.ext to double
-  br label %.sink.split6432
+5886:                                             ; preds = %5879
+  %.sroa.03178.0.insert.ext = and i64 %5884, 4294967295
+  %5887 = bitcast i64 %.sroa.03178.0.insert.ext to double
+  br label %.sink.split6429
 
-5890:                                             ; preds = %5874
-  %5891 = icmp eq i32 %5877, 7
-  %5892 = icmp eq i32 %5878, 7
-  %or.cond5 = and i1 %5891, %5892
-  br i1 %or.cond5, label %5893, label %5895
+5888:                                             ; preds = %5872
+  %5889 = icmp eq i32 %5875, 7
+  %5890 = icmp eq i32 %5876, 7
+  %or.cond5 = and i1 %5889, %5890
+  br i1 %or.cond5, label %5891, label %5893
 
-5893:                                             ; preds = %5890
-  %5894 = fadd double %.sroa.0413.0.copyload, %.sroa.0406.0.copyload
-  br label %.sink.split6432
+5891:                                             ; preds = %5888
+  %5892 = fadd double %.sroa.0413.0.copyload, %.sroa.0406.0.copyload
+  br label %.sink.split6429
 
-5895:                                             ; preds = %5890
-  %5896 = and i64 %.sroa.5417.0.copyload, 4294967295
-  %.not4842 = icmp eq i64 %5896, 4294967289
-  %5897 = and i64 %.sroa.5.0.copyload, 4294967295
-  %.not4843 = icmp eq i64 %5897, 4294967289
+5893:                                             ; preds = %5888
+  %5894 = and i64 %.sroa.5417.0.copyload, 4294967295
+  %.not4842 = icmp eq i64 %5894, 4294967289
+  %5895 = and i64 %.sroa.5.0.copyload, 4294967295
+  %.not4843 = icmp eq i64 %5895, 4294967289
   %or.cond4967 = and i1 %.not4842, %.not4843
-  br i1 %or.cond4967, label %5898, label %5905
+  br i1 %or.cond4967, label %5896, label %5903
 
-5898:                                             ; preds = %5895
-  %5899 = bitcast double %.sroa.0413.0.copyload to i64
-  %5900 = bitcast double %.sroa.0406.0.copyload to i64
-  %5901 = call fastcc { i64, i64 } @JS_ConcatString(ptr noundef %.1, i64 %5899, i64 %.sroa.5417.0.copyload, i64 %5900, i64 %.sroa.5.0.copyload)
-  %5902 = extractvalue { i64, i64 } %5901, 0
-  %5903 = extractvalue { i64, i64 } %5901, 1
-  store i64 %5902, ptr %5875, align 8
-  store i64 %5903, ptr %.sroa.5417.0..sroa_idx, align 8
-  %5904 = and i64 %5903, 4294967295
-  %.not4844 = icmp eq i64 %5904, 6
-  br i1 %.not4844, label %JS_FreeValue.exit3739.loopexit, label %5907
+5896:                                             ; preds = %5893
+  %5897 = bitcast double %.sroa.0413.0.copyload to i64
+  %5898 = bitcast double %.sroa.0406.0.copyload to i64
+  %5899 = call fastcc { i64, i64 } @JS_ConcatString(ptr noundef %.1, i64 %5897, i64 %.sroa.5417.0.copyload, i64 %5898, i64 %.sroa.5.0.copyload)
+  %5900 = extractvalue { i64, i64 } %5899, 0
+  %5901 = extractvalue { i64, i64 } %5899, 1
+  store i64 %5900, ptr %5873, align 8
+  store i64 %5901, ptr %.sroa.5417.0..sroa_idx, align 8
+  %5902 = and i64 %5901, 4294967295
+  %.not4844 = icmp eq i64 %5902, 6
+  br i1 %.not4844, label %JS_FreeValue.exit3739.loopexit, label %5905
 
-5905:                                             ; preds = %5895, %5881
-  %5906 = call fastcc i32 @js_add_slow(ptr noundef %.1, ptr noundef nonnull %.23354)
-  %.not3459 = icmp eq i32 %5906, 0
-  br i1 %.not3459, label %5907, label %JS_FreeValue.exit3739.loopexit
+5903:                                             ; preds = %5893, %5879
+  %5904 = call fastcc i32 @js_add_slow(ptr noundef %.1, ptr noundef nonnull %.23354)
+  %.not3459 = icmp eq i32 %5904, 0
+  br i1 %.not3459, label %5905, label %JS_FreeValue.exit3739.loopexit
 
-.sink.split6432:                                  ; preds = %5888, %5893
-  %storemerge6442 = phi double [ %5894, %5893 ], [ %5889, %5888 ]
-  %.sink6433 = phi i64 [ 7, %5893 ], [ 0, %5888 ]
-  store double %storemerge6442, ptr %5875, align 8
-  store i64 %.sink6433, ptr %.sroa.5417.0..sroa_idx, align 8
-  br label %5907
+.sink.split6429:                                  ; preds = %5886, %5891
+  %storemerge6439 = phi double [ %5892, %5891 ], [ %5887, %5886 ]
+  %.sink6430 = phi i64 [ 7, %5891 ], [ 0, %5886 ]
+  store double %storemerge6439, ptr %5873, align 8
+  store i64 %.sink6430, ptr %.sroa.5417.0..sroa_idx, align 8
+  br label %5905
 
-5907:                                             ; preds = %.sink.split6432, %5905, %5898
-  %5908 = getelementptr i8, ptr %.23330, i64 1
+5905:                                             ; preds = %.sink.split6429, %5903, %5896
+  %5906 = getelementptr i8, ptr %.23330, i64 1
   br label %.backedge4994.backedge
 
-5909:                                             ; preds = %.backedge4994
-  %5910 = load i8, ptr %.23330, align 1
-  %5911 = getelementptr i8, ptr %.23330, i64 1
-  %5912 = getelementptr i8, ptr %.23354, i64 -16
-  %.sroa.0377.0.copyload = load double, ptr %5912, align 8
+5907:                                             ; preds = %.backedge4994
+  %5908 = load i8, ptr %.23330, align 1
+  %5909 = getelementptr i8, ptr %.23330, i64 1
+  %5910 = getelementptr i8, ptr %.23354, i64 -16
+  %.sroa.0377.0.copyload = load double, ptr %5910, align 8
   %.sroa.13.0..sroa_idx = getelementptr i8, ptr %.23354, i64 -8
   %.sroa.13.0.copyload = load i64, ptr %.sroa.13.0..sroa_idx, align 8
-  %5913 = zext i8 %5910 to i64
-  %5914 = getelementptr %struct.JSValue, ptr %.13348, i64 %5913
-  %5915 = getelementptr inbounds i8, ptr %5914, i64 8
-  %5916 = load i64, ptr %5915, align 8
-  %5917 = trunc i64 %5916 to i32
-  %5918 = trunc i64 %.sroa.13.0.copyload to i32
-  %5919 = or i32 %5917, %5918
-  %5920 = icmp eq i32 %5919, 0
-  br i1 %5920, label %5921, label %5929
+  %5911 = zext i8 %5908 to i64
+  %5912 = getelementptr %struct.JSValue, ptr %.13348, i64 %5911
+  %5913 = getelementptr inbounds i8, ptr %5912, i64 8
+  %5914 = load i64, ptr %5913, align 8
+  %5915 = trunc i64 %5914 to i32
+  %5916 = trunc i64 %.sroa.13.0.copyload to i32
+  %5917 = or i32 %5915, %5916
+  %5918 = icmp eq i32 %5917, 0
+  br i1 %5918, label %5919, label %5927
 
-5921:                                             ; preds = %5909
-  %5922 = load i32, ptr %5914, align 8
-  %5923 = sext i32 %5922 to i64
-  %5924 = bitcast double %.sroa.0377.0.copyload to i64
-  %sext3476 = shl i64 %5924, 32
-  %5925 = ashr exact i64 %sext3476, 32
-  %5926 = add nsw i64 %5925, %5923
-  %5927 = add nsw i64 %5926, 2147483648
-  %.not3478 = icmp ult i64 %5927, 4294967296
-  br i1 %.not3478, label %5928, label %5970
+5919:                                             ; preds = %5907
+  %5920 = load i32, ptr %5912, align 8
+  %5921 = sext i32 %5920 to i64
+  %5922 = bitcast double %.sroa.0377.0.copyload to i64
+  %sext3476 = shl i64 %5922, 32
+  %5923 = ashr exact i64 %sext3476, 32
+  %5924 = add nsw i64 %5923, %5921
+  %5925 = add nsw i64 %5924, 2147483648
+  %.not3478 = icmp ult i64 %5925, 4294967296
+  br i1 %.not3478, label %5926, label %5968
 
-5928:                                             ; preds = %5921
-  %.sroa.03173.0.insert.ext = and i64 %5926, 4294967295
-  store i64 %.sroa.03173.0.insert.ext, ptr %5914, align 8
-  store i64 0, ptr %5915, align 8
+5926:                                             ; preds = %5919
+  %.sroa.03173.0.insert.ext = and i64 %5924, 4294967295
+  store i64 %.sroa.03173.0.insert.ext, ptr %5912, align 8
+  store i64 0, ptr %5913, align 8
   br label %JS_FreeValue.exit4217
 
-5929:                                             ; preds = %5909
-  %5930 = icmp eq i32 %5917, 7
-  %5931 = icmp eq i32 %5918, 7
-  %or.cond9 = and i1 %5931, %5930
-  br i1 %or.cond9, label %5932, label %5935
+5927:                                             ; preds = %5907
+  %5928 = icmp eq i32 %5915, 7
+  %5929 = icmp eq i32 %5916, 7
+  %or.cond9 = and i1 %5929, %5928
+  br i1 %or.cond9, label %5930, label %5933
 
-5932:                                             ; preds = %5929
-  %5933 = load double, ptr %5914, align 8
-  %5934 = fadd double %.sroa.0377.0.copyload, %5933
-  store double %5934, ptr %5914, align 8
-  store i64 7, ptr %5915, align 8
+5930:                                             ; preds = %5927
+  %5931 = load double, ptr %5912, align 8
+  %5932 = fadd double %.sroa.0377.0.copyload, %5931
+  store double %5932, ptr %5912, align 8
+  store i64 7, ptr %5913, align 8
   br label %JS_FreeValue.exit4217
 
-5935:                                             ; preds = %5929
-  %5936 = icmp eq i32 %5917, -7
-  br i1 %5936, label %5937, label %5970
+5933:                                             ; preds = %5927
+  %5934 = icmp eq i32 %5915, -7
+  br i1 %5934, label %5935, label %5968
 
-5937:                                             ; preds = %5935
-  %5938 = bitcast double %.sroa.0377.0.copyload to i64
-  %5939 = call fastcc { i64, i64 } @JS_ToPrimitiveFree(ptr noundef %.1, i64 %5938, i64 %.sroa.13.0.copyload, i32 noundef 2)
-  %5940 = extractvalue { i64, i64 } %5939, 0
-  %5941 = extractvalue { i64, i64 } %5939, 1
-  %5942 = and i64 %5941, 4294967295
-  %.not4856 = icmp eq i64 %5942, 6
-  br i1 %.not4856, label %JS_FreeValue.exit3739.loopexit, label %5943
+5935:                                             ; preds = %5933
+  %5936 = bitcast double %.sroa.0377.0.copyload to i64
+  %5937 = call fastcc { i64, i64 } @JS_ToPrimitiveFree(ptr noundef %.1, i64 %5936, i64 %.sroa.13.0.copyload, i32 noundef 2)
+  %5938 = extractvalue { i64, i64 } %5937, 0
+  %5939 = extractvalue { i64, i64 } %5937, 1
+  %5940 = and i64 %5939, 4294967295
+  %.not4856 = icmp eq i64 %5940, 6
+  br i1 %.not4856, label %JS_FreeValue.exit3739.loopexit, label %5941
 
-5943:                                             ; preds = %5937
-  %5944 = load ptr, ptr %5914, align 8
-  %5945 = call fastcc i32 @JS_ConcatStringInPlace(ptr noundef %.1, ptr noundef %5944, i64 %5940, i64 %5941)
-  %.not3474 = icmp eq i32 %5945, 0
-  br i1 %.not3474, label %5956, label %5946
+5941:                                             ; preds = %5935
+  %5942 = load ptr, ptr %5912, align 8
+  %5943 = call fastcc i32 @JS_ConcatStringInPlace(ptr noundef %.1, ptr noundef %5942, i64 %5938, i64 %5939)
+  %.not3474 = icmp eq i32 %5943, 0
+  br i1 %.not3474, label %5954, label %5944
 
-5946:                                             ; preds = %5943
-  %5947 = trunc i64 %5941 to i32
-  %5948 = icmp ugt i32 %5947, -12
-  br i1 %5948, label %5949, label %JS_FreeValue.exit4217
+5944:                                             ; preds = %5941
+  %5945 = trunc i64 %5939 to i32
+  %5946 = icmp ugt i32 %5945, -12
+  br i1 %5946, label %5947, label %JS_FreeValue.exit4217
 
-5949:                                             ; preds = %5946
-  %5950 = inttoptr i64 %5940 to ptr
-  %5951 = load i32, ptr %5950, align 4
-  %5952 = add i32 %5951, -1
-  store i32 %5952, ptr %5950, align 4
-  %5953 = icmp slt i32 %5952, 1
-  br i1 %5953, label %5954, label %JS_FreeValue.exit4217
+5947:                                             ; preds = %5944
+  %5948 = inttoptr i64 %5938 to ptr
+  %5949 = load i32, ptr %5948, align 4
+  %5950 = add i32 %5949, -1
+  store i32 %5950, ptr %5948, align 4
+  %5951 = icmp slt i32 %5950, 1
+  br i1 %5951, label %5952, label %JS_FreeValue.exit4217
 
-5954:                                             ; preds = %5949
-  %5955 = load ptr, ptr %237, align 8
-  call void @__JS_FreeValueRT(ptr noundef %5955, i64 %5940, i64 %5941)
+5952:                                             ; preds = %5947
+  %5953 = load ptr, ptr %237, align 8
+  call void @__JS_FreeValueRT(ptr noundef %5953, i64 %5938, i64 %5939)
   br label %JS_FreeValue.exit4217
 
-5956:                                             ; preds = %5943
-  %5957 = load i64, ptr %5914, align 8
-  %5958 = load i64, ptr %5915, align 8
-  %5959 = trunc i64 %5958 to i32
-  %5960 = icmp ugt i32 %5959, -12
-  br i1 %5960, label %5961, label %JS_DupValue.exit4220
+5954:                                             ; preds = %5941
+  %5955 = load i64, ptr %5912, align 8
+  %5956 = load i64, ptr %5913, align 8
+  %5957 = trunc i64 %5956 to i32
+  %5958 = icmp ugt i32 %5957, -12
+  br i1 %5958, label %5959, label %JS_DupValue.exit4220
 
-5961:                                             ; preds = %5956
-  %5962 = inttoptr i64 %5957 to ptr
-  %5963 = load i32, ptr %5962, align 4
-  %5964 = add i32 %5963, 1
-  store i32 %5964, ptr %5962, align 4
+5959:                                             ; preds = %5954
+  %5960 = inttoptr i64 %5955 to ptr
+  %5961 = load i32, ptr %5960, align 4
+  %5962 = add i32 %5961, 1
+  store i32 %5962, ptr %5960, align 4
   br label %JS_DupValue.exit4220
 
-JS_DupValue.exit4220:                             ; preds = %5956, %5961
-  %5965 = call fastcc { i64, i64 } @JS_ConcatString(ptr noundef %.1, i64 %5957, i64 %5958, i64 %5940, i64 %5941)
-  %5966 = extractvalue { i64, i64 } %5965, 1
-  %5967 = and i64 %5966, 4294967295
-  %.not4857 = icmp eq i64 %5967, 6
-  br i1 %.not4857, label %JS_FreeValue.exit3739.loopexit, label %5968
+JS_DupValue.exit4220:                             ; preds = %5954, %5959
+  %5963 = call fastcc { i64, i64 } @JS_ConcatString(ptr noundef %.1, i64 %5955, i64 %5956, i64 %5938, i64 %5939)
+  %5964 = extractvalue { i64, i64 } %5963, 1
+  %5965 = and i64 %5964, 4294967295
+  %.not4857 = icmp eq i64 %5965, 6
+  br i1 %.not4857, label %JS_FreeValue.exit3739.loopexit, label %5966
 
-5968:                                             ; preds = %JS_DupValue.exit4220
-  %5969 = extractvalue { i64, i64 } %5965, 0
-  call fastcc void @set_value(ptr noundef %.1, ptr noundef nonnull %5914, i64 %5969, i64 %5966)
+5966:                                             ; preds = %JS_DupValue.exit4220
+  %5967 = extractvalue { i64, i64 } %5963, 0
+  call fastcc void @set_value(ptr noundef %.1, ptr noundef nonnull %5912, i64 %5967, i64 %5964)
   br label %JS_FreeValue.exit4217
 
-5970:                                             ; preds = %5935, %5921
-  %5971 = load i64, ptr %5914, align 8
-  %5972 = icmp ugt i32 %5917, -12
-  br i1 %5972, label %5973, label %JS_DupValue.exit4223
+5968:                                             ; preds = %5933, %5919
+  %5969 = load i64, ptr %5912, align 8
+  %5970 = icmp ugt i32 %5915, -12
+  br i1 %5970, label %5971, label %JS_DupValue.exit4223
 
-5973:                                             ; preds = %5970
-  %5974 = inttoptr i64 %5971 to ptr
-  %5975 = load i32, ptr %5974, align 4
-  %5976 = add i32 %5975, 1
-  store i32 %5976, ptr %5974, align 4
+5971:                                             ; preds = %5968
+  %5972 = inttoptr i64 %5969 to ptr
+  %5973 = load i32, ptr %5972, align 4
+  %5974 = add i32 %5973, 1
+  store i32 %5974, ptr %5972, align 4
   br label %JS_DupValue.exit4223
 
-JS_DupValue.exit4223:                             ; preds = %5970, %5973
-  store i64 %5971, ptr %78, align 16
-  store i64 %5916, ptr %.sroa.2350.0..sroa_idx, align 8
+JS_DupValue.exit4223:                             ; preds = %5968, %5971
+  store i64 %5969, ptr %78, align 16
+  store i64 %5914, ptr %.sroa.2350.0..sroa_idx, align 8
   store double %.sroa.0377.0.copyload, ptr %252, align 16
   store i64 %.sroa.13.0.copyload, ptr %.sroa.13.0..sroa_idx387, align 8
-  %5977 = call fastcc i32 @js_add_slow(ptr noundef %.1, ptr noundef nonnull %253)
-  %.not3479 = icmp eq i32 %5977, 0
-  br i1 %.not3479, label %5978, label %JS_FreeValue.exit3739.loopexit
+  %5975 = call fastcc i32 @js_add_slow(ptr noundef %.1, ptr noundef nonnull %253)
+  %.not3479 = icmp eq i32 %5975, 0
+  br i1 %.not3479, label %5976, label %JS_FreeValue.exit3739.loopexit
 
-5978:                                             ; preds = %JS_DupValue.exit4223
-  %5979 = load i64, ptr %78, align 16
-  %5980 = load i64, ptr %.sroa.2350.0..sroa_idx, align 8
-  %.sroa.0.0.copyload.i6598 = load i64, ptr %5914, align 8
-  %.sroa.2.0.copyload.i6600 = load i64, ptr %5915, align 8
-  store i64 %5979, ptr %5914, align 8
-  store i64 %5980, ptr %5915, align 8
-  %5981 = trunc i64 %.sroa.2.0.copyload.i6600 to i32
-  %5982 = icmp ugt i32 %5981, -12
-  br i1 %5982, label %5983, label %JS_FreeValue.exit4217
+5976:                                             ; preds = %JS_DupValue.exit4223
+  %5977 = load i64, ptr %78, align 16
+  %5978 = load i64, ptr %.sroa.2350.0..sroa_idx, align 8
+  %.sroa.0.0.copyload.i6595 = load i64, ptr %5912, align 8
+  %.sroa.2.0.copyload.i6597 = load i64, ptr %5913, align 8
+  store i64 %5977, ptr %5912, align 8
+  store i64 %5978, ptr %5913, align 8
+  %5979 = trunc i64 %.sroa.2.0.copyload.i6597 to i32
+  %5980 = icmp ugt i32 %5979, -12
+  br i1 %5980, label %5981, label %JS_FreeValue.exit4217
 
-5983:                                             ; preds = %5978
-  %5984 = inttoptr i64 %.sroa.0.0.copyload.i6598 to ptr
-  %5985 = load i32, ptr %5984, align 4
-  %5986 = add i32 %5985, -1
-  store i32 %5986, ptr %5984, align 4
-  %5987 = icmp slt i32 %5986, 1
-  br i1 %5987, label %5988, label %JS_FreeValue.exit4217
+5981:                                             ; preds = %5976
+  %5982 = inttoptr i64 %.sroa.0.0.copyload.i6595 to ptr
+  %5983 = load i32, ptr %5982, align 4
+  %5984 = add i32 %5983, -1
+  store i32 %5984, ptr %5982, align 4
+  %5985 = icmp slt i32 %5984, 1
+  br i1 %5985, label %5986, label %JS_FreeValue.exit4217
 
-5988:                                             ; preds = %5983
-  %5989 = load ptr, ptr %237, align 8
-  call void @__JS_FreeValueRT(ptr noundef %5989, i64 %.sroa.0.0.copyload.i6598, i64 %.sroa.2.0.copyload.i6600)
+5986:                                             ; preds = %5981
+  %5987 = load ptr, ptr %237, align 8
+  call void @__JS_FreeValueRT(ptr noundef %5987, i64 %.sroa.0.0.copyload.i6595, i64 %.sroa.2.0.copyload.i6597)
   br label %JS_FreeValue.exit4217
 
-JS_FreeValue.exit4217:                            ; preds = %5988, %5983, %5978, %5954, %5949, %5946, %5932, %5968, %5928
-  %5990 = getelementptr i8, ptr %.23330, i64 2
+JS_FreeValue.exit4217:                            ; preds = %5986, %5981, %5976, %5952, %5947, %5944, %5930, %5966, %5926
+  %5988 = getelementptr i8, ptr %.23330, i64 2
   br label %.backedge4994.backedge
 
-5991:                                             ; preds = %.backedge4994
-  %5992 = getelementptr i8, ptr %.23354, i64 -32
-  %.sroa.0345.0.copyload = load double, ptr %5992, align 8
+5989:                                             ; preds = %.backedge4994
+  %5990 = getelementptr i8, ptr %.23354, i64 -32
+  %.sroa.0345.0.copyload = load double, ptr %5990, align 8
   %.sroa.3347.0..sroa_idx = getelementptr i8, ptr %.23354, i64 -24
   %.sroa.3347.0.copyload = load i64, ptr %.sroa.3347.0..sroa_idx, align 8
-  %5993 = getelementptr i8, ptr %.23354, i64 -16
-  %.sroa.0341.0.copyload = load double, ptr %5993, align 8
+  %5991 = getelementptr i8, ptr %.23354, i64 -16
+  %.sroa.0341.0.copyload = load double, ptr %5991, align 8
   %.sroa.3343.0..sroa_idx = getelementptr i8, ptr %.23354, i64 -8
   %.sroa.3343.0.copyload = load i64, ptr %.sroa.3343.0..sroa_idx, align 8
-  %5994 = trunc i64 %.sroa.3347.0.copyload to i32
-  %5995 = trunc i64 %.sroa.3343.0.copyload to i32
-  %5996 = or i32 %5995, %5994
-  %5997 = icmp eq i32 %5996, 0
-  br i1 %5997, label %5998, label %6006
+  %5992 = trunc i64 %.sroa.3347.0.copyload to i32
+  %5993 = trunc i64 %.sroa.3343.0.copyload to i32
+  %5994 = or i32 %5993, %5992
+  %5995 = icmp eq i32 %5994, 0
+  br i1 %5995, label %5996, label %6004
 
-5998:                                             ; preds = %5991
-  %5999 = bitcast double %.sroa.0345.0.copyload to i64
-  %sext3448 = shl i64 %5999, 32
-  %6000 = ashr exact i64 %sext3448, 32
-  %6001 = bitcast double %.sroa.0341.0.copyload to i64
-  %sext3449 = shl i64 %6001, 32
-  %6002 = ashr exact i64 %sext3449, 32
-  %6003 = sub nsw i64 %6000, %6002
-  %6004 = add nsw i64 %6003, 2147483648
-  %.not3451 = icmp ult i64 %6004, 4294967296
-  br i1 %.not3451, label %6005, label %6085
+5996:                                             ; preds = %5989
+  %5997 = bitcast double %.sroa.0345.0.copyload to i64
+  %sext3448 = shl i64 %5997, 32
+  %5998 = ashr exact i64 %sext3448, 32
+  %5999 = bitcast double %.sroa.0341.0.copyload to i64
+  %sext3449 = shl i64 %5999, 32
+  %6000 = ashr exact i64 %sext3449, 32
+  %6001 = sub nsw i64 %5998, %6000
+  %6002 = add nsw i64 %6001, 2147483648
+  %.not3451 = icmp ult i64 %6002, 4294967296
+  br i1 %.not3451, label %6003, label %6083
 
-6005:                                             ; preds = %5998
-  %.sroa.03168.0.insert.ext = and i64 %6003, 4294967295
-  br label %6012
+6003:                                             ; preds = %5996
+  %.sroa.03168.0.insert.ext = and i64 %6001, 4294967295
+  br label %6010
 
-6006:                                             ; preds = %5991
-  %6007 = icmp eq i32 %5994, 7
-  %6008 = icmp eq i32 %5995, 7
-  %or.cond13 = and i1 %6007, %6008
-  br i1 %or.cond13, label %6009, label %6085
+6004:                                             ; preds = %5989
+  %6005 = icmp eq i32 %5992, 7
+  %6006 = icmp eq i32 %5993, 7
+  %or.cond13 = and i1 %6005, %6006
+  br i1 %or.cond13, label %6007, label %6083
 
-6009:                                             ; preds = %6006
-  %6010 = fsub double %.sroa.0345.0.copyload, %.sroa.0341.0.copyload
-  %6011 = bitcast double %6010 to i64
-  br label %6012
+6007:                                             ; preds = %6004
+  %6008 = fsub double %.sroa.0345.0.copyload, %.sroa.0341.0.copyload
+  %6009 = bitcast double %6008 to i64
+  br label %6010
 
-6012:                                             ; preds = %6009, %6005
-  %storemerge3447 = phi i64 [ %6011, %6009 ], [ %.sroa.03168.0.insert.ext, %6005 ]
-  %storemerge = phi i64 [ 7, %6009 ], [ 0, %6005 ]
-  store i64 %storemerge3447, ptr %5992, align 8
+6010:                                             ; preds = %6007, %6003
+  %storemerge3447 = phi i64 [ %6009, %6007 ], [ %.sroa.03168.0.insert.ext, %6003 ]
+  %storemerge = phi i64 [ 7, %6007 ], [ 0, %6003 ]
+  store i64 %storemerge3447, ptr %5990, align 8
   store i64 %storemerge, ptr %.sroa.3347.0..sroa_idx, align 8
-  %6013 = getelementptr i8, ptr %.23330, i64 1
+  %6011 = getelementptr i8, ptr %.23330, i64 1
   br label %.backedge4994.backedge
 
-6014:                                             ; preds = %.backedge4994
-  %6015 = getelementptr i8, ptr %.23354, i64 -32
-  %.sroa.0330.0.copyload = load double, ptr %6015, align 8
+6012:                                             ; preds = %.backedge4994
+  %6013 = getelementptr i8, ptr %.23354, i64 -32
+  %.sroa.0330.0.copyload = load double, ptr %6013, align 8
   %.sroa.3332.0..sroa_idx = getelementptr i8, ptr %.23354, i64 -24
   %.sroa.3332.0.copyload = load i64, ptr %.sroa.3332.0..sroa_idx, align 8
-  %6016 = getelementptr i8, ptr %.23354, i64 -16
-  %.sroa.0326.0.copyload = load double, ptr %6016, align 8
+  %6014 = getelementptr i8, ptr %.23354, i64 -16
+  %.sroa.0326.0.copyload = load double, ptr %6014, align 8
   %.sroa.3328.0..sroa_idx = getelementptr i8, ptr %.23354, i64 -8
   %.sroa.3328.0.copyload = load i64, ptr %.sroa.3328.0..sroa_idx, align 8
-  %6017 = trunc i64 %.sroa.3332.0.copyload to i32
-  %6018 = trunc i64 %.sroa.3328.0.copyload to i32
-  %6019 = or i32 %6018, %6017
-  %6020 = icmp eq i32 %6019, 0
-  br i1 %6020, label %6021, label %6041
+  %6015 = trunc i64 %.sroa.3332.0.copyload to i32
+  %6016 = trunc i64 %.sroa.3328.0.copyload to i32
+  %6017 = or i32 %6016, %6015
+  %6018 = icmp eq i32 %6017, 0
+  br i1 %6018, label %6019, label %6039
 
-6021:                                             ; preds = %6014
-  %6022 = bitcast double %.sroa.0330.0.copyload to i64
-  %6023 = bitcast double %.sroa.0326.0.copyload to i64
-  %sext3462 = shl i64 %6022, 32
-  %6024 = ashr exact i64 %sext3462, 32
-  %sext3463 = shl i64 %6023, 32
-  %6025 = ashr exact i64 %sext3463, 32
-  %6026 = mul nsw i64 %6025, %6024
-  %6027 = add nsw i64 %6026, 2147483648
-  %.not3465 = icmp ult i64 %6027, 4294967296
-  br i1 %.not3465, label %6034, label %6028
+6019:                                             ; preds = %6012
+  %6020 = bitcast double %.sroa.0330.0.copyload to i64
+  %6021 = bitcast double %.sroa.0326.0.copyload to i64
+  %sext3462 = shl i64 %6020, 32
+  %6022 = ashr exact i64 %sext3462, 32
+  %sext3463 = shl i64 %6021, 32
+  %6023 = ashr exact i64 %sext3463, 32
+  %6024 = mul nsw i64 %6023, %6022
+  %6025 = add nsw i64 %6024, 2147483648
+  %.not3465 = icmp ult i64 %6025, 4294967296
+  br i1 %.not3465, label %6032, label %6026
 
-6028:                                             ; preds = %6021
-  %6029 = load i32, ptr %248, align 4
-  %6030 = and i32 %6029, 4
-  %.not3468 = icmp ne i32 %6030, 0
-  %6031 = add nsw i64 %6026, -9007199254740992
-  %or.cond15 = icmp ult i64 %6031, -18014398509481983
+6026:                                             ; preds = %6019
+  %6027 = load i32, ptr %248, align 4
+  %6028 = and i32 %6027, 4
+  %.not3468 = icmp ne i32 %6028, 0
+  %6029 = add nsw i64 %6024, -9007199254740992
+  %or.cond15 = icmp ult i64 %6029, -18014398509481983
   %or.cond3604 = and i1 %or.cond15, %.not3468
-  br i1 %or.cond3604, label %6085, label %6032
+  br i1 %or.cond3604, label %6083, label %6030
 
-6032:                                             ; preds = %6028
-  %6033 = sitofp i64 %6026 to double
+6030:                                             ; preds = %6026
+  %6031 = sitofp i64 %6024 to double
+  br label %6047
+
+6032:                                             ; preds = %6019
+  %6033 = icmp eq i64 %6024, 0
+  %6034 = or i64 %6021, %6020
+  %6035 = and i64 %6034, 2147483648
+  %6036 = icmp ne i64 %6035, 0
+  %6037 = and i1 %6036, %6033
+  br i1 %6037, label %6047, label %6038
+
+6038:                                             ; preds = %6032
+  %.sroa.03163.0.insert.ext = and i64 %6024, 4294967295
   br label %6049
 
-6034:                                             ; preds = %6021
-  %6035 = icmp eq i64 %6026, 0
-  %6036 = or i64 %6023, %6022
-  %6037 = and i64 %6036, 2147483648
-  %6038 = icmp ne i64 %6037, 0
-  %6039 = and i1 %6038, %6035
-  br i1 %6039, label %6049, label %6040
+6039:                                             ; preds = %6012
+  %6040 = icmp eq i32 %6015, 7
+  %6041 = icmp eq i32 %6016, 7
+  %or.cond19 = and i1 %6040, %6041
+  br i1 %or.cond19, label %6042, label %6083
 
-6040:                                             ; preds = %6034
-  %.sroa.03163.0.insert.ext = and i64 %6026, 4294967295
-  br label %6051
+6042:                                             ; preds = %6039
+  %6043 = load i32, ptr %248, align 4
+  %6044 = and i32 %6043, 4
+  %.not3461 = icmp eq i32 %6044, 0
+  br i1 %.not3461, label %6045, label %6083
 
-6041:                                             ; preds = %6014
-  %6042 = icmp eq i32 %6017, 7
-  %6043 = icmp eq i32 %6018, 7
-  %or.cond19 = and i1 %6042, %6043
-  br i1 %or.cond19, label %6044, label %6085
+6045:                                             ; preds = %6042
+  %6046 = fmul double %.sroa.0330.0.copyload, %.sroa.0326.0.copyload
+  br label %6047
 
-6044:                                             ; preds = %6041
-  %6045 = load i32, ptr %248, align 4
-  %6046 = and i32 %6045, 4
-  %.not3461 = icmp eq i32 %6046, 0
-  br i1 %.not3461, label %6047, label %6085
-
-6047:                                             ; preds = %6044
-  %6048 = fmul double %.sroa.0330.0.copyload, %.sroa.0326.0.copyload
+6047:                                             ; preds = %6032, %6045, %6030
+  %.03380 = phi double [ %6031, %6030 ], [ %6046, %6045 ], [ -0.000000e+00, %6032 ]
+  %6048 = bitcast double %.03380 to i64
   br label %6049
 
-6049:                                             ; preds = %6034, %6047, %6032
-  %.03380 = phi double [ %6033, %6032 ], [ %6048, %6047 ], [ -0.000000e+00, %6034 ]
-  %6050 = bitcast double %.03380 to i64
-  br label %6051
-
-6051:                                             ; preds = %6049, %6040
-  %storemerge3467 = phi i64 [ %.sroa.03163.0.insert.ext, %6040 ], [ %6050, %6049 ]
-  %storemerge3466 = phi i64 [ 0, %6040 ], [ 7, %6049 ]
-  store i64 %storemerge3467, ptr %6015, align 8
+6049:                                             ; preds = %6047, %6038
+  %storemerge3467 = phi i64 [ %.sroa.03163.0.insert.ext, %6038 ], [ %6048, %6047 ]
+  %storemerge3466 = phi i64 [ 0, %6038 ], [ 7, %6047 ]
+  store i64 %storemerge3467, ptr %6013, align 8
   store i64 %storemerge3466, ptr %.sroa.3332.0..sroa_idx, align 8
-  %6052 = getelementptr i8, ptr %.23330, i64 1
+  %6050 = getelementptr i8, ptr %.23330, i64 1
   br label %.backedge4994.backedge
 
-6053:                                             ; preds = %.backedge4994
-  %6054 = getelementptr i8, ptr %.23354, i64 -32
-  %.sroa.0307.0.copyload = load i32, ptr %6054, align 8
+6051:                                             ; preds = %.backedge4994
+  %6052 = getelementptr i8, ptr %.23354, i64 -32
+  %.sroa.0307.0.copyload = load i32, ptr %6052, align 8
   %.sroa.2309.0..sroa_idx = getelementptr i8, ptr %.23354, i64 -24
   %.sroa.2309.0.copyload = load i64, ptr %.sroa.2309.0..sroa_idx, align 8
-  %6055 = getelementptr i8, ptr %.23354, i64 -16
-  %.sroa.0304.0.copyload = load i32, ptr %6055, align 8
+  %6053 = getelementptr i8, ptr %.23354, i64 -16
+  %.sroa.0304.0.copyload = load i32, ptr %6053, align 8
   %.sroa.2306.0..sroa_idx = getelementptr i8, ptr %.23354, i64 -8
   %.sroa.2306.0.copyload = load i64, ptr %.sroa.2306.0..sroa_idx, align 8
-  %6056 = or i64 %.sroa.2306.0.copyload, %.sroa.2309.0.copyload
-  %6057 = and i64 %6056, 4294967295
-  %6058 = icmp eq i64 %6057, 0
-  br i1 %6058, label %6059, label %6085
+  %6054 = or i64 %.sroa.2306.0.copyload, %.sroa.2309.0.copyload
+  %6055 = and i64 %6054, 4294967295
+  %6056 = icmp eq i64 %6055, 0
+  br i1 %6056, label %6057, label %6083
 
-6059:                                             ; preds = %6053
-  %6060 = load i32, ptr %248, align 4
-  %6061 = and i32 %6060, 4
-  %.not3460 = icmp eq i32 %6061, 0
-  br i1 %.not3460, label %6062, label %6085
+6057:                                             ; preds = %6051
+  %6058 = load i32, ptr %248, align 4
+  %6059 = and i32 %6058, 4
+  %.not3460 = icmp eq i32 %6059, 0
+  br i1 %.not3460, label %6060, label %6083
 
-6062:                                             ; preds = %6059
-  %6063 = sitofp i32 %.sroa.0307.0.copyload to double
-  %6064 = sitofp i32 %.sroa.0304.0.copyload to double
-  %6065 = fdiv double %6063, %6064
-  %6066 = fptosi double %6065 to i32
-  %6067 = sitofp i32 %6066 to double
-  %6068 = bitcast double %6065 to i64
-  %6069 = bitcast double %6067 to i64
-  %6070 = icmp eq i64 %6068, %6069
-  %.sroa.03303.0.extract.trunc = trunc i64 %6068 to i32
-  %.sroa.33304.0.extract.shift = and i64 %6068, -4294967296
-  %.sroa.03303.0 = select i1 %6070, i32 %6066, i32 %.sroa.03303.0.extract.trunc
-  %.sroa.33304.0 = select i1 %6070, i64 0, i64 %.sroa.33304.0.extract.shift
-  %.sroa.43305.0 = select i1 %6070, i64 0, i64 7
+6060:                                             ; preds = %6057
+  %6061 = sitofp i32 %.sroa.0307.0.copyload to double
+  %6062 = sitofp i32 %.sroa.0304.0.copyload to double
+  %6063 = fdiv double %6061, %6062
+  %6064 = fptosi double %6063 to i32
+  %6065 = sitofp i32 %6064 to double
+  %6066 = bitcast double %6063 to i64
+  %6067 = bitcast double %6065 to i64
+  %6068 = icmp eq i64 %6066, %6067
+  %.sroa.03303.0.extract.trunc = trunc i64 %6066 to i32
+  %.sroa.33304.0.extract.shift = and i64 %6066, -4294967296
+  %.sroa.03303.0 = select i1 %6068, i32 %6064, i32 %.sroa.03303.0.extract.trunc
+  %.sroa.33304.0 = select i1 %6068, i64 0, i64 %.sroa.33304.0.extract.shift
+  %.sroa.43305.0 = select i1 %6068, i64 0, i64 7
   %.sroa.03303.0.insert.ext = zext i32 %.sroa.03303.0 to i64
   %.sroa.03303.0.insert.insert = or disjoint i64 %.sroa.33304.0, %.sroa.03303.0.insert.ext
-  store i64 %.sroa.03303.0.insert.insert, ptr %6054, align 8
+  store i64 %.sroa.03303.0.insert.insert, ptr %6052, align 8
   store i64 %.sroa.43305.0, ptr %.sroa.2309.0..sroa_idx, align 8
-  %6071 = getelementptr i8, ptr %.23330, i64 1
+  %6069 = getelementptr i8, ptr %.23330, i64 1
   br label %.backedge4994.backedge
 
-6072:                                             ; preds = %.backedge4994
-  %6073 = getelementptr i8, ptr %.23354, i64 -32
-  %.sroa.0297.0.copyload = load i32, ptr %6073, align 8
+6070:                                             ; preds = %.backedge4994
+  %6071 = getelementptr i8, ptr %.23354, i64 -32
+  %.sroa.0297.0.copyload = load i32, ptr %6071, align 8
   %.sroa.2299.0..sroa_idx = getelementptr i8, ptr %.23354, i64 -24
   %.sroa.2299.0.copyload = load i64, ptr %.sroa.2299.0..sroa_idx, align 8
-  %6074 = getelementptr i8, ptr %.23354, i64 -16
-  %.sroa.0294.0.copyload = load i32, ptr %6074, align 8
+  %6072 = getelementptr i8, ptr %.23354, i64 -16
+  %.sroa.0294.0.copyload = load i32, ptr %6072, align 8
   %.sroa.2296.0..sroa_idx = getelementptr i8, ptr %.23354, i64 -8
   %.sroa.2296.0.copyload = load i64, ptr %.sroa.2296.0..sroa_idx, align 8
-  %6075 = or i64 %.sroa.2296.0.copyload, %.sroa.2299.0.copyload
-  %6076 = and i64 %6075, 4294967295
-  %6077 = icmp eq i64 %6076, 0
-  br i1 %6077, label %6078, label %6085
+  %6073 = or i64 %.sroa.2296.0.copyload, %.sroa.2299.0.copyload
+  %6074 = and i64 %6073, 4294967295
+  %6075 = icmp eq i64 %6074, 0
+  br i1 %6075, label %6076, label %6083
 
-6078:                                             ; preds = %6072
-  %6079 = icmp slt i32 %.sroa.0297.0.copyload, 0
-  %6080 = icmp slt i32 %.sroa.0294.0.copyload, 1
-  %6081 = select i1 %6079, i1 true, i1 %6080
-  br i1 %6081, label %6085, label %6082
+6076:                                             ; preds = %6070
+  %6077 = icmp slt i32 %.sroa.0297.0.copyload, 0
+  %6078 = icmp slt i32 %.sroa.0294.0.copyload, 1
+  %6079 = select i1 %6077, i1 true, i1 %6078
+  br i1 %6079, label %6083, label %6080
 
-6082:                                             ; preds = %6078
-  %6083 = urem i32 %.sroa.0297.0.copyload, %.sroa.0294.0.copyload
-  %.sroa.03158.0.insert.ext = zext nneg i32 %6083 to i64
-  store i64 %.sroa.03158.0.insert.ext, ptr %6073, align 8
+6080:                                             ; preds = %6076
+  %6081 = urem i32 %.sroa.0297.0.copyload, %.sroa.0294.0.copyload
+  %.sroa.03158.0.insert.ext = zext nneg i32 %6081 to i64
+  store i64 %.sroa.03158.0.insert.ext, ptr %6071, align 8
   store i64 0, ptr %.sroa.2299.0..sroa_idx, align 8
-  %6084 = getelementptr i8, ptr %.23330, i64 1
+  %6082 = getelementptr i8, ptr %.23330, i64 1
   br label %.backedge4994.backedge
 
-6085:                                             ; preds = %6028, %.backedge4994, %6072, %6078, %6053, %6059, %6041, %6044, %6006, %5998
+6083:                                             ; preds = %6026, %.backedge4994, %6070, %6076, %6051, %6057, %6039, %6042, %6004, %5996
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %42)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %43)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %44)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %45)
-  %6086 = getelementptr i8, ptr %.23354, i64 -32
-  %.sroa.091.0.copyload.i = load double, ptr %6086, align 8
+  %6084 = getelementptr i8, ptr %.23354, i64 -32
+  %.sroa.091.0.copyload.i = load double, ptr %6084, align 8
   %.sroa.13.0..sroa_idx.i = getelementptr i8, ptr %.23354, i64 -24
   %.sroa.13.0.copyload.i = load i64, ptr %.sroa.13.0..sroa_idx.i, align 8
-  %6087 = getelementptr i8, ptr %.23354, i64 -16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %42, ptr noundef nonnull align 8 dereferenceable(16) %6087, i64 16, i1 false)
-  %6088 = trunc i64 %.sroa.13.0.copyload.i to i32
-  %6089 = load i64, ptr %249, align 8
-  %6090 = trunc i64 %6089 to i32
-  %6091 = icmp eq i32 %6088, 7
-  %6092 = icmp eq i32 %6090, 7
-  %or.cond.i4230 = select i1 %6091, i1 %6092, i1 false
-  br i1 %or.cond.i4230, label %6093, label %6095
+  %6085 = getelementptr i8, ptr %.23354, i64 -16
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %42, ptr noundef nonnull align 8 dereferenceable(16) %6085, i64 16, i1 false)
+  %6086 = trunc i64 %.sroa.13.0.copyload.i to i32
+  %6087 = load i64, ptr %249, align 8
+  %6088 = trunc i64 %6087 to i32
+  %6089 = icmp eq i32 %6086, 7
+  %6090 = icmp eq i32 %6088, 7
+  %or.cond.i4230 = select i1 %6089, i1 %6090, i1 false
+  br i1 %or.cond.i4230, label %6091, label %6093
 
-6093:                                             ; preds = %6085
+6091:                                             ; preds = %6083
   store double %.sroa.091.0.copyload.i, ptr %43, align 8
-  %6094 = load double, ptr %42, align 8
-  store double %6094, ptr %44, align 8
+  %6092 = load double, ptr %42, align 8
+  store double %6092, ptr %44, align 8
   br label %JS_ToFloat64Free.exit.thread
 
-6095:                                             ; preds = %6085
-  %6096 = icmp eq i32 %6088, -1
-  %6097 = add i32 %6090, -4
-  %6098 = icmp ult i32 %6097, -2
-  %or.cond5.i = select i1 %6096, i1 %6098, i1 false
-  br i1 %or.cond5.i, label %6103, label %6099
+6093:                                             ; preds = %6083
+  %6094 = icmp eq i32 %6086, -1
+  %6095 = add i32 %6088, -4
+  %6096 = icmp ult i32 %6095, -2
+  %or.cond5.i = select i1 %6094, i1 %6096, i1 false
+  br i1 %or.cond5.i, label %6101, label %6097
 
-6099:                                             ; preds = %6095
-  %6100 = icmp eq i32 %6090, -1
-  %6101 = add i32 %6088, -4
-  %6102 = icmp ult i32 %6101, -2
-  %or.cond9.i = and i1 %6102, %6100
-  br i1 %or.cond9.i, label %6103, label %._crit_edge5892
+6097:                                             ; preds = %6093
+  %6098 = icmp eq i32 %6088, -1
+  %6099 = add i32 %6086, -4
+  %6100 = icmp ult i32 %6099, -2
+  %or.cond9.i = and i1 %6100, %6098
+  br i1 %or.cond9.i, label %6101, label %._crit_edge5889
 
-._crit_edge5892:                                  ; preds = %6099
-  %.pre5893 = bitcast double %.sroa.091.0.copyload.i to i64
-  br label %6129
+._crit_edge5889:                                  ; preds = %6097
+  %.pre5890 = bitcast double %.sroa.091.0.copyload.i to i64
+  br label %6127
 
-6103:                                             ; preds = %6099, %6095
-  %6104 = bitcast double %.sroa.091.0.copyload.i to i64
-  %6105 = load i64, ptr %42, align 8
-  %6106 = call fastcc i32 @js_call_binary_op_fallback(ptr noundef %.1, ptr noundef %45, i64 %6104, i64 %.sroa.13.0.copyload.i, i64 %6105, i64 %6089, i32 noundef %.03333, i32 noundef 1, i32 noundef 0)
-  %.not.i4234 = icmp eq i32 %6106, 0
-  br i1 %.not.i4234, label %6129, label %6107
+6101:                                             ; preds = %6097, %6093
+  %6102 = bitcast double %.sroa.091.0.copyload.i to i64
+  %6103 = load i64, ptr %42, align 8
+  %6104 = call fastcc i32 @js_call_binary_op_fallback(ptr noundef %.1, ptr noundef %45, i64 %6102, i64 %.sroa.13.0.copyload.i, i64 %6103, i64 %6087, i32 noundef %.03333, i32 noundef 1, i32 noundef 0)
+  %.not.i4234 = icmp eq i32 %6104, 0
+  br i1 %.not.i4234, label %6127, label %6105
 
-6107:                                             ; preds = %6103
-  %6108 = icmp ugt i32 %6088, -12
-  br i1 %6108, label %6109, label %JS_FreeValue.exit4575
+6105:                                             ; preds = %6101
+  %6106 = icmp ugt i32 %6086, -12
+  br i1 %6106, label %6107, label %JS_FreeValue.exit4575
 
-6109:                                             ; preds = %6107
-  %6110 = inttoptr i64 %6104 to ptr
-  %6111 = load i32, ptr %6110, align 4
-  %6112 = add i32 %6111, -1
-  store i32 %6112, ptr %6110, align 4
-  %6113 = icmp slt i32 %6112, 1
-  br i1 %6113, label %6114, label %JS_FreeValue.exit4575
+6107:                                             ; preds = %6105
+  %6108 = inttoptr i64 %6102 to ptr
+  %6109 = load i32, ptr %6108, align 4
+  %6110 = add i32 %6109, -1
+  store i32 %6110, ptr %6108, align 4
+  %6111 = icmp slt i32 %6110, 1
+  br i1 %6111, label %6112, label %JS_FreeValue.exit4575
 
-6114:                                             ; preds = %6109
-  %6115 = load ptr, ptr %237, align 8
-  call void @__JS_FreeValueRT(ptr noundef %6115, i64 %6104, i64 %.sroa.13.0.copyload.i)
+6112:                                             ; preds = %6107
+  %6113 = load ptr, ptr %237, align 8
+  call void @__JS_FreeValueRT(ptr noundef %6113, i64 %6102, i64 %.sroa.13.0.copyload.i)
   br label %JS_FreeValue.exit4575
 
-JS_FreeValue.exit4575:                            ; preds = %6107, %6109, %6114
-  %6116 = load i64, ptr %42, align 8
-  %6117 = load i64, ptr %249, align 8
-  %6118 = trunc i64 %6117 to i32
-  %6119 = icmp ugt i32 %6118, -12
-  br i1 %6119, label %6120, label %JS_FreeValue.exit4574
+JS_FreeValue.exit4575:                            ; preds = %6105, %6107, %6112
+  %6114 = load i64, ptr %42, align 8
+  %6115 = load i64, ptr %249, align 8
+  %6116 = trunc i64 %6115 to i32
+  %6117 = icmp ugt i32 %6116, -12
+  br i1 %6117, label %6118, label %JS_FreeValue.exit4574
 
-6120:                                             ; preds = %JS_FreeValue.exit4575
-  %6121 = inttoptr i64 %6116 to ptr
-  %6122 = load i32, ptr %6121, align 4
-  %6123 = add i32 %6122, -1
-  store i32 %6123, ptr %6121, align 4
-  %6124 = icmp slt i32 %6123, 1
-  br i1 %6124, label %6125, label %JS_FreeValue.exit4574
+6118:                                             ; preds = %JS_FreeValue.exit4575
+  %6119 = inttoptr i64 %6114 to ptr
+  %6120 = load i32, ptr %6119, align 4
+  %6121 = add i32 %6120, -1
+  store i32 %6121, ptr %6119, align 4
+  %6122 = icmp slt i32 %6121, 1
+  br i1 %6122, label %6123, label %JS_FreeValue.exit4574
 
-6125:                                             ; preds = %6120
-  %6126 = load ptr, ptr %237, align 8
-  call void @__JS_FreeValueRT(ptr noundef %6126, i64 %6116, i64 %6117)
+6123:                                             ; preds = %6118
+  %6124 = load ptr, ptr %237, align 8
+  call void @__JS_FreeValueRT(ptr noundef %6124, i64 %6114, i64 %6115)
   br label %JS_FreeValue.exit4574
 
-JS_FreeValue.exit4574:                            ; preds = %JS_FreeValue.exit4575, %6120, %6125
-  %6127 = icmp slt i32 %6106, 0
-  br i1 %6127, label %js_binary_arith_slow.exit, label %6128
+JS_FreeValue.exit4574:                            ; preds = %JS_FreeValue.exit4575, %6118, %6123
+  %6125 = icmp slt i32 %6104, 0
+  br i1 %6125, label %js_binary_arith_slow.exit, label %6126
 
-6128:                                             ; preds = %JS_FreeValue.exit4574
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %6086, ptr noundef nonnull align 8 dereferenceable(16) %45, i64 16, i1 false)
-  br label %6348
+6126:                                             ; preds = %JS_FreeValue.exit4574
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %6084, ptr noundef nonnull align 8 dereferenceable(16) %45, i64 16, i1 false)
+  br label %6346
 
-6129:                                             ; preds = %._crit_edge5892, %6103
-  %.pre-phi5894 = phi i64 [ %.pre5893, %._crit_edge5892 ], [ %6104, %6103 ]
-  %6130 = call fastcc { i64, i64 } @JS_ToNumberHintFree(ptr noundef %.1, i64 %.pre-phi5894, i64 %.sroa.13.0.copyload.i, i32 noundef 1)
-  %6131 = extractvalue { i64, i64 } %6130, 0
-  %6132 = extractvalue { i64, i64 } %6130, 1
-  %6133 = bitcast i64 %6131 to double
-  %6134 = and i64 %6132, 4294967295
-  %.not4845 = icmp eq i64 %6134, 6
-  %6135 = load i64, ptr %42, align 8
-  %6136 = load i64, ptr %249, align 8
-  br i1 %.not4845, label %6137, label %6147
+6127:                                             ; preds = %._crit_edge5889, %6101
+  %.pre-phi5891 = phi i64 [ %.pre5890, %._crit_edge5889 ], [ %6102, %6101 ]
+  %6128 = call fastcc { i64, i64 } @JS_ToNumberHintFree(ptr noundef %.1, i64 %.pre-phi5891, i64 %.sroa.13.0.copyload.i, i32 noundef 1)
+  %6129 = extractvalue { i64, i64 } %6128, 0
+  %6130 = extractvalue { i64, i64 } %6128, 1
+  %6131 = bitcast i64 %6129 to double
+  %6132 = and i64 %6130, 4294967295
+  %.not4845 = icmp eq i64 %6132, 6
+  %6133 = load i64, ptr %42, align 8
+  %6134 = load i64, ptr %249, align 8
+  br i1 %.not4845, label %6135, label %6145
 
-6137:                                             ; preds = %6129
-  %6138 = trunc i64 %6136 to i32
-  %6139 = icmp ugt i32 %6138, -12
-  br i1 %6139, label %6140, label %js_binary_arith_slow.exit
+6135:                                             ; preds = %6127
+  %6136 = trunc i64 %6134 to i32
+  %6137 = icmp ugt i32 %6136, -12
+  br i1 %6137, label %6138, label %js_binary_arith_slow.exit
 
-6140:                                             ; preds = %6137
-  %6141 = inttoptr i64 %6135 to ptr
-  %6142 = load i32, ptr %6141, align 4
-  %6143 = add i32 %6142, -1
-  store i32 %6143, ptr %6141, align 4
-  %6144 = icmp slt i32 %6143, 1
-  br i1 %6144, label %6145, label %js_binary_arith_slow.exit
+6138:                                             ; preds = %6135
+  %6139 = inttoptr i64 %6133 to ptr
+  %6140 = load i32, ptr %6139, align 4
+  %6141 = add i32 %6140, -1
+  store i32 %6141, ptr %6139, align 4
+  %6142 = icmp slt i32 %6141, 1
+  br i1 %6142, label %6143, label %js_binary_arith_slow.exit
 
-6145:                                             ; preds = %6140
-  %6146 = load ptr, ptr %237, align 8
-  call void @__JS_FreeValueRT(ptr noundef %6146, i64 %6135, i64 %6136)
+6143:                                             ; preds = %6138
+  %6144 = load ptr, ptr %237, align 8
+  call void @__JS_FreeValueRT(ptr noundef %6144, i64 %6133, i64 %6134)
   br label %js_binary_arith_slow.exit
 
-6147:                                             ; preds = %6129
-  %6148 = call fastcc { i64, i64 } @JS_ToNumberHintFree(ptr noundef %.1, i64 %6135, i64 %6136, i32 noundef 1)
-  %6149 = extractvalue { i64, i64 } %6148, 0
-  %6150 = extractvalue { i64, i64 } %6148, 1
-  store i64 %6149, ptr %42, align 8
-  store i64 %6150, ptr %249, align 8
-  %6151 = and i64 %6150, 4294967295
-  %.not4846 = icmp eq i64 %6151, 6
-  %6152 = trunc i64 %6149 to i32
-  %6153 = trunc i64 %6132 to i32
-  br i1 %.not4846, label %6154, label %6163
+6145:                                             ; preds = %6127
+  %6146 = call fastcc { i64, i64 } @JS_ToNumberHintFree(ptr noundef %.1, i64 %6133, i64 %6134, i32 noundef 1)
+  %6147 = extractvalue { i64, i64 } %6146, 0
+  %6148 = extractvalue { i64, i64 } %6146, 1
+  store i64 %6147, ptr %42, align 8
+  store i64 %6148, ptr %249, align 8
+  %6149 = and i64 %6148, 4294967295
+  %.not4846 = icmp eq i64 %6149, 6
+  %6150 = trunc i64 %6147 to i32
+  %6151 = trunc i64 %6130 to i32
+  br i1 %.not4846, label %6152, label %6161
 
-6154:                                             ; preds = %6147
-  %6155 = icmp ugt i32 %6153, -12
-  br i1 %6155, label %6156, label %js_binary_arith_slow.exit
+6152:                                             ; preds = %6145
+  %6153 = icmp ugt i32 %6151, -12
+  br i1 %6153, label %6154, label %js_binary_arith_slow.exit
 
-6156:                                             ; preds = %6154
-  %6157 = inttoptr i64 %6131 to ptr
-  %6158 = load i32, ptr %6157, align 4
-  %6159 = add i32 %6158, -1
-  store i32 %6159, ptr %6157, align 4
-  %6160 = icmp slt i32 %6159, 1
-  br i1 %6160, label %6161, label %js_binary_arith_slow.exit
+6154:                                             ; preds = %6152
+  %6155 = inttoptr i64 %6129 to ptr
+  %6156 = load i32, ptr %6155, align 4
+  %6157 = add i32 %6156, -1
+  store i32 %6157, ptr %6155, align 4
+  %6158 = icmp slt i32 %6157, 1
+  br i1 %6158, label %6159, label %js_binary_arith_slow.exit
 
-6161:                                             ; preds = %6156
-  %6162 = load ptr, ptr %237, align 8
-  call void @__JS_FreeValueRT(ptr noundef %6162, i64 %6131, i64 %6132)
+6159:                                             ; preds = %6154
+  %6160 = load ptr, ptr %237, align 8
+  call void @__JS_FreeValueRT(ptr noundef %6160, i64 %6129, i64 %6130)
   br label %js_binary_arith_slow.exit
 
-6163:                                             ; preds = %6147
-  %6164 = trunc i64 %6150 to i32
-  %6165 = or i32 %6164, %6153
-  %or.cond11.i = icmp eq i32 %6165, 0
-  br i1 %or.cond11.i, label %6166, label %6243
+6161:                                             ; preds = %6145
+  %6162 = trunc i64 %6148 to i32
+  %6163 = or i32 %6162, %6151
+  %or.cond11.i = icmp eq i32 %6163, 0
+  br i1 %or.cond11.i, label %6164, label %6241
 
-6166:                                             ; preds = %6163
-  %.sroa.091.0.extract.trunc.i = trunc i64 %6131 to i32
-  switch i8 %.03333.in, label %6235 [
-    i8 -97, label %6167
-    i8 -101, label %6171
-    i8 -100, label %6185
-    i8 -76, label %6193
-    i8 -99, label %6208
-    i8 -96, label %6222
+6164:                                             ; preds = %6161
+  %.sroa.091.0.extract.trunc.i = trunc i64 %6129 to i32
+  switch i8 %.03333.in, label %6233 [
+    i8 -97, label %6165
+    i8 -101, label %6169
+    i8 -100, label %6183
+    i8 -76, label %6191
+    i8 -99, label %6206
+    i8 -96, label %6220
   ]
 
-6167:                                             ; preds = %6166
-  %sext233.i = shl i64 %6131, 32
-  %6168 = ashr exact i64 %sext233.i, 32
-  %sext5898 = shl i64 %6149, 32
-  %6169 = ashr exact i64 %sext5898, 32
-  %6170 = sub nsw i64 %6168, %6169
-  br label %6236
+6165:                                             ; preds = %6164
+  %sext233.i = shl i64 %6129, 32
+  %6166 = ashr exact i64 %sext233.i, 32
+  %sext5895 = shl i64 %6147, 32
+  %6167 = ashr exact i64 %sext5895, 32
+  %6168 = sub nsw i64 %6166, %6167
+  br label %6234
 
-6171:                                             ; preds = %6166
-  %sext231.i = shl i64 %6131, 32
-  %6172 = ashr exact i64 %sext231.i, 32
-  %sext5897 = shl i64 %6149, 32
-  %6173 = ashr exact i64 %sext5897, 32
-  %6174 = mul nsw i64 %6173, %6172
+6169:                                             ; preds = %6164
+  %sext231.i = shl i64 %6129, 32
+  %6170 = ashr exact i64 %sext231.i, 32
+  %sext5894 = shl i64 %6147, 32
+  %6171 = ashr exact i64 %sext5894, 32
+  %6172 = mul nsw i64 %6171, %6170
   %.val242.i = load ptr, ptr %237, align 8
-  %6175 = getelementptr i8, ptr %.val242.i, i64 248
-  %.val242.val.i = load ptr, ptr %6175, align 8
+  %6173 = getelementptr i8, ptr %.val242.i, i64 248
+  %.val242.val.i = load ptr, ptr %6173, align 8
   %.not.i4569 = icmp eq ptr %.val242.val.i, null
   br i1 %.not.i4569, label %is_math_mode.exit4571.thread, label %is_math_mode.exit4571
 
-is_math_mode.exit4571:                            ; preds = %6171
-  %6176 = getelementptr inbounds i8, ptr %.val242.val.i, i64 68
-  %6177 = load i32, ptr %6176, align 4
-  %6178 = and i32 %6177, 4
-  %.not232.i = icmp ne i32 %6178, 0
-  %6179 = add nsw i64 %6174, -9007199254740992
-  %or.cond13.i = icmp ult i64 %6179, -18014398509481983
+is_math_mode.exit4571:                            ; preds = %6169
+  %6174 = getelementptr inbounds i8, ptr %.val242.val.i, i64 68
+  %6175 = load i32, ptr %6174, align 4
+  %6176 = and i32 %6175, 4
+  %.not232.i = icmp ne i32 %6176, 0
+  %6177 = add nsw i64 %6172, -9007199254740992
+  %or.cond13.i = icmp ult i64 %6177, -18014398509481983
   %or.cond239.i = select i1 %.not232.i, i1 %or.cond13.i, i1 false
-  br i1 %or.cond239.i, label %6262, label %is_math_mode.exit4571.thread
+  br i1 %or.cond239.i, label %6260, label %is_math_mode.exit4571.thread
 
-is_math_mode.exit4571.thread:                     ; preds = %6171, %is_math_mode.exit4571
-  %6180 = icmp eq i64 %6174, 0
-  br i1 %6180, label %6181, label %6236
+is_math_mode.exit4571.thread:                     ; preds = %6169, %is_math_mode.exit4571
+  %6178 = icmp eq i64 %6172, 0
+  br i1 %6178, label %6179, label %6234
 
-6181:                                             ; preds = %is_math_mode.exit4571.thread
-  %6182 = or i32 %6152, %.sroa.091.0.extract.trunc.i
-  %6183 = icmp slt i32 %6182, 0
-  br i1 %6183, label %6184, label %.thread4797
+6179:                                             ; preds = %is_math_mode.exit4571.thread
+  %6180 = or i32 %6150, %.sroa.091.0.extract.trunc.i
+  %6181 = icmp slt i32 %6180, 0
+  br i1 %6181, label %6182, label %.thread4797
 
-6184:                                             ; preds = %6181
-  store i64 -9223372036854775808, ptr %6086, align 8
+6182:                                             ; preds = %6179
+  store i64 -9223372036854775808, ptr %6084, align 8
   store i64 7, ptr %.sroa.13.0..sroa_idx.i, align 8
-  br label %6348
+  br label %6346
 
-6185:                                             ; preds = %6166
+6183:                                             ; preds = %6164
   %.val241.i = load ptr, ptr %237, align 8
-  %6186 = getelementptr i8, ptr %.val241.i, i64 248
-  %.val241.val.i = load ptr, ptr %6186, align 8
+  %6184 = getelementptr i8, ptr %.val241.i, i64 248
+  %.val241.val.i = load ptr, ptr %6184, align 8
   %.not.i4566 = icmp eq ptr %.val241.val.i, null
   br i1 %.not.i4566, label %is_math_mode.exit4568.thread, label %is_math_mode.exit4568
 
-is_math_mode.exit4568:                            ; preds = %6185
-  %6187 = getelementptr inbounds i8, ptr %.val241.val.i, i64 68
-  %6188 = load i32, ptr %6187, align 4
-  %6189 = and i32 %6188, 4
-  %.not230.i = icmp eq i32 %6189, 0
-  br i1 %.not230.i, label %is_math_mode.exit4568.thread, label %6262
+is_math_mode.exit4568:                            ; preds = %6183
+  %6185 = getelementptr inbounds i8, ptr %.val241.val.i, i64 68
+  %6186 = load i32, ptr %6185, align 4
+  %6187 = and i32 %6186, 4
+  %.not230.i = icmp eq i32 %6187, 0
+  br i1 %.not230.i, label %is_math_mode.exit4568.thread, label %6260
 
-is_math_mode.exit4568.thread:                     ; preds = %6185, %is_math_mode.exit4568
-  %6190 = sitofp i32 %.sroa.091.0.extract.trunc.i to double
-  %6191 = sitofp i32 %6152 to double
-  %6192 = fdiv double %6190, %6191
-  store double %6192, ptr %6086, align 8
+is_math_mode.exit4568.thread:                     ; preds = %6183, %is_math_mode.exit4568
+  %6188 = sitofp i32 %.sroa.091.0.extract.trunc.i to double
+  %6189 = sitofp i32 %6150 to double
+  %6190 = fdiv double %6188, %6189
+  store double %6190, ptr %6084, align 8
   store i64 7, ptr %.sroa.13.0..sroa_idx.i, align 8
-  br label %6348
+  br label %6346
 
-6193:                                             ; preds = %6166
-  %6194 = icmp eq i32 %6152, 0
-  br i1 %6194, label %6195, label %6197
+6191:                                             ; preds = %6164
+  %6192 = icmp eq i32 %6150, 0
+  br i1 %6192, label %6193, label %6195
 
-6195:                                             ; preds = %6193
-  %6196 = call { i64, i64 } (ptr, ptr, ...) @JS_ThrowRangeError(ptr noundef %.1, ptr noundef nonnull @.str.167, ptr noundef nonnull @.str.164)
+6193:                                             ; preds = %6191
+  %6194 = call { i64, i64 } (ptr, ptr, ...) @JS_ThrowRangeError(ptr noundef %.1, ptr noundef nonnull @.str.167, ptr noundef nonnull @.str.164)
   br label %js_binary_arith_slow.exit
 
-6197:                                             ; preds = %6193
-  %sext.i = shl i64 %6131, 32
-  %6198 = ashr exact i64 %sext.i, 32
-  %sext5896 = shl i64 %6149, 32
-  %6199 = ashr exact i64 %sext5896, 32
-  %6200 = srem i64 %6198, %6199
-  %6201 = icmp slt i64 %6200, 0
-  br i1 %6201, label %6202, label %6236
+6195:                                             ; preds = %6191
+  %sext.i = shl i64 %6129, 32
+  %6196 = ashr exact i64 %sext.i, 32
+  %sext5893 = shl i64 %6147, 32
+  %6197 = ashr exact i64 %sext5893, 32
+  %6198 = srem i64 %6196, %6197
+  %6199 = icmp slt i64 %6198, 0
+  br i1 %6199, label %6200, label %6234
 
-6202:                                             ; preds = %6197
-  %6203 = icmp slt i32 %6152, 0
-  br i1 %6203, label %6204, label %6206
+6200:                                             ; preds = %6195
+  %6201 = icmp slt i32 %6150, 0
+  br i1 %6201, label %6202, label %6204
 
-6204:                                             ; preds = %6202
-  %6205 = sub nsw i64 %6200, %6199
-  br label %6236
+6202:                                             ; preds = %6200
+  %6203 = sub nsw i64 %6198, %6197
+  br label %6234
 
-6206:                                             ; preds = %6202
-  %6207 = add nsw i64 %6200, %6199
-  br label %6236
+6204:                                             ; preds = %6200
+  %6205 = add nsw i64 %6198, %6197
+  br label %6234
 
-6208:                                             ; preds = %6166
-  %6209 = icmp slt i32 %.sroa.091.0.extract.trunc.i, 0
-  %6210 = icmp slt i32 %6152, 1
-  %or.cond15.i = select i1 %6209, i1 true, i1 %6210
-  br i1 %or.cond15.i, label %6211, label %6220
+6206:                                             ; preds = %6164
+  %6207 = icmp slt i32 %.sroa.091.0.extract.trunc.i, 0
+  %6208 = icmp slt i32 %6150, 1
+  %or.cond15.i = select i1 %6207, i1 true, i1 %6208
+  br i1 %or.cond15.i, label %6209, label %6218
 
-6211:                                             ; preds = %6208
-  %6212 = sitofp i32 %.sroa.091.0.extract.trunc.i to double
-  %6213 = sitofp i32 %6152 to double
-  %6214 = call double @fmod(double noundef %6212, double noundef %6213) #42
-  %6215 = fptosi double %6214 to i32
-  %6216 = sitofp i32 %6215 to double
-  %6217 = bitcast double %6214 to i64
-  %6218 = bitcast double %6216 to i64
-  %6219 = icmp eq i64 %6217, %6218
-  %.sroa.0208.0.extract.trunc.i = trunc i64 %6217 to i32
-  %.sroa.3209.0.extract.shift.i = and i64 %6217, -4294967296
-  %.sroa.0208.0.i = select i1 %6219, i32 %6215, i32 %.sroa.0208.0.extract.trunc.i
-  %.sroa.3209.0.i = select i1 %6219, i64 0, i64 %.sroa.3209.0.extract.shift.i
-  %.sroa.4210.0.i = select i1 %6219, i64 0, i64 7
+6209:                                             ; preds = %6206
+  %6210 = sitofp i32 %.sroa.091.0.extract.trunc.i to double
+  %6211 = sitofp i32 %6150 to double
+  %6212 = call double @fmod(double noundef %6210, double noundef %6211) #42
+  %6213 = fptosi double %6212 to i32
+  %6214 = sitofp i32 %6213 to double
+  %6215 = bitcast double %6212 to i64
+  %6216 = bitcast double %6214 to i64
+  %6217 = icmp eq i64 %6215, %6216
+  %.sroa.0208.0.extract.trunc.i = trunc i64 %6215 to i32
+  %.sroa.3209.0.extract.shift.i = and i64 %6215, -4294967296
+  %.sroa.0208.0.i = select i1 %6217, i32 %6213, i32 %.sroa.0208.0.extract.trunc.i
+  %.sroa.3209.0.i = select i1 %6217, i64 0, i64 %.sroa.3209.0.extract.shift.i
+  %.sroa.4210.0.i = select i1 %6217, i64 0, i64 7
   %.sroa.0208.0.insert.ext.i = zext i32 %.sroa.0208.0.i to i64
   %.sroa.0208.0.insert.insert.i = or disjoint i64 %.sroa.3209.0.i, %.sroa.0208.0.insert.ext.i
-  store i64 %.sroa.0208.0.insert.insert.i, ptr %6086, align 8
+  store i64 %.sroa.0208.0.insert.insert.i, ptr %6084, align 8
   store i64 %.sroa.4210.0.i, ptr %.sroa.13.0..sroa_idx.i, align 8
-  br label %6348
+  br label %6346
 
-6220:                                             ; preds = %6208
-  %6221 = urem i32 %.sroa.091.0.extract.trunc.i, %6152
-  %.zext = zext nneg i32 %6221 to i64
-  br label %6236
+6218:                                             ; preds = %6206
+  %6219 = urem i32 %.sroa.091.0.extract.trunc.i, %6150
+  %.zext = zext nneg i32 %6219 to i64
+  br label %6234
 
-6222:                                             ; preds = %6166
+6220:                                             ; preds = %6164
   %.val240.i = load ptr, ptr %237, align 8
-  %6223 = getelementptr i8, ptr %.val240.i, i64 248
-  %.val240.val.i = load ptr, ptr %6223, align 8
+  %6221 = getelementptr i8, ptr %.val240.i, i64 248
+  %.val240.val.i = load ptr, ptr %6221, align 8
   %.not.i4559 = icmp eq ptr %.val240.val.i, null
   br i1 %.not.i4559, label %is_math_mode.exit4561.thread, label %is_math_mode.exit4561
 
-is_math_mode.exit4561:                            ; preds = %6222
-  %6224 = getelementptr inbounds i8, ptr %.val240.val.i, i64 68
-  %6225 = load i32, ptr %6224, align 4
-  %6226 = and i32 %6225, 4
-  %.not229.i = icmp eq i32 %6226, 0
-  br i1 %.not229.i, label %is_math_mode.exit4561.thread, label %6262
+is_math_mode.exit4561:                            ; preds = %6220
+  %6222 = getelementptr inbounds i8, ptr %.val240.val.i, i64 68
+  %6223 = load i32, ptr %6222, align 4
+  %6224 = and i32 %6223, 4
+  %.not229.i = icmp eq i32 %6224, 0
+  br i1 %.not229.i, label %is_math_mode.exit4561.thread, label %6260
 
-is_math_mode.exit4561.thread:                     ; preds = %6222, %is_math_mode.exit4561
-  %6227 = sitofp i32 %.sroa.091.0.extract.trunc.i to double
-  %6228 = sitofp i32 %6152 to double
-  %6229 = call double @pow(double noundef %6227, double noundef %6228) #42
-  %6230 = fptosi double %6229 to i32
-  %6231 = sitofp i32 %6230 to double
-  %6232 = bitcast double %6229 to i64
-  %6233 = bitcast double %6231 to i64
-  %6234 = icmp eq i64 %6232, %6233
-  %.sroa.0191.0.extract.trunc.i = trunc i64 %6232 to i32
-  %.sroa.3192.0.extract.shift.i = and i64 %6232, -4294967296
-  %.sroa.0191.0.i = select i1 %6234, i32 %6230, i32 %.sroa.0191.0.extract.trunc.i
-  %.sroa.3192.0.i = select i1 %6234, i64 0, i64 %.sroa.3192.0.extract.shift.i
-  %.sroa.4.0.i4233 = select i1 %6234, i64 0, i64 7
+is_math_mode.exit4561.thread:                     ; preds = %6220, %is_math_mode.exit4561
+  %6225 = sitofp i32 %.sroa.091.0.extract.trunc.i to double
+  %6226 = sitofp i32 %6150 to double
+  %6227 = call double @pow(double noundef %6225, double noundef %6226) #42
+  %6228 = fptosi double %6227 to i32
+  %6229 = sitofp i32 %6228 to double
+  %6230 = bitcast double %6227 to i64
+  %6231 = bitcast double %6229 to i64
+  %6232 = icmp eq i64 %6230, %6231
+  %.sroa.0191.0.extract.trunc.i = trunc i64 %6230 to i32
+  %.sroa.3192.0.extract.shift.i = and i64 %6230, -4294967296
+  %.sroa.0191.0.i = select i1 %6232, i32 %6228, i32 %.sroa.0191.0.extract.trunc.i
+  %.sroa.3192.0.i = select i1 %6232, i64 0, i64 %.sroa.3192.0.extract.shift.i
+  %.sroa.4.0.i4233 = select i1 %6232, i64 0, i64 7
   %.sroa.0191.0.insert.ext.i = zext i32 %.sroa.0191.0.i to i64
   %.sroa.0191.0.insert.insert.i = or disjoint i64 %.sroa.3192.0.i, %.sroa.0191.0.insert.ext.i
-  store i64 %.sroa.0191.0.insert.insert.i, ptr %6086, align 8
+  store i64 %.sroa.0191.0.insert.insert.i, ptr %6084, align 8
   store i64 %.sroa.4.0.i4233, ptr %.sroa.13.0..sroa_idx.i, align 8
-  br label %6348
+  br label %6346
 
-6235:                                             ; preds = %6166
+6233:                                             ; preds = %6164
   call void @abort() #44
   unreachable
 
-6236:                                             ; preds = %6220, %6206, %6204, %6197, %is_math_mode.exit4571.thread, %6167
-  %.0212.i = phi i64 [ %.zext, %6220 ], [ %6205, %6204 ], [ %6207, %6206 ], [ %6200, %6197 ], [ %6174, %is_math_mode.exit4571.thread ], [ %6170, %6167 ]
-  %6237 = add nsw i64 %.0212.i, 2147483648
-  %6238 = icmp ult i64 %6237, 4294967296
-  br i1 %6238, label %.thread4797, label %6239
+6234:                                             ; preds = %6218, %6204, %6202, %6195, %is_math_mode.exit4571.thread, %6165
+  %.0212.i = phi i64 [ %.zext, %6218 ], [ %6203, %6202 ], [ %6205, %6204 ], [ %6198, %6195 ], [ %6172, %is_math_mode.exit4571.thread ], [ %6168, %6165 ]
+  %6235 = add nsw i64 %.0212.i, 2147483648
+  %6236 = icmp ult i64 %6235, 4294967296
+  br i1 %6236, label %.thread4797, label %6237
 
-.thread4797:                                      ; preds = %6181, %6236
-  %.0212.i4799 = phi i64 [ %.0212.i, %6236 ], [ 0, %6181 ]
+.thread4797:                                      ; preds = %6179, %6234
+  %.0212.i4799 = phi i64 [ %.0212.i, %6234 ], [ 0, %6179 ]
   %.sroa.0174.0.insert.ext.i = and i64 %.0212.i4799, 4294967295
-  br label %6242
+  br label %6240
 
-6239:                                             ; preds = %6236
-  %6240 = sitofp i64 %.0212.i to double
-  %6241 = bitcast double %6240 to i64
-  br label %6242
+6237:                                             ; preds = %6234
+  %6238 = sitofp i64 %.0212.i to double
+  %6239 = bitcast double %6238 to i64
+  br label %6240
 
-6242:                                             ; preds = %6239, %.thread4797
-  %.sroa.0170.0.i = phi i64 [ %.sroa.0174.0.insert.ext.i, %.thread4797 ], [ %6241, %6239 ]
-  %.sroa.3.0.i = phi i64 [ 0, %.thread4797 ], [ 7, %6239 ]
-  store i64 %.sroa.0170.0.i, ptr %6086, align 8
+6240:                                             ; preds = %6237, %.thread4797
+  %.sroa.0170.0.i = phi i64 [ %.sroa.0174.0.insert.ext.i, %.thread4797 ], [ %6239, %6237 ]
+  %.sroa.3.0.i = phi i64 [ 0, %.thread4797 ], [ 7, %6237 ]
+  store i64 %.sroa.0170.0.i, ptr %6084, align 8
   store i64 %.sroa.3.0.i, ptr %.sroa.13.0..sroa_idx.i, align 8
-  br label %6348
+  br label %6346
 
-6243:                                             ; preds = %6163
-  %6244 = icmp eq i32 %6153, -11
-  %6245 = icmp eq i32 %6164, -11
-  %or.cond17.i = or i1 %6244, %6245
-  br i1 %or.cond17.i, label %6246, label %6251
+6241:                                             ; preds = %6161
+  %6242 = icmp eq i32 %6151, -11
+  %6243 = icmp eq i32 %6162, -11
+  %or.cond17.i = or i1 %6242, %6243
+  br i1 %or.cond17.i, label %6244, label %6249
 
-6246:                                             ; preds = %6243
-  %6247 = load ptr, ptr %237, align 8
-  %6248 = getelementptr inbounds i8, ptr %6247, i64 656
-  %6249 = load ptr, ptr %6248, align 8
-  %6250 = call i32 %6249(ptr noundef %.1, i32 noundef %.03333, ptr noundef nonnull %6086, i64 %6131, i64 %6132, ptr noundef nonnull byval(%struct.JSValue) align 8 %42) #42
-  %.not228.i = icmp eq i32 %6250, 0
-  br i1 %.not228.i, label %6348, label %js_binary_arith_slow.exit
+6244:                                             ; preds = %6241
+  %6245 = load ptr, ptr %237, align 8
+  %6246 = getelementptr inbounds i8, ptr %6245, i64 656
+  %6247 = load ptr, ptr %6246, align 8
+  %6248 = call i32 %6247(ptr noundef %.1, i32 noundef %.03333, ptr noundef nonnull %6084, i64 %6129, i64 %6130, ptr noundef nonnull byval(%struct.JSValue) align 8 %42) #42
+  %.not228.i = icmp eq i32 %6248, 0
+  br i1 %.not228.i, label %6346, label %js_binary_arith_slow.exit
 
-6251:                                             ; preds = %6243
-  %6252 = icmp eq i32 %6153, -9
-  %6253 = icmp eq i32 %6164, -9
-  %or.cond19.i = or i1 %6252, %6253
-  br i1 %or.cond19.i, label %6254, label %6259
+6249:                                             ; preds = %6241
+  %6250 = icmp eq i32 %6151, -9
+  %6251 = icmp eq i32 %6162, -9
+  %or.cond19.i = or i1 %6250, %6251
+  br i1 %or.cond19.i, label %6252, label %6257
 
-6254:                                             ; preds = %6251
-  %6255 = load ptr, ptr %237, align 8
-  %6256 = getelementptr inbounds i8, ptr %6255, i64 600
-  %6257 = load ptr, ptr %6256, align 8
-  %6258 = call i32 %6257(ptr noundef %.1, i32 noundef %.03333, ptr noundef nonnull %6086, i64 %6131, i64 %6132, ptr noundef nonnull byval(%struct.JSValue) align 8 %42) #42
-  %.not227.i = icmp eq i32 %6258, 0
-  br i1 %.not227.i, label %6348, label %js_binary_arith_slow.exit
+6252:                                             ; preds = %6249
+  %6253 = load ptr, ptr %237, align 8
+  %6254 = getelementptr inbounds i8, ptr %6253, i64 600
+  %6255 = load ptr, ptr %6254, align 8
+  %6256 = call i32 %6255(ptr noundef %.1, i32 noundef %.03333, ptr noundef nonnull %6084, i64 %6129, i64 %6130, ptr noundef nonnull byval(%struct.JSValue) align 8 %42) #42
+  %.not227.i = icmp eq i32 %6256, 0
+  br i1 %.not227.i, label %6346, label %js_binary_arith_slow.exit
 
-6259:                                             ; preds = %6251
-  %6260 = icmp eq i32 %6153, -10
-  %6261 = icmp eq i32 %6164, -10
-  %or.cond21.i = or i1 %6260, %6261
-  br i1 %or.cond21.i, label %._crit_edge5871, label %6268
+6257:                                             ; preds = %6249
+  %6258 = icmp eq i32 %6151, -10
+  %6259 = icmp eq i32 %6162, -10
+  %or.cond21.i = or i1 %6258, %6259
+  br i1 %or.cond21.i, label %._crit_edge5868, label %6266
 
-._crit_edge5871:                                  ; preds = %6259
-  %.pre5872 = load ptr, ptr %237, align 8
-  br label %6262
+._crit_edge5868:                                  ; preds = %6257
+  %.pre5869 = load ptr, ptr %237, align 8
+  br label %6260
 
-6262:                                             ; preds = %._crit_edge5871, %6307, %is_math_mode.exit4561, %is_math_mode.exit4568, %is_math_mode.exit4571
-  %6263 = phi ptr [ %.val.i4231, %6307 ], [ %.val240.i, %is_math_mode.exit4561 ], [ %.val241.i, %is_math_mode.exit4568 ], [ %.pre5872, %._crit_edge5871 ], [ %.val242.i, %is_math_mode.exit4571 ]
-  %.sroa.13.1.i = phi i64 [ %.sroa.13.0.i, %6307 ], [ %6132, %is_math_mode.exit4561 ], [ %6132, %is_math_mode.exit4568 ], [ %6132, %._crit_edge5871 ], [ %6132, %is_math_mode.exit4571 ]
-  %.sroa.091.1.i = phi double [ %.sroa.091.0.i, %6307 ], [ %6133, %is_math_mode.exit4561 ], [ %6133, %is_math_mode.exit4568 ], [ %6133, %._crit_edge5871 ], [ %6133, %is_math_mode.exit4571 ]
-  %6264 = getelementptr inbounds i8, ptr %6263, i64 544
-  %6265 = load ptr, ptr %6264, align 8
-  %6266 = bitcast double %.sroa.091.1.i to i64
-  %6267 = call i32 %6265(ptr noundef nonnull %.1, i32 noundef %.03333, ptr noundef nonnull %6086, i64 %6266, i64 %.sroa.13.1.i, ptr noundef nonnull byval(%struct.JSValue) align 8 %42) #42
-  %.not238.i = icmp eq i32 %6267, 0
-  br i1 %.not238.i, label %6348, label %js_binary_arith_slow.exit
+6260:                                             ; preds = %._crit_edge5868, %6305, %is_math_mode.exit4561, %is_math_mode.exit4568, %is_math_mode.exit4571
+  %6261 = phi ptr [ %.val.i4231, %6305 ], [ %.val240.i, %is_math_mode.exit4561 ], [ %.val241.i, %is_math_mode.exit4568 ], [ %.pre5869, %._crit_edge5868 ], [ %.val242.i, %is_math_mode.exit4571 ]
+  %.sroa.13.1.i = phi i64 [ %.sroa.13.0.i, %6305 ], [ %6130, %is_math_mode.exit4561 ], [ %6130, %is_math_mode.exit4568 ], [ %6130, %._crit_edge5868 ], [ %6130, %is_math_mode.exit4571 ]
+  %.sroa.091.1.i = phi double [ %.sroa.091.0.i, %6305 ], [ %6131, %is_math_mode.exit4561 ], [ %6131, %is_math_mode.exit4568 ], [ %6131, %._crit_edge5868 ], [ %6131, %is_math_mode.exit4571 ]
+  %6262 = getelementptr inbounds i8, ptr %6261, i64 544
+  %6263 = load ptr, ptr %6262, align 8
+  %6264 = bitcast double %.sroa.091.1.i to i64
+  %6265 = call i32 %6263(ptr noundef nonnull %.1, i32 noundef %.03333, ptr noundef nonnull %6084, i64 %6264, i64 %.sroa.13.1.i, ptr noundef nonnull byval(%struct.JSValue) align 8 %42) #42
+  %.not238.i = icmp eq i32 %6265, 0
+  br i1 %.not238.i, label %6346, label %js_binary_arith_slow.exit
 
-6268:                                             ; preds = %6259
-  %6269 = icmp ult i32 %6153, 3
-  br i1 %6269, label %6270, label %6272
+6266:                                             ; preds = %6257
+  %6267 = icmp ult i32 %6151, 3
+  br i1 %6267, label %6268, label %6270
 
-6270:                                             ; preds = %6268
-  %.sroa.0.0.extract.trunc.i4551 = trunc i64 %6131 to i32
-  %6271 = sitofp i32 %.sroa.0.0.extract.trunc.i4551 to double
-  store double %6271, ptr %43, align 8
+6268:                                             ; preds = %6266
+  %.sroa.0.0.extract.trunc.i4551 = trunc i64 %6129 to i32
+  %6269 = sitofp i32 %.sroa.0.0.extract.trunc.i4551 to double
+  store double %6269, ptr %43, align 8
   br label %JS_ToFloat64Free.exit4552.thread
 
-6272:                                             ; preds = %6268
-  %6273 = icmp eq i32 %6153, 7
-  br i1 %6273, label %6274, label %JS_ToFloat64Free.exit4552
+6270:                                             ; preds = %6266
+  %6271 = icmp eq i32 %6151, 7
+  br i1 %6271, label %6272, label %JS_ToFloat64Free.exit4552
 
-6274:                                             ; preds = %6272
-  store i64 %6131, ptr %43, align 8
+6272:                                             ; preds = %6270
+  store i64 %6129, ptr %43, align 8
   br label %JS_ToFloat64Free.exit4552.thread
 
-JS_ToFloat64Free.exit4552:                        ; preds = %6272
-  %6275 = call fastcc i32 @__JS_ToFloat64Free(ptr noundef %.1, ptr noundef nonnull %43, i64 %6131, i64 %6132)
-  %.not225.i = icmp eq i32 %6275, 0
-  %.pre5869 = load i64, ptr %42, align 8
-  %.pre5870 = load i64, ptr %249, align 8
-  br i1 %.not225.i, label %JS_ToFloat64Free.exit4552.thread, label %6276
+JS_ToFloat64Free.exit4552:                        ; preds = %6270
+  %6273 = call fastcc i32 @__JS_ToFloat64Free(ptr noundef %.1, ptr noundef nonnull %43, i64 %6129, i64 %6130)
+  %.not225.i = icmp eq i32 %6273, 0
+  %.pre5866 = load i64, ptr %42, align 8
+  %.pre5867 = load i64, ptr %249, align 8
+  br i1 %.not225.i, label %JS_ToFloat64Free.exit4552.thread, label %6274
 
-6276:                                             ; preds = %JS_ToFloat64Free.exit4552
-  %6277 = trunc i64 %.pre5870 to i32
-  %6278 = icmp ugt i32 %6277, -12
-  br i1 %6278, label %6279, label %js_binary_arith_slow.exit
+6274:                                             ; preds = %JS_ToFloat64Free.exit4552
+  %6275 = trunc i64 %.pre5867 to i32
+  %6276 = icmp ugt i32 %6275, -12
+  br i1 %6276, label %6277, label %js_binary_arith_slow.exit
 
-6279:                                             ; preds = %6276
-  %6280 = inttoptr i64 %.pre5869 to ptr
-  %6281 = load i32, ptr %6280, align 4
-  %6282 = add i32 %6281, -1
-  store i32 %6282, ptr %6280, align 4
-  %6283 = icmp slt i32 %6282, 1
-  br i1 %6283, label %6284, label %js_binary_arith_slow.exit
+6277:                                             ; preds = %6274
+  %6278 = inttoptr i64 %.pre5866 to ptr
+  %6279 = load i32, ptr %6278, align 4
+  %6280 = add i32 %6279, -1
+  store i32 %6280, ptr %6278, align 4
+  %6281 = icmp slt i32 %6280, 1
+  br i1 %6281, label %6282, label %js_binary_arith_slow.exit
 
-6284:                                             ; preds = %6279
-  %6285 = load ptr, ptr %237, align 8
-  call void @__JS_FreeValueRT(ptr noundef %6285, i64 %.pre5869, i64 %.pre5870)
+6282:                                             ; preds = %6277
+  %6283 = load ptr, ptr %237, align 8
+  call void @__JS_FreeValueRT(ptr noundef %6283, i64 %.pre5866, i64 %.pre5867)
   br label %js_binary_arith_slow.exit
 
-JS_ToFloat64Free.exit4552.thread:                 ; preds = %6274, %6270, %JS_ToFloat64Free.exit4552
-  %6286 = phi i64 [ %6150, %6274 ], [ %6150, %6270 ], [ %.pre5870, %JS_ToFloat64Free.exit4552 ]
-  %6287 = phi i64 [ %6149, %6274 ], [ %6149, %6270 ], [ %.pre5869, %JS_ToFloat64Free.exit4552 ]
-  %6288 = trunc i64 %6286 to i32
-  %6289 = icmp ult i32 %6288, 3
-  br i1 %6289, label %6290, label %6292
+JS_ToFloat64Free.exit4552.thread:                 ; preds = %6272, %6268, %JS_ToFloat64Free.exit4552
+  %6284 = phi i64 [ %6148, %6272 ], [ %6148, %6268 ], [ %.pre5867, %JS_ToFloat64Free.exit4552 ]
+  %6285 = phi i64 [ %6147, %6272 ], [ %6147, %6268 ], [ %.pre5866, %JS_ToFloat64Free.exit4552 ]
+  %6286 = trunc i64 %6284 to i32
+  %6287 = icmp ult i32 %6286, 3
+  br i1 %6287, label %6288, label %6290
+
+6288:                                             ; preds = %JS_ToFloat64Free.exit4552.thread
+  %.sroa.0.0.extract.trunc.i = trunc i64 %6285 to i32
+  %6289 = sitofp i32 %.sroa.0.0.extract.trunc.i to double
+  store double %6289, ptr %44, align 8
+  br label %JS_ToFloat64Free.exit.thread
 
 6290:                                             ; preds = %JS_ToFloat64Free.exit4552.thread
-  %.sroa.0.0.extract.trunc.i = trunc i64 %6287 to i32
-  %6291 = sitofp i32 %.sroa.0.0.extract.trunc.i to double
-  store double %6291, ptr %44, align 8
+  %6291 = icmp eq i32 %6286, 7
+  br i1 %6291, label %6292, label %JS_ToFloat64Free.exit
+
+6292:                                             ; preds = %6290
+  store i64 %6285, ptr %44, align 8
   br label %JS_ToFloat64Free.exit.thread
 
-6292:                                             ; preds = %JS_ToFloat64Free.exit4552.thread
-  %6293 = icmp eq i32 %6288, 7
-  br i1 %6293, label %6294, label %JS_ToFloat64Free.exit
-
-6294:                                             ; preds = %6292
-  store i64 %6287, ptr %44, align 8
-  br label %JS_ToFloat64Free.exit.thread
-
-JS_ToFloat64Free.exit:                            ; preds = %6292
-  %6295 = call fastcc i32 @__JS_ToFloat64Free(ptr noundef %.1, ptr noundef nonnull %44, i64 %6287, i64 %6286)
-  %.not226.i = icmp eq i32 %6295, 0
+JS_ToFloat64Free.exit:                            ; preds = %6290
+  %6293 = call fastcc i32 @__JS_ToFloat64Free(ptr noundef %.1, ptr noundef nonnull %44, i64 %6285, i64 %6284)
+  %.not226.i = icmp eq i32 %6293, 0
   br i1 %.not226.i, label %JS_ToFloat64Free.exit.thread, label %js_binary_arith_slow.exit
 
-JS_ToFloat64Free.exit.thread:                     ; preds = %6294, %6290, %JS_ToFloat64Free.exit, %6093
-  %.sroa.13.0.i = phi i64 [ %.sroa.13.0.copyload.i, %6093 ], [ %6132, %JS_ToFloat64Free.exit ], [ %6132, %6290 ], [ %6132, %6294 ]
-  %.sroa.091.0.i = phi double [ %.sroa.091.0.copyload.i, %6093 ], [ %6133, %JS_ToFloat64Free.exit ], [ %6133, %6290 ], [ %6133, %6294 ]
+JS_ToFloat64Free.exit.thread:                     ; preds = %6292, %6288, %JS_ToFloat64Free.exit, %6091
+  %.sroa.13.0.i = phi i64 [ %.sroa.13.0.copyload.i, %6091 ], [ %6130, %JS_ToFloat64Free.exit ], [ %6130, %6288 ], [ %6130, %6292 ]
+  %.sroa.091.0.i = phi double [ %.sroa.091.0.copyload.i, %6091 ], [ %6131, %JS_ToFloat64Free.exit ], [ %6131, %6288 ], [ %6131, %6292 ]
   %.val.i4231 = load ptr, ptr %237, align 8
-  %6296 = getelementptr i8, ptr %.val.i4231, i64 248
-  %.val.val.i = load ptr, ptr %6296, align 8
+  %6294 = getelementptr i8, ptr %.val.i4231, i64 248
+  %.val.val.i = load ptr, ptr %6294, align 8
   %.not.i4546 = icmp eq ptr %.val.val.i, null
   br i1 %.not.i4546, label %is_math_mode.exit.thread, label %is_math_mode.exit
 
 is_math_mode.exit:                                ; preds = %JS_ToFloat64Free.exit.thread
-  %6297 = getelementptr inbounds i8, ptr %.val.val.i, i64 68
-  %6298 = load i32, ptr %6297, align 4
-  %6299 = and i32 %6298, 4
-  %.not235.i = icmp eq i32 %6299, 0
-  br i1 %.not235.i, label %is_math_mode.exit.thread, label %6300
+  %6295 = getelementptr inbounds i8, ptr %.val.val.i, i64 68
+  %6296 = load i32, ptr %6295, align 4
+  %6297 = and i32 %6296, 4
+  %.not235.i = icmp eq i32 %6297, 0
+  br i1 %.not235.i, label %is_math_mode.exit.thread, label %6298
 
-6300:                                             ; preds = %is_math_mode.exit
-  %6301 = load double, ptr %43, align 8
-  %6302 = call double @llvm.fabs.f64(double %6301)
-  %6303 = fcmp ueq double %6302, 0x7FF0000000000000
-  %6304 = call double @llvm.floor.f64(double %6301)
-  %6305 = fcmp une double %6304, %6301
-  %or.cond.i4544.not4850 = or i1 %6303, %6305
-  %6306 = fcmp ugt double %6302, 0x433FFFFFFFFFFFFF
-  %narrow.i4545.not = or i1 %6306, %or.cond.i4544.not4850
-  br i1 %narrow.i4545.not, label %is_math_mode.exit.thread, label %6307
+6298:                                             ; preds = %is_math_mode.exit
+  %6299 = load double, ptr %43, align 8
+  %6300 = call double @llvm.fabs.f64(double %6299)
+  %6301 = fcmp ueq double %6300, 0x7FF0000000000000
+  %6302 = call double @llvm.floor.f64(double %6299)
+  %6303 = fcmp une double %6302, %6299
+  %or.cond.i4544.not4850 = or i1 %6301, %6303
+  %6304 = fcmp ugt double %6300, 0x433FFFFFFFFFFFFF
+  %narrow.i4545.not = or i1 %6304, %or.cond.i4544.not4850
+  br i1 %narrow.i4545.not, label %is_math_mode.exit.thread, label %6305
 
-6307:                                             ; preds = %6300
-  %6308 = load double, ptr %44, align 8
-  %6309 = call double @llvm.fabs.f64(double %6308)
-  %6310 = fcmp ueq double %6309, 0x7FF0000000000000
-  %6311 = call double @llvm.floor.f64(double %6308)
-  %6312 = fcmp une double %6311, %6308
-  %or.cond.i4543.not4854 = or i1 %6310, %6312
-  %6313 = fcmp ugt double %6309, 0x433FFFFFFFFFFFFF
-  %narrow.i.not = or i1 %6313, %or.cond.i4543.not4854
-  br i1 %narrow.i.not, label %is_math_mode.exit.thread, label %6262
+6305:                                             ; preds = %6298
+  %6306 = load double, ptr %44, align 8
+  %6307 = call double @llvm.fabs.f64(double %6306)
+  %6308 = fcmp ueq double %6307, 0x7FF0000000000000
+  %6309 = call double @llvm.floor.f64(double %6306)
+  %6310 = fcmp une double %6309, %6306
+  %or.cond.i4543.not4854 = or i1 %6308, %6310
+  %6311 = fcmp ugt double %6307, 0x433FFFFFFFFFFFFF
+  %narrow.i.not = or i1 %6311, %or.cond.i4543.not4854
+  br i1 %narrow.i.not, label %is_math_mode.exit.thread, label %6260
 
-is_math_mode.exit.thread:                         ; preds = %JS_ToFloat64Free.exit.thread, %6307, %6300, %is_math_mode.exit
-  switch i8 %.03333.in, label %6347 [
-    i8 -97, label %6314
-    i8 -101, label %6318
-    i8 -100, label %6322
-    i8 -99, label %6326
-    i8 -76, label %6330
-    i8 -96, label %6338
+is_math_mode.exit.thread:                         ; preds = %JS_ToFloat64Free.exit.thread, %6305, %6298, %is_math_mode.exit
+  switch i8 %.03333.in, label %6345 [
+    i8 -97, label %6312
+    i8 -101, label %6316
+    i8 -100, label %6320
+    i8 -99, label %6324
+    i8 -76, label %6328
+    i8 -96, label %6336
   ]
 
-6314:                                             ; preds = %is_math_mode.exit.thread
-  %6315 = load double, ptr %43, align 8
-  %6316 = load double, ptr %44, align 8
-  %6317 = fsub double %6315, %6316
+6312:                                             ; preds = %is_math_mode.exit.thread
+  %6313 = load double, ptr %43, align 8
+  %6314 = load double, ptr %44, align 8
+  %6315 = fsub double %6313, %6314
   br label %js_pow.exit
 
-6318:                                             ; preds = %is_math_mode.exit.thread
-  %6319 = load double, ptr %43, align 8
-  %6320 = load double, ptr %44, align 8
-  %6321 = fmul double %6319, %6320
+6316:                                             ; preds = %is_math_mode.exit.thread
+  %6317 = load double, ptr %43, align 8
+  %6318 = load double, ptr %44, align 8
+  %6319 = fmul double %6317, %6318
   br label %js_pow.exit
 
-6322:                                             ; preds = %is_math_mode.exit.thread
-  %6323 = load double, ptr %43, align 8
-  %6324 = load double, ptr %44, align 8
-  %6325 = fdiv double %6323, %6324
+6320:                                             ; preds = %is_math_mode.exit.thread
+  %6321 = load double, ptr %43, align 8
+  %6322 = load double, ptr %44, align 8
+  %6323 = fdiv double %6321, %6322
   br label %js_pow.exit
 
-6326:                                             ; preds = %is_math_mode.exit.thread
-  %6327 = load double, ptr %43, align 8
-  %6328 = load double, ptr %44, align 8
-  %6329 = call double @fmod(double noundef %6327, double noundef %6328) #42
+6324:                                             ; preds = %is_math_mode.exit.thread
+  %6325 = load double, ptr %43, align 8
+  %6326 = load double, ptr %44, align 8
+  %6327 = call double @fmod(double noundef %6325, double noundef %6326) #42
   br label %js_pow.exit
 
-6330:                                             ; preds = %is_math_mode.exit.thread
-  %6331 = load double, ptr %44, align 8
-  %6332 = call double @llvm.fabs.f64(double %6331)
-  store double %6332, ptr %44, align 8
-  %6333 = load double, ptr %43, align 8
-  %6334 = call double @fmod(double noundef %6333, double noundef %6332) #42
-  %6335 = fcmp olt double %6334, 0.000000e+00
-  br i1 %6335, label %6336, label %js_pow.exit
+6328:                                             ; preds = %is_math_mode.exit.thread
+  %6329 = load double, ptr %44, align 8
+  %6330 = call double @llvm.fabs.f64(double %6329)
+  store double %6330, ptr %44, align 8
+  %6331 = load double, ptr %43, align 8
+  %6332 = call double @fmod(double noundef %6331, double noundef %6330) #42
+  %6333 = fcmp olt double %6332, 0.000000e+00
+  br i1 %6333, label %6334, label %js_pow.exit
 
-6336:                                             ; preds = %6330
-  %6337 = fadd double %6332, %6334
+6334:                                             ; preds = %6328
+  %6335 = fadd double %6330, %6332
   br label %js_pow.exit
 
-6338:                                             ; preds = %is_math_mode.exit.thread
-  %6339 = load double, ptr %43, align 8
-  %6340 = load double, ptr %44, align 8
-  %6341 = call double @llvm.fabs.f64(double %6340)
-  %6342 = fcmp ueq double %6341, 0x7FF0000000000000
-  %6343 = call double @llvm.fabs.f64(double %6339)
-  %6344 = fcmp oeq double %6343, 1.000000e+00
-  %or.cond.i4541 = and i1 %6344, %6342
-  br i1 %or.cond.i4541, label %js_pow.exit, label %6345
+6336:                                             ; preds = %is_math_mode.exit.thread
+  %6337 = load double, ptr %43, align 8
+  %6338 = load double, ptr %44, align 8
+  %6339 = call double @llvm.fabs.f64(double %6338)
+  %6340 = fcmp ueq double %6339, 0x7FF0000000000000
+  %6341 = call double @llvm.fabs.f64(double %6337)
+  %6342 = fcmp oeq double %6341, 1.000000e+00
+  %or.cond.i4541 = and i1 %6342, %6340
+  br i1 %or.cond.i4541, label %js_pow.exit, label %6343
 
-6345:                                             ; preds = %6338
-  %6346 = call double @pow(double noundef %6339, double noundef %6340) #42
+6343:                                             ; preds = %6336
+  %6344 = call double @pow(double noundef %6337, double noundef %6338) #42
   br label %js_pow.exit
 
-6347:                                             ; preds = %is_math_mode.exit.thread
+6345:                                             ; preds = %is_math_mode.exit.thread
   call void @abort() #44
   unreachable
 
-js_pow.exit:                                      ; preds = %6345, %6338, %6336, %6330, %6326, %6322, %6318, %6314
-  %.0.i4232 = phi double [ %6337, %6336 ], [ %6334, %6330 ], [ %6329, %6326 ], [ %6325, %6322 ], [ %6321, %6318 ], [ %6317, %6314 ], [ %6346, %6345 ], [ 0x7FF8000000000000, %6338 ]
-  store double %.0.i4232, ptr %6086, align 8
+js_pow.exit:                                      ; preds = %6343, %6336, %6334, %6328, %6324, %6320, %6316, %6312
+  %.0.i4232 = phi double [ %6335, %6334 ], [ %6332, %6328 ], [ %6327, %6324 ], [ %6323, %6320 ], [ %6319, %6316 ], [ %6315, %6312 ], [ %6344, %6343 ], [ 0x7FF8000000000000, %6336 ]
+  store double %.0.i4232, ptr %6084, align 8
   store i64 7, ptr %.sroa.13.0..sroa_idx.i, align 8
-  br label %6348
+  br label %6346
 
-js_binary_arith_slow.exit:                        ; preds = %JS_FreeValue.exit4574, %6246, %6254, %6262, %JS_ToFloat64Free.exit, %6195, %6137, %6140, %6145, %6154, %6156, %6161, %6276, %6279, %6284
-  store i32 0, ptr %6086, align 8
+js_binary_arith_slow.exit:                        ; preds = %JS_FreeValue.exit4574, %6244, %6252, %6260, %JS_ToFloat64Free.exit, %6193, %6135, %6138, %6143, %6152, %6154, %6159, %6274, %6277, %6282
+  store i32 0, ptr %6084, align 8
   store i64 3, ptr %.sroa.13.0..sroa_idx.i, align 8
-  store i32 0, ptr %6087, align 8
+  store i32 0, ptr %6085, align 8
   %.sroa.222.0..sroa_idx.i = getelementptr i8, ptr %.23354, i64 -8
   store i64 3, ptr %.sroa.222.0..sroa_idx.i, align 8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %42)
@@ -45371,2741 +45369,2741 @@ js_binary_arith_slow.exit:                        ; preds = %JS_FreeValue.exit45
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %45)
   br label %JS_FreeValue.exit3739
 
-6348:                                             ; preds = %6128, %is_math_mode.exit4561.thread, %6211, %is_math_mode.exit4568.thread, %6184, %6246, %js_pow.exit, %6262, %6254, %6242
+6346:                                             ; preds = %6126, %is_math_mode.exit4561.thread, %6209, %is_math_mode.exit4568.thread, %6182, %6244, %js_pow.exit, %6260, %6252, %6240
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %42)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %43)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %44)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %45)
-  %6349 = getelementptr i8, ptr %.23330, i64 1
+  %6347 = getelementptr i8, ptr %.23330, i64 1
   br label %.backedge4994.backedge
 
-6350:                                             ; preds = %.backedge4994
+6348:                                             ; preds = %.backedge4994
   %.sroa.1286.0..sroa_idx = getelementptr i8, ptr %.23354, i64 -8
   %.sroa.1286.0.copyload = load i64, ptr %.sroa.1286.0..sroa_idx, align 8
-  %6351 = trunc i64 %.sroa.1286.0.copyload to i32
-  switch i32 %6351, label %6352 [
-    i32 7, label %6354
-    i32 0, label %6354
+  %6349 = trunc i64 %.sroa.1286.0.copyload to i32
+  switch i32 %6349, label %6350 [
+    i32 7, label %6352
+    i32 0, label %6352
   ]
 
-6352:                                             ; preds = %6350
-  %6353 = call fastcc i32 @js_unary_arith_slow(ptr noundef %.1, ptr noundef nonnull %.23354, i32 noundef %.03333)
-  %.not3485 = icmp eq i32 %6353, 0
-  br i1 %.not3485, label %6354, label %JS_FreeValue.exit3739.loopexit
+6350:                                             ; preds = %6348
+  %6351 = call fastcc i32 @js_unary_arith_slow(ptr noundef %.1, ptr noundef nonnull %.23354, i32 noundef %.03333)
+  %.not3485 = icmp eq i32 %6351, 0
+  br i1 %.not3485, label %6352, label %JS_FreeValue.exit3739.loopexit
 
-6354:                                             ; preds = %6350, %6350, %6352
-  %6355 = getelementptr i8, ptr %.23330, i64 1
+6352:                                             ; preds = %6348, %6348, %6350
+  %6353 = getelementptr i8, ptr %.23330, i64 1
   br label %.backedge4994.backedge
 
-6356:                                             ; preds = %.backedge4994
-  %6357 = getelementptr i8, ptr %.23354, i64 -16
-  %.sroa.0280.0.copyload = load double, ptr %6357, align 8
+6354:                                             ; preds = %.backedge4994
+  %6355 = getelementptr i8, ptr %.23354, i64 -16
+  %.sroa.0280.0.copyload = load double, ptr %6355, align 8
   %.sroa.3282.0..sroa_idx = getelementptr i8, ptr %.23354, i64 -8
   %.sroa.3282.0.copyload = load i64, ptr %.sroa.3282.0..sroa_idx, align 8
-  %6358 = trunc i64 %.sroa.3282.0.copyload to i32
-  switch i32 %6358, label %6367 [
-    i32 0, label %6359
-    i32 7, label %6364
+  %6356 = trunc i64 %.sroa.3282.0.copyload to i32
+  switch i32 %6356, label %6365 [
+    i32 0, label %6357
+    i32 7, label %6362
   ]
 
-6359:                                             ; preds = %6356
-  %6360 = bitcast double %.sroa.0280.0.copyload to i64
-  %.sroa.0280.0.extract.trunc = trunc i64 %6360 to i32
-  switch i32 %.sroa.0280.0.extract.trunc, label %6362 [
-    i32 0, label %.sink.split6434
-    i32 -2147483648, label %6361
+6357:                                             ; preds = %6354
+  %6358 = bitcast double %.sroa.0280.0.copyload to i64
+  %.sroa.0280.0.extract.trunc = trunc i64 %6358 to i32
+  switch i32 %.sroa.0280.0.extract.trunc, label %6360 [
+    i32 0, label %.sink.split6431
+    i32 -2147483648, label %6359
   ]
 
-6361:                                             ; preds = %6359
-  br label %.sink.split6434
+6359:                                             ; preds = %6357
+  br label %.sink.split6431
 
-6362:                                             ; preds = %6359
-  %6363 = sub i64 0, %6360
-  %.sroa.03153.0.insert.ext = and i64 %6363, 4294967295
-  br label %.sink.split6434
+6360:                                             ; preds = %6357
+  %6361 = sub i64 0, %6358
+  %.sroa.03153.0.insert.ext = and i64 %6361, 4294967295
+  br label %.sink.split6431
 
-6364:                                             ; preds = %6356
-  %6365 = fneg double %.sroa.0280.0.copyload
-  %6366 = bitcast double %6365 to i64
-  br label %.sink.split6434
+6362:                                             ; preds = %6354
+  %6363 = fneg double %.sroa.0280.0.copyload
+  %6364 = bitcast double %6363 to i64
+  br label %.sink.split6431
 
-6367:                                             ; preds = %6356
-  %6368 = call fastcc i32 @js_unary_arith_slow(ptr noundef %.1, ptr noundef nonnull %.23354, i32 noundef %.03333)
-  %.not3486 = icmp eq i32 %6368, 0
-  br i1 %.not3486, label %6369, label %JS_FreeValue.exit3739.loopexit
+6365:                                             ; preds = %6354
+  %6366 = call fastcc i32 @js_unary_arith_slow(ptr noundef %.1, ptr noundef nonnull %.23354, i32 noundef %.03333)
+  %.not3486 = icmp eq i32 %6366, 0
+  br i1 %.not3486, label %6367, label %JS_FreeValue.exit3739.loopexit
 
-.sink.split6434:                                  ; preds = %6361, %6364, %6359, %6362
-  %.03381.sink = phi i64 [ %.sroa.03153.0.insert.ext, %6362 ], [ 4746794007248502784, %6361 ], [ %6366, %6364 ], [ -9223372036854775808, %6359 ]
-  %.sink6435 = phi i64 [ 0, %6362 ], [ 7, %6361 ], [ 7, %6364 ], [ 7, %6359 ]
-  store i64 %.03381.sink, ptr %6357, align 8
-  store i64 %.sink6435, ptr %.sroa.3282.0..sroa_idx, align 8
-  br label %6369
+.sink.split6431:                                  ; preds = %6359, %6362, %6357, %6360
+  %.03381.sink = phi i64 [ %.sroa.03153.0.insert.ext, %6360 ], [ 4746794007248502784, %6359 ], [ %6364, %6362 ], [ -9223372036854775808, %6357 ]
+  %.sink6432 = phi i64 [ 0, %6360 ], [ 7, %6359 ], [ 7, %6362 ], [ 7, %6357 ]
+  store i64 %.03381.sink, ptr %6355, align 8
+  store i64 %.sink6432, ptr %.sroa.3282.0..sroa_idx, align 8
+  br label %6367
 
-6369:                                             ; preds = %.sink.split6434, %6367
-  %6370 = getelementptr i8, ptr %.23330, i64 1
+6367:                                             ; preds = %.sink.split6431, %6365
+  %6368 = getelementptr i8, ptr %.23330, i64 1
   br label %.backedge4994.backedge
 
-6371:                                             ; preds = %.backedge4994
-  %6372 = getelementptr i8, ptr %.23354, i64 -16
-  %.sroa.0267.0.copyload = load i32, ptr %6372, align 8
+6369:                                             ; preds = %.backedge4994
+  %6370 = getelementptr i8, ptr %.23354, i64 -16
+  %.sroa.0267.0.copyload = load i32, ptr %6370, align 8
   %.sroa.2269.0..sroa_idx = getelementptr i8, ptr %.23354, i64 -8
   %.sroa.2269.0.copyload = load i64, ptr %.sroa.2269.0..sroa_idx, align 8
-  %6373 = and i64 %.sroa.2269.0.copyload, 4294967295
-  %6374 = icmp ne i64 %6373, 0
-  %6375 = icmp eq i32 %.sroa.0267.0.copyload, 2147483647
-  %or.cond3605 = select i1 %6374, i1 true, i1 %6375
-  br i1 %or.cond3605, label %6378, label %6376
+  %6371 = and i64 %.sroa.2269.0.copyload, 4294967295
+  %6372 = icmp ne i64 %6371, 0
+  %6373 = icmp eq i32 %.sroa.0267.0.copyload, 2147483647
+  %or.cond3605 = select i1 %6372, i1 true, i1 %6373
+  br i1 %or.cond3605, label %6376, label %6374
 
-6376:                                             ; preds = %6371
-  %6377 = add nsw i32 %.sroa.0267.0.copyload, 1
-  %.sroa.03148.0.insert.ext = zext i32 %6377 to i64
-  store i64 %.sroa.03148.0.insert.ext, ptr %6372, align 8
+6374:                                             ; preds = %6369
+  %6375 = add nsw i32 %.sroa.0267.0.copyload, 1
+  %.sroa.03148.0.insert.ext = zext i32 %6375 to i64
+  store i64 %.sroa.03148.0.insert.ext, ptr %6370, align 8
   store i64 0, ptr %.sroa.2269.0..sroa_idx, align 8
-  br label %6380
+  br label %6378
 
-6378:                                             ; preds = %6371
-  %6379 = call fastcc i32 @js_unary_arith_slow(ptr noundef %.1, ptr noundef nonnull %.23354, i32 noundef %.03333)
-  %.not3483 = icmp eq i32 %6379, 0
-  br i1 %.not3483, label %6380, label %JS_FreeValue.exit3739.loopexit
+6376:                                             ; preds = %6369
+  %6377 = call fastcc i32 @js_unary_arith_slow(ptr noundef %.1, ptr noundef nonnull %.23354, i32 noundef %.03333)
+  %.not3483 = icmp eq i32 %6377, 0
+  br i1 %.not3483, label %6378, label %JS_FreeValue.exit3739.loopexit
 
-6380:                                             ; preds = %6378, %6376
-  %6381 = getelementptr i8, ptr %.23330, i64 1
+6378:                                             ; preds = %6376, %6374
+  %6379 = getelementptr i8, ptr %.23330, i64 1
   br label %.backedge4994.backedge
 
-6382:                                             ; preds = %.backedge4994
-  %6383 = getelementptr i8, ptr %.23354, i64 -16
-  %.sroa.0260.0.copyload = load i32, ptr %6383, align 8
+6380:                                             ; preds = %.backedge4994
+  %6381 = getelementptr i8, ptr %.23354, i64 -16
+  %.sroa.0260.0.copyload = load i32, ptr %6381, align 8
   %.sroa.2262.0..sroa_idx = getelementptr i8, ptr %.23354, i64 -8
   %.sroa.2262.0.copyload = load i64, ptr %.sroa.2262.0..sroa_idx, align 8
-  %6384 = and i64 %.sroa.2262.0.copyload, 4294967295
-  %6385 = icmp ne i64 %6384, 0
-  %6386 = icmp eq i32 %.sroa.0260.0.copyload, -2147483648
-  %or.cond3606 = select i1 %6385, i1 true, i1 %6386
-  br i1 %or.cond3606, label %6389, label %6387
+  %6382 = and i64 %.sroa.2262.0.copyload, 4294967295
+  %6383 = icmp ne i64 %6382, 0
+  %6384 = icmp eq i32 %.sroa.0260.0.copyload, -2147483648
+  %or.cond3606 = select i1 %6383, i1 true, i1 %6384
+  br i1 %or.cond3606, label %6387, label %6385
 
-6387:                                             ; preds = %6382
-  %6388 = add nsw i32 %.sroa.0260.0.copyload, -1
-  %.sroa.03143.0.insert.ext = zext i32 %6388 to i64
-  store i64 %.sroa.03143.0.insert.ext, ptr %6383, align 8
+6385:                                             ; preds = %6380
+  %6386 = add nsw i32 %.sroa.0260.0.copyload, -1
+  %.sroa.03143.0.insert.ext = zext i32 %6386 to i64
+  store i64 %.sroa.03143.0.insert.ext, ptr %6381, align 8
   store i64 0, ptr %.sroa.2262.0..sroa_idx, align 8
-  br label %6391
+  br label %6389
 
-6389:                                             ; preds = %6382
-  %6390 = call fastcc i32 @js_unary_arith_slow(ptr noundef %.1, ptr noundef nonnull %.23354, i32 noundef %.03333)
-  %.not3484 = icmp eq i32 %6390, 0
-  br i1 %.not3484, label %6391, label %JS_FreeValue.exit3739.loopexit
+6387:                                             ; preds = %6380
+  %6388 = call fastcc i32 @js_unary_arith_slow(ptr noundef %.1, ptr noundef nonnull %.23354, i32 noundef %.03333)
+  %.not3484 = icmp eq i32 %6388, 0
+  br i1 %.not3484, label %6389, label %JS_FreeValue.exit3739.loopexit
 
-6391:                                             ; preds = %6389, %6387
-  %6392 = getelementptr i8, ptr %.23330, i64 1
+6389:                                             ; preds = %6387, %6385
+  %6390 = getelementptr i8, ptr %.23330, i64 1
   br label %.backedge4994.backedge
 
-6393:                                             ; preds = %.backedge4994
-  %6394 = getelementptr i8, ptr %.23354, i64 -16
-  %.sroa.06.0.copyload.i = load i64, ptr %6394, align 8
+6391:                                             ; preds = %.backedge4994
+  %6392 = getelementptr i8, ptr %.23354, i64 -16
+  %.sroa.06.0.copyload.i = load i64, ptr %6392, align 8
   %.sroa.6.0..sroa_idx.i = getelementptr i8, ptr %.23354, i64 -8
   %.sroa.6.0.copyload.i = load i64, ptr %.sroa.6.0..sroa_idx.i, align 8
-  %6395 = call fastcc { i64, i64 } @JS_ToNumberHintFree(ptr noundef %.1, i64 %.sroa.06.0.copyload.i, i64 %.sroa.6.0.copyload.i, i32 noundef 1)
-  %6396 = extractvalue { i64, i64 } %6395, 0
-  %6397 = extractvalue { i64, i64 } %6395, 1
-  %6398 = and i64 %6397, 4294967295
-  %.not4858 = icmp eq i64 %6398, 6
-  br i1 %.not4858, label %js_post_inc_slow.exit.thread, label %6399
+  %6393 = call fastcc { i64, i64 } @JS_ToNumberHintFree(ptr noundef %.1, i64 %.sroa.06.0.copyload.i, i64 %.sroa.6.0.copyload.i, i32 noundef 1)
+  %6394 = extractvalue { i64, i64 } %6393, 0
+  %6395 = extractvalue { i64, i64 } %6393, 1
+  %6396 = and i64 %6395, 4294967295
+  %.not4858 = icmp eq i64 %6396, 6
+  br i1 %.not4858, label %js_post_inc_slow.exit.thread, label %6397
 
-js_post_inc_slow.exit.thread:                     ; preds = %6393
-  store i32 0, ptr %6394, align 8
+js_post_inc_slow.exit.thread:                     ; preds = %6391
+  store i32 0, ptr %6392, align 8
   store i64 3, ptr %.sroa.6.0..sroa_idx.i, align 8
   br label %JS_FreeValue.exit3739
 
-6399:                                             ; preds = %6393
-  store i64 %6396, ptr %6394, align 8
-  store i64 %6397, ptr %.sroa.6.0..sroa_idx.i, align 8
-  %6400 = trunc i64 %6397 to i32
-  %6401 = icmp ugt i32 %6400, -12
-  br i1 %6401, label %6402, label %js_post_inc_slow.exit
+6397:                                             ; preds = %6391
+  store i64 %6394, ptr %6392, align 8
+  store i64 %6395, ptr %.sroa.6.0..sroa_idx.i, align 8
+  %6398 = trunc i64 %6395 to i32
+  %6399 = icmp ugt i32 %6398, -12
+  br i1 %6399, label %6400, label %js_post_inc_slow.exit
 
-6402:                                             ; preds = %6399
-  %6403 = inttoptr i64 %6396 to ptr
-  %6404 = load i32, ptr %6403, align 4
-  %6405 = add i32 %6404, 1
-  store i32 %6405, ptr %6403, align 4
+6400:                                             ; preds = %6397
+  %6401 = inttoptr i64 %6394 to ptr
+  %6402 = load i32, ptr %6401, align 4
+  %6403 = add i32 %6402, 1
+  store i32 %6403, ptr %6401, align 4
   br label %js_post_inc_slow.exit
 
-js_post_inc_slow.exit:                            ; preds = %6402, %6399
-  store i64 %6396, ptr %.23354, align 8
+js_post_inc_slow.exit:                            ; preds = %6400, %6397
+  store i64 %6394, ptr %.23354, align 8
   %.sroa.2.0..sroa_idx.i4239 = getelementptr inbounds i8, ptr %.23354, i64 8
-  store i64 %6397, ptr %.sroa.2.0..sroa_idx.i4239, align 8
-  %6406 = getelementptr i8, ptr %.23354, i64 16
-  %6407 = add nsw i32 %.03333, -2
-  %6408 = call fastcc i32 @js_unary_arith_slow(ptr noundef %.1, ptr noundef %6406, i32 noundef %6407)
-  %.not3482 = icmp eq i32 %6408, 0
-  br i1 %.not3482, label %6409, label %JS_FreeValue.exit3739.loopexit
+  store i64 %6395, ptr %.sroa.2.0..sroa_idx.i4239, align 8
+  %6404 = getelementptr i8, ptr %.23354, i64 16
+  %6405 = add nsw i32 %.03333, -2
+  %6406 = call fastcc i32 @js_unary_arith_slow(ptr noundef %.1, ptr noundef %6404, i32 noundef %6405)
+  %.not3482 = icmp eq i32 %6406, 0
+  br i1 %.not3482, label %6407, label %JS_FreeValue.exit3739.loopexit
 
-6409:                                             ; preds = %js_post_inc_slow.exit
-  %6410 = getelementptr i8, ptr %.23330, i64 1
+6407:                                             ; preds = %js_post_inc_slow.exit
+  %6408 = getelementptr i8, ptr %.23330, i64 1
   br label %.backedge4994.backedge
 
-6411:                                             ; preds = %.backedge4994
-  %6412 = load i8, ptr %.23330, align 1
-  %6413 = getelementptr i8, ptr %.23330, i64 1
-  %6414 = zext i8 %6412 to i64
-  %6415 = getelementptr %struct.JSValue, ptr %.13348, i64 %6414
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %79, ptr noundef nonnull align 8 dereferenceable(16) %6415, i64 16, i1 false)
-  %6416 = load i64, ptr %254, align 8
-  %6417 = and i64 %6416, 4294967295
-  %6418 = icmp eq i64 %6417, 0
-  br i1 %6418, label %6419, label %6424
+6409:                                             ; preds = %.backedge4994
+  %6410 = load i8, ptr %.23330, align 1
+  %6411 = getelementptr i8, ptr %.23330, i64 1
+  %6412 = zext i8 %6410 to i64
+  %6413 = getelementptr %struct.JSValue, ptr %.13348, i64 %6412
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %79, ptr noundef nonnull align 8 dereferenceable(16) %6413, i64 16, i1 false)
+  %6414 = load i64, ptr %254, align 8
+  %6415 = and i64 %6414, 4294967295
+  %6416 = icmp eq i64 %6415, 0
+  br i1 %6416, label %6417, label %6422
 
-6419:                                             ; preds = %6411
-  %6420 = load i32, ptr %79, align 8
-  %6421 = icmp eq i32 %6420, 2147483647
-  br i1 %6421, label %6424, label %6422
+6417:                                             ; preds = %6409
+  %6418 = load i32, ptr %79, align 8
+  %6419 = icmp eq i32 %6418, 2147483647
+  br i1 %6419, label %6422, label %6420
 
-6422:                                             ; preds = %6419
-  %6423 = add nsw i32 %6420, 1
-  %.sroa.03138.0.insert.ext = zext i32 %6423 to i64
-  store i64 %.sroa.03138.0.insert.ext, ptr %6415, align 8
-  %.sroa.2250.0..sroa_idx = getelementptr inbounds i8, ptr %6415, i64 8
+6420:                                             ; preds = %6417
+  %6421 = add nsw i32 %6418, 1
+  %.sroa.03138.0.insert.ext = zext i32 %6421 to i64
+  store i64 %.sroa.03138.0.insert.ext, ptr %6413, align 8
+  %.sroa.2250.0..sroa_idx = getelementptr inbounds i8, ptr %6413, i64 8
   store i64 0, ptr %.sroa.2250.0..sroa_idx, align 8
   br label %set_value.exit4247
 
-6424:                                             ; preds = %6411, %6419
-  %6425 = load i64, ptr %79, align 8
-  %6426 = trunc i64 %6416 to i32
-  %6427 = icmp ugt i32 %6426, -12
-  br i1 %6427, label %6428, label %JS_DupValue.exit4242
+6422:                                             ; preds = %6409, %6417
+  %6423 = load i64, ptr %79, align 8
+  %6424 = trunc i64 %6414 to i32
+  %6425 = icmp ugt i32 %6424, -12
+  br i1 %6425, label %6426, label %JS_DupValue.exit4242
 
-6428:                                             ; preds = %6424
-  %6429 = inttoptr i64 %6425 to ptr
-  %6430 = load i32, ptr %6429, align 4
-  %6431 = add i32 %6430, 1
-  store i32 %6431, ptr %6429, align 4
+6426:                                             ; preds = %6422
+  %6427 = inttoptr i64 %6423 to ptr
+  %6428 = load i32, ptr %6427, align 4
+  %6429 = add i32 %6428, 1
+  store i32 %6429, ptr %6427, align 4
   br label %JS_DupValue.exit4242
 
-JS_DupValue.exit4242:                             ; preds = %6424, %6428
-  store i64 %6425, ptr %79, align 8
-  store i64 %6416, ptr %254, align 8
-  %6432 = call fastcc i32 @js_unary_arith_slow(ptr noundef %.1, ptr noundef nonnull %255, i32 noundef 144)
-  %.not3480 = icmp eq i32 %6432, 0
-  br i1 %.not3480, label %6433, label %JS_FreeValue.exit3739.loopexit
+JS_DupValue.exit4242:                             ; preds = %6422, %6426
+  store i64 %6423, ptr %79, align 8
+  store i64 %6414, ptr %254, align 8
+  %6430 = call fastcc i32 @js_unary_arith_slow(ptr noundef %.1, ptr noundef nonnull %255, i32 noundef 144)
+  %.not3480 = icmp eq i32 %6430, 0
+  br i1 %.not3480, label %6431, label %JS_FreeValue.exit3739.loopexit
 
-6433:                                             ; preds = %JS_DupValue.exit4242
-  %6434 = load i64, ptr %79, align 8
-  %6435 = load i64, ptr %254, align 8
-  %.sroa.0.0.copyload.i4243 = load i64, ptr %6415, align 8
-  %.sroa.2.0..sroa_idx.i4244 = getelementptr inbounds i8, ptr %6415, i64 8
+6431:                                             ; preds = %JS_DupValue.exit4242
+  %6432 = load i64, ptr %79, align 8
+  %6433 = load i64, ptr %254, align 8
+  %.sroa.0.0.copyload.i4243 = load i64, ptr %6413, align 8
+  %.sroa.2.0..sroa_idx.i4244 = getelementptr inbounds i8, ptr %6413, i64 8
   %.sroa.2.0.copyload.i4245 = load i64, ptr %.sroa.2.0..sroa_idx.i4244, align 8
-  store i64 %6434, ptr %6415, align 8
-  store i64 %6435, ptr %.sroa.2.0..sroa_idx.i4244, align 8
-  %6436 = trunc i64 %.sroa.2.0.copyload.i4245 to i32
-  %6437 = icmp ugt i32 %6436, -12
-  br i1 %6437, label %6438, label %set_value.exit4247
+  store i64 %6432, ptr %6413, align 8
+  store i64 %6433, ptr %.sroa.2.0..sroa_idx.i4244, align 8
+  %6434 = trunc i64 %.sroa.2.0.copyload.i4245 to i32
+  %6435 = icmp ugt i32 %6434, -12
+  br i1 %6435, label %6436, label %set_value.exit4247
 
-6438:                                             ; preds = %6433
-  %6439 = inttoptr i64 %.sroa.0.0.copyload.i4243 to ptr
-  %6440 = load i32, ptr %6439, align 4
-  %6441 = add i32 %6440, -1
-  store i32 %6441, ptr %6439, align 4
-  %6442 = icmp slt i32 %6441, 1
-  br i1 %6442, label %6443, label %set_value.exit4247
+6436:                                             ; preds = %6431
+  %6437 = inttoptr i64 %.sroa.0.0.copyload.i4243 to ptr
+  %6438 = load i32, ptr %6437, align 4
+  %6439 = add i32 %6438, -1
+  store i32 %6439, ptr %6437, align 4
+  %6440 = icmp slt i32 %6439, 1
+  br i1 %6440, label %6441, label %set_value.exit4247
 
-6443:                                             ; preds = %6438
-  %6444 = load ptr, ptr %237, align 8
-  call void @__JS_FreeValueRT(ptr noundef %6444, i64 %.sroa.0.0.copyload.i4243, i64 %.sroa.2.0.copyload.i4245)
+6441:                                             ; preds = %6436
+  %6442 = load ptr, ptr %237, align 8
+  call void @__JS_FreeValueRT(ptr noundef %6442, i64 %.sroa.0.0.copyload.i4243, i64 %.sroa.2.0.copyload.i4245)
   br label %set_value.exit4247
 
-set_value.exit4247:                               ; preds = %6443, %6438, %6433, %6422
-  %6445 = getelementptr i8, ptr %.23330, i64 2
+set_value.exit4247:                               ; preds = %6441, %6436, %6431, %6420
+  %6443 = getelementptr i8, ptr %.23330, i64 2
   br label %.backedge4994.backedge
 
-6446:                                             ; preds = %.backedge4994
-  %6447 = load i8, ptr %.23330, align 1
-  %6448 = getelementptr i8, ptr %.23330, i64 1
-  %6449 = zext i8 %6447 to i64
-  %6450 = getelementptr %struct.JSValue, ptr %.13348, i64 %6449
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %80, ptr noundef nonnull align 8 dereferenceable(16) %6450, i64 16, i1 false)
-  %6451 = load i64, ptr %256, align 8
-  %6452 = and i64 %6451, 4294967295
-  %6453 = icmp eq i64 %6452, 0
-  br i1 %6453, label %6454, label %6459
+6444:                                             ; preds = %.backedge4994
+  %6445 = load i8, ptr %.23330, align 1
+  %6446 = getelementptr i8, ptr %.23330, i64 1
+  %6447 = zext i8 %6445 to i64
+  %6448 = getelementptr %struct.JSValue, ptr %.13348, i64 %6447
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %80, ptr noundef nonnull align 8 dereferenceable(16) %6448, i64 16, i1 false)
+  %6449 = load i64, ptr %256, align 8
+  %6450 = and i64 %6449, 4294967295
+  %6451 = icmp eq i64 %6450, 0
+  br i1 %6451, label %6452, label %6457
 
-6454:                                             ; preds = %6446
-  %6455 = load i32, ptr %80, align 8
-  %6456 = icmp eq i32 %6455, -2147483648
-  br i1 %6456, label %6459, label %6457
+6452:                                             ; preds = %6444
+  %6453 = load i32, ptr %80, align 8
+  %6454 = icmp eq i32 %6453, -2147483648
+  br i1 %6454, label %6457, label %6455
 
-6457:                                             ; preds = %6454
-  %6458 = add nsw i32 %6455, -1
-  %.sroa.03133.0.insert.ext = zext i32 %6458 to i64
-  store i64 %.sroa.03133.0.insert.ext, ptr %6450, align 8
-  %.sroa.2241.0..sroa_idx = getelementptr inbounds i8, ptr %6450, i64 8
+6455:                                             ; preds = %6452
+  %6456 = add nsw i32 %6453, -1
+  %.sroa.03133.0.insert.ext = zext i32 %6456 to i64
+  store i64 %.sroa.03133.0.insert.ext, ptr %6448, align 8
+  %.sroa.2241.0..sroa_idx = getelementptr inbounds i8, ptr %6448, i64 8
   store i64 0, ptr %.sroa.2241.0..sroa_idx, align 8
   br label %set_value.exit4255
 
-6459:                                             ; preds = %6446, %6454
-  %6460 = load i64, ptr %80, align 8
-  %6461 = trunc i64 %6451 to i32
-  %6462 = icmp ugt i32 %6461, -12
-  br i1 %6462, label %6463, label %JS_DupValue.exit4250
+6457:                                             ; preds = %6444, %6452
+  %6458 = load i64, ptr %80, align 8
+  %6459 = trunc i64 %6449 to i32
+  %6460 = icmp ugt i32 %6459, -12
+  br i1 %6460, label %6461, label %JS_DupValue.exit4250
 
-6463:                                             ; preds = %6459
-  %6464 = inttoptr i64 %6460 to ptr
-  %6465 = load i32, ptr %6464, align 4
-  %6466 = add i32 %6465, 1
-  store i32 %6466, ptr %6464, align 4
+6461:                                             ; preds = %6457
+  %6462 = inttoptr i64 %6458 to ptr
+  %6463 = load i32, ptr %6462, align 4
+  %6464 = add i32 %6463, 1
+  store i32 %6464, ptr %6462, align 4
   br label %JS_DupValue.exit4250
 
-JS_DupValue.exit4250:                             ; preds = %6459, %6463
-  store i64 %6460, ptr %80, align 8
-  store i64 %6451, ptr %256, align 8
-  %6467 = call fastcc i32 @js_unary_arith_slow(ptr noundef %.1, ptr noundef nonnull %257, i32 noundef 143)
-  %.not3481 = icmp eq i32 %6467, 0
-  br i1 %.not3481, label %6468, label %JS_FreeValue.exit3739.loopexit
+JS_DupValue.exit4250:                             ; preds = %6457, %6461
+  store i64 %6458, ptr %80, align 8
+  store i64 %6449, ptr %256, align 8
+  %6465 = call fastcc i32 @js_unary_arith_slow(ptr noundef %.1, ptr noundef nonnull %257, i32 noundef 143)
+  %.not3481 = icmp eq i32 %6465, 0
+  br i1 %.not3481, label %6466, label %JS_FreeValue.exit3739.loopexit
 
-6468:                                             ; preds = %JS_DupValue.exit4250
-  %6469 = load i64, ptr %80, align 8
-  %6470 = load i64, ptr %256, align 8
-  %.sroa.0.0.copyload.i4251 = load i64, ptr %6450, align 8
-  %.sroa.2.0..sroa_idx.i4252 = getelementptr inbounds i8, ptr %6450, i64 8
+6466:                                             ; preds = %JS_DupValue.exit4250
+  %6467 = load i64, ptr %80, align 8
+  %6468 = load i64, ptr %256, align 8
+  %.sroa.0.0.copyload.i4251 = load i64, ptr %6448, align 8
+  %.sroa.2.0..sroa_idx.i4252 = getelementptr inbounds i8, ptr %6448, i64 8
   %.sroa.2.0.copyload.i4253 = load i64, ptr %.sroa.2.0..sroa_idx.i4252, align 8
-  store i64 %6469, ptr %6450, align 8
-  store i64 %6470, ptr %.sroa.2.0..sroa_idx.i4252, align 8
-  %6471 = trunc i64 %.sroa.2.0.copyload.i4253 to i32
-  %6472 = icmp ugt i32 %6471, -12
-  br i1 %6472, label %6473, label %set_value.exit4255
+  store i64 %6467, ptr %6448, align 8
+  store i64 %6468, ptr %.sroa.2.0..sroa_idx.i4252, align 8
+  %6469 = trunc i64 %.sroa.2.0.copyload.i4253 to i32
+  %6470 = icmp ugt i32 %6469, -12
+  br i1 %6470, label %6471, label %set_value.exit4255
 
-6473:                                             ; preds = %6468
-  %6474 = inttoptr i64 %.sroa.0.0.copyload.i4251 to ptr
-  %6475 = load i32, ptr %6474, align 4
-  %6476 = add i32 %6475, -1
-  store i32 %6476, ptr %6474, align 4
-  %6477 = icmp slt i32 %6476, 1
-  br i1 %6477, label %6478, label %set_value.exit4255
+6471:                                             ; preds = %6466
+  %6472 = inttoptr i64 %.sroa.0.0.copyload.i4251 to ptr
+  %6473 = load i32, ptr %6472, align 4
+  %6474 = add i32 %6473, -1
+  store i32 %6474, ptr %6472, align 4
+  %6475 = icmp slt i32 %6474, 1
+  br i1 %6475, label %6476, label %set_value.exit4255
 
-6478:                                             ; preds = %6473
-  %6479 = load ptr, ptr %237, align 8
-  call void @__JS_FreeValueRT(ptr noundef %6479, i64 %.sroa.0.0.copyload.i4251, i64 %.sroa.2.0.copyload.i4253)
+6476:                                             ; preds = %6471
+  %6477 = load ptr, ptr %237, align 8
+  call void @__JS_FreeValueRT(ptr noundef %6477, i64 %.sroa.0.0.copyload.i4251, i64 %.sroa.2.0.copyload.i4253)
   br label %set_value.exit4255
 
-set_value.exit4255:                               ; preds = %6478, %6473, %6468, %6457
-  %6480 = getelementptr i8, ptr %.23330, i64 2
+set_value.exit4255:                               ; preds = %6476, %6471, %6466, %6455
+  %6478 = getelementptr i8, ptr %.23330, i64 2
   br label %.backedge4994.backedge
 
-6481:                                             ; preds = %.backedge4994
+6479:                                             ; preds = %.backedge4994
   %.sroa.2237.0..sroa_idx = getelementptr i8, ptr %.23354, i64 -8
   %.sroa.2237.0.copyload = load i64, ptr %.sroa.2237.0..sroa_idx, align 8
-  %6482 = and i64 %.sroa.2237.0.copyload, 4294967295
-  %6483 = icmp eq i64 %6482, 0
-  br i1 %6483, label %6484, label %6487
+  %6480 = and i64 %.sroa.2237.0.copyload, 4294967295
+  %6481 = icmp eq i64 %6480, 0
+  br i1 %6481, label %6482, label %6485
 
-6484:                                             ; preds = %6481
-  %6485 = getelementptr i8, ptr %.23354, i64 -16
-  %.sroa.0235.0.copyload = load i32, ptr %6485, align 8
-  %6486 = xor i32 %.sroa.0235.0.copyload, -1
-  %.sroa.03128.0.insert.ext = zext i32 %6486 to i64
-  store i64 %.sroa.03128.0.insert.ext, ptr %6485, align 8
+6482:                                             ; preds = %6479
+  %6483 = getelementptr i8, ptr %.23354, i64 -16
+  %.sroa.0235.0.copyload = load i32, ptr %6483, align 8
+  %6484 = xor i32 %.sroa.0235.0.copyload, -1
+  %.sroa.03128.0.insert.ext = zext i32 %6484 to i64
+  store i64 %.sroa.03128.0.insert.ext, ptr %6483, align 8
   store i64 0, ptr %.sroa.2237.0..sroa_idx, align 8
-  br label %6524
+  br label %6522
 
-6487:                                             ; preds = %6481
+6485:                                             ; preds = %6479
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %15)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %16)
-  %6488 = getelementptr i8, ptr %.23354, i64 -16
-  %.sroa.010.0.copyload.i6603 = load i64, ptr %6488, align 8
-  %.not.i6604 = icmp eq i64 %6482, 4294967295
-  br i1 %.not.i6604, label %6489, label %6500
+  %6486 = getelementptr i8, ptr %.23354, i64 -16
+  %.sroa.010.0.copyload.i6600 = load i64, ptr %6486, align 8
+  %.not.i6601 = icmp eq i64 %6480, 4294967295
+  br i1 %.not.i6601, label %6487, label %6498
 
-6489:                                             ; preds = %6487
-  %6490 = call fastcc i32 @js_call_unary_op_fallback(ptr noundef %.1, ptr noundef %15, i64 %.sroa.010.0.copyload.i6603, i64 %.sroa.2237.0.copyload, i32 noundef 150)
-  %6491 = icmp slt i32 %6490, 0
-  br i1 %6491, label %js_not_slow.exit, label %6492
+6487:                                             ; preds = %6485
+  %6488 = call fastcc i32 @js_call_unary_op_fallback(ptr noundef %.1, ptr noundef %15, i64 %.sroa.010.0.copyload.i6600, i64 %.sroa.2237.0.copyload, i32 noundef 150)
+  %6489 = icmp slt i32 %6488, 0
+  br i1 %6489, label %js_not_slow.exit, label %6490
 
-6492:                                             ; preds = %6489
-  %.not41.i6613 = icmp eq i32 %6490, 0
-  br i1 %.not41.i6613, label %6500, label %6493
+6490:                                             ; preds = %6487
+  %.not41.i6610 = icmp eq i32 %6488, 0
+  br i1 %.not41.i6610, label %6498, label %6491
 
-6493:                                             ; preds = %6492
-  %6494 = inttoptr i64 %.sroa.010.0.copyload.i6603 to ptr
-  %6495 = load i32, ptr %6494, align 4
-  %6496 = add i32 %6495, -1
-  store i32 %6496, ptr %6494, align 4
-  %6497 = icmp slt i32 %6496, 1
-  br i1 %6497, label %6498, label %JS_FreeValue.exit.i6614
+6491:                                             ; preds = %6490
+  %6492 = inttoptr i64 %.sroa.010.0.copyload.i6600 to ptr
+  %6493 = load i32, ptr %6492, align 4
+  %6494 = add i32 %6493, -1
+  store i32 %6494, ptr %6492, align 4
+  %6495 = icmp slt i32 %6494, 1
+  br i1 %6495, label %6496, label %JS_FreeValue.exit.i6611
 
-6498:                                             ; preds = %6493
-  %6499 = load ptr, ptr %237, align 8
-  call void @__JS_FreeValueRT(ptr noundef %6499, i64 %.sroa.010.0.copyload.i6603, i64 %.sroa.2237.0.copyload)
-  br label %JS_FreeValue.exit.i6614
+6496:                                             ; preds = %6491
+  %6497 = load ptr, ptr %237, align 8
+  call void @__JS_FreeValueRT(ptr noundef %6497, i64 %.sroa.010.0.copyload.i6600, i64 %.sroa.2237.0.copyload)
+  br label %JS_FreeValue.exit.i6611
 
-JS_FreeValue.exit.i6614:                          ; preds = %6498, %6493
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %6488, ptr noundef nonnull align 8 dereferenceable(16) %15, i64 16, i1 false)
+JS_FreeValue.exit.i6611:                          ; preds = %6496, %6491
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %6486, ptr noundef nonnull align 8 dereferenceable(16) %15, i64 16, i1 false)
   br label %js_not_slow.exit.thread
 
-6500:                                             ; preds = %6492, %6487
-  %6501 = call fastcc { i64, i64 } @JS_ToNumberHintFree(ptr noundef %.1, i64 %.sroa.010.0.copyload.i6603, i64 %.sroa.2237.0.copyload, i32 noundef 1)
-  %6502 = extractvalue { i64, i64 } %6501, 0
-  %6503 = extractvalue { i64, i64 } %6501, 1
-  %6504 = and i64 %6503, 4294967295
-  %.not45.i6605 = icmp eq i64 %6504, 6
-  br i1 %.not45.i6605, label %6523, label %6505
+6498:                                             ; preds = %6490, %6485
+  %6499 = call fastcc { i64, i64 } @JS_ToNumberHintFree(ptr noundef %.1, i64 %.sroa.010.0.copyload.i6600, i64 %.sroa.2237.0.copyload, i32 noundef 1)
+  %6500 = extractvalue { i64, i64 } %6499, 0
+  %6501 = extractvalue { i64, i64 } %6499, 1
+  %6502 = and i64 %6501, 4294967295
+  %.not45.i6602 = icmp eq i64 %6502, 6
+  br i1 %.not45.i6602, label %6521, label %6503
 
-6505:                                             ; preds = %6500
-  %.val.i6606 = load ptr, ptr %237, align 8
-  %6506 = getelementptr i8, ptr %.val.i6606, i64 248
-  %.val.val.i6607 = load ptr, ptr %6506, align 8
-  %.not.i.i6608 = icmp eq ptr %.val.val.i6607, null
-  br i1 %.not.i.i6608, label %is_math_mode.exit.i, label %6507
+6503:                                             ; preds = %6498
+  %.val.i6603 = load ptr, ptr %237, align 8
+  %6504 = getelementptr i8, ptr %.val.i6603, i64 248
+  %.val.val.i6604 = load ptr, ptr %6504, align 8
+  %.not.i.i6605 = icmp eq ptr %.val.val.i6604, null
+  br i1 %.not.i.i6605, label %is_math_mode.exit.i, label %6505
 
-6507:                                             ; preds = %6505
-  %6508 = getelementptr inbounds i8, ptr %.val.val.i6607, i64 68
-  %6509 = load i32, ptr %6508, align 4
-  %6510 = and i32 %6509, 4
-  %6511 = icmp ne i32 %6510, 0
+6505:                                             ; preds = %6503
+  %6506 = getelementptr inbounds i8, ptr %.val.val.i6604, i64 68
+  %6507 = load i32, ptr %6506, align 4
+  %6508 = and i32 %6507, 4
+  %6509 = icmp ne i32 %6508, 0
   br label %is_math_mode.exit.i
 
-is_math_mode.exit.i:                              ; preds = %6507, %6505
-  %6512 = phi i1 [ false, %6505 ], [ %6511, %6507 ]
-  %6513 = icmp eq i64 %6504, 4294967286
-  %or.cond.i6609 = or i1 %6513, %6512
-  br i1 %or.cond.i6609, label %6514, label %6518
+is_math_mode.exit.i:                              ; preds = %6505, %6503
+  %6510 = phi i1 [ false, %6503 ], [ %6509, %6505 ]
+  %6511 = icmp eq i64 %6502, 4294967286
+  %or.cond.i6606 = or i1 %6511, %6510
+  br i1 %or.cond.i6606, label %6512, label %6516
 
-6514:                                             ; preds = %is_math_mode.exit.i
-  %6515 = getelementptr inbounds i8, ptr %.val.i6606, i64 536
-  %6516 = load ptr, ptr %6515, align 8
-  %6517 = call i32 %6516(ptr noundef nonnull %.1, ptr noundef nonnull %6488, i32 noundef 150, i64 %6502, i64 %6503) #42
-  %.not44.i6612 = icmp eq i32 %6517, 0
-  br i1 %.not44.i6612, label %js_not_slow.exit.thread, label %6523
+6512:                                             ; preds = %is_math_mode.exit.i
+  %6513 = getelementptr inbounds i8, ptr %.val.i6603, i64 536
+  %6514 = load ptr, ptr %6513, align 8
+  %6515 = call i32 %6514(ptr noundef nonnull %.1, ptr noundef nonnull %6486, i32 noundef 150, i64 %6500, i64 %6501) #42
+  %.not44.i6609 = icmp eq i32 %6515, 0
+  br i1 %.not44.i6609, label %js_not_slow.exit.thread, label %6521
 
-6518:                                             ; preds = %is_math_mode.exit.i
-  %6519 = call fastcc i32 @JS_ToInt32Free(ptr noundef nonnull %.1, ptr noundef nonnull %16, i64 %6502, i64 %6503)
-  %.not43.i6610 = icmp eq i32 %6519, 0
-  br i1 %.not43.i6610, label %6520, label %6523
+6516:                                             ; preds = %is_math_mode.exit.i
+  %6517 = call fastcc i32 @JS_ToInt32Free(ptr noundef nonnull %.1, ptr noundef nonnull %16, i64 %6500, i64 %6501)
+  %.not43.i6607 = icmp eq i32 %6517, 0
+  br i1 %.not43.i6607, label %6518, label %6521
 
-6520:                                             ; preds = %6518
-  %6521 = load i32, ptr %16, align 4
-  %6522 = xor i32 %6521, -1
-  %.sroa.038.0.insert.ext.i = zext i32 %6522 to i64
-  store i64 %.sroa.038.0.insert.ext.i, ptr %6488, align 8
+6518:                                             ; preds = %6516
+  %6519 = load i32, ptr %16, align 4
+  %6520 = xor i32 %6519, -1
+  %.sroa.038.0.insert.ext.i = zext i32 %6520 to i64
+  store i64 %.sroa.038.0.insert.ext.i, ptr %6486, align 8
   store i64 0, ptr %.sroa.2237.0..sroa_idx, align 8
   br label %js_not_slow.exit.thread
 
-6523:                                             ; preds = %6518, %6514, %6500
-  store i32 0, ptr %6488, align 8
+6521:                                             ; preds = %6516, %6512, %6498
+  store i32 0, ptr %6486, align 8
   store i64 3, ptr %.sroa.2237.0..sroa_idx, align 8
   br label %js_not_slow.exit
 
-js_not_slow.exit.thread:                          ; preds = %JS_FreeValue.exit.i6614, %6514, %6520
+js_not_slow.exit.thread:                          ; preds = %JS_FreeValue.exit.i6611, %6512, %6518
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %15)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %16)
-  br label %6524
+  br label %6522
 
-js_not_slow.exit:                                 ; preds = %6489, %6523
+js_not_slow.exit:                                 ; preds = %6487, %6521
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %15)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %16)
   br label %JS_FreeValue.exit3739.loopexit
 
-6524:                                             ; preds = %js_not_slow.exit.thread, %6484
-  %6525 = getelementptr i8, ptr %.23330, i64 1
+6522:                                             ; preds = %js_not_slow.exit.thread, %6482
+  %6523 = getelementptr i8, ptr %.23330, i64 1
   br label %.backedge4994.backedge
 
-6526:                                             ; preds = %.backedge4994
-  %6527 = getelementptr i8, ptr %.23354, i64 -32
-  %.sroa.0230.0.copyload = load i32, ptr %6527, align 8
+6524:                                             ; preds = %.backedge4994
+  %6525 = getelementptr i8, ptr %.23354, i64 -32
+  %.sroa.0230.0.copyload = load i32, ptr %6525, align 8
   %.sroa.2232.0..sroa_idx = getelementptr i8, ptr %.23354, i64 -24
   %.sroa.2232.0.copyload = load i64, ptr %.sroa.2232.0..sroa_idx, align 8
-  %6528 = getelementptr i8, ptr %.23354, i64 -16
-  %.sroa.0227.0.copyload = load i32, ptr %6528, align 8
+  %6526 = getelementptr i8, ptr %.23354, i64 -16
+  %.sroa.0227.0.copyload = load i32, ptr %6526, align 8
   %.sroa.2229.0..sroa_idx = getelementptr i8, ptr %.23354, i64 -8
   %.sroa.2229.0.copyload = load i64, ptr %.sroa.2229.0..sroa_idx, align 8
-  %6529 = or i64 %.sroa.2229.0.copyload, %.sroa.2232.0.copyload
-  %6530 = and i64 %6529, 4294967295
-  %6531 = icmp eq i64 %6530, 0
-  br i1 %6531, label %6532, label %6544
+  %6527 = or i64 %.sroa.2229.0.copyload, %.sroa.2232.0.copyload
+  %6528 = and i64 %6527, 4294967295
+  %6529 = icmp eq i64 %6528, 0
+  br i1 %6529, label %6530, label %6542
 
-6532:                                             ; preds = %6526
-  %6533 = load i32, ptr %248, align 4
-  %6534 = and i32 %6533, 4
-  %.not3443 = icmp eq i32 %6534, 0
-  br i1 %.not3443, label %6540, label %6535
+6530:                                             ; preds = %6524
+  %6531 = load i32, ptr %248, align 4
+  %6532 = and i32 %6531, 4
+  %.not3443 = icmp eq i32 %6532, 0
+  br i1 %.not3443, label %6538, label %6533
 
-6535:                                             ; preds = %6532
-  %6536 = icmp ult i32 %.sroa.0227.0.copyload, 32
-  %6537 = zext i32 %.sroa.0230.0.copyload to i64
-  %6538 = zext nneg i32 %.sroa.0227.0.copyload to i64
-  %6539 = shl nuw nsw i64 %6537, %6538
-  %.not3445 = icmp ult i64 %6539, 2147483648
-  %or.cond3609 = select i1 %6536, i1 %.not3445, i1 false
-  br i1 %or.cond3609, label %6542, label %6544
+6533:                                             ; preds = %6530
+  %6534 = icmp ult i32 %.sroa.0227.0.copyload, 32
+  %6535 = zext i32 %.sroa.0230.0.copyload to i64
+  %6536 = zext nneg i32 %.sroa.0227.0.copyload to i64
+  %6537 = shl nuw nsw i64 %6535, %6536
+  %.not3445 = icmp ult i64 %6537, 2147483648
+  %or.cond3609 = select i1 %6534, i1 %.not3445, i1 false
+  br i1 %or.cond3609, label %6540, label %6542
 
-6540:                                             ; preds = %6532
-  %6541 = and i32 %.sroa.0227.0.copyload, 31
-  br label %6542
+6538:                                             ; preds = %6530
+  %6539 = and i32 %.sroa.0227.0.copyload, 31
+  br label %6540
 
-6542:                                             ; preds = %6535, %6540
-  %.03382 = phi i32 [ %6541, %6540 ], [ %.sroa.0227.0.copyload, %6535 ]
-  %6543 = shl i32 %.sroa.0230.0.copyload, %.03382
-  %.sroa.03123.0.insert.ext = zext i32 %6543 to i64
-  store i64 %.sroa.03123.0.insert.ext, ptr %6527, align 8
+6540:                                             ; preds = %6533, %6538
+  %.03382 = phi i32 [ %6539, %6538 ], [ %.sroa.0227.0.copyload, %6533 ]
+  %6541 = shl i32 %.sroa.0230.0.copyload, %.03382
+  %.sroa.03123.0.insert.ext = zext i32 %6541 to i64
+  store i64 %.sroa.03123.0.insert.ext, ptr %6525, align 8
   store i64 0, ptr %.sroa.2232.0..sroa_idx, align 8
-  br label %6546
+  br label %6544
 
-6544:                                             ; preds = %6526, %6535
-  %6545 = call fastcc i32 @js_binary_logic_slow(ptr noundef %.1, ptr noundef nonnull %.23354, i32 noundef %.03333)
-  %.not3446 = icmp eq i32 %6545, 0
-  br i1 %.not3446, label %6546, label %JS_FreeValue.exit3739.loopexit
+6542:                                             ; preds = %6524, %6533
+  %6543 = call fastcc i32 @js_binary_logic_slow(ptr noundef %.1, ptr noundef nonnull %.23354, i32 noundef %.03333)
+  %.not3446 = icmp eq i32 %6543, 0
+  br i1 %.not3446, label %6544, label %JS_FreeValue.exit3739.loopexit
 
-6546:                                             ; preds = %6544, %6542
-  %6547 = getelementptr i8, ptr %.23330, i64 1
+6544:                                             ; preds = %6542, %6540
+  %6545 = getelementptr i8, ptr %.23330, i64 1
   br label %.backedge4994.backedge
 
-6548:                                             ; preds = %.backedge4994
+6546:                                             ; preds = %.backedge4994
   %.sroa.2216.0..sroa_idx = getelementptr i8, ptr %.23354, i64 -24
   %.sroa.2216.0.copyload = load i64, ptr %.sroa.2216.0..sroa_idx, align 8
-  %6549 = getelementptr i8, ptr %.23354, i64 -16
+  %6547 = getelementptr i8, ptr %.23354, i64 -16
   %.sroa.2213.0..sroa_idx = getelementptr i8, ptr %.23354, i64 -8
   %.sroa.2213.0.copyload = load i64, ptr %.sroa.2213.0..sroa_idx, align 8
-  %6550 = or i64 %.sroa.2213.0.copyload, %.sroa.2216.0.copyload
-  %6551 = and i64 %6550, 4294967295
-  %6552 = icmp eq i64 %6551, 0
-  br i1 %6552, label %6553, label %6560
+  %6548 = or i64 %.sroa.2213.0.copyload, %.sroa.2216.0.copyload
+  %6549 = and i64 %6548, 4294967295
+  %6550 = icmp eq i64 %6549, 0
+  br i1 %6550, label %6551, label %6558
 
-6553:                                             ; preds = %6548
-  %6554 = getelementptr i8, ptr %.23354, i64 -32
-  %.sroa.0211.0.copyload = load i32, ptr %6549, align 8
-  %.sroa.0214.0.copyload = load i32, ptr %6554, align 8
-  %6555 = and i32 %.sroa.0211.0.copyload, 31
-  %6556 = lshr i32 %.sroa.0214.0.copyload, %6555
-  %6557 = icmp sgt i32 %6556, -1
-  %.sroa.03221.0.insert.ext = zext nneg i32 %6556 to i64
-  %6558 = uitofp i32 %6556 to double
-  %6559 = bitcast double %6558 to i64
-  %.sroa.03216.0 = select i1 %6557, i64 %.sroa.03221.0.insert.ext, i64 %6559
-  %.sroa.33217.0 = select i1 %6557, i64 0, i64 7
-  store i64 %.sroa.03216.0, ptr %6554, align 8
+6551:                                             ; preds = %6546
+  %6552 = getelementptr i8, ptr %.23354, i64 -32
+  %.sroa.0211.0.copyload = load i32, ptr %6547, align 8
+  %.sroa.0214.0.copyload = load i32, ptr %6552, align 8
+  %6553 = and i32 %.sroa.0211.0.copyload, 31
+  %6554 = lshr i32 %.sroa.0214.0.copyload, %6553
+  %6555 = icmp sgt i32 %6554, -1
+  %.sroa.03221.0.insert.ext = zext nneg i32 %6554 to i64
+  %6556 = uitofp i32 %6554 to double
+  %6557 = bitcast double %6556 to i64
+  %.sroa.03216.0 = select i1 %6555, i64 %.sroa.03221.0.insert.ext, i64 %6557
+  %.sroa.33217.0 = select i1 %6555, i64 0, i64 7
+  store i64 %.sroa.03216.0, ptr %6552, align 8
   store i64 %.sroa.33217.0, ptr %.sroa.2216.0..sroa_idx, align 8
-  br label %6627
+  br label %6625
 
-6560:                                             ; preds = %6548
+6558:                                             ; preds = %6546
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %13)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %14)
-  %6561 = getelementptr i8, ptr %.23354, i64 -32
-  %.sroa.025.0.copyload.i = load i64, ptr %6561, align 8
-  %.sroa.015.0.copyload.i = load i64, ptr %6549, align 8
-  %6562 = call fastcc { i64, i64 } @JS_ToNumberHintFree(ptr noundef %.1, i64 %.sroa.025.0.copyload.i, i64 %.sroa.2216.0.copyload, i32 noundef 1)
-  %6563 = extractvalue { i64, i64 } %6562, 0
-  %6564 = extractvalue { i64, i64 } %6562, 1
-  %6565 = and i64 %6564, 4294967295
-  %.not.i6616 = icmp eq i64 %6565, 6
-  br i1 %.not.i6616, label %6566, label %6576
+  %6559 = getelementptr i8, ptr %.23354, i64 -32
+  %.sroa.025.0.copyload.i = load i64, ptr %6559, align 8
+  %.sroa.015.0.copyload.i = load i64, ptr %6547, align 8
+  %6560 = call fastcc { i64, i64 } @JS_ToNumberHintFree(ptr noundef %.1, i64 %.sroa.025.0.copyload.i, i64 %.sroa.2216.0.copyload, i32 noundef 1)
+  %6561 = extractvalue { i64, i64 } %6560, 0
+  %6562 = extractvalue { i64, i64 } %6560, 1
+  %6563 = and i64 %6562, 4294967295
+  %.not.i6613 = icmp eq i64 %6563, 6
+  br i1 %.not.i6613, label %6564, label %6574
 
-6566:                                             ; preds = %6560
-  %6567 = trunc i64 %.sroa.2213.0.copyload to i32
-  %6568 = icmp ugt i32 %6567, -12
-  br i1 %6568, label %6569, label %js_shr_slow.exit
+6564:                                             ; preds = %6558
+  %6565 = trunc i64 %.sroa.2213.0.copyload to i32
+  %6566 = icmp ugt i32 %6565, -12
+  br i1 %6566, label %6567, label %js_shr_slow.exit
 
-6569:                                             ; preds = %6566
-  %6570 = inttoptr i64 %.sroa.015.0.copyload.i to ptr
-  %6571 = load i32, ptr %6570, align 4
-  %6572 = add i32 %6571, -1
-  store i32 %6572, ptr %6570, align 4
-  %6573 = icmp slt i32 %6572, 1
-  br i1 %6573, label %6574, label %js_shr_slow.exit
+6567:                                             ; preds = %6564
+  %6568 = inttoptr i64 %.sroa.015.0.copyload.i to ptr
+  %6569 = load i32, ptr %6568, align 4
+  %6570 = add i32 %6569, -1
+  store i32 %6570, ptr %6568, align 4
+  %6571 = icmp slt i32 %6570, 1
+  br i1 %6571, label %6572, label %js_shr_slow.exit
 
-6574:                                             ; preds = %6569
-  %6575 = load ptr, ptr %237, align 8
-  call void @__JS_FreeValueRT(ptr noundef %6575, i64 %.sroa.015.0.copyload.i, i64 %.sroa.2213.0.copyload)
+6572:                                             ; preds = %6567
+  %6573 = load ptr, ptr %237, align 8
+  call void @__JS_FreeValueRT(ptr noundef %6573, i64 %.sroa.015.0.copyload.i, i64 %.sroa.2213.0.copyload)
   br label %js_shr_slow.exit
 
-6576:                                             ; preds = %6560
-  %6577 = call fastcc { i64, i64 } @JS_ToNumberHintFree(ptr noundef %.1, i64 %.sroa.015.0.copyload.i, i64 %.sroa.2213.0.copyload, i32 noundef 1)
-  %6578 = extractvalue { i64, i64 } %6577, 0
-  %6579 = extractvalue { i64, i64 } %6577, 1
-  %6580 = and i64 %6579, 4294967295
-  %.not74.i = icmp eq i64 %6580, 6
-  br i1 %.not74.i, label %6581, label %6591
+6574:                                             ; preds = %6558
+  %6575 = call fastcc { i64, i64 } @JS_ToNumberHintFree(ptr noundef %.1, i64 %.sroa.015.0.copyload.i, i64 %.sroa.2213.0.copyload, i32 noundef 1)
+  %6576 = extractvalue { i64, i64 } %6575, 0
+  %6577 = extractvalue { i64, i64 } %6575, 1
+  %6578 = and i64 %6577, 4294967295
+  %.not74.i = icmp eq i64 %6578, 6
+  br i1 %.not74.i, label %6579, label %6589
 
-6581:                                             ; preds = %6576
-  %6582 = trunc i64 %6564 to i32
-  %6583 = icmp ugt i32 %6582, -12
-  br i1 %6583, label %6584, label %js_shr_slow.exit
+6579:                                             ; preds = %6574
+  %6580 = trunc i64 %6562 to i32
+  %6581 = icmp ugt i32 %6580, -12
+  br i1 %6581, label %6582, label %js_shr_slow.exit
 
-6584:                                             ; preds = %6581
-  %6585 = inttoptr i64 %6563 to ptr
-  %6586 = load i32, ptr %6585, align 4
-  %6587 = add i32 %6586, -1
-  store i32 %6587, ptr %6585, align 4
-  %6588 = icmp slt i32 %6587, 1
-  br i1 %6588, label %6589, label %js_shr_slow.exit
+6582:                                             ; preds = %6579
+  %6583 = inttoptr i64 %6561 to ptr
+  %6584 = load i32, ptr %6583, align 4
+  %6585 = add i32 %6584, -1
+  store i32 %6585, ptr %6583, align 4
+  %6586 = icmp slt i32 %6585, 1
+  br i1 %6586, label %6587, label %js_shr_slow.exit
 
-6589:                                             ; preds = %6584
-  %6590 = load ptr, ptr %237, align 8
-  call void @__JS_FreeValueRT(ptr noundef %6590, i64 %6563, i64 %6564)
+6587:                                             ; preds = %6582
+  %6588 = load ptr, ptr %237, align 8
+  call void @__JS_FreeValueRT(ptr noundef %6588, i64 %6561, i64 %6562)
   br label %js_shr_slow.exit
 
-6591:                                             ; preds = %6576
-  %.val.i6617 = load ptr, ptr %237, align 8
-  %6592 = getelementptr i8, ptr %.val.i6617, i64 248
-  %.val.val.i6618 = load ptr, ptr %6592, align 8
-  %.not.i.i6619 = icmp eq ptr %.val.val.i6618, null
-  br i1 %.not.i.i6619, label %is_math_mode.exit.thread.i, label %is_math_mode.exit.i6620
+6589:                                             ; preds = %6574
+  %.val.i6614 = load ptr, ptr %237, align 8
+  %6590 = getelementptr i8, ptr %.val.i6614, i64 248
+  %.val.val.i6615 = load ptr, ptr %6590, align 8
+  %.not.i.i6616 = icmp eq ptr %.val.val.i6615, null
+  br i1 %.not.i.i6616, label %is_math_mode.exit.thread.i, label %is_math_mode.exit.i6617
 
-is_math_mode.exit.i6620:                          ; preds = %6591
-  %6593 = getelementptr inbounds i8, ptr %.val.val.i6618, i64 68
-  %6594 = load i32, ptr %6593, align 4
-  %6595 = and i32 %6594, 4
-  %.not69.i = icmp eq i32 %6595, 0
+is_math_mode.exit.i6617:                          ; preds = %6589
+  %6591 = getelementptr inbounds i8, ptr %.val.val.i6615, i64 68
+  %6592 = load i32, ptr %6591, align 4
+  %6593 = and i32 %6592, 4
+  %.not69.i = icmp eq i32 %6593, 0
   br i1 %.not69.i, label %is_math_mode.exit.thread.i, label %js_shr_slow.exit.thread
 
-is_math_mode.exit.thread.i:                       ; preds = %is_math_mode.exit.i6620, %6591
-  %6596 = icmp eq i64 %6565, 4294967286
-  %6597 = icmp eq i64 %6580, 4294967286
-  %or.cond.i6623 = or i1 %6596, %6597
-  br i1 %or.cond.i6623, label %6598, label %js_shr_slow.exit.thread
+is_math_mode.exit.thread.i:                       ; preds = %is_math_mode.exit.i6617, %6589
+  %6594 = icmp eq i64 %6563, 4294967286
+  %6595 = icmp eq i64 %6578, 4294967286
+  %or.cond.i6620 = or i1 %6594, %6595
+  br i1 %or.cond.i6620, label %6596, label %js_shr_slow.exit.thread
 
-6598:                                             ; preds = %is_math_mode.exit.thread.i
-  %6599 = call { i64, i64 } (ptr, ptr, ...) @JS_ThrowTypeError(ptr noundef nonnull %.1, ptr noundef nonnull @.str.170)
-  %6600 = trunc i64 %6564 to i32
-  %6601 = icmp ugt i32 %6600, -12
-  br i1 %6601, label %6602, label %JS_FreeValue.exit71.i
+6596:                                             ; preds = %is_math_mode.exit.thread.i
+  %6597 = call { i64, i64 } (ptr, ptr, ...) @JS_ThrowTypeError(ptr noundef nonnull %.1, ptr noundef nonnull @.str.170)
+  %6598 = trunc i64 %6562 to i32
+  %6599 = icmp ugt i32 %6598, -12
+  br i1 %6599, label %6600, label %JS_FreeValue.exit71.i
 
-6602:                                             ; preds = %6598
-  %6603 = inttoptr i64 %6563 to ptr
-  %6604 = load i32, ptr %6603, align 4
-  %6605 = add i32 %6604, -1
-  store i32 %6605, ptr %6603, align 4
-  %6606 = icmp slt i32 %6605, 1
-  br i1 %6606, label %6607, label %JS_FreeValue.exit71.i
+6600:                                             ; preds = %6596
+  %6601 = inttoptr i64 %6561 to ptr
+  %6602 = load i32, ptr %6601, align 4
+  %6603 = add i32 %6602, -1
+  store i32 %6603, ptr %6601, align 4
+  %6604 = icmp slt i32 %6603, 1
+  br i1 %6604, label %6605, label %JS_FreeValue.exit71.i
 
-6607:                                             ; preds = %6602
-  %6608 = load ptr, ptr %237, align 8
-  call void @__JS_FreeValueRT(ptr noundef %6608, i64 %6563, i64 %6564)
+6605:                                             ; preds = %6600
+  %6606 = load ptr, ptr %237, align 8
+  call void @__JS_FreeValueRT(ptr noundef %6606, i64 %6561, i64 %6562)
   br label %JS_FreeValue.exit71.i
 
-JS_FreeValue.exit71.i:                            ; preds = %6607, %6602, %6598
-  %6609 = trunc i64 %6579 to i32
-  %6610 = icmp ugt i32 %6609, -12
-  br i1 %6610, label %6611, label %js_shr_slow.exit
+JS_FreeValue.exit71.i:                            ; preds = %6605, %6600, %6596
+  %6607 = trunc i64 %6577 to i32
+  %6608 = icmp ugt i32 %6607, -12
+  br i1 %6608, label %6609, label %js_shr_slow.exit
 
-6611:                                             ; preds = %JS_FreeValue.exit71.i
-  %6612 = inttoptr i64 %6578 to ptr
-  %6613 = load i32, ptr %6612, align 4
-  %6614 = add i32 %6613, -1
-  store i32 %6614, ptr %6612, align 4
-  %6615 = icmp slt i32 %6614, 1
-  br i1 %6615, label %6616, label %js_shr_slow.exit
+6609:                                             ; preds = %JS_FreeValue.exit71.i
+  %6610 = inttoptr i64 %6576 to ptr
+  %6611 = load i32, ptr %6610, align 4
+  %6612 = add i32 %6611, -1
+  store i32 %6612, ptr %6610, align 4
+  %6613 = icmp slt i32 %6612, 1
+  br i1 %6613, label %6614, label %js_shr_slow.exit
 
-6616:                                             ; preds = %6611
-  %6617 = load ptr, ptr %237, align 8
-  call void @__JS_FreeValueRT(ptr noundef %6617, i64 %6578, i64 %6579)
+6614:                                             ; preds = %6609
+  %6615 = load ptr, ptr %237, align 8
+  call void @__JS_FreeValueRT(ptr noundef %6615, i64 %6576, i64 %6577)
   br label %js_shr_slow.exit
 
-js_shr_slow.exit.thread:                          ; preds = %is_math_mode.exit.i6620, %is_math_mode.exit.thread.i
-  %6618 = call fastcc range(i32 -1, 1) i32 @JS_ToInt32Free(ptr noundef nonnull %.1, ptr noundef nonnull %13, i64 %6563, i64 %6564)
-  %6619 = call fastcc range(i32 -1, 1) i32 @JS_ToInt32Free(ptr noundef nonnull %.1, ptr noundef nonnull %14, i64 %6578, i64 %6579)
-  %6620 = load i32, ptr %13, align 4
-  %6621 = load i32, ptr %14, align 4
-  %6622 = and i32 %6621, 31
-  %6623 = lshr i32 %6620, %6622
-  %6624 = icmp sgt i32 %6623, -1
-  %.sroa.065.0.insert.ext.i = zext nneg i32 %6623 to i64
-  %6625 = uitofp i32 %6623 to double
-  %6626 = bitcast double %6625 to i64
-  %.sroa.061.0.i = select i1 %6624, i64 %.sroa.065.0.insert.ext.i, i64 %6626
-  %.sroa.3.0.i6621 = select i1 %6624, i64 0, i64 7
-  store i64 %.sroa.061.0.i, ptr %6561, align 8
-  store i64 %.sroa.3.0.i6621, ptr %.sroa.2216.0..sroa_idx, align 8
+js_shr_slow.exit.thread:                          ; preds = %is_math_mode.exit.i6617, %is_math_mode.exit.thread.i
+  %6616 = call fastcc range(i32 -1, 1) i32 @JS_ToInt32Free(ptr noundef nonnull %.1, ptr noundef nonnull %13, i64 %6561, i64 %6562)
+  %6617 = call fastcc range(i32 -1, 1) i32 @JS_ToInt32Free(ptr noundef nonnull %.1, ptr noundef nonnull %14, i64 %6576, i64 %6577)
+  %6618 = load i32, ptr %13, align 4
+  %6619 = load i32, ptr %14, align 4
+  %6620 = and i32 %6619, 31
+  %6621 = lshr i32 %6618, %6620
+  %6622 = icmp sgt i32 %6621, -1
+  %.sroa.065.0.insert.ext.i = zext nneg i32 %6621 to i64
+  %6623 = uitofp i32 %6621 to double
+  %6624 = bitcast double %6623 to i64
+  %.sroa.061.0.i = select i1 %6622, i64 %.sroa.065.0.insert.ext.i, i64 %6624
+  %.sroa.3.0.i6618 = select i1 %6622, i64 0, i64 7
+  store i64 %.sroa.061.0.i, ptr %6559, align 8
+  store i64 %.sroa.3.0.i6618, ptr %.sroa.2216.0..sroa_idx, align 8
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %13)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %14)
-  br label %6627
+  br label %6625
 
-js_shr_slow.exit:                                 ; preds = %6566, %6569, %6574, %6581, %6584, %6589, %JS_FreeValue.exit71.i, %6611, %6616
-  store i32 0, ptr %6561, align 8
+js_shr_slow.exit:                                 ; preds = %6564, %6567, %6572, %6579, %6582, %6587, %JS_FreeValue.exit71.i, %6609, %6614
+  store i32 0, ptr %6559, align 8
   store i64 3, ptr %.sroa.2216.0..sroa_idx, align 8
-  store i32 0, ptr %6549, align 8
+  store i32 0, ptr %6547, align 8
   store i64 3, ptr %.sroa.2213.0..sroa_idx, align 8
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %13)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %14)
   br label %JS_FreeValue.exit3739.loopexit
 
-6627:                                             ; preds = %js_shr_slow.exit.thread, %6553
-  %6628 = getelementptr i8, ptr %.23330, i64 1
+6625:                                             ; preds = %js_shr_slow.exit.thread, %6551
+  %6626 = getelementptr i8, ptr %.23330, i64 1
   br label %.backedge4994.backedge
 
-6629:                                             ; preds = %.backedge4994
-  %6630 = getelementptr i8, ptr %.23354, i64 -32
-  %.sroa.0204.0.copyload = load i32, ptr %6630, align 8
+6627:                                             ; preds = %.backedge4994
+  %6628 = getelementptr i8, ptr %.23354, i64 -32
+  %.sroa.0204.0.copyload = load i32, ptr %6628, align 8
   %.sroa.2206.0..sroa_idx = getelementptr i8, ptr %.23354, i64 -24
   %.sroa.2206.0.copyload = load i64, ptr %.sroa.2206.0..sroa_idx, align 8
-  %6631 = getelementptr i8, ptr %.23354, i64 -16
-  %.sroa.0201.0.copyload = load i32, ptr %6631, align 8
+  %6629 = getelementptr i8, ptr %.23354, i64 -16
+  %.sroa.0201.0.copyload = load i32, ptr %6629, align 8
   %.sroa.2203.0..sroa_idx = getelementptr i8, ptr %.23354, i64 -8
   %.sroa.2203.0.copyload = load i64, ptr %.sroa.2203.0..sroa_idx, align 8
-  %6632 = or i64 %.sroa.2203.0.copyload, %.sroa.2206.0.copyload
-  %6633 = and i64 %6632, 4294967295
-  %6634 = icmp eq i64 %6633, 0
-  br i1 %6634, label %6635, label %6644
+  %6630 = or i64 %.sroa.2203.0.copyload, %.sroa.2206.0.copyload
+  %6631 = and i64 %6630, 4294967295
+  %6632 = icmp eq i64 %6631, 0
+  br i1 %6632, label %6633, label %6642
 
-6635:                                             ; preds = %6629
-  %6636 = icmp ugt i32 %.sroa.0201.0.copyload, 31
-  br i1 %6636, label %6637, label %6642
+6633:                                             ; preds = %6627
+  %6634 = icmp ugt i32 %.sroa.0201.0.copyload, 31
+  br i1 %6634, label %6635, label %6640
 
-6637:                                             ; preds = %6635
-  %6638 = load i32, ptr %248, align 4
-  %6639 = and i32 %6638, 4
-  %.not3441 = icmp eq i32 %6639, 0
-  br i1 %.not3441, label %6640, label %6644
+6635:                                             ; preds = %6633
+  %6636 = load i32, ptr %248, align 4
+  %6637 = and i32 %6636, 4
+  %.not3441 = icmp eq i32 %6637, 0
+  br i1 %.not3441, label %6638, label %6642
 
-6640:                                             ; preds = %6637
-  %6641 = and i32 %.sroa.0201.0.copyload, 31
-  br label %6642
+6638:                                             ; preds = %6635
+  %6639 = and i32 %.sroa.0201.0.copyload, 31
+  br label %6640
 
-6642:                                             ; preds = %6640, %6635
-  %.03383 = phi i32 [ %6641, %6640 ], [ %.sroa.0201.0.copyload, %6635 ]
-  %6643 = ashr i32 %.sroa.0204.0.copyload, %.03383
-  %.sroa.03118.0.insert.ext = zext i32 %6643 to i64
-  store i64 %.sroa.03118.0.insert.ext, ptr %6630, align 8
+6640:                                             ; preds = %6638, %6633
+  %.03383 = phi i32 [ %6639, %6638 ], [ %.sroa.0201.0.copyload, %6633 ]
+  %6641 = ashr i32 %.sroa.0204.0.copyload, %.03383
+  %.sroa.03118.0.insert.ext = zext i32 %6641 to i64
+  store i64 %.sroa.03118.0.insert.ext, ptr %6628, align 8
   store i64 0, ptr %.sroa.2206.0..sroa_idx, align 8
-  br label %6646
+  br label %6644
 
-6644:                                             ; preds = %6629, %6637
-  %6645 = call fastcc i32 @js_binary_logic_slow(ptr noundef %.1, ptr noundef nonnull %.23354, i32 noundef %.03333)
-  %.not3442 = icmp eq i32 %6645, 0
-  br i1 %.not3442, label %6646, label %JS_FreeValue.exit3739.loopexit
+6642:                                             ; preds = %6627, %6635
+  %6643 = call fastcc i32 @js_binary_logic_slow(ptr noundef %.1, ptr noundef nonnull %.23354, i32 noundef %.03333)
+  %.not3442 = icmp eq i32 %6643, 0
+  br i1 %.not3442, label %6644, label %JS_FreeValue.exit3739.loopexit
 
-6646:                                             ; preds = %6644, %6642
-  %6647 = getelementptr i8, ptr %.23330, i64 1
+6644:                                             ; preds = %6642, %6640
+  %6645 = getelementptr i8, ptr %.23330, i64 1
   br label %.backedge4994.backedge
 
-6648:                                             ; preds = %.backedge4994
+6646:                                             ; preds = %.backedge4994
   %.sroa.2195.0..sroa_idx = getelementptr i8, ptr %.23354, i64 -24
   %.sroa.2195.0.copyload = load i64, ptr %.sroa.2195.0..sroa_idx, align 8
-  %6649 = getelementptr i8, ptr %.23354, i64 -16
+  %6647 = getelementptr i8, ptr %.23354, i64 -16
   %.sroa.2192.0..sroa_idx = getelementptr i8, ptr %.23354, i64 -8
   %.sroa.2192.0.copyload = load i64, ptr %.sroa.2192.0..sroa_idx, align 8
-  %6650 = or i64 %.sroa.2192.0.copyload, %.sroa.2195.0.copyload
-  %6651 = and i64 %6650, 4294967295
-  %6652 = icmp eq i64 %6651, 0
-  br i1 %6652, label %6653, label %6656
+  %6648 = or i64 %.sroa.2192.0.copyload, %.sroa.2195.0.copyload
+  %6649 = and i64 %6648, 4294967295
+  %6650 = icmp eq i64 %6649, 0
+  br i1 %6650, label %6651, label %6654
 
-6653:                                             ; preds = %6648
-  %.sroa.0190.0.copyload = load i32, ptr %6649, align 8
-  %6654 = getelementptr i8, ptr %.23354, i64 -32
-  %.sroa.0193.0.copyload = load i32, ptr %6654, align 8
-  %6655 = and i32 %.sroa.0193.0.copyload, %.sroa.0190.0.copyload
-  %.sroa.03113.0.insert.ext = zext i32 %6655 to i64
-  store i64 %.sroa.03113.0.insert.ext, ptr %6654, align 8
+6651:                                             ; preds = %6646
+  %.sroa.0190.0.copyload = load i32, ptr %6647, align 8
+  %6652 = getelementptr i8, ptr %.23354, i64 -32
+  %.sroa.0193.0.copyload = load i32, ptr %6652, align 8
+  %6653 = and i32 %.sroa.0193.0.copyload, %.sroa.0190.0.copyload
+  %.sroa.03113.0.insert.ext = zext i32 %6653 to i64
+  store i64 %.sroa.03113.0.insert.ext, ptr %6652, align 8
   store i64 0, ptr %.sroa.2195.0..sroa_idx, align 8
-  br label %6658
+  br label %6656
 
-6656:                                             ; preds = %6648
-  %6657 = call fastcc i32 @js_binary_logic_slow(ptr noundef %.1, ptr noundef nonnull %.23354, i32 noundef %.03333)
-  %.not3431 = icmp eq i32 %6657, 0
-  br i1 %.not3431, label %6658, label %JS_FreeValue.exit3739.loopexit
+6654:                                             ; preds = %6646
+  %6655 = call fastcc i32 @js_binary_logic_slow(ptr noundef %.1, ptr noundef nonnull %.23354, i32 noundef %.03333)
+  %.not3431 = icmp eq i32 %6655, 0
+  br i1 %.not3431, label %6656, label %JS_FreeValue.exit3739.loopexit
 
-6658:                                             ; preds = %6656, %6653
-  %6659 = getelementptr i8, ptr %.23330, i64 1
+6656:                                             ; preds = %6654, %6651
+  %6657 = getelementptr i8, ptr %.23330, i64 1
   br label %.backedge4994.backedge
 
-6660:                                             ; preds = %.backedge4994
+6658:                                             ; preds = %.backedge4994
   %.sroa.2187.0..sroa_idx = getelementptr i8, ptr %.23354, i64 -24
   %.sroa.2187.0.copyload = load i64, ptr %.sroa.2187.0..sroa_idx, align 8
-  %6661 = getelementptr i8, ptr %.23354, i64 -16
+  %6659 = getelementptr i8, ptr %.23354, i64 -16
   %.sroa.2184.0..sroa_idx = getelementptr i8, ptr %.23354, i64 -8
   %.sroa.2184.0.copyload = load i64, ptr %.sroa.2184.0..sroa_idx, align 8
-  %6662 = or i64 %.sroa.2184.0.copyload, %.sroa.2187.0.copyload
-  %6663 = and i64 %6662, 4294967295
-  %6664 = icmp eq i64 %6663, 0
-  br i1 %6664, label %6665, label %6668
+  %6660 = or i64 %.sroa.2184.0.copyload, %.sroa.2187.0.copyload
+  %6661 = and i64 %6660, 4294967295
+  %6662 = icmp eq i64 %6661, 0
+  br i1 %6662, label %6663, label %6666
 
-6665:                                             ; preds = %6660
-  %.sroa.0182.0.copyload = load i32, ptr %6661, align 8
-  %6666 = getelementptr i8, ptr %.23354, i64 -32
-  %.sroa.0185.0.copyload = load i32, ptr %6666, align 8
-  %6667 = or i32 %.sroa.0185.0.copyload, %.sroa.0182.0.copyload
-  %.sroa.03108.0.insert.ext = zext i32 %6667 to i64
-  store i64 %.sroa.03108.0.insert.ext, ptr %6666, align 8
+6663:                                             ; preds = %6658
+  %.sroa.0182.0.copyload = load i32, ptr %6659, align 8
+  %6664 = getelementptr i8, ptr %.23354, i64 -32
+  %.sroa.0185.0.copyload = load i32, ptr %6664, align 8
+  %6665 = or i32 %.sroa.0185.0.copyload, %.sroa.0182.0.copyload
+  %.sroa.03108.0.insert.ext = zext i32 %6665 to i64
+  store i64 %.sroa.03108.0.insert.ext, ptr %6664, align 8
   store i64 0, ptr %.sroa.2187.0..sroa_idx, align 8
-  br label %6670
+  br label %6668
 
-6668:                                             ; preds = %6660
-  %6669 = call fastcc i32 @js_binary_logic_slow(ptr noundef %.1, ptr noundef nonnull %.23354, i32 noundef %.03333)
-  %.not3429 = icmp eq i32 %6669, 0
-  br i1 %.not3429, label %6670, label %JS_FreeValue.exit3739.loopexit
+6666:                                             ; preds = %6658
+  %6667 = call fastcc i32 @js_binary_logic_slow(ptr noundef %.1, ptr noundef nonnull %.23354, i32 noundef %.03333)
+  %.not3429 = icmp eq i32 %6667, 0
+  br i1 %.not3429, label %6668, label %JS_FreeValue.exit3739.loopexit
 
-6670:                                             ; preds = %6668, %6665
-  %6671 = getelementptr i8, ptr %.23330, i64 1
+6668:                                             ; preds = %6666, %6663
+  %6669 = getelementptr i8, ptr %.23330, i64 1
   br label %.backedge4994.backedge
 
-6672:                                             ; preds = %.backedge4994
+6670:                                             ; preds = %.backedge4994
   %.sroa.2179.0..sroa_idx = getelementptr i8, ptr %.23354, i64 -24
   %.sroa.2179.0.copyload = load i64, ptr %.sroa.2179.0..sroa_idx, align 8
-  %6673 = getelementptr i8, ptr %.23354, i64 -16
+  %6671 = getelementptr i8, ptr %.23354, i64 -16
   %.sroa.2176.0..sroa_idx = getelementptr i8, ptr %.23354, i64 -8
   %.sroa.2176.0.copyload = load i64, ptr %.sroa.2176.0..sroa_idx, align 8
-  %6674 = or i64 %.sroa.2176.0.copyload, %.sroa.2179.0.copyload
-  %6675 = and i64 %6674, 4294967295
-  %6676 = icmp eq i64 %6675, 0
-  br i1 %6676, label %6677, label %6680
+  %6672 = or i64 %.sroa.2176.0.copyload, %.sroa.2179.0.copyload
+  %6673 = and i64 %6672, 4294967295
+  %6674 = icmp eq i64 %6673, 0
+  br i1 %6674, label %6675, label %6678
 
-6677:                                             ; preds = %6672
-  %.sroa.0174.0.copyload = load i32, ptr %6673, align 8
-  %6678 = getelementptr i8, ptr %.23354, i64 -32
-  %.sroa.0177.0.copyload = load i32, ptr %6678, align 8
-  %6679 = xor i32 %.sroa.0177.0.copyload, %.sroa.0174.0.copyload
-  %.sroa.03103.0.insert.ext = zext i32 %6679 to i64
-  store i64 %.sroa.03103.0.insert.ext, ptr %6678, align 8
+6675:                                             ; preds = %6670
+  %.sroa.0174.0.copyload = load i32, ptr %6671, align 8
+  %6676 = getelementptr i8, ptr %.23354, i64 -32
+  %.sroa.0177.0.copyload = load i32, ptr %6676, align 8
+  %6677 = xor i32 %.sroa.0177.0.copyload, %.sroa.0174.0.copyload
+  %.sroa.03103.0.insert.ext = zext i32 %6677 to i64
+  store i64 %.sroa.03103.0.insert.ext, ptr %6676, align 8
   store i64 0, ptr %.sroa.2179.0..sroa_idx, align 8
-  br label %6682
+  br label %6680
 
-6680:                                             ; preds = %6672
-  %6681 = call fastcc i32 @js_binary_logic_slow(ptr noundef %.1, ptr noundef nonnull %.23354, i32 noundef %.03333)
-  %.not3430 = icmp eq i32 %6681, 0
-  br i1 %.not3430, label %6682, label %JS_FreeValue.exit3739.loopexit
+6678:                                             ; preds = %6670
+  %6679 = call fastcc i32 @js_binary_logic_slow(ptr noundef %.1, ptr noundef nonnull %.23354, i32 noundef %.03333)
+  %.not3430 = icmp eq i32 %6679, 0
+  br i1 %.not3430, label %6680, label %JS_FreeValue.exit3739.loopexit
 
-6682:                                             ; preds = %6680, %6677
-  %6683 = getelementptr i8, ptr %.23330, i64 1
+6680:                                             ; preds = %6678, %6675
+  %6681 = getelementptr i8, ptr %.23330, i64 1
   br label %.backedge4994.backedge
 
-6684:                                             ; preds = %.backedge4994
+6682:                                             ; preds = %.backedge4994
   %.sroa.2171.0..sroa_idx = getelementptr i8, ptr %.23354, i64 -24
   %.sroa.2171.0.copyload = load i64, ptr %.sroa.2171.0..sroa_idx, align 8
-  %6685 = getelementptr i8, ptr %.23354, i64 -16
+  %6683 = getelementptr i8, ptr %.23354, i64 -16
   %.sroa.2168.0..sroa_idx = getelementptr i8, ptr %.23354, i64 -8
   %.sroa.2168.0.copyload = load i64, ptr %.sroa.2168.0..sroa_idx, align 8
-  %6686 = or i64 %.sroa.2168.0.copyload, %.sroa.2171.0.copyload
-  %6687 = and i64 %6686, 4294967295
-  %6688 = icmp eq i64 %6687, 0
-  br i1 %6688, label %6689, label %6692
+  %6684 = or i64 %.sroa.2168.0.copyload, %.sroa.2171.0.copyload
+  %6685 = and i64 %6684, 4294967295
+  %6686 = icmp eq i64 %6685, 0
+  br i1 %6686, label %6687, label %6690
 
-6689:                                             ; preds = %6684
-  %.sroa.0166.0.copyload = load i32, ptr %6685, align 8
-  %6690 = getelementptr i8, ptr %.23354, i64 -32
-  %.sroa.0169.0.copyload = load i32, ptr %6690, align 8
-  %6691 = icmp slt i32 %.sroa.0169.0.copyload, %.sroa.0166.0.copyload
-  %.sroa.03271.0.insert.ext = zext i1 %6691 to i64
-  store i64 %.sroa.03271.0.insert.ext, ptr %6690, align 8
+6687:                                             ; preds = %6682
+  %.sroa.0166.0.copyload = load i32, ptr %6683, align 8
+  %6688 = getelementptr i8, ptr %.23354, i64 -32
+  %.sroa.0169.0.copyload = load i32, ptr %6688, align 8
+  %6689 = icmp slt i32 %.sroa.0169.0.copyload, %.sroa.0166.0.copyload
+  %.sroa.03271.0.insert.ext = zext i1 %6689 to i64
+  store i64 %.sroa.03271.0.insert.ext, ptr %6688, align 8
   store i64 1, ptr %.sroa.2171.0..sroa_idx, align 8
-  br label %6694
+  br label %6692
 
-6692:                                             ; preds = %6684
-  %6693 = call fastcc i32 @js_relational_slow(ptr noundef %.1, ptr noundef nonnull %.23354, i32 noundef %.03333)
-  %.not3439 = icmp eq i32 %6693, 0
-  br i1 %.not3439, label %6694, label %JS_FreeValue.exit3739.loopexit
+6690:                                             ; preds = %6682
+  %6691 = call fastcc i32 @js_relational_slow(ptr noundef %.1, ptr noundef nonnull %.23354, i32 noundef %.03333)
+  %.not3439 = icmp eq i32 %6691, 0
+  br i1 %.not3439, label %6692, label %JS_FreeValue.exit3739.loopexit
 
-6694:                                             ; preds = %6692, %6689
-  %6695 = getelementptr i8, ptr %.23330, i64 1
+6692:                                             ; preds = %6690, %6687
+  %6693 = getelementptr i8, ptr %.23330, i64 1
   br label %.backedge4994.backedge
 
-6696:                                             ; preds = %.backedge4994
+6694:                                             ; preds = %.backedge4994
   %.sroa.2163.0..sroa_idx = getelementptr i8, ptr %.23354, i64 -24
   %.sroa.2163.0.copyload = load i64, ptr %.sroa.2163.0..sroa_idx, align 8
-  %6697 = getelementptr i8, ptr %.23354, i64 -16
+  %6695 = getelementptr i8, ptr %.23354, i64 -16
   %.sroa.2160.0..sroa_idx = getelementptr i8, ptr %.23354, i64 -8
   %.sroa.2160.0.copyload = load i64, ptr %.sroa.2160.0..sroa_idx, align 8
-  %6698 = or i64 %.sroa.2160.0.copyload, %.sroa.2163.0.copyload
-  %6699 = and i64 %6698, 4294967295
-  %6700 = icmp eq i64 %6699, 0
-  br i1 %6700, label %6701, label %6704
+  %6696 = or i64 %.sroa.2160.0.copyload, %.sroa.2163.0.copyload
+  %6697 = and i64 %6696, 4294967295
+  %6698 = icmp eq i64 %6697, 0
+  br i1 %6698, label %6699, label %6702
 
-6701:                                             ; preds = %6696
-  %.sroa.0158.0.copyload = load i32, ptr %6697, align 8
-  %6702 = getelementptr i8, ptr %.23354, i64 -32
-  %.sroa.0161.0.copyload = load i32, ptr %6702, align 8
-  %6703 = icmp sle i32 %.sroa.0161.0.copyload, %.sroa.0158.0.copyload
-  %.sroa.03266.0.insert.ext = zext i1 %6703 to i64
-  store i64 %.sroa.03266.0.insert.ext, ptr %6702, align 8
+6699:                                             ; preds = %6694
+  %.sroa.0158.0.copyload = load i32, ptr %6695, align 8
+  %6700 = getelementptr i8, ptr %.23354, i64 -32
+  %.sroa.0161.0.copyload = load i32, ptr %6700, align 8
+  %6701 = icmp sle i32 %.sroa.0161.0.copyload, %.sroa.0158.0.copyload
+  %.sroa.03266.0.insert.ext = zext i1 %6701 to i64
+  store i64 %.sroa.03266.0.insert.ext, ptr %6700, align 8
   store i64 1, ptr %.sroa.2163.0..sroa_idx, align 8
-  br label %6706
+  br label %6704
 
-6704:                                             ; preds = %6696
-  %6705 = call fastcc i32 @js_relational_slow(ptr noundef %.1, ptr noundef nonnull %.23354, i32 noundef %.03333)
-  %.not3438 = icmp eq i32 %6705, 0
-  br i1 %.not3438, label %6706, label %JS_FreeValue.exit3739.loopexit
+6702:                                             ; preds = %6694
+  %6703 = call fastcc i32 @js_relational_slow(ptr noundef %.1, ptr noundef nonnull %.23354, i32 noundef %.03333)
+  %.not3438 = icmp eq i32 %6703, 0
+  br i1 %.not3438, label %6704, label %JS_FreeValue.exit3739.loopexit
 
-6706:                                             ; preds = %6704, %6701
-  %6707 = getelementptr i8, ptr %.23330, i64 1
+6704:                                             ; preds = %6702, %6699
+  %6705 = getelementptr i8, ptr %.23330, i64 1
   br label %.backedge4994.backedge
 
-6708:                                             ; preds = %.backedge4994
+6706:                                             ; preds = %.backedge4994
   %.sroa.2155.0..sroa_idx = getelementptr i8, ptr %.23354, i64 -24
   %.sroa.2155.0.copyload = load i64, ptr %.sroa.2155.0..sroa_idx, align 8
-  %6709 = getelementptr i8, ptr %.23354, i64 -16
+  %6707 = getelementptr i8, ptr %.23354, i64 -16
   %.sroa.2152.0..sroa_idx = getelementptr i8, ptr %.23354, i64 -8
   %.sroa.2152.0.copyload = load i64, ptr %.sroa.2152.0..sroa_idx, align 8
-  %6710 = or i64 %.sroa.2152.0.copyload, %.sroa.2155.0.copyload
-  %6711 = and i64 %6710, 4294967295
-  %6712 = icmp eq i64 %6711, 0
-  br i1 %6712, label %6713, label %6716
+  %6708 = or i64 %.sroa.2152.0.copyload, %.sroa.2155.0.copyload
+  %6709 = and i64 %6708, 4294967295
+  %6710 = icmp eq i64 %6709, 0
+  br i1 %6710, label %6711, label %6714
 
-6713:                                             ; preds = %6708
-  %.sroa.0150.0.copyload = load i32, ptr %6709, align 8
-  %6714 = getelementptr i8, ptr %.23354, i64 -32
-  %.sroa.0153.0.copyload = load i32, ptr %6714, align 8
-  %6715 = icmp sgt i32 %.sroa.0153.0.copyload, %.sroa.0150.0.copyload
-  %.sroa.03261.0.insert.ext = zext i1 %6715 to i64
-  store i64 %.sroa.03261.0.insert.ext, ptr %6714, align 8
+6711:                                             ; preds = %6706
+  %.sroa.0150.0.copyload = load i32, ptr %6707, align 8
+  %6712 = getelementptr i8, ptr %.23354, i64 -32
+  %.sroa.0153.0.copyload = load i32, ptr %6712, align 8
+  %6713 = icmp sgt i32 %.sroa.0153.0.copyload, %.sroa.0150.0.copyload
+  %.sroa.03261.0.insert.ext = zext i1 %6713 to i64
+  store i64 %.sroa.03261.0.insert.ext, ptr %6712, align 8
   store i64 1, ptr %.sroa.2155.0..sroa_idx, align 8
-  br label %6718
+  br label %6716
 
-6716:                                             ; preds = %6708
-  %6717 = call fastcc i32 @js_relational_slow(ptr noundef %.1, ptr noundef nonnull %.23354, i32 noundef %.03333)
-  %.not3437 = icmp eq i32 %6717, 0
-  br i1 %.not3437, label %6718, label %JS_FreeValue.exit3739.loopexit
+6714:                                             ; preds = %6706
+  %6715 = call fastcc i32 @js_relational_slow(ptr noundef %.1, ptr noundef nonnull %.23354, i32 noundef %.03333)
+  %.not3437 = icmp eq i32 %6715, 0
+  br i1 %.not3437, label %6716, label %JS_FreeValue.exit3739.loopexit
 
-6718:                                             ; preds = %6716, %6713
-  %6719 = getelementptr i8, ptr %.23330, i64 1
+6716:                                             ; preds = %6714, %6711
+  %6717 = getelementptr i8, ptr %.23330, i64 1
   br label %.backedge4994.backedge
 
-6720:                                             ; preds = %.backedge4994
+6718:                                             ; preds = %.backedge4994
   %.sroa.2147.0..sroa_idx = getelementptr i8, ptr %.23354, i64 -24
   %.sroa.2147.0.copyload = load i64, ptr %.sroa.2147.0..sroa_idx, align 8
-  %6721 = getelementptr i8, ptr %.23354, i64 -16
+  %6719 = getelementptr i8, ptr %.23354, i64 -16
   %.sroa.2144.0..sroa_idx = getelementptr i8, ptr %.23354, i64 -8
   %.sroa.2144.0.copyload = load i64, ptr %.sroa.2144.0..sroa_idx, align 8
-  %6722 = or i64 %.sroa.2144.0.copyload, %.sroa.2147.0.copyload
-  %6723 = and i64 %6722, 4294967295
-  %6724 = icmp eq i64 %6723, 0
-  br i1 %6724, label %6725, label %6728
+  %6720 = or i64 %.sroa.2144.0.copyload, %.sroa.2147.0.copyload
+  %6721 = and i64 %6720, 4294967295
+  %6722 = icmp eq i64 %6721, 0
+  br i1 %6722, label %6723, label %6726
 
-6725:                                             ; preds = %6720
-  %.sroa.0142.0.copyload = load i32, ptr %6721, align 8
-  %6726 = getelementptr i8, ptr %.23354, i64 -32
-  %.sroa.0145.0.copyload = load i32, ptr %6726, align 8
-  %6727 = icmp sge i32 %.sroa.0145.0.copyload, %.sroa.0142.0.copyload
-  %.sroa.03256.0.insert.ext = zext i1 %6727 to i64
-  store i64 %.sroa.03256.0.insert.ext, ptr %6726, align 8
+6723:                                             ; preds = %6718
+  %.sroa.0142.0.copyload = load i32, ptr %6719, align 8
+  %6724 = getelementptr i8, ptr %.23354, i64 -32
+  %.sroa.0145.0.copyload = load i32, ptr %6724, align 8
+  %6725 = icmp sge i32 %.sroa.0145.0.copyload, %.sroa.0142.0.copyload
+  %.sroa.03256.0.insert.ext = zext i1 %6725 to i64
+  store i64 %.sroa.03256.0.insert.ext, ptr %6724, align 8
   store i64 1, ptr %.sroa.2147.0..sroa_idx, align 8
-  br label %6730
+  br label %6728
 
-6728:                                             ; preds = %6720
-  %6729 = call fastcc i32 @js_relational_slow(ptr noundef %.1, ptr noundef nonnull %.23354, i32 noundef %.03333)
-  %.not3436 = icmp eq i32 %6729, 0
-  br i1 %.not3436, label %6730, label %JS_FreeValue.exit3739.loopexit
+6726:                                             ; preds = %6718
+  %6727 = call fastcc i32 @js_relational_slow(ptr noundef %.1, ptr noundef nonnull %.23354, i32 noundef %.03333)
+  %.not3436 = icmp eq i32 %6727, 0
+  br i1 %.not3436, label %6728, label %JS_FreeValue.exit3739.loopexit
 
-6730:                                             ; preds = %6728, %6725
-  %6731 = getelementptr i8, ptr %.23330, i64 1
+6728:                                             ; preds = %6726, %6723
+  %6729 = getelementptr i8, ptr %.23330, i64 1
   br label %.backedge4994.backedge
 
-6732:                                             ; preds = %.backedge4994
+6730:                                             ; preds = %.backedge4994
   %.sroa.2139.0..sroa_idx = getelementptr i8, ptr %.23354, i64 -24
   %.sroa.2139.0.copyload = load i64, ptr %.sroa.2139.0..sroa_idx, align 8
-  %6733 = getelementptr i8, ptr %.23354, i64 -16
+  %6731 = getelementptr i8, ptr %.23354, i64 -16
   %.sroa.2136.0..sroa_idx = getelementptr i8, ptr %.23354, i64 -8
   %.sroa.2136.0.copyload = load i64, ptr %.sroa.2136.0..sroa_idx, align 8
-  %6734 = or i64 %.sroa.2136.0.copyload, %.sroa.2139.0.copyload
-  %6735 = and i64 %6734, 4294967295
-  %6736 = icmp eq i64 %6735, 0
-  br i1 %6736, label %6737, label %6740
+  %6732 = or i64 %.sroa.2136.0.copyload, %.sroa.2139.0.copyload
+  %6733 = and i64 %6732, 4294967295
+  %6734 = icmp eq i64 %6733, 0
+  br i1 %6734, label %6735, label %6738
 
-6737:                                             ; preds = %6732
-  %.sroa.0134.0.copyload = load i32, ptr %6733, align 8
-  %6738 = getelementptr i8, ptr %.23354, i64 -32
-  %.sroa.0137.0.copyload = load i32, ptr %6738, align 8
-  %6739 = icmp eq i32 %.sroa.0137.0.copyload, %.sroa.0134.0.copyload
-  %.sroa.03251.0.insert.ext = zext i1 %6739 to i64
-  store i64 %.sroa.03251.0.insert.ext, ptr %6738, align 8
+6735:                                             ; preds = %6730
+  %.sroa.0134.0.copyload = load i32, ptr %6731, align 8
+  %6736 = getelementptr i8, ptr %.23354, i64 -32
+  %.sroa.0137.0.copyload = load i32, ptr %6736, align 8
+  %6737 = icmp eq i32 %.sroa.0137.0.copyload, %.sroa.0134.0.copyload
+  %.sroa.03251.0.insert.ext = zext i1 %6737 to i64
+  store i64 %.sroa.03251.0.insert.ext, ptr %6736, align 8
   store i64 1, ptr %.sroa.2139.0..sroa_idx, align 8
-  br label %6742
+  br label %6740
 
-6740:                                             ; preds = %6732
-  %6741 = call fastcc i32 @js_eq_slow(ptr noundef %.1, ptr noundef nonnull %.23354, i32 noundef 0)
-  %.not3433 = icmp eq i32 %6741, 0
-  br i1 %.not3433, label %6742, label %JS_FreeValue.exit3739.loopexit
+6738:                                             ; preds = %6730
+  %6739 = call fastcc i32 @js_eq_slow(ptr noundef %.1, ptr noundef nonnull %.23354, i32 noundef 0)
+  %.not3433 = icmp eq i32 %6739, 0
+  br i1 %.not3433, label %6740, label %JS_FreeValue.exit3739.loopexit
 
-6742:                                             ; preds = %6740, %6737
-  %6743 = getelementptr i8, ptr %.23330, i64 1
+6740:                                             ; preds = %6738, %6735
+  %6741 = getelementptr i8, ptr %.23330, i64 1
   br label %.backedge4994.backedge
 
-6744:                                             ; preds = %.backedge4994
+6742:                                             ; preds = %.backedge4994
   %.sroa.2131.0..sroa_idx = getelementptr i8, ptr %.23354, i64 -24
   %.sroa.2131.0.copyload = load i64, ptr %.sroa.2131.0..sroa_idx, align 8
-  %6745 = getelementptr i8, ptr %.23354, i64 -16
+  %6743 = getelementptr i8, ptr %.23354, i64 -16
   %.sroa.2128.0..sroa_idx = getelementptr i8, ptr %.23354, i64 -8
   %.sroa.2128.0.copyload = load i64, ptr %.sroa.2128.0..sroa_idx, align 8
-  %6746 = or i64 %.sroa.2128.0.copyload, %.sroa.2131.0.copyload
-  %6747 = and i64 %6746, 4294967295
-  %6748 = icmp eq i64 %6747, 0
-  br i1 %6748, label %6749, label %6752
+  %6744 = or i64 %.sroa.2128.0.copyload, %.sroa.2131.0.copyload
+  %6745 = and i64 %6744, 4294967295
+  %6746 = icmp eq i64 %6745, 0
+  br i1 %6746, label %6747, label %6750
 
-6749:                                             ; preds = %6744
-  %.sroa.0126.0.copyload = load i32, ptr %6745, align 8
-  %6750 = getelementptr i8, ptr %.23354, i64 -32
-  %.sroa.0129.0.copyload = load i32, ptr %6750, align 8
-  %6751 = icmp ne i32 %.sroa.0129.0.copyload, %.sroa.0126.0.copyload
-  %.sroa.03246.0.insert.ext = zext i1 %6751 to i64
-  store i64 %.sroa.03246.0.insert.ext, ptr %6750, align 8
+6747:                                             ; preds = %6742
+  %.sroa.0126.0.copyload = load i32, ptr %6743, align 8
+  %6748 = getelementptr i8, ptr %.23354, i64 -32
+  %.sroa.0129.0.copyload = load i32, ptr %6748, align 8
+  %6749 = icmp ne i32 %.sroa.0129.0.copyload, %.sroa.0126.0.copyload
+  %.sroa.03246.0.insert.ext = zext i1 %6749 to i64
+  store i64 %.sroa.03246.0.insert.ext, ptr %6748, align 8
   store i64 1, ptr %.sroa.2131.0..sroa_idx, align 8
-  br label %6754
+  br label %6752
 
-6752:                                             ; preds = %6744
-  %6753 = call fastcc i32 @js_eq_slow(ptr noundef %.1, ptr noundef nonnull %.23354, i32 noundef 1)
-  %.not3432 = icmp eq i32 %6753, 0
-  br i1 %.not3432, label %6754, label %JS_FreeValue.exit3739.loopexit
+6750:                                             ; preds = %6742
+  %6751 = call fastcc i32 @js_eq_slow(ptr noundef %.1, ptr noundef nonnull %.23354, i32 noundef 1)
+  %.not3432 = icmp eq i32 %6751, 0
+  br i1 %.not3432, label %6752, label %JS_FreeValue.exit3739.loopexit
 
-6754:                                             ; preds = %6752, %6749
-  %6755 = getelementptr i8, ptr %.23330, i64 1
+6752:                                             ; preds = %6750, %6747
+  %6753 = getelementptr i8, ptr %.23330, i64 1
   br label %.backedge4994.backedge
 
-6756:                                             ; preds = %.backedge4994
+6754:                                             ; preds = %.backedge4994
   %.sroa.2123.0..sroa_idx = getelementptr i8, ptr %.23354, i64 -24
   %.sroa.2123.0.copyload = load i64, ptr %.sroa.2123.0..sroa_idx, align 8
-  %6757 = getelementptr i8, ptr %.23354, i64 -16
+  %6755 = getelementptr i8, ptr %.23354, i64 -16
   %.sroa.2120.0..sroa_idx = getelementptr i8, ptr %.23354, i64 -8
   %.sroa.2120.0.copyload = load i64, ptr %.sroa.2120.0..sroa_idx, align 8
-  %6758 = or i64 %.sroa.2120.0.copyload, %.sroa.2123.0.copyload
-  %6759 = and i64 %6758, 4294967295
-  %6760 = icmp eq i64 %6759, 0
-  br i1 %6760, label %6761, label %6764
+  %6756 = or i64 %.sroa.2120.0.copyload, %.sroa.2123.0.copyload
+  %6757 = and i64 %6756, 4294967295
+  %6758 = icmp eq i64 %6757, 0
+  br i1 %6758, label %6759, label %6762
 
-6761:                                             ; preds = %6756
-  %.sroa.0118.0.copyload = load i32, ptr %6757, align 8
-  %6762 = getelementptr i8, ptr %.23354, i64 -32
-  %.sroa.0121.0.copyload = load i32, ptr %6762, align 8
-  %6763 = icmp eq i32 %.sroa.0121.0.copyload, %.sroa.0118.0.copyload
-  %.sroa.03241.0.insert.ext = zext i1 %6763 to i64
-  store i64 %.sroa.03241.0.insert.ext, ptr %6762, align 8
-  br label %6769
+6759:                                             ; preds = %6754
+  %.sroa.0118.0.copyload = load i32, ptr %6755, align 8
+  %6760 = getelementptr i8, ptr %.23354, i64 -32
+  %.sroa.0121.0.copyload = load i32, ptr %6760, align 8
+  %6761 = icmp eq i32 %.sroa.0121.0.copyload, %.sroa.0118.0.copyload
+  %.sroa.03241.0.insert.ext = zext i1 %6761 to i64
+  store i64 %.sroa.03241.0.insert.ext, ptr %6760, align 8
+  br label %6767
 
-6764:                                             ; preds = %6756
-  %6765 = getelementptr i8, ptr %.23354, i64 -32
-  %6766 = load i64, ptr %6765, align 8
-  %6767 = load i64, ptr %6757, align 8
-  %6768 = call fastcc range(i32 0, 2) i32 @js_strict_eq2(ptr noundef readonly %.1, i64 %6766, i64 %.sroa.2123.0.copyload, i64 %6767, i64 %.sroa.2120.0.copyload, i32 noundef 0)
-  %.sroa.07.0.insert.ext.i = zext nneg i32 %6768 to i64
-  store i64 %.sroa.07.0.insert.ext.i, ptr %6765, align 8
-  br label %6769
+6762:                                             ; preds = %6754
+  %6763 = getelementptr i8, ptr %.23354, i64 -32
+  %6764 = load i64, ptr %6763, align 8
+  %6765 = load i64, ptr %6755, align 8
+  %6766 = call fastcc range(i32 0, 2) i32 @js_strict_eq2(ptr noundef readonly %.1, i64 %6764, i64 %.sroa.2123.0.copyload, i64 %6765, i64 %.sroa.2120.0.copyload, i32 noundef 0)
+  %.sroa.07.0.insert.ext.i = zext nneg i32 %6766 to i64
+  store i64 %.sroa.07.0.insert.ext.i, ptr %6763, align 8
+  br label %6767
 
-6769:                                             ; preds = %6764, %6761
+6767:                                             ; preds = %6762, %6759
   store i64 1, ptr %.sroa.2123.0..sroa_idx, align 8
-  %6770 = getelementptr i8, ptr %.23330, i64 1
+  %6768 = getelementptr i8, ptr %.23330, i64 1
   br label %.backedge4994.backedge
 
-6771:                                             ; preds = %.backedge4994
+6769:                                             ; preds = %.backedge4994
   %.sroa.2115.0..sroa_idx = getelementptr i8, ptr %.23354, i64 -24
   %.sroa.2115.0.copyload = load i64, ptr %.sroa.2115.0..sroa_idx, align 8
-  %6772 = getelementptr i8, ptr %.23354, i64 -16
+  %6770 = getelementptr i8, ptr %.23354, i64 -16
   %.sroa.2112.0..sroa_idx = getelementptr i8, ptr %.23354, i64 -8
   %.sroa.2112.0.copyload = load i64, ptr %.sroa.2112.0..sroa_idx, align 8
-  %6773 = or i64 %.sroa.2112.0.copyload, %.sroa.2115.0.copyload
-  %6774 = and i64 %6773, 4294967295
-  %6775 = icmp eq i64 %6774, 0
-  br i1 %6775, label %6776, label %6779
+  %6771 = or i64 %.sroa.2112.0.copyload, %.sroa.2115.0.copyload
+  %6772 = and i64 %6771, 4294967295
+  %6773 = icmp eq i64 %6772, 0
+  br i1 %6773, label %6774, label %6777
 
-6776:                                             ; preds = %6771
-  %.sroa.0110.0.copyload = load i32, ptr %6772, align 8
-  %6777 = getelementptr i8, ptr %.23354, i64 -32
-  %.sroa.0113.0.copyload = load i32, ptr %6777, align 8
-  %6778 = icmp ne i32 %.sroa.0113.0.copyload, %.sroa.0110.0.copyload
-  %.sroa.03236.0.insert.ext = zext i1 %6778 to i64
-  store i64 %.sroa.03236.0.insert.ext, ptr %6777, align 8
-  br label %6785
+6774:                                             ; preds = %6769
+  %.sroa.0110.0.copyload = load i32, ptr %6770, align 8
+  %6775 = getelementptr i8, ptr %.23354, i64 -32
+  %.sroa.0113.0.copyload = load i32, ptr %6775, align 8
+  %6776 = icmp ne i32 %.sroa.0113.0.copyload, %.sroa.0110.0.copyload
+  %.sroa.03236.0.insert.ext = zext i1 %6776 to i64
+  store i64 %.sroa.03236.0.insert.ext, ptr %6775, align 8
+  br label %6783
 
-6779:                                             ; preds = %6771
-  %6780 = getelementptr i8, ptr %.23354, i64 -32
-  %6781 = load i64, ptr %6780, align 8
-  %6782 = load i64, ptr %6772, align 8
-  %6783 = call fastcc range(i32 0, 2) i32 @js_strict_eq2(ptr noundef readonly %.1, i64 %6781, i64 %.sroa.2115.0.copyload, i64 %6782, i64 %.sroa.2112.0.copyload, i32 noundef 0)
-  %6784 = xor i32 %6783, 1
-  %.sroa.07.0.insert.ext.i6625 = zext nneg i32 %6784 to i64
-  store i64 %.sroa.07.0.insert.ext.i6625, ptr %6780, align 8
-  br label %6785
+6777:                                             ; preds = %6769
+  %6778 = getelementptr i8, ptr %.23354, i64 -32
+  %6779 = load i64, ptr %6778, align 8
+  %6780 = load i64, ptr %6770, align 8
+  %6781 = call fastcc range(i32 0, 2) i32 @js_strict_eq2(ptr noundef readonly %.1, i64 %6779, i64 %.sroa.2115.0.copyload, i64 %6780, i64 %.sroa.2112.0.copyload, i32 noundef 0)
+  %6782 = xor i32 %6781, 1
+  %.sroa.07.0.insert.ext.i6622 = zext nneg i32 %6782 to i64
+  store i64 %.sroa.07.0.insert.ext.i6622, ptr %6778, align 8
+  br label %6783
 
-6785:                                             ; preds = %6779, %6776
+6783:                                             ; preds = %6777, %6774
   store i64 1, ptr %.sroa.2115.0..sroa_idx, align 8
-  %6786 = getelementptr i8, ptr %.23330, i64 1
+  %6784 = getelementptr i8, ptr %.23330, i64 1
   br label %.backedge4994.backedge
 
-6787:                                             ; preds = %.backedge4994
-  %6788 = load ptr, ptr %247, align 8
-  %6789 = call i32 %6788(ptr noundef %.1, ptr noundef %.23354) #42
-  %.not3427 = icmp eq i32 %6789, 0
-  br i1 %.not3427, label %6790, label %JS_FreeValue.exit3739.loopexit
+6785:                                             ; preds = %.backedge4994
+  %6786 = load ptr, ptr %247, align 8
+  %6787 = call i32 %6786(ptr noundef %.1, ptr noundef %.23354) #42
+  %.not3427 = icmp eq i32 %6787, 0
+  br i1 %.not3427, label %6788, label %JS_FreeValue.exit3739.loopexit
 
-6790:                                             ; preds = %6787
-  %6791 = getelementptr i8, ptr %.23354, i64 -16
-  %6792 = getelementptr i8, ptr %.23330, i64 1
+6788:                                             ; preds = %6785
+  %6789 = getelementptr i8, ptr %.23354, i64 -16
+  %6790 = getelementptr i8, ptr %.23330, i64 1
   br label %.backedge4994.backedge
 
-6793:                                             ; preds = %.backedge4994
-  %6794 = getelementptr i8, ptr %.23354, i64 -32
-  %.sroa.010.0.copyload.i = load i64, ptr %6794, align 8
+6791:                                             ; preds = %.backedge4994
+  %6792 = getelementptr i8, ptr %.23354, i64 -32
+  %.sroa.010.0.copyload.i = load i64, ptr %6792, align 8
   %.sroa.312.0..sroa_idx.i = getelementptr i8, ptr %.23354, i64 -24
   %.sroa.312.0.copyload.i = load i64, ptr %.sroa.312.0..sroa_idx.i, align 8
-  %6795 = getelementptr i8, ptr %.23354, i64 -16
-  %.sroa.06.0.copyload.i4258 = load i64, ptr %6795, align 8
+  %6793 = getelementptr i8, ptr %.23354, i64 -16
+  %.sroa.06.0.copyload.i4258 = load i64, ptr %6793, align 8
   %.sroa.3.0..sroa_idx.i4259 = getelementptr i8, ptr %.23354, i64 -8
   %.sroa.3.0.copyload.i = load i64, ptr %.sroa.3.0..sroa_idx.i4259, align 8
-  %6796 = and i64 %.sroa.3.0.copyload.i, 4294967295
-  %.not.i4260 = icmp eq i64 %6796, 4294967295
-  br i1 %.not.i4260, label %6799, label %6797
+  %6794 = and i64 %.sroa.3.0.copyload.i, 4294967295
+  %.not.i4260 = icmp eq i64 %6794, 4294967295
+  br i1 %.not.i4260, label %6797, label %6795
 
-6797:                                             ; preds = %6793
-  %6798 = call { i64, i64 } (ptr, ptr, ...) @JS_ThrowTypeError(ptr noundef %.1, ptr noundef nonnull @.str.171)
+6795:                                             ; preds = %6791
+  %6796 = call { i64, i64 } (ptr, ptr, ...) @JS_ThrowTypeError(ptr noundef %.1, ptr noundef nonnull @.str.171)
   br label %JS_FreeValue.exit3739
 
-6799:                                             ; preds = %6793
-  %6800 = call i32 @JS_ValueToAtom(ptr noundef %.1, i64 %.sroa.010.0.copyload.i, i64 %.sroa.312.0.copyload.i)
-  %6801 = icmp eq i32 %6800, 0
-  br i1 %6801, label %JS_FreeValue.exit3739.loopexit, label %6802
+6797:                                             ; preds = %6791
+  %6798 = call i32 @JS_ValueToAtom(ptr noundef %.1, i64 %.sroa.010.0.copyload.i, i64 %.sroa.312.0.copyload.i)
+  %6799 = icmp eq i32 %6798, 0
+  br i1 %6799, label %JS_FreeValue.exit3739.loopexit, label %6800
 
-6802:                                             ; preds = %6799
-  %6803 = call i32 @JS_HasProperty(ptr noundef %.1, i64 %.sroa.06.0.copyload.i4258, i64 %.sroa.3.0.copyload.i, i32 noundef %6800)
-  %6804 = icmp sgt i32 %6800, 226
-  br i1 %6804, label %6805, label %JS_FreeAtom.exit6634
+6800:                                             ; preds = %6797
+  %6801 = call i32 @JS_HasProperty(ptr noundef %.1, i64 %.sroa.06.0.copyload.i4258, i64 %.sroa.3.0.copyload.i, i32 noundef %6798)
+  %6802 = icmp sgt i32 %6798, 226
+  br i1 %6802, label %6803, label %JS_FreeAtom.exit6631
 
-6805:                                             ; preds = %6802
-  %6806 = load ptr, ptr %237, align 8
-  %6807 = getelementptr inbounds i8, ptr %6806, i64 96
-  %6808 = load ptr, ptr %6807, align 8
-  %6809 = zext nneg i32 %6800 to i64
-  %6810 = getelementptr ptr, ptr %6808, i64 %6809
-  %6811 = load ptr, ptr %6810, align 8
-  %6812 = load i32, ptr %6811, align 4
-  %6813 = add i32 %6812, -1
-  store i32 %6813, ptr %6811, align 4
-  %6814 = icmp sgt i32 %6813, 0
-  br i1 %6814, label %JS_FreeAtom.exit6634, label %6815
+6803:                                             ; preds = %6800
+  %6804 = load ptr, ptr %237, align 8
+  %6805 = getelementptr inbounds i8, ptr %6804, i64 96
+  %6806 = load ptr, ptr %6805, align 8
+  %6807 = zext nneg i32 %6798 to i64
+  %6808 = getelementptr ptr, ptr %6806, i64 %6807
+  %6809 = load ptr, ptr %6808, align 8
+  %6810 = load i32, ptr %6809, align 4
+  %6811 = add i32 %6810, -1
+  store i32 %6811, ptr %6809, align 4
+  %6812 = icmp sgt i32 %6811, 0
+  br i1 %6812, label %JS_FreeAtom.exit6631, label %6813
 
-6815:                                             ; preds = %6805
-  %6816 = getelementptr inbounds i8, ptr %6811, i64 4
-  %6817 = load i64, ptr %6816, align 4
-  %.not.i.i.i6626 = icmp ugt i64 %6817, -4611686018427387905
-  br i1 %.not.i.i.i6626, label %._crit_edge.i.i.i6632, label %6820
+6813:                                             ; preds = %6803
+  %6814 = getelementptr inbounds i8, ptr %6809, i64 4
+  %6815 = load i64, ptr %6814, align 4
+  %.not.i.i.i6623 = icmp ugt i64 %6815, -4611686018427387905
+  br i1 %.not.i.i.i6623, label %._crit_edge.i.i.i6629, label %6818
 
-._crit_edge.i.i.i6632:                            ; preds = %6815
-  %6818 = getelementptr inbounds i8, ptr %6811, i64 12
-  %6819 = load i32, ptr %6818, align 4
-  %.pre.i.i.i6633 = zext i32 %6819 to i64
-  br label %JS_FreeAtomStruct.exit.i.i6629
+._crit_edge.i.i.i6629:                            ; preds = %6813
+  %6816 = getelementptr inbounds i8, ptr %6809, i64 12
+  %6817 = load i32, ptr %6816, align 4
+  %.pre.i.i.i6630 = zext i32 %6817 to i64
+  br label %JS_FreeAtomStruct.exit.i.i6626
 
-6820:                                             ; preds = %6815
-  %6821 = lshr i64 %6817, 32
-  %6822 = trunc nuw i64 %6821 to i32
-  %6823 = and i32 %6822, 1073741823
-  %6824 = getelementptr inbounds i8, ptr %6806, i64 72
-  %6825 = load i32, ptr %6824, align 8
-  %6826 = add i32 %6825, -1
-  %6827 = and i32 %6823, %6826
-  %6828 = getelementptr inbounds i8, ptr %6806, i64 88
-  %6829 = load ptr, ptr %6828, align 8
-  %6830 = zext nneg i32 %6827 to i64
-  %6831 = getelementptr i32, ptr %6829, i64 %6830
-  %6832 = load i32, ptr %6831, align 4
-  %6833 = load ptr, ptr %6807, align 8
-  %6834 = zext i32 %6832 to i64
-  %6835 = getelementptr ptr, ptr %6833, i64 %6834
-  %6836 = load ptr, ptr %6835, align 8
-  %6837 = icmp eq ptr %6836, %6811
-  br i1 %6837, label %6838, label %.preheader.i.i.i6627
+6818:                                             ; preds = %6813
+  %6819 = lshr i64 %6815, 32
+  %6820 = trunc nuw i64 %6819 to i32
+  %6821 = and i32 %6820, 1073741823
+  %6822 = getelementptr inbounds i8, ptr %6804, i64 72
+  %6823 = load i32, ptr %6822, align 8
+  %6824 = add i32 %6823, -1
+  %6825 = and i32 %6821, %6824
+  %6826 = getelementptr inbounds i8, ptr %6804, i64 88
+  %6827 = load ptr, ptr %6826, align 8
+  %6828 = zext nneg i32 %6825 to i64
+  %6829 = getelementptr i32, ptr %6827, i64 %6828
+  %6830 = load i32, ptr %6829, align 4
+  %6831 = load ptr, ptr %6805, align 8
+  %6832 = zext i32 %6830 to i64
+  %6833 = getelementptr ptr, ptr %6831, i64 %6832
+  %6834 = load ptr, ptr %6833, align 8
+  %6835 = icmp eq ptr %6834, %6809
+  br i1 %6835, label %6836, label %.preheader.i.i.i6624
 
-6838:                                             ; preds = %6820
-  %6839 = getelementptr inbounds i8, ptr %6836, i64 12
+6836:                                             ; preds = %6818
+  %6837 = getelementptr inbounds i8, ptr %6834, i64 12
+  %6838 = load i32, ptr %6837, align 4
+  store i32 %6838, ptr %6829, align 4
+  br label %JS_FreeAtomStruct.exit.i.i6626
+
+.preheader.i.i.i6624:                             ; preds = %6818, %.preheader.i.i.i6624
+  %.028.i.i.i6625 = phi ptr [ %6843, %.preheader.i.i.i6624 ], [ %6834, %6818 ]
+  %6839 = getelementptr inbounds i8, ptr %.028.i.i.i6625, i64 12
   %6840 = load i32, ptr %6839, align 4
-  store i32 %6840, ptr %6831, align 4
-  br label %JS_FreeAtomStruct.exit.i.i6629
+  %6841 = zext i32 %6840 to i64
+  %6842 = getelementptr ptr, ptr %6831, i64 %6841
+  %6843 = load ptr, ptr %6842, align 8
+  %6844 = icmp eq ptr %6843, %6809
+  br i1 %6844, label %6845, label %.preheader.i.i.i6624
 
-.preheader.i.i.i6627:                             ; preds = %6820, %.preheader.i.i.i6627
-  %.028.i.i.i6628 = phi ptr [ %6845, %.preheader.i.i.i6627 ], [ %6836, %6820 ]
-  %6841 = getelementptr inbounds i8, ptr %.028.i.i.i6628, i64 12
-  %6842 = load i32, ptr %6841, align 4
-  %6843 = zext i32 %6842 to i64
-  %6844 = getelementptr ptr, ptr %6833, i64 %6843
-  %6845 = load ptr, ptr %6844, align 8
-  %6846 = icmp eq ptr %6845, %6811
-  br i1 %6846, label %6847, label %.preheader.i.i.i6627
+6845:                                             ; preds = %.preheader.i.i.i6624
+  %6846 = getelementptr inbounds i8, ptr %.028.i.i.i6625, i64 12
+  %6847 = getelementptr inbounds i8, ptr %6843, i64 12
+  %6848 = load i32, ptr %6847, align 4
+  store i32 %6848, ptr %6846, align 4
+  br label %JS_FreeAtomStruct.exit.i.i6626
 
-6847:                                             ; preds = %.preheader.i.i.i6627
-  %6848 = getelementptr inbounds i8, ptr %.028.i.i.i6628, i64 12
-  %6849 = getelementptr inbounds i8, ptr %6845, i64 12
-  %6850 = load i32, ptr %6849, align 4
-  store i32 %6850, ptr %6848, align 4
-  br label %JS_FreeAtomStruct.exit.i.i6629
+JS_FreeAtomStruct.exit.i.i6626:                   ; preds = %6845, %6836, %._crit_edge.i.i.i6629
+  %.pre-phi.i.i.i6627 = phi i64 [ %.pre.i.i.i6630, %._crit_edge.i.i.i6629 ], [ %6832, %6836 ], [ %6841, %6845 ]
+  %.0.i.i.i6628 = phi i32 [ %6817, %._crit_edge.i.i.i6629 ], [ %6830, %6836 ], [ %6840, %6845 ]
+  %6849 = getelementptr inbounds i8, ptr %6804, i64 104
+  %6850 = load i32, ptr %6849, align 8
+  %6851 = zext i32 %6850 to i64
+  %6852 = shl nuw nsw i64 %6851, 1
+  %6853 = or disjoint i64 %6852, 1
+  %6854 = inttoptr i64 %6853 to ptr
+  %6855 = load ptr, ptr %6805, align 8
+  %6856 = getelementptr ptr, ptr %6855, i64 %.pre-phi.i.i.i6627
+  store ptr %6854, ptr %6856, align 8
+  store i32 %.0.i.i.i6628, ptr %6849, align 8
+  %6857 = getelementptr inbounds i8, ptr %6804, i64 8
+  %6858 = load ptr, ptr %6857, align 8
+  %6859 = getelementptr inbounds i8, ptr %6804, i64 32
+  call void %6858(ptr noundef nonnull %6859, ptr noundef nonnull %6809) #42
+  %6860 = getelementptr inbounds i8, ptr %6804, i64 76
+  %6861 = load i32, ptr %6860, align 4
+  %6862 = add i32 %6861, -1
+  store i32 %6862, ptr %6860, align 4
+  br label %JS_FreeAtom.exit6631
 
-JS_FreeAtomStruct.exit.i.i6629:                   ; preds = %6847, %6838, %._crit_edge.i.i.i6632
-  %.pre-phi.i.i.i6630 = phi i64 [ %.pre.i.i.i6633, %._crit_edge.i.i.i6632 ], [ %6834, %6838 ], [ %6843, %6847 ]
-  %.0.i.i.i6631 = phi i32 [ %6819, %._crit_edge.i.i.i6632 ], [ %6832, %6838 ], [ %6842, %6847 ]
-  %6851 = getelementptr inbounds i8, ptr %6806, i64 104
-  %6852 = load i32, ptr %6851, align 8
-  %6853 = zext i32 %6852 to i64
-  %6854 = shl nuw nsw i64 %6853, 1
-  %6855 = or disjoint i64 %6854, 1
-  %6856 = inttoptr i64 %6855 to ptr
-  %6857 = load ptr, ptr %6807, align 8
-  %6858 = getelementptr ptr, ptr %6857, i64 %.pre-phi.i.i.i6630
-  store ptr %6856, ptr %6858, align 8
-  store i32 %.0.i.i.i6631, ptr %6851, align 8
-  %6859 = getelementptr inbounds i8, ptr %6806, i64 8
-  %6860 = load ptr, ptr %6859, align 8
-  %6861 = getelementptr inbounds i8, ptr %6806, i64 32
-  call void %6860(ptr noundef nonnull %6861, ptr noundef nonnull %6811) #42
-  %6862 = getelementptr inbounds i8, ptr %6806, i64 76
-  %6863 = load i32, ptr %6862, align 4
-  %6864 = add i32 %6863, -1
-  store i32 %6864, ptr %6862, align 4
-  br label %JS_FreeAtom.exit6634
+JS_FreeAtom.exit6631:                             ; preds = %6800, %6803, %JS_FreeAtomStruct.exit.i.i6626
+  %6863 = icmp slt i32 %6801, 0
+  br i1 %6863, label %JS_FreeValue.exit3739.loopexit, label %6864
 
-JS_FreeAtom.exit6634:                             ; preds = %6802, %6805, %JS_FreeAtomStruct.exit.i.i6629
-  %6865 = icmp slt i32 %6803, 0
-  br i1 %6865, label %JS_FreeValue.exit3739.loopexit, label %6866
+6864:                                             ; preds = %JS_FreeAtom.exit6631
+  %6865 = trunc i64 %.sroa.312.0.copyload.i to i32
+  %6866 = icmp ugt i32 %6865, -12
+  br i1 %6866, label %6867, label %JS_FreeValue.exit4580
 
-6866:                                             ; preds = %JS_FreeAtom.exit6634
-  %6867 = trunc i64 %.sroa.312.0.copyload.i to i32
-  %6868 = icmp ugt i32 %6867, -12
-  br i1 %6868, label %6869, label %JS_FreeValue.exit4580
+6867:                                             ; preds = %6864
+  %6868 = inttoptr i64 %.sroa.010.0.copyload.i to ptr
+  %6869 = load i32, ptr %6868, align 4
+  %6870 = add i32 %6869, -1
+  store i32 %6870, ptr %6868, align 4
+  %6871 = icmp slt i32 %6870, 1
+  br i1 %6871, label %6872, label %JS_FreeValue.exit4580
 
-6869:                                             ; preds = %6866
-  %6870 = inttoptr i64 %.sroa.010.0.copyload.i to ptr
-  %6871 = load i32, ptr %6870, align 4
-  %6872 = add i32 %6871, -1
-  store i32 %6872, ptr %6870, align 4
-  %6873 = icmp slt i32 %6872, 1
-  br i1 %6873, label %6874, label %JS_FreeValue.exit4580
-
-6874:                                             ; preds = %6869
-  %6875 = load ptr, ptr %237, align 8
-  call void @__JS_FreeValueRT(ptr noundef %6875, i64 %.sroa.010.0.copyload.i, i64 %.sroa.312.0.copyload.i)
+6872:                                             ; preds = %6867
+  %6873 = load ptr, ptr %237, align 8
+  call void @__JS_FreeValueRT(ptr noundef %6873, i64 %.sroa.010.0.copyload.i, i64 %.sroa.312.0.copyload.i)
   br label %JS_FreeValue.exit4580
 
-JS_FreeValue.exit4580:                            ; preds = %6874, %6869, %6866
-  %6876 = inttoptr i64 %.sroa.06.0.copyload.i4258 to ptr
-  %6877 = load i32, ptr %6876, align 4
-  %6878 = add i32 %6877, -1
-  store i32 %6878, ptr %6876, align 4
-  %6879 = icmp slt i32 %6878, 1
-  br i1 %6879, label %6880, label %6882
+JS_FreeValue.exit4580:                            ; preds = %6872, %6867, %6864
+  %6874 = inttoptr i64 %.sroa.06.0.copyload.i4258 to ptr
+  %6875 = load i32, ptr %6874, align 4
+  %6876 = add i32 %6875, -1
+  store i32 %6876, ptr %6874, align 4
+  %6877 = icmp slt i32 %6876, 1
+  br i1 %6877, label %6878, label %6880
 
-6880:                                             ; preds = %JS_FreeValue.exit4580
-  %6881 = load ptr, ptr %237, align 8
-  call void @__JS_FreeValueRT(ptr noundef %6881, i64 %.sroa.06.0.copyload.i4258, i64 %.sroa.3.0.copyload.i)
-  br label %6882
+6878:                                             ; preds = %JS_FreeValue.exit4580
+  %6879 = load ptr, ptr %237, align 8
+  call void @__JS_FreeValueRT(ptr noundef %6879, i64 %.sroa.06.0.copyload.i4258, i64 %.sroa.3.0.copyload.i)
+  br label %6880
 
-6882:                                             ; preds = %JS_FreeValue.exit4580, %6880
-  %6883 = icmp ne i32 %6803, 0
-  %.sroa.025.0.insert.ext.i = zext i1 %6883 to i64
-  store i64 %.sroa.025.0.insert.ext.i, ptr %6794, align 8
+6880:                                             ; preds = %JS_FreeValue.exit4580, %6878
+  %6881 = icmp ne i32 %6801, 0
+  %.sroa.025.0.insert.ext.i = zext i1 %6881 to i64
+  store i64 %.sroa.025.0.insert.ext.i, ptr %6792, align 8
   store i64 1, ptr %.sroa.312.0..sroa_idx.i, align 8
-  %6884 = getelementptr i8, ptr %.23330, i64 1
+  %6882 = getelementptr i8, ptr %.23330, i64 1
   br label %.backedge4994.backedge
 
-6885:                                             ; preds = %.backedge4994
+6883:                                             ; preds = %.backedge4994
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %.sroa.014.i)
-  %6886 = getelementptr i8, ptr %.23354, i64 -32
-  %.sroa.014.0.copyload.i = load double, ptr %6886, align 8
+  %6884 = getelementptr i8, ptr %.23354, i64 -32
+  %.sroa.014.0.copyload.i = load double, ptr %6884, align 8
   store double %.sroa.014.0.copyload.i, ptr %.sroa.014.i, align 8
   %.sroa.4.0..sroa_idx.i4262 = getelementptr i8, ptr %.23354, i64 -24
   %.sroa.4.0.copyload.i4263 = load i64, ptr %.sroa.4.0..sroa_idx.i4262, align 8
-  %6887 = getelementptr i8, ptr %.23354, i64 -16
-  %.sroa.07.0.copyload.i4264 = load i64, ptr %6887, align 8
+  %6885 = getelementptr i8, ptr %.23354, i64 -16
+  %.sroa.07.0.copyload.i4264 = load i64, ptr %6885, align 8
   %.sroa.5.0..sroa_idx.i4265 = getelementptr i8, ptr %.23354, i64 -8
   %.sroa.5.0.copyload.i4266 = load i64, ptr %.sroa.5.0..sroa_idx.i4265, align 8
-  %6888 = and i64 %.sroa.4.0.copyload.i4263, 4294967295
-  %.not.i4267 = icmp eq i64 %6888, 4294967295
-  br i1 %.not.i4267, label %6891, label %6889
+  %6886 = and i64 %.sroa.4.0.copyload.i4263, 4294967295
+  %.not.i4267 = icmp eq i64 %6886, 4294967295
+  br i1 %.not.i4267, label %6889, label %6887
 
-6889:                                             ; preds = %6885
-  %6890 = call { i64, i64 } (ptr, ptr, ...) @JS_ThrowTypeError(ptr noundef %.1, ptr noundef nonnull @.str.171)
+6887:                                             ; preds = %6883
+  %6888 = call { i64, i64 } (ptr, ptr, ...) @JS_ThrowTypeError(ptr noundef %.1, ptr noundef nonnull @.str.171)
   br label %js_operator_private_in.exit.thread
 
-6891:                                             ; preds = %6885
-  %6892 = and i64 %.sroa.5.0.copyload.i4266, 4294967295
-  %.not4840 = icmp eq i64 %6892, 4294967295
-  br i1 %.not4840, label %6893, label %6897
+6889:                                             ; preds = %6883
+  %6890 = and i64 %.sroa.5.0.copyload.i4266, 4294967295
+  %.not4840 = icmp eq i64 %6890, 4294967295
+  br i1 %.not4840, label %6891, label %6895
 
-6893:                                             ; preds = %6891
-  %6894 = bitcast double %.sroa.014.0.copyload.i to i64
-  %6895 = call fastcc i32 @JS_CheckBrand(ptr noundef %.1, i64 %6894, i64 %.sroa.4.0.copyload.i4263, i64 %.sroa.07.0.copyload.i4264, i64 %.sroa.5.0.copyload.i4266)
-  %6896 = icmp slt i32 %6895, 0
-  br i1 %6896, label %js_operator_private_in.exit.thread, label %._crit_edge5867
+6891:                                             ; preds = %6889
+  %6892 = bitcast double %.sroa.014.0.copyload.i to i64
+  %6893 = call fastcc i32 @JS_CheckBrand(ptr noundef %.1, i64 %6892, i64 %.sroa.4.0.copyload.i4263, i64 %.sroa.07.0.copyload.i4264, i64 %.sroa.5.0.copyload.i4266)
+  %6894 = icmp slt i32 %6893, 0
+  br i1 %6894, label %js_operator_private_in.exit.thread, label %._crit_edge5864
 
-._crit_edge5867:                                  ; preds = %6893
-  %.sroa.014.i.0..sroa.014.i.0..sroa.014.i.0..sroa.014.i.0..sroa.014.i.0..sroa.014.i.0..sroa.014.i.0..sroa.014.0..sroa.014.0.1659.i4841.pre5895672478858483964211399 = load i64, ptr %.sroa.014.i, align 8
-  br label %JS_FreeAtom.exit6643
+._crit_edge5864:                                  ; preds = %6891
+  %.sroa.014.i.0..sroa.014.i.0..sroa.014.i.0..sroa.014.i.0..sroa.014.i.0..sroa.014.i.0..sroa.014.i.0..sroa.014.0..sroa.014.0.1659.i4841.pre5892672178828480963911396 = load i64, ptr %.sroa.014.i, align 8
+  br label %JS_FreeAtom.exit6640
 
-6897:                                             ; preds = %6891
-  %6898 = call i32 @JS_ValueToAtom(ptr noundef %.1, i64 %.sroa.07.0.copyload.i4264, i64 %.sroa.5.0.copyload.i4266)
-  %6899 = icmp eq i32 %6898, 0
-  br i1 %6899, label %js_operator_private_in.exit.thread, label %6900
+6895:                                             ; preds = %6889
+  %6896 = call i32 @JS_ValueToAtom(ptr noundef %.1, i64 %.sroa.07.0.copyload.i4264, i64 %.sroa.5.0.copyload.i4266)
+  %6897 = icmp eq i32 %6896, 0
+  br i1 %6897, label %js_operator_private_in.exit.thread, label %6898
 
-6900:                                             ; preds = %6897
+6898:                                             ; preds = %6895
   %.sroa.014.i.0..sroa.014.i.0..sroa.014.i.0..sroa.014.i.0..sroa.014.i.0..sroa.014.i.0..sroa.014.i.0..sroa.014.0..sroa.014.0..i = load ptr, ptr %.sroa.014.i, align 8
-  %6901 = getelementptr inbounds i8, ptr %.sroa.014.i.0..sroa.014.i.0..sroa.014.i.0..sroa.014.i.0..sroa.014.i.0..sroa.014.i.0..sroa.014.i.0..sroa.014.0..sroa.014.0..i, i64 24
-  %6902 = load ptr, ptr %6901, align 8
-  %6903 = getelementptr inbounds i8, ptr %6902, i64 32
-  %6904 = load i32, ptr %6903, align 8
-  %6905 = and i32 %6904, %6898
-  %6906 = zext i32 %6905 to i64
-  %6907 = xor i64 %6906, -1
-  %6908 = getelementptr i32, ptr %6902, i64 %6907
-  %6909 = load i32, ptr %6908, align 4
-  %6910 = getelementptr inbounds i8, ptr %6902, i64 64
-  %.not57.i42705359 = icmp eq i32 %6909, 0
-  %6911 = ptrtoint ptr %.sroa.014.i.0..sroa.014.i.0..sroa.014.i.0..sroa.014.i.0..sroa.014.i.0..sroa.014.i.0..sroa.014.i.0..sroa.014.0..sroa.014.0..i to i64
+  %6899 = getelementptr inbounds i8, ptr %.sroa.014.i.0..sroa.014.i.0..sroa.014.i.0..sroa.014.i.0..sroa.014.i.0..sroa.014.i.0..sroa.014.i.0..sroa.014.0..sroa.014.0..i, i64 24
+  %6900 = load ptr, ptr %6899, align 8
+  %6901 = getelementptr inbounds i8, ptr %6900, i64 32
+  %6902 = load i32, ptr %6901, align 8
+  %6903 = and i32 %6902, %6896
+  %6904 = zext i32 %6903 to i64
+  %6905 = xor i64 %6904, -1
+  %6906 = getelementptr i32, ptr %6900, i64 %6905
+  %6907 = load i32, ptr %6906, align 4
+  %6908 = getelementptr inbounds i8, ptr %6900, i64 64
+  %.not57.i42705359 = icmp eq i32 %6907, 0
+  %6909 = ptrtoint ptr %.sroa.014.i.0..sroa.014.i.0..sroa.014.i.0..sroa.014.i.0..sroa.014.i.0..sroa.014.i.0..sroa.014.i.0..sroa.014.0..sroa.014.0..i to i64
   br i1 %.not57.i42705359, label %.loopexit4992, label %.lr.ph5362
 
-.lr.ph5362:                                       ; preds = %6900, %6920
-  %.051.in.i5360 = phi i32 [ %6922, %6920 ], [ %6909, %6900 ]
+.lr.ph5362:                                       ; preds = %6898, %6918
+  %.051.in.i5360 = phi i32 [ %6920, %6918 ], [ %6907, %6898 ]
   %.051.i4271 = zext i32 %.051.in.i5360 to i64
-  %6912 = getelementptr %struct.JSShapeProperty, ptr %6910, i64 %.051.i4271
-  %6913 = getelementptr i8, ptr %6912, i64 -8
-  %6914 = getelementptr i8, ptr %6912, i64 -4
-  %6915 = load i32, ptr %6914, align 4
-  %6916 = icmp eq i32 %6915, %6898
-  br i1 %6916, label %6917, label %6920
+  %6910 = getelementptr %struct.JSShapeProperty, ptr %6908, i64 %.051.i4271
+  %6911 = getelementptr i8, ptr %6910, i64 -8
+  %6912 = getelementptr i8, ptr %6910, i64 -4
+  %6913 = load i32, ptr %6912, align 4
+  %6914 = icmp eq i32 %6913, %6896
+  br i1 %6914, label %6915, label %6918
 
-6917:                                             ; preds = %.lr.ph5362
-  %6918 = icmp ne ptr %6913, null
-  %6919 = zext i1 %6918 to i32
+6915:                                             ; preds = %.lr.ph5362
+  %6916 = icmp ne ptr %6911, null
+  %6917 = zext i1 %6916 to i32
   br label %.loopexit4992
 
-6920:                                             ; preds = %.lr.ph5362
-  %6921 = load i32, ptr %6913, align 4
-  %6922 = and i32 %6921, 67108863
-  %.not57.i4270 = icmp eq i32 %6922, 0
+6918:                                             ; preds = %.lr.ph5362
+  %6919 = load i32, ptr %6911, align 4
+  %6920 = and i32 %6919, 67108863
+  %.not57.i4270 = icmp eq i32 %6920, 0
   br i1 %.not57.i4270, label %.loopexit4992, label %.lr.ph5362, !llvm.loop !134
 
-.loopexit4992:                                    ; preds = %6920, %6900, %6917
-  %.0.i4272 = phi i32 [ %6919, %6917 ], [ 0, %6900 ], [ 0, %6920 ]
-  %6923 = icmp sgt i32 %6898, 226
-  br i1 %6923, label %6924, label %JS_FreeAtom.exit6643
+.loopexit4992:                                    ; preds = %6918, %6898, %6915
+  %.0.i4272 = phi i32 [ %6917, %6915 ], [ 0, %6898 ], [ 0, %6918 ]
+  %6921 = icmp sgt i32 %6896, 226
+  br i1 %6921, label %6922, label %JS_FreeAtom.exit6640
 
-6924:                                             ; preds = %.loopexit4992
-  %6925 = load ptr, ptr %237, align 8
-  %6926 = getelementptr inbounds i8, ptr %6925, i64 96
-  %6927 = load ptr, ptr %6926, align 8
-  %6928 = zext nneg i32 %6898 to i64
-  %6929 = getelementptr ptr, ptr %6927, i64 %6928
-  %6930 = load ptr, ptr %6929, align 8
-  %6931 = load i32, ptr %6930, align 4
-  %6932 = add i32 %6931, -1
-  store i32 %6932, ptr %6930, align 4
-  %6933 = icmp sgt i32 %6932, 0
-  br i1 %6933, label %JS_FreeAtom.exit6643, label %6934
+6922:                                             ; preds = %.loopexit4992
+  %6923 = load ptr, ptr %237, align 8
+  %6924 = getelementptr inbounds i8, ptr %6923, i64 96
+  %6925 = load ptr, ptr %6924, align 8
+  %6926 = zext nneg i32 %6896 to i64
+  %6927 = getelementptr ptr, ptr %6925, i64 %6926
+  %6928 = load ptr, ptr %6927, align 8
+  %6929 = load i32, ptr %6928, align 4
+  %6930 = add i32 %6929, -1
+  store i32 %6930, ptr %6928, align 4
+  %6931 = icmp sgt i32 %6930, 0
+  br i1 %6931, label %JS_FreeAtom.exit6640, label %6932
 
-6934:                                             ; preds = %6924
-  %6935 = getelementptr inbounds i8, ptr %6930, i64 4
-  %6936 = load i64, ptr %6935, align 4
-  %.not.i.i.i6635 = icmp ugt i64 %6936, -4611686018427387905
-  br i1 %.not.i.i.i6635, label %._crit_edge.i.i.i6641, label %6939
+6932:                                             ; preds = %6922
+  %6933 = getelementptr inbounds i8, ptr %6928, i64 4
+  %6934 = load i64, ptr %6933, align 4
+  %.not.i.i.i6632 = icmp ugt i64 %6934, -4611686018427387905
+  br i1 %.not.i.i.i6632, label %._crit_edge.i.i.i6638, label %6937
 
-._crit_edge.i.i.i6641:                            ; preds = %6934
-  %6937 = getelementptr inbounds i8, ptr %6930, i64 12
-  %6938 = load i32, ptr %6937, align 4
-  %.pre.i.i.i6642 = zext i32 %6938 to i64
-  br label %JS_FreeAtomStruct.exit.i.i6638
+._crit_edge.i.i.i6638:                            ; preds = %6932
+  %6935 = getelementptr inbounds i8, ptr %6928, i64 12
+  %6936 = load i32, ptr %6935, align 4
+  %.pre.i.i.i6639 = zext i32 %6936 to i64
+  br label %JS_FreeAtomStruct.exit.i.i6635
 
-6939:                                             ; preds = %6934
-  %6940 = lshr i64 %6936, 32
-  %6941 = trunc nuw i64 %6940 to i32
-  %6942 = and i32 %6941, 1073741823
-  %6943 = getelementptr inbounds i8, ptr %6925, i64 72
-  %6944 = load i32, ptr %6943, align 8
-  %6945 = add i32 %6944, -1
-  %6946 = and i32 %6942, %6945
-  %6947 = getelementptr inbounds i8, ptr %6925, i64 88
-  %6948 = load ptr, ptr %6947, align 8
-  %6949 = zext nneg i32 %6946 to i64
-  %6950 = getelementptr i32, ptr %6948, i64 %6949
-  %6951 = load i32, ptr %6950, align 4
-  %6952 = load ptr, ptr %6926, align 8
-  %6953 = zext i32 %6951 to i64
-  %6954 = getelementptr ptr, ptr %6952, i64 %6953
-  %6955 = load ptr, ptr %6954, align 8
-  %6956 = icmp eq ptr %6955, %6930
-  br i1 %6956, label %6957, label %.preheader.i.i.i6636
+6937:                                             ; preds = %6932
+  %6938 = lshr i64 %6934, 32
+  %6939 = trunc nuw i64 %6938 to i32
+  %6940 = and i32 %6939, 1073741823
+  %6941 = getelementptr inbounds i8, ptr %6923, i64 72
+  %6942 = load i32, ptr %6941, align 8
+  %6943 = add i32 %6942, -1
+  %6944 = and i32 %6940, %6943
+  %6945 = getelementptr inbounds i8, ptr %6923, i64 88
+  %6946 = load ptr, ptr %6945, align 8
+  %6947 = zext nneg i32 %6944 to i64
+  %6948 = getelementptr i32, ptr %6946, i64 %6947
+  %6949 = load i32, ptr %6948, align 4
+  %6950 = load ptr, ptr %6924, align 8
+  %6951 = zext i32 %6949 to i64
+  %6952 = getelementptr ptr, ptr %6950, i64 %6951
+  %6953 = load ptr, ptr %6952, align 8
+  %6954 = icmp eq ptr %6953, %6928
+  br i1 %6954, label %6955, label %.preheader.i.i.i6633
 
-6957:                                             ; preds = %6939
-  %6958 = getelementptr inbounds i8, ptr %6955, i64 12
+6955:                                             ; preds = %6937
+  %6956 = getelementptr inbounds i8, ptr %6953, i64 12
+  %6957 = load i32, ptr %6956, align 4
+  store i32 %6957, ptr %6948, align 4
+  br label %JS_FreeAtomStruct.exit.i.i6635
+
+.preheader.i.i.i6633:                             ; preds = %6937, %.preheader.i.i.i6633
+  %.028.i.i.i6634 = phi ptr [ %6962, %.preheader.i.i.i6633 ], [ %6953, %6937 ]
+  %6958 = getelementptr inbounds i8, ptr %.028.i.i.i6634, i64 12
   %6959 = load i32, ptr %6958, align 4
-  store i32 %6959, ptr %6950, align 4
-  br label %JS_FreeAtomStruct.exit.i.i6638
+  %6960 = zext i32 %6959 to i64
+  %6961 = getelementptr ptr, ptr %6950, i64 %6960
+  %6962 = load ptr, ptr %6961, align 8
+  %6963 = icmp eq ptr %6962, %6928
+  br i1 %6963, label %6964, label %.preheader.i.i.i6633
 
-.preheader.i.i.i6636:                             ; preds = %6939, %.preheader.i.i.i6636
-  %.028.i.i.i6637 = phi ptr [ %6964, %.preheader.i.i.i6636 ], [ %6955, %6939 ]
-  %6960 = getelementptr inbounds i8, ptr %.028.i.i.i6637, i64 12
-  %6961 = load i32, ptr %6960, align 4
-  %6962 = zext i32 %6961 to i64
-  %6963 = getelementptr ptr, ptr %6952, i64 %6962
-  %6964 = load ptr, ptr %6963, align 8
-  %6965 = icmp eq ptr %6964, %6930
-  br i1 %6965, label %6966, label %.preheader.i.i.i6636
+6964:                                             ; preds = %.preheader.i.i.i6633
+  %6965 = getelementptr inbounds i8, ptr %.028.i.i.i6634, i64 12
+  %6966 = getelementptr inbounds i8, ptr %6962, i64 12
+  %6967 = load i32, ptr %6966, align 4
+  store i32 %6967, ptr %6965, align 4
+  br label %JS_FreeAtomStruct.exit.i.i6635
 
-6966:                                             ; preds = %.preheader.i.i.i6636
-  %6967 = getelementptr inbounds i8, ptr %.028.i.i.i6637, i64 12
-  %6968 = getelementptr inbounds i8, ptr %6964, i64 12
-  %6969 = load i32, ptr %6968, align 4
-  store i32 %6969, ptr %6967, align 4
-  br label %JS_FreeAtomStruct.exit.i.i6638
+JS_FreeAtomStruct.exit.i.i6635:                   ; preds = %6964, %6955, %._crit_edge.i.i.i6638
+  %.pre-phi.i.i.i6636 = phi i64 [ %.pre.i.i.i6639, %._crit_edge.i.i.i6638 ], [ %6951, %6955 ], [ %6960, %6964 ]
+  %.0.i.i.i6637 = phi i32 [ %6936, %._crit_edge.i.i.i6638 ], [ %6949, %6955 ], [ %6959, %6964 ]
+  %6968 = getelementptr inbounds i8, ptr %6923, i64 104
+  %6969 = load i32, ptr %6968, align 8
+  %6970 = zext i32 %6969 to i64
+  %6971 = shl nuw nsw i64 %6970, 1
+  %6972 = or disjoint i64 %6971, 1
+  %6973 = inttoptr i64 %6972 to ptr
+  %6974 = load ptr, ptr %6924, align 8
+  %6975 = getelementptr ptr, ptr %6974, i64 %.pre-phi.i.i.i6636
+  store ptr %6973, ptr %6975, align 8
+  store i32 %.0.i.i.i6637, ptr %6968, align 8
+  %6976 = getelementptr inbounds i8, ptr %6923, i64 8
+  %6977 = load ptr, ptr %6976, align 8
+  %6978 = getelementptr inbounds i8, ptr %6923, i64 32
+  call void %6977(ptr noundef nonnull %6978, ptr noundef nonnull %6928) #42
+  %6979 = getelementptr inbounds i8, ptr %6923, i64 76
+  %6980 = load i32, ptr %6979, align 4
+  %6981 = add i32 %6980, -1
+  store i32 %6981, ptr %6979, align 4
+  br label %JS_FreeAtom.exit6640
 
-JS_FreeAtomStruct.exit.i.i6638:                   ; preds = %6966, %6957, %._crit_edge.i.i.i6641
-  %.pre-phi.i.i.i6639 = phi i64 [ %.pre.i.i.i6642, %._crit_edge.i.i.i6641 ], [ %6953, %6957 ], [ %6962, %6966 ]
-  %.0.i.i.i6640 = phi i32 [ %6938, %._crit_edge.i.i.i6641 ], [ %6951, %6957 ], [ %6961, %6966 ]
-  %6970 = getelementptr inbounds i8, ptr %6925, i64 104
-  %6971 = load i32, ptr %6970, align 8
-  %6972 = zext i32 %6971 to i64
-  %6973 = shl nuw nsw i64 %6972, 1
-  %6974 = or disjoint i64 %6973, 1
-  %6975 = inttoptr i64 %6974 to ptr
-  %6976 = load ptr, ptr %6926, align 8
-  %6977 = getelementptr ptr, ptr %6976, i64 %.pre-phi.i.i.i6639
-  store ptr %6975, ptr %6977, align 8
-  store i32 %.0.i.i.i6640, ptr %6970, align 8
-  %6978 = getelementptr inbounds i8, ptr %6925, i64 8
-  %6979 = load ptr, ptr %6978, align 8
-  %6980 = getelementptr inbounds i8, ptr %6925, i64 32
-  call void %6979(ptr noundef nonnull %6980, ptr noundef nonnull %6930) #42
-  %6981 = getelementptr inbounds i8, ptr %6925, i64 76
-  %6982 = load i32, ptr %6981, align 4
-  %6983 = add i32 %6982, -1
-  store i32 %6983, ptr %6981, align 4
-  br label %JS_FreeAtom.exit6643
+JS_FreeAtom.exit6640:                             ; preds = %JS_FreeAtomStruct.exit.i.i6635, %6922, %.loopexit4992, %._crit_edge5864
+  %6982 = phi i64 [ %.sroa.014.i.0..sroa.014.i.0..sroa.014.i.0..sroa.014.i.0..sroa.014.i.0..sroa.014.i.0..sroa.014.i.0..sroa.014.0..sroa.014.0.1659.i4841.pre5892672178828480963911396, %._crit_edge5864 ], [ %6909, %.loopexit4992 ], [ %6909, %6922 ], [ %6909, %JS_FreeAtomStruct.exit.i.i6635 ]
+  %.053.i = phi i32 [ %6893, %._crit_edge5864 ], [ %.0.i4272, %.loopexit4992 ], [ %.0.i4272, %6922 ], [ %.0.i4272, %JS_FreeAtomStruct.exit.i.i6635 ]
+  %6983 = inttoptr i64 %6982 to ptr
+  %6984 = load i32, ptr %6983, align 4
+  %6985 = add i32 %6984, -1
+  store i32 %6985, ptr %6983, align 4
+  %6986 = icmp slt i32 %6985, 1
+  br i1 %6986, label %6987, label %JS_FreeValue.exit4582
 
-JS_FreeAtom.exit6643:                             ; preds = %JS_FreeAtomStruct.exit.i.i6638, %6924, %.loopexit4992, %._crit_edge5867
-  %6984 = phi i64 [ %.sroa.014.i.0..sroa.014.i.0..sroa.014.i.0..sroa.014.i.0..sroa.014.i.0..sroa.014.i.0..sroa.014.i.0..sroa.014.0..sroa.014.0.1659.i4841.pre5895672478858483964211399, %._crit_edge5867 ], [ %6911, %.loopexit4992 ], [ %6911, %6924 ], [ %6911, %JS_FreeAtomStruct.exit.i.i6638 ]
-  %.053.i = phi i32 [ %6895, %._crit_edge5867 ], [ %.0.i4272, %.loopexit4992 ], [ %.0.i4272, %6924 ], [ %.0.i4272, %JS_FreeAtomStruct.exit.i.i6638 ]
-  %6985 = inttoptr i64 %6984 to ptr
-  %6986 = load i32, ptr %6985, align 4
-  %6987 = add i32 %6986, -1
-  store i32 %6987, ptr %6985, align 4
-  %6988 = icmp slt i32 %6987, 1
-  br i1 %6988, label %6989, label %JS_FreeValue.exit4582
-
-6989:                                             ; preds = %JS_FreeAtom.exit6643
-  %6990 = load ptr, ptr %237, align 8
-  call void @__JS_FreeValueRT(ptr noundef %6990, i64 %6984, i64 %.sroa.4.0.copyload.i4263)
+6987:                                             ; preds = %JS_FreeAtom.exit6640
+  %6988 = load ptr, ptr %237, align 8
+  call void @__JS_FreeValueRT(ptr noundef %6988, i64 %6982, i64 %.sroa.4.0.copyload.i4263)
   br label %JS_FreeValue.exit4582
 
-JS_FreeValue.exit4582:                            ; preds = %JS_FreeAtom.exit6643, %6989
-  %6991 = trunc i64 %.sroa.5.0.copyload.i4266 to i32
-  %6992 = icmp ugt i32 %6991, -12
-  br i1 %6992, label %6993, label %7000
+JS_FreeValue.exit4582:                            ; preds = %JS_FreeAtom.exit6640, %6987
+  %6989 = trunc i64 %.sroa.5.0.copyload.i4266 to i32
+  %6990 = icmp ugt i32 %6989, -12
+  br i1 %6990, label %6991, label %6998
 
-6993:                                             ; preds = %JS_FreeValue.exit4582
-  %6994 = inttoptr i64 %.sroa.07.0.copyload.i4264 to ptr
-  %6995 = load i32, ptr %6994, align 4
-  %6996 = add i32 %6995, -1
-  store i32 %6996, ptr %6994, align 4
-  %6997 = icmp slt i32 %6996, 1
-  br i1 %6997, label %6998, label %7000
+6991:                                             ; preds = %JS_FreeValue.exit4582
+  %6992 = inttoptr i64 %.sroa.07.0.copyload.i4264 to ptr
+  %6993 = load i32, ptr %6992, align 4
+  %6994 = add i32 %6993, -1
+  store i32 %6994, ptr %6992, align 4
+  %6995 = icmp slt i32 %6994, 1
+  br i1 %6995, label %6996, label %6998
 
-6998:                                             ; preds = %6993
-  %6999 = load ptr, ptr %237, align 8
-  call void @__JS_FreeValueRT(ptr noundef %6999, i64 %.sroa.07.0.copyload.i4264, i64 %.sroa.5.0.copyload.i4266)
-  br label %7000
+6996:                                             ; preds = %6991
+  %6997 = load ptr, ptr %237, align 8
+  call void @__JS_FreeValueRT(ptr noundef %6997, i64 %.sroa.07.0.copyload.i4264, i64 %.sroa.5.0.copyload.i4266)
+  br label %6998
 
-js_operator_private_in.exit.thread:               ; preds = %6893, %6897, %6889
+js_operator_private_in.exit.thread:               ; preds = %6891, %6895, %6887
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %.sroa.014.i)
   br label %JS_FreeValue.exit3739
 
-7000:                                             ; preds = %JS_FreeValue.exit4582, %6993, %6998
-  %7001 = icmp ne i32 %.053.i, 0
-  %.sroa.049.0.insert.ext.i = zext i1 %7001 to i64
-  store i64 %.sroa.049.0.insert.ext.i, ptr %6886, align 8
+6998:                                             ; preds = %JS_FreeValue.exit4582, %6991, %6996
+  %6999 = icmp ne i32 %.053.i, 0
+  %.sroa.049.0.insert.ext.i = zext i1 %6999 to i64
+  store i64 %.sroa.049.0.insert.ext.i, ptr %6884, align 8
   store i64 1, ptr %.sroa.4.0..sroa_idx.i4262, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %.sroa.014.i)
-  %7002 = getelementptr i8, ptr %.23330, i64 1
+  %7000 = getelementptr i8, ptr %.23330, i64 1
   br label %.backedge4994.backedge
 
-7003:                                             ; preds = %.backedge4994
-  %7004 = getelementptr i8, ptr %.23354, i64 -32
-  %.sroa.06.0.copyload.i4273 = load i64, ptr %7004, align 8
+7001:                                             ; preds = %.backedge4994
+  %7002 = getelementptr i8, ptr %.23354, i64 -32
+  %.sroa.06.0.copyload.i4273 = load i64, ptr %7002, align 8
   %.sroa.38.0..sroa_idx.i = getelementptr i8, ptr %.23354, i64 -24
   %.sroa.38.0.copyload.i = load i64, ptr %.sroa.38.0..sroa_idx.i, align 8
-  %7005 = getelementptr i8, ptr %.23354, i64 -16
-  %.sroa.03.0.copyload.i = load i64, ptr %7005, align 8
+  %7003 = getelementptr i8, ptr %.23354, i64 -16
+  %.sroa.03.0.copyload.i = load i64, ptr %7003, align 8
   %.sroa.3.0..sroa_idx.i4274 = getelementptr i8, ptr %.23354, i64 -8
   %.sroa.3.0.copyload.i4275 = load i64, ptr %.sroa.3.0..sroa_idx.i4274, align 8
-  %7006 = call i32 @JS_IsInstanceOf(ptr noundef %.1, i64 %.sroa.06.0.copyload.i4273, i64 %.sroa.38.0.copyload.i, i64 %.sroa.03.0.copyload.i, i64 %.sroa.3.0.copyload.i4275)
-  %7007 = icmp slt i32 %7006, 0
-  br i1 %7007, label %JS_FreeValue.exit3739.loopexit, label %7008
+  %7004 = call i32 @JS_IsInstanceOf(ptr noundef %.1, i64 %.sroa.06.0.copyload.i4273, i64 %.sroa.38.0.copyload.i, i64 %.sroa.03.0.copyload.i, i64 %.sroa.3.0.copyload.i4275)
+  %7005 = icmp slt i32 %7004, 0
+  br i1 %7005, label %JS_FreeValue.exit3739.loopexit, label %7006
 
-7008:                                             ; preds = %7003
-  %7009 = trunc i64 %.sroa.38.0.copyload.i to i32
-  %7010 = icmp ugt i32 %7009, -12
-  br i1 %7010, label %7011, label %JS_FreeValue.exit4584
+7006:                                             ; preds = %7001
+  %7007 = trunc i64 %.sroa.38.0.copyload.i to i32
+  %7008 = icmp ugt i32 %7007, -12
+  br i1 %7008, label %7009, label %JS_FreeValue.exit4584
 
-7011:                                             ; preds = %7008
-  %7012 = inttoptr i64 %.sroa.06.0.copyload.i4273 to ptr
-  %7013 = load i32, ptr %7012, align 4
-  %7014 = add i32 %7013, -1
-  store i32 %7014, ptr %7012, align 4
-  %7015 = icmp slt i32 %7014, 1
-  br i1 %7015, label %7016, label %JS_FreeValue.exit4584
+7009:                                             ; preds = %7006
+  %7010 = inttoptr i64 %.sroa.06.0.copyload.i4273 to ptr
+  %7011 = load i32, ptr %7010, align 4
+  %7012 = add i32 %7011, -1
+  store i32 %7012, ptr %7010, align 4
+  %7013 = icmp slt i32 %7012, 1
+  br i1 %7013, label %7014, label %JS_FreeValue.exit4584
 
-7016:                                             ; preds = %7011
-  %7017 = load ptr, ptr %237, align 8
-  call void @__JS_FreeValueRT(ptr noundef %7017, i64 %.sroa.06.0.copyload.i4273, i64 %.sroa.38.0.copyload.i)
+7014:                                             ; preds = %7009
+  %7015 = load ptr, ptr %237, align 8
+  call void @__JS_FreeValueRT(ptr noundef %7015, i64 %.sroa.06.0.copyload.i4273, i64 %.sroa.38.0.copyload.i)
   br label %JS_FreeValue.exit4584
 
-JS_FreeValue.exit4584:                            ; preds = %7008, %7011, %7016
-  %7018 = trunc i64 %.sroa.3.0.copyload.i4275 to i32
-  %7019 = icmp ugt i32 %7018, -12
-  br i1 %7019, label %7020, label %7027
+JS_FreeValue.exit4584:                            ; preds = %7006, %7009, %7014
+  %7016 = trunc i64 %.sroa.3.0.copyload.i4275 to i32
+  %7017 = icmp ugt i32 %7016, -12
+  br i1 %7017, label %7018, label %7025
 
-7020:                                             ; preds = %JS_FreeValue.exit4584
-  %7021 = inttoptr i64 %.sroa.03.0.copyload.i to ptr
-  %7022 = load i32, ptr %7021, align 4
-  %7023 = add i32 %7022, -1
-  store i32 %7023, ptr %7021, align 4
-  %7024 = icmp slt i32 %7023, 1
-  br i1 %7024, label %7025, label %7027
+7018:                                             ; preds = %JS_FreeValue.exit4584
+  %7019 = inttoptr i64 %.sroa.03.0.copyload.i to ptr
+  %7020 = load i32, ptr %7019, align 4
+  %7021 = add i32 %7020, -1
+  store i32 %7021, ptr %7019, align 4
+  %7022 = icmp slt i32 %7021, 1
+  br i1 %7022, label %7023, label %7025
 
-7025:                                             ; preds = %7020
-  %7026 = load ptr, ptr %237, align 8
-  call void @__JS_FreeValueRT(ptr noundef %7026, i64 %.sroa.03.0.copyload.i, i64 %.sroa.3.0.copyload.i4275)
-  br label %7027
+7023:                                             ; preds = %7018
+  %7024 = load ptr, ptr %237, align 8
+  call void @__JS_FreeValueRT(ptr noundef %7024, i64 %.sroa.03.0.copyload.i, i64 %.sroa.3.0.copyload.i4275)
+  br label %7025
 
-7027:                                             ; preds = %7025, %7020, %JS_FreeValue.exit4584
-  %7028 = icmp ne i32 %7006, 0
-  %.sroa.018.0.insert.ext.i = zext i1 %7028 to i64
-  store i64 %.sroa.018.0.insert.ext.i, ptr %7004, align 8
+7025:                                             ; preds = %7023, %7018, %JS_FreeValue.exit4584
+  %7026 = icmp ne i32 %7004, 0
+  %.sroa.018.0.insert.ext.i = zext i1 %7026 to i64
+  store i64 %.sroa.018.0.insert.ext.i, ptr %7002, align 8
   store i64 1, ptr %.sroa.38.0..sroa_idx.i, align 8
-  %7029 = getelementptr i8, ptr %.23330, i64 1
+  %7027 = getelementptr i8, ptr %.23330, i64 1
   br label %.backedge4994.backedge
 
-7030:                                             ; preds = %.backedge4994
-  %7031 = getelementptr i8, ptr %.23354, i64 -16
-  %.sroa.0104.0.copyload = load i64, ptr %7031, align 8
+7028:                                             ; preds = %.backedge4994
+  %7029 = getelementptr i8, ptr %.23354, i64 -16
+  %.sroa.0104.0.copyload = load i64, ptr %7029, align 8
   %.sroa.3106.0..sroa_idx = getelementptr i8, ptr %.23354, i64 -8
   %.sroa.3106.0.copyload = load i64, ptr %.sroa.3106.0..sroa_idx, align 8
-  %7032 = trunc i64 %.sroa.3106.0.copyload to i32
-  %7033 = inttoptr i64 %.sroa.0104.0.copyload to ptr
-  switch i32 %7032, label %js_operator_typeof.exit [
+  %7030 = trunc i64 %.sroa.3106.0.copyload to i32
+  %7031 = inttoptr i64 %.sroa.0104.0.copyload to ptr
+  switch i32 %7030, label %js_operator_typeof.exit [
     i32 -10, label %js_operator_typeof.exit.thread
-    i32 -9, label %7034
-    i32 -11, label %7035
+    i32 -9, label %7032
+    i32 -11, label %7033
     i32 0, label %JS_FreeValue.exit4280
     i32 7, label %JS_FreeValue.exit4280
-    i32 3, label %7036
-    i32 1, label %7037
-    i32 -7, label %7038
-    i32 -1, label %7039
+    i32 3, label %7034
+    i32 1, label %7035
+    i32 -7, label %7036
+    i32 -1, label %7037
     i32 2, label %js_operator_typeof.exit.thread4835
-    i32 -8, label %7062
+    i32 -8, label %7060
   ]
 
-js_operator_typeof.exit.thread4835:               ; preds = %7030
+js_operator_typeof.exit.thread4835:               ; preds = %7028
   br label %JS_FreeValue.exit4280
 
-7034:                                             ; preds = %7030
+7032:                                             ; preds = %7028
   br label %js_operator_typeof.exit.thread
 
-7035:                                             ; preds = %7030
+7033:                                             ; preds = %7028
   br label %js_operator_typeof.exit.thread
 
-7036:                                             ; preds = %7030
+7034:                                             ; preds = %7028
   br label %JS_FreeValue.exit4280
 
-7037:                                             ; preds = %7030
+7035:                                             ; preds = %7028
   br label %JS_FreeValue.exit4280
 
-7038:                                             ; preds = %7030
+7036:                                             ; preds = %7028
   br label %js_operator_typeof.exit.thread
 
-7039:                                             ; preds = %7030
-  %7040 = getelementptr inbounds i8, ptr %7033, i64 5
-  %7041 = load i8, ptr %7040, align 1
-  %.not.i4278 = icmp sgt i8 %7041, -1
-  br i1 %.not.i4278, label %7042, label %js_operator_typeof.exit.thread
+7037:                                             ; preds = %7028
+  %7038 = getelementptr inbounds i8, ptr %7031, i64 5
+  %7039 = load i8, ptr %7038, align 1
+  %.not.i4278 = icmp sgt i8 %7039, -1
+  br i1 %.not.i4278, label %7040, label %js_operator_typeof.exit.thread
 
-7042:                                             ; preds = %7039
-  %7043 = and i64 %.sroa.3106.0.copyload, 4294967295
-  %.not.i.i4279 = icmp eq i64 %7043, 4294967295
-  br i1 %.not.i.i4279, label %7044, label %js_operator_typeof.exit.thread4833
+7040:                                             ; preds = %7037
+  %7041 = and i64 %.sroa.3106.0.copyload, 4294967295
+  %.not.i.i4279 = icmp eq i64 %7041, 4294967295
+  br i1 %.not.i.i4279, label %7042, label %js_operator_typeof.exit.thread4833
 
-7044:                                             ; preds = %7042
-  %7045 = getelementptr inbounds i8, ptr %7033, i64 6
-  %7046 = load i16, ptr %7045, align 2
-  switch i16 %7046, label %7053 [
+7042:                                             ; preds = %7040
+  %7043 = getelementptr inbounds i8, ptr %7031, i64 6
+  %7044 = load i16, ptr %7043, align 2
+  switch i16 %7044, label %7051 [
     i16 13, label %js_operator_typeof.exit.thread
-    i16 48, label %7047
+    i16 48, label %7045
   ]
 
-7047:                                             ; preds = %7044
-  %7048 = getelementptr inbounds i8, ptr %7033, i64 48
-  %7049 = load ptr, ptr %7048, align 8
-  %7050 = getelementptr inbounds i8, ptr %7049, i64 32
-  %7051 = load i8, ptr %7050, align 8
-  %7052 = zext i8 %7051 to i32
+7045:                                             ; preds = %7042
+  %7046 = getelementptr inbounds i8, ptr %7031, i64 48
+  %7047 = load ptr, ptr %7046, align 8
+  %7048 = getelementptr inbounds i8, ptr %7047, i64 32
+  %7049 = load i8, ptr %7048, align 8
+  %7050 = zext i8 %7049 to i32
   br label %JS_IsFunction.exit.i
 
-7053:                                             ; preds = %7044
-  %7054 = load ptr, ptr %237, align 8
-  %7055 = getelementptr inbounds i8, ptr %7054, i64 112
-  %7056 = load ptr, ptr %7055, align 8
-  %7057 = zext i16 %7046 to i64
-  %7058 = getelementptr %struct.JSClass, ptr %7056, i64 %7057, i32 4
-  %7059 = load ptr, ptr %7058, align 8
-  %7060 = icmp ne ptr %7059, null
-  %7061 = zext i1 %7060 to i32
+7051:                                             ; preds = %7042
+  %7052 = load ptr, ptr %237, align 8
+  %7053 = getelementptr inbounds i8, ptr %7052, i64 112
+  %7054 = load ptr, ptr %7053, align 8
+  %7055 = zext i16 %7044 to i64
+  %7056 = getelementptr %struct.JSClass, ptr %7054, i64 %7055, i32 4
+  %7057 = load ptr, ptr %7056, align 8
+  %7058 = icmp ne ptr %7057, null
+  %7059 = zext i1 %7058 to i32
   br label %JS_IsFunction.exit.i
 
-JS_IsFunction.exit.i:                             ; preds = %7053, %7047
-  %.0.i.i = phi i32 [ %7061, %7053 ], [ %7052, %7047 ]
+JS_IsFunction.exit.i:                             ; preds = %7051, %7045
+  %.0.i.i = phi i32 [ %7059, %7051 ], [ %7050, %7045 ]
   %.not6.i = icmp eq i32 %.0.i.i, 0
   br i1 %.not6.i, label %js_operator_typeof.exit.thread4833, label %js_operator_typeof.exit.thread
 
-7062:                                             ; preds = %7030
+7060:                                             ; preds = %7028
   br label %js_operator_typeof.exit.thread
 
-js_operator_typeof.exit.thread4833:               ; preds = %7042, %JS_IsFunction.exit.i
+js_operator_typeof.exit.thread4833:               ; preds = %7040, %JS_IsFunction.exit.i
   br label %js_operator_typeof.exit.thread
 
-js_operator_typeof.exit:                          ; preds = %7030
-  %7063 = icmp ugt i32 %7032, -12
-  br i1 %7063, label %js_operator_typeof.exit.thread, label %JS_FreeValue.exit4280
+js_operator_typeof.exit:                          ; preds = %7028
+  %7061 = icmp ugt i32 %7030, -12
+  br i1 %7061, label %js_operator_typeof.exit.thread, label %JS_FreeValue.exit4280
 
-js_operator_typeof.exit.thread:                   ; preds = %js_operator_typeof.exit.thread4833, %7062, %JS_IsFunction.exit.i, %7044, %7039, %7038, %7035, %7034, %7030, %js_operator_typeof.exit
-  %.0.i42774817 = phi i32 [ 77, %js_operator_typeof.exit ], [ 27, %7044 ], [ 27, %JS_IsFunction.exit.i ], [ 70, %7039 ], [ 141, %7030 ], [ 142, %7034 ], [ 143, %7035 ], [ 73, %7038 ], [ 75, %7062 ], [ 74, %js_operator_typeof.exit.thread4833 ]
-  %7064 = load i32, ptr %7033, align 4
-  %7065 = add i32 %7064, -1
-  store i32 %7065, ptr %7033, align 4
-  %7066 = icmp slt i32 %7065, 1
-  br i1 %7066, label %7067, label %JS_FreeValue.exit4280
+js_operator_typeof.exit.thread:                   ; preds = %js_operator_typeof.exit.thread4833, %7060, %JS_IsFunction.exit.i, %7042, %7037, %7036, %7033, %7032, %7028, %js_operator_typeof.exit
+  %.0.i42774817 = phi i32 [ 77, %js_operator_typeof.exit ], [ 27, %7042 ], [ 27, %JS_IsFunction.exit.i ], [ 70, %7037 ], [ 141, %7028 ], [ 142, %7032 ], [ 143, %7033 ], [ 73, %7036 ], [ 75, %7060 ], [ 74, %js_operator_typeof.exit.thread4833 ]
+  %7062 = load i32, ptr %7031, align 4
+  %7063 = add i32 %7062, -1
+  store i32 %7063, ptr %7031, align 4
+  %7064 = icmp slt i32 %7063, 1
+  br i1 %7064, label %7065, label %JS_FreeValue.exit4280
 
-7067:                                             ; preds = %js_operator_typeof.exit.thread
-  %7068 = load ptr, ptr %237, align 8
-  call void @__JS_FreeValueRT(ptr noundef %7068, i64 %.sroa.0104.0.copyload, i64 %.sroa.3106.0.copyload)
+7065:                                             ; preds = %js_operator_typeof.exit.thread
+  %7066 = load ptr, ptr %237, align 8
+  call void @__JS_FreeValueRT(ptr noundef %7066, i64 %.sroa.0104.0.copyload, i64 %.sroa.3106.0.copyload)
   br label %JS_FreeValue.exit4280
 
-JS_FreeValue.exit4280:                            ; preds = %js_operator_typeof.exit.thread4835, %7030, %7030, %7037, %7036, %js_operator_typeof.exit, %js_operator_typeof.exit.thread, %7067
-  %.0.i42774816 = phi i32 [ 77, %js_operator_typeof.exit ], [ %.0.i42774817, %js_operator_typeof.exit.thread ], [ %.0.i42774817, %7067 ], [ 70, %7036 ], [ 72, %7037 ], [ 71, %7030 ], [ 71, %7030 ], [ 74, %js_operator_typeof.exit.thread4835 ]
-  %7069 = load ptr, ptr %237, align 8
-  %7070 = getelementptr inbounds i8, ptr %7069, i64 96
-  %7071 = load ptr, ptr %7070, align 8
-  %7072 = zext nneg i32 %.0.i42774816 to i64
-  %7073 = getelementptr ptr, ptr %7071, i64 %7072
-  %7074 = load ptr, ptr %7073, align 8
-  %7075 = getelementptr inbounds i8, ptr %7074, i64 4
-  %7076 = load i64, ptr %7075, align 4
-  %.mask.i4588 = and i64 %7076, -4611686018427387904
-  %7077 = icmp ne i64 %.mask.i4588, 4611686018427387904
-  %7078 = and i64 %7076, 4294967295
-  %or.cond.i4590.not = icmp eq i64 %7078, 2147483648
-  %or.cond4968 = and i1 %7077, %or.cond.i4590.not
-  br i1 %or.cond4968, label %7079, label %__JS_AtomToValue.exit4595
+JS_FreeValue.exit4280:                            ; preds = %js_operator_typeof.exit.thread4835, %7028, %7028, %7035, %7034, %js_operator_typeof.exit, %js_operator_typeof.exit.thread, %7065
+  %.0.i42774816 = phi i32 [ 77, %js_operator_typeof.exit ], [ %.0.i42774817, %js_operator_typeof.exit.thread ], [ %.0.i42774817, %7065 ], [ 70, %7034 ], [ 72, %7035 ], [ 71, %7028 ], [ 71, %7028 ], [ 74, %js_operator_typeof.exit.thread4835 ]
+  %7067 = load ptr, ptr %237, align 8
+  %7068 = getelementptr inbounds i8, ptr %7067, i64 96
+  %7069 = load ptr, ptr %7068, align 8
+  %7070 = zext nneg i32 %.0.i42774816 to i64
+  %7071 = getelementptr ptr, ptr %7069, i64 %7070
+  %7072 = load ptr, ptr %7071, align 8
+  %7073 = getelementptr inbounds i8, ptr %7072, i64 4
+  %7074 = load i64, ptr %7073, align 4
+  %.mask.i4588 = and i64 %7074, -4611686018427387904
+  %7075 = icmp ne i64 %.mask.i4588, 4611686018427387904
+  %7076 = and i64 %7074, 4294967295
+  %or.cond.i4590.not = icmp eq i64 %7076, 2147483648
+  %or.cond4968 = and i1 %7075, %or.cond.i4590.not
+  br i1 %or.cond4968, label %7077, label %__JS_AtomToValue.exit4595
 
-7079:                                             ; preds = %JS_FreeValue.exit4280
-  %7080 = getelementptr i8, ptr %7071, i64 376
-  %7081 = load ptr, ptr %7080, align 8
+7077:                                             ; preds = %JS_FreeValue.exit4280
+  %7078 = getelementptr i8, ptr %7069, i64 376
+  %7079 = load ptr, ptr %7078, align 8
   br label %__JS_AtomToValue.exit4595
 
-__JS_AtomToValue.exit4595:                        ; preds = %JS_FreeValue.exit4280, %7079
-  %.0.i4591 = phi ptr [ %7074, %JS_FreeValue.exit4280 ], [ %7081, %7079 ]
+__JS_AtomToValue.exit4595:                        ; preds = %JS_FreeValue.exit4280, %7077
+  %.0.i4591 = phi ptr [ %7072, %JS_FreeValue.exit4280 ], [ %7079, %7077 ]
   %.sroa.01.0..sroa.01.0.20.cast.i4592 = ptrtoint ptr %.0.i4591 to i64
-  %7082 = load i32, ptr %.0.i4591, align 4
-  %7083 = add i32 %7082, 1
-  store i32 %7083, ptr %.0.i4591, align 4
-  store i64 %.sroa.01.0..sroa.01.0.20.cast.i4592, ptr %7031, align 8
+  %7080 = load i32, ptr %.0.i4591, align 4
+  %7081 = add i32 %7080, 1
+  store i32 %7081, ptr %.0.i4591, align 4
+  store i64 %.sroa.01.0..sroa.01.0.20.cast.i4592, ptr %7029, align 8
   store i64 -7, ptr %.sroa.3106.0..sroa_idx, align 8
-  %7084 = getelementptr i8, ptr %.23330, i64 1
+  %7082 = getelementptr i8, ptr %.23330, i64 1
   br label %.backedge4994.backedge
 
-7085:                                             ; preds = %.backedge4994
-  %7086 = getelementptr i8, ptr %.23354, i64 -32
-  %.sroa.08.0.copyload.i = load i64, ptr %7086, align 8
+7083:                                             ; preds = %.backedge4994
+  %7084 = getelementptr i8, ptr %.23354, i64 -32
+  %.sroa.08.0.copyload.i = load i64, ptr %7084, align 8
   %.sroa.310.0..sroa_idx.i = getelementptr i8, ptr %.23354, i64 -24
   %.sroa.310.0.copyload.i = load i64, ptr %.sroa.310.0..sroa_idx.i, align 8
-  %7087 = getelementptr i8, ptr %.23354, i64 -16
-  %.sroa.05.0.copyload.i4281 = load i64, ptr %7087, align 8
+  %7085 = getelementptr i8, ptr %.23354, i64 -16
+  %.sroa.05.0.copyload.i4281 = load i64, ptr %7085, align 8
   %.sroa.3.0..sroa_idx.i4282 = getelementptr i8, ptr %.23354, i64 -8
   %.sroa.3.0.copyload.i4283 = load i64, ptr %.sroa.3.0..sroa_idx.i4282, align 8
-  %7088 = call i32 @JS_ValueToAtom(ptr noundef %.1, i64 %.sroa.05.0.copyload.i4281, i64 %.sroa.3.0.copyload.i4283)
-  %7089 = icmp eq i32 %7088, 0
-  br i1 %7089, label %JS_FreeValue.exit3739.loopexit, label %7090
+  %7086 = call i32 @JS_ValueToAtom(ptr noundef %.1, i64 %.sroa.05.0.copyload.i4281, i64 %.sroa.3.0.copyload.i4283)
+  %7087 = icmp eq i32 %7086, 0
+  br i1 %7087, label %JS_FreeValue.exit3739.loopexit, label %7088
 
-7090:                                             ; preds = %7085
-  %7091 = call fastcc { i64, i64 } @JS_ToObject(ptr noundef %.1, i64 %.sroa.08.0.copyload.i, i64 %.sroa.310.0.copyload.i)
-  %7092 = extractvalue { i64, i64 } %7091, 0
-  %7093 = extractvalue { i64, i64 } %7091, 1
-  %7094 = and i64 %7093, 4294967295
-  %.not.i6644 = icmp eq i64 %7094, 6
-  %7095 = inttoptr i64 %7092 to ptr
-  br i1 %.not.i6644, label %JS_DeleteProperty.exit, label %7096
+7088:                                             ; preds = %7083
+  %7089 = call fastcc { i64, i64 } @JS_ToObject(ptr noundef %.1, i64 %.sroa.08.0.copyload.i, i64 %.sroa.310.0.copyload.i)
+  %7090 = extractvalue { i64, i64 } %7089, 0
+  %7091 = extractvalue { i64, i64 } %7089, 1
+  %7092 = and i64 %7091, 4294967295
+  %.not.i6641 = icmp eq i64 %7092, 6
+  %7093 = inttoptr i64 %7090 to ptr
+  br i1 %.not.i6641, label %JS_DeleteProperty.exit, label %7094
 
-7096:                                             ; preds = %7090
-  %7097 = call fastcc i32 @delete_property(ptr noundef %.1, ptr noundef %7095, i32 noundef %7088)
-  %7098 = trunc i64 %7093 to i32
-  %7099 = icmp ugt i32 %7098, -12
-  br i1 %7099, label %7100, label %JS_FreeValue.exit.i6645
+7094:                                             ; preds = %7088
+  %7095 = call fastcc i32 @delete_property(ptr noundef %.1, ptr noundef %7093, i32 noundef %7086)
+  %7096 = trunc i64 %7091 to i32
+  %7097 = icmp ugt i32 %7096, -12
+  br i1 %7097, label %7098, label %JS_FreeValue.exit.i6642
 
-7100:                                             ; preds = %7096
-  %7101 = load i32, ptr %7095, align 4
-  %7102 = add i32 %7101, -1
-  store i32 %7102, ptr %7095, align 4
-  %7103 = icmp slt i32 %7102, 1
-  br i1 %7103, label %7104, label %JS_FreeValue.exit.i6645
+7098:                                             ; preds = %7094
+  %7099 = load i32, ptr %7093, align 4
+  %7100 = add i32 %7099, -1
+  store i32 %7100, ptr %7093, align 4
+  %7101 = icmp slt i32 %7100, 1
+  br i1 %7101, label %7102, label %JS_FreeValue.exit.i6642
 
-7104:                                             ; preds = %7100
-  %7105 = load ptr, ptr %237, align 8
-  call void @__JS_FreeValueRT(ptr noundef %7105, i64 %7092, i64 %7093)
-  br label %JS_FreeValue.exit.i6645
+7102:                                             ; preds = %7098
+  %7103 = load ptr, ptr %237, align 8
+  call void @__JS_FreeValueRT(ptr noundef %7103, i64 %7090, i64 %7091)
+  br label %JS_FreeValue.exit.i6642
 
-JS_FreeValue.exit.i6645:                          ; preds = %7104, %7100, %7096
-  %.not20.i6646 = icmp eq i32 %7097, 0
-  br i1 %.not20.i6646, label %7106, label %JS_DeleteProperty.exit
+JS_FreeValue.exit.i6642:                          ; preds = %7102, %7098, %7094
+  %.not20.i6643 = icmp eq i32 %7095, 0
+  br i1 %.not20.i6643, label %7104, label %JS_DeleteProperty.exit
 
-7106:                                             ; preds = %JS_FreeValue.exit.i6645
-  %.val.i6648 = load ptr, ptr %237, align 8
-  %7107 = getelementptr i8, ptr %.val.i6648, i64 248
-  %.val.val.i6649 = load ptr, ptr %7107, align 8
-  %.not.i.i6650 = icmp eq ptr %.val.val.i6649, null
-  br i1 %.not.i.i6650, label %JS_DeleteProperty.exit, label %is_strict_mode.exit.i
+7104:                                             ; preds = %JS_FreeValue.exit.i6642
+  %.val.i6645 = load ptr, ptr %237, align 8
+  %7105 = getelementptr i8, ptr %.val.i6645, i64 248
+  %.val.val.i6646 = load ptr, ptr %7105, align 8
+  %.not.i.i6647 = icmp eq ptr %.val.val.i6646, null
+  br i1 %.not.i.i6647, label %JS_DeleteProperty.exit, label %is_strict_mode.exit.i
 
-is_strict_mode.exit.i:                            ; preds = %7106
-  %7108 = getelementptr inbounds i8, ptr %.val.val.i6649, i64 68
-  %7109 = load i32, ptr %7108, align 4
-  %7110 = and i32 %7109, 1
-  %.not23.i = icmp eq i32 %7110, 0
-  br i1 %.not23.i, label %JS_DeleteProperty.exit, label %7111
+is_strict_mode.exit.i:                            ; preds = %7104
+  %7106 = getelementptr inbounds i8, ptr %.val.val.i6646, i64 68
+  %7107 = load i32, ptr %7106, align 4
+  %7108 = and i32 %7107, 1
+  %.not23.i = icmp eq i32 %7108, 0
+  br i1 %.not23.i, label %JS_DeleteProperty.exit, label %7109
 
-7111:                                             ; preds = %is_strict_mode.exit.i
-  %7112 = call { i64, i64 } (ptr, ptr, ...) @JS_ThrowTypeError(ptr noundef nonnull %.1, ptr noundef nonnull @.str.61)
+7109:                                             ; preds = %is_strict_mode.exit.i
+  %7110 = call { i64, i64 } (ptr, ptr, ...) @JS_ThrowTypeError(ptr noundef nonnull %.1, ptr noundef nonnull @.str.61)
   br label %JS_DeleteProperty.exit
 
-JS_DeleteProperty.exit:                           ; preds = %7090, %JS_FreeValue.exit.i6645, %7106, %is_strict_mode.exit.i, %7111
-  %.0.i6647 = phi i32 [ -1, %7111 ], [ -1, %7090 ], [ %7097, %JS_FreeValue.exit.i6645 ], [ 0, %is_strict_mode.exit.i ], [ 0, %7106 ]
-  %7113 = icmp sgt i32 %7088, 226
-  br i1 %7113, label %7114, label %JS_FreeAtom.exit6659
+JS_DeleteProperty.exit:                           ; preds = %7088, %JS_FreeValue.exit.i6642, %7104, %is_strict_mode.exit.i, %7109
+  %.0.i6644 = phi i32 [ -1, %7109 ], [ -1, %7088 ], [ %7095, %JS_FreeValue.exit.i6642 ], [ 0, %is_strict_mode.exit.i ], [ 0, %7104 ]
+  %7111 = icmp sgt i32 %7086, 226
+  br i1 %7111, label %7112, label %JS_FreeAtom.exit6656
 
-7114:                                             ; preds = %JS_DeleteProperty.exit
-  %7115 = load ptr, ptr %237, align 8
-  %7116 = getelementptr inbounds i8, ptr %7115, i64 96
-  %7117 = load ptr, ptr %7116, align 8
-  %7118 = zext nneg i32 %7088 to i64
-  %7119 = getelementptr ptr, ptr %7117, i64 %7118
-  %7120 = load ptr, ptr %7119, align 8
-  %7121 = load i32, ptr %7120, align 4
-  %7122 = add i32 %7121, -1
-  store i32 %7122, ptr %7120, align 4
-  %7123 = icmp sgt i32 %7122, 0
-  br i1 %7123, label %JS_FreeAtom.exit6659, label %7124
+7112:                                             ; preds = %JS_DeleteProperty.exit
+  %7113 = load ptr, ptr %237, align 8
+  %7114 = getelementptr inbounds i8, ptr %7113, i64 96
+  %7115 = load ptr, ptr %7114, align 8
+  %7116 = zext nneg i32 %7086 to i64
+  %7117 = getelementptr ptr, ptr %7115, i64 %7116
+  %7118 = load ptr, ptr %7117, align 8
+  %7119 = load i32, ptr %7118, align 4
+  %7120 = add i32 %7119, -1
+  store i32 %7120, ptr %7118, align 4
+  %7121 = icmp sgt i32 %7120, 0
+  br i1 %7121, label %JS_FreeAtom.exit6656, label %7122
 
-7124:                                             ; preds = %7114
-  %7125 = getelementptr inbounds i8, ptr %7120, i64 4
-  %7126 = load i64, ptr %7125, align 4
-  %.not.i.i.i6651 = icmp ugt i64 %7126, -4611686018427387905
-  br i1 %.not.i.i.i6651, label %._crit_edge.i.i.i6657, label %7129
+7122:                                             ; preds = %7112
+  %7123 = getelementptr inbounds i8, ptr %7118, i64 4
+  %7124 = load i64, ptr %7123, align 4
+  %.not.i.i.i6648 = icmp ugt i64 %7124, -4611686018427387905
+  br i1 %.not.i.i.i6648, label %._crit_edge.i.i.i6654, label %7127
 
-._crit_edge.i.i.i6657:                            ; preds = %7124
-  %7127 = getelementptr inbounds i8, ptr %7120, i64 12
-  %7128 = load i32, ptr %7127, align 4
-  %.pre.i.i.i6658 = zext i32 %7128 to i64
-  br label %JS_FreeAtomStruct.exit.i.i6654
+._crit_edge.i.i.i6654:                            ; preds = %7122
+  %7125 = getelementptr inbounds i8, ptr %7118, i64 12
+  %7126 = load i32, ptr %7125, align 4
+  %.pre.i.i.i6655 = zext i32 %7126 to i64
+  br label %JS_FreeAtomStruct.exit.i.i6651
 
-7129:                                             ; preds = %7124
-  %7130 = lshr i64 %7126, 32
-  %7131 = trunc nuw i64 %7130 to i32
-  %7132 = and i32 %7131, 1073741823
-  %7133 = getelementptr inbounds i8, ptr %7115, i64 72
-  %7134 = load i32, ptr %7133, align 8
-  %7135 = add i32 %7134, -1
-  %7136 = and i32 %7132, %7135
-  %7137 = getelementptr inbounds i8, ptr %7115, i64 88
-  %7138 = load ptr, ptr %7137, align 8
-  %7139 = zext nneg i32 %7136 to i64
-  %7140 = getelementptr i32, ptr %7138, i64 %7139
-  %7141 = load i32, ptr %7140, align 4
-  %7142 = load ptr, ptr %7116, align 8
-  %7143 = zext i32 %7141 to i64
-  %7144 = getelementptr ptr, ptr %7142, i64 %7143
-  %7145 = load ptr, ptr %7144, align 8
-  %7146 = icmp eq ptr %7145, %7120
-  br i1 %7146, label %7147, label %.preheader.i.i.i6652
+7127:                                             ; preds = %7122
+  %7128 = lshr i64 %7124, 32
+  %7129 = trunc nuw i64 %7128 to i32
+  %7130 = and i32 %7129, 1073741823
+  %7131 = getelementptr inbounds i8, ptr %7113, i64 72
+  %7132 = load i32, ptr %7131, align 8
+  %7133 = add i32 %7132, -1
+  %7134 = and i32 %7130, %7133
+  %7135 = getelementptr inbounds i8, ptr %7113, i64 88
+  %7136 = load ptr, ptr %7135, align 8
+  %7137 = zext nneg i32 %7134 to i64
+  %7138 = getelementptr i32, ptr %7136, i64 %7137
+  %7139 = load i32, ptr %7138, align 4
+  %7140 = load ptr, ptr %7114, align 8
+  %7141 = zext i32 %7139 to i64
+  %7142 = getelementptr ptr, ptr %7140, i64 %7141
+  %7143 = load ptr, ptr %7142, align 8
+  %7144 = icmp eq ptr %7143, %7118
+  br i1 %7144, label %7145, label %.preheader.i.i.i6649
 
-7147:                                             ; preds = %7129
-  %7148 = getelementptr inbounds i8, ptr %7145, i64 12
+7145:                                             ; preds = %7127
+  %7146 = getelementptr inbounds i8, ptr %7143, i64 12
+  %7147 = load i32, ptr %7146, align 4
+  store i32 %7147, ptr %7138, align 4
+  br label %JS_FreeAtomStruct.exit.i.i6651
+
+.preheader.i.i.i6649:                             ; preds = %7127, %.preheader.i.i.i6649
+  %.028.i.i.i6650 = phi ptr [ %7152, %.preheader.i.i.i6649 ], [ %7143, %7127 ]
+  %7148 = getelementptr inbounds i8, ptr %.028.i.i.i6650, i64 12
   %7149 = load i32, ptr %7148, align 4
-  store i32 %7149, ptr %7140, align 4
-  br label %JS_FreeAtomStruct.exit.i.i6654
+  %7150 = zext i32 %7149 to i64
+  %7151 = getelementptr ptr, ptr %7140, i64 %7150
+  %7152 = load ptr, ptr %7151, align 8
+  %7153 = icmp eq ptr %7152, %7118
+  br i1 %7153, label %7154, label %.preheader.i.i.i6649
 
-.preheader.i.i.i6652:                             ; preds = %7129, %.preheader.i.i.i6652
-  %.028.i.i.i6653 = phi ptr [ %7154, %.preheader.i.i.i6652 ], [ %7145, %7129 ]
-  %7150 = getelementptr inbounds i8, ptr %.028.i.i.i6653, i64 12
-  %7151 = load i32, ptr %7150, align 4
-  %7152 = zext i32 %7151 to i64
-  %7153 = getelementptr ptr, ptr %7142, i64 %7152
-  %7154 = load ptr, ptr %7153, align 8
-  %7155 = icmp eq ptr %7154, %7120
-  br i1 %7155, label %7156, label %.preheader.i.i.i6652
+7154:                                             ; preds = %.preheader.i.i.i6649
+  %7155 = getelementptr inbounds i8, ptr %.028.i.i.i6650, i64 12
+  %7156 = getelementptr inbounds i8, ptr %7152, i64 12
+  %7157 = load i32, ptr %7156, align 4
+  store i32 %7157, ptr %7155, align 4
+  br label %JS_FreeAtomStruct.exit.i.i6651
 
-7156:                                             ; preds = %.preheader.i.i.i6652
-  %7157 = getelementptr inbounds i8, ptr %.028.i.i.i6653, i64 12
-  %7158 = getelementptr inbounds i8, ptr %7154, i64 12
-  %7159 = load i32, ptr %7158, align 4
-  store i32 %7159, ptr %7157, align 4
-  br label %JS_FreeAtomStruct.exit.i.i6654
+JS_FreeAtomStruct.exit.i.i6651:                   ; preds = %7154, %7145, %._crit_edge.i.i.i6654
+  %.pre-phi.i.i.i6652 = phi i64 [ %.pre.i.i.i6655, %._crit_edge.i.i.i6654 ], [ %7141, %7145 ], [ %7150, %7154 ]
+  %.0.i.i.i6653 = phi i32 [ %7126, %._crit_edge.i.i.i6654 ], [ %7139, %7145 ], [ %7149, %7154 ]
+  %7158 = getelementptr inbounds i8, ptr %7113, i64 104
+  %7159 = load i32, ptr %7158, align 8
+  %7160 = zext i32 %7159 to i64
+  %7161 = shl nuw nsw i64 %7160, 1
+  %7162 = or disjoint i64 %7161, 1
+  %7163 = inttoptr i64 %7162 to ptr
+  %7164 = load ptr, ptr %7114, align 8
+  %7165 = getelementptr ptr, ptr %7164, i64 %.pre-phi.i.i.i6652
+  store ptr %7163, ptr %7165, align 8
+  store i32 %.0.i.i.i6653, ptr %7158, align 8
+  %7166 = getelementptr inbounds i8, ptr %7113, i64 8
+  %7167 = load ptr, ptr %7166, align 8
+  %7168 = getelementptr inbounds i8, ptr %7113, i64 32
+  call void %7167(ptr noundef nonnull %7168, ptr noundef nonnull %7118) #42
+  %7169 = getelementptr inbounds i8, ptr %7113, i64 76
+  %7170 = load i32, ptr %7169, align 4
+  %7171 = add i32 %7170, -1
+  store i32 %7171, ptr %7169, align 4
+  br label %JS_FreeAtom.exit6656
 
-JS_FreeAtomStruct.exit.i.i6654:                   ; preds = %7156, %7147, %._crit_edge.i.i.i6657
-  %.pre-phi.i.i.i6655 = phi i64 [ %.pre.i.i.i6658, %._crit_edge.i.i.i6657 ], [ %7143, %7147 ], [ %7152, %7156 ]
-  %.0.i.i.i6656 = phi i32 [ %7128, %._crit_edge.i.i.i6657 ], [ %7141, %7147 ], [ %7151, %7156 ]
-  %7160 = getelementptr inbounds i8, ptr %7115, i64 104
-  %7161 = load i32, ptr %7160, align 8
-  %7162 = zext i32 %7161 to i64
-  %7163 = shl nuw nsw i64 %7162, 1
-  %7164 = or disjoint i64 %7163, 1
-  %7165 = inttoptr i64 %7164 to ptr
-  %7166 = load ptr, ptr %7116, align 8
-  %7167 = getelementptr ptr, ptr %7166, i64 %.pre-phi.i.i.i6655
-  store ptr %7165, ptr %7167, align 8
-  store i32 %.0.i.i.i6656, ptr %7160, align 8
-  %7168 = getelementptr inbounds i8, ptr %7115, i64 8
-  %7169 = load ptr, ptr %7168, align 8
-  %7170 = getelementptr inbounds i8, ptr %7115, i64 32
-  call void %7169(ptr noundef nonnull %7170, ptr noundef nonnull %7120) #42
-  %7171 = getelementptr inbounds i8, ptr %7115, i64 76
-  %7172 = load i32, ptr %7171, align 4
-  %7173 = add i32 %7172, -1
-  store i32 %7173, ptr %7171, align 4
-  br label %JS_FreeAtom.exit6659
+JS_FreeAtom.exit6656:                             ; preds = %JS_DeleteProperty.exit, %7112, %JS_FreeAtomStruct.exit.i.i6651
+  %7172 = icmp slt i32 %.0.i6644, 0
+  br i1 %7172, label %JS_FreeValue.exit3739.loopexit, label %7173
 
-JS_FreeAtom.exit6659:                             ; preds = %JS_DeleteProperty.exit, %7114, %JS_FreeAtomStruct.exit.i.i6654
-  %7174 = icmp slt i32 %.0.i6647, 0
-  br i1 %7174, label %JS_FreeValue.exit3739.loopexit, label %7175
+7173:                                             ; preds = %JS_FreeAtom.exit6656
+  %7174 = trunc i64 %.sroa.310.0.copyload.i to i32
+  %7175 = icmp ugt i32 %7174, -12
+  br i1 %7175, label %7176, label %JS_FreeValue.exit4597
 
-7175:                                             ; preds = %JS_FreeAtom.exit6659
-  %7176 = trunc i64 %.sroa.310.0.copyload.i to i32
-  %7177 = icmp ugt i32 %7176, -12
-  br i1 %7177, label %7178, label %JS_FreeValue.exit4597
+7176:                                             ; preds = %7173
+  %7177 = inttoptr i64 %.sroa.08.0.copyload.i to ptr
+  %7178 = load i32, ptr %7177, align 4
+  %7179 = add i32 %7178, -1
+  store i32 %7179, ptr %7177, align 4
+  %7180 = icmp slt i32 %7179, 1
+  br i1 %7180, label %7181, label %JS_FreeValue.exit4597
 
-7178:                                             ; preds = %7175
-  %7179 = inttoptr i64 %.sroa.08.0.copyload.i to ptr
-  %7180 = load i32, ptr %7179, align 4
-  %7181 = add i32 %7180, -1
-  store i32 %7181, ptr %7179, align 4
-  %7182 = icmp slt i32 %7181, 1
-  br i1 %7182, label %7183, label %JS_FreeValue.exit4597
-
-7183:                                             ; preds = %7178
-  %7184 = load ptr, ptr %237, align 8
-  call void @__JS_FreeValueRT(ptr noundef %7184, i64 %.sroa.08.0.copyload.i, i64 %.sroa.310.0.copyload.i)
+7181:                                             ; preds = %7176
+  %7182 = load ptr, ptr %237, align 8
+  call void @__JS_FreeValueRT(ptr noundef %7182, i64 %.sroa.08.0.copyload.i, i64 %.sroa.310.0.copyload.i)
   br label %JS_FreeValue.exit4597
 
-JS_FreeValue.exit4597:                            ; preds = %7175, %7178, %7183
-  %7185 = trunc i64 %.sroa.3.0.copyload.i4283 to i32
-  %7186 = icmp ugt i32 %7185, -12
-  br i1 %7186, label %7187, label %7194
+JS_FreeValue.exit4597:                            ; preds = %7173, %7176, %7181
+  %7183 = trunc i64 %.sroa.3.0.copyload.i4283 to i32
+  %7184 = icmp ugt i32 %7183, -12
+  br i1 %7184, label %7185, label %7192
 
-7187:                                             ; preds = %JS_FreeValue.exit4597
-  %7188 = inttoptr i64 %.sroa.05.0.copyload.i4281 to ptr
-  %7189 = load i32, ptr %7188, align 4
-  %7190 = add i32 %7189, -1
-  store i32 %7190, ptr %7188, align 4
-  %7191 = icmp slt i32 %7190, 1
-  br i1 %7191, label %7192, label %7194
+7185:                                             ; preds = %JS_FreeValue.exit4597
+  %7186 = inttoptr i64 %.sroa.05.0.copyload.i4281 to ptr
+  %7187 = load i32, ptr %7186, align 4
+  %7188 = add i32 %7187, -1
+  store i32 %7188, ptr %7186, align 4
+  %7189 = icmp slt i32 %7188, 1
+  br i1 %7189, label %7190, label %7192
 
-7192:                                             ; preds = %7187
-  %7193 = load ptr, ptr %237, align 8
-  call void @__JS_FreeValueRT(ptr noundef %7193, i64 %.sroa.05.0.copyload.i4281, i64 %.sroa.3.0.copyload.i4283)
-  br label %7194
+7190:                                             ; preds = %7185
+  %7191 = load ptr, ptr %237, align 8
+  call void @__JS_FreeValueRT(ptr noundef %7191, i64 %.sroa.05.0.copyload.i4281, i64 %.sroa.3.0.copyload.i4283)
+  br label %7192
 
-7194:                                             ; preds = %JS_FreeValue.exit4597, %7187, %7192
-  %7195 = icmp ne i32 %.0.i6647, 0
-  %.sroa.022.0.insert.ext.i4284 = zext i1 %7195 to i64
-  store i64 %.sroa.022.0.insert.ext.i4284, ptr %7086, align 8
+7192:                                             ; preds = %JS_FreeValue.exit4597, %7185, %7190
+  %7193 = icmp ne i32 %.0.i6644, 0
+  %.sroa.022.0.insert.ext.i4284 = zext i1 %7193 to i64
+  store i64 %.sroa.022.0.insert.ext.i4284, ptr %7084, align 8
   store i64 1, ptr %.sroa.310.0..sroa_idx.i, align 8
-  %7196 = getelementptr i8, ptr %.23330, i64 1
+  %7194 = getelementptr i8, ptr %.23330, i64 1
   br label %.backedge4994.backedge
 
-7197:                                             ; preds = %.backedge4994
+7195:                                             ; preds = %.backedge4994
   %.23330.val3638 = load i32, ptr %.23330, align 1
-  %7198 = getelementptr i8, ptr %.23330, i64 4
-  %7199 = load i64, ptr %250, align 8
-  %7200 = load i64, ptr %251, align 8
-  %7201 = call fastcc { i64, i64 } @JS_ToObject(ptr noundef %.1, i64 %7199, i64 %7200)
-  %7202 = extractvalue { i64, i64 } %7201, 0
-  %7203 = extractvalue { i64, i64 } %7201, 1
-  %7204 = and i64 %7203, 4294967295
-  %.not4855 = icmp eq i64 %7204, 6
-  %7205 = inttoptr i64 %7202 to ptr
-  br i1 %.not4855, label %JS_FreeValue.exit3739, label %7206
+  %7196 = getelementptr i8, ptr %.23330, i64 4
+  %7197 = load i64, ptr %250, align 8
+  %7198 = load i64, ptr %251, align 8
+  %7199 = call fastcc { i64, i64 } @JS_ToObject(ptr noundef %.1, i64 %7197, i64 %7198)
+  %7200 = extractvalue { i64, i64 } %7199, 0
+  %7201 = extractvalue { i64, i64 } %7199, 1
+  %7202 = and i64 %7201, 4294967295
+  %.not4855 = icmp eq i64 %7202, 6
+  %7203 = inttoptr i64 %7200 to ptr
+  br i1 %.not4855, label %JS_FreeValue.exit3739, label %7204
 
-7206:                                             ; preds = %7197
-  %7207 = call fastcc i32 @delete_property(ptr noundef nonnull %.1, ptr noundef %7205, i32 noundef %.23330.val3638)
-  %7208 = trunc i64 %7203 to i32
-  %7209 = icmp ugt i32 %7208, -12
-  br i1 %7209, label %7210, label %JS_FreeValue.exit4598
+7204:                                             ; preds = %7195
+  %7205 = call fastcc i32 @delete_property(ptr noundef nonnull %.1, ptr noundef %7203, i32 noundef %.23330.val3638)
+  %7206 = trunc i64 %7201 to i32
+  %7207 = icmp ugt i32 %7206, -12
+  br i1 %7207, label %7208, label %JS_FreeValue.exit4598
 
-7210:                                             ; preds = %7206
-  %7211 = load i32, ptr %7205, align 4
-  %7212 = add i32 %7211, -1
-  store i32 %7212, ptr %7205, align 4
-  %7213 = icmp slt i32 %7212, 1
-  br i1 %7213, label %7214, label %JS_FreeValue.exit4598
+7208:                                             ; preds = %7204
+  %7209 = load i32, ptr %7203, align 4
+  %7210 = add i32 %7209, -1
+  store i32 %7210, ptr %7203, align 4
+  %7211 = icmp slt i32 %7210, 1
+  br i1 %7211, label %7212, label %JS_FreeValue.exit4598
 
-7214:                                             ; preds = %7210
-  %7215 = load ptr, ptr %237, align 8
-  call void @__JS_FreeValueRT(ptr noundef %7215, i64 %7202, i64 %7203)
+7212:                                             ; preds = %7208
+  %7213 = load ptr, ptr %237, align 8
+  call void @__JS_FreeValueRT(ptr noundef %7213, i64 %7200, i64 %7201)
   br label %JS_FreeValue.exit4598
 
-JS_FreeValue.exit4598:                            ; preds = %7206, %7210, %7214
-  %7216 = icmp slt i32 %7207, 0
-  br i1 %7216, label %JS_FreeValue.exit3739.loopexit, label %JS_DeleteProperty.exit.thread4825
+JS_FreeValue.exit4598:                            ; preds = %7204, %7208, %7212
+  %7214 = icmp slt i32 %7205, 0
+  br i1 %7214, label %JS_FreeValue.exit3739.loopexit, label %JS_DeleteProperty.exit.thread4825
 
 JS_DeleteProperty.exit.thread4825:                ; preds = %JS_FreeValue.exit4598
-  %.not20.i4288 = icmp ne i32 %7207, 0
-  %7217 = getelementptr i8, ptr %.23354, i64 16
+  %.not20.i4288 = icmp ne i32 %7205, 0
+  %7215 = getelementptr i8, ptr %.23354, i64 16
   %.sroa.03231.0.insert.ext = zext i1 %.not20.i4288 to i64
   store i64 %.sroa.03231.0.insert.ext, ptr %.23354, align 8
   %.sroa.297.0..sroa_idx = getelementptr inbounds i8, ptr %.23354, i64 8
   store i64 1, ptr %.sroa.297.0..sroa_idx, align 8
-  %7218 = getelementptr i8, ptr %.23330, i64 5
+  %7216 = getelementptr i8, ptr %.23330, i64 5
   br label %.backedge4994.backedge
 
-7219:                                             ; preds = %.backedge4994
-  %7220 = getelementptr i8, ptr %.23354, i64 -16
-  %7221 = getelementptr i8, ptr %.23354, i64 -8
-  %7222 = load i64, ptr %7221, align 8
-  %7223 = and i64 %7222, 4294967295
-  %.not3523 = icmp eq i64 %7223, 4294967295
-  br i1 %.not3523, label %7242, label %7224
+7217:                                             ; preds = %.backedge4994
+  %7218 = getelementptr i8, ptr %.23354, i64 -16
+  %7219 = getelementptr i8, ptr %.23354, i64 -8
+  %7220 = load i64, ptr %7219, align 8
+  %7221 = and i64 %7220, 4294967295
+  %.not3523 = icmp eq i64 %7221, 4294967295
+  br i1 %.not3523, label %7240, label %7222
 
-7224:                                             ; preds = %7219
-  %7225 = load i64, ptr %7220, align 8
-  %7226 = call fastcc { i64, i64 } @JS_ToObject(ptr noundef %.1, i64 %7225, i64 %7222)
-  %7227 = extractvalue { i64, i64 } %7226, 0
-  %7228 = extractvalue { i64, i64 } %7226, 1
-  %7229 = and i64 %7228, 4294967295
-  %.not4896 = icmp eq i64 %7229, 6
-  br i1 %.not4896, label %JS_FreeValue.exit3739.loopexit, label %7230
+7222:                                             ; preds = %7217
+  %7223 = load i64, ptr %7218, align 8
+  %7224 = call fastcc { i64, i64 } @JS_ToObject(ptr noundef %.1, i64 %7223, i64 %7220)
+  %7225 = extractvalue { i64, i64 } %7224, 0
+  %7226 = extractvalue { i64, i64 } %7224, 1
+  %7227 = and i64 %7226, 4294967295
+  %.not4896 = icmp eq i64 %7227, 6
+  br i1 %.not4896, label %JS_FreeValue.exit3739.loopexit, label %7228
 
-7230:                                             ; preds = %7224
-  %7231 = load i64, ptr %7220, align 8
-  %7232 = load i64, ptr %7221, align 8
-  %7233 = trunc i64 %7232 to i32
-  %7234 = icmp ugt i32 %7233, -12
-  br i1 %7234, label %7235, label %JS_FreeValue.exit4289
+7228:                                             ; preds = %7222
+  %7229 = load i64, ptr %7218, align 8
+  %7230 = load i64, ptr %7219, align 8
+  %7231 = trunc i64 %7230 to i32
+  %7232 = icmp ugt i32 %7231, -12
+  br i1 %7232, label %7233, label %JS_FreeValue.exit4289
 
-7235:                                             ; preds = %7230
-  %7236 = inttoptr i64 %7231 to ptr
-  %7237 = load i32, ptr %7236, align 4
-  %7238 = add i32 %7237, -1
-  store i32 %7238, ptr %7236, align 4
-  %7239 = icmp slt i32 %7238, 1
-  br i1 %7239, label %7240, label %JS_FreeValue.exit4289
+7233:                                             ; preds = %7228
+  %7234 = inttoptr i64 %7229 to ptr
+  %7235 = load i32, ptr %7234, align 4
+  %7236 = add i32 %7235, -1
+  store i32 %7236, ptr %7234, align 4
+  %7237 = icmp slt i32 %7236, 1
+  br i1 %7237, label %7238, label %JS_FreeValue.exit4289
 
-7240:                                             ; preds = %7235
-  %7241 = load ptr, ptr %237, align 8
-  call void @__JS_FreeValueRT(ptr noundef %7241, i64 %7231, i64 %7232)
+7238:                                             ; preds = %7233
+  %7239 = load ptr, ptr %237, align 8
+  call void @__JS_FreeValueRT(ptr noundef %7239, i64 %7229, i64 %7230)
   br label %JS_FreeValue.exit4289
 
-JS_FreeValue.exit4289:                            ; preds = %7230, %7235, %7240
-  store i64 %7227, ptr %7220, align 8
-  store i64 %7228, ptr %7221, align 8
-  br label %7242
+JS_FreeValue.exit4289:                            ; preds = %7228, %7233, %7238
+  store i64 %7225, ptr %7218, align 8
+  store i64 %7226, ptr %7219, align 8
+  br label %7240
 
-7242:                                             ; preds = %JS_FreeValue.exit4289, %7219
-  %7243 = getelementptr i8, ptr %.23330, i64 1
+7240:                                             ; preds = %JS_FreeValue.exit4289, %7217
+  %7241 = getelementptr i8, ptr %.23330, i64 1
   br label %.backedge4994.backedge
 
-7244:                                             ; preds = %.backedge4994
-  %7245 = getelementptr i8, ptr %.23354, i64 -16
-  %7246 = getelementptr i8, ptr %.23354, i64 -8
-  %7247 = load i64, ptr %7246, align 8
-  %7248 = trunc i64 %7247 to i32
-  switch i32 %7248, label %7249 [
-    i32 0, label %7267
-    i32 -7, label %7267
-    i32 -8, label %7267
+7242:                                             ; preds = %.backedge4994
+  %7243 = getelementptr i8, ptr %.23354, i64 -16
+  %7244 = getelementptr i8, ptr %.23354, i64 -8
+  %7245 = load i64, ptr %7244, align 8
+  %7246 = trunc i64 %7245 to i32
+  switch i32 %7246, label %7247 [
+    i32 0, label %7265
+    i32 -7, label %7265
+    i32 -8, label %7265
   ]
 
-7249:                                             ; preds = %7244
-  %7250 = load i64, ptr %7245, align 8
-  %7251 = call { i64, i64 } @JS_ToStringInternal(ptr noundef %.1, i64 %7250, i64 %7247, i32 noundef 1)
-  %7252 = extractvalue { i64, i64 } %7251, 0
-  %7253 = extractvalue { i64, i64 } %7251, 1
-  %7254 = and i64 %7253, 4294967295
-  %.not4895 = icmp eq i64 %7254, 6
-  br i1 %.not4895, label %JS_FreeValue.exit3739.loopexit, label %7255
+7247:                                             ; preds = %7242
+  %7248 = load i64, ptr %7243, align 8
+  %7249 = call { i64, i64 } @JS_ToStringInternal(ptr noundef %.1, i64 %7248, i64 %7245, i32 noundef 1)
+  %7250 = extractvalue { i64, i64 } %7249, 0
+  %7251 = extractvalue { i64, i64 } %7249, 1
+  %7252 = and i64 %7251, 4294967295
+  %.not4895 = icmp eq i64 %7252, 6
+  br i1 %.not4895, label %JS_FreeValue.exit3739.loopexit, label %7253
 
-7255:                                             ; preds = %7249
-  %7256 = load i64, ptr %7245, align 8
-  %7257 = load i64, ptr %7246, align 8
-  %7258 = trunc i64 %7257 to i32
-  %7259 = icmp ugt i32 %7258, -12
-  br i1 %7259, label %7260, label %JS_FreeValue.exit4290
+7253:                                             ; preds = %7247
+  %7254 = load i64, ptr %7243, align 8
+  %7255 = load i64, ptr %7244, align 8
+  %7256 = trunc i64 %7255 to i32
+  %7257 = icmp ugt i32 %7256, -12
+  br i1 %7257, label %7258, label %JS_FreeValue.exit4290
 
-7260:                                             ; preds = %7255
-  %7261 = inttoptr i64 %7256 to ptr
-  %7262 = load i32, ptr %7261, align 4
-  %7263 = add i32 %7262, -1
-  store i32 %7263, ptr %7261, align 4
-  %7264 = icmp slt i32 %7263, 1
-  br i1 %7264, label %7265, label %JS_FreeValue.exit4290
+7258:                                             ; preds = %7253
+  %7259 = inttoptr i64 %7254 to ptr
+  %7260 = load i32, ptr %7259, align 4
+  %7261 = add i32 %7260, -1
+  store i32 %7261, ptr %7259, align 4
+  %7262 = icmp slt i32 %7261, 1
+  br i1 %7262, label %7263, label %JS_FreeValue.exit4290
 
-7265:                                             ; preds = %7260
-  %7266 = load ptr, ptr %237, align 8
-  call void @__JS_FreeValueRT(ptr noundef %7266, i64 %7256, i64 %7257)
+7263:                                             ; preds = %7258
+  %7264 = load ptr, ptr %237, align 8
+  call void @__JS_FreeValueRT(ptr noundef %7264, i64 %7254, i64 %7255)
   br label %JS_FreeValue.exit4290
 
-JS_FreeValue.exit4290:                            ; preds = %7255, %7260, %7265
-  store i64 %7252, ptr %7245, align 8
-  store i64 %7253, ptr %7246, align 8
-  br label %7267
+JS_FreeValue.exit4290:                            ; preds = %7253, %7258, %7263
+  store i64 %7250, ptr %7243, align 8
+  store i64 %7251, ptr %7244, align 8
+  br label %7265
 
-7267:                                             ; preds = %7244, %7244, %7244, %JS_FreeValue.exit4290
-  %7268 = getelementptr i8, ptr %.23330, i64 1
+7265:                                             ; preds = %7242, %7242, %7242, %JS_FreeValue.exit4290
+  %7266 = getelementptr i8, ptr %.23330, i64 1
   br label %.backedge4994.backedge
 
-7269:                                             ; preds = %.backedge4994
-  %7270 = getelementptr i8, ptr %.23354, i64 -24
-  %7271 = load i64, ptr %7270, align 8
-  %7272 = and i64 %7271, 4294967294
-  %switch4972 = icmp eq i64 %7272, 2
-  br i1 %switch4972, label %.critedge3611, label %7274
+7267:                                             ; preds = %.backedge4994
+  %7268 = getelementptr i8, ptr %.23354, i64 -24
+  %7269 = load i64, ptr %7268, align 8
+  %7270 = and i64 %7269, 4294967294
+  %switch4972 = icmp eq i64 %7270, 2
+  br i1 %switch4972, label %.critedge3611, label %7272
 
-.critedge3611:                                    ; preds = %7269
-  %7273 = call { i64, i64 } (ptr, ptr, ...) @JS_ThrowTypeError(ptr noundef %.1, ptr noundef nonnull @.str.139)
+.critedge3611:                                    ; preds = %7267
+  %7271 = call { i64, i64 } (ptr, ptr, ...) @JS_ThrowTypeError(ptr noundef %.1, ptr noundef nonnull @.str.139)
   br label %JS_FreeValue.exit3739
 
-7274:                                             ; preds = %7269
-  %7275 = getelementptr i8, ptr %.23354, i64 -16
-  %7276 = getelementptr i8, ptr %.23354, i64 -8
-  %7277 = load i64, ptr %7276, align 8
-  %7278 = trunc i64 %7277 to i32
-  switch i32 %7278, label %7279 [
-    i32 0, label %7297
-    i32 -7, label %7297
-    i32 -8, label %7297
+7272:                                             ; preds = %7267
+  %7273 = getelementptr i8, ptr %.23354, i64 -16
+  %7274 = getelementptr i8, ptr %.23354, i64 -8
+  %7275 = load i64, ptr %7274, align 8
+  %7276 = trunc i64 %7275 to i32
+  switch i32 %7276, label %7277 [
+    i32 0, label %7295
+    i32 -7, label %7295
+    i32 -8, label %7295
   ]
 
-7279:                                             ; preds = %7274
-  %7280 = load i64, ptr %7275, align 8
-  %7281 = call { i64, i64 } @JS_ToStringInternal(ptr noundef %.1, i64 %7280, i64 %7277, i32 noundef 1)
-  %7282 = extractvalue { i64, i64 } %7281, 0
-  %7283 = extractvalue { i64, i64 } %7281, 1
-  %7284 = and i64 %7283, 4294967295
-  %.not4894 = icmp eq i64 %7284, 6
-  br i1 %.not4894, label %JS_FreeValue.exit3739.loopexit, label %7285
+7277:                                             ; preds = %7272
+  %7278 = load i64, ptr %7273, align 8
+  %7279 = call { i64, i64 } @JS_ToStringInternal(ptr noundef %.1, i64 %7278, i64 %7275, i32 noundef 1)
+  %7280 = extractvalue { i64, i64 } %7279, 0
+  %7281 = extractvalue { i64, i64 } %7279, 1
+  %7282 = and i64 %7281, 4294967295
+  %.not4894 = icmp eq i64 %7282, 6
+  br i1 %.not4894, label %JS_FreeValue.exit3739.loopexit, label %7283
 
-7285:                                             ; preds = %7279
-  %7286 = load i64, ptr %7275, align 8
-  %7287 = load i64, ptr %7276, align 8
-  %7288 = trunc i64 %7287 to i32
-  %7289 = icmp ugt i32 %7288, -12
-  br i1 %7289, label %7290, label %JS_FreeValue.exit4291
+7283:                                             ; preds = %7277
+  %7284 = load i64, ptr %7273, align 8
+  %7285 = load i64, ptr %7274, align 8
+  %7286 = trunc i64 %7285 to i32
+  %7287 = icmp ugt i32 %7286, -12
+  br i1 %7287, label %7288, label %JS_FreeValue.exit4291
 
-7290:                                             ; preds = %7285
-  %7291 = inttoptr i64 %7286 to ptr
-  %7292 = load i32, ptr %7291, align 4
-  %7293 = add i32 %7292, -1
-  store i32 %7293, ptr %7291, align 4
-  %7294 = icmp slt i32 %7293, 1
-  br i1 %7294, label %7295, label %JS_FreeValue.exit4291
+7288:                                             ; preds = %7283
+  %7289 = inttoptr i64 %7284 to ptr
+  %7290 = load i32, ptr %7289, align 4
+  %7291 = add i32 %7290, -1
+  store i32 %7291, ptr %7289, align 4
+  %7292 = icmp slt i32 %7291, 1
+  br i1 %7292, label %7293, label %JS_FreeValue.exit4291
 
-7295:                                             ; preds = %7290
-  %7296 = load ptr, ptr %237, align 8
-  call void @__JS_FreeValueRT(ptr noundef %7296, i64 %7286, i64 %7287)
+7293:                                             ; preds = %7288
+  %7294 = load ptr, ptr %237, align 8
+  call void @__JS_FreeValueRT(ptr noundef %7294, i64 %7284, i64 %7285)
   br label %JS_FreeValue.exit4291
 
-JS_FreeValue.exit4291:                            ; preds = %7285, %7290, %7295
-  store i64 %7282, ptr %7275, align 8
-  store i64 %7283, ptr %7276, align 8
-  br label %7297
+JS_FreeValue.exit4291:                            ; preds = %7283, %7288, %7293
+  store i64 %7280, ptr %7273, align 8
+  store i64 %7281, ptr %7274, align 8
+  br label %7295
 
-7297:                                             ; preds = %7274, %7274, %7274, %JS_FreeValue.exit4291
-  %7298 = getelementptr i8, ptr %.23330, i64 1
+7295:                                             ; preds = %7272, %7272, %7272, %JS_FreeValue.exit4291
+  %7296 = getelementptr i8, ptr %.23330, i64 1
   br label %.backedge4994.backedge
 
-7299:                                             ; preds = %.backedge4994
+7297:                                             ; preds = %.backedge4994
   %.23330.val3639 = load i32, ptr %.23330, align 1
-  %7300 = getelementptr i8, ptr %.23330, i64 4
-  %.val = load i32, ptr %7300, align 1
-  %7301 = getelementptr i8, ptr %.23330, i64 8
-  %7302 = load i8, ptr %7301, align 1
-  %7303 = getelementptr i8, ptr %.23330, i64 9
-  %7304 = getelementptr i8, ptr %.23354, i64 -16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %81, ptr noundef nonnull align 8 dereferenceable(16) %7304, i64 16, i1 false)
-  %7305 = load i64, ptr %81, align 8
-  %7306 = load i64, ptr %264, align 8
-  %7307 = call i32 @JS_HasProperty(ptr noundef %.1, i64 %7305, i64 %7306, i32 noundef %.23330.val3639)
-  %7308 = icmp slt i32 %7307, 0
-  br i1 %7308, label %JS_FreeValue.exit3739.loopexit, label %7309
+  %7298 = getelementptr i8, ptr %.23330, i64 4
+  %.val = load i32, ptr %7298, align 1
+  %7299 = getelementptr i8, ptr %.23330, i64 8
+  %7300 = load i8, ptr %7299, align 1
+  %7301 = getelementptr i8, ptr %.23330, i64 9
+  %7302 = getelementptr i8, ptr %.23354, i64 -16
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %81, ptr noundef nonnull align 8 dereferenceable(16) %7302, i64 16, i1 false)
+  %7303 = load i64, ptr %81, align 8
+  %7304 = load i64, ptr %264, align 8
+  %7305 = call i32 @JS_HasProperty(ptr noundef %.1, i64 %7303, i64 %7304, i32 noundef %.23330.val3639)
+  %7306 = icmp slt i32 %7305, 0
+  br i1 %7306, label %JS_FreeValue.exit3739.loopexit, label %7307
 
-7309:                                             ; preds = %7299
-  %.not3514 = icmp eq i32 %7307, 0
-  br i1 %.not3514, label %7419, label %7310
+7307:                                             ; preds = %7297
+  %.not3514 = icmp eq i32 %7305, 0
+  br i1 %.not3514, label %7417, label %7308
 
-7310:                                             ; preds = %7309
-  %.not3515 = icmp eq i8 %7302, 0
-  br i1 %.not3515, label %.thread6721, label %7311
+7308:                                             ; preds = %7307
+  %.not3515 = icmp eq i8 %7300, 0
+  br i1 %.not3515, label %.thread6718, label %7309
 
-7311:                                             ; preds = %7310
-  %7312 = load i64, ptr %81, align 8
-  %7313 = load i64, ptr %264, align 8
-  %7314 = call { i64, i64 } @JS_GetPropertyInternal(ptr noundef %.1, i64 %7312, i64 %7313, i32 noundef 224, i64 %7312, i64 %7313, i32 noundef 0)
-  %7315 = extractvalue { i64, i64 } %7314, 0
-  %7316 = extractvalue { i64, i64 } %7314, 1
-  %trunc.i6660 = trunc i64 %7316 to i32
-  switch i32 %trunc.i6660, label %7321 [
+7309:                                             ; preds = %7308
+  %7310 = load i64, ptr %81, align 8
+  %7311 = load i64, ptr %264, align 8
+  %7312 = call { i64, i64 } @JS_GetPropertyInternal(ptr noundef %.1, i64 %7310, i64 %7311, i32 noundef 224, i64 %7310, i64 %7311, i32 noundef 0)
+  %7313 = extractvalue { i64, i64 } %7312, 0
+  %7314 = extractvalue { i64, i64 } %7312, 1
+  %trunc.i6657 = trunc i64 %7314 to i32
+  switch i32 %trunc.i6657, label %7319 [
     i32 6, label %JS_FreeValue.exit3739.loopexit
     i32 -1, label %.thread.i
   ]
 
-.thread.i:                                        ; preds = %7311
-  %7317 = call { i64, i64 } @JS_GetPropertyInternal(ptr noundef %.1, i64 %7315, i64 %7316, i32 noundef %.23330.val3639, i64 %7315, i64 %7316, i32 noundef 0)
-  %7318 = extractvalue { i64, i64 } %7317, 0
-  %7319 = extractvalue { i64, i64 } %7317, 1
-  %7320 = call fastcc i32 @JS_ToBoolFree(ptr noundef %.1, i64 %7318, i64 %7319)
-  br label %7323
+.thread.i:                                        ; preds = %7309
+  %7315 = call { i64, i64 } @JS_GetPropertyInternal(ptr noundef %.1, i64 %7313, i64 %7314, i32 noundef %.23330.val3639, i64 %7313, i64 %7314, i32 noundef 0)
+  %7316 = extractvalue { i64, i64 } %7315, 0
+  %7317 = extractvalue { i64, i64 } %7315, 1
+  %7318 = call fastcc i32 @JS_ToBoolFree(ptr noundef %.1, i64 %7316, i64 %7317)
+  br label %7321
 
-7321:                                             ; preds = %7311
-  %7322 = icmp ugt i32 %trunc.i6660, -12
-  br i1 %7322, label %7323, label %.thread6721
+7319:                                             ; preds = %7309
+  %7320 = icmp ugt i32 %trunc.i6657, -12
+  br i1 %7320, label %7321, label %.thread6718
 
-7323:                                             ; preds = %7321, %.thread.i
-  %.03640.i = phi i32 [ %7320, %.thread.i ], [ 0, %7321 ]
-  %7324 = inttoptr i64 %7315 to ptr
-  %7325 = load i32, ptr %7324, align 4
-  %7326 = add i32 %7325, -1
-  store i32 %7326, ptr %7324, align 4
-  %7327 = icmp slt i32 %7326, 1
-  br i1 %7327, label %7328, label %js_has_unscopable.exit
+7321:                                             ; preds = %7319, %.thread.i
+  %.03640.i = phi i32 [ %7318, %.thread.i ], [ 0, %7319 ]
+  %7322 = inttoptr i64 %7313 to ptr
+  %7323 = load i32, ptr %7322, align 4
+  %7324 = add i32 %7323, -1
+  store i32 %7324, ptr %7322, align 4
+  %7325 = icmp slt i32 %7324, 1
+  br i1 %7325, label %7326, label %js_has_unscopable.exit
 
-7328:                                             ; preds = %7323
-  %7329 = load ptr, ptr %237, align 8
-  call void @__JS_FreeValueRT(ptr noundef %7329, i64 %7315, i64 %7316)
+7326:                                             ; preds = %7321
+  %7327 = load ptr, ptr %237, align 8
+  call void @__JS_FreeValueRT(ptr noundef %7327, i64 %7313, i64 %7314)
   br label %js_has_unscopable.exit
 
-js_has_unscopable.exit:                           ; preds = %7323, %7328
-  %7330 = icmp slt i32 %.03640.i, 0
-  br i1 %7330, label %JS_FreeValue.exit3739.loopexit, label %7331
+js_has_unscopable.exit:                           ; preds = %7321, %7326
+  %7328 = icmp slt i32 %.03640.i, 0
+  br i1 %7328, label %JS_FreeValue.exit3739.loopexit, label %7329
 
-7331:                                             ; preds = %js_has_unscopable.exit
+7329:                                             ; preds = %js_has_unscopable.exit
   %.not3516 = icmp eq i32 %.03640.i, 0
-  br i1 %.not3516, label %.thread6721, label %7419
+  br i1 %.not3516, label %.thread6718, label %7417
 
-.thread6721:                                      ; preds = %7321, %7331, %7310
-  switch i8 %.03333.in, label %7415 [
-    i8 116, label %7332
-    i8 117, label %7340
-    i8 118, label %7361
-    i8 119, label %7380
-    i8 120, label %7385
-    i8 121, label %7394
+.thread6718:                                      ; preds = %7319, %7329, %7308
+  switch i8 %.03333.in, label %7413 [
+    i8 116, label %7330
+    i8 117, label %7338
+    i8 118, label %7359
+    i8 119, label %7378
+    i8 120, label %7383
+    i8 121, label %7392
   ]
 
-7332:                                             ; preds = %.thread6721
-  %7333 = load i64, ptr %81, align 8
-  %7334 = load i64, ptr %264, align 8
-  %7335 = call { i64, i64 } @JS_GetPropertyInternal(ptr noundef %.1, i64 %7333, i64 %7334, i32 noundef %.23330.val3639, i64 %7333, i64 %7334, i32 noundef 0)
-  %7336 = extractvalue { i64, i64 } %7335, 1
-  %7337 = and i64 %7336, 4294967295
-  %.not4892 = icmp eq i64 %7337, 6
-  br i1 %.not4892, label %JS_FreeValue.exit3739.loopexit, label %7338
+7330:                                             ; preds = %.thread6718
+  %7331 = load i64, ptr %81, align 8
+  %7332 = load i64, ptr %264, align 8
+  %7333 = call { i64, i64 } @JS_GetPropertyInternal(ptr noundef %.1, i64 %7331, i64 %7332, i32 noundef %.23330.val3639, i64 %7331, i64 %7332, i32 noundef 0)
+  %7334 = extractvalue { i64, i64 } %7333, 1
+  %7335 = and i64 %7334, 4294967295
+  %.not4892 = icmp eq i64 %7335, 6
+  br i1 %.not4892, label %JS_FreeValue.exit3739.loopexit, label %7336
 
-7338:                                             ; preds = %7332
-  %7339 = extractvalue { i64, i64 } %7335, 0
-  call fastcc void @set_value(ptr noundef %.1, ptr noundef %7304, i64 %7339, i64 %7336)
-  br label %7415
+7336:                                             ; preds = %7330
+  %7337 = extractvalue { i64, i64 } %7333, 0
+  call fastcc void @set_value(ptr noundef %.1, ptr noundef %7302, i64 %7337, i64 %7334)
+  br label %7413
 
-7340:                                             ; preds = %.thread6721
-  %7341 = getelementptr i8, ptr %.23354, i64 -32
-  %7342 = load i64, ptr %81, align 8
-  %7343 = load i64, ptr %264, align 8
-  %7344 = load i64, ptr %7341, align 8
-  %7345 = getelementptr i8, ptr %.23354, i64 -24
-  %7346 = load i64, ptr %7345, align 8
-  %7347 = call i32 @JS_SetPropertyInternal(ptr noundef %.1, i64 %7342, i64 %7343, i32 noundef %.23330.val3639, i64 %7344, i64 %7346, ptr noundef nonnull byval(%struct.JSValue) align 8 %81, i32 noundef 32768)
-  %7348 = load i64, ptr %7304, align 8
-  %7349 = getelementptr i8, ptr %.23354, i64 -8
-  %7350 = load i64, ptr %7349, align 8
-  %7351 = trunc i64 %7350 to i32
-  %7352 = icmp ugt i32 %7351, -12
-  br i1 %7352, label %7353, label %JS_FreeValue.exit4292
+7338:                                             ; preds = %.thread6718
+  %7339 = getelementptr i8, ptr %.23354, i64 -32
+  %7340 = load i64, ptr %81, align 8
+  %7341 = load i64, ptr %264, align 8
+  %7342 = load i64, ptr %7339, align 8
+  %7343 = getelementptr i8, ptr %.23354, i64 -24
+  %7344 = load i64, ptr %7343, align 8
+  %7345 = call i32 @JS_SetPropertyInternal(ptr noundef %.1, i64 %7340, i64 %7341, i32 noundef %.23330.val3639, i64 %7342, i64 %7344, ptr noundef nonnull byval(%struct.JSValue) align 8 %81, i32 noundef 32768)
+  %7346 = load i64, ptr %7302, align 8
+  %7347 = getelementptr i8, ptr %.23354, i64 -8
+  %7348 = load i64, ptr %7347, align 8
+  %7349 = trunc i64 %7348 to i32
+  %7350 = icmp ugt i32 %7349, -12
+  br i1 %7350, label %7351, label %JS_FreeValue.exit4292
 
-7353:                                             ; preds = %7340
-  %7354 = inttoptr i64 %7348 to ptr
-  %7355 = load i32, ptr %7354, align 4
-  %7356 = add i32 %7355, -1
-  store i32 %7356, ptr %7354, align 4
-  %7357 = icmp slt i32 %7356, 1
-  br i1 %7357, label %7358, label %JS_FreeValue.exit4292
+7351:                                             ; preds = %7338
+  %7352 = inttoptr i64 %7346 to ptr
+  %7353 = load i32, ptr %7352, align 4
+  %7354 = add i32 %7353, -1
+  store i32 %7354, ptr %7352, align 4
+  %7355 = icmp slt i32 %7354, 1
+  br i1 %7355, label %7356, label %JS_FreeValue.exit4292
 
-7358:                                             ; preds = %7353
-  %7359 = load ptr, ptr %237, align 8
-  call void @__JS_FreeValueRT(ptr noundef %7359, i64 %7348, i64 %7350)
+7356:                                             ; preds = %7351
+  %7357 = load ptr, ptr %237, align 8
+  call void @__JS_FreeValueRT(ptr noundef %7357, i64 %7346, i64 %7348)
   br label %JS_FreeValue.exit4292
 
-JS_FreeValue.exit4292:                            ; preds = %7340, %7353, %7358
-  %7360 = icmp slt i32 %7347, 0
-  br i1 %7360, label %JS_FreeValue.exit3739.loopexit, label %7415
+JS_FreeValue.exit4292:                            ; preds = %7338, %7351, %7356
+  %7358 = icmp slt i32 %7345, 0
+  br i1 %7358, label %JS_FreeValue.exit3739.loopexit, label %7413
 
-7361:                                             ; preds = %.thread6721
-  %7362 = load i64, ptr %81, align 8
-  %7363 = load i64, ptr %264, align 8
-  %7364 = call i32 @JS_DeleteProperty(ptr noundef %.1, i64 %7362, i64 %7363, i32 noundef %.23330.val3639, i32 noundef 0)
-  %7365 = icmp slt i32 %7364, 0
-  br i1 %7365, label %JS_FreeValue.exit3739.loopexit, label %7366
+7359:                                             ; preds = %.thread6718
+  %7360 = load i64, ptr %81, align 8
+  %7361 = load i64, ptr %264, align 8
+  %7362 = call i32 @JS_DeleteProperty(ptr noundef %.1, i64 %7360, i64 %7361, i32 noundef %.23330.val3639, i32 noundef 0)
+  %7363 = icmp slt i32 %7362, 0
+  br i1 %7363, label %JS_FreeValue.exit3739.loopexit, label %7364
 
-7366:                                             ; preds = %7361
-  %7367 = load i64, ptr %7304, align 8
-  %7368 = getelementptr i8, ptr %.23354, i64 -8
-  %7369 = load i64, ptr %7368, align 8
-  %7370 = trunc i64 %7369 to i32
-  %7371 = icmp ugt i32 %7370, -12
-  br i1 %7371, label %7372, label %JS_FreeValue.exit4293
+7364:                                             ; preds = %7359
+  %7365 = load i64, ptr %7302, align 8
+  %7366 = getelementptr i8, ptr %.23354, i64 -8
+  %7367 = load i64, ptr %7366, align 8
+  %7368 = trunc i64 %7367 to i32
+  %7369 = icmp ugt i32 %7368, -12
+  br i1 %7369, label %7370, label %JS_FreeValue.exit4293
 
-7372:                                             ; preds = %7366
-  %7373 = inttoptr i64 %7367 to ptr
-  %7374 = load i32, ptr %7373, align 4
-  %7375 = add i32 %7374, -1
-  store i32 %7375, ptr %7373, align 4
-  %7376 = icmp slt i32 %7375, 1
-  br i1 %7376, label %7377, label %JS_FreeValue.exit4293
+7370:                                             ; preds = %7364
+  %7371 = inttoptr i64 %7365 to ptr
+  %7372 = load i32, ptr %7371, align 4
+  %7373 = add i32 %7372, -1
+  store i32 %7373, ptr %7371, align 4
+  %7374 = icmp slt i32 %7373, 1
+  br i1 %7374, label %7375, label %JS_FreeValue.exit4293
 
-7377:                                             ; preds = %7372
-  %7378 = load ptr, ptr %237, align 8
-  call void @__JS_FreeValueRT(ptr noundef %7378, i64 %7367, i64 %7369)
+7375:                                             ; preds = %7370
+  %7376 = load ptr, ptr %237, align 8
+  call void @__JS_FreeValueRT(ptr noundef %7376, i64 %7365, i64 %7367)
   br label %JS_FreeValue.exit4293
 
-JS_FreeValue.exit4293:                            ; preds = %7366, %7372, %7377
-  %7379 = icmp ne i32 %7364, 0
-  %.sroa.03226.0.insert.ext = zext i1 %7379 to i64
-  store i64 %.sroa.03226.0.insert.ext, ptr %7304, align 8
-  store i64 1, ptr %7368, align 8
-  br label %7415
+JS_FreeValue.exit4293:                            ; preds = %7364, %7370, %7375
+  %7377 = icmp ne i32 %7362, 0
+  %.sroa.03226.0.insert.ext = zext i1 %7377 to i64
+  store i64 %.sroa.03226.0.insert.ext, ptr %7302, align 8
+  store i64 1, ptr %7366, align 8
+  br label %7413
 
-7380:                                             ; preds = %.thread6721
-  %7381 = getelementptr i8, ptr %.23354, i64 16
-  %7382 = call fastcc { i64, i64 } @__JS_AtomToValue(ptr noundef %.1, i32 noundef %.23330.val3639, i32 noundef 0)
-  %7383 = extractvalue { i64, i64 } %7382, 0
-  %7384 = extractvalue { i64, i64 } %7382, 1
-  store i64 %7383, ptr %.23354, align 8
+7378:                                             ; preds = %.thread6718
+  %7379 = getelementptr i8, ptr %.23354, i64 16
+  %7380 = call fastcc { i64, i64 } @__JS_AtomToValue(ptr noundef %.1, i32 noundef %.23330.val3639, i32 noundef 0)
+  %7381 = extractvalue { i64, i64 } %7380, 0
+  %7382 = extractvalue { i64, i64 } %7380, 1
+  store i64 %7381, ptr %.23354, align 8
   %.sroa.256.0..sroa_idx = getelementptr inbounds i8, ptr %.23354, i64 8
-  store i64 %7384, ptr %.sroa.256.0..sroa_idx, align 8
-  br label %7415
+  store i64 %7382, ptr %.sroa.256.0..sroa_idx, align 8
+  br label %7413
 
-7385:                                             ; preds = %.thread6721
-  %7386 = load i64, ptr %81, align 8
-  %7387 = load i64, ptr %264, align 8
-  %7388 = call { i64, i64 } @JS_GetPropertyInternal(ptr noundef %.1, i64 %7386, i64 %7387, i32 noundef %.23330.val3639, i64 %7386, i64 %7387, i32 noundef 0)
-  %7389 = extractvalue { i64, i64 } %7388, 1
-  %7390 = and i64 %7389, 4294967295
-  %.not4891 = icmp eq i64 %7390, 6
-  br i1 %.not4891, label %JS_FreeValue.exit3739.loopexit, label %7391
+7383:                                             ; preds = %.thread6718
+  %7384 = load i64, ptr %81, align 8
+  %7385 = load i64, ptr %264, align 8
+  %7386 = call { i64, i64 } @JS_GetPropertyInternal(ptr noundef %.1, i64 %7384, i64 %7385, i32 noundef %.23330.val3639, i64 %7384, i64 %7385, i32 noundef 0)
+  %7387 = extractvalue { i64, i64 } %7386, 1
+  %7388 = and i64 %7387, 4294967295
+  %.not4891 = icmp eq i64 %7388, 6
+  br i1 %.not4891, label %JS_FreeValue.exit3739.loopexit, label %7389
 
-7391:                                             ; preds = %7385
-  %7392 = extractvalue { i64, i64 } %7388, 0
-  %7393 = getelementptr i8, ptr %.23354, i64 16
-  store i64 %7392, ptr %.23354, align 8
+7389:                                             ; preds = %7383
+  %7390 = extractvalue { i64, i64 } %7386, 0
+  %7391 = getelementptr i8, ptr %.23354, i64 16
+  store i64 %7390, ptr %.23354, align 8
   %.sroa.9.0..sroa_idx = getelementptr inbounds i8, ptr %.23354, i64 8
-  store i64 %7389, ptr %.sroa.9.0..sroa_idx, align 8
-  br label %7415
+  store i64 %7387, ptr %.sroa.9.0..sroa_idx, align 8
+  br label %7413
 
-7394:                                             ; preds = %.thread6721
-  %7395 = load i64, ptr %81, align 8
-  %7396 = load i64, ptr %264, align 8
-  %7397 = call { i64, i64 } @JS_GetPropertyInternal(ptr noundef %.1, i64 %7395, i64 %7396, i32 noundef %.23330.val3639, i64 %7395, i64 %7396, i32 noundef 0)
-  %7398 = extractvalue { i64, i64 } %7397, 0
-  %7399 = extractvalue { i64, i64 } %7397, 1
-  %7400 = and i64 %7399, 4294967295
-  %.not4890 = icmp eq i64 %7400, 6
-  br i1 %.not4890, label %JS_FreeValue.exit3739.loopexit, label %7401
+7392:                                             ; preds = %.thread6718
+  %7393 = load i64, ptr %81, align 8
+  %7394 = load i64, ptr %264, align 8
+  %7395 = call { i64, i64 } @JS_GetPropertyInternal(ptr noundef %.1, i64 %7393, i64 %7394, i32 noundef %.23330.val3639, i64 %7393, i64 %7394, i32 noundef 0)
+  %7396 = extractvalue { i64, i64 } %7395, 0
+  %7397 = extractvalue { i64, i64 } %7395, 1
+  %7398 = and i64 %7397, 4294967295
+  %.not4890 = icmp eq i64 %7398, 6
+  br i1 %.not4890, label %JS_FreeValue.exit3739.loopexit, label %7399
 
-7401:                                             ; preds = %7394
-  %7402 = load i64, ptr %7304, align 8
-  %7403 = getelementptr i8, ptr %.23354, i64 -8
-  %7404 = load i64, ptr %7403, align 8
-  %7405 = trunc i64 %7404 to i32
-  %7406 = icmp ugt i32 %7405, -12
-  br i1 %7406, label %7407, label %JS_FreeValue.exit4294
+7399:                                             ; preds = %7392
+  %7400 = load i64, ptr %7302, align 8
+  %7401 = getelementptr i8, ptr %.23354, i64 -8
+  %7402 = load i64, ptr %7401, align 8
+  %7403 = trunc i64 %7402 to i32
+  %7404 = icmp ugt i32 %7403, -12
+  br i1 %7404, label %7405, label %JS_FreeValue.exit4294
 
-7407:                                             ; preds = %7401
-  %7408 = inttoptr i64 %7402 to ptr
-  %7409 = load i32, ptr %7408, align 4
-  %7410 = add i32 %7409, -1
-  store i32 %7410, ptr %7408, align 4
-  %7411 = icmp slt i32 %7410, 1
-  br i1 %7411, label %7412, label %JS_FreeValue.exit4294
+7405:                                             ; preds = %7399
+  %7406 = inttoptr i64 %7400 to ptr
+  %7407 = load i32, ptr %7406, align 4
+  %7408 = add i32 %7407, -1
+  store i32 %7408, ptr %7406, align 4
+  %7409 = icmp slt i32 %7408, 1
+  br i1 %7409, label %7410, label %JS_FreeValue.exit4294
 
-7412:                                             ; preds = %7407
-  %7413 = load ptr, ptr %237, align 8
-  call void @__JS_FreeValueRT(ptr noundef %7413, i64 %7402, i64 %7404)
+7410:                                             ; preds = %7405
+  %7411 = load ptr, ptr %237, align 8
+  call void @__JS_FreeValueRT(ptr noundef %7411, i64 %7400, i64 %7402)
   br label %JS_FreeValue.exit4294
 
-JS_FreeValue.exit4294:                            ; preds = %7401, %7407, %7412
-  store i32 0, ptr %7304, align 8
-  store i64 3, ptr %7403, align 8
-  %7414 = getelementptr i8, ptr %.23354, i64 16
-  store i64 %7398, ptr %.23354, align 8
+JS_FreeValue.exit4294:                            ; preds = %7399, %7405, %7410
+  store i32 0, ptr %7302, align 8
+  store i64 3, ptr %7401, align 8
+  %7412 = getelementptr i8, ptr %.23354, i64 16
+  store i64 %7396, ptr %.23354, align 8
   %.sroa.9.0..sroa_idx74 = getelementptr inbounds i8, ptr %.23354, i64 8
-  store i64 %7399, ptr %.sroa.9.0..sroa_idx74, align 8
-  br label %7415
+  store i64 %7397, ptr %.sroa.9.0..sroa_idx74, align 8
+  br label %7413
 
-7415:                                             ; preds = %JS_FreeValue.exit4292, %JS_FreeValue.exit4294, %7391, %7380, %JS_FreeValue.exit4293, %7338, %.thread6721
-  %.24 = phi ptr [ %.23354, %.thread6721 ], [ %7414, %JS_FreeValue.exit4294 ], [ %7393, %7391 ], [ %7381, %7380 ], [ %.23354, %JS_FreeValue.exit4293 ], [ %7341, %JS_FreeValue.exit4292 ], [ %.23354, %7338 ]
-  %7416 = add i32 %.val, -5
-  %7417 = sext i32 %7416 to i64
-  %7418 = getelementptr i8, ptr %7303, i64 %7417
+7413:                                             ; preds = %JS_FreeValue.exit4292, %JS_FreeValue.exit4294, %7389, %7378, %JS_FreeValue.exit4293, %7336, %.thread6718
+  %.24 = phi ptr [ %.23354, %.thread6718 ], [ %7412, %JS_FreeValue.exit4294 ], [ %7391, %7389 ], [ %7379, %7378 ], [ %.23354, %JS_FreeValue.exit4293 ], [ %7339, %JS_FreeValue.exit4292 ], [ %.23354, %7336 ]
+  %7414 = add i32 %.val, -5
+  %7415 = sext i32 %7414 to i64
+  %7416 = getelementptr i8, ptr %7301, i64 %7415
   br label %JS_FreeValue.exit4295
 
-7419:                                             ; preds = %7309, %7331
-  %7420 = load i64, ptr %7304, align 8
-  %7421 = getelementptr i8, ptr %.23354, i64 -8
-  %7422 = load i64, ptr %7421, align 8
-  %7423 = trunc i64 %7422 to i32
-  %7424 = icmp ugt i32 %7423, -12
-  br i1 %7424, label %7425, label %JS_FreeValue.exit4295
+7417:                                             ; preds = %7307, %7329
+  %7418 = load i64, ptr %7302, align 8
+  %7419 = getelementptr i8, ptr %.23354, i64 -8
+  %7420 = load i64, ptr %7419, align 8
+  %7421 = trunc i64 %7420 to i32
+  %7422 = icmp ugt i32 %7421, -12
+  br i1 %7422, label %7423, label %JS_FreeValue.exit4295
 
-7425:                                             ; preds = %7419
-  %7426 = inttoptr i64 %7420 to ptr
-  %7427 = load i32, ptr %7426, align 4
-  %7428 = add i32 %7427, -1
-  store i32 %7428, ptr %7426, align 4
-  %7429 = icmp slt i32 %7428, 1
-  br i1 %7429, label %7430, label %JS_FreeValue.exit4295
+7423:                                             ; preds = %7417
+  %7424 = inttoptr i64 %7418 to ptr
+  %7425 = load i32, ptr %7424, align 4
+  %7426 = add i32 %7425, -1
+  store i32 %7426, ptr %7424, align 4
+  %7427 = icmp slt i32 %7426, 1
+  br i1 %7427, label %7428, label %JS_FreeValue.exit4295
 
-7430:                                             ; preds = %7425
-  %7431 = load ptr, ptr %237, align 8
-  call void @__JS_FreeValueRT(ptr noundef %7431, i64 %7420, i64 %7422)
+7428:                                             ; preds = %7423
+  %7429 = load ptr, ptr %237, align 8
+  call void @__JS_FreeValueRT(ptr noundef %7429, i64 %7418, i64 %7420)
   br label %JS_FreeValue.exit4295
 
-JS_FreeValue.exit4295:                            ; preds = %7430, %7425, %7419, %7415
-  %.25 = phi ptr [ %.24, %7415 ], [ %7304, %7419 ], [ %7304, %7425 ], [ %7304, %7430 ]
-  %.9 = phi ptr [ %7418, %7415 ], [ %7303, %7419 ], [ %7303, %7425 ], [ %7303, %7430 ]
-  %7432 = getelementptr i8, ptr %.9, i64 1
+JS_FreeValue.exit4295:                            ; preds = %7428, %7423, %7417, %7413
+  %.25 = phi ptr [ %.24, %7413 ], [ %7302, %7417 ], [ %7302, %7423 ], [ %7302, %7428 ]
+  %.9 = phi ptr [ %7416, %7413 ], [ %7301, %7417 ], [ %7301, %7423 ], [ %7301, %7428 ]
+  %7430 = getelementptr i8, ptr %.9, i64 1
   br label %.backedge4994.backedge
+
+7431:                                             ; preds = %.backedge4994
+  br label %7614
+
+7432:                                             ; preds = %.backedge4994
+  br label %7614
 
 7433:                                             ; preds = %.backedge4994
-  br label %7616
+  br label %7614
 
 7434:                                             ; preds = %.backedge4994
-  br label %7616
+  br label %7614
 
 7435:                                             ; preds = %.backedge4994
-  br label %7616
-
-7436:                                             ; preds = %.backedge4994
-  br label %7616
-
-7437:                                             ; preds = %.backedge4994
-  %7438 = getelementptr i8, ptr %.23330, i64 1
+  %7436 = getelementptr i8, ptr %.23330, i64 1
   br label %.backedge4994.backedge
 
-7439:                                             ; preds = %.backedge4994
-  %7440 = getelementptr i8, ptr %.23354, i64 -8
-  %7441 = load i64, ptr %7440, align 8
-  %7442 = and i64 %7441, 4294967294
-  %switch = icmp eq i64 %7442, 2
+7437:                                             ; preds = %.backedge4994
+  %7438 = getelementptr i8, ptr %.23354, i64 -8
+  %7439 = load i64, ptr %7438, align 8
+  %7440 = and i64 %7439, 4294967294
+  %switch = icmp eq i64 %7440, 2
   br i1 %switch, label %JS_FreeValue.exit4312, label %js_operator_typeof.exit4303.thread
 
-7443:                                             ; preds = %.backedge4994
-  %7444 = getelementptr i8, ptr %.23354, i64 -8
-  %7445 = load i64, ptr %7444, align 8
-  %7446 = and i64 %7445, 4294967295
-  %7447 = icmp eq i64 %7446, 3
-  br i1 %7447, label %JS_FreeValue.exit4312, label %js_operator_typeof.exit4303.thread
+7441:                                             ; preds = %.backedge4994
+  %7442 = getelementptr i8, ptr %.23354, i64 -8
+  %7443 = load i64, ptr %7442, align 8
+  %7444 = and i64 %7443, 4294967295
+  %7445 = icmp eq i64 %7444, 3
+  br i1 %7445, label %JS_FreeValue.exit4312, label %js_operator_typeof.exit4303.thread
 
-7448:                                             ; preds = %.backedge4994
-  %7449 = getelementptr i8, ptr %.23354, i64 -8
-  %7450 = load i64, ptr %7449, align 8
-  %7451 = and i64 %7450, 4294967295
-  %7452 = icmp eq i64 %7451, 2
-  br i1 %7452, label %JS_FreeValue.exit4312, label %js_operator_typeof.exit4303.thread
+7446:                                             ; preds = %.backedge4994
+  %7447 = getelementptr i8, ptr %.23354, i64 -8
+  %7448 = load i64, ptr %7447, align 8
+  %7449 = and i64 %7448, 4294967295
+  %7450 = icmp eq i64 %7449, 2
+  br i1 %7450, label %JS_FreeValue.exit4312, label %js_operator_typeof.exit4303.thread
 
-7453:                                             ; preds = %.backedge4994
-  %7454 = getelementptr i8, ptr %.23354, i64 -8
-  %7455 = load i64, ptr %7454, align 8
-  %7456 = trunc i64 %7455 to i32
-  switch i32 %7456, label %js_operator_typeof.exit4303.thread [
-    i32 -1, label %7457
+7451:                                             ; preds = %.backedge4994
+  %7452 = getelementptr i8, ptr %.23354, i64 -8
+  %7453 = load i64, ptr %7452, align 8
+  %7454 = trunc i64 %7453 to i32
+  switch i32 %7454, label %js_operator_typeof.exit4303.thread [
+    i32 -1, label %7455
     i32 3, label %.js_operator_typeof.exit4303_crit_edge
   ]
 
-.js_operator_typeof.exit4303_crit_edge:           ; preds = %7453
+.js_operator_typeof.exit4303_crit_edge:           ; preds = %7451
   %.phi.trans.insert = getelementptr i8, ptr %.23354, i64 -16
-  %.pre5878 = load i64, ptr %.phi.trans.insert, align 8
+  %.pre5875 = load i64, ptr %.phi.trans.insert, align 8
   br label %js_operator_typeof.exit4303
 
-7457:                                             ; preds = %7453
-  %7458 = getelementptr i8, ptr %.23354, i64 -16
-  %7459 = load i64, ptr %7458, align 8
-  %7460 = inttoptr i64 %7459 to ptr
-  %7461 = getelementptr inbounds i8, ptr %7460, i64 5
-  %7462 = load i8, ptr %7461, align 1
-  %.not.i4298 = icmp sgt i8 %7462, -1
+7455:                                             ; preds = %7451
+  %7456 = getelementptr i8, ptr %.23354, i64 -16
+  %7457 = load i64, ptr %7456, align 8
+  %7458 = inttoptr i64 %7457 to ptr
+  %7459 = getelementptr inbounds i8, ptr %7458, i64 5
+  %7460 = load i8, ptr %7459, align 1
+  %.not.i4298 = icmp sgt i8 %7460, -1
   br i1 %.not.i4298, label %js_operator_typeof.exit4303.thread, label %js_operator_typeof.exit4303
 
-7463:                                             ; preds = %.backedge4994
-  %7464 = getelementptr i8, ptr %.23354, i64 -16
+7461:                                             ; preds = %.backedge4994
+  %7462 = getelementptr i8, ptr %.23354, i64 -16
+  %7463 = load i64, ptr %7462, align 8
+  %7464 = getelementptr i8, ptr %.23354, i64 -8
   %7465 = load i64, ptr %7464, align 8
-  %7466 = getelementptr i8, ptr %.23354, i64 -8
-  %7467 = load i64, ptr %7466, align 8
-  %7468 = inttoptr i64 %7465 to ptr
-  %7469 = and i64 %7467, 4294967295
-  %cond = icmp eq i64 %7469, 4294967295
-  br i1 %cond, label %7470, label %js_operator_typeof.exit4303.thread
+  %7466 = inttoptr i64 %7463 to ptr
+  %7467 = and i64 %7465, 4294967295
+  %cond = icmp eq i64 %7467, 4294967295
+  br i1 %cond, label %7468, label %js_operator_typeof.exit4303.thread
 
-7470:                                             ; preds = %7463
-  %7471 = getelementptr inbounds i8, ptr %7468, i64 5
-  %7472 = load i8, ptr %7471, align 1
-  %.not.i4306 = icmp sgt i8 %7472, -1
-  br i1 %.not.i4306, label %7473, label %js_operator_typeof.exit4303.thread
+7468:                                             ; preds = %7461
+  %7469 = getelementptr inbounds i8, ptr %7466, i64 5
+  %7470 = load i8, ptr %7469, align 1
+  %.not.i4306 = icmp sgt i8 %7470, -1
+  br i1 %.not.i4306, label %7471, label %js_operator_typeof.exit4303.thread
 
-7473:                                             ; preds = %7470
-  %7474 = getelementptr inbounds i8, ptr %7468, i64 6
-  %7475 = load i16, ptr %7474, align 2
-  switch i16 %7475, label %7482 [
+7471:                                             ; preds = %7468
+  %7472 = getelementptr inbounds i8, ptr %7466, i64 6
+  %7473 = load i16, ptr %7472, align 2
+  switch i16 %7473, label %7480 [
     i16 13, label %js_operator_typeof.exit4303
-    i16 48, label %7476
+    i16 48, label %7474
   ]
 
-7476:                                             ; preds = %7473
-  %7477 = getelementptr inbounds i8, ptr %7468, i64 48
-  %7478 = load ptr, ptr %7477, align 8
-  %7479 = getelementptr inbounds i8, ptr %7478, i64 32
-  %7480 = load i8, ptr %7479, align 8
-  %7481 = zext i8 %7480 to i32
+7474:                                             ; preds = %7471
+  %7475 = getelementptr inbounds i8, ptr %7466, i64 48
+  %7476 = load ptr, ptr %7475, align 8
+  %7477 = getelementptr inbounds i8, ptr %7476, i64 32
+  %7478 = load i8, ptr %7477, align 8
+  %7479 = zext i8 %7478 to i32
   br label %JS_IsFunction.exit.i4308
 
-7482:                                             ; preds = %7473
-  %7483 = load ptr, ptr %237, align 8
-  %7484 = getelementptr inbounds i8, ptr %7483, i64 112
-  %7485 = load ptr, ptr %7484, align 8
-  %7486 = zext i16 %7475 to i64
-  %7487 = getelementptr %struct.JSClass, ptr %7485, i64 %7486, i32 4
-  %7488 = load ptr, ptr %7487, align 8
-  %7489 = icmp ne ptr %7488, null
-  %7490 = zext i1 %7489 to i32
+7480:                                             ; preds = %7471
+  %7481 = load ptr, ptr %237, align 8
+  %7482 = getelementptr inbounds i8, ptr %7481, i64 112
+  %7483 = load ptr, ptr %7482, align 8
+  %7484 = zext i16 %7473 to i64
+  %7485 = getelementptr %struct.JSClass, ptr %7483, i64 %7484, i32 4
+  %7486 = load ptr, ptr %7485, align 8
+  %7487 = icmp ne ptr %7486, null
+  %7488 = zext i1 %7487 to i32
   br label %JS_IsFunction.exit.i4308
 
-JS_IsFunction.exit.i4308:                         ; preds = %7482, %7476
-  %.0.i.i4309 = phi i32 [ %7490, %7482 ], [ %7481, %7476 ]
+JS_IsFunction.exit.i4308:                         ; preds = %7480, %7474
+  %.0.i.i4309 = phi i32 [ %7488, %7480 ], [ %7479, %7474 ]
   %.not6.i4310 = icmp eq i32 %.0.i.i4309, 0
   br i1 %.not6.i4310, label %js_operator_typeof.exit4303.thread, label %js_operator_typeof.exit4303
 
-js_operator_typeof.exit4303:                      ; preds = %.js_operator_typeof.exit4303_crit_edge, %JS_IsFunction.exit.i4308, %7473, %7457
-  %7491 = phi i64 [ %7455, %.js_operator_typeof.exit4303_crit_edge ], [ %7467, %JS_IsFunction.exit.i4308 ], [ %7467, %7473 ], [ %7455, %7457 ]
-  %7492 = phi i64 [ %.pre5878, %.js_operator_typeof.exit4303_crit_edge ], [ %7465, %JS_IsFunction.exit.i4308 ], [ %7465, %7473 ], [ %7459, %7457 ]
-  %7493 = trunc i64 %7491 to i32
-  %7494 = icmp ugt i32 %7493, -12
-  br i1 %7494, label %7495, label %JS_FreeValue.exit4312
+js_operator_typeof.exit4303:                      ; preds = %.js_operator_typeof.exit4303_crit_edge, %JS_IsFunction.exit.i4308, %7471, %7455
+  %7489 = phi i64 [ %7453, %.js_operator_typeof.exit4303_crit_edge ], [ %7465, %JS_IsFunction.exit.i4308 ], [ %7465, %7471 ], [ %7453, %7455 ]
+  %7490 = phi i64 [ %.pre5875, %.js_operator_typeof.exit4303_crit_edge ], [ %7463, %JS_IsFunction.exit.i4308 ], [ %7463, %7471 ], [ %7457, %7455 ]
+  %7491 = trunc i64 %7489 to i32
+  %7492 = icmp ugt i32 %7491, -12
+  br i1 %7492, label %7493, label %JS_FreeValue.exit4312
 
-7495:                                             ; preds = %js_operator_typeof.exit4303
-  %7496 = inttoptr i64 %7492 to ptr
-  %7497 = load i32, ptr %7496, align 4
-  %7498 = add i32 %7497, -1
-  store i32 %7498, ptr %7496, align 4
-  %7499 = icmp slt i32 %7498, 1
-  br i1 %7499, label %7500, label %JS_FreeValue.exit4312
+7493:                                             ; preds = %js_operator_typeof.exit4303
+  %7494 = inttoptr i64 %7490 to ptr
+  %7495 = load i32, ptr %7494, align 4
+  %7496 = add i32 %7495, -1
+  store i32 %7496, ptr %7494, align 4
+  %7497 = icmp slt i32 %7496, 1
+  br i1 %7497, label %7498, label %JS_FreeValue.exit4312
 
-7500:                                             ; preds = %7495
-  %7501 = load ptr, ptr %237, align 8
-  call void @__JS_FreeValueRT(ptr noundef %7501, i64 %7492, i64 %7491)
+7498:                                             ; preds = %7493
+  %7499 = load ptr, ptr %237, align 8
+  call void @__JS_FreeValueRT(ptr noundef %7499, i64 %7490, i64 %7489)
   br label %JS_FreeValue.exit4312
 
-JS_FreeValue.exit4312:                            ; preds = %7500, %7495, %js_operator_typeof.exit4303, %7439, %7448, %7443
-  %7502 = getelementptr i8, ptr %.23354, i64 -16
-  store i32 1, ptr %7502, align 8
+JS_FreeValue.exit4312:                            ; preds = %7498, %7493, %js_operator_typeof.exit4303, %7437, %7446, %7441
+  %7500 = getelementptr i8, ptr %.23354, i64 -16
+  store i32 1, ptr %7500, align 8
   %.sroa.236.0..sroa_idx = getelementptr i8, ptr %.23354, i64 -8
   store i64 1, ptr %.sroa.236.0..sroa_idx, align 8
-  %7503 = getelementptr i8, ptr %.23330, i64 1
+  %7501 = getelementptr i8, ptr %.23330, i64 1
   br label %.backedge4994.backedge
 
-js_operator_typeof.exit4303.thread:               ; preds = %7457, %7463, %JS_IsFunction.exit.i4308, %7470, %7453, %7439, %7448, %7443
-  %7504 = phi i64 [ %7455, %7457 ], [ %7467, %7463 ], [ %7467, %JS_IsFunction.exit.i4308 ], [ %7467, %7470 ], [ %7455, %7453 ], [ %7441, %7439 ], [ %7450, %7448 ], [ %7445, %7443 ]
-  %7505 = getelementptr i8, ptr %.23354, i64 -16
-  %7506 = load i64, ptr %7505, align 8
-  %7507 = getelementptr i8, ptr %.23354, i64 -8
-  %7508 = trunc i64 %7504 to i32
-  %7509 = icmp ugt i32 %7508, -12
-  br i1 %7509, label %7510, label %JS_FreeValue.exit4313
+js_operator_typeof.exit4303.thread:               ; preds = %7455, %7461, %JS_IsFunction.exit.i4308, %7468, %7451, %7437, %7446, %7441
+  %7502 = phi i64 [ %7453, %7455 ], [ %7465, %7461 ], [ %7465, %JS_IsFunction.exit.i4308 ], [ %7465, %7468 ], [ %7453, %7451 ], [ %7439, %7437 ], [ %7448, %7446 ], [ %7443, %7441 ]
+  %7503 = getelementptr i8, ptr %.23354, i64 -16
+  %7504 = load i64, ptr %7503, align 8
+  %7505 = getelementptr i8, ptr %.23354, i64 -8
+  %7506 = trunc i64 %7502 to i32
+  %7507 = icmp ugt i32 %7506, -12
+  br i1 %7507, label %7508, label %JS_FreeValue.exit4313
 
-7510:                                             ; preds = %js_operator_typeof.exit4303.thread
-  %7511 = inttoptr i64 %7506 to ptr
-  %7512 = load i32, ptr %7511, align 4
-  %7513 = add i32 %7512, -1
-  store i32 %7513, ptr %7511, align 4
-  %7514 = icmp slt i32 %7513, 1
-  br i1 %7514, label %7515, label %JS_FreeValue.exit4313
+7508:                                             ; preds = %js_operator_typeof.exit4303.thread
+  %7509 = inttoptr i64 %7504 to ptr
+  %7510 = load i32, ptr %7509, align 4
+  %7511 = add i32 %7510, -1
+  store i32 %7511, ptr %7509, align 4
+  %7512 = icmp slt i32 %7511, 1
+  br i1 %7512, label %7513, label %JS_FreeValue.exit4313
 
-7515:                                             ; preds = %7510
-  %7516 = load ptr, ptr %237, align 8
-  call void @__JS_FreeValueRT(ptr noundef %7516, i64 %7506, i64 %7504)
+7513:                                             ; preds = %7508
+  %7514 = load ptr, ptr %237, align 8
+  call void @__JS_FreeValueRT(ptr noundef %7514, i64 %7504, i64 %7502)
   br label %JS_FreeValue.exit4313
 
-JS_FreeValue.exit4313:                            ; preds = %js_operator_typeof.exit4303.thread, %7510, %7515
-  store i32 0, ptr %7505, align 8
-  store i64 1, ptr %7507, align 8
-  %7517 = getelementptr i8, ptr %.23330, i64 1
+JS_FreeValue.exit4313:                            ; preds = %js_operator_typeof.exit4303.thread, %7508, %7513
+  store i32 0, ptr %7503, align 8
+  store i64 1, ptr %7505, align 8
+  %7515 = getelementptr i8, ptr %.23330, i64 1
   br label %.backedge4994.backedge
 
-7518:                                             ; preds = %.backedge4994
-  %7519 = load ptr, ptr %266, align 8
-  %7520 = ptrtoint ptr %.23330 to i64
-  %7521 = ptrtoint ptr %7519 to i64
-  %7522 = xor i64 %7521, -1
-  %7523 = add i64 %7522, %7520
-  %7524 = trunc i64 %7523 to i32
-  %7525 = call { i64, i64 } (ptr, ptr, ...) @JS_ThrowInternalError(ptr noundef %.1, ptr noundef nonnull @.str.140, i32 noundef %7524, i32 noundef %.03333)
+7516:                                             ; preds = %.backedge4994
+  %7517 = load ptr, ptr %266, align 8
+  %7518 = ptrtoint ptr %.23330 to i64
+  %7519 = ptrtoint ptr %7517 to i64
+  %7520 = xor i64 %7519, -1
+  %7521 = add i64 %7520, %7518
+  %7522 = trunc i64 %7521 to i32
+  %7523 = call { i64, i64 } (ptr, ptr, ...) @JS_ThrowInternalError(ptr noundef %.1, ptr noundef nonnull @.str.140, i32 noundef %7522, i32 noundef %.03333)
   br label %JS_FreeValue.exit3739
 
-JS_FreeValue.exit3739.loopexit:                   ; preds = %7311, %JS_DupValue.exit3681, %401, %463, %JS_NewObjectProtoClass.exit, %527, %533, %565, %571, %js_build_rest.exit, %JS_DupValue.exit3735, %873, %904, %942, %982, %1025, %1093, %1435, %1457, %free_arg_list.exit, %JS_GetPrototype.exit, %JS_GetGlobalVar.exit, %1807, %1823, %JS_DefineGlobalFunction.exit, %JS_NewObjectProtoClass.exit4395, %3107, %JS_GetGlobalVarRef.exit, %3990, %4040, %4092, %4123, %4146, %JS_FreeValue.exit4137, %JS_FreeValue.exit4144, %JS_FreeValue.exit4150, %JS_FreeValue.exit4158, %JS_DefinePropertyValue.exit4160, %4589, %4604, %4658, %JS_FreeValue.exit4173, %JS_FreeValue.exit4179, %5201, %JS_DupValue.exit4182, %5244, %JS_FreeAtom.exit, %JS_FreeValue.exit4186, %JS_FreeValue.exit4193, %5446, %JS_FreeValue.exit4205, %JS_FreeAtom.exit6597, %5848, %5898, %5905, %5937, %JS_DupValue.exit4220, %JS_DupValue.exit4223, %6352, %6367, %6378, %6389, %js_post_inc_slow.exit, %JS_DupValue.exit4242, %JS_DupValue.exit4250, %6544, %6644, %6656, %6668, %6680, %6692, %6704, %6716, %6728, %6740, %6752, %6787, %7224, %7249, %7279, %7299, %js_has_unscopable.exit, %7332, %JS_FreeValue.exit4292, %7361, %7385, %7394, %.critedge.i3764, %1929, %7003, %.thread4716, %3839, %JS_FreeValue.exit4434, %3913, %JS_FreeValue.exit4437, %JS_DefinePropertyValue.exit8482, %6799, %JS_FreeAtom.exit6634, %7085, %JS_FreeAtom.exit6659, %4068, %JS_FreeValue.exit4598, %3477, %3473, %3464, %3435, %3431, %3422, %3393, %3389, %3380, %3351, %3347, %3338, %3309, %3305, %3296, %3277, %3273, %3264, %3246, %3242, %3233, %js_shr_slow.exit, %js_not_slow.exit, %4197, %4201, %build_for_in_iterator.exit.thread, %JS_NewObjectProtoClass.exit4395.thread, %js_dynamic_import.exit.thread, %js_build_rest.exit.thread, %JS_NewObjectProtoClass.exit.thread
-  %.03352.ph = phi ptr [ %480, %JS_NewObjectProtoClass.exit.thread ], [ %582, %js_build_rest.exit.thread ], [ %.23354, %js_dynamic_import.exit.thread ], [ %3071, %JS_NewObjectProtoClass.exit4395.thread ], [ %.23354, %build_for_in_iterator.exit.thread ], [ %.23354, %4201 ], [ %.23354, %4197 ], [ %.23354, %js_shr_slow.exit ], [ %.23354, %js_not_slow.exit ], [ %.23354, %3233 ], [ %.23354, %3242 ], [ %.23354, %3246 ], [ %.23354, %3264 ], [ %.23354, %3273 ], [ %.23354, %3277 ], [ %.23354, %3296 ], [ %.23354, %3305 ], [ %.23354, %3309 ], [ %3315, %3338 ], [ %3315, %3347 ], [ %3315, %3351 ], [ %3357, %3380 ], [ %3357, %3389 ], [ %3357, %3393 ], [ %3399, %3422 ], [ %3399, %3431 ], [ %3399, %3435 ], [ %3441, %3464 ], [ %3441, %3473 ], [ %3441, %3477 ], [ %371, %JS_DupValue.exit3681 ], [ %.23354, %6787 ], [ %.23354, %6668 ], [ %.23354, %6680 ], [ %.23354, %6656 ], [ %.23354, %6752 ], [ %.23354, %6740 ], [ %.23354, %6728 ], [ %.23354, %6716 ], [ %.23354, %6704 ], [ %.23354, %6692 ], [ %.23354, %6644 ], [ %.23354, %6544 ], [ %.23354, %5905 ], [ %5876, %5898 ], [ %5912, %JS_DupValue.exit4223 ], [ %5912, %5937 ], [ %5912, %JS_DupValue.exit4220 ], [ %.23354, %JS_DupValue.exit4242 ], [ %.23354, %JS_DupValue.exit4250 ], [ %.23354, %js_post_inc_slow.exit ], [ %.23354, %6378 ], [ %.23354, %6389 ], [ %.23354, %6352 ], [ %.23354, %6367 ], [ %.23354, %4068 ], [ %.23354, %4092 ], [ %.23354, %4040 ], [ %3973, %3990 ], [ %.23354, %JS_GetGlobalVarRef.exit ], [ %3071, %JS_NewObjectProtoClass.exit4395 ], [ %3071, %3107 ], [ %.23354, %401 ], [ %.23354, %7299 ], [ %.23354, %js_has_unscopable.exit ], [ %.23354, %7394 ], [ %.23354, %7385 ], [ %.23354, %7361 ], [ %7341, %JS_FreeValue.exit4292 ], [ %.23354, %7332 ], [ %.23354, %7279 ], [ %.23354, %7249 ], [ %.23354, %7224 ], [ %.23354, %873 ], [ %.23354, %4658 ], [ %4857, %JS_FreeValue.exit4173 ], [ %.23354, %5848 ], [ %5572, %JS_FreeAtom.exit6597 ], [ %.23354, %4604 ], [ %.23354, %4589 ], [ %4496, %JS_DefinePropertyValue.exit4160 ], [ %.23354, %5446 ], [ %5455, %JS_FreeValue.exit4205 ], [ %.23354, %5244 ], [ %.23354, %JS_FreeAtom.exit ], [ %5361, %JS_FreeValue.exit4186 ], [ %.23354, %5201 ], [ %5177, %JS_FreeValue.exit4179 ], [ %4409, %JS_FreeValue.exit4158 ], [ %4310, %JS_FreeValue.exit4150 ], [ %4214, %JS_FreeValue.exit4144 ], [ %4161, %JS_FreeValue.exit4137 ], [ %.23354, %4146 ], [ %.23354, %4123 ], [ %.23354, %JS_DefineGlobalFunction.exit ], [ %5387, %JS_FreeValue.exit4193 ], [ %.23354, %JS_DupValue.exit4182 ], [ %1820, %1823 ], [ %1809, %1807 ], [ %.23354, %JS_GetGlobalVar.exit ], [ %.23354, %JS_GetPrototype.exit ], [ %.23354, %free_arg_list.exit ], [ %.23354, %1457 ], [ %.23354, %1435 ], [ %.23354, %1093 ], [ %.23354, %1025 ], [ %.23354, %982 ], [ %.23354, %942 ], [ %.23354, %904 ], [ %582, %js_build_rest.exit ], [ %572, %571 ], [ %566, %565 ], [ %534, %533 ], [ %528, %527 ], [ %480, %JS_NewObjectProtoClass.exit ], [ %.23354, %463 ], [ %861, %JS_DupValue.exit3735 ], [ %.23354, %.critedge.i3764 ], [ %.23354, %1929 ], [ %.23354, %7003 ], [ %.23354, %.thread4716 ], [ %.23354, %3839 ], [ %.23354, %JS_FreeValue.exit4434 ], [ %.23354, %3913 ], [ %.23354, %JS_FreeValue.exit4437 ], [ %.23354, %JS_DefinePropertyValue.exit8482 ], [ %.23354, %6799 ], [ %.23354, %JS_FreeAtom.exit6634 ], [ %.23354, %7085 ], [ %.23354, %JS_FreeAtom.exit6659 ], [ %.23354, %JS_FreeValue.exit4598 ], [ %.23354, %7311 ]
-  %.03328.ph = phi ptr [ %.23330, %JS_NewObjectProtoClass.exit.thread ], [ %581, %js_build_rest.exit.thread ], [ %.23330, %js_dynamic_import.exit.thread ], [ %3070, %JS_NewObjectProtoClass.exit4395.thread ], [ %.23330, %build_for_in_iterator.exit.thread ], [ %4185, %4201 ], [ %4185, %4197 ], [ %.23330, %js_shr_slow.exit ], [ %.23330, %js_not_slow.exit ], [ %3222, %3233 ], [ %3222, %3242 ], [ %3222, %3246 ], [ %3253, %3264 ], [ %3253, %3273 ], [ %3253, %3277 ], [ %3285, %3296 ], [ %3285, %3305 ], [ %3285, %3309 ], [ %.43332, %3338 ], [ %.43332, %3347 ], [ %.43332, %3351 ], [ %.5, %3380 ], [ %.5, %3389 ], [ %.5, %3393 ], [ %.6, %3422 ], [ %.6, %3431 ], [ %.6, %3435 ], [ %.7, %3464 ], [ %.7, %3473 ], [ %.7, %3477 ], [ %373, %JS_DupValue.exit3681 ], [ %.23330, %6787 ], [ %.23330, %6668 ], [ %.23330, %6680 ], [ %.23330, %6656 ], [ %.23330, %6752 ], [ %.23330, %6740 ], [ %.23330, %6728 ], [ %.23330, %6716 ], [ %.23330, %6704 ], [ %.23330, %6692 ], [ %.23330, %6644 ], [ %.23330, %6544 ], [ %.23330, %5905 ], [ %.23330, %5898 ], [ %5911, %JS_DupValue.exit4223 ], [ %5911, %5937 ], [ %5911, %JS_DupValue.exit4220 ], [ %6413, %JS_DupValue.exit4242 ], [ %6448, %JS_DupValue.exit4250 ], [ %.23330, %js_post_inc_slow.exit ], [ %.23330, %6378 ], [ %.23330, %6389 ], [ %.23330, %6352 ], [ %.23330, %6367 ], [ %4069, %4068 ], [ %4069, %4092 ], [ %.23330, %4040 ], [ %.23330, %3990 ], [ %3140, %JS_GetGlobalVarRef.exit ], [ %3070, %JS_NewObjectProtoClass.exit4395 ], [ %3070, %3107 ], [ %.23330, %401 ], [ %7303, %7299 ], [ %7303, %js_has_unscopable.exit ], [ %7303, %7394 ], [ %7303, %7385 ], [ %7303, %7361 ], [ %7303, %JS_FreeValue.exit4292 ], [ %7303, %7332 ], [ %.23330, %7279 ], [ %.23330, %7249 ], [ %.23330, %7224 ], [ %.33331, %873 ], [ %.23330, %4658 ], [ %4669, %JS_FreeValue.exit4173 ], [ %5849, %5848 ], [ %.23330, %JS_FreeAtom.exit6597 ], [ %.23330, %4604 ], [ %.23330, %4589 ], [ %4494, %JS_DefinePropertyValue.exit4160 ], [ %.23330, %5446 ], [ %.23330, %JS_FreeValue.exit4205 ], [ %.23330, %5244 ], [ %.23330, %JS_FreeAtom.exit ], [ %.23330, %JS_FreeValue.exit4186 ], [ %.23330, %5201 ], [ %.23330, %JS_FreeValue.exit4179 ], [ %.23330, %JS_FreeValue.exit4158 ], [ %.23330, %JS_FreeValue.exit4150 ], [ %.23330, %JS_FreeValue.exit4144 ], [ %4160, %JS_FreeValue.exit4137 ], [ %4147, %4146 ], [ %4124, %4123 ], [ %1938, %JS_DefineGlobalFunction.exit ], [ %.23330, %JS_FreeValue.exit4193 ], [ %.23330, %JS_DupValue.exit4182 ], [ %1819, %1823 ], [ %1808, %1807 ], [ %1762, %JS_GetGlobalVar.exit ], [ %.23330, %JS_GetPrototype.exit ], [ %1460, %free_arg_list.exit ], [ %1460, %1457 ], [ %1404, %1435 ], [ %.23330, %1093 ], [ %1027, %1025 ], [ %983, %982 ], [ %944, %942 ], [ %906, %904 ], [ %581, %js_build_rest.exit ], [ %525, %571 ], [ %525, %565 ], [ %525, %533 ], [ %525, %527 ], [ %.23330, %JS_NewObjectProtoClass.exit ], [ %.23330, %463 ], [ %860, %JS_DupValue.exit3735 ], [ %1731, %.critedge.i3764 ], [ %1901, %1929 ], [ %.23330, %7003 ], [ %3140, %.thread4716 ], [ %.23330, %3839 ], [ %.23330, %JS_FreeValue.exit4434 ], [ %.23330, %3913 ], [ %.23330, %JS_FreeValue.exit4437 ], [ %4517, %JS_DefinePropertyValue.exit8482 ], [ %.23330, %6799 ], [ %.23330, %JS_FreeAtom.exit6634 ], [ %.23330, %7085 ], [ %.23330, %JS_FreeAtom.exit6659 ], [ %7198, %JS_FreeValue.exit4598 ], [ %7303, %7311 ]
+JS_FreeValue.exit3739.loopexit:                   ; preds = %7309, %JS_DupValue.exit3681, %401, %463, %JS_NewObjectProtoClass.exit, %527, %533, %565, %571, %js_build_rest.exit, %JS_DupValue.exit3735, %873, %904, %942, %982, %1025, %1093, %1435, %1457, %free_arg_list.exit, %JS_GetPrototype.exit, %JS_GetGlobalVar.exit, %1807, %1823, %JS_DefineGlobalFunction.exit, %JS_NewObjectProtoClass.exit4395, %3107, %JS_GetGlobalVarRef.exit, %3990, %4040, %4092, %4123, %4146, %JS_FreeValue.exit4137, %JS_FreeValue.exit4144, %JS_FreeValue.exit4150, %JS_FreeValue.exit4158, %JS_DefinePropertyValue.exit4160, %4589, %4604, %4658, %JS_FreeValue.exit4173, %JS_FreeValue.exit4179, %5199, %JS_DupValue.exit4182, %5242, %JS_FreeAtom.exit, %JS_FreeValue.exit4186, %JS_FreeValue.exit4193, %5444, %JS_FreeValue.exit4205, %JS_FreeAtom.exit6594, %5846, %5896, %5903, %5935, %JS_DupValue.exit4220, %JS_DupValue.exit4223, %6350, %6365, %6376, %6387, %js_post_inc_slow.exit, %JS_DupValue.exit4242, %JS_DupValue.exit4250, %6542, %6642, %6654, %6666, %6678, %6690, %6702, %6714, %6726, %6738, %6750, %6785, %7222, %7247, %7277, %7297, %js_has_unscopable.exit, %7330, %JS_FreeValue.exit4292, %7359, %7383, %7392, %.critedge.i3764, %1929, %7001, %.thread4716, %3839, %JS_FreeValue.exit4434, %3913, %JS_FreeValue.exit4437, %JS_DefinePropertyValue.exit8479, %6797, %JS_FreeAtom.exit6631, %7083, %JS_FreeAtom.exit6656, %4068, %JS_FreeValue.exit4598, %3477, %3473, %3464, %3435, %3431, %3422, %3393, %3389, %3380, %3351, %3347, %3338, %3309, %3305, %3296, %3277, %3273, %3264, %3246, %3242, %3233, %js_shr_slow.exit, %js_not_slow.exit, %4197, %4201, %build_for_in_iterator.exit.thread, %JS_NewObjectProtoClass.exit4395.thread, %js_dynamic_import.exit.thread, %js_build_rest.exit.thread, %JS_NewObjectProtoClass.exit.thread
+  %.03352.ph = phi ptr [ %480, %JS_NewObjectProtoClass.exit.thread ], [ %582, %js_build_rest.exit.thread ], [ %.23354, %js_dynamic_import.exit.thread ], [ %3071, %JS_NewObjectProtoClass.exit4395.thread ], [ %.23354, %build_for_in_iterator.exit.thread ], [ %.23354, %4201 ], [ %.23354, %4197 ], [ %.23354, %js_shr_slow.exit ], [ %.23354, %js_not_slow.exit ], [ %.23354, %3233 ], [ %.23354, %3242 ], [ %.23354, %3246 ], [ %.23354, %3264 ], [ %.23354, %3273 ], [ %.23354, %3277 ], [ %.23354, %3296 ], [ %.23354, %3305 ], [ %.23354, %3309 ], [ %3315, %3338 ], [ %3315, %3347 ], [ %3315, %3351 ], [ %3357, %3380 ], [ %3357, %3389 ], [ %3357, %3393 ], [ %3399, %3422 ], [ %3399, %3431 ], [ %3399, %3435 ], [ %3441, %3464 ], [ %3441, %3473 ], [ %3441, %3477 ], [ %371, %JS_DupValue.exit3681 ], [ %.23354, %6785 ], [ %.23354, %6666 ], [ %.23354, %6678 ], [ %.23354, %6654 ], [ %.23354, %6750 ], [ %.23354, %6738 ], [ %.23354, %6726 ], [ %.23354, %6714 ], [ %.23354, %6702 ], [ %.23354, %6690 ], [ %.23354, %6642 ], [ %.23354, %6542 ], [ %.23354, %5903 ], [ %5874, %5896 ], [ %5910, %JS_DupValue.exit4223 ], [ %5910, %5935 ], [ %5910, %JS_DupValue.exit4220 ], [ %.23354, %JS_DupValue.exit4242 ], [ %.23354, %JS_DupValue.exit4250 ], [ %.23354, %js_post_inc_slow.exit ], [ %.23354, %6376 ], [ %.23354, %6387 ], [ %.23354, %6350 ], [ %.23354, %6365 ], [ %.23354, %4068 ], [ %.23354, %4092 ], [ %.23354, %4040 ], [ %3973, %3990 ], [ %.23354, %JS_GetGlobalVarRef.exit ], [ %3071, %JS_NewObjectProtoClass.exit4395 ], [ %3071, %3107 ], [ %.23354, %401 ], [ %.23354, %7297 ], [ %.23354, %js_has_unscopable.exit ], [ %.23354, %7392 ], [ %.23354, %7383 ], [ %.23354, %7359 ], [ %7339, %JS_FreeValue.exit4292 ], [ %.23354, %7330 ], [ %.23354, %7277 ], [ %.23354, %7247 ], [ %.23354, %7222 ], [ %.23354, %873 ], [ %.23354, %4658 ], [ %4855, %JS_FreeValue.exit4173 ], [ %.23354, %5846 ], [ %5570, %JS_FreeAtom.exit6594 ], [ %.23354, %4604 ], [ %.23354, %4589 ], [ %4496, %JS_DefinePropertyValue.exit4160 ], [ %.23354, %5444 ], [ %5453, %JS_FreeValue.exit4205 ], [ %.23354, %5242 ], [ %.23354, %JS_FreeAtom.exit ], [ %5359, %JS_FreeValue.exit4186 ], [ %.23354, %5199 ], [ %5175, %JS_FreeValue.exit4179 ], [ %4409, %JS_FreeValue.exit4158 ], [ %4310, %JS_FreeValue.exit4150 ], [ %4214, %JS_FreeValue.exit4144 ], [ %4161, %JS_FreeValue.exit4137 ], [ %.23354, %4146 ], [ %.23354, %4123 ], [ %.23354, %JS_DefineGlobalFunction.exit ], [ %5385, %JS_FreeValue.exit4193 ], [ %.23354, %JS_DupValue.exit4182 ], [ %1820, %1823 ], [ %1809, %1807 ], [ %.23354, %JS_GetGlobalVar.exit ], [ %.23354, %JS_GetPrototype.exit ], [ %.23354, %free_arg_list.exit ], [ %.23354, %1457 ], [ %.23354, %1435 ], [ %.23354, %1093 ], [ %.23354, %1025 ], [ %.23354, %982 ], [ %.23354, %942 ], [ %.23354, %904 ], [ %582, %js_build_rest.exit ], [ %572, %571 ], [ %566, %565 ], [ %534, %533 ], [ %528, %527 ], [ %480, %JS_NewObjectProtoClass.exit ], [ %.23354, %463 ], [ %861, %JS_DupValue.exit3735 ], [ %.23354, %.critedge.i3764 ], [ %.23354, %1929 ], [ %.23354, %7001 ], [ %.23354, %.thread4716 ], [ %.23354, %3839 ], [ %.23354, %JS_FreeValue.exit4434 ], [ %.23354, %3913 ], [ %.23354, %JS_FreeValue.exit4437 ], [ %.23354, %JS_DefinePropertyValue.exit8479 ], [ %.23354, %6797 ], [ %.23354, %JS_FreeAtom.exit6631 ], [ %.23354, %7083 ], [ %.23354, %JS_FreeAtom.exit6656 ], [ %.23354, %JS_FreeValue.exit4598 ], [ %.23354, %7309 ]
+  %.03328.ph = phi ptr [ %.23330, %JS_NewObjectProtoClass.exit.thread ], [ %581, %js_build_rest.exit.thread ], [ %.23330, %js_dynamic_import.exit.thread ], [ %3070, %JS_NewObjectProtoClass.exit4395.thread ], [ %.23330, %build_for_in_iterator.exit.thread ], [ %4185, %4201 ], [ %4185, %4197 ], [ %.23330, %js_shr_slow.exit ], [ %.23330, %js_not_slow.exit ], [ %3222, %3233 ], [ %3222, %3242 ], [ %3222, %3246 ], [ %3253, %3264 ], [ %3253, %3273 ], [ %3253, %3277 ], [ %3285, %3296 ], [ %3285, %3305 ], [ %3285, %3309 ], [ %.43332, %3338 ], [ %.43332, %3347 ], [ %.43332, %3351 ], [ %.5, %3380 ], [ %.5, %3389 ], [ %.5, %3393 ], [ %.6, %3422 ], [ %.6, %3431 ], [ %.6, %3435 ], [ %.7, %3464 ], [ %.7, %3473 ], [ %.7, %3477 ], [ %373, %JS_DupValue.exit3681 ], [ %.23330, %6785 ], [ %.23330, %6666 ], [ %.23330, %6678 ], [ %.23330, %6654 ], [ %.23330, %6750 ], [ %.23330, %6738 ], [ %.23330, %6726 ], [ %.23330, %6714 ], [ %.23330, %6702 ], [ %.23330, %6690 ], [ %.23330, %6642 ], [ %.23330, %6542 ], [ %.23330, %5903 ], [ %.23330, %5896 ], [ %5909, %JS_DupValue.exit4223 ], [ %5909, %5935 ], [ %5909, %JS_DupValue.exit4220 ], [ %6411, %JS_DupValue.exit4242 ], [ %6446, %JS_DupValue.exit4250 ], [ %.23330, %js_post_inc_slow.exit ], [ %.23330, %6376 ], [ %.23330, %6387 ], [ %.23330, %6350 ], [ %.23330, %6365 ], [ %4069, %4068 ], [ %4069, %4092 ], [ %.23330, %4040 ], [ %.23330, %3990 ], [ %3140, %JS_GetGlobalVarRef.exit ], [ %3070, %JS_NewObjectProtoClass.exit4395 ], [ %3070, %3107 ], [ %.23330, %401 ], [ %7301, %7297 ], [ %7301, %js_has_unscopable.exit ], [ %7301, %7392 ], [ %7301, %7383 ], [ %7301, %7359 ], [ %7301, %JS_FreeValue.exit4292 ], [ %7301, %7330 ], [ %.23330, %7277 ], [ %.23330, %7247 ], [ %.23330, %7222 ], [ %.33331, %873 ], [ %.23330, %4658 ], [ %4669, %JS_FreeValue.exit4173 ], [ %5847, %5846 ], [ %.23330, %JS_FreeAtom.exit6594 ], [ %.23330, %4604 ], [ %.23330, %4589 ], [ %4494, %JS_DefinePropertyValue.exit4160 ], [ %.23330, %5444 ], [ %.23330, %JS_FreeValue.exit4205 ], [ %.23330, %5242 ], [ %.23330, %JS_FreeAtom.exit ], [ %.23330, %JS_FreeValue.exit4186 ], [ %.23330, %5199 ], [ %.23330, %JS_FreeValue.exit4179 ], [ %.23330, %JS_FreeValue.exit4158 ], [ %.23330, %JS_FreeValue.exit4150 ], [ %.23330, %JS_FreeValue.exit4144 ], [ %4160, %JS_FreeValue.exit4137 ], [ %4147, %4146 ], [ %4124, %4123 ], [ %1938, %JS_DefineGlobalFunction.exit ], [ %.23330, %JS_FreeValue.exit4193 ], [ %.23330, %JS_DupValue.exit4182 ], [ %1819, %1823 ], [ %1808, %1807 ], [ %1762, %JS_GetGlobalVar.exit ], [ %.23330, %JS_GetPrototype.exit ], [ %1460, %free_arg_list.exit ], [ %1460, %1457 ], [ %1404, %1435 ], [ %.23330, %1093 ], [ %1027, %1025 ], [ %983, %982 ], [ %944, %942 ], [ %906, %904 ], [ %581, %js_build_rest.exit ], [ %525, %571 ], [ %525, %565 ], [ %525, %533 ], [ %525, %527 ], [ %.23330, %JS_NewObjectProtoClass.exit ], [ %.23330, %463 ], [ %860, %JS_DupValue.exit3735 ], [ %1731, %.critedge.i3764 ], [ %1901, %1929 ], [ %.23330, %7001 ], [ %3140, %.thread4716 ], [ %.23330, %3839 ], [ %.23330, %JS_FreeValue.exit4434 ], [ %.23330, %3913 ], [ %.23330, %JS_FreeValue.exit4437 ], [ %4517, %JS_DefinePropertyValue.exit8479 ], [ %.23330, %6797 ], [ %.23330, %JS_FreeAtom.exit6631 ], [ %.23330, %7083 ], [ %.23330, %JS_FreeAtom.exit6656 ], [ %7196, %JS_FreeValue.exit4598 ], [ %7301, %7309 ]
   br label %JS_FreeValue.exit3739
 
-JS_FreeValue.exit3739:                            ; preds = %3942, %3946, %7197, %3940, %JS_FreeValue.exit3739.loopexit, %6797, %5593, %5588, %5585, %3168, %js_operator_private_in.exit.thread, %js_post_inc_slow.exit.thread, %js_binary_arith_slow.exit, %js_append_enumerate.exit.thread, %js_op_define_class.exit.thread, %4035, %4030, %4026, %js_for_of_next.exit, %js_for_in_next.exit.thread, %1895, %1873, %JS_GetGlobalVar.exit.thread, %JS_AddBrand.exit.thread, %1021, %1016, %1013, %5396, %5402, %5225, %5227, %1389, %1391, %1394, %1396, %1392, %1390, %116, %7518, %.critedge3611, %5444, %3968, %3507, %3114, %3000, %JS_ThrowReferenceErrorUninitialized2.exit4066, %JS_ThrowReferenceErrorUninitialized2.exit4060, %JS_ThrowReferenceErrorUninitialized2.exit, %2886, %2856, %2832, %1822, %1379, %1105, %1089, %1080
-  %.03364 = phi ptr [ %125, %116 ], [ %.13365, %7518 ], [ %.13365, %js_binary_arith_slow.exit ], [ %.13365, %3968 ], [ %.13365, %js_for_of_next.exit ], [ %.13365, %3114 ], [ %.13365, %.critedge3611 ], [ %.13365, %3507 ], [ %.13365, %2886 ], [ %.13365, %2856 ], [ %.13365, %2832 ], [ %.13365, %JS_ThrowReferenceErrorUninitialized2.exit4060 ], [ %.13365, %3000 ], [ %.13365, %JS_ThrowReferenceErrorUninitialized2.exit4066 ], [ %.13365, %JS_ThrowReferenceErrorUninitialized2.exit ], [ %.13365, %5444 ], [ %.13365, %1822 ], [ %.13365, %1379 ], [ %.13365, %1105 ], [ %.13365, %1089 ], [ %.13365, %1080 ], [ %.13365, %1390 ], [ %.13365, %1392 ], [ %.13365, %1396 ], [ %.13365, %1394 ], [ %.13365, %1391 ], [ %.13365, %1389 ], [ %.13365, %5227 ], [ %.13365, %5225 ], [ %.13365, %5402 ], [ %.13365, %5396 ], [ %.13365, %1013 ], [ %.13365, %1016 ], [ %.13365, %1021 ], [ %.13365, %JS_AddBrand.exit.thread ], [ %.13365, %JS_GetGlobalVar.exit.thread ], [ %.13365, %1873 ], [ %.13365, %1895 ], [ %.13365, %js_for_in_next.exit.thread ], [ %.13365, %4026 ], [ %.13365, %4030 ], [ %.13365, %4035 ], [ %.13365, %js_op_define_class.exit.thread ], [ %.13365, %js_append_enumerate.exit.thread ], [ %.13365, %js_post_inc_slow.exit.thread ], [ %.13365, %js_operator_private_in.exit.thread ], [ %.13365, %3168 ], [ %.13365, %5585 ], [ %.13365, %5588 ], [ %.13365, %5593 ], [ %.13365, %6797 ], [ %.13365, %JS_FreeValue.exit3739.loopexit ], [ %.13365, %3940 ], [ %.13365, %7197 ], [ %.13365, %3946 ], [ %.13365, %3942 ]
-  %.03352 = phi ptr [ %135, %116 ], [ %.23354, %7518 ], [ %.23354, %js_binary_arith_slow.exit ], [ %.23354, %3968 ], [ %.23354, %js_for_of_next.exit ], [ %3071, %3114 ], [ %.23354, %.critedge3611 ], [ %.23354, %3507 ], [ %.23354, %2886 ], [ %.23354, %2856 ], [ %.23354, %2832 ], [ %.23354, %JS_ThrowReferenceErrorUninitialized2.exit4060 ], [ %.23354, %3000 ], [ %.23354, %JS_ThrowReferenceErrorUninitialized2.exit4066 ], [ %.23354, %JS_ThrowReferenceErrorUninitialized2.exit ], [ %.23354, %5444 ], [ %.23354, %1822 ], [ %1380, %1379 ], [ %.23354, %1105 ], [ %.23354, %1089 ], [ %.23354, %1080 ], [ %.23354, %1390 ], [ %.23354, %1392 ], [ %.23354, %1396 ], [ %.23354, %1394 ], [ %.23354, %1391 ], [ %.23354, %1389 ], [ %.23354, %5227 ], [ %.23354, %5225 ], [ %.23354, %5402 ], [ %.23354, %5396 ], [ %.23354, %1013 ], [ %.23354, %1016 ], [ %.23354, %1021 ], [ %.23354, %JS_AddBrand.exit.thread ], [ %.23354, %JS_GetGlobalVar.exit.thread ], [ %.23354, %1873 ], [ %.23354, %1895 ], [ %.23354, %js_for_in_next.exit.thread ], [ %.53357.lcssa, %4026 ], [ %.53357.lcssa, %4030 ], [ %.53357.lcssa, %4035 ], [ %.23354, %js_op_define_class.exit.thread ], [ %.23354, %js_append_enumerate.exit.thread ], [ %.23354, %js_post_inc_slow.exit.thread ], [ %.23354, %js_operator_private_in.exit.thread ], [ %.23354, %3168 ], [ %5572, %5585 ], [ %5572, %5588 ], [ %5572, %5593 ], [ %.23354, %6797 ], [ %.03352.ph, %JS_FreeValue.exit3739.loopexit ], [ %.23354, %3940 ], [ %.23354, %7197 ], [ %.23354, %3946 ], [ %.23354, %3942 ]
-  %.03349 = phi ptr [ %127, %116 ], [ %.23351, %7518 ], [ %.23351, %js_binary_arith_slow.exit ], [ %.23351, %3968 ], [ %.23351, %js_for_of_next.exit ], [ %.23351, %3114 ], [ %.23351, %.critedge3611 ], [ %.23351, %3507 ], [ %.23351, %2886 ], [ %.23351, %2856 ], [ %.23351, %2832 ], [ %.23351, %JS_ThrowReferenceErrorUninitialized2.exit4060 ], [ %.23351, %3000 ], [ %.23351, %JS_ThrowReferenceErrorUninitialized2.exit4066 ], [ %.23351, %JS_ThrowReferenceErrorUninitialized2.exit ], [ %.23351, %5444 ], [ %.23351, %1822 ], [ %.23351, %1379 ], [ %.23351, %1105 ], [ %.23351, %1089 ], [ %.23351, %1080 ], [ %.23351, %1390 ], [ %.23351, %1392 ], [ %.23351, %1396 ], [ %.23351, %1394 ], [ %.23351, %1391 ], [ %.23351, %1389 ], [ %.23351, %5227 ], [ %.23351, %5225 ], [ %.23351, %5402 ], [ %.23351, %5396 ], [ %.23351, %1013 ], [ %.23351, %1016 ], [ %.23351, %1021 ], [ %.23351, %JS_AddBrand.exit.thread ], [ %.23351, %JS_GetGlobalVar.exit.thread ], [ %.23351, %1873 ], [ %.23351, %1895 ], [ %.23351, %js_for_in_next.exit.thread ], [ %.23351, %4026 ], [ %.23351, %4030 ], [ %.23351, %4035 ], [ %.23351, %js_op_define_class.exit.thread ], [ %.23351, %js_append_enumerate.exit.thread ], [ %.23351, %js_post_inc_slow.exit.thread ], [ %.23351, %js_operator_private_in.exit.thread ], [ %.23351, %3168 ], [ %.23351, %5585 ], [ %.23351, %5588 ], [ %.23351, %5593 ], [ %.23351, %6797 ], [ %.23351, %JS_FreeValue.exit3739.loopexit ], [ %.23351, %3940 ], [ %.23351, %7197 ], [ %.23351, %3946 ], [ %.23351, %3942 ]
-  %.03347 = phi ptr [ %129, %116 ], [ %.13348, %7518 ], [ %.13348, %js_binary_arith_slow.exit ], [ %.13348, %3968 ], [ %.13348, %js_for_of_next.exit ], [ %.13348, %3114 ], [ %.13348, %.critedge3611 ], [ %.13348, %3507 ], [ %.13348, %2886 ], [ %.13348, %2856 ], [ %.13348, %2832 ], [ %.13348, %JS_ThrowReferenceErrorUninitialized2.exit4060 ], [ %.13348, %3000 ], [ %.13348, %JS_ThrowReferenceErrorUninitialized2.exit4066 ], [ %.13348, %JS_ThrowReferenceErrorUninitialized2.exit ], [ %.13348, %5444 ], [ %.13348, %1822 ], [ %.13348, %1379 ], [ %.13348, %1105 ], [ %.13348, %1089 ], [ %.13348, %1080 ], [ %.13348, %1390 ], [ %.13348, %1392 ], [ %.13348, %1396 ], [ %.13348, %1394 ], [ %.13348, %1391 ], [ %.13348, %1389 ], [ %.13348, %5227 ], [ %.13348, %5225 ], [ %.13348, %5402 ], [ %.13348, %5396 ], [ %.13348, %1013 ], [ %.13348, %1016 ], [ %.13348, %1021 ], [ %.13348, %JS_AddBrand.exit.thread ], [ %.13348, %JS_GetGlobalVar.exit.thread ], [ %.13348, %1873 ], [ %.13348, %1895 ], [ %.13348, %js_for_in_next.exit.thread ], [ %.13348, %4026 ], [ %.13348, %4030 ], [ %.13348, %4035 ], [ %.13348, %js_op_define_class.exit.thread ], [ %.13348, %js_append_enumerate.exit.thread ], [ %.13348, %js_post_inc_slow.exit.thread ], [ %.13348, %js_operator_private_in.exit.thread ], [ %.13348, %3168 ], [ %.13348, %5585 ], [ %.13348, %5588 ], [ %.13348, %5593 ], [ %.13348, %6797 ], [ %.13348, %JS_FreeValue.exit3739.loopexit ], [ %.13348, %3940 ], [ %.13348, %7197 ], [ %.13348, %3946 ], [ %.13348, %3942 ]
-  %.03345 = phi ptr [ %133, %116 ], [ %.13346, %7518 ], [ %.13346, %js_binary_arith_slow.exit ], [ %.13346, %3968 ], [ %.13346, %js_for_of_next.exit ], [ %.13346, %3114 ], [ %.13346, %.critedge3611 ], [ %.13346, %3507 ], [ %.13346, %2886 ], [ %.13346, %2856 ], [ %.13346, %2832 ], [ %.13346, %JS_ThrowReferenceErrorUninitialized2.exit4060 ], [ %.13346, %3000 ], [ %.13346, %JS_ThrowReferenceErrorUninitialized2.exit4066 ], [ %.13346, %JS_ThrowReferenceErrorUninitialized2.exit ], [ %.13346, %5444 ], [ %.13346, %1822 ], [ %.13346, %1379 ], [ %.13346, %1105 ], [ %.13346, %1089 ], [ %.13346, %1080 ], [ %.13346, %1390 ], [ %.13346, %1392 ], [ %.13346, %1396 ], [ %.13346, %1394 ], [ %.13346, %1391 ], [ %.13346, %1389 ], [ %.13346, %5227 ], [ %.13346, %5225 ], [ %.13346, %5402 ], [ %.13346, %5396 ], [ %.13346, %1013 ], [ %.13346, %1016 ], [ %.13346, %1021 ], [ %.13346, %JS_AddBrand.exit.thread ], [ %.13346, %JS_GetGlobalVar.exit.thread ], [ %.13346, %1873 ], [ %.13346, %1895 ], [ %.13346, %js_for_in_next.exit.thread ], [ %.13346, %4026 ], [ %.13346, %4030 ], [ %.13346, %4035 ], [ %.13346, %js_op_define_class.exit.thread ], [ %.13346, %js_append_enumerate.exit.thread ], [ %.13346, %js_post_inc_slow.exit.thread ], [ %.13346, %js_operator_private_in.exit.thread ], [ %.13346, %3168 ], [ %.13346, %5585 ], [ %.13346, %5588 ], [ %.13346, %5593 ], [ %.13346, %6797 ], [ %.13346, %JS_FreeValue.exit3739.loopexit ], [ %.13346, %3940 ], [ %.13346, %7197 ], [ %.13346, %3946 ], [ %.13346, %3942 ]
-  %.03342 = phi ptr [ %127, %116 ], [ %.13343, %7518 ], [ %.13343, %js_binary_arith_slow.exit ], [ %.13343, %3968 ], [ %.13343, %js_for_of_next.exit ], [ %.13343, %3114 ], [ %.13343, %.critedge3611 ], [ %.13343, %3507 ], [ %.13343, %2886 ], [ %.13343, %2856 ], [ %.13343, %2832 ], [ %.13343, %JS_ThrowReferenceErrorUninitialized2.exit4060 ], [ %.13343, %3000 ], [ %.13343, %JS_ThrowReferenceErrorUninitialized2.exit4066 ], [ %.13343, %JS_ThrowReferenceErrorUninitialized2.exit ], [ %.13343, %5444 ], [ %.13343, %1822 ], [ %.13343, %1379 ], [ %.13343, %1105 ], [ %.13343, %1089 ], [ %.13343, %1080 ], [ %.13343, %1390 ], [ %.13343, %1392 ], [ %.13343, %1396 ], [ %.13343, %1394 ], [ %.13343, %1391 ], [ %.13343, %1389 ], [ %.13343, %5227 ], [ %.13343, %5225 ], [ %.13343, %5402 ], [ %.13343, %5396 ], [ %.13343, %1013 ], [ %.13343, %1016 ], [ %.13343, %1021 ], [ %.13343, %JS_AddBrand.exit.thread ], [ %.13343, %JS_GetGlobalVar.exit.thread ], [ %.13343, %1873 ], [ %.13343, %1895 ], [ %.13343, %js_for_in_next.exit.thread ], [ %.13343, %4026 ], [ %.13343, %4030 ], [ %.13343, %4035 ], [ %.13343, %js_op_define_class.exit.thread ], [ %.13343, %js_append_enumerate.exit.thread ], [ %.13343, %js_post_inc_slow.exit.thread ], [ %.13343, %js_operator_private_in.exit.thread ], [ %.13343, %3168 ], [ %.13343, %5585 ], [ %.13343, %5588 ], [ %.13343, %5593 ], [ %.13343, %6797 ], [ %.13343, %JS_FreeValue.exit3739.loopexit ], [ %.13343, %3940 ], [ %.13343, %7197 ], [ %.13343, %3946 ], [ %.13343, %3942 ]
-  %.03328 = phi ptr [ %137, %116 ], [ %.23330, %7518 ], [ %.23330, %js_binary_arith_slow.exit ], [ %.23330, %3968 ], [ %3867, %js_for_of_next.exit ], [ %3070, %3114 ], [ %.23330, %.critedge3611 ], [ %.23330, %3507 ], [ %2877, %2886 ], [ %2847, %2856 ], [ %2825, %2832 ], [ %2938, %JS_ThrowReferenceErrorUninitialized2.exit4060 ], [ %2994, %3000 ], [ %2964, %JS_ThrowReferenceErrorUninitialized2.exit4066 ], [ %2912, %JS_ThrowReferenceErrorUninitialized2.exit ], [ %.23330, %5444 ], [ %1819, %1822 ], [ %.23330, %1379 ], [ %.23330, %1105 ], [ %.23330, %1089 ], [ %.23330, %1080 ], [ %1388, %1390 ], [ %1388, %1392 ], [ %1388, %1396 ], [ %1388, %1394 ], [ %1388, %1391 ], [ %1388, %1389 ], [ %.23330, %5227 ], [ %.23330, %5225 ], [ %.23330, %5402 ], [ %.23330, %5396 ], [ %983, %1013 ], [ %983, %1016 ], [ %983, %1021 ], [ %.23330, %JS_AddBrand.exit.thread ], [ %1762, %JS_GetGlobalVar.exit.thread ], [ %1835, %1873 ], [ %1835, %1895 ], [ %.23330, %js_for_in_next.exit.thread ], [ %.23330, %4026 ], [ %.23330, %4030 ], [ %.23330, %4035 ], [ %4863, %js_op_define_class.exit.thread ], [ %.23330, %js_append_enumerate.exit.thread ], [ %.23330, %js_post_inc_slow.exit.thread ], [ %.23330, %js_operator_private_in.exit.thread ], [ %3140, %3168 ], [ %.23330, %5585 ], [ %.23330, %5588 ], [ %.23330, %5593 ], [ %.23330, %6797 ], [ %.03328.ph, %JS_FreeValue.exit3739.loopexit ], [ %.23330, %3940 ], [ %.23330, %3942 ], [ %.23330, %3946 ], [ %7198, %7197 ]
-  %.03325 = phi ptr [ %117, %116 ], [ %.13326, %7518 ], [ %.13326, %js_binary_arith_slow.exit ], [ %.13326, %3968 ], [ %.13326, %js_for_of_next.exit ], [ %.13326, %3114 ], [ %.13326, %.critedge3611 ], [ %.13326, %3507 ], [ %.13326, %2886 ], [ %.13326, %2856 ], [ %.13326, %2832 ], [ %.13326, %JS_ThrowReferenceErrorUninitialized2.exit4060 ], [ %.13326, %3000 ], [ %.13326, %JS_ThrowReferenceErrorUninitialized2.exit4066 ], [ %.13326, %JS_ThrowReferenceErrorUninitialized2.exit ], [ %.13326, %5444 ], [ %.13326, %1822 ], [ %.13326, %1379 ], [ %.13326, %1105 ], [ %.13326, %1089 ], [ %.13326, %1080 ], [ %.13326, %1390 ], [ %.13326, %1392 ], [ %.13326, %1396 ], [ %.13326, %1394 ], [ %.13326, %1391 ], [ %.13326, %1389 ], [ %.13326, %5227 ], [ %.13326, %5225 ], [ %.13326, %5402 ], [ %.13326, %5396 ], [ %.13326, %1013 ], [ %.13326, %1016 ], [ %.13326, %1021 ], [ %.13326, %JS_AddBrand.exit.thread ], [ %.13326, %JS_GetGlobalVar.exit.thread ], [ %.13326, %1873 ], [ %.13326, %1895 ], [ %.13326, %js_for_in_next.exit.thread ], [ %.13326, %4026 ], [ %.13326, %4030 ], [ %.13326, %4035 ], [ %.13326, %js_op_define_class.exit.thread ], [ %.13326, %js_append_enumerate.exit.thread ], [ %.13326, %js_post_inc_slow.exit.thread ], [ %.13326, %js_operator_private_in.exit.thread ], [ %.13326, %3168 ], [ %.13326, %5585 ], [ %.13326, %5588 ], [ %.13326, %5593 ], [ %.13326, %6797 ], [ %.13326, %JS_FreeValue.exit3739.loopexit ], [ %.13326, %3940 ], [ %.13326, %7197 ], [ %.13326, %3946 ], [ %.13326, %3942 ]
-  %.03323 = phi ptr [ %121, %116 ], [ %.13324, %7518 ], [ %.13324, %js_binary_arith_slow.exit ], [ %.13324, %3968 ], [ %.13324, %js_for_of_next.exit ], [ %.13324, %3114 ], [ %.13324, %.critedge3611 ], [ %.13324, %3507 ], [ %.13324, %2886 ], [ %.13324, %2856 ], [ %.13324, %2832 ], [ %.13324, %JS_ThrowReferenceErrorUninitialized2.exit4060 ], [ %.13324, %3000 ], [ %.13324, %JS_ThrowReferenceErrorUninitialized2.exit4066 ], [ %.13324, %JS_ThrowReferenceErrorUninitialized2.exit ], [ %.13324, %5444 ], [ %.13324, %1822 ], [ %.13324, %1379 ], [ %.13324, %1105 ], [ %.13324, %1089 ], [ %.13324, %1080 ], [ %.13324, %1390 ], [ %.13324, %1392 ], [ %.13324, %1396 ], [ %.13324, %1394 ], [ %.13324, %1391 ], [ %.13324, %1389 ], [ %.13324, %5227 ], [ %.13324, %5225 ], [ %.13324, %5402 ], [ %.13324, %5396 ], [ %.13324, %1013 ], [ %.13324, %1016 ], [ %.13324, %1021 ], [ %.13324, %JS_AddBrand.exit.thread ], [ %.13324, %JS_GetGlobalVar.exit.thread ], [ %.13324, %1873 ], [ %.13324, %1895 ], [ %.13324, %js_for_in_next.exit.thread ], [ %.13324, %4026 ], [ %.13324, %4030 ], [ %.13324, %4035 ], [ %.13324, %js_op_define_class.exit.thread ], [ %.13324, %js_append_enumerate.exit.thread ], [ %.13324, %js_post_inc_slow.exit.thread ], [ %.13324, %js_operator_private_in.exit.thread ], [ %.13324, %3168 ], [ %.13324, %5585 ], [ %.13324, %5588 ], [ %.13324, %5593 ], [ %.13324, %6797 ], [ %.13324, %JS_FreeValue.exit3739.loopexit ], [ %.13324, %3940 ], [ %.13324, %7197 ], [ %.13324, %3946 ], [ %.13324, %3942 ]
-  %.03321 = phi ptr [ %119, %116 ], [ %.13322, %7518 ], [ %.13322, %js_binary_arith_slow.exit ], [ %.13322, %3968 ], [ %.13322, %js_for_of_next.exit ], [ %.13322, %3114 ], [ %.13322, %.critedge3611 ], [ %.13322, %3507 ], [ %.13322, %2886 ], [ %.13322, %2856 ], [ %.13322, %2832 ], [ %.13322, %JS_ThrowReferenceErrorUninitialized2.exit4060 ], [ %.13322, %3000 ], [ %.13322, %JS_ThrowReferenceErrorUninitialized2.exit4066 ], [ %.13322, %JS_ThrowReferenceErrorUninitialized2.exit ], [ %.13322, %5444 ], [ %.13322, %1822 ], [ %.13322, %1379 ], [ %.13322, %1105 ], [ %.13322, %1089 ], [ %.13322, %1080 ], [ %.13322, %1390 ], [ %.13322, %1392 ], [ %.13322, %1396 ], [ %.13322, %1394 ], [ %.13322, %1391 ], [ %.13322, %1389 ], [ %.13322, %5227 ], [ %.13322, %5225 ], [ %.13322, %5402 ], [ %.13322, %5396 ], [ %.13322, %1013 ], [ %.13322, %1016 ], [ %.13322, %1021 ], [ %.13322, %JS_AddBrand.exit.thread ], [ %.13322, %JS_GetGlobalVar.exit.thread ], [ %.13322, %1873 ], [ %.13322, %1895 ], [ %.13322, %js_for_in_next.exit.thread ], [ %.13322, %4026 ], [ %.13322, %4030 ], [ %.13322, %4035 ], [ %.13322, %js_op_define_class.exit.thread ], [ %.13322, %js_append_enumerate.exit.thread ], [ %.13322, %js_post_inc_slow.exit.thread ], [ %.13322, %js_operator_private_in.exit.thread ], [ %.13322, %3168 ], [ %.13322, %5585 ], [ %.13322, %5588 ], [ %.13322, %5593 ], [ %.13322, %6797 ], [ %.13322, %JS_FreeValue.exit3739.loopexit ], [ %.13322, %3940 ], [ %.13322, %7197 ], [ %.13322, %3946 ], [ %.13322, %3942 ]
-  %.0 = phi ptr [ %123, %116 ], [ %.1, %7518 ], [ %.1, %js_binary_arith_slow.exit ], [ %.1, %3968 ], [ %.1, %js_for_of_next.exit ], [ %.1, %3114 ], [ %.1, %.critedge3611 ], [ %.1, %3507 ], [ %.1, %2886 ], [ %.1, %2856 ], [ %.1, %2832 ], [ %.1, %JS_ThrowReferenceErrorUninitialized2.exit4060 ], [ %.1, %3000 ], [ %.1, %JS_ThrowReferenceErrorUninitialized2.exit4066 ], [ %.1, %JS_ThrowReferenceErrorUninitialized2.exit ], [ %.1, %5444 ], [ %.1, %1822 ], [ %.1, %1379 ], [ %.1, %1105 ], [ %.1, %1089 ], [ %.1, %1080 ], [ %.1, %1390 ], [ %.1, %1392 ], [ %.1, %1396 ], [ %.1, %1394 ], [ %.1, %1391 ], [ %.1, %1389 ], [ %.1, %5227 ], [ %.1, %5225 ], [ %.1, %5402 ], [ %.1, %5396 ], [ %.1, %1013 ], [ %.1, %1016 ], [ %.1, %1021 ], [ %.1, %JS_AddBrand.exit.thread ], [ %.1, %JS_GetGlobalVar.exit.thread ], [ %.1, %1873 ], [ %.1, %1895 ], [ %.1, %js_for_in_next.exit.thread ], [ %.1, %4026 ], [ %.1, %4030 ], [ %.1, %4035 ], [ %.1, %js_op_define_class.exit.thread ], [ %.1, %js_append_enumerate.exit.thread ], [ %.1, %js_post_inc_slow.exit.thread ], [ %.1, %js_operator_private_in.exit.thread ], [ %.1, %3168 ], [ %.1, %5585 ], [ %.1, %5588 ], [ %.1, %5593 ], [ %.1, %6797 ], [ %.1, %JS_FreeValue.exit3739.loopexit ], [ %.1, %3940 ], [ %.1, %7197 ], [ %.1, %3946 ], [ %.1, %3942 ]
-  %7526 = getelementptr inbounds i8, ptr %83, i64 224
+JS_FreeValue.exit3739:                            ; preds = %3942, %3946, %7195, %3940, %JS_FreeValue.exit3739.loopexit, %6795, %5591, %5586, %5583, %3168, %js_operator_private_in.exit.thread, %js_post_inc_slow.exit.thread, %js_binary_arith_slow.exit, %js_append_enumerate.exit.thread, %js_op_define_class.exit.thread, %4035, %4030, %4026, %js_for_of_next.exit, %js_for_in_next.exit.thread, %1895, %1873, %JS_GetGlobalVar.exit.thread, %JS_AddBrand.exit.thread, %1021, %1016, %1013, %5394, %5400, %5223, %5225, %1389, %1391, %1394, %1396, %1392, %1390, %116, %7516, %.critedge3611, %5442, %3968, %3507, %3114, %3000, %JS_ThrowReferenceErrorUninitialized2.exit4066, %JS_ThrowReferenceErrorUninitialized2.exit4060, %JS_ThrowReferenceErrorUninitialized2.exit, %2886, %2856, %2832, %1822, %1379, %1105, %1089, %1080
+  %.03364 = phi ptr [ %125, %116 ], [ %.13365, %7516 ], [ %.13365, %js_binary_arith_slow.exit ], [ %.13365, %3968 ], [ %.13365, %js_for_of_next.exit ], [ %.13365, %3114 ], [ %.13365, %.critedge3611 ], [ %.13365, %3507 ], [ %.13365, %2886 ], [ %.13365, %2856 ], [ %.13365, %2832 ], [ %.13365, %JS_ThrowReferenceErrorUninitialized2.exit4060 ], [ %.13365, %3000 ], [ %.13365, %JS_ThrowReferenceErrorUninitialized2.exit4066 ], [ %.13365, %JS_ThrowReferenceErrorUninitialized2.exit ], [ %.13365, %5442 ], [ %.13365, %1822 ], [ %.13365, %1379 ], [ %.13365, %1105 ], [ %.13365, %1089 ], [ %.13365, %1080 ], [ %.13365, %1390 ], [ %.13365, %1392 ], [ %.13365, %1396 ], [ %.13365, %1394 ], [ %.13365, %1391 ], [ %.13365, %1389 ], [ %.13365, %5225 ], [ %.13365, %5223 ], [ %.13365, %5400 ], [ %.13365, %5394 ], [ %.13365, %1013 ], [ %.13365, %1016 ], [ %.13365, %1021 ], [ %.13365, %JS_AddBrand.exit.thread ], [ %.13365, %JS_GetGlobalVar.exit.thread ], [ %.13365, %1873 ], [ %.13365, %1895 ], [ %.13365, %js_for_in_next.exit.thread ], [ %.13365, %4026 ], [ %.13365, %4030 ], [ %.13365, %4035 ], [ %.13365, %js_op_define_class.exit.thread ], [ %.13365, %js_append_enumerate.exit.thread ], [ %.13365, %js_post_inc_slow.exit.thread ], [ %.13365, %js_operator_private_in.exit.thread ], [ %.13365, %3168 ], [ %.13365, %5583 ], [ %.13365, %5586 ], [ %.13365, %5591 ], [ %.13365, %6795 ], [ %.13365, %JS_FreeValue.exit3739.loopexit ], [ %.13365, %3940 ], [ %.13365, %7195 ], [ %.13365, %3946 ], [ %.13365, %3942 ]
+  %.03352 = phi ptr [ %135, %116 ], [ %.23354, %7516 ], [ %.23354, %js_binary_arith_slow.exit ], [ %.23354, %3968 ], [ %.23354, %js_for_of_next.exit ], [ %3071, %3114 ], [ %.23354, %.critedge3611 ], [ %.23354, %3507 ], [ %.23354, %2886 ], [ %.23354, %2856 ], [ %.23354, %2832 ], [ %.23354, %JS_ThrowReferenceErrorUninitialized2.exit4060 ], [ %.23354, %3000 ], [ %.23354, %JS_ThrowReferenceErrorUninitialized2.exit4066 ], [ %.23354, %JS_ThrowReferenceErrorUninitialized2.exit ], [ %.23354, %5442 ], [ %.23354, %1822 ], [ %1380, %1379 ], [ %.23354, %1105 ], [ %.23354, %1089 ], [ %.23354, %1080 ], [ %.23354, %1390 ], [ %.23354, %1392 ], [ %.23354, %1396 ], [ %.23354, %1394 ], [ %.23354, %1391 ], [ %.23354, %1389 ], [ %.23354, %5225 ], [ %.23354, %5223 ], [ %.23354, %5400 ], [ %.23354, %5394 ], [ %.23354, %1013 ], [ %.23354, %1016 ], [ %.23354, %1021 ], [ %.23354, %JS_AddBrand.exit.thread ], [ %.23354, %JS_GetGlobalVar.exit.thread ], [ %.23354, %1873 ], [ %.23354, %1895 ], [ %.23354, %js_for_in_next.exit.thread ], [ %.53357.lcssa, %4026 ], [ %.53357.lcssa, %4030 ], [ %.53357.lcssa, %4035 ], [ %.23354, %js_op_define_class.exit.thread ], [ %.23354, %js_append_enumerate.exit.thread ], [ %.23354, %js_post_inc_slow.exit.thread ], [ %.23354, %js_operator_private_in.exit.thread ], [ %.23354, %3168 ], [ %5570, %5583 ], [ %5570, %5586 ], [ %5570, %5591 ], [ %.23354, %6795 ], [ %.03352.ph, %JS_FreeValue.exit3739.loopexit ], [ %.23354, %3940 ], [ %.23354, %7195 ], [ %.23354, %3946 ], [ %.23354, %3942 ]
+  %.03349 = phi ptr [ %127, %116 ], [ %.23351, %7516 ], [ %.23351, %js_binary_arith_slow.exit ], [ %.23351, %3968 ], [ %.23351, %js_for_of_next.exit ], [ %.23351, %3114 ], [ %.23351, %.critedge3611 ], [ %.23351, %3507 ], [ %.23351, %2886 ], [ %.23351, %2856 ], [ %.23351, %2832 ], [ %.23351, %JS_ThrowReferenceErrorUninitialized2.exit4060 ], [ %.23351, %3000 ], [ %.23351, %JS_ThrowReferenceErrorUninitialized2.exit4066 ], [ %.23351, %JS_ThrowReferenceErrorUninitialized2.exit ], [ %.23351, %5442 ], [ %.23351, %1822 ], [ %.23351, %1379 ], [ %.23351, %1105 ], [ %.23351, %1089 ], [ %.23351, %1080 ], [ %.23351, %1390 ], [ %.23351, %1392 ], [ %.23351, %1396 ], [ %.23351, %1394 ], [ %.23351, %1391 ], [ %.23351, %1389 ], [ %.23351, %5225 ], [ %.23351, %5223 ], [ %.23351, %5400 ], [ %.23351, %5394 ], [ %.23351, %1013 ], [ %.23351, %1016 ], [ %.23351, %1021 ], [ %.23351, %JS_AddBrand.exit.thread ], [ %.23351, %JS_GetGlobalVar.exit.thread ], [ %.23351, %1873 ], [ %.23351, %1895 ], [ %.23351, %js_for_in_next.exit.thread ], [ %.23351, %4026 ], [ %.23351, %4030 ], [ %.23351, %4035 ], [ %.23351, %js_op_define_class.exit.thread ], [ %.23351, %js_append_enumerate.exit.thread ], [ %.23351, %js_post_inc_slow.exit.thread ], [ %.23351, %js_operator_private_in.exit.thread ], [ %.23351, %3168 ], [ %.23351, %5583 ], [ %.23351, %5586 ], [ %.23351, %5591 ], [ %.23351, %6795 ], [ %.23351, %JS_FreeValue.exit3739.loopexit ], [ %.23351, %3940 ], [ %.23351, %7195 ], [ %.23351, %3946 ], [ %.23351, %3942 ]
+  %.03347 = phi ptr [ %129, %116 ], [ %.13348, %7516 ], [ %.13348, %js_binary_arith_slow.exit ], [ %.13348, %3968 ], [ %.13348, %js_for_of_next.exit ], [ %.13348, %3114 ], [ %.13348, %.critedge3611 ], [ %.13348, %3507 ], [ %.13348, %2886 ], [ %.13348, %2856 ], [ %.13348, %2832 ], [ %.13348, %JS_ThrowReferenceErrorUninitialized2.exit4060 ], [ %.13348, %3000 ], [ %.13348, %JS_ThrowReferenceErrorUninitialized2.exit4066 ], [ %.13348, %JS_ThrowReferenceErrorUninitialized2.exit ], [ %.13348, %5442 ], [ %.13348, %1822 ], [ %.13348, %1379 ], [ %.13348, %1105 ], [ %.13348, %1089 ], [ %.13348, %1080 ], [ %.13348, %1390 ], [ %.13348, %1392 ], [ %.13348, %1396 ], [ %.13348, %1394 ], [ %.13348, %1391 ], [ %.13348, %1389 ], [ %.13348, %5225 ], [ %.13348, %5223 ], [ %.13348, %5400 ], [ %.13348, %5394 ], [ %.13348, %1013 ], [ %.13348, %1016 ], [ %.13348, %1021 ], [ %.13348, %JS_AddBrand.exit.thread ], [ %.13348, %JS_GetGlobalVar.exit.thread ], [ %.13348, %1873 ], [ %.13348, %1895 ], [ %.13348, %js_for_in_next.exit.thread ], [ %.13348, %4026 ], [ %.13348, %4030 ], [ %.13348, %4035 ], [ %.13348, %js_op_define_class.exit.thread ], [ %.13348, %js_append_enumerate.exit.thread ], [ %.13348, %js_post_inc_slow.exit.thread ], [ %.13348, %js_operator_private_in.exit.thread ], [ %.13348, %3168 ], [ %.13348, %5583 ], [ %.13348, %5586 ], [ %.13348, %5591 ], [ %.13348, %6795 ], [ %.13348, %JS_FreeValue.exit3739.loopexit ], [ %.13348, %3940 ], [ %.13348, %7195 ], [ %.13348, %3946 ], [ %.13348, %3942 ]
+  %.03345 = phi ptr [ %133, %116 ], [ %.13346, %7516 ], [ %.13346, %js_binary_arith_slow.exit ], [ %.13346, %3968 ], [ %.13346, %js_for_of_next.exit ], [ %.13346, %3114 ], [ %.13346, %.critedge3611 ], [ %.13346, %3507 ], [ %.13346, %2886 ], [ %.13346, %2856 ], [ %.13346, %2832 ], [ %.13346, %JS_ThrowReferenceErrorUninitialized2.exit4060 ], [ %.13346, %3000 ], [ %.13346, %JS_ThrowReferenceErrorUninitialized2.exit4066 ], [ %.13346, %JS_ThrowReferenceErrorUninitialized2.exit ], [ %.13346, %5442 ], [ %.13346, %1822 ], [ %.13346, %1379 ], [ %.13346, %1105 ], [ %.13346, %1089 ], [ %.13346, %1080 ], [ %.13346, %1390 ], [ %.13346, %1392 ], [ %.13346, %1396 ], [ %.13346, %1394 ], [ %.13346, %1391 ], [ %.13346, %1389 ], [ %.13346, %5225 ], [ %.13346, %5223 ], [ %.13346, %5400 ], [ %.13346, %5394 ], [ %.13346, %1013 ], [ %.13346, %1016 ], [ %.13346, %1021 ], [ %.13346, %JS_AddBrand.exit.thread ], [ %.13346, %JS_GetGlobalVar.exit.thread ], [ %.13346, %1873 ], [ %.13346, %1895 ], [ %.13346, %js_for_in_next.exit.thread ], [ %.13346, %4026 ], [ %.13346, %4030 ], [ %.13346, %4035 ], [ %.13346, %js_op_define_class.exit.thread ], [ %.13346, %js_append_enumerate.exit.thread ], [ %.13346, %js_post_inc_slow.exit.thread ], [ %.13346, %js_operator_private_in.exit.thread ], [ %.13346, %3168 ], [ %.13346, %5583 ], [ %.13346, %5586 ], [ %.13346, %5591 ], [ %.13346, %6795 ], [ %.13346, %JS_FreeValue.exit3739.loopexit ], [ %.13346, %3940 ], [ %.13346, %7195 ], [ %.13346, %3946 ], [ %.13346, %3942 ]
+  %.03342 = phi ptr [ %127, %116 ], [ %.13343, %7516 ], [ %.13343, %js_binary_arith_slow.exit ], [ %.13343, %3968 ], [ %.13343, %js_for_of_next.exit ], [ %.13343, %3114 ], [ %.13343, %.critedge3611 ], [ %.13343, %3507 ], [ %.13343, %2886 ], [ %.13343, %2856 ], [ %.13343, %2832 ], [ %.13343, %JS_ThrowReferenceErrorUninitialized2.exit4060 ], [ %.13343, %3000 ], [ %.13343, %JS_ThrowReferenceErrorUninitialized2.exit4066 ], [ %.13343, %JS_ThrowReferenceErrorUninitialized2.exit ], [ %.13343, %5442 ], [ %.13343, %1822 ], [ %.13343, %1379 ], [ %.13343, %1105 ], [ %.13343, %1089 ], [ %.13343, %1080 ], [ %.13343, %1390 ], [ %.13343, %1392 ], [ %.13343, %1396 ], [ %.13343, %1394 ], [ %.13343, %1391 ], [ %.13343, %1389 ], [ %.13343, %5225 ], [ %.13343, %5223 ], [ %.13343, %5400 ], [ %.13343, %5394 ], [ %.13343, %1013 ], [ %.13343, %1016 ], [ %.13343, %1021 ], [ %.13343, %JS_AddBrand.exit.thread ], [ %.13343, %JS_GetGlobalVar.exit.thread ], [ %.13343, %1873 ], [ %.13343, %1895 ], [ %.13343, %js_for_in_next.exit.thread ], [ %.13343, %4026 ], [ %.13343, %4030 ], [ %.13343, %4035 ], [ %.13343, %js_op_define_class.exit.thread ], [ %.13343, %js_append_enumerate.exit.thread ], [ %.13343, %js_post_inc_slow.exit.thread ], [ %.13343, %js_operator_private_in.exit.thread ], [ %.13343, %3168 ], [ %.13343, %5583 ], [ %.13343, %5586 ], [ %.13343, %5591 ], [ %.13343, %6795 ], [ %.13343, %JS_FreeValue.exit3739.loopexit ], [ %.13343, %3940 ], [ %.13343, %7195 ], [ %.13343, %3946 ], [ %.13343, %3942 ]
+  %.03328 = phi ptr [ %137, %116 ], [ %.23330, %7516 ], [ %.23330, %js_binary_arith_slow.exit ], [ %.23330, %3968 ], [ %3867, %js_for_of_next.exit ], [ %3070, %3114 ], [ %.23330, %.critedge3611 ], [ %.23330, %3507 ], [ %2877, %2886 ], [ %2847, %2856 ], [ %2825, %2832 ], [ %2938, %JS_ThrowReferenceErrorUninitialized2.exit4060 ], [ %2994, %3000 ], [ %2964, %JS_ThrowReferenceErrorUninitialized2.exit4066 ], [ %2912, %JS_ThrowReferenceErrorUninitialized2.exit ], [ %.23330, %5442 ], [ %1819, %1822 ], [ %.23330, %1379 ], [ %.23330, %1105 ], [ %.23330, %1089 ], [ %.23330, %1080 ], [ %1388, %1390 ], [ %1388, %1392 ], [ %1388, %1396 ], [ %1388, %1394 ], [ %1388, %1391 ], [ %1388, %1389 ], [ %.23330, %5225 ], [ %.23330, %5223 ], [ %.23330, %5400 ], [ %.23330, %5394 ], [ %983, %1013 ], [ %983, %1016 ], [ %983, %1021 ], [ %.23330, %JS_AddBrand.exit.thread ], [ %1762, %JS_GetGlobalVar.exit.thread ], [ %1835, %1873 ], [ %1835, %1895 ], [ %.23330, %js_for_in_next.exit.thread ], [ %.23330, %4026 ], [ %.23330, %4030 ], [ %.23330, %4035 ], [ %4861, %js_op_define_class.exit.thread ], [ %.23330, %js_append_enumerate.exit.thread ], [ %.23330, %js_post_inc_slow.exit.thread ], [ %.23330, %js_operator_private_in.exit.thread ], [ %3140, %3168 ], [ %.23330, %5583 ], [ %.23330, %5586 ], [ %.23330, %5591 ], [ %.23330, %6795 ], [ %.03328.ph, %JS_FreeValue.exit3739.loopexit ], [ %.23330, %3940 ], [ %.23330, %3942 ], [ %.23330, %3946 ], [ %7196, %7195 ]
+  %.03325 = phi ptr [ %117, %116 ], [ %.13326, %7516 ], [ %.13326, %js_binary_arith_slow.exit ], [ %.13326, %3968 ], [ %.13326, %js_for_of_next.exit ], [ %.13326, %3114 ], [ %.13326, %.critedge3611 ], [ %.13326, %3507 ], [ %.13326, %2886 ], [ %.13326, %2856 ], [ %.13326, %2832 ], [ %.13326, %JS_ThrowReferenceErrorUninitialized2.exit4060 ], [ %.13326, %3000 ], [ %.13326, %JS_ThrowReferenceErrorUninitialized2.exit4066 ], [ %.13326, %JS_ThrowReferenceErrorUninitialized2.exit ], [ %.13326, %5442 ], [ %.13326, %1822 ], [ %.13326, %1379 ], [ %.13326, %1105 ], [ %.13326, %1089 ], [ %.13326, %1080 ], [ %.13326, %1390 ], [ %.13326, %1392 ], [ %.13326, %1396 ], [ %.13326, %1394 ], [ %.13326, %1391 ], [ %.13326, %1389 ], [ %.13326, %5225 ], [ %.13326, %5223 ], [ %.13326, %5400 ], [ %.13326, %5394 ], [ %.13326, %1013 ], [ %.13326, %1016 ], [ %.13326, %1021 ], [ %.13326, %JS_AddBrand.exit.thread ], [ %.13326, %JS_GetGlobalVar.exit.thread ], [ %.13326, %1873 ], [ %.13326, %1895 ], [ %.13326, %js_for_in_next.exit.thread ], [ %.13326, %4026 ], [ %.13326, %4030 ], [ %.13326, %4035 ], [ %.13326, %js_op_define_class.exit.thread ], [ %.13326, %js_append_enumerate.exit.thread ], [ %.13326, %js_post_inc_slow.exit.thread ], [ %.13326, %js_operator_private_in.exit.thread ], [ %.13326, %3168 ], [ %.13326, %5583 ], [ %.13326, %5586 ], [ %.13326, %5591 ], [ %.13326, %6795 ], [ %.13326, %JS_FreeValue.exit3739.loopexit ], [ %.13326, %3940 ], [ %.13326, %7195 ], [ %.13326, %3946 ], [ %.13326, %3942 ]
+  %.03323 = phi ptr [ %121, %116 ], [ %.13324, %7516 ], [ %.13324, %js_binary_arith_slow.exit ], [ %.13324, %3968 ], [ %.13324, %js_for_of_next.exit ], [ %.13324, %3114 ], [ %.13324, %.critedge3611 ], [ %.13324, %3507 ], [ %.13324, %2886 ], [ %.13324, %2856 ], [ %.13324, %2832 ], [ %.13324, %JS_ThrowReferenceErrorUninitialized2.exit4060 ], [ %.13324, %3000 ], [ %.13324, %JS_ThrowReferenceErrorUninitialized2.exit4066 ], [ %.13324, %JS_ThrowReferenceErrorUninitialized2.exit ], [ %.13324, %5442 ], [ %.13324, %1822 ], [ %.13324, %1379 ], [ %.13324, %1105 ], [ %.13324, %1089 ], [ %.13324, %1080 ], [ %.13324, %1390 ], [ %.13324, %1392 ], [ %.13324, %1396 ], [ %.13324, %1394 ], [ %.13324, %1391 ], [ %.13324, %1389 ], [ %.13324, %5225 ], [ %.13324, %5223 ], [ %.13324, %5400 ], [ %.13324, %5394 ], [ %.13324, %1013 ], [ %.13324, %1016 ], [ %.13324, %1021 ], [ %.13324, %JS_AddBrand.exit.thread ], [ %.13324, %JS_GetGlobalVar.exit.thread ], [ %.13324, %1873 ], [ %.13324, %1895 ], [ %.13324, %js_for_in_next.exit.thread ], [ %.13324, %4026 ], [ %.13324, %4030 ], [ %.13324, %4035 ], [ %.13324, %js_op_define_class.exit.thread ], [ %.13324, %js_append_enumerate.exit.thread ], [ %.13324, %js_post_inc_slow.exit.thread ], [ %.13324, %js_operator_private_in.exit.thread ], [ %.13324, %3168 ], [ %.13324, %5583 ], [ %.13324, %5586 ], [ %.13324, %5591 ], [ %.13324, %6795 ], [ %.13324, %JS_FreeValue.exit3739.loopexit ], [ %.13324, %3940 ], [ %.13324, %7195 ], [ %.13324, %3946 ], [ %.13324, %3942 ]
+  %.03321 = phi ptr [ %119, %116 ], [ %.13322, %7516 ], [ %.13322, %js_binary_arith_slow.exit ], [ %.13322, %3968 ], [ %.13322, %js_for_of_next.exit ], [ %.13322, %3114 ], [ %.13322, %.critedge3611 ], [ %.13322, %3507 ], [ %.13322, %2886 ], [ %.13322, %2856 ], [ %.13322, %2832 ], [ %.13322, %JS_ThrowReferenceErrorUninitialized2.exit4060 ], [ %.13322, %3000 ], [ %.13322, %JS_ThrowReferenceErrorUninitialized2.exit4066 ], [ %.13322, %JS_ThrowReferenceErrorUninitialized2.exit ], [ %.13322, %5442 ], [ %.13322, %1822 ], [ %.13322, %1379 ], [ %.13322, %1105 ], [ %.13322, %1089 ], [ %.13322, %1080 ], [ %.13322, %1390 ], [ %.13322, %1392 ], [ %.13322, %1396 ], [ %.13322, %1394 ], [ %.13322, %1391 ], [ %.13322, %1389 ], [ %.13322, %5225 ], [ %.13322, %5223 ], [ %.13322, %5400 ], [ %.13322, %5394 ], [ %.13322, %1013 ], [ %.13322, %1016 ], [ %.13322, %1021 ], [ %.13322, %JS_AddBrand.exit.thread ], [ %.13322, %JS_GetGlobalVar.exit.thread ], [ %.13322, %1873 ], [ %.13322, %1895 ], [ %.13322, %js_for_in_next.exit.thread ], [ %.13322, %4026 ], [ %.13322, %4030 ], [ %.13322, %4035 ], [ %.13322, %js_op_define_class.exit.thread ], [ %.13322, %js_append_enumerate.exit.thread ], [ %.13322, %js_post_inc_slow.exit.thread ], [ %.13322, %js_operator_private_in.exit.thread ], [ %.13322, %3168 ], [ %.13322, %5583 ], [ %.13322, %5586 ], [ %.13322, %5591 ], [ %.13322, %6795 ], [ %.13322, %JS_FreeValue.exit3739.loopexit ], [ %.13322, %3940 ], [ %.13322, %7195 ], [ %.13322, %3946 ], [ %.13322, %3942 ]
+  %.0 = phi ptr [ %123, %116 ], [ %.1, %7516 ], [ %.1, %js_binary_arith_slow.exit ], [ %.1, %3968 ], [ %.1, %js_for_of_next.exit ], [ %.1, %3114 ], [ %.1, %.critedge3611 ], [ %.1, %3507 ], [ %.1, %2886 ], [ %.1, %2856 ], [ %.1, %2832 ], [ %.1, %JS_ThrowReferenceErrorUninitialized2.exit4060 ], [ %.1, %3000 ], [ %.1, %JS_ThrowReferenceErrorUninitialized2.exit4066 ], [ %.1, %JS_ThrowReferenceErrorUninitialized2.exit ], [ %.1, %5442 ], [ %.1, %1822 ], [ %.1, %1379 ], [ %.1, %1105 ], [ %.1, %1089 ], [ %.1, %1080 ], [ %.1, %1390 ], [ %.1, %1392 ], [ %.1, %1396 ], [ %.1, %1394 ], [ %.1, %1391 ], [ %.1, %1389 ], [ %.1, %5225 ], [ %.1, %5223 ], [ %.1, %5400 ], [ %.1, %5394 ], [ %.1, %1013 ], [ %.1, %1016 ], [ %.1, %1021 ], [ %.1, %JS_AddBrand.exit.thread ], [ %.1, %JS_GetGlobalVar.exit.thread ], [ %.1, %1873 ], [ %.1, %1895 ], [ %.1, %js_for_in_next.exit.thread ], [ %.1, %4026 ], [ %.1, %4030 ], [ %.1, %4035 ], [ %.1, %js_op_define_class.exit.thread ], [ %.1, %js_append_enumerate.exit.thread ], [ %.1, %js_post_inc_slow.exit.thread ], [ %.1, %js_operator_private_in.exit.thread ], [ %.1, %3168 ], [ %.1, %5583 ], [ %.1, %5586 ], [ %.1, %5591 ], [ %.1, %6795 ], [ %.1, %JS_FreeValue.exit3739.loopexit ], [ %.1, %3940 ], [ %.1, %7195 ], [ %.1, %3946 ], [ %.1, %3942 ]
+  %7524 = getelementptr inbounds i8, ptr %83, i64 224
+  %7525 = load i64, ptr %7524, align 8
+  %7526 = getelementptr inbounds i8, ptr %83, i64 232
   %7527 = load i64, ptr %7526, align 8
-  %7528 = getelementptr inbounds i8, ptr %83, i64 232
-  %7529 = load i64, ptr %7528, align 8
-  %7530 = and i64 %7529, 4294967295
-  %.not.i4314 = icmp eq i64 %7530, 4294967295
-  %7531 = inttoptr i64 %7527 to ptr
-  br i1 %.not.i4314, label %7532, label %is_backtrace_needed.exit.thread
+  %7528 = and i64 %7527, 4294967295
+  %.not.i4314 = icmp eq i64 %7528, 4294967295
+  %7529 = inttoptr i64 %7525 to ptr
+  br i1 %.not.i4314, label %7530, label %is_backtrace_needed.exit.thread
 
-7532:                                             ; preds = %JS_FreeValue.exit3739
-  %7533 = getelementptr inbounds i8, ptr %7531, i64 6
-  %7534 = load i16, ptr %7533, align 2
-  %.not18.i = icmp eq i16 %7534, 3
-  br i1 %.not18.i, label %7535, label %is_backtrace_needed.exit.thread
+7530:                                             ; preds = %JS_FreeValue.exit3739
+  %7531 = getelementptr inbounds i8, ptr %7529, i64 6
+  %7532 = load i16, ptr %7531, align 2
+  %.not18.i = icmp eq i16 %7532, 3
+  br i1 %.not18.i, label %7533, label %is_backtrace_needed.exit.thread
 
-7535:                                             ; preds = %7532
-  %7536 = getelementptr inbounds i8, ptr %7531, i64 24
-  %7537 = load ptr, ptr %7536, align 8
-  %7538 = getelementptr inbounds i8, ptr %7537, i64 32
-  %7539 = load i32, ptr %7538, align 8
-  %7540 = and i32 %7539, 54
-  %7541 = xor i32 %7540, -1
-  %7542 = sext i32 %7541 to i64
-  %7543 = getelementptr i32, ptr %7537, i64 %7542
-  %7544 = load i32, ptr %7543, align 4
-  %7545 = getelementptr inbounds i8, ptr %7537, i64 64
-  %.not194.i = icmp eq i32 %7544, 0
+7533:                                             ; preds = %7530
+  %7534 = getelementptr inbounds i8, ptr %7529, i64 24
+  %7535 = load ptr, ptr %7534, align 8
+  %7536 = getelementptr inbounds i8, ptr %7535, i64 32
+  %7537 = load i32, ptr %7536, align 8
+  %7538 = and i32 %7537, 54
+  %7539 = xor i32 %7538, -1
+  %7540 = sext i32 %7539 to i64
+  %7541 = getelementptr i32, ptr %7535, i64 %7540
+  %7542 = load i32, ptr %7541, align 4
+  %7543 = getelementptr inbounds i8, ptr %7535, i64 64
+  %.not194.i = icmp eq i32 %7542, 0
   br i1 %.not194.i, label %is_backtrace_needed.exit, label %.lr.ph.i4315
 
-.lr.ph.i4315:                                     ; preds = %7535, %7551
-  %.016.in5.i = phi i32 [ %7553, %7551 ], [ %7544, %7535 ]
+.lr.ph.i4315:                                     ; preds = %7533, %7549
+  %.016.in5.i = phi i32 [ %7551, %7549 ], [ %7542, %7533 ]
   %.016.i = zext i32 %.016.in5.i to i64
-  %7546 = getelementptr %struct.JSShapeProperty, ptr %7545, i64 %.016.i
-  %.fr3.i = freeze ptr %7546
-  %7547 = getelementptr i8, ptr %.fr3.i, i64 -8
-  %7548 = getelementptr i8, ptr %.fr3.i, i64 -4
-  %7549 = load i32, ptr %7548, align 4
-  %7550 = icmp eq i32 %7549, 54
-  br i1 %7550, label %7554, label %7551
+  %7544 = getelementptr %struct.JSShapeProperty, ptr %7543, i64 %.016.i
+  %.fr3.i = freeze ptr %7544
+  %7545 = getelementptr i8, ptr %.fr3.i, i64 -8
+  %7546 = getelementptr i8, ptr %.fr3.i, i64 -4
+  %7547 = load i32, ptr %7546, align 4
+  %7548 = icmp eq i32 %7547, 54
+  br i1 %7548, label %7552, label %7549
 
-7551:                                             ; preds = %.lr.ph.i4315
-  %7552 = load i32, ptr %7547, align 4
-  %7553 = and i32 %7552, 67108863
-  %.not19.i4316 = icmp eq i32 %7553, 0
+7549:                                             ; preds = %.lr.ph.i4315
+  %7550 = load i32, ptr %7545, align 4
+  %7551 = and i32 %7550, 67108863
+  %.not19.i4316 = icmp eq i32 %7551, 0
   br i1 %.not19.i4316, label %is_backtrace_needed.exit, label %.lr.ph.i4315, !llvm.loop !135
 
-7554:                                             ; preds = %.lr.ph.i4315
-  %7555 = icmp eq ptr %7547, null
-  br i1 %7555, label %is_backtrace_needed.exit, label %is_backtrace_needed.exit.thread
+7552:                                             ; preds = %.lr.ph.i4315
+  %7553 = icmp eq ptr %7545, null
+  br i1 %7553, label %is_backtrace_needed.exit, label %is_backtrace_needed.exit.thread
 
-is_backtrace_needed.exit:                         ; preds = %7551, %7554, %7535
-  %7556 = getelementptr inbounds i8, ptr %.03325, i64 56
-  store ptr %.03328, ptr %7556, align 8
-  %7557 = load i64, ptr %7526, align 8
-  %7558 = load i64, ptr %7528, align 8
-  call fastcc void @build_backtrace(ptr noundef %.0, i64 %7557, i64 %7558, ptr noundef null, i32 noundef 0, i32 noundef 0)
-  %.pre5880 = load i64, ptr %7526, align 8
-  %.pre5881 = load i64, ptr %7528, align 8
-  %.pre5882 = inttoptr i64 %.pre5880 to ptr
+is_backtrace_needed.exit:                         ; preds = %7549, %7552, %7533
+  %7554 = getelementptr inbounds i8, ptr %.03325, i64 56
+  store ptr %.03328, ptr %7554, align 8
+  %7555 = load i64, ptr %7524, align 8
+  %7556 = load i64, ptr %7526, align 8
+  call fastcc void @build_backtrace(ptr noundef %.0, i64 %7555, i64 %7556, ptr noundef null, i32 noundef 0, i32 noundef 0)
+  %.pre5877 = load i64, ptr %7524, align 8
+  %.pre5878 = load i64, ptr %7526, align 8
+  %.pre5879 = inttoptr i64 %.pre5877 to ptr
   br label %is_backtrace_needed.exit.thread
 
-is_backtrace_needed.exit.thread:                  ; preds = %7554, %7532, %JS_FreeValue.exit3739, %is_backtrace_needed.exit
-  %.pre-phi = phi ptr [ %7531, %7554 ], [ %7531, %7532 ], [ %7531, %JS_FreeValue.exit3739 ], [ %.pre5882, %is_backtrace_needed.exit ]
-  %7559 = phi i64 [ %7529, %7554 ], [ %7529, %7532 ], [ %7529, %JS_FreeValue.exit3739 ], [ %.pre5881, %is_backtrace_needed.exit ]
-  %7560 = and i64 %7559, 4294967295
-  %.not.i4317 = icmp eq i64 %7560, 4294967295
-  br i1 %.not.i4317, label %7561, label %.preheader
+is_backtrace_needed.exit.thread:                  ; preds = %7552, %7530, %JS_FreeValue.exit3739, %is_backtrace_needed.exit
+  %.pre-phi = phi ptr [ %7529, %7552 ], [ %7529, %7530 ], [ %7529, %JS_FreeValue.exit3739 ], [ %.pre5879, %is_backtrace_needed.exit ]
+  %7557 = phi i64 [ %7527, %7552 ], [ %7527, %7530 ], [ %7527, %JS_FreeValue.exit3739 ], [ %.pre5878, %is_backtrace_needed.exit ]
+  %7558 = and i64 %7557, 4294967295
+  %.not.i4317 = icmp eq i64 %7558, 4294967295
+  br i1 %.not.i4317, label %7559, label %.preheader
 
-7561:                                             ; preds = %is_backtrace_needed.exit.thread
-  %7562 = getelementptr inbounds i8, ptr %.pre-phi, i64 6
-  %7563 = load i16, ptr %7562, align 2
-  %7564 = icmp eq i16 %7563, 3
-  br i1 %7564, label %JS_IsUncatchableError.exit, label %.preheader
+7559:                                             ; preds = %is_backtrace_needed.exit.thread
+  %7560 = getelementptr inbounds i8, ptr %.pre-phi, i64 6
+  %7561 = load i16, ptr %7560, align 2
+  %7562 = icmp eq i16 %7561, 3
+  br i1 %7562, label %JS_IsUncatchableError.exit, label %.preheader
 
-JS_IsUncatchableError.exit:                       ; preds = %7561
-  %7565 = getelementptr inbounds i8, ptr %.pre-phi, i64 5
-  %7566 = load i8, ptr %7565, align 1
-  %7567 = and i8 %7566, 32
-  %7568 = icmp eq i8 %7567, 0
-  %7569 = icmp ugt ptr %.03352, %.03345
-  %or.cond5441 = select i1 %7568, i1 %7569, i1 false
+JS_IsUncatchableError.exit:                       ; preds = %7559
+  %7563 = getelementptr inbounds i8, ptr %.pre-phi, i64 5
+  %7564 = load i8, ptr %7563, align 1
+  %7565 = and i8 %7564, 32
+  %7566 = icmp eq i8 %7565, 0
+  %7567 = icmp ugt ptr %.03352, %.03345
+  %or.cond5441 = select i1 %7566, i1 %7567, i1 false
   br i1 %or.cond5441, label %.lr.ph5436, label %.loopexit4973
 
-.preheader:                                       ; preds = %is_backtrace_needed.exit.thread, %7561
+.preheader:                                       ; preds = %is_backtrace_needed.exit.thread, %7559
   %.old = icmp ugt ptr %.03352, %.03345
   br i1 %.old, label %.lr.ph5436, label %.loopexit4973
 
 .lr.ph5436:                                       ; preds = %JS_IsUncatchableError.exit, %.preheader
-  %7570 = getelementptr inbounds i8, ptr %.0, i64 24
-  br label %7571
+  %7568 = getelementptr inbounds i8, ptr %.0, i64 24
+  br label %7569
 
-7571:                                             ; preds = %.lr.ph5436, %7611
-  %.285435 = phi ptr [ %.03352, %.lr.ph5436 ], [ %.29, %7611 ]
-  %7572 = getelementptr i8, ptr %.285435, i64 -16
-  %.sroa.027.0.copyload = load i64, ptr %7572, align 8
+7569:                                             ; preds = %.lr.ph5436, %7609
+  %.285435 = phi ptr [ %.03352, %.lr.ph5436 ], [ %.29, %7609 ]
+  %7570 = getelementptr i8, ptr %.285435, i64 -16
+  %.sroa.027.0.copyload = load i64, ptr %7570, align 8
   %.sroa.3.0..sroa_idx = getelementptr i8, ptr %.285435, i64 -8
   %.sroa.3.0.copyload = load i64, ptr %.sroa.3.0..sroa_idx, align 8
-  %7573 = trunc i64 %.sroa.3.0.copyload to i32
-  %7574 = icmp ugt i32 %7573, -12
-  br i1 %7574, label %7575, label %JS_FreeValue.exit4319
+  %7571 = trunc i64 %.sroa.3.0.copyload to i32
+  %7572 = icmp ugt i32 %7571, -12
+  br i1 %7572, label %7573, label %JS_FreeValue.exit4319
 
-7575:                                             ; preds = %7571
-  %7576 = inttoptr i64 %.sroa.027.0.copyload to ptr
-  %7577 = load i32, ptr %7576, align 4
-  %7578 = add i32 %7577, -1
-  store i32 %7578, ptr %7576, align 4
-  %7579 = icmp slt i32 %7578, 1
-  br i1 %7579, label %7580, label %JS_FreeValue.exit4319
+7573:                                             ; preds = %7569
+  %7574 = inttoptr i64 %.sroa.027.0.copyload to ptr
+  %7575 = load i32, ptr %7574, align 4
+  %7576 = add i32 %7575, -1
+  store i32 %7576, ptr %7574, align 4
+  %7577 = icmp slt i32 %7576, 1
+  br i1 %7577, label %7578, label %JS_FreeValue.exit4319
 
-7580:                                             ; preds = %7575
-  %7581 = load ptr, ptr %7570, align 8
-  call void @__JS_FreeValueRT(ptr noundef %7581, i64 %.sroa.027.0.copyload, i64 %.sroa.3.0.copyload)
+7578:                                             ; preds = %7573
+  %7579 = load ptr, ptr %7568, align 8
+  call void @__JS_FreeValueRT(ptr noundef %7579, i64 %.sroa.027.0.copyload, i64 %.sroa.3.0.copyload)
   br label %JS_FreeValue.exit4319
 
-JS_FreeValue.exit4319:                            ; preds = %7571, %7575, %7580
-  %7582 = and i64 %.sroa.3.0.copyload, 4294967295
-  %7583 = icmp eq i64 %7582, 5
-  br i1 %7583, label %7584, label %7611
+JS_FreeValue.exit4319:                            ; preds = %7569, %7573, %7578
+  %7580 = and i64 %.sroa.3.0.copyload, 4294967295
+  %7581 = icmp eq i64 %7580, 5
+  br i1 %7581, label %7582, label %7609
 
-7584:                                             ; preds = %JS_FreeValue.exit4319
-  %7585 = and i64 %.sroa.027.0.copyload, 4294967295
-  %7586 = icmp eq i64 %7585, 0
-  br i1 %7586, label %7587, label %7606
+7582:                                             ; preds = %JS_FreeValue.exit4319
+  %7583 = and i64 %.sroa.027.0.copyload, 4294967295
+  %7584 = icmp eq i64 %7583, 0
+  br i1 %7584, label %7585, label %7604
 
-7587:                                             ; preds = %7584
-  %7588 = getelementptr i8, ptr %.285435, i64 -32
+7585:                                             ; preds = %7582
+  %7586 = getelementptr i8, ptr %.285435, i64 -32
+  %7587 = load i64, ptr %7586, align 8
+  %7588 = getelementptr i8, ptr %.285435, i64 -24
   %7589 = load i64, ptr %7588, align 8
-  %7590 = getelementptr i8, ptr %.285435, i64 -24
-  %7591 = load i64, ptr %7590, align 8
-  %7592 = trunc i64 %7591 to i32
-  %7593 = icmp ugt i32 %7592, -12
-  br i1 %7593, label %7594, label %JS_FreeValue.exit4320
+  %7590 = trunc i64 %7589 to i32
+  %7591 = icmp ugt i32 %7590, -12
+  br i1 %7591, label %7592, label %JS_FreeValue.exit4320
 
-7594:                                             ; preds = %7587
-  %7595 = inttoptr i64 %7589 to ptr
-  %7596 = load i32, ptr %7595, align 4
-  %7597 = add i32 %7596, -1
-  store i32 %7597, ptr %7595, align 4
-  %7598 = icmp slt i32 %7597, 1
-  br i1 %7598, label %7599, label %JS_FreeValue.exit4320
+7592:                                             ; preds = %7585
+  %7593 = inttoptr i64 %7587 to ptr
+  %7594 = load i32, ptr %7593, align 4
+  %7595 = add i32 %7594, -1
+  store i32 %7595, ptr %7593, align 4
+  %7596 = icmp slt i32 %7595, 1
+  br i1 %7596, label %7597, label %JS_FreeValue.exit4320
 
-7599:                                             ; preds = %7594
-  %7600 = load ptr, ptr %7570, align 8
-  call void @__JS_FreeValueRT(ptr noundef %7600, i64 %7589, i64 %7591)
+7597:                                             ; preds = %7592
+  %7598 = load ptr, ptr %7568, align 8
+  call void @__JS_FreeValueRT(ptr noundef %7598, i64 %7587, i64 %7589)
   br label %JS_FreeValue.exit4320
 
-JS_FreeValue.exit4320:                            ; preds = %7587, %7594, %7599
-  %7601 = getelementptr i8, ptr %.285435, i64 -48
+JS_FreeValue.exit4320:                            ; preds = %7585, %7592, %7597
+  %7599 = getelementptr i8, ptr %.285435, i64 -48
+  %7600 = load i64, ptr %7599, align 8
+  %7601 = getelementptr i8, ptr %.285435, i64 -40
   %7602 = load i64, ptr %7601, align 8
-  %7603 = getelementptr i8, ptr %.285435, i64 -40
-  %7604 = load i64, ptr %7603, align 8
-  %7605 = call fastcc i32 @JS_IteratorClose(ptr noundef %.0, i64 %7602, i64 %7604, i32 noundef 1)
-  br label %7611
+  %7603 = call fastcc i32 @JS_IteratorClose(ptr noundef %.0, i64 %7600, i64 %7602, i32 noundef 1)
+  br label %7609
 
-7606:                                             ; preds = %7584
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %7572, ptr noundef nonnull align 8 dereferenceable(16) %7526, i64 16, i1 false)
-  store i32 0, ptr %7526, align 8
-  store i64 2, ptr %7528, align 8
-  %7607 = getelementptr inbounds i8, ptr %.03323, i64 32
-  %7608 = load ptr, ptr %7607, align 8
+7604:                                             ; preds = %7582
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %7570, ptr noundef nonnull align 8 dereferenceable(16) %7524, i64 16, i1 false)
+  store i32 0, ptr %7524, align 8
+  store i64 2, ptr %7526, align 8
+  %7605 = getelementptr inbounds i8, ptr %.03323, i64 32
+  %7606 = load ptr, ptr %7605, align 8
   %sext = shl i64 %.sroa.027.0.copyload, 32
-  %7609 = ashr exact i64 %sext, 32
-  %7610 = getelementptr i8, ptr %7608, i64 %7609
+  %7607 = ashr exact i64 %sext, 32
+  %7608 = getelementptr i8, ptr %7606, i64 %7607
   br label %234
 
-7611:                                             ; preds = %JS_FreeValue.exit4320, %JS_FreeValue.exit4319
-  %.29 = phi ptr [ %7588, %JS_FreeValue.exit4320 ], [ %7572, %JS_FreeValue.exit4319 ]
-  %7612 = icmp ugt ptr %.29, %.03345
-  br i1 %7612, label %7571, label %.loopexit4973, !llvm.loop !136
+7609:                                             ; preds = %JS_FreeValue.exit4320, %JS_FreeValue.exit4319
+  %.29 = phi ptr [ %7586, %JS_FreeValue.exit4320 ], [ %7570, %JS_FreeValue.exit4319 ]
+  %7610 = icmp ugt ptr %.29, %.03345
+  br i1 %7610, label %7569, label %.loopexit4973, !llvm.loop !136
 
-.loopexit4973:                                    ; preds = %7611, %.preheader, %JS_IsUncatchableError.exit
-  %.27 = phi ptr [ %.03352, %JS_IsUncatchableError.exit ], [ %.03352, %.preheader ], [ %.29, %7611 ]
-  %7613 = getelementptr inbounds i8, ptr %.03323, i64 25
-  %7614 = load i16, ptr %7613, align 1
-  %7615 = and i16 %7614, 48
-  %.not3601 = icmp eq i16 %7615, 0
-  br i1 %.not3601, label %7619, label %7616
+.loopexit4973:                                    ; preds = %7609, %.preheader, %JS_IsUncatchableError.exit
+  %.27 = phi ptr [ %.03352, %JS_IsUncatchableError.exit ], [ %.03352, %.preheader ], [ %.29, %7609 ]
+  %7611 = getelementptr inbounds i8, ptr %.03323, i64 25
+  %7612 = load i16, ptr %7611, align 1
+  %7613 = and i16 %7612, 48
+  %.not3601 = icmp eq i16 %7613, 0
+  br i1 %.not3601, label %7617, label %7614
 
-7616:                                             ; preds = %.backedge4994, %.loopexit4973, %7436, %7435, %7434, %7433
-  %.sroa.46.3 = phi i64 [ 6, %.loopexit4973 ], [ 0, %7434 ], [ 0, %7433 ], [ 0, %7436 ], [ 3, %7435 ], [ 0, %.backedge4994 ]
-  %.sroa.01073.sroa.0.3 = phi i64 [ 0, %.loopexit4973 ], [ 2, %7434 ], [ 1, %7433 ], [ 3, %7436 ], [ 0, %7435 ], [ 0, %.backedge4994 ]
-  %.26 = phi ptr [ %.27, %.loopexit4973 ], [ %.23354, %7434 ], [ %.23354, %7433 ], [ %.23354, %7436 ], [ %.23354, %7435 ], [ %.23354, %.backedge4994 ]
-  %.10 = phi ptr [ %.03328, %.loopexit4973 ], [ %.23330, %7434 ], [ %.23330, %7433 ], [ %.23330, %7436 ], [ %.23330, %7435 ], [ %.23330, %.backedge4994 ]
-  %.3 = phi ptr [ %.03325, %.loopexit4973 ], [ %.13326, %7434 ], [ %.13326, %7433 ], [ %.13326, %7436 ], [ %.13326, %7435 ], [ %.13326, %.backedge4994 ]
-  %7617 = getelementptr inbounds i8, ptr %.3, i64 56
-  store ptr %.10, ptr %7617, align 8
-  %7618 = getelementptr inbounds i8, ptr %.3, i64 72
-  store ptr %.26, ptr %7618, align 8
+7614:                                             ; preds = %.backedge4994, %.loopexit4973, %7434, %7433, %7432, %7431
+  %.sroa.46.3 = phi i64 [ 6, %.loopexit4973 ], [ 0, %7432 ], [ 0, %7431 ], [ 0, %7434 ], [ 3, %7433 ], [ 0, %.backedge4994 ]
+  %.sroa.01073.sroa.0.3 = phi i64 [ 0, %.loopexit4973 ], [ 2, %7432 ], [ 1, %7431 ], [ 3, %7434 ], [ 0, %7433 ], [ 0, %.backedge4994 ]
+  %.26 = phi ptr [ %.27, %.loopexit4973 ], [ %.23354, %7432 ], [ %.23354, %7431 ], [ %.23354, %7434 ], [ %.23354, %7433 ], [ %.23354, %.backedge4994 ]
+  %.10 = phi ptr [ %.03328, %.loopexit4973 ], [ %.23330, %7432 ], [ %.23330, %7431 ], [ %.23330, %7434 ], [ %.23330, %7433 ], [ %.23330, %.backedge4994 ]
+  %.3 = phi ptr [ %.03325, %.loopexit4973 ], [ %.13326, %7432 ], [ %.13326, %7431 ], [ %.13326, %7434 ], [ %.13326, %7433 ], [ %.13326, %.backedge4994 ]
+  %7615 = getelementptr inbounds i8, ptr %.3, i64 56
+  store ptr %.10, ptr %7615, align 8
+  %7616 = getelementptr inbounds i8, ptr %.3, i64 72
+  store ptr %.26, ptr %7616, align 8
   br label %.loopexit
 
-7619:                                             ; preds = %.backedge4994, %.loopexit4973, %960, %884, %1075
+7617:                                             ; preds = %.backedge4994, %.loopexit4973, %960, %884, %1075
   %.sroa.46.0 = phi i64 [ 6, %.loopexit4973 ], [ %882, %884 ], [ %.sroa.46.0.copyload1107, %1075 ], [ %958, %960 ], [ 3, %.backedge4994 ]
   %.sroa.01073.sroa.43.0 = phi i64 [ 0, %.loopexit4973 ], [ %881, %884 ], [ %.sroa.01073.0.copyload1089, %1075 ], [ %957, %960 ], [ 0, %.backedge4994 ]
   %.43356 = phi ptr [ %.27, %.loopexit4973 ], [ %.23354, %884 ], [ %1076, %1075 ], [ %.23354, %960 ], [ %.23354, %.backedge4994 ]
   %.23344 = phi ptr [ %.03342, %.loopexit4973 ], [ %.13343, %884 ], [ %.13343, %1075 ], [ %.13343, %960 ], [ %.13343, %.backedge4994 ]
   %.23327 = phi ptr [ %.03325, %.loopexit4973 ], [ %.13326, %884 ], [ %.13326, %1075 ], [ %.13326, %960 ], [ %.13326, %.backedge4994 ]
   %.2 = phi ptr [ %.0, %.loopexit4973 ], [ %.1, %884 ], [ %.1, %1075 ], [ %.1, %960 ], [ %.1, %.backedge4994 ]
-  %7620 = getelementptr inbounds i8, ptr %.23327, i64 40
-  %7621 = getelementptr inbounds i8, ptr %.23327, i64 48
-  %7622 = load ptr, ptr %7621, align 8
-  %.not4963 = icmp eq ptr %7622, %7620
-  br i1 %.not4963, label %7624, label %7623
+  %7618 = getelementptr inbounds i8, ptr %.23327, i64 40
+  %7619 = getelementptr inbounds i8, ptr %.23327, i64 48
+  %7620 = load ptr, ptr %7619, align 8
+  %.not4963 = icmp eq ptr %7620, %7618
+  br i1 %.not4963, label %7622, label %7621
 
-7623:                                             ; preds = %7619
+7621:                                             ; preds = %7617
   call fastcc void @close_var_refs(ptr noundef %83, ptr noundef nonnull %.23327)
-  br label %7624
+  br label %7622
 
-7624:                                             ; preds = %7623, %7619
-  %7625 = icmp ult ptr %.23344, %.43356
-  br i1 %7625, label %.lr.ph5440, label %.loopexit
+7622:                                             ; preds = %7621, %7617
+  %7623 = icmp ult ptr %.23344, %.43356
+  br i1 %7623, label %.lr.ph5440, label %.loopexit
 
-.lr.ph5440:                                       ; preds = %7624
-  %7626 = getelementptr inbounds i8, ptr %.2, i64 24
-  br label %7627
+.lr.ph5440:                                       ; preds = %7622
+  %7624 = getelementptr inbounds i8, ptr %.2, i64 24
+  br label %7625
 
-7627:                                             ; preds = %.lr.ph5440, %JS_FreeValue.exit4321
-  %.033635438 = phi ptr [ %.23344, %.lr.ph5440 ], [ %7640, %JS_FreeValue.exit4321 ]
-  %7628 = load i64, ptr %.033635438, align 8
-  %7629 = getelementptr inbounds i8, ptr %.033635438, i64 8
-  %7630 = load i64, ptr %7629, align 8
-  %7631 = trunc i64 %7630 to i32
-  %7632 = icmp ugt i32 %7631, -12
-  br i1 %7632, label %7633, label %JS_FreeValue.exit4321
+7625:                                             ; preds = %.lr.ph5440, %JS_FreeValue.exit4321
+  %.033635438 = phi ptr [ %.23344, %.lr.ph5440 ], [ %7638, %JS_FreeValue.exit4321 ]
+  %7626 = load i64, ptr %.033635438, align 8
+  %7627 = getelementptr inbounds i8, ptr %.033635438, i64 8
+  %7628 = load i64, ptr %7627, align 8
+  %7629 = trunc i64 %7628 to i32
+  %7630 = icmp ugt i32 %7629, -12
+  br i1 %7630, label %7631, label %JS_FreeValue.exit4321
 
-7633:                                             ; preds = %7627
-  %7634 = inttoptr i64 %7628 to ptr
-  %7635 = load i32, ptr %7634, align 4
-  %7636 = add i32 %7635, -1
-  store i32 %7636, ptr %7634, align 4
-  %7637 = icmp slt i32 %7636, 1
-  br i1 %7637, label %7638, label %JS_FreeValue.exit4321
+7631:                                             ; preds = %7625
+  %7632 = inttoptr i64 %7626 to ptr
+  %7633 = load i32, ptr %7632, align 4
+  %7634 = add i32 %7633, -1
+  store i32 %7634, ptr %7632, align 4
+  %7635 = icmp slt i32 %7634, 1
+  br i1 %7635, label %7636, label %JS_FreeValue.exit4321
 
-7638:                                             ; preds = %7633
-  %7639 = load ptr, ptr %7626, align 8
-  call void @__JS_FreeValueRT(ptr noundef %7639, i64 %7628, i64 %7630)
+7636:                                             ; preds = %7631
+  %7637 = load ptr, ptr %7624, align 8
+  call void @__JS_FreeValueRT(ptr noundef %7637, i64 %7626, i64 %7628)
   br label %JS_FreeValue.exit4321
 
-JS_FreeValue.exit4321:                            ; preds = %7627, %7633, %7638
-  %7640 = getelementptr i8, ptr %.033635438, i64 16
-  %7641 = icmp ult ptr %7640, %.43356
-  br i1 %7641, label %7627, label %.loopexit, !llvm.loop !137
+JS_FreeValue.exit4321:                            ; preds = %7625, %7631, %7636
+  %7638 = getelementptr i8, ptr %.033635438, i64 16
+  %7639 = icmp ult ptr %7638, %.43356
+  br i1 %7639, label %7625, label %.loopexit, !llvm.loop !137
 
-.loopexit:                                        ; preds = %JS_FreeValue.exit4321, %7624, %7616
-  %.sroa.46.4 = phi i64 [ %.sroa.46.3, %7616 ], [ %.sroa.46.0, %7624 ], [ %.sroa.46.0, %JS_FreeValue.exit4321 ]
-  %.sroa.01073.sroa.0.4 = phi i64 [ %.sroa.01073.sroa.0.3, %7616 ], [ %.sroa.01073.sroa.43.0, %7624 ], [ %.sroa.01073.sroa.43.0, %JS_FreeValue.exit4321 ]
-  %.sroa.01073.sroa.43.4 = phi i64 [ 0, %7616 ], [ %.sroa.01073.sroa.43.0, %7624 ], [ %.sroa.01073.sroa.43.0, %JS_FreeValue.exit4321 ]
-  %.4 = phi ptr [ %.3, %7616 ], [ %.23327, %7624 ], [ %.23327, %JS_FreeValue.exit4321 ]
-  %7642 = load ptr, ptr %.4, align 8
-  %7643 = getelementptr inbounds i8, ptr %83, i64 248
-  store ptr %7642, ptr %7643, align 8
+.loopexit:                                        ; preds = %JS_FreeValue.exit4321, %7622, %7614
+  %.sroa.46.4 = phi i64 [ %.sroa.46.3, %7614 ], [ %.sroa.46.0, %7622 ], [ %.sroa.46.0, %JS_FreeValue.exit4321 ]
+  %.sroa.01073.sroa.0.4 = phi i64 [ %.sroa.01073.sroa.0.3, %7614 ], [ %.sroa.01073.sroa.43.0, %7622 ], [ %.sroa.01073.sroa.43.0, %JS_FreeValue.exit4321 ]
+  %.sroa.01073.sroa.43.4 = phi i64 [ 0, %7614 ], [ %.sroa.01073.sroa.43.0, %7622 ], [ %.sroa.01073.sroa.43.0, %JS_FreeValue.exit4321 ]
+  %.4 = phi ptr [ %.3, %7614 ], [ %.23327, %7622 ], [ %.23327, %JS_FreeValue.exit4321 ]
+  %7640 = load ptr, ptr %.4, align 8
+  %7641 = getelementptr inbounds i8, ptr %83, i64 248
+  store ptr %7640, ptr %7641, align 8
   %.sroa.62999.0.extract.shift3004 = and i64 %.sroa.01073.sroa.43.4, -4294967296
   br label %js_poll_interrupts.exit
 
@@ -48124,11 +48122,11 @@ js_poll_interrupts.exit:                          ; preds = %96, %105, %109, %.l
   %.03333.in.in = phi ptr [ %.13329, %234 ], [ %.03333.in.in.be, %.backedge4994.backedge ]
   %.23330 = phi ptr [ %235, %234 ], [ %.23330.be, %.backedge4994.backedge ]
   %.03333.in = load i8, ptr %.03333.in.in, align 1
-  %.pn6441 = zext i8 %.03333.in to i64
-  %.in = getelementptr [256 x ptr], ptr @JS_CallInternal.dispatch_table, i64 0, i64 %.pn6441
+  %.pn6438 = zext i8 %.03333.in to i64
+  %.in = getelementptr [256 x ptr], ptr @JS_CallInternal.dispatch_table, i64 0, i64 %.pn6438
   %.03333 = zext i8 %.03333.in to i32
-  %7644 = load ptr, ptr %.in, align 8
-  indirectbr ptr %7644, [label %7518, label %319, label %323, label %847, label %423, label %4184, label %448, label %451, label %454, label %473, label %476, label %479, label %524, label %580, label %620, label %635, label %651, label %668, label %740, label %681, label %705, label %754, label %768, label %783, label %799, label %826, label %831, label %837, label %841, label %803, label %821, label %808, label %814, label %904, label %870, label %7463, label %942, label %7453, label %982, label %1025, label %1075, label %7619, label %1077, label %1086, label %1093, label %1109, label %7435, label %1379, label %1385, label %1399, label %1457, label %1540, label %1550, label %1600, label %1730, label %1761, label %7448, label %1807, label %7443, label %1818, label %5216, label %5386, label %1897, label %1832, label %1934, label %4123, label %4146, label %4159, label %4212, label %4309, label %4407, label %5175, label %5201, label %5360, label %5244, label %5439, label %4493, label %4516, label %4589, label %4602, label %4621, label %5560, label %5669, label %5848, label %4656, label %868, label %4860, label %3251, label %1983, label %1998, label %2016, label %2040, label %2055, label %2073, label %2761, label %2776, label %2797, label %2896, label %2910, label %2962, label %2993, label %2936, label %2824, label %2846, label %2876, label %3007, label %3356, label %3314, label %3220, label %3482, label %3492, label %3502, label %4006, label %7219, label %7244, label %7269, label %7299, label %3282, label %3398, label %3440, label %401, label %2737, label %3067, label %2713, label %2689, label %3139, label %3514, label %3839, label %3913, label %3633, label %3863, label %3964, label %3937, label %3972, label %4040, label %4068, label %7436, label %7433, label %7434, label %2665, label %7616, label %6356, label %6350, label %6382, label %6371, label %6393, label %2647, label %6446, label %6411, label %5909, label %6481, label %4111, label %7030, label %7085, label %7197, label %6014, label %6053, label %6072, label %5874, label %5991, label %6085, label %6526, label %6629, label %6548, label %6684, label %6696, label %6708, label %6720, label %7003, label %6793, label %6732, label %6744, label %6756, label %6771, label %6648, label %6672, label %6660, label %7439, label %6885, label %6787, label %2629, label %7437, label %339, label %2611, label %2593, label %2578, label %2563, label %2548, label %2533, label %2512, label %2491, label %343, label %348, label %353, label %370, label %__JS_AtomToValue.exit, label %2097, label %2113, label %2132, label %2157, label %2168, label %2179, label %2190, label %2201, label %2216, label %2231, label %2246, label %2261, label %2282, label %2303, label %2324, label %2345, label %2356, label %2367, label %2378, label %2389, label %2404, label %2419, label %2434, label %2449, label %2470]
+  %7642 = load ptr, ptr %.in, align 8
+  indirectbr ptr %7642, [label %7516, label %319, label %323, label %847, label %423, label %4184, label %448, label %451, label %454, label %473, label %476, label %479, label %524, label %580, label %620, label %635, label %651, label %668, label %740, label %681, label %705, label %754, label %768, label %783, label %799, label %826, label %831, label %837, label %841, label %803, label %821, label %808, label %814, label %904, label %870, label %7461, label %942, label %7451, label %982, label %1025, label %1075, label %7617, label %1077, label %1086, label %1093, label %1109, label %7433, label %1379, label %1385, label %1399, label %1457, label %1540, label %1550, label %1600, label %1730, label %1761, label %7446, label %1807, label %7441, label %1818, label %5214, label %5384, label %1897, label %1832, label %1934, label %4123, label %4146, label %4159, label %4212, label %4309, label %4407, label %5173, label %5199, label %5358, label %5242, label %5437, label %4493, label %4516, label %4589, label %4602, label %4621, label %5558, label %5667, label %5846, label %4656, label %868, label %4858, label %3251, label %1983, label %1998, label %2016, label %2040, label %2055, label %2073, label %2761, label %2776, label %2797, label %2896, label %2910, label %2962, label %2993, label %2936, label %2824, label %2846, label %2876, label %3007, label %3356, label %3314, label %3220, label %3482, label %3492, label %3502, label %4006, label %7217, label %7242, label %7267, label %7297, label %3282, label %3398, label %3440, label %401, label %2737, label %3067, label %2713, label %2689, label %3139, label %3514, label %3839, label %3913, label %3633, label %3863, label %3964, label %3937, label %3972, label %4040, label %4068, label %7434, label %7431, label %7432, label %2665, label %7614, label %6354, label %6348, label %6380, label %6369, label %6391, label %2647, label %6444, label %6409, label %5907, label %6479, label %4111, label %7028, label %7083, label %7195, label %6012, label %6051, label %6070, label %5872, label %5989, label %6083, label %6524, label %6627, label %6546, label %6682, label %6694, label %6706, label %6718, label %7001, label %6791, label %6730, label %6742, label %6754, label %6769, label %6646, label %6670, label %6658, label %7437, label %6883, label %6785, label %2629, label %7435, label %339, label %2611, label %2593, label %2578, label %2563, label %2548, label %2533, label %2512, label %2491, label %343, label %348, label %353, label %370, label %__JS_AtomToValue.exit, label %2097, label %2113, label %2132, label %2157, label %2168, label %2179, label %2190, label %2201, label %2216, label %2231, label %2246, label %2261, label %2282, label %2303, label %2324, label %2345, label %2356, label %2367, label %2378, label %2389, label %2404, label %2419, label %2434, label %2449, label %2470]
 }
 
 ; Function Attrs: nounwind uwtable
@@ -85355,7 +85353,7 @@ js_object_has_name.exit:                          ; preds = %35
 js_object_has_name.exit.thread:                   ; preds = %26, %10, %29, %js_object_has_name.exit
   %40 = tail call i32 @JS_ValueToAtom(ptr noundef %0, i64 %3, i64 %4)
   %41 = icmp eq i32 %40, 0
-  br i1 %41, label %159, label %42
+  br i1 %41, label %157, label %42
 
 42:                                               ; preds = %js_object_has_name.exit.thread
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %6)
@@ -85411,162 +85409,160 @@ JS_AtomToString.exit:                             ; preds = %42
   %71 = load ptr, ptr %70, align 8
   %72 = getelementptr inbounds i8, ptr %71, i64 4
   %73 = load i64, ptr %72, align 4
-  %74 = icmp ult i64 %73, -4611686018427387904
-  %75 = and i64 %73, 4611686014132420608
-  %76 = icmp ne i64 %75, 0
-  %or.cond.i.not48 = or i1 %74, %76
-  %77 = icmp sgt i64 %73, -4611686018427387905
-  %or.cond1.i.not45 = and i1 %77, %or.cond.i.not48
-  %78 = and i64 %73, 4294967295
-  %narrow.i.not = icmp eq i64 %78, 2147483648
+  %74 = and i64 %73, -4294967296
+  %or.cond.i = icmp ne i64 %74, -4611686018427387904
+  %75 = icmp sgt i64 %73, -4611686018427387905
+  %or.cond1.i.not45 = and i1 %75, %or.cond.i
+  %76 = and i64 %73, 4294967295
+  %narrow.i.not = icmp eq i64 %76, 2147483648
   %or.cond36 = or i1 %narrow.i.not, %or.cond1.i.not45
-  br i1 %or.cond36, label %js_get_function_name.exit, label %79
+  br i1 %or.cond36, label %js_get_function_name.exit, label %77
 
-79:                                               ; preds = %63
-  %80 = tail call fastcc { i64, i64 } @JS_ConcatString3(ptr noundef nonnull %0, ptr noundef nonnull @.str.155, i64 %.sroa.01.0..sroa.01.0.20.cast.i.i, i64 -7, ptr noundef nonnull @.str.156)
+77:                                               ; preds = %63
+  %78 = tail call fastcc { i64, i64 } @JS_ConcatString3(ptr noundef nonnull %0, ptr noundef nonnull @.str.155, i64 %.sroa.01.0..sroa.01.0.20.cast.i.i, i64 -7, ptr noundef nonnull @.str.156)
   br label %js_get_function_name.exit
 
-js_get_function_name.exit:                        ; preds = %63, %79
-  %.fca.1.insert.merged.i = phi { i64, i64 } [ %80, %79 ], [ %.fca.1.insert.i, %63 ]
-  %81 = icmp ugt i32 %40, 226
-  br i1 %81, label %82, label %JS_FreeAtom.exit
+js_get_function_name.exit:                        ; preds = %63, %77
+  %.fca.1.insert.merged.i = phi { i64, i64 } [ %78, %77 ], [ %.fca.1.insert.i, %63 ]
+  %79 = icmp ugt i32 %40, 226
+  br i1 %79, label %80, label %JS_FreeAtom.exit
 
-82:                                               ; preds = %js_get_function_name.exit
-  %83 = load ptr, ptr %66, align 8
-  %84 = getelementptr inbounds i8, ptr %83, i64 96
+80:                                               ; preds = %js_get_function_name.exit
+  %81 = load ptr, ptr %66, align 8
+  %82 = getelementptr inbounds i8, ptr %81, i64 96
+  %83 = load ptr, ptr %82, align 8
+  %84 = getelementptr ptr, ptr %83, i64 %69
   %85 = load ptr, ptr %84, align 8
-  %86 = getelementptr ptr, ptr %85, i64 %69
-  %87 = load ptr, ptr %86, align 8
-  %88 = load i32, ptr %87, align 4
-  %89 = add i32 %88, -1
-  store i32 %89, ptr %87, align 4
-  %90 = icmp sgt i32 %89, 0
-  br i1 %90, label %JS_FreeAtom.exit, label %91
+  %86 = load i32, ptr %85, align 4
+  %87 = add i32 %86, -1
+  store i32 %87, ptr %85, align 4
+  %88 = icmp sgt i32 %87, 0
+  br i1 %88, label %JS_FreeAtom.exit, label %89
 
-91:                                               ; preds = %82
-  %92 = getelementptr inbounds i8, ptr %87, i64 4
-  %93 = load i64, ptr %92, align 4
-  %.not.i.i.i = icmp ugt i64 %93, -4611686018427387905
-  br i1 %.not.i.i.i, label %._crit_edge.i.i.i, label %96
+89:                                               ; preds = %80
+  %90 = getelementptr inbounds i8, ptr %85, i64 4
+  %91 = load i64, ptr %90, align 4
+  %.not.i.i.i = icmp ugt i64 %91, -4611686018427387905
+  br i1 %.not.i.i.i, label %._crit_edge.i.i.i, label %94
 
-._crit_edge.i.i.i:                                ; preds = %91
-  %94 = getelementptr inbounds i8, ptr %87, i64 12
-  %95 = load i32, ptr %94, align 4
-  %.pre.i.i.i = zext i32 %95 to i64
+._crit_edge.i.i.i:                                ; preds = %89
+  %92 = getelementptr inbounds i8, ptr %85, i64 12
+  %93 = load i32, ptr %92, align 4
+  %.pre.i.i.i = zext i32 %93 to i64
   br label %JS_FreeAtomStruct.exit.i.i
 
-96:                                               ; preds = %91
-  %97 = lshr i64 %93, 32
-  %98 = trunc nuw i64 %97 to i32
-  %99 = and i32 %98, 1073741823
-  %100 = getelementptr inbounds i8, ptr %83, i64 72
-  %101 = load i32, ptr %100, align 8
-  %102 = add i32 %101, -1
-  %103 = and i32 %99, %102
-  %104 = getelementptr inbounds i8, ptr %83, i64 88
-  %105 = load ptr, ptr %104, align 8
-  %106 = zext nneg i32 %103 to i64
-  %107 = getelementptr i32, ptr %105, i64 %106
-  %108 = load i32, ptr %107, align 4
-  %109 = load ptr, ptr %84, align 8
-  %110 = zext i32 %108 to i64
-  %111 = getelementptr ptr, ptr %109, i64 %110
-  %112 = load ptr, ptr %111, align 8
-  %113 = icmp eq ptr %112, %87
-  br i1 %113, label %114, label %.preheader.i.i.i
+94:                                               ; preds = %89
+  %95 = lshr i64 %91, 32
+  %96 = trunc nuw i64 %95 to i32
+  %97 = and i32 %96, 1073741823
+  %98 = getelementptr inbounds i8, ptr %81, i64 72
+  %99 = load i32, ptr %98, align 8
+  %100 = add i32 %99, -1
+  %101 = and i32 %97, %100
+  %102 = getelementptr inbounds i8, ptr %81, i64 88
+  %103 = load ptr, ptr %102, align 8
+  %104 = zext nneg i32 %101 to i64
+  %105 = getelementptr i32, ptr %103, i64 %104
+  %106 = load i32, ptr %105, align 4
+  %107 = load ptr, ptr %82, align 8
+  %108 = zext i32 %106 to i64
+  %109 = getelementptr ptr, ptr %107, i64 %108
+  %110 = load ptr, ptr %109, align 8
+  %111 = icmp eq ptr %110, %85
+  br i1 %111, label %112, label %.preheader.i.i.i
 
-114:                                              ; preds = %96
-  %115 = getelementptr inbounds i8, ptr %112, i64 12
+112:                                              ; preds = %94
+  %113 = getelementptr inbounds i8, ptr %110, i64 12
+  %114 = load i32, ptr %113, align 4
+  store i32 %114, ptr %105, align 4
+  br label %JS_FreeAtomStruct.exit.i.i
+
+.preheader.i.i.i:                                 ; preds = %94, %.preheader.i.i.i
+  %.028.i.i.i = phi ptr [ %119, %.preheader.i.i.i ], [ %110, %94 ]
+  %115 = getelementptr inbounds i8, ptr %.028.i.i.i, i64 12
   %116 = load i32, ptr %115, align 4
-  store i32 %116, ptr %107, align 4
+  %117 = zext i32 %116 to i64
+  %118 = getelementptr ptr, ptr %107, i64 %117
+  %119 = load ptr, ptr %118, align 8
+  %120 = icmp eq ptr %119, %85
+  br i1 %120, label %121, label %.preheader.i.i.i
+
+121:                                              ; preds = %.preheader.i.i.i
+  %122 = getelementptr inbounds i8, ptr %.028.i.i.i, i64 12
+  %123 = getelementptr inbounds i8, ptr %119, i64 12
+  %124 = load i32, ptr %123, align 4
+  store i32 %124, ptr %122, align 4
   br label %JS_FreeAtomStruct.exit.i.i
 
-.preheader.i.i.i:                                 ; preds = %96, %.preheader.i.i.i
-  %.028.i.i.i = phi ptr [ %121, %.preheader.i.i.i ], [ %112, %96 ]
-  %117 = getelementptr inbounds i8, ptr %.028.i.i.i, i64 12
-  %118 = load i32, ptr %117, align 4
-  %119 = zext i32 %118 to i64
-  %120 = getelementptr ptr, ptr %109, i64 %119
-  %121 = load ptr, ptr %120, align 8
-  %122 = icmp eq ptr %121, %87
-  br i1 %122, label %123, label %.preheader.i.i.i
-
-123:                                              ; preds = %.preheader.i.i.i
-  %124 = getelementptr inbounds i8, ptr %.028.i.i.i, i64 12
-  %125 = getelementptr inbounds i8, ptr %121, i64 12
-  %126 = load i32, ptr %125, align 4
-  store i32 %126, ptr %124, align 4
-  br label %JS_FreeAtomStruct.exit.i.i
-
-JS_FreeAtomStruct.exit.i.i:                       ; preds = %123, %114, %._crit_edge.i.i.i
-  %.pre-phi.i.i.i = phi i64 [ %.pre.i.i.i, %._crit_edge.i.i.i ], [ %110, %114 ], [ %119, %123 ]
-  %.0.i.i.i = phi i32 [ %95, %._crit_edge.i.i.i ], [ %108, %114 ], [ %118, %123 ]
-  %127 = getelementptr inbounds i8, ptr %83, i64 104
-  %128 = load i32, ptr %127, align 8
-  %129 = zext i32 %128 to i64
-  %130 = shl nuw nsw i64 %129, 1
-  %131 = or disjoint i64 %130, 1
-  %132 = inttoptr i64 %131 to ptr
-  %133 = load ptr, ptr %84, align 8
-  %134 = getelementptr ptr, ptr %133, i64 %.pre-phi.i.i.i
-  store ptr %132, ptr %134, align 8
-  store i32 %.0.i.i.i, ptr %127, align 8
-  %135 = getelementptr inbounds i8, ptr %83, i64 8
-  %136 = load ptr, ptr %135, align 8
-  %137 = getelementptr inbounds i8, ptr %83, i64 32
-  tail call void %136(ptr noundef nonnull %137, ptr noundef nonnull %87) #42
-  %138 = getelementptr inbounds i8, ptr %83, i64 76
-  %139 = load i32, ptr %138, align 4
-  %140 = add i32 %139, -1
-  store i32 %140, ptr %138, align 4
+JS_FreeAtomStruct.exit.i.i:                       ; preds = %121, %112, %._crit_edge.i.i.i
+  %.pre-phi.i.i.i = phi i64 [ %.pre.i.i.i, %._crit_edge.i.i.i ], [ %108, %112 ], [ %117, %121 ]
+  %.0.i.i.i = phi i32 [ %93, %._crit_edge.i.i.i ], [ %106, %112 ], [ %116, %121 ]
+  %125 = getelementptr inbounds i8, ptr %81, i64 104
+  %126 = load i32, ptr %125, align 8
+  %127 = zext i32 %126 to i64
+  %128 = shl nuw nsw i64 %127, 1
+  %129 = or disjoint i64 %128, 1
+  %130 = inttoptr i64 %129 to ptr
+  %131 = load ptr, ptr %82, align 8
+  %132 = getelementptr ptr, ptr %131, i64 %.pre-phi.i.i.i
+  store ptr %130, ptr %132, align 8
+  store i32 %.0.i.i.i, ptr %125, align 8
+  %133 = getelementptr inbounds i8, ptr %81, i64 8
+  %134 = load ptr, ptr %133, align 8
+  %135 = getelementptr inbounds i8, ptr %81, i64 32
+  tail call void %134(ptr noundef nonnull %135, ptr noundef nonnull %85) #42
+  %136 = getelementptr inbounds i8, ptr %81, i64 76
+  %137 = load i32, ptr %136, align 4
+  %138 = add i32 %137, -1
+  store i32 %138, ptr %136, align 4
   br label %JS_FreeAtom.exit
 
-JS_FreeAtom.exit:                                 ; preds = %JS_AtomToString.exit, %js_get_function_name.exit, %82, %JS_FreeAtomStruct.exit.i.i
-  %141 = phi ptr [ %66, %js_get_function_name.exit ], [ %66, %82 ], [ %66, %JS_FreeAtomStruct.exit.i.i ], [ %62, %JS_AtomToString.exit ]
-  %.pn.i.i.pn = phi { i64, i64 } [ %.fca.1.insert.merged.i, %js_get_function_name.exit ], [ %.fca.1.insert.merged.i, %82 ], [ %.fca.1.insert.merged.i, %JS_FreeAtomStruct.exit.i.i ], [ %61, %JS_AtomToString.exit ]
-  %142 = extractvalue { i64, i64 } %.pn.i.i.pn, 0
-  %143 = extractvalue { i64, i64 } %.pn.i.i.pn, 1
-  %144 = and i64 %143, 4294967295
-  %.not35 = icmp eq i64 %144, 6
-  br i1 %.not35, label %159, label %145
+JS_FreeAtom.exit:                                 ; preds = %JS_AtomToString.exit, %js_get_function_name.exit, %80, %JS_FreeAtomStruct.exit.i.i
+  %139 = phi ptr [ %66, %js_get_function_name.exit ], [ %66, %80 ], [ %66, %JS_FreeAtomStruct.exit.i.i ], [ %62, %JS_AtomToString.exit ]
+  %.pn.i.i.pn = phi { i64, i64 } [ %.fca.1.insert.merged.i, %js_get_function_name.exit ], [ %.fca.1.insert.merged.i, %80 ], [ %.fca.1.insert.merged.i, %JS_FreeAtomStruct.exit.i.i ], [ %61, %JS_AtomToString.exit ]
+  %140 = extractvalue { i64, i64 } %.pn.i.i.pn, 0
+  %141 = extractvalue { i64, i64 } %.pn.i.i.pn, 1
+  %142 = and i64 %141, 4294967295
+  %.not35 = icmp eq i64 %142, 6
+  br i1 %.not35, label %157, label %143
 
-145:                                              ; preds = %JS_FreeAtom.exit
+143:                                              ; preds = %JS_FreeAtom.exit
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8)
   store i32 0, ptr %7, align 8
-  %146 = getelementptr inbounds i8, ptr %7, i64 8
-  store i64 3, ptr %146, align 8
+  %144 = getelementptr inbounds i8, ptr %7, i64 8
+  store i64 3, ptr %144, align 8
   store i32 0, ptr %8, align 8
-  %147 = getelementptr inbounds i8, ptr %8, i64 8
-  store i64 3, ptr %147, align 8
-  %148 = call i32 @JS_DefineProperty(ptr noundef %0, i64 %1, i64 %2, i32 noundef 55, i64 %142, i64 %143, ptr noundef nonnull byval(%struct.JSValue) align 8 %7, ptr noundef nonnull byval(%struct.JSValue) align 8 %8, i32 noundef 9985)
-  %149 = trunc i64 %143 to i32
-  %150 = icmp ugt i32 %149, -12
-  br i1 %150, label %151, label %JS_DefinePropertyValue.exit
+  %145 = getelementptr inbounds i8, ptr %8, i64 8
+  store i64 3, ptr %145, align 8
+  %146 = call i32 @JS_DefineProperty(ptr noundef %0, i64 %1, i64 %2, i32 noundef 55, i64 %140, i64 %141, ptr noundef nonnull byval(%struct.JSValue) align 8 %7, ptr noundef nonnull byval(%struct.JSValue) align 8 %8, i32 noundef 9985)
+  %147 = trunc i64 %141 to i32
+  %148 = icmp ugt i32 %147, -12
+  br i1 %148, label %149, label %JS_DefinePropertyValue.exit
 
-151:                                              ; preds = %145
-  %152 = inttoptr i64 %142 to ptr
-  %153 = load i32, ptr %152, align 4
-  %154 = add i32 %153, -1
-  store i32 %154, ptr %152, align 4
-  %155 = icmp slt i32 %154, 1
-  br i1 %155, label %156, label %JS_DefinePropertyValue.exit
+149:                                              ; preds = %143
+  %150 = inttoptr i64 %140 to ptr
+  %151 = load i32, ptr %150, align 4
+  %152 = add i32 %151, -1
+  store i32 %152, ptr %150, align 4
+  %153 = icmp slt i32 %152, 1
+  br i1 %153, label %154, label %JS_DefinePropertyValue.exit
 
-156:                                              ; preds = %151
-  %157 = load ptr, ptr %141, align 8
-  call void @__JS_FreeValueRT(ptr noundef %157, i64 %142, i64 %143)
+154:                                              ; preds = %149
+  %155 = load ptr, ptr %139, align 8
+  call void @__JS_FreeValueRT(ptr noundef %155, i64 %140, i64 %141)
   br label %JS_DefinePropertyValue.exit
 
-JS_DefinePropertyValue.exit:                      ; preds = %145, %151, %156
+JS_DefinePropertyValue.exit:                      ; preds = %143, %149, %154
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8)
-  %158 = icmp slt i32 %148, 0
-  br i1 %158, label %159, label %js_object_has_name.exit.thread27
+  %156 = icmp slt i32 %146, 0
+  br i1 %156, label %157, label %js_object_has_name.exit.thread27
 
 js_object_has_name.exit.thread27:                 ; preds = %35, %33, %JS_DefinePropertyValue.exit, %js_object_has_name.exit, %5
-  br label %159
+  br label %157
 
-159:                                              ; preds = %JS_DefinePropertyValue.exit, %JS_FreeAtom.exit, %js_object_has_name.exit.thread, %js_object_has_name.exit.thread27
+157:                                              ; preds = %JS_DefinePropertyValue.exit, %JS_FreeAtom.exit, %js_object_has_name.exit.thread, %js_object_has_name.exit.thread27
   %.0 = phi i32 [ 0, %js_object_has_name.exit.thread27 ], [ -1, %js_object_has_name.exit.thread ], [ -1, %JS_FreeAtom.exit ], [ -1, %JS_DefinePropertyValue.exit ]
   ret i32 %.0
 }

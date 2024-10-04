@@ -18584,11 +18584,8 @@ _ZN4llvm12StringSwitchISt4pairIiiES2_E4CaseENS_13StringLiteralES2_.exit128: ; pr
   %.sink = phi ptr [ %5, %8 ], [ %5, %_ZN4llvmeqENS_9StringRefES0_.exit.i125 ], [ %5, %_ZN4llvmeqENS_9StringRefES0_.exit.i93 ], [ %5, %_ZN4llvmeqENS_9StringRefES0_.exit.i85 ], [ %5, %_ZN4llvm12StringSwitchISt4pairIiiES2_E4CaseENS_13StringLiteralES2_.exit120.thread ], [ %6, %_ZN4llvmeqENS_9StringRefES0_.exit.i175 ], [ %6, %28 ], [ %6, %_ZN4llvmeqENS_9StringRefES0_.exit.i167 ], [ %6, %_ZN4llvmeqENS_9StringRefES0_.exit.i159 ], [ %6, %_ZN4llvmeqENS_9StringRefES0_.exit.i151 ], [ %6, %_ZN4llvmeqENS_9StringRefES0_.exit.i143 ], [ %6, %_ZN4llvm12StringSwitchISt4pairIiiES2_E4CaseENS_13StringLiteralES2_.exit170 ]
   %.sroa.0384.0.in = phi i64 [ -1, %8 ], [ %27, %_ZN4llvmeqENS_9StringRefES0_.exit.i125 ], [ -1, %_ZN4llvmeqENS_9StringRefES0_.exit.i93 ], [ -1, %_ZN4llvmeqENS_9StringRefES0_.exit.i85 ], [ %.sroa.36.15.ph, %_ZN4llvm12StringSwitchISt4pairIiiES2_E4CaseENS_13StringLiteralES2_.exit120.thread ], [ %36, %_ZN4llvmeqENS_9StringRefES0_.exit.i175 ], [ %30, %28 ], [ 274877906944, %_ZN4llvmeqENS_9StringRefES0_.exit.i167 ], [ 137438953472, %_ZN4llvmeqENS_9StringRefES0_.exit.i159 ], [ 68719476736, %_ZN4llvmeqENS_9StringRefES0_.exit.i151 ], [ 34359738368, %_ZN4llvmeqENS_9StringRefES0_.exit.i143 ], [ -1, %_ZN4llvm12StringSwitchISt4pairIiiES2_E4CaseENS_13StringLiteralES2_.exit170 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %.sink) #25
-  %37 = and i64 %.sroa.0384.0.in, 4294967295
-  %38 = icmp ne i64 %37, 4294967295
-  %39 = icmp ult i64 %.sroa.0384.0.in, -4294967296
-  %.not557 = or i1 %39, %38
-  %.sroa.2387.0 = zext i1 %.not557 to i8
+  %37 = icmp ne i64 %.sroa.0384.0.in, -1
+  %.sroa.2387.0 = zext i1 %37 to i8
   %.fca.0.insert = insertvalue { i64, i8 } poison, i64 %.sroa.0384.0.in, 0
   %.fca.1.insert = insertvalue { i64, i8 } %.fca.0.insert, i8 %.sroa.2387.0, 1
   ret { i64, i8 } %.fca.1.insert
